@@ -6,7 +6,6 @@
 /**
  * @module survey.js - SurveyTool main JavaScript stuff
  */
- 
 
 // TODO: replace with AMD [?] loading
 dojo.require("dojo.i18n");
@@ -59,7 +58,7 @@ if(!String.prototype.trim && !String.trim) {
 
 /**
  * Format a date and time for display in a forum post.
- * 
+ *
  * @param x the number of seconds since 1970-01-01
  * @returns the formatted date and time as a string
  *
@@ -111,13 +110,13 @@ function addClass(obj, className) {
 }
 
 /**
- * @method post2text 
+ * @method post2text
  */
 function post2text(text) {
 	if(text===undefined || text===null) {
 		text = "(empty)";
 	}
-	var out=text;
+	var out = text;
 	out = out.replace(/<p>/g, '\n');
 	out = out.replace(/&quot;/g, '"');
 	out = out.replace(/&lt;/g, '<');
@@ -151,8 +150,6 @@ function setDisplayed(div, visible) {
 		setDisplayed(div.domNode, visible); // recurse, it's a dijit
 	} else if(!div.style) {
 		console.log("setDisplayed: called on malformed node " + div + " - no style! " + Object.keys(div));
-//	} else if(!div.style.display) {
-//		console.log("setDisplayed: called on malformed node " + div + " - no display! " + Object.keys(div.style));
 	} else {
 		if(visible) {
 			div.style.display = '';
@@ -205,7 +202,7 @@ Flipper.prototype.flipTo = function(id, node) {
 		if(node.nodeType>0) {
 			this._map[id].appendChild(node);
 		} else for( var kk in node) {
-			// it's an array, add all 
+			// it's an array, add all
 			this._map[id].appendChild(node[kk]);
 		}
 	}
@@ -255,9 +252,8 @@ Flipper.prototype.addUntilFlipped = function addUntilFlipped(showFn, killFn) {
 	this.addKillFn(killFn);
 };
 
-
 /*
- * LocaleMap 
+ * LocaleMap
  * @class LocaleMap
  */
 /**
@@ -283,7 +279,7 @@ LocaleMap.prototype.canonicalizeLocaleId = function canonicalizeLocaleId(locid) 
 	if(locid === null || locid === '') {
 		return null;
 	}
-	
+
 	if(this.locmap) {
 		if(this.locmap.idmap && this.locmap.idmap[locid]) {
 			locid = this.locmap.idmap[locid]; // canonicalize
@@ -304,13 +300,13 @@ window.linkToLocale = function linkToLocale(subLoc) {
  */
 LocaleMap.prototype.linkify = function linkify(str) {
 	var out = "";
-	var re = /@([a-zA-Z0-9_]+)/g;	
+	var re = /@([a-zA-Z0-9_]+)/g;
 	var match;
 	var fromLast = 0;
 	while((match = re.exec(str)) != null) {
 		var bund = this.getLocaleInfo(match[1]);
 		if(bund) {
-			out = out + str.substring(fromLast,match.index); // pre match	
+			out = out + str.substring(fromLast,match.index); // pre match
 			if ( match[1] == surveyCurrentLocale ) {
 				out = out + this.getLocaleName(match[1]);
 			} else {
@@ -341,7 +337,7 @@ LocaleMap.prototype.getLocaleInfo = function getLocaleInfo(locid) {
 };
 
 /**
- * Return the locale name, 
+ * Return the locale name,
  * @method getLocaleName
  * @param menuMap the map
  * @param locid the id - will canonicalize
@@ -358,7 +354,7 @@ LocaleMap.prototype.getLocaleName = function getLocaleName(locid) {
 };
 
 /**
- * Return the locale name, 
+ * Return the locale name,
  * @method getLocaleName
  * @param menuMap the map
  * @param locid the id - will canonicalize
@@ -386,7 +382,7 @@ LocaleMap.prototype.getRegionAndOrVariantName = function getRegionAndOrVariantNa
 };
 
 /**
- * Return the locale language 
+ * Return the locale language
  * @method getLanguage
  * @param locid
  * @returns the language portion
@@ -398,7 +394,7 @@ LocaleMap.prototype.getLanguage = function getLanguage(locid) {
 /**
  * @class XpathMap
  * This manages xpid / strid / PathHeader etc mappings.
- * It is a cache, and gets populated with data 'volunteered' by page loads, so that 
+ * It is a cache, and gets populated with data 'volunteered' by page loads, so that
  * hopefully it doesn't need to do any network operations on its own.
  * However, it MAY BE capable of filling in any missing data via AJAX. This is why its operations are async.
  */
@@ -406,15 +402,15 @@ function XpathMap() {
 	/**
 	 * Maps strid (hash) to info struct.
 	 * The info struct is the basic unit here, it looks like the following:
-	 *   { 
+	 *   {
 	 *       hex: '20fca8231d41',
 	 *       path: '//ldml/shoeSize',
 	 *       id:  1337,
 	 *       ph: ['foo','bar','baz']  **TBD**
 	 *   }
-	 *   
+	 *
 	 *  All other hashes here are just alternate indices into this data.
-	 *  
+	 *
 	 * @property XpathMap.stridToInfo
 	 */
 	this.stridToInfo = {};
@@ -431,15 +427,15 @@ function XpathMap() {
 };
 
 /**
- * This function will do a search and then call the onResult function. 
+ * This function will do a search and then call the onResult function.
  * Priority order for search:  hex, id, then path.
  * @function get
  * @param search {Object} the object to search for
  * @param search.hex {String} optional - search by hex id
  * @param search.path {String} optional - search by xpath
  * @param search.id {Number} optional - search by number (String will be converted to Number)
- * @param onResult - will be called with one parameter that looks like this: 
- *  { search, err, result } -  'search' is the input param, 
+ * @param onResult - will be called with one parameter that looks like this:
+ *  { search, err, result } -  'search' is the input param,
  * 'err' if non-null is any error, and 'result' if non-null is the result info struct.
  * If there is an error, 'result' will be null. Please do not modify 'result'!
  */
@@ -504,8 +500,8 @@ XpathMap.prototype.put = function put(info) {
 	} else if(this.stridToInfo[info.hex]) {
 		stdebug("XpathMap: rejecting duplicate contribution " + JSON.stringify(info));
 	} else {
-		this.stridToInfo[info.hex] = 
-			this.xpidToInfo[info.id] = 
+		this.stridToInfo[info.hex] =
+			this.xpidToInfo[info.id] =
 				this.xpathToInfo[info.path] =
 					info;
 		stdebug("XpathMap: adding contribution " + JSON.stringify(info));
@@ -535,7 +531,7 @@ var xpathMap = new XpathMap();
 
 
 /**
- * Global items 
+ * Global items
  * @class GLOBAL
  */
 
@@ -546,9 +542,9 @@ var xpathMap = new XpathMap();
  */
 var stui = {
 		online: "Online",
-		error_restart: "(May be due to SurveyTool restart on server)", 	
-		error: "Disconnected: Error", "details": "Details...", 
-		disconnected: "Disconnected", 
+		error_restart: "(May be due to SurveyTool restart on server)",
+		error: "Disconnected: Error", "details": "Details...",
+		disconnected: "Disconnected",
 		startup: "Starting up...",
 		ari_sessiondisconnect_message: "Your session has been disconnected.",
 		str : function(x) { if(stui[x]) return stui[x]; else return ""; },
@@ -589,13 +585,13 @@ function isInputBusy() {
 }
 
 /**
- * Create a DOM object with the specified text, tag, and HTML class. 
+ * Create a DOM object with the specified text, tag, and HTML class.
  * Applies (classname)+"_desc" as a tooltip (title).
  * @method createChunk
  * @param {String} text textual content of the new object, or null for none
  * @param {String} tag which element type to create, or null for "span"
  * @param {String} className CSS className, or null for none.
- * @return {Object} new DOM object 
+ * @return {Object} new DOM object
  */
 function createChunk(text, tag, className) {
 	if(!tag) {
@@ -604,7 +600,6 @@ function createChunk(text, tag, className) {
 	var chunk = document.createElement(tag);
 	if(className) {
 		chunk.className = className;
-		//chunk.title=stui_str(firstword(className)+"_desc");
 	}
 	if(text) {
 		chunk.appendChild(document.createTextNode(text));
@@ -697,7 +692,7 @@ function parseForumContent(json) {
 	for (num in json.ret) {
 		postHash[json.ret[num].id]=json.ret[num];
 	}
-	
+
 	// now, collect the threads
 	function threadId(post) {
 		if(post.parent >= 0 && postHash[post.parent]) {
@@ -715,7 +710,7 @@ function parseForumContent(json) {
 	for ( num in json.ret) {
 		var post = json.ret[num];
 		post.threadId = threadId(post);
-		
+
 		if(!topicDivs[post.threadId]) {
 			// add the topic div
 			var topicDiv = document.createElement('div');
@@ -754,7 +749,7 @@ function parseForumContent(json) {
 			}
 			topicDivs[post.threadId] = topicDiv;
 			topicDiv.id = "fthr_"+post.threadId;
-			
+
 			// add to the div
 			forumDiv.appendChild(topicDiv);
 		}
@@ -762,11 +757,11 @@ function parseForumContent(json) {
 	// Now, top to bottom, just create the post divs
 	for(num in json.ret) {
 		var post = json.ret[num];
-		
+
 		var subpost = createChunk("","div","post"); // was: subpost
 		// Don't add subpost to the DIV yet - will reparent into the topic Divs
 		///  --forumDiv.appendChild(subpost);
-		postDivs[post.id] = subpost;		
+		postDivs[post.id] = subpost;
 		subpost.id = "fp" + post.id;
 
 		var headingLine = createChunk("", "h4", "selected");
@@ -876,7 +871,7 @@ function parseForumContent(json) {
 			topicDivs[post.threadId].appendChild(postDivs[post.id]);
 		}
 	}
-	
+
 	// Now, bubble up recent posts to the top
 	for(var num=json.ret.length-1;num>=0;num--) {
 		var post = json.ret[num];
@@ -908,7 +903,7 @@ function stStopPropagation(e) {
 
 /**
  * is the ST disconnected
- * @property disconnected 
+ * @property disconnected
  */
 var disconnected = false;
 
@@ -916,7 +911,7 @@ var disconnected = false;
  * Is debugging enabled?
  * @property stdebug_enabled
  */
-var stdebug_enabled=(window.location.search.indexOf('&stdebug=')>-1);
+var stdebug_enabled = (window.location.search.indexOf('&stdebug=') > -1);
 
 /**
  * Queue of XHR requests waiting to go out
@@ -943,7 +938,7 @@ var processXhrQueue = function() {
 		return; // nothing to do, reset.
 	} else {
 		var top =queueOfXhr.shift();
-		
+
 		top.load2 = top.load;
 		top.err2 = top.err;
 		top.load=function(){return myLoad0(top,arguments); };
@@ -1001,13 +996,12 @@ function stdebug(x) {
 
 stdebug('stdebug is enabled.');
 
-
 var timerID = -1;
 
 /**
  * Update the item, if it exists
  * @method updateIf
- * @param id ID of DOM node, or a Node itself 
+ * @param id ID of DOM node, or a Node itself
  * @param txt text to replace with - should just be plaintext, but currently can be HTML
  */
 function updateIf(id, txt) {
@@ -1022,7 +1016,7 @@ function updateIf(id, txt) {
     }
 }
 
-/** 
+/**
  * Add an event listener function to the object.
  * @method listenFor
  * @param {DOM} what object to listen to (or array of them)
@@ -1033,33 +1027,33 @@ function updateIf(id, txt) {
  */
 function listenFor(whatArray, event, fn, ievent) {
     function listenForOne(what, event, fn, ievent) {
-	if(!(what._stlisteners)) {
-		what._stlisteners={};
-	}
-	
-	if(what.addEventListener) {
-		if(what._stlisteners[event]) {
-			if(what.removeEventListener) {
-				what.removeEventListener(event,what._stlisteners[event],false);
-			} else {
-				console.log("Err: no removeEventListener on " + what);
-			}
-		}
-		what.addEventListener(event,fn,false);
-	} else {
-		if(!ievent) {
-			ievent = "on"+event;
-		}
-		if(what._stlisteners[event]) {
-			what.detachEvent(ievent,what._stlisteners[event]);
-		}
-		what.attachEvent(ievent,fn);
-	}
-	what._stlisteners[event]=fn;
+    	if(!(what._stlisteners)) {
+    		what._stlisteners={};
+    	}
 
-	return what;
+    	if(what.addEventListener) {
+    		if(what._stlisteners[event]) {
+    			if(what.removeEventListener) {
+    				what.removeEventListener(event,what._stlisteners[event],false);
+    			} else {
+    				console.log("Err: no removeEventListener on " + what);
+    			}
+    		}
+    		what.addEventListener(event,fn,false);
+    	} else {
+    		if(!ievent) {
+    			ievent = "on"+event;
+    		}
+    		if(what._stlisteners[event]) {
+    			what.detachEvent(ievent,what._stlisteners[event]);
+    		}
+    		what.attachEvent(ievent,fn);
+    	}
+    	what._stlisteners[event]=fn;
+
+    	return what;
     }
-    
+
     if(Array.isArray(whatArray)) {
         for(var k in whatArray) {
             listenForOne(whatArray[k], event, fn, ievent);
@@ -1092,9 +1086,9 @@ var wasBusted = false;
 var wasOk = false;
 var loadOnOk = null;
 var clickContinue = null;
- var surveyNextLocaleStamp = 0;
- var surveyNextLocaleStampId = '';
- 
+var surveyNextLocaleStamp = 0;
+var surveyNextLocaleStampId = '';
+
  /**
   * Mark the page as busted. Don't do any more requests.
   * @method busted
@@ -1104,9 +1098,9 @@ var clickContinue = null;
 	 stdebug("disconnected.");
 	 addClass(document.getElementsByTagName("body")[0], "disconnected");
  }
- 
+
  var didUnbust = false;
- 
+
  function unbust() {
 	 didUnbust = true;
 	 console.log("Un-busting");
@@ -1144,7 +1138,7 @@ function doDeferredUpdates() {
 		if(deferUpdateFn[i]) {
 			var fn = deferUpdateFn[i];
 			deferUpdateFn[i]=null;
-			stdebug(".. calling deferred update fn ..");			
+			stdebug(".. calling deferred update fn ..");
 			fn();
 		}
 	}
@@ -1166,7 +1160,7 @@ function setDefer(defer) {
 }
 
 /**
- * Note an update as deferred. 
+ * Note an update as deferred.
  * @method deferUpdate
  * @param {String} what type of item to defer  (must be unique- will overwrite)
  * @param {Function} fn function to register
@@ -1212,7 +1206,6 @@ function handleChangedLocaleStamp(stamp,name) {
 		return;
 	}
 	if(Object.keys(showers).length==0) {
-        //console.log("STATUS>: " + json.localeStampName + "="+json.localeStamp);
         updateIf('stchanged_loc',name);
         var locDiv = document.getElementById('stchanged');
         if(locDiv) {
@@ -1236,10 +1229,10 @@ var specialHeader = null;
 
 /**
  * Update the 'status' if need be.
- * @method showWord 
+ * @method showWord
  */
 function showWord() {
-	var p = dojo.byId("progress");	
+	var p = dojo.byId("progress");
 	var oneword = dojo.byId("progress_oneword");
 	if(oneword==null) { // nowhere to show
 		return;
@@ -1252,14 +1245,11 @@ function showWord() {
 		busted(); // no further processing.
 	} else if(ajaxWord) {
 		p.className = "progress-ok";
-		//popupAlert('warning',ajaxWord);
 	} else if(!progressWord || progressWord == "ok") {
 		if(specialHeader) {
 			p.className = "progress-special";
-			//popupAlert('success',specialHeader);
 		} else {
 			p.className = "progress-ok";
-			//popupAlert('warning',stui_str('online'));
 		}
 	} else if(progressWord=="startup") {
 		p.className = "progress-ok";
@@ -1268,7 +1258,7 @@ function showWord() {
 }
 
 /**
- * Update our progress 
+ * Update our progress
  * @method updateProgressWord
  * @param {String} prog the status to update
  */
@@ -1280,7 +1270,7 @@ function updateProgressWord(prog) {
 /**
  * Update ajax loading status
  * @method updateAjaxWord
- * @param {String} ajax 
+ * @param {String} ajax
  */
 function updateAjaxWord(ajax) {
 	ajaxWord = ajax;
@@ -1291,7 +1281,7 @@ var saidDisconnect=false;
 
 /**
  * @method showARIDialog
- * @param why 
+ * @param why
  * @param json
  * @param word
  * @param oneword
@@ -1301,9 +1291,10 @@ function showARIDialog(why, json, word, oneword, p) {
 	console.log("Can't recover, not in /v or not loaded yet.");
 	// has not been loaded yet.
 }
+
 /**
  * @method showARIDialog
- * @param why 
+ * @param why
  * @param json
  * @param word
  * @param oneword
@@ -1312,8 +1303,6 @@ function showARIDialog(why, json, word, oneword, p) {
 function ariRetry() {
 	window.location.reload(true);
 }
-
-
 
 /**
  * Handle that ST has disconnected
@@ -1345,7 +1334,7 @@ function handleDisconnect(why, json, word, what) {
 		if(oneword) {
 			oneword.title = "Disconnected: " + why;
 			oneword.onclick = function() {
-				var p = dojo.byId("progress");	
+				var p = dojo.byId("progress");
 				var subDiv = document.createElement('div');
 				var chunk0 = document.createElement("i");
 				chunk0.appendChild(document.createTextNode(stui_str("error_restart")));
@@ -1353,7 +1342,7 @@ function handleDisconnect(why, json, word, what) {
 				chunk.className = "errorMessage";
 				chunk.appendChild(document.createTextNode(why));
 				chunk.rows="10";
-				chunk.cols="40";				
+				chunk.cols="40";
 				subDiv.appendChild(chunk0);
 				subDiv.appendChild(chunk);
 				p.appendChild(subDiv);
@@ -1363,19 +1352,17 @@ function handleDisconnect(why, json, word, what) {
 				oneword.onclick=null;
 				return false;
 			};
-			{
-				var p = dojo.byId("progress");	
-				var subDiv = document.createElement('div');
-				var detailsButton = document.createElement("button");
-				detailsButton.type = "button";
-				detailsButton.id = "progress-details";
-				detailsButton.appendChild(document.createTextNode(stui_str("details")));
-				detailsButton.onclick = oneword.onclick;
-				subDiv.appendChild(detailsButton);
-				oneword.details = detailsButton;
-				p.appendChild(subDiv);
-				showARIDialog(why, json, word, oneword, subDiv, what);
-			}
+			var p = dojo.byId("progress");
+			var subDiv = document.createElement('div');
+			var detailsButton = document.createElement("button");
+			detailsButton.type = "button";
+			detailsButton.id = "progress-details";
+			detailsButton.appendChild(document.createTextNode(stui_str("details")));
+			detailsButton.onclick = oneword.onclick;
+			subDiv.appendChild(detailsButton);
+			oneword.details = detailsButton;
+			p.appendChild(subDiv);
+			showARIDialog(why, json, word, oneword, subDiv, what);
 		}
 		if(json) {
 			stdebug("JSON: " + json.toString());
@@ -1389,7 +1376,7 @@ var cacheKillStamp = surveyRunningStamp;
 
 /**
  * Return a string to be used with a URL to avoid caching. Ignored by the server.
- * @method cacheKill 
+ * @method cacheKill
  * @returns {String} the URL fragment, append to the query
  */
 function cacheKill() {
@@ -1397,7 +1384,7 @@ function cacheKill() {
 		cacheKillStamp=surveyRunningStamp;
 	}
 	cacheKillStamp++;
-	
+
 	return "&cacheKill="+cacheKillStamp;
 }
 
@@ -1426,7 +1413,6 @@ function trySurveyLoad() {
 }
 
 var lastJsonStatus = null;
-
 
 function formatErrMsg(json, subkey) {
 	if(!subkey) {
@@ -1462,12 +1448,12 @@ function formatErrMsg(json, subkey) {
 /**
  * Based on the last received packet of JSON, update our status
  * @method updateStatusBox
- * @param {Object} json received 
+ * @param {Object} json received
  */
 function updateStatusBox(json) {
 	if(json.disconnected) {
 		json.err_code = 'E_DISCONNECTED';
-		handleDisconnect("Misc Disconnect", json,"disconnected"); // unknown 
+		handleDisconnect("Misc Disconnect", json,"disconnected"); // unknown
 	} else if(json.err_code) {
 		console.log('json.err_code == ' + json.err_code);
 		if(json.err_code == "E_NOT_STARTED") {
@@ -1489,7 +1475,7 @@ function updateStatusBox(json) {
 	} else {
 		updateProgressWord("ok");
 	}
-	
+
 	if(json.status) {
 		lastJsonStatus = json.status;
 		if(!updateParts) {
@@ -1502,8 +1488,7 @@ function updateStatusBox(json) {
 			};
 		}
 		//"~1 users, 8pg/uptime: 38:44/load:28% db:0/1"
-		
-		
+
 		var ugtext = "~";
 		ugtext = ugtext + (json.status.users) + " users, ";
 		if(json.status.guests > 0) {
@@ -1519,30 +1504,28 @@ function updateStatusBox(json) {
 		removeAllChildNodes(updateParts.db);
 		updateParts.db.appendChild(document.createTextNode("db:"+json.status.dbopen+"/"+json.status.dbused));
 
-
-		
 		var fragment = document.createDocumentFragment();
 		fragment.appendChild(updateParts.ug);
 		fragment.appendChild(document.createTextNode(" "));
 		fragment.appendChild(updateParts.load);
 		fragment.appendChild(document.createTextNode(" "));
 		fragment.appendChild(updateParts.db);
-                
+
 		if(updateParts.visitors) {
 			removeAllChildNodes(updateParts.visitors);
 			updateParts.visitors.appendChild(fragment);
 		}
-		
+
 		function standOutMessage(txt) {
 			return "<b style='font-size: x-large; color: red;'>" + txt + "</b>";
 		}
-		
+
 		if(window.kickMe) {
 			json.timeTillKick = 0;
 		} else if(window.kickMeSoon) {
 			json.timeTillKick = 5000;
 		}
-		
+
 		// really don't care if guest user gets 'kicked'. Doesn't matter.
 		if( (surveyUser!==null) && json.timeTillKick && (json.timeTillKick>=0) && (json.timeTillKick < (60*1*1000) )) { // show countdown when 1 minute to go
 			var kmsg = "Your session will end if not active in about "+ (parseInt(json.timeTillKick)/1000).toFixed(0) + " seconds.";
@@ -1576,20 +1559,19 @@ var timerSpeed = 15000;
  */
 var ajaxTimeout = 120000; // 2 minutes
 
-
 var surveyVersion = 'Current';
+
 /**
  * This is called periodically to fetch latest ST status
  * @method updateStatus
  */
 function updateStatus() {
-	if(disconnected) { 
+	if(disconnected) {
 		stdebug("Not updating status - disconnected.");
 		return;
 	}
-	
+
 	doDeferredUpdates(); // do this periodically
-//	stdebug("UpdateStatus...");
 	var surveyLocaleUrl = '';
 	var surveySessionUrl = '';
 	if(surveyCurrentLocale!==null && surveyCurrentLocale!= '') {
@@ -1628,8 +1610,8 @@ function updateStatus() {
                     wasBusted=true;
                     busted();
                     // TODO: show ARI for reconnecting
-            	}else if(wasBusted == true && 
-            			(!json.status.isBusted) 
+            	} else if(wasBusted == true &&
+            			(!json.status.isBusted)
                       || (json.status.surveyRunningStamp!=surveyRunningStamp)) {
                     st_err.innerHTML="Note: Lost connection with Survey Tool or it restarted.";
                     if(clickContinue != null) {
@@ -1645,7 +1627,7 @@ function updateStatus() {
                 }
             }
             updateStatusBox(json);
-            
+
             if(json.localeStamp) {
                 if(surveyNextLocaleStamp==0) {
                 	surveyNextLocaleStamp = json.localeStamp;
@@ -1659,7 +1641,7 @@ function updateStatus() {
                 	}
                 }
             }
-            
+
             if((wasBusted == false) && (json.status.isSetup) && (loadOnOk != null)) {
                 window.location.replace(loadOnOk);
             } else {
@@ -1667,13 +1649,8 @@ function updateStatus() {
             }
         },
         error: function(err, ioArgs){
-//            var st_err =  document.getElementById('st_err');
             wasBusted = true;
-//            st_err.className = "ferrbox";
-//            st_err.innerHTML="Disconnected from Survey Tool: "+err.name + " <br> " + err.message;
             updateStatusBox({err: err.message, err_name: err.name, disconnected: true});
-//            updateIf('uptime','down');
-//            updateIf('visitors','nobody');
         }
     });
 }
@@ -1702,25 +1679,22 @@ dojo.ready(function(){
 });
 
 /**
- * Table mapping CheckCLDR.StatusAction into capabilites 
+ * Table mapping CheckCLDR.StatusAction into capabilites
  * @property statusActionTable
  */
 var statusActionTable = {
-    ALLOW: 									   { vote: true, ticket: false, change: true  }, 
-    ALLOW_VOTING_AND_TICKET:   { vote: true, ticket: true, change: false },
-    ALLOW_VOTING_BUT_NO_ADD: { vote: true, ticket: false, change: false },
-    ALLOW_TICKET_ONLY : { vote: false, ticket: true, change: true },
-    //FORBID_ERRORS: {}, 
-    //FORBID_READONLY:{}, 
-    //FORBID_COVERAGE:{}
-    DEFAULT: { vote: false, ticket: false, change: false}
+    ALLOW:                    { vote: true, ticket: false, change: true  },
+    ALLOW_VOTING_AND_TICKET:  { vote: true, ticket: true, change: false },
+    ALLOW_VOTING_BUT_NO_ADD:  { vote: true, ticket: false, change: false },
+    ALLOW_TICKET_ONLY:        { vote: false, ticket: true, change: true },
+    DEFAULT:                  { vote: false, ticket: false, change: false}
 };
 
 /**
  * Parse a CheckCLDR.StatusAction and return the capabilities table
  * @method parseStatusAction
  * @param action
- * @returns {Object} capabilities 
+ * @returns {Object} capabilities
  */
 function parseStatusAction(action) {
 	if(!action) return statusActionTable.DEFAULT;
@@ -1827,7 +1801,7 @@ function cloneLocalizeAnon(i) {
  */
 function getTagChildren(tr) {
 	var rowChildren = [];
-	
+
 	for(k in tr.childNodes) {
 		var t = tr.childNodes[k];
 		if(t.tagName) {
@@ -1869,19 +1843,16 @@ function wireUpButton(button, tr, theRow, vHash,box) {
 	if(box) {
 		button.id="CHANGE_" + tr.rowHash;
 		vHash="";
-		box.onchange=function(){ 
-			handleWiredClick(tr,theRow,vHash,box,button,'submit'); 
-			return false; 
+		box.onchange=function(){
+			handleWiredClick(tr,theRow,vHash,box,button,'submit');
+			return false;
 		};
-		box.onkeypress=function(e){ 
+		box.onkeypress=function(e){
 			if(!e || !e.keyCode)  {
 				return true; // not getting the point here.
 			} else if(e.keyCode == 13) {
-				handleWiredClick(tr,theRow,vHash,box,button); 
+				handleWiredClick(tr,theRow,vHash,box,button);
 				return false;
-//			} else if(e.keyCode ==9) { // TAB
-//				handleWiredClick(tr,theRow,vHash,box,button); 
-//				return false;
 			} else {
 				return true;
 			}
@@ -1894,7 +1865,7 @@ function wireUpButton(button, tr, theRow, vHash,box) {
 	}
 	listenFor(button,"click",
 			function(e){ handleWiredClick(tr,theRow,vHash,box,button); stStopPropagation(e); return false; });
-	
+
 	// proposal issues
 	if(tr.myProposal) {
 		if(button == tr.myProposal.button) {
@@ -1908,7 +1879,7 @@ function wireUpButton(button, tr, theRow, vHash,box) {
 	} else if((theRow.voteVhash==vHash) && !box) {
 		button.className = "ichoice-x";
 		button.checked = true;
-		tr.lastOn = button;		
+		tr.lastOn = button;
 	} else {
 		button.className = "ichoice-o";
 		button.checked = false;
@@ -1930,20 +1901,20 @@ function addIcon(td, className) {
 }
 
 var gPopStatus = {
-		unShow: null,
-		lastShown: null,
-		lastTr: null,
-		popToken: 0
+	unShow: null,
+	lastShown: null,
+	lastTr: null,
+	popToken: 0
 };
 
 /**
  * @method showInPop2
  * This is the actual function is called to display the right-hand "info" panel.
- * It is defined dynamically because it depends on variables that aren't available at startup time. 
+ * It is defined dynamically because it depends on variables that aren't available at startup time.
  * @param {String} str the string to show at the top
  * @param {Node} tr the <TR> of the row
- * @param {Boolean} hideIfLast 
- * @param {Function} fn 
+ * @param {Boolean} hideIfLast
+ * @param {Function} fn
  * @param {Boolean} immediate
  */
 function showInPop(str,tr, theObj, fn, immediate) {
@@ -1976,15 +1947,8 @@ function getPopToken() {
 
 function incrPopToken(x) {
 	++gPopStatus.popToken;
-	//stdebug("PT@"+gPopStatus.popToken+" - " + x);
 	return gPopStatus.popToken;
 }
-
-
-//function hidePopHandler(e){ 		
-//	window.hidePop(null);
-//	stStopPropagation(e); return false; 
-//}
 
 // timeout for showing sideways view
 var sidewaysShowTimeout = -1;
@@ -1998,17 +1962,18 @@ var oneLocales = [];
  * @param {Node} frag
  * @param {Node} forumDiv
  * @param {Node} tr
+ *
+ * This function is about 300 lines long!
  */
 function showForumStuff(frag, forumDiv, tr) {
-	{
-		var isOneLocale = false;
-		if(oneLocales[surveyCurrentLocale]){
-			isOneLocale = true;
-		}
-		if(!isOneLocale){
+	var isOneLocale = false;
+	if(oneLocales[surveyCurrentLocale]) {
+		isOneLocale = true;
+	}
+	if(!isOneLocale) {
 		var sidewaysControl = createChunk(stui.str("sideways_loading0"), "div", "sidewaysArea");
-		frag.appendChild(sidewaysControl);		
-		
+		frag.appendChild(sidewaysControl);
+
 		function clearMyTimeout() {
 			if(sidewaysShowTimeout != -1) {
 				window.clearInterval(sidewaysShowTimeout);
@@ -2019,7 +1984,7 @@ function showForumStuff(frag, forumDiv, tr) {
 		sidewaysShowTimeout = window.setTimeout(function() {
 			clearMyTimeout();
 			updateIf(sidewaysControl, stui.str("sideways_loading1"));
-			
+
 			var url = contextPath + "/SurveyAjax?what=getsideways&_="+surveyCurrentLocale+"&s="+surveySessionId+"&xpath="+tr.theRow.xpstrid +  cacheKill();
 			myLoad(url, "sidewaysView", function(json) {
 				// if there is 1 sublocale(+ 1 default), we do nothing
@@ -2028,16 +1993,15 @@ function showForumStuff(frag, forumDiv, tr) {
 					oneLocales[surveyCurrentLocale] = true;
 					updateIf(sidewaysControl, "");
 				}else{
-//					updateIf(sidewaysControl, JSON.stringify(json));
 					if(!json.others) {
 						updateIf(sidewaysControl, ""); // no sibling locales (or all null?)
 					} else {
 						updateIf(sidewaysControl, ""); // remove string
-	
+
 						var topLocale = json.topLocale;
 						var curLocale = locmap.getRegionAndOrVariantName(topLocale);
 						var readLocale = null;
-						
+
 						// merge the read-only sublocale to base locale
 						var mergeReadBase = function mergeReadBase(list){
 							var baseValue = null;
@@ -2050,7 +2014,7 @@ function showForumStuff(frag, forumDiv, tr) {
 									break;
 								}
 							}
-							
+
 							// replace the default locale(read-only) with base locale, store its name for label
 							for(var l=0; l<list.length; l++){
 								var loc = list[l][0];
@@ -2063,19 +2027,19 @@ function showForumStuff(frag, forumDiv, tr) {
 								}
 							}
 						}
-						// compare all sublocale values 
+						// compare all sublocale values
 						var appendLocaleList = function appendLocaleList(list) {
 							var group = document.createElement("optGroup");
 							var br = document.createElement("optGroup");
 							group.appendChild(br);
-							
+
 							group.setAttribute("label", "Regional Variants for " + curLocale);
 							group.setAttribute("title", "Regional Variants for " + curLocale);
-							
+
 							var curValue = null;
 							var escape = "\u00A0\u00A0\u00A0";
 							var unequalSign = "\u2260\u00A0";
-							
+
 							// find the currenct locale name
 							for(var l=0;l<list.length;l++){
 								var loc = list[l][0];
@@ -2084,7 +2048,7 @@ function showForumStuff(frag, forumDiv, tr) {
 									break;
 								}
 							};
-							
+
 							for(var l=0;l<list.length;l++) {
 								var loc = list[l][0];
 								var title = list[l][1];
@@ -2095,12 +2059,12 @@ function showForumStuff(frag, forumDiv, tr) {
 								}else{
 									item.setAttribute("title", title);
 								}
-								
+
 								var str = locmap.getRegionAndOrVariantName(loc);
 								if(loc === topLocale){
 									str = str + " (= " + readLocale + ")";
 								}
-								
+
 								if(loc === surveyCurrentLocale) {
 									str = escape + str;
 									item.setAttribute("selected", "selected");
@@ -2115,9 +2079,9 @@ function showForumStuff(frag, forumDiv, tr) {
 							}
 							popupSelect.appendChild(group);
 						};
-						
+
 						var dataList = [];
-						
+
 						var popupSelect = document.createElement("select");
 						var inheritValue = null; // inherit value for no-value object
 						for(var s in json.others) {
@@ -2132,9 +2096,9 @@ function showForumStuff(frag, forumDiv, tr) {
 							for(s in json.novalue){
 								dataList.push([json.novalue[s], inheritValue]);
 							}
-						}	
+						}
 						mergeReadBase(dataList);
-						
+
 						// then sort by sublocale name
 						dataList = dataList.sort(function(a,b) {
 							return locmap.getRegionAndOrVariantName(a[0]) > locmap.getRegionAndOrVariantName(b[0]);
@@ -2143,7 +2107,7 @@ function showForumStuff(frag, forumDiv, tr) {
 
 						var group = document.createElement("optGroup");
 						popupSelect.appendChild(group);
-						
+
 						listenFor(popupSelect, "change", function(e) {
 							var newLoc = popupSelect.value;
 							if(newLoc !== surveyCurrentLocale) {
@@ -2152,23 +2116,22 @@ function showForumStuff(frag, forumDiv, tr) {
 							}
 							return stStopPropagation(e);
 						});
-						
+
 						sidewaysControl.appendChild(popupSelect);
 					}
 				}
 			});
 		}, 2000); // wait 2 seconds before loading this.
-		}
 	}
-	
+
 	// prepend something
 	var buttonTitle = "forumNewPostButton";
 	var buttonClass = "forumNewButton btn btn-default btn-sm";
 	var couldFlag = false;
 	if(tr.theRow) {
-		if(tr.theRow.voteVhash !== tr.theRow.winningVhash 
+		if(tr.theRow.voteVhash !== tr.theRow.winningVhash
 				&& tr.theRow.voteVhash !== ''
-				&& tr.theRow.canFlagOnLosing && 
+				&& tr.theRow.canFlagOnLosing &&
 				!tr.theRow.rowFlagged) {
 			buttonTitle = "forumNewPostFlagButton";
 			buttonClass = "forumNewPostFlagButton btn btn-default btn-sm";
@@ -2178,9 +2141,9 @@ function showForumStuff(frag, forumDiv, tr) {
 	var newButton = createChunk(stui.str(buttonTitle), "button", buttonClass);
 	if(!isDashboard()) {
 		frag.appendChild(newButton);
-	
+
 		(function(theRow,couldFlag){listenFor(newButton, "click", function(e) {
-				xpathMap.get({hex: theRow.xpstrid}, 
+				xpathMap.get({hex: theRow.xpstrid},
 						function(o) {
 							var subj = theRow.code + ' ' + theRow.xpstrid;
 							if(o.result && o.result.ph) {
@@ -2191,24 +2154,14 @@ function showForumStuff(frag, forumDiv, tr) {
 							}
 							openReply({
 								locale: surveyCurrentLocale,
-								//onReplyClose: function(postModal, form, formDidChange) {if(formDidChange){console.log('Reload- changed.');reloadV();}},
-								//xpath: '',
 								xpath: theRow.xpstrid,
 								subject: subj,
-								//replyTo: post.id,
-								//replyData: post
 							});
 				});
 				stStopPropagation(e);
 				return false;
 		});})(tr.theRow, couldFlag);
-		//	listenFor(newButton, "click", function(e) {
-		//		//window.blur(); // submit anything unsubmitted
-		//		window.open(tr.forumDiv.postUrl);
-		//		stStopPropagation(e);
-		//		return true;
-		//	});
-	}	
+	}
 	var loader2 = createChunk(stui.str("loading"),"i");
 	frag.appendChild(loader2);
 
@@ -2219,16 +2172,16 @@ function showForumStuff(frag, forumDiv, tr) {
 	function havePosts(nrPosts) {
 		setDisplayed(loader2,false); // not needed
 		tr.forumDiv.forumPosts = nrPosts;
-		
+
 		if(nrPosts == 0) return; // nothing to do,
-		
+
 		var showButton = createChunk("Show " + tr.forumDiv.forumPosts  + " posts", "button", "forumShow");
-		
+
 		forumDiv.appendChild(showButton);
-		
+
 		var theListen = function(e) {
 			setDisplayed(showButton, false);
-			
+
 			// callback.
 			var ourUrl = tr.forumDiv.url + "&what=forum_fetch";
 			var errorHandler = function(err, ioArgs) {
@@ -2245,8 +2198,7 @@ function showForumStuff(frag, forumDiv, tr) {
 				try {
 					if (json) {
 						if(json.ret) {
-							forumDiv.appendChild(parseForumContent({ret: json.ret, 
-											//replyStub: tr.forumDiv.replyStub,
+							forumDiv.appendChild(parseForumContent({ret: json.ret,
 											replyButton: true,
 											noItemLink: true}));
 						}
@@ -2263,11 +2215,7 @@ function showForumStuff(frag, forumDiv, tr) {
 				load : loadHandler,
 				error : errorHandler
 			};
-			// window.xhrArgs = xhrArgs;
-			// console.log('xhrArgs = ' + xhrArgs);
 			queueXhr(xhrArgs);
-				
-			
 			stStopPropagation(e);
 			return false;
 		};
@@ -2276,27 +2224,22 @@ function showForumStuff(frag, forumDiv, tr) {
 	}
 
 	// lazy load post count!
-	{
-		// load async
-		var ourUrl = tr.forumDiv.url + "&what=forum_count" + cacheKill() ;
-		window.setTimeout(function() {
-			var xhrArgs = {
-					url: ourUrl,
-					handleAs:"json",
-					load: function(json) {
-						if(json && json.forum_count !== undefined) {
-							havePosts(parseInt(json.forum_count));
-						} else {
-							console.log("Some error loading post count??");
-						}
-					},
-			};
-			queueXhr(xhrArgs);	
-		}, 1900);
-
-	}
-	
-	
+	// load async
+	var ourUrl = tr.forumDiv.url + "&what=forum_count" + cacheKill() ;
+	window.setTimeout(function() {
+		var xhrArgs = {
+				url: ourUrl,
+				handleAs:"json",
+				load: function(json) {
+					if(json && json.forum_count !== undefined) {
+						havePosts(parseInt(json.forum_count));
+					} else {
+						console.log("Some error loading post count??");
+					}
+				},
+		};
+		queueXhr(xhrArgs);
+	}, 1900);
 }
 
 /**
@@ -2317,7 +2260,7 @@ function appendForumStuff(tr, theRow, forumDiv) {
 }
 
 /**
- * change the current id. 
+ * change the current id.
  * @method updateCurrentId
  * @param id the id to set
  */
@@ -2325,77 +2268,59 @@ window.updateCurrentId = function updateCurrentId(id) {
 	if(id==null) id = '';
     if(surveyCurrentId != id) { // don't set if already set.
 	    surveyCurrentId = id;
-//	    replaceHash();
     }
 };
 
 // window loader stuff
 dojo.ready(function() {
 	var unShow = null;
-//	var lastShown = null;
 	var pucontent = dojo.byId("itemInfo");
-
-//	var nudgev=0;
-//	var nudgehpost=0;
-//	var nudgevpost=0;
-//	var hardleft = 10;
-//	var hardtop = 10;
-//	var pupeak_height = pupeak.offsetHeight;
 	if(!pucontent) return;
 
 	//pucontent.className = "oldFloater";
 	var hideInterval=null;
-	
+
 	function parentOfType(tag, obj) {
 		if(!obj) return null;
-//		console.log('POT ' + tag + '-' + obj + '=' + obj.nodeName);
 		if(obj.nodeName===tag) return obj;
 		return parentOfType(tag, obj.parentElement);
 	}
-	
+
 	function setLastShown(obj) {
 		if(gPopStatus.lastShown && obj!=gPopStatus.lastShown) {
 			removeClass(gPopStatus.lastShown,"pu-select");
-			//addClass(gPopStatus.lastShown,"pu-deselect");
 			var partr = parentOfType('TR',gPopStatus.lastShown);
 			if(partr) {
-//				console.log('Removing select from ' + partr + ' ' + partr.id);
 				removeClass(partr, 'selectShow');
 			}
 		}
 		if(obj) {
-			//removeClass(obj,"pu-deselect");
 			addClass(obj,"pu-select");
 			var partr = parentOfType('TR',obj);
 			if(partr) {
-//				console.log('Adding select  to ' + partr + ' ' + partr.id);
 				addClass(partr, 'selectShow');
 			}
 		}
 		gPopStatus.lastShown = obj;
 	}
-	
+
 	function clearLastShown() {
 		setLastShown(null);
 	}
-	
+
 	var deferHelp = {};
 
 	/**
 	 * @method showInPop2
-	 * This is the actual function is called to display the right-hand "info" panel.
-	 * It is defined dynamically because it depends on variables that aren't available at startup time. 
+	 * This is the actual function called to display the right-hand "info" panel.
+	 * It is defined dynamically because it depends on variables that aren't available at startup time.
 	 * @param {String} str the string to show at the top
 	 * @param {Node} tr the <TR> of the row
-	 * @param {Boolean} hideIfLast 
-	 * @param {Function} fn 
+	 * @param {Boolean} hideIfLast
+	 * @param {Function} fn
 	 * @param {Boolean} immediate
 	 */
 	window.showInPop2 = function(str, tr, hideIfLast, fn, immediate, hide) {
-//		if(hideIfLast&&lastShown==hideIfLast) {
-//			return; // keep up
-//		}
-		
 		if(unShow) {
 			unShow();
 			unShow=null;
@@ -2419,16 +2344,16 @@ dojo.ready(function() {
 			var theRow = tr.theRow;
 			// this also marks this row as a 'help parent'
 			theHelp = createChunk("","div","alert alert-info fix-popover-help vote-help");
-				
-			if(theRow.xpstrid /*&& theRow.displayHelp*/) {
+
+			if(theRow.xpstrid) {
 				var deferHelpSpan = document.createElement('span');
-				theHelp.appendChild(deferHelpSpan);		
+				theHelp.appendChild(deferHelpSpan);
 
 				if(deferHelp[theRow.xpstrid]) {
 					deferHelpSpan.innerHTML = deferHelp[theRow.xpstrid];
 				} else {
 					deferHelpSpan.innerHTML = "<i>"+stui.str("loading")+"</i>";
-					
+
 					// load async
 					var url = contextPath + "/help?xpstrid="+theRow.xpstrid+"&_instance="+surveyRunningStamp;
 					var xhrArgs = {
@@ -2445,10 +2370,7 @@ dojo.ready(function() {
 					queueXhr(xhrArgs);
 					// loader.
 				}
-				
-				
-//				tr.helpDiv.innerHTML += theRow.displayHelp;
-				
+
 				// extra attributes
 				if(theRow.extraAttributes && Object.keys(theRow.extraAttributes).length>0) {
 					var extraHeading = createChunk( stui.str("extraAttribute_heading"), "h3", "extraAttribute_heading");
@@ -2471,7 +2393,7 @@ dojo.ready(function() {
 		// If a generator fn (common case), call it.
 		if(fn!=null) {
 			unShow=fn(td);
-			
+
 		}
 
 		var theVoteinfo = null;
@@ -2491,12 +2413,11 @@ dojo.ready(function() {
 			showForumStuff(td, forumDiv, tr); // give a chance to update anything else
 			td.appendChild(forumDiv);
 		}
-		
+
 		if(tr && tr.theRow && tr.theRow.xpath) {
 			td.appendChild(clickToSelect(createChunk(tr.theRow.xpath,"div","xpath")));
 		}
 
-		
 		// SRL suspicious
 		if(tr) {
 			if(isDashboard()) {
@@ -2514,10 +2435,10 @@ dojo.ready(function() {
 				removeAllChildNodes(pucontent);
 				pucontent.appendChild(clone);
 			}
-				
+
 		}
 		td=null;
-		
+
 		//for the voter
 		 $('.voteInfo_voterInfo').hover(function() {
 			 	var email = $(this).data('email').replace(' (at) ', '@');
@@ -2533,39 +2454,18 @@ dojo.ready(function() {
 		    	$(this).html($(this).data('name'));
 		    	$(this).closest('td').css('text-align','left');
 		 });
-		
+
 	};
-		// delay before show
-		window.showInPop = function(str,tr,hideIfLast,fn,immediate) {
-			if(hideInterval) {
-				clearTimeout(hideInterval);
-				hideInterval=null;
-			}
-			if(immediate) {
-				return window.showInPop2(str,tr,hideIfLast,fn);
-			} else {
-//				hideInterval=setTimeout(function() {/
-//					window.showInPop2(str,tr,hideIfLast,fn);
-//				}, 2500);
-			}
-		};
-	
-//	window.hidePop = function() {
-//		if(hideInterval) {
-//			clearTimeout(hideInterval);
-//		}
-//		hideInterval=setTimeout(function() {
-//			if(false) {
-//				//pucontent.style.display="none";
-//			} else {
-//				// SRL suspicious
-//				removeAllChildNodes(pucontent);
-////				pupeak.style.display="none";
-//			}
-//			clearLastShown();
-//			incrPopToken('newHide');
-//		}, 2000);
-//	};
+	// delay before show
+	window.showInPop = function(str,tr,hideIfLast,fn,immediate) {
+		if(hideInterval) {
+			clearTimeout(hideInterval);
+			hideInterval=null;
+		}
+		if(immediate) {
+			return window.showInPop2(str,tr,hideIfLast,fn);
+		}
+	};
 	window.resetPop = function() {
 		lastShown = null;
 	};
@@ -2611,7 +2511,7 @@ function appendItem(div,value, pClass, tr) {
 		span.className = "value";
 	}
 	div.appendChild(span);
-	
+
 	return span;
 }
 
@@ -2630,17 +2530,15 @@ function testsToHtml(tests) {
 		newHtml += "' title='" + testItem.type+"'>";
 		if (testItem.type == 'Warning') {
 			newHtml += warnIcon;
-			// what='warn';
 		} else if (testItem.type == 'Error') {
-			//td.className = "tr_err";
 			newHtml += stopIcon;
-//			what = 'error';
 		}
 		newHtml += tests[i].message;
 		newHtml += "</p>";
 	}
 	return newHtml;
 }
+
 function setDivClass(div,testKind) {
 	if(!testKind) {
 		div.className = "d-item";
@@ -2650,7 +2548,6 @@ function setDivClass(div,testKind) {
 		div.className = "d-item-err";
 	} else {
 		div.className = "d-item";
-		//(createChunk("(unknown testKind "+testKind+")" ,"i"));
 	}
 }
 function findItemByValue(items, value) {
@@ -2677,8 +2574,7 @@ var surveyConfig = null;
 function showProposedItem(inTd,tr,theRow,value,tests, json) {
 	var children = getTagChildren(tr);
 	var config = surveyConfig;
-	
-//	stdebug("Searching for our value " + value );
+
 	// Find where our value went.
 	var ourItem = findItemByValue(theRow.items,value);
 	var testKind = getTestKind(tests);
@@ -2728,7 +2624,7 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 					[ stui_str("StatusAction_"+json.statusAction), theRow.code  ],"p", "");
 			// show in modal popup (ouch!)
 			alert(str2);
-			
+
 			// show this message in a sidebar also
 			showInPop(stopIcon + str, tr, null, null, true);
 		}
@@ -2740,7 +2636,6 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 	} else {
 		setDivClass(ourDiv,testKind);
 	}
-//	theRow.proposedResults = null;
 
 	if(testKind || !ourItem) {
 		var div3 = document.createElement("div");
@@ -2757,8 +2652,6 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 		var newDiv = document.createElement("div");
 		div3.appendChild(newDiv);
 		newDiv.innerHTML = newHtml;
-//		theRow.proposedResults = div3;
-//		theRow.proposedResults.value = value;
 		if(json&&(!parseStatusAction(json.statusAction).vote)) {
 			div3.appendChild(createChunk(
 					stui.sub("StatusAction_msg",
@@ -2766,7 +2659,7 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 		}
 
 		div3.popParent = tr;
-		
+
 		// will replace any existing function
 		var ourShowFn = function(showDiv) {
 			var retFn;
@@ -2798,7 +2691,7 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 			displayValue = theRow.inheritedValue;
 			isInherited = true;
 		}
-		
+
 		var span = appendItem(h3, displayValue, item.pClass); /* no need to pass in 'tr' - clicking this span would have no effect. */
 		setLang(span);
 		h3.className="span";
@@ -2812,45 +2705,41 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 			h3.title = stui.clickToCopy;
 		}
 		td.appendChild(h3);
-		
+
 		if ( item.value) {
                h3.appendChild(createChunk(stui.sub("pClass_"+item.pClass, item ),"p","pClassExplain"));
 		}
-		if (   item.pClass === 'alias' 
+		if (   item.pClass === 'alias'
 			|| item.pClass === 'fallback'
-		    || item.pClass === 'fallback_root' ) { 
+		    || item.pClass === 'fallback_root' ) {
 			isInherited = true;
 		}
-		
+
 		if ( isInherited && (theRow.inheritedLocale || theRow.inheritedXpid )) {
-//            h3.appendChild(document.createTextNode(  "Loc:" + ( theRow.inheritedLocale || "none") + ", X:" + ( theRow.inheritedXpid || "none?" ) ));
 			var clickyLink = createChunk(stui.str('followAlias'), "a", 'followAlias');
-			clickyLink.href = '#/'+ ( theRow.inheritedLocale || surveyCurrentLocale )+ 
+			clickyLink.href = '#/'+ ( theRow.inheritedLocale || surveyCurrentLocale )+
 				'//'+ ( theRow.inheritedXpid || theRow.xpstrid ); //linkToLocale(subLoc);
 			h3.appendChild(clickyLink);
 		}
-        
+
 		var newDiv = document.createElement("div");
 		td.appendChild(newDiv);
-		
+
 		var newHtml = "";
-		
+
 		if (item.tests) {
 			newHtml += testsToHtml(item.tests);
 		} else {
 			newHtml = "<i>no tests</i>";
 		}
-		
+
 		newDiv.innerHTML = newHtml;
-		
+
 		if(item.example) {
 			appendExample(td, item.example);
 		}
-		
-		//return function(){ var d2 = div; return function(){ 	d2.className="d-item";  };}();
 	}; // end fn
 }
-
 
 function appendExample(parent, text, loc) {
 	var div = document.createElement("div");
@@ -2897,10 +2786,10 @@ function addVitem(td, tr, theRow, item, newButton) {
     subSpan.className = "subSpan";
 	var span = appendItem(subSpan,displayValue,item.pClass,tr);
 	choiceField.appendChild(subSpan);
-	
+
 	setLang(span);
 	checkLRmarker(choiceField, span.dir, item.value);
-	
+
 	if(item.isOldValue==true && !isWinner) {
 		addIcon(choiceField,"i-star");
 	}
@@ -2916,31 +2805,29 @@ function addVitem(td, tr, theRow, item, newButton) {
 			var newIcon = addIcon(choiceField,"i-stop"); // DEBUG
 		}
 	}
-	if(newButton && 
+	if(newButton &&
 			theRow.voteVhash == item.valueHash &&
-			// vHash !== '' &&  // not 'no opinion'
 			theRow.items[theRow.voteVhash].votes &&
 			theRow.items[theRow.voteVhash].votes[surveyUser.id] &&
 			theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes) {
-		var overrideTag = createChunk(theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes,"span","i-override");		
+		var overrideTag = createChunk(theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes,"span","i-override");
 		choiceField.appendChild(overrideTag);
 	}
-	
+
 	div.appendChild(choiceField);
 
 	var inheritedClassName = "fallback";
 	var defaultClassName = "fallback_code";
-	
+
     // wire up the onclick
 	td.showFn = item.showFn = showItemInfoFn(theRow,item,item.valueHash,newButton,div);
 	div.popParent = tr;
 	listenToPop(null, tr, div, td.showFn);
 	td.appendChild(div);
-	
+
     if(item.example && item.value != item.examples ) {
 		appendExample(div,item.example);
 	}
-	
 }
 
 function calcPClass(value, winner) {
@@ -2977,7 +2864,7 @@ function updateRow(tr, theRow) {
 			tr.baileyItem = item; // This is the actual Bailey item (target of the votes)
 		}
 	}
-	
+
 	if(tr.voteForBaileyItem) {
 		// Some people voted for Bailey. Move those votes over to the actual target.
 		if(!tr.baileyItem) {
@@ -2992,27 +2879,23 @@ function updateRow(tr, theRow) {
 			}
 		}
 	}
-	
-	
+
 	// update the vote info
 	if(theRow.voteResolver) {
 		var vr = theRow.voteResolver;
 		var div = tr.voteDiv = document.createElement("div");
 		tr.voteDiv.className = "voteDiv";
-		
-		//tr.voteDiv.appendChild(document.createElement("hr"));
-		
-		
-		if(theRow.voteVhash && 
+
+		if(theRow.voteVhash &&
 				theRow.voteVhash!=='' && surveyUser) {
 			var voteForItem = theRow.items[theRow.voteVhash];
-			if(voteForItem && voteForItem.votes && voteForItem.votes[surveyUser.id] && 
+			if(voteForItem && voteForItem.votes && voteForItem.votes[surveyUser.id] &&
 					voteForItem.votes[surveyUser.id].overridedVotes) {
-				tr.voteDiv.appendChild(createChunk(stui.sub("override_explain_msg", 
+				tr.voteDiv.appendChild(createChunk(stui.sub("override_explain_msg",
 						{overrideVotes:voteForItem.votes[surveyUser.id].overridedVotes, votes: surveyUser.votecount}
 					),"p","helpContent"));
 			}
-			if(theRow.voteVhash !== theRow.winningVhash 
+			if(theRow.voteVhash !== theRow.winningVhash
 				&& theRow.canFlagOnLosing) {
 					if(!theRow.rowFlagged) {
 						var newIcon = addIcon(tr.voteDiv,"i-stop");
@@ -3029,261 +2912,189 @@ function updateRow(tr, theRow) {
 		}
 		var haveWinner = false;
 		var haveLast = false;
-		
-		// TODO: lazy evaluate this clause?
-		if(true /*theRow.voteResolver.orgs && Object.keys(theRow.voteResolver.orgs).length > 0*/) {
-			// next, the org votes
-			var perValueContainer = div; // IF NEEDED: >>  = document.createElement("div");  perValueContainer.className = "perValueContainer";  
-			
-			
-			
-			var n = 0;
-			while(n < vr.value_vote.length) {
-				var value = vr.value_vote[n++];
-				if(value==null) continue;
-				var vote = vr.value_vote[n++];
-				var item = tr.rawValueToItem[value]; // backlink to specific item in hash
-				if(item==null) continue;
-				var vdiv = createChunk(null, "table", "voteInfo_perValue table table-vote");
-				if(n > 2)
-					var valdiv = createChunk(null, "div", "value-div");
-				else
-					var valdiv = createChunk(null, "div", "value-div first")
-				// heading row
-					
-				{
-					//var valueExtra = (value==vr.winningValue)?(" voteInfo_iconValue voteInfo_winningItem d-dr-"+theRow.voteResolver.winningStatus):"";
-					//var voteExtra = (value==vr.lastReleaseValue)?(" voteInfo_lastRelease"):"";
-					var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_tr_heading");
-					if(!item.isVoteForBailey && (!item.votes || Object.keys(item.votes).length==0)) {
-						//vrow.appendChild(createChunk("","div","voteInfo_orgColumn voteInfo_td"));
-					} else {
-						vrow.appendChild(createChunk(stui.str("voteInfo_orgColumn"),"td","voteInfo_orgColumn voteInfo_td"));
-					}
-					var isection = createChunk(null, "div", "voteInfo_iconBar");
-					//vrow.appendChild(isection);
-					
-					var vvalue = createChunk("User", "td", "voteInfo_valueTitle voteInfo_td");
-					var vbadge = createChunk(vote, "span", "badge");
-					if(value==vr.winningValue) {
-						appendIcon(isection,"voteInfo_winningItem d-dr-"+theRow.voteResolver.winningStatus);
-					}
-					
-					if(value==vr.lastReleaseValue) {
-						appendIcon(isection,"voteInfo_lastRelease i-star");
-					}
-					
-					/* Disable all usage of the "i-vote" (vote.png, check-mark in a square) icon pending
-					 * clarification/documentation of its meaning/purpose.
-					 * Comment out in two places: here in updateRow, and in addVitem.
-					 * See https://unicode.org/cldr/trac/ticket/10521#comment:29
-					 */
-					/***
-					if(value != vr.winningValue) {
-							appendIcon(isection,"i-vote");
-					}
-					***/
 
-					setLang(valdiv);
-					if (value == INHERITANCE_MARKER) {
-						appendItem(valdiv, stui.str("voteInfo_acceptInherited"), "fallback", tr);
-						valdiv.appendChild(createChunk(stui.str('voteInfo_baileyVoteList'), 'p'));
-					} else {
-					    appendItem(valdiv, value, calcPClass(value, vr.winningValue), tr);
-					}
-					valdiv.appendChild(isection);
-					vrow.appendChild(vvalue);
-					
-					var cell = createChunk(null,"td","voteInfo_voteTitle voteInfo_voteCount voteInfo_td"+"");
-					cell.appendChild(vbadge);
-					vrow.appendChild(cell);
+		// next, the org votes
+		var perValueContainer = div; // IF NEEDED: >>  = document.createElement("div");  perValueContainer.className = "perValueContainer";
+		var n = 0;
+		while(n < vr.value_vote.length) {
+			var value = vr.value_vote[n++];
+			if(value==null) continue;
+			var vote = vr.value_vote[n++];
+			var item = tr.rawValueToItem[value]; // backlink to specific item in hash
+			if(item==null) continue;
+			var vdiv = createChunk(null, "table", "voteInfo_perValue table table-vote");
+			if(n > 2) {
+				var valdiv = createChunk(null, "div", "value-div");
+			}
+			else {
+				var valdiv = createChunk(null, "div", "value-div first")
+			}
+			// heading row
+			var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_tr_heading");
+			if(!item.isVoteForBailey && (!item.votes || Object.keys(item.votes).length==0)) {
+
+			} else {
+				vrow.appendChild(createChunk(stui.str("voteInfo_orgColumn"),"td","voteInfo_orgColumn voteInfo_td"));
+			}
+			var isection = createChunk(null, "div", "voteInfo_iconBar");
+			var vvalue = createChunk("User", "td", "voteInfo_valueTitle voteInfo_td");
+			var vbadge = createChunk(vote, "span", "badge");
+			if(value==vr.winningValue) {
+				appendIcon(isection,"voteInfo_winningItem d-dr-"+theRow.voteResolver.winningStatus);
+			}
+
+			if(value==vr.lastReleaseValue) {
+				appendIcon(isection,"voteInfo_lastRelease i-star");
+			}
+
+			/* Disable all usage of the "i-vote" (vote.png, check-mark in a square) icon pending
+			 * clarification/documentation of its meaning/purpose.
+			 * Comment out in two places: here in updateRow, and in addVitem.
+			 * See https://unicode.org/cldr/trac/ticket/10521#comment:29
+			 */
+			/***
+			if(value != vr.winningValue) {
+					appendIcon(isection,"i-vote");
+			}
+			***/
+
+			setLang(valdiv);
+			if (value == INHERITANCE_MARKER) {
+				appendItem(valdiv, stui.str("voteInfo_acceptInherited"), "fallback", tr);
+				valdiv.appendChild(createChunk(stui.str('voteInfo_baileyVoteList'), 'p'));
+			} else {
+			    appendItem(valdiv, value, calcPClass(value, vr.winningValue), tr);
+			}
+			valdiv.appendChild(isection);
+			vrow.appendChild(vvalue);
+
+			var cell = createChunk(null,"td","voteInfo_voteTitle voteInfo_voteCount voteInfo_td"+"");
+			cell.appendChild(vbadge);
+			vrow.appendChild(cell);
+			vdiv.appendChild(vrow);
+
+			var createVoter = function(v) {
+				if(v==null) {
+					return createChunk("(missing information)!","i","stopText");
+				}
+				var div = createChunk(v.name || stui.str('emailHidden'),"td","voteInfo_voterInfo voteInfo_td");
+				div.setAttribute('data-name', v.name || stui.str('emailHidden'));
+				div.setAttribute('data-email', v.email || '');
+				return div;
+			};
+
+			if(!item.votes || Object.keys(item.votes).length==0) {
+				var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading");
+				vrow.appendChild(createChunk(stui.str("voteInfo_noVotes"),"td","voteInfo_noVotes voteInfo_td"));
+				vrow.appendChild(createChunk(null, "td","voteInfo_noVotes voteInfo_td"));
+				vdiv.appendChild(vrow);
+
+			} else if(item.isVoteForBailey) {
+				// show the raw votes.
+				for(var kk in item.votes) {
+					var thevote = item.votes[kk];
+					var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading fallback");
+					vrow.appendChild(createChunk(thevote.org,"td","voteInfo_orgColumn voteInfo_td"));
+					vrow.appendChild(createVoter(thevote)); // voteInfo_td
 					vdiv.appendChild(vrow);
 				}
-				
-				var createVoter = function(v) {
-					if(v==null) {
-						return createChunk("(missing information)!","i","stopText");
-					}
-					var div = createChunk(v.name || stui.str('emailHidden'),"td","voteInfo_voterInfo voteInfo_td");
-					div.setAttribute('data-name', v.name || stui.str('emailHidden'));
-					div.setAttribute('data-email', v.email || '');
-					return div;
-				};
-				
-				if(!item.votes || Object.keys(item.votes).length==0) {
-					var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading");
-					//vrow.appendChild(createChunk("","div","voteInfo_orgColumn voteInfo_td"));
-					vrow.appendChild(createChunk(stui.str("voteInfo_noVotes"),"td","voteInfo_noVotes voteInfo_td"));
-					
-					//vrow.appendChild(createChunk("","div","voteInfo_orgColumn voteInfo_td"));
-					vrow.appendChild(createChunk(null, "td","voteInfo_noVotes voteInfo_td"));
-					vdiv.appendChild(vrow);
-					
-				} else if(item.isVoteForBailey) {
-					// show the raw votes.
-					for(var kk in item.votes) {
-						var thevote = item.votes[kk];
-						var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading fallback");
-						vrow.appendChild(createChunk(thevote.org,"td","voteInfo_orgColumn voteInfo_td"));
-						vrow.appendChild(createVoter(thevote)); // voteInfo_td
-//						if(orgsVote) {
-//							var cell = createChunk(null,"td","voteInfo_orgsVote voteInfo_voteCount voteInfo_td");
-//							cell.appendChild(createChunk(orgVoteValue, "span", "badge"));
-//							vrow.appendChild(cell);
-//						}else
-//							vrow.appendChild(createChunk(orgVoteValue,"td","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"));
-						vdiv.appendChild(vrow);
-					}
-				} else {
-					for(org in theRow.voteResolver.orgs) {
-						var theOrg = vr.orgs[org];
-						var vrRaw = {};
-												
-						//console.log(vr);
-						var orgVoteValue = theOrg.votes[value];
-						if(orgVoteValue !== undefined && orgVoteValue > 0) { // someone in the org actually voted for it
-							var topVoter = null; // top voter for this item
-							var orgsVote = (theOrg.orgVote == value);
-							var topVoterTime = 0; // Calculating the latest time for a user from same org
-							
-							if(orgsVote) {
-								// find a top-ranking voter to use for the top line
-								for(var voter in item.votes) {
-									if(item.votes[voter].org==org && item.votes[voter].votes==theOrg.votes[value]) {
-										if(topVoterTime != 0){
-											// Get the latest time vote only
-											if(vr.nameTime[item.votes[topVoter].name] < vr.nameTime[item.votes[voter].name]){
-												topVoter = voter;
-												console.log(item);
-												console.log(vr.nameTime[item.votes[topVoter].name]);
-												topVoterTime = vr.nameTime[item.votes[topVoter].name];
-											}
-										}
-										else{
+			} else {
+				for(org in theRow.voteResolver.orgs) {
+					var theOrg = vr.orgs[org];
+					var vrRaw = {};
+					var orgVoteValue = theOrg.votes[value];
+					if(orgVoteValue !== undefined && orgVoteValue > 0) { // someone in the org actually voted for it
+						var topVoter = null; // top voter for this item
+						var orgsVote = (theOrg.orgVote == value);
+						var topVoterTime = 0; // Calculating the latest time for a user from same org
+
+						if(orgsVote) {
+							// find a top-ranking voter to use for the top line
+							for(var voter in item.votes) {
+								if(item.votes[voter].org==org && item.votes[voter].votes==theOrg.votes[value]) {
+									if(topVoterTime != 0){
+										// Get the latest time vote only
+										if(vr.nameTime[item.votes[topVoter].name] < vr.nameTime[item.votes[voter].name]){
 											topVoter = voter;
 											console.log(item);
 											console.log(vr.nameTime[item.votes[topVoter].name]);
 											topVoterTime = vr.nameTime[item.votes[topVoter].name];
 										}
-										//break;
 									}
-								}
-							} else {
-								// just find someone in the right org..
-								for(var voter in item.votes) {
-									if(item.votes[voter].org==org) {
+									else{
 										topVoter = voter;
-										break;
+										console.log(item);
+										console.log(vr.nameTime[item.votes[topVoter].name]);
+										topVoterTime = vr.nameTime[item.votes[topVoter].name];
 									}
-								}
-							}
-							
-							//console.log(org);
-							//console.log(orgsVote);
-							//console.log(theOrg);
-							//console.log(value);
-							//console.log(topVoter);
-							// ORG SUBHEADING row
-							{
-								var baileyClass = (item.votes[topVoter] && item.votes[topVoter].isVoteForBailey)?" fallback":"";
-								var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading");
-								vrow.appendChild(createChunk(org,"td","voteInfo_orgColumn voteInfo_td"));
-								//var isection = createChunk(null, "td", "voteInfo_iconBar");
-								//vrow.appendChild(isection);
-								if (item.votes[topVoter]) {
-								     vrow.appendChild(createVoter(item.votes[topVoter])); // voteInfo_td
-								} else {
-									vrow.appendChild(createVoter(null));
-								}
-								if(orgsVote) {
-									var cell = createChunk(null,"td","voteInfo_orgsVote voteInfo_voteCount voteInfo_td"+baileyClass);
-									cell.appendChild(createChunk(orgVoteValue, "span", "badge"));
-									vrow.appendChild(cell);
-								}else
-									vrow.appendChild(createChunk(orgVoteValue,"td","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"+baileyClass));
-								vdiv.appendChild(vrow);
-							}
-							
-							//now, other rows:
-							for(var voter in item.votes) {
-								if(item.votes[voter].org!=org ||  // wrong org or
-										voter==topVoter) { // already done
-									continue; // skip
-								}
-								// OTHER VOTER row
-								{
-									var baileyClass = (item.votes[voter].isVoteForBailey)?" fallback":"";
-									var vrow = createChunk(null, "tr", "voteInfo_tr");
-									vrow.appendChild(createChunk("","td","voteInfo_orgColumn voteInfo_td")); // spacer
-									//var isection = createChunk(null, "td", "voteInfo_iconBar");
-									//vrow.appendChild(isection);
-									vrow.appendChild(createVoter(item.votes[voter])); // voteInfo_td
-									vrow.appendChild(createChunk(item.votes[voter].votes,"td","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"+baileyClass));
-									vdiv.appendChild(vrow);
 								}
 							}
 						} else {
-							// omit this org - not relevant for this value.
+							// just find someone in the right org..
+							for(var voter in item.votes) {
+								if(item.votes[voter].org==org) {
+									topVoter = voter;
+									break;
+								}
+							}
+						}
+
+						// ORG SUBHEADING row
+						var baileyClass = (item.votes[topVoter] && item.votes[topVoter].isVoteForBailey)?" fallback":"";
+						var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading");
+						vrow.appendChild(createChunk(org,"td","voteInfo_orgColumn voteInfo_td"));
+						if (item.votes[topVoter]) {
+						     vrow.appendChild(createVoter(item.votes[topVoter])); // voteInfo_td
+						} else {
+							vrow.appendChild(createVoter(null));
+						}
+						if(orgsVote) {
+							var cell = createChunk(null,"td","voteInfo_orgsVote voteInfo_voteCount voteInfo_td"+baileyClass);
+							cell.appendChild(createChunk(orgVoteValue, "span", "badge"));
+							vrow.appendChild(cell);
+						}else
+							vrow.appendChild(createChunk(orgVoteValue,"td","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"+baileyClass));
+						vdiv.appendChild(vrow);
+
+						//now, other rows:
+						for(var voter in item.votes) {
+							if(item.votes[voter].org!=org ||  // wrong org or
+									voter==topVoter) { // already done
+								continue; // skip
+							}
+							// OTHER VOTER row
+							var baileyClass = (item.votes[voter].isVoteForBailey)?" fallback":"";
+							var vrow = createChunk(null, "tr", "voteInfo_tr");
+							vrow.appendChild(createChunk("","td","voteInfo_orgColumn voteInfo_td")); // spacer
+							vrow.appendChild(createVoter(item.votes[voter])); // voteInfo_td
+							vrow.appendChild(createChunk(item.votes[voter].votes,"td","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"+baileyClass));
+							vdiv.appendChild(vrow);
 						}
 					}
 				}
-				
-				perValueContainer.appendChild(valdiv);
-				perValueContainer.appendChild(vdiv);
 			}
-			
-			if(vr.requiredVotes) {
-				var msg = stui.sub("explainRequiredVotes", {requiredVotes: vr.requiredVotes  /* , votecount: surveyUser.votecount */ });
-				perValueContainer.appendChild(createChunk(msg,"p", "alert alert-warning fix-popover-help"));
-			}
-			
-		} else {
-			// ? indicate approved, last release value?
+			perValueContainer.appendChild(valdiv);
+			perValueContainer.appendChild(vdiv);
 		}
-		
-		// KEY
-		// approved and last release status
-		{
-			/*var kdiv = createChunk(null,"div","voteInfo_key");
-			tr.voteDiv.appendChild(createChunk(stui.str("voteInfo_key"),"h3","voteInfo_key_title"));
-			var disputedText = (theRow.voteResolver.isDisputed)?stui.str("winningStatus_disputed"):"";
-			kdiv.appendChild(createChunk(
-						stui.sub("winningStatus_msg",
-								[ stui.str(theRow.voteResolver.winningStatus), disputedText ])
-						, "div", "voteInfo_winningKey d-dr-"+theRow.voteResolver.winningStatus+" winningStatus"));
-			
-			kdiv.appendChild(createChunk(
-					stui.sub("lastReleaseStatus_msg",
-							[ stui.str(theRow.voteResolver.lastReleaseStatus) ])
-					, "div", "i-star voteInfo_iconValue"));
 
-			
-			tr.voteDiv.appendChild(kdiv);
-			
-			var surlink = document.createElement("div");
-			surlink.className = "alert alert-info fix-popover-help";
-			
-			var link = createChunk(stui.str("voteInfo_moreInfo"),"a", null);
-			var theUrl = "http://cldr.unicode.org/index/survey-tool/guide#TOC-Key";
-			link.href = theUrl;
-			surlink.appendChild(link);
-			tr.voteDiv.appendChild(surlink);*/
-
+		if(vr.requiredVotes) {
+			var msg = stui.sub("explainRequiredVotes", {requiredVotes: vr.requiredVotes  /* , votecount: surveyUser.votecount */ });
+			perValueContainer.appendChild(createChunk(msg,"p", "alert alert-warning fix-popover-help"));
 		}
 
 		// done with voteresolver table
-		
+
 		if(stdebug_enabled) {
 			tr.voteDiv.appendChild(createChunk(vr.raw,"p","debugStuff"));
 		}
 	} else {
 		tr.voteDiv = null;
 	}
-	
+
 	var statusAction = tr.statusAction = parseStatusAction(theRow.statusAction);
 	var canModify = tr.canModify =  tr.theTable.json.canModify && statusAction.vote;
     var ticketOnly = tr.ticketOnly = tr.theTable.json.canModify && statusAction.ticket;
-    /* var canChange = */ tr.canChange = canModify && statusAction.change;
+    tr.canChange = canModify && statusAction.change;
     if(!theRow || !theRow.xpid) {
 		tr.innerHTML="<td><i>ERROR: missing row</i></td>";
 		return;
@@ -3296,16 +3107,15 @@ function updateRow(tr, theRow) {
 			tr.sethash = tr.xpstrid;
 		}
 	}
-	
+
 	var children = getTagChildren(tr);
-	
+
 	var config = surveyConfig;
 	var protoButton = dojo.byId('proto-button');
 	if(!canModify) {
 		protoButton = null; // no voting at all.
 	}
-	
-	
+
 	children[config.statuscell].className = "d-dr-"+theRow.confirmStatus + " d-dr-status";
 
 	if(!children[config.statuscell].isSetup) {
@@ -3323,9 +3133,8 @@ function updateRow(tr, theRow) {
 		children[config.nocell].title=stui.voFalse;
 		children[config.nocell].className= "d-no-vo-false";
 	}
-	
-	if(config.codecell) {
 
+	if(config.codecell) {
 		children[config.codecell].appendChild(createChunk('|>'));
 				removeAllChildNodes(children[config.codecell]);
 				children[config.codecell].appendChild(createChunk('<|'));
@@ -3336,29 +3145,25 @@ function updateRow(tr, theRow) {
 		}
 		children[config.codecell].appendChild(createChunk(codeStr));
 		if(tr.theTable.json.canModify) { // pointless if can't modify.
-	
-			children[config.codecell].className = "d-code";			
-	
-			
+			children[config.codecell].className = "d-code";
+
 			if(!tr.forumDiv) {
 				tr.forumDiv = document.createElement("div");
 				tr.forumDiv.className = "forumDiv";
-			}			
-			
+			}
+
 			appendForumStuff(tr,theRow, tr.forumDiv);
 		}
-		
+
 		// extra attributes
 		if(theRow.extraAttributes && Object.keys(theRow.extraAttributes).length>0) {
 			appendExtraAttributes(children[config.codecell], theRow);
 		}
-		
 
 		if(stdebug_enabled) {
 			var anch = document.createElement("i");
 			anch.className="anch";
 			anch.id=theRow.xpid;
-//			anch.href="#"+anch.id;
 			children[config.codecell].appendChild(anch);
 			anch.appendChild(document.createTextNode("#"));
 
@@ -3367,30 +3172,23 @@ function updateRow(tr, theRow) {
 			go.appendChild(document.createTextNode("zoom"));
 			go.href=window.location.pathname + "?_="+surveyCurrentLocale+"&x=r_rxt&xp="+theRow.xpid;
 			children[config.codecell].appendChild(go);
-			
+
 			var js = document.createElement("a");
 			js.className="anch-go";
 			js.appendChild(document.createTextNode("{JSON}"));
 			js.popParent=tr;
-//			js.href="#";
 			listenToPop(JSON.stringify(theRow),tr,js);
 			children[config.codecell].appendChild(js);
 			children[config.codecell].appendChild(createChunk(" c="+theRow.coverageValue));
 		}
-//		listenFor(children[config.codecell],"click",
-//				function(e){ 		
-//					showInPop("XPath: " + theRow.xpath, children[config.codecell]);
-//					stStopPropagation(e); return false; 
-//				});
 		if(!children[config.codecell].isSetup) {
 			var xpathStr = "";
-			if( /* (!window.surveyOfficial) || */ stdebug_enabled) {
+			if(stdebug_enabled) {
 				xpathStr = "XPath: " + theRow.xpath;
 			}
 			listenToPop(xpathStr, tr, children[config.codecell]);
 			children[config.codecell].isSetup = true;
 		}
-	//	tr.anch = anch;
 	}
 	if(tr.iebs) {
 		for(var qq in tr.iebs) {
@@ -3400,50 +3198,47 @@ function updateRow(tr, theRow) {
 		}
 	}
 	tr.iebs=[];
-	
+
 	if(!children[config.comparisoncell].isSetup) {
 		if(theRow.displayName) {
 			var hintPos = theRow.displayName.indexOf('[translation hint');
 			var hasExample = false;
-			
+
 			if(theRow.displayExample) {
 				hasExample = true;
 			}
-			
+
 			if(hintPos != -1) {
 				theRow.displayExample = theRow.displayName.substr(hintPos, theRow.displayName.length) + (theRow.displayExample ? theRow.displayExample.replace(/\[translation hint.*?\]/g,"") : '');
 				theRow.displayName = theRow.displayName.substr(0, hintPos);
 			}
-			
+
 			children[config.comparisoncell].appendChild(createChunk(theRow.displayName, 'span', 'subSpan'));
 			setLang(children[config.comparisoncell], surveyBaselineLocale);
 			if(theRow.displayExample) {
-				var theExample = appendExample(children[config.comparisoncell], theRow.displayExample, surveyBaselineLocale);
-				//listenToPop(null,tr,theExample);
+				appendExample(children[config.comparisoncell], theRow.displayExample, surveyBaselineLocale);
 			}
-			
+
 			if(hintPos != -1 || hasExample) {
 				var infos = document.createElement("div");
 				infos.className = 'infos-code';
-				
+
 				if(hintPos != -1) {
 					var img = document.createElement("img");
 					img.src = 'hint.png';
 					img.alt = 'Translation hint';
 					infos.appendChild(img);
 				}
-				
+
 				if(hasExample) {
 					var img = document.createElement("img");
 					img.src = 'example.png';
 					img.alt = 'Example';
 					infos.appendChild(img);
 				}
-				
+
 				children[config.comparisoncell].appendChild(infos);
 			}
-			
-			
 		} else {
 			children[config.comparisoncell].appendChild(document.createTextNode(""));
 		}
@@ -3466,7 +3261,7 @@ function updateRow(tr, theRow) {
 	tr.proposedcell = children[config.proposedcell];
 	/*
 	 * TODO: this looks fishy.
-	 * 
+	 *
 	 * When do we have theRow.winningVhash == "" and/or theRow.winningValue == ""?
 	 * If both those conditions are true, then regardless of whether isFallback is true or false,
 	 * theFallbackValue gets set to the LAST element of theRow.items ... and which element is the LAST
@@ -3474,7 +3269,7 @@ function updateRow(tr, theRow) {
 	 * https://stackoverflow.com/questions/280713/elements-order-in-a-for-in-loop
 	 * Typically (always?) expect winningVhash and winningValue both to be empty, or both to be non-empty;
 	 * if that's always true, then isFallback never makes any difference anywhere in survey.js.
-	 * 
+	 *
 	 * There seems to be no reason for theFallbackValue; might as well directly
 	 * assign theRow.winningVhash = k -- but that's a relatively minor issue.
 	 */
@@ -3495,16 +3290,15 @@ function updateRow(tr, theRow) {
 	} else {
 		children[config.proposedcell].showFn = function(){};  // nothing else to show
 	}
-	
+
 	listenToPop(null,tr,children[config.proposedcell], children[config.proposedcell].showFn);
-	if(config.errcell)
+	if(config.errcell) {
 		listenToPop(null,tr,children[config.errcell], children[config.proposedcell].showFn);
-	//listenFor(children[config.errcell],"mouseover",function(e){return children[config.errcell]._onmove(e);});
-	
+	}
 	var hadOtherItems  = false;
 	removeAllChildNodes(children[config.othercell]); // other
 	setLang(children[config.othercell]);
-	
+
 	//add button
 	var formAdd = document.createElement("form");
 	if(tr.canModify) {
@@ -3513,12 +3307,12 @@ function updateRow(tr, theRow) {
 		var buttonAdd = document.createElement("div");
 		var btn = document.createElement("button");
 		buttonAdd.className = "button-add form-group";
-		
+
 		toAddVoteButton(btn);
-		
+
 		buttonAdd.appendChild(btn);
 		formAdd.appendChild(buttonAdd);
-		
+
 		var input = document.createElement("input");
 		var popup;
 		input.className = "form-control input-add";
@@ -3551,12 +3345,12 @@ function updateRow(tr, theRow) {
 		btn.onclick = function(e) {
 			//if no input, add one
 			if($(buttonAdd).parent().find('input').length == 0) {
-				
+
 				//hide other
 				$.each($('button.vote-submit'), function() {
 					toAddVoteButton(this);
 				});
-				
+
 				//transform the button
 				toSubmitVoteButton(btn);
 				$(buttonAdd).popover({content:' '}).popover('show');
@@ -3571,14 +3365,13 @@ function updateRow(tr, theRow) {
 				}
 				popup.closest('.popover').css('top', popup.closest('.popover').position().top - 19);
 				input.focus();
-				
-				
+
 				//enter pressed
 				$(input).keydown(function (e) {
 					var newValue = $(this).val();
 					if(e.keyCode == 13) { //enter pressed
 						if(newValue) {
-							addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));			
+							addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));
 						}
 						else {
 							toAddVoteButton(btn);
@@ -3587,13 +3380,13 @@ function updateRow(tr, theRow) {
 						toAddVoteButton(btn);
 					}
 				});
-				
+
 			}
 			else {
 				var newValue = input.value;
-				
+
 				if(newValue) {
-					addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));					
+					addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));
 				}
 				else {
 					toAddVoteButton(btn);
@@ -3605,17 +3398,14 @@ function updateRow(tr, theRow) {
 			return false;
 		};
 	}
-	
-	
-	
-	
+
 	//add the other vote info
 	for(k in theRow.items) {
 		if((k === theRow.winningVhash) // skip vote for winner
 			/*
 			 * TODO: the following "skip vote for ↑↑↑" (INHERITANCE_MARKER) is dubious,
 			 *  see https://unicode.org/cldr/trac/ticket/11299
-			 */ 				
+			 */
 		   || (theRow.items[k].isVoteForBailey)) { // skip vote for ↑↑↑
 					continue;
 				}
@@ -3623,10 +3413,7 @@ function updateRow(tr, theRow) {
 		addVitem(children[config.othercell],tr,theRow,theRow.items[k],cloneAnon(protoButton));
 		children[config.othercell].appendChild(document.createElement("hr"));
 	}
-	
-	
-	
-	
+
 	if(!hadOtherItems /*!onIE*/) {
 		listenToPop(null, tr, children[config.othercell]);
 	}
@@ -3640,11 +3427,11 @@ function updateRow(tr, theRow) {
 	if(tr.canChange) {
 		if(isDashboard()) {
 			children[config.othercell].appendChild(document.createElement('hr'));
-			children[config.othercell].appendChild(formAdd);//add button	
+			children[config.othercell].appendChild(formAdd);//add button
 		}
 		else {
 			removeAllChildNodes(children[config.addcell]);
-			children[config.addcell].appendChild(formAdd);//add button	
+			children[config.addcell].appendChild(formAdd);//add button
 		}
 	}
 
@@ -3662,11 +3449,11 @@ function updateRow(tr, theRow) {
     		setDisplayed(children[config.nocell], false);
     	}
 		children[config.proposedcell].className="d-change-confirmonly";
-		
+
 		var surlink = document.createElement("div");
 		surlink.innerHTML = '<span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;';
 		surlink.className = 'alert alert-info fix-popover-help';
-		
+
 		var link = createChunk(stui.str("file_a_ticket"),"a");
 		var newUrl = "http://unicode.org/cldr/trac"+"/newticket?component=data&summary="+surveyCurrentLocale+":"+theRow.xpath+"&locale="+surveyCurrentLocale+"&xpath="+theRow.xpstrid+"&version="+surveyVersion;
 		link.href = newUrl;
@@ -3679,22 +3466,20 @@ function updateRow(tr, theRow) {
 		}
 		children[config.proposedcell].appendChild(createChunk(stui.str("file_ticket_notice"), "i", "fnotebox"));
 		surlink.appendChild(link);
-		tr.ticketLink = surlink;  
+		tr.ticketLink = surlink;
 	} else  { // no change possible
     	if(!tr.theTable.json.canModify) { // only if hidden in the header
     		setDisplayed(children[config.nocell], false);
     	}
 	}
-	
 	tr.className='vother cov'+theRow.coverageValue;
 	if(surveyCurrentId!== '' && surveyCurrentId === tr.id) {
 		window.showCurrentId(); // refresh again - to get the updated voting status.
 	}
-	
 }
 
 function findPartition(partitions,partitionList,curPartition,i) {
-	if(curPartition && 
+	if(curPartition &&
 			i>=curPartition.start &&
 			i<curPartition.limit) {
 		return curPartition;
@@ -3715,15 +3500,13 @@ function insertRowsIntoTbody(theTable,tbody) {
 	var toAdd = theTable.toAdd;
 	var parRow = dojo.byId('proto-parrow');
 	removeAllChildNodes(tbody);
-	
+
 	var theSort = theTable.json.displaySets[theTable.curSortMode];
 	var partitions = theSort.partitions;
 	var rowList = theSort.rows;
-	//console.log("rows: " + Object.keys(theTable.myTRs)  + ", hitcount: " + theTable.hitCount);
 	var partitionList = Object.keys(partitions);
 	var curPartition = null;
 	for(i in rowList ) {
-		
 		var k = rowList[i];
 		var theRow = theRows[k];
 		var dir = theRow.dir;
@@ -3731,7 +3514,7 @@ function insertRowsIntoTbody(theTable,tbody) {
 		//no partition in the dashboard
 		if(!isDashboard()) {
 			var newPartition = findPartition(partitions,partitionList,curPartition,i);
-			
+
 			if(newPartition != curPartition) {
 				if(newPartition.name != "") {
 					var newPar = cloneAnon(parRow);
@@ -3745,19 +3528,17 @@ function insertRowsIntoTbody(theTable,tbody) {
 				}
 				curPartition = newPartition;
 			}
-			
-			
-			
+
 			var theRowCov = parseInt(theRow.coverageValue);
 			if(!newPartition.minCoverage || newPartition.minCoverage > theRowCov) {
 				newPartition.minCoverage = theRowCov;
-	                        if(newPartition.tr) {
-	                            // only set coverage of the header if there's a header
-				    newPartition.tr.className = newPartition.origClass+" cov"+newPartition.minCoverage;
-	                        }
+                if(newPartition.tr) {
+                    // only set coverage of the header if there's a header
+            	    newPartition.tr.className = newPartition.origClass+" cov"+newPartition.minCoverage;
+                }
 			}
 		}
-		
+
 		var tr = theTable.myTRs[k];
 		if(!tr) {
 			tr = cloneAnon(toAdd);
@@ -3770,7 +3551,7 @@ function insertRowsIntoTbody(theTable,tbody) {
 			console.log("Missing row " + k);
 		}
 		// update the xpath map
-		xpathMap.put({id: theRow.xpid, 
+		xpathMap.put({id: theRow.xpid,
 					  hex: theRow.xpstrid,
 					  path: theRow.xpath,
 					  ph: {
@@ -3780,14 +3561,13 @@ function insertRowsIntoTbody(theTable,tbody) {
 					       code: theRow.code           // Code: standard-long
 					  	}
 					});
-		
+
 		// refresh the tr's contents
 		updateRow(tr,theRow);
-		
+
 		// add the tr to the table
 		tbody.appendChild(tr);
 	}
-	//console.log("POST rows: " + Object.keys(theTable.myTRs)  + ", hitcount: " + theTable.hitCount);
 }
 
 function reSort(theTable,k) {
@@ -3806,8 +3586,9 @@ function reSort(theTable,k) {
 		}
 	}
 }
+
 /**
- * 
+ *
  * Setup the 'sort' popup menu.
  */
 function setupSortmode(theTable) {
@@ -3818,13 +3599,12 @@ function setupSortmode(theTable) {
 	var itemCount = Object.keys(theTable.json.section.rows).length;
 	var size = document.createElement("span");
 	size.className="d-sort-size";
-	//theSortmode.appendChild(size);
 	var ul = document.createElement("ul");
 	if(itemCount>0) {
 		for(i in listOfLists) {
 			var k = listOfLists[i];
 			if(k=="default") continue;
-			
+
 			var a = document.createElement("li");
 			a.onclick = (function() {
 				var kk = k;
@@ -3841,32 +3621,23 @@ function setupSortmode(theTable) {
 			}
 			ul.appendChild(a);
 		}
-		//theSortmode.appendChild(ul);
 	}
-        
-        theTable.json.section.itemCount = itemCount;
-	
+	theTable.json.section.itemCount = itemCount;
+
 	if(itemCount==0 && theTable.json.section.skippedDueToCoverage) {
 		size.appendChild(document.createTextNode(
 				stui.sub("itemCountAllHidden", theTable.json.section)
-				
 				));
 		size.className = "d-sort-size0";
 	} else if(itemCount==0) {
 		size.appendChild(document.createTextNode(
 				stui.sub("itemCountNone", theTable.json.section)
-				
 				));
 		size.className = "d-sort-size0";
 	} else if(theTable.json.section.skippedDueToCoverage) {
 		size.appendChild(document.createTextNode(
 				stui.sub("itemCountHidden",theTable.json.section)
-				
 				));
-//		var minfo = dojo.byId("info_menu_p_covlev");
-//		if(minfo) {
-//			minfo.innerHTML = theTable.json.section.skippedDueToCoverage + " hidden";
-//		}
 	} else {
 		size.appendChild(document.createTextNode(
 				stui.sub("itemCount", theTable.json.section)));
@@ -3890,7 +3661,7 @@ function covValue(lev) {
 
 function covName(lev) {
 	if(!window.surveyLevels) return null;
-	
+
 	for(var k in window.surveyLevels) {
 		if(parseInt(window.surveyLevels[k].level) == lev) {
 			return k.toLowerCase();
@@ -3901,9 +3672,9 @@ function covName(lev) {
 
 function effectiveCoverage() {
 	if(!window.surveyOrgCov) {
-		throw new Error( "surveyOrgCov not yet initialized");
+		throw new Error("surveyOrgCov not yet initialized");
 	}
-	
+
 	if(surveyUserCov) {
 		return covValue(surveyUserCov);
 	} else {
@@ -3918,7 +3689,7 @@ function updateCovFromJson(json) {
 	} else {
 		window.surveyUserCov = null;
 	}
-	
+
 	if(json.covlev_org) {
 		window.surveyOrgCov = json.covlev_org;
 	} else {
@@ -3926,19 +3697,11 @@ function updateCovFromJson(json) {
 	}
 }
 
-
 /**
  * Update the coverage classes, show and hide things in and out of coverage
  * @method updateCoverage
  */
 function updateCoverage(theDiv) {
-	
-/*	
-	store.push({label: '-',  // stui.str("coverage_auto_msg"), // stui.str('coverage_'+ level.name)
-		selected: false,
-		value: 0});
-	*/
-	
 	if(theDiv == null) return;
 	var theTable = theDiv.theTable;
 	if(theTable==null) return;
@@ -3950,7 +3713,7 @@ function updateCoverage(theDiv) {
 		var newStyle = theTable.origClass;
 		for(var k in window.surveyLevels) {
 			var level = window.surveyLevels[k];
-			
+
 			if(effective <  parseInt(level.level)) {
 				newStyle = newStyle + " hideCov"+level.level;
 			}
@@ -3968,57 +3731,54 @@ function updateCoverage(theDiv) {
 function insertRows(theDiv,xpath,session,json) {
 	var theTable = theDiv.theTable;
 	var doInsertTable = null;
-	
+
 	removeAllChildNodes(theDiv);
 	window.insertLocaleSpecialNote(theDiv);
 	//recreated table in every case
-		theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
-		if(isDashboard())
-			theTable.className += ' dashboard';
-		else
-			theTable.className += ' vetting-page';
-		updateCoverage(theDiv);
-		localizeFlyover(theTable);
-		theTable.theadChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);
-		var toAdd = dojo.byId('proto-datarow');  // loaded from "hidden.html", which see.
-		/*if(!surveyConfig)*/ {
-			var rowChildren = getTagChildren(toAdd);
-			theTable.config = surveyConfig ={};
-			for(var c in rowChildren) {
-				rowChildren[c].title = theTable.theadChildren[c].title;//console.log(theTable.theadChildren[c].title);
-				if(rowChildren[c].id) {
-					surveyConfig[rowChildren[c].id] = c;
-					stdebug("  config."+rowChildren[c].id+" = children["+c+"]");
-					if(false&&stdebug_enabled) {
-						removeAllChildNodes(rowChildren[c]);
-						rowChildren[c].appendChild(createChunk("config."+rowChildren[c].id+"="+c));
-					}
-					//rowChildren[c].id=null;
-				} else {
-					stdebug("(proto-datarow #"+c+" has no id");
-				}
+	theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
+	if(isDashboard())
+		theTable.className += ' dashboard';
+	else
+		theTable.className += ' vetting-page';
+	updateCoverage(theDiv);
+	localizeFlyover(theTable);
+	theTable.theadChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);
+	var toAdd = dojo.byId('proto-datarow');  // loaded from "hidden.html", which see.
+	var rowChildren = getTagChildren(toAdd);
+	theTable.config = surveyConfig ={};
+	for(var c in rowChildren) {
+		rowChildren[c].title = theTable.theadChildren[c].title;
+		if(rowChildren[c].id) {
+			surveyConfig[rowChildren[c].id] = c;
+			stdebug("  config."+rowChildren[c].id+" = children["+c+"]");
+			if(false&&stdebug_enabled) {
+				removeAllChildNodes(rowChildren[c]);
+				rowChildren[c].appendChild(createChunk("config."+rowChildren[c].id+"="+c));
 			}
-			if(stdebug_enabled) stdebug("Table Config: " + JSON.stringify(theTable.config));
+		} else {
+			stdebug("(proto-datarow #"+c+" has no id");
 		}
-		theTable.toAdd = toAdd;
-		if(!json.canModify) {
-			setDisplayed(theTable.theadChildren[theTable.config.nocell], false);
-		}
-		theTable.sortMode = cloneAnon(dojo.byId('proto-sortmode'));
-		theDiv.appendChild(theTable.sortMode);
-		theTable.myTRs = [];
-		theDiv.theTable = theTable;
-		theTable.theDiv = theDiv;
-		doInsertTable=theTable;
+	}
+	if(stdebug_enabled) stdebug("Table Config: " + JSON.stringify(theTable.config));
+
+	theTable.toAdd = toAdd;
+	if(!json.canModify) {
+		setDisplayed(theTable.theadChildren[theTable.config.nocell], false);
+	}
+	theTable.sortMode = cloneAnon(dojo.byId('proto-sortmode'));
+	theDiv.appendChild(theTable.sortMode);
+	theTable.myTRs = [];
+	theDiv.theTable = theTable;
+	theTable.theDiv = theDiv;
+	doInsertTable=theTable;
 
 	// append header row
-	
 	theTable.json = json;
 	theTable.xpath = xpath;
 	theTable.hitCount=0;
 	theTable.session = session;
-	
-	if(!theTable.curSortMode) { 
+
+	if(!theTable.curSortMode) {
 		theTable.curSortMode = theTable.json.displaySets["default"];
 		// hack - choose one of these
 		if(theTable.json.displaySets.codecal) {
@@ -4033,24 +3793,10 @@ function insertRows(theDiv,xpath,session,json) {
 	insertRowsIntoTbody(theTable,tbody);
 	if(doInsertTable) {
 		theDiv.appendChild(doInsertTable);
-//		if(theDiv.theLoadingMessage) {
-//			theDiv.theLoadingMessage.style.display="none";
-//			theDiv.removeChild(theDiv.theLoadingMessage);
-//			theDiv.theLoadingMessage=null;
-//		}
 	} else {
 		setDisplayed(theTable, true);
-//		if(theDiv.theLoadingMessage) {
-//			theDiv.theLoadingMessage.style.display="none";
-//			theDiv.removeChild(theDiv.theLoadingMessage);
-//			theDiv.theLoadingMessage=null;
-//		}
 	}
-
-	
 	hideLoader(theDiv.loader);
-
-	//wrapRadios();
 }
 
 function loadStui(loc, cb) {
@@ -4075,8 +3821,6 @@ function loadStui(loc, cb) {
 function firstword(str) {
 	return str.split(" ")[0];
 }
-
-
 
 function appendIcon(toElement, className) {
 	var e = createChunk(null, "div", className);
@@ -4115,7 +3859,7 @@ function appendInputBox(parent, which) {
 	label.appendChild(input);
 	parent.appendChild(label);
 	input.label = label;
-	
+
 	var doChange = function() {
 		addClass(label, "d-item-selected");
 		removeAllChildNodes(notify);
@@ -4130,10 +3874,10 @@ function appendInputBox(parent, which) {
 			removeAllChildNodes(notify);
 			notify.appendChild(createChunk(msg,"span","stopText"));
 		};
-		
+
 		input.stChange(onOk,onErr);
 	};
-	
+
 	var changeFn = function(e) {
 		doChange();
 		stStopPropagation(e);
@@ -4150,7 +3894,7 @@ function appendInputBox(parent, which) {
 			return true; // not getting the point here.
 		} else if(e.keyCode == 13) {
 			doChange();
-			return false;	
+			return false;
 		} else {
 			return true;
 		}
@@ -4177,13 +3921,11 @@ function scrollToItem() {
 	}
 }
 
-
 /**
  * copy of menu data
  * @property _thePages
  */
 var _thePages = null;
-
 
 window.locmap = new LocaleMap(null);
 
@@ -4202,16 +3944,13 @@ function locInfo(loc) {
 var overridedir = null;
 function setLang(node, loc) {
 	var info = locInfo(loc);
-	
+
 	if(overridedir){
 		node.dir = overridedir;
-		if(info.dir && info.dir != overridedir){
-			// node.style.background = 'yellow';
-		}
 	} else if (info.dir) {
 		node.dir = info.dir;
 	}
-	
+
 	if(info.bcp47) {
 		node.lang = info.bcp47;
 	}
@@ -4226,7 +3965,7 @@ function showV() {
 	require([
 	         "dojo/ready",
 	         "dojo/dom",
-	         "dojo/parser", 
+	         "dojo/parser",
 	         "dijit/DropDownMenu",
 	         "dijit/form/DropDownButton",
 	         "dijit/MenuSeparator",
@@ -4288,7 +4027,7 @@ function showV() {
 				addClass(clickyLink, "name_var");
 			}
 			clickyLink.title=subLoc; // remove auto generated "locName.title"
-			
+
 			if(subInfo.readonly) {
 				addClass(clickyLink, "locked");
 				addClass(subLocDiv, "hide");
@@ -4303,39 +4042,29 @@ function showV() {
 			} else if(window.canmodify && subLoc in window.canmodify) {
 				addClass(clickyLink, "canmodify");
 			}
-			else
+			else {
 				addClass(subLocDiv, "hide");
+			}
 			return clickyLink;
 		};
 
-//		/* trace for dijit leak */
-//		if(!surveyOfficial) window.TRL=function() {
-//			var sec = 5;
-//			console.log("Tracing dijit registry leaks every "+sec+"s");
-//			window.setInterval(function() {
-//				document.title = "[dijit:"+registry.length+"] | ";
-//			}, 1000 * sec);
-//		};
-//		
 		/**
 		 * list of pages to use with the flipper
 		 * @property pages
 		 */
-		var pages = { 
+		var pages = {
 				loading: "LoadingMessageSection",
 				data: "DynamicDataSection",
 				other: "OtherSection",
 		};
 		var flipper = new Flipper( [pages.loading, pages.data, pages.other] );
 
-		{
-			var pucontent = dojo.byId("itemInfo");
-			var theDiv = flipper.get(pages.data);
-			theDiv.pucontent = pucontent;
-			theDiv.stui = loadStui();
-			
-			pucontent.appendChild(createChunk(stui.str("itemInfoBlank"),"i"));
-		}
+		var pucontent = dojo.byId("itemInfo");
+		var theDiv = flipper.get(pages.data);
+		theDiv.pucontent = pucontent;
+		theDiv.stui = loadStui();
+
+		pucontent.appendChild(createChunk(stui.str("itemInfoBlank"),"i"));
 
 		/**
 		 * List of buttons/titles to set.
@@ -4345,15 +4074,14 @@ function showV() {
 			locale: "title-locale",
 			section: "title-section",
 			page: "title-page",
-//			item: "title-item",
 			dcontent: "title-dcontent",
-			
+
 			set: function(x,y) {
 				stdebug("menuset " + x + " = " + y);
 				var cnode = dojo.byId(x+"-container");
 				var wnode = this.getRegistry(x);
 				var dnode = this.getDom(x);
-				if(!cnode) cnode = dnode; // for Elements that do their own stunts 
+				if(!cnode) cnode = dnode; // for Elements that do their own stunts
 				if(y && y !== '-' && y !== '') {
 					if(wnode != null) {
 						wnode.set('label',y);
@@ -4380,10 +4108,10 @@ function showV() {
 				return dojo.byId(x+"-container");
 			}
 		};
-		
+
 		// TODO remove this debug item
 		window.__FLIPPER = flipper;
-		
+
 		/**
 		 * Manage additional special pages
 		 * @class OtherSpecial
@@ -4392,14 +4120,14 @@ function showV() {
 			// cached page list
 			this.pages = {};
 		}
-		
+
 		/**
 		 * @function getSpecial
 		 */
 		OtherSpecial.prototype.getSpecial = function getSpecial(name) {
 			return this.pages[name];
 		};
-		
+
 		/**
 		 * @function loadSpecial
 		 */
@@ -4420,7 +4148,7 @@ function showV() {
 						var special = new specialFn();
 						special.name = name;
 						otherThis.pages[name] = special; // cache for next time
-						
+
 						stdebug("OS: SUCCESS! " + name);
 						onSuccess(special);
 					});
@@ -4433,7 +4161,7 @@ function showV() {
 				}
 			}
 		};
-		
+
 		/**
 		 * @function parseHash
 		 */
@@ -4442,7 +4170,6 @@ function showV() {
 				special.parseHash(hash, pieces);
 			}, function onFailure(e) {
 				console.log("OtherSpecial.parseHash: Failed to load " + name + " - " + e);
-				//SpecialPage.prototype.parseHash(hash, pieces); // fallback for not-exist
 			});
 		};
 
@@ -4466,19 +4193,19 @@ function showV() {
 				params.otherSpecial = this;
 				params.name = name;
 				params.special = special;
-				
+
 				// add anything from scope..
-				
+
 				params.exports = {
 						// All things that should be separate AMD modules..
 						appendLocaleLink: appendLocaleLink,
 						handleDisconnect: handleDisconnect,
 						clickToSelect: clickToSelect
 				};
-				
+
 				special.show(params);
 			}, function onFailure(err) {
-				
+
 				// extended error
 				var loadingChunk;
 				var msg_fmt = stui.sub("v_bad_special_msg",
@@ -4487,15 +4214,15 @@ function showV() {
 				isLoading=false;
 			});
 		};
-		
+
 		/**
 		 * instance of otherSpecial manager
 		 * @property otherSpecial
 		 */
 		var otherSpecial = new OtherSpecial();
-		
+
 		/**
-		 * parse the hash string into surveyCurrent___ variables. 
+		 * parse the hash string into surveyCurrent___ variables.
 		 * Expected to update document.title also.
 		 * @method parseHash
 		 * @param {String} id
@@ -4520,7 +4247,7 @@ function showV() {
 					surveyCurrentLocale = pieces[1]; // could be null
 				} else {
 					surveyCurrentLocale = '';
-				}				
+				}
 				if(pieces[0].length==0 && surveyCurrentLocale!=''&&surveyCurrentLocale!=null) {
 					if(pieces.length>2) {
 						surveyCurrentPage = pieces[2];
@@ -4585,7 +4312,7 @@ function showV() {
 			updateWindowTitle();
 
 			 // if there is no locale id, refresh the search.
-			if(!surveyCurrentLocale) {  
+			if(!surveyCurrentLocale) {
 				searchRefresh();
 			}
 		};
@@ -4597,7 +4324,7 @@ function showV() {
 		 * @param doPush {Boolean} if true, do a push (instead of replace)
 		 */
 		window.replaceHash = function replaceHash(doPush) {
-			if(!doPush) doPush = false; // by default -replace. 
+			if(!doPush) doPush = false; // by default -replace.
 			var theId = window.surveyCurrentId;
 			if(theId == null) theId = '';
 			var theSpecial = window.surveyCurrentSpecial;
@@ -4610,22 +4337,8 @@ function showV() {
 			if(newHash != dojoHash()) {
 				dojoHash(newHash , !doPush);
 			}
-//			itemBox  = dojo.byId("title-item");
-//			if(itemBox!=null) {
-//			    if(theLocale=='') {
-//			    	menubuttons.set(menubuttons.item);
-//    			    //itemBox.set('value', '');
-//			    } else if(theId=='' && thePage!='') {
-//			    	menubuttons.set(menubuttons.item, theLocale+'/'+thePage+'/');
-//			        //itemBox.set('value', theLocale+'/'+thePage+'/');
-//			    } else {
-//			    	menubuttons.set(menubuttons.item,theLocale+'//'+theId);
-//    			    //itemBox.set('value', theLocale+'//'+theId);
-//			    }
-//			}
-			//document.title = document.title.split('|')[0] + " | " + '/' + theLocale + '/' + thePage;
 		};
-		
+
 		window.updateCurrentId = function updateCurrentId(id) {
 			if(id==null) id = '';
 		    if(surveyCurrentId != id) { // don't set if already set.
@@ -4636,10 +4349,9 @@ function showV() {
 
 		// (back to showV) some setup.
 		// click on the title to copy (permalink)
-//		clickToSelect(dojo.byId("title-item"));
 		clickToSelect(dojo.byId("ariScroller"));
 		updateIf("title-dcontent-link",stui.str("defaultContent_titleLink"));
-		
+
 		// TODO - rewrite using AMD
 		/**
 		 * @param postData optional - makes this a POST
@@ -4672,7 +4384,7 @@ function showV() {
 			};
 			queueXhr(xhrArgs);
 		};
-		
+
 		/**
 		 * Verify that the JSON returned is as expected.
 		 * @method verifyJson
@@ -4701,7 +4413,7 @@ function showV() {
 			} else if(!json[subkey]) {
 				console.log("!json.oldvotes");
 				showLoader(null,"Error while  loading "+subkey+": <br><div style='border: 1px solid red;'>" + "no data" + "</div>");
-				handleDisconnect("while loading- no "+subkey+"",json);	
+				handleDisconnect("while loading- no "+subkey+"",json);
 			} else {
 				return true;
 			}
@@ -4719,7 +4431,7 @@ function showV() {
 				    } else if(xtr.proposedcell && xtr.proposedcell.showFn) {
 				        // TODO: visible? coverage?
 				        window.showInPop("",xtr,xtr.proposedcell, xtr.proposedcell.showFn, true);
-				        console.log("Changed to " + surveyCurrentId);			        
+				        console.log("Changed to " + surveyCurrentId);
 				        if(!isDashboard())
 				        	scrollToItem();
 				    } else {
@@ -4728,46 +4440,38 @@ function showV() {
 				}
 			}
 		};
-		
-		
+
+
 		window.ariRetry = function() {
-//			if(didUnbust) {
-				ariDialog.hide();
-				//flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading_reloading"), "i", "loadingMsg"));
-				window.location.reload(true);
-//			} else {
-//				flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading_retrying"), "i", "loadingMsg"));
-//				unbust(); // low level unbust
-//				ariDialog.hide(); // hide abort, retry, ignore dialog
-//				reloadV(); // may end right up busted, but oh well
-//			}
+			ariDialog.hide();
+			window.location.reload(true);
 		};
-		
+
 		window.showARIDialog = function(why, json, word, oneword, p, what) {
 			console.log('showARIDialog');
 			p.parentNode.removeChild(p);
-			
+
 			if(didUnbust) {
 				why = why + "\n\n" + stui.str('ari_force_reload');
 			}
-			
+
 			// setup with why
 			var ari_message;
-			
+
 			if(json && json.session_err) {
 				ari_message = stui_str("ari_sessiondisconnect_message");
 			} else {
 				ari_message = stui.str('ari_message');
 			}
-			
+
 			var ari_submessage = formatErrMsg(json, what);
-			
+
 			updateIf('ariMessage', ari_message.replace(/\n/g,"<br>"));
 			updateIf('ariSubMessage', ari_submessage.replace(/\n/g,"<br>"));
 			updateIf('ariScroller',window.location + '<br>' + why.replace(/\n/g,"<br>"));
 			// TODO: update  ariMain and ariRetryBtn
 			hideOverlayAndSidebar();
-			
+
 			ariDialog.show();
 			var oneword = dojo.byId("progress_oneword");
 			oneword.onclick = function() {
@@ -4776,7 +4480,7 @@ function showV() {
 				}
 			};
 		};
-		
+
 		function updateCoverageMenuTitle() {
 			var cov = '';
 			if(surveyUserCov) {
@@ -4786,19 +4490,7 @@ function showV() {
 				$('#coverage-info').text(stui.sub('coverage_auto_msg', {surveyOrgCov: stui.str('coverage_' + surveyOrgCov)}));
 			}
 		}
-		function updateCoverageMenuValue() 	
-		{
-			/*var menuSelect = registry.byId('menu-select');
-			if(surveyUserCov !== null) {
-				console.log('Setting menu to value ' + surveyUserCov  );
-				menuSelect.setValue(surveyUserCov); // user cov
-			} else {
-				console.log('Setting menu to value auto');
-				menuSelect.setValue('auto'); // org cov
-			}
-			console.log("Menu value is now: "   + menuSelect.getValue());*/
-		}
-		
+
 		function updateLocaleMenu() {
             if(surveyCurrentLocale!=null && surveyCurrentLocale!='' && surveyCurrentLocale!='-') {
         		surveyCurrentLocaleName = locmap.getLocaleName( surveyCurrentLocale);
@@ -4809,7 +4501,7 @@ function showV() {
         			} else {
             			removeClass(menubuttons.getDom(menubuttons.locale), "locked");
         			}
-        			
+
         			if(bund.dcChild) {
         				menubuttons.set(menubuttons.dcontent, stui.sub("defaultContent_header_msg", {info: bund, locale: surveyCurrentLocale, dcChild: locmap.getLocaleName(bund.dcChild)}));
         			} else {
@@ -4841,54 +4533,51 @@ function showV() {
 			var specialItems = new Array();
 			if(surveyUser != null){
 				specialItems = [
-//				    {divider: true}, // li class=nav-divider
-//				    {title: 'Manage', url:'survey?do=options' }, 
-
 				    {divider: true},
 
 					{title: 'Admin Panel', url: surveyUserURL.adminPanel, display: (surveyUser && surveyUser.userlevelName === 'ADMIN')},
 					{divider: true, display: (surveyUser && surveyUser.userlevelName === 'ADMIN')},
-				    
-				    {title: 'My Account'}, // My Account section 
-				  
+
+				    {title: 'My Account'}, // My Account section
+
 				    {title: 'Settings', level: 2, url: surveyUserURL.myAccountSetting, display: surveyUserPerms.userExist },
 				    {title: 'Lock (Disable) My Account', level: 2, url: surveyUserURL.disableMyAccount, display: surveyUserPerms.userExist },
-	
+
 				    {divider: true},
-				    {title: 'My Votes'}, // My Votes section 
-				  
+				    {title: 'My Votes'}, // My Votes section
+
 				    {special: 'oldvotes', level: 2, display: surveyUserPerms.userCanImportOldVotes },
 				    {title: 'See My Recent Activity', level: 2, url: surveyUserURL.recentActivity },
 				    {title: 'Upload XML', level: 2, url: surveyUserURL.xmlUpload },
-	
+
 				    {divider: true},
 				    {title: 'My Organization('+organizationName+')'}, // My Organization section
-				  
+
 				    {special: 'vsummary', level: 2, display: surveyUserPerms.userCanUseVettingSummary },
 				    {title: 'List ' + org + ' Users', level: 2, url: surveyUserURL.manageUser, display: (surveyUserPerms.userIsTC || surveyUserPerms.userIsVetter) },
 				    {title: 'LOCKED: Note: your account is currently locked.', level: 2,  display: surveyUserPerms.userIsLocked, bold: true},
-				    
+
 				    {divider: true},
 				    {title: 'Forum'}, // Forum section
-				  
+
 				    {special: 'flagged', level: 2, img: surveyImgInfo.flag},
 				    {title: 'RSS 2.0', level: 2, url: surveyUserURL.RSS, img: surveyImgInfo.RSS},
 				    {special: 'mail', level: 2, display: !surveyOfficial },
-				    
+
 				    {divider: true},
 				    {title: 'Informational'}, // Informational section
-				  
+
 				    {special: 'statistics', level: 2 },
 				    {title: 'About', level: 2, url: surveyUserURL.about },
 				    {title: 'Lookup a code or xpath', level: 2, url: surveyUserURL.browse, display: surveyUserPerms.hasDataSource },
-				    
-				    {divider: true}, 
+
+				    {divider: true},
 				];
 			}
 			if(!doPush) {doPush = false;}
 			replaceHash(doPush); // update the hash
 			updateLocaleMenu();
-			
+
 			if(surveyCurrentLocale==null) { // deadcode?
 				menubuttons.set(menubuttons.section);
 				if(surveyCurrentSpecial!=null) {
@@ -4897,7 +4586,6 @@ function showV() {
 				} else {
 					menubuttons.set(menubuttons.page);
 				}
-//				menubuttons.set(menubuttons.item);
 				return; // nothing to do.
 			}
 			var titlePageContainer = dojo.byId("title-page-container");
@@ -4909,7 +4597,7 @@ function showV() {
 			function updateMenuTitles(menuMap) {
 				if(menubuttons.lastspecial === undefined) {
 					menubuttons.lastspecial = null;
-					
+
 					// Set up the menu here?
 					var parMenu = dojo.byId("manage-list");
 					for(var k =0; k< specialItems.length; k++) {
@@ -4922,26 +4610,26 @@ function showV() {
 									item.url = '#' + item.special;
 									item.blank = false;
 								}
-								if(item.url){	
+								if(item.url){
 									var subA = document.createElement("a");
-									
+
 									if(item.img){ // forum may need images attached to it
 										var Img=document.createElement("img");
 										Img.setAttribute('src', item.img.src);
 										Img.setAttribute('alt', item.img.alt);
 										Img.setAttribute('title', item.img.src);
 										Img.setAttribute('border', item.img.border);
-										
+
 										subA.appendChild(Img);
 									}
 									subA.appendChild(document.createTextNode(item.title+' '));
 									subA.href = item.url;
-									
+
 									if(item.blank != false){
 										subA.target = '_blank';
 										subA.appendChild(createChunk('','span','glyphicon glyphicon-share manage-list-icon'));
 									}
-								
+
 									if(item.level){ // append it to appropriate levels
 										var level = item.level;
 										for(var i=0; i< level-1; i++){
@@ -4965,7 +4653,7 @@ function showV() {
 											subA = document.createElement("span");
 										}
 										subA.appendChild(document.createTextNode(item.title+' '));
-										
+
 										var level = item.level;
 										for(var i=0; i< level-1; i++){
 											var sublevel = document.createElement("ul");
@@ -4983,73 +4671,52 @@ function showV() {
 						})(item);
 					}
 				}
-				
+
 				if(menubuttons.lastspecial) {
 					removeClass(menubuttons.lastspecial, "selected");
 				}
 
 				updateLocaleMenu(menuMap);
 				if(surveyCurrentSpecial!= null && surveyCurrentSpecial != '') {
-//					menubuttons.set(menubuttons.section /*,stui_str("section_special") */);
-					//menubuttons.set(menubuttons.section,stui_str("special_"+surveyCurrentSpecial));
 					var specialId = "special_"+surveyCurrentSpecial;
 					$('#section-current').html(stui_str(specialId));
-//					menubuttons.lastspecial = dojo.byId('menu_'+specialId);
-//					addClass(menubuttons.lastspecial, 'selected');
 					setDisplayed(titlePageContainer, false);
 				} else if(!menuMap) {
-					//menubuttons.set(menubuttons.section);
 					setDisplayed(titlePageContainer, false);
-//					menubuttons.set(menubuttons.page, surveyCurrentPage); 
 				} else {
 					if(menuMap.sectionMap[window.surveyCurrentPage]) {
 						surveyCurrentSection = surveyCurrentPage; // section = page
-						//menubuttons.set(menubuttons.section, menuMap.sectionMap[surveyCurrentSection].name);
 						$('#section-current').html(menuMap.sectionMap[surveyCurrentSection].name);
 						setDisplayed(titlePageContainer, false); // will fix title later
 					} else if(menuMap.pageToSection[window.surveyCurrentPage]) {
 						var mySection = menuMap.pageToSection[window.surveyCurrentPage];
-						//var myPage = mySection.pageMap[window.surveyCurrentPage];
 						surveyCurrentSection = mySection.id;
-						//menubuttons.set(menubuttons.section, mySection.name);
 						$('#section-current').html(mySection.name);
 						setDisplayed(titlePageContainer, false); // will fix title later
-//						menubuttons.set(menubuttons.page, myPage.name);
 					} else {
-						//menubuttons.set(menubuttons.section, stui_str("section_general"));
 						$('#section-current').html(stui_str("section_general"));
 						setDisplayed(titlePageContainer, false);
-//						menubuttons.set(menubuttons.page);
 					}
 				}
-				/*if(surveyCurrentSpecial=='' || surveyCurrentSpecial===null) {
-					dojo.byId('st-link').href = dojo.byId('title-locale').href = '#locales//'+surveyCurrentPage+'/'+surveyCurrentId;
-				} else {
-					dojo.byId('st-link').href = dojo.byId('title-locale').href = '#locales///';
-				}*/
 			}
 
 			/**
 			 * @method updateMenus
 			 */
 			function updateMenus(menuMap) {
-				// initializE menus
-
+				// initialize menus
 				if(!menuMap.menusSetup) {
 					menuMap.menusSetup=true;
 					menuMap.setCheck = function(menu, checked,disabled) {
-						menu.set('iconClass',   (checked)?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-o");
+						menu.set('iconClass', checked ? "dijitMenuItemIcon menu-x" : "dijitMenuItemIcon menu-o");
 						menu.set('disabled', disabled);
 					};
 					var menuSection = registry.byId("menu-section");
-					//menuSection.destroyDescendants(false);
 					menuMap.section_general = new MenuItem({
 						label: stui_str("section_general"),
-						//checked:   (surveyCurrentPage == ''),
 						iconClass:  "dijitMenuItemIcon ",
 						disabled: true,
-						//    iconClass:"dijitEditorIcon dijitEditorIconSave",
-						onClick: function(){ 
+						onClick: function(){
 							if(surveyCurrentPage!='' || (surveyCurrentSpecial!='' && surveyCurrentSpecial != null)) {
 								surveyCurrentId = ''; // no id if jumping pages
 								surveyCurrentPage = '';
@@ -5066,7 +4733,7 @@ function showV() {
 							aSection.menuItem = new MenuItem({
 								label: aSection.name,
 								iconClass: "dijitMenuItemIcon",
-								onClick: function(){ 
+								onClick: function(){
 										surveyCurrentId = '!'; // no id if jumping pages
 										surveyCurrentPage = aSection.id;
 										surveyCurrentSpecial = '';
@@ -5076,18 +4743,18 @@ function showV() {
 								},
 								disabled: true
 							});
-							
+
 							menuSection.addChild(aSection.menuItem);
 						})(menuMap.sections[j]);
 					}
-					
+
 					menuSection.addChild(new MenuSeparator());
 
 					menuMap.forumMenu = new MenuItem({
 						label: stui_str("section_forum"),
 						iconClass: "dijitMenuItemIcon", // menu-chat
 						disabled: true,
-						onClick: function(){ 
+						onClick: function(){
 							surveyCurrentId = '!'; // no id if jumping pages
 							surveyCurrentPage = '';
 							surveyCurrentSpecial = 'forum';
@@ -5096,10 +4763,8 @@ function showV() {
 							reloadV();						}
 					});
 					menuSection.addChild(menuMap.forumMenu);
-					
 				}
-				
-				
+
 				updateMenuTitles(menuMap);
 
 				var myPage = null;
@@ -5115,36 +4780,28 @@ function showV() {
 					}
 					if(mySection!==null) {
 						// update menus under 'page' - peer pages
-
 						if(!titlePageContainer.menus) {
 							titlePageContainer.menus = {};
 						}
-						
+
 						// hide all. TODO use a foreach model?
 						for(var zz in titlePageContainer.menus) {
 							var aMenu = titlePageContainer.menus[zz];
 							aMenu.set('label','-');
-							//setDisplayed(aMenu, false);
 						}
-						
 
 						var showMenu = titlePageContainer.menus[mySection.id];
 
 						if(!showMenu) {
 							// doesn't exist - add it.
-
 							var menuPage = new DropDownMenu();
-							
 							for(var k in mySection.pages) { // use given order
 								(function(aPage) {
-		
+
 									var pageMenu = aPage.menuItem =  new MenuItem({
 										label: aPage.name,
-										
-										iconClass:  (aPage.id == surveyCurrentPage)?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-o",
-//										checked:   (aPage.id == surveyCurrentPage),
-										//    iconClass:"dijitEditorIcon dijitEditorIconSave",
-										onClick: function(){ 
+										iconClass: (aPage.id == surveyCurrentPage) ? "dijitMenuItemIcon menu-x" : "dijitMenuItemIcon menu-o",
+										onClick: function(){
 											surveyCurrentId = ''; // no id if jumping pages
 											surveyCurrentPage = aPage.id;
 											updateMenuTitles(menuMap);
@@ -5152,35 +4809,24 @@ function showV() {
 										},
 										disabled: (effectiveCoverage()<parseInt(aPage.levs[surveyCurrentLocale]))
 									});
-									//menuPage.addChild(pageMenu);
 								})(mySection.pages[k]);
 							}
 
-							var theButton = new DropDownButton({label: '-', dropDown: menuPage});
+							showMenu = new DropDownButton({label: '-', dropDown: menuPage});
 
-							
-							//theButton.placeAt(titlePageContainer);
-							//console.log(myPage.name);
-							//console.log(theButton);
-
-							showMenu = theButton;
-							
 							titlePageContainer.menus[mySection.id] = mySection.pagesMenu = showMenu;
 						}
-						
+
 						if(myPage !== null) {
-							//showMenu.set('label', myPage.name);
 							$('#title-page-container').html('<h1>'+myPage.name+'</h1>').show();
 						} else {
-							//showMenu.set('label', stui.str('section_subpages')); // no page selected
 							$('#title-page-container').html('').hide();
 						}
 						setDisplayed(showMenu, true);
 						setDisplayed(titlePageContainer, true); // will fix title later
 					}
-
 				}
-				
+
 				stdebug('Updating menus.. ecov = ' + effectiveCoverage());
 
 				menuMap.setCheck(menuMap.section_general,  (surveyCurrentPage == '' && (surveyCurrentSpecial=='' || surveyCurrentSpecial==null)),false);
@@ -5191,7 +4837,7 @@ function showV() {
 					// need to see if any items are visible @ current coverage
 					stdebug("for " + aSection.name + " minLev["+surveyCurrentLocale+"] = "+ aSection.minLev[surveyCurrentLocale]);
 					menuMap.setCheck(aSection.menuItem,  (surveyCurrentSection == aSection.id),effectiveCoverage()<aSection.minLev[surveyCurrentLocale]);
-					
+
 					// update the items in that section's Page menu
 					if(surveyCurrentSection == aSection.id) {
 						for(var k in aSection.pages ) {
@@ -5204,55 +4850,48 @@ function showV() {
 						}
 					}
 				}
-				
-				menuMap.setCheck(menuMap.forumMenu,  (surveyCurrentSpecial == 'forum'),(surveyUser	===null));	
+
+				menuMap.setCheck(menuMap.forumMenu,  (surveyCurrentSpecial == 'forum'),(surveyUser	===null));
 				resizeSidebar();
 			}
 
 			if(_thePages == null || _thePages.loc != surveyCurrentLocale ) {
 				// show the raw IDs while loading.
 				updateMenuTitles(null);
-				
+
 				if(surveyCurrentLocale!=null&&surveyCurrentLocale!='') {
 					var needLocTable = false;
-				
+
 					var url = contextPath + "/SurveyAjax?_="+surveyCurrentLocale+"&s="+surveySessionId+"&what=menus&locmap="+needLocTable+cacheKill();
 					myLoad(url, "menus", function(json) {
 						if(!verifyJson(json, "menus")) {
 							return; // busted?
 						}
-						
-						{
-							
-							if(json.locmap) {
-								locmap = new LocaleMap(locmap); // overwrite with real data
-							}
-							
-							// make this into a hashmap.
-							if(json.canmodify) {
-								var canmodify = {};
-								for(var k in json.canmodify) {
-									canmodify[json.canmodify[k]]=true;
-								}
-								window.canmodify = canmodify;
-							}
-							
-							updateCovFromJson(json);
-							
-							updateCoverageMenuTitle();
-							updateCoverageMenuValue();
-							updateCoverage(flipper.get(pages.data)); // update CSS and auto menu title
+
+						if(json.locmap) {
+							locmap = new LocaleMap(locmap); // overwrite with real data
 						}
-						
-						
+
+						// make this into a hashmap.
+						if(json.canmodify) {
+							var canmodify = {};
+							for(var k in json.canmodify) {
+								canmodify[json.canmodify[k]]=true;
+							}
+							window.canmodify = canmodify;
+						}
+
+						updateCovFromJson(json);
+						updateCoverageMenuTitle();
+						updateCoverage(flipper.get(pages.data)); // update CSS and auto menu title
+
 						function unpackMenus(json) {
 							var menus = json.menus;
-							
+
 							if(_thePages) {
 								stdebug("Updating cov info into menus for " + json.loc);
 								for(var k in menus.sections) {
 									var oldSection = _thePages.sectionMap[menus.sections[k].id];
-									// _thePages.sections[k].minCov[locale] = ...
 									for(var j in menus.sections[k].pages) {
 										var oldPage = oldSection.pageMap[menus.sections[k].pages[j].id];
 
@@ -5277,7 +4916,7 @@ function showV() {
 								}
 								_thePages = menus;
 							}
-							
+
 							stdebug("Calculating minimum section coverage for " + json.loc);
 							for(var k in _thePages.sectionMap) {
 								var min = 200;
@@ -5289,7 +4928,7 @@ function showV() {
 								}
 								_thePages.sectionMap[k].minLev[json.loc] = min;
 							}
-							
+
 							_thePages.haveLocs[json.loc] = true;
 						}
 
@@ -5312,9 +4951,9 @@ function showV() {
 				subDiv.className = 'warnText';
 				theDiv.appendChild(subDiv);
 			}
-			
+
 			var bund = locmap.getLocaleInfo(surveyCurrentLocale);
-			
+
 			if(bund) {
 				if(bund.readonly) {
 					var msg = null;
@@ -5339,8 +4978,7 @@ function showV() {
 				}
 			}
 		};
-		
-		
+
 		/**
 		 * Show the "possible problems" section which has errors for the locale
 		 * @method showPossibleProblems
@@ -5353,11 +4991,10 @@ function showV() {
 				myLoad(url, "possibleProblems", function(json) {
 					if(verifyJson(json, 'possibleProblems')) {
 						stdebug("json.possibleProblems OK..");
-						//showLoader(theDiv.loader, "loading..");
 						if(json.dataLoadTime) {
 							updateIf("dynload", json.dataLoadTime);
 						}
-						
+
 						var theDiv = flipper.flipToEmpty(flipPage);
 
 						insertLocaleSpecialNote(theDiv);
@@ -5375,20 +5012,18 @@ function showV() {
 							div3.innerHTML = newHtml;
 							subDiv.appendChild(div3);
 							theDiv.appendChild(subDiv);
-						} else if(surveyCurrentPage=='' && surveyCurrentId=='') {
-							// "no problems"
 						}
-						var theInfo;
-						theDiv.appendChild(theInfo = createChunk("","p","special_general"));
-						theInfo.innerHTML = stui_str("special_general"); // TODO replace with … ? 
+						var theInfo = createChunk("","p","special_general");
+						theDiv.appendChild(theInfo);
+						theInfo.innerHTML = stui_str("special_general"); // TODO replace with … ?
 						hideLoader(null);
 					}
 				});
 			});
 		}
-		
+
 		var isLoading = false;
-		
+
 		/**
 		 * This is the main entrypoint to the 'new' view system, based in /v.jsp
 		 * @method reloadV
@@ -5397,12 +5032,12 @@ function showV() {
 			if(disconnected) {
 				unbust();
 			}
-			
+
 			document.getElementById('DynamicDataSection').innerHTML = '';//reset the data
 			$('#nav-page').hide();
 			isLoading = false;
 			showers[flipper.get(pages.data).id]=function(){ console.log("reloadV()'s shower - ignoring reload request, we are in the middle of a load!"); };
-			
+
 			// assume parseHash was already called, if we are taking input from the hash
 			ariDialog.hide();
 
@@ -5420,47 +5055,38 @@ function showV() {
 				}
 			}
 
-			
 			// todo dont even flip if it's quick.
 			var loadingChunk;
 			flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading"), "i", "loadingMsg"));
-//			var loadingPane = flipper.get(pages.loading);
 
-			var itemLoadInfo = createChunk("","div","itemLoadInfo");			
-			//loadingPane.appendChild(itemLoadInfo);
-			
-//			var serverLoadInfo = createChunk("","div","serverLoadInfo");			
-//			//loadingPane.appendChild(serverLoadInfo);
-			{
-				// Create a little spinner to spin "..." so the user knows we are doing something..
-				var spinChunk = createChunk("...","i","loadingMsgSpin");
-				var spin = 0;
-				var timerToKill = window.setInterval(function() {
-					 var spinTxt = '';
-					 spin++;
-					 switch(spin%3) {
-						 case 0: spinTxt = '.  '; break;
-						 case 1: spinTxt = ' . '; break;
-						 case 2: spinTxt = '  .'; break;
-					 }
-					 removeAllChildNodes(spinChunk);
-					 spinChunk.appendChild(document.createTextNode(spinTxt));						
-				}, 1000);
+			var itemLoadInfo = createChunk("","div","itemLoadInfo");
 
-				// Add the "..." until the Flipper flips
-				flipper.addUntilFlipped(function() {
-					var frag = document.createDocumentFragment();
-					frag.appendChild(spinChunk);
-					return frag;
-				}, function() {
-					window.clearInterval(timerToKill);
-				});
-			}
+			// Create a little spinner to spin "..." so the user knows we are doing something..
+			var spinChunk = createChunk("...","i","loadingMsgSpin");
+			var spin = 0;
+			var timerToKill = window.setInterval(function() {
+				 var spinTxt = '';
+				 spin++;
+				 switch(spin%3) {
+					 case 0: spinTxt = '.  '; break;
+					 case 1: spinTxt = ' . '; break;
+					 case 2: spinTxt = '  .'; break;
+				 }
+				 removeAllChildNodes(spinChunk);
+				 spinChunk.appendChild(document.createTextNode(spinTxt));
+			}, 1000);
+
+			// Add the "..." until the Flipper flips
+			flipper.addUntilFlipped(function() {
+				var frag = document.createDocumentFragment();
+				frag.appendChild(spinChunk);
+				return frag;
+			}, function() {
+				window.clearInterval(timerToKill);
+			});
 
 			// now, load. Use a show-er function for indirection.
-			var shower = null;
-
-			shower = function() {
+			var shower = function() {
 				if(isLoading) {
 					console.log("reloadV inner shower: already isLoading, exitting.");
 					return;
@@ -5478,7 +5104,7 @@ function showV() {
 				}
 
 				showLoader(null, theDiv.stui.loading);
-				
+
 				if((surveyCurrentSpecial == null||surveyCurrentSpecial=='') && surveyCurrentLocale!=null && surveyCurrentLocale!='') {
 					if((surveyCurrentPage==null || surveyCurrentPage=='') && (surveyCurrentId==null||surveyCurrentId=='')) {
 						// the 'General Info' page.
@@ -5515,11 +5141,10 @@ function showV() {
 									surveyCurrentPage= '';
 								}
 								showLoader(null);
-								//flipper.flipTo(pages.other, createChunk(stui_str("loading_nocontent"),"i","loadingMsg"));
 								updateHashAndMenus(); // find out why there's no content. (locmap)
 							} else if(!json.section.rows) {
 								console.log("!json.section.rows");
-								showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no rows" + "</div>");				        
+								showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no rows" + "</div>");
 								handleDisconnect("while loading- no rows",json);
 							} else {
 								stdebug("json.section.rows OK..");
@@ -5563,32 +5188,32 @@ function showV() {
 							if(json.dataLoadTime) {
 								updateIf("dynload", json.dataLoadTime);
 							}
-							
+
 							var theDiv = flipper.flipToEmpty(pages.other); // clean slate, and proceed..
 
 							removeAllChildNodes(theDiv);
-							
+
 							// changed h2txt, v_oldvotes_title per https://unicode.org/cldr/trac/ticket/11135
 							// TODO: simplify if votesafter, newVersion no longer used
 							// var h2var = {votesafter:json.oldvotes.votesafter, newVersion:json.status.newVersion};
 							// var h2txt = stui.sub("v_oldvotes_title",h2var);
 							var h2txt = stui.str("v_oldvotes_title");
 							theDiv.appendChild(createChunk(h2txt, "h2", "v-title"));
-							
+
 							if(!json.oldvotes.locale) {
 								surveyCurrentLocale='';
 								updateHashAndMenus();
-								
+
 								var ul = document.createElement("div");
 								ul.className = "oldvotes_list";
 								var data = json.oldvotes.locales.data;
 								var header = json.oldvotes.locales.header;
-								
+
 								if(data.length > 0) {
 									data.sort((a, b) => a[header.LOCALE].localeCompare(b[header.LOCALE]));
 									for(var k in data) {
 										var li = document.createElement("li");
-										
+
 										var link = createChunk(data[k][header.LOCALE_NAME],"a");
 										link.href = "#"+data[k][header.LOCALE];
 										(function(loc,link) {
@@ -5605,13 +5230,13 @@ function showV() {
 										li.appendChild(link);
 										li.appendChild(createChunk(" "));
 										li.appendChild(createChunk("("+data[k][header.COUNT]+")"));
-										
+
 										ul.appendChild(li);
 									}
-									
+
 									theDiv.appendChild(ul);
-									
-									theDiv.appendChild(createChunk(stui.str("v_oldvotes_locale_list_help_msg"), "p", "helpContent")); 
+
+									theDiv.appendChild(createChunk(stui.str("v_oldvotes_locale_list_help_msg"), "p", "helpContent"));
 								} else {
 									theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_old"),"i")); // TODO fix
 								}
@@ -5642,16 +5267,16 @@ function showV() {
 										t.id = 'oldVotesAcceptList';
 										var th = document.createElement("thead");
 										var tb = document.createElement("tbody");
-										{
-											var tr = document.createElement("tr");
-											tr.appendChild(createChunk(stui.str("v_oldvotes_path"),"th","code"));
-											tr.appendChild(createChunk(json.BASELINE_LANGUAGE_NAME,"th","v-comp"));
-											tr.appendChild(createChunk(stui.sub("v_oldvotes_winning_msg", {version: surveyLastVoteVersion}),"th","v-win"));
-											tr.appendChild(createChunk(stui.str("v_oldvotes_mine"),"th","v-mine"));
-											var accept;
-											tr.appendChild(accept=createChunk(stui.str("v_oldvotes_accept"),"th","v-accept"));
-											th.appendChild(tr);
-										}
+
+										var tr = document.createElement("tr");
+										tr.appendChild(createChunk(stui.str("v_oldvotes_path"),"th","code"));
+										tr.appendChild(createChunk(json.BASELINE_LANGUAGE_NAME,"th","v-comp"));
+										tr.appendChild(createChunk(stui.sub("v_oldvotes_winning_msg", {version: surveyLastVoteVersion}),"th","v-win"));
+										tr.appendChild(createChunk(stui.str("v_oldvotes_mine"),"th","v-mine"));
+
+										var accept;
+										tr.appendChild(accept=createChunk(stui.str("v_oldvotes_accept"),"th","v-accept"));
+										th.appendChild(tr);
 										t.appendChild(th);
 										var oldPath = '';
 										var oldSplit = [];
@@ -5660,7 +5285,7 @@ function showV() {
 											var tr = document.createElement("tr");
 											var tdp;
 											var rowTitle = '';
-											
+
 											// delete common substring
 											var pathSplit = row.pathHeader.split('	');
 											for(var nn in pathSplit) {
@@ -5684,14 +5309,14 @@ function showV() {
 											}
 											oldSplit = pathSplit;
 											rowTitle = pathSplit[pathSplit.length - 1];
-											
+
 											tdp = createChunk("","td","v-path");
-											
-													var dtpl = createChunk(rowTitle, "a");
-													dtpl.href = "v#/"+surveyCurrentLocale+"//"+row.strid;
-													dtpl.target='_CLDR_ST_view';
-													tdp.appendChild(dtpl);
-											
+
+											var dtpl = createChunk(rowTitle, "a");
+											dtpl.href = "v#/"+surveyCurrentLocale+"//"+row.strid;
+											dtpl.target='_CLDR_ST_view';
+											tdp.appendChild(dtpl);
+
 											tr.appendChild(tdp);
 											var td00 = createChunk(row.baseValue,"td","v-comp"); // english
 											tr.appendChild(td00);
@@ -5699,20 +5324,16 @@ function showV() {
 											if(row.winValue) {
 												var span0 = appendItem(td0, row.winValue, "winner");
 												span0.dir = json.oldvotes.dir;
-											} else {
-												//tr.appendChild(createChunk("","td","v-win"));
 											}
 											tr.appendChild(td0);
 											var td1 = createChunk("","td","v-mine");
 											var label  = createChunk("","label","");
-											//label["for"] ='c_'+row.strid;
 											var span1 = appendItem(label, row.myValue, "value");
 											td1.appendChild(label);
 											span1.dir = json.oldvotes.dir;
 											tr.appendChild(td1);
 											var td2 = createChunk("","td","v-accept");
 											var box = createChunk("","input","");
-											//box.name='c_'+row.strid;
 											box.type="checkbox";
 											if(type=='uncontested') { // uncontested true by default
 												box.checked=true;
@@ -5722,19 +5343,14 @@ function showV() {
 											tr.appendChild(td2);
 
 											(function(tr,box,tdp){return function(){
-                                                                                            // allow click anywhere
+                                                // allow click anywhere
 											    listenFor(tr, "click", function(e) {
-
 													box.checked = !box.checked;
-
 													stStopPropagation(e);
 													return false;
 												});
-                                                                                            // .. but not on the path.  Also listem to the box and do nothing
+                                                // .. but not on the path.  Also listem to the box and do nothing
 												listenFor([tdp,box], "click", function(e) {
-
-													//box.checked = !box.checked;
-
 													stStopPropagation(e);
 													return false;
 												});
@@ -5753,21 +5369,20 @@ function showV() {
 										return t;
 									}
 
-									
 									var frag = document.createDocumentFragment();
 
 									const oldVoteCount = (json.oldvotes.contested ? json.oldvotes.contested.length : 0) +
 									                     (json.oldvotes.uncontested ? json.oldvotes.uncontested.length : 0);
 									var summaryMsg = stui.sub("v_oldvotes_count_msg", {count: oldVoteCount});
-									frag.appendChild(createChunk(summaryMsg, "div", ""));										
+									frag.appendChild(createChunk(summaryMsg, "div", ""));
 
 									var navChunk = document.createElement("div");
 									navChunk.className = 'v-oldVotes-nav';
 									frag.appendChild(navChunk);
-									
+
 									var uncontestedChunk = null;
 									var contestedChunk = null;
-									
+
 									function addOldvotesType(type, jsondata, frag, navChunk) {
 										var content = createChunk("", "div", "v-oldVotes-subDiv");
 										content.strid = "v_oldvotes_title_" + type; // v_oldvotes_title_contested or v_oldvotes_title_uncontested
@@ -5778,9 +5393,9 @@ function showV() {
 										 * Show headings for "Winning/Losing" only if json.oldvotes.uncontested is defined and non-empty.
 										 */
 										if ((json.oldvotes.uncontested && json.oldvotes.uncontested.length > 0)) {
-											var title = stui.str(content.strid);											
+											var title = stui.str(content.strid);
 											content.title = title;
-											content.appendChild(createChunk(title,"h2","v-oldvotes-sub"));											
+											content.appendChild(createChunk(title,"h2","v-oldvotes-sub"));
 										}
 
 										content.appendChild(showVoteTable(jsondata, type));
@@ -5795,12 +5410,10 @@ function showV() {
 											var confirmList= []; // these will be revoted with current params
 											var deleteList = []; // these will be deleted
 
-											// explicit confirm/delete list -  save us desync hassle
+											// explicit confirm list -  save us desync hassle
 											for(var kk in jsondata ) {
 												if(jsondata[kk].box.checked) {
 													confirmList.push(jsondata[kk].strid);
-//												} else {
-//													deleteList.push(jsondata[kk].strid);
 												}
 											}
 
@@ -5824,17 +5437,15 @@ function showV() {
 												}
 											},  JSON.stringify(saveList), { "Content-Type": "application/json"} );
 										});
-										
+
 										submit.placeAt(content);
 										// hide by default
 										setDisplayed(content, false);
-										
+
 										frag.appendChild(content);
 										return content;
 									}
-									
-									
-									
+
 									if (json.oldvotes.uncontested && json.oldvotes.uncontested.length > 0){
 										uncontestedChunk = addOldvotesType("uncontested",json.oldvotes.uncontested, frag, navChunk);
 									}
@@ -5857,14 +5468,14 @@ function showV() {
 											setDisplayed(contestedChunk, true);
 											setDisplayed(uncontestedChunk, false);
 										}, 'button'));
-										
+
 										contestedChunk.appendChild(createLinkToFn("v_oldvotes_hide", function() {
 											setDisplayed(contestedChunk, false);
 										}, 'button'));
 										uncontestedChunk.appendChild(createLinkToFn("v_oldvotes_hide", function() {
 											setDisplayed(uncontestedChunk, false);
 										}, 'button'));
-										
+
 									}
 
 									theDiv.appendChild(frag);
@@ -5886,22 +5497,21 @@ function showV() {
 							if(json.dataLoadTime) {
 								updateIf("dynload", json.dataLoadTime);
 							}
-							
+
 							var theDiv = flipper.flipToEmpty(pages.other); // clean slate, and proceed..
 
 							removeAllChildNodes(theDiv);
-							
+
 							var listDiv = createChunk("","div","mailListChunk");
 							var contentDiv = createChunk("","div","mailContentChunk");
-							
-							
+
 							theDiv.appendChild(listDiv);
 							theDiv.appendChild(contentDiv);
-							
+
 							setDisplayed(contentDiv,false);
 							var header = json.mail.header;
 							var data = json.mail.data;
-							
+
 							if(data.length == 0) {
 								listDiv.appendChild(createChunk(stui.str("mail_noMail"),"p","helpContent"));
 							} else {
@@ -5922,42 +5532,42 @@ function showV() {
 										li.appendChild(createChunk("(try#"+row[header.TRY_COUNT]+")", "span", "warning"));
 									}
 									listDiv.appendChild(li);
-									
+
 									li.onclick = (function(li,row,header) {
 										return function() {
-									 	  if(!row[header.READ_DATE])
-											myLoad(contextPath + "/SurveyAjax?what=mail&s="+surveySessionId+"&markRead="+row[header.ID]+"&"+cacheKill(), 'Marking mail read', function(json) {
-												if(!verifyJson(json, 'mail')) {
-													return;
-												} else {
-													addClass(li, "readMail"); // mark as read when server answers
-													row[header.READ_DATE]=true; // close enough
-												}
-											});
-									 	  
-									 	  setDisplayed(contentDiv, false);
-									 	  
-									 	  removeAllChildNodes(contentDiv);
-									 	  
-									 	  contentDiv.appendChild(createChunk("Date: " + row[header.QUEUE_DATE], "h2", "mailHeader"));
-									 	  contentDiv.appendChild(createChunk("Subject: " + row[header.SUBJECT], "h2", "mailHeader"));
-									 	  contentDiv.appendChild(createChunk("Message-ID: " + row[header.ID], "h2", "mailHeader"));
-											if(header.USER !== undefined) {
+										 	  if(!row[header.READ_DATE])
+												myLoad(contextPath + "/SurveyAjax?what=mail&s="+surveySessionId+"&markRead="+row[header.ID]+"&"+cacheKill(), 'Marking mail read', function(json) {
+													if(!verifyJson(json, 'mail')) {
+														return;
+													} else {
+														addClass(li, "readMail"); // mark as read when server answers
+														row[header.READ_DATE]=true; // close enough
+													}
+												});
+
+										 	  setDisplayed(contentDiv, false);
+
+										 	  removeAllChildNodes(contentDiv);
+
+										 	  contentDiv.appendChild(createChunk("Date: " + row[header.QUEUE_DATE], "h2", "mailHeader"));
+										 	  contentDiv.appendChild(createChunk("Subject: " + row[header.SUBJECT], "h2", "mailHeader"));
+										 	  contentDiv.appendChild(createChunk("Message-ID: " + row[header.ID], "h2", "mailHeader"));
+										 	  if(header.USER !== undefined) {
 											 	  contentDiv.appendChild(createChunk("To: " + row[header.USER], "h2", "mailHeader"));
-											}
-									 	  contentDiv.appendChild(createChunk(row[header.TEXT], "p", "mailContent"));
-									 	  
-									 	  setDisplayed(contentDiv, true);
-										};
-									})(li, row, header);
+											  }
+										 	  contentDiv.appendChild(createChunk(row[header.TEXT], "p", "mailContent"));
+
+										 	  setDisplayed(contentDiv, true);
+											};
+										})(li, row, header);
 								}
 							}
-							
+
 						}
 					});
 				} else if(isReport(surveyCurrentSpecial)) {
 					showLoader(theDiv.loader);
-					showInPop2(stui.str("reportGuidance"), null, null, null, true, true); /* show the box the first time */					
+					showInPop2(stui.str("reportGuidance"), null, null, null, true, true); /* show the box the first time */
 					require([
 					         "dojo/ready",
 					         "dojo/dom",
@@ -5974,7 +5584,7 @@ function showV() {
 					        		 request,
 					        		 dojoNumber
 					        ) { ready(function(){
-					        	
+
 								var url = contextPath + "/EmbeddedReport.jsp?x="+surveyCurrentSpecial+"&_="+surveyCurrentLocale+"&s="+surveySessionId+cacheKill();
 								var errFunction = function errFunction(err) {
 									console.log("Error: loading " + url + " -> " + err);
@@ -6017,30 +5627,28 @@ function showV() {
 									})
 									.otherwise(errFunction);
 								}
-								
+
 					        });
 					 });
 				} else if(surveyCurrentSpecial == 'none') {
-					//for now - redurect
+					// for now - redirect
 					hideLoader(null);
 					isLoading=false;
 					window.location = survURL; // redirect home
 				} else if(surveyCurrentSpecial == 'locales') {
 					hideLoader(null);
-					isLoading=false;					
+					isLoading=false;
 					var theDiv = document.createElement("div");
 					theDiv.className = 'localeList';
 
-					var addSubLocale;
-					
-					addSubLocale = function addSubLocale(parLocDiv, subLoc) {
+					var addSubLocale = function addSubLocale(parLocDiv, subLoc) {
 						var subLocInfo = locmap.getLocaleInfo(subLoc);
 						var subLocDiv = createChunk(null, "div", "subLocale");
 						appendLocaleLink(subLocDiv, subLoc, subLocInfo);
-						
+
 						parLocDiv.appendChild(subLocDiv);
 					};
-					
+
 					var addSubLocales = function addSubLocales(parLocDiv, subLocInfo) {
 						if(subLocInfo.sub) {
 							for(var n in subLocInfo.sub) {
@@ -6049,14 +5657,9 @@ function showV() {
 							}
 						}
 					};
-					
-				
-					
-					
-					
+
 					var addTopLocale = function addTopLocale(topLoc) {
 						var topLocInfo = locmap.getLocaleInfo(topLoc);
-
 
 						var topLocRow = document.createElement("div");
 						topLocRow.className="topLocaleRow";
@@ -6067,27 +5670,26 @@ function showV() {
 
 						var topLocList = document.createElement("div");
 						topLocList.className="subLocaleList";
-						
+
 						addSubLocales(topLocList, topLocInfo);
-						
+
 						topLocRow.appendChild(topLocDiv);
 						topLocRow.appendChild(topLocList);
 						theDiv.appendChild(topLocRow);
 					};
-					
-					
+
 					addTopLocale("root");
 					// top locales
 					for(var n in locmap.locmap.topLocales) {
 						var topLoc = locmap.locmap.topLocales[n];
-						addTopLocale(topLoc);						
+						addTopLocale(topLoc);
 					}
 					flipper.flipTo(pages.other,null);
 				    filterAllLocale();//filter for init data
 					forceSidebar();
 					surveyCurrentLocale=null;
 					surveyCurrentSpecial='locales';
-					showInPop2(stui.str("localesInitialGuidance"), null, null, null, true); /* show the box the first time */					
+					showInPop2(stui.str("localesInitialGuidance"), null, null, null, true); /* show the box the first time */
 					$('#itemInfo').html('');
 				} else {
 					otherSpecial.show(surveyCurrentSpecial, {flipper: flipper, pages: pages});
@@ -6095,18 +5697,17 @@ function showV() {
 			}; // end shower
 
 			shower(); // first load
-//			flipper.get(pages.data).shower = shower;
-			
-			// set up the "show-er" function so that if this locale gets reloaded, the page will load again - execept for the dashboard, where only the row get updated
-			if(!isDashboard())
-				showers[flipper.get(pages.data).id]=shower;
-			//else
-			//	showers[flipper.get(pages.data).id]= function() {popupAlert('warning','Change has been made to your locale, consider <a href="#" onclick="window.location.reload()">reloading</a> !');};
 
+			// set up the "show-er" function so that if this locale gets reloaded, the page will load again - execept for the dashboard, where only the row get updated
+			if(!isDashboard()) {
+				showers[flipper.get(pages.data).id]=shower;
+			}
 		};  // end reloadV
 
 		function trimNull(x) {
-			if(x==null) return '';
+			if(x==null) {
+				return '';
+			}
 			try {
 				x = x.toString().trim();
 			} catch(e) {
@@ -6118,7 +5719,7 @@ function showV() {
 		ready(function(){
 			window.parseHash(dojoHash()); // get the initial settings
 			// load the menus - first.
-			
+
 			var theLocale = surveyCurrentLocale;
 			if(surveyCurrentLocale===null || surveyCurrentLocale=='') {
 				theLocale = 'und';
@@ -6138,21 +5739,21 @@ function showV() {
 						}
 						window.canmodify = canmodify;
 					}
-					
+
 					//update left sidebar with locale data
 					var theDiv = document.createElement("div");
 					theDiv.className = 'localeList';
 
 					var addSubLocale;
-					
+
 					addSubLocale = function addSubLocale(parLocDiv, subLoc) {
 						var subLocInfo = locmap.getLocaleInfo(subLoc);
 						var subLocDiv = createChunk(null, "div", "subLocale");
 						appendLocaleLink(subLocDiv, subLoc, subLocInfo);
-						
+
 						parLocDiv.appendChild(subLocDiv);
 					};
-					
+
 					var addSubLocales = function addSubLocales(parLocDiv, subLocInfo) {
 						if(subLocInfo.sub) {
 							for(var n in subLocInfo.sub) {
@@ -6161,14 +5762,9 @@ function showV() {
 							}
 						}
 					};
-					
-				
-					
-					
-					
+
 					var addTopLocale = function addTopLocale(topLoc) {
 						var topLocInfo = locmap.getLocaleInfo(topLoc);
-
 
 						var topLocRow = document.createElement("div");
 						topLocRow.className="topLocaleRow";
@@ -6179,20 +5775,20 @@ function showV() {
 
 						var topLocList = document.createElement("div");
 						topLocList.className="subLocaleList";
-						
+
 						addSubLocales(topLocList, topLocInfo);
-						
+
 						topLocRow.appendChild(topLocDiv);
 						topLocRow.appendChild(topLocList);
 						theDiv.appendChild(topLocRow);
 					};
-					
-					
+
+
 					addTopLocale("root");
 					// top locales
 					for(var n in locmap.locmap.topLocales) {
 						var topLoc = locmap.locmap.topLocales[n];
-						addTopLocale(topLoc);						
+						addTopLocale(topLoc);
 					}
 					$('#locale-list').html(theDiv.innerHTML);
 
@@ -6200,7 +5796,7 @@ function showV() {
 						$('#show-read').prop('checked', true);
 					//tooltip locale
 					$('a.locName').tooltip();
-					
+
 					filterAllLocale();
 					//end of adding the locale data
 
@@ -6225,140 +5821,120 @@ function showV() {
 
 					updateCovFromJson(json);
 					// setup coverage level
-					//if(!window.surveyLevels) {
-						window.surveyLevels = json.menus.levels;
+					window.surveyLevels = json.menus.levels;
 
-						var titleCoverage = dojo.byId("title-coverage"); // coverage label
+					var titleCoverage = dojo.byId("title-coverage"); // coverage label
 
-						var levelNums = [];  // numeric levels
-						for(var k in window.surveyLevels) {
-							levelNums.push( { num: parseInt(window.surveyLevels[k].level), level: window.surveyLevels[k] } );
-						}
-						levelNums.sort(function(a,b){return a.num-b.num;});
+					var levelNums = [];  // numeric levels
+					for(var k in window.surveyLevels) {
+						levelNums.push( { num: parseInt(window.surveyLevels[k].level), level: window.surveyLevels[k] } );
+					}
+					levelNums.sort(function(a,b){return a.num-b.num;});
 
-						var store = [];
+					var store = [];
 
-						store.push({
-								label: 'Auto',
-								value: 'auto',
-								title: stui.str('coverage_auto_desc')
-							});
-
-						store.push({
-							type: "separator"
+					store.push({
+							label: 'Auto',
+							value: 'auto',
+							title: stui.str('coverage_auto_desc')
 						});
-						
-						for(var j in levelNums) { // use given order
-							if(levelNums[j].num==0) continue; // none - skip
-							if(levelNums[j].num < covValue('minimal')) continue; // don't bother showing these
-							if(window.surveyOfficial && levelNums[j].num==101) continue; // hide Optional in production
-							var level = levelNums[j].level;
-							store.push({
-									label: stui.str('coverage_'+ level.name), 
-									value: level.name,
-									title: stui.str('coverage_'+ level.name + '_desc')
-							});
-						}
-						//coverage menu
-						var patternCoverage = $('#title-coverage .dropdown-menu');
-					    if(store[0].value) {
-						    $('#coverage-info').text(store[0].label);
+
+					store.push({
+						type: "separator"
+					});
+
+					for(var j in levelNums) { // use given order
+						if(levelNums[j].num==0) continue; // none - skip
+						if(levelNums[j].num < covValue('minimal')) continue; // don't bother showing these
+						if(window.surveyOfficial && levelNums[j].num==101) continue; // hide Optional in production
+						var level = levelNums[j].level;
+						store.push({
+								label: stui.str('coverage_'+ level.name),
+								value: level.name,
+								title: stui.str('coverage_'+ level.name + '_desc')
+						});
+					}
+					//coverage menu
+					var patternCoverage = $('#title-coverage .dropdown-menu');
+				    if(store[0].value) {
+					    $('#coverage-info').text(store[0].label);
+				    }
+					for (var index = 0; index < store.length; ++index) {
+					    var data = store[index];
+					    if(data.value) {
+						    var html = '<li><a class="coverage-list" data-value="'+data.value+'"href="#">'+data.label+'</a></li>';
+						    patternCoverage.append(html);
 					    }
-						for (var index = 0; index < store.length; ++index) {
-						    var data = store[index];
-						    if(data.value) {
-							    var html = '<li><a class="coverage-list" data-value="'+data.value+'"href="#">'+data.label+'</a></li>';
-							    patternCoverage.append(html);
-						    }
+					}
+					patternCoverage.find('li a').click(function(event){
+						event.stopPropagation();
+						event.preventDefault();
+						var newValue = $(this).data('value');
+						var setUserCovTo = null;
+						if(newValue == 'auto') {
+							setUserCovTo = null; // auto
+						} else {
+							setUserCovTo = newValue;
 						}
-						patternCoverage.find('li a').click(function(event){
-							event.stopPropagation();
-							event.preventDefault();
-							var newValue = $(this).data('value');
-							var setUserCovTo = null;
-							if(newValue == 'auto') {
-								setUserCovTo = null; // auto
-							} else {
-								setUserCovTo = newValue;
-							}
-							if(setUserCovTo === window.surveyUserCov) {
-								console.log('No change in user cov: ' + setUserCovTo);
-							} else {
-								window.surveyUserCov = setUserCovTo;
-								var updurl  = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=pref&pref=p_covlev&_v="+window.surveyUserCov+cacheKill(); // SurveyMain.PREF_COVLEV
-								myLoad(updurl, "updating covlev to  " + surveyUserCov, function(json) {
-									if(!verifyJson(json,'pref')) {
-										return;
-									} else {
-										unpackMenuSideBar(json);
-										if(surveyCurrentSpecial && isReport(surveyCurrentSpecial))
-											reloadV();
-										console.log('Server set  covlev successfully.');
-									}
-								});
-							}
-							// still update these.
-							updateCoverage(flipper.get(pages.data)); // update CSS and 'auto' menu title
-							updateHashAndMenus(false); // TODO: why? Maybe to show an item?
-							$('#coverage-info').text(newValue.ucFirst());
-							$(this).parents('.dropdown-menu').dropdown('toggle');
-							if(!isDashboard())
-								refreshCounterVetting();
-							return false;
-						});
-						// TODO have to move this out of the DOM..
-						/*var covMenu = flipper.get(pages.data).covMenu = new Select({name: "menu-select", 
-								id: 'menu-select',
-								title: stui.str('coverage_menu_desc'),
-								options: store,
-								onChange: function(newValue) {
-									
+						if(setUserCovTo === window.surveyUserCov) {
+							console.log('No change in user cov: ' + setUserCovTo);
+						} else {
+							window.surveyUserCov = setUserCovTo;
+							var updurl  = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=pref&pref=p_covlev&_v="+window.surveyUserCov+cacheKill(); // SurveyMain.PREF_COVLEV
+							myLoad(updurl, "updating covlev to  " + surveyUserCov, function(json) {
+								if(!verifyJson(json,'pref')) {
+									return;
+								} else {
+									unpackMenuSideBar(json);
+									if(surveyCurrentSpecial && isReport(surveyCurrentSpecial))
+										reloadV();
+									console.log('Server set  covlev successfully.');
 								}
-								});
-						covMenu.placeAt(titleCoverage);*/
-					//}	
-
-						
-						
-					
-				window.reloadV(); // call it
-			
-				// watch for hashchange to make other changes.. 
-				dojoTopic.subscribe("/dojo/hashchange", function(changedHash){
-					//alert("hashChange…" + changedHash);
-					if(true) {
-						
-						
-						var oldLocale = trimNull(surveyCurrentLocale);
-						var oldSpecial = trimNull(surveyCurrentSpecial);
-						var oldPage = trimNull(surveyCurrentPage);
-						var oldId = trimNull(surveyCurrentId);
-						
-						window.parseHash(changedHash);
-						
-						surveyCurrentId = trimNull(surveyCurrentId);
-						
-						// did anything change?
-						if(oldLocale!=trimNull(surveyCurrentLocale) ||								oldSpecial!=trimNull(surveyCurrentSpecial) ||								oldPage != trimNull(surveyCurrentPage) ) {
-							console.log("# hash changed, (loc, etc) reloadingV..");
-							reloadV();
-						} else if(oldId != surveyCurrentId && surveyCurrentId != '') {
-							console.log("# just ID changed, to " + surveyCurrentId);
-						    // surveyCurrentID and the hash have already changed.
-						    // just call showInPop if the item is present. If not present, make sure it's visible.
-							window.showCurrentId();						
+							});
 						}
-					} else {
-					    console.log("Ignoring hash change " + changedHash);
+						// still update these.
+						updateCoverage(flipper.get(pages.data)); // update CSS and 'auto' menu title
+						updateHashAndMenus(false); // TODO: why? Maybe to show an item?
+						$('#coverage-info').text(newValue.ucFirst());
+						$(this).parents('.dropdown-menu').dropdown('toggle');
+						if(!isDashboard())
+							refreshCounterVetting();
+						return false;
+					});
+					// TODO have to move this out of the DOM..
+
+				window.reloadV(); // call it
+
+				// watch for hashchange to make other changes..
+				dojoTopic.subscribe("/dojo/hashchange", function(changedHash){
+					var oldLocale = trimNull(surveyCurrentLocale);
+					var oldSpecial = trimNull(surveyCurrentSpecial);
+					var oldPage = trimNull(surveyCurrentPage);
+					var oldId = trimNull(surveyCurrentId);
+
+					window.parseHash(changedHash);
+
+					surveyCurrentId = trimNull(surveyCurrentId);
+
+					// did anything change?
+					if(oldLocale!=trimNull(surveyCurrentLocale) ||
+							oldSpecial!=trimNull(surveyCurrentSpecial) ||
+							oldPage != trimNull(surveyCurrentPage) ) {
+						console.log("# hash changed, (loc, etc) reloadingV..");
+						reloadV();
+					} else if(oldId != surveyCurrentId && surveyCurrentId != '') {
+						console.log("# just ID changed, to " + surveyCurrentId);
+					    // surveyCurrentID and the hash have already changed.
+					    // just call showInPop if the item is present. If not present, make sure it's visible.
+						window.showCurrentId();
 					}
 				});
 				}
-		});
-		});
+			});
+			});
 		}); // end stui  load
 	});  // end require()
 } // end showV
-
 
 /**
  * reload a specific row
@@ -6368,11 +5944,11 @@ function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
 	showLoader(tr.theTable.theDiv.loader,stui.loadingOneRow);
 	// vHash not used.
     var ourUrl = contextPath + "/RefreshRow.jsp?what="+WHAT_GETROW+"&xpath="+theRow.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+/*"&vhash="+vHash+*/"&s="+tr.theTable.session +"&json=t&automatic=t";
-    
+
     if(isDashboard()) {
     	ourUrl += "&dashboard=true";
     }
-    
+
     var loadHandler = function(json){
         try {
 	    		if(json&&json.dataLoadTime) {
@@ -6395,13 +5971,11 @@ function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
         			}
         		} else {
         	        tr.className = "ferrbox";
-//        	        tr.innerHTML="No content found "+tr.rowHash+ "  while  loading"; // this just obscures the row
         	        console.log("could not find " + tr.rowHash + " in " + json);
         	        onFailure("refreshRow2: Could not refresh this single row: Server failed to return xpath #"+theRow.xpid+" for locale "+surveyCurrentLocale);
         		}
            }catch(e) {
                console.log("Error in ajax post [refreshRow2] ",e.message);
- //              e_div.innerHTML = "<i>Internal Error: " + e.message + "</i>";
            }
     };
     var errorHandler = function(err, ioArgs){
@@ -6412,14 +5986,11 @@ function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
     };
     var xhrArgs = {
             url: ourUrl+cacheKill(),
-            //postData: value,
             handleAs:"json",
             load: loadHandler,
             error: errorHandler,
             timeout: ajaxTimeout
         };
-    //window.xhrArgs = xhrArgs;
-    //console.log('xhrArgs = ' + xhrArgs + ", url: " + ourUrl);
     queueXhr(xhrArgs);
 }
 
@@ -6443,9 +6014,6 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 			}
 			return; // nothing entered.
 		}
-//		if(tr.inputTd) {
-//    		tr.inputTd.className="d-change"; // TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
-//    	}
 	} else {
 		valToShow=button.value;
 	}
@@ -6461,19 +6029,19 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 
 	// select
 	updateCurrentId(theRow.xpstrid);
-	
+
 	// and scroll
 	showCurrentId();
-	
+
 	if(tr.myProposal) {
 		// move these 2 up if needed
 		var children = getTagChildren(tr);
 		var config = tr.theTable.config;
-		
+
 		children[config.othercell].removeChild(tr.myProposal);
 		tr.myProposal = null; // mark any pending proposal as invalid.
 	}
-	
+
 	var myUnDefer = function() {
 		tr.wait=false;
 		setDefer(false);
@@ -6482,7 +6050,6 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 	resetPop(tr);
 	setDefer(true);
 	theRow.proposedResults = null;
-
 
 	console.log("Vote for " + tr.rowHash + " v='"+vHash+"', value='"+value+"'");
 	var ourContent = {
@@ -6495,45 +6062,25 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 	};
 
 	var ourUrl = contextPath + "/SurveyAjax"; // ?what="+what+"&xpath="+tr.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
-	
+
 	// vote reduced
 	var voteReduced = document.getElementById("voteReduced");
 	if(voteReduced) {
 		ourContent.voteReduced = voteReduced.value;
-//		ourUrl = ourUrl + "&voteReduced="+voteReduced.value;
 	}
-	
-//	tr.className='tr_checking';
+
 	var loadHandler = function(json){
 		try {
-			// var newHtml = "";
 			if(json.err && json.err.length >0) {
-				/*if(json.err_code != null) {
-					var errMsg = formatErrMsg(json, "vote");
-					console.log("Error voting: " + errMsg);
-					popupAlert("danger", errMsg);
-					// uncheck..
-					button.className='ichoice-o';
-					button.checked=false;
-					myUnDefer();
-					return; // break out, but no need to disconnect.
-				} else*/ {
-					tr.className='tr_err';
-					// v_tr.className="tr_err";
-					// v_tr2.className="tr_err";
-	//				showLoader(tr.theTable.theDiv.loader,"Error!");
-					handleDisconnect('Error submitting a vote', json);
-					tr.innerHTML = "<td colspan='4'>"+stopIcon + " Could not check value. Try reloading the page.<br>"+json.err+"</td>";
-					// e_div.innerHTML = newHtml;
-					myUnDefer();
-					handleDisconnect('Error submitting a vote', json);
-				}
+				tr.className='tr_err';
+				handleDisconnect('Error submitting a vote', json);
+				tr.innerHTML = "<td colspan='4'>"+stopIcon + " Could not check value. Try reloading the page.<br>"+json.err+"</td>";
+				myUnDefer();
+				handleDisconnect('Error submitting a vote', json);
 			} else {
 				if(json.submitResultRaw) { // if submitted..
 					tr.className='tr_checking2';
-					refreshRow2(tr,theRow,vHash,function(theRow){
-//						tr.inputTd.className="d-change"; // TODO: use  inputTd=(getTagChildren(tr)[tr.theTable.config.changecell])
-
+					refreshRow2(tr,theRow,vHash,function(theRow) {
 						// submit went through. Now show the pop.
 						button.className='ichoice-o';
 						button.checked=false;
@@ -6541,13 +6088,10 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 						if(json.testResults && (json.testWarnings || json.testErrors)) {
 							// tried to submit, have errs or warnings.
 							showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults); // TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
-						} else {
-							//  submit OK.
 						}
 						if(box) {
 							box.value=""; // submitted - dont show.
 						}
-						//tr.className = 'vother';
 						myUnDefer();
 					}, function(err) {
 						myUnDefer();
@@ -6556,17 +6100,14 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 					// end: async
 				} else {
 					// Did not submit. Show errors, etc
-					if(
-							(json.statusAction&&json.statusAction!='ALLOW')
+					if((json.statusAction&&json.statusAction!='ALLOW')
 						|| (json.testResults && (json.testWarnings || json.testErrors ))) {
-						showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults,json); // TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
-					} else {
-						// no errors, not submitted.  Nothing to do.
-					}
+						showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults,json);
+						// TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
+					} // else no errors, not submitted.  Nothing to do.
 					if(box) {
 						box.value=""; // submitted - dont show.
 					}
-					//tr.className='vother';
 					button.className='ichoice-o';
 					button.checked = false;
 					hideLoader(tr.theTable.theDiv.loader);
@@ -6575,11 +6116,8 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 			}
 		}catch(e) {
 			tr.className='tr_err';
-			// v_tr.className="tr_err";
-			// v_tr2.className="tr_err";
 			tr.innerHTML = stopIcon + " Could not check value. Try reloading the page.<br>"+e.message;
 			console.log("Error in ajax post [handleWiredClick] ",e.message);
-			//              e_div.innerHTML = "<i>Internal Error: " + e.message + "</i>";
 			myUnDefer();
 			handleDisconnect("handleWiredClick:"+e.message, json);
 		}
@@ -6591,8 +6129,6 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 		theRow.innerHTML="Error while  loading: "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>";
 		myUnDefer();
 	};
-	//window.xhrArgs = xhrArgs;
-	//stdebug('xhrArgs = ' + xhrArgs + ", url: " + ourUrl);
 	if(box) {
 		stdebug("this is a post: " + value);
 		ourContent.value = value;
@@ -6618,16 +6154,16 @@ function handleCancelWiredClick(tr,theRow,vHash,button) {
 	if(tr.wait) {
 		return;
 	}
-	
+
 	valToShow=button.value;
-	
+
 	var what = 'delete';
 
 	// select
 	updateCurrentId(theRow.xpstrid);
 	// and scroll
 	showCurrentId();
-	
+
 	var myUnDefer = function() {
 		tr.wait=false;
 		setDefer(false);
@@ -6637,32 +6173,22 @@ function handleCancelWiredClick(tr,theRow,vHash,button) {
 	setDefer(true);
 	theRow.proposedResults = null;
 
-
 	console.log("Delete " + tr.rowHash + " v='"+vHash+"', value='"+value+"'");
 	var ourUrl = contextPath + "/SurveyAjax?what="+what+"&xpath="+tr.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
-//	tr.className='tr_checking';
 	var loadHandler = function(json){
 		try {
-			// var newHtml = "";
 			if(json.err && json.err.length >0) {
 				tr.className='tr_err';
-				// v_tr.className="tr_err";
-				// v_tr2.className="tr_err";
-//				showLoader(tr.theTable.theDiv.loader,"Error!");
 				handleDisconnect('Error deleting a value', json);
 				tr.innerHTML = "<td colspan='4'>"+stopIcon + " Could not check value. Try reloading the page.<br>"+json.err+"</td>";
-				// e_div.innerHTML = newHtml;
 				myUnDefer();
 				handleDisconnect('Error deleting a value', json);
 			} else {
 				if(json.deleteResultRaw) { // if deleted..
 					tr.className='tr_checking2';
 					refreshRow2(tr,theRow,vHash,function(theRow){
-
 						// delete went through. Now show the pop.
-						//button.className='ichoice-o';
 						hideLoader(tr.theTable.theDiv.loader);
-						//tr.className = 'vother';
 						myUnDefer();
 					}, function(err) {
 						myUnDefer();
@@ -6671,13 +6197,11 @@ function handleCancelWiredClick(tr,theRow,vHash,button) {
 					// end: async
 				} else {
 					// Did not submit. Show errors, etc
-					if(
-							(json.statusAction&&json.statusAction!='ALLOW')
+					if((json.statusAction&&json.statusAction!='ALLOW')
 						|| (json.testResults && (json.testWarnings || json.testErrors ))) {
-						showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults,json); // TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
-					} else {
-						// no errors, not submitted.  Nothing to do.
-					}
+						showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults,json);
+						// TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
+					} // else no errors, not submitted. Nothing to do.
 					hideLoader(tr.theTable.theDiv.loader);
 					myUnDefer();
 				}
@@ -6717,14 +6241,13 @@ function loadAdminPanel() {
 	loadStui();
 	var adminStuff=dojo.byId("adminStuff");
 	if(!adminStuff) return;
-	
+
 	var content = document.createDocumentFragment();
-	
+
 	var list = document.createElement("ul");
 	list.className="adminList";
 	content.appendChild(list);
-	
-	
+
 	function loadOrFail(urlAppend,theDiv, loadHandler, postData) {
 		var ourUrl = contextPath + "/AdminAjax.jsp?vap="+vap+"&"+urlAppend;
 		var errorHandler = function(err, ioArgs){
@@ -6768,7 +6291,7 @@ function loadAdminPanel() {
 			panelLast=panels[name];
 			panelLast.listItem.className='selected';
 			panelLast.fn(panelLast.udiv);
-			panelLast.div.style.display='block';	
+			panelLast.div.style.display='block';
 			window.location.hash="#!"+name;
 		}
 	}
@@ -6778,7 +6301,7 @@ function loadAdminPanel() {
 		panel.div = document.createElement("div");
 		panel.div.style.display='none';
 		panel.div.className='adminPanel';
-		
+
 		var h = document.createElement("h3");
 		h.className="adminTitle";
 		h.appendChild(document.createTextNode(panel.desc));
@@ -6793,29 +6316,26 @@ function loadAdminPanel() {
 		panel.listItem.className="notselected";
 		panel.listItem.onclick=function(e){panelSwitch(panel.type);return false;};
 		list.appendChild(panel.listItem);
-		
+
 		content.appendChild(panel.div);
-		
+
 		if(!panelFirst) {
 			panelFirst = panel;
 		}
 	}
-	
-	
+
 	addAdminPanel("admin_users", function(div) {
 		var frag = document.createDocumentFragment();
-		
-		//frag.appendChild(document.createTextNode("hello"));
-		
+
 		var u = document.createElement("div");
 		u.appendChild(document.createTextNode("Loading..."));
 		frag.appendChild(u);
-		
+
 		removeAllChildNodes(div);
 		div.appendChild(frag);
 		loadOrFail("do=users", u, function(json) {
 			var frag2 = document.createDocumentFragment();
-			
+
 			if(!json || !json.users || Object.keys(json.users)==0) {
 				frag2.appendChild(document.createTextNode(stui.str("No users.")));
 			} else {
@@ -6828,7 +6348,8 @@ function loadAdminPanel() {
 					} else {
 						user.appendChild(createChunk("(anonymous)","div","adminUserUser"));
 					}
-					user.appendChild(createChunk("Last: " + cs.last  + "LastAction: " + cs.lastAction + ", IP: " + cs.ip + ", ttk:"+(parseInt(cs.timeTillKick)/1000).toFixed(1)+"s", "span","adminUserInfo"));
+					user.appendChild(createChunk("Last: " + cs.last  + "LastAction: " + cs.lastAction + ", IP: " + cs.ip + ", ttk:"
+								+ (parseInt(cs.timeTillKick)/1000).toFixed(1)+"s", "span","adminUserInfo"));
 
 					var unlinkButton = createChunk(stui.str("admin_users_action_kick"), "button", "admin_users_action_kick");
 					user.appendChild(unlinkButton);
@@ -6846,12 +6367,9 @@ function loadAdminPanel() {
 						return stStopPropagation(e);
 					};
 					frag2.appendChild(user);
-					
-					
 					frag2.appendChild(document.createElement("hr"));
 				}
 			}
-			
 			removeAllChildNodes(u);
 			u.appendChild(frag2);
 		});
@@ -6859,7 +6377,7 @@ function loadAdminPanel() {
 
 	addAdminPanel("admin_threads", function(div) {
 		var frag = document.createDocumentFragment();
-		
+
 		div.className="adminThreads";
 		var u = createChunk("Loading...","div","adminThreadList");
 		var stack = createChunk(null,"div","adminThreadStack");
@@ -6867,11 +6385,11 @@ function loadAdminPanel() {
 		frag.appendChild(stack);
 		var c2s = createChunk(stui.str("clickToSelect"),"button","clickToSelect");
 		clickToSelect(c2s,stack);
-		
+
 		removeAllChildNodes(div);
 		div.appendChild(c2s);
 		var clicked = null;
-	
+
 		div.appendChild(frag);
 		loadOrFail("do=threads", u, function(json) {
 			if(!json || !json.threads || Object.keys(json.threads.all)==0) {
@@ -6927,7 +6445,7 @@ function loadAdminPanel() {
 
 	addAdminPanel("admin_exceptions", function(div) {
 		var frag = document.createDocumentFragment();
-		
+
 		div.className="adminThreads";
 		var v = createChunk(null,"div","adminExceptionList");
 		var stack = createChunk(null,"div","adminThreadStack");
@@ -6935,24 +6453,24 @@ function loadAdminPanel() {
 		var u = createChunk(null,"div");
 		v.appendChild(u);
 		frag.appendChild(stack);
-		
+
 		var c2s = createChunk(stui.str("clickToSelect"),"button","clickToSelect");
 		clickToSelect(c2s,stack);
-		
+
 		removeAllChildNodes(div);
 		div.appendChild(c2s);
 		var clicked = null;
-		
+
 		var last = -1;
-		
+
 		var exceptions = [];
-		
+
 		var exceptionNames = {};
-	
+
 		div.appendChild(frag);
 		var more = createChunk(stui_str("more_exceptions"),"p","adminExceptionMore adminExceptionFooter");
 		var loading = createChunk(stui_str("loading"),"p","adminExceptionFooter");
-		
+
 		v.appendChild(loading);
 		var loadNext  =function(from) {
 			var append = "do=exceptions";
@@ -6973,23 +6491,19 @@ function loadAdminPanel() {
 					if(json.exceptions.entry.time == from) {
 						console.log("Asked for <"+from + " but got ="+from);
 						v.removeChild(loading);
-						return; // 
+						return; //
 					}
 					var frag2 = document.createDocumentFragment();
 					if(!from) {
 						removeAllChildNodes(stack);
 						stack.innerHTML = stui.str("adminClickToViewExceptions");
 					}
-	//				if(json.threads.dead) {
-	//					frag2.appendChunk(json.threads.dead.toString(),"span","adminDeadThreads");
-	//					// TODO
-	//				}
+					// TODO: if(json.threads.dead) frag2.appendChunk(json.threads.dead.toString(),"span","adminDeadThreads");
 					last = json.exceptions.lastTime;
 					if(json.exceptions.entry) {
 						var e = json.exceptions.entry;
 						exceptions.push(json.exceptions.entry);
 						var exception = createChunk(null,"div","adminException");
-						//exception.e = e;
 						if(e.header&&e.header.length < 80) {
 							exception.appendChild(createChunk(e.header,"span","adminExceptionHeader"));
 						} else {
@@ -6998,39 +6512,39 @@ function loadAdminPanel() {
 							t.title=e.header;
 						}
 						exception.appendChild(createChunk(e.DATE,"span","adminExceptionDate"));
-						var clicky=(function (e){return (function(ee) {
-							var frag3 = document.createDocumentFragment();
-							frag3.appendChild(createChunk("{{{\n","span","textForTrac"));
-							frag3.appendChild(createChunk(e.header,"span","adminExceptionHeader"));
-							frag3.appendChild(createChunk("}}}\n","span","textForTrac"));
-							frag3.appendChild(createChunk(e.DATE,"span","adminExceptionDate"));
-
-							if(e.UPTIME) {
-								frag3.appendChild(createChunk(e.UPTIME,"span","adminExceptionUptime"));
-							}
-							if(e.CTX) {
-								frag3.appendChild(createChunk(e.CTX,"span","adminExceptionUptime"));
-							}
-							for(var q in e.fields) {
-								var f = e.fields[q];
-								var k = Object.keys(f);
-								frag3.appendChild(createChunk("\n'''"+k[0]+"'''\n"+"{{{\n","span","textForTrac"));
-								frag3.appendChild(createChunk(f[k[0]],"pre","adminException"+k[0]));
+						var clicky=(function (e) {
+							return (function(ee) {
+								var frag3 = document.createDocumentFragment();
+								frag3.appendChild(createChunk("{{{\n","span","textForTrac"));
+								frag3.appendChild(createChunk(e.header,"span","adminExceptionHeader"));
 								frag3.appendChild(createChunk("}}}\n","span","textForTrac"));
-							}
+								frag3.appendChild(createChunk(e.DATE,"span","adminExceptionDate"));
 
-							if(e.LOGSITE) {
-								frag3.appendChild(createChunk("'''LOGSITE'''\n{{{\n","span","textForTrac"));
-								frag3.appendChild(createChunk(e.LOGSITE,"pre","adminExceptionLogsite"));
-								frag3.appendChild(createChunk("}}}\n","span","textForTrac"));
-							}
+								if(e.UPTIME) {
+									frag3.appendChild(createChunk(e.UPTIME,"span","adminExceptionUptime"));
+								}
+								if(e.CTX) {
+									frag3.appendChild(createChunk(e.CTX,"span","adminExceptionUptime"));
+								}
+								for(var q in e.fields) {
+									var f = e.fields[q];
+									var k = Object.keys(f);
+									frag3.appendChild(createChunk("\n'''"+k[0]+"'''\n"+"{{{\n","span","textForTrac"));
+									frag3.appendChild(createChunk(f[k[0]],"pre","adminException"+k[0]));
+									frag3.appendChild(createChunk("}}}\n","span","textForTrac"));
+								}
 
-							
-							removeAllChildNodes(stack);
-							stack.appendChild(frag3);
-							stStopPropagation(ee);
-							return false;
-						});})(e);
+								if(e.LOGSITE) {
+									frag3.appendChild(createChunk("'''LOGSITE'''\n{{{\n","span","textForTrac"));
+									frag3.appendChild(createChunk(e.LOGSITE,"pre","adminExceptionLogsite"));
+									frag3.appendChild(createChunk("}}}\n","span","textForTrac"));
+								}
+								removeAllChildNodes(stack);
+								stack.appendChild(frag3);
+								stStopPropagation(ee);
+								return false;
+							});
+						})(e);
 						listenFor(exception, "click", clicky);
 						var head = exceptionNames[e.header];
 						if(head) {
@@ -7064,11 +6578,8 @@ function loadAdminPanel() {
 							exceptionNames[e.header] = exception;
 						}
 					}
-					
-					
-	//				removeAllChildNodes(u);
 					u.appendChild(frag2);
-					
+
 					if(json.exceptions.entry && json.exceptions.entry.time) {
 						if(exceptions.length>0 && (exceptions.length % 8 == 0)) {
 							v.removeChild(loading);
@@ -7082,7 +6593,6 @@ function loadAdminPanel() {
 						} else {
 							setTimeout(function(){loadNext(json.exceptions.entry.time);},500);
 						}
-					} else {
 					}
 				}
 			});
@@ -7092,12 +6602,10 @@ function loadAdminPanel() {
 
 	addAdminPanel("admin_settings", function(div) {
 		var frag = document.createDocumentFragment();
-		
+
 		div.className="adminSettings";
 		var u = createChunk("Loading...","div","adminSettingsList");
 		frag.appendChild(u);
-
-		
 		loadOrFail("do=settings", u, function(json) {
 			if(!json || !json.settings || Object.keys(json.settings.all)==0) {
 				removeAllChildNodes(u);
@@ -7106,7 +6614,7 @@ function loadAdminPanel() {
 				var frag2 = document.createDocumentFragment();
 				for(id in json.settings.all) {
 					var t = json.settings.all[id];
-					
+
 					var thread = createChunk(null,"div","adminSetting");
 
 					thread.appendChild(createChunk(id,"span","adminSettingId"));
@@ -7138,7 +6646,7 @@ function loadAdminPanel() {
 							return false;
 						 };
 						})(id,t); // call it
-						
+
 						if(id=="CLDR_HEADER") {
 							updateSpecialHeader(t);
 						}
@@ -7146,39 +6654,25 @@ function loadAdminPanel() {
 						thread.appendChild(createChunk(t,"span","adminSettingValue"));
 					}
 					frag2.appendChild(thread);
-			}
-//				if(!setHeader) {
-//					// not setup yet, too bad.
-//				} if(json.settings.all.CLDR_HEADER) {
-//					setHeader.value = json.settings.all.CLDR_HEADER;
-//				} else {
-//					setHeader.value = "";
-//				}
-//				
+				}
 				removeAllChildNodes(u);
 				u.appendChild(frag2);
 			}
 		});
-		
-		
-		
-		removeAllChildNodes(div);	
+
+		removeAllChildNodes(div);
 		div.appendChild(frag);
 	});
 
-	
 	addAdminPanel("admin_ops", function(div) {
 		var frag = document.createDocumentFragment();
-		
+
 		div.className="adminThreads";
 
 		var baseUrl = contextPath + "/AdminPanel.jsp?vap="+vap+"&do=";
 		var hashSuff  = ""; //  "#" + window.location.hash;
 
-		var actions = [
-		               				"rawload"
-		               ];
-		
+		var actions = ["rawload"];
 		for(var k in actions) {
 			var action = actions[k];
 			var newUrl = baseUrl + action + hashSuff;
@@ -7186,12 +6680,11 @@ function loadAdminPanel() {
 			b.onclick = function() {window.location = newUrl;  return false; };
 			frag.appendChild(b);
 		}
-		removeAllChildNodes(div);	
+		removeAllChildNodes(div);
 		div.appendChild(frag);
-		
+
 	});
-	
-	
+
 	// last panel loaded.
 	// If it's in the hashtag, use it, otherwise first.
 	if(window.location.hash && window.location.hash.indexOf("#!")==0) {
@@ -7220,7 +6713,6 @@ function showstats(hname) {
 			try {
 				if (json) {
 					var r = Raphael(hname);
-					
 					var header=json.byday.header;
 					var data=json.byday.data;
 					var header_new=json.byday_new.header;
@@ -7230,7 +6722,6 @@ function showstats(hname) {
 					var labels = [];
 					var count_new = [];
 					for(var i in data_new) {
-						
 						var newLabel = new Date(data_new[i][header_new.LAST_MOD]).toLocaleDateString();
 						var newCount = data_new[i][header_new.COUNT];
 						labels.push(newLabel); // labels come from new data
@@ -7274,7 +6765,6 @@ function showstats(hname) {
 						colors: ["#8aa717","#1751a7"]
 					})
 					.hover(fin,fout);
-	                //.label(labels2);
 					for(var i in labels) {
 						r.text(toffh,toffv+(i*(hei/labels.length)), (labels[i].split(" ")[0])+"\n"+count_new[i]  );
 					}
@@ -7288,15 +6778,16 @@ function showstats(hname) {
 			handleDisconnect(" exception in getstats: " + e.message,null);
 			}
 		};
-	var xhrArgs = {
-		url : ourUrl,
-		handleAs : "json",
-		load : loadHandler,
-		error : errorHandler
-	};
-	queueXhr(xhrArgs);
+		var xhrArgs = {
+				url : ourUrl,
+				handleAs : "json",
+				load : loadHandler,
+				error : errorHandler
+			};
+		queueXhr(xhrArgs);
 	}));
 }
+
 /**
  * @method refreshCounterVetting
  * Update the counter on top of the vetting page
@@ -7307,12 +6798,12 @@ function refreshCounterVetting() {
 		$('#nav-page .counter-infos, #nav-page .nav-progress').hide();
 		return;
 	}
-	
+
 	var inputs = $('.vetting-page input:visible:checked');
 	var total = inputs.length;
 	var abstain = inputs.filter(function() { return this.id.substr(0,2) === 'NO';}).length;
 	var voted = total - abstain;
-	
+
 	document.getElementById('count-total').innerHTML = total;
 	document.getElementById('count-abstain').innerHTML = abstain;
 	document.getElementById('count-voted').innerHTML = voted;
@@ -7332,12 +6823,12 @@ function chgPage(shift) {
 	//no page, or wrong shift
 	if(!_thePages || (shift !== -1 && shift !== 1))
 		return;
-	
+
 	var menus = getMenusFilteredByCov();
 	var parentIndex = 0;
 	var index = 0;
 	var parent = _thePages.pageToSection[surveyCurrentPage].id;
-	
+
 	//get the parent index
 	for(var m in menus) {
 		var menu = menus[m];
@@ -7364,7 +6855,7 @@ function chgPage(shift) {
 			parentIndex = 0;
 		}
 	}
-	
+
 	if(index < 0) {
 		parentIndex--;
 		if(parentIndex < 0) {
@@ -7372,13 +6863,11 @@ function chgPage(shift) {
 		}
 		index = menus[parentIndex].pagesFiltered.length - 1;
 	}
-
-
 	surveyCurrentSection = menus[parentIndex].id;
 	surveyCurrentPage = menus[parentIndex].pagesFiltered[index].id;
 
 	reloadV();
-	
+
 	var sidebar = $('#locale-menu #'+surveyCurrentPage);
 	sidebar.closest('.open-menu').click();
 }
@@ -7389,14 +6878,15 @@ function chgPage(shift) {
  * @return {Array} list of all the menus under this coverage
  */
 function getMenusFilteredByCov() {
-	if (!_thePages)
+	if (!_thePages) {
 		return;
+	}
 	//get name of current coverage
 	var cov = surveyUserCov;
 	if(!cov) {
 		cov = surveyOrgCov;
 	}
-	
+
 	//get the value
 	var val = covValue(cov);
 	var sections = _thePages.sections;
@@ -7412,7 +6902,7 @@ function getMenusFilteredByCov() {
 			if(parseInt(page.levs[key]) <= val)
 				sectionContent.push(page);
 		}
-		
+
 		if(sectionContent.length) {
 			section.pagesFiltered = sectionContent;
 			menus.push(section);
@@ -7463,15 +6953,12 @@ function setStyles() {
     }
     var hideRegex = new RegExp(hideRegexString);
     changeStyle(hideRegex);
-    
-    
 }
 
 function createLocLink(loc, locName, className) {
     var cl = createChunk(locName, "a", "localeChunk "+className);
     cl.title=loc;
     cl.href = "survey?_="+loc;
-    
     return cl;
 }
 
@@ -7489,31 +6976,24 @@ function showAllItems(divName, user) {
 		showLoader(null, "Loading recent items");
 		var loadHandler = function(json) {
 			try {
-				if (json&&json.mine) {
-					
+				if (json && json.mine) {
 					var frag = document.createDocumentFragment();
-
 					var header = json.mine.header;
 					var data = json.mine.data;
-
-					
 					if(data.length==0) {
 						frag.appendChild(createChunk(stui_str("recentNone"),"i"));
 					} else {
-						{
-							var rowDiv = document.createElement("div");
-							frag.appendChild(rowDiv);
-							
-							rowDiv.appendChild(createChunk(stui_str("recentLoc"),"b"));
-							rowDiv.appendChild(createChunk(stui_str("recentCount"),"b"));
-							//rowDiv.appendChild(createChunk(stui_str("downloadXml"),"b"));
-						}
-						
+						var rowDiv = document.createElement("div");
+						frag.appendChild(rowDiv);
+
+						rowDiv.appendChild(createChunk(stui_str("recentLoc"),"b"));
+						rowDiv.appendChild(createChunk(stui_str("recentCount"),"b"));
+
 						for(var q in data) {
 							var row = data[q];
-							
+
 							var count = row[header.COUNT];
-							
+
 							var rowDiv = document.createElement("div");
 							frag.appendChild(rowDiv);
 
@@ -7521,40 +7001,37 @@ function showAllItems(divName, user) {
 							var locname = row[header.LOCALE_NAME];
                                                         rowDiv.appendChild(createLocLink(loc, locname, "recentLoc"));
 							rowDiv.appendChild(createChunk(count,"span","value recentCount"));
-                                                        
-                                                        if(surveySessionId!=null) {
-                                                            var dlLink = createChunk(stui_str("downloadXmlLink"),"a","notselected");
-                                                            dlLink.href = "DataExport.jsp?do=myxml&_="+loc+"&user="+user+"&s="+surveySessionId;
-                                                            dlLink.target="STDownload";
-                                                            rowDiv.appendChild(dlLink);
-                                                        }
+
+                            if(surveySessionId!=null) {
+                                var dlLink = createChunk(stui_str("downloadXmlLink"),"a","notselected");
+                                dlLink.href = "DataExport.jsp?do=myxml&_="+loc+"&user="+user+"&s="+surveySessionId;
+                                dlLink.target="STDownload";
+                                rowDiv.appendChild(dlLink);
+                            }
 						}
 					}
-					
+
 					removeAllChildNodes(div);
 					div.appendChild(frag);
-					
-					
 					hideLoader(null);
 				} else {
 					handleDisconnect("Failed to load JSON recent items",json);
 				}
 			} catch (e) {
-			console.log("Error in ajax get ", e.message);
-			console.log(" response: " + text);
-			handleDisconnect(" exception in getrecent: " + e.message,null);
+				console.log("Error in ajax get ", e.message);
+				console.log(" response: " + text);
+				handleDisconnect(" exception in getrecent: " + e.message,null);
 			}
 		};
-	var xhrArgs = {
-		url : ourUrl,
-		handleAs : "json",
-		load : loadHandler,
-		error : errorHandler
-	};
-	queueXhr(xhrArgs);
+		var xhrArgs = {
+				url : ourUrl,
+				handleAs : "json",
+				load : loadHandler,
+				error : errorHandler
+			};
+		queueXhr(xhrArgs);
 		};
-		
-	div.update();
+		div.update();
 	});
 }
 
@@ -7568,9 +7045,9 @@ function showRecent(divName, locale, user) {
 	dojo.ready(function() {
 		loadStui();
 		var div;
-		
+
 		if(divName.nodeType>0 ) {
-			div = divName; 
+			div = divName;
 		} else {
 			div = dojo.byId(divName);
 		}
@@ -7585,29 +7062,24 @@ function showRecent(divName, locale, user) {
 		var loadHandler = function(json) {
 			try {
 				if (json&&json.recent) {
-					
 					var frag = document.createDocumentFragment();
-
 					var header = json.recent.header;
 					var data = json.recent.data;
 
-					
 					if(data.length==0) {
 						frag.appendChild(createChunk(stui_str("recentNone"),"i"));
 					} else {
-						{
-							var rowDiv = document.createElement("div");
-							frag.appendChild(rowDiv);
-							
-							rowDiv.appendChild(createChunk(stui_str("recentLoc"),"b"));
-							rowDiv.appendChild(createChunk(stui_str("recentXpathCode"),"b"));
-							rowDiv.appendChild(createChunk(stui_str("recentValue"),"b"));
-							rowDiv.appendChild(createChunk(stui_str("recentWhen"),"b"));
-						}
-						
+						var rowDiv = document.createElement("div");
+						frag.appendChild(rowDiv);
+
+						rowDiv.appendChild(createChunk(stui_str("recentLoc"),"b"));
+						rowDiv.appendChild(createChunk(stui_str("recentXpathCode"),"b"));
+						rowDiv.appendChild(createChunk(stui_str("recentValue"),"b"));
+						rowDiv.appendChild(createChunk(stui_str("recentWhen"),"b"));
+
 						for(var q in data) {
 							var row = data[q];
-							
+
 							var loc = row[header.LOCALE];
                                                         var locname = row[header.LOCALE_NAME];
 							var org = row[header.ORG];
@@ -7616,7 +7088,7 @@ function showRecent(divName, locale, user) {
 							var xpath_code = row[header.XPATH_CODE];
 							var xpath_hash = row[header.XPATH_STRHASH];
 							var value = row[header.VALUE];
-							
+
 							var rowDiv = document.createElement("div");
 							frag.appendChild(rowDiv);
 							rowDiv.appendChild(createLocLink(loc,locname, "recentLoc"));
@@ -7628,11 +7100,9 @@ function showRecent(divName, locale, user) {
 							rowDiv.appendChild(createChunk(new Date(last_mod).toLocaleString(),"span","recentWhen"));
 						}
 					}
-					
+
 					removeAllChildNodes(div);
 					div.appendChild(frag);
-					
-					
 					hideLoader(null);
 				} else {
 					handleDisconnect("Failed to load JSON recent items",json);
@@ -7643,15 +7113,14 @@ function showRecent(divName, locale, user) {
 			handleDisconnect(" exception in getrecent: " + e.message,null);
 			}
 		};
-	var xhrArgs = {
-		url : ourUrl,
-		handleAs : "json",
-		load : loadHandler,
-		error : errorHandler
-	};
-	queueXhr(xhrArgs);
+		var xhrArgs = {
+				url : ourUrl,
+				handleAs : "json",
+				load : loadHandler,
+				error : errorHandler
+			};
+		queueXhr(xhrArgs);
 		};
-		
 	div.update();
 	});
 }
@@ -7675,46 +7144,41 @@ function showUserActivity(list, tableRef) {
 	        		 request,
 	        		 dojoNumber
 	        ) { ready(function(){
-	        	
-	        	
+
 	        	window._userlist = list; // DEBUG
 	        	var table = dom.byId(tableRef);
-	        	
+
 	        	var rows = [];
 	        	var theadChildren = getTagChildren(table.getElementsByTagName("thead")[0].getElementsByTagName("tr")[0]);
-	        	
+
 	        	setDisplayed(theadChildren[1],false);
 	        	var rowById = [];
-	        	
+
 	        	for(var k in list ) {
 	        		var user = list[k];
-	        		//console.log("Info for user " + JSON.stringify(user));
 	        		var tr = dom.byId('u@' + user.id);
-	        		
+
 	        		rowById[user.id] = parseInt(k); // ?!
 
 	        		var rowChildren = getTagChildren(tr);
-	        		
+
 	        		removeAllChildNodes(rowChildren[1]); // org
 	        		removeAllChildNodes(rowChildren[2]); // name
-	        		
+
 	        		var theUser;
 		        	setDisplayed(rowChildren[1],false);
 	        		rowChildren[2].appendChild(theUser = createUser(user));
-	        		
+
 	        		rows.push( {user: user, tr: tr, userDiv: theUser, seen: rowChildren[5], stats: [], total: 0  } );
 	        	}
-	        	
+
 	        	window._rrowById = rowById;
-	        	
+
 	        	var loc2name={};
         		request
     			.get(contextPath + "/SurveyAjax?what=stats_bydayuserloc", {handleAs: 'json'})
     			.then(function(json) {
-    				/*
-    				  COUNT: 1120,  DAY: 2013-04-30, LOCALE: km, LOCALE_NAME: khmer, SUBMITTER: 2
-    				  */
-    			//	console.log(JSON.stringify(json))
+    				/* COUNT: 1120,  DAY: 2013-04-30, LOCALE: km, LOCALE_NAME: khmer, SUBMITTER: 2 */
     				var stats = json.stats_bydayuserloc;
     				var header = stats.header;
     				for(var k in stats.data) {
@@ -7723,16 +7187,12 @@ function showUserActivity(list, tableRef) {
     					var submitterRow = rowById[submitter];
     					if(submitterRow !== undefined) {
     						var userRow = rows[submitterRow];
-    						
-//    						console.log(userRow.user.name + " = " + row);
-    						// Kotoistus-koordinaattori  = 292,2013-04-30,fi,3330,Finnish
-    						
     						userRow.stats.push({day: row[header.DAY], count: row[header.COUNT], locale: row[header.LOCALE]});
     						userRow.total = userRow.total + row[header.COUNT];
     						loc2name[row[header.LOCALE]]=row[header.LOCALE_NAME];
     					}
     				}
-    				
+
     				function appendMiniChart(userRow, count) {
     					if(count > userRow.stats.length) {
     						count = userRow.stats.length;
@@ -7741,7 +7201,7 @@ function showUserActivity(list, tableRef) {
 						for(var k=0;k<count;k++) {
 							var theStat = userRow.stats[k];
 							var chartRow = createChunk('','div','chartRow');
-						
+
 							var chartDay = createChunk(theStat.day, 'span', 'chartDay');
 							var chartLoc = createChunk(theStat.locale, 'span', 'chartLoc');
 							chartLoc.title = loc2name[theStat.locale];
@@ -7750,37 +7210,37 @@ function showUserActivity(list, tableRef) {
 							chartRow.appendChild(chartDay);
 							chartRow.appendChild(chartLoc);
 							chartRow.appendChild(chartCount);
-							
+
 							userRow.seenSub.appendChild(chartRow);
 						}
 						if(count < userRow.stats.length) {
 							chartRow.appendChild(document.createTextNode('...'));
 						}
     				}
-    				
+
     				for(var k in rows) {
     					var userRow = rows[k];
 						if(userRow.total > 0) {
 							addClass(userRow.tr, "hadActivity");
 							userRow.tr.getElementsByClassName('recentActivity')[0].appendChild(document.createTextNode(' ('+dojoNumber.format(userRow.total)+')'));
-							
+
 							userRow.seenSub = document.createElement('div');
 							userRow.seenSub.className = 'seenSub';
 							userRow.seen.appendChild(userRow.seenSub);
-							
+
 							appendMiniChart(userRow, 3);
 							if(userRow.stats.length > 3) {
 								var chartMore, chartLess;
 								chartMore = createChunk('+', 'span','chartMore');
 								chartLess = createChunk('-', 'span','chartMore');
-								chartMore.onclick = (function(chartMore, chartLess, userRow) { 
+								chartMore.onclick = (function(chartMore, chartLess, userRow) {
 									return function () {
 										setDisplayed(chartMore, false);
 										setDisplayed(chartLess, true);
 										appendMiniChart(userRow, userRow.stats.length);
 										return false;
 									};})(chartMore, chartLess, userRow);
-								chartLess.onclick = (function(chartMore, chartLess, userRow) { 
+								chartLess.onclick = (function(chartMore, chartLess, userRow) {
 									return function () {
 										setDisplayed(chartMore, true);
 										setDisplayed(chartLess, false);
@@ -7791,39 +7251,12 @@ function showUserActivity(list, tableRef) {
 								setDisplayed(chartLess, false);
 								userRow.seen.appendChild(chartLess);
 							}
-							
+
 						} else {
 							addClass(userRow.tr, "noActivity");
 						}
     				}
     			});
-
-   		/*
-   		 *  If we need any per item load:
-   		 *	        	// now lazy load each item.
-	        	var loadmore = null; 
-	        	var loadInterval = null;
-	        	var processRow = 0;
-	        	loadmore = function() {
-	        		console.log('loadmore r#' + processRow + '/' + rows.length);	
-    				window.clearTimeout(loadInterval);
-    				
-    				var row = rows[processRow];
-    				
-	        		request
-	        			.get(contextPath + "/SurveyAjax?what=recent_items&_="+1+"&user="+2+"&limit="+15, {handleAs: 'json'})
-	        			.then(function(json) {
-	        				console.log('..loaded');
-	        				// fetch next
-	        				if( (++processRow) < rows.length ) {
-	        					loadInterval = window.setTimeout(loadmore, 1000);
-	        				} else {
-	        					console.log('loadmore done');
-	        				}
-	        			});
-	        	};
-	        	loadInterval = window.setTimeout(loadmore, 1000);
-*/	        
 	        });
 		});
 	});

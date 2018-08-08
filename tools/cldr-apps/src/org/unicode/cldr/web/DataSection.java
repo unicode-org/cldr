@@ -555,8 +555,9 @@ public class DataSection implements JSONString {
         public int voteType = 0; // status of THIS item
         private String winningValue;
 
-        // the xpath id of the winner. If no winner or n/a, -1.
         /**
+         * the xpath id of the winner. If no winner or n/a, -1.
+         * 
          * @deprecated - winner is a value
          * 
          * Although deprecated, still referenced in InterestSort.java
@@ -1736,13 +1737,16 @@ public class DataSection implements JSONString {
      */
     public static DataSection make(PageId pageId, WebContext ctx, CookieSession session, CLDRLocale locale, String prefix,
         XPathMatcher matcher, boolean showLoading, String ptype) {
-        DataSection section = new DataSection(pageId, session.sm, locale, prefix, matcher, ptype);
+        
+        SurveyMain sm = CookieSession.sm; // TODO: non-deprecated way of getting sm
+ 
+        DataSection section = new DataSection(pageId, sm, locale, prefix, matcher, ptype);
 
         section.hasExamples = true;
 
-        CLDRFile ourSrc = session.sm.getSTFactory().make(locale.getBaseName(), true, true);
+        CLDRFile ourSrc = sm.getSTFactory().make(locale.getBaseName(), true, true);
 
-        ourSrc.setSupplementalDirectory(session.sm.getSupplementalDirectory());
+        ourSrc.setSupplementalDirectory(sm.getSupplementalDirectory());
         if (ctx != null) {
             section.setUserAndFileForVotelist(ctx.session != null ? ctx.session.user : null, ourSrc);
         } else if (session != null && session.user != null) {
@@ -1752,7 +1756,7 @@ public class DataSection implements JSONString {
             throw new InternalError("?!! ourSrc hsa no supplemental dir!");
         }
         synchronized (session) {
-            TestResultBundle checkCldr = session.sm.getSTFactory().getTestResult(locale, getOptions(ctx, session, locale));
+            TestResultBundle checkCldr = sm.getSTFactory().getTestResult(locale, getOptions(ctx, session, locale));
             if (ourSrc.getSupplementalDirectory() == null) {
                 throw new InternalError("?!! ourSrc hsa no supplemental dir!");
             }
@@ -1772,7 +1776,7 @@ public class DataSection implements JSONString {
             if (ourSrc.getSupplementalDirectory() == null) {
                 throw new InternalError("?!! ourSrc hsa no supplemental dir!");
             }
-            section.baselineFile = session.sm.getBaselineFile();
+            section.baselineFile = sm.getBaselineFile();
             if (ourSrc.getSupplementalDirectory() == null) {
                 throw new InternalError("?!! ourSrc hsa no supplemental dir!");
             }
@@ -2646,7 +2650,11 @@ public class DataSection implements JSONString {
         synchronized (ctx.session) {
             uf = ctx.getUserFile();
 
-            CheckCLDR checkCldr = uf.getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()), ctx.getOptionsMap());
+            /* 
+             * TODO: remove this call to getCheck unless it has useful side effects. Formerly the return value was assigned
+             * to a variable checkCldr which was not accessed. 
+             */
+            uf.getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()), ctx.getOptionsMap());
 
             boolean disputedOnly = ctx.field("only").equals("disputed");
 

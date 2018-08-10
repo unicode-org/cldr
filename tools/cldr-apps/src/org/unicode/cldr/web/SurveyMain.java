@@ -5338,7 +5338,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     try {
                         String path = ee.dataRow.getXpath();
                         String fullPath = cf.getFullXPath(path);
-                        String value = ee.item.value;
+                        String value = ee.item.getValue();
                         String html = d.getHTML(m);
                         ctx.println(html);
                     } catch (Exception ex) {
@@ -5593,7 +5593,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     DataSection.DataRow refDataRow = refsHash.get(ref);
                     DataSection.DataRow.CandidateItem refDataRowItem = refsItemHash.get(ref);
                     if ((refDataRowItem != null) && (refDataRow != null)) {
-                        ctx.print(refDataRowItem.value);
+                        ctx.print(refDataRowItem.getValue());
                         if (refDataRow.getDisplayName() != null) {
                             ctx.println("<br>" + refDataRow.getDisplayName());
                         }

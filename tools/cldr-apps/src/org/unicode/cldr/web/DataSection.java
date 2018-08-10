@@ -92,11 +92,14 @@ public class DataSection implements JSONString {
     public class DataRow implements JSONString, PathValueInfo {
 
         /**
-         * The CandidateItem is a particular alternate which could be chosen.
+         * The CandidateItem is a particular alternative item which could be chosen or voted for.
+         *
+         * Each DataRow has, in general, any number of these items in DataRow.items.
          */
         public class CandidateItem implements Comparable<CandidateItem>, JSONString, CandidateInfo {
-            /*
-             * altProposed is proposed part of the name (or NULL for nondraft)
+
+            /**
+             * altProposed is the proposed part of the name (or NULL for nondraft)
              *
              * TODO: there appears to be confusion between this final (constant) string, and
              * a local variable also named "altProposed" declared in populateFrom.
@@ -104,47 +107,65 @@ public class DataSection implements JSONString {
              * In versions of this code prior to https://unicode.org/cldr/trac/changeset/6566
              * this string was not declared as final; it was initialized to null and sometimes
              * later set to different values.
+             *
+             * This string is public since it is referenced by DefaultDataSubmissionResultHandler.java,
+             * but that referencing probably no longer serves any purpose.
              */
             public static final String altProposed = "n/a";
 
-            /*
+            /**
              * value is the actual value of this CandidateItem, that is, the string for which
              * a user might vote.
+             *
+             * This member is private; use the function getValue() to access it.
+             *
+             * This member is "final", its value for each CandidateItem is set once and for all
+             * when the constructor is called.
              */
-            final public String value;
+            final private String value;
 
-            /*
+            /**
              * isBailey means this CandidateItem is the fallback value.
              *
              * TODO: what are the distinctions between isBailey, isFallback, and isParentFallback?
              */
-            public boolean isBailey = false;
+            private boolean isBailey = false;
 
-            /*
+            /**
              * isFallback means this CandidateItem is from the parent locale - don't consider it a win (?).
              */
             boolean isFallback = false;
 
-            /*
+            /**
              * isParentFallback is true if this CandidateItem is not actually part of this locale, but is just
              * the parent fallback (inheritedValue)
+             *
+             * isParentFallback is not used on the client. The only place its is used (rather than set) on
+             * the server is in CandidateItem.toString, whose purpose isn't documented.
+             * TODO: remove isParentFallback if it serves no useful purpose.
              */
-            boolean isParentFallback = false;
+            private boolean isParentFallback = false;
 
-            /*
+            /**
              * isOldValue means the value of this CandidateItem is equal to oldValue, which is a member of DataRow.
              *
              * isOldValue is used on both server and client. On the client, it can result in addIcon(choiceField,"i-star"),
              * and that is its only usage on the client.
              */
-            public boolean isOldValue = false;
+            private boolean isOldValue = false;
 
-            boolean checkedVotes = false;
-            public String example = "";
-            public Vector<ExampleEntry> examples = null;
-            public int id = -1; // id of CLDR_DATA table row
+            /**
+             * checkedVotes is used only in the function getVotes, for efficiency.
+             */
+            private boolean checkedVotes = false;
 
-            /*
+            /**
+             * TODO: document the purpose of examples, non-null only in a short block of code
+             * currently (2018-8-10) near end of populateFrom.
+             */
+            private Vector<ExampleEntry> examples = null;
+
+            /**
              * inheritFrom is the locale from which this CandidateItem is inherited.
              *
              * null except for inheritedValue = the item with isFallback true?
@@ -161,13 +182,60 @@ public class DataSection implements JSONString {
              */
             CLDRLocale inheritFrom = null;
 
-            String pathWhereFound = null;
-            public List<CheckStatus> tests = null;
+            /**
+             * pathWhereFound, if not null, may be, for example:
+             * //ldml/numbers/currencies/currency[@type="AUD"]/displayName[@count="one"]
+             *
+             * If not null it may cause getPClass to return "alias".
+             *
+             * inheritedValue.pathWhereFound may be assigned a non-null value.
+             */
+            private String pathWhereFound = null;
 
-            public Set<UserRegistry.User> votes = null; // Set of Users who voted on this item
+            /**
+             * tests is included in json data sent to client
+             *
+             * See setTests and getCheckStatusList
+             */
+            private List<CheckStatus> tests = null;
 
-            private String originalValueHash = null; // see getOriginalValueHash
-            private String adjustedValueHash = null; // see getAdjustedValueHash
+            /**
+             * Set of Users who voted on this item
+             */
+            private Set<UserRegistry.User> votes = null;
+
+            /**
+             * see getOriginalValueHash
+             */
+            private String originalValueHash = null;
+
+            /**
+             * see getAdjustedValueHash
+             */
+            private String adjustedValueHash = null;
+
+            /**
+             * Create a new CandidateItem with the given value
+             *
+             * @param value
+             *
+             * This constructor sets this.value, which is final (can't be changed once set here).
+             */
+            private CandidateItem(String value) {
+                this.value = value;
+            }
+
+            /**
+             * Get the value of this CandidateItem
+             *
+             * @return the value, as a string
+             *
+             * Compare getProcessedValue and rawValue.
+             */
+            @Override
+            public String getValue() {
+                return value;
+            }
 
             /**
              * Get the value of this CandidateItem, processed for display.
@@ -194,15 +262,6 @@ public class DataSection implements JSONString {
             }
 
             /**
-             * Create a new CandidateItem with the given value
-             *
-             * @param value
-             */
-            private CandidateItem(String value) {
-                this.value = value;
-            }
-
-            /**
              * Get the hash of the value of this candidate item.
              *
              * This item's value is assumed to have been set already.
@@ -211,7 +270,7 @@ public class DataSection implements JSONString {
              *
              * @return the hash of the original value
              */
-            public String getOriginalValueHash() {
+            private String getOriginalValueHash() {
                 if (originalValueHash == null) {
                     originalValueHash = DataSection.getValueHash(value);
                 }
@@ -229,11 +288,11 @@ public class DataSection implements JSONString {
              *
              * TODO: Document the reasons for the adjustment. Does it still serve a purpose, or should
              * all getAdjustedValueHash be changed to getOriginalValueHash? The adjustment lead in one
-             * context to the browser console error "there is no Bailey Target item".
+             * context to duplicate keys getting overwritten and the browser console error "there is no Bailey Target item".
              *
              * @return the adjusted hash
              */
-            public String getAdjustedValueHash() {
+            private String getAdjustedValueHash() {
                 if (adjustedValueHash == null) {
                     if (isFallback && !locale.isLanguageLocale()) {
                         adjustedValueHash = DataSection.getValueHash(CldrUtility.INHERITANCE_MARKER);
@@ -256,6 +315,11 @@ public class DataSection implements JSONString {
                 if (other == this) {
                     return 0;
                 }
+                /*
+                 * TODO: simplify the following to
+                 * return value.compareTo(other.value);
+                 * ?
+                 */
                 CandidateItem i = (CandidateItem) other;
                 int rv = value.compareTo(i.value);
                 return rv;
@@ -264,7 +328,7 @@ public class DataSection implements JSONString {
             /**
              * Get the set of users who have voted for this CandidateItem
              *
-             *  @return the set
+             *  @return the set of users
              */
             @Override
             public Collection<UserInfo> getUsersVotingOn() {
@@ -280,9 +344,9 @@ public class DataSection implements JSONString {
             /**
              * Get the set of votes for this CandidateItem
              *
-             * @return the set
+             * @return the set of votes
              */
-            public Set<UserRegistry.User> getVotes() {
+            private Set<UserRegistry.User> getVotes() {
                 if (!checkedVotes) {
                     votes = ballotBox.getVotesForValue(xpath, value);
                     checkedVotes = true;
@@ -293,7 +357,7 @@ public class DataSection implements JSONString {
             /**
              * Is this a winning (non fallback) item?
              */
-            public boolean isWinner() {
+            private boolean isWinner() {
                 if (winningValue != null) {
                     return winningValue.equals(value);
                 } else {
@@ -302,58 +366,11 @@ public class DataSection implements JSONString {
             }
 
             /**
-             * Get some attributes, including the class, for this CandidateItem and the given WebContext
-             *
-             * @param ctx the WebContext
-             * @return the attributes as a string, for example, "class='winner' title='Winning item.'"
-             */
-            public String getPClass(WebContext ctx) {
-                String pClass;
-                if (isWinner() && !isFallback && inheritFrom == null) {
-                    if (confirmStatus == Status.approved) {
-                        pClass = "class='winner' title='Winning item.'";
-                    } else if (confirmStatus == Status.missing) {
-                        pClass = "title='" + confirmStatus + "' ";
-                    } else {
-                        pClass = "class='winner' title='" + confirmStatus + "' ";
-                    }
-                } else if (pathWhereFound != null) {
-                    pClass = "class='alias' title='alias from " + sm.xpt.getPrettyPath(pathWhereFound) + "'";
-                } else if (isFallback || (inheritFrom != null)) {
-                    if (isOldValue) {
-                        pClass = "class='fallback' title='Previous Version'";
-                    } else if (inheritFrom != null && XMLSource.CODE_FALLBACK_ID.equals(inheritFrom.getBaseName())) {
-                        pClass = "class='fallback_code' title='Untranslated Code'";
-                    } else if (inheritFrom == CLDRLocale.ROOT) {
-                        pClass = "class='fallback_root' title='Fallback from Root'";
-                    } else {
-                        pClass = "class='fallback' title='Translated in "
-                            + ((inheritFrom == null) ? "(unknown)" : CLDRLocale.getDefaultFormatter().getDisplayName(
-                                inheritFrom))
-                            + " and inherited here.'";
-                    }
-                } else if (CandidateItem.altProposed != null) {
-                    /*
-                     * TODO: CandidateItem.altProposed is declared as "final", with the value "n/a". It is
-                     * never null. The "if" is superfluous, and the "else" block below will never be
-                     * executed.
-                     *
-                     * There may be confusion between the final (constant) string CandidateItem.altProposed
-                     * and the local variable declared in populateFrom?
-                     */
-                    pClass = "class='loser' title='proposed, losing item'";
-                } else {
-                    pClass = "class='loser'";
-                }
-                return pClass;
-            }
-
-            /**
              * Get the class for this CandidateItem
              *
              * @return the class as a string, for example, "winner"
              */
-            public String getPClass() {
+            private String getPClass() {
                 String pClass;
                 if (isWinner() && !isFallback && inheritFrom == null) {
                     pClass = "winner";
@@ -361,14 +378,11 @@ public class DataSection implements JSONString {
                     pClass = "alias";
                 } else if (isFallback || (inheritFrom != null)) {
                     if (inheritFrom != null && XMLSource.CODE_FALLBACK_ID.equals(inheritFrom.getBaseName())) {
-                        pClass = "fallback_code"; // title='Untranslated Code'";
+                        pClass = "fallback_code";
                     } else if (inheritFrom == CLDRLocale.ROOT) {
-                        pClass = "fallback_root"; // title='Fallback from Root'";
+                        pClass = "fallback_root";
                     } else {
                         pClass = "fallback";
-                        // title='Translated in " + ((inheritFrom==null)?"(unknown)":
-                        // CLDRLocale.getDefaultFormatter().getDisplayName(inheritFrom))
-                        // + " and inherited here.'";
                     }
                 } else {
                     pClass = "loser";
@@ -381,7 +395,7 @@ public class DataSection implements JSONString {
              *
              * @return true if any valid tests were found, else false
              */
-            public boolean setTests(List<CheckStatus> testList) {
+            private boolean setTests(List<CheckStatus> testList) {
                 tests = testList;
                 // only consider non-example tests as notable.
                 boolean weHaveTests = false;
@@ -418,46 +432,6 @@ public class DataSection implements JSONString {
                         parentRow.hasWarnings = true;
                 }
                 return weHaveTests;
-            }
-
-            /**
-             * Convert this CandidateItem to a string.
-             *
-             * This function is NOT called to make the json object normally sent to the client.
-             * Compare DataRow.toJSONString, which is used for that purpose, and which, for example,
-             * (as of 2018-8-10) writes inheritFrom to "inheritedLocale" instead of "inheritFrom".
-             *
-             * TODO: document the purpose of this function CandidateItem.toString, who calls it, does the output need to be json?
-             */
-            @Override
-            public String toString() {
-                /*
-                 * TODO: CandidateItem.altProposed is declared as "final", with the value "n/a".
-                 * What is the point of including it in the returned string here?
-                 *
-                 * There may be confusion between the final (constant) string CandidateItem.altProposed
-                 * and the local variable declared in populateFrom?
-                 */
-                return "{Item v='" + value + "', altProposed='" + CandidateItem.altProposed + "', inheritFrom='" + inheritFrom + "'"
-                    + (isWinner() ? ",winner" : "") + (isFallback ? ",isFallback" : "")
-                    + (isParentFallback ? ",isParentFallback" : "") + "}";
-            }
-
-            /**
-             * Did any voters in my org vote for this CandidateItem?
-             *
-             * @param me the current User
-             */
-            public boolean votesByMyOrg(User me) {
-                if (me == null || getVotes() == null) {
-                    return false;
-                }
-                for (UserRegistry.User u : getVotes()) {
-                    if (u.org.equals(me.org) && u.id != me.id) {
-                        return true;
-                    }
-                }
-                return false;
             }
 
             /**
@@ -530,6 +504,28 @@ public class DataSection implements JSONString {
             }
 
             /**
+             * Convert this CandidateItem to a string.
+             *
+             * This function CandidateItem.toString is NOT called to make the json object normally sent to the client.
+             *
+             * TODO: document the purpose of this function CandidateItem.toString: who calls it; does the
+             * output need to be json; is there any need to override the default toString()?
+             */
+            @Override
+            public String toString() {
+                /*
+                 * TODO: CandidateItem.altProposed is declared as "final", with the value "n/a".
+                 * What is the point of including it in the returned string here?
+                 *
+                 * There may be confusion between the final (constant) string CandidateItem.altProposed
+                 * and the local variable declared in populateFrom?
+                 */
+                return "{Item v='" + value + "', altProposed='" + CandidateItem.altProposed + "', inheritFrom='" + inheritFrom + "'"
+                    + (isWinner() ? ",winner" : "") + (isFallback ? ",isFallback" : "")
+                    + (isParentFallback ? ",isParentFallback" : "") + "}";
+            }
+
+            /**
              * Get the example for this CandidateItem
              *
              * @return the example, as a string, or null if examplebuilder is null
@@ -543,17 +539,7 @@ public class DataSection implements JSONString {
             }
 
             /**
-             * Get the value of this CandidateItem
-             *
-             * @return the value, as a string
-             */
-            @Override
-            public String getValue() {
-                return value;
-            }
-
-            /**
-             * Get the list of CheckStatus objects
+             * Get the list of CheckStatus objects for this CandidateItem
              *
              * @return the list
              */
@@ -565,22 +551,30 @@ public class DataSection implements JSONString {
                     return tests;
                 }
             }
-        }
+        } // end of class CandidateItem
 
-        public int allVoteType = 0; // bitmask of all voting types included
+        /*
+         * Class DataRow continues here.
+         */
 
+        /*
+         * TODO: altType is referenced by row.jsp but appears to be null always, could be removed?
+         *
+         * The code in row.jsp is:
+         *
+         *  <% if (p.altType !=null) { %>
+         *  <br> (<%= p.altType %> alternative)
+         *  <% } %>
+         */
         public String altType = null; // alt type (NOT to be confused with -proposedn)
 
         /*
-         * confirmOnly: what kind of row is this? if true: don't accept new data,
-         *  this row is something that might be confusing to input.
+         * TODO: document confirmStatus and other members of DataRow
          */
-        public boolean confirmOnly = false;
-
         Status confirmStatus;
 
         /**
-         * Calculated coverage level for this row.
+         * Calculated coverage level for this DataRow.
          */
         public int coverageValue;
         List<CandidateItem> candidateItems = null;
@@ -682,7 +676,7 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * Calculate the hash used for HTML forms for this row
+         * Calculate the hash used for HTML forms for this DataRow.
          */
         public String fieldHash() { // deterministic. No need for sync.
             if (myFieldHash == null) {
@@ -694,9 +688,9 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * Returns the winning (current) item.
+         * Return the winning (current) item for this DataRow.
          *
-         * @return
+         * @return winningItem
          */
         public CandidateItem getCurrentItem() {
             return winningItem;
@@ -1048,8 +1042,14 @@ public class DataSection implements JSONString {
             }
 
             if ((vettedParent != null) && (inheritedValue == null)) {
+                /*
+                 * Caution: this local variable named "pathWhereFound" has the same name as a member of CandidateItem.
+                 */
                 Output<String> pathWhereFound = new Output<String>();
                 Output<String> localeWhereFound = new Output<String>();
+                /*
+                 * Caution: this local variable named "value" has the same name as a member of CandidateItem.
+                 */
                 String value = vettedParent.getConstructedBaileyValue(xpath, pathWhereFound, localeWhereFound);
                 if (TRACE_TIME)
                     System.err.println("@@1:" + (System.currentTimeMillis() - lastTime));
@@ -2415,7 +2415,6 @@ public class DataSection implements JSONString {
 
         /* ** iterate over all xpaths */
         for (String xpath : allXpaths) {
-            boolean confirmOnly = false;
             if (xpath == null) {
                 throw new InternalError("null xpath in allXpaths");
             }
@@ -2547,8 +2546,6 @@ public class DataSection implements JSONString {
 
             p.coverageValue = coverageValue;
 
-            p.confirmOnly = confirmOnly;
-
             if (isExtraPath) {
                 // This is an 'extra' item- it doesn't exist in xml (including root).
                 // For example, isExtraPath may be true when xpath is:
@@ -2663,6 +2660,12 @@ public class DataSection implements JSONString {
                 }
                 // store who voted for what. [ this could be loaded at displaytime..]
 
+                /*
+                 * TODO: explain the following block.
+                 * myItem.examples is assigned to here, but not referenced anywhere else,
+                 * so what is this block for, and does examples need to be a member of
+                 * CandidateItem rather than just a local variable here?
+                 */
                 if (!examplesResult.isEmpty()) {
                     // reuse the same ArrayList unless it contains something
                     if (myItem.examples == null) {

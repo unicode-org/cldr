@@ -73,7 +73,7 @@ import com.ibm.icu.util.Output;
  * users in a list such as,
  * "all of the language display names contained in the en_US locale". It is
  * sortable, as well, and has some level of persistence.
- * 
+ *
  * This class was formerly named DataPod
  **/
 
@@ -83,7 +83,7 @@ public class DataSection implements JSONString {
 
     /**
      * A DataRow represents a "row" of data - a single distinguishing xpath
-     * 
+     *
      * This class was formerly named "Pea"
      *
      * @author srl
@@ -97,10 +97,10 @@ public class DataSection implements JSONString {
         public class CandidateItem implements Comparable<CandidateItem>, JSONString, CandidateInfo {
             /*
              * altProposed is proposed part of the name (or NULL for nondraft)
-             * 
+             *
              * TODO: there appears to be confusion between this final (constant) string, and
              * a local variable also named "altProposed" declared in populateFrom.
-             * 
+             *
              * In versions of this code prior to https://unicode.org/cldr/trac/changeset/6566
              * this string was not declared as final; it was initialized to null and sometimes
              * later set to different values.
@@ -133,7 +133,7 @@ public class DataSection implements JSONString {
 
             /*
              * isOldValue means the value of this CandidateItem is equal to oldValue, which is a member of DataRow.
-             * 
+             *
              * isOldValue is used on both server and client. On the client, it can result in addIcon(choiceField,"i-star"),
              * and that is its only usage on the client.
              */
@@ -156,7 +156,7 @@ public class DataSection implements JSONString {
              * They could just as well have the same name, to reduce confusion. Also, on the client, this locale is a per-row thing;
              * but on the server, it's a per-item thing (since inheritedValue is a CandidateItem).
              * Since there's only one such locale per row, it shouldn't be treated as a per-item thing.
-             * 
+             *
              * inheritFrom is accessed from InterestSort.java for Partition.Membership("Missing"), otherwise it could be private.
              */
             CLDRLocale inheritFrom = null;
@@ -171,11 +171,11 @@ public class DataSection implements JSONString {
 
             /**
              * Get the value of this CandidateItem, processed for display.
-             * 
+             *
              * @return the processed value
-             * 
+             *
              * Called only by CandidateItem.toJSONString
-             * 
+             *
              * This is what the client receives by the name "value".
              * What the server calls "value" goes by the name "rawValue" on the client.
              */
@@ -195,7 +195,7 @@ public class DataSection implements JSONString {
 
             /**
              * Create a new CandidateItem with the given value
-             * 
+             *
              * @param value
              */
             private CandidateItem(String value) {
@@ -209,7 +209,7 @@ public class DataSection implements JSONString {
              *
              * Here, "original" means "not adjusted"; compare getAdjustedValueHash.
              *
-             * @return the hash of the original value 
+             * @return the hash of the original value
              */
             public String getOriginalValueHash() {
                 if (originalValueHash == null) {
@@ -246,7 +246,7 @@ public class DataSection implements JSONString {
 
             /**
              * Compare this CandidateItem with the given other CandidateItem.
-             * 
+             *
              * @parm other the other item with which to compare this one
              * @return 0 if they are the same item, else a positive or negative number
              *           obtained by comparing the two values as strings
@@ -263,7 +263,7 @@ public class DataSection implements JSONString {
 
             /**
              * Get the set of users who have voted for this CandidateItem
-             * 
+             *
              *  @return the set
              */
             @Override
@@ -279,7 +279,7 @@ public class DataSection implements JSONString {
 
             /**
              * Get the set of votes for this CandidateItem
-             * 
+             *
              * @return the set
              */
             public Set<UserRegistry.User> getVotes() {
@@ -303,7 +303,7 @@ public class DataSection implements JSONString {
 
             /**
              * Get some attributes, including the class, for this CandidateItem and the given WebContext
-             * 
+             *
              * @param ctx the WebContext
              * @return the attributes as a string, for example, "class='winner' title='Winning item.'"
              */
@@ -337,7 +337,7 @@ public class DataSection implements JSONString {
                      * TODO: CandidateItem.altProposed is declared as "final", with the value "n/a". It is
                      * never null. The "if" is superfluous, and the "else" block below will never be
                      * executed.
-                     * 
+                     *
                      * There may be confusion between the final (constant) string CandidateItem.altProposed
                      * and the local variable declared in populateFrom?
                      */
@@ -350,7 +350,7 @@ public class DataSection implements JSONString {
 
             /**
              * Get the class for this CandidateItem
-             * 
+             *
              * @return the class as a string, for example, "winner"
              */
             public String getPClass() {
@@ -378,7 +378,7 @@ public class DataSection implements JSONString {
 
             /**
              * Set the tests for this CandidateItem
-             * 
+             *
              * @return true if any valid tests were found, else false
              */
             public boolean setTests(List<CheckStatus> testList) {
@@ -422,13 +422,19 @@ public class DataSection implements JSONString {
 
             /**
              * Convert this CandidateItem to a string.
+             *
+             * This function is NOT called to make the json object normally sent to the client.
+             * Compare DataRow.toJSONString, which is used for that purpose, and which, for example,
+             * (as of 2018-8-10) writes inheritFrom to "inheritedLocale" instead of "inheritFrom".
+             *
+             * TODO: document the purpose of this function CandidateItem.toString, who calls it, does the output need to be json?
              */
             @Override
             public String toString() {
                 /*
                  * TODO: CandidateItem.altProposed is declared as "final", with the value "n/a".
                  * What is the point of including it in the returned string here?
-                 * 
+                 *
                  * There may be confusion between the final (constant) string CandidateItem.altProposed
                  * and the local variable declared in populateFrom?
                  */
@@ -456,6 +462,29 @@ public class DataSection implements JSONString {
 
             /**
              * Convert this CandidateItem to a JSON string
+             *
+             * Typical sequence of events in making the json object normally sent to the client:
+             *
+             * DataSection.toJSONString calls DataSection.DataRow.toJSONString repeatedly for each DataRow.
+             * DataSection.DataRow.toJSONString calls DataSection.DataRow.CandidateItem.toJSONString
+             * repeatedly for each CandidateItem.
+             *
+             * This function CandidateItem.toJSONString actually gets called indirectly from this line in
+             * DataSection.DataRow.toJSONString: jo.put("items", itemsJson) (NOT from the earlier loop on items.values).
+             * Stack trace:
+             * DataSection$DataRow$CandidateItem.toJSONString()
+             * JSONObject.valueToString(Object)
+             * JSONObject.toString()
+             * JSONObject.valueToString(Object)
+             * JSONObject.toString()
+             * DataSection$DataRow.toJSONString() -- line with jo.put("items", itemsJson)
+             * DataSection.toJSONString()
+             * JSONObject.valueToString(Object)
+             * JSONWriter.value(Object)
+             * RefreshRow.jsp -- line with .key("section").value(section)
+             *
+             * @return the JSON string. For example: {"isBailey":false,"tests":[],"rawValue":"↑↑↑","valueHash":"4oaR4oaR4oaR","pClass":"loser",
+             *      "isFallback":false,"value":"↑↑↑","isOldValue":false,"example":"<div class='cldr_example'>2345<\/div>"}
              */
             @Override
             public String toJSONString() throws JSONException {
@@ -502,7 +531,7 @@ public class DataSection implements JSONString {
 
             /**
              * Get the example for this CandidateItem
-             * 
+             *
              * @return the example, as a string, or null if examplebuilder is null
              */
             private String getExample() {
@@ -515,7 +544,7 @@ public class DataSection implements JSONString {
 
             /**
              * Get the value of this CandidateItem
-             * 
+             *
              * @return the value, as a string
              */
             @Override
@@ -525,7 +554,7 @@ public class DataSection implements JSONString {
 
             /**
              * Get the list of CheckStatus objects
-             * 
+             *
              * @return the list
              */
             @Override
@@ -568,7 +597,7 @@ public class DataSection implements JSONString {
         boolean hasTests = false;
 
         boolean hasWarnings = false;
-        
+
         /*
          * inheritedValue is the vetted value inherited from parent
          */
@@ -579,7 +608,7 @@ public class DataSection implements JSONString {
 
         String myFieldHash = null;
         /** Cache of field hash **/
-        
+
         /* parentRow - defaults to self if it is a "super" (i.e. parent without any
          * alternate)
          */
@@ -589,7 +618,7 @@ public class DataSection implements JSONString {
         public String prettyPath = null;
 
         CandidateItem previousItem = null;
-        
+
         /*
          * Ordering for use in collator
          */
@@ -603,9 +632,9 @@ public class DataSection implements JSONString {
 
         /**
          * the xpath id of the winner. If no winner or n/a, -1.
-         * 
+         *
          * @deprecated - winner is a value
-         * 
+         *
          * Although deprecated, still referenced in InterestSort.java
          */
         @Deprecated
@@ -881,10 +910,10 @@ public class DataSection implements JSONString {
 
         /**
          * Get the status icon for this DataRow
-         * 
+         *
          * @param ctx the WebContext
          * @return the status icon, as a string
-         * 
+         *
          * Called only by row.jsp
          */
         public String getStatusIcon(WebContext ctx) {
@@ -899,7 +928,7 @@ public class DataSection implements JSONString {
 
         /**
          * Get the row class for this DataRow
-         * 
+         *
          * @return "vother, "error", or "warning"
          */
         public String getRowClass() {
@@ -913,10 +942,10 @@ public class DataSection implements JSONString {
             return rclass;
         }
 
- 
+
         /**
          * Get an icon indicating whether the user has voted for this DataRow
-         * 
+         *
          * @return the html string
          */
         public String getVotedIcon(WebContext ctx) {
@@ -929,7 +958,7 @@ public class DataSection implements JSONString {
 
         /**
          * Get an icon indicating the draft status for this DataRow
-         * 
+         *
          * @return the html string
          */
         public String getDraftIcon(WebContext ctx) {
@@ -969,9 +998,9 @@ public class DataSection implements JSONString {
 
         /**
          * Show the voting results for this DataRow
-         * 
+         *
          * @param ctx the WebContext
-         * 
+         *
          * Called by RefreshRow.jsp
          */
         public void showVotingResults(WebContext ctx) {
@@ -1096,6 +1125,14 @@ public class DataSection implements JSONString {
 
         /**
          * Convert this DataRow to a JSON string.
+         *
+         * This function DataSection.DataRow.toJSONString plays a key role in preparing data for the client (survey.js).
+         *
+         * Typical sequence of events:
+         *
+         * DataSection.toJSONString calls DataSection.DataRow.toJSONString repeatedly for each DataRow.
+         * DataSection.DataRow.toJSONString calls DataSection.DataRow.CandidateItem.toJSONString
+         * repeatedly for each CandidateItem.
          */
         @Override
         public String toJSONString() throws JSONException {
@@ -1209,9 +1246,9 @@ public class DataSection implements JSONString {
 
         /**
          * Get the map of non-distinguishing attributes for this DataRow
-         * 
+         *
          * @return the map
-         * 
+         *
          * Called only by DataRow.toJSONString
          */
         private Map<String, String> getNonDistinguishingAttributes() {
@@ -1225,7 +1262,7 @@ public class DataSection implements JSONString {
 
         /**
          * Get the StatusAction for this DataRow
-         * 
+         *
          * @return the StatusAction
          */
         public StatusAction getStatusAction() {
@@ -1254,9 +1291,9 @@ public class DataSection implements JSONString {
         /**
          * Was there at least one vote for this DataRow at the end of data submission, or is
          * there a vote now?
-         * 
+         *
          * @return true if there was at least one vote
-         * 
+         *
          * TODO: add check for whether there was a vote in data submission.
          */
         @Override
@@ -1278,9 +1315,9 @@ public class DataSection implements JSONString {
 
     /**
      * Set the user and the file for this DataSection
-     * 
+     *
      * Somehow related to vote list?
-     * 
+     *
      * @param u the User
      * @param f the CLDRFile
      */
@@ -1302,9 +1339,9 @@ public class DataSection implements JSONString {
          * 'normal', etc. The 'limit' is one more than the index number of the
          * last item. In some cases, there is only one partition, and its name
          * is null.
-         * 
+         *
          * Display group partitions. Might only contain one entry: {null, 0, <end>}.
-         * Otherwise, contains a list of entries to be named separately 
+         * Otherwise, contains a list of entries to be named separately
          */
         public Partition partitions[];
 
@@ -1313,7 +1350,7 @@ public class DataSection implements JSONString {
 
         /**
          * Create a DisplaySet object
-         * 
+         *
          * @param myRows
          *            the original rows
          * @param myDisplayRows
@@ -1329,14 +1366,14 @@ public class DataSection implements JSONString {
 
         /**
          * Show a "skip box" for this DisplaySet
-         * 
+         *
          * TODO: explain what a "skip box" is
-         * 
+         *
          * @param ctx the WebContext
          * @param skip an integer, meaning what?
-         * 
+         *
          * @return an integer related to the "skip" parameter
-         * 
+         *
          * Called only by DataSection.showSection
          */
         private int showSkipBox(WebContext ctx, int skip) {
@@ -1378,7 +1415,7 @@ public class DataSection implements JSONString {
             }
 
             ctx.println("</p>");
- 
+
             // Print navigation
             if (total >= (ctx.prefCodesPerPage())) {
                 int prevSkip = skip - ctx.prefCodesPerPage();
@@ -1507,11 +1544,11 @@ public class DataSection implements JSONString {
 
         /**
          * Show a "skip box menu" for this DisplaySet
-         * 
+         *
          * @param ctx
          * @param aMode
          * @param aDesc
-         * 
+         *
          * Called only by showSkipBox
          */
         private void showSkipBox_menu(WebContext ctx, String aMode, String aDesc) {
@@ -1535,7 +1572,7 @@ public class DataSection implements JSONString {
 
         /**
          * Get the size of this DisplaySet
-         * 
+         *
          * @return the number of rows
          */
         public int size() {
@@ -1578,7 +1615,7 @@ public class DataSection implements JSONString {
 
         /**
          * Create a new ExampleEntry
-         * 
+         *
          * @param section the DataSection
          * @param row the DataRow
          * @param item the CandidateItem
@@ -1610,7 +1647,7 @@ public class DataSection implements JSONString {
     public static final String CONTINENT_DIVIDER = "~";
 
     private static final boolean DEBUG = false || CldrUtility.getProperty("TEST", false);
-    
+
     /*
      * A Pattern matching paths that are always excluded
      */
@@ -1633,7 +1670,7 @@ public class DataSection implements JSONString {
         // "/date/availablesItem.*@_q=\"[0-9]*\"\\]","/availableDateFormats"
     };
     private static Pattern fromto_p[] = new Pattern[fromto.length / 2];
-    
+
     /*
      * Has this DataSection been initialized?
      * Used only in the function init()
@@ -1698,9 +1735,9 @@ public class DataSection implements JSONString {
 
     /**
      * Get a unique serial number
-     * 
+     *
      * @return the number
-     * 
+     *
      * Called only by the ExampleEntry constructor
      */
     protected static synchronized int getN() {
@@ -1721,7 +1758,7 @@ public class DataSection implements JSONString {
              */
             PatternCache.get("\\[@(?:type|key)=['\"]([^'\"]*)['\"]\\]");
             PatternCache.get("([^/]*)/(.*)");
-            
+
             /* This one is only used with non-pageID use. */
             PatternCache.get("^//ldml/localeDisplayNames.*|"
                /* these are excluded when 'misc' is chosen. */
@@ -1747,7 +1784,7 @@ public class DataSection implements JSONString {
      * @return a new XPathMatcher that matches all paths in the hacky
      *         excludeAlways regex. For testing.
      * @deprecated
-     * 
+     *
      * Referenced only in CLDR23Tool.jsp -- which is what??
      */
     public static XPathMatcher getHackyExcludeMatcher() {
@@ -1783,9 +1820,9 @@ public class DataSection implements JSONString {
      */
     public static DataSection make(PageId pageId, WebContext ctx, CookieSession session, CLDRLocale locale, String prefix,
         XPathMatcher matcher, boolean showLoading, String ptype) {
-        
+
         SurveyMain sm = CookieSession.sm; // TODO: non-deprecated way of getting sm
- 
+
         DataSection section = new DataSection(pageId, sm, locale, prefix, matcher, ptype);
 
         section.hasExamples = true;
@@ -1863,7 +1900,7 @@ public class DataSection implements JSONString {
     /**
      * Get the options for the given WebContext, or, if the context is null, get the
      * options for the given CookieSession and CLDRLocale
-     * 
+     *
      * @param ctx
      * @param session
      * @param locale
@@ -1889,9 +1926,9 @@ public class DataSection implements JSONString {
      * Given a (cleaned, etc) xpath, return the podBase, i.e.,
      * context.getPod(base), that would be used to show that xpath. Keep this in
      * sync with SurveyMain.showLocale() where there is the list of menu items.
-     * 
+     *
      * @param xpath the xpath string
-     * 
+     *
      * @return a string, for example, "//ldml/units"
      */
     public static String xpathToSectionBase(String xpath) {
@@ -1949,7 +1986,7 @@ public class DataSection implements JSONString {
     Hashtable<String, ExampleEntry> exampleHash = new Hashtable<String, ExampleEntry>();
 
     public boolean hasExamples = false;
-    
+
     /*
      * Interest group
      */
@@ -1985,7 +2022,7 @@ public class DataSection implements JSONString {
 
     /**
      * Create a DataSection
-     *  
+     *
      * @param pageId
      * @param sm
      * @param loc
@@ -2006,9 +2043,9 @@ public class DataSection implements JSONString {
 
     /**
      * Add the given DataRow to this DataSection
-     * 
+     *
      * @param row the DataRow
-     * 
+     *
      * Called only by getDataRow
      */
     void addDataRow(DataRow row) {
@@ -2017,7 +2054,7 @@ public class DataSection implements JSONString {
 
     /**
      * Enregister an ExampleEntry
-     * 
+     *
      * Called only by populateFrom
      */
     ExampleEntry addExampleEntry(ExampleEntry e) {
@@ -2044,7 +2081,7 @@ public class DataSection implements JSONString {
 
     /**
      * Create a DisplaySet for this DataSection
-     * 
+     *
      * @param sortMode
      * @param matcher
      * @return the DisplaySet
@@ -2061,7 +2098,7 @@ public class DataSection implements JSONString {
      * Makes sure this DataSection contains the rows we'd like to see.
      *
      * @obsolete not called anymore
-     * 
+     *
      * TODO: Actually still called by DataSection.make, clarify whether "obsolete"
      */
     private void ensureComplete(CLDRFile ourSrc, TestResultBundle checkCldr, Map<String, String> options,
@@ -2197,7 +2234,7 @@ public class DataSection implements JSONString {
 
     /**
      * Get the CoverageInfo object from CLDR for this DataSection
-     * 
+     *
      * @return the CoverageInfo
      */
     private CoverageInfo getCoverageInfo() {
@@ -2211,7 +2248,7 @@ public class DataSection implements JSONString {
 
     /**
      * Get all rows for this DataSection, unsorted
-     * 
+     *
      * @return the Collection of DataRow
      */
     public Collection<DataRow> getAll() {
@@ -2220,7 +2257,7 @@ public class DataSection implements JSONString {
 
     /**
      * Get the BallotBox for this DataSection
-     * 
+     *
      * @return the BallotBox
      */
     public BallotBox<User> getBallotBox() {
@@ -2229,7 +2266,7 @@ public class DataSection implements JSONString {
 
     /**
      * Get the row for the given xpath in this DataSection
-     * 
+     *
      * Linear search for matching item.
      *
      * @param xpath the integer...
@@ -2241,7 +2278,7 @@ public class DataSection implements JSONString {
 
     /**
      * Get the row for the given xpath in this DataSection
-     * 
+     *
      * Linear search for matching item.
      *
      * @param xpath the string...
@@ -2274,7 +2311,7 @@ public class DataSection implements JSONString {
 
     /**
      * Get the ptype for this DataSection
-     * 
+     *
      * @return the ptype string
      */
     private String getPtype() {
@@ -2283,9 +2320,9 @@ public class DataSection implements JSONString {
 
     /**
      * Get the number of things that were skipped due to coverage
-     * 
+     *
      * TODO: clarify what kind of things, and why it means for them to be "skipped due to coverage"
-     * 
+     *
      * @return the number of things that were skipped
      */
     public int getSkippedDueToCoverage() {
@@ -2294,12 +2331,12 @@ public class DataSection implements JSONString {
 
     /**
      * Populate this DataSection
-     * 
+     *
      * @param ourSrc the CLDRFile
      * @param checkCldr the TestResultBundle
      * @param options
      * @param workingCoverageLevel
-     * 
+     *
      * TODO: shorten this function, over 300 lines
      */
     private void populateFrom(CLDRFile ourSrc, TestResultBundle checkCldr, Map<String, String> options,
@@ -2403,7 +2440,7 @@ public class DataSection implements JSONString {
              * 'extra' paths get shim treatment
              */
             boolean isExtraPath = extraXpaths != null && extraXpaths.contains(xpath);
- 
+
             if (SHOW_TIME) {
                 count++;
                 nextTime = System.currentTimeMillis();
@@ -2466,7 +2503,7 @@ public class DataSection implements JSONString {
             /*
              * TODO: this local variable named "altProposed" shouldn't be confused with the
              * constant string CandidateItem.altProposed ("n/a"). A different variable name
-             * should be used to avoid confusion. 
+             * should be used to avoid confusion.
              */
             String altProposed = typeAndProposed[1];
 
@@ -2642,7 +2679,7 @@ public class DataSection implements JSONString {
 
     /**
      * Show a DataSection to the user. Caller must hold session sync.
-     * 
+     *
      * @param ctx
      *            the context to show
      * @param canModify
@@ -2651,10 +2688,10 @@ public class DataSection implements JSONString {
      *            only show this prefix
      * @param zoomedIn
      *            show in zoomed-in mode
-     *            
+     *
      * There are two functions by this name. This one has a String for the 3rd param;
      * the other has an XPathMatcher.
-     * 
+     *
      * Called only by showXpath in SurveyForum.java, always with zoomedIn = true
      */
     void showSection(WebContext ctx, boolean canModify, String only_prefix_xpath, boolean zoomedIn) {
@@ -2670,7 +2707,7 @@ public class DataSection implements JSONString {
      * @param ctx
      * @param item_xpath
      *            xpath of the one item to show
-     *            
+     *
      *  Called only by showXpathShort in SurveyForum.java
      */
     public void showPeasShort(WebContext ctx, int item_xpath) {
@@ -2686,12 +2723,12 @@ public class DataSection implements JSONString {
 
     /**
      * Show a DataSection to the user.
-     * 
+     *
      * @param ctx
      * @param canModify
      * @param matcher
      * @param zoomedIn
-     * 
+     *
      * Called by another function named showSection in this file, and also by showPathList in SurveyMain.java
      */
     void showSection(WebContext ctx, boolean canModify, XPathMatcher matcher, boolean zoomedIn) {
@@ -2702,9 +2739,9 @@ public class DataSection implements JSONString {
         synchronized (ctx.session) {
             uf = ctx.getUserFile();
 
-            /* 
+            /*
              * TODO: remove this call to getCheck unless it has useful side effects. Formerly the return value was assigned
-             * to a variable checkCldr which was not accessed. 
+             * to a variable checkCldr which was not accessed.
              */
             uf.getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()), ctx.getOptionsMap());
 
@@ -2965,9 +3002,9 @@ public class DataSection implements JSONString {
 
     /**
      * Get the DisplayAndInputProcessor for this DataSection; if there isn't one yet, create it
-     * 
+     *
      * @return the processor
-     * 
+     *
      * Called by getProcessedValue
      */
     private DisplayAndInputProcessor getProcessor() {

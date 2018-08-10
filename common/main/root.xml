@@ -2842,6 +2842,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<symbols>
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
+		<symbols numberSystem="adlm">
+			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+		</symbols>
 		<symbols numberSystem="arab">
 			<decimal>٫</decimal>
 			<group>٬</group>
@@ -3013,6 +3016,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<decimalFormats>
 			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
 		</decimalFormats>
+		<decimalFormats numberSystem="adlm">
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+		</decimalFormats>
 		<decimalFormats numberSystem="arab">
 			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
 		</decimalFormats>
@@ -3174,6 +3180,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<scientificFormats>
 			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
 		</scientificFormats>
+		<scientificFormats numberSystem="adlm">
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+		</scientificFormats>
 		<scientificFormats numberSystem="arab">
 			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
 		</scientificFormats>
@@ -3314,6 +3323,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
 		</scientificFormats>
 		<percentFormats>
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+		</percentFormats>
+		<percentFormats numberSystem="adlm">
 			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
 		</percentFormats>
 		<percentFormats numberSystem="arab">
@@ -3460,6 +3472,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
 		</percentFormats>
 		<currencyFormats>
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+		</currencyFormats>
+		<currencyFormats numberSystem="adlm">
 			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
 		</currencyFormats>
 		<currencyFormats numberSystem="arab">
@@ -3969,6 +3984,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow">ZK</symbol>
 			</currency>
 		</currencies>
+		<miscPatterns numberSystem="adlm">
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+		</miscPatterns>
 		<miscPatterns numberSystem="arab">
 			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
 		</miscPatterns>

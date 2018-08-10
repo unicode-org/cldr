@@ -82,6 +82,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</calendar>
 			<calendar type="gregorian">
 				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="contributed">EEEE, d MMMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="contributed">d MMMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="contributed">d MMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>d/M/y</pattern>
@@ -96,6 +111,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yM" draft="unconfirmed">M/y</dateFormatItem>
 						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="unconfirmed">E, d/M/y</dateFormatItem>
+						<dateFormatItem id="yMMMd" draft="contributed">d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="contributed">E, d MMM y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="Md">
@@ -124,10 +141,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="M">E, d/M/y – E, d/M/y</greatestDifference>
 							<greatestDifference id="y">E, d/M/y – E, d/M/y</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="M" draft="contributed">d MMM – d MMM y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">d MMM y – d MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d" draft="contributed">E, d – E, d MMM y</greatestDifference>
+							<greatestDifference id="M" draft="contributed">E, d MMM – E, d MMM y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">E, d MMM y – E, d MMM y</greatestDifference>
+						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="year">
+				<relative type="-1" draft="contributed">last year</relative>
+				<relative type="0" draft="contributed">this year</relative>
+				<relative type="1" draft="contributed">next year</relative>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<metazone type="Hong_Kong">
 				<short>

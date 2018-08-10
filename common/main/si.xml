@@ -295,7 +295,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="nyn">නයන්කෝලෙ</language>
 			<language type="oc">ඔසිටාන්</language>
 			<language type="om">ඔරොමෝ</language>
-			<language type="or">ඔරියා</language>
+			<language type="or">ඔඩියා</language>
 			<language type="os">ඔසිටෙක්</language>
 			<language type="pa">පන්ජාබි</language>
 			<language type="pag">පන්ගසීනන්</language>
@@ -466,11 +466,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Thaa">තාන</script>
 			<script type="Thai">තායි</script>
 			<script type="Tibt">ටි‍බෙට්</script>
-			<script type="Zmth">ගනිතමය සංකේත</script>
+			<script type="Zmth">ගණිතමය සංකේත</script>
 			<script type="Zsye">ඉමොජි</script>
 			<script type="Zsym">සංකේත</script>
 			<script type="Zxxx">අලිඛිත</script>
-			<script type="Zyyy">පොදු.</script>
+			<script type="Zyyy">පොදු</script>
 			<script type="Zzzz">නොදත් අක්ෂර මාලාව</script>
 		</scripts>
 		<territories>
@@ -503,6 +503,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">නැගෙනහිර යුරෝපය</territory>
 			<territory type="154">උතුරු යුරෝපය</territory>
 			<territory type="155">බටහිර යුරෝපය</territory>
+			<territory type="202">උප-සහරානු අප්‍රිකාව</territory>
 			<territory type="419">ලතින් ඇමෙරිකාව</territory>
 			<territory type="AC">ඇසෙන්ෂන් දිවයින</territory>
 			<territory type="AD">ඇන්ඩෝරාව</territory>
@@ -515,7 +516,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="AO">ඇන්ගෝලාව</territory>
 			<territory type="AQ">ඇන්ටාක්ටිකාව</territory>
 			<territory type="AR">ආර්ජෙන්ටිනාව</territory>
-			<territory type="AS">ඇමරිකානු සැමෝවාව</territory>
+			<territory type="AS">ඇමරිකානු සැමෝවා</territory>
 			<territory type="AT">ඔස්ට්‍රියාව</territory>
 			<territory type="AU">ඕස්ට්‍රේලියාව</territory>
 			<territory type="AW">අරූබා</territory>
@@ -564,7 +565,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CW">කුරකාවෝ</territory>
 			<territory type="CX">ක්‍රිස්මස් දූපත</territory>
 			<territory type="CY">සයිප්‍රසය</territory>
-			<territory type="CZ">චෙක් ජනරජය</territory>
+			<territory type="CZ">චෙචියාව</territory>
+			<territory type="CZ" alt="variant">චෙක් ජනරජය</territory>
 			<territory type="DE">ජර්මනිය</territory>
 			<territory type="DG">දියාගෝ ගාර්සියා</territory>
 			<territory type="DJ">ජිබුටි</territory>
@@ -5649,7 +5651,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -5768,6 +5772,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">මිලියනයට කොටස් {0}</unitPattern>
 				<unitPattern count="other">මිලියනයට කොටස් {0}</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>ප්‍රතිශතය</displayName>
+				<unitPattern count="one">ප්‍රතිශතය {0}</unitPattern>
+				<unitPattern count="other">ප්‍රතිශතය {0}</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>ප්‍රතිසහශ්‍රක</displayName>
+				<unitPattern count="one">ප්‍රතිසහශ්‍රක {0}</unitPattern>
+				<unitPattern count="other">ප්‍රතිසහශ්‍රක {0}</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>කිලෝ මීටරයට ලීටරය</displayName>
 				<unitPattern count="one">කිලෝ මීටරයට ලීටරය {0}</unitPattern>
@@ -5787,6 +5801,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ඉම්පීරියල් ගැලුමට හැතැප්ම</displayName>
 				<unitPattern count="one">{0} ඉම්පීරියල් ගැලුමට හැතැප්ම</unitPattern>
 				<unitPattern count="other">{0} ඉම්පීරියල් ගැලුමට හැතැප්ම</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>පෙටාබයිට්</displayName>
+				<unitPattern count="one">පෙටාබයිට් {0}</unitPattern>
+				<unitPattern count="other">පෙටාබයිට් {0}</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>ටෙරාබයිට්</displayName>
@@ -6179,6 +6198,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">මිලිබාර් {0}</unitPattern>
 				<unitPattern count="other">මිලිබාර් {0}</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>වායුගෝල</displayName>
+				<unitPattern count="one">වායුගෝල {0}</unitPattern>
+				<unitPattern count="other">වායුගෝල {0}</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>පැයට කිලෝමීටර්</displayName>
 				<unitPattern count="one">පැයට කිලෝමීටර් {0}</unitPattern>
@@ -6345,6 +6369,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">තේ හැදී {0}</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>කාර්ඩිනල් දිශාව</displayName>
 				<coordinateUnitPattern type="east">{0}නැ</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}උ</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}ද</coordinateUnitPattern>
@@ -6460,6 +6485,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} මිලිකො</unitPattern>
 				<unitPattern count="other">{0} මිලිකො</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>ප්‍රතිශතය</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>‰</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ලීටරය/කිමී</displayName>
 				<unitPattern count="one">ලී/කිමී {0}</unitPattern>
@@ -6479,6 +6514,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>හැතැප්ම/ගැලුම්</displayName>
 				<unitPattern count="one">{0} ගැහැ</unitPattern>
 				<unitPattern count="other">{0} ගැහැ</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>පෙබයිට්</displayName>
+				<unitPattern count="one">පෙබ {0}</unitPattern>
+				<unitPattern count="other">පෙබ {0}</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>ටෙබයිට්</displayName>
@@ -6871,6 +6911,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">මි.බාර් {0}</unitPattern>
 				<unitPattern count="other">මි.බාර් {0}</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>වායුගෝ</displayName>
+				<unitPattern count="one">වායුගෝ {0}</unitPattern>
+				<unitPattern count="other">වායුගෝ {0}</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>පැයට කිලෝමීටර්</displayName>
 				<unitPattern count="one">කිමී/පැ {0}</unitPattern>
@@ -7037,6 +7082,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">තේහැදී {0}</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>දිශාව</displayName>
 				<coordinateUnitPattern type="east">{0}නැ</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}උ</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}ද</coordinateUnitPattern>
@@ -7086,6 +7132,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-square-foot">
 				<unitPattern count="one">{0} ft²</unitPattern>
 				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>ලී/කිමී100</displayName>
@@ -7254,6 +7305,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">ලී {0}</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>දිශාව</displayName>
 				<coordinateUnitPattern type="east">{0}නැ</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}උ</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}ද</coordinateUnitPattern>
@@ -7413,4 +7465,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="western_asian_scripts">බටහිර ආසියානු පිටපත්</characterLabel>
 		<characterLabel type="whitespace">සුදු ඉඩ</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">ඇල අකුරු</axisName>
+		<axisName type="opsz">දෘශ්‍ය ප්‍රමාණය</axisName>
+		<axisName type="slnt">කෙලින්</axisName>
+		<axisName type="wdth">පළල</axisName>
+		<axisName type="wght">බර</axisName>
+		<styleName type="ital" subtype="1">බැඳි අකුරු</styleName>
+		<styleName type="opsz" subtype="8">ශීර්ෂ පාඨය</styleName>
+		<styleName type="opsz" subtype="12">පෙළ</styleName>
+		<styleName type="opsz" subtype="18">මාතෘකාව</styleName>
+		<styleName type="opsz" subtype="72">ප්‍රදර්ශනය</styleName>
+		<styleName type="opsz" subtype="144">පෝස්ටරය</styleName>
+		<styleName type="slnt" subtype="-12">පිටිපසට ඇල වූ</styleName>
+		<styleName type="slnt" subtype="0">කෙළින්</styleName>
+		<styleName type="slnt" subtype="12">ඇල වූ</styleName>
+		<styleName type="slnt" subtype="24">වැඩිපුර ඇලවූ</styleName>
+		<styleName type="wdth" subtype="50">අධික සංකෝචනය කළ</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">අධික හැකුළු</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">අධික පටු</styleName>
+		<styleName type="wdth" subtype="62.5">අමතර සංකෝචනය කළ</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">අමතර හැකුළු</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">අමතර පටු</styleName>
+		<styleName type="wdth" subtype="75">සංකෝචනය කළ</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">හැකුළු</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">හැකුළු</styleName>
+		<styleName type="wdth" subtype="87.5">අර්ධ සංකෝචනය කළ</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">අර්ධ හැකුළු</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">අර්ධ පටු</styleName>
+		<styleName type="wdth" subtype="100">සාමාන්‍ය</styleName>
+		<styleName type="wdth" subtype="112.5">අර්ධ ව්‍යාප්ත කළ</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">අර්ධ දික් කළ</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">අර්ධ පුළුල්</styleName>
+		<styleName type="wdth" subtype="125">විහිදුණු</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">දික් කළ</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">පළල්</styleName>
+		<styleName type="wdth" subtype="150">අමතර ව්‍යාප්ත කළ</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">අමතර දක් කළ</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">අමතර පළල්</styleName>
+		<styleName type="wdth" subtype="200">අධික ව්‍යාප්ත කළ</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">අධික විශාල කළ</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">අධික පළල්</styleName>
+		<styleName type="wght" subtype="100">හීනි</styleName>
+		<styleName type="wght" subtype="200">අමතර ලා</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">අධික ලා</styleName>
+		<styleName type="wght" subtype="300">ලා</styleName>
+		<styleName type="wght" subtype="350">අර්ධ ලා</styleName>
+		<styleName type="wght" subtype="380">පොත</styleName>
+		<styleName type="wght" subtype="400">ඒකාකාර</styleName>
+		<styleName type="wght" subtype="500">මධ්‍යම</styleName>
+		<styleName type="wght" subtype="600">අර්ධ තද</styleName>
+		<styleName type="wght" subtype="600" alt="demi">අඩ තද</styleName>
+		<styleName type="wght" subtype="700">තද</styleName>
+		<styleName type="wght" subtype="800">අමතර තද</styleName>
+		<styleName type="wght" subtype="900">කළු</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">බර</styleName>
+		<styleName type="wght" subtype="950">අමතර කළු</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">අධික කළු</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">අධික බර</styleName>
+		<featureName type="afrc">සිරස් භාගය</featureName>
+		<featureName type="cpsp">ප්‍රාග්ධන පරතරය</featureName>
+		<featureName type="dlig">විකල්ප බැම්ම</featureName>
+		<featureName type="frac">විකර්ණ භාග</featureName>
+		<featureName type="lnum">පේලි අංක</featureName>
+		<featureName type="onum">පැරණි-ශෛලියේ අංක</featureName>
+		<featureName type="ordn">ක්‍රමසූචක</featureName>
+		<featureName type="pnum">සමානුපාතික සංඛ්‍යා</featureName>
+		<featureName type="smcp">කුඩා කැපිටල්</featureName>
+		<featureName type="tnum">වගු අංක</featureName>
+		<featureName type="zero">කපහරු බිංදු</featureName>
+	</typographicNames>
 </ldml>

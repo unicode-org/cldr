@@ -743,7 +743,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="GU">Guam</territory>
 			<territory type="GW">Guiné-Bissau</territory>
 			<territory type="GY">Guyana</territory>
-			<territory type="HK">Hong Kong RhGA Tsieina</territory>
+			<territory type="HK">Hong Kong SAR Tseina</territory>
 			<territory type="HK" alt="short">Hong Kong</territory>
 			<territory type="HM">Ynys Heard ac Ynysoedd McDonald</territory>
 			<territory type="HN">Honduras</territory>
@@ -912,6 +912,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">Zimbabwe</territory>
 			<territory type="ZZ">Rhanbarth Anhysbys</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">Lloegr</subdivision>
+			<subdivision type="gbsct">Yr Alban</subdivision>
+			<subdivision type="gbwls">Cymru</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901">orgraff draddodiadol yr Almaeneg</variant>
 			<variant type="1606NICT">Ffrangeg Canol Diweddar hyd at 1606</variant>
@@ -7987,7 +7992,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -8195,6 +8202,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} rhan pob miliwn</unitPattern>
 				<unitPattern count="other">{0} rhan pob miliwn</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>y cant</displayName>
+				<unitPattern count="zero">{0}%</unitPattern>
+				<unitPattern count="one">{0} y cant</unitPattern>
+				<unitPattern count="two">{0}%</unitPattern>
+				<unitPattern count="few">{0}%</unitPattern>
+				<unitPattern count="many">{0}%</unitPattern>
+				<unitPattern count="other">{0} y cant</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>permille</displayName>
+				<unitPattern count="zero">{0}‰</unitPattern>
+				<unitPattern count="one">{0} permille</unitPattern>
+				<unitPattern count="two">{0}‰</unitPattern>
+				<unitPattern count="few">{0}‰</unitPattern>
+				<unitPattern count="many">{0}‰</unitPattern>
+				<unitPattern count="other">{0} permille</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litrau y cilometr</displayName>
 				<unitPattern count="zero">{0} litr y cilometr</unitPattern>
@@ -8230,6 +8255,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} milltir y galwyn Imp.</unitPattern>
 				<unitPattern count="many">{0} milltir y galwyn Imp.</unitPattern>
 				<unitPattern count="other">{0} milltir y galwyn Imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>petabyte</displayName>
+				<unitPattern count="zero">{0} PB</unitPattern>
+				<unitPattern count="one">{0} petabyte</unitPattern>
+				<unitPattern count="two">{0} PB</unitPattern>
+				<unitPattern count="few">{0} PB</unitPattern>
+				<unitPattern count="many">{0} PB</unitPattern>
+				<unitPattern count="other">{0} petabyte</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabeitiau</displayName>
@@ -8949,6 +8983,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} milibar</unitPattern>
 				<unitPattern count="other">{0} milibar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atmosfferau</displayName>
+				<unitPattern count="zero">{0} atm</unitPattern>
+				<unitPattern count="one">{0} atmosffer</unitPattern>
+				<unitPattern count="two">{0} atm</unitPattern>
+				<unitPattern count="few">{0} atm</unitPattern>
+				<unitPattern count="many">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atmosffer</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>cilometrau yr awr</displayName>
 				<unitPattern count="zero">{0} cilometr yr awr</unitPattern>
@@ -9252,6 +9295,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} llond llwy de</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>cyfeiriad cardinal</displayName>
 				<coordinateUnitPattern type="east">{0} i’r dwyrain</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} i’r gogledd</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} i’r de</coordinateUnitPattern>
@@ -9447,6 +9491,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>y cant</displayName>
+				<unitPattern count="zero">{0}%</unitPattern>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="two">{0}%</unitPattern>
+				<unitPattern count="few">{0}%</unitPattern>
+				<unitPattern count="many">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>permille</displayName>
+				<unitPattern count="zero">{0}‰</unitPattern>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="two">{0}‰</unitPattern>
+				<unitPattern count="few">{0}‰</unitPattern>
+				<unitPattern count="many">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litrau/km</displayName>
 				<unitPattern count="zero">{0} L/km</unitPattern>
@@ -9482,6 +9544,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} mpg Imp.</unitPattern>
 				<unitPattern count="many">{0} mpg Imp.</unitPattern>
 				<unitPattern count="other">{0} mpg Imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PByte</displayName>
+				<unitPattern count="zero">{0} PB</unitPattern>
+				<unitPattern count="one">{0} PB</unitPattern>
+				<unitPattern count="two">{0} PB</unitPattern>
+				<unitPattern count="few">{0} PB</unitPattern>
+				<unitPattern count="many">{0} PB</unitPattern>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TBeit</displayName>
@@ -10195,6 +10266,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="zero">{0} atm</unitPattern>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="two">{0} atm</unitPattern>
+				<unitPattern count="few">{0} atm</unitPattern>
+				<unitPattern count="many">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="zero">{0} km/h</unitPattern>
@@ -10498,6 +10578,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>cyfeiriad</displayName>
 				<coordinateUnitPattern type="east">{0} dn</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} g</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} d</coordinateUnitPattern>
@@ -10613,6 +10694,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0}ft²</unitPattern>
 				<unitPattern count="many">{0}ft²</unitPattern>
 				<unitPattern count="other">{0}ft²</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="zero">{0}%</unitPattern>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="two">{0}%</unitPattern>
+				<unitPattern count="few">{0}%</unitPattern>
+				<unitPattern count="many">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
@@ -11429,6 +11519,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}pt</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>cyfeiriad</displayName>
 				<coordinateUnitPattern type="east">{0}dn</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}g</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}d</coordinateUnitPattern>
@@ -11592,4 +11683,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="western_asian_scripts">sgript Asia Gorllewinol</characterLabel>
 		<characterLabel type="whitespace">bwlch gwyn</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">italig</axisName>
+		<axisName type="opsz">maint optegol</axisName>
+		<axisName type="slnt">goledd</axisName>
+		<axisName type="wdth">lled</axisName>
+		<axisName type="wght">weight</axisName>
+		<styleName type="ital" subtype="1">rhedol</styleName>
+		<styleName type="opsz" subtype="8">capsiwn</styleName>
+		<styleName type="opsz" subtype="12">testun</styleName>
+		<styleName type="opsz" subtype="18">teitlo</styleName>
+		<styleName type="opsz" subtype="72">Arddangos</styleName>
+		<styleName type="opsz" subtype="144">poster</styleName>
+		<styleName type="slnt" subtype="-12">Gogwydd chwith</styleName>
+		<styleName type="slnt" subtype="0">unionsyth</styleName>
+		<styleName type="slnt" subtype="12">unochrog</styleName>
+		<styleName type="slnt" subtype="24">Gogwydd ychwanegol</styleName>
+		<styleName type="wdth" subtype="50">Tra-ddwys</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">Tra-chywasgedig</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">Dwys iawn</styleName>
+		<styleName type="wdth" subtype="62.5">Cywasgedig iawn</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">Cul iawn</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">Lled-ddwys</styleName>
+		<styleName type="wdth" subtype="75">cyddwysedig</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">cywasgedig</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">cywasgedig</styleName>
+		<styleName type="wdth" subtype="87.5">Lled-gywasgedig</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">Lled-gul</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">Lled-helaethedig</styleName>
+		<styleName type="wdth" subtype="100">arferol</styleName>
+		<styleName type="wdth" subtype="112.5">Lled-helaethedig</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">Lled-estynedig</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">Lled-lydan</styleName>
+		<styleName type="wdth" subtype="125">ehangedig</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">estynedig</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">llydan</styleName>
+		<styleName type="wdth" subtype="150">Helaethedig iawn</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">Estynedig iawn</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">Llydan iawn</styleName>
+		<styleName type="wdth" subtype="200">Tra-helaethedig</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">Tra-estynedig</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">Tra-lydan</styleName>
+		<styleName type="wght" subtype="100">tenau</styleName>
+		<styleName type="wght" subtype="200">Ysgafn iawn</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">Tra-ysgafn</styleName>
+		<styleName type="wght" subtype="300">ysgafn</styleName>
+		<styleName type="wght" subtype="350">Lled-ysgafn</styleName>
+		<styleName type="wght" subtype="380">llyfr</styleName>
+		<styleName type="wght" subtype="400">arferol</styleName>
+		<styleName type="wght" subtype="500">Canolig</styleName>
+		<styleName type="wght" subtype="600">Lled-drwm</styleName>
+		<styleName type="wght" subtype="600" alt="demi">Hanner-trwm</styleName>
+		<styleName type="wght" subtype="700">trwm</styleName>
+		<styleName type="wght" subtype="800">Trwm iawn</styleName>
+		<styleName type="wght" subtype="900">du</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">trwm</styleName>
+		<styleName type="wght" subtype="950">Du iawn</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">Tra-ddu</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">Tra-drwm</styleName>
+		<featureName type="afrc">Ffracsiynau Fertigol</featureName>
+		<featureName type="cpsp">Bylchau priflythrennau</featureName>
+		<featureName type="dlig">Clymlythrennau Dewisol</featureName>
+		<featureName type="frac">Ffracsiynau Lletraws</featureName>
+		<featureName type="lnum">Rhifau leinin</featureName>
+		<featureName type="onum">Ffigurau hen steil</featureName>
+		<featureName type="ordn">Trefnolion</featureName>
+		<featureName type="pnum">Rhifau cyfrannol</featureName>
+		<featureName type="smcp">Priflythrennau bach</featureName>
+		<featureName type="tnum">Rhifau tablaidd</featureName>
+		<featureName type="zero">Sero rhwygedig</featureName>
+	</typographicNames>
 </ldml>

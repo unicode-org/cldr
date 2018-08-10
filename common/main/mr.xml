@@ -709,7 +709,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">पूर्व युरोप</territory>
 			<territory type="154">उत्तर युरोप</territory>
 			<territory type="155">पश्चिम युरोप</territory>
-			<territory type="202" draft="contributed">उप-सहारा आफ्रिका</territory>
+			<territory type="202">उप-सहारा आफ्रिका</territory>
 			<territory type="419">लॅटिन अमेरिका</territory>
 			<territory type="AC">अ‍ॅसेन्शियन बेट</territory>
 			<territory type="AD">अँडोरा</territory>
@@ -758,6 +758,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG" alt="variant">काँगो (प्रजासत्ताक)</territory>
 			<territory type="CH">स्वित्झर्लंड</territory>
 			<territory type="CI">आयव्हरी कोस्ट</territory>
+			<territory type="CI" alt="variant">आयव्हरी कोस्ट</territory>
 			<territory type="CK">कुक बेटे</territory>
 			<territory type="CL">चिली</territory>
 			<territory type="CM">कॅमेरून</territory>
@@ -1457,18 +1458,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="Bh" draft="contributed">B h</dateFormatItem>
-						<dateFormatItem id="Bhm" draft="contributed">B h:mm</dateFormatItem>
-						<dateFormatItem id="Bhms" draft="contributed">B h:mm:ss</dateFormatItem>
+						<dateFormatItem id="Bh">B h</dateFormatItem>
+						<dateFormatItem id="Bhm">B h:mm</dateFormatItem>
+						<dateFormatItem id="Bhms">B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
-						<dateFormatItem id="EBhm" draft="contributed">E B h:mm</dateFormatItem>
-						<dateFormatItem id="EBhms" draft="contributed">E B h:mm:ss</dateFormatItem>
+						<dateFormatItem id="EBhm">E B h:mm</dateFormatItem>
+						<dateFormatItem id="EBhms">E B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
-						<dateFormatItem id="Ehm" draft="contributed">E h:mm a</dateFormatItem>
-						<dateFormatItem id="EHm" draft="contributed">E HH:mm</dateFormatItem>
-						<dateFormatItem id="Ehms" draft="contributed">E h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="EHms" draft="contributed">E HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM, y G</dateFormatItem>
@@ -5906,7 +5907,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="DKK">
 				<displayName>डॅनिश क्रोन</displayName>
 				<displayName count="one">डॅनिश क्रोन</displayName>
-				<displayName count="other">डॅनिश क्रोनर</displayName>
+				<displayName count="other">डॅनिश क्रोन</displayName>
 				<symbol>DKK</symbol>
 				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
@@ -6276,6 +6277,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>मॉरिटानियन ओगिया</displayName>
 				<displayName count="one">मॉरिटानियन ओगिया</displayName>
 				<displayName count="other">मॉरिटानियन ओगियाज</displayName>
+				<symbol draft="contributed">MRU</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>मॉरिशियन रुपी</displayName>
@@ -6645,6 +6647,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>व्हेनेझुएला बोलिव्हार</displayName>
 				<displayName count="one">व्हेनेझुएला बोलिव्हार</displayName>
 				<displayName count="other">व्हेनेझुएला बोलिव्हार्स</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>व्हिएतनामी डोंग</displayName>
@@ -6720,7 +6723,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately" draft="contributed">~{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost" draft="contributed">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -6842,6 +6847,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} भाग प्रति दशलक्ष</unitPattern>
 				<unitPattern count="other">{0} भाग प्रति दशलक्ष</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>टक्के</displayName>
+				<unitPattern count="one">{0} टक्के</unitPattern>
+				<unitPattern count="other">{0} टक्के</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>प्रतिमैल</displayName>
+				<unitPattern count="one">{0} प्रतिमैल</unitPattern>
+				<unitPattern count="other">{0} प्रतिमैल</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>लीटर प्रति किलोमीटर</displayName>
 				<unitPattern count="one">{0} लीटर प्रति किलोमीटर</unitPattern>
@@ -6861,6 +6876,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>मैल प्रति इम्पिरिअल गॅलन</displayName>
 				<unitPattern count="one">{0} मैल प्रति इम्पि गॅलन</unitPattern>
 				<unitPattern count="other">{0} मैल प्रति इम्पि गॅलन</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>पेटाबाइट्स</displayName>
+				<unitPattern count="one">{0} पेटाबाइट</unitPattern>
+				<unitPattern count="other">{0} पेटाबाइट्स</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>टेराबाइट</displayName>
@@ -7258,6 +7278,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} मिलिबार</unitPattern>
 				<unitPattern count="other">{0} मिलिबार</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>वातावरण</displayName>
+				<unitPattern count="one">{0} वातावरण</unitPattern>
+				<unitPattern count="other">{0} वातावरण</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>किलोमीटर प्रति तास</displayName>
 				<unitPattern count="one">{0} किलोमीटर प्रति तास</unitPattern>
@@ -7424,6 +7449,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} टीस्पून</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>मुख्य दिशा</displayName>
 				<coordinateUnitPattern type="east">{0} पूर्व</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} उत्तर</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} दक्षिण</coordinateUnitPattern>
@@ -7496,7 +7522,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>चौरस मैल</displayName>
 				<unitPattern count="one">{0} चौ मै</unitPattern>
 				<unitPattern count="other">{0} चौ मै</unitPattern>
-				<perUnitPattern draft="contributed">{0}/mi²</perUnitPattern>
+				<perUnitPattern>{0}/mi²</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName>एकर</displayName>
@@ -7539,6 +7565,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>टक्के</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>प्रतिमैल</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>लीटर/किमी</displayName>
 				<unitPattern count="one">{0} ली/किमी</unitPattern>
@@ -7558,6 +7594,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mpg Imp.</displayName>
 				<unitPattern count="one">{0} mpg Imp.</unitPattern>
 				<unitPattern count="other">{0} mpg Imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PByte</displayName>
+				<unitPattern count="one">{0} PB</unitPattern>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TByte</displayName>
@@ -7955,6 +7996,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>किमी/तास</displayName>
 				<unitPattern count="one">{0} किप्रता</unitPattern>
@@ -8121,6 +8167,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>दिशा</displayName>
 				<coordinateUnitPattern type="east">{0}पू</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}उ</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}द</coordinateUnitPattern>
@@ -8175,6 +8222,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-square-foot">
 				<unitPattern count="one">{0} फूट²</unitPattern>
 				<unitPattern count="other">{0}फूट²</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>ली/100किमी</displayName>
@@ -8448,6 +8500,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}ली</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>दिशा</displayName>
 				<coordinateUnitPattern type="east">{0}पू</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}उ</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}द</coordinateUnitPattern>
@@ -8607,4 +8660,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="western_asian_scripts">पश्चिमी आशियायी लिपी</characterLabel>
 		<characterLabel type="whitespace">व्हाईटस्पेस</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">तिर्यक</axisName>
+		<axisName type="opsz">ऑप्टिकल आकार</axisName>
+		<axisName type="slnt">उतार</axisName>
+		<axisName type="wdth">रूंदी</axisName>
+		<axisName type="wght">वजन</axisName>
+		<styleName type="ital" subtype="1">कर्सीव्ह</styleName>
+		<styleName type="opsz" subtype="8">कॅप्शन</styleName>
+		<styleName type="opsz" subtype="12">मजकूर</styleName>
+		<styleName type="opsz" subtype="18">शीर्षक</styleName>
+		<styleName type="opsz" subtype="72">डिस्प्ले</styleName>
+		<styleName type="opsz" subtype="144">पोस्टर</styleName>
+		<styleName type="slnt" subtype="-12">बॅकस्लान्टेड</styleName>
+		<styleName type="slnt" subtype="0">सरळ</styleName>
+		<styleName type="slnt" subtype="12">एकीकडून</styleName>
+		<styleName type="slnt" subtype="24">जास्त-एकीकडून</styleName>
+		<styleName type="wdth" subtype="50">खूपघनरूप</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">खूपसंकुचित</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">खूपअरूंद</styleName>
+		<styleName type="wdth" subtype="62.5">जास्त-घनरूप</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">जास्त-संकुचित</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">जास्त-अरूंद</styleName>
+		<styleName type="wdth" subtype="75">घनरूप</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">संकुचित</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">संकुचित</styleName>
+		<styleName type="wdth" subtype="87.5">अर्धघनरूप</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">अर्धसंकूचित</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">अर्धअरूंद</styleName>
+		<styleName type="wdth" subtype="100">सामान्य</styleName>
+		<styleName type="wdth" subtype="112.5">अर्धविस्तृत</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">अर्धविस्तृत</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">अर्धरूंद</styleName>
+		<styleName type="wdth" subtype="125">विस्तृत</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">विस्तृत</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">रूंद</styleName>
+		<styleName type="wdth" subtype="150">जास्त-विस्तृत</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">जास्त-विस्तृत</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">जास्त-रुंद</styleName>
+		<styleName type="wdth" subtype="200">खूपविस्तृत</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">खूपविस्तृत</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">खूपरूंद</styleName>
+		<styleName type="wght" subtype="100">बारीक</styleName>
+		<styleName type="wght" subtype="200">जास्त-हलके</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">खूपहलके</styleName>
+		<styleName type="wght" subtype="300">हलके</styleName>
+		<styleName type="wght" subtype="350">अर्धहलके</styleName>
+		<styleName type="wght" subtype="380">बुक</styleName>
+		<styleName type="wght" subtype="400">रेग्युलर</styleName>
+		<styleName type="wght" subtype="500">मीडियम</styleName>
+		<styleName type="wght" subtype="600">अर्धठळक</styleName>
+		<styleName type="wght" subtype="600" alt="demi">अर्धठळक</styleName>
+		<styleName type="wght" subtype="700">ठळक</styleName>
+		<styleName type="wght" subtype="800">जास्त-ठळक</styleName>
+		<styleName type="wght" subtype="900">काळे</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">ठळक</styleName>
+		<styleName type="wght" subtype="950">जास्त-काळे</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">खूपकाळे</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">खूपठळक</styleName>
+		<featureName type="afrc">अनुलंब अपूर्णांक</featureName>
+		<featureName type="cpsp">कॅपिटल स्पेसिंग</featureName>
+		<featureName type="dlig">पर्यायी जोडणी</featureName>
+		<featureName type="frac">कर्णरेखित अपूर्णांक</featureName>
+		<featureName type="lnum">लायनिंग नंबर्स</featureName>
+		<featureName type="onum">जुन्या-शैलीतील आकृती</featureName>
+		<featureName type="ordn">क्रमवाचक</featureName>
+		<featureName type="pnum">प्रपोर्शनल नंबर्स</featureName>
+		<featureName type="smcp">स्मॉल कॅपिटल्स</featureName>
+		<featureName type="tnum">टॅब्युलर नंबर्स</featureName>
+		<featureName type="zero">स्लॅश्ड झीरो</featureName>
+	</typographicNames>
 </ldml>

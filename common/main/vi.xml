@@ -134,6 +134,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">Tiếng Dargwa</language>
 			<language type="dav">Tiếng Taita</language>
 			<language type="de">Tiếng Đức</language>
+			<language type="de_AT">Tiếng Đức (Áo)</language>
 			<language type="de_CH">Tiếng Thượng Giéc-man (Thụy Sĩ)</language>
 			<language type="del">Tiếng Delaware</language>
 			<language type="den">Tiếng Slave</language>
@@ -159,6 +160,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">Tiếng Hy Lạp</language>
 			<language type="elx">Tiếng Elamite</language>
 			<language type="en">Tiếng Anh</language>
+			<language type="en_AU">Tiếng Anh (Australia)</language>
+			<language type="en_CA">Tiếng Anh (Canada)</language>
 			<language type="en_GB">Tiếng Anh (Anh)</language>
 			<language type="en_GB" alt="short">Tiếng Anh (Anh)</language>
 			<language type="en_US">Tiếng Anh (Mỹ)</language>
@@ -168,6 +171,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="es">Tiếng Tây Ban Nha</language>
 			<language type="es_419">Tiếng Tây Ban Nha (Mỹ La tinh)</language>
 			<language type="es_ES">Tiếng Tây Ban Nha (Châu Âu)</language>
+			<language type="es_MX">Tiếng Tây Ban Nha (Mexico)</language>
 			<language type="esu">Tiếng Yupik Miền Trung</language>
 			<language type="et">Tiếng Estonia</language>
 			<language type="eu">Tiếng Basque</language>
@@ -183,6 +187,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">Tiếng Faroe</language>
 			<language type="fon">Tiếng Fon</language>
 			<language type="fr">Tiếng Pháp</language>
+			<language type="fr_CA">Tiếng Pháp (Canada)</language>
+			<language type="fr_CH">Tiếng Pháp (Thụy Sĩ)</language>
 			<language type="frc">Tiếng Pháp Cajun</language>
 			<language type="frm">Tiếng Pháp Trung cổ</language>
 			<language type="fro">Tiếng Pháp cổ</language>
@@ -427,6 +433,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ps">Tiếng Pashto</language>
 			<language type="ps" alt="variant">Tiếng Pushto</language>
 			<language type="pt">Tiếng Bồ Đào Nha</language>
+			<language type="pt_BR">Tiếng Bồ Đào Nha (Brazil)</language>
 			<language type="pt_PT">Tiếng Bồ Đào Nha (Châu Âu)</language>
 			<language type="qu">Tiếng Quechua</language>
 			<language type="quc">Tiếng Kʼicheʼ</language>
@@ -571,6 +578,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="zen">Tiếng Zenaga</language>
 			<language type="zgh">Tiếng Tamazight Chuẩn của Ma-rốc</language>
 			<language type="zh">Tiếng Trung</language>
+			<language type="zh_Hans">Tiếng Trung (Giản thể)</language>
+			<language type="zh_Hant">Tiếng Trung (Phồn thể)</language>
 			<language type="zu">Tiếng Zulu</language>
 			<language type="zun">Tiếng Zuni</language>
 			<language type="zxx">Không có nội dung ngôn ngữ</language>
@@ -772,7 +781,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Đông Âu</territory>
 			<territory type="154">Bắc Âu</territory>
 			<territory type="155">Tây Âu</territory>
-			<territory type="202" draft="contributed">Châu Phi hạ Sahara</territory>
+			<territory type="202">Châu Phi hạ Sahara</territory>
 			<territory type="419">Châu Mỹ La-tinh</territory>
 			<territory type="AC">Đảo Ascension</territory>
 			<territory type="AD">Andorra</territory>
@@ -893,7 +902,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="IL">Israel</territory>
 			<territory type="IM">Đảo Man</territory>
 			<territory type="IN">Ấn Độ</territory>
-			<territory type="IO">Lãnh thổ Ấn độ dương thuộc Anh</territory>
+			<territory type="IO">Lãnh thổ Ấn Độ Dương thuộc Anh</territory>
 			<territory type="IQ">Iraq</territory>
 			<territory type="IR">Iran</territory>
 			<territory type="IS">Iceland</territory>
@@ -1205,8 +1214,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="lb" type="loose">Kiểu xuống dòng thoáng</type>
 			<type key="lb" type="normal">Kiểu xuống dòng thường</type>
 			<type key="lb" type="strict">Kiểu xuống dòng hẹp</type>
-			<type key="m0" type="bgn" draft="contributed">BGN</type>
-			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
+			<type key="m0" type="bgn">Chuyển tự US BGN</type>
+			<type key="m0" type="ungegn">Chuyển tự UN GEGN</type>
 			<type key="ms" type="metric">Hệ mét</type>
 			<type key="ms" type="uksystem">Hệ đo lường Anh</type>
 			<type key="ms" type="ussystem">Hệ đo lường Mỹ</type>
@@ -1619,48 +1628,48 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="Bh" draft="contributed">h B</dateFormatItem>
-						<dateFormatItem id="Bhm" draft="contributed">h:mm B</dateFormatItem>
-						<dateFormatItem id="Bhms" draft="contributed">h:mm:ss B</dateFormatItem>
-						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
-						<dateFormatItem id="E" draft="contributed">ccc</dateFormatItem>
-						<dateFormatItem id="EBhm" draft="contributed">E h:mm B</dateFormatItem>
-						<dateFormatItem id="EBhms" draft="contributed">E h:mm:ss B</dateFormatItem>
-						<dateFormatItem id="Ed" draft="contributed">d, E</dateFormatItem>
-						<dateFormatItem id="Gy" draft="contributed">r U</dateFormatItem>
-						<dateFormatItem id="GyMMM" draft="contributed">r(U) MMM</dateFormatItem>
-						<dateFormatItem id="GyMMMd" draft="contributed">r MMM d</dateFormatItem>
-						<dateFormatItem id="GyMMMEd" draft="contributed">r(U) MMM d, E</dateFormatItem>
-						<dateFormatItem id="h" draft="contributed">h a</dateFormatItem>
-						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
-						<dateFormatItem id="hm" draft="contributed">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm" draft="contributed">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms" draft="contributed">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
-						<dateFormatItem id="Md" draft="contributed">MM-dd</dateFormatItem>
-						<dateFormatItem id="MEd" draft="contributed">MM-dd, E</dateFormatItem>
-						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="contributed">MMM d</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="contributed">MMM d, E</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="contributed">MMMM d</dateFormatItem>
-						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
-						<dateFormatItem id="UM" draft="contributed">U MM</dateFormatItem>
-						<dateFormatItem id="UMd" draft="contributed">U MM-d</dateFormatItem>
-						<dateFormatItem id="UMMM" draft="contributed">U MMM</dateFormatItem>
-						<dateFormatItem id="UMMMd" draft="contributed">U MMM d</dateFormatItem>
-						<dateFormatItem id="y" draft="contributed">r(U)</dateFormatItem>
-						<dateFormatItem id="yMd" draft="contributed">r-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyy" draft="contributed">r(U)</dateFormatItem>
-						<dateFormatItem id="yyyyM" draft="contributed">r-MM</dateFormatItem>
-						<dateFormatItem id="yyyyMd" draft="contributed">r-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMEd" draft="contributed">r-MM-dd, E</dateFormatItem>
-						<dateFormatItem id="yyyyMMM" draft="contributed">r(U) MMM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" draft="contributed">r MMM d</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd" draft="contributed">r(U) MMM d, E</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="contributed">r(U) MMMM</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ" draft="contributed">r(U) QQQ</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ" draft="contributed">r(U) QQQQ</dateFormatItem>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="Ed">d, E</dateFormatItem>
+						<dateFormatItem id="Gy">r U</dateFormatItem>
+						<dateFormatItem id="GyMMM">r(U) MMM</dateFormatItem>
+						<dateFormatItem id="GyMMMd">r MMM d</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">r(U) MMM d, E</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Md">MM-dd</dateFormatItem>
+						<dateFormatItem id="MEd">MM-dd, E</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
+						<dateFormatItem id="MMMEd">MMM d, E</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="UM">U MM</dateFormatItem>
+						<dateFormatItem id="UMd">U MM-d</dateFormatItem>
+						<dateFormatItem id="UMMM">U MMM</dateFormatItem>
+						<dateFormatItem id="UMMMd">U MMM d</dateFormatItem>
+						<dateFormatItem id="y">r(U)</dateFormatItem>
+						<dateFormatItem id="yMd">r-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyy">r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyM">r-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMd">r-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">r-MM-dd, E</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">r(U) MMM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">r MMM d</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">r(U) MMM d, E</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">r(U) MMMM</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">r(U) QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">r(U) QQQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1845,28 +1854,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="Bh" draft="contributed">h B</dateFormatItem>
-						<dateFormatItem id="Bhm" draft="contributed">h:mm B</dateFormatItem>
-						<dateFormatItem id="Bhms" draft="contributed">h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">'Ngày' dd</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
-						<dateFormatItem id="EBhm" draft="contributed">E h:mm B</dateFormatItem>
-						<dateFormatItem id="EBhms" draft="contributed">E h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E, dd</dateFormatItem>
-						<dateFormatItem id="Ehm" draft="contributed">E h:mm a</dateFormatItem>
-						<dateFormatItem id="EHm" draft="contributed">E HH:mm</dateFormatItem>
-						<dateFormatItem id="Ehms" draft="contributed">E h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="EHms" draft="contributed">E HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM, y G</dateFormatItem>
-						<dateFormatItem id="h" draft="contributed">h'h' a</dateFormatItem>
-						<dateFormatItem id="H" draft="contributed">HH'h'</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm" draft="contributed">HH:mm</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">dd/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, dd/M</dateFormatItem>
@@ -2267,13 +2276,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<eras>
 					<eraNames>
 						<era type="0">Trước CN</era>
-						<era type="0" alt="variant" draft="contributed">trước CN</era>
+						<era type="0" alt="variant">Trước CN</era>
 						<era type="1">sau CN</era>
 						<era type="1" alt="variant">CN</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">Trước CN</era>
-						<era type="0" alt="variant" draft="contributed">trước CN</era>
+						<era type="0" alt="variant">trước CN</era>
 						<era type="1">sau CN</era>
 						<era type="1" alt="variant">CN</era>
 					</eraAbbr>
@@ -2348,13 +2357,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="Bh" draft="contributed">h B</dateFormatItem>
-						<dateFormatItem id="Bhm" draft="contributed">h:mm B</dateFormatItem>
-						<dateFormatItem id="Bhms" draft="contributed">h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
-						<dateFormatItem id="EBhm" draft="contributed">E h:mm B</dateFormatItem>
-						<dateFormatItem id="EBhms" draft="contributed">E h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E, 'ngày' d</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -2957,7 +2966,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ngày trong tuần</displayName>
 			</field>
 			<field type="weekday-narrow">
-				<displayName draft="contributed">ngày trong tuần</displayName>
+				<displayName>ngày trong tuần</displayName>
 			</field>
 			<field type="weekdayOfMonth">
 				<displayName>ngày thường trong tháng</displayName>
@@ -6485,6 +6494,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="MRU">
 				<displayName>Ouguiya Mauritania</displayName>
 				<displayName count="other">Ouguiya Mauritania</displayName>
+				<symbol draft="contributed">MRU</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName draft="contributed">Lia xứ Man-tơ</displayName>
@@ -6931,6 +6941,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="VES">
 				<displayName>Bolívar Venezuela</displayName>
 				<displayName count="other">Bolívar Venezuela</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Đồng Việt Nam</displayName>
@@ -7101,7 +7112,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -7201,6 +7214,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ppm</displayName>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>‰</displayName>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>lít/km</displayName>
 				<unitPattern count="other">{0} lít/km</unitPattern>
@@ -7216,6 +7237,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>mpg Imp.</displayName>
 				<unitPattern count="other">{0} mpg Imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>petabyte</displayName>
+				<unitPattern count="other" draft="contributed">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabyte</displayName>
@@ -7533,6 +7558,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>millibar</displayName>
 				<unitPattern count="other">{0} millibar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName draft="contributed">atm</displayName>
+				<unitPattern count="other">{0} átmốtphe</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilômét/giờ</displayName>
 				<unitPattern count="other">{0} kilômét/giờ</unitPattern>
@@ -7667,6 +7696,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} muỗng cà phê</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>phương trời</displayName>
 				<coordinateUnitPattern type="east">{0}Đ</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}B</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}N</coordinateUnitPattern>
@@ -7762,6 +7792,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ppm</displayName>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>‰</displayName>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
 				<unitPattern count="other">{0} l/km</unitPattern>
@@ -7777,6 +7815,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>mpg Imp.</displayName>
 				<unitPattern count="other">{0} mpg Imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PByte</displayName>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -8094,6 +8136,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mbar</displayName>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="other">{0} km/h</unitPattern>
@@ -8220,7 +8266,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} fl oz</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName>tbsp</displayName>
+				<displayName>thìa xúp</displayName>
 				<unitPattern count="other">{0} tbsp</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
@@ -8228,6 +8274,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>hướng</displayName>
 				<coordinateUnitPattern type="east">{0}Đ</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}B</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}N</coordinateUnitPattern>
@@ -8267,6 +8314,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-foot">
 				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName draft="contributed">%</displayName>
+				<unitPattern count="other" draft="contributed">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>L/100km</displayName>
@@ -8398,6 +8449,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}L</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>hướng</displayName>
 				<coordinateUnitPattern type="east">{0}Đ</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}B</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}N</coordinateUnitPattern>
@@ -8557,7 +8609,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="whitespace">dấu cách</characterLabel>
 	</characterLabels>
 	<typographicNames>
+		<axisName type="ital">nghiêng</axisName>
+		<axisName type="opsz">kích thước quang học</axisName>
+		<axisName type="slnt">xiên</axisName>
+		<axisName type="wdth">chiều rộng</axisName>
+		<axisName type="wght">trọng lượng</axisName>
 		<styleName type="ital" subtype="1">chữ thảo</styleName>
+		<styleName type="opsz" subtype="8">chú thích</styleName>
+		<styleName type="opsz" subtype="12">văn bản</styleName>
 		<styleName type="opsz" subtype="18">văn tự</styleName>
 		<styleName type="opsz" subtype="72">hiển thị</styleName>
 		<styleName type="opsz" subtype="144">áp phích</styleName>
@@ -8567,6 +8626,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="slnt" subtype="24">rất xiên</styleName>
 		<styleName type="wdth" subtype="50">co lại rất nhiều</styleName>
 		<styleName type="wdth" subtype="50" alt="compressed">được nén rất nhiều</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">siêu hẹp | siêu mỏng</styleName>
 		<styleName type="wdth" subtype="62.5">co lại nhiều</styleName>
 		<styleName type="wdth" subtype="62.5" alt="compressed">được nén nhiều</styleName>
 		<styleName type="wdth" subtype="62.5" alt="narrow">rất hẹp</styleName>
@@ -8575,9 +8635,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="wdth" subtype="75" alt="narrow">hẹp</styleName>
 		<styleName type="wdth" subtype="75" alt="short">co lại</styleName>
 		<styleName type="wdth" subtype="87.5">co một nửa</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">bán nén</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">bán hẹp</styleName>
 		<styleName type="wdth" subtype="100">bình thường</styleName>
 		<styleName type="wdth" subtype="112.5">mở rộng một nửa</styleName>
 		<styleName type="wdth" subtype="112.5" alt="extended">kéo giãn một nửa</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">bán rộng</styleName>
 		<styleName type="wdth" subtype="125">được mở rộng</styleName>
 		<styleName type="wdth" subtype="125" alt="extended">được kéo giãn</styleName>
 		<styleName type="wdth" subtype="125" alt="wide">rộng</styleName>
@@ -8586,6 +8649,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="wdth" subtype="150" alt="wide">rất rộng</styleName>
 		<styleName type="wdth" subtype="200">mở rộng rất nhiều</styleName>
 		<styleName type="wdth" subtype="200" alt="extended">kéo giãn rất nhiều</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">siêu rộng</styleName>
 		<styleName type="wght" subtype="100">mỏng</styleName>
 		<styleName type="wght" subtype="200">rất nhạt</styleName>
 		<styleName type="wght" subtype="200" alt="ultra">siêu nhạt</styleName>
@@ -8595,6 +8659,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="wght" subtype="400">thường</styleName>
 		<styleName type="wght" subtype="500">trung bình</styleName>
 		<styleName type="wght" subtype="600">nửa đậm</styleName>
+		<styleName type="wght" subtype="600" alt="demi">bán đậm</styleName>
 		<styleName type="wght" subtype="700">đậm</styleName>
 		<styleName type="wght" subtype="800">rất đậm</styleName>
 		<styleName type="wght" subtype="800" alt="ultra">siêu đậm</styleName>

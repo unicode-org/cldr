@@ -48,7 +48,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="aro">araona</language>
 			<language type="arp">arapaho</language>
 			<language type="arq">arabo algerino</language>
-			<language type="ars">arabo, najd</language>
+			<language type="ars">arabo najd</language>
 			<language type="arw">aruaco</language>
 			<language type="ary">arabo marocchino</language>
 			<language type="arz">arabo egiziano</language>
@@ -318,7 +318,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="kut">kutenai</language>
 			<language type="kv">komi</language>
 			<language type="kw">cornico</language>
-			<language type="ky">chirghiso</language>
+			<language type="ky">kirghiso</language>
 			<language type="la">latino</language>
 			<language type="lad">giudeo-spagnolo</language>
 			<language type="lag">langi</language>
@@ -430,7 +430,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="oc">occitano</language>
 			<language type="oj">ojibwa</language>
 			<language type="om">oromo</language>
-			<language type="or">oriya</language>
+			<language type="or">odia</language>
 			<language type="os">ossetico</language>
 			<language type="osa">osage</language>
 			<language type="ota">turco ottomano</language>
@@ -830,7 +830,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Europa orientale</territory>
 			<territory type="154">Europa settentrionale</territory>
 			<territory type="155">Europa occidentale</territory>
-			<territory type="202" draft="contributed">Africa subsahariana</territory>
+			<territory type="202">Africa subsahariana</territory>
 			<territory type="419">America Latina</territory>
 			<territory type="AC">Isola Ascensione</territory>
 			<territory type="AD">Andorra</territory>
@@ -1072,7 +1072,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">Tagikistan</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Timor Est</territory>
-			<territory type="TL" alt="variant">Timor Leste</territory>
+			<territory type="TL" alt="variant">Timor Est</territory>
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunisia</territory>
 			<territory type="TO">Tonga</territory>
@@ -1124,6 +1124,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="AREVELA">armeno orientale</variant>
 			<variant type="AREVMDA">armeno occidentale</variant>
 			<variant type="BAKU1926" draft="contributed">alfabeto latino altaico unificato</variant>
+			<variant type="BAUDDHA" draft="contributed">BAUDDHA</variant>
+			<variant type="BISCAYAN" draft="contributed">BISCAYAN</variant>
 			<variant type="BISKE" draft="contributed">dialetto San Giorgio/Bila</variant>
 			<variant type="BOHORIC" draft="contributed">alfabeto bohorič</variant>
 			<variant type="BOONT">boontling</variant>
@@ -1131,10 +1133,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="EMODENG" draft="contributed">primo inglese moderno</variant>
 			<variant type="FONIPA">alfabeto fonetico internazionale IPA</variant>
 			<variant type="FONUPA">alfabeto fonetico uralico UPA</variant>
+			<variant type="FONXSAMP" draft="contributed">FONXSAMP</variant>
 			<variant type="HEPBURN" draft="contributed">romanizzazione Hepburn</variant>
+			<variant type="HOGNORSK" draft="contributed">HOGNORSK</variant>
+			<variant type="ITIHASA" draft="contributed">ITIHASA</variant>
+			<variant type="JAUER" draft="contributed">JAUER</variant>
+			<variant type="JYUTPING" draft="contributed">JYUTPING</variant>
 			<variant type="KKCOR" draft="contributed">ortografia comune</variant>
 			<variant type="KSCOR" draft="contributed">ortografia standard</variant>
+			<variant type="LAUKIKA" draft="contributed">LAUKIKA</variant>
 			<variant type="LIPAW" draft="contributed">dialetto resiano di Lipovaz</variant>
+			<variant type="LUNA1918" draft="contributed">LUNA1918</variant>
 			<variant type="METELKO" draft="contributed">alfabeto Metelko</variant>
 			<variant type="MONOTON">monotonico</variant>
 			<variant type="NDYUKA" draft="contributed">dialetto Ndyuka</variant>
@@ -1143,20 +1152,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="NULIK" draft="contributed">volapük moderno</variant>
 			<variant type="OSOJS" draft="contributed">dialetto Oseacco/Osojane</variant>
 			<variant type="PAMAKA" draft="contributed">dialetto Pamaka</variant>
+			<variant type="PETR1708" draft="contributed">PETR1708</variant>
 			<variant type="PINYIN" draft="contributed">romanizzazione Pinyin</variant>
 			<variant type="POLYTON">politonico</variant>
 			<variant type="POSIX">computer</variant>
+			<variant type="PUTER" draft="contributed">PUTER</variant>
 			<variant type="REVISED">ortografia revisionata</variant>
 			<variant type="RIGIK" draft="contributed">Volapük classico</variant>
 			<variant type="ROZAJ">resiano</variant>
+			<variant type="RUMGR" draft="contributed">RUMGR</variant>
 			<variant type="SAAHO">saho</variant>
 			<variant type="SCOTLAND" draft="contributed">inglese scozzese standard</variant>
 			<variant type="SCOUSE" draft="contributed">scouse</variant>
 			<variant type="SOLBA" draft="contributed">dialetto Stolvizza/Solbica</variant>
+			<variant type="SURMIRAN" draft="contributed">SURMIRAN</variant>
+			<variant type="SURSILV" draft="contributed">SURSILV</variant>
+			<variant type="SUTSILV" draft="contributed">SUTSILV</variant>
 			<variant type="TARASK" draft="contributed">ortografia taraskievica</variant>
 			<variant type="UCCOR" draft="contributed">ortografia unificata</variant>
 			<variant type="UCRCOR" draft="contributed">ortografia rivista unificata</variant>
+			<variant type="ULSTER" draft="contributed">ULSTER</variant>
+			<variant type="VAIDIKA" draft="contributed">VAIDIKA</variant>
 			<variant type="VALENCIA" draft="contributed">valenziano</variant>
+			<variant type="VALLADER" draft="contributed">VALLADER</variant>
 			<variant type="WADEGILE" draft="contributed">romanizzazione Wade-Giles</variant>
 		</variants>
 		<keys>
@@ -2186,9 +2204,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="year-short">
 				<displayName>anno</displayName>
-				<relative type="-1" draft="contributed">anno scorso</relative>
-				<relative type="0" draft="contributed">quest’anno</relative>
-				<relative type="1" draft="contributed">anno prossimo</relative>
+				<relative type="-1">anno scorso</relative>
+				<relative type="0">quest’anno</relative>
+				<relative type="1">anno prossimo</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">tra {0} anno</relativeTimePattern>
 					<relativeTimePattern count="other">tra {0} anni</relativeTimePattern>
@@ -2200,9 +2218,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="year-narrow">
 				<displayName>anno</displayName>
-				<relative type="-1" draft="contributed">anno scorso</relative>
-				<relative type="0" draft="contributed">quest’anno</relative>
-				<relative type="1" draft="contributed">anno prossimo</relative>
+				<relative type="-1">anno scorso</relative>
+				<relative type="0">quest’anno</relative>
+				<relative type="1">anno prossimo</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">tra {0} anno</relativeTimePattern>
 					<relativeTimePattern count="other">tra {0} anni</relativeTimePattern>
@@ -2228,9 +2246,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="quarter-short">
 				<displayName>trim.</displayName>
-				<relative type="-1" draft="unconfirmed">trim. scorso</relative>
-				<relative type="0" draft="unconfirmed">questo trim.</relative>
-				<relative type="1" draft="unconfirmed">trim. prossimo</relative>
+				<relative type="-1">trim. scorso</relative>
+				<relative type="0">questo trim.</relative>
+				<relative type="1">trim. prossimo</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">tra {0} trim.</relativeTimePattern>
 					<relativeTimePattern count="other">tra {0} trim.</relativeTimePattern>
@@ -2242,9 +2260,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="quarter-narrow">
 				<displayName>trim.</displayName>
-				<relative type="-1" draft="unconfirmed">trim. scorso</relative>
-				<relative type="0" draft="unconfirmed">questo trim.</relative>
-				<relative type="1" draft="unconfirmed">trim. prossimo</relative>
+				<relative type="-1">trim. scorso</relative>
+				<relative type="0">questo trim.</relative>
+				<relative type="1">trim. prossimo</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">tra {0} trim.</relativeTimePattern>
 					<relativeTimePattern count="other">tra {0} trim.</relativeTimePattern>
@@ -2270,9 +2288,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="month-short">
 				<displayName>mese</displayName>
-				<relative type="-1" draft="contributed">mese scorso</relative>
-				<relative type="0" draft="contributed">questo mese</relative>
-				<relative type="1" draft="contributed">mese prossimo</relative>
+				<relative type="-1">mese scorso</relative>
+				<relative type="0">questo mese</relative>
+				<relative type="1">mese prossimo</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">tra {0} mese</relativeTimePattern>
 					<relativeTimePattern count="other">tra {0} mesi</relativeTimePattern>
@@ -2284,9 +2302,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="month-narrow">
 				<displayName>mese</displayName>
-				<relative type="-1" draft="contributed">mese scorso</relative>
-				<relative type="0" draft="contributed">questo mese</relative>
-				<relative type="1" draft="contributed">mese prossimo</relative>
+				<relative type="-1">mese scorso</relative>
+				<relative type="0">questo mese</relative>
+				<relative type="1">mese prossimo</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">tra {0} mese</relativeTimePattern>
 					<relativeTimePattern count="other">tra {0} mesi</relativeTimePattern>
@@ -2368,7 +2386,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="day-short">
 				<displayName>g</displayName>
-				<relative type="2" draft="contributed">dopodomani</relative>
+				<relative type="-2">l’altro ieri</relative>
+				<relative type="-1">ieri</relative>
+				<relative type="0">oggi</relative>
+				<relative type="1">domani</relative>
+				<relative type="2">dopodomani</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">tra {0} g</relativeTimePattern>
 					<relativeTimePattern count="other">tra {0} gg</relativeTimePattern>
@@ -2380,7 +2402,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="day-narrow">
 				<displayName>g</displayName>
-				<relative type="2" draft="contributed">dopodomani</relative>
+				<relative type="-2">l’altro ieri</relative>
+				<relative type="-1">ieri</relative>
+				<relative type="0">oggi</relative>
+				<relative type="1">domani</relative>
+				<relative type="2">dopodomani</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">tra {0} g</relativeTimePattern>
 					<relativeTimePattern count="other">tra {0} gg</relativeTimePattern>
@@ -5088,20 +5114,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern type="1000" count="other">0</pattern>
 					<pattern type="10000" count="one">0</pattern>
 					<pattern type="10000" count="other">0</pattern>
-					<pattern type="100000" count="one">0</pattern>
-					<pattern type="100000" count="other">0</pattern>
+					<pattern type="100000" count="one">000K</pattern>
+					<pattern type="100000" count="other">000K</pattern>
 					<pattern type="1000000" count="one">0 Mln</pattern>
 					<pattern type="1000000" count="other">0 Mln</pattern>
 					<pattern type="10000000" count="one">00 Mln</pattern>
 					<pattern type="10000000" count="other">00 Mln</pattern>
 					<pattern type="100000000" count="one">000 Mln</pattern>
 					<pattern type="100000000" count="other">000 Mln</pattern>
-					<pattern type="1000000000" count="one">0 Mld</pattern>
-					<pattern type="1000000000" count="other">0 Mld</pattern>
-					<pattern type="10000000000" count="one">00 Mld</pattern>
-					<pattern type="10000000000" count="other">00 Mld</pattern>
-					<pattern type="100000000000" count="one">000 Mld</pattern>
-					<pattern type="100000000000" count="other">000 Mld</pattern>
+					<pattern type="1000000000" count="one">0 Mrd</pattern>
+					<pattern type="1000000000" count="other">0 Mrd</pattern>
+					<pattern type="10000000000" count="one">00 Mrd</pattern>
+					<pattern type="10000000000" count="other">00 Mrd</pattern>
+					<pattern type="100000000000" count="one">000 Mrd</pattern>
+					<pattern type="100000000000" count="other">000 Mrd</pattern>
 					<pattern type="1000000000000" count="one">0 Bln</pattern>
 					<pattern type="1000000000000" count="other">0 Bln</pattern>
 					<pattern type="10000000000000" count="one">00 Bln</pattern>
@@ -5968,6 +5994,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ouguiya della Mauritania</displayName>
 				<displayName count="one">ouguiya della Mauritania</displayName>
 				<displayName count="other">ouguiya della Mauritania</displayName>
+				<symbol draft="contributed">MRU</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>lira maltese</displayName>
@@ -6272,9 +6299,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>STD</symbol>
 			</currency>
 			<currency type="STN">
-				<displayName>dobra di Sao Tomé e Principe</displayName>
-				<displayName count="one">dobra di Sao Tomé e Principe</displayName>
-				<displayName count="other">dobra di Sao Tomé e Principe</displayName>
+				<displayName>dobra di Sao Tomé e Príncipe</displayName>
+				<displayName count="one">dobra di Sao Tomé e Príncipe</displayName>
+				<displayName count="other">dobra di Sao Tomé e Príncipe</displayName>
 				<symbol draft="contributed">STN</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
@@ -6438,6 +6465,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>bolívar venezuelano</displayName>
 				<displayName count="one">bolívar venezuelano</displayName>
 				<displayName count="other">bolívares venezuelani</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>dong vietnamita</displayName>
@@ -6581,7 +6609,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">⩾{0}</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -6701,6 +6731,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} parte per milione</unitPattern>
 				<unitPattern count="other">{0} parti per milione</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>percentuale</displayName>
+				<unitPattern count="one">{0} percento</unitPattern>
+				<unitPattern count="other">{0} percento</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>permille</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litri per chilometro</displayName>
 				<unitPattern count="one">{0} litro per chilometro</unitPattern>
@@ -6720,6 +6760,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>miglia per gallone imperiale</displayName>
 				<unitPattern count="one">{0} miglio per gallone imperiale</unitPattern>
 				<unitPattern count="other">{0} miglia per gallone imperiale</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>petabyte</displayName>
+				<unitPattern count="one">{0} petabyte</unitPattern>
+				<unitPattern count="other">{0} petabyte</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabyte</displayName>
@@ -7112,6 +7157,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} millibar</unitPattern>
 				<unitPattern count="other">{0} millibar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atmosfere</displayName>
+				<unitPattern count="one">{0} atmosfera</unitPattern>
+				<unitPattern count="other">{0} atmosfere</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>chilometri orari</displayName>
 				<unitPattern count="one">{0} chilometro orario</unitPattern>
@@ -7283,6 +7333,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} cucchiai da tè</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>punti cardinali</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -7398,6 +7449,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>percento</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>‰</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
 				<unitPattern count="one">{0} L/km</unitPattern>
@@ -7417,6 +7478,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mi/Imp gal</displayName>
 				<unitPattern count="one">{0} mi/Imp gal</unitPattern>
 				<unitPattern count="other">{0} mi/Imp gal</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PByte</displayName>
+				<unitPattern count="one">{0} PB</unitPattern>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -7809,6 +7875,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="one">{0} km/h</unitPattern>
@@ -7978,6 +8049,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>punto</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -8028,6 +8100,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" draft="contributed">{0}ft²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}ft²</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>L/100km</displayName>
 				<unitPattern count="one">{0} L/100km</unitPattern>
@@ -8040,8 +8117,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-month">
 				<displayName>mese</displayName>
-				<unitPattern count="one">{0}mese</unitPattern>
-				<unitPattern count="other">{0}mesi</unitPattern>
+				<unitPattern count="one">{0} mese</unitPattern>
+				<unitPattern count="other">{0} mesi</unitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>sett.</displayName>
@@ -8196,6 +8273,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}l</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>punto</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -8355,4 +8433,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="western_asian_scripts">Alfabeti dell’Asia occidentale</characterLabel>
 		<characterLabel type="whitespace">spazio</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">corsivo</axisName>
+		<axisName type="opsz">dimensione ottica</axisName>
+		<axisName type="slnt">inclinazione</axisName>
+		<axisName type="wdth">larghezza</axisName>
+		<axisName type="wght">peso</axisName>
+		<styleName type="ital" subtype="1">corsivo</styleName>
+		<styleName type="opsz" subtype="8">didascalia</styleName>
+		<styleName type="opsz" subtype="12">testo</styleName>
+		<styleName type="opsz" subtype="18">tutte le iniziali maiuscole</styleName>
+		<styleName type="opsz" subtype="72">display</styleName>
+		<styleName type="opsz" subtype="144">poster</styleName>
+		<styleName type="slnt" subtype="-12">corsivo inverso</styleName>
+		<styleName type="slnt" subtype="0">verticale</styleName>
+		<styleName type="slnt" subtype="12">inclinato</styleName>
+		<styleName type="slnt" subtype="24">inclinato accentuato</styleName>
+		<styleName type="wdth" subtype="50">ultraridotto</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">ultracompresso</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">ultrastretto</styleName>
+		<styleName type="wdth" subtype="62.5">extraridotto</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">extracompresso</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">extrastretto</styleName>
+		<styleName type="wdth" subtype="75">ridotto</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">formato compresso</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">compresso</styleName>
+		<styleName type="wdth" subtype="87.5">semiridotto</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">semicompresso</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">semistretto</styleName>
+		<styleName type="wdth" subtype="100">normale</styleName>
+		<styleName type="wdth" subtype="112.5">semiespanso</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">semiesteso</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">semilargo</styleName>
+		<styleName type="wdth" subtype="125">espanso</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">esteso</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">largo</styleName>
+		<styleName type="wdth" subtype="150">extraespanso</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">extraesteso</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">extralargo</styleName>
+		<styleName type="wdth" subtype="200">ultraespanso</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">ultraesteso</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">ultralargo</styleName>
+		<styleName type="wght" subtype="100">sottile</styleName>
+		<styleName type="wght" subtype="200">extraleggero</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">ultraleggero</styleName>
+		<styleName type="wght" subtype="300">leggero</styleName>
+		<styleName type="wght" subtype="350">semileggero</styleName>
+		<styleName type="wght" subtype="380">formato libro</styleName>
+		<styleName type="wght" subtype="400">normale</styleName>
+		<styleName type="wght" subtype="500">medio</styleName>
+		<styleName type="wght" subtype="600">neretto</styleName>
+		<styleName type="wght" subtype="600" alt="demi">neretto</styleName>
+		<styleName type="wght" subtype="700">grassetto</styleName>
+		<styleName type="wght" subtype="800">extragrassetto</styleName>
+		<styleName type="wght" subtype="900">nero</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">scuro</styleName>
+		<styleName type="wght" subtype="950">extranero</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">ultranero</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">ultrascuro</styleName>
+		<featureName type="afrc">frazioni verticali</featureName>
+		<featureName type="cpsp">spaziatura tra caratteri maiuscoli</featureName>
+		<featureName type="dlig">legatura opzionale</featureName>
+		<featureName type="frac">frazioni diagonali</featureName>
+		<featureName type="lnum">numeri ad altezza uniforme</featureName>
+		<featureName type="onum">numeri maiuscoletti</featureName>
+		<featureName type="ordn">ordinali</featureName>
+		<featureName type="pnum">numeri a spaziatura proporzionale</featureName>
+		<featureName type="smcp">maiuscoletto</featureName>
+		<featureName type="tnum">numeri a spaziatura regolare</featureName>
+		<featureName type="zero">zero barrato</featureName>
+	</typographicNames>
 </ldml>

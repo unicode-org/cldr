@@ -44,11 +44,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ar">arabština</language>
 			<language type="ar_001">arabština (moderní standardní)</language>
 			<language type="arc">aramejština</language>
-			<language type="arn">mapudungunština</language>
+			<language type="arn">mapudungun</language>
 			<language type="aro">araonština</language>
 			<language type="arp">arapažština</language>
 			<language type="arq">arabština (alžírská)</language>
-			<language type="ars">arabština (nadžd)</language>
+			<language type="ars">arabština (Nadžd)</language>
 			<language type="arw">arawacké jazyky</language>
 			<language type="ary">arabština (marocká)</language>
 			<language type="arz">arabština (egyptská)</language>
@@ -137,6 +137,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">dargština</language>
 			<language type="dav">taita</language>
 			<language type="de">němčina</language>
+			<language type="de_AT">němčina (Rakousko)</language>
 			<language type="de_CH">němčina standardní (Švýcarsko)</language>
 			<language type="del">delawarština</language>
 			<language type="den">slejvština (athabaský jazyk)</language>
@@ -162,6 +163,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">řečtina</language>
 			<language type="elx">elamitština</language>
 			<language type="en">angličtina</language>
+			<language type="en_AU">angličtina (Austrálie)</language>
+			<language type="en_CA">angličtina (Kanada)</language>
 			<language type="en_GB">angličtina (Velká Británie)</language>
 			<language type="en_GB" alt="short">angličtina (VB)</language>
 			<language type="en_US">angličtina (USA)</language>
@@ -169,7 +172,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="enm">angličtina (středověká)</language>
 			<language type="eo">esperanto</language>
 			<language type="es">španělština</language>
+			<language type="es_419">španělština (Latinská Amerika)</language>
 			<language type="es_ES">španělština (Evropa)</language>
+			<language type="es_MX">španělština (Mexiko)</language>
 			<language type="esu">jupikština (středoaljašská)</language>
 			<language type="et">estonština</language>
 			<language type="eu">baskičtina</language>
@@ -186,6 +191,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">faerština</language>
 			<language type="fon">fonština</language>
 			<language type="fr">francouzština</language>
+			<language type="fr_CA">francouzština (Kanada)</language>
+			<language type="fr_CH">francouzština (Švýcarsko)</language>
 			<language type="frc">francouzština (cajunská)</language>
 			<language type="frm">francouzština (středověká)</language>
 			<language type="fro">francouzština (stará)</language>
@@ -453,6 +460,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="pro">provensálština</language>
 			<language type="ps">paštština</language>
 			<language type="pt">portugalština</language>
+			<language type="pt_BR">portugalština (Brazílie)</language>
 			<language type="pt_PT">portugalština (Evropa)</language>
 			<language type="qu">kečuánština</language>
 			<language type="quc">kičé</language>
@@ -625,6 +633,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="zgh">tamazight (standardní marocký)</language>
 			<language type="zh">čínština</language>
 			<language type="zh_Hans">čínština (zjednodušená)</language>
+			<language type="zh_Hant">čínština (tradiční)</language>
 			<language type="zu">zuluština</language>
 			<language type="zun">zunijština</language>
 			<language type="zxx">žádný jazykový obsah</language>
@@ -831,7 +840,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">východní Evropa</territory>
 			<territory type="154">severní Evropa</territory>
 			<territory type="155">západní Evropa</territory>
-			<territory type="202" draft="contributed">subsaharská Afrika</territory>
+			<territory type="202">subsaharská Afrika</territory>
 			<territory type="419">Latinská Amerika</territory>
 			<territory type="AC">Ascension</territory>
 			<territory type="AD">Andorra</territory>
@@ -1073,6 +1082,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">Tádžikistán</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Východní Timor</territory>
+			<territory type="TL" alt="variant">Východní Timor</territory>
 			<territory type="TM">Turkmenistán</territory>
 			<territory type="TN">Tunisko</territory>
 			<territory type="TO">Tonga</territory>
@@ -1549,6 +1559,670 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
+				<cyclicNameSets>
+					<cyclicNameSet type="dayParts">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1" draft="contributed">zi</cyclicName>
+								<cyclicName type="2" draft="contributed">chou</cyclicName>
+								<cyclicName type="3" draft="contributed">yin</cyclicName>
+								<cyclicName type="4" draft="contributed">mao</cyclicName>
+								<cyclicName type="5" draft="contributed">chen</cyclicName>
+								<cyclicName type="6" draft="contributed">si</cyclicName>
+								<cyclicName type="7" draft="contributed">wu</cyclicName>
+								<cyclicName type="8" draft="contributed">wei</cyclicName>
+								<cyclicName type="9" draft="contributed">shen</cyclicName>
+								<cyclicName type="10" draft="contributed">you</cyclicName>
+								<cyclicName type="11" draft="contributed">xu</cyclicName>
+								<cyclicName type="12" draft="contributed">hai</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="narrow">
+								<cyclicName type="1" draft="contributed">zi</cyclicName>
+								<cyclicName type="2" draft="contributed">chou</cyclicName>
+								<cyclicName type="3" draft="contributed">yin</cyclicName>
+								<cyclicName type="4" draft="contributed">mao</cyclicName>
+								<cyclicName type="5" draft="contributed">chen</cyclicName>
+								<cyclicName type="6" draft="contributed">si</cyclicName>
+								<cyclicName type="7" draft="contributed">wu</cyclicName>
+								<cyclicName type="8" draft="contributed">wei</cyclicName>
+								<cyclicName type="9" draft="contributed">shen</cyclicName>
+								<cyclicName type="10" draft="contributed">you</cyclicName>
+								<cyclicName type="11" draft="contributed">xu</cyclicName>
+								<cyclicName type="12" draft="contributed">hai</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="wide">
+								<cyclicName type="1" draft="contributed">zi</cyclicName>
+								<cyclicName type="2" draft="contributed">chou</cyclicName>
+								<cyclicName type="3" draft="contributed">yin</cyclicName>
+								<cyclicName type="4" draft="contributed">mao</cyclicName>
+								<cyclicName type="5" draft="contributed">chen</cyclicName>
+								<cyclicName type="6" draft="contributed">si</cyclicName>
+								<cyclicName type="7" draft="contributed">wu</cyclicName>
+								<cyclicName type="8" draft="contributed">wei</cyclicName>
+								<cyclicName type="9" draft="contributed">shen</cyclicName>
+								<cyclicName type="10" draft="contributed">you</cyclicName>
+								<cyclicName type="11" draft="contributed">xu</cyclicName>
+								<cyclicName type="12" draft="contributed">hai</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="days">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1" draft="contributed">jia-zi</cyclicName>
+								<cyclicName type="2" draft="contributed">yi-chou</cyclicName>
+								<cyclicName type="3" draft="contributed">bing-yin</cyclicName>
+								<cyclicName type="4" draft="contributed">ding-mao</cyclicName>
+								<cyclicName type="5" draft="contributed">wu-chen</cyclicName>
+								<cyclicName type="6" draft="contributed">ji-si</cyclicName>
+								<cyclicName type="7" draft="contributed">geng-wu</cyclicName>
+								<cyclicName type="8" draft="contributed">xin-wei</cyclicName>
+								<cyclicName type="9" draft="contributed">ren-shen</cyclicName>
+								<cyclicName type="10" draft="contributed">gui-you</cyclicName>
+								<cyclicName type="11" draft="contributed">jia-xu</cyclicName>
+								<cyclicName type="12" draft="contributed">yi-hai</cyclicName>
+								<cyclicName type="13" draft="contributed">bing-zi</cyclicName>
+								<cyclicName type="14" draft="contributed">ding-chou</cyclicName>
+								<cyclicName type="15" draft="contributed">wu-yin</cyclicName>
+								<cyclicName type="16" draft="contributed">ji-mao</cyclicName>
+								<cyclicName type="17" draft="contributed">geng-chen</cyclicName>
+								<cyclicName type="18" draft="contributed">xin-si</cyclicName>
+								<cyclicName type="19" draft="contributed">ren-wu</cyclicName>
+								<cyclicName type="20" draft="contributed">gui-wei</cyclicName>
+								<cyclicName type="21" draft="contributed">jia-shen</cyclicName>
+								<cyclicName type="22" draft="contributed">yi-you</cyclicName>
+								<cyclicName type="23" draft="contributed">bing-xu</cyclicName>
+								<cyclicName type="24" draft="contributed">ding-hai</cyclicName>
+								<cyclicName type="25" draft="contributed">wu-zi</cyclicName>
+								<cyclicName type="26" draft="contributed">ji-chou</cyclicName>
+								<cyclicName type="27" draft="contributed">geng-yin</cyclicName>
+								<cyclicName type="28" draft="contributed">xin-mao</cyclicName>
+								<cyclicName type="29" draft="contributed">ren-chen</cyclicName>
+								<cyclicName type="30" draft="contributed">gui-si</cyclicName>
+								<cyclicName type="31" draft="contributed">jia-wu</cyclicName>
+								<cyclicName type="32" draft="contributed">yi-wei</cyclicName>
+								<cyclicName type="33" draft="contributed">bing-shen</cyclicName>
+								<cyclicName type="34" draft="contributed">ding-you</cyclicName>
+								<cyclicName type="35" draft="contributed">wu-xu</cyclicName>
+								<cyclicName type="36" draft="contributed">ji-hai</cyclicName>
+								<cyclicName type="37" draft="contributed">geng-zi</cyclicName>
+								<cyclicName type="38" draft="contributed">xin-chou</cyclicName>
+								<cyclicName type="39" draft="contributed">ren-yin</cyclicName>
+								<cyclicName type="40" draft="contributed">gui-mao</cyclicName>
+								<cyclicName type="41" draft="contributed">jia-chen</cyclicName>
+								<cyclicName type="42" draft="contributed">yi-si</cyclicName>
+								<cyclicName type="43" draft="contributed">bing-wu</cyclicName>
+								<cyclicName type="44" draft="contributed">ding-wei</cyclicName>
+								<cyclicName type="45" draft="contributed">wu-shen</cyclicName>
+								<cyclicName type="46" draft="contributed">ji-you</cyclicName>
+								<cyclicName type="47" draft="contributed">geng-xu</cyclicName>
+								<cyclicName type="48" draft="contributed">xin-hai</cyclicName>
+								<cyclicName type="49" draft="contributed">ren-zi</cyclicName>
+								<cyclicName type="50" draft="contributed">gui-chou</cyclicName>
+								<cyclicName type="51" draft="contributed">jia-yin</cyclicName>
+								<cyclicName type="52" draft="contributed">yi-mao</cyclicName>
+								<cyclicName type="53" draft="contributed">bing-chen</cyclicName>
+								<cyclicName type="54" draft="contributed">ding-si</cyclicName>
+								<cyclicName type="55" draft="contributed">wu-wu</cyclicName>
+								<cyclicName type="56" draft="contributed">ji-wei</cyclicName>
+								<cyclicName type="57" draft="contributed">geng-shen</cyclicName>
+								<cyclicName type="58" draft="contributed">xin-you</cyclicName>
+								<cyclicName type="59" draft="contributed">ren-xu</cyclicName>
+								<cyclicName type="60" draft="contributed">gui-hai</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="narrow">
+								<cyclicName type="1" draft="contributed">jia-zi</cyclicName>
+								<cyclicName type="2" draft="contributed">yi-chou</cyclicName>
+								<cyclicName type="3" draft="contributed">bing-yin</cyclicName>
+								<cyclicName type="4" draft="contributed">ding-mao</cyclicName>
+								<cyclicName type="5" draft="contributed">wu-chen</cyclicName>
+								<cyclicName type="6" draft="contributed">ji-si</cyclicName>
+								<cyclicName type="7" draft="contributed">geng-wu</cyclicName>
+								<cyclicName type="8" draft="contributed">xin-wei</cyclicName>
+								<cyclicName type="9" draft="contributed">ren-shen</cyclicName>
+								<cyclicName type="10" draft="contributed">gui-you</cyclicName>
+								<cyclicName type="11" draft="contributed">jia-xu</cyclicName>
+								<cyclicName type="12" draft="contributed">yi-hai</cyclicName>
+								<cyclicName type="13" draft="contributed">bing-zi</cyclicName>
+								<cyclicName type="14" draft="contributed">ding-chou</cyclicName>
+								<cyclicName type="15" draft="contributed">wu-yin</cyclicName>
+								<cyclicName type="16" draft="contributed">ji-mao</cyclicName>
+								<cyclicName type="17" draft="contributed">geng-chen</cyclicName>
+								<cyclicName type="18" draft="contributed">xin-si</cyclicName>
+								<cyclicName type="19" draft="contributed">ren-wu</cyclicName>
+								<cyclicName type="20" draft="contributed">gui-wei</cyclicName>
+								<cyclicName type="21" draft="contributed">jia-shen</cyclicName>
+								<cyclicName type="22" draft="contributed">yi-you</cyclicName>
+								<cyclicName type="23" draft="contributed">bing-xu</cyclicName>
+								<cyclicName type="24" draft="contributed">ding-hai</cyclicName>
+								<cyclicName type="25" draft="contributed">wu-zi</cyclicName>
+								<cyclicName type="26" draft="contributed">ji-chou</cyclicName>
+								<cyclicName type="27" draft="contributed">geng-yin</cyclicName>
+								<cyclicName type="28" draft="contributed">xin-mao</cyclicName>
+								<cyclicName type="29" draft="contributed">ren-chen</cyclicName>
+								<cyclicName type="30" draft="contributed">gui-si</cyclicName>
+								<cyclicName type="31" draft="contributed">jia-wu</cyclicName>
+								<cyclicName type="32" draft="contributed">yi-wei</cyclicName>
+								<cyclicName type="33" draft="contributed">bing-shen</cyclicName>
+								<cyclicName type="34" draft="contributed">ding-you</cyclicName>
+								<cyclicName type="35" draft="contributed">wu-xu</cyclicName>
+								<cyclicName type="36" draft="contributed">ji-hai</cyclicName>
+								<cyclicName type="37" draft="contributed">geng-zi</cyclicName>
+								<cyclicName type="38" draft="contributed">xin-chou</cyclicName>
+								<cyclicName type="39" draft="contributed">ren-yin</cyclicName>
+								<cyclicName type="40" draft="contributed">gui-mao</cyclicName>
+								<cyclicName type="41" draft="contributed">jia-chen</cyclicName>
+								<cyclicName type="42" draft="contributed">yi-si</cyclicName>
+								<cyclicName type="43" draft="contributed">bing-wu</cyclicName>
+								<cyclicName type="44" draft="contributed">ding-wei</cyclicName>
+								<cyclicName type="45" draft="contributed">wu-shen</cyclicName>
+								<cyclicName type="46" draft="contributed">ji-you</cyclicName>
+								<cyclicName type="47" draft="contributed">geng-xu</cyclicName>
+								<cyclicName type="48" draft="contributed">xin-hai</cyclicName>
+								<cyclicName type="49" draft="contributed">ren-zi</cyclicName>
+								<cyclicName type="50" draft="contributed">gui-chou</cyclicName>
+								<cyclicName type="51" draft="contributed">jia-yin</cyclicName>
+								<cyclicName type="52" draft="contributed">yi-mao</cyclicName>
+								<cyclicName type="53" draft="contributed">bing-chen</cyclicName>
+								<cyclicName type="54" draft="contributed">ding-si</cyclicName>
+								<cyclicName type="55" draft="contributed">wu-wu</cyclicName>
+								<cyclicName type="56" draft="contributed">ji-wei</cyclicName>
+								<cyclicName type="57" draft="contributed">geng-shen</cyclicName>
+								<cyclicName type="58" draft="contributed">xin-you</cyclicName>
+								<cyclicName type="59" draft="contributed">ren-xu</cyclicName>
+								<cyclicName type="60" draft="contributed">gui-hai</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="wide">
+								<cyclicName type="1" draft="contributed">jia-zi</cyclicName>
+								<cyclicName type="2" draft="contributed">yi-chou</cyclicName>
+								<cyclicName type="3" draft="contributed">bing-yin</cyclicName>
+								<cyclicName type="4" draft="contributed">ding-mao</cyclicName>
+								<cyclicName type="5" draft="contributed">wu-chen</cyclicName>
+								<cyclicName type="6" draft="contributed">ji-si</cyclicName>
+								<cyclicName type="7" draft="contributed">geng-wu</cyclicName>
+								<cyclicName type="8" draft="contributed">xin-wei</cyclicName>
+								<cyclicName type="9" draft="contributed">ren-shen</cyclicName>
+								<cyclicName type="10" draft="contributed">gui-you</cyclicName>
+								<cyclicName type="11" draft="contributed">jia-xu</cyclicName>
+								<cyclicName type="12" draft="contributed">yi-hai</cyclicName>
+								<cyclicName type="13" draft="contributed">bing-zi</cyclicName>
+								<cyclicName type="14" draft="contributed">ding-chou</cyclicName>
+								<cyclicName type="15" draft="contributed">wu-yin</cyclicName>
+								<cyclicName type="16" draft="contributed">ji-mao</cyclicName>
+								<cyclicName type="17" draft="contributed">geng-chen</cyclicName>
+								<cyclicName type="18" draft="contributed">xin-si</cyclicName>
+								<cyclicName type="19" draft="contributed">ren-wu</cyclicName>
+								<cyclicName type="20" draft="contributed">gui-wei</cyclicName>
+								<cyclicName type="21" draft="contributed">jia-shen</cyclicName>
+								<cyclicName type="22" draft="contributed">yi-you</cyclicName>
+								<cyclicName type="23" draft="contributed">bing-xu</cyclicName>
+								<cyclicName type="24" draft="contributed">ding-hai</cyclicName>
+								<cyclicName type="25" draft="contributed">wu-zi</cyclicName>
+								<cyclicName type="26" draft="contributed">ji-chou</cyclicName>
+								<cyclicName type="27" draft="contributed">geng-yin</cyclicName>
+								<cyclicName type="28" draft="contributed">xin-mao</cyclicName>
+								<cyclicName type="29" draft="contributed">ren-chen</cyclicName>
+								<cyclicName type="30" draft="contributed">gui-si</cyclicName>
+								<cyclicName type="31" draft="contributed">jia-wu</cyclicName>
+								<cyclicName type="32" draft="contributed">yi-wei</cyclicName>
+								<cyclicName type="33" draft="contributed">bing-shen</cyclicName>
+								<cyclicName type="34" draft="contributed">ding-you</cyclicName>
+								<cyclicName type="35" draft="contributed">wu-xu</cyclicName>
+								<cyclicName type="36" draft="contributed">ji-hai</cyclicName>
+								<cyclicName type="37" draft="contributed">geng-zi</cyclicName>
+								<cyclicName type="38" draft="contributed">xin-chou</cyclicName>
+								<cyclicName type="39" draft="contributed">ren-yin</cyclicName>
+								<cyclicName type="40" draft="contributed">gui-mao</cyclicName>
+								<cyclicName type="41" draft="contributed">jia-chen</cyclicName>
+								<cyclicName type="42" draft="contributed">yi-si</cyclicName>
+								<cyclicName type="43" draft="contributed">bing-wu</cyclicName>
+								<cyclicName type="44" draft="contributed">ding-wei</cyclicName>
+								<cyclicName type="45" draft="contributed">wu-shen</cyclicName>
+								<cyclicName type="46" draft="contributed">ji-you</cyclicName>
+								<cyclicName type="47" draft="contributed">geng-xu</cyclicName>
+								<cyclicName type="48" draft="contributed">xin-hai</cyclicName>
+								<cyclicName type="49" draft="contributed">ren-zi</cyclicName>
+								<cyclicName type="50" draft="contributed">gui-chou</cyclicName>
+								<cyclicName type="51" draft="contributed">jia-yin</cyclicName>
+								<cyclicName type="52" draft="contributed">yi-mao</cyclicName>
+								<cyclicName type="53" draft="contributed">bing-chen</cyclicName>
+								<cyclicName type="54" draft="contributed">ding-si</cyclicName>
+								<cyclicName type="55" draft="contributed">wu-wu</cyclicName>
+								<cyclicName type="56" draft="contributed">ji-wei</cyclicName>
+								<cyclicName type="57" draft="contributed">geng-shen</cyclicName>
+								<cyclicName type="58" draft="contributed">xin-you</cyclicName>
+								<cyclicName type="59" draft="contributed">ren-xu</cyclicName>
+								<cyclicName type="60" draft="contributed">gui-hai</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="months">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1" draft="contributed">jia-zi</cyclicName>
+								<cyclicName type="2" draft="contributed">yi-chou</cyclicName>
+								<cyclicName type="3" draft="contributed">bing-yin</cyclicName>
+								<cyclicName type="4" draft="contributed">ding-mao</cyclicName>
+								<cyclicName type="5" draft="contributed">wu-chen</cyclicName>
+								<cyclicName type="6" draft="contributed">ji-si</cyclicName>
+								<cyclicName type="7" draft="contributed">geng-wu</cyclicName>
+								<cyclicName type="8" draft="contributed">xin-wei</cyclicName>
+								<cyclicName type="9" draft="contributed">ren-shen</cyclicName>
+								<cyclicName type="10" draft="contributed">gui-you</cyclicName>
+								<cyclicName type="11" draft="contributed">jia-xu</cyclicName>
+								<cyclicName type="12" draft="contributed">yi-hai</cyclicName>
+								<cyclicName type="13" draft="contributed">bing-zi</cyclicName>
+								<cyclicName type="14" draft="contributed">ding-chou</cyclicName>
+								<cyclicName type="15" draft="contributed">wu-yin</cyclicName>
+								<cyclicName type="16" draft="contributed">ji-mao</cyclicName>
+								<cyclicName type="17" draft="contributed">geng-chen</cyclicName>
+								<cyclicName type="18" draft="contributed">xin-si</cyclicName>
+								<cyclicName type="19" draft="contributed">ren-wu</cyclicName>
+								<cyclicName type="20" draft="contributed">gui-wei</cyclicName>
+								<cyclicName type="21" draft="contributed">jia-shen</cyclicName>
+								<cyclicName type="22" draft="contributed">yi-you</cyclicName>
+								<cyclicName type="23" draft="contributed">bing-xu</cyclicName>
+								<cyclicName type="24" draft="contributed">ding-hai</cyclicName>
+								<cyclicName type="25" draft="contributed">wu-zi</cyclicName>
+								<cyclicName type="26" draft="contributed">ji-chou</cyclicName>
+								<cyclicName type="27" draft="contributed">geng-yin</cyclicName>
+								<cyclicName type="28" draft="contributed">xin-mao</cyclicName>
+								<cyclicName type="29" draft="contributed">ren-chen</cyclicName>
+								<cyclicName type="30" draft="contributed">gui-si</cyclicName>
+								<cyclicName type="31" draft="contributed">jia-wu</cyclicName>
+								<cyclicName type="32" draft="contributed">yi-wei</cyclicName>
+								<cyclicName type="33" draft="contributed">bing-shen</cyclicName>
+								<cyclicName type="34" draft="contributed">ding-you</cyclicName>
+								<cyclicName type="35" draft="contributed">wu-xu</cyclicName>
+								<cyclicName type="36" draft="contributed">ji-hai</cyclicName>
+								<cyclicName type="37" draft="contributed">geng-zi</cyclicName>
+								<cyclicName type="38" draft="contributed">xin-chou</cyclicName>
+								<cyclicName type="39" draft="contributed">ren-yin</cyclicName>
+								<cyclicName type="40" draft="contributed">gui-mao</cyclicName>
+								<cyclicName type="41" draft="contributed">jia-chen</cyclicName>
+								<cyclicName type="42" draft="contributed">yi-si</cyclicName>
+								<cyclicName type="43" draft="contributed">bing-wu</cyclicName>
+								<cyclicName type="44" draft="contributed">ding-wei</cyclicName>
+								<cyclicName type="45" draft="contributed">wu-shen</cyclicName>
+								<cyclicName type="46" draft="contributed">ji-you</cyclicName>
+								<cyclicName type="47" draft="contributed">geng-xu</cyclicName>
+								<cyclicName type="48" draft="contributed">xin-hai</cyclicName>
+								<cyclicName type="49" draft="contributed">ren-zi</cyclicName>
+								<cyclicName type="50" draft="contributed">gui-chou</cyclicName>
+								<cyclicName type="51" draft="contributed">jia-yin</cyclicName>
+								<cyclicName type="52" draft="contributed">yi-mao</cyclicName>
+								<cyclicName type="53" draft="contributed">bing-chen</cyclicName>
+								<cyclicName type="54" draft="contributed">ding-si</cyclicName>
+								<cyclicName type="55" draft="contributed">wu-wu</cyclicName>
+								<cyclicName type="56" draft="contributed">ji-wei</cyclicName>
+								<cyclicName type="57" draft="contributed">geng-shen</cyclicName>
+								<cyclicName type="58" draft="contributed">xin-you</cyclicName>
+								<cyclicName type="59" draft="contributed">ren-xu</cyclicName>
+								<cyclicName type="60" draft="contributed">gui-hai</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="narrow">
+								<cyclicName type="1" draft="contributed">jia-zi</cyclicName>
+								<cyclicName type="2" draft="contributed">yi-chou</cyclicName>
+								<cyclicName type="3" draft="contributed">bing-yin</cyclicName>
+								<cyclicName type="4" draft="contributed">ding-mao</cyclicName>
+								<cyclicName type="5" draft="contributed">wu-chen</cyclicName>
+								<cyclicName type="6" draft="contributed">ji-si</cyclicName>
+								<cyclicName type="7" draft="contributed">geng-wu</cyclicName>
+								<cyclicName type="8" draft="contributed">xin-wei</cyclicName>
+								<cyclicName type="9" draft="contributed">ren-shen</cyclicName>
+								<cyclicName type="10" draft="contributed">gui-you</cyclicName>
+								<cyclicName type="11" draft="contributed">jia-xu</cyclicName>
+								<cyclicName type="12" draft="contributed">yi-hai</cyclicName>
+								<cyclicName type="13" draft="contributed">bing-zi</cyclicName>
+								<cyclicName type="14" draft="contributed">ding-chou</cyclicName>
+								<cyclicName type="15" draft="contributed">wu-yin</cyclicName>
+								<cyclicName type="16" draft="contributed">ji-mao</cyclicName>
+								<cyclicName type="17" draft="contributed">geng-chen</cyclicName>
+								<cyclicName type="18" draft="contributed">xin-si</cyclicName>
+								<cyclicName type="19" draft="contributed">ren-wu</cyclicName>
+								<cyclicName type="20" draft="contributed">gui-wei</cyclicName>
+								<cyclicName type="21" draft="contributed">jia-shen</cyclicName>
+								<cyclicName type="22" draft="contributed">yi-you</cyclicName>
+								<cyclicName type="23" draft="contributed">bing-xu</cyclicName>
+								<cyclicName type="24" draft="contributed">ding-hai</cyclicName>
+								<cyclicName type="25" draft="contributed">wu-zi</cyclicName>
+								<cyclicName type="26" draft="contributed">ji-chou</cyclicName>
+								<cyclicName type="27" draft="contributed">geng-yin</cyclicName>
+								<cyclicName type="28" draft="contributed">xin-mao</cyclicName>
+								<cyclicName type="29" draft="contributed">ren-chen</cyclicName>
+								<cyclicName type="30" draft="contributed">gui-si</cyclicName>
+								<cyclicName type="31" draft="contributed">jia-wu</cyclicName>
+								<cyclicName type="32" draft="contributed">yi-wei</cyclicName>
+								<cyclicName type="33" draft="contributed">bing-shen</cyclicName>
+								<cyclicName type="34" draft="contributed">ding-you</cyclicName>
+								<cyclicName type="35" draft="contributed">wu-xu</cyclicName>
+								<cyclicName type="36" draft="contributed">ji-hai</cyclicName>
+								<cyclicName type="37" draft="contributed">geng-zi</cyclicName>
+								<cyclicName type="38" draft="contributed">xin-chou</cyclicName>
+								<cyclicName type="39" draft="contributed">ren-yin</cyclicName>
+								<cyclicName type="40" draft="contributed">gui-mao</cyclicName>
+								<cyclicName type="41" draft="contributed">jia-chen</cyclicName>
+								<cyclicName type="42" draft="contributed">yi-si</cyclicName>
+								<cyclicName type="43" draft="contributed">bing-wu</cyclicName>
+								<cyclicName type="44" draft="contributed">ding-wei</cyclicName>
+								<cyclicName type="45" draft="contributed">wu-shen</cyclicName>
+								<cyclicName type="46" draft="contributed">ji-you</cyclicName>
+								<cyclicName type="47" draft="contributed">geng-xu</cyclicName>
+								<cyclicName type="48" draft="contributed">xin-hai</cyclicName>
+								<cyclicName type="49" draft="contributed">ren-zi</cyclicName>
+								<cyclicName type="50" draft="contributed">gui-chou</cyclicName>
+								<cyclicName type="51" draft="contributed">jia-yin</cyclicName>
+								<cyclicName type="52" draft="contributed">yi-mao</cyclicName>
+								<cyclicName type="53" draft="contributed">bing-chen</cyclicName>
+								<cyclicName type="54" draft="contributed">ding-si</cyclicName>
+								<cyclicName type="55" draft="contributed">wu-wu</cyclicName>
+								<cyclicName type="56" draft="contributed">ji-wei</cyclicName>
+								<cyclicName type="57" draft="contributed">geng-shen</cyclicName>
+								<cyclicName type="58" draft="contributed">xin-you</cyclicName>
+								<cyclicName type="59" draft="contributed">ren-xu</cyclicName>
+								<cyclicName type="60" draft="contributed">gui-hai</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="wide">
+								<cyclicName type="1" draft="contributed">jia-zi</cyclicName>
+								<cyclicName type="2" draft="contributed">yi-chou</cyclicName>
+								<cyclicName type="3" draft="contributed">bing-yin</cyclicName>
+								<cyclicName type="4" draft="contributed">ding-mao</cyclicName>
+								<cyclicName type="5" draft="contributed">wu-chen</cyclicName>
+								<cyclicName type="6" draft="contributed">ji-si</cyclicName>
+								<cyclicName type="7" draft="contributed">geng-wu</cyclicName>
+								<cyclicName type="8" draft="contributed">xin-wei</cyclicName>
+								<cyclicName type="9" draft="contributed">ren-shen</cyclicName>
+								<cyclicName type="10" draft="contributed">gui-you</cyclicName>
+								<cyclicName type="11" draft="contributed">jia-xu</cyclicName>
+								<cyclicName type="12" draft="contributed">yi-hai</cyclicName>
+								<cyclicName type="13" draft="contributed">bing-zi</cyclicName>
+								<cyclicName type="14" draft="contributed">ding-chou</cyclicName>
+								<cyclicName type="15" draft="contributed">wu-yin</cyclicName>
+								<cyclicName type="16" draft="contributed">ji-mao</cyclicName>
+								<cyclicName type="17" draft="contributed">geng-chen</cyclicName>
+								<cyclicName type="18" draft="contributed">xin-si</cyclicName>
+								<cyclicName type="19" draft="contributed">ren-wu</cyclicName>
+								<cyclicName type="20" draft="contributed">gui-wei</cyclicName>
+								<cyclicName type="21" draft="contributed">jia-shen</cyclicName>
+								<cyclicName type="22" draft="contributed">yi-you</cyclicName>
+								<cyclicName type="23" draft="contributed">bing-xu</cyclicName>
+								<cyclicName type="24" draft="contributed">ding-hai</cyclicName>
+								<cyclicName type="25" draft="contributed">wu-zi</cyclicName>
+								<cyclicName type="26" draft="contributed">ji-chou</cyclicName>
+								<cyclicName type="27" draft="contributed">geng-yin</cyclicName>
+								<cyclicName type="28" draft="contributed">xin-mao</cyclicName>
+								<cyclicName type="29" draft="contributed">ren-chen</cyclicName>
+								<cyclicName type="30" draft="contributed">gui-si</cyclicName>
+								<cyclicName type="31" draft="contributed">jia-wu</cyclicName>
+								<cyclicName type="32" draft="contributed">yi-wei</cyclicName>
+								<cyclicName type="33" draft="contributed">bing-shen</cyclicName>
+								<cyclicName type="34" draft="contributed">ding-you</cyclicName>
+								<cyclicName type="35" draft="contributed">wu-xu</cyclicName>
+								<cyclicName type="36" draft="contributed">ji-hai</cyclicName>
+								<cyclicName type="37" draft="contributed">geng-zi</cyclicName>
+								<cyclicName type="38" draft="contributed">xin-chou</cyclicName>
+								<cyclicName type="39" draft="contributed">ren-yin</cyclicName>
+								<cyclicName type="40" draft="contributed">gui-mao</cyclicName>
+								<cyclicName type="41" draft="contributed">jia-chen</cyclicName>
+								<cyclicName type="42" draft="contributed">yi-si</cyclicName>
+								<cyclicName type="43" draft="contributed">bing-wu</cyclicName>
+								<cyclicName type="44" draft="contributed">ding-wei</cyclicName>
+								<cyclicName type="45" draft="contributed">wu-shen</cyclicName>
+								<cyclicName type="46" draft="contributed">ji-you</cyclicName>
+								<cyclicName type="47" draft="contributed">geng-xu</cyclicName>
+								<cyclicName type="48" draft="contributed">xin-hai</cyclicName>
+								<cyclicName type="49" draft="contributed">ren-zi</cyclicName>
+								<cyclicName type="50" draft="contributed">gui-chou</cyclicName>
+								<cyclicName type="51" draft="contributed">jia-yin</cyclicName>
+								<cyclicName type="52" draft="contributed">yi-mao</cyclicName>
+								<cyclicName type="53" draft="contributed">bing-chen</cyclicName>
+								<cyclicName type="54" draft="contributed">ding-si</cyclicName>
+								<cyclicName type="55" draft="contributed">wu-wu</cyclicName>
+								<cyclicName type="56" draft="contributed">ji-wei</cyclicName>
+								<cyclicName type="57" draft="contributed">geng-shen</cyclicName>
+								<cyclicName type="58" draft="contributed">xin-you</cyclicName>
+								<cyclicName type="59" draft="contributed">ren-xu</cyclicName>
+								<cyclicName type="60" draft="contributed">gui-hai</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="years">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1" draft="contributed">jia-zi</cyclicName>
+								<cyclicName type="2" draft="contributed">yi-chou</cyclicName>
+								<cyclicName type="3" draft="contributed">bing-yin</cyclicName>
+								<cyclicName type="4" draft="contributed">ding-mao</cyclicName>
+								<cyclicName type="5" draft="contributed">wu-chen</cyclicName>
+								<cyclicName type="6" draft="contributed">ji-si</cyclicName>
+								<cyclicName type="7" draft="contributed">geng-wu</cyclicName>
+								<cyclicName type="8" draft="contributed">xin-wei</cyclicName>
+								<cyclicName type="9" draft="contributed">ren-shen</cyclicName>
+								<cyclicName type="10" draft="contributed">gui-you</cyclicName>
+								<cyclicName type="11" draft="contributed">jia-xu</cyclicName>
+								<cyclicName type="12" draft="contributed">yi-hai</cyclicName>
+								<cyclicName type="13" draft="contributed">bing-zi</cyclicName>
+								<cyclicName type="14" draft="contributed">ding-chou</cyclicName>
+								<cyclicName type="15" draft="contributed">wu-yin</cyclicName>
+								<cyclicName type="16" draft="contributed">ji-mao</cyclicName>
+								<cyclicName type="17" draft="contributed">geng-chen</cyclicName>
+								<cyclicName type="18" draft="contributed">xin-si</cyclicName>
+								<cyclicName type="19" draft="contributed">ren-wu</cyclicName>
+								<cyclicName type="20" draft="contributed">gui-wei</cyclicName>
+								<cyclicName type="21" draft="contributed">jia-shen</cyclicName>
+								<cyclicName type="22" draft="contributed">yi-you</cyclicName>
+								<cyclicName type="23" draft="contributed">bing-xu</cyclicName>
+								<cyclicName type="24" draft="contributed">ding-hai</cyclicName>
+								<cyclicName type="25" draft="contributed">wu-zi</cyclicName>
+								<cyclicName type="26" draft="contributed">ji-chou</cyclicName>
+								<cyclicName type="27" draft="contributed">geng-yin</cyclicName>
+								<cyclicName type="28" draft="contributed">xin-mao</cyclicName>
+								<cyclicName type="29" draft="contributed">ren-chen</cyclicName>
+								<cyclicName type="30" draft="contributed">gui-si</cyclicName>
+								<cyclicName type="31" draft="contributed">jia-wu</cyclicName>
+								<cyclicName type="32" draft="contributed">yi-wei</cyclicName>
+								<cyclicName type="33" draft="contributed">bing-shen</cyclicName>
+								<cyclicName type="34" draft="contributed">ding-you</cyclicName>
+								<cyclicName type="35" draft="contributed">wu-xu</cyclicName>
+								<cyclicName type="36" draft="contributed">ji-hai</cyclicName>
+								<cyclicName type="37" draft="contributed">geng-zi</cyclicName>
+								<cyclicName type="38" draft="contributed">xin-chou</cyclicName>
+								<cyclicName type="39" draft="contributed">ren-yin</cyclicName>
+								<cyclicName type="40" draft="contributed">gui-mao</cyclicName>
+								<cyclicName type="41" draft="contributed">jia-chen</cyclicName>
+								<cyclicName type="42" draft="contributed">yi-si</cyclicName>
+								<cyclicName type="43" draft="contributed">bing-wu</cyclicName>
+								<cyclicName type="44" draft="contributed">ding-wei</cyclicName>
+								<cyclicName type="45" draft="contributed">wu-shen</cyclicName>
+								<cyclicName type="46" draft="contributed">ji-you</cyclicName>
+								<cyclicName type="47" draft="contributed">geng-xu</cyclicName>
+								<cyclicName type="48" draft="contributed">xin-hai</cyclicName>
+								<cyclicName type="49" draft="contributed">ren-zi</cyclicName>
+								<cyclicName type="50" draft="contributed">gui-chou</cyclicName>
+								<cyclicName type="51" draft="contributed">jia-yin</cyclicName>
+								<cyclicName type="52" draft="contributed">yi-mao</cyclicName>
+								<cyclicName type="53" draft="contributed">bing-chen</cyclicName>
+								<cyclicName type="54" draft="contributed">ding-si</cyclicName>
+								<cyclicName type="55" draft="contributed">wu-wu</cyclicName>
+								<cyclicName type="56" draft="contributed">ji-wei</cyclicName>
+								<cyclicName type="57" draft="contributed">geng-shen</cyclicName>
+								<cyclicName type="58" draft="contributed">xin-you</cyclicName>
+								<cyclicName type="59" draft="contributed">ren-xu</cyclicName>
+								<cyclicName type="60" draft="contributed">gui-hai</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="narrow">
+								<cyclicName type="1" draft="contributed">jia-zi</cyclicName>
+								<cyclicName type="2" draft="contributed">yi-chou</cyclicName>
+								<cyclicName type="3" draft="contributed">bing-yin</cyclicName>
+								<cyclicName type="4" draft="contributed">ding-mao</cyclicName>
+								<cyclicName type="5" draft="contributed">wu-chen</cyclicName>
+								<cyclicName type="6" draft="contributed">ji-si</cyclicName>
+								<cyclicName type="7" draft="contributed">geng-wu</cyclicName>
+								<cyclicName type="8" draft="contributed">xin-wei</cyclicName>
+								<cyclicName type="9" draft="contributed">ren-shen</cyclicName>
+								<cyclicName type="10" draft="contributed">gui-you</cyclicName>
+								<cyclicName type="11" draft="contributed">jia-xu</cyclicName>
+								<cyclicName type="12" draft="contributed">yi-hai</cyclicName>
+								<cyclicName type="13" draft="contributed">bing-zi</cyclicName>
+								<cyclicName type="14" draft="contributed">ding-chou</cyclicName>
+								<cyclicName type="15" draft="contributed">wu-yin</cyclicName>
+								<cyclicName type="16" draft="contributed">ji-mao</cyclicName>
+								<cyclicName type="17" draft="contributed">geng-chen</cyclicName>
+								<cyclicName type="18" draft="contributed">xin-si</cyclicName>
+								<cyclicName type="19" draft="contributed">ren-wu</cyclicName>
+								<cyclicName type="20" draft="contributed">gui-wei</cyclicName>
+								<cyclicName type="21" draft="contributed">jia-shen</cyclicName>
+								<cyclicName type="22" draft="contributed">yi-you</cyclicName>
+								<cyclicName type="23" draft="contributed">bing-xu</cyclicName>
+								<cyclicName type="24" draft="contributed">ding-hai</cyclicName>
+								<cyclicName type="25" draft="contributed">wu-zi</cyclicName>
+								<cyclicName type="26" draft="contributed">ji-chou</cyclicName>
+								<cyclicName type="27" draft="contributed">geng-yin</cyclicName>
+								<cyclicName type="28" draft="contributed">xin-mao</cyclicName>
+								<cyclicName type="29" draft="contributed">ren-chen</cyclicName>
+								<cyclicName type="30" draft="contributed">gui-si</cyclicName>
+								<cyclicName type="31" draft="contributed">jia-wu</cyclicName>
+								<cyclicName type="32" draft="contributed">yi-wei</cyclicName>
+								<cyclicName type="33" draft="contributed">bing-shen</cyclicName>
+								<cyclicName type="34" draft="contributed">ding-you</cyclicName>
+								<cyclicName type="35" draft="contributed">wu-xu</cyclicName>
+								<cyclicName type="36" draft="contributed">ji-hai</cyclicName>
+								<cyclicName type="37" draft="contributed">geng-zi</cyclicName>
+								<cyclicName type="38" draft="contributed">xin-chou</cyclicName>
+								<cyclicName type="39" draft="contributed">ren-yin</cyclicName>
+								<cyclicName type="40" draft="contributed">gui-mao</cyclicName>
+								<cyclicName type="41" draft="contributed">jia-chen</cyclicName>
+								<cyclicName type="42" draft="contributed">yi-si</cyclicName>
+								<cyclicName type="43" draft="contributed">bing-wu</cyclicName>
+								<cyclicName type="44" draft="contributed">ding-wei</cyclicName>
+								<cyclicName type="45" draft="contributed">wu-shen</cyclicName>
+								<cyclicName type="46" draft="contributed">ji-you</cyclicName>
+								<cyclicName type="47" draft="contributed">geng-xu</cyclicName>
+								<cyclicName type="48" draft="contributed">xin-hai</cyclicName>
+								<cyclicName type="49" draft="contributed">ren-zi</cyclicName>
+								<cyclicName type="50" draft="contributed">gui-chou</cyclicName>
+								<cyclicName type="51" draft="contributed">jia-yin</cyclicName>
+								<cyclicName type="52" draft="contributed">yi-mao</cyclicName>
+								<cyclicName type="53" draft="contributed">bing-chen</cyclicName>
+								<cyclicName type="54" draft="contributed">ding-si</cyclicName>
+								<cyclicName type="55" draft="contributed">wu-wu</cyclicName>
+								<cyclicName type="56" draft="contributed">ji-wei</cyclicName>
+								<cyclicName type="57" draft="contributed">geng-shen</cyclicName>
+								<cyclicName type="58" draft="contributed">xin-you</cyclicName>
+								<cyclicName type="59" draft="contributed">ren-xu</cyclicName>
+								<cyclicName type="60" draft="contributed">gui-hai</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="wide">
+								<cyclicName type="1" draft="contributed">jia-zi</cyclicName>
+								<cyclicName type="2" draft="contributed">yi-chou</cyclicName>
+								<cyclicName type="3" draft="contributed">bing-yin</cyclicName>
+								<cyclicName type="4" draft="contributed">ding-mao</cyclicName>
+								<cyclicName type="5" draft="contributed">wu-chen</cyclicName>
+								<cyclicName type="6" draft="contributed">ji-si</cyclicName>
+								<cyclicName type="7" draft="contributed">geng-wu</cyclicName>
+								<cyclicName type="8" draft="contributed">xin-wei</cyclicName>
+								<cyclicName type="9" draft="contributed">ren-shen</cyclicName>
+								<cyclicName type="10" draft="contributed">gui-you</cyclicName>
+								<cyclicName type="11" draft="contributed">jia-xu</cyclicName>
+								<cyclicName type="12" draft="contributed">yi-hai</cyclicName>
+								<cyclicName type="13" draft="contributed">bing-zi</cyclicName>
+								<cyclicName type="14" draft="contributed">ding-chou</cyclicName>
+								<cyclicName type="15" draft="contributed">wu-yin</cyclicName>
+								<cyclicName type="16" draft="contributed">ji-mao</cyclicName>
+								<cyclicName type="17" draft="contributed">geng-chen</cyclicName>
+								<cyclicName type="18" draft="contributed">xin-si</cyclicName>
+								<cyclicName type="19" draft="contributed">ren-wu</cyclicName>
+								<cyclicName type="20" draft="contributed">gui-wei</cyclicName>
+								<cyclicName type="21" draft="contributed">jia-shen</cyclicName>
+								<cyclicName type="22" draft="contributed">yi-you</cyclicName>
+								<cyclicName type="23" draft="contributed">bing-xu</cyclicName>
+								<cyclicName type="24" draft="contributed">ding-hai</cyclicName>
+								<cyclicName type="25" draft="contributed">wu-zi</cyclicName>
+								<cyclicName type="26" draft="contributed">ji-chou</cyclicName>
+								<cyclicName type="27" draft="contributed">geng-yin</cyclicName>
+								<cyclicName type="28" draft="contributed">xin-mao</cyclicName>
+								<cyclicName type="29" draft="contributed">ren-chen</cyclicName>
+								<cyclicName type="30" draft="contributed">gui-si</cyclicName>
+								<cyclicName type="31" draft="contributed">jia-wu</cyclicName>
+								<cyclicName type="32" draft="contributed">yi-wei</cyclicName>
+								<cyclicName type="33" draft="contributed">bing-shen</cyclicName>
+								<cyclicName type="34" draft="contributed">ding-you</cyclicName>
+								<cyclicName type="35" draft="contributed">wu-xu</cyclicName>
+								<cyclicName type="36" draft="contributed">ji-hai</cyclicName>
+								<cyclicName type="37" draft="contributed">geng-zi</cyclicName>
+								<cyclicName type="38" draft="contributed">xin-chou</cyclicName>
+								<cyclicName type="39" draft="contributed">ren-yin</cyclicName>
+								<cyclicName type="40" draft="contributed">gui-mao</cyclicName>
+								<cyclicName type="41" draft="contributed">jia-chen</cyclicName>
+								<cyclicName type="42" draft="contributed">yi-si</cyclicName>
+								<cyclicName type="43" draft="contributed">bing-wu</cyclicName>
+								<cyclicName type="44" draft="contributed">ding-wei</cyclicName>
+								<cyclicName type="45" draft="contributed">wu-shen</cyclicName>
+								<cyclicName type="46" draft="contributed">ji-you</cyclicName>
+								<cyclicName type="47" draft="contributed">geng-xu</cyclicName>
+								<cyclicName type="48" draft="contributed">xin-hai</cyclicName>
+								<cyclicName type="49" draft="contributed">ren-zi</cyclicName>
+								<cyclicName type="50" draft="contributed">gui-chou</cyclicName>
+								<cyclicName type="51" draft="contributed">jia-yin</cyclicName>
+								<cyclicName type="52" draft="contributed">yi-mao</cyclicName>
+								<cyclicName type="53" draft="contributed">bing-chen</cyclicName>
+								<cyclicName type="54" draft="contributed">ding-si</cyclicName>
+								<cyclicName type="55" draft="contributed">wu-wu</cyclicName>
+								<cyclicName type="56" draft="contributed">ji-wei</cyclicName>
+								<cyclicName type="57" draft="contributed">geng-shen</cyclicName>
+								<cyclicName type="58" draft="contributed">xin-you</cyclicName>
+								<cyclicName type="59" draft="contributed">ren-xu</cyclicName>
+								<cyclicName type="60" draft="contributed">gui-hai</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="zodiacs">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1" draft="contributed">krysa</cyclicName>
+								<cyclicName type="2" draft="contributed">buvol</cyclicName>
+								<cyclicName type="3" draft="contributed">tygr</cyclicName>
+								<cyclicName type="4" draft="contributed">zajíc</cyclicName>
+								<cyclicName type="5" draft="contributed">drak</cyclicName>
+								<cyclicName type="6" draft="contributed">had</cyclicName>
+								<cyclicName type="7" draft="contributed">kůň</cyclicName>
+								<cyclicName type="8" draft="contributed">koza</cyclicName>
+								<cyclicName type="9" draft="contributed">opice</cyclicName>
+								<cyclicName type="10" draft="contributed">kohout</cyclicName>
+								<cyclicName type="11" draft="contributed">pes</cyclicName>
+								<cyclicName type="12" draft="contributed">vepř</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="narrow">
+								<cyclicName type="1" draft="contributed">krysa</cyclicName>
+								<cyclicName type="2" draft="contributed">buvol</cyclicName>
+								<cyclicName type="3" draft="contributed">tygr</cyclicName>
+								<cyclicName type="4" draft="contributed">zajíc</cyclicName>
+								<cyclicName type="5" draft="contributed">drak</cyclicName>
+								<cyclicName type="6" draft="contributed">had</cyclicName>
+								<cyclicName type="7" draft="contributed">kůň</cyclicName>
+								<cyclicName type="8" draft="contributed">koza</cyclicName>
+								<cyclicName type="9" draft="contributed">opice</cyclicName>
+								<cyclicName type="10" draft="contributed">kohout</cyclicName>
+								<cyclicName type="11" draft="contributed">pes</cyclicName>
+								<cyclicName type="12" draft="contributed">vepř</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="wide">
+								<cyclicName type="1" draft="contributed">krysa</cyclicName>
+								<cyclicName type="2" draft="contributed">buvol</cyclicName>
+								<cyclicName type="3" draft="contributed">tygr</cyclicName>
+								<cyclicName type="4" draft="contributed">zajíc</cyclicName>
+								<cyclicName type="5" draft="contributed">drak</cyclicName>
+								<cyclicName type="6" draft="contributed">had</cyclicName>
+								<cyclicName type="7" draft="contributed">kůň</cyclicName>
+								<cyclicName type="8" draft="contributed">koza</cyclicName>
+								<cyclicName type="9" draft="contributed">opice</cyclicName>
+								<cyclicName type="10" draft="contributed">kohout</cyclicName>
+								<cyclicName type="11" draft="contributed">pes</cyclicName>
+								<cyclicName type="12" draft="contributed">vepř</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+				</cyclicNameSets>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -3404,11 +4078,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</eraNames>
 					<eraAbbr>
 						<era type="0">př. n. l.</era>
+						<era type="0" alt="variant">př. n. l.</era>
 						<era type="1">n. l.</era>
+						<era type="1" alt="variant">n. l.</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0">př.n.l.</era>
+						<era type="0" alt="variant" draft="contributed">př.n.l.</era>
 						<era type="1">n.l.</era>
+						<era type="1" alt="variant" draft="contributed">n. l.</era>
 					</eraNarrow>
 				</eras>
 				<dateFormats>
@@ -5849,9 +6527,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="month-narrow">
 				<displayName>měs.</displayName>
-				<relative type="-1" draft="contributed">minuý měs.</relative>
-				<relative type="0" draft="contributed">tento měs.</relative>
-				<relative type="1" draft="contributed">příští měs.</relative>
+				<relative type="-1">minulý měs.</relative>
+				<relative type="0">tento měs.</relative>
+				<relative type="1">příští měs.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} měs.</relativeTimePattern>
 					<relativeTimePattern count="few">za {0} měs.</relativeTimePattern>
@@ -6566,7 +7244,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</short>
 			</zone>
 			<zone type="Etc/Unknown">
-				<exemplarCity>Neznámé město</exemplarCity>
+				<exemplarCity>neznámé město</exemplarCity>
 			</zone>
 			<zone type="Europe/Andorra">
 				<exemplarCity>Andorra</exemplarCity>
@@ -10640,6 +11318,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">mauritánské ouguiye</displayName>
 				<displayName count="many">mauritánské ouguiye</displayName>
 				<displayName count="other">mauritánských ouguiyí</displayName>
+				<symbol draft="contributed">MRU</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>maltská lira</displayName>
@@ -11394,6 +12073,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">venezuelské bolívary</displayName>
 				<displayName count="many">venezuelského bolívaru</displayName>
 				<displayName count="other">venezuelských bolívarů</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>vietnamský dong</displayName>
@@ -11712,7 +12392,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
-			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="approximately">~{0}</pattern>
+			<pattern type="atLeast">≥{0}</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -11873,6 +12555,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} dílu z milionu</unitPattern>
 				<unitPattern count="other">{0} dílů z milionu</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>procenta</displayName>
+				<unitPattern count="one">{0} procento</unitPattern>
+				<unitPattern count="few">{0} procenta</unitPattern>
+				<unitPattern count="many">{0} procenta</unitPattern>
+				<unitPattern count="other">{0} procent</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>promile</displayName>
+				<unitPattern count="one">{0} promile</unitPattern>
+				<unitPattern count="few">{0} promile</unitPattern>
+				<unitPattern count="many">{0} promile</unitPattern>
+				<unitPattern count="other">{0} promile</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litry na kilometr</displayName>
 				<unitPattern count="one">{0} litr na kilometr</unitPattern>
@@ -11900,6 +12596,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} míle na imp. galon</unitPattern>
 				<unitPattern count="many">{0} míle na imp. galon</unitPattern>
 				<unitPattern count="other">{0} mil na imp. galon</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>petabajty</displayName>
+				<unitPattern count="one">{0} petabajt</unitPattern>
+				<unitPattern count="few">{0} petabajty</unitPattern>
+				<unitPattern count="many">{0} petabajtu</unitPattern>
+				<unitPattern count="other">{0} petabajtů</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabajty</displayName>
@@ -12463,6 +13166,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} milibaru</unitPattern>
 				<unitPattern count="other">{0} milibarů</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atmosféry</displayName>
+				<unitPattern count="one">{0} atmosféra</unitPattern>
+				<unitPattern count="few">{0} atmosféry</unitPattern>
+				<unitPattern count="many">{0} atmosféry</unitPattern>
+				<unitPattern count="other">{0} atmosfér</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometry za hodinu</displayName>
 				<unitPattern count="one">{0} kilometr za hodinu</unitPattern>
@@ -12700,6 +13410,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} lžiček</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>světová strana</displayName>
 				<coordinateUnitPattern type="east">{0} východní délky</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} severní šířky</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} jižní šířky</coordinateUnitPattern>
@@ -12855,6 +13566,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0} %</unitPattern>
+				<unitPattern count="few">{0} %</unitPattern>
+				<unitPattern count="many">{0} %</unitPattern>
+				<unitPattern count="other">{0} %</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>‰</displayName>
+				<unitPattern count="one">{0} ‰</unitPattern>
+				<unitPattern count="few">{0} ‰</unitPattern>
+				<unitPattern count="many">{0} ‰</unitPattern>
+				<unitPattern count="other">{0} ‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
 				<unitPattern count="one">{0} l/km</unitPattern>
@@ -12882,6 +13607,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} mpg Imp.</unitPattern>
 				<unitPattern count="many">{0} mpg Imp.</unitPattern>
 				<unitPattern count="other">{0} mpg Imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="one">{0} PB</unitPattern>
+				<unitPattern count="few">{0} PB</unitPattern>
+				<unitPattern count="many">{0} PB</unitPattern>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -13445,6 +14177,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} mb</unitPattern>
 				<unitPattern count="other">{0} mb</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="few">{0} atm</unitPattern>
+				<unitPattern count="many">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="one">{0} km/h</unitPattern>
@@ -13682,6 +14421,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>směr</displayName>
 				<coordinateUnitPattern type="east">{0} v. d.</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} s. š.</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} j. š.</coordinateUnitPattern>
@@ -13836,6 +14576,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few" draft="contributed">{0} ppm</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ppm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ppm</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0} %</unitPattern>
+				<unitPattern count="few">{0} %</unitPattern>
+				<unitPattern count="many">{0} %</unitPattern>
+				<unitPattern count="other">{0} %</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName draft="contributed">l/km</displayName>
@@ -14655,6 +15402,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>směr</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -14771,7 +15519,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="japanese_kana">japonská kana</characterLabel>
 		<characterLabel type="kanbun">kanbun</characterLabel>
 		<characterLabel type="kanji">kandži</characterLabel>
-		<characterLabel type="keycap">klávesy</characterLabel>
+		<characterLabel type="keycap">klávesa</characterLabel>
 		<characterLabel type="leftwards_arrows">šipky směřující doleva</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">šipky směřující doleva a doprava</characterLabel>
 		<characterLabel type="letterlike_symbols">symboly podobné písmenům</characterLabel>
@@ -14817,24 +15565,73 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="whitespace">bílé znaky</characterLabel>
 	</characterLabels>
 	<typographicNames>
-		<axisName type="ital">kurzíva</axisName>
-		<axisName type="opsz">optická velikost</axisName>
+		<axisName type="ital">italika</axisName>
+		<axisName type="opsz">stupeň</axisName>
 		<axisName type="slnt">sklon</axisName>
 		<axisName type="wdth">šířka</axisName>
-		<axisName type="wght">tloušťka čáry</axisName>
-		<styleName type="wdth" subtype="75">úzká</styleName>
-		<styleName type="wdth" subtype="125">rozšířené</styleName>
+		<axisName type="wght">váha</axisName>
+		<styleName type="ital" subtype="1">kurzíva</styleName>
+		<styleName type="opsz" subtype="8">petit</styleName>
+		<styleName type="opsz" subtype="12">cicero</styleName>
+		<styleName type="opsz" subtype="18">parangon</styleName>
+		<styleName type="opsz" subtype="72">šesticicero</styleName>
+		<styleName type="opsz" subtype="144">dvanácticicero</styleName>
+		<styleName type="slnt" subtype="-12">levosklonné</styleName>
+		<styleName type="slnt" subtype="0">kolmé</styleName>
+		<styleName type="slnt" subtype="12">pravosklonné</styleName>
+		<styleName type="slnt" subtype="24">silně skloněné</styleName>
+		<styleName type="wdth" subtype="50">zvlášť úzké</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">ultrazhuštěné</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">ultrazúžené</styleName>
+		<styleName type="wdth" subtype="62.5">užší</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">extra zhuštěné</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">extra zúžené</styleName>
+		<styleName type="wdth" subtype="75">úzké</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">zhuštěné</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">zúžené</styleName>
+		<styleName type="wdth" subtype="87.5">poloúzké</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">polozhuštěné</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">polozúžené</styleName>
+		<styleName type="wdth" subtype="100">střední</styleName>
+		<styleName type="wdth" subtype="112.5">pološiroké</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">polorozšířené</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">poloroztažené</styleName>
+		<styleName type="wdth" subtype="125">široké</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">rozšířené</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">roztažené</styleName>
+		<styleName type="wdth" subtype="150">zvlášť široké</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">extra rozšířené</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">extra roztažené</styleName>
+		<styleName type="wdth" subtype="200">ultraširoké</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">ultrarozšířené</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">ultraroztažené</styleName>
+		<styleName type="wght" subtype="100">tenké</styleName>
+		<styleName type="wght" subtype="200">extra slabé</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">ultraslabé</styleName>
+		<styleName type="wght" subtype="300">slabé</styleName>
+		<styleName type="wght" subtype="350">poloslabé</styleName>
+		<styleName type="wght" subtype="380">zeslabené</styleName>
+		<styleName type="wght" subtype="400">běžné</styleName>
+		<styleName type="wght" subtype="500">střední</styleName>
+		<styleName type="wght" subtype="600">polotučné</styleName>
+		<styleName type="wght" subtype="600" alt="demi">zesílené</styleName>
 		<styleName type="wght" subtype="700">tučné</styleName>
-		<featureName type="afrc">svislé zlomkové čáry</featureName>
-		<featureName type="cpsp">rozestupy velkých písmen</featureName>
+		<styleName type="wght" subtype="800">extra tučné</styleName>
+		<styleName type="wght" subtype="900">silné</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">těžké</styleName>
+		<styleName type="wght" subtype="950">extra silné</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">ultrasilné</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">ultratěžké</styleName>
+		<featureName type="afrc">zlomky s vodorovnou zlomkovou čarou</featureName>
+		<featureName type="cpsp">prostrkání verzálek</featureName>
 		<featureName type="dlig">volitelné ligatury</featureName>
-		<featureName type="frac">šikmé zlomkové čáry</featureName>
-		<featureName type="lnum">verzálková čísla</featureName>
+		<featureName type="frac">zlomky se šikmou zlomkovou čarou</featureName>
+		<featureName type="lnum">verzálkové číslice</featureName>
 		<featureName type="onum">skákavé číslice</featureName>
-		<featureName type="ordn">řadové číslovky</featureName>
-		<featureName type="pnum">proporcionální čísla</featureName>
+		<featureName type="ordn">přípony řadových číslovek</featureName>
+		<featureName type="pnum">proporcionální číslice</featureName>
 		<featureName type="smcp">kapitálky</featureName>
-		<featureName type="tnum">tabulková čísla</featureName>
+		<featureName type="tnum">tabulkové číslice</featureName>
 		<featureName type="zero">přeškrtnutá nula</featureName>
 	</typographicNames>
 </ldml>

@@ -36,6 +36,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ang">стараанглійская</language>
 			<language type="anp">ангіка</language>
 			<language type="ar">арабская</language>
+			<language type="ar_001">арабская (Свет)</language>
 			<language type="arc">арамейская</language>
 			<language type="arn">мапудунгун</language>
 			<language type="arp">арапаха</language>
@@ -92,6 +93,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">даргінская</language>
 			<language type="dav">таіта</language>
 			<language type="de">нямецкая</language>
+			<language type="de_AT">нямецкая (Аўстрыя)</language>
+			<language type="de_CH">нямецкая (Швейцарыя)</language>
 			<language type="dgr">догрыб</language>
 			<language type="dje">зарма</language>
 			<language type="dsb">ніжнялужыцкая</language>
@@ -107,9 +110,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="eka">экаджук</language>
 			<language type="el">грэчаская</language>
 			<language type="en">англійская</language>
+			<language type="en_AU">англійская (Аўстралія)</language>
+			<language type="en_CA">англійская (Канада)</language>
+			<language type="en_GB">англійская (Вялікабрытанія)</language>
+			<language type="en_GB" alt="short">англійская (Вялікабрытанія)</language>
+			<language type="en_US">англійская (Злучаныя Штаты Амерыкі)</language>
 			<language type="en_US" alt="short">англійская (ЗША)</language>
 			<language type="eo">эсперанта</language>
 			<language type="es">іспанская</language>
+			<language type="es_419">іспанская (Лацінская Амерыка)</language>
+			<language type="es_ES">іспанская (Іспанія)</language>
+			<language type="es_MX">іспанская (Мексіка)</language>
 			<language type="et">эстонская</language>
 			<language type="eu">баскская</language>
 			<language type="ewo">эвонда</language>
@@ -121,6 +132,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">фарэрская</language>
 			<language type="fon">фон</language>
 			<language type="fr">французская</language>
+			<language type="fr_CA">французская (Канада)</language>
+			<language type="fr_CH">французская (Швейцарыя)</language>
 			<language type="fro">старафранцузская</language>
 			<language type="fur">фрыульская</language>
 			<language type="fy">заходняя фрызская</language>
@@ -275,6 +288,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="nia">ніас</language>
 			<language type="niu">ніўэ</language>
 			<language type="nl">нідэрландская</language>
+			<language type="nl_BE">нідэрландская (Бельгія)</language>
 			<language type="nmg">нгумба</language>
 			<language type="nn">нарвежская (нюношк)</language>
 			<language type="nnh">нг’ембон</language>
@@ -316,6 +330,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="rm">рэтараманская</language>
 			<language type="rn">рундзі</language>
 			<language type="ro">румынская</language>
+			<language type="ro_MD">малдаўская</language>
 			<language type="rof">ромба</language>
 			<language type="root">корань</language>
 			<language type="ru">руская</language>
@@ -1371,7 +1386,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</eraNames>
 					<eraAbbr>
 						<era type="0">да н.э.</era>
+						<era type="0" alt="variant">да н.э.</era>
 						<era type="1">н.э.</era>
+						<era type="1" alt="variant">н.э.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1908,16 +1925,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">у гэту нд</relative>
 				<relative type="1">у наступную нд</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">праз {0} нядзелю</relativeTimePattern>
+					<relativeTimePattern count="one">праз {0} нд</relativeTimePattern>
 					<relativeTimePattern count="few">праз {0} нядзелі</relativeTimePattern>
 					<relativeTimePattern count="many">праз {0} нядзель</relativeTimePattern>
-					<relativeTimePattern count="other">праз {0} нядзелі</relativeTimePattern>
+					<relativeTimePattern count="other">праз {0} нд</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} нядзелю таму</relativeTimePattern>
+					<relativeTimePattern count="one">{0} нд таму</relativeTimePattern>
 					<relativeTimePattern count="few">{0} нядзелі таму</relativeTimePattern>
 					<relativeTimePattern count="many">{0} нядзель таму</relativeTimePattern>
-					<relativeTimePattern count="other">{0} нядзелі таму</relativeTimePattern>
+					<relativeTimePattern count="other">{0} нд таму</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sun-narrow">
@@ -1925,16 +1942,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">у гэту нд</relative>
 				<relative type="1">у наступную нд</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">праз {0} нядзелю</relativeTimePattern>
+					<relativeTimePattern count="one">праз {0} нд</relativeTimePattern>
 					<relativeTimePattern count="few">праз {0} нядзелі</relativeTimePattern>
 					<relativeTimePattern count="many">праз {0} нядзель</relativeTimePattern>
-					<relativeTimePattern count="other">праз {0} нядзелі</relativeTimePattern>
+					<relativeTimePattern count="other">праз {0} нд</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} нядзелю таму</relativeTimePattern>
+					<relativeTimePattern count="one">{0} нд таму</relativeTimePattern>
 					<relativeTimePattern count="few">{0} нядзелі таму</relativeTimePattern>
 					<relativeTimePattern count="many">{0} нядзель таму</relativeTimePattern>
-					<relativeTimePattern count="other">{0} нядзелі таму</relativeTimePattern>
+					<relativeTimePattern count="other">{0} нд таму</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon">
@@ -1959,16 +1976,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">у гэты пн</relative>
 				<relative type="1">у наступны пн</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">праз {0} панядзелак</relativeTimePattern>
+					<relativeTimePattern count="one">праз {0} пн</relativeTimePattern>
 					<relativeTimePattern count="few">праз {0} панядзелкі</relativeTimePattern>
 					<relativeTimePattern count="many">праз {0} панядзелкаў</relativeTimePattern>
-					<relativeTimePattern count="other">праз {0} панядзелка</relativeTimePattern>
+					<relativeTimePattern count="other">праз {0} пн</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} панядзелак таму</relativeTimePattern>
+					<relativeTimePattern count="one">{0} пн таму</relativeTimePattern>
 					<relativeTimePattern count="few">{0} панядзелкі таму</relativeTimePattern>
 					<relativeTimePattern count="many">{0} панядзелкаў таму</relativeTimePattern>
-					<relativeTimePattern count="other">{0} панядзелка таму</relativeTimePattern>
+					<relativeTimePattern count="other">{0} пн таму</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon-narrow">
@@ -1976,16 +1993,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">у гэты пн</relative>
 				<relative type="1">у наступны пн</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">праз {0} панядзелак</relativeTimePattern>
+					<relativeTimePattern count="one">праз {0} пн</relativeTimePattern>
 					<relativeTimePattern count="few">праз {0} панядзелкі</relativeTimePattern>
 					<relativeTimePattern count="many">праз {0} панядзелкаў</relativeTimePattern>
-					<relativeTimePattern count="other">праз {0} панядзелка</relativeTimePattern>
+					<relativeTimePattern count="other">праз {0} пн</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} панядзелак таму</relativeTimePattern>
+					<relativeTimePattern count="one">{0} пн таму</relativeTimePattern>
 					<relativeTimePattern count="few">{0} панядзелкі таму</relativeTimePattern>
 					<relativeTimePattern count="many">{0} панядзелкаў таму</relativeTimePattern>
-					<relativeTimePattern count="other">{0} панядзелка таму</relativeTimePattern>
+					<relativeTimePattern count="other">{0} пн таму</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue">
@@ -2010,16 +2027,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">у гэты аў</relative>
 				<relative type="1">у наступны аў</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">праз {0} аўторак</relativeTimePattern>
+					<relativeTimePattern count="one">праз {0} аў</relativeTimePattern>
 					<relativeTimePattern count="few">праз {0} аўторкі</relativeTimePattern>
 					<relativeTimePattern count="many">праз {0} аўторкаў</relativeTimePattern>
-					<relativeTimePattern count="other">праз {0} аўторка</relativeTimePattern>
+					<relativeTimePattern count="other">праз {0} аў</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} аўторак таму</relativeTimePattern>
+					<relativeTimePattern count="one">{0} аў таму</relativeTimePattern>
 					<relativeTimePattern count="few">{0} аўторкі таму</relativeTimePattern>
 					<relativeTimePattern count="many">{0} аўторкаў таму</relativeTimePattern>
-					<relativeTimePattern count="other">{0} аўторка таму</relativeTimePattern>
+					<relativeTimePattern count="other">{0} аў таму</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue-narrow">
@@ -2027,16 +2044,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">у гэты аў</relative>
 				<relative type="1">у наступны аў</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">праз {0} аўторак</relativeTimePattern>
+					<relativeTimePattern count="one">праз {0} аў</relativeTimePattern>
 					<relativeTimePattern count="few">праз {0} аўторкі</relativeTimePattern>
 					<relativeTimePattern count="many">праз {0} аўторкаў</relativeTimePattern>
-					<relativeTimePattern count="other">праз {0} аўторка</relativeTimePattern>
+					<relativeTimePattern count="other">праз {0} аў</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} аўторак таму</relativeTimePattern>
+					<relativeTimePattern count="one">{0} аў таму</relativeTimePattern>
 					<relativeTimePattern count="few">{0} аўторкі таму</relativeTimePattern>
 					<relativeTimePattern count="many">{0} аўторкаў таму</relativeTimePattern>
-					<relativeTimePattern count="other">{0} аўторка таму</relativeTimePattern>
+					<relativeTimePattern count="other">{0} аў таму</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed">
@@ -2061,16 +2078,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">у гэту ср</relative>
 				<relative type="1">у наступную ср</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">праз {0} сераду</relativeTimePattern>
+					<relativeTimePattern count="one">праз {0} ср</relativeTimePattern>
 					<relativeTimePattern count="few">праз {0} серады</relativeTimePattern>
 					<relativeTimePattern count="many">праз {0} серад</relativeTimePattern>
-					<relativeTimePattern count="other">праз {0} серады</relativeTimePattern>
+					<relativeTimePattern count="other">праз {0} ср</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} сераду таму</relativeTimePattern>
+					<relativeTimePattern count="one">{0} ср таму</relativeTimePattern>
 					<relativeTimePattern count="few">{0} серады таму</relativeTimePattern>
 					<relativeTimePattern count="many">{0} серад таму</relativeTimePattern>
-					<relativeTimePattern count="other">{0} серады таму</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ср таму</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-narrow">
@@ -2078,16 +2095,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">у гэту ср</relative>
 				<relative type="1">у наступную ср</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">праз {0} сераду</relativeTimePattern>
+					<relativeTimePattern count="one">праз {0} ср</relativeTimePattern>
 					<relativeTimePattern count="few">праз {0} серады</relativeTimePattern>
 					<relativeTimePattern count="many">праз {0} серад</relativeTimePattern>
-					<relativeTimePattern count="other">праз {0} серады</relativeTimePattern>
+					<relativeTimePattern count="other">праз {0} ср</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} сераду таму</relativeTimePattern>
+					<relativeTimePattern count="one">{0} ср таму</relativeTimePattern>
 					<relativeTimePattern count="few">{0} серады таму</relativeTimePattern>
 					<relativeTimePattern count="many">{0} серад таму</relativeTimePattern>
-					<relativeTimePattern count="other">{0} серады таму</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ср таму</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu">
@@ -2112,16 +2129,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">у гэты чц</relative>
 				<relative type="1">у наступны чц</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">праз {0} чацвер</relativeTimePattern>
+					<relativeTimePattern count="one">праз {0} чц</relativeTimePattern>
 					<relativeTimePattern count="few">праз {0} чацвяргі</relativeTimePattern>
 					<relativeTimePattern count="many">праз {0} чацвяргоў</relativeTimePattern>
-					<relativeTimePattern count="other">праз {0} чацвярга</relativeTimePattern>
+					<relativeTimePattern count="other">праз {0} чц</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} чацвер таму</relativeTimePattern>
+					<relativeTimePattern count="one">{0} чц таму</relativeTimePattern>
 					<relativeTimePattern count="few">{0} чацвяргі таму</relativeTimePattern>
 					<relativeTimePattern count="many">{0} чацвяргоў таму</relativeTimePattern>
-					<relativeTimePattern count="other">{0} чацвярга таму</relativeTimePattern>
+					<relativeTimePattern count="other">{0} чц таму</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu-narrow">
@@ -2129,16 +2146,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">у гэты чц</relative>
 				<relative type="1">у наступны чц</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">праз {0} чацвер</relativeTimePattern>
+					<relativeTimePattern count="one">праз {0} чц</relativeTimePattern>
 					<relativeTimePattern count="few">праз {0} чацвяргі</relativeTimePattern>
 					<relativeTimePattern count="many">праз {0} чацвяргоў</relativeTimePattern>
-					<relativeTimePattern count="other">праз {0} чацвярга</relativeTimePattern>
+					<relativeTimePattern count="other">праз {0} чц</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} чацвер таму</relativeTimePattern>
+					<relativeTimePattern count="one">{0} чц таму</relativeTimePattern>
 					<relativeTimePattern count="few">{0} чацвяргі таму</relativeTimePattern>
 					<relativeTimePattern count="many">{0} чацвяргоў таму</relativeTimePattern>
-					<relativeTimePattern count="other">{0} чацвярга таму</relativeTimePattern>
+					<relativeTimePattern count="other">{0} чц таму</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri">
@@ -2163,16 +2180,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">у гэту пт</relative>
 				<relative type="1">у наступную пт</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">праз {0} пятніцу</relativeTimePattern>
+					<relativeTimePattern count="one">праз {0} пт</relativeTimePattern>
 					<relativeTimePattern count="few">праз {0} пятніцы</relativeTimePattern>
 					<relativeTimePattern count="many">праз {0} пятніц</relativeTimePattern>
-					<relativeTimePattern count="other">праз {0} пятніцы</relativeTimePattern>
+					<relativeTimePattern count="other">праз {0} пт</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} пятніцу таму</relativeTimePattern>
+					<relativeTimePattern count="one">{0} пт таму</relativeTimePattern>
 					<relativeTimePattern count="few">{0} пятніцы таму</relativeTimePattern>
 					<relativeTimePattern count="many">{0} пятніц таму</relativeTimePattern>
-					<relativeTimePattern count="other">{0} пятніцы таму</relativeTimePattern>
+					<relativeTimePattern count="other">{0} пт таму</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-narrow">
@@ -2180,16 +2197,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">у гэту пт</relative>
 				<relative type="1">у наступную пт</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">праз {0} пятніцу</relativeTimePattern>
+					<relativeTimePattern count="one">праз {0} пт</relativeTimePattern>
 					<relativeTimePattern count="few">праз {0} пятніцы</relativeTimePattern>
 					<relativeTimePattern count="many">праз {0} пятніц</relativeTimePattern>
-					<relativeTimePattern count="other">праз {0} пятніцы</relativeTimePattern>
+					<relativeTimePattern count="other">праз {0} пт</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} пятніцу таму</relativeTimePattern>
+					<relativeTimePattern count="one">{0} пт таму</relativeTimePattern>
 					<relativeTimePattern count="few">{0} пятніцы таму</relativeTimePattern>
 					<relativeTimePattern count="many">{0} пятніц таму</relativeTimePattern>
-					<relativeTimePattern count="other">{0} пятніцы таму</relativeTimePattern>
+					<relativeTimePattern count="other">{0} пт таму</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat">
@@ -2214,16 +2231,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">у гэту сб</relative>
 				<relative type="1">у наступную сб</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">праз {0} суботу</relativeTimePattern>
+					<relativeTimePattern count="one">праз {0} сб</relativeTimePattern>
 					<relativeTimePattern count="few">праз {0} суботы</relativeTimePattern>
 					<relativeTimePattern count="many">праз {0} субот</relativeTimePattern>
-					<relativeTimePattern count="other">праз {0} суботы</relativeTimePattern>
+					<relativeTimePattern count="other">праз {0} сб</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} суботу таму</relativeTimePattern>
+					<relativeTimePattern count="one">{0} сб таму</relativeTimePattern>
 					<relativeTimePattern count="few">{0} суботы таму</relativeTimePattern>
 					<relativeTimePattern count="many">{0} субот таму</relativeTimePattern>
-					<relativeTimePattern count="other">{0} суботы таму</relativeTimePattern>
+					<relativeTimePattern count="other">{0} сб таму</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat-narrow">
@@ -2231,16 +2248,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">у гэту сб</relative>
 				<relative type="1">у наступную сб</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">праз {0} суботу</relativeTimePattern>
+					<relativeTimePattern count="one">праз {0} сб</relativeTimePattern>
 					<relativeTimePattern count="few">праз {0} суботы</relativeTimePattern>
 					<relativeTimePattern count="many">праз {0} субот</relativeTimePattern>
-					<relativeTimePattern count="other">праз {0} суботы</relativeTimePattern>
+					<relativeTimePattern count="other">праз {0} сб</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} суботу таму</relativeTimePattern>
+					<relativeTimePattern count="one">{0} сб таму</relativeTimePattern>
 					<relativeTimePattern count="few">{0} суботы таму</relativeTimePattern>
 					<relativeTimePattern count="many">{0} субот таму</relativeTimePattern>
-					<relativeTimePattern count="other">{0} суботы таму</relativeTimePattern>
+					<relativeTimePattern count="other">{0} сб таму</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="dayperiod-short">
@@ -3485,7 +3502,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Сан-Тамэ</exemplarCity>
 			</zone>
 			<zone type="America/El_Salvador">
-				<exemplarCity>Эль-Сальвадор</exemplarCity>
+				<exemplarCity>Сальвадор</exemplarCity>
 			</zone>
 			<zone type="America/Lower_Princes">
 				<exemplarCity>Лоўэр Прынсіз Квортэр</exemplarCity>
@@ -3820,9 +3837,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
-					<generic>Заходні час Цэнтральнай Аўстраліі</generic>
-					<standard>Заходні стандартны час Цэнтральнай Аўстраліі</standard>
-					<daylight>Заходні летні час Цэнтральнай Аўстраліі</daylight>
+					<generic>Цэнтральна-заходні час Аўстраліі</generic>
+					<standard>Стандартны цэнтральна-заходні час Аўстраліі</standard>
+					<daylight>Летні цэнтральна-заходні час Аўстраліі</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Eastern">
@@ -4179,7 +4196,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Kosrae">
 				<long>
-					<standard>Час вострава Касрае</standard>
+					<standard>Час астравоў Кусаіе</standard>
 				</long>
 			</metazone>
 			<metazone type="Krasnoyarsk">
@@ -4225,7 +4242,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Maldives">
 				<long>
-					<standard>Час Мальдыў</standard>
+					<standard>Час Мальдываў</standard>
 				</long>
 			</metazone>
 			<metazone type="Marquesas">
@@ -6073,6 +6090,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">венесуальскія балівары</displayName>
 				<displayName count="many">венесуальскіх балівараў</displayName>
 				<displayName count="other">венесуальскага балівара</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>в’етнамскі донг</displayName>
@@ -6167,7 +6185,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">≈{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -6329,6 +6349,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} частак на мільён</unitPattern>
 				<unitPattern count="other">{0} часткі на мільён</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>працэнтаў</displayName>
+				<unitPattern count="one">{0} працэнт</unitPattern>
+				<unitPattern count="few">{0}%</unitPattern>
+				<unitPattern count="many">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>праміле</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="few">{0}‰</unitPattern>
+				<unitPattern count="many">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>літры на кіламетр</displayName>
 				<unitPattern count="one">{0} л/км</unitPattern>
@@ -6356,6 +6390,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} мілі на імп. галон</unitPattern>
 				<unitPattern count="many">{0} міль/імп. галон</unitPattern>
 				<unitPattern count="other">{0} мілі на імп. галон</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>петабайты</displayName>
+				<unitPattern count="one">{0} ПБ</unitPattern>
+				<unitPattern count="few">{0} ПБ</unitPattern>
+				<unitPattern count="many">{0} ПБ</unitPattern>
+				<unitPattern count="other">{0} ПБ</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>тэрабайты</displayName>
@@ -6898,6 +6939,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} мбар</unitPattern>
 				<unitPattern count="other">{0} мбар</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>атмасферы</displayName>
+				<unitPattern count="one">{0} атм</unitPattern>
+				<unitPattern count="few">{0} атм</unitPattern>
+				<unitPattern count="many">{0} атм</unitPattern>
+				<unitPattern count="other">{0} атм</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>кіламетры за гадзіну</displayName>
 				<unitPattern count="one">{0} км/гадз</unitPattern>
@@ -7128,6 +7176,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} чайнай лыжкі</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>кірунак свету</displayName>
 				<coordinateUnitPattern type="east">{0} У</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} Пн</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} Пд</coordinateUnitPattern>
@@ -7283,6 +7332,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="few">{0}%</unitPattern>
+				<unitPattern count="many">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>праміле</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="few">{0}‰</unitPattern>
+				<unitPattern count="many">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>л/км</displayName>
 				<unitPattern count="one">{0} л/км</unitPattern>
@@ -7310,6 +7373,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} мілі/імп. гал.</unitPattern>
 				<unitPattern count="many">{0} міль/імп. галон</unitPattern>
 				<unitPattern count="other">{0} мілі/імп. галон</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>ПБайт</displayName>
+				<unitPattern count="one">{0} ПБ</unitPattern>
+				<unitPattern count="few">{0} ПБ</unitPattern>
+				<unitPattern count="many">{0} ПБ</unitPattern>
+				<unitPattern count="other">{0} ПБ</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>ТБ</displayName>
@@ -7852,6 +7922,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} мбар</unitPattern>
 				<unitPattern count="other">{0} мбар</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>атм</displayName>
+				<unitPattern count="one">{0} атм</unitPattern>
+				<unitPattern count="few">{0} атм</unitPattern>
+				<unitPattern count="many">{0} атм</unitPattern>
+				<unitPattern count="other">{0} атм</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>км/гадз</displayName>
 				<unitPattern count="one">{0} км/гадз</unitPattern>
@@ -8082,6 +8159,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ч. лыжкі</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>кірунак</displayName>
 				<coordinateUnitPattern type="east">{0} У</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} Пн</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} Пд</coordinateUnitPattern>
@@ -8092,6 +8170,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="few">{0}%</unitPattern>
+				<unitPattern count="many">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>л/100 км</displayName>
 				<unitPattern count="one">{0} л/100 км</unitPattern>
@@ -8219,6 +8304,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} л</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>кірунак</displayName>
 				<coordinateUnitPattern type="east">{0} У</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} Пн</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} Пд</coordinateUnitPattern>
@@ -8380,4 +8466,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="western_asian_scripts">Заходнеазіяцкія пісьмы</characterLabel>
 		<characterLabel type="whitespace">Недрукаваны знак</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">курсіў</axisName>
+		<axisName type="opsz">аптычны памер</axisName>
+		<axisName type="slnt">нахіл</axisName>
+		<axisName type="wdth">шырыня</axisName>
+		<axisName type="wght">таўшчыня</axisName>
+		<styleName type="ital" subtype="1">курсіў</styleName>
+		<styleName type="opsz" subtype="8">подпіс</styleName>
+		<styleName type="opsz" subtype="12">тэкст</styleName>
+		<styleName type="opsz" subtype="18">загаловак</styleName>
+		<styleName type="opsz" subtype="72">дысплэй</styleName>
+		<styleName type="opsz" subtype="144">постар</styleName>
+		<styleName type="slnt" subtype="-12">з нахілам улева</styleName>
+		<styleName type="slnt" subtype="0">прамы</styleName>
+		<styleName type="slnt" subtype="12">з нахілам</styleName>
+		<styleName type="slnt" subtype="24">з моцным нахілам</styleName>
+		<styleName type="wdth" subtype="50">моцна ўшчыльнены</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">моцна сціснуты</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">вельмі вузкі</styleName>
+		<styleName type="wdth" subtype="62.5">надзвычай ўшчыльнены</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">надзвычай сціснуты</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">вельмі вузкі</styleName>
+		<styleName type="wdth" subtype="75">ушчыльнены</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">сціснуты</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">сціснуты</styleName>
+		<styleName type="wdth" subtype="87.5">паўушчыльнены</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">паўсціснуты</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">паўвузкі</styleName>
+		<styleName type="wdth" subtype="100">нармальны</styleName>
+		<styleName type="wdth" subtype="112.5">паўразгорнуты</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">паўрасшыраны</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">паўшырокі</styleName>
+		<styleName type="wdth" subtype="125">разгорнуты</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">расшыраны</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">шырокі</styleName>
+		<styleName type="wdth" subtype="150">моцна разгорнуты</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">моцна расшыраны</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">вельмі шырокі</styleName>
+		<styleName type="wdth" subtype="200">надзвычай разгорнуты</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">надзвычай расшыраны</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">надзвычай шырокі</styleName>
+		<styleName type="wght" subtype="100">вузкі</styleName>
+		<styleName type="wght" subtype="200">надзвычай тонкі</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">вельмі тонкі</styleName>
+		<styleName type="wght" subtype="300">тонкі</styleName>
+		<styleName type="wght" subtype="350">паўтонкі</styleName>
+		<styleName type="wght" subtype="380">кніжны</styleName>
+		<styleName type="wght" subtype="400">звычайны</styleName>
+		<styleName type="wght" subtype="500">сярэдні</styleName>
+		<styleName type="wght" subtype="600">паўтлусты</styleName>
+		<styleName type="wght" subtype="600" alt="demi">паўтлусты</styleName>
+		<styleName type="wght" subtype="700">тлусты</styleName>
+		<styleName type="wght" subtype="800">надзвычай тлусты</styleName>
+		<styleName type="wght" subtype="900">насычаны</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">тлусты</styleName>
+		<styleName type="wght" subtype="950">надзвычай насычаны</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">вельмі насычаны</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">вельмі тлусты</styleName>
+		<featureName type="afrc">вертыкальныя дробы</featureName>
+		<featureName type="cpsp">разрадка паміж вялікімі літарамі</featureName>
+		<featureName type="dlig">дадатковыя лігатуры</featureName>
+		<featureName type="frac">дыяганальныя дробы</featureName>
+		<featureName type="lnum">лічбы, роўныя па вышыні вялікім літарам</featureName>
+		<featureName type="onum">мінускульныя лічбы</featureName>
+		<featureName type="ordn">парадкавыя</featureName>
+		<featureName type="pnum">прапарцыянальныя лічбы</featureName>
+		<featureName type="smcp">маленькія вялікія літары</featureName>
+		<featureName type="tnum">таблічныя лічбы</featureName>
+		<featureName type="zero">перакрэслены нуль</featureName>
+	</typographicNames>
 </ldml>

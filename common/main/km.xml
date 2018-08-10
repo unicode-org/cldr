@@ -88,6 +88,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">ដាចវ៉ា</language>
 			<language type="dav">តៃតា</language>
 			<language type="de">អាល្លឺម៉ង់</language>
+			<language type="de_AT">អាល្លឺម៉ង់ (អូទ្រីស)</language>
+			<language type="de_CH">អាល្លឺម៉ង់ (ស្វីស)</language>
 			<language type="dgr">ដូគ្រីប</language>
 			<language type="dje">ហ្សាម៉ា</language>
 			<language type="dsb">សូប៊ីក្រោម</language>
@@ -102,11 +104,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="eka">អ៊ីកាជុក</language>
 			<language type="el">ក្រិក</language>
 			<language type="en">អង់គ្លេស</language>
+			<language type="en_AU">អង់គ្លេស (អូស្ត្រាលី)</language>
+			<language type="en_CA">អង់គ្លេស (កាណាដា)</language>
+			<language type="en_GB">អង់គ្លេស (ចក្រភព​អង់គ្លេស)</language>
 			<language type="en_GB" alt="short">អង់គ្លេស (ច.អ.)</language>
+			<language type="en_US">អង់គ្លេស (សហរដ្ឋអាមេរិក)</language>
 			<language type="en_US" alt="short">អង់គ្លេស (ស.រ.អ)</language>
 			<language type="eo">អេស្ពេរ៉ាន់តូ</language>
 			<language type="es">អេស្ប៉ាញ</language>
+			<language type="es_419">អេស្ប៉ាញ (អាមេរិក​ឡាទីន)</language>
 			<language type="es_ES">អេស្ប៉ាញ (អ៊ឺរ៉ុប)</language>
+			<language type="es_MX">អេស្ប៉ាញ (ម៉ិកស៊ិក)</language>
 			<language type="et">អេស្តូនី</language>
 			<language type="eu">បាសខ៍</language>
 			<language type="ewo">អ៊ីវ៉ុនដូ</language>
@@ -118,6 +126,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">ហ្វារូស</language>
 			<language type="fon">ហ្វ៊ុន</language>
 			<language type="fr">បារាំង</language>
+			<language type="fr_CA">បារាំង (កាណាដា)</language>
+			<language type="fr_CH" draft="provisional">បារាំង (ស្វីស)</language>
 			<language type="fur">ហ៊្វ្រូលាន</language>
 			<language type="fy">ហ្វ្រីស៊ានខាងលិច</language>
 			<language type="ga">អៀរឡង់</language>
@@ -294,6 +304,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="prg">ព្រូស៊ាន</language>
 			<language type="ps">បាស្តូ</language>
 			<language type="pt">ព័រទុយហ្គាល់</language>
+			<language type="pt_BR">ព័រទុយហ្គាល់ (ប្រេស៊ីល)</language>
 			<language type="pt_PT">ព័រទុយហ្គាល់ (អឺរ៉ុប)</language>
 			<language type="qu">ហ្គិកឈួ</language>
 			<language type="quc">គីចឈី</language>
@@ -1165,10 +1176,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun">អាទិត្យ</day>
-							<day type="mon">ច័ន្ទ</day>
+							<day type="mon">ចន្ទ</day>
 							<day type="tue">អង្គារ</day>
 							<day type="wed">ពុធ</day>
-							<day type="thu">ព្រហស្បតិ៍</day>
+							<day type="thu">ព្រហ</day>
 							<day type="fri">សុក្រ</day>
 							<day type="sat">សៅរ៍</day>
 						</dayWidth>
@@ -1203,10 +1214,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
 							<day type="sun">អាទិត្យ</day>
-							<day type="mon">ច័ន្ទ</day>
+							<day type="mon">ចន្ទ</day>
 							<day type="tue">អង្គារ</day>
 							<day type="wed">ពុធ</day>
-							<day type="thu">ព្រហស្បតិ៍</day>
+							<day type="thu">ព្រហ</day>
 							<day type="fri">សុក្រ</day>
 							<day type="sat">សៅរ៍</day>
 						</dayWidth>
@@ -1230,7 +1241,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">អាទិត្យ</day>
-							<day type="mon">ច័ន្ទ</day>
+							<day type="mon">ចន្ទ</day>
 							<day type="tue">អង្គារ</day>
 							<day type="wed">ពុធ</day>
 							<day type="thu">ព្រហស្បតិ៍</day>
@@ -1288,30 +1299,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<dayPeriod type="am">AM</dayPeriod>
 							<dayPeriod type="noon">ថ្ងៃត្រង់</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
-							<dayPeriod type="morning1">ព្រឹក</dayPeriod>
-							<dayPeriod type="afternoon1">រសៀល</dayPeriod>
-							<dayPeriod type="evening1">ល្ងាច</dayPeriod>
-							<dayPeriod type="night1">យប់</dayPeriod>
+							<dayPeriod type="morning1">នៅពេល​ព្រឹក</dayPeriod>
+							<dayPeriod type="afternoon1">នៅពេលរសៀល</dayPeriod>
+							<dayPeriod type="evening1">នៅពេល​ល្ងាច</dayPeriod>
+							<dayPeriod type="night1">នៅពេល​យប់</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">អធ្រាត្រ</dayPeriod>
 							<dayPeriod type="am">a</dayPeriod>
 							<dayPeriod type="noon">ថ្ងៃត្រង់</dayPeriod>
 							<dayPeriod type="pm">p</dayPeriod>
-							<dayPeriod type="morning1">ព្រឹក</dayPeriod>
-							<dayPeriod type="afternoon1">រសៀល</dayPeriod>
-							<dayPeriod type="evening1">ល្ងាច</dayPeriod>
-							<dayPeriod type="night1">យប់</dayPeriod>
+							<dayPeriod type="morning1">នៅពេល​ព្រឹក</dayPeriod>
+							<dayPeriod type="afternoon1">នៅពេលរសៀល</dayPeriod>
+							<dayPeriod type="evening1">នៅពេល​ល្ងាច</dayPeriod>
+							<dayPeriod type="night1">នៅពេល​យប់</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">អធ្រាត្រ</dayPeriod>
 							<dayPeriod type="am">AM</dayPeriod>
 							<dayPeriod type="noon">ថ្ងៃត្រង់</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
-							<dayPeriod type="morning1">ព្រឹក</dayPeriod>
-							<dayPeriod type="afternoon1">រសៀល</dayPeriod>
-							<dayPeriod type="evening1">ល្ងាច</dayPeriod>
-							<dayPeriod type="night1">យប់</dayPeriod>
+							<dayPeriod type="morning1">នៅពេល​ព្រឹក</dayPeriod>
+							<dayPeriod type="afternoon1">នៅពេលរសៀល</dayPeriod>
+							<dayPeriod type="evening1">នៅពេល​ល្ងាច</dayPeriod>
+							<dayPeriod type="night1">នៅពេល​យប់</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
@@ -1439,10 +1450,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="Gy">y នៃ G</dateFormatItem>
-						<dateFormatItem id="GyMMM">MMM y នៃ G</dateFormatItem>
-						<dateFormatItem id="GyMMMd">d MMM y នៃ G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E d MMM y នៃ G</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E d MMM y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -1472,7 +1483,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">សប្តាហ៍ទី w នៃឆ្នាំ Y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">សប្តាហ៍ទី w នៃឆ្នាំ y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -2527,7 +2538,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>អ៊ីស្ទ័រ</exemplarCity>
 			</zone>
 			<zone type="America/Punta_Arenas">
-				<exemplarCity draft="provisional">ពុនតា អារ៉េណា</exemplarCity>
+				<exemplarCity>ពុនតា អារ៉េណា</exemplarCity>
 			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>សាន់ទីអេហ្គោ</exemplarCity>
@@ -2563,7 +2574,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>នីកូស៊ី</exemplarCity>
 			</zone>
 			<zone type="Asia/Famagusta">
-				<exemplarCity draft="provisional">ហ្វ៉ាម៉ាហ្គុស្តា</exemplarCity>
+				<exemplarCity>ហ្វ៉ាម៉ាហ្គុស្តា</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>ប្រាក</exemplarCity>
@@ -2824,7 +2835,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>អូរ៉ាល់</exemplarCity>
 			</zone>
 			<zone type="Asia/Atyrau">
-				<exemplarCity draft="provisional">អាទីរ៉ូ</exemplarCity>
+				<exemplarCity>អាទីរ៉ូ</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>អាកទូប៊ី</exemplarCity>
@@ -4353,34 +4364,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="other">0ពាន់</pattern>
-					<pattern type="10000" count="other">0​មឺុន</pattern>
-					<pattern type="100000" count="other">0សែន</pattern>
-					<pattern type="1000000" count="other">0លាន</pattern>
-					<pattern type="10000000" count="other">0​ដប់​លាន</pattern>
-					<pattern type="100000000" count="other">0​រយលាន</pattern>
-					<pattern type="1000000000" count="other">0​កោដិ</pattern>
-					<pattern type="10000000000" count="other">0​ដប់​កោដិ</pattern>
-					<pattern type="100000000000" count="other">0​រយ​កោដិ</pattern>
-					<pattern type="1000000000000" count="other">0​ពាន់​កោដិ</pattern>
-					<pattern type="10000000000000" count="other">0​មឺុន​កោដិ</pattern>
-					<pattern type="100000000000000" count="other">0​សែន​កោដិ</pattern>
+					<pattern type="1000" count="other">0 ពាន់</pattern>
+					<pattern type="10000" count="other">00 ពាន់</pattern>
+					<pattern type="100000" count="other">000ពាន់</pattern>
+					<pattern type="1000000" count="other">0 លាន</pattern>
+					<pattern type="10000000" count="other">00 លាន</pattern>
+					<pattern type="100000000" count="other">000 លាន</pattern>
+					<pattern type="1000000000" count="other">0 ប៊ីលាន</pattern>
+					<pattern type="10000000000" count="other">00 ប៊ីលាន</pattern>
+					<pattern type="100000000000" count="other">000 ប៊ីលាន</pattern>
+					<pattern type="1000000000000" count="other">0 ទ្រីលាន</pattern>
+					<pattern type="10000000000000" count="other">00 ទ្រីលាន</pattern>
+					<pattern type="100000000000000" count="other">000 ទ្រីលាន</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
 					<pattern type="1000" count="other">0ពាន់</pattern>
-					<pattern type="10000" count="other">0​មឺុន</pattern>
-					<pattern type="100000" count="other">0សែន</pattern>
-					<pattern type="1000000" count="other">0លាន</pattern>
-					<pattern type="10000000" count="other">0​ដប់​លាន</pattern>
-					<pattern type="100000000" count="other">0​រយលាន</pattern>
-					<pattern type="1000000000" count="other">0​កោដិ</pattern>
-					<pattern type="10000000000" count="other">0​ដប់​កោដិ</pattern>
-					<pattern type="100000000000" count="other">0​រយ​កោដិ</pattern>
-					<pattern type="1000000000000" count="other">0​ពាន់​កោដិ</pattern>
-					<pattern type="10000000000000" count="other">0​មឺុន​កោដិ</pattern>
-					<pattern type="100000000000000" count="other">0​សែន​កោដិ</pattern>
+					<pattern type="10000" count="other">00 ពាន់</pattern>
+					<pattern type="100000" count="other">000 ពាន់</pattern>
+					<pattern type="1000000" count="other">0 លាន</pattern>
+					<pattern type="10000000" count="other">00 លាន</pattern>
+					<pattern type="100000000" count="other">000 លាន</pattern>
+					<pattern type="1000000000" count="other">0 ប៊ីលាន</pattern>
+					<pattern type="10000000000" count="other">00 ប៊ីលាន</pattern>
+					<pattern type="100000000000" count="other">000 ប៊ីលាន</pattern>
+					<pattern type="1000000000000" count="other">0 ទ្រីលាន</pattern>
+					<pattern type="10000000000000" count="other">00 ទ្រីលាន</pattern>
+					<pattern type="100000000000000" count="other">000 ទ្រីលាន</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -4409,18 +4420,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="other">¤0ពាន់</pattern>
-					<pattern type="10000" count="other">¤00ពាន់</pattern>
-					<pattern type="100000" count="other">¤000ពាន់</pattern>
-					<pattern type="1000000" count="other">¤0លាន</pattern>
-					<pattern type="10000000" count="other">¤0​ដប់​លាន</pattern>
-					<pattern type="100000000" count="other">¤0​រយលាន</pattern>
-					<pattern type="1000000000" count="other">¤0​កោដិ</pattern>
-					<pattern type="10000000000" count="other">¤0​ដប់​កោដិ</pattern>
-					<pattern type="100000000000" count="other">¤0​រយ​កោដិ</pattern>
-					<pattern type="1000000000000" count="other">¤0​ពាន់​កោដិ</pattern>
-					<pattern type="10000000000000" count="other">¤0​មឺុន​កោដិ</pattern>
-					<pattern type="100000000000000" count="other">¤0​សែន​កោដិ</pattern>
+					<pattern type="1000" count="other">¤0 ពាន់</pattern>
+					<pattern type="10000" count="other">¤00 ពាន់</pattern>
+					<pattern type="100000" count="other">¤000 ពាន់</pattern>
+					<pattern type="1000000" count="other">¤0 លាន</pattern>
+					<pattern type="10000000" count="other">¤00 លាន</pattern>
+					<pattern type="100000000" count="other">¤000 លាន</pattern>
+					<pattern type="1000000000" count="other">¤0 ប៊ីលាន</pattern>
+					<pattern type="10000000000" count="other">¤00 ប៊ីលាន</pattern>
+					<pattern type="100000000000" count="other">¤000 ប៊ីលាន</pattern>
+					<pattern type="1000000000000" count="other">¤0 ទ្រីលាន</pattern>
+					<pattern type="10000000000000" count="other">¤00 ទ្រីលាន</pattern>
+					<pattern type="100000000000000" count="other">¤000 ទ្រីលាន</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="other">{0} {1}</unitPattern>
@@ -5328,7 +5339,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -5426,6 +5439,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ផ្នែកក្នុងមួយលាន</displayName>
 				<unitPattern count="other">{0} ផ្នែកក្នុងមួយលាន</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>ភាគរយ</displayName>
+				<unitPattern count="other">{0} ភាគរយ</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>‰</displayName>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>លីត្រ​ក្នុង​មួយ​គីឡូម៉ែត្រ</displayName>
 				<unitPattern count="other">{0} លីត្រ​ក្នុង​មួយ​គីឡូម៉ែត្រ</unitPattern>
@@ -5441,6 +5462,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>ម៉ាយក្នុងមួយអ៊ីមភៀរៀលហ្គាឡុង</displayName>
 				<unitPattern count="other">{0} ម៉ាយក្នុងមួយអ៊ីមភៀរៀលហ្គាឡុង</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>តេរ៉ាបៃ</displayName>
@@ -5758,6 +5783,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>មិល្លីបារ</displayName>
 				<unitPattern count="other">{0} មិល្លីបារ</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>បរិយាកាស</displayName>
+				<unitPattern count="other">បរិយាកាស {0}</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>គីឡូម៉ែត្រ​ក្នុង​មួយ​ម៉ោង</displayName>
 				<unitPattern count="other">{0} គីឡូម៉ែត្រ​ក្នុង​មួយ​ម៉ោង</unitPattern>
@@ -5892,6 +5921,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ស្លាបព្រា​កាហ្វេ</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>ទិសទាំងបួន</displayName>
 				<coordinateUnitPattern type="east">{0}កើត</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}ជើង</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}ត្បូង</coordinateUnitPattern>
@@ -5987,6 +6017,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ppm</displayName>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>ភាគរយ</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>‰</displayName>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>លីត្រ/km</displayName>
 				<unitPattern count="other">{0} L/km</unitPattern>
@@ -6002,6 +6040,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>ម៉ាយ/gal Imp.</displayName>
 				<unitPattern count="other">{0} mpg Imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -6319,6 +6361,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mbar</displayName>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="other">{0} kph</unitPattern>
@@ -6453,6 +6499,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>ទិស</displayName>
 				<coordinateUnitPattern type="east">{0}កើត</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}ជើង</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}ត្បូង</coordinateUnitPattern>
@@ -6492,6 +6539,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-foot">
 				<unitPattern count="other">{0} ហ្វ².</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>L/100km</displayName>
@@ -6623,6 +6674,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}L</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>ទិស</displayName>
 				<coordinateUnitPattern type="east">{0}កើត</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}ជើង</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}ត្បូង</coordinateUnitPattern>
@@ -6775,4 +6827,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="western_asian_scripts">ក្រុមអក្សរអាស៊ីខាងលិច</characterLabel>
 		<characterLabel type="whitespace">ចន្លោះ</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">ទ្រេត</axisName>
+		<axisName type="opsz">ទំហំអុបទិច</axisName>
+		<axisName type="slnt">ផ្អៀង</axisName>
+		<axisName type="wdth">ទទឹង</axisName>
+		<axisName type="wght">កម្រាស់</axisName>
+		<styleName type="ital" subtype="1">សរសេរជាប់គ្នា</styleName>
+		<styleName type="opsz" subtype="8">ការពណ៌នា</styleName>
+		<styleName type="opsz" subtype="12">អត្ថបទ</styleName>
+		<styleName type="opsz" subtype="18">ចំណងជើង</styleName>
+		<styleName type="opsz" subtype="72">ការបង្ហាញ</styleName>
+		<styleName type="opsz" subtype="144">ផូស្ទ័រ</styleName>
+		<styleName type="slnt" subtype="-12">ផ្អៀងថយក្រោយ</styleName>
+		<styleName type="slnt" subtype="0">upright</styleName>
+		<styleName type="slnt" subtype="12">ផ្អៀង</styleName>
+		<styleName type="slnt" subtype="24">ផ្អៀងបន្ថែមទៀត</styleName>
+		<styleName type="wdth" subtype="50">បង្ហាប់បន្ថែមខ្លាំង</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">បណ្ណែនបន្ថែមខ្លាំង</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">ចង្អៀតបន្ថែមខ្លាំង</styleName>
+		<styleName type="wdth" subtype="62.5">បង្ហាប់បន្ថែម</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">បណ្ណែនបន្ថែម</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">ចង្អៀតបន្ថែម</styleName>
+		<styleName type="wdth" subtype="75">បង្ហាប់</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">បណ្ណែន</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">បណ្ណែន</styleName>
+		<styleName type="wdth" subtype="87.5">បង្ហាប់ពាក់កណ្ដាល</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">បណ្ណែនពាក់កណ្ដាល</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">ចង្អៀតពាក់កណ្ដាល</styleName>
+		<styleName type="wdth" subtype="100">ធម្មតា</styleName>
+		<styleName type="wdth" subtype="112.5">ពង្រីកពាក់កណ្ដាល</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">បន្លាយពាក់កណ្ដាល</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">ទូលាយពាក់កណ្ដាល</styleName>
+		<styleName type="wdth" subtype="125">ពង្រីក</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">បន្លាយ</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">ទូលាយ</styleName>
+		<styleName type="wdth" subtype="150">ពង្រីកបន្ថែម</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">បន្លាយបន្ថែម</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">ទូលាយបន្ថែម</styleName>
+		<styleName type="wdth" subtype="200">ពង្រីកបន្ថែមខ្លាំង</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">បន្លាយបន្ថែមខ្លាំង</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">ទូលាយបន្ថែមខ្លាំង</styleName>
+		<styleName type="wght" subtype="100">ស្ដើង</styleName>
+		<styleName type="wght" subtype="200">ស្រាលបន្ថែម</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">ស្រាលបន្ថែមខ្លាំង</styleName>
+		<styleName type="wght" subtype="300">ស្រាល</styleName>
+		<styleName type="wght" subtype="350">ស្រាលពាក់កណ្ដាល</styleName>
+		<styleName type="wght" subtype="380">សៀវភៅ</styleName>
+		<styleName type="wght" subtype="400">ធម្មតា</styleName>
+		<styleName type="wght" subtype="500">មធ្យម</styleName>
+		<styleName type="wght" subtype="600">ដិតពាក់កណ្ដាល</styleName>
+		<styleName type="wght" subtype="600" alt="demi">ដិតកន្លះ</styleName>
+		<styleName type="wght" subtype="700">ដិត</styleName>
+		<styleName type="wght" subtype="800">ដិតបន្ថែម</styleName>
+		<styleName type="wght" subtype="900">ខ្មៅ</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">ធ្ងន់</styleName>
+		<styleName type="wght" subtype="950">ខ្មៅបន្ថែម</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">ខ្មៅបន្ថែមខ្លាំង</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">ធ្ងន់បន្ថែមខ្លាំង</styleName>
+		<featureName type="afrc">vertical fractions</featureName>
+		<featureName type="cpsp">capital spacing</featureName>
+		<featureName type="dlig">optional ligatures</featureName>
+		<featureName type="frac">diagonal fractions</featureName>
+		<featureName type="lnum">លេខជួរ</featureName>
+		<featureName type="onum">តួលេខបែបចាស់</featureName>
+		<featureName type="ordn">បូរណសំខ្យា</featureName>
+		<featureName type="pnum">ចំនួនសមាមាត្រ</featureName>
+		<featureName type="smcp">small capitals</featureName>
+		<featureName type="tnum">លេខតារាង</featureName>
+		<featureName type="zero">លេខសូន្យវះពោះ</featureName>
+	</typographicNames>
 </ldml>

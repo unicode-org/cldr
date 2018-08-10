@@ -168,7 +168,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fon">ຟອນ</language>
 			<language type="fr">ຝຣັ່ງ</language>
 			<language type="fr_CA">ຟລັງ(ການາດາ)</language>
-			<language type="fr_CH" draft="provisional">ຝຣັ່ງ (ສວິສ)</language>
+			<language type="fr_CH">ຝຣັ່ງ (ສວິສ)</language>
 			<language type="frm">ຟຮັ່ງເສດກາງ</language>
 			<language type="fro">ຟຮັ່ງເສດໂບຮານ</language>
 			<language type="frr">ຟຣີຊຽນເໜືອ</language>
@@ -393,7 +393,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="pi">ປາລີ</language>
 			<language type="pl">ໂປລິຊ</language>
 			<language type="pon">ພອນເພ</language>
-			<language type="prg" draft="provisional">ປຣັສຊຽນ</language>
+			<language type="prg">ປຣັສຊຽນ</language>
 			<language type="pro">ໂປວອງຊານໂບຮານ</language>
 			<language type="ps">ປາສໂຕ</language>
 			<language type="pt">ປອກຕຸຍກິສ</language>
@@ -779,7 +779,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="BT">ພູຖານ</territory>
 			<territory type="BV">ເກາະບູເວດ</territory>
 			<territory type="BW">ບອດສະວານາ</territory>
-			<territory type="BY">ເບວບາຣຸສ</territory>
+			<territory type="BY">ເບລາຣຸສ</territory>
 			<territory type="BZ">ເບລີຊ</territory>
 			<territory type="CA">ແຄນາດາ</territory>
 			<territory type="CC">ຫມູ່ເກາະໂກໂກສ</territory>
@@ -907,7 +907,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="MN">ມອງໂກເລຍ</territory>
 			<territory type="MO">ມາກາວ ເຂດປົກຄອງພິເສດ ຈີນ</territory>
 			<territory type="MO" alt="short">ມາກາວ</territory>
-			<territory type="MP">ຫມູ່ເກາະມາແຊວຕອນເຫນືອ</territory>
+			<territory type="MP">ໝູ່ເກາະມາເຣຍນາຕອນເໜືອ</territory>
 			<territory type="MQ">ມາຕິນີກ</territory>
 			<territory type="MR">ມົວຣິເທເນຍ</territory>
 			<territory type="MS">ມອນເຊີຣາດ</territory>
@@ -7067,7 +7067,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="VEF">
 				<displayName>ເວ​ເນ​ຊູ​ເອ​ລັນ ໂບ​ລິ​ວາ (2008–2018)</displayName>
-				<displayName count="other">ເວ​ເນ​ຊູ​ເອ​ລັນ ໂບ​ລິ​ວາ (2008–2018)</displayName>
+				<displayName count="other">ເວເນຊູເອລັນ ໂບລິວາສ໌</displayName>
 				<symbol>VEF</symbol>
 				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
@@ -7216,7 +7216,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -7315,6 +7317,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ພາດຕໍ່ລ້ານ</displayName>
 				<unitPattern count="other">{0} ພາດຕໍ່ລ້ານ</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>ເປີເຊັນ</displayName>
+				<unitPattern count="other">{0} ເປີເຊັນ</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>ຕໍ່ພັນ</displayName>
+				<unitPattern count="other">{0} ຕໍ່ພັນ</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ລ/ກມ</displayName>
 				<unitPattern count="other">{0} ລິດຕໍ່ກິໂລແມັດ</unitPattern>
@@ -7330,6 +7340,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>ໄມລ໌ຕໍ່ແກລລອນອັງກິດ</displayName>
 				<unitPattern count="other">{0} ໄມລ໌ຕໍ່ແກລລອນອັງກິດ</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>ເພຕາໄບຕ໌</displayName>
+				<unitPattern count="other">{0} ເພຕາໄບຕ໌</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -7647,6 +7661,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ມິນລິບາ</displayName>
 				<unitPattern count="other">{0} ມິນລິບາ</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atmospheres</displayName>
+				<unitPattern count="other">{0} atmospheres</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ກິໂລແມັດຕໍ່ຊົ່ວໂມງ</displayName>
 				<unitPattern count="other">{0} ກິໂລແມັດຕໍ່ຊົ່ວໂມງ</unitPattern>
@@ -7781,6 +7799,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>ທິດທາງຕາມລຳດັບ</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -7876,6 +7895,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ພາດ/ລ້ານ</displayName>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>ເປີເຊັນ</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>ຕໍ່ພັນ</displayName>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ລ/ກມ</displayName>
 				<unitPattern count="other">{0} ລ/ກມ</unitPattern>
@@ -7891,6 +7918,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>ໄມລ໌/ແກລລອນອັງກິດ</displayName>
 				<unitPattern count="other">{0} mpg Imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PByte</displayName>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -8208,6 +8239,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mbar</displayName>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ກມ/ຊມ</displayName>
 				<unitPattern count="other">{0} ກມ/ຊມ</unitPattern>
@@ -8342,6 +8377,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>ທິດທາງ</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -8380,6 +8416,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-foot">
 				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>ລ/ 100 ກມ</displayName>
@@ -8521,6 +8561,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}L</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>ທິດທາງ</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -8679,4 +8720,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="western_asian_scripts">ແບບຂຽນຊາວເອເຊຍຕາເວັນຕົກ</characterLabel>
 		<characterLabel type="whitespace">ຊ່ອງຫວ່າງ</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">ຕົວອຽງ</axisName>
+		<axisName type="opsz">ຂະໜາດອອບຕິຄອນ</axisName>
+		<axisName type="slnt">ອຽງ</axisName>
+		<axisName type="wdth">ຄວາມກວ້າງ</axisName>
+		<axisName type="wght">ນ້ຳໜັກ</axisName>
+		<styleName type="ital" subtype="1">ຕິດກັນ</styleName>
+		<styleName type="opsz" subtype="8">ຄຳບັນຍາຍ</styleName>
+		<styleName type="opsz" subtype="12">ຂໍ້ຄວາມ</styleName>
+		<styleName type="opsz" subtype="18">ການອຽງ</styleName>
+		<styleName type="opsz" subtype="72">ສະແດງຜົນ</styleName>
+		<styleName type="opsz" subtype="144">ໂພສເຕີ</styleName>
+		<styleName type="slnt" subtype="-12">ອຽງຫຼັງ</styleName>
+		<styleName type="slnt" subtype="0">upright</styleName>
+		<styleName type="slnt" subtype="12">ອຽງ</styleName>
+		<styleName type="slnt" subtype="24">ອຽງຂຶ້ນອີກ</styleName>
+		<styleName type="wdth" subtype="50">ຫຍໍ້ທີ່ສຸດ</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">ບີບອັດທີ່ສຸດ</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">ແຄບທີ່ສຸດ</styleName>
+		<styleName type="wdth" subtype="62.5">ຫຍໍ້ຂຶ້ນອີກ</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">ບີບອັດຂຶ້ນອີກ</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">ແຄບພິເສດ</styleName>
+		<styleName type="wdth" subtype="75">ຫຍໍ້</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">ບີບອັດ</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">ບີບອັດ</styleName>
+		<styleName type="wdth" subtype="87.5">ຫຍໍ້ຂຶ້ນອີກ</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">ກຶ່ງບີບອັດ</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">ກຶ່ງແຄບ</styleName>
+		<styleName type="wdth" subtype="100">ປົກກະຕິ</styleName>
+		<styleName type="wdth" subtype="112.5">ກຶ່ງຂະຫຍາຍ</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">ກຶ່ງຍືດ</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">ກວ້າງຂຶ້ນ</styleName>
+		<styleName type="wdth" subtype="125">ຂະຫຍາຍ</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">ຍືດອອກ</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">ກວ້າງ</styleName>
+		<styleName type="wdth" subtype="150">ຂະຫຍາຍພິເສດ</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">ຍືດພິເສດ</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">ກວ້າງພິເສດ</styleName>
+		<styleName type="wdth" subtype="200">ຂະຫຍາຍທີ່ສຸດ</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">ຍືດທີ່ສຸດ</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">ກວ້າງທີ່ສຸດ</styleName>
+		<styleName type="wght" subtype="100">ບາງ</styleName>
+		<styleName type="wght" subtype="200">ບາງຂຶ້ນອີກ</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">ບາງທີ່ສຸດ</styleName>
+		<styleName type="wght" subtype="300">ບາງ</styleName>
+		<styleName type="wght" subtype="350">ບາງຂຶ້ນ</styleName>
+		<styleName type="wght" subtype="380">ບຸກ</styleName>
+		<styleName type="wght" subtype="400">ທຳມະດາ</styleName>
+		<styleName type="wght" subtype="500">ປານກາງ</styleName>
+		<styleName type="wght" subtype="600">ໜາຂຶ້ນ</styleName>
+		<styleName type="wght" subtype="600" alt="demi">ກຶ່ງໜາ</styleName>
+		<styleName type="wght" subtype="700">ໜາ</styleName>
+		<styleName type="wght" subtype="800">ຕົວໜາພິເສດ</styleName>
+		<styleName type="wght" subtype="900">ສີດຳ</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">ໜາ</styleName>
+		<styleName type="wght" subtype="950">ສີດຳຫຼາຍພິເສດ</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">ສີດຳທີ່ສຸດ</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">ໜາທີ່ສຸດ</styleName>
+		<featureName type="afrc">ເສດສ່ວນລວງຕັ້ງ</featureName>
+		<featureName type="cpsp">capital spacing</featureName>
+		<featureName type="dlig">optional ligatures</featureName>
+		<featureName type="frac">ເສດສ່ວນລວງຂວາງ</featureName>
+		<featureName type="lnum">lining numbers</featureName>
+		<featureName type="onum">old-style figures</featureName>
+		<featureName type="ordn">ເລກລຳດັບ</featureName>
+		<featureName type="pnum">ຕົວເລກສັດສ່ວນ</featureName>
+		<featureName type="smcp">ຕົວພິມໃຫຍ່ຂະໜາດນ້ອຍ</featureName>
+		<featureName type="tnum">ຈຳນວນຕາຕະລາງ</featureName>
+		<featureName type="zero">ເລກສູນມີຂີດຂ້າ</featureName>
+	</typographicNames>
 </ldml>

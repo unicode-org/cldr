@@ -13,20 +13,58 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<territory type="HK"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localeSeparator>{0}，{1}</localeSeparator>
+			<localeKeyTypePattern>{0}：{1}</localeKeyTypePattern>
+		</localeDisplayPattern>
 		<languages>
 			<language type="aa">阿法爾文</language>
+			<language type="ab">阿布哈茲文</language>
+			<language type="af">南非荷蘭文</language>
+			<language type="agq">亞罕文</language>
+			<language type="ak">阿坎文</language>
+			<language type="am">阿姆哈拉文</language>
+			<language type="ar">阿拉伯文</language>
+			<language type="ar_001">現代標準阿拉伯文</language>
+			<language type="as">阿薩姆文</language>
+			<language type="asa">阿蘇文</language>
 			<language type="az">阿塞拜疆文</language>
 			<language type="az" alt="short">阿塞拜疆文</language>
 			<language type="az_Arab">南阿塞拜疆文</language>
 			<language type="ba">巴什基爾文</language>
+			<language type="be">白俄羅斯文</language>
+			<language type="bem">別姆巴文</language>
+			<language type="bez">貝納文</language>
+			<language type="bg">保加利亞文</language>
+			<language type="bm">班巴拉文</language>
+			<language type="bn">孟加拉文</language>
+			<language type="bo">藏文</language>
 			<language type="br">布里多尼文</language>
+			<language type="brx">博多文</language>
 			<language type="bs">波斯尼亞文</language>
 			<language type="ca">加泰隆尼亞文</language>
+			<language type="cgg">奇加文</language>
+			<language type="chr">柴羅基文</language>
+			<language type="co">科西嘉文</language>
 			<language type="crh">克里米亞韃靼文</language>
 			<language type="crs">塞舌爾克里奧爾法文</language>
+			<language type="cs">捷克文</language>
+			<language type="cy">威爾斯文</language>
+			<language type="da">丹麥文</language>
+			<language type="dav">台塔文</language>
+			<language type="de">德文</language>
 			<language type="de_AT">奧地利德文</language>
 			<language type="de_CH">瑞士德語</language>
 			<language type="den">斯拉夫文</language>
+			<language type="dje">扎爾馬文</language>
+			<language type="dsb">下索布文</language>
+			<language type="dua">杜亞拉文</language>
+			<language type="dyo">朱拉文</language>
+			<language type="dz">宗卡文</language>
+			<language type="ebu">恩布文</language>
+			<language type="ee">埃維文</language>
+			<language type="el">希臘文</language>
+			<language type="en">英文</language>
 			<language type="en_AU">澳洲英文</language>
 			<language type="en_CA">加拿大英文</language>
 			<language type="en_GB">英國英文</language>
@@ -34,178 +72,529 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="en_US">美國英文</language>
 			<language type="en_US" alt="short">美式英文</language>
 			<language type="eo">世界語</language>
+			<language type="es">西班牙文</language>
 			<language type="es_419">拉丁美洲西班牙文</language>
 			<language type="es_ES">歐洲西班牙文</language>
 			<language type="es_MX">墨西哥西班牙文</language>
+			<language type="et">愛沙尼亞文</language>
+			<language type="eu">巴斯克文</language>
+			<language type="fa">波斯文</language>
+			<language type="fi">芬蘭文</language>
+			<language type="fil">菲律賓文</language>
+			<language type="fj">斐濟文</language>
+			<language type="fo">法羅文</language>
+			<language type="fr">法文</language>
 			<language type="fr_CA">加拿大法文</language>
 			<language type="fr_CH">瑞士法文</language>
+			<language type="fy">西弗里西亞文</language>
+			<language type="ga">愛爾蘭文</language>
+			<language type="gag">加告茲文</language>
 			<language type="gil">吉爾伯特文</language>
 			<language type="gl">加里西亞文</language>
+			<language type="gn">瓜拉尼文</language>
 			<language type="gsw">瑞士德文</language>
+			<language type="gu">古吉拉特文</language>
+			<language type="guz">古西文</language>
+			<language type="gv">曼島文</language>
+			<language type="ha">豪撒文</language>
+			<language type="haw">夏威夷文</language>
+			<language type="he">希伯來文</language>
 			<language type="hi">印度文</language>
 			<language type="hmn">苗語</language>
 			<language type="hr">克羅地亞文</language>
+			<language type="hsb">上索布文</language>
+			<language type="ht">海地文</language>
+			<language type="hu">匈牙利文</language>
+			<language type="hy">亞美尼亞文</language>
+			<language type="id">印尼文</language>
+			<language type="ig">伊布文</language>
+			<language type="ii">四川彝文</language>
+			<language type="is">冰島文</language>
 			<language type="it">意大利文</language>
+			<language type="iu">因紐特文</language>
+			<language type="ja">日文</language>
+			<language type="jgo">恩格姆巴文</language>
+			<language type="jmc">馬恰美文</language>
 			<language type="jpr">猶太波斯文</language>
+			<language type="jv">爪哇文</language>
 			<language type="ka">格魯吉亞文</language>
+			<language type="kab">卡比爾文</language>
+			<language type="kam">卡姆巴文</language>
+			<language type="kde">馬孔德文</language>
+			<language type="kea">卡布威爾第文</language>
+			<language type="khq">西桑海文</language>
+			<language type="ki">吉庫尤文</language>
 			<language type="kiu">扎扎其文</language>
+			<language type="kk">哈薩克文</language>
+			<language type="kl">格陵蘭文</language>
+			<language type="kln">卡倫金文</language>
+			<language type="km">高棉文</language>
 			<language type="kn">坎納達文</language>
+			<language type="ko">韓文</language>
+			<language type="koi">科米-彼爾米亞克文</language>
+			<language type="kok">貢根文</language>
 			<language type="kri">克裡奧爾文</language>
+			<language type="ks">喀什米爾文</language>
+			<language type="ksb">尚巴拉文</language>
+			<language type="ksf">巴菲亞文</language>
+			<language type="kw">康瓦耳文</language>
+			<language type="ky">吉爾吉斯文</language>
+			<language type="la">拉丁文</language>
+			<language type="lag">朗吉文</language>
+			<language type="lb">盧森堡文</language>
+			<language type="lg">干達文</language>
+			<language type="lkt">拉科塔文</language>
+			<language type="ln">林加拉文</language>
 			<language type="lo">老撾文</language>
+			<language type="lt">立陶宛文</language>
+			<language type="lu">魯巴加丹加文</language>
 			<language type="luo">盧歐文</language>
+			<language type="lus">米佐文</language>
+			<language type="luy">盧雅文</language>
+			<language type="lv">拉脫維亞文</language>
+			<language type="mas">馬賽文</language>
+			<language type="mer">梅魯文</language>
 			<language type="mfe">毛里裘斯克里奧爾文</language>
 			<language type="mg">馬拉加斯文</language>
+			<language type="mgh">馬夸文</language>
+			<language type="mgo">美塔文</language>
+			<language type="mi">毛利文</language>
+			<language type="mk">馬其頓文</language>
 			<language type="ml">馬拉雅拉姆文</language>
+			<language type="mn">蒙古文</language>
+			<language type="moh">莫霍克文</language>
+			<language type="mr">馬拉地文</language>
+			<language type="mrj">西馬里文</language>
+			<language type="ms">馬來文</language>
 			<language type="mt">馬耳他文</language>
+			<language type="mua">蒙當文</language>
+			<language type="my">緬甸文</language>
+			<language type="naq">納馬文</language>
+			<language type="nb">巴克摩挪威文</language>
+			<language type="nd">北地畢列文</language>
+			<language type="nds_NL">低地薩克遜文</language>
+			<language type="ne">尼泊爾文</language>
+			<language type="nl">荷蘭文</language>
 			<language type="nl_BE">比利時荷蘭文</language>
+			<language type="nmg">夸西奧文</language>
+			<language type="nn">耐諾斯克挪威文</language>
 			<language type="nqo">西非書面語言（N’ko）</language>
+			<language type="nus">努埃爾文</language>
+			<language type="nyn">尼揚科萊文</language>
+			<language type="om">奧羅莫文</language>
 			<language type="or">奧里雅文</language>
+			<language type="pa">旁遮普文</language>
 			<language type="pcm">尼日利亞皮欽文</language>
+			<language type="pl">波蘭文</language>
+			<language type="ps">普什圖文</language>
 			<language type="ps" alt="variant">普什圖語</language>
+			<language type="pt">葡萄牙文</language>
 			<language type="pt_BR">巴西葡萄牙文</language>
 			<language type="pt_PT">歐洲葡萄牙文</language>
+			<language type="qu">蓋楚瓦文</language>
+			<language type="quc">基切文</language>
+			<language type="rm">羅曼斯文</language>
+			<language type="rn">隆迪文</language>
+			<language type="ro">羅馬尼亞文</language>
 			<language type="ro_MD">摩爾多瓦羅馬尼亞文</language>
+			<language type="rof">蘭博文</language>
+			<language type="ru">俄文</language>
 			<language type="rup">阿羅馬尼亞語</language>
 			<language type="rw">盧旺達文</language>
-			<language type="sd">信德語</language>
+			<language type="rwk">羅瓦文</language>
+			<language type="sa">梵文</language>
+			<language type="saq">薩布魯文</language>
+			<language type="sbp">桑古文</language>
+			<language type="seh">賽納文</language>
+			<language type="ses">東桑海文</language>
+			<language type="sg">桑戈文</language>
+			<language type="shi">希爾哈文</language>
+			<language type="si">僧伽羅文</language>
+			<language type="sk">斯洛伐克文</language>
 			<language type="sl">斯洛文尼亞文</language>
+			<language type="sma">南薩米文</language>
+			<language type="smj">魯勒薩米文</language>
+			<language type="smn">伊納里薩米文</language>
+			<language type="sms">斯科特薩米文</language>
 			<language type="sn">修納文</language>
 			<language type="so">索馬里文</language>
+			<language type="sq">阿爾巴尼亞文</language>
+			<language type="sr">塞爾維亞文</language>
+			<language type="su">巽他文</language>
+			<language type="sv">瑞典文</language>
+			<language type="sw">史瓦希里文</language>
 			<language type="sw_CD">剛果史瓦希里文</language>
 			<language type="syr">敍利亞文</language>
 			<language type="ta">泰米爾文</language>
+			<language type="te">泰盧固文</language>
+			<language type="teo">特索文</language>
+			<language type="tg">塔吉克文</language>
+			<language type="th">泰文</language>
+			<language type="ti">提格利尼亞文</language>
+			<language type="tk">土庫曼文</language>
 			<language type="tn">突尼西亞文</language>
 			<language type="to">湯加文</language>
+			<language type="tr">土耳其文</language>
+			<language type="tt">韃靼文</language>
+			<language type="twq">北桑海文</language>
+			<language type="ug">維吾爾文</language>
 			<language type="ug" alt="variant">維吾爾語</language>
+			<language type="uk">烏克蘭文</language>
+			<language type="und">未知語言</language>
 			<language type="ur">烏爾都文</language>
+			<language type="uz">烏茲別克文</language>
+			<language type="vi">越南文</language>
+			<language type="vun">溫舊文</language>
 			<language type="wbp">瓦爾皮里文</language>
+			<language type="wo">沃洛夫文</language>
+			<language type="xh">科薩文</language>
+			<language type="xog">索加文</language>
+			<language type="yo">約魯巴文</language>
 			<language type="yue">廣東話</language>
 			<language type="zgh">摩洛哥標準塔馬齊格特文</language>
+			<language type="zh">中文</language>
+			<language type="zh_Hans">簡體中文</language>
+			<language type="zh_Hant">繁體中文</language>
+			<language type="zu">祖魯文</language>
+			<language type="zxx">無語言內容</language>
 		</languages>
 		<scripts>
+			<script type="Arab">阿拉伯文</script>
+			<script type="Arab" alt="variant">波斯阿拉伯文字</script>
+			<script type="Armn">亞美尼亞文</script>
+			<script type="Beng">孟加拉文</script>
+			<script type="Bopo">注音符號</script>
+			<script type="Brai">盲人用點字</script>
 			<script type="Cyrl">西里爾文</script>
 			<script type="Ethi">埃塞俄比亞文</script>
 			<script type="Geor">格魯吉亞文</script>
+			<script type="Grek">希臘文</script>
+			<script type="Gujr">古吉拉特文</script>
 			<script type="Guru">古木基文</script>
 			<script type="Hans">簡體字</script>
+			<script type="Hans" alt="stand-alone">簡體中文</script>
 			<script type="Hant">繁體字</script>
+			<script type="Hant" alt="stand-alone">繁體中文</script>
+			<script type="Hebr">希伯來文</script>
+			<script type="Hira">平假名</script>
+			<script type="Jpan">日文</script>
+			<script type="Kana">片假名</script>
+			<script type="Khmr">高棉文</script>
 			<script type="Knda">坎納達文</script>
+			<script type="Kore">韓文</script>
 			<script type="Laoo">老撾文</script>
 			<script type="Latn">拉丁字母</script>
 			<script type="Mlym">馬拉雅拉姆文</script>
+			<script type="Mong">蒙古文</script>
+			<script type="Mymr">緬甸文</script>
 			<script type="Newa" draft="contributed">尼瓦爾文</script>
 			<script type="Orya">奧里雅文</script>
 			<script type="Sinh">僧伽羅文</script>
 			<script type="Taml">泰米爾文</script>
 			<script type="Thaa">它拿字母</script>
+			<script type="Thai">泰文</script>
+			<script type="Tibt">西藏文</script>
+			<script type="Zsym">符號</script>
+			<script type="Zxxx">非書寫語言</script>
+			<script type="Zyyy">一般文字</script>
+			<script type="Zzzz">未知文字</script>
 		</scripts>
 		<territories>
+			<territory type="001">世界</territory>
+			<territory type="002">非洲</territory>
+			<territory type="003">北美洲</territory>
+			<territory type="005">南美洲</territory>
+			<territory type="009">大洋洲</territory>
+			<territory type="011">西非</territory>
 			<territory type="013">中美洲</territory>
+			<territory type="014">東非</territory>
+			<territory type="015">北非</territory>
+			<territory type="017">中非</territory>
+			<territory type="018">非洲南部</territory>
+			<territory type="019">美洲</territory>
+			<territory type="021">北美</territory>
 			<territory type="029">加勒比</territory>
+			<territory type="030">東亞</territory>
+			<territory type="034">南亞</territory>
+			<territory type="035">東南亞</territory>
+			<territory type="039">南歐</territory>
 			<territory type="053">澳大拉西亞</territory>
+			<territory type="054">美拉尼西亞</territory>
 			<territory type="061">波利尼西亞</territory>
+			<territory type="142">亞洲</territory>
+			<territory type="143">中亞</territory>
+			<territory type="145">西亞</territory>
+			<territory type="150">歐洲</territory>
+			<territory type="151">東歐</territory>
+			<territory type="154">北歐</territory>
+			<territory type="155">西歐</territory>
+			<territory type="419">拉丁美洲</territory>
+			<territory type="AC">阿森松島</territory>
+			<territory type="AD">安道爾</territory>
 			<territory type="AE">阿拉伯聯合酋長國</territory>
+			<territory type="AF">阿富汗</territory>
 			<territory type="AG">安提瓜和巴布達</territory>
+			<territory type="AL">阿爾巴尼亞</territory>
+			<territory type="AM">亞美尼亞</territory>
+			<territory type="AO">安哥拉</territory>
+			<territory type="AQ">南極洲</territory>
+			<territory type="AR">阿根廷</territory>
+			<territory type="AT">奧地利</territory>
+			<territory type="AU">澳洲</territory>
 			<territory type="AW">阿魯巴</territory>
-			<territory type="AZ">阿塞拜疆</territory>
+			<territory type="AX">奧蘭群島</territory>
+			<territory type="AZ">亞塞拜疆</territory>
 			<territory type="BA">波斯尼亞和黑塞哥維那</territory>
 			<territory type="BB">巴巴多斯</territory>
+			<territory type="BD">孟加拉</territory>
+			<territory type="BE">比利時</territory>
 			<territory type="BF">布基納法索</territory>
+			<territory type="BG">保加利亞</territory>
+			<territory type="BH">巴林</territory>
 			<territory type="BI">布隆迪</territory>
 			<territory type="BJ">貝寧</territory>
 			<territory type="BL">聖巴泰勒米</territory>
+			<territory type="BM">百慕達</territory>
+			<territory type="BN">汶萊</territory>
+			<territory type="BO">玻利維亞</territory>
+			<territory type="BQ">荷蘭加勒比區</territory>
+			<territory type="BR">巴西</territory>
+			<territory type="BS">巴哈馬</territory>
+			<territory type="BT">不丹</territory>
 			<territory type="BV">鮑威特島</territory>
 			<territory type="BW">博茨瓦納</territory>
+			<territory type="BY">白俄羅斯</territory>
 			<territory type="BZ">伯利茲</territory>
-			<territory type="CC">可可斯群島</territory>
+			<territory type="CA">加拿大</territory>
+			<territory type="CC">科科斯 (基林) 群島</territory>
+			<territory type="CD" alt="variant">剛果民主共和國</territory>
+			<territory type="CF">中非共和國</territory>
+			<territory type="CG" alt="variant">剛果共和國</territory>
+			<territory type="CH">瑞士</territory>
 			<territory type="CI">科特迪瓦</territory>
 			<territory type="CI" alt="variant">象牙海岸</territory>
+			<territory type="CK">庫克群島</territory>
+			<territory type="CL">智利</territory>
+			<territory type="CM">喀麥隆</territory>
+			<territory type="CN">中國</territory>
+			<territory type="CO">哥倫比亞</territory>
 			<territory type="CP">克里珀頓島</territory>
 			<territory type="CR">哥斯達黎加</territory>
+			<territory type="CU">古巴</territory>
 			<territory type="CV">佛得角</territory>
+			<territory type="CW">庫拉索</territory>
+			<territory type="CX">聖誕島</territory>
 			<territory type="CY">塞浦路斯</territory>
+			<territory type="DE">德國</territory>
+			<territory type="DG">迪亞哥加西亞島</territory>
 			<territory type="DJ">吉布提</territory>
+			<territory type="DK">丹麥</territory>
+			<territory type="DM">多米尼克</territory>
+			<territory type="DO">多米尼加共和國</territory>
+			<territory type="DZ">阿爾及利亞</territory>
+			<territory type="EA">休達與梅利利亞</territory>
 			<territory type="EC">厄瓜多爾</territory>
+			<territory type="EE">愛沙尼亞</territory>
+			<territory type="EG">埃及</territory>
+			<territory type="EH">西撒哈拉</territory>
 			<territory type="ER">厄立特里亞</territory>
+			<territory type="ES">西班牙</territory>
 			<territory type="ET">埃塞俄比亞</territory>
+			<territory type="EU">歐盟</territory>
+			<territory type="FI">芬蘭</territory>
+			<territory type="FJ">斐濟</territory>
+			<territory type="FK">福克蘭群島</territory>
+			<territory type="FM">密克羅尼西亞</territory>
+			<territory type="FO">法羅群島</territory>
+			<territory type="FR">法國</territory>
 			<territory type="GA">加蓬</territory>
+			<territory type="GB">英國</territory>
+			<territory type="GB" alt="short">英國</territory>
 			<territory type="GD">格林納達</territory>
 			<territory type="GE">格魯吉亞</territory>
+			<territory type="GF">法屬圭亞那</territory>
 			<territory type="GH">加納</territory>
+			<territory type="GI">直布羅陀</territory>
+			<territory type="GL">格陵蘭</territory>
 			<territory type="GM">岡比亞</territory>
+			<territory type="GN">幾內亞</territory>
+			<territory type="GP">瓜地洛普</territory>
+			<territory type="GQ">赤道幾內亞</territory>
+			<territory type="GR">希臘</territory>
 			<territory type="GS">南佐治亞島與南桑威奇群島</territory>
 			<territory type="GT">危地馬拉</territory>
+			<territory type="GU">關島</territory>
 			<territory type="GW">幾內亞比紹</territory>
 			<territory type="GY">圭亞那</territory>
+			<territory type="HK" alt="short">香港</territory>
 			<territory type="HN">洪都拉斯</territory>
 			<territory type="HR">克羅地亞</territory>
+			<territory type="HT">海地</territory>
+			<territory type="HU">匈牙利</territory>
+			<territory type="IC">加那利群島</territory>
+			<territory type="ID">印尼</territory>
+			<territory type="IE">愛爾蘭</territory>
+			<territory type="IL">以色列</territory>
 			<territory type="IM">馬恩島</territory>
+			<territory type="IN">印度</territory>
+			<territory type="IQ">伊拉克</territory>
+			<territory type="IR">伊朗</territory>
+			<territory type="IS">冰島</territory>
 			<territory type="IT">意大利</territory>
-			<territory type="KE">肯雅</territory>
+			<territory type="JE">澤西島</territory>
+			<territory type="JM">牙買加</territory>
+			<territory type="JO">約旦</territory>
+			<territory type="JP">日本</territory>
+			<territory type="KE">肯尼亞</territory>
+			<territory type="KG">吉爾吉斯</territory>
+			<territory type="KH">柬埔寨</territory>
+			<territory type="KI">吉里巴斯</territory>
 			<territory type="KM">科摩羅</territory>
 			<territory type="KN">聖基茨和尼維斯</territory>
+			<territory type="KP">北韓</territory>
+			<territory type="KR">南韓</territory>
+			<territory type="KW">科威特</territory>
+			<territory type="KY">開曼群島</territory>
+			<territory type="KZ">哈薩克</territory>
 			<territory type="LA">老撾</territory>
+			<territory type="LB">黎巴嫩</territory>
 			<territory type="LC">聖盧西亞</territory>
 			<territory type="LI">列支敦士登</territory>
+			<territory type="LK">斯里蘭卡</territory>
 			<territory type="LR">利比里亞</territory>
-			<territory type="LV">拉脱維亞</territory>
+			<territory type="LS">賴索托</territory>
+			<territory type="LT">立陶宛</territory>
+			<territory type="LU">盧森堡</territory>
+			<territory type="LY">利比亞</territory>
+			<territory type="MA">摩洛哥</territory>
+			<territory type="MC">摩納哥</territory>
+			<territory type="MD">摩爾多瓦</territory>
 			<territory type="ME">黑山</territory>
+			<territory type="MF">法屬聖馬丁</territory>
+			<territory type="MG">馬達加斯加</territory>
+			<territory type="MH">馬紹爾群島</territory>
+			<territory type="MK">馬其頓</territory>
+			<territory type="MK" alt="variant">前南斯拉夫馬其頓共和國</territory>
 			<territory type="ML">馬里</territory>
+			<territory type="MM">緬甸</territory>
+			<territory type="MN">蒙古</territory>
+			<territory type="MO" alt="short">澳門</territory>
 			<territory type="MR">毛里塔尼亞</territory>
 			<territory type="MS">蒙特塞拉特</territory>
 			<territory type="MT">馬耳他</territory>
 			<territory type="MU">毛里裘斯</territory>
 			<territory type="MV">馬爾代夫</territory>
 			<territory type="MW">馬拉維</territory>
+			<territory type="MX">墨西哥</territory>
+			<territory type="MY">馬來西亞</territory>
 			<territory type="MZ">莫桑比克</territory>
+			<territory type="NA">納米比亞</territory>
+			<territory type="NC">新喀里多尼亞</territory>
 			<territory type="NE">尼日爾</territory>
+			<territory type="NF">諾福克島</territory>
 			<territory type="NG">尼日利亞</territory>
+			<territory type="NI">尼加拉瓜</territory>
+			<territory type="NL">荷蘭</territory>
+			<territory type="NO">挪威</territory>
+			<territory type="NP">尼泊爾</territory>
 			<territory type="NR">瑙魯</territory>
+			<territory type="NZ">紐西蘭</territory>
+			<territory type="OM">阿曼</territory>
+			<territory type="PA">巴拿馬</territory>
+			<territory type="PE">秘魯</territory>
 			<territory type="PF">法屬波利尼西亞</territory>
 			<territory type="PG">巴布亞新幾內亞</territory>
+			<territory type="PH">菲律賓</territory>
+			<territory type="PK">巴基斯坦</territory>
+			<territory type="PL">波蘭</territory>
 			<territory type="PN">皮特凱恩島</territory>
+			<territory type="PR">波多黎各</territory>
 			<territory type="PS">巴勒斯坦領土</territory>
+			<territory type="PS" alt="short">巴勒斯坦</territory>
+			<territory type="PT">葡萄牙</territory>
+			<territory type="PW">帛琉</territory>
+			<territory type="PY">巴拉圭</territory>
 			<territory type="QA">卡塔爾</territory>
+			<territory type="QO">大洋洲邊疆群島</territory>
+			<territory type="RE">留尼旺</territory>
+			<territory type="RO">羅馬尼亞</territory>
+			<territory type="RS">塞爾維亞</territory>
+			<territory type="RU">俄羅斯</territory>
 			<territory type="RW">盧旺達</territory>
 			<territory type="SA">沙地阿拉伯</territory>
 			<territory type="SB">所羅門群島</territory>
 			<territory type="SC">塞舌爾</territory>
+			<territory type="SD">蘇丹</territory>
+			<territory type="SE">瑞典</territory>
+			<territory type="SG">新加坡</territory>
+			<territory type="SH">聖赫勒拿島</territory>
 			<territory type="SI">斯洛文尼亞</territory>
 			<territory type="SJ">斯瓦爾巴特群島及揚馬延島</territory>
+			<territory type="SK">斯洛伐克</territory>
 			<territory type="SL">塞拉利昂</territory>
+			<territory type="SM">聖馬利諾</territory>
+			<territory type="SN">塞內加爾</territory>
 			<territory type="SO">索馬里</territory>
 			<territory type="SR">蘇里南</territory>
+			<territory type="SS">南蘇丹</territory>
 			<territory type="ST">聖多美和普林西比</territory>
+			<territory type="SV">薩爾瓦多</territory>
+			<territory type="SX">荷屬聖馬丁</territory>
+			<territory type="SY">敘利亞</territory>
 			<territory type="SZ">斯威士蘭</territory>
+			<territory type="TA">特里斯坦達庫尼亞群島</territory>
 			<territory type="TC">特克斯和凱科斯群島</territory>
 			<territory type="TD">乍得</territory>
 			<territory type="TF">法屬南部領地</territory>
 			<territory type="TG">多哥共和國</territory>
+			<territory type="TH">泰國</territory>
+			<territory type="TJ">塔吉克</territory>
+			<territory type="TK">托克勞群島</territory>
+			<territory type="TL">東帝汶</territory>
+			<territory type="TM">土庫曼</territory>
+			<territory type="TN">突尼西亞</territory>
 			<territory type="TO">湯加</territory>
+			<territory type="TR">土耳其</territory>
 			<territory type="TT">千里達和多巴哥</territory>
 			<territory type="TV">圖瓦盧</territory>
+			<territory type="TW">台灣</territory>
 			<territory type="TZ">坦桑尼亞</territory>
+			<territory type="UA">烏克蘭</territory>
+			<territory type="UG">烏干達</territory>
+			<territory type="UM">美國本土外小島嶼</territory>
+			<territory type="US">美國</territory>
+			<territory type="US" alt="short">美國</territory>
+			<territory type="UY">烏拉圭</territory>
+			<territory type="UZ">烏茲別克</territory>
 			<territory type="VC">聖文森特和格林納丁斯</territory>
+			<territory type="VE">委內瑞拉</territory>
 			<territory type="VG">英屬維爾京群島</territory>
 			<territory type="VI">美屬維爾京群島</territory>
+			<territory type="VN">越南</territory>
 			<territory type="VU">瓦努阿圖</territory>
+			<territory type="XK">科索沃</territory>
 			<territory type="YE">也門</territory>
 			<territory type="YT">馬約特</territory>
+			<territory type="ZA">南非</territory>
 			<territory type="ZM">贊比亞</territory>
 			<territory type="ZW">津巴布韋</territory>
+			<territory type="ZZ">未知區域</territory>
 		</territories>
 		<variants>
 			<variant type="1901" draft="contributed">傳統德國拼字法</variant>
 			<variant type="1996">1996 德國拼字法</variant>
 			<variant type="ABL1943">ABL1943</variant>
+			<variant type="COLB1945" draft="contributed">1945 年巴西葡萄牙文拼字標準</variant>
 			<variant type="REVISED" draft="contributed">已修訂拼字法</variant>
 			<variant type="SCOTLAND" draft="contributed">蘇格蘭標準英語</variant>
 			<variant type="SOTAV">SOTAV</variant>
 		</variants>
 		<keys>
-			<key type="hc">時間週期（12 與 24 小時制</key>
+			<key type="collation">排序</key>
+			<key type="currency">貨幣</key>
 			<key type="ms">度量衡系統</key>
-			<key type="x" draft="provisional">專用區</key>
+			<key type="numbers">數字</key>
+			<key type="x" draft="contributed">專用區</key>
 		</keys>
 		<types>
 			<type key="calendar" type="ethiopic">埃塞俄比亞曆</type>
@@ -226,6 +615,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="taml">泰米爾數字</type>
 			<type key="numbers" type="tamldec">泰米爾數字</type>
 		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">公制</measurementSystemName>
+			<measurementSystemName type="UK">英制</measurementSystemName>
+			<measurementSystemName type="US">美制</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language">語言：{0}</codePattern>
+			<codePattern type="script">文字：{0}</codePattern>
+			<codePattern type="territory">地區：{0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<ellipsis type="final" draft="contributed">{0}⋯</ellipsis>
@@ -234,7 +633,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-final" draft="contributed">{0}⋯</ellipsis>
 		<ellipsis type="word-initial" draft="contributed">⋯{0}</ellipsis>
 		<ellipsis type="word-medial" draft="contributed">{0}⋯{1}</ellipsis>
+		<moreInformation>？</moreInformation>
 	</characters>
+	<delimiters>
+		<quotationStart>「</quotationStart>
+		<quotationEnd>」</quotationEnd>
+		<alternateQuotationStart>『</alternateQuotationStart>
+		<alternateQuotationEnd>』</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="buddhist">
@@ -336,6 +742,157 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
+				<monthPatterns>
+					<monthPatternContext type="format">
+						<monthPatternWidth type="wide">
+							<monthPattern type="leap">閏{0}</monthPattern>
+						</monthPatternWidth>
+					</monthPatternContext>
+					<monthPatternContext type="numeric">
+						<monthPatternWidth type="all">
+							<monthPattern type="leap">閏{0}</monthPattern>
+						</monthPatternWidth>
+					</monthPatternContext>
+					<monthPatternContext type="stand-alone">
+						<monthPatternWidth type="narrow">
+							<monthPattern type="leap">閏{0}</monthPattern>
+						</monthPatternWidth>
+					</monthPatternContext>
+				</monthPatterns>
+				<cyclicNameSets>
+					<cyclicNameSet type="dayParts">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">子</cyclicName>
+								<cyclicName type="2">丑</cyclicName>
+								<cyclicName type="3">寅</cyclicName>
+								<cyclicName type="4">卯</cyclicName>
+								<cyclicName type="5">辰</cyclicName>
+								<cyclicName type="6">巳</cyclicName>
+								<cyclicName type="7">午</cyclicName>
+								<cyclicName type="8">未</cyclicName>
+								<cyclicName type="9">申</cyclicName>
+								<cyclicName type="10">酉</cyclicName>
+								<cyclicName type="11">戌</cyclicName>
+								<cyclicName type="12">亥</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="solarTerms">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">立春</cyclicName>
+								<cyclicName type="2">雨水</cyclicName>
+								<cyclicName type="3">驚蟄</cyclicName>
+								<cyclicName type="4">春分</cyclicName>
+								<cyclicName type="5">清明</cyclicName>
+								<cyclicName type="6">穀雨</cyclicName>
+								<cyclicName type="7">立夏</cyclicName>
+								<cyclicName type="8">小滿</cyclicName>
+								<cyclicName type="9">芒種</cyclicName>
+								<cyclicName type="10">夏至</cyclicName>
+								<cyclicName type="11">小暑</cyclicName>
+								<cyclicName type="12">大暑</cyclicName>
+								<cyclicName type="13">立秋</cyclicName>
+								<cyclicName type="14">處暑</cyclicName>
+								<cyclicName type="15">白露</cyclicName>
+								<cyclicName type="16">秋分</cyclicName>
+								<cyclicName type="17">寒露</cyclicName>
+								<cyclicName type="18">霜降</cyclicName>
+								<cyclicName type="19">立冬</cyclicName>
+								<cyclicName type="20">小雪</cyclicName>
+								<cyclicName type="21">大雪</cyclicName>
+								<cyclicName type="22">冬至</cyclicName>
+								<cyclicName type="23">小寒</cyclicName>
+								<cyclicName type="24">大寒</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="years">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">甲子</cyclicName>
+								<cyclicName type="2">乙丑</cyclicName>
+								<cyclicName type="3">丙寅</cyclicName>
+								<cyclicName type="4">丁卯</cyclicName>
+								<cyclicName type="5">戊辰</cyclicName>
+								<cyclicName type="6">己巳</cyclicName>
+								<cyclicName type="7">庚午</cyclicName>
+								<cyclicName type="8">辛未</cyclicName>
+								<cyclicName type="9">壬申</cyclicName>
+								<cyclicName type="10">癸酉</cyclicName>
+								<cyclicName type="11">甲戌</cyclicName>
+								<cyclicName type="12">乙亥</cyclicName>
+								<cyclicName type="13">丙子</cyclicName>
+								<cyclicName type="14">丁丑</cyclicName>
+								<cyclicName type="15">戊寅</cyclicName>
+								<cyclicName type="16">己卯</cyclicName>
+								<cyclicName type="17">庚辰</cyclicName>
+								<cyclicName type="18">辛巳</cyclicName>
+								<cyclicName type="19">壬午</cyclicName>
+								<cyclicName type="20">癸未</cyclicName>
+								<cyclicName type="21">甲申</cyclicName>
+								<cyclicName type="22">乙酉</cyclicName>
+								<cyclicName type="23">丙戌</cyclicName>
+								<cyclicName type="24">丁亥</cyclicName>
+								<cyclicName type="25">戊子</cyclicName>
+								<cyclicName type="26">己丑</cyclicName>
+								<cyclicName type="27">庚寅</cyclicName>
+								<cyclicName type="28">辛卯</cyclicName>
+								<cyclicName type="29">壬辰</cyclicName>
+								<cyclicName type="30">癸巳</cyclicName>
+								<cyclicName type="31">甲午</cyclicName>
+								<cyclicName type="32">乙未</cyclicName>
+								<cyclicName type="33">丙申</cyclicName>
+								<cyclicName type="34">丁酉</cyclicName>
+								<cyclicName type="35">戊戌</cyclicName>
+								<cyclicName type="36">己亥</cyclicName>
+								<cyclicName type="37">庚子</cyclicName>
+								<cyclicName type="38">辛丑</cyclicName>
+								<cyclicName type="39">壬寅</cyclicName>
+								<cyclicName type="40">癸卯</cyclicName>
+								<cyclicName type="41">甲辰</cyclicName>
+								<cyclicName type="42">乙巳</cyclicName>
+								<cyclicName type="43">丙午</cyclicName>
+								<cyclicName type="44">丁未</cyclicName>
+								<cyclicName type="45">戊申</cyclicName>
+								<cyclicName type="46">己酉</cyclicName>
+								<cyclicName type="47">庚戌</cyclicName>
+								<cyclicName type="48">辛亥</cyclicName>
+								<cyclicName type="49">壬子</cyclicName>
+								<cyclicName type="50">癸丑</cyclicName>
+								<cyclicName type="51">甲寅</cyclicName>
+								<cyclicName type="52">乙卯</cyclicName>
+								<cyclicName type="53">丙辰</cyclicName>
+								<cyclicName type="54">丁巳</cyclicName>
+								<cyclicName type="55">戊午</cyclicName>
+								<cyclicName type="56">己未</cyclicName>
+								<cyclicName type="57">庚申</cyclicName>
+								<cyclicName type="58">辛酉</cyclicName>
+								<cyclicName type="59">壬戌</cyclicName>
+								<cyclicName type="60">癸亥</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="zodiacs">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">鼠</cyclicName>
+								<cyclicName type="2">牛</cyclicName>
+								<cyclicName type="3">虎</cyclicName>
+								<cyclicName type="4">兔</cyclicName>
+								<cyclicName type="5">龍</cyclicName>
+								<cyclicName type="6">蛇</cyclicName>
+								<cyclicName type="7">馬</cyclicName>
+								<cyclicName type="8">羊</cyclicName>
+								<cyclicName type="9">猴</cyclicName>
+								<cyclicName type="10">雞</cyclicName>
+								<cyclicName type="11">狗</cyclicName>
+								<cyclicName type="12">豬</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+				</cyclicNameSets>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -361,17 +918,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateTimeFormats>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Ed">d日E</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="hm">ah:mm</dateFormatItem>
+						<dateFormatItem id="hms">ah:mm:ss</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -405,13 +964,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日E</dateFormatItem>
+						<dateFormatItem id="Ehm">E ah:mm</dateFormatItem>
 						<dateFormatItem id="Gy">Gy年</dateFormatItem>
 						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">Gy年M月d日E</dateFormatItem>
+						<dateFormatItem id="M">M月</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">d/M（E）</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日E</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
@@ -426,6 +990,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyQQQQ">Gy年QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d日至d日</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M月至M月</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d">d/M 至 d/M</greatestDifference>
 							<greatestDifference id="M">d/M 至 d/M</greatestDifference>
@@ -433,6 +1003,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="d">d/M（E） 至 d/M（E）</greatestDifference>
 							<greatestDifference id="M">d/M（E） 至 d/M（E）</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">LLL至LLL</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">M月d日至d日</greatestDifference>
+							<greatestDifference id="M">M月d日至M月d日</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">M月d日E至d日E</greatestDifference>
+							<greatestDifference id="M">M月d日E至M月d日E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMM">
+							<greatestDifference id="M">LLLL至LLLL</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">Gy年至y年</greatestDifference>
@@ -473,6 +1057,174 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">1月</month>
+							<month type="2" draft="contributed">2月</month>
+							<month type="3" draft="contributed">3月</month>
+							<month type="4" draft="contributed">4月</month>
+							<month type="5" draft="contributed">5月</month>
+							<month type="6" draft="contributed">6月</month>
+							<month type="7" draft="contributed">7月</month>
+							<month type="8" draft="contributed">8月</month>
+							<month type="9" draft="contributed">9月</month>
+							<month type="10" draft="contributed">10月</month>
+							<month type="11" draft="contributed">11月</month>
+							<month type="12" draft="contributed">12月</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">1月</month>
+							<month type="2" draft="contributed">2月</month>
+							<month type="3" draft="contributed">3月</month>
+							<month type="4" draft="contributed">4月</month>
+							<month type="5" draft="contributed">5月</month>
+							<month type="6" draft="contributed">6月</month>
+							<month type="7" draft="contributed">7月</month>
+							<month type="8" draft="contributed">8月</month>
+							<month type="9" draft="contributed">9月</month>
+							<month type="10" draft="contributed">10月</month>
+							<month type="11" draft="contributed">11月</month>
+							<month type="12" draft="contributed">12月</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">1月</month>
+							<month type="2" draft="contributed">2月</month>
+							<month type="3" draft="contributed">3月</month>
+							<month type="4" draft="contributed">4月</month>
+							<month type="5" draft="contributed">5月</month>
+							<month type="6" draft="contributed">6月</month>
+							<month type="7" draft="contributed">7月</month>
+							<month type="8" draft="contributed">8月</month>
+							<month type="9" draft="contributed">9月</month>
+							<month type="10" draft="contributed">10月</month>
+							<month type="11" draft="contributed">11月</month>
+							<month type="12" draft="contributed">12月</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">1月</month>
+							<month type="2" draft="contributed">2月</month>
+							<month type="3" draft="contributed">3月</month>
+							<month type="4" draft="contributed">4月</month>
+							<month type="5" draft="contributed">5月</month>
+							<month type="6" draft="contributed">6月</month>
+							<month type="7" draft="contributed">7月</month>
+							<month type="8" draft="contributed">8月</month>
+							<month type="9" draft="contributed">9月</month>
+							<month type="10" draft="contributed">10月</month>
+							<month type="11" draft="contributed">11月</month>
+							<month type="12" draft="contributed">12月</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="contributed">週日</day>
+							<day type="mon" draft="contributed">週一</day>
+							<day type="tue" draft="contributed">週二</day>
+							<day type="wed" draft="contributed">週三</day>
+							<day type="thu" draft="contributed">週四</day>
+							<day type="fri" draft="contributed">週五</day>
+							<day type="sat" draft="contributed">週六</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="contributed">日</day>
+							<day type="mon" draft="contributed">一</day>
+							<day type="tue" draft="contributed">二</day>
+							<day type="wed" draft="contributed">三</day>
+							<day type="thu" draft="contributed">四</day>
+							<day type="fri" draft="contributed">五</day>
+							<day type="sat" draft="contributed">六</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="contributed">日</day>
+							<day type="mon" draft="contributed">一</day>
+							<day type="tue" draft="contributed">二</day>
+							<day type="wed" draft="contributed">三</day>
+							<day type="thu" draft="contributed">四</day>
+							<day type="fri" draft="contributed">五</day>
+							<day type="sat" draft="contributed">六</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="contributed">星期日</day>
+							<day type="mon" draft="contributed">星期一</day>
+							<day type="tue" draft="contributed">星期二</day>
+							<day type="wed" draft="contributed">星期三</day>
+							<day type="thu" draft="contributed">星期四</day>
+							<day type="fri" draft="contributed">星期五</day>
+							<day type="sat" draft="contributed">星期六</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="contributed">週日</day>
+							<day type="mon" draft="contributed">週一</day>
+							<day type="tue" draft="contributed">週二</day>
+							<day type="wed" draft="contributed">週三</day>
+							<day type="thu" draft="contributed">週四</day>
+							<day type="fri" draft="contributed">週五</day>
+							<day type="sat" draft="contributed">週六</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="contributed">日</day>
+							<day type="mon" draft="contributed">一</day>
+							<day type="tue" draft="contributed">二</day>
+							<day type="wed" draft="contributed">三</day>
+							<day type="thu" draft="contributed">四</day>
+							<day type="fri" draft="contributed">五</day>
+							<day type="sat" draft="contributed">六</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="contributed">日</day>
+							<day type="mon" draft="contributed">一</day>
+							<day type="tue" draft="contributed">二</day>
+							<day type="wed" draft="contributed">三</day>
+							<day type="thu" draft="contributed">四</day>
+							<day type="fri" draft="contributed">五</day>
+							<day type="sat" draft="contributed">六</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="contributed">星期日</day>
+							<day type="mon" draft="contributed">星期一</day>
+							<day type="tue" draft="contributed">星期二</day>
+							<day type="wed" draft="contributed">星期三</day>
+							<day type="thu" draft="contributed">星期四</day>
+							<day type="fri" draft="contributed">星期五</day>
+							<day type="sat" draft="contributed">星期六</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
@@ -480,6 +1232,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="2">Q2</quarter>
 							<quarter type="3">Q3</quarter>
 							<quarter type="4">Q4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">第1季</quarter>
+							<quarter type="2">第2季</quarter>
+							<quarter type="3">第3季</quarter>
+							<quarter type="4">第4季</quarter>
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
@@ -489,6 +1253,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="3">Q3</quarter>
 							<quarter type="4">Q4</quarter>
 						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">第1季</quarter>
+							<quarter type="2">第2季</quarter>
+							<quarter type="3">第3季</quarter>
+							<quarter type="4">第4季</quarter>
+						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<dayPeriods>
@@ -496,7 +1272,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight">午夜</dayPeriod>
 							<dayPeriod type="morning1">早上</dayPeriod>
-							<dayPeriod type="morning2">上午</dayPeriod>
 							<dayPeriod type="afternoon1">中午</dayPeriod>
 							<dayPeriod type="afternoon2">下午</dayPeriod>
 							<dayPeriod type="evening1">晚上</dayPeriod>
@@ -504,8 +1279,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">午夜</dayPeriod>
+							<dayPeriod type="am">上午</dayPeriod>
+							<dayPeriod type="pm">下午</dayPeriod>
 							<dayPeriod type="morning1">早上</dayPeriod>
-							<dayPeriod type="morning2">上午</dayPeriod>
 							<dayPeriod type="afternoon1">中午</dayPeriod>
 							<dayPeriod type="afternoon2">下午</dayPeriod>
 							<dayPeriod type="evening1">晚上</dayPeriod>
@@ -513,8 +1289,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">午夜</dayPeriod>
+							<dayPeriod type="am">上午</dayPeriod>
+							<dayPeriod type="pm">下午</dayPeriod>
 							<dayPeriod type="morning1">早上</dayPeriod>
-							<dayPeriod type="morning2">上午</dayPeriod>
 							<dayPeriod type="afternoon1">中午</dayPeriod>
 							<dayPeriod type="afternoon2">下午</dayPeriod>
 							<dayPeriod type="evening1">晚上</dayPeriod>
@@ -524,7 +1301,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="morning1">早上</dayPeriod>
-							<dayPeriod type="morning2">上午</dayPeriod>
 							<dayPeriod type="afternoon1">中午</dayPeriod>
 							<dayPeriod type="afternoon2">下午</dayPeriod>
 							<dayPeriod type="evening1">晚上</dayPeriod>
@@ -532,7 +1308,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="morning1">早上</dayPeriod>
-							<dayPeriod type="morning2">上午</dayPeriod>
 							<dayPeriod type="afternoon1">中午</dayPeriod>
 							<dayPeriod type="afternoon2">下午</dayPeriod>
 							<dayPeriod type="evening1">晚上</dayPeriod>
@@ -540,7 +1315,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="morning1">早上</dayPeriod>
-							<dayPeriod type="morning2">上午</dayPeriod>
 							<dayPeriod type="afternoon1">中午</dayPeriod>
 							<dayPeriod type="afternoon2">下午</dayPeriod>
 							<dayPeriod type="evening1">晚上</dayPeriod>
@@ -551,17 +1325,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<eras>
 					<eraNames>
 						<era type="0">公元前</era>
+						<era type="0" alt="variant">公元前</era>
 						<era type="1">公元</era>
+						<era type="1" alt="variant">公元</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">公元前</era>
+						<era type="0" alt="variant">公元前</era>
 						<era type="1">公元</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="provisional">公元前</era>
+						<era type="1" draft="provisional">公元</era>
+					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>y年M月d日EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="contributed">y年M月d日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="contributed">y年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -570,23 +1361,99 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="contributed">ah:mm:ss [zzzz]</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="contributed">ah:mm:ss [z]</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="contributed">ah:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="contributed">ah:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="d">d日</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">d日E</dateFormatItem>
+						<dateFormatItem id="Gy">Gy年</dateFormatItem>
+						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">Gy年M月d日E</dateFormatItem>
+						<dateFormatItem id="h">ah時</dateFormatItem>
+						<dateFormatItem id="H">H時</dateFormatItem>
+						<dateFormatItem id="hm">ah:mm</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="hms">ah:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="M">M月</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">d/M（E）</dateFormatItem>
 						<dateFormatItem id="MMdd">dd/MM</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日E</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">M月第W週</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">y年</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
 						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
 						<dateFormatItem id="yMEd">d/M/y（E）</dateFormatItem>
 						<dateFormatItem id="yMM">MM/y</dateFormatItem>
+						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
+						<dateFormatItem id="yMMMd">y年M月d日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y年M月d日E</dateFormatItem>
+						<dateFormatItem id="yMMMM">y年M月</dateFormatItem>
+						<dateFormatItem id="yQQQ">y年QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ">y年QQQQ</dateFormatItem>
 						<dateFormatItem id="yw" count="other">Y年第w週</dateFormatItem>
 					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone">{0} {1}</appendItem>
+					</appendItems>
 					<intervalFormats>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d日至d日</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a">ah時至ah時</greatestDifference>
+							<greatestDifference id="h">ah時至h時</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a">ah:mm至ah:mm</greatestDifference>
+							<greatestDifference id="h">ah:mm至h:mm</greatestDifference>
+							<greatestDifference id="m">ah:mm至h:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a">ah:mm至ah:mm [v]</greatestDifference>
+							<greatestDifference id="h">ah:mm至h:mm [v]</greatestDifference>
+							<greatestDifference id="m">ah:mm至h:mm [v]</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M月至M月</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d">d/M 至 d/M</greatestDifference>
 							<greatestDifference id="M">d/M 至 d/M</greatestDifference>
@@ -594,6 +1461,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="d">d/M（E） 至 d/M（E）</greatestDifference>
 							<greatestDifference id="M">d/M（E） 至 d/M（E）</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">LLL至LLL</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">M月d日至d日</greatestDifference>
+							<greatestDifference id="M">M月d日至M月d日</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">M月d日E至d日E</greatestDifference>
+							<greatestDifference id="M">M月d日E至M月d日E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMM">
+							<greatestDifference id="M">LLLL至LLLL</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y至y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">M/y 至 M/y</greatestDifference>
@@ -609,32 +1493,108 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="M">d/M/y（E） 至 d/M/y（E）</greatestDifference>
 							<greatestDifference id="y">d/M/y（E） 至 d/M/y（E）</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">y年M月至M月</greatestDifference>
+							<greatestDifference id="y">y年M月至y年M月</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">y年M月d日至d日</greatestDifference>
+							<greatestDifference id="M">y年M月d日至M月d日</greatestDifference>
+							<greatestDifference id="y">y年M月d日至y年M月d日</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="M">y年M月d日E至M月d日E</greatestDifference>
+							<greatestDifference id="y">y年M月d日E至y年M月d日E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">y年M月至M月</greatestDifference>
+							<greatestDifference id="y">y年M月至y年M月</greatestDifference>
+						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="roc">
+				<eras>
+					<eraAbbr>
+						<era type="0">民國前</era>
+						<era type="1">民國</era>
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>Gy年M月d日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>Gy年M月d日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>Gy/M/d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日E</dateFormatItem>
+						<dateFormatItem id="Gy">Gy年</dateFormatItem>
+						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">Gy年M月d日E</dateFormatItem>
+						<dateFormatItem id="M">M月</dateFormatItem>
 						<dateFormatItem id="Md">d-M</dateFormatItem>
 						<dateFormatItem id="MEd">d-M（E）</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMEd">M月d日E</dateFormatItem>
+						<dateFormatItem id="y">Gy年</dateFormatItem>
+						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
+						<dateFormatItem id="yyyyM">Gy/M</dateFormatItem>
+						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">Gy/M/dE</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">Gy年M月d日E</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">Gy年QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">Gy年QQQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<fields>
+			<field type="era">
+				<displayName>年代</displayName>
+			</field>
 			<field type="year">
+				<displayName>年</displayName>
 				<relative type="-1">上年</relative>
 				<relative type="0">今年</relative>
 				<relative type="1">下年</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0} 年後</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} 年前</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="year-short">
+				<displayName>年</displayName>
 				<relative type="-1">上年</relative>
 				<relative type="0">今年</relative>
 				<relative type="1">下年</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0} 年後</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} 年前</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="year-narrow">
+				<displayName>年</displayName>
 				<relative type="-1">上年</relative>
 				<relative type="0">今年</relative>
 				<relative type="1">下年</relative>
@@ -646,16 +1606,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="quarter">
+				<displayName>季</displayName>
 				<relative type="-1">上一季</relative>
 				<relative type="0">今季</relative>
 				<relative type="1">下一季</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0} 季後</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} 季前</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="quarter-short">
+				<displayName>季</displayName>
 				<relative type="-1">上季</relative>
 				<relative type="0">今季</relative>
 				<relative type="1">下季</relative>
 			</field>
 			<field type="quarter-narrow">
+				<displayName>季</displayName>
 				<relative type="-1">上季</relative>
 				<relative type="0">今季</relative>
 				<relative type="1">下季</relative>
@@ -666,7 +1635,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">-{0}Q</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="month">
+				<displayName>月</displayName>
+				<relative type="-1">上個月</relative>
+				<relative type="0">本月</relative>
+				<relative type="1">下個月</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0} 個月後</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} 個月前</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="month-short">
+				<displayName>月</displayName>
+				<relative type="-1">上個月</relative>
+				<relative type="0">本月</relative>
+				<relative type="1">下個月</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0} 個月後</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} 個月前</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="month-narrow">
+				<displayName>月</displayName>
+				<relative type="-1">上個月</relative>
+				<relative type="0">本月</relative>
+				<relative type="1">下個月</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0}個月後</relativeTimePattern>
 				</relativeTime>
@@ -699,6 +1696,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="week-narrow">
+				<displayName>週</displayName>
 				<relative type="-1">上星期</relative>
 				<relative type="0">本星期</relative>
 				<relative type="1">下星期</relative>
@@ -710,6 +1708,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="day">
+				<displayName>日</displayName>
 				<relative type="-2">前日</relative>
 				<relative type="-1">昨日</relative>
 				<relative type="0">今日</relative>
@@ -723,6 +1722,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="day-short">
+				<displayName>日</displayName>
 				<relative type="-2">前日</relative>
 				<relative type="-1">昨日</relative>
 				<relative type="0">今日</relative>
@@ -736,6 +1736,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="day-narrow">
+				<displayName>日</displayName>
 				<relative type="-2">前日</relative>
 				<relative type="-1">昨日</relative>
 				<relative type="0">今日</relative>
@@ -780,6 +1781,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="sun-narrow">
+				<relative type="-1">上週日</relative>
+				<relative type="0">本週日</relative>
+				<relative type="1">下週日</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 個星期日後</relativeTimePattern>
 				</relativeTime>
@@ -810,6 +1814,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="mon-narrow">
+				<relative type="-1">上週一</relative>
+				<relative type="0">本週一</relative>
+				<relative type="1">下週一</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 個星期一後</relativeTimePattern>
 				</relativeTime>
@@ -840,6 +1847,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="tue-narrow">
+				<relative type="-1">上週二</relative>
+				<relative type="0">本週二</relative>
+				<relative type="1">下週二</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 個星期二後</relativeTimePattern>
 				</relativeTime>
@@ -870,6 +1880,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="wed-narrow">
+				<relative type="-1">上週三</relative>
+				<relative type="0">本週三</relative>
+				<relative type="1">下週三</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 個星期三後</relativeTimePattern>
 				</relativeTime>
@@ -900,6 +1913,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="thu-narrow">
+				<relative type="-1">上週四</relative>
+				<relative type="0">本週四</relative>
+				<relative type="1">下週四</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 個星期四後</relativeTimePattern>
 				</relativeTime>
@@ -930,6 +1946,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="fri-narrow">
+				<relative type="-1">上週五</relative>
+				<relative type="0">本週五</relative>
+				<relative type="1">下週五</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 個星期五後</relativeTimePattern>
 				</relativeTime>
@@ -960,6 +1979,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="sat-narrow">
+				<relative type="-1">上週六</relative>
+				<relative type="0">本週六</relative>
+				<relative type="1">下週六</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 個星期六後</relativeTimePattern>
 				</relativeTime>
@@ -967,11 +1989,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} 個星期六前</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayperiod">
+				<displayName>上午/下午</displayName>
+			</field>
 			<field type="hour">
+				<displayName>小時</displayName>
 				<relative type="0">這個小時</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0} 小時後</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} 小時前</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="hour-short">
+				<displayName>小時</displayName>
 				<relative type="0">這個小時</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0} 小時後</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} 小時前</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="hour-narrow">
 				<displayName>時</displayName>
@@ -984,10 +2023,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="minute">
+				<displayName>分鐘</displayName>
 				<relative type="0">這分鐘</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0} 分鐘後</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} 分鐘前</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute-short">
 				<relative type="0">這分鐘</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0} 分鐘後</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} 分鐘前</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute-narrow">
 				<displayName>分</displayName>
@@ -999,7 +2051,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0}分前</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="second">
+				<displayName>秒</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0} 秒後</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} 秒前</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second-short">
+				<displayName>秒</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0} 秒後</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} 秒前</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="second-narrow">
+				<displayName>秒</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0}秒後</relativeTimePattern>
 				</relativeTime>
@@ -1007,18 +2078,46 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0}秒前</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="zone">
+				<displayName>時區</displayName>
+			</field>
 		</fields>
 		<timeZoneNames>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtZeroFormat>GMT</gmtZeroFormat>
+			<regionFormat>{0}時間</regionFormat>
 			<regionFormat type="daylight">{0}夏令時間</regionFormat>
 			<regionFormat type="standard">{0}標準時間</regionFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>聖伊薩貝爾</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>檀香山</exemplarCity>
+			</zone>
+			<zone type="Etc/Unknown">
+				<exemplarCity>未知城市</exemplarCity>
+			</zone>
+			<zone type="Europe/Andorra">
+				<exemplarCity>安道爾</exemplarCity>
+			</zone>
+			<zone type="Asia/Dubai">
+				<exemplarCity>杜拜</exemplarCity>
+			</zone>
+			<zone type="Asia/Kabul">
+				<exemplarCity>喀布爾</exemplarCity>
+			</zone>
 			<zone type="America/Antigua">
 				<exemplarCity>安提瓜</exemplarCity>
 			</zone>
 			<zone type="America/Anguilla">
 				<exemplarCity>安圭拉</exemplarCity>
 			</zone>
+			<zone type="Europe/Tirane">
+				<exemplarCity>地拉那</exemplarCity>
+			</zone>
 			<zone type="Asia/Yerevan">
-				<exemplarCity>耶烈萬</exemplarCity>
+				<exemplarCity>埃里温</exemplarCity>
 			</zone>
 			<zone type="Africa/Luanda">
 				<exemplarCity>盧安達</exemplarCity>
@@ -1050,26 +2149,74 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity>麥克默多站</exemplarCity>
 			</zone>
+			<zone type="America/Argentina/Rio_Gallegos">
+				<exemplarCity>里奧加耶戈斯</exemplarCity>
+			</zone>
+			<zone type="America/Mendoza">
+				<exemplarCity>門多薩</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Juan">
+				<exemplarCity>聖胡安</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Ushuaia">
+				<exemplarCity>烏斯懷亞</exemplarCity>
+			</zone>
 			<zone type="America/Argentina/La_Rioja">
 				<exemplarCity>拉里奧哈</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Luis">
+				<exemplarCity>聖路易</exemplarCity>
+			</zone>
+			<zone type="America/Catamarca">
+				<exemplarCity>卡塔馬卡</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Salta">
+				<exemplarCity>薩爾塔</exemplarCity>
+			</zone>
+			<zone type="America/Jujuy">
+				<exemplarCity>胡胡伊</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Tucuman">
+				<exemplarCity>吐庫曼</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
 				<exemplarCity>科爾多瓦</exemplarCity>
 			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity>布宜諾斯艾利斯</exemplarCity>
+			</zone>
 			<zone type="Pacific/Pago_Pago">
 				<exemplarCity>帕果帕果</exemplarCity>
+			</zone>
+			<zone type="Europe/Vienna">
+				<exemplarCity>維也納</exemplarCity>
 			</zone>
 			<zone type="Australia/Perth">
 				<exemplarCity>珀斯</exemplarCity>
 			</zone>
+			<zone type="Australia/Eucla">
+				<exemplarCity>尤克拉</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity>達爾文</exemplarCity>
+			</zone>
 			<zone type="Australia/Adelaide">
 				<exemplarCity>阿德萊德</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity>布羅肯希爾</exemplarCity>
 			</zone>
 			<zone type="Australia/Currie">
 				<exemplarCity>卡里</exemplarCity>
 			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity>墨爾本</exemplarCity>
+			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>荷伯特</exemplarCity>
+			</zone>
+			<zone type="Australia/Lindeman">
+				<exemplarCity>林德曼</exemplarCity>
 			</zone>
 			<zone type="Australia/Sydney">
 				<exemplarCity>悉尼</exemplarCity>
@@ -1080,8 +2227,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Antarctica/Macquarie">
 				<exemplarCity>麥夸里</exemplarCity>
 			</zone>
+			<zone type="Australia/Lord_Howe">
+				<exemplarCity>豪勳爵島</exemplarCity>
+			</zone>
 			<zone type="America/Aruba">
 				<exemplarCity>阿魯巴</exemplarCity>
+			</zone>
+			<zone type="Europe/Mariehamn">
+				<exemplarCity>瑪麗港</exemplarCity>
+			</zone>
+			<zone type="Asia/Baku">
+				<exemplarCity>巴庫</exemplarCity>
 			</zone>
 			<zone type="Europe/Sarajevo">
 				<exemplarCity>薩拉熱窩</exemplarCity>
@@ -1089,8 +2245,44 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Barbados">
 				<exemplarCity>巴巴多斯</exemplarCity>
 			</zone>
+			<zone type="Asia/Dhaka">
+				<exemplarCity>達卡</exemplarCity>
+			</zone>
+			<zone type="Europe/Brussels">
+				<exemplarCity>布魯塞爾</exemplarCity>
+			</zone>
+			<zone type="Africa/Ouagadougou">
+				<exemplarCity>瓦加杜古</exemplarCity>
+			</zone>
+			<zone type="Europe/Sofia">
+				<exemplarCity>索菲亞</exemplarCity>
+			</zone>
+			<zone type="Asia/Bahrain">
+				<exemplarCity>巴林</exemplarCity>
+			</zone>
+			<zone type="Africa/Bujumbura">
+				<exemplarCity>布松布拉</exemplarCity>
+			</zone>
+			<zone type="Africa/Porto-Novo">
+				<exemplarCity>波多諾佛</exemplarCity>
+			</zone>
 			<zone type="America/St_Barthelemy">
 				<exemplarCity>聖巴泰勒米</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Bermuda">
+				<exemplarCity>百慕達</exemplarCity>
+			</zone>
+			<zone type="Asia/Brunei">
+				<exemplarCity>汶萊</exemplarCity>
+			</zone>
+			<zone type="America/La_Paz">
+				<exemplarCity>拉巴斯</exemplarCity>
+			</zone>
+			<zone type="America/Kralendijk">
+				<exemplarCity>克拉倫代克</exemplarCity>
+			</zone>
+			<zone type="America/Eirunepe">
+				<exemplarCity>艾魯內佩</exemplarCity>
 			</zone>
 			<zone type="America/Rio_Branco">
 				<exemplarCity>里約布蘭科</exemplarCity>
@@ -1101,14 +2293,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Boa_Vista">
 				<exemplarCity>博阿維斯塔</exemplarCity>
 			</zone>
+			<zone type="America/Manaus">
+				<exemplarCity>瑪瑙斯</exemplarCity>
+			</zone>
 			<zone type="America/Cuiaba">
 				<exemplarCity>庫亞巴</exemplarCity>
+			</zone>
+			<zone type="America/Santarem">
+				<exemplarCity>聖塔倫</exemplarCity>
 			</zone>
 			<zone type="America/Campo_Grande">
 				<exemplarCity>大坎普</exemplarCity>
 			</zone>
+			<zone type="America/Belem">
+				<exemplarCity>貝倫</exemplarCity>
+			</zone>
 			<zone type="America/Araguaina">
 				<exemplarCity>阿拉瓜伊納</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity>聖保羅</exemplarCity>
 			</zone>
 			<zone type="America/Bahia">
 				<exemplarCity>巴希雅</exemplarCity>
@@ -1128,6 +2332,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nassau">
 				<exemplarCity>拿騷</exemplarCity>
 			</zone>
+			<zone type="Asia/Thimphu">
+				<exemplarCity>廷布</exemplarCity>
+			</zone>
+			<zone type="Africa/Gaborone">
+				<exemplarCity>嘉柏隆里</exemplarCity>
+			</zone>
+			<zone type="Europe/Minsk">
+				<exemplarCity>明斯克</exemplarCity>
+			</zone>
 			<zone type="America/Belize">
 				<exemplarCity>伯利茲</exemplarCity>
 			</zone>
@@ -1137,8 +2350,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Inuvik">
 				<exemplarCity>伊努維克</exemplarCity>
 			</zone>
+			<zone type="America/Vancouver">
+				<exemplarCity>溫哥華</exemplarCity>
+			</zone>
 			<zone type="America/Dawson_Creek">
 				<exemplarCity>道森灣</exemplarCity>
+			</zone>
+			<zone type="America/Creston">
+				<exemplarCity>克雷斯頓</exemplarCity>
 			</zone>
 			<zone type="America/Yellowknife">
 				<exemplarCity>黃刀鎮</exemplarCity>
@@ -1146,17 +2365,59 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Edmonton">
 				<exemplarCity>愛民頓</exemplarCity>
 			</zone>
+			<zone type="America/Swift_Current">
+				<exemplarCity>斯威夫特卡倫特</exemplarCity>
+			</zone>
+			<zone type="America/Cambridge_Bay">
+				<exemplarCity>劍橋灣</exemplarCity>
+			</zone>
+			<zone type="America/Regina">
+				<exemplarCity>里賈納</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity>溫尼伯</exemplarCity>
+			</zone>
+			<zone type="America/Resolute">
+				<exemplarCity>羅斯魯特</exemplarCity>
+			</zone>
+			<zone type="America/Rainy_River">
+				<exemplarCity>雨河鎮</exemplarCity>
+			</zone>
+			<zone type="America/Rankin_Inlet">
+				<exemplarCity>蘭今灣</exemplarCity>
+			</zone>
+			<zone type="America/Coral_Harbour">
+				<exemplarCity>阿蒂科肯</exemplarCity>
+			</zone>
 			<zone type="America/Thunder_Bay">
 				<exemplarCity>雷灣</exemplarCity>
 			</zone>
 			<zone type="America/Nipigon">
 				<exemplarCity>尼皮貢</exemplarCity>
 			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity>多倫多</exemplarCity>
+			</zone>
+			<zone type="America/Iqaluit">
+				<exemplarCity>伊魁特</exemplarCity>
+			</zone>
+			<zone type="America/Pangnirtung">
+				<exemplarCity>潘尼爾東</exemplarCity>
+			</zone>
+			<zone type="America/Moncton">
+				<exemplarCity>蒙克頓</exemplarCity>
+			</zone>
 			<zone type="America/Halifax">
 				<exemplarCity>哈利法克斯</exemplarCity>
 			</zone>
+			<zone type="America/Goose_Bay">
+				<exemplarCity>鵝灣</exemplarCity>
+			</zone>
 			<zone type="America/Glace_Bay">
 				<exemplarCity>格萊斯灣</exemplarCity>
+			</zone>
+			<zone type="America/Blanc-Sablon">
+				<exemplarCity>白朗薩布隆</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
 				<exemplarCity>聖約翰斯</exemplarCity>
@@ -1167,14 +2428,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Africa/Kinshasa">
 				<exemplarCity>金沙薩</exemplarCity>
 			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity>盧本巴希</exemplarCity>
+			</zone>
 			<zone type="Africa/Bangui">
 				<exemplarCity>班基</exemplarCity>
+			</zone>
+			<zone type="Africa/Brazzaville">
+				<exemplarCity>布拉柴維爾</exemplarCity>
+			</zone>
+			<zone type="Europe/Zurich">
+				<exemplarCity>蘇黎世</exemplarCity>
 			</zone>
 			<zone type="Africa/Abidjan">
 				<exemplarCity>阿比贊</exemplarCity>
 			</zone>
+			<zone type="Pacific/Rarotonga">
+				<exemplarCity>拉羅湯加</exemplarCity>
+			</zone>
+			<zone type="Pacific/Easter">
+				<exemplarCity>復活島</exemplarCity>
+			</zone>
 			<zone type="America/Santiago">
 				<exemplarCity>聖地亞哥</exemplarCity>
+			</zone>
+			<zone type="Africa/Douala">
+				<exemplarCity>杜阿拉</exemplarCity>
+			</zone>
+			<zone type="Asia/Urumqi">
+				<exemplarCity>烏魯木齊</exemplarCity>
+			</zone>
+			<zone type="Asia/Shanghai">
+				<exemplarCity>上海</exemplarCity>
+			</zone>
+			<zone type="America/Bogota">
+				<exemplarCity>波哥大</exemplarCity>
 			</zone>
 			<zone type="America/Costa_Rica">
 				<exemplarCity>哥斯達黎加</exemplarCity>
@@ -1185,14 +2473,53 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Atlantic/Cape_Verde">
 				<exemplarCity>佛得角</exemplarCity>
 			</zone>
+			<zone type="America/Curacao">
+				<exemplarCity>庫拉索</exemplarCity>
+			</zone>
+			<zone type="Indian/Christmas">
+				<exemplarCity>聖誕島</exemplarCity>
+			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>尼科西亞</exemplarCity>
+			</zone>
+			<zone type="Europe/Prague">
+				<exemplarCity>布拉格</exemplarCity>
+			</zone>
+			<zone type="Europe/Busingen">
+				<exemplarCity>布辛根</exemplarCity>
+			</zone>
+			<zone type="Europe/Berlin">
+				<exemplarCity>柏林</exemplarCity>
 			</zone>
 			<zone type="Africa/Djibouti">
 				<exemplarCity>吉布提</exemplarCity>
 			</zone>
+			<zone type="Europe/Copenhagen">
+				<exemplarCity>哥本哈根</exemplarCity>
+			</zone>
+			<zone type="America/Dominica">
+				<exemplarCity>多米尼克</exemplarCity>
+			</zone>
 			<zone type="America/Santo_Domingo">
 				<exemplarCity>聖多明各</exemplarCity>
+			</zone>
+			<zone type="Africa/Algiers">
+				<exemplarCity>阿爾及爾</exemplarCity>
+			</zone>
+			<zone type="Pacific/Galapagos">
+				<exemplarCity>加拉巴哥群島</exemplarCity>
+			</zone>
+			<zone type="America/Guayaquil">
+				<exemplarCity>瓜亞基爾</exemplarCity>
+			</zone>
+			<zone type="Europe/Tallinn">
+				<exemplarCity>塔林</exemplarCity>
+			</zone>
+			<zone type="Africa/Cairo">
+				<exemplarCity>開羅</exemplarCity>
+			</zone>
+			<zone type="Africa/El_Aaiun">
+				<exemplarCity>阿尤恩</exemplarCity>
 			</zone>
 			<zone type="Africa/Asmera">
 				<exemplarCity>阿斯馬拉</exemplarCity>
@@ -1200,17 +2527,53 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Atlantic/Canary">
 				<exemplarCity>加那利</exemplarCity>
 			</zone>
+			<zone type="Africa/Ceuta">
+				<exemplarCity>休達</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity>馬德里</exemplarCity>
+			</zone>
+			<zone type="Africa/Addis_Ababa">
+				<exemplarCity>阿迪斯阿貝巴</exemplarCity>
+			</zone>
+			<zone type="Europe/Helsinki">
+				<exemplarCity>赫爾辛基</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fiji">
+				<exemplarCity>斐濟</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Stanley">
 				<exemplarCity>史丹利</exemplarCity>
+			</zone>
+			<zone type="Pacific/Truk">
+				<exemplarCity>楚克</exemplarCity>
+			</zone>
+			<zone type="Pacific/Ponape">
+				<exemplarCity>波納佩</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kosrae">
 				<exemplarCity>科斯雷</exemplarCity>
 			</zone>
+			<zone type="Atlantic/Faeroe">
+				<exemplarCity>法羅群島</exemplarCity>
+			</zone>
+			<zone type="Europe/Paris">
+				<exemplarCity>巴黎</exemplarCity>
+			</zone>
 			<zone type="Africa/Libreville">
 				<exemplarCity>利布維</exemplarCity>
 			</zone>
+			<zone type="Europe/London">
+				<long>
+					<daylight>英國夏令時間</daylight>
+				</long>
+				<exemplarCity>倫敦</exemplarCity>
+			</zone>
 			<zone type="America/Grenada">
 				<exemplarCity>格林納達</exemplarCity>
+			</zone>
+			<zone type="Asia/Tbilisi">
+				<exemplarCity>第比利斯</exemplarCity>
 			</zone>
 			<zone type="America/Cayenne">
 				<exemplarCity>卡宴</exemplarCity>
@@ -1218,8 +2581,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Guernsey">
 				<exemplarCity>根西島</exemplarCity>
 			</zone>
+			<zone type="Africa/Accra">
+				<exemplarCity>阿克拉</exemplarCity>
+			</zone>
+			<zone type="Europe/Gibraltar">
+				<exemplarCity>直布羅陀</exemplarCity>
+			</zone>
 			<zone type="America/Thule">
 				<exemplarCity>圖勒</exemplarCity>
+			</zone>
+			<zone type="America/Godthab">
+				<exemplarCity>努克</exemplarCity>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<exemplarCity>伊托科爾托米特</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity>丹馬沙文</exemplarCity>
+			</zone>
+			<zone type="Africa/Banjul">
+				<exemplarCity>班竹</exemplarCity>
 			</zone>
 			<zone type="Africa/Conakry">
 				<exemplarCity>科納克里</exemplarCity>
@@ -1227,11 +2608,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Guadeloupe">
 				<exemplarCity>瓜德羅普</exemplarCity>
 			</zone>
+			<zone type="Africa/Malabo">
+				<exemplarCity>馬拉博</exemplarCity>
+			</zone>
+			<zone type="Europe/Athens">
+				<exemplarCity>雅典</exemplarCity>
+			</zone>
+			<zone type="Atlantic/South_Georgia">
+				<exemplarCity>南喬治亞</exemplarCity>
+			</zone>
 			<zone type="America/Guatemala">
 				<exemplarCity>危地馬拉</exemplarCity>
 			</zone>
+			<zone type="Pacific/Guam">
+				<exemplarCity>關島</exemplarCity>
+			</zone>
+			<zone type="Africa/Bissau">
+				<exemplarCity>比紹</exemplarCity>
+			</zone>
 			<zone type="America/Guyana">
 				<exemplarCity>圭亞那</exemplarCity>
+			</zone>
+			<zone type="Asia/Hong_Kong">
+				<exemplarCity>香港</exemplarCity>
 			</zone>
 			<zone type="America/Tegucigalpa">
 				<exemplarCity>特古西加爾巴</exemplarCity>
@@ -1239,20 +2638,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Zagreb">
 				<exemplarCity>薩格勒布</exemplarCity>
 			</zone>
+			<zone type="America/Port-au-Prince">
+				<exemplarCity>太子港</exemplarCity>
+			</zone>
+			<zone type="Europe/Budapest">
+				<exemplarCity>布達佩斯</exemplarCity>
+			</zone>
+			<zone type="Asia/Jakarta">
+				<exemplarCity>雅加達</exemplarCity>
+			</zone>
+			<zone type="Asia/Pontianak">
+				<exemplarCity>坤甸</exemplarCity>
+			</zone>
 			<zone type="Asia/Makassar">
 				<exemplarCity>錫江</exemplarCity>
 			</zone>
 			<zone type="Asia/Jayapura">
 				<exemplarCity>查雅普拉</exemplarCity>
 			</zone>
+			<zone type="Europe/Dublin">
+				<long>
+					<daylight>愛爾蘭標準時間</daylight>
+				</long>
+				<exemplarCity>都柏林</exemplarCity>
+			</zone>
+			<zone type="Asia/Jerusalem">
+				<exemplarCity>耶路撒冷</exemplarCity>
+			</zone>
 			<zone type="Europe/Isle_of_Man">
 				<exemplarCity>馬恩島</exemplarCity>
+			</zone>
+			<zone type="Asia/Calcutta">
+				<exemplarCity>加爾各答</exemplarCity>
 			</zone>
 			<zone type="Indian/Chagos">
 				<exemplarCity>查戈斯群島</exemplarCity>
 			</zone>
+			<zone type="Asia/Baghdad">
+				<exemplarCity>巴格達</exemplarCity>
+			</zone>
+			<zone type="Asia/Tehran">
+				<exemplarCity>德黑蘭</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Reykjavik">
 				<exemplarCity>雷克雅未克</exemplarCity>
+			</zone>
+			<zone type="Europe/Rome">
+				<exemplarCity>羅馬</exemplarCity>
+			</zone>
+			<zone type="Europe/Jersey">
+				<exemplarCity>澤西島</exemplarCity>
+			</zone>
+			<zone type="America/Jamaica">
+				<exemplarCity>牙買加</exemplarCity>
+			</zone>
+			<zone type="Asia/Amman">
+				<exemplarCity>安曼</exemplarCity>
+			</zone>
+			<zone type="Asia/Tokyo">
+				<exemplarCity>東京</exemplarCity>
 			</zone>
 			<zone type="Africa/Nairobi">
 				<exemplarCity>內羅畢</exemplarCity>
@@ -1260,11 +2704,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Bishkek">
 				<exemplarCity>比斯凱克</exemplarCity>
 			</zone>
+			<zone type="Asia/Phnom_Penh">
+				<exemplarCity>金邊</exemplarCity>
+			</zone>
 			<zone type="Pacific/Enderbury">
 				<exemplarCity>恩德伯里島</exemplarCity>
 			</zone>
+			<zone type="Pacific/Kiritimati">
+				<exemplarCity>基里地馬地島</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tarawa">
+				<exemplarCity>塔拉瓦</exemplarCity>
+			</zone>
 			<zone type="Indian/Comoro">
 				<exemplarCity>科摩羅</exemplarCity>
+			</zone>
+			<zone type="America/St_Kitts">
+				<exemplarCity>聖基茨</exemplarCity>
+			</zone>
+			<zone type="Asia/Pyongyang">
+				<exemplarCity>平壤</exemplarCity>
+			</zone>
+			<zone type="Asia/Seoul">
+				<exemplarCity>首爾</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuwait">
+				<exemplarCity>科威特</exemplarCity>
+			</zone>
+			<zone type="America/Cayman">
+				<exemplarCity>開曼群島</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtau">
+				<exemplarCity>阿克套</exemplarCity>
+			</zone>
+			<zone type="Asia/Oral">
+				<exemplarCity>烏拉爾</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtobe">
+				<exemplarCity>阿克托比</exemplarCity>
+			</zone>
+			<zone type="Asia/Qyzylorda">
+				<exemplarCity>克孜勒奧爾達</exemplarCity>
+			</zone>
+			<zone type="Asia/Almaty">
+				<exemplarCity>阿拉木圖</exemplarCity>
+			</zone>
+			<zone type="Asia/Vientiane">
+				<exemplarCity>永珍</exemplarCity>
+			</zone>
+			<zone type="Asia/Beirut">
+				<exemplarCity>貝魯特</exemplarCity>
 			</zone>
 			<zone type="America/St_Lucia">
 				<exemplarCity>聖盧西亞</exemplarCity>
@@ -1275,14 +2764,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Colombo">
 				<exemplarCity>科倫坡</exemplarCity>
 			</zone>
+			<zone type="Africa/Monrovia">
+				<exemplarCity>蒙羅維亞</exemplarCity>
+			</zone>
 			<zone type="Africa/Maseru">
 				<exemplarCity>馬塞魯</exemplarCity>
+			</zone>
+			<zone type="Europe/Vilnius">
+				<exemplarCity>維爾紐斯</exemplarCity>
+			</zone>
+			<zone type="Europe/Luxembourg">
+				<exemplarCity>盧森堡</exemplarCity>
+			</zone>
+			<zone type="Europe/Riga">
+				<exemplarCity>里加</exemplarCity>
+			</zone>
+			<zone type="Africa/Tripoli">
+				<exemplarCity>的黎波里</exemplarCity>
+			</zone>
+			<zone type="Africa/Casablanca">
+				<exemplarCity>卡薩布蘭卡</exemplarCity>
+			</zone>
+			<zone type="Europe/Monaco">
+				<exemplarCity>摩納哥</exemplarCity>
 			</zone>
 			<zone type="Europe/Chisinau">
 				<exemplarCity>基希訥烏</exemplarCity>
 			</zone>
 			<zone type="Europe/Podgorica">
 				<exemplarCity>波德戈里察</exemplarCity>
+			</zone>
+			<zone type="America/Marigot">
+				<exemplarCity>馬里戈特</exemplarCity>
 			</zone>
 			<zone type="Indian/Antananarivo">
 				<exemplarCity>安塔那那利佛</exemplarCity>
@@ -1295,6 +2808,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Skopje">
 				<exemplarCity>斯科普里</exemplarCity>
+			</zone>
+			<zone type="Africa/Bamako">
+				<exemplarCity>巴馬科</exemplarCity>
+			</zone>
+			<zone type="Asia/Rangoon">
+				<exemplarCity>仰光</exemplarCity>
+			</zone>
+			<zone type="Asia/Hovd">
+				<exemplarCity>科布多</exemplarCity>
+			</zone>
+			<zone type="Asia/Ulaanbaatar">
+				<exemplarCity>烏蘭巴托</exemplarCity>
+			</zone>
+			<zone type="Asia/Choibalsan">
+				<exemplarCity>喬巴山</exemplarCity>
+			</zone>
+			<zone type="Asia/Macau">
+				<exemplarCity>澳門</exemplarCity>
+			</zone>
+			<zone type="Pacific/Saipan">
+				<exemplarCity>塞班</exemplarCity>
 			</zone>
 			<zone type="America/Martinique">
 				<exemplarCity>馬提尼克</exemplarCity>
@@ -1314,14 +2848,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Indian/Maldives">
 				<exemplarCity>馬爾代夫</exemplarCity>
 			</zone>
+			<zone type="Africa/Blantyre">
+				<exemplarCity>布蘭太爾</exemplarCity>
+			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>蒂華納</exemplarCity>
 			</zone>
+			<zone type="America/Hermosillo">
+				<exemplarCity>埃莫西約</exemplarCity>
+			</zone>
+			<zone type="America/Mazatlan">
+				<exemplarCity>馬薩特蘭</exemplarCity>
+			</zone>
 			<zone type="America/Chihuahua">
-				<exemplarCity>芝華華</exemplarCity>
+				<exemplarCity>芝娃娃</exemplarCity>
 			</zone>
 			<zone type="America/Bahia_Banderas">
 				<exemplarCity>巴伊亞德班德拉斯</exemplarCity>
+			</zone>
+			<zone type="America/Ojinaga">
+				<exemplarCity>奧希納加</exemplarCity>
 			</zone>
 			<zone type="America/Monterrey">
 				<exemplarCity>蒙特雷</exemplarCity>
@@ -1329,11 +2875,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Mexico_City">
 				<exemplarCity>墨西哥城</exemplarCity>
 			</zone>
+			<zone type="America/Matamoros">
+				<exemplarCity>馬塔莫羅斯</exemplarCity>
+			</zone>
+			<zone type="America/Merida">
+				<exemplarCity>梅里達</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuala_Lumpur">
+				<exemplarCity>吉隆坡</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuching">
+				<exemplarCity>古晉</exemplarCity>
+			</zone>
+			<zone type="Africa/Maputo">
+				<exemplarCity>馬普托</exemplarCity>
+			</zone>
 			<zone type="Africa/Windhoek">
 				<exemplarCity>溫特和克</exemplarCity>
 			</zone>
 			<zone type="Pacific/Noumea">
 				<exemplarCity>努美阿</exemplarCity>
+			</zone>
+			<zone type="Africa/Niamey">
+				<exemplarCity>尼亞美</exemplarCity>
+			</zone>
+			<zone type="Pacific/Norfolk">
+				<exemplarCity>諾福克</exemplarCity>
 			</zone>
 			<zone type="Africa/Lagos">
 				<exemplarCity>拉各斯</exemplarCity>
@@ -1341,14 +2908,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Managua">
 				<exemplarCity>馬那瓜</exemplarCity>
 			</zone>
+			<zone type="Europe/Amsterdam">
+				<exemplarCity>阿姆斯特丹</exemplarCity>
+			</zone>
+			<zone type="Europe/Oslo">
+				<exemplarCity>奧斯陸</exemplarCity>
+			</zone>
+			<zone type="Asia/Katmandu">
+				<exemplarCity>加德滿都</exemplarCity>
+			</zone>
 			<zone type="Pacific/Nauru">
 				<exemplarCity>瑙魯</exemplarCity>
 			</zone>
 			<zone type="Pacific/Chatham">
 				<exemplarCity>查塔姆</exemplarCity>
 			</zone>
+			<zone type="Pacific/Auckland">
+				<exemplarCity>奧克蘭</exemplarCity>
+			</zone>
 			<zone type="Asia/Muscat">
 				<exemplarCity>馬斯喀特</exemplarCity>
+			</zone>
+			<zone type="America/Panama">
+				<exemplarCity>巴拿馬</exemplarCity>
+			</zone>
+			<zone type="America/Lima">
+				<exemplarCity>利馬</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tahiti">
+				<exemplarCity>大溪地</exemplarCity>
 			</zone>
 			<zone type="Pacific/Marquesas">
 				<exemplarCity>馬克薩斯群島</exemplarCity>
@@ -1356,11 +2944,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Gambier">
 				<exemplarCity>甘比爾</exemplarCity>
 			</zone>
+			<zone type="Pacific/Port_Moresby">
+				<exemplarCity>莫士比港</exemplarCity>
+			</zone>
 			<zone type="Pacific/Bougainville">
 				<exemplarCity>布干維爾島</exemplarCity>
 			</zone>
+			<zone type="Asia/Manila">
+				<exemplarCity>馬尼拉</exemplarCity>
+			</zone>
 			<zone type="Asia/Karachi">
 				<exemplarCity>卡拉奇</exemplarCity>
+			</zone>
+			<zone type="Europe/Warsaw">
+				<exemplarCity>華沙</exemplarCity>
 			</zone>
 			<zone type="America/Miquelon">
 				<exemplarCity>密克隆</exemplarCity>
@@ -1368,14 +2965,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Pitcairn">
 				<exemplarCity>皮特康群島</exemplarCity>
 			</zone>
+			<zone type="America/Puerto_Rico">
+				<exemplarCity>波多黎各</exemplarCity>
+			</zone>
 			<zone type="Asia/Gaza">
 				<exemplarCity>加沙</exemplarCity>
 			</zone>
 			<zone type="Asia/Hebron">
 				<exemplarCity>希伯侖</exemplarCity>
 			</zone>
+			<zone type="Atlantic/Azores">
+				<exemplarCity>亞速爾群島</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Madeira">
 				<exemplarCity>馬德拉島</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity>里斯本</exemplarCity>
+			</zone>
+			<zone type="Pacific/Palau">
+				<exemplarCity>帛琉</exemplarCity>
 			</zone>
 			<zone type="America/Asuncion">
 				<exemplarCity>阿松森</exemplarCity>
@@ -1386,11 +2995,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Indian/Reunion">
 				<exemplarCity>留尼旺</exemplarCity>
 			</zone>
+			<zone type="Europe/Bucharest">
+				<exemplarCity>布加勒斯特</exemplarCity>
+			</zone>
 			<zone type="Europe/Belgrade">
 				<exemplarCity>貝爾格萊德</exemplarCity>
 			</zone>
+			<zone type="Europe/Kaliningrad">
+				<exemplarCity>加里寧格勒</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>辛非洛浦</exemplarCity>
+			</zone>
+			<zone type="Europe/Moscow">
+				<exemplarCity>莫斯科</exemplarCity>
+			</zone>
+			<zone type="Europe/Volgograd">
+				<exemplarCity>伏爾加格勒</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity>沙馬拉</exemplarCity>
+			</zone>
 			<zone type="Asia/Yekaterinburg">
 				<exemplarCity>葉卡捷琳堡</exemplarCity>
+			</zone>
+			<zone type="Asia/Omsk">
+				<exemplarCity>鄂木斯克</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity>新西伯利亞</exemplarCity>
+			</zone>
+			<zone type="Asia/Novokuznetsk">
+				<exemplarCity>新庫茲涅茨克</exemplarCity>
 			</zone>
 			<zone type="Asia/Irkutsk">
 				<exemplarCity>伊爾庫茨克</exemplarCity>
@@ -1398,14 +3034,50 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Yakutsk">
 				<exemplarCity>雅庫茨克</exemplarCity>
 			</zone>
+			<zone type="Asia/Vladivostok">
+				<exemplarCity>海參崴</exemplarCity>
+			</zone>
+			<zone type="Asia/Khandyga">
+				<exemplarCity>堪地加</exemplarCity>
+			</zone>
+			<zone type="Asia/Sakhalin">
+				<exemplarCity>庫頁島</exemplarCity>
+			</zone>
+			<zone type="Asia/Ust-Nera">
+				<exemplarCity>烏斯內拉</exemplarCity>
+			</zone>
+			<zone type="Asia/Magadan">
+				<exemplarCity>馬加丹</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity>堪察加</exemplarCity>
+			</zone>
 			<zone type="Asia/Anadyr">
 				<exemplarCity>阿納德爾</exemplarCity>
+			</zone>
+			<zone type="Africa/Kigali">
+				<exemplarCity>基加利</exemplarCity>
 			</zone>
 			<zone type="Asia/Riyadh">
 				<exemplarCity>利雅得</exemplarCity>
 			</zone>
 			<zone type="Pacific/Guadalcanal">
 				<exemplarCity>瓜達爾卡納爾島</exemplarCity>
+			</zone>
+			<zone type="Indian/Mahe">
+				<exemplarCity>馬埃島</exemplarCity>
+			</zone>
+			<zone type="Africa/Khartoum">
+				<exemplarCity>喀土穆</exemplarCity>
+			</zone>
+			<zone type="Europe/Stockholm">
+				<exemplarCity>斯德哥爾摩</exemplarCity>
+			</zone>
+			<zone type="Asia/Singapore">
+				<exemplarCity>新加坡</exemplarCity>
+			</zone>
+			<zone type="Atlantic/St_Helena">
+				<exemplarCity>聖赫勒拿島</exemplarCity>
 			</zone>
 			<zone type="Europe/Ljubljana">
 				<exemplarCity>盧布爾雅那</exemplarCity>
@@ -1416,11 +3088,53 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Bratislava">
 				<exemplarCity>伯拉第斯拉瓦</exemplarCity>
 			</zone>
+			<zone type="Africa/Freetown">
+				<exemplarCity>自由城</exemplarCity>
+			</zone>
+			<zone type="Europe/San_Marino">
+				<exemplarCity>聖馬利諾</exemplarCity>
+			</zone>
+			<zone type="Africa/Dakar">
+				<exemplarCity>達喀爾</exemplarCity>
+			</zone>
 			<zone type="Africa/Mogadishu">
 				<exemplarCity>摩加迪沙</exemplarCity>
 			</zone>
+			<zone type="America/Paramaribo">
+				<exemplarCity>巴拉馬利波</exemplarCity>
+			</zone>
+			<zone type="Africa/Juba">
+				<exemplarCity>朱巴</exemplarCity>
+			</zone>
+			<zone type="Africa/Sao_Tome">
+				<exemplarCity>聖多美</exemplarCity>
+			</zone>
+			<zone type="America/El_Salvador">
+				<exemplarCity>薩爾瓦多</exemplarCity>
+			</zone>
+			<zone type="America/Lower_Princes">
+				<exemplarCity>下太子區</exemplarCity>
+			</zone>
+			<zone type="Asia/Damascus">
+				<exemplarCity>大馬士革</exemplarCity>
+			</zone>
+			<zone type="Africa/Mbabane">
+				<exemplarCity>墨巴本</exemplarCity>
+			</zone>
+			<zone type="America/Grand_Turk">
+				<exemplarCity>大特克島</exemplarCity>
+			</zone>
+			<zone type="Africa/Ndjamena">
+				<exemplarCity>恩賈梅納</exemplarCity>
+			</zone>
 			<zone type="Indian/Kerguelen">
 				<exemplarCity>凱爾蓋朗群島</exemplarCity>
+			</zone>
+			<zone type="Africa/Lome">
+				<exemplarCity>洛美</exemplarCity>
+			</zone>
+			<zone type="Asia/Bangkok">
+				<exemplarCity>曼谷</exemplarCity>
 			</zone>
 			<zone type="Asia/Dushanbe">
 				<exemplarCity>杜尚別</exemplarCity>
@@ -1428,11 +3142,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Fakaofo">
 				<exemplarCity>法考福環礁</exemplarCity>
 			</zone>
+			<zone type="Asia/Dili">
+				<exemplarCity>帝力</exemplarCity>
+			</zone>
 			<zone type="Asia/Ashgabat">
 				<exemplarCity>阿什哈巴德</exemplarCity>
 			</zone>
+			<zone type="Africa/Tunis">
+				<exemplarCity>突尼斯</exemplarCity>
+			</zone>
 			<zone type="Pacific/Tongatapu">
 				<exemplarCity>湯加塔布島</exemplarCity>
+			</zone>
+			<zone type="Europe/Istanbul">
+				<exemplarCity>伊斯坦堡</exemplarCity>
+			</zone>
+			<zone type="America/Port_of_Spain">
+				<exemplarCity>西班牙港</exemplarCity>
+			</zone>
+			<zone type="Pacific/Funafuti">
+				<exemplarCity>富那富提</exemplarCity>
+			</zone>
+			<zone type="Asia/Taipei">
+				<exemplarCity>台北</exemplarCity>
 			</zone>
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>達累斯薩拉姆</exemplarCity>
@@ -1440,11 +3172,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Uzhgorod">
 				<exemplarCity>烏日哥羅德</exemplarCity>
 			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity>基輔</exemplarCity>
+			</zone>
+			<zone type="Europe/Zaporozhye">
+				<exemplarCity>札波羅結</exemplarCity>
+			</zone>
+			<zone type="Africa/Kampala">
+				<exemplarCity>坎帕拉</exemplarCity>
+			</zone>
+			<zone type="Pacific/Midway">
+				<exemplarCity>中途島</exemplarCity>
+			</zone>
 			<zone type="Pacific/Wake">
 				<exemplarCity>威克島</exemplarCity>
 			</zone>
 			<zone type="America/Adak">
 				<exemplarCity>埃達克</exemplarCity>
+			</zone>
+			<zone type="America/Nome">
+				<exemplarCity>諾姆</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>約翰斯頓環礁</exemplarCity>
@@ -1455,8 +3202,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Yakutat">
 				<exemplarCity>亞庫塔特</exemplarCity>
 			</zone>
+			<zone type="America/Sitka">
+				<exemplarCity>錫特卡</exemplarCity>
+			</zone>
+			<zone type="America/Juneau">
+				<exemplarCity>朱諾</exemplarCity>
+			</zone>
+			<zone type="America/Metlakatla">
+				<exemplarCity>梅特拉卡特拉</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity>洛杉磯</exemplarCity>
+			</zone>
 			<zone type="America/Boise">
 				<exemplarCity>博伊西</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity>鳳凰城</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity>丹佛</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>北達科他州比尤拉</exemplarCity>
@@ -1466,6 +3231,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>北達科他州中心市</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity>芝加哥</exemplarCity>
 			</zone>
 			<zone type="America/Menominee">
 				<exemplarCity>梅諾米尼</exemplarCity>
@@ -1497,17 +3265,50 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Indiana/Vevay">
 				<exemplarCity>印第安納州韋韋</exemplarCity>
 			</zone>
-			<zone type="America/Kentucky/Monticello">
-				<exemplarCity>肯塔基州蒙蒂塞洛</exemplarCity>
+			<zone type="America/Detroit">
+				<exemplarCity>底特律</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<exemplarCity>紐約</exemplarCity>
 			</zone>
 			<zone type="America/Montevideo">
 				<exemplarCity>蒙得維的亞</exemplarCity>
+			</zone>
+			<zone type="Asia/Samarkand">
+				<exemplarCity>撒馬爾罕</exemplarCity>
+			</zone>
+			<zone type="Asia/Tashkent">
+				<exemplarCity>塔什干</exemplarCity>
+			</zone>
+			<zone type="Europe/Vatican">
+				<exemplarCity>梵蒂岡</exemplarCity>
 			</zone>
 			<zone type="America/St_Vincent">
 				<exemplarCity>聖文森特</exemplarCity>
 			</zone>
 			<zone type="America/Caracas">
 				<exemplarCity>加拉加斯</exemplarCity>
+			</zone>
+			<zone type="America/Tortola">
+				<exemplarCity>托爾托拉</exemplarCity>
+			</zone>
+			<zone type="America/St_Thomas">
+				<exemplarCity>聖托馬斯</exemplarCity>
+			</zone>
+			<zone type="Asia/Saigon">
+				<exemplarCity>胡志明市</exemplarCity>
+			</zone>
+			<zone type="Pacific/Efate">
+				<exemplarCity>埃法特</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wallis">
+				<exemplarCity>瓦利斯</exemplarCity>
+			</zone>
+			<zone type="Pacific/Apia">
+				<exemplarCity>阿皮亞</exemplarCity>
+			</zone>
+			<zone type="Asia/Aden">
+				<exemplarCity>亞丁</exemplarCity>
 			</zone>
 			<zone type="Indian/Mayotte">
 				<exemplarCity>馬約特</exemplarCity>
@@ -1518,9 +3319,48 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Africa/Lusaka">
 				<exemplarCity>盧薩卡</exemplarCity>
 			</zone>
+			<zone type="Africa/Harare">
+				<exemplarCity>哈拉雷</exemplarCity>
+			</zone>
+			<metazone type="Afghanistan">
+				<long>
+					<standard>阿富汗時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Central">
+				<long>
+					<standard>中非時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Eastern">
+				<long>
+					<standard>東非時間</standard>
+				</long>
+			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
 					<standard>南非時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Western">
+				<long>
+					<generic>西非時間</generic>
+					<standard>西非標準時間</standard>
+					<daylight>西非夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Alaska">
+				<long>
+					<generic>阿拉斯加時間</generic>
+					<standard>阿拉斯加標準時間</standard>
+					<daylight>阿拉斯加夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Amazon">
+				<long>
+					<generic>亞馬遜時間</generic>
+					<standard>亞馬遜標準時間</standard>
+					<daylight>亞馬遜夏令時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
@@ -1551,11 +3391,110 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>北美太平洋夏令時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Arabian">
+				<long>
+					<generic>阿拉伯時間</generic>
+					<standard>阿拉伯標準時間</standard>
+					<daylight>阿拉伯夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina">
+				<long>
+					<generic>阿根廷時間</generic>
+					<standard>阿根廷標準時間</standard>
+					<daylight>阿根廷夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina_Western">
+				<long>
+					<generic>阿根廷西部時間</generic>
+					<standard>阿根廷西部標準時間</standard>
+					<daylight>阿根廷西部夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Armenia">
+				<long>
+					<generic>亞美尼亞時間</generic>
+					<standard>亞美尼亞標準時間</standard>
+					<daylight>亞美尼亞夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<generic>大西洋時間</generic>
+					<standard>大西洋標準時間</standard>
+					<daylight>大西洋夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Central">
+				<long>
+					<generic>澳洲中部時間</generic>
+					<standard>澳洲中部標準時間</standard>
+					<daylight>澳洲中部夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_CentralWestern">
+				<long>
+					<generic>澳洲中西部時間</generic>
+					<standard>澳洲中西部標準時間</standard>
+					<daylight>澳洲中西部夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Eastern">
+				<long>
+					<generic>澳洲東部時間</generic>
+					<standard>澳洲東部標準時間</standard>
+					<daylight>澳洲東部夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Western">
+				<long>
+					<generic>澳洲西部時間</generic>
+					<standard>澳洲西部標準時間</standard>
+					<daylight>澳洲西部夏令時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
 					<generic>亞塞拜疆時間</generic>
 					<standard>亞塞拜疆標準時間</standard>
 					<daylight>亞塞拜疆夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Azores">
+				<long>
+					<generic>亞速爾群島時間</generic>
+					<standard>亞速爾群島標準時間</standard>
+					<daylight>亞速爾群島夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bangladesh">
+				<long>
+					<generic>孟加拉時間</generic>
+					<standard>孟加拉標準時間</standard>
+					<daylight>孟加拉夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bhutan">
+				<long>
+					<standard>不丹時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Bolivia">
+				<long>
+					<standard>玻利維亞時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Brasilia">
+				<long>
+					<generic>巴西利亞時間</generic>
+					<standard>巴西利亞標準時間</standard>
+					<daylight>巴西利亞夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Brunei">
+				<long>
+					<standard>汶萊時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Cape_Verde">
@@ -1565,9 +3504,68 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>佛得角夏令時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Chatham">
+				<long>
+					<generic>查坦群島時間</generic>
+					<standard>查坦群島標準時間</standard>
+					<daylight>查坦群島夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Chile">
+				<long>
+					<generic>智利時間</generic>
+					<standard>智利標準時間</standard>
+					<daylight>智利夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<generic>中國時間</generic>
+					<standard>中國標準時間</standard>
+					<daylight>中國夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Choibalsan">
+				<long>
+					<generic>喬巴山時間</generic>
+					<standard>喬巴山標準時間</standard>
+					<daylight>喬巴山夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Christmas">
+				<long>
+					<standard>聖誕島時間</standard>
+				</long>
+			</metazone>
 			<metazone type="Cocos">
 				<long>
 					<standard>可可斯群島時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Colombia">
+				<long>
+					<generic>哥倫比亞時間</generic>
+					<standard>哥倫比亞標準時間</standard>
+					<daylight>哥倫比亞夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cook">
+				<long>
+					<generic>庫克群島時間</generic>
+					<standard>庫克群島標準時間</standard>
+					<daylight>庫克群島半夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cuba">
+				<long>
+					<generic>古巴時間</generic>
+					<standard>古巴標準時間</standard>
+					<daylight>古巴夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Davis">
+				<long>
+					<standard>戴維斯時間</standard>
 				</long>
 			</metazone>
 			<metazone type="DumontDUrville">
@@ -1575,9 +3573,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>迪蒙迪維爾時間</standard>
 				</long>
 			</metazone>
+			<metazone type="East_Timor">
+				<long>
+					<standard>東帝汶時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Easter">
+				<long>
+					<generic>復活節島時間</generic>
+					<standard>復活節島標準時間</standard>
+					<daylight>復活節島夏令時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Ecuador">
 				<long>
 					<standard>厄瓜多爾時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<generic>中歐時間</generic>
+					<standard>中歐標準時間</standard>
+					<daylight>中歐夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<generic>東歐時間</generic>
+					<standard>東歐標準時間</standard>
+					<daylight>東歐夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<generic>西歐時間</generic>
+					<standard>西歐標準時間</standard>
+					<daylight>西歐夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Falkland">
+				<long>
+					<generic>福克蘭群島時間</generic>
+					<standard>福克蘭群島標準時間</standard>
+					<daylight>福克蘭群島夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Fiji">
+				<long>
+					<generic>斐濟時間</generic>
+					<standard>斐濟標準時間</standard>
+					<daylight>斐濟夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="French_Guiana">
+				<long>
+					<standard>法屬圭亞那時間</standard>
+				</long>
+			</metazone>
+			<metazone type="French_Southern">
+				<long>
+					<standard>法國南方及南極時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Galapagos">
@@ -1585,11 +3640,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>加拉帕戈群島時間</standard>
 				</long>
 			</metazone>
+			<metazone type="Gambier">
+				<long>
+					<standard>甘比爾群島時間</standard>
+				</long>
+			</metazone>
 			<metazone type="Georgia">
 				<long>
 					<generic>格魯吉亞時間</generic>
 					<standard>格魯吉亞標準時間</standard>
 					<daylight>格魯吉亞夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Gilbert_Islands">
+				<long>
+					<standard>吉爾伯特群島時間</standard>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>格林威治標準時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Eastern">
+				<long>
+					<generic>格陵蘭東部時間</generic>
+					<standard>格陵蘭東部標準時間</standard>
+					<daylight>格陵蘭東部夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
+					<generic>格陵蘭西部時間</generic>
+					<standard>格陵蘭西部標準時間</standard>
+					<daylight>格陵蘭西部夏令時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Gulf">
@@ -1602,14 +3686,62 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>圭亞那時間</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii_Aleutian">
+				<long>
+					<generic>夏威夷-阿留申時間</generic>
+					<standard>夏威夷-阿留申標準時間</standard>
+					<daylight>夏威夷-阿留申夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hong_Kong">
+				<long>
+					<generic>香港時間</generic>
+					<standard>香港標準時間</standard>
+					<daylight>香港夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hovd">
+				<long>
+					<generic>科布多時間</generic>
+					<standard>科布多標準時間</standard>
+					<daylight>科布多夏令時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="India">
 				<long>
 					<standard>印度時間</standard>
 				</long>
 			</metazone>
+			<metazone type="Indian_Ocean">
+				<long>
+					<standard>印度洋時間</standard>
+				</long>
+			</metazone>
 			<metazone type="Indochina">
 				<long>
 					<standard>中南半島時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Central">
+				<long>
+					<standard>印尼中部時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Eastern">
+				<long>
+					<standard>印尼東部時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Western">
+				<long>
+					<standard>印尼西部時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Iran">
+				<long>
+					<generic>伊朗時間</generic>
+					<standard>伊朗標準時間</standard>
+					<daylight>伊朗夏令時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
@@ -1619,14 +3751,81 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>伊爾庫茨克夏令時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Israel">
+				<long>
+					<generic>以色列時間</generic>
+					<standard>以色列標準時間</standard>
+					<daylight>以色列夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<generic>日本時間</generic>
+					<standard>日本標準時間</standard>
+					<daylight>日本夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<long>
+					<standard>東哈薩克時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Western">
+				<long>
+					<standard>西哈薩克時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Korea">
+				<long>
+					<generic>韓國時間</generic>
+					<standard>韓國標準時間</standard>
+					<daylight>韓國夏令時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Kosrae">
 				<long>
 					<standard>科斯雷時間</standard>
 				</long>
 			</metazone>
+			<metazone type="Krasnoyarsk">
+				<long>
+					<generic>克拉斯諾亞爾斯克時間</generic>
+					<standard>克拉斯諾亞爾斯克標準時間</standard>
+					<daylight>克拉斯諾亞爾斯克夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kyrgystan">
+				<long>
+					<standard>吉爾吉斯時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Line_Islands">
+				<long>
+					<standard>萊恩群島時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Lord_Howe">
+				<long>
+					<generic>豪勳爵島時間</generic>
+					<standard>豪勳爵島標準時間</standard>
+					<daylight>豪勳爵島夏令時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Macquarie">
 				<long>
 					<standard>麥夸里群島時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Magadan">
+				<long>
+					<generic>馬加丹時間</generic>
+					<standard>馬加丹標準時間</standard>
+					<daylight>馬加丹夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Malaysia">
+				<long>
+					<standard>馬來西亞時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Maldives">
@@ -1639,6 +3838,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>馬克薩斯時間</standard>
 				</long>
 			</metazone>
+			<metazone type="Marshall_Islands">
+				<long>
+					<standard>馬紹爾群島時間</standard>
+				</long>
+			</metazone>
 			<metazone type="Mauritius">
 				<long>
 					<generic>毛里裘斯時間</generic>
@@ -1646,9 +3850,52 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>毛里裘斯夏令時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Mawson">
+				<long>
+					<standard>莫森時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Mexico_Northwest">
+				<long>
+					<generic>墨西哥西北部時間</generic>
+					<standard>墨西哥西北部標準時間</standard>
+					<daylight>墨西哥西北部夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mexico_Pacific">
+				<long>
+					<generic>墨西哥太平洋時間</generic>
+					<standard>墨西哥太平洋標準時間</standard>
+					<daylight>墨西哥太平洋夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mongolia">
+				<long>
+					<generic>烏蘭巴托時間</generic>
+					<standard>烏蘭巴托標準時間</standard>
+					<daylight>烏蘭巴托夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Moscow">
+				<long>
+					<generic>莫斯科時間</generic>
+					<standard>莫斯科標準時間</standard>
+					<daylight>莫斯科夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Myanmar">
+				<long>
+					<standard>緬甸時間</standard>
+				</long>
+			</metazone>
 			<metazone type="Nauru">
 				<long>
 					<standard>瑙魯時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Nepal">
+				<long>
+					<standard>尼泊爾時間</standard>
 				</long>
 			</metazone>
 			<metazone type="New_Caledonia">
@@ -1658,6 +3905,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>新喀里多尼亞夏令時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="New_Zealand">
+				<long>
+					<generic>紐西蘭時間</generic>
+					<standard>紐西蘭標準時間</standard>
+					<daylight>紐西蘭夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<generic>紐芬蘭時間</generic>
+					<standard>紐芬蘭標準時間</standard>
+					<daylight>紐芬蘭夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Norfolk">
+				<long>
+					<standard>諾福克島時間</standard>
+				</long>
+			</metazone>
 			<metazone type="Noronha">
 				<long>
 					<generic>費爾南多迪諾羅尼亞時間</generic>
@@ -1665,14 +3931,89 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>費爾南多迪諾羅尼亞夏令時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Novosibirsk">
+				<long>
+					<generic>新西伯利亞時間</generic>
+					<standard>新西伯利亞標準時間</standard>
+					<daylight>新西伯利亞夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Omsk">
+				<long>
+					<standard>鄂木斯克標準時間</standard>
+					<daylight>鄂木斯克夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pakistan">
+				<long>
+					<generic>巴基斯坦時間</generic>
+					<standard>巴基斯坦標準時間</standard>
+					<daylight>巴基斯坦夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Palau">
+				<long>
+					<standard>帛琉時間</standard>
+				</long>
+			</metazone>
 			<metazone type="Papua_New_Guinea">
 				<long>
 					<standard>巴布亞新畿內亞時間</standard>
 				</long>
 			</metazone>
+			<metazone type="Paraguay">
+				<long>
+					<generic>巴拉圭時間</generic>
+					<standard>巴拉圭標準時間</standard>
+					<daylight>巴拉圭夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Peru">
+				<long>
+					<generic>秘魯時間</generic>
+					<standard>秘魯標準時間</standard>
+					<daylight>秘魯夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Philippines">
+				<long>
+					<generic>菲律賓時間</generic>
+					<standard>菲律賓標準時間</standard>
+					<daylight>菲律賓夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Phoenix_Islands">
+				<long>
+					<standard>鳳凰群島時間</standard>
+				</long>
+			</metazone>
 			<metazone type="Pitcairn">
 				<long>
 					<standard>皮特康時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Ponape">
+				<long>
+					<standard>波納佩時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Reunion">
+				<long>
+					<standard>留尼旺時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Sakhalin">
+				<long>
+					<generic>庫頁島時間</generic>
+					<standard>庫頁島標準時間</standard>
+					<daylight>庫頁島夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Samoa">
+				<long>
+					<generic>薩摩亞時間</generic>
+					<standard>薩摩亞標準時間</standard>
+					<daylight>薩摩亞夏令時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -1690,9 +4031,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>所羅門群島時間</standard>
 				</long>
 			</metazone>
+			<metazone type="South_Georgia">
+				<long>
+					<standard>南喬治亞時間</standard>
+				</long>
+			</metazone>
 			<metazone type="Suriname">
 				<long>
 					<standard>蘇里南時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Syowa">
+				<long>
+					<standard>昭和基地時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Tahiti">
+				<long>
+					<standard>大溪地時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Taipei">
+				<long>
+					<generic>台北時間</generic>
+					<standard>台北標準時間</standard>
+					<daylight>台北夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tajikistan">
+				<long>
+					<standard>塔吉克時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Tokelau">
+				<long>
+					<standard>托克勞群島時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Tonga">
@@ -1702,9 +4075,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>湯加夏令時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Truk">
+				<long>
+					<standard>楚克島時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Turkmenistan">
+				<long>
+					<generic>土庫曼時間</generic>
+					<standard>土庫曼標準時間</standard>
+					<daylight>土庫曼夏令時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Tuvalu">
 				<long>
 					<standard>圖瓦盧時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Uruguay">
+				<long>
+					<generic>烏拉圭時間</generic>
+					<standard>烏拉圭標準時間</standard>
+					<daylight>烏拉圭夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Uzbekistan">
+				<long>
+					<generic>烏茲別克時間</generic>
+					<standard>烏茲別克標準時間</standard>
+					<daylight>烏茲別克夏令時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vanuatu">
@@ -1714,6 +4113,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>瓦努阿圖夏令時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Venezuela">
+				<long>
+					<standard>委內瑞拉時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Vladivostok">
+				<long>
+					<generic>海參崴時間</generic>
+					<standard>海參崴標準時間</standard>
+					<daylight>海參崴夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Volgograd">
+				<long>
+					<generic>伏爾加格勒時間</generic>
+					<standard>伏爾加格勒標準時間</standard>
+					<daylight>伏爾加格勒夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Vostok">
+				<long>
+					<standard>沃斯托克時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Wake">
+				<long>
+					<standard>威克島時間</standard>
+				</long>
+			</metazone>
 			<metazone type="Yakutsk">
 				<long>
 					<generic>雅庫茨克時間</generic>
@@ -1721,10 +4149,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>雅庫茨克夏令時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Yekaterinburg">
+				<long>
+					<generic>葉卡捷琳堡時間</generic>
+					<standard>葉卡捷琳堡標準時間</standard>
+					<daylight>葉卡捷琳堡夏令時間</daylight>
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">hanidec</native>
+			<traditional draft="contributed">hant</traditional>
+			<finance draft="contributed">hantfin</finance>
+		</otherNumberingSystems>
+		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
+		<symbols numberSystem="gong">
+			<decimal draft="contributed">.</decimal>
+			<plusSign draft="contributed">+</plusSign>
+			<exponential draft="contributed">E</exponential>
+			<timeSeparator draft="contributed">:</timeSeparator>
+		</symbols>
+		<symbols numberSystem="latn">
+			<decimal draft="contributed">.</decimal>
+			<group draft="contributed">,</group>
+			<percentSign>%</percentSign>
+			<plusSign draft="contributed">+</plusSign>
+			<minusSign draft="contributed">-</minusSign>
+			<exponential>E</exponential>
+			<superscriptingExponent>×</superscriptingExponent>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>非數值</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
+		</symbols>
+		<symbols numberSystem="rohg">
+			<timeSeparator draft="contributed">:</timeSeparator>
+		</symbols>
 		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="contributed">#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="10000" count="other">0萬</pattern>
+					<pattern type="100000" count="other">00萬</pattern>
+					<pattern type="1000000" count="other">000萬</pattern>
+					<pattern type="10000000" count="other">0000萬</pattern>
+					<pattern type="100000000" count="other">0億</pattern>
+					<pattern type="1000000000" count="other">00億</pattern>
+					<pattern type="10000000000" count="other">000億</pattern>
+					<pattern type="100000000000" count="other">0000億</pattern>
+					<pattern type="1000000000000" count="other">0兆</pattern>
+					<pattern type="10000000000000" count="other">00兆</pattern>
+					<pattern type="100000000000000" count="other">000兆</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
 					<pattern type="1000" count="other">0K</pattern>
@@ -1742,7 +4226,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
 		<currencyFormats numberSystem="latn">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>¤#,##0.00</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
 					<pattern type="1000" count="other">¤0K</pattern>
@@ -1759,23 +4265,60 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern type="100000000000000" count="other">¤000T</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
 				<displayName>阿拉伯聯合酋長國迪爾汗</displayName>
 				<displayName count="other">阿拉伯聯合酋長國迪爾汗</displayName>
+				<symbol draft="contributed">AED</symbol>
+			</currency>
+			<currency type="AFN">
+				<displayName>阿富汗尼</displayName>
+				<displayName count="other">阿富汗尼</displayName>
+				<symbol draft="contributed">AFN</symbol>
+			</currency>
+			<currency type="ALL">
+				<displayName>阿爾巴尼亞列克</displayName>
+				<displayName count="other">阿爾巴尼亞列克</displayName>
+				<symbol draft="contributed">ALL</symbol>
+			</currency>
+			<currency type="AMD">
+				<displayName>亞美尼亞德拉姆</displayName>
+				<displayName count="other">亞美尼亞德拉姆</displayName>
+				<symbol draft="contributed">AMD</symbol>
+			</currency>
+			<currency type="ANG">
+				<displayName>荷屬安地列斯盾</displayName>
+				<displayName count="other">荷屬安地列斯盾</displayName>
+				<symbol draft="contributed">ANG</symbol>
+			</currency>
+			<currency type="AOA">
+				<displayName>安哥拉寬扎</displayName>
+				<displayName count="other">安哥拉寬扎</displayName>
+				<symbol draft="contributed">AOA</symbol>
+			</currency>
+			<currency type="ARS">
+				<displayName>阿根廷披索</displayName>
+				<displayName count="other">阿根廷披索</displayName>
+				<symbol draft="contributed">ARS</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>澳元</displayName>
 				<displayName count="other">澳元</displayName>
+				<symbol draft="contributed">AU$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>阿魯巴盾</displayName>
 				<displayName count="other">阿魯巴盾</displayName>
+				<symbol draft="contributed">AWG</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>亞塞拜疆馬納特</displayName>
 				<displayName count="other">亞塞拜疆馬納特</displayName>
+				<symbol draft="contributed">AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName draft="contributed">波斯尼亞-赫塞哥維納第納爾</displayName>
@@ -1783,118 +4326,440 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="BAM">
 				<displayName>波斯尼亞-赫塞哥維納可轉換馬克</displayName>
 				<displayName count="other">波斯尼亞-赫塞哥維納可轉換馬克</displayName>
+				<symbol draft="contributed">BAM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>巴巴多斯元</displayName>
 				<displayName count="other">巴巴多斯元</displayName>
+				<symbol draft="contributed">BBD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="BDT">
+				<displayName>孟加拉塔卡</displayName>
+				<displayName count="other">孟加拉塔卡</displayName>
+				<symbol draft="contributed">BDT</symbol>
+				<symbol alt="narrow" draft="contributed">৳</symbol>
+			</currency>
+			<currency type="BEC">
+				<displayName draft="provisional">比利時法郎（可兌換）</displayName>
+				<displayName count="other" draft="provisional">比利時法郎（可兌換）</displayName>
+			</currency>
+			<currency type="BGN">
+				<displayName>保加利亞新列弗</displayName>
+				<displayName count="other">保加利亞新列弗</displayName>
+				<symbol draft="contributed">BGN</symbol>
+			</currency>
+			<currency type="BHD">
+				<displayName>巴林第納爾</displayName>
+				<displayName count="other">巴林第納爾</displayName>
+				<symbol draft="contributed">BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>布隆迪法郎</displayName>
 				<displayName count="other">布隆迪法郎</displayName>
+				<symbol draft="contributed">BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>百慕達元</displayName>
 				<displayName count="other">百慕達元</displayName>
+				<symbol draft="contributed">BMD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="BND">
+				<displayName>汶萊元</displayName>
+				<displayName count="other">汶萊元</displayName>
+				<symbol draft="contributed">BND</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="BOB">
+				<symbol draft="contributed">BOB</symbol>
+			</currency>
+			<currency type="BRL">
+				<displayName>巴西里拉</displayName>
+				<displayName count="other">巴西里拉</displayName>
+				<symbol draft="contributed">R$</symbol>
+				<symbol alt="narrow" draft="contributed">R$</symbol>
+			</currency>
+			<currency type="BSD">
+				<displayName>巴哈馬元</displayName>
+				<displayName count="other">巴哈馬元</displayName>
+				<symbol draft="contributed">BSD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="BTN">
+				<displayName>不丹那特倫</displayName>
+				<displayName count="other">不丹那特倫</displayName>
+				<symbol draft="contributed">BTN</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>博茨瓦納普拉</displayName>
 				<displayName count="other">博茨瓦納普拉</displayName>
+				<symbol draft="contributed">BWP</symbol>
+			</currency>
+			<currency type="BYR">
+				<symbol draft="contributed">BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>伯利茲元</displayName>
 				<displayName count="other">伯利茲元</displayName>
+				<symbol draft="contributed">BZD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>加拿大元</displayName>
 				<displayName count="other">加拿大元</displayName>
+				<symbol draft="contributed">CA$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="CDF">
+				<displayName>剛果法郎</displayName>
+				<displayName count="other">剛果法郎</displayName>
+				<symbol draft="contributed">CDF</symbol>
+			</currency>
+			<currency type="CHF">
+				<displayName>瑞士法郎</displayName>
+				<displayName count="other">瑞士法郎</displayName>
+				<symbol draft="contributed">CHF</symbol>
+			</currency>
+			<currency type="CLP">
+				<displayName>智利披索</displayName>
+				<displayName count="other">智利披索</displayName>
+				<symbol draft="contributed">CLP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="CNY">
+				<displayName>人民幣</displayName>
+				<displayName count="other">人民幣</displayName>
+				<symbol draft="contributed">CN¥</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
+			</currency>
+			<currency type="COP">
+				<displayName>哥倫比亞披索</displayName>
+				<displayName count="other">哥倫比亞披索</displayName>
+				<symbol draft="contributed">COP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>哥斯達黎加科郎</displayName>
 				<displayName count="other">哥斯達黎加科郎</displayName>
+				<symbol draft="contributed">CRC</symbol>
+				<symbol alt="narrow" draft="contributed">₡</symbol>
+			</currency>
+			<currency type="CUC">
+				<displayName>古巴可轉換披索</displayName>
+				<displayName count="other">古巴可轉換披索</displayName>
+				<symbol draft="contributed">CUC</symbol>
+			</currency>
+			<currency type="CUP">
+				<displayName>古巴披索</displayName>
+				<displayName count="other">古巴披索</displayName>
+				<symbol draft="contributed">CUP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>佛得角埃斯庫多</displayName>
 				<displayName count="other">佛得角埃斯庫多</displayName>
+				<symbol draft="contributed">CVE</symbol>
+			</currency>
+			<currency type="CZK">
+				<displayName>捷克克朗</displayName>
+				<displayName count="other">捷克克朗</displayName>
+				<symbol draft="contributed">CZK</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>吉布提法郎</displayName>
 				<displayName count="other">吉布提法郎</displayName>
+				<symbol draft="contributed">DJF</symbol>
+			</currency>
+			<currency type="DKK">
+				<displayName>丹麥克朗</displayName>
+				<symbol draft="contributed">DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>多米尼加披索</displayName>
 				<displayName count="other">多米尼加披索</displayName>
+				<symbol draft="contributed">DOP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="DZD">
+				<displayName>阿爾及利亞第納爾</displayName>
+				<displayName count="other">阿爾及利亞第納爾</displayName>
+				<symbol draft="contributed">DZD</symbol>
+			</currency>
+			<currency type="EGP">
+				<displayName>埃及鎊</displayName>
+				<displayName count="other">埃及鎊</displayName>
+				<symbol draft="contributed">EGP</symbol>
+			</currency>
+			<currency type="ERN">
+				<displayName>厄立特里亞納克法</displayName>
+				<displayName count="other">厄立特里亞納克法</displayName>
+				<symbol draft="contributed">ERN</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>埃塞俄比亞比爾</displayName>
 				<displayName count="other">埃塞俄比亞比爾</displayName>
+				<symbol draft="contributed">ETB</symbol>
+			</currency>
+			<currency type="EUR">
+				<displayName>歐元</displayName>
+				<displayName count="other">歐元</displayName>
+				<symbol draft="contributed">€</symbol>
+				<symbol alt="narrow" draft="contributed">€</symbol>
+			</currency>
+			<currency type="FJD">
+				<displayName>斐濟元</displayName>
+				<displayName count="other">斐濟元</displayName>
+				<symbol draft="contributed">FJD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="FKP">
+				<displayName>福克蘭群島鎊</displayName>
+				<displayName count="other">福克蘭群島鎊</displayName>
+				<symbol draft="contributed">FKP</symbol>
+			</currency>
+			<currency type="GBP">
+				<displayName>英鎊</displayName>
+				<displayName count="other">英鎊</displayName>
+				<symbol draft="contributed">£</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>格魯吉亞拉里</displayName>
 				<displayName count="other">格魯吉亞拉里</displayName>
+				<symbol draft="contributed">GEL</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>加納塞地</displayName>
 				<displayName count="other">加納塞地</displayName>
+				<symbol draft="contributed">GHS</symbol>
+			</currency>
+			<currency type="GIP">
+				<displayName>直布羅陀鎊</displayName>
+				<displayName count="other">直布羅陀鎊</displayName>
+				<symbol draft="contributed">GIP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>岡比亞達拉西</displayName>
 				<displayName count="other">岡比亞達拉西</displayName>
+				<symbol draft="contributed">GMD</symbol>
+			</currency>
+			<currency type="GNF">
+				<displayName>幾內亞法郎</displayName>
+				<displayName count="other">幾內亞法郎</displayName>
+				<symbol draft="contributed">GNF</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>危地馬拉格查爾</displayName>
 				<displayName count="other">危地馬拉格查爾</displayName>
+				<symbol draft="contributed">GTQ</symbol>
+			</currency>
+			<currency type="GYD">
+				<displayName>圭亞那元</displayName>
+				<displayName count="other">圭亞那元</displayName>
+				<symbol draft="contributed">GYD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>港元</displayName>
 				<displayName count="other">港元</displayName>
+				<symbol draft="contributed">HK$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="HNL">
+				<displayName>洪都拉斯倫皮拉</displayName>
+				<displayName count="other">洪都拉斯倫皮拉</displayName>
+				<symbol draft="contributed">HNL</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>克羅地亞庫納</displayName>
 				<displayName count="other">克羅地亞庫納</displayName>
+				<symbol draft="contributed">HRK</symbol>
+			</currency>
+			<currency type="HTG">
+				<displayName>海地古德</displayName>
+				<displayName count="other">海地古德</displayName>
+				<symbol draft="contributed">HTG</symbol>
+			</currency>
+			<currency type="HUF">
+				<displayName>匈牙利福林</displayName>
+				<displayName count="other">匈牙利福林</displayName>
+				<symbol draft="contributed">HUF</symbol>
+			</currency>
+			<currency type="IDR">
+				<displayName>印尼盾</displayName>
+				<displayName count="other">印尼盾</displayName>
+				<symbol draft="contributed">IDR</symbol>
+			</currency>
+			<currency type="ILS">
+				<displayName>以色列新謝克爾</displayName>
+				<displayName count="other">以色列新謝克爾</displayName>
+				<symbol draft="contributed">₪</symbol>
+				<symbol alt="narrow" draft="contributed">₪</symbol>
+			</currency>
+			<currency type="INR">
+				<displayName>印度盧比</displayName>
+				<displayName count="other">印度盧比</displayName>
+				<symbol draft="contributed">₹</symbol>
+				<symbol alt="narrow" draft="contributed">₹</symbol>
+			</currency>
+			<currency type="IQD">
+				<displayName>伊拉克第納爾</displayName>
+				<displayName count="other">伊拉克第納爾</displayName>
+				<symbol draft="contributed">IQD</symbol>
+			</currency>
+			<currency type="IRR">
+				<displayName>伊朗里亞爾</displayName>
+				<displayName count="other">伊朗里亞爾</displayName>
+				<symbol draft="contributed">IRR</symbol>
+			</currency>
+			<currency type="ISK">
+				<displayName>冰島克朗</displayName>
+				<displayName count="other">冰島克朗</displayName>
+				<symbol draft="contributed">ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName draft="contributed">意大利里拉</displayName>
 			</currency>
+			<currency type="JMD">
+				<displayName>牙買加元</displayName>
+				<displayName count="other">牙買加元</displayName>
+				<symbol draft="contributed">JMD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="JOD">
+				<displayName>約旦第納爾</displayName>
+				<displayName count="other">約旦第納爾</displayName>
+				<symbol draft="contributed">JOD</symbol>
+			</currency>
+			<currency type="JPY">
+				<displayName>日圓</displayName>
+				<displayName count="other">日圓</displayName>
+				<symbol draft="contributed">¥</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
+			</currency>
 			<currency type="KES">
 				<displayName>肯雅先令</displayName>
 				<displayName count="other">肯雅先令</displayName>
+				<symbol draft="contributed">KES</symbol>
+			</currency>
+			<currency type="KGS">
+				<displayName>吉爾吉斯索姆</displayName>
+				<symbol draft="contributed">KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>柬埔寨里爾</displayName>
 				<displayName count="other">柬埔寨里爾</displayName>
+				<symbol draft="contributed">KHR</symbol>
+				<symbol alt="narrow" draft="contributed">៛</symbol>
+			</currency>
+			<currency type="KMF">
+				<displayName>科摩羅法郎</displayName>
+				<displayName count="other">科摩羅法郎</displayName>
+				<symbol draft="contributed">KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>北韓圜</displayName>
 				<displayName count="other">北韓圜</displayName>
+				<symbol draft="contributed">KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<symbol draft="contributed">₩</symbol>
+				<symbol alt="narrow" draft="contributed">₩</symbol>
+			</currency>
+			<currency type="KWD">
+				<displayName>科威特第納爾</displayName>
+				<displayName count="other">科威特第納爾</displayName>
+				<symbol draft="contributed">KWD</symbol>
 			</currency>
 			<currency type="KYD">
+				<displayName>開曼群島元</displayName>
 				<displayName count="other">開曼群島美元</displayName>
+				<symbol draft="contributed">KYD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>哈薩克坦吉</displayName>
 				<displayName count="other">哈薩克坦吉</displayName>
+				<symbol draft="contributed">KZT</symbol>
+				<symbol alt="narrow" draft="contributed">₸</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>老撾基普</displayName>
 				<displayName count="other">老撾基普</displayName>
+				<symbol draft="contributed">LAK</symbol>
+				<symbol alt="narrow" draft="contributed">₭</symbol>
+			</currency>
+			<currency type="LBP">
+				<displayName>黎巴嫩鎊</displayName>
+				<displayName count="other">黎巴嫩鎊</displayName>
+				<symbol draft="contributed">LBP</symbol>
+			</currency>
+			<currency type="LKR">
+				<displayName>斯里蘭卡盧比</displayName>
+				<displayName count="other">斯里蘭卡盧比</displayName>
+				<symbol draft="contributed">LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>利比利亞元</displayName>
 				<displayName count="other">利比利亞元</displayName>
+				<symbol draft="contributed">LRD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="LTL">
+				<displayName>立陶宛立特</displayName>
 				<displayName count="other" draft="contributed">立陶宛里塔</displayName>
+				<symbol draft="contributed">LTL</symbol>
+			</currency>
+			<currency type="LVL">
+				<displayName>拉脫維亞拉特銀幣</displayName>
+				<displayName count="other">拉脫維亞拉特銀幣</displayName>
+				<symbol draft="contributed">LVL</symbol>
+			</currency>
+			<currency type="LYD">
+				<displayName>利比亞第納爾</displayName>
+				<displayName count="other">利比亞第納爾</displayName>
+				<symbol draft="contributed">LYD</symbol>
+			</currency>
+			<currency type="MAD">
+				<displayName>摩洛哥迪拉姆</displayName>
+				<displayName count="other">摩洛哥迪拉姆</displayName>
+				<symbol draft="contributed">MAD</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>摩爾多瓦列伊</displayName>
 				<displayName count="other">摩爾多瓦列伊</displayName>
+				<symbol draft="contributed">MDL</symbol>
+			</currency>
+			<currency type="MGA">
+				<symbol draft="contributed">MGA</symbol>
+			</currency>
+			<currency type="MKD">
+				<displayName>馬其頓第納爾</displayName>
+				<displayName count="other">馬其頓第納爾</displayName>
+				<symbol draft="contributed">MKD</symbol>
+			</currency>
+			<currency type="MMK">
+				<displayName>緬甸元</displayName>
+				<displayName count="other">緬甸元</displayName>
+				<symbol draft="contributed">MMK</symbol>
+			</currency>
+			<currency type="MNT">
+				<displayName>蒙古圖格里克</displayName>
+				<displayName count="other">蒙古圖格里克</displayName>
+				<symbol draft="contributed">MNT</symbol>
+				<symbol alt="narrow" draft="contributed">₮</symbol>
+			</currency>
+			<currency type="MOP">
+				<displayName>澳門元</displayName>
+				<displayName count="other">澳門元</displayName>
+				<symbol draft="contributed">MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>毛里塔尼亞烏吉亞 (1973–2017)</displayName>
 				<displayName count="other">毛里塔尼亞烏吉亞 (1973–2017)</displayName>
+				<symbol draft="contributed">MRO</symbol>
 			</currency>
 			<currency type="MRU">
 				<displayName>毛里塔尼亞烏吉亞</displayName>
@@ -1903,74 +4768,193 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="MUR">
 				<displayName>毛里裘斯盧布</displayName>
 				<displayName count="other">毛里裘斯盧布</displayName>
+				<symbol draft="contributed">MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>馬爾代夫盧非亞</displayName>
 				<displayName count="other">馬爾代夫盧非亞</displayName>
+				<symbol draft="contributed">MVR</symbol>
+			</currency>
+			<currency type="MWK">
+				<displayName>馬拉維克瓦查</displayName>
+				<displayName count="other">馬拉維克瓦查</displayName>
+				<symbol draft="contributed">MWK</symbol>
+			</currency>
+			<currency type="MXN">
+				<displayName>墨西哥披索</displayName>
+				<displayName count="other">墨西哥披索</displayName>
+				<symbol draft="contributed">MX$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="MYR">
+				<displayName>馬來西亞令吉</displayName>
+				<displayName count="other">馬來西亞令吉</displayName>
+				<symbol draft="contributed">MYR</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>莫桑比克梅蒂卡爾</displayName>
 				<displayName count="other">莫桑比克梅蒂卡爾</displayName>
+				<symbol draft="contributed">MZN</symbol>
+			</currency>
+			<currency type="NAD">
+				<displayName>納米比亞元</displayName>
+				<displayName count="other">納米比亞元</displayName>
+				<symbol draft="contributed">NAD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>尼日利亞奈拉</displayName>
 				<displayName count="other">尼日利亞奈拉</displayName>
+				<symbol draft="contributed">NGN</symbol>
+				<symbol alt="narrow" draft="contributed">₦</symbol>
+			</currency>
+			<currency type="NIO">
+				<displayName>尼加拉瓜金科多巴</displayName>
+				<displayName count="other">尼加拉瓜金科多巴</displayName>
+				<symbol draft="contributed">NIO</symbol>
+			</currency>
+			<currency type="NOK">
+				<displayName>挪威克朗</displayName>
+				<symbol draft="contributed">NOK</symbol>
+			</currency>
+			<currency type="NPR">
+				<displayName>尼泊爾盧比</displayName>
+				<displayName count="other">尼泊爾盧比</displayName>
+				<symbol draft="contributed">NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>紐西蘭元</displayName>
 				<displayName count="other">紐西蘭元</displayName>
+				<symbol draft="contributed">NZ$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>阿曼里奧</displayName>
 				<displayName count="other">阿曼里奧</displayName>
+				<symbol draft="contributed">OMR</symbol>
+			</currency>
+			<currency type="PAB">
+				<displayName>巴拿馬巴波亞</displayName>
+				<displayName count="other">巴拿馬巴波亞</displayName>
+				<symbol draft="contributed">PAB</symbol>
+			</currency>
+			<currency type="PEN">
+				<symbol draft="contributed">PEN</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>巴布亞新幾內亞基那</displayName>
 				<displayName count="other">巴布亞新幾內亞基那</displayName>
+				<symbol draft="contributed">PGK</symbol>
+			</currency>
+			<currency type="PHP">
+				<displayName>菲律賓披索</displayName>
+				<displayName count="other">菲律賓披索</displayName>
+				<symbol draft="contributed">PHP</symbol>
+				<symbol alt="narrow" draft="contributed">₱</symbol>
+			</currency>
+			<currency type="PKR">
+				<displayName>巴基斯坦盧比</displayName>
+				<displayName count="other">巴基斯坦盧比</displayName>
+				<symbol draft="contributed">PKR</symbol>
+			</currency>
+			<currency type="PLN">
+				<displayName>波蘭茲羅提</displayName>
+				<displayName count="other">波蘭茲羅提</displayName>
+				<symbol draft="contributed">PLN</symbol>
+			</currency>
+			<currency type="PYG">
+				<displayName>巴拉圭瓜拉尼</displayName>
+				<displayName count="other">巴拉圭瓜拉尼</displayName>
+				<symbol draft="contributed">PYG</symbol>
+				<symbol alt="narrow" draft="contributed">₲</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>卡塔爾里亞爾</displayName>
 				<displayName count="other">卡塔爾里亞爾</displayName>
+				<symbol draft="contributed">QAR</symbol>
+			</currency>
+			<currency type="RON">
+				<displayName>羅馬尼亞列伊</displayName>
+				<displayName count="other">羅馬尼亞列伊</displayName>
+				<symbol draft="contributed">RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>塞爾維亞第納爾</displayName>
 				<displayName count="other">塞爾維亞第納爾</displayName>
+				<symbol draft="contributed">RSD</symbol>
+			</currency>
+			<currency type="RUB">
+				<displayName>俄羅斯盧布</displayName>
+				<displayName count="other">俄羅斯盧布</displayName>
+				<symbol draft="contributed">RUB</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>盧旺達法郎</displayName>
 				<displayName count="other">盧旺達法郎</displayName>
+				<symbol draft="contributed">RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>沙特阿拉伯里亞爾</displayName>
 				<displayName count="other">沙特阿拉伯里亞爾</displayName>
+				<symbol draft="contributed">SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>所羅門群島元</displayName>
 				<displayName count="other">所羅門群島元</displayName>
+				<symbol draft="contributed">SBD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>塞舌爾盧比</displayName>
 				<displayName count="other">塞舌爾盧比</displayName>
+				<symbol draft="contributed">SCR</symbol>
+			</currency>
+			<currency type="SDG">
+				<displayName>蘇丹鎊</displayName>
+				<displayName count="other">蘇丹鎊</displayName>
+				<symbol draft="contributed">SDG</symbol>
+			</currency>
+			<currency type="SEK">
+				<displayName>瑞典克朗</displayName>
+				<symbol draft="contributed">SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>新加坡元</displayName>
 				<displayName count="other">新加坡元</displayName>
+				<symbol draft="contributed">SGD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="SHP">
+				<displayName>聖赫勒拿鎊</displayName>
+				<displayName count="other">聖赫勒拿鎊</displayName>
+				<symbol draft="contributed">SHP</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>塞拉利昂利昂</displayName>
 				<displayName count="other">塞拉利昂利昂</displayName>
+				<symbol draft="contributed">SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>索馬里先令</displayName>
 				<displayName count="other">索馬里先令</displayName>
+				<symbol draft="contributed">SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>蘇里南元</displayName>
 				<displayName count="other">蘇里南元</displayName>
+				<symbol draft="contributed">SRD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="SSP">
+				<displayName>南蘇丹鎊</displayName>
+				<displayName count="other">南蘇丹鎊</displayName>
+				<symbol draft="contributed">SSP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>聖多美和普林西比多布拉 (1977–2017)</displayName>
 				<displayName count="other">聖多美和普林西比多布拉 (1977–2017)</displayName>
+				<symbol draft="contributed">STD</symbol>
 			</currency>
 			<currency type="STN">
 				<displayName>聖多美和普林西比多布拉</displayName>
@@ -1979,61 +4963,164 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="SYP">
 				<displayName>敍利亞鎊</displayName>
 				<displayName count="other">敍利亞鎊</displayName>
+				<symbol draft="contributed">SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>斯威士蘭里朗吉尼</displayName>
 				<displayName count="other">斯威士蘭里朗吉尼</displayName>
+				<symbol draft="contributed">SZL</symbol>
+			</currency>
+			<currency type="THB">
+				<displayName>泰銖</displayName>
+				<displayName count="other">泰銖</displayName>
+				<symbol alt="narrow" draft="contributed">฿</symbol>
+			</currency>
+			<currency type="TJS">
+				<displayName>塔吉克索莫尼</displayName>
+				<displayName count="other">塔吉克索莫尼</displayName>
+				<symbol draft="contributed">TJS</symbol>
+			</currency>
+			<currency type="TMT">
+				<displayName>土庫曼馬納特</displayName>
+				<displayName count="other">土庫曼馬納特</displayName>
+				<symbol draft="contributed">TMT</symbol>
+			</currency>
+			<currency type="TND">
+				<displayName>突尼西亞第納爾</displayName>
+				<displayName count="other">突尼西亞第納爾</displayName>
+				<symbol draft="contributed">TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>湯加潘加</displayName>
 				<displayName count="other">湯加潘加</displayName>
+				<symbol draft="contributed">TOP</symbol>
+			</currency>
+			<currency type="TRY">
+				<displayName>新土耳其里拉</displayName>
+				<displayName count="other">新土耳其里拉</displayName>
+				<symbol draft="contributed">TRY</symbol>
+				<symbol alt="narrow" draft="contributed">₺</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>千里達和多巴哥元</displayName>
 				<displayName count="other">千里達和多巴哥元</displayName>
+				<symbol draft="contributed">TTD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="TWD">
+				<displayName>新台幣</displayName>
+				<displayName count="other">新台幣</displayName>
 				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>坦桑尼亞先令</displayName>
 				<displayName count="other">坦桑尼亞先令</displayName>
+				<symbol draft="contributed">TZS</symbol>
+			</currency>
+			<currency type="UAH">
+				<displayName>烏克蘭格里夫納</displayName>
+				<symbol draft="contributed">UAH</symbol>
+				<symbol alt="narrow" draft="contributed">₴</symbol>
+			</currency>
+			<currency type="UGX">
+				<displayName>烏干達先令</displayName>
+				<displayName count="other">烏干達先令</displayName>
+				<symbol draft="contributed">UGX</symbol>
+			</currency>
+			<currency type="USD">
+				<displayName>美元</displayName>
+				<displayName count="other">美元</displayName>
+				<symbol draft="contributed">US$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="UYU">
+				<displayName>烏拉圭披索</displayName>
+				<displayName count="other">烏拉圭披索</displayName>
+				<symbol draft="contributed">UYU</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="UZS">
+				<displayName>烏茲別克索姆</displayName>
+				<displayName count="other">烏茲別克索姆</displayName>
+				<symbol draft="contributed">UZS</symbol>
+			</currency>
+			<currency type="VEF">
+				<displayName>委內瑞拉玻利瓦 (2008–2018)</displayName>
+				<displayName count="other">委內瑞拉玻利瓦 (2008–2018)</displayName>
+				<symbol draft="contributed">VEF</symbol>
+			</currency>
+			<currency type="VES">
+				<displayName>VES</displayName>
+			</currency>
+			<currency type="VND">
+				<displayName>越南盾</displayName>
+				<displayName count="other">越南盾</displayName>
+				<symbol draft="contributed">₫</symbol>
+				<symbol alt="narrow" draft="contributed">₫</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>瓦努阿圖瓦圖</displayName>
 				<displayName count="other">瓦努阿圖瓦圖</displayName>
+				<symbol draft="contributed">VUV</symbol>
+			</currency>
+			<currency type="WST">
+				<displayName>西薩摩亞塔拉</displayName>
+				<displayName count="other">西薩摩亞塔拉</displayName>
+				<symbol draft="contributed">WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>中非法郎</displayName>
 				<displayName count="other">中非法郎</displayName>
+				<symbol draft="contributed">FCFA</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>東加勒比元</displayName>
 				<displayName count="other">東加勒比元</displayName>
+				<symbol draft="contributed">EC$</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>多哥非洲共同體法郎</displayName>
 				<displayName count="other">西非法郎</displayName>
+				<symbol draft="contributed">CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>太平洋法郎</displayName>
 				<displayName count="other">太平洋法郎</displayName>
+				<symbol draft="contributed">CFPF</symbol>
+			</currency>
+			<currency type="XXX">
+				<displayName>未知貨幣</displayName>
 			</currency>
 			<currency type="YER">
 				<displayName>也門里雅</displayName>
 				<displayName count="other">也門里雅</displayName>
+				<symbol draft="contributed">YER</symbol>
+			</currency>
+			<currency type="ZAR">
+				<displayName>南非蘭特</displayName>
+				<displayName count="other">南非蘭特</displayName>
+				<symbol draft="contributed">ZAR</symbol>
 			</currency>
 			<currency type="ZMW">
 				<displayName>贊比亞克瓦查</displayName>
 				<displayName count="other">贊比亞克瓦查</displayName>
+				<symbol draft="contributed">ZMW</symbol>
 			</currency>
 		</currencies>
+		<miscPatterns numberSystem="latn">
+			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="range">{0}-{1}</pattern>
+		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="long">
 			<compoundUnit type="per">
 				<compoundUnitPattern draft="contributed">{0}每{1}</compoundUnitPattern>
 			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<displayName>G 力</displayName>
+				<unitPattern count="other">{0} G 力</unitPattern>
+			</unit>
 			<unit type="acceleration-meter-per-second-squared">
 				<displayName>米/平方秒</displayName>
 				<unitPattern count="other">{0} 米/平方秒</unitPattern>
@@ -2042,11 +5129,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">周</displayName>
 				<unitPattern count="other">{0} 周</unitPattern>
 			</unit>
+			<unit type="angle-radian">
+				<displayName>弧度</displayName>
+				<unitPattern count="other">{0} 弧度</unitPattern>
+			</unit>
 			<unit type="angle-degree">
 				<displayName>度</displayName>
+				<unitPattern count="other">{0} 度</unitPattern>
+			</unit>
+			<unit type="angle-arc-minute">
+				<displayName>角分</displayName>
+				<unitPattern count="other">{0} 角分</unitPattern>
+			</unit>
+			<unit type="angle-arc-second">
+				<displayName>角秒</displayName>
+				<unitPattern count="other">{0} 角秒</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName>平方公里</displayName>
+				<unitPattern count="other">{0} 平方公里</unitPattern>
 				<perUnitPattern draft="contributed">{0} 每平方公里</perUnitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<displayName>公頃</displayName>
+				<unitPattern count="other">{0} 公頃</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName>平方米</displayName>
@@ -2059,7 +5165,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0} 每平方厘米</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName>平方英里</displayName>
+				<unitPattern count="other">{0} 平方英里</unitPattern>
 				<perUnitPattern draft="contributed">{0} 每平方英里</perUnitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>英畝</displayName>
+				<unitPattern count="other">{0} 英畝</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>平方碼</displayName>
+				<unitPattern count="other">{0} 平方碼</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>平方呎</displayName>
@@ -2070,6 +5186,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 平方吋</unitPattern>
 				<perUnitPattern>{0} 每平方吋</perUnitPattern>
 			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName draft="provisional">每公升毫摩爾</displayName>
+				<unitPattern count="other" draft="provisional">每公升 {0} 毫摩爾</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-million">
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
@@ -2078,7 +5198,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 公升/公里</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName draft="contributed">英里每加侖</displayName>
+				<displayName>英里每加侖</displayName>
+			</unit>
+			<unit type="digital-terabyte">
+				<displayName>TB</displayName>
+				<unitPattern count="other">{0} TB</unitPattern>
+			</unit>
+			<unit type="digital-terabit">
+				<displayName>Tb</displayName>
+				<unitPattern count="other">{0} Tb</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>GB</displayName>
+				<unitPattern count="other">{0} GB</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>Gb</displayName>
+				<unitPattern count="other">{0} Gb</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>MB</displayName>
+				<unitPattern count="other">{0} MB</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>Mb</displayName>
+				<unitPattern count="other">{0} Mb</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kB</displayName>
+				<unitPattern count="other">{0} kB</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kb</displayName>
+				<unitPattern count="other">{0} kb</unitPattern>
 			</unit>
 			<unit type="digital-byte">
 				<displayName>位元組</displayName>
@@ -2092,10 +5244,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 世紀</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName>年</displayName>
+				<unitPattern count="other">{0} 年</unitPattern>
 				<perUnitPattern draft="contributed">{0} 每年</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName draft="contributed">個月</displayName>
+				<displayName>個月</displayName>
+				<unitPattern count="other">{0} 個月</unitPattern>
 				<perUnitPattern draft="contributed">{0} 每個月</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
@@ -2109,26 +5264,87 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern draft="contributed">{0} 每日</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName>小時</displayName>
+				<unitPattern count="other">{0} 小時</unitPattern>
 				<perUnitPattern draft="contributed">{0} 每小時</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName>分鐘</displayName>
+				<unitPattern count="other">{0} 分鐘</unitPattern>
 				<perUnitPattern draft="contributed">{0} 每分鐘</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName>秒</displayName>
+				<unitPattern count="other">{0} 秒</unitPattern>
 				<perUnitPattern draft="contributed">{0}每秒</perUnitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName>毫秒</displayName>
+				<unitPattern count="other">{0} 毫秒</unitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName>微秒</displayName>
+				<unitPattern count="other">{0} 微秒</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>納秒</displayName>
 				<unitPattern count="other">{0} 納秒</unitPattern>
 			</unit>
+			<unit type="electric-ampere">
+				<displayName>安培</displayName>
+				<unitPattern count="other">{0} 安培</unitPattern>
+			</unit>
+			<unit type="electric-milliampere">
+				<displayName>毫安培</displayName>
+				<unitPattern count="other">{0} 毫安培</unitPattern>
+			</unit>
+			<unit type="electric-ohm">
+				<displayName>歐姆</displayName>
+				<unitPattern count="other">{0} 歐姆</unitPattern>
+			</unit>
+			<unit type="electric-volt">
+				<displayName>伏特</displayName>
+				<unitPattern count="other">{0} 伏特</unitPattern>
+			</unit>
 			<unit type="energy-kilocalorie">
-				<displayName draft="contributed">千卡</displayName>
+				<displayName>千卡</displayName>
 				<unitPattern count="other">{0} 千卡</unitPattern>
 			</unit>
-			<unit type="energy-foodcalorie">
+			<unit type="energy-calorie">
+				<displayName>卡路里</displayName>
 				<unitPattern count="other">{0} 卡路里</unitPattern>
 			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName>卡路里</displayName>
+				<unitPattern count="other">{0} 卡路里</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>焦耳</displayName>
+				<unitPattern count="other">{0} 焦耳</unitPattern>
+			</unit>
+			<unit type="energy-kilowatt-hour">
+				<displayName>千瓦小時</displayName>
+				<unitPattern count="other">{0} 千瓦小時</unitPattern>
+			</unit>
+			<unit type="frequency-gigahertz">
+				<displayName>吉赫</displayName>
+				<unitPattern count="other">{0} 吉赫</unitPattern>
+			</unit>
+			<unit type="frequency-megahertz">
+				<displayName>兆赫</displayName>
+				<unitPattern count="other">{0} 兆赫</unitPattern>
+			</unit>
+			<unit type="frequency-kilohertz">
+				<displayName>千赫</displayName>
+				<unitPattern count="other">{0} 千赫</unitPattern>
+			</unit>
+			<unit type="frequency-hertz">
+				<displayName>赫茲</displayName>
+				<unitPattern count="other">{0} 赫茲</unitPattern>
+			</unit>
 			<unit type="length-kilometer">
+				<displayName>公里</displayName>
+				<unitPattern count="other">{0} 公里</unitPattern>
 				<perUnitPattern draft="contributed">{0} 每公里</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
@@ -2149,12 +5365,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>毫米</displayName>
 				<unitPattern count="other">{0} 毫米</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName>微米</displayName>
+				<unitPattern count="other">{0} 微米</unitPattern>
+			</unit>
 			<unit type="length-nanometer">
 				<displayName>納米</displayName>
 				<unitPattern count="other">{0} 納米</unitPattern>
 			</unit>
+			<unit type="length-picometer">
+				<displayName>皮米</displayName>
+				<unitPattern count="other">{0} 皮米</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>英里</displayName>
+				<unitPattern count="other">{0} 英里</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>碼</displayName>
+				<unitPattern count="other">{0} 碼</unitPattern>
+			</unit>
 			<unit type="length-foot">
-				<displayName draft="contributed">呎</displayName>
+				<displayName>呎</displayName>
 				<unitPattern count="other">{0} 呎</unitPattern>
 				<perUnitPattern>{0} 每呎</perUnitPattern>
 			</unit>
@@ -2163,16 +5395,58 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 吋</unitPattern>
 				<perUnitPattern>{0} 每吋</perUnitPattern>
 			</unit>
+			<unit type="length-parsec">
+				<displayName>秒差距</displayName>
+				<unitPattern count="other">{0} 秒差距</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName>光年</displayName>
+				<unitPattern count="other">{0} 光年</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>天文單位</displayName>
+				<unitPattern count="other">{0} 天文單位</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>海里</displayName>
+				<unitPattern count="other">{0} 海里</unitPattern>
+			</unit>
 			<unit type="length-point">
 				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
+			<unit type="light-lux">
+				<displayName>勒克斯</displayName>
+				<unitPattern count="other">{0} 勒克斯</unitPattern>
+			</unit>
+			<unit type="mass-metric-ton">
+				<displayName>公噸</displayName>
+				<unitPattern count="other">{0} 公噸</unitPattern>
+			</unit>
 			<unit type="mass-kilogram">
-				<perUnitPattern draft="contributed">{0} 每公斤</perUnitPattern>
+				<displayName>公斤</displayName>
+				<unitPattern count="other">{0} 公斤</unitPattern>
+				<perUnitPattern>{0} 每公斤</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName>克</displayName>
+				<unitPattern count="other">{0} 克</unitPattern>
 				<perUnitPattern draft="contributed">{0} 每克</perUnitPattern>
 			</unit>
+			<unit type="mass-milligram">
+				<displayName>毫克</displayName>
+				<unitPattern count="other">{0} 毫克</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>微克</displayName>
+				<unitPattern count="other">{0} 微克</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName>英噸</displayName>
+				<unitPattern count="other">{0} 英噸</unitPattern>
+			</unit>
 			<unit type="mass-pound">
+				<displayName>磅</displayName>
+				<unitPattern count="other">{0} 磅</unitPattern>
 				<perUnitPattern draft="contributed">{0} 每磅</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
@@ -2184,6 +5458,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>金衡安士</displayName>
 				<unitPattern count="other">{0} 金衡安士</unitPattern>
 			</unit>
+			<unit type="mass-carat">
+				<displayName>克拉</displayName>
+				<unitPattern count="other">{0} 克拉</unitPattern>
+			</unit>
+			<unit type="power-gigawatt">
+				<displayName>吉瓦</displayName>
+				<unitPattern count="other">{0} 吉瓦</unitPattern>
+			</unit>
 			<unit type="power-megawatt">
 				<displayName>兆瓦</displayName>
 				<unitPattern count="other">{0} 兆瓦</unitPattern>
@@ -2192,8 +5474,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>千瓦</displayName>
 				<unitPattern count="other">{0} 千瓦</unitPattern>
 			</unit>
+			<unit type="power-watt">
+				<displayName>瓦特</displayName>
+				<unitPattern count="other">{0} 瓦特</unitPattern>
+			</unit>
 			<unit type="power-milliwatt">
-				<displayName draft="contributed">毫瓦</displayName>
+				<displayName>毫瓦</displayName>
 				<unitPattern count="other">{0} 毫瓦</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
@@ -2204,23 +5490,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>百帕斯卡</displayName>
 				<unitPattern count="other">{0} 百帕斯卡</unitPattern>
 			</unit>
+			<unit type="pressure-millimeter-of-mercury">
+				<displayName>毫米汞柱</displayName>
+				<unitPattern count="other">{0} 毫米汞柱</unitPattern>
+			</unit>
 			<unit type="pressure-pound-per-square-inch">
 				<displayName>磅/平方吋</displayName>
 				<unitPattern count="other">{0} 磅/平方吋</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
-				<displayName draft="contributed">英吋汞柱</displayName>
+				<displayName>英吋汞柱</displayName>
 				<unitPattern count="other">{0} 英吋汞柱</unitPattern>
 			</unit>
+			<unit type="pressure-millibar">
+				<displayName>毫巴</displayName>
+				<unitPattern count="other">{0} 毫巴</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<displayName draft="contributed">公里每小時</displayName>
+				<displayName>公里每小時</displayName>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>米/秒</displayName>
 				<unitPattern count="other">{0} 米/秒</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<displayName draft="contributed">英里每小時</displayName>
+				<displayName>英里每小時</displayName>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName draft="contributed">攝氏度</displayName>
@@ -2232,6 +5526,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>開爾文</displayName>
 				<unitPattern count="other">{0} 開爾文</unitPattern>
 			</unit>
+			<unit type="volume-cubic-kilometer">
+				<displayName>立方公里</displayName>
+				<unitPattern count="other">{0} 立方公里</unitPattern>
+			</unit>
 			<unit type="volume-cubic-meter">
 				<displayName>立方米</displayName>
 				<unitPattern count="other">{0} 立方米</unitPattern>
@@ -2242,6 +5540,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 立方厘米</unitPattern>
 				<perUnitPattern>{0} 每立方厘米</perUnitPattern>
 			</unit>
+			<unit type="volume-cubic-mile">
+				<displayName>立方英里</displayName>
+				<unitPattern count="other">{0} 立方英里</unitPattern>
+			</unit>
+			<unit type="volume-cubic-yard">
+				<displayName>立方碼</displayName>
+				<unitPattern count="other">{0} 立方碼</unitPattern>
+			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>立方呎</displayName>
 				<unitPattern count="other">{0} 立方呎</unitPattern>
@@ -2250,12 +5556,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>立方吋</displayName>
 				<unitPattern count="other">{0} 立方吋</unitPattern>
 			</unit>
+			<unit type="volume-megaliter">
+				<displayName>兆升</displayName>
+				<unitPattern count="other">{0} 兆升</unitPattern>
+			</unit>
+			<unit type="volume-hectoliter">
+				<displayName>公石</displayName>
+				<unitPattern count="other">{0} 公石</unitPattern>
+			</unit>
 			<unit type="volume-liter">
+				<displayName>公升</displayName>
+				<unitPattern count="other">{0} 公升</unitPattern>
 				<perUnitPattern draft="contributed">{0} 每公升</perUnitPattern>
+			</unit>
+			<unit type="volume-deciliter">
+				<displayName>公合</displayName>
+				<unitPattern count="other">{0} 公合</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
 				<displayName>厘升</displayName>
 				<unitPattern count="other">{0} 厘升</unitPattern>
+			</unit>
+			<unit type="volume-milliliter">
+				<displayName>毫升</displayName>
+				<unitPattern count="other">{0} 毫升</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
 				<unitPattern count="other">{0} 公制量杯</unitPattern>
@@ -2265,14 +5589,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 英畝呎</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
+				<displayName>加侖</displayName>
+				<unitPattern count="other">{0} 加侖</unitPattern>
 				<perUnitPattern draft="contributed">{0} 每加侖</perUnitPattern>
 			</unit>
+			<unit type="volume-quart">
+				<displayName>夸脫</displayName>
+				<unitPattern count="other">{0} 夸脫</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>品脫</displayName>
+				<unitPattern count="other">{0} 品脫</unitPattern>
+			</unit>
 			<unit type="volume-cup">
+				<displayName>量杯</displayName>
 				<unitPattern count="other">{0} 量杯</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName>液安士</displayName>
 				<unitPattern count="other">{0} 液安士</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>湯匙</displayName>
+				<unitPattern count="other">{0} 湯匙</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<displayName>茶匙</displayName>
+				<unitPattern count="other">{0} 茶匙</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<coordinateUnitPattern type="east" draft="contributed">東經 {0}</coordinateUnitPattern>
@@ -2283,6 +5626,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</unitLength>
 		<unitLength type="short">
 			<unit type="acceleration-g-force">
+				<displayName>G 力</displayName>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-second-squared">
@@ -2293,8 +5637,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">周</displayName>
 				<unitPattern count="other">{0} 周</unitPattern>
 			</unit>
+			<unit type="angle-radian">
+				<displayName>弧度</displayName>
+				<unitPattern count="other">{0} 弧度</unitPattern>
+			</unit>
 			<unit type="angle-degree">
 				<displayName>度</displayName>
+				<unitPattern count="other">{0} 度</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>分</displayName>
@@ -2305,6 +5654,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="area-square-kilometer">
 				<perUnitPattern>{0} 每平方公里</perUnitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<displayName>公頃</displayName>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName>平方米</displayName>
@@ -2317,7 +5669,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0} 每平方厘米</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName>平方英里</displayName>
 				<perUnitPattern>{0} 每平方英里</perUnitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>英畝</displayName>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>平方碼</displayName>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>平方呎</displayName>
@@ -2328,6 +5687,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 平方吋</unitPattern>
 				<perUnitPattern>{0} 每平方吋</perUnitPattern>
 			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName draft="provisional">毫摩爾/公升</displayName>
+				<unitPattern count="other" draft="provisional">{0} 毫摩爾/公升</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-million">
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
@@ -2335,13 +5698,42 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 升每公里</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
+				<displayName>英里/加侖</displayName>
 				<unitPattern count="other">{0} 英里每加侖</unitPattern>
 			</unit>
+			<unit type="digital-terabyte">
+				<displayName>TB</displayName>
+			</unit>
+			<unit type="digital-terabit">
+				<displayName>Tb</displayName>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>GB</displayName>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>Gb</displayName>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>MB</displayName>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>Mb</displayName>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kB</displayName>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kb</displayName>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>bit</displayName>
+			</unit>
 			<unit type="duration-year">
+				<displayName>年</displayName>
 				<perUnitPattern>{0} 每年</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName draft="contributed">個月</displayName>
+				<displayName>個月</displayName>
 				<perUnitPattern>{0} 每月</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
@@ -2355,27 +5747,44 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0} 每日</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName>小時</displayName>
 				<perUnitPattern>{0} 每小時</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName>分鐘</displayName>
 				<perUnitPattern>{0} 每分鐘</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName>秒</displayName>
 				<perUnitPattern>{0}每秒</perUnitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName>毫秒</displayName>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName draft="contributed">納秒</displayName>
 				<unitPattern count="other">{0} 納秒</unitPattern>
+			</unit>
+			<unit type="electric-ohm">
+				<displayName>歐姆</displayName>
+			</unit>
+			<unit type="electric-volt">
+				<displayName>伏特</displayName>
+				<unitPattern count="other">{0} 伏特</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName draft="contributed">千卡</displayName>
 				<unitPattern count="other">{0} 千卡</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
-				<displayName draft="contributed">千焦</displayName>
+				<displayName>千焦</displayName>
 			</unit>
 			<unit type="energy-joule">
+				<displayName>焦耳</displayName>
 				<unitPattern count="other">{0} 焦耳</unitPattern>
+			</unit>
+			<unit type="energy-kilowatt-hour">
+				<displayName>千瓦小時</displayName>
 			</unit>
 			<unit type="length-kilometer">
 				<perUnitPattern>{0} 每公里</perUnitPattern>
@@ -2398,6 +5807,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>毫米</displayName>
 				<unitPattern count="other">{0} 毫米</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName>微米</displayName>
+			</unit>
 			<unit type="length-nanometer">
 				<displayName>納米</displayName>
 				<unitPattern count="other">{0} 納米</unitPattern>
@@ -2406,13 +5818,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">哩</displayName>
 				<unitPattern count="other">{0} 哩</unitPattern>
 			</unit>
+			<unit type="length-yard">
+				<displayName>碼</displayName>
+			</unit>
 			<unit type="length-foot">
-				<displayName draft="contributed">呎</displayName>
+				<displayName>呎</displayName>
 				<perUnitPattern>{0} 每呎</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
 				<displayName>吋</displayName>
 				<perUnitPattern>{0} 每吋</perUnitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>秒差距</displayName>
+			</unit>
+			<unit type="length-light-year">
+				<displayName>光年</displayName>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName draft="contributed">浬</displayName>
@@ -2421,13 +5842,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="length-point">
 				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
+			<unit type="light-lux">
+				<displayName>勒克斯</displayName>
+				<unitPattern count="other">{0} 勒克斯</unitPattern>
+			</unit>
 			<unit type="mass-kilogram">
 				<perUnitPattern>{0} 每公斤</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName>克</displayName>
 				<perUnitPattern>{0} 每克</perUnitPattern>
 			</unit>
+			<unit type="mass-ton">
+				<displayName>英噸</displayName>
+			</unit>
 			<unit type="mass-pound">
+				<displayName>磅</displayName>
 				<perUnitPattern>{0} 每磅</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
@@ -2438,6 +5868,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="mass-ounce-troy">
 				<displayName>金衡安士</displayName>
 				<unitPattern count="other">{0} 金衡安士</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<displayName>克拉</displayName>
 			</unit>
 			<unit type="power-megawatt">
 				<displayName>兆瓦</displayName>
@@ -2468,9 +5901,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
+				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName>°F</displayName>
+				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
 				<displayName>立方米</displayName>
@@ -2481,6 +5916,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>立方厘米</displayName>
 				<unitPattern count="other">{0} 立方厘米</unitPattern>
 				<perUnitPattern>{0} 每立方厘米</perUnitPattern>
+			</unit>
+			<unit type="volume-cubic-yard">
+				<displayName>立方碼</displayName>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>立方呎</displayName>
@@ -2508,7 +5946,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-gallon">
 				<perUnitPattern>{0} 每加侖</perUnitPattern>
 			</unit>
+			<unit type="volume-pint">
+				<displayName>品脫</displayName>
+			</unit>
 			<unit type="volume-cup">
+				<displayName>量杯</displayName>
 				<unitPattern count="other">{0} 量杯</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
@@ -2527,72 +5969,81 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>米每平方秒</displayName>
 			</unit>
 			<unit type="angle-revolution">
-				<displayName draft="contributed">周</displayName>
-				<unitPattern count="other" draft="contributed">{0} 周</unitPattern>
+				<displayName>周</displayName>
+				<unitPattern count="other">{0} 周</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName draft="contributed">度</displayName>
+				<displayName>度</displayName>
+			</unit>
+			<unit type="angle-arc-minute">
+				<displayName draft="contributed">角分</displayName>
 			</unit>
 			<unit type="area-square-kilometer">
-				<perUnitPattern draft="contributed">{0} 每平方公里</perUnitPattern>
+				<perUnitPattern>{0} 每平方公里</perUnitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName draft="contributed">平方米</displayName>
-				<perUnitPattern draft="contributed">{0} 每平方米</perUnitPattern>
+				<displayName>平方米</displayName>
+				<perUnitPattern>{0} 每平方米</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
-				<displayName draft="contributed">平方厘米</displayName>
-				<perUnitPattern draft="contributed">{0} 每平方厘米</perUnitPattern>
+				<displayName>平方厘米</displayName>
+				<perUnitPattern>{0} 每平方厘米</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<unitPattern count="other" draft="contributed">{0}mi²</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每平方英里</perUnitPattern>
+				<unitPattern count="other">{0}mi²</unitPattern>
+				<perUnitPattern>{0} 每平方英里</perUnitPattern>
 			</unit>
 			<unit type="area-square-foot">
-				<displayName draft="contributed">平方呎</displayName>
+				<displayName>平方呎</displayName>
 				<unitPattern count="other">{0}ft²</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
-				<displayName draft="contributed">平方吋</displayName>
-				<perUnitPattern draft="contributed">{0} 每平方吋</perUnitPattern>
+				<displayName>平方吋</displayName>
+				<perUnitPattern>{0} 每平方吋</perUnitPattern>
+			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName draft="provisional">毫摩爾/公升</displayName>
 			</unit>
 			<unit type="concentr-part-per-million">
-				<unitPattern count="other" draft="contributed">{0} ppm</unitPattern>
+				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<unitPattern count="other">{0}L/100km</unitPattern>
 			</unit>
 			<unit type="duration-century">
-				<unitPattern count="other" draft="provisional">{0}世紀</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}世紀</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0}年</unitPattern>
-				<perUnitPattern draft="provisional">{0} 每年</perUnitPattern>
+				<perUnitPattern>{0} 每年</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other">{0}個月</unitPattern>
-				<perUnitPattern draft="provisional">{0} 每月</perUnitPattern>
+				<perUnitPattern>{0} 每月</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">{0}週</unitPattern>
-				<perUnitPattern draft="provisional">{0} 每週</perUnitPattern>
+				<perUnitPattern draft="provisional">{0} 每星期</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName draft="contributed">日</displayName>
 				<unitPattern count="other">{0}日</unitPattern>
-				<perUnitPattern draft="provisional">{0} 每日</perUnitPattern>
+				<perUnitPattern>{0} 每日</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName>小時</displayName>
 				<unitPattern count="other">{0}小時</unitPattern>
-				<perUnitPattern draft="provisional">{0} 每小時</perUnitPattern>
+				<perUnitPattern>{0} 每小時</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName draft="contributed">分</displayName>
-				<unitPattern count="other" draft="provisional">{0}分</unitPattern>
+				<unitPattern count="other">{0}分</unitPattern>
 				<perUnitPattern>{0} 每分鐘</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName>秒</displayName>
 				<unitPattern count="other">{0}秒</unitPattern>
+				<perUnitPattern draft="contributed">{0}/秒</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other">{0}毫秒</unitPattern>
@@ -2601,7 +6052,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>納秒</displayName>
 			</unit>
 			<unit type="energy-kilojoule">
-				<displayName draft="contributed">千焦</displayName>
+				<displayName>千焦</displayName>
 			</unit>
 			<unit type="length-kilometer">
 				<perUnitPattern draft="contributed">{0} 每公里</perUnitPattern>
@@ -2645,27 +6096,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="contributed">{0} pt</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<perUnitPattern draft="provisional">{0} 每公斤</perUnitPattern>
+				<perUnitPattern>{0} 每公斤</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
-				<perUnitPattern draft="provisional">{0} 每克</perUnitPattern>
+				<displayName>克</displayName>
+				<perUnitPattern>{0} 每克</perUnitPattern>
 			</unit>
 			<unit type="mass-pound">
-				<perUnitPattern draft="provisional">{0} 每磅</perUnitPattern>
+				<perUnitPattern>{0} 每磅</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>安士</displayName>
 				<unitPattern count="other">{0} 安士</unitPattern>
-				<perUnitPattern draft="provisional">{0} 每安士</perUnitPattern>
+				<perUnitPattern>{0} 每安士</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>金衡安士</displayName>
 			</unit>
 			<unit type="power-megawatt">
-				<displayName draft="contributed">兆瓦</displayName>
+				<displayName>兆瓦</displayName>
 			</unit>
 			<unit type="power-watt">
-				<displayName draft="contributed">瓦</displayName>
+				<displayName>瓦</displayName>
 			</unit>
 			<unit type="pressure-pound-per-square-inch">
 				<displayName>磅每平方吋</displayName>
@@ -2683,39 +6135,49 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="speed-mile-per-hour">
 				<displayName>英里每小時</displayName>
-				<unitPattern count="other" draft="contributed">{0}mph</unitPattern>
+				<unitPattern count="other">{0}mph</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<displayName>°C</displayName>
+				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName>°F</displayName>
 			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="other">{0}km³</unitPattern>
+			</unit>
 			<unit type="volume-cubic-meter">
-				<displayName draft="contributed">立方米</displayName>
+				<displayName>立方米</displayName>
 			</unit>
 			<unit type="volume-cubic-centimeter">
-				<displayName draft="contributed">立方厘米</displayName>
-				<perUnitPattern draft="contributed">{0} 每立方厘米</perUnitPattern>
+				<displayName>立方厘米</displayName>
+				<perUnitPattern>{0} 每立方厘米</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
-				<unitPattern count="other" draft="contributed">{0}mi³</unitPattern>
+				<unitPattern count="other">{0}mi³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
-				<displayName draft="contributed">立方呎</displayName>
+				<displayName>立方呎</displayName>
 			</unit>
 			<unit type="volume-cubic-inch">
-				<displayName draft="contributed">立方吋</displayName>
+				<displayName>立方吋</displayName>
 			</unit>
 			<unit type="volume-liter">
 				<displayName draft="contributed">升</displayName>
-				<perUnitPattern draft="contributed">{0} 每升</perUnitPattern>
+				<perUnitPattern>{0} 每升</perUnitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName draft="contributed">厘升</displayName>
 			</unit>
 			<unit type="volume-cup-metric">
 				<unitPattern count="other">{0} 量杯</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
-				<displayName draft="contributed">英畝呎</displayName>
+				<displayName>英畝呎</displayName>
 			</unit>
 			<unit type="volume-gallon">
-				<perUnitPattern draft="contributed">{0} 每加侖</perUnitPattern>
+				<perUnitPattern>{0} 每加侖</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<coordinateUnitPattern type="east" draft="contributed">{0}E</coordinateUnitPattern>
@@ -2724,15 +6186,44 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<coordinateUnitPattern type="west" draft="contributed">{0}W</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>h:mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>m:ss</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
+			<listPatternPart type="start">{0}、{1}</listPatternPart>
+			<listPatternPart type="middle">{0}、{1}</listPatternPart>
 			<listPatternPart type="end" draft="contributed">{0}及{1}</listPatternPart>
 			<listPatternPart type="2" draft="contributed">{0}及{1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="end" draft="contributed">{0}及{1}</listPatternPart>
 			<listPatternPart type="2" draft="contributed">{0}及{1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit">
+			<listPatternPart type="start">{0} {1}</listPatternPart>
+			<listPatternPart type="middle">{0} {1}</listPatternPart>
+			<listPatternPart type="end">{0} {1}</listPatternPart>
+			<listPatternPart type="2">{0} {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-narrow">
+			<listPatternPart type="start">{0}{1}</listPatternPart>
+			<listPatternPart type="middle">{0}{1}</listPatternPart>
+			<listPatternPart type="end">{0}{1}</listPatternPart>
+			<listPatternPart type="2">{0}{1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-short">
+			<listPatternPart type="start">{0} {1}</listPatternPart>
+			<listPatternPart type="middle">{0} {1}</listPatternPart>
+			<listPatternPart type="end">{0} {1}</listPatternPart>
+			<listPatternPart type="2">{0} {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>
@@ -2745,13 +6236,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabelPattern type="enclosed">{0} — 包含</characterLabelPattern>
 		<characterLabelPattern type="historic">{0} — 舊式</characterLabelPattern>
 		<characterLabelPattern type="miscellaneous">{0} — 雜項</characterLabelPattern>
-		<characterLabelPattern type="scripts" draft="contributed">書寫體 — {0}</characterLabelPattern>
-		<characterLabel type="arrows" draft="contributed">箭嘴</characterLabel>
-		<characterLabel type="downwards_arrows" draft="contributed">左右箭嘴</characterLabel>
-		<characterLabel type="downwards_upwards_arrows" draft="contributed">上下箭嘴</characterLabel>
-		<characterLabel type="leftwards_arrows" draft="contributed">向左箭嘴</characterLabel>
-		<characterLabel type="leftwards_rightwards_arrows" draft="contributed">左右箭嘴</characterLabel>
-		<characterLabel type="rightwards_arrows" draft="contributed">向右箭嘴</characterLabel>
-		<characterLabel type="upwards_arrows" draft="contributed">向上箭嘴</characterLabel>
+		<characterLabelPattern type="other">{0} — 其他</characterLabelPattern>
+		<characterLabelPattern type="scripts">書寫體 — {0}</characterLabelPattern>
+		<characterLabel type="arrows">箭嘴</characterLabel>
+		<characterLabel type="downwards_arrows">左右箭嘴</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">上下箭嘴</characterLabel>
+		<characterLabel type="leftwards_arrows">向左箭嘴</characterLabel>
+		<characterLabel type="leftwards_rightwards_arrows">左右箭嘴</characterLabel>
+		<characterLabel type="rightwards_arrows">向右箭嘴</characterLabel>
+		<characterLabel type="upwards_arrows">向上箭嘴</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<styleName type="slnt" subtype="-12">左斜體</styleName>
+		<featureName type="afrc">垂直分數</featureName>
+		<featureName type="dlig">可選用連字</featureName>
+		<featureName type="frac">斜線分數</featureName>
+		<featureName type="tnum">表格式數字</featureName>
+	</typographicNames>
 </ldml>

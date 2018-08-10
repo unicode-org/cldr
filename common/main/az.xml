@@ -1200,6 +1200,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a">h a – h a</greatestDifference>
+							<greatestDifference id="h">h–h a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H">HH–HH</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm a</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm a v</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a">h a – h a v</greatestDifference>
+							<greatestDifference id="h">h–h a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H">HH–HH v</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">MM–MM</greatestDifference>
 						</intervalFormatItem>
@@ -1841,6 +1873,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="quarter-short">
 				<displayName>rüb</displayName>
+				<relative type="-1">keçən rüb</relative>
+				<relative type="0">bu rüb</relative>
+				<relative type="1">gələn rüb</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} rüb ərzində</relativeTimePattern>
 					<relativeTimePattern count="other">{0} rüb ərzində</relativeTimePattern>
@@ -1852,6 +1887,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="quarter-narrow">
 				<displayName>rüb</displayName>
+				<relative type="-1">keçən rüb</relative>
+				<relative type="0">bu rüb</relative>
+				<relative type="1">gələn rüb</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} rüb ərzində</relativeTimePattern>
 					<relativeTimePattern count="other">{0} rüb ərzində</relativeTimePattern>
@@ -2065,8 +2103,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">bu bazar ertəsi</relative>
 				<relative type="1">gələn bazar ertəsi</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} bazar ertəsi əzrində</relativeTimePattern>
-					<relativeTimePattern count="other">{0} bazar ertəsi əzrində</relativeTimePattern>
+					<relativeTimePattern count="one">{0} bazar ertəsi ərzində</relativeTimePattern>
+					<relativeTimePattern count="other">{0} bazar ertəsi ərzində</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} bazar ertəsi öncə</relativeTimePattern>
@@ -2078,8 +2116,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">bu BE</relative>
 				<relative type="1">gələn BE</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} bazar ertəsi əzrində</relativeTimePattern>
-					<relativeTimePattern count="other">{0} bazar ertəsi əzrində</relativeTimePattern>
+					<relativeTimePattern count="one">{0} bazar ertəsi ərzində</relativeTimePattern>
+					<relativeTimePattern count="other">{0} bazar ertəsi ərzində</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} bazar ertəsi öncə</relativeTimePattern>
@@ -6168,6 +6206,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>Venesuela Bolivarı</displayName>
 				<displayName count="one">Venesuela bolivarı</displayName>
 				<displayName count="other">Venesuela bolivarı</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Vyetnam Donqu</displayName>
@@ -6330,7 +6369,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -6452,6 +6493,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">milyonda {0} hissəcik</unitPattern>
 				<unitPattern count="other">milyonda {0} hissəcik</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>faiz</displayName>
+				<unitPattern count="one">{0} faiz</unitPattern>
+				<unitPattern count="other">{0} faiz</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>promil</displayName>
+				<unitPattern count="one">{0} promil</unitPattern>
+				<unitPattern count="other">{0} promil</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litr/kilometr</displayName>
 				<unitPattern count="one">{0} litr/kilometr</unitPattern>
@@ -6471,6 +6522,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>imp. qallona mil</displayName>
 				<unitPattern count="one">imp. qallona {0} mil</unitPattern>
 				<unitPattern count="other">imp. qallona {0} mil</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>petabayt</displayName>
+				<unitPattern count="one">{0} petabayt</unitPattern>
+				<unitPattern count="other">{0} petabayt</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabayt</displayName>
@@ -6868,6 +6924,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} millibar</unitPattern>
 				<unitPattern count="other">{0} millibar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atmosfer</displayName>
+				<unitPattern count="one">{0} atmosfer</unitPattern>
+				<unitPattern count="other">{0} atmosfer</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometr/saat</displayName>
 				<unitPattern count="one">{0} kilometr/saat</unitPattern>
@@ -7034,6 +7095,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} çay qaşığı</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>kardinal istiqamət</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -7149,6 +7211,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} hs/mln</unitPattern>
 				<unitPattern count="other">{0} hs/mln</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>faiz</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>promil</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
 				<unitPattern count="one">{0} l/km</unitPattern>
@@ -7168,6 +7240,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mil/imp. qal</displayName>
 				<unitPattern count="one">{0} m/q imp</unitPattern>
 				<unitPattern count="other">{0} m/q imp</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PBayt</displayName>
+				<unitPattern count="one">{0} PB</unitPattern>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -7565,6 +7642,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometr/saat</displayName>
 				<unitPattern count="one">{0} km/saat</unitPattern>
@@ -7731,6 +7813,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} çyqş</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>istiqamət</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -7780,6 +7863,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-square-foot">
 				<unitPattern count="one">{0} ft²</unitPattern>
 				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>l/100km</displayName>
@@ -7951,6 +8039,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>istiqamət</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -8110,4 +8199,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="western_asian_scripts">Qərbi Asiya Yazıları</characterLabel>
 		<characterLabel type="whitespace">Boşluq</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">italik</axisName>
+		<axisName type="opsz">optik ölçü</axisName>
+		<axisName type="slnt">çəpinə</axisName>
+		<axisName type="wdth">en</axisName>
+		<axisName type="wght">çəki</axisName>
+		<styleName type="ital" subtype="1">kursiv</styleName>
+		<styleName type="opsz" subtype="8">təsvir</styleName>
+		<styleName type="opsz" subtype="12">mətn</styleName>
+		<styleName type="opsz" subtype="18">başlıq</styleName>
+		<styleName type="opsz" subtype="72">displey</styleName>
+		<styleName type="opsz" subtype="144">poster</styleName>
+		<styleName type="slnt" subtype="-12">arxaya əyilmiş</styleName>
+		<styleName type="slnt" subtype="0">vertikal</styleName>
+		<styleName type="slnt" subtype="12">köndəlmiş</styleName>
+		<styleName type="slnt" subtype="24">ekstra köndəlmiş</styleName>
+		<styleName type="wdth" subtype="50">ultra qatı</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">ultra sıx</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">ultra dar</styleName>
+		<styleName type="wdth" subtype="62.5">ekstra-qatı</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">ekstra-sıx</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">ekstra-dar</styleName>
+		<styleName type="wdth" subtype="75">qatı</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">sıx</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">sıxılmış</styleName>
+		<styleName type="wdth" subtype="87.5">yarımqatı</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">yarımsıxılmış</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">yarımdar</styleName>
+		<styleName type="wdth" subtype="100">normal</styleName>
+		<styleName type="wdth" subtype="112.5">yarımgenişlənmiş</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">yarımartırılmış</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">yarımgeniş</styleName>
+		<styleName type="wdth" subtype="125">genişlənmiş</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">artırılmış</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">geniş</styleName>
+		<styleName type="wdth" subtype="150">ekstra-genişlənmiş</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">ekstra-artırılmış</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">ekstra-geniş</styleName>
+		<styleName type="wdth" subtype="200">ultragenişlənmiş</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">ultraartırılmış</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">ultrageniş</styleName>
+		<styleName type="wght" subtype="100">nazik</styleName>
+		<styleName type="wght" subtype="200">ekstra-yüngül</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">ultrayüngül</styleName>
+		<styleName type="wght" subtype="300">yüngül</styleName>
+		<styleName type="wght" subtype="350">yarımyüngül</styleName>
+		<styleName type="wght" subtype="380">kitab</styleName>
+		<styleName type="wght" subtype="400">requlyar</styleName>
+		<styleName type="wght" subtype="500">orta</styleName>
+		<styleName type="wght" subtype="600">yarımqalın</styleName>
+		<styleName type="wght" subtype="600" alt="demi">yarımqalın</styleName>
+		<styleName type="wght" subtype="700">qalın</styleName>
+		<styleName type="wght" subtype="800">ekstra-qalın</styleName>
+		<styleName type="wght" subtype="900">qara</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">ağır</styleName>
+		<styleName type="wght" subtype="950">ekstra-qara</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">ultraqara</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">ultraağır</styleName>
+		<featureName type="afrc">vertikal fraksiyalar</featureName>
+		<featureName type="cpsp">böyük hərflər arası boşluq</featureName>
+		<featureName type="dlig">istəyə bağlı liqaturalar</featureName>
+		<featureName type="frac">diaqonal fraksiyalar</featureName>
+		<featureName type="lnum">astar sayları</featureName>
+		<featureName type="onum">köhnə üslublu simvollar</featureName>
+		<featureName type="ordn">sıra sayları</featureName>
+		<featureName type="pnum">proporsional saylar</featureName>
+		<featureName type="smcp">kiçik ölçülü böyük hərflər</featureName>
+		<featureName type="tnum">tabulyar saylar</featureName>
+		<featureName type="zero">zollu sıfır</featureName>
+	</typographicNames>
 </ldml>

@@ -634,7 +634,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</scripts>
 		<territories>
 			<territory type="001">an Domhan</territory>
-			<territory type="002">An Afraic</territory>
+			<territory type="002">an Afraic</territory>
 			<territory type="003">Meiriceá Thuaidh</territory>
 			<territory type="005">Meiriceá Theas</territory>
 			<territory type="009">an Aigéine</territory>
@@ -642,7 +642,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="013">Meiriceá Láir</territory>
 			<territory type="014">Oirthear na hAfraice</territory>
 			<territory type="015">Tuaisceart na hAfraice</territory>
-			<territory type="017">An Afraic Láir</territory>
+			<territory type="017">an Afraic Láir</territory>
 			<territory type="018">Deisceart na hAfraice</territory>
 			<territory type="019">Críocha Mheiriceá</territory>
 			<territory type="021">Tuaisceart Mheiriceá</territory>
@@ -724,7 +724,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CW">Curaçao</territory>
 			<territory type="CX">Oileán na Nollag</territory>
 			<territory type="CY">an Chipir</territory>
-			<territory type="CZ">An tSeicia</territory>
+			<territory type="CZ">an tSeicia</territory>
 			<territory type="CZ" alt="variant">Poblacht na Seice</territory>
 			<territory type="DE">an Ghearmáin</territory>
 			<territory type="DG">Diego Garcia</territory>
@@ -904,6 +904,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">an Táidsíceastáin</territory>
 			<territory type="TK">Tócalá</territory>
 			<territory type="TL">Tíomór Thoir</territory>
+			<territory type="TL" alt="variant">TL</territory>
 			<territory type="TM">an Tuircméanastáin</territory>
 			<territory type="TN">an Túinéis</territory>
 			<territory type="TO">Tonga</territory>
@@ -938,6 +939,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">an tSiombáib</territory>
 			<territory type="ZZ">Réigiún Anaithnid</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">Sasana</subdivision>
+			<subdivision type="gbsct">Albain</subdivision>
+			<subdivision type="gbwls">an Bhreatain Bheag</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901">Litriú Traidisiúnta na Gearmáinise</variant>
 			<variant type="1994">1994</variant>
@@ -1174,6 +1180,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<exemplarCharacters type="auxiliary">[å ḃ ċ ḋ ḟ ġ j k ṁ ṗ q ṡ ṫ v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">[!-#\&amp;-*,-/\:;?@\[\]§‐–—‘’“”†‡…′″]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
@@ -7826,6 +7833,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">bholívar Veiniséala</displayName>
 				<displayName count="many">mbolívar Veiniséala</displayName>
 				<displayName count="other">bolívar Veiniséala</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Dong Vítneam</displayName>
@@ -8139,7 +8147,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -8322,6 +8332,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} sa mhilliún</unitPattern>
 				<unitPattern count="other">{0} sa mhilliún</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>faoin gcéad</displayName>
+				<unitPattern count="one">{0} faoin gcéad</unitPattern>
+				<unitPattern count="two">{0}%</unitPattern>
+				<unitPattern count="few">{0}%</unitPattern>
+				<unitPattern count="many">{0}%</unitPattern>
+				<unitPattern count="other">{0} faoin gcéad</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>faoin míle</displayName>
+				<unitPattern count="one">{0} faoin míle</unitPattern>
+				<unitPattern count="two">{0}‰</unitPattern>
+				<unitPattern count="few">{0}‰</unitPattern>
+				<unitPattern count="many">{0}‰</unitPattern>
+				<unitPattern count="other">{0} faoin míle</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>lítir sa chiliméadar</displayName>
 				<unitPattern count="one">{0} lítear sa chiliméadar</unitPattern>
@@ -8353,6 +8379,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} mhíle sa ghalún impiriúil</unitPattern>
 				<unitPattern count="many">{0} míle sa ghalún impiriúil</unitPattern>
 				<unitPattern count="other">{0} míle sa ghalún impiriúil</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>peitibheart</displayName>
+				<unitPattern count="one">{0} peitibheart</unitPattern>
+				<unitPattern count="two">{0} PB</unitPattern>
+				<unitPattern count="few">{0} PB</unitPattern>
+				<unitPattern count="many">{0} PB</unitPattern>
+				<unitPattern count="other">{0} petabytes</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>teiribhearta</displayName>
@@ -8994,6 +9028,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} milleabar</unitPattern>
 				<unitPattern count="other">{0} milleabar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atmaisféar</displayName>
+				<unitPattern count="one">{0} atmaisféar</unitPattern>
+				<unitPattern count="two">{0} atm</unitPattern>
+				<unitPattern count="few">{0} atm</unitPattern>
+				<unitPattern count="many">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atmaisféar</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ciliméadair san uair</displayName>
 				<unitPattern count="one">{0} chiliméadar san uair</unitPattern>
@@ -9264,6 +9306,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} taespúnóg</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>treo chairdinéil</displayName>
 				<coordinateUnitPattern type="east">{0}O</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}T</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}D</coordinateUnitPattern>
@@ -9439,6 +9482,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0}/milliún</unitPattern>
 				<unitPattern count="other">{0}/milliún</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>faoin gcéad</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="two">{0}%</unitPattern>
+				<unitPattern count="few">{0}%</unitPattern>
+				<unitPattern count="many">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>faoin míle</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="two">{0}‰</unitPattern>
+				<unitPattern count="few">{0}‰</unitPattern>
+				<unitPattern count="many">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>lítir/km</displayName>
 				<unitPattern count="one">{0} l/km</unitPattern>
@@ -9470,6 +9529,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} msg imp</unitPattern>
 				<unitPattern count="many">{0} msg imp</unitPattern>
 				<unitPattern count="other">{0} msg imp</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PBheart</displayName>
+				<unitPattern count="one">{0} PB</unitPattern>
+				<unitPattern count="two">{0} PB</unitPattern>
+				<unitPattern count="few">{0} PB</unitPattern>
+				<unitPattern count="many">{0} PB</unitPattern>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -10111,6 +10178,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="two">{0} atm</unitPattern>
+				<unitPattern count="few">{0} atm</unitPattern>
+				<unitPattern count="many">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/uair</displayName>
 				<unitPattern count="one">{0} km/u</unitPattern>
@@ -10381,6 +10456,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>treo</displayName>
 				<coordinateUnitPattern type="east">{0}O</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}T</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}D</coordinateUnitPattern>
@@ -10555,6 +10631,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0}/milliún</unitPattern>
 				<unitPattern count="many">{0}/milliún</unitPattern>
 				<unitPattern count="other">{0}/milliún</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="two">{0}%</unitPattern>
+				<unitPattern count="few">{0}%</unitPattern>
+				<unitPattern count="many">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -11498,6 +11582,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>treo</displayName>
 				<coordinateUnitPattern type="east">{0}O</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}T</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}D</coordinateUnitPattern>
@@ -11590,8 +11675,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="digits">Digití</characterLabel>
 		<characterLabel type="dingbats">Smísteoga</characterLabel>
 		<characterLabel type="divination_symbols">Siombailí na Fáistine</characterLabel>
-		<characterLabel type="downwards_arrows">Saigheada Síos</characterLabel>
-		<characterLabel type="downwards_upwards_arrows">Saigheada Síos Suas</characterLabel>
+		<characterLabel type="downwards_arrows">saighead síos</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">saighead síos suas</characterLabel>
 		<characterLabel type="east_asian_scripts">Scripteanna na hÁise Thoir</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">Scripteanna na hEorpa</characterLabel>
@@ -11601,9 +11686,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="food_drink">Bia agus Deoch</characterLabel>
 		<characterLabel type="format">Formáid</characterLabel>
 		<characterLabel type="format_whitespace">Formáid agus Spás Bán</characterLabel>
-		<characterLabel type="full_width_form_variant">Foirm Lánleithid</characterLabel>
+		<characterLabel type="full_width_form_variant">athraitheach leithid iomláin</characterLabel>
 		<characterLabel type="geometric_shapes">Cruthanna Geoiméadracha</characterLabel>
-		<characterLabel type="half_width_form_variant">Foirm Leathleithid</characterLabel>
+		<characterLabel type="half_width_form_variant">athraitheach leathleithid</characterLabel>
 		<characterLabel type="han_characters">Carachtair Han</characterLabel>
 		<characterLabel type="han_radicals">Fréamhacha Han</characterLabel>
 		<characterLabel type="hanja">Hanaí</characterLabel>
@@ -11641,7 +11726,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="punctuation">Poncaíocht</characterLabel>
 		<characterLabel type="rightwards_arrows">Saighead Dheas</characterLabel>
 		<characterLabel type="sign_standard_symbols">Comharthaí/Siombailí Coitianta</characterLabel>
-		<characterLabel type="small_form_variant">Foirmeacha Beaga</characterLabel>
+		<characterLabel type="small_form_variant">athraithigh bheaga</characterLabel>
 		<characterLabel type="smiley">straoiseog</characterLabel>
 		<characterLabel type="smileys_people">Straoiseoga nó Daoine</characterLabel>
 		<characterLabel type="south_asian_scripts">Scripteanna na hÁise Theas</characterLabel>
@@ -11660,4 +11745,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="western_asian_scripts">Scripteanna na hÁise Thiar</characterLabel>
 		<characterLabel type="whitespace">Spás Bán</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">iodálach</axisName>
+		<axisName type="opsz">méid optúil</axisName>
+		<axisName type="slnt">claonadh</axisName>
+		<axisName type="wdth">leithead</axisName>
+		<axisName type="wght">meáchan</axisName>
+		<styleName type="ital" subtype="1">reatha</styleName>
+		<styleName type="opsz" subtype="8">teideal</styleName>
+		<styleName type="opsz" subtype="12">téacs</styleName>
+		<styleName type="opsz" subtype="18">teideal a chur leis</styleName>
+		<styleName type="opsz" subtype="72">léiriú</styleName>
+		<styleName type="opsz" subtype="144">póstaer</styleName>
+		<styleName type="slnt" subtype="-12">cúlchlaonta</styleName>
+		<styleName type="slnt" subtype="0">díreach</styleName>
+		<styleName type="slnt" subtype="12">claonta</styleName>
+		<styleName type="slnt" subtype="24">an-chlaonta</styleName>
+		<styleName type="wdth" subtype="50">an-chomhdhlúite</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">an-chomhbhrúite</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">an-chaol</styleName>
+		<styleName type="wdth" subtype="62.5">fíor-chomhdhlúite</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">fíor-chomhbhrúite</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">fíorchaol</styleName>
+		<styleName type="wdth" subtype="75">comhdhlúite</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">comhbhrúite</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">comhbhrúite</styleName>
+		<styleName type="wdth" subtype="87.5">leath-chomhdhlúite</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">leath-chomhbhrúite</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">leath-chaol</styleName>
+		<styleName type="wdth" subtype="100">gnáthach</styleName>
+		<styleName type="wdth" subtype="112.5">leath-leathnaithe</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">leath-shínte</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">leath-leathan</styleName>
+		<styleName type="wdth" subtype="125">sínte</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">sínte</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">leathan</styleName>
+		<styleName type="wdth" subtype="150">an-leathnaithe</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">an-sínte</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">fíorleathan</styleName>
+		<styleName type="wdth" subtype="200">fíorleathan</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">fíorshínte</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">fíorleathan</styleName>
+		<styleName type="wght" subtype="100">caol</styleName>
+		<styleName type="wght" subtype="200">an-éadrom</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">fíor-éadrom</styleName>
+		<styleName type="wght" subtype="300">éadrom</styleName>
+		<styleName type="wght" subtype="350">leath-éadrom</styleName>
+		<styleName type="wght" subtype="380">leabhar</styleName>
+		<styleName type="wght" subtype="400">gnáthach</styleName>
+		<styleName type="wght" subtype="500">meánach</styleName>
+		<styleName type="wght" subtype="600">leath-throm</styleName>
+		<styleName type="wght" subtype="600" alt="demi">demi-throm</styleName>
+		<styleName type="wght" subtype="700">trom</styleName>
+		<styleName type="wght" subtype="800">an-trom</styleName>
+		<styleName type="wght" subtype="900">dubh</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">trom</styleName>
+		<styleName type="wght" subtype="950">an-dubh</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">fíordhubh</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">fíorthrom</styleName>
+		<featureName type="afrc">codáin dhíreacha</featureName>
+		<featureName type="cpsp">spásáil ceannlitreacha</featureName>
+		<featureName type="dlig">nasclitreacha roghnacha</featureName>
+		<featureName type="frac">codáin thrasnánacha</featureName>
+		<featureName type="lnum">uimhreacha líneála</featureName>
+		<featureName type="onum">figiúirí sean-stíle</featureName>
+		<featureName type="ordn">orduimhreacha</featureName>
+		<featureName type="pnum">uimhreacha comhréireacha</featureName>
+		<featureName type="smcp">ceannlitreacha beaga</featureName>
+		<featureName type="tnum">uimhreacha táblacha</featureName>
+		<featureName type="zero">náid shlaiseáilte</featureName>
+	</typographicNames>
 </ldml>

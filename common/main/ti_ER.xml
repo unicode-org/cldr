@@ -104,6 +104,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</calendars>
 	</dates>
 	<numbers>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<currencies>
 			<currency type="ERN">
 				<symbol>Nfk</symbol>

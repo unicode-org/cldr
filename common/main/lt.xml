@@ -1082,6 +1082,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">Tadžikija</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Rytų Timoras</territory>
+			<territory type="TL" alt="variant">Rytų Timoras</territory>
 			<territory type="TM">Turkmėnistanas</territory>
 			<territory type="TN">Tunisas</territory>
 			<territory type="TO">Tonga</territory>
@@ -8455,6 +8456,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">Mauritanijos ugijos</displayName>
 				<displayName count="many">Mauritanijos ugijos</displayName>
 				<displayName count="other">Mauritanijos ugijų</displayName>
+				<symbol draft="contributed">MRU</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Maltos lira</displayName>
@@ -9175,6 +9177,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">Venesuelos bolivarai</displayName>
 				<displayName count="many">Venesuelos bolivaro</displayName>
 				<displayName count="other">Venesuelos bolivarų</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Vietnamo dongas</displayName>
@@ -9468,7 +9471,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">⩾{0}</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -9494,8 +9499,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="acceleration-meter-per-second-squared">
 				<displayName>metrai per kvadratinę sekundę</displayName>
 				<unitPattern count="one">{0} metras per kvadratinę sekundę</unitPattern>
-				<unitPattern count="few">{0} metrai per kvadratinę sekundę</unitPattern>
-				<unitPattern count="many">{0} metro per kvadratinę sekundę</unitPattern>
+				<unitPattern count="few">{0} m/s²</unitPattern>
+				<unitPattern count="many">{0} m/s²</unitPattern>
 				<unitPattern count="other">{0} metrų per kvadratinę sekundę</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
@@ -9629,6 +9634,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} milijoninės dalies</unitPattern>
 				<unitPattern count="other">{0} milijoninių dalių</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>procentas</displayName>
+				<unitPattern count="one">{0} procentas</unitPattern>
+				<unitPattern count="few">{0} %</unitPattern>
+				<unitPattern count="many">{0} %</unitPattern>
+				<unitPattern count="other">{0} procentas</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>promilė</displayName>
+				<unitPattern count="one">{0} promilė</unitPattern>
+				<unitPattern count="few">{0} ‰</unitPattern>
+				<unitPattern count="many">{0} ‰</unitPattern>
+				<unitPattern count="other">{0} promilė</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litrai kilometrui</displayName>
 				<unitPattern count="one">{0} litras kilometrui</unitPattern>
@@ -9656,6 +9675,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} mylios už imperinį galoną</unitPattern>
 				<unitPattern count="many">{0} mylios už imperinį galoną</unitPattern>
 				<unitPattern count="other">{0} mylių už imperinį galoną</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>pentabaitai</displayName>
+				<unitPattern count="one">{0} pentabaitas</unitPattern>
+				<unitPattern count="few">{0} PB</unitPattern>
+				<unitPattern count="many">{0} PB</unitPattern>
+				<unitPattern count="other">{0} pentabaitų</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabaitai</displayName>
@@ -10219,6 +10245,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} milibaro</unitPattern>
 				<unitPattern count="other">{0} milibarų</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atmosferos</displayName>
+				<unitPattern count="one">{0} atmosfera</unitPattern>
+				<unitPattern count="few">{0} atmosferos</unitPattern>
+				<unitPattern count="many">{0} atmosferos</unitPattern>
+				<unitPattern count="other">{0} atmosferų</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometrai per valandą</displayName>
 				<unitPattern count="one">{0} kilometras per valandą</unitPattern>
@@ -10456,6 +10489,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} arbatinių šaukštelių</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>pagrindinė kryptis</displayName>
 				<coordinateUnitPattern type="east">{0} rytų</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} šiaurės</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} pietų</coordinateUnitPattern>
@@ -10611,6 +10645,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>procentas</displayName>
+				<unitPattern count="one">{0} %</unitPattern>
+				<unitPattern count="few">{0} %</unitPattern>
+				<unitPattern count="many">{0} %</unitPattern>
+				<unitPattern count="other">{0} %</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>promilė</displayName>
+				<unitPattern count="one">{0} ‰</unitPattern>
+				<unitPattern count="few">{0} ‰</unitPattern>
+				<unitPattern count="many">{0} ‰</unitPattern>
+				<unitPattern count="other">{0} ‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
 				<unitPattern count="one">{0} l/km</unitPattern>
@@ -10638,6 +10686,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} my/imp. g</unitPattern>
 				<unitPattern count="many">{0} my/imp. g</unitPattern>
 				<unitPattern count="other">{0} my/imp. g</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>Petabaitas</displayName>
+				<unitPattern count="one">{0} PB</unitPattern>
+				<unitPattern count="few">{0} PB</unitPattern>
+				<unitPattern count="many">{0} PB</unitPattern>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -11201,6 +11256,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="few">{0} atm</unitPattern>
+				<unitPattern count="many">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/val.</displayName>
 				<unitPattern count="one">{0} km/val.</unitPattern>
@@ -11438,6 +11500,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} a. š.</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>kryptis</displayName>
 				<coordinateUnitPattern type="east">{0} R</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} Š</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} P</coordinateUnitPattern>
@@ -11515,6 +11578,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} ft²</unitPattern>
 				<unitPattern count="many">{0} ft²</unitPattern>
 				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0} %</unitPattern>
+				<unitPattern count="few">{0} %</unitPattern>
+				<unitPattern count="many">{0} %</unitPattern>
+				<unitPattern count="other">{0} %</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>l/100 km</displayName>
@@ -11908,6 +11978,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} fl oz</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>kryptis</displayName>
 				<coordinateUnitPattern type="east">{0} R</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} Š</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} P</coordinateUnitPattern>
@@ -12069,4 +12140,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="western_asian_scripts">Vakarų Azijos raštai</characterLabel>
 		<characterLabel type="whitespace">tarpas</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">kursyvas</axisName>
+		<axisName type="opsz">optinis dydis</axisName>
+		<axisName type="slnt">pasvirasis</axisName>
+		<axisName type="wdth">plotis</axisName>
+		<axisName type="wght">svoris</axisName>
+		<styleName type="ital" subtype="1">kursyvas</styleName>
+		<styleName type="opsz" subtype="8">antraštė</styleName>
+		<styleName type="opsz" subtype="12">tekstas</styleName>
+		<styleName type="opsz" subtype="18">pavadinimas</styleName>
+		<styleName type="opsz" subtype="72">ekranas</styleName>
+		<styleName type="opsz" subtype="144">plakatas</styleName>
+		<styleName type="slnt" subtype="-12">pasvirasis į kairę</styleName>
+		<styleName type="slnt" subtype="0">vertikaliai</styleName>
+		<styleName type="slnt" subtype="12">pasvirusiai</styleName>
+		<styleName type="slnt" subtype="24">itin pasvirusiai</styleName>
+		<styleName type="wdth" subtype="50">itin kondensuotai</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">itin suspaustai</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">itin siaurai</styleName>
+		<styleName type="wdth" subtype="62.5">papildomai suglaudintas</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">papildomai suspaustas</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">papildomai susiaurintas</styleName>
+		<styleName type="wdth" subtype="75">kondensuotai</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">suspaustai</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">siaurai</styleName>
+		<styleName type="wdth" subtype="87.5">pusiau kondensuotai</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">pusiau suspaustai</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">pusiau siaurai</styleName>
+		<styleName type="wdth" subtype="100">vidutiniškai</styleName>
+		<styleName type="wdth" subtype="112.5">pusiau išplėstai</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">pusiau ištęstai</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">pusiau plačiai</styleName>
+		<styleName type="wdth" subtype="125">išplėstai</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">ištęstai</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">plačiai</styleName>
+		<styleName type="wdth" subtype="150">itin išplėstai</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">itin ištęstai</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">itin plačiai</styleName>
+		<styleName type="wdth" subtype="200">itin išplėstas</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">itin praplėstas</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">itin platus</styleName>
+		<styleName type="wght" subtype="100">siaurai</styleName>
+		<styleName type="wght" subtype="200">papildomai pašviesintas</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">itin šviesus</styleName>
+		<styleName type="wght" subtype="300">šviesus</styleName>
+		<styleName type="wght" subtype="350">pusiau šviesus</styleName>
+		<styleName type="wght" subtype="380">knyginis</styleName>
+		<styleName type="wght" subtype="400">standartinis</styleName>
+		<styleName type="wght" subtype="500">vidutinis</styleName>
+		<styleName type="wght" subtype="600">pusiau paryškintas</styleName>
+		<styleName type="wght" subtype="600" alt="demi">pusiau pusjuodis</styleName>
+		<styleName type="wght" subtype="700">paryškintas</styleName>
+		<styleName type="wght" subtype="800">ekstra paryškintas</styleName>
+		<styleName type="wght" subtype="900">juodas</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">ryškus</styleName>
+		<styleName type="wght" subtype="950">ekstra juodas</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">itin juodas</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">itin ryškus</styleName>
+		<featureName type="afrc">vertikaliosios frakcijos</featureName>
+		<featureName type="cpsp">pagrindiniai tarpai</featureName>
+		<featureName type="dlig">pasirenkamosios ligatūros</featureName>
+		<featureName type="frac">įstrižainių frakcijos</featureName>
+		<featureName type="lnum">linijų numeriai</featureName>
+		<featureName type="onum">seno stiliaus figūros</featureName>
+		<featureName type="ordn">kelintiniai skaitvardžiai</featureName>
+		<featureName type="pnum">proporcingi skaičiai</featureName>
+		<featureName type="smcp">mažos didžiosios</featureName>
+		<featureName type="tnum">lentelės numeriai</featureName>
+		<featureName type="zero">sumažintas nulis</featureName>
+	</typographicNames>
 </ldml>

@@ -178,8 +178,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😇" type="tts">头顶有光环嘅笑脸</annotation>
 		<annotation cp="🤠">帽 | 戴牛仔帽嘅脸 | 牛仔 | 牛女 | 脸</annotation>
 		<annotation cp="🤠" type="tts">戴牛仔帽嘅脸</annotation>
-		<annotation cp="🤡">小丑 | 小丑脸 | 脸</annotation>
-		<annotation cp="🤡" type="tts">小丑脸</annotation>
 		<annotation cp="🤥">木偶奇遇记 | 脸 | 讲大话 | 讲大话嘅脸</annotation>
 		<annotation cp="🤥" type="tts">讲大话嘅脸</annotation>
 		<annotation cp="🤫">嘘 | 嘘嘅脸 | 静</annotation>
@@ -194,6 +192,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😈" type="tts">有牛角嘅笑脸</annotation>
 		<annotation cp="👿">妖 | 幻想 | 恶魔 | 有牛角同嬲嘅脸 | 童话故事 | 脸 | 魔鬼</annotation>
 		<annotation cp="👿" type="tts">有牛角同嬲嘅脸</annotation>
+		<annotation cp="🤡">小丑 | 小丑脸 | 脸</annotation>
+		<annotation cp="🤡" type="tts">小丑脸</annotation>
 		<annotation cp="👹">幻想 | 怪物 | 生物 | 童话故事 | 脸</annotation>
 		<annotation cp="👹" type="tts">怪物</annotation>
 		<annotation cp="👺">小妖精 | 幻想 | 怪物 | 生物 | 童话故事 | 脸</annotation>
@@ -246,10 +246,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧" type="tts">女仔</annotation>
 		<annotation cp="🧑">中性 | 成人</annotation>
 		<annotation cp="🧑" type="tts">成人</annotation>
+		<annotation cp="👱">金色头发 | 金色头发嘅人</annotation>
+		<annotation cp="👱" type="tts">金色头发嘅人</annotation>
 		<annotation cp="👨">男人</annotation>
 		<annotation cp="👨" type="tts">男人</annotation>
+		<annotation cp="👱‍♂">男 | 金色头发 | 金色头发嘅男人</annotation>
+		<annotation cp="👱‍♂" type="tts">金色头发嘅男人</annotation>
+		<annotation cp="🧔">留须嘅人 | 须</annotation>
+		<annotation cp="🧔" type="tts">留须嘅人</annotation>
 		<annotation cp="👩">女人</annotation>
 		<annotation cp="👩" type="tts">女人</annotation>
+		<annotation cp="👱‍♀">女 | 金色头发 | 金色头发嘅女人</annotation>
+		<annotation cp="👱‍♀" type="tts">金色头发嘅女人</annotation>
 		<annotation cp="🧓">中性 | 老人 | 老年</annotation>
 		<annotation cp="🧓" type="tts">老人</annotation>
 		<annotation cp="👴">男人 | 老伯伯 | 老年</annotation>
@@ -358,14 +366,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲" type="tts">戴中国帽嘅男人</annotation>
 		<annotation cp="🧕">包头 | 头巾 | 戴住头巾嘅女人 | 面纱</annotation>
 		<annotation cp="🧕" type="tts">戴住头巾嘅女人</annotation>
-		<annotation cp="🧔">留须嘅人 | 须</annotation>
-		<annotation cp="🧔" type="tts">留须嘅人</annotation>
-		<annotation cp="👱">金色头发 | 金色头发嘅人</annotation>
-		<annotation cp="👱" type="tts">金色头发嘅人</annotation>
-		<annotation cp="👱‍♂">男 | 金色头发 | 金色头发嘅男人</annotation>
-		<annotation cp="👱‍♂" type="tts">金色头发嘅男人</annotation>
-		<annotation cp="👱‍♀">女 | 金色头发 | 金色头发嘅女人</annotation>
-		<annotation cp="👱‍♀" type="tts">金色头发嘅女人</annotation>
 		<annotation cp="🤵">新郎 | 晚礼服 | 男 | 着晚礼服嘅男人</annotation>
 		<annotation cp="🤵" type="tts">着晚礼服嘅男人</annotation>
 		<annotation cp="👰">婚礼 | 戴面纱嘅新娘 | 新娘 | 面纱</annotation>
@@ -730,40 +730,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💋" type="tts">唇印</annotation>
 		<annotation cp="💘">丘比特 | 穿箭嘅心 | 箭</annotation>
 		<annotation cp="💘" type="tts">穿箭嘅心</annotation>
-		<annotation cp="❤">心 | 红色心</annotation>
-		<annotation cp="❤" type="tts">红色心</annotation>
-		<annotation cp="💓">心跳 | 脉动 | 跳动 | 跳动嘅心</annotation>
-		<annotation cp="💓" type="tts">跳动嘅心</annotation>
-		<annotation cp="💔">破碎 | 破碎嘅心 | 碎</annotation>
-		<annotation cp="💔" type="tts">破碎嘅心</annotation>
-		<annotation cp="💕">两个心 | 爱</annotation>
-		<annotation cp="💕" type="tts">两个心</annotation>
+		<annotation cp="💝">情人 | 有蝴蝶结嘅心 | 蝴蝶结</annotation>
+		<annotation cp="💝" type="tts">有蝴蝶结嘅心</annotation>
 		<annotation cp="💖">兴奋 | 闪 | 闪嘅心</annotation>
 		<annotation cp="💖" type="tts">闪嘅心</annotation>
 		<annotation cp="💗">兴奋 | 紧张 | 脉动 | 长大 | 长大嘅心</annotation>
 		<annotation cp="💗" type="tts">长大嘅心</annotation>
-		<annotation cp="💙">蓝色 | 蓝色心</annotation>
-		<annotation cp="💙" type="tts">蓝色心</annotation>
-		<annotation cp="💚">绿色 | 绿色心</annotation>
-		<annotation cp="💚" type="tts">绿色心</annotation>
-		<annotation cp="💛">黄色 | 黄色心</annotation>
-		<annotation cp="💛" type="tts">黄色心</annotation>
+		<annotation cp="💓">心跳 | 脉动 | 跳动 | 跳动嘅心</annotation>
+		<annotation cp="💓" type="tts">跳动嘅心</annotation>
+		<annotation cp="💞">旋转 | 旋转嘅心</annotation>
+		<annotation cp="💞" type="tts">旋转嘅心</annotation>
+		<annotation cp="💕">两个心 | 爱</annotation>
+		<annotation cp="💕" type="tts">两个心</annotation>
+		<annotation cp="💌">信 | 寄信 | 心 | 情信 | 爱情</annotation>
+		<annotation cp="💌" type="tts">情信</annotation>
+		<annotation cp="❣">感叹嘅 | 标点符号 | 沉重嘅感叹嘅 | 符号</annotation>
+		<annotation cp="❣" type="tts">沉重嘅感叹嘅</annotation>
+		<annotation cp="💔">破碎 | 破碎嘅心 | 碎</annotation>
+		<annotation cp="💔" type="tts">破碎嘅心</annotation>
+		<annotation cp="❤">心 | 红色心</annotation>
+		<annotation cp="❤" type="tts">红色心</annotation>
 		<annotation cp="🧡">橙色 | 橙色心</annotation>
 		<annotation cp="🧡" type="tts">橙色心</annotation>
+		<annotation cp="💛">黄色 | 黄色心</annotation>
+		<annotation cp="💛" type="tts">黄色心</annotation>
+		<annotation cp="💚">绿色 | 绿色心</annotation>
+		<annotation cp="💚" type="tts">绿色心</annotation>
+		<annotation cp="💙">蓝色 | 蓝色心</annotation>
+		<annotation cp="💙" type="tts">蓝色心</annotation>
 		<annotation cp="💜">紫色 | 紫色心</annotation>
 		<annotation cp="💜" type="tts">紫色心</annotation>
 		<annotation cp="🖤">邪恶 | 黑色 | 黑色心</annotation>
 		<annotation cp="🖤" type="tts">黑色心</annotation>
-		<annotation cp="💝">情人 | 有蝴蝶结嘅心 | 蝴蝶结</annotation>
-		<annotation cp="💝" type="tts">有蝴蝶结嘅心</annotation>
-		<annotation cp="💞">旋转 | 旋转嘅心</annotation>
-		<annotation cp="💞" type="tts">旋转嘅心</annotation>
 		<annotation cp="💟">心 | 心形装饰</annotation>
 		<annotation cp="💟" type="tts">心形装饰</annotation>
-		<annotation cp="❣">感叹嘅 | 标点符号 | 沉重嘅感叹嘅 | 符号</annotation>
-		<annotation cp="❣" type="tts">沉重嘅感叹嘅</annotation>
-		<annotation cp="💌">信 | 寄信 | 心 | 情信 | 爱情</annotation>
-		<annotation cp="💌" type="tts">情信</annotation>
 		<annotation cp="💤">搞笑 | 训觉</annotation>
 		<annotation cp="💤" type="tts">训觉</annotation>
 		<annotation cp="💢">发癫 | 嬲 | 嬲嘅标志 | 搞笑</annotation>
@@ -2482,22 +2482,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🈺" type="tts">日本“营”按钮</annotation>
 		<annotation cp="🈵">冇位 | 日本 | 日本“满”按钮 | 满</annotation>
 		<annotation cp="🈵" type="tts">日本“满”按钮</annotation>
-		<annotation cp="▪">几何 | 正方形 | 细黑色正方形</annotation>
-		<annotation cp="▪" type="tts">细黑色正方形</annotation>
-		<annotation cp="▫">几何 | 正方形 | 细白色正方形</annotation>
-		<annotation cp="▫" type="tts">细白色正方形</annotation>
-		<annotation cp="◻">中白色正方形 | 几何 | 正方形</annotation>
-		<annotation cp="◻" type="tts">中白色正方形</annotation>
+		<annotation cp="🔴">几何 | 圆形 | 红色 | 红色圆形</annotation>
+		<annotation cp="🔴" type="tts">红色圆形</annotation>
+		<annotation cp="🔵">几何 | 圆形 | 蓝色 | 蓝色圆形</annotation>
+		<annotation cp="🔵" type="tts">蓝色圆形</annotation>
+		<annotation cp="⚪">几何 | 圆形 | 白色圆形</annotation>
+		<annotation cp="⚪" type="tts">白色圆形</annotation>
+		<annotation cp="⚫">几何 | 圆形 | 黑色圆形</annotation>
+		<annotation cp="⚫" type="tts">黑色圆形</annotation>
+		<annotation cp="⬜">几何 | 大白色正方形 | 正方形</annotation>
+		<annotation cp="⬜" type="tts">大白色正方形</annotation>
+		<annotation cp="⬛">几何 | 大黑色正方形 | 正方形</annotation>
+		<annotation cp="⬛" type="tts">大黑色正方形</annotation>
 		<annotation cp="◼">中黑色正方形 | 几何 | 正方形</annotation>
 		<annotation cp="◼" type="tts">中黑色正方形</annotation>
+		<annotation cp="◻">中白色正方形 | 几何 | 正方形</annotation>
+		<annotation cp="◻" type="tts">中白色正方形</annotation>
 		<annotation cp="◽">中细白色正方形 | 几何 | 正方形</annotation>
 		<annotation cp="◽" type="tts">中细白色正方形</annotation>
 		<annotation cp="◾">中细黑色正方形 | 几何 | 正方形</annotation>
 		<annotation cp="◾" type="tts">中细黑色正方形</annotation>
-		<annotation cp="⬛">几何 | 大黑色正方形 | 正方形</annotation>
-		<annotation cp="⬛" type="tts">大黑色正方形</annotation>
-		<annotation cp="⬜">几何 | 大白色正方形 | 正方形</annotation>
-		<annotation cp="⬜" type="tts">大白色正方形</annotation>
+		<annotation cp="▫">几何 | 正方形 | 细白色正方形</annotation>
+		<annotation cp="▫" type="tts">细白色正方形</annotation>
+		<annotation cp="▪">几何 | 正方形 | 细黑色正方形</annotation>
+		<annotation cp="▪" type="tts">细黑色正方形</annotation>
 		<annotation cp="🔶">几何 | 大橙色菱形 | 橙色 | 菱形</annotation>
 		<annotation cp="🔶" type="tts">大橙色菱形</annotation>
 		<annotation cp="🔷">几何 | 大蓝色菱形 | 菱形 | 蓝色</annotation>
@@ -2518,14 +2526,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔲" type="tts">黑色正方按钮</annotation>
 		<annotation cp="🔳">几何 | 外框 | 按钮 | 正方形 | 白色方形按钮</annotation>
 		<annotation cp="🔳" type="tts">白色方形按钮</annotation>
-		<annotation cp="⚪">几何 | 圆形 | 白色圆形</annotation>
-		<annotation cp="⚪" type="tts">白色圆形</annotation>
-		<annotation cp="⚫">几何 | 圆形 | 黑色圆形</annotation>
-		<annotation cp="⚫" type="tts">黑色圆形</annotation>
-		<annotation cp="🔴">几何 | 圆形 | 红色 | 红色圆形</annotation>
-		<annotation cp="🔴" type="tts">红色圆形</annotation>
-		<annotation cp="🔵">几何 | 圆形 | 蓝色 | 蓝色圆形</annotation>
-		<annotation cp="🔵" type="tts">蓝色圆形</annotation>
 		<annotation cp="🏁">方格旗 | 格子 | 赛跑</annotation>
 		<annotation cp="🏁" type="tts">方格旗</annotation>
 		<annotation cp="🚩">三角旗 | 岗位</annotation>

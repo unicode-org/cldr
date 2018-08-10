@@ -134,6 +134,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dar">達爾格瓦文</language>
 			<language type="dav">台塔文</language>
 			<language type="de">德文</language>
+			<language type="de_AT">德文 (奧地利)</language>
 			<language type="de_CH">高地德文（瑞士）</language>
 			<language type="del">德拉瓦文</language>
 			<language type="den">斯拉夫</language>
@@ -159,9 +160,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="el">希臘文</language>
 			<language type="elx">埃蘭文</language>
 			<language type="en">英文</language>
+			<language type="en_AU">英文 (澳洲)</language>
+			<language type="en_CA">英文 (加拿大)</language>
+			<language type="en_GB">英文 (英國)</language>
+			<language type="en_GB" alt="short">英文 (英國)</language>
+			<language type="en_US">英文 (美國)</language>
+			<language type="en_US" alt="short">英文 (美國)</language>
 			<language type="enm">中古英文</language>
 			<language type="eo">世界文</language>
 			<language type="es">西班牙文</language>
+			<language type="es_419">西班牙文 (拉丁美洲)</language>
+			<language type="es_ES">西班牙文 (西班牙)</language>
+			<language type="es_MX">西班牙文 (墨西哥)</language>
 			<language type="esu">中尤皮克文</language>
 			<language type="et">愛沙尼亞文</language>
 			<language type="eu">巴斯克文</language>
@@ -178,6 +188,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fo">法羅文</language>
 			<language type="fon">豐文</language>
 			<language type="fr">法文</language>
+			<language type="fr_CA">法文 (加拿大)</language>
+			<language type="fr_CH">法文 (瑞士)</language>
 			<language type="frc">卡真法文</language>
 			<language type="frm">中古法文</language>
 			<language type="fro">古法文</language>
@@ -444,6 +456,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pro">古普羅旺斯文</language>
 			<language type="ps">普什圖文</language>
 			<language type="pt">葡萄牙文</language>
+			<language type="pt_BR">葡萄牙文 (巴西)</language>
+			<language type="pt_PT">葡萄牙文 (葡萄牙)</language>
 			<language type="qu">蓋楚瓦文</language>
 			<language type="quc">基切文</language>
 			<language type="qug">欽博拉索海蘭蓋丘亞文</language>
@@ -820,6 +834,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="151">東歐</territory>
 			<territory type="154">北歐</territory>
 			<territory type="155">西歐</territory>
+			<territory type="202">撒哈拉以南非洲</territory>
 			<territory type="419">拉丁美洲</territory>
 			<territory type="AC">阿森松島</territory>
 			<territory type="AD">安道爾</territory>
@@ -868,6 +883,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CG" alt="variant">剛果共和國</territory>
 			<territory type="CH">瑞士</territory>
 			<territory type="CI">象牙海岸</territory>
+			<territory type="CI" alt="variant">象牙海岸</territory>
 			<territory type="CK">庫克群島</territory>
 			<territory type="CL">智利</territory>
 			<territory type="CM">喀麥隆</territory>
@@ -1060,6 +1076,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TJ">塔吉克</territory>
 			<territory type="TK">托克勞群島</territory>
 			<territory type="TL">東帝汶</territory>
+			<territory type="TL" alt="variant">東帝汶</territory>
 			<territory type="TM">土庫曼</territory>
 			<territory type="TN">突尼西亞</territory>
 			<territory type="TO">東加</territory>
@@ -1093,6 +1110,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ZW">辛巴威</territory>
 			<territory type="ZZ">未知區域</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">英國</subdivision>
+			<subdivision type="gbsct">蘇格蘭</subdivision>
+			<subdivision type="gbwls">gbwls</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901">傳統德語拼字學</variant>
 			<variant type="1994" draft="contributed">標準雷西亞拼字</variant>
@@ -8096,14 +8118,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">VEB</symbol>
 			</currency>
 			<currency type="VEF">
-				<displayName>委內瑞拉玻利瓦 (2008–2018)</displayName>
-				<displayName count="other">委內瑞拉玻利瓦 (2008–2018)</displayName>
+				<displayName>委內瑞拉玻利瓦 (VEF)</displayName>
+				<displayName count="other">委內瑞拉玻利瓦 (VEF)</displayName>
 				<symbol>VEF</symbol>
 				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="VES">
 				<displayName>委內瑞拉玻利瓦</displayName>
 				<displayName count="other">委內瑞拉玻利瓦</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>越南盾</displayName>
@@ -8311,7 +8334,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -8409,6 +8434,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>百萬分率</displayName>
 				<unitPattern count="other">{0} 百萬分率</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>‰</displayName>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>公升/公里</displayName>
 				<unitPattern count="other">{0} 公升/公里</unitPattern>
@@ -8424,6 +8457,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>英里/英制加侖</displayName>
 				<unitPattern count="other">{0} 英里/英制加侖</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -8753,6 +8790,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>毫巴</displayName>
 				<unitPattern count="other">{0} 毫巴</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>公里/小時</displayName>
 				<unitPattern count="other">每小時 {0} 公里</unitPattern>
@@ -8891,6 +8932,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 茶匙</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>方向</displayName>
 				<coordinateUnitPattern type="east">東經{0}</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">北緯{0}</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">南緯{0}</coordinateUnitPattern>
@@ -8986,6 +9028,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>百萬分率</displayName>
 				<unitPattern count="other">{0} 百萬分率</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>‰</displayName>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>公升/公里</displayName>
 				<unitPattern count="other">{0} 公升/公里</unitPattern>
@@ -9001,6 +9051,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>英里/英制加侖</displayName>
 				<unitPattern count="other">{0} 英里/英制加侖</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -9330,6 +9384,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>毫巴</displayName>
 				<unitPattern count="other">{0} 毫巴</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>公里/小時</displayName>
 				<unitPattern count="other">每小時{0}公里</unitPattern>
@@ -9468,6 +9526,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 茶匙</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>方向</displayName>
 				<coordinateUnitPattern type="east">東經{0}</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">北緯{0}</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">南緯{0}</coordinateUnitPattern>
@@ -9525,6 +9584,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="concentr-karat">
 				<unitPattern count="other" draft="contributed">{0}kt</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<unitPattern count="other" draft="contributed">{0}L/km</unitPattern>
@@ -9868,6 +9931,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="contributed">{0}tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>方向</displayName>
 				<coordinateUnitPattern type="east">東經{0}</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">北緯{0}</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">南緯{0}</coordinateUnitPattern>
@@ -10026,4 +10090,74 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="western_asian_scripts">西亞字體</characterLabel>
 		<characterLabel type="whitespace">空白</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">斜體</axisName>
+		<axisName type="opsz">視覺尺寸</axisName>
+		<axisName type="slnt">斜體</axisName>
+		<axisName type="wdth">字寬</axisName>
+		<axisName type="wght">粗幼</axisName>
+		<styleName type="ital" subtype="1">草書體</styleName>
+		<styleName type="opsz" subtype="8">標題</styleName>
+		<styleName type="opsz" subtype="12">內文</styleName>
+		<styleName type="opsz" subtype="18">標題</styleName>
+		<styleName type="opsz" subtype="72">顯示</styleName>
+		<styleName type="opsz" subtype="144">海報</styleName>
+		<styleName type="slnt" subtype="-12">左斜體</styleName>
+		<styleName type="slnt" subtype="0">直體</styleName>
+		<styleName type="slnt" subtype="12">斜體</styleName>
+		<styleName type="slnt" subtype="24">特斜體</styleName>
+		<styleName type="wdth" subtype="50">極平長體</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">極壓縮體</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">極幼體</styleName>
+		<styleName type="wdth" subtype="62.5">極平長體</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">特壓縮體</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">特幼體</styleName>
+		<styleName type="wdth" subtype="75">平長體</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">壓縮體</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">壓縮體</styleName>
+		<styleName type="wdth" subtype="87.5">半平長體</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">半壓縮體</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">半窄體</styleName>
+		<styleName type="wdth" subtype="100">正常</styleName>
+		<styleName type="wdth" subtype="112.5">半拉寛體</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">半平長體</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">半寛體</styleName>
+		<styleName type="wdth" subtype="125">拉寛體</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">平長體</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">寬體</styleName>
+		<styleName type="wdth" subtype="150">特拉寛體</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">特平長體</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">特寛體</styleName>
+		<styleName type="wdth" subtype="200">極拉寛體</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">極平長體</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">極寬體</styleName>
+		<styleName type="wght" subtype="100">淡體</styleName>
+		<styleName type="wght" subtype="200">特細</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">極細</styleName>
+		<styleName type="wght" subtype="300">細體</styleName>
+		<styleName type="wght" subtype="350">次細</styleName>
+		<styleName type="wght" subtype="380">標準</styleName>
+		<styleName type="wght" subtype="400">標準</styleName>
+		<styleName type="wght" subtype="500">適中</styleName>
+		<styleName type="wght" subtype="600">次粗</styleName>
+		<styleName type="wght" subtype="600" alt="demi">次粗</styleName>
+		<styleName type="wght" subtype="700">粗體</styleName>
+		<styleName type="wght" subtype="800">特粗</styleName>
+		<styleName type="wght" subtype="900">濃體</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">濃體</styleName>
+		<styleName type="wght" subtype="950">特濃</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">極黑</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">極濃</styleName>
+		<featureName type="afrc">垂直分數</featureName>
+		<featureName type="cpsp">大階空隔</featureName>
+		<featureName type="dlig">可選連字</featureName>
+		<featureName type="frac">對角線分數</featureName>
+		<featureName type="lnum">齊線數字</featureName>
+		<featureName type="onum">舊式數字</featureName>
+		<featureName type="ordn">序數</featureName>
+		<featureName type="pnum">比例數字</featureName>
+		<featureName type="smcp">細楷</featureName>
+		<featureName type="tnum">表格編號</featureName>
+		<featureName type="zero">有斜線嘅零</featureName>
+	</typographicNames>
 </ldml>

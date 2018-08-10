@@ -12,6 +12,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<script type="Hant"/>
 		<territory type="MO"/>
 	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<dateFormats>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="contributed">d/M/y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Md" draft="contributed">d/M</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="contributed">dd/MM</dateFormatItem>
+						<dateFormatItem id="yM" draft="contributed">M/y</dateFormatItem>
+						<dateFormatItem id="yMd" draft="contributed">d/M/y</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
 	<numbers>
 		<currencies>
 			<currency type="MOP">

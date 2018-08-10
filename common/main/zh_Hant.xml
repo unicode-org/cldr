@@ -138,6 +138,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">達爾格瓦文</language>
 			<language type="dav">台塔文</language>
 			<language type="de">德文</language>
+			<language type="de_AT">德文（奧地利）</language>
 			<language type="de_CH">高地德文（瑞士）</language>
 			<language type="del">德拉瓦文</language>
 			<language type="den">斯拉夫</language>
@@ -163,9 +164,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">希臘文</language>
 			<language type="elx">埃蘭文</language>
 			<language type="en">英文</language>
+			<language type="en_AU">英文（澳洲）</language>
+			<language type="en_CA">英文（加拿大）</language>
+			<language type="en_GB">英文（英國）</language>
+			<language type="en_GB" alt="short">英文（英國）</language>
+			<language type="en_US">英文（美國）</language>
+			<language type="en_US" alt="short">英文（美國）</language>
 			<language type="enm">中古英文</language>
 			<language type="eo">世界文</language>
 			<language type="es">西班牙文</language>
+			<language type="es_419">西班牙文（拉丁美洲）</language>
+			<language type="es_ES">西班牙文（西班牙）</language>
+			<language type="es_MX">西班牙文（墨西哥）</language>
 			<language type="esu">中尤皮克文</language>
 			<language type="et">愛沙尼亞文</language>
 			<language type="eu">巴斯克文</language>
@@ -182,6 +192,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">法羅文</language>
 			<language type="fon">豐文</language>
 			<language type="fr">法文</language>
+			<language type="fr_CA">法文（加拿大）</language>
+			<language type="fr_CH">法文（瑞士）</language>
 			<language type="frc">卡真法文</language>
 			<language type="frm">中古法文</language>
 			<language type="fro">古法文</language>
@@ -449,6 +461,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="pro">古普羅旺斯文</language>
 			<language type="ps">普什圖文</language>
 			<language type="pt">葡萄牙文</language>
+			<language type="pt_BR">葡萄牙文（巴西）</language>
+			<language type="pt_PT">葡萄牙文（葡萄牙）</language>
 			<language type="qu">蓋楚瓦文</language>
 			<language type="quc">基切文</language>
 			<language type="qug">欽博拉索海蘭蓋丘亞文</language>
@@ -839,7 +853,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">東歐</territory>
 			<territory type="154">北歐</territory>
 			<territory type="155">西歐</territory>
-			<territory type="202" draft="contributed">撒哈拉撒沙漠以南非洲</territory>
+			<territory type="202">撒哈拉撒沙漠以南非洲</territory>
 			<territory type="419">拉丁美洲</territory>
 			<territory type="AC">阿森松島</territory>
 			<territory type="AD">安道爾</territory>
@@ -888,6 +902,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG" alt="variant">剛果共和國</territory>
 			<territory type="CH">瑞士</territory>
 			<territory type="CI">象牙海岸</territory>
+			<territory type="CI" alt="variant">象牙海岸</territory>
 			<territory type="CK">庫克群島</territory>
 			<territory type="CL">智利</territory>
 			<territory type="CM">喀麥隆</territory>
@@ -1080,6 +1095,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">塔吉克</territory>
 			<territory type="TK">托克勞群島</territory>
 			<territory type="TL">東帝汶</territory>
+			<territory type="TL" alt="variant">東帝汶</territory>
 			<territory type="TM">土庫曼</territory>
 			<territory type="TN">突尼西亞</territory>
 			<territory type="TO">東加</territory>
@@ -1177,7 +1193,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="ROZAJ" draft="contributed">雷西亞方言</variant>
 			<variant type="RUMGR" draft="contributed">羅曼什文</variant>
 			<variant type="SAAHO" draft="contributed">薩霍文</variant>
-			<variant type="SCOTLAND" draft="contributed">英文（蘇格蘭）</variant>
+			<variant type="SCOTLAND">蘇格蘭標準英文</variant>
 			<variant type="SCOUSE" draft="contributed">利物浦方言</variant>
 			<variant type="SOLBA" draft="contributed">雷西亞史托維薩方言</variant>
 			<variant type="SOTAV" draft="contributed">卡布佛得鲁背風群島方言</variant>
@@ -1270,8 +1286,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colStrength" type="quaternary" draft="contributed">排序重音/大小寫/全半形/假名</type>
 			<type key="colStrength" type="secondary" draft="contributed">排序重音</type>
 			<type key="colStrength" type="tertiary" draft="contributed">排序重音/大小寫/全半形</type>
-			<type key="d0" type="fwidth" draft="contributed">全形</type>
-			<type key="d0" type="hwidth" draft="contributed">半形</type>
+			<type key="d0" type="fwidth">全形</type>
+			<type key="d0" type="hwidth">半形</type>
 			<type key="d0" type="npinyin" draft="contributed">數字</type>
 			<type key="hc" type="h11">12 小時制 (0–11)</type>
 			<type key="hc" type="h12">12 小時制 (1–12)</type>
@@ -1280,8 +1296,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="lb" type="loose">寬鬆換行樣式</type>
 			<type key="lb" type="normal">一般換行樣式</type>
 			<type key="lb" type="strict">強制換行樣式</type>
-			<type key="m0" type="bgn" draft="contributed">美國地名委員會</type>
-			<type key="m0" type="ungegn" draft="contributed">聯合國地名專家組</type>
+			<type key="m0" type="bgn">美國地名委員會</type>
+			<type key="m0" type="ungegn">聯合國地名專家組</type>
 			<type key="ms" type="metric">公制</type>
 			<type key="ms" type="uksystem">英制度量單位系統</type>
 			<type key="ms" type="ussystem">美制度量單位系統</type>
@@ -4587,6 +4603,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="3">第3季</quarter>
+							<quarter type="4">第4季</quarter>
+						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1</quarter>
 							<quarter type="2">2</quarter>
@@ -4806,7 +4826,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMMMM">y年M月</dateFormatItem>
 						<dateFormatItem id="yQQQ">y年QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y年QQQQ</dateFormatItem>
-						<dateFormatItem id="yw" count="other">Y年的第w週</dateFormatItem>
+						<dateFormatItem id="yw" count="other">y年的第w週</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -12326,6 +12346,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="CNH">
 				<displayName>人民幣（離岸）</displayName>
+				<displayName count="other">人民幣（離岸）</displayName>
 			</currency>
 			<currency type="CNX">
 				<symbol draft="contributed">CNX</symbol>
@@ -13666,7 +13687,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range" draft="contributed">{0}-{1}</pattern>
 		</miscPatterns>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
 		<miscPatterns numberSystem="lepc">
@@ -13850,7 +13873,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-part-per-million">
 				<displayName>百萬分率</displayName>
-				<unitPattern count="other" draft="contributed">{0} 百萬分率</unitPattern>
+				<unitPattern count="other">{0} 百萬分率</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>百分比</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>千分比</displayName>
+				<unitPattern count="other">{0}‰</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>每公里公升</displayName>
@@ -13867,6 +13898,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>每英制加侖英里</displayName>
 				<unitPattern count="other">每英制加侖 {0} 英里</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -14196,6 +14231,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>毫巴</displayName>
 				<unitPattern count="other">{0} 毫巴</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>氣壓</displayName>
+				<unitPattern count="other">{0} 大氣壓</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>每小時公里</displayName>
 				<unitPattern count="other">每小時 {0} 公里</unitPattern>
@@ -14334,6 +14373,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} 茶匙</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>基本方向</displayName>
 				<coordinateUnitPattern type="east">東經{0}</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">北緯{0}</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">南緯{0}</coordinateUnitPattern>
@@ -14426,8 +14466,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} 毫莫耳/公升</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-million">
-				<displayName draft="contributed">百萬分率</displayName>
-				<unitPattern count="other" draft="contributed">{0} 百萬分率</unitPattern>
+				<displayName>百萬分率</displayName>
+				<unitPattern count="other">{0} 百萬分率</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>百分比</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>千分比</displayName>
+				<unitPattern count="other">{0}‰</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>公升/公里</displayName>
@@ -14444,6 +14492,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>英里/英制加侖</displayName>
 				<unitPattern count="other">{0} 英里/英制加侖</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -14773,6 +14825,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>毫巴</displayName>
 				<unitPattern count="other">{0} 毫巴</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>公里/小時</displayName>
 				<unitPattern count="other">{0} 公里/小時</unitPattern>
@@ -14911,6 +14967,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} 茶匙</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>方向</displayName>
 				<coordinateUnitPattern type="east">東經{0}</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">北緯{0}</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">南緯{0}</coordinateUnitPattern>
@@ -15005,6 +15062,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-part-per-million">
 				<displayName draft="contributed">百萬分率</displayName>
 				<unitPattern count="other" draft="contributed">{0}ppm</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>百分比</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName draft="contributed">公升/公里</displayName>
@@ -15487,6 +15548,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0}tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>方向</displayName>
 				<coordinateUnitPattern type="east">東經{0}</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">北緯{0}</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">南緯{0}</coordinateUnitPattern>
@@ -15652,6 +15714,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<axisName type="wdth">寬度</axisName>
 		<axisName type="wght">線段寬度</axisName>
 		<styleName type="ital" subtype="1">草書體</styleName>
+		<styleName type="opsz" subtype="8">字幕體</styleName>
+		<styleName type="opsz" subtype="12">文本體</styleName>
 		<styleName type="opsz" subtype="18">燙印體</styleName>
 		<styleName type="opsz" subtype="72">顯示體</styleName>
 		<styleName type="opsz" subtype="144">海報體</styleName>
@@ -15661,6 +15725,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="slnt" subtype="24">加斜體</styleName>
 		<styleName type="wdth" subtype="50">極窄體</styleName>
 		<styleName type="wdth" subtype="50" alt="compressed">極纖細體</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">極瘦體</styleName>
 		<styleName type="wdth" subtype="62.5">特窄體</styleName>
 		<styleName type="wdth" subtype="62.5" alt="compressed">特纖細體</styleName>
 		<styleName type="wdth" subtype="62.5" alt="narrow">特瘦體</styleName>
@@ -15668,9 +15733,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="wdth" subtype="75" alt="compressed">纖細體</styleName>
 		<styleName type="wdth" subtype="75" alt="narrow">瘦體</styleName>
 		<styleName type="wdth" subtype="87.5">半窄體</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">半纖細體</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">半瘦體</styleName>
 		<styleName type="wdth" subtype="100">一般體</styleName>
 		<styleName type="wdth" subtype="112.5">半長體</styleName>
 		<styleName type="wdth" subtype="112.5" alt="extended">半寬體</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">半寬體</styleName>
 		<styleName type="wdth" subtype="125">長體</styleName>
 		<styleName type="wdth" subtype="125" alt="extended">寬體</styleName>
 		<styleName type="wdth" subtype="125" alt="wide">寬體</styleName>
@@ -15679,6 +15747,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="wdth" subtype="150" alt="wide">加寬體</styleName>
 		<styleName type="wdth" subtype="200">極長體</styleName>
 		<styleName type="wdth" subtype="200" alt="extended">極寬體</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">極寬體</styleName>
 		<styleName type="wght" subtype="100">細瘦體</styleName>
 		<styleName type="wght" subtype="200">特細體</styleName>
 		<styleName type="wght" subtype="200" alt="ultra">極細體</styleName>

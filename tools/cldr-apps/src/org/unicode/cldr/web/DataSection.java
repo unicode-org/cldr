@@ -97,34 +97,77 @@ public class DataSection implements JSONString {
         public class CandidateItem implements Comparable<CandidateItem>, JSONString, CandidateInfo {
             /*
              * altProposed is proposed part of the name (or NULL for nondraft)
+             * 
+             * TODO: there appears to be confusion between this final (constant) string, and
+             * a local variable also named "altProposed" declared in populateFrom.
+             * 
+             * In versions of this code prior to https://unicode.org/cldr/trac/changeset/6566
+             * this string was not declared as final; it was initialized to null and sometimes
+             * later set to different values.
              */
             public static final String altProposed = "n/a";
+
+            /*
+             * value is the actual value of this CandidateItem, that is, the string for which
+             * a user might vote.
+             */
+            final public String value;
+
+            /*
+             * isBailey means this CandidateItem is the fallback value.
+             *
+             * TODO: what are the distinctions between isBailey, isFallback, and isParentFallback?
+             */
+            public boolean isBailey = false;
+
+            /*
+             * isFallback means this CandidateItem is from the parent locale - don't consider it a win (?).
+             */
+            boolean isFallback = false;
+
+            /*
+             * isParentFallback is true if this CandidateItem is not actually part of this locale, but is just
+             * the parent fallback (inheritedValue)
+             */
+            boolean isParentFallback = false;
+
+            /*
+             * isOldValue means the value of this CandidateItem is equal to oldValue, which is a member of DataRow.
+             * 
+             * isOldValue is used on both server and client. On the client, it can result in addIcon(choiceField,"i-star"),
+             * and that is its only usage on the client.
+             */
+            public boolean isOldValue = false;
+
             boolean checkedVotes = false;
             public String example = "";
             public Vector<ExampleEntry> examples = null;
             public int id = -1; // id of CLDR_DATA table row
+
+            /*
+             * inheritFrom is the locale from which this CandidateItem is inherited.
+             *
+             * null except for inheritedValue = the item with isFallback true?
+             * That is, inheritedValue.inheritFrom = true, and item.inheritFrom = false unless item = inheritedValue?
+             *
+             * CandidateItem.inheritFrom on the server corresponds to theRow.inheritedLocale on the client.
+             *
+             * TODO: the name "inheritFrom" doesn't occur on client; the name "inheritedLocale" doesn't occur on server (except when creating json).
+             * They could just as well have the same name, to reduce confusion. Also, on the client, this locale is a per-row thing;
+             * but on the server, it's a per-item thing (since inheritedValue is a CandidateItem).
+             * Since there's only one such locale per row, it shouldn't be treated as a per-item thing.
+             * 
+             * inheritFrom is accessed from InterestSort.java for Partition.Membership("Missing"), otherwise it could be private.
+             */
             CLDRLocale inheritFrom = null;
-            /*
-             * isFallback means item is from the parent locale - don't consider it a win.
-             */
-            boolean isFallback = false;
-            /*
-             * isParentFallback is true if it is not actually part of this locale, but is just
-             * the parent fallback (inheritedValue )
-             */
-            boolean isParentFallback = false;
-            boolean itemErrors = false;
+
             String pathWhereFound = null;
             public List<CheckStatus> tests = null;
-            final public String value; // actual value
 
             public Set<UserRegistry.User> votes = null; // Set of Users who voted on this item
 
             private String originalValueHash = null; // see getOriginalValueHash
             private String adjustedValueHash = null; // see getAdjustedValueHash
-
-            public boolean isOldValue = false;
-            public boolean isBailey = false; // is this the fallback value?
 
             /**
              * Get the value of this CandidateItem, processed for display.
@@ -132,6 +175,9 @@ public class DataSection implements JSONString {
              * @return the processed value
              * 
              * Called only by CandidateItem.toJSONString
+             * 
+             * This is what the client receives by the name "value".
+             * What the server calls "value" goes by the name "rawValue" on the client.
              */
             private String getProcessedValue() {
                 if (value == null) {
@@ -286,7 +332,15 @@ public class DataSection implements JSONString {
                                 inheritFrom))
                             + " and inherited here.'";
                     }
-                } else if (altProposed != null) {
+                } else if (CandidateItem.altProposed != null) {
+                    /*
+                     * TODO: CandidateItem.altProposed is declared as "final", with the value "n/a". It is
+                     * never null. The "if" is superfluous, and the "else" block below will never be
+                     * executed.
+                     * 
+                     * There may be confusion between the final (constant) string CandidateItem.altProposed
+                     * and the local variable declared in populateFrom?
+                     */
                     pClass = "class='loser' title='proposed, losing item'";
                 } else {
                     pClass = "class='loser'";
@@ -362,17 +416,6 @@ public class DataSection implements JSONString {
                         parentRow.hasErrors = true;
                     if (warningCount > 0) /* row */
                         parentRow.hasWarnings = true;
-
-                    if (errorCount > 0) /* row */ {
-                        itemErrors = true;
-                        anyItemHasErrors = true;
-                        parentRow.anyItemHasErrors = true;
-                    }
-                    if (warningCount > 0) /* row */
-                        anyItemHasWarnings = true;
-                    // propagate to parent
-                    if (warningCount > 0) /* row */
-                        parentRow.anyItemHasWarnings = true;
                 }
                 return weHaveTests;
             }
@@ -382,7 +425,14 @@ public class DataSection implements JSONString {
              */
             @Override
             public String toString() {
-                return "{Item v='" + value + "', altProposed='" + altProposed + "', inheritFrom='" + inheritFrom + "'"
+                /*
+                 * TODO: CandidateItem.altProposed is declared as "final", with the value "n/a".
+                 * What is the point of including it in the returned string here?
+                 * 
+                 * There may be confusion between the final (constant) string CandidateItem.altProposed
+                 * and the local variable declared in populateFrom?
+                 */
+                return "{Item v='" + value + "', altProposed='" + CandidateItem.altProposed + "', inheritFrom='" + inheritFrom + "'"
                     + (isWinner() ? ",winner" : "") + (isFallback ? ",isFallback" : "")
                     + (isParentFallback ? ",isParentFallback" : "") + "}";
             }
@@ -491,11 +541,7 @@ public class DataSection implements JSONString {
         public int allVoteType = 0; // bitmask of all voting types included
 
         public String altType = null; // alt type (NOT to be confused with -proposedn)
-        boolean anyItemHasErrors = false;
 
-        // do any items have warnings or errs?
-        boolean anyItemHasWarnings = false;
-        
         /*
          * confirmOnly: what kind of row is this? if true: don't accept new data,
          *  this row is something that might be confusing to input.
@@ -2416,6 +2462,12 @@ public class DataSection implements JSONString {
                 System.err.println("n04  " + (System.currentTimeMillis() - nextTime));
 
             String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
+
+            /*
+             * TODO: this local variable named "altProposed" shouldn't be confused with the
+             * constant string CandidateItem.altProposed ("n/a"). A different variable name
+             * should be used to avoid confusion. 
+             */
             String altProposed = typeAndProposed[1];
 
             // Now we are ready to add the data

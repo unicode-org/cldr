@@ -2846,8 +2846,21 @@ function appendExtraAttributes(container, theRow) {
 	}
 }
 
+/**
+ * Update one row using data received from server.
+ * 
+ * @param tr the table row
+ * @param theRow the data for the row
+ */
 function updateRow(tr, theRow) {
 	tr.theRow = theRow;
+
+	/*
+	 * For convenience, set up two hashes, for reverse mapping from value or rawValue to item.
+	 * 
+	 * At the same time, find the item with rawValue === INHERITANCE_MARKER and if found mark it with
+	 * "item.isVoteForBailey = true" and point to it with "tr.voteForBaileyItem = item".
+	 */	
 	tr.valueToItem = {}; // hash:  string value to item (which has a div)
 	tr.rawValueToItem = {}; // hash:  string value to item (which has a div)
 	for(var k in theRow.items) {
@@ -2865,6 +2878,17 @@ function updateRow(tr, theRow) {
 		}
 	}
 
+	/*
+	 * If there's a "soft" item, move/copy votes from "soft" to "hard" item.
+	 * Report error "there is no Bailey Target item" if there's a "soft" item without a corresponding "hard" item.
+	 * TODO: don't move votes here! See https://unicode.org/cldr/trac/ticket/11299
+	 * The server should set up the data we need. Here on the client isn't the place for it.
+	 * Also, it should be normal to have "soft" item but no "hard" item. There should only be a "hard" item
+	 * if a user voted for it by entering the value manually.
+	 * Currently updateInheritedValue adds isBailey item that looks "hard" but contains essential inheritance info.
+	 * That inheritance info belongs in the "soft" item or, better, in the DataRow (theRow) instead of any CandidateItem (theRow.items).
+	 * A hard item for Bailey should be like any other non-inheritance item.
+	 */
 	if(tr.voteForBaileyItem) {
 		// Some people voted for Bailey. Move those votes over to the actual target.
 		if(!tr.baileyItem) {
@@ -2880,7 +2904,15 @@ function updateRow(tr, theRow) {
 		}
 	}
 
-	// update the vote info
+	/*
+	 * Update the vote info.
+	 * Set up the "vote div".
+	 * 
+	 * TODO: this "if" block, over 200 lines, should be moved to a subroutine that
+	 * in turn calls a bunch of subroutines!
+	 * Note that server, not client, is responsible for data and for voting method logic.
+	 * Any code here that changes the data itself should be moved to the server.
+	 */
 	if(theRow.voteResolver) {
 		var vr = theRow.voteResolver;
 		var div = tr.voteDiv = document.createElement("div");
@@ -3134,6 +3166,11 @@ function updateRow(tr, theRow) {
 		children[config.nocell].className= "d-no-vo-false";
 	}
 
+	/*
+	 * Assemble the "code cell".
+	 * 
+	 * TODO: subroutine.
+	 */
 	if(config.codecell) {
 		children[config.codecell].appendChild(createChunk('|>'));
 				removeAllChildNodes(children[config.codecell]);
@@ -3190,6 +3227,11 @@ function updateRow(tr, theRow) {
 			children[config.codecell].isSetup = true;
 		}
 	}
+	
+	/*
+	 * TODO: what is iebs? This appears to be useless code. tr.iebs is never defined.
+	 * Delete this block.
+	 */
 	if(tr.iebs) {
 		for(var qq in tr.iebs) {
 			stdebug("Destroying " + tr.iebs[qq]);
@@ -3199,6 +3241,11 @@ function updateRow(tr, theRow) {
 	}
 	tr.iebs=[];
 
+	/*
+	 * Set up the "comparison cell", a.k.a. the "English" column.
+	 * 
+	 * TODO: subroutine.
+	 */
 	if(!children[config.comparisoncell].isSetup) {
 		if(theRow.displayName) {
 			var hintPos = theRow.displayName.indexOf('[translation hint');
@@ -3249,6 +3296,12 @@ function updateRow(tr, theRow) {
 		listenToPop(null, tr, children[config.comparisoncell]);
 		children[config.comparisoncell].isSetup=true;
 	}
+	
+	/*
+	 * Set up the "proposed cell", a.k.a. the "Winning" column.
+	 *
+	 * TODO: subroutine.
+	 */
 	removeAllChildNodes(children[config.proposedcell]); // win
 	if(theRow.rowFlagged) {
 		var flagIcon = addIcon(children[config.proposedcell], "s-flag");
@@ -3261,6 +3314,8 @@ function updateRow(tr, theRow) {
 	tr.proposedcell = children[config.proposedcell];
 
 	/*
+	 * Still setting up the "proposed cell"...
+	 * 
 	 * TODO: fix bug in the following block.
 	 * See https://unicode.org/cldr/trac/ticket/11299#comment:10
 	 *
@@ -3275,6 +3330,9 @@ function updateRow(tr, theRow) {
 	 *
 	 * There seems to be no reason for theFallbackValue; might as well directly
 	 * assign theRow.winningVhash = k -- but that's a relatively minor issue.
+	 * 
+	 * Aside from having this bug, this block shouldn't exist since the server should
+	 * be responsible for making sure winningVhash and winningValue are never empty.
 	 */
 	if(theRow.items && theRow.winningVhash == "") {
 		// find the fallback value
@@ -3290,6 +3348,9 @@ function updateRow(tr, theRow) {
 			theRow.winningVhash = theFallbackValue;
 		}
 	}
+	/*
+	 * Still setting up the "proposed cell"...
+	 */
 	if(theRow.items&&theRow.winningVhash) {
 		addVitem(children[config.proposedcell],tr,theRow,theRow.items[theRow.winningVhash],cloneAnon(protoButton));
 	} else {
@@ -3297,9 +3358,23 @@ function updateRow(tr, theRow) {
 	}
 
 	listenToPop(null,tr,children[config.proposedcell], children[config.proposedcell].showFn);
+
+	/*
+	 * Set up the "err cell"
+	 * 
+	 * TODO: is this something that's normally hidden? Clarify.
+	 * 
+	 * "config.errcell" doesn't occur anywhere else so this may be dead code.
+	 */
 	if(config.errcell) {
 		listenToPop(null,tr,children[config.errcell], children[config.proposedcell].showFn);
 	}
+
+	/*
+	 * Set up the "other cell", a.k.a. the "Others" column.
+	 * 
+	 * TODO: subroutine
+	 */
 	var hadOtherItems  = false;
 	removeAllChildNodes(children[config.othercell]); // other
 	setLang(children[config.othercell]);
@@ -3404,7 +3479,9 @@ function updateRow(tr, theRow) {
 		};
 	}
 
-	//add the other vote info
+	/*
+	/* Add the other vote info -- that is, vote info for the "Others" column.
+	 */
 	for(k in theRow.items) {
 		if((k === theRow.winningVhash) // skip vote for winner
 			/*
@@ -3429,6 +3506,11 @@ function updateRow(tr, theRow) {
 		tr.myProposal=null; // not needed
 	}
 
+	/*
+	 * If the user can make changes, add "+" button for adding new candidate item.
+	 * 
+	 * Note the call to isDashboard(): this code is for Dashboard as well as the basic navigation interface.
+	 */
 	if(tr.canChange) {
 		if(isDashboard()) {
 			children[config.othercell].appendChild(document.createElement('hr'));
@@ -3440,6 +3522,13 @@ function updateRow(tr, theRow) {
 		}
 	}
 
+	/*
+	 * Set up the "no cell", a.k.a. the "A" column.
+	 * If the user can make changes, add an "abstain" button;
+	 * else, possibly add a ticket link, or else hide the column.
+	 * 
+	 * TODO: subroutine
+	 */
 	if(canModify) {
 		removeAllChildNodes(children[config.nocell]); // no opinion
 		var noOpinion = cloneAnon(protoButton);
@@ -3477,7 +3566,17 @@ function updateRow(tr, theRow) {
     		setDisplayed(children[config.nocell], false);
     	}
 	}
+	
+	/*
+	 * Do something related to coverage.
+	 * TODO: explain.
+	 */
 	tr.className='vother cov'+theRow.coverageValue;
+	
+	/*
+	 * Show the current ID.
+	 * TODO: explain.
+	 */
 	if(surveyCurrentId!== '' && surveyCurrentId === tr.id) {
 		window.showCurrentId(); // refresh again - to get the updated voting status.
 	}

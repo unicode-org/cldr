@@ -2967,64 +2967,9 @@ function updateRow(tr, theRow) {
 
 	/*
 	 * Assemble the "code cell", a.k.a. the "Code" column.
-	 * 
-	 * TODO: subroutine.
 	 */
 	if(config.codecell) {
-		children[config.codecell].appendChild(createChunk('|>'));
-				removeAllChildNodes(children[config.codecell]);
-				children[config.codecell].appendChild(createChunk('<|'));
-						removeAllChildNodes(children[config.codecell]);
-		var codeStr = theRow.code;
-		if(theRow.coverageValue==101 && !stdebug_enabled) {
-			codeStr = codeStr + " (optional)";
-		}
-		children[config.codecell].appendChild(createChunk(codeStr));
-		if(tr.theTable.json.canModify) { // pointless if can't modify.
-			children[config.codecell].className = "d-code";
-
-			if(!tr.forumDiv) {
-				tr.forumDiv = document.createElement("div");
-				tr.forumDiv.className = "forumDiv";
-			}
-
-			appendForumStuff(tr,theRow, tr.forumDiv);
-		}
-
-		// extra attributes
-		if(theRow.extraAttributes && Object.keys(theRow.extraAttributes).length>0) {
-			appendExtraAttributes(children[config.codecell], theRow);
-		}
-
-		if(stdebug_enabled) {
-			var anch = document.createElement("i");
-			anch.className="anch";
-			anch.id=theRow.xpid;
-			children[config.codecell].appendChild(anch);
-			anch.appendChild(document.createTextNode("#"));
-
-			var go = document.createElement("a");
-			go.className="anch-go";
-			go.appendChild(document.createTextNode("zoom"));
-			go.href=window.location.pathname + "?_="+surveyCurrentLocale+"&x=r_rxt&xp="+theRow.xpid;
-			children[config.codecell].appendChild(go);
-
-			var js = document.createElement("a");
-			js.className="anch-go";
-			js.appendChild(document.createTextNode("{JSON}"));
-			js.popParent=tr;
-			listenToPop(JSON.stringify(theRow),tr,js);
-			children[config.codecell].appendChild(js);
-			children[config.codecell].appendChild(createChunk(" c="+theRow.coverageValue));
-		}
-		if(!children[config.codecell].isSetup) {
-			var xpathStr = "";
-			if(stdebug_enabled) {
-				xpathStr = "XPath: " + theRow.xpath;
-			}
-			listenToPop(xpathStr, tr, children[config.codecell]);
-			children[config.codecell].isSetup = true;
-		}
+		updateRowCodeCell(tr, theRow, config, children);
 	}
 
 	/*
@@ -3536,6 +3481,66 @@ function updateRowVoteInfo(tr, theRow) {
 	if(stdebug_enabled) {
 		tr.voteDiv.appendChild(createChunk(vr.raw,"p","debugStuff"));
 	}	
+}
+
+/*
+ * Update the "Code" cell (column) of this row
+ * 
+ * @param tr the table row
+ * @param theRow the data from the server for this row
+ * @param config
+ * @param children
+ */
+function updateRowCodeCell(tr, theRow, config, children) {
+	'use strict';
+	children[config.codecell].appendChild(createChunk('|>'));
+	removeAllChildNodes(children[config.codecell]);
+	children[config.codecell].appendChild(createChunk('<|'));
+	removeAllChildNodes(children[config.codecell]);
+	var codeStr = theRow.code;
+	if (theRow.coverageValue == 101 && !stdebug_enabled) {
+		codeStr = codeStr + " (optional)";
+	}
+	children[config.codecell].appendChild(createChunk(codeStr));
+	if (tr.theTable.json.canModify) { // pointless if can't modify.
+		children[config.codecell].className = "d-code";
+		if (!tr.forumDiv) {
+			tr.forumDiv = document.createElement("div");
+			tr.forumDiv.className = "forumDiv";
+		}
+		appendForumStuff(tr, theRow, tr.forumDiv);
+	}
+	// extra attributes
+	if (theRow.extraAttributes && Object.keys(theRow.extraAttributes).length > 0) {
+		appendExtraAttributes(children[config.codecell], theRow);
+	}
+	if (stdebug_enabled) {
+		var anch = document.createElement("i");
+		anch.className = "anch";
+		anch.id = theRow.xpid;
+		children[config.codecell].appendChild(anch);
+		anch.appendChild(document.createTextNode("#"));
+		var go = document.createElement("a");
+		go.className = "anch-go";
+		go.appendChild(document.createTextNode("zoom"));
+		go.href = window.location.pathname + "?_=" + surveyCurrentLocale + "&x=r_rxt&xp=" + theRow.xpid;
+		children[config.codecell].appendChild(go);
+		var js = document.createElement("a");
+		js.className = "anch-go";
+		js.appendChild(document.createTextNode("{JSON}"));
+		js.popParent = tr;
+		listenToPop(JSON.stringify(theRow), tr, js);
+		children[config.codecell].appendChild(js);
+		children[config.codecell].appendChild(createChunk(" c=" + theRow.coverageValue));
+	}
+	if (!children[config.codecell].isSetup) {
+		var xpathStr = "";
+		if (stdebug_enabled) {
+			xpathStr = "XPath: " + theRow.xpath;
+		}
+		listenToPop(xpathStr, tr, children[config.codecell]);
+		children[config.codecell].isSetup = true;
+	}
 }
 
 /**

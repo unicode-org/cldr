@@ -3017,19 +3017,6 @@ function updateRow(tr, theRow) {
 			children[config.codecell].isSetup = true;
 		}
 	}
-	
-	/*
-	 * TODO: what is iebs? This appears to be useless code. tr.iebs is never defined.
-	 * Delete this block.
-	 */
-	if(tr.iebs) {
-		for(var qq in tr.iebs) {
-			stdebug("Destroying " + tr.iebs[qq]);
-			stdebug("Destroying ieb " + tr.iebs[qq].id);
-			tr.iebs[qq].destroy();
-		}
-	}
-	tr.iebs=[];
 
 	/*
 	 * Set up the "comparison cell", a.k.a. the "English" column.

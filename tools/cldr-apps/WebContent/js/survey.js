@@ -2851,6 +2851,12 @@ function appendExtraAttributes(container, theRow) {
  * 
  * @param tr the table row
  * @param theRow the data for the row
+ * 
+ * Cells (columns) in each row (basic viewing):
+ * Code    English    Abstain    A    Winning    Add    Others
+ * 
+ * Or, in Dashboard:
+ * Code    English    CLDR 33    Winning 34    Action
  */
 function updateRow(tr, theRow) {
 	tr.theRow = theRow;
@@ -2932,6 +2938,9 @@ function updateRow(tr, theRow) {
 
 	var children = getTagChildren(tr);
 
+	/*
+	 * config = surveyConfig has fields indicating which cells (columns) to display...  
+	 */
 	var config = surveyConfig;
 	var protoButton = dojo.byId('proto-button');
 	if(!canModify) {
@@ -3020,58 +3029,9 @@ function updateRow(tr, theRow) {
 
 	/*
 	 * Set up the "comparison cell", a.k.a. the "English" column.
-	 * 
-	 * TODO: subroutine.
 	 */
 	if(!children[config.comparisoncell].isSetup) {
-		if(theRow.displayName) {
-			var hintPos = theRow.displayName.indexOf('[translation hint');
-			var hasExample = false;
-
-			if(theRow.displayExample) {
-				hasExample = true;
-			}
-
-			if(hintPos != -1) {
-				theRow.displayExample = theRow.displayName.substr(hintPos, theRow.displayName.length) + (theRow.displayExample ? theRow.displayExample.replace(/\[translation hint.*?\]/g,"") : '');
-				theRow.displayName = theRow.displayName.substr(0, hintPos);
-			}
-
-			children[config.comparisoncell].appendChild(createChunk(theRow.displayName, 'span', 'subSpan'));
-			setLang(children[config.comparisoncell], surveyBaselineLocale);
-			if(theRow.displayExample) {
-				appendExample(children[config.comparisoncell], theRow.displayExample, surveyBaselineLocale);
-			}
-
-			if(hintPos != -1 || hasExample) {
-				var infos = document.createElement("div");
-				infos.className = 'infos-code';
-
-				if(hintPos != -1) {
-					var img = document.createElement("img");
-					img.src = 'hint.png';
-					img.alt = 'Translation hint';
-					infos.appendChild(img);
-				}
-
-				if(hasExample) {
-					var img = document.createElement("img");
-					img.src = 'example.png';
-					img.alt = 'Example';
-					infos.appendChild(img);
-				}
-
-				children[config.comparisoncell].appendChild(infos);
-			}
-		} else {
-			children[config.comparisoncell].appendChild(document.createTextNode(""));
-		}
-		/* The next line (listenToPop...) had been commented out, for unknown reasons.
-		 * Restored (uncommented) for http://unicode.org/cldr/trac/ticket/10573 so that
-		 * the right-side panel info changes when you click on the English column.
-		 */
-		listenToPop(null, tr, children[config.comparisoncell]);
-		children[config.comparisoncell].isSetup=true;
+		updateRowEnglishComparisonCell(tr, theRow, config, children);
 	}
 	
 	/*
@@ -3576,6 +3536,66 @@ function updateRowVoteInfo(tr, theRow) {
 	if(stdebug_enabled) {
 		tr.voteDiv.appendChild(createChunk(vr.raw,"p","debugStuff"));
 	}	
+}
+
+/**
+ * Update the "comparison cell", a.k.a. the "English" column, of this row
+ * 
+ * @param tr the table row
+ * @param theRow the data from the server for this row
+ * @param config
+ * @param children
+ */
+function updateRowEnglishComparisonCell(tr, theRow, config, children) {
+	'use strict';
+	if(theRow.displayName) {
+		var hintPos = theRow.displayName.indexOf('[translation hint');
+		var hasExample = false;
+
+		if(theRow.displayExample) {
+			hasExample = true;
+		}
+
+		if(hintPos != -1) {
+			theRow.displayExample = theRow.displayName.substr(hintPos, theRow.displayName.length) + (theRow.displayExample ? theRow.displayExample.replace(/\[translation hint.*?\]/g,"") : '');
+			theRow.displayName = theRow.displayName.substr(0, hintPos);
+		}
+
+		children[config.comparisoncell].appendChild(createChunk(theRow.displayName, 'span', 'subSpan'));
+		setLang(children[config.comparisoncell], surveyBaselineLocale);
+		if(theRow.displayExample) {
+			appendExample(children[config.comparisoncell], theRow.displayExample, surveyBaselineLocale);
+		}
+
+		if(hintPos != -1 || hasExample) {
+			var infos = document.createElement("div");
+			infos.className = 'infos-code';
+
+			if(hintPos != -1) {
+				var img = document.createElement("img");
+				img.src = 'hint.png';
+				img.alt = 'Translation hint';
+				infos.appendChild(img);
+			}
+
+			if(hasExample) {
+				var img = document.createElement("img");
+				img.src = 'example.png';
+				img.alt = 'Example';
+				infos.appendChild(img);
+			}
+
+			children[config.comparisoncell].appendChild(infos);
+		}
+	} else {
+		children[config.comparisoncell].appendChild(document.createTextNode(""));
+	}
+	/* The next line (listenToPop...) had been commented out, for unknown reasons.
+	 * Restored (uncommented) for http://unicode.org/cldr/trac/ticket/10573 so that
+	 * the right-side panel info changes when you click on the English column.
+	 */
+	listenToPop(null, tr, children[config.comparisoncell]);
+	children[config.comparisoncell].isSetup=true;
 }
 
 function findPartition(partitions,partitionList,curPartition,i) {

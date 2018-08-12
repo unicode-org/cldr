@@ -2919,10 +2919,14 @@ function updateRow(tr, theRow) {
 		tr.voteDiv = null;
 	}
 
-	var statusAction = tr.statusAction = parseStatusAction(theRow.statusAction);
-	var canModify = tr.canModify =  tr.theTable.json.canModify && statusAction.vote;
-    var ticketOnly = tr.ticketOnly = tr.theTable.json.canModify && statusAction.ticket;
-    tr.canChange = canModify && statusAction.change;
+	tr.statusAction = parseStatusAction(theRow.statusAction);
+	tr.canModify = (tr.theTable.json.canModify && tr.statusAction.vote);
+	tr.ticketOnly = (tr.theTable.json.canModify && tr.statusAction.ticket);
+	tr.canChange = (tr.canModify && tr.statusAction.change);
+
+    /*
+     * TODO: if theRow could be null or undefined here, shouldn't that have been checked far earlier??
+     */
     if(!theRow || !theRow.xpid) {
 		tr.innerHTML="<td><i>ERROR: missing row</i></td>";
 		return;
@@ -2943,7 +2947,7 @@ function updateRow(tr, theRow) {
 	 */
 	var config = surveyConfig;
 	var protoButton = dojo.byId('proto-button');
-	if(!canModify) {
+	if(!tr.canModify) {
 		protoButton = null; // no voting at all.
 	}
 
@@ -3211,7 +3215,7 @@ function updateRow(tr, theRow) {
 	 * 
 	 * TODO: subroutine
 	 */
-	if(canModify) {
+	if(tr.canModify) {
 		removeAllChildNodes(children[config.nocell]); // no opinion
 		var noOpinion = cloneAnon(protoButton);
 		var wrap;
@@ -3220,7 +3224,7 @@ function updateRow(tr, theRow) {
 		wrap = wrapRadio(noOpinion);
 		children[config.nocell].appendChild(wrap);
 		listenToPop(null, tr, children[config.nocell]);
-	}  else if(ticketOnly) { // ticket link
+	}  else if (tr.ticketOnly) { // ticket link
     	if(!tr.theTable.json.canModify) { // only if hidden in the header
     		setDisplayed(children[config.nocell], false);
     	}

@@ -2946,16 +2946,16 @@ function updateRow(tr, theRow) {
 	 * config = surveyConfig has fields indicating which cells (columns) to display...  
 	 */
 	var config = surveyConfig;
-	var protoButton = dojo.byId('proto-button');
-	if(!tr.canModify) {
-		protoButton = null; // no voting at all.
+
+	var protoButton = null; // no voting at all, unless tr.canModify
+	if (tr.canModify) {
+		protoButton = dojo.byId('proto-button');
 	}
 
 	children[config.statuscell].className = "d-dr-"+theRow.confirmStatus + " d-dr-status";
 
 	if(!children[config.statuscell].isSetup) {
 		listenToPop("", tr, children[config.statuscell]);
-
 		children[config.statuscell].isSetup=true;
 	}
 
@@ -2985,65 +2985,8 @@ function updateRow(tr, theRow) {
 	
 	/*
 	 * Set up the "proposed cell", a.k.a. the "Winning" column.
-	 *
-	 * TODO: subroutine.
 	 */
-	removeAllChildNodes(children[config.proposedcell]); // win
-	if(theRow.rowFlagged) {
-		var flagIcon = addIcon(children[config.proposedcell], "s-flag");
-		flagIcon.title = stui.str("flag_desc");
-	} else if(theRow.canFlagOnLosing) {
-		var flagIcon = addIcon(children[config.proposedcell], "s-flag-d");
-		flagIcon.title = stui.str("flag_d_desc");
-	}
-	setLang(children[config.proposedcell]);
-	tr.proposedcell = children[config.proposedcell];
-
-	/*
-	 * Still setting up the "proposed cell"...
-	 * 
-	 * TODO: fix bug in the following block.
-	 * See https://unicode.org/cldr/trac/ticket/11299#comment:10
-	 *
-	 * When do we have theRow.winningVhash == "" and/or theRow.winningValue == ""?
-	 * When both those conditions are true (and they often are), then regardless of whether isFallback is true or false,
-	 * theFallbackValue gets set to the LAST element of theRow.items ... and which element is the LAST
-	 * element is probably browser-dependent, see
-	 * https://stackoverflow.com/questions/280713/elements-order-in-a-for-in-loop
-	 * 
-	 * Typically we'd expect winningVhash and winningValue both to be empty, or both to be non-empty, but
-	 * there are strange exceptions, see example C in ticket 11299.
-	 *
-	 * There seems to be no reason for theFallbackValue; might as well directly
-	 * assign theRow.winningVhash = k -- but that's a relatively minor issue.
-	 * 
-	 * Aside from having this bug, this block shouldn't exist since the server should
-	 * be responsible for making sure winningVhash and winningValue are never empty.
-	 */
-	if(theRow.items && theRow.winningVhash == "") {
-		// find the fallback value
-		var theFallbackValue = null;
-		for(var k in theRow.items) {
-			// console.log("DEBUG: k = [" + k + "], value = [" + value + "], isFallback = " + theRow.items[k].isFallback);			
-			if(theRow.items[k].isFallback || theRow.winningValue == "") {
-				theFallbackValue = k;
-			}
-		}
-		if(theFallbackValue !== null) {
-			// console.log("DEBUG: changing winningVhash to theFallbackValue = [" + theFallbackValue + "]");
-			theRow.winningVhash = theFallbackValue;
-		}
-	}
-	/*
-	 * Still setting up the "proposed cell"...
-	 */
-	if(theRow.items&&theRow.winningVhash) {
-		addVitem(children[config.proposedcell],tr,theRow,theRow.items[theRow.winningVhash],cloneAnon(protoButton));
-	} else {
-		children[config.proposedcell].showFn = function(){};  // nothing else to show
-	}
-
-	listenToPop(null,tr,children[config.proposedcell], children[config.proposedcell].showFn);
+	updateRowProposedWinningCell(tr, theRow, config, children, protoButton);
 
 	/*
 	 * Set up the "err cell"
@@ -3605,6 +3548,71 @@ function updateRowEnglishComparisonCell(tr, theRow, config, children) {
 	 */
 	listenToPop(null, tr, children[config.comparisoncell]);
 	children[config.comparisoncell].isSetup=true;
+}
+
+/**
+ * Update the "proposed cell", a.k.a. the "Winning" column, of this row
+ * 
+ * @param tr the table row
+ * @param theRow the data from the server for this row
+ * @param config
+ * @param children
+ * @param protoButton
+ */
+function updateRowProposedWinningCell(tr, theRow, config, children, protoButton) {
+	'use strict';
+
+	removeAllChildNodes(children[config.proposedcell]); // win
+	if(theRow.rowFlagged) {
+		var flagIcon = addIcon(children[config.proposedcell], "s-flag");
+		flagIcon.title = stui.str("flag_desc");
+	} else if(theRow.canFlagOnLosing) {
+		var flagIcon = addIcon(children[config.proposedcell], "s-flag-d");
+		flagIcon.title = stui.str("flag_d_desc");
+	}
+	setLang(children[config.proposedcell]);
+	tr.proposedcell = children[config.proposedcell];
+
+	/*
+	 * TODO: fix bug in the following block.
+	 * See https://unicode.org/cldr/trac/ticket/11299#comment:10
+	 *
+	 * When do we have theRow.winningVhash == "" and/or theRow.winningValue == ""?
+	 * When both those conditions are true (and they often are), then regardless of whether isFallback is true or false,
+	 * theFallbackValue gets set to the LAST element of theRow.items ... and which element is the LAST
+	 * element is probably browser-dependent, see
+	 * https://stackoverflow.com/questions/280713/elements-order-in-a-for-in-loop
+	 * 
+	 * Typically we'd expect winningVhash and winningValue both to be empty, or both to be non-empty, but
+	 * there are strange exceptions, see example C in ticket 11299.
+	 *
+	 * There seems to be no reason for theFallbackValue; might as well directly
+	 * assign theRow.winningVhash = k -- but that's a relatively minor issue.
+	 * 
+	 * Aside from having this bug, this block shouldn't exist since the server should
+	 * be responsible for making sure winningVhash and winningValue are never empty.
+	 */
+	if(theRow.items && theRow.winningVhash == "") {
+		// find the fallback value
+		var theFallbackValue = null;
+		for(var k in theRow.items) {
+			// console.log("DEBUG: k = [" + k + "], value = [" + value + "], isFallback = " + theRow.items[k].isFallback);			
+			if(theRow.items[k].isFallback || theRow.winningValue == "") {
+				theFallbackValue = k;
+			}
+		}
+		if(theFallbackValue !== null) {
+			// console.log("DEBUG: changing winningVhash to theFallbackValue = [" + theFallbackValue + "]");
+			theRow.winningVhash = theFallbackValue;
+		}
+	}
+	if(theRow.items&&theRow.winningVhash) {
+		addVitem(children[config.proposedcell],tr,theRow,theRow.items[theRow.winningVhash],cloneAnon(protoButton));
+	} else {
+		children[config.proposedcell].showFn = function(){};  // nothing else to show
+	}
+
+	listenToPop(null,tr,children[config.proposedcell], children[config.proposedcell].showFn);
 }
 
 function findPartition(partitions,partitionList,curPartition,i) {

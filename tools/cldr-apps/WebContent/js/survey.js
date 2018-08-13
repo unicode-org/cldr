@@ -2852,10 +2852,13 @@ function appendExtraAttributes(container, theRow) {
  * @param tr the table row
  * @param theRow the data for the row
  * 
- * Cells (columns) in each row (basic viewing):
+ * Cells (columns) in each row:
  * Code    English    Abstain    A    Winning    Add    Others
  * 
- * Or, in Dashboard:
+ * TODO: is this function also used for Dashboard? See call to isDashboard() which
+ * seems to imply this was used for Dashboard at one time.
+ *  
+ * Dashboard columns are:
  * Code    English    CLDR 33    Winning 34    Action
  */
 function updateRow(tr, theRow) {
@@ -3000,145 +3003,22 @@ function updateRow(tr, theRow) {
 	}
 
 	/*
-	 * Set up the "other cell", a.k.a. the "Others" column.
-	 * 
-	 * TODO: subroutine
+	 *  add button
+	 *  
+	 * TODO: clarify usage of formAdd
 	 */
-	var hadOtherItems  = false;
-	removeAllChildNodes(children[config.othercell]); // other
-	setLang(children[config.othercell]);
-
-	//add button
 	var formAdd = document.createElement("form");
-	if(tr.canModify) {
-		formAdd.role = "form";
-		formAdd.className = "form-inline";
-		var buttonAdd = document.createElement("div");
-		var btn = document.createElement("button");
-		buttonAdd.className = "button-add form-group";
-
-		toAddVoteButton(btn);
-
-		buttonAdd.appendChild(btn);
-		formAdd.appendChild(buttonAdd);
-
-		var input = document.createElement("input");
-		var popup;
-		input.className = "form-control input-add";
-		input.placeholder = 'Add a translation';
-		var copyWinning = document.createElement("button");
-		copyWinning.className = "copyWinning btn btn-info btn-xs";
-		copyWinning.title = "Copy Winning";
-		copyWinning.type = "button";
-		copyWinning.innerHTML = '<span class="glyphicon glyphicon-arrow-right"></span> Winning';
-		copyWinning.onclick = function(e) {
-			var theValue = null;
-			if (theRow.items[theRow.winningVhash]) {
-				theValue = theRow.items[theRow.winningVhash].value;
-			}
-			if (theValue === INHERITANCE_MARKER || theValue === null) {
-				theValue = theRow.inheritedValue;
-			}
-			input.value = theValue || null;
-			input.focus();
-		}
-		var copyEnglish = document.createElement("button");
-		copyEnglish.className = "copyEnglish btn btn-info btn-xs";
-		copyEnglish.title = "Copy English";
-		copyEnglish.type = "button";
-		copyEnglish.innerHTML = '<span class="glyphicon glyphicon-arrow-right"></span> English';
-		copyEnglish.onclick = function(e) {
-		    input.value = theRow.displayName || null;
-		    input.focus();
-		}
-		btn.onclick = function(e) {
-			//if no input, add one
-			if($(buttonAdd).parent().find('input').length == 0) {
-
-				//hide other
-				$.each($('button.vote-submit'), function() {
-					toAddVoteButton(this);
-				});
-
-				//transform the button
-				toSubmitVoteButton(btn);
-				$(buttonAdd).popover({content:' '}).popover('show');
-				popup = $(buttonAdd).parent().find('.popover-content');
-				popup.append(input);
-				if (theRow.displayName) {
-					popup.append(copyEnglish);
-				}
-				if ((theRow.items[theRow.winningVhash] && theRow.items[theRow.winningVhash].value) ||
-						theRow.inheritedValue) {
-					popup.append(copyWinning);
-				}
-				popup.closest('.popover').css('top', popup.closest('.popover').position().top - 19);
-				input.focus();
-
-				//enter pressed
-				$(input).keydown(function (e) {
-					var newValue = $(this).val();
-					if(e.keyCode == 13) { //enter pressed
-						if(newValue) {
-							addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));
-						}
-						else {
-							toAddVoteButton(btn);
-						}
-					} else if (e.keyCode === 27) {
-						toAddVoteButton(btn);
-					}
-				});
-
-			}
-			else {
-				var newValue = input.value;
-
-				if(newValue) {
-					addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));
-				}
-				else {
-					toAddVoteButton(btn);
-				}
-				stStopPropagation(e);
-				return false;
-			}
-			stStopPropagation(e);
-			return false;
-		};
-	}
 
 	/*
-	/* Add the other vote info -- that is, vote info for the "Others" column.
+	 * Set up the "other cell", a.k.a. the "Others" column.
 	 */
-	for(k in theRow.items) {
-		if((k === theRow.winningVhash) // skip vote for winner
-			/*
-			 * TODO: the following "skip vote for ↑↑↑" (INHERITANCE_MARKER) is dubious,
-			 *  see https://unicode.org/cldr/trac/ticket/11299
-			 */
-		   || (theRow.items[k].isVoteForBailey)) { // skip vote for ↑↑↑
-					continue;
-				}
-		hadOtherItems=true;
-		addVitem(children[config.othercell],tr,theRow,theRow.items[k],cloneAnon(protoButton));
-		children[config.othercell].appendChild(document.createElement("hr"));
-	}
-
-	if(!hadOtherItems /*!onIE*/) {
-		listenToPop(null, tr, children[config.othercell]);
-	}
-	if(tr.myProposal && tr.myProposal.value && !findItemByValue(theRow.items, tr.myProposal.value)) {
-		// add back my proposal
-		children[config.othercell].appendChild(tr.myProposal);
-	} else {
-		tr.myProposal=null; // not needed
-	}
+	updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd);
 
 	/*
 	 * If the user can make changes, add "+" button for adding new candidate item.
 	 * 
-	 * Note the call to isDashboard(): this code is for Dashboard as well as the basic navigation interface.
+	 * TODO: explain the call to isDashboard(): is this code for Dashboard as well as the basic navigation interface?
+	 * This block concerns othercell if isDashboard(), otherwise it concerns addcell.
 	 */
 	if(tr.canChange) {
 		if(isDashboard()) {
@@ -3613,6 +3493,148 @@ function updateRowProposedWinningCell(tr, theRow, config, children, protoButton)
 	}
 
 	listenToPop(null,tr,children[config.proposedcell], children[config.proposedcell].showFn);
+}
+
+/*
+ * Update the "Others" cell (column) of this row
+ * 
+ * @param tr the table row
+ * @param theRow the data from the server for this row
+ * @param config
+ * @param children
+ * @param protoButton
+ * @param formAdd
+ */
+function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd) {
+	'use strict';
+
+	var hadOtherItems  = false;
+	removeAllChildNodes(children[config.othercell]); // other
+	setLang(children[config.othercell]);
+
+	if(tr.canModify) {
+		formAdd.role = "form";
+		formAdd.className = "form-inline";
+		var buttonAdd = document.createElement("div");
+		var btn = document.createElement("button");
+		buttonAdd.className = "button-add form-group";
+
+		toAddVoteButton(btn);
+
+		buttonAdd.appendChild(btn);
+		formAdd.appendChild(buttonAdd);
+
+		var input = document.createElement("input");
+		var popup;
+		input.className = "form-control input-add";
+		input.placeholder = 'Add a translation';
+		var copyWinning = document.createElement("button");
+		copyWinning.className = "copyWinning btn btn-info btn-xs";
+		copyWinning.title = "Copy Winning";
+		copyWinning.type = "button";
+		copyWinning.innerHTML = '<span class="glyphicon glyphicon-arrow-right"></span> Winning';
+		copyWinning.onclick = function(e) {
+			var theValue = null;
+			if (theRow.items[theRow.winningVhash]) {
+				theValue = theRow.items[theRow.winningVhash].value;
+			}
+			if (theValue === INHERITANCE_MARKER || theValue === null) {
+				theValue = theRow.inheritedValue;
+			}
+			input.value = theValue || null;
+			input.focus();
+		}
+		var copyEnglish = document.createElement("button");
+		copyEnglish.className = "copyEnglish btn btn-info btn-xs";
+		copyEnglish.title = "Copy English";
+		copyEnglish.type = "button";
+		copyEnglish.innerHTML = '<span class="glyphicon glyphicon-arrow-right"></span> English';
+		copyEnglish.onclick = function(e) {
+		    input.value = theRow.displayName || null;
+		    input.focus();
+		}
+		btn.onclick = function(e) {
+			//if no input, add one
+			if($(buttonAdd).parent().find('input').length == 0) {
+
+				//hide other
+				$.each($('button.vote-submit'), function() {
+					toAddVoteButton(this);
+				});
+
+				//transform the button
+				toSubmitVoteButton(btn);
+				$(buttonAdd).popover({content:' '}).popover('show');
+				popup = $(buttonAdd).parent().find('.popover-content');
+				popup.append(input);
+				if (theRow.displayName) {
+					popup.append(copyEnglish);
+				}
+				if ((theRow.items[theRow.winningVhash] && theRow.items[theRow.winningVhash].value) ||
+						theRow.inheritedValue) {
+					popup.append(copyWinning);
+				}
+				popup.closest('.popover').css('top', popup.closest('.popover').position().top - 19);
+				input.focus();
+
+				//enter pressed
+				$(input).keydown(function (e) {
+					var newValue = $(this).val();
+					if(e.keyCode == 13) { //enter pressed
+						if(newValue) {
+							addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));
+						}
+						else {
+							toAddVoteButton(btn);
+						}
+					} else if (e.keyCode === 27) {
+						toAddVoteButton(btn);
+					}
+				});
+
+			}
+			else {
+				var newValue = input.value;
+
+				if(newValue) {
+					addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));
+				}
+				else {
+					toAddVoteButton(btn);
+				}
+				stStopPropagation(e);
+				return false;
+			}
+			stStopPropagation(e);
+			return false;
+		};
+	}
+	/*
+	/* Add the other vote info -- that is, vote info for the "Others" column.
+	 */
+	for(k in theRow.items) {
+		if((k === theRow.winningVhash) // skip vote for winner
+			/*
+			 * TODO: the following "skip vote for ↑↑↑" (INHERITANCE_MARKER) is dubious,
+			 *  see https://unicode.org/cldr/trac/ticket/11299
+			 */
+		   || (theRow.items[k].isVoteForBailey)) { // skip vote for ↑↑↑
+					continue;
+				}
+		hadOtherItems=true;
+		addVitem(children[config.othercell],tr,theRow,theRow.items[k],cloneAnon(protoButton));
+		children[config.othercell].appendChild(document.createElement("hr"));
+	}
+
+	if(!hadOtherItems /*!onIE*/) {
+		listenToPop(null, tr, children[config.othercell]);
+	}
+	if(tr.myProposal && tr.myProposal.value && !findItemByValue(theRow.items, tr.myProposal.value)) {
+		// add back my proposal
+		children[config.othercell].appendChild(tr.myProposal);
+	} else {
+		tr.myProposal=null; // not needed
+	}
 }
 
 function findPartition(partitions,partitionList,curPartition,i) {

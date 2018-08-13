@@ -18,6 +18,12 @@ window.haveDialog = false;
  */
 const INHERITANCE_MARKER = "↑↑↑";
 
+/*
+ * TODO: delete the following fixes for Object.keys, Array.isArray, and String.trim,
+ * which are probably not needed anymore with the current system requirements of SurveyTool,
+ * namely, versions of Chrome, Firefox, Safari, Edge not more than six months old.
+ */
+
 /**
  * @class Object
  * @method keys
@@ -74,7 +80,14 @@ function fmtDateTime(x) {
 };
 
 /**
+ * Is the given string for a report, that is, does it start with "r_"?
+ * 
  * @class GLOBAL
+ * 
+ * @param str the string
+ * @return true if starts with "r_", else false
+ * 
+ * This function is only actually used locally in survey.js.
  */
 
 function isReport(str) {
@@ -2796,7 +2809,7 @@ function addVitem(td, tr, theRow, item, newButton) {
 	if(item.votes && !isWinner) {
 		/* Disable all usage of the "i-vote" (vote.png, check-mark in a square) icon pending
 		 * clarification/documentation of its meaning/purpose.
-		 * Comment out in two places: here in addVitem, and in updateRow.
+		 * Comment out in two places: here in addVitem, and in updateRowVoteInfo.
 		 * See https://unicode.org/cldr/trac/ticket/10521#comment:29
 		 */
 		// addIcon(choiceField,"i-vote");
@@ -2854,12 +2867,21 @@ function appendExtraAttributes(container, theRow) {
  *
  * Cells (columns) in each row:
  * Code    English    Abstain    A    Winning    Add    Others
+ * 
+ * From left to right, td elements have these id attributes (which BTW aren't unique when
+ * other rows are taken into account, see <https://unicode.org/cldr/trac/ticket/11312>):
+ * 
+ * codecell  comparisoncell  nocell  statuscell  proposedcell  addcell  othercell
  *
  * TODO: is this function also used for Dashboard? See call to isDashboard() which
  * seems to imply this was used for Dashboard at one time.
  *
  * Dashboard columns are:
  * Code    English    CLDR 33    Winning 34    Action
+ * 
+ * TODO: even after moving most of its code to about six new subroutines, this function still has 194 lines. Shorten it.
+ * 
+ * Called by insertRowsIntoTbody and loadHandler (in refreshRow2).
  */
 function updateRow(tr, theRow) {
 	tr.theRow = theRow;
@@ -2946,7 +2968,9 @@ function updateRow(tr, theRow) {
 	var children = getTagChildren(tr);
 
 	/*
-	 * config = surveyConfig has fields indicating which cells (columns) to display...  
+	 * config = surveyConfig has fields indicating which cells (columns) to display. It might look like this: 
+	 * 
+	 * Object {codecell: "0", comparisoncell: "1", nocell: "2", votedcell: "3", statuscell: "4", errcell: "5", proposedcell: "6", addcell: "7", othercell: "8"}
 	 */
 	var config = surveyConfig;
 
@@ -3065,6 +3089,8 @@ function updateRow(tr, theRow) {
  * @param theRow the data from the server for this row
  * 
  * Called by updateRow.
+ * 
+ * TODO: shorten this function by using subroutines.
  */
 function updateRowVoteInfo(tr, theRow) {
 	'use strict';
@@ -3135,7 +3161,7 @@ function updateRowVoteInfo(tr, theRow) {
 
 		/* Disable all usage of the "i-vote" (vote.png, check-mark in a square) icon pending
 		 * clarification/documentation of its meaning/purpose.
-		 * Comment out in two places: here in updateRow, and in addVitem.
+		 * Comment out in two places: here in updateRowVoteInfo, and in addVitem.
 		 * See https://unicode.org/cldr/trac/ticket/10521#comment:29
 		 */
 		/***
@@ -3282,6 +3308,8 @@ function updateRowVoteInfo(tr, theRow) {
  * @param theRow the data from the server for this row
  * @param config
  * @param children
+ * 
+ * Called by updateRow.
  */
 function updateRowCodeCell(tr, theRow, config, children) {
 	'use strict';
@@ -3342,6 +3370,8 @@ function updateRowCodeCell(tr, theRow, config, children) {
  * @param theRow the data from the server for this row
  * @param config
  * @param children
+ * 
+ * Called by updateRow.
  */
 function updateRowEnglishComparisonCell(tr, theRow, config, children) {
 	'use strict';
@@ -3403,6 +3433,8 @@ function updateRowEnglishComparisonCell(tr, theRow, config, children) {
  * @param config
  * @param children
  * @param protoButton
+ * 
+ * Called by updateRow.
  */
 function updateRowProposedWinningCell(tr, theRow, config, children, protoButton) {
 	'use strict';
@@ -3469,6 +3501,8 @@ function updateRowProposedWinningCell(tr, theRow, config, children, protoButton)
  * @param children
  * @param protoButton
  * @param formAdd
+ * 
+ * Called by updateRow.
  */
 function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd) {
 	'use strict';
@@ -3613,6 +3647,8 @@ function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd)
  * @param config
  * @param children
  * @param protoButton
+ * 
+ * Called by updateRow.
  */
 function updateRowNoAbstainCell(tr, theRow, config, children, protoButton) {
 	'use strict';
@@ -3657,6 +3693,7 @@ function updateRowNoAbstainCell(tr, theRow, config, children, protoButton) {
 		}
 	}
 }
+
 function findPartition(partitions,partitionList,curPartition,i) {
 	if(curPartition &&
 			i>=curPartition.start &&

@@ -1013,17 +1013,17 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * Calculate the item from the vetted parent locale, possibly including
-         * tests
+         * Calculate the inherited item for this DataRow from the vetted parent locale,
+         * possibly including tests
          *
          * @param vettedParent
          *            CLDRFile for the parent locale, resolved with vetting on ( really just the current )
          * @param checkCldr
          *            The tests to use
-         * @param options
-         *            Test options
+         *
+         * Called only by populateFrom
          */
-        void updateInheritedValue(CLDRFile vettedParent, TestResultBundle checkCldr, Map<String, String> options) {
+        private void updateInheritedValue(CLDRFile vettedParent, TestResultBundle checkCldr) {
             long lastTime = System.currentTimeMillis();
             if (vettedParent == null) {
                 return;
@@ -1877,7 +1877,7 @@ public class DataSection implements JSONString {
             if (ourSrc.getSupplementalDirectory() == null) {
                 throw new InternalError("?!! ourSrc hsa no supplemental dir!");
             }
-            section.populateFrom(ourSrc, checkCldr, null, workingCoverageLevel);
+            section.populateFrom(ourSrc, checkCldr, workingCoverageLevel);
             int popCount = section.getAll().size();
             if (showLoading && ctx != null) {
                 ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Completing..."
@@ -2334,13 +2334,13 @@ public class DataSection implements JSONString {
      *
      * @param ourSrc the CLDRFile
      * @param checkCldr the TestResultBundle
-     * @param options
      * @param workingCoverageLevel
      *
+     * Called only by DataSection.make, as section.populateFrom(ourSrc, checkCldr, workingCoverageLevel);
+     * 
      * TODO: shorten this function, over 300 lines
      */
-    private void populateFrom(CLDRFile ourSrc, TestResultBundle checkCldr, Map<String, String> options,
-        String workingCoverageLevel) {
+    private void populateFrom(CLDRFile ourSrc, TestResultBundle checkCldr, String workingCoverageLevel) {
         XPathParts xpp = new XPathParts(null, null);
         CLDRFile aFile = ourSrc; // TODO: why not just use ourSrc directly? Having two variables ourSrc and aFile seems to serve no purpose.
         STFactory stf = sm.getSTFactory();
@@ -2508,8 +2508,8 @@ public class DataSection implements JSONString {
 
             // Now we are ready to add the data
 
-            // Load the 'data row' which represents one user visible row of
-            // options (may be nested in the case of alt types)
+            // Load the 'data row' which represents one user visible row.
+            // (may be nested in the case of alt types) (nested??)
             DataRow p = getDataRow(xpath);
 
             if (oldFile != null) {
@@ -2552,10 +2552,10 @@ public class DataSection implements JSONString {
                 // '//ldml/dates/timeZoneNames/metazone[@type="Mexico_Northwest"]/short/standard'
                 // and the URL ends with "v#/aa/NAmerica/".
                 // Set up 'shim' tests, to display coverage.
-                p.setShimTests(base_xpath, this.sm.xpt.getById(base_xpath), checkCldr, options);
+                p.setShimTests(base_xpath, this.sm.xpt.getById(base_xpath), checkCldr, null);
             } else if (p.inheritedValue == null) {
                 // This item fell back from root. Make sure it has an Item, and that tests are run.
-                p.updateInheritedValue(ourSrc, checkCldr, options);
+                p.updateInheritedValue(ourSrc, checkCldr);
             }
 
             if (TRACE_TIME)

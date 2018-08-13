@@ -2848,16 +2848,16 @@ function appendExtraAttributes(container, theRow) {
 
 /**
  * Update one row using data received from server.
- * 
+ *
  * @param tr the table row
  * @param theRow the data for the row
- * 
+ *
  * Cells (columns) in each row:
  * Code    English    Abstain    A    Winning    Add    Others
- * 
+ *
  * TODO: is this function also used for Dashboard? See call to isDashboard() which
  * seems to imply this was used for Dashboard at one time.
- *  
+ *
  * Dashboard columns are:
  * Code    English    CLDR 33    Winning 34    Action
  */
@@ -2988,6 +2988,9 @@ function updateRow(tr, theRow) {
 	
 	/*
 	 * Set up the "proposed cell", a.k.a. the "Winning" column.
+	 * 
+	 * Column headings are: Code    English    Abstain    A    Winning    Add    Others
+	 * TODO: are we going out of order here, from English to Winning, skipping Abstain and A?
 	 */
 	updateRowProposedWinningCell(tr, theRow, config, children, protoButton);
 
@@ -3032,56 +3035,18 @@ function updateRow(tr, theRow) {
 	}
 
 	/*
-	 * Set up the "no cell", a.k.a. the "A" column.
+	 * Set up the "no cell", a.k.a. the "Abstain" column.
 	 * If the user can make changes, add an "abstain" button;
 	 * else, possibly add a ticket link, or else hide the column.
-	 * 
-	 * TODO: subroutine
 	 */
-	if(tr.canModify) {
-		removeAllChildNodes(children[config.nocell]); // no opinion
-		var noOpinion = cloneAnon(protoButton);
-		var wrap;
-		wireUpButton(noOpinion,tr, theRow, null);
-		noOpinion.value=null;
-		wrap = wrapRadio(noOpinion);
-		children[config.nocell].appendChild(wrap);
-		listenToPop(null, tr, children[config.nocell]);
-	}  else if (tr.ticketOnly) { // ticket link
-    	if(!tr.theTable.json.canModify) { // only if hidden in the header
-    		setDisplayed(children[config.nocell], false);
-    	}
-		children[config.proposedcell].className="d-change-confirmonly";
+	updateRowNoAbstainCell(tr, theRow, config, children, protoButton);
 
-		var surlink = document.createElement("div");
-		surlink.innerHTML = '<span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;';
-		surlink.className = 'alert alert-info fix-popover-help';
-
-		var link = createChunk(stui.str("file_a_ticket"),"a");
-		var newUrl = "http://unicode.org/cldr/trac"+"/newticket?component=data&summary="+surveyCurrentLocale+":"+theRow.xpath+"&locale="+surveyCurrentLocale+"&xpath="+theRow.xpstrid+"&version="+surveyVersion;
-		link.href = newUrl;
-		link.target = "cldr-target-trac";
-		theRow.proposedResults = createChunk(stui.str("file_ticket_must"), "a","fnotebox");
-		theRow.proposedResults.href = newUrl;
-		if(!window.surveyOfficial) {
-			link.appendChild(createChunk(" (Note: this is not the production SurveyTool! Do not submit a ticket!) ","p"));
-			link.href = link.href + "&description=NOT+PRODUCTION+SURVEYTOOL!";
-		}
-		children[config.proposedcell].appendChild(createChunk(stui.str("file_ticket_notice"), "i", "fnotebox"));
-		surlink.appendChild(link);
-		tr.ticketLink = surlink;
-	} else  { // no change possible
-    	if(!tr.theTable.json.canModify) { // only if hidden in the header
-    		setDisplayed(children[config.nocell], false);
-    	}
-	}
-	
 	/*
 	 * Do something related to coverage.
 	 * TODO: explain.
 	 */
-	tr.className='vother cov'+theRow.coverageValue;
-	
+	tr.className = 'vother cov' + theRow.coverageValue;
+
 	/*
 	 * Show the current ID.
 	 * TODO: explain.
@@ -3508,11 +3473,11 @@ function updateRowProposedWinningCell(tr, theRow, config, children, protoButton)
 function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd) {
 	'use strict';
 
-	var hadOtherItems  = false;
+	var hadOtherItems = false;
 	removeAllChildNodes(children[config.othercell]); // other
 	setLang(children[config.othercell]);
 
-	if(tr.canModify) {
+	if (tr.canModify) {
 		formAdd.role = "form";
 		formAdd.className = "form-inline";
 		var buttonAdd = document.createElement("div");
@@ -3550,12 +3515,12 @@ function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd)
 		copyEnglish.type = "button";
 		copyEnglish.innerHTML = '<span class="glyphicon glyphicon-arrow-right"></span> English';
 		copyEnglish.onclick = function(e) {
-		    input.value = theRow.displayName || null;
-		    input.focus();
+			input.value = theRow.displayName || null;
+			input.focus();
 		}
 		btn.onclick = function(e) {
 			//if no input, add one
-			if($(buttonAdd).parent().find('input').length == 0) {
+			if ($(buttonAdd).parent().find('input').length == 0) {
 
 				//hide other
 				$.each($('button.vote-submit'), function() {
@@ -3564,27 +3529,28 @@ function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd)
 
 				//transform the button
 				toSubmitVoteButton(btn);
-				$(buttonAdd).popover({content:' '}).popover('show');
+				$(buttonAdd).popover({
+					content: ' '
+				}).popover('show');
 				popup = $(buttonAdd).parent().find('.popover-content');
 				popup.append(input);
 				if (theRow.displayName) {
 					popup.append(copyEnglish);
 				}
 				if ((theRow.items[theRow.winningVhash] && theRow.items[theRow.winningVhash].value) ||
-						theRow.inheritedValue) {
+					theRow.inheritedValue) {
 					popup.append(copyWinning);
 				}
 				popup.closest('.popover').css('top', popup.closest('.popover').position().top - 19);
 				input.focus();
 
 				//enter pressed
-				$(input).keydown(function (e) {
+				$(input).keydown(function(e) {
 					var newValue = $(this).val();
-					if(e.keyCode == 13) { //enter pressed
-						if(newValue) {
+					if (e.keyCode == 13) { //enter pressed
+						if (newValue) {
 							addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));
-						}
-						else {
+						} else {
 							toAddVoteButton(btn);
 						}
 					} else if (e.keyCode === 27) {
@@ -3592,14 +3558,12 @@ function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd)
 					}
 				});
 
-			}
-			else {
+			} else {
 				var newValue = input.value;
 
-				if(newValue) {
+				if (newValue) {
 					addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));
-				}
-				else {
+				} else {
 					toAddVoteButton(btn);
 				}
 				stStopPropagation(e);
@@ -3612,31 +3576,87 @@ function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd)
 	/*
 	/* Add the other vote info -- that is, vote info for the "Others" column.
 	 */
-	for(k in theRow.items) {
-		if((k === theRow.winningVhash) // skip vote for winner
+	for (k in theRow.items) {
+		if ((k === theRow.winningVhash) // skip vote for winner
 			/*
 			 * TODO: the following "skip vote for ↑↑↑" (INHERITANCE_MARKER) is dubious,
 			 *  see https://unicode.org/cldr/trac/ticket/11299
 			 */
-		   || (theRow.items[k].isVoteForBailey)) { // skip vote for ↑↑↑
-					continue;
-				}
-		hadOtherItems=true;
-		addVitem(children[config.othercell],tr,theRow,theRow.items[k],cloneAnon(protoButton));
+			||
+			(theRow.items[k].isVoteForBailey)) { // skip vote for ↑↑↑
+			continue;
+		}
+		hadOtherItems = true;
+		addVitem(children[config.othercell], tr, theRow, theRow.items[k], cloneAnon(protoButton));
 		children[config.othercell].appendChild(document.createElement("hr"));
 	}
 
-	if(!hadOtherItems /*!onIE*/) {
+	if (!hadOtherItems /*!onIE*/ ) {
 		listenToPop(null, tr, children[config.othercell]);
 	}
-	if(tr.myProposal && tr.myProposal.value && !findItemByValue(theRow.items, tr.myProposal.value)) {
+	if (tr.myProposal && tr.myProposal.value && !findItemByValue(theRow.items, tr.myProposal.value)) {
 		// add back my proposal
 		children[config.othercell].appendChild(tr.myProposal);
 	} else {
-		tr.myProposal=null; // not needed
+		tr.myProposal = null; // not needed
 	}
 }
 
+/*
+ * Update the "no cell", a.k.a, the "Abstain"column, of this row
+ *
+ * If the user can make changes, add an "abstain" button;
+ * else, possibly add a ticket link, or else hide the column.
+ *
+ * @param tr the table row
+ * @param theRow the data from the server for this row
+ * @param config
+ * @param children
+ * @param protoButton
+ */
+function updateRowNoAbstainCell(tr, theRow, config, children, protoButton) {
+	'use strict';
+
+	if (tr.canModify) {
+		removeAllChildNodes(children[config.nocell]); // no opinion
+		var noOpinion = cloneAnon(protoButton);
+		var wrap;
+		wireUpButton(noOpinion, tr, theRow, null);
+		noOpinion.value = null;
+		wrap = wrapRadio(noOpinion);
+		children[config.nocell].appendChild(wrap);
+		listenToPop(null, tr, children[config.nocell]);
+	} else if (tr.ticketOnly) { // ticket link
+		if (!tr.theTable.json.canModify) { // only if hidden in the header
+			setDisplayed(children[config.nocell], false);
+		}
+		children[config.proposedcell].className = "d-change-confirmonly";
+		var surlink = document.createElement("div");
+		surlink.innerHTML = '<span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;';
+		surlink.className = 'alert alert-info fix-popover-help';
+		var link = createChunk(stui.str("file_a_ticket"), "a");
+		var newUrl = "http://unicode.org/cldr/trac" +
+			"/newticket?component=data&summary=" + surveyCurrentLocale + ":" + theRow.xpath +
+			"&locale=" + surveyCurrentLocale + "&xpath=" + theRow.xpstrid + "&version=" + surveyVersion;
+		link.href = newUrl;
+		link.target = "cldr-target-trac";
+		theRow.proposedResults = createChunk(stui.str("file_ticket_must"), "a",
+			"fnotebox");
+		theRow.proposedResults.href = newUrl;
+		if (!window.surveyOfficial) {
+			link.appendChild(createChunk(
+				" (Note: this is not the production SurveyTool! Do not submit a ticket!) ", "p"));
+			link.href = link.href + "&description=NOT+PRODUCTION+SURVEYTOOL!";
+		}
+		children[config.proposedcell].appendChild(createChunk(stui.str("file_ticket_notice"), "i", "fnotebox"));
+		surlink.appendChild(link);
+		tr.ticketLink = surlink;
+	} else { // no change possible
+		if (!tr.theTable.json.canModify) { // only if hidden in the header
+			setDisplayed(children[config.nocell], false);
+		}
+	}
+}
 function findPartition(partitions,partitionList,curPartition,i) {
 	if(curPartition &&
 			i>=curPartition.start &&

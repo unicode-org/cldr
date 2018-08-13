@@ -311,7 +311,7 @@ public class DataSection implements JSONString {
             /**
              * Compare this CandidateItem with the given other CandidateItem.
              *
-             * @parm other the other item with which to compare this one
+             * @param other the other item with which to compare this one
              * @return 0 if they are the same item, else a positive or negative number
              *           obtained by comparing the two values as strings
              */
@@ -360,7 +360,15 @@ public class DataSection implements JSONString {
             }
 
             /**
-             * Is this a winning (non fallback) item?
+             * Is this a winning (non fallback) CandidateItem?
+             * 
+             * TODO: why any restriction to "(non fallback)"? The code in this function doesn't seem to impose
+             * such a restriction anyway, in spite of the comment.
+             * 
+             * TODO: trigger a warning if winningValue == null?
+             * 
+             * Called by getPClass, CandidateItem.toString, and addItem.
+             * TODO: move this function below its three callers, or just inline the code. Note that winningValue is a field of DataRow.
              */
             private boolean isWinner() {
                 if (winningValue != null) {
@@ -374,14 +382,69 @@ public class DataSection implements JSONString {
              * Get the class for this CandidateItem
              *
              * @return the class as a string, for example, "winner"
+             * 
+             * All return values: "winner", "alias", "fallback", "fallback_code", "fallback_root", "loser".
+             * 
+             * Called by CandidateItem.toJSONString (for item.pClass) and also by DataRow.toJSONString (for theRow.inheritedPClass)
+             * 
+             * Relationships between class, color, and inheritance (http://cldr.unicode.org/index/survey-tool/guide#TOC-Inheritance):
+             * "The inherited values are color coded:
+             *  1.  Darker [blue] The original is from a parent locale, such as if you are working in
+             *      Latin American Spanish (es_419), this value is inherited from European Spanish (es).
+             *      [corresponds with "fallback" and {background-color: #5bc0de;}]
+             *  2.  Lighter [violet] The original is in the same locale, but has a different ID (row).
+             *      [corresponds with "alias" and {background-color: #ddf;}]
+             *  3.  Red  The original is from the root."
+             *      [corresponds with "fallback_root" or "fallback_code" and {background-color: #FFDDDD;}]
              */
             private String getPClass() {
                 String pClass;
+                
                 if (isWinner() && !isFallback && inheritFrom == null) {
+                    /*
+                     * TODO: Revise as needed per https://unicode.org/cldr/trac/ticket/11299
+                     * 
+                     * An item can be both winning and alias/fallback (vote for inheritance). For display, it
+                     * seems that the alias/fallback class is more important, that is, if an item is both
+                     * winning and inherited, then its color is determined by inheritance not by whether it's winning.
+                     * That appears to be the reason why we do not return "winner" if isFallback or inheritFrom != null.
+                     * Could move this condition lower: "... else if (isWinner()) ..."
+                     * 
+                     * redesign.css has:
+                     * .winner, .value {font-weight:bold;}
+                     * .value-div .winner, .value-div .value {font-size:16px;}
+                     */
                     pClass = "winner";
                 } else if (pathWhereFound != null) {
+                    /*
+                     * surveytool.css has:
+                     *  .alias {background-color: #ddf;}
+                     *  
+                     *  This can happen when called from here by DataRow.toJSONString (for theRow.inheritedPClass):
+                     *  jo.put("inheritedPClass", inheritedValue != null ? inheritedValue.getPClass() : "fallback");
+                     *  
+                     *  It can also happen when called from CandidateItem.toJSONString (for item.pClass). Either way,
+                     *  Typically isBailey = true, isFallback = true, isParentFallback = true; try http://localhost:8080/cldr-apps/v#/aa/Fields/
+                     *
+                     * TODO: if pathWhereFound becomes a field of DataRow instead of CandidateItem, what will be
+                     * the appropriate condition for "alias"?
+                     * How about (value == INHERITANCE_MARKER && pathWhereFound != null)? That's if we set inheritedValue.value = INHERITANCE_MARKER
+                     */
                     pClass = "alias";
                 } else if (isFallback || (inheritFrom != null)) {
+                    /*
+                     * surveytool.css has:
+                     *  .fallback {background-color:#5bc0de;padding: .1em .4em .2em;}
+                     *  .fallback_root, .fallback_code {border: 1px dotted #f00 !important;background-color: #FFDDDD;}
+                     *
+                     * survey.js has:
+                     *  var inheritedClassName = "fallback";
+                     *  var defaultClassName = "fallback_code";
+                     * 
+                     * TODO: if inheritFrom becomes a field of DataRow instead of CandidateItem, what will be
+                     * the appropriate condition for "fallback*"?
+                     * How about (value == INHERITANCE_MARKER && pathWhereFound == null)?
+                     */
                     if (inheritFrom != null && XMLSource.CODE_FALLBACK_ID.equals(inheritFrom.getBaseName())) {
                         pClass = "fallback_code";
                     } else if (inheritFrom == CLDRLocale.ROOT) {
@@ -627,6 +690,12 @@ public class DataSection implements JSONString {
         String[] valuesList = null; // if non null - list of acceptable values.
 
         public int voteType = 0; // status of THIS item
+        
+        /**
+         * The winning value for this DataRow
+         * 
+         * It gets set by resolver.getWinningValue() by the DataRow constructor.
+         */
         private String winningValue;
 
         /**
@@ -648,6 +717,11 @@ public class DataSection implements JSONString {
 
         // the zoomout view, they must zoom in. TODO: explain "zoom(out)"
 
+        /**
+         * Create a new DataRow for the given xpath.
+         * 
+         * @param xpath
+         */
         public DataRow(String xpath) {
             this.xpath = xpath;
             this.xpathId = sm.xpt.getByXpath(xpath);
@@ -658,6 +732,12 @@ public class DataSection implements JSONString {
                 throw new InternalError("ballotBox is null;");
             }
             VoteResolver<String> resolver = ballotBox.getResolver(xpath);
+            /*
+             * TODO: address the situation if winningValue gets null or empty string here;
+             * null/empty winningValue should not be sent to the client!
+             * Also fix the bug where client receives non-empty winningValue but empty winningVhash.
+             * See https://unicode.org/cldr/trac/ticket/11299 "Example C".
+             */
             winningValue = resolver.getWinningValue();
             confirmStatus = resolver.getWinningStatus();
             this.displayName = baselineFile.getStringValue(xpath);
@@ -1224,7 +1304,7 @@ public class DataSection implements JSONString {
                 jo.put("voteVhash", voteVhash);
                 jo.put("voteResolver", SurveyAjax.JSONWriter.wrap(resolver));
                 jo.put("items", itemsJson);
-                
+
                 /*
                  * TODO: inheritedValue.value is currently the Bailey value, but may be changed to INHERITANCE_MARKER
                  * (for https://unicode.org/cldr/trac/ticket/11299)
@@ -1238,7 +1318,12 @@ public class DataSection implements JSONString {
                  * should be a member of DataRow, not CandidateItem, and should be named same on client/server.
                  * 
                  * Likewise inheritedValue.getPClass() which we send to the client here as theRow.inheritedPClass
-                 * only depends on DataRow, not CandidateItem...
+                 * only depends on DataRow, not CandidateItem... Also, inheritedPClass is currently only used once
+                 * on the client, in a strange way, maybe should be on server not client, if anywhere:
+                 * if (item.value == INHERITANCE_MARKER) {
+                 *   item.pClass = theRow.inheritedPClass == "winner" ? "fallback" : theRow.inheritedPClass;
+                 *   displayValue = theRow.inheritedValue;
+                 * }
                  */
                 jo.put("inheritedValue", inheritedValue != null ? inheritedValue.value : null);
                 jo.put("inheritedXPath", inheritedValue != null ? inheritedValue.pathWhereFound : null);
@@ -2644,7 +2729,7 @@ public class DataSection implements JSONString {
             // ***** Set up Candidate Items *****
             // These are the items users may choose between
             //
-            if ((checkCldr != null)/* &&(altProposed == null) */) {
+            if (checkCldr != null) {
                 if (TRACE_TIME)
                     System.err.println("n07.1  (check) " + (System.currentTimeMillis() - nextTime));
                 checkCldr.check(xpath, checkCldrResult, isExtraPath ? null : value);

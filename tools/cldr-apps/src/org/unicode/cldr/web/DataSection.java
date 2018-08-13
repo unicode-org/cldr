@@ -102,7 +102,7 @@ public class DataSection implements JSONString {
              * altProposed is the proposed part of the name (or NULL for nondraft)
              *
              * TODO: there appears to be confusion between this final (constant) string, and
-             * a local variable also named "altProposed" declared in populateFrom.
+             * a local variable formerly also named "altProposed" (now altProp) declared in populateFrom.
              *
              * In versions of this code prior to https://unicode.org/cldr/trac/changeset/6566
              * this string was not declared as final; it was initialized to null and sometimes
@@ -110,6 +110,8 @@ public class DataSection implements JSONString {
              *
              * This string is public since it is referenced by DefaultDataSubmissionResultHandler.java,
              * but that referencing probably no longer serves any purpose.
+             * 
+             * Can this be removed?
              */
             public static final String altProposed = "n/a";
 
@@ -586,7 +588,7 @@ public class DataSection implements JSONString {
                  * What is the point of including it in the returned string here?
                  *
                  * There may be confusion between the final (constant) string CandidateItem.altProposed
-                 * and the local variable declared in populateFrom?
+                 * and the local variable (now "altProp") declared in populateFrom?
                  */
                 return "{Item v='" + value + "', altProposed='" + CandidateItem.altProposed + "', inheritFrom='" + inheritFrom + "'"
                     + (isWinner() ? ",winner" : "") + (isFallback ? ",isFallback" : "")
@@ -2605,14 +2607,12 @@ public class DataSection implements JSONString {
             if (TRACE_TIME)
                 System.err.println("n04  " + (System.currentTimeMillis() - nextTime));
 
-            String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
-
             /*
-             * TODO: this local variable named "altProposed" shouldn't be confused with the
-             * constant string CandidateItem.altProposed ("n/a"). A different variable name
-             * should be used to avoid confusion.
+             * This local variable named "altProp" was formerly named "altProposed" and shouldn't be
+             * confused with the constant string CandidateItem.altProposed ("n/a").
              */
-            String altProposed = typeAndProposed[1];
+            String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
+            String altProp = typeAndProposed[1];
 
             // Now we are ready to add the data
 
@@ -2676,8 +2676,8 @@ public class DataSection implements JSONString {
                 System.err.println("n06  " + (System.currentTimeMillis() - nextTime));
 
             // If it is draft and not proposed.. make it proposed-draft
-            if (((eDraft != null) && (!eDraft.equals("false"))) && (altProposed == null)) {
-                altProposed = SurveyMain.PROPOSED_DRAFT;
+            if (((eDraft != null) && (!eDraft.equals("false"))) && (altProp == null)) {
+                altProp = SurveyMain.PROPOSED_DRAFT;
             }
 
             if (TRACE_TIME)
@@ -2709,14 +2709,14 @@ public class DataSection implements JSONString {
                 System.err.println("n07  " + (System.currentTimeMillis() - nextTime));
 
             // ?? simplify this.
-            if (altProposed == null) {
+            if (altProp == null) {
                 if (isInherited) {
                     p.hasInherited = true;
                 }
             } else {
                 if (!isInherited) {
                     p.hasProps = true;
-                    if (altProposed != SurveyMain.PROPOSED_DRAFT) { // 'draft=true'
+                    if (altProp != SurveyMain.PROPOSED_DRAFT) { // 'draft=true'
                         p.hasMultipleProposals = true;
                     }
                 } else {

@@ -348,7 +348,10 @@ public class MailSender implements Runnable {
 //            return; // wait a bit
 //        }
 
-        System.out.println("MailSender: processing mail queue");
+        // Skip the System.out.println here normally, it clutters the logs. 
+        // See https://unicode.org/cldr/trac/ticket/10295
+        // System.out.println("MailSender: processing mail queue");
+
         String oldName = Thread.currentThread().getName();
         try {
             int countLeft = DBUtils.sqlCount(COUNTLEFTSQL);

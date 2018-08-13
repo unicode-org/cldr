@@ -583,7 +583,9 @@ public class VoteResolver<T> {
             for (T item : counter) {
                 result.put(item, counter.getCount(item));
             }
-            System.out.println("getOrgToVotes : " + org.displayName + " : " + result.toString());
+            // Skip the System.out.println here normally, it clutters the logs. 
+            // See https://unicode.org/cldr/trac/ticket/10295
+            // System.out.println("getOrgToVotes : " + org.displayName + " : " + result.toString());
             return result;
         }
     }

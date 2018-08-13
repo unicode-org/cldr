@@ -3611,7 +3611,7 @@ function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd)
 }
 
 /*
- * Update the "no cell", a.k.a, the "Abstain"column, of this row
+ * Update the "no cell", a.k.a, the "Abstain" column, of this row
  *
  * If the user can make changes, add an "abstain" button;
  * else, possibly add a ticket link, or else hide the column.

@@ -189,6 +189,11 @@ public class DataSection implements JSONString {
              * If not null it may cause getPClass to return "alias".
              *
              * inheritedValue.pathWhereFound may be assigned a non-null value.
+             *
+             * TODO: pathWhereFound should be a field of DataRow, not CandidateItem; on client it's theRow.pathWhereFound.
+             * Complication: style "alias" may be returned by getPClass if pathWhereFound != null; that condition
+             * might be replaced by value == INHERITANCE_MARKER, however, that may not be equivalent, see where
+             * sourceLocaleStatus.pathWhereFound gets assigned to myItem.pathWhereFound...
              */
             private String pathWhereFound = null;
 
@@ -1021,20 +1026,28 @@ public class DataSection implements JSONString {
          * @param checkCldr
          *            The tests to use
          *
-         * Called only by populateFrom
+         * Called only by populateFrom.
+         * TODO: move this function below its only caller, populateFrom.
+         * 
+         * TODO: Distinguish two kinds of votes for inherited value in Survey Tool
+         *     https://unicode.org/cldr/trac/ticket/11299
+         * This function currently creates a CandidateItem with value equal to the Bailey value,
+         * which makes it look like a "hard/explicit" vote for the Bailey value, NOT a "soft/implicit"
+         * vote for inheritance, which would have value equal to INHERITANCE_MARKER. Horrible confusion
+         * is the result. Change this function to set the value to INHERITANCE_MARKER, and to store
+         * the actual Bailey value elsewhere, such as a field of DataRow. Get rid of, or merge with,
+         * the code that currently does "p.addItem(CldrUtility.INHERITANCE_MARKER)" in populateFrom.
          */
         private void updateInheritedValue(CLDRFile vettedParent, TestResultBundle checkCldr) {
             long lastTime = System.currentTimeMillis();
             if (vettedParent == null) {
                 return;
             }
-
             if (xpathId == -1) {
                 return;
             }
 
             String xpath = sm.xpt.getById(xpathId);
-
             if (TRACE_TIME)
                 System.err.println("@@0:" + (System.currentTimeMillis() - lastTime));
             if (xpath == null) {
@@ -1042,22 +1055,16 @@ public class DataSection implements JSONString {
             }
 
             if ((vettedParent != null) && (inheritedValue == null)) {
-                /*
-                 * Caution: this local variable named "pathWhereFound" has the same name as a member of CandidateItem.
-                 */
-                Output<String> pathWhereFound = new Output<String>();
+                Output<String> inheritancePathWhereFound = new Output<String>();
                 Output<String> localeWhereFound = new Output<String>();
-                /*
-                 * Caution: this local variable named "value" has the same name as a member of CandidateItem.
-                 */
-                String value = vettedParent.getConstructedBaileyValue(xpath, pathWhereFound, localeWhereFound);
+                String constructedBaileyValue = vettedParent.getConstructedBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
                 if (TRACE_TIME)
                     System.err.println("@@1:" + (System.currentTimeMillis() - lastTime));
 
-                if (value == null) {
+                if (constructedBaileyValue == null) {
                     // no inherited value
-                } else if (!items.containsKey(value)) {
-                    inheritedValue = addItem(value);
+                } else if (!items.containsKey(constructedBaileyValue)) {
+                    inheritedValue = addItem(constructedBaileyValue);
                     if (TRACE_TIME)
                         System.err.println("@@2:" + (System.currentTimeMillis() - lastTime));
                     inheritedValue.isParentFallback = true;
@@ -1070,8 +1077,8 @@ public class DataSection implements JSONString {
 
                     inheritedValue.inheritFrom = CLDRLocale.getInstance(sourceLocale);
 
-                    if (pathWhereFound.value != null && !pathWhereFound.value.equals(xpath)) {
-                        inheritedValue.pathWhereFound = pathWhereFound.value;
+                    if (inheritancePathWhereFound.value != null && !inheritancePathWhereFound.value.equals(xpath)) {
+                        inheritedValue.pathWhereFound = inheritancePathWhereFound.value;
                         if (TRACE_TIME)
                             System.err.println("@@5:" + (System.currentTimeMillis() - lastTime));
 
@@ -1080,7 +1087,7 @@ public class DataSection implements JSONString {
                          * delete this call to it. Formerly the return value was assigned to
                          * aliasFromXpath, whose value was unused.
                          */
-                        sm.xpt.xpathToBaseXpathId(pathWhereFound.value);
+                        sm.xpt.xpathToBaseXpathId(inheritancePathWhereFound.value);
                         if (TRACE_TIME)
                             System.err.println("@@6:" + (System.currentTimeMillis() - lastTime));
                     }
@@ -1088,7 +1095,7 @@ public class DataSection implements JSONString {
                     inheritedValue.isBailey = true;
                     inheritedValue.isFallback = true;
                 } else { // item already contained
-                    CandidateItem otherItem = items.get(value);
+                    CandidateItem otherItem = items.get(constructedBaileyValue);
                     otherItem.isBailey = true;
                     otherItem.isFallback = true;
                     inheritedValue = otherItem;
@@ -1217,6 +1224,22 @@ public class DataSection implements JSONString {
                 jo.put("voteVhash", voteVhash);
                 jo.put("voteResolver", SurveyAjax.JSONWriter.wrap(resolver));
                 jo.put("items", itemsJson);
+                
+                /*
+                 * TODO: inheritedValue.value is currently the Bailey value, but may be changed to INHERITANCE_MARKER
+                 * (for https://unicode.org/cldr/trac/ticket/11299)
+                 * and what we send to the client here as theRow.inheritedValue should be a member of DataRow, not
+                 * CandidateItem.
+                 * 
+                 * Likewise inheritedValue.pathWhereFound which we send to the client here as theRow.pathWhereFound
+                 * should be a member of DataRow, not CandidateItem.
+                 * 
+                 * Likewise inheritedValue.inheritFrom which we send to the client here as theRow.inheritedLocale
+                 * should be a member of DataRow, not CandidateItem, and should be named same on client/server.
+                 * 
+                 * Likewise inheritedValue.getPClass() which we send to the client here as theRow.inheritedPClass
+                 * only depends on DataRow, not CandidateItem...
+                 */
                 jo.put("inheritedValue", inheritedValue != null ? inheritedValue.value : null);
                 jo.put("inheritedXPath", inheritedValue != null ? inheritedValue.pathWhereFound : null);
                 jo.put("inheritedXpid",

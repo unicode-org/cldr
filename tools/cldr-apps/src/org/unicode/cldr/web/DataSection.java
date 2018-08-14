@@ -1277,7 +1277,19 @@ public class DataSection implements JSONString {
                 }
 
                 JSONObject itemsJson = new JSONObject();
-                Boolean gotBailey = false;
+                /*
+                 * TODO: completeness+consistency checking for items, see https://unicode.org/cldr/trac/ticket/11299
+                 * and commented-out gotBailey debugging code below.
+                 * If we get rid of isBailey, could test for one item with INHERITANCE_MARKER
+                 * 
+                 * JSON sent from server to client must be COMPLETE and CONSISTENT
+                 * Establish and test rules like:
+                 *   Neither winningValue nor winningVHash can be empty;
+                 *   There must be an item that corresponds to the winningValue;
+                 *   There must be an item with INHERITANCE_MARKER;
+                 *   ...
+                 */
+                /// Boolean gotBailey = false;
                 for (CandidateItem i : items.values()) {
                     /* getOriginalValueHash, not getAdjustedValueHash, is required here.
                      * items.values() may include an item with value ↑↑↑ INHERITANCE_MARKER and isBailey = false, and an item
@@ -1293,13 +1305,13 @@ public class DataSection implements JSONString {
                         System.out.println("Warning: value hash key " + key + " is duplicate");
                     }
                     itemsJson.put(key, i);
-                    if (i.isBailey) {
-                        gotBailey = true;
-                    }
+                    /// if (i.isBailey) {
+                    ///     gotBailey = true;
+                    /// }
                 }
-                if (!gotBailey) {
-                    System.out.println("Warning: no isBailey value in DataSection.java!");
-                }
+                /// if (!gotBailey) {
+                ///    System.out.println("Warning: no isBailey value in DataSection.java!");
+                /// }
 
                 String displayExample = null;
                 ExampleBuilder b = getExampleBuilder();

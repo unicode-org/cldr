@@ -2904,6 +2904,14 @@ function updateRow(tr, theRow) {
 				tr.voteForBaileyItem = item;
 			}
 		}
+		/*
+		 * TODO: get rid of "isBailey". Instead, distinguish two kinds of votes for inherited value in Survey Tool
+		 * https://unicode.org/cldr/trac/ticket/11299
+		 * "Soft" item will have item.rawValue === INHERITANCE_MARKER
+		 * "Hard" item (if any) will have item.rawValue === theRow.inheritedValue
+		 * Usage will not be same as for old tr.voteForBaileyItem and tr.baileyItem; info that pertains
+		 * to the whole row will be in theRow rather than in either the soft or hard item.
+		 */
 		if(item.isBailey) {
 			tr.baileyItem = item; // This is the actual Bailey item (target of the votes)
 		}

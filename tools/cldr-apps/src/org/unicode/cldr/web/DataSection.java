@@ -184,7 +184,8 @@ public class DataSection implements JSONString {
              * Renamed 2018-8-13 from inheritFrom to inheritedLocale, for consistency with the name on the client which was
              * already inheritedLocale.
              * 
-             * TODO: on the client, this locale is a per-row thing; but currently on the server, it's a per-item thing
+             * TODO: move inheritedLocale from CandidateItem to DataRow.
+             * On the client, this locale is a per-row thing; but currently on the server, it's a per-item thing
              * (since inheritedItem is a CandidateItem).
              * Since there's only one such locale per row, it shouldn't be treated as a per-item thing.
              *
@@ -446,7 +447,7 @@ public class DataSection implements JSONString {
                      *  var defaultClassName = "fallback_code";
                      * 
                      * TODO: if inheritedLocale becomes a field of DataRow instead of CandidateItem, what will be
-                     * the appropriate condition for "fallback*"?
+                     * the appropriate condition to replace "if (isFallback || (inheritedLocale != null)) above?
                      * How about (rawValue == INHERITANCE_MARKER && pathWhereFound == null)?
                      */
                     if (inheritedLocale != null && XMLSource.CODE_FALLBACK_ID.equals(inheritedLocale.getBaseName())) {
@@ -819,9 +820,23 @@ public class DataSection implements JSONString {
             return ((Collection<CandidateItem>) getValues());
         }
 
+        /**
+         * Get the CandidateItem for this DataRow that has the given value.
+         * 
+         * @param value
+         * @return the CandidateItem or null if none has that value
+         * 
+         * Called only from SurveyAjax.java, as "ci = pvi.getItem(candVal)".
+         */
         public CandidateItem getItem(String value) {
             /*
              * TODO: this looks dubious, may change for https://unicode.org/cldr/trac/ticket/11299
+             * Under what circumstances would the caller (processRequest in SurveyAjax.java under
+             * WHAT_SUBMIT) have value = INHERITANCE_MARKER? That code for (what.equals(WHAT_SUBMIT))
+             * runs when the user votes, and in fact when the user votes for the inherited value
+             * ("soft" vote), we get called with value = INHERITANCE_MARKER. What happens after
+             * that is complicated. If we return null, processRequest may create a new CandidateInfo
+             * -- which is an interface that CandidateItem implements...
              */
             if (value.equals(CldrUtility.INHERITANCE_MARKER)) {
                 for (CandidateItem item : items.values()) {
@@ -1236,6 +1251,10 @@ public class DataSection implements JSONString {
         public String toJSONString() throws JSONException {
 
             try {
+                /*
+                 * TODO: fix bug here, where getWinningItem() may return null even though
+                 * already winningValue != null.
+                 */
                 String winningVhash = "";
                 CandidateItem winningItem = getWinningItem();
                 if (winningItem != null) {
@@ -1338,7 +1357,8 @@ public class DataSection implements JSONString {
                  * 
                  * The inherited value, currently stored as inheritedItem.rawValue, should be a field of DataRow,
                  * not stored in a CandidateItem (except when there is a "hard" vote for the Bailey value).
-                 * It corresponds to theRow.inheritedValue on the client.
+                 * It corresponds to theRow.inheritedValue on the client, so it should named inheritedValue
+                 * in DataRow as well, not to be confused with inheritedItem which was formerly named inheritedValue.
                  */
                 jo.put("inheritedValue", inheritedItem != null ? inheritedItem.rawValue : null);
                 jo.put("inheritedXPath", inheritedItem != null ? inheritedItem.pathWhereFound : null);
@@ -2779,9 +2799,9 @@ public class DataSection implements JSONString {
                     myItem.isFallback = false; // TODO: redundant?
                     myItem.isParentFallback = false;
                 }
-                // store who voted for what. [ this could be loaded at displaytime..]
-
                 /*
+                 * Store who voted for what. [ this could be loaded at displaytime..]
+                 * 
                  * TODO: explain the following block.
                  * myItem.examples is assigned to here, but not referenced anywhere else,
                  * so what is this block for, and does examples need to be a member of

@@ -750,8 +750,8 @@ public class XPathTable {
 
     /**
      * xpath to long
-     * @param xpath
-     * @return
+     * @param xpath a string identifying a path, for example "//ldml/numbers/symbols[@numberSystem="sund"]/infinity"
+     * @return a long integer, which is a hash of xpath; for example 2795888612892500012 (decimal) = 6d37a14eec91cee6 (hex)
      */
     public static final long getStringID(String xpath) {
         return StringId.getId(xpath);
@@ -768,8 +768,8 @@ public class XPathTable {
 
     /**
      * xpath to hex
-     * @param xpath
-     * @return
+     * @param xpath a string identifying a path, for example "//ldml/numbers/symbols[@numberSystem="sund"]/infinity"
+     * @return a sixteen-digit hex string, which is a hash of xpath; for example "6d37a14eec91cee6"
      */
     public static final String getStringIDString(String xpath) {
         return Long.toHexString(getStringID(xpath));

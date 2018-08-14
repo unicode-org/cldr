@@ -225,9 +225,6 @@
 				if (row != null) {
 					if (voteinfo != null && voteinfo.length() > 0) {
 						row.showVotingResults(ctx);
-					} else {
-						row.showDataRow(ctx, ctx.getUserFile(), true, null,
-								zoomedIn, DataSection.kAjaxRows);
 					}
 					ctx.flush();
 

@@ -639,90 +639,7 @@ public class SurveyAjax extends HttpServlet {
                                 r.put("dataEmpty", Boolean.toString(dataEmpty));
 
                                 if (what.equals(WHAT_SUBMIT)) {
-                                    if (!UserRegistry.userCanModifyLocale(mySession.user, locale)) {
-                                        throw new InternalError("User cannot modify locale.");
-                                    }
-
-                                    PathHeader ph = stf.getPathHeader(xp);
-                                    CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
-                                    SurveyToolStatus phStatus = ph.getSurveyToolStatus();
-
-                                    final String candVal = val;
-
-                                    DataSection section = DataSection.make(null, null, mySession, locale, xp, null, false,
-                                        Level.COMPREHENSIVE.toString());
-                                    section.setUserAndFileForVotelist(mySession.user, null);
-
-                                    DataRow pvi = section.getDataRow(xp);
-                                    final Level covLev = pvi.getCoverageLevel();
-                                    //final int coverageValue = covLev.getLevel();
-                                    CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
-
-                                    if (otherErr != null) {
-                                        r.put("didNotSubmit", "Did not submit.");
-                                    } else if (!showRowAction.isForbidden()) {
-                                        CandidateInfo ci;
-                                        if (candVal == null) {
-                                            ci = null; // abstention
-                                        } else {
-                                            ci = pvi.getItem(candVal); // existing
-                                            // item?
-                                            if (ci == null) { // no, new item
-                                                ci = new CandidateInfo() {
-                                                    @Override
-                                                    public String getValue() {
-                                                        return candVal;
-                                                    }
-
-                                                    @Override
-                                                    public Collection<UserInfo> getUsersVotingOn() {
-                                                        return Collections.emptyList(); // No
-                                                        // users
-                                                        // voting
-                                                        // -
-                                                        // yet.
-                                                    }
-
-                                                    @Override
-                                                    public List<CheckStatus> getCheckStatusList() {
-                                                        return result;
-                                                    }
-                                                };
-                                            }
-                                        }
-                                        CheckCLDR.StatusAction statusActionNewItem = cPhase.getAcceptNewItemAction(ci, pvi,
-                                            CheckCLDR.InputMethod.DIRECT, phStatus, mySession.user);
-                                        if (statusActionNewItem.isForbidden()) {
-                                            r.put("statusAction", statusActionNewItem);
-                                            if (DEBUG)
-                                                System.err.println("Not voting: ::  " + statusActionNewItem);
-                                        } else {
-                                            if (DEBUG)
-                                                System.err.println("Voting for::  " + val);
-                                            Integer withVote = null;
-                                            try {
-                                                withVote = Integer.parseInt(request.getParameter("voteReduced"));
-                                            } catch (Throwable t) {
-                                                withVote = null;
-                                            }
-                                            ballotBox.voteForValue(mySession.user, xp, val, withVote);
-                                            String subRes = ballotBox.getResolver(xp).toString();
-                                            if (DEBUG)
-                                                System.err.println("Voting result ::  " + subRes);
-                                            r.put("submitResultRaw", subRes);
-                                        }
-                                    } else {
-                                        if (DEBUG)
-                                            System.err.println("Not voting: ::  " + showRowAction);
-                                        r.put("statusAction", showRowAction);
-                                    }
-                                    // don't allow adding items if
-                                    // ALLOW_VOTING_BUT_NO_ADD
-
-                                    // informational
-                                    r.put("cPhase", cPhase);
-                                    r.put("phStatus", phStatus);
-                                    r.put("covLev", covLev);
+                                    submitVoteOrAbstention(r, val, mySession, locale, xp, stf, otherErr, result, request, ballotBox);
                                 } else if (what.equals(WHAT_DELETE)) {
                                     if (!UserRegistry.userCanModifyLocale(mySession.user, locale)) {
                                         throw new InternalError("User cannot modify locale.");
@@ -1129,14 +1046,14 @@ public class SurveyAjax extends HttpServlet {
                         case WHAT_USER_OLDVOTES:
                             {
                                 final JSONWriter r = newJSONStatusQuick(sm);
-                                ViewOldVoteStats(r, request, sm, mySession.user);
+                                viewOldVoteStats(r, request, sm, mySession.user);
                                 send(r, out);
                             }
                             break;
                         case WHAT_USER_XFEROLDVOTES:
                             {
                                 final JSONWriter r = newJSONStatusQuick(sm);
-                                TransferOldVotes(r, request, sm, mySession.user);
+                                transferOldVotes(r, request, sm, mySession.user);
                                 send(r, out);
                             }
                             break;
@@ -1858,7 +1775,7 @@ public class SurveyAjax extends HttpServlet {
                     continue; // out of coverage
                 }
                 String curValue = file.getStringValue(xpathString);
-                boolean isWinning = EqualsOrInheritsCurrentValue(value, curValue, file, xpathString);
+                boolean isWinning = equalsOrInheritsCurrentValue(value, curValue, file, xpathString);
                 if (oldvotes != null) {
                     String xpathStringHash = sm.xpt.getStringIDString(xp);
                     JSONObject aRow = new JSONObject()
@@ -2145,7 +2062,7 @@ public class SurveyAjax extends HttpServlet {
                 if (curValue == null) {
                     continue;
                 }
-                if (EqualsOrInheritsCurrentValue(value, curValue, file, xpathString)) {
+                if (equalsOrInheritsCurrentValue(value, curValue, file, xpathString)) {
                     // it's "winning" (uncontested).
                     BallotBox<User> box = fac.ballotBoxForLocale(locale);
                     /* Only import the most recent vote for the given user and xpathString.
@@ -2184,7 +2101,7 @@ public class SurveyAjax extends HttpServlet {
      * @param xpathString the path identifier
      * @return true if it matches or inherits, else false
      */
-    private boolean EqualsOrInheritsCurrentValue(String value, String curValue, CLDRFile file, String xpathString) {
+    private boolean equalsOrInheritsCurrentValue(String value, String curValue, CLDRFile file, String xpathString) {
         if (value == null || curValue == null) {
             return false;
         }
@@ -2227,7 +2144,7 @@ public class SurveyAjax extends HttpServlet {
      * @throws JSONException 
      * @throws IOException 
      */
-    private void TransferOldVotes(JSONWriter r, HttpServletRequest request, SurveyMain sm, UserRegistry.User user)
+    private void transferOldVotes(JSONWriter r, HttpServletRequest request, SurveyMain sm, UserRegistry.User user)
         throws SurveyException, SQLException, JSONException, IOException {
         Integer from_user_id = getIntParameter(request, "from_user_id");
         Integer to_user_id = getIntParameter(request, "to_user_id");
@@ -2243,7 +2160,7 @@ public class SurveyAjax extends HttpServlet {
         }
         /* TODO: replace deprecated isAdminFor with ...? */ 
         if (user.isAdminForOrg(user.org) && user.isAdminFor(toUser)) {
-            TransferOldVotesGivenUsersAndLocales(r, from_user_id, to_user_id, from_locale, to_locale);
+            transferOldVotesGivenUsersAndLocales(r, from_user_id, to_user_id, from_locale, to_locale);
         } else {
             throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to do this.");
         }       
@@ -2262,7 +2179,7 @@ public class SurveyAjax extends HttpServlet {
      * @throws SQLException
      * @throws JSONException
      */
-    private void TransferOldVotesGivenUsersAndLocales(JSONWriter r, Integer from_user_id, Integer to_user_id, String from_locale, String to_locale)
+    private void transferOldVotesGivenUsersAndLocales(JSONWriter r, Integer from_user_id, Integer to_user_id, String from_locale, String to_locale)
         throws SQLException, JSONException {
         int totalVotesTransferred = 0;
         String oldVotesTableList = "";
@@ -2326,7 +2243,7 @@ public class SurveyAjax extends HttpServlet {
      * @throws SurveyException 
      * @throws IOException 
      */
-    private void ViewOldVoteStats(JSONWriter r, HttpServletRequest request, SurveyMain sm, User user)
+    private void viewOldVoteStats(JSONWriter r, HttpServletRequest request, SurveyMain sm, User user)
         throws SQLException, JSONException, SurveyException, IOException {
 
         String u = request.getParameter("old_user_id");
@@ -2335,7 +2252,7 @@ public class SurveyAjax extends HttpServlet {
         }
         Integer old_user_id = Integer.parseInt(u);
         if (user.isAdminForOrg(user.org) && user.isAdminFor(sm.reg.getInfo(old_user_id))) {
-            ViewOldVoteStatsForOldUserId(r, old_user_id);
+            viewOldVoteStatsForOldUserId(r, old_user_id);
         } else {
             throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to list users.");
         }
@@ -2351,7 +2268,7 @@ public class SurveyAjax extends HttpServlet {
      * @throws JSONException
      * @throws IOException 
      */
-    private void ViewOldVoteStatsForOldUserId(JSONWriter r, Integer old_user_id)
+    private void viewOldVoteStatsForOldUserId(JSONWriter r, Integer old_user_id)
         throws SQLException, JSONException, IOException {
         
         JSONObject tables = new JSONObject();
@@ -2373,5 +2290,112 @@ public class SurveyAjax extends HttpServlet {
         }
         r.put("user_oldvotes", data); // WHAT_USER_OLDVOTES
         r.put("old_user_id", old_user_id);
+    }
+
+    /**
+     * Handle the user's submission of a vote, or an abstention if val is null.
+     * 
+     * @param r the JSONWriter to be written to
+     * @param val the string value voted for, or null for abstention
+     * @param mySession the CookieSession
+     * @param locale the CLDRLocale
+     * @param xp the path
+     * @param stf the STFactory
+     * @param otherErr ?
+     * @param result the List<CheckStatus>?
+     * @param request the HttpServletRequest
+     * @param ballotBox the BallotBox
+     * 
+     * @throws VoteNotAcceptedException 
+     * @throws InvalidXPathException
+     *
+     * TODO: for https://unicode.org/cldr/trac/ticket/11299
+     * figure out what needs to happen if candVal = val = INHERITANCE_MARKER,
+     * see "ci = pvi.getItem(candVal)", what if that returns inheritedItem
+     * with inheritedItem.rawValue = INHERITANCE_MARKER?
+     */
+    private void submitVoteOrAbstention(JSONWriter r, String val, CookieSession mySession, CLDRLocale locale,
+            String xp, STFactory stf, String otherErr, final List<CheckStatus> result,
+            HttpServletRequest request, BallotBox<UserRegistry.User> ballotBox)
+                throws InvalidXPathException, VoteNotAcceptedException {
+
+        if (!UserRegistry.userCanModifyLocale(mySession.user, locale)) {
+            throw new InternalError("User cannot modify locale.");
+        }
+
+        PathHeader ph = stf.getPathHeader(xp);
+        CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
+        SurveyToolStatus phStatus = ph.getSurveyToolStatus();
+
+        final String candVal = val;
+
+        DataSection section = DataSection.make(null, null, mySession, locale, xp, null, false,
+            Level.COMPREHENSIVE.toString());
+        section.setUserAndFileForVotelist(mySession.user, null);
+
+        DataRow pvi = section.getDataRow(xp);
+        final Level covLev = pvi.getCoverageLevel();
+        CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
+
+        if (otherErr != null) {
+            r.put("didNotSubmit", "Did not submit.");
+        } else if (!showRowAction.isForbidden()) {
+            CandidateInfo ci;
+            if (candVal == null) {
+                ci = null; // abstention
+            } else {
+                ci = pvi.getItem(candVal); // existing item?
+                if (ci == null) { // no, new item
+                    ci = new CandidateInfo() {
+                        @Override
+                        public String getValue() {
+                            return candVal;
+                        }
+
+                        @Override
+                        public Collection<UserInfo> getUsersVotingOn() {
+                            return Collections.emptyList(); // No users voting - yet.
+                        }
+
+                        @Override
+                        public List<CheckStatus> getCheckStatusList() {
+                            return result;
+                        }
+                    };
+                }
+            }
+            CheckCLDR.StatusAction statusActionNewItem = cPhase.getAcceptNewItemAction(ci, pvi,
+                CheckCLDR.InputMethod.DIRECT, phStatus, mySession.user);
+            if (statusActionNewItem.isForbidden()) {
+                r.put("statusAction", statusActionNewItem);
+                if (DEBUG)
+                    System.err.println("Not voting: ::  " + statusActionNewItem);
+            } else {
+                if (DEBUG)
+                    System.err.println("Voting for::  " + val);
+                Integer withVote = null;
+                try {
+                    withVote = Integer.parseInt(request.getParameter("voteReduced"));
+                } catch (Throwable t) {
+                    withVote = null;
+                }
+                ballotBox.voteForValue(mySession.user, xp, val, withVote);
+                String subRes = ballotBox.getResolver(xp).toString();
+                if (DEBUG)
+                    System.err.println("Voting result ::  " + subRes);
+                r.put("submitResultRaw", subRes);
+            }
+        } else {
+            if (DEBUG)
+                System.err.println("Not voting: ::  " + showRowAction);
+            r.put("statusAction", showRowAction);
+        }
+        // don't allow adding items if
+        // ALLOW_VOTING_BUT_NO_ADD
+
+        // informational
+        r.put("cPhase", cPhase);
+        r.put("phStatus", phStatus);
+        r.put("covLev", covLev);
     }
 }

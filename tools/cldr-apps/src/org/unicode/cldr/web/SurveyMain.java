@@ -5338,7 +5338,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     try {
                         String path = ee.dataRow.getXpath();
                         String fullPath = cf.getFullXPath(path);
-                        String value = ee.item.value;
+                        String value = ee.item.getValue();
                         String html = d.getHTML(m);
                         ctx.println(html);
                     } catch (Exception ex) {
@@ -5429,171 +5429,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public void showTimeZones(WebContext ctx) {
         String zone = ctx.field(QUERY_ZONE);
-
-        // Removed this since zoneFormatting data ( and thus OlsonVersion ) no
-        // longer exists in CLDR
-        // try {
-        // ctx.println("<div style='float: right'>TZ Version:"+supplemental.getOlsonVersion()+"</div>");
-        // } catch(Throwable t) {
-        // ctx.println("<div style='float: right' class='warning'>TZ Version: "+
-        // t.toString()+"</div>");
-        // }
-
-        // simple case - show the list of zones.
-        // if((zone == null)||(zone.length()==0)) {
-        if (true) {
-            // showPathList(ctx, DataSection.EXEMPLAR_PARENT,
-            // XPathMatcher.regex(PatternCache.get(".*exemplarCity.*")), null);
-            showPathList(ctx, DataSection.EXEMPLAR_PARENT, null, false);
-            return;
-        }
-
-        boolean canModify = ctx.getCanModify();
-
-        WebContext subCtx = (WebContext) ctx.clone();
-        subCtx.setQuery(QUERY_ZONE, zone);
-
-        Map<String, String[]> metaMap = new TreeMap<String, String[]>();
-
-        String currentMetaZone = zoneToMetaZone(ctx, zone, metaMap);
-
-        String territory = getSupplementalDataInfo().getZone_territory(zone);
-        String displayTerritory = null;
-        String displayZone = null;
-        if ((territory != null) && (territory.length() > 0)) {
-            displayTerritory = new ULocale("und_" + territory).getDisplayCountry(BASELINE_LOCALE);
-            if ((displayTerritory == null) || (displayTerritory.length() == 0)) {
-                displayTerritory = territory;
-            }
-            displayZone = displayTerritory + " : <a class='selected'>" + zone + "</a>";
-        } else {
-            displayZone = zone;
-        }
-
-        ctx.println("<h2>" + displayZone + "</h2>"); // couldn't find the
-        // territory.
-
-        printPathListOpen(ctx);
-
-        ctx.println("<input type='hidden' name='_' value='" + ctx.getLocale().toString() + "'>");
-        ctx.println("<input type='hidden' name='x' value='timezones'>");
-        ctx.println("<input type='hidden' name='zone' value='" + zone + "'>");
-        if (canModify && false) {
-            ctx.println("<input  type='submit' value='" + getSaveButtonText() + "'>"); // style='float:right'
-        }
-
-        String zonePodXpath = "//ldml/" + "dates/timeZoneNames/zone";
-        String zoneSuffix = "[@type=\"" + zone + "\"]";
-        String zoneXpath = zonePodXpath + zoneSuffix;
-        String podBase = DataSection.xpathToSectionBase(zonePodXpath);
-
-        String metazonePodXpath = "//ldml/" + "dates/timeZoneNames/metazone";
-        String metazoneSuffix = "[@type=\"" + currentMetaZone + "\"]";
-        String metazoneXpath = metazonePodXpath + metazoneSuffix;
-        String metazonePodBase = DataSection.xpathToSectionBase(metazonePodXpath);
-
-        DataSection section = ctx.getSection(podBase);
-        DataSection metazoneSection = null;
-
-        if (currentMetaZone != null) {
-            metazoneSection = ctx.getSection(metazonePodBase);
-        }
-
-        // #1 exemplar city
-
-        ctx.println("<h3>Exemplar City</h3>");
-
-        DataSection.printSectionTableOpen(ctx, section, true, canModify);
-        section.showSection(ctx, canModify, zoneXpath + "/exemplarCity", true);
-        printSectionTableClose(ctx, section, canModify);
-
-        ctx.printHelpHtml(zoneXpath + "/exemplarCity");
-
-        if (currentMetaZone != null) {
-            // #2 there's a MZ active. Explain it.
-            ctx.println("<hr><h3>Metazone " + currentMetaZone + "</h3>");
-
-            DataSection.printSectionTableOpen(ctx, metazoneSection, true, canModify);
-            metazoneSection.showSection(ctx, canModify, metazoneXpath, true);
-            printSectionTableClose(ctx, metazoneSection, canModify);
-            if (canModify && false) {
-                ctx.println("<input  type='submit' value='" + getSaveButtonText() + "'>"); // style='float:right'
-            }
-
-            ctx.printHelpHtml(metazoneXpath);
-
-            // show the table of active zones
-            ctx.println("<h4>Metazone History</h4>");
-            ctx.println("<table class='tzbox'>");
-            ctx.println("<tr><th>from</th><th>to</th><th>Metazone</th></tr>");
-            int n = 0;
-            for (Iterator<Map.Entry<String, String[]>> it = metaMap.entrySet().iterator(); it.hasNext();) {
-                n++;
-                Map.Entry<String, String[]> e = it.next();
-                String contents[] = (String[]) e.getValue();
-                String from = contents[0];
-                String to = contents[1];
-                String mzone = contents[2];
-                // OK, now that we are unpacked..
-                // mzContext.setQuery("mzone",mzone);
-                String mzClass = "";
-                if (mzone.equals(currentMetaZone)) {
-                    mzClass = "currentZone";
-                }
-                mzClass = "r" + (n % 2) + mzClass; // r0 r1 r0 r1 r1currentZone
-                // ( or r0currentZone )
-                ctx.println("<tr class='" + mzClass + "'><td>");
-                if (from != null) {
-                    ctx.println(from);
-                }
-                ctx.println("</td><td>");
-                if (to != null) {
-                    ctx.println(to);
-                } else {
-                    ctx.println("<i>now</i>");
-                }
-                ctx.println("</td><td>");
-                ctx.println("<tt class='codebox'>");
-
-                ctx.print("<span class='" + (mzone.equals(currentMetaZone) ? "selected" : "notselected") + "' '>"); // href='"+mzContext.url()+"
-                ctx.print(mzone);
-                ctx.println("</a>");
-                ctx.println("</td></tr>");
-
-            }
-            ctx.println("</table>");
-
-            ctx.println("<h3>" + displayZone + " Overrides</h3>"); // couldn't
-            // find the
-            // territory.
-            ctx.print("<i>The Metazone <b>" + currentMetaZone + "</b> is active for this zone. " +
-            // <a href=\""+
-            // bugReplyUrl(BUG_METAZONE_FOLDER, BUG_METAZONE,
-            // ctx.getLocale()+":"+ zone + ":" + currentMetaZone +
-            // " incorrect")+
-            // "\">Click Here to report Metazone problems</a>"+
-                " Please report any Metazone problems. </i>");
-        } else {
-            ctx.println("<h3>Zone Contents</h3>"); // No metazone - this is just
-            // the contents.
-        }
-
-        DataSection.printSectionTableOpen(ctx, section, true, canModify);
-        // use a special matcher.
-        section.showSection(
-            ctx,
-            canModify,
-            XPathMatcher.regex(BaseAndPrefixMatcher.getInstance(XPathTable.NO_XPATH, zoneXpath),
-                PatternCache.get(".*/((short)|(long))/.*")),
-            true);
-        printSectionTableClose(ctx, section, canModify);
-        if (canModify && false) {
-            ctx.println("<input  type='submit' value='" + getSaveButtonText() + "'>"); // style='float:right'
-        }
-
-        ctx.printHelpHtml(zoneXpath);
-
-        printPathListClose(ctx);
+        showPathList(ctx, DataSection.EXEMPLAR_PARENT, null, false);
     }
 
     /**
@@ -5655,16 +5491,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 if (e.length() > 0) {
                     showPathListExample(ctx, xpath, lastElement, e, fullThing, cf);
                 } else {
-                    // processChanges(ctx, fullThing);
-                    // SurveyLog.logger.info("Pod's full thing: " + fullThing);
                     DataSection section = ctx.getSection(fullThing); // we load
-                    // a new
-                    // pod here
-                    // - may be
-                    // invalid
-                    // by the
-                    // modifications
-                    // above.
+                    // a new DataSection here - may be invalid by the modifications above.
                     section.showSection(ctx, canModify, matcher, false);
                 }
             }
@@ -5765,7 +5593,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     DataSection.DataRow refDataRow = refsHash.get(ref);
                     DataSection.DataRow.CandidateItem refDataRowItem = refsItemHash.get(ref);
                     if ((refDataRowItem != null) && (refDataRow != null)) {
-                        ctx.print(refDataRowItem.value);
+                        ctx.print(refDataRowItem.getValue());
                         if (refDataRow.getDisplayName() != null) {
                             ctx.println("<br>" + refDataRow.getDisplayName());
                         }

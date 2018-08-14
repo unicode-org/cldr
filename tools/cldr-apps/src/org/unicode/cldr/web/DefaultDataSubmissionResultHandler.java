@@ -32,7 +32,10 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
 
     @Override
     public void handleRemoveItem(DataRow p, CandidateItem item, boolean removingVote) {
-        ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>:  Removing alternate \"" + item.value + "\" ("
+        /*
+         * TODO: CandidateItem.altProposed is a constant string "n/a". Is there any reason to use it here?
+         */
+        ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>:  Removing alternate \"" + item.getValue() + "\" ("
             + CandidateItem.altProposed + ")<br>");
         if (removingVote) {
             ctx.println(" <i>Also, removing your vote for it</i><br>");
@@ -48,8 +51,11 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
 
     @Override
     public void handleRemoveVote(DataRow p, UserRegistry.User voter, CandidateItem item) {
+        /*
+         * TODO: CandidateItem.altProposed is a constant string "n/a". Is there any reason to use it here?
+         */
         ctx.print("<tt title='#" + p.getXpathId() + "' class='codebox'>" + p.getDisplayName()
-            + "</tt>:  Removing vote for <span title='#" + p.getXpathId() + "'>" + "\"" + item.value + "\" ("
+            + "</tt>:  Removing vote for <span title='#" + p.getXpathId() + "'>" + "\"" + item.getValue() + "\" ("
             + CandidateItem.altProposed + ")</span> by " + voter.toHtml(ctx.session.user) + "<br>");
     }
 
@@ -62,6 +68,10 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
 
     public void warnAcceptedAsVoteFor(DataRow p, CandidateItem item) {
         ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
+        /*
+         * TODO: CandidateItem.altProposed is a constant string "n/a". Is there any reason to use it here?
+         * It is never null.
+         */
         ctx.println(ctx.iconHtml("warn", "duplicate")
             + " This value was already entered, accepting your vote for "
             + ((CandidateItem.altProposed == null) ? " the current item. <br>"
@@ -69,6 +79,10 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
     }
 
     public void warnAlreadyVotingFor(DataRow p, CandidateItem item) {
+        /*
+         * TODO: CandidateItem.altProposed is a constant string "n/a". Is there any reason to use it here?
+         * It is never null.
+         */
         ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
         ctx.println(ctx.iconHtml("warn", "duplicate") + " Your current vote is already for "
             + ((CandidateItem.altProposed == null) ? " the current item " : (" the proposal <tt>" + CandidateItem.altProposed + "</tt> "))

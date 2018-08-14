@@ -52,7 +52,6 @@
 </th>
 <th rowspan='<%= rowSpan %>' style='padding-left: 4px;' colspan='1' valign='top' align='left' class='botgray'>
 	<%= p.getDisplayName()  
-	      // + " " + p.fullFieldHash()
 	%>
 <% if(false&&SurveyMain.isUnofficial()) { %>	       <br/>
 	X=<%= p.getXpath() %>
@@ -79,5 +78,4 @@ if(items.size()>0) {
 			<% } 
 } %>
 	
-<% /* TODO: more from showDataRow needs to move here. */ %>
-
+<% /* Note: more from showDataRow (in DataSection.java prior to svn revision 14289) could move here? */ %>

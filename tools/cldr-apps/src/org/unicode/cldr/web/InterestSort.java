@@ -157,7 +157,6 @@ public class InterestSort extends SortMode {
         new Partition.Membership("Not (minimally) Approved") {
             public boolean isMember(DataRow p) {
                 return p.winningXpathId != -1 && p.confirmStatus != Status.approved && p.confirmStatus != Status.contributed;
-                // || p.winningXpathId == -1 && p.hasMultipleProposals;
             }
         }, new Partition.Membership("Approved") {
             public boolean isMember(DataRow p) {
@@ -165,24 +164,16 @@ public class InterestSort extends SortMode {
             }
         }, new Partition.Membership("Missing") {
             public boolean isMember(DataRow p) {
-                // return "root".equals(p.aliasFromLocale) ||
-                // XMLSource.CODE_FALLBACK_ID.equals(p.aliasFromLocale);
-                return p.inheritedValue != null && // found inherited item
-                // (extrapaths and some
-                // special paths may not
-                // have an inherited
-                // item)
-                    (CLDRLocale.ROOT == p.inheritedValue.inheritFrom || XMLSource.CODE_FALLBACK_ID
-                        .equals(p.inheritedValue.inheritFrom.getBaseName()));
+                // found inherited item (extrapaths and some special paths may not
+                // have an inherited item)
                 /*
-                 * p.winningXpathId==-1 && // no winning item
-                 * p.inheritedValue!=null && // found inherited item
-                 * (extrapaths and some special paths may not have an
-                 * inherited item) (
-                 * "root".equals(p.inheritedValue.inheritFrom)
-                 * ||XMLSource.CODE_FALLBACK_ID
-                 * ,equals(p.inheritedValue.inheritFrom) )
+                 * TODO: if inheritedLocale moves from CandidateItem to DataRow,
+                 * then p.inheritedItem.inheritedLocale may be simplified to p.inheritedLocale here.
+                 * Also, should change all "DataRow p" to "DataRow row".
                  */
+                return p.inheritedItem != null &&
+                    (CLDRLocale.ROOT == p.inheritedItem.inheritedLocale || XMLSource.CODE_FALLBACK_ID
+                        .equals(p.inheritedItem.inheritedLocale.getBaseName()));
             }
         }, new Partition.Membership("Inherited") {
             public boolean isMember(DataRow p) {

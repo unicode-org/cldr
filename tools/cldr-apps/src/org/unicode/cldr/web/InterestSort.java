@@ -166,9 +166,9 @@ public class InterestSort extends SortMode {
             public boolean isMember(DataRow p) {
                 // found inherited item (extrapaths and some special paths may not
                 // have an inherited item)
-                return p.inheritedValue != null &&
-                    (CLDRLocale.ROOT == p.inheritedValue.inheritFrom || XMLSource.CODE_FALLBACK_ID
-                        .equals(p.inheritedValue.inheritFrom.getBaseName()));
+                return p.inheritedItem != null &&
+                    (CLDRLocale.ROOT == p.inheritedItem.inheritedLocale || XMLSource.CODE_FALLBACK_ID
+                        .equals(p.inheritedItem.inheritedLocale.getBaseName()));
             }
         }, new Partition.Membership("Inherited") {
             public boolean isMember(DataRow p) {

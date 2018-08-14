@@ -116,20 +116,26 @@ public class DataSection implements JSONString {
             public static final String altProposed = "n/a";
 
             /**
-             * value is the actual value of this CandidateItem, that is, the string for which
+             * rawValue is the actual value of this CandidateItem, that is, the string for which
              * a user might vote.
              *
              * This member is private; use the function getValue() to access it.
              *
              * This member is "final", its value for each CandidateItem is set once and for all
              * when the constructor is called.
+             * 
+             * Renamed from "value" to "rawValue" 2018-8-13, for consistency with the client variable name,
+             * to emphasize distinction from getProcessedValue(), and to reduce confusion with other
+             * occurrences of the word "value".
              */
-            final private String value;
+            final private String rawValue;
 
             /**
              * isBailey means this CandidateItem is the fallback value.
              *
              * TODO: what are the distinctions between isBailey, isFallback, and isParentFallback?
+             * Probably all three will be removed for https://unicode.org/cldr/trac/ticket/11299
+             * and instead the Bailey+fallback item will be identified by rawValue==INHERITANCE_MARKER.
              */
             private boolean isBailey = false;
 
@@ -140,7 +146,7 @@ public class DataSection implements JSONString {
 
             /**
              * isParentFallback is true if this CandidateItem is not actually part of this locale, but is just
-             * the parent fallback (inheritedValue)
+             * the parent fallback (inheritedItem)
              *
              * isParentFallback is not used on the client. The only place its is used (rather than set) on
              * the server is in CandidateItem.toString, whose purpose isn't documented.
@@ -168,21 +174,23 @@ public class DataSection implements JSONString {
             private Vector<ExampleEntry> examples = null;
 
             /**
-             * inheritFrom is the locale from which this CandidateItem is inherited.
+             * inheritedLocale is the locale from which this CandidateItem is inherited.
              *
-             * null except for inheritedValue = the item with isFallback true?
-             * That is, inheritedValue.inheritFrom = true, and item.inheritFrom = false unless item = inheritedValue?
+             * null except for inheritedItem = the item with isFallback true?
+             * That is, inheritedItem.inheritedLocale = true, and item.inheritedLocale = false unless item = inheritedItem?
              *
-             * CandidateItem.inheritFrom on the server corresponds to theRow.inheritedLocale on the client.
+             * CandidateItem.inheritedLocale on the server corresponds to theRow.inheritedLocale on the client.
              *
-             * TODO: the name "inheritFrom" doesn't occur on client; the name "inheritedLocale" doesn't occur on server (except when creating json).
-             * They could just as well have the same name, to reduce confusion. Also, on the client, this locale is a per-row thing;
-             * but on the server, it's a per-item thing (since inheritedValue is a CandidateItem).
+             * Renamed 2018-8-13 from inheritFrom to inheritedLocale, for consistency with the name on the client which was
+             * already inheritedLocale.
+             * 
+             * TODO: on the client, this locale is a per-row thing; but currently on the server, it's a per-item thing
+             * (since inheritedItem is a CandidateItem).
              * Since there's only one such locale per row, it shouldn't be treated as a per-item thing.
              *
-             * inheritFrom is accessed from InterestSort.java for Partition.Membership("Missing"), otherwise it could be private.
+             * inheritedLocale is accessed from InterestSort.java for Partition.Membership("Missing"), otherwise it could be private.
              */
-            CLDRLocale inheritFrom = null;
+            CLDRLocale inheritedLocale = null;
 
             /**
              * pathWhereFound, if not null, may be, for example:
@@ -190,7 +198,7 @@ public class DataSection implements JSONString {
              *
              * If not null it may cause getPClass to return "alias".
              *
-             * inheritedValue.pathWhereFound may be assigned a non-null value.
+             * inheritedItem.pathWhereFound may be assigned a non-null value.
              *
              * TODO: pathWhereFound should be a field of DataRow, not CandidateItem; on client it's theRow.pathWhereFound.
              * Complication: style "alias" may be returned by getPClass if pathWhereFound != null; that condition
@@ -226,22 +234,22 @@ public class DataSection implements JSONString {
              *
              * @param value
              *
-             * This constructor sets this.value, which is final (can't be changed once set here).
+             * This constructor sets this.rawValue, which is final (can't be changed once set here).
              */
             private CandidateItem(String value) {
-                this.value = value;
+                this.rawValue = value;
             }
 
             /**
-             * Get the value of this CandidateItem
+             * Get the raw value of this CandidateItem
              *
              * @return the value, as a string
              *
-             * Compare getProcessedValue and rawValue.
+             * Compare getProcessedValue.
              */
             @Override
             public String getValue() {
-                return value;
+                return rawValue;
             }
 
             /**
@@ -252,48 +260,49 @@ public class DataSection implements JSONString {
              * Called only by CandidateItem.toJSONString
              *
              * This is what the client receives by the name "value".
-             * What the server calls "value" goes by the name "rawValue" on the client.
+             * Compare what is called "rawValue" on both server and client.
              */
             private String getProcessedValue() {
-                if (value == null) {
+                if (rawValue == null) {
                     return null;
                 }
                 try {
-                    return getProcessor().processForDisplay(xpath, value);
+                    return getProcessor().processForDisplay(xpath, rawValue);
                 } catch (Throwable t) {
                     if (SurveyLog.DEBUG) {
-                        SurveyLog.logException(t, "While processing " + xpath + ":" + value);
+                        SurveyLog.logException(t, "While processing " + xpath + ":" + rawValue);
                     }
-                    return value;
+                    return rawValue;
                 }
             }
 
             /**
-             * Get the hash of the value of this candidate item.
+             * Get the hash of the raw value of this candidate item.
              *
-             * This item's value is assumed to have been set already.
+             * This item's raw value is assumed to have been set already.
              *
              * Here, "original" means "not adjusted"; compare getAdjustedValueHash.
              *
-             * @return the hash of the original value
+             * @return the hash of the original raw value
              */
             private String getOriginalValueHash() {
                 if (originalValueHash == null) {
-                    originalValueHash = DataSection.getValueHash(value);
+                    originalValueHash = DataSection.getValueHash(rawValue);
                 }
                 return originalValueHash;
             }
 
             /**
-             * Get the adjusted hash of the value of this candidate item.
+             * Get the adjusted hash of the raw value of this candidate item.
              *
              * Here, "adjusted" means that under certain conditions this function may return the
-             * hash of CldrUtility.INHERITANCE_MARKER instead of the hash of this item's value.
+             * hash of CldrUtility.INHERITANCE_MARKER instead of the hash of this item's raw value.
              * Compare getOriginalValueHash.
              *
              * The conditions are: isFallback && !locale.isLanguageLocale().
              *
-             * TODO: Document the reasons for the adjustment. Does it still serve a purpose, or should
+             * TODO: Probably remove this as part of work on https://unicode.org/cldr/trac/ticket/11299 
+             * Otherwise, document the reasons for the adjustment. Does it still serve a purpose, or should
              * all getAdjustedValueHash be changed to getOriginalValueHash? The adjustment lead in one
              * context to duplicate keys getting overwritten and the browser console error "there is no Bailey Target item".
              *
@@ -304,7 +313,7 @@ public class DataSection implements JSONString {
                     if (isFallback && !locale.isLanguageLocale()) {
                         adjustedValueHash = DataSection.getValueHash(CldrUtility.INHERITANCE_MARKER);
                     } else {
-                        adjustedValueHash = DataSection.getValueHash(value);
+                        adjustedValueHash = DataSection.getValueHash(rawValue);
                     }
                 }
                 return adjustedValueHash;
@@ -322,14 +331,7 @@ public class DataSection implements JSONString {
                 if (other == this) {
                     return 0;
                 }
-                /*
-                 * TODO: simplify the following to
-                 * return value.compareTo(other.value);
-                 * ?
-                 */
-                CandidateItem i = (CandidateItem) other;
-                int rv = value.compareTo(i.value);
-                return rv;
+                return rawValue.compareTo(other.rawValue);
             }
 
             /**
@@ -355,7 +357,7 @@ public class DataSection implements JSONString {
              */
             private Set<UserRegistry.User> getVotes() {
                 if (!checkedVotes) {
-                    votes = ballotBox.getVotesForValue(xpath, value);
+                    votes = ballotBox.getVotesForValue(xpath, rawValue);
                     checkedVotes = true;
                 }
                 return votes;
@@ -374,7 +376,7 @@ public class DataSection implements JSONString {
              */
             private boolean isWinner() {
                 if (winningValue != null) {
-                    return winningValue.equals(value);
+                    return winningValue.equals(rawValue);
                 } else {
                     return false;
                 }
@@ -402,14 +404,14 @@ public class DataSection implements JSONString {
             private String getPClass() {
                 String pClass;
                 
-                if (isWinner() && !isFallback && inheritFrom == null) {
+                if (isWinner() && !isFallback && inheritedLocale == null) {
                     /*
                      * TODO: Revise as needed per https://unicode.org/cldr/trac/ticket/11299
                      * 
                      * An item can be both winning and alias/fallback (vote for inheritance). For display, it
                      * seems that the alias/fallback class is more important, that is, if an item is both
                      * winning and inherited, then its color is determined by inheritance not by whether it's winning.
-                     * That appears to be the reason why we do not return "winner" if isFallback or inheritFrom != null.
+                     * That appears to be the reason why we do not return "winner" if isFallback or inheritedLocale != null.
                      * Could move this condition lower: "... else if (isWinner()) ..."
                      * 
                      * redesign.css has:
@@ -423,17 +425,17 @@ public class DataSection implements JSONString {
                      *  .alias {background-color: #ddf;}
                      *  
                      *  This can happen when called from here by DataRow.toJSONString (for theRow.inheritedPClass):
-                     *  jo.put("inheritedPClass", inheritedValue != null ? inheritedValue.getPClass() : "fallback");
+                     *  jo.put("inheritedPClass", inheritedItem != null ? inheritedItem.getPClass() : "fallback");
                      *  
                      *  It can also happen when called from CandidateItem.toJSONString (for item.pClass). Either way,
                      *  Typically isBailey = true, isFallback = true, isParentFallback = true; try http://localhost:8080/cldr-apps/v#/aa/Fields/
                      *
                      * TODO: if pathWhereFound becomes a field of DataRow instead of CandidateItem, what will be
                      * the appropriate condition for "alias"?
-                     * How about (value == INHERITANCE_MARKER && pathWhereFound != null)? That's if we set inheritedValue.value = INHERITANCE_MARKER
+                     * How about (rawValue == INHERITANCE_MARKER && pathWhereFound != null)? That's if we set inheritedItem.rawValue = INHERITANCE_MARKER
                      */
                     pClass = "alias";
-                } else if (isFallback || (inheritFrom != null)) {
+                } else if (isFallback || (inheritedLocale != null)) {
                     /*
                      * surveytool.css has:
                      *  .fallback {background-color:#5bc0de;padding: .1em .4em .2em;}
@@ -443,13 +445,13 @@ public class DataSection implements JSONString {
                      *  var inheritedClassName = "fallback";
                      *  var defaultClassName = "fallback_code";
                      * 
-                     * TODO: if inheritFrom becomes a field of DataRow instead of CandidateItem, what will be
+                     * TODO: if inheritedLocale becomes a field of DataRow instead of CandidateItem, what will be
                      * the appropriate condition for "fallback*"?
-                     * How about (value == INHERITANCE_MARKER && pathWhereFound == null)?
+                     * How about (rawValue == INHERITANCE_MARKER && pathWhereFound == null)?
                      */
-                    if (inheritFrom != null && XMLSource.CODE_FALLBACK_ID.equals(inheritFrom.getBaseName())) {
+                    if (inheritedLocale != null && XMLSource.CODE_FALLBACK_ID.equals(inheritedLocale.getBaseName())) {
                         pClass = "fallback_code";
-                    } else if (inheritFrom == CLDRLocale.ROOT) {
+                    } else if (inheritedLocale == CLDRLocale.ROOT) {
                         pClass = "fallback_root";
                     } else {
                         pClass = "fallback";
@@ -535,7 +537,7 @@ public class DataSection implements JSONString {
                 JSONObject j = new JSONObject()
                     /* TODO: should this be getAdjustedValueHash or getOriginalValueHash? */
                     .put("valueHash", getAdjustedValueHash())
-                    .put("rawValue", value)
+                    .put("rawValue", rawValue)
                     .put("value", getProcessedValue())
                     .put("example", getExample())
                     .put("isOldValue", isOldValue)
@@ -590,7 +592,7 @@ public class DataSection implements JSONString {
                  * There may be confusion between the final (constant) string CandidateItem.altProposed
                  * and the local variable (now "altProp") declared in populateFrom?
                  */
-                return "{Item v='" + value + "', altProposed='" + CandidateItem.altProposed + "', inheritFrom='" + inheritFrom + "'"
+                return "{Item v='" + rawValue + "', altProposed='" + CandidateItem.altProposed + "', inheritedLocale='" + inheritedLocale + "'"
                     + (isWinner() ? ",winner" : "") + (isFallback ? ",isFallback" : "")
                     + (isParentFallback ? ",isParentFallback" : "") + "}";
             }
@@ -604,7 +606,7 @@ public class DataSection implements JSONString {
                 if (examplebuilder == null) {
                     return null;
                 } else {
-                    return getExampleBuilder().getExampleHtml(xpath, value, ExampleType.NATIVE);
+                    return getExampleBuilder().getExampleHtml(xpath, rawValue, ExampleType.NATIVE);
                 }
             }
 
@@ -663,9 +665,9 @@ public class DataSection implements JSONString {
         boolean hasWarnings = false;
 
         /*
-         * inheritedValue is the vetted value inherited from parent
+         * inheritedItem is a CandidateItem representing the vetted value inherited from parent
          */
-        public CandidateItem inheritedValue = null;
+        public CandidateItem inheritedItem = null;
 
         private CandidateItem winningItem = null;
         public Map<String, CandidateItem> items = new TreeMap<String, CandidateItem>();
@@ -818,6 +820,9 @@ public class DataSection implements JSONString {
         }
 
         public CandidateItem getItem(String value) {
+            /*
+             * TODO: this looks dubious, may change for https://unicode.org/cldr/trac/ticket/11299
+             */
             if (value.equals(CldrUtility.INHERITANCE_MARKER)) {
                 for (CandidateItem item : items.values()) {
                     if (item.isFallback) {
@@ -942,7 +947,7 @@ public class DataSection implements JSONString {
          * @param options
          */
         void setShimTests(int base_xpath, String base_xpath_string, TestResultBundle checkCldr, Map<String, String> options) {
-            CandidateItem shimItem = inheritedValue;
+            CandidateItem shimItem = inheritedItem;
 
             if (shimItem == null) {
                 shimItem = new CandidateItem(null);
@@ -954,8 +959,8 @@ public class DataSection implements JSONString {
                     // Got a bite.
                     if (shimItem.setTests(iTests)) {
                         // had valid tests
-                        inheritedValue = shimItem;
-                        inheritedValue.isParentFallback = true;
+                        inheritedItem = shimItem;
+                        inheritedItem.isParentFallback = true;
                     }
                 }
             }
@@ -976,7 +981,7 @@ public class DataSection implements JSONString {
             String baseExample;
             // Prime the Pump - Native must be called first.
             if (topCurrent != null) {
-                /* ignored */uf.getExampleGenerator().getExampleHtml(getXpath(), topCurrent.value,
+                /* ignored */uf.getExampleGenerator().getExampleHtml(getXpath(), topCurrent.rawValue,
                     exampleContext, ExampleType.NATIVE);
             } else {
                 // no top item, so use NULL
@@ -1022,7 +1027,6 @@ public class DataSection implements JSONString {
             }
             return rclass;
         }
-
 
         /**
          * Get an icon indicating whether the user has voted for this DataRow
@@ -1136,9 +1140,14 @@ public class DataSection implements JSONString {
                 return;
             }
 
-            if ((vettedParent != null) && (inheritedValue == null)) {
+            if ((vettedParent != null) && (inheritedItem == null)) {
                 Output<String> inheritancePathWhereFound = new Output<String>();
                 Output<String> localeWhereFound = new Output<String>();
+                
+                /*
+                 * TODO: instead of local variable constructedBaileyValue, maybe assign directly to a String field of DataRow,
+                 * named getConstructedBaileyValue or inheritedValue.
+                 */
                 String constructedBaileyValue = vettedParent.getConstructedBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
                 if (TRACE_TIME)
                     System.err.println("@@1:" + (System.currentTimeMillis() - lastTime));
@@ -1146,10 +1155,10 @@ public class DataSection implements JSONString {
                 if (constructedBaileyValue == null) {
                     // no inherited value
                 } else if (!items.containsKey(constructedBaileyValue)) {
-                    inheritedValue = addItem(constructedBaileyValue);
+                    inheritedItem = addItem(constructedBaileyValue);
                     if (TRACE_TIME)
                         System.err.println("@@2:" + (System.currentTimeMillis() - lastTime));
-                    inheritedValue.isParentFallback = true;
+                    inheritedItem.isParentFallback = true;
 
                     if (TRACE_TIME)
                         System.err.println("@@3:" + (System.currentTimeMillis() - lastTime));
@@ -1157,10 +1166,10 @@ public class DataSection implements JSONString {
                     if (TRACE_TIME)
                         System.err.println("@@4:" + (System.currentTimeMillis() - lastTime));
 
-                    inheritedValue.inheritFrom = CLDRLocale.getInstance(sourceLocale);
+                    inheritedItem.inheritedLocale = CLDRLocale.getInstance(sourceLocale);
 
                     if (inheritancePathWhereFound.value != null && !inheritancePathWhereFound.value.equals(xpath)) {
-                        inheritedValue.pathWhereFound = inheritancePathWhereFound.value;
+                        inheritedItem.pathWhereFound = inheritancePathWhereFound.value;
                         if (TRACE_TIME)
                             System.err.println("@@5:" + (System.currentTimeMillis() - lastTime));
 
@@ -1174,25 +1183,25 @@ public class DataSection implements JSONString {
                             System.err.println("@@6:" + (System.currentTimeMillis() - lastTime));
                     }
 
-                    inheritedValue.isBailey = true;
-                    inheritedValue.isFallback = true;
+                    inheritedItem.isBailey = true;
+                    inheritedItem.isFallback = true;
                 } else { // item already contained
                     CandidateItem otherItem = items.get(constructedBaileyValue);
                     otherItem.isBailey = true;
                     otherItem.isFallback = true;
-                    inheritedValue = otherItem;
+                    inheritedItem = otherItem;
                 }
             }
 
-            if ((checkCldr != null) && (inheritedValue != null) && (inheritedValue.tests == null)) {
+            if ((checkCldr != null) && (inheritedItem != null) && (inheritedItem.tests == null)) {
                 if (TRACE_TIME)
                     System.err.println("@@7:" + (System.currentTimeMillis() - lastTime));
                 List<CheckStatus> iTests = new ArrayList<CheckStatus>();
-                checkCldr.check(xpath, iTests, inheritedValue.value);
+                checkCldr.check(xpath, iTests, inheritedItem.rawValue);
                 if (TRACE_TIME)
                     System.err.println("@@8:" + (System.currentTimeMillis() - lastTime));
                 if (!iTests.isEmpty()) {
-                    inheritedValue.setTests(iTests);
+                    inheritedItem.setTests(iTests);
                     if (TRACE_TIME)
                         System.err.println("@@9:" + (System.currentTimeMillis() - lastTime));
                 }
@@ -1308,31 +1317,35 @@ public class DataSection implements JSONString {
                 jo.put("items", itemsJson);
 
                 /*
-                 * TODO: inheritedValue.value is currently the Bailey value, but may be changed to INHERITANCE_MARKER
+                 * TODO: inheritedItem.rawValue is currently the Bailey value, but may be changed to INHERITANCE_MARKER
                  * (for https://unicode.org/cldr/trac/ticket/11299)
-                 * and what we send to the client here as theRow.inheritedValue should be a member of DataRow, not
+                 * and what we send to the client here as theRow.inheritedItem should be a member of DataRow, not
                  * CandidateItem.
                  * 
-                 * Likewise inheritedValue.pathWhereFound which we send to the client here as theRow.pathWhereFound
+                 * Likewise inheritedItem.pathWhereFound which we send to the client here as theRow.pathWhereFound
                  * should be a member of DataRow, not CandidateItem.
                  * 
-                 * Likewise inheritedValue.inheritFrom which we send to the client here as theRow.inheritedLocale
-                 * should be a member of DataRow, not CandidateItem, and should be named same on client/server.
+                 * Likewise inheritedItem.inheritedLocale which we send to the client here as theRow.inheritedLocale
+                 * should be a member of DataRow, not CandidateItem.
                  * 
-                 * Likewise inheritedValue.getPClass() which we send to the client here as theRow.inheritedPClass
+                 * Likewise inheritedItem.getPClass() which we send to the client here as theRow.inheritedPClass
                  * only depends on DataRow, not CandidateItem... Also, inheritedPClass is currently only used once
                  * on the client, in a strange way, maybe should be on server not client, if anywhere:
                  * if (item.value == INHERITANCE_MARKER) {
                  *   item.pClass = theRow.inheritedPClass == "winner" ? "fallback" : theRow.inheritedPClass;
-                 *   displayValue = theRow.inheritedValue;
+                 *   displayValue = theRow.inheritedItem;
                  * }
+                 * 
+                 * The inherited value, currently stored as inheritedItem.rawValue, should be a field of DataRow,
+                 * not stored in a CandidateItem (except when there is a "hard" vote for the Bailey value).
+                 * It corresponds to theRow.inheritedValue on the client.
                  */
-                jo.put("inheritedValue", inheritedValue != null ? inheritedValue.value : null);
-                jo.put("inheritedXPath", inheritedValue != null ? inheritedValue.pathWhereFound : null);
+                jo.put("inheritedValue", inheritedItem != null ? inheritedItem.rawValue : null);
+                jo.put("inheritedXPath", inheritedItem != null ? inheritedItem.pathWhereFound : null);
                 jo.put("inheritedXpid",
-                    (inheritedValue != null && inheritedValue.pathWhereFound != null) ? XPathTable.getStringIDString(inheritedValue.pathWhereFound) : null);
-                jo.put("inheritedLocale", inheritedValue != null ? inheritedValue.inheritFrom : null);
-                jo.put("inheritedPClass", inheritedValue != null ? inheritedValue.getPClass() : "fallback");
+                    (inheritedItem != null && inheritedItem.pathWhereFound != null) ? XPathTable.getStringIDString(inheritedItem.pathWhereFound) : null);
+                jo.put("inheritedLocale", inheritedItem != null ? inheritedItem.inheritedLocale : null);
+                jo.put("inheritedPClass", inheritedItem != null ? inheritedItem.getPClass() : "fallback");
                 jo.put("canFlagOnLosing", resolver.getRequiredVotes() == VoteResolver.HIGH_BAR);
                 if (ph.getSurveyToolStatus() == SurveyToolStatus.LTR_ALWAYS) {
                     jo.put("dir", "ltr");
@@ -2661,7 +2674,7 @@ public class DataSection implements JSONString {
                 // and the URL ends with "v#/aa/NAmerica/".
                 // Set up 'shim' tests, to display coverage.
                 p.setShimTests(base_xpath, this.sm.xpt.getById(base_xpath), checkCldr, null);
-            } else if (p.inheritedValue == null) {
+            } else if (p.inheritedItem == null) {
                 // This item fell back from root. Make sure it has an Item, and that tests are run.
                 p.updateInheritedValue(ourSrc, checkCldr);
             }
@@ -2761,7 +2774,7 @@ public class DataSection implements JSONString {
                     && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
                     myItem.pathWhereFound = sourceLocaleStatus.pathWhereFound;
                 }
-                myItem.inheritFrom = setInheritFrom;
+                myItem.inheritedLocale = setInheritFrom;
                 if (setInheritFrom == null) {
                     myItem.isFallback = false; // TODO: redundant?
                     myItem.isParentFallback = false;

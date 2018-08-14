@@ -551,7 +551,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Eropah Timur</territory>
 			<territory type="154">Eropah Utara</territory>
 			<territory type="155">Eropah Barat</territory>
-			<territory type="202" draft="contributed">Afrika Sub-Sahara</territory>
+			<territory type="202">Afrika Sub-Sahara</territory>
 			<territory type="419">Amerika Latin</territory>
 			<territory type="AC">Pulau Ascension</territory>
 			<territory type="AD">Andorra</territory>
@@ -579,7 +579,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="BH">Bahrain</territory>
 			<territory type="BI">Burundi</territory>
 			<territory type="BJ">Benin</territory>
-			<territory type="BL">Saint Barthélemy</territory>
+			<territory type="BL">St. Barthelemy</territory>
 			<territory type="BM">Bermuda</territory>
 			<territory type="BN">Brunei</territory>
 			<territory type="BO">Bolivia</territory>
@@ -1880,11 +1880,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<eras>
 					<eraNames>
 						<era type="0">S.M.</era>
+						<era type="0" alt="variant">S.M.</era>
 						<era type="1">TM</era>
+						<era type="1" alt="variant">TM</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">S.M.</era>
+						<era type="0" alt="variant">S.M.</era>
 						<era type="1">TM</era>
+						<era type="1" alt="variant">TM</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0" draft="contributed">S.M.</era>
@@ -6151,6 +6155,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="MRU">
 				<displayName>Ouguiya Mauritania</displayName>
 				<displayName count="other">Ouguiya Mauritania</displayName>
+				<symbol draft="contributed">MRU</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>Rupee Mauritius</displayName>
@@ -6362,6 +6367,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="STN">
 				<displayName>Dobra Sao Tome dan Principe</displayName>
 				<displayName count="other">Dobra Sao Tome dan Principe</displayName>
+				<symbol draft="contributed">STN</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SYP">
@@ -6463,6 +6469,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="VES">
 				<displayName>Bolivar Venezuela</displayName>
 				<displayName count="other">Bolivar Venezuela</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Dong Vietnam</displayName>
@@ -6528,7 +6535,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -6627,6 +6636,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>bahagian setiap juta</displayName>
 				<unitPattern count="other">{0} bahagian setiap juta</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>peratus</displayName>
+				<unitPattern count="other">{0} peratus</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>per seribu</displayName>
+				<unitPattern count="other">{0} per seribu</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liter sekilometer</displayName>
 				<unitPattern count="other">{0} liter sekilometer</unitPattern>
@@ -6642,6 +6659,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>batu setiap gelen Imp.</displayName>
 				<unitPattern count="other">{0} batu setiap gelen Imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>petabait</displayName>
+				<unitPattern count="other">{0} petabait</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabait</displayName>
@@ -6971,6 +6992,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>milibar</displayName>
 				<unitPattern count="other">{0} milibar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atmosfera</displayName>
+				<unitPattern count="other">{0} atmosfera</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometer sejam</displayName>
 				<unitPattern count="other">{0} kilometer sejam</unitPattern>
@@ -7105,6 +7130,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} sudu teh</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>arah mata angin</displayName>
 				<coordinateUnitPattern type="east">{0} timur</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} utara</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} selatan</coordinateUnitPattern>
@@ -7200,6 +7226,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ppm</displayName>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>peratus</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>per seribu</displayName>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liter/km</displayName>
 				<unitPattern count="other">{0} L/km</unitPattern>
@@ -7215,6 +7249,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>mpg Imp.</displayName>
 				<unitPattern count="other">{0} mpg Imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TBait</displayName>
@@ -7544,6 +7582,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mbar</displayName>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/jam</displayName>
 				<unitPattern count="other">{0} kmj</unitPattern>
@@ -7678,6 +7720,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} sudu teh</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>arah</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -7722,6 +7765,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-foot">
 				<unitPattern count="other">{0} ka²</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>L/100km</displayName>
@@ -7983,6 +8030,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>arah</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -8096,7 +8144,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="japanese_kana">Kana Jepun</characterLabel>
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
-		<characterLabel type="keycap">keycap</characterLabel>
+		<characterLabel type="keycap">butang kekunci</characterLabel>
 		<characterLabel type="leftwards_arrows">anak panah ke kiri</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">anak panah ke kiri dan ke kanan</characterLabel>
 		<characterLabel type="letterlike_symbols">Simbol Ala Huruf</characterLabel>
@@ -8142,7 +8190,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="whitespace">Ruang putih</characterLabel>
 	</characterLabels>
 	<typographicNames>
+		<axisName type="ital">italik</axisName>
+		<axisName type="opsz">saiz optikal</axisName>
+		<axisName type="slnt">condong</axisName>
+		<axisName type="wdth">kelebaran</axisName>
+		<axisName type="wght">berat</axisName>
 		<styleName type="ital" subtype="1">kursif</styleName>
+		<styleName type="opsz" subtype="8">kapsyen</styleName>
+		<styleName type="opsz" subtype="12">teks</styleName>
 		<styleName type="opsz" subtype="18">sendeng</styleName>
 		<styleName type="opsz" subtype="72">paparkan</styleName>
 		<styleName type="opsz" subtype="144">poster</styleName>
@@ -8152,6 +8207,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="slnt" subtype="24">lebih condong</styleName>
 		<styleName type="wdth" subtype="50">ultra dipadatkan</styleName>
 		<styleName type="wdth" subtype="50" alt="compressed">ultra dimampatkan</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">ultrasempit</styleName>
 		<styleName type="wdth" subtype="62.5">lebih dipadatkan</styleName>
 		<styleName type="wdth" subtype="62.5" alt="compressed">lebih dimampatkan</styleName>
 		<styleName type="wdth" subtype="62.5" alt="narrow">lebih sempit</styleName>
@@ -8159,17 +8215,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="wdth" subtype="75" alt="compressed">dimampatkan</styleName>
 		<styleName type="wdth" subtype="75" alt="narrow">sempit</styleName>
 		<styleName type="wdth" subtype="87.5">semi dipadatkan</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">semimampat</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">semisempit</styleName>
 		<styleName type="wdth" subtype="100">biasa</styleName>
 		<styleName type="wdth" subtype="112.5">semi dikembangkan</styleName>
 		<styleName type="wdth" subtype="112.5" alt="extended">semi diperluaskan</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">semilebar</styleName>
 		<styleName type="wdth" subtype="125">dikembangkan</styleName>
-		<styleName type="wdth" subtype="125" alt="extended">dilanjutkan</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">diperluaskan</styleName>
 		<styleName type="wdth" subtype="125" alt="wide">lebar</styleName>
 		<styleName type="wdth" subtype="150">lebih dikembangkan</styleName>
 		<styleName type="wdth" subtype="150" alt="extended">lebih diperluaskan</styleName>
 		<styleName type="wdth" subtype="150" alt="wide">lebih lebar</styleName>
 		<styleName type="wdth" subtype="200">ultra dikembangkan</styleName>
 		<styleName type="wdth" subtype="200" alt="extended">ultra diperluaskan</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">ultralebar</styleName>
 		<styleName type="wght" subtype="100">nipis</styleName>
 		<styleName type="wght" subtype="200">lebih cerah</styleName>
 		<styleName type="wght" subtype="200" alt="ultra">ultra nipis</styleName>

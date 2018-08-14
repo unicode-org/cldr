@@ -11,14 +11,421 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="sc"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern draft="unconfirmed">{0} ({1})</localePattern>
+			<localeSeparator draft="unconfirmed">{0}, {1}</localeSeparator>
+			<localeKeyTypePattern draft="unconfirmed">{0}: {1}</localeKeyTypePattern>
+		</localeDisplayPattern>
 		<languages>
 			<language type="sc">Sardu</language>
 		</languages>
+		<codePatterns>
+			<codePattern type="language" draft="unconfirmed">{0}</codePattern>
+			<codePattern type="script" draft="unconfirmed">{0}</codePattern>
+			<codePattern type="territory" draft="unconfirmed">{0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a à b c d e è f g h i ì j l m n o ò p r s t u ù v z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á é í ó ú k q w x y ª â å ä ã æ ç ê ë î ï ñ º ô ö õ ø œ ß û ü ÿ]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C D E F G H I J K L M N O P Q R S T {TZ} U V W X Y Z]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[‐ – — · , ; \: ! ? . … ‘ ' ’ ′ ″ “ " ” ( ) \[ \] @ * / \&amp; #]</exemplarCharacters>
+		<exemplarCharacters type="numbers" draft="unconfirmed">[%+-.0-9‰]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[‐ – — · , ; \: ! ? . … ‘ ' ’ ′ ″ “ &quot; ” ( ) \[ \] @ * / \&amp; #]</exemplarCharacters>
 	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">de ghe</month>
+							<month type="2" draft="unconfirmed">de fre</month>
+							<month type="3" draft="unconfirmed">de mar</month>
+							<month type="4" draft="unconfirmed">de abr</month>
+							<month type="5" draft="unconfirmed">de maj</month>
+							<month type="6" draft="unconfirmed">de làm</month>
+							<month type="7" draft="unconfirmed">de trì</month>
+							<month type="8" draft="unconfirmed">de aus</month>
+							<month type="9" draft="unconfirmed">de cab</month>
+							<month type="10" draft="unconfirmed">de stG</month>
+							<month type="11" draft="unconfirmed">de stA</month>
+							<month type="12" draft="unconfirmed">de nad</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="unconfirmed">G</month>
+							<month type="2" draft="unconfirmed">F</month>
+							<month type="3" draft="unconfirmed">M</month>
+							<month type="4" draft="unconfirmed">A</month>
+							<month type="5" draft="unconfirmed">M</month>
+							<month type="6" draft="unconfirmed">L</month>
+							<month type="7" draft="unconfirmed">T</month>
+							<month type="8" draft="unconfirmed">A</month>
+							<month type="9" draft="unconfirmed">C</month>
+							<month type="10" draft="unconfirmed">S</month>
+							<month type="11" draft="unconfirmed">S</month>
+							<month type="12" draft="unconfirmed">N</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">de ghennàrgiu</month>
+							<month type="2" draft="unconfirmed">de freàrgiu</month>
+							<month type="3" draft="unconfirmed">de martzu</month>
+							<month type="4" draft="unconfirmed">de abrile</month>
+							<month type="5" draft="unconfirmed">de maju</month>
+							<month type="6" draft="unconfirmed">de làmpadas</month>
+							<month type="7" draft="unconfirmed">de trìulas</month>
+							<month type="8" draft="unconfirmed">de austu</month>
+							<month type="9" draft="unconfirmed">de cabudanni</month>
+							<month type="10" draft="unconfirmed">de santugaine</month>
+							<month type="11" draft="unconfirmed">de santandria</month>
+							<month type="12" draft="unconfirmed">de nadale</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">ghe</month>
+							<month type="2" draft="unconfirmed">fre</month>
+							<month type="3" draft="unconfirmed">mar</month>
+							<month type="4" draft="unconfirmed">abr</month>
+							<month type="5" draft="unconfirmed">maj</month>
+							<month type="6" draft="unconfirmed">làm</month>
+							<month type="7" draft="unconfirmed">trì</month>
+							<month type="8" draft="unconfirmed">agu</month>
+							<month type="9" draft="unconfirmed">cab</month>
+							<month type="10" draft="unconfirmed">stG</month>
+							<month type="11" draft="unconfirmed">stA</month>
+							<month type="12" draft="unconfirmed">nad</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="unconfirmed">G</month>
+							<month type="2" draft="unconfirmed">F</month>
+							<month type="3" draft="unconfirmed">M</month>
+							<month type="4" draft="unconfirmed">A</month>
+							<month type="5" draft="unconfirmed">M</month>
+							<month type="6" draft="unconfirmed">L</month>
+							<month type="7" draft="unconfirmed">T</month>
+							<month type="8" draft="unconfirmed">A</month>
+							<month type="9" draft="unconfirmed">C</month>
+							<month type="10" draft="unconfirmed">S</month>
+							<month type="11" draft="unconfirmed">S</month>
+							<month type="12" draft="unconfirmed">N</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">ghennàrgiu</month>
+							<month type="2" draft="unconfirmed">freàrgiu</month>
+							<month type="3" draft="unconfirmed">martzu</month>
+							<month type="4" draft="unconfirmed">abrile</month>
+							<month type="5" draft="unconfirmed">maju</month>
+							<month type="6" draft="unconfirmed">làmpadas</month>
+							<month type="7" draft="unconfirmed">trìulas</month>
+							<month type="8" draft="unconfirmed">austu</month>
+							<month type="9" draft="unconfirmed">cabudanni</month>
+							<month type="10" draft="unconfirmed">santugaine</month>
+							<month type="11" draft="unconfirmed">santandria</month>
+							<month type="12" draft="unconfirmed">nadale</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="unconfirmed">dom</day>
+							<day type="mon" draft="unconfirmed">lun</day>
+							<day type="tue" draft="unconfirmed">mar</day>
+							<day type="wed" draft="unconfirmed">mèr</day>
+							<day type="thu" draft="unconfirmed">giò</day>
+							<day type="fri" draft="unconfirmed">che</day>
+							<day type="sat" draft="unconfirmed">sàb</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="unconfirmed">D</day>
+							<day type="mon" draft="unconfirmed">L</day>
+							<day type="tue" draft="unconfirmed">M</day>
+							<day type="wed" draft="unconfirmed">M</day>
+							<day type="thu" draft="unconfirmed">G</day>
+							<day type="fri" draft="unconfirmed">C</day>
+							<day type="sat" draft="unconfirmed">S</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="unconfirmed">dom</day>
+							<day type="mon" draft="unconfirmed">lun</day>
+							<day type="tue" draft="unconfirmed">mar</day>
+							<day type="wed" draft="unconfirmed">mèr</day>
+							<day type="thu" draft="unconfirmed">giò</day>
+							<day type="fri" draft="unconfirmed">che</day>
+							<day type="sat" draft="unconfirmed">sàb</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">domìniga</day>
+							<day type="mon" draft="unconfirmed">lunis</day>
+							<day type="tue" draft="unconfirmed">martis</day>
+							<day type="wed" draft="unconfirmed">mèrcuris</day>
+							<day type="thu" draft="unconfirmed">giòbia</day>
+							<day type="fri" draft="unconfirmed">chenàbura</day>
+							<day type="sat" draft="unconfirmed">sàbadu</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="unconfirmed">dom</day>
+							<day type="mon" draft="unconfirmed">lun</day>
+							<day type="tue" draft="unconfirmed">mar</day>
+							<day type="wed" draft="unconfirmed">mèr</day>
+							<day type="thu" draft="unconfirmed">giò</day>
+							<day type="fri" draft="unconfirmed">che</day>
+							<day type="sat" draft="unconfirmed">sàb</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="unconfirmed">D</day>
+							<day type="mon" draft="unconfirmed">L</day>
+							<day type="tue" draft="unconfirmed">M</day>
+							<day type="wed" draft="unconfirmed">M</day>
+							<day type="thu" draft="unconfirmed">G</day>
+							<day type="fri" draft="unconfirmed">C</day>
+							<day type="sat" draft="unconfirmed">S</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="unconfirmed">dom</day>
+							<day type="mon" draft="unconfirmed">lun</day>
+							<day type="tue" draft="unconfirmed">mar</day>
+							<day type="wed" draft="unconfirmed">mèr</day>
+							<day type="thu" draft="unconfirmed">giò</day>
+							<day type="fri" draft="unconfirmed">che</day>
+							<day type="sat" draft="unconfirmed">sàb</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">domìniga</day>
+							<day type="mon" draft="unconfirmed">lunis</day>
+							<day type="tue" draft="unconfirmed">martis</day>
+							<day type="wed" draft="unconfirmed">mèrcuris</day>
+							<day type="thu" draft="unconfirmed">giòbia</day>
+							<day type="fri" draft="unconfirmed">chenàbura</day>
+							<day type="sat" draft="unconfirmed">sàbadu</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="unconfirmed">T1</quarter>
+							<quarter type="2" draft="unconfirmed">T2</quarter>
+							<quarter type="3" draft="unconfirmed">T3</quarter>
+							<quarter type="4" draft="unconfirmed">T4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="unconfirmed">1</quarter>
+							<quarter type="2" draft="unconfirmed">2</quarter>
+							<quarter type="3" draft="unconfirmed">3</quarter>
+							<quarter type="4" draft="unconfirmed">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="unconfirmed">1u trimestre</quarter>
+							<quarter type="2" draft="unconfirmed">2u trimestre</quarter>
+							<quarter type="3" draft="unconfirmed">3u trimestre</quarter>
+							<quarter type="4" draft="unconfirmed">4u trimestre</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="unconfirmed">T1</quarter>
+							<quarter type="2" draft="unconfirmed">T2</quarter>
+							<quarter type="3" draft="unconfirmed">T3</quarter>
+							<quarter type="4" draft="unconfirmed">T4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="unconfirmed">1</quarter>
+							<quarter type="2" draft="unconfirmed">2</quarter>
+							<quarter type="3" draft="unconfirmed">3</quarter>
+							<quarter type="4" draft="unconfirmed">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="unconfirmed">1u trimestre</quarter>
+							<quarter type="2" draft="unconfirmed">2u trimestre</quarter>
+							<quarter type="3" draft="unconfirmed">3u trimestre</quarter>
+							<quarter type="4" draft="unconfirmed">4u trimestre</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="unconfirmed">AM</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">PM</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="unconfirmed">AM</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">PM</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">AM</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">PM</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="unconfirmed">AM</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">PM</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="unconfirmed">AM</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">PM</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">AM</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">PM</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<eras>
+					<eraNames>
+						<era type="0" draft="unconfirmed">in antis de Cristu</era>
+						<era type="0" alt="variant" draft="unconfirmed">in antis de s’era comuna</era>
+						<era type="1" draft="unconfirmed">a pustis de Cristu</era>
+						<era type="1" alt="variant" draft="unconfirmed">era comuna</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="unconfirmed">AC</era>
+						<era type="0" alt="variant" draft="unconfirmed">AEC</era>
+						<era type="1" draft="unconfirmed">PC</era>
+						<era type="1" alt="variant" draft="unconfirmed">EC</era>
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">d MMMM y, EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">d MMMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="unconfirmed">d MMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="unconfirmed">dd/MM/y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+			</calendar>
+		</calendars>
+		<fields>
+			<field type="era">
+				<displayName draft="unconfirmed">era</displayName>
+			</field>
+			<field type="era-short">
+				<displayName draft="unconfirmed">era</displayName>
+			</field>
+			<field type="era-narrow">
+				<displayName draft="unconfirmed">era</displayName>
+			</field>
+			<field type="year">
+				<displayName draft="unconfirmed">annu</displayName>
+			</field>
+			<field type="year-short">
+				<displayName draft="unconfirmed">annu</displayName>
+			</field>
+			<field type="year-narrow">
+				<displayName draft="unconfirmed">annu</displayName>
+			</field>
+			<field type="month">
+				<displayName draft="unconfirmed">mese</displayName>
+			</field>
+			<field type="week">
+				<displayName draft="unconfirmed">chida</displayName>
+			</field>
+			<field type="week-short">
+				<displayName draft="unconfirmed">chida</displayName>
+			</field>
+			<field type="week-narrow">
+				<displayName draft="unconfirmed">chida</displayName>
+			</field>
+			<field type="weekOfMonth">
+				<displayName draft="unconfirmed">chida de su mese</displayName>
+			</field>
+			<field type="day">
+				<displayName draft="unconfirmed">die</displayName>
+				<relative type="-1" draft="unconfirmed">eris</relative>
+				<relative type="0" draft="unconfirmed">oe</relative>
+				<relative type="1" draft="unconfirmed">cras</relative>
+			</field>
+			<field type="day-short">
+				<displayName draft="unconfirmed">die</displayName>
+			</field>
+			<field type="day-narrow">
+				<displayName draft="unconfirmed">die</displayName>
+			</field>
+			<field type="dayOfYear">
+				<displayName draft="unconfirmed">die de s’annu</displayName>
+			</field>
+			<field type="weekday">
+				<displayName draft="unconfirmed">die de sa chida</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName draft="unconfirmed">die de su mese</displayName>
+			</field>
+			<field type="dayperiod-short">
+				<displayName draft="unconfirmed">AM/PM</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName draft="unconfirmed">AM/PM</displayName>
+			</field>
+			<field type="dayperiod-narrow">
+				<displayName draft="unconfirmed">AM/PM</displayName>
+			</field>
+			<field type="hour">
+				<displayName draft="unconfirmed">ora</displayName>
+			</field>
+			<field type="hour-short">
+				<displayName draft="unconfirmed">ora</displayName>
+			</field>
+			<field type="hour-narrow">
+				<displayName draft="unconfirmed">ora</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="unconfirmed">minutu</displayName>
+			</field>
+			<field type="minute-short">
+				<displayName draft="unconfirmed">min.</displayName>
+			</field>
+			<field type="minute-narrow">
+				<displayName draft="unconfirmed">min.</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="unconfirmed">segundu</displayName>
+			</field>
+			<field type="second-short">
+				<displayName draft="unconfirmed">seg.</displayName>
+			</field>
+			<field type="second-narrow">
+				<displayName draft="unconfirmed">seg.</displayName>
+			</field>
+		</fields>
+	</dates>
 </ldml>

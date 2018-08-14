@@ -44,6 +44,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="th">thaigiella</language>
 			<language type="vi">vietnamagiella</language>
 			<language type="zh_Hans">álkes kiinnágiella</language>
+			<language type="zh_Hant">árbevirolaš kiinnágiella</language>
 		</languages>
 		<scripts>
 			<script type="Arab">arábalaš</script>
@@ -68,7 +69,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="018">Lulli-Afrihká</territory>
 			<territory type="019">Amerihka</territory>
 			<territory type="021">Davvi-Amerihká</territory>
+			<territory type="029">Karibia</territory>
+			<territory type="030">nuorta-Ásia</territory>
+			<territory type="034">mátta-Ásia</territory>
+			<territory type="035">mátta-nuorta-Ásia</territory>
+			<territory type="039">mátta-Eurohpá</territory>
 			<territory type="057">Mikronesia guovlu</territory>
+			<territory type="143">gaska-Ásia</territory>
+			<territory type="145">oarji-Ásia</territory>
+			<territory type="150">Eurohpá</territory>
+			<territory type="151">nuorta-Eurohpá</territory>
+			<territory type="154">davvi-Eurohpá</territory>
+			<territory type="155">oarji-Eurohpá</territory>
 			<territory type="419">Latiinnalaš Amerihká</territory>
 			<territory type="BA">Bosnia ja Hercegovina</territory>
 			<territory type="CI" alt="variant">Côte d’Ivoire</territory>
@@ -488,6 +500,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-short">
 				<displayName>j.</displayName>
+				<relative type="0">dán jagi</relative>
+				<relative type="1">boahtte jagi</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} j. siste</relativeTimePattern>
 					<relativeTimePattern count="two">{0} jagi siste</relativeTimePattern>
@@ -555,6 +569,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="month">
+				<displayName>mánnu</displayName>
 				<relative type="-1">mannan mánu</relative>
 				<relative type="0">dán mánu</relative>
 				<relative type="1">boahtte mánu</relative>

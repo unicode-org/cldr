@@ -372,7 +372,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="non">nórdico antiguo</language>
 			<language type="nqo">n’ko</language>
 			<language type="nr">ndebele meridional</language>
-			<language type="nso">sesotho septentrional</language>
+			<language type="nso">sotho septentrional</language>
 			<language type="nus">nuer</language>
 			<language type="nv">navajo</language>
 			<language type="nwc">newari clásico</language>
@@ -467,7 +467,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="srr">serer</language>
 			<language type="ss">suazi</language>
 			<language type="ssy">saho</language>
-			<language type="st">sesotho meridional</language>
+			<language type="st">sotho meridional</language>
 			<language type="su">sundanés</language>
 			<language type="suk">sukuma</language>
 			<language type="sus">susu</language>
@@ -717,7 +717,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Europa oriental</territory>
 			<territory type="154">Europa septentrional</territory>
 			<territory type="155">Europa occidental</territory>
-			<territory type="202" draft="contributed">África subsahariana</territory>
+			<territory type="202">África subsahariana</territory>
 			<territory type="419">Latinoamérica</territory>
 			<territory type="AC">Isla de la Ascensión</territory>
 			<territory type="AD">Andorra</territory>
@@ -760,9 +760,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CA">Canadá</territory>
 			<territory type="CC">Islas Cocos</territory>
 			<territory type="CD">República Democrática del Congo</territory>
-			<territory type="CD" alt="variant">Congo (República Democrática del Congo)</territory>
+			<territory type="CD" alt="variant">Congo (RDC)</territory>
 			<territory type="CF">República Centroafricana</territory>
-			<territory type="CG">República del Congo</territory>
+			<territory type="CG">Congo</territory>
 			<territory type="CG" alt="variant">Congo (República)</territory>
 			<territory type="CH">Suiza</territory>
 			<territory type="CI">Côte d’Ivoire</territory>
@@ -1212,6 +1212,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<ellipsis type="word-initial">… {0}</ellipsis>
 		<ellipsis type="word-medial">{0}… {1}</ellipsis>
 		<moreInformation>?</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\--/]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
+			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>«</quotationStart>
@@ -6075,6 +6094,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>yuan chino (extracontinental)</displayName>
 				<displayName count="one">yuan chino (extracontinental)</displayName>
 				<displayName count="other">yuan chino (extracontinental)</displayName>
+				<symbol draft="contributed">CNH</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>yuan</displayName>
@@ -6998,6 +7018,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>dobra</displayName>
 				<displayName count="one">dobra</displayName>
 				<displayName count="other">dobras</displayName>
+				<symbol draft="contributed">STN</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SUR">
@@ -7176,6 +7197,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>bolívar venezolano</displayName>
 				<displayName count="one">bolívar venezolano</displayName>
 				<displayName count="other">bolívares venezolanos</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>dong</displayName>
@@ -7346,7 +7368,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">Más de {0}</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -7465,6 +7489,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} parte por millón</unitPattern>
 				<unitPattern count="other">{0} partes por millón</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>por ciento</displayName>
+				<unitPattern count="one">{0} por ciento</unitPattern>
+				<unitPattern count="other">{0} por ciento</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>por mil</displayName>
+				<unitPattern count="one">{0} por mil</unitPattern>
+				<unitPattern count="other">{0} por mil</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litros por kilómetro</displayName>
 				<unitPattern count="one">{0} litro por kilómetro</unitPattern>
@@ -7484,6 +7518,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>millas por galón imperial</displayName>
 				<unitPattern count="one">{0} milla por galón imperial</unitPattern>
 				<unitPattern count="other">{0} millas por galón imperial</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>petabytes</displayName>
+				<unitPattern count="one">{0} petabyte</unitPattern>
+				<unitPattern count="other">{0} petabytes</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabytes</displayName>
@@ -7876,6 +7915,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} milibar</unitPattern>
 				<unitPattern count="other">{0} milibares</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atmósferas</displayName>
+				<unitPattern count="one">{0} atmósfera</unitPattern>
+				<unitPattern count="other">{0} atmósferas</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilómetros por hora</displayName>
 				<unitPattern count="one">{0} kilómetro por hora</unitPattern>
@@ -8042,6 +8086,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} cucharaditas</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>punto cardinal</displayName>
 				<coordinateUnitPattern type="east">{0} E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} S</coordinateUnitPattern>
@@ -8157,6 +8202,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>por ciento</displayName>
+				<unitPattern count="one">{0} %</unitPattern>
+				<unitPattern count="other">{0} %</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>por mil</displayName>
+				<unitPattern count="one">{0} ‰</unitPattern>
+				<unitPattern count="other">{0} ‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
 				<unitPattern count="one">{0} l/km</unitPattern>
@@ -8176,6 +8231,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mi/gal imp.</displayName>
 				<unitPattern count="one">{0} mi/gal imp.</unitPattern>
 				<unitPattern count="other">{0} mi/gal imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="one">{0} PB</unitPattern>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -8568,6 +8628,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="one">{0} km/h</unitPattern>
@@ -8734,6 +8799,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} cdta</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>punto</displayName>
 				<coordinateUnitPattern type="east">{0} E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} S</coordinateUnitPattern>
@@ -8783,6 +8849,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-square-foot">
 				<unitPattern count="one">{0}ft²</unitPattern>
 				<unitPattern count="other">{0}ft²</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0} %</unitPattern>
+				<unitPattern count="other">{0} %</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>l/100km</displayName>
@@ -9051,6 +9122,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}l</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>punto</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -9217,6 +9289,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<axisName type="wdth">anchura</axisName>
 		<axisName type="wght">grosor</axisName>
 		<styleName type="ital" subtype="1">cursiva</styleName>
+		<styleName type="opsz" subtype="8">leyenda</styleName>
+		<styleName type="opsz" subtype="12">texto</styleName>
 		<styleName type="opsz" subtype="18">título</styleName>
 		<styleName type="opsz" subtype="72">pantalla</styleName>
 		<styleName type="opsz" subtype="144">cartel</styleName>
@@ -9250,22 +9324,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="wdth" subtype="200" alt="extended">ultraextendida</styleName>
 		<styleName type="wdth" subtype="200" alt="wide">ultraancha</styleName>
 		<styleName type="wght" subtype="100">delgada</styleName>
-		<styleName type="wght" subtype="200">extraligera</styleName>
+		<styleName type="wght" subtype="200">extrafina</styleName>
 		<styleName type="wght" subtype="200" alt="ultra">ultrafina</styleName>
 		<styleName type="wght" subtype="300">fina</styleName>
-		<styleName type="wght" subtype="350">semiligera</styleName>
+		<styleName type="wght" subtype="350">semifina</styleName>
 		<styleName type="wght" subtype="380">libro</styleName>
-		<styleName type="wght" subtype="400">normal</styleName>
-		<styleName type="wght" subtype="500">mediana</styleName>
-		<styleName type="wght" subtype="600">seminegrita</styleName>
+		<styleName type="wght" subtype="400">redonda</styleName>
+		<styleName type="wght" subtype="500">media</styleName>
+		<styleName type="wght" subtype="600">seminegra</styleName>
+		<styleName type="wght" subtype="600" alt="demi">seminegra</styleName>
 		<styleName type="wght" subtype="700">negrita</styleName>
-		<styleName type="wght" subtype="800">extranegrita</styleName>
-		<styleName type="wght" subtype="800" alt="ultra">ultranegrita</styleName>
-		<styleName type="wght" subtype="900">negra</styleName>
-		<styleName type="wght" subtype="900" alt="heavy">pesada</styleName>
-		<styleName type="wght" subtype="950">extranegra</styleName>
-		<styleName type="wght" subtype="950" alt="ultrablack">ultranegra</styleName>
-		<styleName type="wght" subtype="950" alt="ultraheavy">ultrapesada</styleName>
+		<styleName type="wght" subtype="800">extranegra</styleName>
+		<styleName type="wght" subtype="800" alt="ultra">ultranegra</styleName>
+		<styleName type="wght" subtype="900">intensa</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">gruesa</styleName>
+		<styleName type="wght" subtype="950">extraintensa</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">ultraintensa</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">ultragruesa</styleName>
 		<featureName type="afrc">fracciones verticales</featureName>
 		<featureName type="cpsp">espaciado entre mayúsculas</featureName>
 		<featureName type="dlig">ligaduras opcionales</featureName>

@@ -575,6 +575,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="FI">ফিনলেণ্ড</territory>
 			<territory type="FJ">ফিজি</territory>
 			<territory type="FK">ফকলেণ্ড দ্বীপপুঞ্জ</territory>
+			<territory type="FK" alt="variant">ফকলেণ্ড দ্বীপপুঞ্জ (আইলেছ মালভিনাছ)</territory>
 			<territory type="FM">মাইক্ৰোনেচিয়া</territory>
 			<territory type="FO">ফাৰো দ্বীপপুঞ্জ</territory>
 			<territory type="FR">ফ্ৰান্স</territory>
@@ -768,6 +769,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</territories>
 		<subdivisions>
 			<subdivision type="gbeng">ইংলেণ্ড</subdivision>
+			<subdivision type="gbsct">স্কটলেণ্ড</subdivision>
+			<subdivision type="gbwls">ৱেলছ্</subdivision>
 		</subdivisions>
 		<keys>
 			<key type="calendar">কেলেণ্ডাৰ</key>
@@ -866,6 +869,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<exemplarCharacters type="auxiliary">[\u200C\u200D ৲ ৎ র]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="unconfirmed">[অ আ ই ঈ উ ঊ ঋ ৠ ঌ ৡ এ ঐ ও ঔ ক খ গ ঘ ঙ চ ছ জ ঝ ঞ ট ঠ ড ঢ ণ ৎ ত থ দ ধ ন প ফ ব ভ ম য ৰ ল ৱ শ ষ স হ ঽ]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- , . % ‰ + 0০ 1১ 2২ 3৩ 4৪ 5৫ 6৬ 7৭ 8৮ 9৯]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">[!-#\&amp;-*,-/\:;?@\[\]§।‐–—‘’“”†‡…′″]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
@@ -1297,12 +1301,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<eras>
 					<eraNames>
 						<era type="0">খ্ৰীষ্টপূৰ্ব</era>
+						<era type="0" alt="variant">খ্ৰীষ্টপূৰ্ব</era>
 						<era type="1">খ্ৰীষ্টাব্দ</era>
+						<era type="1" alt="variant">চি. ই.</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">খ্ৰীঃ পূঃ</era>
 						<era type="0" alt="variant">খ্ৰীষ্টপূৰ্ব</era>
 						<era type="1">খ্ৰীঃ</era>
+						<era type="1" alt="variant">চি. ই.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -5468,6 +5475,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">উজবেকিস্তানী ছোম</displayName>
 				<symbol draft="contributed">UZS</symbol>
 			</currency>
+			<currency type="VEB">
+				<displayName>ভেনিজুৱেলান বলিভাৰ (1871–2008)</displayName>
+				<displayName count="one">ভেনিজুৱেলান বলিভাৰ (1871–2008)</displayName>
+				<displayName count="other">ভেনিজুৱেলান বলিভাৰ (1871–2008)</displayName>
+			</currency>
 			<currency type="VEF">
 				<displayName>ভেনিজুৱেলান বলিভাৰ (2008–2018)</displayName>
 				<displayName count="one">ভেনিজুৱেলান বলিভাৰ (2008–2018)</displayName>
@@ -5477,8 +5489,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="VES">
 				<displayName>ভেনিজুৱেলান বলিভাৰ</displayName>
-				<displayName count="one">ভেনিজুৱেলান বলিভাৰ</displayName>
-				<displayName count="other">ভেনিজুৱেলান বলিভাৰ</displayName>
+				<displayName count="one">ভেনিজুৱেলান ব’লিভাৰ</displayName>
+				<displayName count="other">ভেনিজুৱেলান ব’লিভাৰছ্</displayName>
 			</currency>
 			<currency type="VND">
 				<displayName>ভিয়েটনামীজ ডং</displayName>
@@ -5670,6 +5682,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">প্ৰতি মিলিয়নত {0} ভাগ</unitPattern>
 				<unitPattern count="other">প্ৰতি মিলিয়নত {0} ভাগ</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0} শতাংশ</unitPattern>
+				<unitPattern count="other">{0} শতাংশ</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>প্ৰতিমাইল</displayName>
+				<unitPattern count="one">{0} প্ৰতিমাইল</unitPattern>
+				<unitPattern count="other">{0} প্ৰতিমাইল</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>প্ৰতি কিলোমিটাৰত লিটাৰ</displayName>
 				<unitPattern count="one">প্ৰতি কিলোমিটাৰত {0} লিটাৰ</unitPattern>
@@ -5689,6 +5711,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>প্ৰতি ইম্পেৰিয়াল গেলনত মাইল</displayName>
 				<unitPattern count="one">প্ৰতি ইম্পেৰিয়াল গেলনত {0} মাইল</unitPattern>
 				<unitPattern count="other">প্ৰতি ইম্পেৰিয়াল গেলনত {0} মাইল</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>পেটাবাইট</displayName>
+				<unitPattern count="one">{0} পেটাবাইট</unitPattern>
+				<unitPattern count="other">{0} পেটাবাইট</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>টেৰাবাইট</displayName>
@@ -6081,6 +6108,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} মিলিবাৰ</unitPattern>
 				<unitPattern count="other">{0} মিলিবাৰ</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>বতৰ</displayName>
+				<unitPattern count="one">{0} বতৰ</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ঘণ্টা প্ৰতি কিলোমিটাৰ</displayName>
 				<unitPattern count="one">{0} ঘণ্টা প্ৰতি কিলোমিটাৰ</unitPattern>
@@ -6247,6 +6279,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} চাহচামোছ</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>প্ৰধান দিক্-নিৰ্দেশনা</displayName>
 				<coordinateUnitPattern type="east">{0} পূব</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} উত্তৰ</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} দক্ষিণ</coordinateUnitPattern>
@@ -6362,6 +6395,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>শতাংশ</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>প্ৰতিমাইল</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>লিটাৰ/কিঃ মিঃ</displayName>
 				<unitPattern count="one">{0} লিঃ/কিঃ মিঃ</unitPattern>
@@ -6381,6 +6424,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mpg Imp.</displayName>
 				<unitPattern count="one">{0} mpg Imp.</unitPattern>
 				<unitPattern count="other">{0} mpg Imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PByte</displayName>
+				<unitPattern count="one">{0} PB</unitPattern>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>টেৰাবাইট</displayName>
@@ -6773,6 +6821,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>কিঃ মিঃ/ঘঃ</displayName>
 				<unitPattern count="one">{0} কিঃ মিঃ/ঘঃ</unitPattern>
@@ -6939,6 +6992,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} চাহঃ চাঃ</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>দিক্-নিৰ্দেশনা</displayName>
 				<coordinateUnitPattern type="east">{0} পূঃ</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} উঃ</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} দঃ</coordinateUnitPattern>
@@ -6949,6 +7003,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>ল/১০০ ক.ম.</displayName>
 				<unitPattern count="one">{0} ল/১০০ ক.ম.</unitPattern>
@@ -7040,6 +7099,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} লিঃ</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>দিক্-নিৰ্দেশনা</displayName>
 				<coordinateUnitPattern type="east">{0} পূঃ</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} উঃ</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} দঃ</coordinateUnitPattern>
@@ -7199,4 +7259,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="western_asian_scripts">পাশ্চাত্য এছীয় লিপি</characterLabel>
 		<characterLabel type="whitespace">হোৱাইটস্পেচ</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">ইটালিক</axisName>
+		<axisName type="opsz">অপ্টিকেল আকাৰ</axisName>
+		<axisName type="slnt">নমা</axisName>
+		<axisName type="wdth">বহল</axisName>
+		<axisName type="wght">ডাঠ</axisName>
+		<styleName type="ital" subtype="1">কাৰ্ছিভ</styleName>
+		<styleName type="opsz" subtype="8">কেপশ্বন</styleName>
+		<styleName type="opsz" subtype="12">পাঠ</styleName>
+		<styleName type="opsz" subtype="18">নাম দিয়া</styleName>
+		<styleName type="opsz" subtype="72">প্ৰদৰ্শন</styleName>
+		<styleName type="opsz" subtype="144">প’ষ্টাৰ</styleName>
+		<styleName type="slnt" subtype="-12">পিছলৈ নমোৱা</styleName>
+		<styleName type="slnt" subtype="0">খাড়া</styleName>
+		<styleName type="slnt" subtype="12">তললৈ নমা</styleName>
+		<styleName type="slnt" subtype="24">অতিৰিক্ত নমা</styleName>
+		<styleName type="wdth" subtype="50">অতি ঘনীভূত</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">অতি সংকুচিত</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">অতি ঠেক</styleName>
+		<styleName type="wdth" subtype="62.5">অতিৰিক্ত-ঘনীভূত</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">অতিৰিক্ত-সংকুচিত</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">অতিৰিক্ত-ঠেক</styleName>
+		<styleName type="wdth" subtype="75">ঘনীভূত</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">সংকুচিত</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">সংকুচিত</styleName>
+		<styleName type="wdth" subtype="87.5">আধা ঘনীভূত</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">আধা সংকুচিত</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">আধা ঠেক</styleName>
+		<styleName type="wdth" subtype="100">সাধাৰণ</styleName>
+		<styleName type="wdth" subtype="112.5">আধা বিস্তাৰিত</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">আধা বিস্তৃত্ব</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">আধা বহল</styleName>
+		<styleName type="wdth" subtype="125">বিস্তাৰিত</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">বিস্তৃত্ব</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">বহল</styleName>
+		<styleName type="wdth" subtype="150">অতিৰিক্ত-বিস্তাৰিত</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">অতিৰিক্ত-বিস্তৃত্ব</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">অতিৰিক্ত-বহল</styleName>
+		<styleName type="wdth" subtype="200">অতি বিস্তাৰিত</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">অতি বিস্তৃত্ব</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">অতি বহল</styleName>
+		<styleName type="wght" subtype="100">ক্ষীণ</styleName>
+		<styleName type="wght" subtype="200">অতিৰিক্ত-পাতল</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">অতি পাতল</styleName>
+		<styleName type="wght" subtype="300">পাতল</styleName>
+		<styleName type="wght" subtype="350">আধা পাতল</styleName>
+		<styleName type="wght" subtype="380">কিতাপ</styleName>
+		<styleName type="wght" subtype="400">ৰেগুলাৰ</styleName>
+		<styleName type="wght" subtype="500">মিডিয়াম</styleName>
+		<styleName type="wght" subtype="600">ছেমিব’ল্ড</styleName>
+		<styleName type="wght" subtype="600" alt="demi">ডেমিব’ল্ড</styleName>
+		<styleName type="wght" subtype="700">ব’ল্ড</styleName>
+		<styleName type="wght" subtype="800">অতিৰিক্ত-ব’ল্ড</styleName>
+		<styleName type="wght" subtype="900">ক’লা</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">কাড়া</styleName>
+		<styleName type="wght" subtype="950">অতিৰিক্ত-ক’লা</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">অতি ক’লা</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">অতি কাড়া</styleName>
+		<featureName type="afrc">উলম্ব ভগ্নাংশ</featureName>
+		<featureName type="cpsp">বৰফলাৰ ব্যৱধান</featureName>
+		<featureName type="dlig">ঐচ্ছিক বন্ধনী</featureName>
+		<featureName type="frac">তিৰ্যক ভগ্নাংশ</featureName>
+		<featureName type="lnum">আস্তৰণৰ সংখ্যা</featureName>
+		<featureName type="onum">পুৰণা শৈলীৰ সংখ্যা</featureName>
+		<featureName type="ordn">ক্ৰমবোধক সংখ্যা</featureName>
+		<featureName type="pnum">আনুপাতিক সংখ্যা</featureName>
+		<featureName type="smcp">সৰু আখৰ</featureName>
+		<featureName type="tnum">সৰণিবদ্ধ সংখ্যা</featureName>
+		<featureName type="zero">শূন্য ঘটোৱা</featureName>
+	</typographicNames>
 </ldml>

@@ -19,6 +19,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="eu" draft="contributed">euskera</language>
 			<language type="grc" draft="contributed">griego antiguo</language>
 			<language type="lo" draft="contributed">lao</language>
+			<language type="nl_BE" draft="contributed">flamenco</language>
 			<language type="nso" draft="contributed">sotho septentrional</language>
 			<language type="pa" draft="contributed">punyabí</language>
 			<language type="ss" draft="contributed">siswati</language>
@@ -27,6 +28,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="tn" draft="contributed">setswana</language>
 			<language type="wo" draft="contributed">wolof</language>
 			<language type="zgh" draft="contributed">tamazight marroquí estándar</language>
+			<language type="zh_Hans" draft="contributed">chino simplificado</language>
+			<language type="zh_Hant" draft="contributed">chino tradicional</language>
+			<language type="zun" draft="contributed">zuni</language>
 		</languages>
 		<territories>
 			<territory type="BA" draft="contributed">Bosnia y Herzegovina</territory>
@@ -34,6 +38,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TA" draft="contributed">Tristán de Acuña</territory>
 			<territory type="TL" draft="contributed">Timor-Leste</territory>
 			<territory type="UM" draft="contributed">Islas menores alejadas de EE. UU.</territory>
+			<territory type="US" alt="short" draft="contributed">EE. UU.</territory>
 		</territories>
 	</localeDisplayNames>
 	<dates>
@@ -75,6 +80,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</months>
 				<days>
 					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="contributed">dom.</day>
+							<day type="mon" draft="contributed">lun.</day>
+							<day type="tue" draft="contributed">mar.</day>
+							<day type="wed" draft="contributed">mié.</day>
+							<day type="thu" draft="contributed">jue.</day>
+							<day type="fri" draft="contributed">vie.</day>
+							<day type="sat" draft="contributed">sáb.</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="contributed">d</day>
+							<day type="mon" draft="contributed">l</day>
+							<day type="tue" draft="contributed">m</day>
+							<day type="wed" draft="contributed">m</day>
+							<day type="thu" draft="contributed">j</day>
+							<day type="fri" draft="contributed">v</day>
+							<day type="sat" draft="contributed">s</day>
+						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun" draft="contributed">do</day>
 							<day type="mon" draft="contributed">lu</day>
@@ -83,6 +106,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="thu" draft="contributed">ju</day>
 							<day type="fri" draft="contributed">vi</day>
 							<day type="sat" draft="contributed">sa</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="contributed">domingo</day>
+							<day type="mon" draft="contributed">lunes</day>
+							<day type="tue" draft="contributed">martes</day>
+							<day type="wed" draft="contributed">miércoles</day>
+							<day type="thu" draft="contributed">jueves</day>
+							<day type="fri" draft="contributed">viernes</day>
+							<day type="sat" draft="contributed">sábado</day>
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
@@ -124,7 +156,42 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="contributed">EEEE, d 'de' MMMM 'de' y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="contributed">d 'de' MMMM 'de' y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="contributed">d/M/yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="contributed">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="contributed">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
 				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="hms" draft="contributed">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="contributed">d 'de' MMMM</dateFormatItem>
+						<dateFormatItem id="yMMMM" draft="contributed">MMMM 'de' y</dateFormatItem>
+					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="contributed">h a 'a' h a</greatestDifference>
@@ -202,6 +269,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one" draft="contributed">hace {0} seg.</relativeTimePattern>
 					<relativeTimePattern count="other" draft="contributed">hace {0} seg.</relativeTimePattern>
 				</relativeTime>
+			</field>
+			<field type="zone">
+				<displayName draft="contributed">zona horaria</displayName>
 			</field>
 		</fields>
 	</dates>
@@ -292,7 +362,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</unitLength>
 	</units>
 	<listPatterns>
+		<listPattern>
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit">
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-narrow">
+			<listPatternPart type="start" draft="contributed">{0} {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0} {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="unit-short">
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
 			<listPatternPart type="end" draft="contributed">{0} y {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>

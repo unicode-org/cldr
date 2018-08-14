@@ -12,13 +12,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<territory type="CH"/>
 	</identity>
 	<annotations>
-		<annotation cp="🥵">erhitzt | Fieber | heiss | Hitzschlag | schwitzen</annotation>
-		<annotation cp="🥽">Augenschutz | Schweissen | Schwimmen</annotation>
-		<annotation cp="🦳" draft="contributed">weisses Haar</annotation>
-		<annotation cp="🦳" type="tts" draft="contributed">weisses Haar</annotation>
-		<annotation cp="🦶" draft="contributed">Fuss</annotation>
-		<annotation cp="🦶" type="tts" draft="contributed">Fuss</annotation>
-		<annotation cp="🧁">Cupcake | Gebäck | Konditorei | Muffin | süss</annotation>
 		<annotation cp="😃">Gesicht | grinsendes Gesicht mit grossen Augen | lol | lustig</annotation>
 		<annotation cp="😃" type="tts">grinsendes Gesicht mit grossen Augen</annotation>
 		<annotation cp="😅">Gesicht | Lachender Smiley mit kaltem Schweiss | lustig | Schweiss | schwitzen</annotation>
@@ -30,6 +23,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😓" type="tts">Smiley mit kaltem Schweiss</annotation>
 		<annotation cp="😰">Gesicht | kalter Schweiss | offener Mund | Smiley mit offenem Mund und kaltem Schweiss</annotation>
 		<annotation cp="😰" type="tts">Smiley mit offenem Mund und kaltem Schweiss</annotation>
+		<annotation cp="🥵">erhitzt | Fieber | heiss | Hitzschlag | schwitzen</annotation>
 		<annotation cp="😳">Erröteter Smiley mit grossen Augen | Gesicht | rote Wangen | überrascht</annotation>
 		<annotation cp="😳" type="tts">Erröteter Smiley mit grossen Augen</annotation>
 		<annotation cp="🤪">Auge | gross | klein</annotation>
@@ -43,16 +37,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚶‍♂" type="tts">Fussgänger</annotation>
 		<annotation cp="🚶‍♀">Frau | Fussgängerin | gehen | Spaziergang</annotation>
 		<annotation cp="🚶‍♀" type="tts">Fussgängerin</annotation>
+		<annotation cp="🦶" draft="contributed">Fuss</annotation>
+		<annotation cp="🦶" type="tts" draft="contributed">Fuss</annotation>
 		<annotation cp="🖖">Finger | Hand | Spock | Vulkanier(in) | vulkanisch | Vulkanischer Gruss</annotation>
 		<annotation cp="🖖" type="tts">Vulkanischer Gruss</annotation>
 		<annotation cp="🤘">Finger | Hand | Hörner | Rock | Teufel | Teufelsgruss</annotation>
 		<annotation cp="🤘" type="tts">Teufelsgruss</annotation>
 		<annotation cp="👣">Abdruck | Fuss | Fussabdrücke</annotation>
 		<annotation cp="👣" type="tts">Fussabdrücke</annotation>
+		<annotation cp="🦳" draft="contributed">weisses Haar</annotation>
+		<annotation cp="🦳" type="tts" draft="contributed">weisses Haar</annotation>
 		<annotation cp="💥">Comic | Kollision | Zusammenstoss</annotation>
 		<annotation cp="💥" type="tts">Zusammenstoss</annotation>
 		<annotation cp="💦">Comic | Schweiss | Schweisstropfen</annotation>
 		<annotation cp="💦" type="tts">Schweisstropfen</annotation>
+		<annotation cp="🥽">Augenschutz | Schweissen | Schwimmen</annotation>
 		<annotation cp="⛑">Helm | Helm mit weissem Kreuz | Hilfe | Kreuz</annotation>
 		<annotation cp="⛑" type="tts">Helm mit weissem Kreuz</annotation>
 		<annotation cp="💐">Blumen | Blumenstrauss | Bouquet</annotation>
@@ -63,6 +62,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍠" type="tts">Geröstete Süsskartoffel</annotation>
 		<annotation cp="🍡">japanisches Gericht | Mochi-Kugeln auf einem Spiess | Restaurant</annotation>
 		<annotation cp="🍧">Eis | zerstossen</annotation>
+		<annotation cp="🧁">Cupcake | Gebäck | Konditorei | Muffin | süss</annotation>
 		<annotation cp="🍬">Süssigkeit</annotation>
 		<annotation cp="🍭">Lolli | Süssigkeit</annotation>
 		<annotation cp="🍮">Dessert | Nachspeise | Nachtisch | Schokolade | Sosse</annotation>
@@ -135,32 +135,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🅿" type="tts">Grossbuchstabe P in Quadrat</annotation>
 		<annotation cp="🆚">Grossbuchstaben VS in orangefarbenem Quadrat | versus | VS</annotation>
 		<annotation cp="🆚" type="tts">Grossbuchstaben VS in orangefarbenem Quadrat</annotation>
-		<annotation cp="▫">Kleines weisses Quadrat | Quadrat | weiss</annotation>
-		<annotation cp="▫" type="tts">Kleines weisses Quadrat</annotation>
-		<annotation cp="◻">Mittelgrosses weisses Quadrat | Quadrat | weiss</annotation>
-		<annotation cp="◻" type="tts">Mittelgrosses weisses Quadrat</annotation>
-		<annotation cp="◼">Mittelgrosses schwarzes Quadrat | Quadrat | schwarz</annotation>
-		<annotation cp="◼" type="tts">Mittelgrosses schwarzes Quadrat</annotation>
-		<annotation cp="◽">Mittelkleines weisses Quadrat | Quadrat | weiss</annotation>
-		<annotation cp="◽" type="tts">Mittelkleines weisses Quadrat</annotation>
-		<annotation cp="⬛">Grosses schwarzes Quadrat | Quadrat | schwarz</annotation>
-		<annotation cp="⬛" type="tts">Grosses schwarzes Quadrat</annotation>
+		<annotation cp="🔴">Ball | Grosser roter Kreis | Kreis | rot</annotation>
+		<annotation cp="🔴" type="tts">Grosser roter Kreis</annotation>
+		<annotation cp="🔵">Ball | blau | Grosser blauer Kreis | Kreis</annotation>
+		<annotation cp="🔵" type="tts">Grosser blauer Kreis</annotation>
+		<annotation cp="⚪">Ball | Grosser weisser Kreis | Kreis | weiss</annotation>
+		<annotation cp="⚪" type="tts">Grosser weisser Kreis</annotation>
+		<annotation cp="⚫">Ball | Grosser schwarzer Kreis | Kreis | schwarz</annotation>
+		<annotation cp="⚫" type="tts">Grosser schwarzer Kreis</annotation>
 		<annotation cp="⬜">Grosses weisses Quadrat | Quadrat | weiss</annotation>
 		<annotation cp="⬜" type="tts">Grosses weisses Quadrat</annotation>
+		<annotation cp="⬛">Grosses schwarzes Quadrat | Quadrat | schwarz</annotation>
+		<annotation cp="⬛" type="tts">Grosses schwarzes Quadrat</annotation>
+		<annotation cp="◼">Mittelgrosses schwarzes Quadrat | Quadrat | schwarz</annotation>
+		<annotation cp="◼" type="tts">Mittelgrosses schwarzes Quadrat</annotation>
+		<annotation cp="◻">Mittelgrosses weisses Quadrat | Quadrat | weiss</annotation>
+		<annotation cp="◻" type="tts">Mittelgrosses weisses Quadrat</annotation>
+		<annotation cp="◽">Mittelkleines weisses Quadrat | Quadrat | weiss</annotation>
+		<annotation cp="◽" type="tts">Mittelkleines weisses Quadrat</annotation>
+		<annotation cp="▫">Kleines weisses Quadrat | Quadrat | weiss</annotation>
+		<annotation cp="▫" type="tts">Kleines weisses Quadrat</annotation>
 		<annotation cp="🔶">Grosse orangefarbene Raute | orangefarben | Raute</annotation>
 		<annotation cp="🔶" type="tts">Grosse orangefarbene Raute</annotation>
 		<annotation cp="🔷">blau | Grosse blaue Raute | Raute</annotation>
 		<annotation cp="🔷" type="tts">Grosse blaue Raute</annotation>
 		<annotation cp="🔳">quadratisch | Schaltfläche | weiss | Weisse quadratische Schaltfläche</annotation>
 		<annotation cp="🔳" type="tts">Weisse quadratische Schaltfläche</annotation>
-		<annotation cp="⚪">Ball | Grosser weisser Kreis | Kreis | weiss</annotation>
-		<annotation cp="⚪" type="tts">Grosser weisser Kreis</annotation>
-		<annotation cp="⚫">Ball | Grosser schwarzer Kreis | Kreis | schwarz</annotation>
-		<annotation cp="⚫" type="tts">Grosser schwarzer Kreis</annotation>
-		<annotation cp="🔴">Ball | Grosser roter Kreis | Kreis | rot</annotation>
-		<annotation cp="🔴" type="tts">Grosser roter Kreis</annotation>
-		<annotation cp="🔵">Ball | blau | Grosser blauer Kreis | Kreis</annotation>
-		<annotation cp="🔵" type="tts">Grosser blauer Kreis</annotation>
 		<annotation cp="🏳">Fahne | wehen | Wehende weisse Fahne | weisse Fahne</annotation>
 		<annotation cp="🏳" type="tts">Wehende weisse Fahne</annotation>
 	</annotations>

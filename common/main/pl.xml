@@ -79,7 +79,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bfq">badaga</language>
 			<language type="bg">bułgarski</language>
 			<language type="bgn">beludżi północny</language>
-			<language type="bho">bhodźpuri</language>
+			<language type="bho">bhodżpuri</language>
 			<language type="bi">bislama</language>
 			<language type="bik">bikol</language>
 			<language type="bin">bini</language>
@@ -355,7 +355,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lv">łotewski</language>
 			<language type="lzh">chiński klasyczny</language>
 			<language type="lzz">lazyjski</language>
-			<language type="mad">madurajski</language>
+			<language type="mad">madurski</language>
 			<language type="maf">mafa</language>
 			<language type="mag">magahi</language>
 			<language type="mai">maithili</language>
@@ -397,7 +397,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="mye">myene</language>
 			<language type="myv">erzja</language>
 			<language type="mzn">mazanderański</language>
-			<language type="na">nauru</language>
+			<language type="na">nauruański</language>
 			<language type="nan">minnański</language>
 			<language type="nap">neapolitański</language>
 			<language type="naq">nama</language>
@@ -439,7 +439,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="osa">osage</language>
 			<language type="ota">osmańsko-turecki</language>
 			<language type="pa">pendżabski</language>
-			<language type="pag">pangasino</language>
+			<language type="pag">pangasinan</language>
 			<language type="pal">pahlavi</language>
 			<language type="pam">pampango</language>
 			<language type="pap">papiamento</language>
@@ -800,7 +800,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Yiii">yi</script>
 			<script type="Zinh">dziedziczone</script>
 			<script type="Zmth">notacja matematyczna</script>
-			<script type="Zsye" draft="contributed">Emoji</script>
+			<script type="Zsye">Emoji</script>
 			<script type="Zsym">symbole</script>
 			<script type="Zxxx">język bez systemu pisma</script>
 			<script type="Zyyy">wspólne</script>
@@ -836,7 +836,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Europa Wschodnia</territory>
 			<territory type="154">Europa Północna</territory>
 			<territory type="155">Europa Zachodnia</territory>
-			<territory type="202" draft="contributed">Afryka Subsaharyjska</territory>
+			<territory type="202">Afryka Subsaharyjska</territory>
 			<territory type="419">Ameryka Łacińska</territory>
 			<territory type="AC">Wyspa Wniebowstąpienia</territory>
 			<territory type="AD">Andora</territory>
@@ -891,7 +891,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CM">Kamerun</territory>
 			<territory type="CN">Chiny</territory>
 			<territory type="CO">Kolumbia</territory>
-			<territory type="CP">Clipperton</territory>
+			<territory type="CP">Wyspa Clippertona</territory>
 			<territory type="CR">Kostaryka</territory>
 			<territory type="CU">Kuba</territory>
 			<territory type="CV">Republika Zielonego Przylądka</territory>
@@ -1238,8 +1238,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="lb" type="loose">luźny styl podziału wiersza</type>
 			<type key="lb" type="normal">normalny styl podziału wiersza</type>
 			<type key="lb" type="strict">ścisły styl podziału wiersza</type>
-			<type key="m0" type="bgn" draft="contributed">BGN</type>
-			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">system metryczny</type>
 			<type key="ms" type="uksystem">imperialny system miar</type>
 			<type key="ms" type="ussystem">amerykański system miar</type>
@@ -2129,9 +2129,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</eraNames>
 					<eraAbbr>
 						<era type="0">p.n.e.</era>
-						<era type="0" alt="variant" draft="provisional">BCE</era>
+						<era type="0" alt="variant">BCE</era>
 						<era type="1">n.e.</era>
-						<era type="1" alt="variant" draft="provisional">CE</era>
+						<era type="1" alt="variant">CE</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -4927,6 +4927,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Alaska (czas letni)</daylight>
 				</long>
 			</metazone>
+			<metazone type="Almaty">
+				<long>
+					<generic draft="unconfirmed">czas ałmacki</generic>
+					<standard draft="unconfirmed">czas ałmacki standardowy</standard>
+					<daylight draft="unconfirmed">czas ałmacki letni</daylight>
+				</long>
+			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>czas amazoński</generic>
@@ -4974,6 +4981,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Apia</generic>
 					<standard>Apia (czas standardowy)</standard>
 					<daylight>Apia (czas letni)</daylight>
+				</long>
+			</metazone>
+			<metazone type="Aqtau">
+				<long>
+					<generic draft="unconfirmed">czas auktaucki</generic>
+					<standard draft="unconfirmed">czas auktaucki standardowy</standard>
+					<daylight draft="unconfirmed">czas auktaucki letni</daylight>
+				</long>
+			</metazone>
+			<metazone type="Aqtobe">
+				<long>
+					<generic draft="unconfirmed">czas aktiubiński</generic>
+					<standard draft="unconfirmed">czas aktiubiński standardowy</standard>
+					<daylight draft="unconfirmed">czas aktiubiński letni</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -5319,7 +5340,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="India">
 				<long>
-					<standard>czas indyjski</standard>
+					<standard>czas indyjski standardowy</standard>
 				</long>
 			</metazone>
 			<metazone type="Indian_Ocean">
@@ -5495,9 +5516,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Moscow">
 				<long>
-					<generic>czas moskiewski</generic>
-					<standard>czas moskiewski standardowy</standard>
-					<daylight>czas moskiewski letni</daylight>
+					<generic>Moskwa</generic>
+					<standard>Moskwa (standardowy)</standard>
+					<daylight>Moskwa (letni)</daylight>
 				</long>
 			</metazone>
 			<metazone type="Myanmar">
@@ -5630,6 +5651,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Pyongyang">
 				<long>
 					<standard>Pjongjang</standard>
+				</long>
+			</metazone>
+			<metazone type="Qyzylorda">
+				<long>
+					<generic draft="unconfirmed">czas kyzyłordzki</generic>
+					<standard draft="unconfirmed">czas kyzyłordzki standardowy</standard>
+					<daylight draft="unconfirmed">czas kyzyłordzki letni</daylight>
 				</long>
 			</metazone>
 			<metazone type="Reunion">
@@ -7069,6 +7097,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">ouguiya mauretańskie</displayName>
 				<displayName count="many">ouguiya mauretańskich</displayName>
 				<displayName count="other">ouguiya mauretańskiej</displayName>
+				<symbol draft="contributed">MRU</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>lira maltańska</displayName>
@@ -7237,10 +7266,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="PGK">
 				<displayName>kina Papua Nowa Gwinea</displayName>
-				<displayName count="one" draft="contributed">kina papuaska</displayName>
-				<displayName count="few" draft="contributed">kina papuaskie</displayName>
-				<displayName count="many" draft="contributed">kina papuaskich</displayName>
-				<displayName count="other" draft="contributed">kina papuaskiej</displayName>
+				<displayName count="one">kina papuaska</displayName>
+				<displayName count="few">kina papuaskie</displayName>
+				<displayName count="many">kina papuaskich</displayName>
+				<displayName count="other">kina papuaskiej</displayName>
 				<symbol draft="contributed">PGK</symbol>
 			</currency>
 			<currency type="PHP">
@@ -7690,6 +7719,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">boliwary wenezuelskie</displayName>
 				<displayName count="many">boliwarów wenezuelskich</displayName>
 				<displayName count="other">boliwara wenezuelskiego</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>dong wietnamski</displayName>
@@ -7857,7 +7887,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -8018,6 +8050,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} części na milion</unitPattern>
 				<unitPattern count="other">{0} części na milion</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>procent</displayName>
+				<unitPattern count="one">{0} procent</unitPattern>
+				<unitPattern count="few">{0} procent</unitPattern>
+				<unitPattern count="many">{0} procent</unitPattern>
+				<unitPattern count="other">{0} procent</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>promil</displayName>
+				<unitPattern count="one">{0} promil</unitPattern>
+				<unitPattern count="few">{0} promile</unitPattern>
+				<unitPattern count="many">{0} promili</unitPattern>
+				<unitPattern count="other">{0} promila</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litry na kilometr</displayName>
 				<unitPattern count="one">{0} litr na kilometr</unitPattern>
@@ -8045,6 +8091,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} mile na galon angielski</unitPattern>
 				<unitPattern count="many">{0} mil na galon angielski</unitPattern>
 				<unitPattern count="other">{0} mili na galon angielski</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="one">{0} PB</unitPattern>
+				<unitPattern count="few">{0} PB</unitPattern>
+				<unitPattern count="many">{0} PB</unitPattern>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName draft="contributed">terabajty</displayName>
@@ -8587,6 +8640,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} millibarów</unitPattern>
 				<unitPattern count="other">{0} millibara</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="few">{0} atm</unitPattern>
+				<unitPattern count="many">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometry na godzinę</displayName>
 				<unitPattern count="one">{0} kilometr na godzinę</unitPattern>
@@ -8817,6 +8877,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} łyżeczki</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>kierunek świata</displayName>
 				<coordinateUnitPattern type="east" draft="contributed">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north" draft="contributed">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south" draft="contributed">{0}S</coordinateUnitPattern>
@@ -8972,6 +9033,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>procent</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="few">{0}%</unitPattern>
+				<unitPattern count="many">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>promil</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="few">{0}‰</unitPattern>
+				<unitPattern count="many">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
 				<unitPattern count="one">{0} l/km</unitPattern>
@@ -8999,6 +9074,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} mi/gal ang.</unitPattern>
 				<unitPattern count="many">{0} mi/gal ang.</unitPattern>
 				<unitPattern count="other">{0} mi/gal ang.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="one">{0} PB</unitPattern>
+				<unitPattern count="few">{0} PB</unitPattern>
+				<unitPattern count="many">{0} PB</unitPattern>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName draft="contributed">TB</displayName>
@@ -9191,17 +9273,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-calorie">
 				<displayName>cal</displayName>
-				<unitPattern count="one">{0} kal</unitPattern>
-				<unitPattern count="few">{0} kal</unitPattern>
-				<unitPattern count="many">{0} kal</unitPattern>
-				<unitPattern count="other">{0} kal</unitPattern>
+				<unitPattern count="one">{0} cal</unitPattern>
+				<unitPattern count="few">{0} cal</unitPattern>
+				<unitPattern count="many">{0} cal</unitPattern>
+				<unitPattern count="other">{0} cal</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>kal</displayName>
-				<unitPattern count="one">{0} kal</unitPattern>
-				<unitPattern count="few">{0} kal</unitPattern>
-				<unitPattern count="many">{0} kal</unitPattern>
-				<unitPattern count="other">{0} kal</unitPattern>
+				<displayName>cal</displayName>
+				<unitPattern count="one">{0} cal</unitPattern>
+				<unitPattern count="few">{0} cal</unitPattern>
+				<unitPattern count="many">{0} cal</unitPattern>
+				<unitPattern count="other">{0} cal</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kJ</displayName>
@@ -9541,6 +9623,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="few">{0} atm</unitPattern>
+				<unitPattern count="many">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="one">{0} km/h</unitPattern>
@@ -9771,6 +9860,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} łyżeczki</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>kierunek</displayName>
 				<coordinateUnitPattern type="east" draft="contributed">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north" draft="contributed">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south" draft="contributed">{0}S</coordinateUnitPattern>
@@ -9840,6 +9930,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} ft²</unitPattern>
 				<unitPattern count="many">{0} ft²</unitPattern>
 				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="few">{0}%</unitPattern>
+				<unitPattern count="many">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>l/100 km</displayName>
@@ -10156,6 +10253,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName draft="contributed">kierunek</displayName>
 				<coordinateUnitPattern type="east" draft="contributed">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north" draft="contributed">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south" draft="contributed">{0}S</coordinateUnitPattern>
@@ -10240,29 +10338,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="box_drawing">symbole pseudograficzne</characterLabel>
 		<characterLabel type="braille">Braille’a</characterLabel>
 		<characterLabel type="building">budynek</characterLabel>
-		<characterLabel type="bullets_stars" draft="contributed">punktory/gwiazdki</characterLabel>
+		<characterLabel type="bullets_stars">punktory/gwiazdki</characterLabel>
 		<characterLabel type="consonantal_jamo">jamo spółgłoskowe</characterLabel>
-		<characterLabel type="currency_symbols" draft="contributed">symbole walut</characterLabel>
+		<characterLabel type="currency_symbols">symbole walut</characterLabel>
 		<characterLabel type="dash_connector">pauza/łącznik</characterLabel>
-		<characterLabel type="digits" draft="contributed">cyfry</characterLabel>
-		<characterLabel type="dingbats" draft="contributed">dingbaty</characterLabel>
-		<characterLabel type="divination_symbols" draft="contributed">symbole wróżbiarskie</characterLabel>
-		<characterLabel type="downwards_arrows" draft="contributed">strzałki w dół</characterLabel>
-		<characterLabel type="downwards_upwards_arrows" draft="contributed">strzałki w dół i w górę</characterLabel>
+		<characterLabel type="digits">cyfry</characterLabel>
+		<characterLabel type="dingbats">dingbaty</characterLabel>
+		<characterLabel type="divination_symbols">symbole wróżbiarskie</characterLabel>
+		<characterLabel type="downwards_arrows">strzałki w dół</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">strzałki w dół i w górę</characterLabel>
 		<characterLabel type="east_asian_scripts">wschodnioazjatyckie systemy pisma</characterLabel>
 		<characterLabel type="emoji">emoji</characterLabel>
 		<characterLabel type="european_scripts">europejskie systemy pisma</characterLabel>
 		<characterLabel type="female">kobieta</characterLabel>
 		<characterLabel type="flag">flaga</characterLabel>
 		<characterLabel type="flags">flagi</characterLabel>
-		<characterLabel type="food_drink" draft="contributed">żywność i napoje</characterLabel>
+		<characterLabel type="food_drink">żywność i napoje</characterLabel>
 		<characterLabel type="format">format</characterLabel>
 		<characterLabel type="format_whitespace">format i białe znaki</characterLabel>
 		<characterLabel type="full_width_form_variant">wariant formy o pełnej szerokości</characterLabel>
-		<characterLabel type="geometric_shapes" draft="contributed">kształty geometryczne</characterLabel>
-		<characterLabel type="half_width_form_variant" draft="contributed">warianty form o połowie szerokości</characterLabel>
-		<characterLabel type="han_characters" draft="contributed">znaki han</characterLabel>
-		<characterLabel type="han_radicals" draft="contributed">radykały han</characterLabel>
+		<characterLabel type="geometric_shapes">kształty geometryczne</characterLabel>
+		<characterLabel type="half_width_form_variant">warianty form o połowie szerokości</characterLabel>
+		<characterLabel type="han_characters">znaki han</characterLabel>
+		<characterLabel type="han_radicals">radykały han</characterLabel>
 		<characterLabel type="hanja">hancha</characterLabel>
 		<characterLabel type="hanzi_simplified">hanzi (uproszczone)</characterLabel>
 		<characterLabel type="hanzi_traditional">hanzi (tradycyjne)</characterLabel>
@@ -10273,45 +10371,45 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="kanbun">kanbun</characterLabel>
 		<characterLabel type="kanji">kanji</characterLabel>
 		<characterLabel type="keycap">klawisz</characterLabel>
-		<characterLabel type="leftwards_arrows" draft="contributed">strzałki w lewo</characterLabel>
-		<characterLabel type="leftwards_rightwards_arrows" draft="contributed">strzałki w lewo i w prawo</characterLabel>
-		<characterLabel type="letterlike_symbols" draft="contributed">symbole literopodobne</characterLabel>
+		<characterLabel type="leftwards_arrows">strzałki w lewo</characterLabel>
+		<characterLabel type="leftwards_rightwards_arrows">strzałki w lewo i w prawo</characterLabel>
+		<characterLabel type="letterlike_symbols">symbole literopodobne</characterLabel>
 		<characterLabel type="limited_use">ograniczone użycie</characterLabel>
 		<characterLabel type="male">mężczyzna</characterLabel>
-		<characterLabel type="math_symbols" draft="contributed">symbole matematyczne</characterLabel>
+		<characterLabel type="math_symbols">symbole matematyczne</characterLabel>
 		<characterLabel type="middle_eastern_scripts">bliskowschodnie systemy pisma</characterLabel>
 		<characterLabel type="miscellaneous">różne</characterLabel>
 		<characterLabel type="modern_scripts">współczesne systemy pisma</characterLabel>
 		<characterLabel type="modifier">modyfikator</characterLabel>
-		<characterLabel type="musical_symbols" draft="contributed">symbole muzyczne</characterLabel>
+		<characterLabel type="musical_symbols">symbole muzyczne</characterLabel>
 		<characterLabel type="nature">natura</characterLabel>
 		<characterLabel type="nonspacing">nierozdzielające</characterLabel>
-		<characterLabel type="numbers" draft="contributed">liczbowe</characterLabel>
-		<characterLabel type="objects" draft="contributed">obiekty</characterLabel>
+		<characterLabel type="numbers">liczbowe</characterLabel>
+		<characterLabel type="objects">obiekty</characterLabel>
 		<characterLabel type="other">inne</characterLabel>
-		<characterLabel type="paired" draft="contributed">pary</characterLabel>
+		<characterLabel type="paired">pary</characterLabel>
 		<characterLabel type="person">osoba</characterLabel>
 		<characterLabel type="phonetic_alphabet">alfabet fonetyczny</characterLabel>
-		<characterLabel type="pictographs" draft="contributed">piktogramy</characterLabel>
+		<characterLabel type="pictographs">piktogramy</characterLabel>
 		<characterLabel type="place">miejsce</characterLabel>
 		<characterLabel type="plant">roślina</characterLabel>
 		<characterLabel type="punctuation">interpunkcja</characterLabel>
-		<characterLabel type="rightwards_arrows" draft="contributed">strzałki w prawo</characterLabel>
-		<characterLabel type="sign_standard_symbols" draft="contributed">symbole znaków/standardowe</characterLabel>
+		<characterLabel type="rightwards_arrows">strzałki w prawo</characterLabel>
+		<characterLabel type="sign_standard_symbols">symbole znaków/standardowe</characterLabel>
 		<characterLabel type="small_form_variant">warianty form małych</characterLabel>
 		<characterLabel type="smiley">buźka</characterLabel>
-		<characterLabel type="smileys_people" draft="contributed">emotikony i osoby</characterLabel>
+		<characterLabel type="smileys_people">emotikony i osoby</characterLabel>
 		<characterLabel type="south_asian_scripts">południowoazjatyckie systemy pisma</characterLabel>
 		<characterLabel type="southeast_asian_scripts">południowo-wschodnioazjatyckie systemy pisma</characterLabel>
-		<characterLabel type="spacing" draft="contributed">odstępy</characterLabel>
+		<characterLabel type="spacing">odstępy</characterLabel>
 		<characterLabel type="sport">sport</characterLabel>
-		<characterLabel type="symbols" draft="contributed">symbole</characterLabel>
-		<characterLabel type="technical_symbols" draft="contributed">symbole techniczne</characterLabel>
-		<characterLabel type="tone_marks" draft="contributed">znaczniki tonów</characterLabel>
+		<characterLabel type="symbols">symbole</characterLabel>
+		<characterLabel type="technical_symbols">symbole techniczne</characterLabel>
+		<characterLabel type="tone_marks">znaczniki tonów</characterLabel>
 		<characterLabel type="travel">podróż</characterLabel>
-		<characterLabel type="travel_places" draft="contributed">podróże i miejsca</characterLabel>
+		<characterLabel type="travel_places">podróże i miejsca</characterLabel>
 		<characterLabel type="upwards_arrows">strzałki w górę</characterLabel>
-		<characterLabel type="variant_forms" draft="contributed">warianty form</characterLabel>
+		<characterLabel type="variant_forms">warianty form</characterLabel>
 		<characterLabel type="vocalic_jamo">jamo samogłoskowe</characterLabel>
 		<characterLabel type="weather">pogoda</characterLabel>
 		<characterLabel type="western_asian_scripts">zachodnioazjatyckie systemy pisma</characterLabel>
@@ -10319,9 +10417,72 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</characterLabels>
 	<typographicNames>
 		<axisName type="ital">kursywa</axisName>
-		<axisName type="opsz">rozmiar optyczny</axisName>
+		<axisName type="opsz">wielkość optyczna</axisName>
 		<axisName type="slnt">pochylenie</axisName>
 		<axisName type="wdth">szerokość</axisName>
 		<axisName type="wght">grubość</axisName>
+		<styleName type="ital" subtype="1">pochyłe</styleName>
+		<styleName type="opsz" subtype="8">podpis</styleName>
+		<styleName type="opsz" subtype="12">tekst</styleName>
+		<styleName type="opsz" subtype="18">tytuły</styleName>
+		<styleName type="opsz" subtype="72">display</styleName>
+		<styleName type="opsz" subtype="144">plakat</styleName>
+		<styleName type="slnt" subtype="-12">pochylone do tyłu</styleName>
+		<styleName type="slnt" subtype="0">upright</styleName>
+		<styleName type="slnt" subtype="12">slanted</styleName>
+		<styleName type="slnt" subtype="24">extra-slanted</styleName>
+		<styleName type="wdth" subtype="50">ultracondensed</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">ultracompressed</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">ultranarrow</styleName>
+		<styleName type="wdth" subtype="62.5">extra-condensed</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">extra-compressed</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">extra-narrow</styleName>
+		<styleName type="wdth" subtype="75">condensed</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">compressed</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">compressed</styleName>
+		<styleName type="wdth" subtype="87.5">semicondensed</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">semicompressed</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">seminarrow</styleName>
+		<styleName type="wdth" subtype="100">normal</styleName>
+		<styleName type="wdth" subtype="112.5">semiexpanded</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">semiextended</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">semiwide</styleName>
+		<styleName type="wdth" subtype="125">expanded</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">extended</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">wide</styleName>
+		<styleName type="wdth" subtype="150">extra-expanded</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">extra-extended</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">extra-wide</styleName>
+		<styleName type="wdth" subtype="200">ultraexpanded</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">ultraextended</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">ultrawide</styleName>
+		<styleName type="wght" subtype="100">thin</styleName>
+		<styleName type="wght" subtype="200">extra-light</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">ultralight</styleName>
+		<styleName type="wght" subtype="300">light</styleName>
+		<styleName type="wght" subtype="350">semilight</styleName>
+		<styleName type="wght" subtype="380">book</styleName>
+		<styleName type="wght" subtype="400">regular</styleName>
+		<styleName type="wght" subtype="500">medium</styleName>
+		<styleName type="wght" subtype="600">semibold</styleName>
+		<styleName type="wght" subtype="600" alt="demi">demibold</styleName>
+		<styleName type="wght" subtype="700">bold</styleName>
+		<styleName type="wght" subtype="800">extra-bold</styleName>
+		<styleName type="wght" subtype="900">black</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">heavy</styleName>
+		<styleName type="wght" subtype="950">extra-black</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">ultrablack</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">ultraheavy</styleName>
+		<featureName type="afrc">ułamki pionowe</featureName>
+		<featureName type="cpsp">odstępy między kapitalikami</featureName>
+		<featureName type="dlig">opcjonalne ligatury</featureName>
+		<featureName type="frac">ułamki ukośne</featureName>
+		<featureName type="lnum">cyfry zwykłe</featureName>
+		<featureName type="onum">cyfry nautyczne</featureName>
+		<featureName type="ordn">liczby porządkowe</featureName>
+		<featureName type="pnum">cyfry proporcjonalne</featureName>
+		<featureName type="smcp">małe kapitaliki</featureName>
+		<featureName type="tnum">cyfry tabelaryczne</featureName>
+		<featureName type="zero">przekreślone zero</featureName>
 	</typographicNames>
 </ldml>

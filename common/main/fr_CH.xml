@@ -208,6 +208,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</dates>
 	<numbers>
 		<symbols numberSystem="latn">
+			<decimal draft="contributed">,</decimal>
 			<currencyDecimal>.</currencyDecimal>
 		</symbols>
 		<percentFormats numberSystem="latn">
@@ -224,5 +225,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
+		<currencies>
+			<currency type="CHF">
+				<displayName draft="contributed">franc suisse</displayName>
+				<displayName count="one" draft="contributed">franc suisse</displayName>
+				<displayName count="other" draft="contributed">francs suisses</displayName>
+				<symbol draft="contributed">CHF</symbol>
+			</currency>
+		</currencies>
 	</numbers>
+	<units>
+		<unitLength type="long">
+			<unit type="volume-liter">
+				<perUnitPattern draft="contributed">{0} par litre</perUnitPattern>
+			</unit>
+		</unitLength>
+	</units>
 </ldml>

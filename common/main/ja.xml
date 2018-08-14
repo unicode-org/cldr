@@ -134,9 +134,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="cy">ウェールズ語</language>
 			<language type="da">デンマーク語</language>
 			<language type="dak">ダコタ語</language>
-			<language type="dar">ダルガン語</language>
+			<language type="dar">ダルグワ語</language>
 			<language type="dav">タイタ語</language>
 			<language type="de">ドイツ語</language>
+			<language type="de_AT">ドイツ語 (オーストリア)</language>
 			<language type="de_CH">標準ドイツ語 (スイス)</language>
 			<language type="del">デラウェア語</language>
 			<language type="den">スレイビー語</language>
@@ -171,7 +172,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="enm">中英語</language>
 			<language type="eo">エスペラント語</language>
 			<language type="es">スペイン語</language>
+			<language type="es_419">スペイン語 (ラテンアメリカ)</language>
 			<language type="es_ES">スペイン語 (イベリア半島)</language>
+			<language type="es_MX">スペイン語 (メキシコ)</language>
 			<language type="esu">中央アラスカ・ユピック語</language>
 			<language type="et">エストニア語</language>
 			<language type="eu">バスク語</language>
@@ -188,6 +191,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">フェロー語</language>
 			<language type="fon">フォン語</language>
 			<language type="fr">フランス語</language>
+			<language type="fr_CA">フランス語 (カナダ)</language>
+			<language type="fr_CH">フランス語 (スイス)</language>
 			<language type="frc">ケイジャン・フランス語</language>
 			<language type="frm">中期フランス語</language>
 			<language type="fro">古フランス語</language>
@@ -256,7 +261,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="io">イド語</language>
 			<language type="is">アイスランド語</language>
 			<language type="it">イタリア語</language>
-			<language type="iu">イヌクウティトット語</language>
+			<language type="iu">イヌクティトット語</language>
 			<language type="izh">イングリア語</language>
 			<language type="ja">日本語</language>
 			<language type="jam">ジャマイカ・クレオール語</language>
@@ -428,7 +433,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="oc">オック語</language>
 			<language type="oj">オジブウェー語</language>
 			<language type="om">オロモ語</language>
-			<language type="or">オリヤー語</language>
+			<language type="or">オディア語</language>
 			<language type="os">オセット語</language>
 			<language type="osa">オセージ語</language>
 			<language type="ota">オスマントルコ語</language>
@@ -455,6 +460,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ps">パシュトゥー語</language>
 			<language type="ps" alt="variant">パシュトゥ語</language>
 			<language type="pt">ポルトガル語</language>
+			<language type="pt_BR">ポルトガル語 (ブラジル)</language>
 			<language type="pt_PT">ポルトガル語 (イベリア半島)</language>
 			<language type="qu">ケチュア語</language>
 			<language type="quc">キチェ語</language>
@@ -836,7 +842,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">東ヨーロッパ</territory>
 			<territory type="154">北ヨーロッパ</territory>
 			<territory type="155">西ヨーロッパ</territory>
-			<territory type="202" draft="contributed">サブサハラアフリカ</territory>
+			<territory type="202">サブサハラアフリカ</territory>
 			<territory type="419">ラテンアメリカ</territory>
 			<territory type="AC">アセンション島</territory>
 			<territory type="AD">アンドラ</territory>
@@ -1360,6 +1366,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<ellipsis type="word-initial">… {0}</ellipsis>
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\--/]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
+			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>「</quotationStart>
@@ -4178,6 +4203,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="quarter-short">
 				<displayName>四半期</displayName>
+				<relative type="-1">前四半期</relative>
+				<relative type="0">今四半期</relative>
+				<relative type="1">翌四半期</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 四半期後</relativeTimePattern>
 				</relativeTime>
@@ -4187,6 +4215,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="quarter-narrow">
 				<displayName>四半期</displayName>
+				<relative type="-1">前四半期</relative>
+				<relative type="0">今四半期</relative>
+				<relative type="1">翌四半期</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0}四半期後</relativeTimePattern>
 				</relativeTime>
@@ -5340,7 +5371,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>コモロ</exemplarCity>
 			</zone>
 			<zone type="America/St_Kitts">
-				<exemplarCity>セントキッツ</exemplarCity>
+				<exemplarCity>セントクリストファー</exemplarCity>
 			</zone>
 			<zone type="Asia/Pyongyang">
 				<exemplarCity>平壌</exemplarCity>
@@ -6745,9 +6776,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Pierre_Miquelon">
 				<long>
-					<generic>サンピエール・ミクロン時間</generic>
-					<standard>サンピエール・ミクロン標準時</standard>
-					<daylight>サンピエール・ミクロン夏時間</daylight>
+					<generic>サンピエール島・ミクロン島時間</generic>
+					<standard>サンピエール島・ミクロン島標準時</standard>
+					<daylight>サンピエール島・ミクロン島夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pitcairn">
@@ -7395,8 +7426,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CNH">
-				<displayName draft="contributed">中国人民元(オフショア)</displayName>
-				<displayName count="other" draft="contributed">中国人民元(オフショア)</displayName>
+				<displayName>中国人民元(オフショア)</displayName>
+				<displayName count="other">中国人民元(オフショア)</displayName>
 				<symbol draft="contributed">CNH</symbol>
 			</currency>
 			<currency type="CNX">
@@ -7970,6 +8001,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="MRU">
 				<displayName>モーリタニア ウギア</displayName>
 				<displayName count="other">モーリタニア ウギア</displayName>
+				<symbol draft="contributed">MRU</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>マルタ リラ</displayName>
@@ -8286,6 +8318,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="STN">
 				<displayName>サントメ・プリンシペ ドブラ</displayName>
 				<displayName count="other">サントメ・プリンシペ ドブラ</displayName>
+				<symbol draft="contributed">STN</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SUR">
@@ -8452,6 +8485,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="VES">
 				<displayName>ベネズエラ ボリバル</displayName>
 				<displayName count="other">ベネズエラ ボリバル</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>ベトナム ドン</displayName>
@@ -8659,7 +8693,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">約 {0}</pattern>
 			<pattern type="atLeast">{0} 以上</pattern>
+			<pattern type="atMost">{0} 以下</pattern>
 			<pattern type="range">{0}～{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -8757,6 +8793,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ppm</displayName>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>パーセント</displayName>
+				<unitPattern count="other">{0} パーセント</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>パーミル</displayName>
+				<unitPattern count="other">{0} パーミル</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>リットル毎キロメートル</displayName>
 				<unitPattern count="other">{0} リットル毎キロメートル</unitPattern>
@@ -8772,6 +8816,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>マイル毎英ガロン</displayName>
 				<unitPattern count="other">{0} マイル毎英ガロン</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>ペタバイト</displayName>
+				<unitPattern count="other">{0} ペタバイト</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>テラバイト</displayName>
@@ -9101,6 +9149,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ミリバール</displayName>
 				<unitPattern count="other">{0} ミリバール</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>気圧</displayName>
+				<unitPattern count="other">{0} 気圧</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>キロメートル毎時</displayName>
 				<unitPattern count="other">時速 {0} キロメートル</unitPattern>
@@ -9239,6 +9291,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">小さじ {0}</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>方位</displayName>
 				<coordinateUnitPattern type="east">東経{0}</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">北緯{0}</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">南緯{0}</coordinateUnitPattern>
@@ -9334,6 +9387,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ppm</displayName>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>パーセント</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>パーミル</displayName>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
 				<unitPattern count="other">{0} L/km</unitPattern>
@@ -9349,6 +9410,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>マイル毎英ガロン</displayName>
 				<unitPattern count="other">{0} mpg Imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>ペタバイト</displayName>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>テラバイト</displayName>
@@ -9678,6 +9743,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ミリバール</displayName>
 				<unitPattern count="other">{0} mb</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>気圧</displayName>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="other">{0} km/h</unitPattern>
@@ -9816,6 +9885,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">小さじ {0}</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>方位</displayName>
 				<coordinateUnitPattern type="east">東経{0}</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">北緯{0}</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">南緯{0}</coordinateUnitPattern>
@@ -9875,6 +9945,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-karat">
 				<unitPattern count="other" draft="contributed">{0}K</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<unitPattern count="other" draft="contributed">{0}L/km</unitPattern>
@@ -9937,22 +10011,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-day">
 				<displayName>日</displayName>
-				<unitPattern count="other">{0}日</unitPattern>
+				<unitPattern count="other">{0}d</unitPattern>
 				<perUnitPattern draft="contributed">{0}/日</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>時間</displayName>
-				<unitPattern count="other">{0}時間</unitPattern>
+				<unitPattern count="other">{0}h</unitPattern>
 				<perUnitPattern draft="contributed">{0}/時間</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>分</displayName>
-				<unitPattern count="other">{0}分</unitPattern>
+				<unitPattern count="other">{0}m</unitPattern>
 				<perUnitPattern draft="contributed">{0}/分</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>秒</displayName>
-				<unitPattern count="other">{0}秒</unitPattern>
+				<unitPattern count="other">{0}s</unitPattern>
 				<perUnitPattern draft="contributed">{0}/秒</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
@@ -10278,6 +10352,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">小さじ{0}</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>方位</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -10439,10 +10514,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<typographicNames>
 		<axisName type="ital">イタリック</axisName>
 		<axisName type="opsz">オプティカルサイズ</axisName>
-		<axisName type="slnt">傾斜角</axisName>
+		<axisName type="slnt">スラント</axisName>
 		<axisName type="wdth">字幅</axisName>
 		<axisName type="wght">太さ</axisName>
 		<styleName type="ital" subtype="1">カーシブ</styleName>
+		<styleName type="opsz" subtype="8">キャプション</styleName>
+		<styleName type="opsz" subtype="12">テキスト</styleName>
 		<styleName type="opsz" subtype="18">タイトル</styleName>
 		<styleName type="opsz" subtype="72">ディスプレイ</styleName>
 		<styleName type="opsz" subtype="144">ポスター</styleName>

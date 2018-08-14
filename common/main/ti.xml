@@ -33,10 +33,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="de">ጀርመን</language>
 			<language type="el">ግሪከኛ</language>
 			<language type="en">እንግሊዝኛ</language>
+			<language type="en_AU">እንግሊዝኛ (አውስትሬሊያ)</language>
+			<language type="en_CA">እንግሊዝኛ (ካናዳ)</language>
+			<language type="en_GB">እንግሊዝኛ (እንግሊዝ)</language>
 			<language type="en_GB" alt="short">እንግሊዝኛ (GB)</language>
+			<language type="en_US">እንግሊዝኛ (አሜሪካ)</language>
 			<language type="en_US" alt="short">እንግሊዝኛ (US)</language>
 			<language type="eo">ኤስፐራንቶ</language>
 			<language type="es">ስፓኒሽ</language>
+			<language type="es_ES">ስፓኒሽ (ስፔን)</language>
+			<language type="es_MX">ስፓኒሽ (ሜክሲኮ)</language>
 			<language type="et">ኤስቶኒአን</language>
 			<language type="eu">ባስክኛ</language>
 			<language type="fa">ፐርሲያኛ</language>
@@ -97,6 +103,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="su">ሱዳንኛ</language>
 			<language type="sv">ስዊድንኛ</language>
 			<language type="sw">ሰዋሂሊኛ</language>
+			<language type="sw_CD">ሰዋሂሊኛ (ኮንጎ)</language>
 			<language type="ta">ታሚልኛ</language>
 			<language type="te">ተሉጉኛ</language>
 			<language type="th">ታይኛ</language>
@@ -182,8 +189,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CA">ካናዳ</territory>
 			<territory type="CC">ኮኮስ ኬሊንግ ደሴቶች</territory>
 			<territory type="CD">ኮንጎ</territory>
+			<territory type="CD" alt="variant">ኮንጎ</territory>
 			<territory type="CF">ማእከላይ ኣፍሪቃ ሪፓብሊክ</territory>
 			<territory type="CG">ኮንጎ ሪፓብሊክ</territory>
+			<territory type="CG" alt="variant">ኮንጎ ሪፓብሊክ</territory>
 			<territory type="CH">ስዊዘርላንድ</territory>
 			<territory type="CI">ኮት ዲቯር</territory>
 			<territory type="CI" alt="variant">አይቮሪ ኮስት</territory>
@@ -219,6 +228,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="FI">ፊንላንድ</territory>
 			<territory type="FJ">ፊጂ</territory>
 			<territory type="FK">ደሴታት ፎክላንድ</territory>
+			<territory type="FK" alt="variant">ደሴታት ፎክላንድ</territory>
 			<territory type="FM">ሚክሮኔዢያ</territory>
 			<territory type="FO">ደሴታት ፋራኦ</territory>
 			<territory type="FR">ፈረንሳይ</territory>
@@ -376,6 +386,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TJ">ታጃኪስታን</territory>
 			<territory type="TK">ቶክላው</territory>
 			<territory type="TL">ምብራቕ ቲሞር</territory>
+			<territory type="TL" alt="variant">ምብራቕ ቲሞር</territory>
 			<territory type="TM">ቱርክሜኒስታን</territory>
 			<territory type="TN">ቱኒዚያ</territory>
 			<territory type="TO">ቶንጋ</territory>
@@ -615,9 +626,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dayWidth type="wide">
 							<day type="sun">ሰንበት</day>
 							<day type="mon">ሰኑይ</day>
-							<day type="tue">ሰሉስ</day>
+							<day type="tue">ሠሉስ</day>
 							<day type="wed">ረቡዕ</day>
-							<day type="thu">ሓሙስ</day>
+							<day type="thu">ኃሙስ</day>
 							<day type="fri">ዓርቢ</day>
 							<day type="sat">ቀዳም</day>
 						</dayWidth>

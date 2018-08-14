@@ -752,7 +752,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">Istočna Europa</territory>
 			<territory type="154">Sjeverna Europa</territory>
 			<territory type="155">Zapadna Europa</territory>
-			<territory type="202" draft="contributed">Subsaharska Afrika</territory>
+			<territory type="202">Subsaharska Afrika</territory>
 			<territory type="419">Latinska Amerika</territory>
 			<territory type="AC">Otok Ascension</territory>
 			<territory type="AD">Andora</territory>
@@ -1251,6 +1251,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<ellipsis type="word-initial">… {0}</ellipsis>
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\--/]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
+			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>„</quotationStart>
@@ -1462,18 +1481,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="Bh" draft="contributed">h B</dateFormatItem>
-						<dateFormatItem id="Bhm" draft="contributed">h:mm B</dateFormatItem>
-						<dateFormatItem id="Bhms" draft="contributed">h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d.</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
-						<dateFormatItem id="EBhm" draft="contributed">E h:mm B</dateFormatItem>
-						<dateFormatItem id="EBhms" draft="contributed">E h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E, d.</dateFormatItem>
-						<dateFormatItem id="Ehm" draft="contributed">E h:mm a</dateFormatItem>
-						<dateFormatItem id="EHm" draft="contributed">E HH:mm</dateFormatItem>
-						<dateFormatItem id="Ehms" draft="contributed">E h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="EHms" draft="contributed">E HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y. G</dateFormatItem>
 						<dateFormatItem id="GyMMM">LLL y. G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d. MMM y. G</dateFormatItem>
@@ -1963,13 +1982,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="Bh" draft="contributed">h B</dateFormatItem>
-						<dateFormatItem id="Bhm" draft="contributed">h:mm B</dateFormatItem>
-						<dateFormatItem id="Bhms" draft="contributed">h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d.</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
-						<dateFormatItem id="EBhm" draft="contributed">E h:mm B</dateFormatItem>
-						<dateFormatItem id="EBhms" draft="contributed">E h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E, d.</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -5940,7 +5959,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern>#,##0%</pattern>
+					<pattern>#,##0 %</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -6470,10 +6489,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CNH">
-				<displayName draft="contributed">kineski juan (offshore)</displayName>
-				<displayName count="one" draft="contributed">kineski juan (offshore)</displayName>
-				<displayName count="few" draft="contributed">kineska juana (offshore)</displayName>
-				<displayName count="other" draft="contributed">kineskih juana (offshore)</displayName>
+				<displayName>kineski juan (offshore)</displayName>
+				<displayName count="one">kineski juan (offshore)</displayName>
+				<displayName count="few">kineska juana (offshore)</displayName>
+				<displayName count="other">kineskih juana (offshore)</displayName>
+				<symbol draft="contributed">CNH</symbol>
 			</currency>
 			<currency type="CNX">
 				<displayName>kineski narodni dolar</displayName>
@@ -7247,10 +7267,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
-				<displayName>mauritanijska ouguja (1973–2017)</displayName>
-				<displayName count="one">mauritanijska ouguja (1973–2017)</displayName>
-				<displayName count="few">mauritanijske ouguje (1973–2017)</displayName>
-				<displayName count="other">mauritanijskih ouguja (1973–2017)</displayName>
+				<displayName>mauritanijska ouguja (1973. – 2017.)</displayName>
+				<displayName count="one">mauritanijska ouguja (1973. – 2017.)</displayName>
+				<displayName count="few">mauritanijske ouguje (1973. – 2017.)</displayName>
+				<displayName count="other">mauritanijskih ouguja (1973. – 2017.)</displayName>
 				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MRU">
@@ -7258,6 +7278,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">mauritanijska ouguja</displayName>
 				<displayName count="few">mauritanijske ouguje</displayName>
 				<displayName count="other">mauritanijskih ouguja</displayName>
+				<symbol draft="contributed">MRU</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>malteška lira</displayName>
@@ -7910,10 +7931,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol draft="contributed">VEB</symbol>
 			</currency>
 			<currency type="VEF">
-				<displayName>venezuelanski bolivar (2008–2018)</displayName>
-				<displayName count="one">venezuelanski bolivar (2008–2018)</displayName>
-				<displayName count="few">venezuelanska bolivara (2008–2018)</displayName>
-				<displayName count="other">venezuelanskih bolivara (2008–2018)</displayName>
+				<displayName>venezuelanski bolivar (2008. – 2018.)</displayName>
+				<displayName count="one">venezuelanski bolivar (2008. – 2018.)</displayName>
+				<displayName count="few">venezuelanska bolivara (2008. – 2018.)</displayName>
+				<displayName count="other">venezuelanskih bolivara (2008. – 2018.)</displayName>
 				<symbol>VEF</symbol>
 				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
@@ -7922,6 +7943,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">venezuelanski bolivar</displayName>
 				<displayName count="few">venezuelanska bolivara</displayName>
 				<displayName count="other">venezuelanskih bolivara</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>vijetnamski dong</displayName>
@@ -8209,7 +8231,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0} – {1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -8222,7 +8246,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<units>
 		<unitLength type="long">
 			<compoundUnit type="per">
-				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>G</displayName>
@@ -8237,10 +8261,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} metara u sekundi na kvadrat</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
-				<displayName draft="contributed">okretaj</displayName>
-				<unitPattern count="one" draft="contributed">{0} okretaj</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} okretaja</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} okretaja</unitPattern>
+				<displayName>okretaj</displayName>
+				<unitPattern count="one">{0} okretaj</unitPattern>
+				<unitPattern count="few">{0} okretaja</unitPattern>
+				<unitPattern count="other">{0} okretaja</unitPattern>
 			</unit>
 			<unit type="angle-radian">
 				<displayName>radijani</displayName>
@@ -8332,22 +8356,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} karata</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-per-deciliter">
-				<displayName draft="contributed">miligrami po decilitru</displayName>
-				<unitPattern count="one" draft="contributed">{0} miligram po decilitru</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} miligrama po decilitru</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} miligrama po decilitru</unitPattern>
+				<displayName>miligrami po decilitru</displayName>
+				<unitPattern count="one">{0} miligram po decilitru</unitPattern>
+				<unitPattern count="few">{0} miligrama po decilitru</unitPattern>
+				<unitPattern count="other">{0} miligrama po decilitru</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
-				<displayName draft="contributed">milimoli po litri</displayName>
-				<unitPattern count="one" draft="contributed">{0} milimol po litri</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} milimola po litri</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} milimola po litri</unitPattern>
+				<displayName>milimoli po litri</displayName>
+				<unitPattern count="one">{0} milimol po litri</unitPattern>
+				<unitPattern count="few">{0} milimola po litri</unitPattern>
+				<unitPattern count="other">{0} milimola po litri</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-million">
-				<displayName draft="contributed">dijelovi na milijun</displayName>
-				<unitPattern count="one" draft="contributed">{0} dio na milijun</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} dijela na milijun</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} dijelova na milijun</unitPattern>
+				<displayName>dijelovi na milijun</displayName>
+				<unitPattern count="one">{0} dio na milijun</unitPattern>
+				<unitPattern count="few">{0} dijela na milijun</unitPattern>
+				<unitPattern count="other">{0} dijelova na milijun</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>postotak</displayName>
+				<unitPattern count="one">{0} posto</unitPattern>
+				<unitPattern count="few">{0} posto</unitPattern>
+				<unitPattern count="other">{0} posto</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>promil</displayName>
+				<unitPattern count="one">{0} promil</unitPattern>
+				<unitPattern count="few">{0} promila</unitPattern>
+				<unitPattern count="other">{0} promila</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litre po kilometru</displayName>
@@ -8368,10 +8404,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} milja po galonu</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
-				<displayName draft="contributed">milje po imp. galonu</displayName>
-				<unitPattern count="one" draft="contributed">{0} milja po imp. galonu</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} milje po imp. galonu</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} milja po imp. galonu</unitPattern>
+				<displayName>milje po imp. galonu</displayName>
+				<unitPattern count="one">{0} milja po imp. galonu</unitPattern>
+				<unitPattern count="few">{0} milje po imp. galonu</unitPattern>
+				<unitPattern count="other">{0} milja po imp. galonu</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>petabajti</displayName>
+				<unitPattern count="one">{0} petabajt</unitPattern>
+				<unitPattern count="few">{0} petabajta</unitPattern>
+				<unitPattern count="other">{0} petabajta</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabajti</displayName>
@@ -8857,6 +8899,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} milibara</unitPattern>
 				<unitPattern count="other">{0} milibara</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atmosfere</displayName>
+				<unitPattern count="one">{0} atmosfera</unitPattern>
+				<unitPattern count="few">{0} atmosfere</unitPattern>
+				<unitPattern count="other">{0} atmosfera</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometri na sat</displayName>
 				<unitPattern count="one">{0} kilometar na sat</unitPattern>
@@ -9061,6 +9109,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} žličica</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>kardinalni smjer</displayName>
 				<coordinateUnitPattern type="east" draft="contributed">{0}I</coordinateUnitPattern>
 				<coordinateUnitPattern type="north" draft="contributed">{0}S</coordinateUnitPattern>
 				<coordinateUnitPattern type="south" draft="contributed">{0}J</coordinateUnitPattern>
@@ -9069,7 +9118,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</unitLength>
 		<unitLength type="short">
 			<compoundUnit type="per">
-				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>G</displayName>
@@ -9084,10 +9133,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} m/s²</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
-				<displayName draft="contributed">okr.</displayName>
-				<unitPattern count="one" draft="contributed">{0} okr.</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} okr.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} okr.</unitPattern>
+				<displayName>okr.</displayName>
+				<unitPattern count="one">{0} okr.</unitPattern>
+				<unitPattern count="few">{0} okr.</unitPattern>
+				<unitPattern count="other">{0} okr.</unitPattern>
 			</unit>
 			<unit type="angle-radian">
 				<displayName>rad</displayName>
@@ -9179,22 +9228,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-per-deciliter">
-				<displayName draft="contributed">mg/dl</displayName>
-				<unitPattern count="one" draft="contributed">{0} mg/dl</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} mg/dl</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mg/dl</unitPattern>
+				<displayName>mg/dl</displayName>
+				<unitPattern count="one">{0} mg/dl</unitPattern>
+				<unitPattern count="few">{0} mg/dl</unitPattern>
+				<unitPattern count="other">{0} mg/dl</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
-				<displayName draft="contributed">mmol/l</displayName>
-				<unitPattern count="one" draft="contributed">{0} mmol/l</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} mmol/l</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mmol/l</unitPattern>
+				<displayName>mmol/l</displayName>
+				<unitPattern count="one">{0} mmol/l</unitPattern>
+				<unitPattern count="few">{0} mmol/l</unitPattern>
+				<unitPattern count="other">{0} mmol/l</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-million">
-				<displayName draft="contributed">ppm</displayName>
-				<unitPattern count="one" draft="contributed">{0} ppm</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} ppm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ppm</unitPattern>
+				<displayName>ppm</displayName>
+				<unitPattern count="one">{0} ppm</unitPattern>
+				<unitPattern count="few">{0} ppm</unitPattern>
+				<unitPattern count="other">{0} ppm</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0} %</unitPattern>
+				<unitPattern count="few">{0} %</unitPattern>
+				<unitPattern count="other">{0} %</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>‰</displayName>
+				<unitPattern count="one">{0} ‰</unitPattern>
+				<unitPattern count="few">{0} ‰</unitPattern>
+				<unitPattern count="other">{0} ‰</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -9215,10 +9276,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} mpg</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
-				<displayName draft="contributed">milje/imp. gal.</displayName>
-				<unitPattern count="one" draft="contributed">{0} mpg imp.</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} mpg imp.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mpg imp.</unitPattern>
+				<displayName>milje/imp. gal.</displayName>
+				<unitPattern count="one">{0} mpg imp.</unitPattern>
+				<unitPattern count="few">{0} mpg imp.</unitPattern>
+				<unitPattern count="other">{0} mpg imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="one">{0} PB</unitPattern>
+				<unitPattern count="few">{0} PB</unitPattern>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -9704,6 +9771,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="few">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="one">{0} km/h</unitPattern>
@@ -9908,6 +9981,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>smjer</displayName>
 				<coordinateUnitPattern type="east" draft="contributed">{0}I</coordinateUnitPattern>
 				<coordinateUnitPattern type="north" draft="contributed">{0}S</coordinateUnitPattern>
 				<coordinateUnitPattern type="south" draft="contributed">{0}J</coordinateUnitPattern>
@@ -9916,7 +9990,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
-				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<unitPattern count="one" draft="contributed">{0} G</unitPattern>
@@ -9997,6 +10071,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" draft="contributed">{0} kt</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} kt</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kt</unitPattern>
+			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName>mmol/l</displayName>
+				<unitPattern count="one">{0} mmol/l</unitPattern>
+				<unitPattern count="few">{0} mmol/l</unitPattern>
+				<unitPattern count="other">{0} mmol/l</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0} %</unitPattern>
+				<unitPattern count="few">{0} %</unitPattern>
+				<unitPattern count="other">{0} %</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<unitPattern count="one" draft="contributed">{0} l/km</unitPattern>
@@ -10552,6 +10638,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>smjer</displayName>
 				<coordinateUnitPattern type="east" draft="contributed">{0}I</coordinateUnitPattern>
 				<coordinateUnitPattern type="north" draft="contributed">{0}S</coordinateUnitPattern>
 				<coordinateUnitPattern type="south" draft="contributed">{0}J</coordinateUnitPattern>
@@ -10613,15 +10700,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</messages>
 	</posix>
 	<characterLabels>
-		<characterLabelPattern type="all">{0} — Sve</characterLabelPattern>
+		<characterLabelPattern type="all">{0} – sve</characterLabelPattern>
 		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
-		<characterLabelPattern type="compatibility">{0} — Kompatibilnost</characterLabelPattern>
-		<characterLabelPattern type="enclosed">{0} — Priloženo</characterLabelPattern>
-		<characterLabelPattern type="extended">{0} — Prošireno</characterLabelPattern>
-		<characterLabelPattern type="historic">{0} — Povijesno</characterLabelPattern>
-		<characterLabelPattern type="miscellaneous">{0} — Razno</characterLabelPattern>
-		<characterLabelPattern type="other">{0} — Ostalo</characterLabelPattern>
-		<characterLabelPattern type="scripts">Pisma — {0}</characterLabelPattern>
+		<characterLabelPattern type="compatibility">{0} – kompatibilnost</characterLabelPattern>
+		<characterLabelPattern type="enclosed">{0} – priloženo</characterLabelPattern>
+		<characterLabelPattern type="extended">{0} – prošireno</characterLabelPattern>
+		<characterLabelPattern type="historic">{0} – povijesno</characterLabelPattern>
+		<characterLabelPattern type="miscellaneous">{0} – razno</characterLabelPattern>
+		<characterLabelPattern type="other">{0} – ostalo</characterLabelPattern>
+		<characterLabelPattern type="scripts">pisma – {0}</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="one">{0} potez</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="few">{0} poteza</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">{0} poteza</characterLabelPattern>
@@ -10713,6 +10800,63 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="whitespace">bjelina</characterLabel>
 	</characterLabels>
 	<typographicNames>
+		<axisName type="ital">kurziv</axisName>
+		<axisName type="opsz">optička veličina</axisName>
+		<axisName type="slnt">nagib</axisName>
+		<axisName type="wdth">širina</axisName>
+		<axisName type="wght">debljina</axisName>
+		<styleName type="ital" subtype="1">kurziv</styleName>
+		<styleName type="opsz" subtype="8">veliko slovo</styleName>
+		<styleName type="opsz" subtype="12">tekst</styleName>
+		<styleName type="opsz" subtype="18">titling</styleName>
+		<styleName type="opsz" subtype="72">ukrasni</styleName>
+		<styleName type="opsz" subtype="144">poster</styleName>
+		<styleName type="slnt" subtype="-12">lijevo nagnut</styleName>
+		<styleName type="slnt" subtype="0">uspravan</styleName>
+		<styleName type="slnt" subtype="12">nagnut</styleName>
+		<styleName type="slnt" subtype="24">ekstranagnut</styleName>
+		<styleName type="wdth" subtype="50">ultrasužen</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">ultrasažet</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">ultrasužen</styleName>
+		<styleName type="wdth" subtype="62.5">ekstrasužen</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">ekstrasažet</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">ekstrauzak</styleName>
+		<styleName type="wdth" subtype="75">sužen</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">sažet</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">sažet</styleName>
+		<styleName type="wdth" subtype="87.5">polusužen</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">polusažet</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">poluuzak</styleName>
+		<styleName type="wdth" subtype="100">normalan</styleName>
+		<styleName type="wdth" subtype="112.5">poluproširen</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">poluproširen</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">poluširok</styleName>
+		<styleName type="wdth" subtype="125">proširen</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">proširen</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">širok</styleName>
+		<styleName type="wdth" subtype="150">ekstraproširen</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">ekstraproširen</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">ekstraširok</styleName>
+		<styleName type="wdth" subtype="200">ultraproširen</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">ultraproširen</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">ultraširok</styleName>
+		<styleName type="wght" subtype="100">tanak</styleName>
+		<styleName type="wght" subtype="200">ekstrasvijetao</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">ultrasvijetao</styleName>
+		<styleName type="wght" subtype="300">svijetao</styleName>
+		<styleName type="wght" subtype="350">polusvijetao</styleName>
+		<styleName type="wght" subtype="380">book</styleName>
+		<styleName type="wght" subtype="400">običan</styleName>
+		<styleName type="wght" subtype="500">srednji</styleName>
+		<styleName type="wght" subtype="600">polupodebljan</styleName>
+		<styleName type="wght" subtype="600" alt="demi">polupodebljan</styleName>
+		<styleName type="wght" subtype="700">podebljan</styleName>
+		<styleName type="wght" subtype="800">ekstrapodebljan</styleName>
+		<styleName type="wght" subtype="900">crn</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">debeo</styleName>
+		<styleName type="wght" subtype="950">ekstracrn</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">ultracrn</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">ultradebeo</styleName>
 		<featureName type="afrc">okomiti razlomci</featureName>
 		<featureName type="cpsp">razmak između velikih slova</featureName>
 		<featureName type="dlig">opcionalne ligature</featureName>

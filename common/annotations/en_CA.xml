@@ -12,14 +12,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<territory type="CA"/>
 	</identity>
 	<annotations>
-		<annotation cp="🦳">gray | grey | hair | old | white</annotation>
-		<annotation cp="🧿">bead | charm | evil eye | nazar | talisman</annotation>
 		<annotation cp="😋">delicious | face | savoring | savouring | smile | yum</annotation>
 		<annotation cp="😍" draft="contributed">smiling face with heart eyes</annotation>
 		<annotation cp="😍" type="tts" draft="contributed">smiling face with heart eyes</annotation>
 		<annotation cp="🙃">face | upside down</annotation>
 		<annotation cp="😷">cold | doctor | face | face with medical mask | ill | mask | sick</annotation>
 		<annotation cp="🤒">face | face with thermometer | ill | sick | thermometer</annotation>
+		<annotation cp="🤕" draft="contributed">bandage | face | face with head bandage | hurt | injury</annotation>
 		<annotation cp="🤧">bless you | face | gesundheit | sneeze | sneezing face</annotation>
 		<annotation cp="🤭">face with hand over mouth | oops | whoops</annotation>
 		<annotation cp="😻" draft="contributed">smiling cat face with heart eyes</annotation>
@@ -27,8 +26,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧒">child | gender-neutral | toddler | unspecified gender | young</annotation>
 		<annotation cp="👨‍⚕">doctor | health care | man | man health worker | nurse | therapist</annotation>
 		<annotation cp="👩‍⚕">doctor | health care | nurse | therapist | woman | woman health worker</annotation>
+		<annotation cp="👨‍💼" draft="contributed">architect | business | man | man office worker | manager | white-collar</annotation>
+		<annotation cp="👩‍💼" draft="contributed">architect | business | manager | white-collar | woman | woman office worker</annotation>
 		<annotation cp="👨‍🚒">fire truck | firefighter | fireman | man</annotation>
 		<annotation cp="👩‍🚒">fire truck | firefighter | firewoman | woman</annotation>
+		<annotation cp="🤱" draft="contributed">baby | breast | breastfeeding | nursing</annotation>
 		<annotation cp="🎅">celebration | Christmas | Claus | Father | Santa</annotation>
 		<annotation cp="🤶" draft="contributed">Mrs. Claus</annotation>
 		<annotation cp="🤶" type="tts" draft="contributed">Mrs. Claus</annotation>
@@ -49,6 +51,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤜">fist | right-facing fist | rightward</annotation>
 		<annotation cp="🤟" draft="contributed">love you gesture</annotation>
 		<annotation cp="🤟" type="tts" draft="contributed">love you gesture</annotation>
+		<annotation cp="🦳">gray | grey | hair | old | white</annotation>
 		<annotation cp="🗨">dialogue | left speech bubble | speech</annotation>
 		<annotation cp="👕">clothing | shirt | t-shirt | T-shirt | tee-shirt | tshirt</annotation>
 		<annotation cp="🎒" draft="contributed">backpack</annotation>
@@ -65,6 +68,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕸" type="tts" draft="contributed">spider web</annotation>
 		<annotation cp="🌾" draft="contributed">sheaf of rice</annotation>
 		<annotation cp="🌾" type="tts" draft="contributed">sheaf of rice</annotation>
+		<annotation cp="🍆" draft="contributed">aubergine | eggplant | vegetable</annotation>
 		<annotation cp="🥜">food | nut | peanut | peanuts | vegetable</annotation>
 		<annotation cp="🌰">nut</annotation>
 		<annotation cp="🥐">bread | crescent roll | croissant | food | French</annotation>
@@ -73,10 +77,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍔" type="tts" draft="contributed">hamburger</annotation>
 		<annotation cp="🍟" draft="contributed">French fries</annotation>
 		<annotation cp="🍟" type="tts" draft="contributed">French fries</annotation>
+		<annotation cp="🌭" draft="contributed">frankfurter | hot dog | hotdog | sausage</annotation>
 		<annotation cp="🌮">Mexican</annotation>
 		<annotation cp="🌯">Mexican | wrap</annotation>
 		<annotation cp="🥫" draft="contributed">canned food</annotation>
 		<annotation cp="🥫" type="tts" draft="contributed">canned food</annotation>
+		<annotation cp="🥡" type="tts" draft="contributed">takeout box</annotation>
 		<annotation cp="🍦">cream | dessert | ice | soft | sweet</annotation>
 		<annotation cp="🍪" draft="contributed">cookie</annotation>
 		<annotation cp="🍪" type="tts" draft="contributed">cookie</annotation>
@@ -94,6 +100,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛩" draft="contributed">Shinto shrine</annotation>
 		<annotation cp="⛩" type="tts" draft="contributed">Shinto shrine</annotation>
 		<annotation cp="🕋">Islam | Muslim | religion</annotation>
+		<annotation cp="♨" draft="contributed">hot | hotsprings | springs | steaming</annotation>
 		<annotation cp="🌌" draft="contributed">Milky Way</annotation>
 		<annotation cp="🌌" type="tts" draft="contributed">Milky Way</annotation>
 		<annotation cp="🎡" draft="contributed">Ferris wheel</annotation>
@@ -111,10 +118,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚒" draft="contributed">fire truck</annotation>
 		<annotation cp="🚒" type="tts" draft="contributed">fire truck</annotation>
 		<annotation cp="🚙">recreational | sport utility | sport utility vehicle | SUV</annotation>
+		<annotation cp="🚏" draft="contributed">bus | busstop | stop</annotation>
 		<annotation cp="⛽" draft="contributed">gas pump</annotation>
 		<annotation cp="⛽" type="tts" draft="contributed">gas pump</annotation>
 		<annotation cp="🛥" draft="contributed">motorboat</annotation>
 		<annotation cp="🛥" type="tts" draft="contributed">motorboat</annotation>
+		<annotation cp="🛩" draft="contributed">aeroplane | airplane | small airplane</annotation>
 		<annotation cp="🛫">aeroplane | airplane | check-in | departure | departures</annotation>
 		<annotation cp="🕧" draft="contributed">twelve thirty</annotation>
 		<annotation cp="🕧" type="tts" draft="contributed">twelve thirty</annotation>
@@ -151,6 +160,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎑" type="tts" draft="contributed">moon-viewing ceremony</annotation>
 		<annotation cp="🏉" draft="contributed">rugby</annotation>
 		<annotation cp="🏉" type="tts" draft="contributed">rugby</annotation>
+		<annotation cp="🏏" draft="contributed">ball | bat | cricket | game</annotation>
+		<annotation cp="🧿">bead | charm | evil eye | nazar | talisman</annotation>
 		<annotation cp="🀄" draft="contributed">Mahjong red dragon</annotation>
 		<annotation cp="🀄" type="tts" draft="contributed">Mahjong red dragon</annotation>
 		<annotation cp="💾">computer | disk | diskette | floppy</annotation>
@@ -168,11 +179,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗑" draft="contributed">wastebasket</annotation>
 		<annotation cp="🗑" type="tts" draft="contributed">wastebasket</annotation>
 		<annotation cp="🛠" draft="contributed">hammer and wrench</annotation>
+		<annotation cp="🛠" type="tts" draft="contributed">hammer and wrench</annotation>
 		<annotation cp="🔧" draft="contributed">wrench</annotation>
+		<annotation cp="🔧" type="tts" draft="contributed">wrench</annotation>
 		<annotation cp="🛋" draft="contributed">couch and lamp</annotation>
 		<annotation cp="🛋" type="tts" draft="contributed">couch and lamp</annotation>
 		<annotation cp="🚽">lavatory | toilet</annotation>
 		<annotation cp="🛒" draft="contributed">shopping cart</annotation>
+		<annotation cp="🛒" type="tts" draft="contributed">shopping cart</annotation>
 		<annotation cp="🚮">garbage | litter | litter bin | litter in bin sign | trash</annotation>
 		<annotation cp="🚹" draft="contributed">men’s room</annotation>
 		<annotation cp="🚹" type="tts" draft="contributed">men’s room</annotation>
@@ -187,6 +201,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☦" type="tts" draft="contributed">Orthodox cross</annotation>
 		<annotation cp="☪">Islam | Muslim | religion | star and crescent</annotation>
 		<annotation cp="♏" draft="contributed">Scorpio</annotation>
+		<annotation cp="♏" type="tts" draft="contributed">Scorpio</annotation>
 		<annotation cp="🔼" draft="contributed">upward button</annotation>
 		<annotation cp="🔼" type="tts" draft="contributed">upward button</annotation>
 		<annotation cp="🔽" draft="contributed">downward button</annotation>

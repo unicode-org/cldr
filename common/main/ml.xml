@@ -724,7 +724,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">കിഴക്കൻ യൂറോപ്പ്</territory>
 			<territory type="154">വടക്കേ യൂറോപ്പ്</territory>
 			<territory type="155">പശ്ചിമ യൂറോപ്പ്</territory>
-			<territory type="202" draft="contributed">202</territory>
+			<territory type="202">സബ്-സഹാറൻ ആഫ്രിക്ക</territory>
 			<territory type="419">ലാറ്റിനമേരിക്ക</territory>
 			<territory type="AC">അസൻഷൻ ദ്വീപ്</territory>
 			<territory type="AD">അൻഡോറ</territory>
@@ -790,7 +790,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CZ" alt="variant">ചെക്ക് റിപ്പബ്ലിക്ക്</territory>
 			<territory type="DE">ജർമ്മനി</territory>
 			<territory type="DG">ഡീഗോ ഗ്രാഷ്യ</territory>
-			<territory type="DJ">ദിജിബൗട്ടി</territory>
+			<territory type="DJ">ജിബൂത്തി</territory>
 			<territory type="DK">ഡെൻമാർക്ക്</territory>
 			<territory type="DM">ഡൊമിനിക്ക</territory>
 			<territory type="DO">ഡൊമിനിക്കൻ റിപ്പബ്ലിക്ക്</territory>
@@ -2714,6 +2714,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="quarter-short">
 				<displayName>പാദം</displayName>
+				<relative type="-1" draft="contributed">കഴിഞ്ഞ പാദം</relative>
+				<relative type="0" draft="contributed">ഈ പാദം</relative>
+				<relative type="1" draft="contributed">അടുത്ത പാദം</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} പാദത്തിൽ</relativeTimePattern>
 					<relativeTimePattern count="other">{0} പാദത്തിൽ</relativeTimePattern>
@@ -2725,6 +2728,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="quarter-narrow">
 				<displayName>പാദം</displayName>
+				<relative type="-1" draft="contributed">കഴിഞ്ഞ പാദം</relative>
+				<relative type="0" draft="contributed">ഈ പാദം</relative>
+				<relative type="1" draft="contributed">അടുത്ത പാദം</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} പാദത്തിൽ</relativeTimePattern>
 					<relativeTimePattern count="other">{0} പാദത്തിൽ</relativeTimePattern>
@@ -6126,7 +6132,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="CVE">
 				<displayName>കേപ് വെർദിയൻ എസ്‌ക്യുഡോ</displayName>
 				<displayName count="one">കേപ് വെർദിയൻ എസ്‌ക്യുഡോ</displayName>
-				<displayName count="other">കേപ് വെർദിയൻ എസ്‌ക്യുഡോ</displayName>
+				<displayName count="other">കേപ് വെർദിയൻ എസ്‌ക്യുഡോസ്</displayName>
 				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CYP">
@@ -6298,13 +6304,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="GMD">
 				<displayName>ഗാംബിയൻ ദലാസി</displayName>
 				<displayName count="one">ഗാംബിയൻ ദലാസി</displayName>
-				<displayName count="other">ഗാംബിയൻ ദലാസി</displayName>
+				<displayName count="other">ഗാംബിയൻ ദലാസിസ്</displayName>
 				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>ഗിനിയൻ ഫ്രാങ്ക്</displayName>
 				<displayName count="one">ഗിനിയൻ ഫ്രാങ്ക്</displayName>
-				<displayName count="other">ഗിനിയൻ ഫ്രാങ്ക്</displayName>
+				<displayName count="other">ഗിനിയൻ ഫ്രാങ്ക്സ്</displayName>
 				<symbol>GNF</symbol>
 				<symbol alt="narrow" draft="contributed">FG</symbol>
 			</currency>
@@ -6654,13 +6660,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="MRO">
 				<displayName>മൗറിറ്റേനിയൻ ഔഗിയ (1973–2017)</displayName>
 				<displayName count="one">മൗറിറ്റേനിയൻ ഔഗിയ (1973–2017)</displayName>
-				<displayName count="other">മൗറിറ്റേനിയൻ ഔഗിയ (1973–2017)</displayName>
+				<displayName count="other">മൗറിറ്റേനിയൻ ഔഗിയസ് (1973–2017)</displayName>
 				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MRU">
 				<displayName>മൗറിറ്റേനിയൻ ഔഗിയ</displayName>
 				<displayName count="one">മൗറിറ്റേനിയൻ ഔഗിയ</displayName>
-				<displayName count="other">മൗറിറ്റേനിയൻ ഔഗിയ</displayName>
+				<displayName count="other">മൗറിറ്റേനിയൻ ഔഗിയസ്</displayName>
+				<symbol draft="contributed">MRU</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>മൽത്തീസ് ലിറ</displayName>
@@ -6944,7 +6951,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="SLL">
 				<displayName>സിയെറ ലിയോണിയൻ ലിയോൺ</displayName>
 				<displayName count="one">സിയെറ ലിയോണിയൻ ലിയോൺ</displayName>
-				<displayName count="other">സിയെറ ലിയോണിയൻ ലിയോൺ</displayName>
+				<displayName count="other">സിയെറ ലിയോണിയൻ ലിയോണസ്</displayName>
 				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
@@ -6980,6 +6987,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>സാവോ ടോമി ആൻഡ് പ്രിൻസിപെ ഡോബ്ര</displayName>
 				<displayName count="one">സാവോ ടോമി ആൻഡ് പ്രിൻസിപെ ഡോബ്ര</displayName>
 				<displayName count="other">സാവോ ടോമി ആൻഡ് പ്രിൻസിപെ ഡോബ്ര</displayName>
+				<symbol draft="contributed">STN</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SUR">
@@ -7156,6 +7164,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>വെനിസ്വേലൻ ബൊളീവർ</displayName>
 				<displayName count="one">വെനിസ്വേലൻ ബൊളീവർ</displayName>
 				<displayName count="other">വെനിസ്വേലൻ ബൊളീവർ</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>വിയറ്റ്നാമീസ് ഡോങ്</displayName>
@@ -7343,7 +7352,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately" draft="contributed">~{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost" draft="contributed">≤{0}</pattern>
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -7462,6 +7473,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">പാർട്ട് / മില്ല്യൺ</unitPattern>
 				<unitPattern count="other">{0} പാർട്‌സ് / മില്ല്യൺ</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName draft="contributed">പ്രതിമില്ലി</displayName>
+				<unitPattern count="one" draft="provisional">{0} പ്രതിമില്ലി</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} പ്രതിമില്ലി</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ലിറ്റർ/കിലോമീറ്റർ</displayName>
 				<unitPattern count="one">{0} ലിറ്റർ/കിലോമീറ്റർ</unitPattern>
@@ -7481,6 +7502,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>മൈൽ / ഇംപീ. ഗാലൻ</displayName>
 				<unitPattern count="one">{0} മൈൽ / ഇംപീ. ഗാലൻ</unitPattern>
 				<unitPattern count="other">{0} മൈൽ / ഇംപീ. ഗാലൻ</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName draft="provisional">PB</displayName>
+				<unitPattern count="one" draft="contributed">{0} പെറ്റാബൈറ്റ്</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} പെറ്റാബൈറ്റ്</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>ടെറാബൈറ്റ്</displayName>
@@ -7888,6 +7914,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} മില്ലിബാർ</unitPattern>
 				<unitPattern count="other">{0} മില്ലിബാർ</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName draft="contributed">അറ്റ്‌മോസ്‌ഫിയർ</displayName>
+				<unitPattern count="one" draft="contributed">{0} അറ്റ്‌മോസ്‌ഫിയർ</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} അറ്റ്‌മോസ്‌ഫിയർ</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>കിലോമീറ്റർ/മണിക്കൂർ</displayName>
 				<unitPattern count="one">{0} കിലോമീറ്റർ/മണിക്കൂർ</unitPattern>
@@ -8054,6 +8085,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ടീസ്‌പൂൺ</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName draft="provisional">കാർഡിനൽ ദിശ</displayName>
 				<coordinateUnitPattern type="east">{0} കിഴക്ക്</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} വടക്ക്</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} തെക്ക്</coordinateUnitPattern>
@@ -8169,6 +8201,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} പാ.പെ.മി.</unitPattern>
 				<unitPattern count="other">{0} പാ.പെ.മി.</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>‰</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ലിറ്റർ/കി.മീ.</displayName>
 				<unitPattern count="one">{0} ലി/കി.മീ.</unitPattern>
@@ -8188,6 +8230,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>മൈൽ/ഗാ. ഇംപീ.</displayName>
 				<unitPattern count="one">{0} മൈ.പെ.ഗാ./ഇം‌പീ.</unitPattern>
 				<unitPattern count="other">{0} മൈ.പെ.ഗാ./ഇം‌പീ.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName draft="provisional">PB</displayName>
+				<unitPattern count="one">{0} PB</unitPattern>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>ടെ.ബൈറ്റ്</displayName>
@@ -8595,6 +8642,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} മി.ബാ</unitPattern>
 				<unitPattern count="other">{0} മി.ബാ</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>കി.മീ/മ.</displayName>
 				<unitPattern count="one">{0} കി.മീ/മ.</unitPattern>
@@ -8761,10 +8813,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ടീ.സ്‌പൂ.</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<coordinateUnitPattern type="east">{0}കി.</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">{0}വ.</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">{0}തെ.</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">{0}പ.</coordinateUnitPattern>
+				<displayName>ദിശ</displayName>
+				<coordinateUnitPattern type="east">{0} കി.</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} വ.</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} തെ.</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} പ.</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -8816,6 +8869,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-square-foot">
 				<unitPattern count="one">{0} ച. അടി</unitPattern>
 				<unitPattern count="other">{0} ച.അടി</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>ലി./100 കി.മീ.</displayName>
@@ -8959,6 +9017,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} പ്ര.വ</unitPattern>
 				<unitPattern count="other">{0} പ്ര.വ</unitPattern>
 			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName draft="contributed">ജ്യോ.യൂ.</displayName>
+				<unitPattern count="one">{0}ജ്യോ.യൂ</unitPattern>
+				<unitPattern count="other">{0}ജ്യോ.യൂ</unitPattern>
+			</unit>
 			<unit type="length-furlong">
 				<displayName draft="contributed">ഫർലോങ്</displayName>
 				<unitPattern count="one" draft="contributed">{0}ഫർ.</unitPattern>
@@ -8968,6 +9031,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName draft="contributed">ഫാതം</displayName>
 				<unitPattern count="one" draft="contributed">{0}ഫാ.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}ഫാ.</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName draft="contributed">നോ.മൈ.</displayName>
+				<unitPattern count="one">{0}ന.മൈ.</unitPattern>
+				<unitPattern count="other">{0}ന.മൈ.</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
 				<displayName draft="contributed">സ്.മൈ.</displayName>
@@ -9028,6 +9096,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ഔ</unitPattern>
 				<perUnitPattern draft="contributed">{0}/ഔ.</perUnitPattern>
 			</unit>
+			<unit type="mass-ounce-troy">
+				<displayName draft="contributed">ട്രോ.ഔ.</displayName>
+			</unit>
 			<unit type="mass-carat">
 				<displayName draft="contributed">ക്യാരറ്റ്</displayName>
 				<unitPattern count="one" draft="contributed">{0}CD</unitPattern>
@@ -9054,6 +9125,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName draft="contributed">മിമീ.മെ.</displayName>
 				<unitPattern count="one" draft="contributed">{0}മിമീ.മെ.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}മിമീ.മെ.</unitPattern>
+			</unit>
+			<unit type="pressure-pound-per-square-inch">
+				<displayName draft="contributed">പിഎസ്ഐ</displayName>
 			</unit>
 			<unit type="pressure-inch-hg">
 				<displayName draft="contributed">ഇഞ്ച് മെ.</displayName>
@@ -9119,6 +9193,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ലി.</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>ദിശ</displayName>
 				<coordinateUnitPattern type="east">{0}കി.</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}വ.</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}തെ.</coordinateUnitPattern>
@@ -9278,4 +9353,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="western_asian_scripts">പശ്ചിമേഷ്യൻ ലിപികൾ</characterLabel>
 		<characterLabel type="whitespace">വൈറ്റ്സ്പെയ്‌സ്</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">ഇറ്റാലിക്</axisName>
+		<axisName type="opsz">ഒപ്റ്റിക്കൽ വലുപ്പം</axisName>
+		<axisName type="slnt">ചരിഞ്ഞത്</axisName>
+		<axisName type="wdth">വീതി</axisName>
+		<axisName type="wght">ഭാരം</axisName>
+		<styleName type="ital" subtype="1">കഴ്‌സീവ്</styleName>
+		<styleName type="opsz" subtype="8">തലക്കെട്ട്</styleName>
+		<styleName type="opsz" subtype="12">ടെക്‌സ്റ്റ്</styleName>
+		<styleName type="opsz" subtype="18">ശീർഷകം</styleName>
+		<styleName type="opsz" subtype="72">ഡിസ്‌പ്ലേ</styleName>
+		<styleName type="opsz" subtype="144">പോസ്റ്റർ</styleName>
+		<styleName type="slnt" subtype="-12">പുറകിലോട്ട് ചരിഞ്ഞ</styleName>
+		<styleName type="slnt" subtype="0">നേരെയുള്ളത്</styleName>
+		<styleName type="slnt" subtype="12">ചരിഞ്ഞത്</styleName>
+		<styleName type="slnt" subtype="24">എക്‌സ്‌ട്രാ സ്ലാൻറ്റഡ്</styleName>
+		<styleName type="wdth" subtype="50">അൾട്രാ കൺടെൻസ്‌ഡ്</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">അൾട്രാ കംപ്രസ്‌ഡ്</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">അൾട്രാ നാരോ</styleName>
+		<styleName type="wdth" subtype="62.5">എക്‌സ്‌ട്രാ-കൺഡെൻസ്‌ഡ്</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">എക്‌സ്‌ട്രാ-കംപ്രസ്‌ഡ്</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">എക്‌സ്‌ട്രാ-നാരോ</styleName>
+		<styleName type="wdth" subtype="75">കൺഡൻസ്‌ഡ്</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">കംപ്രസ്‌ഡ്</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">കംപ്രസ്‌ഡ്</styleName>
+		<styleName type="wdth" subtype="87.5">സെമികൺഡൻസ്‌ഡ്</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">സെമികംപ്രസ്‌ഡ്</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">സെമിനാരോ</styleName>
+		<styleName type="wdth" subtype="100">സാധാരണം</styleName>
+		<styleName type="wdth" subtype="112.5">സെമിഎക്‌സ്‌പാൻഡഡ്</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">സെമിഎക്‌സ്റ്റൻഡഡ്</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">സെമിവൈഡ്</styleName>
+		<styleName type="wdth" subtype="125">എക്‌സ്‌പാൻഡഡ്</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">എക്‌സ്‌ടെൻഡഡ്</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">വൈഡ്</styleName>
+		<styleName type="wdth" subtype="150">എക്‌സ്‌ട്രാ-എക്‌സ്‌പാൻഡഡ്</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">എക്‌സ്‌ട്രാ-എക്‌സ്‌റ്റെൻഡഡ്</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">എക്‌സ്‌ട്രാ-വൈഡ്</styleName>
+		<styleName type="wdth" subtype="200">അൾട്രാഎക്‌സ്‌പാൻഡഡ്</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">അൾട്രാഎക്‌സ്‌റ്റെൻഡഡ്</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">അൾട്രാവൈഡ്</styleName>
+		<styleName type="wght" subtype="100">നേർത്തത്</styleName>
+		<styleName type="wght" subtype="200">എക്‌സ്‌ട്രാ-ലൈറ്റ്</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">അൾട്രാലൈറ്റ്</styleName>
+		<styleName type="wght" subtype="300">ലൈറ്റ്</styleName>
+		<styleName type="wght" subtype="350">സെമിലൈറ്റ്</styleName>
+		<styleName type="wght" subtype="380">ബുക്ക്</styleName>
+		<styleName type="wght" subtype="400">സാധാരണം</styleName>
+		<styleName type="wght" subtype="500">ഇടത്തരം</styleName>
+		<styleName type="wght" subtype="600">സെമിബോൾഡ്</styleName>
+		<styleName type="wght" subtype="600" alt="demi">ഡെമിബോൾഡ്</styleName>
+		<styleName type="wght" subtype="700">ബോൾഡ്</styleName>
+		<styleName type="wght" subtype="800">എക്‌സ്ട്രാ-ബോൾഡ്</styleName>
+		<styleName type="wght" subtype="900">കറുപ്പ്</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">ഹെവി</styleName>
+		<styleName type="wght" subtype="950">എക്‌സ്‌ട്രാ-ബ്ലാക്ക്</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">അൾട്രാബ്ലാക്ക്</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">അൾട്രാഹെവി</styleName>
+		<featureName type="afrc">വെർട്ടിക്കൽ ഫ്രാക്ഷനുകൾ</featureName>
+		<featureName type="cpsp">ക്യാപിറ്റൽ സ്‌പെയ്‌സിംഗ്</featureName>
+		<featureName type="dlig">ഓപ്‌ഷണൽ ലിഗേച്ചറുകൾ</featureName>
+		<featureName type="frac">ഡയഗണൽ ഫ്രാക്ഷനുകൾ</featureName>
+		<featureName type="lnum">ലൈനിംഗ് നമ്പറുകൾ</featureName>
+		<featureName type="onum">പഴയ ശൈലിയിലുള്ള അക്കങ്ങൾ</featureName>
+		<featureName type="ordn">ക്രമസൂചകങ്ങൾ</featureName>
+		<featureName type="pnum">ആനുപാതിക നമ്പറുകൾ</featureName>
+		<featureName type="smcp">സ്‌മോൾ ക്യാപിറ്റൽസ്</featureName>
+		<featureName type="tnum">ടാബുലർ നമ്പറുകൾ</featureName>
+		<featureName type="zero">സ്ലാഷുള്ള പൂജ്യം</featureName>
+	</typographicNames>
 </ldml>

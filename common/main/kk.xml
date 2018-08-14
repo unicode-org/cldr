@@ -427,11 +427,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Arab">араб жазуы</script>
 			<script type="Armn">армян жазуы</script>
 			<script type="Beng">бенгал жазуы</script>
-			<script type="Bopo">бопомофо жазу</script>
+			<script type="Bopo">бопомофо жазуы</script>
 			<script type="Brai">Брайль жазуы</script>
 			<script type="Cyrl">кирилл жазуы</script>
 			<script type="Deva">деванагари жазуы</script>
-			<script type="Ethi">эфиоп жазу</script>
+			<script type="Ethi">эфиопиялық жазу</script>
 			<script type="Geor">грузин жазуы</script>
 			<script type="Grek">грек жазуы</script>
 			<script type="Gujr">гуджарати жазуы</script>
@@ -445,8 +445,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Hant" alt="stand-alone">дәстүрлі қытай иероглифы</script>
 			<script type="Hebr">иврит жазуы</script>
 			<script type="Hira">хирагана жазуы</script>
-			<script type="Hrkt">жапон силлабарийі</script>
-			<script type="Jamo">чамо жазуы</script>
+			<script type="Hrkt">хирагана немесе катакана</script>
+			<script type="Jamo">джамо жазуы</script>
 			<script type="Jpan">жапон жазуы</script>
 			<script type="Kana">катакана жазуы</script>
 			<script type="Khmr">кхмер жазуы</script>
@@ -461,7 +461,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Sinh">сингаль жазуы</script>
 			<script type="Taml">тамиль жазуы</script>
 			<script type="Telu">телугу жазуы</script>
-			<script type="Thaa">таана жазуы</script>
+			<script type="Thaa">тана жазуы</script>
 			<script type="Thai">тай жазуы</script>
 			<script type="Tibt">тибет жазуы</script>
 			<script type="Zmth">математикалық жазу</script>
@@ -483,7 +483,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="015">Солтүстік Африка</territory>
 			<territory type="017">Орталық Африка</territory>
 			<territory type="018">Оңтүстік Африка</territory>
-			<territory type="019">Солтүстік және Оңтүстік Америка</territory>
+			<territory type="019">Америка</territory>
 			<territory type="021">Солтүстік Америка (аймақ)</territory>
 			<territory type="029">Кариб</territory>
 			<territory type="030">Шығыс Азия</territory>
@@ -550,7 +550,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG" alt="variant">Конго Республикасы</territory>
 			<territory type="CH">Швейцария</territory>
 			<territory type="CI">Кот-д’Ивуар</territory>
-			<territory type="CI" alt="variant">Піл Сүйегі жағалауы</territory>
+			<territory type="CI" alt="variant">Кот-д’Ивуар</territory>
 			<territory type="CK">Кук аралдары</territory>
 			<territory type="CL">Чили</territory>
 			<territory type="CM">Камерун</territory>
@@ -707,7 +707,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="PW">Палау</territory>
 			<territory type="PY">Парагвай</territory>
 			<territory type="QA">Катар</territory>
-			<territory type="QO">Алыс Океания</territory>
+			<territory type="QO">Сыртқы Океания</territory>
 			<territory type="RE">Реюньон</territory>
 			<territory type="RO">Румыния</territory>
 			<territory type="RS">Сербия</territory>
@@ -778,6 +778,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">Зимбабве</territory>
 			<territory type="ZZ">Белгісіз аймақ</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">Англия</subdivision>
+			<subdivision type="gbsct">Шотландия</subdivision>
+			<subdivision type="gbwls">Уэльс</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="AREVELA" draft="unconfirmed">Шығыс-армян</variant>
 			<variant type="AREVMDA" draft="unconfirmed">Батыс-армян</variant>
@@ -786,10 +791,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</variants>
 		<keys>
 			<key type="calendar">Күнтізбе</key>
-			<key type="cf">Валюта пішімі</key>
+			<key type="cf">Валюта форматы</key>
 			<key type="collation">Сұрыптау реті</key>
 			<key type="currency">Валюта</key>
-			<key type="hc">Уақыт пішімі (12 не 24)</key>
+			<key type="hc">Уақыт форматы (12 не 24)</key>
 			<key type="lb">Жолды тасымалдау стилі</key>
 			<key type="ms">Өлшемдер жүйесі</key>
 			<key type="numbers">Сандар</key>
@@ -808,8 +813,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="japanese">Жапон күнтізбесі</type>
 			<type key="calendar" type="persian">Парсы күнтізбесі</type>
 			<type key="calendar" type="roc">Мингуо күнтізбесі</type>
-			<type key="cf" type="account">Есептік валюта пішімі</type>
-			<type key="cf" type="standard">Стандартты валюта пішімі</type>
+			<type key="cf" type="account">Есептік валюта форматы</type>
+			<type key="cf" type="standard">Стандартты валюта форматы</type>
 			<type key="collation" type="ducet">Әдепкі уникод сұрыптау реті</type>
 			<type key="collation" type="search">Жалпы мақсаттағы іздеу</type>
 			<type key="collation" type="standard">Стандартты сұрыптау реті</type>
@@ -821,7 +826,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="lb" type="normal">Жолды тасымалдаудың қалыпты стилі</type>
 			<type key="lb" type="strict">Жолды тасымалдаудың қатаң стилі</type>
 			<type key="ms" type="metric">Метрлік жүйе</type>
-			<type key="ms" type="uksystem">Империялық өлшемдер жүйесі</type>
+			<type key="ms" type="uksystem">Британиялық өлшемдер жүйесі</type>
 			<type key="ms" type="ussystem">Америкалық өлшемдер жүйесі</type>
 			<type key="numbers" type="arab">Үнді-араб сандары</type>
 			<type key="numbers" type="arabext">Үнді-араб сандарының кеңейтілген жүйесі</type>
@@ -830,7 +835,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="beng">Бенгал сандары</type>
 			<type key="numbers" type="deva">Деванагари сандары</type>
 			<type key="numbers" type="ethi">Эфиопия сандары</type>
-			<type key="numbers" type="fullwide">Сандардың толық пішімі</type>
+			<type key="numbers" type="fullwide">Толық енді цифрлар</type>
 			<type key="numbers" type="geor">Грузин сандары</type>
 			<type key="numbers" type="grek">Грек сандары</type>
 			<type key="numbers" type="greklow">Кіші әріппен берілген грек сандары</type>
@@ -958,13 +963,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="Bh">h B</dateFormatItem>
-						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
-						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="Bh">B h</dateFormatItem>
+						<dateFormatItem id="Bhm">B h:mm</dateFormatItem>
+						<dateFormatItem id="Bhms">B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
-						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
-						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="EBhm">E B h:mm</dateFormatItem>
+						<dateFormatItem id="EBhms">E B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">d, E</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -1141,18 +1146,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1">Қаң.</month>
-							<month type="2">Ақп.</month>
-							<month type="3">Нау.</month>
-							<month type="4">Сәу.</month>
-							<month type="5">Мам.</month>
-							<month type="6">Мау.</month>
-							<month type="7">Шіл.</month>
-							<month type="8">Там.</month>
-							<month type="9">Қыр.</month>
-							<month type="10">Қаз.</month>
-							<month type="11">Қар.</month>
-							<month type="12">Жел.</month>
+							<month type="1">қаң.</month>
+							<month type="2">ақп.</month>
+							<month type="3">нау.</month>
+							<month type="4">сәу.</month>
+							<month type="5">мам.</month>
+							<month type="6">мау.</month>
+							<month type="7">шіл.</month>
+							<month type="8">там.</month>
+							<month type="9">қыр.</month>
+							<month type="10">қаз.</month>
+							<month type="11">қар.</month>
+							<month type="12">жел.</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">Қ</month>
@@ -1187,13 +1192,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun">Жс</day>
-							<day type="mon">Дс</day>
-							<day type="tue">Сс</day>
-							<day type="wed">Ср</day>
-							<day type="thu">Бс</day>
-							<day type="fri">Жм</day>
-							<day type="sat">Сб</day>
+							<day type="sun">жс</day>
+							<day type="mon">дс</day>
+							<day type="tue">сс</day>
+							<day type="wed">ср</day>
+							<day type="thu">бс</day>
+							<day type="fri">жм</day>
+							<day type="sat">сб</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">Ж</day>
@@ -1205,13 +1210,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<day type="sat">С</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">Жс</day>
-							<day type="mon">Дс</day>
-							<day type="tue">Сс</day>
-							<day type="wed">Ср</day>
-							<day type="thu">Бс</day>
-							<day type="fri">Жм</day>
-							<day type="sat">Сб</day>
+							<day type="sun">жс</day>
+							<day type="mon">дс</day>
+							<day type="tue">сс</day>
+							<day type="wed">ср</day>
+							<day type="thu">бс</day>
+							<day type="fri">жм</day>
+							<day type="sat">сб</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">жексенбі</day>
@@ -1225,13 +1230,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<day type="sun">Жс</day>
-							<day type="mon">Дс</day>
-							<day type="tue">Сс</day>
-							<day type="wed">Ср</day>
-							<day type="thu">Бс</day>
-							<day type="fri">Жм</day>
-							<day type="sat">Сб</day>
+							<day type="sun">жс</day>
+							<day type="mon">дс</day>
+							<day type="tue">сс</day>
+							<day type="wed">ср</day>
+							<day type="thu">бс</day>
+							<day type="fri">жм</day>
+							<day type="sat">сб</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">Ж</day>
@@ -1243,22 +1248,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<day type="sat">С</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">Жс</day>
-							<day type="mon">Дс</day>
-							<day type="tue">Сс</day>
-							<day type="wed">Ср</day>
-							<day type="thu">Бс</day>
-							<day type="fri">Жм</day>
-							<day type="sat">Сб</day>
+							<day type="sun">жс</day>
+							<day type="mon">дс</day>
+							<day type="tue">сс</day>
+							<day type="wed">ср</day>
+							<day type="thu">бс</day>
+							<day type="fri">жм</day>
+							<day type="sat">сб</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">Жексенбі</day>
-							<day type="mon">Дүйсенбі</day>
-							<day type="tue">Сейсенбі</day>
-							<day type="wed">Сәрсенбі</day>
-							<day type="thu">Бейсенбі</day>
-							<day type="fri">Жұма</day>
-							<day type="sat">Сенбі</day>
+							<day type="sun">жексенбі</day>
+							<day type="mon">дүйсенбі</day>
+							<day type="tue">сейсенбі</day>
+							<day type="wed">сәрсенбі</day>
+							<day type="thu">бейсенбі</day>
+							<day type="fri">жұма</day>
+							<day type="sat">сенбі</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -1375,13 +1380,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<era type="0">Біздің заманымызға дейін</era>
 						<era type="0" alt="variant">біздің заманымызға дейін</era>
 						<era type="1">біздің заманымыз</era>
-						<era type="1" alt="variant">CE</era>
+						<era type="1" alt="variant">Біздің заманымыз</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">б.з.д.</era>
-						<era type="0" alt="variant">BCE</era>
+						<era type="0" alt="variant">б.з.д.</era>
 						<era type="1">б.з.</era>
-						<era type="1" alt="variant">CE</era>
+						<era type="1" alt="variant">б.з.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1496,8 +1501,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMMMM">y 'ж'. MMMM</dateFormatItem>
 						<dateFormatItem id="yQQQ">y 'ж'. QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y 'ж'. QQQQ</dateFormatItem>
-						<dateFormatItem id="yw" count="one">Y 'жылдың' w-'аптасы'</dateFormatItem>
-						<dateFormatItem id="yw" count="other">Y 'жылдың' w-'аптасы'</dateFormatItem>
+						<dateFormatItem id="yw" count="one">y 'жылдың' w-'аптасы'</dateFormatItem>
+						<dateFormatItem id="yw" count="other">y 'жылдың' w-'аптасы'</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -5089,7 +5094,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">Қазақстан теңгесі</displayName>
 				<displayName count="other">Қазақстан теңгесі</displayName>
 				<symbol>₸</symbol>
-				<symbol alt="narrow" draft="contributed">₸</symbol>
+				<symbol alt="narrow">₸</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>Лаос кипі</displayName>
@@ -5629,7 +5634,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -5749,6 +5756,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} миллиондық үлес</unitPattern>
 				<unitPattern count="other">{0} миллиондық үлес</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>пайыз</displayName>
+				<unitPattern count="one">{0} пайыз</unitPattern>
+				<unitPattern count="other">{0} пайыз</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>промилле</displayName>
+				<unitPattern count="one">{0} промилле</unitPattern>
+				<unitPattern count="other">{0} промилле</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>литр/километр</displayName>
 				<unitPattern count="one">{0} литр/километр</unitPattern>
@@ -5768,6 +5785,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>миля/имп. галлон</displayName>
 				<unitPattern count="one">{0} миля/имп. галлон</unitPattern>
 				<unitPattern count="other">{0} миля/имп. галлон</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>петабайт</displayName>
+				<unitPattern count="one">{0} петабайт</unitPattern>
+				<unitPattern count="other">{0} петабайт</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>терабайт</displayName>
@@ -6160,6 +6182,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} миллибар</unitPattern>
 				<unitPattern count="other">{0} миллибар</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>атмосфера</displayName>
+				<unitPattern count="one">{0} атмосфера</unitPattern>
+				<unitPattern count="other">{0} атмосфера</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>километр/сағат</displayName>
 				<unitPattern count="one">{0} километр/сағат</unitPattern>
@@ -6326,10 +6353,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} шай қасық</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<coordinateUnitPattern type="east">{0} Ш</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">{0} С</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">{0} О</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">{0} Б</coordinateUnitPattern>
+				<displayName>негізгі бағыт</displayName>
+				<coordinateUnitPattern type="east">{0} шығыс</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} солтүстік</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} оңтүстік</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} батыс</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
@@ -6441,6 +6469,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>пайыз</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>промилле</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>литр/км</displayName>
 				<unitPattern count="one">{0} л/км</unitPattern>
@@ -6460,6 +6498,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mpg Imp.</displayName>
 				<unitPattern count="one">{0} mpg Imp.</unitPattern>
 				<unitPattern count="other">{0} mpg Imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>Пбайт</displayName>
+				<unitPattern count="one">{0} ПБ</unitPattern>
+				<unitPattern count="other">{0} ПБ</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>Тбайт</displayName>
@@ -6650,7 +6693,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0}/км</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName>метр</displayName>
+				<displayName>м</displayName>
 				<unitPattern count="one">{0} м</unitPattern>
 				<unitPattern count="other">{0} м</unitPattern>
 				<perUnitPattern>{0}/м</perUnitPattern>
@@ -6843,7 +6886,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} psi</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
-				<displayName>in Hg</displayName>
+				<displayName>сынап бағаны дюймі</displayName>
 				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
@@ -6851,6 +6894,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>мбар</displayName>
 				<unitPattern count="one">{0} мб</unitPattern>
 				<unitPattern count="other">{0} мб</unitPattern>
+			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>атм</displayName>
+				<unitPattern count="one">{0} атм</unitPattern>
+				<unitPattern count="other">{0} атм</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>км/сағ</displayName>
@@ -7018,6 +7066,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ш. қ.</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>бағыт</displayName>
 				<coordinateUnitPattern type="east">{0} Ш</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} С</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} О</coordinateUnitPattern>
@@ -7067,6 +7116,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-square-foot">
 				<unitPattern count="one">{0} фут²</unitPattern>
 				<unitPattern count="other">{0} фут²</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>л/100 км</displayName>
@@ -7119,7 +7173,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} км</unitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName>метр</displayName>
+				<displayName>м</displayName>
 				<unitPattern count="one">{0} м</unitPattern>
 				<unitPattern count="other">{0} м</unitPattern>
 			</unit>
@@ -7235,6 +7289,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} л</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>бағыт</displayName>
 				<coordinateUnitPattern type="east">{0} Ш</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} С</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} О</coordinateUnitPattern>
@@ -7304,94 +7359,164 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabelPattern type="historic">{0} — тарихи</characterLabelPattern>
 		<characterLabelPattern type="miscellaneous">{0} — әр түрлі</characterLabelPattern>
 		<characterLabelPattern type="other">{0} — басқа</characterLabelPattern>
-		<characterLabelPattern type="scripts">Жазулар — {0}</characterLabelPattern>
+		<characterLabelPattern type="scripts">жазулар — {0}</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="one">{0} сызық</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">{0} сызық</characterLabelPattern>
-		<characterLabel type="activities">Спорт</characterLabel>
+		<characterLabel type="activities">әрекет</characterLabel>
 		<characterLabel type="african_scripts">Африка жазулары</characterLabel>
 		<characterLabel type="american_scripts">Америка жазулары</characterLabel>
 		<characterLabel type="animal">жануар</characterLabel>
-		<characterLabel type="animals_nature">Жануарлар және табиғат</characterLabel>
-		<characterLabel type="arrows">Көрсеткілер</characterLabel>
+		<characterLabel type="animals_nature">жануар немесе табиғат</characterLabel>
+		<characterLabel type="arrows">көрсеткі</characterLabel>
 		<characterLabel type="body">дене</characterLabel>
-		<characterLabel type="box_drawing">Псевдографика</characterLabel>
+		<characterLabel type="box_drawing">псевдографика</characterLabel>
 		<characterLabel type="braille">Брайль жазуы</characterLabel>
 		<characterLabel type="building">ғимарат</characterLabel>
-		<characterLabel type="bullets_stars">Маркерлер/жұлдызшалар</characterLabel>
-		<characterLabel type="consonantal_jamo">Дауыссыз чамо</characterLabel>
-		<characterLabel type="currency_symbols">Валюта таңбалары</characterLabel>
-		<characterLabel type="dash_connector">Тире/байланыс</characterLabel>
-		<characterLabel type="digits">Цифрлар</characterLabel>
-		<characterLabel type="dingbats">Дингбаттар</characterLabel>
-		<characterLabel type="divination_symbols">Оккульттық таңбалар</characterLabel>
-		<characterLabel type="downwards_arrows">Төмен қарайғы көрсеткілер</characterLabel>
-		<characterLabel type="downwards_upwards_arrows">Төмен және жоғарғы қарайғы көрсеткілер</characterLabel>
+		<characterLabel type="bullets_stars">тізім маркерлері/жұлдыздар</characterLabel>
+		<characterLabel type="consonantal_jamo">дауыссыз чамо</characterLabel>
+		<characterLabel type="currency_symbols">валюта таңбалары</characterLabel>
+		<characterLabel type="dash_connector">сызықша/байланыс</characterLabel>
+		<characterLabel type="digits">цифрлар</characterLabel>
+		<characterLabel type="dingbats">дингбаттар</characterLabel>
+		<characterLabel type="divination_symbols">оккульттық таңбалар</characterLabel>
+		<characterLabel type="downwards_arrows">төмен бағытталған көрсеткілер</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">төмен және жоғары бағытталған көрсеткілер</characterLabel>
 		<characterLabel type="east_asian_scripts">Шығыс Азия жазулары</characterLabel>
-		<characterLabel type="emoji">Эмодзи</characterLabel>
+		<characterLabel type="emoji">эмодзи</characterLabel>
 		<characterLabel type="european_scripts">Еуропа жазулары</characterLabel>
 		<characterLabel type="female">әйел</characterLabel>
 		<characterLabel type="flag">ту</characterLabel>
-		<characterLabel type="flags">Тулар</characterLabel>
-		<characterLabel type="food_drink">Тамақ пен сусын</characterLabel>
-		<characterLabel type="format">Пішім</characterLabel>
-		<characterLabel type="format_whitespace">Пішім және бос орын</characterLabel>
-		<characterLabel type="full_width_form_variant">Толық енді форма нұсқалары</characterLabel>
-		<characterLabel type="geometric_shapes">Геометриялық пішіндер</characterLabel>
-		<characterLabel type="half_width_form_variant">Жартылай енді форма нұсқалары</characterLabel>
-		<characterLabel type="han_characters">Қытай иероглифтері</characterLabel>
-		<characterLabel type="han_radicals">Иероглиф кілттері</characterLabel>
-		<characterLabel type="hanja">Ханча</characterLabel>
-		<characterLabel type="hanzi_simplified">Қытай иероглифтері (жеңілдетілген)</characterLabel>
-		<characterLabel type="hanzi_traditional">Қытай иероглифтері (дәстүрлі)</characterLabel>
+		<characterLabel type="flags">тулар</characterLabel>
+		<characterLabel type="food_drink">тамақ пен сусын</characterLabel>
+		<characterLabel type="format">форматтау</characterLabel>
+		<characterLabel type="format_whitespace">форматтау және бос орын</characterLabel>
+		<characterLabel type="full_width_form_variant">толық енді форма нұсқалары</characterLabel>
+		<characterLabel type="geometric_shapes">геометриялық фигуралар</characterLabel>
+		<characterLabel type="half_width_form_variant">жарты енді форма нұсқалары</characterLabel>
+		<characterLabel type="han_characters">қытай иероглифтері</characterLabel>
+		<characterLabel type="han_radicals">иероглиф кілттері</characterLabel>
+		<characterLabel type="hanja">ханча</characterLabel>
+		<characterLabel type="hanzi_simplified">қытай иероглифтері (жеңілдетілген)</characterLabel>
+		<characterLabel type="hanzi_traditional">қытай иероглифтері (дәстүрлі)</characterLabel>
 		<characterLabel type="heart">жүрек</characterLabel>
-		<characterLabel type="historic_scripts">Көне жазулар</characterLabel>
-		<characterLabel type="ideographic_desc_characters">Иероглифтерді сипаттау таңбалары</characterLabel>
-		<characterLabel type="japanese_kana">Жапондық кана жазуы</characterLabel>
-		<characterLabel type="kanbun">Камбун</characterLabel>
-		<characterLabel type="kanji">Канджи</characterLabel>
+		<characterLabel type="historic_scripts">көне жазулар</characterLabel>
+		<characterLabel type="ideographic_desc_characters">иероглифтерді сипаттау таңбалары</characterLabel>
+		<characterLabel type="japanese_kana">жапондық қана жазуы</characterLabel>
+		<characterLabel type="kanbun">камбун</characterLabel>
+		<characterLabel type="kanji">кандзи</characterLabel>
 		<characterLabel type="keycap">перне</characterLabel>
-		<characterLabel type="leftwards_arrows">Солға қарайғы көрсеткілер</characterLabel>
-		<characterLabel type="leftwards_rightwards_arrows">Солға және оңға қарайғы көрсеткілер</characterLabel>
-		<characterLabel type="letterlike_symbols">Әріптік таңбалар</characterLabel>
-		<characterLabel type="limited_use">Шектеулі қолданыс таңбалары</characterLabel>
-		<characterLabel type="male">ер</characterLabel>
-		<characterLabel type="math_symbols">Математикалық таңбалар</characterLabel>
+		<characterLabel type="leftwards_arrows">солға бағытталған көрсеткілер</characterLabel>
+		<characterLabel type="leftwards_rightwards_arrows">солға және оңға бағытталған көрсеткілер</characterLabel>
+		<characterLabel type="letterlike_symbols">әріптік таңбалар</characterLabel>
+		<characterLabel type="limited_use">қолданысы шектеулі</characterLabel>
+		<characterLabel type="male">еркек</characterLabel>
+		<characterLabel type="math_symbols">математикалық таңбалар</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Таяу Шығыс жазулары</characterLabel>
-		<characterLabel type="miscellaneous">Әр түрлі</characterLabel>
-		<characterLabel type="modern_scripts">Қазіргі заман жазулары</characterLabel>
-		<characterLabel type="modifier">Модификатор</characterLabel>
-		<characterLabel type="musical_symbols">Музыкалық таңбалар</characterLabel>
+		<characterLabel type="miscellaneous">әр түрлі</characterLabel>
+		<characterLabel type="modern_scripts">қазіргі заман жазулары</characterLabel>
+		<characterLabel type="modifier">модификатор</characterLabel>
+		<characterLabel type="musical_symbols">музыкалық таңбалар</characterLabel>
 		<characterLabel type="nature">табиғат</characterLabel>
-		<characterLabel type="nonspacing">Бос орынсыз таңбалар</characterLabel>
-		<characterLabel type="numbers">Сандар</characterLabel>
-		<characterLabel type="objects">Нысандар</characterLabel>
-		<characterLabel type="other">Басқа</characterLabel>
-		<characterLabel type="paired">Жұптасқан таңбалар</characterLabel>
+		<characterLabel type="nonspacing">бос орынсыз</characterLabel>
+		<characterLabel type="numbers">сандар</characterLabel>
+		<characterLabel type="objects">нысандар</characterLabel>
+		<characterLabel type="other">басқа</characterLabel>
+		<characterLabel type="paired">жұптасқан</characterLabel>
 		<characterLabel type="person">адам</characterLabel>
-		<characterLabel type="phonetic_alphabet">Фонетикалық әліпби</characterLabel>
-		<characterLabel type="pictographs">Пиктограмма</characterLabel>
+		<characterLabel type="phonetic_alphabet">фонетикалық әліпби</characterLabel>
+		<characterLabel type="pictographs">пиктограммалар</characterLabel>
 		<characterLabel type="place">орын</characterLabel>
 		<characterLabel type="plant">өсімдік</characterLabel>
-		<characterLabel type="punctuation">Тыныс белгілері</characterLabel>
-		<characterLabel type="rightwards_arrows">Оңға қарайғы көрсеткілер</characterLabel>
-		<characterLabel type="sign_standard_symbols">Белгілер/стандартты таңбалар</characterLabel>
-		<characterLabel type="small_form_variant">Кіші форма нұсқалары</characterLabel>
+		<characterLabel type="punctuation">тыныс белгілері</characterLabel>
+		<characterLabel type="rightwards_arrows">оңға бағытталған көрсеткілер</characterLabel>
+		<characterLabel type="sign_standard_symbols">белгілер/стандартты таңбалар</characterLabel>
+		<characterLabel type="small_form_variant">кіші форма нұсқалары</characterLabel>
 		<characterLabel type="smiley">смайл</characterLabel>
-		<characterLabel type="smileys_people">Смайлдар мен адамдар</characterLabel>
+		<characterLabel type="smileys_people">смайлдар мен адамдар</characterLabel>
 		<characterLabel type="south_asian_scripts">Оңтүстік Азия жазулары</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Оңтүстік-Шығыс Азия жазулары</characterLabel>
-		<characterLabel type="spacing">Бос орындар</characterLabel>
+		<characterLabel type="spacing">бос орын</characterLabel>
 		<characterLabel type="sport">спорт</characterLabel>
-		<characterLabel type="symbols">Таңбалар</characterLabel>
-		<characterLabel type="technical_symbols">Техникалық таңбалар</characterLabel>
-		<characterLabel type="tone_marks">Екпін белгілері</characterLabel>
+		<characterLabel type="symbols">таңбалар</characterLabel>
+		<characterLabel type="technical_symbols">техникалық таңбалар</characterLabel>
+		<characterLabel type="tone_marks">екпін белгілері</characterLabel>
 		<characterLabel type="travel">саяхат</characterLabel>
-		<characterLabel type="travel_places">Саяхат</characterLabel>
-		<characterLabel type="upwards_arrows">Жоғары қарайғы көрсеткілер</characterLabel>
-		<characterLabel type="variant_forms">Құбылмалы формалар</characterLabel>
-		<characterLabel type="vocalic_jamo">Дауысты чамо</characterLabel>
+		<characterLabel type="travel_places">саяхат және орындар</characterLabel>
+		<characterLabel type="upwards_arrows">жоғары бағытталған көрсеткілер</characterLabel>
+		<characterLabel type="variant_forms">өзгермелі формалар</characterLabel>
+		<characterLabel type="vocalic_jamo">дауысты чамо</characterLabel>
 		<characterLabel type="weather">ауа райы</characterLabel>
 		<characterLabel type="western_asian_scripts">Батыс Азия жазулары</characterLabel>
-		<characterLabel type="whitespace">Бос орын</characterLabel>
+		<characterLabel type="whitespace">бос орын</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">қиғаш</axisName>
+		<axisName type="opsz">оптикалық өлшем</axisName>
+		<axisName type="slnt">қиғашталған</axisName>
+		<axisName type="wdth">ені</axisName>
+		<axisName type="wght">салмақ</axisName>
+		<styleName type="ital" subtype="1">қиғаш</styleName>
+		<styleName type="opsz" subtype="8">жазу</styleName>
+		<styleName type="opsz" subtype="12">мәтін</styleName>
+		<styleName type="opsz" subtype="18">тақырыпша</styleName>
+		<styleName type="opsz" subtype="72">көрсету</styleName>
+		<styleName type="opsz" subtype="144">хабарландыру</styleName>
+		<styleName type="slnt" subtype="-12">солға қиғашталған</styleName>
+		<styleName type="slnt" subtype="0">тік</styleName>
+		<styleName type="slnt" subtype="12">қиғашталған</styleName>
+		<styleName type="slnt" subtype="24">қатты қиғаш</styleName>
+		<styleName type="wdth" subtype="50">қатты түрленген</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">қатты сығылған</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">өте жіңішке</styleName>
+		<styleName type="wdth" subtype="62.5">қосымша түрленген</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">қосымша сығылған</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">тым жіңішке</styleName>
+		<styleName type="wdth" subtype="75">түрленген</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">сығылған</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">сығылған</styleName>
+		<styleName type="wdth" subtype="87.5">жартылай сығылған</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">жартылай сығылған</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">жартылай жіңішке</styleName>
+		<styleName type="wdth" subtype="100">қалыпты</styleName>
+		<styleName type="wdth" subtype="112.5">жартылай кеңейтілген</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">жартылай кеңейтілген</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">жартылай кең</styleName>
+		<styleName type="wdth" subtype="125">кеңейтілген</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">кеңейтілген</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">кең</styleName>
+		<styleName type="wdth" subtype="150">қосымша кеңейтілген</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">қосымша кеңейтілген</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">тым кең</styleName>
+		<styleName type="wdth" subtype="200">қатты кеңейтілген</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">қатты кеңейтілген</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">өте кең</styleName>
+		<styleName type="wght" subtype="100">жұқа</styleName>
+		<styleName type="wght" subtype="200">тым кең</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">өте жарық</styleName>
+		<styleName type="wght" subtype="300">жарық</styleName>
+		<styleName type="wght" subtype="350">жартылай жарық</styleName>
+		<styleName type="wght" subtype="380">кітап</styleName>
+		<styleName type="wght" subtype="400">тұрақты</styleName>
+		<styleName type="wght" subtype="500">орташа</styleName>
+		<styleName type="wght" subtype="600">жартылай қалың</styleName>
+		<styleName type="wght" subtype="600" alt="demi">жартылай жуан</styleName>
+		<styleName type="wght" subtype="700">жуан</styleName>
+		<styleName type="wght" subtype="800">өте жуан</styleName>
+		<styleName type="wght" subtype="900">қара</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">ауыр</styleName>
+		<styleName type="wght" subtype="950">қап-қара</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">ультрақара</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">өте ауыр</styleName>
+		<featureName type="afrc">тік бөлшектер</featureName>
+		<featureName type="cpsp">бас әріптер арасы</featureName>
+		<featureName type="dlig">таңдаулы лигатуралар</featureName>
+		<featureName type="frac">диагональ бөлшектер</featureName>
+		<featureName type="lnum">қатар сандар</featureName>
+		<featureName type="onum">ескі таңбалар</featureName>
+		<featureName type="ordn">тақ сандар</featureName>
+		<featureName type="pnum">пропорционал сандар</featureName>
+		<featureName type="smcp">кіші бас әріптер</featureName>
+		<featureName type="tnum">кестелік сандар</featureName>
+		<featureName type="zero">жолақты нөл</featureName>
+	</typographicNames>
 </ldml>

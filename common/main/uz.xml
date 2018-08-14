@@ -91,7 +91,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="de_CH">yuqori nemis (Shveytsariya)</language>
 			<language type="dgr">dogrib</language>
 			<language type="dje">zarma</language>
-			<language type="dsb">quyi sorbcha</language>
+			<language type="dsb">quyi sorb</language>
 			<language type="dua">duala</language>
 			<language type="dv">divexi</language>
 			<language type="dyo">diola-fogni</language>
@@ -326,13 +326,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="sad">sandave</language>
 			<language type="sah">saxa</language>
 			<language type="saq">samburu</language>
-			<language type="sat">santal</language>
+			<language type="sat">santali</language>
 			<language type="sba">ngambay</language>
 			<language type="sbp">sangu</language>
 			<language type="sc">sardin</language>
 			<language type="scn">sitsiliya</language>
 			<language type="sco">shotland</language>
-			<language type="sd">sindxi</language>
+			<language type="sd">sindhi</language>
 			<language type="sdh">janubiy kurd</language>
 			<language type="se">shimoliy saam</language>
 			<language type="seh">sena</language>
@@ -779,6 +779,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">Zimbabve</territory>
 			<territory type="ZZ">Noma’lum mintaqa</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">Angliya</subdivision>
+			<subdivision type="gbsct">Shotlandiya</subdivision>
+			<subdivision type="gbwls">Uels</subdivision>
+		</subdivisions>
 		<keys>
 			<key type="calendar">taqvim</key>
 			<key type="cf">valyuta formati</key>
@@ -5617,7 +5622,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">⩾{0}</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -5736,6 +5743,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">milliondan {0}</unitPattern>
 				<unitPattern count="other">milliondan {0}</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>foiz</displayName>
+				<unitPattern count="one">{0} foiz</unitPattern>
+				<unitPattern count="other">{0} foiz</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>promille</displayName>
+				<unitPattern count="one">{0} promille</unitPattern>
+				<unitPattern count="other">{0} promille</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litr/kilometr</displayName>
 				<unitPattern count="one">{0} litr/kilometr</unitPattern>
@@ -5755,6 +5772,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mil/imp. gallon</displayName>
 				<unitPattern count="one">{0} mil/imp. gallon</unitPattern>
 				<unitPattern count="other">{0} mil/imp. gallon</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>petabayt</displayName>
+				<unitPattern count="one">{0} petabayt</unitPattern>
+				<unitPattern count="other">{0} petabayt</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabayt</displayName>
@@ -6147,6 +6169,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} millibar</unitPattern>
 				<unitPattern count="other">{0} millibar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atmosfera</displayName>
+				<unitPattern count="one">{0} atmosfera</unitPattern>
+				<unitPattern count="other">{0} atmosfera</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/soat</displayName>
 				<unitPattern count="one">{0} km/soat</unitPattern>
@@ -6313,6 +6340,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} choy qoshiq</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>yo‘nalish</displayName>
 				<coordinateUnitPattern type="east">{0} sharqiy uzunlik</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} shimoliy kenglik</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} janubiy kenglik</coordinateUnitPattern>
@@ -6428,6 +6456,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>foiz</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>promille</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litr/km</displayName>
 				<unitPattern count="one">{0} L/km</unitPattern>
@@ -6447,6 +6485,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mil/imp. gallon</displayName>
 				<unitPattern count="one">{0} mil/imp.gal</unitPattern>
 				<unitPattern count="other">{0} mil/imp.gal</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="one">{0} PB</unitPattern>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -6839,6 +6882,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/soat</displayName>
 				<unitPattern count="one">{0} km/soat</unitPattern>
@@ -7005,6 +7053,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} choy qoshiq</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>yo‘nalish</displayName>
 				<coordinateUnitPattern type="east">{0} shq. u.</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} shm. k.</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} jan. k.</coordinateUnitPattern>
@@ -7054,6 +7103,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-square-foot">
 				<unitPattern count="one">{0} ft²</unitPattern>
 				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>L/100 km</displayName>
@@ -7222,6 +7276,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}L</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>yo‘nalish</displayName>
 				<coordinateUnitPattern type="east">{0} shq. u.</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} shm. k.</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} jan. k.</coordinateUnitPattern>
@@ -7381,4 +7436,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="western_asian_scripts">G‘arbiy Osiyo yozuvlari</characterLabel>
 		<characterLabel type="whitespace">probellar</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">kursiv</axisName>
+		<axisName type="opsz">optik o‘lcham</axisName>
+		<axisName type="slnt">qiyalik</axisName>
+		<axisName type="wdth">eni</axisName>
+		<axisName type="wght">qalinligi</axisName>
+		<styleName type="ital" subtype="1">cursive</styleName>
+		<styleName type="opsz" subtype="8">izoh</styleName>
+		<styleName type="opsz" subtype="12">text</styleName>
+		<styleName type="opsz" subtype="18">titul</styleName>
+		<styleName type="opsz" subtype="72">monitor</styleName>
+		<styleName type="opsz" subtype="144">poster</styleName>
+		<styleName type="slnt" subtype="-12">qiya egri</styleName>
+		<styleName type="slnt" subtype="0">to‘g‘ri</styleName>
+		<styleName type="slnt" subtype="12">qiya</styleName>
+		<styleName type="slnt" subtype="24">juda qiya</styleName>
+		<styleName type="wdth" subtype="50">ultra-siqilgan</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">ultra-zichlangan</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">ultra-tor</styleName>
+		<styleName type="wdth" subtype="62.5">ekstra-siqilgan</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">ekstra-zichlangan</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">ekstra-tor</styleName>
+		<styleName type="wdth" subtype="75">siqilgan</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">zichlangan</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">zichlangan</styleName>
+		<styleName type="wdth" subtype="87.5">yarim siqilgan</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">yarim zichlangan</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">yarim tor</styleName>
+		<styleName type="wdth" subtype="100">normal</styleName>
+		<styleName type="wdth" subtype="112.5">yarim yoyilgan</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">yarim kengaygan</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">yarim keng</styleName>
+		<styleName type="wdth" subtype="125">yoyilgan</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">kengaygan</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">keng</styleName>
+		<styleName type="wdth" subtype="150">ekstra-yoyilgan</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">ekstra-kengaygan</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">ekstra-keng</styleName>
+		<styleName type="wdth" subtype="200">ultra-yoyilgan</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">ultra-kengaygan</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">ultra-keng</styleName>
+		<styleName type="wght" subtype="100">yupqa</styleName>
+		<styleName type="wght" subtype="200">ekstra-yengil</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">ultra-yengil</styleName>
+		<styleName type="wght" subtype="300">yengil</styleName>
+		<styleName type="wght" subtype="350">yarim yengil</styleName>
+		<styleName type="wght" subtype="380">kitob</styleName>
+		<styleName type="wght" subtype="400">odatiy</styleName>
+		<styleName type="wght" subtype="500">o‘rtacha</styleName>
+		<styleName type="wght" subtype="600">yarim qalin</styleName>
+		<styleName type="wght" subtype="600" alt="demi">o‘rtacha qalin</styleName>
+		<styleName type="wght" subtype="700">qalin</styleName>
+		<styleName type="wght" subtype="800">ekstra-qalin</styleName>
+		<styleName type="wght" subtype="900">qora</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">og‘ir</styleName>
+		<styleName type="wght" subtype="950">ekstra-qora</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">ultra-qora</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">ultra-og‘ir</styleName>
+		<featureName type="afrc">vertikal chiziqli kasrlar</featureName>
+		<featureName type="cpsp">bosh harflar orasi</featureName>
+		<featureName type="dlig">ixtiyoriy ligaturalar</featureName>
+		<featureName type="frac">diagonal chiziqli kasrlar</featureName>
+		<featureName type="lnum">raqamlarni tekislash</featureName>
+		<featureName type="onum">eskicha chizmalar</featureName>
+		<featureName type="ordn">tartib sonlar</featureName>
+		<featureName type="pnum">proporsional sonlar</featureName>
+		<featureName type="smcp">kichik bosh harflar</featureName>
+		<featureName type="tnum">jadvalli sonlar</featureName>
+		<featureName type="zero">qiya chiziqli nol</featureName>
+	</typographicNames>
 </ldml>

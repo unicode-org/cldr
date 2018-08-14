@@ -35,6 +35,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ang">အင်ဂလို ဆက္ကစွန်</language>
 			<language type="anp">အန်ဂီကာ</language>
 			<language type="ar">အာရဗီ</language>
+			<language type="ar_001">အာရဗီ (ကမ္ဘာ)</language>
 			<language type="arn">မာပုချီ</language>
 			<language type="arp">အာရာပါဟို</language>
 			<language type="as">အာသံ</language>
@@ -116,7 +117,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="enm">အလယ်ပိုင်း အင်္ဂလိပ်</language>
 			<language type="eo">အက်စ်ပရန်တို</language>
 			<language type="es">စပိန်</language>
+			<language type="es_419">စပိန် (လက်တင်အမေရိက)</language>
 			<language type="es_ES">စပိန် (ဥရောပ)</language>
+			<language type="es_MX">စပိန် (မက္ကဆီကို)</language>
 			<language type="et">အက်စ်တိုးနီးယား</language>
 			<language type="eu">ဘာစ်ခ်</language>
 			<language type="ewo">အီဝန်ဒို</language>
@@ -360,7 +363,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="sma">တောင် ဆာမိ</language>
 			<language type="smj">လူလီ ဆာမိ</language>
 			<language type="smn">အီနာရီ ဆာမိ</language>
-			<language type="sms">စခိုးလ် ဆမ်မီ</language>
+			<language type="sms">စခိုးလ် ဆာမိ</language>
 			<language type="sn">ရှိုနာ</language>
 			<language type="snk">ဆိုနင်ကေး</language>
 			<language type="so">ဆိုမာလီ</language>
@@ -429,6 +432,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="yue">ကွမ်တုံ</language>
 			<language type="zgh">မိုရိုကို တမဇိုက်</language>
 			<language type="zh">တရုတ်</language>
+			<language type="zh_Hans">တရုတ် (ရိုးရှင်း)</language>
+			<language type="zh_Hant">တရုတ် (ရိုးရာ)</language>
 			<language type="zu">ဇူးလူး</language>
 			<language type="zun">ဇူနီ</language>
 			<language type="zxx">ဘာသာစကားနှင့် ပတ်သက်သောအရာ မရှိပါ</language>
@@ -686,7 +691,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="MN">မွန်ဂိုးလီးယား</territory>
 			<territory type="MO">မကာအို (တရုတ်ပြည်)</territory>
 			<territory type="MO" alt="short">မကာအို</territory>
-			<territory type="MP">တောင်ပိုင်းမာရီအာနာကျွန်းစု</territory>
+			<territory type="MP">မြောက်ပိုင်းမာရီအာနာကျွန်းစု</territory>
 			<territory type="MQ">မာတီနိခ်</territory>
 			<territory type="MR">မော်ရီတေးနီးယား</territory>
 			<territory type="MS">မောင့်စဲရက်</territory>
@@ -762,6 +767,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">တာဂျီကစ္စတန်</territory>
 			<territory type="TK">တိုကလောင်</territory>
 			<territory type="TL">အရှေ့တီမော</territory>
+			<territory type="TL" alt="variant">အရှေ့တီမော</territory>
 			<territory type="TM">တာ့ခ်မင်နစ္စတန်</territory>
 			<territory type="TN">တူနီးရှား</territory>
 			<territory type="TO">တွန်ဂါ</territory>
@@ -796,6 +802,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">ဇင်ဘာဘွေ</territory>
 			<territory type="ZZ">မသိ (သို့) မရှိသော ဒေသ</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">အင်္ဂလန်</subdivision>
+			<subdivision type="gbsct">စကော့တလန်</subdivision>
+			<subdivision type="gbwls">ဝေလ</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901">ရှေးရိုးစဉ်လာ ဂျာမန် ရေးထုံး</variant>
 			<variant type="1996">၁၉၉၆ ဂျာမန် ရေးထုံး</variant>
@@ -5055,13 +5066,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol draft="contributed">MOP</symbol>
 			</currency>
 			<currency type="MRO">
-				<displayName>မော်ရီတေးနီးယား အူဂီးယာ (1973–2017)</displayName>
-				<displayName count="other">မော်ရီတေးနီးယား အူဂီးယာ (1973–2017)</displayName>
+				<displayName>မော်ရီတေးနီးယား အူဂီးယာ (၁၉၇၃–၂၀၁၇)</displayName>
+				<displayName count="other">မော်ရီတေးနီးယား အူဂီးယာ (၁၉၇၃–၂၀၁၇)</displayName>
 				<symbol draft="contributed">MRO</symbol>
 			</currency>
 			<currency type="MRU">
-				<displayName>မော်ရီတေးနီးယား အူဂီးယာ</displayName>
-				<displayName count="other">မော်ရီတေးနီးယား အူဂီးယာ</displayName>
+				<displayName>မော်ရီတေးနီးယန်း အူဂီးယာ</displayName>
+				<displayName count="other">မော်ရီတေးနီးယန်း အူဂီးယာ</displayName>
 			</currency>
 			<currency type="MUR">
 				<displayName>မောရစ်ရှ ရူပီး</displayName>
@@ -5272,13 +5283,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="STD">
-				<displayName>ဆောင်တူမေးနှင့် ပရင်စီပီ ဒိုဘရာ (1977–2017)</displayName>
-				<displayName count="other">ဆောင်တူမေးနှင့် ပရင်စီပီ ဒိုဘရာ (1977–2017)</displayName>
+				<displayName>ဆောင်တူမေးနှင့် ပရင်စီပီ ဒိုဘရာ</displayName>
+				<displayName count="other">ဆောင်တူမေးနှင့် ပရင်စီပီ ဒိုဘရာ</displayName>
 				<symbol draft="contributed">STD</symbol>
 			</currency>
 			<currency type="STN">
-				<displayName>ဆောင်တူမေးနှင့် ပရင်စီပီ ဒိုဘရာ</displayName>
-				<displayName count="other">ဆောင်တူမေးနှင့် ပရင်စီပီ ဒိုဘရာ</displayName>
+				<displayName>ဆောင်တူမေးနှင့် ပရင်စီပီ ဒိုဘရာ (၂၀၁၈)</displayName>
+				<displayName count="other">ဆောင်တူမေးနှင့် ပရင်စီပီ ဒိုဘရာစ် (၂၀၁၈)</displayName>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SUR">
@@ -5384,14 +5395,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol draft="contributed">UZS</symbol>
 			</currency>
 			<currency type="VEF">
-				<displayName>ဗင်နီဇွဲလား ဘိုလီဗာ (2008–2018)</displayName>
-				<displayName count="other">ဗင်နီဇွဲလား ဘိုလီဗာ (2008–2018)</displayName>
+				<displayName>ဗင်နီဇွဲလား ဘိုလီဗာ (၂၀၀၈–၂၀၁၈)</displayName>
+				<displayName count="other">ဗင်နီဇွဲလား ဘိုလီဗာ (၂၀၀၈–၂၀၁၈)</displayName>
 				<symbol draft="contributed">VEF</symbol>
 				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="VES">
-				<displayName>ဗင်နီဇွဲလား ဘိုလီဗာ</displayName>
-				<displayName count="other">ဗင်နီဇွဲလား ဘိုလီဗာ</displayName>
+				<displayName>ဗင်နီဇွဲလန်း ဘိုလီဗာ</displayName>
+				<displayName count="other">ဗင်နီဇွဲလန်း ဘိုလီဗာ</displayName>
 			</currency>
 			<currency type="VND">
 				<displayName>ဗီယက်နမ် ဒေါင်</displayName>
@@ -5474,7 +5485,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">{0} နှင့်အထက်</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0} - {1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -5572,6 +5585,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>တစ်သန်းပုံ တစ်ပုံ</displayName>
 				<unitPattern count="other">တစ်သန်းပုံ {0} ပုံ</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>ရာခိုင်နှုန်း</displayName>
+				<unitPattern count="other">{0} ရာခိုင်နှုန်း</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>ထောင်လီစိတ်</displayName>
+				<unitPattern count="other">{0} ထောင်လီစိတ်</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>တစ်ကီလိုမီတာရှိ လီတာ</displayName>
 				<unitPattern count="other">တစ်ကီလိုမီတာရှိ {0} လီတာ</unitPattern>
@@ -5587,6 +5608,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>ယူကေတစ်ဂါလံ မိုင်နှုန်း</displayName>
 				<unitPattern count="other">ယူကေတစ်ဂါလံလျှင် {0} မိုင်</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>ပက်တာဘိုက်</displayName>
+				<unitPattern count="other">{0} ပက်တာဘိုက်</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>တယ်ရာဘိုက်</displayName>
@@ -5904,6 +5929,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>မီလီဘား</displayName>
 				<unitPattern count="other">{0} မီလီဘား</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>ကမ္ဘာ့လေထု</displayName>
+				<unitPattern count="other">{0} ကမ္ဘာ့လေထု</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ကီလိုမီတာ/နာရီ</displayName>
 				<unitPattern count="other">တစ်နာရီလျှင် {0} ကီလိုမီတာ</unitPattern>
@@ -6038,6 +6067,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">လက်ဖက်ရည်ဇွန်း {0} ဇွန်း</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>အရပ် လေးမျက်နှာ</displayName>
 				<coordinateUnitPattern type="east">{0} အရှေ့</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} မြောက်</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} တောင်</coordinateUnitPattern>
@@ -6133,6 +6163,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>တစ်သန်းပုံ တစ်ပုံ</displayName>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>‰</displayName>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>လီတာ/ကီလိုမီတာ</displayName>
 				<unitPattern count="other">{0} L/km</unitPattern>
@@ -6148,6 +6186,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>mpg Imp.</displayName>
 				<unitPattern count="other">{0} mpg Imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>တယ်ရာဘိုက်</displayName>
@@ -6465,6 +6507,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>မီလီဘား</displayName>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ကီလိုမီတာ/နာရီ</displayName>
 				<unitPattern count="other">{0} km/h</unitPattern>
@@ -6599,6 +6645,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>လမ်းကြောင်း</displayName>
 				<coordinateUnitPattern type="east">{0} E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} S</coordinateUnitPattern>
@@ -6638,6 +6685,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-foot">
 				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>L/100km</displayName>
@@ -6769,6 +6820,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}L</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>လမ်းကြောင်း</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -6927,4 +6979,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="western_asian_scripts">အနောက်အာရှ လက်ရေးမူ</characterLabel>
 		<characterLabel type="whitespace">စာလုံးခြားကွက်လပ်</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">စာလုံးစောင်း</axisName>
+		<axisName type="opsz">အမြင်အားမြှင့် စာလုံးဆိုက်</axisName>
+		<axisName type="slnt">စွေသော</axisName>
+		<axisName type="wdth">ဗြက်</axisName>
+		<axisName type="wght">လေးနက်သော</axisName>
+		<styleName type="ital" subtype="1">လက်ရေးဆက်</styleName>
+		<styleName type="opsz" subtype="8">စာတန်းထိုး</styleName>
+		<styleName type="opsz" subtype="12">စာသား</styleName>
+		<styleName type="opsz" subtype="18">ခေါင်းစီးထည့်ခြင်း</styleName>
+		<styleName type="opsz" subtype="72">ပြသခြင်း</styleName>
+		<styleName type="opsz" subtype="144">ပိုစတာ</styleName>
+		<styleName type="slnt" subtype="-12">ဘယ်စောင်း စာလုံး</styleName>
+		<styleName type="slnt" subtype="0">တည့်မတ်သော</styleName>
+		<styleName type="slnt" subtype="12">စာလုံးစောင်း</styleName>
+		<styleName type="slnt" subtype="24">သာမန်ထက် ပိုစောင်းထားသော</styleName>
+		<styleName type="wdth" subtype="50">အလွန်အမင်း ပူးကပ်ထားသော</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">အလွန်အမင်း ချုံ့ထားသော</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">အလွန်အမင်း ကျဉ်းမြောင်းသော</styleName>
+		<styleName type="wdth" subtype="62.5">သာမန်ထက် ပူးကပ်ထားသော</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">သာမန်ထက် ချုံ့ထားသော</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">သာမန်ထက် ကျဉ်းမြောင်းသော</styleName>
+		<styleName type="wdth" subtype="75">ပူးကပ်ထားသော</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">ချုံ့ထားသော</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">ကျဉ်းမြောင်းသော</styleName>
+		<styleName type="wdth" subtype="87.5">တစ်ဝက်တစ်ပျက် ပူးကပ်ထားသော</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">တစ်ဝက်တစ်ပျက် ချုံ့ထားသော</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">တစ်ဝက်တစ်ပျက် ကျဉ်းထားသော</styleName>
+		<styleName type="wdth" subtype="100">ပုံမှန်</styleName>
+		<styleName type="wdth" subtype="112.5">တစ်ဝက်တစ်ပျက် ခွာထားသော</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">တစ်ဝက်တစ်ပျက် ချဲ့ထားသော</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">ဗြက်အကျယ် တစ်ဝက်</styleName>
+		<styleName type="wdth" subtype="125">ခွာထားသော</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">ချဲ့ထားသော</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">အကျယ်</styleName>
+		<styleName type="wdth" subtype="150">သာမန်ထက် ခွာထားသော</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">သာမန်ထက် ချဲ့ထားသော</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">သာမန်ထက် ကျယ်သော</styleName>
+		<styleName type="wdth" subtype="200">အလွန်အမင်း ချဲ့ထားသော</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">အလွန်အမင်း ခွာထားသော</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">အလွန်အမင်း ကျယ်သော</styleName>
+		<styleName type="wght" subtype="100">ပါးသော</styleName>
+		<styleName type="wght" subtype="200">သာမန်ထက် ဖျော့သော</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">အလွန်အမင်း ဖျော့သော</styleName>
+		<styleName type="wght" subtype="300">ဖျော့သော</styleName>
+		<styleName type="wght" subtype="350">တစ်ဝက်တစ်ပျက် ဖျော့သော</styleName>
+		<styleName type="wght" subtype="380">စာအုပ်</styleName>
+		<styleName type="wght" subtype="400">ရိုးရိုး</styleName>
+		<styleName type="wght" subtype="500">အလယ်အလတ်</styleName>
+		<styleName type="wght" subtype="600">တစ်ဝက်တစ်ပျက် ထူသော</styleName>
+		<styleName type="wght" subtype="600" alt="demi">ခပ်ထူထူ</styleName>
+		<styleName type="wght" subtype="700">ထူထဲသော</styleName>
+		<styleName type="wght" subtype="800">သာမန်ထက် ထူထဲသော</styleName>
+		<styleName type="wght" subtype="900">အမည်း</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">ပုံနှိပ်စာလုံးကြီး</styleName>
+		<styleName type="wght" subtype="950">သာမန်ထက်မည်းသော</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">အလွန်မည်းနက်သော</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">အလွန်ကြီးသော ပုံနှိပ်စာလုံး</styleName>
+		<featureName type="afrc">ထောင်လိုက် ပေါင်းနုတ်ခြင်း</featureName>
+		<featureName type="cpsp">စာလုံးကြီး ခြားခြင်း</featureName>
+		<featureName type="dlig">စာလုံး မထပ်စေခြင်း</featureName>
+		<featureName type="frac">ထောင့်ဖြတ် ပေါင်းနုတ်ခြင်း</featureName>
+		<featureName type="lnum">ဂဏန်းများ တညီတည်းရေးခြင်း</featureName>
+		<featureName type="onum">ရှေးရိုးပုံစံ စာလုံး</featureName>
+		<featureName type="ordn">အစဉ်ပြကိန်း</featureName>
+		<featureName type="pnum">အချိုးကျ ဂဏန်းများ</featureName>
+		<featureName type="smcp">အသေးစား စာလုံးကြီး</featureName>
+		<featureName type="tnum">ဇယား ဂဏန်းများ</featureName>
+		<featureName type="zero">သုည ဖြတ်မျဉ်း</featureName>
+	</typographicNames>
 </ldml>

@@ -11,9 +11,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="myv"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern draft="unconfirmed">{0} ({1})</localePattern>
+			<localeSeparator draft="unconfirmed">{0}, {1}</localeSeparator>
+			<localeKeyTypePattern draft="unconfirmed">{0}: {1}</localeKeyTypePattern>
+		</localeDisplayPattern>
 		<languages>
+			<language type="ab" draft="unconfirmed">абхазонь кель</language>
+			<language type="ace" draft="unconfirmed">ачехень кель</language>
 			<language type="myv">эрзянь кель</language>
 		</languages>
+		<codePatterns>
+			<codePattern type="language" draft="unconfirmed">{0}</codePattern>
+			<codePattern type="script" draft="unconfirmed">{0}</codePattern>
+			<codePattern type="territory" draft="unconfirmed">{0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<layout>
 		<orientation>
@@ -27,4 +39,83 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="index">[А Б В Г Д Е Ё Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ – , ; \: ! ? . … ’ ” » ( ) \[ \] § @ * / \&amp; #]</exemplarCharacters>
 	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">якшамков</month>
+							<month type="2" draft="unconfirmed">даволков</month>
+							<month type="3" draft="unconfirmed">эйзюрков</month>
+							<month type="4" draft="unconfirmed">чадыков</month>
+							<month type="5" draft="unconfirmed">панжиков</month>
+							<month type="6" draft="unconfirmed">аштемков</month>
+							<month type="7" draft="unconfirmed">медьков</month>
+							<month type="8" draft="unconfirmed">умарьков</month>
+							<month type="9" draft="unconfirmed">таштамков</month>
+							<month type="10" draft="unconfirmed">ожоков</month>
+							<month type="11" draft="unconfirmed">сундерьков</month>
+							<month type="12" draft="unconfirmed">ацамков</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="unconfirmed">тар</day>
+							<day type="mon" draft="unconfirmed">атя</day>
+							<day type="tue" draft="unconfirmed">вас</day>
+							<day type="wed" draft="unconfirmed">кун</day>
+							<day type="thu" draft="unconfirmed">кал</day>
+							<day type="fri" draft="unconfirmed">сюк</day>
+							<day type="sat" draft="unconfirmed">шлямочистэ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">таргочистэ</day>
+							<day type="mon" draft="unconfirmed">атяньчистэ</day>
+							<day type="tue" draft="unconfirmed">вастаньчистэ</day>
+							<day type="wed" draft="unconfirmed">куншкачистэ</day>
+							<day type="thu" draft="unconfirmed">калчистэ</day>
+							<day type="fri" draft="unconfirmed">сюконьчистэ</day>
+							<day type="sat" draft="unconfirmed">шлямочистэ</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">таргочи</day>
+							<day type="mon" draft="unconfirmed">атяньчи</day>
+							<day type="tue" draft="unconfirmed">вастаньчи</day>
+							<day type="wed" draft="unconfirmed">куншкачи</day>
+							<day type="thu" draft="unconfirmed">калчи</day>
+							<day type="fri" draft="unconfirmed">сюконьчи</day>
+							<day type="sat" draft="unconfirmed">шлямочи</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">обедтэ икеле</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">обедтэ мейле</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<eras>
+					<eraNames>
+						<era type="0" draft="unconfirmed">Христосонь чачомадо икеле</era>
+						<era type="0" alt="variant" draft="unconfirmed">Минек эрадо икеле</era>
+						<era type="1" draft="unconfirmed">Христосонь чачомадо мейле</era>
+						<era type="1" alt="variant" draft="unconfirmed">Минек эрасто</era>
+					</eraNames>
+				</eras>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<defaultNumberingSystem draft="unconfirmed">latn</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="unconfirmed">latn</native>
+		</otherNumberingSystems>
+	</numbers>
 </ldml>

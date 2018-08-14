@@ -64,7 +64,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bo">تبتی</language>
 			<language type="br">بریٹن</language>
 			<language type="brx">بوڈو</language>
-			<language type="bs">بوسنی</language>
+			<language type="bs">بوسنیائی</language>
 			<language type="bug">بگینیز</language>
 			<language type="byn">بلین</language>
 			<language type="ca">کیٹالان</language>
@@ -512,7 +512,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="151">مشرقی یورپ</territory>
 			<territory type="154">شمالی یورپ</territory>
 			<territory type="155">مغربی یورپ</territory>
-			<territory type="202" draft="contributed">سَب صحارن افریقہ</territory>
+			<territory type="202">ذیلی صحارن افریقہ</territory>
 			<territory type="419">لاطینی امریکہ</territory>
 			<territory type="AC">اسینشن آئلینڈ</territory>
 			<territory type="AD">انڈورا</territory>
@@ -790,7 +790,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZZ">نامعلوم علاقہ</territory>
 		</territories>
 		<subdivisions>
-			<subdivision type="gbeng">انگلینڈ</subdivision>
+			<subdivision type="gbeng">انگلستان</subdivision>
 			<subdivision type="gbsct">اسکاٹ لینڈ</subdivision>
 			<subdivision type="gbwls">ویلز</subdivision>
 		</subdivisions>
@@ -2736,7 +2736,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<field type="hour-narrow">
 				<displayName>گھنٹہ</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} گھنٹہ میں</relativeTimePattern>
+					<relativeTimePattern count="one">{0} گھنٹے میں</relativeTimePattern>
 					<relativeTimePattern count="other">{0} گھنٹوں میں</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
@@ -2827,8 +2827,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<gmtFormat>GMT {0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0} وقت</regionFormat>
-			<regionFormat type="daylight">{0} (+1)</regionFormat>
-			<regionFormat type="standard">{0} (+0)</regionFormat>
+			<regionFormat type="daylight">{0} ڈے لائٹ ٹائم</regionFormat>
+			<regionFormat type="standard">{0} اسٹینڈرڈ ٹائم</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>سانتا ایزابیل</exemplarCity>
@@ -5367,9 +5367,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
-				<displayName>بیلائز ڈالر</displayName>
-				<displayName count="one">بیلائز ڈالر</displayName>
-				<displayName count="other">بیلائز ڈالر</displayName>
+				<displayName>بیلیز ڈالر</displayName>
+				<displayName count="one">بیلیز ڈالر</displayName>
+				<displayName count="other">بیلیز ڈالرز</displayName>
 				<symbol>BZD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
@@ -5812,9 +5812,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MMK">
-				<displayName>میانما کیاٹ</displayName>
-				<displayName count="one">میانما کیاٹ</displayName>
-				<displayName count="other">میانما کیاٹ</displayName>
+				<displayName>میانمار کیاٹ</displayName>
+				<displayName count="one">میانمار کیاٹ</displayName>
+				<displayName count="other">میانمار کیاٹ</displayName>
 				<symbol>MMK</symbol>
 				<symbol alt="narrow" draft="contributed">K</symbol>
 			</currency>
@@ -5841,6 +5841,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>موریطانیائی اوگوئیا</displayName>
 				<displayName count="one">موریطانیائی اوگوئیا</displayName>
 				<displayName count="other">موریطانیائی اوگوئیا</displayName>
+				<symbol draft="contributed">MRU</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>ماریشس کا روپیہ</displayName>
@@ -6096,6 +6097,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ساؤ ٹوم اور پرنسپے ڈوبرا</displayName>
 				<displayName count="one">ساؤ ٹوم اور پرنسپے ڈوبرا</displayName>
 				<displayName count="other">ساؤ ٹوم اور پرنسپے ڈوبرا</displayName>
+				<symbol draft="contributed">STN</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SYP">
@@ -6218,6 +6220,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>وینزویلا بولیور</displayName>
 				<displayName count="one">وینزویلا بولیور</displayName>
 				<displayName count="other">وینزویلا بولیور</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>ویتنامی ڈانگ</displayName>
@@ -6293,7 +6296,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately" draft="contributed">~{0}</pattern>
 			<pattern type="atLeast">⩾{0}</pattern>
+			<pattern type="atMost" draft="contributed">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -6313,19 +6318,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} جی-فورس</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-second-squared">
-				<displayName>m/s²</displayName>
-				<unitPattern count="one">{0} m/s²</unitPattern>
-				<unitPattern count="other">{0} m/s²</unitPattern>
+				<displayName>میٹر فی مربع سیکنڈ</displayName>
+				<unitPattern count="one">{0} میٹر فی مربع سیکنڈ</unitPattern>
+				<unitPattern count="other">{0} میٹر فی مربع سیکنڈ</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
-				<displayName>rev</displayName>
+				<displayName>گردش</displayName>
 				<unitPattern count="one">{0} rev</unitPattern>
-				<unitPattern count="other">{0} rev</unitPattern>
+				<unitPattern count="other">{0} گردش</unitPattern>
 			</unit>
 			<unit type="angle-radian">
-				<displayName>rad</displayName>
-				<unitPattern count="one">{0} rad</unitPattern>
-				<unitPattern count="other">{0} rad</unitPattern>
+				<displayName>ریڈینس</displayName>
+				<unitPattern count="one">{0} ریڈین</unitPattern>
+				<unitPattern count="other">{0} ریڈینس</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<displayName>ڈگری</displayName>
@@ -6412,6 +6417,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} فی ملین حصے</unitPattern>
 				<unitPattern count="other">{0} فی ملین حصے</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>فیصد</displayName>
+				<unitPattern count="one">{0} فیصد</unitPattern>
+				<unitPattern count="other">{0} فیصد</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>فی ہزار</displayName>
+				<unitPattern count="one">{0} فی ہزار</unitPattern>
+				<unitPattern count="other">{0} فی ہزار</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>لیٹر فی کلومیٹر</displayName>
 				<unitPattern count="one">{0} لیٹر فی کلومیٹر</unitPattern>
@@ -6431,6 +6446,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>میل فی امپیریل گیلن</displayName>
 				<unitPattern count="one">{0} میل فی امپیریل گیلن</unitPattern>
 				<unitPattern count="other">{0} میل فی امپیریل گیلن</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>پیٹا بائٹس</displayName>
+				<unitPattern count="one">{0} پیٹا بائٹ</unitPattern>
+				<unitPattern count="other">{0} پیٹا بائٹس</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>ٹیرابائٹس</displayName>
@@ -6753,20 +6773,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-pound">
 				<displayName>پاؤنڈ</displayName>
-				<unitPattern count="one">{0} پونڈ</unitPattern>
-				<unitPattern count="other">{0} پونڈ</unitPattern>
+				<unitPattern count="one">{0} پاؤنڈ</unitPattern>
+				<unitPattern count="other">{0} پاؤنڈ</unitPattern>
 				<perUnitPattern>{0} فی پاؤنڈ</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>اونس</displayName>
-				<unitPattern count="one">{0} ونس</unitPattern>
-				<unitPattern count="other">{0} ونس</unitPattern>
+				<unitPattern count="one">{0} اونس</unitPattern>
+				<unitPattern count="other">{0} اونس</unitPattern>
 				<perUnitPattern>{0} فی اونس</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
-				<displayName>oz t</displayName>
-				<unitPattern count="one">{0} oz t</unitPattern>
-				<unitPattern count="other">{0} oz t</unitPattern>
+				<displayName>ٹرائے اونس</displayName>
+				<unitPattern count="one">{0} ٹرائے اونس</unitPattern>
+				<unitPattern count="other">{0} ٹرائے اونس</unitPattern>
 			</unit>
 			<unit type="mass-carat">
 				<displayName>قیراط</displayName>
@@ -6827,6 +6847,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ملی بار</displayName>
 				<unitPattern count="one">{0} ملی بار</unitPattern>
 				<unitPattern count="other">{0} ملی بار</unitPattern>
+			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>ماحول</displayName>
+				<unitPattern count="one">{0} ماحول</unitPattern>
+				<unitPattern count="other">{0} ماحول</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>کلومیٹر فی گھنٹہ</displayName>
@@ -6994,6 +7019,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ٹی سپون</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>کارڈینل ڈائریکشن</displayName>
 				<coordinateUnitPattern type="east">{0} مشرق</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0} شمال</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0} جنوب</coordinateUnitPattern>
@@ -7020,7 +7046,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} rev</unitPattern>
 			</unit>
 			<unit type="angle-radian">
-				<displayName>rad</displayName>
+				<displayName>ریڈینس</displayName>
 				<unitPattern count="one">{0} rad</unitPattern>
 				<unitPattern count="other">{0} rad</unitPattern>
 			</unit>
@@ -7030,12 +7056,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ڈگری</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<displayName>arcmin</displayName>
+				<displayName>آرک منٹ</displayName>
 				<unitPattern count="one">{0} آرک منٹ</unitPattern>
 				<unitPattern count="other">{0} آرک منٹ</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName>arcsec</displayName>
+				<displayName>آرک سیکنڈ</displayName>
 				<unitPattern count="one">{0} آرک سیکنڈ</unitPattern>
 				<unitPattern count="other">{0} آرک سیکنڈ</unitPattern>
 			</unit>
@@ -7109,6 +7135,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>فیصد</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>فی ہزار</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
 				<unitPattern count="one">{0} L/km</unitPattern>
@@ -7125,9 +7161,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} mpg</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
-				<displayName draft="contributed">miles/gal Imp.</displayName>
+				<displayName>miles/gal Imp.</displayName>
 				<unitPattern count="one">{0} mpg Imp.</unitPattern>
 				<unitPattern count="other">{0} mpg Imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>پی بائٹ</displayName>
+				<unitPattern count="one">{0} پی بی</unitPattern>
+				<unitPattern count="other">{0} پی بی</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -7486,7 +7527,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} کلو واٹ</unitPattern>
 			</unit>
 			<unit type="power-watt">
-				<displayName>watts</displayName>
+				<displayName>واٹ</displayName>
 				<unitPattern count="one">{0} واٹ</unitPattern>
 				<unitPattern count="other">{0} واٹ</unitPattern>
 			</unit>
@@ -7524,6 +7565,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mbar</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
+			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>کلومیٹر/گھنٹہ</displayName>
@@ -7598,7 +7644,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ft³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
-				<displayName>in³</displayName>
+				<displayName>کیوبک انچ</displayName>
 				<unitPattern count="one">{0} in³</unitPattern>
 				<unitPattern count="other">{0} in³</unitPattern>
 			</unit>
@@ -7691,6 +7737,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>ڈائریکشن</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -7740,6 +7787,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-square-foot">
 				<unitPattern count="one">{0}ft²</unitPattern>
 				<unitPattern count="other">{0}ft²</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>لیٹر/100 کلو میٹر</displayName>
@@ -7963,6 +8015,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} لیٹر</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>ڈائریکشن</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
@@ -8036,7 +8089,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabelPattern type="strokes" count="one">{0} اسٹروک</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">{0} اسٹروک</characterLabelPattern>
 		<characterLabel type="activities">سرگرمی</characterLabel>
-		<characterLabel type="african_scripts">افریقی سکرپٹس</characterLabel>
+		<characterLabel type="african_scripts">افریقی اسکرپٹس</characterLabel>
 		<characterLabel type="american_scripts">امریکی سکرپٹس</characterLabel>
 		<characterLabel type="animal">جانور</characterLabel>
 		<characterLabel type="animals_nature">حیوانات و فطرت</characterLabel>
@@ -8111,7 +8164,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="spacing">فاصلہ بندی</characterLabel>
 		<characterLabel type="sport">کھیل</characterLabel>
 		<characterLabel type="symbols">علامات</characterLabel>
-		<characterLabel type="technical_symbols">تکنکی علامات</characterLabel>
+		<characterLabel type="technical_symbols">تکنیکی علامات</characterLabel>
 		<characterLabel type="tone_marks">ٹون مارکس</characterLabel>
 		<characterLabel type="travel">سفر</characterLabel>
 		<characterLabel type="travel_places">سفر اور مقامات</characterLabel>
@@ -8122,4 +8175,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="western_asian_scripts">مغربی ایشیائی اسکرپٹس</characterLabel>
 		<characterLabel type="whitespace">خالی جگہ</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">ترچھا</axisName>
+		<axisName type="opsz">بصری سائز</axisName>
+		<axisName type="slnt">جھکاؤ</axisName>
+		<axisName type="wdth">چوڑائی</axisName>
+		<axisName type="wght">موٹائی</axisName>
+		<styleName type="ital" subtype="1">خمیدہ</styleName>
+		<styleName type="opsz" subtype="8">کیپشن</styleName>
+		<styleName type="opsz" subtype="12">متن</styleName>
+		<styleName type="opsz" subtype="18">عنوانات</styleName>
+		<styleName type="opsz" subtype="72">ڈسپلے</styleName>
+		<styleName type="opsz" subtype="144">پوسٹر</styleName>
+		<styleName type="slnt" subtype="-12">پیچھے کو جُھکا ہوا</styleName>
+		<styleName type="slnt" subtype="0">سیدھا</styleName>
+		<styleName type="slnt" subtype="12">جُھکا ہوا</styleName>
+		<styleName type="slnt" subtype="24">زیادہ جُھکا ہوا</styleName>
+		<styleName type="wdth" subtype="50">انتہائی سکیڑا ہوا</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">انتہائی دبایا ہوا</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">انتہائی تنگ</styleName>
+		<styleName type="wdth" subtype="62.5">زیادہ سکیڑا ہوا</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">زیادہ دبایا ہوا</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">زیادہ تنگ</styleName>
+		<styleName type="wdth" subtype="75">سکیڑا ہوا</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">دبایا ہوا</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">دبایا ہوا</styleName>
+		<styleName type="wdth" subtype="87.5">نیم سکیڑا ہوا</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">نیم دبایا ہوا</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">نیم تنگ</styleName>
+		<styleName type="wdth" subtype="100">نارمل</styleName>
+		<styleName type="wdth" subtype="112.5">نیم کھولا ہوا</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">نیم پھیلایا ہوا</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">نیم چوڑا</styleName>
+		<styleName type="wdth" subtype="125">کھولا ہوا</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">پھیلایا ہوا</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">چوڑا</styleName>
+		<styleName type="wdth" subtype="150">زیادہ کھولا ہوا</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">زیادہ پھیلایا ہوا</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">زیادہ چوڑا</styleName>
+		<styleName type="wdth" subtype="200">انتہائی کھولا ہوا</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">انتہائی پھیلایا ہوا</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">انتہائی چوڑا</styleName>
+		<styleName type="wght" subtype="100">پتلا</styleName>
+		<styleName type="wght" subtype="200">زیادہ پتلا</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">انتہائی پتلا</styleName>
+		<styleName type="wght" subtype="300">ہلکا</styleName>
+		<styleName type="wght" subtype="350">نیم ہلکا</styleName>
+		<styleName type="wght" subtype="380">کتاب</styleName>
+		<styleName type="wght" subtype="400">ریگولر</styleName>
+		<styleName type="wght" subtype="500">میڈیم</styleName>
+		<styleName type="wght" subtype="600">نیم بولڈ</styleName>
+		<styleName type="wght" subtype="600" alt="demi">نصف بولڈ</styleName>
+		<styleName type="wght" subtype="700">بولڈ</styleName>
+		<styleName type="wght" subtype="800">زیادہ بولڈ</styleName>
+		<styleName type="wght" subtype="900">سیاہ</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">بھاری</styleName>
+		<styleName type="wght" subtype="950">زیادہ سیاہ</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">انتہائی سیاہ</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">انتہائی بھاری</styleName>
+		<featureName type="afrc">عمودی کسور</featureName>
+		<featureName type="cpsp">بڑے حروف کے درمیان خالی جگہ</featureName>
+		<featureName type="dlig">اختیاری لگیچر</featureName>
+		<featureName type="frac">ترچھی کسور</featureName>
+		<featureName type="lnum">لائننگ نمبرز</featureName>
+		<featureName type="onum">قدیم طرز کے ہندسے</featureName>
+		<featureName type="ordn">آرڈینلز</featureName>
+		<featureName type="pnum">تناسبی نمبرز</featureName>
+		<featureName type="smcp">چھوٹے سائز میں بڑے حروف</featureName>
+		<featureName type="tnum">ٹیبیولر نمبرز</featureName>
+		<featureName type="zero">خط کشیدہ زیرو</featureName>
+	</typographicNames>
 </ldml>

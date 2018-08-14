@@ -19,6 +19,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="eu" draft="contributed">euskera</language>
 			<language type="grc" draft="contributed">griego antiguo</language>
 			<language type="lo" draft="contributed">lao</language>
+			<language type="nl_BE" draft="contributed">flamenco</language>
 			<language type="nso" draft="contributed">sotho septentrional</language>
 			<language type="pa" draft="contributed">punyabí</language>
 			<language type="ss" draft="contributed">siswati</language>
@@ -27,6 +28,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="tn" draft="contributed">setswana</language>
 			<language type="wo" draft="contributed">wolof</language>
 			<language type="zgh" draft="contributed">tamazight marroquí estándar</language>
+			<language type="zh_Hans" draft="contributed">chino simplificado</language>
+			<language type="zh_Hant" draft="contributed">chino tradicional</language>
+			<language type="zun" draft="contributed">zuni</language>
 		</languages>
 		<territories>
 			<territory type="BA" draft="contributed">Bosnia y Herzegovina</territory>
@@ -34,6 +38,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TA" draft="contributed">Tristán de Acuña</territory>
 			<territory type="TL" draft="contributed">Timor-Leste</territory>
 			<territory type="UM" draft="contributed">Islas menores alejadas de EE. UU.</territory>
+			<territory type="US" alt="short" draft="contributed">EE. UU.</territory>
 			<territory type="VI" draft="contributed">Islas Vírgenes de EE. UU.</territory>
 		</territories>
 	</localeDisplayNames>
@@ -149,6 +154,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="evening1" draft="contributed">tarde</dayPeriod>
 							<dayPeriod type="night1" draft="contributed">noche</dayPeriod>
 						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
 							<dayPeriod type="noon" draft="contributed">mediodía</dayPeriod>
@@ -177,6 +186,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dayPeriods>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="EHm" draft="contributed">E, HH:mm</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="contributed">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="contributed">E, d 'de' MMM 'de' y G</dateFormatItem>
 						<dateFormatItem id="hms" draft="contributed">hh:mm:ss</dateFormatItem>
@@ -270,6 +280,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</calendar>
 		</calendars>
 		<fields>
+			<field type="month">
+				<displayName draft="contributed">mes</displayName>
+			</field>
+			<field type="week">
+				<displayName draft="contributed">semana</displayName>
+			</field>
+			<field type="day">
+				<displayName draft="contributed">día</displayName>
+			</field>
 			<field type="day-short">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">dentro de {0} días</relativeTimePattern>
@@ -290,8 +309,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">hace {0} días</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="weekday">
+				<displayName draft="contributed">día de la semana</displayName>
+			</field>
 			<field type="dayperiod">
 				<displayName draft="contributed">a. m./p. m.</displayName>
+			</field>
+			<field type="hour">
+				<displayName draft="contributed">hora</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="contributed">minuto</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="contributed">segundo</displayName>
 			</field>
 			<field type="second-short">
 				<displayName draft="contributed">seg.</displayName>
@@ -315,6 +346,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other" draft="contributed">hace {0} seg.</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="zone">
+				<displayName draft="contributed">zona horaria</displayName>
+			</field>
 		</fields>
 		<timeZoneNames>
 			<metazone type="Argentina">
@@ -334,6 +368,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<minimumGroupingDigits draft="contributed">2</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group>.</group>
@@ -362,8 +397,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<unit type="duration-century">
+				<displayName draft="contributed">siglos</displayName>
+				<unitPattern count="one" draft="contributed">{0} siglo</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} siglos</unitPattern>
+			</unit>
 			<unit type="duration-year">
 				<perUnitPattern draft="contributed">{0}/año</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<perUnitPattern draft="contributed">{0} por mes</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<perUnitPattern draft="contributed">{0} por semana</perUnitPattern>
+			</unit>
+			<unit type="duration-day">
+				<perUnitPattern draft="contributed">{0} por día</perUnitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<perUnitPattern draft="contributed">{0} por minuto</perUnitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName draft="contributed">amperios</displayName>
@@ -406,6 +458,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="contributed">{0} años</unitPattern>
 				<perUnitPattern draft="contributed">{0}/a</perUnitPattern>
 			</unit>
+			<unit type="duration-week">
+				<perUnitPattern draft="contributed">{0}/sem.</perUnitPattern>
+			</unit>
 			<unit type="duration-hour">
 				<displayName draft="contributed">hs.</displayName>
 			</unit>
@@ -417,6 +472,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="electric-volt">
 				<displayName draft="contributed">voltios</displayName>
+			</unit>
+			<unit type="mass-ton">
+				<displayName draft="contributed">ton</displayName>
+				<unitPattern count="one" draft="contributed">{0} ton</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ton</unitPattern>
 			</unit>
 			<unit type="power-watt">
 				<displayName draft="contributed">vatios</displayName>

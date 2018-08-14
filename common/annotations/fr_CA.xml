@@ -13,46 +13,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<annotations>
 		<annotation cp="🏻">peau | peau claire | type 1–2</annotation>
+		<annotation cp="🏻" type="tts" draft="contributed">peau claire</annotation>
 		<annotation cp="🏼">peau | peau modérément claire | type 3</annotation>
 		<annotation cp="🏼" type="tts">peau modérément claire</annotation>
 		<annotation cp="🏽">peau | peau légèrement mate | type 4</annotation>
+		<annotation cp="🏽" type="tts" draft="contributed">peau légèrement mate</annotation>
 		<annotation cp="🏾">peau | peau modérément foncée | type 5</annotation>
 		<annotation cp="🏾" type="tts">peau modérément foncée</annotation>
 		<annotation cp="🏿">peau | peau foncée | type 6</annotation>
-		<annotation cp="♟">duper | échec | pion | sacrifiable</annotation>
-		<annotation cp="♟" type="tts">pion</annotation>
-		<annotation cp="🥎">balle | gant | molle | softball</annotation>
-		<annotation cp="🥎" type="tts">balle molle</annotation>
-		<annotation cp="🥏">disque d’équipe | disque volant</annotation>
-		<annotation cp="🥏" type="tts">disque volant</annotation>
-		<annotation cp="🥬" draft="provisional">chinois | chou | frisé | laitue | pommé</annotation>
-		<annotation cp="🥳">célébration | chapeau | fête | sifflet | visage</annotation>
-		<annotation cp="🥴" draft="contributed">visage abruti</annotation>
-		<annotation cp="🥴" type="tts" draft="contributed">visage abruti</annotation>
-		<annotation cp="🥵">canicule | chaud | fièvre | rouge | sueur | visage</annotation>
-		<annotation cp="🥶">bleu | froid | gelé | gelure | glacial | visage</annotation>
-		<annotation cp="🥺">implorant | pitié | supplication | visage | yeux de chiot</annotation>
-		<annotation cp="🥼">docteur | expérience | scientifique</annotation>
-		<annotation cp="🥽">natation | protection des yeux | soudage | soudure</annotation>
-		<annotation cp="🥿">ballerine | chaussure sans lacets | pantoufle</annotation>
-		<annotation cp="🦘">Australie | bébé kangourou | marsupial | saut</annotation>
-		<annotation cp="🦡">blaireau | ratel</annotation>
-		<annotation cp="🦢">jeune cygne | oiseau | vilain petit canard</annotation>
-		<annotation cp="🦸">gentil, héroïne, héros, super pouvoirs</annotation>
-		<annotation cp="🦸‍♀">bien, femme, héroïne, héros, super pouvoir</annotation>
-		<annotation cp="🦸‍♂">bien, héros, homme, super pouvoir</annotation>
-		<annotation cp="🦹">criminel, mal, méchant, super pouvoir</annotation>
-		<annotation cp="🦹‍♀">criminelle, femme, mal, méchante, super pouvoir</annotation>
-		<annotation cp="🦹‍♂">criminel, homme, mal, méchant, super pouvoir</annotation>
-		<annotation cp="🧁">cupcake | pâtisserie | petit gâteau | sucrerie</annotation>
-		<annotation cp="🧁" type="tts">petit gâteau</annotation>
-		<annotation cp="🧂">condiment | mélangeur</annotation>
-		<annotation cp="🧩">casse-tête | pièce</annotation>
-		<annotation cp="🧩" type="tts">casse-tête</annotation>
-		<annotation cp="🧭">magnétique | navigation | orientation</annotation>
-		<annotation cp="🧻">essuie-mai | essuie-tout | papier hygiénique | papier toilette</annotation>
-		<annotation cp="🧼">bain | mousse | pain | savon | savonnette</annotation>
-		<annotation cp="🧿">amulette | mauvais œil | nazar | talisman</annotation>
+		<annotation cp="🏿" type="tts" draft="contributed">peau foncée</annotation>
 		<annotation cp="😀">grand sourire | large sourire | visage | visage avec large sourire</annotation>
 		<annotation cp="😀" type="tts">visage avec large sourire</annotation>
 		<annotation cp="😁">grand sourire | large sourire | œil | sourire | visage | visage radieux et yeux rieurs</annotation>
@@ -88,18 +57,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😚">baiser | visage | visage faisant un baiser les yeux fermés | yeux fermés</annotation>
 		<annotation cp="😚" type="tts">visage faisant un baiser les yeux fermés</annotation>
 		<annotation cp="☺" draft="contributed">visage souriant</annotation>
+		<annotation cp="☺" type="tts" draft="contributed">visage souriant</annotation>
 		<annotation cp="🙂" draft="contributed">visage avec un léger sourire</annotation>
+		<annotation cp="🙂" type="tts" draft="contributed">visage avec un léger sourire</annotation>
 		<annotation cp="🤗">câlin | visage | visage heureux et câlin</annotation>
 		<annotation cp="🤗" type="tts">visage heureux et câlin</annotation>
 		<annotation cp="🤩">étoile | grand sourire | large sourire | visage | visage aux yeux en forme d’étoiles | yeux</annotation>
 		<annotation cp="🤩" type="tts">visage aux yeux en forme d’étoiles</annotation>
 		<annotation cp="😐" draft="contributed">visage neutre</annotation>
+		<annotation cp="😐" type="tts" draft="contributed">visage neutre</annotation>
 		<annotation cp="😶" draft="contributed">visage sans bouche</annotation>
+		<annotation cp="😶" type="tts" draft="contributed">visage sans bouche</annotation>
 		<annotation cp="🙄">roule des yeux | visage | visage qui roule des yeux | yeux</annotation>
 		<annotation cp="🙄" type="tts">visage qui roule des yeux</annotation>
 		<annotation cp="😏">malin | sourire | visage | visage au sourire malin</annotation>
 		<annotation cp="😏" type="tts">visage au sourire malin</annotation>
 		<annotation cp="😥" draft="contributed">visage triste mais soulagé</annotation>
+		<annotation cp="😥" type="tts" draft="contributed">visage triste mais soulagé</annotation>
 		<annotation cp="😮">bouche ouverte | compassion | impressionné | visage | visage épaté</annotation>
 		<annotation cp="😮" type="tts">visage épaté</annotation>
 		<annotation cp="🤐">bouche | bouche cousue | fermeture à glissière | visage</annotation>
@@ -111,6 +85,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😜">clin d’œil | langue | tire la langue | visage</annotation>
 		<annotation cp="😝">dégoût | horrible | langue | visage | yeux plissés</annotation>
 		<annotation cp="🤤" draft="contributed">visage qui bave</annotation>
+		<annotation cp="🤤" type="tts" draft="contributed">visage qui bave</annotation>
 		<annotation cp="😒" draft="contributed">visage désabusé</annotation>
 		<annotation cp="😒" type="tts" draft="contributed">visage désabusé</annotation>
 		<annotation cp="😓">froide | sueur | triste | visage | visage triste et en sueur</annotation>
@@ -127,6 +102,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😰">anxieux | bleu | froide | sueur | visage | visage inquiet et en sueur</annotation>
 		<annotation cp="😰" type="tts">visage inquiet et en sueur</annotation>
 		<annotation cp="😱">cri | munch | peur | terreur | visage</annotation>
+		<annotation cp="🥵">canicule | chaud | fièvre | rouge | sueur | visage</annotation>
+		<annotation cp="🥶">bleu | froid | gelé | gelure | glacial | visage</annotation>
 		<annotation cp="🤪">amusant | farfelu | idiot | niaiseux | visage</annotation>
 		<annotation cp="😵">croches | étourdi | tournis | visage | yeux</annotation>
 		<annotation cp="😡">boudeur | énervé | furieux | rouge | visage</annotation>
@@ -138,19 +115,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤕" type="tts">visage bandé</annotation>
 		<annotation cp="🤢">écœuré | nausée | visage</annotation>
 		<annotation cp="🤢" type="tts">visage écœuré</annotation>
+		<annotation cp="🤧" type="tts">visage qui éternue</annotation>
 		<annotation cp="😇">ange | auréole | innocent | visage | visage qui sourit avec une auréole</annotation>
 		<annotation cp="😇" type="tts">visage qui sourit avec une auréole</annotation>
+		<annotation cp="🤠" draft="contributed">chapeau | cowboy | visage</annotation>
+		<annotation cp="🤠" type="tts">visage avec chapeau de cowboy</annotation>
+		<annotation cp="🥳">célébration | chapeau | fête | sifflet | visage</annotation>
+		<annotation cp="🥴" draft="contributed">visage abruti</annotation>
+		<annotation cp="🥴" type="tts" draft="contributed">visage abruti</annotation>
+		<annotation cp="🥺">implorant | pitié | supplication | visage | yeux de chiot</annotation>
 		<annotation cp="🤥">mensonge | menteur | pinocchio | visage</annotation>
 		<annotation cp="🤫">chut | doigt sur la bouche | silence | visage</annotation>
 		<annotation cp="🤭">main sur la bouche | Oups | visage</annotation>
 		<annotation cp="🧐">monocle | sérieux | visage</annotation>
 		<annotation cp="🤓">geek | lunettes | nerd | niaiseux | tronche | visage | visage de tronche</annotation>
 		<annotation cp="🤓" type="tts">visage de tronche</annotation>
+		<annotation cp="😈" draft="contributed">cornes | fantastique | sourire | visage | visage souriant avec des cornes</annotation>
 		<annotation cp="👿">cornes | démon | diable | diablotin | en colère | visage | visage en colère avec des cornes</annotation>
+		<annotation cp="👿" type="tts">visage en colère avec des cornes</annotation>
+		<annotation cp="🤡" draft="contributed">clown | visage</annotation>
+		<annotation cp="🤡" type="tts">visage de clown</annotation>
 		<annotation cp="👹">créature | fantastique | monstre | ogre | visage</annotation>
+		<annotation cp="👹" type="tts">ogre</annotation>
 		<annotation cp="👺">créature | fantastique | gobelin | monstre | visage</annotation>
 		<annotation cp="👺" type="tts">gobelin</annotation>
 		<annotation cp="💀">crâne | fantastique | monstre | mort | visage</annotation>
+		<annotation cp="☠" draft="contributed">crâne | mort | os | tête | tête de mort</annotation>
+		<annotation cp="👻" draft="contributed">créature | fantastique | fantôme | monstre | visage</annotation>
 		<annotation cp="👽">alien | créature | extraterrestre | fantastique | ovni | visage</annotation>
 		<annotation cp="👽" type="tts">extraterrestre</annotation>
 		<annotation cp="👾">alien | créature | extraterrestre | monstre | ovni | visage</annotation>
@@ -170,10 +161,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙊">bouche couverte | muet | rien de mal | singe | visage</annotation>
 		<annotation cp="👶">bébé | petit</annotation>
 		<annotation cp="🧒">enfant | genre non défini | jeune</annotation>
+		<annotation cp="👦" draft="contributed">garçon | jeune</annotation>
 		<annotation cp="👧">fille | jeune | vierge | zodiaque</annotation>
 		<annotation cp="🧑">adulte | genre non défini | personne</annotation>
+		<annotation cp="👱">blond | personne blonde</annotation>
 		<annotation cp="👨">adulte | homme</annotation>
+		<annotation cp="👱‍♂" draft="contributed">blond | homme</annotation>
+		<annotation cp="🧔">barbe | barbu | personne</annotation>
 		<annotation cp="👩">adulte | femme</annotation>
+		<annotation cp="👱‍♀" draft="contributed">blonde | femme</annotation>
 		<annotation cp="🧓">adulte | âgée | genre non défini | personne</annotation>
 		<annotation cp="👴">adulte | âgé | homme</annotation>
 		<annotation cp="👵">adulte | âgée | femme</annotation>
@@ -188,24 +184,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩‍🎨">artiste | femme | peintre</annotation>
 		<annotation cp="👮">agent de la paix | flic | officier | police</annotation>
 		<annotation cp="👮" type="tts">agent de la paix</annotation>
+		<annotation cp="👮‍♂" type="tts">policier</annotation>
 		<annotation cp="🕵‍♀">détective | enquêteuse | enquêtrice | espionne | femme</annotation>
 		<annotation cp="👸">conte de fées | fantastique | princesse</annotation>
 		<annotation cp="👲">calotte chinoise | chapeau | gua pi mao | homme | homme coiffé d’une calotte chinoise</annotation>
 		<annotation cp="👲" type="tts">homme coiffé d’une calotte chinoise</annotation>
-		<annotation cp="🧔">barbe | barbu | personne</annotation>
 		<annotation cp="🤵">complet | homme | homme portant un complet | smoking</annotation>
 		<annotation cp="🤵" type="tts">homme portant un complet</annotation>
 		<annotation cp="👰">mariage | mariée | voile</annotation>
 		<annotation cp="🎅">célébration | fête | Noël | père</annotation>
 		<annotation cp="🤶">célébration | fête | mère | Noël</annotation>
+		<annotation cp="🦸">gentil, héroïne, héros, super pouvoirs</annotation>
+		<annotation cp="🦸" type="tts">superhéros</annotation>
+		<annotation cp="🦸‍♀">bien, femme, héroïne, héros, super pouvoir</annotation>
+		<annotation cp="🦸‍♂">bien, héros, homme, super pouvoir</annotation>
+		<annotation cp="🦸‍♂" type="tts" draft="contributed">super-héros</annotation>
+		<annotation cp="🦹">criminel, mal, méchant, super pouvoir</annotation>
+		<annotation cp="🦹‍♀">criminelle, femme, mal, méchante, super pouvoir</annotation>
+		<annotation cp="🦹‍♂">criminel, homme, mal, méchant, super pouvoir</annotation>
 		<annotation cp="🧙">enchanteur | mage | magicien | sorcier | sorcière</annotation>
 		<annotation cp="🧙‍♀">enchanteresse | femme | mage | magicienne | sorcière</annotation>
 		<annotation cp="🧙‍♂">enchanteur | homme | mage | magicien | sorcier</annotation>
 		<annotation cp="🧚">fée | personnage féérique</annotation>
 		<annotation cp="🧚‍♀">fée | femme</annotation>
 		<annotation cp="🧚‍♂">féetaud | homme</annotation>
+		<annotation cp="🧛" draft="contributed">Dracula | mort-vivant | vampire</annotation>
 		<annotation cp="🧛‍♀">femme | morte-vivante | vampire</annotation>
 		<annotation cp="🧛‍♂">Dracula | homme | mort-vivant | vampire</annotation>
+		<annotation cp="🧜" draft="contributed">créature aquatique | sirène | triton</annotation>
 		<annotation cp="🧜‍♂">triton</annotation>
 		<annotation cp="🧝‍♀">elfe | femme | magique</annotation>
 		<annotation cp="🧝‍♂">elfe | homme | magique</annotation>
@@ -239,6 +245,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💁‍♀">aide | assistante | concierge | femme | guichetière | information | réceptionniste</annotation>
 		<annotation cp="💁‍♀" type="tts">guichetière</annotation>
 		<annotation cp="🙇" draft="contributed">personne qui s’incline</annotation>
+		<annotation cp="🙇" type="tts" draft="contributed">personne qui s’incline</annotation>
 		<annotation cp="🙇‍♂">courbette | désolé | excuses | homme | homme qui s’incline | incliné</annotation>
 		<annotation cp="🙇‍♀">courbette | désolée | excuses | femme | homme qui s’incline | inclinée</annotation>
 		<annotation cp="🤦">exaspération | incroyable | main | personne avec paume de la main sur le visage | visage</annotation>
@@ -248,14 +255,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤦‍♀">exaspération | femme | femme avec paume de la main sur le visage | incroyable | main | visage</annotation>
 		<annotation cp="🤦‍♀" type="tts">femme avec paume de la main sur le visage</annotation>
 		<annotation cp="🤷" draft="contributed">personne qui hausse les épaules</annotation>
+		<annotation cp="🤷" type="tts" draft="contributed">personne qui hausse les épaules</annotation>
 		<annotation cp="💇‍♂" draft="contributed">homme qui se fait couper les cheveux</annotation>
+		<annotation cp="💇‍♂" type="tts" draft="contributed">homme qui se fait couper les cheveux</annotation>
 		<annotation cp="💇‍♀" draft="contributed">femme qui se fait couper les cheveux</annotation>
+		<annotation cp="💇‍♀" type="tts" draft="contributed">femme qui se fait couper les cheveux</annotation>
 		<annotation cp="🚶">personne qui marche | piéton | randonnée</annotation>
 		<annotation cp="🚶‍♂">homme | marche | piéton | randonnée</annotation>
 		<annotation cp="🚶‍♀">femme | marche | piétonne | randonnée</annotation>
 		<annotation cp="🏃" draft="contributed">personne qui court</annotation>
+		<annotation cp="🏃" type="tts" draft="contributed">personne qui court</annotation>
 		<annotation cp="🏃‍♂" draft="contributed">homme qui court</annotation>
+		<annotation cp="🏃‍♂" type="tts" draft="contributed">homme qui court</annotation>
 		<annotation cp="🏃‍♀" draft="contributed">femme qui court</annotation>
+		<annotation cp="🏃‍♀" type="tts" draft="contributed">femme qui court</annotation>
 		<annotation cp="👯">danseuse | femme | fille | oreilles | personnes qui portent des oreilles de lapin</annotation>
 		<annotation cp="👯" type="tts">personnes qui portent des oreilles de lapin</annotation>
 		<annotation cp="👯‍♂">danseur | fête | homme | hommes qui portent des oreilles de lapin | oreilles de lapin</annotation>
@@ -277,6 +290,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛷">ski | skier | skieur | sport</annotation>
 		<annotation cp="🏂">neige | planche de neige | planchiste | ski</annotation>
 		<annotation cp="🏂" type="tts">planchiste</annotation>
+		<annotation cp="🏌" draft="contributed">balle | golf | joueur de golf</annotation>
 		<annotation cp="🏄">personne | personne qui fait du surf | surf</annotation>
 		<annotation cp="🏄" type="tts">personne qui fait du surf</annotation>
 		<annotation cp="🚣">barque | bateau | personne | personne qui rame dans une barque | ramer</annotation>
@@ -305,6 +319,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚵‍♀" type="tts">femme en vélo de montagne</annotation>
 		<annotation cp="🏎">course | voiture</annotation>
 		<annotation cp="🤸">gymnastique | personne | personne faisant la roue | roue</annotation>
+		<annotation cp="🤸" type="tts">personne faisant la roue</annotation>
 		<annotation cp="🤸‍♂">gymnaste | homme | roue</annotation>
 		<annotation cp="🤸‍♀">femme | gymnaste | roue</annotation>
 		<annotation cp="🤼">lutte | lutteur | personnes</annotation>
@@ -333,11 +348,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👉">dos de la main avec index pointant vers la droite | droite | index | main</annotation>
 		<annotation cp="👉" type="tts">dos de la main avec index pointant vers la droite</annotation>
 		<annotation cp="☝" draft="contributed">index pointant vers le haut</annotation>
+		<annotation cp="☝" type="tts" draft="contributed">index pointant vers le haut</annotation>
 		<annotation cp="👆">dos de la main avec index pointant vers le haut | haut | index | main</annotation>
 		<annotation cp="👆" type="tts">dos de la main avec index pointant vers le haut</annotation>
 		<annotation cp="🖕">doigt d’honneur | main | majeur</annotation>
 		<annotation cp="👇">bas | dos de la main avec index pointant vers le bas | index | main</annotation>
 		<annotation cp="👇" type="tts">dos de la main avec index pointant vers le bas</annotation>
+		<annotation cp="✌" draft="contributed">ciseaux | V de la victoire | victoire</annotation>
 		<annotation cp="🤞">chance | croisés | doigts | main</annotation>
 		<annotation cp="🖖">main | salut | spock | vulcain</annotation>
 		<annotation cp="🤘">cornes | doigts | main | rock</annotation>
@@ -350,6 +367,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👍">génial | OK | oui | pouce vers le haut | super</annotation>
 		<annotation cp="👎">négatif | non | nul | pouce vers le bas</annotation>
 		<annotation cp="✊">levé | main | pierre | poing</annotation>
+		<annotation cp="👊" draft="contributed">coup de poing | main | poing | poing de face</annotation>
 		<annotation cp="🤛">gauche | poing</annotation>
 		<annotation cp="🤜">droite | poing</annotation>
 		<annotation cp="🤚">dos de main | levée | main</annotation>
@@ -367,22 +385,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👁‍🗨">bulle | œil | œil dans une bulle de parole | parole | témoin</annotation>
 		<annotation cp="👁‍🗨" type="tts">œil dans une bulle de parole</annotation>
 		<annotation cp="💘">cœur | cupidon | flèche</annotation>
-		<annotation cp="❤">cœur | rouge</annotation>
-		<annotation cp="💓">battant | battement | cœur | pulsations</annotation>
-		<annotation cp="💔">brisé | cœur</annotation>
-		<annotation cp="💕" draft="contributed">deux cœurs</annotation>
+		<annotation cp="💝">cœur | ruban | saint valentin | st valentin</annotation>
 		<annotation cp="💖">cœur | enthousiaste | étincelant</annotation>
 		<annotation cp="💗">cœur | grandissant | nerveux | pouls | pulsations</annotation>
-		<annotation cp="💙">bleu | cœur</annotation>
-		<annotation cp="💚">cœur | vert</annotation>
-		<annotation cp="💛">cœur | jaune</annotation>
-		<annotation cp="🧡">cœur | orange</annotation>
-		<annotation cp="💜">cœur | violet</annotation>
-		<annotation cp="💝">cœur | ruban | saint valentin | st valentin</annotation>
+		<annotation cp="💓">battant | battement | cœur | pulsations</annotation>
 		<annotation cp="💞" draft="contributed">cœurs qui tournent</annotation>
-		<annotation cp="💟">cœur | décoration</annotation>
-		<annotation cp="❣">cœur | exclamation | point</annotation>
+		<annotation cp="💞" type="tts" draft="contributed">cœurs qui tournent</annotation>
+		<annotation cp="💕" draft="contributed">deux cœurs</annotation>
+		<annotation cp="💕" type="tts" draft="contributed">deux cœurs</annotation>
 		<annotation cp="💌">amour | cœur | lettre</annotation>
+		<annotation cp="❣">cœur | exclamation | point</annotation>
+		<annotation cp="💔">brisé | cœur</annotation>
+		<annotation cp="❤">cœur | rouge</annotation>
+		<annotation cp="🧡">cœur | orange</annotation>
+		<annotation cp="💛">cœur | jaune</annotation>
+		<annotation cp="💚">cœur | vert</annotation>
+		<annotation cp="💙">bleu | cœur</annotation>
+		<annotation cp="💜">cœur | violet</annotation>
+		<annotation cp="💟">cœur | décoration</annotation>
 		<annotation cp="💤">dormir | endormi | ronfler | zzz</annotation>
 		<annotation cp="💢">bande dessinée | colère | furieux | symbole</annotation>
 		<annotation cp="💣">bande dessinée | bombe</annotation>
@@ -396,18 +416,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗯">à droite | bande dessinée | bulle | bulle de colère à droite | dialogue | parole</annotation>
 		<annotation cp="🗯" type="tts">bulle de colère à droite</annotation>
 		<annotation cp="💭">bande dessinée | bulle | pensée</annotation>
+		<annotation cp="🥽">natation | protection des yeux | soudage | soudure</annotation>
+		<annotation cp="🥼">docteur | expérience | scientifique</annotation>
 		<annotation cp="👕">chandail | gaminet | T-shirt | tee-shirt | vêtements</annotation>
 		<annotation cp="👖">jean | pantalon | vêtements</annotation>
 		<annotation cp="🧦">bas | chaussettes | pieds</annotation>
 		<annotation cp="👙">bikini | maillot de bain | vêtements</annotation>
 		<annotation cp="👚">femme | vêtements</annotation>
+		<annotation cp="👛" draft="contributed">monnaie | porte-monnaie | vêtements</annotation>
 		<annotation cp="👜">sac | sac à main | vêtements</annotation>
+		<annotation cp="👝" draft="contributed">pochette | sac | vêtements</annotation>
 		<annotation cp="🛍">hôtel | magasinage | sac | sacs de magasinage | shopping</annotation>
 		<annotation cp="🛍" type="tts">sacs de magasinage</annotation>
 		<annotation cp="🎒">école | sac | sac à dos | sac d’école</annotation>
 		<annotation cp="🎒" type="tts">sac d’école</annotation>
 		<annotation cp="👞">chaussure | homme | vêtements</annotation>
 		<annotation cp="👟">chaussure | course | espadrille | sport</annotation>
+		<annotation cp="🥿">ballerine | chaussure sans lacets | pantoufle</annotation>
 		<annotation cp="👠">chaussure | femme | talon | vêtements</annotation>
 		<annotation cp="👡">chaussure | femme | sandale | sandale à talon | talon | vêtements</annotation>
 		<annotation cp="👡" type="tts">sandale à talon</annotation>
@@ -461,6 +486,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐁">souris</annotation>
 		<annotation cp="🐀">rat</annotation>
 		<annotation cp="🐹">animal | compagnie | domestique | hamster | tête | tête de hamster</annotation>
+		<annotation cp="🐹" type="tts">tête de hamster</annotation>
 		<annotation cp="🐰">lapin | tête</annotation>
 		<annotation cp="🐇">animal | compagnie | domestique | lapin</annotation>
 		<annotation cp="🐿" draft="contributed">tamia</annotation>
@@ -469,6 +495,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐻">ours | tête</annotation>
 		<annotation cp="🐨">koala</annotation>
 		<annotation cp="🐼">panda | tête | tête de panda</annotation>
+		<annotation cp="🐼" type="tts">tête de panda</annotation>
+		<annotation cp="🦘">Australie | bébé kangourou | marsupial | saut</annotation>
+		<annotation cp="🦡">blaireau | ratel</annotation>
 		<annotation cp="🐾">empreintes | foulées | marques | pas | pattes | traces</annotation>
 		<annotation cp="🦃">dinde | oiseau</annotation>
 		<annotation cp="🦃" type="tts">dinde</annotation>
@@ -477,9 +506,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐣">éclosion | oiseau | poussin</annotation>
 		<annotation cp="🐤">oiseau | poussin</annotation>
 		<annotation cp="🐥">oiseau | poussin de face</annotation>
+		<annotation cp="🐦" draft="contributed">oiseau</annotation>
 		<annotation cp="🐧">oiseau | pingouin</annotation>
 		<annotation cp="🦆">canard | oiseau</annotation>
+		<annotation cp="🦢">jeune cygne | oiseau | vilain petit canard</annotation>
 		<annotation cp="🐸">grenouille | tête | tête de grenouille</annotation>
+		<annotation cp="🐸" type="tts">tête de grenouille</annotation>
 		<annotation cp="🐊">crocodile</annotation>
 		<annotation cp="🐢">tortue</annotation>
 		<annotation cp="🐍">serpent | serpentaire | zodiaque</annotation>
@@ -522,7 +554,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍊" type="tts">tangerine</annotation>
 		<annotation cp="🍎">fruit | pomme | rouge</annotation>
 		<annotation cp="🍏">fruit | pomme | verte</annotation>
+		<annotation cp="🍒" type="tts">cerises</annotation>
 		<annotation cp="🌽">blé d’Inde | épi de blé d’Inde | épi de maïs | maïs</annotation>
+		<annotation cp="🥬">chinois | chou | frisé | laitue | pommé</annotation>
 		<annotation cp="🥦">brocoli | chou sauvage</annotation>
 		<annotation cp="🥦" type="tts">brocoli</annotation>
 		<annotation cp="🍄">champignon | vénéneux</annotation>
@@ -533,10 +567,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥞" type="tts">crêpes</annotation>
 		<annotation cp="🧀">fromage | morceau | morceau de fromage</annotation>
 		<annotation cp="🧀" type="tts">morceau de fromage</annotation>
-		<annotation cp="🍖">os | viande | viande sur son os</annotation>
+		<annotation cp="🍖">os | viande</annotation>
 		<annotation cp="🍖" type="tts">viande sur son os</annotation>
 		<annotation cp="🍗">cuisse | os | poulet | volaille</annotation>
 		<annotation cp="🥩">bifteck | bœuf | coupe | morceau | morceau de viande | steak | tranche | viande</annotation>
+		<annotation cp="🥩" type="tts">morceau de viande</annotation>
 		<annotation cp="🥓" type="tts">bacon</annotation>
 		<annotation cp="🍔">burger | hambourgeois | hamburger</annotation>
 		<annotation cp="🍟">frites | patate</annotation>
@@ -551,9 +586,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍲" type="tts">bol de nourriture</annotation>
 		<annotation cp="🍿">pop-corn | popcorn</annotation>
 		<annotation cp="🍿" type="tts">popcorn</annotation>
+		<annotation cp="🧂">condiment | mélangeur</annotation>
 		<annotation cp="🍱">bento | boîte | boîte à bento | déjeuner</annotation>
 		<annotation cp="🍱" type="tts">boîte à bento</annotation>
-		<annotation cp="🍘">craquelin de riz | riz</annotation>
+		<annotation cp="🍘">craquelin | riz</annotation>
 		<annotation cp="🍘" type="tts">craquelin de riz</annotation>
 		<annotation cp="🍙">boulette | riz</annotation>
 		<annotation cp="🍚">bol | riz</annotation>
@@ -583,6 +619,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎂">anniversaire | dessert | fête | gâteau | gâteau de fête | pâtisserie</annotation>
 		<annotation cp="🎂" type="tts">gâteau de fête</annotation>
 		<annotation cp="🍰">dessert | gâteau | part | pâtisserie | sucrerie</annotation>
+		<annotation cp="🧁">cupcake | pâtisserie | petit gâteau | sucrerie</annotation>
+		<annotation cp="🧁" type="tts">petit gâteau</annotation>
 		<annotation cp="🍫">barre | chocolat | dessert | sucré | tablette de chocolat</annotation>
 		<annotation cp="🍫" type="tts">tablette de chocolat</annotation>
 		<annotation cp="🍬">bonbon | dessert | sucré | sucrerie</annotation>
@@ -618,14 +656,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌐" type="tts">globe qui montre les méridiens</annotation>
 		<annotation cp="🗺">carte | monde</annotation>
 		<annotation cp="🗾">carte | japon</annotation>
+		<annotation cp="🧭">magnétique | navigation | orientation</annotation>
 		<annotation cp="🏔">enneigée | montagne | neige</annotation>
+		<annotation cp="🌋">éruption | montagne | volcan</annotation>
 		<annotation cp="🗻">Fuji | mont | montagne</annotation>
 		<annotation cp="🏖">parasol | plage | plage et parasol</annotation>
 		<annotation cp="🏖" type="tts">plage et parasol</annotation>
 		<annotation cp="🏝">déserte | île</annotation>
 		<annotation cp="🏞">national | parc</annotation>
 		<annotation cp="🏛">classique | monument</annotation>
-		<annotation cp="🏗" draft="provisional">bâtiment | construction</annotation>
+		<annotation cp="🏗">bâtiment | construction</annotation>
 		<annotation cp="🏚">abandonnée | maison | ruine</annotation>
 		<annotation cp="🏡">jardin | logement | maison</annotation>
 		<annotation cp="🏢">bureaux | immeuble</annotation>
@@ -639,7 +679,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏯">château | japonais</annotation>
 		<annotation cp="🏰">château | européen</annotation>
 		<annotation cp="💒">amour | chapelle | idylle | mariage</annotation>
+		<annotation cp="🗼" draft="contributed">Tokyo | tour</annotation>
+		<annotation cp="🗼" type="tts">tour de Tokyo</annotation>
 		<annotation cp="🗽" draft="contributed">statue de la Liberté</annotation>
+		<annotation cp="🗽" type="tts" draft="contributed">statue de la Liberté</annotation>
 		<annotation cp="⛩">sanctuaire | shinto</annotation>
 		<annotation cp="🌃">étoilée | étoiles | nuit</annotation>
 		<annotation cp="🏙">bâtiment | paysage urbain | ville</annotation>
@@ -650,12 +693,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌆">coucher | crépuscule | soir | soleil | ville</annotation>
 		<annotation cp="🌇">coucher | soleil</annotation>
 		<annotation cp="🌉">nuit | pont | pont de nuit</annotation>
+		<annotation cp="🌉" type="tts">pont de nuit</annotation>
 		<annotation cp="♨">source | sources thermales | thermale</annotation>
 		<annotation cp="♨" type="tts">sources thermales</annotation>
 		<annotation cp="🌌">espace | Voie lactée</annotation>
 		<annotation cp="🎠">carrousel | cheval | cheval de carrousel | manège</annotation>
 		<annotation cp="🎠" type="tts">cheval de carrousel</annotation>
 		<annotation cp="🎡">grande roue | parc d’attractions</annotation>
+		<annotation cp="🎡" type="tts">grande roue</annotation>
 		<annotation cp="🎢">montagnes | parc d’attractions | russes</annotation>
 		<annotation cp="💈">barbier | coiffure | enseigne</annotation>
 		<annotation cp="🚂">chemin de fer | locomotive | moteur | train | vapeur</annotation>
@@ -680,7 +725,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚗">automobile | char | voiture</annotation>
 		<annotation cp="🚘">automobile | char | de face | voiture</annotation>
 		<annotation cp="🚙">loisirs | sport | utilitaire | véhicule</annotation>
+		<annotation cp="🚙" type="tts">véhicule utilitaire sport</annotation>
 		<annotation cp="🚚">camion | livraison</annotation>
+		<annotation cp="🚛" draft="contributed">camion | poids lourd | semi | semi-remorque</annotation>
 		<annotation cp="🚛" type="tts">camion semi-remorque</annotation>
 		<annotation cp="🚲">bicyclette | vélo</annotation>
 		<annotation cp="🚏">arrêt | autobus | bus</annotation>
@@ -700,6 +747,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚢">bateau | navire | passager</annotation>
 		<annotation cp="✈">avion</annotation>
 		<annotation cp="🛩">avion | petit</annotation>
+		<annotation cp="🛫">avion | décollage | départ | embarquement</annotation>
+		<annotation cp="🛫" type="tts">avion au décollage</annotation>
 		<annotation cp="🛬">arrivée | atterrissage | avion | avion à l’atterissage | débarquement</annotation>
 		<annotation cp="🛬" type="tts">avion à l’atterissage</annotation>
 		<annotation cp="🚟">suspendu | train</annotation>
@@ -716,11 +765,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕛">0 h | 12 h | midi | minuit</annotation>
 		<annotation cp="🕧">00 h 30 | 12 h 30 | midi et demie | minuit et demie</annotation>
 		<annotation cp="🌑">lune | nouvelle</annotation>
-		<annotation cp="🌒">lune | premier croissant de lune</annotation>
+		<annotation cp="🌒">lune | premier croissant</annotation>
 		<annotation cp="🌒" type="tts">premier croissant de lune</annotation>
 		<annotation cp="🌓" draft="contributed">premier quartier de lune</annotation>
+		<annotation cp="🌓" type="tts" draft="contributed">premier quartier de lune</annotation>
 		<annotation cp="🌔">gibbeuse croissante | lune</annotation>
-		<annotation cp="🌕" draft="provisional">lune | pleine</annotation>
+		<annotation cp="🌕">lune | pleine</annotation>
 		<annotation cp="🌖">gibbeuse décroissante | lune</annotation>
 		<annotation cp="🌗">dernier quartier | dernier quartier de lune | lune</annotation>
 		<annotation cp="🌗" type="tts">dernier quartier de lune</annotation>
@@ -728,9 +778,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌘" type="tts">dernier croissant de lune</annotation>
 		<annotation cp="🌙">croissant | lune</annotation>
 		<annotation cp="🌚">lune | nouvelle | nouvelle lune avec visage | visage</annotation>
+		<annotation cp="🌚" type="tts">nouvelle lune avec visage</annotation>
 		<annotation cp="🌛">lune | premier quartier | premier quartier de lune avec visage | visage</annotation>
+		<annotation cp="🌛" type="tts">premier quartier de lune avec visage</annotation>
 		<annotation cp="🌜">dernier quartier | dernier quartier de lune avec visage | lune | visage</annotation>
+		<annotation cp="🌜" type="tts">dernier quartier de lune avec visage</annotation>
 		<annotation cp="🌝">lune | pleine | pleine lune avec visage | visage</annotation>
+		<annotation cp="🌝" type="tts">pleine lune avec visage</annotation>
+		<annotation cp="🌞">soleil | visage</annotation>
+		<annotation cp="🌞" type="tts">soleil avec visage</annotation>
 		<annotation cp="⭐">étoile | étoile blanche moyenne</annotation>
 		<annotation cp="⭐" type="tts">étoile blanche moyenne</annotation>
 		<annotation cp="🌟">brillante | étoile</annotation>
@@ -738,9 +794,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛅">nuage | nuageux | soleil | soleil derrière un nuage</annotation>
 		<annotation cp="⛅" type="tts">soleil derrière un nuage</annotation>
 		<annotation cp="⛈">éclair | nuage | nuage avec éclair et pluie | pluie</annotation>
+		<annotation cp="⛈" type="tts">nuage avec éclair et pluie</annotation>
 		<annotation cp="🌤">nuage | petit nuage | soleil | soleil derrière un petit nuage</annotation>
+		<annotation cp="🌤" type="tts">soleil derrière un petit nuage</annotation>
 		<annotation cp="🌥">gros nuage | nuage | soleil | soleil derrière un gros nuage</annotation>
+		<annotation cp="🌥" type="tts">soleil derrière un gros nuage</annotation>
 		<annotation cp="🌦">nuage | nuage de pluie | soleil | soleil derrière un nuage de pluie</annotation>
+		<annotation cp="🌦" type="tts">soleil derrière un nuage de pluie</annotation>
 		<annotation cp="🌧">nuage | nuage de pluie | pluie</annotation>
 		<annotation cp="🌧" type="tts">nuage de pluie</annotation>
 		<annotation cp="🌨">flocons | neige | nuage | nuage avec de la neige</annotation>
@@ -752,10 +812,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌬">météo | souffle | vent | visage | visage qui souffle du vent</annotation>
 		<annotation cp="🌬" type="tts">visage qui souffle du vent</annotation>
 		<annotation cp="🌀">cyclone | ouragan | tourbillon | typhon</annotation>
+		<annotation cp="🌀" type="tts">cyclone</annotation>
 		<annotation cp="🌈">arc-en-ciel | pluie</annotation>
 		<annotation cp="🌂">fermé | parapluie | pluie | vêtement</annotation>
 		<annotation cp="☂">parapluie | pluie | vêtement</annotation>
 		<annotation cp="☔">gouttes | parapluie | parapluie avec gouttes de pluie | pluie</annotation>
+		<annotation cp="☔" type="tts">parapluie avec gouttes de pluie</annotation>
 		<annotation cp="⛱">météo | parapluie | parasol | pluie | soleil</annotation>
 		<annotation cp="⚡">danger | électricité | haute tension</annotation>
 		<annotation cp="⚡" type="tts">haute tension</annotation>
@@ -766,6 +828,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛄">bonhomme de neige | froid | neige | sans</annotation>
 		<annotation cp="🔥">feu | flamme | outil</annotation>
 		<annotation cp="💧">bande dessinée | eau | goutte | goutte d’eau | gouttelette | sueur</annotation>
+		<annotation cp="💧" type="tts">goutte d’eau</annotation>
 		<annotation cp="🌊">eau | mer | océan | vague</annotation>
 		<annotation cp="🎄">célébration | noël | sapin de Noël</annotation>
 		<annotation cp="🎆">artifice | célébration | feu</annotation>
@@ -800,6 +863,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚽">ballon | ballon de soccer | foot | football | soccer</annotation>
 		<annotation cp="⚽" type="tts">ballon de soccer</annotation>
 		<annotation cp="⚾">balle | baseball</annotation>
+		<annotation cp="🥎">balle | gant | molle | softball</annotation>
+		<annotation cp="🥎" type="tts">balle molle</annotation>
 		<annotation cp="🏀">ballon | ballon de basket | basket | basketball | panier</annotation>
 		<annotation cp="🏀" type="tts">ballon de basket</annotation>
 		<annotation cp="🏐">ballon | ballon de volley | volley</annotation>
@@ -809,7 +874,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏉">ballon | ballon de rugby | rugby</annotation>
 		<annotation cp="🏉" type="tts">ballon de rugby</annotation>
 		<annotation cp="🎾">balle | raquette | tennis</annotation>
-		<annotation cp="🎳">boule | bowling | jeu de quilles | quilles</annotation>
+		<annotation cp="🥏">disque d’équipe | disque volant</annotation>
+		<annotation cp="🥏" type="tts">disque volant</annotation>
+		<annotation cp="🎳">boule | bowling | quilles</annotation>
 		<annotation cp="🎳" type="tts">jeu de quilles</annotation>
 		<annotation cp="🏏">balle | bâton | cricket</annotation>
 		<annotation cp="🏑">balle | bâton | gazon | hockey</annotation>
@@ -826,20 +893,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛸">glace | patin</annotation>
 		<annotation cp="🎣">canne | ligne | pêche</annotation>
 		<annotation cp="🎽">athlétisme | banderole | course | maillot | maillot de course | t-shirt</annotation>
+		<annotation cp="🎽" type="tts">maillot de course</annotation>
 		<annotation cp="🎿">neige | ski | skis</annotation>
 		<annotation cp="🎿" type="tts">skis</annotation>
 		<annotation cp="🎯">cible | dans le mille | fléchette</annotation>
 		<annotation cp="🔮">boule | cristal</annotation>
+		<annotation cp="🧿">amulette | mauvais œil | nazar | talisman</annotation>
 		<annotation cp="🎲">dé | jeu</annotation>
 		<annotation cp="🎲" type="tts">dé</annotation>
+		<annotation cp="🧩">casse-tête | pièce</annotation>
+		<annotation cp="🧩" type="tts">casse-tête</annotation>
 		<annotation cp="♥">carte | cœur | couleur | jeu</annotation>
 		<annotation cp="♥" type="tts">cœur</annotation>
 		<annotation cp="♣">carte | couleur | jeu | trèfle</annotation>
 		<annotation cp="♣" type="tts">trèfle</annotation>
+		<annotation cp="♟">duper | échec | pion | sacrifiable</annotation>
+		<annotation cp="♟" type="tts">pion</annotation>
 		<annotation cp="🃏">carte | jeu | joker</annotation>
 		<annotation cp="🃏" type="tts">joker</annotation>
 		<annotation cp="🀄">dragon | mahjong | rouge</annotation>
 		<annotation cp="🎴">carte | jeu | jeu des fleurs</annotation>
+		<annotation cp="🎴" type="tts" draft="contributed">jeu des fleurs</annotation>
 		<annotation cp="🎭">art | arts du spectacle | masque | spectacle | théâtre</annotation>
 		<annotation cp="🎭" type="tts">arts du spectacle</annotation>
 		<annotation cp="🎨">art | musée | palette | peinture</annotation>
@@ -871,6 +945,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔌">prise | prise électrique</annotation>
 		<annotation cp="🔌" type="tts">prise électrique</annotation>
 		<annotation cp="🖲">boule de commande | ordinateur</annotation>
+		<annotation cp="🖲" type="tts" draft="contributed">boule de commande</annotation>
 		<annotation cp="💽">disque | disque dur | optique | ordinateur</annotation>
 		<annotation cp="💽" type="tts">disque dur</annotation>
 		<annotation cp="💿">CD | disque | ordinateur</annotation>
@@ -891,6 +966,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📔" type="tts">carnet avec couverture décorative</annotation>
 		<annotation cp="📓">cahier | carnet</annotation>
 		<annotation cp="📒">carnet de compte | classeur</annotation>
+		<annotation cp="📒" type="tts" draft="contributed">carnet de compte</annotation>
 		<annotation cp="📑">marque | marqueur | onglets | signet</annotation>
 		<annotation cp="📑" type="tts">onglets</annotation>
 		<annotation cp="💴">billet | yen | yens</annotation>
@@ -955,17 +1031,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛠">clé à molette | marteau</annotation>
 		<annotation cp="🏹">arc | flèche | sagittaire | zodiaque</annotation>
 		<annotation cp="🔧">clé | outil</annotation>
+		<annotation cp="🔧" type="tts">clé à molette</annotation>
 		<annotation cp="🔩">écrou | outil | vis</annotation>
 		<annotation cp="⚙">engrenage | outil</annotation>
 		<annotation cp="⚙" type="tts">engrenage</annotation>
 		<annotation cp="🗜">outil | sergent | serre-joint</annotation>
+		<annotation cp="🗜" type="tts" draft="contributed">serre-joint</annotation>
 		<annotation cp="⚖">balance | balance à poids | zodiaque</annotation>
 		<annotation cp="🔗">chaînons | mousqueton</annotation>
+		<annotation cp="🔗" type="tts" draft="contributed">chaînons</annotation>
 		<annotation cp="🔬">microscope | outi | science</annotation>
 		<annotation cp="🛋">canapé | divan | lampe | sofa | sofa et lampe</annotation>
 		<annotation cp="🛋" type="tts">sofa et lampe</annotation>
 		<annotation cp="🚽">cabinet de toilette | siège de toilette | toilettes</annotation>
 		<annotation cp="🚽" type="tts">siège de toilette</annotation>
+		<annotation cp="🧻">essuie-mai | essuie-tout | papier hygiénique | papier toilette</annotation>
+		<annotation cp="🧼">bain | mousse | pain | savon | savonnette</annotation>
 		<annotation cp="🛒">chariot | panier | panier d’épicerie | shopping</annotation>
 		<annotation cp="🛒" type="tts">panier d’épicerie</annotation>
 		<annotation cp="🗿">moaï | statue</annotation>
@@ -1052,6 +1133,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔯">6 branches | étoile | étoile à 6 branches et point au milieu | fortune | six branches</annotation>
 		<annotation cp="🔯" type="tts">étoile à 6 branches et point au milieu</annotation>
 		<annotation cp="♈">bélier | zodiaque</annotation>
+		<annotation cp="♈" type="tts">Bélier zodiaque</annotation>
 		<annotation cp="♉">Taureau | zodiaque</annotation>
 		<annotation cp="♉" type="tts">Taureau</annotation>
 		<annotation cp="♊">Gémeaux | zodiaque</annotation>
@@ -1065,6 +1147,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♎">Balance | zodiaque</annotation>
 		<annotation cp="♎" type="tts">Balance</annotation>
 		<annotation cp="♏">Scorpion | zodiaque</annotation>
+		<annotation cp="♏" type="tts">Scorpion zodiaque</annotation>
 		<annotation cp="♐">Sagittaire | zodiaque</annotation>
 		<annotation cp="♐" type="tts">Sagittaire</annotation>
 		<annotation cp="♑">Capricorne | zodiaque</annotation>
@@ -1206,10 +1289,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🈺" type="tts">symbole japonais signifiant « ouvert »</annotation>
 		<annotation cp="🈵">complet | idéogramme | japonais | symbole japonais signifiant « complet » | 満</annotation>
 		<annotation cp="🈵" type="tts">symbole japonais signifiant « complet »</annotation>
-		<annotation cp="◻">carré blanc de taille moyenne | forme | géométrie</annotation>
-		<annotation cp="◻" type="tts">carré blanc de taille moyenne</annotation>
+		<annotation cp="🔴">cercle | géométrie | rond | rouge | sphère</annotation>
+		<annotation cp="🔵" draft="contributed">rond bleu</annotation>
+		<annotation cp="🔵" type="tts" draft="contributed">rond bleu</annotation>
+		<annotation cp="⚪" draft="contributed">rond blanc</annotation>
+		<annotation cp="⚪" type="tts" draft="contributed">rond blanc</annotation>
+		<annotation cp="⚫" draft="contributed">rond noir</annotation>
+		<annotation cp="⚫" type="tts" draft="contributed">rond noir</annotation>
 		<annotation cp="◼">carré noir de taille moyenne | forme | géométrie</annotation>
 		<annotation cp="◼" type="tts">carré noir de taille moyenne</annotation>
+		<annotation cp="◻">carré blanc de taille moyenne | forme | géométrie</annotation>
+		<annotation cp="◻" type="tts">carré blanc de taille moyenne</annotation>
 		<annotation cp="◽">carré blanc de taille intermédiaire | forme | géométrie</annotation>
 		<annotation cp="◽" type="tts">carré blanc de taille intermédiaire</annotation>
 		<annotation cp="◾">carré noir de taille intermédiaire | forme | géométrie</annotation>
@@ -1226,12 +1316,5 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔲" type="tts">bouton représentant un carré noir</annotation>
 		<annotation cp="🔳">bouton | bouton représentant un carré blanc | carré blanc | géométrie</annotation>
 		<annotation cp="🔳" type="tts">bouton représentant un carré blanc</annotation>
-		<annotation cp="⚪" draft="contributed">rond blanc</annotation>
-		<annotation cp="⚪" type="tts" draft="contributed">rond blanc</annotation>
-		<annotation cp="⚫" draft="contributed">rond noir</annotation>
-		<annotation cp="⚫" type="tts" draft="contributed">rond noir</annotation>
-		<annotation cp="🔴">cercle | géométrie | rond | rouge | sphère</annotation>
-		<annotation cp="🔵" draft="contributed">rond bleu</annotation>
-		<annotation cp="🔵" type="tts" draft="contributed">rond bleu</annotation>
 	</annotations>
 </ldml>

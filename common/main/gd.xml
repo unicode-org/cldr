@@ -331,6 +331,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ln">Lingala</language>
 			<language type="lo">Làtho</language>
 			<language type="lol">Mongo</language>
+			<language type="lou">Crìtheol Louisiana</language>
 			<language type="loz">Lozi</language>
 			<language type="lrc">Luri Thuathach</language>
 			<language type="lt">Liotuainis</language>
@@ -645,6 +646,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Cyrl">Cirilis</script>
 			<script type="Cyrs">Cirilis Seann-Slàbhais na h-Eaglaise</script>
 			<script type="Deva">Devanagari</script>
+			<script type="Dogr">Dogra</script>
 			<script type="Dsrt">Deseret</script>
 			<script type="Dupl">Gearr-sgrìobhadh Duployé</script>
 			<script type="Egyp">Sealbh-sgrìobhadh Èipheiteach</script>
@@ -652,6 +654,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Ethi">Ge’ez</script>
 			<script type="Geor">Cairtbheilis</script>
 			<script type="Glag">Glagoliticeach</script>
+			<script type="Gong">Gunjala Gondi</script>
 			<script type="Gonm">Masaram Gondi</script>
 			<script type="Goth">Gotais</script>
 			<script type="Gran">Grantha</script>
@@ -701,10 +704,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Lyci">Lycian</script>
 			<script type="Lydi">Lydian</script>
 			<script type="Mahj">Mahajani</script>
+			<script type="Maka">Makasar</script>
 			<script type="Mand">Mandaean</script>
 			<script type="Mani">Manichaean</script>
 			<script type="Marc">Marchen</script>
 			<script type="Maya">Dealbh-sgrìobhadh Mayach</script>
+			<script type="Medf">Medefaidrin</script>
 			<script type="Mend">Mende</script>
 			<script type="Merc">Meroiticeach ceangailte</script>
 			<script type="Mero">Meroiticeach</script>
@@ -738,6 +743,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Prti">Partais snaidh-sgrìobhte</script>
 			<script type="Qaac">Qaac</script>
 			<script type="Rjng">Rejang</script>
+			<script type="Rohg">Hanifi Rohingya</script>
 			<script type="Roro">Rongorongo</script>
 			<script type="Runr">Rùn-sgrìobhadh</script>
 			<script type="Samr">Samaritanais</script>
@@ -750,6 +756,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Sidd">Siddham</script>
 			<script type="Sind">Khudawadi</script>
 			<script type="Sinh">Sinhala</script>
+			<script type="Sogd">Sogdianais</script>
+			<script type="Sogo">Seann-Sogdianais</script>
 			<script type="Sora">Sora Sompeng</script>
 			<script type="Soyo">Soyombo</script>
 			<script type="Sund">Sunda</script>
@@ -818,6 +826,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="151">An Roinn-Eòrpa an Ear</territory>
 			<territory type="154">An Roinn-Eòrpa a Tuath</territory>
 			<territory type="155">An Roinn-Eòrpa an Iar</territory>
+			<territory type="202">Afraga Deas air an t-Sathara</territory>
 			<territory type="419">Aimeireaga Laidinneach</territory>
 			<territory type="AC">Eilean na Deasgabhalach</territory>
 			<territory type="AD">Andorra</territory>
@@ -1017,7 +1026,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="PM">Saint Pierre agus Miquelon</territory>
 			<territory type="PN">Eileanan Pheit a’ Chàirn</territory>
 			<territory type="PR">Porto Rìceo</territory>
-			<territory type="PS">Na Ranntairean Palastaineach</territory>
+			<territory type="PS">Ùghdarras nam Palastaineach</territory>
 			<territory type="PS" alt="short">Palastain</territory>
 			<territory type="PT">A’ Phortagail</territory>
 			<territory type="PW">Palabh</territory>
@@ -1093,6 +1102,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ZW">An t-Sìombab</territory>
 			<territory type="ZZ">Roinn-dùthcha neo-aithnichte</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">Sasainn</subdivision>
+			<subdivision type="gbsct">Alba</subdivision>
+			<subdivision type="gbwls">A’ Chuimrigh</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901">Litreachadh tradaiseanta na Gearmailtise</variant>
 			<variant type="1994">Litreachadh stannardach dual-chainnt Resia</variant>
@@ -1101,11 +1115,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<variant type="1694ACAD">Nua-Fhraingis thràth</variant>
 			<variant type="1959ACAD">Bealaruisis Acadamaigeach</variant>
 			<variant type="ABL1943">Gnàthas-litreachaidh 1943</variant>
+			<variant type="AKUAPEM">AKUAPEM</variant>
 			<variant type="ALALC97">Ròmanachadh ALA-LC 1997</variant>
 			<variant type="ALUKU">Dual-chainnt Aluku</variant>
 			<variant type="AO1990">Aonta litreachadh na Portagailise 1990</variant>
 			<variant type="AREVELA">Airmeinis an Ear</variant>
 			<variant type="AREVMDA">Airmeinis an Iar</variant>
+			<variant type="ASANTE">ASANTE</variant>
 			<variant type="BAKU1926">Abidil Laideann aonaichte na Turcaise</variant>
 			<variant type="BALANKA">Dual-chainnt Balanka de Anii</variant>
 			<variant type="BARLA">Dual-chainntean Barlavento de Kabuverdianu</variant>
@@ -1129,6 +1145,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<variant type="HSISTEMO">HSISTEMO</variant>
 			<variant type="IJEKAVSK">Sèirbis le fuaimneachadh Ijekavia</variant>
 			<variant type="ITIHASA">Itihasa</variant>
+			<variant type="IVANCHOV">IVANCHOV</variant>
 			<variant type="JAUER">Jauer</variant>
 			<variant type="JYUTPING">Jyutping</variant>
 			<variant type="KKCOR">Litreachadh coitcheann</variant>
@@ -1243,6 +1260,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ms" type="metric">Tomhas meatrach</type>
 			<type key="ms" type="uksystem">Tomhas impireil</type>
 			<type key="ms" type="ussystem">Tomhas nan Stàitean Aonaichte</type>
+			<type key="numbers" type="ahom">Àireamhan Ahom</type>
 			<type key="numbers" type="arab">Àireamhan Arabach-Innseanach</type>
 			<type key="numbers" type="arabext">Àireamhan Arabach-Innseanach leudaichte</type>
 			<type key="numbers" type="armn">Àireamhan na h-Airmeinise</type>
@@ -1252,10 +1270,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="brah">Àireamhan Brahmi</type>
 			<type key="numbers" type="cakm">Àireamhan Chakma</type>
 			<type key="numbers" type="cham">Àireamhan Cham</type>
+			<type key="numbers" type="cyrl">Àireamhan na Cirilise</type>
 			<type key="numbers" type="deva">Àireamhan Devanagari</type>
 			<type key="numbers" type="ethi">Àireamhan Itiopach</type>
 			<type key="numbers" type="fullwide">Àireamhan làn-leud</type>
 			<type key="numbers" type="geor">Àireamhan na Cairtbheilise</type>
+			<type key="numbers" type="gong">Àireamhan Gunjala Gondi</type>
+			<type key="numbers" type="gonm">Àireamhan Masaram Gondi</type>
 			<type key="numbers" type="grek">Àireamhan na Greugaise</type>
 			<type key="numbers" type="greklow">Àireamhan beaga na Greugaise</type>
 			<type key="numbers" type="gujr">Àireamhan Gujarati</type>
@@ -1266,6 +1287,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="hant">Àireamhan na Sìnise Thradaiseanta</type>
 			<type key="numbers" type="hantfin">Àireamhan ionmhasail na Sìnise Thradaiseanta</type>
 			<type key="numbers" type="hebr">Àireamhan na h-Eabhra</type>
+			<type key="numbers" type="hmng">Àireamhan Pahawh Hmong</type>
 			<type key="numbers" type="java">Àireamhan na Deàbhanaise</type>
 			<type key="numbers" type="jpan">Àireamhan na Seapanaise</type>
 			<type key="numbers" type="jpanfin">Àireamhan ionmhasail na Seapanaise</type>
@@ -1278,19 +1300,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="latn">Àireamhan Siarach</type>
 			<type key="numbers" type="lepc">Àireamhan Lepcha</type>
 			<type key="numbers" type="limb">Àireamhan Limbu</type>
+			<type key="numbers" type="mathbold">Àireamhan matamataig troma</type>
+			<type key="numbers" type="mathdbl">Àireamhan matamataig le loidhne dhùbailte</type>
+			<type key="numbers" type="mathmono">Àireamhan matamataig aon-leud</type>
+			<type key="numbers" type="mathsanb">Àireamhan matamataig sans-serif troma</type>
+			<type key="numbers" type="mathsans">Àireamhan matamataig sans-serif</type>
 			<type key="numbers" type="mlym">Àireamhan Malayalam</type>
+			<type key="numbers" type="modi">Àireamhan Modi</type>
 			<type key="numbers" type="mong">Àireamhan na Mongolaise</type>
+			<type key="numbers" type="mroo">Àireamhan Mro</type>
 			<type key="numbers" type="mtei">Àireamhan Meetei Mayek</type>
 			<type key="numbers" type="mymr">Àireamhan Miànmar</type>
 			<type key="numbers" type="mymrshan">Àireamhan Shan Miànmar</type>
+			<type key="numbers" type="mymrtlng">Àireamhan Tai Laing Miànmar</type>
 			<type key="numbers" type="nkoo">Àireamhan N’Ko</type>
 			<type key="numbers" type="olck">Àireamhan Ol Chiki</type>
 			<type key="numbers" type="orya">Àireamhan Odia</type>
 			<type key="numbers" type="osma">Àireamhan Osmanya</type>
+			<type key="numbers" type="rohg">Àireamhan Hanifi Rohingya</type>
 			<type key="numbers" type="roman">Àireamhan Ròmanach</type>
 			<type key="numbers" type="romanlow">Àireamhan beaga Ròmanach</type>
 			<type key="numbers" type="saur">Àireamhan Saurashtra</type>
 			<type key="numbers" type="shrd">Àireamhan Sharada</type>
+			<type key="numbers" type="sind">Àireamhan Khudawadi</type>
+			<type key="numbers" type="sinh">Àireamhan Lith na Sinhala</type>
 			<type key="numbers" type="sora">Àireamhan Sora Sompeng</type>
 			<type key="numbers" type="sund">Àireamhan Sunda</type>
 			<type key="numbers" type="takr">Àireamhan Takri</type>
@@ -1300,7 +1333,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="telu">Àireamhan Telugu</type>
 			<type key="numbers" type="thai">Àireamhan Tàidh</type>
 			<type key="numbers" type="tibt">Àireamhan na Tibeitise</type>
+			<type key="numbers" type="tirh">Àireamhan Tirhuta</type>
 			<type key="numbers" type="vaii">Àireamhan Vai</type>
+			<type key="numbers" type="wara">Àireamhan Warang Citi</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Meatrach</measurementSystemName>
@@ -1318,7 +1353,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="auxiliary">[á ă â å ä ã ā æ ċ ç ḋ é ĕ ê ë ē ḟ ġ í ĭ î ï ī ı j k ł ṁ ñ ó ŏ ô ö ø ō œ ṗ q ṡ ş ș ṫ ú ŭ û ü ū v w x y ÿ z]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C D E F G H I L M N O P R S T U]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="unconfirmed">[\- ‐ – — , ; \: ! ¡ ? . … · ' ‘ ’ &quot; “ ” ( ) \[ \] \{ \} § ¶ @ * / \&amp; ⁊ # % † ‡ ‧ ° © ® ™]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">[!-#%-*,-/\:;?@\[\]\{\}¡§©®°¶·‐–—‘’“”†‡…‧⁊™]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
@@ -1326,6 +1361,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-initial">… {0}</ellipsis>
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\--/]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
+			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -1336,7 +1390,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<dates>
 		<calendars>
 			<calendar type="buddhist">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
 				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MMMMd">d'mh' MMMM</dateFormatItem>
+						<dateFormatItem id="yMM">LL/y</dateFormatItem>
+						<dateFormatItem id="yyyyM">L/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
+					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="H">
@@ -1353,6 +1425,891 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<intervalFormatItem id="Hv">
 							<greatestDifference id="H">HH – HH v</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">L – L</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="chinese">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Chiad</month>
+							<month type="2">Dàrna</month>
+							<month type="3">Treas</month>
+							<month type="4">Ceathr</month>
+							<month type="5">Còig</month>
+							<month type="6">Sia</month>
+							<month type="7">Seachd</month>
+							<month type="8">Ochd</month>
+							<month type="9">Naoidh</month>
+							<month type="10">Deich</month>
+							<month type="11">Aon Deug</month>
+							<month type="12">Dàrna Deug</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">dhen Chiad Mhìos</month>
+							<month type="2">dhen Dàrna Mhìos</month>
+							<month type="3">dhen Treas Mhìos</month>
+							<month type="4">dhen Cheathramh Mhìos</month>
+							<month type="5">dhen Chòigeamh Mhìos</month>
+							<month type="6">dhen t-Siathamh Mhìos</month>
+							<month type="7">dhen t-Seachdamh Mhìos</month>
+							<month type="8">dhen Ochdamh Mhìos</month>
+							<month type="9">dhen Naoidheamh Mhìos</month>
+							<month type="10">dhen Deicheamh Mhìos</month>
+							<month type="11">dhen Aonamh Mhìos Deug</month>
+							<month type="12">dhen Dàrna Mhìos Deug</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">Chiad</month>
+							<month type="2">Dàrna</month>
+							<month type="3">Treas</month>
+							<month type="4">Ceathr</month>
+							<month type="5">Còig</month>
+							<month type="6">Sia</month>
+							<month type="7">Seachd</month>
+							<month type="8">Ochd</month>
+							<month type="9">Naoidh</month>
+							<month type="10">Deich</month>
+							<month type="11">Aon Deug</month>
+							<month type="12">Dàrna Deug</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">A’ Chiad Mhìos</month>
+							<month type="2">An Dàrna Mìos</month>
+							<month type="3">An Treas Mìos</month>
+							<month type="4">An Ceathramh Mìos</month>
+							<month type="5">An Còigeamh Mìos</month>
+							<month type="6">An Siathamh Mìos</month>
+							<month type="7">An Seachdamh Mìos</month>
+							<month type="8">An t-Ochdamh Mìos</month>
+							<month type="9">An Naoidheamh Mìos</month>
+							<month type="10">An Deicheamh Mìos</month>
+							<month type="11">An t-Aonamh Mìos Deug</month>
+							<month type="12">An Dàrna Mìos Deug</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<cyclicNameSets>
+					<cyclicNameSet type="solarTerms">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">toiseach an earraich</cyclicName>
+								<cyclicName type="2">an t-uisge</cyclicName>
+								<cyclicName type="3">dùsgadh nam biastag</cyclicName>
+								<cyclicName type="4">co-fhad-thràth an earraich</cyclicName>
+								<cyclicName type="5">soilleir</cyclicName>
+								<cyclicName type="6">uisge a’ ghràin</cyclicName>
+								<cyclicName type="7">toiseach an t-samhraidh</cyclicName>
+								<cyclicName type="8">gràn làn</cyclicName>
+								<cyclicName type="9">gràn abaich</cyclicName>
+								<cyclicName type="10">grian-stad an t-samhraidh</cyclicName>
+								<cyclicName type="11">teas beag</cyclicName>
+								<cyclicName type="12">teas mòr</cyclicName>
+								<cyclicName type="13">toiseach an fhoghair</cyclicName>
+								<cyclicName type="14">deireadh an teasa</cyclicName>
+								<cyclicName type="15">driùchd geal</cyclicName>
+								<cyclicName type="16">co-fhad-thràth an fhoghair</cyclicName>
+								<cyclicName type="17">driùchd fuar</cyclicName>
+								<cyclicName type="18">teachd an reòthaidh</cyclicName>
+								<cyclicName type="19">toiseach a’ gheamhraidh</cyclicName>
+								<cyclicName type="20">sneachd beag</cyclicName>
+								<cyclicName type="21">sneachd mòr</cyclicName>
+								<cyclicName type="22">grian-stad a’ gheamhraidh</cyclicName>
+								<cyclicName type="23">fuachd bheag</cyclicName>
+								<cyclicName type="24">fuachd mhòr</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="narrow">
+								<cyclicName type="1">toiseach earraich</cyclicName>
+								<cyclicName type="2">an t-uisge</cyclicName>
+								<cyclicName type="3">dùsgadh bhiastagan</cyclicName>
+								<cyclicName type="4">co-fhad-thràth earraich</cyclicName>
+								<cyclicName type="5">soilleir</cyclicName>
+								<cyclicName type="6">uisge gràin</cyclicName>
+								<cyclicName type="7">toiseach samhraidh</cyclicName>
+								<cyclicName type="8">gràn làn</cyclicName>
+								<cyclicName type="9">gràn abaich</cyclicName>
+								<cyclicName type="10">grian-stad samhraidh</cyclicName>
+								<cyclicName type="11">teas beag</cyclicName>
+								<cyclicName type="12">teas mòr</cyclicName>
+								<cyclicName type="13">toiseach foghair</cyclicName>
+								<cyclicName type="14">deireadh teasa</cyclicName>
+								<cyclicName type="15">driùchd geal</cyclicName>
+								<cyclicName type="16">co-fhad-thràth foghair</cyclicName>
+								<cyclicName type="17">driùchd fuar</cyclicName>
+								<cyclicName type="18">teachd reòthaidh</cyclicName>
+								<cyclicName type="19">toiseach geamhraidh</cyclicName>
+								<cyclicName type="20">sneachd beag</cyclicName>
+								<cyclicName type="21">sneachd mòr</cyclicName>
+								<cyclicName type="22">grian-stad geamhraidh</cyclicName>
+								<cyclicName type="23">fuachd bheag</cyclicName>
+								<cyclicName type="24">fuachd mhòr</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="wide">
+								<cyclicName type="1">toiseach an earraich</cyclicName>
+								<cyclicName type="2">an t-uisge</cyclicName>
+								<cyclicName type="3">dùsgadh nam biastag</cyclicName>
+								<cyclicName type="4">co-fhad-thràth an earraich</cyclicName>
+								<cyclicName type="5">soilleir</cyclicName>
+								<cyclicName type="6">uisge a’ ghràin</cyclicName>
+								<cyclicName type="7">toiseach an t-samhraidh</cyclicName>
+								<cyclicName type="8">an gràn làn</cyclicName>
+								<cyclicName type="9">an gràn abaich</cyclicName>
+								<cyclicName type="10">grian-stad an t-samhraidh</cyclicName>
+								<cyclicName type="11">an teas beag</cyclicName>
+								<cyclicName type="12">an teas mòr</cyclicName>
+								<cyclicName type="13">toiseach an fhoghair</cyclicName>
+								<cyclicName type="14">deireadh an teasa</cyclicName>
+								<cyclicName type="15">an driùchd geal</cyclicName>
+								<cyclicName type="16">co-fhad-thràth an fhoghair</cyclicName>
+								<cyclicName type="17">an driùchd fuar</cyclicName>
+								<cyclicName type="18">teachd an reòthaidh</cyclicName>
+								<cyclicName type="19">toiseach a’ gheamhraidh</cyclicName>
+								<cyclicName type="20">an sneachd beag</cyclicName>
+								<cyclicName type="21">an sneachd mòr</cyclicName>
+								<cyclicName type="22">grian-stad a’ gheamhraidh</cyclicName>
+								<cyclicName type="23">an fhuachd bheag</cyclicName>
+								<cyclicName type="24">an fhuachd mhòr</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="zodiacs">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">Radan</cyclicName>
+								<cyclicName type="2">Damh</cyclicName>
+								<cyclicName type="3">Tìgear</cyclicName>
+								<cyclicName type="4">Coinean</cyclicName>
+								<cyclicName type="5">Dràgon</cyclicName>
+								<cyclicName type="6">Nathair</cyclicName>
+								<cyclicName type="7">Each</cyclicName>
+								<cyclicName type="8">Gobhar</cyclicName>
+								<cyclicName type="9">Muncaidh</cyclicName>
+								<cyclicName type="10">Coileach</cyclicName>
+								<cyclicName type="11">Cù</cyclicName>
+								<cyclicName type="12">Muc</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="narrow">
+								<cyclicName type="1">Radan</cyclicName>
+								<cyclicName type="2">Damh</cyclicName>
+								<cyclicName type="3">Tìgear</cyclicName>
+								<cyclicName type="4">Coinean</cyclicName>
+								<cyclicName type="5">Dràgon</cyclicName>
+								<cyclicName type="6">Nathair</cyclicName>
+								<cyclicName type="7">Each</cyclicName>
+								<cyclicName type="8">Gobhar</cyclicName>
+								<cyclicName type="9">Muncaidh</cyclicName>
+								<cyclicName type="10">Coileach</cyclicName>
+								<cyclicName type="11">Cù</cyclicName>
+								<cyclicName type="12">Muc</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="wide">
+								<cyclicName type="1">Radan</cyclicName>
+								<cyclicName type="2">Damh</cyclicName>
+								<cyclicName type="3">Tìgear</cyclicName>
+								<cyclicName type="4">Coinean</cyclicName>
+								<cyclicName type="5">Dràgon</cyclicName>
+								<cyclicName type="6">Nathair</cyclicName>
+								<cyclicName type="7">Each</cyclicName>
+								<cyclicName type="8">Gobhar</cyclicName>
+								<cyclicName type="9">Muncaidh</cyclicName>
+								<cyclicName type="10">Coileach</cyclicName>
+								<cyclicName type="11">Cù</cyclicName>
+								<cyclicName type="12">Muc</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+				</cyclicNameSets>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d'mh' MMMM r(U)</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d'mh' MMMM r(U)</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM r</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>d/M/r</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} 'aig' {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} 'aig' {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="Bh">hB</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mmB</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ssB</dateFormatItem>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mmB</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ssB</dateFormatItem>
+						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Gy">r(U)</dateFormatItem>
+						<dateFormatItem id="GyMMM">LLL r(U)</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d'mh' MMM r</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, d'mh' MMM r(U)</dateFormatItem>
+						<dateFormatItem id="h">ha</dateFormatItem>
+						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="hm">h:mma</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ssa</dateFormatItem>
+						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">d'mh' MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d'mh' MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d'mh' MMMM</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="UM">L/U</dateFormatItem>
+						<dateFormatItem id="UMd">d/M/U</dateFormatItem>
+						<dateFormatItem id="UMMM">LLL U</dateFormatItem>
+						<dateFormatItem id="UMMMd">d'mh' MMM U</dateFormatItem>
+						<dateFormatItem id="y">r(U)</dateFormatItem>
+						<dateFormatItem id="yMd">d/M/r</dateFormatItem>
+						<dateFormatItem id="yyyy">r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyM">L/r</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d/M/r</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, d/M/r</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">LLL r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d'mh' MMM r</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, d'mh' MMM r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">LLLL r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ r(U)</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d – d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a">ha – ha</greatestDifference>
+							<greatestDifference id="h">h – ha</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H">HH – HH</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a">h:mma – h:mma</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mma</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mma</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H">HH:mm – HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm – HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a">h:mma – h:mma v</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mma v</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mma v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H">HH:mm – HH:mm v</greatestDifference>
+							<greatestDifference id="m">HH:mm – HH:mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a">ha – ha v</greatestDifference>
+							<greatestDifference id="h">h – ha v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H">HH – HH v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">L – L</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">d/M – d/M</greatestDifference>
+							<greatestDifference id="M">d/M – d/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">E, d/M – E, d/M</greatestDifference>
+							<greatestDifference id="M">E, d/M – E, d/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">LLL – LLL</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d MMM – d</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">E, d MMM – E, d MMM</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">U – U</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">L/y – L/y</greatestDifference>
+							<greatestDifference id="y">L/y – L/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">d/M/y – d/M/y</greatestDifference>
+							<greatestDifference id="M">d/M/y – d/M/y</greatestDifference>
+							<greatestDifference id="y">d/M/y – d/M/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">E, d/M/y – E, d/M/y</greatestDifference>
+							<greatestDifference id="M">E, d/M/y – E, d/M/y</greatestDifference>
+							<greatestDifference id="y">E, d/M/y – E, d/M/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">LLL – LLL U</greatestDifference>
+							<greatestDifference id="y">LLL U – LLL U</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">d MMM – d, U</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM, U</greatestDifference>
+							<greatestDifference id="y">d MMM, U – d MMM, U</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">E, d MMM – E, d MMM, U</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM, U</greatestDifference>
+							<greatestDifference id="y">E, d MMM, U – E, d MMM, U</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">LLLL – LLLL U</greatestDifference>
+							<greatestDifference id="y">LLLL U – LLLL U</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="coptic">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MMMMd">d'mh' MMMM</dateFormatItem>
+						<dateFormatItem id="yMM">LL/y</dateFormatItem>
+						<dateFormatItem id="yyyyM">L/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">L – L</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="dangi">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Chiad</month>
+							<month type="2">Dàrna</month>
+							<month type="3">Treas</month>
+							<month type="4">Ceathr</month>
+							<month type="5">Còig</month>
+							<month type="6">Sia</month>
+							<month type="7">Seachd</month>
+							<month type="8">Ochd</month>
+							<month type="9">Naoidh</month>
+							<month type="10">Deich</month>
+							<month type="11">Aon Deug</month>
+							<month type="12">Dàrna Deug</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">dhen Chiad Mhìos</month>
+							<month type="2">dhen Dàrna Mhìos</month>
+							<month type="3">dhen Treas Mhìos</month>
+							<month type="4">dhen Cheathramh Mhìos</month>
+							<month type="5">dhen Chòigeamh Mhìos</month>
+							<month type="6">dhen t-Siathamh Mhìos</month>
+							<month type="7">dhen t-Seachdamh Mhìos</month>
+							<month type="8">dhen Ochdamh Mhìos</month>
+							<month type="9">dhen Naoidheamh Mhìos</month>
+							<month type="10">dhen Deicheamh Mhìos</month>
+							<month type="11">dhen Aonamh Mhìos Deug</month>
+							<month type="12">dhen Dàrna Mhìos Deug</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">Chiad</month>
+							<month type="2">Dàrna</month>
+							<month type="3">Treas</month>
+							<month type="4">Ceathr</month>
+							<month type="5">Còig</month>
+							<month type="6">Sia</month>
+							<month type="7">Seachd</month>
+							<month type="8">Ochd</month>
+							<month type="9">Naoidh</month>
+							<month type="10">Deich</month>
+							<month type="11">Aon Deug</month>
+							<month type="12">Dàrna Deug</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">A’ Chiad Mhìos</month>
+							<month type="2">An Dàrna Mìos</month>
+							<month type="3">An Treas Mìos</month>
+							<month type="4">An Ceathramh Mìos</month>
+							<month type="5">An Còigeamh Mìos</month>
+							<month type="6">An Siathamh Mìos</month>
+							<month type="7">An Seachdamh Mìos</month>
+							<month type="8">An t-Ochdamh Mìos</month>
+							<month type="9">An Naoidheamh Mìos</month>
+							<month type="10">An Deicheamh Mìos</month>
+							<month type="11">An t-Aonamh Mìos Deug</month>
+							<month type="12">An Dàrna Mìos Deug</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<cyclicNameSets>
+					<cyclicNameSet type="solarTerms">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">toiseach an earraich</cyclicName>
+								<cyclicName type="2">an t-uisge</cyclicName>
+								<cyclicName type="3">dùsgadh nam biastag</cyclicName>
+								<cyclicName type="4">co-fhad-thràth an earraich</cyclicName>
+								<cyclicName type="5">soilleir</cyclicName>
+								<cyclicName type="6">uisge a’ ghràin</cyclicName>
+								<cyclicName type="7">toiseach an t-samhraidh</cyclicName>
+								<cyclicName type="8">gràn làn</cyclicName>
+								<cyclicName type="9">gràn abaich</cyclicName>
+								<cyclicName type="10">grian-stad an t-samhraidh</cyclicName>
+								<cyclicName type="11">teas beag</cyclicName>
+								<cyclicName type="12">teas mòr</cyclicName>
+								<cyclicName type="13">toiseach an fhoghair</cyclicName>
+								<cyclicName type="14">deireadh an teasa</cyclicName>
+								<cyclicName type="15">driùchd geal</cyclicName>
+								<cyclicName type="16">co-fhad-thràth an fhoghair</cyclicName>
+								<cyclicName type="17">driùchd fuar</cyclicName>
+								<cyclicName type="18">teachd an reòthaidh</cyclicName>
+								<cyclicName type="19">toiseach a’ gheamhraidh</cyclicName>
+								<cyclicName type="20">sneachd beag</cyclicName>
+								<cyclicName type="21">sneachd mòr</cyclicName>
+								<cyclicName type="22">grian-stad a’ gheamhraidh</cyclicName>
+								<cyclicName type="23">fuachd bheag</cyclicName>
+								<cyclicName type="24">fuachd mhòr</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="narrow">
+								<cyclicName type="1">toiseach earraich</cyclicName>
+								<cyclicName type="2">an t-uisge</cyclicName>
+								<cyclicName type="3">dùsgadh bhiastagan</cyclicName>
+								<cyclicName type="4">co-fhad-thràth earraich</cyclicName>
+								<cyclicName type="5">soilleir</cyclicName>
+								<cyclicName type="6">uisge gràin</cyclicName>
+								<cyclicName type="7">toiseach samhraidh</cyclicName>
+								<cyclicName type="8">gràn làn</cyclicName>
+								<cyclicName type="9">gràn abaich</cyclicName>
+								<cyclicName type="10">grian-stad samhraidh</cyclicName>
+								<cyclicName type="11">teas beag</cyclicName>
+								<cyclicName type="12">teas mòr</cyclicName>
+								<cyclicName type="13">toiseach foghair</cyclicName>
+								<cyclicName type="14">deireadh teasa</cyclicName>
+								<cyclicName type="15">driùchd geal</cyclicName>
+								<cyclicName type="16">co-fhad-thràth foghair</cyclicName>
+								<cyclicName type="17">driùchd fuar</cyclicName>
+								<cyclicName type="18">teachd reòthaidh</cyclicName>
+								<cyclicName type="19">toiseach geamhraidh</cyclicName>
+								<cyclicName type="20">sneachd beag</cyclicName>
+								<cyclicName type="21">sneachd mòr</cyclicName>
+								<cyclicName type="22">grian-stad geamhraidh</cyclicName>
+								<cyclicName type="23">fuachd bheag</cyclicName>
+								<cyclicName type="24">fuachd mhòr</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="wide">
+								<cyclicName type="1">toiseach an earraich</cyclicName>
+								<cyclicName type="2">an t-uisge</cyclicName>
+								<cyclicName type="3">dùsgadh nam biastag</cyclicName>
+								<cyclicName type="4">co-fhad-thràth an earraich</cyclicName>
+								<cyclicName type="5">soilleir</cyclicName>
+								<cyclicName type="6">uisge a’ ghràin</cyclicName>
+								<cyclicName type="7">toiseach an t-samhraidh</cyclicName>
+								<cyclicName type="8">an gràn làn</cyclicName>
+								<cyclicName type="9">an gràn abaich</cyclicName>
+								<cyclicName type="10">grian-stad an t-samhraidh</cyclicName>
+								<cyclicName type="11">an teas beag</cyclicName>
+								<cyclicName type="12">an teas mòr</cyclicName>
+								<cyclicName type="13">toiseach an fhoghair</cyclicName>
+								<cyclicName type="14">deireadh an teasa</cyclicName>
+								<cyclicName type="15">an driùchd geal</cyclicName>
+								<cyclicName type="16">co-fhad-thràth an fhoghair</cyclicName>
+								<cyclicName type="17">an driùchd fuar</cyclicName>
+								<cyclicName type="18">teachd an reòthaidh</cyclicName>
+								<cyclicName type="19">toiseach a’ gheamhraidh</cyclicName>
+								<cyclicName type="20">an sneachd beag</cyclicName>
+								<cyclicName type="21">an sneachd mòr</cyclicName>
+								<cyclicName type="22">grian-stad a’ gheamhraidh</cyclicName>
+								<cyclicName type="23">an fhuachd bheag</cyclicName>
+								<cyclicName type="24">an fhuachd mhòr</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="zodiacs">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">Radan</cyclicName>
+								<cyclicName type="2">Damh</cyclicName>
+								<cyclicName type="3">Tìgear</cyclicName>
+								<cyclicName type="4">Coinean</cyclicName>
+								<cyclicName type="5">Dràgon</cyclicName>
+								<cyclicName type="6">Nathair</cyclicName>
+								<cyclicName type="7">Each</cyclicName>
+								<cyclicName type="8">Gobhar</cyclicName>
+								<cyclicName type="9">Muncaidh</cyclicName>
+								<cyclicName type="10">Coileach</cyclicName>
+								<cyclicName type="11">Cù</cyclicName>
+								<cyclicName type="12">Muc</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="narrow">
+								<cyclicName type="1">Radan</cyclicName>
+								<cyclicName type="2">Damh</cyclicName>
+								<cyclicName type="3">Tìgear</cyclicName>
+								<cyclicName type="4">Coinean</cyclicName>
+								<cyclicName type="5">Dràgon</cyclicName>
+								<cyclicName type="6">Nathair</cyclicName>
+								<cyclicName type="7">Each</cyclicName>
+								<cyclicName type="8">Gobhar</cyclicName>
+								<cyclicName type="9">Muncaidh</cyclicName>
+								<cyclicName type="10">Coileach</cyclicName>
+								<cyclicName type="11">Cù</cyclicName>
+								<cyclicName type="12">Muc</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="wide">
+								<cyclicName type="1">Radan</cyclicName>
+								<cyclicName type="2">Damh</cyclicName>
+								<cyclicName type="3">Tìgear</cyclicName>
+								<cyclicName type="4">Coinean</cyclicName>
+								<cyclicName type="5">Dràgon</cyclicName>
+								<cyclicName type="6">Nathair</cyclicName>
+								<cyclicName type="7">Each</cyclicName>
+								<cyclicName type="8">Gobhar</cyclicName>
+								<cyclicName type="9">Muncaidh</cyclicName>
+								<cyclicName type="10">Coileach</cyclicName>
+								<cyclicName type="11">Cù</cyclicName>
+								<cyclicName type="12">Muc</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+				</cyclicNameSets>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d'mh' MMMM r(U)</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d'mh' MMMM r(U)</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM r</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>d/M/r</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} 'aig' {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} 'aig' {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Gy">r(U)</dateFormatItem>
+						<dateFormatItem id="GyMMM">LLL r(U)</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d'mh' MMM r</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, d'mh' MMM r(U)</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">d'mh' MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d'mh' MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d'mh' MMMM</dateFormatItem>
+						<dateFormatItem id="UM">L/U</dateFormatItem>
+						<dateFormatItem id="UMd">d/M/U</dateFormatItem>
+						<dateFormatItem id="UMMM">LLL U</dateFormatItem>
+						<dateFormatItem id="UMMMd">d'mh' MMM U</dateFormatItem>
+						<dateFormatItem id="y">r(U)</dateFormatItem>
+						<dateFormatItem id="yMd">d/M/r</dateFormatItem>
+						<dateFormatItem id="yyyy">r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyM">L/r</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d/M/r</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, d/M/r</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">LLL r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d'mh' MMM r</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, d'mh' MMM r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">LLLL r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ r(U)</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d – d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a">ha – ha</greatestDifference>
+							<greatestDifference id="h">h – ha</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H">HH – HH</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a">h:mma – h:mma</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mma</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mma</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H">HH:mm – HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm – HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a">h:mma – h:mma v</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mma v</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mma v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H">HH:mm – HH:mm v</greatestDifference>
+							<greatestDifference id="m">HH:mm – HH:mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a">ha – ha v</greatestDifference>
+							<greatestDifference id="h">h – ha v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H">HH – HH v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">L – L</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">d/M – d/M</greatestDifference>
+							<greatestDifference id="M">d/M – d/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">E, d/M – E, d/M</greatestDifference>
+							<greatestDifference id="M">E, d/M – E, d/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">LLL – LLL</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d MMM – d</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">E, d MMM – E, d MMM</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">U – U</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">L/y – L/y</greatestDifference>
+							<greatestDifference id="y">L/y – L/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">d/M/y – d/M/y</greatestDifference>
+							<greatestDifference id="M">d/M/y – d/M/y</greatestDifference>
+							<greatestDifference id="y">d/M/y – d/M/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">E, d/M/y – E, d/M/y</greatestDifference>
+							<greatestDifference id="M">E, d/M/y – E, d/M/y</greatestDifference>
+							<greatestDifference id="y">E, d/M/y – E, d/M/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">LLL – LLL U</greatestDifference>
+							<greatestDifference id="y">LLL U – LLL U</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">d MMM – d, U</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM, U</greatestDifference>
+							<greatestDifference id="y">d MMM, U – d MMM, U</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">E, d MMM – E, d MMM, U</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM, U</greatestDifference>
+							<greatestDifference id="y">E, d MMM, U – E, d MMM, U</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">LLLL – LLLL U</greatestDifference>
+							<greatestDifference id="y">LLLL U – LLLL U</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="ethiopic">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>d/M/y GGGGG</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} 'aig' {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} 'aig' {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="MMMMd">d'mh' MMMM</dateFormatItem>
+						<dateFormatItem id="yMM">LL/y</dateFormatItem>
+						<dateFormatItem id="yyyyM">L/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">L – L</greatestDifference>
+						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1360,12 +2317,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, d MMMM y G</pattern>
+							<pattern>EEEE, d'mh' MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM y G</pattern>
+							<pattern>d'mh' MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -1401,27 +2358,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="Bh">h B</dateFormatItem>
-						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
-						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="Bh">hB</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mmB</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ssB</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
-						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
-						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mmB</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ssB</dateFormatItem>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
-						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mma</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
-						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ssa</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">LLL y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
-						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="h">ha</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
-						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="hm">h:mma</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ssa</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
@@ -1430,21 +2387,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d'mh' MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yMEd">E, d/M/y</dateFormatItem>
-						<dateFormatItem id="yMM">MM/y</dateFormatItem>
+						<dateFormatItem id="yMM">LL/y</dateFormatItem>
 						<dateFormatItem id="yMMM">LLL y</dateFormatItem>
 						<dateFormatItem id="yMMMM">LLLL y</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
-						<dateFormatItem id="yyyyM">M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyM">L/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMd">d/M/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">E, d/M/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">LLL y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E, d MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
@@ -1486,7 +2443,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="H">HH – HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
-							<greatestDifference id="M">M – M</greatestDifference>
+							<greatestDifference id="M">L – L</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d">d/M – d/M</greatestDifference>
@@ -1866,15 +2823,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">hB</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mmB</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ssB</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mmB</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ssB</dateFormatItem>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mma</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">LLL y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
 						<dateFormatItem id="h">ha</dateFormatItem>
@@ -1901,11 +2863,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMMW" count="other">'seachdain' W MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">M/y</dateFormatItem>
-						<dateFormatItem id="yMd">M/d/y</dateFormatItem>
+						<dateFormatItem id="yM">L/y</dateFormatItem>
+						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
 						<dateFormatItem id="yMEd">E, d/M/y</dateFormatItem>
-						<dateFormatItem id="yMM">MM/y</dateFormatItem>
-						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMM">LL/y</dateFormatItem>
+						<dateFormatItem id="yMMM">LLL Y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM">LLLL y</dateFormatItem>
@@ -1957,7 +2919,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="H">HH – HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
-							<greatestDifference id="M">M – M</greatestDifference>
+							<greatestDifference id="M">L – L</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d">d/M – d/M</greatestDifference>
@@ -1982,8 +2944,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="y">y – y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">M/y – M/y</greatestDifference>
-							<greatestDifference id="y">M/y – M/y</greatestDifference>
+							<greatestDifference id="M">L/y – L/y</greatestDifference>
+							<greatestDifference id="y">L/y – L/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="d">d/M/y – d/M/y</greatestDifference>
@@ -2016,6 +2978,191 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
+			<calendar type="hebrew">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>d/M/y GGGGG</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} 'aig' {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} 'aig' {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="MMMMd">d'mh' MMMM</dateFormatItem>
+						<dateFormatItem id="yMM">LL/y</dateFormatItem>
+						<dateFormatItem id="yyyyM">L/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">L – L</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="indian">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MMMMd">d'mh' MMMM</dateFormatItem>
+						<dateFormatItem id="yMM">LL/y</dateFormatItem>
+						<dateFormatItem id="yyyyM">L/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">L – L</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="islamic">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} 'aig' {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} 'aig' {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="MMMMd">d'mh' MMMM</dateFormatItem>
+						<dateFormatItem id="yMM">LL/y</dateFormatItem>
+						<dateFormatItem id="yyyyM">L/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">L – L</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="japanese">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} 'aig' {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} 'aig' {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="MMMMd">d'mh' MMMM</dateFormatItem>
+						<dateFormatItem id="yMM">LL/y</dateFormatItem>
+						<dateFormatItem id="yyyyM">L/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">L – L</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="persian">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} 'aig' {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} 'aig' {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="MMMMd">d'mh' MMMM</dateFormatItem>
+						<dateFormatItem id="yMM">LL/y</dateFormatItem>
+						<dateFormatItem id="yyyyM">L/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">L – L</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="roc">
 				<eras>
 					<eraNames>
@@ -2031,15 +3178,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="1">Mínguó</era>
 					</eraNarrow>
 				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d'mh' MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>{1} 'aig' {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>{1} 'aig' {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -2055,7 +3214,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
+						<dateFormatItem id="MMMMd">d'mh' MMMM</dateFormatItem>
+						<dateFormatItem id="yMM">LL/y</dateFormatItem>
+						<dateFormatItem id="yyyyM">L/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
 					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">L – L</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -2933,6 +4101,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>Àm Uile-choitcheann Co-òrdanaichte</standard>
 				</long>
+				<short>
+					<standard>UTC</standard>
+				</short>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Baile neo-aithnichte</exemplarCity>
@@ -5284,6 +6455,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="beng">
 			<decimal>.</decimal>
@@ -5297,6 +6469,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="brah">
 			<decimal>.</decimal>
@@ -5310,6 +6483,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="cakm">
 			<decimal>.</decimal>
@@ -5323,6 +6497,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="cham">
 			<decimal>.</decimal>
@@ -5336,6 +6511,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="deva">
 			<decimal>.</decimal>
@@ -5349,8 +6525,37 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="fullwide">
+			<decimal>.</decimal>
+			<group>,</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<superscriptingExponent>×</superscriptingExponent>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
+		</symbols>
+		<symbols numberSystem="gong">
+			<decimal>.</decimal>
+			<group>,</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<superscriptingExponent>×</superscriptingExponent>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
+		</symbols>
+		<symbols numberSystem="gonm">
 			<decimal>.</decimal>
 			<group>,</group>
 			<list>;</list>
@@ -5376,6 +6581,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="guru">
 			<decimal>.</decimal>
@@ -5389,6 +6595,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="hanidec">
 			<decimal>.</decimal>
@@ -5402,6 +6609,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="java">
 			<decimal>.</decimal>
@@ -5415,6 +6623,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="kali">
 			<decimal>.</decimal>
@@ -5428,6 +6637,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="khmr">
 			<decimal>.</decimal>
@@ -5441,6 +6651,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="knda">
 			<decimal>.</decimal>
@@ -5454,6 +6665,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="lana">
 			<decimal>.</decimal>
@@ -5467,6 +6679,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="lanatham">
 			<decimal>.</decimal>
@@ -5480,6 +6693,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="laoo">
 			<decimal>.</decimal>
@@ -5493,6 +6707,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
@@ -5520,6 +6735,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="limb">
 			<decimal>.</decimal>
@@ -5533,6 +6749,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="mlym">
 			<decimal>.</decimal>
@@ -5546,6 +6763,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="mong">
 			<decimal>.</decimal>
@@ -5559,6 +6777,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="mtei">
 			<decimal>.</decimal>
@@ -5572,6 +6791,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="mymr">
 			<decimal>.</decimal>
@@ -5585,6 +6805,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="mymrshan">
 			<decimal>.</decimal>
@@ -5598,6 +6819,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="nkoo">
 			<decimal>.</decimal>
@@ -5611,6 +6833,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="olck">
 			<decimal>.</decimal>
@@ -5624,6 +6847,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="orya">
 			<decimal>.</decimal>
@@ -5637,6 +6861,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="osma">
 			<decimal>.</decimal>
@@ -5650,6 +6875,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
+		</symbols>
+		<symbols numberSystem="rohg">
+			<decimal>.</decimal>
+			<group>,</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<superscriptingExponent>×</superscriptingExponent>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="saur">
 			<decimal>.</decimal>
@@ -5663,6 +6903,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="shrd">
 			<decimal>.</decimal>
@@ -5676,6 +6917,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="sora">
 			<decimal>.</decimal>
@@ -5689,6 +6931,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="sund">
 			<decimal>.</decimal>
@@ -5702,6 +6945,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="takr">
 			<decimal>.</decimal>
@@ -5715,6 +6959,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="talu">
 			<decimal>.</decimal>
@@ -5728,6 +6973,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="tamldec">
 			<decimal>.</decimal>
@@ -5741,6 +6987,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="telu">
 			<decimal>.</decimal>
@@ -5754,6 +7001,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="thai">
 			<decimal>.</decimal>
@@ -5767,6 +7015,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="tibt">
 			<decimal>.</decimal>
@@ -5780,6 +7029,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="vaii">
 			<decimal>.</decimal>
@@ -5793,6 +7043,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="fullwide">
 			<decimalFormatLength>
@@ -5811,51 +7062,51 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<decimalFormat>
 					<pattern type="1000" count="one">0 mhìle</pattern>
 					<pattern type="1000" count="two">0 mhìle</pattern>
-					<pattern type="1000" count="few">0 mìle</pattern>
+					<pattern type="1000" count="few">0 mìltean</pattern>
 					<pattern type="1000" count="other">0 mìle</pattern>
 					<pattern type="10000" count="one">00 mhìle</pattern>
 					<pattern type="10000" count="two">00 mhìle</pattern>
-					<pattern type="10000" count="few">00 mìle</pattern>
+					<pattern type="10000" count="few">00 mìltean</pattern>
 					<pattern type="10000" count="other">00 mìle</pattern>
 					<pattern type="100000" count="one">000 mhìle</pattern>
 					<pattern type="100000" count="two">000 mhìle</pattern>
-					<pattern type="100000" count="few">000 mìle</pattern>
+					<pattern type="100000" count="few">000 mìltean</pattern>
 					<pattern type="100000" count="other">000 mìle</pattern>
 					<pattern type="1000000" count="one">0 mhillean</pattern>
 					<pattern type="1000000" count="two">0 mhillean</pattern>
-					<pattern type="1000000" count="few">0 millean</pattern>
+					<pattern type="1000000" count="few">0 milleanan</pattern>
 					<pattern type="1000000" count="other">0 millean</pattern>
 					<pattern type="10000000" count="one">00 mhillean</pattern>
 					<pattern type="10000000" count="two">00 mhillean</pattern>
-					<pattern type="10000000" count="few">00 millean</pattern>
+					<pattern type="10000000" count="few">00 milleanan</pattern>
 					<pattern type="10000000" count="other">00 millean</pattern>
 					<pattern type="100000000" count="one">000 mhillean</pattern>
 					<pattern type="100000000" count="two">000 mhillean</pattern>
-					<pattern type="100000000" count="few">000 millean</pattern>
+					<pattern type="100000000" count="few">000 milleanan</pattern>
 					<pattern type="100000000" count="other">000 millean</pattern>
 					<pattern type="1000000000" count="one">0 bhillean</pattern>
 					<pattern type="1000000000" count="two">0 bhillean</pattern>
-					<pattern type="1000000000" count="few">0 billean</pattern>
+					<pattern type="1000000000" count="few">0 billeanan</pattern>
 					<pattern type="1000000000" count="other">0 billean</pattern>
 					<pattern type="10000000000" count="one">00 bhillean</pattern>
 					<pattern type="10000000000" count="two">00 bhillean</pattern>
-					<pattern type="10000000000" count="few">00 billean</pattern>
+					<pattern type="10000000000" count="few">00 billeanan</pattern>
 					<pattern type="10000000000" count="other">00 billean</pattern>
-					<pattern type="100000000000" count="one">000 billean</pattern>
-					<pattern type="100000000000" count="two">000 billean</pattern>
-					<pattern type="100000000000" count="few">000 bhillean</pattern>
-					<pattern type="100000000000" count="other">000 bhillean</pattern>
+					<pattern type="100000000000" count="one">000 bhillean</pattern>
+					<pattern type="100000000000" count="two">000 bhillean</pattern>
+					<pattern type="100000000000" count="few">000 billeanan</pattern>
+					<pattern type="100000000000" count="other">000 billean</pattern>
 					<pattern type="1000000000000" count="one">0 trillean</pattern>
 					<pattern type="1000000000000" count="two">0 thrillean</pattern>
-					<pattern type="1000000000000" count="few">0 trillean</pattern>
+					<pattern type="1000000000000" count="few">0 trilleanan</pattern>
 					<pattern type="1000000000000" count="other">0 trillean</pattern>
 					<pattern type="10000000000000" count="one">00 trillean</pattern>
 					<pattern type="10000000000000" count="two">00 thrillean</pattern>
-					<pattern type="10000000000000" count="few">00 trillean</pattern>
+					<pattern type="10000000000000" count="few">00 trilleanan</pattern>
 					<pattern type="10000000000000" count="other">00 trillean</pattern>
 					<pattern type="100000000000000" count="one">000 trillean</pattern>
 					<pattern type="100000000000000" count="two">000 thrillean</pattern>
-					<pattern type="100000000000000" count="few">000 trillean</pattern>
+					<pattern type="100000000000000" count="few">000 trilleanan</pattern>
 					<pattern type="100000000000000" count="other">000 trillean</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
@@ -6556,6 +7807,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">peso Sileach</displayName>
 				<symbol>CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+			<currency type="CNH">
+				<displayName>Yuan Sìneach (far-thìreach)</displayName>
+				<displayName count="one">yuan Sìneach (far-thìreach)</displayName>
+				<displayName count="two">yuan Sìneach (far-thìreach)</displayName>
+				<displayName count="few">yuan Sìneach (far-thìreach)</displayName>
+				<displayName count="other">yuan Sìneach (far-thìreach)</displayName>
+				<symbol draft="contributed">CNH</symbol>
 			</currency>
 			<currency type="CNX">
 				<displayName>Dolar an t-sluagh-bhanca Shìnich</displayName>
@@ -7447,6 +8706,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="two">ouguiya Moratàineach</displayName>
 				<displayName count="few">ouguiya Moratàineach</displayName>
 				<displayName count="other">ouguiya Moratàineach</displayName>
+				<symbol draft="contributed">MRU</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Lira Maltach</displayName>
@@ -7941,6 +9201,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="two">dhobra São Tomé agus Príncipe</displayName>
 				<displayName count="few">dobra São Tomé agus Príncipe</displayName>
 				<displayName count="other">dobra São Tomé agus Príncipe</displayName>
+				<symbol draft="contributed">STN</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SUR">
@@ -8200,6 +9461,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="two">bholívar Bheinisealach</displayName>
 				<displayName count="few">bolívar Bheinisealach</displayName>
 				<displayName count="other">bolívar Bheinisealach</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Dong Bhiet-Namach</displayName>
@@ -8692,6 +9954,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} pàirtean sa mhillean</unitPattern>
 				<unitPattern count="other">{0} pàirt sa mhillean</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>sa cheud</displayName>
+				<unitPattern count="one">{0} sa cheud</unitPattern>
+				<unitPattern count="two">{0} sa cheud</unitPattern>
+				<unitPattern count="few">{0} sa cheud</unitPattern>
+				<unitPattern count="other">{0} sa cheud</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>sa mhìle</displayName>
+				<unitPattern count="one">{0} sa mhìle</unitPattern>
+				<unitPattern count="two">{0} sa mhìle</unitPattern>
+				<unitPattern count="few">{0} sa mhìle</unitPattern>
+				<unitPattern count="other">{0} sa mhìle</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liotair sa chilemeatair</displayName>
 				<unitPattern count="one">{0} liotair sa chilemeatair</unitPattern>
@@ -8719,6 +9995,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">{0} mhìle sa ghalan impireil</unitPattern>
 				<unitPattern count="few">{0} mìltean sa ghalan impireil</unitPattern>
 				<unitPattern count="other">{0} mìle sa ghalan impireil</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>peta-baidht</displayName>
+				<unitPattern count="one">{0} pheta-baidht</unitPattern>
+				<unitPattern count="two">{0} pheta-baidht</unitPattern>
+				<unitPattern count="few">{0} peta-baidht</unitPattern>
+				<unitPattern count="other">{0} peta-baidht</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>tera-baidht</displayName>
@@ -9282,6 +10565,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} mille-bhàraichean</unitPattern>
 				<unitPattern count="other">{0} mille-bhàr</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>brùthadh-àile</displayName>
+				<unitPattern count="one">{0} bhrùthadh-àile</unitPattern>
+				<unitPattern count="two">{0} bhrùthadh-àile</unitPattern>
+				<unitPattern count="few">{0} brùthadh-àile</unitPattern>
+				<unitPattern count="other">{0} brùthadh-àile</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>cilemeatair san uair</displayName>
 				<unitPattern count="one">{0} chilemeatair san uair</unitPattern>
@@ -9519,6 +10809,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} spàin-teatha</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>comhair combaist</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}T</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}D</coordinateUnitPattern>
@@ -9674,6 +10965,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>sa cheud</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="two">{0}%</unitPattern>
+				<unitPattern count="few">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>sa mhìle</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="two">{0}‰</unitPattern>
+				<unitPattern count="few">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liotair/km</displayName>
 				<unitPattern count="one">{0} L/km</unitPattern>
@@ -9701,6 +11006,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">{0} mhì/gal imp.</unitPattern>
 				<unitPattern count="few">{0} mì/gal imp.</unitPattern>
 				<unitPattern count="other">{0} mì/gal imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="one">{0} PB</unitPattern>
+				<unitPattern count="two">{0} PB</unitPattern>
+				<unitPattern count="few">{0} PB</unitPattern>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -10264,6 +11576,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} mbàr</unitPattern>
 				<unitPattern count="other">{0} mbàr</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>àile</displayName>
+				<unitPattern count="one">{0} àile</unitPattern>
+				<unitPattern count="two">{0} àile</unitPattern>
+				<unitPattern count="few">{0} àile</unitPattern>
+				<unitPattern count="other">{0} àile</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/uair</displayName>
 				<unitPattern count="one">{0} km/h</unitPattern>
@@ -10501,6 +11820,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} sp-t</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>comhair</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}T</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}D</coordinateUnitPattern>
@@ -10656,6 +11976,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0}ppm</unitPattern>
 				<unitPattern count="other">{0}ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="two">{0}%</unitPattern>
+				<unitPattern count="few">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>‰</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="two">{0}‰</unitPattern>
+				<unitPattern count="few">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
 				<unitPattern count="one">{0}L/km</unitPattern>
@@ -10683,6 +12017,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">{0}m/gRA</unitPattern>
 				<unitPattern count="few">{0}m/gRA</unitPattern>
 				<unitPattern count="other">{0}m/gRA</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="one">{0}PB</unitPattern>
+				<unitPattern count="two">{0}PB</unitPattern>
+				<unitPattern count="few">{0}PB</unitPattern>
+				<unitPattern count="other">{0}PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -11246,6 +12587,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0}mb</unitPattern>
 				<unitPattern count="other">{0}mb</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0}atm</unitPattern>
+				<unitPattern count="two">{0}atm</unitPattern>
+				<unitPattern count="few">{0}atm</unitPattern>
+				<unitPattern count="other">{0}atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="one">{0}km/h</unitPattern>
@@ -11483,6 +12831,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}sp-t</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>comhair</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}T</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}D</coordinateUnitPattern>
@@ -11644,4 +12993,74 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="western_asian_scripts">sgriobt Iar-Àisianach</characterLabel>
 		<characterLabel type="whitespace">geal-spàs</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">Eadailteach</axisName>
+		<axisName type="opsz">meud lèirsinneach</axisName>
+		<axisName type="slnt">claonadh</axisName>
+		<axisName type="wdth">leud</axisName>
+		<axisName type="wght">cuideam</axisName>
+		<styleName type="ital" subtype="1">ceangailte</styleName>
+		<styleName type="opsz" subtype="8">caipsean</styleName>
+		<styleName type="opsz" subtype="12">teacsa</styleName>
+		<styleName type="opsz" subtype="18">tiotal</styleName>
+		<styleName type="opsz" subtype="72">taisbeanadh</styleName>
+		<styleName type="opsz" subtype="144">postair</styleName>
+		<styleName type="slnt" subtype="-12">claon air ais</styleName>
+		<styleName type="slnt" subtype="0">dìreach</styleName>
+		<styleName type="slnt" subtype="12">claon</styleName>
+		<styleName type="slnt" subtype="24">anabarrach claon</styleName>
+		<styleName type="wdth" subtype="50">ultra-co-dhlùthaichte</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">ultra-dumhlaichte</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">ultra-cumhang</styleName>
+		<styleName type="wdth" subtype="62.5">anabarrach dlùthaiche</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">anabarrach dumhlaichte</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">anabarrach cumhang</styleName>
+		<styleName type="wdth" subtype="75">dlùthaichte</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">dumhlaichte</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">dumhlaichte</styleName>
+		<styleName type="wdth" subtype="87.5">leth-dhlùthaichte</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">leth-dhumhlaichte</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">leth-chumhang</styleName>
+		<styleName type="wdth" subtype="100">àbhaisteach</styleName>
+		<styleName type="wdth" subtype="112.5">leth-leudaichte</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">leth-shìnte</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">leth-leathann</styleName>
+		<styleName type="wdth" subtype="125">leudaichte</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">sìnte</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">leathann</styleName>
+		<styleName type="wdth" subtype="150">anabarrach leudaichte</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">anabarrach sìnte</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">anabarrach leathann</styleName>
+		<styleName type="wdth" subtype="200">ultra-leudaichte</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">ultra-sìnte</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">ultra-leathann</styleName>
+		<styleName type="wght" subtype="100">tana</styleName>
+		<styleName type="wght" subtype="200">anabarach aotrom</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">ultra-aotrom</styleName>
+		<styleName type="wght" subtype="300">aotrom</styleName>
+		<styleName type="wght" subtype="350">leth-aotrom</styleName>
+		<styleName type="wght" subtype="380">leabhar</styleName>
+		<styleName type="wght" subtype="400">riaghailteach</styleName>
+		<styleName type="wght" subtype="500">meadhanach</styleName>
+		<styleName type="wght" subtype="600">leth-throm</styleName>
+		<styleName type="wght" subtype="600" alt="demi">leth-throm</styleName>
+		<styleName type="wght" subtype="700">trom</styleName>
+		<styleName type="wght" subtype="800">anabarrach trom</styleName>
+		<styleName type="wght" subtype="900">dubh</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">tomadach</styleName>
+		<styleName type="wght" subtype="950">anabarrach dubh</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">ultra-dubh</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">ultra-tomadach</styleName>
+		<featureName type="afrc">bloighean inghearach</featureName>
+		<featureName type="cpsp">beàrnadh eadar ceann-litrichean</featureName>
+		<featureName type="dlig">nasg-litrichean roghainneil</featureName>
+		<featureName type="frac">bloighean trastanach</featureName>
+		<featureName type="lnum">àireamhan lìnigeach</featureName>
+		<featureName type="onum">àireamhan seann-nòsach</featureName>
+		<featureName type="ordn">àireamhan òrdail</featureName>
+		<featureName type="pnum">àireamhan co-rèireach</featureName>
+		<featureName type="smcp">ceann-litrichean beaga</featureName>
+		<featureName type="tnum">àireamhan clàrach</featureName>
+		<featureName type="zero">neoini le slais</featureName>
+	</typographicNames>
 </ldml>

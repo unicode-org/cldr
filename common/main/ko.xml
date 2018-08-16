@@ -1305,6 +1305,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<dates>
 		<calendars>
 			<calendar type="buddhist">
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">불기</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0">불기</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">BE</era>
+					</eraNarrow>
+				</eras>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="GyMMM">G y년 MMM</dateFormatItem>
@@ -1322,17 +1333,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyMMMM">G y년 MMMM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">불기</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0">불기</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">BE</era>
-					</eraNarrow>
-				</eras>
 			</calendar>
 			<calendar type="chinese">
 				<months>
@@ -2869,23 +2869,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="GyMMM">G y년 MMM</dateFormatItem>
-						<dateFormatItem id="GyMMMd">G y년 MMM d일</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">G y년 MMM d일 (E)</dateFormatItem>
-						<dateFormatItem id="GyMMMEEEEd">G y년 MMM d일 EEEE</dateFormatItem>
-						<dateFormatItem id="MMMd">MMM d일</dateFormatItem>
-						<dateFormatItem id="MMMEd">MMM d일 (E)</dateFormatItem>
-						<dateFormatItem id="MMMEEEEd">MMM d일 EEEE</dateFormatItem>
-						<dateFormatItem id="MMMMd">MMMM d일</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">G y년 MMM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">G y년 MMM d일</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">G y년 MMM d일 (E)</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEEEEd">G y년 MMM d일 EEEE</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">G y년 MMMM</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 				<eras>
 					<eraAbbr>
 						<era type="0">다이카 (645 ~ 650)</era>
@@ -3126,6 +3109,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<era type="235">헤이세이</era>
 					</eraAbbr>
 				</eras>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="GyMMM">G y년 MMM</dateFormatItem>
+						<dateFormatItem id="GyMMMd">G y년 MMM d일</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">G y년 MMM d일 (E)</dateFormatItem>
+						<dateFormatItem id="GyMMMEEEEd">G y년 MMM d일 EEEE</dateFormatItem>
+						<dateFormatItem id="MMMd">MMM d일</dateFormatItem>
+						<dateFormatItem id="MMMEd">MMM d일 (E)</dateFormatItem>
+						<dateFormatItem id="MMMEEEEd">MMM d일 EEEE</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMM d일</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">G y년 MMM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">G y년 MMM d일</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">G y년 MMM d일 (E)</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEEEEd">G y년 MMM d일 EEEE</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">G y년 MMMM</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="persian">
 				<months>
@@ -3192,6 +3192,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</months>
 			</calendar>
 			<calendar type="roc">
+				<eras>
+					<eraAbbr>
+						<era type="0">중화민국전</era>
+						<era type="1">중화민국</era>
+					</eraAbbr>
+				</eras>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="GyMMM">G y년 MMM</dateFormatItem>
@@ -3209,12 +3215,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyMMMM">G y년 MMMM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<eras>
-					<eraAbbr>
-						<era type="0">중화민국전</era>
-						<era type="1">중화민국</era>
-					</eraAbbr>
-				</eras>
 			</calendar>
 		</calendars>
 		<fields>

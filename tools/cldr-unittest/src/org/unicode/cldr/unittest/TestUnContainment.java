@@ -15,6 +15,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
@@ -28,6 +29,9 @@ public class TestUnContainment extends TestFmwkPlus {
         .getLocaleAliasInfo()
         .get("territory");
 
+    private static final Set<String> NOT_CLDR_TERRITORY_CODES = ImmutableSet.of("830"); // Channel Islands
+    private static final Set<String> KNOWN_CONTAINMENT_EXCEPTIONS = ImmutableSet.of("AQ","680"); // Antarctica, Sark
+    
     final Multimap<String, String> UnChildToParent;
     {
         Multimap<String, String> _UnChildToParent = TreeMultimap.create();
@@ -43,10 +47,12 @@ public class TestUnContainment extends TestFmwkPlus {
                     String region = items.get(i);
                     if (!region.isEmpty()) {
                         region = unToCldrCode(region);
-                        if (parent != null) {
+                        if (parent != null && region != null){
                             _UnChildToParent.put(region, parent);
                         }
-                        parent = region;
+                        if (region != null) {
+                            parent = region;
+                        }
                     }
                     if (i == 6) {
                         ++i; // hack because last two are out of order
@@ -80,6 +86,11 @@ public class TestUnContainment extends TestFmwkPlus {
     }
 
     private String unToCldrCode(String code) {
+        
+        if (NOT_CLDR_TERRITORY_CODES.contains(code)) {
+            return null;
+        }
+        
         R2<List<String>, String> codeInfo = regionToInfo.get(code);
         if (codeInfo != null) {
             if (codeInfo.get0() != null && !codeInfo.get0().isEmpty()) {
@@ -90,6 +101,7 @@ public class TestUnContainment extends TestFmwkPlus {
     }
 
     public void TestContainment() {
+        
         /*
         CLDR
         <group type="001" contains="019 002 150 142 009"/> <!--World -->
@@ -106,10 +118,13 @@ public class TestUnContainment extends TestFmwkPlus {
                 if (children != null && children.contains(unChild)) {
                     continue;
                 }
-                int status = logKnownIssue("cldrbug:10187", "need to look at containment") ? WARN : ERR;
-                msg("Un doesn't match CLDR for " + name(unParent)
+                // See CLDR ticket 10187 for rationalization on the known containment exceptions.
+                if (KNOWN_CONTAINMENT_EXCEPTIONS.contains(unChild)) {
+                    continue;
+                }
+                msg("UN containment doesn't match CLDR for " + name(unParent)
                     + ": cldr children " + children
-                    + " don't contain UN " + name(unChild), status, true, true);
+                    + " don't contain UN " + name(unChild), ERR, true, true);
             }
         }
     }

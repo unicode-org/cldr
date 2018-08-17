@@ -580,7 +580,7 @@ public class LocaleMatcherTest extends TestFmwk {
             matcher.getBestMatch(desired);
         }
         long delta = System.nanoTime() - start;
-        if (showmessage) warnln(title + (delta / iterations) + " nanos, "
+        if (showmessage) logln(title + (delta / iterations) + " nanos, "
             + (comparisonTime > 0 ? (delta * 100 / comparisonTime - 100) + "% longer" : ""));
         return delta;
     }

@@ -235,7 +235,6 @@ public class TestLocale extends TestFmwkPlus {
     public void checkScript(String file, String script) {
         if (!script.isEmpty()) {
             if (!ALLOWED_SCRIPTS.contains(script) && SCRIPT_NON_UNICODE.matches(script, null)) {
-                logKnownIssue("cldrbug:11346", "non-Unicode script not in validity data");
                 return;
             }
             assertRelation("Script ok? " + script + " in " + file, true,

@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<windowsZones>
-		<mapTimezones otherVersion="7e10900" typeVersion="2018e">
+		<mapTimezones otherVersion="7e10c00" typeVersion="2018e">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -336,6 +336,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Romance Standard Time" territory="DK" type="Europe/Copenhagen"/>
 			<mapZone other="Romance Standard Time" territory="ES" type="Europe/Madrid Africa/Ceuta"/>
 			<mapZone other="Romance Standard Time" territory="FR" type="Europe/Paris"/>
+			
+			<!-- (UTC+01:00) Sao Tome -->
+			<mapZone other="Sao Tome Standard Time" territory="001" type="Africa/Sao_Tome"/>
+			<mapZone other="Sao Tome Standard Time" territory="ST" type="Africa/Sao_Tome"/>
 
 			<!-- (UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb -->
 			<mapZone other="Central European Standard Time" territory="001" type="Europe/Warsaw"/>
@@ -357,7 +361,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="W. Central Africa Standard Time" territory="GQ" type="Africa/Malabo"/>
 			<mapZone other="W. Central Africa Standard Time" territory="NE" type="Africa/Niamey"/>
 			<mapZone other="W. Central Africa Standard Time" territory="NG" type="Africa/Lagos"/>
-			<mapZone other="W. Central Africa Standard Time" territory="ST" type="Africa/Sao_Tome"/>
 			<mapZone other="W. Central Africa Standard Time" territory="TD" type="Africa/Ndjamena"/>
 			<mapZone other="W. Central Africa Standard Time" territory="TN" type="Africa/Tunis"/>
 			<mapZone other="W. Central Africa Standard Time" territory="ZZ" type="Etc/GMT-1"/>

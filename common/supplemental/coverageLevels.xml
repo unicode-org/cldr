@@ -82,9 +82,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%ellipsisTypes" value="(word-)?(initial|medial|final)"/>
 		<coverageVariable key="%exemplarTypes" value="(auxiliary|index|punctuation|numbers)"/>
         <coverageVariable key="%hcTypes80" value="h(11|12|23|24)"/>
-		<coverageVariable key="%intervalFormatDateItems" value="(d|y|y?(M(MM)?)(E?d)?|y?MMMM)"/>
+		<coverageVariable key="%intervalFormatDateItems" value="(d|G?y|(G?y)?(M(MM)?)(E?d)?|(G?y)?MMMM)"/>
 		<coverageVariable key="%intervalFormatTimeItems" value="((h|H)m?v?)"/>
-		<coverageVariable key="%intervalFormatGDiff" value="([yMdaHhm])"/>
+		<coverageVariable key="%intervalFormatGDiff" value="([GyMdaHhm])"/>
 		<coverageVariable key="%islamicCalendarTerritories" value="(AE|AF|BH|DJ|DZ|EG|EH|ER|IL|IQ|IR|JO|KM|KW|LB|LY|MA|MR|OM|PS|QA|SA|SD|SY|TN|YE)"/>
 		<coverageVariable key="%japaneseEras" value="([0-9]{1,3})"/>
 		<coverageVariable key="%keys80" value="(calendar|cf|collation|currency|em|fw|hc|lb|lw|ms|rg|ss|numbers|d0|h0|i0|k0|m0|s0|t0|x0)"/>

@@ -1385,7 +1385,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             isoCurrenciesToCountries.keySet());
         missing.removeAll(modernCurrencyCodes.keySet());
         if (missing.size() != 0) {
-            if (!logKnownIssue("cldrbug:10765", "Missing codes compared to ISO: " + missing.toString())) {
+            if (!logKnownIssue("cldrbug:11167", "Missing codes compared to ISO: " + missing.toString())) {
                 errln("Missing codes compared to ISO: " + missing.toString());
             }
         }
@@ -1838,10 +1838,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
         if (!surveyToolLanguages.containsAll(mainLanguages)) {
             mainLanguages.removeAll(surveyToolLanguages);
-            if (!logKnownIssue("cldrbug:10765", "No main/* languages are missing from Survey Tool:language names")) {
-                assertEquals("No main/* languages are missing from Survey Tool:language names (eg <variable id='$language' type='choice'>) ",
-                    Collections.EMPTY_SET, mainLanguages);
-            }
+            assertEquals("No main/* languages are missing from Survey Tool:language names (eg <variable id='$language' type='choice'>) ",
+                Collections.EMPTY_SET, mainLanguages);
         }
     }
 

@@ -770,12 +770,14 @@ public class TestBasic extends TestFmwkPlus {
             defaultContentChildren.retainAll(defaultContents);
             if (defaultContentChildren.size() == 1) {
                 continue;
+            // If we're already down to the region level then it's OK not to have
+            // default contents.
+            } else if (! new LocaleIDParser().set(locale).getRegion().isEmpty()) {
+                continue;
             } else if (defaultContentChildren.isEmpty()) {
-                if (!logKnownIssue("cldrbug:10822", "Locale has children but is missing default contents")) {
                     Object possible = highestShared(locale, children);
                     errln("Locale has children but is missing default contents locale: "
                         + locale + ", children: " + children + "; possible fixes for children:\n" + possible);
-                }
             } else {
                 errln("Locale has too many defaultContent locales!!: "
                     + locale + ", defaultContents: "

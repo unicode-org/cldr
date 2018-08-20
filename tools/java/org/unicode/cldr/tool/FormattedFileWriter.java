@@ -115,6 +115,14 @@ public class FormattedFileWriter extends java.io.Writer {
         this.explanation = explanation;
         this.localeAnchors = anchors;
     }
+    
+    public String getBaseFileName() {
+        return filename;
+    }
+    
+    public String getDir() {
+        return dir;
+    }
 
     public FormattedFileWriter setDirectory(String dir) {
         this.dir = dir;

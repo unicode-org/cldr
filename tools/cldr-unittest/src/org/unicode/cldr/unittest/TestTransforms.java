@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -303,7 +305,7 @@ public class TestTransforms extends TestFmwkPlus {
         String[][] tests = {
             { "transliterator=", "Katakana-Latin" },
             { "\u30CF \u30CF\uFF70 \u30CF\uFF9E \u30CF\uFF9F",
-                "ha hā ba pa" },
+            "ha hā ba pa" },
             { "transliterator=", "Hangul-Latin" },
             { "roundtrip=", "true" }, { "갗", "gach" }, { "느", "neu" }, };
 
@@ -318,15 +320,15 @@ public class TestTransforms extends TestFmwkPlus {
                 switch (Options.valueOf(source
                     .substring(0, source.length() - 1).toLowerCase(
                         Locale.ENGLISH))) {
-                case transliterator:
-                    id = target;
-                    transform = Transliterator.getInstance(id);
-                    inverse = Transliterator.getInstance(id,
-                        Transliterator.REVERSE);
-                    break;
-                case roundtrip:
-                    roundtrip = target.toLowerCase(Locale.ENGLISH).charAt(0) == 't';
-                    break;
+                        case transliterator:
+                            id = target;
+                            transform = Transliterator.getInstance(id);
+                            inverse = Transliterator.getInstance(id,
+                                Transliterator.REVERSE);
+                            break;
+                        case roundtrip:
+                            roundtrip = target.toLowerCase(Locale.ENGLISH).charAt(0) == 't';
+                            break;
                 }
                 continue;
             }
@@ -360,6 +362,10 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     private Transliterator getTransliterator(String id) {
+        return Transliterator.getInstance(getOldTranslitId(id));
+    }
+
+    private String getOldTranslitId(String id) {
         // TODO: Pass unmodified transform name to ICU, once
         // ICU can handle transform identifiers according to
         // BCP47 Extension T (RFC 6497). The rewriting below
@@ -367,15 +373,15 @@ public class TestTransforms extends TestFmwkPlus {
         // BCP47-T identifiers for naming test data files.
         // http://bugs.icu-project.org/trac/ticket/12599
         if (id.equalsIgnoreCase("und-t-d0-publish")) {
-            return Transliterator.getInstance("Any-Publishing");
+            return ("Any-Publishing");
         } else if (id.equalsIgnoreCase("und-t-s0-publish")) {
-            return Transliterator.getInstance("Publishing-Any");
+            return ("Publishing-Any");
         } else if (id.equalsIgnoreCase("de-t-de-d0-ascii")) {
-            return Transliterator.getInstance("de-ASCII");
+            return ("de-ASCII");
         } else if (id.equalsIgnoreCase("my-t-my-s0-zawgyi")) {
-            return Transliterator.getInstance("Zawgyi-my");
+            return ("Zawgyi-my");
         } else if (id.equalsIgnoreCase("und-t-d0-ascii")) {
-            return Transliterator.getInstance("Latin-ASCII");
+            return ("Latin-ASCII");
         }
 
         Matcher rfc6497Matcher = rfc6497Pattern.matcher(id);
@@ -388,7 +394,7 @@ public class TestTransforms extends TestFmwkPlus {
                 id += "/" + mechanism.replace('-', '_');
             }
         }
-        return Transliterator.getInstance(id);
+        return id;
     }
 
     public void TestData() {
@@ -410,6 +416,8 @@ public class TestTransforms extends TestFmwkPlus {
             // file
             logln("Testing files in: " + fileDirectoryName);
 
+            Set<String> foundTranslitsLower = new TreeSet();
+
             for (String file : fileDirectory.list()) {
                 if (!file.endsWith(".txt")) {
                     continue;
@@ -423,6 +431,9 @@ public class TestTransforms extends TestFmwkPlus {
                 }
 
                 Transliterator trans = getTransliterator(transName);
+                String id = trans.getID().toLowerCase(Locale.ROOT);
+                foundTranslitsLower.add(id);
+
                 BufferedReader in = FileUtilities.openUTF8Reader(fileDirectoryName, file);
                 int counter = 0;
                 while (true) {
@@ -443,10 +454,40 @@ public class TestTransforms extends TestFmwkPlus {
                 }
                 in.close();
             }
+            Set<String> allTranslitsLower = oldEnumConvertLower(Transliterator.getAvailableIDs(), new TreeSet<>());
+            // see which are missing tests
+            for (String s : allTranslitsLower) {
+                if (!foundTranslitsLower.contains(s)) {
+                    warnln("Translit with no test file:\t" + s);
+                }
+            }
+
+            // all must be superset of found tests
+            for (String s : foundTranslitsLower) {
+                if (!allTranslitsLower.contains(s)) {
+                    warnln("Test file with no translit:\t" + s);
+                }
+            }
+
         } catch (IOException e) {
             throw new IllegalArgumentException(e);
         }
     }
+
+    private <T, U extends Collection<T>> U oldEnumConvert(Enumeration<T> source, U target) {
+        while (source.hasMoreElements()) {
+            target.add(source.nextElement());
+        }
+        return target;
+    }
+
+    private <U extends Collection<String>> U oldEnumConvertLower(Enumeration<String> source, U target) {
+        while (source.hasMoreElements()) {
+            target.add(source.nextElement().toLowerCase(Locale.ROOT));
+        }
+        return target;
+    }
+
 
     enum Casing {
         Upper, Title, Lower

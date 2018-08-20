@@ -3,25 +3,128 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.Set;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.SimpleFactory;
+import org.unicode.cldr.util.SimpleXMLSource;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class CopySubdivisionsIntoMain {
-    private static final String TARGET_DIR = CLDRPaths.MAIN_DIRECTORY; // CLDRPaths.GEN_DIRECTORY + "sub-main/";
+    
+    // TODO add seed
+    
+    private static final String MAIN_TARGET_DIR = CLDRPaths.MAIN_DIRECTORY; // for testing, CLDRPaths.GEN_DIRECTORY + "sub-main/";
+    
+    private static final String SUBDIVISION_TARGET_DIR = CLDRPaths.SUBDIVISIONS_DIRECTORY; // CLDRPaths.SUBDIVISIONS_DIRECTORY;
+    // for testing, CLDRPaths.GEN_DIRECTORY + "test_subdivisions/";
 
+    enum MyOptions {
+        beforeSubmission(new Params().setHelp("Before submission: copy from /subdivisions/ to /main/")),
+        afterSubmission(new Params().setHelp("After submission: copy from /main/ to /subdivisions/")),
+        verbose(new Params().setHelp("verbose debugging messages")),
+            ;
+
+        // BOILERPLATE TO COPY
+        final Option option;
+
+        private MyOptions(Params params) {
+            option = new Option(this, params);
+        }
+
+        private static Options myOptions = new Options();
+        static {
+            for (MyOptions option : MyOptions.values()) {
+                myOptions.add(option, option.option);
+            }
+        }
+
+        private static Set<String> parse(String[] args, boolean showArguments) {
+            return myOptions.parse(MyOptions.values()[0], args, true);
+        }
+    }
+
+    // TODO make target according to language/region in future
+
+    static final Set<String> target = ImmutableSet.of("gbeng", "gbsct", "gbwls");
+    static final Factory mainFactory = CLDRConfig.getInstance().getCldrFactory();
+    static final Factory subdivisionFactory = CLDRConfig.getInstance().getSubdivisionFactory();
+    static boolean verbose;
+    
     public static void main(String[] args) {
-        Factory factory = CLDRConfig.getInstance().getCldrFactory();
-        Set<String> target = ImmutableSet.of("gbeng", "gbsct", "gbwls");
-        // TODO make target according to language/region in future
+        MyOptions.parse(args, true);
+        verbose = MyOptions.verbose.option.doesOccur();
+        boolean before = MyOptions.beforeSubmission.option.doesOccur();
+        boolean after = MyOptions.afterSubmission.option.doesOccur();
+        if (before == after) {
+            throw new IllegalArgumentException("Must do exactly one of " + MyOptions.beforeSubmission + " and " + MyOptions.afterSubmission);
+        }
+        if (before) {
+            doBefore();
+        } else {
+            doAfter();
+        }
         
+    }
+
+    private static void doAfter() {
+        for (String localeId : mainFactory.getAvailable()) {
+            
+            CLDRFile mainFile = mainFactory.make(localeId, false);
+            CLDRFile subdivisionFile = null;
+            boolean haveMainItems = false;
+            boolean haveSubdivisionChange = false;
+            
+            for (Iterator<String> subdivisionIterator = mainFile.iterator(SubdivisionNames.SUBDIVISION_PATH_PREFIX); subdivisionIterator.hasNext(); ) {
+                String path = subdivisionIterator.next();
+                String value = mainFile.getStringValue(path);
+                if (!haveMainItems) {
+                    haveMainItems = true;
+                    mainFile = mainFile.cloneAsThawed();
+                }
+                if (subdivisionFile == null) {
+                    try {
+                        subdivisionFile = subdivisionFactory.make(localeId, false); // lazy open
+                    } catch (SimpleFactory.NoSourceDirectoryException e) {
+                        System.out.println("No existing /subdivisions/ file, so creating one: " + localeId);
+                        subdivisionFile = new CLDRFile(new SimpleXMLSource(localeId));
+                    }
+                }
+                String oldValue = subdivisionFile.getStringValue(path);
+                if (!Objects.equal(oldValue, value)) {
+                    if (!haveSubdivisionChange) {
+                        haveSubdivisionChange = true;
+                        subdivisionFile = subdivisionFile.cloneAsThawed();
+                    }
+                    subdivisionFile.add(path, value);
+                }
+            }
+            if (haveMainItems) {
+                writeFile(MAIN_TARGET_DIR, localeId, mainFile);
+                if (verbose) {
+                    System.out.println("Removing /main/ subdivisions: " + localeId);
+                }
+            }
+            if (haveSubdivisionChange && !"root".equals(localeId)) {
+                writeFile(SUBDIVISION_TARGET_DIR, localeId, subdivisionFile);
+                System.out.println("Adding changed/new /subdivision/ items: " + localeId);
+            } else if (verbose) {
+                System.out.println("No change in: " + localeId);
+            }
+        }
+    }
+
+    private static void doBefore() {
         for (String locale : SubdivisionNames.getAvailableLocales()) {
             SubdivisionNames sdn = new SubdivisionNames(locale);
             Set<String> keySet = sdn.keySet();
@@ -30,7 +133,7 @@ public class CopySubdivisionsIntoMain {
             }
             CLDRFile cldrFile;
             try {
-                cldrFile = factory.make(locale, false);
+                cldrFile = mainFactory.make(locale, false);
             } catch (Exception e) {
                 System.out.println("Not in main, skipping for now: " + locale);
                 continue;
@@ -56,12 +159,16 @@ public class CopySubdivisionsIntoMain {
                 System.out.println("Adding " + locale + ": " + path + "\t=«" + name + "»");
             }
             if (added) {
-                try (PrintWriter pw = FileUtilities.openUTF8Writer(TARGET_DIR, locale + ".xml")) {
-                    cldrFile.write(pw);
-                } catch (IOException e) {
-                    throw new ICUUncheckedIOException(e);
-                }
+                writeFile(MAIN_TARGET_DIR, locale, cldrFile);
             }
+        }
+    }
+
+    private static void writeFile(String directory, String locale, CLDRFile cldrFile) {
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(directory, locale + ".xml")) {
+            cldrFile.write(pw);
+        } catch (IOException e) {
+            throw new ICUUncheckedIOException(e);
         }
     }
 }

@@ -13,6 +13,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SimpleXMLSource;
 
@@ -21,11 +22,11 @@ import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class CopySubdivisionsIntoMain {
-    
+
     // TODO add seed
-    
+
     private static final String MAIN_TARGET_DIR = CLDRPaths.MAIN_DIRECTORY; // for testing, CLDRPaths.GEN_DIRECTORY + "sub-main/";
-    
+
     private static final String SUBDIVISION_TARGET_DIR = CLDRPaths.SUBDIVISIONS_DIRECTORY; // CLDRPaths.SUBDIVISIONS_DIRECTORY;
     // for testing, CLDRPaths.GEN_DIRECTORY + "test_subdivisions/";
 
@@ -33,7 +34,7 @@ public class CopySubdivisionsIntoMain {
         beforeSubmission(new Params().setHelp("Before submission: copy from /subdivisions/ to /main/")),
         afterSubmission(new Params().setHelp("After submission: copy from /main/ to /subdivisions/")),
         verbose(new Params().setHelp("verbose debugging messages")),
-            ;
+        ;
 
         // BOILERPLATE TO COPY
         final Option option;
@@ -60,7 +61,7 @@ public class CopySubdivisionsIntoMain {
     static final Factory mainFactory = CLDRConfig.getInstance().getCldrFactory();
     static final Factory subdivisionFactory = CLDRConfig.getInstance().getSubdivisionFactory();
     static boolean verbose;
-    
+
     public static void main(String[] args) {
         MyOptions.parse(args, true);
         verbose = MyOptions.verbose.option.doesOccur();
@@ -74,24 +75,37 @@ public class CopySubdivisionsIntoMain {
         } else {
             doAfter();
         }
-        
+
     }
 
     private static void doAfter() {
+        PathStarrer pathStarrer = new PathStarrer();
+
         for (String localeId : mainFactory.getAvailable()) {
             
+            boolean isRoot = "root".equals(localeId);
             CLDRFile mainFile = mainFactory.make(localeId, false);
+            CLDRFile mainFileOut = null;
             CLDRFile subdivisionFile = null;
-            boolean haveMainItems = false;
-            boolean haveSubdivisionChange = false;
-            
+            CLDRFile subdivisionFileOut = null;
+
             for (Iterator<String> subdivisionIterator = mainFile.iterator(SubdivisionNames.SUBDIVISION_PATH_PREFIX); subdivisionIterator.hasNext(); ) {
                 String path = subdivisionIterator.next();
                 String value = mainFile.getStringValue(path);
-                if (!haveMainItems) {
-                    haveMainItems = true;
-                    mainFile = mainFile.cloneAsThawed();
+                
+                // remove from main file
+                
+                if (mainFileOut == null) {
+                    mainFileOut = mainFile.cloneAsThawed(); // lazy create
                 }
+                mainFileOut.remove(path);
+                
+                // now copy to subdivision file
+                
+                if (isRoot) {
+                    continue;
+                }
+
                 if (subdivisionFile == null) {
                     try {
                         subdivisionFile = subdivisionFactory.make(localeId, false); // lazy open
@@ -100,22 +114,28 @@ public class CopySubdivisionsIntoMain {
                         subdivisionFile = new CLDRFile(new SimpleXMLSource(localeId));
                     }
                 }
+                
                 String oldValue = subdivisionFile.getStringValue(path);
                 if (!Objects.equal(oldValue, value)) {
-                    if (!haveSubdivisionChange) {
-                        haveSubdivisionChange = true;
-                        subdivisionFile = subdivisionFile.cloneAsThawed();
+                    pathStarrer.set(path);
+                    String firstAttributeValue = pathStarrer.getAttributes().iterator().next();
+                    if (Objects.equal(firstAttributeValue, value)) {
+                        System.out.println(localeId + " — ERROR: Value == ID! for " + value + ". See https://unicode.org/cldr/trac/ticket/11358");
+                    } else {
+                        if (subdivisionFileOut == null) {
+                            subdivisionFileOut = subdivisionFile.cloneAsThawed();
+                        }
+                        subdivisionFileOut.add(path, value);
                     }
-                    subdivisionFile.add(path, value);
                 }
             }
-            if (haveMainItems) {
-                writeFile(MAIN_TARGET_DIR, localeId, mainFile);
+            if (mainFileOut != null) {
+                writeFile(MAIN_TARGET_DIR, localeId, mainFileOut);
                 if (verbose) {
                     System.out.println("Removing /main/ subdivisions: " + localeId);
                 }
             }
-            if (haveSubdivisionChange && !"root".equals(localeId)) {
+            if (subdivisionFileOut != null) {
                 writeFile(SUBDIVISION_TARGET_DIR, localeId, subdivisionFile);
                 System.out.println("Adding changed/new /subdivision/ items: " + localeId);
             } else if (verbose) {

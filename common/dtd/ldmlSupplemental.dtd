@@ -778,27 +778,37 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@METADATA-->
 
 <!ELEMENT telephoneCodeData ( codesByTerritory* ) >
+    <!--@DEPRECATED-->
 
 <!ELEMENT codesByTerritory ( telephoneCountryCode+ ) >
+    <!--@DEPRECATED-->
 <!ATTLIST codesByTerritory territory NMTOKEN #REQUIRED >
+    <!--@DEPRECATED-->
 <!ATTLIST codesByTerritory draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST codesByTerritory references CDATA #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT telephoneCountryCode EMPTY >
+    <!--@DEPRECATED-->
 <!ATTLIST telephoneCountryCode code NMTOKEN #REQUIRED >
+    <!--@DEPRECATED-->
 <!ATTLIST telephoneCountryCode from NMTOKEN #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST telephoneCountryCode to NMTOKEN #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST telephoneCountryCode draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST telephoneCountryCode references CDATA #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST telephoneCountryCode alt NMTOKENS #IMPLIED >
+    <!--@DEPRECATED-->
 
 <!ELEMENT numberingSystems ( numberingSystem* ) >
 

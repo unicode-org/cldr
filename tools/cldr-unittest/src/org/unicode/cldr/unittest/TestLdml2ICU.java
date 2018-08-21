@@ -101,10 +101,10 @@ public class TestLdml2ICU extends TestFmwk {
         checkSupplementalRegexes("supplementalMetadata");
     }
 
-    public void TestTelephoneCodeData() {
-        checkSupplementalRegexes("telephoneCodeData");
-    }
-
+//    public void TestTelephoneCodeData() {
+//        checkSupplementalRegexes("telephoneCodeData");
+//    }
+//
     public void TestMetaZones() {
         checkSupplementalRegexes("metaZones");
     }

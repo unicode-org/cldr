@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -21,6 +22,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.Annotations;
@@ -57,6 +59,7 @@ import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
@@ -93,11 +96,17 @@ public class ShowLocaleCoverage {
     enum MyOptions {
         filter(".+", ".*", "Filter the information based on id, using a regex argument."),
         //        draftStatus(".+", "unconfirmed", "Filter the information to a minimum draft status."),
-        chart(null, null, "chart only"), growth("true", "true", "Compute growth data"), organization(".+", null, "Only locales for organization"), version(".+",
-            LATEST, "To get different versions"), rawData(null, null, "Output the raw data from all coverage levels"), targetDir(".*",
-                CLDRPaths.GEN_DIRECTORY + "/statistics/", "target output file."), directories("(.*:)?[a-z]+(,[a-z]+)*", "common",
-                    "Space-delimited list of main source directories: common,seed,exemplar.\n" +
-                        "Optional, <baseDir>:common,seed"),;
+        chart(null, null, "chart only"), 
+        growth("true", "true", "Compute growth data"), 
+        organization(".+", null, "Only locales for organization"), 
+        version(".+",
+            LATEST, "To get different versions"), 
+        rawData(null, null, "Output the raw data from all coverage levels"), 
+        targetDir(".*",
+            CLDRPaths.GEN_DIRECTORY + "/statistics/", "target output file."), 
+        directories("(.*:)?[a-z]+(,[a-z]+)*", "common",
+            "Space-delimited list of main source directories: common,seed,exemplar.\n" +
+            "Optional, <baseDir>:common,seed"),;
 
         // targetDirectory(".+", CldrUtility.CHART_DIRECTORY + "keyboards/", "The target directory."),
         // layouts(null, null, "Only create html files for keyboard layouts"),
@@ -473,10 +482,13 @@ public class ShowLocaleCoverage {
 
     public static void showCoverage(Anchors anchors, Matcher matcher, Set<String> locales, boolean useOrgLevel) throws IOException {
         final String title = "Locale Coverage";
-        final PrintWriter pw = new PrintWriter(new FormattedFileWriter(null, title, null, anchors));
-        printData(pw, locales, matcher, useOrgLevel);
-        new ShowPlurals().appendBlanksForScrolling(pw);
-        pw.close();
+        try (PrintWriter pw = new PrintWriter(new FormattedFileWriter(null, title, null, anchors));
+            PrintWriter tsv_summary = FileUtilities.openUTF8Writer(CLDRPaths.CHART_DIRECTORY + "tsv/", "locale-coverage.tsv");
+            PrintWriter tsv_missing = FileUtilities.openUTF8Writer(CLDRPaths.CHART_DIRECTORY + "tsv/", "locale-missing.tsv");
+            ){
+            printData(pw, tsv_summary, tsv_missing, locales, matcher, useOrgLevel);
+            new ShowPlurals().appendBlanksForScrolling(pw);
+        }
     }
 
 //    public static void showEnglish() {
@@ -495,7 +507,7 @@ public class ShowLocaleCoverage {
 //        }
 //    }
 
-    static void printData(PrintWriter pw, Set<String> locales, Matcher matcher, boolean useOrgLevel) {
+    static void printData(PrintWriter pw, PrintWriter tsv_summary, PrintWriter tsv_missing, Set<String> locales, Matcher matcher, boolean useOrgLevel) {
 //        Set<String> checkModernLocales = STANDARD_CODES.getLocaleCoverageLocales("google", EnumSet.of(Level.MODERN));
         Set<String> checkModernLocales = STANDARD_CODES.getLocaleCoverageLocales(Organization.cldr, EnumSet.of(Level.MODERN));
         Set<String> availableLanguages = new TreeSet<>(factory.getAvailableLanguages());
@@ -541,14 +553,7 @@ public class ShowLocaleCoverage {
         //        System.out.println();
         // Factory pathHeaderFactory = PathHeader.getFactory(testInfo.getCldrFactory().make("en", true));
 
-        PrintWriter out;
-        try {
-            out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/", "simpleCoverage.tsv");
-        } catch (IOException e1) {
-            throw new ICUUncheckedIOException(e1);
-        }
-
-        out.println("#LCode\tEnglish Name\tScript\tEnglish Value\tNative Value\tStatus\tST Link\tSection\tPage\tHeader\tCode\tPath");
+        tsv_missing.println("#LCode\tEnglish Name\tScript\tEnglish Value\tNative Value\tLevel\tStatus\tST Link\tSection\tPage\tHeader\tCode\tPath");
 
         Counter<Level> foundCounter = new Counter<Level>();
         Counter<Level> unconfirmedCounter = new Counter<Level>();
@@ -588,15 +593,18 @@ public class ShowLocaleCoverage {
             .setCellPattern("{0,number}")
             .addColumn("∪ UC", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
             .setCellPattern("{0,number}")
-        //.addColumn("Target Level", "class='target'", null, "class='target'", true).setBreakSpans(true)
-        ;
+            //.addColumn("Target Level", "class='target'", null, "class='target'", true).setBreakSpans(true)
+            ;
+        tsv_summary.println("Status\tCode\tEnglish Name\tNative Name\tScript\tCLDR target\tSublocales\tFields\t∪ UC\tModern%\tModerate%\tBasic%\tCore%");
+        NumberFormat tsvPercent = NumberFormat.getPercentInstance(Locale.ENGLISH);
+        tsvPercent.setMaximumFractionDigits(2);
 
         for (Level level : reversedLevels) {
             String titleLevel = level.toString();
             tablePrinter
-                .addColumn(UCharacter.toTitleCase(titleLevel, null) + "%", "class='target'", null, "class='targetRight'", true)
-                .setCellPattern("{0,number,0.0%}")
-                .setBreakSpans(true);
+            .addColumn(UCharacter.toTitleCase(titleLevel, null) + "%", "class='target'", null, "class='targetRight'", true)
+            .setCellPattern("{0,number,0.0%}")
+            .setBreakSpans(true);
             if (level == Level.MODERN) {
                 tablePrinter.setSortPriority(0).setSortAscending(false);
             }
@@ -671,7 +679,7 @@ public class ShowLocaleCoverage {
 
                 final CLDRFile file = factory.make(locale, true, minimumDraftStatus);
 
-                VettingViewer.getStatus(ENGLISH.fullIterable(), file,
+                VettingViewer.getStatus(file.fullIterable(), file,
                     pathHeaderFactory, foundCounter, unconfirmedCounter,
                     missingCounter, missingPaths, unconfirmed);
 
@@ -683,23 +691,34 @@ public class ShowLocaleCoverage {
 
 //                List s = Lists.newArrayList(file.fullIterable());
 
+                String seedString = isSeed ? "seed" : "common";
                 tablePrinter
-                    .addRow()
-                    .addCell(isSeed ? "seed" : "common")
-                    .addCell(language)
-                    .addCell(ENGLISH.getName(language))
-                    .addCell(file.getName(language))
-                    .addCell(script)
-                    .addCell(currentLevel)
-                    .addCell(sublocales.size());
+                .addRow()
+                .addCell(seedString)
+                .addCell(language)
+                .addCell(ENGLISH.getName(language))
+                .addCell(file.getName(language))
+                .addCell(script)
+                .addCell(currentLevel)
+                .addCell(sublocales.size());
+                tsv_summary
+                .append(seedString)
+                .append('\t').append(language)
+                .append('\t').append(ENGLISH.getName(language))
+                .append('\t').append(file.getName(language))
+                .append('\t').append(script)
+                .append('\t').append(currentLevel.toString())
+                .append('\t').append(sublocales.size()+"");
+                ;
+
                 String header = language
                     + "\t" + isCommonLocale
                     + "\t" + ENGLISH.getName(language)
                     + "\t" + file.getName(language)
                     + "\t" + script
                     + "\t" + sublocales.size()
-                //+ "\t" + currentLevel
-                ;
+                    //+ "\t" + currentLevel
+                    ;
 
                 int sumFound = 0;
                 int sumMissing = 0;
@@ -740,8 +759,13 @@ public class ShowLocaleCoverage {
                 double modernConfirmed = confirmed.get(Level.MODERN);
 
                 tablePrinter
-                    .addCell(sumFound)
-                    .addCell(sumFound + sumUnconfirmed);
+                .addCell(sumFound)
+                .addCell(sumFound + sumUnconfirmed);
+                tsv_summary
+                .append('\t').append(sumFound+"")
+                .append('\t').append((sumFound + sumUnconfirmed)+"")
+                ;
+
 
                 header += "\t" + sumFound;
                 header += "\t" + (sumFound + sumUnconfirmed);
@@ -757,8 +781,11 @@ public class ShowLocaleCoverage {
                     double total = totals.get(level);
 
                     tablePrinter
-                        .addCell(confirmedCoverage / total)
+                    .addCell(confirmedCoverage / total)
 //                    .addCell(unconfirmedCoverage / total)
+                    ;
+                    tsv_summary
+                    .append('\t').append(tsvPercent.format(confirmedCoverage / total))
                     ;
 
                     if (RAW_DATA) {
@@ -768,20 +795,31 @@ public class ShowLocaleCoverage {
                         Double factor = targetLevel.get(level) / (total / modernTotal);
                         header += "\t" + factor * confirmedCoverage / modernTotal
 //                            + "\t" + factor * unconfirmedCoverage / modernTotal
-                        ;
+                            ;
                     }
                 }
 //                tablePrinter
 //                .addCell(coreValue);
                 tablePrinter
-                    .finishRow();
+                .finishRow();
+                tsv_summary.append('\n');
 
                 //out2.println(header + "\t" + coreValue + "\t" + CollectionUtilities.join(missing, ", "));
 
                 // Write missing paths (for >99% and specials
 
                 if (checkModernLocales.contains(locale)) {
+                    CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(locale);
+
                     for (String path : unconfirmed) {
+                        Level level = coverageLevel2.getLevel(path);
+                        if (level.compareTo(Level.MODERN) > 0) {
+                            continue;
+                        }
+                        // String localeFound = file.getSourceLocaleID(path, status);
+                        // String value = file.getSourceLocaleID(path, status);
+                        // MissingStatus missingStatus = VettingViewer.getMissingStatus(file, path, status, latin);
+
 //                        String header2 =
 //                            language
 //                            + "\t" + ENGLISH.getName(language)
@@ -794,22 +832,28 @@ public class ShowLocaleCoverage {
 //                            + "\t" + "UNCONFIRMED"
 //                            + "\t" + URLS.forXpath(locale, ph.getOriginalPath())
 //                            + "\t" + ph + "\t" + path;
-                        String line = spreadsheetLine(locale, script, language, "UNCONFIRMED", path, file.getStringValue(path));
+                        String line = spreadsheetLine(locale, script, language, level, "UNCONFIRMED", path, file.getStringValue(path));
                         if (SKIP_PATHS.get(path) != null) {
                             //System.out.println("\nSKIP: " + line);
                         } else {
-                            out.println(line);
+                            tsv_missing.println(line);
                         }
                     }
                     for (Entry<MissingStatus, String> entry : missingPaths.entrySet()) {
-                        String line = spreadsheetLine(locale, script, language, entry.getKey().toString(), entry.getValue(), "???");
-                        if (SKIP_PATHS.get(entry.getValue()) != null) {
+                        String path = entry.getValue();
+                        Level level = coverageLevel2.getLevel(path);
+                        if (level.compareTo(Level.MODERN) > 0) {
+                            continue;
+                        }
+                        MissingStatus missingStatus = entry.getKey();
+                        String line = spreadsheetLine(locale, script, language, level, missingStatus.toString(), path, "???");
+                        if (SKIP_PATHS.get(path) != null) {
                             //System.out.println("\nSKIP: " + line);
                         } else {
-                            out.println(line);
+                            tsv_missing.println(line);
                         }
                     }
-                    out.flush();
+                    tsv_missing.flush();
                 }
 
                 localeCount++;
@@ -818,7 +862,6 @@ public class ShowLocaleCoverage {
             }
         }
         pw.println(tablePrinter.toTable());
-        out.close();
         out2.close();
 
         long end = System.currentTimeMillis();
@@ -835,7 +878,7 @@ public class ShowLocaleCoverage {
         //        }
     }
 
-    public static String spreadsheetLine(String locale, String script, String language, String status, String path, String nativeValue) {
+    public static String spreadsheetLine(String locale, String script, String language, Level level, String status, String path, String nativeValue) {
         PathHeader ph = pathHeaderFactory.fromPath(path);
         final String stLink = URLS.forXpath(locale, ph.getOriginalPath());
         String englishValue = ENGLISH.getStringValue(path);
@@ -844,6 +887,7 @@ public class ShowLocaleCoverage {
             + "\t" + ENGLISH.getName("script", script)
             + "\t" + englishValue
             + "\t" + nativeValue
+            + "\t" + level
             + "\t" + status
             + "\t" + stLink
             + "\t" + ph

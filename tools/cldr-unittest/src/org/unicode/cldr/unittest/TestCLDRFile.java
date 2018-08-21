@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
@@ -16,6 +17,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -169,12 +171,12 @@ public class TestCLDRFile extends TestFmwk {
                             .contains("[@type=\"gregorian\"]"))
                         || (path.contains("/eras/") && path
                             .contains("[@alt=\"variant\"]")) // it is OK
-                    // for
-                    // just
-                    // "en"
-                    // to
-                    // have
-                    // /eras/.../era[@type=...][@alt="variant"]
+                        // for
+                        // just
+                        // "en"
+                        // to
+                        // have
+                        // /eras/.../era[@type=...][@alt="variant"]
                         || path.contains("[@type=\"japanese\"]")
                         || path.contains("[@type=\"coptic\"]")
                         || path.contains("[@type=\"hebrew\"]")
@@ -188,8 +190,8 @@ public class TestCLDRFile extends TestFmwk {
                             && (path.endsWith("1\"]") || path.endsWith("\"am\"]") || path.endsWith("\"pm\"]") || path.endsWith("\"midnight\"]"))) // morning1, afternoon1, ...
                         || (path.startsWith("//ldml/characters/exemplarCharacters[@type=\"index\"]")
                             && localeInfo.locale.equals("root"))
-                    // //ldml/characters/exemplarCharacters[@type="index"][root]
-                    ) {
+                        // //ldml/characters/exemplarCharacters[@type="index"][root]
+                        ) {
                         continue;
                     }
                     String localeAndStatus = localeInfo.locale
@@ -252,8 +254,8 @@ public class TestCLDRFile extends TestFmwk {
             Set<String> locales = entry.getValue();
             if (path.startsWith("//ldml/localeDisplayNames/")
                 || path.startsWith("//ldml/numbers/otherNumberingSystems/")
-            // || path.contains("[@alt=\"accounting\"]")
-            ) {
+                // || path.contains("[@alt=\"accounting\"]")
+                ) {
                 logln("-en, +" + locales + "\t" + path);
             } else {
                 logln("-en, +" + locales + "\t" + path);
@@ -292,7 +294,7 @@ public class TestCLDRFile extends TestFmwk {
             String path = it.next();
             if (m.reset(path).find() && !path.contains("alias")) {
                 errln(cldr.getLocaleID() + "\t" + cldr.getStringValue(path)
-                    + "\t" + cldr.getFullXPath(path));
+                + "\t" + cldr.getFullXPath(path));
             }
             if (path == null) {
                 errln("Null path");
@@ -447,25 +449,25 @@ public class TestCLDRFile extends TestFmwk {
                         assertEquals(
                             "top≠resolved\t" + locale + "\t"
                                 + phf.fromPath(path),
-                            topValue,
-                            resolvedValue);
+                                topValue,
+                                resolvedValue);
                     } else {
                         String locale2 = cldrFile.getSourceLocaleID(path,
                             status);
                         assertEquals(
                             "bailey value≠\t" + locale + "\t"
                                 + phf.fromPath(path),
-                            resolvedValue,
-                            baileyValue);
+                                resolvedValue,
+                                baileyValue);
                         assertEquals(
                             "bailey locale≠\t" + locale + "\t"
                                 + phf.fromPath(path),
-                            locale2,
-                            localeWhereFound.value);
+                                locale2,
+                                localeWhereFound.value);
                         assertEquals(
                             "bailey path≠\t" + locale + "\t"
                                 + phf.fromPath(path),
-                            status.pathWhereFound, pathWhereFound.value);
+                                status.pathWhereFound, pathWhereFound.value);
                     }
                 }
 
@@ -698,4 +700,37 @@ public class TestCLDRFile extends TestFmwk {
             }
         }
     }
+
+    public void TestExtraPaths() {
+        List<String> testCases = Arrays.asList(
+            "//ldml/localeDisplayNames/languages/language[@type=\"ccp\"]",
+            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"Gy\"]/greatestDifference[@id=\"G\"]"
+            );
+        CLDRFile af = testInfo.getCldrFactory().make("af", true);
+        Set<String> missing = new HashSet<>(testCases);
+        CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance("af");
+        PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(testInfo.getEnglish());
+        Status status = new Status();
+
+        for (String xpath : af) {
+            if (missing.contains(xpath)) {
+                String value = af.getStringValue(xpath);
+                String source = af.getSourceLocaleID(xpath, status);
+                Level level = coverageLevel2.getLevel(xpath);
+                PathHeader ph = pathHeaderFactory.fromPath(xpath);
+                System.out.println(""
+                    + "\nPathHeader:\t" + ph
+                    + "\nValue:\t" + value
+                    + "\nLevel:\t" + level 
+                    + "\nReq. Locale:\t" + "af" 
+                    + "\nSource Locale:\t" + source
+                    + "\nReq. XPath:\t" + xpath 
+                    + "\nSource Path:\t" + status
+                    );
+                missing.remove(xpath);
+            }
+        }
+        assertTrue("Should be empty", missing.isEmpty());
+    }
+
 }

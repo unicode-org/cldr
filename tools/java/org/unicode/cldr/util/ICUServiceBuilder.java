@@ -532,11 +532,11 @@ public class ICUServiceBuilder {
                 && displayName.equals(that.displayName);
         }
 
-        private int hashCode(Object other) {
-            MyCurrency that = (MyCurrency) other;
-            return (((int) roundingIncrement * 37 + fractDigits) * 37 + symbol.hashCode()) * 37
-                + displayName.hashCode();
-        }
+//        public int hashCode(Object other) {
+//            MyCurrency that = (MyCurrency) other;
+//            return (((int) (roundingIncrement * 37) + fractDigits) * 37 + symbol.hashCode()) * 37
+//                + displayName.hashCode();
+//        }
     }
 
     static int CURRENCY = 0, OTHER_KEY = 1, PATTERN = 2;

@@ -101,11 +101,20 @@
 ^//ldml/listPatterns/listPattern/listPatternPart\[@type="2"]  ;   Special pattern used to make an “and” list out of two standard elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
 ^//ldml/listPatterns/listPattern/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a “and” list out of more than two standard elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
 
+^//ldml/listPatterns/listPattern\[@type="standard-short"]/listPatternPart\[@type="2"]  ;   Special pattern used to make a short-style “and” list out of two standard elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
+^//ldml/listPatterns/listPattern\[@type="standard-short"]/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a short-style “and” list out of more than two standard elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
+
+^//ldml/listPatterns/listPattern\[@type="standard-narrow"]/listPatternPart\[@type="2"]  ;   Special pattern used to make a short-style “and” list out of two standard elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
+^//ldml/listPatterns/listPattern\[@type="standard-narrow"]/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a short-style “and” list out of more than two standard elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
+
 ^//ldml/listPatterns/listPattern\[@type="or"]/listPatternPart\[@type="2"]  ;   Special pattern used to make an “or” list out of two standard elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
 ^//ldml/listPatterns/listPattern\[@type="or"]/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make an “or” list out of more than two standard elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
 
-^//ldml/listPatterns/listPattern\[@type="standard-short"]/listPatternPart\[@type="2"]  ;   Special pattern used to make a short-style “and” list out of two standard elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
-^//ldml/listPatterns/listPattern\[@type="standard-short"]/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a short-style “and” list out of more than two standard elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
+^//ldml/listPatterns/listPattern\[@type="or-short"]/listPatternPart\[@type="2"]  ;   Special pattern used to make an “or” list out of two standard elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
+^//ldml/listPatterns/listPattern\[@type="or-short"]/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make an “or” list out of more than two standard elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
+
+^//ldml/listPatterns/listPattern\[@type="or-narrow"]/listPatternPart\[@type="2"]  ;   Special pattern used to make an “or” list out of two standard elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
+^//ldml/listPatterns/listPattern\[@type="or-narrow"]/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make an “or” list out of more than two standard elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
 
 ^//ldml/listPatterns/listPattern\[@type="unit"]/listPatternPart\[@type="2"]  ;   Special pattern used to make a list out of two unit elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
 ^//ldml/listPatterns/listPattern\[@type="unit"]/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a list out of more than two unit elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.

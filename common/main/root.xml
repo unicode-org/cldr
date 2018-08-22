@@ -4837,6 +4837,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="end">{0}, or {1}</listPatternPart>
 			<listPatternPart type="2">{0} or {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="or-narrow">
+			<alias source="locale" path="../listPattern[@type='or-short']"/>
+		</listPattern> 
+		<listPattern type="or-short">
+			<alias source="locale" path="../listPattern[@type='or']"/>
+		</listPattern> 
+		<listPattern type="standard-narrow">
+			<alias source="locale" path="../listPattern[@type='standard-short']"/>
+		</listPattern> 
 		<listPattern type="standard-short">
 			<alias source="locale" path="../listPattern"/>
 		</listPattern>

@@ -161,30 +161,30 @@
 ^//ldml/listPatterns/listPattern/listPatternPart\[@type="middle"] ; {0}=FIRST_ITEMS Apples, Oranges ; {1}=LAST_ITEMS Peaches, and Grapes
 ^//ldml/listPatterns/listPattern/listPatternPart\[@type="end"] ; {0}=START_ITEMS Apples, Oranges, Peaches; {1}=LAST_ITEM Grapes
 
-^//ldml/listPatterns/listPattern\[@type="standard-short"]/listPatternPart\[@type="2"] ; {0}=ITEM1 Apples ; {1}=ITEM2 Oranges
-^//ldml/listPatterns/listPattern\[@type="standard-short"]/listPatternPart\[@type="start"] ; {0}=FIRST_ITEM Apples ; {1}=REMAINING_ITEMS Oranges, Peaches, and Grapes
-^//ldml/listPatterns/listPattern\[@type="standard-short"]/listPatternPart\[@type="middle"] ; {0}=FIRST_ITEMS Apples, Oranges ; {1}=LAST_ITEMS Peaches, and Grapes
-^//ldml/listPatterns/listPattern\[@type="standard-short"]/listPatternPart\[@type="end"] ; {0}=START_ITEMS Apples, Oranges, Peaches; {1}=LAST_ITEM Grapes
+^//ldml/listPatterns/listPattern\[@type="standard-%A"]/listPatternPart\[@type="2"] ; {0}=ITEM1 Apples ; {1}=ITEM2 Oranges
+^//ldml/listPatterns/listPattern\[@type="standard-%A"]/listPatternPart\[@type="start"] ; {0}=FIRST_ITEM Apples ; {1}=REMAINING_ITEMS Oranges, Peaches, and Grapes
+^//ldml/listPatterns/listPattern\[@type="standard-%A"]/listPatternPart\[@type="middle"] ; {0}=FIRST_ITEMS Apples, Oranges ; {1}=LAST_ITEMS Peaches, and Grapes
+^//ldml/listPatterns/listPattern\[@type="standard-%A"]/listPatternPart\[@type="end"] ; {0}=START_ITEMS Apples, Oranges, Peaches; {1}=LAST_ITEM Grapes
 
 ^//ldml/listPatterns/listPattern\[@type="or"]/listPatternPart\[@type="2"] ; {0}=ITEM1 Apples ; {1}=ITEM2 Oranges
 ^//ldml/listPatterns/listPattern\[@type="or"]/listPatternPart\[@type="start"] ; {0}=FIRST_ITEM Apples ; {1}=REMAINING_ITEMS Oranges, Peaches, or Grapes
 ^//ldml/listPatterns/listPattern\[@type="or"]/listPatternPart\[@type="middle"] ; {0}=FIRST_ITEMS Apples, Oranges ; {1}=LAST_ITEMS Peaches, or Grapes
 ^//ldml/listPatterns/listPattern\[@type="or"]/listPatternPart\[@type="end"] ; {0}=START_ITEMS Apples, Oranges, Peaches; {1}=LAST_ITEM Grapes
 
-^//ldml/listPatterns/listPattern\[@type="unit"]/listPatternPart\[@type="2"] ; {0}=ITEM1 4 days; {1}=ITEM2 2 hours
-^//ldml/listPatterns/listPattern\[@type="unit"]/listPatternPart\[@type="start"] ; {0}=FIRST_ITEM 4 days; {1}=REMAINING_ITEMS 2 hours, 37 minutes, and 23 seconds
-^//ldml/listPatterns/listPattern\[@type="unit"]/listPatternPart\[@type="middle"] ; {0}=FIRST_ITEMS 4 days, 2 hours; {1}=LAST_ITEMS 37 minutes, and 23 seconds
-^//ldml/listPatterns/listPattern\[@type="unit"]/listPatternPart\[@type="end"] ; {0}=START_ITEMS 4 days, 2 hours, 37 minutes; {1}=LAST_ITEM 23 seconds
+^//ldml/listPatterns/listPattern\[@type="or%A"]/listPatternPart\[@type="2"] ; {0}=ITEM1 Apples ; {1}=ITEM2 Oranges
+^//ldml/listPatterns/listPattern\[@type="or%A"]/listPatternPart\[@type="start"] ; {0}=FIRST_ITEM Apples ; {1}=REMAINING_ITEMS Oranges, Peaches, or Grapes
+^//ldml/listPatterns/listPattern\[@type="or%A"]/listPatternPart\[@type="middle"] ; {0}=FIRST_ITEMS Apples, Oranges ; {1}=LAST_ITEMS Peaches, or Grapes
+^//ldml/listPatterns/listPattern\[@type="or%A"]/listPatternPart\[@type="end"] ; {0}=START_ITEMS Apples, Oranges, Peaches; {1}=LAST_ITEM Grapes
 
-^//ldml/listPatterns/listPattern\[@type="unit-short"]/listPatternPart\[@type="2"] ; {0}=ITEM1 4 days; {1}=ITEM2 2 hrs
-^//ldml/listPatterns/listPattern\[@type="unit-short"]/listPatternPart\[@type="start"] ; {0}=FIRST_ITEM 4 days; {1}=REMAINING_ITEMS 2 hrs, 37 mins, and 23 secs
-^//ldml/listPatterns/listPattern\[@type="unit-short"]/listPatternPart\[@type="middle"] ; {0}=FIRST_ITEMS 4 days, 2 hrs; {1}=LAST_ITEMS 37 mins, and 23 secs
-^//ldml/listPatterns/listPattern\[@type="unit-short"]/listPatternPart\[@type="end"] ; {0}=START_ITEMS 4 days, 2 hrs, 37 mins; {1}=LAST_ITEM 23 secs
+^//ldml/listPatterns/listPattern\[@type="unit%A"]/listPatternPart\[@type="2"] ; {0}=ITEM1 4 days; {1}=ITEM2 2 hours
+^//ldml/listPatterns/listPattern\[@type="unit%A"]/listPatternPart\[@type="start"] ; {0}=FIRST_ITEM 4 days; {1}=REMAINING_ITEMS 2 hours, 37 minutes, and 23 seconds
+^//ldml/listPatterns/listPattern\[@type="unit%A"]/listPatternPart\[@type="middle"] ; {0}=FIRST_ITEMS 4 days, 2 hours; {1}=LAST_ITEMS 37 minutes, and 23 seconds
+^//ldml/listPatterns/listPattern\[@type="unit%A"]/listPatternPart\[@type="end"] ; {0}=START_ITEMS 4 days, 2 hours, 37 minutes; {1}=LAST_ITEM 23 seconds
 
-^//ldml/listPatterns/listPattern\[@type="unit-narrow"]/listPatternPart\[@type="2"] ; {0}=ITEM1 4 days; {1}=ITEM2 2 hrs
-^//ldml/listPatterns/listPattern\[@type="unit-narrow"]/listPatternPart\[@type="start"] ; {0}=FIRST_ITEM 4 days; {1}=REMAINING_ITEMS 2 hrs, 37 mins, and 23 secs
-^//ldml/listPatterns/listPattern\[@type="unit-narrow"]/listPatternPart\[@type="middle"] ; {0}=FIRST_ITEMS 4 days, 2 hrs; {1}=LAST_ITEMS 37 mins, and 23 secs
-^//ldml/listPatterns/listPattern\[@type="unit-narrow"]/listPatternPart\[@type="end"] ; {0}=START_ITEMS 4 days, 2 hrs, 37 mins; {1}=LAST_ITEM 23 secs
+# ^//ldml/listPatterns/listPattern\[@type="unit-%A"]/listPatternPart\[@type="2"] ; {0}=ITEM1 4 days; {1}=ITEM2 2 hrs
+# ^//ldml/listPatterns/listPattern\[@type="unit-%A"]/listPatternPart\[@type="start"] ; {0}=FIRST_ITEM 4 days; {1}=REMAINING_ITEMS 2 hrs, 37 mins, and 23 secs
+# ^//ldml/listPatterns/listPattern\[@type="unit-%A"]/listPatternPart\[@type="middle"] ; {0}=FIRST_ITEMS 4 days, 2 hrs; {1}=LAST_ITEMS 37 mins, and 23 secs
+# ^//ldml/listPatterns/listPattern\[@type="unit-%A"]/listPatternPart\[@type="end"] ; {0}=START_ITEMS 4 days, 2 hrs, 37 mins; {1}=LAST_ITEM 23 secs
 
 ^//ldml/localeDisplayNames/codePatterns/codePattern\[@type="language"] ; {0}=LANGUAGE_CODE zh
 ^//ldml/localeDisplayNames/codePatterns/codePattern\[@type="script"] ; {0}=SCRIPT_CODE Hans

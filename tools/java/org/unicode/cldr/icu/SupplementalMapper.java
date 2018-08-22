@@ -208,7 +208,7 @@ public class SupplementalMapper {
 //                "postalCodeData", deprecated
                 "supplementalData",
                 "subdivisions",
-                "telephoneCodeData",
+//                "telephoneCodeData",
                 "/../validity/"
                 //                "windowsZones", done elsewhere??
             };

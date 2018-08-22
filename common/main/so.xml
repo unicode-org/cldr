@@ -34,7 +34,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="cy" draft="unconfirmed">Welsh</language>
 			<language type="da" draft="unconfirmed">Danmarkays</language>
 			<language type="de">Jarmal</language>
-			<language type="de_AT">Jarmal (Awsteriya)</language>
 			<language type="de_CH">Jarmal (Iswiiserlaand)</language>
 			<language type="el">Giriik</language>
 			<language type="en">Ingiriisi</language>
@@ -48,7 +47,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="es">Isbaanish</language>
 			<language type="es_419">Isbaanishka Laatiin Ameerika</language>
 			<language type="es_ES">Isbaanish (Isbayn)</language>
-			<language type="es_MX">Isbaanish (Meksiko)</language>
 			<language type="et" draft="unconfirmed">Istooniyaan</language>
 			<language type="eu" draft="unconfirmed">Basquu</language>
 			<language type="fa">Faarisi</language>
@@ -56,7 +54,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fil" draft="unconfirmed">Tagalog</language>
 			<language type="fo" draft="unconfirmed">Farowsi</language>
 			<language type="fr">Faransiis</language>
-			<language type="fr_CA">Faransiis (Kanada)</language>
 			<language type="fr_CH">Faransiis (Iswiiserlaand)</language>
 			<language type="fy">Firiisiyan Galbeed</language>
 			<language type="ga" draft="unconfirmed">Ayrish</language>
@@ -238,7 +235,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CG" alt="variant">Jamhuuriyadda Kongo</territory>
 			<territory type="CH">Swiiserlaand</territory>
 			<territory type="CI">Ayfori Koost</territory>
-			<territory type="CI" alt="variant">Ayfori Koost</territory>
 			<territory type="CK">Jasiiradda Kook</territory>
 			<territory type="CL">Jili</territory>
 			<territory type="CM">Kaameruun</territory>
@@ -349,7 +345,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MG">Madagaskar</territory>
 			<territory type="MH">Jasiiradda Maarshal</territory>
 			<territory type="MK">Masedooniya</territory>
-			<territory type="MK" alt="variant">Masedooniya</territory>
 			<territory type="ML">Maali</territory>
 			<territory type="MM">Miyanmar</territory>
 			<territory type="MN">Mongooliya</territory>
@@ -492,9 +487,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<characters>
 		<exemplarCharacters>[a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="contributed">[]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="contributed">[B-DF-HJ-NQ-TW-Y]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="contributed">[B C D F G H J K L M N Q R S T W X Y]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="contributed">[!-#\&amp;-*,-/\:;?@\[\]§‐–—‘’“”†‡…′″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>

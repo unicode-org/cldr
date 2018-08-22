@@ -19,7 +19,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="eu" draft="contributed">euskera</language>
 			<language type="grc" draft="contributed">griego antiguo</language>
 			<language type="lo" draft="contributed">lao</language>
-			<language type="nl_BE" draft="contributed">flamenco</language>
 			<language type="nso" draft="contributed">sotho septentrional</language>
 			<language type="pa" draft="contributed">punyabí</language>
 			<language type="ss" draft="contributed">siswati</language>
@@ -28,9 +27,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="tn" draft="contributed">setswana</language>
 			<language type="wo" draft="contributed">wolof</language>
 			<language type="zgh" draft="contributed">tamazight marroquí estándar</language>
-			<language type="zh_Hans" draft="contributed">chino simplificado</language>
-			<language type="zh_Hant" draft="contributed">chino tradicional</language>
-			<language type="zun" draft="contributed">zuni</language>
 		</languages>
 		<territories>
 			<territory type="BA" draft="contributed">Bosnia y Herzegovina</territory>
@@ -38,7 +34,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TA" draft="contributed">Tristán de Acuña</territory>
 			<territory type="TL" draft="contributed">Timor-Leste</territory>
 			<territory type="UM" draft="contributed">Islas menores alejadas de EE. UU.</territory>
-			<territory type="US" alt="short" draft="contributed">EE. UU.</territory>
 			<territory type="VI" draft="contributed">Islas Vírgenes de EE. UU.</territory>
 		</territories>
 	</localeDisplayNames>
@@ -70,10 +65,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="GyMMMEd" draft="contributed">E, d MMM 'de' y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMM" draft="contributed">MMM 'de' y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" draft="contributed">d 'de' MMM 'de' y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd" draft="contributed">EEE, d 'de' MMM 'de' y G</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ" draft="contributed">QQQ 'de' y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} ‘al’ {1}</intervalFormatFallback>
@@ -409,7 +400,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<minimumGroupingDigits draft="contributed">2</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group>.</group>
@@ -438,9 +428,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="duration-week">
 				<perUnitPattern draft="contributed">{0}/sem.</perUnitPattern>
 			</unit>
-			<unit type="duration-day">
-				<perUnitPattern draft="contributed">{0} por día</perUnitPattern>
-			</unit>
 		</unitLength>
 		<unitLength type="short">
 			<unit type="duration-year">
@@ -454,9 +441,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">{0} mes</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} meses</unitPattern>
 				<perUnitPattern draft="contributed">{0}/mes</perUnitPattern>
-			</unit>
-			<unit type="duration-week">
-				<perUnitPattern draft="contributed">{0}/sem.</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName draft="contributed">días</displayName>

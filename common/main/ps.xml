@@ -85,7 +85,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dar">درگوا</language>
 			<language type="dav">ټایټا</language>
 			<language type="de">الماني</language>
-			<language type="de_AT">الماني (اتریش)</language>
 			<language type="de_CH">سوئس لوی جرمن</language>
 			<language type="dgr">داگرب</language>
 			<language type="dje">زرما</language>
@@ -123,8 +122,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fo">فاروئې</language>
 			<language type="fon">فان</language>
 			<language type="fr">فرانسوي</language>
-			<language type="fr_CA">فرانسوي (کاناډا)</language>
-			<language type="fr_CH">فرانسوي (سویس)</language>
 			<language type="fur">فرائیلیین</language>
 			<language type="fy">فريزي</language>
 			<language type="ga">ائيرلېنډي</language>
@@ -863,9 +860,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<characters>
 		<exemplarCharacters>[\u064E \u0650 \u064F \u064B \u064D \u064C \u0651 \u0652 \u0654 \u0670 آ ا أ ء ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ ع غ ف ق ک ګ گ ل م ن ڼ ه ة و ؤ ی ي ې ۍ ئ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200C \u200D \u200E\u200F]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="contributed">[ءآابت-غفقل-وټپځڅچډړږژښکګڼی]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="contributed">[آ ا ء ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ ع غ ف ق ک ګ ل م ن ڼ ه و ی]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\u200E \- , ٫ ٬ . % ٪ ‰ ؉ + − 0۰ 1۱ 2۲ 3۳ 4۴ 5۵ 6۶ 7۷ 8۸ 9۹]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[!'-)/\:;\[\]\{\}،۔‘]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[، ; \: ! ۔ ' ‘ ( ) \[ \] \{ \} /]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>

@@ -15,30 +15,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<languages>
 			<language type="ace">Aceh-Sprache</language>
 			<language type="ach">Acholi-Sprache</language>
-			<language type="ar_001">Modernes Hocharabisch</language>
 			<language type="ars" draft="contributed">Nadschd-Arabisch</language>
 			<language type="bas">Basaa-Sprache</language>
 			<language type="be">Weissrussisch</language>
 			<language type="bik">Bikol-Sprache</language>
 			<language type="bin">Bini-Sprache</language>
 			<language type="chb">Chibcha-Sprache</language>
-			<language type="de_CH">Schweizer Hochdeutsch</language>
 			<language type="din">Dinka-Sprache</language>
 			<language type="fan">Pangwe-Sprache</language>
 			<language type="gba">Gbaya-Sprache</language>
 			<language type="kmb">Kimbundu-Sprache</language>
 			<language type="mus">Muskogee-Sprache</language>
-			<language type="nl_BE">Flämisch</language>
 			<language type="prg">Altpreussisch</language>
-			<language type="zh_Hans">Chinesisch (vereinfacht)</language>
-			<language type="zh_Hant">Chinesisch (traditionell)</language>
 		</languages>
 		<territories>
 			<territory type="BN">Brunei</territory>
 			<territory type="BW">Botswana</territory>
 			<territory type="BY">Weissrussland</territory>
 			<territory type="CV">Kapverden</territory>
-			<territory type="EZ" draft="contributed">Eurozone</territory>
 			<territory type="GB">Grossbritannien</territory>
 			<territory type="QO">Äusseres Ozeanien</territory>
 			<territory type="SB">Salomon-Inseln</territory>
@@ -59,7 +53,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</types>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a-zäöü]</exemplarCharacters>
+		<exemplarCharacters>[a ä b c d e f g h i j k l m n o ö p q r s t u ü v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- . ’ % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 	</characters>
 	<dates>
@@ -83,11 +77,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<fields>
 			<field type="era-narrow">
 				<displayName>Epoche</displayName>
-			</field>
-			<field type="quarter">
-				<relative type="-1">letztes Quartal</relative>
-				<relative type="0">dieses Quartal</relative>
-				<relative type="1">nächstes Quartal</relative>
 			</field>
 			<field type="quarter-short">
 				<relative type="1">nächstes Quartal</relative>
@@ -179,17 +168,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Weissrussischer Rubel (2000–2016)</displayName>
 				<displayName count="other">Weissrussische Rubel (2000–2016)</displayName>
 			</currency>
-			<currency type="CHF">
-				<symbol draft="contributed">CHF</symbol>
-			</currency>
 			<currency type="EUR">
 				<symbol>EUR</symbol>
 				<symbol alt="narrow" draft="contributed">EUR</symbol>
-			</currency>
-			<currency type="PEN">
-				<displayName>Peruanischer Sol</displayName>
-				<displayName count="one">Peruanischer Sol</displayName>
-				<displayName count="other">Peruanische Sol</displayName>
 			</currency>
 			<currency type="STN">
 				<displayName>São-toméischer Dobra (2018)</displayName>

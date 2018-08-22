@@ -13,29 +13,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="ain">Kiainu</language>
-			<language type="ar_001">Kiarabu sanifu</language>
 			<language type="arq">Kiarabu cha Aljeria</language>
 			<language type="as">Kiasamisi</language>
-			<language type="az">Kiazerbaijani</language>
-			<language type="ba">Kibashkiri</language>
-			<language type="bug">Kibugini</language>
 			<language type="chr">Kicheroki</language>
-			<language type="ckb">Kikurdi cha Sorani</language>
 			<language type="cu">Kislovakia cha Kanisa la Jadi</language>
-			<language type="dsb">Kisobia cha Chini</language>
-			<language type="eu">Kibaski</language>
 			<language type="gaa">Kiga</language>
 			<language type="grc">Kigiriki cha Kale</language>
 			<language type="gwi">Kigwichʼin</language>
 			<language type="hsb">Kisorbia cha Juu</language>
-			<language type="hu">Kihungaria</language>
 			<language type="hup">Kihupa</language>
 			<language type="hy">Kiamenia</language>
-			<language type="ii">Kiyi cha Sichuan</language>
 			<language type="inh">Kiingushi</language>
-			<language type="is">Kiisilandi</language>
-			<language type="iu">Kiinuktituti</language>
 			<language type="jbo">Kilojbani</language>
 			<language type="kac">Kikachini</language>
 			<language type="khq">Kikoyrachiini</language>
@@ -50,32 +38,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="mdf">Kimoksha</language>
 			<language type="mic">Kimi'kmak</language>
 			<language type="mk">Kimasedonia</language>
-			<language type="ml">Kimalayalamu</language>
 			<language type="moh">Kimohoki</language>
 			<language type="nnh">Kiingiemboon</language>
 			<language type="nqo">Kiin’ko</language>
 			<language type="or">Kiodia</language>
 			<language type="pcm">Kipijini cha Nigeria</language>
-			<language type="qu">Kikechua</language>
-			<language type="ro_MD">Kimoldova cha Romania</language>
-			<language type="root">Kiroot</language>
-			<language type="sco">Kiskoti</language>
 			<language type="ses">Kikoyraborosenni</language>
 			<language type="shu">Kiarabu cha Chadi</language>
 			<language type="srn">Kisranantongo</language>
-			<language type="su">Kisunda</language>
 			<language type="sw_CD">Kiswahili cha Kongo</language>
 			<language type="swb">Kikomoro</language>
 			<language type="syr">Kisiria</language>
-			<language type="ta">Kitamili</language>
-			<language type="th">Kithai</language>
 			<language type="tw">Kitwi</language>
 			<language type="twq">Kitasawak</language>
-			<language type="tzm">Kitamazighati cha Atlasi ya Kati</language>
 			<language type="udm">Kiudumurti</language>
 			<language type="ug">Kiuiguri</language>
-			<language type="wa">Kiwaloon</language>
-			<language type="wae">Kiwalser</language>
 			<language type="zgh">Kitamazighati Sanifu cha Moroko</language>
 		</languages>
 		<territories>
@@ -89,8 +66,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CC">Visiwa vya Kokos (Keeling)</territory>
 			<territory type="CD">Kongo - Kinshasa</territory>
 			<territory type="CI">Ivorikosti</territory>
-			<territory type="CI" alt="variant">Ivorikosti</territory>
-			<territory type="CX">Kisiwa cha Krismasi</territory>
 			<territory type="CY">Saiprasi</territory>
 			<territory type="DK">Denmaki</territory>
 			<territory type="EA">Keuta na Melilla</territory>
@@ -102,9 +77,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GS">Visiwa vya Jojia ya Kusini na Sandwich ya Kusini</territory>
 			<territory type="GU">Guami</territory>
 			<territory type="HR">Kroashia</territory>
-			<territory type="IM">Kisiwa cha Man</territory>
 			<territory type="IO">Himaya ya Uingereza katika Bahari Hindi</territory>
-			<territory type="IS">Aisilandi</territory>
 			<territory type="JO">Yordani</territory>
 			<territory type="KY">Visiwa vya Kaimani</territory>
 			<territory type="LA">Laosi</territory>
@@ -125,7 +98,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MV">Maldivi</territory>
 			<territory type="NC">Nyukaledonia</territory>
 			<territory type="NE">Nijeri</territory>
-			<territory type="NG">Nigeria</territory>
 			<territory type="NO">Norwe</territory>
 			<territory type="NP">Nepali</territory>
 			<territory type="OM">Omani</territory>
@@ -177,23 +149,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
-					<intervalFormats>
-						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="y">E, d MMM y – E, d MMM y</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="pm">PM</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">AM</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>

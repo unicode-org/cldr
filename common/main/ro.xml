@@ -119,7 +119,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">dargwa</language>
 			<language type="dav">taita</language>
 			<language type="de">germană</language>
-			<language type="de_AT">germană (Austria)</language>
 			<language type="de_CH">germană standard (Elveția)</language>
 			<language type="del">delaware</language>
 			<language type="den">slave</language>
@@ -143,18 +142,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">greacă</language>
 			<language type="elx">elamită</language>
 			<language type="en">engleză</language>
-			<language type="en_AU">engleză (Australia)</language>
-			<language type="en_CA">engleză (Canada)</language>
-			<language type="en_GB">engleză (Regatul Unit)</language>
-			<language type="en_GB" alt="short">engleză (Regatul Unit)</language>
-			<language type="en_US">engleză (Statele Unite ale Americii)</language>
 			<language type="en_US" alt="short">engleză (S.U.A)</language>
 			<language type="enm">engleză medie</language>
 			<language type="eo">esperanto</language>
 			<language type="es">spaniolă</language>
-			<language type="es_419">spaniolă (America Latină)</language>
 			<language type="es_ES">spaniolă (Europa)</language>
-			<language type="es_MX">spaniolă (Mexic)</language>
 			<language type="et">estonă</language>
 			<language type="eu">bască</language>
 			<language type="ewo">ewondo</language>
@@ -168,8 +160,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">faroeză</language>
 			<language type="fon">fon</language>
 			<language type="fr">franceză</language>
-			<language type="fr_CA">franceză (Canada)</language>
-			<language type="fr_CH">franceză (Elveția)</language>
 			<language type="frc">franceză cajun</language>
 			<language type="frm">franceză medie</language>
 			<language type="fro">franceză veche</language>
@@ -405,7 +395,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ps">paștună</language>
 			<language type="ps" alt="variant">pushto</language>
 			<language type="pt">portugheză</language>
-			<language type="pt_BR">portugheză (Brazilia)</language>
 			<language type="pt_PT">portugheză (Europa)</language>
 			<language type="qu">quechua</language>
 			<language type="quc">quiché</language>
@@ -415,7 +404,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="rm">romanșă</language>
 			<language type="rn">kirundi</language>
 			<language type="ro">română</language>
-			<language type="ro_MD">română (Republica Moldova)</language>
 			<language type="rof">rombo</language>
 			<language type="rom">romani</language>
 			<language type="root">root</language>
@@ -1125,8 +1113,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</contextTransformUsage>
 	</contextTransforms>
 	<characters>
-		<exemplarCharacters>[a-pr-zâîășț]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[qàáäåç-ëñöüşţ]</exemplarCharacters>
+		<exemplarCharacters>[a ă â b c d e f g h i î j k l m n o p r s ș t ț u v w x y z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[á à å ä ç é è ê ë ñ ö q ş ţ ü]</exemplarCharacters>
 		<exemplarCharacters type="index">[A Ă Â B C D E F G H I Î J K L M N O P Q R S Ș T Ț U V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ &quot; “ ” „ « » ( ) \[ \] @ * /]</exemplarCharacters>

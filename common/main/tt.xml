@@ -42,24 +42,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="cy">уэльс</language>
 			<language type="da">дания</language>
 			<language type="de">алман</language>
-			<language type="de_AT">алман (Австрия)</language>
 			<language type="de_CH">югары алман (Швейцария)</language>
 			<language type="dsb">түбән сорб</language>
 			<language type="dv">мальдив</language>
 			<language type="dz">дзонг-кха</language>
 			<language type="el">грек</language>
 			<language type="en">инглиз</language>
-			<language type="en_AU">инглиз (Австралия)</language>
-			<language type="en_CA">инглиз (Канада)</language>
-			<language type="en_GB">инглиз (Бөекбритания)</language>
-			<language type="en_GB" alt="short">инглиз (Бөекбритания)</language>
-			<language type="en_US">инглиз (АКШ)</language>
-			<language type="en_US" alt="short">инглиз (АКШ)</language>
 			<language type="eo">эсперанто</language>
 			<language type="es">испан</language>
 			<language type="es_419">испан (Латин Америкасы)</language>
 			<language type="es_ES">испан (Европа)</language>
-			<language type="es_MX">испан (Мексика)</language>
 			<language type="et">эстон</language>
 			<language type="eu">баск</language>
 			<language type="fa">фарсы</language>
@@ -68,8 +60,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fil">филиппин</language>
 			<language type="fo">фарер</language>
 			<language type="fr">француз</language>
-			<language type="fr_CA">француз (Канада)</language>
-			<language type="fr_CH">француз (Швейцария)</language>
 			<language type="ga">ирланд</language>
 			<language type="gd">шотланд гэль</language>
 			<language type="gl">галисия</language>
@@ -133,7 +123,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pl">поляк</language>
 			<language type="ps">пушту</language>
 			<language type="pt">португал</language>
-			<language type="pt_BR">португал (Бразилия)</language>
 			<language type="pt_PT">португал (Европа)</language>
 			<language type="qu">кечуа</language>
 			<language type="quc">киче</language>
@@ -458,10 +447,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[а ә б в г д е ё ж җ з и й к л м н ң о ө п р с т у ү ф х һ ц ч ш щ ъ ы ь э ю я]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="contributed">[ғқӯ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="contributed">[ғ қ ӯ]</exemplarCharacters>
 		<exemplarCharacters type="index">[А Ә Б В Г Д Е Ё Ж Җ З И Й К Л М Н Ң О Ө П Р С Т У Ү Ф Х Һ Ц Ч Ш Щ Ъ Ы Ь Э Ю Я]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[  \- , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="contributed">[!-#\&amp;-*,-/\:;?@\[\]§‐–—‘’“”…′″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # ′ ″]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -764,15 +753,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<eras>
 					<eraNames>
 						<era type="0">безнең эрага кадәр</era>
-						<era type="0" alt="variant">безнең эрага кадәр</era>
 						<era type="1">безнең эра</era>
-						<era type="1" alt="variant">безнең эра</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">б.э.к.</era>
-						<era type="0" alt="variant">б.э.к.</era>
 						<era type="1">б.э.</era>
-						<era type="1" alt="variant">б.э.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>

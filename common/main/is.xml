@@ -729,7 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG" alt="variant">Kongó (Lýðveldið)</territory>
 			<territory type="CH">Sviss</territory>
 			<territory type="CI">Fílabeinsströndin</territory>
-			<territory type="CI" alt="variant">Fílabeinsströndin</territory>
 			<territory type="CK">Cooks-eyjar</territory>
 			<territory type="CL">Síle</territory>
 			<territory type="CM">Kamerún</territory>
@@ -743,7 +742,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CX">Jólaey</territory>
 			<territory type="CY">Kýpur</territory>
 			<territory type="CZ">Tékkland</territory>
-			<territory type="CZ" alt="variant">Tékkland</territory>
 			<territory type="DE">Þýskaland</territory>
 			<territory type="DG">Diego Garcia</territory>
 			<territory type="DJ">Djíbútí</territory>
@@ -1107,9 +1105,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<characters>
 		<exemplarCharacters>[a á b d ð e é f g h i í j k l m n o ó p r s t u ú v x y ý þ æ ö]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[c q w z]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="contributed">[A-ZÁÆÉÍÐÓÖÚÝÞ]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="contributed">[A Á B C D Ð E É F G H I Í J K L M N O Ó P Q R S T U Ú V W X Y Ý Z Þ Æ Ö]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="contributed">[!-#\&amp;-*,-/\:;?@\[\]§‐–—‘‚“„†‡…′″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">[\- ‐ – — , ; \: ! ? . … ' ‘ ‚ &quot; “ „ ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>

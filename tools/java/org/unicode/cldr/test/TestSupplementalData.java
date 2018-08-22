@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -27,7 +28,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Utility;
 
 public class TestSupplementalData {
     static CLDRFile english;
@@ -194,7 +194,7 @@ public class TestSupplementalData {
             Set<String> languages = supplementalData.getTerritoryToLanguages(territory);
             Set<String> otherLanguages = otherTerritoryToLanguages.getAll(territory);
             if (otherLanguages == null) otherLanguages = Collections.emptySet();
-            if (!Utility.objectEquals(languages, otherLanguages)) {
+            if (!Objects.equals(languages, otherLanguages)) {
                 Set<String> languagesLeftover = new TreeSet<String>(languages);
                 languagesLeftover.removeAll(otherLanguages);
                 Set<String> otherLanguagesLeftover = new TreeSet<String>(otherLanguages);

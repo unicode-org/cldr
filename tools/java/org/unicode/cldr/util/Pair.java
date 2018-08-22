@@ -9,6 +9,8 @@
 
 package org.unicode.cldr.util;
 
+import java.util.Objects;
+
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
 
@@ -72,7 +74,7 @@ public final class Pair<T extends Comparable<T>, U extends Comparable<U>> implem
     public boolean equals(Object other) {
         try {
             Pair<?, ?> that = (Pair<?, ?>) other;
-            return Utility.objectEquals(first, that.first) && Utility.objectEquals(second, that.second);
+            return Objects.equals(first, that.first) && Objects.equals(second, that.second);
         } catch (Exception e) {
             return false;
         }

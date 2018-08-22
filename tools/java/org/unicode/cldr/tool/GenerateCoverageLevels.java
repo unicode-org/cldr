@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -35,7 +36,6 @@ import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Row.R5;
-import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.Transform;
 
@@ -248,7 +248,7 @@ public class GenerateCoverageLevels {
                     for (String key : union) {
                         String lastValue = lastAttrs.get(key);
                         String nextValue = nextAttrs.get(key);
-                        if (!Utility.objectEquals(lastValue, nextValue)) {
+                        if (!Objects.equals(lastValue, nextValue)) {
                             if (lastValue != null) old.put(key, lastValue);
                             if (nextValue != null) old.put(key, nextValue);
                         }

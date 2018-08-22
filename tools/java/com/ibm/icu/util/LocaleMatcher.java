@@ -13,6 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,7 +23,6 @@ import com.ibm.icu.impl.ICUResourceBundle;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.impl.Utility;
 
 /**
  * Provides a way to match the languages (locales) supported by a product to the
@@ -446,10 +446,10 @@ public class LocaleMatcher {
         @Override
         public boolean equals(Object obj) {
             LocalePatternMatcher other = (LocalePatternMatcher) obj;
-            return Utility.objectEquals(level, other.level)
-                && Utility.objectEquals(lang, other.lang)
-                && Utility.objectEquals(script, other.script)
-                && Utility.objectEquals(region, other.region);
+            return Objects.equals(level, other.level)
+                && Objects.equals(lang, other.lang)
+                && Objects.equals(script, other.script)
+                && Objects.equals(region, other.region);
         }
 
         /* (non-Javadoc)

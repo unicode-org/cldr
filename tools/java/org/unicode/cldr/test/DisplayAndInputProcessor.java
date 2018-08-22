@@ -98,6 +98,7 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale KWASIO = CLDRLocale.getInstance("nmg");
     private static final CLDRLocale HEBREW = CLDRLocale.getInstance("he");
     private static final CLDRLocale MYANMAR = CLDRLocale.getInstance("my");
+    private static final CLDRLocale KYRGYZ = CLDRLocale.getInstance("ky");
     private static final CLDRLocale GERMAN_SWITZERLAND = CLDRLocale.getInstance("de_CH");
     private static final CLDRLocale SWISS_GERMAN = CLDRLocale.getInstance("gsw");
     public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE = new HashSet<String>(
@@ -127,6 +128,10 @@ public class DisplayAndInputProcessor {
 
     private static final char[][] HEBREW_CONVERSIONS = {
         { '\'', '\u05F3' }, { '"', '\u05F4' } }; //  ' -> geresh  " -> gershayim
+
+    private static final char[][] KYRGYZ_CONVERSIONS = {
+        { 'ӊ', 'ң' }, { 'Ӊ', 'Ң' } }; //  right modifier
+
 
     private Collator col;
 
@@ -315,11 +320,13 @@ public class DisplayAndInputProcessor {
             } else if (locale.childOf(KWASIO) && !isUnicodeSet) {
                 value = standardizeKwasio(value);
             } else if (locale.childOf(HEBREW) && !APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
-                value = standardizeHebrew(value);
+                value = replaceChars(value, HEBREW_CONVERSIONS);
             } else if ((locale.childOf(SWISS_GERMAN) || locale.childOf(GERMAN_SWITZERLAND)) && !isUnicodeSet) {
                 value = standardizeSwissGerman(value);
             } else if (locale.childOf(MYANMAR) && !isUnicodeSet) {
                 value = MyanmarZawgyiConverter.standardizeMyanmar(value);
+            } else if (locale.childOf(KYRGYZ)) {
+                value = replaceChars(value, KYRGYZ_CONVERSIONS);
             }
 
             if (UNICODE_WHITESPACE.containsSome(value)) {
@@ -691,10 +698,10 @@ public class DisplayAndInputProcessor {
         return builder.toString();
     }
 
-    private String standardizeHebrew(String value) {
+    private String replaceChars(String value, char[][] charsToReplace) {
         StringBuilder builder = new StringBuilder();
         for (char c : value.toCharArray()) {
-            for (char[] pair : HEBREW_CONVERSIONS) {
+            for (char[] pair : charsToReplace) {
                 if (c == pair[0]) {
                     c = pair[1];
                     break;

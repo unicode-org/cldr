@@ -869,7 +869,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[а б г д е ё ж з и й к л м н ӊ о ө п р с т у ү х ч ш ъ ы э ю я]</exemplarCharacters>
+		<exemplarCharacters>[а б г д е ё ж з и й к л м н ң о ө п р с т у ү х ч ш ъ ы э ю я]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[в ф ц щ ь]</exemplarCharacters>
 		<exemplarCharacters type="index">[А Б В Г Д Е Ё Ж З И Й К Л М Н Ң О Ө П Р С Т У Ү Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[  \- , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
@@ -1795,7 +1795,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="-2">мурдагы күнү</relative>
 				<relative type="-1">кечээ</relative>
 				<relative type="0">бүгүн</relative>
-				<relative type="1">эртеӊ</relative>
+				<relative type="1">эртең</relative>
 				<relative type="2">бүрсүгүнү</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} күндөн кийин</relativeTimePattern>
@@ -1811,7 +1811,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="-2">мурдагы күнү</relative>
 				<relative type="-1">кечээ</relative>
 				<relative type="0">бүгүн</relative>
-				<relative type="1">эртеӊ</relative>
+				<relative type="1">эртең</relative>
 				<relative type="2">бүрсүгүнү</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} күн. кийин</relativeTimePattern>
@@ -1827,7 +1827,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="-2">мурдагы күнү</relative>
 				<relative type="-1">кечээ</relative>
 				<relative type="0">бүгүн</relative>
-				<relative type="1">эртеӊ</relative>
+				<relative type="1">эртең</relative>
 				<relative type="2">бүрсүгүнү</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} күн. кийин</relativeTimePattern>
@@ -2594,7 +2594,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Икалуит</exemplarCity>
 			</zone>
 			<zone type="America/Pangnirtung">
-				<exemplarCity>Пангиртуӊ</exemplarCity>
+				<exemplarCity>Пангиртуң</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
 				<exemplarCity>Монктон</exemplarCity>
@@ -3089,7 +3089,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Куала Лумпур</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuching">
-				<exemplarCity>Кучиӊ</exemplarCity>
+				<exemplarCity>Кучиң</exemplarCity>
 			</zone>
 			<zone type="Africa/Maputo">
 				<exemplarCity>Мапуто</exemplarCity>
@@ -4154,15 +4154,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="New_Caledonia">
 				<long>
-					<generic>Жаӊы Каледония убактысы</generic>
-					<standard>Жаӊы Каледония кышкы убакыты</standard>
-					<daylight>Жаӊы Каледония жайкы убактысы</daylight>
+					<generic>Жаңы Каледония убактысы</generic>
+					<standard>Жаңы Каледония кышкы убакыты</standard>
+					<daylight>Жаңы Каледония жайкы убактысы</daylight>
 				</long>
 			</metazone>
 			<metazone type="New_Zealand">
 				<long>
-					<generic>Жаӊы Зеландия убактысы</generic>
-					<standard>Жаӊы Зеландия кышкы убакыты</standard>
+					<generic>Жаңы Зеландия убактысы</generic>
+					<standard>Жаңы Зеландия кышкы убакыты</standard>
 					<daylight>Жаңы Зеландия жайкы убакыты</daylight>
 				</long>
 			</metazone>
@@ -4467,12 +4467,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one">0 миӊ</pattern>
-					<pattern type="1000" count="other">0 миӊ</pattern>
-					<pattern type="10000" count="one">00 миӊ</pattern>
-					<pattern type="10000" count="other">00 миӊ</pattern>
-					<pattern type="100000" count="one">000 миӊ</pattern>
-					<pattern type="100000" count="other">000 миӊ</pattern>
+					<pattern type="1000" count="one">0 миң</pattern>
+					<pattern type="1000" count="other">0 миң</pattern>
+					<pattern type="10000" count="one">00 миң</pattern>
+					<pattern type="10000" count="other">00 миң</pattern>
+					<pattern type="100000" count="one">000 миң</pattern>
+					<pattern type="100000" count="other">000 миң</pattern>
 					<pattern type="1000000" count="one">0 миллион</pattern>
 					<pattern type="1000000" count="other">0 миллион</pattern>
 					<pattern type="10000000" count="one">00 миллион</pattern>
@@ -4495,12 +4495,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one">0 миӊ</pattern>
-					<pattern type="1000" count="other">0 миӊ</pattern>
-					<pattern type="10000" count="one">00 миӊ</pattern>
-					<pattern type="10000" count="other">00 миӊ</pattern>
-					<pattern type="100000" count="one">000 миӊ</pattern>
-					<pattern type="100000" count="other">000 миӊ</pattern>
+					<pattern type="1000" count="one">0 миң</pattern>
+					<pattern type="1000" count="other">0 миң</pattern>
+					<pattern type="10000" count="one">00 миң</pattern>
+					<pattern type="10000" count="other">00 миң</pattern>
+					<pattern type="100000" count="one">000 миң</pattern>
+					<pattern type="100000" count="other">000 миң</pattern>
 					<pattern type="1000000" count="one">0 млн</pattern>
 					<pattern type="1000000" count="other">0 млн</pattern>
 					<pattern type="10000000" count="one">00 млн</pattern>
@@ -4547,12 +4547,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one">0 миӊ ¤</pattern>
-					<pattern type="1000" count="other">0 миӊ ¤</pattern>
-					<pattern type="10000" count="one">00 миӊ ¤</pattern>
-					<pattern type="10000" count="other">00 миӊ ¤</pattern>
-					<pattern type="100000" count="one">000 миӊ ¤</pattern>
-					<pattern type="100000" count="other">000 миӊ ¤</pattern>
+					<pattern type="1000" count="one">0 миң ¤</pattern>
+					<pattern type="1000" count="other">0 миң ¤</pattern>
+					<pattern type="10000" count="one">00 миң ¤</pattern>
+					<pattern type="10000" count="other">00 миң ¤</pattern>
+					<pattern type="100000" count="one">000 миң ¤</pattern>
+					<pattern type="100000" count="other">000 миң ¤</pattern>
 					<pattern type="1000000" count="one">0 млн ¤</pattern>
 					<pattern type="1000000" count="other">0 млн ¤</pattern>
 					<pattern type="10000000" count="one">00 млн ¤</pattern>
@@ -5095,9 +5095,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="KZT">
-				<displayName>Казакстан теӊгеси</displayName>
-				<displayName count="one">Казакстан теӊгеси</displayName>
-				<displayName count="other">Казакстан теӊгеси</displayName>
+				<displayName>Казакстан теңгеси</displayName>
+				<displayName count="one">Казакстан теңгеси</displayName>
+				<displayName count="other">Казакстан теңгеси</displayName>
 				<symbol draft="contributed">KZT</symbol>
 				<symbol alt="narrow" draft="contributed">₸</symbol>
 			</currency>
@@ -5278,9 +5278,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="NZD">
-				<displayName>Жаӊы Зеландия доллары</displayName>
-				<displayName count="one">Жаӊы Зеландия доллары</displayName>
-				<displayName count="other">Жаӊы Зеландия доллары</displayName>
+				<displayName>Жаңы Зеландия доллары</displayName>
+				<displayName count="one">Жаңы Зеландия доллары</displayName>
+				<displayName count="other">Жаңы Зеландия доллары</displayName>
 				<symbol>NZD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
@@ -5303,9 +5303,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PGK">
-				<displayName>Папуа Жаӊы Гвинея кинасы</displayName>
-				<displayName count="one">Папуа Жаӊы Гвинея кинасы</displayName>
-				<displayName count="other">Папуа Жаӊы Гвинея кинасы</displayName>
+				<displayName>Папуа Жаңы Гвинея кинасы</displayName>
+				<displayName count="one">Папуа Жаңы Гвинея кинасы</displayName>
+				<displayName count="other">Папуа Жаңы Гвинея кинасы</displayName>
 				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
@@ -5514,9 +5514,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow" draft="contributed">TT$</symbol>
 			</currency>
 			<currency type="TWD">
-				<displayName>Тайвань жаӊы доллары</displayName>
-				<displayName count="one">Тайвань жаӊы доллары</displayName>
-				<displayName count="other">Тайвань жаӊы доллары</displayName>
+				<displayName>Тайвань жаңы доллары</displayName>
+				<displayName count="one">Тайвань жаңы доллары</displayName>
+				<displayName count="other">Тайвань жаңы доллары</displayName>
 				<symbol>TWD</symbol>
 				<symbol alt="narrow" draft="contributed">NT$</symbol>
 			</currency>
@@ -5572,9 +5572,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">VES</displayName>
 			</currency>
 			<currency type="VND">
-				<displayName>Вьетнам доӊу</displayName>
-				<displayName count="one">Вьетнам доӊу</displayName>
-				<displayName count="other">Вьетнам доӊу</displayName>
+				<displayName>Вьетнам доңу</displayName>
+				<displayName count="one">Вьетнам доңу</displayName>
+				<displayName count="other">Вьетнам доңу</displayName>
 				<symbol>₫</symbol>
 				<symbol alt="narrow" draft="contributed">₫</symbol>
 			</currency>

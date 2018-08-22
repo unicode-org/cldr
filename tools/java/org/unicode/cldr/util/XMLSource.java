@@ -1382,6 +1382,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 addFallbackCode(CLDRFile.LANGUAGE_NAME, extraCode, extraCode);
             }
 
+
             addFallbackCode(CLDRFile.LANGUAGE_NAME, "en_GB", "en_GB", "short");
             addFallbackCode(CLDRFile.LANGUAGE_NAME, "en_US", "en_US", "short");
             addFallbackCode(CLDRFile.LANGUAGE_NAME, "az", "az", "short");
@@ -1402,6 +1403,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             addFallbackCode(CLDRFile.TERRITORY_NAME, "FK", "FK", "variant");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "MK", "MK", "variant");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "TL", "TL", "variant");
+
+            addFallbackCode(CLDRFile.TERRITORY_NAME, "XA", "XA");
+            addFallbackCode(CLDRFile.TERRITORY_NAME, "XB", "XB");
 
             addFallbackCode("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraAbbr/era[@type=\"0\"]", "BCE", "variant");
             addFallbackCode("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraAbbr/era[@type=\"1\"]", "CE", "variant");

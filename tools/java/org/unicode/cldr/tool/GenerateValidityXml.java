@@ -38,11 +38,12 @@ import com.ibm.icu.util.ICUUncheckedIOException;
     alias = "generate-validity-data",
     url = "http://cldr.unicode.org/development/updating-codes/update-validity-xml")
 public class GenerateValidityXml {
-    private static final Map<LstrType, Map<String, Map<LstrField, String>>> LSTREG = StandardCodes.getEnumLstreg();
 
-    private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
     private static final Validity VALIDITY = Validity.getInstance();
-    private static Validity OLD_VALIDITY = Validity.getInstance(CLDRPaths.LAST_DIRECTORY + "common/");
+    private static Validity OLD_VALIDITY = Validity.getInstance(CLDRPaths.LAST_DIRECTORY + "common/validity/");
+
+    private static final Map<LstrType, Map<String, Map<LstrField, String>>> LSTREG = StandardCodes.getEnumLstreg();
+    private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
 
     private static class MyAdder implements Adder {
         Appendable target;
@@ -231,9 +232,12 @@ public class GenerateValidityXml {
             }
             // gather data
             info.statusMap.clear();
-            if (type == LstrType.script) {
-                // HACK for now
-                info.statusMap.put(Status.special, "Zsye");
+            switch (type) {// HACK for now
+            case script: 
+                info.statusMap.put(Status.special, "Zsye"); 
+                break;
+            default: 
+                break;
             }
             for (Entry<String, Map<LstrField, String>> entry2 : entry.getValue().entrySet()) {
                 String code = entry2.getKey();
@@ -260,6 +264,8 @@ public class GenerateValidityXml {
                 case region:
                     if (containment.contains(code)) {
                         subtype = Validity.Status.macroregion;
+                    } else if (code.equals("XA") || code.equals("XB")) {
+                        subtype = Validity.Status.special;
                     }
                     if (subtype == Status.regular) {
                         Info subInfo = Info.getInfo("subdivision");

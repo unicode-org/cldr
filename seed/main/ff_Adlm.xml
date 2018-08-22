@@ -241,11 +241,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters>[𞤢-𞤽 𞥄-𞥆]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[𞤾-𞥃]</exemplarCharacters>
-		<exemplarCharacters type="index">[‎𞤀‎- ‎𞤛‎]</exemplarCharacters>
-		<exemplarCharacters type="numbers" draft="contributed">[𞥐-𞥙]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[\- % ‰ . 𞥞 𞥟]</exemplarCharacters>
+		<exemplarCharacters>[\U0001E944\U0001E945\U0001E946 𞤢 𞤣 𞤤 𞤥 𞤦 𞤧 𞤨 𞤩 𞤪 𞤫 𞤬 𞤭 𞤮 𞤯 𞤰 𞤱 𞤲 𞤳 𞤴 𞤵 𞤶 𞤷 𞤸 𞤹 𞤺 𞤻 𞤼 𞤽]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[𞤾 𞤿 𞥀 𞥁 𞥂 𞥃]</exemplarCharacters>
+		<exemplarCharacters type="index">[𞤀 𞤛]</exemplarCharacters>
+		<exemplarCharacters type="numbers" draft="contributed">[𞥐 𞥑 𞥒 𞥓 𞥔 𞥕 𞥖 𞥗 𞥘 𞥙]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- 𞥞 𞥟 . % ‰]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -3418,11 +3418,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nan>𞤱𞤮𞤲𞤢𞥄 𞤪𞤢𞤽𞤢𞤥𞤫𞤪𞤫</nan>
 		</symbols>
 		<decimalFormats numberSystem="latn">
-                        <decimalFormatLength>
-                                <decimalFormat>
-                                        <pattern>#,##0.###</pattern>
-                                </decimalFormat>
-                        </decimalFormatLength>
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 		</decimalFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength type="short">

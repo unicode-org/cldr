@@ -77,6 +77,7 @@ public class IsoCurrencyParser {
         .put(Utility.unescape("R\u00C9UNION"), "RE")
         .put("RUSSIAN FEDERATION (THE)", "RU")
         .put("SUDAN (THE)", "SD")
+        .put("ESWATINI", "SZ")
         .put("TURKS AND CAICOS ISLANDS (THE)", "TC")
         .put("FRENCH SOUTHERN TERRITORIES (THE)", "TF")
         .put("TAIWAN (PROVINCE OF CHINA)", "TW")

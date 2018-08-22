@@ -138,7 +138,11 @@
     ; /territoryInfo/$1/territoryF:intvector ; values=&exp($2) &exp($3,-2) &exp($4) ; base_xpath=//supplementalData/territoryInfo/territory[@type="$1"]
 
 //supplementalData/calendarData/calendar[@type="(%W)"]/calendarSystem[@type="(%W)"] ; /calendarData/$1/system ; values=$2
-//supplementalData/calendarData/calendar[@type="(%W)"]/eras/era[@type="(%W)"][@(start|end)="(%A)"] ; /calendarData/$1/eras/$2/$3:intvector ; values=&date($4,$3)
+//supplementalData/calendarData/calendar[@type="(%W)"]/eras/era[@type="(%W)"][@(start|end)="(%A)"][@named="(%W)"]
+    ; /calendarData/$1/eras/$2/$3:intvector ; values=&date($4,$3)
+    ; /calendarData/$1/eras/$2/named ; values=$5
+//supplementalData/calendarData/calendar[@type="(%W)"]/eras/era[@type="(%W)"][@(start|end)="(%A)"]
+    ; /calendarData/$1/eras/$2/$3:intvector ; values=&date($4,$3)
 
 # telephoneCodeData.xml
 #//supplementalData/telephoneCodeData/codesByTerritory[@territory="(%W)"]/telephoneCountryCode[@code="(%N)"][@alt="(%A)"] ; /telephoneCodeData/$1/<$2>/code%$3 ; values=$2

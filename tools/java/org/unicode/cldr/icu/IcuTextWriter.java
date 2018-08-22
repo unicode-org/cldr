@@ -239,7 +239,7 @@ public class IcuTextWriter {
                 && name.equals("pluralRanges"));
         }
         return rbPath.equals("/LocaleScript")
-            || (rbPath.contains("/eras/") && !rbPath.endsWith(":alias"))
+            || (rbPath.contains("/eras/") && !rbPath.endsWith(":alias") && !rbPath.endsWith("/named"))
             || rbPath.startsWith("/calendarPreferenceData")
             || rbPath.startsWith("/metazoneInfo");
     }

@@ -427,7 +427,7 @@ public class TestTransforms extends TestFmwkPlus {
                 if (transName.equals("ka-Latn-t-ka-m0-bgn")) {
                     logKnownIssue("cldrbug:10566", "Jenkins build failing on translit problem");
                     continue; // failures like the following need to be fixed first.
-                    // Error: (TestTransforms.java:434) : ka-Latn-t-ka-m0-bgn 2 Transform უფლება: expected "up’leba", got "upleba" 
+                    // Error: (TestTransforms.java:434) : ka-Latn-t-ka-m0-bgn 2 Transform უფლება: expected "up’leba", got "upleba"
                 }
 
                 Transliterator trans = getTransliterator(transName);
@@ -624,4 +624,28 @@ public class TestTransforms extends TestFmwkPlus {
         Transliterator pinyin = getTransliterator("und-Latn-t-und-hani");
         assertEquals("賈 bug", "jiǎ", pinyin.transform("賈"));
     }
+
+  public void TestZawgyiToUnicode10899() {
+    // Some tests for the transformation of Zawgyi font encoding to Unicode Burmese.
+    Transliterator z2u = getTransliterator("my-t-my-s0-zawgyi");
+
+    String z1 =
+        "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
+    String expected =
+        "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
+
+    String actual = z2u.transform(z1);
+
+    assertEquals("z1 to u1", expected, actual);
+
+    String z2 = "တကယ္ဆို အျငိႈးေတြမဲ႔ေသာလမ္းေသာလမ္းမွာ တိုႈျပန္ဆံုျကတဲ႔အခါ ";
+    expected = "တကယ်ဆို အငြှိုးတွေမဲ့သောလမ်းသောလမ်းမှာ တှိုပြန်ဆုံကြတဲ့အခါ ";
+    actual = z2u.transform(z2);
+    assertEquals("z2 to u2", expected, actual);
+
+    String z3 = "ျပန္လမ္းမဲ့ကၽြန္းအပိုင္း၄";
+    expected = "ပြန်လမ်းမဲ့ကျွန်းအပိုင်း၎";
+    actual = z2u.transform(z3);
+    assertEquals("z3 to u3", expected, actual);
+  }
 }

@@ -139,7 +139,7 @@ public final class KeylayoutParser {
         }
     }
 
-    private static final Splitter WHITESPACE_SPLITTER = Splitter.on(CharMatcher.WHITESPACE)
+    private static final Splitter WHITESPACE_SPLITTER = Splitter.on(CharMatcher.whitespace())
         .omitEmptyStrings();
 
     private static ModifierKeyCombination parseKeys(String keys) {

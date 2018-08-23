@@ -49,7 +49,7 @@ public final class KlcParser {
     public static final KeyboardIdMap KEYBOARD_ID_MAP = KeyboardIdMap.fromResource(KlcParser.class,
         "windows-locales.csv", Platform.WINDOWS);
 
-    private static final Splitter WHITESPACE_SPLITTER = Splitter.on(CharMatcher.WHITESPACE)
+    private static final Splitter WHITESPACE_SPLITTER = Splitter.on(CharMatcher.whitespace())
         .omitEmptyStrings();
     private static final Splitter LINE_SPLITTER = Splitter.on(CharMatcher.anyOf("\n\r"))
         .omitEmptyStrings();

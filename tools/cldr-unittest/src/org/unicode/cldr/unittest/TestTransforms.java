@@ -380,6 +380,8 @@ public class TestTransforms extends TestFmwkPlus {
             return ("de-ASCII");
         } else if (id.equalsIgnoreCase("my-t-my-s0-zawgyi")) {
             return ("Zawgyi-my");
+        } else if (id.equalsIgnoreCase("my-t-my-d0-zawgyi")) {
+            return "my-Zawgyi";
         } else if (id.equalsIgnoreCase("und-t-d0-ascii")) {
             return ("Latin-ASCII");
         }
@@ -647,5 +649,29 @@ public class TestTransforms extends TestFmwkPlus {
     expected = "ပြန်လမ်းမဲ့ကျွန်းအပိုင်း၎";
     actual = z2u.transform(z3);
     assertEquals("z3 to u3", expected, actual);
+  }
+
+  public void TestUnicodeToZawgyi111107() {
+    // Some tests for the transformation from Unicode to Zawgyi font encoding
+    Transliterator u2z = getTransliterator("my-t-my-d0-zawgyi");
+
+    String expected =
+        "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
+    String u1 =
+        "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
+
+    String actual = u2z.transform(u1);
+
+    assertEquals("u1 to z1", expected, actual);
+
+    expected = "တကယ္ဆို အႃငွိုးေတြမဲ့ေသာလမ္းေသာလမ္းမွာ တိႈျပန္ဆံုၾကတဲ့အခါ ";
+    String u2 = "တကယ်ဆို အငြှိုးတွေမဲ့သောလမ်းသောလမ်းမှာ တှိုပြန်ဆုံကြတဲ့အခါ ";
+    actual = u2z.transform(u2);
+    assertEquals("u2 to z2", expected, actual);
+
+    expected = "ျပန္လမ္းမဲ့ကၽြန္းအပိုင္း၄";
+    String u3 = "ပြန်လမ်းမဲ့ကျွန်းအပိုင်း၎";
+    actual = u2z.transform(u3);
+    assertEquals("u3 to z3", expected, actual);
   }
 }

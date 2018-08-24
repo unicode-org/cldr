@@ -770,7 +770,7 @@ public class CountItems {
 
         // generate the codeMappings
         // <codeMappings>
-        // <territoryCodes type="CS" numeric="891" alpha3="SCG" fips10="YI" internet="CS YU"/>
+        // <territoryCodes type="CS" numeric="891" alpha3="SCG" fips10="YI"/>
 
         System.out.println();
         System.out.println("Code Mappings");
@@ -796,13 +796,11 @@ public class CountItems {
             String numeric = IsoRegionData.getNumeric(region);
             String alpha3 = IsoRegionData.get_alpha3(region);
             String fips10 = IsoRegionData.get_fips10(region);
-            String internet = IsoRegionData.get_internet(region);
             System.out.println("        <territoryCodes"
                 + " type=\"" + region + "\""
                 + (numeric == null ? "" : " numeric=\"" + numeric + "\"")
                 + (alpha3 == null ? "" : " alpha3=\"" + alpha3 + "\"")
                 + (fips10 == null || fips10.equals(region) ? "" : " fips10=\"" + fips10 + "\"")
-                + (internet == null || internet.equals(region) ? "" : " internet=\"" + internet + "\"")
                 + "/>");
         }
         System.out.println("    </codeMappings>");

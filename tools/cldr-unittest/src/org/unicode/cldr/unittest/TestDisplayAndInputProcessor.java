@@ -97,15 +97,8 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         // correctly.
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info
             .getCLDRFile("my", false));
-        String z_mi = "ေမာင္းရီ (နယူးဇီလန္ကၽြန္းရွိ ပင္ရင္းတိုင္းရင္းသားလူမ်ိဳး)"; // language
-        // mi
-        // in
-        // CLDR
-        // 24
-        String u_mi = "မောင်းရီ (နယူးဇီလန်ကျွန်းရှိ ပင်ရင်းတိုင်းရင်းသားလူမျိုး)"; // mi
-        // converted
-        // to
-        // Unicode
+        String z_mi = "ေမာင္းရီ (နယူးဇီလန္ကၽြန္းရွိ ပင္ရင္းတိုင္းရင္းသားလူမ်ိဳး)";
+        String u_mi = "မောင်းရီ (နယူးဇီလန်ကျွန်းရှိ ပင်ရင်းတိုင်းရင်းသားလူမျိုး)";
 
         // Check that z_mi is detected as Zawgyi, and converted to u_mi.
         // Check that the converted version is detected as Unicode.
@@ -156,14 +149,6 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         if (!converted_5.equals(u5)) {
             errln("Myanmar #5 incorrectly normalized: " + z5 + " to "
                 + converted_5);
-        }
-
-        String z_with_space = "\u0020\u102e\u0020\u1037\u0020\u1039"; // Test #5
-        String u_with_space = "\u00a0\u102e\u00a0\u1037\u00a0\u103a";
-        String converted_space = daip.processInput("", z_with_space, null);
-        if (!converted_space.equals(u_with_space)) {
-            errln("Myanmar with space incorrectly normalized:\n" + z_with_space
-                + " to\n" + converted_space + '\n' + u_with_space);
         }
 
         String z_zero = "\u1031\u1040\u1037";

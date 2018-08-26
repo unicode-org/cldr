@@ -377,7 +377,7 @@ public class TestExampleGenerator extends TestFmwk {
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
         checkValue(
             "At least",
-            "〖⩾❬99❭〗",
+            "〖≥❬99❭〗",
             exampleGenerator,
             "//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"atLeast\"]");
         checkValue("Range", "〖❬99❭-❬144❭〗", exampleGenerator,

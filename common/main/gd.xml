@@ -9792,11 +9792,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one">{0} chaora bhàin</pluralMinimalPairs>
-			<pluralMinimalPairs count="two">{0} caora bàn</pluralMinimalPairs>
-			<pluralMinimalPairs count="few">{0} chaora bhàn</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">{0} caoraich bhàna</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">Gabh an {0}mh air an taobh dheas.</ordinalMinimalPairs>
+			<pluralMinimalPairs count="one">{0} dealbh, {0} mhionaid</pluralMinimalPairs>
+			<pluralMinimalPairs count="two">{0} dhealbh, {0} mhionaid</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0} dealbhan, {0} mionaidean</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} dealbh, {0} mionaid</pluralMinimalPairs>
+			<!--  <ordinalMinimalPairs ordinal="other">Gabh an {0}mh air an taobh dheas.</ordinalMinimalPairs> -->
 		</minimalPairs>
 	</numbers>
 	<units>

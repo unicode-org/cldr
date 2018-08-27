@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.unicode.cldr.test.CoverageLevel2;
@@ -87,7 +86,7 @@ public class TestCoverage extends TestFmwkPlus {
         logln("Status\tLocale\tName\tLevel\tCount" + showColumn(all)
             + "\tError Messages");
         LanguageTagParser ltp = new LanguageTagParser();
-        Set<String> errors = new LinkedHashSet<>();
+        Multimap<CoreItems, String> errors = LinkedHashMultimap.create();
         Set<String> toTest = new HashSet(
             Arrays.asList("ky mn ms uz az kk pa sr zh lo".split(" ")));
         Set<String> defaultContents = sdi.getDefaultContentLocales();

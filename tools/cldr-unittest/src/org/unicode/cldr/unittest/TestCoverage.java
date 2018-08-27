@@ -21,6 +21,9 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+
 public class TestCoverage extends TestFmwkPlus {
 
     static final StandardCodes sc = StandardCodes.make();
@@ -38,7 +41,7 @@ public class TestCoverage extends TestFmwkPlus {
 
     public void TestBasic() {
         CLDRFile engCldrFile = testInfo.getEnglish();
-        Set<String> errors = new LinkedHashSet<>();
+        Multimap<CoreItems, String> errors = LinkedHashMultimap.create();
         Set<CoreItems> coreCoverage = CoreCoverageInfo.getCoreCoverageInfo(
             engCldrFile, errors);
         if (!assertEquals("English should be complete", all, coreCoverage)) {

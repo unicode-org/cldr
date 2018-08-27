@@ -7,6 +7,7 @@ import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.unicode.cldr.draft.ScriptMetadata;
@@ -15,6 +16,8 @@ import org.unicode.cldr.draft.ScriptMetadata.Trinary;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UCharacterDirection;
@@ -30,13 +33,42 @@ public class CoreCoverageInfo {
     private static final LikelySubtags ls = new LikelySubtags(sdi);
 
     public enum CoreItems {
-        main_exemplar, auxiliary_exemplar, index_exemplar, orientation, plurals, ordinals, default_content, likely_subtags, country_data, romanization, casing, collation;
-        public static Set<CoreItems> ONLY_RECOMMENDED = Collections.unmodifiableSet(
+        main_exemplar, auxiliary_exemplar, // numbers_exemplar, punctuation_exemplar, index_exemplar(Level.MODERN)
+        orientation, 
+        plurals, 
+        default_content, likely_subtags, 
+        country_data, 
+        casing, 
+        collation,
+        romanization(Level.MODERATE), 
+        ordinals(Level.MODERN), 
+        ;
+        
+        public static Set<CoreItems> ONLY_RECOMMENDED = ImmutableSet.copyOf(
             EnumSet.of(romanization, ordinals));
+        
+        private static final Set<CoreItems> EXEMPLARS = ImmutableSet.copyOf(EnumSet.of(
+            main_exemplar, auxiliary_exemplar
+            //, numbers_exemplar, punctuation_exemplar, index_exemplar
+            ));
+
         public static final int COUNT = CoreItems.values().length;
+        public final Level desiredLevel;
+        
+        CoreItems(Level desiredLevel) {
+            this.desiredLevel = desiredLevel;
+        }
+        CoreItems() {
+            this(Level.CORE);
+        }
+        @Override
+        public String toString() {
+            // TODO Auto-generated method stub
+            return name() + (desiredLevel == Level.CORE ? "" : "*");
+        }
     }
 
-    public static Set<CoreItems> getCoreCoverageInfo(CLDRFile file, Set<String> detailedErrors) {
+    public static Set<CoreItems> getCoreCoverageInfo(CLDRFile file, Multimap<CoreItems,String> detailedErrors) {
         if (file.isResolved()) {
             file = file.getUnresolved();
         }
@@ -51,7 +83,7 @@ public class CoreCoverageInfo {
         //      (04) Exemplar sets: main, auxiliary, index, punctuation. [main/xxx.xml]
         //      These must reflect the Unicode model. For more information, see tr35-general.html#Character_Elements.
         boolean isRtl = false;
-        for (CoreItems exemplar : EXEMPLARS) {
+        for (CoreItems exemplar : CoreItems.EXEMPLARS) {
             String type = exemplar.toString();
             type = type.substring(0, type.indexOf('_'));
 
@@ -66,6 +98,8 @@ public class CoreCoverageInfo {
                 if (locale.equals(sourceLocale)) {
                     result.add(exemplar);
                 }
+            } else {
+                detailedErrors.put(exemplar, path);
             }
             if (isMain && result.contains(exemplar)) {
                 UnicodeSet main = new UnicodeSet(value);
@@ -77,15 +111,21 @@ public class CoreCoverageInfo {
         String value = file.getStringValue(path);
         if ("right-to-left".equals(value) == isRtl) {
             result.add(CoreItems.orientation);
+        } else {
+            detailedErrors.put(CoreItems.orientation, path);
         }
 
         //      (01) Plural rules [supplemental/plurals.xml and ordinals.xml]
         //      For more information, see cldr-spec/plural-rules.
         if (sdi.getPluralLocales(PluralType.cardinal).contains(baseLanguage)) {
             result.add(CoreItems.plurals);
+        } else {
+            detailedErrors.put(CoreItems.plurals, "//supplementalData/plurals[@type=\"cardinal\"]");
         }
         if (sdi.getPluralLocales(PluralType.ordinal).contains(baseLanguage)) {
             result.add(CoreItems.ordinals);
+        } else {
+            detailedErrors.put(CoreItems.ordinals, "//supplementalData/plurals[@type=\"ordinal\"]");
         }
 
         //      (01) Default content script and region (normally: normally country with largest population using that language, and normal script for that).  [supplemental/supplementalMetadata.xml]
@@ -93,6 +133,8 @@ public class CoreCoverageInfo {
         String defaultContent = sdi.getDefaultContentLocale(locale);
         if (defaultContent != null) {
             result.add(CoreItems.default_content);
+        } else {
+            detailedErrors.put(CoreItems.default_content, "//supplementalData/supplementalMetadata/defaultContent");
         }
         // likely subtags
         String max = ls.maximize(locale);
@@ -104,6 +146,9 @@ public class CoreCoverageInfo {
             if (!script.isEmpty() && !ltp.getRegion().isEmpty()) {
                 result.add(CoreItems.likely_subtags);
             }
+        }
+        if (!result.contains(CoreItems.likely_subtags)) {
+            detailedErrors.put(CoreItems.likely_subtags, "//supplementalData/likelySubtags");
         }
         //      (N) Verify the country data ( i.e. which territories in which the language is spoken enough to create a locale ) [supplemental/supplementalData.xml]
         // we verify that there is at least one region
@@ -118,6 +163,7 @@ public class CoreCoverageInfo {
         if (territories != null && territories.size() != 0) {
             result.add(CoreItems.country_data);
         } else {
+            detailedErrors.put(CoreItems.country_data, "//supplementalData/territoryInfo");
             sdi.getTerritoriesForPopulationData(locale); // for debugging
         }
         //      *(N) Romanization table (non-Latin writing systems only) [spreadsheet, we'll translate into transforms/xxx-en.xml]
@@ -129,7 +175,7 @@ public class CoreCoverageInfo {
         } else {
             boolean found = false;
             Set<String> scriptNames = getScriptNames(script);
-            Set<String> tempErrors = new HashSet<>();
+            Set<String> tempErrors = new LinkedHashSet<>();
             for (String scriptName : scriptNames) {
                 for (String[] pair : ROMANIZATION_PATHS) {
                     String filename = pair[0] + scriptName + pair[1];
@@ -138,12 +184,16 @@ public class CoreCoverageInfo {
                         found = true;
                         break;
                     } else {
-                        tempErrors.add("No romanization for " + script + " => " + scriptName);
+                        tempErrors.add(script); // debugging
                     }
                 }
             }
             if (!found) {
-                detailedErrors.addAll(tempErrors);
+                detailedErrors.put(CoreItems.romanization, "//supplementalData/transforms/transform"
+                    + "[@source=\"und-" + script + "\"]"
+                    + "[@target=\"und-Latn\"]"
+                    //+ "[@direction=\"forward\"]"
+                    );
             }
         }
 
@@ -153,6 +203,8 @@ public class CoreCoverageInfo {
         if (scriptData.hasCase == Trinary.YES) {
             if (hasFile(SpecialDir.casing, baseLanguage)) {
                 result.add(CoreItems.casing);
+            } else {
+                detailedErrors.put(CoreItems.casing, "//ldml/metadata/casingData/");
             }
         } else {
             result.add(CoreItems.casing);
@@ -165,14 +217,11 @@ public class CoreCoverageInfo {
         // check for file cldr/collation/<language>.xml
         if (hasFile(SpecialDir.collation, baseLanguage)) {
             result.add(CoreItems.collation);
+        } else {
+            detailedErrors.put(CoreItems.collation, "//ldml/collations/collation[@type=\"standard\"]");
         }
         return Collections.unmodifiableSet(result);
     }
-
-    private static final Set<CoreItems> EXEMPLARS = EnumSet.of(
-        CoreItems.main_exemplar,
-        CoreItems.auxiliary_exemplar,
-        CoreItems.index_exemplar);
 
     private static final String[][] ROMANIZATION_PATHS = {
         { "", "-Latin" },

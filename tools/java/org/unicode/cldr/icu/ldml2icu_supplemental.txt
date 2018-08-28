@@ -68,7 +68,7 @@
 
 //supplementalData/territoryContainment/group[@type="(%W)"][@contains="(%A)"][@status="deprecated"] ; /territoryContainment/deprecated/$1 ; values=$2
 //supplementalData/territoryContainment/group[@type="(%W)"][@contains="(%A)"][@status="grouping"] ; /territoryContainment/containedGroupings/$1 ; values=$2
-//supplementalData/territoryContainment/group[@type="(%W)"][@contains="(%A)"][@grouping="true"] ; /territoryContainment/grouping ; values=$1
+//supplementalData/territoryContainment/group[@type="(%W)"][@contains="(%A)"][@grouping="true"] ; /territoryContainment/grouping/$1 ; values=$2
 //supplementalData/territoryContainment/group[@type="(%W)"][@contains="(%A)"]; /territoryContainment/$1 ; values=$2
 
 //supplementalData/subdivisionContainment/subgroup[@type="(%W)"][@contains="(%A)"]; /subdivisionContainment/$1 ; values=$2

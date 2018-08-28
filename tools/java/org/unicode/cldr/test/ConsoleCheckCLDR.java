@@ -118,7 +118,7 @@ public class ConsoleCheckCLDR {
     // VOTE_RESOLVE2 = 21
     ;
 
-    static final String SOURCE_DIRS = CLDRPaths.MAIN_DIRECTORY + "," + CLDRPaths.ANNOTATIONS_DIRECTORY;
+    static final String SOURCE_DIRS = CLDRPaths.MAIN_DIRECTORY + "," + CLDRPaths.ANNOTATIONS_DIRECTORY + CLDRPaths.SEED_DIRECTORY;
 
     enum MyOptions {
         coverage(new Params().setHelp("Set the coverage: eg -c comprehensive")

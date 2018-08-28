@@ -186,7 +186,10 @@ public class SearchXml {
             exclude.value = true;
             property = property.substring(1);
         }
-        return UnicodeRegex.compile(property).matcher("");
+        Matcher result = UnicodeRegex.compile(property).matcher("");
+//        System.out.println(result.pattern());
+//
+        return result;
     }
 
     private static void processDirectory(File src) throws IOException {

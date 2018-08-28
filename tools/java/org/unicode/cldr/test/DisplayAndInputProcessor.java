@@ -99,6 +99,9 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale HEBREW = CLDRLocale.getInstance("he");
     private static final CLDRLocale MYANMAR = CLDRLocale.getInstance("my");
     private static final CLDRLocale KYRGYZ = CLDRLocale.getInstance("ky");
+    private static final CLDRLocale URDU = CLDRLocale.getInstance("ur");
+    private static final CLDRLocale PASHTO = CLDRLocale.getInstance("ps");
+    private static final CLDRLocale FARSI = CLDRLocale.getInstance("fa");
     private static final CLDRLocale GERMAN_SWITZERLAND = CLDRLocale.getInstance("de_CH");
     private static final CLDRLocale SWISS_GERMAN = CLDRLocale.getInstance("gsw");
     public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE = new HashSet<String>(
@@ -132,6 +135,8 @@ public class DisplayAndInputProcessor {
     private static final char[][] KYRGYZ_CONVERSIONS = {
         { 'ӊ', 'ң' }, { 'Ӊ', 'Ң' } }; //  right modifier
 
+    private static final char[][] URDU_PLUS_CONVERSIONS = {
+        { '\u0643', '\u06A9' }}; //  wrong char
 
     private Collator col;
 
@@ -320,13 +325,15 @@ public class DisplayAndInputProcessor {
             } else if (locale.childOf(KWASIO) && !isUnicodeSet) {
                 value = standardizeKwasio(value);
             } else if (locale.childOf(HEBREW) && !APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
-                value = replaceChars(value, HEBREW_CONVERSIONS);
+                value = replaceChars(path, value, HEBREW_CONVERSIONS, false);
             } else if ((locale.childOf(SWISS_GERMAN) || locale.childOf(GERMAN_SWITZERLAND)) && !isUnicodeSet) {
                 value = standardizeSwissGerman(value);
             } else if (locale.childOf(MYANMAR) && !isUnicodeSet) {
                 value = MyanmarZawgyiConverter.standardizeMyanmar(value);
             } else if (locale.childOf(KYRGYZ)) {
-                value = replaceChars(value, KYRGYZ_CONVERSIONS);
+                value = replaceChars(path, value, KYRGYZ_CONVERSIONS, false);
+            } else if (locale.childOf(URDU) || locale.childOf(PASHTO) || locale.childOf(FARSI)) {
+                value = replaceChars(path, value, URDU_PLUS_CONVERSIONS, true);
             }
 
             if (UNICODE_WHITESPACE.containsSome(value)) {
@@ -698,7 +705,10 @@ public class DisplayAndInputProcessor {
         return builder.toString();
     }
 
-    private String replaceChars(String value, char[][] charsToReplace) {
+    private String replaceChars(String path, String value, char[][] charsToReplace, boolean skipAuxExemplars) {
+        if (skipAuxExemplars && path.contains("/exemplarCharacters[@type=\"auxiliary\"]")) {
+            return value;
+        }
         StringBuilder builder = new StringBuilder();
         for (char c : value.toCharArray()) {
             for (char[] pair : charsToReplace) {

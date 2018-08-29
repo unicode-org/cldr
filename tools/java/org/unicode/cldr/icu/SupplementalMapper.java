@@ -178,6 +178,34 @@ public class SupplementalMapper {
                 return sign + exponent + Math.round(value * 100000);
             }
         });
+        manager.addFunction("ymd", new Function(1) {
+            /**
+             * "Y-M-D" to "Y M D". Year value might be negative.
+             * Also leading zeros are removed.
+             * 
+             * Month value is 1-base unlike month
+             * field in ICU calendar implementation.
+             */
+            @Override
+            protected String run(String... args) {
+                // Extracts fields separated by "-"
+                String[] fields = args[0].replaceAll("([^-]+)-", "$1 ").split(" ");
+                if (fields.length != 3) {
+                    throw new IllegalArgumentException("Not Y-M-D: " + args[0]);
+                }
+                StringBuilder buf = new StringBuilder();
+                for (int i = 0; i < 3; i++) {
+                    // Validate each field as a numeric value,
+                    // emit the value as text without leading zeros.
+                    int val = Integer.parseInt(fields[i]);
+                    if (i != 0) {
+                        buf.append(" ");
+                    }
+                    buf.append(val);
+                }
+                return buf.toString();
+            }
+        });
         mapper.regexMapper = manager;
         return mapper;
     }

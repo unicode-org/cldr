@@ -2,11 +2,6 @@
 	<target name="init">
 		<!-- copied from cldr/tools/java's build.xml -->
 		<tstamp />
-
-		<!-- Load local definitions from an optional properties file, if 
-			available. build.properties is NOT checked into SVN. -->
-		<property file="build.properties"/>
-
 		<property name="src.dir" value="src" />
 		<!-- <property name="libs.dir" value="WebContent/WEB-INF/lib"/> -->
 
@@ -23,15 +18,28 @@
 		<property name="doc.dir" value="doc" />
 		<property name="doc.params" value="" />
 
+		<!-- Load local definitions from an optional properties file, if 
+			available. build.properties is NOT checked into SVN. -->
+		<property file="build.properties" />
+		<!-- Load environment variables -->
+		<property environment="env" />
+
+
 		<!-- CLDR_TOOLS defaults to ../java, override if not correct. -->
 		<property name="CLDR_TOOLS" value="../java" />
 		<property name="CLDR_DIR" value="../../common/.." />
 		<property name="CLDR_JAR" value="${CLDR_TOOLS}/cldr.jar" />
 		<property file="${CLDR_TOOLS}/cldr-tools.properties" />
-		<property name="JVM_HEAP_CONFIG" value="-Xmx5000m"/>
 		<property name="JVM_OPTIONS"
-			value="-DCLDR_DIR=${CLDR_DIR} -DDEBUG=false -Dverbose=false ${JVM_HEAP_CONFIG}" />
-		<property name="jvm_options" value="${JVM_OPTIONS}" />
+			value="-DCLDR_DIR=${CLDR_DIR} -DDEBUG=false -Dverbose=false" />
+		<!-- JVM_EXTRA_OPTIONS might be resolved in the next priority order:
+			1) System property JVM_EXTRA_OPTIONS specified by ant command arg: ant -DJVM_EXTRA_OPTIONS=xxx <target>
+			2) JVM_EXTRA_OPTIONS=xxx in build.properties
+			3) Environment variable - JVM_EXTRA_OPTIONS=xxx
+			4) Final fallback - "-Xmx6g" below -->
+		<property name="env.JVM_EXTRA_OPTIONS" value="-Xmx6g" />
+		<property name="JVM_EXTRA_OPTIONS" value="${env.JVM_EXTRA_OPTIONS}" />
+		<property name="jvm_options" value="${JVM_OPTIONS} ${JVM_EXTRA_OPTIONS}" />
 
 		<path id="project.class.path">
 			<pathelement path="${java.class.path}/" />

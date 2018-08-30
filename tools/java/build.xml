@@ -28,7 +28,12 @@
 		<property file="${CLDR_TOOLS}/cldr-tools.properties" />
 		<property name="JVM_OPTIONS"
 			value="-DCLDR_DIR=${CLDR_DIR} -DDEBUG=false -Dverbose=false" />
-		<property name="env.JVM_EXTRA_OPTIONS" value="" />
+		<!-- JVM_EXTRA_OPTIONS might be resolved in the next priority order:
+			1) System property JVM_EXTRA_OPTIONS specified by ant command arg: ant -DJVM_EXTRA_OPTIONS=xxx <target>
+			2) JVM_EXTRA_OPTIONS=xxx in build.properties
+			3) Environment variable - JVM_EXTRA_OPTIONS=xxx
+			4) Final fallback - "-Xmx6g" below -->
+		<property name="env.JVM_EXTRA_OPTIONS" value="-Xmx6g" />
 		<property name="JVM_EXTRA_OPTIONS" value="${env.JVM_EXTRA_OPTIONS}" />
 		<property name="jvm_options" value="${JVM_OPTIONS} ${JVM_EXTRA_OPTIONS}" />
 

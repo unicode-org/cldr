@@ -201,6 +201,8 @@ public class GenerateMaximalLocales {
         { "ti", "ti_Ethi_ET" },
         { "ti_Ethi", "ti_Ethi_ET" },
         { "und", "en_Latn_US" },
+        { "und_Adlm", "ff_Adlm_GN" },
+        { "und_Adlm_GN", "ff_Adlm_GN" },
         { "und_Arab", "ar_Arab_EG" },
         { "und_Arab_PK", "ur_Arab_PK" },
         { "und_Bopo", "zh_Bopo_TW" },

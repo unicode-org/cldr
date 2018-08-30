@@ -13,6 +13,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
@@ -22,7 +23,6 @@ import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.ICUServiceBuilder;
-import org.unicode.cldr.util.MyanmarZawgyiConverter;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.With;
@@ -30,6 +30,9 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+
+import com.google.myanmartools.ZawgyiDetector;
+
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateIntervalInfo;
@@ -137,6 +140,10 @@ public class DisplayAndInputProcessor {
 
     private static final char[][] URDU_PLUS_CONVERSIONS = {
         { '\u0643', '\u06A9' }}; //  wrong char
+
+    private static final ZawgyiDetector detector = new ZawgyiDetector();
+    private static final Transliterator zawgyiUnicodeTransliterator =
+        Transliterator.getInstance("Zawgyi-my");
 
     private Collator col;
 
@@ -329,7 +336,7 @@ public class DisplayAndInputProcessor {
             } else if ((locale.childOf(SWISS_GERMAN) || locale.childOf(GERMAN_SWITZERLAND)) && !isUnicodeSet) {
                 value = standardizeSwissGerman(value);
             } else if (locale.childOf(MYANMAR) && !isUnicodeSet) {
-                value = MyanmarZawgyiConverter.standardizeMyanmar(value);
+                value = standardizeMyanmar(value);
             } else if (locale.childOf(KYRGYZ)) {
                 value = replaceChars(path, value, KYRGYZ_CONVERSIONS, false);
             } else if (locale.childOf(URDU) || locale.childOf(PASHTO) || locale.childOf(FARSI)) {
@@ -678,6 +685,14 @@ public class DisplayAndInputProcessor {
             builder.append(c);
         }
         return builder.toString();
+    }
+
+    // Use the myanmar-tools detector.
+    private String standardizeMyanmar(String value) {
+        if (detector.getZawgyiProbability(value) > 0.90) {
+            return zawgyiUnicodeTransliterator.transform(value);
+        }
+        return value;
     }
 
     private String standardizeNgomba(String value) {

@@ -174,7 +174,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             errln("Myanmar should not have converted:\n" + is_unicode + " to\n"
                 + check_is_unicode);
         }
-        is_unicode = "\u1001\u103A\u103B";
+        is_unicode = "\u1001\u103B\u103c";
         check_is_unicode = daip.processInput("", is_unicode, null);
         if (!check_is_unicode.equals(is_unicode)) {
             errln("Myanmar should not have converted:\n" + is_unicode + " to\n"

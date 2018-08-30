@@ -32,6 +32,7 @@
         <property name="ICU4J_JAR" value="${CLDR_TOOLS}/libs/icu4j.jar"/>
         <property name="UTILITIES_JAR" value="${CLDR_TOOLS}/libs/utilities.jar"/>
         <property name="GUAVA_JAR" value="${CLDR_TOOLS}/libs/guava.jar" />
+        <property name="MYANMAR_TOOLS_JAR" value="${CLDR_TOOLS}/libs/myanmar-tools-1.1.1.jar" />
     	
         <property name="env.JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -Dorg.unicode.cldr.unittest.web.dir=cldr_db_test -DDEBUG=true"/>
         <property name="jvm_options" value="${env.JVM_OPTIONS}"/>
@@ -84,7 +85,7 @@
             <pathelement location="${JSP_JAR}"/>
             <pathelement location="${MAIL_LIB}"/>
             <pathelement location="${ROME_LIB}"/>
-
+            <pathelement location="${MYANMAR_TOOLS_JAR}"/>
         </path>
 
  <!--       <property name="icu.home"           value="${env.ICU4J_HOME}"/> -->

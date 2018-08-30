@@ -25,7 +25,7 @@ public class AddPopulationData {
     enum WBLine {
         // "Afghanistan","AFG","GNI, PPP (current international $)","NY.GNP.MKTP.PP.CD","..","..","13144920451.3325","16509662130.816","18932631964.8727","22408872945.1924","25820670505.2627","30783369469.7509","32116190092.1429","..",
 
-        Country_Name, Country_Code, Series_Name, Series_Code, YR2000, YR2001, YR2002, YR2003, YR2004, YR2005, YR2006, YR2007, YR2008, YR2009, YR2010, YR2011, YR2012, YR2013, YR2014, YR2015, YR2016;
+        Country_Name, Country_Code, Series_Name, Series_Code, YR2000, YR2001, YR2002, YR2003, YR2004, YR2005, YR2006, YR2007, YR2008, YR2009, YR2010, YR2011, YR2012, YR2013, YR2014, YR2015, YR2016, YR2017;
         String get(String[] pieces) {
             return ordinal() < pieces.length ? pieces[ordinal()] : EMPTY;
         }

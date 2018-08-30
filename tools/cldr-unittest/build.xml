@@ -135,14 +135,14 @@
 	<target name="unittest" description="Run the standard CLDR test suite"
 		depends="init,build">
 		<antcall target="_runUnitTests">
-			<param name="rununittest.arg" value="-n" />
+			<param name="rununittest.arg" value="-n -q" />
 			<param name="rununittest.jvmarg" value="${jvm_options}" />
 		</antcall>
 	</target>
 
 	<target name="cldr.unittest.logged" description="Run the standard CLDR test suite"
 		depends="init,build">
-		<property name="rununittest.arg" value="-n" />
+		<property name="rununittest.arg" value="-n -q" />
 		<property name="rununittest.jvmarg" value="${jvm_options}" />
 		<echo
 			message="JVM argument:   ${rununittest.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST  -Djava.awt.headless=true ${line.separator}"
@@ -164,7 +164,7 @@
 		description="Run the standard CLDR test suite in exhaustive mode"
 		depends="init,build">
 		<antcall target="_runUnitTests">
-			<param name="rununittest.arg" value="-n -e10" />
+			<param name="rununittest.arg" value="-n -q -e10" />
 			<param name="rununittest.jvmarg" value="${jvm_options}" />
 		</antcall>
 	</target>

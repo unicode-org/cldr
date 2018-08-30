@@ -3410,9 +3410,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="contributed">adlm</defaultNumberingSystem>
+		<defaultNumberingSystem>adlm</defaultNumberingSystem>
 		<otherNumberingSystems>
-			<native draft="contributed">adlm</native>
+			<native>adlm</native>
 		</otherNumberingSystems>
 		<symbols numberSystem="latn">
 			<nan>𞤱𞤮𞤲𞤢𞥄 𞤪𞤢𞤽𞤢𞤥𞤫𞤪𞤫</nan>
@@ -3442,23 +3442,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
-		<!-- <defaultNumberingSystem>adlm</defaultNumberingSystem>
-			 <otherNumberingSystems>
-			 <native>adlm</native>
-			 </otherNumberingSystems>
-		-->
 		<currencies>
 			<currency type="AED">
 				<displayName>𞤁𞤭𞤪𞤸𞤢𞤥𞤵 𞤋𞤥𞤢𞥄𞤪𞤢𞤼𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤣𞤭𞤪𞤸𞤢𞤥𞤵 𞤋𞤥𞤢𞥄𞤪𞤢𞤼𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤣𞤭𞤪𞤸𞤢𞤥𞤵𞥅𞤶𞤭 𞤋𞤥𞤢𞥄𞤪𞤢𞤼𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤀𞤉𞤁</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>𞤀𞤬𞤿𞤢𞤲𞤭 𞤀𞤬𞤿𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤢𞤬𞤿𞤢𞤲𞤭 𞤀𞤬𞤿𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤢𞤬𞤿𞤢𞤲𞤭𞥅𞤶𞤭 𞤀𞤬𞤿𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤀𞤊𞤐</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>𞤂𞤫𞤳 𞤀𞤤𞤦𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
@@ -3469,7 +3462,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤁𞤢𞤪𞤢𞤥𞤵 𞤀𞤪𞤥𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤣𞤢𞤪𞤢𞤥𞤵 𞤀𞤪𞤥𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤣𞤢𞤪𞤢𞤥𞤵𞥅𞤶𞤭 𞤀𞤪𞤥𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤀𞤃𞤁</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>𞤊𞤵𞤤𞤮𞤪𞤭𞤲 𞤀𞤲𞤼𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
@@ -3480,20 +3472,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤑𞤵𞤱𞤢𞤲𞥁𞤢 𞤀𞤲𞤺𞤮𞤤𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤳𞤵𞤱𞤢𞤲𞥁𞤢 𞤀𞤲𞤺𞤮𞤤𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤳𞤵𞤱𞤢𞤲𞥁𞤢𞤢𞥄𞤶𞤭 𞤀𞤲𞤺𞤮𞤤𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤀𞤌𞤀</symbol>
-				<symbol alt="narrow" draft="contributed">𞤑𞥁</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>𞤆𞤫𞤧𞤮 𞤀𞤪𞤶𞤢𞤲𞤼𞤭𞤲𞤢</displayName>
 				<displayName count="one">𞤆𞤫𞤧𞤮 𞤀𞤪𞤶𞤢𞤲𞤼𞤭𞤲𞤢</displayName>
 				<displayName count="other">𞤆𞤫𞤧𞤮𞥅𞤶𞤭 𞤀𞤪𞤶𞤢𞤲𞤼𞤭𞤲𞤢</displayName>
-				<symbol alt="narrow" draft="contributed">AR$</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>𞤁𞤢𞤤𞤢 𞤌𞤧𞤼𞤪𞤢𞤤𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤣𞤢𞤤𞤢 𞤌𞤧𞤼𞤪𞤢𞤤𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤣𞤢𞤤𞤢𞥄𞤶𞤭 𞤌𞤧𞤼𞤪𞤢𞤤𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤀$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>𞤊𞤵𞤤𞤮𞤪𞤭𞤲 𞤀𞤪𞤵𞤦𞤢𞤲𞤳𞤮</displayName>
@@ -3513,13 +3501,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤁𞤢𞤤𞤢 𞤄𞤢𞤪𞤦𞤢𞤣𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤁𞤢𞤤𞤢 𞤄𞤢𞤪𞤦𞤢𞤣𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤁𞤢𞤤𞤢𞥄𞤶𞤭 𞤄𞤢𞤪𞤦𞤢𞤣𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol alt="narrow" draft="contributed">BB$</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>𞤚𞤢𞤪𞤢 𞤄𞤢𞤲𞤺𞤭𞤤𞤢𞤣𞤫𞥅𞤧𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤼𞤢𞤪𞤢 𞤄𞤢𞤲𞤺𞤭𞤤𞤢𞤣𞤫𞥅𞤧𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤼𞤢𞤪𞤢𞥄𞤶𞤭 𞤄𞤢𞤲𞤺𞤭𞤤𞤢𞤣𞤫𞥅𞤧𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤚𞤄𞤁</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>𞤂𞤫𞥅𞤾 𞤄𞤭𞤤𞤺𞤢𞤪𞤭𞤲𞤳𞤮</displayName>
@@ -3530,25 +3516,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤁𞤭𞤲𞤢𞥄𞤪 𞤄𞤢𞤸𞤢𞤪𞤢𞥄𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤣𞤭𞤲𞤢𞥄𞤪 𞤄𞤢𞤸𞤢𞤪𞤢𞥄𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤣𞤭𞤲𞤢𞥄𞤪𞤶𞤭 𞤄𞤢𞤸𞤢𞤪𞤢𞥄𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤄𞤖𞤁</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>𞤊𞤢𞤪𞤢𞤲 𞤄𞤵𞤪𞤵𞤲𞤣𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤬𞤢𞤪𞤢𞤲 𞤄𞤵𞤪𞤵𞤲𞤣𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤬𞤢𞤪𞤢𞤲𞤶𞤭 𞤄𞤵𞤪𞤵𞤲𞤣𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤄𞤋𞤊</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>𞤁𞤢𞤤𞤢 𞤄𞤫𞤪𞤥𞤵𞤣𞤢𞥄𞤲</displayName>
 				<displayName count="one">𞤁𞤢𞤤𞤢 𞤄𞤫𞤪𞤥𞤵𞤣𞤢𞥄𞤲</displayName>
 				<displayName count="other">𞤁𞤢𞤤𞤢𞥄𞤶𞤭 𞤄𞤫𞤪𞤥𞤵𞤣𞤢𞥄𞤲</displayName>
-				<symbol alt="narrow" draft="contributed">BM$</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>𞤁𞤢𞤤𞤢 𞤄𞤵𞤪𞤲𞤫𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤣𞤢𞤤𞤢 𞤄𞤵𞤪𞤲𞤫𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤣𞤢𞤤𞤢𞥄𞤶𞤭 𞤄𞤵𞤪𞤲𞤫𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤁𞤄𞤐</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>𞤄𞤮𞤤𞤭𞤾𞤭𞤴𞤢𞤲𞤮 𞤄𞤮𞤤𞤭𞤾𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
@@ -3564,20 +3546,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤁𞤢𞤤𞤢 𞤄𞤢𞤸𞤢𞤥𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤁𞤢𞤤𞤢 𞤄𞤢𞤸𞤢𞤥𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤁𞤢𞤤𞤢𞥄𞤶𞤭 𞤄𞤢𞤸𞤢𞤥𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol alt="narrow" draft="contributed">BB$</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>𞤐𞤘𞤵𞤤𞤼𞤵𞤪𞤵𞤥𞤵 𞤄𞤵𞤼𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤲𞤺𞤵𞤤𞤼𞤵𞤪𞤵𞤥𞤵 𞤄𞤵𞤼𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤐𞤘𞤵𞤤𞤼𞤵𞤪𞤵𞤥𞤶𞤭 𞤄𞤵𞤼𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤄𞤚𞤐</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>𞤆𞤵𞤤𞤢 𞤄𞤮𞤼𞤵𞤧𞤱𞤢𞤲𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤨𞤵𞤤𞤢 𞤄𞤮𞤼𞤵𞤧𞤱𞤢𞤲𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤨𞤵𞤤𞤢𞥄𞤶𞤭 𞤄𞤮𞤼𞤵𞤧𞤱𞤢𞤲𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤄𞤏𞤆</symbol>
-				<symbol alt="narrow" draft="contributed">𞤆</symbol>
 			</currency>
 			<currency type="BYN">
 				<displayName>𞤈𞤵𞥅𞤦𞤮𞤤 𞤄𞤫𞤤𞤢𞤪𞤭𞥅𞤧𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
@@ -3588,21 +3566,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤁𞤢𞤤𞤢 𞤄𞤫𞤤𞤭𞥅𞤧</displayName>
 				<displayName count="one">𞤁𞤢𞤤𞤢 𞤄𞤫𞤤𞤭𞥅𞤧</displayName>
 				<displayName count="other">𞤁𞤢𞤤𞤢𞥄𞤶𞤭 𞤄𞤫𞤤𞤭𞥅𞤧</displayName>
-				<symbol draft="contributed">BZD</symbol>
-				<symbol alt="narrow" draft="contributed">BZ$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>𞤁𞤢𞤤𞤢 𞤑𞤢𞤲𞤢𞤣𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤁𞤢𞤤𞤢 𞤑𞤢𞤲𞤢𞤣𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤁𞤢𞤤𞤢𞥄𞤶𞤭 𞤑𞤢𞤲𞤢𞤣𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">CA$</symbol>
-				<symbol alt="narrow" draft="contributed">CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>𞤊𞤢𞤪𞤢𞤲 𞤑𞤮𞤲𞤺𞤮𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤬𞤢𞤪𞤢𞤲 𞤑𞤮𞤲𞤺𞤮𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤬𞤢𞤪𞤢𞤲𞤶𞤭 𞤑𞤮𞤲𞤺𞤮𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤅𞤁𞤊</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>𞤊𞤢𞤪𞤢𞤲 𞤅𞤵𞤱𞤭𞥅𞤧</displayName>
@@ -3613,7 +3586,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤆𞤫𞤧𞤮 𞤕𞤭𞤤𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤆𞤫𞤧𞤮 𞤕𞤭𞤤𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤆𞤫𞤧𞤮𞥅𞤶𞤭 𞤕𞤭𞤤𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol alt="narrow" draft="contributed">CL$</symbol>
 			</currency>
 			<currency type="CNH">
 				<displayName>𞤒𞤵𞤱𞤢𞤲 𞤕𞤢𞤴𞤲𞤭𞤲𞤳𞤮 (𞤺𞤢𞥄𞤲𞤭𞤲𞤳𞤮)</displayName>
@@ -3629,7 +3601,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤆𞤫𞤧𞤮 𞤑𞤮𞤤𞤮𞤥𞤦𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤆𞤫𞤧𞤮 𞤑𞤮𞤤𞤮𞤥𞤦𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤆𞤫𞤧𞤮𞥅𞤶𞤭 𞤑𞤮𞤤𞤮𞤥𞤦𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol alt="narrow" draft="contributed">CO$</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>𞤑𞤮𞤤𞤮𞥅𞤲 𞤑𞤮𞤧𞤼𞤢 𞤈𞤭𞤳𞤢𞤲</displayName>
@@ -3645,7 +3616,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤆𞤫𞤧𞤮 𞤑𞤵𞤦𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤨𞤫𞤧𞤮 𞤑𞤵𞤦𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤨𞤫𞤧𞤮𞥅𞤶𞤭 𞤑𞤵𞤦𞤢𞤲𞤳𞤮</displayName>
-				<symbol alt="narrow" draft="contributed">CU$</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>𞤉𞤧𞤳𞤵𞤣𞤮 𞤑𞤢𞤨-𞤜𞤫𞥅𞤪𞤣𞤢𞤲𞤳𞤮</displayName>
@@ -3661,7 +3631,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤊𞤢𞤪𞤢𞤲 𞤔𞤭𞤦𞤵𞤼𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤬𞤢𞤪𞤢𞤲 𞤔𞤭𞤦𞤵𞤼𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤬𞤢𞤪𞤢𞤲𞤶𞤭 𞤔𞤭𞤦𞤵𞤼𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤁𞤶𞤊</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>𞤑𞤮𞤪𞤲𞤫 𞤁𞤢𞤲𞤭𞥅𞤧𞤭𞤲𞤳𞤮</displayName>
@@ -3687,13 +3656,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤐𞤢𞤳𞤬𞤢 𞤉𞤪𞤭𞤼𞤫𞤪𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤐𞤢𞤳𞤬𞤢 𞤉𞤪𞤭𞤼𞤫𞤪𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤲𞤢𞤳𞤬𞤢𞥄𞤶𞤭 𞤉𞤪𞤭𞤼𞤫𞤪𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤉𞤈𞤐</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>𞤄𞤭𞤪 𞤖𞤢𞤦𞤢𞤧𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤦𞤭𞤪 𞤖𞤢𞤦𞤢𞤧𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤄𞤭𞤪𞤶𞤭 𞤖𞤢𞤦𞤢𞤧𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤉𞤚𞤄</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>𞤒𞤵𞤪𞤮𞥅</displayName>
@@ -3704,7 +3671,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤁𞤢𞤤𞤢 𞤊𞤭𞤶𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤣𞤢𞤤𞤢 𞤊𞤭𞤶𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤣𞤢𞤤𞤢𞥄𞤶𞤭 𞤊𞤭𞤶𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤁𞤊𞤔</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>𞤆𞤢𞤱𞤲‘𞤣𞤵 𞤅𞤵𞤪𞤭𞥅𞤶𞤫 𞤊𞤢𞤤𞤳𞤵𞤤𞤢𞤲𞤣𞤭𞤳𞤮</displayName>
@@ -3725,7 +3691,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤅𞤭𞤣𞤭 𞤘𞤢𞤲𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤧𞤭𞤣𞤭 𞤘𞤢𞤲𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤧𞤭𞤣𞤭𞥅𞤶𞤭 𞤘𞤢𞤲𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤘𞤖𞤅</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>𞤆𞤢𞤱𞤲‘𞤣𞤵 𞤔𞤭𞤤𞤦𞤪𞤢𞤤𞤼𞤢𞤪</displayName>
@@ -3736,14 +3701,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤁𞤢𞤤𞤢𞤧𞤭 𞤘𞤢𞤥𞤦𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤣𞤢𞤤𞤢𞤧𞤭 𞤘𞤢𞤥𞤦𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤣𞤢𞤤𞤢𞤧𞤭𞥅𞤶𞤭 𞤘𞤢𞤥𞤦𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤘𞤃𞤁</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>𞤊𞤢𞤪𞤢𞤲 𞤘𞤭𞤲𞤫𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤬𞤢𞤪𞤢𞤲 𞤘𞤭𞤲𞤫𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤬𞤢𞤪𞤢𞤲𞤶𞤭 𞤘𞤭𞤲𞤫𞤲𞤳𞤮</displayName>
 				<symbol>FG</symbol>
-				<symbol alt="narrow" draft="contributed">𞤊𞤘</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName count="one">𞤑𞤫𞤼𞤵𞥁𞤢𞤤 𞤘𞤵𞤱𞤢𞤼𞤫𞤥𞤢𞤤𞤢𞤲𞤳𞤮</displayName>
@@ -3753,13 +3716,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤁𞤢𞤤𞤢 𞤘𞤵𞤴𞤢𞤲𞤫𞥅𞤧𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤁𞤢𞤤𞤢 𞤘𞤵𞤴𞤢𞤲𞤫𞥅𞤧𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤁𞤢𞤤𞤢𞥄𞤶𞤭 𞤘𞤵𞤴𞤢𞤲𞤫𞥅𞤧𞤭𞤲𞤳𞤮</displayName>
-				<symbol alt="narrow" draft="contributed">GY$</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>𞤁𞤢𞤤𞤢 𞤖𞤮𞤲𞤳𞤮𞤲</displayName>
 				<displayName count="one">𞤣𞤢𞤤𞤢 𞤖𞤮𞤲𞤳𞤮𞤲</displayName>
 				<displayName count="other">𞤣𞤢𞤤𞤢𞥄𞤶𞤭 𞤖𞤮𞤲𞤳𞤮𞤲</displayName>
-				<symbol draft="contributed">𞤖𞤑$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>𞤂𞤫𞤥𞤨𞤭𞤪𞤢 𞤖𞤮𞤲𞤣𞤵𞤪𞤢𞤲𞤳𞤮</displayName>
@@ -3783,8 +3744,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤈𞤵𞤨𞤭𞤴𞤢 𞤋𞤲𞤣𞤮𞤲𞤫𞤧𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤪𞤵𞤨𞤭𞤴𞤢 𞤋𞤲𞤣𞤮𞤲𞤫𞤧𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤪𞤵𞤨𞤭𞤴𞤢𞥄𞤶𞤭 𞤋𞤲𞤣𞤮𞤲𞤫𞤧𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤈𞤋𞤁</symbol>
-				<symbol alt="narrow" draft="contributed">𞤈𞤨</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>𞤡𞤫𞤳𞤫𞤤 𞤋𞤧𞤪𞤢𞥄𞤤𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
@@ -3800,13 +3759,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤁𞤭𞤲𞤢𞥄𞤪 𞤋𞤪𞤢𞥄𞤳𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤣𞤭𞤲𞤢𞥄𞤪 𞤋𞤪𞤢𞥄𞤹𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤣𞤭𞤲𞤢𞥄𞤪𞤶𞤭 𞤋𞤪𞤢𞥄𞤹𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤁𞤋𞤑</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>𞤈𞤭𞤴𞤢𞥄𞤤 𞤋𞤪𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤪𞤭𞤴𞤢𞥄𞤤 𞤋𞤪𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤪𞤭𞤴𞤢𞥄𞤤𞤶𞤭 𞤋𞤪𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤈𞤈𞤋</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>𞤑𞤮𞤪𞤮𞤲𞤢 𞤀𞤴𞤧𞤭𞤤𞤢𞤲𞤣𞤭𞤲𞤳𞤮</displayName>
@@ -3817,50 +3774,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤁𞤢𞤤𞤢 𞤔𞤢𞤥𞤢𞤴𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤁𞤢𞤤𞤢 𞤔𞤢𞤥𞤢𞤴𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤁𞤢𞤤𞤢𞥄𞤶𞤭 𞤔𞤢𞤥𞤢𞤴𞤭𞤲𞤳𞤮</displayName>
-				<symbol alt="narrow" draft="contributed">JM$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>𞤁𞤭𞤲𞤢𞥄𞤪 𞤔𞤮𞤪𞤣𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤣𞤭𞤲𞤢𞥄𞤪 𞤔𞤮𞤪𞤣𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤣𞤭𞤲𞤢𞥄𞤪𞤶𞤭 𞤔𞤮𞤪𞤣𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤁𞤔𞤌</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>𞤒𞤫𞤲 𞤔𞤢𞤨𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤴𞤫𞤲 𞤔𞤢𞤨𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤴𞤫𞤲𞤶𞤭 𞤔𞤢𞤨𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤔𞤆¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>𞤅𞤭𞤤𞤭𞤲 𞤑𞤫𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤧𞤭𞤤𞤭𞤲 𞤑𞤫𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤧𞤭𞤤𞤭𞤲𞤶𞤭 𞤑𞤫𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤑𞤉𞤅</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>𞤅𞤮𞤥𞤵 𞤑𞤭𞤪𞤺𞤭𞤧𞤼𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤧𞤮𞤥𞤵 𞤑𞤭𞤪𞤺𞤭𞤧𞤼𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤧𞤮𞤥𞤵𞥅𞤶𞤭 𞤑𞤭𞤪𞤺𞤭𞤧𞤼𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤅𞤑𞤘</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>𞤈𞤭𞤴𞤢𞤤 𞤑𞤢𞤥𞤦𞤮𞤣𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤪𞤭𞤴𞤢𞤤 𞤑𞤢𞤥𞤦𞤮𞤣𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤪𞤭𞤴𞤢𞤤𞤶𞤭 𞤑𞤢𞤥𞤦𞤮𞤣𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤈𞤑𞤖</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>𞤊𞤢𞤪𞤢𞤲 𞤑𞤮𞤥𞤮𞤪𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤬𞤢𞤪𞤢𞤲 𞤑𞤮𞤥𞤮𞤪𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤬𞤢𞤪𞤢𞤲𞤶𞤭 𞤑𞤮𞤥𞤮𞤪𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤑𞤃𞤊</symbol>
-				<symbol alt="narrow" draft="contributed">𞤅𞤊</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>𞤏𞤮𞤲 𞤁𞤮𞤱𞤣𞤮𞤱𞤪𞤭 𞤑𞤮𞥅𞤪𞤫𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤱𞤮𞤲 𞤁𞤮𞤱𞤣𞤮𞤱𞤪𞤭 𞤑𞤮𞥅𞤪𞤫𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤱𞤮𞤲𞤶𞤭 𞤁𞤮𞤱𞤣𞤮𞤱𞤪𞤭 𞤑𞤮𞥅𞤪𞤫𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤏𞤑𞤒</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>𞤱𞤮𞤲 𞤂𞤫𞤴𞤤𞤫𞤴𞤪𞤭 𞤑𞤮𞥅𞤪𞤫𞤴𞤢𞤲𞤳𞤮</displayName>
@@ -3871,44 +3819,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤁𞤋𞤲𞤢𞥄𞤪 𞤑𞤵𞤱𞤢𞤴𞤼𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤣𞤋𞤲𞤢𞥄𞤪 𞤑𞤵𞤱𞤢𞤴𞤼𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤣𞤋𞤲𞤢𞥄𞤪𞤶𞤭 𞤑𞤵𞤱𞤢𞤴𞤼𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤁𞤑𞤏</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>𞤁𞤢𞤤𞤢 𞤅𞤵𞤪𞤭𞥅𞤶𞤫 𞤑𞤢𞤴𞤥𞤢𞥄𞤲</displayName>
 				<displayName count="one">𞤁𞤢𞤤𞤢 𞤅𞤵𞤪𞤭𞥅𞤶𞤫 𞤑𞤢𞤴𞤥𞤢𞥄𞤲</displayName>
 				<displayName count="other">𞤁𞤢𞤤𞤢𞥄𞤶𞤭 𞤅𞤵𞤪𞤭𞥅𞤶𞤫 𞤑𞤢𞤴𞤥𞤢𞥄𞤲</displayName>
-				<symbol alt="narrow" draft="contributed">KY$</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>𞤚𞤫𞤲𞤺𞤫 𞤑𞤢𞥁𞤢𞤳𞤭𞤧𞤼𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤼𞤫𞤲𞤺𞤫 𞤑𞤢𞥁𞤢𞤳𞤭𞤧𞤼𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤚𞤫𞤲𞤺𞤫𞥅𞤶𞤭 𞤑𞤢𞥁𞤢𞤳𞤭𞤧𞤼𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤑𞤟𞤚</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>𞤑𞤭𞤨𞤵 𞤂𞤢𞤱𞤮𞥅𞤧𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤳𞤭𞤨𞤵 𞤂𞤢𞤱𞤮𞥅𞤧𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤳𞤭𞤨𞤵𞥅𞤶𞤭 𞤂𞤢𞤱𞤮𞥅𞤧𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤑𞤂𞤀</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>𞤆𞤢𞤱𞤲‘𞤣𞤵 𞤂𞤭𞤦𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤨𞤢𞤱𞤲‘𞤣𞤵 𞤂𞤭𞤦𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤨𞤢𞤱𞤯𞤭 𞤂𞤭𞤦𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤆𞤂𞤄</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>𞤈𞤵𞥅𞤨𞤭𞥅 𞤅𞤭𞤪𞤭-𞤂𞤢𞤲𞤳𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤪𞤵𞥅𞤨𞤭𞥅 𞤅𞤭𞤪𞤭-𞤂𞤢𞤲𞤳𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤪𞤵𞥅𞤨𞤭𞥅𞤶𞤭 𞤅𞤭𞤪𞤭-𞤂𞤢𞤲𞤳𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤈𞤂𞤑</symbol>
-				<symbol alt="narrow" draft="contributed">𞤈𞤧</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>𞤁𞤢𞤤𞤢 𞤂𞤭𞤦𞤫𞤪𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤣𞤢𞤤𞤢 𞤂𞤭𞤦𞤫𞤪𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤣𞤢𞤤𞤢𞥄𞤶𞤭 𞤂𞤭𞤦𞤫𞤪𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤂𞤈𞤁</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>𞤁𞤭𞤲𞤢𞥄𞤪 𞤂𞤭𞤦𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
@@ -3929,8 +3869,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤀𞤪𞤭𞤴𞤢𞤪𞤭 𞤃𞤢𞤤𞤺𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤢𞤪𞤭𞤴𞤢𞤪𞤭 𞤃𞤢𞤤𞤺𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤀𞤪𞤭𞤴𞤢𞤪𞤭𞥅𞤶𞤭 𞤃𞤢𞤤𞤺𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤃𞤘𞤀</symbol>
-				<symbol alt="narrow" draft="contributed">𞤀𞤪</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>𞤁𞤭𞤲𞤢𞥄𞤪 𞤃𞤢𞤧𞤫𞤣𞤮𞤲𞤭𞤲𞤳𞤮</displayName>
@@ -3941,50 +3879,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤑𞤭𞤴𞤢𞤼𞤵 𞤃𞤭𞤴𞤢𞤥𞤢𞤪𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤳𞤭𞤴𞤢𞤼𞤵 𞤃𞤭𞤴𞤢𞤥𞤢𞤪𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤳𞤭𞤴𞤢𞤼𞤵𞥅𞤶𞤭 𞤃𞤭𞤴𞤢𞤥𞤢𞤪𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤑𞤃𞤃</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>𞤚𞤵𞤺𞤵𞤪𞤭𞤳𞤵 𞤃𞤮𞤲𞤺𞤮𞤤𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤼𞤵𞤺𞤵𞤪𞤭𞤳𞤵 𞤃𞤮𞤲𞤺𞤮𞤤𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤚𞤵𞤺𞤵𞤪𞤭𞤳𞤵𞥅𞤶𞤭 𞤃𞤮𞤲𞤺𞤮𞤤𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤚𞤃𞤐</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>𞤆𞤢𞤼𞤢𞤳𞤢 𞤃𞤢𞤳𞤢𞤱𞤮𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤨𞤢𞤼𞤢𞤳𞤢 𞤃𞤢𞤳𞤢𞤱𞤮𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤨𞤢𞤼𞤢𞤳𞤢𞥄𞤶𞤭 𞤃𞤢𞤳𞤢𞤱𞤮𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤆𞤃𞤌</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>𞤓𞤺𞤭𞤴𞤢 𞤃𞤮𞤪𞤭𞤼𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮 (𞥑𞥙𞥗𞥓 - 𞥒𞥐𞥑𞥗)</displayName>
 				<displayName count="one">𞤵𞤺𞤭𞤴𞤢 𞤃𞤮𞤪𞤭𞤼𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮 (𞥑𞥙𞥗𞥓 - 𞥒𞥐𞥑𞥗)</displayName>
 				<displayName count="other">𞤵𞤺𞤭𞤴𞤢 𞤃𞤮𞤪𞤭𞤼𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮 (𞥑𞥙𞥗𞥓 - 𞥒𞥐𞥑𞥗)</displayName>
-				<symbol draft="contributed">𞤃𞤈𞤌</symbol>
 			</currency>
 			<currency type="MRU">
 				<displayName>𞤓𞤺𞤭𞤴𞤢 𞤃𞤮𞤪𞤭𞤼𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤵𞤺𞤭𞤴𞤢 𞤃𞤮𞤪𞤭𞤼𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤵𞤺𞤭𞤴𞤢𞥄𞤶𞤭 𞤃𞤮𞤪𞤭𞤼𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤃𞤈𞤓</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>𞤈𞤵𞤨𞤭𞥅 𞤃𞤮𞤪𞤭𞤧𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤪𞤵𞤨𞤭𞥅 𞤃𞤮𞤪𞤭𞤧𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤪𞤵𞤨𞤭𞥅𞤶𞤭 𞤃𞤮𞤪𞤭𞤧𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤃𞤓𞤈</symbol>
-				<symbol alt="narrow" draft="contributed">𞤈𞤧</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>𞤈𞤵𞤬𞤭𞤴𞤢𞥄 𞤃𞤢𞤤𞤣𞤭𞤾𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤪𞤵𞤬𞤭𞤴𞤢𞥄 𞤃𞤢𞤤𞤣𞤭𞤾𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤪𞤵𞤬𞤭𞤴𞤢𞥄𞤶𞤭 𞤃𞤢𞤤𞤣𞤭𞤾𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤈𞤃𞤜</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>𞤑𞤢𞤱𞤢𞤷𞤢 𞤃𞤢𞤤𞤢𞤱𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤳𞤢𞤱𞤢𞤷𞤢 𞤃𞤢𞤤𞤢𞤱𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤳𞤢𞤱𞤢𞤷𞤢𞥄𞤶𞤭 𞤃𞤢𞤤𞤢𞤱𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤃𞤏𞤑</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>𞤆𞤫𞤧𞤮 𞤃𞤫𞤳𞤧𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
@@ -3995,33 +3924,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤈𞤭𞤲𞤺𞤵𞤼𞤵 𞤃𞤢𞤤𞤫𞥅𞤧𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤪𞤭𞤲𞤺𞤵𞤼𞤵 𞤃𞤢𞤤𞤫𞥅𞤧𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤪𞤭𞤲𞤺𞤵𞤼𞤵𞥅𞤶𞤭 𞤃𞤢𞤤𞤫𞥅𞤧𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤈𞤃𞤒</symbol>
-				<symbol alt="narrow" draft="contributed">𞤈𞤃</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>𞤃𞤫𞤼𞤭𞤳𞤮𞤤 𞤃𞤮𞥁𞤢𞤥𞤦𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤥𞤫𞤼𞤭𞤳𞤮𞤤 𞤃𞤮𞥁𞤢𞤥𞤦𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤥𞤫𞤼𞤭𞤳𞤮𞤤𞤶𞤭 𞤃𞤮𞥁𞤢𞤥𞤦𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤃𞤟𞤐</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>𞤁𞤢𞤤𞤢 𞤐𞤢𞤥𞤭𞤥𞤦𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤣𞤢𞤤𞤢 𞤐𞤢𞤥𞤭𞤥𞤦𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤣𞤢𞤤𞤢𞥄𞤶𞤭 𞤐𞤢𞤥𞤭𞤥𞤦𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤐𞤀𞤁</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>𞤐𞤢𞤴𞤪𞤢 𞤐𞤢𞤶𞤭𞤪𞤢𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤲𞤢𞤴𞤪𞤢 𞤐𞤢𞤶𞤭𞤪𞤢𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤲𞤢𞤴𞤪𞤢𞥄𞤶𞤭 𞤐𞤢𞤶𞤭𞤪𞤢𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤐𞤘𞤐</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>𞤑𞤮𞥅𞤪𞤣𞤮𞤦𞤢 𞤐𞤭𞤳𞤢𞤪𞤢𞤺𞤵𞤱𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤑𞤮𞥅𞤪𞤣𞤮𞤦𞤢 𞤐𞤭𞤳𞤢𞤪𞤢𞤺𞤵𞤱𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤑𞤮𞥅𞤪𞤣𞤮𞤦𞤢𞥄𞤶𞤭 𞤐𞤭𞤳𞤢𞤪𞤢𞤺𞤵𞤱𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">NIO</symbol>
-				<symbol alt="narrow" draft="contributed">C$</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>𞤑𞤪𞤮𞤲𞤫 𞤐𞤮𞤪𞤱𞤫𞤶𞤭𞤲𞤳𞤮</displayName>
@@ -4032,20 +3954,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤈𞤵𞥅𞤨𞤭𞥅 𞤐𞤫𞤨𞤢𞤤𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤪𞤵𞥅𞤨𞤭𞥅 𞤐𞤫𞤨𞤢𞤤𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤪𞤵𞥅𞤨𞤭𞥅𞤶𞤭 𞤐𞤫𞤨𞤢𞤤𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤈𞤆𞤐</symbol>
-				<symbol alt="narrow" draft="contributed">𞤈𞤧</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>𞤁𞤢𞤤𞤢 𞤐𞤫𞤱-𞤔𞤭𞤤𞤢𞤲𞤣𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤣𞤢𞤤𞤢 𞤐𞤫𞤱-𞤔𞤭𞤤𞤢𞤲𞤣𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤣𞤢𞤤𞤢𞥄𞤶𞤭 𞤐𞤫𞤱-𞤔𞤭𞤤𞤢𞤲𞤣𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤐𞤔$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>𞤈𞤭𞤴𞤢𞥄𞤤 𞤌𞤥𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤪𞤭𞤴𞤢𞥄𞤤 𞤌𞤥𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤪𞤭𞤴𞤢𞥄𞤤𞤶𞤭 𞤌𞤥𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤈𞤌𞤃</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>𞤄𞤢𞤤𞤦𞤮𞤱𞤢 𞤆𞤢𞤲𞤢𞤥𞤢𞤴𞤢𞤲𞤳𞤮</displayName>
@@ -4073,8 +3991,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤈𞤵𞥅𞤨𞤭𞥅 𞤆𞤢𞤳𞤭𞤧𞤼𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤪𞤵𞥅𞤨𞤭𞥅 𞤆𞤢𞤳𞤭𞤧𞤼𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤪𞤵𞥅𞤨𞤭𞥅𞤶𞤭 𞤆𞤢𞤳𞤭𞤧𞤼𞤢𞤲𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤈𞤆𞤑</symbol>
-				<symbol alt="narrow" draft="contributed">𞤈𞤧</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>𞤔𞤢𞤤𞤮𞤼𞤵 𞤆𞤮𞤤𞤭𞥅𞤧𞤭𞤲𞤳𞤮</displayName>
@@ -4090,7 +4006,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤈𞤭𞤴𞤢𞥄𞤤 𞤗𞤢𞤼𞤢𞤪𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤪𞤭𞤴𞤢𞥄𞤤 𞤗𞤢𞤼𞤢𞤪𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤪𞤭𞤴𞤢𞥄𞤤𞤶𞤭 𞤗𞤢𞤼𞤢𞤪𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤈𞤀𞤗</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>𞤂𞤫𞤱𞤵 𞤈𞤮𞤥𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
@@ -4111,25 +4026,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤊𞤢𞤪𞤢𞤲 𞤈𞤵𞤱𞤢𞤲𞤣𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤬𞤢𞤪𞤢𞤲 𞤈𞤵𞤱𞤢𞤲𞤣𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤬𞤢𞤪𞤢𞤲𞤶𞤭 𞤈𞤵𞤱𞤢𞤲𞤣𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤈𞤏𞤊</symbol>
-				<symbol alt="narrow" draft="contributed">𞤈𞤊</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>𞤈𞤭𞤴𞤢𞤤 𞤅𞤢𞤵𞥅𞤣𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤪𞤭𞤴𞤢𞤤 𞤅𞤢𞤵𞥅𞤣𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤪𞤭𞤴𞤢𞤤𞤶𞤭 𞤅𞤢𞤵𞥅𞤣𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤈𞤅𞤀</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>𞤁𞤢𞤤𞤢 𞤅𞤵𞤪𞤭𞥅𞤶𞤫 𞤅𞤵𞤤𞤫𞤴𞤥𞤢𞥄𞤲𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤣𞤢𞤤𞤢 𞤅𞤵𞤪𞤭𞥅𞤶𞤫 𞤅𞤵𞤤𞤫𞤴𞤥𞤢𞥄𞤲𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤁𞤅𞤄</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>𞤈𞤵𞤨𞤭𞥅 𞤅𞤫𞤴𞤧𞤭𞤤𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤪𞤵𞤨𞤭𞥅 𞤅𞤫𞤴𞤧𞤭𞤤𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤪𞤵𞤨𞤭𞥅𞤶𞤭 𞤅𞤫𞤴𞤧𞤭𞤤𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤅𞤕𞤈</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>𞤆𞤢𞤱𞤲‘𞤣𞤵 𞤅𞤵𞤣𞤢𞤲𞤳𞤮</displayName>
@@ -4145,74 +4055,61 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤁𞤢𞤤𞤢 𞤅𞤭𞤲𞤺𞤢𞤨𞤮𞤪𞤫𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤣𞤢𞤤𞤢 𞤅𞤭𞤲𞤺𞤢𞤨𞤮𞤪𞤫𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤣𞤢𞤤𞤢𞥄𞤶𞤭 𞤅𞤭𞤲𞤺𞤢𞤨𞤮𞤪𞤫𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤁𞤅𞤘</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>𞤆𞤢𞤱𞤲‘𞤣𞤵 𞤅𞤫𞤲-𞤖𞤫𞤤𞤫𞤲𞤢</displayName>
 				<displayName count="one">𞤨𞤢𞤱𞤲‘𞤣𞤵 𞤅𞤫𞤲-𞤖𞤫𞤤𞤫𞤲𞤢</displayName>
 				<displayName count="other">𞤆𞤢𞤱𞤯𞤭 𞤅𞤫𞤲-𞤖𞤫𞤤𞤫𞤲𞤢</displayName>
-				<symbol draft="contributed">𞤅𞤖𞤆</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>𞤂𞤫𞤴𞤮𞤲 𞤅𞤫𞤪𞤢𞤤𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤤𞤫𞤴𞤮𞤲 𞤅𞤫𞤪𞤢𞤤𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤤𞤫𞤴𞤮𞤲𞤶𞤭 𞤅𞤫𞤪𞤢𞤤𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤅𞤂𞤂</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>𞤅𞤭𞤤𞤭𞤲 𞤅𞤮𞤥𞤢𞤤𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤧𞤭𞤤𞤭𞤲 𞤅𞤮𞤥𞤢𞤤𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤧𞤭𞤤𞤭𞤲𞤶𞤭 𞤅𞤮𞤥𞤢𞤤𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤅𞤌𞤅</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>𞤁𞤢𞤤𞤢 𞤅𞤵𞤪𞤵𞤲𞤢𞤥𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤁𞤢𞤤𞤢 𞤅𞤵𞤪𞤵𞤲𞤢𞤥𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤁𞤢𞤤𞤢𞥄𞤶𞤭 𞤅𞤵𞤪𞤵𞤲𞤢𞤥𞤭𞤲𞤳𞤮</displayName>
-				<symbol alt="narrow" draft="contributed">SR$</symbol>
 			</currency>
 			<currency type="SSP">
 				<displayName>𞤆𞤢𞤱𞤲‘𞤣𞤵 𞤂𞤫𞤴𞤤𞤫𞤴𞤪𞤭 𞤅𞤵𞤣𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤨𞤢𞤱𞤲‘𞤣𞤵 𞤂𞤫𞤴𞤤𞤫𞤴𞤪𞤭 𞤅𞤵𞤣𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤨𞤢𞤱𞤯𞤭 𞤂𞤫𞤴𞤤𞤫𞤴𞤪𞤭 𞤅𞤵𞤣𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤅𞤅𞤆</symbol>
 			</currency>
 			<currency type="STN">
 				<displayName>𞤁𞤮𞤦𞤢𞤪𞤢 𞤅𞤢𞤱𞤮-𞤚𞤮𞤥𞤫 &amp; 𞤆𞤫𞤪𞤫𞤲𞤧𞤭𞤨</displayName>
 				<displayName count="one">𞤣𞤮𞤦𞤢𞤪𞤢 𞤅𞤢𞤱𞤮-𞤚𞤮𞤥𞤫 &amp; 𞤆𞤫𞤪𞤫𞤲𞤧𞤭𞤨</displayName>
 				<displayName count="other">𞤣𞤮𞤦𞤢𞤪𞤢𞥄𞤶𞤭 𞤅𞤢𞤱𞤮-𞤚𞤮𞤥𞤫 &amp; 𞤆𞤫𞤪𞤫𞤲𞤧𞤭𞤨</displayName>
-				<symbol draft="contributed">𞤅𞤚𞤐</symbol>
-				<symbol alt="narrow" draft="contributed">𞤁𞤦</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>𞤆𞤢𞤱𞤲‘𞤣𞤵 𞤅𞤭𞤪𞤢𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤨𞤢𞤱𞤲‘𞤣𞤵 𞤅𞤭𞤪𞤢𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤨𞤢𞤱𞤯𞤭 𞤅𞤭𞤪𞤢𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤆𞤅𞤋</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>𞤂𞤭𞤤𞤢𞤲𞤺𞤫𞤲𞤭 𞤅𞤵𞤱𞤢𞤶𞤭</displayName>
 				<displayName count="one">𞤤𞤭𞤤𞤢𞤲𞤺𞤫𞤲𞤭 𞤅𞤵𞤱𞤢𞤶𞤭</displayName>
 				<displayName count="other">𞤤𞤭𞤤𞤢𞤲𞤺𞤫𞤲𞤭𞥅𞤶𞤭 𞤅𞤵𞤱𞤢𞤶𞤭</displayName>
-				<symbol draft="contributed">𞤅𞤟𞤂</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>𞤄𞤢𞤸𞤼𞤵 𞤚𞤢𞤴𞤤𞤢𞤲𞤣𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤦𞤢𞤸𞤼𞤵 𞤚𞤢𞤴𞤤𞤢𞤲𞤣𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤦𞤢𞤸𞤼𞤵𞥅𞤶𞤭 𞤚𞤢𞤴𞤤𞤢𞤲𞤣𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤄𞤚</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>𞤅𞤢𞤥𞤮𞥅𞤲𞤭 𞤚𞤢𞤶𞤭𞤳𞤭𞤧𞤼𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤧𞤢𞤥𞤮𞥅𞤲𞤭 𞤚𞤢𞤶𞤭𞤳𞤭𞤧𞤼𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤧𞤢𞤥𞤮𞥅𞤲𞤭𞥅𞤶𞤭 𞤚𞤢𞤶𞤭𞤳𞤭𞤧𞤼𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤅𞤚𞤔</symbol>
 			</currency>
 			<currency type="TMT">
 				<displayName>𞤃𞤢𞤲𞤢𞤼𞤵 𞤚𞤵𞤪𞤳𞤵𞤥𞤫𞤲𞤭𞤧𞤼𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤥𞤢𞤲𞤢𞤼𞤵 𞤚𞤵𞤪𞤳𞤵𞤥𞤫𞤲𞤭𞤧𞤼𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤥𞤢𞤲𞤢𞤼𞤵𞥅𞤶𞤭 𞤚𞤵𞤪𞤳𞤵𞤥𞤫𞤲𞤭𞤧𞤼𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤃𞤚</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>𞤁𞤭𞤲𞤢𞥄𞤪 𞤚𞤵𞥅𞤲𞤭𞤧𞤭𞤲𞤳𞤮</displayName>
@@ -4223,33 +4120,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤆𞤢𞤢𞤲𞤺𞤢 𞤚𞤮𞤲𞤺𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤨𞤢𞤢𞤲𞤺𞤢 𞤚𞤮𞤲𞤺𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤨𞤢𞤢𞤲𞤺𞤢𞥄𞤶𞤭 𞤚𞤮𞤲𞤺𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤆𞤚𞤌</symbol>
-				<symbol alt="narrow" draft="contributed">𞤚$</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>𞤂𞤭𞤪𞤢 𞤚𞤵𞤪𞤳𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤤𞤭𞤪𞤢 𞤚𞤵𞤪𞤳𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤤𞤭𞤪𞤢𞥄𞤶𞤭 𞤚𞤵𞤪𞤳𞤭𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤂𞤈𞤚</symbol>
-				<symbol alt="variant" draft="contributed">𞤂𞤚</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>𞤁𞤢𞤤𞤢 𞤚𞤭𞤪𞤲𞤭𞤣𞤢𞥄𞤣 &amp; 𞤚𞤮𞤦𞤢𞤺𞤮</displayName>
 				<displayName count="one">𞤁𞤢𞤤𞤢 𞤚𞤭𞤪𞤲𞤭𞤣𞤢𞥄𞤣 &amp; 𞤚𞤮𞤦𞤢𞤺𞤮</displayName>
 				<displayName count="other">𞤁𞤢𞤤𞤢𞥄𞤶𞤭 𞤚𞤭𞤪𞤲𞤭𞤣𞤢𞥄𞤣 &amp; 𞤚𞤮𞤦𞤢𞤺𞤮</displayName>
-				<symbol alt="narrow" draft="contributed">TT$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>𞤁𞤢𞤤𞤢 𞤚𞤢𞤴𞤱𞤢𞥄𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤣𞤢𞤤𞤢 𞤚𞤢𞤴𞤱𞤢𞥄𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤣𞤢𞤤𞤢𞥄𞤶𞤭 𞤚𞤢𞤴𞤱𞤢𞥄𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤚𞤐$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>𞤅𞤭𞤤𞤭𞤲 𞤚𞤢𞤲𞥁𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤧𞤭𞤤𞤭𞤲 𞤚𞤢𞤲𞥁𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤧𞤭𞤤𞤭𞤲𞤶𞤭 𞤚𞤢𞤲𞥁𞤢𞤲𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤚𞤟𞤅</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>𞤖𞤵𞤪𞤢𞤾𞤫𞤲𞤭𞤴𞤢 𞤒𞤵𞤳𞤫𞤪𞤫𞥅𞤲𞤭𞤲𞤳𞤮</displayName>
@@ -4260,26 +4150,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤅𞤭𞤤𞤭𞤲 𞤓𞤺𞤢𞤲𞤣𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤧𞤭𞤤𞤭𞤲 𞤓𞤺𞤢𞤲𞤣𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤧𞤭𞤤𞤭𞤲𞤶𞤭 𞤓𞤺𞤢𞤲𞤣𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤓𞤘𞤎</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>𞤁𞤢𞤤𞤢 𞤁𞤫𞤲𞤼𞤢𞤤 𞤂𞤢𞤪𞤫 𞤀𞤥𞤫𞤪𞤭𞤳</displayName>
 				<displayName count="one">𞤁𞤢𞤤𞤢 𞤁𞤫𞤲𞤼𞤢𞤤 𞤂𞤢𞤪𞤫 𞤀𞤥𞤫𞤪𞤭𞤳</displayName>
 				<displayName count="other">𞤁𞤢𞤤𞤢𞥄𞤶𞤭 𞤁𞤫𞤲𞤼𞤢𞤤 𞤂𞤢𞤪𞤫 𞤀𞤥𞤫𞤪𞤭𞤳</displayName>
-				<symbol draft="contributed">US$</symbol>
-				<symbol alt="narrow" draft="contributed">US$</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>𞤆𞤫𞤧𞤮 𞤓𞤪𞤵𞤺𞤵𞤪𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤆𞤫𞤧𞤮 𞤓𞤪𞤵𞤺𞤵𞤪𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤆𞤫𞤧𞤮𞥅𞤶𞤭 𞤓𞤪𞤵𞤺𞤵𞤪𞤭𞤲𞤳𞤮</displayName>
-				<symbol alt="narrow" draft="contributed">UY$</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>𞤅𞤮𞤥𞤵 𞤓𞥁𞤦𞤫𞤳𞤭𞤧𞤼𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤧𞤮𞤥𞤵 𞤓𞥁𞤦𞤫𞤳𞤭𞤧𞤼𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤧𞤮𞤥𞤵𞥅𞤶𞤭 𞤓𞥁𞤦𞤫𞤳𞤭𞤧𞤼𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤅𞤃𞤟</symbol>
 			</currency>
 			<currency type="VEF">
 				<displayName>𞤄𞤮𞤤𞤭𞤾𞤢𞥄𞤪 𞤜𞤫𞤲𞤭𞥅𞤧𞤫𞤤𞤢𞤲𞤳𞤮 (𞥒𞥐𞥐𞥘 - 𞥒𞥐𞥑𞥘)</displayName>
@@ -4300,19 +4185,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤜𞤢𞤼𞤵 𞤜𞤢𞤲𞤵𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤾𞤢𞤼𞤵 𞤜𞤢𞤲𞤵𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤾𞤢𞤼𞤵𞥅𞤶𞤭 𞤜𞤢𞤲𞤵𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤜𞤓𞤜</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>𞤚𞤢𞤤𞤢 𞤅𞤢𞤥𞤮𞤱𞤢𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤼𞤢𞤤𞤢 𞤅𞤢𞤥𞤮𞤱𞤢𞤴𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤼𞤢𞤤𞤢𞥄𞤶𞤭 𞤅𞤢𞤥𞤮𞤱𞤢𞤴𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤚𞤅𞤏</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>𞤊𞤢𞤪𞤢𞤲 𞤚𞤵𞤦𞤮𞥅𞤪𞤭 𞤀𞤬𞤪𞤭𞤳𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤬𞤢𞤪𞤢𞤲 𞤚𞤵𞤦𞤮𞥅𞤪𞤭 𞤀𞤬𞤪𞤭𞤳𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤬𞤢𞤪𞤢𞤲𞤶𞤭 𞤚𞤵𞤦𞤮𞥅𞤪𞤭 𞤀𞤬𞤪𞤭𞤳𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤊𞤅𞤊𞤀</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>𞤁𞤢𞤤𞤢 𞤊𞤵𞤯𞤲𞤢𞥄𞤲‘𞤺𞤫 𞤑𞤢𞤪𞤭𞤦𞤭𞤴𞤢</displayName>
@@ -4323,13 +4205,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤊𞤢𞤪𞤢𞤲 𞤅𞤊𞤀 𞤖𞤭𞥅𞤪𞤲𞤢𞥄𞤲‘𞤺𞤫 𞤀𞤬𞤪𞤭𞤳𞤢</displayName>
 				<displayName count="one">𞤬𞤢𞤪𞤢𞤲 𞤅𞤊𞤀 𞤖𞤭𞥅𞤪𞤲𞤢𞥄𞤲‘𞤺𞤫 𞤀𞤬𞤪𞤭𞤳𞤢</displayName>
 				<displayName count="other">𞤬𞤢𞤪𞤢𞤲𞤶𞤭 𞤅𞤊𞤀 𞤖𞤭𞥅𞤪𞤲𞤢𞥄𞤲‘𞤺𞤫 𞤀𞤬𞤪𞤭𞤳𞤢</displayName>
-				<symbol draft="contributed">𞤅𞤊𞤀</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>𞤊𞤢𞤪𞤢𞤲 𞤅𞤊𞤆</displayName>
 				<displayName count="one">𞤬𞤢𞤪𞤢𞤲 𞤅𞤊𞤆</displayName>
 				<displayName count="other">𞤬𞤢𞤪𞤢𞤲𞤶𞤭 𞤅𞤊𞤆</displayName>
-				<symbol draft="contributed">𞤅𞤊𞤆𞤊</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>𞤐𞤄𞤵𞥅𞤯𞤭 𞤢𞤧-𞤢𞤲𞤣𞤢𞥄𞤯𞤭</displayName>
@@ -4340,21 +4220,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>𞤈𞤭𞤴𞤢𞥄𞤤 𞤒𞤫𞤥𞤫𞤲𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤪𞤭𞤴𞤢𞥄𞤤 𞤒𞤫𞤥𞤫𞤲𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤪𞤭𞤴𞤢𞥄𞤤𞤶𞤭 𞤒𞤫𞤥𞤫𞤲𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤈𞤒𞤉</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>𞤈𞤢𞤲𞤣𞤭 𞤂𞤫𞤴𞤤𞤫𞤴𞤪𞤭 𞤀𞤬𞤪𞤭𞤳𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤪𞤢𞤲𞤣𞤭 𞤂𞤫𞤴𞤤𞤫𞤴𞤪𞤭 𞤀𞤬𞤪𞤭𞤳𞤢𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤪𞤢𞤲𞤶𞤭 𞤂𞤫𞤴𞤤𞤫𞤴𞤪𞤭 𞤀𞤬𞤪𞤭𞤳𞤢𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤟𞤀𞤈</symbol>
-				<symbol alt="narrow" draft="contributed">𞤈</symbol>
 			</currency>
 			<currency type="ZMW">
 				<displayName>𞤑𞤢𞤱𞤢𞤧𞤢 𞤟𞤢𞤥𞤦𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="one">𞤳𞤢𞤱𞤢𞤧𞤢 𞤟𞤢𞤥𞤦𞤭𞤲𞤳𞤮</displayName>
 				<displayName count="other">𞤳𞤢𞤱𞤢𞤧𞤢𞥄𞤶𞤭 𞤟𞤢𞤥𞤦𞤭𞤲𞤳𞤮</displayName>
-				<symbol draft="contributed">𞤟𞤃𞤏</symbol>
-				<symbol alt="narrow" draft="contributed">𞤟𞤑</symbol>
 			</currency>
 		</currencies>
 		<minimalPairs>

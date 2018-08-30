@@ -51,27 +51,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<moreInformation>?</moreInformation>
 		<parseLenients scope="date" level="lenient">
 			<parseLenient sample="-">[\--/]</parseLenient>
-			<parseLenient sample=":">[\:：﹕︓ ∶]</parseLenient>
+			<parseLenient sample=":">[\:∶︓﹕：]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
-			<parseLenient sample=".">[.．․﹒ 。︒｡]</parseLenient>
-			<parseLenient sample="$">[\$＄﹩]</parseLenient>
-			<parseLenient sample="£">[£￡ ₤]</parseLenient>
-			<parseLenient sample="₹">[₨₹{Rp}{Rs}]</parseLenient>
+			<parseLenient sample=".">[.․。︒﹒．｡]</parseLenient>
+			<parseLenient sample="’">['ʼ՚᾽᾿’＇]</parseLenient>
+			<parseLenient sample="%">[%٪﹪％]</parseLenient>
+			<parseLenient sample="‰">[؉‰]</parseLenient>
+			<parseLenient sample="$">[\$﹩＄]</parseLenient>
+			<parseLenient sample="£">[£₤￡]</parseLenient>
 			<parseLenient sample="¥">[¥￥]</parseLenient>
 			<parseLenient sample="₩">[₩￦]</parseLenient>
-			<parseLenient sample="%">[%％﹪ ٪]</parseLenient>
-			<parseLenient sample="‰">[‰ ؉ ]</parseLenient>
-			<parseLenient sample="’">['＇ ’ ՚ ᾽᾿ ʼ]</parseLenient>
+			<parseLenient sample="₹">[₨₹{Rp}{Rs}]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
-			<parseLenient sample="-">[\-－﹣ ‐ ‒ – −⁻₋ ➖]</parseLenient>
-			<parseLenient sample=",">[,，﹐︐ ، ٫ 、﹑︑､]</parseLenient>
-			<parseLenient sample="+">[+＋﬩﹢⁺₊ ➕]</parseLenient>
+			<parseLenient sample="-">[\-‐‒–⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample=",">[,،٫、︐︑﹐﹑，､]</parseLenient>
+			<parseLenient sample="+">[+⁺₊➕﬩﹢＋]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="stricter">
-			<parseLenient sample=",">[,，﹐︐ ٫]</parseLenient>
-			<parseLenient sample=".">[.．․﹒ ｡]</parseLenient>
+			<parseLenient sample=",">[,٫︐﹐，]</parseLenient>
+			<parseLenient sample=".">[.․﹒．｡]</parseLenient>
 		</parseLenients>
 	</characters>
 	<delimiters>
@@ -4846,13 +4846,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</listPattern>
 		<listPattern type="or-narrow">
 			<alias source="locale" path="../listPattern[@type='or-short']"/>
-		</listPattern> 
+		</listPattern>
 		<listPattern type="or-short">
 			<alias source="locale" path="../listPattern[@type='or']"/>
-		</listPattern> 
+		</listPattern>
 		<listPattern type="standard-narrow">
 			<alias source="locale" path="../listPattern[@type='standard-short']"/>
-		</listPattern> 
+		</listPattern>
 		<listPattern type="standard-short">
 			<alias source="locale" path="../listPattern"/>
 		</listPattern>

@@ -141,7 +141,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="Bhms">h:mm.ss B</dateFormatItem>
+						<dateFormatItem id="EBhm">E, h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E, h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Ehm">E, h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E, h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E, HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
 						<dateFormatItem id="M">LL</dateFormatItem>
@@ -155,16 +162,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyMEd">E, dd/MM/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E, d MMM y G</dateFormatItem>
-						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
-						<dateFormatItem id="Bhms">h:mm.ss B</dateFormatItem>
-						<dateFormatItem id="EBhm">E, h:mm B</dateFormatItem>
-						<dateFormatItem id="EBhms">E, h:mm:ss B</dateFormatItem>
-						<dateFormatItem id="Ehm">E, h:mm a</dateFormatItem>
-						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
-						<dateFormatItem id="Ehms">E, h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="EHms">E, HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="hm">h:mm a</dateFormatItem>
-						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="Md">
@@ -265,6 +262,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="EBhm">E, h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E, h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
@@ -279,10 +278,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMEd">E, dd/MM/y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, d MMM y</dateFormatItem>
-						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
-						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
-						<dateFormatItem id="EBhm">E, h:mm B</dateFormatItem>
-						<dateFormatItem id="EBhms">E, h:mm:ss B</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="Md">
@@ -330,30 +325,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</calendar>
 		</calendars>
 		<fields>
-			<field type="weekOfMonth-short">
-				<displayName>wk of mo</displayName>
-			</field>
-			<field type="weekOfMonth-narrow">
-				<displayName>wk of mo</displayName>
-			</field>
-			<field type="dayOfYear-short">
-				<displayName>day of yr</displayName>
-			</field>
-			<field type="dayOfYear-narrow">
-				<displayName>day of yr</displayName>
-			</field>
-			<field type="weekday-short">
-				<displayName>day of wk</displayName>
-			</field>
-			<field type="weekday-narrow">
-				<displayName>day of wk</displayName>
-			</field>
-			<field type="weekdayOfMonth-short">
-				<displayName>wkday of mo</displayName>
-			</field>
-			<field type="weekdayOfMonth-narrow">
-				<displayName>wkday of mo</displayName>
-			</field>
 			<field type="year-short">
 				<displayName>yr</displayName>
 				<relativeTime type="future">
@@ -441,6 +412,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="other">{0} wk ago</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="weekOfMonth-short">
+				<displayName>wk of mo</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>wk of mo</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>day of yr</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>day of yr</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>day of wk</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>day of wk</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>wkday of mo</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>wkday of mo</displayName>
+			</field>
 			<field type="sun-short">
 				<relative type="-1">last Sun</relative>
 				<relative type="0">this Sun</relative>
@@ -452,16 +447,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Sun ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} Sun ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="sun-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} Su</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} Su</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Su ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} Su ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon-short">
@@ -477,16 +462,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="other">{0} Mon ago</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="mon-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} M</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} M</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} M ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} M ago</relativeTimePattern>
-				</relativeTime>
-			</field>
 			<field type="tue-short">
 				<relative type="-1">last Tue</relative>
 				<relative type="0">this Tue</relative>
@@ -498,16 +473,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Tue ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} Tue ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="tue-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} Tu</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} Tu</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Tu ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} Tu ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-short">
@@ -523,16 +488,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="other">{0} Wed ago</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="wed-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} W</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} W</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} W ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} W ago</relativeTimePattern>
-				</relativeTime>
-			</field>
 			<field type="thu-short">
 				<relative type="-1">last Thu</relative>
 				<relative type="0">this Thu</relative>
@@ -544,16 +499,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Thu ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} Thu ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="thu-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} Th</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} Th</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Th ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} Th ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-short">
@@ -569,16 +514,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="other">{0} Fri ago</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="fri-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} F</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} F</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} F ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} F ago</relativeTimePattern>
-				</relativeTime>
-			</field>
 			<field type="sat-short">
 				<relative type="-1">last Sat</relative>
 				<relative type="0">this Sat</relative>
@@ -592,20 +527,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="other">{0} Sat ago</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="sat-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} Sa</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} Sa</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Sa ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} Sa ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="dayperiod">
+			<field type="dayperiod-short">
 				<displayName>am/pm</displayName>
 			</field>
-			<field type="dayperiod-short">
+			<field type="dayperiod">
 				<displayName>am/pm</displayName>
 			</field>
 			<field type="dayperiod-narrow">

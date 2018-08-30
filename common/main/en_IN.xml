@@ -51,17 +51,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="EBhm">E, h:mm B</dateFormatItem>
-						<dateFormatItem id="EBhms">E, h:mm:ss B</dateFormatItem>
-						<dateFormatItem id="Ehm">E, h:mm a</dateFormatItem>
-						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
-						<dateFormatItem id="Ehms">E, h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="EHms">E, HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM, y G</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
-						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
 						<dateFormatItem id="yyyyM">M/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMd">d/M/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">E, d/M/y GGGGG</dateFormatItem>
@@ -125,8 +118,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="EBhm">E, h:mm B</dateFormatItem>
-						<dateFormatItem id="EBhms">E, h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ehm">E, h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
 						<dateFormatItem id="Ehms">E, h:mm:ss a</dateFormatItem>
@@ -176,7 +167,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMMMd" draft="contributed">d MMM, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="contributed">E, d MMM, y G</dateFormatItem>
 						<dateFormatItem id="Md" draft="contributed">d/M</dateFormatItem>
-						<dateFormatItem id="MEd" draft="contributed">E, d/M</dateFormatItem>
 						<dateFormatItem id="yyyyM" draft="contributed">M/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMd" draft="contributed">d/M/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMEd" draft="contributed">E d/M/y G</dateFormatItem>

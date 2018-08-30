@@ -131,9 +131,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight">midnight</dayPeriod>
-							<dayPeriod type="am">am</dayPeriod>
 							<dayPeriod type="noon">midday</dayPeriod>
-							<dayPeriod type="pm">pm</dayPeriod>
 							<dayPeriod type="morning1">morning</dayPeriod>
 							<dayPeriod type="afternoon1">afternoon</dayPeriod>
 							<dayPeriod type="evening1">evening</dayPeriod>
@@ -151,9 +149,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">midnight</dayPeriod>
-							<dayPeriod type="am">am</dayPeriod>
 							<dayPeriod type="noon">midday</dayPeriod>
-							<dayPeriod type="pm">pm</dayPeriod>
 							<dayPeriod type="morning1">in the morning</dayPeriod>
 							<dayPeriod type="afternoon1">in the afternoon</dayPeriod>
 							<dayPeriod type="evening1">in the evening</dayPeriod>
@@ -162,19 +158,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">am</dayPeriod>
 							<dayPeriod type="noon">midday</dayPeriod>
-							<dayPeriod type="pm">pm</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">am</dayPeriod>
 							<dayPeriod type="noon">midday</dayPeriod>
-							<dayPeriod type="pm">pm</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">am</dayPeriod>
 							<dayPeriod type="noon">midday</dayPeriod>
-							<dayPeriod type="pm">pm</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -287,31 +277,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="weekOfMonth-short">
 				<displayName>wk of mo.</displayName>
 			</field>
-			<field type="weekOfMonth-narrow">
-				<displayName>wk of mo</displayName>
-			</field>
 			<field type="day">
 				<relative type="-1">yesterday</relative>
 				<relative type="0">today</relative>
 				<relative type="1">tomorrow</relative>
 			</field>
-			<field type="dayOfYear-short">
-				<displayName>day of yr</displayName>
-			</field>
-			<field type="dayOfYear-narrow">
-				<displayName>day of yr</displayName>
-			</field>
-			<field type="weekday-short">
-				<displayName>day of wk</displayName>
-			</field>
-			<field type="weekday-narrow">
-				<displayName>day of wk</displayName>
-			</field>
 			<field type="weekdayOfMonth-short">
 				<displayName>wkday of mo.</displayName>
-			</field>
-			<field type="weekdayOfMonth-narrow">
-				<displayName>wkday of mo</displayName>
 			</field>
 			<field type="sun-short">
 				<relativeTime type="future">
@@ -321,16 +293,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Sun. ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} Sun. ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="sun-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} Su</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} Su</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Su ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} Su ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon-short">
@@ -343,16 +305,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} Mon. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="mon-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} M</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} M</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} M ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} M ago</relativeTimePattern>
-				</relativeTime>
-			</field>
 			<field type="tue-short">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Tue.</relativeTimePattern>
@@ -361,16 +313,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Tue. ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} Tue. ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="tue-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} Tu</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} Tu</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Tu ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} Tu ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-short">
@@ -383,16 +325,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} Wed. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="wed-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} W</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} W</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} W ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} W ago</relativeTimePattern>
-				</relativeTime>
-			</field>
 			<field type="thu-short">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Thu.</relativeTimePattern>
@@ -401,16 +333,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Thu. ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} Thu. ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="thu-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} Th</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} Th</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Th ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} Th ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-short">
@@ -423,16 +345,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} Fri. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="fri-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} F</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} F</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} F ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} F ago</relativeTimePattern>
-				</relativeTime>
-			</field>
 			<field type="sat-short">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Sat.</relativeTimePattern>
@@ -442,22 +354,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one">{0} Sat. ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} Sat. ago</relativeTimePattern>
 				</relativeTime>
-			</field>
-			<field type="sat-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} Sa</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} Sa</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Sa ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} Sa ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="dayperiod-short">
-				<displayName>am/pm</displayName>
-			</field>
-			<field type="dayperiod-narrow">
-				<displayName>am/pm</displayName>
 			</field>
 			<field type="hour-short">
 				<displayName>h</displayName>
@@ -1089,7 +985,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<displayName>km/h</displayName>
 				<unitPattern count="one">{0} km/h</unitPattern>
 				<unitPattern count="other">{0} km/h</unitPattern>
 			</unit>

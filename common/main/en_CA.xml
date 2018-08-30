@@ -295,8 +295,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">mid</dayPeriod>
-							<dayPeriod type="am">am</dayPeriod>
-							<dayPeriod type="pm">pm</dayPeriod>
 							<dayPeriod type="morning1">mor</dayPeriod>
 							<dayPeriod type="afternoon1">aft</dayPeriod>
 							<dayPeriod type="evening1">eve</dayPeriod>
@@ -1268,9 +1266,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="mass-stone">
 				<displayName draft="contributed">st.</displayName>
 			</unit>
-			<unit type="speed-kilometer-per-hour">
-				<displayName draft="contributed">km/h</displayName>
-			</unit>
 			<unit type="speed-mile-per-hour">
 				<displayName draft="contributed">mi./hr.</displayName>
 			</unit>
@@ -1313,7 +1308,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="leftwards_rightwards_arrows" draft="contributed">leftward rightward arrow</characterLabel>
 		<characterLabel type="letterlike_symbols" draft="contributed">letter-like symbol</characterLabel>
 		<characterLabel type="limited_use" draft="contributed">limited use</characterLabel>
-		<characterLabel type="math_symbols" draft="contributed">math symbol</characterLabel>
 		<characterLabel type="nonspacing" draft="contributed">non-spacing</characterLabel>
 		<characterLabel type="rightwards_arrows" draft="contributed">rightward arrow</characterLabel>
 		<characterLabel type="upwards_arrows" draft="contributed">upward arrows</characterLabel>

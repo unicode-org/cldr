@@ -13,6 +13,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<localeDisplayNames>
 		<subdivisions>
 			<subdivision type="aedu" draft="contributed">Dubai</subdivision>
+			<subdivision type="aefu" draft="contributed">Fujairah</subdivision>
 			<subdivision type="aerk" draft="contributed">Ras al-Khaimah</subdivision>
 			<subdivision type="aesh" draft="contributed">Sharjah</subdivision>
 			<subdivision type="aeuq" draft="contributed">Umm al-Quwain</subdivision>
@@ -67,13 +68,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="at8" draft="contributed">Vorarlberg</subdivision>
 			<subdivision type="at9" draft="contributed">Vienna</subdivision>
 			<subdivision type="aunsw" draft="contributed">New South Wales</subdivision>
+			<subdivision type="aunt" draft="contributed">Northern Territory</subdivision>
+			<subdivision type="auqld" draft="contributed">Queensland</subdivision>
 			<subdivision type="ausa" draft="contributed">Australia Kusini</subdivision>
 			<subdivision type="autas" draft="contributed">Tasmania</subdivision>
+			<subdivision type="auvic" draft="contributed">Victoria</subdivision>
 			<subdivision type="auwa" draft="contributed">Australia ya Magharibi</subdivision>
 			<subdivision type="azba" draft="contributed">Baku</subdivision>
 			<subdivision type="bebru" draft="contributed">Brussels</subdivision>
+			<subdivision type="bevlg" draft="contributed">Flandria</subdivision>
 			<subdivision type="bewal" draft="contributed">Wallonia</subdivision>
+			<subdivision type="bg23" draft="contributed">Sofia</subdivision>
 			<subdivision type="bibb" draft="contributed">Mkoa wa Bubanza</subdivision>
+			<subdivision type="bibl" draft="contributed">Bujumbura Vijijini</subdivision>
+			<subdivision type="bibm" draft="contributed">Bujumbura Mjini</subdivision>
 			<subdivision type="bibr" draft="contributed">Mkoa wa Bururi</subdivision>
 			<subdivision type="bica" draft="contributed">Mkoa wa Cankuzo</subdivision>
 			<subdivision type="bici" draft="contributed">Mkoa wa Cibitoke</subdivision>
@@ -188,6 +196,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="chzh" draft="contributed">Jimbo la Zürich</subdivision>
 			<subdivision type="ciab" draft="contributed">Abidjan</subdivision>
 			<subdivision type="ciym" draft="contributed">Yamoussoukro</subdivision>
+			<subdivision type="cizz" draft="contributed">Mkoa wa Zanzan</subdivision>
 			<subdivision type="clap" draft="contributed">Mkoa wa Arica na Parinacota</subdivision>
 			<subdivision type="clar" draft="contributed">Mkoa wa Araucanía</subdivision>
 			<subdivision type="clat" draft="contributed">Mkoa wa Atacama</subdivision>
@@ -197,35 +206,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="clma" draft="contributed">Mkoa wa Magallanes na Antaktiki ya Chile</subdivision>
 			<subdivision type="clml" draft="contributed">Mkoa wa Maule</subdivision>
 			<subdivision type="clta" draft="contributed">Mkoa wa Tarapacá</subdivision>
-			<subdivision type="cn11" draft="contributed">Beijing</subdivision>
-			<subdivision type="cn13" draft="contributed">Hebei</subdivision>
-			<subdivision type="cn14" draft="contributed">Shanxi</subdivision>
-			<subdivision type="cn15" draft="contributed">Mongolia ya Kichina</subdivision>
-			<subdivision type="cn21" draft="contributed">Liaoning</subdivision>
-			<subdivision type="cn22" draft="contributed">Jilin</subdivision>
-			<subdivision type="cn23" draft="contributed">Heilongjiang</subdivision>
-			<subdivision type="cn31" draft="contributed">Shanghai</subdivision>
-			<subdivision type="cn32" draft="contributed">Jiangsu</subdivision>
-			<subdivision type="cn33" draft="contributed">Zhejiang</subdivision>
-			<subdivision type="cn34" draft="contributed">Anhui</subdivision>
-			<subdivision type="cn35" draft="contributed">Fujian</subdivision>
-			<subdivision type="cn36" draft="contributed">Jiangxi</subdivision>
-			<subdivision type="cn37" draft="contributed">Shandong</subdivision>
-			<subdivision type="cn41" draft="contributed">Henan</subdivision>
-			<subdivision type="cn42" draft="contributed">Hubei</subdivision>
-			<subdivision type="cn43" draft="contributed">Hunan</subdivision>
-			<subdivision type="cn44" draft="contributed">Guangdong</subdivision>
-			<subdivision type="cn45" draft="contributed">Guangxi</subdivision>
-			<subdivision type="cn46" draft="contributed">Hainan</subdivision>
-			<subdivision type="cn51" draft="contributed">Sichuan</subdivision>
-			<subdivision type="cn52" draft="contributed">Guizhou</subdivision>
-			<subdivision type="cn53" draft="contributed">Yunnan</subdivision>
-			<subdivision type="cn61" draft="contributed">Shaanxi</subdivision>
-			<subdivision type="cn62" draft="contributed">Gansu</subdivision>
-			<subdivision type="cn63" draft="contributed">Qinghai</subdivision>
-			<subdivision type="cn64" draft="contributed">Ningxia</subdivision>
+			<subdivision type="cnah" draft="contributed">Anhui</subdivision>
+			<subdivision type="cnbj" draft="contributed">Beijing</subdivision>
+			<subdivision type="cnfj" draft="contributed">Fujian</subdivision>
+			<subdivision type="cngd" draft="contributed">Guangdong</subdivision>
+			<subdivision type="cngs" draft="contributed">Gansu</subdivision>
+			<subdivision type="cngx" draft="contributed">Guangxi</subdivision>
+			<subdivision type="cngz" draft="contributed">Guizhou</subdivision>
+			<subdivision type="cnha" draft="contributed">Henan</subdivision>
+			<subdivision type="cnhb" draft="contributed">Hubei</subdivision>
+			<subdivision type="cnhe" draft="contributed">Hebei</subdivision>
+			<subdivision type="cnhi" draft="contributed">Hainan</subdivision>
+			<subdivision type="cnhk" draft="contributed">Hong Kong</subdivision>
+			<subdivision type="cnhl" draft="contributed">Heilongjiang</subdivision>
+			<subdivision type="cnhn" draft="contributed">Hunan</subdivision>
+			<subdivision type="cnjl" draft="contributed">Jilin</subdivision>
+			<subdivision type="cnjs" draft="contributed">Jiangsu</subdivision>
+			<subdivision type="cnjx" draft="contributed">Jiangxi</subdivision>
+			<subdivision type="cnln" draft="contributed">Liaoning</subdivision>
+			<subdivision type="cnmo" draft="contributed">Macau</subdivision>
+			<subdivision type="cnnm" draft="contributed">Mongolia ya Kichina</subdivision>
+			<subdivision type="cnnx" draft="contributed">Ningxia</subdivision>
+			<subdivision type="cnqh" draft="contributed">Qinghai</subdivision>
+			<subdivision type="cnsc" draft="contributed">Sichuan</subdivision>
+			<subdivision type="cnsd" draft="contributed">Shandong</subdivision>
+			<subdivision type="cnsh" draft="contributed">Shanghai</subdivision>
+			<subdivision type="cnsn" draft="contributed">Shaanxi</subdivision>
+			<subdivision type="cnsx" draft="contributed">Shanxi</subdivision>
+			<subdivision type="cnyn" draft="contributed">Yunnan</subdivision>
+			<subdivision type="cnzj" draft="contributed">Zhejiang</subdivision>
 			<subdivision type="codc" draft="contributed">Bogota</subdivision>
 			<subdivision type="cosap" draft="contributed">San Andrés</subdivision>
+			<subdivision type="cu99" draft="contributed">Isla de la Juventud</subdivision>
 			<subdivision type="cz10" draft="contributed">Praha</subdivision>
 			<subdivision type="debb" draft="contributed">Brandenburg</subdivision>
 			<subdivision type="debe" draft="contributed">Berlin</subdivision>
@@ -334,6 +346,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esco" draft="contributed">Mkoa wa Córdoba</subdivision>
 			<subdivision type="escr" draft="contributed">Mkoa wa Ciudad Real</subdivision>
 			<subdivision type="escs" draft="contributed">Mkoa wa Castellón</subdivision>
+			<subdivision type="esct" draft="contributed">Catalonia</subdivision>
 			<subdivision type="escu" draft="contributed">Mkoa wa Cuenca</subdivision>
 			<subdivision type="esgc" draft="contributed">Mkoa wa Las Palmas</subdivision>
 			<subdivision type="esgi" draft="contributed">Mkoa wa Gerona</subdivision>
@@ -351,6 +364,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esml" draft="contributed">Melilla</subdivision>
 			<subdivision type="esor" draft="contributed">Mkoa wa Orense</subdivision>
 			<subdivision type="esp" draft="contributed">Mkoa wa Palencia</subdivision>
+			<subdivision type="espm" draft="contributed">Visiwa vya Baleari²</subdivision>
 			<subdivision type="espo" draft="contributed">Mkoa wa Pontevedra</subdivision>
 			<subdivision type="esri" draft="contributed">La Rioja²</subdivision>
 			<subdivision type="essa" draft="contributed">Mkoa wa Salamanca</subdivision>
@@ -504,6 +518,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbkhl" draft="contributed">Kingston upon Hull</subdivision>
 			<subdivision type="gblce" draft="contributed">Leicester</subdivision>
 			<subdivision type="gbliv" draft="contributed">Liverpool</subdivision>
+			<subdivision type="gblnd" draft="contributed">London</subdivision>
 			<subdivision type="gblut" draft="contributed">Luton</subdivision>
 			<subdivision type="gbman" draft="contributed">Manchester</subdivision>
 			<subdivision type="gbmdb" draft="contributed">Middlesbrough</subdivision>
@@ -511,6 +526,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbnfk" draft="contributed">Norfolk</subdivision>
 			<subdivision type="gbngm" draft="contributed">Nottingham</subdivision>
 			<subdivision type="gbnir" draft="contributed">Eire ya Kaskazini</subdivision>
+			<subdivision type="gbork" draft="contributed">Visiwa vya Orkney</subdivision>
+			<subdivision type="gboxf" draft="contributed">Oxford</subdivision>
 			<subdivision type="gbply" draft="contributed">Plymouth</subdivision>
 			<subdivision type="gbpol" draft="contributed">Poole</subdivision>
 			<subdivision type="gbpor" draft="contributed">Portsmouth</subdivision>
@@ -522,6 +539,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbukm" draft="contributed">Ufalme wa Muungano</subdivision>
 			<subdivision type="gbwls">Welisi</subdivision>
 			<subdivision type="gbyor" draft="contributed">York</subdivision>
+			<subdivision type="gbzet" draft="contributed">Visiwa vya Shetland</subdivision>
 			<subdivision type="geab" draft="contributed">Abkhazia</subdivision>
 			<subdivision type="getb" draft="contributed">Tbilisi</subdivision>
 			<subdivision type="gmb" draft="contributed">Banjul</subdivision>
@@ -729,6 +747,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ke23" draft="contributed">Wilaya ya Makueni</subdivision>
 			<subdivision type="ke24" draft="contributed">Wilaya ya Mandera</subdivision>
 			<subdivision type="ke25" draft="contributed">Wilaya ya Marsabit</subdivision>
+			<subdivision type="ke26" draft="contributed">Kaunti ya Meru</subdivision>
 			<subdivision type="ke27" draft="contributed">Wilaya ya Migori</subdivision>
 			<subdivision type="ke28" draft="contributed">Wilaya ya Mombasa</subdivision>
 			<subdivision type="ke29" draft="contributed">Wilaya ya Murang’a</subdivision>
@@ -755,6 +774,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kmg" draft="contributed">Ngazija</subdivision>
 			<subdivision type="kmm" draft="contributed">Moheli</subdivision>
 			<subdivision type="kp01" draft="contributed">Pyongyang</subdivision>
+			<subdivision type="kp14" draft="contributed">Nampho</subdivision>
 			<subdivision type="kr11" draft="contributed">Seoul</subdivision>
 			<subdivision type="kr26" draft="contributed">Busan</subdivision>
 			<subdivision type="kr27" draft="contributed">Daegu</subdivision>
@@ -927,6 +947,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no12" draft="contributed">Hordaland</subdivision>
 			<subdivision type="no14" draft="contributed">Sogn og Fjordane</subdivision>
 			<subdivision type="no15" draft="contributed">Møre og Romsdal</subdivision>
+			<subdivision type="no16" draft="contributed">Sør-Trøndelag</subdivision>
 			<subdivision type="no17" draft="contributed">Nord-Trøndelag</subdivision>
 			<subdivision type="no18" draft="contributed">Nordland</subdivision>
 			<subdivision type="no20" draft="contributed">Finnmark</subdivision>
@@ -1031,6 +1052,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ruyev" draft="contributed">Oblast huru ya Kiyahudi</subdivision>
 			<subdivision type="ruzab" draft="contributed">Zabaykalsky Krai</subdivision>
 			<subdivision type="rw01" draft="contributed">Kigali</subdivision>
+			<subdivision type="rw02" draft="contributed">Mkoa wa Mashariki</subdivision>
+			<subdivision type="rw03" draft="contributed">Mkoa wa Kaskazini</subdivision>
+			<subdivision type="rw04" draft="contributed">Mkoa wa Magharibi</subdivision>
+			<subdivision type="rw05" draft="contributed">Mkoa wa Kusini</subdivision>
 			<subdivision type="sbct" draft="contributed">Honiara</subdivision>
 			<subdivision type="sddn" draft="contributed">Kaskazini Darfur</subdivision>
 			<subdivision type="sdds" draft="contributed">Kusini Darfur</subdivision>
@@ -1278,6 +1303,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ug417" draft="contributed">Wilaya ya Isingiro</subdivision>
 			<subdivision type="ug418" draft="contributed">Wilaya ya Isingiro²</subdivision>
 			<subdivision type="ug419" draft="contributed">Wilaya ya Kiruhura</subdivision>
+			<subdivision type="ugc" draft="contributed">Mkoa wa Kati</subdivision>
+			<subdivision type="uge" draft="contributed">Mkoa wa Mashariki</subdivision>
+			<subdivision type="ugn" draft="contributed">Mkoa wa Kaskazini</subdivision>
+			<subdivision type="ugw" draft="contributed">Mkoa wa Magharibi</subdivision>
 			<subdivision type="um76" draft="contributed">Navassa</subdivision>
 			<subdivision type="usak" draft="contributed">Alaska</subdivision>
 			<subdivision type="usal" draft="contributed">Alabama</subdivision>
@@ -1330,6 +1359,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="uswi" draft="contributed">Wisconsin</subdivision>
 			<subdivision type="uswv" draft="contributed">West Virginia</subdivision>
 			<subdivision type="uswy" draft="contributed">Wyoming</subdivision>
+			<subdivision type="uymo" draft="contributed">Montevideo</subdivision>
 			<subdivision type="uztk" draft="contributed">Tashkent</subdivision>
 			<subdivision type="veo" draft="contributed">Nueva Esparta</subdivision>
 			<subdivision type="vew" draft="contributed">Visiwa vidogo vya Venezuela</subdivision>
@@ -1398,6 +1428,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="vnsg" draft="contributed">Mji wa Ho Chi Minh</subdivision>
 			<subdivision type="wfal" draft="contributed">Alo</subdivision>
 			<subdivision type="wfsg" draft="contributed">Sigave</subdivision>
+			<subdivision type="wfuv" draft="contributed">Uvea</subdivision>
 			<subdivision type="yeab" draft="contributed">Wilaya ya Abyan</subdivision>
 			<subdivision type="yead" draft="contributed">Wilaya ya Adan</subdivision>
 			<subdivision type="yeam" draft="contributed">Wilaya ya Amran</subdivision>

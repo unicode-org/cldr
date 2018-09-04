@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -26,6 +29,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.impl.Utility;
@@ -38,6 +42,10 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.ULocale;
 
 public final class WikiSubdivisionLanguages {
+    static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
+    static final Set<String> regularSubdivisions = Validity.getInstance().getStatusToCodes(LstrType.subdivision).get(Status.regular);
+
+    static final Map<String, R2<List<String>, String>> SUBDIVISION_ALIASES = SDI.getLocaleAliasInfo().get("subdivision");
 
     private static final boolean DEBUG_CONSOLE = false;
     private static final String DEBUG_LANG_FILTER = null; // "az";
@@ -94,7 +102,6 @@ public final class WikiSubdivisionLanguages {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Set<String> regularSubdivisions = Validity.getInstance().getStatusToCodes(LstrType.subdivision).get(Status.regular);
         Map<String, Status> codeToStatus = Validity.getInstance().getCodeToStatus(LstrType.subdivision);
 
         for (String line : FileUtilities.in(WikiSubdivisionLanguages.class, "data/external/wikiSubdivisionLanguages.tsv")) {
@@ -183,17 +190,9 @@ public final class WikiSubdivisionLanguages {
             } catch (Exception e) {
                 oldFileSubdivisions = new CLDRFile(new SimpleXMLSource(lang)).freeze();
             }
-            // for fixing collisions
-            // we first add existing items
+
             Multimap<String, String> inverse = LinkedHashMultimap.create();
-            for (String path : oldFileSubdivisions) {
-                String name = oldFileSubdivisions.getStringValue(path);
-                if (name.equals("Böyük Britaniya")) {
-                    int debug = 0;
-                }
-                inverse.put(name, path);
-            }
-            CLDRFile fileSubdivisions = oldFileSubdivisions.cloneAsThawed();
+            CLDRFile fileSubdivisions = fixedFile(oldFileSubdivisions, inverse);
 
             UnicodeSet main = file.getExemplarSet("", WinningChoice.WINNING, 0);
             UnicodeSet auxiliary = file.getExemplarSet("auxiliary", WinningChoice.WINNING);
@@ -249,27 +248,47 @@ public final class WikiSubdivisionLanguages {
                 }
                 // we only care about collisions *within* a region.
                 // so group them together
-                Multimap<String, String> inverse2 = LinkedHashMultimap.create();
+                Multimap<String, String> regionToPaths = LinkedHashMultimap.create();
                 for (String path : paths) {
-                    String region = getSubdivisionFromPath(path).substring(0, 2).toUpperCase(Locale.ROOT);
-                    inverse2.put(region, path);
+                    String sdId = getSubdivisionFromPath(path);
+                    String region = sdId.substring(0, 2).toUpperCase(Locale.ROOT);
+                    regionToPaths.put(region, path);
                 }
+
                 // Now fix as necessary
-                for (Entry<String, Collection<String>> entry4 : inverse2.asMap().entrySet()) {
-                    Collection<String> paths2 = entry4.getValue();
+                for (Entry<String, Collection<String>> regionAndPaths : regionToPaths.asMap().entrySet()) {
+                    Collection<String> paths2 = regionAndPaths.getValue();
                     int markerIndex = 0;
                     if (paths2.size() <= 1) {
                         continue;
                     }
+
+                    // find if any of the paths are deprecated
+                    for (Iterator<String> it = paths2.iterator(); it.hasNext();) {
+                        String path = it.next();
+                        String sdId = getSubdivisionFromPath(path);
+                        if (!regularSubdivisions.contains(sdId)) { // deprecated
+                            fileSubdivisions.remove(path);
+                            it.remove();
+                            fail("Duplicate, not regular ", lang, getSubdivisionFromPath(path), "REMOVING", -1);
+                        }
+                    }
+                    if (paths2.size() <= 1) {
+                        continue;
+                    }
+
+                    String otherId = null;
                     for (String path : paths2) {
 //                    if (nuke) {
 //                        if (oldFileSubdivisions.getStringValue(path) == null) {
 //                            fileSubdivisions.remove(path); // get rid of new ones
 //                            System.out.println("Removing colliding " + lang + "\t" + path + "\t" + name);
 //                        }
-                        if (markerIndex != 0) {
+                        if (markerIndex == 0) {
+                            otherId = getSubdivisionFromPath(path);
+                        } else {
                             String fixedName = name + MARKERS.get(markerIndex);
-                            fail("Superscripting ", lang, getSubdivisionFromPath(path), fixedName, -1);
+                            fail("Superscripting ", lang + "\t(" + otherId +")", getSubdivisionFromPath(path), fixedName, -1);
                             //System.out.println("Superscripting colliding:\t" + lang + "\t" + path + "\t" + fixedName);
                             fileSubdivisions.add(path, fixedName); // overwrite with superscripted
                         }
@@ -300,6 +319,46 @@ public final class WikiSubdivisionLanguages {
             System.out.println("SubdivisionId:\t\t"
                 + ":\t" + entry.getKey() + "\t" + entry.getValue().size() + "\t" + entry.getValue());
         }
+    }
+
+    private static CLDRFile fixedFile(CLDRFile oldFileSubdivisions, Multimap<String, String> inverse) {
+        CLDRFile fileSubdivisions = oldFileSubdivisions.cloneAsThawed();
+
+        // for fixing collisions
+        // we first add existing items
+        Set<String> toRemove = new HashSet<>();
+        Map<String,String> toAdd = new HashMap<>();
+
+        for (String path : fileSubdivisions) {
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            if (!"subdivision".equals(parts.getElement(-1))) {
+                continue;
+            }
+            String name = fileSubdivisions.getStringValue(path);
+            if (name.equals("Böyük Britaniya")) {
+                int debug = 0;
+            }
+            // handle aliases also
+            String type = parts.getAttributeValue(-1, "type");
+            R2<List<String>, String> replacement = SUBDIVISION_ALIASES.get(type);
+            if (replacement != null) {
+                String fullPath = oldFileSubdivisions.getFullXPath(path);
+                XPathParts parts2 = XPathParts.getInstance(fullPath);
+                for (String replacementType : replacement.get0()) {
+                    parts2.setAttribute(-1, "type", replacementType);
+                    toRemove.add(path);
+                    path = parts2.toString();
+                    toAdd.put(path, name);
+                    break;
+                }
+            }
+            inverse.put(name, path);
+        }
+        fileSubdivisions.removeAll(toRemove, false);
+        for (Entry<String, String> entry2 : toAdd.entrySet()) {
+            fileSubdivisions.add(entry2.getKey(), entry2.getValue());
+        }
+        return fileSubdivisions;
     }
 
     private static void addExemplarFailures(M4<Integer, String, String, String> exemplarFailureLangSubdivisionName, UnicodeSet exemplarFailures,

@@ -12,8 +12,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
+			<subdivision type="ad05" draft="contributed">Ordino</subdivision>
 			<subdivision type="aeaz" draft="contributed">Əbu-Dabi</subdivision>
 			<subdivision type="aedu" draft="contributed">Dubay</subdivision>
+			<subdivision type="aefu" draft="contributed">Əl-Füceyrə əmirliyi</subdivision>
 			<subdivision type="aesh" draft="contributed">Şarja</subdivision>
 			<subdivision type="afbal" draft="contributed">Bəlx vilayəti</subdivision>
 			<subdivision type="afbam" draft="contributed">Bamiyan</subdivision>
@@ -49,6 +51,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="afuru" draft="contributed">Uruzgan</subdivision>
 			<subdivision type="afwar" draft="contributed">Vərdək</subdivision>
 			<subdivision type="afzab" draft="contributed">Zabul vilayəti</subdivision>
+			<subdivision type="al11" draft="contributed">Tirana vilayəti</subdivision>
 			<subdivision type="amag" draft="contributed">Ağin</subdivision>
 			<subdivision type="amar" draft="contributed">Ararat mərzi</subdivision>
 			<subdivision type="amav" draft="contributed">Armavir mərzi</subdivision>
@@ -63,6 +66,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="aobgo" draft="contributed">Benqo</subdivision>
 			<subdivision type="aocab" draft="contributed">Kabinda</subdivision>
 			<subdivision type="arc" draft="contributed">Buenos Ayres</subdivision>
+			<subdivision type="are" draft="contributed">Entre-Rios</subdivision>
 			<subdivision type="at6" draft="contributed">Ştiriya</subdivision>
 			<subdivision type="at9" draft="contributed">Vyana</subdivision>
 			<subdivision type="auact" draft="contributed">Avstraliya Paytaxt Ərazisi</subdivision>
@@ -152,7 +156,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="azzar" draft="contributed">Zərdab</subdivision>
 			<subdivision type="babih" draft="contributed">Bosniya və Herseqovina Federasiyası</subdivision>
 			<subdivision type="basrp" draft="contributed">Bosniya Serb Respublikası</subdivision>
+			<subdivision type="bd22" draft="contributed">Cessur</subdivision>
+			<subdivision type="bevlg" draft="contributed">Flandriya</subdivision>
+			<subdivision type="bevov" draft="contributed">Şərqi Flandiriya</subdivision>
+			<subdivision type="bevwv" draft="contributed">Qərbi Flandiriya</subdivision>
+			<subdivision type="bewbr" draft="contributed">Vallonskiy Brabant</subdivision>
+			<subdivision type="bewht" draft="contributed">Eno</subdivision>
+			<subdivision type="bewlg" draft="contributed">Lej</subdivision>
+			<subdivision type="bewna" draft="contributed">Namyur</subdivision>
 			<subdivision type="bg01" draft="contributed">Blaqoyevqrad vilayəti</subdivision>
+			<subdivision type="bg05" draft="contributed">Vidin vilayəti</subdivision>
+			<subdivision type="bg06" draft="contributed">Vratsa vilayəti</subdivision>
+			<subdivision type="bg23" draft="contributed">Sofiya</subdivision>
+			<subdivision type="bg28" draft="contributed">Yambol vilayəti</subdivision>
 			<subdivision type="bqbo" draft="contributed">Boneyr adası</subdivision>
 			<subdivision type="bqsa" draft="contributed">Saba</subdivision>
 			<subdivision type="bqse" draft="contributed">Sint-Estatius</subdivision>
@@ -185,6 +201,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="brto" draft="contributed">Tokantins</subdivision>
 			<subdivision type="bwfr" draft="contributed">Frensistaun</subdivision>
 			<subdivision type="bwga" draft="contributed">Qaborone</subdivision>
+			<subdivision type="bwjw" draft="contributed">Cvanenq</subdivision>
 			<subdivision type="bybr" draft="contributed">Brest vilayəti</subdivision>
 			<subdivision type="byhm" draft="contributed">Minsk</subdivision>
 			<subdivision type="byho" draft="contributed">Qomel vilayəti</subdivision>
@@ -210,25 +227,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cgbzv" draft="contributed">Brazzavil</subdivision>
 			<subdivision type="chsz" draft="contributed">Şvis</subdivision>
 			<subdivision type="chti" draft="contributed">Ticino</subdivision>
+			<subdivision type="chzg" draft="contributed">Çuq</subdivision>
 			<subdivision type="ciab" draft="contributed">Abican</subdivision>
 			<subdivision type="ciym" draft="contributed">Yamosukro</subdivision>
-			<subdivision type="cn11" draft="contributed">Pekin</subdivision>
-			<subdivision type="cn12" draft="contributed">Tyantszin</subdivision>
-			<subdivision type="cn13" draft="contributed">Hebei</subdivision>
-			<subdivision type="cn15" draft="contributed">Daxili Monqolustan Muxtar Rayonu</subdivision>
-			<subdivision type="cn31" draft="contributed">Şanxay</subdivision>
-			<subdivision type="cn32" draft="contributed">Cianqsu</subdivision>
-			<subdivision type="cn34" draft="contributed">Anhoy</subdivision>
-			<subdivision type="cn35" draft="contributed">Fucyen</subdivision>
-			<subdivision type="cn36" draft="contributed">Jianqxi</subdivision>
-			<subdivision type="cn43" draft="contributed">Xunan</subdivision>
-			<subdivision type="cn45" draft="contributed">Quansi-Çjuan muxtar rayonu</subdivision>
-			<subdivision type="cn46" draft="contributed">Haynan</subdivision>
-			<subdivision type="cn50" draft="contributed">Çuntsin</subdivision>
-			<subdivision type="cn51" draft="contributed">Sıçuan</subdivision>
-			<subdivision type="cn54" draft="contributed">Tibet muxtar rayonu</subdivision>
-			<subdivision type="cn62" draft="contributed">Qansu</subdivision>
-			<subdivision type="cn64" draft="contributed">Ninsya-Huey Muxtar Rayonu</subdivision>
+			<subdivision type="cnah" draft="contributed">Anhoy</subdivision>
+			<subdivision type="cnbj" draft="contributed">Pekin</subdivision>
+			<subdivision type="cncq" draft="contributed">Çuntsin</subdivision>
+			<subdivision type="cnfj" draft="contributed">Fucyen</subdivision>
+			<subdivision type="cngs" draft="contributed">Qansu</subdivision>
+			<subdivision type="cngx" draft="contributed">Quansi-Çjuan muxtar rayonu</subdivision>
+			<subdivision type="cnhe" draft="contributed">Hebei</subdivision>
+			<subdivision type="cnhi" draft="contributed">Haynan</subdivision>
+			<subdivision type="cnhk" draft="contributed">Honkonq</subdivision>
+			<subdivision type="cnhn" draft="contributed">Xunan</subdivision>
+			<subdivision type="cnjs" draft="contributed">Cianqsu</subdivision>
+			<subdivision type="cnjx" draft="contributed">Jianqxi</subdivision>
+			<subdivision type="cnmo" draft="contributed">Makao</subdivision>
+			<subdivision type="cnnm" draft="contributed">Daxili Monqolustan Muxtar Rayonu</subdivision>
+			<subdivision type="cnnx" draft="contributed">Ninsya-Huey Muxtar Rayonu</subdivision>
+			<subdivision type="cnsc" draft="contributed">Sıçuan</subdivision>
+			<subdivision type="cnsh" draft="contributed">Şanxay</subdivision>
+			<subdivision type="cntj" draft="contributed">Tyantszin</subdivision>
+			<subdivision type="cnxz" draft="contributed">Tibet muxtar rayonu</subdivision>
+			<subdivision type="cnzj" draft="contributed">Çjetszyan</subdivision>
 			<subdivision type="codc" draft="contributed">Boqota</subdivision>
 			<subdivision type="cz10" draft="contributed">Praqa</subdivision>
 			<subdivision type="cz20" draft="contributed">Orta Çex diyarı</subdivision>
@@ -266,6 +287,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esar" draft="contributed">Araqon</subdivision>
 			<subdivision type="esas" draft="contributed">Asturiya</subdivision>
 			<subdivision type="escb" draft="contributed">Kantabriya</subdivision>
+			<subdivision type="esce" draft="contributed">Seuta</subdivision>
 			<subdivision type="escl" draft="contributed">Kastiliya və Leon</subdivision>
 			<subdivision type="escm" draft="contributed">Kastiliya – La-Mança</subdivision>
 			<subdivision type="esct" draft="contributed">Kataloniya</subdivision>
@@ -275,21 +297,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="eslo" draft="contributed">Rioxa</subdivision>
 			<subdivision type="esmc" draft="contributed">Mursiya</subdivision>
 			<subdivision type="esml" draft="contributed">Melilya</subdivision>
+			<subdivision type="esna" draft="contributed">Navarra²</subdivision>
 			<subdivision type="esnc" draft="contributed">Navarra</subdivision>
+			<subdivision type="espm" draft="contributed">Balear adaları²</subdivision>
 			<subdivision type="espv" draft="contributed">Basklar ölkəsi</subdivision>
 			<subdivision type="esri" draft="contributed">Rioxa²</subdivision>
+			<subdivision type="ess" draft="contributed">Kantabriya²</subdivision>
 			<subdivision type="etaa" draft="contributed">Əddis-Əbəbə</subdivision>
+			<subdivision type="fr02" draft="contributed">Ena departamenti</subdivision>
 			<subdivision type="fr14" draft="contributed">Kalvados</subdivision>
+			<subdivision type="fr15" draft="contributed">Kantal</subdivision>
+			<subdivision type="fr21" draft="contributed">Kot-d’Or</subdivision>
+			<subdivision type="fr24" draft="contributed">Dordon</subdivision>
 			<subdivision type="fr33" draft="contributed">Jirond</subdivision>
 			<subdivision type="fr43" draft="contributed">Ot-Luağ</subdivision>
 			<subdivision type="fr44" draft="contributed">Luar-Atlantik</subdivision>
+			<subdivision type="fr47" draft="contributed">Lo və Qaronna</subdivision>
+			<subdivision type="fr61" draft="contributed">Orn</subdivision>
+			<subdivision type="fr67" draft="contributed">Aşağı Reyn</subdivision>
+			<subdivision type="fr68" draft="contributed">Yuxarı Reyn</subdivision>
 			<subdivision type="fr75" draft="contributed">Paris</subdivision>
+			<subdivision type="fr77" draft="contributed">Sena və Marna</subdivision>
+			<subdivision type="fr80" draft="contributed">Somma</subdivision>
 			<subdivision type="fr92" draft="contributed">O-de-Sen</subdivision>
 			<subdivision type="frara" draft="contributed">Overn-Rona-Alp</subdivision>
 			<subdivision type="frbre" draft="contributed">Bretan</subdivision>
 			<subdivision type="frcor" draft="contributed">Korsika</subdivision>
 			<subdivision type="frcvl" draft="contributed">Sentr</subdivision>
 			<subdivision type="fridf" draft="contributed">İl de Frans</subdivision>
+			<subdivision type="frnor" draft="contributed">Normandiya</subdivision>
+			<subdivision type="frocc" draft="contributed">Lanqedok-Russillyon-Midi-Pirenei</subdivision>
 			<subdivision type="frpac" draft="contributed">Provans-Alp-Kot d’Azur</subdivision>
 			<subdivision type="frpdl" draft="contributed">Pei dö lə Luar</subdivision>
 			<subdivision type="gbabe" draft="contributed">Aberdin</subdivision>
@@ -318,6 +355,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gblan" draft="contributed">Lankaşir</subdivision>
 			<subdivision type="gblce" draft="contributed">Lester</subdivision>
 			<subdivision type="gbliv" draft="contributed">Liverpul</subdivision>
+			<subdivision type="gblnd" draft="contributed">London</subdivision>
 			<subdivision type="gblut" draft="contributed">Luton</subdivision>
 			<subdivision type="gbmdb" draft="contributed">Midlsbro</subdivision>
 			<subdivision type="gbnet" draft="contributed">Nyukasl apon Tayn</subdivision>
@@ -325,6 +363,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbngm" draft="contributed">Nottingem</subdivision>
 			<subdivision type="gbnir" draft="contributed">Şimali İrlandiya</subdivision>
 			<subdivision type="gbork" draft="contributed">Orkney adaları</subdivision>
+			<subdivision type="gboxf" draft="contributed">Oksford</subdivision>
 			<subdivision type="gbply" draft="contributed">Plimut</subdivision>
 			<subdivision type="gbpol" draft="contributed">Puul</subdivision>
 			<subdivision type="gbpor" draft="contributed">Portsmut</subdivision>
@@ -339,6 +378,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbsth" draft="contributed">Sauthempton</subdivision>
 			<subdivision type="gbswa" draft="contributed">Suonsi</subdivision>
 			<subdivision type="gbukm" draft="contributed">Böyük Britaniya²</subdivision>
+			<subdivision type="gbwar" draft="contributed">Uorvikşir</subdivision>
 			<subdivision type="gbwls">Uels</subdivision>
 			<subdivision type="gbwlv" draft="contributed">Vulverhempton</subdivision>
 			<subdivision type="gbwsm" draft="contributed">Vestminster borosu</subdivision>
@@ -362,14 +402,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gra" draft="contributed">Şərqi Makedoniya və Trakya</subdivision>
 			<subdivision type="grb" draft="contributed">Orta Makedoniya</subdivision>
 			<subdivision type="grc" draft="contributed">Qərbi Makedoniya</subdivision>
+			<subdivision type="gre" draft="contributed">Fessaliya</subdivision>
 			<subdivision type="gwbs" draft="contributed">Bisau</subdivision>
 			<subdivision type="hr21" draft="contributed">Zaqreb</subdivision>
 			<subdivision type="hubu" draft="contributed">Budapeşt</subdivision>
 			<subdivision type="hubz" draft="contributed">Borşod-Abauy-Zemplen</subdivision>
 			<subdivision type="hude" draft="contributed">Debrecen</subdivision>
+			<subdivision type="hudu" draft="contributed">Dunauyvaroş</subdivision>
+			<subdivision type="hups" draft="contributed">Peç</subdivision>
 			<subdivision type="huvm" draft="contributed">Vesprem</subdivision>
 			<subdivision type="idjk" draft="contributed">Cakarta</subdivision>
 			<subdivision type="idjw" draft="contributed">Yava</subdivision>
+			<subdivision type="idnu" draft="contributed">Kiçik Zond adaları</subdivision>
 			<subdivision type="idsl" draft="contributed">Sulavesi</subdivision>
 			<subdivision type="idsm" draft="contributed">Sumatra</subdivision>
 			<subdivision type="ieu" draft="contributed">Olster</subdivision>
@@ -380,17 +424,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ilta" draft="contributed">Təl-Əviv dairəsi</subdivision>
 			<subdivision type="ilz" draft="contributed">İsrail şimal dairəsi</subdivision>
 			<subdivision type="inap" draft="contributed">Andhra Pradeş</subdivision>
+			<subdivision type="inas" draft="contributed">Assam</subdivision>
 			<subdivision type="inbr" draft="contributed">Bihar</subdivision>
 			<subdivision type="indl" draft="contributed">Dehli</subdivision>
 			<subdivision type="inga" draft="contributed">Qoa</subdivision>
 			<subdivision type="ingj" draft="contributed">Qucarat</subdivision>
 			<subdivision type="inhp" draft="contributed">Himaçal Pradeş</subdivision>
+			<subdivision type="injk" draft="contributed">Cammu və Kəşmir</subdivision>
 			<subdivision type="inmh" draft="contributed">Maxaraştra</subdivision>
 			<subdivision type="inmn" draft="contributed">Manipur</subdivision>
 			<subdivision type="inmz" draft="contributed">Mizoram</subdivision>
 			<subdivision type="innl" draft="contributed">Naqalend</subdivision>
 			<subdivision type="inor" draft="contributed">Orissa</subdivision>
 			<subdivision type="inpb" draft="contributed">Pəncab ştatı</subdivision>
+			<subdivision type="inrj" draft="contributed">Racastan</subdivision>
 			<subdivision type="insk" draft="contributed">Sikkim</subdivision>
 			<subdivision type="intg" draft="contributed">Telanqana</subdivision>
 			<subdivision type="intr" draft="contributed">Tripura</subdivision>
@@ -456,6 +503,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="it23" draft="contributed">Aosta Valley</subdivision>
 			<subdivision type="it25" draft="contributed">Lombardiya</subdivision>
 			<subdivision type="it32" draft="contributed">Trentino-Alto Adice</subdivision>
+			<subdivision type="it34" draft="contributed">Veneto</subdivision>
 			<subdivision type="it36" draft="contributed">Firulli-Venesiya-Culiya</subdivision>
 			<subdivision type="it42" draft="contributed">Liquriya</subdivision>
 			<subdivision type="it52" draft="contributed">Toskana</subdivision>
@@ -464,9 +512,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="it72" draft="contributed">Kampaniya</subdivision>
 			<subdivision type="it75" draft="contributed">Apuliya</subdivision>
 			<subdivision type="it77" draft="contributed">Bazilikata</subdivision>
+			<subdivision type="it78" draft="contributed">Kalabriya</subdivision>
 			<subdivision type="it82" draft="contributed">Siciliya</subdivision>
 			<subdivision type="it88" draft="contributed">Sardiniya</subdivision>
 			<subdivision type="itao" draft="contributed">Aosta</subdivision>
+			<subdivision type="itbz" draft="contributed">Cənubi Tirol</subdivision>
 			<subdivision type="itkr" draft="contributed">Krotone</subdivision>
 			<subdivision type="itme" draft="contributed">Messina</subdivision>
 			<subdivision type="itrg" draft="contributed">Raquza</subdivision>
@@ -532,9 +582,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kmg" draft="contributed">Qrand Komor</subdivision>
 			<subdivision type="kmm" draft="contributed">Moheli</subdivision>
 			<subdivision type="kp01" draft="contributed">Pxenyan</subdivision>
+			<subdivision type="kp09" draft="contributed">Hamqyon-Pukto</subdivision>
+			<subdivision type="kp13" draft="contributed">Rason</subdivision>
+			<subdivision type="kp14" draft="contributed">Nampxo</subdivision>
 			<subdivision type="kr11" draft="contributed">Seul</subdivision>
 			<subdivision type="kr26" draft="contributed">Busan</subdivision>
 			<subdivision type="kr29" draft="contributed">Kvanju</subdivision>
+			<subdivision type="kr31" draft="contributed">Ulsan</subdivision>
+			<subdivision type="kr49" draft="contributed">Çejudo adası</subdivision>
 			<subdivision type="kzakm" draft="contributed">Aqmola vilayəti</subdivision>
 			<subdivision type="kzakt" draft="contributed">Aqtöbe vilayəti</subdivision>
 			<subdivision type="kzala" draft="contributed">Almatı</subdivision>
@@ -553,8 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzzap" draft="contributed">Qərbi Qazaxıstan əyaləti</subdivision>
 			<subdivision type="kzzha" draft="contributed">Cambul vilayəti</subdivision>
 			<subdivision type="laou" draft="contributed">Udomsay əyaləti</subdivision>
+			<subdivision type="li01" draft="contributed">Balçers</subdivision>
+			<subdivision type="li02" draft="contributed">Eşen</subdivision>
+			<subdivision type="li07" draft="contributed">Şan</subdivision>
+			<subdivision type="li09" draft="contributed">Trizen</subdivision>
 			<subdivision type="li11" draft="contributed">Vaduts</subdivision>
 			<subdivision type="lt04" draft="contributed">Anikşçyay rayonu</subdivision>
+			<subdivision type="lucl" draft="contributed">Klervo</subdivision>
+			<subdivision type="lugr" draft="contributed">Qrevenmaxer</subdivision>
+			<subdivision type="lume" draft="contributed">Merş</subdivision>
+			<subdivision type="lv109" draft="contributed">Vilyan</subdivision>
 			<subdivision type="lvdgv" draft="contributed">Dauqavpils</subdivision>
 			<subdivision type="lvjel" draft="contributed">Yelqava</subdivision>
 			<subdivision type="lvjkb" draft="contributed">Yekabpils</subdivision>
@@ -568,8 +631,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mamoh" draft="contributed">Məhəmmədiyyə</subdivision>
 			<subdivision type="marab" draft="contributed">Rabat</subdivision>
 			<subdivision type="matng" draft="contributed">Tanjer</subdivision>
+			<subdivision type="mcco" draft="contributed">La-Kondamin</subdivision>
+			<subdivision type="mcla" draft="contributed">Larvotto</subdivision>
 			<subdivision type="mcmc" draft="contributed">Monte Karlo</subdivision>
+			<subdivision type="mcmg" draft="contributed">Moneqetti</subdivision>
 			<subdivision type="mcmo" draft="contributed">Monako Vill</subdivision>
+			<subdivision type="mcsr" draft="contributed">Sen-Roman</subdivision>
 			<subdivision type="mdba" draft="contributed">Belsı</subdivision>
 			<subdivision type="mdbd" draft="contributed">Bender</subdivision>
 			<subdivision type="mdcu" draft="contributed">Kişinyov</subdivision>
@@ -636,6 +703,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="my12" draft="contributed">Sabah</subdivision>
 			<subdivision type="my13" draft="contributed">Saravak</subdivision>
 			<subdivision type="my14" draft="contributed">Kuala Lumpur</subdivision>
+			<subdivision type="my15" draft="contributed">Labuan</subdivision>
 			<subdivision type="my16" draft="contributed">Putracaya</subdivision>
 			<subdivision type="mzmpm" draft="contributed">Maputu</subdivision>
 			<subdivision type="ne8" draft="contributed">Niamey</subdivision>
@@ -645,16 +713,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="nlgr" draft="contributed">Xroninqen</subdivision>
 			<subdivision type="nlnb" draft="contributed">Şimali Brabant</subdivision>
 			<subdivision type="nlnh" draft="contributed">Şimali Hollandiya</subdivision>
+			<subdivision type="nlut" draft="contributed">Utrext vilayəti</subdivision>
 			<subdivision type="nlzh" draft="contributed">Cənubi Hollandiya</subdivision>
 			<subdivision type="no03" draft="contributed">Oslo</subdivision>
 			<subdivision type="no21" draft="contributed">Şpisbergen</subdivision>
+			<subdivision type="no22" draft="contributed">Yan Mayen</subdivision>
 			<subdivision type="nr14" draft="contributed">Yaren</subdivision>
 			<subdivision type="nzcit" draft="contributed">Çatem</subdivision>
+			<subdivision type="pa8" draft="contributed">Panama əyaləti</subdivision>
 			<subdivision type="pgncd" draft="contributed">Port Morsbi</subdivision>
 			<subdivision type="ph14" draft="contributed">Müsəlman Mindanao muxtar regionu</subdivision>
+			<subdivision type="phbil" draft="contributed">Biliran adası</subdivision>
+			<subdivision type="phboh" draft="contributed">Bohol</subdivision>
 			<subdivision type="phmad" draft="contributed">Marinduke</subdivision>
 			<subdivision type="phzmb" draft="contributed">Zambales</subdivision>
 			<subdivision type="pkba" draft="contributed">Bəlucistan</subdivision>
+			<subdivision type="pkgb" draft="contributed">Gilgit-Baltistan</subdivision>
 			<subdivision type="pkjk" draft="contributed">Azad Kəşmir</subdivision>
 			<subdivision type="pkpb" draft="contributed">Pəncab</subdivision>
 			<subdivision type="pt20" draft="contributed">Azor adaları</subdivision>
@@ -663,6 +737,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="qada" draft="contributed">Doha</subdivision>
 			<subdivision type="rob" draft="contributed">Buxarest</subdivision>
 			<subdivision type="rs00" draft="contributed">Belqrad</subdivision>
+			<subdivision type="rskm" draft="contributed">Kosova ve Metohiya muxtar vilayəti</subdivision>
 			<subdivision type="rsvo" draft="contributed">Voevodina</subdivision>
 			<subdivision type="ruad" draft="contributed">Adıgey</subdivision>
 			<subdivision type="rual" draft="contributed">Altay Respublikası</subdivision>
@@ -775,6 +850,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="syta" draft="contributed">Tərtus mühafazası</subdivision>
 			<subdivision type="tdnd" draft="contributed">Ncamena</subdivision>
 			<subdivision type="th10" draft="contributed">Banqkok</subdivision>
+			<subdivision type="th94" draft="contributed">Pattani</subdivision>
 			<subdivision type="tjdu" draft="contributed">Düşənbə</subdivision>
 			<subdivision type="tjgb" draft="contributed">Dağlıq Bədəxşan Muxtar Vilayəti</subdivision>
 			<subdivision type="tjsu" draft="contributed">Sogd vilayəti</subdivision>
@@ -958,6 +1034,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="uswi" draft="contributed">Viskonsin</subdivision>
 			<subdivision type="uswv" draft="contributed">Qərbi Virciniya</subdivision>
 			<subdivision type="uswy" draft="contributed">Vayominq</subdivision>
+			<subdivision type="uymo" draft="contributed">Montevideo</subdivision>
 			<subdivision type="uzan" draft="contributed">Əndican vilayəti</subdivision>
 			<subdivision type="uzbu" draft="contributed">Buxara vilayəti</subdivision>
 			<subdivision type="uzfa" draft="contributed">Fərqanə vilayəti</subdivision>
@@ -976,7 +1053,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="vnhn" draft="contributed">Hanoy</subdivision>
 			<subdivision type="vnsg" draft="contributed">Hoşimin</subdivision>
 			<subdivision type="yesa" draft="contributed">Sana</subdivision>
+			<subdivision type="zaec" draft="contributed">Şərqi Burun vilayəti</subdivision>
+			<subdivision type="zafs" draft="contributed">Fri Steyt vilayəti</subdivision>
+			<subdivision type="zagt" draft="contributed">Qautenq vilayəti</subdivision>
+			<subdivision type="zalp" draft="contributed">Limpopo vilayəti</subdivision>
+			<subdivision type="zamp" draft="contributed">Mpumalanqa vilayəti</subdivision>
 			<subdivision type="zanc" draft="contributed">Şimal Burun əyaləti</subdivision>
+			<subdivision type="zanl" draft="contributed">Kvazulu-Natal vilayəti</subdivision>
+			<subdivision type="zanw" draft="contributed">Şimal-Qərb vilayəti</subdivision>
 			<subdivision type="zawc" draft="contributed">Qərbi Kaap vilayəti</subdivision>
 		</subdivisions>
 	</localeDisplayNames>

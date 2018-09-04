@@ -229,6 +229,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bebru" draft="contributed">ब्रसेल्स</subdivision>
 			<subdivision type="bevan" draft="contributed">अँटवर्प</subdivision>
 			<subdivision type="bevbr" draft="contributed">फ्लाम्स ब्राबांत</subdivision>
+			<subdivision type="bevlg" draft="contributed">फ्लांडर्स</subdivision>
 			<subdivision type="bevli" draft="contributed">लिमबर्ग</subdivision>
 			<subdivision type="bevov" draft="contributed">पूर्व फ्लांडर्स</subdivision>
 			<subdivision type="bevwv" draft="contributed">पश्चिम फ्लांडर्स</subdivision>
@@ -449,6 +450,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="byma" draft="contributed">मोगिलेव्ह प्रदेश</subdivision>
 			<subdivision type="bymi" draft="contributed">मिन्स्क प्रदेश</subdivision>
 			<subdivision type="byvi" draft="contributed">विटेब्स्क प्रदेश</subdivision>
+			<subdivision type="bzbz" draft="contributed">बेलीझ जिल्हा</subdivision>
 			<subdivision type="bzcy" draft="contributed">काओ जिल्हा</subdivision>
 			<subdivision type="bzczl" draft="contributed">कोरोजल जिल्हा</subdivision>
 			<subdivision type="bzow" draft="contributed">ऑरेंज वॉल्क जिल्हा</subdivision>
@@ -534,6 +536,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cisv" draft="contributed">सावेन जिल्हा</subdivision>
 			<subdivision type="civb" draft="contributed">वल्ली डि बॅन्डमा जिल्हा</subdivision>
 			<subdivision type="ciym" draft="contributed">यामूसूक्रो</subdivision>
+			<subdivision type="cizz" draft="contributed">झानझन प्रदेश</subdivision>
 			<subdivision type="clai" draft="contributed">अयान प्रदेश</subdivision>
 			<subdivision type="clan" draft="contributed">अँटोफागस्ता प्रदेश</subdivision>
 			<subdivision type="clar" draft="contributed">अराक्रानिया प्रदेश</subdivision>
@@ -558,37 +561,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cmou" draft="contributed">पश्चिम</subdivision>
 			<subdivision type="cmsu" draft="contributed">दक्षिण</subdivision>
 			<subdivision type="cmsw" draft="contributed">साऊथवेस्ट</subdivision>
-			<subdivision type="cn11" draft="contributed">बीजिंग</subdivision>
-			<subdivision type="cn12" draft="contributed">त्यांजिन</subdivision>
-			<subdivision type="cn13" draft="contributed">हपै</subdivision>
-			<subdivision type="cn14" draft="contributed">षान्शी</subdivision>
-			<subdivision type="cn15" draft="contributed">आंतरिक मंगोलिया</subdivision>
-			<subdivision type="cn21" draft="contributed">ल्याओनिंग</subdivision>
-			<subdivision type="cn22" draft="contributed">चीलिन</subdivision>
-			<subdivision type="cn23" draft="contributed">हैलोंगच्यांग</subdivision>
-			<subdivision type="cn31" draft="contributed">शांघाय</subdivision>
-			<subdivision type="cn32" draft="contributed">च्यांग्सू</subdivision>
-			<subdivision type="cn33" draft="contributed">च-च्यांग</subdivision>
-			<subdivision type="cn34" draft="contributed">आंह्वी</subdivision>
-			<subdivision type="cn35" draft="contributed">फूच्यान</subdivision>
-			<subdivision type="cn36" draft="contributed">च्यांग्शी</subdivision>
-			<subdivision type="cn37" draft="contributed">षांतोंग</subdivision>
-			<subdivision type="cn41" draft="contributed">हनान</subdivision>
-			<subdivision type="cn42" draft="contributed">हूपै</subdivision>
-			<subdivision type="cn43" draft="contributed">हूनान</subdivision>
-			<subdivision type="cn44" draft="contributed">क्वांगतोंग</subdivision>
-			<subdivision type="cn45" draft="contributed">क्वांग्शी</subdivision>
-			<subdivision type="cn46" draft="contributed">हाइनान</subdivision>
-			<subdivision type="cn50" draft="contributed">चोंगछिंग</subdivision>
-			<subdivision type="cn51" draft="contributed">स-च्वान</subdivision>
-			<subdivision type="cn52" draft="contributed">क्वीचौ</subdivision>
-			<subdivision type="cn53" draft="contributed">युइन्नान</subdivision>
-			<subdivision type="cn54" draft="contributed">तिबेट स्वायत्त प्रदेश</subdivision>
-			<subdivision type="cn61" draft="contributed">षा‘न्शी</subdivision>
-			<subdivision type="cn62" draft="contributed">कान्सू</subdivision>
-			<subdivision type="cn63" draft="contributed">छिंगहाय</subdivision>
-			<subdivision type="cn64" draft="contributed">निंग्स्या</subdivision>
-			<subdivision type="cn65" draft="contributed">शिंच्यांग</subdivision>
+			<subdivision type="cnah" draft="contributed">आंह्वी</subdivision>
+			<subdivision type="cnbj" draft="contributed">बीजिंग</subdivision>
+			<subdivision type="cncq" draft="contributed">चोंगछिंग</subdivision>
+			<subdivision type="cnfj" draft="contributed">फूच्यान</subdivision>
+			<subdivision type="cngd" draft="contributed">क्वांगतोंग</subdivision>
+			<subdivision type="cngs" draft="contributed">कान्सू</subdivision>
+			<subdivision type="cngx" draft="contributed">क्वांग्शी</subdivision>
+			<subdivision type="cngz" draft="contributed">क्वीचौ</subdivision>
+			<subdivision type="cnha" draft="contributed">हनान</subdivision>
+			<subdivision type="cnhb" draft="contributed">हूपै</subdivision>
+			<subdivision type="cnhe" draft="contributed">हपै</subdivision>
+			<subdivision type="cnhi" draft="contributed">हाइनान</subdivision>
+			<subdivision type="cnhk" draft="contributed">हाँग काँग</subdivision>
+			<subdivision type="cnhl" draft="contributed">हैलोंगच्यांग</subdivision>
+			<subdivision type="cnhn" draft="contributed">हूनान</subdivision>
+			<subdivision type="cnjl" draft="contributed">चीलिन</subdivision>
+			<subdivision type="cnjs" draft="contributed">च्यांग्सू</subdivision>
+			<subdivision type="cnjx" draft="contributed">च्यांग्शी</subdivision>
+			<subdivision type="cnln" draft="contributed">ल्याओनिंग</subdivision>
+			<subdivision type="cnmo" draft="contributed">मकाओ</subdivision>
+			<subdivision type="cnnm" draft="contributed">आंतरिक मंगोलिया</subdivision>
+			<subdivision type="cnnx" draft="contributed">निंग्स्या</subdivision>
+			<subdivision type="cnqh" draft="contributed">छिंगहाय</subdivision>
+			<subdivision type="cnsc" draft="contributed">स-च्वान</subdivision>
+			<subdivision type="cnsd" draft="contributed">षांतोंग</subdivision>
+			<subdivision type="cnsh" draft="contributed">शांघाय</subdivision>
+			<subdivision type="cnsn" draft="contributed">षा‘न्शी</subdivision>
+			<subdivision type="cnsx" draft="contributed">षान्शी</subdivision>
+			<subdivision type="cntj" draft="contributed">त्यांजिन</subdivision>
+			<subdivision type="cnxj" draft="contributed">शिंच्यांग</subdivision>
+			<subdivision type="cnxz" draft="contributed">तिबेट स्वायत्त प्रदेश</subdivision>
+			<subdivision type="cnyn" draft="contributed">युइन्नान</subdivision>
+			<subdivision type="cnzj" draft="contributed">च-च्यांग</subdivision>
 			<subdivision type="coama" draft="contributed">अमॅझॉन्स विभाग</subdivision>
 			<subdivision type="coant" draft="contributed">एन्टिऑक्विया विभाग</subdivision>
 			<subdivision type="coara" draft="contributed">अरौका विभाग</subdivision>
@@ -897,12 +902,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esmc" draft="contributed">मुर्सिया</subdivision>
 			<subdivision type="esmd" draft="contributed">माद्रिद</subdivision>
 			<subdivision type="esml" draft="contributed">मेलिया</subdivision>
+			<subdivision type="esna" draft="contributed">नाबारा²</subdivision>
 			<subdivision type="esnc" draft="contributed">नाबारा</subdivision>
 			<subdivision type="esor" draft="contributed">ओरनेसे प्रांत</subdivision>
 			<subdivision type="esp" draft="contributed">पॅलेन्सीया प्रांत</subdivision>
+			<subdivision type="espm" draft="contributed">बालेआरिक द्वीपसमूह²</subdivision>
 			<subdivision type="espo" draft="contributed">पोंटेवेड्रा प्रांत</subdivision>
 			<subdivision type="espv" draft="contributed">पाईज बास्को</subdivision>
 			<subdivision type="esri" draft="contributed">ला रियोहा²</subdivision>
+			<subdivision type="ess" draft="contributed">कांताब्रिया²</subdivision>
 			<subdivision type="essa" draft="contributed">सॅलमेंका प्रांत</subdivision>
 			<subdivision type="esse" draft="contributed">सिविल प्रांत</subdivision>
 			<subdivision type="esso" draft="contributed">सोरिया प्रांत</subdivision>
@@ -1269,6 +1277,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="hnat" draft="contributed">अटलांटिडा विभाग</subdivision>
 			<subdivision type="hnch" draft="contributed">चोलुटेका विभाग</subdivision>
 			<subdivision type="hncl" draft="contributed">कॉलोन विभाग</subdivision>
+			<subdivision type="hncm" draft="contributed">कोमायागुआ प्रांत</subdivision>
 			<subdivision type="hncp" draft="contributed">कोपन विभाग</subdivision>
 			<subdivision type="hncr" draft="contributed">कोर्तेस प्रांत</subdivision>
 			<subdivision type="hnep" draft="contributed">अल पाराईओ विभाग</subdivision>

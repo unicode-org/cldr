@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import java.util.Collections;
 import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -44,6 +45,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     private void checkCldrLocales(Organization organization, int warningLevel) {
         // use a union, so that items can be higher
         EnumSet<Level> modernModerate = EnumSet.of(Level.MODERATE, Level.MODERN);
+        
         Set<String> orgLocalesModerate = sc.getLocaleCoverageLocales(organization, modernModerate);
         Set<String> cldrLocalesModerate = sc.getLocaleCoverageLocales(Organization.cldr, modernModerate);
         Set<String> failures = checkCldrLocalesSuperset(modernModerate, cldrLocalesModerate, organization, orgLocalesModerate, warningLevel,
@@ -52,6 +54,8 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         EnumSet<Level> modernSet = EnumSet.of(Level.MODERN);
         Set<String> orgLocalesModern = sc.getLocaleCoverageLocales(organization, modernSet);
         Set<String> cldrLocalesModern = sc.getLocaleCoverageLocales(Organization.cldr, modernSet);
+        failures = new HashSet<>(failures);
+        failures.add("to"); // ok to be moderate
         checkCldrLocalesSuperset(modernSet, cldrLocalesModern, organization, orgLocalesModern, warningLevel, failures);
     }
 

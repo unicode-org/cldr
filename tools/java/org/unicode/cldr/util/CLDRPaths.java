@@ -58,6 +58,9 @@ public class CLDRPaths {
     public static final String LAST_DIRECTORY = ARCHIVE_DIRECTORY + "cldr-" +
         ToolConstants.PREVIOUS_CHART_VERSION +
         "/";
+    public static final String LAST_RELEASE_DIRECTORY = ARCHIVE_DIRECTORY + "cldr-" +
+        ToolConstants.LAST_RELEASE_VERSION +
+        "/";
     public static final String CLDR_PRIVATE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_PRIVATE_DATA",
         CldrUtility.getPath(BASE_DIRECTORY, "../cldr-private/")));
 

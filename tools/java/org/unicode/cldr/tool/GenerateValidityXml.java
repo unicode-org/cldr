@@ -3,6 +3,7 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.invoke.MethodHandles;
+import java.util.Collection;
 import java.util.Date;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
@@ -11,6 +12,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.FileUtilities;
@@ -29,8 +31,13 @@ import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.impl.Relation;
+import com.google.common.collect.ImmutableSetMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
+import com.google.common.collect.SetMultimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
@@ -40,7 +47,7 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 public class GenerateValidityXml {
 
     private static final Validity VALIDITY = Validity.getInstance();
-    private static Validity OLD_VALIDITY = Validity.getInstance(CLDRPaths.LAST_DIRECTORY + "common/validity/");
+    private static Validity OLD_VALIDITY = Validity.getInstance(CLDRPaths.LAST_RELEASE_DIRECTORY + "common/validity/");
 
     private static final Map<LstrType, Map<String, Map<LstrField, String>>> LSTREG = StandardCodes.getEnumLstreg();
     private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
@@ -84,7 +91,8 @@ public class GenerateValidityXml {
 
     static class Info {
         String mainComment;
-        Relation<Validity.Status, String> statusMap = Relation.of(new EnumMap<Validity.Status, Set<String>>(Validity.Status.class), TreeSet.class);
+        //private Relation<Validity.Status, String> statusMap = Relation.of(new EnumMap<Validity.Status, Set<String>>(Validity.Status.class), TreeSet.class);
+        Map<String, Validity.Status> codeToStatus = new TreeMap<>();
         Map<Validity.Status, String> statusComment = new EnumMap<>(Status.class);
         Set<String> newCodes = new TreeSet<>();
 
@@ -96,6 +104,32 @@ public class GenerateValidityXml {
                 types.put(myType, info = new Info());
             }
             return info;
+        }
+        public SetMultimap<Status, String> getStatusMap() {
+            TreeMultimap<Status, String> result = TreeMultimap.create();
+            Multimaps.invertFrom(Multimaps.forMap(codeToStatus), result);
+            return ImmutableSetMultimap.copyOf(result);
+        }
+        public void put(String key, Status value) {
+            codeToStatus.put(key, value);
+        }
+        public void remove(String key, Status value) {
+            codeToStatus.remove(key, value);
+        }
+        public void clear() {
+            codeToStatus.clear();
+        }
+        public Set<Entry<String, Status>> entrySet() {
+            return codeToStatus.entrySet();
+        }
+        public Status get(String key) {
+            return codeToStatus.get(key);
+        }
+        public void putBest(String currency, Status newStatus) {
+            Status oldStatus = get(currency);
+            if (oldStatus == null || newStatus.compareTo(oldStatus) < 0) {
+                put(currency, newStatus);
+            }            
         }
     }
 
@@ -111,15 +145,15 @@ public class GenerateValidityXml {
         for (Entry<String, Info> entry : types.entrySet()) {
             String type = entry.getKey();
             final Info info = entry.getValue();
-            Relation<Status, String> subtypeMap = info.statusMap;
+            Multimap<Status, String> subtypeMap = info.getStatusMap();
             try (PrintWriter output = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "validity/" + type + ".xml")) {
                 adder.target = output;
                 output.append(DtdType.supplementalData.header(MethodHandles.lookup().lookupClass())
                     + "\t<version number=\"$Revision" /*hack to stop SVN changing this*/ + "$\"/>\n"
                     + "\t<idValidity>\n");
-                for (Entry<Validity.Status, Set<String>> entry2 : subtypeMap.keyValuesSet()) {
+                for (Entry<Status, Collection<String>> entry2 : subtypeMap.asMap().entrySet()) {
                     Validity.Status subtype = entry2.getKey();
-                    Set<String> set = entry2.getValue();
+                    Set<String> set = (Set<String>) entry2.getValue();
                     String comment = info.statusComment.get(entry2.getKey());
                     if (comment != null) {
                         output.append("\t\t<!-- " + comment.replace("\n", "\n\t\t\t ") + " -->\n");
@@ -168,15 +202,27 @@ public class GenerateValidityXml {
                 String currency = data.getCurrency();
                 Date end = data.getEnd();
                 boolean legalTender = data.isLegalTender();
-                info.statusMap.put(end.after(eoy) && legalTender ? Status.regular : Status.deprecated, currency);
+                Status newStatus = end.after(eoy) && legalTender ? Status.regular : Status.deprecated;
+                info.putBest(currency, newStatus);
             }
         }
-        info.statusMap.put(Status.unknown, LstrType.currency.unknown);
+        info.put(LstrType.currency.unknown, Status.unknown);
         // make sure we don't overlap.
         // we want to keep any code that is valid in any territory, so
-        info.statusMap.removeAll(Status.deprecated, info.statusMap.get(Status.regular));
-        info.statusMap.remove(Status.deprecated, "XXX");
-        info.statusMap.remove(Status.regular, "XXX");
+        info.remove("XXX", Status.deprecated);
+        info.remove("XXX", Status.regular);
+        
+        // just to make sure info never disappears
+        Map<String, Status> oldCodes = OLD_VALIDITY.getCodeToStatus(LstrType.currency);
+        for (Entry<String, Status> entry : oldCodes.entrySet()) {
+            String key = entry.getKey();
+            Status oldStatus = entry.getValue();
+            Status newStatus = info.get(key);
+            if (!Objects.equal(oldStatus, newStatus)) {
+                System.out.println("Status changed: " + key + ", " + oldStatus + " => " + newStatus);
+            }
+        }
+
         info.statusComment.put(Status.deprecated,
             "Deprecated values are those that are not legal tender in some country after " + (1900 + now.getYear()) + ".\n"
                 + "More detailed usage information needed for some implementations is in supplemental data.");
@@ -188,29 +234,21 @@ public class GenerateValidityXml {
         for (String container : SDI.getContainersForSubdivisions()) {
             for (String contained : SDI.getContainedSubdivisions(container)) {
                 Status status = aliases.containsKey(contained) ? Validity.Status.deprecated : Validity.Status.regular;
-                info.statusMap.put(status, contained.toLowerCase(Locale.ROOT).replace("-", ""));
+                info.put(contained.toLowerCase(Locale.ROOT).replace("-", ""), status);
             }
         }
 
         // find out which items were valid, but are no longer in the containment map
         // add them as deprecated
-        Map<Status, Set<String>> subdivisionData = OLD_VALIDITY.getStatusToCodes(LstrType.subdivision);
-        TreeSet<String> missing = new TreeSet<>();
-        for (Entry<Status, Set<String>> entry : subdivisionData.entrySet()) {
-            for (String missingItem : entry.getValue()) {
-                missing.add(missingItem);
+        Map<Status, Set<String>> oldSubdivisionData = OLD_VALIDITY.getStatusToCodes(LstrType.subdivision);
+        for (Entry<Status, Set<String>> entry : oldSubdivisionData.entrySet()) {
+            for (String oldSdId : entry.getValue()) {
+                if (info.get(oldSdId) == null) {
+                    info.put(oldSdId, Status.deprecated);
+                }
             }
         }
-        for (Entry<Status, String> entry : info.statusMap.entrySet()) {
-            boolean old = missing.remove(entry.getValue());
-            if (!old) {
-                info.newCodes.add(entry.getValue());
-            }
-        }
-        for (String missingItem : missing) {
-            info.statusMap.put(Status.deprecated, missingItem);
-        }
-        System.out.println(missing);
+
         info.statusComment.put(Status.deprecated,
             "Deprecated values include those that are not formally deprecated in the country in question, but have their own region codes.\n"
                 + "It also include codes that were previously in CLDR, for compatibility.");
@@ -231,10 +269,10 @@ public class GenerateValidityXml {
                 System.out.println("No aliases for: " + type);
             }
             // gather data
-            info.statusMap.clear();
+            info.clear();
             switch (type) {// HACK for now
             case script: 
-                info.statusMap.put(Status.special, "Zsye"); 
+                info.put("Zsye", Status.special); 
                 break;
             default: 
                 break;
@@ -269,7 +307,7 @@ public class GenerateValidityXml {
                     }
                     if (subtype == Status.regular) {
                         Info subInfo = Info.getInfo("subdivision");
-                        subInfo.statusMap.put(Status.unknown, code.toLowerCase(Locale.ROOT) + "zzzz");
+                        subInfo.put(code.toLowerCase(Locale.ROOT) + "zzzz", Status.unknown);
                     }
                     break;
                 case script:
@@ -286,7 +324,7 @@ public class GenerateValidityXml {
                         continue;
                     }
                 }
-                info.statusMap.put(subtype, code);
+                info.put(code, subtype);
             }
         }
         System.out.println("Skipping non-Unicode scripts: " + Joiner.on(' ').join(skippedScripts));

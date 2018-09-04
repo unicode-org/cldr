@@ -15,7 +15,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
-import org.unicode.cldr.tool.GenerateSubdivisions;
+import org.unicode.cldr.tool.SubdivisionNode;
 import org.unicode.cldr.util.CLDRFile.NumberingSystem;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.ChainedMap.M4;
@@ -100,7 +100,7 @@ public final class WikiSubdivisionLanguages {
         for (String line : FileUtilities.in(WikiSubdivisionLanguages.class, "data/external/wikiSubdivisionLanguages.tsv")) {
 
             List<String> data = TAB.splitToList(line);
-            String subdivision = GenerateSubdivisions.convertToCldr(data.get(Items.subdivisionId.ordinal()));
+            String subdivision = SubdivisionNode.convertToCldr(data.get(Items.subdivisionId.ordinal()));
             if (!regularSubdivisions.contains(subdivision)) {
                 Status status = codeToStatus.get(subdivision);
                 if (status == null) {
@@ -137,6 +137,9 @@ public final class WikiSubdivisionLanguages {
                 path,
                 name.replace("\u00AD", ""),
                 internalException);
+            if (name2.contains("'")) {
+                int debug = 0;
+            }
             // TODO remove soft hyphen in DAIP
             if (internalException[0] != null) {
                 throw new IllegalArgumentException(lang + "\t" + subdivision + "\t" + name, internalException[0]);

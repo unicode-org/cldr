@@ -68,6 +68,7 @@ public class ToolConstants {
     // add to this once the release is final!
     );
     public static final String PREVIOUS_CHART_VERSION;
+    public static final String LAST_RELEASE_VERSION = "33.1";
     static {
         String last = "";
         for (String current : CLDR_VERSIONS) {

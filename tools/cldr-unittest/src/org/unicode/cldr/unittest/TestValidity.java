@@ -314,7 +314,7 @@ public class TestValidity extends TestFmwkPlus {
             result = subcode.substring(0, 8);
             break;
         }
-        shortened.put(subcode, result);
+        // shortened.put(subcode, result);
         return result;
     }
 

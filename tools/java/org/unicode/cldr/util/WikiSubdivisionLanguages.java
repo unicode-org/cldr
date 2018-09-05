@@ -349,6 +349,7 @@ public final class WikiSubdivisionLanguages {
                     toRemove.add(path);
                     path = parts2.toString();
                     toAdd.put(path, name);
+                    System.out.println("Adding alias: " + replacementType + "«" + name + "»");
                     break;
                 }
             }

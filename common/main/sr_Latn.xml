@@ -139,6 +139,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="enm">srednjeengleski</language>
 			<language type="eo">esperanto</language>
 			<language type="es">španski</language>
+			<language type="es_ES">španski (Evropa)</language>
 			<language type="et">estonski</language>
 			<language type="eu">baskijski</language>
 			<language type="ewo">evondo</language>
@@ -539,7 +540,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Blis">blisimbolično pismo</script>
 			<script type="Bopo">bopomofo pismo</script>
 			<script type="Brah">bramansko pismo</script>
-			<script type="Brai">Brajevo pismo</script>
+			<script type="Brai">brajevo pismo</script>
 			<script type="Bugi">buginsko pismo</script>
 			<script type="Buhd">buhidsko pismo</script>
 			<script type="Cakm">čakmansko pismo</script>
@@ -695,7 +696,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="151">Istočna Evropa</territory>
 			<territory type="154">Severna Evropa</territory>
 			<territory type="155">Zapadna Evropa</territory>
-			<territory type="202" draft="contributed">Afrika južno od Sahare</territory>
+			<territory type="202">Afrika južno od Sahare</territory>
 			<territory type="419">Latinska Amerika</territory>
 			<territory type="AC">Ostrvo Asension</territory>
 			<territory type="AD">Andora</territory>
@@ -2571,6 +2572,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-short">
 				<displayName>d.</displayName>
+				<relative type="-2">prekjuče</relative>
+				<relative type="-1">juče</relative>
+				<relative type="0">danas</relative>
+				<relative type="1">sutra</relative>
+				<relative type="2">prekosutra</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} d.</relativeTimePattern>
 					<relativeTimePattern count="few">za {0} d.</relativeTimePattern>
@@ -2584,6 +2590,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-narrow">
 				<displayName>d.</displayName>
+				<relative type="-2">prekjuče</relative>
+				<relative type="-1">juče</relative>
+				<relative type="0">danas</relative>
+				<relative type="1">sutra</relative>
+				<relative type="2">prekosutra</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} d.</relativeTimePattern>
 					<relativeTimePattern count="few">za {0} d.</relativeTimePattern>
@@ -6710,6 +6721,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">mauritanijska ogija</displayName>
 				<displayName count="few">mauritanijske ogije</displayName>
 				<displayName count="other">mauritanijskih ogija</displayName>
+				<symbol draft="contributed">MRU</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Malteška lira</displayName>
@@ -7334,6 +7346,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">venecuelanski bolivar</displayName>
 				<displayName count="few">venecuelanska bolivara</displayName>
 				<displayName count="other">venecuelanskih bolivara</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Vijetnamski dong</displayName>
@@ -7579,13 +7592,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately" draft="contributed">~{0}</pattern>
 			<pattern type="atLeast">≥{0}</pattern>
+			<pattern type="atMost" draft="contributed">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one" draft="contributed">{0} sat</pluralMinimalPairs>
-			<pluralMinimalPairs count="few" draft="contributed">{0} sata</pluralMinimalPairs>
-			<pluralMinimalPairs count="other" draft="contributed">{0} sati</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">{0} sat</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0} sata</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} sati</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other" draft="contributed">Skrenite u {0}. desno.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
@@ -7719,6 +7734,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} čestice na milion</unitPattern>
 				<unitPattern count="other">{0} čestica na milion</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>procenat</displayName>
+				<unitPattern count="one">{0} procenat</unitPattern>
+				<unitPattern count="few">{0} procenata</unitPattern>
+				<unitPattern count="other">{0} procenata</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>promil</displayName>
+				<unitPattern count="one">{0} promil</unitPattern>
+				<unitPattern count="few">{0} promila</unitPattern>
+				<unitPattern count="other">{0} promila</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litri po kilometru</displayName>
 				<unitPattern count="one">{0} litar po kilometru</unitPattern>
@@ -7742,6 +7769,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} milja po imperijalnom galonu</unitPattern>
 				<unitPattern count="few">{0} milje po imperijalnom galonu</unitPattern>
 				<unitPattern count="other">{0} milja po imperijalnom galonu</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>petabajti</displayName>
+				<unitPattern count="one">{0} petabajt</unitPattern>
+				<unitPattern count="few">{0} petabajta</unitPattern>
+				<unitPattern count="other">{0} petabajta</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabajti</displayName>
@@ -8209,6 +8242,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} milibara</unitPattern>
 				<unitPattern count="other">{0} milibara</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atmosfere</displayName>
+				<unitPattern count="one">{0} atmosfera</unitPattern>
+				<unitPattern count="few">{0} atmosfere</unitPattern>
+				<unitPattern count="other">{0} atmosfera</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometri na sat</displayName>
 				<unitPattern count="one">{0} kilometar na sat</unitPattern>
@@ -8407,6 +8446,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} kašičica</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>glavni pravac</displayName>
 				<coordinateUnitPattern type="east">{0}I</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}S</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}J</coordinateUnitPattern>
@@ -8542,6 +8582,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
+			<unit type="concentr-percent">
+				<displayName>procenat</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="few">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>promil</displayName>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="few">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
 				<unitPattern count="one">{0} L/km</unitPattern>
@@ -8565,6 +8617,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} mpg Imp.</unitPattern>
 				<unitPattern count="few">{0} mpg Imp.</unitPattern>
 				<unitPattern count="other">{0} mpg Imp.</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="one">{0} PB</unitPattern>
+				<unitPattern count="few">{0} PB</unitPattern>
+				<unitPattern count="other">{0} PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -9032,6 +9090,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>atm</displayName>
+				<unitPattern count="one">{0} atm</unitPattern>
+				<unitPattern count="few">{0} atm</unitPattern>
+				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="one">{0} km/h</unitPattern>
@@ -9230,6 +9294,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} kašič.</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>pravac</displayName>
 				<coordinateUnitPattern type="east">{0}I</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}S</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}J</coordinateUnitPattern>
@@ -9289,6 +9354,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">{0} ft²</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ft²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ft²</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>%</displayName>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="few">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>L/100km</displayName>
@@ -9495,6 +9566,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 			<coordinateUnit>
+				<displayName>pravac</displayName>
 				<coordinateUnitPattern type="east">{0}I</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">{0}S</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}J</coordinateUnitPattern>
@@ -9655,4 +9727,74 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="western_asian_scripts">Zapadnoazijska pisma</characterLabel>
 		<characterLabel type="whitespace">Razmak</characterLabel>
 	</characterLabels>
+	<typographicNames>
+		<axisName type="ital">kurziv</axisName>
+		<axisName type="opsz">optička veličina</axisName>
+		<axisName type="slnt">zakrivljenost</axisName>
+		<axisName type="wdth">širina</axisName>
+		<axisName type="wght">debljina</axisName>
+		<styleName type="ital" subtype="1">cursive</styleName>
+		<styleName type="opsz" subtype="8">caption</styleName>
+		<styleName type="opsz" subtype="12">text</styleName>
+		<styleName type="opsz" subtype="18">titling</styleName>
+		<styleName type="opsz" subtype="72">display</styleName>
+		<styleName type="opsz" subtype="144">poster</styleName>
+		<styleName type="slnt" subtype="-12">backslanted</styleName>
+		<styleName type="slnt" subtype="0">upright</styleName>
+		<styleName type="slnt" subtype="12">slanted</styleName>
+		<styleName type="slnt" subtype="24">extra-slanted</styleName>
+		<styleName type="wdth" subtype="50">ultracondensed</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">ultracompressed</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">ultranarrow</styleName>
+		<styleName type="wdth" subtype="62.5">extra-condensed</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">extra-compressed</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">extra-narrow</styleName>
+		<styleName type="wdth" subtype="75">condensed</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">compressed</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">compressed</styleName>
+		<styleName type="wdth" subtype="87.5">semicondensed</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">semicompressed</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">seminarrow</styleName>
+		<styleName type="wdth" subtype="100">normal</styleName>
+		<styleName type="wdth" subtype="112.5">semiexpanded</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">semiextended</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">semiwide</styleName>
+		<styleName type="wdth" subtype="125">expanded</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">extended</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">wide</styleName>
+		<styleName type="wdth" subtype="150">extra-expanded</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">extra-extended</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">extra-wide</styleName>
+		<styleName type="wdth" subtype="200">ultraexpanded</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">ultraextended</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">ultrawide</styleName>
+		<styleName type="wght" subtype="100">thin</styleName>
+		<styleName type="wght" subtype="200">extra-light</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">ultralight</styleName>
+		<styleName type="wght" subtype="300">light</styleName>
+		<styleName type="wght" subtype="350">semilight</styleName>
+		<styleName type="wght" subtype="380">book</styleName>
+		<styleName type="wght" subtype="400">regular</styleName>
+		<styleName type="wght" subtype="500">medium</styleName>
+		<styleName type="wght" subtype="600">semibold</styleName>
+		<styleName type="wght" subtype="600" alt="demi">demibold</styleName>
+		<styleName type="wght" subtype="700">bold</styleName>
+		<styleName type="wght" subtype="800">extra-bold</styleName>
+		<styleName type="wght" subtype="900">black</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">heavy</styleName>
+		<styleName type="wght" subtype="950">extra-black</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">ultrablack</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">ultraheavy</styleName>
+		<featureName type="afrc">vertical fractions</featureName>
+		<featureName type="cpsp">capital spacing</featureName>
+		<featureName type="dlig">optional ligatures</featureName>
+		<featureName type="frac">diagonal fractions</featureName>
+		<featureName type="lnum">lining numbers</featureName>
+		<featureName type="onum">old-style figures</featureName>
+		<featureName type="ordn">ordinals</featureName>
+		<featureName type="pnum">proportional numbers</featureName>
+		<featureName type="smcp">small capitals</featureName>
+		<featureName type="tnum">tabular numbers</featureName>
+		<featureName type="zero">slashed zero</featureName>
+	</typographicNames>
 </ldml>

@@ -15,7 +15,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<languages>
 			<language type="ace">Aceh-Sprache</language>
 			<language type="ach">Acholi-Sprache</language>
-			<language type="ars" draft="contributed">Nadschd-Arabisch</language>
+			<language type="ars">Nadschd-Arabisch</language>
 			<language type="bas">Basaa-Sprache</language>
 			<language type="be">Weissrussisch</language>
 			<language type="bik">Bikol-Sprache</language>
@@ -78,9 +78,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="era-narrow">
 				<displayName>Epoche</displayName>
 			</field>
-			<field type="quarter-short">
-				<relative type="1">nächstes Quartal</relative>
-			</field>
 			<field type="weekOfMonth">
 				<displayName>Woche im Monat</displayName>
 			</field>
@@ -108,22 +105,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</fields>
 		<timeZoneNames>
 			<zone type="Asia/Brunei">
-				<exemplarCity draft="contributed">Brunei</exemplarCity>
+				<exemplarCity>Brunei</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
-				<exemplarCity draft="contributed">Macao</exemplarCity>
+				<exemplarCity>Macao</exemplarCity>
 			</zone>
 			<zone type="Europe/Saratov">
 				<exemplarCity>Saratov</exemplarCity>
 			</zone>
 			<metazone type="Brunei">
 				<long>
-					<standard draft="contributed">Brunei-Zeit</standard>
+					<standard>Brunei-Zeit</standard>
 				</long>
 			</metazone>
 			<metazone type="Solomon">
 				<long>
-					<standard draft="contributed">Salomoninseln-Zeit</standard>
+					<standard>Salomoninseln-Zeit</standard>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -148,12 +145,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one" draft="provisional">0</pattern>
-					<pattern type="1000" count="other" draft="provisional">0</pattern>
-					<pattern type="10000" count="one" draft="provisional">0</pattern>
-					<pattern type="10000" count="other" draft="provisional">0</pattern>
-					<pattern type="100000" count="one" draft="provisional">0</pattern>
-					<pattern type="100000" count="other" draft="provisional">0</pattern>
+					<pattern type="1000" count="one">0</pattern>
+					<pattern type="1000" count="other">0</pattern>
+					<pattern type="10000" count="one">0</pattern>
+					<pattern type="10000" count="other">0</pattern>
+					<pattern type="100000" count="one">0</pattern>
+					<pattern type="100000" count="other">0</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -178,14 +175,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">São-toméischer Dobra (2018)</displayName>
 			</currency>
 			<currency type="VEF">
-				<displayName draft="contributed">Venezolanischer Bolívar</displayName>
-				<displayName count="one" draft="contributed">Venezolanischer Bolívar</displayName>
-				<displayName count="other" draft="contributed">Venezolanische Bolívares</displayName>
+				<displayName>Venezolanischer Bolívar</displayName>
+				<displayName count="one">Venezolanischer Bolívar</displayName>
+				<displayName count="other">Venezolanische Bolívares</displayName>
 			</currency>
 			<currency type="VES">
-				<displayName draft="contributed">VES</displayName>
-				<displayName count="one" draft="contributed">VES</displayName>
-				<displayName count="other" draft="contributed">VES</displayName>
+				<displayName>VES</displayName>
+				<displayName count="one">VES</displayName>
+				<displayName count="other">VES</displayName>
 			</currency>
 		</currencies>
 	</numbers>
@@ -234,9 +231,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<styleName type="opsz" subtype="18">Schaugrösse</styleName>
 		<styleName type="opsz" subtype="72">Plakatgrösse</styleName>
 		<styleName type="opsz" subtype="144">Ferngrösse</styleName>
-		<styleName type="wght" subtype="200" alt="ultra" draft="contributed">ultralight</styleName>
-		<styleName type="wght" subtype="500" draft="contributed">medium</styleName>
-		<styleName type="wght" subtype="600" alt="demi" draft="contributed">demibold</styleName>
-		<styleName type="wght" subtype="900" alt="heavy" draft="contributed">heavy</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">ultralight</styleName>
+		<styleName type="wght" subtype="500">medium</styleName>
+		<styleName type="wght" subtype="600" alt="demi">demibold</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">heavy</styleName>
 	</typographicNames>
 </ldml>

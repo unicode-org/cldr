@@ -58,6 +58,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏋">person lifting weights | weight | weightlifter</annotation>
 		<annotation cp="🏋‍♂">man | weightlifter</annotation>
 		<annotation cp="🏋‍♀">weightlifter | woman</annotation>
+		<annotation cp="🚴">bicycle | biking | cyclist | person cycling</annotation>
+		<annotation cp="🚴‍♂">bicycle | biking | cyclist | man cycling</annotation>
+		<annotation cp="🚴‍♀">bicycle | biking | cyclist | woman cycling</annotation>
 		<annotation cp="🏎">car | motor racing | racing</annotation>
 		<annotation cp="🏍">motorbike | racing</annotation>
 		<annotation cp="✌">hand | peace hand | peace sign | v | v sign | victory</annotation>
@@ -65,6 +68,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤙">call | call-me hand | hand</annotation>
 		<annotation cp="🤙" type="tts">call-me hand</annotation>
 		<annotation cp="🙌">celebration | gesture | hand | hooray | raised | raising hands | woo hoo | yay</annotation>
+		<annotation cp="🦳">grey | hair | old | white</annotation>
 		<annotation cp="💤">comic | sleep | sleeping | sleepy | zzz</annotation>
 		<annotation cp="💫">comic | dizzy | spinning | spinning stars | star</annotation>
 		<annotation cp="💬">balloon | bubble | comic | dialogue | speech</annotation>
@@ -83,6 +87,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐫">bactrian | camel | hump | two humps | two-hump camel</annotation>
 		<annotation cp="🐓">bird | cockerel | rooster</annotation>
 		<annotation cp="🐓" type="tts">cockerel</annotation>
+		<annotation cp="🐊">alligator | croc | crocodile</annotation>
+		<annotation cp="🦖">T-Rex | T. rex | T. Rex | Tyrannosaurus Rex</annotation>
 		<annotation cp="🦐">food | prawn | shellfish | shrimp | small</annotation>
 		<annotation cp="🦑">food | mollusc | squid</annotation>
 		<annotation cp="🐞">beetle | insect | ladybeetle | ladybird | ladybug</annotation>
@@ -93,9 +99,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌾">ear of rice | grain | rice | sheaf</annotation>
 		<annotation cp="🌾" type="tts">ear of rice</annotation>
 		<annotation cp="🍀" type="tts">four-leaf clover</annotation>
+		<annotation cp="🍆" type="tts">aubergine</annotation>
 		<annotation cp="🌶">chilli | hot | pepper</annotation>
 		<annotation cp="🌶" type="tts">chilli</annotation>
+		<annotation cp="🥬">bok choy | cabbage | kale | lettuce | pak choi</annotation>
 		<annotation cp="🥜">food | monkey nut | nut | nuts | peanut | peanuts</annotation>
+		<annotation cp="🥖">baguette | bread | food | french | french stick</annotation>
 		<annotation cp="🥖" type="tts">baguette</annotation>
 		<annotation cp="🍔">beefburger | burger | hamburger</annotation>
 		<annotation cp="🍔" type="tts">beefburger</annotation>
@@ -113,6 +122,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍬">dessert | sweet | sweets</annotation>
 		<annotation cp="🍬" type="tts">sweets</annotation>
 		<annotation cp="🍭">dessert | lollipop | lolly | sweet</annotation>
+		<annotation cp="🍮">crème caramel | custard | dessert | egg custard | pudding | sweet</annotation>
 		<annotation cp="🍮" type="tts">egg custard</annotation>
 		<annotation cp="🍼">baby | baby’s bottle | bottle | drink | milk</annotation>
 		<annotation cp="🍶">bar | beverage | bottle | cup | drink | sake | saké</annotation>
@@ -127,15 +137,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥄">cutlery | spoon | tableware</annotation>
 		<annotation cp="🔪">cooking | cutlery | hocho | kitchen knife | knife | tool | weapon</annotation>
 		<annotation cp="🏺">amphora | Aquarius | cooking | drink | jar | jug | tool | weapon | zodiac</annotation>
+		<annotation cp="🏕">camping | tent</annotation>
 		<annotation cp="🏖">beach | beach with umbrella | parasol | umbrella</annotation>
 		<annotation cp="🏚">derelict | dilapidated | house</annotation>
 		<annotation cp="🏪">convenience | shop | store</annotation>
+		<annotation cp="🌌">galaxy | milky way | space</annotation>
 		<annotation cp="🎠">carousel | horse | merry-go-round</annotation>
 		<annotation cp="🎡">amusement park | ferris | theme park | wheel</annotation>
 		<annotation cp="🎢">amusement park | coaster | roller | rollercoaster | theme park</annotation>
 		<annotation cp="🎢" type="tts">rollercoaster</annotation>
 		<annotation cp="💈">barber | barber’s pole | haircut | pole</annotation>
 		<annotation cp="💈" type="tts">barber’s pole</annotation>
+		<annotation cp="🚃">car | electric | railway | railway carriage | train | tram | trolleybus</annotation>
 		<annotation cp="🚃" type="tts">railway carriage</annotation>
 		<annotation cp="🚄">high-speed train | railway | shinkansen | speed | TGV | train</annotation>
 		<annotation cp="🚇">metro | subway | tube | underground</annotation>
@@ -146,12 +159,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚙">camper van | motorhome | recreational | RV | sport utility | sport utility vehicle</annotation>
 		<annotation cp="🚚">delivery | delivery van | truck</annotation>
 		<annotation cp="🚚" type="tts">delivery van</annotation>
+		<annotation cp="🚲">bicycle | bike | cycle</annotation>
 		<annotation cp="⛽">diesel | fuel | fuelpump | gas | petrol | pump | station</annotation>
 		<annotation cp="⛵">boat | resort | sailboat | sailing | sea | yacht</annotation>
 		<annotation cp="⛵" type="tts">sailing boat</annotation>
 		<annotation cp="🛳">cruise | liner | passenger | ship</annotation>
+		<annotation cp="✈" type="tts">aeroplane</annotation>
+		<annotation cp="🛩">aeroplane | airplane | small aeroplane | small airplane</annotation>
+		<annotation cp="🛩" type="tts">small aeroplane</annotation>
 		<annotation cp="🛫">aeroplane | airplane | check-in | departure | departures | take-off</annotation>
+		<annotation cp="🛫" type="tts">aeroplane departure</annotation>
+		<annotation cp="🛬">aeroplane | aeroplane arrival | airplane | airplane arrival | arrivals | arriving | landing</annotation>
+		<annotation cp="🛬" type="tts">aeroplane arrival</annotation>
 		<annotation cp="🚁">chopper | helicopter | vehicle</annotation>
+		<annotation cp="🚠">cable | gondola | mountain | mountain cablecar</annotation>
+		<annotation cp="🕰">clock | mantel clock</annotation>
 		<annotation cp="🕧">12 | 12:30 | 12.30 | 30 | clock | half past twelve | thirty | twelve | twelve-thirty</annotation>
 		<annotation cp="🕧" type="tts">half past twelve</annotation>
 		<annotation cp="🕜">1 | 1:30 | 1.30 | 30 | clock | half past one | one | one-thirty | thirty</annotation>
@@ -176,6 +198,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕥" type="tts">half past ten</annotation>
 		<annotation cp="🕦">11 | 11:30 | 11.30 | 30 | clock | eleven | eleven-thirty | half past eleven | thirty</annotation>
 		<annotation cp="🕦" type="tts">half past eleven</annotation>
+		<annotation cp="🌓" draft="contributed">first-quarter moon</annotation>
+		<annotation cp="🌓" type="tts" draft="contributed">first-quarter moon</annotation>
+		<annotation cp="🌗" draft="contributed">last-quarter moon</annotation>
+		<annotation cp="🌗" type="tts" draft="contributed">last-quarter moon</annotation>
+		<annotation cp="🌛" draft="contributed">first-quarter moon face</annotation>
+		<annotation cp="🌛" type="tts" draft="contributed">first-quarter moon face</annotation>
+		<annotation cp="🌜" draft="contributed">last-quarter moon face</annotation>
+		<annotation cp="🌜" type="tts" draft="contributed">last-quarter moon face</annotation>
 		<annotation cp="⭐">star | yellow medium star</annotation>
 		<annotation cp="🌪">cloud | tornado | twister | whirlwind</annotation>
 		<annotation cp="🌀">cyclone | dizzy | hurricane | typhoon</annotation>
@@ -188,8 +218,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎏">carp | carp wind sock | carp wind socks | celebration | Japanese wind socks | koinobori | streamer</annotation>
 		<annotation cp="🎑">celebration | ceremony | jugoya | moon | moon-viewing ceremony | otsukimi | tsukimi</annotation>
 		<annotation cp="🎗">awareness ribbon | celebration | reminder | ribbon</annotation>
+		<annotation cp="⚽" draft="contributed">football</annotation>
+		<annotation cp="⚽" type="tts" draft="contributed">football</annotation>
 		<annotation cp="🎾">ball | racket | racquet | tennis</annotation>
 		<annotation cp="🎳">ball | bowling | game | pins</annotation>
+		<annotation cp="🏏">ball | bat | cricket ball | cricket bat | cricket game | cricket match | game</annotation>
+		<annotation cp="🏏" type="tts">cricket match</annotation>
+		<annotation cp="🏑" draft="contributed">hockey</annotation>
+		<annotation cp="🏑" type="tts" draft="contributed">hockey</annotation>
+		<annotation cp="🏓" draft="contributed">table tennis</annotation>
+		<annotation cp="🏓" type="tts" draft="contributed">table tennis</annotation>
+		<annotation cp="🎣">angling | fish | fishing pole | pole</annotation>
 		<annotation cp="🛷">sledge | sleigh</annotation>
 		<annotation cp="🛷" type="tts">sledge</annotation>
 		<annotation cp="🎯">bull | bullseye | dart | eye | game | hit | target</annotation>
@@ -219,27 +258,45 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📪">closed | closed mailbox with lowered flag | closed postbox with lowered flag | letterbox | lowered | mail | mailbox | post | post box | postbox</annotation>
 		<annotation cp="📬">mail | mailbox | open | open mailbox with raised flag | open postbox with raised flag | post | post box | postbox</annotation>
 		<annotation cp="📭">lowered | mail | mailbox | open | open mailbox with lowered flag | open postbox with lowered flag | post | post box | postbox</annotation>
+		<annotation cp="📌">map pin | pin | pushpin</annotation>
 		<annotation cp="📐">ruler | set | set square | triangle</annotation>
 		<annotation cp="📐" type="tts">set square</annotation>
 		<annotation cp="🗑">paper bin | wastebasket | wastepaper basket</annotation>
 		<annotation cp="🗑" type="tts">wastepaper basket</annotation>
 		<annotation cp="⛏">mining | pick | pickaxe | tool</annotation>
 		<annotation cp="⚒">hammer | hammer and pick | hammer and pickaxe | pick | tool</annotation>
+		<annotation cp="🛠" draft="contributed">hammer and spanner</annotation>
+		<annotation cp="🛠" type="tts" draft="contributed">hammer and spanner</annotation>
+		<annotation cp="🔧" draft="contributed">spanner</annotation>
+		<annotation cp="🔧" type="tts" draft="contributed">spanner</annotation>
 		<annotation cp="💊">capsule | doctor | medicine | pill | sick | tablet</annotation>
 		<annotation cp="🛋">couch | hotel | lamp | sofa | sofa and lamp</annotation>
 		<annotation cp="🛋" type="tts">sofa and lamp</annotation>
 		<annotation cp="🚽">lavatory | loo | toilet</annotation>
 		<annotation cp="🛁">bath | bathtub | tub</annotation>
+		<annotation cp="🧴">lotion | moisturiser | shampoo | sunscreen</annotation>
+		<annotation cp="🧷">nappy | punk rock</annotation>
+		<annotation cp="🧻">paper towels | toilet paper | toilet roll</annotation>
+		<annotation cp="🛒" draft="contributed">shopping trolley</annotation>
+		<annotation cp="🛒" type="tts" draft="contributed">shopping trolley</annotation>
 		<annotation cp="🏧">atm | ATM sign | automated | bank | cashpoint | teller</annotation>
 		<annotation cp="🚮">litter | litter bin | litter in bin sign | rubbish</annotation>
+		<annotation cp="🚰" draft="contributed">drinking water</annotation>
+		<annotation cp="🚰" type="tts" draft="contributed">drinking water</annotation>
 		<annotation cp="🚹">lavatory | man | men’s toilet | restroom | wc</annotation>
 		<annotation cp="🚹" type="tts">men’s toilet</annotation>
 		<annotation cp="🚺">lavatory | restroom | wc | woman | women’s toilet</annotation>
 		<annotation cp="🚺" type="tts">women’s toilet</annotation>
 		<annotation cp="🚻">lavatory | restroom | toilets | WC</annotation>
 		<annotation cp="🚻" type="tts">toilets</annotation>
+		<annotation cp="🚱" draft="contributed">non-drinking water</annotation>
+		<annotation cp="🚱" type="tts" draft="contributed">non-drinking water</annotation>
+		<annotation cp="🔄" draft="contributed">anticlockwise arrows button</annotation>
+		<annotation cp="🔄" type="tts" draft="contributed">anticlockwise arrows button</annotation>
 		<annotation cp="🕉">aum | Hindu | om | religion</annotation>
 		<annotation cp="☸">Buddhist | dharma | dharmachakra | religion | wheel | wheel of dharma</annotation>
+		<annotation cp="⏪" draft="contributed">fast-reverse button</annotation>
+		<annotation cp="⏪" type="tts" draft="contributed">fast-reverse button</annotation>
 		<annotation cp="✅">check | mark | white heavy tick</annotation>
 		<annotation cp="✅" type="tts">white heavy tick</annotation>
 		<annotation cp="☑">ballot | ballot box with tick | box | check</annotation>
@@ -253,64 +310,5 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="™">mark | tm | trademark</annotation>
 		<annotation cp="™" type="tts">trademark</annotation>
 		<annotation cp="🏳‍🌈">pride | rainbow | rainbow flag</annotation>
-		<annotation cp="🚴">bicycle | biking | cyclist | person cycling</annotation>
-		<annotation cp="🚴‍♂">bicycle | biking | cyclist | man cycling</annotation>
-		<annotation cp="🚴‍♀">bicycle | biking | cyclist | woman cycling</annotation>
-		<annotation cp="🦳">grey | hair | old | white</annotation>
-		<annotation cp="🐊">alligator | croc | crocodile</annotation>
-		<annotation cp="🦖">T-Rex | T. rex | T. Rex | Tyrannosaurus Rex</annotation>
-		<annotation cp="🍆" type="tts">aubergine</annotation>
-		<annotation cp="🥬">bok choy | cabbage | kale | lettuce | pak choi</annotation>
-		<annotation cp="🥖">baguette | bread | food | french | french stick</annotation>
-		<annotation cp="🥡" type="tts">takeout box</annotation>
-		<annotation cp="🍮">crème caramel | custard | dessert | pudding | sweet</annotation>
-		<annotation cp="🏕">camping | tent</annotation>
-		<annotation cp="🌌">galaxy | milky way | space</annotation>
-		<annotation cp="🚃">car | electric | railway | train | tram | trolleybus</annotation>
-		<annotation cp="🚗">automobile | car</annotation>
-		<annotation cp="🚲">bicycle | bike | cycle</annotation>
-		<annotation cp="✈" type="tts">aeroplane</annotation>
-		<annotation cp="🛩">aeroplane | airplane | small aeroplane | small airplane</annotation>
-		<annotation cp="🛩" type="tts">small aeroplane</annotation>
-		<annotation cp="🛫" type="tts">aeroplane departure</annotation>
-		<annotation cp="🛬">aeroplane | aeroplane arrival | airplane | airplane arrival | arrivals | arriving | landing</annotation>
-		<annotation cp="🛬" type="tts">aeroplane arrival</annotation>
-		<annotation cp="🚠">cable | gondola | mountain | mountain cablecar</annotation>
-		<annotation cp="🕰">clock | mantel clock</annotation>
-		<annotation cp="🌓" draft="contributed">first-quarter moon</annotation>
-		<annotation cp="🌓" type="tts" draft="contributed">first-quarter moon</annotation>
-		<annotation cp="🌗" draft="contributed">last-quarter moon</annotation>
-		<annotation cp="🌗" type="tts" draft="contributed">last-quarter moon</annotation>
-		<annotation cp="🌛" draft="contributed">first-quarter moon face</annotation>
-		<annotation cp="🌛" type="tts" draft="contributed">first-quarter moon face</annotation>
-		<annotation cp="🌜" draft="contributed">last-quarter moon face</annotation>
-		<annotation cp="🌜" type="tts" draft="contributed">last-quarter moon face</annotation>
-		<annotation cp="⚽" draft="contributed">football</annotation>
-		<annotation cp="⚽" type="tts" draft="contributed">football</annotation>
-		<annotation cp="🏏">ball | bat | cricket ball | cricket bat | cricket game | game</annotation>
-		<annotation cp="🏏" type="tts">cricket match</annotation>
-		<annotation cp="🏑" draft="contributed">hockey</annotation>
-		<annotation cp="🏑" type="tts" draft="contributed">hockey</annotation>
-		<annotation cp="🏓" draft="contributed">table tennis</annotation>
-		<annotation cp="🏓" type="tts" draft="contributed">table tennis</annotation>
-		<annotation cp="🎣">angling | fish | fishing pole | pole</annotation>
-		<annotation cp="📌">map pin | pin | pushpin</annotation>
-		<annotation cp="🛠" draft="contributed">hammer and spanner</annotation>
-		<annotation cp="🛠" type="tts" draft="contributed">hammer and spanner</annotation>
-		<annotation cp="🔧" draft="contributed">spanner</annotation>
-		<annotation cp="🔧" type="tts" draft="contributed">spanner</annotation>
-		<annotation cp="🧴">lotion | moisturiser | shampoo | sunscreen</annotation>
-		<annotation cp="🧷">nappy | punk rock</annotation>
-		<annotation cp="🧻">paper towels | toilet paper | toilet roll</annotation>
-		<annotation cp="🛒" draft="contributed">shopping trolley</annotation>
-		<annotation cp="🛒" type="tts" draft="contributed">shopping trolley</annotation>
-		<annotation cp="🚰" draft="contributed">drinking water</annotation>
-		<annotation cp="🚰" type="tts" draft="contributed">drinking water</annotation>
-		<annotation cp="🚱" draft="contributed">non-drinking water</annotation>
-		<annotation cp="🚱" type="tts" draft="contributed">non-drinking water</annotation>
-		<annotation cp="🔄" draft="contributed">anticlockwise arrows button</annotation>
-		<annotation cp="🔄" type="tts" draft="contributed">anticlockwise arrows button</annotation>
-		<annotation cp="⏪" draft="contributed">fast-reverse button</annotation>
-		<annotation cp="⏪" type="tts" draft="contributed">fast-reverse button</annotation>
 	</annotations>
 </ldml>

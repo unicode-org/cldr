@@ -184,7 +184,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😇" type="tts">头顶有光环嘅笑脸</annotation>
 		<annotation cp="🤠">帽 | 戴牛仔帽嘅脸 | 牛仔 | 牛女 | 脸</annotation>
 		<annotation cp="🤠" type="tts">戴牛仔帽嘅脸</annotation>
-		<annotation cp="🥳">帽 | 庆祝 | 派对 | 号角 | 开派对嘅脸</annotation>
+		<annotation cp="🥳">号角 | 帽 | 庆祝 | 开派对嘅脸 | 派对</annotation>
 		<annotation cp="🥳" type="tts">开派对嘅脸</annotation>
 		<annotation cp="🥴">不平嘅眼睛 | 晕 | 波浪形嘅嘴 | 醉 | 醉嘅脸 | 陶醉</annotation>
 		<annotation cp="🥴" type="tts">醉嘅脸</annotation>
@@ -760,9 +760,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👄" type="tts">嘴</annotation>
 		<annotation cp="🦰">生姜 | 红色嘅头 | 红色头发</annotation>
 		<annotation cp="🦰" type="tts">红色头发</annotation>
-		<annotation cp="🦱">卷曲 | 卷发 | 曲发 | 非洲</annotation>
+		<annotation cp="🦱">卷发 | 卷曲 | 曲发 | 非洲</annotation>
 		<annotation cp="🦱" type="tts">曲发</annotation>
-		<annotation cp="🦳">灰色 | 白色 | 白色头发 | 老 | 头发</annotation>
+		<annotation cp="🦳">头发 | 灰色 | 白色 | 白色头发 | 老</annotation>
 		<annotation cp="🦳" type="tts">白色头发</annotation>
 		<annotation cp="🦲">光头 | 剃头 | 化疗 | 无头发</annotation>
 		<annotation cp="🦲" type="tts">光头</annotation>
@@ -832,9 +832,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👓" type="tts">眼镜</annotation>
 		<annotation cp="🕶">太阳眼镜 | 眼 | 眼镜 | 黑暗</annotation>
 		<annotation cp="🕶" type="tts">太阳眼镜</annotation>
-		<annotation cp="🥽">保护眼睛 | 游水 | 烧焊 | 护镜</annotation>
+		<annotation cp="🥽">保护眼睛 | 护镜 | 游水 | 烧焊</annotation>
 		<annotation cp="🥽" type="tts">护镜</annotation>
-		<annotation cp="🥼">实验 | 实验袍 | 科学家 | 医生</annotation>
+		<annotation cp="🥼">医生 | 实验 | 实验袍 | 科学家</annotation>
 		<annotation cp="🥼" type="tts">实验袍</annotation>
 		<annotation cp="👔">服装 | 领呔</annotation>
 		<annotation cp="👔" type="tts">领呔</annotation>
@@ -874,7 +874,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👟" type="tts">跑鞋</annotation>
 		<annotation cp="🥾">背囊 | 行山 | 行山鞋 | 露营 | 靴</annotation>
 		<annotation cp="🥾" type="tts">行山鞋</annotation>
-		<annotation cp="🥿">平底鞋 | 拖鞋 | 芭蕾平底 | 着上</annotation>
+		<annotation cp="🥿">平底鞋 | 拖鞋 | 着上 | 芭蕾平底</annotation>
 		<annotation cp="🥿" type="tts">平底鞋</annotation>
 		<annotation cp="👠">女士 | 服装 | 鞋 | 高根鞋</annotation>
 		<annotation cp="👠" type="tts">高根鞋</annotation>
@@ -1030,7 +1030,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦅" type="tts">鹰</annotation>
 		<annotation cp="🦆">雀 | 鸭</annotation>
 		<annotation cp="🦆" type="tts">鸭</annotation>
-		<annotation cp="🦢">天鹅 | 小天鹅 | 丑小鸭 | 雀</annotation>
+		<annotation cp="🦢">丑小鸭 | 天鹅 | 小天鹅 | 雀</annotation>
 		<annotation cp="🦢" type="tts">天鹅</annotation>
 		<annotation cp="🦉">智慧 | 猫头鹰 | 雀</annotation>
 		<annotation cp="🦉" type="tts">猫头鹰</annotation>
@@ -1076,7 +1076,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐚" type="tts">螺</annotation>
 		<annotation cp="🦀">巨蟹座 | 星座 | 蟹</annotation>
 		<annotation cp="🦀" type="tts">蟹</annotation>
-		<annotation cp="🦞">海鲜 | 浓汤 | 爪 | 龙虾</annotation>
+		<annotation cp="🦞">浓汤 | 海鲜 | 爪 | 龙虾</annotation>
 		<annotation cp="🦞" type="tts">龙虾</annotation>
 		<annotation cp="🦐">小 | 甲壳类动物 | 虾 | 食物</annotation>
 		<annotation cp="🦐" type="tts">虾</annotation>
@@ -1102,7 +1102,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕸" type="tts">蜘蛛网</annotation>
 		<annotation cp="🦂">天蝎座 | 星座 | 蝎子</annotation>
 		<annotation cp="🦂" type="tts">蝎子</annotation>
-		<annotation cp="🦟">昆虫 | 病 | 病毒 | 疟疾 | 发烧 | 蚊</annotation>
+		<annotation cp="🦟">发烧 | 昆虫 | 疟疾 | 病 | 病毒 | 蚊</annotation>
 		<annotation cp="🦟" type="tts">蚊</annotation>
 		<annotation cp="🦠">微生物 | 病毒 | 细菌 | 阿米巴</annotation>
 		<annotation cp="🦠" type="tts">微生物</annotation>
@@ -1260,7 +1260,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥗" type="tts">蔬菜沙律</annotation>
 		<annotation cp="🍿">爆谷</annotation>
 		<annotation cp="🍿" type="tts">爆谷</annotation>
-		<annotation cp="🧂">调味料 | 盐 | 盐樽</annotation>
+		<annotation cp="🧂">盐 | 盐樽 | 调味料</annotation>
 		<annotation cp="🧂" type="tts">盐</annotation>
 		<annotation cp="🥫">罐头 | 罐头食物</annotation>
 		<annotation cp="🥫" type="tts">罐头食物</annotation>
@@ -1404,7 +1404,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏛" type="tts">古典建筑</annotation>
 		<annotation cp="🏗">建筑物建造 | 建造</annotation>
 		<annotation cp="🏗" type="tts">建筑物建造</annotation>
-		<annotation cp="🧱">水泥 | 墙 | 砂浆 | 砖</annotation>
+		<annotation cp="🧱">墙 | 水泥 | 砂浆 | 砖</annotation>
 		<annotation cp="🧱" type="tts">砖</annotation>
 		<annotation cp="🏘">屋</annotation>
 		<annotation cp="🏘" type="tts">屋</annotation>
@@ -1882,7 +1882,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎱" type="tts">8 号桌球</annotation>
 		<annotation cp="🔮">工具 | 幸运 | 幻想 | 水晶 | 水晶球 | 球 | 童话</annotation>
 		<annotation cp="🔮" type="tts">水晶球</annotation>
-		<annotation cp="🧿">珠 | 纳扎尔 | 纳扎尔护身符 | 护符 | 邪眼 | 魅力</annotation>
+		<annotation cp="🧿">护符 | 珠 | 纳扎尔 | 纳扎尔护身符 | 邪眼 | 魅力</annotation>
 		<annotation cp="🧿" type="tts">纳扎尔护身符</annotation>
 		<annotation cp="🎮">控制器 | 游戏 | 电视游戏</annotation>
 		<annotation cp="🎮" type="tts">电视游戏</annotation>
@@ -1918,7 +1918,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🖼" type="tts">框画</annotation>
 		<annotation cp="🎨">博物馆 | 绘画 | 艺术 | 调色板</annotation>
 		<annotation cp="🎨" type="tts">调色板</annotation>
-		<annotation cp="🧵">卷 | 线 | 缝纫 | 绳 | 针</annotation>
+		<annotation cp="🧵">卷 | 线 | 绳 | 缝纫 | 针</annotation>
 		<annotation cp="🧵" type="tts">绳</annotation>
 		<annotation cp="🧶">冷球 | 球 | 针织 | 钩针</annotation>
 		<annotation cp="🧶" type="tts">冷球</annotation>
@@ -2086,7 +2086,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💸" type="tts">有翼嘅钱</annotation>
 		<annotation cp="💳">信用 | 信用卡 | 卡 | 钱 | 银行</annotation>
 		<annotation cp="💳" type="tts">信用卡</annotation>
-		<annotation cp="🧾">收据 | 会计 | 簿记 | 证据 | 证明</annotation>
+		<annotation cp="🧾">会计 | 收据 | 簿记 | 证据 | 证明</annotation>
 		<annotation cp="🧾" type="tts">收据</annotation>
 		<annotation cp="💹">上升 | 向上 | 图 | 图表 | 增长 | 市场 | 日元 | 日元升值 | 货币 | 趋势 | 钱 | 银行</annotation>
 		<annotation cp="💹" type="tts">日元升值</annotation>
@@ -2482,7 +2482,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♂" type="tts">男性标志</annotation>
 		<annotation cp="⚕">医疗符号 | 医药 | 员工 | 埃斯科拉庇俄斯</annotation>
 		<annotation cp="⚕" type="tts">医疗符号</annotation>
-		<annotation cp="♾">世界 | 永远 | 无限 | 无限制</annotation>
+		<annotation cp="♾">世界 | 无限 | 无限制 | 永远</annotation>
 		<annotation cp="♾" type="tts">无限</annotation>
 		<annotation cp="♻">循环再造 | 循环再造符号</annotation>
 		<annotation cp="♻" type="tts">循环再造符号</annotation>

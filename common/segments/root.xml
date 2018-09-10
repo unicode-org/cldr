@@ -117,6 +117,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$Spec3a_">[^ $SP $BA $HY $CM]</variable>
 				<variable id="$Spec3b_">[^ $BA $HY $CM]</variable>
 				<variable id="$Spec4_">[^ $NU $CM]</variable>
+				<variable id="$Spec5_">[$BK $CR $LF $NL $SP $ZW]</variable>
 				<variable id="$AI">($AI $X)</variable>
 				<variable id="$AL">($AL $X)</variable>
 				<variable id="$B2">($B2 $X)</variable>
@@ -209,6 +210,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- LB 20  Break before and after unresolved CB. -->
 				<rule id="20.01"> ÷ $CB </rule>
 				<rule id="20.02"> $CB ÷ </rule>
+				<!-- LB 20.9  Don't break between Hyphens and Letters when there is a break preceding the hyphen. -->
+				<!-- Originally added as a Finnish tailoring, now promoted to default CLDR/ICU behavior. -->
+				<!-- Must be before LB 21. Note: this is not default UAX-14 behaviour. See ICU issue ICU-8151. -->
+				<!-- (Unlike in ICU, here we just check a limited set of known breaks, ignoring some cases like LB 14). -->
+				<rule id="20.09"> $Spec5_ ($HY | $HH) × $AL </rule>
 				<!-- LB 21  Do not break before hyphen-minus, other hyphens, fixed-width spaces, small kana and other non-starters, or after acute accents. -->
 				<rule id="21.01"> × $BA </rule>
 				<rule id="21.02"> × $HY </rule>

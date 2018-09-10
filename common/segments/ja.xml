@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2018 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -20,9 +20,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<segmentation type="WordBreak">
 			<variables>
 				<variable id="$Hiragana">\p{Hiragana}</variable>
-				<variable id="$Hiragana">($Hiragana $FEZ*)</variable>
+				<variable id="$Hiragana">($Hiragana $FE*)</variable>
 				<variable id="$Ideographic">[[\p{Ideographic}] [\u3005 \u3007 \u303B]]</variable>
-				<variable id="$Ideographic">($Ideographic $FEZ*)</variable>
+				<variable id="$Ideographic">($Ideographic $FE*)</variable>
 			</variables>
 			<segmentRules>
 				<rule id="13.3"> $Hiragana × $Hiragana </rule>

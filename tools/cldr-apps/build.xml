@@ -33,7 +33,7 @@
         <property name="UTILITIES_JAR" value="${CLDR_TOOLS}/libs/utilities.jar"/>
         <property name="GUAVA_JAR" value="${CLDR_TOOLS}/libs/guava.jar" />
         <property name="MYANMAR_TOOLS_JAR" value="${CLDR_TOOLS}/libs/myanmar-tools-1.1.1.jar" />
-    	
+
         <property name="env.JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -Dorg.unicode.cldr.unittest.web.dir=cldr_db_test -DDEBUG=true"/>
         <property name="jvm_options" value="${env.JVM_OPTIONS}"/>
 
@@ -244,7 +244,8 @@
             <lib file="${UTILITIES_JAR}"/>  <!-- CLDR utilities -->
             <lib file="${ICU4J_JAR}"/>  <!-- CLDR jar -->
             <lib file="${CLDR_JAR}"/>  <!-- CLDR jar -->
-        	<lib file="${GUAVA_JAR}" /> <!-- GUAVA jar -->
+            <lib file="${GUAVA_JAR}" /> <!-- GUAVA jar -->
+            <lib file="${MYANMAR_TOOLS_JAR}" /> <!-- MYANMAR_TOOLS_JAR jar -->
             <!-- May want this later. -->
             <!--  <pathelement path="${jsp.jar}"/> -->
 

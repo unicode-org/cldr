@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="InterIndic" target="Gujarati" direction="forward" visibility="internal">
+			<tRule>
+# InterIndic-Gujarati
+#:: NFD (NFC) ;
+\uE001→ઁ; # SIGN CANDRABINDU
+\uE002→ં; # SIGN ANUSVARA
+\uE003→ઃ; # SIGN VISARGA
+\uE004→અ; # FALLBACK TO LETTER A
+\uE005→અ; # LETTER A
+\uE006→આ; # LETTER AA
+\uE007→ઇ; # LETTER I
+\uE008→ઈ; # LETTER II
+\uE009→ઉ; # LETTER U
+\uE00A→ઊ; # LETTER UU
+\uE00B→ઋ; # LETTER VOCALIC R
+\uE00C→ઌ; # LETTER VOCALIC L
+\uE00D→ઍ; # GUJARATI VOWEL CANDRA E
+\uE00E→એ; # FALLBACK
+\uE00F→એ; #  InterIndic-Gujarati: LETTER EE (એ = LETTER E)
+\uE010→ઐ; # LETTER AI
+\uE011→ઑ; # FALLBACK
+\uE012→ઓ; # FALLBACK
+\uE013→ઓ; # UNMAPPED InterIndic-Gujarati: LETTER OO (ઓ = LETTER O)
+\uE014→ઔ; # LETTER AU
+\uE015→ક; # LETTER KA
+\uE016→ખ; # LETTER KHA
+\uE017→ગ; # LETTER GA
+\uE018→ઘ; # LETTER GHA
+\uE019→ઙ; # LETTER NGA
+\uE01A→ચ; # LETTER CA
+\uE01B→છ; # LETTER CHA
+\uE01C→જ; # LETTER JA
+\uE01D→ઝ; # LETTER JHA
+\uE01E→ઞ; # LETTER NYA
+\uE01F→ટ; # LETTER TTA
+\uE020→ઠ; # LETTER TTHA
+\uE021→ડ; # LETTER DDA
+\uE022→ઢ; # LETTER DDHA
+\uE023→ણ; # LETTER NNA
+\uE024→ત; # LETTER TA
+\uE025→થ; # LETTER THA
+\uE026→દ; # LETTER DA
+\uE027→ધ; # LETTER DHA
+\uE028→ન; # LETTER NA
+\uE029→ન઼; # FALLBACK to NA+NUKTA
+\uE02A→પ; # LETTER PA
+\uE02B→ફ; # LETTER PHA
+\uE02C→બ; # LETTER BA
+\uE02D→ભ; # LETTER BHA
+\uE02E→મ; # LETTER MA
+\uE02F→ય; # LETTER YA
+\uE030→ર; # LETTER RA
+\uE031→ર઼; # FALLBACK
+\uE032→લ; # LETTER LA
+\uE033→ળ; # LETTER LLA
+\uE034→ળ઼; #  LETTER LLLA→LETTER LLA+NUKTA
+\uE035→વ; # LETTER VA
+\uE036→શ; # LETTER SHA
+\uE037→ષ; # LETTER SSA
+\uE038→સ; # LETTER SA
+\uE039→હ; # LETTER HA
+\uE03C→઼; # SIGN NUKTA
+\uE03D→ઽ; # SIGN AVAGRAHA
+\uE03E→ા; # VOWEL SIGN AA
+\uE03F→િ; # VOWEL SIGN I
+\uE040→ી; # VOWEL SIGN II
+\uE041→ુ; # VOWEL SIGN U
+\uE042→ૂ; # VOWEL SIGN UU
+\uE043→ૃ; # VOWEL SIGN VOCALIC R
+\uE044→ૄ; # VOWEL SIGN VOCALIC RR
+\uE045→ૅ; # VOWEL SIGN CANDRA E
+\uE046→ે; # FALLBACK
+\uE047→ે; #  InterIndic-Gujarati: VOWEL SIGN EE (ે = VOWEL SIGN E)
+\uE048→ૈ; # VOWEL SIGN AI
+\uE049→ૉ; # VOWEL SIGN CANDRA O
+\uE04A→ો; # FALLBACK
+\uE04B→ો; # UNMAPPED InterIndic-Gujarati: VOWEL SIGN OO (ો = VOWEL SIGN O)
+\uE04C→ૌ; # VOWEL SIGN AU
+\uE04D→્; # SIGN VIRAMA
+\uE050→ૐ; # OM
+\uE051→;
+\uE052→;
+\uE053→;
+\uE054→;
+\uE055→; # UNMAPPED InterIndic-Gujarati: LENGTH MARK
+\uE056→ૈ; # REMAP (indicExceptions.txt): \u0AD6→ૈ = AI LENGTH MARK→VOWEL SIGN AI
+\uE057→ૌ; # REMAP (indicExceptions.txt): \u0AD7→ૌ = AU LENGTH MARK→VOWEL SIGN AU
+\uE058→ક઼; # FALLBACK
+\uE059→ખ઼; # REMAP (indicExceptions.txt): \u0AD9→ખ઼ = LETTER KHHA→LETTER KHA.SIGN NUKTA
+\uE05A→ગ઼; # REMAP (indicExceptions.txt): \u0ADA→ગ઼ = LETTER GHHA→LETTER GA.SIGN NUKTA
+\uE05B→જ઼; # REMAP (indicExceptions.txt): \u0ADB→જ઼ = LETTER ZA→LETTER JA.SIGN NUKTA
+\uE05C→ડ઼; # FALLBACK
+\uE05D→ઢ઼; # REMAP (indicExceptions.txt): \u0ADD→ઢ઼ = LETTER RHA→LETTER DDHA.SIGN NUKTA
+\uE05E→ફ઼; # REMAP (indicExceptions.txt): \u0ADE→ફ઼ = LETTER FA→LETTER PHA.SIGN NUKTA
+\uE05F→ય઼; # REMAP (indicExceptions.txt): \u0ADF→ય઼ = LETTER YYA→LETTER YA.SIGN NUKTA
+\uE060→ૠ; # LETTER VOCALIC RR
+\uE061→ૡ; # LETTER VOCALIC LL
+\uE062→િ઼; # REMAP (indicExceptions.txt): ૢ→િ઼ = VOWEL SIGN VOCALIC L→VOWEL SIGN I.SIGN NUKTA
+\uE063→ી઼; # REMAP (indicExceptions.txt): ૣ→ી઼ = VOWEL SIGN VOCALIC LL→VOWEL SIGN II.SIGN NUKTA
+\uE064→।;          # DANDA
+\uE065→॥;          # DOUBLE DANDA
+\uE066→૦; # DIGIT ZERO
+\uE067→૧; # DIGIT ONE
+\uE068→૨; # DIGIT TWO
+\uE069→૩; # DIGIT THREE
+\uE06A→૪; # DIGIT FOUR
+\uE06B→૫; # DIGIT FIVE
+\uE06C→૬; # DIGIT SIX
+\uE06D→૭; # DIGIT SEVEN
+\uE06E→૮; # DIGIT EIGHT
+\uE06F→૯; # DIGIT NINE
+\uE070→૰;       # ABBREVIATION SIGN
+\uE071→ર;     # LETTER RA WITH MIDDLE DIAGONAL
+\uE072→ર;     # LETTER RA WITH LOWER DIAGONAL
+\uE073→;           # RUPEE MARK
+\uE074→;           # RUPEE SIGN
+\uE075→;           # CURRENCY NUMERATOR ONE
+\uE076→;           # CURRENCY NUMERATOR TWO
+\uE077→;           # CURRENCY NUMERATOR THREE
+\uE078→;           # CURRENCY NUMERATOR FOUR
+\uE079→;           # CURRENCY NUMERATOR ONE LESS THAN THE DENOMINATOR
+\uE07A→;           # CURRENCY DENOMINATOR SIXTEEN
+\uE07B→;           # ISSHAR
+\uE07C→;           # TIPPI
+\uE07D→;           # ADDAK
+\uE07E→;           # IRI
+\uE07F→;           # URA
+\uE080→;           # EK ONKAR
+\uE081→વ;     # FALLBACK FOR ORIYA LETTER WA
+\uE082→;           # Devanagari Glottal Stop
+\uE083→ત્;  # Bengali Khanda-ta
+0 → ૦;        # FALLBACK FOR TAMIL
+1 → ૧;
+#\uE080→; # UNMAPPED InterIndic-Gujarati: ISSHAR
+#    :: NFC (NFD) ;
+# eof
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

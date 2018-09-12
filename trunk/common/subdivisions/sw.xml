@@ -1,0 +1,1474 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2018 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="sw"/>
+	</identity>
+	<localeDisplayNames>
+		<subdivisions>
+			<subdivision type="aedu" draft="contributed">Dubai</subdivision>
+			<subdivision type="aefu" draft="contributed">Fujairah</subdivision>
+			<subdivision type="aerk" draft="contributed">Ras al-Khaimah</subdivision>
+			<subdivision type="aesh" draft="contributed">Sharjah</subdivision>
+			<subdivision type="aeuq" draft="contributed">Umm al-Quwain</subdivision>
+			<subdivision type="amer" draft="contributed">Yerevan</subdivision>
+			<subdivision type="aobgo" draft="contributed">Bengo</subdivision>
+			<subdivision type="aobgu" draft="contributed">Benguela</subdivision>
+			<subdivision type="aobie" draft="contributed">Bié</subdivision>
+			<subdivision type="aocab" draft="contributed">Kabinda</subdivision>
+			<subdivision type="aoccu" draft="contributed">Cuando Cubango</subdivision>
+			<subdivision type="aocnn" draft="contributed">Cunene</subdivision>
+			<subdivision type="aocno" draft="contributed">Cuanza Kaskazini</subdivision>
+			<subdivision type="aocus" draft="contributed">Cuanza Kusini</subdivision>
+			<subdivision type="aohua" draft="contributed">Huambo</subdivision>
+			<subdivision type="aohui" draft="contributed">Huíla</subdivision>
+			<subdivision type="aolno" draft="contributed">Lunda Kaskazini</subdivision>
+			<subdivision type="aolsu" draft="contributed">Lunda Kusini</subdivision>
+			<subdivision type="aolua" draft="contributed">Luanda</subdivision>
+			<subdivision type="aomal" draft="contributed">Malanje</subdivision>
+			<subdivision type="aomox" draft="contributed">Moxico</subdivision>
+			<subdivision type="aonam" draft="contributed">Namibe</subdivision>
+			<subdivision type="aouig" draft="contributed">Uíge</subdivision>
+			<subdivision type="aozai" draft="contributed">Zaire</subdivision>
+			<subdivision type="ara" draft="contributed">Mkoa wa Salta</subdivision>
+			<subdivision type="arb" draft="contributed">Mkoa wa Buenos Aires</subdivision>
+			<subdivision type="arc" draft="contributed">Buenos Aires</subdivision>
+			<subdivision type="ard" draft="contributed">Mkoa wa San Luis</subdivision>
+			<subdivision type="are" draft="contributed">Mkoa wa Entre Ríos</subdivision>
+			<subdivision type="arf" draft="contributed">Mkoa wa La Rioja</subdivision>
+			<subdivision type="arg" draft="contributed">Mkoa wa Santiago del Estero</subdivision>
+			<subdivision type="arh" draft="contributed">Mkoa wa Chaco</subdivision>
+			<subdivision type="arj" draft="contributed">Mkoa wa San Juan</subdivision>
+			<subdivision type="ark" draft="contributed">Mkoa wa Catamarca</subdivision>
+			<subdivision type="arl" draft="contributed">Mkoa wa La Pampa</subdivision>
+			<subdivision type="arm" draft="contributed">Mkoa wa Mendoza</subdivision>
+			<subdivision type="arn" draft="contributed">Mkoa wa Misiones</subdivision>
+			<subdivision type="arp" draft="contributed">Mkoa wa Formosa</subdivision>
+			<subdivision type="arq" draft="contributed">Mkoa wa Neuquén</subdivision>
+			<subdivision type="arr" draft="contributed">Mkoa wa Río Negro</subdivision>
+			<subdivision type="ars" draft="contributed">Mkoa wa Santa Fe</subdivision>
+			<subdivision type="art" draft="contributed">Mkoa wa Tucumán</subdivision>
+			<subdivision type="aru" draft="contributed">Mkoa wa Chubut</subdivision>
+			<subdivision type="arv" draft="contributed">Tierra del Fuego, Antaktiki na Visiwa vya Atlantiki Kusini</subdivision>
+			<subdivision type="arw" draft="contributed">Mkoa wa Corrientes</subdivision>
+			<subdivision type="arx" draft="contributed">Mkoa wa Córdoba</subdivision>
+			<subdivision type="ary" draft="contributed">Mkoa wa Jujuy</subdivision>
+			<subdivision type="arz" draft="contributed">Mkoa wa Santa Cruz, Argentina</subdivision>
+			<subdivision type="at2" draft="contributed">Karinthia</subdivision>
+			<subdivision type="at3" draft="contributed">Austria Chini</subdivision>
+			<subdivision type="at4" draft="contributed">Austria Juu</subdivision>
+			<subdivision type="at5" draft="contributed">Salzburg</subdivision>
+			<subdivision type="at6" draft="contributed">Steiermark</subdivision>
+			<subdivision type="at8" draft="contributed">Vorarlberg</subdivision>
+			<subdivision type="at9" draft="contributed">Vienna</subdivision>
+			<subdivision type="aunsw" draft="contributed">New South Wales</subdivision>
+			<subdivision type="aunt" draft="contributed">Northern Territory</subdivision>
+			<subdivision type="auqld" draft="contributed">Queensland</subdivision>
+			<subdivision type="ausa" draft="contributed">Australia Kusini</subdivision>
+			<subdivision type="autas" draft="contributed">Tasmania</subdivision>
+			<subdivision type="auvic" draft="contributed">Victoria</subdivision>
+			<subdivision type="auwa" draft="contributed">Australia ya Magharibi</subdivision>
+			<subdivision type="azba" draft="contributed">Baku</subdivision>
+			<subdivision type="bebru" draft="contributed">Brussels</subdivision>
+			<subdivision type="bevlg" draft="contributed">Flandria</subdivision>
+			<subdivision type="bewal" draft="contributed">Wallonia</subdivision>
+			<subdivision type="bg23" draft="contributed">Sofia</subdivision>
+			<subdivision type="bibb" draft="contributed">Mkoa wa Bubanza</subdivision>
+			<subdivision type="bibl" draft="contributed">Bujumbura Vijijini</subdivision>
+			<subdivision type="bibm" draft="contributed">Bujumbura Mjini</subdivision>
+			<subdivision type="bibr" draft="contributed">Mkoa wa Bururi</subdivision>
+			<subdivision type="bica" draft="contributed">Mkoa wa Cankuzo</subdivision>
+			<subdivision type="bici" draft="contributed">Mkoa wa Cibitoke</subdivision>
+			<subdivision type="bigi" draft="contributed">Mkoa wa Gitega</subdivision>
+			<subdivision type="biki" draft="contributed">Mkoa wa Kirundo</subdivision>
+			<subdivision type="bikr" draft="contributed">Mkoa wa Karuzi</subdivision>
+			<subdivision type="biky" draft="contributed">Mkoa wa Kayanza</subdivision>
+			<subdivision type="bima" draft="contributed">Mkoa wa Makamba</subdivision>
+			<subdivision type="bimu" draft="contributed">Mkoa wa Muramvya</subdivision>
+			<subdivision type="bimw" draft="contributed">Mkoa wa Mwaro</subdivision>
+			<subdivision type="bimy" draft="contributed">Mkoa wa Muyinga</subdivision>
+			<subdivision type="bing" draft="contributed">Mkoa wa Ngozi</subdivision>
+			<subdivision type="birt" draft="contributed">Mkoa wa Rutana</subdivision>
+			<subdivision type="biry" draft="contributed">Mkoa wa Ruyigi</subdivision>
+			<subdivision type="bob" draft="contributed">Mkoa wa Beni</subdivision>
+			<subdivision type="boc" draft="contributed">Mkoa wa Cochabamba</subdivision>
+			<subdivision type="boh" draft="contributed">Mkoa wa Chuquisaca</subdivision>
+			<subdivision type="bol" draft="contributed">Mkoa wa La Paz</subdivision>
+			<subdivision type="bon" draft="contributed">Mkoa wa Pando</subdivision>
+			<subdivision type="boo" draft="contributed">Mkoa wa Oruro</subdivision>
+			<subdivision type="bop" draft="contributed">Mkoa wa Potosí</subdivision>
+			<subdivision type="bos" draft="contributed">Mkoa wa Santa Cruz</subdivision>
+			<subdivision type="bot" draft="contributed">Mkoa wa Tarija</subdivision>
+			<subdivision type="bqbo" draft="contributed">Bonaire</subdivision>
+			<subdivision type="bqsa" draft="contributed">Saba</subdivision>
+			<subdivision type="bqse" draft="contributed">Sint Eustatius</subdivision>
+			<subdivision type="brac" draft="contributed">Acre</subdivision>
+			<subdivision type="bral" draft="contributed">Alagoas</subdivision>
+			<subdivision type="bram" draft="contributed">Amazonas</subdivision>
+			<subdivision type="brap" draft="contributed">Amapá</subdivision>
+			<subdivision type="brba" draft="contributed">Bahia</subdivision>
+			<subdivision type="brce" draft="contributed">Ceará</subdivision>
+			<subdivision type="bres" draft="contributed">Espírito Santo</subdivision>
+			<subdivision type="brgo" draft="contributed">Goiás</subdivision>
+			<subdivision type="brma" draft="contributed">Maranhão</subdivision>
+			<subdivision type="brmg" draft="contributed">Minas Gerais</subdivision>
+			<subdivision type="brms" draft="contributed">Mato Grosso do Sul</subdivision>
+			<subdivision type="brmt" draft="contributed">Mato Grosso</subdivision>
+			<subdivision type="brpa" draft="contributed">Pará</subdivision>
+			<subdivision type="brpb" draft="contributed">Paraíba</subdivision>
+			<subdivision type="brpe" draft="contributed">Pernambuco</subdivision>
+			<subdivision type="brpi" draft="contributed">Piauí</subdivision>
+			<subdivision type="brpr" draft="contributed">Paraná</subdivision>
+			<subdivision type="brrj" draft="contributed">Rio de Janeiro</subdivision>
+			<subdivision type="brrn" draft="contributed">Rio Grande do Norte</subdivision>
+			<subdivision type="brro" draft="contributed">Rondônia</subdivision>
+			<subdivision type="brrr" draft="contributed">Roraima</subdivision>
+			<subdivision type="brrs" draft="contributed">Rio Grande do Sul</subdivision>
+			<subdivision type="brsc" draft="contributed">Santa Catarina</subdivision>
+			<subdivision type="brse" draft="contributed">Sergipe</subdivision>
+			<subdivision type="brsp" draft="contributed">São Paulo</subdivision>
+			<subdivision type="brto" draft="contributed">Tocantins</subdivision>
+			<subdivision type="bwga" draft="contributed">Gaborone</subdivision>
+			<subdivision type="byhm" draft="contributed">Minsk</subdivision>
+			<subdivision type="caab" draft="contributed">Alberta</subdivision>
+			<subdivision type="cabc" draft="contributed">British Kolumbia</subdivision>
+			<subdivision type="camb" draft="contributed">Manitoba</subdivision>
+			<subdivision type="canb" draft="contributed">New Brunswick</subdivision>
+			<subdivision type="canl" draft="contributed">Newfoundland and Labrador</subdivision>
+			<subdivision type="cans" draft="contributed">Nova Scotia</subdivision>
+			<subdivision type="cant" draft="contributed">Northwest Territories</subdivision>
+			<subdivision type="canu" draft="contributed">Nunavut</subdivision>
+			<subdivision type="caon" draft="contributed">Ontario</subdivision>
+			<subdivision type="cape" draft="contributed">Prince Edward Island</subdivision>
+			<subdivision type="caqc" draft="contributed">Quebec</subdivision>
+			<subdivision type="cask" draft="contributed">Saskatchewan</subdivision>
+			<subdivision type="cayt" draft="contributed">Yukon</subdivision>
+			<subdivision type="cdbu" draft="contributed">Mkoa wa Wele Chini</subdivision>
+			<subdivision type="cdeq" draft="contributed">Mkoa wa Équateur</subdivision>
+			<subdivision type="cdhk" draft="contributed">Mkoa wa Katanga Juu</subdivision>
+			<subdivision type="cdhl" draft="contributed">Mkoa wa Lomami Juu</subdivision>
+			<subdivision type="cdhu" draft="contributed">Mkoa wa Wele Juu</subdivision>
+			<subdivision type="cdkc" draft="contributed">Mkoa wa Lulua</subdivision>
+			<subdivision type="cdke" draft="contributed">Mkoa wa Kasai Mashariki</subdivision>
+			<subdivision type="cdkn" draft="contributed">Kinshasa</subdivision>
+			<subdivision type="cdlu" draft="contributed">Mkoa wa Lualaba</subdivision>
+			<subdivision type="cdma" draft="contributed">Mkoa wa Maniema</subdivision>
+			<subdivision type="cdmo" draft="contributed">Mkoa wa Mongala</subdivision>
+			<subdivision type="cdnk" draft="contributed">Mkoa wa Kivu Kaskazini</subdivision>
+			<subdivision type="cdsa" draft="contributed">Mkoa wa Sankuru</subdivision>
+			<subdivision type="cdsk" draft="contributed">Mkoa wa Kivu Kusini</subdivision>
+			<subdivision type="cdta" draft="contributed">Mkoa wa Tanganyika</subdivision>
+			<subdivision type="cdto" draft="contributed">Mkoa wa Tshopo</subdivision>
+			<subdivision type="cdtu" draft="contributed">Mkoa wa Tshuapa</subdivision>
+			<subdivision type="cfbgf" draft="contributed">Bangui</subdivision>
+			<subdivision type="cgbzv" draft="contributed">Brazzaville</subdivision>
+			<subdivision type="chag" draft="contributed">Aargau</subdivision>
+			<subdivision type="chai" draft="contributed">Appenzell Innerrhoden</subdivision>
+			<subdivision type="char" draft="contributed">Appenzell Ausserrhoden</subdivision>
+			<subdivision type="chbe" draft="contributed">Jimbo la Bern</subdivision>
+			<subdivision type="chbl" draft="contributed">Jimbo la Basel</subdivision>
+			<subdivision type="chbs" draft="contributed">Mji wa Basel</subdivision>
+			<subdivision type="chfr" draft="contributed">Jimbo la Fribourg</subdivision>
+			<subdivision type="chge" draft="contributed">Jimbo la Geneva</subdivision>
+			<subdivision type="chgl" draft="contributed">Jimbo la Glarus</subdivision>
+			<subdivision type="chgr" draft="contributed">Graubünden</subdivision>
+			<subdivision type="chju" draft="contributed">Jimbo la Jura</subdivision>
+			<subdivision type="chlu" draft="contributed">Jimbo la Lucerne</subdivision>
+			<subdivision type="chne" draft="contributed">Jimbo la Neuchâtel</subdivision>
+			<subdivision type="chnw" draft="contributed">Nidwalden</subdivision>
+			<subdivision type="chow" draft="contributed">Obwalden</subdivision>
+			<subdivision type="chsg" draft="contributed">Jimbo la St. Gallen</subdivision>
+			<subdivision type="chsh" draft="contributed">Jimbo la Schaffhausen</subdivision>
+			<subdivision type="chso" draft="contributed">Jimbo la Solothurn</subdivision>
+			<subdivision type="chsz" draft="contributed">Jimbo la Schwyz</subdivision>
+			<subdivision type="chtg" draft="contributed">Thurgau</subdivision>
+			<subdivision type="chti" draft="contributed">Ticino</subdivision>
+			<subdivision type="chur" draft="contributed">Jimbo la Uri</subdivision>
+			<subdivision type="chvd" draft="contributed">Vaud</subdivision>
+			<subdivision type="chvs" draft="contributed">Valais</subdivision>
+			<subdivision type="chzg" draft="contributed">Jimbo la Zug</subdivision>
+			<subdivision type="chzh" draft="contributed">Jimbo la Zürich</subdivision>
+			<subdivision type="ciab" draft="contributed">Abidjan</subdivision>
+			<subdivision type="ciym" draft="contributed">Yamoussoukro</subdivision>
+			<subdivision type="cizz" draft="contributed">Mkoa wa Zanzan</subdivision>
+			<subdivision type="clap" draft="contributed">Mkoa wa Arica na Parinacota</subdivision>
+			<subdivision type="clar" draft="contributed">Mkoa wa Araucanía</subdivision>
+			<subdivision type="clat" draft="contributed">Mkoa wa Atacama</subdivision>
+			<subdivision type="clli" draft="contributed">Mkoa wa O’Higgins</subdivision>
+			<subdivision type="clll" draft="contributed">Mkoa wa Los Lagos</subdivision>
+			<subdivision type="cllr" draft="contributed">Mkoa wa Los Ríos</subdivision>
+			<subdivision type="clma" draft="contributed">Mkoa wa Magallanes na Antaktiki ya Chile</subdivision>
+			<subdivision type="clml" draft="contributed">Mkoa wa Maule</subdivision>
+			<subdivision type="clta" draft="contributed">Mkoa wa Tarapacá</subdivision>
+			<subdivision type="cnah" draft="contributed">Anhui</subdivision>
+			<subdivision type="cnbj" draft="contributed">Beijing</subdivision>
+			<subdivision type="cnfj" draft="contributed">Fujian</subdivision>
+			<subdivision type="cngd" draft="contributed">Guangdong</subdivision>
+			<subdivision type="cngs" draft="contributed">Gansu</subdivision>
+			<subdivision type="cngx" draft="contributed">Guangxi</subdivision>
+			<subdivision type="cngz" draft="contributed">Guizhou</subdivision>
+			<subdivision type="cnha" draft="contributed">Henan</subdivision>
+			<subdivision type="cnhb" draft="contributed">Hubei</subdivision>
+			<subdivision type="cnhe" draft="contributed">Hebei</subdivision>
+			<subdivision type="cnhi" draft="contributed">Hainan</subdivision>
+			<subdivision type="cnhk" draft="contributed">Hong Kong</subdivision>
+			<subdivision type="cnhl" draft="contributed">Heilongjiang</subdivision>
+			<subdivision type="cnhn" draft="contributed">Hunan</subdivision>
+			<subdivision type="cnjl" draft="contributed">Jilin</subdivision>
+			<subdivision type="cnjs" draft="contributed">Jiangsu</subdivision>
+			<subdivision type="cnjx" draft="contributed">Jiangxi</subdivision>
+			<subdivision type="cnln" draft="contributed">Liaoning</subdivision>
+			<subdivision type="cnmo" draft="contributed">Macau</subdivision>
+			<subdivision type="cnnm" draft="contributed">Mongolia ya Kichina</subdivision>
+			<subdivision type="cnnx" draft="contributed">Ningxia</subdivision>
+			<subdivision type="cnqh" draft="contributed">Qinghai</subdivision>
+			<subdivision type="cnsc" draft="contributed">Sichuan</subdivision>
+			<subdivision type="cnsd" draft="contributed">Shandong</subdivision>
+			<subdivision type="cnsh" draft="contributed">Shanghai</subdivision>
+			<subdivision type="cnsn" draft="contributed">Shaanxi</subdivision>
+			<subdivision type="cnsx" draft="contributed">Shanxi</subdivision>
+			<subdivision type="cnyn" draft="contributed">Yunnan</subdivision>
+			<subdivision type="cnzj" draft="contributed">Zhejiang</subdivision>
+			<subdivision type="codc" draft="contributed">Bogota</subdivision>
+			<subdivision type="cosap" draft="contributed">San Andrés</subdivision>
+			<subdivision type="cu99" draft="contributed">Isla de la Juventud</subdivision>
+			<subdivision type="cz10" draft="contributed">Praha</subdivision>
+			<subdivision type="debb" draft="contributed">Brandenburg</subdivision>
+			<subdivision type="debe" draft="contributed">Berlin</subdivision>
+			<subdivision type="debw" draft="contributed">Baden-Württemberg</subdivision>
+			<subdivision type="deby" draft="contributed">Bavaria</subdivision>
+			<subdivision type="dehe" draft="contributed">Hesse</subdivision>
+			<subdivision type="dehh" draft="contributed">Hamburg</subdivision>
+			<subdivision type="demv" draft="contributed">Mecklenburg-Pomerini Magharibi</subdivision>
+			<subdivision type="deni" draft="contributed">Saksonia Chini</subdivision>
+			<subdivision type="denw" draft="contributed">Rhine Kaskazini-Westfalia</subdivision>
+			<subdivision type="derp" draft="contributed">Rhine-Palatino</subdivision>
+			<subdivision type="desh" draft="contributed">Schleswig-Holstein</subdivision>
+			<subdivision type="desl" draft="contributed">Saar</subdivision>
+			<subdivision type="desn" draft="contributed">Saksonia</subdivision>
+			<subdivision type="dest" draft="contributed">Saksonia-Anhalt</subdivision>
+			<subdivision type="deth" draft="contributed">Thuringia</subdivision>
+			<subdivision type="djdj" draft="contributed">Jibuti</subdivision>
+			<subdivision type="dz01" draft="contributed">Jimbo la Adrar</subdivision>
+			<subdivision type="dz02" draft="contributed">Jimbo la Chlef</subdivision>
+			<subdivision type="dz03" draft="contributed">Jimbo la Laghouat</subdivision>
+			<subdivision type="dz04" draft="contributed">Jimbo ya Oum el-Bouaghi</subdivision>
+			<subdivision type="dz05" draft="contributed">Jimbo la Batna</subdivision>
+			<subdivision type="dz06" draft="contributed">Jimbo ya Béjaïa</subdivision>
+			<subdivision type="dz07" draft="contributed">Jimbo ya Biskra</subdivision>
+			<subdivision type="dz08" draft="contributed">Jimbo ya Béchar</subdivision>
+			<subdivision type="dz09" draft="contributed">Jimbo ya Blida</subdivision>
+			<subdivision type="dz10" draft="contributed">Jimbo ya Bouira</subdivision>
+			<subdivision type="dz11" draft="contributed">Jimbo ya Tamanghasset</subdivision>
+			<subdivision type="dz12" draft="contributed">Wilaya ya Tébessa</subdivision>
+			<subdivision type="dz14" draft="contributed">Jimbo ya Tiaret</subdivision>
+			<subdivision type="dz15" draft="contributed">Jimbo ya Tizi Ouzou</subdivision>
+			<subdivision type="dz16" draft="contributed">Jimbo ya Algiers</subdivision>
+			<subdivision type="dz17" draft="contributed">Jimbo ya Djelfa</subdivision>
+			<subdivision type="dz18" draft="contributed">Jimbo ya Jijel</subdivision>
+			<subdivision type="dz19" draft="contributed">Jimbo ya Sétif</subdivision>
+			<subdivision type="dz20" draft="contributed">Jimbo ya Saida</subdivision>
+			<subdivision type="dz21" draft="contributed">Jimbo ya Skikda</subdivision>
+			<subdivision type="dz22" draft="contributed">Jimbo ya Sidi Bel Abbes</subdivision>
+			<subdivision type="dz23" draft="contributed">Jimbo ya Annaba</subdivision>
+			<subdivision type="dz24" draft="contributed">Jimbo ya Guelma</subdivision>
+			<subdivision type="dz25" draft="contributed">Jimbo ya Constantine</subdivision>
+			<subdivision type="dz26" draft="contributed">Jimbo ya Médéa</subdivision>
+			<subdivision type="dz27" draft="contributed">Jimbo ya Mostaganem</subdivision>
+			<subdivision type="dz28" draft="contributed">Jimbo ya M’Sila</subdivision>
+			<subdivision type="dz29" draft="contributed">Jimbo ya Mascara</subdivision>
+			<subdivision type="dz30" draft="contributed">Jimbo ya Ouargla</subdivision>
+			<subdivision type="dz31" draft="contributed">Jimbo ya Oran</subdivision>
+			<subdivision type="dz32" draft="contributed">Jimbo ya El Bayadh</subdivision>
+			<subdivision type="dz33" draft="contributed">Jimbo la Illizi</subdivision>
+			<subdivision type="dz34" draft="contributed">Jimbo ya Bordj Bou Arréridj</subdivision>
+			<subdivision type="dz35" draft="contributed">Jimbo ya Boumerdès</subdivision>
+			<subdivision type="dz36" draft="contributed">Jimbo ya El Tarf</subdivision>
+			<subdivision type="dz37" draft="contributed">Jimbo ya Tindouf</subdivision>
+			<subdivision type="dz38" draft="contributed">Jimbo ya Tissemsilt</subdivision>
+			<subdivision type="dz39" draft="contributed">Jimbo ya El Oued</subdivision>
+			<subdivision type="dz40" draft="contributed">Jimbo ya Khenchela</subdivision>
+			<subdivision type="dz41" draft="contributed">Jimbo ya Souk Ahras</subdivision>
+			<subdivision type="dz42" draft="contributed">Jimbo ya Tipasa</subdivision>
+			<subdivision type="dz43" draft="contributed">Jimbo ya Mila</subdivision>
+			<subdivision type="dz44" draft="contributed">Wilaya ya Aïn Defla</subdivision>
+			<subdivision type="dz45" draft="contributed">Jimbo ya Naama</subdivision>
+			<subdivision type="dz46" draft="contributed">Jimbo ya Aïn Témouchent</subdivision>
+			<subdivision type="dz48" draft="contributed">Jimbo ya Relizane</subdivision>
+			<subdivision type="egalx" draft="contributed">Mkoa wa Aleksandria</subdivision>
+			<subdivision type="egasn" draft="contributed">Mkoa wa Aswan</subdivision>
+			<subdivision type="egast" draft="contributed">Mkoa wa Asyut</subdivision>
+			<subdivision type="egba" draft="contributed">Mkoa wa Bahari ya Shamu</subdivision>
+			<subdivision type="egbh" draft="contributed">Mkoa wa Beheira</subdivision>
+			<subdivision type="egbns" draft="contributed">Mkoa wa Beni Suef</subdivision>
+			<subdivision type="egc" draft="contributed">Mkoa wa Kairo</subdivision>
+			<subdivision type="egdk" draft="contributed">Mkoa wa Dakahlia</subdivision>
+			<subdivision type="egdt" draft="contributed">Mkoa wa Damietta</subdivision>
+			<subdivision type="egfym" draft="contributed">Mkoa wa Faiyum</subdivision>
+			<subdivision type="eggh" draft="contributed">Mkoa wa Gharbia</subdivision>
+			<subdivision type="eggz" draft="contributed">Mkoa wa Giza</subdivision>
+			<subdivision type="egis" draft="contributed">Mkoa wa Ismailia</subdivision>
+			<subdivision type="egjs" draft="contributed">Mkoa wa Sinai Kusini</subdivision>
+			<subdivision type="egkn" draft="contributed">Mkoa wa Qena</subdivision>
+			<subdivision type="eglx" draft="contributed">Mkoa wa Luxor</subdivision>
+			<subdivision type="egmn" draft="contributed">Mkoa wa Minya</subdivision>
+			<subdivision type="egmnf" draft="contributed">Mkoa wa Monufia</subdivision>
+			<subdivision type="egmt" draft="contributed">Mkoa wa Matruh</subdivision>
+			<subdivision type="egpts" draft="contributed">Mkoa wa Port Said</subdivision>
+			<subdivision type="egshg" draft="contributed">Mkoa wa Sohag</subdivision>
+			<subdivision type="egshr" draft="contributed">Mkoa wa Sharqia</subdivision>
+			<subdivision type="egsin" draft="contributed">Mkoa wa Sinai Kaskazini</subdivision>
+			<subdivision type="egsuz" draft="contributed">Mkoa wa Suez</subdivision>
+			<subdivision type="egwad" draft="contributed">Mkoa wa Bonde la Mpya</subdivision>
+			<subdivision type="eran" draft="contributed">Eneo la Anseba, Eritrea</subdivision>
+			<subdivision type="erdk" draft="contributed">Kusini Eneo la ziwa Nyekundu</subdivision>
+			<subdivision type="erdu" draft="contributed">Eneo la Kusini</subdivision>
+			<subdivision type="ergb" draft="contributed">Eneo la Gash-Barka</subdivision>
+			<subdivision type="erma" draft="contributed">Eneo ya Kati</subdivision>
+			<subdivision type="ersk" draft="contributed">Kaskazini Eneo la Ziwa Nyekundu</subdivision>
+			<subdivision type="esa" draft="contributed">Mkoa wa Alicante</subdivision>
+			<subdivision type="esal" draft="contributed">Mkoa wa Almería</subdivision>
+			<subdivision type="esan" draft="contributed">Andalusia</subdivision>
+			<subdivision type="esav" draft="contributed">Mkoa wa Ávila</subdivision>
+			<subdivision type="esb" draft="contributed">Mkoa wa Barcelona</subdivision>
+			<subdivision type="esba" draft="contributed">Mkoa wa Badajoz</subdivision>
+			<subdivision type="esbi" draft="contributed">Mkoa wa Vizcaya</subdivision>
+			<subdivision type="esbu" draft="contributed">Mkoa wa Burgos</subdivision>
+			<subdivision type="esc" draft="contributed">Mkoa wa La Coruña</subdivision>
+			<subdivision type="esca" draft="contributed">Mkoa wa Cádiz</subdivision>
+			<subdivision type="esce" draft="contributed">Ceuta</subdivision>
+			<subdivision type="esco" draft="contributed">Mkoa wa Córdoba</subdivision>
+			<subdivision type="escr" draft="contributed">Mkoa wa Ciudad Real</subdivision>
+			<subdivision type="escs" draft="contributed">Mkoa wa Castellón</subdivision>
+			<subdivision type="esct" draft="contributed">Catalonia</subdivision>
+			<subdivision type="escu" draft="contributed">Mkoa wa Cuenca</subdivision>
+			<subdivision type="esgc" draft="contributed">Mkoa wa Las Palmas</subdivision>
+			<subdivision type="esgi" draft="contributed">Mkoa wa Gerona</subdivision>
+			<subdivision type="esgr" draft="contributed">Mkoa wa Granada</subdivision>
+			<subdivision type="esgu" draft="contributed">Mkoa wa Guadalajara</subdivision>
+			<subdivision type="esh" draft="contributed">Mkoa wa Huelva</subdivision>
+			<subdivision type="eshu" draft="contributed">Mkoa wa Huesca</subdivision>
+			<subdivision type="esib" draft="contributed">Visiwa vya Baleari</subdivision>
+			<subdivision type="esj" draft="contributed">Mkoa wa Jaén</subdivision>
+			<subdivision type="esl" draft="contributed">Mkoa wa Lérida</subdivision>
+			<subdivision type="esle" draft="contributed">Mkoa wa León</subdivision>
+			<subdivision type="eslo" draft="contributed">La Rioja</subdivision>
+			<subdivision type="eslu" draft="contributed">Mkoa wa Lugo</subdivision>
+			<subdivision type="esma" draft="contributed">Mkoa wa Málaga</subdivision>
+			<subdivision type="esml" draft="contributed">Melilla</subdivision>
+			<subdivision type="esor" draft="contributed">Mkoa wa Orense</subdivision>
+			<subdivision type="esp" draft="contributed">Mkoa wa Palencia</subdivision>
+			<subdivision type="espm" draft="contributed">Visiwa vya Baleari²</subdivision>
+			<subdivision type="espo" draft="contributed">Mkoa wa Pontevedra</subdivision>
+			<subdivision type="esri" draft="contributed">La Rioja²</subdivision>
+			<subdivision type="essa" draft="contributed">Mkoa wa Salamanca</subdivision>
+			<subdivision type="esse" draft="contributed">Mkoa wa Sevilla</subdivision>
+			<subdivision type="essg" draft="contributed">Mkoa wa Segovia</subdivision>
+			<subdivision type="esso" draft="contributed">Mkoa wa Soria</subdivision>
+			<subdivision type="est" draft="contributed">Mkoa wa Tarragona</subdivision>
+			<subdivision type="este" draft="contributed">Mkoa wa Teruel</subdivision>
+			<subdivision type="estf" draft="contributed">Mkoa wa Santa Cruz de Tenerife</subdivision>
+			<subdivision type="esto" draft="contributed">Mkoa wa Toledo</subdivision>
+			<subdivision type="esv" draft="contributed">Mkoa wa Valencia</subdivision>
+			<subdivision type="esva" draft="contributed">Mkoa wa Valladolid</subdivision>
+			<subdivision type="esvi" draft="contributed">Álava</subdivision>
+			<subdivision type="esz" draft="contributed">Mkoa wa Zaragoza</subdivision>
+			<subdivision type="esza" draft="contributed">Mkoa wa Zamora</subdivision>
+			<subdivision type="etaa" draft="contributed">Addis Ababa</subdivision>
+			<subdivision type="etaf" draft="contributed">Jimbo la Afar</subdivision>
+			<subdivision type="etam" draft="contributed">Jimbo la Amhara</subdivision>
+			<subdivision type="etbe" draft="contributed">Jimbo la Benishangul-Gumuz</subdivision>
+			<subdivision type="etdd" draft="contributed">Dire Dawa</subdivision>
+			<subdivision type="etga" draft="contributed">Jimbo la Gambela</subdivision>
+			<subdivision type="etha" draft="contributed">Jimbo la Harar</subdivision>
+			<subdivision type="etor" draft="contributed">Jimbo la Oromia</subdivision>
+			<subdivision type="etsn" draft="contributed">Jimbo la Mataifa ya Kusini</subdivision>
+			<subdivision type="etso" draft="contributed">Jimbo la Somali</subdivision>
+			<subdivision type="etti" draft="contributed">Jimbo la Tigray</subdivision>
+			<subdivision type="fr01" draft="contributed">Ain</subdivision>
+			<subdivision type="fr02" draft="contributed">Aisne</subdivision>
+			<subdivision type="fr2a" draft="contributed">Corse-du-Sud</subdivision>
+			<subdivision type="fr2b" draft="contributed">Haute-Corse</subdivision>
+			<subdivision type="fr03" draft="contributed">Allier</subdivision>
+			<subdivision type="fr04" draft="contributed">Alpes-de-Haute-Provence</subdivision>
+			<subdivision type="fr05" draft="contributed">Hautes-Alpes</subdivision>
+			<subdivision type="fr06" draft="contributed">Alpes-Maritimes</subdivision>
+			<subdivision type="fr07" draft="contributed">Ardèche</subdivision>
+			<subdivision type="fr08" draft="contributed">Ardennes</subdivision>
+			<subdivision type="fr09" draft="contributed">Ariège</subdivision>
+			<subdivision type="fr10" draft="contributed">Aube</subdivision>
+			<subdivision type="fr11" draft="contributed">Aude</subdivision>
+			<subdivision type="fr12" draft="contributed">Aveyron</subdivision>
+			<subdivision type="fr13" draft="contributed">Bouches-du-Rhône</subdivision>
+			<subdivision type="fr14" draft="contributed">Calvados</subdivision>
+			<subdivision type="fr15" draft="contributed">Cantal</subdivision>
+			<subdivision type="fr16" draft="contributed">Charente</subdivision>
+			<subdivision type="fr17" draft="contributed">Charente-Maritime</subdivision>
+			<subdivision type="fr18" draft="contributed">Cher</subdivision>
+			<subdivision type="fr19" draft="contributed">Corrèze</subdivision>
+			<subdivision type="fr21" draft="contributed">Côte-d’Or</subdivision>
+			<subdivision type="fr22" draft="contributed">Côtes-d’Armor</subdivision>
+			<subdivision type="fr23" draft="contributed">Creuse</subdivision>
+			<subdivision type="fr24" draft="contributed">Dordogne</subdivision>
+			<subdivision type="fr25" draft="contributed">Doubs</subdivision>
+			<subdivision type="fr26" draft="contributed">Drôme</subdivision>
+			<subdivision type="fr27" draft="contributed">Eure</subdivision>
+			<subdivision type="fr28" draft="contributed">Eure-et-Loir</subdivision>
+			<subdivision type="fr29" draft="contributed">Finistère</subdivision>
+			<subdivision type="fr30" draft="contributed">Gard</subdivision>
+			<subdivision type="fr31" draft="contributed">Haute-Garonne</subdivision>
+			<subdivision type="fr32" draft="contributed">Gers</subdivision>
+			<subdivision type="fr33" draft="contributed">Gironde</subdivision>
+			<subdivision type="fr34" draft="contributed">Hérault</subdivision>
+			<subdivision type="fr35" draft="contributed">Ille-et-Vilaine</subdivision>
+			<subdivision type="fr36" draft="contributed">Indre</subdivision>
+			<subdivision type="fr37" draft="contributed">Indre-et-Loire</subdivision>
+			<subdivision type="fr38" draft="contributed">Isère</subdivision>
+			<subdivision type="fr39" draft="contributed">Jura</subdivision>
+			<subdivision type="fr40" draft="contributed">Landes</subdivision>
+			<subdivision type="fr41" draft="contributed">Loir-et-Cher</subdivision>
+			<subdivision type="fr42" draft="contributed">Loire</subdivision>
+			<subdivision type="fr43" draft="contributed">Haute-Loire</subdivision>
+			<subdivision type="fr44" draft="contributed">Loire-Atlantique</subdivision>
+			<subdivision type="fr45" draft="contributed">Loiret</subdivision>
+			<subdivision type="fr46" draft="contributed">Lot</subdivision>
+			<subdivision type="fr47" draft="contributed">Lot-et-Garonne</subdivision>
+			<subdivision type="fr48" draft="contributed">Lozère</subdivision>
+			<subdivision type="fr49" draft="contributed">Maine-et-Loire</subdivision>
+			<subdivision type="fr50" draft="contributed">Manche</subdivision>
+			<subdivision type="fr51" draft="contributed">Marne</subdivision>
+			<subdivision type="fr52" draft="contributed">Haute-Marne</subdivision>
+			<subdivision type="fr53" draft="contributed">Mayenne</subdivision>
+			<subdivision type="fr54" draft="contributed">Meurthe-et-Moselle</subdivision>
+			<subdivision type="fr55" draft="contributed">Meuse</subdivision>
+			<subdivision type="fr56" draft="contributed">Morbihan</subdivision>
+			<subdivision type="fr57" draft="contributed">Moselle</subdivision>
+			<subdivision type="fr58" draft="contributed">Nièvre</subdivision>
+			<subdivision type="fr59" draft="contributed">Nord</subdivision>
+			<subdivision type="fr60" draft="contributed">Oise</subdivision>
+			<subdivision type="fr61" draft="contributed">Orne</subdivision>
+			<subdivision type="fr62" draft="contributed">Pas-de-Calais</subdivision>
+			<subdivision type="fr63" draft="contributed">Puy-de-Dôme</subdivision>
+			<subdivision type="fr64" draft="contributed">Pyrénées-Atlantiques</subdivision>
+			<subdivision type="fr65" draft="contributed">Hautes-Pyrénées</subdivision>
+			<subdivision type="fr66" draft="contributed">Pyrénées-Orientales</subdivision>
+			<subdivision type="fr67" draft="contributed">Bas-Rhin</subdivision>
+			<subdivision type="fr68" draft="contributed">Haut-Rhin</subdivision>
+			<subdivision type="fr69" draft="contributed">Rhône</subdivision>
+			<subdivision type="fr70" draft="contributed">Haute-Saône</subdivision>
+			<subdivision type="fr71" draft="contributed">Saône-et-Loire</subdivision>
+			<subdivision type="fr72" draft="contributed">Sarthe</subdivision>
+			<subdivision type="fr73" draft="contributed">Savoie</subdivision>
+			<subdivision type="fr74" draft="contributed">Haute-Savoie</subdivision>
+			<subdivision type="fr75" draft="contributed">Paris</subdivision>
+			<subdivision type="fr76" draft="contributed">Seine-Maritime</subdivision>
+			<subdivision type="fr77" draft="contributed">Seine-et-Marne</subdivision>
+			<subdivision type="fr78" draft="contributed">Yvelines</subdivision>
+			<subdivision type="fr79" draft="contributed">Deux-Sèvres</subdivision>
+			<subdivision type="fr80" draft="contributed">Somme</subdivision>
+			<subdivision type="fr81" draft="contributed">Tarn</subdivision>
+			<subdivision type="fr82" draft="contributed">Tarn-et-Garonne</subdivision>
+			<subdivision type="fr83" draft="contributed">Var</subdivision>
+			<subdivision type="fr84" draft="contributed">Vaucluse</subdivision>
+			<subdivision type="fr85" draft="contributed">Vendée</subdivision>
+			<subdivision type="fr86" draft="contributed">Vienne</subdivision>
+			<subdivision type="fr87" draft="contributed">Haute-Vienne</subdivision>
+			<subdivision type="fr88" draft="contributed">Vosges</subdivision>
+			<subdivision type="fr89" draft="contributed">Yonne</subdivision>
+			<subdivision type="fr90" draft="contributed">Territoire de Belfort</subdivision>
+			<subdivision type="fr91" draft="contributed">Essonne</subdivision>
+			<subdivision type="fr92" draft="contributed">Hauts-de-Seine</subdivision>
+			<subdivision type="fr93" draft="contributed">Seine-Saint-Denis</subdivision>
+			<subdivision type="fr94" draft="contributed">Val-de-Marne</subdivision>
+			<subdivision type="fr95" draft="contributed">Val-d’Oise</subdivision>
+			<subdivision type="frara" draft="contributed">Auvergne-Rhône-Alpes</subdivision>
+			<subdivision type="frbre" draft="contributed">Bretagne</subdivision>
+			<subdivision type="frcor" draft="contributed">Korsika</subdivision>
+			<subdivision type="frcvl" draft="contributed">Mkoa wa Centre</subdivision>
+			<subdivision type="fridf" draft="contributed">Île-de-France</subdivision>
+			<subdivision type="frpac" draft="contributed">Provence-Alpes-Côte d’Azur</subdivision>
+			<subdivision type="frpdl" draft="contributed">Pays de la Loire</subdivision>
+			<subdivision type="ga1" draft="contributed">Mkoa wa Estuaire</subdivision>
+			<subdivision type="ga2" draft="contributed">Mkoa wa Haut-Ogooué</subdivision>
+			<subdivision type="ga3" draft="contributed">Mkoa wa Moyen-Ogooué</subdivision>
+			<subdivision type="ga4" draft="contributed">Mkoa wa Ngounié</subdivision>
+			<subdivision type="ga5" draft="contributed">Mkoa wa Nyanga</subdivision>
+			<subdivision type="ga6" draft="contributed">Mkoa wa Ogooué-Ivindo</subdivision>
+			<subdivision type="ga7" draft="contributed">Mkoa wa Ogooué-Lolo</subdivision>
+			<subdivision type="ga8" draft="contributed">Mkoa wa Ogooué-Maritime</subdivision>
+			<subdivision type="ga9" draft="contributed">Mkoa wa Woleu-Ntem</subdivision>
+			<subdivision type="gbabe" draft="contributed">Aberdeen</subdivision>
+			<subdivision type="gbbir" draft="contributed">Birmingham</subdivision>
+			<subdivision type="gbbmh" draft="contributed">Bournemouth</subdivision>
+			<subdivision type="gbbpl" draft="contributed">Blackpool</subdivision>
+			<subdivision type="gbbst" draft="contributed">Bristol</subdivision>
+			<subdivision type="gbcov" draft="contributed">Coventry</subdivision>
+			<subdivision type="gbcrf" draft="contributed">Cardiff</subdivision>
+			<subdivision type="gbder" draft="contributed">Derby</subdivision>
+			<subdivision type="gbedh" draft="contributed">Edinburgh</subdivision>
+			<subdivision type="gbeng">Uingereza</subdivision>
+			<subdivision type="gbgbn" draft="contributed">Britania</subdivision>
+			<subdivision type="gbglg" draft="contributed">Glasgow</subdivision>
+			<subdivision type="gbkhl" draft="contributed">Kingston upon Hull</subdivision>
+			<subdivision type="gblce" draft="contributed">Leicester</subdivision>
+			<subdivision type="gbliv" draft="contributed">Liverpool</subdivision>
+			<subdivision type="gblnd" draft="contributed">London</subdivision>
+			<subdivision type="gblut" draft="contributed">Luton</subdivision>
+			<subdivision type="gbman" draft="contributed">Manchester</subdivision>
+			<subdivision type="gbmdb" draft="contributed">Middlesbrough</subdivision>
+			<subdivision type="gbnet" draft="contributed">Newcastle upon Tyne</subdivision>
+			<subdivision type="gbnfk" draft="contributed">Norfolk</subdivision>
+			<subdivision type="gbngm" draft="contributed">Nottingham</subdivision>
+			<subdivision type="gbnir" draft="contributed">Eire ya Kaskazini</subdivision>
+			<subdivision type="gbork" draft="contributed">Visiwa vya Orkney</subdivision>
+			<subdivision type="gboxf" draft="contributed">Oxford</subdivision>
+			<subdivision type="gbply" draft="contributed">Plymouth</subdivision>
+			<subdivision type="gbpol" draft="contributed">Poole</subdivision>
+			<subdivision type="gbpor" draft="contributed">Portsmouth</subdivision>
+			<subdivision type="gbpte" draft="contributed">Peterborough</subdivision>
+			<subdivision type="gbrdg" draft="contributed">Reading</subdivision>
+			<subdivision type="gbsct">Uskoti</subdivision>
+			<subdivision type="gbshf" draft="contributed">Sheffield</subdivision>
+			<subdivision type="gbsth" draft="contributed">Southampton</subdivision>
+			<subdivision type="gbukm" draft="contributed">Ufalme wa Muungano</subdivision>
+			<subdivision type="gbwls">Welisi</subdivision>
+			<subdivision type="gbyor" draft="contributed">York</subdivision>
+			<subdivision type="gbzet" draft="contributed">Visiwa vya Shetland</subdivision>
+			<subdivision type="geab" draft="contributed">Abkhazia</subdivision>
+			<subdivision type="getb" draft="contributed">Tbilisi</subdivision>
+			<subdivision type="gmb" draft="contributed">Banjul</subdivision>
+			<subdivision type="gnc" draft="contributed">Conakry</subdivision>
+			<subdivision type="gwbs" draft="contributed">Bisau</subdivision>
+			<subdivision type="hr21" draft="contributed">Zagreb</subdivision>
+			<subdivision type="huba" draft="contributed">Baranya</subdivision>
+			<subdivision type="hubc" draft="contributed">Békéscsaba</subdivision>
+			<subdivision type="hube" draft="contributed">Békés</subdivision>
+			<subdivision type="hubk" draft="contributed">Bács-Kiskun</subdivision>
+			<subdivision type="hubu" draft="contributed">Budapest</subdivision>
+			<subdivision type="hubz" draft="contributed">Borsod-Abaúj-Zemplén</subdivision>
+			<subdivision type="hucs" draft="contributed">Csongrád</subdivision>
+			<subdivision type="hude" draft="contributed">Debrecen</subdivision>
+			<subdivision type="hueg" draft="contributed">Eger</subdivision>
+			<subdivision type="hufe" draft="contributed">Fejér</subdivision>
+			<subdivision type="hugs" draft="contributed">Győr-Moson-Sopron</subdivision>
+			<subdivision type="hugy" draft="contributed">Győr</subdivision>
+			<subdivision type="huhb" draft="contributed">Hajdú-Bihar</subdivision>
+			<subdivision type="huhe" draft="contributed">Heves</subdivision>
+			<subdivision type="hujn" draft="contributed">Jász-Nagykun-Szolnok</subdivision>
+			<subdivision type="huke" draft="contributed">Komárom-Esztergom</subdivision>
+			<subdivision type="hukm" draft="contributed">Kecskemét</subdivision>
+			<subdivision type="hukv" draft="contributed">Kaposvár</subdivision>
+			<subdivision type="humi" draft="contributed">Miskolc</subdivision>
+			<subdivision type="huno" draft="contributed">Nógrád</subdivision>
+			<subdivision type="huny" draft="contributed">Nyíregyháza</subdivision>
+			<subdivision type="hupe" draft="contributed">Pest</subdivision>
+			<subdivision type="hups" draft="contributed">Pécs</subdivision>
+			<subdivision type="husd" draft="contributed">Szeged</subdivision>
+			<subdivision type="husf" draft="contributed">Székesfehérvár</subdivision>
+			<subdivision type="hush" draft="contributed">Szombathely</subdivision>
+			<subdivision type="husk" draft="contributed">Szolnok</subdivision>
+			<subdivision type="huso" draft="contributed">Somogy</subdivision>
+			<subdivision type="huss" draft="contributed">Szekszárd</subdivision>
+			<subdivision type="hust" draft="contributed">Salgótarján</subdivision>
+			<subdivision type="husz" draft="contributed">Szabolcs-Szatmár-Bereg</subdivision>
+			<subdivision type="hutb" draft="contributed">Tatabánya</subdivision>
+			<subdivision type="huto" draft="contributed">Tolna</subdivision>
+			<subdivision type="huva" draft="contributed">Vas</subdivision>
+			<subdivision type="huve" draft="contributed">Veszprém</subdivision>
+			<subdivision type="huvm" draft="contributed">Veszprém²</subdivision>
+			<subdivision type="huza" draft="contributed">Zala</subdivision>
+			<subdivision type="huze" draft="contributed">Zalaegerszeg</subdivision>
+			<subdivision type="idac" draft="contributed">Aceh</subdivision>
+			<subdivision type="idba" draft="contributed">Bali</subdivision>
+			<subdivision type="idjk" draft="contributed">Jakarta</subdivision>
+			<subdivision type="idjt" draft="contributed">Jawa Tengah</subdivision>
+			<subdivision type="idjw" draft="contributed">Java</subdivision>
+			<subdivision type="idka" draft="contributed">Kalimantan</subdivision>
+			<subdivision type="idsl" draft="contributed">Sulawesi</subdivision>
+			<subdivision type="idsm" draft="contributed">Sumatra</subdivision>
+			<subdivision type="idyo" draft="contributed">Yogyakarta</subdivision>
+			<subdivision type="iece" draft="contributed">Wilaya ya Clare</subdivision>
+			<subdivision type="iecn" draft="contributed">Wilaya ya Cavan</subdivision>
+			<subdivision type="ieco" draft="contributed">Wilaya ya Cork</subdivision>
+			<subdivision type="iecw" draft="contributed">Wilaya ya Carlow</subdivision>
+			<subdivision type="iedl" draft="contributed">Wilaya ya Donegal</subdivision>
+			<subdivision type="ieg" draft="contributed">Wilaya ya Galway</subdivision>
+			<subdivision type="ieke" draft="contributed">Wilaya ya Kildare</subdivision>
+			<subdivision type="iekk" draft="contributed">Wilaya ya Kilkenny</subdivision>
+			<subdivision type="ieky" draft="contributed">Wilaya ya Kerry</subdivision>
+			<subdivision type="ield" draft="contributed">Wilaya ya Longford</subdivision>
+			<subdivision type="ielh" draft="contributed">Wilaya ya Louth</subdivision>
+			<subdivision type="ielk" draft="contributed">Wilaya ya Limerick</subdivision>
+			<subdivision type="ielm" draft="contributed">Wilaya ya Leitrim</subdivision>
+			<subdivision type="iels" draft="contributed">Wilaya ya Laois</subdivision>
+			<subdivision type="iemh" draft="contributed">Wilaya ya Meath</subdivision>
+			<subdivision type="iemn" draft="contributed">Wilaya ya Monaghan</subdivision>
+			<subdivision type="iemo" draft="contributed">Wilaya ya Mayo</subdivision>
+			<subdivision type="ieoy" draft="contributed">Wilaya ya Offaly</subdivision>
+			<subdivision type="iern" draft="contributed">Wilaya ya Roscommon</subdivision>
+			<subdivision type="ieso" draft="contributed">Wilaya ya Sligo</subdivision>
+			<subdivision type="ieta" draft="contributed">Wilaya ya Tipperary</subdivision>
+			<subdivision type="iewd" draft="contributed">Wilaya ya Waterford</subdivision>
+			<subdivision type="iewh" draft="contributed">Wilaya ya Westmeath</subdivision>
+			<subdivision type="ieww" draft="contributed">Wilaya ya Wicklow</subdivision>
+			<subdivision type="iewx" draft="contributed">Wilaya ya Wexford</subdivision>
+			<subdivision type="inan" draft="contributed">Visiwa vya Andaman na Nicobar</subdivision>
+			<subdivision type="inap" draft="contributed">Andhra Pradesh</subdivision>
+			<subdivision type="inar" draft="contributed">Arunachal Pradesh</subdivision>
+			<subdivision type="inas" draft="contributed">Assam</subdivision>
+			<subdivision type="inbr" draft="contributed">Bihar</subdivision>
+			<subdivision type="inch" draft="contributed">Chandigarh</subdivision>
+			<subdivision type="inct" draft="contributed">Chhattisgarh</subdivision>
+			<subdivision type="indd" draft="contributed">Daman na Diu</subdivision>
+			<subdivision type="indl" draft="contributed">Delhi</subdivision>
+			<subdivision type="indn" draft="contributed">Dadra na Nagar Haveli</subdivision>
+			<subdivision type="inga" draft="contributed">Goa</subdivision>
+			<subdivision type="ingj" draft="contributed">Gujarat</subdivision>
+			<subdivision type="inhp" draft="contributed">Himachal Pradesh</subdivision>
+			<subdivision type="inhr" draft="contributed">Haryana</subdivision>
+			<subdivision type="injh" draft="contributed">Jharkhand</subdivision>
+			<subdivision type="inka" draft="contributed">Karnataka</subdivision>
+			<subdivision type="inkl" draft="contributed">Kerala</subdivision>
+			<subdivision type="inld" draft="contributed">Lakshadweep</subdivision>
+			<subdivision type="inmh" draft="contributed">Maharashtra</subdivision>
+			<subdivision type="inml" draft="contributed">Meghalaya</subdivision>
+			<subdivision type="inmn" draft="contributed">Manipur</subdivision>
+			<subdivision type="inmp" draft="contributed">Madhya Pradesh</subdivision>
+			<subdivision type="inmz" draft="contributed">Mizoram</subdivision>
+			<subdivision type="innl" draft="contributed">Nagaland</subdivision>
+			<subdivision type="inor" draft="contributed">Orissa</subdivision>
+			<subdivision type="inpb" draft="contributed">Punjab</subdivision>
+			<subdivision type="inpy" draft="contributed">Puducherry</subdivision>
+			<subdivision type="inrj" draft="contributed">Rajasthan</subdivision>
+			<subdivision type="insk" draft="contributed">Sikkim</subdivision>
+			<subdivision type="intg" draft="contributed">Telangana</subdivision>
+			<subdivision type="intn" draft="contributed">Tamil Nadu</subdivision>
+			<subdivision type="intr" draft="contributed">Tripura</subdivision>
+			<subdivision type="inup" draft="contributed">Uttar Pradesh</subdivision>
+			<subdivision type="inut" draft="contributed">Uttarakhand</subdivision>
+			<subdivision type="inwb" draft="contributed">West Bengal</subdivision>
+			<subdivision type="ir13" draft="contributed">Mkoa wa Sistan na Baluchistan</subdivision>
+			<subdivision type="ir23" draft="contributed">Mkoa wa Hormozgan</subdivision>
+			<subdivision type="it21" draft="contributed">Piemonte</subdivision>
+			<subdivision type="it23" draft="contributed">Valle d’Aosta</subdivision>
+			<subdivision type="it25" draft="contributed">Lombardia</subdivision>
+			<subdivision type="it32" draft="contributed">Trentino-Alto Adige</subdivision>
+			<subdivision type="it34" draft="contributed">Veneto</subdivision>
+			<subdivision type="it36" draft="contributed">Friuli-Venezia Giulia</subdivision>
+			<subdivision type="it42" draft="contributed">Liguria</subdivision>
+			<subdivision type="it45" draft="contributed">Emilia-Romagna</subdivision>
+			<subdivision type="it52" draft="contributed">Toscana</subdivision>
+			<subdivision type="it55" draft="contributed">Umbria</subdivision>
+			<subdivision type="it57" draft="contributed">Marche</subdivision>
+			<subdivision type="it62" draft="contributed">Lazio</subdivision>
+			<subdivision type="it65" draft="contributed">Abruzzo</subdivision>
+			<subdivision type="it67" draft="contributed">Molise</subdivision>
+			<subdivision type="it72" draft="contributed">Campania</subdivision>
+			<subdivision type="it75" draft="contributed">Puglia</subdivision>
+			<subdivision type="it77" draft="contributed">Basilicata</subdivision>
+			<subdivision type="it78" draft="contributed">Calabria</subdivision>
+			<subdivision type="it82" draft="contributed">Sisilia</subdivision>
+			<subdivision type="it88" draft="contributed">Sardinia</subdivision>
+			<subdivision type="itao" draft="contributed">Aosta</subdivision>
+			<subdivision type="jp01" draft="contributed">Mkoa wa Hokkaidō</subdivision>
+			<subdivision type="jp02" draft="contributed">Mkoa wa Aomori</subdivision>
+			<subdivision type="jp03" draft="contributed">Mkoa wa Iwate</subdivision>
+			<subdivision type="jp04" draft="contributed">Mkoa wa Miyagi</subdivision>
+			<subdivision type="jp05" draft="contributed">Mkoa wa Akita</subdivision>
+			<subdivision type="jp06" draft="contributed">Mkoa wa Yamagata</subdivision>
+			<subdivision type="jp07" draft="contributed">Mkoa wa Fukushima</subdivision>
+			<subdivision type="jp08" draft="contributed">Mkoa wa Ibaraki</subdivision>
+			<subdivision type="jp09" draft="contributed">Mkoa wa Tochigi</subdivision>
+			<subdivision type="jp10" draft="contributed">Mkoa wa Gunma</subdivision>
+			<subdivision type="jp11" draft="contributed">Mkoa wa Saitama</subdivision>
+			<subdivision type="jp12" draft="contributed">Mkoa wa Chiba</subdivision>
+			<subdivision type="jp13" draft="contributed">Tokyo</subdivision>
+			<subdivision type="jp14" draft="contributed">Mkoa wa Kanagawa</subdivision>
+			<subdivision type="jp15" draft="contributed">Mkoa wa Niigata</subdivision>
+			<subdivision type="jp16" draft="contributed">Mkoa wa Toyama</subdivision>
+			<subdivision type="jp17" draft="contributed">Mkoa wa Ishikawa</subdivision>
+			<subdivision type="jp18" draft="contributed">Mkoa wa Fukui</subdivision>
+			<subdivision type="jp19" draft="contributed">Mkoa wa Yamanashi</subdivision>
+			<subdivision type="jp20" draft="contributed">Mkoa wa Nagano</subdivision>
+			<subdivision type="jp21" draft="contributed">Mkoa wa Gifu</subdivision>
+			<subdivision type="jp22" draft="contributed">Mkoa wa Shizuoka</subdivision>
+			<subdivision type="jp23" draft="contributed">Mkoa wa Aichi</subdivision>
+			<subdivision type="jp24" draft="contributed">Mkoa wa Mie</subdivision>
+			<subdivision type="jp25" draft="contributed">Mkoa wa Shiga</subdivision>
+			<subdivision type="jp26" draft="contributed">Mkoa wa Kyoto</subdivision>
+			<subdivision type="jp27" draft="contributed">Mkoa wa Osaka</subdivision>
+			<subdivision type="jp28" draft="contributed">Mkoa wa Hyogo</subdivision>
+			<subdivision type="jp29" draft="contributed">Mkoa wa Nara</subdivision>
+			<subdivision type="jp30" draft="contributed">Mkoa wa Wakayama</subdivision>
+			<subdivision type="jp31" draft="contributed">Mkoa wa Tottori</subdivision>
+			<subdivision type="jp32" draft="contributed">Mkoa wa Shimane</subdivision>
+			<subdivision type="jp33" draft="contributed">Mkoa wa Okayama</subdivision>
+			<subdivision type="jp34" draft="contributed">Mkoa wa Hiroshima</subdivision>
+			<subdivision type="jp35" draft="contributed">Mkoa wa Yamaguchi</subdivision>
+			<subdivision type="jp36" draft="contributed">Mkoa wa Tokushima</subdivision>
+			<subdivision type="jp37" draft="contributed">Mkoa wa Kagawa</subdivision>
+			<subdivision type="jp38" draft="contributed">Mkoa wa Ehime</subdivision>
+			<subdivision type="jp39" draft="contributed">Mkoa wa Kochi</subdivision>
+			<subdivision type="jp40" draft="contributed">Mkoa wa Fukuoka</subdivision>
+			<subdivision type="jp41" draft="contributed">Mkoa wa Saga</subdivision>
+			<subdivision type="jp42" draft="contributed">Mkoa wa Nagasaki</subdivision>
+			<subdivision type="jp43" draft="contributed">Mkoa wa Kumamoto</subdivision>
+			<subdivision type="jp44" draft="contributed">Mkoa wa Ōita</subdivision>
+			<subdivision type="jp45" draft="contributed">Mkoa wa Miyazaki</subdivision>
+			<subdivision type="jp46" draft="contributed">Mkoa wa Kagoshima</subdivision>
+			<subdivision type="jp47" draft="contributed">Mkoa wa Okinawa</subdivision>
+			<subdivision type="ke01" draft="contributed">Wilaya ya Baringo</subdivision>
+			<subdivision type="ke02" draft="contributed">Wilaya ya Bomet</subdivision>
+			<subdivision type="ke03" draft="contributed">Wilaya ya Bungoma</subdivision>
+			<subdivision type="ke04" draft="contributed">Wilaya ya Busia, Kenya</subdivision>
+			<subdivision type="ke06" draft="contributed">Wilaya ya Embu</subdivision>
+			<subdivision type="ke07" draft="contributed">Wilaya ya Garissa</subdivision>
+			<subdivision type="ke08" draft="contributed">Wilaya ya Homa Bay</subdivision>
+			<subdivision type="ke09" draft="contributed">Wilaya ya Isiolo</subdivision>
+			<subdivision type="ke10" draft="contributed">Wilaya ya Kajiado</subdivision>
+			<subdivision type="ke11" draft="contributed">Wilaya ya Kakamega</subdivision>
+			<subdivision type="ke12" draft="contributed">Wilaya ya Kericho</subdivision>
+			<subdivision type="ke13" draft="contributed">Wilaya ya Kiambu</subdivision>
+			<subdivision type="ke14" draft="contributed">Wilaya ya Kilifi</subdivision>
+			<subdivision type="ke15" draft="contributed">Wilaya ya Kirinyaga</subdivision>
+			<subdivision type="ke16" draft="contributed">Wilaya ya Kisii Kati</subdivision>
+			<subdivision type="ke17" draft="contributed">Wilaya ya Kisumu</subdivision>
+			<subdivision type="ke18" draft="contributed">Wilaya ya Kitui</subdivision>
+			<subdivision type="ke19" draft="contributed">Wilaya ya Kwale</subdivision>
+			<subdivision type="ke20" draft="contributed">Wilaya ya Laikipia</subdivision>
+			<subdivision type="ke21" draft="contributed">Wilaya ya Lamu</subdivision>
+			<subdivision type="ke22" draft="contributed">Wilaya ya Machakos</subdivision>
+			<subdivision type="ke23" draft="contributed">Wilaya ya Makueni</subdivision>
+			<subdivision type="ke24" draft="contributed">Wilaya ya Mandera</subdivision>
+			<subdivision type="ke25" draft="contributed">Wilaya ya Marsabit</subdivision>
+			<subdivision type="ke26" draft="contributed">Kaunti ya Meru</subdivision>
+			<subdivision type="ke27" draft="contributed">Wilaya ya Migori</subdivision>
+			<subdivision type="ke28" draft="contributed">Wilaya ya Mombasa</subdivision>
+			<subdivision type="ke29" draft="contributed">Wilaya ya Murang’a</subdivision>
+			<subdivision type="ke31" draft="contributed">Wilaya ya Nakuru</subdivision>
+			<subdivision type="ke32" draft="contributed">Wilaya ya Nandi</subdivision>
+			<subdivision type="ke33" draft="contributed">Wilaya ya Narok</subdivision>
+			<subdivision type="ke34" draft="contributed">Wilaya ya Nyamira</subdivision>
+			<subdivision type="ke35" draft="contributed">Wilaya ya Nyandarua</subdivision>
+			<subdivision type="ke36" draft="contributed">Wilaya ya Nyeri</subdivision>
+			<subdivision type="ke37" draft="contributed">Wilaya ya Samburu</subdivision>
+			<subdivision type="ke38" draft="contributed">Wilaya ya Siaya</subdivision>
+			<subdivision type="ke39" draft="contributed">Wilaya ya Taita-Taveta</subdivision>
+			<subdivision type="ke40" draft="contributed">Wilaya ya Mto Tana</subdivision>
+			<subdivision type="ke41" draft="contributed">Wilaya ya Tharaka</subdivision>
+			<subdivision type="ke42" draft="contributed">Wilaya ya Trans-Nzoia</subdivision>
+			<subdivision type="ke43" draft="contributed">Wilaya ya Turkana</subdivision>
+			<subdivision type="ke44" draft="contributed">Wilaya ya Uasin Gishu</subdivision>
+			<subdivision type="ke45" draft="contributed">Wilaya ya Vihiga</subdivision>
+			<subdivision type="ke46" draft="contributed">Wilaya ya Wajir</subdivision>
+			<subdivision type="ke47" draft="contributed">Wilaya ya Pokot Magharibi</subdivision>
+			<subdivision type="kggb" draft="contributed">Bishkek</subdivision>
+			<subdivision type="kh12" draft="contributed">Phnom Penh</subdivision>
+			<subdivision type="kma" draft="contributed">Anjouan</subdivision>
+			<subdivision type="kmg" draft="contributed">Ngazija</subdivision>
+			<subdivision type="kmm" draft="contributed">Moheli</subdivision>
+			<subdivision type="kp01" draft="contributed">Pyongyang</subdivision>
+			<subdivision type="kp14" draft="contributed">Nampho</subdivision>
+			<subdivision type="kr11" draft="contributed">Seoul</subdivision>
+			<subdivision type="kr26" draft="contributed">Busan</subdivision>
+			<subdivision type="kr27" draft="contributed">Daegu</subdivision>
+			<subdivision type="kr28" draft="contributed">Incheon</subdivision>
+			<subdivision type="kr29" draft="contributed">Gwangju</subdivision>
+			<subdivision type="kr30" draft="contributed">Daejeon</subdivision>
+			<subdivision type="kr31" draft="contributed">Ulsan</subdivision>
+			<subdivision type="kr41" draft="contributed">Gyeonggi-do</subdivision>
+			<subdivision type="kr42" draft="contributed">Gangwon-do</subdivision>
+			<subdivision type="kr43" draft="contributed">Chungcheongbuk-do</subdivision>
+			<subdivision type="kr44" draft="contributed">Chungcheongnam-do</subdivision>
+			<subdivision type="kr45" draft="contributed">Jeollabuk-do</subdivision>
+			<subdivision type="kr46" draft="contributed">Jeollanam-do</subdivision>
+			<subdivision type="kr47" draft="contributed">Gyeongsangbuk-do</subdivision>
+			<subdivision type="kr48" draft="contributed">Gyeongsangnam-do</subdivision>
+			<subdivision type="kr49" draft="contributed">Jeju-do</subdivision>
+			<subdivision type="kzala" draft="contributed">Almaty</subdivision>
+			<subdivision type="kzast" draft="contributed">Astana</subdivision>
+			<subdivision type="li11" draft="contributed">Vaduz</subdivision>
+			<subdivision type="ltal" draft="contributed">Wilaya ya Alytus</subdivision>
+			<subdivision type="ltkl" draft="contributed">Wilaya ya Klaipėda</subdivision>
+			<subdivision type="ltku" draft="contributed">Wilaya ya Kaunas</subdivision>
+			<subdivision type="ltmr" draft="contributed">Wilaya ya Marijampolė</subdivision>
+			<subdivision type="ltpn" draft="contributed">Wilaya ya Panevėžys</subdivision>
+			<subdivision type="ltsa" draft="contributed">Wilaya ya Šiauliai</subdivision>
+			<subdivision type="ltta" draft="contributed">Wilaya ya Tauragė</subdivision>
+			<subdivision type="ltte" draft="contributed">Wilaya ya Telšiai</subdivision>
+			<subdivision type="ltut" draft="contributed">Wilaya ya Utena</subdivision>
+			<subdivision type="ltvl" draft="contributed">Wilaya ya Vilnius</subdivision>
+			<subdivision type="lvrix" draft="contributed">Riga</subdivision>
+			<subdivision type="macas" draft="contributed">Casablanca</subdivision>
+			<subdivision type="mafes" draft="contributed">Fes</subdivision>
+			<subdivision type="marab" draft="contributed">Rabat</subdivision>
+			<subdivision type="masal" draft="contributed">Sale</subdivision>
+			<subdivision type="mdba" draft="contributed">Bălţi</subdivision>
+			<subdivision type="mdbd" draft="contributed">Bender</subdivision>
+			<subdivision type="mdcu" draft="contributed">Kishineu</subdivision>
+			<subdivision type="mhmaj" draft="contributed">Majuro</subdivision>
+			<subdivision type="mk85" draft="contributed">Skopje</subdivision>
+			<subdivision type="mlbko" draft="contributed">Bamako</subdivision>
+			<subdivision type="mm16" draft="contributed">Dola la Rakhaing</subdivision>
+			<subdivision type="mn1" draft="contributed">Ulaanbaatar</subdivision>
+			<subdivision type="mt21" draft="contributed">Kalkara</subdivision>
+			<subdivision type="mt60" draft="contributed">Valletta</subdivision>
+			<subdivision type="muag" draft="contributed">Agalega</subdivision>
+			<subdivision type="mucc" draft="contributed">Cargados Carajos</subdivision>
+			<subdivision type="mupu" draft="contributed">Port Louis</subdivision>
+			<subdivision type="muro" draft="contributed">Rodrigues</subdivision>
+			<subdivision type="mvmle" draft="contributed">Malé</subdivision>
+			<subdivision type="mxagu" draft="contributed">Aguascalientes</subdivision>
+			<subdivision type="mxbcn" draft="contributed">Baja California</subdivision>
+			<subdivision type="mxbcs" draft="contributed">Baja California Sur</subdivision>
+			<subdivision type="mxcam" draft="contributed">Campeche</subdivision>
+			<subdivision type="mxchh" draft="contributed">Chihuahua</subdivision>
+			<subdivision type="mxchp" draft="contributed">Chiapas</subdivision>
+			<subdivision type="mxcmx" draft="contributed">Mexico</subdivision>
+			<subdivision type="mxcoa" draft="contributed">Coahuila</subdivision>
+			<subdivision type="mxcol" draft="contributed">Colima</subdivision>
+			<subdivision type="mxdur" draft="contributed">Durango</subdivision>
+			<subdivision type="mxgro" draft="contributed">Guerrero</subdivision>
+			<subdivision type="mxgua" draft="contributed">Guanajuato</subdivision>
+			<subdivision type="mxhid" draft="contributed">Hidalgo</subdivision>
+			<subdivision type="mxjal" draft="contributed">Jalisco</subdivision>
+			<subdivision type="mxmex" draft="contributed">Mexico²</subdivision>
+			<subdivision type="mxmic" draft="contributed">Michoacán</subdivision>
+			<subdivision type="mxmor" draft="contributed">Morelos</subdivision>
+			<subdivision type="mxnay" draft="contributed">Nayarit</subdivision>
+			<subdivision type="mxnle" draft="contributed">Nuevo León</subdivision>
+			<subdivision type="mxoax" draft="contributed">Oaxaca</subdivision>
+			<subdivision type="mxpue" draft="contributed">Puebla</subdivision>
+			<subdivision type="mxque" draft="contributed">Querétaro</subdivision>
+			<subdivision type="mxroo" draft="contributed">Quintana Roo</subdivision>
+			<subdivision type="mxsin" draft="contributed">Sinaloa</subdivision>
+			<subdivision type="mxslp" draft="contributed">San Luis Potosí</subdivision>
+			<subdivision type="mxson" draft="contributed">Sonora</subdivision>
+			<subdivision type="mxtab" draft="contributed">Tabasco</subdivision>
+			<subdivision type="mxtam" draft="contributed">Tamaulipas</subdivision>
+			<subdivision type="mxtla" draft="contributed">Tlaxcala</subdivision>
+			<subdivision type="mxver" draft="contributed">Veracruz</subdivision>
+			<subdivision type="mxyuc" draft="contributed">Yucatán</subdivision>
+			<subdivision type="mxzac" draft="contributed">Zacatecas</subdivision>
+			<subdivision type="my12" draft="contributed">Sabah</subdivision>
+			<subdivision type="my13" draft="contributed">Sarawak</subdivision>
+			<subdivision type="my14" draft="contributed">Kuala Lumpur</subdivision>
+			<subdivision type="my16" draft="contributed">Putrajaya</subdivision>
+			<subdivision type="mza" draft="contributed">Mkoa wa Niassa</subdivision>
+			<subdivision type="mzb" draft="contributed">Mkoa wa Manica</subdivision>
+			<subdivision type="mzg" draft="contributed">Mkoa wa Gaza</subdivision>
+			<subdivision type="mzi" draft="contributed">Mkoa wa Inhambane</subdivision>
+			<subdivision type="mzl" draft="contributed">Mkoa wa Maputo</subdivision>
+			<subdivision type="mzmpm" draft="contributed">Maputo</subdivision>
+			<subdivision type="mzn" draft="contributed">Mkoa wa Nampula</subdivision>
+			<subdivision type="mzp" draft="contributed">Mkoa wa Cabo Delgado</subdivision>
+			<subdivision type="mzq" draft="contributed">Mkoa wa Zambezia</subdivision>
+			<subdivision type="mzs" draft="contributed">Mkoa wa Sofala</subdivision>
+			<subdivision type="mzt" draft="contributed">Mkoa wa Tete</subdivision>
+			<subdivision type="naca" draft="contributed">Mkoa wa Caprivi</subdivision>
+			<subdivision type="naer" draft="contributed">Mkoa wa Erongo</subdivision>
+			<subdivision type="naha" draft="contributed">Mkoa wa Hardap</subdivision>
+			<subdivision type="naka" draft="contributed">Mkoa wa Karas</subdivision>
+			<subdivision type="nakh" draft="contributed">Mkoa wa Khomas</subdivision>
+			<subdivision type="naku" draft="contributed">Mkoa wa Kunene</subdivision>
+			<subdivision type="naod" draft="contributed">Mkoa wa Otjozondjupa</subdivision>
+			<subdivision type="naoh" draft="contributed">Mkoa wa Omaheke</subdivision>
+			<subdivision type="naon" draft="contributed">Mkoa wa Oshana</subdivision>
+			<subdivision type="naos" draft="contributed">Mkoa wa Omusati</subdivision>
+			<subdivision type="naot" draft="contributed">Mkoa wa Oshikoto</subdivision>
+			<subdivision type="naow" draft="contributed">Mkoa wa Ohangwena</subdivision>
+			<subdivision type="ne8" draft="contributed">Niamey</subdivision>
+			<subdivision type="ngab" draft="contributed">Abia (jimbo)</subdivision>
+			<subdivision type="ngad" draft="contributed">Adamawa</subdivision>
+			<subdivision type="ngak" draft="contributed">Akwa Ibom (jimbo)</subdivision>
+			<subdivision type="ngan" draft="contributed">Jimbo la Anambra</subdivision>
+			<subdivision type="ngba" draft="contributed">Jimbo la Bauchi</subdivision>
+			<subdivision type="ngbe" draft="contributed">Jimbo la Benue</subdivision>
+			<subdivision type="ngbo" draft="contributed">Borno</subdivision>
+			<subdivision type="ngby" draft="contributed">Jimbo la Bayelsa</subdivision>
+			<subdivision type="ngcr" draft="contributed">Jimbo la Cross River</subdivision>
+			<subdivision type="ngde" draft="contributed">Delta</subdivision>
+			<subdivision type="ngeb" draft="contributed">Jimbo la Ebonyi</subdivision>
+			<subdivision type="nged" draft="contributed">Jimbo la Edo</subdivision>
+			<subdivision type="ngek" draft="contributed">Jimbo la Ekiti</subdivision>
+			<subdivision type="ngen" draft="contributed">Jimbo la Enugu</subdivision>
+			<subdivision type="ngfc" draft="contributed">Federal Capital Territory</subdivision>
+			<subdivision type="nggo" draft="contributed">Jimbo la Gombe</subdivision>
+			<subdivision type="ngim" draft="contributed">Jimbo la Imo</subdivision>
+			<subdivision type="ngji" draft="contributed">Jigawa</subdivision>
+			<subdivision type="ngkd" draft="contributed">Kaduna</subdivision>
+			<subdivision type="ngke" draft="contributed">Kebbi</subdivision>
+			<subdivision type="ngkn" draft="contributed">Kano</subdivision>
+			<subdivision type="ngko" draft="contributed">Kogi</subdivision>
+			<subdivision type="ngkt" draft="contributed">Katsina</subdivision>
+			<subdivision type="ngkw" draft="contributed">Kwara</subdivision>
+			<subdivision type="ngla" draft="contributed">Jimbo la Lagos</subdivision>
+			<subdivision type="ngna" draft="contributed">Jimbo la Nasarawa</subdivision>
+			<subdivision type="ngni" draft="contributed">Jimbo la Niger</subdivision>
+			<subdivision type="ngog" draft="contributed">Jimbo la Ogun</subdivision>
+			<subdivision type="ngon" draft="contributed">Jimbo la Ondo</subdivision>
+			<subdivision type="ngos" draft="contributed">Jimbo la Osun</subdivision>
+			<subdivision type="ngoy" draft="contributed">Jimbo la Oyo</subdivision>
+			<subdivision type="ngpl" draft="contributed">Jimbo la Plateau</subdivision>
+			<subdivision type="ngri" draft="contributed">Rivers State</subdivision>
+			<subdivision type="ngso" draft="contributed">Jimbo la Sokoto</subdivision>
+			<subdivision type="ngta" draft="contributed">Jimbo la Taraba</subdivision>
+			<subdivision type="ngyo" draft="contributed">Jimbo la Yobe</subdivision>
+			<subdivision type="ngza" draft="contributed">Jimbo la Zamfara</subdivision>
+			<subdivision type="nlbq1" draft="contributed">Bonaire</subdivision>
+			<subdivision type="nlbq2" draft="contributed">Saba</subdivision>
+			<subdivision type="nlbq3" draft="contributed">Sint Eustatius</subdivision>
+			<subdivision type="nldr" draft="contributed">Drenthe</subdivision>
+			<subdivision type="nlfl" draft="contributed">Flevoland</subdivision>
+			<subdivision type="nlfr" draft="contributed">Friesland</subdivision>
+			<subdivision type="nlge" draft="contributed">Gelderland</subdivision>
+			<subdivision type="nlgr" draft="contributed">Mkoa wa Groningen</subdivision>
+			<subdivision type="nlli" draft="contributed">Limburg, Uholanzi</subdivision>
+			<subdivision type="nlnb" draft="contributed">Noord-Brabant</subdivision>
+			<subdivision type="nlnh" draft="contributed">Noord-Holland</subdivision>
+			<subdivision type="nlov" draft="contributed">Overijssel</subdivision>
+			<subdivision type="nlut" draft="contributed">Mkoa wa Utrecht</subdivision>
+			<subdivision type="nlze" draft="contributed">Zeeland</subdivision>
+			<subdivision type="nlzh" draft="contributed">Zuid-Holland</subdivision>
+			<subdivision type="no01" draft="contributed">Østfold</subdivision>
+			<subdivision type="no02" draft="contributed">Akershus</subdivision>
+			<subdivision type="no03" draft="contributed">Oslo</subdivision>
+			<subdivision type="no04" draft="contributed">Hedmark</subdivision>
+			<subdivision type="no05" draft="contributed">Oppland</subdivision>
+			<subdivision type="no06" draft="contributed">Buskerud</subdivision>
+			<subdivision type="no09" draft="contributed">Aust-Agder</subdivision>
+			<subdivision type="no11" draft="contributed">Rogaland</subdivision>
+			<subdivision type="no12" draft="contributed">Hordaland</subdivision>
+			<subdivision type="no14" draft="contributed">Sogn og Fjordane</subdivision>
+			<subdivision type="no15" draft="contributed">Møre og Romsdal</subdivision>
+			<subdivision type="no16" draft="contributed">Sør-Trøndelag</subdivision>
+			<subdivision type="no17" draft="contributed">Nord-Trøndelag</subdivision>
+			<subdivision type="no18" draft="contributed">Nordland</subdivision>
+			<subdivision type="no20" draft="contributed">Finnmark</subdivision>
+			<subdivision type="no21" draft="contributed">Svalbard</subdivision>
+			<subdivision type="no22" draft="contributed">Jan Mayen</subdivision>
+			<subdivision type="nr14" draft="contributed">Yaren</subdivision>
+			<subdivision type="ombu" draft="contributed">Al Buraimi</subdivision>
+			<subdivision type="omda" draft="contributed">Ad Dakhiliyah</subdivision>
+			<subdivision type="omma" draft="contributed">Maskat</subdivision>
+			<subdivision type="ommu" draft="contributed">Musandam</subdivision>
+			<subdivision type="omwu" draft="contributed">Al Wusta</subdivision>
+			<subdivision type="omza" draft="contributed">Ad Dhahirah</subdivision>
+			<subdivision type="omzu" draft="contributed">Dhofar</subdivision>
+			<subdivision type="pgncd" draft="contributed">Port Moresby</subdivision>
+			<subdivision type="pt20" draft="contributed">Azori</subdivision>
+			<subdivision type="pt30" draft="contributed">Visiwa vya Madeira</subdivision>
+			<subdivision type="pyasu" draft="contributed">Asuncion</subdivision>
+			<subdivision type="qada" draft="contributed">Doha</subdivision>
+			<subdivision type="rob" draft="contributed">Bukarest</subdivision>
+			<subdivision type="rs00" draft="contributed">Belgrad</subdivision>
+			<subdivision type="ruad" draft="contributed">Adygea</subdivision>
+			<subdivision type="rual" draft="contributed">Jamhuri ya Altai</subdivision>
+			<subdivision type="rualt" draft="contributed">Altai Krai</subdivision>
+			<subdivision type="ruamu" draft="contributed">Amur Oblast</subdivision>
+			<subdivision type="ruark" draft="contributed">Arkhangelsk Oblast</subdivision>
+			<subdivision type="ruast" draft="contributed">Astrakhan Oblast</subdivision>
+			<subdivision type="ruba" draft="contributed">Bashkortostan</subdivision>
+			<subdivision type="rubel" draft="contributed">Belgorod Oblast</subdivision>
+			<subdivision type="rubry" draft="contributed">Bryansk Oblast</subdivision>
+			<subdivision type="rubu" draft="contributed">Buryatia</subdivision>
+			<subdivision type="ruce" draft="contributed">Chechnya</subdivision>
+			<subdivision type="ruche" draft="contributed">Chelyabinsk Oblast</subdivision>
+			<subdivision type="ruchu" draft="contributed">Okrug huru ya Chukotka</subdivision>
+			<subdivision type="rucu" draft="contributed">Chuvashia</subdivision>
+			<subdivision type="ruda" draft="contributed">Dagestan</subdivision>
+			<subdivision type="ruin" draft="contributed">Ingushetia</subdivision>
+			<subdivision type="ruirk" draft="contributed">Irkutsk Oblast</subdivision>
+			<subdivision type="ruiva" draft="contributed">Ivanovo Oblast</subdivision>
+			<subdivision type="rukam" draft="contributed">Kamchatka Krai</subdivision>
+			<subdivision type="rukb" draft="contributed">Kabardino-Balkaria</subdivision>
+			<subdivision type="rukc" draft="contributed">Karachaevo-Cherkesia</subdivision>
+			<subdivision type="rukda" draft="contributed">Krasnodar Krai</subdivision>
+			<subdivision type="rukem" draft="contributed">Kemerovo Oblast</subdivision>
+			<subdivision type="rukgd" draft="contributed">Kaliningrad Oblast</subdivision>
+			<subdivision type="rukgn" draft="contributed">Kurgan Oblast</subdivision>
+			<subdivision type="rukha" draft="contributed">Khabarovsk Krai</subdivision>
+			<subdivision type="rukhm" draft="contributed">Mkoa Huru wa Hanty-Mansi</subdivision>
+			<subdivision type="rukir" draft="contributed">Kirov Oblast</subdivision>
+			<subdivision type="rukk" draft="contributed">Khakasia</subdivision>
+			<subdivision type="rukl" draft="contributed">Kalmykia</subdivision>
+			<subdivision type="ruklu" draft="contributed">Kaluga Oblast</subdivision>
+			<subdivision type="ruko" draft="contributed">Jamhuri ya Komi</subdivision>
+			<subdivision type="rukos" draft="contributed">Kostroma Oblast</subdivision>
+			<subdivision type="rukr" draft="contributed">Karelia</subdivision>
+			<subdivision type="rukrs" draft="contributed">Kursk Oblast</subdivision>
+			<subdivision type="rukya" draft="contributed">Krasnoyarsk Krai</subdivision>
+			<subdivision type="rulen" draft="contributed">Leningrad Oblast</subdivision>
+			<subdivision type="rulip" draft="contributed">Lipetsk Oblast</subdivision>
+			<subdivision type="rumag" draft="contributed">Magadan Oblast</subdivision>
+			<subdivision type="rume" draft="contributed">Mari El</subdivision>
+			<subdivision type="rumo" draft="contributed">Mordovia</subdivision>
+			<subdivision type="rumos" draft="contributed">Moscow Oblast</subdivision>
+			<subdivision type="rumow" draft="contributed">Moscow</subdivision>
+			<subdivision type="rumur" draft="contributed">Murmansk Oblast</subdivision>
+			<subdivision type="runen" draft="contributed">Okrug Huru wa Nenets</subdivision>
+			<subdivision type="rungr" draft="contributed">Novgorod Oblast</subdivision>
+			<subdivision type="runiz" draft="contributed">Nizhny Novgorod Oblast</subdivision>
+			<subdivision type="runvs" draft="contributed">Novosibirsk Oblast</subdivision>
+			<subdivision type="ruoms" draft="contributed">Omsk Oblast</subdivision>
+			<subdivision type="ruore" draft="contributed">Orenburg Oblast</subdivision>
+			<subdivision type="ruorl" draft="contributed">Oryol Oblast</subdivision>
+			<subdivision type="ruper" draft="contributed">Perm Krai</subdivision>
+			<subdivision type="rupnz" draft="contributed">Penza Oblast</subdivision>
+			<subdivision type="rupri" draft="contributed">Primorsky Krai</subdivision>
+			<subdivision type="rupsk" draft="contributed">Pskov Oblast</subdivision>
+			<subdivision type="ruros" draft="contributed">Rostov Oblast</subdivision>
+			<subdivision type="rurya" draft="contributed">Ryazan Oblast</subdivision>
+			<subdivision type="rusa" draft="contributed">Yakutia</subdivision>
+			<subdivision type="rusak" draft="contributed">Sakhalin Oblast</subdivision>
+			<subdivision type="rusam" draft="contributed">Samara Oblast</subdivision>
+			<subdivision type="rusar" draft="contributed">Saratov Oblast</subdivision>
+			<subdivision type="ruse" draft="contributed">Kaskazi Ossetia-Alania</subdivision>
+			<subdivision type="rusmo" draft="contributed">Smolensk Oblast</subdivision>
+			<subdivision type="ruspe" draft="contributed">Sankt Peterburg</subdivision>
+			<subdivision type="rusta" draft="contributed">Stavropol Krai</subdivision>
+			<subdivision type="rusve" draft="contributed">Sverdlovsk Oblast</subdivision>
+			<subdivision type="ruta" draft="contributed">Tatarstan</subdivision>
+			<subdivision type="rutam" draft="contributed">Tambov Oblast</subdivision>
+			<subdivision type="rutom" draft="contributed">Tomsk Oblast</subdivision>
+			<subdivision type="rutul" draft="contributed">Tula Oblast</subdivision>
+			<subdivision type="rutve" draft="contributed">Tver Oblast</subdivision>
+			<subdivision type="ruty" draft="contributed">Tuva</subdivision>
+			<subdivision type="rutyu" draft="contributed">Tyumen Oblast</subdivision>
+			<subdivision type="ruud" draft="contributed">Udmurtia</subdivision>
+			<subdivision type="ruuly" draft="contributed">Ulyanovsk Oblast</subdivision>
+			<subdivision type="ruvgg" draft="contributed">Volgograd Oblast</subdivision>
+			<subdivision type="ruvla" draft="contributed">Vladimir Oblast</subdivision>
+			<subdivision type="ruvlg" draft="contributed">Vologda Oblast</subdivision>
+			<subdivision type="ruvor" draft="contributed">Voronezh Oblast</subdivision>
+			<subdivision type="ruyan" draft="contributed">Mkoa Huru wa Yamalo-Nenets</subdivision>
+			<subdivision type="ruyar" draft="contributed">Yaroslavl Oblast</subdivision>
+			<subdivision type="ruyev" draft="contributed">Oblast huru ya Kiyahudi</subdivision>
+			<subdivision type="ruzab" draft="contributed">Zabaykalsky Krai</subdivision>
+			<subdivision type="rw01" draft="contributed">Kigali</subdivision>
+			<subdivision type="rw02" draft="contributed">Mkoa wa Mashariki</subdivision>
+			<subdivision type="rw03" draft="contributed">Mkoa wa Kaskazini</subdivision>
+			<subdivision type="rw04" draft="contributed">Mkoa wa Magharibi</subdivision>
+			<subdivision type="rw05" draft="contributed">Mkoa wa Kusini</subdivision>
+			<subdivision type="sbct" draft="contributed">Honiara</subdivision>
+			<subdivision type="sddn" draft="contributed">Kaskazini Darfur</subdivision>
+			<subdivision type="sdds" draft="contributed">Kusini Darfur</subdivision>
+			<subdivision type="sddw" draft="contributed">Magharibi Darfur</subdivision>
+			<subdivision type="sdgd" draft="contributed">Al Qadarif</subdivision>
+			<subdivision type="sdgk" draft="contributed">Magharibi Kurdufan</subdivision>
+			<subdivision type="sdgz" draft="contributed">Al Jazirah</subdivision>
+			<subdivision type="sdka" draft="contributed">Kassala</subdivision>
+			<subdivision type="sdkh" draft="contributed">Khartoum</subdivision>
+			<subdivision type="sdkn" draft="contributed">Kaskazini Kurdufan</subdivision>
+			<subdivision type="sdks" draft="contributed">Kusini Kurdufan</subdivision>
+			<subdivision type="sdnb" draft="contributed">Bluu Nile</subdivision>
+			<subdivision type="sdno" draft="contributed">Kaskazini</subdivision>
+			<subdivision type="sdnr" draft="contributed">Mto Nile</subdivision>
+			<subdivision type="sdnw" draft="contributed">Nile nyeupe</subdivision>
+			<subdivision type="sdrs" draft="contributed">Bahari ya Shamu</subdivision>
+			<subdivision type="seab" draft="contributed">Stockholms län</subdivision>
+			<subdivision type="seac" draft="contributed">Västerbottens län</subdivision>
+			<subdivision type="sebd" draft="contributed">Norrbottens län</subdivision>
+			<subdivision type="sec" draft="contributed">Uppsala län</subdivision>
+			<subdivision type="sed" draft="contributed">Södermanlands län</subdivision>
+			<subdivision type="see" draft="contributed">Östergötlands län</subdivision>
+			<subdivision type="sef" draft="contributed">Jönköpings län</subdivision>
+			<subdivision type="seg" draft="contributed">Kronobergs län</subdivision>
+			<subdivision type="seh" draft="contributed">Kalmar län</subdivision>
+			<subdivision type="sei" draft="contributed">Gotlands län</subdivision>
+			<subdivision type="sek" draft="contributed">Blekinge län</subdivision>
+			<subdivision type="sem" draft="contributed">Skåne län</subdivision>
+			<subdivision type="sen" draft="contributed">Hallands län</subdivision>
+			<subdivision type="seo" draft="contributed">Västra Götalands län</subdivision>
+			<subdivision type="ses" draft="contributed">Värmlands län</subdivision>
+			<subdivision type="set" draft="contributed">Örebro län</subdivision>
+			<subdivision type="seu" draft="contributed">Västmanlands län</subdivision>
+			<subdivision type="sew" draft="contributed">Dalarnas län</subdivision>
+			<subdivision type="sex" draft="contributed">Gävleborgs län</subdivision>
+			<subdivision type="sey" draft="contributed">Västernorrlands län</subdivision>
+			<subdivision type="sez" draft="contributed">Jämtlands län</subdivision>
+			<subdivision type="shhl" draft="contributed">Saint Helena</subdivision>
+			<subdivision type="si213" draft="contributed">Ankaran</subdivision>
+			<subdivision type="ssbn" draft="contributed">Kaskazini Bahr al Ghazal</subdivision>
+			<subdivision type="ssbw" draft="contributed">Bahr al Ghazal ya Kimagharibi</subdivision>
+			<subdivision type="ssec" draft="contributed">Mashariki Equatoria</subdivision>
+			<subdivision type="ssew" draft="contributed">Magharibi Equatoria</subdivision>
+			<subdivision type="ssjg" draft="contributed">Junqali</subdivision>
+			<subdivision type="sslk" draft="contributed">Ziwa</subdivision>
+			<subdivision type="ssnu" draft="contributed">Jimbo la Nile ya Juu</subdivision>
+			<subdivision type="ssuy" draft="contributed">Umoja</subdivision>
+			<subdivision type="sswr" draft="contributed">Warab</subdivision>
+			<subdivision type="tdnd" draft="contributed">N’Djamena</subdivision>
+			<subdivision type="th10" draft="contributed">Bangkok</subdivision>
+			<subdivision type="th21" draft="contributed">Rayong</subdivision>
+			<subdivision type="tjdu" draft="contributed">Dushanbe</subdivision>
+			<subdivision type="tms" draft="contributed">Ashgabat</subdivision>
+			<subdivision type="tr01" draft="contributed">Mkoa wa Adana</subdivision>
+			<subdivision type="tr02" draft="contributed">Mkoa wa Adıyaman</subdivision>
+			<subdivision type="tr03" draft="contributed">Mkoa wa Afyonkarahisar</subdivision>
+			<subdivision type="tr04" draft="contributed">Mkoa wa Ağrı</subdivision>
+			<subdivision type="tr05" draft="contributed">Mkoa wa Amasya</subdivision>
+			<subdivision type="tr06" draft="contributed">Mkoa wa Ankara</subdivision>
+			<subdivision type="tr07" draft="contributed">Mkoa wa Antalya</subdivision>
+			<subdivision type="tr08" draft="contributed">Mkoa wa Artvin</subdivision>
+			<subdivision type="tr09" draft="contributed">Mkoa wa Aydın</subdivision>
+			<subdivision type="tr10" draft="contributed">Mkoa wa Balıkesir</subdivision>
+			<subdivision type="tr11" draft="contributed">Mkoa wa Bilecik</subdivision>
+			<subdivision type="tr12" draft="contributed">Mkoa wa Bingöl</subdivision>
+			<subdivision type="tr13" draft="contributed">Mkoa wa Bitlis</subdivision>
+			<subdivision type="tr14" draft="contributed">Mkoa wa Bolu</subdivision>
+			<subdivision type="tr15" draft="contributed">Mkoa wa Burdur</subdivision>
+			<subdivision type="tr16" draft="contributed">Mkoa wa Bursa</subdivision>
+			<subdivision type="tr17" draft="contributed">Mkoa wa Çanakkale</subdivision>
+			<subdivision type="tr18" draft="contributed">Mkoa wa Çankırı</subdivision>
+			<subdivision type="tr19" draft="contributed">Mkoa wa Çorum</subdivision>
+			<subdivision type="tr20" draft="contributed">Mkoa wa Denizli</subdivision>
+			<subdivision type="tr21" draft="contributed">Mkoa wa Diyarbakır</subdivision>
+			<subdivision type="tr22" draft="contributed">Mkoa wa Edirne</subdivision>
+			<subdivision type="tr23" draft="contributed">Mkoa wa Elazığ</subdivision>
+			<subdivision type="tr24" draft="contributed">Mkoa wa Erzincan</subdivision>
+			<subdivision type="tr25" draft="contributed">Mkoa wa Erzurum</subdivision>
+			<subdivision type="tr26" draft="contributed">Mkoa wa Eskişehir</subdivision>
+			<subdivision type="tr27" draft="contributed">Mkoa wa Gaziantep</subdivision>
+			<subdivision type="tr28" draft="contributed">Mkoa wa Giresun</subdivision>
+			<subdivision type="tr29" draft="contributed">Mkoa wa Gümüşhane</subdivision>
+			<subdivision type="tr30" draft="contributed">Mkoa wa Hakkâri</subdivision>
+			<subdivision type="tr31" draft="contributed">Mkoa wa Hatay</subdivision>
+			<subdivision type="tr32" draft="contributed">Mkoa wa Isparta</subdivision>
+			<subdivision type="tr33" draft="contributed">Mkoa wa Mersin</subdivision>
+			<subdivision type="tr34" draft="contributed">Mkoa wa Istanbul</subdivision>
+			<subdivision type="tr35" draft="contributed">Mkoa wa İzmir</subdivision>
+			<subdivision type="tr36" draft="contributed">Mkoa wa Kars</subdivision>
+			<subdivision type="tr37" draft="contributed">Mkoa wa Kastamonu</subdivision>
+			<subdivision type="tr38" draft="contributed">Mkoa wa Kayseri</subdivision>
+			<subdivision type="tr39" draft="contributed">Mkoa wa Kırklareli</subdivision>
+			<subdivision type="tr40" draft="contributed">Mkoa wa Kırşehir</subdivision>
+			<subdivision type="tr41" draft="contributed">Mkoa wa Kocaeli</subdivision>
+			<subdivision type="tr42" draft="contributed">Mkoa wa Konya</subdivision>
+			<subdivision type="tr43" draft="contributed">Mkoa wa Kütahya</subdivision>
+			<subdivision type="tr44" draft="contributed">Mkoa wa Malatya</subdivision>
+			<subdivision type="tr45" draft="contributed">Mkoa wa Manisa</subdivision>
+			<subdivision type="tr46" draft="contributed">Mkoa wa Kahramanmaraş</subdivision>
+			<subdivision type="tr47" draft="contributed">Mkoa wa Mardin</subdivision>
+			<subdivision type="tr48" draft="contributed">Mkoa wa Muğla</subdivision>
+			<subdivision type="tr49" draft="contributed">Mkoa wa Muş</subdivision>
+			<subdivision type="tr50" draft="contributed">Mkoa wa Nevşehir</subdivision>
+			<subdivision type="tr51" draft="contributed">Mkoa wa Niğde</subdivision>
+			<subdivision type="tr52" draft="contributed">Mkoa wa Ordu</subdivision>
+			<subdivision type="tr53" draft="contributed">Mkoa wa Rize</subdivision>
+			<subdivision type="tr54" draft="contributed">Mkoa wa Sakarya</subdivision>
+			<subdivision type="tr55" draft="contributed">Mkoa wa Samsun</subdivision>
+			<subdivision type="tr56" draft="contributed">Mkoa wa Siirt</subdivision>
+			<subdivision type="tr57" draft="contributed">Mkoa wa Sinop</subdivision>
+			<subdivision type="tr58" draft="contributed">Mkoa wa Sivas</subdivision>
+			<subdivision type="tr59" draft="contributed">Mkoa wa Tekirdağ</subdivision>
+			<subdivision type="tr60" draft="contributed">Mkoa wa Tokat</subdivision>
+			<subdivision type="tr61" draft="contributed">Mkoa wa Trabzon</subdivision>
+			<subdivision type="tr62" draft="contributed">Mkoa wa Tunceli</subdivision>
+			<subdivision type="tr63" draft="contributed">Mkoa wa Şanlıurfa</subdivision>
+			<subdivision type="tr64" draft="contributed">Mkoa wa Uşak</subdivision>
+			<subdivision type="tr65" draft="contributed">Mkoa wa Van</subdivision>
+			<subdivision type="tr66" draft="contributed">Mkoa wa Yozgat</subdivision>
+			<subdivision type="tr67" draft="contributed">Mkoa wa Zonguldak</subdivision>
+			<subdivision type="tr68" draft="contributed">Mkoa wa Aksaray</subdivision>
+			<subdivision type="tr69" draft="contributed">Mkoa wa Bayburt</subdivision>
+			<subdivision type="tr70" draft="contributed">Mkoa wa Karaman</subdivision>
+			<subdivision type="tr71" draft="contributed">Mkoa wa Kırıkkale</subdivision>
+			<subdivision type="tr72" draft="contributed">Mkoa wa Batman</subdivision>
+			<subdivision type="tr73" draft="contributed">Mkoa wa Şırnak</subdivision>
+			<subdivision type="tr74" draft="contributed">Mkoa wa Bartın</subdivision>
+			<subdivision type="tr75" draft="contributed">Mkoa wa Ardahan</subdivision>
+			<subdivision type="tr76" draft="contributed">Mkoa wa Iğdır</subdivision>
+			<subdivision type="tr77" draft="contributed">Mkoa wa Yalova</subdivision>
+			<subdivision type="tr78" draft="contributed">Mkoa wa Karabük</subdivision>
+			<subdivision type="tr79" draft="contributed">Mkoa wa Kilis</subdivision>
+			<subdivision type="tr80" draft="contributed">Mkoa wa Osmaniye</subdivision>
+			<subdivision type="tr81" draft="contributed">Mkoa wa Düzce</subdivision>
+			<subdivision type="twkhh" draft="contributed">Kaohsiung</subdivision>
+			<subdivision type="twtpe" draft="contributed">Taipei</subdivision>
+			<subdivision type="tz01" draft="contributed">Mkoa wa Arusha</subdivision>
+			<subdivision type="tz02" draft="contributed">Mkoa wa Dar es Salaam</subdivision>
+			<subdivision type="tz03" draft="contributed">Mkoa wa Dodoma</subdivision>
+			<subdivision type="tz04" draft="contributed">Mkoa wa Iringa</subdivision>
+			<subdivision type="tz05" draft="contributed">Mkoa wa Kagera</subdivision>
+			<subdivision type="tz06" draft="contributed">Mkoa wa Pemba Kaskazini</subdivision>
+			<subdivision type="tz07" draft="contributed">Mkoa wa Unguja Kaskazini</subdivision>
+			<subdivision type="tz08" draft="contributed">Mkoa wa Kigoma</subdivision>
+			<subdivision type="tz09" draft="contributed">Mkoa wa Kilimanjaro</subdivision>
+			<subdivision type="tz10" draft="contributed">Mkoa wa Pemba Kusini</subdivision>
+			<subdivision type="tz11" draft="contributed">Mkoa wa Unguja Kusini</subdivision>
+			<subdivision type="tz12" draft="contributed">Mkoa wa Lindi</subdivision>
+			<subdivision type="tz13" draft="contributed">Mkoa wa Mara</subdivision>
+			<subdivision type="tz14" draft="contributed">Mkoa wa Mbeya</subdivision>
+			<subdivision type="tz15" draft="contributed">Mkoa wa Unguja Mjini Magharibi</subdivision>
+			<subdivision type="tz16" draft="contributed">Mkoa wa Morogoro</subdivision>
+			<subdivision type="tz17" draft="contributed">Mkoa wa Mtwara</subdivision>
+			<subdivision type="tz18" draft="contributed">Mkoa wa Mwanza</subdivision>
+			<subdivision type="tz19" draft="contributed">Mkoa wa Pwani</subdivision>
+			<subdivision type="tz20" draft="contributed">Mkoa wa Rukwa</subdivision>
+			<subdivision type="tz21" draft="contributed">Mkoa wa Ruvuma</subdivision>
+			<subdivision type="tz22" draft="contributed">Mkoa wa Shinyanga</subdivision>
+			<subdivision type="tz23" draft="contributed">Mkoa wa Singida</subdivision>
+			<subdivision type="tz24" draft="contributed">Mkoa wa Tabora</subdivision>
+			<subdivision type="tz25" draft="contributed">Mkoa wa Tanga</subdivision>
+			<subdivision type="tz26" draft="contributed">Mkoa wa Manyara</subdivision>
+			<subdivision type="tz27" draft="contributed">Mkoa wa Geita</subdivision>
+			<subdivision type="tz28" draft="contributed">Mkoa wa Katavi</subdivision>
+			<subdivision type="tz29" draft="contributed">Mkoa wa Njombe</subdivision>
+			<subdivision type="tz30" draft="contributed">Mkoa wa Simiyu</subdivision>
+			<subdivision type="ua30" draft="contributed">Kiev</subdivision>
+			<subdivision type="ua40" draft="contributed">Sevastopol</subdivision>
+			<subdivision type="ug101" draft="contributed">Wilaya ya Kalangala</subdivision>
+			<subdivision type="ug102" draft="contributed">Wilaya ya Kampala</subdivision>
+			<subdivision type="ug103" draft="contributed">Wilaya ya Kiboga</subdivision>
+			<subdivision type="ug104" draft="contributed">Wilaya ya Luweero</subdivision>
+			<subdivision type="ug105" draft="contributed">Wilaya ya Masaka</subdivision>
+			<subdivision type="ug106" draft="contributed">Wilaya ya Mpigi</subdivision>
+			<subdivision type="ug107" draft="contributed">Wilaya ya Mubende</subdivision>
+			<subdivision type="ug108" draft="contributed">Wilaya ya Mukono</subdivision>
+			<subdivision type="ug109" draft="contributed">Wilaya ya Nakasongola</subdivision>
+			<subdivision type="ug110" draft="contributed">Wilaya ya Rakai</subdivision>
+			<subdivision type="ug111" draft="contributed">Wilaya ya Sembabule</subdivision>
+			<subdivision type="ug112" draft="contributed">Wilaya ya Kayunga</subdivision>
+			<subdivision type="ug113" draft="contributed">Wilaya ya Wakiso</subdivision>
+			<subdivision type="ug114" draft="contributed">Wilaya ya Lyantonde</subdivision>
+			<subdivision type="ug115" draft="contributed">Wilaya ya Mityana</subdivision>
+			<subdivision type="ug116" draft="contributed">Wilaya ya Lyantonde²</subdivision>
+			<subdivision type="ug201" draft="contributed">Wilaya ya Bugiri</subdivision>
+			<subdivision type="ug202" draft="contributed">Wilaya ya Busia</subdivision>
+			<subdivision type="ug203" draft="contributed">Wilaya ya Iganga</subdivision>
+			<subdivision type="ug204" draft="contributed">Wilaya ya Jinja</subdivision>
+			<subdivision type="ug205" draft="contributed">Wilaya ya Kamuli</subdivision>
+			<subdivision type="ug206" draft="contributed">Wilaya ya Kapchorwa</subdivision>
+			<subdivision type="ug207" draft="contributed">Wilaya ya Katakwi</subdivision>
+			<subdivision type="ug208" draft="contributed">Wilaya ya Kumi</subdivision>
+			<subdivision type="ug209" draft="contributed">Wilaya ya Mbale</subdivision>
+			<subdivision type="ug210" draft="contributed">Wilaya ya Pallisa</subdivision>
+			<subdivision type="ug211" draft="contributed">Wilaya ya Soroti</subdivision>
+			<subdivision type="ug212" draft="contributed">Wilaya ya Tororo</subdivision>
+			<subdivision type="ug213" draft="contributed">Wilaya ya Kaberamaido</subdivision>
+			<subdivision type="ug214" draft="contributed">Wilaya ya Mayuge</subdivision>
+			<subdivision type="ug215" draft="contributed">Wilaya ya Sironko</subdivision>
+			<subdivision type="ug216" draft="contributed">Wilaya ya Amuria</subdivision>
+			<subdivision type="ug217" draft="contributed">Wilaya ya Budaka</subdivision>
+			<subdivision type="ug218" draft="contributed">Wilaya ya Bududa</subdivision>
+			<subdivision type="ug219" draft="contributed">Wilaya ya Butaleja</subdivision>
+			<subdivision type="ug220" draft="contributed">Wilaya ya Kaliro</subdivision>
+			<subdivision type="ug221" draft="contributed">Wilaya ya Manafwa</subdivision>
+			<subdivision type="ug222" draft="contributed">Wilaya ya Kaliro²</subdivision>
+			<subdivision type="ug223" draft="contributed">Wilaya ya Manafwa²</subdivision>
+			<subdivision type="ug224" draft="contributed">Wilaya ya Bukedea</subdivision>
+			<subdivision type="ug301" draft="contributed">Wilaya ya Adjumani</subdivision>
+			<subdivision type="ug302" draft="contributed">Wilaya ya Apac</subdivision>
+			<subdivision type="ug303" draft="contributed">Wilaya ya Arua</subdivision>
+			<subdivision type="ug304" draft="contributed">Wilaya ya Gulu</subdivision>
+			<subdivision type="ug305" draft="contributed">Wilaya ya Kitgum</subdivision>
+			<subdivision type="ug306" draft="contributed">Wilaya ya Kotido</subdivision>
+			<subdivision type="ug307" draft="contributed">Wilaya ya Lira</subdivision>
+			<subdivision type="ug308" draft="contributed">Wilaya ya Moroto</subdivision>
+			<subdivision type="ug309" draft="contributed">Wilaya ya Moyo</subdivision>
+			<subdivision type="ug310" draft="contributed">Wilaya ya Nebbi</subdivision>
+			<subdivision type="ug311" draft="contributed">Wilaya ya Nakapiripirit</subdivision>
+			<subdivision type="ug312" draft="contributed">Wilaya ya Pader</subdivision>
+			<subdivision type="ug313" draft="contributed">Wilaya ya Yumbe</subdivision>
+			<subdivision type="ug314" draft="contributed">Wilaya ya Abim</subdivision>
+			<subdivision type="ug315" draft="contributed">Wilaya ya Kaabong</subdivision>
+			<subdivision type="ug316" draft="contributed">Wilaya ya Amuru</subdivision>
+			<subdivision type="ug317" draft="contributed">Wilaya ya Abim²</subdivision>
+			<subdivision type="ug318" draft="contributed">Wilaya ya Kaabong²</subdivision>
+			<subdivision type="ug319" draft="contributed">Wilaya ya Amuru²</subdivision>
+			<subdivision type="ug321" draft="contributed">Wilaya ya Oyam</subdivision>
+			<subdivision type="ug401" draft="contributed">Wilaya ya Bundibugyo</subdivision>
+			<subdivision type="ug402" draft="contributed">Wilaya ya Bushenyi</subdivision>
+			<subdivision type="ug403" draft="contributed">Wilaya ya Hoima</subdivision>
+			<subdivision type="ug404" draft="contributed">Wilaya ya Kabale</subdivision>
+			<subdivision type="ug405" draft="contributed">Wilaya ya Kabarole</subdivision>
+			<subdivision type="ug406" draft="contributed">Wilaya ya Kasese</subdivision>
+			<subdivision type="ug407" draft="contributed">Wilaya ya Kibaale</subdivision>
+			<subdivision type="ug408" draft="contributed">Wilaya ya Kisoro</subdivision>
+			<subdivision type="ug409" draft="contributed">Wilaya ya Masindi</subdivision>
+			<subdivision type="ug410" draft="contributed">Wilaya ya Mbarara</subdivision>
+			<subdivision type="ug411" draft="contributed">Wilaya ya Ntungamo</subdivision>
+			<subdivision type="ug412" draft="contributed">Wilaya ya Rukungiri</subdivision>
+			<subdivision type="ug413" draft="contributed">Wilaya ya Kamwenge</subdivision>
+			<subdivision type="ug414" draft="contributed">Wilaya ya Kanungu</subdivision>
+			<subdivision type="ug415" draft="contributed">Wilaya ya Kyenjojo</subdivision>
+			<subdivision type="ug416" draft="contributed">Wilaya ya Ibanda</subdivision>
+			<subdivision type="ug417" draft="contributed">Wilaya ya Isingiro</subdivision>
+			<subdivision type="ug418" draft="contributed">Wilaya ya Isingiro²</subdivision>
+			<subdivision type="ug419" draft="contributed">Wilaya ya Kiruhura</subdivision>
+			<subdivision type="ugc" draft="contributed">Mkoa wa Kati</subdivision>
+			<subdivision type="uge" draft="contributed">Mkoa wa Mashariki</subdivision>
+			<subdivision type="ugn" draft="contributed">Mkoa wa Kaskazini</subdivision>
+			<subdivision type="ugw" draft="contributed">Mkoa wa Magharibi</subdivision>
+			<subdivision type="um76" draft="contributed">Navassa</subdivision>
+			<subdivision type="usak" draft="contributed">Alaska</subdivision>
+			<subdivision type="usal" draft="contributed">Alabama</subdivision>
+			<subdivision type="usar" draft="contributed">Arkansas</subdivision>
+			<subdivision type="usaz" draft="contributed">Arizona</subdivision>
+			<subdivision type="usca" draft="contributed">California</subdivision>
+			<subdivision type="usco" draft="contributed">Colorado</subdivision>
+			<subdivision type="usct" draft="contributed">Connecticut</subdivision>
+			<subdivision type="usdc" draft="contributed">Washington</subdivision>
+			<subdivision type="usde" draft="contributed">Delaware</subdivision>
+			<subdivision type="usfl" draft="contributed">Florida</subdivision>
+			<subdivision type="usga" draft="contributed">Georgia</subdivision>
+			<subdivision type="ushi" draft="contributed">Hawaii</subdivision>
+			<subdivision type="usia" draft="contributed">Iowa</subdivision>
+			<subdivision type="usid" draft="contributed">Idaho</subdivision>
+			<subdivision type="usil" draft="contributed">Illinois</subdivision>
+			<subdivision type="usin" draft="contributed">Indiana</subdivision>
+			<subdivision type="usks" draft="contributed">Kansas</subdivision>
+			<subdivision type="usky" draft="contributed">Kentucky</subdivision>
+			<subdivision type="usla" draft="contributed">Louisiana</subdivision>
+			<subdivision type="usma" draft="contributed">Massachusetts</subdivision>
+			<subdivision type="usmd" draft="contributed">Maryland</subdivision>
+			<subdivision type="usme" draft="contributed">Maine</subdivision>
+			<subdivision type="usmi" draft="contributed">Michigan</subdivision>
+			<subdivision type="usmn" draft="contributed">Minnesota</subdivision>
+			<subdivision type="usmo" draft="contributed">Missouri</subdivision>
+			<subdivision type="usms" draft="contributed">Mississippi</subdivision>
+			<subdivision type="usmt" draft="contributed">Montana</subdivision>
+			<subdivision type="usnc" draft="contributed">North Carolina</subdivision>
+			<subdivision type="usnd" draft="contributed">North Dakota</subdivision>
+			<subdivision type="usne" draft="contributed">Nebraska</subdivision>
+			<subdivision type="usnh" draft="contributed">New Hampshire</subdivision>
+			<subdivision type="usnj" draft="contributed">New Jersey</subdivision>
+			<subdivision type="usnm" draft="contributed">New Mexico</subdivision>
+			<subdivision type="usnv" draft="contributed">Nevada</subdivision>
+			<subdivision type="usny" draft="contributed">New York</subdivision>
+			<subdivision type="usoh" draft="contributed">Ohio</subdivision>
+			<subdivision type="usok" draft="contributed">Oklahoma</subdivision>
+			<subdivision type="usor" draft="contributed">Oregon</subdivision>
+			<subdivision type="uspa" draft="contributed">Pennsylvania</subdivision>
+			<subdivision type="usri" draft="contributed">Rhode Island</subdivision>
+			<subdivision type="ussc" draft="contributed">South Carolina</subdivision>
+			<subdivision type="ussd" draft="contributed">South Dakota</subdivision>
+			<subdivision type="ustn" draft="contributed">Tennessee</subdivision>
+			<subdivision type="ustx" draft="contributed">Texas</subdivision>
+			<subdivision type="usut" draft="contributed">Utah</subdivision>
+			<subdivision type="usva" draft="contributed">Virginia</subdivision>
+			<subdivision type="usvt" draft="contributed">Vermont</subdivision>
+			<subdivision type="uswa" draft="contributed">Washington²</subdivision>
+			<subdivision type="uswi" draft="contributed">Wisconsin</subdivision>
+			<subdivision type="uswv" draft="contributed">West Virginia</subdivision>
+			<subdivision type="uswy" draft="contributed">Wyoming</subdivision>
+			<subdivision type="uymo" draft="contributed">Montevideo</subdivision>
+			<subdivision type="uztk" draft="contributed">Tashkent</subdivision>
+			<subdivision type="veo" draft="contributed">Nueva Esparta</subdivision>
+			<subdivision type="vew" draft="contributed">Visiwa vidogo vya Venezuela</subdivision>
+			<subdivision type="vn01" draft="contributed">Mkoa wa Lai Châu</subdivision>
+			<subdivision type="vn02" draft="contributed">Mkoa wa Lào Cai</subdivision>
+			<subdivision type="vn03" draft="contributed">Mkoa wa Hà Giang</subdivision>
+			<subdivision type="vn04" draft="contributed">Mkoa wa Cao Bằng</subdivision>
+			<subdivision type="vn05" draft="contributed">Mkoa wa Sơn La</subdivision>
+			<subdivision type="vn06" draft="contributed">Mkoa wa Yên Bái</subdivision>
+			<subdivision type="vn07" draft="contributed">Mkoa wa Tuyên Quang</subdivision>
+			<subdivision type="vn09" draft="contributed">Mkoa wa Lạng Sơn</subdivision>
+			<subdivision type="vn13" draft="contributed">Mkoa wa Quảng Ninh</subdivision>
+			<subdivision type="vn14" draft="contributed">Mkoa wa Hòa Bình</subdivision>
+			<subdivision type="vn18" draft="contributed">Mkoa wa Ninh Bình</subdivision>
+			<subdivision type="vn20" draft="contributed">Mkoa wa Thái Bình</subdivision>
+			<subdivision type="vn21" draft="contributed">Mkoa wa Thanh Hóa</subdivision>
+			<subdivision type="vn22" draft="contributed">Mkoa wa Nghệ An</subdivision>
+			<subdivision type="vn23" draft="contributed">Mkoa wa Hà Tĩnh</subdivision>
+			<subdivision type="vn24" draft="contributed">Quang Binh</subdivision>
+			<subdivision type="vn25" draft="contributed">Mkoa wa Quảng Trị</subdivision>
+			<subdivision type="vn26" draft="contributed">Mkoa wa Thừa Thiên - Huế</subdivision>
+			<subdivision type="vn27" draft="contributed">Mkoa wa Quảng Nam</subdivision>
+			<subdivision type="vn28" draft="contributed">Mkoa wa Kon Tum</subdivision>
+			<subdivision type="vn29" draft="contributed">Mkoa wa Quảng Ngãi</subdivision>
+			<subdivision type="vn30" draft="contributed">Mkoa wa Gia Lai</subdivision>
+			<subdivision type="vn31" draft="contributed">Mkoa wa Bình Định</subdivision>
+			<subdivision type="vn32" draft="contributed">Mkoa wa Phú Yên</subdivision>
+			<subdivision type="vn33" draft="contributed">Mkoa wa Đắk Lắk</subdivision>
+			<subdivision type="vn34" draft="contributed">Mkoa wa Khánh Hòa</subdivision>
+			<subdivision type="vn35" draft="contributed">Mkoa wa Lâm Đồng</subdivision>
+			<subdivision type="vn36" draft="contributed">Mkoa wa Ninh Thuận</subdivision>
+			<subdivision type="vn37" draft="contributed">Mkoa wa Tây Ninh</subdivision>
+			<subdivision type="vn39" draft="contributed">Mkoa wa Đồng Nai</subdivision>
+			<subdivision type="vn40" draft="contributed">Mkoa wa Bình Thuận</subdivision>
+			<subdivision type="vn41" draft="contributed">Mkoa wa Long An</subdivision>
+			<subdivision type="vn43" draft="contributed">Mkoa wa Bà Rịa - Vũng Tàu</subdivision>
+			<subdivision type="vn44" draft="contributed">Mkoa wa An Giang</subdivision>
+			<subdivision type="vn45" draft="contributed">Mkoa wa Đồng Tháp</subdivision>
+			<subdivision type="vn46" draft="contributed">Mkoa wa Tiền Giang</subdivision>
+			<subdivision type="vn47" draft="contributed">Mkoa wa Kiên Giang</subdivision>
+			<subdivision type="vn49" draft="contributed">Mkoa wa Vĩnh Long</subdivision>
+			<subdivision type="vn50" draft="contributed">Mkoa wa Bến Tre</subdivision>
+			<subdivision type="vn51" draft="contributed">Mkoa wa Trà Vinh</subdivision>
+			<subdivision type="vn52" draft="contributed">Mkoa wa Sóc Trăng</subdivision>
+			<subdivision type="vn53" draft="contributed">Mkoa wa Bắc Kạn</subdivision>
+			<subdivision type="vn54" draft="contributed">Mkoa wa Bắc Giang</subdivision>
+			<subdivision type="vn55" draft="contributed">Mkoa wa Bạc Liêu</subdivision>
+			<subdivision type="vn56" draft="contributed">Mkoa wa Bắc Ninh</subdivision>
+			<subdivision type="vn57" draft="contributed">Mkoa wa Bình Dương</subdivision>
+			<subdivision type="vn58" draft="contributed">Mkoa wa Bình Phước</subdivision>
+			<subdivision type="vn59" draft="contributed">Mkoa wa Cà Mau</subdivision>
+			<subdivision type="vn61" draft="contributed">Mkoa wa Hải Dương</subdivision>
+			<subdivision type="vn63" draft="contributed">Mkoa wa Hà Nam</subdivision>
+			<subdivision type="vn66" draft="contributed">Mkoa wa Hưng Yên</subdivision>
+			<subdivision type="vn67" draft="contributed">Mkoa wa Nam Định</subdivision>
+			<subdivision type="vn68" draft="contributed">Mkoa wa Phú Thọ</subdivision>
+			<subdivision type="vn69" draft="contributed">Mkoa wa Thái Nguyên</subdivision>
+			<subdivision type="vn70" draft="contributed">Mkoa wa Vĩnh Phúc</subdivision>
+			<subdivision type="vn71" draft="contributed">Mkoa wa Điện Biên</subdivision>
+			<subdivision type="vn72" draft="contributed">Mkoa wa Đắk Nông</subdivision>
+			<subdivision type="vn73" draft="contributed">Mkoa wa Hậu Giang</subdivision>
+			<subdivision type="vnct" draft="contributed">Can Tho</subdivision>
+			<subdivision type="vndn" draft="contributed">Da Nang</subdivision>
+			<subdivision type="vnhn" draft="contributed">Hanoi</subdivision>
+			<subdivision type="vnhp" draft="contributed">Hai Phong</subdivision>
+			<subdivision type="vnsg" draft="contributed">Mji wa Ho Chi Minh</subdivision>
+			<subdivision type="wfal" draft="contributed">Alo</subdivision>
+			<subdivision type="wfsg" draft="contributed">Sigave</subdivision>
+			<subdivision type="wfuv" draft="contributed">Uvea</subdivision>
+			<subdivision type="yeab" draft="contributed">Wilaya ya Abyan</subdivision>
+			<subdivision type="yead" draft="contributed">Wilaya ya Adan</subdivision>
+			<subdivision type="yeam" draft="contributed">Wilaya ya Amran</subdivision>
+			<subdivision type="yeba" draft="contributed">Wilaya ya Al Bayda</subdivision>
+			<subdivision type="yeda" draft="contributed">Wilaya ya Ad Dali</subdivision>
+			<subdivision type="yedh" draft="contributed">Wilaya ya Dhamar</subdivision>
+			<subdivision type="yehd" draft="contributed">Wilaya ya Hadhramaut</subdivision>
+			<subdivision type="yehj" draft="contributed">Wilaya ya Hajjah</subdivision>
+			<subdivision type="yehu" draft="contributed">Wilaya ya Al Hudaydah</subdivision>
+			<subdivision type="yeib" draft="contributed">Wilaya ya Ibb</subdivision>
+			<subdivision type="yeja" draft="contributed">Wilaya ya Al Jawf</subdivision>
+			<subdivision type="yela" draft="contributed">Wilaya ya Lahij</subdivision>
+			<subdivision type="yema" draft="contributed">Wilaya ya Marib</subdivision>
+			<subdivision type="yemr" draft="contributed">Wilaya ya Al Mahrah</subdivision>
+			<subdivision type="yemw" draft="contributed">Wilaya ya Al Mahwit</subdivision>
+			<subdivision type="yera" draft="contributed">Wilaya ya Raymah</subdivision>
+			<subdivision type="yesa" draft="contributed">Sana’a</subdivision>
+			<subdivision type="yesd" draft="contributed">Wilaya ya Sadah</subdivision>
+			<subdivision type="yesh" draft="contributed">Wilaya ya Shabwah</subdivision>
+			<subdivision type="yesn" draft="contributed">Wilaya ya Sana’a</subdivision>
+			<subdivision type="yeta" draft="contributed">Wilaya ya Taizz</subdivision>
+			<subdivision type="zaec" draft="contributed">Rasi ya Mashariki</subdivision>
+			<subdivision type="zafs" draft="contributed">Dola Huru</subdivision>
+			<subdivision type="zagt" draft="contributed">Gauteng</subdivision>
+			<subdivision type="zalp" draft="contributed">Limpopo</subdivision>
+			<subdivision type="zamp" draft="contributed">Mpumalanga</subdivision>
+			<subdivision type="zanc" draft="contributed">Rasi ya Kaskazini</subdivision>
+			<subdivision type="zanl" draft="contributed">KwaZulu-Natal</subdivision>
+			<subdivision type="zanw" draft="contributed">Kaskazini-Magharibi</subdivision>
+			<subdivision type="zawc" draft="contributed">Rasi ya Magharibi</subdivision>
+			<subdivision type="zm01" draft="contributed">Mkoa wa Magharibi</subdivision>
+			<subdivision type="zm02" draft="contributed">Mkoa wa Kati (Zambia)</subdivision>
+			<subdivision type="zm03" draft="contributed">Mkoa wa Mashariki</subdivision>
+			<subdivision type="zm04" draft="contributed">Mkoa wa Luapula</subdivision>
+			<subdivision type="zm05" draft="contributed">Mkoa wa Kaskazini</subdivision>
+			<subdivision type="zm06" draft="contributed">Mkoa wa Kaskazini-Magharibi</subdivision>
+			<subdivision type="zm07" draft="contributed">Mkoa wa Kusini</subdivision>
+			<subdivision type="zm08" draft="contributed">Mkoa wa Copperbelt</subdivision>
+			<subdivision type="zm09" draft="contributed">Mkoa wa Lusaka</subdivision>
+			<subdivision type="zwmn" draft="contributed">Matabeleland North</subdivision>
+		</subdivisions>
+	</localeDisplayNames>
+</ldml>

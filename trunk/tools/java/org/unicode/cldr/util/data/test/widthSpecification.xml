@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widthSpecifications xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="WidthSpecification.xsd">
+	<variables>
+		<variable name="%A" value='"[^"]+"' />
+		<variable name="%ALLOW_LONGER"
+			value="(area-acre|area-square-foot|area-square-mile|length-footlength-inch|length-mile|length-light-year|length-yard|mass-ounce|mass-pound|power-horsepower|pressure-inch-hg|speed-mile-per-hour|temperature-fahrenheit|volume-cubic-mile|acceleration-g-force|speed-kilometer-per-hour|speed-meter-per-second)" />
+	</variables>
+	<paths>
+		<!-- .add("//ldml/delimiters/(quotation|alternateQuotation)", new Limit[] 
+			{ new Limit(1, 1, Measure.CODE_POINTS, LimitType.MAXIMUM, Special.NONE) }) -->
+		<path>
+			<warningReference>1</warningReference>
+			<errorReference>1</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>CODE_POINTS</measure>
+			<special>NONE</special>
+			<pathName>//ldml/delimiters/(quotation|alternateQuotation)</pathName>
+		</path>
+		<!-- // Numeric items should be no more than a single character .add("//ldml/numbers/symbols[@numberSystem=%A]/(decimal|group|minus|percent|perMille|plus)", 
+			new Limit[] { new Limit(1, 1, Measure.CODE_POINTS, LimitType.MAXIMUM, Special.NUMBERSYMBOLS) 
+			}) -->
+		<path>
+			<warningReference>1</warningReference>
+			<errorReference>1</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>CODE_POINTS</measure>
+			<special>NUMBERSYMBOLS</special>
+			<pathName>//ldml/numbers/symbols[@numberSystem=%A]/(decimal|group|minus|percent|perMille|plus)</pathName>
+		</path>
+		<!-- // Now widths // The following are rough measures, just to check strange 
+			cases .add("//ldml/characters/ellipsis[@type=\"(final|initial|medial)\"]", 
+			new Limit[] { new Limit(2 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, 
+			Special.PLACEHOLDERS) }) -->
+		<path>
+			<warningReference relativeToEM="true">2</warningReference>
+			<errorReference relativeToEM="true">5</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/characters/ellipsis[@type="(final|initial|medial)"]</pathName>
+		</path>
+		<!-- .add("//ldml/localeDisplayNames/localeDisplayPattern/", new Limit[] 
+			{ // {0}: {1}, {0} ({1}), , new Limit(2 * EM, 3 * EM, Measure.DISPLAY_WIDTH, 
+			LimitType.MAXIMUM, Special.PLACEHOLDERS) }) -->
+		<path>
+			<warningReference relativeToEM="true">2</warningReference>
+			<errorReference relativeToEM="true">3</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/localeDisplayNames/localeDisplayPattern/</pathName>
+		</path>
+		<path>
+			<warningReference relativeToEM="true">5</warningReference>
+			<errorReference relativeToEM="true">10</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/listPatterns/listPattern/listPatternPart[@type=%A]</pathName>
+		</path>
+		<path>
+			<warningReference relativeToEM="true">5</warningReference>
+			<errorReference relativeToEM="true">10</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/dates/timeZoneNames/(gmtFormat|gmtZeroFormat)</pathName>
+		</path>
+		<!-- // Narrow items .add("//ldml/dates/calendars/calendar.*[@type=\"narrow\"](?!/cyclic|/dayPeriod|/monthPattern)", 
+			new Limit[] { new Limit(1.5 * EM, 2.25 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, 
+			Special.NONE) }) // \"(?!am|pm)[^\"]+\"\\ -->
+		<path>
+			<warningReference relativeToEM="true">1.5</warningReference>
+			<errorReference relativeToEM="true">2.25</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>NONE</special>
+			<pathName>//ldml/dates/calendars/calendar.*[@type=\"narrow\"](?!/cyclic|/dayPeriod|/monthPattern)</pathName>
+		</path>
+		<!-- // Compact number formats .add("//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=%A]/pattern[@type=\"1", 
+			new Limit[] { new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, 
+			Special.QUOTES) }) -->
+		<path>
+			<warningReference relativeToEM="true">4</warningReference>
+			<errorReference relativeToEM="true">5</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>QUOTES</special>
+			<pathName>//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type="short"]/decimalFormat[@type=%A]/pattern[@type="1"</pathName>
+		</path>
+		<!-- // Catch -future/past Narrow units and allow much wider values .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"[^\"]+-(future|past)\"]/unitPattern", 
+			new Limit[] { new Limit(10 * EM, 15 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, 
+			Special.PLACEHOLDERS) }) -->
+		<path>
+			<warningReference relativeToEM="true">10</warningReference>
+			<errorReference relativeToEM="true">15</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/units/unitLength[@type="narrow"]/unit[@type="[^"]+-(future|past)"]/unitPattern</pathName>
+		</path>
+		<!-- // Catch special units and allow a bit wider .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"" 
+			+ ALLOW_LONGER + "\"]/unitPattern", new Limit[] { new Limit(4 * EM, 5 * EM, 
+			Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS) }) -->
+		<path>
+			<warningReference relativeToEM="true">4</warningReference>
+			<errorReference relativeToEM="true">5</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/units/unitLength[@type="narrow"]/unit[@type="%ALLOW_LONGER"]/unitPattern</pathName>
+		</path>
+		<!-- // Narrow units .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=%A]/unitPattern", 
+			new Limit[] { new Limit(3 * EM, 4 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, 
+			Special.PLACEHOLDERS) }) -->
+		<path>
+			<warningReference relativeToEM="true">3</warningReference>
+			<errorReference relativeToEM="true">4</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/units/unitLength[@type="narrow"]/unit[@type="%A"]/unitPattern</pathName>
+		</path>
+		<!-- // Short units .add("//ldml/units/unitLength[@type=\"short\"]/unit[@type=%A]/unitPattern", 
+			new Limit[] { new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, 
+			Special.PLACEHOLDERS) }) -->
+		<path>
+			<warningReference relativeToEM="true">5</warningReference>
+			<errorReference relativeToEM="true">10</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/units/unitLength[@type="short"]/unit[@type=%A]/unitPattern</pathName>
+		</path>
+		<!-- // Currency Symbols .add("//ldml/numbers/currencies/currency[@type=%A]/symbol", 
+			new Limit[] { new Limit(3 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, 
+			Special.PLACEHOLDERS) }); -->
+		<path>
+			<warningReference relativeToEM="true">3</warningReference>
+			<errorReference relativeToEM="true">5</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/numbers/currencies/currency[@type=%A]/symbol</pathName>
+		</path>
+	</paths>
+</widthSpecifications>

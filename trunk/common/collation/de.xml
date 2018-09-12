@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2014 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$" />
+		<language type="de" />
+	</identity>
+	<collations>
+		<collation type="search">
+			<cr><![CDATA[
+				[import und-u-co-search]
+				# Below are the rules specific to de.
+				# Per Apple language group, these rules match phonebook collation below.
+				[import de-u-co-phonebk]
+			]]></cr>
+		</collation>
+		<!-- "standard" is the same as in root -->
+		<collation type="phonebook">
+			<cr><![CDATA[
+				&AE<<ä<<<Ä
+				&OE<<ö<<<Ö
+				&UE<<ü<<<Ü
+			]]></cr>
+		</collation>
+		<collation type="eor" draft="provisional" references="European Standard EN13710:2011-06 - European Ordering Rules - Annex E.4 National Delta for German">
+		<!--  This tailoring is based on EN13710:2011-06 Annex E.4.  However, it is marked as draft=provisional
+			primarily because it goes contrary to some of the stated goals of CLDR tailoring, specifically
+			to only tailor those characters that are necessary for the language in question.  However, this
+			tailoring is provided as a reference for those who require strict adherence to EN13710 for
+			German based on EN13710 Annex E.4.
+			Principles from EN13710:2011-06 Annex E.4 are as follows:
+			1). First level letters are A-Z only.
+			2). Thorn (U+00FE & U+00DE) is ordered as th, not as a first level letter.
+			3). Digits FOLLOW letters.
+			4). Spaces ARE significant.
+			5). The letters wynn (U+01BF & U+01F7) and ezh (U+0292 & U+01B7) are ordered as y.
+			6). The Umlaut is the diacritic that must be taken into account before all others.
+			    The umlaut is treaded as distinct from the trema(diaeresis) and can only occur
+			    in combination with the base letters a, o, and u.  The sequence of the other
+			    diacritics is compatible with the EOR delta.
+		 -->
+			<cr><![CDATA[
+				[import und-u-co-eor]
+				[reorder others digit]
+				&th<<<þ
+				&TH<<<Þ
+				&Y<<ƿ<<<Ƿ<<ʒ<<<Ʒ<<<ᶾ
+				&A<<ä<<<Ä<<ǟ<<<Ǟ<<á<<<Á<<à<<<À<<ă<<<Ă<<ắ<<<Ắ<<ằ<<<Ằ<<ẵ<<<Ẵ<<ẳ<<<Ẳ
+				  <<â<<<Â<<ấ<<<Ấ<<ầ<<<Ầ<<ẫ<<<Ẫ<<ẩ<<<Ẩ<<ǎ<<<Ǎ<<å<<<Å=Å<<ǻ<<<Ǻ
+				  <<ã<<<Ã<<ȧ<<<Ȧ<<ǡ<<<Ǡ<<ą<<<Ą<<ā<<<Ā<<ả<<<Ả<<ȁ<<<Ȁ<<ȃ<<<Ȃ<<ạ<<<Ạ<<ặ<<<Ặ<<ậ<<<Ậ<<ḁ<<<Ḁ<<ᷓ
+				  <<ᴀ<<ⱥ<<<Ⱥ<<ᶏ<<ɐ<<<Ɐ<<<ᵄ<<ɑ<<<Ɑ<<<ᵅ<<ᶐ<<ɒ<<<Ɒ<<<ᶛ
+				&O<<ö<<<Ö<<ȫ<<<Ȫ<<ó<<<Ó<<ò<<<Ò<<ŏ<<<Ŏ<<ô<<<Ô<<ố<<<Ố<<ồ<<<Ồ<<ỗ<<<Ỗ
+				  <<ổ<<<Ổ<<ǒ<<<Ǒ<<ő<<<Ő<<õ<<<Õ<<ṍ<<<Ṍ<<ṏ<<<Ṏ<<ȭ<<<Ȭ<<ȯ<<<Ȯ<<ȱ<<<Ȱ
+				  <<ø<<<Ø<<ǿ<<<Ǿ<<ǫ<<<Ǫ<<ǭ<<<Ǭ<<ō<<<Ō<<ṓ<<<Ṓ<<ṑ<<<Ṑ<<ỏ<<<Ỏ<<ȍ<<<Ȍ
+				  <<ȏ<<<Ȏ<<ơ<<<Ơ<<ớ<<<Ớ<<ờ<<<Ờ<<ỡ<<<Ỡ<<ở<<<Ở<<ợ<<<Ợ<<ọ<<<Ọ<<ộ<<<Ộ
+				  <<ᴏ<<ᴑ<<ᴓ<<ɔ<<<Ɔ <<<ᵓ<<ᴐ<<ᴒ<<ᶗ<<ꝍ<<<Ꝍ<<ᴖ<<<ᵔ<<ᴗ<<<ᵕ<<ⱺ<<ɵ<<<Ɵ<<<ᶱ<<ꝋ<<<Ꝋ<<ɷ<<ȣ<<<Ȣ<<<ᴽ<<ᴕ				  
+				&U<<ü<<<Ü<<ǘ<<<Ǘ<<ǜ<<<Ǜ<<ǚ<<<Ǚ<<ǖ<<<Ǖ<<ú<<<Ú<<ù<<<Ù<<ŭ<<<Ŭ<<û<<<Û
+				  <<ǔ<<<Ǔ<<ů<<<Ů<<ű<<<Ű<<ũ<<<Ũ<<ṹ<<<Ṹ<<ų<<<Ų<<ū<<<Ū<<ṻ<<<Ṻ<<ủ<<<Ủ
+				  <<ȕ<<<Ȕ<<ȗ<<<Ȗ<<ư<<<Ư<<ứ<<<Ứ<<ừ<<<Ừ<<ữ<<<Ữ<<ử<<<Ử<<ự<<<Ự<<ụ<<<Ụ
+				  <<ṳ<<<Ṳ<<ṷ<<<Ṷ<<ṵ<<<Ṵ<<ᴜ<<<ᶸ<<ᴝ<<<ᵙ<<ᴞ<<ʉ<<<Ʉ<<<ᶶ<<ᵾ<<ᶙ<<ʊ<<<Ʊ<<<ᶷ<<ᵿ
+			]]></cr>
+		</collation>
+	</collations>
+</ldml>

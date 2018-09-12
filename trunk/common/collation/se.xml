@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2014 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+    <identity>
+        <version number="$Revision$"/>
+        <language type="se" />
+    </identity>
+    <collations>
+		<collation type="search">
+			<cr><![CDATA[
+				[import und-u-co-search]
+				[import se-u-co-standard]
+			]]></cr>
+		</collation>
+        <collation type="standard">
+            <cr><![CDATA[
+                &[before 1]b<á<<<Á
+                &[before 1]d<č # fallback: ch
+
+                <<<Č<ʒ # Skolt Sami, not "index" for other Sami languages
+
+                <<<Ʒ<ǯ # Skolt Sami, not "index" for other Sami languages
+
+                <<<Ǯ
+                &[before 1]e<đ # fallback: dh
+
+                <<<Đ<<ð # Icelandic uses a "eth"...
+
+                <<<Ð
+                &[before 1]h<ǧ # Skolt Sami, not "index" for other Sami languages
+
+                <<<Ǧ<ǥ # Skolt Sami, not "index" for other Sami languages
+
+                <<<Ǥ
+                &[before 1]l<ǩ # Skolt Sami, not "index" for other Sami languages
+
+                <<<Ǩ
+                &[before 1]o<ŋ # fallback: ng
+
+                <<<Ŋ<<ń # Lule Sami (alternative "eng")
+
+                <<<Ń<<ñ # Lule Sami (alternative "eng")
+
+                <<<Ñ
+                &[before 1]t<š # fallback: sh
+
+                <<<Š
+                &[before 1]u<ŧ # fallback: th
+
+                <<<Ŧ<<þ # Icelandic uses thorn...
+
+                <<<Þ
+                &y<<ü # compat. for Norwegian/Swedish
+
+                <<<Ü<<ű # considered a variant of ü
+
+                <<<Ű
+                &[before 1]ǀ # LATIN LETTER DENTAL CLICK
+                <ž # fallback: zh
+                <<<Ž<ø # compat. for Norwegian
+
+                <<<Ø<<œ # considered a variant of ø (and ö...)
+
+                <<<Œ<æ # compat. for Norwegian
+
+                <<<Æ<å # compat. for Norwegian/Swedish
+
+                <<<Å<<ȧ # considered a variant of å
+
+                <<<Ȧ<ä # compat. for Swedish
+
+                <<<Ä<<ã # considered a variant of ä
+
+                <<<Ã<ö # compat. for Swedish
+
+                <<<Ö<<ő # considered a variant of ö
+
+                <<<Ő<<õ # considered a variant of ö
+
+                <<<Õ<<ô # while pronounced as å in French, it is used for some Swedish dialects for "thick ö"
+
+                <<<Ô<<ǫ # variant from old Icelandic/old Norse of a vowel now pronounced like ö
+
+                <<<Ǫ
+            ]]></cr>
+        </collation>
+    </collations>
+</ldml>

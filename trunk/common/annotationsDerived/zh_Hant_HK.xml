@@ -1,0 +1,1951 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2018 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="zh"/>
+		<script type="Hant"/>
+		<territory type="HK"/>
+	</identity>
+	<annotations>
+		<annotation cp="🦵🏽">腳 | 腿 | 踢 | 中等皮膚</annotation>
+		<annotation cp="🦵🏽" type="tts">腿: 中等皮膚</annotation>
+		<annotation cp="🦵🏾">腳 | 腿 | 踢 | 中深皮膚</annotation>
+		<annotation cp="🦵🏾" type="tts">腿: 中深皮膚</annotation>
+		<annotation cp="🦶🏽">腳 | 踢 | 踩 | 中等皮膚</annotation>
+		<annotation cp="🦶🏽" type="tts">腳: 中等皮膚</annotation>
+		<annotation cp="🦶🏾">腳 | 踢 | 踩 | 中深皮膚</annotation>
+		<annotation cp="🦶🏾" type="tts">腳: 中深皮膚</annotation>
+		<annotation cp="🦸🏻">超人 | 白皮膚</annotation>
+		<annotation cp="🦸🏻" type="tts">超人: 白皮膚</annotation>
+		<annotation cp="🦸🏼">超人 | 黃皮膚</annotation>
+		<annotation cp="🦸🏼" type="tts">超人: 黃皮膚</annotation>
+		<annotation cp="🦸🏽">超人 | 中等皮膚</annotation>
+		<annotation cp="🦸🏽" type="tts">超人: 中等皮膚</annotation>
+		<annotation cp="🦸🏾">超人 | 中深皮膚</annotation>
+		<annotation cp="🦸🏾" type="tts">超人: 中深皮膚</annotation>
+		<annotation cp="🦸🏿">超人 | 黑皮膚</annotation>
+		<annotation cp="🦸🏿" type="tts">超人: 黑皮膚</annotation>
+		<annotation cp="🦸🏻‍♀">天賦 | 女 | 英雄 | 超人 | 超能力 | 白皮膚</annotation>
+		<annotation cp="🦸🏼‍♀">天賦 | 女 | 英雄 | 超人 | 超能力 | 黃皮膚</annotation>
+		<annotation cp="🦸🏽‍♀">天賦 | 女 | 英雄 | 超人 | 超能力 | 中等皮膚</annotation>
+		<annotation cp="🦸🏽‍♀" type="tts">女超人: 中等皮膚</annotation>
+		<annotation cp="🦸🏾‍♀">天賦 | 女 | 英雄 | 超人 | 超能力 | 中深皮膚</annotation>
+		<annotation cp="🦸🏾‍♀" type="tts">女超人: 中深皮膚</annotation>
+		<annotation cp="🦸🏿‍♀">天賦 | 女 | 英雄 | 超人 | 超能力 | 黑皮膚</annotation>
+		<annotation cp="🦸🏻‍♂">男超人 | 白皮膚</annotation>
+		<annotation cp="🦸🏻‍♂" type="tts">男超人: 白皮膚</annotation>
+		<annotation cp="🦸🏼‍♂">男超人 | 黃皮膚</annotation>
+		<annotation cp="🦸🏼‍♂" type="tts">男超人: 黃皮膚</annotation>
+		<annotation cp="🦸🏽‍♂">男超人 | 中等皮膚</annotation>
+		<annotation cp="🦸🏽‍♂" type="tts">男超人: 中等皮膚</annotation>
+		<annotation cp="🦸🏾‍♂">男超人 | 中深皮膚</annotation>
+		<annotation cp="🦸🏾‍♂" type="tts">男超人: 中深皮膚</annotation>
+		<annotation cp="🦸🏿‍♂">男超人 | 黑皮膚</annotation>
+		<annotation cp="🦸🏿‍♂" type="tts">男超人: 黑皮膚</annotation>
+		<annotation cp="🦹🏽">反派 | 犯罪 | 超級反派 | 超能力 | 邪惡 | 中等皮膚</annotation>
+		<annotation cp="🦹🏽" type="tts">超級反派: 中等皮膚</annotation>
+		<annotation cp="🦹🏾">反派 | 犯罪 | 超級反派 | 超能力 | 邪惡 | 中深皮膚</annotation>
+		<annotation cp="🦹🏾" type="tts">超級反派: 中深皮膚</annotation>
+		<annotation cp="🦹🏽‍♀">反派 | 女人 | 女超級反派 | 犯罪 | 超能力 | 邪惡 | 中等皮膚</annotation>
+		<annotation cp="🦹🏽‍♀" type="tts">女超級反派: 中等皮膚</annotation>
+		<annotation cp="🦹🏾‍♀">反派 | 女人 | 女超級反派 | 犯罪 | 超能力 | 邪惡 | 中深皮膚</annotation>
+		<annotation cp="🦹🏾‍♀" type="tts">女超級反派: 中深皮膚</annotation>
+		<annotation cp="🦹🏽‍♂">反派 | 犯罪 | 男人 | 男超級反派 | 超能力 | 邪惡 | 中等皮膚</annotation>
+		<annotation cp="🦹🏽‍♂" type="tts">男超級反派: 中等皮膚</annotation>
+		<annotation cp="🦹🏾‍♂">反派 | 犯罪 | 男人 | 男超級反派 | 超能力 | 邪惡 | 中深皮膚</annotation>
+		<annotation cp="🦹🏾‍♂" type="tts">男超級反派: 中深皮膚</annotation>
+		<annotation cp="👶🏻">嬰兒 | 小嬰兒 | 白皮膚</annotation>
+		<annotation cp="👶🏻" type="tts">嬰兒: 白皮膚</annotation>
+		<annotation cp="👶🏼">嬰兒 | 小嬰兒 | 黃皮膚</annotation>
+		<annotation cp="👶🏼" type="tts">嬰兒: 黃皮膚</annotation>
+		<annotation cp="👶🏽">嬰兒 | 小嬰兒 | 中等皮膚</annotation>
+		<annotation cp="👶🏽" type="tts">嬰兒: 中等皮膚</annotation>
+		<annotation cp="👶🏾">嬰兒 | 小嬰兒 | 中深皮膚</annotation>
+		<annotation cp="👶🏾" type="tts">嬰兒: 中深皮膚</annotation>
+		<annotation cp="👶🏿">嬰兒 | 小嬰兒 | 黑皮膚</annotation>
+		<annotation cp="👶🏿" type="tts">嬰兒: 黑皮膚</annotation>
+		<annotation cp="🧒🏽">小孩 | 中等皮膚</annotation>
+		<annotation cp="🧒🏽" type="tts">小孩: 中等皮膚</annotation>
+		<annotation cp="🧒🏾">小孩 | 中深皮膚</annotation>
+		<annotation cp="🧒🏾" type="tts">小孩: 中深皮膚</annotation>
+		<annotation cp="👦🏽">男孩 | 中等皮膚</annotation>
+		<annotation cp="👦🏽" type="tts">男孩: 中等皮膚</annotation>
+		<annotation cp="👦🏾">男孩 | 中深皮膚</annotation>
+		<annotation cp="👦🏾" type="tts">男孩: 中深皮膚</annotation>
+		<annotation cp="👧🏽">女孩 | 中等皮膚</annotation>
+		<annotation cp="👧🏽" type="tts">女孩: 中等皮膚</annotation>
+		<annotation cp="👧🏾">女孩 | 中深皮膚</annotation>
+		<annotation cp="👧🏾" type="tts">女孩: 中深皮膚</annotation>
+		<annotation cp="🧑🏽">大人 | 中等皮膚</annotation>
+		<annotation cp="🧑🏽" type="tts">大人: 中等皮膚</annotation>
+		<annotation cp="🧑🏾">大人 | 中深皮膚</annotation>
+		<annotation cp="🧑🏾" type="tts">大人: 中深皮膚</annotation>
+		<annotation cp="👨🏽">男 | 男人 | 男性 | 中等皮膚</annotation>
+		<annotation cp="👨🏽" type="tts">男人: 中等皮膚</annotation>
+		<annotation cp="👨🏾">男 | 男人 | 男性 | 中深皮膚</annotation>
+		<annotation cp="👨🏾" type="tts">男人: 中深皮膚</annotation>
+		<annotation cp="👨🏽‍🦰">男 | 男人 | 男性 | 中等皮膚 | 紅髮</annotation>
+		<annotation cp="👨🏽‍🦰" type="tts">男人: 中等皮膚 紅髮</annotation>
+		<annotation cp="👨🏾‍🦰">男 | 男人 | 男性 | 中深皮膚 | 紅髮</annotation>
+		<annotation cp="👨🏾‍🦰" type="tts">男人: 中深皮膚 紅髮</annotation>
+		<annotation cp="👨‍🦱">男 | 男人 | 男性 | 曲髮</annotation>
+		<annotation cp="👨‍🦱" type="tts">男人: 曲髮</annotation>
+		<annotation cp="👨🏻‍🦱">男 | 男人 | 男性 | 白皮膚 | 曲髮</annotation>
+		<annotation cp="👨🏻‍🦱" type="tts">男人: 白皮膚 曲髮</annotation>
+		<annotation cp="👨🏼‍🦱">男 | 男人 | 男性 | 黃皮膚 | 曲髮</annotation>
+		<annotation cp="👨🏼‍🦱" type="tts">男人: 黃皮膚 曲髮</annotation>
+		<annotation cp="👨🏽‍🦱">男 | 男人 | 男性 | 中等皮膚 | 曲髮</annotation>
+		<annotation cp="👨🏽‍🦱" type="tts">男人: 中等皮膚 曲髮</annotation>
+		<annotation cp="👨🏾‍🦱">男 | 男人 | 男性 | 中深皮膚 | 曲髮</annotation>
+		<annotation cp="👨🏾‍🦱" type="tts">男人: 中深皮膚 曲髮</annotation>
+		<annotation cp="👨🏿‍🦱">男 | 男人 | 男性 | 黑皮膚 | 曲髮</annotation>
+		<annotation cp="👨🏿‍🦱" type="tts">男人: 黑皮膚 曲髮</annotation>
+		<annotation cp="👨🏽‍🦲">男 | 男人 | 男性 | 中等皮膚 | 禿頭</annotation>
+		<annotation cp="👨🏽‍🦲" type="tts">男人: 中等皮膚 禿頭</annotation>
+		<annotation cp="👨🏾‍🦲">男 | 男人 | 男性 | 中深皮膚 | 禿頭</annotation>
+		<annotation cp="👨🏾‍🦲" type="tts">男人: 中深皮膚 禿頭</annotation>
+		<annotation cp="👨‍🦳">男 | 男人 | 男性 | 白頭髮</annotation>
+		<annotation cp="👨‍🦳" type="tts">男人: 白頭髮</annotation>
+		<annotation cp="👨🏻‍🦳">男 | 男人 | 男性 | 白皮膚 | 白頭髮</annotation>
+		<annotation cp="👨🏻‍🦳" type="tts">男人: 白皮膚 白頭髮</annotation>
+		<annotation cp="👨🏼‍🦳">男 | 男人 | 男性 | 黃皮膚 | 白頭髮</annotation>
+		<annotation cp="👨🏼‍🦳" type="tts">男人: 黃皮膚 白頭髮</annotation>
+		<annotation cp="👨🏽‍🦳">男 | 男人 | 男性 | 中等皮膚 | 白頭髮</annotation>
+		<annotation cp="👨🏽‍🦳" type="tts">男人: 中等皮膚 白頭髮</annotation>
+		<annotation cp="👨🏾‍🦳">男 | 男人 | 男性 | 中深皮膚 | 白頭髮</annotation>
+		<annotation cp="👨🏾‍🦳" type="tts">男人: 中深皮膚 白頭髮</annotation>
+		<annotation cp="👨🏿‍🦳">男 | 男人 | 男性 | 黑皮膚 | 白頭髮</annotation>
+		<annotation cp="👨🏿‍🦳" type="tts">男人: 黑皮膚 白頭髮</annotation>
+		<annotation cp="👩🏽">女 | 女人 | 女性 | 中等皮膚</annotation>
+		<annotation cp="👩🏽" type="tts">女人: 中等皮膚</annotation>
+		<annotation cp="👩🏾">女 | 女人 | 女性 | 中深皮膚</annotation>
+		<annotation cp="👩🏾" type="tts">女人: 中深皮膚</annotation>
+		<annotation cp="👩🏽‍🦰">女 | 女人 | 女性 | 中等皮膚 | 紅髮</annotation>
+		<annotation cp="👩🏽‍🦰" type="tts">女人: 中等皮膚 紅髮</annotation>
+		<annotation cp="👩🏾‍🦰">女 | 女人 | 女性 | 中深皮膚 | 紅髮</annotation>
+		<annotation cp="👩🏾‍🦰" type="tts">女人: 中深皮膚 紅髮</annotation>
+		<annotation cp="👩‍🦱">女 | 女人 | 女性 | 曲髮</annotation>
+		<annotation cp="👩‍🦱" type="tts">女人: 曲髮</annotation>
+		<annotation cp="👩🏻‍🦱">女 | 女人 | 女性 | 白皮膚 | 曲髮</annotation>
+		<annotation cp="👩🏻‍🦱" type="tts">女人: 白皮膚 曲髮</annotation>
+		<annotation cp="👩🏼‍🦱">女 | 女人 | 女性 | 黃皮膚 | 曲髮</annotation>
+		<annotation cp="👩🏼‍🦱" type="tts">女人: 黃皮膚 曲髮</annotation>
+		<annotation cp="👩🏽‍🦱">女 | 女人 | 女性 | 中等皮膚 | 曲髮</annotation>
+		<annotation cp="👩🏽‍🦱" type="tts">女人: 中等皮膚 曲髮</annotation>
+		<annotation cp="👩🏾‍🦱">女 | 女人 | 女性 | 中深皮膚 | 曲髮</annotation>
+		<annotation cp="👩🏾‍🦱" type="tts">女人: 中深皮膚 曲髮</annotation>
+		<annotation cp="👩🏿‍🦱">女 | 女人 | 女性 | 黑皮膚 | 曲髮</annotation>
+		<annotation cp="👩🏿‍🦱" type="tts">女人: 黑皮膚 曲髮</annotation>
+		<annotation cp="👩🏽‍🦲">女 | 女人 | 女性 | 中等皮膚 | 禿頭</annotation>
+		<annotation cp="👩🏽‍🦲" type="tts">女人: 中等皮膚 禿頭</annotation>
+		<annotation cp="👩🏾‍🦲">女 | 女人 | 女性 | 中深皮膚 | 禿頭</annotation>
+		<annotation cp="👩🏾‍🦲" type="tts">女人: 中深皮膚 禿頭</annotation>
+		<annotation cp="👩‍🦳">女 | 女人 | 女性 | 白頭髮</annotation>
+		<annotation cp="👩‍🦳" type="tts">女人: 白頭髮</annotation>
+		<annotation cp="👩🏻‍🦳">女 | 女人 | 女性 | 白皮膚 | 白頭髮</annotation>
+		<annotation cp="👩🏻‍🦳" type="tts">女人: 白皮膚 白頭髮</annotation>
+		<annotation cp="👩🏼‍🦳">女 | 女人 | 女性 | 黃皮膚 | 白頭髮</annotation>
+		<annotation cp="👩🏼‍🦳" type="tts">女人: 黃皮膚 白頭髮</annotation>
+		<annotation cp="👩🏽‍🦳">女 | 女人 | 女性 | 中等皮膚 | 白頭髮</annotation>
+		<annotation cp="👩🏽‍🦳" type="tts">女人: 中等皮膚 白頭髮</annotation>
+		<annotation cp="👩🏾‍🦳">女 | 女人 | 女性 | 中深皮膚 | 白頭髮</annotation>
+		<annotation cp="👩🏾‍🦳" type="tts">女人: 中深皮膚 白頭髮</annotation>
+		<annotation cp="👩🏿‍🦳">女 | 女人 | 女性 | 黑皮膚 | 白頭髮</annotation>
+		<annotation cp="👩🏿‍🦳" type="tts">女人: 黑皮膚 白頭髮</annotation>
+		<annotation cp="🧓🏻">老人家 | 老年人 | 長者 | 白皮膚</annotation>
+		<annotation cp="🧓🏼">老人家 | 老年人 | 長者 | 黃皮膚</annotation>
+		<annotation cp="🧓🏽">老人家 | 老年人 | 長者 | 中等皮膚</annotation>
+		<annotation cp="🧓🏽" type="tts">長者: 中等皮膚</annotation>
+		<annotation cp="🧓🏾">老人家 | 老年人 | 長者 | 中深皮膚</annotation>
+		<annotation cp="🧓🏾" type="tts">長者: 中深皮膚</annotation>
+		<annotation cp="🧓🏿">老人家 | 老年人 | 長者 | 黑皮膚</annotation>
+		<annotation cp="👴🏻">老人 | 老公公｜老伯伯 | 白皮膚</annotation>
+		<annotation cp="👴🏻" type="tts">老人: 白皮膚</annotation>
+		<annotation cp="👴🏼">老人 | 老公公｜老伯伯 | 黃皮膚</annotation>
+		<annotation cp="👴🏼" type="tts">老人: 黃皮膚</annotation>
+		<annotation cp="👴🏽">老人 | 老公公｜老伯伯 | 中等皮膚</annotation>
+		<annotation cp="👴🏽" type="tts">老人: 中等皮膚</annotation>
+		<annotation cp="👴🏾">老人 | 老公公｜老伯伯 | 中深皮膚</annotation>
+		<annotation cp="👴🏾" type="tts">老人: 中深皮膚</annotation>
+		<annotation cp="👴🏿">老人 | 老公公｜老伯伯 | 黑皮膚</annotation>
+		<annotation cp="👴🏿" type="tts">老人: 黑皮膚</annotation>
+		<annotation cp="👵🏻">老太太 | 老婆婆 | 老婦 | 白皮膚</annotation>
+		<annotation cp="👵🏻" type="tts">老婦: 白皮膚</annotation>
+		<annotation cp="👵🏼">老太太 | 老婆婆 | 老婦 | 黃皮膚</annotation>
+		<annotation cp="👵🏼" type="tts">老婦: 黃皮膚</annotation>
+		<annotation cp="👵🏽">老太太 | 老婆婆 | 老婦 | 中等皮膚</annotation>
+		<annotation cp="👵🏽" type="tts">老婦: 中等皮膚</annotation>
+		<annotation cp="👵🏾">老太太 | 老婆婆 | 老婦 | 中深皮膚</annotation>
+		<annotation cp="👵🏾" type="tts">老婦: 中深皮膚</annotation>
+		<annotation cp="👵🏿">老太太 | 老婆婆 | 老婦 | 黑皮膚</annotation>
+		<annotation cp="👵🏿" type="tts">老婦: 黑皮膚</annotation>
+		<annotation cp="👨🏻‍⚕">男醫護人員 | 白皮膚</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">男醫護人員: 白皮膚</annotation>
+		<annotation cp="👨🏼‍⚕">男醫護人員 | 黃皮膚</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">男醫護人員: 黃皮膚</annotation>
+		<annotation cp="👨🏽‍⚕">男醫護人員 | 中等皮膚</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">男醫護人員: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍⚕">男醫護人員 | 中深皮膚</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">男醫護人員: 中深皮膚</annotation>
+		<annotation cp="👨🏿‍⚕">男醫護人員 | 黑皮膚</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">男醫護人員: 黑皮膚</annotation>
+		<annotation cp="👩🏻‍⚕">女醫護人員 | 白皮膚</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">女醫護人員: 白皮膚</annotation>
+		<annotation cp="👩🏼‍⚕">女醫護人員 | 黃皮膚</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">女醫護人員: 黃皮膚</annotation>
+		<annotation cp="👩🏽‍⚕">女醫護人員 | 中等皮膚</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">女醫護人員: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍⚕">女醫護人員 | 中深皮膚</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">女醫護人員: 中深皮膚</annotation>
+		<annotation cp="👩🏿‍⚕">女醫護人員 | 黑皮膚</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">女醫護人員: 黑皮膚</annotation>
+		<annotation cp="👨🏻‍🎓">男學生 | 白皮膚</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">男學生: 白皮膚</annotation>
+		<annotation cp="👨🏼‍🎓">男學生 | 黃皮膚</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">男學生: 黃皮膚</annotation>
+		<annotation cp="👨🏽‍🎓">男學生 | 中等皮膚</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">男學生: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍🎓">男學生 | 中深皮膚</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">男學生: 中深皮膚</annotation>
+		<annotation cp="👨🏿‍🎓">男學生 | 黑皮膚</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">男學生: 黑皮膚</annotation>
+		<annotation cp="👩🏻‍🎓">女學生 | 白皮膚</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">女學生: 白皮膚</annotation>
+		<annotation cp="👩🏼‍🎓">女學生 | 黃皮膚</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">女學生: 黃皮膚</annotation>
+		<annotation cp="👩🏽‍🎓">女學生 | 中等皮膚</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">女學生: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍🎓">女學生 | 中深皮膚</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">女學生: 中深皮膚</annotation>
+		<annotation cp="👩🏿‍🎓">女學生 | 黑皮膚</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">女學生: 黑皮膚</annotation>
+		<annotation cp="👨🏽‍🏫">教授 | 男 | 男老師 | 老師 | 講師 | 中等皮膚</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">男老師: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍🏫">教授 | 男 | 男老師 | 老師 | 講師 | 中深皮膚</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">男老師: 中深皮膚</annotation>
+		<annotation cp="👩🏽‍🏫">女 | 女老師 | 教授 | 老師 | 講師 | 中等皮膚</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">女老師: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍🏫">女 | 女老師 | 教授 | 老師 | 講師 | 中深皮膚</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">女老師: 中深皮膚</annotation>
+		<annotation cp="👨🏽‍⚖">法官 | 男 | 男法官 | 中等皮膚</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">男法官: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍⚖">法官 | 男 | 男法官 | 中深皮膚</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">男法官: 中深皮膚</annotation>
+		<annotation cp="👩🏽‍⚖">女 | 女法官 | 法官 | 中等皮膚</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">女法官: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍⚖">女 | 女法官 | 法官 | 中深皮膚</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">女法官: 中深皮膚</annotation>
+		<annotation cp="👨🏻‍🌾">男農夫 | 白皮膚</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">男農夫: 白皮膚</annotation>
+		<annotation cp="👨🏼‍🌾">男農夫 | 黃皮膚</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">男農夫: 黃皮膚</annotation>
+		<annotation cp="👨🏽‍🌾">男農夫 | 中等皮膚</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">男農夫: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍🌾">男農夫 | 中深皮膚</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">男農夫: 中深皮膚</annotation>
+		<annotation cp="👨🏿‍🌾">男農夫 | 黑皮膚</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">男農夫: 黑皮膚</annotation>
+		<annotation cp="👩🏻‍🌾">女農夫 | 白皮膚</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">女農夫: 白皮膚</annotation>
+		<annotation cp="👩🏼‍🌾">女農夫 | 黃皮膚</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">女農夫: 黃皮膚</annotation>
+		<annotation cp="👩🏽‍🌾">女農夫 | 中等皮膚</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">女農夫: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍🌾">女農夫 | 中深皮膚</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">女農夫: 中深皮膚</annotation>
+		<annotation cp="👩🏿‍🌾">女農夫 | 黑皮膚</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">女農夫: 黑皮膚</annotation>
+		<annotation cp="👨🏽‍🍳">廚師 | 男 | 男廚師 | 中等皮膚</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">男廚師: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍🍳">廚師 | 男 | 男廚師 | 中深皮膚</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">男廚師: 中深皮膚</annotation>
+		<annotation cp="👩🏽‍🍳">女 | 女廚師 | 廚師 | 中等皮膚</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">女廚師: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍🍳">女 | 女廚師 | 廚師 | 中深皮膚</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">女廚師: 中深皮膚</annotation>
+		<annotation cp="👨🏽‍🔧">技工 | 機械技師 | 男 | 男技工 | 黑手 | 中等皮膚</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">男技工: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍🔧">技工 | 機械技師 | 男 | 男技工 | 黑手 | 中深皮膚</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">男技工: 中深皮膚</annotation>
+		<annotation cp="👩🏽‍🔧">女 | 女技工 | 技工 | 機械技師 | 黑手 | 中等皮膚</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">女技工: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍🔧">女 | 女技工 | 技工 | 機械技師 | 黑手 | 中深皮膚</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">女技工: 中深皮膚</annotation>
+		<annotation cp="👨🏻‍🏭">男工廠工人 | 白皮膚</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">男工廠工人: 白皮膚</annotation>
+		<annotation cp="👨🏼‍🏭">男工廠工人 | 黃皮膚</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">男工廠工人: 黃皮膚</annotation>
+		<annotation cp="👨🏽‍🏭">男工廠工人 | 中等皮膚</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">男工廠工人: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍🏭">男工廠工人 | 中深皮膚</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">男工廠工人: 中深皮膚</annotation>
+		<annotation cp="👨🏿‍🏭">男工廠工人 | 黑皮膚</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">男工廠工人: 黑皮膚</annotation>
+		<annotation cp="👩🏻‍🏭">女工廠工人 | 白皮膚</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">女工廠工人: 白皮膚</annotation>
+		<annotation cp="👩🏼‍🏭">女工廠工人 | 黃皮膚</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">女工廠工人: 黃皮膚</annotation>
+		<annotation cp="👩🏽‍🏭">女工廠工人 | 中等皮膚</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">女工廠工人: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍🏭">女工廠工人 | 中深皮膚</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">女工廠工人: 中深皮膚</annotation>
+		<annotation cp="👩🏿‍🏭">女工廠工人 | 黑皮膚</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">女工廠工人: 黑皮膚</annotation>
+		<annotation cp="👨🏻‍💼">男職員 | 白皮膚</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">男職員: 白皮膚</annotation>
+		<annotation cp="👨🏼‍💼">男職員 | 黃皮膚</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">男職員: 黃皮膚</annotation>
+		<annotation cp="👨🏽‍💼">男職員 | 中等皮膚</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">男職員: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍💼">男職員 | 中深皮膚</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">男職員: 中深皮膚</annotation>
+		<annotation cp="👨🏿‍💼">男職員 | 黑皮膚</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">男職員: 黑皮膚</annotation>
+		<annotation cp="👩🏻‍💼">女職員 | 白皮膚</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">女職員: 白皮膚</annotation>
+		<annotation cp="👩🏼‍💼">女職員 | 黃皮膚</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">女職員: 黃皮膚</annotation>
+		<annotation cp="👩🏽‍💼">女職員 | 中等皮膚</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">女職員: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍💼">女職員 | 中深皮膚</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">女職員: 中深皮膚</annotation>
+		<annotation cp="👩🏿‍💼">女職員 | 黑皮膚</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">女職員: 黑皮膚</annotation>
+		<annotation cp="👨🏽‍🔬">男 | 男科學家 | 科學家 | 中等皮膚</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">男科學家: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍🔬">男 | 男科學家 | 科學家 | 中深皮膚</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">男科學家: 中深皮膚</annotation>
+		<annotation cp="👩🏽‍🔬">女 | 女科學家 | 科學家 | 中等皮膚</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">女科學家: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍🔬">女 | 女科學家 | 科學家 | 中深皮膚</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">女科學家: 中深皮膚</annotation>
+		<annotation cp="👨🏻‍💻">男技術人員 | 白皮膚</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">男技術人員: 白皮膚</annotation>
+		<annotation cp="👨🏼‍💻">男技術人員 | 黃皮膚</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">男技術人員: 黃皮膚</annotation>
+		<annotation cp="👨🏽‍💻">男技術人員 | 中等皮膚</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">男技術人員: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍💻">男技術人員 | 中深皮膚</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">男技術人員: 中深皮膚</annotation>
+		<annotation cp="👨🏿‍💻">男技術人員 | 黑皮膚</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">男技術人員: 黑皮膚</annotation>
+		<annotation cp="👩🏻‍💻">女技術人員 | 白皮膚</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">女技術人員: 白皮膚</annotation>
+		<annotation cp="👩🏼‍💻">女技術人員 | 黃皮膚</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">女技術人員: 黃皮膚</annotation>
+		<annotation cp="👩🏽‍💻">女技術人員 | 中等皮膚</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">女技術人員: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍💻">女技術人員 | 中深皮膚</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">女技術人員: 中深皮膚</annotation>
+		<annotation cp="👩🏿‍💻">女技術人員 | 黑皮膚</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">女技術人員: 黑皮膚</annotation>
+		<annotation cp="👨🏽‍🎤">明星 | 歌手 | 男 | 男歌手 | 中等皮膚</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">男歌手: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍🎤">明星 | 歌手 | 男 | 男歌手 | 中深皮膚</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">男歌手: 中深皮膚</annotation>
+		<annotation cp="👩🏽‍🎤">女 | 女歌手 | 明星 | 歌手 | 中等皮膚</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">女歌手: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍🎤">女 | 女歌手 | 明星 | 歌手 | 中深皮膚</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">女歌手: 中深皮膚</annotation>
+		<annotation cp="👨🏻‍🎨">男畫家 | 白皮膚</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">男畫家: 白皮膚</annotation>
+		<annotation cp="👨🏼‍🎨">男畫家 | 黃皮膚</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">男畫家: 黃皮膚</annotation>
+		<annotation cp="👨🏽‍🎨">男畫家 | 中等皮膚</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">男畫家: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍🎨">男畫家 | 中深皮膚</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">男畫家: 中深皮膚</annotation>
+		<annotation cp="👨🏿‍🎨">男畫家 | 黑皮膚</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">男畫家: 黑皮膚</annotation>
+		<annotation cp="👩🏻‍🎨">女畫家 | 白皮膚</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">女畫家: 白皮膚</annotation>
+		<annotation cp="👩🏼‍🎨">女畫家 | 黃皮膚</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">女畫家: 黃皮膚</annotation>
+		<annotation cp="👩🏽‍🎨">女畫家 | 中等皮膚</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">女畫家: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍🎨">女畫家 | 中深皮膚</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">女畫家: 中深皮膚</annotation>
+		<annotation cp="👩🏿‍🎨">女畫家 | 黑皮膚</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">女畫家: 黑皮膚</annotation>
+		<annotation cp="👨🏻‍✈">男機師 | 白皮膚</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">男機師: 白皮膚</annotation>
+		<annotation cp="👨🏼‍✈">男機師 | 黃皮膚</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">男機師: 黃皮膚</annotation>
+		<annotation cp="👨🏽‍✈">男機師 | 中等皮膚</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">男機師: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍✈">男機師 | 中深皮膚</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">男機師: 中深皮膚</annotation>
+		<annotation cp="👨🏿‍✈">男機師 | 黑皮膚</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">男機師: 黑皮膚</annotation>
+		<annotation cp="👩🏻‍✈">女機師 | 白皮膚</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">女機師: 白皮膚</annotation>
+		<annotation cp="👩🏼‍✈">女機師 | 黃皮膚</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">女機師: 黃皮膚</annotation>
+		<annotation cp="👩🏽‍✈">女機師 | 中等皮膚</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">女機師: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍✈">女機師 | 中深皮膚</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">女機師: 中深皮膚</annotation>
+		<annotation cp="👩🏿‍✈">女機師 | 黑皮膚</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">女機師: 黑皮膚</annotation>
+		<annotation cp="👨🏽‍🚀">太空人 | 男 | 男太空人 | 中等皮膚</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">男太空人: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍🚀">太空人 | 男 | 男太空人 | 中深皮膚</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">男太空人: 中深皮膚</annotation>
+		<annotation cp="👩🏽‍🚀">太空人 | 女 | 女太空人 | 中等皮膚</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">女太空人: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍🚀">太空人 | 女 | 女太空人 | 中深皮膚</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">女太空人: 中深皮膚</annotation>
+		<annotation cp="👨🏽‍🚒">消防員 | 男 | 男消防員 | 中等皮膚</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">男消防員: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍🚒">消防員 | 男 | 男消防員 | 中深皮膚</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">男消防員: 中深皮膚</annotation>
+		<annotation cp="👩🏽‍🚒">女 | 女消防員 | 消防員 | 中等皮膚</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">女消防員: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍🚒">女 | 女消防員 | 消防員 | 中深皮膚</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">女消防員: 中深皮膚</annotation>
+		<annotation cp="👮🏽">警官 | 警察 | 中等皮膚</annotation>
+		<annotation cp="👮🏽" type="tts">警察: 中等皮膚</annotation>
+		<annotation cp="👮🏾">警官 | 警察 | 中深皮膚</annotation>
+		<annotation cp="👮🏾" type="tts">警察: 中深皮膚</annotation>
+		<annotation cp="👮🏽‍♂">男 | 男警 | 警察 | 中等皮膚</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">男警: 中等皮膚</annotation>
+		<annotation cp="👮🏾‍♂">男 | 男警 | 警察 | 中深皮膚</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">男警: 中深皮膚</annotation>
+		<annotation cp="👮🏽‍♀">女 | 女警 | 警察 | 中等皮膚</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">女警: 中等皮膚</annotation>
+		<annotation cp="👮🏾‍♀">女 | 女警 | 警察 | 中深皮膚</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">女警: 中深皮膚</annotation>
+		<annotation cp="🕵🏻">偵探 | 線人 | 臥底 | 間諜 | 白皮膚</annotation>
+		<annotation cp="🕵🏼">偵探 | 線人 | 臥底 | 間諜 | 黃皮膚</annotation>
+		<annotation cp="🕵🏽">偵探 | 線人 | 臥底 | 間諜 | 中等皮膚</annotation>
+		<annotation cp="🕵🏽" type="tts">偵探: 中等皮膚</annotation>
+		<annotation cp="🕵🏾">偵探 | 線人 | 臥底 | 間諜 | 中深皮膚</annotation>
+		<annotation cp="🕵🏾" type="tts">偵探: 中深皮膚</annotation>
+		<annotation cp="🕵🏿">偵探 | 線人 | 臥底 | 間諜 | 黑皮膚</annotation>
+		<annotation cp="🕵🏻‍♂">偵探 | 男 | 線人 | 臥底 | 間諜 | 白皮膚</annotation>
+		<annotation cp="🕵🏼‍♂">偵探 | 男 | 線人 | 臥底 | 間諜 | 黃皮膚</annotation>
+		<annotation cp="🕵🏽‍♂">偵探 | 男 | 線人 | 臥底 | 間諜 | 中等皮膚</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">男偵探: 中等皮膚</annotation>
+		<annotation cp="🕵🏾‍♂">偵探 | 男 | 線人 | 臥底 | 間諜 | 中深皮膚</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">男偵探: 中深皮膚</annotation>
+		<annotation cp="🕵🏿‍♂">偵探 | 男 | 線人 | 臥底 | 間諜 | 黑皮膚</annotation>
+		<annotation cp="🕵🏻‍♀">偵探 | 女 | 線人 | 臥底 | 間諜 | 白皮膚</annotation>
+		<annotation cp="🕵🏼‍♀">偵探 | 女 | 線人 | 臥底 | 間諜 | 黃皮膚</annotation>
+		<annotation cp="🕵🏽‍♀">偵探 | 女 | 線人 | 臥底 | 間諜 | 中等皮膚</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">女偵探: 中等皮膚</annotation>
+		<annotation cp="🕵🏾‍♀">偵探 | 女 | 線人 | 臥底 | 間諜 | 中深皮膚</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">女偵探: 中深皮膚</annotation>
+		<annotation cp="🕵🏿‍♀">偵探 | 女 | 線人 | 臥底 | 間諜 | 黑皮膚</annotation>
+		<annotation cp="💂🏻">守衛 | 白皮膚</annotation>
+		<annotation cp="💂🏻" type="tts">守衛: 白皮膚</annotation>
+		<annotation cp="💂🏼">守衛 | 黃皮膚</annotation>
+		<annotation cp="💂🏼" type="tts">守衛: 黃皮膚</annotation>
+		<annotation cp="💂🏽">守衛 | 中等皮膚</annotation>
+		<annotation cp="💂🏽" type="tts">守衛: 中等皮膚</annotation>
+		<annotation cp="💂🏾">守衛 | 中深皮膚</annotation>
+		<annotation cp="💂🏾" type="tts">守衛: 中深皮膚</annotation>
+		<annotation cp="💂🏿">守衛 | 黑皮膚</annotation>
+		<annotation cp="💂🏿" type="tts">守衛: 黑皮膚</annotation>
+		<annotation cp="💂🏻‍♂">男守衛 | 白皮膚</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">男守衛: 白皮膚</annotation>
+		<annotation cp="💂🏼‍♂">男守衛 | 黃皮膚</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">男守衛: 黃皮膚</annotation>
+		<annotation cp="💂🏽‍♂">男守衛 | 中等皮膚</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">男守衛: 中等皮膚</annotation>
+		<annotation cp="💂🏾‍♂">男守衛 | 中深皮膚</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">男守衛: 中深皮膚</annotation>
+		<annotation cp="💂🏿‍♂">男守衛 | 黑皮膚</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">男守衛: 黑皮膚</annotation>
+		<annotation cp="💂🏻‍♀">女守衛 | 白皮膚</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">女守衛: 白皮膚</annotation>
+		<annotation cp="💂🏼‍♀">女守衛 | 黃皮膚</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">女守衛: 黃皮膚</annotation>
+		<annotation cp="💂🏽‍♀">女守衛 | 中等皮膚</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">女守衛: 中等皮膚</annotation>
+		<annotation cp="💂🏾‍♀">女守衛 | 中深皮膚</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">女守衛: 中深皮膚</annotation>
+		<annotation cp="💂🏿‍♀">女守衛 | 黑皮膚</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">女守衛: 黑皮膚</annotation>
+		<annotation cp="👷🏻">地盤工人 | 安全帽 | 工人 | 建築工人 | 白皮膚</annotation>
+		<annotation cp="👷🏼">地盤工人 | 安全帽 | 工人 | 建築工人 | 黃皮膚</annotation>
+		<annotation cp="👷🏽">地盤工人 | 安全帽 | 工人 | 建築工人 | 中等皮膚</annotation>
+		<annotation cp="👷🏽" type="tts">建築工人: 中等皮膚</annotation>
+		<annotation cp="👷🏾">地盤工人 | 安全帽 | 工人 | 建築工人 | 中深皮膚</annotation>
+		<annotation cp="👷🏾" type="tts">建築工人: 中深皮膚</annotation>
+		<annotation cp="👷🏿">地盤工人 | 安全帽 | 工人 | 建築工人 | 黑皮膚</annotation>
+		<annotation cp="👷🏻‍♂">地盤工人 | 工人 | 建築工人 | 男 | 白皮膚</annotation>
+		<annotation cp="👷🏼‍♂">地盤工人 | 工人 | 建築工人 | 男 | 黃皮膚</annotation>
+		<annotation cp="👷🏽‍♂">地盤工人 | 工人 | 建築工人 | 男 | 中等皮膚</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">男建築工人: 中等皮膚</annotation>
+		<annotation cp="👷🏾‍♂">地盤工人 | 工人 | 建築工人 | 男 | 中深皮膚</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">男建築工人: 中深皮膚</annotation>
+		<annotation cp="👷🏿‍♂">地盤工人 | 工人 | 建築工人 | 男 | 黑皮膚</annotation>
+		<annotation cp="👷🏻‍♀">地盤工人 | 女 | 工人 | 建築工人 | 白皮膚</annotation>
+		<annotation cp="👷🏼‍♀">地盤工人 | 女 | 工人 | 建築工人 | 黃皮膚</annotation>
+		<annotation cp="👷🏽‍♀">地盤工人 | 女 | 工人 | 建築工人 | 中等皮膚</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">女建築工人: 中等皮膚</annotation>
+		<annotation cp="👷🏾‍♀">地盤工人 | 女 | 工人 | 建築工人 | 中深皮膚</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">女建築工人: 中深皮膚</annotation>
+		<annotation cp="👷🏿‍♀">地盤工人 | 女 | 工人 | 建築工人 | 黑皮膚</annotation>
+		<annotation cp="🤴🏻">太子 | 王子 | 皇帝 | 白皮膚</annotation>
+		<annotation cp="🤴🏼">太子 | 王子 | 皇帝 | 黃皮膚</annotation>
+		<annotation cp="🤴🏽">太子 | 王子 | 皇帝 | 中等皮膚</annotation>
+		<annotation cp="🤴🏽" type="tts">王子: 中等皮膚</annotation>
+		<annotation cp="🤴🏾">太子 | 王子 | 皇帝 | 中深皮膚</annotation>
+		<annotation cp="🤴🏾" type="tts">王子: 中深皮膚</annotation>
+		<annotation cp="🤴🏿">太子 | 王子 | 皇帝 | 黑皮膚</annotation>
+		<annotation cp="👸🏻">公主 | 王后 | 皇后 | 童話 | 白皮膚</annotation>
+		<annotation cp="👸🏼">公主 | 王后 | 皇后 | 童話 | 黃皮膚</annotation>
+		<annotation cp="👸🏽">公主 | 王后 | 皇后 | 童話 | 中等皮膚</annotation>
+		<annotation cp="👸🏽" type="tts">公主: 中等皮膚</annotation>
+		<annotation cp="👸🏾">公主 | 王后 | 皇后 | 童話 | 中深皮膚</annotation>
+		<annotation cp="👸🏾" type="tts">公主: 中深皮膚</annotation>
+		<annotation cp="👸🏿">公主 | 王后 | 皇后 | 童話 | 黑皮膚</annotation>
+		<annotation cp="👳🏻">戴頭巾嘅人 | 白皮膚</annotation>
+		<annotation cp="👳🏻" type="tts">戴頭巾嘅人: 白皮膚</annotation>
+		<annotation cp="👳🏼">戴頭巾嘅人 | 黃皮膚</annotation>
+		<annotation cp="👳🏼" type="tts">戴頭巾嘅人: 黃皮膚</annotation>
+		<annotation cp="👳🏽">戴頭巾嘅人 | 中等皮膚</annotation>
+		<annotation cp="👳🏽" type="tts">戴頭巾嘅人: 中等皮膚</annotation>
+		<annotation cp="👳🏾">戴頭巾嘅人 | 中深皮膚</annotation>
+		<annotation cp="👳🏾" type="tts">戴頭巾嘅人: 中深皮膚</annotation>
+		<annotation cp="👳🏿">戴頭巾嘅人 | 黑皮膚</annotation>
+		<annotation cp="👳🏿" type="tts">戴頭巾嘅人: 黑皮膚</annotation>
+		<annotation cp="👳🏻‍♂">戴頭巾嘅男人 | 白皮膚</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">戴頭巾嘅男人: 白皮膚</annotation>
+		<annotation cp="👳🏼‍♂">戴頭巾嘅男人 | 黃皮膚</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">戴頭巾嘅男人: 黃皮膚</annotation>
+		<annotation cp="👳🏽‍♂">戴頭巾嘅男人 | 中等皮膚</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">戴頭巾嘅男人: 中等皮膚</annotation>
+		<annotation cp="👳🏾‍♂">戴頭巾嘅男人 | 中深皮膚</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">戴頭巾嘅男人: 中深皮膚</annotation>
+		<annotation cp="👳🏿‍♂">戴頭巾嘅男人 | 黑皮膚</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">戴頭巾嘅男人: 黑皮膚</annotation>
+		<annotation cp="👳🏻‍♀">戴頭巾嘅女人 | 白皮膚</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">戴頭巾嘅女人: 白皮膚</annotation>
+		<annotation cp="👳🏼‍♀">戴頭巾嘅女人 | 黃皮膚</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">戴頭巾嘅女人: 黃皮膚</annotation>
+		<annotation cp="👳🏽‍♀">戴頭巾嘅女人 | 中等皮膚</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">戴頭巾嘅女人: 中等皮膚</annotation>
+		<annotation cp="👳🏾‍♀">戴頭巾嘅女人 | 中深皮膚</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">戴頭巾嘅女人: 中深皮膚</annotation>
+		<annotation cp="👳🏿‍♀">戴頭巾嘅女人 | 黑皮膚</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">戴頭巾嘅女人: 黑皮膚</annotation>
+		<annotation cp="👲🏻">戴中式帽嘅男人 | 白皮膚</annotation>
+		<annotation cp="👲🏻" type="tts">戴中式帽嘅男人: 白皮膚</annotation>
+		<annotation cp="👲🏼">戴中式帽嘅男人 | 黃皮膚</annotation>
+		<annotation cp="👲🏼" type="tts">戴中式帽嘅男人: 黃皮膚</annotation>
+		<annotation cp="👲🏽">戴中式帽嘅男人 | 中等皮膚</annotation>
+		<annotation cp="👲🏽" type="tts">戴中式帽嘅男人: 中等皮膚</annotation>
+		<annotation cp="👲🏾">戴中式帽嘅男人 | 中深皮膚</annotation>
+		<annotation cp="👲🏾" type="tts">戴中式帽嘅男人: 中深皮膚</annotation>
+		<annotation cp="👲🏿">戴中式帽嘅男人 | 黑皮膚</annotation>
+		<annotation cp="👲🏿" type="tts">戴中式帽嘅男人: 黑皮膚</annotation>
+		<annotation cp="🧕🏻">包頭巾嘅女人 | 白皮膚</annotation>
+		<annotation cp="🧕🏻" type="tts">包頭巾嘅女人: 白皮膚</annotation>
+		<annotation cp="🧕🏼">包頭巾嘅女人 | 黃皮膚</annotation>
+		<annotation cp="🧕🏼" type="tts">包頭巾嘅女人: 黃皮膚</annotation>
+		<annotation cp="🧕🏽">包頭巾嘅女人 | 中等皮膚</annotation>
+		<annotation cp="🧕🏽" type="tts">包頭巾嘅女人: 中等皮膚</annotation>
+		<annotation cp="🧕🏾">包頭巾嘅女人 | 中深皮膚</annotation>
+		<annotation cp="🧕🏾" type="tts">包頭巾嘅女人: 中深皮膚</annotation>
+		<annotation cp="🧕🏿">包頭巾嘅女人 | 黑皮膚</annotation>
+		<annotation cp="🧕🏿" type="tts">包頭巾嘅女人: 黑皮膚</annotation>
+		<annotation cp="🧔🏻">留鬚嘅人 | 白皮膚</annotation>
+		<annotation cp="🧔🏻" type="tts">留鬚嘅人: 白皮膚</annotation>
+		<annotation cp="🧔🏼">留鬚嘅人 | 黃皮膚</annotation>
+		<annotation cp="🧔🏼" type="tts">留鬚嘅人: 黃皮膚</annotation>
+		<annotation cp="🧔🏽">留鬚嘅人 | 中等皮膚</annotation>
+		<annotation cp="🧔🏽" type="tts">留鬚嘅人: 中等皮膚</annotation>
+		<annotation cp="🧔🏾">留鬚嘅人 | 中深皮膚</annotation>
+		<annotation cp="🧔🏾" type="tts">留鬚嘅人: 中深皮膚</annotation>
+		<annotation cp="🧔🏿">留鬚嘅人 | 黑皮膚</annotation>
+		<annotation cp="🧔🏿" type="tts">留鬚嘅人: 黑皮膚</annotation>
+		<annotation cp="👱🏻">金髮嘅人 | 白皮膚</annotation>
+		<annotation cp="👱🏻" type="tts">金髮嘅人: 白皮膚</annotation>
+		<annotation cp="👱🏼">金髮嘅人 | 黃皮膚</annotation>
+		<annotation cp="👱🏼" type="tts">金髮嘅人: 黃皮膚</annotation>
+		<annotation cp="👱🏽">金髮嘅人 | 中等皮膚</annotation>
+		<annotation cp="👱🏽" type="tts">金髮嘅人: 中等皮膚</annotation>
+		<annotation cp="👱🏾">金髮嘅人 | 中深皮膚</annotation>
+		<annotation cp="👱🏾" type="tts">金髮嘅人: 中深皮膚</annotation>
+		<annotation cp="👱🏿">金髮嘅人 | 黑皮膚</annotation>
+		<annotation cp="👱🏿" type="tts">金髮嘅人: 黑皮膚</annotation>
+		<annotation cp="👱🏻‍♂">金髮男人 | 白皮膚</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">金髮男人: 白皮膚</annotation>
+		<annotation cp="👱🏼‍♂">金髮男人 | 黃皮膚</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">金髮男人: 黃皮膚</annotation>
+		<annotation cp="👱🏽‍♂">金髮男人 | 中等皮膚</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">金髮男人: 中等皮膚</annotation>
+		<annotation cp="👱🏾‍♂">金髮男人 | 中深皮膚</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">金髮男人: 中深皮膚</annotation>
+		<annotation cp="👱🏿‍♂">金髮男人 | 黑皮膚</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">金髮男人: 黑皮膚</annotation>
+		<annotation cp="👱🏻‍♀">金髮女人 | 白皮膚</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">金髮女人: 白皮膚</annotation>
+		<annotation cp="👱🏼‍♀">金髮女人 | 黃皮膚</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">金髮女人: 黃皮膚</annotation>
+		<annotation cp="👱🏽‍♀">金髮女人 | 中等皮膚</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">金髮女人: 中等皮膚</annotation>
+		<annotation cp="👱🏾‍♀">金髮女人 | 中深皮膚</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">金髮女人: 中深皮膚</annotation>
+		<annotation cp="👱🏿‍♀">金髮女人 | 黑皮膚</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">金髮女人: 黑皮膚</annotation>
+		<annotation cp="🤵🏻">着禮服嘅男人 | 白皮膚</annotation>
+		<annotation cp="🤵🏻" type="tts">着禮服嘅男人: 白皮膚</annotation>
+		<annotation cp="🤵🏼">着禮服嘅男人 | 黃皮膚</annotation>
+		<annotation cp="🤵🏼" type="tts">着禮服嘅男人: 黃皮膚</annotation>
+		<annotation cp="🤵🏽">着禮服嘅男人 | 中等皮膚</annotation>
+		<annotation cp="🤵🏽" type="tts">着禮服嘅男人: 中等皮膚</annotation>
+		<annotation cp="🤵🏾">着禮服嘅男人 | 中深皮膚</annotation>
+		<annotation cp="🤵🏾" type="tts">着禮服嘅男人: 中深皮膚</annotation>
+		<annotation cp="🤵🏿">着禮服嘅男人 | 黑皮膚</annotation>
+		<annotation cp="🤵🏿" type="tts">着禮服嘅男人: 黑皮膚</annotation>
+		<annotation cp="👰🏽">新娘 | 結婚 | 頭紗 | 中等皮膚</annotation>
+		<annotation cp="👰🏽" type="tts">新娘: 中等皮膚</annotation>
+		<annotation cp="👰🏾">新娘 | 結婚 | 頭紗 | 中深皮膚</annotation>
+		<annotation cp="👰🏾" type="tts">新娘: 中深皮膚</annotation>
+		<annotation cp="🤰🏻">大肚 | 女性 | 孕婦 | 懷孕 | 有 bb | 白皮膚</annotation>
+		<annotation cp="🤰🏼">大肚 | 女性 | 孕婦 | 懷孕 | 有 bb | 黃皮膚</annotation>
+		<annotation cp="🤰🏽">大肚 | 女性 | 孕婦 | 懷孕 | 有 bb | 中等皮膚</annotation>
+		<annotation cp="🤰🏽" type="tts">孕婦: 中等皮膚</annotation>
+		<annotation cp="🤰🏾">大肚 | 女性 | 孕婦 | 懷孕 | 有 bb | 中深皮膚</annotation>
+		<annotation cp="🤰🏾" type="tts">孕婦: 中深皮膚</annotation>
+		<annotation cp="🤰🏿">大肚 | 女性 | 孕婦 | 懷孕 | 有 bb | 黑皮膚</annotation>
+		<annotation cp="🤱🏻">哺乳 | 餵人奶 | 餵奶 | 餵母乳 | 白皮膚</annotation>
+		<annotation cp="🤱🏼">哺乳 | 餵人奶 | 餵奶 | 餵母乳 | 黃皮膚</annotation>
+		<annotation cp="🤱🏽">哺乳 | 餵人奶 | 餵奶 | 餵母乳 | 中等皮膚</annotation>
+		<annotation cp="🤱🏽" type="tts">哺乳: 中等皮膚</annotation>
+		<annotation cp="🤱🏾">哺乳 | 餵人奶 | 餵奶 | 餵母乳 | 中深皮膚</annotation>
+		<annotation cp="🤱🏾" type="tts">哺乳: 中深皮膚</annotation>
+		<annotation cp="🤱🏿">哺乳 | 餵人奶 | 餵奶 | 餵母乳 | 黑皮膚</annotation>
+		<annotation cp="👼🏻">天使嬰兒 | 白皮膚</annotation>
+		<annotation cp="👼🏻" type="tts">天使嬰兒: 白皮膚</annotation>
+		<annotation cp="👼🏼">天使嬰兒 | 黃皮膚</annotation>
+		<annotation cp="👼🏼" type="tts">天使嬰兒: 黃皮膚</annotation>
+		<annotation cp="👼🏽">天使嬰兒 | 中等皮膚</annotation>
+		<annotation cp="👼🏽" type="tts">天使嬰兒: 中等皮膚</annotation>
+		<annotation cp="👼🏾">天使嬰兒 | 中深皮膚</annotation>
+		<annotation cp="👼🏾" type="tts">天使嬰兒: 中深皮膚</annotation>
+		<annotation cp="👼🏿">天使嬰兒 | 黑皮膚</annotation>
+		<annotation cp="👼🏿" type="tts">天使嬰兒: 黑皮膚</annotation>
+		<annotation cp="🎅🏻">慶祝 | 聖誕節 | 聖誕老人 | 白皮膚</annotation>
+		<annotation cp="🎅🏼">慶祝 | 聖誕節 | 聖誕老人 | 黃皮膚</annotation>
+		<annotation cp="🎅🏽">慶祝 | 聖誕節 | 聖誕老人 | 中等皮膚</annotation>
+		<annotation cp="🎅🏽" type="tts">聖誕老人: 中等皮膚</annotation>
+		<annotation cp="🎅🏾">慶祝 | 聖誕節 | 聖誕老人 | 中深皮膚</annotation>
+		<annotation cp="🎅🏾" type="tts">聖誕老人: 中深皮膚</annotation>
+		<annotation cp="🎅🏿">慶祝 | 聖誕節 | 聖誕老人 | 黑皮膚</annotation>
+		<annotation cp="🤶🏻">慶祝 | 聖誕婆婆 | 聖誕節 | 白皮膚</annotation>
+		<annotation cp="🤶🏻" type="tts">聖誕婆婆: 白皮膚</annotation>
+		<annotation cp="🤶🏼">慶祝 | 聖誕婆婆 | 聖誕節 | 黃皮膚</annotation>
+		<annotation cp="🤶🏼" type="tts">聖誕婆婆: 黃皮膚</annotation>
+		<annotation cp="🤶🏽">慶祝 | 聖誕婆婆 | 聖誕節 | 中等皮膚</annotation>
+		<annotation cp="🤶🏽" type="tts">聖誕婆婆: 中等皮膚</annotation>
+		<annotation cp="🤶🏾">慶祝 | 聖誕婆婆 | 聖誕節 | 中深皮膚</annotation>
+		<annotation cp="🤶🏾" type="tts">聖誕婆婆: 中深皮膚</annotation>
+		<annotation cp="🤶🏿">慶祝 | 聖誕婆婆 | 聖誕節 | 黑皮膚</annotation>
+		<annotation cp="🤶🏿" type="tts">聖誕婆婆: 黑皮膚</annotation>
+		<annotation cp="🧙🏻">巫師 | 白皮膚</annotation>
+		<annotation cp="🧙🏻" type="tts">巫師: 白皮膚</annotation>
+		<annotation cp="🧙🏼">巫師 | 黃皮膚</annotation>
+		<annotation cp="🧙🏼" type="tts">巫師: 黃皮膚</annotation>
+		<annotation cp="🧙🏽">巫師 | 中等皮膚</annotation>
+		<annotation cp="🧙🏽" type="tts">巫師: 中等皮膚</annotation>
+		<annotation cp="🧙🏾">巫師 | 中深皮膚</annotation>
+		<annotation cp="🧙🏾" type="tts">巫師: 中深皮膚</annotation>
+		<annotation cp="🧙🏿">巫師 | 黑皮膚</annotation>
+		<annotation cp="🧙🏿" type="tts">巫師: 黑皮膚</annotation>
+		<annotation cp="🧙🏻‍♀">女巫 | 女術士 | 女魔法師 | 巫婆 | 白皮膚</annotation>
+		<annotation cp="🧙🏼‍♀">女巫 | 女術士 | 女魔法師 | 巫婆 | 黃皮膚</annotation>
+		<annotation cp="🧙🏽‍♀">女巫 | 女術士 | 女魔法師 | 巫婆 | 中等皮膚</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">女巫師: 中等皮膚</annotation>
+		<annotation cp="🧙🏾‍♀">女巫 | 女術士 | 女魔法師 | 巫婆 | 中深皮膚</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">女巫師: 中深皮膚</annotation>
+		<annotation cp="🧙🏿‍♀">女巫 | 女術士 | 女魔法師 | 巫婆 | 黑皮膚</annotation>
+		<annotation cp="🧙🏻‍♂">男巫師 | 白皮膚</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">男巫師: 白皮膚</annotation>
+		<annotation cp="🧙🏼‍♂">男巫師 | 黃皮膚</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">男巫師: 黃皮膚</annotation>
+		<annotation cp="🧙🏽‍♂">男巫師 | 中等皮膚</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">男巫師: 中等皮膚</annotation>
+		<annotation cp="🧙🏾‍♂">男巫師 | 中深皮膚</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">男巫師: 中深皮膚</annotation>
+		<annotation cp="🧙🏿‍♂">男巫師 | 黑皮膚</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">男巫師: 黑皮膚</annotation>
+		<annotation cp="🧚🏻">仙子 | 白皮膚</annotation>
+		<annotation cp="🧚🏻" type="tts">仙子: 白皮膚</annotation>
+		<annotation cp="🧚🏼">仙子 | 黃皮膚</annotation>
+		<annotation cp="🧚🏼" type="tts">仙子: 黃皮膚</annotation>
+		<annotation cp="🧚🏽">仙子 | 中等皮膚</annotation>
+		<annotation cp="🧚🏽" type="tts">仙子: 中等皮膚</annotation>
+		<annotation cp="🧚🏾">仙子 | 中深皮膚</annotation>
+		<annotation cp="🧚🏾" type="tts">仙子: 中深皮膚</annotation>
+		<annotation cp="🧚🏿">仙子 | 黑皮膚</annotation>
+		<annotation cp="🧚🏿" type="tts">仙子: 黑皮膚</annotation>
+		<annotation cp="🧚🏻‍♀">女仙子 | 白皮膚</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">女仙子: 白皮膚</annotation>
+		<annotation cp="🧚🏼‍♀">女仙子 | 黃皮膚</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">女仙子: 黃皮膚</annotation>
+		<annotation cp="🧚🏽‍♀">女仙子 | 中等皮膚</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">女仙子: 中等皮膚</annotation>
+		<annotation cp="🧚🏾‍♀">女仙子 | 中深皮膚</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">女仙子: 中深皮膚</annotation>
+		<annotation cp="🧚🏿‍♀">女仙子 | 黑皮膚</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">女仙子: 黑皮膚</annotation>
+		<annotation cp="🧚🏻‍♂">男仙子 | 白皮膚</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">男仙子: 白皮膚</annotation>
+		<annotation cp="🧚🏼‍♂">男仙子 | 黃皮膚</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">男仙子: 黃皮膚</annotation>
+		<annotation cp="🧚🏽‍♂">男仙子 | 中等皮膚</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">男仙子: 中等皮膚</annotation>
+		<annotation cp="🧚🏾‍♂">男仙子 | 中深皮膚</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">男仙子: 中深皮膚</annotation>
+		<annotation cp="🧚🏿‍♂">男仙子 | 黑皮膚</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">男仙子: 黑皮膚</annotation>
+		<annotation cp="🧛🏻">Vote 不死族 | 吸血鬼 | 德古拉 | 白皮膚</annotation>
+		<annotation cp="🧛🏼">Vote 不死族 | 吸血鬼 | 德古拉 | 黃皮膚</annotation>
+		<annotation cp="🧛🏽">Vote 不死族 | 吸血鬼 | 德古拉 | 中等皮膚</annotation>
+		<annotation cp="🧛🏽" type="tts">吸血鬼: 中等皮膚</annotation>
+		<annotation cp="🧛🏾">Vote 不死族 | 吸血鬼 | 德古拉 | 中深皮膚</annotation>
+		<annotation cp="🧛🏾" type="tts">吸血鬼: 中深皮膚</annotation>
+		<annotation cp="🧛🏿">Vote 不死族 | 吸血鬼 | 德古拉 | 黑皮膚</annotation>
+		<annotation cp="🧛🏻‍♀">不死族 | 德古拉｜女吸血鬼 | 白皮膚</annotation>
+		<annotation cp="🧛🏼‍♀">不死族 | 德古拉｜女吸血鬼 | 黃皮膚</annotation>
+		<annotation cp="🧛🏽‍♀">不死族 | 德古拉｜女吸血鬼 | 中等皮膚</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">女吸血鬼: 中等皮膚</annotation>
+		<annotation cp="🧛🏾‍♀">不死族 | 德古拉｜女吸血鬼 | 中深皮膚</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">女吸血鬼: 中深皮膚</annotation>
+		<annotation cp="🧛🏿‍♀">不死族 | 德古拉｜女吸血鬼 | 黑皮膚</annotation>
+		<annotation cp="🧛🏻‍♂">不死族 | 德古拉｜男吸血鬼 | 白皮膚</annotation>
+		<annotation cp="🧛🏼‍♂">不死族 | 德古拉｜男吸血鬼 | 黃皮膚</annotation>
+		<annotation cp="🧛🏽‍♂">不死族 | 德古拉｜男吸血鬼 | 中等皮膚</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">男吸血鬼: 中等皮膚</annotation>
+		<annotation cp="🧛🏾‍♂">不死族 | 德古拉｜男吸血鬼 | 中深皮膚</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">男吸血鬼: 中深皮膚</annotation>
+		<annotation cp="🧛🏿‍♂">不死族 | 德古拉｜男吸血鬼 | 黑皮膚</annotation>
+		<annotation cp="🧜🏽">人魚 | 中等皮膚</annotation>
+		<annotation cp="🧜🏽" type="tts">人魚: 中等皮膚</annotation>
+		<annotation cp="🧜🏾">人魚 | 中深皮膚</annotation>
+		<annotation cp="🧜🏾" type="tts">人魚: 中深皮膚</annotation>
+		<annotation cp="🧜🏻‍♀">美人魚｜人魚 | 白皮膚</annotation>
+		<annotation cp="🧜🏼‍♀">美人魚｜人魚 | 黃皮膚</annotation>
+		<annotation cp="🧜🏽‍♀">美人魚｜人魚 | 中等皮膚</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">美人魚: 中等皮膚</annotation>
+		<annotation cp="🧜🏾‍♀">美人魚｜人魚 | 中深皮膚</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">美人魚: 中深皮膚</annotation>
+		<annotation cp="🧜🏿‍♀">美人魚｜人魚 | 黑皮膚</annotation>
+		<annotation cp="🧜🏻‍♂">男人魚｜人魚 | 白皮膚</annotation>
+		<annotation cp="🧜🏼‍♂">男人魚｜人魚 | 黃皮膚</annotation>
+		<annotation cp="🧜🏽‍♂">男人魚｜人魚 | 中等皮膚</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">男人魚: 中等皮膚</annotation>
+		<annotation cp="🧜🏾‍♂">男人魚｜人魚 | 中深皮膚</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">男人魚: 中深皮膚</annotation>
+		<annotation cp="🧜🏿‍♂">男人魚｜人魚 | 黑皮膚</annotation>
+		<annotation cp="🧝🏻">精靈 | 白皮膚</annotation>
+		<annotation cp="🧝🏻" type="tts">精靈: 白皮膚</annotation>
+		<annotation cp="🧝🏼">精靈 | 黃皮膚</annotation>
+		<annotation cp="🧝🏼" type="tts">精靈: 黃皮膚</annotation>
+		<annotation cp="🧝🏽">精靈 | 中等皮膚</annotation>
+		<annotation cp="🧝🏽" type="tts">精靈: 中等皮膚</annotation>
+		<annotation cp="🧝🏾">精靈 | 中深皮膚</annotation>
+		<annotation cp="🧝🏾" type="tts">精靈: 中深皮膚</annotation>
+		<annotation cp="🧝🏿">精靈 | 黑皮膚</annotation>
+		<annotation cp="🧝🏿" type="tts">精靈: 黑皮膚</annotation>
+		<annotation cp="🧝🏻‍♀">女精靈｜魔法 | 白皮膚</annotation>
+		<annotation cp="🧝🏼‍♀">女精靈｜魔法 | 黃皮膚</annotation>
+		<annotation cp="🧝🏽‍♀">女精靈｜魔法 | 中等皮膚</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">女精靈: 中等皮膚</annotation>
+		<annotation cp="🧝🏾‍♀">女精靈｜魔法 | 中深皮膚</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">女精靈: 中深皮膚</annotation>
+		<annotation cp="🧝🏿‍♀">女精靈｜魔法 | 黑皮膚</annotation>
+		<annotation cp="🧝🏻‍♂">男精靈｜魔法 | 白皮膚</annotation>
+		<annotation cp="🧝🏼‍♂">男精靈｜魔法 | 黃皮膚</annotation>
+		<annotation cp="🧝🏽‍♂">男精靈｜魔法 | 中等皮膚</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">男精靈: 中等皮膚</annotation>
+		<annotation cp="🧝🏾‍♂">男精靈｜魔法 | 中深皮膚</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">男精靈: 中深皮膚</annotation>
+		<annotation cp="🧝🏿‍♂">男精靈｜魔法 | 黑皮膚</annotation>
+		<annotation cp="🙍🏻">皺眉嘅人 | 白皮膚</annotation>
+		<annotation cp="🙍🏻" type="tts">皺眉嘅人: 白皮膚</annotation>
+		<annotation cp="🙍🏼">皺眉嘅人 | 黃皮膚</annotation>
+		<annotation cp="🙍🏼" type="tts">皺眉嘅人: 黃皮膚</annotation>
+		<annotation cp="🙍🏽">皺眉嘅人 | 中等皮膚</annotation>
+		<annotation cp="🙍🏽" type="tts">皺眉嘅人: 中等皮膚</annotation>
+		<annotation cp="🙍🏾">皺眉嘅人 | 中深皮膚</annotation>
+		<annotation cp="🙍🏾" type="tts">皺眉嘅人: 中深皮膚</annotation>
+		<annotation cp="🙍🏿">皺眉嘅人 | 黑皮膚</annotation>
+		<annotation cp="🙍🏿" type="tts">皺眉嘅人: 黑皮膚</annotation>
+		<annotation cp="🙍🏻‍♂">男子皺眉 | 白皮膚</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">男子皺眉: 白皮膚</annotation>
+		<annotation cp="🙍🏼‍♂">男子皺眉 | 黃皮膚</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">男子皺眉: 黃皮膚</annotation>
+		<annotation cp="🙍🏽‍♂">男子皺眉 | 中等皮膚</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">男子皺眉: 中等皮膚</annotation>
+		<annotation cp="🙍🏾‍♂">男子皺眉 | 中深皮膚</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">男子皺眉: 中深皮膚</annotation>
+		<annotation cp="🙍🏿‍♂">男子皺眉 | 黑皮膚</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">男子皺眉: 黑皮膚</annotation>
+		<annotation cp="🙍🏻‍♀">女子皺眉 | 白皮膚</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">女子皺眉: 白皮膚</annotation>
+		<annotation cp="🙍🏼‍♀">女子皺眉 | 黃皮膚</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">女子皺眉: 黃皮膚</annotation>
+		<annotation cp="🙍🏽‍♀">女子皺眉 | 中等皮膚</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">女子皺眉: 中等皮膚</annotation>
+		<annotation cp="🙍🏾‍♀">女子皺眉 | 中深皮膚</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">女子皺眉: 中深皮膚</annotation>
+		<annotation cp="🙍🏿‍♀">女子皺眉 | 黑皮膚</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">女子皺眉: 黑皮膚</annotation>
+		<annotation cp="🙎🏻">撅嘴嘅人 | 白皮膚</annotation>
+		<annotation cp="🙎🏻" type="tts">撅嘴嘅人: 白皮膚</annotation>
+		<annotation cp="🙎🏼">撅嘴嘅人 | 黃皮膚</annotation>
+		<annotation cp="🙎🏼" type="tts">撅嘴嘅人: 黃皮膚</annotation>
+		<annotation cp="🙎🏽">撅嘴嘅人 | 中等皮膚</annotation>
+		<annotation cp="🙎🏽" type="tts">撅嘴嘅人: 中等皮膚</annotation>
+		<annotation cp="🙎🏾">撅嘴嘅人 | 中深皮膚</annotation>
+		<annotation cp="🙎🏾" type="tts">撅嘴嘅人: 中深皮膚</annotation>
+		<annotation cp="🙎🏿">撅嘴嘅人 | 黑皮膚</annotation>
+		<annotation cp="🙎🏿" type="tts">撅嘴嘅人: 黑皮膚</annotation>
+		<annotation cp="🙎🏻‍♂">男子噘嘴 | 白皮膚</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">男子噘嘴: 白皮膚</annotation>
+		<annotation cp="🙎🏼‍♂">男子噘嘴 | 黃皮膚</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">男子噘嘴: 黃皮膚</annotation>
+		<annotation cp="🙎🏽‍♂">男子噘嘴 | 中等皮膚</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">男子噘嘴: 中等皮膚</annotation>
+		<annotation cp="🙎🏾‍♂">男子噘嘴 | 中深皮膚</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">男子噘嘴: 中深皮膚</annotation>
+		<annotation cp="🙎🏿‍♂">男子噘嘴 | 黑皮膚</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">男子噘嘴: 黑皮膚</annotation>
+		<annotation cp="🙎🏻‍♀">女子噘嘴 | 白皮膚</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">女子噘嘴: 白皮膚</annotation>
+		<annotation cp="🙎🏼‍♀">女子噘嘴 | 黃皮膚</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">女子噘嘴: 黃皮膚</annotation>
+		<annotation cp="🙎🏽‍♀">女子噘嘴 | 中等皮膚</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">女子噘嘴: 中等皮膚</annotation>
+		<annotation cp="🙎🏾‍♀">女子噘嘴 | 中深皮膚</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">女子噘嘴: 中深皮膚</annotation>
+		<annotation cp="🙎🏿‍♀">女子噘嘴 | 黑皮膚</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">女子噘嘴: 黑皮膚</annotation>
+		<annotation cp="🙅🏻">用手臂做出交叉手勢嘅人 | 白皮膚</annotation>
+		<annotation cp="🙅🏻" type="tts">用手臂做出交叉手勢嘅人: 白皮膚</annotation>
+		<annotation cp="🙅🏼">用手臂做出交叉手勢嘅人 | 黃皮膚</annotation>
+		<annotation cp="🙅🏼" type="tts">用手臂做出交叉手勢嘅人: 黃皮膚</annotation>
+		<annotation cp="🙅🏽">用手臂做出交叉手勢嘅人 | 中等皮膚</annotation>
+		<annotation cp="🙅🏽" type="tts">用手臂做出交叉手勢嘅人: 中等皮膚</annotation>
+		<annotation cp="🙅🏾">用手臂做出交叉手勢嘅人 | 中深皮膚</annotation>
+		<annotation cp="🙅🏾" type="tts">用手臂做出交叉手勢嘅人: 中深皮膚</annotation>
+		<annotation cp="🙅🏿">用手臂做出交叉手勢嘅人 | 黑皮膚</annotation>
+		<annotation cp="🙅🏿" type="tts">用手臂做出交叉手勢嘅人: 黑皮膚</annotation>
+		<annotation cp="🙅🏻‍♂">男子表示不行 | 白皮膚</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">男子表示不行: 白皮膚</annotation>
+		<annotation cp="🙅🏼‍♂">男子表示不行 | 黃皮膚</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">男子表示不行: 黃皮膚</annotation>
+		<annotation cp="🙅🏽‍♂">男子表示不行 | 中等皮膚</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">男子表示不行: 中等皮膚</annotation>
+		<annotation cp="🙅🏾‍♂">男子表示不行 | 中深皮膚</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">男子表示不行: 中深皮膚</annotation>
+		<annotation cp="🙅🏿‍♂">男子表示不行 | 黑皮膚</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">男子表示不行: 黑皮膚</annotation>
+		<annotation cp="🙅🏻‍♀">女子表示不行 | 白皮膚</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">女子表示不行: 白皮膚</annotation>
+		<annotation cp="🙅🏼‍♀">女子表示不行 | 黃皮膚</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">女子表示不行: 黃皮膚</annotation>
+		<annotation cp="🙅🏽‍♀">女子表示不行 | 中等皮膚</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">女子表示不行: 中等皮膚</annotation>
+		<annotation cp="🙅🏾‍♀">女子表示不行 | 中深皮膚</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">女子表示不行: 中深皮膚</annotation>
+		<annotation cp="🙅🏿‍♀">女子表示不行 | 黑皮膚</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">女子表示不行: 黑皮膚</annotation>
+		<annotation cp="🙆🏻">用手勢表示 OK 嘅人 | 白皮膚</annotation>
+		<annotation cp="🙆🏻" type="tts">用手勢表示 OK 嘅人: 白皮膚</annotation>
+		<annotation cp="🙆🏼">用手勢表示 OK 嘅人 | 黃皮膚</annotation>
+		<annotation cp="🙆🏼" type="tts">用手勢表示 OK 嘅人: 黃皮膚</annotation>
+		<annotation cp="🙆🏽">用手勢表示 OK 嘅人 | 中等皮膚</annotation>
+		<annotation cp="🙆🏽" type="tts">用手勢表示 OK 嘅人: 中等皮膚</annotation>
+		<annotation cp="🙆🏾">用手勢表示 OK 嘅人 | 中深皮膚</annotation>
+		<annotation cp="🙆🏾" type="tts">用手勢表示 OK 嘅人: 中深皮膚</annotation>
+		<annotation cp="🙆🏿">用手勢表示 OK 嘅人 | 黑皮膚</annotation>
+		<annotation cp="🙆🏿" type="tts">用手勢表示 OK 嘅人: 黑皮膚</annotation>
+		<annotation cp="🙆🏻‍♂">男子表示可以 | 白皮膚</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">男子表示可以: 白皮膚</annotation>
+		<annotation cp="🙆🏼‍♂">男子表示可以 | 黃皮膚</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">男子表示可以: 黃皮膚</annotation>
+		<annotation cp="🙆🏽‍♂">男子表示可以 | 中等皮膚</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">男子表示可以: 中等皮膚</annotation>
+		<annotation cp="🙆🏾‍♂">男子表示可以 | 中深皮膚</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">男子表示可以: 中深皮膚</annotation>
+		<annotation cp="🙆🏿‍♂">男子表示可以 | 黑皮膚</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">男子表示可以: 黑皮膚</annotation>
+		<annotation cp="🙆🏻‍♀">女子表示可以 | 白皮膚</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">女子表示可以: 白皮膚</annotation>
+		<annotation cp="🙆🏼‍♀">女子表示可以 | 黃皮膚</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">女子表示可以: 黃皮膚</annotation>
+		<annotation cp="🙆🏽‍♀">女子表示可以 | 中等皮膚</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">女子表示可以: 中等皮膚</annotation>
+		<annotation cp="🙆🏾‍♀">女子表示可以 | 中深皮膚</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">女子表示可以: 中深皮膚</annotation>
+		<annotation cp="🙆🏿‍♀">女子表示可以 | 黑皮膚</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">女子表示可以: 黑皮膚</annotation>
+		<annotation cp="💁🏻">攤開手嘅人 | 白皮膚</annotation>
+		<annotation cp="💁🏻" type="tts">攤開手嘅人: 白皮膚</annotation>
+		<annotation cp="💁🏼">攤開手嘅人 | 黃皮膚</annotation>
+		<annotation cp="💁🏼" type="tts">攤開手嘅人: 黃皮膚</annotation>
+		<annotation cp="💁🏽">攤開手嘅人 | 中等皮膚</annotation>
+		<annotation cp="💁🏽" type="tts">攤開手嘅人: 中等皮膚</annotation>
+		<annotation cp="💁🏾">攤開手嘅人 | 中深皮膚</annotation>
+		<annotation cp="💁🏾" type="tts">攤開手嘅人: 中深皮膚</annotation>
+		<annotation cp="💁🏿">攤開手嘅人 | 黑皮膚</annotation>
+		<annotation cp="💁🏿" type="tts">攤開手嘅人: 黑皮膚</annotation>
+		<annotation cp="💁🏻‍♂">男子抬手 | 白皮膚</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">男子抬手: 白皮膚</annotation>
+		<annotation cp="💁🏼‍♂">男子抬手 | 黃皮膚</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">男子抬手: 黃皮膚</annotation>
+		<annotation cp="💁🏽‍♂">男子抬手 | 中等皮膚</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">男子抬手: 中等皮膚</annotation>
+		<annotation cp="💁🏾‍♂">男子抬手 | 中深皮膚</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">男子抬手: 中深皮膚</annotation>
+		<annotation cp="💁🏿‍♂">男子抬手 | 黑皮膚</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">男子抬手: 黑皮膚</annotation>
+		<annotation cp="💁🏻‍♀">女子抬手 | 白皮膚</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">女子抬手: 白皮膚</annotation>
+		<annotation cp="💁🏼‍♀">女子抬手 | 黃皮膚</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">女子抬手: 黃皮膚</annotation>
+		<annotation cp="💁🏽‍♀">女子抬手 | 中等皮膚</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">女子抬手: 中等皮膚</annotation>
+		<annotation cp="💁🏾‍♀">女子抬手 | 中深皮膚</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">女子抬手: 中深皮膚</annotation>
+		<annotation cp="💁🏿‍♀">女子抬手 | 黑皮膚</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">女子抬手: 黑皮膚</annotation>
+		<annotation cp="🙋🏻">舉起一隻手 | 白皮膚</annotation>
+		<annotation cp="🙋🏻" type="tts">舉起一隻手: 白皮膚</annotation>
+		<annotation cp="🙋🏼">舉起一隻手 | 黃皮膚</annotation>
+		<annotation cp="🙋🏼" type="tts">舉起一隻手: 黃皮膚</annotation>
+		<annotation cp="🙋🏽">舉起一隻手 | 中等皮膚</annotation>
+		<annotation cp="🙋🏽" type="tts">舉起一隻手: 中等皮膚</annotation>
+		<annotation cp="🙋🏾">舉起一隻手 | 中深皮膚</annotation>
+		<annotation cp="🙋🏾" type="tts">舉起一隻手: 中深皮膚</annotation>
+		<annotation cp="🙋🏿">舉起一隻手 | 黑皮膚</annotation>
+		<annotation cp="🙋🏿" type="tts">舉起一隻手: 黑皮膚</annotation>
+		<annotation cp="🙋🏻‍♂">男子舉手 | 白皮膚</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">男子舉手: 白皮膚</annotation>
+		<annotation cp="🙋🏼‍♂">男子舉手 | 黃皮膚</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">男子舉手: 黃皮膚</annotation>
+		<annotation cp="🙋🏽‍♂">男子舉手 | 中等皮膚</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">男子舉手: 中等皮膚</annotation>
+		<annotation cp="🙋🏾‍♂">男子舉手 | 中深皮膚</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">男子舉手: 中深皮膚</annotation>
+		<annotation cp="🙋🏿‍♂">男子舉手 | 黑皮膚</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">男子舉手: 黑皮膚</annotation>
+		<annotation cp="🙋🏻‍♀">女子舉手 | 白皮膚</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">女子舉手: 白皮膚</annotation>
+		<annotation cp="🙋🏼‍♀">女子舉手 | 黃皮膚</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">女子舉手: 黃皮膚</annotation>
+		<annotation cp="🙋🏽‍♀">女子舉手 | 中等皮膚</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">女子舉手: 中等皮膚</annotation>
+		<annotation cp="🙋🏾‍♀">女子舉手 | 中深皮膚</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">女子舉手: 中深皮膚</annotation>
+		<annotation cp="🙋🏿‍♀">女子舉手 | 黑皮膚</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">女子舉手: 黑皮膚</annotation>
+		<annotation cp="🙇🏻">鞠躬｜唔好意思｜對唔住｜sorry｜道歉 | 白皮膚</annotation>
+		<annotation cp="🙇🏼">鞠躬｜唔好意思｜對唔住｜sorry｜道歉 | 黃皮膚</annotation>
+		<annotation cp="🙇🏽">鞠躬｜唔好意思｜對唔住｜sorry｜道歉 | 中等皮膚</annotation>
+		<annotation cp="🙇🏽" type="tts">鞠躬: 中等皮膚</annotation>
+		<annotation cp="🙇🏾">鞠躬｜唔好意思｜對唔住｜sorry｜道歉 | 中深皮膚</annotation>
+		<annotation cp="🙇🏾" type="tts">鞠躬: 中深皮膚</annotation>
+		<annotation cp="🙇🏿">鞠躬｜唔好意思｜對唔住｜sorry｜道歉 | 黑皮膚</annotation>
+		<annotation cp="🙇🏻‍♂">男子鞠躬 | 白皮膚</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">男子鞠躬: 白皮膚</annotation>
+		<annotation cp="🙇🏼‍♂">男子鞠躬 | 黃皮膚</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">男子鞠躬: 黃皮膚</annotation>
+		<annotation cp="🙇🏽‍♂">男子鞠躬 | 中等皮膚</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">男子鞠躬: 中等皮膚</annotation>
+		<annotation cp="🙇🏾‍♂">男子鞠躬 | 中深皮膚</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">男子鞠躬: 中深皮膚</annotation>
+		<annotation cp="🙇🏿‍♂">男子鞠躬 | 黑皮膚</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">男子鞠躬: 黑皮膚</annotation>
+		<annotation cp="🙇🏻‍♀">女子鞠躬 | 白皮膚</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">女子鞠躬: 白皮膚</annotation>
+		<annotation cp="🙇🏼‍♀">女子鞠躬 | 黃皮膚</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">女子鞠躬: 黃皮膚</annotation>
+		<annotation cp="🙇🏽‍♀">女子鞠躬 | 中等皮膚</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">女子鞠躬: 中等皮膚</annotation>
+		<annotation cp="🙇🏾‍♀">女子鞠躬 | 中深皮膚</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">女子鞠躬: 中深皮膚</annotation>
+		<annotation cp="🙇🏿‍♀">女子鞠躬 | 黑皮膚</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">女子鞠躬: 黑皮膚</annotation>
+		<annotation cp="🤦🏻">遮住塊面 | 白皮膚</annotation>
+		<annotation cp="🤦🏻" type="tts">遮住塊面: 白皮膚</annotation>
+		<annotation cp="🤦🏼">遮住塊面 | 黃皮膚</annotation>
+		<annotation cp="🤦🏼" type="tts">遮住塊面: 黃皮膚</annotation>
+		<annotation cp="🤦🏽">遮住塊面 | 中等皮膚</annotation>
+		<annotation cp="🤦🏽" type="tts">遮住塊面: 中等皮膚</annotation>
+		<annotation cp="🤦🏾">遮住塊面 | 中深皮膚</annotation>
+		<annotation cp="🤦🏾" type="tts">遮住塊面: 中深皮膚</annotation>
+		<annotation cp="🤦🏿">遮住塊面 | 黑皮膚</annotation>
+		<annotation cp="🤦🏿" type="tts">遮住塊面: 黑皮膚</annotation>
+		<annotation cp="🤦🏻‍♂">男子遮臉 | 白皮膚</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">男子遮臉: 白皮膚</annotation>
+		<annotation cp="🤦🏼‍♂">男子遮臉 | 黃皮膚</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">男子遮臉: 黃皮膚</annotation>
+		<annotation cp="🤦🏽‍♂">男子遮臉 | 中等皮膚</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">男子遮臉: 中等皮膚</annotation>
+		<annotation cp="🤦🏾‍♂">男子遮臉 | 中深皮膚</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">男子遮臉: 中深皮膚</annotation>
+		<annotation cp="🤦🏿‍♂">男子遮臉 | 黑皮膚</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">男子遮臉: 黑皮膚</annotation>
+		<annotation cp="🤦🏻‍♀">女子遮臉 | 白皮膚</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">女子遮臉: 白皮膚</annotation>
+		<annotation cp="🤦🏼‍♀">女子遮臉 | 黃皮膚</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">女子遮臉: 黃皮膚</annotation>
+		<annotation cp="🤦🏽‍♀">女子遮臉 | 中等皮膚</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">女子遮臉: 中等皮膚</annotation>
+		<annotation cp="🤦🏾‍♀">女子遮臉 | 中深皮膚</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">女子遮臉: 中深皮膚</annotation>
+		<annotation cp="🤦🏿‍♀">女子遮臉 | 黑皮膚</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">女子遮臉: 黑皮膚</annotation>
+		<annotation cp="🤷🏻">聳肩嘅人 | 白皮膚</annotation>
+		<annotation cp="🤷🏻" type="tts">聳肩嘅人: 白皮膚</annotation>
+		<annotation cp="🤷🏼">聳肩嘅人 | 黃皮膚</annotation>
+		<annotation cp="🤷🏼" type="tts">聳肩嘅人: 黃皮膚</annotation>
+		<annotation cp="🤷🏽">聳肩嘅人 | 中等皮膚</annotation>
+		<annotation cp="🤷🏽" type="tts">聳肩嘅人: 中等皮膚</annotation>
+		<annotation cp="🤷🏾">聳肩嘅人 | 中深皮膚</annotation>
+		<annotation cp="🤷🏾" type="tts">聳肩嘅人: 中深皮膚</annotation>
+		<annotation cp="🤷🏿">聳肩嘅人 | 黑皮膚</annotation>
+		<annotation cp="🤷🏿" type="tts">聳肩嘅人: 黑皮膚</annotation>
+		<annotation cp="🤷🏻‍♂">男子聳肩 | 白皮膚</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">男子聳肩: 白皮膚</annotation>
+		<annotation cp="🤷🏼‍♂">男子聳肩 | 黃皮膚</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">男子聳肩: 黃皮膚</annotation>
+		<annotation cp="🤷🏽‍♂">男子聳肩 | 中等皮膚</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">男子聳肩: 中等皮膚</annotation>
+		<annotation cp="🤷🏾‍♂">男子聳肩 | 中深皮膚</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">男子聳肩: 中深皮膚</annotation>
+		<annotation cp="🤷🏿‍♂">男子聳肩 | 黑皮膚</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">男子聳肩: 黑皮膚</annotation>
+		<annotation cp="🤷🏻‍♀">女子聳肩 | 白皮膚</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">女子聳肩: 白皮膚</annotation>
+		<annotation cp="🤷🏼‍♀">女子聳肩 | 黃皮膚</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">女子聳肩: 黃皮膚</annotation>
+		<annotation cp="🤷🏽‍♀">女子聳肩 | 中等皮膚</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">女子聳肩: 中等皮膚</annotation>
+		<annotation cp="🤷🏾‍♀">女子聳肩 | 中深皮膚</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">女子聳肩: 中深皮膚</annotation>
+		<annotation cp="🤷🏿‍♀">女子聳肩 | 黑皮膚</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">女子聳肩: 黑皮膚</annotation>
+		<annotation cp="💆🏻">接受頭部按摩嘅人 | 白皮膚</annotation>
+		<annotation cp="💆🏻" type="tts">接受頭部按摩嘅人: 白皮膚</annotation>
+		<annotation cp="💆🏼">接受頭部按摩嘅人 | 黃皮膚</annotation>
+		<annotation cp="💆🏼" type="tts">接受頭部按摩嘅人: 黃皮膚</annotation>
+		<annotation cp="💆🏽">接受頭部按摩嘅人 | 中等皮膚</annotation>
+		<annotation cp="💆🏽" type="tts">接受頭部按摩嘅人: 中等皮膚</annotation>
+		<annotation cp="💆🏾">接受頭部按摩嘅人 | 中深皮膚</annotation>
+		<annotation cp="💆🏾" type="tts">接受頭部按摩嘅人: 中深皮膚</annotation>
+		<annotation cp="💆🏿">接受頭部按摩嘅人 | 黑皮膚</annotation>
+		<annotation cp="💆🏿" type="tts">接受頭部按摩嘅人: 黑皮膚</annotation>
+		<annotation cp="💆🏻‍♂">按摩｜男人 | 接受按摩的男人 | 接受頭部按摩嘅男人 | 白皮膚</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">接受頭部按摩嘅男人: 白皮膚</annotation>
+		<annotation cp="💆🏼‍♂">按摩｜男人 | 接受按摩的男人 | 接受頭部按摩嘅男人 | 黃皮膚</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">接受頭部按摩嘅男人: 黃皮膚</annotation>
+		<annotation cp="💆🏽‍♂">按摩｜男人 | 接受按摩的男人 | 接受頭部按摩嘅男人 | 中等皮膚</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">接受頭部按摩嘅男人: 中等皮膚</annotation>
+		<annotation cp="💆🏾‍♂">按摩｜男人 | 接受按摩的男人 | 接受頭部按摩嘅男人 | 中深皮膚</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">接受頭部按摩嘅男人: 中深皮膚</annotation>
+		<annotation cp="💆🏿‍♂">按摩｜男人 | 接受按摩的男人 | 接受頭部按摩嘅男人 | 黑皮膚</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">接受頭部按摩嘅男人: 黑皮膚</annotation>
+		<annotation cp="💆🏻‍♀">按摩｜女人 | 接受按摩的女人 | 接受頭部按摩嘅女人 | 白皮膚</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">接受頭部按摩嘅女人: 白皮膚</annotation>
+		<annotation cp="💆🏼‍♀">按摩｜女人 | 接受按摩的女人 | 接受頭部按摩嘅女人 | 黃皮膚</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">接受頭部按摩嘅女人: 黃皮膚</annotation>
+		<annotation cp="💆🏽‍♀">按摩｜女人 | 接受按摩的女人 | 接受頭部按摩嘅女人 | 中等皮膚</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">接受頭部按摩嘅女人: 中等皮膚</annotation>
+		<annotation cp="💆🏾‍♀">按摩｜女人 | 接受按摩的女人 | 接受頭部按摩嘅女人 | 中深皮膚</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">接受頭部按摩嘅女人: 中深皮膚</annotation>
+		<annotation cp="💆🏿‍♀">按摩｜女人 | 接受按摩的女人 | 接受頭部按摩嘅女人 | 黑皮膚</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">接受頭部按摩嘅女人: 黑皮膚</annotation>
+		<annotation cp="💇🏻">剪頭髮 | 白皮膚</annotation>
+		<annotation cp="💇🏻" type="tts">剪頭髮: 白皮膚</annotation>
+		<annotation cp="💇🏼">剪頭髮 | 黃皮膚</annotation>
+		<annotation cp="💇🏼" type="tts">剪頭髮: 黃皮膚</annotation>
+		<annotation cp="💇🏽">剪頭髮 | 中等皮膚</annotation>
+		<annotation cp="💇🏽" type="tts">剪頭髮: 中等皮膚</annotation>
+		<annotation cp="💇🏾">剪頭髮 | 中深皮膚</annotation>
+		<annotation cp="💇🏾" type="tts">剪頭髮: 中深皮膚</annotation>
+		<annotation cp="💇🏿">剪頭髮 | 黑皮膚</annotation>
+		<annotation cp="💇🏿" type="tts">剪頭髮: 黑皮膚</annotation>
+		<annotation cp="💇🏻‍♂">剪緊頭髮嘅男人 | 剪頭髮 | 剪髮｜男人 | 理髮 | 飛髮 | 白皮膚</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">剪緊頭髮嘅男人: 白皮膚</annotation>
+		<annotation cp="💇🏼‍♂">剪緊頭髮嘅男人 | 剪頭髮 | 剪髮｜男人 | 理髮 | 飛髮 | 黃皮膚</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">剪緊頭髮嘅男人: 黃皮膚</annotation>
+		<annotation cp="💇🏽‍♂">剪緊頭髮嘅男人 | 剪頭髮 | 剪髮｜男人 | 理髮 | 飛髮 | 中等皮膚</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">剪緊頭髮嘅男人: 中等皮膚</annotation>
+		<annotation cp="💇🏾‍♂">剪緊頭髮嘅男人 | 剪頭髮 | 剪髮｜男人 | 理髮 | 飛髮 | 中深皮膚</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">剪緊頭髮嘅男人: 中深皮膚</annotation>
+		<annotation cp="💇🏿‍♂">剪緊頭髮嘅男人 | 剪頭髮 | 剪髮｜男人 | 理髮 | 飛髮 | 黑皮膚</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">剪緊頭髮嘅男人: 黑皮膚</annotation>
+		<annotation cp="💇🏻‍♀">剪緊頭髮嘅女人 | 剪頭髮 | 剪髮｜女人 | 理髮 | 飛髮 | 白皮膚</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">剪緊頭髮嘅女人: 白皮膚</annotation>
+		<annotation cp="💇🏼‍♀">剪緊頭髮嘅女人 | 剪頭髮 | 剪髮｜女人 | 理髮 | 飛髮 | 黃皮膚</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">剪緊頭髮嘅女人: 黃皮膚</annotation>
+		<annotation cp="💇🏽‍♀">剪緊頭髮嘅女人 | 剪頭髮 | 剪髮｜女人 | 理髮 | 飛髮 | 中等皮膚</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">剪緊頭髮嘅女人: 中等皮膚</annotation>
+		<annotation cp="💇🏾‍♀">剪緊頭髮嘅女人 | 剪頭髮 | 剪髮｜女人 | 理髮 | 飛髮 | 中深皮膚</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">剪緊頭髮嘅女人: 中深皮膚</annotation>
+		<annotation cp="💇🏿‍♀">剪緊頭髮嘅女人 | 剪頭髮 | 剪髮｜女人 | 理髮 | 飛髮 | 黑皮膚</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">剪緊頭髮嘅女人: 黑皮膚</annotation>
+		<annotation cp="🚶🏻">散步 | 步行 | 漫步 ｜行路 | 行人 | 白皮膚</annotation>
+		<annotation cp="🚶🏼">散步 | 步行 | 漫步 ｜行路 | 行人 | 黃皮膚</annotation>
+		<annotation cp="🚶🏽">散步 | 步行 | 漫步 ｜行路 | 行人 | 中等皮膚</annotation>
+		<annotation cp="🚶🏽" type="tts">行人: 中等皮膚</annotation>
+		<annotation cp="🚶🏾">散步 | 步行 | 漫步 ｜行路 | 行人 | 中深皮膚</annotation>
+		<annotation cp="🚶🏾" type="tts">行人: 中深皮膚</annotation>
+		<annotation cp="🚶🏿">散步 | 步行 | 漫步 ｜行路 | 行人 | 黑皮膚</annotation>
+		<annotation cp="🚶🏻‍♂">行路嘅男人 | 白皮膚</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">行路嘅男人: 白皮膚</annotation>
+		<annotation cp="🚶🏼‍♂">行路嘅男人 | 黃皮膚</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">行路嘅男人: 黃皮膚</annotation>
+		<annotation cp="🚶🏽‍♂">行路嘅男人 | 中等皮膚</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">行路嘅男人: 中等皮膚</annotation>
+		<annotation cp="🚶🏾‍♂">行路嘅男人 | 中深皮膚</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">行路嘅男人: 中深皮膚</annotation>
+		<annotation cp="🚶🏿‍♂">行路嘅男人 | 黑皮膚</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">行路嘅男人: 黑皮膚</annotation>
+		<annotation cp="🚶🏻‍♀">行路嘅女人 | 白皮膚</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">行路嘅女人: 白皮膚</annotation>
+		<annotation cp="🚶🏼‍♀">行路嘅女人 | 黃皮膚</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">行路嘅女人: 黃皮膚</annotation>
+		<annotation cp="🚶🏽‍♀">行路嘅女人 | 中等皮膚</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">行路嘅女人: 中等皮膚</annotation>
+		<annotation cp="🚶🏾‍♀">行路嘅女人 | 中深皮膚</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">行路嘅女人: 中深皮膚</annotation>
+		<annotation cp="🚶🏿‍♀">行路嘅女人 | 黑皮膚</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">行路嘅女人: 黑皮膚</annotation>
+		<annotation cp="🏃🏻">跑步 | 跑步嘅人 | 跑者 | 馬拉松 | 白皮膚</annotation>
+		<annotation cp="🏃🏻" type="tts">跑步嘅人: 白皮膚</annotation>
+		<annotation cp="🏃🏼">跑步 | 跑步嘅人 | 跑者 | 馬拉松 | 黃皮膚</annotation>
+		<annotation cp="🏃🏼" type="tts">跑步嘅人: 黃皮膚</annotation>
+		<annotation cp="🏃🏽">跑步 | 跑步嘅人 | 跑者 | 馬拉松 | 中等皮膚</annotation>
+		<annotation cp="🏃🏽" type="tts">跑步嘅人: 中等皮膚</annotation>
+		<annotation cp="🏃🏾">跑步 | 跑步嘅人 | 跑者 | 馬拉松 | 中深皮膚</annotation>
+		<annotation cp="🏃🏾" type="tts">跑步嘅人: 中深皮膚</annotation>
+		<annotation cp="🏃🏿">跑步 | 跑步嘅人 | 跑者 | 馬拉松 | 黑皮膚</annotation>
+		<annotation cp="🏃🏿" type="tts">跑步嘅人: 黑皮膚</annotation>
+		<annotation cp="🏃🏻‍♂">男跑手 | 白皮膚</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">男跑手: 白皮膚</annotation>
+		<annotation cp="🏃🏼‍♂">男跑手 | 黃皮膚</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">男跑手: 黃皮膚</annotation>
+		<annotation cp="🏃🏽‍♂">男跑手 | 中等皮膚</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">男跑手: 中等皮膚</annotation>
+		<annotation cp="🏃🏾‍♂">男跑手 | 中深皮膚</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">男跑手: 中深皮膚</annotation>
+		<annotation cp="🏃🏿‍♂">男跑手 | 黑皮膚</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">男跑手: 黑皮膚</annotation>
+		<annotation cp="🏃🏻‍♀">女跑手 | 白皮膚</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">女跑手: 白皮膚</annotation>
+		<annotation cp="🏃🏼‍♀">女跑手 | 黃皮膚</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">女跑手: 黃皮膚</annotation>
+		<annotation cp="🏃🏽‍♀">女跑手 | 中等皮膚</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">女跑手: 中等皮膚</annotation>
+		<annotation cp="🏃🏾‍♀">女跑手 | 中深皮膚</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">女跑手: 中深皮膚</annotation>
+		<annotation cp="🏃🏿‍♀">女跑手 | 黑皮膚</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">女跑手: 黑皮膚</annotation>
+		<annotation cp="💃🏻">跳舞嘅女人 | 白皮膚</annotation>
+		<annotation cp="💃🏻" type="tts">跳舞嘅女人: 白皮膚</annotation>
+		<annotation cp="💃🏼">跳舞嘅女人 | 黃皮膚</annotation>
+		<annotation cp="💃🏼" type="tts">跳舞嘅女人: 黃皮膚</annotation>
+		<annotation cp="💃🏽">跳舞嘅女人 | 中等皮膚</annotation>
+		<annotation cp="💃🏽" type="tts">跳舞嘅女人: 中等皮膚</annotation>
+		<annotation cp="💃🏾">跳舞嘅女人 | 中深皮膚</annotation>
+		<annotation cp="💃🏾" type="tts">跳舞嘅女人: 中深皮膚</annotation>
+		<annotation cp="💃🏿">跳舞嘅女人 | 黑皮膚</annotation>
+		<annotation cp="💃🏿" type="tts">跳舞嘅女人: 黑皮膚</annotation>
+		<annotation cp="🕺🏻">跳舞嘅男人 | 白皮膚</annotation>
+		<annotation cp="🕺🏻" type="tts">跳舞嘅男人: 白皮膚</annotation>
+		<annotation cp="🕺🏼">跳舞嘅男人 | 黃皮膚</annotation>
+		<annotation cp="🕺🏼" type="tts">跳舞嘅男人: 黃皮膚</annotation>
+		<annotation cp="🕺🏽">跳舞嘅男人 | 中等皮膚</annotation>
+		<annotation cp="🕺🏽" type="tts">跳舞嘅男人: 中等皮膚</annotation>
+		<annotation cp="🕺🏾">跳舞嘅男人 | 中深皮膚</annotation>
+		<annotation cp="🕺🏾" type="tts">跳舞嘅男人: 中深皮膚</annotation>
+		<annotation cp="🕺🏿">跳舞嘅男人 | 黑皮膚</annotation>
+		<annotation cp="🕺🏿" type="tts">跳舞嘅男人: 黑皮膚</annotation>
+		<annotation cp="🧖🏻">焗桑拿嘅人 | 白皮膚</annotation>
+		<annotation cp="🧖🏻" type="tts">焗桑拿嘅人: 白皮膚</annotation>
+		<annotation cp="🧖🏼">焗桑拿嘅人 | 黃皮膚</annotation>
+		<annotation cp="🧖🏼" type="tts">焗桑拿嘅人: 黃皮膚</annotation>
+		<annotation cp="🧖🏽">焗桑拿嘅人 | 中等皮膚</annotation>
+		<annotation cp="🧖🏽" type="tts">焗桑拿嘅人: 中等皮膚</annotation>
+		<annotation cp="🧖🏾">焗桑拿嘅人 | 中深皮膚</annotation>
+		<annotation cp="🧖🏾" type="tts">焗桑拿嘅人: 中深皮膚</annotation>
+		<annotation cp="🧖🏿">焗桑拿嘅人 | 黑皮膚</annotation>
+		<annotation cp="🧖🏿" type="tts">焗桑拿嘅人: 黑皮膚</annotation>
+		<annotation cp="🧖🏻‍♀">焗桑拿嘅女人 | 白皮膚</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">焗桑拿嘅女人: 白皮膚</annotation>
+		<annotation cp="🧖🏼‍♀">焗桑拿嘅女人 | 黃皮膚</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">焗桑拿嘅女人: 黃皮膚</annotation>
+		<annotation cp="🧖🏽‍♀">焗桑拿嘅女人 | 中等皮膚</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">焗桑拿嘅女人: 中等皮膚</annotation>
+		<annotation cp="🧖🏾‍♀">焗桑拿嘅女人 | 中深皮膚</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">焗桑拿嘅女人: 中深皮膚</annotation>
+		<annotation cp="🧖🏿‍♀">焗桑拿嘅女人 | 黑皮膚</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">焗桑拿嘅女人: 黑皮膚</annotation>
+		<annotation cp="🧖🏻‍♂">焗桑拿嘅男人 | 白皮膚</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">焗桑拿嘅男人: 白皮膚</annotation>
+		<annotation cp="🧖🏼‍♂">焗桑拿嘅男人 | 黃皮膚</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">焗桑拿嘅男人: 黃皮膚</annotation>
+		<annotation cp="🧖🏽‍♂">焗桑拿嘅男人 | 中等皮膚</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">焗桑拿嘅男人: 中等皮膚</annotation>
+		<annotation cp="🧖🏾‍♂">焗桑拿嘅男人 | 中深皮膚</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">焗桑拿嘅男人: 中深皮膚</annotation>
+		<annotation cp="🧖🏿‍♂">焗桑拿嘅男人 | 黑皮膚</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">焗桑拿嘅男人: 黑皮膚</annotation>
+		<annotation cp="🧗🏻">攀岩者 | 白皮膚</annotation>
+		<annotation cp="🧗🏻" type="tts">攀岩者: 白皮膚</annotation>
+		<annotation cp="🧗🏼">攀岩者 | 黃皮膚</annotation>
+		<annotation cp="🧗🏼" type="tts">攀岩者: 黃皮膚</annotation>
+		<annotation cp="🧗🏽">攀岩者 | 中等皮膚</annotation>
+		<annotation cp="🧗🏽" type="tts">攀岩者: 中等皮膚</annotation>
+		<annotation cp="🧗🏾">攀岩者 | 中深皮膚</annotation>
+		<annotation cp="🧗🏾" type="tts">攀岩者: 中深皮膚</annotation>
+		<annotation cp="🧗🏿">攀岩者 | 黑皮膚</annotation>
+		<annotation cp="🧗🏿" type="tts">攀岩者: 黑皮膚</annotation>
+		<annotation cp="🧗🏻‍♀">攀岩嘅女人 | 白皮膚</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">攀岩嘅女人: 白皮膚</annotation>
+		<annotation cp="🧗🏼‍♀">攀岩嘅女人 | 黃皮膚</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">攀岩嘅女人: 黃皮膚</annotation>
+		<annotation cp="🧗🏽‍♀">攀岩嘅女人 | 中等皮膚</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">攀岩嘅女人: 中等皮膚</annotation>
+		<annotation cp="🧗🏾‍♀">攀岩嘅女人 | 中深皮膚</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">攀岩嘅女人: 中深皮膚</annotation>
+		<annotation cp="🧗🏿‍♀">攀岩嘅女人 | 黑皮膚</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">攀岩嘅女人: 黑皮膚</annotation>
+		<annotation cp="🧗🏻‍♂">攀岩嘅男人 | 白皮膚</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">攀岩嘅男人: 白皮膚</annotation>
+		<annotation cp="🧗🏼‍♂">攀岩嘅男人 | 黃皮膚</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">攀岩嘅男人: 黃皮膚</annotation>
+		<annotation cp="🧗🏽‍♂">攀岩嘅男人 | 中等皮膚</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">攀岩嘅男人: 中等皮膚</annotation>
+		<annotation cp="🧗🏾‍♂">攀岩嘅男人 | 中深皮膚</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">攀岩嘅男人: 中深皮膚</annotation>
+		<annotation cp="🧗🏿‍♂">攀岩嘅男人 | 黑皮膚</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">攀岩嘅男人: 黑皮膚</annotation>
+		<annotation cp="🧘🏻">盤腿坐嘅人 | 白皮膚</annotation>
+		<annotation cp="🧘🏻" type="tts">盤腿坐嘅人: 白皮膚</annotation>
+		<annotation cp="🧘🏼">盤腿坐嘅人 | 黃皮膚</annotation>
+		<annotation cp="🧘🏼" type="tts">盤腿坐嘅人: 黃皮膚</annotation>
+		<annotation cp="🧘🏽">盤腿坐嘅人 | 中等皮膚</annotation>
+		<annotation cp="🧘🏽" type="tts">盤腿坐嘅人: 中等皮膚</annotation>
+		<annotation cp="🧘🏾">盤腿坐嘅人 | 中深皮膚</annotation>
+		<annotation cp="🧘🏾" type="tts">盤腿坐嘅人: 中深皮膚</annotation>
+		<annotation cp="🧘🏿">盤腿坐嘅人 | 黑皮膚</annotation>
+		<annotation cp="🧘🏿" type="tts">盤腿坐嘅人: 黑皮膚</annotation>
+		<annotation cp="🧘🏻‍♀">盤腿坐嘅女人 | 白皮膚</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">盤腿坐嘅女人: 白皮膚</annotation>
+		<annotation cp="🧘🏼‍♀">盤腿坐嘅女人 | 黃皮膚</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">盤腿坐嘅女人: 黃皮膚</annotation>
+		<annotation cp="🧘🏽‍♀">盤腿坐嘅女人 | 中等皮膚</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">盤腿坐嘅女人: 中等皮膚</annotation>
+		<annotation cp="🧘🏾‍♀">盤腿坐嘅女人 | 中深皮膚</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">盤腿坐嘅女人: 中深皮膚</annotation>
+		<annotation cp="🧘🏿‍♀">盤腿坐嘅女人 | 黑皮膚</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">盤腿坐嘅女人: 黑皮膚</annotation>
+		<annotation cp="🧘🏻‍♂">盤腿坐嘅男人 | 白皮膚</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">盤腿坐嘅男人: 白皮膚</annotation>
+		<annotation cp="🧘🏼‍♂">盤腿坐嘅男人 | 黃皮膚</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">盤腿坐嘅男人: 黃皮膚</annotation>
+		<annotation cp="🧘🏽‍♂">盤腿坐嘅男人 | 中等皮膚</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">盤腿坐嘅男人: 中等皮膚</annotation>
+		<annotation cp="🧘🏾‍♂">盤腿坐嘅男人 | 中深皮膚</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">盤腿坐嘅男人: 中深皮膚</annotation>
+		<annotation cp="🧘🏿‍♂">盤腿坐嘅男人 | 黑皮膚</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">盤腿坐嘅男人: 黑皮膚</annotation>
+		<annotation cp="🛀🏻">浸浴 | 白皮膚</annotation>
+		<annotation cp="🛀🏻" type="tts">浸浴: 白皮膚</annotation>
+		<annotation cp="🛀🏼">浸浴 | 黃皮膚</annotation>
+		<annotation cp="🛀🏼" type="tts">浸浴: 黃皮膚</annotation>
+		<annotation cp="🛀🏽">浸浴 | 中等皮膚</annotation>
+		<annotation cp="🛀🏽" type="tts">浸浴: 中等皮膚</annotation>
+		<annotation cp="🛀🏾">浸浴 | 中深皮膚</annotation>
+		<annotation cp="🛀🏾" type="tts">浸浴: 中深皮膚</annotation>
+		<annotation cp="🛀🏿">浸浴 | 黑皮膚</annotation>
+		<annotation cp="🛀🏿" type="tts">浸浴: 黑皮膚</annotation>
+		<annotation cp="🛌🏻">床｜瞓覺嘅人｜瞓覺 | 白皮膚</annotation>
+		<annotation cp="🛌🏼">床｜瞓覺嘅人｜瞓覺 | 黃皮膚</annotation>
+		<annotation cp="🛌🏽">床｜瞓覺嘅人｜瞓覺 | 中等皮膚</annotation>
+		<annotation cp="🛌🏽" type="tts">睡覺: 中等皮膚</annotation>
+		<annotation cp="🛌🏾">床｜瞓覺嘅人｜瞓覺 | 中深皮膚</annotation>
+		<annotation cp="🛌🏾" type="tts">睡覺: 中深皮膚</annotation>
+		<annotation cp="🛌🏿">床｜瞓覺嘅人｜瞓覺 | 黑皮膚</annotation>
+		<annotation cp="🕴🏻">着住西裝飄浮嘅男人 | 白皮膚</annotation>
+		<annotation cp="🕴🏻" type="tts">着住西裝飄浮嘅男人: 白皮膚</annotation>
+		<annotation cp="🕴🏼">着住西裝飄浮嘅男人 | 黃皮膚</annotation>
+		<annotation cp="🕴🏼" type="tts">着住西裝飄浮嘅男人: 黃皮膚</annotation>
+		<annotation cp="🕴🏽">着住西裝飄浮嘅男人 | 中等皮膚</annotation>
+		<annotation cp="🕴🏽" type="tts">着住西裝飄浮嘅男人: 中等皮膚</annotation>
+		<annotation cp="🕴🏾">着住西裝飄浮嘅男人 | 中深皮膚</annotation>
+		<annotation cp="🕴🏾" type="tts">着住西裝飄浮嘅男人: 中深皮膚</annotation>
+		<annotation cp="🕴🏿">着住西裝飄浮嘅男人 | 黑皮膚</annotation>
+		<annotation cp="🕴🏿" type="tts">着住西裝飄浮嘅男人: 黑皮膚</annotation>
+		<annotation cp="🏇🏻">騎馬 | 白皮膚</annotation>
+		<annotation cp="🏇🏻" type="tts">騎馬: 白皮膚</annotation>
+		<annotation cp="🏇🏼">騎馬 | 黃皮膚</annotation>
+		<annotation cp="🏇🏼" type="tts">騎馬: 黃皮膚</annotation>
+		<annotation cp="🏇🏽">騎馬 | 中等皮膚</annotation>
+		<annotation cp="🏇🏽" type="tts">騎馬: 中等皮膚</annotation>
+		<annotation cp="🏇🏾">騎馬 | 中深皮膚</annotation>
+		<annotation cp="🏇🏾" type="tts">騎馬: 中深皮膚</annotation>
+		<annotation cp="🏇🏿">騎馬 | 黑皮膚</annotation>
+		<annotation cp="🏇🏿" type="tts">騎馬: 黑皮膚</annotation>
+		<annotation cp="🏂🏻">玩滑雪板 | 白皮膚</annotation>
+		<annotation cp="🏂🏻" type="tts">玩滑雪板: 白皮膚</annotation>
+		<annotation cp="🏂🏼">玩滑雪板 | 黃皮膚</annotation>
+		<annotation cp="🏂🏼" type="tts">玩滑雪板: 黃皮膚</annotation>
+		<annotation cp="🏂🏽">玩滑雪板 | 中等皮膚</annotation>
+		<annotation cp="🏂🏽" type="tts">玩滑雪板: 中等皮膚</annotation>
+		<annotation cp="🏂🏾">玩滑雪板 | 中深皮膚</annotation>
+		<annotation cp="🏂🏾" type="tts">玩滑雪板: 中深皮膚</annotation>
+		<annotation cp="🏂🏿">玩滑雪板 | 黑皮膚</annotation>
+		<annotation cp="🏂🏿" type="tts">玩滑雪板: 黑皮膚</annotation>
+		<annotation cp="🏌🏻">打高爾夫球 | 白皮膚</annotation>
+		<annotation cp="🏌🏻" type="tts">打高爾夫球: 白皮膚</annotation>
+		<annotation cp="🏌🏼">打高爾夫球 | 黃皮膚</annotation>
+		<annotation cp="🏌🏼" type="tts">打高爾夫球: 黃皮膚</annotation>
+		<annotation cp="🏌🏽">打高爾夫球 | 中等皮膚</annotation>
+		<annotation cp="🏌🏽" type="tts">打高爾夫球: 中等皮膚</annotation>
+		<annotation cp="🏌🏾">打高爾夫球 | 中深皮膚</annotation>
+		<annotation cp="🏌🏾" type="tts">打高爾夫球: 中深皮膚</annotation>
+		<annotation cp="🏌🏿">打高爾夫球 | 黑皮膚</annotation>
+		<annotation cp="🏌🏿" type="tts">打高爾夫球: 黑皮膚</annotation>
+		<annotation cp="🏌🏻‍♂">打高爾夫球嘅男人 | 打高爾夫球嘅男人｜高爾夫球｜男人 | 白皮膚</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">打高爾夫球嘅男人: 白皮膚</annotation>
+		<annotation cp="🏌🏼‍♂">打高爾夫球嘅男人 | 打高爾夫球嘅男人｜高爾夫球｜男人 | 黃皮膚</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">打高爾夫球嘅男人: 黃皮膚</annotation>
+		<annotation cp="🏌🏽‍♂">打高爾夫球嘅男人 | 打高爾夫球嘅男人｜高爾夫球｜男人 | 中等皮膚</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">打高爾夫球嘅男人: 中等皮膚</annotation>
+		<annotation cp="🏌🏾‍♂">打高爾夫球嘅男人 | 打高爾夫球嘅男人｜高爾夫球｜男人 | 中深皮膚</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">打高爾夫球嘅男人: 中深皮膚</annotation>
+		<annotation cp="🏌🏿‍♂">打高爾夫球嘅男人 | 打高爾夫球嘅男人｜高爾夫球｜男人 | 黑皮膚</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">打高爾夫球嘅男人: 黑皮膚</annotation>
+		<annotation cp="🏌🏻‍♀">打高爾夫球嘅女人 | 打高爾夫球嘅女人｜高爾夫球｜女人 | 白皮膚</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">打高爾夫球嘅女人: 白皮膚</annotation>
+		<annotation cp="🏌🏼‍♀">打高爾夫球嘅女人 | 打高爾夫球嘅女人｜高爾夫球｜女人 | 黃皮膚</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">打高爾夫球嘅女人: 黃皮膚</annotation>
+		<annotation cp="🏌🏽‍♀">打高爾夫球嘅女人 | 打高爾夫球嘅女人｜高爾夫球｜女人 | 中等皮膚</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">打高爾夫球嘅女人: 中等皮膚</annotation>
+		<annotation cp="🏌🏾‍♀">打高爾夫球嘅女人 | 打高爾夫球嘅女人｜高爾夫球｜女人 | 中深皮膚</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">打高爾夫球嘅女人: 中深皮膚</annotation>
+		<annotation cp="🏌🏿‍♀">打高爾夫球嘅女人 | 打高爾夫球嘅女人｜高爾夫球｜女人 | 黑皮膚</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">打高爾夫球嘅女人: 黑皮膚</annotation>
+		<annotation cp="🏄🏻">滑浪 | 白皮膚</annotation>
+		<annotation cp="🏄🏻" type="tts">滑浪: 白皮膚</annotation>
+		<annotation cp="🏄🏼">滑浪 | 黃皮膚</annotation>
+		<annotation cp="🏄🏼" type="tts">滑浪: 黃皮膚</annotation>
+		<annotation cp="🏄🏽">滑浪 | 中等皮膚</annotation>
+		<annotation cp="🏄🏽" type="tts">滑浪: 中等皮膚</annotation>
+		<annotation cp="🏄🏾">滑浪 | 中深皮膚</annotation>
+		<annotation cp="🏄🏾" type="tts">滑浪: 中深皮膚</annotation>
+		<annotation cp="🏄🏿">滑浪 | 黑皮膚</annotation>
+		<annotation cp="🏄🏿" type="tts">滑浪: 黑皮膚</annotation>
+		<annotation cp="🏄🏻‍♂">滑浪 | 滑浪嘅男人 | 男 | 男仔滑浪 | 白皮膚</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">滑浪嘅男人: 白皮膚</annotation>
+		<annotation cp="🏄🏼‍♂">滑浪 | 滑浪嘅男人 | 男 | 男仔滑浪 | 黃皮膚</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">滑浪嘅男人: 黃皮膚</annotation>
+		<annotation cp="🏄🏽‍♂">滑浪 | 滑浪嘅男人 | 男 | 男仔滑浪 | 中等皮膚</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">滑浪嘅男人: 中等皮膚</annotation>
+		<annotation cp="🏄🏾‍♂">滑浪 | 滑浪嘅男人 | 男 | 男仔滑浪 | 中深皮膚</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">滑浪嘅男人: 中深皮膚</annotation>
+		<annotation cp="🏄🏿‍♂">滑浪 | 滑浪嘅男人 | 男 | 男仔滑浪 | 黑皮膚</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">滑浪嘅男人: 黑皮膚</annotation>
+		<annotation cp="🏄🏻‍♀">女 | 女仔滑浪 | 滑浪 | 滑浪嘅女人 | 白皮膚</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">滑浪嘅女人: 白皮膚</annotation>
+		<annotation cp="🏄🏼‍♀">女 | 女仔滑浪 | 滑浪 | 滑浪嘅女人 | 黃皮膚</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">滑浪嘅女人: 黃皮膚</annotation>
+		<annotation cp="🏄🏽‍♀">女 | 女仔滑浪 | 滑浪 | 滑浪嘅女人 | 中等皮膚</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">滑浪嘅女人: 中等皮膚</annotation>
+		<annotation cp="🏄🏾‍♀">女 | 女仔滑浪 | 滑浪 | 滑浪嘅女人 | 中深皮膚</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">滑浪嘅女人: 中深皮膚</annotation>
+		<annotation cp="🏄🏿‍♀">女 | 女仔滑浪 | 滑浪 | 滑浪嘅女人 | 黑皮膚</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">滑浪嘅女人: 黑皮膚</annotation>
+		<annotation cp="🚣🏻">撐艇 | 白皮膚</annotation>
+		<annotation cp="🚣🏻" type="tts">撐艇: 白皮膚</annotation>
+		<annotation cp="🚣🏼">撐艇 | 黃皮膚</annotation>
+		<annotation cp="🚣🏼" type="tts">撐艇: 黃皮膚</annotation>
+		<annotation cp="🚣🏽">撐艇 | 中等皮膚</annotation>
+		<annotation cp="🚣🏽" type="tts">撐艇: 中等皮膚</annotation>
+		<annotation cp="🚣🏾">撐艇 | 中深皮膚</annotation>
+		<annotation cp="🚣🏾" type="tts">撐艇: 中深皮膚</annotation>
+		<annotation cp="🚣🏿">撐艇 | 黑皮膚</annotation>
+		<annotation cp="🚣🏿" type="tts">撐艇: 黑皮膚</annotation>
+		<annotation cp="🚣🏻‍♂">划艇嘅男人 | 小船 | 撐艇嘅男人 | 撐艇｜船 | 白皮膚</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">撐艇嘅男人: 白皮膚</annotation>
+		<annotation cp="🚣🏼‍♂">划艇嘅男人 | 小船 | 撐艇嘅男人 | 撐艇｜船 | 黃皮膚</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">撐艇嘅男人: 黃皮膚</annotation>
+		<annotation cp="🚣🏽‍♂">划艇嘅男人 | 小船 | 撐艇嘅男人 | 撐艇｜船 | 中等皮膚</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">撐艇嘅男人: 中等皮膚</annotation>
+		<annotation cp="🚣🏾‍♂">划艇嘅男人 | 小船 | 撐艇嘅男人 | 撐艇｜船 | 中深皮膚</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">撐艇嘅男人: 中深皮膚</annotation>
+		<annotation cp="🚣🏿‍♂">划艇嘅男人 | 小船 | 撐艇嘅男人 | 撐艇｜船 | 黑皮膚</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">撐艇嘅男人: 黑皮膚</annotation>
+		<annotation cp="🚣🏻‍♀">划艇嘅女人 | 小船 | 撐艇嘅女人 | 撐艇｜船 | 白皮膚</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">撐艇嘅女人: 白皮膚</annotation>
+		<annotation cp="🚣🏼‍♀">划艇嘅女人 | 小船 | 撐艇嘅女人 | 撐艇｜船 | 黃皮膚</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">撐艇嘅女人: 黃皮膚</annotation>
+		<annotation cp="🚣🏽‍♀">划艇嘅女人 | 小船 | 撐艇嘅女人 | 撐艇｜船 | 中等皮膚</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">撐艇嘅女人: 中等皮膚</annotation>
+		<annotation cp="🚣🏾‍♀">划艇嘅女人 | 小船 | 撐艇嘅女人 | 撐艇｜船 | 中深皮膚</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">撐艇嘅女人: 中深皮膚</annotation>
+		<annotation cp="🚣🏿‍♀">划艇嘅女人 | 小船 | 撐艇嘅女人 | 撐艇｜船 | 黑皮膚</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">撐艇嘅女人: 黑皮膚</annotation>
+		<annotation cp="🏊🏻">游水 | 白皮膚</annotation>
+		<annotation cp="🏊🏻" type="tts">游水: 白皮膚</annotation>
+		<annotation cp="🏊🏼">游水 | 黃皮膚</annotation>
+		<annotation cp="🏊🏼" type="tts">游水: 黃皮膚</annotation>
+		<annotation cp="🏊🏽">游水 | 中等皮膚</annotation>
+		<annotation cp="🏊🏽" type="tts">游水: 中等皮膚</annotation>
+		<annotation cp="🏊🏾">游水 | 中深皮膚</annotation>
+		<annotation cp="🏊🏾" type="tts">游水: 中深皮膚</annotation>
+		<annotation cp="🏊🏿">游水 | 黑皮膚</annotation>
+		<annotation cp="🏊🏿" type="tts">游水: 黑皮膚</annotation>
+		<annotation cp="🏊🏻‍♂">游水｜游水嘅男人 | 男泳手 | 白皮膚</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">男泳手: 白皮膚</annotation>
+		<annotation cp="🏊🏼‍♂">游水｜游水嘅男人 | 男泳手 | 黃皮膚</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">男泳手: 黃皮膚</annotation>
+		<annotation cp="🏊🏽‍♂">游水｜游水嘅男人 | 男泳手 | 中等皮膚</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">男泳手: 中等皮膚</annotation>
+		<annotation cp="🏊🏾‍♂">游水｜游水嘅男人 | 男泳手 | 中深皮膚</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">男泳手: 中深皮膚</annotation>
+		<annotation cp="🏊🏿‍♂">游水｜游水嘅男人 | 男泳手 | 黑皮膚</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">男泳手: 黑皮膚</annotation>
+		<annotation cp="🏊🏻‍♀">女泳手 | 游水｜游水嘅女人 | 白皮膚</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">女泳手: 白皮膚</annotation>
+		<annotation cp="🏊🏼‍♀">女泳手 | 游水｜游水嘅女人 | 黃皮膚</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">女泳手: 黃皮膚</annotation>
+		<annotation cp="🏊🏽‍♀">女泳手 | 游水｜游水嘅女人 | 中等皮膚</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">女泳手: 中等皮膚</annotation>
+		<annotation cp="🏊🏾‍♀">女泳手 | 游水｜游水嘅女人 | 中深皮膚</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">女泳手: 中深皮膚</annotation>
+		<annotation cp="🏊🏿‍♀">女泳手 | 游水｜游水嘅女人 | 黑皮膚</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">女泳手: 黑皮膚</annotation>
+		<annotation cp="⛹🏻">打緊波嘅人 | 白皮膚</annotation>
+		<annotation cp="⛹🏻" type="tts">打緊波嘅人: 白皮膚</annotation>
+		<annotation cp="⛹🏼">打緊波嘅人 | 黃皮膚</annotation>
+		<annotation cp="⛹🏼" type="tts">打緊波嘅人: 黃皮膚</annotation>
+		<annotation cp="⛹🏽">打緊波嘅人 | 中等皮膚</annotation>
+		<annotation cp="⛹🏽" type="tts">打緊波嘅人: 中等皮膚</annotation>
+		<annotation cp="⛹🏾">打緊波嘅人 | 中深皮膚</annotation>
+		<annotation cp="⛹🏾" type="tts">打緊波嘅人: 中深皮膚</annotation>
+		<annotation cp="⛹🏿">打緊波嘅人 | 黑皮膚</annotation>
+		<annotation cp="⛹🏿" type="tts">打緊波嘅人: 黑皮膚</annotation>
+		<annotation cp="⛹🏻‍♂">打波｜拍波｜男人 | 打緊波嘅男人 | 白皮膚</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">打緊波嘅男人: 白皮膚</annotation>
+		<annotation cp="⛹🏼‍♂">打波｜拍波｜男人 | 打緊波嘅男人 | 黃皮膚</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">打緊波嘅男人: 黃皮膚</annotation>
+		<annotation cp="⛹🏽‍♂">打波｜拍波｜男人 | 打緊波嘅男人 | 中等皮膚</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">打緊波嘅男人: 中等皮膚</annotation>
+		<annotation cp="⛹🏾‍♂">打波｜拍波｜男人 | 打緊波嘅男人 | 中深皮膚</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">打緊波嘅男人: 中深皮膚</annotation>
+		<annotation cp="⛹🏿‍♂">打波｜拍波｜男人 | 打緊波嘅男人 | 黑皮膚</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">打緊波嘅男人: 黑皮膚</annotation>
+		<annotation cp="⛹🏻‍♀">打波｜拍波｜女人 | 打緊波嘅女人 | 白皮膚</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">打緊波嘅女人: 白皮膚</annotation>
+		<annotation cp="⛹🏼‍♀">打波｜拍波｜女人 | 打緊波嘅女人 | 黃皮膚</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">打緊波嘅女人: 黃皮膚</annotation>
+		<annotation cp="⛹🏽‍♀">打波｜拍波｜女人 | 打緊波嘅女人 | 中等皮膚</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">打緊波嘅女人: 中等皮膚</annotation>
+		<annotation cp="⛹🏾‍♀">打波｜拍波｜女人 | 打緊波嘅女人 | 中深皮膚</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">打緊波嘅女人: 中深皮膚</annotation>
+		<annotation cp="⛹🏿‍♀">打波｜拍波｜女人 | 打緊波嘅女人 | 黑皮膚</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">打緊波嘅女人: 黑皮膚</annotation>
+		<annotation cp="🏋🏽">舉重 | 中等皮膚</annotation>
+		<annotation cp="🏋🏽" type="tts">舉重: 中等皮膚</annotation>
+		<annotation cp="🏋🏾">舉重 | 中深皮膚</annotation>
+		<annotation cp="🏋🏾" type="tts">舉重: 中深皮膚</annotation>
+		<annotation cp="🏋🏻‍♂">男 | 男舉重員 | 舉重 | 舉重嘅男人 | 白皮膚</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">男舉重員: 白皮膚</annotation>
+		<annotation cp="🏋🏼‍♂">男 | 男舉重員 | 舉重 | 舉重嘅男人 | 黃皮膚</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">男舉重員: 黃皮膚</annotation>
+		<annotation cp="🏋🏽‍♂">男 | 男舉重員 | 舉重 | 舉重嘅男人 | 中等皮膚</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">男舉重員: 中等皮膚</annotation>
+		<annotation cp="🏋🏾‍♂">男 | 男舉重員 | 舉重 | 舉重嘅男人 | 中深皮膚</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">男舉重員: 中深皮膚</annotation>
+		<annotation cp="🏋🏿‍♂">男 | 男舉重員 | 舉重 | 舉重嘅男人 | 黑皮膚</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">男舉重員: 黑皮膚</annotation>
+		<annotation cp="🏋🏻‍♀">女 | 女子舉重 | 女舉重員 | 舉重 | 白皮膚</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">女舉重員: 白皮膚</annotation>
+		<annotation cp="🏋🏼‍♀">女 | 女子舉重 | 女舉重員 | 舉重 | 黃皮膚</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">女舉重員: 黃皮膚</annotation>
+		<annotation cp="🏋🏽‍♀">女 | 女子舉重 | 女舉重員 | 舉重 | 中等皮膚</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">女舉重員: 中等皮膚</annotation>
+		<annotation cp="🏋🏾‍♀">女 | 女子舉重 | 女舉重員 | 舉重 | 中深皮膚</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">女舉重員: 中深皮膚</annotation>
+		<annotation cp="🏋🏿‍♀">女 | 女子舉重 | 女舉重員 | 舉重 | 黑皮膚</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">女舉重員: 黑皮膚</annotation>
+		<annotation cp="🚴🏻">踩單車 | 踩單車｜單車 | 白皮膚</annotation>
+		<annotation cp="🚴🏻" type="tts">踩單車: 白皮膚</annotation>
+		<annotation cp="🚴🏼">踩單車 | 踩單車｜單車 | 黃皮膚</annotation>
+		<annotation cp="🚴🏼" type="tts">踩單車: 黃皮膚</annotation>
+		<annotation cp="🚴🏽">踩單車 | 踩單車｜單車 | 中等皮膚</annotation>
+		<annotation cp="🚴🏽" type="tts">踩單車: 中等皮膚</annotation>
+		<annotation cp="🚴🏾">踩單車 | 踩單車｜單車 | 中深皮膚</annotation>
+		<annotation cp="🚴🏾" type="tts">踩單車: 中深皮膚</annotation>
+		<annotation cp="🚴🏿">踩單車 | 踩單車｜單車 | 黑皮膚</annotation>
+		<annotation cp="🚴🏿" type="tts">踩單車: 黑皮膚</annotation>
+		<annotation cp="🚴🏻‍♂">男單車手 | 白皮膚</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">男單車手: 白皮膚</annotation>
+		<annotation cp="🚴🏼‍♂">男單車手 | 黃皮膚</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">男單車手: 黃皮膚</annotation>
+		<annotation cp="🚴🏽‍♂">男單車手 | 中等皮膚</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">男單車手: 中等皮膚</annotation>
+		<annotation cp="🚴🏾‍♂">男單車手 | 中深皮膚</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">男單車手: 中深皮膚</annotation>
+		<annotation cp="🚴🏿‍♂">男單車手 | 黑皮膚</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">男單車手: 黑皮膚</annotation>
+		<annotation cp="🚴🏻‍♀">女單車手 | 白皮膚</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">女單車手: 白皮膚</annotation>
+		<annotation cp="🚴🏼‍♀">女單車手 | 黃皮膚</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">女單車手: 黃皮膚</annotation>
+		<annotation cp="🚴🏽‍♀">女單車手 | 中等皮膚</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">女單車手: 中等皮膚</annotation>
+		<annotation cp="🚴🏾‍♀">女單車手 | 中深皮膚</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">女單車手: 中深皮膚</annotation>
+		<annotation cp="🚴🏿‍♀">女單車手 | 黑皮膚</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">女單車手: 黑皮膚</annotation>
+		<annotation cp="🚵🏻">踩爬山單車 | 踩爬山單車｜爬山單車 | 白皮膚</annotation>
+		<annotation cp="🚵🏻" type="tts">踩爬山單車: 白皮膚</annotation>
+		<annotation cp="🚵🏼">踩爬山單車 | 踩爬山單車｜爬山單車 | 黃皮膚</annotation>
+		<annotation cp="🚵🏼" type="tts">踩爬山單車: 黃皮膚</annotation>
+		<annotation cp="🚵🏽">踩爬山單車 | 踩爬山單車｜爬山單車 | 中等皮膚</annotation>
+		<annotation cp="🚵🏽" type="tts">踩爬山單車: 中等皮膚</annotation>
+		<annotation cp="🚵🏾">踩爬山單車 | 踩爬山單車｜爬山單車 | 中深皮膚</annotation>
+		<annotation cp="🚵🏾" type="tts">踩爬山單車: 中深皮膚</annotation>
+		<annotation cp="🚵🏿">踩爬山單車 | 踩爬山單車｜爬山單車 | 黑皮膚</annotation>
+		<annotation cp="🚵🏿" type="tts">踩爬山單車: 黑皮膚</annotation>
+		<annotation cp="🚵🏻‍♂">男 | 踩爬山單車嘅男人 | 踩爬山單車｜爬山單車 | 白皮膚</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">踩爬山單車嘅男人: 白皮膚</annotation>
+		<annotation cp="🚵🏼‍♂">男 | 踩爬山單車嘅男人 | 踩爬山單車｜爬山單車 | 黃皮膚</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">踩爬山單車嘅男人: 黃皮膚</annotation>
+		<annotation cp="🚵🏽‍♂">男 | 踩爬山單車嘅男人 | 踩爬山單車｜爬山單車 | 中等皮膚</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">踩爬山單車嘅男人: 中等皮膚</annotation>
+		<annotation cp="🚵🏾‍♂">男 | 踩爬山單車嘅男人 | 踩爬山單車｜爬山單車 | 中深皮膚</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">踩爬山單車嘅男人: 中深皮膚</annotation>
+		<annotation cp="🚵🏿‍♂">男 | 踩爬山單車嘅男人 | 踩爬山單車｜爬山單車 | 黑皮膚</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">踩爬山單車嘅男人: 黑皮膚</annotation>
+		<annotation cp="🚵🏻‍♀">踩爬山單車嘅女人 | 白皮膚</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">踩爬山單車嘅女人: 白皮膚</annotation>
+		<annotation cp="🚵🏼‍♀">踩爬山單車嘅女人 | 黃皮膚</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">踩爬山單車嘅女人: 黃皮膚</annotation>
+		<annotation cp="🚵🏽‍♀">踩爬山單車嘅女人 | 中等皮膚</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">踩爬山單車嘅女人: 中等皮膚</annotation>
+		<annotation cp="🚵🏾‍♀">踩爬山單車嘅女人 | 中深皮膚</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">踩爬山單車嘅女人: 中深皮膚</annotation>
+		<annotation cp="🚵🏿‍♀">踩爬山單車嘅女人 | 黑皮膚</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">踩爬山單車嘅女人: 黑皮膚</annotation>
+		<annotation cp="🤸🏻">側手翻 | 白皮膚</annotation>
+		<annotation cp="🤸🏻" type="tts">側手翻: 白皮膚</annotation>
+		<annotation cp="🤸🏼">側手翻 | 黃皮膚</annotation>
+		<annotation cp="🤸🏼" type="tts">側手翻: 黃皮膚</annotation>
+		<annotation cp="🤸🏽">側手翻 | 中等皮膚</annotation>
+		<annotation cp="🤸🏽" type="tts">側手翻: 中等皮膚</annotation>
+		<annotation cp="🤸🏾">側手翻 | 中深皮膚</annotation>
+		<annotation cp="🤸🏾" type="tts">側手翻: 中深皮膚</annotation>
+		<annotation cp="🤸🏿">側手翻 | 黑皮膚</annotation>
+		<annotation cp="🤸🏿" type="tts">側手翻: 黑皮膚</annotation>
+		<annotation cp="🤸🏻‍♂">側手翻｜男 | 打側手翻嘅男人 | 打關斗 | 體操 | 白皮膚</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">打側手翻嘅男人: 白皮膚</annotation>
+		<annotation cp="🤸🏼‍♂">側手翻｜男 | 打側手翻嘅男人 | 打關斗 | 體操 | 黃皮膚</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">打側手翻嘅男人: 黃皮膚</annotation>
+		<annotation cp="🤸🏽‍♂">側手翻｜男 | 打側手翻嘅男人 | 打關斗 | 體操 | 中等皮膚</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">打側手翻嘅男人: 中等皮膚</annotation>
+		<annotation cp="🤸🏾‍♂">側手翻｜男 | 打側手翻嘅男人 | 打關斗 | 體操 | 中深皮膚</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">打側手翻嘅男人: 中深皮膚</annotation>
+		<annotation cp="🤸🏿‍♂">側手翻｜男 | 打側手翻嘅男人 | 打關斗 | 體操 | 黑皮膚</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">打側手翻嘅男人: 黑皮膚</annotation>
+		<annotation cp="🤸🏻‍♀">側手翻｜女 | 打側手翻嘅女人 | 打關斗 | 體操 | 白皮膚</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">打側手翻嘅女人: 白皮膚</annotation>
+		<annotation cp="🤸🏼‍♀">側手翻｜女 | 打側手翻嘅女人 | 打關斗 | 體操 | 黃皮膚</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">打側手翻嘅女人: 黃皮膚</annotation>
+		<annotation cp="🤸🏽‍♀">側手翻｜女 | 打側手翻嘅女人 | 打關斗 | 體操 | 中等皮膚</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">打側手翻嘅女人: 中等皮膚</annotation>
+		<annotation cp="🤸🏾‍♀">側手翻｜女 | 打側手翻嘅女人 | 打關斗 | 體操 | 中深皮膚</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">打側手翻嘅女人: 中深皮膚</annotation>
+		<annotation cp="🤸🏿‍♀">側手翻｜女 | 打側手翻嘅女人 | 打關斗 | 體操 | 黑皮膚</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">打側手翻嘅女人: 黑皮膚</annotation>
+		<annotation cp="🤽🏻">水球 | 白皮膚</annotation>
+		<annotation cp="🤽🏻" type="tts">水球: 白皮膚</annotation>
+		<annotation cp="🤽🏼">水球 | 黃皮膚</annotation>
+		<annotation cp="🤽🏼" type="tts">水球: 黃皮膚</annotation>
+		<annotation cp="🤽🏽">水球 | 中等皮膚</annotation>
+		<annotation cp="🤽🏽" type="tts">水球: 中等皮膚</annotation>
+		<annotation cp="🤽🏾">水球 | 中深皮膚</annotation>
+		<annotation cp="🤽🏾" type="tts">水球: 中深皮膚</annotation>
+		<annotation cp="🤽🏿">水球 | 黑皮膚</annotation>
+		<annotation cp="🤽🏿" type="tts">水球: 黑皮膚</annotation>
+		<annotation cp="🤽🏻‍♂">打水球嘅男人 | 打水球嘅男人｜打水球｜水球 | 白皮膚</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">打水球嘅男人: 白皮膚</annotation>
+		<annotation cp="🤽🏼‍♂">打水球嘅男人 | 打水球嘅男人｜打水球｜水球 | 黃皮膚</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">打水球嘅男人: 黃皮膚</annotation>
+		<annotation cp="🤽🏽‍♂">打水球嘅男人 | 打水球嘅男人｜打水球｜水球 | 中等皮膚</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">打水球嘅男人: 中等皮膚</annotation>
+		<annotation cp="🤽🏾‍♂">打水球嘅男人 | 打水球嘅男人｜打水球｜水球 | 中深皮膚</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">打水球嘅男人: 中深皮膚</annotation>
+		<annotation cp="🤽🏿‍♂">打水球嘅男人 | 打水球嘅男人｜打水球｜水球 | 黑皮膚</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">打水球嘅男人: 黑皮膚</annotation>
+		<annotation cp="🤽🏻‍♀">打水球嘅女人 | 打水球嘅女人｜打水球｜水球 | 白皮膚</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">打水球嘅女人: 白皮膚</annotation>
+		<annotation cp="🤽🏼‍♀">打水球嘅女人 | 打水球嘅女人｜打水球｜水球 | 黃皮膚</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">打水球嘅女人: 黃皮膚</annotation>
+		<annotation cp="🤽🏽‍♀">打水球嘅女人 | 打水球嘅女人｜打水球｜水球 | 中等皮膚</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">打水球嘅女人: 中等皮膚</annotation>
+		<annotation cp="🤽🏾‍♀">打水球嘅女人 | 打水球嘅女人｜打水球｜水球 | 中深皮膚</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">打水球嘅女人: 中深皮膚</annotation>
+		<annotation cp="🤽🏿‍♀">打水球嘅女人 | 打水球嘅女人｜打水球｜水球 | 黑皮膚</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">打水球嘅女人: 黑皮膚</annotation>
+		<annotation cp="🤾🏽">手球 | 球類 | 運動 | 中等皮膚</annotation>
+		<annotation cp="🤾🏽" type="tts">手球: 中等皮膚</annotation>
+		<annotation cp="🤾🏾">手球 | 球類 | 運動 | 中深皮膚</annotation>
+		<annotation cp="🤾🏾" type="tts">手球: 中深皮膚</annotation>
+		<annotation cp="🤾🏻‍♂">打手球嘅男人 | 白皮膚</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">打手球嘅男人: 白皮膚</annotation>
+		<annotation cp="🤾🏼‍♂">打手球嘅男人 | 黃皮膚</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">打手球嘅男人: 黃皮膚</annotation>
+		<annotation cp="🤾🏽‍♂">打手球嘅男人 | 中等皮膚</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">打手球嘅男人: 中等皮膚</annotation>
+		<annotation cp="🤾🏾‍♂">打手球嘅男人 | 中深皮膚</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">打手球嘅男人: 中深皮膚</annotation>
+		<annotation cp="🤾🏿‍♂">打手球嘅男人 | 黑皮膚</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">打手球嘅男人: 黑皮膚</annotation>
+		<annotation cp="🤾🏻‍♀">手球 | 打手球 | 打手球嘅女人 | 打手球嘅女性 | 白皮膚</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">打手球嘅女人: 白皮膚</annotation>
+		<annotation cp="🤾🏼‍♀">手球 | 打手球 | 打手球嘅女人 | 打手球嘅女性 | 黃皮膚</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">打手球嘅女人: 黃皮膚</annotation>
+		<annotation cp="🤾🏽‍♀">手球 | 打手球 | 打手球嘅女人 | 打手球嘅女性 | 中等皮膚</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">打手球嘅女人: 中等皮膚</annotation>
+		<annotation cp="🤾🏾‍♀">手球 | 打手球 | 打手球嘅女人 | 打手球嘅女性 | 中深皮膚</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">打手球嘅女人: 中深皮膚</annotation>
+		<annotation cp="🤾🏿‍♀">手球 | 打手球 | 打手球嘅女人 | 打手球嘅女性 | 黑皮膚</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">打手球嘅女人: 黑皮膚</annotation>
+		<annotation cp="🤹🏻">耍雜技 | 白皮膚</annotation>
+		<annotation cp="🤹🏻" type="tts">耍雜技: 白皮膚</annotation>
+		<annotation cp="🤹🏼">耍雜技 | 黃皮膚</annotation>
+		<annotation cp="🤹🏼" type="tts">耍雜技: 黃皮膚</annotation>
+		<annotation cp="🤹🏽">耍雜技 | 中等皮膚</annotation>
+		<annotation cp="🤹🏽" type="tts">耍雜技: 中等皮膚</annotation>
+		<annotation cp="🤹🏾">耍雜技 | 中深皮膚</annotation>
+		<annotation cp="🤹🏾" type="tts">耍雜技: 中深皮膚</annotation>
+		<annotation cp="🤹🏿">耍雜技 | 黑皮膚</annotation>
+		<annotation cp="🤹🏿" type="tts">耍雜技: 黑皮膚</annotation>
+		<annotation cp="🤹🏻‍♂">耍雜技嘅男人 | 耍雜技｜雜技｜男 | 白皮膚</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">耍雜技嘅男人: 白皮膚</annotation>
+		<annotation cp="🤹🏼‍♂">耍雜技嘅男人 | 耍雜技｜雜技｜男 | 黃皮膚</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">耍雜技嘅男人: 黃皮膚</annotation>
+		<annotation cp="🤹🏽‍♂">耍雜技嘅男人 | 耍雜技｜雜技｜男 | 中等皮膚</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">耍雜技嘅男人: 中等皮膚</annotation>
+		<annotation cp="🤹🏾‍♂">耍雜技嘅男人 | 耍雜技｜雜技｜男 | 中深皮膚</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">耍雜技嘅男人: 中深皮膚</annotation>
+		<annotation cp="🤹🏿‍♂">耍雜技嘅男人 | 耍雜技｜雜技｜男 | 黑皮膚</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">耍雜技嘅男人: 黑皮膚</annotation>
+		<annotation cp="🤹🏻‍♀">耍雜技嘅女人 | 耍雜技｜雜技｜女 | 白皮膚</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">耍雜技嘅女人: 白皮膚</annotation>
+		<annotation cp="🤹🏼‍♀">耍雜技嘅女人 | 耍雜技｜雜技｜女 | 黃皮膚</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">耍雜技嘅女人: 黃皮膚</annotation>
+		<annotation cp="🤹🏽‍♀">耍雜技嘅女人 | 耍雜技｜雜技｜女 | 中等皮膚</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">耍雜技嘅女人: 中等皮膚</annotation>
+		<annotation cp="🤹🏾‍♀">耍雜技嘅女人 | 耍雜技｜雜技｜女 | 中深皮膚</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">耍雜技嘅女人: 中深皮膚</annotation>
+		<annotation cp="🤹🏿‍♀">耍雜技嘅女人 | 耍雜技｜雜技｜女 | 黑皮膚</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">耍雜技嘅女人: 黑皮膚</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">接吻 | 親嘴 | 女人 | 男人</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">親嘴: 女人 男人</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">接吻 | 親嘴 | 男人</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">親嘴: 男人 男人</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">接吻 | 親嘴 | 女人</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">親嘴: 女人 女人</annotation>
+		<annotation cp="👩‍❤‍👨">戀愛中 | 女人 | 男人</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">戀愛中: 女人 男人</annotation>
+		<annotation cp="👨‍❤‍👨">戀愛中 | 男人</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">戀愛中: 男人 男人</annotation>
+		<annotation cp="👩‍❤‍👩">戀愛中 | 女人</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">戀愛中: 女人 女人</annotation>
+		<annotation cp="🤳🏽">拍 | 自 | 自拍 | 中等皮膚</annotation>
+		<annotation cp="🤳🏽" type="tts">自拍: 中等皮膚</annotation>
+		<annotation cp="🤳🏾">拍 | 自 | 自拍 | 中深皮膚</annotation>
+		<annotation cp="🤳🏾" type="tts">自拍: 中深皮膚</annotation>
+		<annotation cp="💪🏽">二頭肌 | 強壯 | 肌肉 | 中等皮膚</annotation>
+		<annotation cp="💪🏽" type="tts">肌肉: 中等皮膚</annotation>
+		<annotation cp="💪🏾">二頭肌 | 強壯 | 肌肉 | 中深皮膚</annotation>
+		<annotation cp="💪🏾" type="tts">肌肉: 中深皮膚</annotation>
+		<annotation cp="👈🏽">左 | 手 | 指 | 中等皮膚</annotation>
+		<annotation cp="👈🏽" type="tts">左: 中等皮膚</annotation>
+		<annotation cp="👈🏾">左 | 手 | 指 | 中深皮膚</annotation>
+		<annotation cp="👈🏾" type="tts">左: 中深皮膚</annotation>
+		<annotation cp="👉🏽">右 | 手 | 指 | 中等皮膚</annotation>
+		<annotation cp="👉🏽" type="tts">右: 中等皮膚</annotation>
+		<annotation cp="👉🏾">右 | 手 | 指 | 中深皮膚</annotation>
+		<annotation cp="👉🏾" type="tts">右: 中深皮膚</annotation>
+		<annotation cp="☝🏽">提示 | 注意 | 中等皮膚</annotation>
+		<annotation cp="☝🏽" type="tts">注意: 中等皮膚</annotation>
+		<annotation cp="☝🏾">提示 | 注意 | 中深皮膚</annotation>
+		<annotation cp="☝🏾" type="tts">注意: 中深皮膚</annotation>
+		<annotation cp="👆🏽">上 | 手 | 指 | 中等皮膚</annotation>
+		<annotation cp="👆🏽" type="tts">上: 中等皮膚</annotation>
+		<annotation cp="👆🏾">上 | 手 | 指 | 中深皮膚</annotation>
+		<annotation cp="👆🏾" type="tts">上: 中深皮膚</annotation>
+		<annotation cp="🖕🏽">中指 | 比中指 | 中等皮膚</annotation>
+		<annotation cp="🖕🏽" type="tts">中指: 中等皮膚</annotation>
+		<annotation cp="🖕🏾">中指 | 比中指 | 中深皮膚</annotation>
+		<annotation cp="🖕🏾" type="tts">中指: 中深皮膚</annotation>
+		<annotation cp="👇🏽">下 | 手 | 指 | 中等皮膚</annotation>
+		<annotation cp="👇🏽" type="tts">下: 中等皮膚</annotation>
+		<annotation cp="👇🏾">下 | 手 | 指 | 中深皮膚</annotation>
+		<annotation cp="👇🏾" type="tts">下: 中深皮膚</annotation>
+		<annotation cp="✌🏻">V字手勢 | 白皮膚</annotation>
+		<annotation cp="✌🏻" type="tts">V字手勢: 白皮膚</annotation>
+		<annotation cp="✌🏼">V字手勢 | 黃皮膚</annotation>
+		<annotation cp="✌🏼" type="tts">V字手勢: 黃皮膚</annotation>
+		<annotation cp="✌🏽">V字手勢 | 中等皮膚</annotation>
+		<annotation cp="✌🏽" type="tts">V字手勢: 中等皮膚</annotation>
+		<annotation cp="✌🏾">V字手勢 | 中深皮膚</annotation>
+		<annotation cp="✌🏾" type="tts">V字手勢: 中深皮膚</annotation>
+		<annotation cp="✌🏿">V字手勢 | 黑皮膚</annotation>
+		<annotation cp="✌🏿" type="tts">V字手勢: 黑皮膚</annotation>
+		<annotation cp="🤞🏽">加油 | 好 | 祝 | 祝好運 | 運 | 中等皮膚</annotation>
+		<annotation cp="🤞🏽" type="tts">祝好運: 中等皮膚</annotation>
+		<annotation cp="🤞🏾">加油 | 好 | 祝 | 祝好運 | 運 | 中深皮膚</annotation>
+		<annotation cp="🤞🏾" type="tts">祝好運: 中深皮膚</annotation>
+		<annotation cp="🖖🏽">你好 | 瓦肯式敬禮 | 中等皮膚</annotation>
+		<annotation cp="🖖🏽" type="tts">你好: 中等皮膚</annotation>
+		<annotation cp="🖖🏾">你好 | 瓦肯式敬禮 | 中深皮膚</annotation>
+		<annotation cp="🖖🏾" type="tts">你好: 中深皮膚</annotation>
+		<annotation cp="🤘🏽">ROCK | 搖滾精神 | 中等皮膚</annotation>
+		<annotation cp="🤘🏽" type="tts">ROCK: 中等皮膚</annotation>
+		<annotation cp="🤘🏾">ROCK | 搖滾精神 | 中深皮膚</annotation>
+		<annotation cp="🤘🏾" type="tts">ROCK: 中深皮膚</annotation>
+		<annotation cp="🤙🏻">call 我 | 白皮膚</annotation>
+		<annotation cp="🤙🏻" type="tts">call 我: 白皮膚</annotation>
+		<annotation cp="🤙🏼">call 我 | 黃皮膚</annotation>
+		<annotation cp="🤙🏼" type="tts">call 我: 黃皮膚</annotation>
+		<annotation cp="🤙🏽">call 我 | 中等皮膚</annotation>
+		<annotation cp="🤙🏽" type="tts">call 我: 中等皮膚</annotation>
+		<annotation cp="🤙🏾">call 我 | 中深皮膚</annotation>
+		<annotation cp="🤙🏾" type="tts">call 我: 中深皮膚</annotation>
+		<annotation cp="🤙🏿">call 我 | 黑皮膚</annotation>
+		<annotation cp="🤙🏿" type="tts">call 我: 黑皮膚</annotation>
+		<annotation cp="🖐🏽">停止 | 對外張開五指 | 中等皮膚</annotation>
+		<annotation cp="🖐🏽" type="tts">停止: 中等皮膚</annotation>
+		<annotation cp="🖐🏾">停止 | 對外張開五指 | 中深皮膚</annotation>
+		<annotation cp="🖐🏾" type="tts">停止: 中深皮膚</annotation>
+		<annotation cp="✋🏽">招手 | 舉手 | 中等皮膚</annotation>
+		<annotation cp="✋🏽" type="tts">舉手: 中等皮膚</annotation>
+		<annotation cp="✋🏾">招手 | 舉手 | 中深皮膚</annotation>
+		<annotation cp="✋🏾" type="tts">舉手: 中深皮膚</annotation>
+		<annotation cp="👌🏽">OK | OK 手勢 | 沒問題 | 中等皮膚</annotation>
+		<annotation cp="👌🏽" type="tts">OK 手勢: 中等皮膚</annotation>
+		<annotation cp="👌🏾">OK | OK 手勢 | 沒問題 | 中深皮膚</annotation>
+		<annotation cp="👌🏾" type="tts">OK 手勢: 中深皮膚</annotation>
+		<annotation cp="👍🏽">好棒 | 讚 | 中等皮膚</annotation>
+		<annotation cp="👍🏽" type="tts">讚: 中等皮膚</annotation>
+		<annotation cp="👍🏾">好棒 | 讚 | 中深皮膚</annotation>
+		<annotation cp="👍🏾" type="tts">讚: 中深皮膚</annotation>
+		<annotation cp="👎🏻">渣 | 白皮膚</annotation>
+		<annotation cp="👎🏻" type="tts">渣: 白皮膚</annotation>
+		<annotation cp="👎🏼">渣 | 黃皮膚</annotation>
+		<annotation cp="👎🏼" type="tts">渣: 黃皮膚</annotation>
+		<annotation cp="👎🏽">渣 | 中等皮膚</annotation>
+		<annotation cp="👎🏽" type="tts">渣: 中等皮膚</annotation>
+		<annotation cp="👎🏾">渣 | 中深皮膚</annotation>
+		<annotation cp="👎🏾" type="tts">渣: 中深皮膚</annotation>
+		<annotation cp="👎🏿">渣 | 黑皮膚</annotation>
+		<annotation cp="👎🏿" type="tts">渣: 黑皮膚</annotation>
+		<annotation cp="✊🏽">拳頭 | 握拳 | 中等皮膚</annotation>
+		<annotation cp="✊🏽" type="tts">拳頭: 中等皮膚</annotation>
+		<annotation cp="✊🏾">拳頭 | 握拳 | 中深皮膚</annotation>
+		<annotation cp="✊🏾" type="tts">拳頭: 中深皮膚</annotation>
+		<annotation cp="👊🏽">出拳 | 拳頭 | 中等皮膚</annotation>
+		<annotation cp="👊🏽" type="tts">出拳: 中等皮膚</annotation>
+		<annotation cp="👊🏾">出拳 | 拳頭 | 中深皮膚</annotation>
+		<annotation cp="👊🏾" type="tts">出拳: 中深皮膚</annotation>
+		<annotation cp="🤛🏻">拳頭向左 | 白皮膚</annotation>
+		<annotation cp="🤛🏻" type="tts">拳頭向左: 白皮膚</annotation>
+		<annotation cp="🤛🏼">拳頭向左 | 黃皮膚</annotation>
+		<annotation cp="🤛🏼" type="tts">拳頭向左: 黃皮膚</annotation>
+		<annotation cp="🤛🏽">拳頭向左 | 中等皮膚</annotation>
+		<annotation cp="🤛🏽" type="tts">拳頭向左: 中等皮膚</annotation>
+		<annotation cp="🤛🏾">拳頭向左 | 中深皮膚</annotation>
+		<annotation cp="🤛🏾" type="tts">拳頭向左: 中深皮膚</annotation>
+		<annotation cp="🤛🏿">拳頭向左 | 黑皮膚</annotation>
+		<annotation cp="🤛🏿" type="tts">拳頭向左: 黑皮膚</annotation>
+		<annotation cp="🤜🏻">拳頭向右 | 白皮膚</annotation>
+		<annotation cp="🤜🏻" type="tts">拳頭向右: 白皮膚</annotation>
+		<annotation cp="🤜🏼">拳頭向右 | 黃皮膚</annotation>
+		<annotation cp="🤜🏼" type="tts">拳頭向右: 黃皮膚</annotation>
+		<annotation cp="🤜🏽">拳頭向右 | 中等皮膚</annotation>
+		<annotation cp="🤜🏽" type="tts">拳頭向右: 中等皮膚</annotation>
+		<annotation cp="🤜🏾">拳頭向右 | 中深皮膚</annotation>
+		<annotation cp="🤜🏾" type="tts">拳頭向右: 中深皮膚</annotation>
+		<annotation cp="🤜🏿">拳頭向右 | 黑皮膚</annotation>
+		<annotation cp="🤜🏿" type="tts">拳頭向右: 黑皮膚</annotation>
+		<annotation cp="🤚🏽">手 | 掌 | 豎 | 豎起手掌 | 中等皮膚</annotation>
+		<annotation cp="🤚🏽" type="tts">豎起手掌: 中等皮膚</annotation>
+		<annotation cp="🤚🏾">手 | 掌 | 豎 | 豎起手掌 | 中深皮膚</annotation>
+		<annotation cp="🤚🏾" type="tts">豎起手掌: 中深皮膚</annotation>
+		<annotation cp="👋🏽">手 | 揮手 | 中等皮膚</annotation>
+		<annotation cp="👋🏽" type="tts">揮手: 中等皮膚</annotation>
+		<annotation cp="👋🏾">手 | 揮手 | 中深皮膚</annotation>
+		<annotation cp="👋🏾" type="tts">揮手: 中深皮膚</annotation>
+		<annotation cp="🤟🏽">愛你手勢 | 我愛你 | 手 | 中等皮膚</annotation>
+		<annotation cp="🤟🏽" type="tts">愛你手勢: 中等皮膚</annotation>
+		<annotation cp="🤟🏾">愛你手勢 | 我愛你 | 手 | 中深皮膚</annotation>
+		<annotation cp="🤟🏾" type="tts">愛你手勢: 中深皮膚</annotation>
+		<annotation cp="✍🏽">寫 | 書寫 | 記錄 | 中等皮膚</annotation>
+		<annotation cp="✍🏽" type="tts">寫: 中等皮膚</annotation>
+		<annotation cp="✍🏾">寫 | 書寫 | 記錄 | 中深皮膚</annotation>
+		<annotation cp="✍🏾" type="tts">寫: 中深皮膚</annotation>
+		<annotation cp="👏🏻">拍手 | 白皮膚</annotation>
+		<annotation cp="👏🏻" type="tts">拍手: 白皮膚</annotation>
+		<annotation cp="👏🏼">拍手 | 黃皮膚</annotation>
+		<annotation cp="👏🏼" type="tts">拍手: 黃皮膚</annotation>
+		<annotation cp="👏🏽">拍手 | 中等皮膚</annotation>
+		<annotation cp="👏🏽" type="tts">拍手: 中等皮膚</annotation>
+		<annotation cp="👏🏾">拍手 | 中深皮膚</annotation>
+		<annotation cp="👏🏾" type="tts">拍手: 中深皮膚</annotation>
+		<annotation cp="👏🏿">拍手 | 黑皮膚</annotation>
+		<annotation cp="👏🏿" type="tts">拍手: 黑皮膚</annotation>
+		<annotation cp="👐🏽">手 | 攤開手 | 雙手 | 中等皮膚</annotation>
+		<annotation cp="👐🏽" type="tts">攤開手: 中等皮膚</annotation>
+		<annotation cp="👐🏾">手 | 攤開手 | 雙手 | 中深皮膚</annotation>
+		<annotation cp="👐🏾" type="tts">攤開手: 中深皮膚</annotation>
+		<annotation cp="🙌🏽">歡呼 | 舉雙手 | 中等皮膚</annotation>
+		<annotation cp="🙌🏽" type="tts">歡呼: 中等皮膚</annotation>
+		<annotation cp="🙌🏾">歡呼 | 舉雙手 | 中深皮膚</annotation>
+		<annotation cp="🙌🏾" type="tts">歡呼: 中深皮膚</annotation>
+		<annotation cp="🤲🏻">雙手掌心向上 | 白皮膚</annotation>
+		<annotation cp="🤲🏻" type="tts">雙手掌心向上: 白皮膚</annotation>
+		<annotation cp="🤲🏼">雙手掌心向上 | 黃皮膚</annotation>
+		<annotation cp="🤲🏼" type="tts">雙手掌心向上: 黃皮膚</annotation>
+		<annotation cp="🤲🏽">雙手掌心向上 | 中等皮膚</annotation>
+		<annotation cp="🤲🏽" type="tts">雙手掌心向上: 中等皮膚</annotation>
+		<annotation cp="🤲🏾">雙手掌心向上 | 中深皮膚</annotation>
+		<annotation cp="🤲🏾" type="tts">雙手掌心向上: 中深皮膚</annotation>
+		<annotation cp="🤲🏿">雙手掌心向上 | 黑皮膚</annotation>
+		<annotation cp="🤲🏿" type="tts">雙手掌心向上: 黑皮膚</annotation>
+		<annotation cp="🙏🏽">感恩 | 雙手合一 | 中等皮膚</annotation>
+		<annotation cp="🙏🏽" type="tts">感恩: 中等皮膚</annotation>
+		<annotation cp="🙏🏾">感恩 | 雙手合一 | 中深皮膚</annotation>
+		<annotation cp="🙏🏾" type="tts">感恩: 中深皮膚</annotation>
+		<annotation cp="💅🏽">指甲油 | 美甲 | 中等皮膚</annotation>
+		<annotation cp="💅🏽" type="tts">指甲油: 中等皮膚</annotation>
+		<annotation cp="💅🏾">指甲油 | 美甲 | 中深皮膚</annotation>
+		<annotation cp="💅🏾" type="tts">指甲油: 中深皮膚</annotation>
+		<annotation cp="👂🏽">耳朵 | 身體部位 | 中等皮膚</annotation>
+		<annotation cp="👂🏽" type="tts">耳朵: 中等皮膚</annotation>
+		<annotation cp="👂🏾">耳朵 | 身體部位 | 中深皮膚</annotation>
+		<annotation cp="👂🏾" type="tts">耳朵: 中深皮膚</annotation>
+		<annotation cp="👃🏻">鼻 | 白皮膚</annotation>
+		<annotation cp="👃🏻" type="tts">鼻: 白皮膚</annotation>
+		<annotation cp="👃🏼">鼻 | 黃皮膚</annotation>
+		<annotation cp="👃🏼" type="tts">鼻: 黃皮膚</annotation>
+		<annotation cp="👃🏽">鼻 | 中等皮膚</annotation>
+		<annotation cp="👃🏽" type="tts">鼻: 中等皮膚</annotation>
+		<annotation cp="👃🏾">鼻 | 中深皮膚</annotation>
+		<annotation cp="👃🏾" type="tts">鼻: 中深皮膚</annotation>
+		<annotation cp="👃🏿">鼻 | 黑皮膚</annotation>
+		<annotation cp="👃🏿" type="tts">鼻: 黑皮膚</annotation>
+		<annotation cp="🇦🇪" type="tts">旗子: 阿拉伯聯合酋長國</annotation>
+		<annotation cp="🇦🇬" type="tts">旗子: 安提瓜和巴布達</annotation>
+		<annotation cp="🇦🇼" type="tts">旗子: 阿魯巴</annotation>
+		<annotation cp="🇦🇿" type="tts">旗子: 阿塞拜疆</annotation>
+		<annotation cp="🇧🇦" type="tts">旗子: 波斯尼亞和黑塞哥維那</annotation>
+		<annotation cp="🇧🇧" type="tts">旗子: 巴巴多斯</annotation>
+		<annotation cp="🇧🇫" type="tts">旗子: 布基納法索</annotation>
+		<annotation cp="🇧🇮" type="tts">旗子: 布隆迪</annotation>
+		<annotation cp="🇧🇯" type="tts">旗子: 貝寧</annotation>
+		<annotation cp="🇧🇱" type="tts">旗子: 聖巴泰勒米</annotation>
+		<annotation cp="🇧🇻" type="tts">旗子: 鮑威特島</annotation>
+		<annotation cp="🇧🇼" type="tts">旗子: 博茨瓦納</annotation>
+		<annotation cp="🇧🇿" type="tts">旗子: 伯利茲</annotation>
+		<annotation cp="🇨🇨" type="tts">旗子: 可可斯群島</annotation>
+		<annotation cp="🇨🇮" type="tts">旗子: 科特迪瓦</annotation>
+		<annotation cp="🇨🇵" type="tts">旗子: 克里珀頓島</annotation>
+		<annotation cp="🇨🇷" type="tts">旗子: 哥斯達黎加</annotation>
+		<annotation cp="🇨🇻" type="tts">旗子: 佛得角</annotation>
+		<annotation cp="🇨🇾" type="tts">旗子: 塞浦路斯</annotation>
+		<annotation cp="🇩🇯" type="tts">旗子: 吉布提</annotation>
+		<annotation cp="🇪🇨" type="tts">旗子: 厄瓜多爾</annotation>
+		<annotation cp="🇪🇷" type="tts">旗子: 厄立特里亞</annotation>
+		<annotation cp="🇪🇹" type="tts">旗子: 埃塞俄比亞</annotation>
+		<annotation cp="🇬🇦" type="tts">旗子: 加蓬</annotation>
+		<annotation cp="🇬🇩" type="tts">旗子: 格林納達</annotation>
+		<annotation cp="🇬🇪" type="tts">旗子: 格魯吉亞</annotation>
+		<annotation cp="🇬🇭" type="tts">旗子: 加納</annotation>
+		<annotation cp="🇬🇲" type="tts">旗子: 岡比亞</annotation>
+		<annotation cp="🇬🇸" type="tts">旗子: 南佐治亞島與南桑威奇群島</annotation>
+		<annotation cp="🇬🇹" type="tts">旗子: 危地馬拉</annotation>
+		<annotation cp="🇬🇼" type="tts">旗子: 幾內亞比紹</annotation>
+		<annotation cp="🇬🇾" type="tts">旗子: 圭亞那</annotation>
+		<annotation cp="🇭🇳" type="tts">旗子: 洪都拉斯</annotation>
+		<annotation cp="🇭🇷" type="tts">旗子: 克羅地亞</annotation>
+		<annotation cp="🇮🇲" type="tts">旗子: 馬恩島</annotation>
+		<annotation cp="🇮🇹" type="tts">旗子: 意大利</annotation>
+		<annotation cp="🇰🇪" type="tts">旗子: 肯雅</annotation>
+		<annotation cp="🇰🇲" type="tts">旗子: 科摩羅</annotation>
+		<annotation cp="🇰🇳" type="tts">旗子: 聖基茨和尼維斯</annotation>
+		<annotation cp="🇱🇦" type="tts">旗子: 老撾</annotation>
+		<annotation cp="🇱🇨" type="tts">旗子: 聖盧西亞</annotation>
+		<annotation cp="🇱🇮" type="tts">旗子: 列支敦士登</annotation>
+		<annotation cp="🇱🇷" type="tts">旗子: 利比里亞</annotation>
+		<annotation cp="🇱🇻" type="tts">旗子: 拉脱維亞</annotation>
+		<annotation cp="🇲🇪" type="tts">旗子: 黑山</annotation>
+		<annotation cp="🇲🇱" type="tts">旗子: 馬里</annotation>
+		<annotation cp="🇲🇷" type="tts">旗子: 毛里塔尼亞</annotation>
+		<annotation cp="🇲🇸" type="tts">旗子: 蒙特塞拉特</annotation>
+		<annotation cp="🇲🇹" type="tts">旗子: 馬耳他</annotation>
+		<annotation cp="🇲🇺" type="tts">旗子: 毛里裘斯</annotation>
+		<annotation cp="🇲🇻" type="tts">旗子: 馬爾代夫</annotation>
+		<annotation cp="🇲🇼" type="tts">旗子: 馬拉維</annotation>
+		<annotation cp="🇲🇿" type="tts">旗子: 莫桑比克</annotation>
+		<annotation cp="🇳🇪" type="tts">旗子: 尼日爾</annotation>
+		<annotation cp="🇳🇬" type="tts">旗子: 尼日利亞</annotation>
+		<annotation cp="🇳🇷" type="tts">旗子: 瑙魯</annotation>
+		<annotation cp="🇵🇫" type="tts">旗子: 法屬波利尼西亞</annotation>
+		<annotation cp="🇵🇬" type="tts">旗子: 巴布亞新幾內亞</annotation>
+		<annotation cp="🇵🇳" type="tts">旗子: 皮特凱恩島</annotation>
+		<annotation cp="🇵🇸" type="tts">旗子: 巴勒斯坦領土</annotation>
+		<annotation cp="🇶🇦" type="tts">旗子: 卡塔爾</annotation>
+		<annotation cp="🇷🇼" type="tts">旗子: 盧旺達</annotation>
+		<annotation cp="🇸🇦" type="tts">旗子: 沙地阿拉伯</annotation>
+		<annotation cp="🇸🇧" type="tts">旗子: 所羅門群島</annotation>
+		<annotation cp="🇸🇨" type="tts">旗子: 塞舌爾</annotation>
+		<annotation cp="🇸🇮" type="tts">旗子: 斯洛文尼亞</annotation>
+		<annotation cp="🇸🇯" type="tts">旗子: 斯瓦爾巴特群島及揚馬延島</annotation>
+		<annotation cp="🇸🇱" type="tts">旗子: 塞拉利昂</annotation>
+		<annotation cp="🇸🇴" type="tts">旗子: 索馬里</annotation>
+		<annotation cp="🇸🇷" type="tts">旗子: 蘇里南</annotation>
+		<annotation cp="🇸🇹" type="tts">旗子: 聖多美和普林西比</annotation>
+		<annotation cp="🇸🇿" type="tts">旗子: 斯威士蘭</annotation>
+		<annotation cp="🇹🇨" type="tts">旗子: 特克斯和凱科斯群島</annotation>
+		<annotation cp="🇹🇩" type="tts">旗子: 乍得</annotation>
+		<annotation cp="🇹🇫" type="tts">旗子: 法屬南部領地</annotation>
+		<annotation cp="🇹🇬" type="tts">旗子: 多哥共和國</annotation>
+		<annotation cp="🇹🇴" type="tts">旗子: 湯加</annotation>
+		<annotation cp="🇹🇹" type="tts">旗子: 千里達和多巴哥</annotation>
+		<annotation cp="🇹🇻" type="tts">旗子: 圖瓦盧</annotation>
+		<annotation cp="🇹🇿" type="tts">旗子: 坦桑尼亞</annotation>
+		<annotation cp="🇻🇨" type="tts">旗子: 聖文森特和格林納丁斯</annotation>
+		<annotation cp="🇻🇬" type="tts">旗子: 英屬維爾京群島</annotation>
+		<annotation cp="🇻🇮" type="tts">旗子: 美屬維爾京群島</annotation>
+		<annotation cp="🇻🇺" type="tts">旗子: 瓦努阿圖</annotation>
+		<annotation cp="🇾🇪" type="tts">旗子: 也門</annotation>
+		<annotation cp="🇾🇹" type="tts">旗子: 馬約特</annotation>
+		<annotation cp="🇿🇲" type="tts">旗子: 贊比亞</annotation>
+		<annotation cp="🇿🇼" type="tts">旗子: 津巴布韋</annotation>
+	</annotations>
+</ldml>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="Latn" target="Jamo" direction="forward" alias="Latin-Jamo und-Jamo-t-und-latn">
+			<tRule>
+::[[:script=Latin:][:M:]-];
+::NFD;
+::Lower;
+::Latin-ConjoiningJamo;
+::[[:script=Latin:][:M:]] NFC;
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

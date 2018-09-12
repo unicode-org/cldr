@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="Hira" target="Latn" direction="both" alias="Hiragana-Latin und-Latn-t-und-hira" backwardAlias="Latin-Hiragana und-Hira-t-und-latn">
+			<tRule>
+:: [ぁ-ゔ゙ゝ-ゞガギグゲゴザジズゼゾダヂヅデドバビブベボヴヷ-ヺーヾ] ;
+:: NFD ;
+:: Hiragana-Katakana;
+:: Katakana-Latin;
+:: NFC ;
+:: (Lower) ;
+:: ([',.A-Za-z~À-ÖØ-öø-ďĒ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǭǰǴ-ǵǸ-țȞ-ȟȦ-ȳ̄Ӣ-ӣӮ-ӯḀ-ẙẠ-ỹᾱᾹῑῙῡῩK-Å]) ;
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

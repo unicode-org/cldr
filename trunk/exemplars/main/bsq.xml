@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2018 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="bsq"/>
+	</identity>
+	<layout>
+		<orientation>
+			<characterOrder>left-to-right</characterOrder>
+			<lineOrder>top-to-bottom</lineOrder>
+		</orientation>
+	</layout>
+	<characters>
+		<exemplarCharacters references="R1">[𖫐 𖫑 𖫒 𖫓 𖫔 𖫕 𖫖 𖫗 𖫘 𖫙 𖫚 𖫛 𖫜 𖫝 𖫞 𖫟 𖫠 𖫡 𖫢 𖫣 𖫤 𖫥 𖫦 {𖫧\U00016AF0} {𖫧\U00016AF1} {𖫧\U00016AF2} {𖫧\U00016AF3} {𖫧\U00016AF4} {𖫨\U00016AF0} {𖫨\U00016AF1} {𖫨\U00016AF2} {𖫨\U00016AF3} {𖫨\U00016AF4} {𖫩\U00016AF0} {𖫩\U00016AF1} {𖫩\U00016AF2} {𖫩\U00016AF3} {𖫩\U00016AF4} {𖫪\U00016AF0} {𖫪\U00016AF1} {𖫪\U00016AF2} {𖫪\U00016AF3} {𖫪\U00016AF4} {𖫫\U00016AF0} {𖫫\U00016AF1} {𖫫\U00016AF2} {𖫫\U00016AF3} {𖫫\U00016AF4} {𖫬\U00016AF0} {𖫬\U00016AF1} {𖫬\U00016AF2} {𖫬\U00016AF3} {𖫬\U00016AF4} {𖫭\U00016AF0} {𖫭\U00016AF1} {𖫭\U00016AF2} {𖫭\U00016AF3} {𖫭\U00016AF4}]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" references="R2">[𖫧 𖫨 𖫩 𖫪 𖫫 𖫬 𖫭]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" references="R3">[\- ‐ – — , ; \: ! ? . … 𖫵 ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+	</characters>
+</ldml>

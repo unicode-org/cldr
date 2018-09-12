@@ -1,0 +1,235 @@
+<project name="CLDR Unit Tests" default="all" basedir=".">
+	<target name="init">
+		<!-- copied from cldr/tools/java's build.xml -->
+		<tstamp />
+		<property name="src.dir" value="src" />
+		<!-- <property name="libs.dir" value="WebContent/WEB-INF/lib"/> -->
+
+		<property name="build.dir" value="build/classes" />
+		<property name="log.dir" value="build/logs" />
+		<property name="cldr.unittest.log" value="${log.dir}/unittest.log" />
+		<property name="cldr.unittest.result" value="${log.dir}/unittest.result" />
+		<property name="cldr.datacheck.log" value="${log.dir}/datacheck.log" />
+		<property name="cldr.datacheck.result" value="${log.dir}/datacheck.result" />
+		<property name="jar.file" value="cldr-unittest.jar" />
+		<property name="libs.dir" value="libs" />
+		<property name="jarSrc.file" value="cldr-unittest-src.jar" />
+		<property name="jarDocs.file" value="cldr-unittest-docs.jar" />
+		<property name="doc.dir" value="doc" />
+		<property name="doc.params" value="" />
+
+		<!-- Load local definitions from an optional properties file, if 
+			available. build.properties is NOT checked into SVN. -->
+		<property file="build.properties" />
+		<!-- Load environment variables -->
+		<property environment="env" />
+
+
+		<!-- CLDR_TOOLS defaults to ../java, override if not correct. -->
+		<property name="CLDR_TOOLS" value="../java" />
+		<property name="CLDR_DIR" value="../../common/.." />
+		<property name="CLDR_JAR" value="${CLDR_TOOLS}/cldr.jar" />
+		<property file="${CLDR_TOOLS}/cldr-tools.properties" />
+		<property name="JVM_OPTIONS"
+			value="-DCLDR_DIR=${CLDR_DIR} -DDEBUG=false -Dverbose=false" />
+		<!-- JVM_EXTRA_OPTIONS might be resolved in the next priority order:
+			1) System property JVM_EXTRA_OPTIONS specified by ant command arg: ant -DJVM_EXTRA_OPTIONS=xxx <target>
+			2) JVM_EXTRA_OPTIONS=xxx in build.properties
+			3) Environment variable - JVM_EXTRA_OPTIONS=xxx
+			4) Final fallback - "-Xmx6g" below -->
+		<property name="env.JVM_EXTRA_OPTIONS" value="-Xmx6g" />
+		<property name="JVM_EXTRA_OPTIONS" value="${env.JVM_EXTRA_OPTIONS}" />
+		<property name="jvm_options" value="${JVM_OPTIONS} ${JVM_EXTRA_OPTIONS}" />
+
+		<path id="project.class.path">
+			<pathelement path="${java.class.path}/" />
+			<pathelement path="${build.dir}" />
+			<fileset dir="${libs.dir}">
+				<include name="**/*.jar" />
+			</fileset>
+			<pathelement path="${CLDR_TOOLS}/classes" />
+			<fileset dir="${CLDR_TOOLS}/libs" includes="*.jar" /> <!-- all libs -->
+		</path>
+	</target>
+
+	<target name="clean" depends="init" description="remove all build targets">
+		<delete dir="${build.dir}" />
+		<delete file="${cldr.unittest.log}" />
+		<delete file="${cldr.datacheck.log}" />
+		<delete dir="${log.dir}" />
+		<delete dir="build" />
+		<delete file="${jar.file}" />
+		<delete file="${jarSrc.file}" />
+		<delete file="${jarDocs.file}" />
+		<delete dir="${doc.dir}" />
+	</target>
+
+	<target name="jar" depends="build"
+		description="build full cldr-unittest.jar' jar file">
+		<jar jarfile="${jar.file}" compress="true"
+			includes="org/unicode/cldr/unittest/**/*" basedir="${build.dir}" />
+	</target>
+	<target name="tests" depends="build" />
+	<target name="all" depends="build" />
+	<!-- Docs stuff -->
+	<!-- use excludefiles below when we move to ant 1.5 -->
+	<target name="docs-jar" depends="docs">
+		<jar jarfile="${jarDocs.file}" compress="true" includes="**/*"
+			basedir="${doc.dir}" />
+	</target>
+	<target name="docs" depends="init" description="build user javadoc">
+		<tstamp>
+			<format property="current.year" pattern="yyyy" />
+		</tstamp>
+		<echo message="doc params: ${doc.params}" />
+		<mkdir dir="${doc.dir}" />
+		<javadoc packagenames="org.unicode.cldr.*" sourcepath="${src.dir}"
+			destdir="${doc.dir}" classpathref="project.class.path"
+			nodeprecatedlist="true" windowtitle="CLDR | Java Unittest" doctitle="CLDR | Java Unittest"
+			encoding="utf-8" docencoding="utf-8" additionalparam="${doc.params}"
+			link="http://docs.oracle.com/javase/7/docs/api"
+			bottom="&lt;font size=-1>&lt;a  target='_top' href='http://www.unicode.org/copyright.html'>Copyright &amp;copy; 2004-${current.year} Unicode, Inc. All Rights Reserved.&lt;/a>&lt;/font>"
+			source="1.8" />
+	</target>
+
+	<target name="build" depends="init" description="build web classes">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${log.dir}" />
+		<javac srcdir="${src.dir}" includes="org/unicode/cldr/unittest/*.java"
+			destdir="${build.dir}" classpathref="project.class.path" source="1.8"
+			target="1.8" debug="on" deprecation="off" includeantruntime="false"
+			encoding="UTF-8" />
+		<mkdir dir="${build.dir}/org/unicode/cldr/unittest" />
+		<copy todir="${build.dir}/org/unicode/cldr/unittest">
+			<fileset dir="${src.dir}/org/unicode/cldr/unittest" excludes="**/CVS/**/* **/**/*.java" />
+		</copy>
+	</target>
+
+	<target name="check" description="Run the CLDR test suite and data tests"
+		depends="unittest,datacheck">
+	</target>
+
+	<target name="pcheck" depends="init">
+		<sequential>
+			<delete file="${cldr.unittest.result}" />
+			<delete file="${cldr.datacheck.result}" />
+			<parallel threadsPerProcessor="1">
+				<ant target='cldr.unittest.logged' />
+				<ant target='cldr.datacheck.logged' />
+			</parallel>
+			<loadfile property="cldr.unittest.log_file" srcfile="${cldr.unittest.log}" />
+			<loadfile property="cldr.datacheck.log_file" srcfile="${cldr.datacheck.log}" />
+			<loadfile property="cldr.unittest.result_file" srcfile="${cldr.unittest.result}" />
+			<loadfile property="cldr.datacheck.result_file" srcfile="${cldr.datacheck.result}" />
+			<echo
+				message="CLDR Build Results: ${line.separator} Unit Tests: ${line.separator} ${cldr.unittest.log_file} ${line.separator} --- ${line.separator} Data Check: ${line.separator} ${cldr.datacheck.log_file}" />
+			<fail message="CLDR Unit Tests FAILED">
+				<condition>
+					<not>
+						<equals arg1="${cldr.unittest.result_file}" arg2="0" />
+					</not>
+				</condition>
+			</fail>
+			<fail message="CLDR Data Check FAILED">
+				<condition>
+					<not>
+						<equals arg1="${cldr.datacheck.result_file}" arg2="0" />
+					</not>
+				</condition>
+			</fail>
+		</sequential>
+	</target>
+
+	<target name="unittest" description="Run the standard CLDR test suite"
+		depends="init,build">
+		<antcall target="_runUnitTests">
+			<param name="rununittest.arg" value="-n -q" />
+			<param name="rununittest.jvmarg" value="${jvm_options}" />
+		</antcall>
+	</target>
+
+	<target name="cldr.unittest.logged" description="Run the standard CLDR test suite"
+		depends="init,build">
+		<property name="rununittest.arg" value="-n -q" />
+		<property name="rununittest.jvmarg" value="${jvm_options}" />
+		<echo
+			message="JVM argument:   ${rununittest.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST  -Djava.awt.headless=true ${line.separator}"
+			output="${cldr.unittest.log}" />
+		<echo message="Test argument:   ${rununittest.arg} ${line.separator}"
+			output="${cldr.unittest.log}" append="true" />
+		<echo level="info" message="CLDR Unit Tests In Progress" />
+		<java classname="org.unicode.cldr.unittest.TestAll" fork="yes"
+			failonerror="false" resultproperty="unittest.result" classpathref="project.class.path"
+			output="${cldr.unittest.log}" append="true">
+			<arg line="${rununittest.arg}" />
+			<jvmarg
+				line="${rununittest.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST -Djava.awt.headless=true" />
+		</java>
+		<echo message="${unittest.result}" file="${cldr.unittest.result}" />
+	</target>
+
+	<target name="unittestExhaustive"
+		description="Run the standard CLDR test suite in exhaustive mode"
+		depends="init,build">
+		<antcall target="_runUnitTests">
+			<param name="rununittest.arg" value="-n -q -e10" />
+			<param name="rununittest.jvmarg" value="${jvm_options}" />
+		</antcall>
+	</target>
+
+	<target name="_runUnitTests" depends="init,build">
+		<echo
+			message="JVM argument:   ${rununittest.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST  -Djava.awt.headless=true" />
+		<echo message="Test argument:   ${rununittest.arg}" />
+		<java classname="org.unicode.cldr.unittest.TestAll" fork="yes"
+			failonerror="true" classpathref="project.class.path">
+			<arg line="${rununittest.arg}" />
+			<jvmarg
+				line="${rununittest.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST -Djava.awt.headless=true" />
+		</java>
+	</target>
+
+
+	<target name="datacheck" description="Run the standard data tests"
+		depends="init,build">
+		<antcall target="_dataCheck">
+			<param name="datacheck.arg" value="-S common,seed -e -z FINAL_TESTING" />
+			<param name="datacheck.jvmarg" value="${jvm_options}" />
+		</antcall>
+	</target>
+
+	<target name="cldr.datacheck.logged" description="Run the standard data tests"
+		depends="init,build">
+		<antcall target="_dataCheck_logged">
+			<param name="datacheck.arg" value="-S common,seed -e -z FINAL_TESTING" />
+			<param name="datacheck.jvmarg" value="${jvm_options}" />
+		</antcall>
+	</target>
+
+	<target name="_dataCheck_logged" depends="init,build">
+		<echo
+			message="JVM argument:   ${datacheck.jvmarg} -Djava.awt.headless=true ${line.separator}"
+			output="${cldr.datacheck.log}" />
+		<echo message="Test argument:   ${datacheck.arg} ${line.separator}"
+			output="${cldr.datacheck.log}" append="true" />
+		<echo level="info" message="CLDR Data Check In Progress" />
+		<java classname="org.unicode.cldr.test.ConsoleCheckCLDR" fork="yes"
+			failonerror="false" resultproperty="datacheck.result" classpathref="project.class.path"
+			output="${cldr.datacheck.log}" append="true">
+			<arg line="${datacheck.arg}" />
+			<jvmarg line="${datacheck.jvmarg} -Djava.awt.headless=true" />
+		</java>
+		<echo message="${datacheck.result}" file="${cldr.datacheck.result}" />
+	</target>
+
+	<target name="_dataCheck" depends="init,build">
+		<echo message="JVM argument:   ${datacheck.jvmarg} -Djava.awt.headless=true" />
+		<echo message="Test argument:   ${datacheck.arg}" />
+		<java classname="org.unicode.cldr.test.ConsoleCheckCLDR" fork="yes"
+			failonerror="true" classpathref="project.class.path">
+			<arg line="${datacheck.arg}" />
+			<jvmarg line="${datacheck.jvmarg} -Djava.awt.headless=true" />
+		</java>
+	</target>
+
+</project>

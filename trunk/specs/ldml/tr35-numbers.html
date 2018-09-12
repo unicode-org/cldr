@@ -1,0 +1,2864 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="en-us">
+<link rel="stylesheet" href="http://www.unicode.org/reports/reports.css"
+	type="text/css">
+<title>UTS #35: Unicode LDML: Numbers</title>
+<style type="text/css">
+<!--
+.dtd {
+	font-family: monospace;
+	font-size: 90%;
+	background-color: #CCCCFF;
+	border-style: dotted;
+	border-width: 1px;
+}
+
+.xmlExample {
+	font-family: monospace;
+	font-size: 80%
+}
+
+.blockedInherited {
+	font-style: italic;
+	font-weight: bold;
+	border-style: dashed;
+	border-width: 1px;
+	background-color: #FF0000
+}
+
+.inherited {
+	font-weight: bold;
+	border-style: dashed;
+	border-width: 1px;
+	background-color: #00FF00
+}
+
+.element {
+	font-weight: bold;
+	color: red;
+}
+
+.attribute {
+	font-weight: bold;
+	color: maroon;
+}
+
+.attributeValue {
+	font-weight: bold;
+	color: blue;
+}
+
+li, p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em
+}
+
+h2, h3, h4, table {
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+}
+-->
+</style>
+</head>
+
+<body>
+
+	<table class="header" width="100%">
+		<tr>
+			<td class="icon"><a href="http://unicode.org"> <img
+					alt="[Unicode]" src="http://unicode.org/webscripts/logo60s2.gif"
+					width="34" height="33"
+					style="vertical-align: middle; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; border-top-width: 0px;"></a>&nbsp;
+				<a class="bar" href="http://www.unicode.org/reports/">Technical
+					Reports</a></td>
+		</tr>
+		<tr>
+			<td class="gray">&nbsp;</td>
+		</tr>
+	</table>
+	<div class="body">
+		<h2 style="text-align: center">
+			<span class="changed">Proposed Update </span>Unicode Technical
+			Standard #35
+		</h2>
+		<h1 style="text-align: center">
+			Unicode Locale Data Markup Language (LDML)<br> Part 3: Numbers
+		</h1>
+
+		<!-- At least the first row of this header table should be identical across the parts of this UTS. -->
+		<table border="1" cellpadding="2" cellspacing="0" class="wide">
+			<tr>
+				<td>Version</td>
+				<td class="changed">34</td>
+			</tr>
+			<tr>
+				<td>Editors</td>
+				<td>John Emmons (<a href="mailto:emmo@us.ibm.com">emmo@us.ibm.com</a>)
+					and <a href="tr35.html#Acknowledgments">other CLDR committee
+						members</a></td>
+			</tr>
+		</table>
+
+		<p>
+			For the full header, summary, and status, see <a href="tr35.html">
+				Part 1: Core</a>
+		</p>
+
+		<h3>
+			<i>Summary</i>
+		</h3>
+		<p>
+			This document describes parts of an XML format (<i>vocabulary</i>)
+			for the exchange of structured locale data. This format is used in
+			the <a href="http://cldr.unicode.org/">Unicode Common Locale Data
+				Repository</a>.
+		</p>
+
+		<p>
+			This is a partial document, describing only those parts of the LDML
+			that are relevant for number and currency formatting. For the other
+			parts of the LDML see the <a href="tr35.html">main LDML document</a>
+			and the links above.
+		</p>
+
+		<h3>
+			<i>Status</i>
+		</h3>
+
+		<!-- NOT YET APPROVED -->
+		<p>
+				<i class="changed">This is a<b><font color="#ff3333">
+				draft </font></b>document which may be updated, replaced, or superseded by
+				other documents at any time. Publication does not imply endorsement
+				by the Unicode Consortium. This is not a stable document; it is
+				inappropriate to cite this document as other than a work in
+				progress.
+			</i>
+		</p>
+		<!-- END NOT YET APPROVED -->
+		<!-- APPROVED 
+		<p>
+			<i>This document has been reviewed by Unicode members and other
+				interested parties, and has been approved for publication by the
+				Unicode Consortium. This is a stable document and may be used as
+				reference material or cited as a normative reference by other
+				specifications.</i>
+		</p>
+		 END APPROVED -->
+
+		<blockquote>
+			<p>
+				<i><b>A Unicode Technical Standard (UTS)</b> is an independent
+					specification. Conformance to the Unicode Standard does not imply
+					conformance to any UTS.</i>
+			</p>
+		</blockquote>
+		<p>
+			<i>Please submit corrigenda and other comments with the CLDR bug
+				reporting form [<a href="tr35.html#Bugs">Bugs</a>]. Related
+				information that is useful in understanding this document is found
+				in the <a href="tr35.html#References">References</a>. For the latest
+				version of the Unicode Standard see [<a href="tr35.html#Unicode">Unicode</a>].
+				For a list of current Unicode Technical Reports see [<a
+				href="tr35.html#Reports">Reports</a>]. For more information about
+				versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>].
+			</i>
+		</p>
+
+		<!-- This section of Parts should be identical in all of the parts of this UTS. -->
+		<h2>
+			<a name="Parts" href="#Parts">Parts</a>
+		</h2>
+		<p>The LDML specification is divided into the following parts:</p>
+		<ul class="toc">
+			<li>Part 1: <a href="tr35.html#Contents">Core</a> (languages,
+				locales, basic structure)
+			</li>
+			<li>Part 2: <a href="tr35-general.html#Contents">General</a>
+				(display names &amp; transforms, etc.)
+			</li>
+			<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a>
+				(number &amp; currency formatting)
+			</li>
+			<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date,
+				time, time zone formatting)
+			</li>
+			<li>Part 5: <a href="tr35-collation.html#Contents">Collation</a>
+				(sorting, searching, grouping)
+			</li>
+			<li>Part 6: <a href="tr35-info.html#Contents">Supplemental</a>
+				(supplemental data)
+			</li>
+			<li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a>
+				(keyboard mappings)
+			</li>
+		</ul>
+		<h2>
+			<a name="Contents" href="#Contents">Contents of Part 3, Numbers</a>
+		</h2>
+		<!-- START Generated TOC: CheckHtmlFiles -->
+		<ul class="toc">
+			<li>1 <a href="#Numbering_Systems">Numbering Systems</a></li>
+			<li>2 <a href="#Number_Elements">Number Elements</a>
+				<ul class="toc">
+					<li>2.1 <a href="#defaultNumberingSystem">Default
+							Numbering System</a></li>
+					<li>2.2 <a href="#otherNumberingSystems">Other Numbering
+							Systems</a></li>
+					<li>2.3 <a href="#Number_Symbols">Number Symbols</a></li>
+					<li>2.4 <a href="#Number_Formats">Number Formats</a>
+						<ul class="toc">
+							<li>2.4.1 <a href="#Compact_Number_Formats">Compact
+									Number Formats</a></li>
+							<li>2.4.2 <a href="#Currency_Formats">Currency Formats</a></li>
+						</ul>
+					</li>
+					<li>2.5 <a href="#Miscellaneous_Patterns">Miscellaneous
+							Patterns</a></li>
+				  <li>2.6 <a href="#Minimal_Pairs">Minimal Pairs</a></li>
+				</ul>
+			</li>
+			<li>3 <a href="#Number_Format_Patterns">Number Format
+					Patterns</a>
+				<ul class="toc">
+					<li>3.1 <a href="#Number_Patterns">Number Patterns</a>
+						<ul class="toc">
+							<li>Table: <a href="#Number_Pattern_Examples">Number
+									Pattern Examples</a></li>
+						</ul>
+					</li>
+					<li>3.2 <a href="#Special_Pattern_Characters">Special
+							Pattern Characters</a>
+						<ul class="toc">
+							<li>Table: <a href="#Number_Pattern_Character_Definitions">Number
+									Pattern Character Definitions</a></li>
+							<li>Table: <a href="#Sample_Patterns_and_Results">Sample
+									Patterns and Results</a></li>
+							<li>Table: <a href="#Examples_of_minimumGroupingDigits">Examples
+									of minimumGroupingDigits</a></li>
+							<li>3.2.1 <a href="#Explicit_Plus">Explicit Plus Signs</a></li>
+						</ul>
+					</li>
+					<li>3.3 <a href="#Formatting">Formatting</a></li>
+					<li>3.4 <a href="#sci">Scientific Notation</a></li>
+					<li>3.5 <a href="#sigdig">Significant Digits</a>
+						<ul class="toc">
+							<li>Table: <a href="#Significant_Digits_Examples">Significant
+									Digits Examples</a></li>
+						</ul>
+					</li>
+					<li>3.6 <a href="#Padding">Padding</a></li>
+					<li>3.7 <a href="#Rounding">Rounding</a></li>
+					<li>3.8 <a href="#Quoting_Rules">Quoting Rules</a></li>
+				</ul>
+			</li>
+			<li>4 <a href="#Currencies">Currencies</a>
+				<ul class="toc">
+					<li>4.1 <a href="#Supplemental_Currency_Data">Supplemental
+							Currency Data</a></li>
+				</ul>
+			</li>
+			<li>5 <a href="#Language_Plural_Rules">Language Plural Rules</a>
+				<ul class="toc">
+					<li>5.1 <a href="#Plural_rules_syntax">Plural rules syntax</a>
+						<ul class="toc">
+							<li>5.1.1 <a href="#Operands">Operands</a>
+								<ul class="toc">
+									<li>Table: <a href="#Plural_Operand_Meanings">Plural
+											Operand Meanings</a></li>
+									<li>Table: <a href="#Plural_Operand_Examples">Plural
+											Operand Examples</a></li>
+								</ul>
+							</li>
+							<li>5.1.2 <a href="#Relations">Relations</a>
+								<ul class="toc">
+									<li>Table: <a href="#Relations_Examples">Relations
+											Examples</a></li>
+									<li>Table: <a href="#Plural_Rules_Examples">Plural
+											Rules Examples</a></li>
+								</ul>
+							</li>
+							<li>5.1.3 <a href="#Samples">Samples</a>
+								<ul class="toc">
+									<li>Table: <a href="#Plural_Samples_Examples">Plural
+											Samples Examples</a></li>
+								</ul>
+							</li>
+							<li>5.1.4 <a href="#Using_cardinals">Using Cardinals</a></li>
+						</ul>
+					</li>
+					<li>5.2 <a href="#Plural_Ranges">Plural Ranges</a></li>
+				</ul>
+			</li>
+			<li>6 <a href="#Rule-Based_Number_Formatting">Rule-Based
+					Number Formatting</a></li>
+			<li>7 <a href="#Parsing_Numbers">Parsing Numbers</a></li>
+		</ul>
+		<!-- END Generated TOC: CheckHtmlFiles -->
+		<h2>
+			<a name="Numbering_Systems" href="#Numbering_Systems">1 Numbering
+				Systems</a>
+		</h2>
+		<p class="dtd">
+			&lt;!ELEMENT numberingSystems ( numberingSystem* ) &gt;<br>
+			&lt;!ELEMENT numberingSystem EMPTY &gt;<br> &lt;!ATTLIST
+			numberingSystem id NMTOKEN #REQUIRED &gt;<br> &lt;!ATTLIST
+			numberingSystem type ( numeric | algorithmic ) #REQUIRED &gt;<br>
+			&lt;!ATTLIST numberingSystem radix NMTOKEN #IMPLIED &gt;<br>
+			&lt;!ATTLIST numberingSystem digits CDATA #IMPLIED &gt;<br>
+			&lt;!ATTLIST numberingSystem rules CDATA #IMPLIED &gt;<br>
+		</p>
+		<p>
+			Numbering systems information is used to define different
+			representations for numeric values to an end user. Numbering systems
+			are defined in CLDR as one of two different types: algorithmic and
+			numeric. Numeric systems are simply a decimal based system that uses
+			a predefined set of digits to represent numbers. Examples are Western
+			( ASCII digits ), Thai digits, Devanagari digits. Algorithmic systems
+			are more complex in nature, since the proper formatting and
+			presentation of a numeric quantity is based on some algorithm or set
+			of rules. Examples are Chinese numerals, Hebrew numerals, or Roman
+			numerals. In CLDR, the rules for presentation of numbers in an
+			algorithmic system are defined using the RBNF syntax described in <i><a
+				href="#Rule-Based_Number_Formatting">Section 6: Rule-Based
+					Number Formatting</a></i>.
+		</p>
+		<p>Attributes for the &lt;numberingSystem&gt; element are as
+			follows:</p>
+		<blockquote>
+			<p>
+				<span class="attribute">id</span> - Specifies the name of the
+				numbering system that can be used to designate its use in
+				formatting.
+			</p>
+			<p>
+				<span class="attribute">type</span> - Specifies whether the
+				numbering system is algorithmic or numeric.
+			</p>
+			<p>
+				<span class="attribute">digits</span> - For numeric systems,
+				specifies the digits used to represent numbers, in order, starting
+				from zero.
+			</p>
+			<p>
+				<span class="attribute">rules</span> - Specifies the RBNF ruleset to
+				be used for formatting numbers from this numbering system. The rules
+				specifier can contain simply a ruleset name, in which case the
+				ruleset is assumed to be found in the rule set grouping
+				&quot;NumberingSystemRules&quot;. Alternatively, the specifier can
+				denote a specific locale, ruleset grouping, and ruleset name,
+				separated by slashes.
+			</p>
+		</blockquote>
+		<p>Examples:</p>
+		<pre>&lt;numberingSystem id=&quot;latn&quot; type=&quot;numeric&quot; digits=&quot;0123456789&quot;/&gt;
+&lt;!-- ASCII digits - A numeric system --&gt;</pre>
+		<pre>&lt;numberingSystem id=&quot;thai&quot; type=&quot;numeric&quot; digits=&quot;๐๑๒๓๔๕๖๗๘๙&quot;/&gt;
+&lt;!-- A numeric system using Thai digits --&gt;</pre>
+		<pre>&lt;numberingSystem id=&quot;geor&quot; type=&quot;algorithmic&quot; rules=&quot;georgian&quot;/&gt;
+&lt;!-- An algorithmic system - Georgian numerals , rules found in NumberingSystemRules --&gt;</pre>
+		<pre>&lt;numberingSystem id=&quot;hant&quot; type=&quot;algorithmic&quot; rules=&quot;zh_Hant/SpelloutRules/spellout-cardinal&quot;/&gt;
+&lt;!-- An algorithmic system. Traditional Chinese Numerals --&gt;
+</pre>
+		For general information about the numbering system data, including the
+		BCP47 identifiers, see the main document <em>Section Q.1.1 <a
+			href="tr35.html#Numbering System Data">Numbering System Data</a>.
+		</em> ) &gt;<br>
+		<h2>
+			<a name="Number_Elements" href="#Number_Elements">2 Number
+				Elements</a>
+		</h2>
+		<p class="dtd">&lt;!ELEMENT numbers ( alias | ( defaultNumberingSystem*, otherNumberingSystems*, minimumGroupingDigits*, symbols*, decimalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, miscPatterns*, minimalPairs*, special* ) ) &gt;</p>
+		<p>
+			The numbers element supplies information for formatting and parsing
+			numbers and currencies. It has the following sub-elements:
+			&lt;defaultNumberingSystem&gt;, &lt;otherNumberingSystems&gt;,
+			&lt;symbols&gt;, &lt;decimalFormats&gt;, &lt;scientificFormats&gt;,
+			&lt;percentFormats&gt;, &lt;currencyFormats&gt;, and
+			&lt;currencies&gt;. The currency IDs are from [<a
+				href="tr35.html#ISO4217">ISO4217</a>] (plus some additional
+			common-use codes). For more information, including the pattern
+			structure, see <i><a href="#Number_Format_Patterns">Section
+					3: Number Format Patterns</a></i>.
+		</p>
+		<h3>
+			2.1 <a name="defaultNumberingSystem" href="#defaultNumberingSystem">Default
+				Numbering System</a>
+		</h3>
+		<p>
+			<span class="dtd">&lt;!ELEMENT defaultNumberingSystem (
+				#PCDATA )&gt;</span>
+		</p>
+		<p>This element indicates which numbering system should be used
+			for presentation of numeric quantities in the given locale.</p>
+		<h3>
+			2.2 <a name="otherNumberingSystems" href="#otherNumberingSystems">Other
+				Numbering Systems</a>
+		</h3>
+		<p>
+			<span class="dtd">&lt;!ELEMENT otherNumberingSystems ( alias |
+				( native*, traditional*, finance*)) &gt;</span>
+		</p>
+		<p>This element defines general categories of numbering systems
+			that are sometimes used in the given locale for formatting numeric
+			quantities. These additional numbering systems are often used in very
+			specific contexts, such as in calendars or for financial purposes.
+			There are currently three defined categories, as follows:</p>
+		<dl>
+			<dt>
+				<b>native</b>
+			</dt>
+			<dd>Defines the numbering system used for the native digits,
+				usually defined as a part of the script used to write the language.
+				The native numbering system can only be a numeric positional
+				decimal-digit numbering system, using digits with
+				General_Category=Decimal_Number. Note: In locales where the native
+				numbering system is the default, it is assumed that the numbering
+				system "latn" ( Western Digits 0-9 ) is always acceptable, and can
+				be selected using the -nu keyword as part of a Unicode locale
+				identifier.</dd>
+			<dt>
+				<b>traditional</b>
+			</dt>
+			<dd>Defines the traditional numerals for a locale. This
+				numbering system may be numeric or algorithmic. If the traditional
+				numbering system is not defined, applications should use the native
+				numbering system as a fallback.</dd>
+			<dt>
+				<b>finance</b>
+			</dt>
+			<dd>Defines the numbering system used for financial quantities.
+				This numbering system may be numeric or algorithmic. This is often
+				used for ideographic languages such as Chinese, where it would be
+				easy to alter an amount represented in the default numbering system
+				simply by adding additional strokes. If the financial numbering
+				system is not specified, applications should use the default
+				numbering system as a fallback.</dd>
+		</dl>
+		<p>The categories defined for other numbering systems can be used
+			in a Unicode locale identifier to select the proper numbering system
+			without having to know the specific numbering system by name. For
+			example:</p>
+		<ul>
+			<li>To select Hindi language using the native digits for numeric
+				formatting, use locale ID: "hi-IN-u-nu-native".</li>
+			<li>To select Chinese language using the appropriate financial
+				numerals, use locale ID: "zh-u-nu-finance".</li>
+			<li>To select Tamil language using the traditional Tamil
+				numerals, use locale ID: "ta-u-nu-traditio".</li>
+			<li>To select Arabic language using western digits 0-9, use
+				locale ID: "ar-u-nu-latn".</li>
+		</ul>
+		<p>
+			For more information on numbering systems and their definitions, see
+			<i><a href="#Numbering_Systems">Section 1: Numbering Systems</a></i>.
+		</p>
+
+		<h3>
+			2.3 <a name="Number_Symbols" href="#Number_Symbols">Number
+				Symbols</a>
+		</h3>
+		<p class="dtd">&lt;!ELEMENT symbols (alias | (decimal*, group*,
+			list*, percentSign*, nativeZeroDigit*, patternDigit*, plusSign*,
+			minusSign*, exponential*, superscriptingExponent*, perMille*,
+			infinity*, nan*, currencyDecimal*, currencyGroup*, timeSeparator*,
+			special*)) &gt;</p>
+		<p>
+			Number symbols define the localized symbols that are commonly used
+			when formatting numbers in a given locale. These symbols can be
+			referenced using a number formatting pattern as defined in <i><a
+				href="#Number_Format_Patterns">Section 3: Number Format Patterns</a></i>.
+		</p>
+		<p>The available number symbols are as follows:</p>
+		<dl>
+			<dt>
+				<b>decimal</b>
+			</dt>
+			<dd>- separates the integer and fractional part of the number.</dd>
+			<dt>
+				<b>group</b>
+			</dt>
+			<dd>
+				- separates clusters of integer digits to make large numbers more
+				legible; commonly used for thousands (grouping size 3, e.g.
+				&quot;100,000,000&quot;) or in some locales, ten-thousands (grouping
+				size 4, e.g. &quot;1,0000,0000&quot;). There may be two different
+				grouping sizes: The <em>primary grouping size</em> used for the
+				least significant integer group, and the <em>secondary grouping
+					size</em> used for more significant groups; these are not the same in
+				all locales (e.g. &quot;12,34,56,789&quot;). If a pattern contains
+				multiple grouping separators, the interval between the last one and
+				the end of the integer defines the primary grouping size, and the
+				interval between the last two defines the secondary grouping size.
+				All others are ignored, so &quot;#,##,###,####&quot; ==
+				&quot;###,###,####&quot; == &quot;##,#,###,####&quot;.
+			</dd>
+			<dt>
+				<b>list</b>
+			</dt>
+			<dd>
+				- symbol used to separate numbers in a list intended to represent
+				structured data such as an array; must be different from the <b>decimal</b>
+				value. This list separator is for “non-linguistic” usage as opposed
+				to the listPatterns for “linguistic” lists (e.g. “Bob, Carol, and
+				Ted”) described in Part 2, <em>Section 11 <a
+					href="tr35-general.html#ListPatterns">List Patterns</a></em>.
+			</dd>
+			<dt>
+				<b>percentSign</b>
+			</dt>
+			<dd>- symbol used to indicate a percentage (1/100th) amount. (If
+				present, the value is also multiplied by 100 before formatting. That
+				way 1.23 → 123%)</dd>
+			<dt>
+				<b>nativeZeroDigit</b>
+			</dt>
+			<dd>- Deprecated - do not use.</dd>
+			<dt>
+				<b>patternDigit</b>
+			</dt>
+			<dd>
+				- Deprecated. This was formerly used to provide the localized
+				pattern character corresponding to '#', but localization of the
+				pattern characters themselves has been deprecated for some time
+				(determining the locale-specific <em>replacements</em> for pattern
+				characters is of course not deprecated and is part of normal number
+				formatting).
+			</dd>
+			<dt>
+				<b>minusSign</b>
+			</dt>
+			<dd>- Symbol used to denote negative value.</dd>
+			<dt>
+				<b>plusSign</b>
+			</dt>
+			<dd>- Symbol used to denote positive value. &nbsp;It can be used
+				to produce modified patterns, so that 3.12 is formatted as "+3.12",
+				for example. The standard number patterns (except for
+				type="accounting") will contain the minusSign, explicitly or
+				implicitly. In the explicit pattern, the value of the plusSign can
+				be substituted for the value of the minusSign to produce a pattern
+				that has an explicit plus sign.</dd>
+			<dt>
+				<b>exponential</b>
+			</dt>
+			<dd>- Symbol separating the mantissa and exponent values.</dd>
+			<dt>
+				<b>superscriptingExponent</b>
+			</dt>
+			<dd>
+				- (Programmers are used to the fallback exponent style “1.23E4”, but
+				that should not be shown to end-users. Instead, the exponential
+				notation superscriptingExponent should be used to show a format like
+				“1.23 × 10<sup>4</sup>”. ) The superscripting can use markup, such
+				as &lt;sup&gt;4&lt;/sup&gt; in HTML, or for the special case of
+				Latin digits, use the superscript characters: U+207B ( ⁻ ), U+2070 (
+				⁰ ), U+00B9 ( ¹ ), U+00B2 ( ² ), U+00B3 ( ³ ), U+2074 ( ⁴ ) ..
+				U+2079 ( ⁹ ).
+			</dd>
+			<dt>
+				<b>perMille</b>
+			</dt>
+			<dd>- symbol used to indicate a per-mille (1/1000th) amount. (If
+				present, the value is also multiplied by 1000 before formatting.
+				That way 1.23 → 1230 [1/000])</dd>
+			<dt>
+				<b>infinity</b>
+			</dt>
+			<dd>- The infinity sign. Corresponds to the IEEE infinity bit
+				pattern.</dd>
+			<dt>
+				<b>nan - Not a number</b>
+			</dt>
+			<dd>- The NaN sign. Corresponds to the IEEE NaN bit pattern.</dd>
+			<dt>
+				<b>currencyDecimal</b>
+			</dt>
+			<dd>- Optional. If specified, then for currency formatting/parsing
+				this is used as the decimal separator instead of using the regular decimal
+				separator; otherwise, the regular decimal separator is used.</dd>
+			<dt>
+				<b>currencyGroup</b>
+			</dt>
+			<dd>- Optional. If specified, then for currency formatting/parsing
+				this is used as the group separator instead of using the regular group
+				separator; otherwise, the regular group separator is used.</dd>
+			<dt>
+				<b>timeSeparator</b>
+			</dt>
+			<dd>
+				- This replaces any use of the timeSeparator pattern character in a
+				date-time format pattern (no timeSeparator pattern character is
+				currently defined, see note below). This allows the same time format
+				to be used for multiple number systems when the time separator
+				depends on the number system. For example, the time format for
+				Arabic should be COLON when using the Latin numbering system (0, 1,
+				2, …), but when the Arabic numbering system is used (٠‎ - ١‎ - ٢‎
+				…), the traditional time separator in older print styles was often
+				ARABIC COMMA.
+				<p class="note">
+					<b>Note: </b>In CLDR 26 the timeSeparator pattern character was
+					specified to be COLON. This was withdrawn in CLDR 28 due to
+					backward compatibility issues, and no timeSeparator pattern
+					character is currently defined. No CLDR locales are known to have a
+					need to specify timeSeparator symbols that depend on number system;
+					if this changes in the future a different timeSeparator pattern
+					character will be defined.
+				</p>
+			</dd>
+		</dl>
+		<p>Example:</p>
+		<pre>&lt;symbols&gt;
+      &lt;decimal&gt;<span style="color: blue">.</span>&lt;/decimal&gt;
+      &lt;group&gt;<span style="color: blue">,</span>&lt;/group&gt;
+      &lt;list&gt;<span style="color: blue">;</span>&lt;/list&gt;
+      &lt;percentSign&gt;<span style="color: blue">%</span>&lt;/percentSign&gt;
+      &lt;patternDigit&gt;<span style="color: blue">#</span>&lt;/patternDigit&gt;
+      &lt;plusSign&gt;<span style="color: blue">+</span>&lt;/plusSign&gt;
+      &lt;minusSign&gt;<span style="color: blue">-</span>&lt;/minusSign&gt;
+      &lt;exponential&gt;<span style="color: blue">E</span>&lt;/exponential&gt;
+      &lt;superscriptingExponent&gt;<span style="color: blue">×</span>&lt;/exponential&gt;
+      &lt;perMille&gt;<span style="color: blue">‰</span>&lt;/perMille&gt;
+      &lt;infinity&gt;<span style="color: blue">∞</span>&lt;/infinity&gt;
+      &lt;nan&gt;<span style="color: blue">☹</span>&lt;/nan&gt;
+      &lt;timeSeparator&gt;:&lt;/timeSeparator&gt;
+&lt;/symbols&gt;</pre>
+		<p>
+			<span class="dtd">&lt;!ATTLIST symbols numberSystem CDATA
+				#IMPLIED &gt;<br>
+			</span> The numberSystem attribute is used to specify that the given number
+			symbols are to be used when the given numbering system is active.
+			Number symbols can only be defined for numbering systems of the
+			"numeric" type, since any special symbols required for an algorithmic
+			numbering system should be specified by the RBNF formatting rules
+			used for that numbering system. By default, number symbols without a
+			specific numberSystem attribute are assumed to be used for the
+			&quot;latn&quot; numbering system, which is western (ASCII) digits.
+			Locales that specify a numbering system other than &quot;latn&quot;
+			as the default should also specify number formatting symbols that are
+			appropriate for use within the context of the given numbering system.
+			For example, a locale that uses the Arabic-Indic digits as its
+			default would likely use an Arabic comma for the grouping separator
+			rather than the ASCII comma.<br> For more information on
+			numbering systems and their definitions, see <i><a
+				href="#Numbering_Systems">Section 1: Numbering Systems</a></i>.
+		</p>
+
+		<h3>
+			2.4 <a name="Number_Formats" href="#Number_Formats">Number
+				Formats</a>
+		</h3>
+		<p class="dtd">
+			&lt;!ELEMENT decimalFormats (alias | (default*, decimalFormatLength*,
+			special*))&gt;<br> &lt;!ELEMENT decimalFormatLength (alias |
+			(default*, decimalFormat*, special*))&gt;<br> &lt;!ATTLIST
+			decimalFormatLength type ( full | long | medium | short ) #IMPLIED
+			&gt;<br> &lt;!ELEMENT decimalFormat (alias | (pattern*,
+			special*)) &gt;<br>
+		</p>
+		<p>(scientificFormats, percentFormats have the same structure)</p>
+		<p>
+			Number formats are used to define the rules for formatting numeric
+			quantities using the pattern syntax described in <i><a
+				href="#Number_Format_Patterns">Section 3: Number Format Patterns</a></i>.
+		</p>
+		<p>Different formats are provided for different contexts, as
+			follows:</p>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dt>
+				<b>decimalFormats</b>
+			</dt>
+			<dd>The normal locale specific way to write a base 10 number.
+				Variations of the decimalFormat pattern are provided that allow
+				compact number formatting.</dd>
+			<dt>
+				<b>percentFormats</b>
+			</dt>
+			<dd>Pattern for use with percentage formatting</dd>
+			<dt>
+				<b>scientificFormats</b>
+			</dt>
+			<dd>Pattern for use with scientific (exponent) formatting.</dd>
+		</dl>
+		<p>Example:</p>
+		<pre>&lt;decimalFormats&gt;
+  &lt;decimalFormatLength type=&quot;<span style="color: blue">long</span>&quot;&gt;
+    &lt;decimalFormat&gt;
+      &lt;pattern&gt;<span style="color: blue">#,##0.###</span>&lt;/pattern&gt;
+    &lt;/decimalFormat&gt;
+  &lt;/decimalFormatLength&gt;
+&lt;/decimalFormats&gt;</pre>
+		<pre>&lt;scientificFormats&gt;
+  &lt;default type=&quot;<span style="color: blue">long</span>&quot;/&gt;
+  &lt;scientificFormatLength type=&quot;<span style="color: blue">long</span>&quot;&gt;
+    &lt;scientificFormat&gt;
+      &lt;pattern&gt;<span style="color: blue">0.000###E+00</span>&lt;/pattern&gt;
+    &lt;/scientificFormat&gt;
+  &lt;/scientificFormatLength&gt;
+  &lt;scientificFormatLength type=&quot;<span style="color: blue">medium</span>&quot;&gt;
+    &lt;scientificFormat&gt;
+      &lt;pattern&gt;<span style="color: blue">0.00##E+00</span>&lt;/pattern&gt;
+    &lt;/scientificFormat&gt;
+  &lt;/scientificFormatLength&gt;
+&lt;/scientificFormats&gt;</pre>
+		<pre>&lt;percentFormats&gt;
+  &lt;percentFormatLength type=&quot;<span style="color: blue">long</span>&quot;&gt;
+    &lt;percentFormat&gt;
+      &lt;pattern&gt;<span style="color: blue">#,##0%</span>&lt;/pattern&gt;
+    &lt;/percentFormat&gt;
+  &lt;/percentFormatLength&gt;
+&lt;/percentFormats&gt;</pre>
+		<p>
+			<span class="dtd">&lt;!ATTLIST symbols numberSystem CDATA
+				#IMPLIED &gt;<br>
+			</span> The numberSystem attribute is used to specify that the given number
+			formatting pattern(s) are to be used when the given numbering system
+			is active. By default, number formatting patterns without a specific
+			numberSystem attribute are assumed to be used for the
+			&quot;latn&quot; numbering system, which is western (ASCII) digits.
+			Locales that specify a numbering system other than &quot;latn&quot;
+			as the default should also specify number formatting patterns that
+			are appropriate for use within the context of the given numbering
+			system. <br> For more information on numbering systems and their
+			definitions, see <i><a href="#Numbering_Systems">Section 1:
+					Numbering Systems</a></i>.
+		</p>
+		<h4>
+			2.4.1 <a name="Compact_Number_Formats" href="#Compact_Number_Formats">Compact
+				Number Formats</a>
+		</h4>
+		A pattern type attribute is used for <em>compact number formats</em>,
+		such as the following:
+		<pre>
+&lt;decimalFormatLength type=&quot;long&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 millier&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 milliers&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 million&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 millions&lt;/pattern&gt;<br>		…<br>	&lt;/decimalFormat&gt;<br>&lt;/decimalFormatLength&gt;<br>&lt;decimalFormatLength type=&quot;short&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 M&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 M&lt;/pattern&gt;<br>		…<br>	&lt;/decimalFormat&gt;
+…
+&lt;currencyFormatLength type=&quot;short&quot;&gt;<br>	&lt;currencyFormat type=&quot;standard&quot;&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 M ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 M ¤&lt;/pattern&gt;</pre>
+		<p>Formats can be supplied for numbers (as above)
+			or for currencies or other units. They can also be used with ranges
+			of numbers, resulting in formatting strings like “$10K” or “$3–7M”.</p>
+		<p>To format a number N, the greatest type less than or equal to N
+			is used, with the appropriate plural category. N is divided by the
+			type, after removing the number of zeros in the pattern, less 1. APIs
+			supporting this format should provide control over the number of
+			significant or fraction digits.</p>
+		<p>The default pattern for any type that is not supplied is the special value “0”, as in the following. The value “0” must be used when a child locale overrides a parent locale to drop the compact pattern for that type and use the default pattern.</p>
+      <p><code>        &lt;pattern type=&quot;1&quot; count=&quot;one&quot;&gt;0&lt;/pattern&gt;</code></p>
+		<p>If the value is precisely “0”, either explicit or defaulted, then the normal number format pattern for that sort
+			of object is supplied — either &lt;decimalFormat&gt; or &lt;currencyFormat type=&quot;standard&quot;&gt; — with the normal formatting for the locale (such as the grouping separators). However, for the “0” case by default the signficant digits are adjusted for consistency, typically to 2 or 3 digits, and the maximum fractional digits are set to 0 (for both currencies and plain decimal). Thus the output would be $12, not $12.01. APIs may, however, allow these default behaviors to be overridden.		</p>
+		<p>
+			With the data above, N=12345 matches <code>&lt;pattern type=&quot;10000&quot;
+				count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;</code>
+			. N is divided by 1000 (obtained from10000 after removing
+			&quot;00&quot; and restoring one &quot;0&quot;. The result is
+			formatted according to the normal decimal pattern. With no fractional
+			digits, that yields &quot;12 K&quot;.
+		</p>
+		<p>Formatting 1200 in USD would result in
+			“1.2 K $”, while 990 implicitly maps to the special value “0”, which maps to &lt;currencyFormat type=&quot;standard&quot;&gt;&lt;pattern&gt;#,##0.00 ¤&lt;/pattern&gt;, and would result in simply “990 $”.</p>
+		<p>The short format is designed for UI environments where space is
+			at a premium, and should ideally result in a formatted string no more
+			than about 6 em wide (with no fractional digits).</p>
+		<h4>
+			2.4.2 <a name="Currency_Formats" href="#Currency_Formats">Currency
+				Formats</a>
+		</h4>
+		<p>
+			Pattern for use with currency formatting. This format contains a few
+			additional structural options that allow proper placement of the
+			currency symbol relative to the numeric quantity. Refer to <i><a
+				href="#Currencies">Section 4 - Currencies</a></i> for additional
+			information on the use of these options.
+		</p>
+		<p class="dtd">
+			&lt;!ELEMENT currencyFormats (alias | (default*, currencySpacing*,
+			currencyFormatLength*, unitPattern*, special*)) &gt;<br>
+			&lt;!ELEMENT currencySpacing (alias | (beforeCurrency*,
+			afterCurrency*, special*)) &gt;<br> &lt;!ELEMENT beforeCurrency
+			(alias | (currencyMatch*, surroundingMatch*, insertBetween*)) &gt;<br>
+			&lt;!ELEMENT afterCurrency (alias | (currencyMatch*,
+			surroundingMatch*, insertBetween*)) &gt;<br> &lt;!ELEMENT
+			currencyMatch ( #PCDATA ) &gt;<br> &lt;!ELEMENT surroundingMatch
+			( #PCDATA )) &gt;<br> &lt;!ELEMENT insertBetween ( #PCDATA )
+			&gt;<br> &lt;!ELEMENT currencyFormatLength (alias | (default*,
+			currencyFormat*, special*)) &gt;<br> &lt;!ATTLIST
+			currencyFormatLength type ( full | long | medium | short ) #IMPLIED
+			&gt;<br> &lt;!ELEMENT currencyFormat (alias | (pattern*,
+			special*)) &gt;
+		</p>
+		<p>In addition to a standard currency format, in which negative
+			currency amounts might typically be displayed as something like
+			“-$3.27”, locales may provide an "accounting" form, in which for
+			"en_US" the same example would appear as “($3.27)”.</p>
+		<pre>&lt;currencyFormats&gt;
+  &lt;currencyFormatLength&gt;
+    &lt;currencyFormat type="standard"&gt;
+      &lt;pattern&gt;<span style="color: blue">¤#,##0.00</span>&lt;/pattern&gt;
+    &lt;/currencyFormat&gt;
+    &lt;currencyFormat type="accounting"&gt;
+      &lt;pattern&gt;<span style="color: blue">¤#,##0.00;(¤#,##0.00)</span>&lt;/pattern&gt;
+    &lt;/currencyFormat&gt;
+  &lt;/currencyFormatLength&gt;
+&lt;/currencyFormats&gt;</pre>
+
+		<h3>
+			2.5 <a name="Miscellaneous_Patterns" href="#Miscellaneous_Patterns">Miscellaneous
+				Patterns</a>
+		</h3>
+		<p class="dtd">
+			&lt;!ELEMENT miscPatterns (alias | (default*, pattern*, special*))
+			&gt;<br> &lt;!ATTLIST miscPatterns numberSystem CDATA #IMPLIED
+			&gt;
+		</p>
+		<p>The miscPatterns supply additional patterns for special
+			purposes. The currently defined values are:</p>
+		<dl>
+			<dt>
+				<strong>atLeast</strong>
+			</dt>
+			<dd>indicates a number or higher, such as: “99+” to indicate
+				that there are 99 items or more.</dd>
+			<dt>
+				<strong>range</strong>
+			</dt>
+			<dd>indicates a range of numbers, such as: “99–103” to indicate
+				that there are from 99 to 103 items.</dd>
+		</dl>
+		<p>
+			<em>For example: </em>
+		</p>
+		<p>
+			<code>
+				&lt;miscPatterns numberSystem=&quot;…&quot;&gt;<br>
+				  &lt;pattern type=&quot;atLeast&quot;&gt;⩾{0}&lt;/pattern&gt;<br>
+				  &lt;pattern type=&quot;range&quot;&gt;{0}–{1}&lt;/pattern&gt;<br>
+				&lt;/miscPatterns&gt;
+			</code>
+		</p>
+  <h3>
+		2.6 <a name="Minimal_Pairs" href="#Minimal_Pairs">Minimal Pairs</a></h3>
+	  <p class="dtd">&lt;!ELEMENT minimalPairs ( alias | ( pluralMinimalPairs*, ordinalMinimalPairs*, special* ) ) &gt;
+        <br>&lt;!ATTLIST minimalPairs alt NMTOKENS #IMPLIED &gt; <br>
+        &lt;!ATTLIST minimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED &gt;     <br>
+	  </p>
+	  <p class="dtd">&lt;!ELEMENT pluralMinimalPairs ( #PCDATA ) &gt; <br>
+	    &lt;!ATTLIST pluralMinimalPairs count NMTOKEN #IMPLIED &gt; <br>
+	    &lt;!ATTLIST pluralMinimalPairs alt NMTOKENS #IMPLIED &gt; <br>
+	    &lt;!ATTLIST pluralMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED &gt;</p>
+	  <p class="dtd">&lt;!ELEMENT ordinalMinimalPairs ( #PCDATA ) &gt; <br>
+	    &lt;!ATTLIST ordinalMinimalPairs ordinal NMTOKEN #IMPLIED &gt; <br>
+	    &lt;!ATTLIST ordinalMinimalPairs alt NMTOKENS #IMPLIED &gt; <br>
+	    &lt;!ATTLIST ordinalMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED &gt;</p>
+      <p>Minimal pairs provide examples that justify why multiple plural or ordinal categories exist. For more information, see <a href="http://cldr.unicode.org/index/cldr-spec/plural-rules">Plural Rules</a>.</p>
+      <h2>
+			<a name="Number_Format_Patterns" href="#Number_Format_Patterns">3
+				Number Format Patterns</a>
+		</h2>
+		<h3>
+			3.1 <a name="Number_Patterns" href="#Number_Patterns">Number
+				Patterns</a>
+		</h3>
+		<p>Number patterns affect how numbers are interpreted in a
+			localized context. Here are some examples, based on the French
+			locale. The &quot;.&quot; shows where the decimal point should go.
+			The &quot;,&quot; shows where the thousands separator should go. A
+			&quot;0&quot; indicates zero-padding: if the number is too short, a
+			zero (in the locale&#39;s numeric set) will go there. A &quot;#&quot;
+			indicates no padding: if the number is too short, nothing goes there.
+			A &quot;¤&quot; shows where the currency sign will go. The following
+			illustrates the effects of different patterns for the French locale,
+			with the number &quot;1234.567&quot;. Notice how the pattern
+			characters &#39;,&#39; and &#39;.&#39; are replaced by the characters
+			appropriate for the locale.</p>
+		<blockquote>
+			<table cellspacing="0" cellpadding="4" border="1">
+				<caption>
+					<a name="Number_Pattern_Examples" href="#Number_Pattern_Examples">Number
+						Pattern Examples</a>
+				</caption>
+				<tr bgcolor="#ccccff">
+					<th width="17%">Pattern</th>
+					<th width="16%">Currency</th>
+					<th width="33%">Text</th>
+				</tr>
+				<tr>
+					<td width="17%">#,##0.##</td>
+					<td width="16%"><i>n/a</i></td>
+					<td width="33%">1 234,57</td>
+				</tr>
+				<tr>
+					<td width="17%">#,##0.###</td>
+					<td width="16%"><i>n/a</i></td>
+					<td width="33%">1 234,567</td>
+				</tr>
+				<tr>
+					<td width="17%">###0.#####</td>
+					<td width="16%"><i>n/a</i></td>
+					<td width="33%">1234,567</td>
+				</tr>
+				<tr>
+					<td width="17%">###0.0000#</td>
+					<td width="16%"><i>n/a</i></td>
+					<td width="33%">1234,5670</td>
+				</tr>
+				<tr>
+					<td width="17%">00000.0000</td>
+					<td width="16%"><i>n/a</i></td>
+					<td width="33%">01234,5670</td>
+				</tr>
+				<tr>
+					<td width="17%" rowspan="2">#,##0.00 ¤</td>
+					<td width="16%">EUR</td>
+					<td width="33%">1 234,57 €</td>
+				</tr>
+				<tr>
+					<td width="16%">JPY</td>
+					<td width="33%">1 235 ¥JP</td>
+				</tr>
+			</table>
+		</blockquote>
+		<p>
+			The number of # placeholder characters before the decimal do not
+			matter, since no limit is placed on the maximum number of digits.
+			There should, however, be at least one zero someplace in the pattern.
+			In currency formats, the number of digits after the decimal also do
+			not matter, since the information in the supplemental data (see <i><a
+				href="#Supplemental_Currency_Data">Supplemental Currency Data</a>)</i>
+			is used to override the number of decimal places — and the rounding —
+			according to the currency that is being formatted. That can be seen
+			in the above chart, with the difference between Yen and Euro
+			formatting.
+		</p>
+		<p>
+			To ensure correct layout, especially in currency patterns in which a
+			a variety of symbols may be used, number patterns may contain (invisible)
+			bidirectional text format characters such as LRM, RLM, and ALM.
+		</p>
+		<p>
+			<i>When parsing using a pattern, a lenient parse should be used;
+				see <a href="tr35.html#Lenient_Parsing">Lenient Parsing</a>.</i> As noted there, lenient parsing should ignore bidi format
+				characters.
+		</p>
+		<h3>
+			3.2 <a name="Special_Pattern_Characters"
+				href="#Special_Pattern_Characters">Special Pattern Characters</a>
+		</h3>
+		<p>Many characters in a pattern are taken literally; they are
+			matched during parsing and output unchanged during formatting.
+			Special characters, on the other hand, stand for other characters,
+			strings, or classes of characters. For example, the &#39;#&#39;
+			character is replaced by a localized digit for the chosen
+			numberSystem. Often the replacement character is the same as the
+			pattern character; in the U.S. locale, the &#39;,&#39; grouping
+			character is replaced by &#39;,&#39;. However, the replacement is
+			still happening, and if the symbols are modified, the grouping
+			character changes. Some special characters affect the behavior of the
+			formatter by their presence; for example, if the percent character is
+			seen, then the value is multiplied by 100 before being displayed.</p>
+		<p>
+			To insert a special character in a pattern as a literal, that is,
+			without any special meaning, the character must be quoted. There are
+			some exceptions to this which are noted below. The Localized
+			Replacement column shows the replacement from <em>Section 2.3 <a
+				href="#Number_Symbols">Number Symbols</a>
+			</em> or the numberSystem's digits: <em>italic</em> indicates a special
+			function.
+		</p>
+		<p>
+			Invalid sequences of special characters (such as “¤¤¤¤¤” in current
+			CLDR) should be handled for formatting and parsing as described in <a
+				href="tr35.html#Invalid_Patterns">Handling Invalid Patterns</a>.
+		</p>
+		<blockquote>
+			<table cellspacing="3" cellpadding="0"
+				summary="Chart showing symbol,
+  location, localized, and meaning."
+				border="0">
+				<caption>
+					<a name="Number_Pattern_Character_Definitions"
+						href="#Number_Pattern_Character_Definitions">Number Pattern
+						Character Definitions</a>
+				</caption>
+				<tr bgcolor="#ccccff">
+					<th align="left">Symbol</th>
+					<th align="left">Location</th>
+					<th align="left">Localized Replacement</th>
+					<th colspan="2" align="left">Meaning</th>
+				</tr>
+				<tr valign="top">
+					<td>0</td>
+					<td>Number</td>
+					<td>digit</td>
+					<td colspan="2">Digit</td>
+				</tr>
+				<tr valign="top" bgcolor="#eeeeff">
+					<td>1-9</td>
+					<td>Number</td>
+					<td>digit</td>
+					<td colspan="2">&#39;1&#39; through &#39;9&#39; indicate
+						rounding.</td>
+				</tr>
+				<tr valign="top">
+					<td>@</td>
+					<td>Number</td>
+					<td>digit</td>
+					<td colspan="2">Significant digit</td>
+				</tr>
+				<tr valign="top" bgcolor="#eeeeff">
+					<td>#</td>
+					<td>Number</td>
+					<td>digit, <em>nothing</em></td>
+					<td colspan="2">Digit, omitting leading/trailing zeros</td>
+				</tr>
+				<tr valign="top">
+					<td>.</td>
+					<td>Number</td>
+					<td>decimal, currencyDecimal</td>
+					<td colspan="2">Decimal separator or monetary decimal
+						separator</td>
+				</tr>
+				<tr valign="top" bgcolor="#eeeeff">
+					<td>-</td>
+					<td>Number</td>
+					<td>minusSign</td>
+					<td colspan="2">Minus sign. <strong>Warning: </strong>the pattern '-'0.0 is not the same as the pattern -0.0. In the former case, the minus sign is a literal. In the latter case, it is a special symbol, which is replaced by the minusSymbol, and can also be replaced by the plusSymbol for a format like +12% as in Section 3.2.1 <a href="#Explicit_Plus">Explicit Plus Signs</a>.</td>
+				</tr>
+				<tr valign="top">
+					<td>,</td>
+					<td>Number</td>
+					<td>group, currencyGroup</td>
+					<td colspan="2">Grouping separator. May occur in both the
+						integer part and the fractional part. The position determines the
+						grouping.</td>
+				</tr>
+				<tr valign="top" bgcolor="#eeeeff">
+					<td>E</td>
+					<td>Number</td>
+					<td>exponential, superscriptingExponent</td>
+					<td colspan="2">Separates mantissa and exponent in scientific
+						notation. <em>Need not be quoted in prefix or suffix.</em>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td>+</td>
+					<td>Exponent or Number (for
+							explicit plus)</td>
+					<td>plusSign</td>
+					<td colspan="2">Prefix positive exponents with localized plus
+						sign. Used for explicit plus for numbers as well, as described in
+						Section 3.2.1 <a href="#Explicit_Plus">Explicit Plus Signs</a>. <em><br>
+							Need not be quoted in prefix or suffix.</em>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td>%</td>
+					<td>Prefix or suffix</td>
+					<td>percentSign</td>
+					<td colspan="2">Multiply by 100 and show as percentage</td>
+				</tr>
+				<tr valign="top" bgcolor="#eeeeff">
+					<td>‰<br> (U+2030)
+					</td>
+					<td>Prefix or suffix</td>
+					<td>perMille</td>
+					<td colspan="2">Multiply by 1000 and show as per mille (aka
+						“basis points”)</td>
+				</tr>
+				<tr valign="top" bgcolor="#eeeeff">
+					<td>;</td>
+					<td>Subpattern boundary</td>
+					<td><em>syntax</em></td>
+					<td colspan="2">Separates positive and negative subpatterns.
+						When there is no explicit negative subpattern, an implicit
+						negative subpattern is formed from the positive pattern with a
+						prefixed - (ASCII U+002D HYPHEN-MINUS).</td>
+				</tr>
+				<tr valign="top">
+					<td rowspan="11">¤ (U+00A4)</td>
+					<td rowspan="11">Prefix or suffix</td>
+					<td rowspan="11"><em>currency symbol/name from currency
+							specified in API</em></td>
+					<td colspan="2">Any sequence is replaced by the localized
+						currency symbol for the currency being formatted, as in the table
+						below. If present in a pattern, the monetary decimal separator and
+						grouping separators (if available) are used instead of the numeric
+						ones. If data is unavailable for a given sequence in a given
+						locale, the display may fall back to ¤ or ¤¤. See also the
+						formatting forcurrency display names, steps 2 and 4 in <a
+						href="#Currencies">Currencies</a>.
+					</td>
+				</tr>
+				<tr valign="top">
+					<th>No.</th>
+					<th>Replacement / Example</th>
+				</tr>
+				<tr valign="top">
+					<td rowspan="2">¤</td>
+					<td>Standard currency symbol</td>
+				</tr>
+				<tr valign="top">
+					<td><em>C$12.00</em></td>
+				</tr>
+				<tr valign="top">
+					<td rowspan="2">¤¤</td>
+					<td>ISO currency symbol (constant)</td>
+				</tr>
+				<tr valign="top">
+					<td><em>CAD 12.00</em></td>
+				</tr>
+				<tr valign="top">
+					<td rowspan="2">¤¤¤</td>
+					<td>Appropriate currency display name for the currency, based
+						on the plural rules in effect for the locale</td>
+				</tr>
+				<tr valign="top">
+					<td><em>5.00 Canadian dollars</em></td>
+				</tr>
+				<tr valign="top">
+					<td rowspan="2" nowrap>¤¤¤¤¤</td>
+					<td>Narrow currency symbol. The same symbols may be used for
+						multiple currencies. Thus the symbol may be ambiguous, and should
+						only be used where the context is clear.</td>
+				</tr>
+				<tr valign="top">
+					<td><em>$12.00</em></td>
+				</tr>
+				<tr valign="top">
+					<td><em>others</em></td>
+					<td><em>Invalid in current
+								CLDR. Reserved for future specification</em></td>
+				</tr>
+				<tr valign="top">
+					<td>*</td>
+					<td>Prefix or suffix boundary</td>
+					<td><em>padding character specified in API</em></td>
+					<td colspan="2">Pad escape, precedes pad character</td>
+				</tr>
+				<tr valign="top" bgcolor="#eeeeff">
+					<td>&#39;</td>
+					<td>Prefix or suffix</td>
+					<td><em>syntax-only</em></td>
+					<td colspan="2">Used to quote special characters in a prefix
+						or suffix, for example, <code>&quot;&#39;#&#39;#&quot;</code>
+						formats 123 to <code>&quot;#123&quot;</code>. To create a single
+						quote itself, use two in a row: <code>&quot;#
+							o&#39;&#39;clock&quot;</code>.
+					</td>
+				</tr>
+			</table>
+		</blockquote>
+		<p>A pattern contains a positive subpattern and may contain a
+			negative subpattern, for example, &quot;#,##0.00;(#,##0.00)&quot;.
+			Each subpattern has a prefix, a numeric part, and a suffix. If there
+			is no explicit negative subpattern, the implicit negative subpattern
+			is the ASCII minus sign (-) prefixed to the positive subpattern. That
+			is, &quot;0.00&quot; alone is equivalent to &quot;0.00;-0.00&quot;.
+			(The data in CLDR is normalized to remove an explicit subpattern
+			where it would be identical to the explicit form.) If there is an
+			explicit negative subpattern, it serves only to specify the negative
+			prefix and suffix; the number of digits, minimal digits, and other
+			characteristics are ignored in the negative subpattern. That means
+			that &quot;#,##0.0#;(#)&quot; has precisely the same result as
+			&quot;#,##0.0#;(#,##0.0#)&quot;. However in the CLDR data, the format
+			is normalized so that the other characteristics are preserved, just
+			for readability.</p>
+		<blockquote>
+			<p>
+				<b>Note: </b>The thousands separator and decimal separator in
+				patterns are always ASCII &#39;,&#39; and &#39;.&#39;. They are
+				substituted by the code with the correct local values according to
+				other fields in CLDR. The same is true of the - (ASCII minus sign)
+				and other special characters listed above.
+			</p>
+		</blockquote>
+		<p>Below is a sample of patterns, special characters, and results:</p>
+		<div align="center">
+			<table border="0" cellpadding="0" cellspacing="3">
+				<caption>
+					<a name='Sample_Patterns_and_Results'
+						href='#Sample_Patterns_and_Results'>Sample Patterns and
+						Results</a>
+				</caption>
+				<tr valign="top">
+					<th><div align="right">explicit pattern:</div></th>
+					<td colspan="2"><div align="center">0.00;-0.00</div></td>
+					<td colspan="2"><div align="center">0.00;0.00-</div></td>
+					<td colspan="2"><div align="center">0.00+;0.00-</div></td>
+				</tr>
+				<tr valign="top">
+					<th><div align="right">decimalSign:</div></th>
+					<td colspan="2"><div align="center">,</div></td>
+					<td colspan="2"><div align="center">,</div></td>
+					<td colspan="2"><div align="center">,</div></td>
+				</tr>
+				<tr valign="top">
+					<th><div align="right">minusSign:</div></th>
+					<td colspan="2"><div align="center">∸</div></td>
+					<td colspan="2"><div align="center">∸</div></td>
+					<td colspan="2"><div align="center">∸</div></td>
+				</tr>
+				<tr valign="top">
+					<th><div align="right">plusSign:</div></th>
+					<td colspan="2"><div align="center">∔</div></td>
+					<td colspan="2"><div align="center">∔</div></td>
+					<td colspan="2"><div align="center">∔</div></td>
+				</tr>
+				<tr valign="top">
+					<th><div align="right">number:</div></th>
+					<td><div align="center">3.1415</div></td>
+					<td><div align="center">-3.1415</div></td>
+					<td><div align="center">3.1415</div></td>
+					<td><div align="center">-3.1415</div></td>
+					<td><div align="center">3.1415</div></td>
+					<td><div align="center">-3.1415</div></td>
+				</tr>
+				<tr valign="top">
+					<th><div align="right">formatted:</div></th>
+					<td><div align="center">3,14</div></td>
+					<td><div align="center">∸3,14</div></td>
+					<td><div align="center">3,14</div></td>
+					<td><div align="center">3,14∸</div></td>
+					<td><div align="center">3,14∔</div></td>
+					<td><div align="center">3,14∸</div></td>
+				</tr>
+			</table>
+			<p>
+				<em>In the above table, ∸ = U+2238 DOT MINUS and ∔ = U+2214 DOT
+					PLUS are used for illustration.</em>
+			</p>
+		</div>
+		<p>
+			The prefixes, suffixes, and various symbols used for infinity,
+			digits, thousands separators, decimal separators, and so on may be
+			set to arbitrary values, and they will appear properly during
+			formatting. <i>However, care must be taken that the symbols and
+				strings do not conflict, or parsing will be unreliable. </i> For
+			example, either the positive and negative prefixes or the suffixes
+			must be distinct for any parser using this data to be able to
+			distinguish positive from negative values. Another example is that
+			the decimal separator and thousands separator should be distinct
+			characters, or parsing will be impossible.
+		</p>
+		<p>
+			The <em>grouping separator</em> is a character that separates
+			clusters of integer digits to make large numbers more legible. It is
+			commonly used for thousands, but in some locales it separates
+			ten-thousands. The <em>grouping size</em> is the number of digits
+			between the grouping separators, such as 3 for
+			&quot;100,000,000&quot; or 4 for &quot;1 0000 0000&quot;. There are
+			actually two different grouping sizes: One used for the least
+			significant integer digits, the <em>primary grouping size</em>, and
+			one used for all others, the <em>secondary grouping size</em>. In
+			most locales these are the same, but sometimes they are different.
+			For example, if the primary grouping interval is 3, and the secondary
+			is 2, then this corresponds to the pattern &quot;#,##,##0&quot;, and
+			the number 123456789 is formatted as &quot;12,34,56,789&quot;. If a
+			pattern contains multiple grouping separators, the interval between
+			the last one and the end of the integer defines the primary grouping
+			size, and the interval between the last two defines the secondary
+			grouping size. All others are ignored, so &quot;#,##,###,####&quot;
+			== &quot;###,###,####&quot; == &quot;##,#,###,####&quot;.
+		</p>
+		<p>
+			The grouping separator may also occur in the fractional part, such as
+			in “#,##0.###,#”. This is most commonly done where the grouping
+			separator character is a thin, non-breaking space (U+202F), such as
+			“1.618 033 988 75”. See <a
+				href="http://physics.nist.gov/cuu/Units/checklist.html ">physics.nist.gov/cuu/Units/checklist.html</a>.
+		</p>
+
+		<p>For consistency in the CLDR data, the following conventions are
+			observed:</p>
+		<ul>
+			<li>All number patterns should be minimal: there should be no
+				leading # marks except to specify the position of the grouping
+				separators (for example, avoid&nbsp; ##,##0.###).</li>
+			<li>All formats should have one 0 before the decimal point (for
+				example, avoid #,###.##)</li>
+			<li>Decimal formats should have three hash marks in the
+				fractional position (for example, #,##0.###).</li>
+			<li>Currency formats should have two zeros in the fractional
+				position (for example, ¤ #,##0.00).
+				<ul>
+					<li>The exact number of decimals is overridden with the
+						decimal count in supplementary data or by API settings.</li>
+				</ul>
+			</li>
+			<li>The only time two thousands separators needs to be used is
+				when the number of digits varies, such as for Hindi: #,##,##0.</li>
+			<li>The <strong>minimumGroupingDigits</strong> can be used to
+				suppress groupings below a certain value. This is used for languages
+				such as Polish, where one would only write the grouping separator
+				for values above 9999. The minimumGroupingDigits contains the
+				default for the locale.
+				<ul>
+					<li>The attribute value is used by adding it to the grouping
+						separator value. If the input number has fewer integer digits, the
+						grouping separator is suppressed.</li>
+					<li>
+						<table border="1" cellpadding="0" cellspacing="0">
+							<caption>
+								<a name="Examples_of_minimumGroupingDigits"
+									href="#Examples_of_minimumGroupingDigits">Examples of
+									minimumGroupingDigits</a>
+							</caption>
+							<tr>
+								<th width="25%" scope="col"><div align="center">minimum&shy;GroupingDigits</div></th>
+								<th width="25%" scope="col"><div align="center">Pattern
+										Grouping</div></th>
+								<th width="25%" scope="col"><div align="center">Input
+										Number</div></th>
+								<th width="25%" scope="col"><div align="center">Formatted</div></th>
+							</tr>
+							<tr>
+								<td><div align="right">1</div></td>
+								<td><div align="right">3</div></td>
+								<td><div align="right">1000</div></td>
+								<td><div align="right">1,000</div></td>
+							</tr>
+							<tr>
+								<td><div align="right">1</div></td>
+								<td><div align="right">3</div></td>
+								<td><div align="right">10000</div></td>
+								<td><div align="right">10,000</div></td>
+							</tr>
+							<tr>
+								<td><div align="right">2</div></td>
+								<td><div align="right">3</div></td>
+								<td><div align="right">1000</div></td>
+								<td><div align="right">1000</div></td>
+							</tr>
+							<tr>
+								<td><div align="right">2</div></td>
+								<td><div align="right">3</div></td>
+								<td><div align="right">10000</div></td>
+								<td><div align="right">10,000</div></td>
+							</tr>
+							<tr>
+								<td><div align="right">1</div></td>
+								<td><div align="right">4</div></td>
+								<td><div align="right">10000</div></td>
+								<td><div align="right">1,0000</div></td>
+							</tr>
+							<tr>
+								<td><div align="right">2</div></td>
+								<td><div align="right">4</div></td>
+								<td><div align="right">10000</div></td>
+								<td><div align="right">10000</div></td>
+							</tr>
+						</table></li>
+				</ul>
+			</li>
+		</ul>
+		<h4>
+			3.2.1 <a name="Explicit_Plus" href="#Explicit_Plus">Explicit Plus
+				Signs</a>
+		</h4>
+		<p>
+			An explicit &quot;plus&quot; format can be formed, so as to show a
+			visible + sign when formatting a non-negative number. The displayed
+			plus sign can be an ASCII plus or another character, such as ＋ U+FF0B
+			FULLWIDTH PLUS SIGN or ➕ U+2795 HEAVY PLUS SIGN; it is taken from
+			whatever is set for plusSign in <em>Section 2.3 <a
+				href="#Number_Symbols">Number Symbols</a></em>.
+		</p>
+		<ol>
+			<li>Get the negative subpattern (explicit or implicit).</li>
+			<li>Replace any unquoted ASCII minus sign by an ASCII plus sign.</li>
+			<li>If there are any replacements, use that for the positive
+				subpattern.</li>
+		</ol>
+		<p>
+			For an example, see <a href="#Sample_Patterns_and_Results">Sample
+				Patterns and Results</a>.
+		</p>
+		<h3>
+			3.3 <a name="Formatting" href="#Formatting">Formatting</a>
+		</h3>
+		<p>
+			Formatting is guided by several parameters, all of which can be
+			specified either using a pattern or using an external API designed
+			for number formatting. The following description applies to formats
+			that do not use <a href="#sci">scientific notation</a> or <a
+				href="#sigdig">significant digits</a>.
+		</p>
+		<ul>
+			<li>If the number of actual integer digits exceeds the <em>maximum
+					integer digits</em>, then only the least significant digits are shown.
+				For example, 1997 is formatted as &quot;97&quot; if the maximum
+				integer digits is set to 2.
+			</li>
+			<li>If the number of actual integer digits is less than the <em>minimum
+					integer digits</em>, then leading zeros are added. For example, 1997 is
+				formatted as &quot;01997&quot; if the minimum integer digits is set
+				to 5.
+			</li>
+			<li>If the number of actual fraction digits exceeds the <em>maximum
+					fraction digits</em>, then half-even rounding it performed to the
+				maximum fraction digits. For example, 0.125 is formatted as
+				&quot;0.12&quot; if the maximum fraction digits is 2. This behavior
+				can be changed by specifying a rounding increment and a rounding
+				mode.
+			</li>
+			<li>If the number of actual fraction digits is less than the <em>minimum
+					fraction digits</em>, then trailing zeros are added. For example, 0.125
+				is formatted as &quot;0.1250&quot; if the minimum fraction digits is
+				set to 4.
+			</li>
+			<li>Trailing fractional zeros are not displayed if they occur <em>j</em>
+				positions after the decimal, where <em>j</em> is less than the
+				maximum fraction digits. For example, 0.10004 is formatted as
+				&quot;0.1&quot; if the maximum fraction digits is four or less.
+			</li>
+		</ul>
+		<p>
+			<strong>Special Values</strong>
+		</p>
+		<p>
+			<code>NaN</code>
+			is represented as a single character, typically
+			<code> (U+FFFD) </code>
+			. This character is determined by the localized number symbols. This
+			is the only value for which the prefixes and suffixes are not used.
+		</p>
+		<p>
+			Infinity is represented as a single character, typically <font
+				size="3">∞ </font>
+			<code> (U+221E) </code>
+			, with the positive or negative prefixes and suffixes applied. The
+			infinity character is determined by the localized number symbols.
+		</p>
+		<h3>
+			3.4 <a name="sci" href="#sci">Scientific Notation</a>
+		</h3>
+		<p>
+			Numbers in scientific notation are expressed as the product of a
+			mantissa and a power of ten, for example, 1234 can be expressed as
+			1.234 x 10<sup>3</sup>. The mantissa is typically in the half-open
+			interval [1.0, 10.0) or sometimes [0.0, 1.0), but it need not be. In
+			a pattern, the exponent character immediately followed by one or more
+			digit characters indicates scientific notation. Example:
+			&quot;0.###E0&quot; formats the number 1234 as &quot;1.234E3&quot;.
+		</p>
+		<ul>
+			<li>The number of digit characters after the exponent character
+				gives the minimum exponent digit count. There is no maximum.
+				Negative exponents are formatted using the localized minus sign, <em>not</em>
+				the prefix and suffix from the pattern. This allows patterns such as
+				&quot;0.###E0 m/s&quot;. To prefix positive exponents with a
+				localized plus sign, specify &#39;+&#39; between the exponent and
+				the digits: &quot;0.###E+0&quot; will produce formats
+				&quot;1E+1&quot;, &quot;1E+0&quot;, &quot;1E-1&quot;, and so on. (In
+				localized patterns, use the localized plus sign rather than
+				&#39;+&#39;.)
+			</li>
+			<li>The minimum number of integer digits is achieved by
+				adjusting the exponent. Example: 0.00123 formatted with
+				&quot;00.###E0&quot; yields &quot;12.3E-4&quot;. This only happens
+				if there is no maximum number of integer digits. If there is a
+				maximum, then the minimum number of integer digits is fixed at one.</li>
+			<li>The maximum number of integer digits, if present, specifies
+				the exponent grouping. The most common use of this is to generate <em>engineering
+					notation</em>, in which the exponent is a multiple of three, for
+				example, &quot;##0.###E0&quot;. The number 12345 is formatted using
+				&quot;##0.####E0&quot; as &quot;12.345E3&quot;.
+			</li>
+			<li>When using scientific notation, the formatter controls the
+				digit counts using significant digits logic. The maximum number of
+				significant digits limits the total number of integer and fraction
+				digits that will be shown in the mantissa; it does not affect
+				parsing. For example, 12345 formatted with &quot;##0.##E0&quot; is
+				&quot;12.3E3&quot;. See the section on significant digits for more
+				details.</li>
+			<li>Exponential patterns may not contain grouping separators.</li>
+		</ul>
+		<h3>
+			3.5 <a name="sigdig" href="#sigdig">Significant Digits</a>
+		</h3>
+		<p>There are two ways of controlling how many digits are shows:
+			(a) significant digits counts, or (b) integer and fraction digit
+			counts. Integer and fraction digit counts are described above. When a
+			formatter is using significant digits counts, it uses however many
+			integer and fraction digits are required to display the specified
+			number of significant digits. It may ignore min/max integer/fraction
+			digits, or it may use them to the extent possible.</p>
+
+		<blockquote>
+			<table cellpadding="0" border="0">
+				<caption>
+					<a name="Significant_Digits_Examples"
+						href="#Significant_Digits_Examples">Significant Digits
+						Examples</a>
+				</caption>
+				<tr bgcolor="#ccccff">
+					<th align="left">Pattern</th>
+					<th align="left">Minimum significant digits</th>
+					<th align="left">Maximum significant digits</th>
+					<th align="left">Number</th>
+					<th align="left">Output</th>
+				</tr>
+				<tr valign="top">
+					<td><code>@@@</code></td>
+					<td>3</td>
+					<td>3</td>
+					<td>12345</td>
+					<td><code>12300</code></td>
+				</tr>
+				<tr valign="top" bgcolor="#eeeeff">
+					<td><code>@@@</code></td>
+					<td>3</td>
+					<td>3</td>
+					<td>0.12345</td>
+					<td><code>0.123</code></td>
+				</tr>
+				<tr valign="top">
+					<td><code>@@##</code></td>
+					<td>2</td>
+					<td>4</td>
+					<td>3.14159</td>
+					<td><code>3.142</code></td>
+				</tr>
+				<tr valign="top" bgcolor="#eeeeff">
+					<td><code>@@##</code></td>
+					<td>2</td>
+					<td>4</td>
+					<td>1.23004</td>
+					<td><code>1.23</code></td>
+				</tr>
+			</table>
+		</blockquote>
+		<ul>
+			<li>In order to enable significant digits formatting, use a
+				pattern containing the <code>&#39;@&#39;</code> pattern character.
+				In order to disable significant digits formatting, use a pattern
+				that does not contain the <code>&#39;@&#39;</code> pattern
+				character.
+			</li>
+			<li>Significant digit counts may be expressed using patterns
+				that specify a minimum and maximum number of significant digits.
+				These are indicated by the <code>&#39;@&#39;</code> and <code>&#39;#&#39;</code>
+				characters. The minimum number of significant digits is the number
+				of <code>&#39;@&#39;</code> characters. The maximum number of
+				significant digits is the number of <code>&#39;@&#39;</code>
+				characters plus the number of <code>&#39;#&#39;</code> characters
+				following on the right. For example, the pattern <code>&quot;@@@&quot;</code>
+				indicates exactly 3 significant digits. The pattern <code>&quot;@##&quot;</code>
+				indicates from 1 to 3 significant digits. Trailing zero digits to
+				the right of the decimal separator are suppressed after the minimum
+				number of significant digits have been shown. For example, the
+				pattern <code>&quot;@##&quot;</code> formats the number 0.1203 as <code>&quot;0.12&quot;</code>.
+			</li>
+			<li>Implementations may forbid the use of significant digits in
+				combination with min/max integer/fraction digits. In such a case, if
+				a pattern uses significant digits, it may not contain a decimal
+				separator, nor the <code>&#39;0&#39;</code> pattern character.
+				Patterns such as <code>&quot;@00&quot;</code> or <code>&quot;@.###&quot;</code>
+				would be disallowed.
+			</li>
+			<li>Any number of <code>&#39;#&#39;</code> characters may be
+				prepended to the left of the leftmost <code>&#39;@&#39;</code>
+				character. These have no effect on the minimum and maximum
+				significant digits counts, but may be used to position grouping
+				separators. For example, <code>&quot;#,#@#&quot;</code> indicates a
+				minimum of one significant digits, a maximum of two significant
+				digits, and a grouping size of three.
+			</li>
+			<li>The number of significant digits has no effect on parsing.</li>
+			<li>Significant digits may be used together with exponential
+				notation. Such patterns are equivalent to a normal exponential
+				pattern with a minimum and maximum integer digit count of one, a
+				minimum fraction digit count of <code>Minimum Significant
+					Digits - 1</code>, and a maximum fraction digit count of <code>Maximum
+					Significant Digits - 1</code>. For example, the pattern <code>&quot;@@###E0&quot;</code>
+				is equivalent to <code>&quot;0.0###E0&quot;</code>.
+			</li>
+		</ul>
+		<h3>
+			3.6 <a name="Padding" href="#Padding">Padding</a>
+		</h3>
+		<p>
+			Patterns support padding the result to a specific width. In a pattern
+			the pad escape character, followed by a single pad character, causes
+			padding to be parsed and formatted. The pad escape character is
+			&#39;*&#39;. For example,
+			<code>&quot;$*x#,##0.00&quot;</code>
+			formats 123 to
+			<code>&quot;$xx123.00&quot;</code>
+			, and 1234 to
+			<code>&quot;$1,234.00&quot;</code>
+			.
+		</p>
+		<ul>
+			<li>When padding is in effect, the width of the positive
+				subpattern, including prefix and suffix, determines the format
+				width. For example, in the pattern <code>&quot;* #0
+					o&#39;&#39;clock&quot;</code>, the format width is 10.
+			</li>
+			<li>Some parameters which usually do not matter have meaning
+				when padding is used, because the pattern width is significant with
+				padding. In the pattern &quot;* ##,##,#,##0.##&quot;, the format
+				width is 14. The initial characters &quot;##,##,&quot; do not affect
+				the grouping size or maximum integer digits, but they do affect the
+				format width.</li>
+			<li>Padding may be inserted at one of four locations: before the
+				prefix, after the prefix, before the suffix, or after the suffix. No
+				padding can be specified in any other location. If there is no
+				prefix, before the prefix and after the prefix are equivalent,
+				likewise for the suffix.</li>
+			<li>When specified in a pattern, the code point immediately
+				following the pad escape is the pad character. This may be any
+				character, including a special pattern character. That is, the pad
+				escape <em>escapes</em> the following character. If there is no
+				character after the pad escape, then the pattern is illegal.
+			</li>
+		</ul>
+		<h3>
+			3.7 <a name="Rounding" href="#Rounding">Rounding</a>
+		</h3>
+		<p>Patterns support rounding to a specific increment. For example,
+			1230 rounded to the nearest 50 is 1250. Mathematically, rounding to
+			specific increments is performed by dividing by the increment,
+			rounding to an integer, then multiplying by the increment. To take a
+			more bizarre example, 1.234 rounded to the nearest 0.65 is 1.3, as
+			follows:</p>
+		<table border="1" cellpadding="0" cellspacing="0"
+			style="border-collapse: collapse">
+			<!-- nocaption -->
+			<tr>
+				<th>Original:</th>
+				<td>1.234</td>
+			</tr>
+			<tr>
+				<th>Divide by increment (0.65):</th>
+				<td>1.89846…</td>
+			</tr>
+			<tr>
+				<th>Round:</th>
+				<td>2</td>
+			</tr>
+			<tr>
+				<th>Multiply by increment (0.65):</th>
+				<td>1.3</td>
+			</tr>
+		</table>
+		<p>To specify a rounding increment in a pattern, include the
+			increment in the pattern itself. &quot;#,#50&quot; specifies a
+			rounding increment of 50. &quot;#,##0.05&quot; specifies a rounding
+			increment of 0.05.</p>
+		<ul>
+			<li>Rounding only affects the string produced by formatting. It
+				does not affect parsing or change any numerical values.</li>
+			<li>An implementation may allow the specification of a <em>rounding
+					mode</em> to determine how values are rounded. In the absence of such
+				choices, the default is to round &quot;half-even&quot;, as described
+				in IEEE arithmetic. That is, it rounds towards the &quot;nearest
+				neighbor&quot; unless both neighbors are equidistant, in which case,
+				it rounds towards the even neighbor. Behaves as for round
+				&quot;half-up&quot; if the digit to the left of the discarded
+				fraction is odd; behaves as for round &quot;half-down&quot; if
+				it&#39;s even. Note that this is the rounding mode that minimizes
+				cumulative error when applied repeatedly over a sequence of
+				calculations.
+			</li>
+			<li>Some locales use rounding in their currency formats to
+				reflect the smallest currency denomination.</li>
+			<li>In a pattern, digits &#39;1&#39; through &#39;9&#39; specify
+				rounding, but otherwise behave identically to digit &#39;0&#39;.</li>
+		</ul>
+		<h3>
+			3.8 <a name="Quoting_Rules" href="#Quoting_Rules">Quoting Rules</a>
+		</h3>
+		<blockquote>
+			<p>
+				Single quotes, (<b>&#39;</b>), enclose bits of the pattern that
+				should be treated literally. Inside a quoted string, two single
+				quotes (&#39;&#39;) are replaced with a single one (&#39;). For
+				example:
+				<tt>
+					<u>&#39;X &#39;</u>#<u>&#39; Q &#39;</u>
+				</tt>
+				-&gt; <b>X 1939 Q </b>(Literal strings <u>underlined</u>.)
+			</p>
+		</blockquote>
+		<h2>
+			<a name="Currencies" href="#Currencies">4 Currencies</a>
+		</h2>
+		<p class="dtd">
+			&lt;!ELEMENT currencies (alias | (default?, currency*, special*))
+			&gt;<br> &lt;!ELEMENT currency (alias | (((pattern+,
+			displayName*, symbol*) | (displayName+, symbol*, pattern*) |
+			(symbol+, pattern*))?, decimal*, group*, special*)) &gt;<br>
+			&lt;!ELEMENT symbol ( #PCDATA ) &gt;<br> &lt;!ATTLIST symbol
+			choice ( true | false ) #IMPLIED &gt; &lt;!-- deprecated --&gt;
+		</p>
+		<blockquote>
+			<p>
+				<b>Note:</b> The term &quot;pattern&quot; appears twice in the
+				above. The first is for consistency with all other cases of pattern
+				+ displayName; the second is for backwards compatibility.
+			</p>
+		</blockquote>
+		<pre>&lt;currencies&gt;
+    &lt;currency type=&quot;<span style="color: blue">USD</span>&quot;&gt;
+        &lt;displayName&gt;<span style="color: blue">Dollar</span>&lt;/displayName&gt;
+        &lt;symbol&gt;<span style="color: blue">$</span>&lt;/symbol&gt;
+    &lt;/currency&gt;
+    &lt;currency type =&quot;<span style="color: blue">JPY</span>&quot;&gt;
+        &lt;displayName&gt;<span style="color: blue">Yen</span>&lt;/displayName&gt;
+        &lt;symbol&gt;<span style="color: blue">¥</span>&lt;/symbol&gt;
+    &lt;/currency&gt;
+    &lt;currency type=&quot;PTE&quot;&gt;
+        &lt;displayName&gt;<span style="color: blue">Escudo</span>&lt;/displayName&gt;
+        &lt;symbol&gt;<span style="color: blue">$</span>&lt;/symbol&gt;
+    &lt;/currency&gt;
+&lt;/currencies&gt;</pre>
+		<p>In formatting currencies, the currency number format is used
+			with the appropriate symbol from &lt;currencies&gt;, according to the
+			currency code. The &lt;currencies&gt; list can contain codes that are
+			no longer in current use, such as PTE. The choice attribute has been
+			deprecated.</p>
+		<p>The count attribute distinguishes the different plural forms,
+			such as in the following:</p>
+		<pre>&lt;currencyFormats&gt;
+    &lt;unitPattern count=&quot;other&quot;&gt;{0} {1}&lt;/unitPattern&gt;
+    …
+&lt;currencies&gt;</pre>
+		<pre>&lt;currency type=&quot;ZWD&quot;&gt;
+    &lt;displayName&gt;Zimbabwe Dollar&lt;/displayName&gt;
+    &lt;displayName count=&quot;one&quot;&gt;Zimbabwe dollar&lt;/displayName&gt;
+    &lt;displayName count=&quot;other&quot;&gt;Zimbabwe dollars&lt;/displayName&gt;
+    &lt;symbol&gt;Z$&lt;/symbol&gt;
+&lt;/currency&gt;</pre>
+		<p>
+			To format a particular currency value &quot;ZWD&quot; for a
+			particular numeric value <em>n</em> using the (long) display name:
+		</p>
+		<ol>
+			<li>First see if there is a count with an explicit number (0 or
+				1). If so, use that string.</li>
+			<li>Otherwise, determine the count value that corresponds to <em>n</em>
+				using the rules in <i><a href="#Language_Plural_Rules">Section
+						5 - Language Plural Rules</a></i></li>
+			<li style="margin-top: 0.5em; margin-bottom: 0.5em">Next, get
+				the currency unitPattern.
+				<ol>
+					<li>Look for a unitPattern element that matches the count
+						value, starting in the current locale and then following the
+						locale fallback chain up to, but not including root.</li>
+					<li>If no matching unitPattern element was found in the
+						previous step, then look for a unitPattern element that matches
+						count=&quot;other&quot;, starting in the current locale and then
+						following the locale fallback chain up to root (which has a
+						unitPattern element with count=&quot;other&quot; for every unit
+						type).</li>
+					<li>The resulting unitPattern element indicates the
+						appropriate positioning of the numeric value and the currency
+						display name.</li>
+				</ol>
+			</li>
+			<li style="margin-top: 0.5em; margin-bottom: 0.5em">Next, get
+				the displayName element for the currency.
+				<ol>
+					<li>Look for a displayName element that matches the count
+						value, starting in the current locale and then following the
+						locale fallback chain up to, but not including root.</li>
+					<li>If no matching displayName element was found in the
+						previous step, then look for a displayName element that matches
+						count=&quot;other&quot;, starting in the current locale and then
+						following the locale fallback chain up to, but not including root.</li>
+					<li>If no matching displayName element was found in the
+						previous step, then look for a displayName element that with no
+						count, starting in the current locale and then following the
+						locale fallback chain up to root.</li>
+					<li>If there is no displayName element, use the currency code
+						itself (for example, &quot;ZWD&quot;).</li>
+				</ol>
+			</li>
+			<li>Format the numeric value according to the locale. Use the
+				locale’s &lt;decimalFormats …&gt; pattern, not the
+				&lt;currencyFormats&gt; pattern that is used with the symbol (eg,
+				Z$). As when formatting symbol currency values, reset the number of
+				decimals according to the supplemental &lt;currencyData&gt; and use
+				the currencyDecimal symbol if different from the decimal symbol.
+				<ol>
+					<li>The number of decimals should be overridable in an API, so
+						that clients can choose between “2 US dollars” and “2.00 US
+						dollars”.</li>
+				</ol>
+			</li>
+			<li>Substitute the formatted numeric value for the {0} in the
+				unitPattern, and the currency display name for the {1}.</li>
+		</ol>
+		<p>While for English this may seem overly complex, for some other
+			languages different plural forms are used for different unit types;
+			the plural forms for certain unit types may not use all of the
+			plural-form tags defined for the language.</p>
+		<p>For example, if the the currency is ZWD and the number is 1234,
+			then the latter maps to count=&quot;other&quot; for English. The unit
+			pattern for that is &quot;{0} {1}&quot;, and the display name is
+			&quot;Zimbabwe dollars&quot;. The final formatted number is then
+			&quot;1,234 Zimbabwe dollars&quot;.</p>
+		<p>When the currency symbol is substituted into a pattern, there
+			may be some further modifications, according to the following.</p>
+		<pre>&lt;currencySpacing&gt;
+  &lt;beforeCurrency&gt;
+    &lt;currencyMatch&gt;[:letter:]&lt;/currencyMatch&gt;
+    &lt;surroundingMatch&gt;[:digit:]&lt;/surroundingMatch&gt;
+    &lt;insertBetween&gt;&amp;#x00a0;&lt;/insertBetween&gt;
+  &lt;/beforeCurrency&gt;
+  &lt;afterCurrency&gt;
+    &lt;currencyMatch&gt;[:letter:]&lt;/currencyMatch&gt;
+    &lt;surroundingMatch&gt;[:digit:]&lt;/surroundingMatch&gt;
+    &lt;insertBetween&gt;&amp;#x00a0;&lt;/insertBetween&gt;
+  &lt;/afterCurrency&gt;
+&lt;/currencySpacing&gt;
+</pre>
+		<p>
+			This element controls whether additional characters are inserted on
+			the boundary between the symbol and the pattern. For example, with
+			the above <i>currencySpacing</i>, inserting the symbol
+			&quot;US$&quot; into the pattern &quot;#,##0.00¤&quot; would result
+			in an extra <i>no-break space</i> inserted before the symbol, for
+			example, &quot;#,##0.00 US$&quot;. The <i>beforeCurrency</i> element
+			governs this case, since we are looking <i>before</i> the
+			&quot;¤&quot; symbol. The <i>currencyMatch</i> is positive, since the
+			&quot;U&quot; in &quot;US$&quot; is at the start of the currency
+			symbol being substituted. The <i>surroundingMatch</i> is positive,
+			since the character just before the &quot;¤&quot; will be a digit.
+			Because these two conditions are true, the insertion is made.
+		</p>
+		<p>
+			Conversely, look at the pattern &quot;¤#,##0.00&quot; with the symbol
+			&quot;US$&quot;. In this case, there is no insertion; the result is
+			simply &quot;US$#,##0.00&quot;. The <i>afterCurrency</i> element
+			governs this case, since we are looking <i>after</i> the
+			&quot;¤&quot; symbol. The surroundingMatch is positive, since the
+			character just after the &quot;¤&quot; will be a digit. However, the
+			currencyMatch is <b>not</b> positive, since the &quot;$&quot; in
+			&quot;US$&quot; is at the end of the currency symbol being
+			substituted. So the insertion is not made.
+		</p>
+		<p>
+			For more information on the matching used in the currencyMatch and
+			surroundingMatch elements, see the main document <i><a
+				href="tr35.html#Unicode_Sets">Appendix E: Unicode Sets</a></i>.
+		</p>
+		<p>
+			Currencies can also contain optional grouping, decimal data, and
+			pattern elements. This data is inherited from the &lt;symbols&gt; in
+			the same locale data (if not present in the chain up to root), so
+			only the <i>differing</i> data will be present. See the main document
+			<i>Section 4.1 <a href="tr35.html#Multiple_Inheritance">Multiple
+					Inheritance</a></i>.
+		</p>
+		<blockquote>
+			<p class="note">
+				<b>Note: </b><i>Currency values should <b>never</b> be
+					interchanged without a known currency code. You never want the
+					number 3.5 interpreted as $3.50 by one user and €3.50 by another.
+				</i>Locale data contains localization information for currencies, not a
+				currency value for a country. A currency amount logically consists
+				of a numeric value, plus an accompanying currency code (or
+				equivalent). The currency code may be implicit in a protocol, such
+				as where USD is implicit. But if the raw numeric value is
+				transmitted without any context, then it has no definitive
+				interpretation.
+			</p>
+		</blockquote>
+		<p class="note">Notice that the currency code is completely
+			independent of the end-user&#39;s language or locale. For example,
+			BGN is the code for Bulgarian Lev. A currency amount of &lt;BGN,
+			1.23456×10³&gt; would be localized for a Bulgarian user into &quot;1
+			234,56 лв.&quot; (using Cyrillic letters). For an English user it
+			would be localized into the string &quot;BGN 1,234.56&quot; The
+			end-user&#39;s language is needed for doing this last localization
+			step; but that language is completely orthogonal to the currency code
+			needed in the data. After all, the same English user could be working
+			with dozens of currencies. Notice also that the currency code is also
+			independent of whether currency values are inter-converted, which
+			requires more interesting financial processing: the rate of
+			conversion may depend on a variety of factors.</p>
+		<p class="note">Thus logically speaking, once a currency amount is
+			entered into a system, it should be logically accompanied by a
+			currency code in all processing. This currency code is independent of
+			whatever the user&#39;s original locale was. Only in badly-designed
+			software is the currency code (or equivalent) not present, so that
+			the software has to &quot;guess&quot; at the currency code based on
+			the user&#39;s locale.</p>
+		<blockquote>
+			<p class="note">
+				<b>Note: </b>The number of decimal places <b>and</b> the rounding
+				for each currency is not locale-specific data, and is not contained
+				in the Locale Data Markup Language format. Those values override
+				whatever is given in the currency numberFormat. For more
+				information, see <i> <a href="#Supplemental_Currency_Data">Supplemental
+						Currency Data</a></i>.
+			</p>
+		</blockquote>
+		<p>
+			For background information on currency names, see [<a
+				href="tr35.html#CurrencyInfo">CurrencyInfo</a>].
+		</p>
+
+		<h3>
+			4.1 <a name="Supplemental_Currency_Data"
+				href="#Supplemental_Currency_Data">Supplemental Currency Data</a>
+		</h3>
+		<p class="dtd">
+			&lt;!ELEMENT currencyData ( fractions*, region+ ) &gt;<br>
+			&lt;!ELEMENT fractions ( info+ ) &gt;<br> <br> &lt;!ELEMENT
+			info EMPTY &gt;<br> &lt;!ATTLIST info iso4217 NMTOKEN #REQUIRED
+			&gt;<br> &lt;!ATTLIST info digits NMTOKEN #IMPLIED &gt;<br>
+			&lt;!ATTLIST info rounding NMTOKEN #IMPLIED &gt;<br>
+			&lt;!ATTLIST info cashDigits NMTOKEN #IMPLIED &gt;<br>
+			&lt;!ATTLIST info cashRounding NMTOKEN #IMPLIED &gt;<br> <br>
+			&lt;!ELEMENT region ( currency* ) &gt;<br> &lt;!ATTLIST region
+			iso3166 NMTOKEN #REQUIRED &gt;<br> <br> &lt;!ELEMENT
+			currency ( alternate* ) &gt;<br> &lt;!ATTLIST currency from
+			NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST currency to NMTOKEN
+			#IMPLIED &gt;<br> &lt;!ATTLIST currency iso4217 NMTOKEN
+			#REQUIRED &gt;<br> &lt;!ATTLIST currency tender ( true | false )
+			#IMPLIED &gt;
+		</p>
+		<p>Each currencyData element contains one fractions element
+			followed by one or more region elements. Here is an example for
+			illustration.</p>
+		<pre>&lt;supplementalData&gt;
+  &lt;currencyData&gt;
+    &lt;fractions&gt;
+      …
+      &lt;info iso4217=&quot;CHF&quot; digits=&quot;2&quot; rounding=&quot;5&quot;/&gt;
+      …
+      &lt;info iso4217=&quot;<span style="color: blue">ITL</span>&quot; digits=&quot;<span
+				style="color: blue">0</span>&quot;/&gt;
+      …
+    &lt;/fractions&gt;
+    …
+    &lt;region iso3166=&quot;IT&quot;&gt;
+      &lt;currency iso4217=&quot;EUR&quot; from=&quot;1999-01-01&quot;/&gt;
+      &lt;currency iso4217=&quot;ITL&quot; from=&quot;1862-8-24&quot; to=&quot;2002-02-28&quot;/&gt;
+    &lt;/region&gt;
+    …
+    &lt;region iso3166=&quot;CS&quot;&gt;
+      &lt;currency iso4217=&quot;EUR&quot; from=&quot;2003-02-04&quot;/&gt;
+      &lt;currency iso4217=&quot;CSD&quot; from=&quot;2002-05-15&quot;/&gt;
+      &lt;currency iso4217=&quot;YUM&quot; from=&quot;1994-01-24&quot; to=&quot;2002-05-15&quot;/&gt;
+    &lt;/region&gt;
+    …
+  &lt;/currencyData&gt;
+…
+&lt;/supplementalData&gt;</pre>
+		<p>The fractions element contains any number of info elements,
+			with the following attributes:</p>
+		<ul>
+			<li><b>iso4217: </b>the ISO 4217 code for the currency in
+				question. If a particular currency does not occur in the fractions
+				list, then it is given the defaults listed for the next two
+				attributes.</li>
+			<li><b>digits: </b>the minimum and maximum number of decimal
+				digits normally formatted. The default is 2. For example, in the
+				en_US locale with the default value of 2 digits, the value 1 USD
+				would format as "$1.00", and the value 1.123 USD would format as →
+				"$1.12".</li>
+			<li><b>rounding: </b>the rounding increment, in units of 10<sup>-digits</sup>.
+				The default is 0, which means no rounding is to be done. Therefore,
+				rounding=0 and rounding=1 have identical behavior. Thus with
+				fraction digits of 2 and rounding increment of 5, numeric values are
+				rounded to the nearest 0.05 units in formatting. With fraction
+				digits of 0 and rounding increment of 50, numeric values are rounded
+				to the nearest 50.</li>
+			<li><b>cashDigits: </b>the number of decimal digits to be used
+				when formatting quantities used in cash transactions (as opposed to
+				a quantity that would appear in a more formal setting, such as on a
+				bank statement). If absent, the value of "digits" should be used as
+				a default.</li>
+			<li><b>cashRounding: </b>the cash rounding increment, in units
+				of 10<sup>-cashDigits</sup>. The default is 0, which means no
+				rounding is to be done; and as with rounding, this has the same
+				effect as cashRounding="1". This is the rounding increment to be
+				used when formatting quantities used in cash transactions (as
+				opposed to a quantity that would appear in a more formal setting,
+				such as on a bank statement). If absent, the value of "rounding"
+				should be used as a default.</li>
+		</ul>
+		<p>For example, the following line</p>
+		<pre>    &lt;info iso4217="CZK" digits="2" rounding="0"/&gt;</pre>
+		<p>should cause the value 2.006 to be displayed as “2.01”, not
+			“2.00”.</p>
+		<p>Each region element contains one attribute:</p>
+		<ul>
+			<li><b>iso3166:</b> the ISO 3166 code for the region in
+				question. The special value <i>XXX</i> can be used to indicate that
+				the region has no valid currency or that the circumstances are
+				unknown (usually used in conjunction with <i>before</i>, as
+				described below).</li>
+		</ul>
+		<p>And can have any number of currency elements, with the ordered
+			subelements.</p>
+		<pre>    &lt;region iso3166=&quot;IT&quot;&gt; &lt;!-- Italy --&gt;
+      &lt;currency iso4217=&quot;EUR&quot; from=&quot;2002-01-01&quot;/&gt;
+      &lt;currency iso4217=&quot;ITL&quot; to=&quot;2001-12-31&quot;/&gt;
+    &lt;/region&gt;</pre>
+		<ul>
+			<li><b>iso4217: </b>the ISO 4217 code for the currency in
+				question. Note that some additional codes that were in widespread
+				usage are included, others such as GHP are not included because they
+				were never used.</li>
+			<li><b>from: </b>the currency was valid from to the datetime
+				indicated by the value. See the main document <i>Section 5.2.1 <a
+					href="tr35.html#Date_Ranges">Dates and Date Ranges</a>
+			</i>.</li>
+			<li><b>to: </b>the currency was valid up to the datetime
+				indicated by the value of <i>before</i>. See the main document <i>Section
+					5.2.1 <a href="tr35.html#Date_Ranges">Dates and Date Ranges</a>
+			</i>.</li>
+			<li>
+				<p>
+					<b>tender: </b>indicates whether or not the ISO currency code
+					represents a currency that was or is legal tender in some country.
+					The default is &quot;true&quot;. Certain ISO codes represent things
+					like financial instruments or precious metals, and do not represent
+					normally interchanged currencies.
+				</p>
+			</li>
+		</ul>
+		<p>
+			That is, each currency element will list an interval in which it was
+			valid. The <i>ordering</i> of the elements in the list tells us which
+			was the primary currency during any period in time. Here is an
+			example of such an overlap:
+		</p>
+		<pre>&lt;currency iso4217=&quot;CSD&quot; to=&quot;2002-05-15&quot;/&gt;
+&lt;currency iso4217=&quot;YUD&quot; from=&quot;1994-01-24&quot; to=&quot;2002-05-15&quot;/&gt;
+&lt;currency iso4217=&quot;YUN&quot; from=&quot;1994-01-01&quot; to=&quot;1994-07-22&quot;/&gt;</pre>
+		<p>
+			The <i>from</i> element is limited by the fact that ISO 4217 does not
+			go very far back in time, so there may be no ISO code for the
+			previous currency.
+		</p>
+		<p>Currencies change relatively frequently. There are different
+			types of changes:</p>
+		<ol>
+			<li>YU=&gt;CS (name change)</li>
+			<li>CS=&gt;RS+ME (split, different names)</li>
+			<li>SD=&gt;SD+SS (split, same name for one // South Sudan splits
+				from Sudan)</li>
+			<li>DE+DD=&gt;DE (Union, reuses one name // East Germany unifies
+				with Germany)</li>
+		</ol>
+		<p>
+			The <a
+				href="http://unstats.un.org/unsd/methods/m49/m49chang.htm#ftnq">UN
+				Information</a>&nbsp; is used to determine dates due to country changes.
+		</p>
+		<p>When a code is no longer in use, it is terminated (see #1, #2,
+			#4, #5)</p>
+		<blockquote>
+			<p>Example:</p>
+			<ul>
+				<li>&lt;currency iso4217=&quot;EUR&quot;
+					from=&quot;2003-02-04&quot; to=&quot;2006-06-03&quot;/&gt;</li>
+			</ul>
+		</blockquote>
+		<p>When codes split, each of the new codes inherits (see #2, #3)
+			the previous data. However, some modifications can be made if it is
+			clear that currencies were only in use in one of the parts.</p>
+		<p>When codes merge, the data is copied from the most populous
+			part.</p>
+		<blockquote>
+			<p>Example. When CS split into RS and ME:</p>
+			<ul>
+				<li>RS &amp; ME copy the former CS, except that the line for
+					EUR is dropped from RS</li>
+				<li>CS now terminates on Jun 3, 2006 (following the UN info)</li>
+			</ul>
+		</blockquote>
+		<h2>
+			<a name="Language_Plural_Rules" href="#Language_Plural_Rules">5
+				Language Plural Rules</a>
+		</h2>
+		<p class="dtd">
+			&lt;!ELEMENT plurals (pluralRules*, pluralRanges*) &gt;<br>
+			&lt;!ATTLIST plurals type ( ordinal | cardinal ) #IMPLIED &gt;
+			&lt;!-- default is cardinal --&gt;<br> <br> &lt;!ELEMENT
+			pluralRules (pluralRule*) &gt;<br> &lt;!ATTLIST pluralRules
+			locales NMTOKENS #REQUIRED &gt;<br> <br> &lt;!ELEMENT
+			pluralRule ( #PCDATA ) &gt;<br> &lt;!ATTLIST pluralRule count
+			(zero | one | two | few | many | other) #REQUIRED &gt;
+		</p>
+		<p>The plural categories are used to format messages with numeric
+			placeholders, expressed as decimal numbers. The fundamental rule for
+			determining plural categories is the existence of minimal pairs:
+			whenever two different numbers may require different versions of the
+			same message, then the numbers have different plural categories.</p>
+		<p>This happens even if nouns are invariant; even if all English
+			nouns were invariant (like &ldquo;sheep&rdquo;), English would still
+			require 2 plural categories because of subject-verb agreement, and
+			pronoun agreement. For example:</p>
+		<ol>
+			<li>1 sheep <strong>is</strong> here. Do you want to buy <strong>it</strong>?
+			</li>
+			<li>2 sheep <strong>are</strong> here. Do you want to buy <strong>them</strong>?
+			</li>
+		</ol>
+		<p>
+			For more information, see <a
+				href="http://cldr.unicode.org/index/cldr-spec/plural-rules#TOC-Determining-Plural-Categories">Determining-Plural-Categories</a>.
+		</p>
+		<p>English does not have a separate plural category for
+			&ldquo;zero&rdquo;, because it does not require a different message
+			for &ldquo;0&rdquo;. For example, the same message can be used below,
+			with just the numeric placeholder changing.</p>
+		<ol>
+			<li>
+				<p>You have 3 friends online.</p>
+			</li>
+			<li>
+				<p>You have 0 friends online.</p>
+			</li>
+		</ol>
+		<p>However, across many languages it is commonly more natural to
+			express &quot;0&quot; messages with a negative (&ldquo;None of your
+			friends are online.&rdquo;) and &quot;1&quot; messages also with an
+			alternate form &ldquo;You have a friend online.&rdquo;. Thus
+			pluralized message APIs should also offer the ability to specify at
+			least the 0 and 1 cases explicitly; developers can use that ability
+			whenever these values might occur in a placeholder.</p>
+
+		<p>The CLDR plural rules are not expected to cover all cases. For example, strictly speaking, there could be more plural and ordinal forms for English.  Formally, we have a different plural form where a change in digits forces a change in the rest of the sentence. There is an edge case  in English because of the behavior of &quot;a/an&quot;.</p>
+		<p>For example, in changing from 3 to 8:</p>
+		<ul>
+		  <li>&quot;a 3rd of a loaf&quot; should result in &quot;an 8th of a loaf&quot;, not &quot;a 8th of a loaf&quot;</li>
+		  <li>&quot;a 3 foot stick&quot; should result in &quot;an 8 foot stick&quot;, not &quot;a 8 foot stick&quot;</li>
+	  </ul>
+		<p>So numbers of the following forms could have a special plural category and special ordinal category: 8(X), 11(X), 18(X), 8x(X), where x is 0..9 and the optional X is 00, 000, 00000, and so on.</p>
+		<p>On the other hand, the above constructions are relatively rare in messages  constructed using numeric placeholders, so the disruption for implementations currently using CLDR plural categories wouldn't be worth the small gain.</p>
+		<p>This section defines the types of plural forms that exist in a
+			language—namely, the cardinal and ordinal plural forms. Cardinal
+			plural forms express units such as time, currency or distance, used
+			in conjunction with a number expressed in decimal digits (i.e.
+			&quot;2&quot;, not &quot;two&quot;, and not an indefinite number such
+			as &quot;some&quot; or &quot;many&quot;). Ordinal plural forms denote
+			the order of items in a set and are always integers. For example,
+			English has two forms for cardinals:</p>
+		<ul>
+			<li>form &quot;one&quot;: 1 day</li>
+			<li>form &quot;other&quot;: 0 days, 2 days, 10 days, 0.3 days</li>
+		</ul>
+		<p>and four forms for ordinals:</p>
+		<ul>
+			<li>form &quot;one&quot;: 1st floor, 21st floor, 101st floor</li>
+			<li>form &quot;two&quot;: 2nd floor, 22nd floor, 102nd floor</li>
+			<li>form &quot;few&quot;: 3rd floor, 23rd floor, 103rd floor</li>
+			<li>form &quot;other&quot;: 4th floor, 11th floor, 96th floor</li>
+		</ul>
+		<p>Other languages may have additional forms or only one form for
+			each type of plural. CLDR provides the following tags for designating
+			the various plural forms of a language; for a given language, only
+			the tags necessary for that language are defined, along with the
+			specific numeric ranges covered by each tag (for example, the plural
+			form &quot;few&quot; may be used for the numeric range 2–4 in one
+			language and 3–9 in another):</p>
+		<ul>
+			<li>zero</li>
+			<li>one</li>
+			<li>two</li>
+			<li>few</li>
+			<li>many</li>
+		</ul>
+		<p>In addition, an &quot;other&quot; tag is always implicitly
+			defined to cover the forms not explicitly designated by the tags
+			defined for a language. This &quot;other&quot; tag is also used for
+			languages that only have a single form (in which case no plural-form
+			tags are explicitly defined for the language). For a more complex
+			example, consider the cardinal rules for Russian and certain other
+			languages:</p>
+		<pre>&lt;pluralRules locales=&quot;hr ru sr uk&quot;&gt;
+	&lt;pluralRules count=&quot;one&quot;&gt;<span style="color: blue">n mod 10 is 1 and n mod 100 is not 11</span>&lt;/pluralRule&gt;
+	&lt;pluralRules count=&quot;few&quot;&gt;<span style="color: blue">n mod 10 in 2..4 and n mod 100 not in 12..14</span>&lt;/pluralRule&gt;
+&lt;/pluralRules&gt;</pre>
+		<p>These rules specify that Russian has a &quot;one&quot; form
+			(for 1, 21, 31, 41, 51, …), a &quot;few&quot; form (for 2–4, 22–24,
+			32–34, …), and implicitly an &quot;other&quot; form (for everything
+			else: 0, 5–20, 25–30, 35–40, …, decimals). Russian does not need
+			additional separate forms for zero, two, or many, so these are not
+			defined.</p>
+		<p>The plural category for negative numbers is
+			calculated according to the absolute value of the source. (This may
+			change in the future, if we find languages that have different
+			behavior.)</p>
+		<p>
+			Plural categories may also differ according to the visible decimals. For example, here are some
+			of the behaviors exhibited by different languages:
+		</p>
+		<div dir="ltr">
+			<table>
+				<!-- nocaption -->
+				<tr>
+					<th>Behavior</th>
+					<th>Description</th>
+					<th>Example</th>
+				</tr>
+				<tr>
+					<td>Base</td>
+					<td>The fractions are ignored; the category is the same as the
+						category of the integer.</td>
+					<td>1.13 has the same plural category as 1.</td>
+				</tr>
+				<tr>
+					<td>Separate</td>
+					<td>All fractions by value are in one category (typically
+						&lsquo;other&rsquo; = &lsquo;plural&rsquo;).</td>
+					<td>1.01 gets the same class as 9;<br>1.00 gets the same
+						category as 1.
+					</td>
+				</tr>
+				<tr>
+					<td>Visible</td>
+					<td>All visible fractions are in one category (typically
+						&lsquo;other&rsquo; = &lsquo;plural).</td>
+					<td>1.00, 1.01, 3.5 all get the same category.</td>
+				</tr>
+				<tr>
+					<td>Digits</td>
+					<td>The visible fraction determines the category.</td>
+					<td>1.13 gets the same class as 13.</td>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<p>There are also variants of the above: for example, short
+			fractions may have the Digits behavior, but longer fractions may just
+			look at the final digit of the fraction.</p>
+		<h3>
+			5.1 <a name="Plural_rules_syntax" href="#Plural_rules_syntax">Plural
+				rules syntax</a>
+		</h3>
+		<p>
+			The xml value for each pluralRule is a <em>condition</em> with a
+			boolean result that specifies whether that rule (i.e. that plural
+			form) applies to a given numeric value <em>n</em>, where n can be
+			expressed as a decimal fraction. Clients of CLDR may express all the
+			rules for a locale using the following syntax:
+		</p>
+		<pre>rules         = rule (';' rule)*<br>rule          = keyword ':' condition samples<br>              | 'other' ':' samples<br>keyword       = [a-z]+<br>keyword       = [a-z]+</pre>
+		<p>In CLDR, the keyword is the attribute value of 'count'. Those
+			values in CLDR are currently limited to just what is in the DTD, but
+			clients may support other values.</p>
+		<p>The conditions themselves have the following syntax.</p>
+		<pre>condition     = and_condition ('or' and_condition)*
+samples       = ('@integer' sampleList)?<br>                ('@decimal' sampleList)?                
+and_condition = relation ('and' relation)*<br>relation      = is_relation | in_relation | within_relation <br>is_relation   = expr 'is' ('not')? value<br>in_relation   = expr (('not')? 'in' | '=' | '!=') range_list<br>within_relation = expr ('not')? 'within' range_list<br>expr          = operand (('mod' | '%') value)?
+operand       = 'n' | 'i' | 'f' | 't' | 'v' | 'w'<br>range_list    = (range | value) (',' range_list)*<br>range         = value'..'value
+sampleList    = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
+sampleRange   = decimalValue ('~' decimalValue)?
+value         = digit+
+decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
+		</pre>
+		<ul>
+			<li>Whitespace (defined as Unicode <a
+				href="http://unicode.org/cldr/utility/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D">Pattern_White_Space</a>)
+				can occur between or around any of the above tokens, with the
+				exception of the tokens in value, digit, and decimalValue.
+			</li>
+			<li>In the syntax, <strong>and</strong> binds more tightly than
+				<strong>or</strong>. So <strong>X or Y and Z</strong> is interpreted
+				as <strong>(X or (Y and Z))</strong>.
+			</li>
+			<li>Each plural rule must be written to be self-contained, and
+				not depend on the ordering. Thus rules must be mutually exclusive;
+				for a given numeric value, only one rule can apply (i.e., the
+				condition can only be true for one of the pluralRule elements. Each
+				keyword can have at most one condition. The 'other' keyword must
+				have an empty condition: it is only present for samples.</li>
+			<li>The samples should be included, since they are used by
+				client software for samples and determining whether the keyword has
+				finite values or not.</li>
+			<li>The 'other' keyword must have no condition, and all other
+				keywords must have a condition.</li>
+		</ul>
+		<h4>
+			<a name="Operands" href="#Operands">5.1.1 Operands</a>
+		</h4>
+		<p>The operands have the following meaning:</p>
+		<div dir="ltr">
+			<table>
+				<caption>
+					<a name="Plural_Operand_Meanings" href="#Plural_Operand_Meanings">Plural
+						Operand Meanings</a>
+				</caption>
+				<tr>
+					<th>Symbol</th>
+					<th>Value</th>
+				</tr>
+				<tr>
+					<td>n</td>
+					<td>absolute value of the source number (integer and
+						decimals).</td>
+				</tr>
+				<tr>
+					<td>i</td>
+					<td>integer digits of n.</td>
+				</tr>
+				<tr>
+					<td>v</td>
+					<td>number of visible fraction digits in n, <em>with</em>
+						trailing zeros.
+					</td>
+				</tr>
+				<tr>
+					<td>w</td>
+					<td>number of visible fraction digits in n, <em>without</em>
+						trailing zeros.
+					</td>
+				</tr>
+				<tr>
+					<td>f</td>
+					<td>visible fractional digits in n, <em>with</em> trailing
+						zeros.
+					</td>
+				</tr>
+				<tr>
+					<td>t</td>
+					<td>visible fractional digits in n, <em>without</em> trailing
+						zeros.
+					</td>
+				</tr>
+			</table>
+		</div>
+		<br>
+
+		<div dir="ltr">
+			<table>
+				<caption>
+					<a name="Plural_Operand_Examples" href="#Plural_Operand_Examples">Plural
+						Operand Examples</a>
+				</caption>
+				<colgroup>
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+				</colgroup>
+				<tr>
+					<th><strong>n</strong></th>
+					<th><div align="center">i</div></th>
+					<th><div align="center">v</div></th>
+					<th><div align="center">w</div></th>
+					<th><div align="center">f</div></th>
+					<th><div align="center">t</div></th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td><div align="right">1</div></td>
+					<td><div align="right">0</div></td>
+					<td><div align="right">0</div></td>
+					<td><div align="right">0</div></td>
+					<td><div align="right">0</div></td>
+				</tr>
+				<tr>
+					<td>1.0</td>
+					<td><div align="right">1</div></td>
+					<td><div align="right">1</div></td>
+					<td><div align="right">0</div></td>
+					<td><div align="right">0</div></td>
+					<td><div align="right">0</div></td>
+				</tr>
+				<tr>
+					<td>1.00</td>
+					<td><div align="right">1</div></td>
+					<td><div align="right">2</div></td>
+					<td><div align="right">0</div></td>
+					<td><div align="right">0</div></td>
+					<td><div align="right">0</div></td>
+				</tr>
+				<tr>
+					<td>1.3</td>
+					<td><div align="right">1</div></td>
+					<td><div align="right">1</div></td>
+					<td><div align="right">1</div></td>
+					<td><div align="right">3</div></td>
+					<td><div align="right">3</div></td>
+				</tr>
+				<tr>
+					<td>1.30</td>
+					<td><div align="right">1</div></td>
+					<td><div align="right">2</div></td>
+					<td><div align="right">1</div></td>
+					<td><div align="right">30</div></td>
+					<td><div align="right">3</div></td>
+				</tr>
+				<tr>
+					<td>1.03</td>
+					<td><div align="right">1</div></td>
+					<td><div align="right">2</div></td>
+					<td><div align="right">2</div></td>
+					<td><div align="right">3</div></td>
+					<td><div align="right">3</div></td>
+				</tr>
+				<tr>
+					<td>1.230</td>
+					<td><div align="right">1</div></td>
+					<td><div align="right">3</div></td>
+					<td><div align="right">2</div></td>
+					<td><div align="right">230</div></td>
+					<td><div align="right">23</div></td>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<h4>
+			<a name="Relations" href="#Relations">5.1.2 Relations</a>
+		</h4>
+		<p>
+			The positive relations are of the format <strong>x = y</strong> and <strong>x
+				= y mod z</strong>. The <strong>y</strong> value can be a comma-separated
+			list, such as <strong>n = 3, 5, 7..15</strong>, and is treated as if
+			each relation were expanded into an OR statement. The range value <strong>a..b</strong>
+			is equivalent to listing all the <em><strong>integers</strong></em> between <strong>a</strong>
+			and <strong>b</strong>, inclusive. When <strong>!=</strong> is used,
+			it means the entire relation is negated.
+		</p>
+
+		<table class='simple'>
+			<caption>
+				<a name="Relations_Examples" href="#Relations_Examples">Relations
+					Examples</a>
+			</caption>
+			<tr>
+				<th>Expression</th>
+				<th>Meaning</th>
+			</tr>
+			<tr>
+				<td>x = 2..4, 15</td>
+				<td>x = 2 OR x = 3 OR x = 4 OR x = 15</td>
+			</tr>
+			<tr>
+				<td>x != 2..4, 15</td>
+				<td>NOT (x = 2 OR x = 3 OR x = 4 OR x = 15)</td>
+			</tr>
+		</table>
+		<br>
+		<table class='simple'>
+			<!-- nocaption -->
+			<tr>
+				<th>Expression</th>
+				<th>Value</th>
+			</tr>
+			<tr>
+				<td>3.5 = 2..4, 15</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td nowrap>3.5 != 2..4, 15</td>
+				<td>true</td>
+			</tr>
+            <tr>
+				<td>3 = 2..4, 15</td>
+				<td>true</td>
+			</tr>
+	
+			<tr>
+				<td>3 != 2..4, 15</td>
+				<td>false</td>
+			</tr>
+		</table>
+		<blockquote>
+			<p>
+				The old keywords 'mod', 'in', 'is', and 'within' are present only
+				for backwards compatibility. The preferred form is to use '%' for
+				modulo, and '=' or '!=' for the relations, with the operand 'i'
+				instead of within. (The difference between <strong>in</strong> and <strong>within</strong>
+				is that <strong>in</strong> only includes integers in the specified
+				range, while <strong>within </strong>includes all values.)
+			</p>
+		</blockquote>
+		<p dir="ltr">
+			The modulus (% or<strong> mod</strong>) is a remainder operation as
+			defined in Java; for example, where <strong>n</strong> = 4.3 the
+			result of <strong>n mod 3</strong> is 1.3.
+		</p>
+		<p>
+			The values of relations are defined according to the operand as
+			follows. Importantly, the results may depend on the visible decimals in the source, including
+			trailing zeros.
+		</p>
+		<ol>
+			<li>Let the base value BV be computed from absolute value of the
+				original source number according to the operand.</li>
+			<li>Let R be false when the comparison contains
+				&lsquo;not&rsquo;.</li>
+			<li>Let R be !R if &nbsp;the comparison contains
+				&lsquo;within&rsquo; and the source number is not an integer.</li>
+			<li>If there is a module value MV, let BV be BV - floor(BV/MV).</li>
+			<li>Let CR be the list of comparison ranges, normalized that
+				overlapping ranges are merged. Single values in the rule are
+				represented by a range with identical &lt;start<sub>i</sub>, end<sub>i</sub>&gt;
+				values.
+			</li>
+			<li>Iterate through CR:
+				<ul>
+					<li>if start<sub>i</sub> ≤ BV ≤ end<sub>i</sub> then return R.
+					</li>
+				</ul>
+			</li>
+			<li>Otherwise return !R.</li>
+		</ol>
+		<p></p>
+
+		<table border="1">
+			<caption>
+				<a name="Plural_Rules_Examples" href="#Plural_Rules_Examples">Plural
+					Rules Examples</a>
+			</caption>
+			<tr>
+				<th>Rules</th>
+				<th>Comments</th>
+			</tr>
+			<tr>
+				<td nowrap>one: n = 1<br> few: n = 2..4
+				</td>
+				<td>This defines two rules, for 'one' and 'few'. The condition
+					for 'one' is &quot;n = 1&quot; which means that the number must be
+					equal to 1 for this condition to pass. The condition for 'few' is
+					&quot;n = 2..4&quot; which means that the number must be between 2
+					and 4 inclusive for this condition to pass. All other numbers are
+					assigned the keyword 'other' by the default rule.</td>
+			</tr>
+			<tr>
+				<td nowrap>zero: n = 0 or n != 1 and n mod 100 = 1..19<br>
+					one: n = 1
+				</td>
+				<td>Each rule must not overlap with other rules. Also note that
+					a modulus is applied to n in the last rule, thus its condition
+					holds for 119, 219, 319…</td>
+			</tr>
+			<tr>
+				<td nowrap>one: n = 1<br> few: n mod 10 = 2..4 and n mod
+					100 != 12..14
+				</td>
+				<td>This illustrates conjunction and negation. The condition
+					for 'few' has two parts, both of which must be met: &quot;n mod 10
+					= 2..4&quot; and &quot;n mod 100 != 12..14&quot;. The first part
+					applies a modulus to n before the test as in the previous example.
+					The second part applies a different modulus and also uses negation,
+					thus it matches all numbers <em>not</em> in 12, 13, 14, 112, 113,
+					114, 212, 213, 214…
+				</td>
+			</tr>
+		</table>
+		<h4>
+			<a name="Samples" href="#Samples">5.1.3 Samples</a>
+		</h4>
+		<p>Samples are provided if sample indicator (@integer or @decimal)
+			is present on any rule. (CLDR always provides samples.)</p>
+		<p>Where samples are provided, the absence of one of the sample
+			indicators indicates that no numeric values can satisify that rule.
+			For example, the rule &quot;i = 1 and v = 0&quot; can only have
+			integer samples, so @decimal must not occur.</p>
+		<p>
+			The sampleRanges have a special notation: <strong>start</strong>~<strong>end</strong>.
+			The <strong>start</strong> and <strong>end</strong> values must have
+			the same number of decimal digits. The range encompasses all and only
+			values those value <strong>v</strong> where <strong>start ≤
+				v ≤ end</strong>, and where <strong>v</strong> has the same number of decimal
+			places as <strong>start</strong> and <strong>end</strong>.
+		</p>
+		<p>Samples must indicate whether they are infinite or not. The '…'
+			marker must be present if and only infinitely many values (integer or
+			decimal) can satisfy the rule. If a set is not infinite, it must list
+			all the possible values.</p>
+		<table border="1">
+			<caption>
+				<a name="Plural_Samples_Examples" href="#Plural_Samples_Examples">Plural
+					Samples Examples</a>
+			</caption>
+			<tr>
+				<th>Rules</th>
+				<th>Comments</th>
+			</tr>
+			<tr>
+				<td nowrap>@integer 1, 3~5</td>
+				<td>1, 3, 4, 5.</td>
+			</tr>
+			<tr>
+				<td nowrap>@integer 3~5, 103~105, …</td>
+				<td>Infinite set: 3, 4, 5, 103, 104, 105, …</td>
+			</tr>
+			<tr>
+				<td nowrap>@decimal 1.3~1.5, 1.03~1.05, …</td>
+				<td>Infinite set: 1.3, 1.4, 1.5, 1.03, 1.04, 1.05, …</td>
+			</tr>
+		</table>
+		<br>
+		<p>In determining whether a set of samples is infinite, leading
+			zero integer digits and trailing zero decimals are not significant.
+			Thus &quot;i = 1 and f = 0&quot; is satisfied by 01, 1, 1.0, 1.00,
+			1.000, etc. but is still considered finite.</p>
+		<h4>
+			<a name="Using_cardinals" href="#Using_cardinals">5.1.4 Using
+				Cardinals</a>
+		</h4>
+		<p>Elements such as &lt;currencyFormats&gt;, &lt;currency&gt; and
+			&lt;unit&gt; provide selection among subelements designating various
+			localized cardinal plural forms by tagging each of the relevant
+			subelements with a different count value, or with no count value in
+			some cases. Note that the plural forms for a specific currencyFormat,
+			unit type, or currency type may not use all of the different
+			plural-form tags defined for the language. To format a currency or
+			unit type for a particular numeric value, determine the count value
+			according to the plural rules for the language, then select the
+			appropriate display form for the currency format, currency type or
+			unit type using the rules in those sections:</p>
+		<ul>
+			<li>2.3 <a href="#Number_Symbols">Number Symbols</a> (for
+				currencyFormats elements)
+			</li>
+			<li>Section 4 <a href="#Currencies">Currencies</a> (for currency
+				elements)
+			</li>
+			<li>The main document section 5.11 <a
+				href="tr35.html#Unit_Elements">Unit Elements</a></li>
+		</ul>
+		<h3>
+			5.2 <a name="Plural_Ranges" href="#Plural_Ranges">Plural Ranges</a>
+		</h3>
+
+		<p class="dtd">
+			&lt;!ELEMENT pluralRanges (pluralRange*) &gt;<br> &lt;!ATTLIST
+			pluralRanges locales NMTOKENS #REQUIRED &gt;<br> <br>
+			&lt;!ELEMENT pluralRange ( #PCDATA ) &gt;<br> &lt;!ATTLIST
+			pluralRange start (zero|one|two|few|many|other) #IMPLIED &gt;<br>
+			&lt;!ATTLIST pluralRange end (zero|one|two|few|many|other) #IMPLIED
+			&gt;<br> &lt;!ATTLIST pluralRange result
+			(zero|one|two|few|many|other) #REQUIRED &gt;
+		</p>
+
+		<p>Often ranges of numbers are presented to users, such as in
+			“Length: 3.2–4.5 centimeters”. This means any length from 3.2 cm to
+			4.5 cm, inclusive. However, different languages have different
+			conventions for the pluralization given to a range: should it be “0–1
+			centimeter” or “0–1 centimeters”? This becomes much more complicated
+			for languages that have many different plural forms, such as Russian
+			or Arabic.</p>
+		<p>
+			The <strong>pluralRanges</strong> element provides information
+			allowing an implementation to derive the plural category of a range
+			from the plural categories of the <em>start</em> and <em>end</em>
+			values. If there is no value for a <em>&lt;start,end&gt;</em> pair,
+			the default result is <em>end</em>. However, where that result has
+			been verified for a given language, it is included in the CLDR data.
+		</p>
+		<p>The data has been gathered presuming that in any usage, the
+			start value is strictly less than the end value, and that no values
+			are negative. Results for any cases that do not meet these criteria
+			are undefined.</p>
+		<h2>
+			6 <a name="Rule-Based_Number_Formatting"
+				href="#Rule-Based_Number_Formatting">Rule-Based Number
+				Formatting</a>
+		</h2>
+		<p class="dtd">
+			&lt;!ELEMENT rbnf ( alias | rulesetGrouping*) &gt;<br> <br>
+			&lt;!ELEMENT rulesetGrouping ( alias | ruleset*) &gt;<br>
+			&lt;!ATTLIST rulesetGrouping type NMTOKEN #REQUIRED&gt;<br> <br>
+			&lt;!ELEMENT ruleset ( alias | rbnfrule*) &gt;<br> &lt;!ATTLIST
+			ruleset type NMTOKEN #REQUIRED&gt;<br> &lt;!ATTLIST ruleset
+			access ( public | private ) #IMPLIED &gt;<br> <br>
+			&lt;!ELEMENT rbnfrule ( #PCDATA ) &gt;<br> &lt;!ATTLIST rbnfrule
+			value CDATA #REQUIRED &gt;<br> &lt;!ATTLIST rbnfrule radix CDATA
+			#IMPLIED &gt;<br> &lt;!ATTLIST rbnfrule decexp CDATA #IMPLIED
+			&gt;
+		</p>
+		<p>The rule-based number format (RBNF) encapsulates a set of rules
+			for mapping binary numbers to and from a readable representation.
+			They are typically used for spelling out numbers, but can also be
+			used for other number systems like roman numerals, Chinese numerals,
+			or for ordinal numbers (1st, 2nd, 3rd,…).</p>
+		<p>Where, however, the CLDR plurals or ordinals can be used, their
+			usage is recommended in preference to the RBNF data. First, the RBNF
+			data is not completely fleshed out over all languages that otherwise
+			have modern coverage. Secondly, the alternate forms are neither
+			complete, nor useful without additional information. For example, for
+			German there is spellout-cardinal-masculine, and
+			spellout-cardinal-feminine. But a complete solution would have all
+			genders (masculine/feminine/neuter), all cases (nominative,
+			accusative, dative, genitive), plus context (with strong or weak
+			determiner or none). Moreover, even for the alternate forms that do
+			exist, CLDR does not supply any data for when to use one vs another
+			(eg, when to use spellout-cardinal-masculine vs
+			spellout-cardinal-feminine). So these data are inappropriate for
+			general purpose software.</p>
+		<p>
+			There are 4 common spellout rules. Some languages may provide more
+			than these 4 types:<br>
+		</p>
+		<ul>
+			<li><strong>numbering: </strong>This is the default used when
+				there is no context for the number. For many languages, this may
+				also be used for enumeration of objects, like used when pronouncing
+				"table number one" and "table number two". It can also be used for
+				pronouncing a math equation, like "2 - 3 = -1".</li>
+			<li><strong>numbering-year: </strong>This is used for cases
+				where years are pronounced or written a certain way. An example in
+				English is the year 1999, which comes out as "nineteen ninety-nine"
+				instead of the numbering value "one thousand nine hundred
+				ninety-nine". The rules for this type have undefined behavior for
+				non-integer numbers, and values less than 1.</li>
+			<li><strong>cardinal: </strong>This is used when providing the
+				quantity of the number of objects. For many languages, there may not
+				be a default cardinal type. Many languages require the notion of the
+				gender and other grammatical properties so that the number and the
+				objects being referenced are in grammatical agreement. An example of
+				its usage is "one e-mail", "two people" or "three kilometers". Some
+				languages may not have dedicated words for 0 or negative numbers for
+				cardinals. In those cases, the words from the numbering type can be
+				reused.</li>
+			<li><strong>ordinal: </strong>This is used when providing the
+				order of the number of objects. For many languages, there may not be
+				a default ordinal type. Many languages also require the notion of
+				the gender for ordinal so that the ordinal number and the objects
+				being referenced are in grammatical agreement. An example of its
+				usage is "first place", "second e-mail" or "third house on the
+				right". The rules for this type have undefined behavior for
+				non-integer numbers, and values less than 1.</li>
+		</ul>
+		<p>
+			In addition to the spellout rules, there are also a numbering system
+			rules. Even though they may be derived from a specific culture, they
+			are typically not translated and the rules are in <strong>root</strong>.
+			An example of these rules are the Roman numerals where the value 8
+			comes out as VIII.<br>
+		</p>
+		<p>
+			With regards to the number range supported for all these number
+			types, the largest possible number range tries to be supported, but
+			some languages may not have words for large numbers. For example, the
+			old Roman numbering system can't support the value 5000 and beyond.
+			For those unsupported cases, the default number format from CLDR is
+			used.<br>
+		</p>
+		<p>
+			Any rules marked as <strong>private</strong> should never be
+			referenced externally. Frequently they only support a subrange of
+			numbers that are used in the public rules.<br>
+		</p>
+		<p>
+			The syntax used in the CLDR representation of rules is intended to be
+			simply a transcription of ICU based RBNF rules into an XML compatible
+			syntax. The rules are fairly sophisticated; for details see <i>Rule-Based
+				Number Formatter</i> [<a href="tr35.html#RBNF">RBNF</a>].
+		</p>
+		<p class="dtd">&lt;ruleSetGrouping&gt;</p>
+		<p>Used to group rules into functional sets for use with ICU.
+			Currently, the valid types of rule set groupings are
+			&quot;SpelloutRules&quot;, &quot;OrdinalRules&quot;, and
+			&quot;NumberingSystemRules&quot;.</p>
+		<p class="dtd">&lt;ruleset&gt;</p>
+		<p>This element denotes a specific rule set to the number
+			formatter. The ruleset is assumed to be a public ruleset unless the
+			attribute type=&quot;private&quot; is specified.</p>
+		<p class="dtd">&lt;rule&gt;</p>
+		<p>Contains the actual formatting rule for a particular number or
+			sequence of numbers. The &quot;value&quot; attribute is used to
+			indicate the starting number to which the rule applies. The actual
+			text of the rule is identical to the ICU syntax, with the exception
+			that Unicode left and right arrow characters are used to replace &lt;
+			and &gt; in the rule text, since &lt; and &gt; are reserved
+			characters in XML. The &quot;radix&quot; attribute is used to
+			indicate an alternate radix to be used in calculating the prefix and
+			postfix values for number formatting. Alternate radix values are
+			typically used for formatting year numbers in formal documents, such
+			as &quot;nineteen hundred seventy-six&quot; instead of &quot;one
+			thousand nine hundred seventy-six&quot;.</p>
+
+		<h2>
+			<a name="Parsing_Numbers" href="#Parsing_Numbers">7 Parsing
+				Numbers</a>
+		</h2>
+		<p>The following elements are relevant to determining the value of
+			a parsed number:</p>
+		<ul>
+			<li>A possible prefix or suffix, indicating sign</li>
+			<li>A possible currency symbol or code</li>
+			<li>Decimal digits</li>
+			<li>A possible decimal separator</li>
+			<li>A possible exponent</li>
+			<li>A possible percent or per mille character</li>
+		</ul>
+		<p>Other characters should either be ignored, or indicate the end
+			of input, depending on the application. The key point is to
+			disambiguate the sets of characters that might serve in more than one
+			position, based on context. For example, a period might be either the
+			decimal separator, or part of a currency symbol (for example,
+			&quot;NA f.&quot;). Similarly, an &quot;E&quot; could be an exponent
+			indicator, or a currency symbol (the Swaziland Lilangeni uses
+			&quot;E&quot; in the &quot;en&quot; locale). An apostrophe might be
+			the decimal separator, or might be the grouping separator.</p>
+		<p>Here is a set of heuristic rules that may be helpful:</p>
+		<ul>
+			<li>Any character with the decimal digit property is unambiguous
+				and should be accepted.
+				<p>
+					<b>Note:</b> In some environments, applications may independently
+					wish to restrict the decimal digit set to prevent security
+					problems. See [<a href="http://www.unicode.org/reports/tr41/#UTR36">UTR36</a>].
+				</p>
+			</li>
+			<li>The exponent character can only be interpreted as such if it
+				occurs after at least one digit, and if it is followed by at least
+				one digit, with only an optional sign in between. A regular
+				expression may be helpful here.</li>
+			<li>For the sign, decimal separator, percent, and per mille, use
+				a set of all possible characters that can serve those functions. For
+				example, the decimal separator set could include all of [.,&#39;].
+				(The actual set of characters can be derived from the number symbols
+				in the By-Type charts <a href="tr35.html#ByType">[ByType]</a>, which
+				list all of the values in CLDR.) To disambiguate, the decimal
+				separator for the locale must be removed from the &quot;ignore&quot;
+				set, and the grouping separator for the locale must be removed from
+				the decimal separator set. The same principle applies to all sets
+				and symbols: any symbol must appear in at most one set.
+			</li>
+			<li>Since there are a wide variety of currency symbols and
+				codes, this should be tried before the less ambiguous elements. It
+				may be helpful to develop a set of characters that can appear in a
+				symbol or code, based on the currency symbols in the locale.</li>
+			<li>Otherwise, a character should be ignored unless it is in the
+				&quot;stop&quot; set. This includes even characters that are
+				meaningful for formatting, for example, the grouping separator.</li>
+			<li>If more than one sign, currency symbol, exponent, or
+				percent/per mille occurs in the input, the first found should be
+				used.</li>
+			<li>A currency symbol in the input should be interpreted as the
+				longest match found in the set of possible currency symbols.</li>
+			<li>Especially in cases of ambiguity, the user&#39;s input
+				should be echoed back, properly formatted according to the locale,
+				before it is actually used for anything.</li>
+		</ul>
+
+		<hr>
+		<p class="copyright">
+			Copyright © 2001–2018 Unicode, Inc. All
+			Rights Reserved. The Unicode Consortium makes no expressed or implied
+			warranty of any kind, and assumes no liability for errors or
+			omissions. No liability is assumed for incidental and consequential
+			damages in connection with or arising out of the use of the
+			information or programs contained or accompanying this technical
+			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
+				of Use</a> apply.
+		</p>
+		<p class="copyright">Unicode and the Unicode logo are trademarks
+			of Unicode, Inc., and are registered in some jurisdictions.</p>
+
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="lt" target="Upper" direction="forward" alias="lt-t-d0-upper">
+			<tRule>
+# Copyright (C) 2011-2013, Apple Inc.; Unicode, Inc.; and others. All Rights Reserved.
+# Remove \u0307 following soft-dotteds (i, j, and the like), with possible intervening non-230 marks.
+::NFD();
+[:Soft_Dotted:] [^[:ccc=Not_Reordered:][:ccc=Above:]]* { \u0307 → ;
+::Any-Upper();
+::NFC();
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

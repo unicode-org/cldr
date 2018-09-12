@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!-- Copyright © 1991-2015 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html -->
+<supplementalData>
+	<version number="$Revision$" />
+	<transforms>
+		<transform source="my" target="my_FONIPA" direction="forward" alias="my-fonipa-t-my">
+			<tRule><![CDATA[
+
+# Pronunciation rules for Burmese.
+#
+# The following rules are lexical and heuristic: lexical in the sense
+# that they generate phoneme strings which may further undergo
+# post-lexical phonological processes, in particular voicing, to
+# result in actual surface forms; heuristic in the sense that they try
+# to resolve ambiguities, especially around reduced vowels, in a
+# systematic way that may be incorrect in many situations. Vowel
+# reduction depends on many factors, such as morphemic structure,
+# which are not available here.
+
+#
+# Definitions
+#
+
+# Dependent vowel signs
+$vs_AA = \u102B;
+$vs_aa = \u102C;
+$vs_i = \u102D;
+$vs_ii = \u102E;
+$vs_u = \u102F;
+$vs_uu = \u1030;
+$vs_e = \u1031;
+$vs_ai = \u1032;
+
+# Various signs
+$anusvara = \u1036;
+$visarga = \u1038;
+$virama = \u1039;
+$asat = \u103A;
+
+# Dependent (medial) consonant signs
+$med_y = \u103B;
+$med_r = \u103C;
+$med_w = \u103D;
+$med_h = \u103E;
+
+# Independent letters and letter-like punctuation symbols
+$independent = [\u1000-\u102A \u103F \u104C-\u104F \u1050-\u1055];
+
+$creaky = \u0330;
+$high = \u0301;
+$low = \u0300;
+$coda = [$creaky $high $low ɴ ʔ ə];  # TODO: remove if unused
+
+#
+# Preprocessing
+#
+
+::NFC;
+
+# Replace U+102B TALL AA with U+102C AA. Their pronunciation is identical.
+$vs_AA → $vs_aa;
+
+# Unstack kinzi (င် plus U+1039 VIRAMA) into plain င်.
+# Hmm, what would happen if the syllable ending in kinzi had non-low tone?
+င် $virama → င်;
+
+# Unstack everything else, i.e. replace U+1039 VIRAMA with U+103A ASAT.
+$virama → $asat;
+
+# Unstack U+103F GREAT SA.
+ဿ → သ်သ;
+
+# Insert a syllable boundary marker /./ before every independent letter.
+::Null;
+[^.$] { } $independent ([\u1037\u103B-\u103E])* [^\u103A] → \.;
+
+# Insert default inherent vowel: /a̰/ at the end, /ə/ everywhere else.
+::Null;
+([\u1000-\u1021\u103F] [\u103B-\u103E]*) } [$] → $1 a $creaky;
+([\u1000-\u1021\u103F] [\u103B-\u103E]*) } \.  → $1 ə;
+
+# Allow for additional coda consonants.
+#
+# This only covers a few of the cases in which full coda consonants
+# can appear in loanwords. The general situation is somewhat rare and
+# is more easily dealt with in a formalism that can impose structural
+# constraints on syllables more easily.
+::Null;
+$asat ($visarga)? [\u1000-\u102A] { $asat → ;
+
+# Deal with ၎င်း early.
+၎င်း → lə\.ɡa $high ʊ̯ɴ;
+
+#
+# Rhymes
+#
+
+::Null;
+
+က် → ɛʔ;
+
+ဂ် → ɛʔ;  # in မဂ္ဂဇင်း ~ မဂ်ဂဇင်း /mɛʔ.ɡə.zɪ́ɴ/
+
+င့် → ɪ $creaky ɴ;
+င်း → ɪ $high ɴ;
+င် → ɪ $low ɴ;
+
+စ် → ɪʔ;  # maybe sometimes /eɪ̯ʔ/
+
+ဉ့် → ɪ $creaky ɴ;
+ဉ်း → ɪ $high ɴ;
+ဉ် → ɪ $low ɴ;
+
+ည့် → ɛ $creaky;
+ည်း → ɛ $high;
+ည် → ɛ $low;
+
+ဏ့် → a $creaky ɴ;
+ဏ်း → a $high ɴ;
+ဏ် → a $low ɴ;
+
+တ် → aʔ;
+
+န့် → a $creaky ɴ;
+န်း → a $high ɴ;
+န် → a $low ɴ;
+
+ပ် → aʔ;
+
+မ့် → a $creaky ɴ;
+မ်း → a $high ɴ;
+မ် → a $low ɴ;
+
+ယ့် → ɛ $creaky;
+ယ်း → ɛ $high;
+ယ် → ɛ $low;
+
+သ် → aʔ;
+
+$vs_aa ဉ့် → ɪ $creaky ɴ;
+$vs_aa ဉ်း → ɪ $high ɴ;
+$vs_aa ဉ် → ɪ $low ɴ;
+$vs_aa တ် → aʔ;
+$vs_aa ဏ့် → a $creaky ɴ;
+$vs_aa ဏ်း → a $high ɴ;
+$vs_aa ဏ် → a $low ɴ;
+$vs_aa န့် → a $creaky ɴ;
+$vs_aa န်း → a $high ɴ;
+$vs_aa န် → a $low ɴ;
+$vs_aa ပ် → aʔ;  # in ကလာပ်စည်း /kə.laʔ.sɛ́/ (club cell)
+$vs_aa ယ့် → ɛ $creaky;
+$vs_aa ယ်း → ɛ $high;
+$vs_aa ယ် → ɛ $low;
+$vs_aa ့ → a $creaky;  # redundant creaky tone
+$vs_aa း → a $high;
+$vs_aa → a $low;
+
+$vs_i က် → eɪ̯ʔ;
+$vs_i စ် → eɪ̯ʔ;
+$vs_i တ် → eɪ̯ʔ;
+$vs_i န့် → e $creaky ɪ̯ɴ;
+$vs_i န်း → e $high ɪ̯ɴ;
+$vs_i န် → e $low ɪ̯ɴ;
+$vs_i ပ် → eɪ̯ʔ;
+$vs_i မ့် → e $creaky ɪ̯ɴ;
+$vs_i မ်း → e $high ɪ̯ɴ;
+$vs_i မ် → e $low ɪ̯ɴ;
+$vs_i $vs_u က် → aɪ̯ʔ;
+$vs_i $vs_u င့် → a $creaky ɪ̯ɴ;
+$vs_i $vs_u င်း → a $high ɪ̯ɴ;
+$vs_i $vs_u င် → a $low ɪ̯ɴ;
+$vs_i $vs_u ဏ့် → a $creaky ɪ̯ɴ;
+$vs_i $vs_u ဏ်း → a $high ɪ̯ɴ;
+$vs_i $vs_u ဏ် → a $low ɪ̯ɴ;
+$vs_i $vs_u ယ့် → o $creaky;
+$vs_i $vs_u ယ်း → o $high;
+$vs_i $vs_u ယ် → o $low;  # in ကိုယ် /kò/
+$vs_i $vs_u ့ → o $creaky;
+$vs_i $vs_u း → o $high;
+$vs_i $vs_u → o $low;
+$vs_i $anusvara ့ → e $creaky ɪ̯ɴ;
+$vs_i $anusvara း → e $high ɪ̯ɴ;
+$vs_i $anusvara → e $low ɪ̯ɴ;
+$vs_i → i $creaky;
+
+$vs_ii ့ → i $creaky;  # this does not usually occur
+$vs_ii း → i $high;
+$vs_ii → i $low;
+
+$vs_u က် → oʊ̯ʔ;
+$vs_u ဂ် → oʊ̯ʔ;
+$vs_u ဏ့် → o $creaky ʊ̯ɴ;
+$vs_u ဏ်း → o $high ʊ̯ɴ;
+$vs_u ဏ် → o $low ʊ̯ɴ;
+$vs_u တ် → oʊ̯ʔ;
+$vs_u န့် → o $creaky ʊ̯ɴ;
+$vs_u န်း → o $high ʊ̯ɴ;
+$vs_u န် → o $low ʊ̯ɴ;
+$vs_u ပ် → oʊ̯ʔ;
+$vs_u မ့် → o $creaky ʊ̯ɴ;
+$vs_u မ်း → o $high ʊ̯ɴ;
+$vs_u မ် → o $low ʊ̯ɴ;
+$vs_u $anusvara ့ → o $creaky ʊ̯ɴ;
+$vs_u $anusvara း → o $high ʊ̯ɴ;
+$vs_u $anusvara → o $low ʊ̯ɴ;
+$vs_u → u $creaky;
+
+$vs_uu ့ → u $creaky;  # this does not usually occur
+$vs_uu း → u $high;
+$vs_uu → u $low;
+
+$vs_e တ် → ɪʔ;
+$vs_e $vs_aa က် → aʊ̯ʔ;
+$vs_e $vs_aa င့် → a $creaky ʊ̯ɴ;
+$vs_e $vs_aa င်း → a $high ʊ̯ɴ;
+$vs_e $vs_aa င် → a $low ʊ̯ɴ;
+$vs_e $vs_aa ့ → ɔ $creaky;
+$vs_e $vs_aa း → ɔ $high;  # redundant high tone; this does not usually occur
+$vs_e $vs_aa ် → ɔ $low;
+$vs_e $vs_aa → ɔ $high;
+$vs_e ့ → e $creaky;
+$vs_e း → e $high;
+$vs_e → e $low;
+
+$vs_ai ့ → ɛ $creaky;
+$vs_ai း → ɛ $high;  # redundant high tone; this does not usually occur
+$vs_ai → ɛ $high;
+
+$anusvara ့ → a $creaky ɴ;
+$anusvara း → a $high ɴ;
+$anusvara → a $low ɴ;
+
+$med_w တ် → ʊʔ;
+$med_w န့် → ʊ $creaky ɴ;
+$med_w န်း → ʊ $high ɴ;
+$med_w န် → ʊ $low ɴ;
+$med_w ပ် → ʊʔ;
+$med_w မ့် → ʊ $creaky ɴ;
+$med_w မ်း → ʊ $high ɴ;
+$med_w မ် → ʊ $low ɴ;
+
+#
+# Medials
+#
+
+::Null;
+
+# Palatalization of the velar stops before MEDIAL YA and MEDIAL RA:
+# velar + /j/ ==> modern palatals.
+
+ကျ → t͡ɕ;
+ချ → t͡ɕʰ;
+ဂျ → d͡ʑ;
+ဃျ → d͡ʑ;
+
+ကြ → t͡ɕ;
+ခြ → t͡ɕʰ;
+ဂြ → d͡ʑ;
+ဃြ → d͡ʑ;
+
+# Remove redundant MEDIAL YA and MEDIAL RA after initial YA.
+ယ { [$med_y $med_r] → ;
+
+# Reorder the medials so that U+103E SIGN MEDIAL HA comes before any
+# other medials.
+
+# First, push U+103E MEDIAL HA before U+103D MEDIAL WA.
+\u103D \u103E → \u103E \u103D;
+::Null;
+# Now MEDIAL WA comes last.
+
+# Produce the palatal ʃ from (SA|LA)+YA+HA.
+သျှ → ʃ;
+လျှ → ʃ;
+
+# Second, push U+103E MEDIAL HA before U+103C MEDIAL RA.
+\u103C \u103E → \u103E \u103C;
+::Null;
+
+# Finally, push U+103E MEDIAL HA before U+103B MEDIAL YA.
+\u103B \u103E → \u103E \u103B;
+::Null;
+
+# Consume MEDIAL HA and apply devoicing.
+
+ငှ → ŋ̊;
+ဉှ → ɲ̥;
+ညှ → ɲ̥;
+ဏှ → n̥;
+နှ → n̥;
+မှ → m̥;
+ယှ → ʃ;
+ရှ → ʃ;
+လှ → l̥;
+ဝှ → w̥;
+ဠှ → l̥;
+
+# Drop any remaining U+103E MEDIAL HA.
+\u103E → ;
+
+# Simplify medial cluster /jw/ to /w/, i.e. drop U+103B MEDIAL YA and
+# U+103C MEDIAL RA before U+103D MEDIAL WA.  # TODO: revisit this
+\u103B } \u103D → ;
+\u103C } \u103D → ;
+
+\u103B → j;
+\u103C → j;
+\u103D → w;
+
+#
+# Initials
+#
+
+# Velars
+က → k;
+ခ → kʰ;
+ဂ → ɡ;
+ဃ → ɡ;
+င → ŋ;
+
+# Historic palatals
+စ → s;
+ဆ → sʰ;
+ဇ → z;
+ဈ → z;
+ဉ → ɲ;
+ည → ɲ;
+
+# Alveolars
+ဋ → t;
+ဌ → tʰ;
+ဍ → d;
+ဎ → d;
+ဏ → n;
+
+# Historic dentals ==> alveolars
+တ → t;
+ထ → tʰ;
+ဒ → d;
+ဓ → d;
+န → n;
+
+# Labials
+ပ → p;
+ဖ → pʰ;
+ဗ → b;
+ဘ → b;
+မ → m;
+
+# Other letters
+ယ → j;
+ရ → j;  # historic /r/
+လ် → ;  # final, typically not pronounced in native words
+လ → l;
+ဝ → w;
+သ → θ;  # historic /s/ ==> modern dental
+ဟ → h;
+ဠ → l;
+အ → ʔ;
+
+# Independent vowels
+
+ဣ့ → ʔḭ;  # redundant creaky tone; this does not usually occur
+ဣး → ʔí;  # this does not usually occur
+ဣ → ʔḭ;
+
+ဤ့ → ʔḭ;  # this does not usually occur
+ဤး → ʔí;  # this does not usually occur
+ဤ → ʔì;
+
+ဥ့ → ʔṵ;  # redundant creaky tone; this does not usually occur
+ဥး → ʔú;  # this does not usually occur
+ဥ → ʔṵ;
+
+ဦ့ → ʔṵ;  # this does not usually occur
+ဦး → ʔú;
+ဦ → ʔù;
+
+ဧ့ → ʔḛ;  # this does not usually occur
+ဧး → ʔé;
+ဧ → ʔè;
+
+ဩ့ → ʔɔ̰;  # this does not usually occur
+ဩး → ʔɔ́;  # redundant high tone; this does not usually occur
+ဩ → ʔɔ́;
+
+ဪ့ → ʔɔ̰;  # this does not usually occur
+ဪး → ʔɔ́;  # this does not usually occur
+ဪ → ʔɔ̀;
+
+# Various signs
+
+၌ → n̥aɪ̯ʔ;
+၍ → jwḛ;
+# ၎င်း was handled earlier.
+၏ → ʔḭ;
+
+#
+# Postprocessing
+#
+
+# Delete any remaining U+103A ASAT.
+$asat → ;
+
+# Delete zero-width space, non-joiner, joiner.
+[\u200B-\u200D] → ;
+
+::NFC;
+
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

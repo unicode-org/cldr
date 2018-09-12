@@ -1,0 +1,11 @@
+# SAMPLE
+# copy to stbitten-env.sh  - run by startup.sh
+export PATH=/usr/lib/ccache/:${HOME}/bin-build:${HOME}/bin:${PATH}
+export BUILDER_CONF=${HOME}/bitten-conf
+export BUILDER_DIR=${HOME}/build
+export BUILDER_USER=yeahright
+export BUILDER_PASS=hunter42
+export BUILDER_NAME=some-bot
+export BUILDER_BEST=${HOME}/best
+
+

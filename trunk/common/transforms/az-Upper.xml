@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="az" target="Upper" direction="forward" alias="az-t-d0-upper">
+			<tRule>
+# Copyright (C) 2011-2013, Apple Inc.; Unicode, Inc.; and others. All Rights Reserved.
+i→İ;
+::Any-Upper();
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

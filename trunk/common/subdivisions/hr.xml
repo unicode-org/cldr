@@ -1,0 +1,1863 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2018 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="hr"/>
+	</identity>
+	<localeDisplayNames>
+		<subdivisions>
+			<subdivision type="ad02" draft="contributed">Canillo</subdivision>
+			<subdivision type="ad03" draft="contributed">Encamp</subdivision>
+			<subdivision type="aeaj" draft="contributed">Ajman</subdivision>
+			<subdivision type="aeaz" draft="contributed">Abu Dhabi</subdivision>
+			<subdivision type="aedu" draft="contributed">Dubai</subdivision>
+			<subdivision type="aefu" draft="contributed">Fujairah</subdivision>
+			<subdivision type="aerk" draft="contributed">Ras al-Khaimah</subdivision>
+			<subdivision type="aesh" draft="contributed">Sharjah (emirat)</subdivision>
+			<subdivision type="aeuq" draft="contributed">Umm al-Quwain</subdivision>
+			<subdivision type="afbds" draft="contributed">Provincija Badakhšan</subdivision>
+			<subdivision type="al01" draft="contributed">Beratski okrug</subdivision>
+			<subdivision type="al02" draft="contributed">Drački okrug</subdivision>
+			<subdivision type="al03" draft="contributed">Elbasanski okrug</subdivision>
+			<subdivision type="al04" draft="contributed">Fierski okrug</subdivision>
+			<subdivision type="al05" draft="contributed">Gjirokastërski okrug</subdivision>
+			<subdivision type="al06" draft="contributed">Korčanski okrug</subdivision>
+			<subdivision type="al07" draft="contributed">Kukëski okrug</subdivision>
+			<subdivision type="al08" draft="contributed">Lješki okrug</subdivision>
+			<subdivision type="al09" draft="contributed">Dibrski okrug</subdivision>
+			<subdivision type="al10" draft="contributed">Skadarski okrug</subdivision>
+			<subdivision type="al11" draft="contributed">Tiranski okrug</subdivision>
+			<subdivision type="al12" draft="contributed">Valonski okrug</subdivision>
+			<subdivision type="amag" draft="contributed">Aragacotn</subdivision>
+			<subdivision type="amar" draft="contributed">Ararat</subdivision>
+			<subdivision type="amav" draft="contributed">Armavir</subdivision>
+			<subdivision type="amer" draft="contributed">Erevan</subdivision>
+			<subdivision type="amgr" draft="contributed">Gegharkunik</subdivision>
+			<subdivision type="amkt" draft="contributed">Kotajk</subdivision>
+			<subdivision type="amlo" draft="contributed">Lori</subdivision>
+			<subdivision type="amsh" draft="contributed">Širak</subdivision>
+			<subdivision type="amsu" draft="contributed">Sjunik</subdivision>
+			<subdivision type="amtv" draft="contributed">Tavuš</subdivision>
+			<subdivision type="amvd" draft="contributed">Vajots Dzor</subdivision>
+			<subdivision type="aocab" draft="contributed">Cabinda</subdivision>
+			<subdivision type="arb" draft="contributed">Buenos Aires</subdivision>
+			<subdivision type="arc" draft="contributed">Buenos Aires²</subdivision>
+			<subdivision type="arf" draft="contributed">La Rioja</subdivision>
+			<subdivision type="arm" draft="contributed">Mendoza</subdivision>
+			<subdivision type="arq" draft="contributed">Neuquén</subdivision>
+			<subdivision type="at1" draft="contributed">Gradišće</subdivision>
+			<subdivision type="at2" draft="contributed">Koruška</subdivision>
+			<subdivision type="at3" draft="contributed">Donja Austrija</subdivision>
+			<subdivision type="at4" draft="contributed">Gornja Austrija</subdivision>
+			<subdivision type="at5" draft="contributed">Salzburg</subdivision>
+			<subdivision type="at6" draft="contributed">Štajerska</subdivision>
+			<subdivision type="at7" draft="contributed">Tirol</subdivision>
+			<subdivision type="at8" draft="contributed">Vorarlberg</subdivision>
+			<subdivision type="at9" draft="contributed">Beč</subdivision>
+			<subdivision type="auact" draft="contributed">Teritorij australskog glavnog grada</subdivision>
+			<subdivision type="aunsw" draft="contributed">Novi Južni Wales</subdivision>
+			<subdivision type="aunt" draft="contributed">Sjeverni teritorij</subdivision>
+			<subdivision type="auqld" draft="contributed">Queensland</subdivision>
+			<subdivision type="ausa" draft="contributed">Južna Australija</subdivision>
+			<subdivision type="autas" draft="contributed">Tasmanija</subdivision>
+			<subdivision type="auvic" draft="contributed">Victoria</subdivision>
+			<subdivision type="auwa" draft="contributed">Zapadna Australija</subdivision>
+			<subdivision type="azba" draft="contributed">Baku</subdivision>
+			<subdivision type="azga" draft="contributed">Gäncä</subdivision>
+			<subdivision type="azxa" draft="contributed">Stepanakert</subdivision>
+			<subdivision type="babih" draft="contributed">Federacija Bosne i Hercegovine</subdivision>
+			<subdivision type="babrc" draft="contributed">Brčko Distrikt Bosne i Hercegovine</subdivision>
+			<subdivision type="basrp" draft="contributed">Republika Srpska</subdivision>
+			<subdivision type="bebru" draft="contributed">Regija glavnoga grada Bruxellesa</subdivision>
+			<subdivision type="bevan" draft="contributed">Antwerpen</subdivision>
+			<subdivision type="bevbr" draft="contributed">Flamanski Brabant</subdivision>
+			<subdivision type="bevlg" draft="contributed">Flandrija</subdivision>
+			<subdivision type="bevli" draft="contributed">Limburg</subdivision>
+			<subdivision type="bevov" draft="contributed">Istočna Flandrija</subdivision>
+			<subdivision type="bevwv" draft="contributed">Zapadna Flandrija</subdivision>
+			<subdivision type="bewal" draft="contributed">Valonija</subdivision>
+			<subdivision type="bewbr" draft="contributed">Valonski Brabant</subdivision>
+			<subdivision type="bewht" draft="contributed">Hainaut</subdivision>
+			<subdivision type="bewlg" draft="contributed">Liège</subdivision>
+			<subdivision type="bewlx" draft="contributed">Luxembourg</subdivision>
+			<subdivision type="bewna" draft="contributed">Namur</subdivision>
+			<subdivision type="bf01" draft="contributed">Boucle du Mouhoun</subdivision>
+			<subdivision type="bf02" draft="contributed">Cascades</subdivision>
+			<subdivision type="bf03" draft="contributed">Centralna regija, Burkina Faso</subdivision>
+			<subdivision type="bf04" draft="contributed">Centralno-istočna regija, Burkina Faso</subdivision>
+			<subdivision type="bf05" draft="contributed">Centralno-sjeverna regija</subdivision>
+			<subdivision type="bf06" draft="contributed">Centralno-zapadna regija</subdivision>
+			<subdivision type="bf07" draft="contributed">Centralno-južna regija</subdivision>
+			<subdivision type="bf08" draft="contributed">Istočna regija</subdivision>
+			<subdivision type="bf09" draft="contributed">Hauts-Bassins</subdivision>
+			<subdivision type="bf10" draft="contributed">Sjeverna regija</subdivision>
+			<subdivision type="bf11" draft="contributed">Plato-centralna regija</subdivision>
+			<subdivision type="bf12" draft="contributed">Sahel, Burkina Faso</subdivision>
+			<subdivision type="bf13" draft="contributed">Jugo-zapadna regija, Burkina Faso</subdivision>
+			<subdivision type="bg01" draft="contributed">Oblast Blagoevgrad</subdivision>
+			<subdivision type="bg02" draft="contributed">Oblast Burgas</subdivision>
+			<subdivision type="bg03" draft="contributed">Oblast Varna</subdivision>
+			<subdivision type="bg04" draft="contributed">Oblast Veliko Trnovo</subdivision>
+			<subdivision type="bg05" draft="contributed">Oblast Vidin</subdivision>
+			<subdivision type="bg06" draft="contributed">Oblast Vraca</subdivision>
+			<subdivision type="bg07" draft="contributed">Oblast Gabrovo</subdivision>
+			<subdivision type="bg08" draft="contributed">Oblast Dobrič</subdivision>
+			<subdivision type="bg09" draft="contributed">Oblast Krdžali</subdivision>
+			<subdivision type="bg10" draft="contributed">Oblast Ćustendil</subdivision>
+			<subdivision type="bg11" draft="contributed">Oblast Loveč</subdivision>
+			<subdivision type="bg12" draft="contributed">Oblast Montana</subdivision>
+			<subdivision type="bg13" draft="contributed">Oblast Pazardžik</subdivision>
+			<subdivision type="bg14" draft="contributed">Oblast Pernik</subdivision>
+			<subdivision type="bg15" draft="contributed">Oblast Pleven</subdivision>
+			<subdivision type="bg16" draft="contributed">Oblast Plovdiv</subdivision>
+			<subdivision type="bg17" draft="contributed">Oblast Razgrad</subdivision>
+			<subdivision type="bg18" draft="contributed">Oblast Ruse</subdivision>
+			<subdivision type="bg19" draft="contributed">Oblast Silistra</subdivision>
+			<subdivision type="bg20" draft="contributed">Oblast Sliven</subdivision>
+			<subdivision type="bg21" draft="contributed">Oblast Smoljan</subdivision>
+			<subdivision type="bg22" draft="contributed">Oblast Sofija</subdivision>
+			<subdivision type="bg23" draft="contributed">Sofijska oblast</subdivision>
+			<subdivision type="bg24" draft="contributed">Oblast Stara Zagora</subdivision>
+			<subdivision type="bg25" draft="contributed">Oblast Trgovište</subdivision>
+			<subdivision type="bg26" draft="contributed">Oblast Haskovo</subdivision>
+			<subdivision type="bg27" draft="contributed">Oblast Šumen</subdivision>
+			<subdivision type="bg28" draft="contributed">Oblast Jambol</subdivision>
+			<subdivision type="bob" draft="contributed">Beni</subdivision>
+			<subdivision type="boc" draft="contributed">Cochabamba</subdivision>
+			<subdivision type="boh" draft="contributed">Chuquisaca</subdivision>
+			<subdivision type="bol" draft="contributed">La Paz</subdivision>
+			<subdivision type="bon" draft="contributed">Pando</subdivision>
+			<subdivision type="boo" draft="contributed">Oruro</subdivision>
+			<subdivision type="bop" draft="contributed">Potosí</subdivision>
+			<subdivision type="bos" draft="contributed">Santa Cruz</subdivision>
+			<subdivision type="bot" draft="contributed">Tarija</subdivision>
+			<subdivision type="bqbo" draft="contributed">Bonaire</subdivision>
+			<subdivision type="bqsa" draft="contributed">Saba</subdivision>
+			<subdivision type="bqse" draft="contributed">Sveti Eustasius</subdivision>
+			<subdivision type="brac" draft="contributed">Acre</subdivision>
+			<subdivision type="bral" draft="contributed">Alagoas</subdivision>
+			<subdivision type="bram" draft="contributed">Amazonas</subdivision>
+			<subdivision type="brap" draft="contributed">Amapá</subdivision>
+			<subdivision type="brba" draft="contributed">Bahia</subdivision>
+			<subdivision type="brce" draft="contributed">Ceará</subdivision>
+			<subdivision type="brdf" draft="contributed">Brazilski federalni distrikt</subdivision>
+			<subdivision type="bres" draft="contributed">Espírito Santo</subdivision>
+			<subdivision type="brgo" draft="contributed">Goiás</subdivision>
+			<subdivision type="brma" draft="contributed">Maranhão</subdivision>
+			<subdivision type="brmg" draft="contributed">Minas Gerais</subdivision>
+			<subdivision type="brms" draft="contributed">Mato Grosso do Sul</subdivision>
+			<subdivision type="brmt" draft="contributed">Mato Grosso</subdivision>
+			<subdivision type="brpa" draft="contributed">Pará</subdivision>
+			<subdivision type="brpb" draft="contributed">Paraíba</subdivision>
+			<subdivision type="brpe" draft="contributed">Pernambuco</subdivision>
+			<subdivision type="brpi" draft="contributed">Piauí</subdivision>
+			<subdivision type="brpr" draft="contributed">Paraná</subdivision>
+			<subdivision type="brrj" draft="contributed">Rio de Janeiro</subdivision>
+			<subdivision type="brrn" draft="contributed">Rio Grande do Norte</subdivision>
+			<subdivision type="brro" draft="contributed">Rondônia</subdivision>
+			<subdivision type="brrr" draft="contributed">Roraima</subdivision>
+			<subdivision type="brrs" draft="contributed">Rio Grande do Sul</subdivision>
+			<subdivision type="brsc" draft="contributed">Santa Catarina</subdivision>
+			<subdivision type="brse" draft="contributed">Sergipe</subdivision>
+			<subdivision type="brsp" draft="contributed">São Paulo</subdivision>
+			<subdivision type="brto" draft="contributed">Tocantins</subdivision>
+			<subdivision type="bwfr" draft="contributed">Francistown</subdivision>
+			<subdivision type="bwga" draft="contributed">Gaborone</subdivision>
+			<subdivision type="bwlo" draft="contributed">Lobatse</subdivision>
+			<subdivision type="bwsp" draft="contributed">Selebi-Phikwe</subdivision>
+			<subdivision type="bybr" draft="contributed">Brestska oblast</subdivision>
+			<subdivision type="byhm" draft="contributed">Minsk</subdivision>
+			<subdivision type="byho" draft="contributed">Gomelska oblast</subdivision>
+			<subdivision type="byhr" draft="contributed">Grodnenska oblast</subdivision>
+			<subdivision type="byma" draft="contributed">Mogilevska oblast</subdivision>
+			<subdivision type="bymi" draft="contributed">Minska oblast</subdivision>
+			<subdivision type="byvi" draft="contributed">Vitebska oblast</subdivision>
+			<subdivision type="bzbz" draft="contributed">Belize</subdivision>
+			<subdivision type="bzcy" draft="contributed">Cayo (okrug)</subdivision>
+			<subdivision type="bzczl" draft="contributed">Corozal (okrug)</subdivision>
+			<subdivision type="bzow" draft="contributed">Orange Walk (okrug)</subdivision>
+			<subdivision type="bzsc" draft="contributed">Stann Creek (okrug)</subdivision>
+			<subdivision type="bztol" draft="contributed">Toledo (okrug)</subdivision>
+			<subdivision type="caab" draft="contributed">Alberta</subdivision>
+			<subdivision type="cabc" draft="contributed">Britanska Kolumbija</subdivision>
+			<subdivision type="camb" draft="contributed">Manitoba</subdivision>
+			<subdivision type="canb" draft="contributed">Novi Brunswick</subdivision>
+			<subdivision type="canl" draft="contributed">Newfoundland i Labrador</subdivision>
+			<subdivision type="cans" draft="contributed">Nova Škotska</subdivision>
+			<subdivision type="cant" draft="contributed">Sjeverozapadni teritoriji</subdivision>
+			<subdivision type="canu" draft="contributed">Nunavut</subdivision>
+			<subdivision type="caon" draft="contributed">Ontario</subdivision>
+			<subdivision type="cape" draft="contributed">Otok Princa Edwarda</subdivision>
+			<subdivision type="caqc" draft="contributed">Québec</subdivision>
+			<subdivision type="cask" draft="contributed">Saskatchewan</subdivision>
+			<subdivision type="cayt" draft="contributed">Yukon</subdivision>
+			<subdivision type="cdkn" draft="contributed">Kinshasa</subdivision>
+			<subdivision type="cfbgf" draft="contributed">Bangui</subdivision>
+			<subdivision type="cgbzv" draft="contributed">Brazzaville</subdivision>
+			<subdivision type="chag" draft="contributed">Aargau</subdivision>
+			<subdivision type="chai" draft="contributed">Appenzell Innerrhoden</subdivision>
+			<subdivision type="char" draft="contributed">Appenzell Ausserrhoden</subdivision>
+			<subdivision type="chbl" draft="contributed">Basel-Landschaft</subdivision>
+			<subdivision type="chfr" draft="contributed">Fribourg</subdivision>
+			<subdivision type="chge" draft="contributed">Kanton Ženeva</subdivision>
+			<subdivision type="chgl" draft="contributed">Glarus</subdivision>
+			<subdivision type="chgr" draft="contributed">Graubünden</subdivision>
+			<subdivision type="chju" draft="contributed">Jura</subdivision>
+			<subdivision type="chlu" draft="contributed">Luzern</subdivision>
+			<subdivision type="chne" draft="contributed">Neuchâtel</subdivision>
+			<subdivision type="chnw" draft="contributed">Nidwalden</subdivision>
+			<subdivision type="chow" draft="contributed">Obwalden</subdivision>
+			<subdivision type="chsg" draft="contributed">St. Gallen</subdivision>
+			<subdivision type="chsh" draft="contributed">Schaffhausen</subdivision>
+			<subdivision type="chso" draft="contributed">Solothurn</subdivision>
+			<subdivision type="chsz" draft="contributed">Schwyz</subdivision>
+			<subdivision type="chtg" draft="contributed">Thurgau</subdivision>
+			<subdivision type="chti" draft="contributed">Ticino</subdivision>
+			<subdivision type="chur" draft="contributed">Uri</subdivision>
+			<subdivision type="chvd" draft="contributed">Vaud</subdivision>
+			<subdivision type="chvs" draft="contributed">Valais</subdivision>
+			<subdivision type="chzg" draft="contributed">Zug</subdivision>
+			<subdivision type="chzh" draft="contributed">Zürich</subdivision>
+			<subdivision type="ciab" draft="contributed">Abidjan</subdivision>
+			<subdivision type="ciym" draft="contributed">Yamoussoukro</subdivision>
+			<subdivision type="clai" draft="contributed">XI. regija Aisén del General Carlos Ibáñez del Campo</subdivision>
+			<subdivision type="clan" draft="contributed">II . regija Antofagasta</subdivision>
+			<subdivision type="clap" draft="contributed">XV. regija Arica i Parinacota</subdivision>
+			<subdivision type="clar" draft="contributed">IX. regija Araucanía</subdivision>
+			<subdivision type="clat" draft="contributed">III. regija Atacama</subdivision>
+			<subdivision type="clbi" draft="contributed">VIII. regija Biobío</subdivision>
+			<subdivision type="clco" draft="contributed">IV. regija Coquimbo</subdivision>
+			<subdivision type="clli" draft="contributed">VI. regija Libertador General Bernardo O’Higgins</subdivision>
+			<subdivision type="clll" draft="contributed">X. regija Los Lagos</subdivision>
+			<subdivision type="cllr" draft="contributed">XIV. regija Los Ríos</subdivision>
+			<subdivision type="clma" draft="contributed">XII. regija Magallanes y de la Antártica Chilena</subdivision>
+			<subdivision type="clml" draft="contributed">VII. regija Maule</subdivision>
+			<subdivision type="clrm" draft="contributed">Metropolitanska regija Santiaga</subdivision>
+			<subdivision type="clta" draft="contributed">I. regija Tarapacá</subdivision>
+			<subdivision type="clvs" draft="contributed">V. regija Valparaíso</subdivision>
+			<subdivision type="cnah" draft="contributed">Anhui</subdivision>
+			<subdivision type="cnbj" draft="contributed">Peking</subdivision>
+			<subdivision type="cncq" draft="contributed">Chongqing</subdivision>
+			<subdivision type="cnfj" draft="contributed">Fujian</subdivision>
+			<subdivision type="cngd" draft="contributed">Guangdong</subdivision>
+			<subdivision type="cngs" draft="contributed">Gansu</subdivision>
+			<subdivision type="cngx" draft="contributed">Guangxi</subdivision>
+			<subdivision type="cngz" draft="contributed">Guizhou</subdivision>
+			<subdivision type="cnha" draft="contributed">Henan</subdivision>
+			<subdivision type="cnhb" draft="contributed">Hubei</subdivision>
+			<subdivision type="cnhe" draft="contributed">Hebei</subdivision>
+			<subdivision type="cnhi" draft="contributed">Hainan</subdivision>
+			<subdivision type="cnhk" draft="contributed">Hong Kong</subdivision>
+			<subdivision type="cnhl" draft="contributed">Heilongjiang</subdivision>
+			<subdivision type="cnhn" draft="contributed">Hunan</subdivision>
+			<subdivision type="cnjl" draft="contributed">Jilin</subdivision>
+			<subdivision type="cnjs" draft="contributed">Jiangsu</subdivision>
+			<subdivision type="cnjx" draft="contributed">Jiangxi</subdivision>
+			<subdivision type="cnln" draft="contributed">Liaoning</subdivision>
+			<subdivision type="cnmo" draft="contributed">Makao</subdivision>
+			<subdivision type="cnnm" draft="contributed">Unutarnja Mongolija</subdivision>
+			<subdivision type="cnnx" draft="contributed">Ningxia</subdivision>
+			<subdivision type="cnqh" draft="contributed">Qinghai</subdivision>
+			<subdivision type="cnsc" draft="contributed">Sečuan</subdivision>
+			<subdivision type="cnsd" draft="contributed">Shandong</subdivision>
+			<subdivision type="cnsh" draft="contributed">Šangaj</subdivision>
+			<subdivision type="cnsn" draft="contributed">Shaanxi</subdivision>
+			<subdivision type="cnsx" draft="contributed">Shanxi</subdivision>
+			<subdivision type="cntj" draft="contributed">Tianjin</subdivision>
+			<subdivision type="cnxj" draft="contributed">Xinjiang</subdivision>
+			<subdivision type="cnxz" draft="contributed">Tibet</subdivision>
+			<subdivision type="cnyn" draft="contributed">Yunnan</subdivision>
+			<subdivision type="cnzj" draft="contributed">Zhejiang</subdivision>
+			<subdivision type="coama" draft="contributed">Amazonas</subdivision>
+			<subdivision type="coant" draft="contributed">Antioquia</subdivision>
+			<subdivision type="coara" draft="contributed">Arauca</subdivision>
+			<subdivision type="coatl" draft="contributed">Atlántico</subdivision>
+			<subdivision type="cobol" draft="contributed">Bolívar</subdivision>
+			<subdivision type="coboy" draft="contributed">Boyacá</subdivision>
+			<subdivision type="cocal" draft="contributed">Caldas</subdivision>
+			<subdivision type="cocaq" draft="contributed">Caquetá</subdivision>
+			<subdivision type="cocas" draft="contributed">Casanare</subdivision>
+			<subdivision type="cocau" draft="contributed">Cauca</subdivision>
+			<subdivision type="coces" draft="contributed">Cesar</subdivision>
+			<subdivision type="cocho" draft="contributed">Chocó</subdivision>
+			<subdivision type="cocor" draft="contributed">Córdoba</subdivision>
+			<subdivision type="cocun" draft="contributed">Cundinamarca</subdivision>
+			<subdivision type="codc" draft="contributed">Bogotá</subdivision>
+			<subdivision type="cogua" draft="contributed">Guainía</subdivision>
+			<subdivision type="coguv" draft="contributed">Guaviare</subdivision>
+			<subdivision type="cohui" draft="contributed">Huila</subdivision>
+			<subdivision type="colag" draft="contributed">La Guajira</subdivision>
+			<subdivision type="comag" draft="contributed">Magdalena</subdivision>
+			<subdivision type="comet" draft="contributed">Meta</subdivision>
+			<subdivision type="conar" draft="contributed">Nariño</subdivision>
+			<subdivision type="consa" draft="contributed">Norte de Santander</subdivision>
+			<subdivision type="coput" draft="contributed">Putumayo</subdivision>
+			<subdivision type="coqui" draft="contributed">Quindío</subdivision>
+			<subdivision type="coris" draft="contributed">Risaralda</subdivision>
+			<subdivision type="cra" draft="contributed">Alajuela, provincija</subdivision>
+			<subdivision type="crc" draft="contributed">Cartago, provincija</subdivision>
+			<subdivision type="crg" draft="contributed">Guanacaste, provincija</subdivision>
+			<subdivision type="crh" draft="contributed">Heredia, provincija</subdivision>
+			<subdivision type="crl" draft="contributed">Limón, provincija</subdivision>
+			<subdivision type="crp" draft="contributed">Puntarenas, provincija</subdivision>
+			<subdivision type="crsj" draft="contributed">San José, provincija</subdivision>
+			<subdivision type="cu01" draft="contributed">Pinar del Río</subdivision>
+			<subdivision type="cu04" draft="contributed">Matanzas</subdivision>
+			<subdivision type="cu05" draft="contributed">Villa Clara</subdivision>
+			<subdivision type="cu06" draft="contributed">Cienfuegos</subdivision>
+			<subdivision type="cu07" draft="contributed">Sancti Spíritus</subdivision>
+			<subdivision type="cu08" draft="contributed">Ciego de Ávila</subdivision>
+			<subdivision type="cu09" draft="contributed">Camagüey</subdivision>
+			<subdivision type="cu10" draft="contributed">Las Tunas</subdivision>
+			<subdivision type="cu11" draft="contributed">Holguín</subdivision>
+			<subdivision type="cu12" draft="contributed">Granma</subdivision>
+			<subdivision type="cu13" draft="contributed">Santiago de Cuba</subdivision>
+			<subdivision type="cu14" draft="contributed">Guantánamo</subdivision>
+			<subdivision type="cu15" draft="contributed">Artemisa</subdivision>
+			<subdivision type="cu16" draft="contributed">Mayabeque</subdivision>
+			<subdivision type="cu99" draft="contributed">Isla de la Juventud</subdivision>
+			<subdivision type="cz10" draft="contributed">Prag</subdivision>
+			<subdivision type="cz20" draft="contributed">Središnja Češka</subdivision>
+			<subdivision type="cz31" draft="contributed">Južna Češka</subdivision>
+			<subdivision type="cz32" draft="contributed">Plzeňski kraj</subdivision>
+			<subdivision type="cz41" draft="contributed">Karlovarski kraj</subdivision>
+			<subdivision type="cz42" draft="contributed">Ústečki kraj</subdivision>
+			<subdivision type="cz51" draft="contributed">Liberečki kraj</subdivision>
+			<subdivision type="cz52" draft="contributed">Královéhradečki kraj</subdivision>
+			<subdivision type="cz53" draft="contributed">Pardubički kraj</subdivision>
+			<subdivision type="cz63" draft="contributed">Vysočina</subdivision>
+			<subdivision type="cz64" draft="contributed">Južna Moravska</subdivision>
+			<subdivision type="cz71" draft="contributed">Olomoučki kraj</subdivision>
+			<subdivision type="cz72" draft="contributed">Zlínski kraj</subdivision>
+			<subdivision type="cz80" draft="contributed">Moravsko-šleski kraj</subdivision>
+			<subdivision type="cz641" draft="contributed">Okrug Blansko</subdivision>
+			<subdivision type="debb" draft="contributed">Brandenburg</subdivision>
+			<subdivision type="debe" draft="contributed">Berlin</subdivision>
+			<subdivision type="debw" draft="contributed">Baden-Württemberg</subdivision>
+			<subdivision type="deby" draft="contributed">Bavarska</subdivision>
+			<subdivision type="dehb" draft="contributed">Bremen</subdivision>
+			<subdivision type="dehe" draft="contributed">Hessen</subdivision>
+			<subdivision type="dehh" draft="contributed">Hamburg</subdivision>
+			<subdivision type="demv" draft="contributed">Mecklenburg-Zapadno Pomorje</subdivision>
+			<subdivision type="deni" draft="contributed">Donja Saska</subdivision>
+			<subdivision type="denw" draft="contributed">Sjeverna Rajna-Vestfalija</subdivision>
+			<subdivision type="derp" draft="contributed">Falačko Porajnje</subdivision>
+			<subdivision type="desh" draft="contributed">Schleswig-Holstein</subdivision>
+			<subdivision type="desl" draft="contributed">Saarska</subdivision>
+			<subdivision type="desn" draft="contributed">Saska</subdivision>
+			<subdivision type="dest" draft="contributed">Saska-Anhalt</subdivision>
+			<subdivision type="deth" draft="contributed">Tiringija</subdivision>
+			<subdivision type="djdj" draft="contributed">Djibouti</subdivision>
+			<subdivision type="dk81" draft="contributed">Sjeverni Jutland</subdivision>
+			<subdivision type="dk82" draft="contributed">Središnji Jutland</subdivision>
+			<subdivision type="dk83" draft="contributed">Južna Danska</subdivision>
+			<subdivision type="dk84" draft="contributed">Hovedstaden</subdivision>
+			<subdivision type="dk85" draft="contributed">Zeland</subdivision>
+			<subdivision type="ee37" draft="contributed">Okrug Harjumaa</subdivision>
+			<subdivision type="ee39" draft="contributed">Okrug Hiiumaa</subdivision>
+			<subdivision type="ee44" draft="contributed">Okrug Ida-Virumaa</subdivision>
+			<subdivision type="ee49" draft="contributed">Okrug Jõgevamaa</subdivision>
+			<subdivision type="ee51" draft="contributed">Okrug Järvamaa</subdivision>
+			<subdivision type="ee57" draft="contributed">Okrug Läänemaa</subdivision>
+			<subdivision type="ee59" draft="contributed">Okrug Lääne-Virumaa</subdivision>
+			<subdivision type="ee65" draft="contributed">Okrug Põlvamaa</subdivision>
+			<subdivision type="ee67" draft="contributed">Okrug Pärnumaa</subdivision>
+			<subdivision type="ee70" draft="contributed">Okrug Raplamaa</subdivision>
+			<subdivision type="ee74" draft="contributed">Okrug Saaremaa</subdivision>
+			<subdivision type="ee78" draft="contributed">Okrug Tartumaa</subdivision>
+			<subdivision type="ee82" draft="contributed">Okrug Valgamaa</subdivision>
+			<subdivision type="ee84" draft="contributed">Okrug Viljandimaa</subdivision>
+			<subdivision type="ee86" draft="contributed">Okrug Võrumaa</subdivision>
+			<subdivision type="egbh" draft="contributed">Beheira</subdivision>
+			<subdivision type="egjs" draft="contributed">Južni Sinaj</subdivision>
+			<subdivision type="egwad" draft="contributed">Al Wadi al Jadid</subdivision>
+			<subdivision type="eran" draft="contributed">Anseba</subdivision>
+			<subdivision type="erdk" draft="contributed">Južno crveno more (regija)</subdivision>
+			<subdivision type="erdu" draft="contributed">Debub</subdivision>
+			<subdivision type="ergb" draft="contributed">Gash-Barka</subdivision>
+			<subdivision type="erma" draft="contributed">Maekel</subdivision>
+			<subdivision type="ersk" draft="contributed">Sjeverno crveno more (regija)</subdivision>
+			<subdivision type="esa" draft="contributed">Alicante</subdivision>
+			<subdivision type="esab" draft="contributed">Albacete</subdivision>
+			<subdivision type="esal" draft="contributed">Almería</subdivision>
+			<subdivision type="esan" draft="contributed">Andaluzija</subdivision>
+			<subdivision type="esar" draft="contributed">Aragonija</subdivision>
+			<subdivision type="esas" draft="contributed">Asturija</subdivision>
+			<subdivision type="esav" draft="contributed">Ávila</subdivision>
+			<subdivision type="esb" draft="contributed">Barcelona</subdivision>
+			<subdivision type="esba" draft="contributed">Badajoz</subdivision>
+			<subdivision type="esbi" draft="contributed">Biskaja</subdivision>
+			<subdivision type="esbu" draft="contributed">Burgos</subdivision>
+			<subdivision type="esc" draft="contributed">A Coruña</subdivision>
+			<subdivision type="esca" draft="contributed">Cádiz</subdivision>
+			<subdivision type="escb" draft="contributed">Kantabrija</subdivision>
+			<subdivision type="escc" draft="contributed">Cáceres</subdivision>
+			<subdivision type="esce" draft="contributed">Ceuta</subdivision>
+			<subdivision type="escl" draft="contributed">Kastilja i León</subdivision>
+			<subdivision type="escm" draft="contributed">Kastilja-La Mancha</subdivision>
+			<subdivision type="esco" draft="contributed">Córdoba</subdivision>
+			<subdivision type="escr" draft="contributed">Ciudad Real</subdivision>
+			<subdivision type="escs" draft="contributed">Castellón</subdivision>
+			<subdivision type="esct" draft="contributed">Katalonija</subdivision>
+			<subdivision type="escu" draft="contributed">Cuenca</subdivision>
+			<subdivision type="esex" draft="contributed">Ekstremadura</subdivision>
+			<subdivision type="esga" draft="contributed">Galicija</subdivision>
+			<subdivision type="esgc" draft="contributed">Las Palmas</subdivision>
+			<subdivision type="esgi" draft="contributed">Girona</subdivision>
+			<subdivision type="esgr" draft="contributed">Razgovor:Granada</subdivision>
+			<subdivision type="esgu" draft="contributed">Guadalajara</subdivision>
+			<subdivision type="esh" draft="contributed">Huelva</subdivision>
+			<subdivision type="eshu" draft="contributed">Huesca</subdivision>
+			<subdivision type="esib" draft="contributed">Baleari</subdivision>
+			<subdivision type="esj" draft="contributed">Jaén</subdivision>
+			<subdivision type="esl" draft="contributed">Lleida</subdivision>
+			<subdivision type="esle" draft="contributed">León</subdivision>
+			<subdivision type="eslo" draft="contributed">La Rioja</subdivision>
+			<subdivision type="eslu" draft="contributed">Lugo</subdivision>
+			<subdivision type="esma" draft="contributed">Razgovor:Málaga</subdivision>
+			<subdivision type="esmc" draft="contributed">Regija Murcia</subdivision>
+			<subdivision type="esmd" draft="contributed">Zajednica Madrida</subdivision>
+			<subdivision type="esml" draft="contributed">Melilla</subdivision>
+			<subdivision type="esna" draft="contributed">Navara²</subdivision>
+			<subdivision type="esnc" draft="contributed">Navara</subdivision>
+			<subdivision type="esor" draft="contributed">Ourense</subdivision>
+			<subdivision type="esp" draft="contributed">Palencia</subdivision>
+			<subdivision type="espm" draft="contributed">Baleari²</subdivision>
+			<subdivision type="espo" draft="contributed">Pontevedra</subdivision>
+			<subdivision type="espv" draft="contributed">Baskija</subdivision>
+			<subdivision type="esri" draft="contributed">La Rioja²</subdivision>
+			<subdivision type="ess" draft="contributed">Kantabrija²</subdivision>
+			<subdivision type="esse" draft="contributed">Sevilla</subdivision>
+			<subdivision type="essg" draft="contributed">Segovia</subdivision>
+			<subdivision type="esso" draft="contributed">Soria</subdivision>
+			<subdivision type="esss" draft="contributed">Gipuskoa</subdivision>
+			<subdivision type="est" draft="contributed">Tarragona</subdivision>
+			<subdivision type="este" draft="contributed">Teruel</subdivision>
+			<subdivision type="estf" draft="contributed">Santa Cruz de Tenerife</subdivision>
+			<subdivision type="esto" draft="contributed">Toledo</subdivision>
+			<subdivision type="esv" draft="contributed">Valencia</subdivision>
+			<subdivision type="esva" draft="contributed">Valladolid</subdivision>
+			<subdivision type="esvc" draft="contributed">Valencijska Zajednica</subdivision>
+			<subdivision type="esvi" draft="contributed">Alava</subdivision>
+			<subdivision type="esz" draft="contributed">Zaragoza</subdivision>
+			<subdivision type="esza" draft="contributed">Zamora</subdivision>
+			<subdivision type="etaa" draft="contributed">Adis Abeba</subdivision>
+			<subdivision type="etaf" draft="contributed">Afar</subdivision>
+			<subdivision type="etam" draft="contributed">Amhara</subdivision>
+			<subdivision type="etbe" draft="contributed">Benišangul-Gumuz</subdivision>
+			<subdivision type="etdd" draft="contributed">Dire Dawa</subdivision>
+			<subdivision type="etga" draft="contributed">Gambela</subdivision>
+			<subdivision type="etor" draft="contributed">Oromia</subdivision>
+			<subdivision type="etsn" draft="contributed">Regija Južnih naroda, narodnosti i etničkih grupa</subdivision>
+			<subdivision type="etso" draft="contributed">Somali</subdivision>
+			<subdivision type="etti" draft="contributed">Tigraj</subdivision>
+			<subdivision type="fr2a" draft="contributed">Corse-du-Sud</subdivision>
+			<subdivision type="fr2b" draft="contributed">Haute-Corse</subdivision>
+			<subdivision type="fr06" draft="contributed">Alpes-Maritimes</subdivision>
+			<subdivision type="fr08" draft="contributed">Ardennes</subdivision>
+			<subdivision type="fr10" draft="contributed">Aube</subdivision>
+			<subdivision type="fr34" draft="contributed">Hérault</subdivision>
+			<subdivision type="fr42" draft="contributed">Loire</subdivision>
+			<subdivision type="fr43" draft="contributed">Haute-Loire</subdivision>
+			<subdivision type="fr51" draft="contributed">Marne</subdivision>
+			<subdivision type="fr52" draft="contributed">Haute-Marne</subdivision>
+			<subdivision type="fr57" draft="contributed">Moselle</subdivision>
+			<subdivision type="fr64" draft="contributed">Atlantski Pireneji</subdivision>
+			<subdivision type="fr67" draft="contributed">Bas-Rhin</subdivision>
+			<subdivision type="fr68" draft="contributed">Haut-Rhin</subdivision>
+			<subdivision type="fr70" draft="contributed">Gornja Saôna</subdivision>
+			<subdivision type="fr75" draft="contributed">Pariz</subdivision>
+			<subdivision type="fr81" draft="contributed">Tarn</subdivision>
+			<subdivision type="fr85" draft="contributed">Vendée</subdivision>
+			<subdivision type="fr86" draft="contributed">Vienne</subdivision>
+			<subdivision type="frbre" draft="contributed">Bretanja</subdivision>
+			<subdivision type="frcor" draft="contributed">Korzika</subdivision>
+			<subdivision type="frcvl" draft="contributed">Centre</subdivision>
+			<subdivision type="fridf" draft="contributed">Île-de-France</subdivision>
+			<subdivision type="frnaq" draft="contributed">Nova Akvitanija</subdivision>
+			<subdivision type="frpac" draft="contributed">Provansa-Alpe-Azurna obala</subdivision>
+			<subdivision type="frpdl" draft="contributed">Regija Loire</subdivision>
+			<subdivision type="ga1" draft="contributed">Estuaire</subdivision>
+			<subdivision type="ga2" draft="contributed">Haut-Ogooué</subdivision>
+			<subdivision type="ga3" draft="contributed">Moyen-Ogooué</subdivision>
+			<subdivision type="ga4" draft="contributed">Ngounié</subdivision>
+			<subdivision type="ga5" draft="contributed">Nyanga</subdivision>
+			<subdivision type="ga6" draft="contributed">Ogooué-Ivindo</subdivision>
+			<subdivision type="ga7" draft="contributed">Ogooué-Lolo</subdivision>
+			<subdivision type="ga8" draft="contributed">Ogooué-Maritime</subdivision>
+			<subdivision type="ga9" draft="contributed">Woleu-Ntem</subdivision>
+			<subdivision type="gbabe" draft="contributed">Aberdeen</subdivision>
+			<subdivision type="gbagb" draft="contributed">Argyll i Bute</subdivision>
+			<subdivision type="gbbir" draft="contributed">Birmingham</subdivision>
+			<subdivision type="gbbpl" draft="contributed">Blackpool</subdivision>
+			<subdivision type="gbbry" draft="contributed">Bromley</subdivision>
+			<subdivision type="gbbst" draft="contributed">Bristol</subdivision>
+			<subdivision type="gbcma" draft="contributed">Cumbria</subdivision>
+			<subdivision type="gbcon" draft="contributed">Cornwall</subdivision>
+			<subdivision type="gbcov" draft="contributed">Coventry</subdivision>
+			<subdivision type="gbcrf" draft="contributed">Cardiff</subdivision>
+			<subdivision type="gbdev" draft="contributed">Devon</subdivision>
+			<subdivision type="gbeay" draft="contributed">Istočni Ayrshire</subdivision>
+			<subdivision type="gbedh" draft="contributed">Edinburgh</subdivision>
+			<subdivision type="gbels" draft="contributed">Vanjski Hebridi</subdivision>
+			<subdivision type="gbeng">Engleska</subdivision>
+			<subdivision type="gbgbn" draft="contributed">Velika Britanija</subdivision>
+			<subdivision type="gbglg" draft="contributed">Glasgow</subdivision>
+			<subdivision type="gbgwn" draft="contributed">Gwynedd</subdivision>
+			<subdivision type="gbham" draft="contributed">Hampshire</subdivision>
+			<subdivision type="gbios" draft="contributed">Scilly</subdivision>
+			<subdivision type="gbkhl" draft="contributed">Kingston na Hullu</subdivision>
+			<subdivision type="gblce" draft="contributed">Leicester</subdivision>
+			<subdivision type="gblec" draft="contributed">Leicestershire</subdivision>
+			<subdivision type="gblin" draft="contributed">Lincolnshire</subdivision>
+			<subdivision type="gbliv" draft="contributed">Liverpool</subdivision>
+			<subdivision type="gblnd" draft="contributed">London</subdivision>
+			<subdivision type="gbman" draft="contributed">Manchester</subdivision>
+			<subdivision type="gbmdb" draft="contributed">Middlesbrough</subdivision>
+			<subdivision type="gbnay" draft="contributed">Sjeverni Ayrshire</subdivision>
+			<subdivision type="gbnet" draft="contributed">Newcastle upon Tyne</subdivision>
+			<subdivision type="gbngm" draft="contributed">Nottingham</subdivision>
+			<subdivision type="gbnir" draft="contributed">Sjeverna Irska</subdivision>
+			<subdivision type="gbnlk" draft="contributed">Sjeverni Lanarkshire</subdivision>
+			<subdivision type="gbork" draft="contributed">Orkneyski otoci</subdivision>
+			<subdivision type="gboxf" draft="contributed">Oxford</subdivision>
+			<subdivision type="gbply" draft="contributed">Plymouth</subdivision>
+			<subdivision type="gbpor" draft="contributed">Portsmouth</subdivision>
+			<subdivision type="gbsay" draft="contributed">Južni Ayrshire</subdivision>
+			<subdivision type="gbsct">Škotska</subdivision>
+			<subdivision type="gbsfk" draft="contributed">Suffolk</subdivision>
+			<subdivision type="gbshf" draft="contributed">Sheffield</subdivision>
+			<subdivision type="gbslk" draft="contributed">Južni Lanarkshire</subdivision>
+			<subdivision type="gbsth" draft="contributed">Southampton</subdivision>
+			<subdivision type="gbswa" draft="contributed">Swansea</subdivision>
+			<subdivision type="gbukm" draft="contributed">Ujedinjeno Kraljevstvo</subdivision>
+			<subdivision type="gbwls">Wales</subdivision>
+			<subdivision type="gbwsx" draft="contributed">Zapadni Sussex</subdivision>
+			<subdivision type="gbyor" draft="contributed">York</subdivision>
+			<subdivision type="gbzet" draft="contributed">Shetlandsko otočje</subdivision>
+			<subdivision type="geab" draft="contributed">Abhazija</subdivision>
+			<subdivision type="geaj" draft="contributed">Adžarija</subdivision>
+			<subdivision type="gekk" draft="contributed">Kvemo Kartli</subdivision>
+			<subdivision type="getb" draft="contributed">Tbilisi</subdivision>
+			<subdivision type="gmb" draft="contributed">Banjul</subdivision>
+			<subdivision type="gnc" draft="contributed">Conakry</subdivision>
+			<subdivision type="gqbn" draft="contributed">Sjeverni Bioko</subdivision>
+			<subdivision type="gqbs" draft="contributed">Južni Bioko</subdivision>
+			<subdivision type="gqc" draft="contributed">Rijeka Muni</subdivision>
+			<subdivision type="gqli" draft="contributed">Primorje</subdivision>
+			<subdivision type="gr69" draft="contributed">Sveta Gora</subdivision>
+			<subdivision type="gra" draft="contributed">Periferija Istočna Makedonija i Trakija</subdivision>
+			<subdivision type="grb" draft="contributed">Periferija Središnja Makedonija</subdivision>
+			<subdivision type="grc" draft="contributed">Periferija Zapadna Makedonija</subdivision>
+			<subdivision type="grd" draft="contributed">Periferija Epir</subdivision>
+			<subdivision type="gre" draft="contributed">Tesalija</subdivision>
+			<subdivision type="grf" draft="contributed">Periferija Jonski otoci</subdivision>
+			<subdivision type="grg" draft="contributed">Periferija Zapadna Grčka</subdivision>
+			<subdivision type="grh" draft="contributed">Periferija Središnja Grčka</subdivision>
+			<subdivision type="gri" draft="contributed">Periferija Atika</subdivision>
+			<subdivision type="grj" draft="contributed">Periferija Peloponez</subdivision>
+			<subdivision type="grk" draft="contributed">Periferija Sjeverni Egej</subdivision>
+			<subdivision type="grl" draft="contributed">Periferija Južni Egej</subdivision>
+			<subdivision type="grm" draft="contributed">Periferija Kreta</subdivision>
+			<subdivision type="gtav" draft="contributed">Alta Verapaz</subdivision>
+			<subdivision type="gtbv" draft="contributed">Baja Verapaz</subdivision>
+			<subdivision type="gtcm" draft="contributed">Chimaltenango</subdivision>
+			<subdivision type="gtgu" draft="contributed">Razgovor:Guatemala</subdivision>
+			<subdivision type="gtju" draft="contributed">Jutiapa</subdivision>
+			<subdivision type="gtqz" draft="contributed">Quetzaltenango (departman)</subdivision>
+			<subdivision type="gtre" draft="contributed">Retalhuleu (departman)</subdivision>
+			<subdivision type="gtsa" draft="contributed">Razgovor:Sacatepéquez</subdivision>
+			<subdivision type="gwbs" draft="contributed">Bissau</subdivision>
+			<subdivision type="hr01" draft="contributed">Zagrebačka županija</subdivision>
+			<subdivision type="hr02" draft="contributed">Krapinsko-zagorska županija</subdivision>
+			<subdivision type="hr03" draft="contributed">Sisačko-moslavačka županija</subdivision>
+			<subdivision type="hr04" draft="contributed">Karlovačka županija</subdivision>
+			<subdivision type="hr05" draft="contributed">Varaždinska županija</subdivision>
+			<subdivision type="hr06" draft="contributed">Koprivničko-križevačka županija</subdivision>
+			<subdivision type="hr07" draft="contributed">Bjelovarsko-bilogorska županija</subdivision>
+			<subdivision type="hr08" draft="contributed">Primorsko-goranska županija</subdivision>
+			<subdivision type="hr09" draft="contributed">Ličko-senjska županija</subdivision>
+			<subdivision type="hr10" draft="contributed">Virovitičko-Podravska županija</subdivision>
+			<subdivision type="hr11" draft="contributed">Požeško-slavonska županija</subdivision>
+			<subdivision type="hr12" draft="contributed">Brodsko-posavska županija</subdivision>
+			<subdivision type="hr13" draft="contributed">Zadarska županija</subdivision>
+			<subdivision type="hr14" draft="contributed">Osječko-baranjska županija</subdivision>
+			<subdivision type="hr15" draft="contributed">Šibensko-kninska županija</subdivision>
+			<subdivision type="hr16" draft="contributed">Vukovarsko-srijemska županija</subdivision>
+			<subdivision type="hr17" draft="contributed">Splitsko-dalmatinska županija</subdivision>
+			<subdivision type="hr18" draft="contributed">Istarska županija</subdivision>
+			<subdivision type="hr19" draft="contributed">Dubrovačko-neretvanska županija</subdivision>
+			<subdivision type="hr20" draft="contributed">Međimurska županija</subdivision>
+			<subdivision type="hr21" draft="contributed">Zagreb</subdivision>
+			<subdivision type="htar" draft="contributed">Artibonite</subdivision>
+			<subdivision type="htce" draft="contributed">Centre</subdivision>
+			<subdivision type="htga" draft="contributed">Grand’Anse</subdivision>
+			<subdivision type="htnd" draft="contributed">Nord, Haiti</subdivision>
+			<subdivision type="htne" draft="contributed">Nord-Est</subdivision>
+			<subdivision type="htni" draft="contributed">Nippes</subdivision>
+			<subdivision type="htno" draft="contributed">Nord-Ouest, Haiti</subdivision>
+			<subdivision type="htou" draft="contributed">Ouest, Haiti</subdivision>
+			<subdivision type="htsd" draft="contributed">Sud</subdivision>
+			<subdivision type="htse" draft="contributed">Sud-Est</subdivision>
+			<subdivision type="huba" draft="contributed">Baranjska županija</subdivision>
+			<subdivision type="hubc" draft="contributed">Békéscsaba</subdivision>
+			<subdivision type="hube" draft="contributed">Bekeška županija</subdivision>
+			<subdivision type="hubk" draft="contributed">Bačko-kiškunska županija</subdivision>
+			<subdivision type="hubu" draft="contributed">Budimpešta</subdivision>
+			<subdivision type="hubz" draft="contributed">Boršod-abaújsko-zemplénska županija</subdivision>
+			<subdivision type="hucs" draft="contributed">Čongradska županija</subdivision>
+			<subdivision type="hude" draft="contributed">Debrecin</subdivision>
+			<subdivision type="hudu" draft="contributed">Dunaújváros</subdivision>
+			<subdivision type="hueg" draft="contributed">Eger</subdivision>
+			<subdivision type="huer" draft="contributed">Andzabeg</subdivision>
+			<subdivision type="hufe" draft="contributed">Bila županija</subdivision>
+			<subdivision type="hugs" draft="contributed">Đursko-mošonjsko-šopronska županija</subdivision>
+			<subdivision type="hugy" draft="contributed">Jura</subdivision>
+			<subdivision type="huhb" draft="contributed">Hajdu-biharska županija</subdivision>
+			<subdivision type="huhe" draft="contributed">Heveška županija</subdivision>
+			<subdivision type="huhv" draft="contributed">Vašrelj</subdivision>
+			<subdivision type="hujn" draft="contributed">Jaziško-velikokumansko-szolnočka županija</subdivision>
+			<subdivision type="huke" draft="contributed">Komoransko-ostrogonska županija</subdivision>
+			<subdivision type="hukm" draft="contributed">Kečkemet</subdivision>
+			<subdivision type="hukv" draft="contributed">Kapošvar</subdivision>
+			<subdivision type="humi" draft="contributed">Miškolc</subdivision>
+			<subdivision type="hunk" draft="contributed">Velika Kaniža</subdivision>
+			<subdivision type="huno" draft="contributed">Nogradska županija</subdivision>
+			<subdivision type="huny" draft="contributed">Nyíregyháza</subdivision>
+			<subdivision type="hupe" draft="contributed">Peštanska županija</subdivision>
+			<subdivision type="hups" draft="contributed">Pečuh</subdivision>
+			<subdivision type="husd" draft="contributed">Segedin</subdivision>
+			<subdivision type="husf" draft="contributed">Stolni Biograd</subdivision>
+			<subdivision type="hush" draft="contributed">Sambotel</subdivision>
+			<subdivision type="husk" draft="contributed">Szolnok</subdivision>
+			<subdivision type="husn" draft="contributed">Šopron</subdivision>
+			<subdivision type="huso" draft="contributed">Šomođska županija</subdivision>
+			<subdivision type="huss" draft="contributed">Szekszárd</subdivision>
+			<subdivision type="hust" draft="contributed">Salgótarján</subdivision>
+			<subdivision type="husz" draft="contributed">Szabolčko-szatmársko-bereška županija</subdivision>
+			<subdivision type="hutb" draft="contributed">Tatabánya</subdivision>
+			<subdivision type="huto" draft="contributed">Tolnanska županija</subdivision>
+			<subdivision type="huva" draft="contributed">Željezna županija</subdivision>
+			<subdivision type="huve" draft="contributed">Vesprimska županija</subdivision>
+			<subdivision type="huvm" draft="contributed">Vesprim</subdivision>
+			<subdivision type="huza" draft="contributed">Zalska županija</subdivision>
+			<subdivision type="huze" draft="contributed">Jegersek</subdivision>
+			<subdivision type="idac" draft="contributed">Aceh</subdivision>
+			<subdivision type="idba" draft="contributed">Bali</subdivision>
+			<subdivision type="idjk" draft="contributed">Jakarta</subdivision>
+			<subdivision type="idjt" draft="contributed">Jawa Tengah</subdivision>
+			<subdivision type="idjw" draft="contributed">Java</subdivision>
+			<subdivision type="idml" draft="contributed">Molučki otoci</subdivision>
+			<subdivision type="idnt" draft="contributed">Istočni Mali sundski otoci</subdivision>
+			<subdivision type="idnu" draft="contributed">Mali sundski otoci</subdivision>
+			<subdivision type="idsl" draft="contributed">Sulawesi</subdivision>
+			<subdivision type="idsm" draft="contributed">Sumatra</subdivision>
+			<subdivision type="idyo" draft="contributed">Yogyakarta</subdivision>
+			<subdivision type="iec" draft="contributed">Cúige Chonnacht</subdivision>
+			<subdivision type="iedl" draft="contributed">Dhún na nGall</subdivision>
+			<subdivision type="iel" draft="contributed">Cúige Laighean</subdivision>
+			<subdivision type="iem" draft="contributed">Cúige Mumhan</subdivision>
+			<subdivision type="ieu" draft="contributed">Cúige Uladh</subdivision>
+			<subdivision type="ilha" draft="contributed">Okrug Haifa</subdivision>
+			<subdivision type="inan" draft="contributed">Andamanski i Nikobarski otoci</subdivision>
+			<subdivision type="inap" draft="contributed">Andhra Pradesh</subdivision>
+			<subdivision type="inar" draft="contributed">Arunachal Pradesh</subdivision>
+			<subdivision type="inas" draft="contributed">Assam</subdivision>
+			<subdivision type="inbr" draft="contributed">Bihar</subdivision>
+			<subdivision type="inch" draft="contributed">Chandigarh</subdivision>
+			<subdivision type="inct" draft="contributed">Chhattisgarh</subdivision>
+			<subdivision type="indd" draft="contributed">Daman i Diu</subdivision>
+			<subdivision type="indl" draft="contributed">Delhi</subdivision>
+			<subdivision type="indn" draft="contributed">Dadra i Nagar Haveli</subdivision>
+			<subdivision type="inga" draft="contributed">Goa</subdivision>
+			<subdivision type="ingj" draft="contributed">Gudžerat</subdivision>
+			<subdivision type="inhp" draft="contributed">Himachal Pradesh</subdivision>
+			<subdivision type="inhr" draft="contributed">Haryana</subdivision>
+			<subdivision type="injh" draft="contributed">Jharkhand</subdivision>
+			<subdivision type="injk" draft="contributed">Jammu i Kashmir</subdivision>
+			<subdivision type="inka" draft="contributed">Karnataka</subdivision>
+			<subdivision type="inkl" draft="contributed">Kerala</subdivision>
+			<subdivision type="inld" draft="contributed">Lakadivi</subdivision>
+			<subdivision type="inmh" draft="contributed">Maharashtra</subdivision>
+			<subdivision type="inml" draft="contributed">Meghalaya</subdivision>
+			<subdivision type="inmn" draft="contributed">Manipur</subdivision>
+			<subdivision type="inmp" draft="contributed">Madhya Pradesh</subdivision>
+			<subdivision type="inmz" draft="contributed">Mizoram</subdivision>
+			<subdivision type="innl" draft="contributed">Nagaland</subdivision>
+			<subdivision type="inor" draft="contributed">Orissa</subdivision>
+			<subdivision type="inpb" draft="contributed">Punjab</subdivision>
+			<subdivision type="inpy" draft="contributed">Pondicherry</subdivision>
+			<subdivision type="inrj" draft="contributed">Radžastan</subdivision>
+			<subdivision type="insk" draft="contributed">Sikkim</subdivision>
+			<subdivision type="intn" draft="contributed">Tamil Nadu</subdivision>
+			<subdivision type="intr" draft="contributed">Tripura</subdivision>
+			<subdivision type="inup" draft="contributed">Uttar Pradesh</subdivision>
+			<subdivision type="inut" draft="contributed">Uttarakhand</subdivision>
+			<subdivision type="inwb" draft="contributed">Zapadni Bengal</subdivision>
+			<subdivision type="ir01" draft="contributed">Istočni Azarbajdžan</subdivision>
+			<subdivision type="ir02" draft="contributed">Zapadni Azarbajdžan</subdivision>
+			<subdivision type="ir03" draft="contributed">Ardabil</subdivision>
+			<subdivision type="ir04" draft="contributed">Isfahanska pokrajina</subdivision>
+			<subdivision type="ir05" draft="contributed">Ilam</subdivision>
+			<subdivision type="ir06" draft="contributed">Bušer</subdivision>
+			<subdivision type="ir07" draft="contributed">Teheran</subdivision>
+			<subdivision type="ir08" draft="contributed">Čahar Mahal i Bahtijari</subdivision>
+			<subdivision type="ir10" draft="contributed">Huzestan</subdivision>
+			<subdivision type="ir11" draft="contributed">Zandžan (pokrajina)</subdivision>
+			<subdivision type="ir12" draft="contributed">Semnan</subdivision>
+			<subdivision type="ir13" draft="contributed">Sistan i Beludžistan</subdivision>
+			<subdivision type="ir14" draft="contributed">Fars</subdivision>
+			<subdivision type="ir15" draft="contributed">Kerman</subdivision>
+			<subdivision type="ir16" draft="contributed">Kurdistan</subdivision>
+			<subdivision type="ir17" draft="contributed">Kermanšah</subdivision>
+			<subdivision type="ir18" draft="contributed">Kuhgiluje i Bojer Ahmad</subdivision>
+			<subdivision type="ir19" draft="contributed">Gilan</subdivision>
+			<subdivision type="ir20" draft="contributed">Luristan</subdivision>
+			<subdivision type="ir21" draft="contributed">Mazandaran</subdivision>
+			<subdivision type="ir22" draft="contributed">Markazi</subdivision>
+			<subdivision type="ir23" draft="contributed">Hormuzgan</subdivision>
+			<subdivision type="ir24" draft="contributed">Hamadan</subdivision>
+			<subdivision type="ir25" draft="contributed">Jazd</subdivision>
+			<subdivision type="ir26" draft="contributed">Kom</subdivision>
+			<subdivision type="ir27" draft="contributed">Golestan</subdivision>
+			<subdivision type="ir28" draft="contributed">Kazvinska pokrajina</subdivision>
+			<subdivision type="ir29" draft="contributed">Južni Horasan</subdivision>
+			<subdivision type="ir30" draft="contributed">Razavi Horasan</subdivision>
+			<subdivision type="ir31" draft="contributed">Sjeverni Horasan</subdivision>
+			<subdivision type="ir32" draft="contributed">Alborz</subdivision>
+			<subdivision type="is8" draft="contributed">Suðurland</subdivision>
+			<subdivision type="it21" draft="contributed">Pijemont</subdivision>
+			<subdivision type="it23" draft="contributed">Valle d’Aosta</subdivision>
+			<subdivision type="it25" draft="contributed">Lombardija</subdivision>
+			<subdivision type="it32" draft="contributed">Trentino-Južni Tirol</subdivision>
+			<subdivision type="it34" draft="contributed">Veneto</subdivision>
+			<subdivision type="it36" draft="contributed">Furlanija-Julijska krajina</subdivision>
+			<subdivision type="it42" draft="contributed">Ligurija</subdivision>
+			<subdivision type="it45" draft="contributed">Emilia-Romagna</subdivision>
+			<subdivision type="it52" draft="contributed">Toskana</subdivision>
+			<subdivision type="it55" draft="contributed">Umbrija</subdivision>
+			<subdivision type="it57" draft="contributed">Marke</subdivision>
+			<subdivision type="it62" draft="contributed">Lacij</subdivision>
+			<subdivision type="it65" draft="contributed">Abruzzo</subdivision>
+			<subdivision type="it67" draft="contributed">Molise</subdivision>
+			<subdivision type="it72" draft="contributed">Kampanija</subdivision>
+			<subdivision type="it75" draft="contributed">Apulija</subdivision>
+			<subdivision type="it77" draft="contributed">Basilicata</subdivision>
+			<subdivision type="it78" draft="contributed">Kalabrija</subdivision>
+			<subdivision type="it82" draft="contributed">Sicilija</subdivision>
+			<subdivision type="it88" draft="contributed">Sardinija</subdivision>
+			<subdivision type="itag" draft="contributed">Agrigento</subdivision>
+			<subdivision type="itao" draft="contributed">Aosta</subdivision>
+			<subdivision type="itar" draft="contributed">Arezzo</subdivision>
+			<subdivision type="itbl" draft="contributed">Belluno (pokrajina)</subdivision>
+			<subdivision type="itbz" draft="contributed">Autonomna pokrajina Bocen</subdivision>
+			<subdivision type="itcb" draft="contributed">Campobasso</subdivision>
+			<subdivision type="itch" draft="contributed">Chieti</subdivision>
+			<subdivision type="itcl" draft="contributed">Caltanissetta</subdivision>
+			<subdivision type="itcs" draft="contributed">Cosenza</subdivision>
+			<subdivision type="itct" draft="contributed">Catania</subdivision>
+			<subdivision type="itcz" draft="contributed">Catanzaro</subdivision>
+			<subdivision type="iten" draft="contributed">Enna</subdivision>
+			<subdivision type="itfg" draft="contributed">Foggia</subdivision>
+			<subdivision type="itfi" draft="contributed">Firenca</subdivision>
+			<subdivision type="itfr" draft="contributed">Frosinone</subdivision>
+			<subdivision type="itgo" draft="contributed">Gorica</subdivision>
+			<subdivision type="itgr" draft="contributed">Grosseto (pokrajina)</subdivision>
+			<subdivision type="itis" draft="contributed">Isernia</subdivision>
+			<subdivision type="itlc" draft="contributed">Pokrajina Lecco</subdivision>
+			<subdivision type="itlt" draft="contributed">Latina</subdivision>
+			<subdivision type="itme" draft="contributed">Messina</subdivision>
+			<subdivision type="itna" draft="contributed">Napulj (pokrajina)</subdivision>
+			<subdivision type="itpa" draft="contributed">Palermo</subdivision>
+			<subdivision type="itpd" draft="contributed">Padova (pokrajina)</subdivision>
+			<subdivision type="itpg" draft="contributed">Perugia</subdivision>
+			<subdivision type="itpn" draft="contributed">Pordenone</subdivision>
+			<subdivision type="itra" draft="contributed">Ravenna</subdivision>
+			<subdivision type="itrg" draft="contributed">Ragusa</subdivision>
+			<subdivision type="itri" draft="contributed">Rieti</subdivision>
+			<subdivision type="itrm" draft="contributed">Rim</subdivision>
+			<subdivision type="itro" draft="contributed">Rovigo (pokrajina)</subdivision>
+			<subdivision type="itsi" draft="contributed">Provincija Siena</subdivision>
+			<subdivision type="itsr" draft="contributed">Sirakuza</subdivision>
+			<subdivision type="ittn" draft="contributed">Autonomna pokrajina Trident</subdivision>
+			<subdivision type="ittp" draft="contributed">Trapani</subdivision>
+			<subdivision type="ittr" draft="contributed">Terni</subdivision>
+			<subdivision type="itts" draft="contributed">Trst</subdivision>
+			<subdivision type="ittv" draft="contributed">Treviso</subdivision>
+			<subdivision type="itud" draft="contributed">Udine</subdivision>
+			<subdivision type="itve" draft="contributed">Venecija</subdivision>
+			<subdivision type="itvi" draft="contributed">Vicenza (pokrajina)</subdivision>
+			<subdivision type="itvr" draft="contributed">Verona (pokrajina)</subdivision>
+			<subdivision type="itvt" draft="contributed">Viterbo</subdivision>
+			<subdivision type="jp01" draft="contributed">Hokkaido, prefektura</subdivision>
+			<subdivision type="jp02" draft="contributed">Aomori</subdivision>
+			<subdivision type="jp03" draft="contributed">Iwate</subdivision>
+			<subdivision type="jp04" draft="contributed">Miyagi</subdivision>
+			<subdivision type="jp05" draft="contributed">Akita</subdivision>
+			<subdivision type="jp06" draft="contributed">Yamagata</subdivision>
+			<subdivision type="jp07" draft="contributed">Fukushima</subdivision>
+			<subdivision type="jp08" draft="contributed">Ibaraki</subdivision>
+			<subdivision type="jp09" draft="contributed">Tochigi</subdivision>
+			<subdivision type="jp10" draft="contributed">Gunma</subdivision>
+			<subdivision type="jp11" draft="contributed">Saitama</subdivision>
+			<subdivision type="jp12" draft="contributed">Chiba</subdivision>
+			<subdivision type="jp13" draft="contributed">Tokio</subdivision>
+			<subdivision type="jp14" draft="contributed">Kanagawa</subdivision>
+			<subdivision type="jp15" draft="contributed">Niigata</subdivision>
+			<subdivision type="jp16" draft="contributed">Toyama</subdivision>
+			<subdivision type="jp17" draft="contributed">Ishikawa</subdivision>
+			<subdivision type="jp18" draft="contributed">Fukui</subdivision>
+			<subdivision type="jp19" draft="contributed">Yamanashi</subdivision>
+			<subdivision type="jp20" draft="contributed">Nagano</subdivision>
+			<subdivision type="jp21" draft="contributed">Gifu</subdivision>
+			<subdivision type="jp22" draft="contributed">Shizuoka</subdivision>
+			<subdivision type="jp23" draft="contributed">Aichi</subdivision>
+			<subdivision type="jp24" draft="contributed">Mie</subdivision>
+			<subdivision type="jp25" draft="contributed">Shiga</subdivision>
+			<subdivision type="jp26" draft="contributed">Kyōto</subdivision>
+			<subdivision type="jp27" draft="contributed">Ōsaka</subdivision>
+			<subdivision type="jp28" draft="contributed">Hyōgo</subdivision>
+			<subdivision type="jp29" draft="contributed">Nara</subdivision>
+			<subdivision type="jp30" draft="contributed">Wakayama</subdivision>
+			<subdivision type="jp31" draft="contributed">Tottori</subdivision>
+			<subdivision type="jp32" draft="contributed">Shimane</subdivision>
+			<subdivision type="jp33" draft="contributed">Okayama</subdivision>
+			<subdivision type="jp34" draft="contributed">Hiroshima, prefektura</subdivision>
+			<subdivision type="jp35" draft="contributed">Yamaguchi</subdivision>
+			<subdivision type="jp36" draft="contributed">Tokushima</subdivision>
+			<subdivision type="jp37" draft="contributed">Kagawa</subdivision>
+			<subdivision type="jp38" draft="contributed">Ehime</subdivision>
+			<subdivision type="jp39" draft="contributed">Kōchi</subdivision>
+			<subdivision type="jp40" draft="contributed">Fukuoka</subdivision>
+			<subdivision type="jp41" draft="contributed">Saga</subdivision>
+			<subdivision type="jp42" draft="contributed">Nagasaki</subdivision>
+			<subdivision type="jp43" draft="contributed">Kumamoto</subdivision>
+			<subdivision type="jp44" draft="contributed">Ōita</subdivision>
+			<subdivision type="jp45" draft="contributed">Miyazaki</subdivision>
+			<subdivision type="jp46" draft="contributed">Kagoshima</subdivision>
+			<subdivision type="jp47" draft="contributed">Okinawa, prefektura</subdivision>
+			<subdivision type="kgb" draft="contributed">Batkenska oblast</subdivision>
+			<subdivision type="kgc" draft="contributed">Čujska oblast</subdivision>
+			<subdivision type="kggb" draft="contributed">Biškek</subdivision>
+			<subdivision type="kggo" draft="contributed">Oš</subdivision>
+			<subdivision type="kgj" draft="contributed">Žalalabatska oblast</subdivision>
+			<subdivision type="kgn" draft="contributed">Narinska oblast</subdivision>
+			<subdivision type="kgo" draft="contributed">Oška oblast</subdivision>
+			<subdivision type="kgt" draft="contributed">Talaska oblast</subdivision>
+			<subdivision type="kgy" draft="contributed">Isjakulska oblast</subdivision>
+			<subdivision type="kh12" draft="contributed">Phnom Penh</subdivision>
+			<subdivision type="kig" draft="contributed">Gilbertovi otoci</subdivision>
+			<subdivision type="kip" draft="contributed">Otočje Phoenix</subdivision>
+			<subdivision type="kma" draft="contributed">Anjouan</subdivision>
+			<subdivision type="kmg" draft="contributed">Grande Comore</subdivision>
+			<subdivision type="kmm" draft="contributed">Mohéli</subdivision>
+			<subdivision type="kp01" draft="contributed">Pjongjang</subdivision>
+			<subdivision type="kr11" draft="contributed">Seul</subdivision>
+			<subdivision type="kr26" draft="contributed">Busan</subdivision>
+			<subdivision type="kr27" draft="contributed">Daegu</subdivision>
+			<subdivision type="kr28" draft="contributed">Incheon</subdivision>
+			<subdivision type="kr30" draft="contributed">Daejeon</subdivision>
+			<subdivision type="kr49" draft="contributed">Jeju</subdivision>
+			<subdivision type="kwha" draft="contributed">Hawalli</subdivision>
+			<subdivision type="kwja" draft="contributed">Al Jahra</subdivision>
+			<subdivision type="kwku" draft="contributed">Al Asimah</subdivision>
+			<subdivision type="kwmu" draft="contributed">Mubarak Al-Kabeer</subdivision>
+			<subdivision type="kzala" draft="contributed">Almati</subdivision>
+			<subdivision type="kzast" draft="contributed">Astana</subdivision>
+			<subdivision type="kzbay" draft="contributed">Bajkonur</subdivision>
+			<subdivision type="laat" draft="contributed">Attapeu (provincija)</subdivision>
+			<subdivision type="labk" draft="contributed">Bokeo</subdivision>
+			<subdivision type="labl" draft="contributed">Bolikhamsai (provincija)</subdivision>
+			<subdivision type="lach" draft="contributed">Čampasak</subdivision>
+			<subdivision type="laho" draft="contributed">Houaphan</subdivision>
+			<subdivision type="lakh" draft="contributed">Khammouane</subdivision>
+			<subdivision type="lalm" draft="contributed">Luang Namtha (provincija)</subdivision>
+			<subdivision type="lalp" draft="contributed">Luang Prabang (provincija)</subdivision>
+			<subdivision type="laou" draft="contributed">Oudomxay</subdivision>
+			<subdivision type="laph" draft="contributed">Phongsali</subdivision>
+			<subdivision type="lasl" draft="contributed">Salavan (provincija)</subdivision>
+			<subdivision type="lasv" draft="contributed">Savannakhet</subdivision>
+			<subdivision type="lavi" draft="contributed">Vientiane</subdivision>
+			<subdivision type="lavt" draft="contributed">Vientiane (prefektura)</subdivision>
+			<subdivision type="laxa" draft="contributed">Sainyabuli</subdivision>
+			<subdivision type="laxe" draft="contributed">Sekong (provincija)</subdivision>
+			<subdivision type="laxi" draft="contributed">Xiang Khouang</subdivision>
+			<subdivision type="li11" draft="contributed">Vaduz</subdivision>
+			<subdivision type="ltal" draft="contributed">Okrug Alitus</subdivision>
+			<subdivision type="ltkl" draft="contributed">Okrug Klaipėda</subdivision>
+			<subdivision type="ltku" draft="contributed">Okrug Kaunas</subdivision>
+			<subdivision type="ltmr" draft="contributed">Okrug Marijampolė</subdivision>
+			<subdivision type="ltpn" draft="contributed">Okrug Panevėžis</subdivision>
+			<subdivision type="ltsa" draft="contributed">Okrug Šiauliai</subdivision>
+			<subdivision type="ltta" draft="contributed">Okrug Tauragė</subdivision>
+			<subdivision type="ltte" draft="contributed">Okrug Telšiai</subdivision>
+			<subdivision type="ltut" draft="contributed">Okrug Utena</subdivision>
+			<subdivision type="ltvl" draft="contributed">Okrug Vilnius</subdivision>
+			<subdivision type="lvdgv" draft="contributed">Daugavpils</subdivision>
+			<subdivision type="lvjel" draft="contributed">Jelgava</subdivision>
+			<subdivision type="lvjkb" draft="contributed">Jēkabpils</subdivision>
+			<subdivision type="lvjur" draft="contributed">Jūrmala</subdivision>
+			<subdivision type="lvlpx" draft="contributed">Liepāja</subdivision>
+			<subdivision type="lvrix" draft="contributed">Riga</subdivision>
+			<subdivision type="lyba" draft="contributed">Bengazi</subdivision>
+			<subdivision type="ma01" draft="contributed">Tangier-Tetouan</subdivision>
+			<subdivision type="ma02" draft="contributed">Gharb-Chrarda-Béni Hssen</subdivision>
+			<subdivision type="ma03" draft="contributed">Taza-Al Hoceima-Taounate</subdivision>
+			<subdivision type="ma04" draft="contributed">Oriental</subdivision>
+			<subdivision type="ma05" draft="contributed">Fès-Boulemane</subdivision>
+			<subdivision type="ma06" draft="contributed">Meknès-Tafilalet</subdivision>
+			<subdivision type="ma07" draft="contributed">Rabat-Salé-Zemmour-Zaer</subdivision>
+			<subdivision type="ma08" draft="contributed">Grand Casablanca</subdivision>
+			<subdivision type="ma09" draft="contributed">Chaouia-Ouardigha</subdivision>
+			<subdivision type="ma10" draft="contributed">Doukkala-Abda</subdivision>
+			<subdivision type="ma11" draft="contributed">Marrakesh-Tensift-El Haouz</subdivision>
+			<subdivision type="ma12" draft="contributed">Tadla-Azilal</subdivision>
+			<subdivision type="ma13" draft="contributed">Souss-Massa-Drâa</subdivision>
+			<subdivision type="ma14" draft="contributed">Guelmim-Es Semara</subdivision>
+			<subdivision type="ma15" draft="contributed">Laâyoune-Boujdour-Sakia El Hamra</subdivision>
+			<subdivision type="ma16" draft="contributed">Oued Ed-Dahab-Lagouira</subdivision>
+			<subdivision type="maagd" draft="contributed">Agadir</subdivision>
+			<subdivision type="macas" draft="contributed">Casablanca</subdivision>
+			<subdivision type="mafes" draft="contributed">Fes</subdivision>
+			<subdivision type="mamek" draft="contributed">Meknes</subdivision>
+			<subdivision type="mammd" draft="contributed">Marrakech</subdivision>
+			<subdivision type="mammn" draft="contributed">Marrakech²</subdivision>
+			<subdivision type="maouj" draft="contributed">Oujda</subdivision>
+			<subdivision type="marab" draft="contributed">Rabat</subdivision>
+			<subdivision type="masal" draft="contributed">Salé</subdivision>
+			<subdivision type="masyb" draft="contributed">Marrakech³</subdivision>
+			<subdivision type="matng" draft="contributed">Tanger</subdivision>
+			<subdivision type="mcmc" draft="contributed">Monte Carlo</subdivision>
+			<subdivision type="mdba" draft="contributed">Bălți</subdivision>
+			<subdivision type="mdbd" draft="contributed">Bender</subdivision>
+			<subdivision type="mdcu" draft="contributed">Kišinjev</subdivision>
+			<subdivision type="mdga" draft="contributed">Gagauzija</subdivision>
+			<subdivision type="mgu" draft="contributed">Provincija Toliara</subdivision>
+			<subdivision type="mhall" draft="contributed">Ailinglaplap</subdivision>
+			<subdivision type="mhebo" draft="contributed">Ebon</subdivision>
+			<subdivision type="mheni" draft="contributed">Enewetak</subdivision>
+			<subdivision type="mhjab" draft="contributed">Jabwat</subdivision>
+			<subdivision type="mhjal" draft="contributed">Jaluit</subdivision>
+			<subdivision type="mhkil" draft="contributed">Kili</subdivision>
+			<subdivision type="mhkwa" draft="contributed">Kwajalein</subdivision>
+			<subdivision type="mhl" draft="contributed">Ralik</subdivision>
+			<subdivision type="mhlae" draft="contributed">Lae</subdivision>
+			<subdivision type="mhlib" draft="contributed">Lib</subdivision>
+			<subdivision type="mhmaj" draft="contributed">Majuro</subdivision>
+			<subdivision type="mhnmk" draft="contributed">Namorik</subdivision>
+			<subdivision type="mhnmu" draft="contributed">Namu</subdivision>
+			<subdivision type="mhron" draft="contributed">Rongelap</subdivision>
+			<subdivision type="mht" draft="contributed">Ratak</subdivision>
+			<subdivision type="mhuja" draft="contributed">Ujae</subdivision>
+			<subdivision type="mhwth" draft="contributed">Wotho</subdivision>
+			<subdivision type="mk02" draft="contributed">Općina Aračinovo</subdivision>
+			<subdivision type="mk03" draft="contributed">Općina Berovo</subdivision>
+			<subdivision type="mk04" draft="contributed">Općina Bitolj</subdivision>
+			<subdivision type="mk05" draft="contributed">Općina Bogdanci</subdivision>
+			<subdivision type="mk06" draft="contributed">Općina Bogovinje</subdivision>
+			<subdivision type="mk07" draft="contributed">Općina Bosilovo</subdivision>
+			<subdivision type="mk08" draft="contributed">Općina Brvenica</subdivision>
+			<subdivision type="mk10" draft="contributed">Općina Valandovo</subdivision>
+			<subdivision type="mk11" draft="contributed">Općina Vasilevo</subdivision>
+			<subdivision type="mk12" draft="contributed">Općina Vevčani</subdivision>
+			<subdivision type="mk13" draft="contributed">Općina Veles</subdivision>
+			<subdivision type="mk14" draft="contributed">Općina Vinica</subdivision>
+			<subdivision type="mk16" draft="contributed">Općina Vrapčište</subdivision>
+			<subdivision type="mk18" draft="contributed">Općina Gevgelija</subdivision>
+			<subdivision type="mk19" draft="contributed">Općina Gostivar</subdivision>
+			<subdivision type="mk20" draft="contributed">Općina Gradsko</subdivision>
+			<subdivision type="mk21" draft="contributed">Općina Debar</subdivision>
+			<subdivision type="mk22" draft="contributed">Općina Debarca</subdivision>
+			<subdivision type="mk23" draft="contributed">Općina Delčevo</subdivision>
+			<subdivision type="mk24" draft="contributed">Općina Demir Kapija</subdivision>
+			<subdivision type="mk25" draft="contributed">Općina Demir Hisar</subdivision>
+			<subdivision type="mk26" draft="contributed">Općina Dojran</subdivision>
+			<subdivision type="mk27" draft="contributed">Općina Dolneni</subdivision>
+			<subdivision type="mk30" draft="contributed">Općina Želino</subdivision>
+			<subdivision type="mk32" draft="contributed">Općina Zelenikovo</subdivision>
+			<subdivision type="mk33" draft="contributed">Općina Zrnovci</subdivision>
+			<subdivision type="mk34" draft="contributed">Općina Ilinden</subdivision>
+			<subdivision type="mk35" draft="contributed">Općina Jegunovce</subdivision>
+			<subdivision type="mk36" draft="contributed">Općina Kavadarci</subdivision>
+			<subdivision type="mk37" draft="contributed">Općina Karbinci</subdivision>
+			<subdivision type="mk40" draft="contributed">Općina Kičevo</subdivision>
+			<subdivision type="mk41" draft="contributed">Općina Konče</subdivision>
+			<subdivision type="mk42" draft="contributed">Općina Kočani</subdivision>
+			<subdivision type="mk43" draft="contributed">Općina Kratovo</subdivision>
+			<subdivision type="mk44" draft="contributed">Općina Kriva Palanka</subdivision>
+			<subdivision type="mk45" draft="contributed">Općina Krivogaštani</subdivision>
+			<subdivision type="mk46" draft="contributed">Općina Kruševo</subdivision>
+			<subdivision type="mk47" draft="contributed">Općina Kumanovo</subdivision>
+			<subdivision type="mk48" draft="contributed">Općina Lipkovo</subdivision>
+			<subdivision type="mk49" draft="contributed">Općina Lozovo</subdivision>
+			<subdivision type="mk50" draft="contributed">Općina Mavrovo i Rostuša</subdivision>
+			<subdivision type="mk51" draft="contributed">Općina Staro Nagoričane</subdivision>
+			<subdivision type="mk52" draft="contributed">Općina Gostivar²</subdivision>
+			<subdivision type="mk53" draft="contributed">Općina Mogila</subdivision>
+			<subdivision type="mk54" draft="contributed">Općina Negotino</subdivision>
+			<subdivision type="mk55" draft="contributed">Općina Novaci</subdivision>
+			<subdivision type="mk56" draft="contributed">Općina Novo Selo</subdivision>
+			<subdivision type="mk58" draft="contributed">Općina Ohrid</subdivision>
+			<subdivision type="mk59" draft="contributed">Općina Petrovec</subdivision>
+			<subdivision type="mk60" draft="contributed">Općina Pehčevo</subdivision>
+			<subdivision type="mk61" draft="contributed">Općina Plasnica</subdivision>
+			<subdivision type="mk62" draft="contributed">Općina Prilep</subdivision>
+			<subdivision type="mk63" draft="contributed">Općina Probištip</subdivision>
+			<subdivision type="mk64" draft="contributed">Općina Radoviš</subdivision>
+			<subdivision type="mk65" draft="contributed">Općina Rankovce</subdivision>
+			<subdivision type="mk66" draft="contributed">Općina Resen</subdivision>
+			<subdivision type="mk67" draft="contributed">Općina Rosoman</subdivision>
+			<subdivision type="mk69" draft="contributed">Općina Sveti Nikole</subdivision>
+			<subdivision type="mk70" draft="contributed">Općina Sopište</subdivision>
+			<subdivision type="mk72" draft="contributed">Općina Struga</subdivision>
+			<subdivision type="mk73" draft="contributed">Općina Strumica</subdivision>
+			<subdivision type="mk74" draft="contributed">Općina Studeničani</subdivision>
+			<subdivision type="mk75" draft="contributed">Općina Tearce</subdivision>
+			<subdivision type="mk76" draft="contributed">Općina Tetovo</subdivision>
+			<subdivision type="mk78" draft="contributed">Općina Centar Župa</subdivision>
+			<subdivision type="mk80" draft="contributed">Općina Čaška</subdivision>
+			<subdivision type="mk81" draft="contributed">Općina Češinovo-Obleševo</subdivision>
+			<subdivision type="mk82" draft="contributed">Općina Čučer-Sandevo</subdivision>
+			<subdivision type="mk83" draft="contributed">Općina Štip</subdivision>
+			<subdivision type="mk85" draft="contributed">Skoplje</subdivision>
+			<subdivision type="mlbko" draft="contributed">Bamako</subdivision>
+			<subdivision type="mm11" draft="contributed">Država Kachin</subdivision>
+			<subdivision type="mn1" draft="contributed">Ulan Bator</subdivision>
+			<subdivision type="mt01" draft="contributed">Attard</subdivision>
+			<subdivision type="mt02" draft="contributed">Balzan</subdivision>
+			<subdivision type="mt04" draft="contributed">Birkirkara</subdivision>
+			<subdivision type="mt08" draft="contributed">Fgura</subdivision>
+			<subdivision type="mt21" draft="contributed">Kalkara</subdivision>
+			<subdivision type="mt23" draft="contributed">Kirkop</subdivision>
+			<subdivision type="mt25" draft="contributed">Luqa</subdivision>
+			<subdivision type="mt26" draft="contributed">Marsa</subdivision>
+			<subdivision type="mt29" draft="contributed">Mdina</subdivision>
+			<subdivision type="mt32" draft="contributed">Mosta</subdivision>
+			<subdivision type="mt46" draft="contributed">Rabat</subdivision>
+			<subdivision type="mt48" draft="contributed">St. Julian’s</subdivision>
+			<subdivision type="mt56" draft="contributed">Sliema</subdivision>
+			<subdivision type="mt60" draft="contributed">Valletta</subdivision>
+			<subdivision type="mupa" draft="contributed">Pamplemousses</subdivision>
+			<subdivision type="mupu" draft="contributed">Port Louis</subdivision>
+			<subdivision type="mvmle" draft="contributed">Malé</subdivision>
+			<subdivision type="mxagu" draft="contributed">Aguascalientes</subdivision>
+			<subdivision type="mxbcn" draft="contributed">Baja California</subdivision>
+			<subdivision type="mxbcs" draft="contributed">Baja California Sur</subdivision>
+			<subdivision type="mxcam" draft="contributed">Campeche</subdivision>
+			<subdivision type="mxchh" draft="contributed">Chihuahua</subdivision>
+			<subdivision type="mxchp" draft="contributed">Chiapas</subdivision>
+			<subdivision type="mxcmx" draft="contributed">Ciudad de México</subdivision>
+			<subdivision type="mxcoa" draft="contributed">Coahuila</subdivision>
+			<subdivision type="mxcol" draft="contributed">Colima</subdivision>
+			<subdivision type="mxdur" draft="contributed">Durango</subdivision>
+			<subdivision type="mxgro" draft="contributed">Guerrero</subdivision>
+			<subdivision type="mxgua" draft="contributed">Guanajuato</subdivision>
+			<subdivision type="mxhid" draft="contributed">Hidalgo</subdivision>
+			<subdivision type="mxjal" draft="contributed">Jalisco</subdivision>
+			<subdivision type="mxmex" draft="contributed">ples</subdivision>
+			<subdivision type="mxmic" draft="contributed">Michoacán</subdivision>
+			<subdivision type="mxmor" draft="contributed">Morelos</subdivision>
+			<subdivision type="mxnay" draft="contributed">Nayarit</subdivision>
+			<subdivision type="mxnle" draft="contributed">Nuevo León</subdivision>
+			<subdivision type="mxoax" draft="contributed">Oaxaca</subdivision>
+			<subdivision type="mxpue" draft="contributed">Puebla</subdivision>
+			<subdivision type="mxque" draft="contributed">Querétaro</subdivision>
+			<subdivision type="mxroo" draft="contributed">Quintana Roo</subdivision>
+			<subdivision type="mxsin" draft="contributed">Sinaloa</subdivision>
+			<subdivision type="mxslp" draft="contributed">San Luis Potosí</subdivision>
+			<subdivision type="mxson" draft="contributed">Sonora</subdivision>
+			<subdivision type="mxtab" draft="contributed">Tabasco</subdivision>
+			<subdivision type="mxtam" draft="contributed">Tamaulipas</subdivision>
+			<subdivision type="mxtla" draft="contributed">Tlaxcala</subdivision>
+			<subdivision type="mxver" draft="contributed">Veracruz</subdivision>
+			<subdivision type="mxyuc" draft="contributed">Yucatán</subdivision>
+			<subdivision type="mxzac" draft="contributed">Zacatecas</subdivision>
+			<subdivision type="my14" draft="contributed">Kuala Lumpur</subdivision>
+			<subdivision type="my16" draft="contributed">Putrajaya</subdivision>
+			<subdivision type="mzmpm" draft="contributed">Maputo</subdivision>
+			<subdivision type="naca" draft="contributed">Caprivi</subdivision>
+			<subdivision type="naer" draft="contributed">Erongo</subdivision>
+			<subdivision type="naha" draft="contributed">Hardap</subdivision>
+			<subdivision type="naka" draft="contributed">Karas</subdivision>
+			<subdivision type="nakh" draft="contributed">Khomas</subdivision>
+			<subdivision type="naku" draft="contributed">Kunene</subdivision>
+			<subdivision type="naod" draft="contributed">Otjozondjupa</subdivision>
+			<subdivision type="naoh" draft="contributed">Omaheke</subdivision>
+			<subdivision type="naon" draft="contributed">Oshana</subdivision>
+			<subdivision type="naos" draft="contributed">Omusati</subdivision>
+			<subdivision type="naot" draft="contributed">Oshikoto</subdivision>
+			<subdivision type="naow" draft="contributed">Ohangwena</subdivision>
+			<subdivision type="ne1" draft="contributed">Agadez (regija)</subdivision>
+			<subdivision type="ne2" draft="contributed">Diffa</subdivision>
+			<subdivision type="ne3" draft="contributed">Dosso</subdivision>
+			<subdivision type="ne4" draft="contributed">Maradi</subdivision>
+			<subdivision type="ne5" draft="contributed">Tahoua</subdivision>
+			<subdivision type="ne6" draft="contributed">Tillabéri</subdivision>
+			<subdivision type="ne7" draft="contributed">Zinder</subdivision>
+			<subdivision type="ne8" draft="contributed">Niamey</subdivision>
+			<subdivision type="nggo" draft="contributed">Gombe, nigerijska država</subdivision>
+			<subdivision type="nlbq1" draft="contributed">Bonaire</subdivision>
+			<subdivision type="nlbq2" draft="contributed">Saba</subdivision>
+			<subdivision type="nlbq3" draft="contributed">Sveti Eustasius</subdivision>
+			<subdivision type="nlge" draft="contributed">Gelderland</subdivision>
+			<subdivision type="nlli" draft="contributed">Limburg</subdivision>
+			<subdivision type="nlnb" draft="contributed">Sjeverni Brabant</subdivision>
+			<subdivision type="no01" draft="contributed">Østfold</subdivision>
+			<subdivision type="no02" draft="contributed">Akershus</subdivision>
+			<subdivision type="no03" draft="contributed">Oslo</subdivision>
+			<subdivision type="no04" draft="contributed">Hedmark</subdivision>
+			<subdivision type="no05" draft="contributed">Oppland</subdivision>
+			<subdivision type="no06" draft="contributed">Buskerud</subdivision>
+			<subdivision type="no07" draft="contributed">Vestfold</subdivision>
+			<subdivision type="no08" draft="contributed">Telemark</subdivision>
+			<subdivision type="no09" draft="contributed">Aust-Agder</subdivision>
+			<subdivision type="no10" draft="contributed">Vest-Agder</subdivision>
+			<subdivision type="no11" draft="contributed">Rogaland</subdivision>
+			<subdivision type="no12" draft="contributed">Hordaland</subdivision>
+			<subdivision type="no14" draft="contributed">Sogn og Fjordane</subdivision>
+			<subdivision type="no15" draft="contributed">Møre og Romsdal</subdivision>
+			<subdivision type="no16" draft="contributed">Sør-Trøndelag</subdivision>
+			<subdivision type="no17" draft="contributed">Nord-Trøndelag</subdivision>
+			<subdivision type="no18" draft="contributed">Nordland</subdivision>
+			<subdivision type="no19" draft="contributed">Troms</subdivision>
+			<subdivision type="no20" draft="contributed">Finnmark</subdivision>
+			<subdivision type="no21" draft="contributed">Svalbard</subdivision>
+			<subdivision type="no22" draft="contributed">Jan Mayen</subdivision>
+			<subdivision type="nr01" draft="contributed">Aiwo</subdivision>
+			<subdivision type="nr02" draft="contributed">Anabar</subdivision>
+			<subdivision type="nr03" draft="contributed">Anetan</subdivision>
+			<subdivision type="nr04" draft="contributed">Anibare</subdivision>
+			<subdivision type="nr05" draft="contributed">Baiti</subdivision>
+			<subdivision type="nr06" draft="contributed">Boe</subdivision>
+			<subdivision type="nr07" draft="contributed">Buada</subdivision>
+			<subdivision type="nr08" draft="contributed">Denigomodu</subdivision>
+			<subdivision type="nr09" draft="contributed">Ewa</subdivision>
+			<subdivision type="nr10" draft="contributed">Ijuw</subdivision>
+			<subdivision type="nr11" draft="contributed">Meneng</subdivision>
+			<subdivision type="nr12" draft="contributed">Nibok</subdivision>
+			<subdivision type="nr13" draft="contributed">Uaboe</subdivision>
+			<subdivision type="nr14" draft="contributed">Yaren</subdivision>
+			<subdivision type="nzauk" draft="contributed">Auckland</subdivision>
+			<subdivision type="nzbop" draft="contributed">Bay of Plenty</subdivision>
+			<subdivision type="nzcit" draft="contributed">Chathamski otoci</subdivision>
+			<subdivision type="nzgis" draft="contributed">Gisborne</subdivision>
+			<subdivision type="nzhkb" draft="contributed">Hawke’s Bay</subdivision>
+			<subdivision type="nzmwt" draft="contributed">Manawatu-Wanganui</subdivision>
+			<subdivision type="nzntl" draft="contributed">Northland</subdivision>
+			<subdivision type="nztki" draft="contributed">Taranaki</subdivision>
+			<subdivision type="nzwgn" draft="contributed">Wellington</subdivision>
+			<subdivision type="nzwko" draft="contributed">Waikato</subdivision>
+			<subdivision type="ommu" draft="contributed">Musandam</subdivision>
+			<subdivision type="pgncd" draft="contributed">Port Moresby</subdivision>
+			<subdivision type="pgsan" draft="contributed">Sandaun</subdivision>
+			<subdivision type="ph00" draft="contributed">Metro Manila</subdivision>
+			<subdivision type="ph01" draft="contributed">Ilocos</subdivision>
+			<subdivision type="ph02" draft="contributed">Cagayan Valley</subdivision>
+			<subdivision type="ph03" draft="contributed">Središnji Luzon</subdivision>
+			<subdivision type="ph05" draft="contributed">Bicol</subdivision>
+			<subdivision type="ph06" draft="contributed">Zapadni Visayas</subdivision>
+			<subdivision type="ph07" draft="contributed">Središnji Visayas</subdivision>
+			<subdivision type="ph08" draft="contributed">Istočni Visayas</subdivision>
+			<subdivision type="ph09" draft="contributed">Poluotok Zamboanga</subdivision>
+			<subdivision type="ph10" draft="contributed">Sjeverni Mindanao</subdivision>
+			<subdivision type="ph11" draft="contributed">Davao (regija)</subdivision>
+			<subdivision type="ph12" draft="contributed">SOCCSKSARGEN</subdivision>
+			<subdivision type="ph13" draft="contributed">Caraga</subdivision>
+			<subdivision type="ph14" draft="contributed">Autonomna regija Muslimanski Mindanao</subdivision>
+			<subdivision type="ph15" draft="contributed">Administrativna regija Cordillera</subdivision>
+			<subdivision type="ph40" draft="contributed">CALABARZON</subdivision>
+			<subdivision type="ph41" draft="contributed">MIMAROPA</subdivision>
+			<subdivision type="phbtn" draft="contributed">Batanes</subdivision>
+			<subdivision type="phmad" draft="contributed">Marinduque</subdivision>
+			<subdivision type="phmas" draft="contributed">Masbate</subdivision>
+			<subdivision type="phplw" draft="contributed">Palawan</subdivision>
+			<subdivision type="pkis" draft="contributed">Teritorij glavnoga grada Islamabada</subdivision>
+			<subdivision type="pksd" draft="contributed">Sind</subdivision>
+			<subdivision type="plds" draft="contributed">Donjošlesko vojvodstvo</subdivision>
+			<subdivision type="plkp" draft="contributed">Kujavsko-pomeransko vojvodstvo</subdivision>
+			<subdivision type="pllb" draft="contributed">Lubusko vojvodstvo</subdivision>
+			<subdivision type="plld" draft="contributed">Vojvodstvo Lodz</subdivision>
+			<subdivision type="pllu" draft="contributed">Lublinsko vojvodstvo</subdivision>
+			<subdivision type="plma" draft="contributed">Malopoljsko vojvodstvo</subdivision>
+			<subdivision type="plmz" draft="contributed">Mazovjecko vojvodstvo</subdivision>
+			<subdivision type="plop" draft="contributed">Opolsko vojvodstvo</subdivision>
+			<subdivision type="plpd" draft="contributed">Podlasko vojvodstvo</subdivision>
+			<subdivision type="plpk" draft="contributed">Potkarpatsko vojvodstvo</subdivision>
+			<subdivision type="plpm" draft="contributed">Pomeransko vojvodstvo</subdivision>
+			<subdivision type="plsk" draft="contributed">Svetokriško vojvodstvo</subdivision>
+			<subdivision type="plsl" draft="contributed">Šlesko vojvodstvo</subdivision>
+			<subdivision type="plwn" draft="contributed">Varminsko-mazursko vojvodstvo</subdivision>
+			<subdivision type="plwp" draft="contributed">Velikopoljsko vojvodstvo</subdivision>
+			<subdivision type="plzp" draft="contributed">Zapadnopomeransko vojvodstvo</subdivision>
+			<subdivision type="pt20" draft="contributed">Azori</subdivision>
+			<subdivision type="pt30" draft="contributed">Madeira</subdivision>
+			<subdivision type="pw224" draft="contributed">Ngatpang</subdivision>
+			<subdivision type="py1" draft="contributed">Concepción</subdivision>
+			<subdivision type="py2" draft="contributed">San Pedro</subdivision>
+			<subdivision type="py3" draft="contributed">Cordillera (Paragvaj)</subdivision>
+			<subdivision type="py4" draft="contributed">Guairá (Paragvaj)</subdivision>
+			<subdivision type="py5" draft="contributed">Caaguazú</subdivision>
+			<subdivision type="py6" draft="contributed">Caazapá</subdivision>
+			<subdivision type="py7" draft="contributed">Itapúa</subdivision>
+			<subdivision type="py8" draft="contributed">Misiones</subdivision>
+			<subdivision type="py9" draft="contributed">Paraguarí</subdivision>
+			<subdivision type="py10" draft="contributed">Alto Paraná</subdivision>
+			<subdivision type="py11" draft="contributed">Centralni okrug (Paragvaj)</subdivision>
+			<subdivision type="py12" draft="contributed">Ñeembucú</subdivision>
+			<subdivision type="py13" draft="contributed">Amambay</subdivision>
+			<subdivision type="py14" draft="contributed">Canindeyú</subdivision>
+			<subdivision type="py15" draft="contributed">Presidente Hayes</subdivision>
+			<subdivision type="py16" draft="contributed">Alto Paragvaj</subdivision>
+			<subdivision type="py19" draft="contributed">Boquerón</subdivision>
+			<subdivision type="pyasu" draft="contributed">Asunción</subdivision>
+			<subdivision type="qada" draft="contributed">Doha</subdivision>
+			<subdivision type="roab" draft="contributed">Alba</subdivision>
+			<subdivision type="roag" draft="contributed">Argeş</subdivision>
+			<subdivision type="roar" draft="contributed">Arad</subdivision>
+			<subdivision type="rob" draft="contributed">Bukurešt</subdivision>
+			<subdivision type="robc" draft="contributed">Bacău</subdivision>
+			<subdivision type="robh" draft="contributed">Bihor</subdivision>
+			<subdivision type="robn" draft="contributed">Bistriţa-Năsăud</subdivision>
+			<subdivision type="robr" draft="contributed">Brăila</subdivision>
+			<subdivision type="robt" draft="contributed">Botoşani</subdivision>
+			<subdivision type="robv" draft="contributed">Brașov</subdivision>
+			<subdivision type="robz" draft="contributed">Buzău</subdivision>
+			<subdivision type="rocj" draft="contributed">Cluj</subdivision>
+			<subdivision type="rocl" draft="contributed">Călăraşi</subdivision>
+			<subdivision type="rocs" draft="contributed">Karaš-severinska županija</subdivision>
+			<subdivision type="roct" draft="contributed">Constanţa</subdivision>
+			<subdivision type="rocv" draft="contributed">Covasna</subdivision>
+			<subdivision type="rodb" draft="contributed">Dâmboviţa</subdivision>
+			<subdivision type="rodj" draft="contributed">Dolj</subdivision>
+			<subdivision type="rogj" draft="contributed">Gorj</subdivision>
+			<subdivision type="rogl" draft="contributed">Galaţi</subdivision>
+			<subdivision type="rogr" draft="contributed">Giurgiu</subdivision>
+			<subdivision type="rohd" draft="contributed">Hunedoara</subdivision>
+			<subdivision type="rohr" draft="contributed">Harghita</subdivision>
+			<subdivision type="roif" draft="contributed">Ilfov</subdivision>
+			<subdivision type="roil" draft="contributed">Ialomiţa</subdivision>
+			<subdivision type="rois" draft="contributed">Iaşi</subdivision>
+			<subdivision type="romh" draft="contributed">Mehedinţi</subdivision>
+			<subdivision type="romm" draft="contributed">Maramureş</subdivision>
+			<subdivision type="roms" draft="contributed">Mureș</subdivision>
+			<subdivision type="ront" draft="contributed">Neamț</subdivision>
+			<subdivision type="root" draft="contributed">Olt</subdivision>
+			<subdivision type="roph" draft="contributed">Prahova</subdivision>
+			<subdivision type="rosb" draft="contributed">Sibiu</subdivision>
+			<subdivision type="rosj" draft="contributed">Sălaj</subdivision>
+			<subdivision type="rosm" draft="contributed">Satu Mare</subdivision>
+			<subdivision type="rosv" draft="contributed">Suceava</subdivision>
+			<subdivision type="rotl" draft="contributed">Tulcea</subdivision>
+			<subdivision type="rotm" draft="contributed">Timiş</subdivision>
+			<subdivision type="rotr" draft="contributed">Teleorman</subdivision>
+			<subdivision type="rovl" draft="contributed">Vâlcea</subdivision>
+			<subdivision type="rovn" draft="contributed">Vrancea</subdivision>
+			<subdivision type="rovs" draft="contributed">Vaslui</subdivision>
+			<subdivision type="rs00" draft="contributed">Beograd</subdivision>
+			<subdivision type="rs01" draft="contributed">Sjevernobački upravni okrug</subdivision>
+			<subdivision type="rs02" draft="contributed">Srednjobanatski upravni okrug</subdivision>
+			<subdivision type="rs03" draft="contributed">Sjevernobanatski upravni okrug</subdivision>
+			<subdivision type="rs04" draft="contributed">Južnobanatski upravni okrug</subdivision>
+			<subdivision type="rs05" draft="contributed">Zapadnobački upravni okrug</subdivision>
+			<subdivision type="rs06" draft="contributed">Južnobački upravni okrug</subdivision>
+			<subdivision type="rs07" draft="contributed">Srijemski upravni okrug</subdivision>
+			<subdivision type="rs08" draft="contributed">Mačvanski upravni okrug</subdivision>
+			<subdivision type="rs09" draft="contributed">Kolubarski upravni okrug</subdivision>
+			<subdivision type="rs10" draft="contributed">Podunavski upravni okrug</subdivision>
+			<subdivision type="rs11" draft="contributed">Braničevski upravni okrug</subdivision>
+			<subdivision type="rs12" draft="contributed">Šumadijski upravni okrug</subdivision>
+			<subdivision type="rs13" draft="contributed">Pomoravski upravni okrug</subdivision>
+			<subdivision type="rs14" draft="contributed">Borski upravni okrug</subdivision>
+			<subdivision type="rs15" draft="contributed">Zaječarski upravni okrug</subdivision>
+			<subdivision type="rs16" draft="contributed">Zlatiborski upravni okrug</subdivision>
+			<subdivision type="rs17" draft="contributed">Moravički upravni okrug</subdivision>
+			<subdivision type="rs18" draft="contributed">Raški upravni okrug</subdivision>
+			<subdivision type="rs19" draft="contributed">Rasinski upravni okrug</subdivision>
+			<subdivision type="rs20" draft="contributed">Nišavski upravni okrug</subdivision>
+			<subdivision type="rs21" draft="contributed">Toplički upravni okrug</subdivision>
+			<subdivision type="rs22" draft="contributed">Pirotski upravni okrug</subdivision>
+			<subdivision type="rs23" draft="contributed">Jablanički upravni okrug</subdivision>
+			<subdivision type="rs24" draft="contributed">Pčinjski upravni okrug</subdivision>
+			<subdivision type="rsvo" draft="contributed">Vojvodina</subdivision>
+			<subdivision type="ruad" draft="contributed">Adigejska</subdivision>
+			<subdivision type="rual" draft="contributed">Altajska</subdivision>
+			<subdivision type="rualt" draft="contributed">Altajski kraj</subdivision>
+			<subdivision type="ruamu" draft="contributed">Amurska oblast</subdivision>
+			<subdivision type="ruark" draft="contributed">Arhangelska oblast</subdivision>
+			<subdivision type="ruast" draft="contributed">Astrahanska oblast</subdivision>
+			<subdivision type="ruba" draft="contributed">Baškirska</subdivision>
+			<subdivision type="rubel" draft="contributed">Belgorodska oblast</subdivision>
+			<subdivision type="rubry" draft="contributed">Brjanska oblast</subdivision>
+			<subdivision type="rubu" draft="contributed">Burjatska</subdivision>
+			<subdivision type="ruce" draft="contributed">Čečenija</subdivision>
+			<subdivision type="ruche" draft="contributed">Čeljabinska oblast</subdivision>
+			<subdivision type="ruchu" draft="contributed">Čukotski autonomni okrug</subdivision>
+			<subdivision type="rucu" draft="contributed">Čuvaška</subdivision>
+			<subdivision type="ruda" draft="contributed">Dagestan</subdivision>
+			<subdivision type="ruin" draft="contributed">Inguška</subdivision>
+			<subdivision type="ruirk" draft="contributed">Irkutska oblast</subdivision>
+			<subdivision type="ruiva" draft="contributed">Ivanovska oblast</subdivision>
+			<subdivision type="rukam" draft="contributed">Kamčatski kraj</subdivision>
+			<subdivision type="rukb" draft="contributed">Kabardsko-Balkarska</subdivision>
+			<subdivision type="rukc" draft="contributed">Karačajevsko-Čerkeska</subdivision>
+			<subdivision type="rukda" draft="contributed">Krasnodarski kraj</subdivision>
+			<subdivision type="rukem" draft="contributed">Kemerovska oblast</subdivision>
+			<subdivision type="rukgd" draft="contributed">Kalinjingradska oblast</subdivision>
+			<subdivision type="rukgn" draft="contributed">Kurganska oblast</subdivision>
+			<subdivision type="rukha" draft="contributed">Habarovski kraj</subdivision>
+			<subdivision type="rukhm" draft="contributed">Hantijsko-Mansijski autonomni okrug — Jugra</subdivision>
+			<subdivision type="rukir" draft="contributed">Kirovska oblast</subdivision>
+			<subdivision type="rukk" draft="contributed">Hakasija</subdivision>
+			<subdivision type="rukl" draft="contributed">Kalmička</subdivision>
+			<subdivision type="ruklu" draft="contributed">Kaluška oblast</subdivision>
+			<subdivision type="ruko" draft="contributed">Komi</subdivision>
+			<subdivision type="rukos" draft="contributed">Kostromska oblast</subdivision>
+			<subdivision type="rukr" draft="contributed">Karelija</subdivision>
+			<subdivision type="rukrs" draft="contributed">Kurska oblast</subdivision>
+			<subdivision type="rukya" draft="contributed">Krasnojarski kraj</subdivision>
+			<subdivision type="rulen" draft="contributed">Lenjingradska oblast</subdivision>
+			<subdivision type="rulip" draft="contributed">Lipecka oblast</subdivision>
+			<subdivision type="rumag" draft="contributed">Magadanska oblast</subdivision>
+			<subdivision type="rume" draft="contributed">Marijska</subdivision>
+			<subdivision type="rumo" draft="contributed">Mordvinska</subdivision>
+			<subdivision type="rumos" draft="contributed">Moskovska oblast</subdivision>
+			<subdivision type="rumow" draft="contributed">Moskva</subdivision>
+			<subdivision type="rumur" draft="contributed">Murmanska oblast</subdivision>
+			<subdivision type="runen" draft="contributed">Nenečki autonomni okrug</subdivision>
+			<subdivision type="rungr" draft="contributed">Novgorodska oblast</subdivision>
+			<subdivision type="runiz" draft="contributed">Nižnjenovgorodska oblast</subdivision>
+			<subdivision type="runvs" draft="contributed">Novosibirska oblast</subdivision>
+			<subdivision type="ruoms" draft="contributed">Omska oblast</subdivision>
+			<subdivision type="ruore" draft="contributed">Orenburška oblast</subdivision>
+			<subdivision type="ruorl" draft="contributed">Orelska oblast</subdivision>
+			<subdivision type="ruper" draft="contributed">Permski kraj</subdivision>
+			<subdivision type="rupnz" draft="contributed">Penzjanska oblast</subdivision>
+			<subdivision type="rupri" draft="contributed">Primorski kraj</subdivision>
+			<subdivision type="rupsk" draft="contributed">Pskovska oblast</subdivision>
+			<subdivision type="ruros" draft="contributed">Rostovska oblast</subdivision>
+			<subdivision type="rurya" draft="contributed">Rjazanjska oblast</subdivision>
+			<subdivision type="rusa" draft="contributed">Jakutska</subdivision>
+			<subdivision type="rusak" draft="contributed">Sahalinska oblast</subdivision>
+			<subdivision type="rusam" draft="contributed">Samarska oblast</subdivision>
+			<subdivision type="rusar" draft="contributed">Saratovska oblast</subdivision>
+			<subdivision type="ruse" draft="contributed">Sjeverna Osetija-Alanija</subdivision>
+			<subdivision type="rusmo" draft="contributed">Smolenska oblast</subdivision>
+			<subdivision type="ruspe" draft="contributed">Sankt Peterburg</subdivision>
+			<subdivision type="rusta" draft="contributed">Stavropoljski kraj</subdivision>
+			<subdivision type="rusve" draft="contributed">Sverdlovska oblast</subdivision>
+			<subdivision type="ruta" draft="contributed">Tatarstan</subdivision>
+			<subdivision type="rutam" draft="contributed">Tambovska oblast</subdivision>
+			<subdivision type="rutom" draft="contributed">Tomska oblast</subdivision>
+			<subdivision type="rutul" draft="contributed">Tulska oblast</subdivision>
+			<subdivision type="rutve" draft="contributed">Tverska oblast</subdivision>
+			<subdivision type="ruty" draft="contributed">Tuva</subdivision>
+			<subdivision type="rutyu" draft="contributed">Tjumenjska oblast</subdivision>
+			<subdivision type="ruud" draft="contributed">Udmurtska</subdivision>
+			<subdivision type="ruuly" draft="contributed">Uljanovska oblast</subdivision>
+			<subdivision type="ruvgg" draft="contributed">Volgogradska oblast</subdivision>
+			<subdivision type="ruvla" draft="contributed">Vladimirska oblast</subdivision>
+			<subdivision type="ruvlg" draft="contributed">Vologodska oblast</subdivision>
+			<subdivision type="ruvor" draft="contributed">Voronješka oblast</subdivision>
+			<subdivision type="ruyan" draft="contributed">Jamalskonenečki autonomni okrug</subdivision>
+			<subdivision type="ruyar" draft="contributed">Jaroslavska oblast</subdivision>
+			<subdivision type="ruyev" draft="contributed">Židovska autonomna oblast</subdivision>
+			<subdivision type="ruzab" draft="contributed">Zabajkalski kraj</subdivision>
+			<subdivision type="rw01" draft="contributed">Kigali</subdivision>
+			<subdivision type="sa01" draft="contributed">Rijad (pokrajina)</subdivision>
+			<subdivision type="sa03" draft="contributed">Medina</subdivision>
+			<subdivision type="sa04" draft="contributed">Istočna pokrajina</subdivision>
+			<subdivision type="sa05" draft="contributed">Kasim (pokrajina)</subdivision>
+			<subdivision type="sa06" draft="contributed">Ha’il</subdivision>
+			<subdivision type="sa07" draft="contributed">Tabuk (pokrajina)</subdivision>
+			<subdivision type="sa11" draft="contributed">Bahah (pokrajina)</subdivision>
+			<subdivision type="sa12" draft="contributed">Džavf (pokrajina)</subdivision>
+			<subdivision type="sa14" draft="contributed">Asir (pokrajina)</subdivision>
+			<subdivision type="sbch" draft="contributed">Choiseul</subdivision>
+			<subdivision type="sbct" draft="contributed">Honiara</subdivision>
+			<subdivision type="sbgu" draft="contributed">Guadalcanal</subdivision>
+			<subdivision type="sbis" draft="contributed">Isabel</subdivision>
+			<subdivision type="sbmk" draft="contributed">Makira-Ulawa</subdivision>
+			<subdivision type="sbml" draft="contributed">Malaita (provincija)</subdivision>
+			<subdivision type="sbrb" draft="contributed">Rennell i Bellona</subdivision>
+			<subdivision type="sbte" draft="contributed">Temotu (provincija)</subdivision>
+			<subdivision type="sbwe" draft="contributed">Zapadna provincija</subdivision>
+			<subdivision type="seab" draft="contributed">Stockholms län</subdivision>
+			<subdivision type="seac" draft="contributed">Županija Västerbotten</subdivision>
+			<subdivision type="sebd" draft="contributed">Županija Norrbotten</subdivision>
+			<subdivision type="sec" draft="contributed">Uppsala län</subdivision>
+			<subdivision type="sed" draft="contributed">Županija Södermanland</subdivision>
+			<subdivision type="see" draft="contributed">Županija Östergötland</subdivision>
+			<subdivision type="sef" draft="contributed">Županija Jönköping</subdivision>
+			<subdivision type="seg" draft="contributed">Županija Kronoberg</subdivision>
+			<subdivision type="seh" draft="contributed">Županija Kalmar</subdivision>
+			<subdivision type="sei" draft="contributed">Županija Gotland</subdivision>
+			<subdivision type="sek" draft="contributed">Županija Blekinge</subdivision>
+			<subdivision type="sem" draft="contributed">Županija Skåne</subdivision>
+			<subdivision type="sen" draft="contributed">Županija Halland</subdivision>
+			<subdivision type="seo" draft="contributed">Županija Västra Götaland</subdivision>
+			<subdivision type="ses" draft="contributed">Värmlands län</subdivision>
+			<subdivision type="set" draft="contributed">Županija Örebro</subdivision>
+			<subdivision type="seu" draft="contributed">Županija Västmanland</subdivision>
+			<subdivision type="sew" draft="contributed">Županija Dalarna</subdivision>
+			<subdivision type="sex" draft="contributed">Županija Gävleborg</subdivision>
+			<subdivision type="sey" draft="contributed">Županija Västernorrland</subdivision>
+			<subdivision type="sez" draft="contributed">Županija Jämtland</subdivision>
+			<subdivision type="shac" draft="contributed">Otok Ascension</subdivision>
+			<subdivision type="shhl" draft="contributed">Sveta Helena</subdivision>
+			<subdivision type="si001" draft="contributed">Općina Ajdovščina</subdivision>
+			<subdivision type="si002" draft="contributed">Općina Beltinci</subdivision>
+			<subdivision type="si003" draft="contributed">Općina Bled</subdivision>
+			<subdivision type="si004" draft="contributed">Općina Bohinj</subdivision>
+			<subdivision type="si005" draft="contributed">Općina Borovnica</subdivision>
+			<subdivision type="si006" draft="contributed">Općina Bovec</subdivision>
+			<subdivision type="si007" draft="contributed">Općina Brda</subdivision>
+			<subdivision type="si008" draft="contributed">Općina Brezovica</subdivision>
+			<subdivision type="si009" draft="contributed">Općina Brežice</subdivision>
+			<subdivision type="si010" draft="contributed">Tišina (Tišina, Slovenija)</subdivision>
+			<subdivision type="si011" draft="contributed">Gradska općina Celje</subdivision>
+			<subdivision type="si012" draft="contributed">Općina Cerklje na Gorenjskem</subdivision>
+			<subdivision type="si013" draft="contributed">Općina Cerknica</subdivision>
+			<subdivision type="si014" draft="contributed">Općina Cerkno</subdivision>
+			<subdivision type="si015" draft="contributed">Općina Črenšovci</subdivision>
+			<subdivision type="si016" draft="contributed">Općina Črna na Koroškem</subdivision>
+			<subdivision type="si017" draft="contributed">Općina Črnomelj</subdivision>
+			<subdivision type="si018" draft="contributed">Općina Destrnik</subdivision>
+			<subdivision type="si019" draft="contributed">Općina Divača</subdivision>
+			<subdivision type="si020" draft="contributed">Općina Dobrepolje</subdivision>
+			<subdivision type="si021" draft="contributed">Općina Dobrova-Polhov Gradec</subdivision>
+			<subdivision type="si022" draft="contributed">Općina Dol pri Ljubljani</subdivision>
+			<subdivision type="si023" draft="contributed">Općina Domžale</subdivision>
+			<subdivision type="si024" draft="contributed">Općina Dornava</subdivision>
+			<subdivision type="si025" draft="contributed">Općina Dravograd</subdivision>
+			<subdivision type="si026" draft="contributed">Općina Duplek</subdivision>
+			<subdivision type="si027" draft="contributed">Općina Gorenja vas - Poljane</subdivision>
+			<subdivision type="si028" draft="contributed">Općina Gorišnica</subdivision>
+			<subdivision type="si029" draft="contributed">Općina Gornja Radgona</subdivision>
+			<subdivision type="si030" draft="contributed">Općina Gornji Grad</subdivision>
+			<subdivision type="si031" draft="contributed">Općina Gornji Petrovci</subdivision>
+			<subdivision type="si032" draft="contributed">Općina Grosuplje</subdivision>
+			<subdivision type="si033" draft="contributed">Šalovci, općina</subdivision>
+			<subdivision type="si034" draft="contributed">Općina Hrastnik</subdivision>
+			<subdivision type="si035" draft="contributed">Općina Hrpelje - Kozina</subdivision>
+			<subdivision type="si036" draft="contributed">Općina Idrija</subdivision>
+			<subdivision type="si037" draft="contributed">Općina Ig</subdivision>
+			<subdivision type="si038" draft="contributed">Općina Ilirska Bistrica</subdivision>
+			<subdivision type="si039" draft="contributed">Općina Ivančna Gorica</subdivision>
+			<subdivision type="si040" draft="contributed">Općina Izola</subdivision>
+			<subdivision type="si041" draft="contributed">Jesenice</subdivision>
+			<subdivision type="si042" draft="contributed">Općina Juršinci</subdivision>
+			<subdivision type="si043" draft="contributed">Općina Kamnik</subdivision>
+			<subdivision type="si044" draft="contributed">Općina Kanal ob Soči</subdivision>
+			<subdivision type="si045" draft="contributed">Općina Kidričevo</subdivision>
+			<subdivision type="si046" draft="contributed">Općina Kobarid</subdivision>
+			<subdivision type="si047" draft="contributed">Općina Kobilje</subdivision>
+			<subdivision type="si048" draft="contributed">Općina Kočevje</subdivision>
+			<subdivision type="si049" draft="contributed">Općina Komen</subdivision>
+			<subdivision type="si050" draft="contributed">Gradska općina Kopar</subdivision>
+			<subdivision type="si051" draft="contributed">Općina Kozje</subdivision>
+			<subdivision type="si052" draft="contributed">Gradska općina Kranj</subdivision>
+			<subdivision type="si053" draft="contributed">Kranjska Gora</subdivision>
+			<subdivision type="si054" draft="contributed">Općina Krško</subdivision>
+			<subdivision type="si055" draft="contributed">Općina Kungota</subdivision>
+			<subdivision type="si056" draft="contributed">Općina Kuzma</subdivision>
+			<subdivision type="si057" draft="contributed">Općina Laško</subdivision>
+			<subdivision type="si058" draft="contributed">Općina Lenart</subdivision>
+			<subdivision type="si059" draft="contributed">Općina Lendava</subdivision>
+			<subdivision type="si060" draft="contributed">Općina Litija</subdivision>
+			<subdivision type="si061" draft="contributed">Gradska općina Ljubljana</subdivision>
+			<subdivision type="si062" draft="contributed">Općina Ljubno</subdivision>
+			<subdivision type="si063" draft="contributed">Općina Ljutomer</subdivision>
+			<subdivision type="si064" draft="contributed">Općina Logatec</subdivision>
+			<subdivision type="si065" draft="contributed">Općina Loška dolina</subdivision>
+			<subdivision type="si066" draft="contributed">Općina Loški Potok</subdivision>
+			<subdivision type="si067" draft="contributed">Općina Luče</subdivision>
+			<subdivision type="si068" draft="contributed">Općina Lukovica</subdivision>
+			<subdivision type="si069" draft="contributed">Općina Majšperk</subdivision>
+			<subdivision type="si070" draft="contributed">Gradska općina Maribor</subdivision>
+			<subdivision type="si071" draft="contributed">Općina Medvode</subdivision>
+			<subdivision type="si072" draft="contributed">Općina Mengeš</subdivision>
+			<subdivision type="si073" draft="contributed">Općina Metlika</subdivision>
+			<subdivision type="si075" draft="contributed">Općina Miren - Kostanjevica</subdivision>
+			<subdivision type="si076" draft="contributed">Općina Mislinja</subdivision>
+			<subdivision type="si077" draft="contributed">Općina Moravče</subdivision>
+			<subdivision type="si078" draft="contributed">Općina Moravske Toplice</subdivision>
+			<subdivision type="si079" draft="contributed">Općina Mozirje</subdivision>
+			<subdivision type="si080" draft="contributed">Gradska općina Murska Sobota</subdivision>
+			<subdivision type="si081" draft="contributed">Općina Muta</subdivision>
+			<subdivision type="si082" draft="contributed">Općina Naklo</subdivision>
+			<subdivision type="si083" draft="contributed">Općina Nazarje</subdivision>
+			<subdivision type="si084" draft="contributed">Gradska općina Nova Gorica</subdivision>
+			<subdivision type="si085" draft="contributed">Gradska općina Novo Mesto</subdivision>
+			<subdivision type="si086" draft="contributed">Odranci</subdivision>
+			<subdivision type="si087" draft="contributed">Ormož</subdivision>
+			<subdivision type="si088" draft="contributed">Općina Osilnica</subdivision>
+			<subdivision type="si089" draft="contributed">Općina Pesnica</subdivision>
+			<subdivision type="si090" draft="contributed">Općina Piran</subdivision>
+			<subdivision type="si091" draft="contributed">Općina Pivka</subdivision>
+			<subdivision type="si092" draft="contributed">Općina Podčetrtek</subdivision>
+			<subdivision type="si093" draft="contributed">Općina Podvelka</subdivision>
+			<subdivision type="si094" draft="contributed">Općina Postojna</subdivision>
+			<subdivision type="si095" draft="contributed">Općina Preddvor</subdivision>
+			<subdivision type="si096" draft="contributed">Gradska općina Ptuj</subdivision>
+			<subdivision type="si097" draft="contributed">Općina Puconci</subdivision>
+			<subdivision type="si098" draft="contributed">Općina Rače - Fram</subdivision>
+			<subdivision type="si099" draft="contributed">Općina Radeče</subdivision>
+			<subdivision type="si100" draft="contributed">Općina Radenci</subdivision>
+			<subdivision type="si101" draft="contributed">Općina Radlje ob Dravi</subdivision>
+			<subdivision type="si102" draft="contributed">Općina Radovljica</subdivision>
+			<subdivision type="si103" draft="contributed">Općina Ravne na Koroškem</subdivision>
+			<subdivision type="si104" draft="contributed">Općina Ribnica</subdivision>
+			<subdivision type="si105" draft="contributed">Općina Rogašovci</subdivision>
+			<subdivision type="si106" draft="contributed">Rogaška Slatina</subdivision>
+			<subdivision type="si107" draft="contributed">Općina Rogatec</subdivision>
+			<subdivision type="si108" draft="contributed">Općina Ruše</subdivision>
+			<subdivision type="si109" draft="contributed">Općina Semič</subdivision>
+			<subdivision type="si110" draft="contributed">Općina Sevnica</subdivision>
+			<subdivision type="si111" draft="contributed">Općina Sežana</subdivision>
+			<subdivision type="si112" draft="contributed">Gradska općina Slovenj Gradec</subdivision>
+			<subdivision type="si113" draft="contributed">Općina Slovenska Bistrica</subdivision>
+			<subdivision type="si114" draft="contributed">Slovenske Konjice</subdivision>
+			<subdivision type="si115" draft="contributed">Općina Starše</subdivision>
+			<subdivision type="si116" draft="contributed">Općina Sveti Jurij ob Ščavnici</subdivision>
+			<subdivision type="si117" draft="contributed">Općina Šenčur</subdivision>
+			<subdivision type="si118" draft="contributed">Općina Šentilj</subdivision>
+			<subdivision type="si119" draft="contributed">Općina Šentjernej</subdivision>
+			<subdivision type="si120" draft="contributed">Općina Šentjur</subdivision>
+			<subdivision type="si121" draft="contributed">Općina Škocjan</subdivision>
+			<subdivision type="si122" draft="contributed">Općina Škofja Loka</subdivision>
+			<subdivision type="si123" draft="contributed">Općina Škofljica</subdivision>
+			<subdivision type="si124" draft="contributed">Općina Šmarje pri Jelšah</subdivision>
+			<subdivision type="si125" draft="contributed">Općina Šmartno ob Paki</subdivision>
+			<subdivision type="si126" draft="contributed">Općina Šoštanj</subdivision>
+			<subdivision type="si127" draft="contributed">Općina Štore</subdivision>
+			<subdivision type="si128" draft="contributed">Općina Tolmin</subdivision>
+			<subdivision type="si129" draft="contributed">Općina Trbovlje</subdivision>
+			<subdivision type="si130" draft="contributed">Općina Trebnje</subdivision>
+			<subdivision type="si131" draft="contributed">Općina Tržič</subdivision>
+			<subdivision type="si132" draft="contributed">Općina Turnišče</subdivision>
+			<subdivision type="si133" draft="contributed">Gradska općina Velenje</subdivision>
+			<subdivision type="si135" draft="contributed">Općina Videm</subdivision>
+			<subdivision type="si136" draft="contributed">Općina Vipava</subdivision>
+			<subdivision type="si137" draft="contributed">Općina Vitanje</subdivision>
+			<subdivision type="si138" draft="contributed">Općina Vodice</subdivision>
+			<subdivision type="si139" draft="contributed">Općina Vojnik</subdivision>
+			<subdivision type="si140" draft="contributed">Općina Vrhnika</subdivision>
+			<subdivision type="si141" draft="contributed">Općina Vuzenica</subdivision>
+			<subdivision type="si142" draft="contributed">Općina Zagorje ob Savi</subdivision>
+			<subdivision type="si143" draft="contributed">Općina Zavrč</subdivision>
+			<subdivision type="si144" draft="contributed">Općina Zreče</subdivision>
+			<subdivision type="si146" draft="contributed">Općina Železniki</subdivision>
+			<subdivision type="si147" draft="contributed">Općina Žiri</subdivision>
+			<subdivision type="si148" draft="contributed">Općina Benedikt</subdivision>
+			<subdivision type="si149" draft="contributed">Općina Bistrica ob Sotli</subdivision>
+			<subdivision type="si150" draft="contributed">Općina Bloke</subdivision>
+			<subdivision type="si151" draft="contributed">Braslovče</subdivision>
+			<subdivision type="si152" draft="contributed">Općina Cankova</subdivision>
+			<subdivision type="si153" draft="contributed">Općina Cerkvenjak</subdivision>
+			<subdivision type="si154" draft="contributed">Općina Dobje</subdivision>
+			<subdivision type="si155" draft="contributed">Općina Dobrna</subdivision>
+			<subdivision type="si156" draft="contributed">Općina Dobrovnik</subdivision>
+			<subdivision type="si157" draft="contributed">Općina Dolenjske Toplice</subdivision>
+			<subdivision type="si158" draft="contributed">Općina Grad</subdivision>
+			<subdivision type="si159" draft="contributed">Općina Hajdina</subdivision>
+			<subdivision type="si160" draft="contributed">Općina Hoče - Slivnica</subdivision>
+			<subdivision type="si161" draft="contributed">Općina Hodoš</subdivision>
+			<subdivision type="si162" draft="contributed">Općina Horjul</subdivision>
+			<subdivision type="si163" draft="contributed">Općina Jezersko</subdivision>
+			<subdivision type="si164" draft="contributed">Općina Komenda</subdivision>
+			<subdivision type="si165" draft="contributed">Općina Kostel</subdivision>
+			<subdivision type="si166" draft="contributed">Općina Križevci</subdivision>
+			<subdivision type="si167" draft="contributed">Općina Lovrenc na Pohorju</subdivision>
+			<subdivision type="si168" draft="contributed">Općina Markovci</subdivision>
+			<subdivision type="si169" draft="contributed">Općina Miklavž na Dravskem polju</subdivision>
+			<subdivision type="si170" draft="contributed">Općina Mirna Peč</subdivision>
+			<subdivision type="si171" draft="contributed">Općina Oplotnica</subdivision>
+			<subdivision type="si172" draft="contributed">Općina Podlehnik</subdivision>
+			<subdivision type="si173" draft="contributed">Općina Polzela</subdivision>
+			<subdivision type="si174" draft="contributed">Općina Prebold</subdivision>
+			<subdivision type="si175" draft="contributed">Općina Prevalje</subdivision>
+			<subdivision type="si176" draft="contributed">Općina Razkrižje</subdivision>
+			<subdivision type="si177" draft="contributed">Općina Ribnica na Pohorju</subdivision>
+			<subdivision type="si178" draft="contributed">Općina Selnica ob Dravi</subdivision>
+			<subdivision type="si179" draft="contributed">Općina Sodražica</subdivision>
+			<subdivision type="si180" draft="contributed">Općina Solčava</subdivision>
+			<subdivision type="si181" draft="contributed">Općina Sveta Ana</subdivision>
+			<subdivision type="si182" draft="contributed">Općina Sveti Andraž v Slovenskih goricah</subdivision>
+			<subdivision type="si183" draft="contributed">Općina Šempeter - Vrtojba</subdivision>
+			<subdivision type="si184" draft="contributed">Općina Tabor</subdivision>
+			<subdivision type="si185" draft="contributed">Općina Trnovska vas</subdivision>
+			<subdivision type="si186" draft="contributed">Općina Trzin</subdivision>
+			<subdivision type="si187" draft="contributed">Općina Velika Polana</subdivision>
+			<subdivision type="si188" draft="contributed">Općina Veržej</subdivision>
+			<subdivision type="si189" draft="contributed">Općina Vransko</subdivision>
+			<subdivision type="si190" draft="contributed">Općina Žalec</subdivision>
+			<subdivision type="si191" draft="contributed">Općina Žetale</subdivision>
+			<subdivision type="si192" draft="contributed">Općina Žirovnica</subdivision>
+			<subdivision type="si193" draft="contributed">Općina Žužemberk</subdivision>
+			<subdivision type="si194" draft="contributed">Općina Šmartno pri Litiji</subdivision>
+			<subdivision type="si195" draft="contributed">Općina Apače</subdivision>
+			<subdivision type="si196" draft="contributed">Općina Cirkulane</subdivision>
+			<subdivision type="si197" draft="contributed">Općina Kostanjevica na Krki</subdivision>
+			<subdivision type="si198" draft="contributed">Općina Makole</subdivision>
+			<subdivision type="si199" draft="contributed">Općina Mokronog - Trebelno</subdivision>
+			<subdivision type="si200" draft="contributed">Općina Poljčane</subdivision>
+			<subdivision type="si201" draft="contributed">Općina Renče - Vogrsko</subdivision>
+			<subdivision type="si202" draft="contributed">Općina Središče ob Dravi</subdivision>
+			<subdivision type="si203" draft="contributed">Općina Straža</subdivision>
+			<subdivision type="si204" draft="contributed">Općina Sveta Trojica v Slovenskih goricah</subdivision>
+			<subdivision type="si205" draft="contributed">Općina Sveti Tomaž</subdivision>
+			<subdivision type="si206" draft="contributed">Općina Šmarješke Toplice</subdivision>
+			<subdivision type="si207" draft="contributed">Općina Gorje</subdivision>
+			<subdivision type="si208" draft="contributed">Općina Log - Dragomer</subdivision>
+			<subdivision type="si209" draft="contributed">Općina Rečica ob Savinji</subdivision>
+			<subdivision type="si210" draft="contributed">Općina Sveti Jurij v Slovenskih goricah</subdivision>
+			<subdivision type="si211" draft="contributed">Općina Šentrupert</subdivision>
+			<subdivision type="si212" draft="contributed">Mirna</subdivision>
+			<subdivision type="si213" draft="contributed">Ankaran</subdivision>
+			<subdivision type="skbc" draft="contributed">Banskobystrický kraj</subdivision>
+			<subdivision type="skbl" draft="contributed">Bratislavský kraj</subdivision>
+			<subdivision type="skki" draft="contributed">Košický kraj</subdivision>
+			<subdivision type="skni" draft="contributed">Nitriansky kraj</subdivision>
+			<subdivision type="skpv" draft="contributed">Prešovský kraj</subdivision>
+			<subdivision type="skta" draft="contributed">Trnavský kraj</subdivision>
+			<subdivision type="sktc" draft="contributed">Trenčiansky kraj</subdivision>
+			<subdivision type="skzi" draft="contributed">Žilinský kraj</subdivision>
+			<subdivision type="sle" draft="contributed">Istočna provincija</subdivision>
+			<subdivision type="sln" draft="contributed">Sjeverna provincija</subdivision>
+			<subdivision type="sls" draft="contributed">Južna provincija</subdivision>
+			<subdivision type="slw" draft="contributed">Zapadna zona</subdivision>
+			<subdivision type="sm07" draft="contributed">San Marino</subdivision>
+			<subdivision type="srbr" draft="contributed">Brokopondo</subdivision>
+			<subdivision type="srcm" draft="contributed">Commewijne</subdivision>
+			<subdivision type="srcr" draft="contributed">Coronie</subdivision>
+			<subdivision type="srma" draft="contributed">Marowijne</subdivision>
+			<subdivision type="srni" draft="contributed">Nickerie</subdivision>
+			<subdivision type="srpm" draft="contributed">Paramaribo</subdivision>
+			<subdivision type="srpr" draft="contributed">Para</subdivision>
+			<subdivision type="srsa" draft="contributed">Saramacca</subdivision>
+			<subdivision type="srsi" draft="contributed">Sipaliwini</subdivision>
+			<subdivision type="srwa" draft="contributed">Wanica</subdivision>
+			<subdivision type="ssuy" draft="contributed">Unity</subdivision>
+			<subdivision type="tdnd" draft="contributed">N’Djamena</subdivision>
+			<subdivision type="th10" draft="contributed">Bangkok</subdivision>
+			<subdivision type="th21" draft="contributed">Rayong</subdivision>
+			<subdivision type="tjdu" draft="contributed">Dušanbe</subdivision>
+			<subdivision type="tmb" draft="contributed">Balkan welaýaty</subdivision>
+			<subdivision type="tms" draft="contributed">Ašgabat</subdivision>
+			<subdivision type="tr01" draft="contributed">Adana</subdivision>
+			<subdivision type="tr06" draft="contributed">Ankara</subdivision>
+			<subdivision type="tr07" draft="contributed">Antalya</subdivision>
+			<subdivision type="tr09" draft="contributed">Aydın</subdivision>
+			<subdivision type="tr16" draft="contributed">Bursa</subdivision>
+			<subdivision type="tr22" draft="contributed">Edirne</subdivision>
+			<subdivision type="ttari" draft="contributed">Arima</subdivision>
+			<subdivision type="ttcha" draft="contributed">Chaguanas</subdivision>
+			<subdivision type="ttpos" draft="contributed">Port-of-Spain</subdivision>
+			<subdivision type="ttsfo" draft="contributed">San Fernando</subdivision>
+			<subdivision type="tttob" draft="contributed">Tobago</subdivision>
+			<subdivision type="tvfun" draft="contributed">Funafuti</subdivision>
+			<subdivision type="twtpe" draft="contributed">Taipei</subdivision>
+			<subdivision type="tz01" draft="contributed">Aruša</subdivision>
+			<subdivision type="tz02" draft="contributed">Dar-es-Salaam</subdivision>
+			<subdivision type="tz03" draft="contributed">Dodoma</subdivision>
+			<subdivision type="tz04" draft="contributed">Iringa</subdivision>
+			<subdivision type="tz05" draft="contributed">Kagera</subdivision>
+			<subdivision type="tz06" draft="contributed">Pemba Sjever</subdivision>
+			<subdivision type="tz07" draft="contributed">Zanzibar Sjever</subdivision>
+			<subdivision type="tz08" draft="contributed">Kigoma</subdivision>
+			<subdivision type="tz09" draft="contributed">Kilimandžaro</subdivision>
+			<subdivision type="tz10" draft="contributed">Pemba Jug</subdivision>
+			<subdivision type="tz11" draft="contributed">Zanzibar Centar/Jug</subdivision>
+			<subdivision type="tz12" draft="contributed">Lindi</subdivision>
+			<subdivision type="tz13" draft="contributed">Mara</subdivision>
+			<subdivision type="tz14" draft="contributed">Mbeya</subdivision>
+			<subdivision type="tz15" draft="contributed">Zanzibar Grad/Zapad</subdivision>
+			<subdivision type="tz16" draft="contributed">Morogoro</subdivision>
+			<subdivision type="tz17" draft="contributed">Mtwara</subdivision>
+			<subdivision type="tz18" draft="contributed">Mwanza</subdivision>
+			<subdivision type="tz19" draft="contributed">Pwani</subdivision>
+			<subdivision type="tz20" draft="contributed">Rukwa</subdivision>
+			<subdivision type="tz21" draft="contributed">Ruvuma</subdivision>
+			<subdivision type="tz22" draft="contributed">Šinjanga</subdivision>
+			<subdivision type="tz23" draft="contributed">Singida</subdivision>
+			<subdivision type="tz24" draft="contributed">Tabora</subdivision>
+			<subdivision type="tz25" draft="contributed">Tanga</subdivision>
+			<subdivision type="tz26" draft="contributed">Manyara</subdivision>
+			<subdivision type="tz27" draft="contributed">Geita</subdivision>
+			<subdivision type="tz28" draft="contributed">Katavi</subdivision>
+			<subdivision type="tz29" draft="contributed">Njombe</subdivision>
+			<subdivision type="tz30" draft="contributed">Simiju</subdivision>
+			<subdivision type="ua05" draft="contributed">Vinička oblast</subdivision>
+			<subdivision type="ua07" draft="contributed">Volinjska oblast</subdivision>
+			<subdivision type="ua09" draft="contributed">Luhanska oblast</subdivision>
+			<subdivision type="ua12" draft="contributed">Dnjipropetrovska oblast</subdivision>
+			<subdivision type="ua14" draft="contributed">Donečka oblast</subdivision>
+			<subdivision type="ua18" draft="contributed">Žitomirska oblast</subdivision>
+			<subdivision type="ua21" draft="contributed">Zakarpatska oblast</subdivision>
+			<subdivision type="ua23" draft="contributed">Zaporiška oblast</subdivision>
+			<subdivision type="ua26" draft="contributed">Ivano-Frankivska oblast</subdivision>
+			<subdivision type="ua30" draft="contributed">Kijev</subdivision>
+			<subdivision type="ua32" draft="contributed">Kijevska oblast</subdivision>
+			<subdivision type="ua35" draft="contributed">Kirovogradska oblast</subdivision>
+			<subdivision type="ua40" draft="contributed">Sevastopolj</subdivision>
+			<subdivision type="ua43" draft="contributed">Autonomna Republika Krim</subdivision>
+			<subdivision type="ua46" draft="contributed">Ljvivska oblast</subdivision>
+			<subdivision type="ua48" draft="contributed">Mikolajivska oblast</subdivision>
+			<subdivision type="ua51" draft="contributed">Odeška oblast</subdivision>
+			<subdivision type="ua53" draft="contributed">Poltavska oblast</subdivision>
+			<subdivision type="ua56" draft="contributed">Rivnenska oblast</subdivision>
+			<subdivision type="ua59" draft="contributed">Sumska oblast</subdivision>
+			<subdivision type="ua61" draft="contributed">Ternopiljska oblast</subdivision>
+			<subdivision type="ua63" draft="contributed">Harkivska oblast</subdivision>
+			<subdivision type="ua65" draft="contributed">Hersonska oblast</subdivision>
+			<subdivision type="ua68" draft="contributed">Hmeljnička oblast</subdivision>
+			<subdivision type="ua71" draft="contributed">Čerkaška oblast</subdivision>
+			<subdivision type="ua74" draft="contributed">Černigivska oblast</subdivision>
+			<subdivision type="ua77" draft="contributed">Černivecka oblast</subdivision>
+			<subdivision type="um67" draft="contributed">Atol Johnston</subdivision>
+			<subdivision type="um71" draft="contributed">Atol Midway</subdivision>
+			<subdivision type="um76" draft="contributed">Navassa</subdivision>
+			<subdivision type="um79" draft="contributed">Otok Wake</subdivision>
+			<subdivision type="um81" draft="contributed">Otok Baker</subdivision>
+			<subdivision type="um84" draft="contributed">Otok Howland</subdivision>
+			<subdivision type="um86" draft="contributed">Otok Jarvis</subdivision>
+			<subdivision type="um89" draft="contributed">Greben Kingman</subdivision>
+			<subdivision type="um95" draft="contributed">Atol Palmyra</subdivision>
+			<subdivision type="usak" draft="contributed">Aljaska</subdivision>
+			<subdivision type="usal" draft="contributed">Alabama</subdivision>
+			<subdivision type="usar" draft="contributed">Arkansas</subdivision>
+			<subdivision type="usaz" draft="contributed">Arizona</subdivision>
+			<subdivision type="usca" draft="contributed">Kalifornija</subdivision>
+			<subdivision type="usco" draft="contributed">Colorado</subdivision>
+			<subdivision type="usct" draft="contributed">Connecticut</subdivision>
+			<subdivision type="usdc" draft="contributed">Washington</subdivision>
+			<subdivision type="usde" draft="contributed">Delaware</subdivision>
+			<subdivision type="usfl" draft="contributed">Florida</subdivision>
+			<subdivision type="usga" draft="contributed">Georgia</subdivision>
+			<subdivision type="ushi" draft="contributed">Havaji</subdivision>
+			<subdivision type="usia" draft="contributed">Iowa</subdivision>
+			<subdivision type="usid" draft="contributed">Idaho</subdivision>
+			<subdivision type="usil" draft="contributed">Illinois</subdivision>
+			<subdivision type="usin" draft="contributed">Indiana</subdivision>
+			<subdivision type="usks" draft="contributed">Kansas</subdivision>
+			<subdivision type="usky" draft="contributed">Kentucky</subdivision>
+			<subdivision type="usla" draft="contributed">Louisiana</subdivision>
+			<subdivision type="usma" draft="contributed">Massachusetts</subdivision>
+			<subdivision type="usmd" draft="contributed">Maryland</subdivision>
+			<subdivision type="usme" draft="contributed">Maine</subdivision>
+			<subdivision type="usmi" draft="contributed">Michigan</subdivision>
+			<subdivision type="usmn" draft="contributed">Minnesota</subdivision>
+			<subdivision type="usmo" draft="contributed">Missouri</subdivision>
+			<subdivision type="usms" draft="contributed">Mississippi</subdivision>
+			<subdivision type="usmt" draft="contributed">Montana</subdivision>
+			<subdivision type="usnc" draft="contributed">Sjeverna Karolina</subdivision>
+			<subdivision type="usnd" draft="contributed">Sjeverna Dakota</subdivision>
+			<subdivision type="usne" draft="contributed">Nebraska</subdivision>
+			<subdivision type="usnh" draft="contributed">New Hampshire</subdivision>
+			<subdivision type="usnj" draft="contributed">New Jersey</subdivision>
+			<subdivision type="usnm" draft="contributed">Novi Meksiko</subdivision>
+			<subdivision type="usnv" draft="contributed">Nevada</subdivision>
+			<subdivision type="usny" draft="contributed">New York</subdivision>
+			<subdivision type="usoh" draft="contributed">Ohio</subdivision>
+			<subdivision type="usok" draft="contributed">Oklahoma</subdivision>
+			<subdivision type="usor" draft="contributed">Oregon</subdivision>
+			<subdivision type="uspa" draft="contributed">Pennsylvania</subdivision>
+			<subdivision type="usri" draft="contributed">Rhode Island</subdivision>
+			<subdivision type="ussc" draft="contributed">Južna Karolina</subdivision>
+			<subdivision type="ussd" draft="contributed">Južna Dakota</subdivision>
+			<subdivision type="ustn" draft="contributed">Tennessee</subdivision>
+			<subdivision type="ustx" draft="contributed">Teksas</subdivision>
+			<subdivision type="usut" draft="contributed">Utah</subdivision>
+			<subdivision type="usva" draft="contributed">Virginia</subdivision>
+			<subdivision type="usvt" draft="contributed">Vermont</subdivision>
+			<subdivision type="uswa" draft="contributed">Washington²</subdivision>
+			<subdivision type="uswi" draft="contributed">Wisconsin</subdivision>
+			<subdivision type="uswv" draft="contributed">Zapadna Virginia</subdivision>
+			<subdivision type="uswy" draft="contributed">Wyoming</subdivision>
+			<subdivision type="uyar" draft="contributed">Artigas</subdivision>
+			<subdivision type="uyca" draft="contributed">Canelones</subdivision>
+			<subdivision type="uycl" draft="contributed">Cerro Largo</subdivision>
+			<subdivision type="uyco" draft="contributed">Colonia</subdivision>
+			<subdivision type="uydu" draft="contributed">Durazno</subdivision>
+			<subdivision type="uyfd" draft="contributed">Florida</subdivision>
+			<subdivision type="uyfs" draft="contributed">Flores</subdivision>
+			<subdivision type="uyla" draft="contributed">Lavalleja</subdivision>
+			<subdivision type="uyma" draft="contributed">Maldonado</subdivision>
+			<subdivision type="uymo" draft="contributed">Montevideo</subdivision>
+			<subdivision type="uypa" draft="contributed">Paysandú</subdivision>
+			<subdivision type="uyrn" draft="contributed">Río Negro</subdivision>
+			<subdivision type="uyro" draft="contributed">Rocha</subdivision>
+			<subdivision type="uyrv" draft="contributed">Rivera</subdivision>
+			<subdivision type="uysa" draft="contributed">Salto</subdivision>
+			<subdivision type="uysj" draft="contributed">San José</subdivision>
+			<subdivision type="uyso" draft="contributed">Soriano</subdivision>
+			<subdivision type="uyta" draft="contributed">Tacuarembó</subdivision>
+			<subdivision type="uytt" draft="contributed">Treinta y Tres</subdivision>
+			<subdivision type="uztk" draft="contributed">Taškent</subdivision>
+			<subdivision type="vef" draft="contributed">Bolivar</subdivision>
+			<subdivision type="vev" draft="contributed">Zulia</subdivision>
+			<subdivision type="vey" draft="contributed">Delta Amacuro</subdivision>
+			<subdivision type="vez" draft="contributed">Amazonas, država</subdivision>
+			<subdivision type="vn24" draft="contributed">Quảng Bình</subdivision>
+			<subdivision type="vndn" draft="contributed">Đà Nẵng</subdivision>
+			<subdivision type="vnhn" draft="contributed">Hanoi</subdivision>
+			<subdivision type="vnsg" draft="contributed">Ho Ši Min</subdivision>
+			<subdivision type="vumap" draft="contributed">Malampa</subdivision>
+			<subdivision type="vupam" draft="contributed">Penama</subdivision>
+			<subdivision type="vusam" draft="contributed">Sanma</subdivision>
+			<subdivision type="vusee" draft="contributed">Shefa</subdivision>
+			<subdivision type="vutae" draft="contributed">Tafea</subdivision>
+			<subdivision type="vutob" draft="contributed">Torba</subdivision>
+			<subdivision type="wfal" draft="contributed">Alo</subdivision>
+			<subdivision type="wfsg" draft="contributed">Sigave</subdivision>
+			<subdivision type="wfuv" draft="contributed">Uvea</subdivision>
+			<subdivision type="wsaa" draft="contributed">A’ana</subdivision>
+			<subdivision type="wsal" draft="contributed">Aiga-i-le-Tai</subdivision>
+			<subdivision type="wsat" draft="contributed">Atua</subdivision>
+			<subdivision type="wsfa" draft="contributed">Fa’asaleleaga</subdivision>
+			<subdivision type="wsge" draft="contributed">Gaga’emauga</subdivision>
+			<subdivision type="wsgi" draft="contributed">Gaga’ifomauga</subdivision>
+			<subdivision type="wspa" draft="contributed">Palauli</subdivision>
+			<subdivision type="wssa" draft="contributed">Satupa’itea</subdivision>
+			<subdivision type="wstu" draft="contributed">Tuamasaga</subdivision>
+			<subdivision type="wsvf" draft="contributed">Va’a-o-Fonoti</subdivision>
+			<subdivision type="wsvs" draft="contributed">Vaisigano</subdivision>
+			<subdivision type="yeab" draft="contributed">Abyan</subdivision>
+			<subdivision type="yead" draft="contributed">Adan</subdivision>
+			<subdivision type="yeam" draft="contributed">Amran</subdivision>
+			<subdivision type="yeba" draft="contributed">Al Baida’</subdivision>
+			<subdivision type="yeda" draft="contributed">Ad Dali’</subdivision>
+			<subdivision type="yedh" draft="contributed">Dhamar</subdivision>
+			<subdivision type="yehd" draft="contributed">Hadramaut</subdivision>
+			<subdivision type="yehj" draft="contributed">Hajjah</subdivision>
+			<subdivision type="yehu" draft="contributed">Al Hudaida</subdivision>
+			<subdivision type="yeib" draft="contributed">Ibb</subdivision>
+			<subdivision type="yeja" draft="contributed">Al Jawf</subdivision>
+			<subdivision type="yela" draft="contributed">Lahij</subdivision>
+			<subdivision type="yema" draft="contributed">Ma’rib</subdivision>
+			<subdivision type="yemr" draft="contributed">Al Mahra</subdivision>
+			<subdivision type="yemw" draft="contributed">Al Mahwit</subdivision>
+			<subdivision type="yera" draft="contributed">Raima</subdivision>
+			<subdivision type="yesa" draft="contributed">Sana</subdivision>
+			<subdivision type="yesd" draft="contributed">Sa’da</subdivision>
+			<subdivision type="yesh" draft="contributed">Shabwa</subdivision>
+			<subdivision type="yesn" draft="contributed">Sana²</subdivision>
+			<subdivision type="yeta" draft="contributed">Taizz</subdivision>
+			<subdivision type="zaec" draft="contributed">Eastern Cape</subdivision>
+			<subdivision type="zafs" draft="contributed">Free State</subdivision>
+			<subdivision type="zagt" draft="contributed">Gauteng</subdivision>
+			<subdivision type="zalp" draft="contributed">Limpopo</subdivision>
+			<subdivision type="zamp" draft="contributed">Mpumalanga</subdivision>
+			<subdivision type="zanc" draft="contributed">Northern Cape</subdivision>
+			<subdivision type="zanl" draft="contributed">KwaZulu-Natal</subdivision>
+			<subdivision type="zanw" draft="contributed">North West</subdivision>
+			<subdivision type="zawc" draft="contributed">Western Cape</subdivision>
+		</subdivisions>
+	</localeDisplayNames>
+</ldml>

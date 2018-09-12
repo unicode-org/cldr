@@ -1,0 +1,3617 @@
+/* @override 
+	http://127.0.0.1:8080/cldr-apps/surveytool.css
+	http://naf.:8080/cldr-apps/surveytool.css
+	http://st.unicode.org/cldr-apps/surveytool.css
+	http://naf:8080/cldr-apps/surveytool.css
+	http://localhost:8080/cldr-apps/surveytool.css */
+/* Copyright (c) 2004-2013 IBM and others. All Rights Reserved. */
+/* Made with CSSEdit and Espresso2 */
+@charset "UTF-8";
+
+
+/* lang specific CSS */
+
+/*
+NOTE: See http://www.w3.org/International/questions/qa-css-lang
+Right now, none by default.
+
+add following to ajax_status.jsp:
+>>	 <link href='//fonts.googleapis.com/css?family=UnifrakturCook:bold' rel='stylesheet' type='text/css'>
+
+The the following can work here:
+:lang(de) {
+  font-family: UnifrakturCook;
+}
+
+Color english brown
+:lang(en) {
+	color: brown !important;
+}
+*/
+
+
+/* The following is directly includeable as per https://github.com/saturngod/mmwebfonts/issues/4 */
+@font-face {
+font-family:'MON3 Anonta 1';
+src:local('MON3 Anonta 1'),url('//mmwebfonts.comquas.com/fonts/mon3.ttf');
+}
+
+/* 
+Remove these to save load time.
+@import url('http://mmwebfonts.comquas.com/fonts/?font=padauk');
+@import url('http://mmwebfonts.comquas.com/fonts/?font=myanmar3');
+*/
+
+/*
+Use padauk or MM3 if available, otherwise Mon3.
+*/
+:lang(my) {
+  font-family:padauk,Myanmar3,'MON3 Anonta 1';
+}
+
+span.age  {
+	font-weight: bold;
+	font-style: italic;
+}
+
+ul.adminList  {
+	display:  table-row;
+	border: 1px solid gray;
+}
+
+ul.adminList li {
+	display:  table-cell;
+	padding:  0.5em;
+}
+
+ul.adminList li.selected {
+	border-left:  1px solid gray;
+	border-right:  3px solid gray;
+	border-top:  1px solid gray;
+	background-color: whitesmoke;
+	box-shadow: 3px 0px 5px gray;
+}
+
+ul.adminList li.notselected {
+	background-color: #eee;
+	border-left:  1px solid #ddd;
+	border-right:  1px solid #ddd;
+}
+
+#small_login_shower button {
+    float:  right;
+}
+
+div.adminPanel {
+	border:  1px solid gray;
+	box-shadow: 3px 3px 5px gray;
+	padding:  2px;
+}
+
+h3.adminTitle {
+	font-size: x-large;	
+	border-bottom:  2px solid black;
+}
+.userlist .seenSub::before {
+    content: 'Activity';
+    font-size: xx-small;
+}
+.userlist .seenSub {
+    display: block;
+    margin-top:  0.5em;
+}
+
+.userlist .seenSub .chartRow{
+    display:  table-row;
+}
+.userlist .seenSub .chartRow span{
+    display:  table-cell;
+    font-size: small;
+    padding-right: 0.25em;
+}
+
+.seenSub .chartDay {
+    white-space: nowrap;
+}
+.seenSub .chartLoc {
+    font-family: "Courier New", Courier, mono;
+}
+.seenSub .chartCount {
+    font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    text-align: right;
+}
+
+.userlist .chartMore {
+    float: right;
+    border: 1px solid black;
+    padding:  2px;
+    margin:  1px;
+    background-color: silver;
+    display: run-in;
+}
+
+.userlist div.adminUserUser {
+    padding: 0;
+    margin: 0;
+}
+
+div.adminUserUser i {
+	font-weight: normal;
+	font-style: normal;
+	font-variant: small-caps;
+	float:  right;
+	color: white;
+	background-color: black;
+	margin:  0.5em;
+	padding:  3px;
+}
+
+.adminUserUser img {
+    margin-top:  0.25em;
+    margin-left:  0.25em;
+    margin-right:  0.25em;
+    float: left;
+}
+
+.adminSettingsList {
+	display: table;
+	width: 100%;
+}
+
+.adminSetting {
+    display: table-row;
+    background-color: #fcf8e3;
+}
+
+.adminSetting input {
+	width: 90%;
+	display: block;
+}
+
+.adminSetting label {
+	font-size: small;
+}
+
+#specialHeader {
+	display: block;
+    padding: 0.25em;
+    color:  black;
+    background-color: #fcf8e3;
+    opacity: 1;
+	font: italic  small Georgia, "Times New Roman", Times, serif;
+	margin-top:  2px;
+	box-shadow: 1px 1px 1px gray;
+}
+.adminSettingId, .adminSettingValue {
+    display: table-cell;
+    padding:  2px;
+    border-bottom:  1px dashed gray;
+}
+
+.adminSettingId {
+	font-weight: bold;
+	padding-right: 1em;
+}
+
+.adminSettingValue {
+	padding-bottom:  1px;
+	font-family: "Courier New", Courier, mono;
+	font-size:  small;
+}
+
+.debugStuff {
+	font-family: monospace,"Courier New", Courier, mono;
+	font-size:  small;
+	padding:  0.25em;
+	background-color:  white;
+	border:  3px groove green;
+	box-shadow: 3px 3px 2px gray;
+}
+
+.userlist .noActivity a.recentActivity {
+    opacity:  0.5;
+}
+
+.userlist .hadActivity a.recentActivity {
+    font-weight: bold;
+    opacity:  1.0;
+    color:  white;
+    background-color:  navy;
+}
+
+.userlist  .noActivity .adminUserUser {
+    opacity:  0.75;
+}
+.userlist  .hadActivity .adminUserUser {
+    border:  2px solid black;
+}
+
+i.userlevel_street {
+	background-color: navy !important;
+	color:  white !important;
+}
+i.userlevel_vetter {
+	background-color: green !important;
+	color:  black !important;
+}
+i.userlevel_locked {
+	background-color: gray !important;
+	color:  silver !important;
+}
+i.userlevel_expert {
+	background-color: teal !important;
+	color:  black !important;
+}
+
+i.userlevel_manager{
+	background-color: #e77de7 !important;
+	color: white !important;
+}
+i.userlevel_admin {
+	background-color: maroon !important;
+	color:  silver !important;
+}
+i.userlevel_tc {
+	background-color: orange !important;
+	color:  black !important;
+}
+
+
+/* todo: replace w/ icons */
+
+
+div.adminUser {
+	margin:  1em;
+	border:  1px solid gray ;
+	width:  50em;
+	background-color: #e3e3e3;
+}
+
+span.adminUserSession {
+	font: small Georgia, "Times New Roman", Times, serif;
+	text-align: left;
+	float: right;
+}
+
+span.adminUserInfo {
+	font-size: small;
+	text-align: right;
+	margin:  8px;
+}
+
+
+div.adminUserUser {
+	background-color: #92c1c9;
+	width:  30em;
+	margin:  1em;
+}
+
+div.forumDiv div.adminUserUser {
+    width:  inherit !important;
+}
+
+span.adminUserName {
+	font-size:  large;
+	display:  block;
+}
+span.adminOrgName {
+	font-size: small;
+	display:  block;
+    font-style: italic;
+}
+
+address.adminUserAddress {
+	font: normal smaller "Courier New", Courier, mono;
+    white-space: nowrap;
+}
+
+
+
+button.icancel {
+	display: none;
+}
+
+button.isubmit {
+
+
+}
+
+button.ichoice {
+	
+}
+
+button.inochoice {
+	
+}
+
+#explainIcons {
+	font-size: small;
+}
+
+/* @group Vetting View */
+
+/* todo: sync with later items */
+
+table.tv-table, table.tvs-table {
+	border-collapse: collapse;
+}
+
+table.tv-table, th.tv-th, tr.tv-tr, td.tv-num, td.tv-code, td.tv-eng, td.tv-last, td.tv-win, td.tv-fix, table.tvs-table, tr.tvs-tr, td.tvs-count, td.tvs-abb, td.tvs-desc, td.tv-test {
+	border: 1px solid gray;
+}
+
+td.tv-num, td.tv-code, td.tv-eng, td.tv-last, td.tv-win, td.tv-fix, td.tvs-count, td.tvs-abb, td.tvs-desc {
+	background-color: #FFFFCC;
+}
+
+td.tv-num, td.tvs-count {
+	text-align: right;
+}
+
+th.tv-th, th.tvs-th {
+	background-color: #DDDDDD;
+}
+
+th.tv-win {
+	background-color: #FFCCCC;
+}
+
+/* @end */
+
+td {
+	vertical-align: top;
+}
+
+body {
+	background-color: white;
+	padding-bottom: 3em;
+	padding-right: 0.5em;
+	margin-bottom: 180px;
+	/* margin-top: px; */
+}
+
+
+hr {
+	border: 1px dashed #ccd
+}
+
+tr.row0 {
+	background-color: #fff
+}
+
+tr.row1 {
+	background-color: #ddd
+}
+
+A.nodraft {
+	text-decoration: none
+}
+
+A.nodraft:link {
+	color: #4567b0
+}
+
+A.nodraft:active {
+	color: #f00
+}
+
+A.nodraft:visited {
+	color: #8372d2
+}
+
+.draftl {
+	font-weight: bold;
+	text-decoration: none
+}
+
+.missing {
+	background-color: #ffd8c8;
+	border: 1px solid red;
+}
+
+.missing a:link {
+	color: #fff
+}
+
+.missing a:visited {
+	color: #ddd
+}
+
+.missing a:active {
+	color: #f00
+}
+
+.missing a:hover {
+	color: #fDD
+}
+
+.xpath {
+	font-size: smaller;
+}
+
+div.search div.results h3, div.search div.results h4 {
+    display:  inline;
+    padding-right:  2em;
+}
+
+div.search div.results li {
+    display:  block;
+}
+
+div.search a.xpath {
+    display: block;
+    color:  gray;
+}
+
+div.search div.results li {
+    border-top:  1px solid silver;
+    list-style: none;
+    padding-bottom: 0.5em;
+}
+
+div.search div.results li a.codebox {
+    font-size:  larger;
+}
+
+#itemInfo div.xpath {
+    position: fixed;
+    left: 0.1em;
+    bottom: 0.1em;
+    color: #a19a9a;
+    padding:  2px;
+    border:  1px solid white;
+    font-family: "Courier New", Courier, mono;
+    font-weight: bold;
+}
+
+#itemInfo div.xpath:hover {
+    opacity: 1;
+    color: navy;
+    border:  1px solid silver;
+    background-color: white;
+}
+
+
+.alias {
+	/*	font-size: smaller;
+	*/
+
+/*	font-color: #F22;
+	*/
+ background-color: #ddf;
+}
+
+
+.fallback {
+	background-color:#5bc0de;
+	padding: .1em .4em .2em;
+	
+}
+.fallback_root, .fallback_code {
+	border: 1px dotted #f00 !important;
+	background-color: #FFDDDD ;
+}
+
+.draft {
+	background-color: #88FFAA  !important;
+}
+
+.proposed {
+	background-color: #88DDAA  !important;
+}
+
+.selected {
+	font-size: 120%;
+	font-weight: bold;
+	color: #313998;
+}
+
+/*	background-color: #444fd2;
+	color: #fff;
+	foreground-color: #fff;
+	margin: 1px;
+	text-weight: bold;
+	padding: 1px;
+	text-decoration: none;
+	border: 1px solid black */
+
+a.selected :link {
+	color: #fff
+}
+
+.notselected {
+	margin: 2px;
+	padding: 1px;
+
+
+/*
+
+text-decoration: none; */
+}
+
+a.notselected {
+	color: #358cc3;
+	text-decoration: underline;
+}
+
+div.adminThreads {
+	display:  table;
+}
+
+div.adminThreadList,
+div.adminExceptionList {
+	width:  43%;	
+	clear:  right;
+	padding-right:  1em;
+	display:  table;
+}
+
+.adminExceptionFooter {
+	padding: 0.25em;
+	font-style: oblique;
+	display: block;
+	clear: both;
+	padding-bottom: 0.5em;
+	float: right;
+}
+
+div.adminThreadList span {
+	display:  table-cell;
+}
+
+span.adminExceptionHeader {
+	font-weight: bold;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	display:  block;
+}
+
+span.adminExceptionUptime {
+	display: block;
+	color: darkgreen;
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+#adminStuff div.adminPanel div.adminThreads div.adminThreadStack pre.adminExceptionSTACK {
+	padding-left:  2em;
+	padding-top: 0;
+	margin-top: 0;
+}
+
+
+.deadThread, .adminDeadThreadsHeader, ul.adminDeadThreads {
+    background-color: red;
+    color: black;
+}
+.adminDeadThreadsHeader {
+    padding-left: 30px;
+    margin:0;
+    white-space: nowrap;
+    background: url(stop.png) no-repeat 0 top;
+    display: block;
+}
+
+ul.adminDeadThreads {
+    display: inline;
+    padding-left: 40px;
+    margin:0;
+    margin-bottom: 1em;
+}
+
+ul.adminDeadThreads li {
+    display: inline;
+    padding-left: 0.25em;
+}
+
+.adminThreadStack {
+    vertical-align: top;
+}
+
+pre.adminExceptionLogsite {
+    padding-left:  20px;
+    background: url(conf2.png) no-repeat 0 top;
+}
+
+pre.adminExceptionSQL {
+	padding-left:  20px;
+	background: url(squo.png) no-repeat 0 top;
+	font: italic bold large "Courier New", Courier, mono;
+}
+
+pre.adminExceptionMESSAGE {
+	white-space: normal;
+	border-top: 2px solid gray;
+	font-weight: bold;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	background: url(stop.png) no-repeat 0 top;
+	padding-left:   20px;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+div.sidewaysArea {
+	font-size: smaller;
+	padding-left: 20px;
+}
+
+div.sideways_same  {
+	background: url(squo.png) no-repeat 0 top;
+}
+
+
+div.sideways_diff  {
+	background-color: #fbb;
+	background: url(zoom.png) no-repeat 0 top;
+}
+
+div.adminException {
+	display: block;
+	padding-top:  0.25em;
+	padding-bottom:  1.5em;
+	border-bottom:  1px solid whitesmoke;
+}
+
+div.adminException span {
+	display:  block;
+}
+
+div.adminException span.adminExceptionHeader {
+	display:  block;
+	padding-left:  20px;
+	background: url(stop.png) no-repeat 0 top;
+}
+
+span.adminExceptionDate {
+	white-space: nowrap;
+	font: small "Lucida Grande", Lucida, Verdana, sans-serif;
+	float: right;
+	display: block
+}
+
+span.adminThreadse_RUNNABLE {
+	background-color: lime;
+}
+
+span.adminThreadState_WAITING {
+	background-color: lightgreen;
+}
+span.adminThreadState_BLOCKED {
+	background-color: red;
+}
+span.adminThreadState_TIMED_WAITING {
+	background-color: silver;
+}
+
+.adminExceptionCount {
+	padding-left:  20px;
+	background: url(zoom.png) no-repeat 0 top;
+	text-decoration: underline;
+}
+
+.adminExceptionMore {
+	color: maroon;
+}
+
+.adminExceptionCount:hover,
+div.adminException span.adminExceptionHeader:hover {
+	color: blue;
+}
+
+div.adminThread {
+	border-bottom:  1px dotted gray;
+	display:  table-row;
+	padding-right: 0.5em;
+}
+
+
+span.adminThreadId {
+	width:  5em;
+	padding-right:  1em;
+}
+
+span.adminThreadName {
+	border-bottom: 1px solid silver;
+}
+
+span.adminThreadState_RUNNABLE,
+span.adminThreadState_TIMED_WAITING,
+span.adminThreadState_WAITING,
+span.adminThreadState_BLOCKED {
+	text-align: right;
+	font-size: small;
+	font-weight: bold;
+}
+
+div.adminThreadStack {
+	display:  inline;	
+	white-space: pre;
+	width: 43%;
+	display:  table-cell;
+	font: small "Courier New", Courier, mono;
+	background-color: #fcf8e3;
+	padding:  3px;
+}
+
+.textForTrac {
+	background-color: #fcf8e3;
+	color: #fcf8e3;
+	font-size: 1px;
+}
+
+.clickToSelect {
+	display: block;
+	clear: both;
+	float: right;
+}
+
+div.adminThreadStack b, span.adminThreadName {
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+.sep {
+	height: 3px;
+	overflow: hidden;
+	background-color: #44778C;
+}
+
+.name {
+	background-color: #eef;
+}
+
+.warning {
+	font-size: smaller;
+	/*	font-color: #F22;
+	*/
+	color: #F22;
+	background-color: #fee;
+	border: 1px solid red;
+}
+
+.warningReference {
+	font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+	color: teal;
+}
+
+.warningTarget {
+	font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+	color: teal;
+}
+
+td.warncell {
+	border-left: 1px solid #ddd;
+}
+
+tr.warnrow {
+	/*    font-color: #f22;
+	*/
+    color: #f22;
+	background-color: #fee;
+}
+
+.pager {
+	border: 1px solid gray;
+	background-color: #FFEECC;
+	padding: 0.2em 0.2em 0.2em 0.2em;
+	
+
+/*	padding: 1em 1em 1em 1em; */
+	margin-top: 2px;
+	font-size: smaller;
+}
+
+.pagerln {
+	border-bottom: 1px solid #aaa;
+	border-top: 1px solid #aaa;
+}
+
+.pagerl_active {
+	
+}
+
+.pagerl_inactive {
+	color: gray;
+}
+
+.localenav {
+	border: 1px solid gray;
+	background-color: #fff;
+	margin: 5px;
+/*align: left;*/
+}
+
+.localeList {
+    width:  auto;
+}
+
+/*
+.topLocaleRow:nth-child(odd) .subLocale:not(.hide):nth-child(even) {
+    background-color: #f4f4f4;
+}
+.topLocaleRow:nth-child(even) .subLocale:not(.hide):nth-child(even) {
+    background-color: #f4f4f4;
+}*/
+
+
+.localeList .topLocaleRow {
+    width:  auto;
+}
+
+.topLocale a {
+    white-space: nowrap;
+    font-weight: bold;
+    font-size:  larger;
+}
+
+.localeList a:hover {
+    color:  red !important;
+}
+
+.topLocaleRow .topLocaleDiv {
+    display:  table-cell;
+}
+.topLocaleRow .subLocaleList {
+    display:  block;
+    padding-left:  4em;
+}
+
+.subLocaleList .subLocale {
+    margin-right:  0.25em;
+    display: inline-block;  
+}
+
+.topLocaleRow a {
+	display:block;
+	padding-right: 12px;
+	padding-top:6px;
+	padding-bottom:6px;
+	padding-left:5px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.topLocaleRow a:hover {
+	background-color:#446e9b;
+	color:white !important;
+	text-decoration: none;
+}
+
+.subLocale a.locked.locName {
+    color:  silver;
+}
+
+.canmodify::before {
+	content:"\270f  ";
+	font-family: 'Glyphicons Halflings';
+}
+
+
+.name_var {
+    font-style: oblique;
+}
+
+
+
+.inputbox {
+	width: 95%;
+}
+
+.inputboxbig {
+	width: 95%;
+}
+
+.badinputbox {
+	border: 2px dashed red;
+	width: 100%;
+	height: 100%;
+}
+
+.hang {
+	text-indent: -2em;
+	padding-left: 2em;
+	margin-bottom: .4em;
+	margin-top: .4em;
+}
+
+.hangsml {
+	text-indent: -1em;
+
+
+/*
+
+margin-left: 2em; */
+}
+
+table.list {
+	border-collapse: collapse;
+	display: inline;
+}
+
+table#statisticsTable {
+    border-collapse: collapse;
+}
+
+#statistics_area {
+	width: 80%;
+	height: 400px;
+/*    overflow: scroll;*/
+	border: 1px solid gray;
+	margin-bottom: 1em;
+}
+
+table#statisticsTable thead th {
+    font-weight: bold;
+    border-bottom: 1px solid gray
+}
+
+div.statistics h2 {
+	border-top: 2px solid gray;
+	width: 100%;
+	margin-top: 2em;
+}
+
+div.statistics {
+    margin-left: 1.5em;
+}
+
+div.dijitTooltipContainer.dijitTooltipContents {
+    box-sizing: inherit !important;
+}
+
+div.statistics .swatch {
+	border: 1px solid black;
+	width: 1em;
+	height: 1em;
+	margin: 0.25em;
+	white-space: pre;
+}
+
+div.statistics .color0 {
+	background-color: #8aa717;	
+}
+
+div.statistics .color1 {
+	background-color: #1751a7;	
+}
+
+table#statisticsTable td.locid {
+    font: bold small "Courier New", Courier, mono;
+    text-align: right;
+}
+
+table#statisticsTable a {
+    text-decoration: none;
+}
+
+table#statisticsTable td.locname a,
+table#statisticsTable td.selfname.dirltr a {
+    padding-left:  18px;
+}
+
+table#statisticsTable td.selfname.dirrtl a {
+    padding-right:  18px;
+}
+
+
+table#statisticsTable td.locname a:hover {
+    background: url(zoom.png) no-repeat;
+    text-decoration: underline;
+}
+
+table#statisticsTable td.selfname.dirltr a:hover
+{
+    background: url(dnah.png) left no-repeat;
+    text-decoration: underline;
+}
+table#statisticsTable td.selfname.dirrtl a:hover
+{
+    background: url(hand.png) right no-repeat;
+    text-decoration: underline;
+}
+
+table#statisticsTable .olddata {
+    opacity: .8;
+    color: #1561b7;
+}
+
+table#statisticsTable .olddata:hover {
+    color: red;
+}
+
+table#statisticsTable tbody tr.r0 {
+    
+}
+table#statisticsTable tbody tr.r1 {
+    background-color: #d2eee1;
+}
+
+table#statisticsTable tbody tr:hover {
+    background-color: #ecd290;
+}
+
+table#statisticsTable td.count {
+    text-align: right;
+}
+
+div.minimenu {
+	border-collapse: collapse;
+	border-top: 1px solid black;
+	background-color: #ddf;
+}
+
+div.minimenu a.forumlink {
+	float: right;
+}
+
+h2.thisItem {
+	margin-top: 0;
+	font-family: Georgia;
+	font-size: x-large;
+	background-color: #ddf;
+	text-align: center;
+}
+
+.small_login_hidden {
+	
+
+/*transition: opacity .25s visibility .1s linear .5s;
+	-moz-transition:  opacity .25s visibility .1s linear .5s;
+	-o-transition: opacity .25s visibility .1s linear .5s;
+	-webkit-transition: opacity .25s visibility .1s linear .5s;
+	
+	visibility: visible;
+	opacity: .5;*/
+	display: none;
+}
+
+.small_login_normal {
+	
+
+}
+
+i.loadingMsg,
+i.loadingMsgSpin {
+	font-size: xx-large;
+	text-align: justify;
+	font-weight: bold;
+	/* text-transform: uppercase; */
+	color: black;
+	font-style:normal;
+}
+
+i.loadingMsgSpin {
+	white-space: pre;
+	font-family: monospace;
+}
+
+/*
+#LoadingMessageSection::after {
+	content: url('loader.gif');
+	position:relative;
+	top:10px;
+	left:15px;
+}
+*/
+
+.loaderAnimIcon {
+	background-image: url('loader.gif');
+	background-repeat: no-repeat;
+	position:relative;
+	top:10px;
+	left:15px;
+	width: 100px;
+	height: 100px;
+}
+
+.small_login_hot {
+	font-size: larger;
+	border: 7px outset maroon;
+	background-color: #fad084;
+	padding: 2.0em;
+	text-shadow: #000000 0 0 0;
+	position: absolute;
+	top: 25px;
+	right: 0;
+	z-index: 4;
+	line-height: 1.34em;
+}
+
+.serverLoadInfo {
+    margin-top:  5em;
+    font: normal normal small "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+div#smalllogin {
+	
+}
+
+.small_login_visible {
+	
+
+/*opacity: 1;*/
+	display: inline;
+/*
+
+visibility:  visible;*/
+}
+
+i.scary {
+	color: #f9514d;
+	font: normal normal x-small ocra10,Anaktoria;
+}
+
+.list.td .list.th {
+	padding-top: 3px;
+	padding-bottom: 4px;
+}
+
+.listb {
+	border: 1px solid black;
+	border-collapse: collapse
+}
+
+.listb.td .listb.th {
+	padding-top: 3px;
+	padding-bottom: 4px;
+}
+
+table.list tr.row0 {
+	background-color: #fff
+}
+
+table.list tr.row1 {
+	background-color: #edf3fe
+}
+
+table.list tr.heading {
+	background-color: #dcfed2;
+	color: #791830;
+	border-bottom-style: solid;
+	border-bottom-color: #c9c9c9;
+}
+
+table.userlist th {
+	color: navy;
+	font-size: 92%;
+}
+
+table.userlist td {
+	text-align: left;
+}
+
+.user0 {
+	border-color: maroon;
+	border-color: maroon;
+	color: maroon;
+	background: #ffd3bb;
+}
+
+.userlist {
+	border-collapse: collapse;
+	text-align: left;
+}
+
+table.userlist {
+	margin-top: 4px;
+	margin-bottom: 4px;
+	border-style: outset;
+	text-align: left;
+}
+
+.voteDiv p {
+	margin: 2px;	
+}
+
+.topbar {
+	border-top: 3px solid #040;
+}
+
+.botbar {
+	border-bottom: 3px solid #040;
+}
+
+th.botgray {
+	border-bottom: 1px solid #ddd;
+}
+
+td.botgray {
+	border-bottom: 1px solid #ddd;
+}
+
+td.topgray {
+	border-top: 1px solid #ddd;
+}
+
+tr.warningRow td {
+	border-top: 1px solid #222;
+	border-bottom: 1px solid #222;
+}
+
+tr.referenceRow td {
+	border-top: 1px solid #222;
+	border-bottom: 1px solid #222;
+}
+
+tr.heading {
+	background: #ddd;
+}
+
+tr.heading th.partsection {
+	border-top: 2px solid black;
+	z-index: 0;
+}
+
+th.partsection {
+	border-top: 2px solid gray;
+	padding: 0.5em;
+}
+
+.userlist th.partsection {
+	border-top: 2px solid gray !important;
+	padding: 0.5em !important;
+	background: silver;
+}
+.userlist th.partsection  h4{
+	margin: 0;
+}
+
+th.partsection, th.partsection a {
+	font-weight: bold;
+	font-style: italic;
+	background-color: #d9edf7;
+	color: #111111;
+	text-align: left;
+	z-index: 0;
+    text-transform: capitalize;
+}
+
+
+tt.codebox {
+	border: 1px solid gray;
+/*
+
+padding: 1px; 
+  	margin-top:0px;
+  */
+}
+
+.respbox {
+	border: 1px solid gray;
+	padding: 0.5em;
+}
+
+div.respbox:target {
+	border: 4px solid goldenrod !important;
+	padding: 1em;
+}
+
+.respbox h3, .respbox h3 a {
+	color: #084610;
+	margin: 2px;
+}
+
+.person {
+	float: right;
+	clear: none;
+	font-size: smaller;
+	text-align: right;
+}
+
+div.person a {
+	float: none;
+}
+
+.response {
+	
+}
+
+.localeName {
+    display:  block;
+    font-size: medium;
+}
+
+.topicSubject, .postSubject {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight:  bold;
+}
+
+.forum-me {
+    font-weight:  bold;
+    font-size:  larger;
+}
+
+.post {
+    margin-bottom: 0.75em;    
+    padding-bottom:  0.25em;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-ms-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;
+}
+
+.post, .post .postReplies {
+    background-color: #f4f5f4;
+}
+
+
+.postReplies .post {
+    margin-top: 1em;
+}
+
+.postContent {
+    white-space: pre-wrap;
+}
+
+.postContent button {
+    margin-left: 1em;
+    margin-top:  0.5em;
+}
+
+
+.reply a, div.subpost a.postReply {
+	background-color: #fff88d;
+	margin-bottom: 1em;
+}
+
+div.subpost a.postReply {
+	text-align: right;
+}
+
+.odashbox {
+	border: 3px dashed olive;
+	margin: 1em;
+	padding: 1em;
+}
+
+.dashbox {
+	color: #000;
+	background: #ddd;
+	font-size: 80%;
+	border: 1px dashed gray;
+	padding: 1px;
+	margin-top: 0px;
+}
+
+.actionbox {
+	/*    color: #000;
+	background: #ddd;
+	*/
+    font-size: 80%;
+/*
+
+border: 1px
+    dashed gray;
+    padding: 1px;
+    margin-top: 0px; */
+}
+
+a.forumlink {
+	padding-left: 1em;
+	background: url(chat.png) no-repeat;
+}
+
+td.d-code.hasPosts {
+	background: url(chat.png) no-repeat right bottom;
+}
+
+div.forumDiv div.subpost {
+	background-color: #f5e3c2;
+	margin-top:  0.25em;
+	padding:  0.25em;
+}
+
+div.forumDiv div.subpost b {
+	margin-right: 1em;
+	display:  table-cell;
+	padding-right:  1em;
+}
+
+div.forumDiv div.subpost .postHeader {
+	display:  table-cell;
+}
+
+button.forumNewButton {
+	
+}
+
+button.forumNewPostFlagButton {
+    padding-left: 2em;
+}
+
+button.forumNewPostFlagButton:hover {
+    padding-left: 2em;
+    background: url(flag.png) no-repeat;
+}
+
+div.forumDiv .adminUserUser {
+	background-color: lightgrey !important;
+	margin: 3px !important;
+	display:  block !important;
+}
+div.forumDiv span.adminUserName {
+	font-size:  medium !important;
+}
+div.forumDiv .adminUserUser span.adminUserName,
+div.forumDiv  .adminUserUser address,
+div.forumDiv .adminUserUser i {
+		float:none !important;
+		margin:  0.25em !important;
+}
+
+div.postHeaderInfoGroup, .postHeaderItem {
+	display:  block;
+}
+
+
+div.postHeaderLine {
+	display:  table-row;
+	font-size: small;
+}
+
+div.postHeaderLine div {
+	display:  table-row;
+}
+
+div.postHeaderLine div.postHeaderItem {
+	display:  table-row;
+	font-size: smaller;
+}
+
+div.forumDiv div.subpost div.postContent {	
+	padding-top:  0.5em;
+	font: small Georgia, "Times New Roman", Times, serif;
+	white-space: pre-wrap;
+}
+
+div.postReplies {
+	margin-left: 0.5em;
+	padding-left: 0.5em;
+	padding-top:  0.25em;
+	margin-top:  0.25em;
+}
+
+.forumLink {
+    text-decoration: underline;
+}
+
+.forumLink:hover {
+    color: blue;
+    background-color: white;
+    cursor:  pointer;
+}
+
+div.postReplies,
+div.postReplies:hover > div.post > div.postReplies {
+	border-left: 3px solid gray;
+}
+
+div.postReplies .post {
+    margin-top: 0.25em;
+}
+
+div.postReplies:hover > div.post > div.postReplies:hover,
+div.postReplies:hover
+ {
+    border-left:  3px solid red;
+}
+
+
+a.postItem {
+	margin-left: 0.25em;
+}
+
+.disabledbox {
+	font-size: 80%;
+	color: #555;
+}
+
+
+.deactivated {
+	color: #555;
+}
+
+td.framecell {
+	border: ridge #ffb000 4px;
+	background: #f6ffe8;
+	color: black;
+}
+
+/* @group vetting */
+
+.approved {
+	border-color: green;
+	border-style: ridge;
+	margin: 1px;
+	padding: 1px;
+}
+
+.disputed {
+	
+}
+
+.insufficient {
+	
+}
+
+/* but, an insufficient table.. */
+
+td.insufficient {
+	border: none;
+}
+
+td.insufficient span.loser {
+	border: 2px;
+	border-color: #f0961b;
+	border-style: dashed;
+	margin: 1px;
+	padding: 1px;
+}
+
+
+.extraAttribute_heading {
+	
+}
+.extraAttributes .extraAttribute {
+	display: inline;
+	margin: 1em;
+}
+td.d-code .extraAttribute  {
+	display: block;
+}
+.extraAttribute {
+	font-family: Georgia, "Times New Roman", Times, serif !important;
+	border: 1px solid purple;
+	background-color: #ddf;
+}
+
+/* @end */
+
+/* @group tzbox */
+
+table.tzbox {
+	/*	border: 1px solid gray;
+	*/
+	border-collapse: collapse;
+}
+
+table.tzbox th {
+	border-right: 1px solid gray;
+	border-left: 1px solid gray;
+	border-bottom: 2px solid gray;
+	color: black;
+}
+
+table.tzbox td {
+	padding-right: 0.2em;
+	padding-left: 0.2em;
+	border-right: 1px solid gray;
+	border-left: 1px solid gray;
+}
+
+table.tzbox tr.r0 td {
+	color: #555;
+}
+
+table.tzbox tr.r1 td {
+	color: #555;
+	background-color: #fe9;
+}
+
+table.tzbox tr.r0currentZone td {
+	color: black;
+	background-color: white;
+}
+
+table.tzbox tr.r1currentZone td {
+	color: black;
+	background-color: #fe9;
+}
+
+table.tzbox tt.codebox {
+	background-color: white;
+}
+
+/* @end */
+
+/* @group sqlbox */
+
+table.sqlbox {
+	border: 1px solid gray;
+	border-collapse: collapse;
+}
+
+table.sqlbox th {
+	border-right: 1px solid gray;
+	border-left: 1px solid gray;
+	border-bottom: 2px solid gray;
+	color: navy;
+	font-size: 50%;
+	background-color: #dde;
+}
+
+table.sqlbox td {
+	padding-right: 0.2em;
+	padding-left: 0.2em;
+	border-right: 1px solid gray;
+	border-left: 1px solid gray;
+}
+
+table.sqlbox tr.r0 td {
+	color: black;
+}
+
+table.sqlbox tr.r1 td {
+	color: black;
+	background-color: #fe9;
+}
+
+/* forms here don't need a margin */
+
+table.sqlbox input {
+	margin: 0;
+}
+
+table.sqlbox form {
+	margin: 0;
+}
+
+/* @end */
+
+.manageSubpages {
+	padding-left: 2em;
+	display: block;
+	width: 50em;
+}
+
+.manageSubpages a,
+.manageSubpages b {
+    display:  block;
+    border-radius: 5px;
+    border:  1px solid gray;
+    padding: 0.25em;
+    color:  blue;
+}
+
+.manageSubpages a:hover,
+.manageSubpages b:hover {
+    background: silver;
+    color: red;
+}
+
+.ferrbox {
+	background-color: #ddd;
+	border: 1px solid red;
+	margin: .4em;
+	padding: .2em;
+}
+
+div#toparea {
+	border-bottom: 3px solid #e9f6e9;
+	background-color: whitesmoke;
+	font: normal 1.2em Georgia, "Times New Roman", Times, serif;
+padding: 0;
+}
+
+.stNormalPage #toparea {
+margin-top:  1em;
+}
+
+div#toparea img#stlogo {
+	float: right;
+	margin-left: auto;
+	height: 2.5em;
+	margin-right: 5.5em;
+	padding-top:  8px;
+	display: none;
+}
+
+#toptitle {
+	font-size: medium;
+}
+
+#toparea #toptitle {
+	padding-top: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 2.5em;
+	font-weight: normal;
+	padding-bottom:  0;
+}
+
+#toptitle span.title-cldr {
+	font-weight: bold;
+}
+
+.normal-title {
+	font-weight:  bold;
+}
+
+.dcbox {
+	margin-left:  0.3em;
+	background-color: #ddd;
+	padding:  0.1em;	
+}
+
+.dcbox .dchelp {
+	padding-left:  0.25em;
+	font-style: italic;
+}
+
+
+.sterrmsg {
+	background-color: #ddd;
+	border: 1px solid red;
+	margin: 1em;
+	padding: 1em;
+}
+
+.deletebox {
+	font-size: small;
+	margin-left: 1px;
+	margin-right: 1px;
+	color: #d00;
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+/*
+deletebox: 
+ border: 1px solid red; margin: 1em; padding: 1em;	
+*/
+
+.unvotebox {
+	font-size: small;
+	margin-left: 1px;
+	margin-right: 1px;
+	margin-bottom: 2px;
+	color: #00989e;
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+/*
+
+border: 1px solid red; margin: 1em; padding: 1em;	 */
+
+.fnotebox {
+	border: 1px solid #94a694;
+	margin: 0.5em;
+	padding: 0.2em;
+	padding-left: 2em;
+	background: #f5f5f5 url(warn.png) no-repeat 0.25em center;
+}
+
+.okayText {
+    padding-left: 2em;
+    background: #DDFFDD url(okay.png) no-repeat 0.25em center;
+}
+.squoText {
+    padding-left: 2em;
+    background: #DDFFDD url(squo.png) no-repeat 0.25em center;
+}
+.stopText {
+    padding-left: 2em;
+    background: #FFDDDD url(stop.png) no-repeat 0.25em center;
+}
+.warnText {
+    padding-left: 2em;
+    background: #e4dcd4 url(warn.png) no-repeat 0.25em center;
+    padding-top: 2px;
+    padding-bottom:  1px;
+    margin-bottom:  3px;
+}
+
+.nobg {
+	background-color: inherit !important;
+}
+
+.appendInputBoxChange, .appendInputBoxCancel {
+}
+
+
+a.dcLocale {
+	color:  #555;
+	text-decoration: none;	
+}
+
+.specialHeader {
+	border: 2px solid gray;
+	margin: 0.5em;
+	padding: 0.5em;
+	font: small "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+
+table#usertable {
+	
+}
+
+.scorebox {
+	font-size: small;
+	font-style: italic;
+}
+
+.scorebox:before {
+	content: '(';
+}
+
+.scorebox:after {
+	content: ')';
+}
+
+/* @group voteinfo old - obsolete? */
+
+table#voteinfo td {
+	border-right: none !important;
+	border-left: none !important;
+}
+
+table#voteinfo th {
+	background-color: #ddd;
+}
+
+table#voteinfo tbody th:first-child {
+	text-transform: capitalize;
+}
+
+table#voteinfo tbody th:first-child,
+table#voteinfo thead th:first-child {
+	background-color: #bbf;
+	border-right: 2px solid black;
+	font-weight: inherit;
+}
+
+table#voteinfo thead th:first-child {
+	font-weight: bold;
+}
+
+/* @end */
+
+/* @group voteInfo_perValue */
+
+.voteInfo_perValue {
+	display:  inline-table;
+	
+	margin:  0.1em;
+	vertical-align: top;
+}
+
+div.voteInfo_noVotes.voteInfo_td {
+	white-space: nowrap;
+	font-style: italic;
+}
+
+
+.voteInfo_winningItem,.voteInfo_lastRelease  {
+	margin: 0 !important;
+	padding:  0 !important;
+	border:  none !important;
+	text-align: left;
+	display: inline-block;
+}
+
+.voteInfo_tr_heading {
+	font-weight:bold;
+}
+
+.voteInfo_valueTitle {
+	font-weight:bold;	
+}
+.voteInfo_iconValue  {
+	background-position: left top !important;
+	padding-left:  20px !important;
+	width:  inherit !important;
+	height:  inherit !important;
+}
+
+div.voteInfo_orgColumn {
+	font-weight: bold;
+}
+
+.voteInfo_orgHeading  div.voteInfo_orgColumn{
+	border-top:  1px solid gray;
+}
+
+.voteInfo_td, div.voteInfo_iconBar  {
+	padding-left:  0.10em;
+	padding-right:  0.10em;
+    border-top:  1px solid gray;
+	padding-bottom: 2px;
+   	padding-top:2px;
+}
+
+.voteInfo_tr_heading td {
+	border-top: none;
+}
+
+div.voteInfo_iconBar {
+	border:  none !important;
+	display:inline-block;
+	height:20px;
+	position:relative;
+	top:2px;
+}
+
+
+.voteInfo_voterInfo, .voteInfo_voteCount {
+	border-top:  1px solid gray;
+	overflow: visible;
+	padding-left:4px;
+}
+
+.voteInfo_voterInfo {
+	width:100%;
+}
+
+.voteInfo_orgsVote {
+	font-weight: bold;
+	padding-right:3px;
+}
+
+.voteInfo_voteTitle {
+	font-size: 110%;
+	font-weight: bold;
+}
+.voteInfo_orgsNonVote {
+	color: #333;
+	font-style: italic;	
+	padding-left:10px;
+}
+
+
+.voteInfo_lastReleaseKey {
+	background: url(star.png) no-repeat left  !important;
+}
+
+/* @end */
+
+
+
+.loser {
+	
+}
+
+td.generatedexample {
+	border-left: 1px solid silver;
+	border-right: 2px solid gray;
+}
+
+table.innerPropItems td.generatedexample,
+table.innerPropItems td.propcolumn {
+	border-left: none;
+	border-right: none;
+	white-space: nowrap;
+}
+
+th.rowinfo {
+	font-size: small;
+	border-right: 1px solid gray;
+	background-color: #eee;
+}
+
+a.refuri {
+	color: #000;
+	font-size: smaller;
+}
+
+ul.orgvotes {
+	margin: 0px;
+}
+
+ul.orgvotes li {
+	margin: 0px;
+	font-size: small;
+	list-style-type: circle;
+	list-style-position: outside;
+}
+
+span.marks {
+	font-size: smaller;
+	background-color: #fff4c9;
+}
+
+span.marks b {
+	font-size: x-small;
+	background-color: #30f;
+	color: #ffe4ca;
+	margin: 1px;
+	padding: 1px;
+	border: 1px solid green;
+}
+
+div.topnotices {
+	
+}
+
+div.topnotices a {
+	color: black;
+}
+
+div.topnotices p {
+	text-align: center;
+	margin: 0;
+	padding: 4px;
+}
+
+div.topnotices p.admin {
+	background-color: red;
+}
+
+div#stchanged {
+	display: none;
+	background-color: yellow;
+	padding: 3px;
+	position: fixed;
+	margin-left: 100px;
+	top: 0;
+	width: 50%;
+	opacity: .9;
+	border: 2px solid gray;
+}
+
+div.loading {
+	background-color: whitesmoke;
+	padding: 3px;
+	position: fixed;
+	margin-left: 100px;
+	top: 0;
+	width: 50%;
+	opacity: 1;
+	background-color: #FFEECC;
+	border: 5px outset gray;
+}
+
+.hidden {
+	display: none;
+}
+
+p.errCodeMsg {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-style: normal;
+    padding-left:  20px;
+    background: url(stop.png) no-repeat left top;
+    margin-left:  3em;
+    margin-right:  3em;
+    border:  2px solid silver;
+}
+
+#LoadingMessageSection p.errCodeMsg button {
+    display:  block;
+    margin-top: 1em;
+    font-size: x-large;
+}
+
+.cldr_substituted {
+	background-color: #ddd;
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+.cldr_example {
+    border: 1px solid #66666E;
+	margin-top:-1px;
+	padding:1px;
+}
+
+div.d-example {
+    font: small "Lucida Grande", Lucida, Verdana, sans-serif;
+    margin-top:7px;
+}
+
+#stchanged_loc {
+	font-weight: bold;
+}
+
+.unofficial {
+	background-color: goldenrod;
+}
+
+div.topnotices div.unofficial {
+	padding: 3px;
+	position: fixed;
+	top: 30px;
+	right: 0;
+	opacity: 0.9;
+	text-align: center;
+	display: none;
+}
+
+body > div.topnotices #betanotice {}
+
+body > div.topnotices div.beta {
+clear: right;
+position: fixed;
+left: 0;
+top: 0;
+z-index: 0;
+}
+div.beta {
+	/*
+-webkit-transform: rotate(-90deg);
+	-webkit-transform-origin: right bottom;
+	-moz-transform: rotate(-90deg);
+	-moz-transform-origin: right bottom;
+	-o-transform: rotate(-90 deg);
+-o-transform-origin: right bottom;
+-khtml-transform: rotate (-90deg);
+-khtml-transform-origin: right bottom;
+*/
+/* filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); */
+    opacity: 0.9;
+	float: right;
+	font-size: smaller;
+	margin-top:  2px;
+	margin-left:  2px;
+background-color: yellow;
+padding:  2px;
+padding-top:  3px;
+box-shadow: 1px 1px 1px gray;
+line-height:  12px;
+position:fixed;
+top:120px;
+right: 0%;
+}
+
+body.claro div.beta {
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+#betanotice img {
+    height:  50%;
+}
+
+div.debugJsp {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	border: 1px solid gray;
+	margin: 0.5em;
+}
+
+form.adduser table {
+	border-collapse: collapse;
+	background-color: #cdd;
+}
+
+form.adduser td {
+	color: #555;
+}
+
+form.adduser th {
+	text-align: right;
+	vertical-align: top;
+}
+
+form.adduser label {
+	font: large "Lucida Grande", Lucida, Verdana, sans-serif;
+	white-space: nowrap;
+}
+
+form.adduser input {
+	font: large Georgia, "Times New Roman", Times, serif;
+}
+
+form.adduser th {
+	border-bottom: 1px solid gray;
+	padding-bottom: .5em;
+	padding-top: .5em;
+}
+
+form.adduser input, form.adduser select {
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+form.adduser tr.submit td {
+	border: none;
+	text-align: right;
+}
+
+form.adduser tr.submit input {
+	font-size: x-large;
+}
+
+span.elapsedtime {
+	font-size: smaller;
+}
+
+span#visitors {
+	/*position: fixed;
+	bottom: 0;
+	right: 0;*/
+}
+
+span#visitors table {
+	position: absolute;
+	right: 0;
+}
+
+span#visitors table.stprogress {
+	border: 1px solid #ccc !important;
+}
+
+span#visitors td.bar {
+	background: #ddd !important;
+	border: none !important;
+}
+
+span#visitors td.remain {
+	background: #2e2 !important;
+	border: none !important;
+}
+
+
+
+
+
+table.progress-list {
+	border-collapse: collapse;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+table.progress-busy {
+	border-bottom: 3px solid red;
+	border-right: 3px solid red;
+}
+
+table.progress-idle {
+	border-bottom: 2px dashed green;
+	border-right: 2px dashed green;
+	opacity: 0.8;
+}
+
+table.progress-list tr th {
+	vertical-align: top;
+	background-color: #eee;
+	opacity: .8;
+	padding-left: 1em;
+	color: red;
+}
+
+table.progress-list tbody tr td {
+	background-color: #bbb;
+	opacity: .9;
+	border-left: 3px dashed gray;
+	padding-left: 1em;
+	/*display: none;*/
+}
+
+table.progress-list #busy0 {
+	display: block;
+}
+
+table.progress-list #busy1 {
+	/*display: none;*/
+}
+
+/* Overrides */
+
+span#progress.popout table.progress-list td {
+	display: table-cell !important;
+}
+
+span#progress.popout table.progress-list #busy0 {
+	display: none !important;
+}
+
+span#progress.popout table.progress-list #busy1 {
+	display: block !important;
+}
+
+table.progress-list tbody tr td:first-child {
+	opacity: 1.0;
+	background-color: whitesmoke;
+	border-left: none;
+	padding-left: 0;
+}
+
+table.stprogress {
+	margin: 5px;
+	padding: 0;
+	border-collapse: collapse;
+	border: 2px solid black;
+}
+
+div.vvprogress {
+	display: run-in;
+}
+
+div.vvprogress  div {
+	height: 16px;
+	display: table-cell;
+}
+
+table.stprogress td.bar, div.vvprogress div.bar{
+	padding: 0;
+	margin: 0;
+	border-left: 2px solid black;
+	border-right: 1px solid silver;
+	background: #6c31fe url(bar0.png) repeat scroll left;
+}
+
+table.stprogress td.remain, div.vvprogress div.remain {
+	padding: 0;
+	margin: 0;
+	border-left: none;
+	border-right: 2px solid black;
+	background: #ddd url(bar1.png) repeat;
+}
+
+label.menutop-active {
+	border: 2px solid green;
+	background-color: navy;
+	color: white;
+}
+
+select.menutop-active {
+	margin: 0;
+}
+
+/* visible menu, please.  */
+select.menutop-other,
+select.menutop-active
+ {
+	background-color: white;
+	color: black !important;
+	font-weight: normal !important;
+}
+
+#sectionmenu {
+	
+	padding-top:  0.5em;
+}
+
+label.menutop-active, label.menutop-other,
+#sectionmenu label {
+	padding-left: 0.5em;
+	padding-right: 0;
+	white-space: nowrap;
+}
+
+/* classes for ajax form responses */
+
+.user_email {
+ font-size: small;
+	font-style: italic;
+}
+
+.user_name {
+	color: navy;
+}
+
+.user_org {
+	color:  navy;
+}
+
+tr.tr_checking {
+	background-color: #f1ecec;
+	opacity: 0.5;
+}
+
+tr.tr_checking2 {
+	background-color: #d4edd9;
+	opacity: 0.75;
+}
+
+tr.tr_warn {
+	background-color: yellow;
+}
+
+tr.tr_err {
+	background-color: red;
+}
+
+/*
+  ready to submit
+  */
+
+tr.tr_submit {
+	background-color: #dfd;
+}
+
+div.v-oldVotes-subDiv {
+    margin-left:  1em;
+}
+
+h2.v-oldvotes-sub {
+    border-top:  2px solid silver;
+}
+
+/*
+ Unknown status
+*/
+
+tr.tr_unknown {
+	
+}
+
+div.helpHtml, .helpContent {
+    background: #eed;
+    font: medium Georgia, "Times New Roman", Times, serif;
+}
+
+div.helpHtml table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+div.helpHtml td,div.helpHtml td th {
+    border: 1px solid black;
+    padding: 3px;
+}
+
+.graybox {
+	border: 1px solid gray;
+	margin: 3px;
+	font-size: small;
+}
+
+/* @group AJAX build */
+
+.d-parrow td {	
+}
+
+.d-parrow {
+}
+
+.d-sortmode {
+	border: 1px solid gray;
+	background-color: #e3fbff;
+	padding: 0.2em 0.2em 0.2em 0.2em;
+	margin-top: 2px;
+	font-size: smaller;
+	display:  table;
+	display:  none;
+}
+
+#oldVotesAcceptList tr.subheading th{
+    text-align: left;
+    background-color: rgba(85, 193, 193, 0.58);
+}
+
+span.pathChunk {
+    margin-right:  1em;    
+    font: italic normal small Georgia, "Times New Roman", Times, serif;
+}
+
+#oldVotesAcceptList tbody tr td.v-path {
+    font-family: "Courier New", Courier, mono;
+    font-weight: bold;
+}
+
+span.pathChunk:after
+{
+    content: ':';
+}
+
+/*.d-sortmode:before {
+	content: 'Sorted:';
+	font-weight: bold;
+	font-size: small;
+}*/
+
+
+.d-sortmode d-sort-size {
+	
+}
+
+.d-sortmode .d-sort-size0 {
+	font-size: x-large;
+	padding-left:  1em;
+	background: url(warn.png) no-repeat left center;
+	background-color: white;
+}
+
+.d-sortmode ul {
+	display: none; /* inline*/
+	margin-top: 0;
+	margin-bottom: 0;
+ 	margin-left: 0;
+ 	padding-left:  0;
+}
+
+
+span.d-sort-size {
+}
+
+.d-sortmode li {
+	display: inline;
+	margin-left: 10px;
+}
+
+.d-sortmode li.notselected {
+	text-decoration: underline;
+	color: blue;
+}
+
+.d-st-warn {
+	width: 16px;
+	height: 16px;
+	background: yellow url(warn.png) no-repeat center center;
+}
+
+.d-st-stop {
+	width: 16px;
+	height: 16px;
+	background: url(stop.png) no-repeat center center;
+}
+
+.d-st-okay {
+	width: 16px;
+	height: 16px;
+}
+
+
+.d-dr-approved {
+	width: 16px;
+	height: 16px;
+	background: url(approved.png) no-repeat center;
+}
+
+.d-dr-contributed {
+	width: 16px;
+	height: 16px;
+	background: url(contributed.png) no-repeat center;
+}
+
+.d-dr-provisional {
+	width: 16px;
+	height: 16px;
+	background: url(provisional.png) no-repeat center;
+}
+
+.d-dr-unconfirmed {
+	width: 16px;
+	height: 16px;
+	background: url(unconfirmed.png) no-repeat center;
+}
+
+.d-dr-missing {
+	width: 16px;
+	height: 16px;
+	background: url(missing.png) no-repeat center;
+}
+
+.voteDiv .winningStatus  {
+	padding-left: 20px;
+	background-position: left !important;
+	width: inherit !important;
+}
+
+
+.voteDiv .lastReleaseStatus1 {
+    background: none !important;
+}
+
+.voteDiv .lastReleaseStatus0 {
+	background: none !important;
+ margin-left: 2em;
+}
+
+.voteInfo_key {
+	padding-left:  1em;
+}
+
+h3.voteInfo_key_title {
+	margin-bottom: .1em;	
+}
+
+.d-code {
+    vertical-align: top;
+	font: bold small "Courier New", Courier, mono;
+}
+
+.d-disp {
+	vertical-align: top;
+	padding-left:  2px;
+	padding-right:  2px;
+}
+
+.d-vo-false {
+    text-align: center;
+    width: 16px;
+	height: 16px;
+	background: url(bar0.png) no-repeat center center;
+}
+
+.d-vo-true {
+	text-align: center;
+	width: 16px;
+	height: 16px;
+	background: url(vote.png) no-repeat center center;
+}
+
+.d-no-vo-false {
+    text-align: center;
+    background: #9999d0;
+}
+
+.d-no-vo-true {
+    text-align: center;
+}
+
+.d-no, .d-status {
+    width:  32px;
+}
+
+/*.d-vo-false:hover, .d-vo-true:hover,
+.d-st-warn:hover, .d-st-stop:hover, .d-st-okay:hover {
+	border: 2px solid navy;
+	width: 16px;
+	height: 16px;
+	background: url(zoom.png) no-repeat center center;
+}*/
+
+.d-item {
+	display:  inline-box;
+	clear:both;
+}
+
+.d-item span span {
+     display:  inline !important;
+}
+/*.d-item:hover {
+	border: 2px solid navy;
+	background: url(zoom.png) no-repeat right center;
+}*/
+
+#pu-content div.helpHtml {
+	margin-bottom:  0.5em;
+}
+
+tr.d-inforow, .d-item-selected {
+	background-color: #eff;
+}
+
+tr.d-inforow td {
+	padding: 0.5em;
+	/*border-top: 1em solid #dff ;
+	border-left: 1em solid #dff ;
+	border-right: 1em solid #dff ;
+	background-color:  white;*/
+	border-bottom: 3px solid gray;
+	border-left:  none;
+	border-right:  none;
+}
+tr.d-inforow td h3.span {
+	font-size: large;
+}
+
+
+.pu-select {
+	border: 2px double black !important;
+}
+
+
+
+.d-item-selected {
+	border: 2px solid navy;
+}
+
+tr.d-inforow-hid {
+	display: none;
+}
+
+.menu-o {
+    background: white url(rado.png) no-repeat center center;
+    width: 16px;
+    height: 16px;
+    margin-top: 5px;
+}
+
+.menu-zoom {
+    background: white url(zoom.png) no-repeat center center;
+    width: 16px;
+    height: 16px;
+    margin-top: 5px;
+}
+
+.menu-chat {
+    background: white url(chat.png) no-repeat center center;
+    width: 16px;
+    height: 16px;
+    margin-top: 5px;
+}
+
+.menu-x {
+    background: white url(radx.png) no-repeat center center;
+    width: 16px;
+    height: 16px;
+    margin-top: 5px;
+}
+
+.dijitMenuExpand {
+	margin-top: 5px !important;
+}
+
+button.ichoice-o {
+	width: 2em;
+	height: 2em;
+	background: white url(rado.png) no-repeat center center;
+	margin: 1px;
+}
+
+button.ichoice-o:hover {
+	width: 2em;
+	height: 2em;
+	background: url(rado.png) no-repeat center center;
+	background-color: gray;
+	margin: 1px;
+}
+
+button.ichoice-o-okay {
+	width: 2em;
+	height: 2em;
+	background: lime url(rado.png) no-repeat center center;
+	margin: 1px;
+	border: 2px solid green;
+}
+
+button.ichoice-o-okay:hover {
+	width: 2em;
+	height: 2em;
+	background: url(rado.png) no-repeat center center;
+	background-color: gray;
+	margin: 1px;
+}
+
+button.ichoice-x {
+	width: 2em;
+	height: 2em;
+	background: white url(radx.png) no-repeat center center;
+	margin: 1px;
+}
+
+button.ichoice-x:hover {
+	width: 2em;
+	height: 2em;
+	background: url(radx.png) no-repeat center center;
+	background-color: gray;
+	margin: 1px;
+}
+button.ichoice-x-ok {
+	width: 2em;
+	height: 2em;
+	background: url(radx.png) no-repeat center center;
+	margin: 1px;
+	opacity: 0.5;
+	border:  2px solid green;
+}
+
+button.ichoice-x-ok:hover {
+	width: 2em;
+	height: 2em;
+	background: url(radx.png) no-repeat center center;
+	background-color: gray;
+	margin: 1px;
+}
+
+span.i-override {
+	font-size: 	x-small; 
+	margin-left: 0.25em;
+}
+span.i-override, .voteInfo_overrideExplain {
+	font: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	background-color: lime;
+	color: navy;
+	border:  1px solid navy;
+	padding:  1px;
+}
+span.i-override::before {
+	content:  "(";
+}
+span.i-override::after {
+	content:  "!)";
+}
+
+
+body.disconnected table {
+
+
+}
+
+body.disconnected table.data button,
+body.disconnected table.data input,
+body.disconnected table.data .d-change,
+body.disconnected table.data .d-change-err,
+body.disconnected table.data .d-change-warn,
+body.disconnected table.data .d-no,
+body.disconnected table.data .d-no-vo-false,
+body.disconnected table.data .d-no-vo-true {
+	display: none !important;
+}
+
+body.disconnected div#progress {
+	
+
+}
+
+button#progress-refresh {
+    display: none;
+    bottom: 0.25em;
+    position: absolute;
+    right: 0.25em;
+    font-size: x-small;
+}
+button#progress-details {
+	display: block;
+    font-size: x-small;
+}
+
+textarea.errorMessage {
+	display: block;
+	width: 100%;
+	height: 10em;
+}
+
+
+div.possibleProblems {
+	border: 1px dashed olive;
+	padding: 0.2em;
+	background-color: #FFFDD0;
+	overflow: auto;
+}
+
+div.possibleProblems h3 {
+	margin:  0;
+}
+
+
+div.possibleProblems div {
+	display: block;
+}
+
+div.possibleProblems div p {
+	margin-top: .2em;
+	margin-bottom: .2em;
+	padding-left:  0.5em;
+	font-size:  larger;
+	list-style-type: square;
+	display:  list-item;
+	list-style-position: inside;
+}
+
+div.possibleProblems div p img {
+	padding-right:  0.25em;
+}
+
+body.disconnected div#progress button#progress-refresh {
+	display: block !important;
+}
+
+body.disconnected div#progress.progress-ok  button#progress-refresh {
+	display: none !important;
+}
+
+div#progress.progress-special,
+div#progress.progress-special span.oneword{
+	font-weight: bold;
+	text-decoration: none;
+}
+
+div#progress, div#progress span {
+transition: background-color 0.2s;
+-moz-transition: background-color 0.2s;
+-webkit-transition: background-color 0.2s;
+-o-transition: background-color 0.2s;
+}
+
+.i-star {
+	padding: 2px;
+	width: 16px;
+	height: 16px;
+	background: url(star.png) no-repeat center center;
+}
+
+/*.d-item-selected:hover .i-example-zoom,span.i-example-zoom {
+	padding: 2px;
+	width: 16px;
+	height: 16px;
+	background: url(zoom.png) no-repeat center center;
+	float: right;
+}*/
+
+/*.d-item-selected .i-example-zoom,
+.d-item:hover .i-example-zoom {
+	padding: 2px;
+	width: 16px;
+	height: 16px;
+	background-color: purple;
+	float: right;
+	margin:  1px solid red;
+}*/
+.d-dr-approved,.d-dr-contributed,.d-dr-unconfirmed,.d-dr-provisional,.d-dr-missing,.i-star,.i-vote, .label-icon {
+	position:relative;
+	left:5px;
+	display:inline-block;
+	vertical-align: middle;
+}
+
+
+.i-vote {
+	padding: 2px;
+	width: 17px;
+	height: 17px;
+	background: url(vote.png) no-repeat center center;
+}
+
+.i-stop {
+	padding: 2px;
+	width: 17px;
+	height: 17px;
+	background: url(stop.png) no-repeat center center;
+}
+.i-flag {
+	padding: 2px;
+	width: 17px;
+	height: 17px;
+	background: url(flag.png) no-repeat center center;
+}
+.i-flag-d {
+	padding: 2px;
+	width: 17px;
+	height: 17px;
+	background: url(flag-d.png) no-repeat center center;
+}
+
+.s-flag {
+	width: 17px;
+	height: 30px;
+	background: url(flag.png) no-repeat center center ;
+}
+
+.s-flag-d {
+	width: 17px;
+	height: 30px;
+	background: url(flag-d.png) no-repeat center center ;
+}
+td.d-change,td.d-change-err,td.d-change-warn {
+	white-space: nowrap;
+}
+
+tr.d-inforow td.d-inforow-hidetd {
+}
+button.d-inforow-hider {
+	float: right;
+}
+
+.inputbox {
+	width: 75%;
+}
+
+.d-item,.d-item-warn,.d-item-err,
+td.d-change,td.d-change-err,td.d-change-warn {
+	vertical-align: top;
+	margin-top:-3px;
+}
+
+td.d-change-err, td.d-win-err, .d-item-err {
+	background: #fa9092 url(stop.png) no-repeat right top !important;
+	border: 2px solid red !important;
+}
+
+td.d-change-confirmonly {
+	background: #d9edf7;
+}
+
+td.d-change-confirmonly .fnotebox {
+	display: block;
+	border: 0 !important;
+	margin-top: 0.5em;
+}
+
+td.d-change-warn, td.d-win-warn, .d-item-warn {
+	border: 2px #fbeed5  !important;
+	background: #fcf8e3 !important;
+	padding:5px;
+}
+
+td.d-win {
+}
+
+/* @end */
+
+/* @group Popup */
+
+div#pu-outer {
+	/*border:  1px solid orange;
+	position: absolute;
+	top: 500px;
+	left: 100px;*/
+}
+
+div#pu-peak {
+	width: 11px;
+	height:  16px;
+	/*border:  1px solid green;*/
+	background: #f8c871 none;
+	position: absolute;
+	left: 100px;
+	top: 10em;
+	opacity:  0.9;
+	color: black;
+	vertical-align: top;
+	text-align: right;
+	z-index: 6;
+}
+
+
+div#pu-content {
+	display: none;
+	height: 180px;
+	padding: 0.2em;
+	padding-bottom: 0;
+	box-shadow: 3px 3px 5px gray;
+	border:  2px solid #f8c871;
+	padding:  .5em;
+	background-color: white;
+	font-size:  small;
+	overflow: scroll;
+	z-index: 6;
+	position: fixed;
+	bottom: 12px;
+	left: 2em;
+	right:  2em;
+}
+
+#pu-content h3.span {
+	margin-top:  0;
+	margin-bottom: 0;
+}
+
+
+/* @end */
+
+.anch,.anch-go {
+	padding: 5px;
+	font: small Georgia, "Times New Roman", Times, serif;
+}
+
+.recentList {
+	display: table;
+}
+
+.recentList div {
+	display: table-row;
+}
+
+.recentList div a,
+.recentList div b,
+.recentList div span {
+	display: table-cell;
+	padding: 2px;
+	border-bottom: 1px solid gray;
+}
+
+.recentList div b {
+	background-color: #ddd;
+}
+
+div.voterList {
+	display:  block;
+}
+
+p.pClassExplain {
+	margin-top: 0.25em;	
+	display: inline;
+	font-weight: normal;
+	font-size: small;
+	margin-left:  1em;
+}
+p.pClassExplain:before {
+	content: '(';
+}
+p.pClassExplain:after {
+	content: ')';
+}
+
+div.voterList .voterName {
+	font-weight: bold;
+	display:  inline;
+}
+
+div.voterList p {
+	display:  table-row;
+	margin-left:  0.25em;
+	padding-left:  20px;
+	padding-top: 0;
+	margin-top:0;
+	margin-bottom:  0.5em;
+}
+
+div.voterList p span, div.voterList p address {
+	display:  table-cell;
+	padding-left:  0.25em;
+	padding-right:  0.25em;
+}
+
+
+div.voterList .voterOrg {
+	background: url('vote.png') no-repeat;
+	padding-left:  20px;
+	font-size:  smaller;
+}
+
+/* formatting for date time review */
+.dtf-table, .dtf-int {margin-left:auto; margin-right:auto; border-collapse:collapse;}
+.dtf-table, .dtf-s, .dtf-nopad, .dtf-fix, .dtf-th, .dtf-h, .dtf-sep, .dtf-left, .dtf-int {border:1px solid gray;}
+.dtf-th {background-color:#EEE; padding:4px}
+.dtf-s, .dtf-nopad, .dtf-fix {padding:3px; text-align:center}
+.dtf-sep {background-color:#EEF; text-align:center}
+.dtf-s {text-align:center;}
+.dtf-int {width:100%; height:100%}
+.dtf-fix {width:1px}
+.dtf-left {text-align:left;}
+.dtf-nopad {padding:0px; vertical-align:top;}
+.dtf-gray {background-color:#EEF}
+
+.rolloverspan:hover {
+	color: white !important;
+	background-color: navy !important;
+	transition: background-color 0.5s ease;
+}
+
+#itemInfo {
+	height:calc(100% - 200px);
+	min-width: 320px;
+	position:fixed;
+}
+
+button.forumShow {
+    background: url(chat.png) no-repeat left center;
+    padding-left: 20px;
+}
+
+.stSplitPane .scrollingContent {
+/*	width: 100%;*/
+}
+
+body.claro > table#usertable,
+body.claro > div#toparea,
+body.claro > div#sectionmenu,
+body.claro > div#footer {
+	display:  none;
+}
+
+#topstuff {
+}
+
+
+#st-menubar  {
+    width: 40em;
+    display:  inline-block;
+}
+
+#botstuff > div#progress {
+}
+
+
+html.claro, body.claro {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow:hidden;
+}
+
+#borderContainer {
+	top:  0;
+    height: 100%;
+}
+
+span.editableHere {
+    padding:  2px;
+}
+.titlePart {
+}
+
+.titlePart::before {
+}
+
+#oldVotesAcceptList th {
+    background-color: #ddd;
+}
+
+#oldVotesAcceptList tbody tr:hover {
+    background-color: #d7ca90;
+}
+th.v-accept a {
+    padding: .5em;
+    font-size: small;
+}
+
+td.v-path {
+    white-space: nowrap;
+    font: small Georgia, "Times New Roman", Times, serif;
+    border:  1px solid black;
+    background-color:  white;
+}
+
+td.v-win {
+    
+}
+
+#oldVotesAcceptList {
+    border-collapse: collapse;
+}
+
+#OtherSection p.special_general {
+    padding:  3em;
+	background: url(vote.png) no-repeat 1em center;
+	line-height: 2em
+}
+
+#oldVotesAcceptList td {
+    padding:  0.4em;
+    border-bottom:  1px solid gray;
+    vertical-align: bottom;
+}
+
+#title-item {
+    font-family: "Courier New", Courier, mono;
+    font-size: small;
+}
+
+
+.menu-container {
+    display:  inline;
+}
+
+.menu-container::before{
+    color:  black;
+}
+
+.menu-container:first-child:before {
+	content: '';
+}
+/*
+  TODO: make this dynamic.
+  */
+.hideCov101 .cov101,
+.hideCov100 .cov100,
+.hideCov80 .cov80,
+.hideCov60 .cov60,
+.hideCov40 .cov40,
+.hideCov30 .cov30,
+.hideCov10 .cov10 {
+	display: none;
+}
+
+.hideCov101 .selectShow.cov101,
+.hideCov100 .selectShow.cov100,
+.hideCov80 .selectShow.cov80,
+.hideCov60 .selectShow.cov60,
+.hideCov40 .selectShow.cov40,
+.hideCov30 .selectShow.cov30,
+.hideCov10 .selectShow.cov10 {
+    display: table-row !important;
+    background-color: silver !important;
+}
+
+#OtherSection {
+	/* TODO:: center vertically */
+}
+
+#LoadingMessageSection {
+    text-align: center;
+    padding-top:  3em;
+}
+
+#loginlink {
+    color:  maroon;
+    font-size: large;
+    font-weight: bold;
+}
+
+#ariHelp  {
+    float: right;
+}
+
+#ariMessage {
+    padding-left:  20px;
+    background: url(stop.png) no-repeat left top;
+    font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.fakebutton {
+    border-style: outset;
+}
+
+#ariSub {
+    font: small "Lucida Grande", Lucida, Verdana, sans-serif;
+    margin-bottom: 0;
+}
+
+.dijitCheckedMenuItemIcon {
+/*  background-image: url("radx.png") !important; */
+}
+
+
+#ariScroller {
+    white-space: pre;
+    overflow: scroll;
+    font: small "Courier New", Courier, mono;
+    padding-left:  32px;
+    padding-top:  0;
+}
+
+.dijitDialogUnderlay, .claro .dijitDialogUnderlay {
+    opacity: 0.5 !important;
+    background-color: #b1b56a !important;
+}
+
+.locked::before {
+    font-family:"Glyphicons Halflings";
+    content:"\e014 ";
+    margin-top:2px;
+}
+
+.mailListChunk, .mailContentChunk {
+    width: 48%;
+    display:  inline-block;
+    vertical-align: top;
+}
+
+.mailListChunk .loser {
+    border: 1px dashed red;
+    background-color: #fdd;
+}
+.mailListChunk .warning {
+    border: 1px solid yellow;
+}
+
+.mailContentChunk {
+    border:  1px solid gray;
+    padding:  0.5em;
+}
+
+h2.mailHeader {
+    margin: 0;
+    font: bold medium Georgia, "Times New Roman", Times, serif;
+}
+
+p.mailContent {
+    line-height: 1em;
+    white-space: pre-line;
+}
+
+.mailListChunk li:hover {
+    background-color: gold;
+}
+
+.mailListChunk li.mailRow {
+    font-weight: bold;
+    list-style-type: decimal;
+}
+
+.mailListChunk li.mailRow.readMail {
+    font-weight: normal;
+}
+
+.st_setup_text {
+	padding: 0.5em;
+	font-size: large;
+}
+
+ol.st_setup {
+	
+}
+
+ol.st_setup li {
+	margin-bottom: 1em;
+}
+
+div.st_setup  {
+	font-size: x-large;
+	padding: 1em;
+	background-color: #ddf;
+}
+
+.bulkNextButton, .bulkNextInfo {
+	position: fixed;
+	bottom: 1em;
+	z-index: 50;
+}
+
+.bulkNextButton {
+	right: 1em;
+	margin: 0.5em;
+	padding: 0.5em;
+}
+
+div.bulkNextButton {
+	background-color: white;
+	border: 1px solid black;
+}
+
+.bulkNextInfo {
+	left: 1em;
+	background-color: white;
+	margin: 0.5em;
+	padding: 0.25em;
+	border: 2px solid gray;
+}
+
+.bulkNextInfo ul {
+	display: table-row;
+	margin: 0;
+	padding:0 ;
+}
+
+.bulkNextInfo ul li {
+	display: table-cell;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.bulkNextInfo ul li.active {
+	color: black;
+	background-color: lime;
+}
+
+.bulkNextInfo ul li.inactive {
+	color: gray;
+}
+.bulkNextInfo ul li.inactive h2 {
+	display: none;
+}
+
+.bulkNextInfo li h1,
+.bulkNextInfo li h2 {
+	padding:0.25em;
+	margin:0.25em;
+}
+.bulkNextInfo li h1 {
+	font-size: large;
+}
+.bulkNextInfo li h2 {
+	font-size: smaller;	
+}
+
+.bulkNextInfo ul li.active::before,
+.bulkNextInfo ul li.inactive::before {
+	content: '»';
+}
+
+div.bulkInputForm {
+	margin: 1em;
+	display: table;
+}
+
+div.bulkInputForm div {
+	display: table-row;
+}
+
+div.bulkInputForm div input,
+div.bulkInputForm div label {
+	display: table-cell;
+	margin-left: 1em;
+}
+
+.infos-code {
+	float:right;
+}
+
+.vsNav {
+	padding: .5em;
+	border-top: 2px solid gray;
+}
+
+.vsNav button {
+	padding: 2px;
+	font-size: larger;
+}
+
+span.vsStatus {
+	margin-left: 1em;
+	background-color: white;
+	display: block;
+}
+
+.vsContent.vsStale {
+	color: gray;
+	background-color: #dddddd;
+	opacity: .5;
+}
+
+.manage-list-icon {
+	padding-left: 0.25em;
+}
+
+table.flaggedItems .codebox,
+table.flaggedItems .adminUserUser {
+    display:  none;
+}
+
+table.flaggedItems .r1 {
+    background-color: #f1fafa;
+}
+
+table.flaggedItems th, table.flaggedItems td {
+    padding:  0.25em;
+}
+
+table.flaggedItems .flaggedLocale {
+    
+}
+
+table.flaggedItems .flaggedPath {
+    font-weight:  normal;
+}
+
+.flaggedItemsBox {
+    margin:  1em;
+}
+
+.special_flagged {
+	display:  table;
+}
+
+.special_flagged .flaggedLocaleHeader {
+	display:  table-row;
+	background-color:  #fee;
+	padding-top:  4em;
+}
+
+.special_flagged h3 {
+	padding-left: 32px;
+	background: url(flag.png) left center no-repeat;
+}
+
+.special_flagged div.flaggedItem {
+	display:  table-row;
+}
+.special_flagged div span {
+	padding-right:  .5em;
+}
+
+.special_flagged .flaggedLocaleHeader span {
+	padding-left:  1em;
+}
+
+.special_flagged div span,
+.special_flagged div .thinUser {
+	display:  table-cell;
+}
+
+.special_flagged .dateChunk {
+	padding-left:  1em;
+}
+
+.special_flagged .thinUser {
+	margin-left:  20px;
+}
+.special_flagged div .thinUser img {
+	float:  left;
+}
+
+
+.special_flagged .thinUser .adminUserName {
+	font-size:  small;
+}
+
+div.thinUser {
+	border:  1px solid gray;
+	border-radius: .5em;
+	padding: 0.1em;
+}
+
+.special_flagged .pathHeaderInfo {
+	font-size:  smaller;
+	white-space: nowrap;
+}
+
+.followAlias {
+	display: block;
+}
+

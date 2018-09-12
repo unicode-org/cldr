@@ -1,0 +1,3390 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+
+<meta http-equiv="Content-Language" content="en-us">
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+
+<link rel="stylesheet" type="text/css"
+	href="http://unicode.org/cldr/apps/surveytool.css">
+
+
+
+
+
+<title>Help Text file for Survey tool</title>
+<style>
+<!--
+DIV.chat {
+	PADDING-RIGHT: 2px;
+	PADDING-LEFT: 2px;
+	PADDING-BOTTOM: 4px;
+	PADDING-TOP: 4px
+}
+
+DIV.in {
+	HEIGHT: 1px;
+	TEXT-ALIGN: left
+}
+
+DIV.1st {
+	PADDING-TOP: 4px
+}
+-->
+</style>
+</head>
+
+
+<body>
+
+
+
+	<h1 align="center">Survey Tool Help Text</h1>
+
+
+	<p>
+		This is a help-text file for use with the survey tool. You can add a
+		new row, where the <i>Path</i> is a regular expression for an XML
+		path, and the <i>Text to Insert</i> is what you want to show up as
+		help text, or modify existing text. <b>The software that
+			interprets this expects a particular format, so don't make arbitrary
+			changes (see the end). </b>
+	</p>
+
+
+	<table id="table1" style="border-collapse: collapse;" border="1"
+		bordercolor="#000080" cellspacing="0" width="100%">
+
+
+		<tbody>
+
+			<tr>
+
+
+				<th>Path</th>
+
+
+				<th>Text to Insert</th>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/localeDisplayNames.*</td>
+
+
+				<td>
+
+
+					<h3>Display Names</h3>
+
+
+
+
+					<p>
+						Languages, scripts (writing systems), territories (countries and
+						regions), currencies, and time zones are represented in computers
+						by internal codes, such as "
+						<code>fr</code>
+						" for the French language or "
+						<code>CA</code>
+						" for the country of Canada.
+					</p>
+
+
+
+
+					<p>
+						<i>The ISO names and the "official" names are often not the
+							best ones for CLDR.</i> The goal is the most customary name used in
+						your language, even if it is not the official name. For example,
+						for the territory name in English you would use "Switzerland"
+						instead of "Swiss Confederation", and use "United Kingdom" instead
+						of "The United Kingdom of Great Britain and Northern Ireland". The
+						best source for customary usage is to look at what common
+						publications such as newspapers and magazines do. For example, to
+						see how Congo is used in French, one might search <a
+							target="_blank"
+							onClick="return top.js.OpenExtLink(window,event,this)"
+							href="http://www.google.com/search?q=Congo+site%3Alemonde.fr">
+							http://www.google.com/search?q<wbr>=Congo+site%3Alemonde.fr
+						</a> and other publications.
+					</p>
+
+
+
+
+					<p>
+						All names <b>must</b> be unique within a given category: thus one
+						cannot use the same translated name for the following two codes; <i>only
+							one can be called "Congo":</i>
+					</p>
+
+
+
+
+					<table style="border-collapse: collapse;" id="table3" border="1"
+						bordercolor="#009900" cellspacing="0">
+
+
+						<tbody>
+
+							<tr>
+
+
+								<th style="vertical-align: top; text-align: left;">Code</th>
+
+
+								<th style="vertical-align: top; text-align: left;" colspan="5">Possible
+									Pairs of Translations</th>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;"><code>CD</code></td>
+
+
+								<td style="vertical-align: top; text-align: left;"><i>Democratic
+										Republic of the Congo</i></td>
+
+
+								<td style="vertical-align: top; text-align: left;" rowspan="2">or</td>
+
+
+								<td style="vertical-align: top; text-align: left;"><i>Congo
+										- Kinshasa</i></td>
+
+
+								<td style="vertical-align: top; text-align: left;" rowspan="2">or</td>
+
+
+								<td style="vertical-align: top; text-align: left;"><i>Congo
+										- formerly Zaire</i></td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;"><code>CG</code></td>
+
+
+								<td style="vertical-align: top; text-align: left;"><i>Congo</i></td>
+
+
+								<td style="vertical-align: top; text-align: left;"><i>Congo
+										- Brazzaville</i></td>
+
+
+								<td style="vertical-align: top; text-align: left;"><i>Congo</i></td>
+
+
+							</tr>
+
+
+
+
+						</tbody>
+
+					</table>
+
+
+
+
+					<p>Avoid using commas and avoid inverting the name (eg "Congo,
+						Democratic Republic of the"). The characters "(" and ")" are
+						discouraged, since they will be confusing in combination with
+						countries in locale names.</p>
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/localeDisplayNames/(keys|types).*</td>
+
+
+				<td>
+
+
+					<h3 align="left">Keys</h3>
+
+
+
+
+					<p align="left">
+						The <strong style="font-weight: 400;">keys</strong> page lists the
+						key names for translation. These identify particular key words
+						used to identify particular <i>types</i> of variants. The calendar
+						types are typically only used with certain languages, however,
+						they can be used with almost any language:
+					</p>
+
+
+
+
+					<table style="border-collapse: collapse;" id="table4" border="1"
+						bordercolor="#009900" cellspacing="0">
+
+
+						<tbody>
+
+							<tr>
+
+
+								<th style="vertical-align: top; text-align: left;">Locale
+									Code</th>
+
+
+								<th style="vertical-align: top; text-align: left;">Locale
+									Name (English)</th>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="vertical-align: top;"><code>fr@calendar=buddhist</code></td>
+
+
+								<td style="vertical-align: top; text-align: left;">French
+									(Buddhist Calendar)</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="vertical-align: top;"><code>de@calendar=buddhist</code></td>
+
+
+								<td style="vertical-align: top; text-align: left;">German
+									(Buddhist Calendar)</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="vertical-align: top;"><code>...</code></td>
+
+
+								<td style="vertical-align: top; text-align: left;">...</td>
+
+
+							</tr>
+
+
+
+
+						</tbody>
+
+					</table>
+
+
+
+
+					<p>The collation (sort order) types, on the other hand, are
+						only used with certain locales (listed below):</p>
+
+
+
+
+					<table style="border-collapse: collapse;" id="table5" border="1"
+						bordercolor="#009900" cellspacing="0">
+
+
+						<tbody>
+
+							<tr>
+
+
+								<th style="vertical-align: top; text-align: left;">Locale
+									Code</th>
+
+
+								<th style="vertical-align: top; text-align: left;">Locale
+									Name (English)</th>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="vertical-align: top;"><code>de@collation=phonebook</code></td>
+
+
+								<td style="vertical-align: top; text-align: left;">German
+									(Phonebook Sort Order)</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="vertical-align: top;"><code>hi@collation=direct</code></td>
+
+
+								<td style="vertical-align: top; text-align: left;">Hindi
+									(Direct Sort Order)</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="vertical-align: top;"><code>zh@collation=pinyin</code></td>
+
+
+								<td style="vertical-align: top; text-align: left;">Chinese
+									(Pinyin Sort Order)</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="vertical-align: top;"><code>zh@collation=stroke</code></td>
+
+
+								<td style="vertical-align: top; text-align: left;">Chinese
+									(Stroke Sort Order)</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="vertical-align: top;"><code>zh@collation=gb2312han</code></td>
+
+
+								<td style="vertical-align: top; text-align: left;">Chinese
+									(Simplified Sort Order - GB2312)</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="vertical-align: top;"><code>zh@collation=big5han</code></td>
+
+
+								<td style="vertical-align: top; text-align: left;">Chinese
+									(Traditional Sort Order - Big5)</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="vertical-align: top;"><code>es@collation=traditional</code></td>
+
+
+								<td style="vertical-align: top; text-align: left;">Spanish
+									(Traditional Sort Order)</td>
+
+
+							</tr>
+
+
+
+
+						</tbody>
+
+					</table>
+
+
+
+
+					<p align="left">
+						The last value (
+						<code>traditional</code>
+						) is the only one likely to be extended to other languages over
+						time.
+					</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/localeDisplayNames/territories.*</td>
+
+
+				<td>
+
+
+					<h3>Territories</h3>
+
+
+
+
+					<p>
+						Territories include both country names and regions: continents and
+						subcontinents (defined by a UN standard). All of these must be
+						unique: for example, you can't give the same name to the country <i>South
+							Africa</i> (the country) and to <i>Southern Africa</i> (the southern
+						region of the continent of Africa), even though there may be no
+						distinction in your language between the terms for "<i>South</i>"
+						and "<i>Southern</i>". Similarly, <i>North America</i> is the
+						continent that extends down to Panama; <i>Northern America</i> is
+						the region of the Americas north of Mexico.
+					</p>
+
+
+
+
+					<p>
+						The country name should be the most natural; you may have to
+						adjust the name of the region. So you might say the equivalent of
+						"South Region of Africa", or add clarifying language like "<span
+							class="loser"><i>Amérique du Nord continentale</i>" vs "<i>Amérique
+								du Nord</i>". If you have any question as to the extent of any
+							region, see <a target="_blank"
+							href="http://www.unicode.org/cldr/data/charts/supplemental/territory_containment_un_m_49.html">Territory
+								Containment</a>. </span>
+					</p>
+
+
+
+
+					<ul>
+
+
+						<li>A common question is whether to capitalize or not. With a
+							new locale, use whatever is normal practice for what should occur
+							in <b>menus</b>. For an existing locale, <i>especially during
+								the vetting period,</i> follow what is used for the other items
+							already translated.
+
+							<ul>
+
+
+								<li><i>If the capitalization convention as a whole for
+										a language needs to be changed, that should be done before the
+										data submission phase for the next release. Please file a bug
+										to request that this be done.</i></li>
+
+
+
+
+							</ul>
+
+
+						</li>
+
+
+					</ul>
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/localeDisplayNames/languages.*</td>
+
+
+				<td>
+
+
+					<h3>Languages</h3>
+
+
+
+
+					<p>
+						There are a lot of languages here (around 500), and you <em>don't</em>
+						need to look at them all! Many are relatively obscure, and not
+						worth translating in a first pass. Please also look at the
+						following points.
+					</p>
+
+
+
+
+					<ul>
+
+
+						<li>Please use phrasing corresponding to the English "Baltic
+							Language" for language collections. That is, use terms that would
+							be appropriate to use for indicating that the target text is "a"
+							Baltic Language, without terms that imply exclusion or
+							multiplicity such as "other" (autre), etc. or "languages"
+							(plural).</li>
+
+
+						<li>A common question is whether to capitalize or not. With a
+							new locale, use whatever is normal practice for what should occur
+							in <b>menus</b>. For an existing locale, <i>especially during
+								the vetting period,</i> follow what is used for the other items
+							already translated. This is the practice for scripts, territories
+							and other types of items too.
+
+							<ul>
+
+
+								<li><i>If the capitalization convention as a whole for
+										a language needs to be changed, that should be done before the
+										data submission phase for the next release. Please file a bug
+										to request that this be done.</i></li>
+
+
+
+
+							</ul>
+
+
+						</li>
+
+
+
+
+					</ul>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/localeDisplayNames/languages.*\[@type="[^"]*_[^"]*"\].*</td>
+
+
+				<td>
+
+
+					<h3>Compound Language Codes</h3>
+
+
+
+
+					<p>
+						Some language codes are more complex, of the form "en_AU" for <i>Australian
+							English</i>. If you don't add a translation, then those will be
+						represented by a format like "αγγλικά (Αυστραλία)". That is, the
+						translation would be the native name for "English", followed by
+						the native word for "Australia" in parentheses. If that format is
+						ok, then you don't need to translate the more complex language
+						code. The codes zh_Hant and zh_Hans (for Traditional and
+						Simplified Chinese) on the other hand, should always be
+						translated.
+					</p>
+
+
+
+
+					<p>There are a few special cases:</p>
+
+
+
+
+					<ul>
+
+
+						<li>"Iberian Portuguese" is the style of Portuguese used in
+							Portugal (as opposed to Brazil)</li>
+
+
+						<li>Similarly "Iberian Spanish" is the style of Spanish used
+							in Spain (as opposed to Latin America).</li>
+
+
+						<li>"Swiss High German" (<i>Schweizer Hochdeutsch</i>), also
+							called "Swiss Standard German", has the code <code>de_CH</code>.
+						</li>
+
+
+						<li>"Swiss German" (<i>Schwyzerdütsch</i>) has the code <code>gsw</code>.
+						</li>
+
+
+
+
+					</ul>
+
+
+					<p>A pattern is used to control how the translations for
+						language and region codes are composed into a name when the
+						compound code doesn't have a specific translation. See the section
+						"localeDisplayPattern".</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/localeDisplayNames/scripts.*</td>
+
+
+				<td>
+
+
+					<h3>Scripts</h3>
+
+
+
+
+					<p>Normally only a few scripts are really necessary to
+						translate: those that are used in distinguishing the most common
+						languages that are written in multiple ways. These are Hant and
+						Hans (for traditional and simplified Chinese), Cyrillic, Arabic,
+						and Latin.</p>
+
+
+
+
+					<ul>
+
+
+						<li>A common question is whether to capitalize or not. With a
+							new locale, use whatever is normal practice for what should occur
+							in <b>menus</b>. For an existing locale, <i>especially during
+								the vetting period,</i> follow what is used for the other items
+							already translated.
+
+							<ul>
+
+
+								<li><i>If the capitalization convention as a whole for
+										a language needs to be changed, that should be done before the
+										data submission phase for the next release. Please file a bug
+										to request that this be done.</i></li>
+
+
+
+
+							</ul>
+
+
+						</li>
+
+
+					</ul>
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>.*/currencies.*</td>
+
+
+				<td>
+
+
+					<h3>Currencies</h3>
+
+
+
+
+					<p>This is a long list that contains the currency names and
+						currency symbols for each country, plus historical codes. The
+						coverage level option tries to pick out the ones that are most
+						important to translate. Each currency code can be translated in
+						two ways:</p>
+
+
+
+
+					<ul>
+
+
+						<li>As a symbol for use in formatting amounts (such as "12
+							345,68 <b>US$</b>"), and
+						</li>
+
+
+						<li>As a name, typically used to show a list of currencies
+							(such as "<b>dollar des États-Unis</b>")
+						</li>
+
+
+						<li>With names, the common question of whether to capitalize
+							or not, arises. With the introduction of pluralized units in CLDR
+							1.6, it is recognized that currency names may be used equally in
+							menus and flowing text. Therefore, for a new locale, use whatever
+							practice is best suited for use in either <b>menus</b> or <b>flowing
+								text</b> <i>(we recognize that the capitalization rule you adopt
+								may have limitations, and we endeavour to add additional
+								features to the Survey Tool, in the future to alleviate some of
+								these limitations )</i>. For an existing locale, <i>especially
+								during the vetting period,</i> follow what is used for the other
+							items already translated.
+						</li>
+
+
+					</ul>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/characters/exemplarCharacters.*</td>
+
+
+				<td>
+
+
+					<h3>Exemplar Character Set</h3>
+
+
+
+
+					<p>
+						The exemplar character sets contain the commonly used letters for
+						a given modern form of a language. These are used for testing and
+						for determining the appropriate repertoire of letters for charset
+						conversion or text comparison. The term "letter" is interpreted
+						broadly, and includes characters used to form words, such as 是 or
+						가. If a sequence of characters is considered a "letter", it will
+						be listed between { and }. For example, <em>{ch}</em>.
+					</p>
+
+
+
+
+					<p>There are three categories:</p>
+
+
+
+
+					<ul>
+
+
+						<li>The <i>standard</i> characters are those used in
+							customary writing, such as [a-z] for English.
+						</li>
+
+
+						<li>The <i>auxiliary</i> characters are additional characters
+							used in foreign words found in typical magazines, newspapers,
+							&amp;c. For example, you could see the name Schröder in English
+							in a magazine, so <i>ö</i> is in the set. However, it is very
+							uncommon to see <i>ł</i>, so that isn't in the auxiliary set for
+							English. Publication style guides, such as <i>The Economist
+								Style Guide</i> for English, are useful for this.
+						</li>
+
+
+						<li>The <i>currency</i> characters are additional characters
+							used in currency symbols, like 'US$ 1,234'.
+						</li>
+						<li>The <em>index</em> characters are used as an index for
+							categories of items. Unlike the other characters, it should have
+							either uppercase or lowercase, depending on what is typical for
+							the language. Note that if the character set is large without
+							fixed standard sorting (such as Chinese), the value [] should be
+							used.<em class="draft"> A draft set of characters was
+								mechanically generated, and will need adjustments: for example,
+								characters or strings that never occur at the start of words are
+								typically removed.</em></li>
+
+
+
+
+					</ul> The exemplar set is not a complete set of letters used for a
+					language: punctuation and other symbols are not included, nor
+					uppercase letters (except for Turkish İ). The Survey Tool will flag
+					certain fields with <img
+					alt="The image “http://unicode.org/cldr/apps/warn.png” cannot be displayed, because it contains errors."
+					src="http://unicode.org/cldr/apps/warn.png"> if they use
+					characters that are not in exemplar sets. In some cases, this is
+					not truly an error, such as where "NaN" is used in numbers. In
+					other cases, the possible actions for you are are:
+
+					<ul>
+
+
+						<li>Fix the field value to not use the character.</li>
+
+
+						<li>Fix the exemplar sets, because the character actually is
+							acceptable in your language in one of the above categories.</li>
+
+
+
+
+					</ul>
+
+
+
+
+					<p align="left">
+						Any range of characters, such as "a b c d e" can be represented
+						compactly as "a-e". For more information, please see <i> <a
+							target="_blank"
+							href="http://unicode.org/reports/tr35/tr35-6.html#Character_Elements">Section
+								5.6 Character Elements</a></i> in <i>UTS#35: Locale Data Markup
+							Language (LDML)</i>.
+					</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>.*/numbers.*</td>
+
+
+				<td>
+
+
+					<h3>Numbers</h3>
+
+
+
+
+					<p>
+						Numbers are formatted using patterns, like "#,###.00". Different
+						characters stand for different parts of the number: they don't
+						have their normal meaning!<span style="font-style: italic;">
+							In particular, you need to use '.' for the decimal point and ','
+							for the thousands (grouping) separator, even if they are not used
+							that way in your language. </span>Here are the special characters used
+						in number patterns.
+					</p>
+
+
+
+
+					<table style="border-collapse: collapse;" id="table2" border="1"
+						bordercolor="#009900" cellspacing="0">
+
+
+						<caption>
+							<b>Number Format Symbols</b>
+						</caption>
+						<tbody>
+
+							<tr>
+
+
+								<th style="vertical-align: top; text-align: left;">Symbol</th>
+
+
+								<th style="vertical-align: top; text-align: left;">Meaning</th>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">.</td>
+
+
+								<td style="vertical-align: top; text-align: left;"><b>Not
+										a real period:</b> instead, it will be replaced automatically by
+									the character used for the decimal point in your language,
+									listed under <tt class="hangsml" title="#194, w[N]:194">symbols/decimal</tt></td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">,</td>
+
+
+								<td style="vertical-align: top; text-align: left;"><b>Not
+										a real comma:</b> instead, it will be replaced by the "grouping"
+									(thousands) separator in your language, listed under <tt
+										class="hangsml" title="#4, w[N]:4">symbols/group</tt></td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">0</td>
+
+
+								<td style="vertical-align: top; text-align: left;">Replaced
+									by a digit (or zero if there aren't enough digits).</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">#</td>
+
+
+								<td style="vertical-align: top; text-align: left;">Replaced
+									by a digit (or nothing if there aren't enough). Often used to
+									show the position of the ",".</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">¤</td>
+
+
+								<td style="vertical-align: top; text-align: left;">This
+									will be replaced by a currency symbol, such as $ or USD. Note:
+									by default a space is placed between letters in a currency
+									symbol and adjacent numbers. If this is not right for your
+									language, file a bug to change it using the Feedback link.</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">...;...</td>
+
+
+								<td style="vertical-align: top; text-align: left;">If your
+									language uses different formats for negative numbers than just
+									adding "-" at the front, you can put in <span
+									style="font-style: italic;">two</span> patterns. For example:
+									#,##0.00¤;(#,##0.00¤) is used to make negative currencies
+									appear like "(<font face="Times New Roman">1'234,56£)"
+										instead of "-1'234,56£"</font>
+								</td>
+
+
+							</tr>
+
+
+
+
+						</tbody>
+
+					</table>
+
+
+
+
+					<p align="left">For example, the pattern "#,###.00" when used
+						to format the number 12345.678 could result in "12'345,67". That
+						would happen if the grouping separator for your language is an
+						apostrophe, and the decimal separator is a comma. Translators
+						should not change the pattern of zeros (0) or hash marks (#);
+						those will be reset by software. This is true also for currency
+						formats. Even if your currency doesn't use any decimal points, the
+						currency format will have them in the pattern. You need to modify
+						the patterns when:</p>
+
+
+
+
+					<ul>
+
+
+						<li>The grouping separator is not by thousands (eg Hindi).</li>
+
+
+						<li>The negative pattern doesn't simply add a minus sign. For
+							example, if a negative number is formed by adding parentheses,
+							then this would look like: #,##0.###;(#,##0.###). That is, the
+							negative form gets added after a semicolon.</li>
+
+
+						<li>The currency symbol (¤) is used in a different position.</li>
+
+
+
+
+					</ul>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/dates/calendars/.*/(pattern|dateFormatItem|intervalFormats).*</td>
+
+
+				<td>
+
+
+					<h3>Formats for Dates and Times</h3>
+
+
+
+
+					<p>Dates and times are formatted using patterns, like "mm-dd".
+						Each field, like the month or the hour, is represented by a
+						sequence of letters from A to Z. For example, one or more M's
+						stand for the month. When the software formats a date for your
+						language, a value will be substituted for each field, according to
+						the following table.</p>
+
+
+
+
+					<table style="border-collapse: collapse;" border="1"
+						bordercolor="#009900" cellspacing="0">
+
+
+						<caption>
+							<b>Date Format Symbols</b>
+						</caption>
+						<tbody>
+
+							<tr>
+
+
+								<th style="vertical-align: top; text-align: left;">Symbol</th>
+
+
+								<th style="vertical-align: top; text-align: left;">Meaning</th>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">G</td>
+
+
+								<td style="vertical-align: top; text-align: left;">era (eg
+									AD)*</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">y</td>
+
+
+								<td style="vertical-align: top; text-align: left;">year</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">M / L</td>
+
+
+								<td style="vertical-align: top; text-align: left;">month*</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">E</td>
+
+
+								<td style="vertical-align: top; text-align: left;">day of
+									the week (eg Tuesday).*</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">d</td>
+
+
+								<td style="vertical-align: top; text-align: left;">day</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">h / H</td>
+
+
+								<td style="vertical-align: top; text-align: left;">hour. h
+									for 12 hour, H for 24.</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">m</td>
+
+
+								<td style="vertical-align: top; text-align: left;">minute</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">s</td>
+
+
+								<td style="vertical-align: top; text-align: left;">second</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">a</td>
+
+
+								<td style="vertical-align: top; text-align: left;">am/pm.
+									Only used with "h".</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">z / v</td>
+
+
+								<td style="vertical-align: top; text-align: left;">time
+									zone. Use v for full format dates, z for long format dates</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;">'a'</td>
+
+
+								<td style="vertical-align: top; text-align: left;">since
+									letters have special meaning, if you want a real letter, you
+									need to put it in single quotes. For a real single quote, use
+									'' (that is, two adjacent ' characters).</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td style="text-align: center; vertical-align: top;" colspan="2">
+
+
+									<p style="text-align: left;">* Some fields use M or MM for
+										numeric (eg, 1 or 01); MMM for abbreviated (eg, Sept); and
+										MMMM for full (eg, September)</p>
+
+
+								</td>
+
+
+							</tr>
+
+
+
+
+						</tbody>
+
+					</table> <br>
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+				<td>//ldml/dates/calendars/.*/intervalFormats.*</td>
+
+				<td>
+
+					<h3>Interval Formats</h3>
+
+
+					<p>Interval formats are used for a range of dates or times
+						specified by a start and end, such as "Sept 10-12" (meaning the
+						10th of September through the 12th of September). The pattern will
+						be something like "MMM d–d", where some of the fields are repeated
+						-- typically with some kind of punctuation mark separating the two
+						fields, but some fields in the second part are omitted. The way
+						this pattern is used is that the part up to the first repeated
+						field is formatted with the first date, and the remainder is
+						formatted with the second date. For example:</p>
+
+
+
+
+					<table style="border-collapse: collapse;" id="table7" border="1"
+						bordercolor="#009900" cellspacing="0">
+
+
+						<caption>
+							<b>Interval Formatting</b>
+						</caption>
+						<tbody>
+
+							<tr>
+
+
+								<th style="vertical-align: top;"><strong>Format
+										String</strong></th>
+
+
+								<th style="text-align: center;"><strong>Date 1</strong></th>
+
+
+								<th style="text-align: center;"><strong>Date 2</strong></th>
+
+								<th>Result</th>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td align="center">MMM d–d</td>
+
+
+								<td align="center">2008-09-13</td>
+
+
+								<td align="center">2008-09-15</td>
+
+								<td style="text-align: center;">Sept. 13–15</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td align="center">MMMM–MMMM, yyyy</td>
+
+
+								<td align="center">2008-09-01</td>
+
+
+								<td align="center">2008-11-31</td>
+
+								<td style="text-align: center;">September-November, 2008</td>
+
+
+							</tr>
+
+
+
+
+
+						</tbody>
+
+					</table>
+
+
+
+
+					<p>Each combination of fields can be used with dates that
+						differ by different amounts. For example, a format for the fields
+						"yMMMd" (year, abbreviated month, and day) could be used with two
+						dates that differ by year, month, or day -- each type of
+						difference might need a different pattern.&nbsp;For example:</p>
+
+
+
+
+					<table style="border-collapse: collapse;" id="table7" border="1"
+						bordercolor="#009900" cellspacing="0">
+
+
+						<caption>
+							<b>Greatest Difference</b>
+						</caption>
+						<tbody>
+
+							<tr>
+
+
+
+								<th style="text-align: center;"><strong>Date 1</strong></th>
+
+
+								<th style="text-align: center;"><strong>Date 2</strong></th>
+
+								<th>Greatest Difference</th>
+
+								<th>Format String</th>
+
+								<th>Shares</th>
+
+
+							</tr>
+
+
+							<tr>
+
+
+
+								<td align="center">2008-09-13</td>
+
+
+								<td align="center"><span style="font-weight: bold;">2009</span>-09-15</td>
+
+								<td style="text-align: center;">year</td>
+
+								<td style="text-align: center;">MMM d, yyyy – MMM d, yyyy</td>
+
+								<td style="text-align: center; font-style: italic;">nothing</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+
+								<td align="center">2008-09-01</td>
+
+
+								<td align="center">2008-<span style="font-weight: bold;">11</span>-31
+								</td>
+
+								<td style="text-align: center;">month</td>
+
+								<td style="text-align: center;">MMM d – MMM d, yyyy</td>
+
+								<td style="text-align: center; font-style: italic;">year</td>
+
+
+							</tr>
+
+							<tr>
+
+								<td align="center">2008-09-01</td>
+
+								<td align="center">2008-09-<span style="font-weight: bold;">05</span></td>
+
+								<td style="text-align: center;">day</td>
+
+								<td style="text-align: center;">MMM d–d, yyyy</td>
+
+								<td style="text-align: center; font-style: italic;">year
+									and month</td>
+
+							</tr>
+
+
+
+
+
+						</tbody>
+
+					</table> <br> Look carefully at each of the examples to see the kinds
+					of formats that would be used in your language.
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>//ldml/dates/calendars/.*Context.*</td>
+
+				<td>
+
+					<h3>Stand-Alone vs. Format Styles</h3>
+
+
+					<p align="left">
+						Some languages use two different forms of strings (<i>stand-alone</i>
+						and <i>format</i>) depending on the context. Typically the <i>stand-alone</i>
+						version is the nominative form of the word, and the <i>format</i>
+						version is in the genitive.
+					</p>
+
+
+
+
+					<p align="left">
+						Make sure that the correct forms are provided, especially for the
+						months, and used in the patterns. That is, suppose that the
+						language uses "Dezembro" for December when standing alone, but
+						"Dezembru" when with a date (meaning the nth day <em>of</em> that
+						month). Then the formats for months could be something like:
+					</p>
+
+
+
+
+					<table style="border-collapse: collapse;" id="table7" border="1"
+						bordercolor="#009900" cellspacing="0">
+
+
+						<caption>
+							<b>Stand-Alone vs Format Months</b>
+						</caption>
+						<tbody>
+
+							<tr>
+
+
+								<th style="vertical-align: top;"><strong>Format
+										String</strong></th>
+
+
+								<td align="center"><strong>Example1</strong></td>
+
+
+								<td align="center"><strong>Example2</strong></td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td align="center">LLL</td>
+
+
+								<td align="center">Dezembro</td>
+
+
+								<td align="center">Dez.</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td align="center">d MMM</td>
+
+
+								<td align="center">1 Dezembru</td>
+
+
+								<td align="center">1 Dez.</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td align="center">MMM d yy</td>
+
+
+								<td align="center">Dezembru 1 1953</td>
+
+
+								<td align="center">1 Dez. 53</td>
+
+
+							</tr>
+
+
+
+
+						</tbody>
+
+					</table>
+
+
+
+
+					<p align="left">Similarly, suppose that your language formats
+						months differently if they have vowels, eg "14 de gener de 2008"
+						but "14 d'abril de 2008". In that case, the stand-alone and format
+						versions of the months should be:</p>
+
+
+					<table style="border-collapse: collapse;" id="table7" border="1"
+						bordercolor="#009900" cellspacing="0">
+
+
+
+						<tbody>
+
+							<tr>
+
+
+
+								<td align="center"><strong>Format Month</strong></td>
+
+
+								<td><span style="font-weight: bold;">Stand-Alone
+										Month</span></td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+
+								<td align="center">de gener</td>
+
+
+								<td>gener</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+
+								<td align="center">d'abril</td>
+
+
+								<td>abril</td>
+
+
+							</tr>
+
+
+
+
+
+						</tbody>
+
+					</table>
+
+
+
+
+					<p align="left">These must be coordinated with the format
+						strings, which can't have the extra "de" before the month:</p>
+
+
+					<table style="border-collapse: collapse;" id="table7" border="1"
+						bordercolor="#009900" cellspacing="0">
+
+
+
+						<tbody>
+
+							<tr>
+
+
+								<th style="vertical-align: top;"><strong>Format
+										String</strong></th>
+
+
+
+								<th>Date</th>
+
+								<td align="center"><strong>Result</strong></td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td colspan="1" rowspan="2" align="center">LLL</td>
+
+
+
+								<td>2008-1-14</td>
+
+								<td align="center">gener</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+
+
+								<td>2008-4-14</td>
+
+								<td align="center">abril</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td colspan="1" rowspan="2" align="center">d MMM 'de' yyyy</td>
+
+
+
+								<td>2008-1-14</td>
+
+								<td align="center">14 d'abril de 2008</td>
+
+
+							</tr>
+
+							<tr>
+
+								<td>2008-4-14</td>
+
+								<td>14 de gener de 2008</td>
+
+							</tr>
+
+
+
+
+						</tbody>
+
+					</table>
+
+
+
+
+					<p align="left">
+						That is, if your language uses two different forms, then make sure
+						that there are two forms of the months or days where necessary, <i>and</i>
+						adjust the date patterns to use the LLL or LLLL stand-alone form
+						or MMM and MMMM format forms, as needed.
+					</p>
+
+				</td>
+
+			</tr>
+
+			<tr>
+
+
+				<td>//ldml/dates/calendars/calendar.*timeFormatLength</td>
+
+
+				<td>
+
+
+					<h3>Standard Time Formats</h3>
+
+
+
+
+					<p>There are four standard time formats.</p>
+
+
+
+
+					<ul>
+
+
+						<li>full should contain hour, minute, second, and long zone
+							(vvvv).</li>
+
+
+						<li>long should contain hour, minute, second, and zone (z)</li>
+
+
+						<li>medium should contain hour, minute, second.</li>
+
+
+						<li>short should contain hour, minute.</li>
+
+
+
+
+					</ul>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/dates/calendars/calendar.*/quarters/.*</td>
+
+
+				<td>
+
+
+					<h3>Quarters</h3>
+
+
+
+
+					<p>The quarters of a year are used in formats such as "2006Q3",
+						typically used for financial periods. If your language doesn't
+						have a common term for this, you might use the equivalent of
+						"Jan-Mar".</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/dates/calendars/calendar.*/fields.*displayName.*</td>
+
+
+				<td>
+
+
+					<h3>Date Field Labels</h3>
+
+
+
+
+					<p>The date field labels are the names of the dates or time
+						field, such as "Month" or "Hour", suitable for labels in dialogs
+						or menus.</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/dates/calendars/calendar.*/fields.*relative.*</td>
+
+
+				<td>
+
+
+					<h3>Relative Periods of Time</h3>
+
+
+
+
+					<p>Relative fields of time are used to indicate a period
+						relative to today, like "Yesterday" or "Tomorrow". Some languages
+						don't have words or short phrases for some of these. For example,
+						English does not have a word for "the day before yesterday" as
+						some languages do, such as "Vorgestern" in German.</p>
+
+
+
+
+					<p>
+						If your language doesn't have a natural term for one of these,
+						please <b><i>do </i> <em>not</em></b> supply a translation:
+						instead, pick the "inherited" value, such as <span
+							class="fallback" title="Fallback from root"> <input
+							title="#63133" disabled="disabled" value="V1" checked="checked"
+							name="R1" type="radio">The day after tomorrow
+						</span><span title="Fallback from root">. </span>The English phrase
+						supplied here is just a placeholder to let you know what the field
+						means, and is not part of the actual English locale data.
+					</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/dates/calendars/calendar.*/(a|p)m</td>
+
+
+				<td>
+
+
+					<h3>AM and PM</h3>
+
+
+
+
+					<p>
+						Note that even if your language doesn't use <b>am/pm</b> in any
+						patterns, strings for those need to be defined for testing. As
+						long as the 24 hour symbol (H) is used in the patterns, it won't
+						show up in formatted times and dates.
+					</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/dates/calendars/calendar.*dateTimeFormatLength.*</td>
+
+
+				<td>
+
+
+					<h3>Date-Time Pattern</h3>
+
+
+
+
+					<p>The date-time pattern is used to make a date + time out of
+						separate date and time patterns. The date will be substituted for
+						{1} and the time for {0}. It usually doesn't need to be changed.</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>.*narrow.*</td>
+
+
+				<td>
+
+
+					<h3>Narrow Date Fields</h3>
+
+
+
+
+					<p>The narrow date fields are the shortest possible names (in
+						terms of width in common fonts), and are not guaranteed to be
+						unique. Think of what you might find on a credit-card-sized wallet
+						or checkbook calendar, such as in English for days of the week:</p>
+
+
+
+
+					<p>
+						<i>S M T W T F S</i>
+					</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>.*/eras.*</td>
+
+
+				<td>
+
+
+					<h3>Eras</h3>
+
+
+
+
+					<p>There are only two values for an era in a Gregorian
+						calendar, "BC" and "AD". These values can be translated into other
+						languages, like "a.C." and and "d.C." for Spanish, but there are
+						no other eras in the Gregorian calendar.</p>
+
+
+
+
+					<p>Other calendars have a different numbers of eras. The names
+						for eras are often specific to the given calendar, such as the
+						Japanese era names. You only typically need to translate these if
+						the calendar in question is in common use in one of the countries
+						that uses your language.</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>.*/references.*</td>
+
+
+				<td>
+
+
+					<h3>References</h3>
+
+
+
+
+					<p>References are used to document more controversial cases.
+						Whenever there is a disagreement between translators, or when the
+						choice of translation might not be understood, you should add a
+						reference.</p>
+
+
+
+
+					<ul>
+
+
+						<li>Fill in a descriptive title for the reference, such as <strong>"The
+								Economist Style Guide"</strong>
+
+
+							<ul>
+
+
+								<li>For examples of sources, see <a target="_blank"
+									href="http://www.unicode.org/cldr/filing_bug_reports.html#Possible_Comparison_Sources">Possible
+										Comparison Sources</a>.
+								</li>
+
+
+								<li>If available, add a web link in the 'URI' field, such
+									as "<a target="_blank"
+									href="http://publications.eu.int/code/es/es-5000500.htm">http://publications.eu.int/code/es/es-5000500.htm</a>".
+								</li>
+
+
+								<li>You can also use the format <strong>isbn:0-316-08215-5</strong>
+									to refer to a book ISBN number in the URI field.
+								</li>
+
+
+
+
+							</ul>
+
+
+						</li>
+
+
+						<li>Click the <strong>Save</strong> button. You will see your
+							new reference listed, and you can add it to other fields.
+						</li>
+
+
+
+
+					</ul>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>.*/exemplarCity.*</td>
+
+
+				<td>
+
+
+					<h3>Time Zone Exemplar Cities</h3>
+
+
+
+
+					<p>
+						For generic references to time zones, the country is used if
+						possible, composed with a pattern that in English appears as "{0}<span
+							style="background-color: rgb(192, 192, 192);"> Time</span>". Thus
+						a time zone may appear as "Malaysia<span
+							style="background-color: rgb(192, 192, 192);"> Time</span>" or "<span
+							style="background-color: rgb(192, 192, 192);">Hora de </span>Malasia".
+						If the country has multiple time zones, then a city is used to
+						distinguish which one, thus "Argentina (La Rioja)<span
+							style="background-color: rgb(192, 192, 192);"> Time</span>".
+					</p>
+
+
+
+
+					<p>Thus normally cities thus only need to be translated if they
+						are in a country with multiple time zones.</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>.*(M|m)etazone.*</td>
+
+
+				<td>
+
+
+					<h3>Metazones</h3>
+
+
+
+
+					<p>
+						For some time zones, the survey tool will state that a particular
+						<i>metazone</i> is in effect. A metazone is simply a grouping of
+						time zones that share a common display name in customary usage.
+						For example,
+						<code>Europe/Paris</code>
+						,
+						<code>Europe/Berlin</code>
+						, and many other time zones share a common display name "Central
+						European Time", and have a common metazone
+						<code>Europe_Central</code>
+						. Use of a metazone allows us to translate this text only once
+						while it can be use in many different time zones. The survey tool
+						will show the default mappings for when a particular metazone was
+						in use for a particular time zone. If you believe the mappings to
+						be incorrect for your locality, please use the link to record any
+						desired changes to the metazone mappings. Metazones have the same
+						display fields as regular time zones, except that they have no
+						exemplar city associated with them.
+					</p>
+
+
+
+
+					<p>Often there are situations where a particular time zone has
+						an abbreviation, but the abbreviation is so seldom used that most
+						people would not recognize it. The "commonlyUsed" field for a
+						metazone is used to indicate that abbreviations for a particular
+						time zone or metazone are in common use in the locale. You have
+						two choices:</p>
+
+
+
+
+					<ul>
+
+
+						<li>If the GMT format would be understood better, set
+							commonlyUsed to "false"</li>
+
+
+						<li>Otherwise, if the abbriviation is commonly understood,
+							set commonlyUsed&nbsp; to "true".</li>
+
+
+
+
+					</ul>
+
+
+
+
+					<p>
+						For example: In English, PST is a commonly used abbreviation for
+						"Pacific Standard Time", for the metazone
+						<code> </code>
+						<code>America_Pacific</code>
+						. While NPT is an abbreviation for "Nepal Time", most English
+						speakers would not recognize the meaning of "2:00 PM NPT". Thus,
+						commonlyUsed should be <i>true</i> for
+						<code>America_Pacific</code>
+						(displaying, for example, 2:00 PM PST) and <i>false</i> for
+						<code>Asia/Katmandu</code>
+						(displaying, for example, "4:00 GMT+05:45").
+					</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/posix/messages.*</td>
+
+
+				<td>
+
+
+					<h3>POSIX Yes and No</h3>
+
+
+
+
+					<p>The POSIX yes and no strings should be whatever should count
+						for "No" and "Yes" in your language, plus abbreviations. Don't
+						worry about uppercases, that will be done automatically. Multiple
+						forms can be entered separated by ":", such as "ne:n".</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/layout/in(List|Text).*</td>
+
+
+				<td>
+
+
+					<h3>Casing Verification</h3>
+
+
+
+
+					<p>These values can be used to help testing. If the value is
+						set to anything but "mixed", then the items of that type will be
+						checked whether they match, to help to catch inconsistencies. For
+						example, if your language usually has the names of territories in
+						lowercase, then set the value for territories to be
+						"lowercase-words". The values are:</p>
+
+
+
+
+					<table style="border-collapse: collapse;" id="table10" border="1"
+						bordercolor="#009900" cellspacing="0">
+
+
+						<tbody>
+
+							<tr>
+
+
+								<th style="vertical-align: top;"><strong>Values</strong></th>
+
+
+								<td align="center"><strong>Example</strong></td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td><code>
+										<b>mixed</b>
+									</code></td>
+
+
+								<td>This is a mixture of Titlecase and lowercase.</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td><code>
+										<b>lowercase-words</b>
+									</code></td>
+
+
+								<td>this is a mixture of titlecase and lowercase.</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td><code>
+										<b>titlecase-words</b>
+									</code></td>
+
+
+								<td>This Is A Mixture Of Titlecase And Lowercase</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td><code>
+										<b>titlecase-firstword</b>
+									</code></td>
+
+
+								<td>This is a mixture of titlecase and lowercase.</td>
+
+
+							</tr>
+
+
+
+
+						</tbody>
+
+					</table>
+
+
+
+
+					<p>
+						The <span class="forumlink"> <tt
+								title="1-misc|casing|in_lists">layout/​inList</tt></span> item has the
+						same values, but a different use. It signals that if the items are
+						put into a list (such as a menu on a computer), then they should
+						be mechanically changed. For example, suppose that names of
+						languages are normally lowercase, but when put into a menu they
+						should normally have the first letter of the first word
+						capitalized. If that's true, then you should set this value to
+						<code>
+							<b>titlecase-firstword</b>
+						</code>
+						.
+					</p>
+
+
+
+
+					<p>If that value is wrong for any individual item, then you can
+						override that particular item by adding an "alt" value. To do so,
+						contact your administrator.</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/delimiters/.*</td>
+
+
+				<td>
+
+
+					<h3>Delimiters</h3>
+
+
+
+
+					<p>Change this field if your language uses different quotation
+						marks. The alternate forms are for embedded quotations, such as
+						"He said 'Stop!'".</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/dates/dateRangePattern.*</td>
+
+
+				<td>
+
+
+					<h3>Ranges of Dates</h3>
+
+
+
+
+					<p>Modify this field to control how a range of dates appears,
+						eg "Oct 12 - Nov 9".</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/dates/timeZoneNames/fallbackFormat</td>
+
+
+				<td>
+
+
+					<h3>Country-Based Time Zone City Pattern</h3>
+
+
+
+
+					<p>Modify this field to control the formatting of Country-Based
+						time zone display when a country has multiple time zones, and the
+						city is used to disambiguate them. In the pattern, {0} will be
+						replaced by the city and {1} will be the country. This is normally
+						not changed, except perhaps in languages that don't use spaces.</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/dates/timeZoneNames/gmtFormat</td>
+
+
+				<td>
+
+
+					<h3>GMT Pattern</h3>
+
+
+
+
+					<p>
+						Modify this field if the format for GMT time uses different
+						letters, such as <em>HUA+0200</em> for <em>GMT+02:00</em>, or if
+						the letters GMT occur after the time. Make sure you include the <em>{0}</em>;
+						that is where the actual time value will go!
+					</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/dates/timeZoneNames/hourFormat</td>
+
+
+				<td>
+
+
+					<h3>GMT Hours Pattern</h3>
+
+
+
+
+					<p>
+						This field controls the format for the time used with the GMT
+						Pattern. It contains two patterns separated by a ";". The first
+						controls positive time values (and zero), and the second controls
+						the negative values. So to get <em>GMT+02.00</em> for positive
+						values, and <em>GMT-02.00</em> for negative values, you'd use <em>+HH.mm;-HH.mm</em>.
+					</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/dates/timeZoneNames/regionFormat</td>
+
+
+				<td>
+
+
+					<h3>Country-Based Time Zone Pattern</h3>
+
+
+
+
+					<p>
+						For generic references to time zones, the country is used if
+						possible, composed with a pattern that in English appears as "{0}<span
+							style="background-color: rgb(192, 192, 192);"> Time</span>". Thus
+						a time zone may appear as "Malaysia<span
+							style="background-color: rgb(192, 192, 192);"> Time</span>" or "<span
+							style="background-color: rgb(192, 192, 192);">Hora de </span>Malasia".
+						If the country has multiple time zones, then a city is used to
+						distinguish which one, thus "Argentina (La Rioja)<span
+							style="background-color: rgb(192, 192, 192);"> Time</span>".
+					</p>
+
+
+
+
+					<p>
+						Some languages would normally have grammatical adjustments
+						depending on what the name of the city is. For example, one might
+						need "12:43 pm <span style="background-color: rgb(192, 192, 192);">Tempo
+							d'</span>Australia" but "12:43 pm <span
+							style="background-color: rgb(192, 192, 192);">Tempo de</span><u>
+						</u>Paris". In that case, there are two approaches:
+					</p>
+
+
+
+
+					<ol type="a">
+
+
+						<li>Use "{0}", which will give results like "12:43 pm
+							Australia" and "12:43 pm Paris", or</li>
+
+
+						<li>Use a "form-style" phrasing such as "<span
+							style="background-color: rgb(192, 192, 192);">Tempo de: </span>{0}",
+							which will give results like "12:43 pm <span
+							style="background-color: rgb(192, 192, 192);">Tempo de: </span>Australia"
+							and "12:43 pm <span style="background-color: rgb(192, 192, 192);">Tempo
+								de: </span>Paris".
+						</li>
+
+
+
+
+					</ol>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/dates/.*/days/.*</td>
+
+
+				<td>
+
+
+					<h3>Days of the Week</h3>
+
+
+
+
+					<p>This field is one of the days of the week, such as Sunday or
+						Monday.</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>.*/timeZoneNames.*</td>
+
+
+				<td>
+
+
+					<h3 align="left">Time Zones</h3>
+
+
+
+
+					<p align="left">
+						In the standard used for time zones, a <i>time zone</i> is an area
+						of a country that has consistent behavior in terms of its offset
+						from Greenwich Mean Time. In particular, within that zone, the
+						same daylight-savings (summer-time) behavior is observed, now and
+						in the past and future (as far as is known). This means that time
+						zones are fairly fine granularity, as you can see by consulting <span
+							class="loser"> <a target="_blank"
+							href="http://www.unicode.org/cldr/data/charts/supplemental/territory_containment_un_m_49.html">Territory
+								Containment</a>.
+						</span>The name of the time zone is taken from the most populous city,
+						such as <b><code>America/Denver</code></b>. Here are some examples
+						of time zones, and why they are distinct from <b><code>America/Denver</code></b>.
+					</p>
+
+
+
+
+					<table style="border-collapse: collapse;" id="table11" border="1"
+						bordercolor="#009900" cellspacing="0">
+
+
+						<tbody>
+
+							<tr>
+
+
+								<th style="vertical-align: top;"><strong>Time zone</strong></th>
+
+
+								<td align="center"><strong>Reason</strong></td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td><b><code>America/​Chicago</code></b></td>
+
+
+								<td>Chicago has a different standard offset from GMT (6
+									hours) than Denver (7 hours).</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td><b><code>America/​Phoenix</code></b></td>
+
+
+								<td>While Phoenix has the same GMT offset as Denver, it
+									doesn't have daylight savings time, while Denver does.</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td><b><code>America/​Edmonton</code></b></td>
+
+
+								<td>Although Edmonton has the same offset and daylight
+									savings behavior as Denver, it is in a different country</td>
+
+
+							</tr>
+
+
+
+
+						</tbody>
+
+					</table>
+
+
+
+
+					<p align="left">
+						<span class="loser">Time zones can be displayed in a
+							variety of ways, depending on the environment and program
+							requirements. Here are some examples:</span>
+					</p>
+
+
+
+
+					<table style="border-collapse: collapse;" id="table12" border="1"
+						bordercolor="#009900" cellspacing="0">
+
+
+						<caption>
+							<b>Sample Time Zone Formats</b>
+						</caption>
+						<tbody>
+
+							<tr>
+
+
+								<th style="vertical-align: top;">Named</th>
+
+
+								<th style="vertical-align: top;"><strong>List
+										Format</strong></th>
+
+
+								<td align="center"><b>Abbreviated</b></td>
+
+
+								<td colspan="2" align="center"><strong>With a Time</strong></td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td rowspan="2">Country-Based</td>
+
+
+								<td colspan="2" align="center">United States (Los Angeles)
+									Time</td>
+
+
+								<td colspan="2">12:43 pm United States (Los Angeles) Time</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td colspan="2" align="center">Italy Time</td>
+
+
+								<td colspan="2">12:43 pm Italy Time</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td rowspan="3">Named
+
+									<p>&nbsp;</p>
+
+
+								</td>
+
+
+								<td align="center">Pacific Time</td>
+
+
+								<td align="center">PT</td>
+
+
+								<td>12:43 pm Pacific Time</td>
+
+
+								<td>12:43 pm PT</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td align="center">Central European Time</td>
+
+
+								<td align="center">CET</td>
+
+
+								<td>12:43 pm Central European Time</td>
+
+
+								<td>12:43 pm CET</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td align="center">Pacific Standard Time</td>
+
+
+								<td align="center">PST</td>
+
+
+								<td>12:43 pm Pacific Standard Time</td>
+
+
+								<td>12:43 pm PST</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td rowspan="2">GMT</td>
+
+
+								<td colspan="2" align="center">GMT-8:00</td>
+
+
+								<td colspan="2">12:43 pm GMT-8:00</td>
+
+
+							</tr>
+
+
+							<tr>
+
+
+								<td colspan="2" align="center">GMT+2:00</td>
+
+
+								<td colspan="2">12:43 pm GMT+2:00</td>
+
+
+							</tr>
+
+
+
+
+						</tbody>
+
+					</table>
+
+
+
+
+					<p align="left">These are composed from different pieces that
+						you translate.</p>
+
+
+
+
+					<ul>
+
+
+						<li>
+
+
+							<p align="left">For the country-based formats, you'll be
+								translating the country names anyway, but also city names where
+								a country has multiple zones. You'll also be translating a
+								pattern for the "Time" portion (or leaving it blank if that is
+								better for your language).</p>
+
+
+						</li>
+
+
+						<li>
+
+
+							<p align="left">
+								For the named formats, you'll have the opportunity to translate
+								specific names for that zone, or names common to groupings of
+								time zones (called <i>metazones</i>) that span multiple time
+								zones. You have 6 possible strings to translate: generic
+								(Pacific Time), standard (Pacific Standard Time), daylight
+								(Pacific Daylight Time), plus abbreviations of those.<i><b>
+										You only want to provide names (and especially abbreviations)
+										where those are customarily understood by speakers of your
+										language. Just because they are in English doesn't mean they
+										should always be translated in your language.</b></i>
+							</p>
+
+
+						</li>
+
+
+						<li>
+
+
+							<p align="left">For the GMT format, you'll be translating the
+								term "GMT" (if necessary for your language), and the format for
+								the hours (eg, +8:45 vs. +8.45).</p>
+
+
+						</li>
+
+
+
+
+					</ul>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/dates/.*/months/.*</td>
+
+
+				<td>
+
+
+					<h3>Months of the Year</h3>
+
+
+
+
+					<p>This field is one of the months of the year, such as January
+						or February.</p>
+
+
+				</td>
+
+
+			</tr>
+
+
+			<tr>
+
+
+				<td>//ldml/fallback</td>
+
+
+				<td>
+
+
+					<h3>Locale Fallbacks</h3>
+
+
+
+
+					<p>
+						You should add here a list of locales that would be most natural
+						to use when no translation is available (this is called a <i>fallback)</i>.
+						This is especially useful for minority languages. For example, for
+						Breton [br] the most natural language to fall back to might be
+						French [fr], that is, to use French names for countries that
+						aren't translated. Similarly, the fallback for Moldavian [mo]
+						might be Romanian [ro].
+					</p>
+
+
+					<p style="font-style: italic;">
+						Fallbacks should <span style="font-weight: bold;">only</span> be
+						included if a substantial majority of people speaking the language
+						in question would be likely to understand the fallback language.
+						If there are no such languages, the fallback field should be left
+						blank.
+					</p>
+
+
+					<p>
+						Fallbacks can take the script or region into account; the fallback
+						for Northern Sámi (Finland) [se-FI] might be Finnish (Finland)
+						[fi-FI], while the fallback for Northern Sámi [se] generally might
+						be Norwegian [nb].<br>
+
+					</p>
+
+
+					<p>
+						The values you need to use are locale codes, <span
+							style="font-style: italic;">not the names or translations;</span>
+						thus you would put in&nbsp;
+						<code>fr</code>
+						or&nbsp;
+						<code>fr_BE</code>
+						,<i> not</i> "French" or "<span class="loser">français</span>". If
+						you don't know the codes for the languages in question, you can
+						consult the survey tool <a
+							href="http://unicode.org/cldr/apps/survey?p_codes=t"
+							target="_blank">Locales</a>, or the <a
+							href="http://www.iana.org/assignments/language-subtag-registry"
+							target="_blank">BCP 47 registry</a>.
+					</p>
+
+
+					<p>Multiple fallback languages can be entered in order of
+						priority, separated by spaces, for example: nl en.</p>
+
+
+				</td>
+
+
+			</tr>
+
+			<tr>
+
+				<td>//ldml/(units/unit|numbers/currencies/currency.*/displayName).*</td>
+
+				<td>
+
+					<h3>Localized Units</h3>
+
+
+					<p>
+						Localized units provide more natural ways of expressing unit
+						phrases that vary in plural form, such as "1 hour" vs "2 hours".
+						While they cannot express all the intricacies of natural
+						languages, they allow for more natural phrasing than constructions
+						like "1 hour(s)".<span style="font-style: italic; color: black;"></span><span
+							style="font-family: monospace;"></span><span
+							style="font-style: italic;"><span
+							style="color: rgb(153, 0, 0); font-weight: bold;"></span></span>
+					</p>
+
+
+					<p style="font-style: italic;">
+						<span style="color: rgb(153, 0, 0); font-weight: bold;">Please&nbsp;</span>review
+						the draft rules that CLDR is using for plurals for your language,
+						at <a target="_blank"
+							href="http://www.unicode.org/cldr/data/charts/supplemental/language_plural_rules.html">Language
+							Plural Rules</a>, and the description there about&nbsp;the plural
+						categories.
+					</p>
+
+
+					<p>
+						Each unit may have multiple plural forms, one for each category.
+						These are composed with numbers using a <span
+							style="font-style: italic;">unitPattern</span> of the form "{0}
+						{1}". A formatted number will be substituted in place of the
+						"{0}", while the unit value will be subsituted in place of the
+						"{1}".
+					</p>
+
+
+					<p>
+						For example, for English if the unit is an <span
+							style="font-family: monospace;">hour</span> and the number is <span
+							style="font-family: monospace;">1234</span>, then the number is
+						looked up to get the rule category <span
+							style="font-family: monospace;">other</span>. The number is then
+						formatted into "1,234" and composed with the unitName for <span
+							style="font-family: monospace;">other</span> and the unitPattern
+						for <span style="font-family: monospace;">other</span> to get the
+						final result. Examples are in the table below.
+					</p>
+
+
+					<table style="border-collapse: collapse;" id="table11" border="1"
+						bordercolor="#009900" cellspacing="0">
+
+
+						<tbody>
+
+							<tr>
+
+
+								<th>Locale</th>
+
+								<th style="vertical-align: top;"><strong>Unit</strong></th>
+
+
+								<th style="text-align: center;"><strong>Number</strong></th>
+
+								<th>Formatted number</th>
+
+								<th>Plural category</th>
+
+								<th>unitName for category</th>
+
+								<th>unitPattern for category</th>
+
+								<th>Final Result</th>
+
+
+							</tr>
+
+
+							<tr>
+
+								<td style="font-family: monospace;">en</td>
+
+								<td style="text-align: center;"><b><code>hour</code></b></td>
+
+								<td style="text-align: center; font-family: monospace;">0</td>
+
+								<td style="text-align: center;">"0"</td>
+
+								<td style="text-align: center; font-family: monospace;">other</td>
+
+								<td style="text-align: center;">"hours"</td>
+
+								<td style="text-align: center;">"{0} {1}"</td>
+
+								<td style="text-align: center;">"0 hours"</td>
+
+							</tr>
+
+							<tr>
+
+								<td style="font-family: monospace;">en</td>
+
+								<td style="text-align: center;"><b><code>hour</code></b></td>
+
+								<td style="text-align: center; font-family: monospace;">1</td>
+
+								<td style="text-align: center;">"1"</td>
+
+								<td style="text-align: center; font-family: monospace;">one</td>
+
+								<td style="text-align: center;">"hour"</td>
+
+								<td style="text-align: center;">"{0} {1}"</td>
+
+								<td style="text-align: center;">"1 hour"</td>
+
+							</tr>
+
+							<tr>
+
+
+								<td style="font-family: monospace;">en</td>
+
+								<td style="text-align: center;"><b><code>hour</code></b></td>
+
+
+								<td style="text-align: center; font-family: monospace;">1234</td>
+
+								<td style="text-align: center;">"1,234"</td>
+
+								<td style="text-align: center; font-family: monospace;">other</td>
+
+								<td style="text-align: center;">"hours"</td>
+
+								<td style="text-align: center;">"{0} {1}"</td>
+
+								<td style="text-align: center;">"1,234 hours"</td>
+
+
+							</tr>
+
+							<tr>
+
+								<td style="font-family: monospace;">fr</td>
+
+								<td style="text-align: center;"><b><code>hour</code></b></td>
+
+								<td style="text-align: center; font-family: monospace;">0</td>
+
+								<td style="text-align: center;">"0"</td>
+
+								<td
+									style="text-align: center; font-family: monospace; background-color: rgb(255, 204, 204);">one</td>
+
+								<td style="text-align: center;">"heure"</td>
+
+								<td style="text-align: center;">"{0} {1}"</td>
+
+								<td style="text-align: center;">"0 heure"</td>
+
+							</tr>
+
+							<tr>
+
+								<td style="font-family: monospace;">fr</td>
+
+								<td style="text-align: center;"><b><code>hour</code></b></td>
+
+								<td style="text-align: center; font-family: monospace;">1</td>
+
+								<td style="text-align: center;">"1"</td>
+
+								<td style="text-align: center; font-family: monospace;">one</td>
+
+								<td style="text-align: center;">"heure"</td>
+
+								<td style="text-align: center;">"{0} {1}"</td>
+
+								<td style="text-align: center;">"1 heure"</td>
+
+							</tr>
+
+							<tr>
+
+								<td style="font-family: monospace;">fr</td>
+
+								<td style="text-align: center;"><b><code>hour</code></b></td>
+
+								<td style="text-align: center; font-family: monospace;">1234</td>
+
+								<td style="text-align: center;">"1 234"</td>
+
+								<td style="text-align: center; font-family: monospace;">other</td>
+
+								<td style="text-align: center;">"heures"</td>
+
+								<td style="text-align: center;">"{0} {1}"</td>
+
+								<td style="text-align: center;">"1 234 heures"</td>
+
+							</tr>
+
+
+
+
+
+
+						</tbody>
+
+					</table> <span class="loser"></span>
+
+					<p>
+						There is one "default"&nbsp;<span style="font-style: italic;">unitPattern</span>
+						for each plural category, listed under the unit "one". If the
+						particular unit needs a special&nbsp;<span
+							style="font-style: italic;">unitPattern</span> for a particular
+						plural category, then one can also be added. That is, suppose that
+						for a particular language, in the plural the number goes after the
+						translation of <span style="font-style: italic;">hour</span>
+						instead of before. Then for the unit <span
+							style="font-family: monospace;">hour</span>, and plural category
+						<span style="font-family: monospace;">other</span>,<span
+							style="font-family: monospace;"> </span>the&nbsp;<span
+							style="font-style: italic;">unitPattern</span> can be different
+						if needed.
+					</p>
+
+
+					<p>The key is, if the examples look ok you shouldn't need to do
+						anything.</p>
+
+
+					<p>
+						To request a change in the plural rules, please file a request in
+						a <a target="_blank"
+							href="http://unicode.org/cldr/bugs/locale-bugs">bug report</a>.
+					</p>
+
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>//ldml/localeDisplayNames/localeDisplayPattern/localePattern.*</td>
+
+				<td>
+
+					<h3>Locale Display Patterns</h3> <br> Locale display patterns
+					are used to format a compound language (locale) name such as
+					'en_AU' or 'uz_Arab'. The pattern is something like "{0} ({1})".
+					When the locale is formatted, the language is substituted for {0},
+					and the region or script for {1}. <br>
+
+
+					<p>For example, take "en_AU". First the language code 'en' is
+						translated, such as to "anglais", then the country is translated,
+						such as "Australie". The patterns is used to put those together,
+						into something like "anglais (Australie)". &nbsp;This works the
+						same way if there is a script; for example, &nbsp;"uz-Arab" =&gt;
+						"ouzbek (arabe)".</p> If there is both a script and a region, then a
+					list is formed using the <span style="font-style: italic;">separator</span>,
+					then {1} is replaced by that list, such as "uz-Arab-AF" =&gt;
+					"ouzbek (arabe, Afghanistan)"<br>
+
+
+					<p>For certain compound language (locale) names, you can also
+						supply specific translations. Thus for the whole locale 'en_GB',
+						you can provide a translation like "Australian English".</p>
+
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>//ldml/localeDisplayNames/codePatterns/codePattern.*</td>
+
+				<td>
+
+					<h3>Code Patterns</h3> Code patterns are used in lists where the
+					name of the language, script, or region is not available -- the
+					code (like "de" for German) will be substituted for the {0}
+					placeholder. &nbsp;Thus you if the language code 'zaz' is not
+					translated in your language, you might see in a list something
+					like:<br>
+
+
+					<ul>
+
+						<li>English</li>
+
+						<li>French</li>
+
+						<li>Language: zaz</li>
+
+						<li>Spanish</li>
+
+
+					</ul> The last line is the result of substituting the code 'zaz' into
+					the code pattern. You can choose the pattern that makes sense for
+					your language; if the best choice is to just use the code alone,
+					then use {0}.
+				</td>
+
+			</tr>
+
+
+
+		</tbody>
+	</table>
+
+
+	<p>
+		The text to insert can be fairly arbitrary HTML. The software that
+		reads this table will search the first column (eg between &lt;td&gt;
+		and &lt;/td&gt;) and return the contents of the second column. We plan
+		on adding a few variables also, for the current locale name, in
+		particular. This file uses the survey tool style-sheet, so you can use
+		those <span class="winner">styles</span> (and icons, like <a
+			target="target=" surveytool:n:de="" class="forumlink"
+			href="http://unicode.org/cldr/apps/survey?_=de&amp;forum=de&amp;xpath=249">
+			<img alt="[stop]" style="width: 16px; height: 16px;"
+			src="http://unicode.org/cldr/apps/stop.png"
+			title="Errors - please zoom in" border="0">
+		</a>) in the text to insert.
+	</p>
+
+
+	<p>
+		<b>WARNING</b>
+	</p>
+
+
+	<ul>
+
+
+		<li><b><i>It uses a very dumb parser, so make sure that
+					table elements are matched, eg &lt;td&gt; with &lt;/td&gt;, and
+					also that &lt;tr&gt;, &lt;/tr&gt;, &lt;table&gt;, and
+					&lt;/table&gt; are on separate lines.</i></b></li>
+
+
+		<li><b><i>The regular expression for the path must match
+					the whole path, so if it is an interior substring, remember to add
+					.* on both ends.</i></b></li>
+
+
+		<li><b><i>Run TestUtilities.testExampleGenerator() to
+					verify that everything works.</i></b></li>
+
+
+	</ul>
+
+
+
+</body>
+</html>

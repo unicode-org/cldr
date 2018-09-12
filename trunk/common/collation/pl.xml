@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="pl" /> 
+	</identity>
+	<collations  >
+		<collation type="standard" references="Wielki slownik polsko-angielski ISBN 83-85840-15-X">
+			<cr><![CDATA[
+				&A<ą<<<Ą
+				&C<ć<<<Ć
+				&E<ę<<<Ę
+				&L<ł<<<Ł
+				&N<ń<<<Ń
+				&O<ó<<<Ó
+				&S<ś<<<Ś
+				&Z<ź<<<Ź<ż<<<Ż
+			]]></cr>
+		</collation  >
+	</collations>
+</ldml>

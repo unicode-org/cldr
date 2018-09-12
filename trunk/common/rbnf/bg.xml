@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+    <identity>
+        <version number="$Revision$"/>
+        <language type="bg"/>
+    </identity>
+    <rbnf>
+        <rulesetGrouping type="SpelloutRules">
+            <ruleset type="spellout-numbering-year">
+                <rbnfrule value="x.x">=0.0=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering">
+                <rbnfrule value="0">=%spellout-cardinal-feminine=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-masculine">
+                <rbnfrule value="-x">минус →→;</rbnfrule>
+                <rbnfrule value="x.x">←← кома →→;</rbnfrule>
+                <rbnfrule value="0">нула;</rbnfrule>
+                <rbnfrule value="1">един;</rbnfrule>
+                <rbnfrule value="2">два;</rbnfrule>
+                <rbnfrule value="3">три;</rbnfrule>
+                <rbnfrule value="4">четири;</rbnfrule>
+                <rbnfrule value="5">пет;</rbnfrule>
+                <rbnfrule value="6">шест;</rbnfrule>
+                <rbnfrule value="7">седем;</rbnfrule>
+                <rbnfrule value="8">осем;</rbnfrule>
+                <rbnfrule value="9">девет;</rbnfrule>
+                <rbnfrule value="10">десет;</rbnfrule>
+                <rbnfrule value="11">единадесет;</rbnfrule>
+                <rbnfrule value="12">дванадесет;</rbnfrule>
+                <rbnfrule value="13">тринадесет;</rbnfrule>
+                <rbnfrule value="14">четиринадесет;</rbnfrule>
+                <rbnfrule value="15">петнадесет;</rbnfrule>
+                <rbnfrule value="16">шестнадесет;</rbnfrule>
+                <rbnfrule value="17">седемнадесет;</rbnfrule>
+                <rbnfrule value="18">осемнадесет;</rbnfrule>
+                <rbnfrule value="19">деветнадесет;</rbnfrule>
+                <rbnfrule value="20">двадесет[ и →→];</rbnfrule>
+                <rbnfrule value="30">тридесет[ и →→];</rbnfrule>
+                <rbnfrule value="40">четиридесет[ и →→];</rbnfrule>
+                <rbnfrule value="50">петдесет[ и →→];</rbnfrule>
+                <rbnfrule value="60">шестдесет[ и →→];</rbnfrule>
+                <rbnfrule value="70">седемдесет[ и →→];</rbnfrule>
+                <rbnfrule value="80">осемдесет[ и →→];</rbnfrule>
+                <rbnfrule value="90">деветдесет[ и →→];</rbnfrule>
+                <rbnfrule value="100">сто[ →→];</rbnfrule>
+                <rbnfrule value="200">двеста[ →→];</rbnfrule>
+                <rbnfrule value="300">триста[ →→];</rbnfrule>
+                <rbnfrule value="400">четиристотин[ →→];</rbnfrule>
+                <rbnfrule value="500">петстотин[ →→];</rbnfrule>
+                <rbnfrule value="600">шестстотин[ →→];</rbnfrule>
+                <rbnfrule value="700">седемстотин[ →→];</rbnfrule>
+                <rbnfrule value="800">осемстотин[ →→];</rbnfrule>
+                <rbnfrule value="900">деветстотин[ →→];</rbnfrule>
+                <rbnfrule value="1000">хиляда[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-feminine← хиляди[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← милион[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-masculine← милиона[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← милиард[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← милиарда[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← трилион[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← трилиона[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← квадрилион[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← квадрилиона[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-feminine">
+                <rbnfrule value="-x">минус →→;</rbnfrule>
+                <rbnfrule value="x.x">←← кома →→;</rbnfrule>
+                <rbnfrule value="0">нула;</rbnfrule>
+                <rbnfrule value="1">едно;</rbnfrule>
+                <rbnfrule value="2">две;</rbnfrule>
+                <rbnfrule value="3">=%spellout-cardinal-masculine=;</rbnfrule>
+                <rbnfrule value="20">двадесет[ и →→];</rbnfrule>
+                <rbnfrule value="30">тридесет[ и →→];</rbnfrule>
+                <rbnfrule value="40">четиридесет[ и →→];</rbnfrule>
+                <rbnfrule value="50">петдесет[ и →→];</rbnfrule>
+                <rbnfrule value="60">шестдесет[ и →→];</rbnfrule>
+                <rbnfrule value="70">седемдесет[ и →→];</rbnfrule>
+                <rbnfrule value="80">осемдесет[ и →→];</rbnfrule>
+                <rbnfrule value="90">деветдесет[ и →→];</rbnfrule>
+                <rbnfrule value="100">сто[ →→];</rbnfrule>
+                <rbnfrule value="200">двеста[ →→];</rbnfrule>
+                <rbnfrule value="300">триста[ →→];</rbnfrule>
+                <rbnfrule value="400">четиристотин[ →→];</rbnfrule>
+                <rbnfrule value="500">петстотин[ →→];</rbnfrule>
+                <rbnfrule value="600">шестстотин[ →→];</rbnfrule>
+                <rbnfrule value="700">седемстотин[ →→];</rbnfrule>
+                <rbnfrule value="800">осемстотин[ →→];</rbnfrule>
+                <rbnfrule value="900">деветстотин[ →→];</rbnfrule>
+                <rbnfrule value="1000">хиляда[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-feminine← хиляди[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← милион[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-masculine← милиона[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← милиард[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← милиарда[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← трилион[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← трилиона[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← квадрилион[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← квадрилиона[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+        </rulesetGrouping>
+    </rbnf>
+</ldml>

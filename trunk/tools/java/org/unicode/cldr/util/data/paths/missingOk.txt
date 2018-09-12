@@ -1,0 +1,30 @@
+# Data file for VettingViewer.isMissingOk
+# Note that paths for compact numbers are handled specially in code, in compact
+
+%A = ([^"]*+)
+
+//ldml/dates/timeZoneNames/zone[@type="%A"]/exemplarCity ; latin
+//ldml/numbers/currencies/currency[@type="%A"]/symbol ; ok
+//ldml/dates/calendars/calendar[@type="%A"]/quarters/quarterContext[@type="%A"]/quarterWidth[@type="narrow"]/quarter[@type="%A"] ; ok
+#//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type="U[SK]"] ; ok
+#//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/dateTimeFormatLength[@type="%A"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"] ; ok
+#//ldml/localeDisplayNames/localeDisplayPattern/locale(KeyTypePattern|Pattern|Separator) ; ok
+#//ldml/listPatterns/listPattern/listPatternPart[@type="(middle|start)"] ; ok
+#//ldml/dates/timeZoneNames/gmtZeroFormat ; ok
+//ldml/numbers/defaultNumberingSystem ; ok
+//ldml/numbers/otherNumberingSystems/native ; ok
+//ldml/localeDisplayNames/variants/variant[@type="%A"] ; ok
+//ldml/dates/calendars/calendar[@type="%A"]/.*/default ; ok
+//ldml/dates/fields/field[@type="day"]/relative[@type="-?2"]; ok
+//ldml/numbers/decimalFormats[@numberSystem="%A"]/decimalFormatLength[@type="%A"]/decimalFormat[@type="standard"]/pattern[@type="%A"][@count="%A"] ; compact
+
+# TODO check why these are not copied into locales
+//ldml/characters/ellipsis ; ok
+//ldml/characters/moreInformation ; ok
+
+# Why are we generating these?
+//ldml/localeDisplayNames/languages/language[@type="(in|iw|ji|jw)"] ; ok
+
+# More items ok to be missing
+//ldml/characters/parseLenients.* ; ok
+

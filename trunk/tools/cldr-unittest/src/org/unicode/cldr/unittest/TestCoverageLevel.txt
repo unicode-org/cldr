@@ -1,0 +1,45 @@
+^//ldml/dates/calendars/calendar\[@type="(?!gregorian)[^"]*"] ; 100
+^//ldml/identity ; 100
+^//ldml/characters/exemplarCharacters\[@type="currencySymbol"] ; 30
+^//ldml/characters/exemplarCharacters ; 10
+^//ldml/.*/alias ; 100
+^//ldml/.*/default ; 100
+^//ldml/dates/calendars/calendar\[@type=".*"]/dateTimeFormats/appendItems/appendItem\[@request=".*"] ; 100
+^//ldml/dates/calendars/calendar\[@type=".*"]/dayPeriods/dayPeriodContext\[@type=".*"]/dayPeriodWidth\[@type="narrow"] ; 100
+^//ldml/dates/timeZoneNames/singleCountries ; 100
+^//ldml/references ; 100
+^//ldml/characters/ellipsis\[@type=".*"] ; 60
+^//ldml/characters/moreInformation ; 60
+^//ldml/characters/stopwords/stopwordList\[@type=".*"] ; 60
+^//ldml/dates/timeZoneNames/fallbackFormat ; 30
+^//ldml/dates/timeZoneNames/gmtZeroFormat ; 30
+^//ldml/dates/timeZoneNames/zone\[@type=".*"]/long/daylight ; 30
+^//ldml/dates/timeZoneNames/zone\[@type=".*"]/short/daylight ; 30
+^//ldml/fallback ; 100
+^//ldml/layout/orientation ; 10
+^//ldml/localeDisplayNames/transformNames/transformName\[@type=".*"] ; 60
+^//ldml/numbers/currencies/currency\[@type=".*"]/symbol\[@alt=".*"] ; 40
+^//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat\[@type=".*"]/pattern\[@type=".*"] ; 20
+^//ldml/numbers/decimalFormats/decimalFormatLength\[@type=".*"]/decimalFormat\[@type=".*"]/pattern\[@type=".*"] ; 40
+^//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat\[@type=".*"]/pattern\[@type=".*"] ; 20
+^//ldml/numbers/defaultNumberingSystem ; 20
+^//ldml/numbers/symbols/nativeZeroDigit ; 100
+^//ldml/numbers/symbols/patternDigit ; 100
+
+^//ldml/dates/calendars/calendar\[@type=".*"]/dateFormats/dateFormatLength\[@type="(long|short)"]/dateFormat\[@type=".*"]/pattern\[@type=".*"]; 20
+^//ldml/dates/calendars/calendar\[@type=".*"]/dateTimeFormats/intervalFormats/intervalFormatItem\[@id=".*"]/greatestDifference\[@id=".*"] ; 40
+^//ldml/dates/calendars/calendar\[@type=".*"]/dayPeriods/dayPeriodContext\[@type=".*"]/dayPeriodWidth\[@type=".*"]/dayPeriod\[@type=".*"] ; 100
+^//ldml/dates/calendars/calendar\[@type=".*"]/eras/eraAbbr/era\[@type=".*"] ; 30
+
+^//ldml/dates/calendars/calendar\[@type=".*"]/days/dayContext\[@type="format"]/dayWidth\[@type="narrow"]/day\[@type=".*"] ; 30
+^//ldml/dates/calendars/calendar\[@type=".*"]/days/dayContext\[@type="format"]/dayWidth\[@type="wide"]/day\[@type=".*"] ; 100
+^//ldml/dates/calendars/calendar\[@type=".*"]/days/dayContext\[@type="stand-alone"]/dayWidth\[@type="abbreviated"]/day\[@type=".*"]  ; 30
+
+^//ldml/dates/calendars/calendar\[@type=".*"]/quarters/quarterContext\[@type="format"]/quarterWidth\[@type=".*"]/quarter\[@type=".*"]  ; 30
+
+^//ldml/dates/calendars/calendar\[@type=".*"]/months/monthContext\[@type="format"]/monthWidth\[@type="narrow"]/month\[@type=".*"]  ; 30
+
+^//ldml/dates/calendars/calendar\[@type=".*"]/timeFormats/timeFormatLength\[@type="(long|medium)"]/timeFormat\[@type=".*"]/pattern\[@type=".*"] ; 20
+
+^//ldml/dates/fields/field\[@type=".*"]/displayName ; 40
+^//ldml/dates/fields/field\[@type="day"]/relative\[@type="([-]?[01])"] ; 40

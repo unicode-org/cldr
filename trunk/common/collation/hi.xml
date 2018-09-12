@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$" />
+		<language type="hi" />
+	</identity>
+	<collations>
+		<collation type="standard"
+			references="McGregor: Oxford Hindi-English Dictionary ISBN:019864339X Gatzlaff-Hälsig: Handwörterbuch Hindi-Deutsch ISBN:3875481771 http://www.eki.ee/wgrs/rom1_hi.pdf">
+			<cr><![CDATA[
+				[normalization on]
+				[reorder Deva Beng Guru Gujr Orya Taml Telu Knda Mlym Sinh]
+				#
+				#	The following tailoring is an adjustment of the DUCET collation
+				#	order for ANUSVARA, CANDRABINDU, and VISARGA. Instead of being
+				#	sorted with secondary weights, they are collated on primary level
+				#	before the independent vowels. CANDRABINDU is secondary different
+				#	from ANUSVARA. This gives a sort order very close to the referenced
+				#	dictionaries. The sort order in the dictionaries, which by the way
+				#	are not exactly the same, require quite extensive tailoring.
+				# 
+				&ॐ<ं<<ँ<ः
+			]]></cr>
+		</collation>
+	</collations>
+</ldml>

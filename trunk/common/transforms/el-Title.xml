@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="el" target="Title" direction="forward" alias="el-t-d0-title">
+			<tRule><![CDATA[
+::NFD();
+# Remove \0301 following Greek, with possible intervening 0308 marks.
+# [[:Greek:] & [:Ll:]] [\u0308]? { \u0301 → ;
+# Make any string of letters after a cased letter be lower, with rules for sigma
+[:cased:] [:case-ignorable:]* { Σ } [:case-ignorable:]* [:cased:] → σ;
+[:cased:] [:case-ignorable:]* { Σ → ς;
+[:cased:] [:case-ignorable:]* { (.) → &Any-Lower($1) ;
+# Otherwise all lowercase go to upper (titlecase stay as is)
+([:Lowercase:]) → &Any-Title($1) ;
+::NFC();
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

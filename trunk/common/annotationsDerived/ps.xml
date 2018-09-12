@@ -1,0 +1,2741 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2018 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="ps"/>
+	</identity>
+	<annotations>
+		<annotation cp="👶🏻">ماشوم | روښانه پوستکۍ</annotation>
+		<annotation cp="👶🏻" type="tts">ماشوم: روښانه پوستکۍ</annotation>
+		<annotation cp="👶🏼">ماشوم | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👶🏼" type="tts">ماشوم: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👶🏽">ماشوم | غنم رنګه</annotation>
+		<annotation cp="👶🏽" type="tts">ماشوم: غنم رنګه</annotation>
+		<annotation cp="👶🏾">ماشوم | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👶🏾" type="tts">ماشوم: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👶🏿">ماشوم | تور پوستکۍ</annotation>
+		<annotation cp="👶🏿" type="tts">ماشوم: تور پوستکۍ</annotation>
+		<annotation cp="🧒🏻">کوچنی | روښانه پوستکۍ</annotation>
+		<annotation cp="🧒🏻" type="tts">کوچنی: روښانه پوستکۍ</annotation>
+		<annotation cp="🧒🏼">کوچنی | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧒🏼" type="tts">کوچنی: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧒🏽">کوچنی | غنم رنګه</annotation>
+		<annotation cp="🧒🏽" type="tts">کوچنی: غنم رنګه</annotation>
+		<annotation cp="🧒🏾">کوچنی | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧒🏾" type="tts">کوچنی: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧒🏿">کوچنی | تور پوستکۍ</annotation>
+		<annotation cp="🧒🏿" type="tts">کوچنی: تور پوستکۍ</annotation>
+		<annotation cp="👦🏻">هلک | روښانه پوستکۍ</annotation>
+		<annotation cp="👦🏻" type="tts">هلک: روښانه پوستکۍ</annotation>
+		<annotation cp="👦🏼">هلک | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👦🏼" type="tts">هلک: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👦🏽">هلک | غنم رنګه</annotation>
+		<annotation cp="👦🏽" type="tts">هلک: غنم رنګه</annotation>
+		<annotation cp="👦🏾">هلک | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👦🏾" type="tts">هلک: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👦🏿">هلک | تور پوستکۍ</annotation>
+		<annotation cp="👦🏿" type="tts">هلک: تور پوستکۍ</annotation>
+		<annotation cp="👧🏻">نجلۍ | روښانه پوستکۍ</annotation>
+		<annotation cp="👧🏻" type="tts">نجلۍ: روښانه پوستکۍ</annotation>
+		<annotation cp="👧🏼">نجلۍ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👧🏼" type="tts">نجلۍ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👧🏽">نجلۍ | غنم رنګه</annotation>
+		<annotation cp="👧🏽" type="tts">نجلۍ: غنم رنګه</annotation>
+		<annotation cp="👧🏾">نجلۍ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👧🏾" type="tts">نجلۍ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👧🏿">نجلۍ | تور پوستکۍ</annotation>
+		<annotation cp="👧🏿" type="tts">نجلۍ: تور پوستکۍ</annotation>
+		<annotation cp="🧑🏻">بالغ | روښانه پوستکۍ</annotation>
+		<annotation cp="🧑🏻" type="tts">بالغ: روښانه پوستکۍ</annotation>
+		<annotation cp="🧑🏼">بالغ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧑🏼" type="tts">بالغ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧑🏽">بالغ | غنم رنګه</annotation>
+		<annotation cp="🧑🏽" type="tts">بالغ: غنم رنګه</annotation>
+		<annotation cp="🧑🏾">بالغ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧑🏾" type="tts">بالغ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧑🏿">بالغ | تور پوستکۍ</annotation>
+		<annotation cp="🧑🏿" type="tts">بالغ: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻">سړی | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻" type="tts">سړی: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼">سړی | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼" type="tts">سړی: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽">سړی | غنم رنګه</annotation>
+		<annotation cp="👨🏽" type="tts">سړی: غنم رنګه</annotation>
+		<annotation cp="👨🏾">سړی | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾" type="tts">سړی: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿">سړی | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿" type="tts">سړی: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻">ښځه | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻" type="tts">ښځه: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼">ښځه | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼" type="tts">ښځه: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽">ښځه | غنم رنګه</annotation>
+		<annotation cp="👩🏽" type="tts">ښځه: غنم رنګه</annotation>
+		<annotation cp="👩🏾">ښځه | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾" type="tts">ښځه: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿">ښځه | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿" type="tts">ښځه: تور پوستکۍ</annotation>
+		<annotation cp="🧓🏻">زوړ بالغ | روښانه پوستکۍ</annotation>
+		<annotation cp="🧓🏻" type="tts">زوړ بالغ: روښانه پوستکۍ</annotation>
+		<annotation cp="🧓🏼">زوړ بالغ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧓🏼" type="tts">زوړ بالغ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧓🏽">زوړ بالغ | غنم رنګه</annotation>
+		<annotation cp="🧓🏽" type="tts">زوړ بالغ: غنم رنګه</annotation>
+		<annotation cp="🧓🏾">زوړ بالغ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧓🏾" type="tts">زوړ بالغ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧓🏿">زوړ بالغ | تور پوستکۍ</annotation>
+		<annotation cp="🧓🏿" type="tts">زوړ بالغ: تور پوستکۍ</annotation>
+		<annotation cp="👴🏻">زوړ سړی | روښانه پوستکۍ</annotation>
+		<annotation cp="👴🏻" type="tts">زوړ سړی: روښانه پوستکۍ</annotation>
+		<annotation cp="👴🏼">زوړ سړی | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👴🏼" type="tts">زوړ سړی: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👴🏽">زوړ سړی | غنم رنګه</annotation>
+		<annotation cp="👴🏽" type="tts">زوړ سړی: غنم رنګه</annotation>
+		<annotation cp="👴🏾">زوړ سړی | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👴🏾" type="tts">زوړ سړی: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👴🏿">زوړ سړی | تور پوستکۍ</annotation>
+		<annotation cp="👴🏿" type="tts">زوړ سړی: تور پوستکۍ</annotation>
+		<annotation cp="👵🏻">زاړه ښځه | روښانه پوستکۍ</annotation>
+		<annotation cp="👵🏻" type="tts">زاړه ښځه: روښانه پوستکۍ</annotation>
+		<annotation cp="👵🏼">زاړه ښځه | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👵🏼" type="tts">زاړه ښځه: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👵🏽">زاړه ښځه | غنم رنګه</annotation>
+		<annotation cp="👵🏽" type="tts">زاړه ښځه: غنم رنګه</annotation>
+		<annotation cp="👵🏾">زاړه ښځه | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👵🏾" type="tts">زاړه ښځه: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👵🏿">زاړه ښځه | تور پوستکۍ</annotation>
+		<annotation cp="👵🏿" type="tts">زاړه ښځه: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻‍⚕">سړي روغتيايي کارکوونکي | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">سړي روغتيايي کارکوونکي: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍⚕">سړي روغتيايي کارکوونکي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">سړي روغتيايي کارکوونکي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽‍⚕">سړي روغتيايي کارکوونکي | غنم رنګه</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">سړي روغتيايي کارکوونکي: غنم رنګه</annotation>
+		<annotation cp="👨🏾‍⚕">سړي روغتيايي کارکوونکي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">سړي روغتيايي کارکوونکي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿‍⚕">سړي روغتيايي کارکوونکي | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">سړي روغتيايي کارکوونکي: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻‍⚕">ښځه روغتيايي کارکوونکي | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">ښځه روغتيايي کارکوونکي: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍⚕">ښځه روغتيايي کارکوونکي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">ښځه روغتيايي کارکوونکي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽‍⚕">ښځه روغتيايي کارکوونکي | غنم رنګه</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">ښځه روغتيايي کارکوونکي: غنم رنګه</annotation>
+		<annotation cp="👩🏾‍⚕">ښځه روغتيايي کارکوونکي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">ښځه روغتيايي کارکوونکي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿‍⚕">ښځه روغتيايي کارکوونکي | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">ښځه روغتيايي کارکوونکي: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🎓">سړی محصل | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">سړی محصل: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🎓">سړی محصل | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">سړی محصل: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽‍🎓">سړی محصل | غنم رنګه</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">سړی محصل: غنم رنګه</annotation>
+		<annotation cp="👨🏾‍🎓">سړی محصل | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">سړی محصل: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🎓">سړی محصل | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">سړی محصل: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🎓">ښځه محصل | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">ښځه محصل: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🎓">ښځه محصل | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">ښځه محصل: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽‍🎓">ښځه محصل | غنم رنګه</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">ښځه محصل: غنم رنګه</annotation>
+		<annotation cp="👩🏾‍🎓">ښځه محصل | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">ښځه محصل: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🎓">ښځه محصل | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">ښځه محصل: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🏫">سړی ښوونکی | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">سړی ښوونکی: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🏫">سړی ښوونکی | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">سړی ښوونکی: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽‍🏫">سړی ښوونکی | غنم رنګه</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">سړی ښوونکی: غنم رنګه</annotation>
+		<annotation cp="👨🏾‍🏫">سړی ښوونکی | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">سړی ښوونکی: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🏫">سړی ښوونکی | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">سړی ښوونکی: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🏫">ښځه د ښوونکي | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">ښځه د ښوونکي: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🏫">ښځه د ښوونکي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">ښځه د ښوونکي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽‍🏫">ښځه د ښوونکي | غنم رنګه</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">ښځه د ښوونکي: غنم رنګه</annotation>
+		<annotation cp="👩🏾‍🏫">ښځه د ښوونکي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">ښځه د ښوونکي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🏫">ښځه د ښوونکي | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">ښځه د ښوونکي: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻‍⚖">سړی قاضي | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">سړی قاضي: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍⚖">سړی قاضي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">سړی قاضي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽‍⚖">سړی قاضي | غنم رنګه</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">سړی قاضي: غنم رنګه</annotation>
+		<annotation cp="👨🏾‍⚖">سړی قاضي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">سړی قاضي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿‍⚖">سړی قاضي | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">سړی قاضي: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻‍⚖">ښځه قاضي | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">ښځه قاضي: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍⚖">ښځه قاضي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">ښځه قاضي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽‍⚖">ښځه قاضي | غنم رنګه</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">ښځه قاضي: غنم رنګه</annotation>
+		<annotation cp="👩🏾‍⚖">ښځه قاضي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">ښځه قاضي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿‍⚖">ښځه قاضي | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">ښځه قاضي: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🌾">سړی بزګر | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">سړی بزګر: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🌾">سړی بزګر | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">سړی بزګر: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽‍🌾">سړی بزګر | غنم رنګه</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">سړی بزګر: غنم رنګه</annotation>
+		<annotation cp="👨🏾‍🌾">سړی بزګر | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">سړی بزګر: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🌾">سړی بزګر | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">سړی بزګر: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🌾">ښځه د بزګر | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">ښځه د بزګر: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🌾">ښځه د بزګر | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">ښځه د بزګر: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽‍🌾">ښځه د بزګر | غنم رنګه</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">ښځه د بزګر: غنم رنګه</annotation>
+		<annotation cp="👩🏾‍🌾">ښځه د بزګر | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">ښځه د بزګر: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🌾">ښځه د بزګر | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">ښځه د بزګر: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🍳">سړی پخوونکی | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">سړی پخوونکی: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🍳">سړی پخوونکی | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">سړی پخوونکی: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽‍🍳">سړی پخوونکی | غنم رنګه</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">سړی پخوونکی: غنم رنګه</annotation>
+		<annotation cp="👨🏾‍🍳">سړی پخوونکی | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">سړی پخوونکی: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🍳">سړی پخوونکی | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">سړی پخوونکی: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🍳">ښځه پخوونکی | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">ښځه پخوونکی: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🍳">ښځه پخوونکی | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">ښځه پخوونکی: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽‍🍳">ښځه پخوونکی | غنم رنګه</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">ښځه پخوونکی: غنم رنګه</annotation>
+		<annotation cp="👩🏾‍🍳">ښځه پخوونکی | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">ښځه پخوونکی: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🍳">ښځه پخوونکی | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">ښځه پخوونکی: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🔧">سړی مستري | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">سړی مستري: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🔧">سړی مستري | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">سړی مستري: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽‍🔧">سړی مستري | غنم رنګه</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">سړی مستري: غنم رنګه</annotation>
+		<annotation cp="👨🏾‍🔧">سړی مستري | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">سړی مستري: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🔧">سړی مستري | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">سړی مستري: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🔧">ښځه مستري | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">ښځه مستري: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🔧">ښځه مستري | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">ښځه مستري: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽‍🔧">ښځه مستري | غنم رنګه</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">ښځه مستري: غنم رنګه</annotation>
+		<annotation cp="👩🏾‍🔧">ښځه مستري | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">ښځه مستري: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🔧">ښځه مستري | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">ښځه مستري: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🏭">سړی د فابريکې کارګر | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">سړی د فابريکې کارګر: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🏭">سړی د فابريکې کارګر | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">سړی د فابريکې کارګر: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽‍🏭">سړی د فابريکې کارګر | غنم رنګه</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">سړی د فابريکې کارګر: غنم رنګه</annotation>
+		<annotation cp="👨🏾‍🏭">سړی د فابريکې کارګر | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">سړی د فابريکې کارګر: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🏭">سړی د فابريکې کارګر | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">سړی د فابريکې کارګر: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🏭">ښځه د فابريکې کارګر | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">ښځه د فابريکې کارګر: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🏭">ښځه د فابريکې کارګر | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">ښځه د فابريکې کارګر: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽‍🏭">ښځه د فابريکې کارګر | غنم رنګه</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">ښځه د فابريکې کارګر: غنم رنګه</annotation>
+		<annotation cp="👩🏾‍🏭">ښځه د فابريکې کارګر | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">ښځه د فابريکې کارګر: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🏭">ښځه د فابريکې کارګر | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">ښځه د فابريکې کارګر: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻‍💼">سړي دفتر کارګر | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">سړي دفتر کارګر: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍💼">سړي دفتر کارګر | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">سړي دفتر کارګر: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽‍💼">سړي دفتر کارګر | غنم رنګه</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">سړي دفتر کارګر: غنم رنګه</annotation>
+		<annotation cp="👨🏾‍💼">سړي دفتر کارګر | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">سړي دفتر کارګر: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿‍💼">سړي دفتر کارګر | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">سړي دفتر کارګر: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻‍💼">ښځه دفتر کارګر | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">ښځه دفتر کارګر: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍💼">ښځه دفتر کارګر | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">ښځه دفتر کارګر: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽‍💼">ښځه دفتر کارګر | غنم رنګه</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">ښځه دفتر کارګر: غنم رنګه</annotation>
+		<annotation cp="👩🏾‍💼">ښځه دفتر کارګر | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">ښځه دفتر کارګر: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿‍💼">ښځه دفتر کارګر | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">ښځه دفتر کارګر: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🔬">سړي څېړونکی | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">سړي څېړونکی: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🔬">سړي څېړونکی | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">سړي څېړونکی: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽‍🔬">سړي څېړونکی | غنم رنګه</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">سړي څېړونکی: غنم رنګه</annotation>
+		<annotation cp="👨🏾‍🔬">سړي څېړونکی | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">سړي څېړونکی: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🔬">سړي څېړونکی | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">سړي څېړونکی: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🔬">ښځه څېړونکی | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">ښځه څېړونکی: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🔬">ښځه څېړونکی | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">ښځه څېړونکی: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽‍🔬">ښځه څېړونکی | غنم رنګه</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">ښځه څېړونکی: غنم رنګه</annotation>
+		<annotation cp="👩🏾‍🔬">ښځه څېړونکی | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">ښځه څېړونکی: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🔬">ښځه څېړونکی | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">ښځه څېړونکی: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻‍💻">سړی تکنالوجستې | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">سړی تکنالوجستې: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍💻">سړی تکنالوجستې | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">سړی تکنالوجستې: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽‍💻">سړی تکنالوجستې | غنم رنګه</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">سړی تکنالوجستې: غنم رنګه</annotation>
+		<annotation cp="👨🏾‍💻">سړی تکنالوجستې | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">سړی تکنالوجستې: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿‍💻">سړی تکنالوجستې | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">سړی تکنالوجستې: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻‍💻">ښځه تکنالوجستې | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">ښځه تکنالوجستې: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍💻">ښځه تکنالوجستې | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">ښځه تکنالوجستې: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽‍💻">ښځه تکنالوجستې | غنم رنګه</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">ښځه تکنالوجستې: غنم رنګه</annotation>
+		<annotation cp="👩🏾‍💻">ښځه تکنالوجستې | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">ښځه تکنالوجستې: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿‍💻">ښځه تکنالوجستې | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">ښځه تکنالوجستې: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🎤">سړی سندرغاړې | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">سړی سندرغاړې: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🎤">سړی سندرغاړې | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">سړی سندرغاړې: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽‍🎤">سړی سندرغاړې | غنم رنګه</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">سړی سندرغاړې: غنم رنګه</annotation>
+		<annotation cp="👨🏾‍🎤">سړی سندرغاړې | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">سړی سندرغاړې: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🎤">سړی سندرغاړې | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">سړی سندرغاړې: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🎤">ښځې سندرغاړې | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">ښځې سندرغاړې: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🎤">ښځې سندرغاړې | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">ښځې سندرغاړې: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽‍🎤">ښځې سندرغاړې | غنم رنګه</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">ښځې سندرغاړې: غنم رنګه</annotation>
+		<annotation cp="👩🏾‍🎤">ښځې سندرغاړې | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">ښځې سندرغاړې: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🎤">ښځې سندرغاړې | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">ښځې سندرغاړې: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🎨">سړی فنکار | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">سړی فنکار: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🎨">سړی فنکار | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">سړی فنکار: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽‍🎨">سړی فنکار | غنم رنګه</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">سړی فنکار: غنم رنګه</annotation>
+		<annotation cp="👨🏾‍🎨">سړی فنکار | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">سړی فنکار: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🎨">سړی فنکار | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">سړی فنکار: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🎨">ښځه فنکار | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">ښځه فنکار: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🎨">ښځه فنکار | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">ښځه فنکار: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽‍🎨">ښځه فنکار | غنم رنګه</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">ښځه فنکار: غنم رنګه</annotation>
+		<annotation cp="👩🏾‍🎨">ښځه فنکار | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">ښځه فنکار: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🎨">ښځه فنکار | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">ښځه فنکار: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻‍✈">سړی پيلوټ | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">سړی پيلوټ: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍✈">سړی پيلوټ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">سړی پيلوټ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽‍✈">سړی پيلوټ | غنم رنګه</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">سړی پيلوټ: غنم رنګه</annotation>
+		<annotation cp="👨🏾‍✈">سړی پيلوټ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">سړی پيلوټ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿‍✈">سړی پيلوټ | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">سړی پيلوټ: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻‍✈">ښځه پيلوټ | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">ښځه پيلوټ: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍✈">ښځه پيلوټ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">ښځه پيلوټ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽‍✈">ښځه پيلوټ | غنم رنګه</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">ښځه پيلوټ: غنم رنګه</annotation>
+		<annotation cp="👩🏾‍✈">ښځه پيلوټ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">ښځه پيلوټ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿‍✈">ښځه پيلوټ | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">ښځه پيلوټ: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🚀">سړی فضانورد | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">سړی فضانورد: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🚀">سړی فضانورد | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">سړی فضانورد: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽‍🚀">سړی فضانورد | غنم رنګه</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">سړی فضانورد: غنم رنګه</annotation>
+		<annotation cp="👨🏾‍🚀">سړی فضانورد | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">سړی فضانورد: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🚀">سړی فضانورد | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">سړی فضانورد: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🚀">ښځه فضانورد | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">ښځه فضانورد: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🚀">ښځه فضانورد | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">ښځه فضانورد: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽‍🚀">ښځه فضانورد | غنم رنګه</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">ښځه فضانورد: غنم رنګه</annotation>
+		<annotation cp="👩🏾‍🚀">ښځه فضانورد | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">ښځه فضانورد: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🚀">ښځه فضانورد | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">ښځه فضانورد: تور پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🚒">سړی اور وژونکی | روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">سړی اور وژونکی: روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🚒">سړی اور وژونکی | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">سړی اور وژونکی: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👨🏽‍🚒">سړی اور وژونکی | غنم رنګه</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">سړی اور وژونکی: غنم رنګه</annotation>
+		<annotation cp="👨🏾‍🚒">سړی اور وژونکی | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">سړی اور وژونکی: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🚒">سړی اور وژونکی | تور پوستکۍ</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">سړی اور وژونکی: تور پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🚒">ښځه اور وژونکی | روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">ښځه اور وژونکی: روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🚒">ښځه اور وژونکی | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">ښځه اور وژونکی: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👩🏽‍🚒">ښځه اور وژونکی | غنم رنګه</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">ښځه اور وژونکی: غنم رنګه</annotation>
+		<annotation cp="👩🏾‍🚒">ښځه اور وژونکی | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">ښځه اور وژونکی: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🚒">ښځه اور وژونکی | تور پوستکۍ</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">ښځه اور وژونکی: تور پوستکۍ</annotation>
+		<annotation cp="👮🏻">د پولیسو افسر | روښانه پوستکۍ</annotation>
+		<annotation cp="👮🏻" type="tts">د پولیسو افسر: روښانه پوستکۍ</annotation>
+		<annotation cp="👮🏼">د پولیسو افسر | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👮🏼" type="tts">د پولیسو افسر: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👮🏽">د پولیسو افسر | غنم رنګه</annotation>
+		<annotation cp="👮🏽" type="tts">د پولیسو افسر: غنم رنګه</annotation>
+		<annotation cp="👮🏾">د پولیسو افسر | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👮🏾" type="tts">د پولیسو افسر: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👮🏿">د پولیسو افسر | تور پوستکۍ</annotation>
+		<annotation cp="👮🏿" type="tts">د پولیسو افسر: تور پوستکۍ</annotation>
+		<annotation cp="👮🏻‍♂">سړی د پولیسو افسر | روښانه پوستکۍ</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">سړی د پولیسو افسر: روښانه پوستکۍ</annotation>
+		<annotation cp="👮🏼‍♂">سړی د پولیسو افسر | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">سړی د پولیسو افسر: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👮🏽‍♂">سړی د پولیسو افسر | غنم رنګه</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">سړی د پولیسو افسر: غنم رنګه</annotation>
+		<annotation cp="👮🏾‍♂">سړی د پولیسو افسر | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">سړی د پولیسو افسر: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👮🏿‍♂">سړی د پولیسو افسر | تور پوستکۍ</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">سړی د پولیسو افسر: تور پوستکۍ</annotation>
+		<annotation cp="👮🏻‍♀">ښځه د پولیسو افسر | روښانه پوستکۍ</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">ښځه د پولیسو افسر: روښانه پوستکۍ</annotation>
+		<annotation cp="👮🏼‍♀">ښځه د پولیسو افسر | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">ښځه د پولیسو افسر: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👮🏽‍♀">ښځه د پولیسو افسر | غنم رنګه</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">ښځه د پولیسو افسر: غنم رنګه</annotation>
+		<annotation cp="👮🏾‍♀">ښځه د پولیسو افسر | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">ښځه د پولیسو افسر: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👮🏿‍♀">ښځه د پولیسو افسر | تور پوستکۍ</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">ښځه د پولیسو افسر: تور پوستکۍ</annotation>
+		<annotation cp="🕵🏻">کشفي | روښانه پوستکۍ</annotation>
+		<annotation cp="🕵🏻" type="tts">کشفي: روښانه پوستکۍ</annotation>
+		<annotation cp="🕵🏼">کشفي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🕵🏼" type="tts">کشفي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🕵🏽">کشفي | غنم رنګه</annotation>
+		<annotation cp="🕵🏽" type="tts">کشفي: غنم رنګه</annotation>
+		<annotation cp="🕵🏾">کشفي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🕵🏾" type="tts">کشفي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🕵🏿">کشفي | تور پوستکۍ</annotation>
+		<annotation cp="🕵🏿" type="tts">کشفي: تور پوستکۍ</annotation>
+		<annotation cp="🕵🏻‍♂">سړی کشفي | روښانه پوستکۍ</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">سړی کشفي: روښانه پوستکۍ</annotation>
+		<annotation cp="🕵🏼‍♂">سړی کشفي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">سړی کشفي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🕵🏽‍♂">سړی کشفي | غنم رنګه</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">سړی کشفي: غنم رنګه</annotation>
+		<annotation cp="🕵🏾‍♂">سړی کشفي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">سړی کشفي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🕵🏿‍♂">سړی کشفي | تور پوستکۍ</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">سړی کشفي: تور پوستکۍ</annotation>
+		<annotation cp="🕵🏻‍♀">ښځه کشفي | روښانه پوستکۍ</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">ښځه کشفي: روښانه پوستکۍ</annotation>
+		<annotation cp="🕵🏼‍♀">ښځه کشفي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">ښځه کشفي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🕵🏽‍♀">ښځه کشفي | غنم رنګه</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">ښځه کشفي: غنم رنګه</annotation>
+		<annotation cp="🕵🏾‍♀">ښځه کشفي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">ښځه کشفي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🕵🏿‍♀">ښځه کشفي | تور پوستکۍ</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">ښځه کشفي: تور پوستکۍ</annotation>
+		<annotation cp="💂🏻">ساتونکی | روښانه پوستکۍ</annotation>
+		<annotation cp="💂🏻" type="tts">ساتونکی: روښانه پوستکۍ</annotation>
+		<annotation cp="💂🏼">ساتونکی | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💂🏼" type="tts">ساتونکی: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💂🏽">ساتونکی | غنم رنګه</annotation>
+		<annotation cp="💂🏽" type="tts">ساتونکی: غنم رنګه</annotation>
+		<annotation cp="💂🏾">ساتونکی | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💂🏾" type="tts">ساتونکی: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💂🏿">ساتونکی | تور پوستکۍ</annotation>
+		<annotation cp="💂🏿" type="tts">ساتونکی: تور پوستکۍ</annotation>
+		<annotation cp="💂🏻‍♂">سړی ساتونکي | روښانه پوستکۍ</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">سړی ساتونکي: روښانه پوستکۍ</annotation>
+		<annotation cp="💂🏼‍♂">سړی ساتونکي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">سړی ساتونکي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💂🏽‍♂">سړی ساتونکي | غنم رنګه</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">سړی ساتونکي: غنم رنګه</annotation>
+		<annotation cp="💂🏾‍♂">سړی ساتونکي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">سړی ساتونکي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💂🏿‍♂">سړی ساتونکي | تور پوستکۍ</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">سړی ساتونکي: تور پوستکۍ</annotation>
+		<annotation cp="💂🏻‍♀">ښځه ساتونکي | روښانه پوستکۍ</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">ښځه ساتونکي: روښانه پوستکۍ</annotation>
+		<annotation cp="💂🏼‍♀">ښځه ساتونکي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">ښځه ساتونکي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💂🏽‍♀">ښځه ساتونکي | غنم رنګه</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">ښځه ساتونکي: غنم رنګه</annotation>
+		<annotation cp="💂🏾‍♀">ښځه ساتونکي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">ښځه ساتونکي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💂🏿‍♀">ښځه ساتونکي | تور پوستکۍ</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">ښځه ساتونکي: تور پوستکۍ</annotation>
+		<annotation cp="👷🏻">ساختماني کارکونکي | روښانه پوستکۍ</annotation>
+		<annotation cp="👷🏻" type="tts">ساختماني کارکونکي: روښانه پوستکۍ</annotation>
+		<annotation cp="👷🏼">ساختماني کارکونکي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👷🏼" type="tts">ساختماني کارکونکي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👷🏽">ساختماني کارکونکي | غنم رنګه</annotation>
+		<annotation cp="👷🏽" type="tts">ساختماني کارکونکي: غنم رنګه</annotation>
+		<annotation cp="👷🏾">ساختماني کارکونکي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👷🏾" type="tts">ساختماني کارکونکي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👷🏿">ساختماني کارکونکي | تور پوستکۍ</annotation>
+		<annotation cp="👷🏿" type="tts">ساختماني کارکونکي: تور پوستکۍ</annotation>
+		<annotation cp="👷🏻‍♂">سړی ساختماني کارګر | روښانه پوستکۍ</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">سړی ساختماني کارګر: روښانه پوستکۍ</annotation>
+		<annotation cp="👷🏼‍♂">سړی ساختماني کارګر | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">سړی ساختماني کارګر: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👷🏽‍♂">سړی ساختماني کارګر | غنم رنګه</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">سړی ساختماني کارګر: غنم رنګه</annotation>
+		<annotation cp="👷🏾‍♂">سړی ساختماني کارګر | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">سړی ساختماني کارګر: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👷🏿‍♂">سړی ساختماني کارګر | تور پوستکۍ</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">سړی ساختماني کارګر: تور پوستکۍ</annotation>
+		<annotation cp="👷🏻‍♀">ښځه ساختماني کارګر | روښانه پوستکۍ</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">ښځه ساختماني کارګر: روښانه پوستکۍ</annotation>
+		<annotation cp="👷🏼‍♀">ښځه ساختماني کارګر | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">ښځه ساختماني کارګر: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👷🏽‍♀">ښځه ساختماني کارګر | غنم رنګه</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">ښځه ساختماني کارګر: غنم رنګه</annotation>
+		<annotation cp="👷🏾‍♀">ښځه ساختماني کارګر | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">ښځه ساختماني کارګر: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👷🏿‍♀">ښځه ساختماني کارګر | تور پوستکۍ</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">ښځه ساختماني کارګر: تور پوستکۍ</annotation>
+		<annotation cp="🤴🏻">شهزاده | روښانه پوستکۍ</annotation>
+		<annotation cp="🤴🏻" type="tts">شهزاده: روښانه پوستکۍ</annotation>
+		<annotation cp="🤴🏼">شهزاده | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤴🏼" type="tts">شهزاده: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤴🏽">شهزاده | غنم رنګه</annotation>
+		<annotation cp="🤴🏽" type="tts">شهزاده: غنم رنګه</annotation>
+		<annotation cp="🤴🏾">شهزاده | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤴🏾" type="tts">شهزاده: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤴🏿">شهزاده | تور پوستکۍ</annotation>
+		<annotation cp="🤴🏿" type="tts">شهزاده: تور پوستکۍ</annotation>
+		<annotation cp="👸🏻">شهزادگۍ | روښانه پوستکۍ</annotation>
+		<annotation cp="👸🏻" type="tts">شهزادگۍ: روښانه پوستکۍ</annotation>
+		<annotation cp="👸🏼">شهزادگۍ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👸🏼" type="tts">شهزادگۍ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👸🏽">شهزادگۍ | غنم رنګه</annotation>
+		<annotation cp="👸🏽" type="tts">شهزادگۍ: غنم رنګه</annotation>
+		<annotation cp="👸🏾">شهزادگۍ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👸🏾" type="tts">شهزادگۍ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👸🏿">شهزادگۍ | تور پوستکۍ</annotation>
+		<annotation cp="👸🏿" type="tts">شهزادگۍ: تور پوستکۍ</annotation>
+		<annotation cp="👳🏻">شخص چې په پګړۍ | روښانه پوستکۍ</annotation>
+		<annotation cp="👳🏻" type="tts">شخص چې په پګړۍ: روښانه پوستکۍ</annotation>
+		<annotation cp="👳🏼">شخص چې په پګړۍ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👳🏼" type="tts">شخص چې په پګړۍ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👳🏽">شخص چې په پګړۍ | غنم رنګه</annotation>
+		<annotation cp="👳🏽" type="tts">شخص چې په پګړۍ: غنم رنګه</annotation>
+		<annotation cp="👳🏾">شخص چې په پګړۍ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👳🏾" type="tts">شخص چې په پګړۍ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👳🏿">شخص چې په پګړۍ | تور پوستکۍ</annotation>
+		<annotation cp="👳🏿" type="tts">شخص چې په پګړۍ: تور پوستکۍ</annotation>
+		<annotation cp="👳🏻‍♂">سړي چې په پګړۍ | روښانه پوستکۍ</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">سړي چې په پګړۍ: روښانه پوستکۍ</annotation>
+		<annotation cp="👳🏼‍♂">سړي چې په پګړۍ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">سړي چې په پګړۍ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👳🏽‍♂">سړي چې په پګړۍ | غنم رنګه</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">سړي چې په پګړۍ: غنم رنګه</annotation>
+		<annotation cp="👳🏾‍♂">سړي چې په پګړۍ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">سړي چې په پګړۍ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👳🏿‍♂">سړي چې په پګړۍ | تور پوستکۍ</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">سړي چې په پګړۍ: تور پوستکۍ</annotation>
+		<annotation cp="👳🏻‍♀">ښځه چې په پګړۍ | روښانه پوستکۍ</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">ښځه چې په پګړۍ: روښانه پوستکۍ</annotation>
+		<annotation cp="👳🏼‍♀">ښځه چې په پګړۍ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">ښځه چې په پګړۍ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👳🏽‍♀">ښځه چې په پګړۍ | غنم رنګه</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">ښځه چې په پګړۍ: غنم رنګه</annotation>
+		<annotation cp="👳🏾‍♀">ښځه چې په پګړۍ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">ښځه چې په پګړۍ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👳🏿‍♀">ښځه چې په پګړۍ | تور پوستکۍ</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">ښځه چې په پګړۍ: تور پوستکۍ</annotation>
+		<annotation cp="👲🏻">سړی د چینایی کیپ سره | روښانه پوستکۍ</annotation>
+		<annotation cp="👲🏻" type="tts">سړی د چینایی کیپ سره: روښانه پوستکۍ</annotation>
+		<annotation cp="👲🏼">سړی د چینایی کیپ سره | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👲🏼" type="tts">سړی د چینایی کیپ سره: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👲🏽">سړی د چینایی کیپ سره | غنم رنګه</annotation>
+		<annotation cp="👲🏽" type="tts">سړی د چینایی کیپ سره: غنم رنګه</annotation>
+		<annotation cp="👲🏾">سړی د چینایی کیپ سره | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👲🏾" type="tts">سړی د چینایی کیپ سره: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👲🏿">سړی د چینایی کیپ سره | تور پوستکۍ</annotation>
+		<annotation cp="👲🏿" type="tts">سړی د چینایی کیپ سره: تور پوستکۍ</annotation>
+		<annotation cp="🧕🏻">ښځه د سرکوف سره | روښانه پوستکۍ</annotation>
+		<annotation cp="🧕🏻" type="tts">ښځه د سرکوف سره: روښانه پوستکۍ</annotation>
+		<annotation cp="🧕🏼">ښځه د سرکوف سره | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧕🏼" type="tts">ښځه د سرکوف سره: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧕🏽">ښځه د سرکوف سره | غنم رنګه</annotation>
+		<annotation cp="🧕🏽" type="tts">ښځه د سرکوف سره: غنم رنګه</annotation>
+		<annotation cp="🧕🏾">ښځه د سرکوف سره | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧕🏾" type="tts">ښځه د سرکوف سره: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧕🏿">ښځه د سرکوف سره | تور پوستکۍ</annotation>
+		<annotation cp="🧕🏿" type="tts">ښځه د سرکوف سره: تور پوستکۍ</annotation>
+		<annotation cp="🧔🏻">ږيره ور | روښانه پوستکۍ</annotation>
+		<annotation cp="🧔🏻" type="tts">ږيره ور: روښانه پوستکۍ</annotation>
+		<annotation cp="🧔🏼">ږيره ور | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧔🏼" type="tts">ږيره ور: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧔🏽">ږيره ور | غنم رنګه</annotation>
+		<annotation cp="🧔🏽" type="tts">ږيره ور: غنم رنګه</annotation>
+		<annotation cp="🧔🏾">ږيره ور | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧔🏾" type="tts">ږيره ور: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧔🏿">ږيره ور | تور پوستکۍ</annotation>
+		<annotation cp="🧔🏿" type="tts">ږيره ور: تور پوستکۍ</annotation>
+		<annotation cp="👱🏻">ښایسته پوستکي | روښانه پوستکۍ</annotation>
+		<annotation cp="👱🏻" type="tts">ښایسته پوستکي: روښانه پوستکۍ</annotation>
+		<annotation cp="👱🏼">ښایسته پوستکي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👱🏼" type="tts">ښایسته پوستکي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👱🏽">ښایسته پوستکي | غنم رنګه</annotation>
+		<annotation cp="👱🏽" type="tts">ښایسته پوستکي: غنم رنګه</annotation>
+		<annotation cp="👱🏾">ښایسته پوستکي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👱🏾" type="tts">ښایسته پوستکي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👱🏿">ښایسته پوستکي | تور پوستکۍ</annotation>
+		<annotation cp="👱🏿" type="tts">ښایسته پوستکي: تور پوستکۍ</annotation>
+		<annotation cp="👱🏻‍♂">سپين پوستکي سړي | روښانه پوستکۍ</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">سپين پوستکي سړي: روښانه پوستکۍ</annotation>
+		<annotation cp="👱🏼‍♂">سپين پوستکي سړي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">سپين پوستکي سړي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👱🏽‍♂">سپين پوستکي سړي | غنم رنګه</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">سپين پوستکي سړي: غنم رنګه</annotation>
+		<annotation cp="👱🏾‍♂">سپين پوستکي سړي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">سپين پوستکي سړي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👱🏿‍♂">سپين پوستکي سړي | تور پوستکۍ</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">سپين پوستکي سړي: تور پوستکۍ</annotation>
+		<annotation cp="👱🏻‍♀">ښایسته پوستکي ښځه | روښانه پوستکۍ</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">ښایسته پوستکي ښځه: روښانه پوستکۍ</annotation>
+		<annotation cp="👱🏼‍♀">ښایسته پوستکي ښځه | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">ښایسته پوستکي ښځه: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👱🏽‍♀">ښایسته پوستکي ښځه | غنم رنګه</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">ښایسته پوستکي ښځه: غنم رنګه</annotation>
+		<annotation cp="👱🏾‍♀">ښایسته پوستکي ښځه | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">ښایسته پوستکي ښځه: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👱🏿‍♀">ښایسته پوستکي ښځه | تور پوستکۍ</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">ښایسته پوستکي ښځه: تور پوستکۍ</annotation>
+		<annotation cp="🤵🏻">سړی په ټکسیو کې | روښانه پوستکۍ</annotation>
+		<annotation cp="🤵🏻" type="tts">سړی په ټکسیو کې: روښانه پوستکۍ</annotation>
+		<annotation cp="🤵🏼">سړی په ټکسیو کې | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤵🏼" type="tts">سړی په ټکسیو کې: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤵🏽">سړی په ټکسیو کې | غنم رنګه</annotation>
+		<annotation cp="🤵🏽" type="tts">سړی په ټکسیو کې: غنم رنګه</annotation>
+		<annotation cp="🤵🏾">سړی په ټکسیو کې | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤵🏾" type="tts">سړی په ټکسیو کې: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤵🏿">سړی په ټکسیو کې | تور پوستکۍ</annotation>
+		<annotation cp="🤵🏿" type="tts">سړی په ټکسیو کې: تور پوستکۍ</annotation>
+		<annotation cp="👰🏻">سره حجاب ناوې | روښانه پوستکۍ</annotation>
+		<annotation cp="👰🏻" type="tts">سره حجاب ناوې: روښانه پوستکۍ</annotation>
+		<annotation cp="👰🏼">سره حجاب ناوې | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👰🏼" type="tts">سره حجاب ناوې: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👰🏽">سره حجاب ناوې | غنم رنګه</annotation>
+		<annotation cp="👰🏽" type="tts">سره حجاب ناوې: غنم رنګه</annotation>
+		<annotation cp="👰🏾">سره حجاب ناوې | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👰🏾" type="tts">سره حجاب ناوې: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👰🏿">سره حجاب ناوې | تور پوستکۍ</annotation>
+		<annotation cp="👰🏿" type="tts">سره حجاب ناوې: تور پوستکۍ</annotation>
+		<annotation cp="🤰🏻">امیندواره ښځه | روښانه پوستکۍ</annotation>
+		<annotation cp="🤰🏻" type="tts">امیندواره ښځه: روښانه پوستکۍ</annotation>
+		<annotation cp="🤰🏼">امیندواره ښځه | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤰🏼" type="tts">امیندواره ښځه: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤰🏽">امیندواره ښځه | غنم رنګه</annotation>
+		<annotation cp="🤰🏽" type="tts">امیندواره ښځه: غنم رنګه</annotation>
+		<annotation cp="🤰🏾">امیندواره ښځه | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤰🏾" type="tts">امیندواره ښځه: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤰🏿">امیندواره ښځه | تور پوستکۍ</annotation>
+		<annotation cp="🤰🏿" type="tts">امیندواره ښځه: تور پوستکۍ</annotation>
+		<annotation cp="🤱🏻">سينه-تغذی | روښانه پوستکۍ</annotation>
+		<annotation cp="🤱🏻" type="tts">سينه-تغذی: روښانه پوستکۍ</annotation>
+		<annotation cp="🤱🏼">سينه-تغذی | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤱🏼" type="tts">سينه-تغذی: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤱🏽">سينه-تغذی | غنم رنګه</annotation>
+		<annotation cp="🤱🏽" type="tts">سينه-تغذی: غنم رنګه</annotation>
+		<annotation cp="🤱🏾">سينه-تغذی | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤱🏾" type="tts">سينه-تغذی: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤱🏿">سينه-تغذی | تور پوستکۍ</annotation>
+		<annotation cp="🤱🏿" type="tts">سينه-تغذی: تور پوستکۍ</annotation>
+		<annotation cp="👼🏻">ماشوم فرښته | روښانه پوستکۍ</annotation>
+		<annotation cp="👼🏻" type="tts">ماشوم فرښته: روښانه پوستکۍ</annotation>
+		<annotation cp="👼🏼">ماشوم فرښته | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👼🏼" type="tts">ماشوم فرښته: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👼🏽">ماشوم فرښته | غنم رنګه</annotation>
+		<annotation cp="👼🏽" type="tts">ماشوم فرښته: غنم رنګه</annotation>
+		<annotation cp="👼🏾">ماشوم فرښته | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👼🏾" type="tts">ماشوم فرښته: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👼🏿">ماشوم فرښته | تور پوستکۍ</annotation>
+		<annotation cp="👼🏿" type="tts">ماشوم فرښته: تور پوستکۍ</annotation>
+		<annotation cp="🎅🏻">سانټا کلاز | لمانځل l کرسمس l کلاز l بابا l سانټا l سانټا کلاز | روښانه پوستکۍ</annotation>
+		<annotation cp="🎅🏻" type="tts">سانټا کلاز: روښانه پوستکۍ</annotation>
+		<annotation cp="🎅🏼">سانټا کلاز | لمانځل l کرسمس l کلاز l بابا l سانټا l سانټا کلاز | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🎅🏼" type="tts">سانټا کلاز: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🎅🏽">سانټا کلاز | لمانځل l کرسمس l کلاز l بابا l سانټا l سانټا کلاز | غنم رنګه</annotation>
+		<annotation cp="🎅🏽" type="tts">سانټا کلاز: غنم رنګه</annotation>
+		<annotation cp="🎅🏾">سانټا کلاز | لمانځل l کرسمس l کلاز l بابا l سانټا l سانټا کلاز | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🎅🏾" type="tts">سانټا کلاز: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🎅🏿">سانټا کلاز | لمانځل l کرسمس l کلاز l بابا l سانټا l سانټا کلاز | تور پوستکۍ</annotation>
+		<annotation cp="🎅🏿" type="tts">سانټا کلاز: تور پوستکۍ</annotation>
+		<annotation cp="🤶🏻">میرز کلاز | روښانه پوستکۍ</annotation>
+		<annotation cp="🤶🏻" type="tts">میرز کلاز: روښانه پوستکۍ</annotation>
+		<annotation cp="🤶🏼">میرز کلاز | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤶🏼" type="tts">میرز کلاز: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤶🏽">میرز کلاز | غنم رنګه</annotation>
+		<annotation cp="🤶🏽" type="tts">میرز کلاز: غنم رنګه</annotation>
+		<annotation cp="🤶🏾">میرز کلاز | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤶🏾" type="tts">میرز کلاز: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤶🏿">میرز کلاز | تور پوستکۍ</annotation>
+		<annotation cp="🤶🏿" type="tts">میرز کلاز: تور پوستکۍ</annotation>
+		<annotation cp="🧙🏻">جادوګر | روښانه پوستکۍ</annotation>
+		<annotation cp="🧙🏻" type="tts">جادوګر: روښانه پوستکۍ</annotation>
+		<annotation cp="🧙🏼">جادوګر | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧙🏼" type="tts">جادوګر: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧙🏽">جادوګر | غنم رنګه</annotation>
+		<annotation cp="🧙🏽" type="tts">جادوګر: غنم رنګه</annotation>
+		<annotation cp="🧙🏾">جادوګر | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧙🏾" type="tts">جادوګر: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧙🏿">جادوګر | تور پوستکۍ</annotation>
+		<annotation cp="🧙🏿" type="tts">جادوګر: تور پوستکۍ</annotation>
+		<annotation cp="🧙🏻‍♀">ښځه جادوګر | روښانه پوستکۍ</annotation>
+		<annotation cp="🧙🏻‍♀" type="tts">ښځه جادوګر: روښانه پوستکۍ</annotation>
+		<annotation cp="🧙🏼‍♀">ښځه جادوګر | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧙🏼‍♀" type="tts">ښځه جادوګر: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧙🏽‍♀">ښځه جادوګر | غنم رنګه</annotation>
+		<annotation cp="🧙🏽‍♀" type="tts">ښځه جادوګر: غنم رنګه</annotation>
+		<annotation cp="🧙🏾‍♀">ښځه جادوګر | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧙🏾‍♀" type="tts">ښځه جادوګر: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧙🏿‍♀">ښځه جادوګر | تور پوستکۍ</annotation>
+		<annotation cp="🧙🏿‍♀" type="tts">ښځه جادوګر: تور پوستکۍ</annotation>
+		<annotation cp="🧙🏻‍♂">سړی جادوګر | روښانه پوستکۍ</annotation>
+		<annotation cp="🧙🏻‍♂" type="tts">سړی جادوګر: روښانه پوستکۍ</annotation>
+		<annotation cp="🧙🏼‍♂">سړی جادوګر | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧙🏼‍♂" type="tts">سړی جادوګر: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧙🏽‍♂">سړی جادوګر | غنم رنګه</annotation>
+		<annotation cp="🧙🏽‍♂" type="tts">سړی جادوګر: غنم رنګه</annotation>
+		<annotation cp="🧙🏾‍♂">سړی جادوګر | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧙🏾‍♂" type="tts">سړی جادوګر: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧙🏿‍♂">سړی جادوګر | تور پوستکۍ</annotation>
+		<annotation cp="🧙🏿‍♂" type="tts">سړی جادوګر: تور پوستکۍ</annotation>
+		<annotation cp="🧚🏻">خاپېرو | روښانه پوستکۍ</annotation>
+		<annotation cp="🧚🏻" type="tts">خاپېرو: روښانه پوستکۍ</annotation>
+		<annotation cp="🧚🏼">خاپېرو | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧚🏼" type="tts">خاپېرو: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧚🏽">خاپېرو | غنم رنګه</annotation>
+		<annotation cp="🧚🏽" type="tts">خاپېرو: غنم رنګه</annotation>
+		<annotation cp="🧚🏾">خاپېرو | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧚🏾" type="tts">خاپېرو: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧚🏿">خاپېرو | تور پوستکۍ</annotation>
+		<annotation cp="🧚🏿" type="tts">خاپېرو: تور پوستکۍ</annotation>
+		<annotation cp="🧚🏻‍♀">ښځه د خاپېرو | روښانه پوستکۍ</annotation>
+		<annotation cp="🧚🏻‍♀" type="tts">ښځه د خاپېرو: روښانه پوستکۍ</annotation>
+		<annotation cp="🧚🏼‍♀">ښځه د خاپېرو | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧚🏼‍♀" type="tts">ښځه د خاپېرو: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧚🏽‍♀">ښځه د خاپېرو | غنم رنګه</annotation>
+		<annotation cp="🧚🏽‍♀" type="tts">ښځه د خاپېرو: غنم رنګه</annotation>
+		<annotation cp="🧚🏾‍♀">ښځه د خاپېرو | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧚🏾‍♀" type="tts">ښځه د خاپېرو: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧚🏿‍♀">ښځه د خاپېرو | تور پوستکۍ</annotation>
+		<annotation cp="🧚🏿‍♀" type="tts">ښځه د خاپېرو: تور پوستکۍ</annotation>
+		<annotation cp="🧚🏻‍♂">سړی د خاپېرو | روښانه پوستکۍ</annotation>
+		<annotation cp="🧚🏻‍♂" type="tts">سړی د خاپېرو: روښانه پوستکۍ</annotation>
+		<annotation cp="🧚🏼‍♂">سړی د خاپېرو | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧚🏼‍♂" type="tts">سړی د خاپېرو: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧚🏽‍♂">سړی د خاپېرو | غنم رنګه</annotation>
+		<annotation cp="🧚🏽‍♂" type="tts">سړی د خاپېرو: غنم رنګه</annotation>
+		<annotation cp="🧚🏾‍♂">سړی د خاپېرو | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧚🏾‍♂" type="tts">سړی د خاپېرو: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧚🏿‍♂">سړی د خاپېرو | تور پوستکۍ</annotation>
+		<annotation cp="🧚🏿‍♂" type="tts">سړی د خاپېرو: تور پوستکۍ</annotation>
+		<annotation cp="🧛🏻">بلا | روښانه پوستکۍ</annotation>
+		<annotation cp="🧛🏻" type="tts">بلا: روښانه پوستکۍ</annotation>
+		<annotation cp="🧛🏼">بلا | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧛🏼" type="tts">بلا: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧛🏽">بلا | غنم رنګه</annotation>
+		<annotation cp="🧛🏽" type="tts">بلا: غنم رنګه</annotation>
+		<annotation cp="🧛🏾">بلا | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧛🏾" type="tts">بلا: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧛🏿">بلا | تور پوستکۍ</annotation>
+		<annotation cp="🧛🏿" type="tts">بلا: تور پوستکۍ</annotation>
+		<annotation cp="🧛🏻‍♀">ښځه بلا | روښانه پوستکۍ</annotation>
+		<annotation cp="🧛🏻‍♀" type="tts">ښځه بلا: روښانه پوستکۍ</annotation>
+		<annotation cp="🧛🏼‍♀">ښځه بلا | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧛🏼‍♀" type="tts">ښځه بلا: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧛🏽‍♀">ښځه بلا | غنم رنګه</annotation>
+		<annotation cp="🧛🏽‍♀" type="tts">ښځه بلا: غنم رنګه</annotation>
+		<annotation cp="🧛🏾‍♀">ښځه بلا | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧛🏾‍♀" type="tts">ښځه بلا: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧛🏿‍♀">ښځه بلا | تور پوستکۍ</annotation>
+		<annotation cp="🧛🏿‍♀" type="tts">ښځه بلا: تور پوستکۍ</annotation>
+		<annotation cp="🧛🏻‍♂">سړی بلا | روښانه پوستکۍ</annotation>
+		<annotation cp="🧛🏻‍♂" type="tts">سړی بلا: روښانه پوستکۍ</annotation>
+		<annotation cp="🧛🏼‍♂">سړی بلا | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧛🏼‍♂" type="tts">سړی بلا: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧛🏽‍♂">سړی بلا | غنم رنګه</annotation>
+		<annotation cp="🧛🏽‍♂" type="tts">سړی بلا: غنم رنګه</annotation>
+		<annotation cp="🧛🏾‍♂">سړی بلا | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧛🏾‍♂" type="tts">سړی بلا: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧛🏿‍♂">سړی بلا | تور پوستکۍ</annotation>
+		<annotation cp="🧛🏿‍♂" type="tts">سړی بلا: تور پوستکۍ</annotation>
+		<annotation cp="🧜🏻">مرپرسن | روښانه پوستکۍ</annotation>
+		<annotation cp="🧜🏻" type="tts">مرپرسن: روښانه پوستکۍ</annotation>
+		<annotation cp="🧜🏼">مرپرسن | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧜🏼" type="tts">مرپرسن: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧜🏽">مرپرسن | غنم رنګه</annotation>
+		<annotation cp="🧜🏽" type="tts">مرپرسن: غنم رنګه</annotation>
+		<annotation cp="🧜🏾">مرپرسن | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧜🏾" type="tts">مرپرسن: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧜🏿">مرپرسن | تور پوستکۍ</annotation>
+		<annotation cp="🧜🏿" type="tts">مرپرسن: تور پوستکۍ</annotation>
+		<annotation cp="🧜🏻‍♀">مرمیڈ | روښانه پوستکۍ</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">مرمیڈ: روښانه پوستکۍ</annotation>
+		<annotation cp="🧜🏼‍♀">مرمیڈ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">مرمیڈ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧜🏽‍♀">مرمیڈ | غنم رنګه</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">مرمیڈ: غنم رنګه</annotation>
+		<annotation cp="🧜🏾‍♀">مرمیڈ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">مرمیڈ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧜🏿‍♀">مرمیڈ | تور پوستکۍ</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">مرمیڈ: تور پوستکۍ</annotation>
+		<annotation cp="🧜🏻‍♂">مرمین | روښانه پوستکۍ</annotation>
+		<annotation cp="🧜🏻‍♂" type="tts">مرمین: روښانه پوستکۍ</annotation>
+		<annotation cp="🧜🏼‍♂">مرمین | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧜🏼‍♂" type="tts">مرمین: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧜🏽‍♂">مرمین | غنم رنګه</annotation>
+		<annotation cp="🧜🏽‍♂" type="tts">مرمین: غنم رنګه</annotation>
+		<annotation cp="🧜🏾‍♂">مرمین | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧜🏾‍♂" type="tts">مرمین: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧜🏿‍♂">مرمین | تور پوستکۍ</annotation>
+		<annotation cp="🧜🏿‍♂" type="tts">مرمین: تور پوستکۍ</annotation>
+		<annotation cp="🧝🏻">ګوړا | روښانه پوستکۍ</annotation>
+		<annotation cp="🧝🏻" type="tts">ګوړا: روښانه پوستکۍ</annotation>
+		<annotation cp="🧝🏼">ګوړا | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧝🏼" type="tts">ګوړا: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧝🏽">ګوړا | غنم رنګه</annotation>
+		<annotation cp="🧝🏽" type="tts">ګوړا: غنم رنګه</annotation>
+		<annotation cp="🧝🏾">ګوړا | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧝🏾" type="tts">ګوړا: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧝🏿">ګوړا | تور پوستکۍ</annotation>
+		<annotation cp="🧝🏿" type="tts">ګوړا: تور پوستکۍ</annotation>
+		<annotation cp="🧝🏻‍♀">ښځه ګوړا | روښانه پوستکۍ</annotation>
+		<annotation cp="🧝🏻‍♀" type="tts">ښځه ګوړا: روښانه پوستکۍ</annotation>
+		<annotation cp="🧝🏼‍♀">ښځه ګوړا | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧝🏼‍♀" type="tts">ښځه ګوړا: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧝🏽‍♀">ښځه ګوړا | غنم رنګه</annotation>
+		<annotation cp="🧝🏽‍♀" type="tts">ښځه ګوړا: غنم رنګه</annotation>
+		<annotation cp="🧝🏾‍♀">ښځه ګوړا | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧝🏾‍♀" type="tts">ښځه ګوړا: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧝🏿‍♀">ښځه ګوړا | تور پوستکۍ</annotation>
+		<annotation cp="🧝🏿‍♀" type="tts">ښځه ګوړا: تور پوستکۍ</annotation>
+		<annotation cp="🧝🏻‍♂">سړی ګوړا | روښانه پوستکۍ</annotation>
+		<annotation cp="🧝🏻‍♂" type="tts">سړی ګوړا: روښانه پوستکۍ</annotation>
+		<annotation cp="🧝🏼‍♂">سړی ګوړا | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧝🏼‍♂" type="tts">سړی ګوړا: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧝🏽‍♂">سړی ګوړا | غنم رنګه</annotation>
+		<annotation cp="🧝🏽‍♂" type="tts">سړی ګوړا: غنم رنګه</annotation>
+		<annotation cp="🧝🏾‍♂">سړی ګوړا | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧝🏾‍♂" type="tts">سړی ګوړا: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧝🏿‍♂">سړی ګوړا | تور پوستکۍ</annotation>
+		<annotation cp="🧝🏿‍♂" type="tts">سړی ګوړا: تور پوستکۍ</annotation>
+		<annotation cp="🙍🏻">شخص ځړول | روښانه پوستکۍ</annotation>
+		<annotation cp="🙍🏻" type="tts">شخص ځړول: روښانه پوستکۍ</annotation>
+		<annotation cp="🙍🏼">شخص ځړول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙍🏼" type="tts">شخص ځړول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙍🏽">شخص ځړول | غنم رنګه</annotation>
+		<annotation cp="🙍🏽" type="tts">شخص ځړول: غنم رنګه</annotation>
+		<annotation cp="🙍🏾">شخص ځړول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙍🏾" type="tts">شخص ځړول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙍🏿">شخص ځړول | تور پوستکۍ</annotation>
+		<annotation cp="🙍🏿" type="tts">شخص ځړول: تور پوستکۍ</annotation>
+		<annotation cp="🙍🏻‍♂">سړی ځړول | روښانه پوستکۍ</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">سړی ځړول: روښانه پوستکۍ</annotation>
+		<annotation cp="🙍🏼‍♂">سړی ځړول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">سړی ځړول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙍🏽‍♂">سړی ځړول | غنم رنګه</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">سړی ځړول: غنم رنګه</annotation>
+		<annotation cp="🙍🏾‍♂">سړی ځړول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">سړی ځړول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙍🏿‍♂">سړی ځړول | تور پوستکۍ</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">سړی ځړول: تور پوستکۍ</annotation>
+		<annotation cp="🙍🏻‍♀">ښځه ځړول | روښانه پوستکۍ</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">ښځه ځړول: روښانه پوستکۍ</annotation>
+		<annotation cp="🙍🏼‍♀">ښځه ځړول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">ښځه ځړول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙍🏽‍♀">ښځه ځړول | غنم رنګه</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">ښځه ځړول: غنم رنګه</annotation>
+		<annotation cp="🙍🏾‍♀">ښځه ځړول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">ښځه ځړول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙍🏿‍♀">ښځه ځړول | تور پوستکۍ</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">ښځه ځړول: تور پوستکۍ</annotation>
+		<annotation cp="🙎🏻">شخص پایوٹنگ | روښانه پوستکۍ</annotation>
+		<annotation cp="🙎🏻" type="tts">شخص پایوٹنگ: روښانه پوستکۍ</annotation>
+		<annotation cp="🙎🏼">شخص پایوٹنگ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙎🏼" type="tts">شخص پایوٹنگ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙎🏽">شخص پایوٹنگ | غنم رنګه</annotation>
+		<annotation cp="🙎🏽" type="tts">شخص پایوٹنگ: غنم رنګه</annotation>
+		<annotation cp="🙎🏾">شخص پایوٹنگ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙎🏾" type="tts">شخص پایوٹنگ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙎🏿">شخص پایوٹنگ | تور پوستکۍ</annotation>
+		<annotation cp="🙎🏿" type="tts">شخص پایوٹنگ: تور پوستکۍ</annotation>
+		<annotation cp="🙎🏻‍♂">سړی پایوٹنگ | روښانه پوستکۍ</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">سړی پایوٹنگ: روښانه پوستکۍ</annotation>
+		<annotation cp="🙎🏼‍♂">سړی پایوٹنگ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">سړی پایوٹنگ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙎🏽‍♂">سړی پایوٹنگ | غنم رنګه</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">سړی پایوٹنگ: غنم رنګه</annotation>
+		<annotation cp="🙎🏾‍♂">سړی پایوٹنگ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">سړی پایوٹنگ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙎🏿‍♂">سړی پایوٹنگ | تور پوستکۍ</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">سړی پایوٹنگ: تور پوستکۍ</annotation>
+		<annotation cp="🙎🏻‍♀">ښځه پایوٹنگ | روښانه پوستکۍ</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">ښځه پایوٹنگ: روښانه پوستکۍ</annotation>
+		<annotation cp="🙎🏼‍♀">ښځه پایوٹنگ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">ښځه پایوٹنگ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙎🏽‍♀">ښځه پایوٹنگ | غنم رنګه</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">ښځه پایوٹنگ: غنم رنګه</annotation>
+		<annotation cp="🙎🏾‍♀">ښځه پایوٹنگ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">ښځه پایوٹنگ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙎🏿‍♀">ښځه پایوٹنگ | تور پوستکۍ</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">ښځه پایوٹنگ: تور پوستکۍ</annotation>
+		<annotation cp="🙅🏻">شخص اشاره نه | روښانه پوستکۍ</annotation>
+		<annotation cp="🙅🏻" type="tts">شخص اشاره نه: روښانه پوستکۍ</annotation>
+		<annotation cp="🙅🏼">شخص اشاره نه | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙅🏼" type="tts">شخص اشاره نه: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙅🏽">شخص اشاره نه | غنم رنګه</annotation>
+		<annotation cp="🙅🏽" type="tts">شخص اشاره نه: غنم رنګه</annotation>
+		<annotation cp="🙅🏾">شخص اشاره نه | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙅🏾" type="tts">شخص اشاره نه: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙅🏿">شخص اشاره نه | تور پوستکۍ</annotation>
+		<annotation cp="🙅🏿" type="tts">شخص اشاره نه: تور پوستکۍ</annotation>
+		<annotation cp="🙅🏻‍♂">سړی اشاره نه | روښانه پوستکۍ</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">سړی اشاره نه: روښانه پوستکۍ</annotation>
+		<annotation cp="🙅🏼‍♂">سړی اشاره نه | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">سړی اشاره نه: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙅🏽‍♂">سړی اشاره نه | غنم رنګه</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">سړی اشاره نه: غنم رنګه</annotation>
+		<annotation cp="🙅🏾‍♂">سړی اشاره نه | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">سړی اشاره نه: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙅🏿‍♂">سړی اشاره نه | تور پوستکۍ</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">سړی اشاره نه: تور پوستکۍ</annotation>
+		<annotation cp="🙅🏻‍♀">ښځه اشاره نه | روښانه پوستکۍ</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">ښځه اشاره نه: روښانه پوستکۍ</annotation>
+		<annotation cp="🙅🏼‍♀">ښځه اشاره نه | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">ښځه اشاره نه: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙅🏽‍♀">ښځه اشاره نه | غنم رنګه</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">ښځه اشاره نه: غنم رنګه</annotation>
+		<annotation cp="🙅🏾‍♀">ښځه اشاره نه | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">ښځه اشاره نه: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙅🏿‍♀">ښځه اشاره نه | تور پوستکۍ</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">ښځه اشاره نه: تور پوستکۍ</annotation>
+		<annotation cp="🙆🏻">شخص اشارصحيح | روښانه پوستکۍ</annotation>
+		<annotation cp="🙆🏻" type="tts">شخص اشارصحيح: روښانه پوستکۍ</annotation>
+		<annotation cp="🙆🏼">شخص اشارصحيح | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙆🏼" type="tts">شخص اشارصحيح: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙆🏽">شخص اشارصحيح | غنم رنګه</annotation>
+		<annotation cp="🙆🏽" type="tts">شخص اشارصحيح: غنم رنګه</annotation>
+		<annotation cp="🙆🏾">شخص اشارصحيح | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙆🏾" type="tts">شخص اشارصحيح: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙆🏿">شخص اشارصحيح | تور پوستکۍ</annotation>
+		<annotation cp="🙆🏿" type="tts">شخص اشارصحيح: تور پوستکۍ</annotation>
+		<annotation cp="🙆🏻‍♂">سړی اشارصحيح | روښانه پوستکۍ</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">سړی اشارصحيح: روښانه پوستکۍ</annotation>
+		<annotation cp="🙆🏼‍♂">سړی اشارصحيح | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">سړی اشارصحيح: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙆🏽‍♂">سړی اشارصحيح | غنم رنګه</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">سړی اشارصحيح: غنم رنګه</annotation>
+		<annotation cp="🙆🏾‍♂">سړی اشارصحيح | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">سړی اشارصحيح: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙆🏿‍♂">سړی اشارصحيح | تور پوستکۍ</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">سړی اشارصحيح: تور پوستکۍ</annotation>
+		<annotation cp="🙆🏻‍♀">ښځه اشاره صحيح | روښانه پوستکۍ</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">ښځه اشاره صحيح: روښانه پوستکۍ</annotation>
+		<annotation cp="🙆🏼‍♀">ښځه اشاره صحيح | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">ښځه اشاره صحيح: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙆🏽‍♀">ښځه اشاره صحيح | غنم رنګه</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">ښځه اشاره صحيح: غنم رنګه</annotation>
+		<annotation cp="🙆🏾‍♀">ښځه اشاره صحيح | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">ښځه اشاره صحيح: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙆🏿‍♀">ښځه اشاره صحيح | تور پوستکۍ</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">ښځه اشاره صحيح: تور پوستکۍ</annotation>
+		<annotation cp="💁🏻">یو سړی د ټیپ کولو لاس | روښانه پوستکۍ</annotation>
+		<annotation cp="💁🏻" type="tts">یو سړی د ټیپ کولو لاس: روښانه پوستکۍ</annotation>
+		<annotation cp="💁🏼">یو سړی د ټیپ کولو لاس | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💁🏼" type="tts">یو سړی د ټیپ کولو لاس: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💁🏽">یو سړی د ټیپ کولو لاس | غنم رنګه</annotation>
+		<annotation cp="💁🏽" type="tts">یو سړی د ټیپ کولو لاس: غنم رنګه</annotation>
+		<annotation cp="💁🏾">یو سړی د ټیپ کولو لاس | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💁🏾" type="tts">یو سړی د ټیپ کولو لاس: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💁🏿">یو سړی د ټیپ کولو لاس | تور پوستکۍ</annotation>
+		<annotation cp="💁🏿" type="tts">یو سړی د ټیپ کولو لاس: تور پوستکۍ</annotation>
+		<annotation cp="💁🏻‍♂">د سړي تسکري لاس | روښانه پوستکۍ</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">د سړي تسکري لاس: روښانه پوستکۍ</annotation>
+		<annotation cp="💁🏼‍♂">د سړي تسکري لاس | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">د سړي تسکري لاس: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💁🏽‍♂">د سړي تسکري لاس | غنم رنګه</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">د سړي تسکري لاس: غنم رنګه</annotation>
+		<annotation cp="💁🏾‍♂">د سړي تسکري لاس | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">د سړي تسکري لاس: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💁🏿‍♂">د سړي تسکري لاس | تور پوستکۍ</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">د سړي تسکري لاس: تور پوستکۍ</annotation>
+		<annotation cp="💁🏻‍♀">ښځه حرکت لاس | روښانه پوستکۍ</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">ښځه حرکت لاس: روښانه پوستکۍ</annotation>
+		<annotation cp="💁🏼‍♀">ښځه حرکت لاس | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">ښځه حرکت لاس: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💁🏽‍♀">ښځه حرکت لاس | غنم رنګه</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">ښځه حرکت لاس: غنم رنګه</annotation>
+		<annotation cp="💁🏾‍♀">ښځه حرکت لاس | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">ښځه حرکت لاس: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💁🏿‍♀">ښځه حرکت لاس | تور پوستکۍ</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">ښځه حرکت لاس: تور پوستکۍ</annotation>
+		<annotation cp="🙋🏻">شخص د لوړولو لاس | روښانه پوستکۍ</annotation>
+		<annotation cp="🙋🏻" type="tts">شخص د لوړولو لاس: روښانه پوستکۍ</annotation>
+		<annotation cp="🙋🏼">شخص د لوړولو لاس | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙋🏼" type="tts">شخص د لوړولو لاس: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙋🏽">شخص د لوړولو لاس | غنم رنګه</annotation>
+		<annotation cp="🙋🏽" type="tts">شخص د لوړولو لاس: غنم رنګه</annotation>
+		<annotation cp="🙋🏾">شخص د لوړولو لاس | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙋🏾" type="tts">شخص د لوړولو لاس: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙋🏿">شخص د لوړولو لاس | تور پوستکۍ</annotation>
+		<annotation cp="🙋🏿" type="tts">شخص د لوړولو لاس: تور پوستکۍ</annotation>
+		<annotation cp="🙋🏻‍♂">سړی د لوړولو لاس | روښانه پوستکۍ</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">سړی د لوړولو لاس: روښانه پوستکۍ</annotation>
+		<annotation cp="🙋🏼‍♂">سړی د لوړولو لاس | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">سړی د لوړولو لاس: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙋🏽‍♂">سړی د لوړولو لاس | غنم رنګه</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">سړی د لوړولو لاس: غنم رنګه</annotation>
+		<annotation cp="🙋🏾‍♂">سړی د لوړولو لاس | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">سړی د لوړولو لاس: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙋🏿‍♂">سړی د لوړولو لاس | تور پوستکۍ</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">سړی د لوړولو لاس: تور پوستکۍ</annotation>
+		<annotation cp="🙋🏻‍♀">ښځه د لوړولو لاس | روښانه پوستکۍ</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">ښځه د لوړولو لاس: روښانه پوستکۍ</annotation>
+		<annotation cp="🙋🏼‍♀">ښځه د لوړولو لاس | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">ښځه د لوړولو لاس: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙋🏽‍♀">ښځه د لوړولو لاس | غنم رنګه</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">ښځه د لوړولو لاس: غنم رنګه</annotation>
+		<annotation cp="🙋🏾‍♀">ښځه د لوړولو لاس | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">ښځه د لوړولو لاس: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙋🏿‍♀">ښځه د لوړولو لاس | تور پوستکۍ</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">ښځه د لوړولو لاس: تور پوستکۍ</annotation>
+		<annotation cp="🙇🏻">شخص ورکول | روښانه پوستکۍ</annotation>
+		<annotation cp="🙇🏻" type="tts">شخص ورکول: روښانه پوستکۍ</annotation>
+		<annotation cp="🙇🏼">شخص ورکول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙇🏼" type="tts">شخص ورکول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙇🏽">شخص ورکول | غنم رنګه</annotation>
+		<annotation cp="🙇🏽" type="tts">شخص ورکول: غنم رنګه</annotation>
+		<annotation cp="🙇🏾">شخص ورکول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙇🏾" type="tts">شخص ورکول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙇🏿">شخص ورکول | تور پوستکۍ</annotation>
+		<annotation cp="🙇🏿" type="tts">شخص ورکول: تور پوستکۍ</annotation>
+		<annotation cp="🙇🏻‍♂">سړی ورکول | روښانه پوستکۍ</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">سړی ورکول: روښانه پوستکۍ</annotation>
+		<annotation cp="🙇🏼‍♂">سړی ورکول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">سړی ورکول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙇🏽‍♂">سړی ورکول | غنم رنګه</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">سړی ورکول: غنم رنګه</annotation>
+		<annotation cp="🙇🏾‍♂">سړی ورکول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">سړی ورکول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙇🏿‍♂">سړی ورکول | تور پوستکۍ</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">سړی ورکول: تور پوستکۍ</annotation>
+		<annotation cp="🙇🏻‍♀">ښځه ورکول | روښانه پوستکۍ</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">ښځه ورکول: روښانه پوستکۍ</annotation>
+		<annotation cp="🙇🏼‍♀">ښځه ورکول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">ښځه ورکول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙇🏽‍♀">ښځه ورکول | غنم رنګه</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">ښځه ورکول: غنم رنګه</annotation>
+		<annotation cp="🙇🏾‍♀">ښځه ورکول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">ښځه ورکول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙇🏿‍♀">ښځه ورکول | تور پوستکۍ</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">ښځه ورکول: تور پوستکۍ</annotation>
+		<annotation cp="🤦🏻">د شخص سره مخامخ کول | روښانه پوستکۍ</annotation>
+		<annotation cp="🤦🏻" type="tts">د شخص سره مخامخ کول: روښانه پوستکۍ</annotation>
+		<annotation cp="🤦🏼">د شخص سره مخامخ کول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤦🏼" type="tts">د شخص سره مخامخ کول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤦🏽">د شخص سره مخامخ کول | غنم رنګه</annotation>
+		<annotation cp="🤦🏽" type="tts">د شخص سره مخامخ کول: غنم رنګه</annotation>
+		<annotation cp="🤦🏾">د شخص سره مخامخ کول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤦🏾" type="tts">د شخص سره مخامخ کول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤦🏿">د شخص سره مخامخ کول | تور پوستکۍ</annotation>
+		<annotation cp="🤦🏿" type="tts">د شخص سره مخامخ کول: تور پوستکۍ</annotation>
+		<annotation cp="🤦🏻‍♂">د سړي سره مخامخ کول | روښانه پوستکۍ</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">د سړي سره مخامخ کول: روښانه پوستکۍ</annotation>
+		<annotation cp="🤦🏼‍♂">د سړي سره مخامخ کول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">د سړي سره مخامخ کول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤦🏽‍♂">د سړي سره مخامخ کول | غنم رنګه</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">د سړي سره مخامخ کول: غنم رنګه</annotation>
+		<annotation cp="🤦🏾‍♂">د سړي سره مخامخ کول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">د سړي سره مخامخ کول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤦🏿‍♂">د سړي سره مخامخ کول | تور پوستکۍ</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">د سړي سره مخامخ کول: تور پوستکۍ</annotation>
+		<annotation cp="🤦🏻‍♀">د ښځه سره مخامخ کول | روښانه پوستکۍ</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">د ښځه سره مخامخ کول: روښانه پوستکۍ</annotation>
+		<annotation cp="🤦🏼‍♀">د ښځه سره مخامخ کول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">د ښځه سره مخامخ کول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤦🏽‍♀">د ښځه سره مخامخ کول | غنم رنګه</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">د ښځه سره مخامخ کول: غنم رنګه</annotation>
+		<annotation cp="🤦🏾‍♀">د ښځه سره مخامخ کول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">د ښځه سره مخامخ کول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤦🏿‍♀">د ښځه سره مخامخ کول | تور پوستکۍ</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">د ښځه سره مخامخ کول: تور پوستکۍ</annotation>
+		<annotation cp="🤷🏻">شخص خندا | روښانه پوستکۍ</annotation>
+		<annotation cp="🤷🏻" type="tts">شخص خندا: روښانه پوستکۍ</annotation>
+		<annotation cp="🤷🏼">شخص خندا | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤷🏼" type="tts">شخص خندا: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤷🏽">شخص خندا | غنم رنګه</annotation>
+		<annotation cp="🤷🏽" type="tts">شخص خندا: غنم رنګه</annotation>
+		<annotation cp="🤷🏾">شخص خندا | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤷🏾" type="tts">شخص خندا: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤷🏿">شخص خندا | تور پوستکۍ</annotation>
+		<annotation cp="🤷🏿" type="tts">شخص خندا: تور پوستکۍ</annotation>
+		<annotation cp="🤷🏻‍♂">سړي خندا | روښانه پوستکۍ</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">سړي خندا: روښانه پوستکۍ</annotation>
+		<annotation cp="🤷🏼‍♂">سړي خندا | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">سړي خندا: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤷🏽‍♂">سړي خندا | غنم رنګه</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">سړي خندا: غنم رنګه</annotation>
+		<annotation cp="🤷🏾‍♂">سړي خندا | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">سړي خندا: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤷🏿‍♂">سړي خندا | تور پوستکۍ</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">سړي خندا: تور پوستکۍ</annotation>
+		<annotation cp="🤷🏻‍♀">ښځه شخص | روښانه پوستکۍ</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">ښځه شخص: روښانه پوستکۍ</annotation>
+		<annotation cp="🤷🏼‍♀">ښځه شخص | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">ښځه شخص: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤷🏽‍♀">ښځه شخص | غنم رنګه</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">ښځه شخص: غنم رنګه</annotation>
+		<annotation cp="🤷🏾‍♀">ښځه شخص | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">ښځه شخص: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤷🏿‍♀">ښځه شخص | تور پوستکۍ</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">ښځه شخص: تور پوستکۍ</annotation>
+		<annotation cp="💆🏻">شخص ترلاسه مالش | روښانه پوستکۍ</annotation>
+		<annotation cp="💆🏻" type="tts">شخص ترلاسه مالش: روښانه پوستکۍ</annotation>
+		<annotation cp="💆🏼">شخص ترلاسه مالش | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💆🏼" type="tts">شخص ترلاسه مالش: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💆🏽">شخص ترلاسه مالش | غنم رنګه</annotation>
+		<annotation cp="💆🏽" type="tts">شخص ترلاسه مالش: غنم رنګه</annotation>
+		<annotation cp="💆🏾">شخص ترلاسه مالش | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💆🏾" type="tts">شخص ترلاسه مالش: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💆🏿">شخص ترلاسه مالش | تور پوستکۍ</annotation>
+		<annotation cp="💆🏿" type="tts">شخص ترلاسه مالش: تور پوستکۍ</annotation>
+		<annotation cp="💆🏻‍♂">سړي ترلاسه مالش | روښانه پوستکۍ</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">سړي ترلاسه مالش: روښانه پوستکۍ</annotation>
+		<annotation cp="💆🏼‍♂">سړي ترلاسه مالش | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">سړي ترلاسه مالش: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💆🏽‍♂">سړي ترلاسه مالش | غنم رنګه</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">سړي ترلاسه مالش: غنم رنګه</annotation>
+		<annotation cp="💆🏾‍♂">سړي ترلاسه مالش | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">سړي ترلاسه مالش: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💆🏿‍♂">سړي ترلاسه مالش | تور پوستکۍ</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">سړي ترلاسه مالش: تور پوستکۍ</annotation>
+		<annotation cp="💆🏻‍♀">ښځه ترلاسه مالش | روښانه پوستکۍ</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">ښځه ترلاسه مالش: روښانه پوستکۍ</annotation>
+		<annotation cp="💆🏼‍♀">ښځه ترلاسه مالش | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">ښځه ترلاسه مالش: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💆🏽‍♀">ښځه ترلاسه مالش | غنم رنګه</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">ښځه ترلاسه مالش: غنم رنګه</annotation>
+		<annotation cp="💆🏾‍♀">ښځه ترلاسه مالش | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">ښځه ترلاسه مالش: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💆🏿‍♀">ښځه ترلاسه مالش | تور پوستکۍ</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">ښځه ترلاسه مالش: تور پوستکۍ</annotation>
+		<annotation cp="💇🏻">شخص د ویښتو اخیستلو لپاره | روښانه پوستکۍ</annotation>
+		<annotation cp="💇🏻" type="tts">شخص د ویښتو اخیستلو لپاره: روښانه پوستکۍ</annotation>
+		<annotation cp="💇🏼">شخص د ویښتو اخیستلو لپاره | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💇🏼" type="tts">شخص د ویښتو اخیستلو لپاره: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💇🏽">شخص د ویښتو اخیستلو لپاره | غنم رنګه</annotation>
+		<annotation cp="💇🏽" type="tts">شخص د ویښتو اخیستلو لپاره: غنم رنګه</annotation>
+		<annotation cp="💇🏾">شخص د ویښتو اخیستلو لپاره | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💇🏾" type="tts">شخص د ویښتو اخیستلو لپاره: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💇🏿">شخص د ویښتو اخیستلو لپاره | تور پوستکۍ</annotation>
+		<annotation cp="💇🏿" type="tts">شخص د ویښتو اخیستلو لپاره: تور پوستکۍ</annotation>
+		<annotation cp="💇🏻‍♂">سړی د ویښتو اخیستلو لپاره | روښانه پوستکۍ</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">سړی د ویښتو اخیستلو لپاره: روښانه پوستکۍ</annotation>
+		<annotation cp="💇🏼‍♂">سړی د ویښتو اخیستلو لپاره | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">سړی د ویښتو اخیستلو لپاره: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💇🏽‍♂">سړی د ویښتو اخیستلو لپاره | غنم رنګه</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">سړی د ویښتو اخیستلو لپاره: غنم رنګه</annotation>
+		<annotation cp="💇🏾‍♂">سړی د ویښتو اخیستلو لپاره | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">سړی د ویښتو اخیستلو لپاره: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💇🏿‍♂">سړی د ویښتو اخیستلو لپاره | تور پوستکۍ</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">سړی د ویښتو اخیستلو لپاره: تور پوستکۍ</annotation>
+		<annotation cp="💇🏻‍♀">ښځه د ویښتو اخیستلو لپاره | روښانه پوستکۍ</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">ښځه د ویښتو اخیستلو لپاره: روښانه پوستکۍ</annotation>
+		<annotation cp="💇🏼‍♀">ښځه د ویښتو اخیستلو لپاره | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">ښځه د ویښتو اخیستلو لپاره: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💇🏽‍♀">ښځه د ویښتو اخیستلو لپاره | غنم رنګه</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">ښځه د ویښتو اخیستلو لپاره: غنم رنګه</annotation>
+		<annotation cp="💇🏾‍♀">ښځه د ویښتو اخیستلو لپاره | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">ښځه د ویښتو اخیستلو لپاره: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💇🏿‍♀">ښځه د ویښتو اخیستلو لپاره | تور پوستکۍ</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">ښځه د ویښتو اخیستلو لپاره: تور پوستکۍ</annotation>
+		<annotation cp="🚶🏻">شخص ولاړ | روښانه پوستکۍ</annotation>
+		<annotation cp="🚶🏻" type="tts">شخص ولاړ: روښانه پوستکۍ</annotation>
+		<annotation cp="🚶🏼">شخص ولاړ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚶🏼" type="tts">شخص ولاړ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚶🏽">شخص ولاړ | غنم رنګه</annotation>
+		<annotation cp="🚶🏽" type="tts">شخص ولاړ: غنم رنګه</annotation>
+		<annotation cp="🚶🏾">شخص ولاړ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚶🏾" type="tts">شخص ولاړ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚶🏿">شخص ولاړ | تور پوستکۍ</annotation>
+		<annotation cp="🚶🏿" type="tts">شخص ولاړ: تور پوستکۍ</annotation>
+		<annotation cp="🚶🏻‍♂">سړی ولاړ | روښانه پوستکۍ</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">سړی ولاړ: روښانه پوستکۍ</annotation>
+		<annotation cp="🚶🏼‍♂">سړی ولاړ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">سړی ولاړ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚶🏽‍♂">سړی ولاړ | غنم رنګه</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">سړی ولاړ: غنم رنګه</annotation>
+		<annotation cp="🚶🏾‍♂">سړی ولاړ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">سړی ولاړ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚶🏿‍♂">سړی ولاړ | تور پوستکۍ</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">سړی ولاړ: تور پوستکۍ</annotation>
+		<annotation cp="🚶🏻‍♀">ښځه ولاړ | روښانه پوستکۍ</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">ښځه ولاړ: روښانه پوستکۍ</annotation>
+		<annotation cp="🚶🏼‍♀">ښځه ولاړ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">ښځه ولاړ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚶🏽‍♀">ښځه ولاړ | غنم رنګه</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">ښځه ولاړ: غنم رنګه</annotation>
+		<annotation cp="🚶🏾‍♀">ښځه ولاړ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">ښځه ولاړ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚶🏿‍♀">ښځه ولاړ | تور پوستکۍ</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">ښځه ولاړ: تور پوستکۍ</annotation>
+		<annotation cp="🏃🏻">شخص چلوي | روښانه پوستکۍ</annotation>
+		<annotation cp="🏃🏻" type="tts">شخص چلوي: روښانه پوستکۍ</annotation>
+		<annotation cp="🏃🏼">شخص چلوي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏃🏼" type="tts">شخص چلوي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏃🏽">شخص چلوي | غنم رنګه</annotation>
+		<annotation cp="🏃🏽" type="tts">شخص چلوي: غنم رنګه</annotation>
+		<annotation cp="🏃🏾">شخص چلوي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏃🏾" type="tts">شخص چلوي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏃🏿">شخص چلوي | تور پوستکۍ</annotation>
+		<annotation cp="🏃🏿" type="tts">شخص چلوي: تور پوستکۍ</annotation>
+		<annotation cp="🏃🏻‍♂">سړی چلول | روښانه پوستکۍ</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">سړی چلول: روښانه پوستکۍ</annotation>
+		<annotation cp="🏃🏼‍♂">سړی چلول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">سړی چلول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏃🏽‍♂">سړی چلول | غنم رنګه</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">سړی چلول: غنم رنګه</annotation>
+		<annotation cp="🏃🏾‍♂">سړی چلول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">سړی چلول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏃🏿‍♂">سړی چلول | تور پوستکۍ</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">سړی چلول: تور پوستکۍ</annotation>
+		<annotation cp="🏃🏻‍♀">ښځه چلول | روښانه پوستکۍ</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">ښځه چلول: روښانه پوستکۍ</annotation>
+		<annotation cp="🏃🏼‍♀">ښځه چلول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">ښځه چلول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏃🏽‍♀">ښځه چلول | غنم رنګه</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">ښځه چلول: غنم رنګه</annotation>
+		<annotation cp="🏃🏾‍♀">ښځه چلول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">ښځه چلول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏃🏿‍♀">ښځه چلول | تور پوستکۍ</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">ښځه چلول: تور پوستکۍ</annotation>
+		<annotation cp="💃🏻">ښځه نڅا | روښانه پوستکۍ</annotation>
+		<annotation cp="💃🏻" type="tts">ښځه نڅا: روښانه پوستکۍ</annotation>
+		<annotation cp="💃🏼">ښځه نڅا | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💃🏼" type="tts">ښځه نڅا: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💃🏽">ښځه نڅا | غنم رنګه</annotation>
+		<annotation cp="💃🏽" type="tts">ښځه نڅا: غنم رنګه</annotation>
+		<annotation cp="💃🏾">ښځه نڅا | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💃🏾" type="tts">ښځه نڅا: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💃🏿">ښځه نڅا | تور پوستکۍ</annotation>
+		<annotation cp="💃🏿" type="tts">ښځه نڅا: تور پوستکۍ</annotation>
+		<annotation cp="🕺🏻">سړی نڅا | روښانه پوستکۍ</annotation>
+		<annotation cp="🕺🏻" type="tts">سړی نڅا: روښانه پوستکۍ</annotation>
+		<annotation cp="🕺🏼">سړی نڅا | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🕺🏼" type="tts">سړی نڅا: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🕺🏽">سړی نڅا | غنم رنګه</annotation>
+		<annotation cp="🕺🏽" type="tts">سړی نڅا: غنم رنګه</annotation>
+		<annotation cp="🕺🏾">سړی نڅا | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🕺🏾" type="tts">سړی نڅا: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🕺🏿">سړی نڅا | تور پوستکۍ</annotation>
+		<annotation cp="🕺🏿" type="tts">سړی نڅا: تور پوستکۍ</annotation>
+		<annotation cp="🧖🏻">شخص په ګردجن خونه کې | روښانه پوستکۍ</annotation>
+		<annotation cp="🧖🏻" type="tts">شخص په ګردجن خونه کې: روښانه پوستکۍ</annotation>
+		<annotation cp="🧖🏼">شخص په ګردجن خونه کې | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧖🏼" type="tts">شخص په ګردجن خونه کې: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧖🏽">شخص په ګردجن خونه کې | غنم رنګه</annotation>
+		<annotation cp="🧖🏽" type="tts">شخص په ګردجن خونه کې: غنم رنګه</annotation>
+		<annotation cp="🧖🏾">شخص په ګردجن خونه کې | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧖🏾" type="tts">شخص په ګردجن خونه کې: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧖🏿">شخص په ګردجن خونه کې | تور پوستکۍ</annotation>
+		<annotation cp="🧖🏿" type="tts">شخص په ګردجن خونه کې: تور پوستکۍ</annotation>
+		<annotation cp="🧖🏻‍♀">ښځه په ګردجن خونه کې | روښانه پوستکۍ</annotation>
+		<annotation cp="🧖🏻‍♀" type="tts">ښځه په ګردجن خونه کې: روښانه پوستکۍ</annotation>
+		<annotation cp="🧖🏼‍♀">ښځه په ګردجن خونه کې | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧖🏼‍♀" type="tts">ښځه په ګردجن خونه کې: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧖🏽‍♀">ښځه په ګردجن خونه کې | غنم رنګه</annotation>
+		<annotation cp="🧖🏽‍♀" type="tts">ښځه په ګردجن خونه کې: غنم رنګه</annotation>
+		<annotation cp="🧖🏾‍♀">ښځه په ګردجن خونه کې | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧖🏾‍♀" type="tts">ښځه په ګردجن خونه کې: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧖🏿‍♀">ښځه په ګردجن خونه کې | تور پوستکۍ</annotation>
+		<annotation cp="🧖🏿‍♀" type="tts">ښځه په ګردجن خونه کې: تور پوستکۍ</annotation>
+		<annotation cp="🧖🏻‍♂">سړی په ګردجن خونه کې | روښانه پوستکۍ</annotation>
+		<annotation cp="🧖🏻‍♂" type="tts">سړی په ګردجن خونه کې: روښانه پوستکۍ</annotation>
+		<annotation cp="🧖🏼‍♂">سړی په ګردجن خونه کې | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧖🏼‍♂" type="tts">سړی په ګردجن خونه کې: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧖🏽‍♂">سړی په ګردجن خونه کې | غنم رنګه</annotation>
+		<annotation cp="🧖🏽‍♂" type="tts">سړی په ګردجن خونه کې: غنم رنګه</annotation>
+		<annotation cp="🧖🏾‍♂">سړی په ګردجن خونه کې | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧖🏾‍♂" type="tts">سړی په ګردجن خونه کې: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧖🏿‍♂">سړی په ګردجن خونه کې | تور پوستکۍ</annotation>
+		<annotation cp="🧖🏿‍♂" type="tts">سړی په ګردجن خونه کې: تور پوستکۍ</annotation>
+		<annotation cp="🧗🏻">شخص هسکېدل | روښانه پوستکۍ</annotation>
+		<annotation cp="🧗🏻" type="tts">شخص هسکېدل: روښانه پوستکۍ</annotation>
+		<annotation cp="🧗🏼">شخص هسکېدل | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧗🏼" type="tts">شخص هسکېدل: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧗🏽">شخص هسکېدل | غنم رنګه</annotation>
+		<annotation cp="🧗🏽" type="tts">شخص هسکېدل: غنم رنګه</annotation>
+		<annotation cp="🧗🏾">شخص هسکېدل | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧗🏾" type="tts">شخص هسکېدل: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧗🏿">شخص هسکېدل | تور پوستکۍ</annotation>
+		<annotation cp="🧗🏿" type="tts">شخص هسکېدل: تور پوستکۍ</annotation>
+		<annotation cp="🧗🏻‍♀">ښځه هسکېدل | روښانه پوستکۍ</annotation>
+		<annotation cp="🧗🏻‍♀" type="tts">ښځه هسکېدل: روښانه پوستکۍ</annotation>
+		<annotation cp="🧗🏼‍♀">ښځه هسکېدل | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧗🏼‍♀" type="tts">ښځه هسکېدل: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧗🏽‍♀">ښځه هسکېدل | غنم رنګه</annotation>
+		<annotation cp="🧗🏽‍♀" type="tts">ښځه هسکېدل: غنم رنګه</annotation>
+		<annotation cp="🧗🏾‍♀">ښځه هسکېدل | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧗🏾‍♀" type="tts">ښځه هسکېدل: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧗🏿‍♀">ښځه هسکېدل | تور پوستکۍ</annotation>
+		<annotation cp="🧗🏿‍♀" type="tts">ښځه هسکېدل: تور پوستکۍ</annotation>
+		<annotation cp="🧗🏻‍♂">سړی هسکېدل | روښانه پوستکۍ</annotation>
+		<annotation cp="🧗🏻‍♂" type="tts">سړی هسکېدل: روښانه پوستکۍ</annotation>
+		<annotation cp="🧗🏼‍♂">سړی هسکېدل | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧗🏼‍♂" type="tts">سړی هسکېدل: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧗🏽‍♂">سړی هسکېدل | غنم رنګه</annotation>
+		<annotation cp="🧗🏽‍♂" type="tts">سړی هسکېدل: غنم رنګه</annotation>
+		<annotation cp="🧗🏾‍♂">سړی هسکېدل | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧗🏾‍♂" type="tts">سړی هسکېدل: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧗🏿‍♂">سړی هسکېدل | تور پوستکۍ</annotation>
+		<annotation cp="🧗🏿‍♂" type="tts">سړی هسکېدل: تور پوستکۍ</annotation>
+		<annotation cp="🧘🏻">شخص په لوتوس مقام | روښانه پوستکۍ</annotation>
+		<annotation cp="🧘🏻" type="tts">شخص په لوتوس مقام: روښانه پوستکۍ</annotation>
+		<annotation cp="🧘🏼">شخص په لوتوس مقام | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧘🏼" type="tts">شخص په لوتوس مقام: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧘🏽">شخص په لوتوس مقام | غنم رنګه</annotation>
+		<annotation cp="🧘🏽" type="tts">شخص په لوتوس مقام: غنم رنګه</annotation>
+		<annotation cp="🧘🏾">شخص په لوتوس مقام | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧘🏾" type="tts">شخص په لوتوس مقام: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧘🏿">شخص په لوتوس مقام | تور پوستکۍ</annotation>
+		<annotation cp="🧘🏿" type="tts">شخص په لوتوس مقام: تور پوستکۍ</annotation>
+		<annotation cp="🧘🏻‍♀">ښځه په لوتوس مقام | روښانه پوستکۍ</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">ښځه په لوتوس مقام: روښانه پوستکۍ</annotation>
+		<annotation cp="🧘🏼‍♀">ښځه په لوتوس مقام | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">ښځه په لوتوس مقام: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧘🏽‍♀">ښځه په لوتوس مقام | غنم رنګه</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">ښځه په لوتوس مقام: غنم رنګه</annotation>
+		<annotation cp="🧘🏾‍♀">ښځه په لوتوس مقام | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">ښځه په لوتوس مقام: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧘🏿‍♀">ښځه په لوتوس مقام | تور پوستکۍ</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">ښځه په لوتوس مقام: تور پوستکۍ</annotation>
+		<annotation cp="🧘🏻‍♂">سړی په لوتوس مقام | روښانه پوستکۍ</annotation>
+		<annotation cp="🧘🏻‍♂" type="tts">سړی په لوتوس مقام: روښانه پوستکۍ</annotation>
+		<annotation cp="🧘🏼‍♂">سړی په لوتوس مقام | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧘🏼‍♂" type="tts">سړی په لوتوس مقام: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧘🏽‍♂">سړی په لوتوس مقام | غنم رنګه</annotation>
+		<annotation cp="🧘🏽‍♂" type="tts">سړی په لوتوس مقام: غنم رنګه</annotation>
+		<annotation cp="🧘🏾‍♂">سړی په لوتوس مقام | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧘🏾‍♂" type="tts">سړی په لوتوس مقام: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧘🏿‍♂">سړی په لوتوس مقام | تور پوستکۍ</annotation>
+		<annotation cp="🧘🏿‍♂" type="tts">سړی په لوتوس مقام: تور پوستکۍ</annotation>
+		<annotation cp="🛀🏻">شخص غسل کوي | روښانه پوستکۍ</annotation>
+		<annotation cp="🛀🏻" type="tts">شخص غسل کوي: روښانه پوستکۍ</annotation>
+		<annotation cp="🛀🏼">شخص غسل کوي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🛀🏼" type="tts">شخص غسل کوي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🛀🏽">شخص غسل کوي | غنم رنګه</annotation>
+		<annotation cp="🛀🏽" type="tts">شخص غسل کوي: غنم رنګه</annotation>
+		<annotation cp="🛀🏾">شخص غسل کوي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🛀🏾" type="tts">شخص غسل کوي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🛀🏿">شخص غسل کوي | تور پوستکۍ</annotation>
+		<annotation cp="🛀🏿" type="tts">شخص غسل کوي: تور پوستکۍ</annotation>
+		<annotation cp="🛌🏻">شخص په بستره کې | روښانه پوستکۍ</annotation>
+		<annotation cp="🛌🏻" type="tts">شخص په بستره کې: روښانه پوستکۍ</annotation>
+		<annotation cp="🛌🏼">شخص په بستره کې | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🛌🏼" type="tts">شخص په بستره کې: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🛌🏽">شخص په بستره کې | غنم رنګه</annotation>
+		<annotation cp="🛌🏽" type="tts">شخص په بستره کې: غنم رنګه</annotation>
+		<annotation cp="🛌🏾">شخص په بستره کې | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🛌🏾" type="tts">شخص په بستره کې: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🛌🏿">شخص په بستره کې | تور پوستکۍ</annotation>
+		<annotation cp="🛌🏿" type="tts">شخص په بستره کې: تور پوستکۍ</annotation>
+		<annotation cp="🕴🏻">سړي په مناسبه توګه د ویستلو وړ | روښانه پوستکۍ</annotation>
+		<annotation cp="🕴🏻" type="tts">سړي په مناسبه توګه د ویستلو وړ: روښانه پوستکۍ</annotation>
+		<annotation cp="🕴🏼">سړي په مناسبه توګه د ویستلو وړ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🕴🏼" type="tts">سړي په مناسبه توګه د ویستلو وړ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🕴🏽">سړي په مناسبه توګه د ویستلو وړ | غنم رنګه</annotation>
+		<annotation cp="🕴🏽" type="tts">سړي په مناسبه توګه د ویستلو وړ: غنم رنګه</annotation>
+		<annotation cp="🕴🏾">سړي په مناسبه توګه د ویستلو وړ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🕴🏾" type="tts">سړي په مناسبه توګه د ویستلو وړ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🕴🏿">سړي په مناسبه توګه د ویستلو وړ | تور پوستکۍ</annotation>
+		<annotation cp="🕴🏿" type="tts">سړي په مناسبه توګه د ویستلو وړ: تور پوستکۍ</annotation>
+		<annotation cp="🏇🏻">گهوټ ریس | روښانه پوستکۍ</annotation>
+		<annotation cp="🏇🏻" type="tts">گهوټ ریس: روښانه پوستکۍ</annotation>
+		<annotation cp="🏇🏼">گهوټ ریس | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏇🏼" type="tts">گهوټ ریس: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏇🏽">گهوټ ریس | غنم رنګه</annotation>
+		<annotation cp="🏇🏽" type="tts">گهوټ ریس: غنم رنګه</annotation>
+		<annotation cp="🏇🏾">گهوټ ریس | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏇🏾" type="tts">گهوټ ریس: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏇🏿">گهوټ ریس | تور پوستکۍ</annotation>
+		<annotation cp="🏇🏿" type="tts">گهوټ ریس: تور پوستکۍ</annotation>
+		<annotation cp="🏂🏻">واوره تخته | روښانه پوستکۍ</annotation>
+		<annotation cp="🏂🏻" type="tts">واوره تخته: روښانه پوستکۍ</annotation>
+		<annotation cp="🏂🏼">واوره تخته | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏂🏼" type="tts">واوره تخته: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏂🏽">واوره تخته | غنم رنګه</annotation>
+		<annotation cp="🏂🏽" type="tts">واوره تخته: غنم رنګه</annotation>
+		<annotation cp="🏂🏾">واوره تخته | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏂🏾" type="tts">واوره تخته: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏂🏿">واوره تخته | تور پوستکۍ</annotation>
+		<annotation cp="🏂🏿" type="tts">واوره تخته: تور پوستکۍ</annotation>
+		<annotation cp="🏌🏻">شخص ګالفینګ | روښانه پوستکۍ</annotation>
+		<annotation cp="🏌🏻" type="tts">شخص ګالفینګ: روښانه پوستکۍ</annotation>
+		<annotation cp="🏌🏼">شخص ګالفینګ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏌🏼" type="tts">شخص ګالفینګ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏌🏽">شخص ګالفینګ | غنم رنګه</annotation>
+		<annotation cp="🏌🏽" type="tts">شخص ګالفینګ: غنم رنګه</annotation>
+		<annotation cp="🏌🏾">شخص ګالفینګ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏌🏾" type="tts">شخص ګالفینګ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏌🏿">شخص ګالفینګ | تور پوستکۍ</annotation>
+		<annotation cp="🏌🏿" type="tts">شخص ګالفینګ: تور پوستکۍ</annotation>
+		<annotation cp="🏌🏻‍♂">سړی ګالفینګ | روښانه پوستکۍ</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">سړی ګالفینګ: روښانه پوستکۍ</annotation>
+		<annotation cp="🏌🏼‍♂">سړی ګالفینګ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">سړی ګالفینګ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏌🏽‍♂">سړی ګالفینګ | غنم رنګه</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">سړی ګالفینګ: غنم رنګه</annotation>
+		<annotation cp="🏌🏾‍♂">سړی ګالفینګ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">سړی ګالفینګ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏌🏿‍♂">سړی ګالفینګ | تور پوستکۍ</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">سړی ګالفینګ: تور پوستکۍ</annotation>
+		<annotation cp="🏌🏻‍♀">ښځه ګالفینګ | روښانه پوستکۍ</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">ښځه ګالفینګ: روښانه پوستکۍ</annotation>
+		<annotation cp="🏌🏼‍♀">ښځه ګالفینګ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">ښځه ګالفینګ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏌🏽‍♀">ښځه ګالفینګ | غنم رنګه</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">ښځه ګالفینګ: غنم رنګه</annotation>
+		<annotation cp="🏌🏾‍♀">ښځه ګالفینګ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">ښځه ګالفینګ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏌🏿‍♀">ښځه ګالفینګ | تور پوستکۍ</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">ښځه ګالفینګ: تور پوستکۍ</annotation>
+		<annotation cp="🏄🏻">د شخص سرفنگ | روښانه پوستکۍ</annotation>
+		<annotation cp="🏄🏻" type="tts">د شخص سرفنگ: روښانه پوستکۍ</annotation>
+		<annotation cp="🏄🏼">د شخص سرفنگ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏄🏼" type="tts">د شخص سرفنگ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏄🏽">د شخص سرفنگ | غنم رنګه</annotation>
+		<annotation cp="🏄🏽" type="tts">د شخص سرفنگ: غنم رنګه</annotation>
+		<annotation cp="🏄🏾">د شخص سرفنگ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏄🏾" type="tts">د شخص سرفنگ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏄🏿">د شخص سرفنگ | تور پوستکۍ</annotation>
+		<annotation cp="🏄🏿" type="tts">د شخص سرفنگ: تور پوستکۍ</annotation>
+		<annotation cp="🏄🏻‍♂">سړي سرففنگ | روښانه پوستکۍ</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">سړي سرففنگ: روښانه پوستکۍ</annotation>
+		<annotation cp="🏄🏼‍♂">سړي سرففنگ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">سړي سرففنگ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏄🏽‍♂">سړي سرففنگ | غنم رنګه</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">سړي سرففنگ: غنم رنګه</annotation>
+		<annotation cp="🏄🏾‍♂">سړي سرففنگ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">سړي سرففنگ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏄🏿‍♂">سړي سرففنگ | تور پوستکۍ</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">سړي سرففنگ: تور پوستکۍ</annotation>
+		<annotation cp="🏄🏻‍♀">ښځه سرفنگ | روښانه پوستکۍ</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">ښځه سرفنگ: روښانه پوستکۍ</annotation>
+		<annotation cp="🏄🏼‍♀">ښځه سرفنگ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">ښځه سرفنگ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏄🏽‍♀">ښځه سرفنگ | غنم رنګه</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">ښځه سرفنگ: غنم رنګه</annotation>
+		<annotation cp="🏄🏾‍♀">ښځه سرفنگ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">ښځه سرفنگ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏄🏿‍♀">ښځه سرفنگ | تور پوستکۍ</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">ښځه سرفنگ: تور پوستکۍ</annotation>
+		<annotation cp="🚣🏻">شخص د کشتۍ قطار | روښانه پوستکۍ</annotation>
+		<annotation cp="🚣🏻" type="tts">شخص د کشتۍ قطار: روښانه پوستکۍ</annotation>
+		<annotation cp="🚣🏼">شخص د کشتۍ قطار | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚣🏼" type="tts">شخص د کشتۍ قطار: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚣🏽">شخص د کشتۍ قطار | غنم رنګه</annotation>
+		<annotation cp="🚣🏽" type="tts">شخص د کشتۍ قطار: غنم رنګه</annotation>
+		<annotation cp="🚣🏾">شخص د کشتۍ قطار | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚣🏾" type="tts">شخص د کشتۍ قطار: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚣🏿">شخص د کشتۍ قطار | تور پوستکۍ</annotation>
+		<annotation cp="🚣🏿" type="tts">شخص د کشتۍ قطار: تور پوستکۍ</annotation>
+		<annotation cp="🚣🏻‍♂">سړي د کشتۍ قطار | روښانه پوستکۍ</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">سړي د کشتۍ قطار: روښانه پوستکۍ</annotation>
+		<annotation cp="🚣🏼‍♂">سړي د کشتۍ قطار | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">سړي د کشتۍ قطار: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚣🏽‍♂">سړي د کشتۍ قطار | غنم رنګه</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">سړي د کشتۍ قطار: غنم رنګه</annotation>
+		<annotation cp="🚣🏾‍♂">سړي د کشتۍ قطار | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">سړي د کشتۍ قطار: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚣🏿‍♂">سړي د کشتۍ قطار | تور پوستکۍ</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">سړي د کشتۍ قطار: تور پوستکۍ</annotation>
+		<annotation cp="🚣🏻‍♀">ښځه د کشتۍ قطار | روښانه پوستکۍ</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">ښځه د کشتۍ قطار: روښانه پوستکۍ</annotation>
+		<annotation cp="🚣🏼‍♀">ښځه د کشتۍ قطار | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">ښځه د کشتۍ قطار: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚣🏽‍♀">ښځه د کشتۍ قطار | غنم رنګه</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">ښځه د کشتۍ قطار: غنم رنګه</annotation>
+		<annotation cp="🚣🏾‍♀">ښځه د کشتۍ قطار | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">ښځه د کشتۍ قطار: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚣🏿‍♀">ښځه د کشتۍ قطار | تور پوستکۍ</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">ښځه د کشتۍ قطار: تور پوستکۍ</annotation>
+		<annotation cp="🏊🏻">شخص د لامبو | روښانه پوستکۍ</annotation>
+		<annotation cp="🏊🏻" type="tts">شخص د لامبو: روښانه پوستکۍ</annotation>
+		<annotation cp="🏊🏼">شخص د لامبو | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏊🏼" type="tts">شخص د لامبو: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏊🏽">شخص د لامبو | غنم رنګه</annotation>
+		<annotation cp="🏊🏽" type="tts">شخص د لامبو: غنم رنګه</annotation>
+		<annotation cp="🏊🏾">شخص د لامبو | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏊🏾" type="tts">شخص د لامبو: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏊🏿">شخص د لامبو | تور پوستکۍ</annotation>
+		<annotation cp="🏊🏿" type="tts">شخص د لامبو: تور پوستکۍ</annotation>
+		<annotation cp="🏊🏻‍♂">سړي د لامبو | روښانه پوستکۍ</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">سړي د لامبو: روښانه پوستکۍ</annotation>
+		<annotation cp="🏊🏼‍♂">سړي د لامبو | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">سړي د لامبو: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏊🏽‍♂">سړي د لامبو | غنم رنګه</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">سړي د لامبو: غنم رنګه</annotation>
+		<annotation cp="🏊🏾‍♂">سړي د لامبو | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">سړي د لامبو: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏊🏿‍♂">سړي د لامبو | تور پوستکۍ</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">سړي د لامبو: تور پوستکۍ</annotation>
+		<annotation cp="🏊🏻‍♀">ښځه د لامبو | روښانه پوستکۍ</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">ښځه د لامبو: روښانه پوستکۍ</annotation>
+		<annotation cp="🏊🏼‍♀">ښځه د لامبو | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">ښځه د لامبو: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏊🏽‍♀">ښځه د لامبو | غنم رنګه</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">ښځه د لامبو: غنم رنګه</annotation>
+		<annotation cp="🏊🏾‍♀">ښځه د لامبو | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">ښځه د لامبو: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏊🏿‍♀">ښځه د لامبو | تور پوستکۍ</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">ښځه د لامبو: تور پوستکۍ</annotation>
+		<annotation cp="⛹🏻">شخص لاس لوړول بال | روښانه پوستکۍ</annotation>
+		<annotation cp="⛹🏻" type="tts">شخص لاس لوړول بال: روښانه پوستکۍ</annotation>
+		<annotation cp="⛹🏼">شخص لاس لوړول بال | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="⛹🏼" type="tts">شخص لاس لوړول بال: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="⛹🏽">شخص لاس لوړول بال | غنم رنګه</annotation>
+		<annotation cp="⛹🏽" type="tts">شخص لاس لوړول بال: غنم رنګه</annotation>
+		<annotation cp="⛹🏾">شخص لاس لوړول بال | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="⛹🏾" type="tts">شخص لاس لوړول بال: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="⛹🏿">شخص لاس لوړول بال | تور پوستکۍ</annotation>
+		<annotation cp="⛹🏿" type="tts">شخص لاس لوړول بال: تور پوستکۍ</annotation>
+		<annotation cp="⛹🏻‍♂">سړي لاس لوړول بال | روښانه پوستکۍ</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">سړي لاس لوړول بال: روښانه پوستکۍ</annotation>
+		<annotation cp="⛹🏼‍♂">سړي لاس لوړول بال | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">سړي لاس لوړول بال: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="⛹🏽‍♂">سړي لاس لوړول بال | غنم رنګه</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">سړي لاس لوړول بال: غنم رنګه</annotation>
+		<annotation cp="⛹🏾‍♂">سړي لاس لوړول بال | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">سړي لاس لوړول بال: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="⛹🏿‍♂">سړي لاس لوړول بال | تور پوستکۍ</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">سړي لاس لوړول بال: تور پوستکۍ</annotation>
+		<annotation cp="⛹🏻‍♀">ښځه لاس لوړول بال | روښانه پوستکۍ</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">ښځه لاس لوړول بال: روښانه پوستکۍ</annotation>
+		<annotation cp="⛹🏼‍♀">ښځه لاس لوړول بال | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">ښځه لاس لوړول بال: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="⛹🏽‍♀">ښځه لاس لوړول بال | غنم رنګه</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">ښځه لاس لوړول بال: غنم رنګه</annotation>
+		<annotation cp="⛹🏾‍♀">ښځه لاس لوړول بال | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">ښځه لاس لوړول بال: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="⛹🏿‍♀">ښځه لاس لوړول بال | تور پوستکۍ</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">ښځه لاس لوړول بال: تور پوستکۍ</annotation>
+		<annotation cp="🏋🏻">شخص د وزن پورته کول | روښانه پوستکۍ</annotation>
+		<annotation cp="🏋🏻" type="tts">شخص د وزن پورته کول: روښانه پوستکۍ</annotation>
+		<annotation cp="🏋🏼">شخص د وزن پورته کول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏋🏼" type="tts">شخص د وزن پورته کول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏋🏽">شخص د وزن پورته کول | غنم رنګه</annotation>
+		<annotation cp="🏋🏽" type="tts">شخص د وزن پورته کول: غنم رنګه</annotation>
+		<annotation cp="🏋🏾">شخص د وزن پورته کول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏋🏾" type="tts">شخص د وزن پورته کول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏋🏿">شخص د وزن پورته کول | تور پوستکۍ</annotation>
+		<annotation cp="🏋🏿" type="tts">شخص د وزن پورته کول: تور پوستکۍ</annotation>
+		<annotation cp="🏋🏻‍♂">سړي د وزن پورته کول | روښانه پوستکۍ</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">سړي د وزن پورته کول: روښانه پوستکۍ</annotation>
+		<annotation cp="🏋🏼‍♂">سړي د وزن پورته کول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">سړي د وزن پورته کول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏋🏽‍♂">سړي د وزن پورته کول | غنم رنګه</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">سړي د وزن پورته کول: غنم رنګه</annotation>
+		<annotation cp="🏋🏾‍♂">سړي د وزن پورته کول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">سړي د وزن پورته کول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏋🏿‍♂">سړي د وزن پورته کول | تور پوستکۍ</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">سړي د وزن پورته کول: تور پوستکۍ</annotation>
+		<annotation cp="🏋🏻‍♀">ښځه د وزن پورته کول | روښانه پوستکۍ</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">ښځه د وزن پورته کول: روښانه پوستکۍ</annotation>
+		<annotation cp="🏋🏼‍♀">ښځه د وزن پورته کول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">ښځه د وزن پورته کول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🏋🏽‍♀">ښځه د وزن پورته کول | غنم رنګه</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">ښځه د وزن پورته کول: غنم رنګه</annotation>
+		<annotation cp="🏋🏾‍♀">ښځه د وزن پورته کول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">ښځه د وزن پورته کول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🏋🏿‍♀">ښځه د وزن پورته کول | تور پوستکۍ</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">ښځه د وزن پورته کول: تور پوستکۍ</annotation>
+		<annotation cp="🚴🏻">شخص بايک چلول | روښانه پوستکۍ</annotation>
+		<annotation cp="🚴🏻" type="tts">شخص بايک چلول: روښانه پوستکۍ</annotation>
+		<annotation cp="🚴🏼">شخص بايک چلول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚴🏼" type="tts">شخص بايک چلول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚴🏽">شخص بايک چلول | غنم رنګه</annotation>
+		<annotation cp="🚴🏽" type="tts">شخص بايک چلول: غنم رنګه</annotation>
+		<annotation cp="🚴🏾">شخص بايک چلول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚴🏾" type="tts">شخص بايک چلول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚴🏿">شخص بايک چلول | تور پوستکۍ</annotation>
+		<annotation cp="🚴🏿" type="tts">شخص بايک چلول: تور پوستکۍ</annotation>
+		<annotation cp="🚴🏻‍♂">سړي بايک چلول | روښانه پوستکۍ</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">سړي بايک چلول: روښانه پوستکۍ</annotation>
+		<annotation cp="🚴🏼‍♂">سړي بايک چلول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">سړي بايک چلول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚴🏽‍♂">سړي بايک چلول | غنم رنګه</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">سړي بايک چلول: غنم رنګه</annotation>
+		<annotation cp="🚴🏾‍♂">سړي بايک چلول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">سړي بايک چلول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚴🏿‍♂">سړي بايک چلول | تور پوستکۍ</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">سړي بايک چلول: تور پوستکۍ</annotation>
+		<annotation cp="🚴🏻‍♀">ښځه بايک چلول | روښانه پوستکۍ</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">ښځه بايک چلول: روښانه پوستکۍ</annotation>
+		<annotation cp="🚴🏼‍♀">ښځه بايک چلول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">ښځه بايک چلول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚴🏽‍♀">ښځه بايک چلول | غنم رنګه</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">ښځه بايک چلول: غنم رنګه</annotation>
+		<annotation cp="🚴🏾‍♀">ښځه بايک چلول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">ښځه بايک چلول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚴🏿‍♀">ښځه بايک چلول | تور پوستکۍ</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">ښځه بايک چلول: تور پوستکۍ</annotation>
+		<annotation cp="🚵🏻">شخص د غرونو چلولو | روښانه پوستکۍ</annotation>
+		<annotation cp="🚵🏻" type="tts">شخص د غرونو چلولو: روښانه پوستکۍ</annotation>
+		<annotation cp="🚵🏼">شخص د غرونو چلولو | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚵🏼" type="tts">شخص د غرونو چلولو: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚵🏽">شخص د غرونو چلولو | غنم رنګه</annotation>
+		<annotation cp="🚵🏽" type="tts">شخص د غرونو چلولو: غنم رنګه</annotation>
+		<annotation cp="🚵🏾">شخص د غرونو چلولو | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚵🏾" type="tts">شخص د غرونو چلولو: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚵🏿">شخص د غرونو چلولو | تور پوستکۍ</annotation>
+		<annotation cp="🚵🏿" type="tts">شخص د غرونو چلولو: تور پوستکۍ</annotation>
+		<annotation cp="🚵🏻‍♂">سړي د غرونو چلولو | روښانه پوستکۍ</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">سړي د غرونو چلولو: روښانه پوستکۍ</annotation>
+		<annotation cp="🚵🏼‍♂">سړي د غرونو چلولو | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">سړي د غرونو چلولو: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚵🏽‍♂">سړي د غرونو چلولو | غنم رنګه</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">سړي د غرونو چلولو: غنم رنګه</annotation>
+		<annotation cp="🚵🏾‍♂">سړي د غرونو چلولو | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">سړي د غرونو چلولو: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚵🏿‍♂">سړي د غرونو چلولو | تور پوستکۍ</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">سړي د غرونو چلولو: تور پوستکۍ</annotation>
+		<annotation cp="🚵🏻‍♀">ښځه د غرونو چلولو | روښانه پوستکۍ</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">ښځه د غرونو چلولو: روښانه پوستکۍ</annotation>
+		<annotation cp="🚵🏼‍♀">ښځه د غرونو چلولو | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">ښځه د غرونو چلولو: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🚵🏽‍♀">ښځه د غرونو چلولو | غنم رنګه</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">ښځه د غرونو چلولو: غنم رنګه</annotation>
+		<annotation cp="🚵🏾‍♀">ښځه د غرونو چلولو | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">ښځه د غرونو چلولو: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🚵🏿‍♀">ښځه د غرونو چلولو | تور پوستکۍ</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">ښځه د غرونو چلولو: تور پوستکۍ</annotation>
+		<annotation cp="🤸🏻">شخص د موټر ډک کول | روښانه پوستکۍ</annotation>
+		<annotation cp="🤸🏻" type="tts">شخص د موټر ډک کول: روښانه پوستکۍ</annotation>
+		<annotation cp="🤸🏼">شخص د موټر ډک کول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤸🏼" type="tts">شخص د موټر ډک کول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤸🏽">شخص د موټر ډک کول | غنم رنګه</annotation>
+		<annotation cp="🤸🏽" type="tts">شخص د موټر ډک کول: غنم رنګه</annotation>
+		<annotation cp="🤸🏾">شخص د موټر ډک کول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤸🏾" type="tts">شخص د موټر ډک کول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤸🏿">شخص د موټر ډک کول | تور پوستکۍ</annotation>
+		<annotation cp="🤸🏿" type="tts">شخص د موټر ډک کول: تور پوستکۍ</annotation>
+		<annotation cp="🤸🏻‍♂">سړي د موټر ډک کول | روښانه پوستکۍ</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">سړي د موټر ډک کول: روښانه پوستکۍ</annotation>
+		<annotation cp="🤸🏼‍♂">سړي د موټر ډک کول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">سړي د موټر ډک کول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤸🏽‍♂">سړي د موټر ډک کول | غنم رنګه</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">سړي د موټر ډک کول: غنم رنګه</annotation>
+		<annotation cp="🤸🏾‍♂">سړي د موټر ډک کول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">سړي د موټر ډک کول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤸🏿‍♂">سړي د موټر ډک کول | تور پوستکۍ</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">سړي د موټر ډک کول: تور پوستکۍ</annotation>
+		<annotation cp="🤸🏻‍♀">ښځه د موټر ډک کول | روښانه پوستکۍ</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">ښځه د موټر ډک کول: روښانه پوستکۍ</annotation>
+		<annotation cp="🤸🏼‍♀">ښځه د موټر ډک کول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">ښځه د موټر ډک کول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤸🏽‍♀">ښځه د موټر ډک کول | غنم رنګه</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">ښځه د موټر ډک کول: غنم رنګه</annotation>
+		<annotation cp="🤸🏾‍♀">ښځه د موټر ډک کول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">ښځه د موټر ډک کول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤸🏿‍♀">ښځه د موټر ډک کول | تور پوستکۍ</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">ښځه د موټر ډک کول: تور پوستکۍ</annotation>
+		<annotation cp="🤽🏻">شخص د اوبو پولو لوبه کوي | روښانه پوستکۍ</annotation>
+		<annotation cp="🤽🏻" type="tts">شخص د اوبو پولو لوبه کوي: روښانه پوستکۍ</annotation>
+		<annotation cp="🤽🏼">شخص د اوبو پولو لوبه کوي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤽🏼" type="tts">شخص د اوبو پولو لوبه کوي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤽🏽">شخص د اوبو پولو لوبه کوي | غنم رنګه</annotation>
+		<annotation cp="🤽🏽" type="tts">شخص د اوبو پولو لوبه کوي: غنم رنګه</annotation>
+		<annotation cp="🤽🏾">شخص د اوبو پولو لوبه کوي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤽🏾" type="tts">شخص د اوبو پولو لوبه کوي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤽🏿">شخص د اوبو پولو لوبه کوي | تور پوستکۍ</annotation>
+		<annotation cp="🤽🏿" type="tts">شخص د اوبو پولو لوبه کوي: تور پوستکۍ</annotation>
+		<annotation cp="🤽🏻‍♂">سړي د اوبو پولو لوبه کوي | روښانه پوستکۍ</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">سړي د اوبو پولو لوبه کوي: روښانه پوستکۍ</annotation>
+		<annotation cp="🤽🏼‍♂">سړي د اوبو پولو لوبه کوي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">سړي د اوبو پولو لوبه کوي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤽🏽‍♂">سړي د اوبو پولو لوبه کوي | غنم رنګه</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">سړي د اوبو پولو لوبه کوي: غنم رنګه</annotation>
+		<annotation cp="🤽🏾‍♂">سړي د اوبو پولو لوبه کوي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">سړي د اوبو پولو لوبه کوي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤽🏿‍♂">سړي د اوبو پولو لوبه کوي | تور پوستکۍ</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">سړي د اوبو پولو لوبه کوي: تور پوستکۍ</annotation>
+		<annotation cp="🤽🏻‍♀">ښځه د اوبو پولو لوبه کوي | روښانه پوستکۍ</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">ښځه د اوبو پولو لوبه کوي: روښانه پوستکۍ</annotation>
+		<annotation cp="🤽🏼‍♀">ښځه د اوبو پولو لوبه کوي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">ښځه د اوبو پولو لوبه کوي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤽🏽‍♀">ښځه د اوبو پولو لوبه کوي | غنم رنګه</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">ښځه د اوبو پولو لوبه کوي: غنم رنګه</annotation>
+		<annotation cp="🤽🏾‍♀">ښځه د اوبو پولو لوبه کوي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">ښځه د اوبو پولو لوبه کوي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤽🏿‍♀">ښځه د اوبو پولو لوبه کوي | تور پوستکۍ</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">ښځه د اوبو پولو لوبه کوي: تور پوستکۍ</annotation>
+		<annotation cp="🤾🏻">شخص د هندبال لوبه کوي | روښانه پوستکۍ</annotation>
+		<annotation cp="🤾🏻" type="tts">شخص د هندبال لوبه کوي: روښانه پوستکۍ</annotation>
+		<annotation cp="🤾🏼">شخص د هندبال لوبه کوي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤾🏼" type="tts">شخص د هندبال لوبه کوي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤾🏽">شخص د هندبال لوبه کوي | غنم رنګه</annotation>
+		<annotation cp="🤾🏽" type="tts">شخص د هندبال لوبه کوي: غنم رنګه</annotation>
+		<annotation cp="🤾🏾">شخص د هندبال لوبه کوي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤾🏾" type="tts">شخص د هندبال لوبه کوي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤾🏿">شخص د هندبال لوبه کوي | تور پوستکۍ</annotation>
+		<annotation cp="🤾🏿" type="tts">شخص د هندبال لوبه کوي: تور پوستکۍ</annotation>
+		<annotation cp="🤾🏻‍♂">سړي د هندبال لوبه کوي | روښانه پوستکۍ</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">سړي د هندبال لوبه کوي: روښانه پوستکۍ</annotation>
+		<annotation cp="🤾🏼‍♂">سړي د هندبال لوبه کوي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">سړي د هندبال لوبه کوي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤾🏽‍♂">سړي د هندبال لوبه کوي | غنم رنګه</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">سړي د هندبال لوبه کوي: غنم رنګه</annotation>
+		<annotation cp="🤾🏾‍♂">سړي د هندبال لوبه کوي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">سړي د هندبال لوبه کوي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤾🏿‍♂">سړي د هندبال لوبه کوي | تور پوستکۍ</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">سړي د هندبال لوبه کوي: تور پوستکۍ</annotation>
+		<annotation cp="🤾🏻‍♀">ښځه د هندبال لوبه کوي | روښانه پوستکۍ</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">ښځه د هندبال لوبه کوي: روښانه پوستکۍ</annotation>
+		<annotation cp="🤾🏼‍♀">ښځه د هندبال لوبه کوي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">ښځه د هندبال لوبه کوي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤾🏽‍♀">ښځه د هندبال لوبه کوي | غنم رنګه</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">ښځه د هندبال لوبه کوي: غنم رنګه</annotation>
+		<annotation cp="🤾🏾‍♀">ښځه د هندبال لوبه کوي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">ښځه د هندبال لوبه کوي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤾🏿‍♀">ښځه د هندبال لوبه کوي | تور پوستکۍ</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">ښځه د هندبال لوبه کوي: تور پوستکۍ</annotation>
+		<annotation cp="🤹🏻">شخص جاو کول | روښانه پوستکۍ</annotation>
+		<annotation cp="🤹🏻" type="tts">شخص جاو کول: روښانه پوستکۍ</annotation>
+		<annotation cp="🤹🏼">شخص جاو کول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤹🏼" type="tts">شخص جاو کول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤹🏽">شخص جاو کول | غنم رنګه</annotation>
+		<annotation cp="🤹🏽" type="tts">شخص جاو کول: غنم رنګه</annotation>
+		<annotation cp="🤹🏾">شخص جاو کول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤹🏾" type="tts">شخص جاو کول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤹🏿">شخص جاو کول | تور پوستکۍ</annotation>
+		<annotation cp="🤹🏿" type="tts">شخص جاو کول: تور پوستکۍ</annotation>
+		<annotation cp="🤹🏻‍♂">سړي جاو کول | روښانه پوستکۍ</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">سړي جاو کول: روښانه پوستکۍ</annotation>
+		<annotation cp="🤹🏼‍♂">سړي جاو کول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">سړي جاو کول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤹🏽‍♂">سړي جاو کول | غنم رنګه</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">سړي جاو کول: غنم رنګه</annotation>
+		<annotation cp="🤹🏾‍♂">سړي جاو کول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">سړي جاو کول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤹🏿‍♂">سړي جاو کول | تور پوستکۍ</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">سړي جاو کول: تور پوستکۍ</annotation>
+		<annotation cp="🤹🏻‍♀">ښځه جاو کول | روښانه پوستکۍ</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">ښځه جاو کول: روښانه پوستکۍ</annotation>
+		<annotation cp="🤹🏼‍♀">ښځه جاو کول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">ښځه جاو کول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤹🏽‍♀">ښځه جاو کول | غنم رنګه</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">ښځه جاو کول: غنم رنګه</annotation>
+		<annotation cp="🤹🏾‍♀">ښځه جاو کول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">ښځه جاو کول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤹🏿‍♀">ښځه جاو کول | تور پوستکۍ</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">ښځه جاو کول: تور پوستکۍ</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">مچې | ښځه | سړی</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">مچې: ښځه او سړی</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">مچې | سړی</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">مچې: سړی او سړی</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">مچې | ښځه</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">مچې: ښځه او ښځه</annotation>
+		<annotation cp="👩‍❤‍👨">د زړه سره جوړه | ښځه | سړی</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">د زړه سره جوړه: ښځه او سړی</annotation>
+		<annotation cp="👨‍❤‍👨">د زړه سره جوړه | سړی</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">د زړه سره جوړه: سړی او سړی</annotation>
+		<annotation cp="👩‍❤‍👩">د زړه سره جوړه | ښځه</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">د زړه سره جوړه: ښځه او ښځه</annotation>
+		<annotation cp="👨‍👩‍👦">کورنۍ | سړی | ښځه | هلک</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">کورنۍ: سړی, ښځه, هلک</annotation>
+		<annotation cp="👨‍👩‍👧">کورنۍ | سړی | ښځه | نجلۍ</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">کورنۍ: سړی, ښځه, نجلۍ</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">کورنۍ | سړی | ښځه | نجلۍ | هلک</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">کورنۍ: سړی, ښځه, نجلۍ, هلک</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">کورنۍ | سړی | ښځه | هلک</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">کورنۍ: سړی, ښځه, هلک, هلک</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">کورنۍ | سړی | ښځه | نجلۍ</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">کورنۍ: سړی, ښځه, نجلۍ, نجلۍ</annotation>
+		<annotation cp="👨‍👨‍👦">کورنۍ | سړی | هلک</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">کورنۍ: سړی, سړی, هلک</annotation>
+		<annotation cp="👨‍👨‍👧">کورنۍ | سړی | نجلۍ</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">کورنۍ: سړی, سړی, نجلۍ</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">کورنۍ | سړی | نجلۍ | هلک</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">کورنۍ: سړی, سړی, نجلۍ, هلک</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">کورنۍ | سړی | هلک</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">کورنۍ: سړی, سړی, هلک, هلک</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">کورنۍ | سړی | نجلۍ</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">کورنۍ: سړی, سړی, نجلۍ, نجلۍ</annotation>
+		<annotation cp="👩‍👩‍👦">کورنۍ | ښځه | هلک</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">کورنۍ: ښځه, ښځه, هلک</annotation>
+		<annotation cp="👩‍👩‍👧">کورنۍ | ښځه | نجلۍ</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">کورنۍ: ښځه, ښځه, نجلۍ</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">کورنۍ | ښځه | نجلۍ | هلک</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">کورنۍ: ښځه, ښځه, نجلۍ, هلک</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">کورنۍ | ښځه | هلک</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">کورنۍ: ښځه, ښځه, هلک, هلک</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">کورنۍ | ښځه | نجلۍ</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">کورنۍ: ښځه, ښځه, نجلۍ, نجلۍ</annotation>
+		<annotation cp="👨‍👦">کورنۍ | سړی | هلک</annotation>
+		<annotation cp="👨‍👦" type="tts">کورنۍ: سړی او هلک</annotation>
+		<annotation cp="👨‍👦‍👦">کورنۍ | سړی | هلک</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">کورنۍ: سړی, هلک, هلک</annotation>
+		<annotation cp="👨‍👧">کورنۍ | سړی | نجلۍ</annotation>
+		<annotation cp="👨‍👧" type="tts">کورنۍ: سړی او نجلۍ</annotation>
+		<annotation cp="👨‍👧‍👦">کورنۍ | سړی | نجلۍ | هلک</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">کورنۍ: سړی, نجلۍ, هلک</annotation>
+		<annotation cp="👨‍👧‍👧">کورنۍ | سړی | نجلۍ</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">کورنۍ: سړی, نجلۍ, نجلۍ</annotation>
+		<annotation cp="👩‍👦">کورنۍ | ښځه | هلک</annotation>
+		<annotation cp="👩‍👦" type="tts">کورنۍ: ښځه او هلک</annotation>
+		<annotation cp="👩‍👦‍👦">کورنۍ | ښځه | هلک</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">کورنۍ: ښځه, هلک, هلک</annotation>
+		<annotation cp="👩‍👧">کورنۍ | ښځه | نجلۍ</annotation>
+		<annotation cp="👩‍👧" type="tts">کورنۍ: ښځه او نجلۍ</annotation>
+		<annotation cp="👩‍👧‍👦">کورنۍ | ښځه | نجلۍ | هلک</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">کورنۍ: ښځه, نجلۍ, هلک</annotation>
+		<annotation cp="👩‍👧‍👧">کورنۍ | ښځه | نجلۍ</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">کورنۍ: ښځه, نجلۍ, نجلۍ</annotation>
+		<annotation cp="🤳🏻">سيلفي | روښانه پوستکۍ</annotation>
+		<annotation cp="🤳🏻" type="tts">سيلفي: روښانه پوستکۍ</annotation>
+		<annotation cp="🤳🏼">سيلفي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤳🏼" type="tts">سيلفي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤳🏽">سيلفي | غنم رنګه</annotation>
+		<annotation cp="🤳🏽" type="tts">سيلفي: غنم رنګه</annotation>
+		<annotation cp="🤳🏾">سيلفي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤳🏾" type="tts">سيلفي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤳🏿">سيلفي | تور پوستکۍ</annotation>
+		<annotation cp="🤳🏿" type="tts">سيلفي: تور پوستکۍ</annotation>
+		<annotation cp="💪🏻">انعطافی مټې | مټې l مسخره l انعطاف l انعطافی مټې l عضلي | روښانه پوستکۍ</annotation>
+		<annotation cp="💪🏻" type="tts">انعطافی مټې: روښانه پوستکۍ</annotation>
+		<annotation cp="💪🏼">انعطافی مټې | مټې l مسخره l انعطاف l انعطافی مټې l عضلي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💪🏼" type="tts">انعطافی مټې: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💪🏽">انعطافی مټې | مټې l مسخره l انعطاف l انعطافی مټې l عضلي | غنم رنګه</annotation>
+		<annotation cp="💪🏽" type="tts">انعطافی مټې: غنم رنګه</annotation>
+		<annotation cp="💪🏾">انعطافی مټې | مټې l مسخره l انعطاف l انعطافی مټې l عضلي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💪🏾" type="tts">انعطافی مټې: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💪🏿">انعطافی مټې | مټې l مسخره l انعطاف l انعطافی مټې l عضلي | تور پوستکۍ</annotation>
+		<annotation cp="💪🏿" type="tts">انعطافی مټې: تور پوستکۍ</annotation>
+		<annotation cp="👈🏻">د لاس شا l په چپ لاس په شهادت ګوته اشاره کول l ګوته l لاس l شهادت ګوته l اشاره | په چپ لاس په شهادت ګوته اشاره کول | روښانه پوستکۍ</annotation>
+		<annotation cp="👈🏻" type="tts">په چپ لاس په شهادت ګوته اشاره کول: روښانه پوستکۍ</annotation>
+		<annotation cp="👈🏼">د لاس شا l په چپ لاس په شهادت ګوته اشاره کول l ګوته l لاس l شهادت ګوته l اشاره | په چپ لاس په شهادت ګوته اشاره کول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👈🏼" type="tts">په چپ لاس په شهادت ګوته اشاره کول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👈🏽">د لاس شا l په چپ لاس په شهادت ګوته اشاره کول l ګوته l لاس l شهادت ګوته l اشاره | په چپ لاس په شهادت ګوته اشاره کول | غنم رنګه</annotation>
+		<annotation cp="👈🏽" type="tts">په چپ لاس په شهادت ګوته اشاره کول: غنم رنګه</annotation>
+		<annotation cp="👈🏾">د لاس شا l په چپ لاس په شهادت ګوته اشاره کول l ګوته l لاس l شهادت ګوته l اشاره | په چپ لاس په شهادت ګوته اشاره کول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👈🏾" type="tts">په چپ لاس په شهادت ګوته اشاره کول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👈🏿">د لاس شا l په چپ لاس په شهادت ګوته اشاره کول l ګوته l لاس l شهادت ګوته l اشاره | په چپ لاس په شهادت ګوته اشاره کول | تور پوستکۍ</annotation>
+		<annotation cp="👈🏿" type="tts">په چپ لاس په شهادت ګوته اشاره کول: تور پوستکۍ</annotation>
+		<annotation cp="👉🏻">د لاس شا l په ښي لاس په شهادت ګوته اشاره کول l ګوته l لاس l شهادت ګوته l اشاره | په ښي لاس په شهادت ګوته اشاره کول | روښانه پوستکۍ</annotation>
+		<annotation cp="👉🏻" type="tts">په ښي لاس په شهادت ګوته اشاره کول: روښانه پوستکۍ</annotation>
+		<annotation cp="👉🏼">د لاس شا l په ښي لاس په شهادت ګوته اشاره کول l ګوته l لاس l شهادت ګوته l اشاره | په ښي لاس په شهادت ګوته اشاره کول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👉🏼" type="tts">په ښي لاس په شهادت ګوته اشاره کول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👉🏽">د لاس شا l په ښي لاس په شهادت ګوته اشاره کول l ګوته l لاس l شهادت ګوته l اشاره | په ښي لاس په شهادت ګوته اشاره کول | غنم رنګه</annotation>
+		<annotation cp="👉🏽" type="tts">په ښي لاس په شهادت ګوته اشاره کول: غنم رنګه</annotation>
+		<annotation cp="👉🏾">د لاس شا l په ښي لاس په شهادت ګوته اشاره کول l ګوته l لاس l شهادت ګوته l اشاره | په ښي لاس په شهادت ګوته اشاره کول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👉🏾" type="tts">په ښي لاس په شهادت ګوته اشاره کول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👉🏿">د لاس شا l په ښي لاس په شهادت ګوته اشاره کول l ګوته l لاس l شهادت ګوته l اشاره | په ښي لاس په شهادت ګوته اشاره کول | تور پوستکۍ</annotation>
+		<annotation cp="👉🏿" type="tts">په ښي لاس په شهادت ګوته اشاره کول: تور پوستکۍ</annotation>
+		<annotation cp="☝🏻">Vote شهادت ګوته پورته نیول | ګوته l لاس l شهادت ګوته l شهادت ګوته پورته نیول l پورته | روښانه پوستکۍ</annotation>
+		<annotation cp="☝🏻" type="tts">Vote شهادت ګوته پورته نیول: روښانه پوستکۍ</annotation>
+		<annotation cp="☝🏼">Vote شهادت ګوته پورته نیول | ګوته l لاس l شهادت ګوته l شهادت ګوته پورته نیول l پورته | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="☝🏼" type="tts">Vote شهادت ګوته پورته نیول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="☝🏽">Vote شهادت ګوته پورته نیول | ګوته l لاس l شهادت ګوته l شهادت ګوته پورته نیول l پورته | غنم رنګه</annotation>
+		<annotation cp="☝🏽" type="tts">Vote شهادت ګوته پورته نیول: غنم رنګه</annotation>
+		<annotation cp="☝🏾">Vote شهادت ګوته پورته نیول | ګوته l لاس l شهادت ګوته l شهادت ګوته پورته نیول l پورته | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="☝🏾" type="tts">Vote شهادت ګوته پورته نیول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="☝🏿">Vote شهادت ګوته پورته نیول | ګوته l لاس l شهادت ګوته l شهادت ګوته پورته نیول l پورته | تور پوستکۍ</annotation>
+		<annotation cp="☝🏿" type="tts">Vote شهادت ګوته پورته نیول: تور پوستکۍ</annotation>
+		<annotation cp="👆🏻">شهادت ګوته لاس شاخوا پورته نیول | ګوته l لاس l شهادت ګوته l شهادت ګوته پورته نیول l پورته | روښانه پوستکۍ</annotation>
+		<annotation cp="👆🏻" type="tts">شهادت ګوته لاس شاخوا پورته نیول: روښانه پوستکۍ</annotation>
+		<annotation cp="👆🏼">شهادت ګوته لاس شاخوا پورته نیول | ګوته l لاس l شهادت ګوته l شهادت ګوته پورته نیول l پورته | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👆🏼" type="tts">شهادت ګوته لاس شاخوا پورته نیول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👆🏽">شهادت ګوته لاس شاخوا پورته نیول | ګوته l لاس l شهادت ګوته l شهادت ګوته پورته نیول l پورته | غنم رنګه</annotation>
+		<annotation cp="👆🏽" type="tts">شهادت ګوته لاس شاخوا پورته نیول: غنم رنګه</annotation>
+		<annotation cp="👆🏾">شهادت ګوته لاس شاخوا پورته نیول | ګوته l لاس l شهادت ګوته l شهادت ګوته پورته نیول l پورته | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👆🏾" type="tts">شهادت ګوته لاس شاخوا پورته نیول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👆🏿">شهادت ګوته لاس شاخوا پورته نیول | ګوته l لاس l شهادت ګوته l شهادت ګوته پورته نیول l پورته | تور پوستکۍ</annotation>
+		<annotation cp="👆🏿" type="tts">شهادت ګوته لاس شاخوا پورته نیول: تور پوستکۍ</annotation>
+		<annotation cp="🖕🏻">منځنې ګوته | ګوته l لاس l منځنې ګوته | روښانه پوستکۍ</annotation>
+		<annotation cp="🖕🏻" type="tts">منځنې ګوته: روښانه پوستکۍ</annotation>
+		<annotation cp="🖕🏼">منځنې ګوته | ګوته l لاس l منځنې ګوته | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🖕🏼" type="tts">منځنې ګوته: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🖕🏽">منځنې ګوته | ګوته l لاس l منځنې ګوته | غنم رنګه</annotation>
+		<annotation cp="🖕🏽" type="tts">منځنې ګوته: غنم رنګه</annotation>
+		<annotation cp="🖕🏾">منځنې ګوته | ګوته l لاس l منځنې ګوته | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🖕🏾" type="tts">منځنې ګوته: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🖕🏿">منځنې ګوته | ګوته l لاس l منځنې ګوته | تور پوستکۍ</annotation>
+		<annotation cp="🖕🏿" type="tts">منځنې ګوته: تور پوستکۍ</annotation>
+		<annotation cp="👇🏻">لاس شاخوا l په شهادت ګوته لاس شاخوا لاندي اشاره کول l لاندي l ګوته l لاس l شهادت ګوته l اشاره | په شهادت ګوته لاس شاخوا لاندي اشاره کول | روښانه پوستکۍ</annotation>
+		<annotation cp="👇🏻" type="tts">په شهادت ګوته لاس شاخوا لاندي اشاره کول: روښانه پوستکۍ</annotation>
+		<annotation cp="👇🏼">لاس شاخوا l په شهادت ګوته لاس شاخوا لاندي اشاره کول l لاندي l ګوته l لاس l شهادت ګوته l اشاره | په شهادت ګوته لاس شاخوا لاندي اشاره کول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👇🏼" type="tts">په شهادت ګوته لاس شاخوا لاندي اشاره کول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👇🏽">لاس شاخوا l په شهادت ګوته لاس شاخوا لاندي اشاره کول l لاندي l ګوته l لاس l شهادت ګوته l اشاره | په شهادت ګوته لاس شاخوا لاندي اشاره کول | غنم رنګه</annotation>
+		<annotation cp="👇🏽" type="tts">په شهادت ګوته لاس شاخوا لاندي اشاره کول: غنم رنګه</annotation>
+		<annotation cp="👇🏾">لاس شاخوا l په شهادت ګوته لاس شاخوا لاندي اشاره کول l لاندي l ګوته l لاس l شهادت ګوته l اشاره | په شهادت ګوته لاس شاخوا لاندي اشاره کول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👇🏾" type="tts">په شهادت ګوته لاس شاخوا لاندي اشاره کول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👇🏿">لاس شاخوا l په شهادت ګوته لاس شاخوا لاندي اشاره کول l لاندي l ګوته l لاس l شهادت ګوته l اشاره | په شهادت ګوته لاس شاخوا لاندي اشاره کول | تور پوستکۍ</annotation>
+		<annotation cp="👇🏿" type="tts">په شهادت ګوته لاس شاخوا لاندي اشاره کول: تور پوستکۍ</annotation>
+		<annotation cp="✌🏻">د بریا نښه | لاس l v l بریا l د بریا نښه | روښانه پوستکۍ</annotation>
+		<annotation cp="✌🏻" type="tts">د بریا نښه: روښانه پوستکۍ</annotation>
+		<annotation cp="✌🏼">د بریا نښه | لاس l v l بریا l د بریا نښه | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="✌🏼" type="tts">د بریا نښه: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="✌🏽">د بریا نښه | لاس l v l بریا l د بریا نښه | غنم رنګه</annotation>
+		<annotation cp="✌🏽" type="tts">د بریا نښه: غنم رنګه</annotation>
+		<annotation cp="✌🏾">د بریا نښه | لاس l v l بریا l د بریا نښه | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="✌🏾" type="tts">د بریا نښه: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="✌🏿">د بریا نښه | لاس l v l بریا l د بریا نښه | تور پوستکۍ</annotation>
+		<annotation cp="✌🏿" type="tts">د بریا نښه: تور پوستکۍ</annotation>
+		<annotation cp="🤞🏻">متقاطع l متقاطع ګوتي l ګوتي l لاس l بخت | متقاطع ګوتي | روښانه پوستکۍ</annotation>
+		<annotation cp="🤞🏻" type="tts">متقاطع ګوتي: روښانه پوستکۍ</annotation>
+		<annotation cp="🤞🏼">متقاطع l متقاطع ګوتي l ګوتي l لاس l بخت | متقاطع ګوتي | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤞🏼" type="tts">متقاطع ګوتي: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤞🏽">متقاطع l متقاطع ګوتي l ګوتي l لاس l بخت | متقاطع ګوتي | غنم رنګه</annotation>
+		<annotation cp="🤞🏽" type="tts">متقاطع ګوتي: غنم رنګه</annotation>
+		<annotation cp="🤞🏾">متقاطع l متقاطع ګوتي l ګوتي l لاس l بخت | متقاطع ګوتي | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤞🏾" type="tts">متقاطع ګوتي: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤞🏿">متقاطع l متقاطع ګوتي l ګوتي l لاس l بخت | متقاطع ګوتي | تور پوستکۍ</annotation>
+		<annotation cp="🤞🏿" type="tts">متقاطع ګوتي: تور پوستکۍ</annotation>
+		<annotation cp="🖖🏻">ښه راغلاست | ګوتي l لاس l ټوپ l ښه l ښه راغلاست | روښانه پوستکۍ</annotation>
+		<annotation cp="🖖🏻" type="tts">ښه راغلاست: روښانه پوستکۍ</annotation>
+		<annotation cp="🖖🏼">ښه راغلاست | ګوتي l لاس l ټوپ l ښه l ښه راغلاست | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🖖🏼" type="tts">ښه راغلاست: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🖖🏽">ښه راغلاست | ګوتي l لاس l ټوپ l ښه l ښه راغلاست | غنم رنګه</annotation>
+		<annotation cp="🖖🏽" type="tts">ښه راغلاست: غنم رنګه</annotation>
+		<annotation cp="🖖🏾">ښه راغلاست | ګوتي l لاس l ټوپ l ښه l ښه راغلاست | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🖖🏾" type="tts">ښه راغلاست: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🖖🏿">ښه راغلاست | ګوتي l لاس l ټوپ l ښه l ښه راغلاست | تور پوستکۍ</annotation>
+		<annotation cp="🖖🏿" type="tts">ښه راغلاست: تور پوستکۍ</annotation>
+		<annotation cp="🤘🏻">دوشاخه | ګوتي l لاس l دوشاخ l مست l دوشاخه | روښانه پوستکۍ</annotation>
+		<annotation cp="🤘🏻" type="tts">دوشاخه: روښانه پوستکۍ</annotation>
+		<annotation cp="🤘🏼">دوشاخه | ګوتي l لاس l دوشاخ l مست l دوشاخه | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤘🏼" type="tts">دوشاخه: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤘🏽">دوشاخه | ګوتي l لاس l دوشاخ l مست l دوشاخه | غنم رنګه</annotation>
+		<annotation cp="🤘🏽" type="tts">دوشاخه: غنم رنګه</annotation>
+		<annotation cp="🤘🏾">دوشاخه | ګوتي l لاس l دوشاخ l مست l دوشاخه | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤘🏾" type="tts">دوشاخه: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤘🏿">دوشاخه | ګوتي l لاس l دوشاخ l مست l دوشاخه | تور پوستکۍ</annotation>
+		<annotation cp="🤘🏿" type="tts">دوشاخه: تور پوستکۍ</annotation>
+		<annotation cp="🤙🏻">زنګ l زنګ وهلو اشاره l لاس | زنګ وهلو اشاره | روښانه پوستکۍ</annotation>
+		<annotation cp="🤙🏻" type="tts">زنګ وهلو اشاره: روښانه پوستکۍ</annotation>
+		<annotation cp="🤙🏼">زنګ l زنګ وهلو اشاره l لاس | زنګ وهلو اشاره | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤙🏼" type="tts">زنګ وهلو اشاره: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤙🏽">زنګ l زنګ وهلو اشاره l لاس | زنګ وهلو اشاره | غنم رنګه</annotation>
+		<annotation cp="🤙🏽" type="tts">زنګ وهلو اشاره: غنم رنګه</annotation>
+		<annotation cp="🤙🏾">زنګ l زنګ وهلو اشاره l لاس | زنګ وهلو اشاره | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤙🏾" type="tts">زنګ وهلو اشاره: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤙🏿">زنګ l زنګ وهلو اشاره l لاس | زنګ وهلو اشاره | تور پوستکۍ</annotation>
+		<annotation cp="🤙🏿" type="tts">زنګ وهلو اشاره: تور پوستکۍ</annotation>
+		<annotation cp="🖐🏻">پنجه | ګوته l لاس l پنجه l پنجه | روښانه پوستکۍ</annotation>
+		<annotation cp="🖐🏻" type="tts">پنجه: روښانه پوستکۍ</annotation>
+		<annotation cp="🖐🏼">پنجه | ګوته l لاس l پنجه l پنجه | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🖐🏼" type="tts">پنجه: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🖐🏽">پنجه | ګوته l لاس l پنجه l پنجه | غنم رنګه</annotation>
+		<annotation cp="🖐🏽" type="tts">پنجه: غنم رنګه</annotation>
+		<annotation cp="🖐🏾">پنجه | ګوته l لاس l پنجه l پنجه | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🖐🏾" type="tts">پنجه: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🖐🏿">پنجه | ګوته l لاس l پنجه l پنجه | تور پوستکۍ</annotation>
+		<annotation cp="🖐🏿" type="tts">پنجه: تور پوستکۍ</annotation>
+		<annotation cp="✋🏻">اوچت لاس | لاس l اوچت لاس | روښانه پوستکۍ</annotation>
+		<annotation cp="✋🏻" type="tts">اوچت لاس: روښانه پوستکۍ</annotation>
+		<annotation cp="✋🏼">اوچت لاس | لاس l اوچت لاس | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="✋🏼" type="tts">اوچت لاس: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="✋🏽">اوچت لاس | لاس l اوچت لاس | غنم رنګه</annotation>
+		<annotation cp="✋🏽" type="tts">اوچت لاس: غنم رنګه</annotation>
+		<annotation cp="✋🏾">اوچت لاس | لاس l اوچت لاس | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="✋🏾" type="tts">اوچت لاس: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="✋🏿">اوچت لاس | لاس l اوچت لاس | تور پوستکۍ</annotation>
+		<annotation cp="✋🏿" type="tts">اوچت لاس: تور پوستکۍ</annotation>
+		<annotation cp="👌🏻">اوکی لاس | لاس l اوکی l اوکی لاس | روښانه پوستکۍ</annotation>
+		<annotation cp="👌🏻" type="tts">اوکی لاس: روښانه پوستکۍ</annotation>
+		<annotation cp="👌🏼">اوکی لاس | لاس l اوکی l اوکی لاس | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👌🏼" type="tts">اوکی لاس: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👌🏽">اوکی لاس | لاس l اوکی l اوکی لاس | غنم رنګه</annotation>
+		<annotation cp="👌🏽" type="tts">اوکی لاس: غنم رنګه</annotation>
+		<annotation cp="👌🏾">اوکی لاس | لاس l اوکی l اوکی لاس | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👌🏾" type="tts">اوکی لاس: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👌🏿">اوکی لاس | لاس l اوکی l اوکی لاس | تور پوستکۍ</annotation>
+		<annotation cp="👌🏿" type="tts">اوکی لاس: تور پوستکۍ</annotation>
+		<annotation cp="👍🏻">+1 l لاس l غټه ګوته l ډیر ښه l پورته | ډیر ښه | روښانه پوستکۍ</annotation>
+		<annotation cp="👍🏻" type="tts">ډیر ښه: روښانه پوستکۍ</annotation>
+		<annotation cp="👍🏼">+1 l لاس l غټه ګوته l ډیر ښه l پورته | ډیر ښه | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👍🏼" type="tts">ډیر ښه: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👍🏽">+1 l لاس l غټه ګوته l ډیر ښه l پورته | ډیر ښه | غنم رنګه</annotation>
+		<annotation cp="👍🏽" type="tts">ډیر ښه: غنم رنګه</annotation>
+		<annotation cp="👍🏾">+1 l لاس l غټه ګوته l ډیر ښه l پورته | ډیر ښه | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👍🏾" type="tts">ډیر ښه: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👍🏿">+1 l لاس l غټه ګوته l ډیر ښه l پورته | ډیر ښه | تور پوستکۍ</annotation>
+		<annotation cp="👍🏿" type="tts">ډیر ښه: تور پوستکۍ</annotation>
+		<annotation cp="👎🏻">+1 l لاس l غټه ګوته l ډیر بد | ډیر بد | روښانه پوستکۍ</annotation>
+		<annotation cp="👎🏻" type="tts">ډیر بد: روښانه پوستکۍ</annotation>
+		<annotation cp="👎🏼">+1 l لاس l غټه ګوته l ډیر بد | ډیر بد | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👎🏼" type="tts">ډیر بد: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👎🏽">+1 l لاس l غټه ګوته l ډیر بد | ډیر بد | غنم رنګه</annotation>
+		<annotation cp="👎🏽" type="tts">ډیر بد: غنم رنګه</annotation>
+		<annotation cp="👎🏾">+1 l لاس l غټه ګوته l ډیر بد | ډیر بد | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👎🏾" type="tts">ډیر بد: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👎🏿">+1 l لاس l غټه ګوته l ډیر بد | ډیر بد | تور پوستکۍ</annotation>
+		<annotation cp="👎🏿" type="tts">ډیر بد: تور پوستکۍ</annotation>
+		<annotation cp="✊🏻">موټي l سوک l لاس l سوک l موټۍ پورته نیول | موټۍ پورته نیول | روښانه پوستکۍ</annotation>
+		<annotation cp="✊🏻" type="tts">موټۍ پورته نیول: روښانه پوستکۍ</annotation>
+		<annotation cp="✊🏼">موټي l سوک l لاس l سوک l موټۍ پورته نیول | موټۍ پورته نیول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="✊🏼" type="tts">موټۍ پورته نیول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="✊🏽">موټي l سوک l لاس l سوک l موټۍ پورته نیول | موټۍ پورته نیول | غنم رنګه</annotation>
+		<annotation cp="✊🏽" type="tts">موټۍ پورته نیول: غنم رنګه</annotation>
+		<annotation cp="✊🏾">موټي l سوک l لاس l سوک l موټۍ پورته نیول | موټۍ پورته نیول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="✊🏾" type="tts">موټۍ پورته نیول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="✊🏿">موټي l سوک l لاس l سوک l موټۍ پورته نیول | موټۍ پورته نیول | تور پوستکۍ</annotation>
+		<annotation cp="✊🏿" type="tts">موټۍ پورته نیول: تور پوستکۍ</annotation>
+		<annotation cp="👊🏻">مخامخ موټۍ | موټۍ l سوک l لاس l مخامخ موټۍ l سوک | روښانه پوستکۍ</annotation>
+		<annotation cp="👊🏻" type="tts">مخامخ موټۍ: روښانه پوستکۍ</annotation>
+		<annotation cp="👊🏼">مخامخ موټۍ | موټۍ l سوک l لاس l مخامخ موټۍ l سوک | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👊🏼" type="tts">مخامخ موټۍ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👊🏽">مخامخ موټۍ | موټۍ l سوک l لاس l مخامخ موټۍ l سوک | غنم رنګه</annotation>
+		<annotation cp="👊🏽" type="tts">مخامخ موټۍ: غنم رنګه</annotation>
+		<annotation cp="👊🏾">مخامخ موټۍ | موټۍ l سوک l لاس l مخامخ موټۍ l سوک | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👊🏾" type="tts">مخامخ موټۍ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👊🏿">مخامخ موټۍ | موټۍ l سوک l لاس l مخامخ موټۍ l سوک | تور پوستکۍ</annotation>
+		<annotation cp="👊🏿" type="tts">مخامخ موټۍ: تور پوستکۍ</annotation>
+		<annotation cp="🤛🏻">موټۍ l چپ موټۍ l چپ خوا | چپ موټۍ | روښانه پوستکۍ</annotation>
+		<annotation cp="🤛🏻" type="tts">چپ موټۍ: روښانه پوستکۍ</annotation>
+		<annotation cp="🤛🏼">موټۍ l چپ موټۍ l چپ خوا | چپ موټۍ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤛🏼" type="tts">چپ موټۍ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤛🏽">موټۍ l چپ موټۍ l چپ خوا | چپ موټۍ | غنم رنګه</annotation>
+		<annotation cp="🤛🏽" type="tts">چپ موټۍ: غنم رنګه</annotation>
+		<annotation cp="🤛🏾">موټۍ l چپ موټۍ l چپ خوا | چپ موټۍ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤛🏾" type="tts">چپ موټۍ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤛🏿">موټۍ l چپ موټۍ l چپ خوا | چپ موټۍ | تور پوستکۍ</annotation>
+		<annotation cp="🤛🏿" type="tts">چپ موټۍ: تور پوستکۍ</annotation>
+		<annotation cp="🤜🏻">موټۍ l ښۍ موټۍ l ښۍ خوا | ښۍ موټۍ | روښانه پوستکۍ</annotation>
+		<annotation cp="🤜🏻" type="tts">ښۍ موټۍ: روښانه پوستکۍ</annotation>
+		<annotation cp="🤜🏼">موټۍ l ښۍ موټۍ l ښۍ خوا | ښۍ موټۍ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤜🏼" type="tts">ښۍ موټۍ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤜🏽">موټۍ l ښۍ موټۍ l ښۍ خوا | ښۍ موټۍ | غنم رنګه</annotation>
+		<annotation cp="🤜🏽" type="tts">ښۍ موټۍ: غنم رنګه</annotation>
+		<annotation cp="🤜🏾">موټۍ l ښۍ موټۍ l ښۍ خوا | ښۍ موټۍ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤜🏾" type="tts">ښۍ موټۍ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤜🏿">موټۍ l ښۍ موټۍ l ښۍ خوا | ښۍ موټۍ | تور پوستکۍ</annotation>
+		<annotation cp="🤜🏿" type="tts">ښۍ موټۍ: تور پوستکۍ</annotation>
+		<annotation cp="🤚🏻">لاس شاخوا l اوچت l لاس شاخوا اچوتول | لاس شاخوا اچوتول | روښانه پوستکۍ</annotation>
+		<annotation cp="🤚🏻" type="tts">لاس شاخوا اچوتول: روښانه پوستکۍ</annotation>
+		<annotation cp="🤚🏼">لاس شاخوا l اوچت l لاس شاخوا اچوتول | لاس شاخوا اچوتول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤚🏼" type="tts">لاس شاخوا اچوتول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤚🏽">لاس شاخوا l اوچت l لاس شاخوا اچوتول | لاس شاخوا اچوتول | غنم رنګه</annotation>
+		<annotation cp="🤚🏽" type="tts">لاس شاخوا اچوتول: غنم رنګه</annotation>
+		<annotation cp="🤚🏾">لاس شاخوا l اوچت l لاس شاخوا اچوتول | لاس شاخوا اچوتول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤚🏾" type="tts">لاس شاخوا اچوتول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤚🏿">لاس شاخوا l اوچت l لاس شاخوا اچوتول | لاس شاخوا اچوتول | تور پوستکۍ</annotation>
+		<annotation cp="🤚🏿" type="tts">لاس شاخوا اچوتول: تور پوستکۍ</annotation>
+		<annotation cp="👋🏻">لاس l خورول l خوځول l لاس خورول | لاس خورول | روښانه پوستکۍ</annotation>
+		<annotation cp="👋🏻" type="tts">لاس خورول: روښانه پوستکۍ</annotation>
+		<annotation cp="👋🏼">لاس l خورول l خوځول l لاس خورول | لاس خورول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👋🏼" type="tts">لاس خورول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👋🏽">لاس l خورول l خوځول l لاس خورول | لاس خورول | غنم رنګه</annotation>
+		<annotation cp="👋🏽" type="tts">لاس خورول: غنم رنګه</annotation>
+		<annotation cp="👋🏾">لاس l خورول l خوځول l لاس خورول | لاس خورول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👋🏾" type="tts">لاس خورول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👋🏿">لاس l خورول l خوځول l لاس خورول | لاس خورول | تور پوستکۍ</annotation>
+		<annotation cp="👋🏿" type="tts">لاس خورول: تور پوستکۍ</annotation>
+		<annotation cp="🤟🏻">د مینې اشاره | لاس l ILY l د مینې اشاره | روښانه پوستکۍ</annotation>
+		<annotation cp="🤟🏻" type="tts">د مینې اشاره: روښانه پوستکۍ</annotation>
+		<annotation cp="🤟🏼">د مینې اشاره | لاس l ILY l د مینې اشاره | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤟🏼" type="tts">د مینې اشاره: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤟🏽">د مینې اشاره | لاس l ILY l د مینې اشاره | غنم رنګه</annotation>
+		<annotation cp="🤟🏽" type="tts">د مینې اشاره: غنم رنګه</annotation>
+		<annotation cp="🤟🏾">د مینې اشاره | لاس l ILY l د مینې اشاره | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤟🏾" type="tts">د مینې اشاره: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤟🏿">د مینې اشاره | لاس l ILY l د مینې اشاره | تور پوستکۍ</annotation>
+		<annotation cp="🤟🏿" type="tts">د مینې اشاره: تور پوستکۍ</annotation>
+		<annotation cp="✍🏻">لاس l لیکل l لیکونکې لاس | لیکونکې لاس | روښانه پوستکۍ</annotation>
+		<annotation cp="✍🏻" type="tts">لیکونکې لاس: روښانه پوستکۍ</annotation>
+		<annotation cp="✍🏼">لاس l لیکل l لیکونکې لاس | لیکونکې لاس | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="✍🏼" type="tts">لیکونکې لاس: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="✍🏽">لاس l لیکل l لیکونکې لاس | لیکونکې لاس | غنم رنګه</annotation>
+		<annotation cp="✍🏽" type="tts">لیکونکې لاس: غنم رنګه</annotation>
+		<annotation cp="✍🏾">لاس l لیکل l لیکونکې لاس | لیکونکې لاس | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="✍🏾" type="tts">لیکونکې لاس: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="✍🏿">لاس l لیکل l لیکونکې لاس | لیکونکې لاس | تور پوستکۍ</annotation>
+		<annotation cp="✍🏿" type="tts">لیکونکې لاس: تور پوستکۍ</annotation>
+		<annotation cp="👏🏻">لاسونه پړکول | پړکول l لاسونه پړکول l لاس | روښانه پوستکۍ</annotation>
+		<annotation cp="👏🏻" type="tts">لاسونه پړکول: روښانه پوستکۍ</annotation>
+		<annotation cp="👏🏼">لاسونه پړکول | پړکول l لاسونه پړکول l لاس | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👏🏼" type="tts">لاسونه پړکول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👏🏽">لاسونه پړکول | پړکول l لاسونه پړکول l لاس | غنم رنګه</annotation>
+		<annotation cp="👏🏽" type="tts">لاسونه پړکول: غنم رنګه</annotation>
+		<annotation cp="👏🏾">لاسونه پړکول | پړکول l لاسونه پړکول l لاس | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👏🏾" type="tts">لاسونه پړکول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👏🏿">لاسونه پړکول | پړکول l لاسونه پړکول l لاس | تور پوستکۍ</annotation>
+		<annotation cp="👏🏿" type="tts">لاسونه پړکول: تور پوستکۍ</annotation>
+		<annotation cp="👐🏻">خلاص لاسونه | لاس l خلاص l خلاص لاسونه | روښانه پوستکۍ</annotation>
+		<annotation cp="👐🏻" type="tts">خلاص لاسونه: روښانه پوستکۍ</annotation>
+		<annotation cp="👐🏼">خلاص لاسونه | لاس l خلاص l خلاص لاسونه | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👐🏼" type="tts">خلاص لاسونه: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👐🏽">خلاص لاسونه | لاس l خلاص l خلاص لاسونه | غنم رنګه</annotation>
+		<annotation cp="👐🏽" type="tts">خلاص لاسونه: غنم رنګه</annotation>
+		<annotation cp="👐🏾">خلاص لاسونه | لاس l خلاص l خلاص لاسونه | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👐🏾" type="tts">خلاص لاسونه: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👐🏿">خلاص لاسونه | لاس l خلاص l خلاص لاسونه | تور پوستکۍ</annotation>
+		<annotation cp="👐🏿" type="tts">خلاص لاسونه: تور پوستکۍ</annotation>
+		<annotation cp="🙌🏻">لاسونه اوچتول | لمانځل l اشاره l لاس l هوری l اوچت l لاسونه اوچول | روښانه پوستکۍ</annotation>
+		<annotation cp="🙌🏻" type="tts">لاسونه اوچتول: روښانه پوستکۍ</annotation>
+		<annotation cp="🙌🏼">لاسونه اوچتول | لمانځل l اشاره l لاس l هوری l اوچت l لاسونه اوچول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙌🏼" type="tts">لاسونه اوچتول: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙌🏽">لاسونه اوچتول | لمانځل l اشاره l لاس l هوری l اوچت l لاسونه اوچول | غنم رنګه</annotation>
+		<annotation cp="🙌🏽" type="tts">لاسونه اوچتول: غنم رنګه</annotation>
+		<annotation cp="🙌🏾">لاسونه اوچتول | لمانځل l اشاره l لاس l هوری l اوچت l لاسونه اوچول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙌🏾" type="tts">لاسونه اوچتول: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙌🏿">لاسونه اوچتول | لمانځل l اشاره l لاس l هوری l اوچت l لاسونه اوچول | تور پوستکۍ</annotation>
+		<annotation cp="🙌🏿" type="tts">لاسونه اوچتول: تور پوستکۍ</annotation>
+		<annotation cp="🤲🏻">لپه لاسونه | لپه لاسونه l عبادت | روښانه پوستکۍ</annotation>
+		<annotation cp="🤲🏻" type="tts">لپه لاسونه: روښانه پوستکۍ</annotation>
+		<annotation cp="🤲🏼">لپه لاسونه | لپه لاسونه l عبادت | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤲🏼" type="tts">لپه لاسونه: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🤲🏽">لپه لاسونه | لپه لاسونه l عبادت | غنم رنګه</annotation>
+		<annotation cp="🤲🏽" type="tts">لپه لاسونه: غنم رنګه</annotation>
+		<annotation cp="🤲🏾">لپه لاسونه | لپه لاسونه l عبادت | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤲🏾" type="tts">لپه لاسونه: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🤲🏿">لپه لاسونه | لپه لاسونه l عبادت | تور پوستکۍ</annotation>
+		<annotation cp="🤲🏿" type="tts">لپه لاسونه: تور پوستکۍ</annotation>
+		<annotation cp="🙏🏻">مننې لاسونه | پوښتنه l غوښتل l بند l مننې لاسونه l اشاره l لاس l مهربانی l عبادت l مننه | روښانه پوستکۍ</annotation>
+		<annotation cp="🙏🏻" type="tts">مننې لاسونه: روښانه پوستکۍ</annotation>
+		<annotation cp="🙏🏼">مننې لاسونه | پوښتنه l غوښتل l بند l مننې لاسونه l اشاره l لاس l مهربانی l عبادت l مننه | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙏🏼" type="tts">مننې لاسونه: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🙏🏽">مننې لاسونه | پوښتنه l غوښتل l بند l مننې لاسونه l اشاره l لاس l مهربانی l عبادت l مننه | غنم رنګه</annotation>
+		<annotation cp="🙏🏽" type="tts">مننې لاسونه: غنم رنګه</annotation>
+		<annotation cp="🙏🏾">مننې لاسونه | پوښتنه l غوښتل l بند l مننې لاسونه l اشاره l لاس l مهربانی l عبادت l مننه | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙏🏾" type="tts">مننې لاسونه: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🙏🏿">مننې لاسونه | پوښتنه l غوښتل l بند l مننې لاسونه l اشاره l لاس l مهربانی l عبادت l مننه | تور پوستکۍ</annotation>
+		<annotation cp="🙏🏿" type="tts">مننې لاسونه: تور پوستکۍ</annotation>
+		<annotation cp="💅🏻">نوکانو رنګ | پاملرنه l کاسمټکیس l مانیکیور l نوک l نوکانو رنګ l رنګ | روښانه پوستکۍ</annotation>
+		<annotation cp="💅🏻" type="tts">نوکانو رنګ: روښانه پوستکۍ</annotation>
+		<annotation cp="💅🏼">نوکانو رنګ | پاملرنه l کاسمټکیس l مانیکیور l نوک l نوکانو رنګ l رنګ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💅🏼" type="tts">نوکانو رنګ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="💅🏽">نوکانو رنګ | پاملرنه l کاسمټکیس l مانیکیور l نوک l نوکانو رنګ l رنګ | غنم رنګه</annotation>
+		<annotation cp="💅🏽" type="tts">نوکانو رنګ: غنم رنګه</annotation>
+		<annotation cp="💅🏾">نوکانو رنګ | پاملرنه l کاسمټکیس l مانیکیور l نوک l نوکانو رنګ l رنګ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💅🏾" type="tts">نوکانو رنګ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="💅🏿">نوکانو رنګ | پاملرنه l کاسمټکیس l مانیکیور l نوک l نوکانو رنګ l رنګ | تور پوستکۍ</annotation>
+		<annotation cp="💅🏿" type="tts">نوکانو رنګ: تور پوستکۍ</annotation>
+		<annotation cp="👂🏻">بدن l غوږ | غوږ | روښانه پوستکۍ</annotation>
+		<annotation cp="👂🏻" type="tts">غوږ: روښانه پوستکۍ</annotation>
+		<annotation cp="👂🏼">بدن l غوږ | غوږ | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👂🏼" type="tts">غوږ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👂🏽">بدن l غوږ | غوږ | غنم رنګه</annotation>
+		<annotation cp="👂🏽" type="tts">غوږ: غنم رنګه</annotation>
+		<annotation cp="👂🏾">بدن l غوږ | غوږ | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👂🏾" type="tts">غوږ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👂🏿">بدن l غوږ | غوږ | تور پوستکۍ</annotation>
+		<annotation cp="👂🏿" type="tts">غوږ: تور پوستکۍ</annotation>
+		<annotation cp="👃🏻">بدن l پوزه | پوزه | روښانه پوستکۍ</annotation>
+		<annotation cp="👃🏻" type="tts">پوزه: روښانه پوستکۍ</annotation>
+		<annotation cp="👃🏼">بدن l پوزه | پوزه | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👃🏼" type="tts">پوزه: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="👃🏽">بدن l پوزه | پوزه | غنم رنګه</annotation>
+		<annotation cp="👃🏽" type="tts">پوزه: غنم رنګه</annotation>
+		<annotation cp="👃🏾">بدن l پوزه | پوزه | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👃🏾" type="tts">پوزه: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="👃🏿">بدن l پوزه | پوزه | تور پوستکۍ</annotation>
+		<annotation cp="👃🏿" type="tts">پوزه: تور پوستکۍ</annotation>
+		<annotation cp="#⃣">کیکاپ</annotation>
+		<annotation cp="#⃣" type="tts">کیکاپ: #</annotation>
+		<annotation cp="*⃣">کیکاپ</annotation>
+		<annotation cp="*⃣" type="tts">کیکاپ: *</annotation>
+		<annotation cp="🔟">کیکاپ</annotation>
+		<annotation cp="🔟" type="tts">کیکاپ: 10</annotation>
+		<annotation cp="🇦🇨">بيرغ</annotation>
+		<annotation cp="🇦🇨" type="tts">بيرغ: د توغندیو ټاپو</annotation>
+		<annotation cp="🇦🇩">بيرغ</annotation>
+		<annotation cp="🇦🇩" type="tts">بيرغ: اندورا</annotation>
+		<annotation cp="🇦🇪">بيرغ</annotation>
+		<annotation cp="🇦🇪" type="tts">بيرغ: متحده عرب امارات</annotation>
+		<annotation cp="🇦🇫">بيرغ</annotation>
+		<annotation cp="🇦🇫" type="tts">بيرغ: افغانستان</annotation>
+		<annotation cp="🇦🇬">بيرغ</annotation>
+		<annotation cp="🇦🇬" type="tts">بيرغ: انټيګوا او باربودا</annotation>
+		<annotation cp="🇦🇮">بيرغ</annotation>
+		<annotation cp="🇦🇮" type="tts">بيرغ: انګیلا</annotation>
+		<annotation cp="🇦🇱">بيرغ</annotation>
+		<annotation cp="🇦🇱" type="tts">بيرغ: البانیه</annotation>
+		<annotation cp="🇦🇲">بيرغ</annotation>
+		<annotation cp="🇦🇲" type="tts">بيرغ: ارمنستان</annotation>
+		<annotation cp="🇦🇴">بيرغ</annotation>
+		<annotation cp="🇦🇴" type="tts">بيرغ: انګولا</annotation>
+		<annotation cp="🇦🇶">بيرغ</annotation>
+		<annotation cp="🇦🇶" type="tts">بيرغ: انتارکتیکا</annotation>
+		<annotation cp="🇦🇷">بيرغ</annotation>
+		<annotation cp="🇦🇷" type="tts">بيرغ: ارژنټاین</annotation>
+		<annotation cp="🇦🇸">بيرغ</annotation>
+		<annotation cp="🇦🇸" type="tts">بيرغ: امریکایی سمو</annotation>
+		<annotation cp="🇦🇹">بيرغ</annotation>
+		<annotation cp="🇦🇹" type="tts">بيرغ: اتریش</annotation>
+		<annotation cp="🇦🇺">بيرغ</annotation>
+		<annotation cp="🇦🇺" type="tts">بيرغ: آسټرالیا</annotation>
+		<annotation cp="🇦🇼">بيرغ</annotation>
+		<annotation cp="🇦🇼" type="tts">بيرغ: آروبا</annotation>
+		<annotation cp="🇦🇽">بيرغ</annotation>
+		<annotation cp="🇦🇽" type="tts">بيرغ: الاند ټاپوان</annotation>
+		<annotation cp="🇦🇿">بيرغ</annotation>
+		<annotation cp="🇦🇿" type="tts">بيرغ: اذربايجان</annotation>
+		<annotation cp="🇧🇦">بيرغ</annotation>
+		<annotation cp="🇧🇦" type="tts">بيرغ: بوسنيا او هېرزګوينا</annotation>
+		<annotation cp="🇧🇧">بيرغ</annotation>
+		<annotation cp="🇧🇧" type="tts">بيرغ: باربادوس</annotation>
+		<annotation cp="🇧🇩">بيرغ</annotation>
+		<annotation cp="🇧🇩" type="tts">بيرغ: بنگله دېش</annotation>
+		<annotation cp="🇧🇪">بيرغ</annotation>
+		<annotation cp="🇧🇪" type="tts">بيرغ: بیلجیم</annotation>
+		<annotation cp="🇧🇫">بيرغ</annotation>
+		<annotation cp="🇧🇫" type="tts">بيرغ: بورکینا فاسو</annotation>
+		<annotation cp="🇧🇬">بيرغ</annotation>
+		<annotation cp="🇧🇬" type="tts">بيرغ: بلغاریه</annotation>
+		<annotation cp="🇧🇭">بيرغ</annotation>
+		<annotation cp="🇧🇭" type="tts">بيرغ: بحرين</annotation>
+		<annotation cp="🇧🇮">بيرغ</annotation>
+		<annotation cp="🇧🇮" type="tts">بيرغ: بروندي</annotation>
+		<annotation cp="🇧🇯">بيرغ</annotation>
+		<annotation cp="🇧🇯" type="tts">بيرغ: بینن</annotation>
+		<annotation cp="🇧🇱">بيرغ</annotation>
+		<annotation cp="🇧🇱" type="tts">بيرغ: سینټ بارټیلیټی</annotation>
+		<annotation cp="🇧🇲">بيرغ</annotation>
+		<annotation cp="🇧🇲" type="tts">بيرغ: برمودا</annotation>
+		<annotation cp="🇧🇳">بيرغ</annotation>
+		<annotation cp="🇧🇳" type="tts">بيرغ: بروني</annotation>
+		<annotation cp="🇧🇴">بيرغ</annotation>
+		<annotation cp="🇧🇴" type="tts">بيرغ: بولیویا</annotation>
+		<annotation cp="🇧🇶">بيرغ</annotation>
+		<annotation cp="🇧🇶" type="tts">بيرغ: کیریبین هالینډ</annotation>
+		<annotation cp="🇧🇷">بيرغ</annotation>
+		<annotation cp="🇧🇷" type="tts">بيرغ: برازیل</annotation>
+		<annotation cp="🇧🇸">بيرغ</annotation>
+		<annotation cp="🇧🇸" type="tts">بيرغ: باهاما</annotation>
+		<annotation cp="🇧🇹">بيرغ</annotation>
+		<annotation cp="🇧🇹" type="tts">بيرغ: بهوټان</annotation>
+		<annotation cp="🇧🇻">بيرغ</annotation>
+		<annotation cp="🇧🇻" type="tts">بيرغ: بوویټ ټاپو</annotation>
+		<annotation cp="🇧🇼">بيرغ</annotation>
+		<annotation cp="🇧🇼" type="tts">بيرغ: بوتسوانه</annotation>
+		<annotation cp="🇧🇾">بيرغ</annotation>
+		<annotation cp="🇧🇾" type="tts">بيرغ: بیلاروس</annotation>
+		<annotation cp="🇧🇿">بيرغ</annotation>
+		<annotation cp="🇧🇿" type="tts">بيرغ: بلیز</annotation>
+		<annotation cp="🇨🇦">بيرغ</annotation>
+		<annotation cp="🇨🇦" type="tts">بيرغ: کاناډا</annotation>
+		<annotation cp="🇨🇨">بيرغ</annotation>
+		<annotation cp="🇨🇨" type="tts">بيرغ: کوکوز (کیبل) ټاپوګانې</annotation>
+		<annotation cp="🇨🇩">بيرغ</annotation>
+		<annotation cp="🇨🇩" type="tts">بيرغ: کانګو - کینشاسا</annotation>
+		<annotation cp="🇨🇫">بيرغ</annotation>
+		<annotation cp="🇨🇫" type="tts">بيرغ: د مرکزي افریقا جمهوریت</annotation>
+		<annotation cp="🇨🇬">بيرغ</annotation>
+		<annotation cp="🇨🇬" type="tts">بيرغ: کانګو - بروزوییل</annotation>
+		<annotation cp="🇨🇭">بيرغ</annotation>
+		<annotation cp="🇨🇭" type="tts">بيرغ: سویس</annotation>
+		<annotation cp="🇨🇮">بيرغ</annotation>
+		<annotation cp="🇨🇮" type="tts">بيرغ: د عاج ساحل</annotation>
+		<annotation cp="🇨🇰">بيرغ</annotation>
+		<annotation cp="🇨🇰" type="tts">بيرغ: کوک ټاپوګان</annotation>
+		<annotation cp="🇨🇱">بيرغ</annotation>
+		<annotation cp="🇨🇱" type="tts">بيرغ: چیلي</annotation>
+		<annotation cp="🇨🇲">بيرغ</annotation>
+		<annotation cp="🇨🇲" type="tts">بيرغ: کامرون</annotation>
+		<annotation cp="🇨🇳">بيرغ</annotation>
+		<annotation cp="🇨🇳" type="tts">بيرغ: چین</annotation>
+		<annotation cp="🇨🇴">بيرغ</annotation>
+		<annotation cp="🇨🇴" type="tts">بيرغ: کولمبیا</annotation>
+		<annotation cp="🇨🇵">بيرغ</annotation>
+		<annotation cp="🇨🇵" type="tts">بيرغ: د کلپرټون ټاپو</annotation>
+		<annotation cp="🇨🇷">بيرغ</annotation>
+		<annotation cp="🇨🇷" type="tts">بيرغ: کوستاریکا</annotation>
+		<annotation cp="🇨🇺">بيرغ</annotation>
+		<annotation cp="🇨🇺" type="tts">بيرغ: کیوبا</annotation>
+		<annotation cp="🇨🇻">بيرغ</annotation>
+		<annotation cp="🇨🇻" type="tts">بيرغ: کیپ ورد</annotation>
+		<annotation cp="🇨🇼">بيرغ</annotation>
+		<annotation cp="🇨🇼" type="tts">بيرغ: کوکوکا</annotation>
+		<annotation cp="🇨🇽">بيرغ</annotation>
+		<annotation cp="🇨🇽" type="tts">بيرغ: د کریساس ټاپو</annotation>
+		<annotation cp="🇨🇾">بيرغ</annotation>
+		<annotation cp="🇨🇾" type="tts">بيرغ: قبرس</annotation>
+		<annotation cp="🇨🇿">بيرغ</annotation>
+		<annotation cp="🇨🇿" type="tts">بيرغ: چکیا</annotation>
+		<annotation cp="🇩🇪">بيرغ</annotation>
+		<annotation cp="🇩🇪" type="tts">بيرغ: المان</annotation>
+		<annotation cp="🇩🇬">بيرغ</annotation>
+		<annotation cp="🇩🇬" type="tts">بيرغ: ډایګو ګارسیا</annotation>
+		<annotation cp="🇩🇯">بيرغ</annotation>
+		<annotation cp="🇩🇯" type="tts">بيرغ: جی بوتي</annotation>
+		<annotation cp="🇩🇰">بيرغ</annotation>
+		<annotation cp="🇩🇰" type="tts">بيرغ: ډنمارک</annotation>
+		<annotation cp="🇩🇲">بيرغ</annotation>
+		<annotation cp="🇩🇲" type="tts">بيرغ: دومینیکا</annotation>
+		<annotation cp="🇩🇴">بيرغ</annotation>
+		<annotation cp="🇩🇴" type="tts">بيرغ: دومینیکن جمهوريت</annotation>
+		<annotation cp="🇩🇿">بيرغ</annotation>
+		<annotation cp="🇩🇿" type="tts">بيرغ: الجزایر</annotation>
+		<annotation cp="🇪🇦">بيرغ</annotation>
+		<annotation cp="🇪🇦" type="tts">بيرغ: سئوتا او مالایا</annotation>
+		<annotation cp="🇪🇨">بيرغ</annotation>
+		<annotation cp="🇪🇨" type="tts">بيرغ: اکوادور</annotation>
+		<annotation cp="🇪🇪">بيرغ</annotation>
+		<annotation cp="🇪🇪" type="tts">بيرغ: استونیا</annotation>
+		<annotation cp="🇪🇬">بيرغ</annotation>
+		<annotation cp="🇪🇬" type="tts">بيرغ: مصر</annotation>
+		<annotation cp="🇪🇭">بيرغ</annotation>
+		<annotation cp="🇪🇭" type="tts">بيرغ: لویدیځ صحرا</annotation>
+		<annotation cp="🇪🇷">بيرغ</annotation>
+		<annotation cp="🇪🇷" type="tts">بيرغ: اریتره</annotation>
+		<annotation cp="🇪🇸">بيرغ</annotation>
+		<annotation cp="🇪🇸" type="tts">بيرغ: هسپانیه</annotation>
+		<annotation cp="🇪🇹">بيرغ</annotation>
+		<annotation cp="🇪🇹" type="tts">بيرغ: حبشه</annotation>
+		<annotation cp="🇪🇺">بيرغ</annotation>
+		<annotation cp="🇪🇺" type="tts">بيرغ: اروپايي اتحاديه</annotation>
+		<annotation cp="🇫🇮">بيرغ</annotation>
+		<annotation cp="🇫🇮" type="tts">بيرغ: فنلینډ</annotation>
+		<annotation cp="🇫🇯">بيرغ</annotation>
+		<annotation cp="🇫🇯" type="tts">بيرغ: في جي</annotation>
+		<annotation cp="🇫🇰">بيرغ</annotation>
+		<annotation cp="🇫🇰" type="tts">بيرغ: فوکلنډ ټاپو</annotation>
+		<annotation cp="🇫🇲">بيرغ</annotation>
+		<annotation cp="🇫🇲" type="tts">بيرغ: میکرونیزیا</annotation>
+		<annotation cp="🇫🇴">بيرغ</annotation>
+		<annotation cp="🇫🇴" type="tts">بيرغ: فارو ټاپو</annotation>
+		<annotation cp="🇫🇷">بيرغ</annotation>
+		<annotation cp="🇫🇷" type="tts">بيرغ: فرانسه</annotation>
+		<annotation cp="🇬🇦">بيرغ</annotation>
+		<annotation cp="🇬🇦" type="tts">بيرغ: ګابن</annotation>
+		<annotation cp="🇬🇧">بيرغ</annotation>
+		<annotation cp="🇬🇧" type="tts">بيرغ: برتانیه</annotation>
+		<annotation cp="🇬🇩">بيرغ</annotation>
+		<annotation cp="🇬🇩" type="tts">بيرغ: ګرنادا</annotation>
+		<annotation cp="🇬🇪">بيرغ</annotation>
+		<annotation cp="🇬🇪" type="tts">بيرغ: گورجستان</annotation>
+		<annotation cp="🇬🇫">بيرغ</annotation>
+		<annotation cp="🇬🇫" type="tts">بيرغ: فرانسوي ګانا</annotation>
+		<annotation cp="🇬🇬">بيرغ</annotation>
+		<annotation cp="🇬🇬" type="tts">بيرغ: ګرنسي</annotation>
+		<annotation cp="🇬🇭">بيرغ</annotation>
+		<annotation cp="🇬🇭" type="tts">بيرغ: ګانا</annotation>
+		<annotation cp="🇬🇮">بيرغ</annotation>
+		<annotation cp="🇬🇮" type="tts">بيرغ: جبل الطارق</annotation>
+		<annotation cp="🇬🇱">بيرغ</annotation>
+		<annotation cp="🇬🇱" type="tts">بيرغ: ګرینلینډ</annotation>
+		<annotation cp="🇬🇲">بيرغ</annotation>
+		<annotation cp="🇬🇲" type="tts">بيرغ: ګامبیا</annotation>
+		<annotation cp="🇬🇳">بيرغ</annotation>
+		<annotation cp="🇬🇳" type="tts">بيرغ: ګینه</annotation>
+		<annotation cp="🇬🇵">بيرغ</annotation>
+		<annotation cp="🇬🇵" type="tts">بيرغ: ګالډیپ</annotation>
+		<annotation cp="🇬🇶">بيرغ</annotation>
+		<annotation cp="🇬🇶" type="tts">بيرغ: استوایی ګینه</annotation>
+		<annotation cp="🇬🇷">بيرغ</annotation>
+		<annotation cp="🇬🇷" type="tts">بيرغ: یونان</annotation>
+		<annotation cp="🇬🇸">بيرغ</annotation>
+		<annotation cp="🇬🇸" type="tts">بيرغ: سویل جورجیا او جنوبي سینڈوچ ټاپو</annotation>
+		<annotation cp="🇬🇹">بيرغ</annotation>
+		<annotation cp="🇬🇹" type="tts">بيرغ: ګواتیمالا</annotation>
+		<annotation cp="🇬🇺">بيرغ</annotation>
+		<annotation cp="🇬🇺" type="tts">بيرغ: ګوام</annotation>
+		<annotation cp="🇬🇼">بيرغ</annotation>
+		<annotation cp="🇬🇼" type="tts">بيرغ: ګینه بیسو</annotation>
+		<annotation cp="🇬🇾">بيرغ</annotation>
+		<annotation cp="🇬🇾" type="tts">بيرغ: ګیانا</annotation>
+		<annotation cp="🇭🇰">بيرغ</annotation>
+		<annotation cp="🇭🇰" type="tts">بيرغ: هانګ کانګ SAR چین</annotation>
+		<annotation cp="🇭🇲">بيرغ</annotation>
+		<annotation cp="🇭🇲" type="tts">بيرغ: HM</annotation>
+		<annotation cp="🇭🇳">بيرغ</annotation>
+		<annotation cp="🇭🇳" type="tts">بيرغ: هانډوراس</annotation>
+		<annotation cp="🇭🇷">بيرغ</annotation>
+		<annotation cp="🇭🇷" type="tts">بيرغ: کرواثیا</annotation>
+		<annotation cp="🇭🇹">بيرغ</annotation>
+		<annotation cp="🇭🇹" type="tts">بيرغ: هایټي</annotation>
+		<annotation cp="🇭🇺">بيرغ</annotation>
+		<annotation cp="🇭🇺" type="tts">بيرغ: مجارستان</annotation>
+		<annotation cp="🇮🇨">بيرغ</annotation>
+		<annotation cp="🇮🇨" type="tts">بيرغ: د کانري ټاپو</annotation>
+		<annotation cp="🇮🇩">بيرغ</annotation>
+		<annotation cp="🇮🇩" type="tts">بيرغ: اندونیزیا</annotation>
+		<annotation cp="🇮🇪">بيرغ</annotation>
+		<annotation cp="🇮🇪" type="tts">بيرغ: ایرلینډ</annotation>
+		<annotation cp="🇮🇱">بيرغ</annotation>
+		<annotation cp="🇮🇱" type="tts">بيرغ: اسراييل</annotation>
+		<annotation cp="🇮🇲">بيرغ</annotation>
+		<annotation cp="🇮🇲" type="tts">بيرغ: د آئل آف مین</annotation>
+		<annotation cp="🇮🇳">بيرغ</annotation>
+		<annotation cp="🇮🇳" type="tts">بيرغ: هند</annotation>
+		<annotation cp="🇮🇴">بيرغ</annotation>
+		<annotation cp="🇮🇴" type="tts">بيرغ: د هند سمندر سمندر سیمه</annotation>
+		<annotation cp="🇮🇶">بيرغ</annotation>
+		<annotation cp="🇮🇶" type="tts">بيرغ: عراق</annotation>
+		<annotation cp="🇮🇷">بيرغ</annotation>
+		<annotation cp="🇮🇷" type="tts">بيرغ: ايران</annotation>
+		<annotation cp="🇮🇸">بيرغ</annotation>
+		<annotation cp="🇮🇸" type="tts">بيرغ: آیسلینډ</annotation>
+		<annotation cp="🇮🇹">بيرغ</annotation>
+		<annotation cp="🇮🇹" type="tts">بيرغ: ایټالیه</annotation>
+		<annotation cp="🇯🇪">بيرغ</annotation>
+		<annotation cp="🇯🇪" type="tts">بيرغ: جرسی</annotation>
+		<annotation cp="🇯🇲">بيرغ</annotation>
+		<annotation cp="🇯🇲" type="tts">بيرغ: جمیکا</annotation>
+		<annotation cp="🇯🇴">بيرغ</annotation>
+		<annotation cp="🇯🇴" type="tts">بيرغ: اردن</annotation>
+		<annotation cp="🇯🇵">بيرغ</annotation>
+		<annotation cp="🇯🇵" type="tts">بيرغ: جاپان</annotation>
+		<annotation cp="🇰🇪">بيرغ</annotation>
+		<annotation cp="🇰🇪" type="tts">بيرغ: کینیا</annotation>
+		<annotation cp="🇰🇬">بيرغ</annotation>
+		<annotation cp="🇰🇬" type="tts">بيرغ: قرغزستان</annotation>
+		<annotation cp="🇰🇭">بيرغ</annotation>
+		<annotation cp="🇰🇭" type="tts">بيرغ: کمبودیا</annotation>
+		<annotation cp="🇰🇮">بيرغ</annotation>
+		<annotation cp="🇰🇮" type="tts">بيرغ: کیري باتي</annotation>
+		<annotation cp="🇰🇲">بيرغ</annotation>
+		<annotation cp="🇰🇲" type="tts">بيرغ: کوموروس</annotation>
+		<annotation cp="🇰🇳">بيرغ</annotation>
+		<annotation cp="🇰🇳" type="tts">بيرغ: سینټ کټس او نیویس</annotation>
+		<annotation cp="🇰🇵">بيرغ</annotation>
+		<annotation cp="🇰🇵" type="tts">بيرغ: شمالی کوریا</annotation>
+		<annotation cp="🇰🇷">بيرغ</annotation>
+		<annotation cp="🇰🇷" type="tts">بيرغ: سویلي کوریا</annotation>
+		<annotation cp="🇰🇼">بيرغ</annotation>
+		<annotation cp="🇰🇼" type="tts">بيرغ: کویټ</annotation>
+		<annotation cp="🇰🇾">بيرغ</annotation>
+		<annotation cp="🇰🇾" type="tts">بيرغ: کیمان ټاپوګان</annotation>
+		<annotation cp="🇰🇿">بيرغ</annotation>
+		<annotation cp="🇰🇿" type="tts">بيرغ: قزاقستان</annotation>
+		<annotation cp="🇱🇦">بيرغ</annotation>
+		<annotation cp="🇱🇦" type="tts">بيرغ: لاووس</annotation>
+		<annotation cp="🇱🇧">بيرغ</annotation>
+		<annotation cp="🇱🇧" type="tts">بيرغ: لېبنان</annotation>
+		<annotation cp="🇱🇨">بيرغ</annotation>
+		<annotation cp="🇱🇨" type="tts">بيرغ: سینټ لوسیا</annotation>
+		<annotation cp="🇱🇮">بيرغ</annotation>
+		<annotation cp="🇱🇮" type="tts">بيرغ: لیختن اشتاین</annotation>
+		<annotation cp="🇱🇰">بيرغ</annotation>
+		<annotation cp="🇱🇰" type="tts">بيرغ: سريلانکا</annotation>
+		<annotation cp="🇱🇷">بيرغ</annotation>
+		<annotation cp="🇱🇷" type="tts">بيرغ: لایبریا</annotation>
+		<annotation cp="🇱🇸">بيرغ</annotation>
+		<annotation cp="🇱🇸" type="tts">بيرغ: لسوتو</annotation>
+		<annotation cp="🇱🇹">بيرغ</annotation>
+		<annotation cp="🇱🇹" type="tts">بيرغ: لیتوانیا</annotation>
+		<annotation cp="🇱🇺">بيرغ</annotation>
+		<annotation cp="🇱🇺" type="tts">بيرغ: لوګزامبورګ</annotation>
+		<annotation cp="🇱🇻">بيرغ</annotation>
+		<annotation cp="🇱🇻" type="tts">بيرغ: لتوني</annotation>
+		<annotation cp="🇱🇾">بيرغ</annotation>
+		<annotation cp="🇱🇾" type="tts">بيرغ: لیبیا</annotation>
+		<annotation cp="🇲🇦">بيرغ</annotation>
+		<annotation cp="🇲🇦" type="tts">بيرغ: مراکش</annotation>
+		<annotation cp="🇲🇨">بيرغ</annotation>
+		<annotation cp="🇲🇨" type="tts">بيرغ: موناکو</annotation>
+		<annotation cp="🇲🇩">بيرغ</annotation>
+		<annotation cp="🇲🇩" type="tts">بيرغ: مولدوا</annotation>
+		<annotation cp="🇲🇪">بيرغ</annotation>
+		<annotation cp="🇲🇪" type="tts">بيرغ: مونټینیګرو</annotation>
+		<annotation cp="🇲🇫">بيرغ</annotation>
+		<annotation cp="🇲🇫" type="tts">بيرغ: سینټ مارټن</annotation>
+		<annotation cp="🇲🇬">بيرغ</annotation>
+		<annotation cp="🇲🇬" type="tts">بيرغ: مدګاسکار</annotation>
+		<annotation cp="🇲🇭">بيرغ</annotation>
+		<annotation cp="🇲🇭" type="tts">بيرغ: مارشال ټاپو</annotation>
+		<annotation cp="🇲🇰">بيرغ</annotation>
+		<annotation cp="🇲🇰" type="tts">بيرغ: مقدونیه</annotation>
+		<annotation cp="🇲🇱">بيرغ</annotation>
+		<annotation cp="🇲🇱" type="tts">بيرغ: مالي</annotation>
+		<annotation cp="🇲🇲">بيرغ</annotation>
+		<annotation cp="🇲🇲" type="tts">بيرغ: ميانامار (برما)</annotation>
+		<annotation cp="🇲🇳">بيرغ</annotation>
+		<annotation cp="🇲🇳" type="tts">بيرغ: مغولستان</annotation>
+		<annotation cp="🇲🇴">بيرغ</annotation>
+		<annotation cp="🇲🇴" type="tts">بيرغ: مکا سار چین</annotation>
+		<annotation cp="🇲🇵">بيرغ</annotation>
+		<annotation cp="🇲🇵" type="tts">بيرغ: شمالي ماریانا ټاپو</annotation>
+		<annotation cp="🇲🇶">بيرغ</annotation>
+		<annotation cp="🇲🇶" type="tts">بيرغ: مارټینیک</annotation>
+		<annotation cp="🇲🇷">بيرغ</annotation>
+		<annotation cp="🇲🇷" type="tts">بيرغ: موریتانیا</annotation>
+		<annotation cp="🇲🇸">بيرغ</annotation>
+		<annotation cp="🇲🇸" type="tts">بيرغ: مانټیسیرت</annotation>
+		<annotation cp="🇲🇹">بيرغ</annotation>
+		<annotation cp="🇲🇹" type="tts">بيرغ: مالتا</annotation>
+		<annotation cp="🇲🇺">بيرغ</annotation>
+		<annotation cp="🇲🇺" type="tts">بيرغ: موریشیس</annotation>
+		<annotation cp="🇲🇻">بيرغ</annotation>
+		<annotation cp="🇲🇻" type="tts">بيرغ: مالديپ</annotation>
+		<annotation cp="🇲🇼">بيرغ</annotation>
+		<annotation cp="🇲🇼" type="tts">بيرغ: مالاوي</annotation>
+		<annotation cp="🇲🇽">بيرغ</annotation>
+		<annotation cp="🇲🇽" type="tts">بيرغ: میکسیکو</annotation>
+		<annotation cp="🇲🇾">بيرغ</annotation>
+		<annotation cp="🇲🇾" type="tts">بيرغ: مالیزیا</annotation>
+		<annotation cp="🇲🇿">بيرغ</annotation>
+		<annotation cp="🇲🇿" type="tts">بيرغ: موزمبیک</annotation>
+		<annotation cp="🇳🇦">بيرغ</annotation>
+		<annotation cp="🇳🇦" type="tts">بيرغ: نیمبیا</annotation>
+		<annotation cp="🇳🇨">بيرغ</annotation>
+		<annotation cp="🇳🇨" type="tts">بيرغ: نوی کالیډونیا</annotation>
+		<annotation cp="🇳🇪">بيرغ</annotation>
+		<annotation cp="🇳🇪" type="tts">بيرغ: نیجر</annotation>
+		<annotation cp="🇳🇫">بيرغ</annotation>
+		<annotation cp="🇳🇫" type="tts">بيرغ: نارفولک ټاپوګان</annotation>
+		<annotation cp="🇳🇬">بيرغ</annotation>
+		<annotation cp="🇳🇬" type="tts">بيرغ: نایجیریا</annotation>
+		<annotation cp="🇳🇮">بيرغ</annotation>
+		<annotation cp="🇳🇮" type="tts">بيرغ: نکاراګوا</annotation>
+		<annotation cp="🇳🇱">بيرغ</annotation>
+		<annotation cp="🇳🇱" type="tts">بيرغ: هالېنډ</annotation>
+		<annotation cp="🇳🇴">بيرغ</annotation>
+		<annotation cp="🇳🇴" type="tts">بيرغ: ناروۍ</annotation>
+		<annotation cp="🇳🇵">بيرغ</annotation>
+		<annotation cp="🇳🇵" type="tts">بيرغ: نیپال</annotation>
+		<annotation cp="🇳🇷">بيرغ</annotation>
+		<annotation cp="🇳🇷" type="tts">بيرغ: نایرو</annotation>
+		<annotation cp="🇳🇺">بيرغ</annotation>
+		<annotation cp="🇳🇺" type="tts">بيرغ: نیوو</annotation>
+		<annotation cp="🇳🇿">بيرغ</annotation>
+		<annotation cp="🇳🇿" type="tts">بيرغ: نیوزیلنډ</annotation>
+		<annotation cp="🇴🇲">بيرغ</annotation>
+		<annotation cp="🇴🇲" type="tts">بيرغ: عمان</annotation>
+		<annotation cp="🇵🇦">بيرغ</annotation>
+		<annotation cp="🇵🇦" type="tts">بيرغ: پاناما</annotation>
+		<annotation cp="🇵🇪">بيرغ</annotation>
+		<annotation cp="🇵🇪" type="tts">بيرغ: پیرو</annotation>
+		<annotation cp="🇵🇫">بيرغ</annotation>
+		<annotation cp="🇵🇫" type="tts">بيرغ: فرانسوي پولینیا</annotation>
+		<annotation cp="🇵🇬">بيرغ</annotation>
+		<annotation cp="🇵🇬" type="tts">بيرغ: پاپ نيو ګيني، د يو هېواد نوم دې</annotation>
+		<annotation cp="🇵🇭">بيرغ</annotation>
+		<annotation cp="🇵🇭" type="tts">بيرغ: فلپين</annotation>
+		<annotation cp="🇵🇰">بيرغ</annotation>
+		<annotation cp="🇵🇰" type="tts">بيرغ: پاکستان</annotation>
+		<annotation cp="🇵🇱">بيرغ</annotation>
+		<annotation cp="🇵🇱" type="tts">بيرغ: پولنډ</annotation>
+		<annotation cp="🇵🇲">بيرغ</annotation>
+		<annotation cp="🇵🇲" type="tts">بيرغ: سینټ پییر او میکولون</annotation>
+		<annotation cp="🇵🇳">بيرغ</annotation>
+		<annotation cp="🇵🇳" type="tts">بيرغ: پیټکیرن ټاپو</annotation>
+		<annotation cp="🇵🇷">بيرغ</annotation>
+		<annotation cp="🇵🇷" type="tts">بيرغ: پورتو ریکو</annotation>
+		<annotation cp="🇵🇸">بيرغ</annotation>
+		<annotation cp="🇵🇸" type="tts">بيرغ: فلسطين سيمې</annotation>
+		<annotation cp="🇵🇹">بيرغ</annotation>
+		<annotation cp="🇵🇹" type="tts">بيرغ: پورتګال</annotation>
+		<annotation cp="🇵🇼">بيرغ</annotation>
+		<annotation cp="🇵🇼" type="tts">بيرغ: پلو</annotation>
+		<annotation cp="🇵🇾">بيرغ</annotation>
+		<annotation cp="🇵🇾" type="tts">بيرغ: پاراګوی</annotation>
+		<annotation cp="🇶🇦">بيرغ</annotation>
+		<annotation cp="🇶🇦" type="tts">بيرغ: قطر</annotation>
+		<annotation cp="🇷🇪">بيرغ</annotation>
+		<annotation cp="🇷🇪" type="tts">بيرغ: ریونین</annotation>
+		<annotation cp="🇷🇴">بيرغ</annotation>
+		<annotation cp="🇷🇴" type="tts">بيرغ: رومانیا</annotation>
+		<annotation cp="🇷🇸">بيرغ</annotation>
+		<annotation cp="🇷🇸" type="tts">بيرغ: صربیا</annotation>
+		<annotation cp="🇷🇺">بيرغ</annotation>
+		<annotation cp="🇷🇺" type="tts">بيرغ: روسیه</annotation>
+		<annotation cp="🇷🇼">بيرغ</annotation>
+		<annotation cp="🇷🇼" type="tts">بيرغ: روندا</annotation>
+		<annotation cp="🇸🇦">بيرغ</annotation>
+		<annotation cp="🇸🇦" type="tts">بيرغ: سعودي عربستان</annotation>
+		<annotation cp="🇸🇧">بيرغ</annotation>
+		<annotation cp="🇸🇧" type="tts">بيرغ: سلیمان ټاپو</annotation>
+		<annotation cp="🇸🇨">بيرغ</annotation>
+		<annotation cp="🇸🇨" type="tts">بيرغ: سیچیلیس</annotation>
+		<annotation cp="🇸🇩">بيرغ</annotation>
+		<annotation cp="🇸🇩" type="tts">بيرغ: سوډان</annotation>
+		<annotation cp="🇸🇪">بيرغ</annotation>
+		<annotation cp="🇸🇪" type="tts">بيرغ: سویډن</annotation>
+		<annotation cp="🇸🇬">بيرغ</annotation>
+		<annotation cp="🇸🇬" type="tts">بيرغ: سينگاپور</annotation>
+		<annotation cp="🇸🇭">بيرغ</annotation>
+		<annotation cp="🇸🇭" type="tts">بيرغ: سینټ هیلینا</annotation>
+		<annotation cp="🇸🇮">بيرغ</annotation>
+		<annotation cp="🇸🇮" type="tts">بيرغ: سلوانیا</annotation>
+		<annotation cp="🇸🇯">بيرغ</annotation>
+		<annotation cp="🇸🇯" type="tts">بيرغ: سلواډر او جان میین</annotation>
+		<annotation cp="🇸🇰">بيرغ</annotation>
+		<annotation cp="🇸🇰" type="tts">بيرغ: سلواکیا</annotation>
+		<annotation cp="🇸🇱">بيرغ</annotation>
+		<annotation cp="🇸🇱" type="tts">بيرغ: سییرا لیون</annotation>
+		<annotation cp="🇸🇲">بيرغ</annotation>
+		<annotation cp="🇸🇲" type="tts">بيرغ: سان مارینو</annotation>
+		<annotation cp="🇸🇳">بيرغ</annotation>
+		<annotation cp="🇸🇳" type="tts">بيرغ: سنګال</annotation>
+		<annotation cp="🇸🇴">بيرغ</annotation>
+		<annotation cp="🇸🇴" type="tts">بيرغ: سومالیا</annotation>
+		<annotation cp="🇸🇷">بيرغ</annotation>
+		<annotation cp="🇸🇷" type="tts">بيرغ: سورینام</annotation>
+		<annotation cp="🇸🇸">بيرغ</annotation>
+		<annotation cp="🇸🇸" type="tts">بيرغ: جنوبي سوډان</annotation>
+		<annotation cp="🇸🇹">بيرغ</annotation>
+		<annotation cp="🇸🇹" type="tts">بيرغ: ساو ټیم او پرنسیپ</annotation>
+		<annotation cp="🇸🇻">بيرغ</annotation>
+		<annotation cp="🇸🇻" type="tts">بيرغ: سالوېډور</annotation>
+		<annotation cp="🇸🇽">بيرغ</annotation>
+		<annotation cp="🇸🇽" type="tts">بيرغ: سینټ مارټین</annotation>
+		<annotation cp="🇸🇾">بيرغ</annotation>
+		<annotation cp="🇸🇾" type="tts">بيرغ: سوریه</annotation>
+		<annotation cp="🇸🇿">بيرغ</annotation>
+		<annotation cp="🇸🇿" type="tts">بيرغ: سوازیلینډ</annotation>
+		<annotation cp="🇹🇦">بيرغ</annotation>
+		<annotation cp="🇹🇦" type="tts">بيرغ: تریستان دا کنها</annotation>
+		<annotation cp="🇹🇨">بيرغ</annotation>
+		<annotation cp="🇹🇨" type="tts">بيرغ: د ترکیې او کیکاسو ټاپو</annotation>
+		<annotation cp="🇹🇩">بيرغ</annotation>
+		<annotation cp="🇹🇩" type="tts">بيرغ: چاډ</annotation>
+		<annotation cp="🇹🇫">بيرغ</annotation>
+		<annotation cp="🇹🇫" type="tts">بيرغ: د فرانسې جنوبي سیمې</annotation>
+		<annotation cp="🇹🇬">بيرغ</annotation>
+		<annotation cp="🇹🇬" type="tts">بيرغ: تلل</annotation>
+		<annotation cp="🇹🇭">بيرغ</annotation>
+		<annotation cp="🇹🇭" type="tts">بيرغ: تهايلنډ</annotation>
+		<annotation cp="🇹🇯">بيرغ</annotation>
+		<annotation cp="🇹🇯" type="tts">بيرغ: تاجيکستان</annotation>
+		<annotation cp="🇹🇰">بيرغ</annotation>
+		<annotation cp="🇹🇰" type="tts">بيرغ: توکیلو</annotation>
+		<annotation cp="🇹🇱">بيرغ</annotation>
+		<annotation cp="🇹🇱" type="tts">بيرغ: تيمور-ليسټ</annotation>
+		<annotation cp="🇹🇲">بيرغ</annotation>
+		<annotation cp="🇹🇲" type="tts">بيرغ: تورکمنستان</annotation>
+		<annotation cp="🇹🇳">بيرغ</annotation>
+		<annotation cp="🇹🇳" type="tts">بيرغ: تونس</annotation>
+		<annotation cp="🇹🇴">بيرغ</annotation>
+		<annotation cp="🇹🇴" type="tts">بيرغ: تونګا</annotation>
+		<annotation cp="🇹🇷">بيرغ</annotation>
+		<annotation cp="🇹🇷" type="tts">بيرغ: تورکيه</annotation>
+		<annotation cp="🇹🇹">بيرغ</annotation>
+		<annotation cp="🇹🇹" type="tts">بيرغ: ټرینیاډډ او ټوبوګ</annotation>
+		<annotation cp="🇹🇻">بيرغ</annotation>
+		<annotation cp="🇹🇻" type="tts">بيرغ: توالیو</annotation>
+		<annotation cp="🇹🇼">بيرغ</annotation>
+		<annotation cp="🇹🇼" type="tts">بيرغ: تیوان</annotation>
+		<annotation cp="🇹🇿">بيرغ</annotation>
+		<annotation cp="🇹🇿" type="tts">بيرغ: تنزانیا</annotation>
+		<annotation cp="🇺🇦">بيرغ</annotation>
+		<annotation cp="🇺🇦" type="tts">بيرغ: اوکراین</annotation>
+		<annotation cp="🇺🇬">بيرغ</annotation>
+		<annotation cp="🇺🇬" type="tts">بيرغ: یوګانډا</annotation>
+		<annotation cp="🇺🇲">بيرغ</annotation>
+		<annotation cp="🇺🇲" type="tts">بيرغ: د متحده ایالاتو ټاپو ټاپوګانې</annotation>
+		<annotation cp="🇺🇳">بيرغ</annotation>
+		<annotation cp="🇺🇳" type="tts">بيرغ: ملگري ملتونه</annotation>
+		<annotation cp="🇺🇸">بيرغ</annotation>
+		<annotation cp="🇺🇸" type="tts">بيرغ: متحده ایالات</annotation>
+		<annotation cp="🇺🇾">بيرغ</annotation>
+		<annotation cp="🇺🇾" type="tts">بيرغ: یوروګوی</annotation>
+		<annotation cp="🇺🇿">بيرغ</annotation>
+		<annotation cp="🇺🇿" type="tts">بيرغ: اوزبکستان</annotation>
+		<annotation cp="🇻🇦">بيرغ</annotation>
+		<annotation cp="🇻🇦" type="tts">بيرغ: واتیکان ښار</annotation>
+		<annotation cp="🇻🇨">بيرغ</annotation>
+		<annotation cp="🇻🇨" type="tts">بيرغ: سینټ ویسنټینټ او ګرینډینز</annotation>
+		<annotation cp="🇻🇪">بيرغ</annotation>
+		<annotation cp="🇻🇪" type="tts">بيرغ: وینزویلا</annotation>
+		<annotation cp="🇻🇬">بيرغ</annotation>
+		<annotation cp="🇻🇬" type="tts">بيرغ: بریتانوی ویګور ټاپو</annotation>
+		<annotation cp="🇻🇮">بيرغ</annotation>
+		<annotation cp="🇻🇮" type="tts">بيرغ: د متحده ایالاتو ویګور ټاپو</annotation>
+		<annotation cp="🇻🇳">بيرغ</annotation>
+		<annotation cp="🇻🇳" type="tts">بيرغ: وېتنام</annotation>
+		<annotation cp="🇻🇺">بيرغ</annotation>
+		<annotation cp="🇻🇺" type="tts">بيرغ: واناتو</annotation>
+		<annotation cp="🇼🇫">بيرغ</annotation>
+		<annotation cp="🇼🇫" type="tts">بيرغ: والیس او فوتونا</annotation>
+		<annotation cp="🇼🇸">بيرغ</annotation>
+		<annotation cp="🇼🇸" type="tts">بيرغ: ساموا</annotation>
+		<annotation cp="🇽🇰">بيرغ</annotation>
+		<annotation cp="🇽🇰" type="tts">بيرغ: کوسوو</annotation>
+		<annotation cp="🇾🇪">بيرغ</annotation>
+		<annotation cp="🇾🇪" type="tts">بيرغ: یمن</annotation>
+		<annotation cp="🇾🇹">بيرغ</annotation>
+		<annotation cp="🇾🇹" type="tts">بيرغ: میټوت</annotation>
+		<annotation cp="🇿🇦">بيرغ</annotation>
+		<annotation cp="🇿🇦" type="tts">بيرغ: سویلي افریقا</annotation>
+		<annotation cp="🇿🇲">بيرغ</annotation>
+		<annotation cp="🇿🇲" type="tts">بيرغ: زیمبیا</annotation>
+		<annotation cp="🇿🇼">بيرغ</annotation>
+		<annotation cp="🇿🇼" type="tts">بيرغ: زیمبابوی</annotation>
+		<annotation cp="0⃣">کیکاپ</annotation>
+		<annotation cp="0⃣" type="tts">کیکاپ: 0</annotation>
+		<annotation cp="1⃣">کیکاپ</annotation>
+		<annotation cp="1⃣" type="tts">کیکاپ: 1</annotation>
+		<annotation cp="2⃣">کیکاپ</annotation>
+		<annotation cp="2⃣" type="tts">کیکاپ: 2</annotation>
+		<annotation cp="3⃣">کیکاپ</annotation>
+		<annotation cp="3⃣" type="tts">کیکاپ: 3</annotation>
+		<annotation cp="4⃣">کیکاپ</annotation>
+		<annotation cp="4⃣" type="tts">کیکاپ: 4</annotation>
+		<annotation cp="5⃣">کیکاپ</annotation>
+		<annotation cp="5⃣" type="tts">کیکاپ: 5</annotation>
+		<annotation cp="6⃣">کیکاپ</annotation>
+		<annotation cp="6⃣" type="tts">کیکاپ: 6</annotation>
+		<annotation cp="7⃣">کیکاپ</annotation>
+		<annotation cp="7⃣" type="tts">کیکاپ: 7</annotation>
+		<annotation cp="8⃣">کیکاپ</annotation>
+		<annotation cp="8⃣" type="tts">کیکاپ: 8</annotation>
+		<annotation cp="9⃣">کیکاپ</annotation>
+		<annotation cp="9⃣" type="tts">کیکاپ: 9</annotation>
+	</annotations>
+</ldml>

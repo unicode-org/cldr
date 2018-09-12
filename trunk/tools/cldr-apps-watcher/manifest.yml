@@ -1,0 +1,16 @@
+---
+applications:
+- name: stwatcher
+  services:
+  - Cloudant NoSQL DB-gx
+  - IBM Globalization-zl
+  - Monitoring and Analytics-u0
+  - SurveyTool-prod
+  - SurveyTool-smoke
+  disk_quota: 1024M
+  host: stwatcher
+  name: stwatcher
+  path: .
+  domain: mybluemix.net
+  instances: 1
+  memory: 256M

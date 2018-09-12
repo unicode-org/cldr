@@ -1,0 +1,140 @@
+<!--
+Copyright © 2003-2018 Unicode, Inc. and others. All rights reserved. Distributed under the Terms of Use in http://www.unicode.org/copyright.html.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of the Unicode data files and any associated documentation (the "Data Files") or Unicode software and any associated documentation (the "Software") to deal in the Data Files or Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sell copies of the Data Files or Software, and to permit persons to whom the Data Files or Software are furnished to do so, provided that (a) the above copyright notice(s) and this permission notice appear with all copies of the Data Files or Software, (b) both the above copyright notice(s) and this permission notice appear in associated documentation, and (c) there is clear notice in each modified Data File or in the Software as well as in the documentation associated with the Data File(s) or Software that the data or software has been modified.
+
+THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
+
+    $Revision$
+-->
+
+<!ELEMENT keyboard ( version, generation?, names, settings?, import*, keyMap+, displayMap?, layer*, vkeys*, transforms*, reorders?, backspaces? ) >
+<!ATTLIST keyboard locale CDATA #REQUIRED >
+
+<!ELEMENT version EMPTY >
+<!ATTLIST version platform CDATA #REQUIRED >
+    <!--@VALUE-->
+<!ATTLIST version number CDATA #REQUIRED >
+    <!--@METADATA-->
+<!ATTLIST version cldrVersion CDATA #FIXED "34" >
+    <!--@METADATA-->
+
+<!ELEMENT generation EMPTY >
+    <!--@DEPRECATED-->
+<!ATTLIST generation date CDATA #REQUIRED >
+    <!--@VALUE-->
+    <!--@DEPRECATED-->
+
+<!ELEMENT names ( name+ ) >
+
+<!ELEMENT name EMPTY >
+<!ATTLIST name value CDATA #REQUIRED >
+    <!--@VALUE-->
+
+<!ELEMENT settings EMPTY >
+    <!--@ORDERED-->
+<!ATTLIST settings fallback (omit) #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST settings transformFailure (omit) #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST settings transformPartial (hide) #IMPLIED >
+    <!--@VALUE-->
+
+<!ELEMENT import EMPTY >
+<!ATTLIST import path CDATA #REQUIRED >
+     
+<!ELEMENT keyMap ( map | flicks )+ >
+<!ATTLIST keyMap modifiers CDATA #IMPLIED >
+
+<!ELEMENT map EMPTY >
+<!ATTLIST map iso CDATA #REQUIRED >
+<!ATTLIST map to CDATA #REQUIRED >
+    <!--@VALUE-->
+<!ATTLIST map longPress CDATA #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST map longpress-status (optional) #IMPLIED >
+<!ATTLIST map transform (no) #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST map multitap CDATA #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST map hint CDATA #IMPLIED > 
+    <!--@VALUE-->
+<!ATTLIST map optional NMTOKEN #IMPLIED >
+
+<!ELEMENT flicks (flick+) >
+<!ATTLIST flicks iso CDATA #REQUIRED >
+
+<!ELEMENT flick EMPTY >
+<!ATTLIST flick directions NMTOKENS #REQUIRED >
+<!ATTLIST flick to CDATA #REQUIRED >
+    <!--@VALUE-->
+
+<!ELEMENT displayMap ( display+ ) >
+
+<!ELEMENT display EMPTY >
+<!ATTLIST display to CDATA #REQUIRED >
+<!ATTLIST display display CDATA #REQUIRED >
+    <!--@VALUE-->
+
+<!ELEMENT layer ( row+, switch*, vkeys* ) >
+<!ATTLIST layer modifier CDATA #REQUIRED >
+
+<!ELEMENT row EMPTY >
+<!ATTLIST row keys CDATA #REQUIRED >
+
+<!ELEMENT switch EMPTY >
+<!ATTLIST switch iso CDATA #REQUIRED >
+<!ATTLIST switch layer CDATA #REQUIRED >
+    <!--@VALUE-->
+<!ATTLIST switch display CDATA #REQUIRED >
+    <!--@VALUE-->
+
+<!ELEMENT vkeys ( vkey+ ) >
+<!ATTLIST vkeys type CDATA #REQUIRED >
+
+<!ELEMENT vkey EMPTY >
+<!ATTLIST vkey iso CDATA #REQUIRED >
+<!ATTLIST vkey vkey CDATA #REQUIRED >
+    <!--@VALUE-->
+<!ATTLIST vkey modifier CDATA #REQUIRED >
+    <!--@VALUE-->
+
+<!ELEMENT transforms ( transform+ ) >
+<!ATTLIST transforms type CDATA #REQUIRED >
+
+<!ELEMENT transform EMPTY >
+<!ATTLIST transform before CDATA #IMPLIED >
+<!ATTLIST transform from CDATA #REQUIRED >
+<!ATTLIST transform after CDATA #IMPLIED >
+<!ATTLIST transform to CDATA #REQUIRED >
+    <!--@VALUE-->
+<!ATTLIST transform error (fail) #IMPLIED >
+    <!--@VALUE-->
+
+<!ELEMENT reorders ( reorder+ ) >
+
+<!ELEMENT reorder EMPTY >
+<!ATTLIST reorder before CDATA #IMPLIED >
+<!ATTLIST reorder from CDATA #REQUIRED >
+<!ATTLIST reorder after CDATA #IMPLIED >
+<!ATTLIST reorder order CDATA #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST reorder tertiary CDATA #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST reorder tertiary_base CDATA #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST reorder prebase CDATA #IMPLIED >
+    <!--@VALUE-->
+
+<!ELEMENT backspaces ( backspace+ ) >
+
+<!ELEMENT backspace EMPTY >
+<!ATTLIST backspace before CDATA #IMPLIED >
+<!ATTLIST backspace from CDATA #REQUIRED >
+<!ATTLIST backspace after CDATA #IMPLIED >
+<!ATTLIST backspace to CDATA #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST backspace error (fail) #IMPLIED >
+    <!--@VALUE-->

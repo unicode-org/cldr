@@ -1,0 +1,1806 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="en-us">
+<link rel="stylesheet" href="http://www.unicode.org/reports/reports.css"
+	type="text/css">
+<title>UTS #35: Unicode LDML: Supplemental</title>
+<style type="text/css">
+<!--
+.dtd {
+	font-family: monospace;
+	font-size: 90%;
+	background-color: #CCCCFF;
+	border-style: dotted;
+	border-width: 1px;
+}
+
+.xmlExample {
+	font-family: monospace;
+	font-size: 80%
+}
+
+.blockedInherited {
+	font-style: italic;
+	font-weight: bold;
+	border-style: dashed;
+	border-width: 1px;
+	background-color: #FF0000
+}
+
+.inherited {
+	font-weight: bold;
+	border-style: dashed;
+	border-width: 1px;
+	background-color: #00FF00
+}
+
+.element {
+	font-weight: bold;
+	color: red;
+}
+
+.attribute {
+	font-weight: bold;
+	color: maroon;
+}
+
+.attributeValue {
+	font-weight: bold;
+	color: blue;
+}
+
+li, p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em
+}
+
+h2, h3, h4, table {
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+}
+-->
+</style>
+</head>
+
+<body>
+
+	<table class="header" width="100%">
+		<tr>
+			<td class="icon"><a href="http://unicode.org"> <img
+					alt="[Unicode]" src="http://unicode.org/webscripts/logo60s2.gif"
+					width="34" height="33"
+					style="vertical-align: middle; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; border-top-width: 0px;"></a>&nbsp;
+				<a class="bar" href="http://www.unicode.org/reports/">Technical
+					Reports</a></td>
+		</tr>
+		<tr>
+			<td class="gray">&nbsp;</td>
+		</tr>
+	</table>
+	<div class="body">
+		<h2 style="text-align: center">
+			<span class="changed">Proposed Update </span>Unicode Technical
+			Standard #35
+		</h2>
+		<h1>
+			Unicode Locale Data Markup Language (LDML)<br>Part 6:
+			Supplemental
+		</h1>
+
+		<!-- At least the first row of this header table should be identical across the parts of this UTS. -->
+		<table border="1" cellpadding="2" cellspacing="0" class="wide">
+			<tr>
+				<td>Version</td>
+				<td class="changed">34</td>
+			</tr>
+			<tr>
+				<td>Editors</td>
+				<td>Steven Loomis (<a href="mailto:srl@icu-project.org">srl@icu-project.org</a>)
+					and <a href="tr35.html#Acknowledgments">other CLDR committee
+						members</a></td>
+			</tr>
+		</table>
+
+		<p>
+			For the full header, summary, and status, see <a href="tr35.html">
+				Part 1: Core</a>
+		</p>
+
+		<h3>
+			<i>Summary</i>
+		</h3>
+		<p>
+			This document describes parts of an XML format (<i>vocabulary</i>)
+			for the exchange of structured locale data. This format is used in
+			the <a href="http://cldr.unicode.org/">Unicode Common Locale Data
+				Repository</a>.
+		</p>
+
+		<p>
+			This is a partial document, describing only those parts of the LDML
+			that are relevant for supplemental data. For the other parts of the
+			LDML see the <a href="tr35.html">main LDML document</a> and the links
+			above.
+		</p>
+
+		<h3>
+			<i>Status</i>
+		</h3>
+
+		<!-- NOT YET APPROVED -->
+		<p>
+				<i class="changed">This is a<b><font color="#ff3333">
+				draft </font></b>document which may be updated, replaced, or superseded by
+				other documents at any time. Publication does not imply endorsement
+				by the Unicode Consortium. This is not a stable document; it is
+				inappropriate to cite this document as other than a work in
+				progress.
+			</i>
+		</p>
+		<!-- END NOT YET APPROVED -->
+		<!-- APPROVED 
+		<p>
+			<i>This document has been reviewed by Unicode members and other
+				interested parties, and has been approved for publication by the
+				Unicode Consortium. This is a stable document and may be used as
+				reference material or cited as a normative reference by other
+				specifications.</i>
+		</p>
+		 END APPROVED -->
+
+		<blockquote>
+			<p>
+				<i><b>A Unicode Technical Standard (UTS)</b> is an independent
+					specification. Conformance to the Unicode Standard does not imply
+					conformance to any UTS.</i>
+			</p>
+		</blockquote>
+		<p>
+			<i>Please submit corrigenda and other comments with the CLDR bug
+				reporting form [<a href="tr35.html#Bugs">Bugs</a>]. Related
+				information that is useful in understanding this document is found
+				in the <a href="tr35.html#References">References</a>. For the latest
+				version of the Unicode Standard see [<a href="tr35.html#Unicode">Unicode</a>].
+				For a list of current Unicode Technical Reports see [<a
+				href="tr35.html#Reports">Reports</a>]. For more information about
+				versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>].
+			</i>
+		</p>
+
+		<!-- This section of Parts should be identical in all of the parts of this UTS. -->
+		<h2>
+			<a name="Parts" href="#Parts">Parts</a>
+		</h2>
+		<p>The LDML specification is divided into the following parts:</p>
+		<ul class="toc">
+			<li>Part 1: <a href="tr35.html#Contents">Core</a> (languages,
+				locales, basic structure)
+			</li>
+			<li>Part 2: <a href="tr35-general.html#Contents">General</a>
+				(display names &amp; transforms, etc.)
+			</li>
+			<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a>
+				(number &amp; currency formatting)
+			</li>
+			<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date,
+				time, time zone formatting)
+			</li>
+			<li>Part 5: <a href="tr35-collation.html#Contents">Collation</a>
+				(sorting, searching, grouping)
+			</li>
+			<li>Part 6: <a href="tr35-info.html#Contents">Supplemental</a>
+				(supplemental data)
+			</li>
+			<li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a>
+				(keyboard mappings)
+			</li>
+		</ul>
+
+		<h2>
+			<a name="Contents" href="#Contents">Contents of Part 6,
+				Supplemental</a>
+		</h2>
+		<!-- START Generated TOC: CheckHtmlFiles -->
+		<ul class="toc">
+			<li>1 <a href="#Supplemental_Data">Introduction Supplemental
+					Data</a></li>
+			<li>2 <a href="#Territory_Data">Territory Data</a>
+				<ul class="toc">
+					<li>2.1 <a href="#Supplemental_Territory_Containment">Supplemental
+							Territory Containment</a></li>
+					<li>2.2 <a href="#Subdivision_Containment">Subdivision
+							Containment</a></li>
+					<li>2.3 <a href="#Supplemental_Territory_Information">Supplemental
+							Territory Information</a></li>
+					<li>2.4 <a href="#Territory_Based_Preferences">Territory-Based
+							Preferences</a>
+						<ul class="toc">
+							<li>2.4.1 <a href="#Preferred_Units_For_Usage">Preferred
+									Units for Specific Usages</a>
+								<ul class="toc">
+									<li>Table: <a href="#Unit_Preference_Categories">Unit
+											Preference Categories</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>2.5 <a href="#rgScope">&lt;rgScope&gt;: Scope of the
+							“rg” Locale Key</a></li>
+				</ul>
+			</li>
+			<li>3 <a href="#Supplemental_Language_Data">Supplemental
+					Language Data</a>
+                    <ul class="toc"><li>3.1 <a
+				href="#Supplemental_Language_Grouping">Supplemental Language Grouping</a></li></ul></li>
+
+			<li>4 <a href="#Supplemental_Code_Mapping">Supplemental Code
+					Mapping</a></li>
+			<li>5 <a href="#Telephone_Code_Data">Telephone Code Data</a></li>
+			<li>6 <a href="#Postal_Code_Validation">Postal Code
+					Validation (Deprecated)</a></li>
+			<li>7 <a href="#Supplemental_Character_Fallback_Data">Supplemental
+					Character Fallback Data</a></li>
+			<li>8 <a href="#Coverage_Levels">Coverage Levels</a>
+				<ul class="toc">
+					<li>8.1 <a href="#Coverage_Level_Definitions">Definitions</a></li>
+					<li>8.2 <a href="#Coverage_Level_Data_Requirements">Data
+							Requirements</a></li>
+					<li>8.3 <a href="#Coverage_Level_Default_Values">Default
+							Values</a></li>
+				</ul>
+			</li>
+			<li>9 <a href="#Appendix_Supplemental_Metadata">Supplemental
+					Metadata</a>
+				<ul class="toc">
+					<li>9.1 <a href="#Supplemental_Alias_Information">Supplemental
+							Alias Information</a>
+						<ul class="toc">
+							<li>Table: <a href="#Alias_Attribute_Values">Alias
+									Attribute Values</a></li>
+						</ul>
+					</li>
+					<li>9.2 <a href="#Supplemental_Deprecated_Information">Supplemental
+							Deprecated Information (Deprecated)</a>
+						</li>
+					<li>9.3 <a href="#Default_Content">Default Content</a></li>
+				</ul>
+			</li>
+			<li>10 <a href="#Metadata_Elements">Locale Metadata Elements</a></li>
+			<li>11 <a href="#Version_Information">Version Information</a></li>
+			<li>12 <a href="#Parent_Locales">Parent Locales</a></li>
+		</ul>
+		<!-- END Generated TOC: CheckHtmlFiles -->
+		<h2>
+			1 Introduction <a name="Supplemental_Data" href="#Supplemental_Data">Supplemental
+				Data</a>
+		</h2>
+
+		<p>
+			The following represents the format for additional supplemental
+			information. This is information that is important for
+			internationalization and proper use of CLDR, but is not contained in
+			the locale hierarchy. It is not localizable, nor is it overridden by
+			locale data. The current CLDR data can be viewed in the <a
+				href="http://www.unicode.org/cldr/data/charts/supplemental/index.html">Supplemental
+				Charts</a>.
+		</p>
+		<p class="dtd">
+			<!-- t d {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}-->
+			&lt;!ELEMENT supplementalData (version, generation?, cldrVersion?,
+			currencyData?, territoryContainment?, subdivisionContainment?,
+			languageData?, territoryInfo?, postalCodeData?, calendarData?,
+			calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, timezoneData?,
+			characters?, transforms?, metadata?, codeMappings?, parentLocales?,
+			likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?,
+			numberingSystems?, bcp47KeywordMappings?, gender?, references?,
+			languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?,
+			windowsZones?, coverageLevels?, idValidity?,
+				rgScope?) &gt;
+		</p>
+		<p>
+			The data in CLDR is presently split into multiple files:
+			supplementalData.xml, supplementalMetadata.xml, characters.xml,
+			likelySubtags.xml, ordinals.xml, plurals.xml, telephoneCodeData.xml,
+			genderList.xml, plus transforms (see <i>Part 2 Section 10 <a
+				href="tr35-general.html#Transforms">Transforms</a>
+			</i>and<i> Part 2 Section 10.3 <a
+				href="tr35-general.html#Transform_Rules_Syntax">Transform Rule
+					Syntax</a></i>). The split is just for convenience: logically, they are
+			treated as though they were a single file. Future versions of CLDR
+			may split the data in a different fashion. Do not depend on any
+			specific XML filename or path for supplemental data.
+		</p>
+
+		<p>
+			Note that <a href="#Metadata_Elements">Chapter 10</a> presents
+			information about metadata that is maintained on a per-locale basis.
+			It is included in this section because it is not intended to be used
+			as part of the locale itself.
+		</p>
+
+		<h2>
+			2 <a name="Territory_Data" href="#Territory_Data">Territory Data</a>
+		</h2>
+
+		<h3>
+			2.1 <a name="Supplemental_Territory_Containment"
+				href="#Supplemental_Territory_Containment">Supplemental
+				Territory Containment</a>
+		</h3>
+		<p class="dtd">
+			&lt;!ELEMENT territoryContainment ( group* ) &gt;<br>
+			&lt;!ELEMENT group EMPTY &gt;<br> &lt;!ATTLIST group type
+			NMTOKEN #REQUIRED &gt;<br> &lt;!ATTLIST group contains NMTOKENS
+			#IMPLIED &gt;<br> &lt;!ATTLIST group grouping ( true | false )
+			#IMPLIED &gt;<br> &lt;!ATTLIST group status ( deprecated,
+			grouping ) #IMPLIED &gt;
+		</p>
+		<p>
+			The following data provides information that shows groupings of
+			countries (regions). The data is based on the [<a
+				href="tr35.html#UNM49">UNM49</a>]. There is one special code,
+			<code>QO</code>
+			, which is used for outlying areas of Oceania that are typically
+			uninhabited. The territory containment forms a tree with the
+			following levels:
+		</p>
+		<p align="center">World</p>
+		<p align="center">Continent</p>
+		<p align="center">Subcontinent</p>
+		<p align="center">Country</p>
+		<p>
+			Excluding groupings, in this tree:<br>
+		</p>
+		<ul>
+			<li>All non-overlapping regions form a strict tree rooted at
+				World</li>
+			<li>All leaf-nodes (country) are always at depth 4. Some of
+				these “country” regions are actually parts of other countries, such
+				as Hong Kong (part of China). Such relationships are not part of the
+				containment data.</li>
+		</ul>
+		<p>
+			For a chart showing the relationships (plus the included timezones),
+			see the <a
+				href="http://www.unicode.org/cldr/charts/latest/supplemental/territory_containment_un_m_49.html">Territory
+				Containment Chart</a>. The XML structure has the following form.
+		</p>
+		<pre>&lt;territoryContainment&gt;</pre>
+		<blockquote>
+			<pre>&lt;group type=&quot;001&quot; contains=&quot;002 009 019 142 150&quot;/&gt; &lt;!--World --&gt;
+&lt;group type=&quot;011&quot; contains=&quot;BF BJ CI CV GH GM GN GW LR ML MR NE NG SH SL SN TG&quot;/&gt; &lt;!--Western Africa --&gt;
+&lt;group type=&quot;013&quot; contains=&quot;BZ CR GT HN MX NI PA SV&quot;/&gt; &lt;!--Central America --&gt;
+&lt;group type=&quot;014&quot; contains=&quot;BI DJ ER ET KE KM MG MU MW MZ RE RW SC SO TZ UG YT ZM ZW&quot;/&gt; &lt;!--Eastern Africa --&gt;
+&lt;group type=&quot;142&quot; contains=&quot;030 035 062 145&quot;/&gt; &lt;!--Asia --&gt;
+&lt;group type=&quot;145&quot; contains=&quot;AE AM AZ BH CY GE IL IQ JO KW LB OM PS QA SA SY TR YE&quot;/&gt; &lt;!--Western Asia --&gt;
+&lt;group type=&quot;015&quot; contains=&quot;DZ EG EH LY MA SD TN&quot;/&gt; &lt;!--Northern Africa --&gt;
+...</pre>
+		</blockquote>
+		<p>There are groupings that don't follow this regular structure,
+			such as:</p>
+		<pre>&lt;group type=&quot;003&quot; contains=&quot;013 021 029&quot; grouping=&quot;true&quot;/&gt; &lt;!--North America --&gt;</pre>
+		<p>
+			These are marked with the attribute <span class="attribute">grouping</span>=&quot;<span
+				class="attributeValue">true</span>&quot;.
+		</p>
+		<p>
+			When groupings have been deprecated but kept around for backwards
+			compatibility, they are marked with the attribute <span
+				class="attribute">status</span>=&quot;<span class="attributeValue">deprecated</span>&quot;,
+			like this:
+		</p>
+		<pre>&lt;group type=&quot;029&quot; contains=&quot;AN&quot; status=&quot;deprecated&quot;/&gt; &lt;!--Caribbean --&gt;</pre>
+		<p>
+			When the containment relationship itself is a grouping, it is marked
+			with the attribute <span class="attribute">status</span>=&quot;<span
+				class="attributeValue">grouping</span>&quot;, like this:
+		</p>
+		<pre>&lt;group type=&quot;150&quot; contains=&quot;EU&quot; status=&quot;grouping&quot;/&gt; &lt;!--Europe --&gt;</pre>
+		<p>That is, the type value isn’t a grouping, but if you filter out
+			groupings you can drop this containment. In the example above, EU is
+			a grouping, and contained in 150.</p>
+		<h3>
+			2.2 <a name="Subdivision_Containment" href="#Subdivision_Containment">Subdivision
+				Containment</a>
+		</h3>
+		<p class="dtd">
+			&lt;!ELEMENT subdivisionContainment ( subgroup* ) &gt;<br>
+			<br>
+			&lt;!ELEMENT subgroup EMPTY &gt;<br>
+			&lt;!ATTLIST subgroup type NMTOKEN #REQUIRED &gt;<br>
+			&lt;!ATTLIST subgroup contains NMTOKENS #IMPLIED &gt;
+		</p>
+		<p>The subdivision containment data is similar to the territory
+			containment. It is based on ISO 3166-2 data, but may diverge from it
+			in the future.</p>
+		<p class="xmlExample">
+			&lt;subgroup type=&quot;BD&quot; contains=&quot;bda bdb bdc bdd bde bdf bdg bdh&quot;/&gt;<br>
+			&lt;subgroup type=&quot;bda&quot; contains=&quot;bd02 bd06 bd07 bd25 bd50 bd51&quot;/&gt;
+		</p>
+		<p>
+			The <strong>type</strong> is a
+			<code><a href="tr35.html#unicode_region_subtag">unicode_region_subtag</a></code>
+			(territory) identifier for the top level of containment, 
+			or a <code><a href="tr35.html#unicode_subdivision_subtag">unicode_subdivision_id</a></code>
+			for lower levels of containment when there are multiple levels.
+			The <strong>contains</strong> value is a space-delimited list of one or more
+			<code><a href="tr35.html#unicode_subdivision_subtag">unicode_subdivision_id</a></code>
+			values.
+			In the example above, subdivision bda contains
+			other subdivisions bd02, bd06, bd07, bd25, bd50, bd51.
+		</p>
+		<p> Note: Formerly (in CLDR 28 through 30):</p>
+		<ul>
+			<li>The <strong>type</strong> attribute could only contain a
+				<code>unicode_region_subtag</code>;</li>
+			<li>The <strong>contains</strong> attribute contained
+				<code>unicode_subdivision_suffix</code> values; these are not unique
+				across multiple territories, so...</li>
+			<li>For lower containment levels, a now-deprecated subtype
+				<strong>attribute</strong> was used to specify the parent
+				<code>unicode_subdivision_suffix</code>.</li>
+		</ul>
+			* The type attribute contained only a <code>unicode_region_subtag</code>
+			
+			
+			<code>unicode_subdivision_suffix</code>
+			values were used in the <strong>contains</strong> attribute; these are not
+			unique across multiple territories, so for lower levels a now-deprecated 
+		<h3>
+			2.3 <a name="Supplemental_Territory_Information"
+				href="#Supplemental_Territory_Information">Supplemental
+				Territory Information</a>
+		</h3>
+
+		<p class="dtd">
+			&lt;!ELEMENT territory ( languagePopulation* ) &gt;<br>
+			&lt;!ATTLIST territory type NMTOKEN #REQUIRED &gt;<br>
+			&lt;!ATTLIST territory gdp NMTOKEN #REQUIRED &gt;<br>
+			&lt;!ATTLIST territory literacyPercent NMTOKEN #REQUIRED &gt;<br>
+			&lt;!ATTLIST territory population NMTOKEN #REQUIRED &gt;<br>
+			<br>
+			&lt;!ELEMENT languagePopulation EMPTY &gt;<br>
+			&lt;!ATTLIST languagePopulation type NMTOKEN #REQUIRED &gt;<br>
+			&lt;!ATTLIST languagePopulation literacyPercent NMTOKEN #IMPLIED &gt;<br>
+			&lt;!ATTLIST languagePopulation writingPercent NMTOKEN #IMPLIED &gt;<br>
+			&lt;!ATTLIST languagePopulation populationPercent NMTOKEN #REQUIRED &gt;<br>
+			&lt;!ATTLIST languagePopulation officialStatus (de_facto_official | official | official_regional | official_minority) #IMPLIED &gt;
+		</p>
+		<p>
+			This data provides testing information for language and territory
+			populations. The main goal is to provide approximate figures for the
+			literate, functional population for each language in each territory:
+			that is, the population that is able to read and write each language,
+			and is comfortable enough to use it with computers. For a chart of
+			this data, see <a
+				href='http://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html'>Territory-Language
+				Information</a>.
+		</p>
+		<p>
+			<em>Example</em>
+		</p>
+		<pre style='font-size: 70%'>&lt;territory type=&quot;AO&quot; gdp=&quot;175500000000&quot; literacyPercent=&quot;70.4&quot; population=&quot;19088100&quot;&gt; &lt;!--Angola--&gt;
+ &lt;languagePopulation type=&quot;pt&quot; populationPercent=&quot;67&quot; officialStatus=&quot;official&quot;/&gt; &lt;!--Portuguese--&gt;
+ &lt;languagePopulation type=&quot;umb&quot; populationPercent=&quot;29&quot;/&gt; &lt;!--Umbundu--&gt;
+ &lt;languagePopulation type=&quot;kmb&quot; writingPercent=&quot;10&quot; populationPercent=&quot;25&quot; references=&quot;R1034&quot;/&gt; &lt;!--Kimbundu--&gt;
+ &lt;languagePopulation type=&quot;ln&quot; populationPercent=&quot;0.67&quot; references=&quot;R1010&quot;/&gt; &lt;!--Lingala--&gt;
+&lt;/territory&gt;</pre>
+		<p>
+			Note that reliable information is difficult to obtain; the
+			information in CLDR is an estimate culled from different sources,
+			including the World Bank, CIA Factbook, and others. The GDP and
+			country literacy figures are taken from the World Bank where
+			available, otherwise supplemented by FactBook data and other sources.
+			The GDP figures are “PPP (constant 2000 international $)”. Much of
+			the per-language data is taken from the Ethnologue, but is
+			supplemented and processed using many other sources, including
+			per-country census data. (The focus of the Ethnologue is native
+			speakers, which includes people who are not literate, and excludes
+			people who are functional second-language users.) Some references are
+			marked in the XML files, with attributes such as
+			<code>references=&quot;R1010&quot;</code> .
+		</p>
+		<p>
+			The percentages may add up to more than 100% due to multilingual
+			populations, or may be less than 100% due to illiteracy or because
+			the data has not yet been gathered or processed. Languages with
+			smaller populations might not be included.
+		</p>
+		<p>The following describes the meaning of some of these terms—as
+			used in CLDR—in more detail.</p>
+		<p>
+			<a name="literacy_percent" href="#literacy_percent">literacy percent
+				for the territory</a> — an estimate of the percentage of the
+			country’s population that is functionally literate.
+		</p>
+		<p>
+			<a name="language_population_percent"
+				href="#language_population_percent">language population percent</a> —
+			an estimate of the number of people who are functional in that
+			language in that country, including both first and second language
+			speakers. The level of fluency is that necessary to use a UI on a
+			computer, smartphone, or similar devices, rather than complete
+			fluency.
+		</p>
+		<p>
+			<a name="literacy_percent_for_langPop" href="#literacy_percent_for_langPop">literacy
+				percent for language population</a> — Within the
+			set of people who are functional in the corresponding language (as specified
+			by <a href="#language_population_percent">language population percent</a>),
+			this is an estimate of the percentage of those people who are functionally
+			literate in that language, that is, who are <em>capable</em> of reading or
+			writing in that language, even if they do not regularly use it for reading
+			or writing. If not specified, this defaults to the
+			<a href="#literacy_percent">literacy percent for the territory</a>.
+		</p>
+		<p>
+			<a name="writing_percent" href="#writing_percent">writing percent</a>
+			— Within the
+			set of people who are functional in the corresponding language (as specified
+			by <a href="#language_population_percent">language population percent</a>),
+			this is an estimate of the percentage of those people who regularly
+			read or write a significant amount in that language. Ideally, the regularity
+			would be measured as “7-day actives”. If it is known that the language is not
+			widely or commonly written, but there are no solid figures, the value is
+			typically given 1%-5%.</p>
+		<p>
+			For a language such as Swiss German, which is typically not written, even
+			though nearly the whole native Germanophone population <em>could </em>write
+			in Swiss German, the <a href="#literacy_percent_for_langPop">literacy percent
+			for language population</a> is high, but the <a href="#writing_percent">writing
+			percent</a> is low.
+		</p>
+		<p>
+			<a name="official_language" href="#official_language">official
+				language</a> — as used in CLDR, a language that can generally be used in
+			all communications with a central government. That is, people can
+			expect that essentially all communication from the government is
+			available in that language (ballots, information pamphlets, legal
+			documents, …) and that they can use that language in any
+			communication to the central government (petitions, forms, filing
+			lawsuits,…).
+		</p>
+		<p>
+			Official languages for a country in this sense are not necessarily
+			the same as those with official legal status in the country. For
+			example, Irish is declared to be an official language in Ireland, but
+			English has no such formal status in the United States. Languages
+			such as the latter are called <em>de facto</em> official languages.
+			As another example, German has legal status in Italy, but cannot be
+			used in all communications with the central government, and is thus
+			not an official language <em>of Italy</em> for CLDR purposes. It is,
+			however, an <em>official regional language</em>. Other languages are
+			declared to be official, but can’t actually be used for all
+			communication with any major governmental entity in the country.
+			There is no intention to mark such nominally official languages as
+			“official” in the CLDR data.
+		</p>
+		<p>
+			<a name="official_regional_language"
+				href="#official_regional_language">official regional language</a> —
+			a language that is official (<em>de jure</em> or <em>de facto</em>)
+			in a major region within a country, but does not qualify as an
+			official language of the country as a whole. For example, it can be
+			used in an official petition to a provincial government, but not the
+			central government. The term “major” is meant to distinguish from
+			smaller-scale usage, such as for a town or village.
+		</p>
+
+		<h3>
+			2.4 <a name="Territory_Based_Preferences"
+				href="#Territory_Based_Preferences">Territory-Based Preferences</a>
+		</h3>
+		<p>
+			The default preference for several locale items is based solely on a
+			<a href="tr35.html#unicode_region_subtag">unicode_region_subtag</a>,
+			which may either be specified as part of a <a
+				href="tr35.html#unicode_language_id">unicode_language_id</a>,
+			inferred from other locale ID elements using the <a
+				href="tr35.html#Likely_Subtags">Likely Subtags</a> mechanism, or
+			provided explicitly using an “rg” <a href="tr35.html#RegionOverride">Region
+				Override</a> locale key. For more information on this process see <a
+				href="tr35.html#Locale_Inheritance">Locale Inheritance and
+				Matching</a>. The specific items that are handled in this way are:
+		</p>
+		<ul>
+			<li>Default calendar (see <a
+				href="tr35-dates.html#Calendar_Preference_Data">Calendar
+					Preference Data</a>)
+			</li>
+			<li>Default week conventions (first day of week and weekend
+				days; see <a href="tr35-dates.html#Week_Data">Week Data</a>)
+			</li>
+			<li>Default hour cycle (see <a href="tr35-dates.html#Time_Data">Time
+					Data</a>)
+			</li>
+			<li>Default currency (see <a
+				href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental
+					Currency Data</a>)
+			</li>
+			<li>Default measurement system and paper size (see <a
+				href="tr35-general.html#Measurement_System_Data">Measurement
+					System Data</a>)
+			</li>
+			<li>Default units for specific usage (see <a
+				href="#Preferred_Units_For_Usage">Preferred Units for Specific
+					Usages</a>, below)
+			</li>
+		</ul>
+
+		<h4>
+			2.4.1 <a name="Preferred_Units_For_Usage"
+				href="#Preferred_Units_For_Usage">Preferred Units for Specific
+				Usages</a>
+		</h4>
+		<p>This data is intended to map from a particular
+			usage — e.g. measuring the height of a person or the fuel consumption
+			of an automobile — to the unit or combination of units typically used
+			for that usage in a given region. Considerations for such a mapping
+			include:</p>
+		<ul>
+			<li>The list of possible usages large and open-ended. The intent
+				here is to start with a small set for which there is an urgent need,
+				and expand as necessary.</li>
+			<li>Even for a given usage such a measuring a road distance,
+				there are multiple ranges in use. For example, one set of units may
+				be used for indicating the distance to the next city (kilometers or
+				miles), while another may be used for indicating the distance to the
+				next exit (meters, yards, or feet).</li>
+			<li>There are also differences between more formal usage
+				(official signage, medical records) and more informal usage
+				(conversation, texting).</li>
+			<li>For some usages, the measurement may be expressed using a
+				sequence of units, such as “1 meter, 78 centimeters” or “12 stone, 2
+				pounds”.</li>
+		</ul>
+		<p>The DTD structure is as follows:</p>
+		<p class="dtd">
+			 &lt;!ELEMENT unitPreferenceData (
+				unitPreferences* ) &gt;<br> <br> &lt;!ELEMENT
+				unitPreferences ( unitPreference* ) &gt;<br> &lt;!ATTLIST
+				unitPreferences category NMTOKEN #REQUIRED &gt;<br>
+				&lt;!ATTLIST unitPreferences usage NMTOKENS #REQUIRED &gt;<br>
+				&lt;!ATTLIST unitPreferences scope (small) #IMPLIED &gt;<br> <br>
+				&lt;!ELEMENT unitPreference ( #PCDATA ) &gt;<br> &lt;!ATTLIST
+				unitPreference regions NMTOKENS #REQUIRED &gt;<br>
+		</p>
+		<p>An example of data using this structure is as
+			follows:</p>
+		<pre>
+   &lt;unitPreferenceData&gt;
+      ...
+      &lt;unitPreferences category="length" usage="person"&gt;
+           &lt;unitPreference regions="001"&gt;centimeter&lt;/unitPreference&gt;
+           &lt;unitPreference regions="BR CN DE DK MX NL NO PL PT RU" alt="informal"&gt;meter centimeter&lt;/unitPreference&gt;
+           &lt;unitPreference regions="AT BE DZ EG ES FR HK ID IL IT JO MY SA SE TR VN"&gt;meter centimeter&lt;/unitPreference&gt;
+           &lt;unitPreference regions="CA GB IN US" alt="informal"&gt;foot inch&lt;/unitPreference&gt;
+           &lt;unitPreference regions="US"&gt;inch&lt;/unitPreference&gt;
+      &lt;/unitPreferences&gt;
+      &lt;unitPreferences category="length" usage="person" scope="small"&gt;
+           &lt;unitPreference regions="001"&gt;centimeter&lt;/unitPreference&gt;
+           &lt;unitPreference regions="CA GB IN" alt="informal"&gt;inch&lt;/unitPreference&gt;
+           &lt;unitPreference regions="US"&gt;inch&lt;/unitPreference&gt;
+      &lt;/unitPreferences&gt;
+      ...
+   &lt;/unitPreferenceData&gt;
+</pre>
+		<p>There are several things to note:</p>
+		<ul>
+			<li>The &lt;unitPreferences&gt; <em>category</em> attribute
+				values match a &lt;unit&gt; element <em>type</em> attribute value,
+				as listed in <a href="tr35-general.html#Unit_Elements">Unit
+					Elements</a>.
+			</li>
+			<li>The &lt;unitPreferences&gt; <em>usage</em> attribute values
+				are specific to this data; current values are listed in a table at
+				the end of this section.
+			</li>
+			<li>The &lt;unitPreferences&gt; element may have a <em>scope="small"</em>
+				attribute to indicate that it is intended for the smaller range of
+				values for that usage, such measuring the height or weight of an
+				infant versus that of an adult, or measuring the road distance to
+				the next exit versus that to the next city.
+			</li>
+			<li>Each &lt;unitPreferences&gt; element must contain one
+				&lt;unitPreference&gt; element with attribute <em>regions="001"</em>;
+				this specifies the worldwide default unit or unit sequence for the
+				usage and scope specified by the &lt;unitPreferences&gt; element.
+				There may be additional &lt;unitPreference&gt; elements which
+				specify a different unit or unit sequence for specific regions and
+				possibly for a different degree of formality.
+			</li>
+			<li>The &lt;unitPreference&gt; element may have an <em>alt="informal"</em>
+				attribute to indicate that the specified unit or unit sequence is
+				preferred in more informal usage.
+			</li>
+			<li>The value of the &lt;unitPreference&gt; element is a
+				sequence of one or more space-separated unit names from the a
+				&lt;unit&gt; element <em>unit</em> attribute values for the relevant
+				type, as listed in <a href="tr35-general.html#Unit_Elements">Unit
+					Elements</a>.
+			</li>
+		</ul>
+		<p>For a given combination of category, usage,
+			scope and formality, the intended procedure for looking up the unit
+			or unit combination to use for a given region is as follows:</p>
+		<ul>
+			<li>Get the appropriate &lt;unitPreferences&gt; element for the
+				desired <em>category</em> and <em>usage</em>: If scope=small is
+				desired and a &lt;unitPreferences&gt; element with <em>scope="small"</em>
+				exists for the desired <em>category</em> and <em>usage</em>, use it.
+				Otherwise, use a &lt;unitPreferences&gt; element for the desired <em>category</em>
+				and <em>usage</em> that has no <em>scope</em> attribute. In the
+				selected &lt;unitPreferences&gt; element, pick a
+				&lt;unitPreference&gt; element using the following steps.
+			</li>
+			<li>If informal usage is preferred, look for a
+				&lt;unitPreference&gt; element with <em>alt="informal"</em> whose <em>regions</em>
+				attribute includes the given region. If found, use the specified
+				unit [sequence].
+			</li>
+			<li>Look for a &lt;unitPreference&gt; element whose <em>regions</em>
+				attribute includes the given region. If found, use the specified
+				unit [sequence].
+			</li>
+			<li>Look for a &lt;unitPreference&gt; element with <em>alt="informal"</em>
+				whose <em>regions</em> attribute is "001". If found, use the
+				specified unit [sequence].
+			</li>
+			<li>Look for a &lt;unitPreference&gt; element whose <em>regions</em>
+				attribute is "001". If found, use the specified unit [sequence].
+			</li>
+		</ul>
+		<p>CLDR 29 contains usage mapping data for the
+			following combinations of category, usage, and scope:</p>
+		<table border="1" cellpadding="4" cellspacing="0">
+			<caption>
+				<a name="Unit_Preference_Categories"
+					href="#Unit_Preference_Categories">Unit Preference Categories</a>
+			</caption>
+			<tr>
+				<td><strong>Category</strong></td>
+				<td><strong>Usage</strong></td>
+				<td><strong>Sample Value</strong></td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>land-agricult</td>
+				<td>hectare</td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>land-commercl</td>
+				<td>hectare</td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>land-residntl</td>
+				<td>hectare</td>
+			</tr>
+			<tr>
+				<td><em>concentr</em></td>
+				<td>blood-glucose</td>
+				<td>milligram-per-deciliter</td>
+			</tr>
+			<tr>
+				<td><em>consumption</em></td>
+				<td>vehicle-fuel</td>
+				<td>liter-per-100kilometers</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>music-track</td>
+				<td>minute second</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>person-age</td>
+				<td>year-person month-person</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>tv-program</td>
+				<td>minute second</td>
+			</tr>
+			<tr>
+				<td><em>energy</em></td>
+				<td>food</td>
+				<td>foodcalorie</td>
+			</tr>
+			<tr>
+				<td><em>energy</em></td>
+				<td>person-usage</td>
+				<td>kilocalorie</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>person</td>
+				<td>centimeter</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>person, scope=small</td>
+				<td>centimeter</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>rainfall</td>
+				<td>millimeter</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>road</td>
+				<td>kilometer</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>road, scope=small</td>
+				<td>meter</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>snowfall</td>
+				<td>centimeter</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>vehicle</td>
+				<td>meter</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>visiblty</td>
+				<td>kilometer</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>visiblty, scope=small</td>
+				<td>meter</td>
+			</tr>
+			<tr>
+				<td><em>mass</em></td>
+				<td>person</td>
+				<td>kilogram</td>
+			</tr>
+			<tr>
+				<td><em>mass</em></td>
+				<td>person, scope=small</td>
+				<td>gram</td>
+			</tr>
+			<tr>
+				<td><em>pressure</em></td>
+				<td>baromtrc</td>
+				<td>hectopascal</td>
+			</tr>
+			<tr>
+				<td><em>speed</em></td>
+				<td>road-travel</td>
+				<td>kilometer-per-hour</td>
+			</tr>
+			<tr>
+				<td><em>speed</em></td>
+				<td>wind</td>
+				<td>kilometer-per-hour</td>
+			</tr>
+			<tr>
+				<td><em>temperature</em></td>
+				<td>person</td>
+				<td>celsius</td>
+			</tr>
+			<tr>
+				<td><em>temperature</em></td>
+				<td>weather</td>
+				<td>celsius</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>vehicle-fuel</td>
+				<td>liter</td>
+			</tr>
+		</table>
+
+		<h3>
+			2.5 <a name="rgScope" href="#rgScope">&lt;rgScope&gt;: Scope of
+				the “rg” Locale Key</a>
+		</h3>
+		<p>
+			The supplemental &lt;rgScope&gt; element specifies the data paths for
+			which the region used for data lookup is determined by the value of
+			any “rg” key present in the locale identifier (see <a
+				href="tr35.html#RegionOverride">Region Override</a>). If no “rg” key
+			is present, the region used for lookup is determined as usual: from
+			the unicode_region_subtag if present, else inferred from the
+			unicode_language_subtag. The DTD structure is as follows:
+		</p>
+		<p class="dtd">
+			 &lt;!ELEMENT rgScope ( rgPath* ) &gt;<br>
+				<br> &lt;!ELEMENT rgPath EMPTY &gt;<br> &lt;!ATTLIST
+				rgPath path CDATA #REQUIRED &gt;<br>
+		</p>
+		<p>The &lt;rgScope&gt; element contains a list of
+			&lt;rgPath&gt; elements, each of which specifies a datapath for which
+			any “rg” key determines the region for lookup. For example:</p>
+		<pre>
+   &lt;rgScope&gt;
+      &lt;rgPath path="//supplementalData/currencyData/fractions/info[@iso4217='#'][@digits='*'][@rounding='*'][@cashDigits='*'][@cashRounding='*']" draft="provisional" /&gt;
+      &lt;rgPath path="//supplementalData/currencyData/fractions/info[@iso4217='#'][@digits='*'][@rounding='*'][@cashRounding='*']" draft="provisional" /&gt;
+      &lt;rgPath path="//supplementalData/currencyData/fractions/info[@iso4217='#'][@digits='*'][@rounding='*']" draft="provisional" /&gt;
+      &lt;rgPath path="//supplementalData/calendarPreferenceData/calendarPreference[@territories='#'][@ordering='*']" draft="provisional" /&gt;
+      ...
+      &lt;rgPath path="//supplementalData/unitPreferenceData/unitPreferences[@category='*'][@usage='*'][@scope='*']/unitPreference[@regions='#'][@alt='*']" draft="provisional" /&gt;
+      &lt;rgPath path="//supplementalData/unitPreferenceData/unitPreferences[@category='*'][@usage='*'][@scope='*']/unitPreference[@regions='#']" draft="provisional" /&gt;
+      &lt;rgPath path="//supplementalData/unitPreferenceData/unitPreferences[@category='*'][@usage='*']/unitPreference[@regions='#'][@alt='*']" draft="provisional" /&gt;
+      &lt;rgPath path="//supplementalData/unitPreferenceData/unitPreferences[@category='*'][@usage='*']/unitPreference[@regions='#']" draft="provisional" /&gt;
+   &lt;/rgScope&gt;
+</pre>
+		<p>The exact format of the path is provisional in
+			CLDR 29, but as currently shown:</p>
+		<ul>
+			<li>An attribute value of '*' indicates that the path applies
+				regardless of the value of the attribute.</li>
+			<li>Each path must have exactly one attribute whose value is
+				marked here as '#'; in actual data items with this path, the
+				corresponding value is a list of region codes. It is the region
+				codes in this list that are compared with the region specified by
+				the “rg” key to determine which data item to use for this path.</li>
+		</ul>
+
+		<h2>
+			3 <a name="Supplemental_Language_Data"
+				href="#Supplemental_Language_Data">Supplemental Language Data</a>
+		</h2>
+
+		<p class="dtd">
+			&lt;!ELEMENT languageData ( language* ) &gt;<br> &lt;!ELEMENT
+			language EMPTY &gt;<br> &lt;!ATTLIST language type NMTOKEN
+			#REQUIRED &gt;<br> &lt;!ATTLIST language scripts NMTOKENS
+			#IMPLIED &gt;<br> &lt;!ATTLIST language territories NMTOKENS
+			#IMPLIED &gt;<br> &lt;!ATTLIST language variants NMTOKENS
+			#IMPLIED &gt;<br> &lt;!ATTLIST language alt NMTOKENS #IMPLIED
+			&gt;<br> &nbsp;
+		</p>
+		<p>
+			The language data is used for consistency checking and testing. It
+			provides a list of which languages are used with which scripts and in
+			which countries. To a large extent, however, the territory list has
+			been superseded by the data in<em> Section 2.2 <a
+				href="#Supplemental_Territory_Information">Supplemental
+					Territory Information</a>
+			</em>.
+		</p>
+		<pre>	&lt;languageData&gt;
+		&lt;language type=&quot;af&quot; scripts=&quot;Latn&quot; territories=&quot;ZA&quot;/&gt;
+		&lt;language type=&quot;am&quot; scripts=&quot;Ethi&quot; territories=&quot;ET&quot;/&gt;
+		&lt;language type=&quot;ar&quot; scripts=&quot;Arab&quot; territories=&quot;AE BH DZ EG IN IQ JO KW LB
+LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
+                     ...</pre>
+		<p>If the language is not a modern language, or the script is not
+			a modern script, or the language not a major language of the
+			territory, then the alt attribute is set to secondary.</p>
+		<pre>		&lt;language type=&quot;fr&quot; scripts=&quot;Latn&quot; territories=&quot;IT US&quot; alt=&quot;secondary&quot; /&gt;
+                     ...</pre>
+	  <h2>3.1 <a name="Supplemental_Language_Grouping"
+				href="#Supplemental_Language_Grouping">Supplemental Language Grouping</a> </h2>
+
+        <p>&lt;!ELEMENT languageGroups ( languageGroup* ) &gt;<br>
+        &lt;!ELEMENT languageGroup ( #PCDATA ) &gt; <br>
+        &lt;!ATTLIST languageGroup parent NMTOKEN #REQUIRED &gt;</p>
+        <p>The language groups supply language containment. For example, the following indicates that aav is the Unicode language code for a language group that contains caq, crv, etc.</p>
+        <code>&lt;languageGroup parent=&quot;<strong>fiu</strong>&quot;&gt;chm et <strong>fi</strong> fit fkv hu izh kca koi krl kv liv mdf mns mrj myv smi udm vep vot vro&lt;/languageGroup&gt;</code>
+        <p>The vast majority of the languageGroup data is extracted from wikidata, but may be overridden in some cases. The wikidata information is more fine-grained, but  makes use of language groups that don't have ISO or Unicode language codes. Those language groups are omitted from the data. For example, wikidata has the following child-parent chain: only the first and last elements are present in the language groups.</p>
+        <table>
+        <tr><td>Name</td><td>Wikidata Code</td><td>Language Code</td></tr>
+        <tr><td>Finnish</td>
+        <td><a href="https://www.wikidata.org/wiki/Q1412">Q1412</a></td>
+        <td>fi</td></tr>
+        <tr><td>Finnic languages</td><td><a href="https://www.wikidata.org/wiki/Q33328">Q33328</a></td></tr>
+        <tr><td>Finno-Samic languages</td><td><a href="https://www.wikidata.org/wiki/Q163652">Q163652</a></td></tr>
+        <tr><td>Finno-Volgaic languages</td><td><a href="https://www.wikidata.org/wiki/Q161236">Q161236</a></td></tr>
+        <tr><td>Finno-Permic languages</td><td><a href="https://www.wikidata.org/wiki/Q161240">Q161240</a></td></tr>
+        <tr><td>Finno-Ugric languages</td><td><a href="https://www.wikidata.org/wiki/Q79890">Q79890</a></td><td>fiu</td></tr>
+        
+        </table><br>
+        <h2>
+		  4 <a name="Supplemental_Code_Mapping"
+				href="#Supplemental_Code_Mapping">Supplemental Code Mapping</a>
+		</h2>
+
+		<p class="dtd">&lt;!ELEMENT codeMappings (languageCodes*,
+			territoryCodes*, currencyCodes*) &gt;</p>
+		<p class="dtd">
+			&lt;!ELEMENT languageCodes EMPTY &gt;<br> &lt;!ATTLIST
+			languageCodes type NMTOKEN #REQUIRED&gt;<br> &lt;!ATTLIST
+			languageCodes alpha3 NMTOKEN #REQUIRED&gt;
+		</p>
+		<p class="dtd">
+			&lt;!ELEMENT territoryCodes EMPTY &gt;<br> &lt;!ATTLIST
+			territoryCodes type NMTOKEN #REQUIRED&gt;<br> &lt;!ATTLIST
+			territoryCodes numeric NMTOKEN #REQUIRED&gt;<br> &lt;!ATTLIST
+			territoryCodes alpha3 NMTOKEN #REQUIRED&gt;<br> &lt;!ATTLIST
+			territoryCodes fips10 NMTOKEN #IMPLIED&gt;<br> &lt;!ATTLIST
+			territoryCodes internet NMTOKENS #IMPLIED&gt;
+		</p>
+		<p class="dtd">
+			&lt;!ELEMENT currencyCodes EMPTY &gt;<br> &lt;!ATTLIST
+			currencyCodes type NMTOKEN #REQUIRED&gt; <br> &lt;!ATTLIST
+			currencyCodes numeric NMTOKEN #REQUIRED&gt;
+		</p>
+		<p>
+			The code mapping information provides mappings between the subtags
+			used in the CLDR locale IDs (from BCP 47) and other coding systems or
+			related information. The language codes are only provided for those
+			codes that have two letters in BCP 47 to their ISO three-letter
+			equivalents. The territory codes provide mappings to numeric (UN M.49
+			[<a href="tr35.html#UNM49">UNM49</a>] codes, equivalent to ISO
+			numeric codes), ISO three-letter codes, FIPS 10 codes, and the
+			internet top-level domain codes.
+		</p>
+		<p>The alphabetic codes are only provided where different from the
+			type. For example:</p>
+		<pre>&lt;territoryCodes type=&quot;AA&quot; numeric=&quot;958&quot; alpha3=&quot;AAA&quot;/&gt;
+&lt;territoryCodes type=&quot;AD&quot; numeric=&quot;020&quot; alpha3=&quot;AND&quot; fips10=&quot;AN&quot;/&gt;
+&lt;territoryCodes type=&quot;AE&quot; numeric=&quot;784&quot; alpha3=&quot;ARE&quot;/&gt;
+...
+&lt;territoryCodes type=&quot;GB&quot; numeric=&quot;826&quot; alpha3=&quot;GBR&quot; fips10=&quot;UK&quot; internet=&quot;UK GB&quot;/&gt;
+...
+&lt;territoryCodes type=&quot;QU&quot; numeric=&quot;967&quot; alpha3=&quot;QUU&quot; internet=&quot;EU&quot;/&gt;
+...
+&lt;territoryCodes type=&quot;XK&quot; numeric=&quot;983&quot; alpha3=&quot;XKK&quot;/&gt;
+...</pre>
+		<p>Where there is no corresponding code, sometimes private use
+			codes are used, such as the numeric code for XK.</p>
+		<p>
+			The currencyCodes are mappings from three letter currency codes to
+			numeric values (ISO 4217 <a
+				href="http://www.currency-iso.org/en/home/tables/table-a1.html">Current
+				currency &amp; funds code list</a>.) The mapping currently covers only
+			current codes and does not include historic currencies. For example:
+		</p>
+		<pre>
+&lt;currencyCodes type=&quot;AED&quot; numeric=&quot;784&quot;/&gt;
+&lt;currencyCodes type=&quot;AFN&quot; numeric=&quot;971&quot;/&gt;
+...
+&lt;currencyCodes type=&quot;EUR&quot; numeric=&quot;978&quot;/&gt;
+...
+&lt;currencyCodes type=&quot;ZAR&quot; numeric=&quot;710&quot;/&gt;
+&lt;currencyCodes type=&quot;ZMW&quot; numeric=&quot;967&quot;/&gt;
+</pre>
+		<h2>
+			5 <a name="Telephone_Code_Data" href="#Telephone_Code_Data">Telephone
+				Code Data</a>
+		</h2>
+
+		<p class="dtd">
+			&lt;!ELEMENT telephoneCodeData ( codesByTerritory* ) &gt;<br> <br>
+			&lt;!ELEMENT codesByTerritory ( telephoneCountryCode+ ) &gt;<br>
+			&lt;!ATTLIST codesByTerritory territory NMTOKEN #REQUIRED &gt;<br>
+			<br> &lt;!ELEMENT telephoneCountryCode EMPTY &gt;<br>
+			&lt;!ATTLIST telephoneCountryCode code NMTOKEN #REQUIRED &gt;<br>
+			&lt;!ATTLIST telephoneCountryCode from NMTOKEN #IMPLIED &gt;<br>
+			&lt;!ATTLIST telephoneCountryCode to NMTOKEN #IMPLIED &gt;
+		</p>
+		<p>
+			This data specifies the mapping between ITU telephone country codes [<a
+				href="tr35.html#ITUE164">ITUE164</a>] and CLDR-style territory codes
+			(ISO 3166 2-letter codes or non-corresponding UN M.49 [<a
+				href="tr35.html#UNM49">UNM49</a>] 3-digit codes). There are several
+			things to note:
+		</p>
+		<ul>
+			<li>A given telephone country code may map to multiple CLDR
+				territory codes; +1 (North America Numbering Plan) covers the US and
+				Canada, as well as many islands in the Caribbean and some in the
+				Pacific</li>
+			<li>Some telephone country codes are for global services (for
+				example, some satellite services), and thus correspond to territory
+				code 001.</li>
+			<li>The mappings change over time (territories move from one
+				telephone code to another). These changes are usually planned
+				several years in advance, and there may be a period during which
+				either telephone code can be used to reach the territory. While the
+				CLDR telephone code data is not intended to include past changes, it
+				is intended to incorporate known information on planned future
+				changes, using &quot;from&quot; and &quot;to&quot; date attributes
+				to indicate when mappings are valid.</li>
+		</ul>
+		<p>A subset of the telephone code data might look like the
+			following (showing a past mapping change to illustrate the from and
+			to attributes):</p>
+		<pre>&lt;codesByTerritory territory=&quot;001&quot;&gt;
+	&lt;telephoneCountryCode code=&quot;800&quot;/&gt; &lt;!-- International Freephone Service --&gt;
+	&lt;telephoneCountryCode code=&quot;808&quot;/&gt; &lt;!-- International Shared Cost Services (ISCS) --&gt;
+	&lt;telephoneCountryCode code=&quot;870&quot;/&gt; &lt;!-- Inmarsat Single Number Access Service (SNAC) --&gt;
+&lt;/codesByTerritory&gt;
+&lt;codesByTerritory territory=&quot;AS&quot;&gt; &lt;!-- American Samoa --&gt;
+	&lt;telephoneCountryCode code=&quot;1&quot; from=&quot;2004-10-02&quot;/&gt; &lt;!-- +1 684 in North America Numbering Plan --&gt;
+	&lt;telephoneCountryCode code=&quot;684&quot; to=&quot;2005-04-02&quot;/&gt; &lt;!-- +684 now a spare code --&gt;
+&lt;/codesByTerritory&gt;
+&lt;codesByTerritory territory=&quot;CA&quot;&gt;
+	&lt;telephoneCountryCode code=&quot;1&quot;/&gt; &lt;!-- North America Numbering Plan --&gt;
+&lt;/codesByTerritory&gt;</pre>
+
+		<h2>
+			6 <a name="Postal_Code_Validation" href="#Postal_Code_Validation">Postal
+				Code Validation (Deprecated)</a>
+		</h2>
+		<p>Deprecated in v27. Please see other services that are kept up
+			to date, such as:</p>
+		<ul>
+
+			<li><a href="http://i18napis.appspot.com/address/data/US">http://i18napis.appspot.com/address/data/US</a></li>
+			<li><a href="http://i18napis.appspot.com/address/data/CH">http://i18napis.appspot.com/address/data/CH</a></li>
+			<li>...<br></li>
+		</ul>
+		<p class="dtd">
+			&lt;!ELEMENT postalCodeData (postCodeRegex*) &gt;<br>
+			&lt;!ELEMENT postCodeRegex (#PCDATA) &gt;<br> &lt;!ATTLIST
+			postCodeRegex territoryId NMTOKEN #REQUIRED&gt;<br>
+		</p>
+		<p>The Postal Code regex information can be used to validate
+			postal codes used in different countries. In some cases, the regex is
+			quite simple, such as for Germany:</p>
+		<pre>&lt;postCodeRegex territoryId=&quot;DE&quot; &gt;\d{5}&lt;/postCodeRegex&gt;</pre>
+		<p>The US code is slightly more complicated, since there is an
+			optional portion:</p>
+		<pre>&lt;postCodeRegex territoryId=&quot;US&quot; &gt;\d{5}([ \-]\d{4})?&lt;/postCodeRegex&gt;</pre>
+		<p>The most complicated currently is the UK.</p>
+
+		<h2>
+			7 <a name="Supplemental_Character_Fallback_Data"
+				href="#Supplemental_Character_Fallback_Data">Supplemental
+				Character Fallback Data</a>
+		</h2>
+		<p class="dtd">
+			&lt;!ELEMENT characters ( character-fallback*) &gt;<br> <br>
+			&lt;!ELEMENT character-fallback ( character* ) &gt;<br>
+			&lt;!ELEMENT character (substitute*) &gt;<br> &lt;!ATTLIST
+			character value CDATA #REQUIRED &gt;<br> <br> &lt;!ELEMENT
+			substitute (#PCDATA) &gt;
+		</p>
+		<p>The characters element provides a way for non-Unicode systems,
+			or systems that only support a subset of Unicode characters, to
+			transform CLDR data. It gives a list of characters with alternative
+			values that can be used if the main value is not available. For
+			example:</p>
+		<pre>&lt;characters&gt;
+       &lt;character-fallback&gt;
+	&lt;character value = &quot;ß&quot;&gt;
+		&lt;substitute&gt;ss&lt;/substitute&gt;
+	&lt;/character&gt;
+	&lt;character value = &quot;Ø&quot;&gt;
+		&lt;substitute&gt;Ö&lt;/substitute&gt;
+		&lt;substitute&gt;O&lt;/substitute&gt;
+	&lt;/character&gt;
+	&lt;character value = &quot;<span style="font-size: 150%">₧</span>&quot;&gt;
+		&lt;substitute&gt;Pts&lt;/substitute&gt;
+	&lt;/character&gt;
+	&lt;character value = &quot;<span style="font-size: 150%">₣</span>&quot;&gt;
+		&lt;substitute&gt;Fr.&lt;/substitute&gt;
+	&lt;/character&gt;
+       &lt;/character-fallback&gt;
+&lt;/characters&gt;</pre>
+		<p>The ordering of the substitute elements indicates the
+			preference among them.</p>
+		That is, this data provides recommended fallbacks for use when a
+		charset or supported repertoire does not contain a desired character.
+		There is more than one possible fallback: the recommended usage is
+		that when a character <i>value</i> is not in the desired repertoire
+		the following process is used, whereby the first value that is wholly
+		in the desired repertoire is used.
+		<ul>
+			<li style="margin-top: 0.5em; margin-bottom: 0.5em"><code>toNFC</code>(<i>value</i>)</li>
+			<li style="margin-top: 0.5em; margin-bottom: 0.5em">other
+				canonically equivalent sequences, if there are any</li>
+			<li style="margin-top: 0.5em; margin-bottom: 0.5em">the explicit
+				<i>substitutes</i> value (in order)
+			</li>
+			<li style="margin-top: 0.5em; margin-bottom: 0.5em"><code>toNFKC</code>(<i>value</i>)</li>
+		</ul>
+
+
+
+		<h2>
+			8 <a name="Coverage_Levels" href="#Coverage_Levels">Coverage
+				Levels</a>
+		</h2>
+		<p>The following describes the coverage levels used for the
+			current version of CLDR. This list will change between releases of
+			CLDR. Each level adds to what is in the lower level.</p>
+		<table border="1" cellpadding="0" cellspacing="1">
+			<!-- nocaption -->
+			<tr>
+				<th nowrap><div align="right">Level</div></th>
+				<th colspan="2">Description</th>
+			</tr>
+			<tr>
+				<td nowrap><div align="right">0</div></td>
+				<td>undetermined</td>
+				<td>Does not meet any of the following levels.</td>
+			</tr>
+			<tr>
+				<td nowrap><div align="right">10</div></td>
+				<td>core</td>
+				<td>The CLDR "core" data, which is defined as the basic
+					information about the language and writing system that is required
+					before other information can be added using the CLDR survey tool.
+					See <a href="http://cldr.unicode.org/index/cldr-spec/minimaldata">http://cldr.unicode.org/index/cldr-spec/minimaldata</a>
+				</td>
+			</tr>
+			<tr>
+				<td nowrap><div align="right">40</div></td>
+				<td>basic</td>
+				<td>The minimum amount of locale data deemed necessary to
+					create a "viable" locale in CLDR. Contains names for the languages,
+					scripts, and territories associated with the language, numbering
+					systems used in those languages, date and number formats, plus a
+					few key values such as the values in Section 3.1 <a
+					href="tr35.html#Unknown_or_Invalid_Identifiers">Unknown or
+						Invalid Identifiers</a>. Also contains data associated with the most prominent languages
+					and countries.</td>
+			</tr>
+			<tr>
+				<td nowrap><div align="right">60</div></td>
+				<td>moderate</td>
+				<td>Contains more types of data and more language and territory
+					names than the basic level. If the language is associated with an
+					EU country, then the moderate level attempts to complete the data
+					as it pertains to all EU member countries.</td>
+			</tr>
+			<tr>
+				<td nowrap><div align="right">80</div></td>
+				<td>modern</td>
+				<td>Contains all fields in normal modern use, including all
+					country names, and currencies in use.</td>
+			</tr>
+			<tr>
+				<td nowrap><div align="right">100</div></td>
+				<td>comprehensive</td>
+				<td>Contains complete localizations (or valid inheritance) for
+					every possible field.</td>
+			</tr>
+			</table>
+		<p>
+			Levels 40 through 80 are based on the definitions and specifications
+			listed in <strong>8.1-8.4</strong>. However, these principles are
+			continually being refined by the CLDR technical committee, and so do
+			not completely reflect the data that is actually used for coverage
+			determination, which is under the XPath <strong>//supplementalData/CoverageLevels</strong>.
+			For a view of the trunk version of this data<strike>file</strike>,
+			see <a
+				href="http://unicode.org/repos/cldr/tags/latest/common/supplemental/coverageLevels.xml">coverageLevels.xml</a>.
+			(As described in the <a href="tr35-info.html#Supplemental_Data">introduction
+				to Supplemental Data</a>, the specific XML filename may change.)
+		</p>
+		<p class="dtd">
+			&lt;!ELEMENT coverageLevels ( approvalRequirements,
+			coverageVariable*, coverageLevel* ) &gt;<br> &lt;!ELEMENT
+			coverageLevel EMPTY &gt;<br> &lt;!ATTLIST coverageLevel
+			inLanguage CDATA #IMPLIED &gt;<br> &lt;!ATTLIST coverageLevel
+			inScript CDATA #IMPLIED &gt;<br> &lt;!ATTLIST coverageLevel
+			inTerritory CDATA #IMPLIED &gt;<br> &lt;!ATTLIST coverageLevel
+			value CDATA #REQUIRED &gt;<br> &lt;!ATTLIST coverageLevel match
+			CDATA #REQUIRED &gt;
+		</p>
+		<p>For example, here is an example coverageLevel line.</p>
+		<pre>&lt;coverageLevel<br>    value=&quot;30&quot;
+      inLanguage=&quot;(de|fi)&quot; <br>    match=&quot;localeDisplayNames/types/type[@type='phonebook'][@key='collation']&quot;/&gt;</pre>
+		<p>
+			The coverageLevel elements are read in order, and the first match
+			results in a coverage level value. The element matches based on the <span
+				class="attribute">inLanguage</span>, <span class="attribute">inScript</span>,
+			<span class="attribute">inTerritory</span>, and <span
+				class="attribute">match</span> attribute values, which are regular
+			expressions. For example, in the above example, a match occurs if the
+			language is de or fi, and if the path is a locale display name for
+			collation=phonebook.
+		</p>
+		<p>
+			The <span class="attribute">match</span> attribute value logically
+			has &quot;//ldml/&quot; prefixed before it is applied. In addition,
+			the &quot;[@&quot; is automatically quoted. Otherwise standard
+			Perl/Java style regular expression syntax is used.
+		</p>
+		<p class="dtd">
+			&lt;!ELEMENT coverageVariable EMPTY &gt;<br> &lt;!ATTLIST
+			coverageVariable key CDATA #REQUIRED &gt;<br> &lt;!ATTLIST
+			coverageVariable value CDATA #REQUIRED &gt;
+		</p>
+		<p>The coverageVariable element allows us to create variables for
+			certain regular expressions that are used frequently in the
+			coverageLevel definitions above. Each coverage varible must contain a
+			key / value pair of attributes, which can then be used to be
+			substituted into a coverageLevel definition above.</p>
+		<p>For example, here is an example coverageLevel line using
+			coverageVariable substitution.</p>
+
+		<pre>&lt;coverageVariable key=&quot;%dayTypes&quot; value=&quot;(sun|mon|tue|wed|thu|fri|sat)&quot;&gt;<br>
+&lt;coverageVariable key=&quot;%wideAbbr&quot; value=&quot;(wide|abbreviated)&quot;&gt;<br>
+&lt;coverageLevel value="20" match=&quot;dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='format']/dayWidth[@type='%wideAbbr']/day[@type='%dayTypes']&quot;/&gt;</pre>
+		<p>In this example, the coverge variables %dayTypes and %wideAbbr
+			are used to substitute their respective values into the match
+			expression. This allows us to reuse the same variable for other
+			coverageLevel matches that use the same regular expression fragment.</p>
+		<p class="dtd">
+			<br> &lt;!ELEMENT approvalRequirements ( approvalRequirement* )
+			&gt;<br> &lt;!ELEMENT approvalRequirement EMPTY &gt;<br>
+			&lt;!ATTLIST approvalRequirement votes CDATA #REQUIRED&gt;<br>
+			&lt;!ATTLIST approvalRequirement locales CDATA #REQUIRED&gt;<br>
+			&lt;!ATTLIST approvalRequirement paths CDATA #REQUIRED&gt;<br>
+		</p>
+		<p></p>
+		<p>The approvalRequirements allows to specify the number of survey
+			tool votes required for approval, either based on locale, or path, or
+			both. Certain locales require a higher voting threshhold (usually 8
+			votes instead of 4), in order to promote greater stability in the
+			data. Furthermore, certain fields that are very high visibility
+			fields, such as number formats, require a CLDR TC committee member's
+			vote for approval.</p>
+
+		<p>Here is an example of the approvalRequirements section.</p>
+
+		<pre>&lt;approvalRequirements&gt;<br>	&lt;!--  &quot;high bar&quot; items --&gt;
+		&lt;approvalRequirement votes=&quot;20&quot; locales=&quot;*&quot; paths=&quot;//ldml/numbers/symbols[^/]++/(decimal|group)&quot;/&gt;
+		&lt;!--  established locales - http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value --&gt;
+		&lt;approvalRequirement votes=&quot;8&quot; locales=&quot;ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant&quot; paths=&quot;&quot;/&gt;
+		&lt;!--  all other items --&gt;
+		&lt;approvalRequirement votes=&quot;4&quot; locales=&quot;*&quot; paths=&quot;&quot;/&gt;<br>&lt;/approvalRequirements&gt;		</pre>
+		<p>This section specifies that a TC vote (20 votes) is required
+			for decimal and grouping separators. Furthermore it specifies that
+			any field in the established locales list (i.e. ar, ca, cs, etc.)
+			requires 8 votes, and that all other locales require 4 votes only.</p>
+		<p>
+			For more information on the CLDR Voting process, See <a
+				href="http://cldr.unicode.org/index/process">http://cldr.unicode.org/index/process</a>
+		</p>
+
+		<h3>
+			8.1 <a name="Coverage_Level_Definitions"
+				href="#Coverage_Level_Definitions">Definitions</a>
+		</h3>
+		<ul>
+			<li><i>Target-Language</i> is the language under consideration.</li>
+			<li><i>Target-Territories</i> is the list of territories found
+				by looking up <i>Target-Language</i> in the &lt;languageData&gt;
+				elements in <a href="tr35-info.html#Supplemental_Language_Data">Supplemental
+					Language Data</a>.</li>
+			<li><i>Language-List</i> is <i>Target-Language</i>, plus
+				<ul>
+					<li><b>basic: </b>Chinese, English, French, German, Italian,
+						Japanese, Portuguese, Russian, Spanish, Unknown (de, en, es, fr,
+						it, ja, pt, ru, zh, und</li>
+					<li><b>moderate: </b>basic + Arabic, Hindi, Korean,
+						Indonesian, Dutch, Bengali, Turkish, Thai, Polish (ar, hi, ko, in,
+						nl, bn, tr, th, pl). If an EU language, add the remaining official
+						EU languages, currently: Danish, Greek, Finnish, Swedish, Czech,
+						Estonian, Latvian, Lithuanian, Hungarian, Maltese, Slovak, Slovene
+						(da, el, fi, sv, cs, et, lv, lt, hu, mt, sk, sl)</li>
+					<li><b>modern:</b> all languages that are official or major
+						commercial languages of modern territories</li>
+				</ul></li>
+			<li><i>Target-Scripts </i>is the list of scripts in which <i>Target-Language</i>
+				can be customarily written (found by looking up <i>Target-Language</i>
+				in the &lt;languageData&gt; elements in <a
+				href="tr35-info.html#Supplemental_Language_Data">Supplemental
+					Language Data</a>.)<i>,</i> plus Unknown (Zzzz)<i>.</i></li>
+			<li><i>Script-List</i> is the <i>Target-Scripts</i> plus the
+				major scripts used for multiple languages
+				<ul>
+					<li>Latin, Simplified Chinese, Traditional Chinese, Cyrillic,
+						Arabic (Latn, Hans, Hant, Cyrl, Arab)</li>
+				</ul></li>
+			<li><i>Territory-List</i> is the list of territories formed by
+				taking the <i>Target-Territories</i> and adding:
+				<ul>
+					<li><b>basic: </b>Brazil, China, France, Germany, India,
+						Italy, Japan, Russia, United Kingdom, United States, Unknown (BR,
+						CN, DE, GB, FR, IN, IT, JP, RU, US, ZZ)</li>
+					<li><b>moderate: </b>basic + Spain, Canada, Korea, Mexico,
+						Australia, Netherlands, Switzerland, Belgium, Sweden, Turkey,
+						Austria, Indonesia, Saudi Arabia, Norway, Denmark, Poland, South
+						Africa, Greece, Finland, Ireland, Portugal, Thailand, Hong Kong
+						SAR China, Taiwan (ES, BE, SE, TR, AT, ID, SA, NO, DK, PL, ZA, GR,
+						FI, IE, PT, TH, HK, TW). If an EU language, add the remaining
+						member EU countries: Luxembourg, Czech Republic, Hungary, Estonia,
+						Lithuania, Latvia, Slovenia, Slovakia, Malta (LU, CZ, HU, ES, LT,
+						LV, SI, SK, MT).</li>
+					<li><b>modern:</b> all current ISO 3166 territories, plus the
+						UN M.49 [<a href="tr35.html#UNM49">UNM49</a>] regions in <a
+						href="tr35-info.html#Supplemental_Territory_Containment">Supplemental
+							Territory Containment</a>.</li>
+				</ul></li>
+			<li><i>Currency-List</i> is the list of current official
+				currencies used in any of the territories in <i>Territory-List</i>,
+				found by looking at the region elements in <a
+				href="tr35-info.html#Supplemental_Territory_Containment">Supplemental
+					Territory Containment</a>, plus Unknown (XXX).</li>
+			<li><i>Calendar-List</i> is the set of calendars in customary
+				use in any of <i>Target-Territories</i>, plus Gregorian.</li>
+			<li><em>Number-System-List</em> is the set of number systems in
+				customary use in the language.</li>
+		</ul>
+		<h3>
+			8.2 <a name="Coverage_Level_Data_Requirements"
+				href="#Coverage_Level_Data_Requirements">Data Requirements</a>
+		</h3>
+		<p>The required data to qualify for the level is then the
+			following.</p>
+		<ol>
+			<li>localeDisplayNames
+				<ol>
+					<li><i>languages: </i>localized names for all languages in <i>Language-List.</i></li>
+					<li><i>scripts:</i> localized names for all scripts in <i>Script-List</i>.</li>
+					<li><i>territories:</i> localized names for all territories in
+						<i>Territory-List</i>.</li>
+					<li><i>variants, keys, types:</i> localized names for any in
+						use in <i>Target-Territories</i>; for example, a translation for
+						PHONEBOOK in a German locale.</li>
+				</ol>
+			</li>
+			<li>dates: all of the following for each calendar in <i>Calendar-List</i>.
+				<ol>
+					<li>calendars: localized names</li>
+					<li>month names, day names, era names, and quarter names
+						<ul>
+							<li>context=format and width=narrow, wide, &amp; abbreviated</li>
+							<li>plus context=standAlone and width=narrow, wide, &amp;
+								abbreviated, <i>if the grammatical forms of these are
+									different than for context=format.</i>
+							</li>
+						</ul>
+					</li>
+					<li>week: minDays, firstDay, weekendStart, weekendEnd
+						<ul>
+							<li>if some of these vary in territories in <i>Territory-List</i>,
+								include territory locales for those that do.
+							</li>
+						</ul>
+					</li>
+					<li>am, pm, eraNames, eraAbbr</li>
+					<li>dateFormat, timeFormat: full, long, medium, short</li>
+					<li>
+						<p>intervalFormatFallback</p>
+					</li>
+				</ol>
+			</li>
+			<li>numbers: symbols, decimalFormats, scientificFormats,
+				percentFormats, currencyFormats for each number system in <em>Number-System-List</em>.
+			</li>
+			<li>currencies: displayNames and symbol for all currencies in <i>Currency-List</i>,
+				for all plural forms
+			</li>
+			<li>transforms: (moderate and above) transliteration between
+				Latin and each other script in <i>Target-Scripts.</i>
+			</li>
+		</ol>
+		<h3>
+			8.3 <a name="Coverage_Level_Default_Values"
+				href="#Coverage_Level_Default_Values">Default Values</a>
+		</h3>
+		<p>
+			Items should <i>only</i> be included if they are not the same as the
+			default, which is:
+		</p>
+		<ul>
+			<li>what is in root, if there is something defined there.</li>
+			<li>for timezone IDs: the name computed according to <i><a
+					href="tr35.html#Time_Zone_Fallback">Appendix J: Time Zone
+						Display Names</a></i></li>
+			<li>for collation sequence, the UCA DUCET (Default Unicode
+				Collation Element Table), as modified by CLDR.
+				<ul>
+					<li>however, in that case the locale must be added to the
+						validSubLocale list in <a
+						href="http://unicode.org/cldr/data/common/collation/root.xml">collation/root.xml</a>.
+					</li>
+				</ul>
+			</li>
+			<li>for currency symbol, language, territory, script names,
+				variants, keys, types, the internal code identifiers, for example,
+				<ul>
+					<li>currencies: EUR, USD, JPY, ...</li>
+					<li>languages: en, ja, ru, ...</li>
+					<li>territories: GB, JP, FR, ...</li>
+					<li>scripts: Latn, Thai, ...</li>
+					<li>variants: PHONEBOOK,...</li>
+				</ul>
+			</li>
+		</ul>
+		<!-- end section 8 -->
+
+
+		<!-- begin section 9 supplemental metadata -->
+		<h2>
+			9 <a name="Appendix_Supplemental_Metadata"
+				href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a>
+		</h2>
+
+		<p>
+			Note that this section discusses the
+			<code>&lt;metadata&gt;</code>
+			element within the
+			<code>&lt;supplementalData&gt;</code>
+			element. For the per-locale metadata used in tests and the Survey
+			Tool, see <a href="#Metadata_Elements">10: Locale Metadata
+				Element</a>.
+		</p>
+
+
+		<p>The supplemental metadata contains information about the CLDR
+			file itself, used to test validity and provide information for locale
+			inheritance. A number of these elements are described in</p>
+		<ul class="toc">
+			<li style="margin-top: 0.5em; margin-bottom: 0.5em">Appendix I:
+				<a href="tr35.html#Inheritance_and_Validity">Inheritance and
+					Validity</a>
+			</li>
+			<li style="margin-top: 0.5em; margin-bottom: 0.5em">Appendix K:
+				<a href="tr35.html#Valid_Attribute_Values">Valid Attribute
+					Values</a>
+			</li>
+			<li style="margin-top: 0.5em; margin-bottom: 0.5em">Appendix L:
+				<a href="tr35.html#Canonical_Form">Canonical Form</a>
+			</li>
+			<li style="margin-top: 0.5em; margin-bottom: 0.5em">Appendix M:
+				<a href="#Coverage_Levels">Coverage Levels</a>
+			</li>
+		</ul>
+		<h3>
+			9.1 <a name="Supplemental_Alias_Information"
+				href="#Supplemental_Alias_Information">Supplemental Alias
+				Information</a>
+		</h3>
+
+		<p class="dtd">
+			&lt;!ELEMENT alias
+			(languageAlias*,scriptAlias*,territoryAlias*,subdivisionAlias*,variantAlias*,zoneAlias*)
+			&gt;<br> <br> <em>The following are common attributes
+				for subelements of &lt;alias&gt;:</em><br> &lt;!ELEMENT *Alias EMPTY
+			&gt;<br> &lt;!ATTLIST *Alias type NMTOKEN #IMPLIED &gt;<br>
+			&lt;!ATTLIST *Alias replacement NMTOKEN #IMPLIED &gt;<br>
+			&lt;!ATTLIST *Alias reason ( deprecated | overlong ) #IMPLIED&gt; <br>
+			<br> <em>The languageAlias has additional reasons</em><br>
+			&lt;!ATTLIST languageAlias reason ( deprecated | overlong |
+			macrolanguage | legacy | bibliographic ) #IMPLIED&gt;
+		</p>
+		<p>
+			This element provides information as to parts of locale IDs that
+			should be substituted when accessing CLDR data. This logical
+			substitution should be done to both the locale id, and to any lookup
+			for display names of languages, territories, and so on. The
+			replacement for the language and territory types is more complicated:
+			see <em>Part 1: <a href="tr35.html#Contents">Core</a>, Section
+				3.3.1 <a href="tr35.html#BCP_47_Language_Tag_Conversion">BCP 47
+					Language Tag Conversion</a></em> for details.
+		</p>
+		<pre>&lt;alias&gt;
+  &lt;languageAlias type=&quot;in&quot; replacement=&quot;id&quot;&gt;
+  &lt;languageAlias type=&quot;sh&quot; replacement=&quot;sr&quot;&gt;
+  &lt;languageAlias type=&quot;sh_YU&quot; replacement=&quot;sr_Latn_YU&quot;&gt;
+...
+  &lt;territoryAlias type=&quot;BU&quot; replacement=&quot;MM&quot;&gt;
+...
+&lt;/alias&gt;</pre>
+		<p>Attribute values for the *Alias values include the following:</p>
+		<table>
+			<caption>
+				<a name="Alias_Attribute_Values" href="#Alias_Attribute_Values">Alias
+					Attribute Values</a>
+			</caption>
+			<tr>
+				<th scope="col">Attribute</th>
+				<th scope="col">Value</th>
+				<th scope="col">Description</th>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>NMTOKEN</td>
+				<td>The code to be replaced</td>
+			</tr>
+			<tr>
+				<td>replacement</td>
+				<td>NMTOKEN</td>
+				<td>The code(s) to replace it, space-delimited.</td>
+			</tr>
+			<tr>
+				<td rowspan="5">reason</td>
+				<td>deprecated</td>
+				<td>The code in type is deprecated, such as 'iw' by 'he', or
+					'CS' by 'RS ME'.</td>
+			</tr>
+			<tr>
+				<td>overlong</td>
+				<td>The code in type is too long, such as 'eng' by 'en' or
+					'USA' or '840' by 'US'</td>
+			</tr>
+			<tr>
+				<td>macrolanguage</td>
+				<td>The code in type is an encompassed languagethat is replaced
+					by a macrolanguage, such as '<a
+					href="http://www-01.sil.org/iso639-3/documentation.asp?id=arb">arb'</a>
+					by 'ar'.
+				</td>
+			</tr>
+			<tr>
+				<td>legacy</td>
+				<td>The code in type is a legacy code that is replaced by
+					another code for compatiblity with established legacy usage, such
+					as 'sh' by 'sr_Latn'</td>
+			</tr>
+			<tr>
+				<td>bibliographic</td>
+				<td>The code in type is a <a
+					href="http://www.loc.gov/standards/iso639-2/langhome.html">bibliographic
+						code</a>, which is replaced by a terminology code, such as 'alb' by
+					'sq'.
+				</td>
+			</tr>
+		</table>
+		<h3>
+			9.2 <a name="Supplemental_Deprecated_Information"
+				href="#Supplemental_Deprecated_Information">Supplemental
+				Deprecated Information (Deprecated)</a>
+		</h3>
+		<pre class="dtd">&lt;!ELEMENT deprecated ( deprecatedItems* ) &gt;
+&lt;!ATTLIST deprecated draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED &gt; &lt;!-- true and false are deprecated. --&gt;
+
+&lt;!ELEMENT deprecatedItems EMPTY &gt;
+&lt;!ATTLIST deprecatedItems type ( standard | supplemental | ldml | supplementalData | ldmlBCP47 ) #IMPLIED &gt; &lt;!-- standard | supplemental are deprecated --&gt;
+&lt;!ATTLIST deprecatedItems elements NMTOKENS #IMPLIED &gt;
+&lt;!ATTLIST deprecatedItems attributes NMTOKENS #IMPLIED &gt;
+&lt;!ATTLIST deprecatedItems values CDATA #IMPLIED &gt;</pre>
+		<p>The deprecated items element was used to indicate elements,
+			attributes, and attribute values that are deprecated. This means that
+			the items are valid, but that their usage is strongly discouraged.
+			This element and its subelements have been deprecated
+			in favor of <a href="tr35.html#DTD_Annotations">DTD Annotations</a>.</p>
+
+		<p>Where particular values are deprecated (such as territory codes
+			like SU for Soviet Union), the names for such codes may be removed
+			from the common/main translated data after some period of time.
+			However, typically supplemental information for deprecated codes is
+			retained, such as containment, likely subtags, older currency codes
+			usage, etc. The English name may also be retained, for debugging
+			purposes.</p>
+		<h3>
+			9.3 <a name="Default_Content" href="#Default_Content">Default
+				Content</a>
+		</h3>
+		<pre class="dtd">&lt;!ELEMENT defaultContent EMPTY &gt;
+               &lt;!ATTLIST defaultContent locales NMTOKENS #IMPLIED &gt;</pre>
+		<p>
+			In CLDR, locales without territory information (or where needed,
+			script information) provide data appropriate for what is called the <i>default
+				content locale</i>. For example, the <i>en</i> locale contains data
+			appropriate for <i>en-US</i>, while the <i>zh</i> locale contains
+			content for <i>zh-Hans-CN</i>, and the <i>zh-Hant</i> locale contains
+			content for <i>zh-Hant-TW</i>. The default content locales themselves
+			thus inherit all of their contents, and are empty.
+		</p>
+		<p>
+			The choice of content is typically based on the largest literate
+			population of the possible choices. Thus if an implementation only
+			provides the base language (such as<i> en</i>), it will still get a
+			complete and consistent set of data appropriate for a locale which is
+			reasonably likely to be the one meant. Where other information is
+			available, such as independent country information, that information
+			can always be used to pick a different locale (such as <i>en-CA</i>
+			for a website targeted at Canadian users).
+		</p>
+		<p>
+			If an implementation is to use a different default locale, then the
+			data needs to be <i>pivoted</i>; all of the data from the CLDR for
+			the current default locale pushed out to the locales that inherit
+			from it, then the new default content locale&#39;s data moved into
+			the base. There are tools in CLDR to perform this operation.
+		</p>
+
+		<!-- end section 9 supp metadata -->
+
+
+		<!-- begin section 10 the metadata element -->
+		<h2>
+			10 <a name="Metadata_Elements" href="#Metadata_Elements">Locale
+				Metadata Element<strike>s</strike>
+			</a>
+		</h2>
+
+		<p>
+			Note: This section refers to the per-locale
+			<code>&lt;metadata&gt;</code>
+			element, containing metadata about a particular locale. This is in
+			contrast to the <a href="#Appendix_Supplemental_Metadata"><em>Supplemental</em>
+				Metadata</a>, which is in the supplemental tree and is not specific to a
+			locale.
+		</p>
+
+
+		<p class="dtd">
+			&lt;!ELEMENT metadata ( alias | ( casingData?, special* ) ) &gt;<br>
+			&lt;!ELEMENT casingData ( alias | ( casingItem*, special* ) ) &gt;<br>
+			&lt;!ELEMENT casingItem ( #PCDATA ) &gt;<br> &lt;!ATTLIST
+			casingItem type CDATA #REQUIRED &gt;<br> &lt;!ATTLIST casingItem
+			override (true | false) #IMPLIED &gt;<br> &lt;!ATTLIST
+			casingItem forceError (true | false) #IMPLIED &gt;<br>
+		</p>
+		<p>The &lt;metadata&gt; element contains metadata about the locale
+			for use by the Survey Tool or other tools in checking locale data;
+			this data is not intended for export as part of the locale itself.</p>
+		<p>The &lt;casingItem&gt; element specifies the capitalization
+			intended for the majority of the data in a given category with the
+			locale. The purpose is so that warnings can be issued to translators
+			that anything deviating from that capitalization should be carefully
+			reviewed. Its type attribute has one of the values used for the
+			&lt;contextTransformUsage&gt; element above, with the exception of
+			the special value "all"; its value is one of the following:</p>
+		<ul>
+			<li>lowercase</li>
+			<li>titlecase</li>
+		</ul>
+		<p>The &lt;casingItem&gt; data is generated by a tool based on the
+			data available in CLDR. In cases where the generated casing
+			information is incorrect and needs to be manually edited, the
+			override attribute is set to "true" so that the tool will not
+			override the manual edits. When the casing information is known to be
+			both correct and something that should apply to all elements of the
+			specified type in a given locale, the forceErr attribute may be set
+			to "true" to force an error instead of a warning for items that do
+			not match the casing information.</p>
+		<!-- end section Info-A metadta element -->
+
+		<!-- begin section 11 Version Information -->
+		<h2>
+			11 <a name="Version_Information" href="#Version_Information">Version
+				Information</a>
+		</h2>
+
+
+		<p class="dtd">
+			&lt;!ELEMENT version EMPTY &gt;<br> &lt;!ATTLIST version
+			cldrVersion CDATA #FIXED "27" &gt;<br> &lt;!ATTLIST version
+			unicodeVersion CDATA #FIXED "7.0.0" &gt;<br>
+		</p>
+		<p>
+			The &lt;cldrVersion&gt; attribute defines the CLDR version for this
+			data, as published on <a
+				href="http://cldr.unicode.org/index/downloads"> CLDR
+				Releases/Downloads</a>
+		</p>
+		<p>The &lt;unicodeVersion&gt; attribute defines the version of the
+			Unicode standard that is used to interpret data. Specifically, some
+			data elements such as exemplar characters are expressed in terms of
+			UnicodeSets. Since UnicodeSets can be expressed in terms of Unicode
+			properties, their meaning depend on the Unicode version from which
+			property values are derived.</p>
+		<!-- end section Version Information metadta element -->
+
+		<h2>
+			12 <a name="Parent_Locales" href="#Parent_Locales">Parent Locales</a>
+		</h2>
+		<p>
+			The parentLocales data is supplemental data, but is described in
+			detail in the <a href="tr35.html#Parent_Locales">core
+				specification section 4.1.3.</a>
+		</p>
+
+		<hr>
+		<p class="copyright">
+			Copyright © 2001–2018 Unicode, Inc. All
+			Rights Reserved. The Unicode Consortium makes no expressed or implied
+			warranty of any kind, and assumes no liability for errors or
+			omissions. No liability is assumed for incidental and consequential
+			damages in connection with or arising out of the use of the
+			information or programs contained or accompanying this technical
+			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
+				of Use</a> apply.
+		</p>
+		<p class="copyright">Unicode and the Unicode logo are trademarks
+			of Unicode, Inc., and are registered in some jurisdictions.</p>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="or" /> 
+	</identity>
+	<collations>
+		<collation type="standard" references="Grundy: The Concise Oriya-English Dictionary ISBN:8120616995">
+			<cr><![CDATA[
+			[normalization on]
+			[reorder Orya Deva Beng Guru Gujr Taml Telu Knda Mlym Sinh]
+			#
+			#	The following tailoring is an adjustment of the
+			#	DUCET collation order for CANDRABINDU, ANUSVARA,
+			#	and VISARGA. Instead of being sorted with secondary
+			#	weights, they are collated on primary level between
+			#	the independent vowels and the consonants.
+			# 
+				&ଔ<ଁ<ଂ<ଃ
+			# KSSA is sorted after HA.
+				&ହ<କ୍ଷ
+			# YYA is secondary different from YA.
+				&ଯ<<ୟ
+			]]></cr>
+		</collation>
+	</collations>
+</ldml>

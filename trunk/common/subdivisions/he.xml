@@ -1,0 +1,2051 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2018 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="he"/>
+	</identity>
+	<localeDisplayNames>
+		<subdivisions>
+			<subdivision type="ad02" draft="contributed">קאנילו</subdivision>
+			<subdivision type="ad03" draft="contributed">אנקאם</subdivision>
+			<subdivision type="ad06" draft="contributed">סן ג׳וליה דה לוריה</subdivision>
+			<subdivision type="aeaj" draft="contributed">עג׳מאן</subdivision>
+			<subdivision type="aeaz" draft="contributed">אבו דאבי</subdivision>
+			<subdivision type="aedu" draft="contributed">דובאי</subdivision>
+			<subdivision type="aefu" draft="contributed">פוג׳יירה</subdivision>
+			<subdivision type="aerk" draft="contributed">ראס אל-ח׳ימה</subdivision>
+			<subdivision type="aesh" draft="contributed">שארג׳ה</subdivision>
+			<subdivision type="aeuq" draft="contributed">אום אל-קיוין</subdivision>
+			<subdivision type="afhel" draft="contributed">מחוז הלמן</subdivision>
+			<subdivision type="afkan" draft="contributed">מחוז קנדהאר</subdivision>
+			<subdivision type="afkdz" draft="contributed">קונדוז</subdivision>
+			<subdivision type="aflog" draft="contributed">לוגר</subdivision>
+			<subdivision type="ag05" draft="contributed">קהילת סנט מרי</subdivision>
+			<subdivision type="ag10" draft="contributed">ברבודה</subdivision>
+			<subdivision type="ag11" draft="contributed">רדונדה</subdivision>
+			<subdivision type="amer" draft="contributed">ירוואן</subdivision>
+			<subdivision type="aocab" draft="contributed">קבינדה</subdivision>
+			<subdivision type="ara" draft="contributed">סלטה</subdivision>
+			<subdivision type="arb" draft="contributed">בואנוס איירס</subdivision>
+			<subdivision type="arc" draft="contributed">בואנוס איירס²</subdivision>
+			<subdivision type="ard" draft="contributed">סן לואיס</subdivision>
+			<subdivision type="are" draft="contributed">אנטרה ריוס</subdivision>
+			<subdivision type="arf" draft="contributed">לה ריוחה</subdivision>
+			<subdivision type="arg" draft="contributed">סנטיאגו דל אסטרו</subdivision>
+			<subdivision type="arh" draft="contributed">צ׳אקו</subdivision>
+			<subdivision type="arj" draft="contributed">סן חואן</subdivision>
+			<subdivision type="ark" draft="contributed">קטמרקה</subdivision>
+			<subdivision type="arl" draft="contributed">לה פמפה</subdivision>
+			<subdivision type="arm" draft="contributed">מנדוסה</subdivision>
+			<subdivision type="arn" draft="contributed">מיסיונס</subdivision>
+			<subdivision type="arp" draft="contributed">פורמוסה</subdivision>
+			<subdivision type="arq" draft="contributed">נאוקן</subdivision>
+			<subdivision type="arr" draft="contributed">ריו נגרו</subdivision>
+			<subdivision type="ars" draft="contributed">סנטה פה</subdivision>
+			<subdivision type="art" draft="contributed">טוקומאן</subdivision>
+			<subdivision type="aru" draft="contributed">צ׳ובוט</subdivision>
+			<subdivision type="arv" draft="contributed">טיירה דל פואגו</subdivision>
+			<subdivision type="arw" draft="contributed">קוריינטס</subdivision>
+			<subdivision type="arx" draft="contributed">קורדובה</subdivision>
+			<subdivision type="ary" draft="contributed">חוחוי</subdivision>
+			<subdivision type="arz" draft="contributed">סנטה קרוס</subdivision>
+			<subdivision type="at1" draft="contributed">בורגנלנד</subdivision>
+			<subdivision type="at2" draft="contributed">קרינתיה</subdivision>
+			<subdivision type="at3" draft="contributed">אוסטריה תחתית</subdivision>
+			<subdivision type="at4" draft="contributed">אוסטריה עילית</subdivision>
+			<subdivision type="at5" draft="contributed">זלצבורג</subdivision>
+			<subdivision type="at6" draft="contributed">שטיריה</subdivision>
+			<subdivision type="at7" draft="contributed">טירול</subdivision>
+			<subdivision type="at8" draft="contributed">פורארלברג</subdivision>
+			<subdivision type="at9" draft="contributed">וינה</subdivision>
+			<subdivision type="auact" draft="contributed">טריטוריית הבירה האוסטרלית</subdivision>
+			<subdivision type="aunsw" draft="contributed">ניו סאות׳ ויילס</subdivision>
+			<subdivision type="aunt" draft="contributed">הטריטוריה הצפונית</subdivision>
+			<subdivision type="auqld" draft="contributed">קווינסלנד</subdivision>
+			<subdivision type="ausa" draft="contributed">אוסטרליה הדרומית</subdivision>
+			<subdivision type="autas" draft="contributed">טסמניה</subdivision>
+			<subdivision type="auvic" draft="contributed">ויקטוריה</subdivision>
+			<subdivision type="auwa" draft="contributed">אוסטרליה המערבית</subdivision>
+			<subdivision type="azba" draft="contributed">באקו</subdivision>
+			<subdivision type="azbey" draft="contributed">ביילגאן</subdivision>
+			<subdivision type="azga" draft="contributed">גנג׳ה</subdivision>
+			<subdivision type="azgor" draft="contributed">גורנבוי</subdivision>
+			<subdivision type="azlan" draft="contributed">לנקראן</subdivision>
+			<subdivision type="azmi" draft="contributed">מיגאצ׳ביר</subdivision>
+			<subdivision type="aznv" draft="contributed">נחיצ׳יבאן</subdivision>
+			<subdivision type="aznx" draft="contributed">נחצ׳יבאן</subdivision>
+			<subdivision type="azsa" draft="contributed">שקי</subdivision>
+			<subdivision type="azsm" draft="contributed">סומגאיט</subdivision>
+			<subdivision type="azsr" draft="contributed">שירוואן</subdivision>
+			<subdivision type="azsus" draft="contributed">שושה</subdivision>
+			<subdivision type="azxa" draft="contributed">סטפנקרט</subdivision>
+			<subdivision type="azxci" draft="contributed">חוג׳אלי</subdivision>
+			<subdivision type="azxvd" draft="contributed">חוג׳אבנד</subdivision>
+			<subdivision type="azye" draft="contributed">ייבלאח</subdivision>
+			<subdivision type="babih" draft="contributed">הפדרציה של בוסניה והרצגובינה</subdivision>
+			<subdivision type="babrc" draft="contributed">מחוז ברצ׳קו</subdivision>
+			<subdivision type="basrp" draft="contributed">רפובליקה סרפסקה</subdivision>
+			<subdivision type="bb02" draft="contributed">סנט אנדרו</subdivision>
+			<subdivision type="bb04" draft="contributed">סנט ג׳יימס, ברבדוס</subdivision>
+			<subdivision type="bb08" draft="contributed">סיינט מייקל</subdivision>
+			<subdivision type="bebru" draft="contributed">בריסל</subdivision>
+			<subdivision type="bevbr" draft="contributed">ברבנט הפלמית</subdivision>
+			<subdivision type="bevlg" draft="contributed">פלנדריה</subdivision>
+			<subdivision type="bevov" draft="contributed">פלנדריה המזרחית</subdivision>
+			<subdivision type="bevwv" draft="contributed">מערב פלנדריה</subdivision>
+			<subdivision type="bewal" draft="contributed">ולוניה</subdivision>
+			<subdivision type="bewbr" draft="contributed">ברבנט הוולונית</subdivision>
+			<subdivision type="bewht" draft="contributed">אנו</subdivision>
+			<subdivision type="bewlx" draft="contributed">לוקסמבורג</subdivision>
+			<subdivision type="bf01" draft="contributed">מחוז בוקל דו מואון</subdivision>
+			<subdivision type="bf05" draft="contributed">מחוז מרכז-צפון (בורקינה פאסו)</subdivision>
+			<subdivision type="bf09" draft="contributed">מחוז אוט בסינס</subdivision>
+			<subdivision type="bg01" draft="contributed">מחוז בלגואבגרד</subdivision>
+			<subdivision type="bg02" draft="contributed">מחוז בורגס</subdivision>
+			<subdivision type="bg03" draft="contributed">מחוז וארנה</subdivision>
+			<subdivision type="bg04" draft="contributed">מחוז וליקו טרנובו</subdivision>
+			<subdivision type="bg05" draft="contributed">מחוז וידין</subdivision>
+			<subdivision type="bg06" draft="contributed">מחוז וראצה</subdivision>
+			<subdivision type="bg07" draft="contributed">מחוז גברובו</subdivision>
+			<subdivision type="bg08" draft="contributed">מחוז דובריץ׳</subdivision>
+			<subdivision type="bg09" draft="contributed">מחוז קרדז׳אלי</subdivision>
+			<subdivision type="bg10" draft="contributed">מחוז קיוסטנדיל</subdivision>
+			<subdivision type="bg11" draft="contributed">מחוז לובץ׳</subdivision>
+			<subdivision type="bg12" draft="contributed">מחוז מונטנה</subdivision>
+			<subdivision type="bg13" draft="contributed">מחוז פאזארדז׳יק</subdivision>
+			<subdivision type="bg14" draft="contributed">מחוז פרניק</subdivision>
+			<subdivision type="bg15" draft="contributed">מחוז פלבן</subdivision>
+			<subdivision type="bg16" draft="contributed">מחוז פלובדיב</subdivision>
+			<subdivision type="bg17" draft="contributed">מחוז ראזגרד</subdivision>
+			<subdivision type="bg18" draft="contributed">מחוז רוסה</subdivision>
+			<subdivision type="bg19" draft="contributed">מחוז סיליסטרה</subdivision>
+			<subdivision type="bg20" draft="contributed">מחוז סליבן</subdivision>
+			<subdivision type="bg21" draft="contributed">מחוז סמוליאן</subdivision>
+			<subdivision type="bg23" draft="contributed">מחוז סופיה</subdivision>
+			<subdivision type="bg24" draft="contributed">מחוז סטארה זאגורה</subdivision>
+			<subdivision type="bg25" draft="contributed">מחוז טרגובישטה</subdivision>
+			<subdivision type="bg26" draft="contributed">מחוז חאסקובו</subdivision>
+			<subdivision type="bg27" draft="contributed">מחוז שומן</subdivision>
+			<subdivision type="bg28" draft="contributed">מחוז ימבול</subdivision>
+			<subdivision type="bjzo" draft="contributed">מחוז זאו</subdivision>
+			<subdivision type="bnbe" draft="contributed">בלייט</subdivision>
+			<subdivision type="bnbm" draft="contributed">ברוניי ומוארה</subdivision>
+			<subdivision type="bnte" draft="contributed">טמבורונג</subdivision>
+			<subdivision type="bntu" draft="contributed">טוטונג</subdivision>
+			<subdivision type="bqbo" draft="contributed">בונייר</subdivision>
+			<subdivision type="bqsa" draft="contributed">סאבא</subdivision>
+			<subdivision type="bqse" draft="contributed">סנט אוסטטיוס</subdivision>
+			<subdivision type="brac" draft="contributed">אקרי</subdivision>
+			<subdivision type="bral" draft="contributed">אלגואס</subdivision>
+			<subdivision type="bram" draft="contributed">אמזונאס</subdivision>
+			<subdivision type="brap" draft="contributed">אמאפה</subdivision>
+			<subdivision type="brba" draft="contributed">באהיה</subdivision>
+			<subdivision type="brce" draft="contributed">סיארה</subdivision>
+			<subdivision type="brdf" draft="contributed">המחוז הפדרלי של ברזיל</subdivision>
+			<subdivision type="bres" draft="contributed">אספיריטו סאנטו</subdivision>
+			<subdivision type="brgo" draft="contributed">גויאס</subdivision>
+			<subdivision type="brma" draft="contributed">מרניאו</subdivision>
+			<subdivision type="brmg" draft="contributed">מינאס ז׳ראיס</subdivision>
+			<subdivision type="brms" draft="contributed">מאטו גרוסו דו סול</subdivision>
+			<subdivision type="brmt" draft="contributed">מאטו גרוסו</subdivision>
+			<subdivision type="brpa" draft="contributed">פארה</subdivision>
+			<subdivision type="brpb" draft="contributed">פאראיבה</subdivision>
+			<subdivision type="brpe" draft="contributed">פרנמבוקו</subdivision>
+			<subdivision type="brpi" draft="contributed">פיאאוי</subdivision>
+			<subdivision type="brpr" draft="contributed">פרנה</subdivision>
+			<subdivision type="brrj" draft="contributed">ריו דה ז׳ניירו</subdivision>
+			<subdivision type="brrn" draft="contributed">ריו גראנדה דו נורטה</subdivision>
+			<subdivision type="brro" draft="contributed">רונדוניה</subdivision>
+			<subdivision type="brrr" draft="contributed">רוריימה</subdivision>
+			<subdivision type="brrs" draft="contributed">ריו גראנדה דו סול</subdivision>
+			<subdivision type="brsc" draft="contributed">סנטה קטרינה</subdivision>
+			<subdivision type="brse" draft="contributed">סרז׳יפה</subdivision>
+			<subdivision type="brsp" draft="contributed">סאו פאולו</subdivision>
+			<subdivision type="brto" draft="contributed">טוקנטינס</subdivision>
+			<subdivision type="bsbi" draft="contributed">בימיני</subdivision>
+			<subdivision type="bsfp" draft="contributed">פריפורט</subdivision>
+			<subdivision type="bsin" draft="contributed">אינגואה</subdivision>
+			<subdivision type="bsli" draft="contributed">לונג איילנד (בהאמה)</subdivision>
+			<subdivision type="bsmc" draft="contributed">קי מנגרוב</subdivision>
+			<subdivision type="bsns" draft="contributed">צפון אנדרוס</subdivision>
+			<subdivision type="bssa" draft="contributed">דרום אנדרוס</subdivision>
+			<subdivision type="bwfr" draft="contributed">פרנסיסטאון</subdivision>
+			<subdivision type="bwga" draft="contributed">גאבורון</subdivision>
+			<subdivision type="bybr" draft="contributed">ברסט</subdivision>
+			<subdivision type="byhm" draft="contributed">מינסק</subdivision>
+			<subdivision type="byho" draft="contributed">הומל</subdivision>
+			<subdivision type="byhr" draft="contributed">הורדנה</subdivision>
+			<subdivision type="byma" draft="contributed">מחוז מוהילב</subdivision>
+			<subdivision type="bymi" draft="contributed">מינסק²</subdivision>
+			<subdivision type="byvi" draft="contributed">ויטבסק</subdivision>
+			<subdivision type="caab" draft="contributed">אלברטה</subdivision>
+			<subdivision type="cabc" draft="contributed">קולומביה הבריטית</subdivision>
+			<subdivision type="camb" draft="contributed">מניטובה</subdivision>
+			<subdivision type="canb" draft="contributed">ניו ברנזוויק</subdivision>
+			<subdivision type="canl" draft="contributed">ניופאונדלנד ולברדור</subdivision>
+			<subdivision type="cans" draft="contributed">נובה סקוטיה</subdivision>
+			<subdivision type="cant" draft="contributed">הטריטוריות הצפון-מערביות</subdivision>
+			<subdivision type="canu" draft="contributed">נונאווט</subdivision>
+			<subdivision type="caon" draft="contributed">אונטריו</subdivision>
+			<subdivision type="cape" draft="contributed">אי הנסיך אדוארד</subdivision>
+			<subdivision type="caqc" draft="contributed">קוויבק</subdivision>
+			<subdivision type="cask" draft="contributed">ססקצ׳ואן</subdivision>
+			<subdivision type="cayt" draft="contributed">יוקון</subdivision>
+			<subdivision type="cdbc" draft="contributed">קונגו סנטרל</subdivision>
+			<subdivision type="cdke" draft="contributed">קסאי-אוריינטל</subdivision>
+			<subdivision type="cdkn" draft="contributed">קינשאסה</subdivision>
+			<subdivision type="cdma" draft="contributed">מניימה</subdivision>
+			<subdivision type="cfbgf" draft="contributed">בנגי</subdivision>
+			<subdivision type="cg15" draft="contributed">קובט מערב</subdivision>
+			<subdivision type="cgbzv" draft="contributed">ברזוויל</subdivision>
+			<subdivision type="chag" draft="contributed">ארגאו</subdivision>
+			<subdivision type="chai" draft="contributed">אפנצל אינר-רודן</subdivision>
+			<subdivision type="char" draft="contributed">אפנצל אוסר-רודן</subdivision>
+			<subdivision type="chbe" draft="contributed">ברן</subdivision>
+			<subdivision type="chbl" draft="contributed">בזל-לנדשאפט</subdivision>
+			<subdivision type="chbs" draft="contributed">בזל-שטאדט</subdivision>
+			<subdivision type="chfr" draft="contributed">פריבור</subdivision>
+			<subdivision type="chge" draft="contributed">ז׳נבה</subdivision>
+			<subdivision type="chgl" draft="contributed">גלרוס</subdivision>
+			<subdivision type="chgr" draft="contributed">גראובינדן</subdivision>
+			<subdivision type="chju" draft="contributed">ז׳ורה</subdivision>
+			<subdivision type="chlu" draft="contributed">לוצרן</subdivision>
+			<subdivision type="chne" draft="contributed">נשאטל</subdivision>
+			<subdivision type="chnw" draft="contributed">נידוולדן</subdivision>
+			<subdivision type="chow" draft="contributed">אובוולדן</subdivision>
+			<subdivision type="chsg" draft="contributed">סנט גאלן</subdivision>
+			<subdivision type="chsh" draft="contributed">שפהאוזן</subdivision>
+			<subdivision type="chso" draft="contributed">זולותורן</subdivision>
+			<subdivision type="chsz" draft="contributed">שוויץ</subdivision>
+			<subdivision type="chtg" draft="contributed">תורגאו</subdivision>
+			<subdivision type="chti" draft="contributed">טיצ׳ינו</subdivision>
+			<subdivision type="chur" draft="contributed">אורי</subdivision>
+			<subdivision type="chvd" draft="contributed">וו</subdivision>
+			<subdivision type="chvs" draft="contributed">ואלה</subdivision>
+			<subdivision type="chzg" draft="contributed">צוג</subdivision>
+			<subdivision type="chzh" draft="contributed">ציריך</subdivision>
+			<subdivision type="ciab" draft="contributed">אביג׳אן</subdivision>
+			<subdivision type="ciym" draft="contributed">יאמוסוקרו</subdivision>
+			<subdivision type="clai" draft="contributed">אייסן</subdivision>
+			<subdivision type="clan" draft="contributed">אנטופגסטה</subdivision>
+			<subdivision type="clar" draft="contributed">אראוקניה</subdivision>
+			<subdivision type="clbi" draft="contributed">ביוביו</subdivision>
+			<subdivision type="clll" draft="contributed">לוס לאגוס</subdivision>
+			<subdivision type="cllr" draft="contributed">לוס ריוס</subdivision>
+			<subdivision type="clma" draft="contributed">מגאיאנס ואנטארקטיקה צ׳ילנה</subdivision>
+			<subdivision type="clml" draft="contributed">מאולה</subdivision>
+			<subdivision type="clrm" draft="contributed">מטרופולין סנטיאגו</subdivision>
+			<subdivision type="clta" draft="contributed">טרפקה</subdivision>
+			<subdivision type="clvs" draft="contributed">ולפראיסו (מחוז)</subdivision>
+			<subdivision type="cmce" draft="contributed">מחוז המרכז</subdivision>
+			<subdivision type="cnah" draft="contributed">אנחווי</subdivision>
+			<subdivision type="cnbj" draft="contributed">בייג׳ינג</subdivision>
+			<subdivision type="cncq" draft="contributed">צ׳ונגצ׳ינג</subdivision>
+			<subdivision type="cnfj" draft="contributed">פוג׳יין</subdivision>
+			<subdivision type="cngd" draft="contributed">גואנגדונג</subdivision>
+			<subdivision type="cngs" draft="contributed">גאנסו</subdivision>
+			<subdivision type="cngx" draft="contributed">גואנגשי</subdivision>
+			<subdivision type="cngz" draft="contributed">גוויג׳ואו</subdivision>
+			<subdivision type="cnha" draft="contributed">חנאן</subdivision>
+			<subdivision type="cnhb" draft="contributed">חוביי</subdivision>
+			<subdivision type="cnhe" draft="contributed">חביי</subdivision>
+			<subdivision type="cnhi" draft="contributed">האינאן</subdivision>
+			<subdivision type="cnhk" draft="contributed">הונג קונג</subdivision>
+			<subdivision type="cnhl" draft="contributed">חיילונגג׳יאנג</subdivision>
+			<subdivision type="cnhn" draft="contributed">חונאן</subdivision>
+			<subdivision type="cnjl" draft="contributed">ג׳ילין</subdivision>
+			<subdivision type="cnjs" draft="contributed">ג׳יאנגסו</subdivision>
+			<subdivision type="cnjx" draft="contributed">ג׳יאנגשי</subdivision>
+			<subdivision type="cnln" draft="contributed">ליאונינג</subdivision>
+			<subdivision type="cnmo" draft="contributed">מקאו</subdivision>
+			<subdivision type="cnnm" draft="contributed">מונגוליה הפנימית</subdivision>
+			<subdivision type="cnnx" draft="contributed">נינגשיה</subdivision>
+			<subdivision type="cnqh" draft="contributed">צ׳ינגהאי</subdivision>
+			<subdivision type="cnsc" draft="contributed">סצ׳ואן</subdivision>
+			<subdivision type="cnsd" draft="contributed">שאנדונג</subdivision>
+			<subdivision type="cnsh" draft="contributed">שאנגחאי</subdivision>
+			<subdivision type="cnsn" draft="contributed">שאאנשי</subdivision>
+			<subdivision type="cnsx" draft="contributed">שאנשי</subdivision>
+			<subdivision type="cntj" draft="contributed">טיינג׳ין</subdivision>
+			<subdivision type="cnxj" draft="contributed">שינג׳יאנג</subdivision>
+			<subdivision type="cnxz" draft="contributed">המחוז האוטונומי הטיבטי</subdivision>
+			<subdivision type="cnyn" draft="contributed">יונאן</subdivision>
+			<subdivision type="cnzj" draft="contributed">ג׳ג׳יאנג</subdivision>
+			<subdivision type="coama" draft="contributed">אמסונאס</subdivision>
+			<subdivision type="coant" draft="contributed">אנטיוקיה</subdivision>
+			<subdivision type="coara" draft="contributed">אראוקה (מחוז)</subdivision>
+			<subdivision type="coatl" draft="contributed">אטלאנטיקו</subdivision>
+			<subdivision type="cobol" draft="contributed">בוליבר</subdivision>
+			<subdivision type="coboy" draft="contributed">בויאקה</subdivision>
+			<subdivision type="cocal" draft="contributed">קלדס</subdivision>
+			<subdivision type="cocaq" draft="contributed">קקטה</subdivision>
+			<subdivision type="cocas" draft="contributed">קסנרה</subdivision>
+			<subdivision type="cocau" draft="contributed">קאוקה</subdivision>
+			<subdivision type="coces" draft="contributed">ססאר</subdivision>
+			<subdivision type="cocho" draft="contributed">צ׳וקו</subdivision>
+			<subdivision type="cocor" draft="contributed">קורדובה (קולומביה)</subdivision>
+			<subdivision type="cocun" draft="contributed">קונדינמרקה</subdivision>
+			<subdivision type="codc" draft="contributed">בוגוטה</subdivision>
+			<subdivision type="cogua" draft="contributed">גואאיניה</subdivision>
+			<subdivision type="coguv" draft="contributed">גואביארה</subdivision>
+			<subdivision type="cohui" draft="contributed">וילה (מחוז)</subdivision>
+			<subdivision type="colag" draft="contributed">לה גואחירה</subdivision>
+			<subdivision type="comag" draft="contributed">מגדלנה</subdivision>
+			<subdivision type="comet" draft="contributed">מטה (מחוז)</subdivision>
+			<subdivision type="conar" draft="contributed">נריניו</subdivision>
+			<subdivision type="consa" draft="contributed">נורטה דה סנטנדר</subdivision>
+			<subdivision type="coput" draft="contributed">פוטומיו</subdivision>
+			<subdivision type="coqui" draft="contributed">קינדיו</subdivision>
+			<subdivision type="coris" draft="contributed">ריסרלדה</subdivision>
+			<subdivision type="cosan" draft="contributed">סנטנדר</subdivision>
+			<subdivision type="cosap" draft="contributed">סן אנדרס ופרובידנסיה</subdivision>
+			<subdivision type="cosuc" draft="contributed">סוקרה</subdivision>
+			<subdivision type="cotol" draft="contributed">טולימה</subdivision>
+			<subdivision type="covac" draft="contributed">ואייה דל קאוקה</subdivision>
+			<subdivision type="covau" draft="contributed">ואופס</subdivision>
+			<subdivision type="covid" draft="contributed">ויצ׳דה</subdivision>
+			<subdivision type="cra" draft="contributed">אלחואלה</subdivision>
+			<subdivision type="crc" draft="contributed">קרטגו</subdivision>
+			<subdivision type="crg" draft="contributed">גואנאקאסטה</subdivision>
+			<subdivision type="crh" draft="contributed">ארדיה</subdivision>
+			<subdivision type="crl" draft="contributed">לימון</subdivision>
+			<subdivision type="crp" draft="contributed">פונטרנס</subdivision>
+			<subdivision type="crsj" draft="contributed">סן חוסה</subdivision>
+			<subdivision type="cu04" draft="contributed">מטנזס</subdivision>
+			<subdivision type="cu05" draft="contributed">ויה קלרה</subdivision>
+			<subdivision type="cu99" draft="contributed">איסלה דה לה חובנטוד</subdivision>
+			<subdivision type="cvb" draft="contributed">בארלאוונטו</subdivision>
+			<subdivision type="cvca" draft="contributed">סנטה קטרינה</subdivision>
+			<subdivision type="cvs" draft="contributed">סוטאוונטו</subdivision>
+			<subdivision type="cy01" draft="contributed">מחוז ניקוסיה</subdivision>
+			<subdivision type="cy02" draft="contributed">מחוז לימסול</subdivision>
+			<subdivision type="cy03" draft="contributed">מחוז לרנקה</subdivision>
+			<subdivision type="cy05" draft="contributed">מחוז פאפוס</subdivision>
+			<subdivision type="cz10" draft="contributed">פראג</subdivision>
+			<subdivision type="cz20" draft="contributed">מחוז מרכז בוהמיה</subdivision>
+			<subdivision type="cz20a" draft="contributed">מחוז משנה פראג-מערב</subdivision>
+			<subdivision type="cz20b" draft="contributed">מחוז משנה פריברם</subdivision>
+			<subdivision type="cz20c" draft="contributed">מחוז משנה ראקובניק</subdivision>
+			<subdivision type="cz31" draft="contributed">דרום בוהמיה</subdivision>
+			<subdivision type="cz32" draft="contributed">פלזן (מחוז)</subdivision>
+			<subdivision type="cz41" draft="contributed">קרלובי וארי</subdivision>
+			<subdivision type="cz42" draft="contributed">אוסטי נד לבם (מחוז)</subdivision>
+			<subdivision type="cz51" draft="contributed">ליברץ (מחוז)</subdivision>
+			<subdivision type="cz52" draft="contributed">הראדץ קראלובה (מחוז)</subdivision>
+			<subdivision type="cz53" draft="contributed">מחוז פרדוביצה</subdivision>
+			<subdivision type="cz63" draft="contributed">מחוז ויסוצ׳ינה</subdivision>
+			<subdivision type="cz64" draft="contributed">מורביה הדרומית</subdivision>
+			<subdivision type="cz71" draft="contributed">אולומואוץ (מחוז)</subdivision>
+			<subdivision type="cz72" draft="contributed">זלין (מחוז)</subdivision>
+			<subdivision type="cz80" draft="contributed">מורביה-שלזיה (מחוז)</subdivision>
+			<subdivision type="cz102" draft="contributed">פראג 2</subdivision>
+			<subdivision type="cz201" draft="contributed">מחוז משנה בנשוב</subdivision>
+			<subdivision type="cz202" draft="contributed">מחוז משנה ברואון</subdivision>
+			<subdivision type="cz203" draft="contributed">מחוז משנה קלדנו</subdivision>
+			<subdivision type="cz204" draft="contributed">מחוז משנה קולין</subdivision>
+			<subdivision type="cz205" draft="contributed">מחוז משנה קוטנה הורה</subdivision>
+			<subdivision type="cz206" draft="contributed">מחוז משנה מלניק</subdivision>
+			<subdivision type="cz207" draft="contributed">מחוז משנה מלאדה בולסלאב</subdivision>
+			<subdivision type="cz208" draft="contributed">מחוז משנה נימבורק</subdivision>
+			<subdivision type="cz209" draft="contributed">מחוז משנה פראג-מזרח</subdivision>
+			<subdivision type="cz311" draft="contributed">מחוז משנה צ׳סקה בודייוביצה</subdivision>
+			<subdivision type="cz312" draft="contributed">מחוז משנה צ׳סקי קרומלוב</subdivision>
+			<subdivision type="cz313" draft="contributed">מחוז משנה יינדריחוב הרדץ</subdivision>
+			<subdivision type="cz314" draft="contributed">מחוז משנה פיסק</subdivision>
+			<subdivision type="cz316" draft="contributed">מחוז משנה סטרוקניצה</subdivision>
+			<subdivision type="cz317" draft="contributed">מחוז משנה טאבור</subdivision>
+			<subdivision type="cz321" draft="contributed">מחוז משנה דומזליצה</subdivision>
+			<subdivision type="cz322" draft="contributed">מחוז משנה קלאטובי</subdivision>
+			<subdivision type="cz323" draft="contributed">מחוז משנה פלזן מסטו</subdivision>
+			<subdivision type="cz326" draft="contributed">מחוז משנה רוקיצאני</subdivision>
+			<subdivision type="cz327" draft="contributed">מחוז משנה טכוב</subdivision>
+			<subdivision type="cz411" draft="contributed">מחוז משנה חב</subdivision>
+			<subdivision type="cz412" draft="contributed">מחוז משנה קרלובי וארי</subdivision>
+			<subdivision type="cz413" draft="contributed">מחוז משנה סוקולוב</subdivision>
+			<subdivision type="cz421" draft="contributed">מחוז משנה דצ׳ין</subdivision>
+			<subdivision type="cz422" draft="contributed">מחוז משנה חומוטוב</subdivision>
+			<subdivision type="cz423" draft="contributed">מחוז משנה ליטומריצה</subdivision>
+			<subdivision type="cz424" draft="contributed">מחוז משנה לואוני</subdivision>
+			<subdivision type="cz425" draft="contributed">מחוז משנה מוסט</subdivision>
+			<subdivision type="cz426" draft="contributed">מחוז משנה טפליצה</subdivision>
+			<subdivision type="cz427" draft="contributed">מחוז משנה אוסטי נד לבם</subdivision>
+			<subdivision type="cz511" draft="contributed">מחוז משנה צסקה ליפה</subdivision>
+			<subdivision type="cz512" draft="contributed">מחוז משנה יבלונץ נד ניסו</subdivision>
+			<subdivision type="cz513" draft="contributed">מחוז משנה ליברץ</subdivision>
+			<subdivision type="cz514" draft="contributed">מחוז משנה סמילי</subdivision>
+			<subdivision type="cz521" draft="contributed">מחוז משנה הראדץ קראלובה</subdivision>
+			<subdivision type="cz522" draft="contributed">מחוז משנה ייצין</subdivision>
+			<subdivision type="cz523" draft="contributed">מחוז משנה נאחוד</subdivision>
+			<subdivision type="cz524" draft="contributed">מחוז משנה ריחנוב נד קניז׳נואו</subdivision>
+			<subdivision type="cz525" draft="contributed">מחוז משנה טרונטוב</subdivision>
+			<subdivision type="cz531" draft="contributed">מחוז משנה חרודים</subdivision>
+			<subdivision type="cz532" draft="contributed">מחוז משנה פרדוביצה</subdivision>
+			<subdivision type="cz533" draft="contributed">מחוז משנה סביטאבי</subdivision>
+			<subdivision type="cz534" draft="contributed">מחוז משנה אוסטי נד אורליצי</subdivision>
+			<subdivision type="cz631" draft="contributed">מחוז משנה הבליצקוב ברוד</subdivision>
+			<subdivision type="cz632" draft="contributed">מחוז משנה ייהלבה</subdivision>
+			<subdivision type="cz633" draft="contributed">מחוז משנה פלהרימוב</subdivision>
+			<subdivision type="cz634" draft="contributed">מחוז משנה טשביץ׳</subdivision>
+			<subdivision type="cz635" draft="contributed">מחוז משנה ז׳דאר נד סאזאבואו</subdivision>
+			<subdivision type="cz641" draft="contributed">מחוז משנה בלנסקו</subdivision>
+			<subdivision type="cz644" draft="contributed">מחוז משנה ברצלב</subdivision>
+			<subdivision type="cz645" draft="contributed">מחוז משנה הודונין</subdivision>
+			<subdivision type="cz646" draft="contributed">מחוז משנה ויסקוב</subdivision>
+			<subdivision type="cz711" draft="contributed">מחוז משנה יסניק</subdivision>
+			<subdivision type="cz712" draft="contributed">מחוז משנה אולומואוץ</subdivision>
+			<subdivision type="cz713" draft="contributed">מחוז משנה פרוסטיוב</subdivision>
+			<subdivision type="cz714" draft="contributed">מחוז משנה פררוב</subdivision>
+			<subdivision type="cz715" draft="contributed">מחוז משנה סומפרק</subdivision>
+			<subdivision type="cz721" draft="contributed">מחוז משנה קרומניירי</subdivision>
+			<subdivision type="cz722" draft="contributed">מחוז משנה אוהרסקי הראדיץ׳</subdivision>
+			<subdivision type="cz723" draft="contributed">מחוז משנה וסטין</subdivision>
+			<subdivision type="cz724" draft="contributed">מחוז משנה זלין</subdivision>
+			<subdivision type="cz801" draft="contributed">מחוז משנה ברונטל</subdivision>
+			<subdivision type="cz802" draft="contributed">מחוז משנה פרידק-מיסטק</subdivision>
+			<subdivision type="cz803" draft="contributed">מחוז משנה קרבינה</subdivision>
+			<subdivision type="cz804" draft="contributed">מחוז משנה נובי ייצין</subdivision>
+			<subdivision type="cz805" draft="contributed">מחוז משנה אופאבה</subdivision>
+			<subdivision type="debb" draft="contributed">ברנדנבורג</subdivision>
+			<subdivision type="debe" draft="contributed">ברלין</subdivision>
+			<subdivision type="debw" draft="contributed">באדן-וירטמברג</subdivision>
+			<subdivision type="deby" draft="contributed">בוואריה</subdivision>
+			<subdivision type="dehb" draft="contributed">ברמן</subdivision>
+			<subdivision type="dehe" draft="contributed">הסן</subdivision>
+			<subdivision type="dehh" draft="contributed">המבורג</subdivision>
+			<subdivision type="demv" draft="contributed">מקלנבורג-מערב פומרניה</subdivision>
+			<subdivision type="deni" draft="contributed">סקסוניה התחתונה</subdivision>
+			<subdivision type="denw" draft="contributed">נורדריין-וסטפאליה</subdivision>
+			<subdivision type="derp" draft="contributed">ריינלנד-פפאלץ</subdivision>
+			<subdivision type="desh" draft="contributed">שלזוויג-הולשטיין</subdivision>
+			<subdivision type="desl" draft="contributed">חבל הסאר</subdivision>
+			<subdivision type="desn" draft="contributed">סקסוניה</subdivision>
+			<subdivision type="dest" draft="contributed">סקסוניה-אנהלט</subdivision>
+			<subdivision type="deth" draft="contributed">תורינגיה</subdivision>
+			<subdivision type="djdj" draft="contributed">ג׳יבוטי</subdivision>
+			<subdivision type="do25" draft="contributed">סנטיאגו</subdivision>
+			<subdivision type="dz01" draft="contributed">מחוז אדראר</subdivision>
+			<subdivision type="dz02" draft="contributed">מחוז א-שלף</subdivision>
+			<subdivision type="dz37" draft="contributed">מחוז טינדוף</subdivision>
+			<subdivision type="dz43" draft="contributed">מילה, אלג׳יריה</subdivision>
+			<subdivision type="eca" draft="contributed">אסואי</subdivision>
+			<subdivision type="eci" draft="contributed">מחוז אימבאבורה</subdivision>
+			<subdivision type="ee37" draft="contributed">האריו</subdivision>
+			<subdivision type="ee39" draft="contributed">היו</subdivision>
+			<subdivision type="ee44" draft="contributed">אידה-וירו</subdivision>
+			<subdivision type="ee49" draft="contributed">מחוז ייגבה</subdivision>
+			<subdivision type="ee51" draft="contributed">יארבה</subdivision>
+			<subdivision type="ee57" draft="contributed">לאנה</subdivision>
+			<subdivision type="ee59" draft="contributed">לאנה-וירו</subdivision>
+			<subdivision type="ee65" draft="contributed">מחוז פילבה</subdivision>
+			<subdivision type="ee67" draft="contributed">מחוז פרנו</subdivision>
+			<subdivision type="ee70" draft="contributed">ראפלה</subdivision>
+			<subdivision type="ee74" draft="contributed">מחוז סארה</subdivision>
+			<subdivision type="ee78" draft="contributed">מחוז טרטו</subdivision>
+			<subdivision type="ee82" draft="contributed">מחוז ולגה</subdivision>
+			<subdivision type="ee84" draft="contributed">מחוז ויליאנדי</subdivision>
+			<subdivision type="ee86" draft="contributed">מחוז וורו</subdivision>
+			<subdivision type="egalx" draft="contributed">מחוז אלכסנדריה</subdivision>
+			<subdivision type="egast" draft="contributed">מחוז אסיוט</subdivision>
+			<subdivision type="egba" draft="contributed">הים האדום (מחוז)</subdivision>
+			<subdivision type="egbh" draft="contributed">מחוז אל-בחירה</subdivision>
+			<subdivision type="egbns" draft="contributed">מחוז בני סויף</subdivision>
+			<subdivision type="egc" draft="contributed">מחוז קהיר</subdivision>
+			<subdivision type="egdk" draft="contributed">א-דקהלייה</subdivision>
+			<subdivision type="egfym" draft="contributed">אל-פיום</subdivision>
+			<subdivision type="eggh" draft="contributed">מחוז אל-ע׳רביה</subdivision>
+			<subdivision type="eggz" draft="contributed">אל-גיזה</subdivision>
+			<subdivision type="egis" draft="contributed">מחוז אל-אסמאעיליה</subdivision>
+			<subdivision type="egjs" draft="contributed">דרום סיני</subdivision>
+			<subdivision type="egkb" draft="contributed">מחוז אל-קליוביה</subdivision>
+			<subdivision type="egkfs" draft="contributed">מחוז כפר א שיח׳</subdivision>
+			<subdivision type="egkn" draft="contributed">מחוז קינא</subdivision>
+			<subdivision type="eglx" draft="contributed">מחוז לוקסור</subdivision>
+			<subdivision type="egmn" draft="contributed">מיניה</subdivision>
+			<subdivision type="egmnf" draft="contributed">אל-מִנופיה</subdivision>
+			<subdivision type="egmt" draft="contributed">מחוז מטרוח</subdivision>
+			<subdivision type="egpts" draft="contributed">מחוז פורט סעיד</subdivision>
+			<subdivision type="egshg" draft="contributed">מחוז סוהאג</subdivision>
+			<subdivision type="egshr" draft="contributed">א-שרקיה</subdivision>
+			<subdivision type="egsin" draft="contributed">צפון סיני</subdivision>
+			<subdivision type="egsuz" draft="contributed">סואץ</subdivision>
+			<subdivision type="egwad" draft="contributed">מחוז אל-ואדי אל-ג׳דיד</subdivision>
+			<subdivision type="esab" draft="contributed">מחוז אלבסטה</subdivision>
+			<subdivision type="esan" draft="contributed">אנדלוסיה</subdivision>
+			<subdivision type="esar" draft="contributed">אראגון</subdivision>
+			<subdivision type="esas" draft="contributed">אסטוריאס</subdivision>
+			<subdivision type="esb" draft="contributed">מחוז ברצלונה</subdivision>
+			<subdivision type="esbi" draft="contributed">ביסקאיה</subdivision>
+			<subdivision type="esca" draft="contributed">מחוז קדיס</subdivision>
+			<subdivision type="escb" draft="contributed">קנטבריה</subdivision>
+			<subdivision type="esce" draft="contributed">סאוטה</subdivision>
+			<subdivision type="escl" draft="contributed">קסטיליה ולאון</subdivision>
+			<subdivision type="escm" draft="contributed">קסטיליה-לה מנצ׳ה</subdivision>
+			<subdivision type="escs" draft="contributed">מחוז קאסטיון</subdivision>
+			<subdivision type="esct" draft="contributed">קטלוניה</subdivision>
+			<subdivision type="esex" draft="contributed">אקסטרמדורה</subdivision>
+			<subdivision type="esga" draft="contributed">גליסיה</subdivision>
+			<subdivision type="esgi" draft="contributed">מחוז ז׳ירונה</subdivision>
+			<subdivision type="esib" draft="contributed">האיים הבלאריים</subdivision>
+			<subdivision type="esle" draft="contributed">תבנית:הקהילות האוטונומיות של ספרד</subdivision>
+			<subdivision type="eslo" draft="contributed">לה ריוחה</subdivision>
+			<subdivision type="esmc" draft="contributed">מורסיה</subdivision>
+			<subdivision type="esmd" draft="contributed">מדריד</subdivision>
+			<subdivision type="esml" draft="contributed">מלייה</subdivision>
+			<subdivision type="esna" draft="contributed">נווארה²</subdivision>
+			<subdivision type="esnc" draft="contributed">נווארה</subdivision>
+			<subdivision type="espm" draft="contributed">האיים הבלאריים²</subdivision>
+			<subdivision type="espv" draft="contributed">חבל הבסקים</subdivision>
+			<subdivision type="esri" draft="contributed">לה ריוחה²</subdivision>
+			<subdivision type="ess" draft="contributed">קנטבריה²</subdivision>
+			<subdivision type="est" draft="contributed">מחוז טרגונה</subdivision>
+			<subdivision type="esvc" draft="contributed">ולנסיה</subdivision>
+			<subdivision type="esz" draft="contributed">מחוז סרגוסה</subdivision>
+			<subdivision type="etaa" draft="contributed">אדיס אבבה</subdivision>
+			<subdivision type="etaf" draft="contributed">עפר</subdivision>
+			<subdivision type="etam" draft="contributed">אמהרה</subdivision>
+			<subdivision type="etbe" draft="contributed">בנישנגול-גומאז</subdivision>
+			<subdivision type="etdd" draft="contributed">דירה דאווה</subdivision>
+			<subdivision type="etga" draft="contributed">גמבלה</subdivision>
+			<subdivision type="etha" draft="contributed">הררי (מדינה)</subdivision>
+			<subdivision type="etor" draft="contributed">אורומיה</subdivision>
+			<subdivision type="etsn" draft="contributed">מדינת האומות, הלאומים ועמי הדרום</subdivision>
+			<subdivision type="etso" draft="contributed">סומלי</subdivision>
+			<subdivision type="etti" draft="contributed">תיגראי</subdivision>
+			<subdivision type="fi02" draft="contributed">דרום קרליה</subdivision>
+			<subdivision type="fi05" draft="contributed">קינואו</subdivision>
+			<subdivision type="fi07" draft="contributed">אוסטרובוטניה המרכזית</subdivision>
+			<subdivision type="fi12" draft="contributed">אוסטרובוטניה</subdivision>
+			<subdivision type="fi13" draft="contributed">צפון קרליה</subdivision>
+			<subdivision type="fi14" draft="contributed">אוסטרובוטניה הצפונית</subdivision>
+			<subdivision type="fi15" draft="contributed">סאבו הצפונית</subdivision>
+			<subdivision type="fi18" draft="contributed">אוסימה</subdivision>
+			<subdivision type="fjr" draft="contributed">רוטומה</subdivision>
+			<subdivision type="fr01" draft="contributed">אן</subdivision>
+			<subdivision type="fr02" draft="contributed">אן²</subdivision>
+			<subdivision type="fr2a" draft="contributed">קורסיקה הדרומית</subdivision>
+			<subdivision type="fr2b" draft="contributed">קורסיקה עילית</subdivision>
+			<subdivision type="fr03" draft="contributed">אלייה</subdivision>
+			<subdivision type="fr04" draft="contributed">האלפים של פרובאנס עילית</subdivision>
+			<subdivision type="fr05" draft="contributed">האלפים העליונים</subdivision>
+			<subdivision type="fr06" draft="contributed">האלפים הימיים</subdivision>
+			<subdivision type="fr07" draft="contributed">ארדש</subdivision>
+			<subdivision type="fr08" draft="contributed">ארדן</subdivision>
+			<subdivision type="fr09" draft="contributed">ארייז׳</subdivision>
+			<subdivision type="fr10" draft="contributed">אוב</subdivision>
+			<subdivision type="fr11" draft="contributed">אוד</subdivision>
+			<subdivision type="fr12" draft="contributed">אוורון</subdivision>
+			<subdivision type="fr13" draft="contributed">שפך הרון</subdivision>
+			<subdivision type="fr14" draft="contributed">קלבדוס</subdivision>
+			<subdivision type="fr15" draft="contributed">קנטל</subdivision>
+			<subdivision type="fr16" draft="contributed">שראנט</subdivision>
+			<subdivision type="fr17" draft="contributed">השראנט הימי</subdivision>
+			<subdivision type="fr19" draft="contributed">קורז</subdivision>
+			<subdivision type="fr21" draft="contributed">קוט ד׳ור</subdivision>
+			<subdivision type="fr22" draft="contributed">קוט-ד׳ארמור</subdivision>
+			<subdivision type="fr23" draft="contributed">קרז</subdivision>
+			<subdivision type="fr24" draft="contributed">דורדון</subdivision>
+			<subdivision type="fr25" draft="contributed">דו</subdivision>
+			<subdivision type="fr26" draft="contributed">דרום</subdivision>
+			<subdivision type="fr27" draft="contributed">אר</subdivision>
+			<subdivision type="fr28" draft="contributed">אר ולואר</subdivision>
+			<subdivision type="fr29" draft="contributed">פיניסטר</subdivision>
+			<subdivision type="fr30" draft="contributed">גאר</subdivision>
+			<subdivision type="fr31" draft="contributed">גארון עילית</subdivision>
+			<subdivision type="fr32" draft="contributed">ז׳ר</subdivision>
+			<subdivision type="fr33" draft="contributed">ז׳ירונד</subdivision>
+			<subdivision type="fr34" draft="contributed">ארו</subdivision>
+			<subdivision type="fr35" draft="contributed">איל ווילן</subdivision>
+			<subdivision type="fr36" draft="contributed">אנדר</subdivision>
+			<subdivision type="fr37" draft="contributed">אנדר ולואר</subdivision>
+			<subdivision type="fr38" draft="contributed">איזר</subdivision>
+			<subdivision type="fr39" draft="contributed">ז׳ורה</subdivision>
+			<subdivision type="fr40" draft="contributed">לונד</subdivision>
+			<subdivision type="fr41" draft="contributed">לואר ושר</subdivision>
+			<subdivision type="fr42" draft="contributed">לואר</subdivision>
+			<subdivision type="fr43" draft="contributed">לואר עילי</subdivision>
+			<subdivision type="fr44" draft="contributed">הלואר האטלנטי</subdivision>
+			<subdivision type="fr45" draft="contributed">לוארה</subdivision>
+			<subdivision type="fr46" draft="contributed">לוט</subdivision>
+			<subdivision type="fr47" draft="contributed">לוט וגארון</subdivision>
+			<subdivision type="fr48" draft="contributed">לוזר</subdivision>
+			<subdivision type="fr49" draft="contributed">מן ולואר</subdivision>
+			<subdivision type="fr50" draft="contributed">מאנש</subdivision>
+			<subdivision type="fr51" draft="contributed">מארן (מחוז)</subdivision>
+			<subdivision type="fr52" draft="contributed">הוט-מארן</subdivision>
+			<subdivision type="fr53" draft="contributed">מאיין</subdivision>
+			<subdivision type="fr54" draft="contributed">מרת ומוזל</subdivision>
+			<subdivision type="fr55" draft="contributed">מז</subdivision>
+			<subdivision type="fr56" draft="contributed">מורביאן</subdivision>
+			<subdivision type="fr57" draft="contributed">מוזל</subdivision>
+			<subdivision type="fr58" draft="contributed">נייוור</subdivision>
+			<subdivision type="fr59" draft="contributed">נור</subdivision>
+			<subdivision type="fr60" draft="contributed">אואז</subdivision>
+			<subdivision type="fr61" draft="contributed">אורן</subdivision>
+			<subdivision type="fr62" draft="contributed">פה-דה-קאלה</subdivision>
+			<subdivision type="fr63" draft="contributed">פויי-דה-דום</subdivision>
+			<subdivision type="fr64" draft="contributed">הפירנאים האטלנטיים</subdivision>
+			<subdivision type="fr65" draft="contributed">הפירנאים העליונים</subdivision>
+			<subdivision type="fr66" draft="contributed">הפירנאים המזרחיים</subdivision>
+			<subdivision type="fr67" draft="contributed">ריין תחתון</subdivision>
+			<subdivision type="fr68" draft="contributed">או-רן</subdivision>
+			<subdivision type="fr69" draft="contributed">רון</subdivision>
+			<subdivision type="fr70" draft="contributed">סון עילית</subdivision>
+			<subdivision type="fr71" draft="contributed">סון ולואר</subdivision>
+			<subdivision type="fr72" draft="contributed">סארת</subdivision>
+			<subdivision type="fr73" draft="contributed">סבואה</subdivision>
+			<subdivision type="fr74" draft="contributed">סבואה עילית</subdivision>
+			<subdivision type="fr75" draft="contributed">פריז</subdivision>
+			<subdivision type="fr76" draft="contributed">סן-מריטים</subdivision>
+			<subdivision type="fr77" draft="contributed">סן ומארן</subdivision>
+			<subdivision type="fr78" draft="contributed">איוולין</subdivision>
+			<subdivision type="fr79" draft="contributed">דה-סוור</subdivision>
+			<subdivision type="fr80" draft="contributed">סום</subdivision>
+			<subdivision type="fr81" draft="contributed">טארן</subdivision>
+			<subdivision type="fr82" draft="contributed">טארן וגארון</subdivision>
+			<subdivision type="fr84" draft="contributed">ווקלוז</subdivision>
+			<subdivision type="fr85" draft="contributed">ונדה</subdivision>
+			<subdivision type="fr86" draft="contributed">ויין</subdivision>
+			<subdivision type="fr87" draft="contributed">ויין עילית</subdivision>
+			<subdivision type="fr88" draft="contributed">ווז׳</subdivision>
+			<subdivision type="fr89" draft="contributed">יון</subdivision>
+			<subdivision type="fr90" draft="contributed">טריטוריית בלפור</subdivision>
+			<subdivision type="fr91" draft="contributed">אסון</subdivision>
+			<subdivision type="fr92" draft="contributed">רמות הסן</subdivision>
+			<subdivision type="fr93" draft="contributed">סן-סן-דני</subdivision>
+			<subdivision type="fr94" draft="contributed">עמק המארן</subdivision>
+			<subdivision type="fr95" draft="contributed">עמק האואז</subdivision>
+			<subdivision type="frara" draft="contributed">אוברן-רון-אלפ</subdivision>
+			<subdivision type="frbfc" draft="contributed">בורגון-פראנש-קונטה</subdivision>
+			<subdivision type="frbre" draft="contributed">ברטאן</subdivision>
+			<subdivision type="frcor" draft="contributed">קורסיקה</subdivision>
+			<subdivision type="frcvl" draft="contributed">סאנטר-עמק הלואר</subdivision>
+			<subdivision type="frges" draft="contributed">גראנד אסט</subdivision>
+			<subdivision type="frhdf" draft="contributed">או-דה-פראנס</subdivision>
+			<subdivision type="fridf" draft="contributed">איל-דה-פראנס</subdivision>
+			<subdivision type="frnaq" draft="contributed">אקיטן החדשה</subdivision>
+			<subdivision type="frnor" draft="contributed">נורמנדי</subdivision>
+			<subdivision type="frocc" draft="contributed">אוקסיטניה</subdivision>
+			<subdivision type="frpac" draft="contributed">פרובאנס-אלפ-קוט ד׳אזור</subdivision>
+			<subdivision type="frpdl" draft="contributed">פיי דה לה לואר</subdivision>
+			<subdivision type="ga1" draft="contributed">אסטואר</subdivision>
+			<subdivision type="gbabe" draft="contributed">אברדין</subdivision>
+			<subdivision type="gbagb" draft="contributed">ארגייל וביוט</subdivision>
+			<subdivision type="gbagy" draft="contributed">אנגלסי</subdivision>
+			<subdivision type="gbans" draft="contributed">אנגוס</subdivision>
+			<subdivision type="gbbdg" draft="contributed">בארקינג ודאגנהאם</subdivision>
+			<subdivision type="gbben" draft="contributed">ברנט</subdivision>
+			<subdivision type="gbbex" draft="contributed">בקסלי</subdivision>
+			<subdivision type="gbbir" draft="contributed">ברמינגהאם</subdivision>
+			<subdivision type="gbbkm" draft="contributed">בקינגהאמשייר</subdivision>
+			<subdivision type="gbbmh" draft="contributed">בורנמות׳</subdivision>
+			<subdivision type="gbbne" draft="contributed">בארנט</subdivision>
+			<subdivision type="gbbol" draft="contributed">בולטון</subdivision>
+			<subdivision type="gbbpl" draft="contributed">בלקפול</subdivision>
+			<subdivision type="gbbry" draft="contributed">ברומלי</subdivision>
+			<subdivision type="gbbst" draft="contributed">בריסטול</subdivision>
+			<subdivision type="gbcam" draft="contributed">קיימברידג׳שייר</subdivision>
+			<subdivision type="gbcgn" draft="contributed">קרדיג׳נשייר</subdivision>
+			<subdivision type="gbcma" draft="contributed">קאמבריה</subdivision>
+			<subdivision type="gbcmd" draft="contributed">קמדן</subdivision>
+			<subdivision type="gbcmn" draft="contributed">קרמרתנשייר</subdivision>
+			<subdivision type="gbcon" draft="contributed">קורנוול</subdivision>
+			<subdivision type="gbcov" draft="contributed">קובנטרי</subdivision>
+			<subdivision type="gbcrf" draft="contributed">קארדיף</subdivision>
+			<subdivision type="gbcry" draft="contributed">קרוידון</subdivision>
+			<subdivision type="gbcwy" draft="contributed">קונווי</subdivision>
+			<subdivision type="gbdby" draft="contributed">דרבישייר</subdivision>
+			<subdivision type="gbden" draft="contributed">דנבישייר</subdivision>
+			<subdivision type="gbder" draft="contributed">דרבי</subdivision>
+			<subdivision type="gbdev" draft="contributed">דבון</subdivision>
+			<subdivision type="gbdnd" draft="contributed">דנדי</subdivision>
+			<subdivision type="gbdor" draft="contributed">דורסט</subdivision>
+			<subdivision type="gbdur" draft="contributed">דרהאם</subdivision>
+			<subdivision type="gbeal" draft="contributed">אילינג</subdivision>
+			<subdivision type="gbeaw" draft="contributed">אנגליה וויילס</subdivision>
+			<subdivision type="gbedh" draft="contributed">אדינבורו</subdivision>
+			<subdivision type="gbenf" draft="contributed">אנפילד</subdivision>
+			<subdivision type="gbeng">אנגליה</subdivision>
+			<subdivision type="gbery" draft="contributed">מזרח יורקשייר</subdivision>
+			<subdivision type="gbess" draft="contributed">אסקס</subdivision>
+			<subdivision type="gbesx" draft="contributed">מזרח סאסקס</subdivision>
+			<subdivision type="gbfif" draft="contributed">פיף</subdivision>
+			<subdivision type="gbfln" draft="contributed">פלינטשייר</subdivision>
+			<subdivision type="gbgbn" draft="contributed">בריטניה הגדולה</subdivision>
+			<subdivision type="gbglg" draft="contributed">גלאזגו</subdivision>
+			<subdivision type="gbgls" draft="contributed">גלוסטרשייר</subdivision>
+			<subdivision type="gbgre" draft="contributed">הרובע המלכותי של גריניץ׳</subdivision>
+			<subdivision type="gbgwn" draft="contributed">גוויניד׳</subdivision>
+			<subdivision type="gbham" draft="contributed">המפשייר</subdivision>
+			<subdivision type="gbhav" draft="contributed">הברינג</subdivision>
+			<subdivision type="gbhck" draft="contributed">האקני</subdivision>
+			<subdivision type="gbhef" draft="contributed">הרפורדשייר</subdivision>
+			<subdivision type="gbhil" draft="contributed">הילינגדון</subdivision>
+			<subdivision type="gbhmf" draft="contributed">האמרסמית׳ ופולהאם</subdivision>
+			<subdivision type="gbhns" draft="contributed">האונסלו</subdivision>
+			<subdivision type="gbhrt" draft="contributed">הרטפורדשייר</subdivision>
+			<subdivision type="gbhrw" draft="contributed">הארו</subdivision>
+			<subdivision type="gbhry" draft="contributed">הארינגיי</subdivision>
+			<subdivision type="gbios" draft="contributed">איי סילי</subdivision>
+			<subdivision type="gbiow" draft="contributed">האי וייט</subdivision>
+			<subdivision type="gbisl" draft="contributed">איזלינגטון</subdivision>
+			<subdivision type="gbkec" draft="contributed">הרובע המלכותי קנזינגטון וצ׳לסי</subdivision>
+			<subdivision type="gbken" draft="contributed">קנט</subdivision>
+			<subdivision type="gbkhl" draft="contributed">האל</subdivision>
+			<subdivision type="gbktt" draft="contributed">הרובע המלכותי קינגסטון שעל התמזה</subdivision>
+			<subdivision type="gblan" draft="contributed">לנקשייר</subdivision>
+			<subdivision type="gblbh" draft="contributed">למבת׳</subdivision>
+			<subdivision type="gblce" draft="contributed">לסטר</subdivision>
+			<subdivision type="gblec" draft="contributed">לסטרשייר</subdivision>
+			<subdivision type="gblew" draft="contributed">לואישהאם</subdivision>
+			<subdivision type="gblin" draft="contributed">לינקולנשייר</subdivision>
+			<subdivision type="gbliv" draft="contributed">ליברפול</subdivision>
+			<subdivision type="gblnd" draft="contributed">הסיטי של לונדון</subdivision>
+			<subdivision type="gblut" draft="contributed">לוטון</subdivision>
+			<subdivision type="gbman" draft="contributed">מנצ׳סטר</subdivision>
+			<subdivision type="gbmdb" draft="contributed">מידלסברו</subdivision>
+			<subdivision type="gbmon" draft="contributed">מונמאות׳שייר</subdivision>
+			<subdivision type="gbmrt" draft="contributed">מרטון</subdivision>
+			<subdivision type="gbmry" draft="contributed">מוריי, סקוטלנד</subdivision>
+			<subdivision type="gbnay" draft="contributed">צפון איירשייר</subdivision>
+			<subdivision type="gbnbl" draft="contributed">נורת׳מברלנד</subdivision>
+			<subdivision type="gbnet" draft="contributed">ניוקאסל</subdivision>
+			<subdivision type="gbnfk" draft="contributed">נורפוק</subdivision>
+			<subdivision type="gbngm" draft="contributed">נוטינגהאם</subdivision>
+			<subdivision type="gbnir" draft="contributed">צפון אירלנד</subdivision>
+			<subdivision type="gbnln" draft="contributed">צפון לינקולנשיר</subdivision>
+			<subdivision type="gbnth" draft="contributed">נורת׳האמפטונשייר</subdivision>
+			<subdivision type="gbntl" draft="contributed">ניית׳ פורט טלבוט</subdivision>
+			<subdivision type="gbntt" draft="contributed">נוטינגהאמשייר</subdivision>
+			<subdivision type="gbnwm" draft="contributed">ניוהאם</subdivision>
+			<subdivision type="gbnyk" draft="contributed">צפון יורקשייר</subdivision>
+			<subdivision type="gbork" draft="contributed">אורקני</subdivision>
+			<subdivision type="gboxf" draft="contributed">אוקספורדשייר</subdivision>
+			<subdivision type="gbpem" draft="contributed">פמברוקשייר</subdivision>
+			<subdivision type="gbpkn" draft="contributed">פרת וקינרוס</subdivision>
+			<subdivision type="gbply" draft="contributed">פלימות׳</subdivision>
+			<subdivision type="gbpol" draft="contributed">פול</subdivision>
+			<subdivision type="gbpor" draft="contributed">פורטסמות׳</subdivision>
+			<subdivision type="gbpow" draft="contributed">פוויס</subdivision>
+			<subdivision type="gbpte" draft="contributed">פטרבורו</subdivision>
+			<subdivision type="gbrdb" draft="contributed">רדברידג׳</subdivision>
+			<subdivision type="gbrdg" draft="contributed">רדינג</subdivision>
+			<subdivision type="gbric" draft="contributed">ריצ׳מונד שעל התמזה</subdivision>
+			<subdivision type="gbrut" draft="contributed">ראטלנד</subdivision>
+			<subdivision type="gbscb" draft="contributed">דרום-מזרח סקוטלנד</subdivision>
+			<subdivision type="gbsct">סקוטלנד</subdivision>
+			<subdivision type="gbsfk" draft="contributed">סאפוק</subdivision>
+			<subdivision type="gbsft" draft="contributed">ספטון</subdivision>
+			<subdivision type="gbshf" draft="contributed">שפילד</subdivision>
+			<subdivision type="gbshr" draft="contributed">שרופשייר</subdivision>
+			<subdivision type="gbslf" draft="contributed">סלפורד</subdivision>
+			<subdivision type="gbslg" draft="contributed">סלאו</subdivision>
+			<subdivision type="gbsom" draft="contributed">סאמרסט</subdivision>
+			<subdivision type="gbsos" draft="contributed">סאות׳אנד-און-סי</subdivision>
+			<subdivision type="gbsry" draft="contributed">סארי</subdivision>
+			<subdivision type="gbste" draft="contributed">סטוק-און-טרנט</subdivision>
+			<subdivision type="gbstg" draft="contributed">סטירלינג (מחוז)</subdivision>
+			<subdivision type="gbsth" draft="contributed">סאות׳המפטון</subdivision>
+			<subdivision type="gbstn" draft="contributed">סאטון</subdivision>
+			<subdivision type="gbsts" draft="contributed">סטפורדשייר</subdivision>
+			<subdivision type="gbswa" draft="contributed">סוונסי</subdivision>
+			<subdivision type="gbswk" draft="contributed">סאת׳ק</subdivision>
+			<subdivision type="gbtwh" draft="contributed">טאוור האמלטס</subdivision>
+			<subdivision type="gbukm" draft="contributed">הממלכה המאוחדת</subdivision>
+			<subdivision type="gbwar" draft="contributed">ווריקשייר</subdivision>
+			<subdivision type="gbwdu" draft="contributed">דאמברטון מערב</subdivision>
+			<subdivision type="gbwft" draft="contributed">וולת׳אם פורסט</subdivision>
+			<subdivision type="gbwil" draft="contributed">וילטשייר</subdivision>
+			<subdivision type="gbwkf" draft="contributed">וייקפילד</subdivision>
+			<subdivision type="gbwln" draft="contributed">ווסט לות׳יאן</subdivision>
+			<subdivision type="gbwls">וויילס</subdivision>
+			<subdivision type="gbwlv" draft="contributed">וולברהמפטון</subdivision>
+			<subdivision type="gbwnd" draft="contributed">וונדסוורת׳</subdivision>
+			<subdivision type="gbwor" draft="contributed">ווסטרשייר</subdivision>
+			<subdivision type="gbwrl" draft="contributed">וויירל</subdivision>
+			<subdivision type="gbwrt" draft="contributed">ורינגטון</subdivision>
+			<subdivision type="gbwrx" draft="contributed">רקסהאם</subdivision>
+			<subdivision type="gbwsm" draft="contributed">הסיטי של וסטמינסטר</subdivision>
+			<subdivision type="gbwsx" draft="contributed">מערב סאסקס</subdivision>
+			<subdivision type="gbyor" draft="contributed">יורק</subdivision>
+			<subdivision type="gbzet" draft="contributed">איי שטלנד</subdivision>
+			<subdivision type="geab" draft="contributed">אבחזיה</subdivision>
+			<subdivision type="geaj" draft="contributed">אג׳ריה</subdivision>
+			<subdivision type="gegu" draft="contributed">גוריה</subdivision>
+			<subdivision type="geim" draft="contributed">אימרתי</subdivision>
+			<subdivision type="geka" draft="contributed">קאחתי</subdivision>
+			<subdivision type="gekk" draft="contributed">כארתלי תחתית</subdivision>
+			<subdivision type="gemm" draft="contributed">מצחתה מתיאנתי</subdivision>
+			<subdivision type="gerl" draft="contributed">רצ׳ה-לצ׳חומי וסוואנתי תחתית</subdivision>
+			<subdivision type="gesj" draft="contributed">סאמצחה-ג׳אוואחתי</subdivision>
+			<subdivision type="gesk" draft="contributed">כארתלי הפנימית</subdivision>
+			<subdivision type="gesz" draft="contributed">סמגרלו וסוואנתי עילית</subdivision>
+			<subdivision type="getb" draft="contributed">טביליסי</subdivision>
+			<subdivision type="gmb" draft="contributed">בנג׳ול</subdivision>
+			<subdivision type="gnc" draft="contributed">קונאקרי</subdivision>
+			<subdivision type="gr69" draft="contributed">הר אתוס</subdivision>
+			<subdivision type="gra" draft="contributed">מזרח מקדוניה ותראקיה</subdivision>
+			<subdivision type="grb" draft="contributed">מרכז מקדוניה</subdivision>
+			<subdivision type="grc" draft="contributed">מערב מקדוניה</subdivision>
+			<subdivision type="grd" draft="contributed">אפירוס</subdivision>
+			<subdivision type="gre" draft="contributed">תסליה</subdivision>
+			<subdivision type="grf" draft="contributed">האיים היוניים</subdivision>
+			<subdivision type="grg" draft="contributed">מערב יוון</subdivision>
+			<subdivision type="grh" draft="contributed">מרכז יוון</subdivision>
+			<subdivision type="grj" draft="contributed">פלופונסוס</subdivision>
+			<subdivision type="grk" draft="contributed">צפון הים האגאי</subdivision>
+			<subdivision type="grl" draft="contributed">דרום הים האגאי</subdivision>
+			<subdivision type="gtpe" draft="contributed">מחוז פטן</subdivision>
+			<subdivision type="gwbs" draft="contributed">ביסאו</subdivision>
+			<subdivision type="hnat" draft="contributed">אטלנטידה</subdivision>
+			<subdivision type="hnep" draft="contributed">אל פאראיסו</subdivision>
+			<subdivision type="hnib" draft="contributed">איי באייה</subdivision>
+			<subdivision type="hnlp" draft="contributed">לה פאס</subdivision>
+			<subdivision type="hr03" draft="contributed">מחוז סיסאק-מוסלאבינה</subdivision>
+			<subdivision type="hr08" draft="contributed">פרימוריה-גורה</subdivision>
+			<subdivision type="hr21" draft="contributed">זאגרב</subdivision>
+			<subdivision type="huba" draft="contributed">באראניה</subdivision>
+			<subdivision type="hubc" draft="contributed">בקשצ׳אבה</subdivision>
+			<subdivision type="hube" draft="contributed">בקש</subdivision>
+			<subdivision type="hubk" draft="contributed">באץ׳-קישקון</subdivision>
+			<subdivision type="hubu" draft="contributed">בודפשט</subdivision>
+			<subdivision type="hubz" draft="contributed">בורשוד-אבאוי-זמפלן</subdivision>
+			<subdivision type="hucs" draft="contributed">מחוז צ׳ונגרד</subdivision>
+			<subdivision type="hude" draft="contributed">דברצן</subdivision>
+			<subdivision type="hudu" draft="contributed">דונאויווארוש</subdivision>
+			<subdivision type="hueg" draft="contributed">אגר</subdivision>
+			<subdivision type="huer" draft="contributed">ארד</subdivision>
+			<subdivision type="hufe" draft="contributed">מחוז פייר</subdivision>
+			<subdivision type="hugs" draft="contributed">גיור-מושון-שופרון</subdivision>
+			<subdivision type="hugy" draft="contributed">גיור</subdivision>
+			<subdivision type="huhb" draft="contributed">היידו-ביהר</subdivision>
+			<subdivision type="huhe" draft="contributed">הווש</subdivision>
+			<subdivision type="huhv" draft="contributed">הודמזוושרהיי</subdivision>
+			<subdivision type="hujn" draft="contributed">יאס-נאג׳קון-סולנוק</subdivision>
+			<subdivision type="huke" draft="contributed">קומארום-אסטרגום</subdivision>
+			<subdivision type="hukm" draft="contributed">קצ׳קמט</subdivision>
+			<subdivision type="hukv" draft="contributed">קאפושוואר</subdivision>
+			<subdivision type="humi" draft="contributed">מישקולץ</subdivision>
+			<subdivision type="hunk" draft="contributed">נג׳קניז׳ה</subdivision>
+			<subdivision type="huno" draft="contributed">נוגראד</subdivision>
+			<subdivision type="huny" draft="contributed">נירג׳האזה</subdivision>
+			<subdivision type="hupe" draft="contributed">מחוז פשט</subdivision>
+			<subdivision type="hups" draft="contributed">פץ׳</subdivision>
+			<subdivision type="husd" draft="contributed">סגד</subdivision>
+			<subdivision type="husf" draft="contributed">סקשפהרוואר</subdivision>
+			<subdivision type="hush" draft="contributed">סומבטהיי</subdivision>
+			<subdivision type="husk" draft="contributed">סולנוק</subdivision>
+			<subdivision type="husn" draft="contributed">שופרון</subdivision>
+			<subdivision type="huso" draft="contributed">שומוג׳</subdivision>
+			<subdivision type="huss" draft="contributed">סקסארד</subdivision>
+			<subdivision type="hust" draft="contributed">שאלגוטאריאן</subdivision>
+			<subdivision type="husz" draft="contributed">סאבולץ׳-סאטמר-ברג</subdivision>
+			<subdivision type="hutb" draft="contributed">טטבאניה</subdivision>
+			<subdivision type="huto" draft="contributed">מחוז טולנה</subdivision>
+			<subdivision type="huva" draft="contributed">מחוז ואש</subdivision>
+			<subdivision type="huve" draft="contributed">מחוז וספרם</subdivision>
+			<subdivision type="huvm" draft="contributed">וספרם</subdivision>
+			<subdivision type="huza" draft="contributed">זאלה</subdivision>
+			<subdivision type="huze" draft="contributed">זאלאגרסג</subdivision>
+			<subdivision type="idac" draft="contributed">אצ׳ה</subdivision>
+			<subdivision type="idbb" draft="contributed">באנגקה-בליטונג</subdivision>
+			<subdivision type="idbt" draft="contributed">באנטן</subdivision>
+			<subdivision type="idjb" draft="contributed">מערב ג׳אווה</subdivision>
+			<subdivision type="idji" draft="contributed">מזרח ג׳אווה</subdivision>
+			<subdivision type="idjk" draft="contributed">ג׳קרטה</subdivision>
+			<subdivision type="idjt" draft="contributed">יאוה המרכזית</subdivision>
+			<subdivision type="idjw" draft="contributed">ג׳אווה</subdivision>
+			<subdivision type="idka" draft="contributed">קלימנטן</subdivision>
+			<subdivision type="idkb" draft="contributed">מערב קלימנטן</subdivision>
+			<subdivision type="idkr" draft="contributed">איי ריאו</subdivision>
+			<subdivision type="idma" draft="contributed">מאלוקו</subdivision>
+			<subdivision type="idml" draft="contributed">איי מאלוקו</subdivision>
+			<subdivision type="idmu" draft="contributed">צפון מאלוקו</subdivision>
+			<subdivision type="idnt" draft="contributed">מזרח נוסה טנגרה</subdivision>
+			<subdivision type="idnu" draft="contributed">איי סונדה הקטנים</subdivision>
+			<subdivision type="idpb" draft="contributed">פפואה המערבית</subdivision>
+			<subdivision type="idpp" draft="contributed">מערב גינאה החדשה</subdivision>
+			<subdivision type="idsb" draft="contributed">מערב סומטרה</subdivision>
+			<subdivision type="idsl" draft="contributed">סולאווסי</subdivision>
+			<subdivision type="idsm" draft="contributed">סומטרה</subdivision>
+			<subdivision type="idss" draft="contributed">דרום סומטרה</subdivision>
+			<subdivision type="idsu" draft="contributed">צפון סומטרה</subdivision>
+			<subdivision type="iec" draft="contributed">קונכט</subdivision>
+			<subdivision type="iece" draft="contributed">מחוז קלייר</subdivision>
+			<subdivision type="iecn" draft="contributed">מחוז קאוואן</subdivision>
+			<subdivision type="ieco" draft="contributed">מחוז קורק</subdivision>
+			<subdivision type="iecw" draft="contributed">מחוז קרלו</subdivision>
+			<subdivision type="ied" draft="contributed">מחוז דבלין</subdivision>
+			<subdivision type="iedl" draft="contributed">מחוז דונגל</subdivision>
+			<subdivision type="ieg" draft="contributed">מחוז גולוויי</subdivision>
+			<subdivision type="ieke" draft="contributed">מחוז קילדייר</subdivision>
+			<subdivision type="iekk" draft="contributed">מחוז קילקני</subdivision>
+			<subdivision type="ieky" draft="contributed">מחוז קרי</subdivision>
+			<subdivision type="iel" draft="contributed">לנסטר</subdivision>
+			<subdivision type="ield" draft="contributed">מחוז לונגפורד</subdivision>
+			<subdivision type="ielh" draft="contributed">מחוז לאות׳</subdivision>
+			<subdivision type="ielk" draft="contributed">מחוז לימריק</subdivision>
+			<subdivision type="ielm" draft="contributed">מחוז ליטרים</subdivision>
+			<subdivision type="iels" draft="contributed">מחוז לייש</subdivision>
+			<subdivision type="iem" draft="contributed">מנסטר</subdivision>
+			<subdivision type="iemh" draft="contributed">מחוז מית׳</subdivision>
+			<subdivision type="iemn" draft="contributed">מחוז מונאהן</subdivision>
+			<subdivision type="iemo" draft="contributed">מחוז מאיו</subdivision>
+			<subdivision type="ieoy" draft="contributed">מחוז אופאלי</subdivision>
+			<subdivision type="iern" draft="contributed">מחוז רוסקומון</subdivision>
+			<subdivision type="ieso" draft="contributed">מחוז סלייגו</subdivision>
+			<subdivision type="ieta" draft="contributed">מחוז טיפררי</subdivision>
+			<subdivision type="ieu" draft="contributed">אלסטר</subdivision>
+			<subdivision type="iewd" draft="contributed">מחוז ווטרפורד</subdivision>
+			<subdivision type="iewh" draft="contributed">מחוז וסטמית׳</subdivision>
+			<subdivision type="ieww" draft="contributed">מחוז ויקלו</subdivision>
+			<subdivision type="iewx" draft="contributed">מחוז ווקספורד</subdivision>
+			<subdivision type="ild" draft="contributed">מחוז הדרום</subdivision>
+			<subdivision type="ilha" draft="contributed">מחוז חיפה</subdivision>
+			<subdivision type="iljm" draft="contributed">מחוז ירושלים</subdivision>
+			<subdivision type="ilm" draft="contributed">מחוז המרכז</subdivision>
+			<subdivision type="ilta" draft="contributed">מחוז תל אביב</subdivision>
+			<subdivision type="ilz" draft="contributed">מחוז הצפון</subdivision>
+			<subdivision type="inan" draft="contributed">איי אנדמן וניקובר</subdivision>
+			<subdivision type="inap" draft="contributed">אנדרה פרדש</subdivision>
+			<subdivision type="inar" draft="contributed">ארונאצ׳ל פרדש</subdivision>
+			<subdivision type="inas" draft="contributed">אסאם</subdivision>
+			<subdivision type="inbr" draft="contributed">ביהר</subdivision>
+			<subdivision type="inch" draft="contributed">צ׳אנדיגאר</subdivision>
+			<subdivision type="inct" draft="contributed">צ׳האטיסגאר</subdivision>
+			<subdivision type="indd" draft="contributed">דאמאן ודיו</subdivision>
+			<subdivision type="indl" draft="contributed">דלהי</subdivision>
+			<subdivision type="indn" draft="contributed">דאדרה ונאגר הבלי</subdivision>
+			<subdivision type="inga" draft="contributed">גואה</subdivision>
+			<subdivision type="ingj" draft="contributed">גוג׳ראט</subdivision>
+			<subdivision type="inhp" draft="contributed">הימאצ׳ל פרדש</subdivision>
+			<subdivision type="inhr" draft="contributed">הריאנה</subdivision>
+			<subdivision type="injh" draft="contributed">ג׳הרקאנד</subdivision>
+			<subdivision type="injk" draft="contributed">ג׳אמו וקשמיר</subdivision>
+			<subdivision type="inka" draft="contributed">קרנאטקה</subdivision>
+			<subdivision type="inkl" draft="contributed">קרלה</subdivision>
+			<subdivision type="inld" draft="contributed">לקשאדוויפ</subdivision>
+			<subdivision type="inmh" draft="contributed">מהאראשטרה</subdivision>
+			<subdivision type="inml" draft="contributed">מגהלאיה</subdivision>
+			<subdivision type="inmn" draft="contributed">מניפור</subdivision>
+			<subdivision type="inmp" draft="contributed">מאדהיה פרדש</subdivision>
+			<subdivision type="inmz" draft="contributed">מיזוראם</subdivision>
+			<subdivision type="innl" draft="contributed">נאגאלנד</subdivision>
+			<subdivision type="inor" draft="contributed">אודישה</subdivision>
+			<subdivision type="inpb" draft="contributed">פנג׳אב</subdivision>
+			<subdivision type="inpy" draft="contributed">פודוצ׳רי</subdivision>
+			<subdivision type="inrj" draft="contributed">ראג׳סטאן</subdivision>
+			<subdivision type="insk" draft="contributed">סיקים</subdivision>
+			<subdivision type="intg" draft="contributed">טלנגאנה</subdivision>
+			<subdivision type="intn" draft="contributed">טאמיל נאדו</subdivision>
+			<subdivision type="intr" draft="contributed">טריפורה</subdivision>
+			<subdivision type="inup" draft="contributed">אוטר פרדש</subdivision>
+			<subdivision type="inut" draft="contributed">אוטראקהאנד</subdivision>
+			<subdivision type="inwb" draft="contributed">מערב בנגל</subdivision>
+			<subdivision type="iqan" draft="contributed">אל-אנבר</subdivision>
+			<subdivision type="iqar" draft="contributed">מחוז ארביל</subdivision>
+			<subdivision type="iqba" draft="contributed">מחוז בצרה</subdivision>
+			<subdivision type="iqbb" draft="contributed">מחוז באבל</subdivision>
+			<subdivision type="iqbg" draft="contributed">מחוז בגדאד</subdivision>
+			<subdivision type="iqda" draft="contributed">דהוכ</subdivision>
+			<subdivision type="iqdi" draft="contributed">דיאלא</subdivision>
+			<subdivision type="iqdq" draft="contributed">ד׳י קאר</subdivision>
+			<subdivision type="iqka" draft="contributed">מחוז כרבלא</subdivision>
+			<subdivision type="iqki" draft="contributed">כרכוכ</subdivision>
+			<subdivision type="iqma" draft="contributed">מיסאן</subdivision>
+			<subdivision type="iqmu" draft="contributed">אל-מות׳נא</subdivision>
+			<subdivision type="iqna" draft="contributed">א-נג׳ף</subdivision>
+			<subdivision type="iqni" draft="contributed">מחוז נינוה</subdivision>
+			<subdivision type="iqqa" draft="contributed">אל-קאדסיה</subdivision>
+			<subdivision type="iqsd" draft="contributed">מחוז סלאח א-דין</subdivision>
+			<subdivision type="iqsu" draft="contributed">מחוז א-סולימאניה</subdivision>
+			<subdivision type="iqwa" draft="contributed">ואסט</subdivision>
+			<subdivision type="ir01" draft="contributed">מזרח אזרבייג׳ן</subdivision>
+			<subdivision type="ir02" draft="contributed">מערב אזרבייג׳ן</subdivision>
+			<subdivision type="ir03" draft="contributed">מחוז ארדביל</subdivision>
+			<subdivision type="ir04" draft="contributed">מחוז אספהאן</subdivision>
+			<subdivision type="ir05" draft="contributed">אילאם</subdivision>
+			<subdivision type="ir06" draft="contributed">בושהר</subdivision>
+			<subdivision type="ir07" draft="contributed">מחוז טהראן</subdivision>
+			<subdivision type="ir08" draft="contributed">צ׳הארמחאל ובח׳תיארי</subdivision>
+			<subdivision type="ir10" draft="contributed">ח׳וזסתאן</subdivision>
+			<subdivision type="ir11" draft="contributed">זנג׳אן</subdivision>
+			<subdivision type="ir12" draft="contributed">מחוז סמנאן</subdivision>
+			<subdivision type="ir13" draft="contributed">סיסתאן ובלוצ׳סתאן</subdivision>
+			<subdivision type="ir14" draft="contributed">מחוז פארס</subdivision>
+			<subdivision type="ir15" draft="contributed">מחוז כרמאן</subdivision>
+			<subdivision type="ir16" draft="contributed">מחוז כורדיסתאן</subdivision>
+			<subdivision type="ir17" draft="contributed">מחוז כרמאנשאה</subdivision>
+			<subdivision type="ir18" draft="contributed">כהגילויה ובויראחמד</subdivision>
+			<subdivision type="ir19" draft="contributed">גילאן</subdivision>
+			<subdivision type="ir20" draft="contributed">לורסתאן</subdivision>
+			<subdivision type="ir21" draft="contributed">מאזנדראן</subdivision>
+			<subdivision type="ir22" draft="contributed">מרכזי</subdivision>
+			<subdivision type="ir23" draft="contributed">הורמוזגאן</subdivision>
+			<subdivision type="ir24" draft="contributed">מחוז המדאן</subdivision>
+			<subdivision type="ir25" draft="contributed">מחוז יזד</subdivision>
+			<subdivision type="ir26" draft="contributed">קום</subdivision>
+			<subdivision type="ir27" draft="contributed">גולסתאן</subdivision>
+			<subdivision type="ir28" draft="contributed">קזווין</subdivision>
+			<subdivision type="ir29" draft="contributed">דרום ח׳וראסאן</subdivision>
+			<subdivision type="ir30" draft="contributed">ח׳וראסאן רזאווי</subdivision>
+			<subdivision type="ir31" draft="contributed">צפון ח׳וראסאן</subdivision>
+			<subdivision type="ir32" draft="contributed">מחוז אלבורז</subdivision>
+			<subdivision type="is3" draft="contributed">מערב איסלנד</subdivision>
+			<subdivision type="is4" draft="contributed">הפיורדים המערביים של איסלנד</subdivision>
+			<subdivision type="is6" draft="contributed">צפון איסלנד</subdivision>
+			<subdivision type="is7" draft="contributed">מזרח איסלנד</subdivision>
+			<subdivision type="is8" draft="contributed">דרום איסלנד</subdivision>
+			<subdivision type="it21" draft="contributed">פיימונטה</subdivision>
+			<subdivision type="it23" draft="contributed">ואל ד׳אוסטה</subdivision>
+			<subdivision type="it25" draft="contributed">לומברדיה</subdivision>
+			<subdivision type="it32" draft="contributed">טרנטינו - אלטו אדיג׳ה</subdivision>
+			<subdivision type="it34" draft="contributed">ונטו</subdivision>
+			<subdivision type="it36" draft="contributed">פריולי-ונציה ג׳וליה</subdivision>
+			<subdivision type="it42" draft="contributed">ליגוריה</subdivision>
+			<subdivision type="it45" draft="contributed">אמיליה-רומאניה</subdivision>
+			<subdivision type="it52" draft="contributed">טוסקנה</subdivision>
+			<subdivision type="it55" draft="contributed">אומבריה</subdivision>
+			<subdivision type="it57" draft="contributed">מארקה</subdivision>
+			<subdivision type="it62" draft="contributed">לאציו</subdivision>
+			<subdivision type="it65" draft="contributed">אברוצו</subdivision>
+			<subdivision type="it67" draft="contributed">מוליזה</subdivision>
+			<subdivision type="it72" draft="contributed">קמפניה</subdivision>
+			<subdivision type="it75" draft="contributed">פוליה</subdivision>
+			<subdivision type="it77" draft="contributed">בזיליקטה</subdivision>
+			<subdivision type="it78" draft="contributed">קלבריה</subdivision>
+			<subdivision type="it82" draft="contributed">סיציליה</subdivision>
+			<subdivision type="it88" draft="contributed">סרדיניה</subdivision>
+			<subdivision type="itag" draft="contributed">אגריג׳נטו</subdivision>
+			<subdivision type="ital" draft="contributed">אלסנדריה</subdivision>
+			<subdivision type="itan" draft="contributed">אנקונה</subdivision>
+			<subdivision type="itao" draft="contributed">אאוסטה</subdivision>
+			<subdivision type="itap" draft="contributed">אסקולי פיצ׳נו</subdivision>
+			<subdivision type="itaq" draft="contributed">ל׳אקווילה</subdivision>
+			<subdivision type="itar" draft="contributed">ארצו</subdivision>
+			<subdivision type="itat" draft="contributed">אסטי</subdivision>
+			<subdivision type="itav" draft="contributed">אבלינו</subdivision>
+			<subdivision type="itba" draft="contributed">בארי</subdivision>
+			<subdivision type="itbg" draft="contributed">ברגמו</subdivision>
+			<subdivision type="itbi" draft="contributed">ביאלה</subdivision>
+			<subdivision type="itbl" draft="contributed">בלונו</subdivision>
+			<subdivision type="itbn" draft="contributed">בנוונטו</subdivision>
+			<subdivision type="itbo" draft="contributed">בולוניה</subdivision>
+			<subdivision type="itbr" draft="contributed">ברינדיזי</subdivision>
+			<subdivision type="itbs" draft="contributed">ברשה</subdivision>
+			<subdivision type="itbt" draft="contributed">בארלטה-אנדריה-טראני</subdivision>
+			<subdivision type="itbz" draft="contributed">דרום טירול</subdivision>
+			<subdivision type="itca" draft="contributed">קליארי</subdivision>
+			<subdivision type="itcb" draft="contributed">קמפובאסו</subdivision>
+			<subdivision type="itce" draft="contributed">קזרטה</subdivision>
+			<subdivision type="itch" draft="contributed">קייטי</subdivision>
+			<subdivision type="itci" draft="contributed">קרבוניה איגלסיס</subdivision>
+			<subdivision type="itcl" draft="contributed">קלטניסטה</subdivision>
+			<subdivision type="itcn" draft="contributed">קונאו</subdivision>
+			<subdivision type="itco" draft="contributed">קומו</subdivision>
+			<subdivision type="itcr" draft="contributed">קרמונה</subdivision>
+			<subdivision type="itcs" draft="contributed">קוזנצה</subdivision>
+			<subdivision type="itct" draft="contributed">קטניה</subdivision>
+			<subdivision type="itcz" draft="contributed">קטנזארו</subdivision>
+			<subdivision type="iten" draft="contributed">אנה</subdivision>
+			<subdivision type="itfc" draft="contributed">פורלי-צ׳זנה</subdivision>
+			<subdivision type="itfe" draft="contributed">פרארה</subdivision>
+			<subdivision type="itfg" draft="contributed">פוג׳יה</subdivision>
+			<subdivision type="itfi" draft="contributed">פירנצה</subdivision>
+			<subdivision type="itfm" draft="contributed">פרמו</subdivision>
+			<subdivision type="itfr" draft="contributed">פרוזינונה</subdivision>
+			<subdivision type="itgo" draft="contributed">גוריציה</subdivision>
+			<subdivision type="itgr" draft="contributed">גרוסטו</subdivision>
+			<subdivision type="itim" draft="contributed">אימפריה</subdivision>
+			<subdivision type="itis" draft="contributed">איסרניה</subdivision>
+			<subdivision type="itkr" draft="contributed">קרוטונה</subdivision>
+			<subdivision type="itlc" draft="contributed">לקו</subdivision>
+			<subdivision type="itle" draft="contributed">לצ׳ה</subdivision>
+			<subdivision type="itli" draft="contributed">ליבורנו</subdivision>
+			<subdivision type="itlo" draft="contributed">לודי</subdivision>
+			<subdivision type="itlt" draft="contributed">לאטינה</subdivision>
+			<subdivision type="itlu" draft="contributed">לוקה</subdivision>
+			<subdivision type="itmb" draft="contributed">מונצה-בריאנצה</subdivision>
+			<subdivision type="itmc" draft="contributed">מצ׳רטה</subdivision>
+			<subdivision type="itme" draft="contributed">מסינה</subdivision>
+			<subdivision type="itmi" draft="contributed">מילאנו</subdivision>
+			<subdivision type="itmn" draft="contributed">מנטובה</subdivision>
+			<subdivision type="itmo" draft="contributed">מודנה</subdivision>
+			<subdivision type="itms" draft="contributed">מאסה-קרארה</subdivision>
+			<subdivision type="itmt" draft="contributed">מטרה</subdivision>
+			<subdivision type="itna" draft="contributed">נאפולי</subdivision>
+			<subdivision type="itnu" draft="contributed">נואורו</subdivision>
+			<subdivision type="itot" draft="contributed">אולביה טמפיו</subdivision>
+			<subdivision type="itpa" draft="contributed">פלרמו</subdivision>
+			<subdivision type="itpc" draft="contributed">פיאצ׳נצה</subdivision>
+			<subdivision type="itpd" draft="contributed">פדובה</subdivision>
+			<subdivision type="itpe" draft="contributed">פסקארה</subdivision>
+			<subdivision type="itpg" draft="contributed">פרוג׳ה</subdivision>
+			<subdivision type="itpi" draft="contributed">פיזה</subdivision>
+			<subdivision type="itpn" draft="contributed">פורדנונה</subdivision>
+			<subdivision type="itpo" draft="contributed">פראטו</subdivision>
+			<subdivision type="itpr" draft="contributed">פארמה</subdivision>
+			<subdivision type="itpt" draft="contributed">פיסטויה</subdivision>
+			<subdivision type="itpu" draft="contributed">פזארו אה אורבינו</subdivision>
+			<subdivision type="itpv" draft="contributed">פאביה</subdivision>
+			<subdivision type="itpz" draft="contributed">פוטנצה</subdivision>
+			<subdivision type="itra" draft="contributed">נפת רוונה</subdivision>
+			<subdivision type="itrc" draft="contributed">רג׳ו די קלבריה</subdivision>
+			<subdivision type="itrg" draft="contributed">רגוזה</subdivision>
+			<subdivision type="itri" draft="contributed">ריאטי</subdivision>
+			<subdivision type="itrm" draft="contributed">רומא</subdivision>
+			<subdivision type="itro" draft="contributed">רוביגו</subdivision>
+			<subdivision type="itsa" draft="contributed">סלרנו</subdivision>
+			<subdivision type="itsi" draft="contributed">סיינה</subdivision>
+			<subdivision type="itso" draft="contributed">סונדריו</subdivision>
+			<subdivision type="itsp" draft="contributed">לה ספציה</subdivision>
+			<subdivision type="itsr" draft="contributed">סירקוזה</subdivision>
+			<subdivision type="itss" draft="contributed">סאסארי</subdivision>
+			<subdivision type="itsv" draft="contributed">סאבונה</subdivision>
+			<subdivision type="itta" draft="contributed">טאראנטו</subdivision>
+			<subdivision type="itte" draft="contributed">טראמו</subdivision>
+			<subdivision type="ittn" draft="contributed">טרנטו</subdivision>
+			<subdivision type="itto" draft="contributed">טורינו</subdivision>
+			<subdivision type="ittp" draft="contributed">טרפאני</subdivision>
+			<subdivision type="ittr" draft="contributed">טרני</subdivision>
+			<subdivision type="itts" draft="contributed">טריאסטה</subdivision>
+			<subdivision type="ittv" draft="contributed">טרוויזו</subdivision>
+			<subdivision type="itud" draft="contributed">אודינה</subdivision>
+			<subdivision type="itva" draft="contributed">וארזה</subdivision>
+			<subdivision type="itve" draft="contributed">ונציה</subdivision>
+			<subdivision type="itvi" draft="contributed">ויצ׳נצה</subdivision>
+			<subdivision type="itvr" draft="contributed">ורונה</subdivision>
+			<subdivision type="itvt" draft="contributed">ויטרבו</subdivision>
+			<subdivision type="itvv" draft="contributed">ויבו ולנטיה</subdivision>
+			<subdivision type="jm02" draft="contributed">סנט אנדרו</subdivision>
+			<subdivision type="jm03" draft="contributed">סנט תומאס</subdivision>
+			<subdivision type="jm07" draft="contributed">מחוז טרלוני</subdivision>
+			<subdivision type="jm08" draft="contributed">מחוז סיינט ג׳יימס</subdivision>
+			<subdivision type="jm09" draft="contributed">הנובר</subdivision>
+			<subdivision type="jm11" draft="contributed">מחוז סנט אליזבת</subdivision>
+			<subdivision type="jm12" draft="contributed">מחוז מנצ׳סטר</subdivision>
+			<subdivision type="jm14" draft="contributed">סנט קתרין</subdivision>
+			<subdivision type="joaj" draft="contributed">עג׳לון</subdivision>
+			<subdivision type="joam" draft="contributed">מחוז עמאן</subdivision>
+			<subdivision type="joaq" draft="contributed">עקבה</subdivision>
+			<subdivision type="joat" draft="contributed">טפילה</subdivision>
+			<subdivision type="joaz" draft="contributed">מחוז זרקא</subdivision>
+			<subdivision type="joba" draft="contributed">בלקא</subdivision>
+			<subdivision type="joir" draft="contributed">מחוז אירביד</subdivision>
+			<subdivision type="joja" draft="contributed">מחוז ג׳רש</subdivision>
+			<subdivision type="joka" draft="contributed">מחוז כרכ</subdivision>
+			<subdivision type="joma" draft="contributed">מחוז מפרק</subdivision>
+			<subdivision type="jomd" draft="contributed">מחוז מידבא</subdivision>
+			<subdivision type="jomn" draft="contributed">מחוז מעאן</subdivision>
+			<subdivision type="jp01" draft="contributed">הוקאידו</subdivision>
+			<subdivision type="jp02" draft="contributed">אאומורי</subdivision>
+			<subdivision type="jp03" draft="contributed">איווטה</subdivision>
+			<subdivision type="jp04" draft="contributed">מיאגי</subdivision>
+			<subdivision type="jp05" draft="contributed">אקיטה</subdivision>
+			<subdivision type="jp06" draft="contributed">יאמאגטה</subdivision>
+			<subdivision type="jp07" draft="contributed">פוקושימה</subdivision>
+			<subdivision type="jp08" draft="contributed">איבראקי</subdivision>
+			<subdivision type="jp09" draft="contributed">טוצ׳יגי</subdivision>
+			<subdivision type="jp10" draft="contributed">גונמה</subdivision>
+			<subdivision type="jp11" draft="contributed">סאיטאמה</subdivision>
+			<subdivision type="jp12" draft="contributed">צ׳יבה</subdivision>
+			<subdivision type="jp13" draft="contributed">טוקיו</subdivision>
+			<subdivision type="jp14" draft="contributed">קנאגווה</subdivision>
+			<subdivision type="jp15" draft="contributed">ניאיגטה</subdivision>
+			<subdivision type="jp16" draft="contributed">טויאמה</subdivision>
+			<subdivision type="jp17" draft="contributed">אישיקווה</subdivision>
+			<subdivision type="jp18" draft="contributed">פוקואי</subdivision>
+			<subdivision type="jp19" draft="contributed">יאמאנאשי</subdivision>
+			<subdivision type="jp20" draft="contributed">נאגנו</subdivision>
+			<subdivision type="jp21" draft="contributed">גיפו</subdivision>
+			<subdivision type="jp22" draft="contributed">שיזואוקה</subdivision>
+			<subdivision type="jp23" draft="contributed">אאיצ׳י</subdivision>
+			<subdivision type="jp24" draft="contributed">מיאה</subdivision>
+			<subdivision type="jp25" draft="contributed">שיגה</subdivision>
+			<subdivision type="jp26" draft="contributed">קיוטו</subdivision>
+			<subdivision type="jp27" draft="contributed">אוסקה</subdivision>
+			<subdivision type="jp28" draft="contributed">היוגו</subdivision>
+			<subdivision type="jp29" draft="contributed">נארה</subdivision>
+			<subdivision type="jp30" draft="contributed">וקאיאמה</subdivision>
+			<subdivision type="jp31" draft="contributed">טוטורי</subdivision>
+			<subdivision type="jp32" draft="contributed">שימאנה</subdivision>
+			<subdivision type="jp33" draft="contributed">אוקיאמה</subdivision>
+			<subdivision type="jp34" draft="contributed">הירושימה</subdivision>
+			<subdivision type="jp35" draft="contributed">יאמגוצ׳י</subdivision>
+			<subdivision type="jp36" draft="contributed">טוקושימה</subdivision>
+			<subdivision type="jp37" draft="contributed">קאגווה</subdivision>
+			<subdivision type="jp38" draft="contributed">אהימה</subdivision>
+			<subdivision type="jp39" draft="contributed">קוצ׳י</subdivision>
+			<subdivision type="jp40" draft="contributed">פוקואוקה</subdivision>
+			<subdivision type="jp41" draft="contributed">סאגה</subdivision>
+			<subdivision type="jp42" draft="contributed">נגסאקי</subdivision>
+			<subdivision type="jp43" draft="contributed">קוממוטו</subdivision>
+			<subdivision type="jp44" draft="contributed">אויטה</subdivision>
+			<subdivision type="jp45" draft="contributed">מיאזקי</subdivision>
+			<subdivision type="jp46" draft="contributed">קגושימה</subdivision>
+			<subdivision type="jp47" draft="contributed">אוקינאווה</subdivision>
+			<subdivision type="ke15" draft="contributed">קריניאגה</subdivision>
+			<subdivision type="ke32" draft="contributed">מחוז ננדי</subdivision>
+			<subdivision type="kggb" draft="contributed">בישקק</subdivision>
+			<subdivision type="kggo" draft="contributed">אוש</subdivision>
+			<subdivision type="kh12" draft="contributed">פנום פן</subdivision>
+			<subdivision type="kh23" draft="contributed">קפ</subdivision>
+			<subdivision type="kig" draft="contributed">איי גילברט</subdivision>
+			<subdivision type="kil" draft="contributed">איי ליין</subdivision>
+			<subdivision type="kip" draft="contributed">איי פניקס</subdivision>
+			<subdivision type="kma" draft="contributed">אנג׳ואן</subdivision>
+			<subdivision type="kmg" draft="contributed">גרנד קומורו</subdivision>
+			<subdivision type="kmm" draft="contributed">מוהלי</subdivision>
+			<subdivision type="knk" draft="contributed">סנט קיטס</subdivision>
+			<subdivision type="knn" draft="contributed">נוויס</subdivision>
+			<subdivision type="kp01" draft="contributed">פיונגיאנג</subdivision>
+			<subdivision type="kp09" draft="contributed">צפון האמגיונג</subdivision>
+			<subdivision type="kp14" draft="contributed">נאמפו</subdivision>
+			<subdivision type="kr11" draft="contributed">סיאול</subdivision>
+			<subdivision type="kr26" draft="contributed">פוסן</subdivision>
+			<subdivision type="kr27" draft="contributed">טגו</subdivision>
+			<subdivision type="kr28" draft="contributed">אינצ׳ון</subdivision>
+			<subdivision type="kr29" draft="contributed">קוואנגג׳ו</subdivision>
+			<subdivision type="kr30" draft="contributed">טג׳אן</subdivision>
+			<subdivision type="kr31" draft="contributed">אולסן</subdivision>
+			<subdivision type="kr41" draft="contributed">גיונגי</subdivision>
+			<subdivision type="kr42" draft="contributed">גאנג וואן</subdivision>
+			<subdivision type="kr43" draft="contributed">צפון צ׳ונגצ׳אונג</subdivision>
+			<subdivision type="kr44" draft="contributed">דרום צ׳ונגצ׳אונג</subdivision>
+			<subdivision type="kr45" draft="contributed">צפון ג׳אולה</subdivision>
+			<subdivision type="kr46" draft="contributed">דרום ג׳אולה</subdivision>
+			<subdivision type="kr47" draft="contributed">צפון גיאונגסאנג</subdivision>
+			<subdivision type="kr48" draft="contributed">דרום גיאונגסאנג</subdivision>
+			<subdivision type="kr49" draft="contributed">ג׳ג׳ו</subdivision>
+			<subdivision type="kzala" draft="contributed">אלמטי</subdivision>
+			<subdivision type="kzast" draft="contributed">אסטנה</subdivision>
+			<subdivision type="kzbay" draft="contributed">בייקונור</subdivision>
+			<subdivision type="lbak" draft="contributed">מחוז עכאר</subdivision>
+			<subdivision type="lbas" draft="contributed">צפון לבנון</subdivision>
+			<subdivision type="lbba" draft="contributed">מחוז ביירות</subdivision>
+			<subdivision type="lbbh" draft="contributed">מחוז בעלבכ-הרמל</subdivision>
+			<subdivision type="lbbi" draft="contributed">אל-בקאע</subdivision>
+			<subdivision type="lbja" draft="contributed">מחוז דרום לבנון</subdivision>
+			<subdivision type="lbjl" draft="contributed">מחוז הר הלבנון</subdivision>
+			<subdivision type="lbna" draft="contributed">מחוז נבטייה</subdivision>
+			<subdivision type="lc05" draft="contributed">דנרי</subdivision>
+			<subdivision type="lc10" draft="contributed">סופרייר</subdivision>
+			<subdivision type="li01" draft="contributed">בלצרס</subdivision>
+			<subdivision type="li02" draft="contributed">אשן</subdivision>
+			<subdivision type="li03" draft="contributed">גמפרין</subdivision>
+			<subdivision type="li04" draft="contributed">מאורן</subdivision>
+			<subdivision type="li05" draft="contributed">פלנקן</subdivision>
+			<subdivision type="li06" draft="contributed">רוגל</subdivision>
+			<subdivision type="li07" draft="contributed">שאן</subdivision>
+			<subdivision type="li08" draft="contributed">שלנברג</subdivision>
+			<subdivision type="li09" draft="contributed">טריזן</subdivision>
+			<subdivision type="li10" draft="contributed">טריזנברג</subdivision>
+			<subdivision type="li11" draft="contributed">ואדוץ</subdivision>
+			<subdivision type="lt01" draft="contributed">אקמני (מחוז משנה)</subdivision>
+			<subdivision type="lt03" draft="contributed">אליטא (מחוז משנה)</subdivision>
+			<subdivision type="lt04" draft="contributed">אניקצ׳ה</subdivision>
+			<subdivision type="lt05" draft="contributed">בירשטונאס (מחוז משנה)</subdivision>
+			<subdivision type="lt06" draft="contributed">בירז׳</subdivision>
+			<subdivision type="lt07" draft="contributed">דרוסקינינקאי (מחוז משנה)</subdivision>
+			<subdivision type="lt08" draft="contributed">אלקטריני (מחוז משנה)</subdivision>
+			<subdivision type="lt09" draft="contributed">איגנלינה</subdivision>
+			<subdivision type="lt10" draft="contributed">יאנובה</subdivision>
+			<subdivision type="lt11" draft="contributed">ינישוק (מחוז משנה)</subdivision>
+			<subdivision type="lt12" draft="contributed">יורבורג (מחוז משנה)</subdivision>
+			<subdivision type="lt13" draft="contributed">קישיאדוריס (מחוז משנה)</subdivision>
+			<subdivision type="lt14" draft="contributed">קלווריה (מחוז משנה)</subdivision>
+			<subdivision type="lt16" draft="contributed">קובנה</subdivision>
+			<subdivision type="lt17" draft="contributed">קזלו רודה (מחוז משנה)</subdivision>
+			<subdivision type="lt18" draft="contributed">קדאייני (מחוז משנה)</subdivision>
+			<subdivision type="lt19" draft="contributed">קלם (מחוז משנה)</subdivision>
+			<subdivision type="lt21" draft="contributed">קלייפדה</subdivision>
+			<subdivision type="lt22" draft="contributed">קרטינגה</subdivision>
+			<subdivision type="lt23" draft="contributed">קופישקיס (מחוז משנה)</subdivision>
+			<subdivision type="lt24" draft="contributed">לזדיי (מחוז משנה)</subdivision>
+			<subdivision type="lt25" draft="contributed">מריאמפול (מחוז משנה)</subdivision>
+			<subdivision type="lt26" draft="contributed">מז׳ייקי (מחוז משנה)</subdivision>
+			<subdivision type="lt27" draft="contributed">מולייטי</subdivision>
+			<subdivision type="lt28" draft="contributed">נרינגה</subdivision>
+			<subdivision type="lt29" draft="contributed">פאגיגי (מחוז משנה)</subdivision>
+			<subdivision type="lt30" draft="contributed">פאקרוייס (מחוז משנה)</subdivision>
+			<subdivision type="lt33" draft="contributed">פוניבז׳ (מחוז משנה)</subdivision>
+			<subdivision type="lt34" draft="contributed">פסווליס (מחוז משנה)</subdivision>
+			<subdivision type="lt35" draft="contributed">פלונגה (מחוז משנה)</subdivision>
+			<subdivision type="lt36" draft="contributed">פרינאי</subdivision>
+			<subdivision type="lt37" draft="contributed">רדווילישקיס (מחוז משנה)</subdivision>
+			<subdivision type="lt38" draft="contributed">ראסייני (מחוז משנה)</subdivision>
+			<subdivision type="lt39" draft="contributed">ריטובה (מחוז משנה)</subdivision>
+			<subdivision type="lt40" draft="contributed">רוקישקיס (מחוז משנה)</subdivision>
+			<subdivision type="lt41" draft="contributed">שאקי (מחוז משנה)</subdivision>
+			<subdivision type="lt42" draft="contributed">שיילצ׳נינקי</subdivision>
+			<subdivision type="lt44" draft="contributed">שאולאי (מחוז משנה(</subdivision>
+			<subdivision type="lt45" draft="contributed">שיללה (מחוז משנה)</subdivision>
+			<subdivision type="lt46" draft="contributed">שילוטה (מחוז משנה)</subdivision>
+			<subdivision type="lt47" draft="contributed">שירווינטו (מחוז משנה)</subdivision>
+			<subdivision type="lt48" draft="contributed">שקוד (מחוז משנה)</subdivision>
+			<subdivision type="lt49" draft="contributed">שווינציאן (מחוז משנה)</subdivision>
+			<subdivision type="lt50" draft="contributed">טאורגה (מחוז משנה)</subdivision>
+			<subdivision type="lt51" draft="contributed">טלז (מחוז משנה)</subdivision>
+			<subdivision type="lt52" draft="contributed">טרקאי (מחוז משנה)</subdivision>
+			<subdivision type="lt53" draft="contributed">אוקמרגה</subdivision>
+			<subdivision type="lt54" draft="contributed">אוטנה</subdivision>
+			<subdivision type="lt55" draft="contributed">וריאנה (מחוז משנה)</subdivision>
+			<subdivision type="lt56" draft="contributed">וילקובישק (מחוז משנה)</subdivision>
+			<subdivision type="lt58" draft="contributed">וילנה (מחוז משנה)</subdivision>
+			<subdivision type="lt59" draft="contributed">ויסגינס</subdivision>
+			<subdivision type="lt60" draft="contributed">זרסאי</subdivision>
+			<subdivision type="ltal" draft="contributed">מחוז אליטא</subdivision>
+			<subdivision type="ltkl" draft="contributed">מחוז קלייפדה</subdivision>
+			<subdivision type="ltku" draft="contributed">מחוז קובנה</subdivision>
+			<subdivision type="ltmr" draft="contributed">מחוז מריאמפולה</subdivision>
+			<subdivision type="ltpn" draft="contributed">מחוז פוניבז׳</subdivision>
+			<subdivision type="ltsa" draft="contributed">מחוז שאולאי</subdivision>
+			<subdivision type="ltta" draft="contributed">מחוז טאורגה</subdivision>
+			<subdivision type="ltte" draft="contributed">מחוז טלז</subdivision>
+			<subdivision type="ltut" draft="contributed">מחוז אוטנה</subdivision>
+			<subdivision type="ltvl" draft="contributed">מחוז וילנה</subdivision>
+			<subdivision type="lvdgv" draft="contributed">דאוגבפילס</subdivision>
+			<subdivision type="lvjel" draft="contributed">ילגבה</subdivision>
+			<subdivision type="lvjkb" draft="contributed">יקבפילס</subdivision>
+			<subdivision type="lvjur" draft="contributed">יורמלה</subdivision>
+			<subdivision type="lvlpx" draft="contributed">לייפאיה</subdivision>
+			<subdivision type="lvrez" draft="contributed">רזקנה</subdivision>
+			<subdivision type="lvrix" draft="contributed">ריגה</subdivision>
+			<subdivision type="lvven" draft="contributed">ונטספילס</subdivision>
+			<subdivision type="lvvmr" draft="contributed">ולמירה</subdivision>
+			<subdivision type="lyba" draft="contributed">בנגאזי</subdivision>
+			<subdivision type="ma02" draft="contributed">אוריינטל</subdivision>
+			<subdivision type="maagd" draft="contributed">אגאדיר</subdivision>
+			<subdivision type="macas" draft="contributed">קזבלנקה</subdivision>
+			<subdivision type="mafes" draft="contributed">פס</subdivision>
+			<subdivision type="mamek" draft="contributed">מקנס</subdivision>
+			<subdivision type="mammd" draft="contributed">מרקש</subdivision>
+			<subdivision type="mammn" draft="contributed">מרקש²</subdivision>
+			<subdivision type="mamoh" draft="contributed">מוחמדיה</subdivision>
+			<subdivision type="maouj" draft="contributed">אוג׳דה</subdivision>
+			<subdivision type="marab" draft="contributed">רבאט</subdivision>
+			<subdivision type="masal" draft="contributed">סלא</subdivision>
+			<subdivision type="masyb" draft="contributed">מרקש³</subdivision>
+			<subdivision type="matng" draft="contributed">טנג׳יר</subdivision>
+			<subdivision type="mcmc" draft="contributed">מונטה קרלו</subdivision>
+			<subdivision type="mcmo" draft="contributed">מונקו-ויל</subdivision>
+			<subdivision type="mdba" draft="contributed">בלץ</subdivision>
+			<subdivision type="mdbd" draft="contributed">טיגינה</subdivision>
+			<subdivision type="mdcu" draft="contributed">קישינב</subdivision>
+			<subdivision type="mdga" draft="contributed">גגאוזיה</subdivision>
+			<subdivision type="me16" draft="contributed">מחוז פודגוריצה</subdivision>
+			<subdivision type="mgf" draft="contributed">מחוז פיאנארנצוה</subdivision>
+			<subdivision type="mgu" draft="contributed">טוליארה</subdivision>
+			<subdivision type="mhall" draft="contributed">איילינגלאפלאפ</subdivision>
+			<subdivision type="mharn" draft="contributed">ארנו</subdivision>
+			<subdivision type="mheni" draft="contributed">אנווטאק</subdivision>
+			<subdivision type="mhjal" draft="contributed">ג׳לואיט</subdivision>
+			<subdivision type="mhkwa" draft="contributed">קווג׳לין</subdivision>
+			<subdivision type="mhl" draft="contributed">שרשרת רליק</subdivision>
+			<subdivision type="mhmaj" draft="contributed">מג׳ורו</subdivision>
+			<subdivision type="mhmil" draft="contributed">מילי</subdivision>
+			<subdivision type="mht" draft="contributed">שרשרת רטק</subdivision>
+			<subdivision type="mk85" draft="contributed">סקופיה</subdivision>
+			<subdivision type="ml6" draft="contributed">מחוז טימבוקטו</subdivision>
+			<subdivision type="mlbko" draft="contributed">במקו</subdivision>
+			<subdivision type="mm16" draft="contributed">ראקין</subdivision>
+			<subdivision type="mn1" draft="contributed">אולן בטור</subdivision>
+			<subdivision type="mn035" draft="contributed">אורחון</subdivision>
+			<subdivision type="mn037" draft="contributed">דרחאן-אול</subdivision>
+			<subdivision type="mn039" draft="contributed">חנטי</subdivision>
+			<subdivision type="mn041" draft="contributed">חובסגול</subdivision>
+			<subdivision type="mn043" draft="contributed">חובד</subdivision>
+			<subdivision type="mn046" draft="contributed">אובס</subdivision>
+			<subdivision type="mn047" draft="contributed">טוב</subdivision>
+			<subdivision type="mn049" draft="contributed">סלנגה</subdivision>
+			<subdivision type="mn051" draft="contributed">סוחבאאטאר</subdivision>
+			<subdivision type="mn053" draft="contributed">אומנוגובי</subdivision>
+			<subdivision type="mn055" draft="contributed">אובורחאנגאי</subdivision>
+			<subdivision type="mn057" draft="contributed">זבחאן</subdivision>
+			<subdivision type="mn059" draft="contributed">דונדגובי</subdivision>
+			<subdivision type="mn061" draft="contributed">דורנוד</subdivision>
+			<subdivision type="mn063" draft="contributed">דורנוגובי</subdivision>
+			<subdivision type="mn064" draft="contributed">גוביסומבר</subdivision>
+			<subdivision type="mn065" draft="contributed">גובי-אלטאי</subdivision>
+			<subdivision type="mn067" draft="contributed">בולגאן</subdivision>
+			<subdivision type="mn069" draft="contributed">באיינחונגור</subdivision>
+			<subdivision type="mn071" draft="contributed">באיין-אולגי</subdivision>
+			<subdivision type="mn073" draft="contributed">ארחאנגאי</subdivision>
+			<subdivision type="mt01" draft="contributed">אטארד</subdivision>
+			<subdivision type="mt03" draft="contributed">בירגו</subdivision>
+			<subdivision type="mt04" draft="contributed">בירקירקארה</subdivision>
+			<subdivision type="mt05" draft="contributed">בירזבוג׳ה</subdivision>
+			<subdivision type="mt07" draft="contributed">דינגלי</subdivision>
+			<subdivision type="mt09" draft="contributed">פלוריאנה</subdivision>
+			<subdivision type="mt20" draft="contributed">סנגלאה</subdivision>
+			<subdivision type="mt25" draft="contributed">לואה</subdivision>
+			<subdivision type="mt28" draft="contributed">מרסשלוק</subdivision>
+			<subdivision type="mt29" draft="contributed">מדינה</subdivision>
+			<subdivision type="mt34" draft="contributed">מסידה</subdivision>
+			<subdivision type="mt39" draft="contributed">פאולה</subdivision>
+			<subdivision type="mt41" draft="contributed">פיאטה</subdivision>
+			<subdivision type="mt43" draft="contributed">קורמי</subdivision>
+			<subdivision type="mt45" draft="contributed">ויקטוריה</subdivision>
+			<subdivision type="mt46" draft="contributed">רבאט, מלטה</subdivision>
+			<subdivision type="mt48" draft="contributed">סנט ג׳וליאן</subdivision>
+			<subdivision type="mt56" draft="contributed">סלימה</subdivision>
+			<subdivision type="mt58" draft="contributed">טא׳ שביאש</subdivision>
+			<subdivision type="mt60" draft="contributed">ולטה</subdivision>
+			<subdivision type="mubr" draft="contributed">בו בסין-רוז איל</subdivision>
+			<subdivision type="mupu" draft="contributed">פור לואי</subdivision>
+			<subdivision type="muro" draft="contributed">רודריגז</subdivision>
+			<subdivision type="mv03" draft="contributed">אטול לביאני</subdivision>
+			<subdivision type="mv07" draft="contributed">אטול הא אליף</subdivision>
+			<subdivision type="mv13" draft="contributed">אטול ראה</subdivision>
+			<subdivision type="mv20" draft="contributed">אטול באה</subdivision>
+			<subdivision type="mv23" draft="contributed">אטול הא דאלו</subdivision>
+			<subdivision type="mv24" draft="contributed">אטול שאביאני</subdivision>
+			<subdivision type="mv25" draft="contributed">אטול נונו</subdivision>
+			<subdivision type="mv26" draft="contributed">אטול קאפו</subdivision>
+			<subdivision type="mvmle" draft="contributed">מאלה</subdivision>
+			<subdivision type="mxagu" draft="contributed">אגואסקליינטס</subdivision>
+			<subdivision type="mxbcn" draft="contributed">באחה קליפורניה</subdivision>
+			<subdivision type="mxbcs" draft="contributed">באחה קליפורניה הדרומית</subdivision>
+			<subdivision type="mxcam" draft="contributed">קמפצ׳ה</subdivision>
+			<subdivision type="mxchh" draft="contributed">צ׳יוואווה</subdivision>
+			<subdivision type="mxchp" draft="contributed">צ׳יאפס</subdivision>
+			<subdivision type="mxcmx" draft="contributed">מקסיקו סיטי</subdivision>
+			<subdivision type="mxcoa" draft="contributed">קואווילה</subdivision>
+			<subdivision type="mxcol" draft="contributed">קולימה</subdivision>
+			<subdivision type="mxdur" draft="contributed">דורנגו</subdivision>
+			<subdivision type="mxgro" draft="contributed">גררו</subdivision>
+			<subdivision type="mxgua" draft="contributed">גואנחואטו</subdivision>
+			<subdivision type="mxhid" draft="contributed">אידלגו</subdivision>
+			<subdivision type="mxjal" draft="contributed">חליסקו</subdivision>
+			<subdivision type="mxmex" draft="contributed">מקסיקו</subdivision>
+			<subdivision type="mxmic" draft="contributed">מיצ׳ואקאן</subdivision>
+			<subdivision type="mxmor" draft="contributed">מורלוס</subdivision>
+			<subdivision type="mxnay" draft="contributed">נאיאריט</subdivision>
+			<subdivision type="mxnle" draft="contributed">נואבו לאון</subdivision>
+			<subdivision type="mxoax" draft="contributed">אואחאקה</subdivision>
+			<subdivision type="mxpue" draft="contributed">פואבלה</subdivision>
+			<subdivision type="mxque" draft="contributed">קרטרו</subdivision>
+			<subdivision type="mxroo" draft="contributed">קינטנה רו</subdivision>
+			<subdivision type="mxsin" draft="contributed">סינלואה</subdivision>
+			<subdivision type="mxslp" draft="contributed">סן לואיס פוטוסי</subdivision>
+			<subdivision type="mxson" draft="contributed">סונורה</subdivision>
+			<subdivision type="mxtab" draft="contributed">טבסקו</subdivision>
+			<subdivision type="mxtam" draft="contributed">טמאוליפס</subdivision>
+			<subdivision type="mxtla" draft="contributed">טלקסקלה</subdivision>
+			<subdivision type="mxver" draft="contributed">וראקרוס</subdivision>
+			<subdivision type="mxyuc" draft="contributed">יוקטן</subdivision>
+			<subdivision type="mxzac" draft="contributed">סקטקס</subdivision>
+			<subdivision type="my01" draft="contributed">ג׳והור</subdivision>
+			<subdivision type="my02" draft="contributed">קדה</subdivision>
+			<subdivision type="my03" draft="contributed">קלנטן</subdivision>
+			<subdivision type="my04" draft="contributed">מלאקה</subdivision>
+			<subdivision type="my05" draft="contributed">נגרי סמבילן</subdivision>
+			<subdivision type="my06" draft="contributed">פהנג</subdivision>
+			<subdivision type="my07" draft="contributed">פננג</subdivision>
+			<subdivision type="my08" draft="contributed">פרק</subdivision>
+			<subdivision type="my09" draft="contributed">פרליס</subdivision>
+			<subdivision type="my10" draft="contributed">סלנגור</subdivision>
+			<subdivision type="my11" draft="contributed">טרנגנו</subdivision>
+			<subdivision type="my12" draft="contributed">סבה</subdivision>
+			<subdivision type="my13" draft="contributed">סראוואק</subdivision>
+			<subdivision type="my14" draft="contributed">קואלה לומפור</subdivision>
+			<subdivision type="my15" draft="contributed">לבואן</subdivision>
+			<subdivision type="my16" draft="contributed">פוטרג׳איה</subdivision>
+			<subdivision type="mzg" draft="contributed">מחוז גזה, מוזמביק</subdivision>
+			<subdivision type="mzmpm" draft="contributed">מפוטו</subdivision>
+			<subdivision type="mzp" draft="contributed">מחוז קאבו דלגאדו</subdivision>
+			<subdivision type="mzt" draft="contributed">טטה</subdivision>
+			<subdivision type="naer" draft="contributed">ארונגו</subdivision>
+			<subdivision type="naku" draft="contributed">קוננה</subdivision>
+			<subdivision type="ne8" draft="contributed">ניאמיי</subdivision>
+			<subdivision type="ngbo" draft="contributed">בורנו</subdivision>
+			<subdivision type="ngim" draft="contributed">אימו</subdivision>
+			<subdivision type="ngkd" draft="contributed">קדונה (מדינה)</subdivision>
+			<subdivision type="ngkn" draft="contributed">קנו (מדינה)</subdivision>
+			<subdivision type="ngla" draft="contributed">לאגוס (מדינה)</subdivision>
+			<subdivision type="nlbq1" draft="contributed">בונייר</subdivision>
+			<subdivision type="nlbq2" draft="contributed">סאבא</subdivision>
+			<subdivision type="nlbq3" draft="contributed">סנט אוסטטיוס</subdivision>
+			<subdivision type="nldr" draft="contributed">דרנתה</subdivision>
+			<subdivision type="nlfl" draft="contributed">פלבולנד</subdivision>
+			<subdivision type="nlfr" draft="contributed">פריסלנד</subdivision>
+			<subdivision type="nlge" draft="contributed">חלדרלנד</subdivision>
+			<subdivision type="nlgr" draft="contributed">חרונינגן</subdivision>
+			<subdivision type="nlli" draft="contributed">לימבורג</subdivision>
+			<subdivision type="nlnb" draft="contributed">צפון בראבנט</subdivision>
+			<subdivision type="nlnh" draft="contributed">צפון הולנד</subdivision>
+			<subdivision type="nlov" draft="contributed">אוברייסל</subdivision>
+			<subdivision type="nlut" draft="contributed">אוטרכט</subdivision>
+			<subdivision type="nlze" draft="contributed">זיילנד</subdivision>
+			<subdivision type="nlzh" draft="contributed">דרום הולנד</subdivision>
+			<subdivision type="no01" draft="contributed">אסטפולד</subdivision>
+			<subdivision type="no02" draft="contributed">אקרסהוס</subdivision>
+			<subdivision type="no03" draft="contributed">אוסלו</subdivision>
+			<subdivision type="no05" draft="contributed">אופלנד (נורווגיה)</subdivision>
+			<subdivision type="no07" draft="contributed">וסטפולד</subdivision>
+			<subdivision type="no11" draft="contributed">רוגלנד</subdivision>
+			<subdivision type="no12" draft="contributed">הורדלנד</subdivision>
+			<subdivision type="no14" draft="contributed">סוגן אוג פיורדנה</subdivision>
+			<subdivision type="no20" draft="contributed">פינמרק</subdivision>
+			<subdivision type="no21" draft="contributed">סבאלברד</subdivision>
+			<subdivision type="no22" draft="contributed">יאן מאיין</subdivision>
+			<subdivision type="nr01" draft="contributed">אייוו</subdivision>
+			<subdivision type="nr06" draft="contributed">מחוז בוה</subdivision>
+			<subdivision type="nr08" draft="contributed">דניגומודו</subdivision>
+			<subdivision type="nr11" draft="contributed">מננג</subdivision>
+			<subdivision type="nr14" draft="contributed">יארן</subdivision>
+			<subdivision type="nzauk" draft="contributed">אוקלנד</subdivision>
+			<subdivision type="nzbop" draft="contributed">ביי אוף פלנטי</subdivision>
+			<subdivision type="nzcan" draft="contributed">קנטרברי</subdivision>
+			<subdivision type="nzcit" draft="contributed">איי צ׳טהאם</subdivision>
+			<subdivision type="nzhkb" draft="contributed">הוקס ביי</subdivision>
+			<subdivision type="nzmwt" draft="contributed">מנוואטו-ונגנאוי</subdivision>
+			<subdivision type="nzntl" draft="contributed">נורת׳לנד</subdivision>
+			<subdivision type="nzota" draft="contributed">אוטגו</subdivision>
+			<subdivision type="nzstl" draft="contributed">סאות׳לנד</subdivision>
+			<subdivision type="nztki" draft="contributed">טראנאקי</subdivision>
+			<subdivision type="nzwgn" draft="contributed">ולינגטון</subdivision>
+			<subdivision type="nzwko" draft="contributed">ואיקטו</subdivision>
+			<subdivision type="nzwtc" draft="contributed">החוף המערבי</subdivision>
+			<subdivision type="ombu" draft="contributed">אל בוראימי</subdivision>
+			<subdivision type="pa3" draft="contributed">קולון</subdivision>
+			<subdivision type="peanc" draft="contributed">מחוז אנקש</subdivision>
+			<subdivision type="peaya" draft="contributed">מחוז אייקוצ׳ו</subdivision>
+			<subdivision type="pemdd" draft="contributed">מדרה דה דיוס</subdivision>
+			<subdivision type="pepun" draft="contributed">פונו</subdivision>
+			<subdivision type="pesam" draft="contributed">סן מרטין</subdivision>
+			<subdivision type="pgncd" draft="contributed">פורט מורסבי</subdivision>
+			<subdivision type="ph06" draft="contributed">מערב ויסאיאס</subdivision>
+			<subdivision type="ph08" draft="contributed">מזרח ויסאיאס</subdivision>
+			<subdivision type="phbil" draft="contributed">ביליראן</subdivision>
+			<subdivision type="phbtg" draft="contributed">באטאנגס</subdivision>
+			<subdivision type="phbtn" draft="contributed">בטאנס</subdivision>
+			<subdivision type="phbuk" draft="contributed">בוקידנון</subdivision>
+			<subdivision type="phcam" draft="contributed">קמיגין</subdivision>
+			<subdivision type="phcas" draft="contributed">איי קמרינס</subdivision>
+			<subdivision type="phceb" draft="contributed">סבו</subdivision>
+			<subdivision type="phner" draft="contributed">נגרוס אוריינטל</subdivision>
+			<subdivision type="phplw" draft="contributed">פלאוואן</subdivision>
+			<subdivision type="phsar" draft="contributed">סרנגני</subdivision>
+			<subdivision type="phzmb" draft="contributed">סאמבאלס</subdivision>
+			<subdivision type="pkba" draft="contributed">בלוצ׳יסטן</subdivision>
+			<subdivision type="pkgb" draft="contributed">גילגיט-בלטיסטן</subdivision>
+			<subdivision type="pkjk" draft="contributed">אזאד קשמיר</subdivision>
+			<subdivision type="pkkp" draft="contributed">ח׳ייבר פח׳טונח׳ווה</subdivision>
+			<subdivision type="pksd" draft="contributed">סינד</subdivision>
+			<subdivision type="pkta" draft="contributed">השבטים המנוהלים באופן פדרלי</subdivision>
+			<subdivision type="plds" draft="contributed">שלזיה תחתית</subdivision>
+			<subdivision type="plkp" draft="contributed">קויאוויה-פומרניה</subdivision>
+			<subdivision type="pllb" draft="contributed">לובוסקי</subdivision>
+			<subdivision type="plld" draft="contributed">לודז׳</subdivision>
+			<subdivision type="pllu" draft="contributed">לובלסקי</subdivision>
+			<subdivision type="plma" draft="contributed">מלופולסקה</subdivision>
+			<subdivision type="plmz" draft="contributed">מזוביה</subdivision>
+			<subdivision type="plop" draft="contributed">אופולסקי</subdivision>
+			<subdivision type="plpd" draft="contributed">פודלסיה</subdivision>
+			<subdivision type="plpk" draft="contributed">פודקרפאטי</subdivision>
+			<subdivision type="plpm" draft="contributed">פומורסקיה</subdivision>
+			<subdivision type="plsk" draft="contributed">שוויינטוקז׳יסקיה</subdivision>
+			<subdivision type="plsl" draft="contributed">שלזיה</subdivision>
+			<subdivision type="plwn" draft="contributed">ורמיה-מזוריה</subdivision>
+			<subdivision type="plwp" draft="contributed">פולין גדול</subdivision>
+			<subdivision type="plzp" draft="contributed">פומרניה המערבית</subdivision>
+			<subdivision type="psbth" draft="contributed">בית לחם</subdivision>
+			<subdivision type="psdeb" draft="contributed">דיר אל-בלח (נפה)</subdivision>
+			<subdivision type="psgza" draft="contributed">עזה (נפה)</subdivision>
+			<subdivision type="pshbn" draft="contributed">חברון</subdivision>
+			<subdivision type="psjem" draft="contributed">אל-קודס</subdivision>
+			<subdivision type="psjen" draft="contributed">ג׳נין</subdivision>
+			<subdivision type="psjrh" draft="contributed">יריחו</subdivision>
+			<subdivision type="psnbs" draft="contributed">שכם</subdivision>
+			<subdivision type="psngz" draft="contributed">צפון עזה (נפה)</subdivision>
+			<subdivision type="psqqa" draft="contributed">קלקיליה</subdivision>
+			<subdivision type="psrbh" draft="contributed">נפת רמאללה ואל-בירה</subdivision>
+			<subdivision type="psrfh" draft="contributed">רפיח</subdivision>
+			<subdivision type="psslt" draft="contributed">סלפית</subdivision>
+			<subdivision type="pstbs" draft="contributed">טובאס</subdivision>
+			<subdivision type="pstkm" draft="contributed">טולכרם</subdivision>
+			<subdivision type="pt02" draft="contributed">בז׳ה</subdivision>
+			<subdivision type="pt20" draft="contributed">האיים האזוריים</subdivision>
+			<subdivision type="pt30" draft="contributed">מדיירה</subdivision>
+			<subdivision type="pw010" draft="contributed">אנגאור</subdivision>
+			<subdivision type="pw150" draft="contributed">קורור</subdivision>
+			<subdivision type="py5" draft="contributed">קאאגואסו</subdivision>
+			<subdivision type="pyasu" draft="contributed">אסונסיון</subdivision>
+			<subdivision type="qada" draft="contributed">דוחה</subdivision>
+			<subdivision type="qakh" draft="contributed">אל-ח׳ור</subdivision>
+			<subdivision type="qams" draft="contributed">בלדית א-שמאל</subdivision>
+			<subdivision type="qara" draft="contributed">מחוז א-ריאן</subdivision>
+			<subdivision type="qawa" draft="contributed">אל-וכרה</subdivision>
+			<subdivision type="qaza" draft="contributed">א-דעאין</subdivision>
+			<subdivision type="roab" draft="contributed">אלבה</subdivision>
+			<subdivision type="roag" draft="contributed">מחוז ארג׳ש</subdivision>
+			<subdivision type="roar" draft="contributed">מחוז ארד</subdivision>
+			<subdivision type="rob" draft="contributed">בוקרשט</subdivision>
+			<subdivision type="robc" draft="contributed">מחוז בוזאו</subdivision>
+			<subdivision type="robh" draft="contributed">מחוז ביחור</subdivision>
+			<subdivision type="robn" draft="contributed">ביסטריצה-נסאוד</subdivision>
+			<subdivision type="robt" draft="contributed">בוטושני</subdivision>
+			<subdivision type="rocj" draft="contributed">מחוז קלוז׳</subdivision>
+			<subdivision type="rodb" draft="contributed">מחוז דמבוביצה</subdivision>
+			<subdivision type="rodj" draft="contributed">דולז׳</subdivision>
+			<subdivision type="rogj" draft="contributed">גורז׳</subdivision>
+			<subdivision type="rogl" draft="contributed">מחוז גאלאץ</subdivision>
+			<subdivision type="rois" draft="contributed">מחוז יאשי</subdivision>
+			<subdivision type="romm" draft="contributed">מחוז מרמורש</subdivision>
+			<subdivision type="ront" draft="contributed">ניאמץ</subdivision>
+			<subdivision type="rosb" draft="contributed">מחוז סיביו</subdivision>
+			<subdivision type="rosj" draft="contributed">סלאז׳</subdivision>
+			<subdivision type="rosm" draft="contributed">מחוז סאטו מארה</subdivision>
+			<subdivision type="rosv" draft="contributed">מחוז סוצ׳אבה</subdivision>
+			<subdivision type="rotl" draft="contributed">טולצ׳ה</subdivision>
+			<subdivision type="rotm" draft="contributed">טימיש (מחוז)</subdivision>
+			<subdivision type="rotr" draft="contributed">טלאורמן (מחוז)</subdivision>
+			<subdivision type="rovl" draft="contributed">מחוז ולצ׳ה</subdivision>
+			<subdivision type="rovs" draft="contributed">מחוז וסלוי</subdivision>
+			<subdivision type="rs00" draft="contributed">בלגרד</subdivision>
+			<subdivision type="rs01" draft="contributed">מחוז באצ׳קה הצפוני</subdivision>
+			<subdivision type="rs02" draft="contributed">מחוז באנאט המרכזי</subdivision>
+			<subdivision type="rs04" draft="contributed">מחוז באנאט הדרומי</subdivision>
+			<subdivision type="rs06" draft="contributed">מחוז באצ׳קה הדרומי</subdivision>
+			<subdivision type="rs07" draft="contributed">מחוז סרם</subdivision>
+			<subdivision type="rs08" draft="contributed">מחוז מאצ׳בה</subdivision>
+			<subdivision type="rs09" draft="contributed">מחוז קולובארה</subdivision>
+			<subdivision type="rs10" draft="contributed">מחוז פודונאביה</subdivision>
+			<subdivision type="rs11" draft="contributed">מחוז בראניצ׳בו</subdivision>
+			<subdivision type="rs12" draft="contributed">מחוז שומאדיה</subdivision>
+			<subdivision type="rs13" draft="contributed">מחוז פומוראביה</subdivision>
+			<subdivision type="rs14" draft="contributed">מחוז בור</subdivision>
+			<subdivision type="rs15" draft="contributed">מחוז זאייצ׳אר</subdivision>
+			<subdivision type="rs16" draft="contributed">מחוז זלאטיבור</subdivision>
+			<subdivision type="rs17" draft="contributed">מחוז מוראביצה</subdivision>
+			<subdivision type="rs18" draft="contributed">מחוז ראשקה</subdivision>
+			<subdivision type="rs19" draft="contributed">מחוז ראסינה</subdivision>
+			<subdivision type="rs20" draft="contributed">מחוז נישאבה</subdivision>
+			<subdivision type="rs21" draft="contributed">מחוז טופליצה</subdivision>
+			<subdivision type="rs22" draft="contributed">מחוז פירוט</subdivision>
+			<subdivision type="rs23" draft="contributed">מחוז יאבלניצה</subdivision>
+			<subdivision type="rs24" draft="contributed">מחוז פצ׳יניה</subdivision>
+			<subdivision type="rs25" draft="contributed">מחוז קוסובו</subdivision>
+			<subdivision type="rs29" draft="contributed">מחוז קוסובו-פומוראבייה</subdivision>
+			<subdivision type="rsvo" draft="contributed">וויבודינה</subdivision>
+			<subdivision type="ruad" draft="contributed">אדיגיה</subdivision>
+			<subdivision type="rual" draft="contributed">אלטאי</subdivision>
+			<subdivision type="rualt" draft="contributed">מחוז אלטאי</subdivision>
+			<subdivision type="ruamu" draft="contributed">מחוז אמור</subdivision>
+			<subdivision type="ruark" draft="contributed">מחוז ארכנגלסק</subdivision>
+			<subdivision type="ruast" draft="contributed">מחוז אסטרחן</subdivision>
+			<subdivision type="ruba" draft="contributed">בשקורטוסטן</subdivision>
+			<subdivision type="rubel" draft="contributed">מחוז בלגורוד</subdivision>
+			<subdivision type="rubry" draft="contributed">מחוז בריאנסק</subdivision>
+			<subdivision type="rubu" draft="contributed">בוריאטיה</subdivision>
+			<subdivision type="ruce" draft="contributed">צ׳צ׳ניה</subdivision>
+			<subdivision type="ruche" draft="contributed">מחוז צ׳ליאבינסק</subdivision>
+			<subdivision type="ruchu" draft="contributed">צ׳וקוטקה</subdivision>
+			<subdivision type="rucu" draft="contributed">צ׳ובשיה</subdivision>
+			<subdivision type="ruda" draft="contributed">דאגסטן</subdivision>
+			<subdivision type="ruin" draft="contributed">אינגושטיה</subdivision>
+			<subdivision type="ruirk" draft="contributed">מחוז אירקוטסק</subdivision>
+			<subdivision type="ruiva" draft="contributed">מחוז איבנובו</subdivision>
+			<subdivision type="rukam" draft="contributed">מחוז קמצ׳טקה</subdivision>
+			<subdivision type="rukb" draft="contributed">קברדינו-בלקריה</subdivision>
+			<subdivision type="rukc" draft="contributed">קאראצ׳אי-צ׳רקסיה</subdivision>
+			<subdivision type="rukda" draft="contributed">מחוז קרסנודאר</subdivision>
+			<subdivision type="rukem" draft="contributed">מחוז קמרובו</subdivision>
+			<subdivision type="rukgd" draft="contributed">מחוז קלינינגרד</subdivision>
+			<subdivision type="rukgn" draft="contributed">מחוז קורגן</subdivision>
+			<subdivision type="rukha" draft="contributed">מחוז חברובסק</subdivision>
+			<subdivision type="rukhm" draft="contributed">המחוז האוטונומי חנטי ומנסי</subdivision>
+			<subdivision type="rukir" draft="contributed">מחוז קירוב</subdivision>
+			<subdivision type="rukk" draft="contributed">חקסיה</subdivision>
+			<subdivision type="rukl" draft="contributed">קלמיקיה</subdivision>
+			<subdivision type="ruklu" draft="contributed">מחוז קלוגה</subdivision>
+			<subdivision type="ruko" draft="contributed">רפובליקת קומי</subdivision>
+			<subdivision type="rukos" draft="contributed">מחוז קוסטרומה</subdivision>
+			<subdivision type="rukr" draft="contributed">קרליה</subdivision>
+			<subdivision type="rukrs" draft="contributed">מחוז קורסק</subdivision>
+			<subdivision type="rukya" draft="contributed">מחוז קרסנויארסק</subdivision>
+			<subdivision type="rulen" draft="contributed">מחוז לנינגרד</subdivision>
+			<subdivision type="rulip" draft="contributed">מחוז ליפצק</subdivision>
+			<subdivision type="rumag" draft="contributed">מחוז מגדן</subdivision>
+			<subdivision type="rume" draft="contributed">מארי אל</subdivision>
+			<subdivision type="rumo" draft="contributed">מורדוביה</subdivision>
+			<subdivision type="rumos" draft="contributed">מחוז מוסקבה</subdivision>
+			<subdivision type="rumow" draft="contributed">מוסקבה</subdivision>
+			<subdivision type="rumur" draft="contributed">מחוז מורמנסק</subdivision>
+			<subdivision type="runen" draft="contributed">הניינץ</subdivision>
+			<subdivision type="rungr" draft="contributed">מחוז נובגורוד</subdivision>
+			<subdivision type="runiz" draft="contributed">מחוז ניז׳ני נובגורוד</subdivision>
+			<subdivision type="runvs" draft="contributed">מחוז נובוסיבירסק</subdivision>
+			<subdivision type="ruoms" draft="contributed">מחוז אומסק</subdivision>
+			<subdivision type="ruore" draft="contributed">מחוז אורנבורג</subdivision>
+			<subdivision type="ruorl" draft="contributed">מחוז אוריול</subdivision>
+			<subdivision type="ruper" draft="contributed">מחוז פרם</subdivision>
+			<subdivision type="rupnz" draft="contributed">מחוז פנזה</subdivision>
+			<subdivision type="rupri" draft="contributed">פרימוריה</subdivision>
+			<subdivision type="rupsk" draft="contributed">מחוז פסקוב</subdivision>
+			<subdivision type="ruros" draft="contributed">מחוז רוסטוב</subdivision>
+			<subdivision type="rurya" draft="contributed">מחוז ריאזאן</subdivision>
+			<subdivision type="rusa" draft="contributed">רפובליקת סאחה-יקוטיה</subdivision>
+			<subdivision type="rusak" draft="contributed">מחוז סחלין</subdivision>
+			<subdivision type="rusam" draft="contributed">מחוז סמרה</subdivision>
+			<subdivision type="rusar" draft="contributed">מחוז סראטוב</subdivision>
+			<subdivision type="ruse" draft="contributed">צפון אוסטיה - אלניה</subdivision>
+			<subdivision type="rusmo" draft="contributed">סמולנסק</subdivision>
+			<subdivision type="ruspe" draft="contributed">סנקט פטרבורג</subdivision>
+			<subdivision type="rusta" draft="contributed">מחוז סטברופול</subdivision>
+			<subdivision type="rusve" draft="contributed">מחוז סברדלובסק</subdivision>
+			<subdivision type="ruta" draft="contributed">טטרסטן</subdivision>
+			<subdivision type="rutam" draft="contributed">מחוז טמבוב</subdivision>
+			<subdivision type="rutom" draft="contributed">מחוז טומסק</subdivision>
+			<subdivision type="rutul" draft="contributed">טולה</subdivision>
+			<subdivision type="rutve" draft="contributed">מחוז טבר</subdivision>
+			<subdivision type="ruty" draft="contributed">טובה</subdivision>
+			<subdivision type="rutyu" draft="contributed">מחוז טיומן</subdivision>
+			<subdivision type="ruud" draft="contributed">אודמורטיה</subdivision>
+			<subdivision type="ruuly" draft="contributed">מחוז אולייאנובסק</subdivision>
+			<subdivision type="ruvgg" draft="contributed">וולגוגרד</subdivision>
+			<subdivision type="ruvla" draft="contributed">ולדימיר</subdivision>
+			<subdivision type="ruvlg" draft="contributed">מחוז וולוגדה</subdivision>
+			<subdivision type="ruvor" draft="contributed">מחוז וורונז׳</subdivision>
+			<subdivision type="ruyan" draft="contributed">ימלו-ננץ</subdivision>
+			<subdivision type="ruyar" draft="contributed">ירוסלבל</subdivision>
+			<subdivision type="ruyev" draft="contributed">המחוז היהודי האוטונומי</subdivision>
+			<subdivision type="ruzab" draft="contributed">מחוז עבר הבאיקל</subdivision>
+			<subdivision type="rw01" draft="contributed">קיגאלי</subdivision>
+			<subdivision type="sa01" draft="contributed">מחוז ריאד</subdivision>
+			<subdivision type="sa02" draft="contributed">מחוז מכה</subdivision>
+			<subdivision type="sa03" draft="contributed">מחוז אל-מדינה</subdivision>
+			<subdivision type="sa04" draft="contributed">מחוז א-שרקייה</subdivision>
+			<subdivision type="sa05" draft="contributed">אזור אלקסים</subdivision>
+			<subdivision type="sa14" draft="contributed">אזור עסיר</subdivision>
+			<subdivision type="sbct" draft="contributed">הוניארה</subdivision>
+			<subdivision type="sc15" draft="contributed">לה דיג</subdivision>
+			<subdivision type="sddn" draft="contributed">צפון דארפור</subdivision>
+			<subdivision type="sdgz" draft="contributed">אל-ג׳זירה</subdivision>
+			<subdivision type="sdkh" draft="contributed">ח׳רטום (מדינה)</subdivision>
+			<subdivision type="sdrs" draft="contributed">אל-בחר אל-אחמר</subdivision>
+			<subdivision type="seab" draft="contributed">מחוז סטוקהולם</subdivision>
+			<subdivision type="seac" draft="contributed">וסטרבוטן</subdivision>
+			<subdivision type="sebd" draft="contributed">נורבוטן</subdivision>
+			<subdivision type="sec" draft="contributed">מחוז אופסלה</subdivision>
+			<subdivision type="sed" draft="contributed">מחוז סדרמנלנד</subdivision>
+			<subdivision type="see" draft="contributed">אסטרייטלנד</subdivision>
+			<subdivision type="sef" draft="contributed">מחוז ינשפינג</subdivision>
+			<subdivision type="sei" draft="contributed">מחוז גוטלנד</subdivision>
+			<subdivision type="sem" draft="contributed">מחוז סקונה</subdivision>
+			<subdivision type="sen" draft="contributed">הלנד</subdivision>
+			<subdivision type="seo" draft="contributed">וסטרה ייטלנד</subdivision>
+			<subdivision type="ses" draft="contributed">ורמלנד</subdivision>
+			<subdivision type="set" draft="contributed">מחוז ארברו</subdivision>
+			<subdivision type="seu" draft="contributed">מחוז וסטמנלנד</subdivision>
+			<subdivision type="sew" draft="contributed">מחוז דלרנה</subdivision>
+			<subdivision type="sex" draft="contributed">יבלבורג</subdivision>
+			<subdivision type="sez" draft="contributed">ימטלנד</subdivision>
+			<subdivision type="shac" draft="contributed">אסנשן</subdivision>
+			<subdivision type="shhl" draft="contributed">סנט הלנה</subdivision>
+			<subdivision type="si040" draft="contributed">איזולה</subdivision>
+			<subdivision type="si052" draft="contributed">קראן</subdivision>
+			<subdivision type="si057" draft="contributed">לאשקו</subdivision>
+			<subdivision type="si059" draft="contributed">לנדאווה</subdivision>
+			<subdivision type="si073" draft="contributed">מטליקה</subdivision>
+			<subdivision type="si084" draft="contributed">נובה גוריצה</subdivision>
+			<subdivision type="si090" draft="contributed">פיראן</subdivision>
+			<subdivision type="si096" draft="contributed">פטוי</subdivision>
+			<subdivision type="si129" draft="contributed">טרבוולז׳</subdivision>
+			<subdivision type="si208" draft="contributed">לוג דרגומר</subdivision>
+			<subdivision type="skbc" draft="contributed">באנסקה ביסטריצה</subdivision>
+			<subdivision type="skpv" draft="contributed">מחוז פרשוב</subdivision>
+			<subdivision type="skta" draft="contributed">מחוז טרנבה</subdivision>
+			<subdivision type="sktc" draft="contributed">מחוז טרנצ׳ין</subdivision>
+			<subdivision type="skzi" draft="contributed">מחוז ז׳ילינה</subdivision>
+			<subdivision type="sm01" draft="contributed">אקואוויווה</subdivision>
+			<subdivision type="sm02" draft="contributed">קייזאנואובה</subdivision>
+			<subdivision type="sm03" draft="contributed">דומניאנו</subdivision>
+			<subdivision type="sm04" draft="contributed">פאטאנו</subdivision>
+			<subdivision type="sm05" draft="contributed">פיורנטינו</subdivision>
+			<subdivision type="sm06" draft="contributed">בורגו מג׳ורה</subdivision>
+			<subdivision type="sm07" draft="contributed">סן מרינו</subdivision>
+			<subdivision type="sm08" draft="contributed">מונטג׳ארדינו</subdivision>
+			<subdivision type="sm09" draft="contributed">סראוואלה</subdivision>
+			<subdivision type="srwa" draft="contributed">וניקה</subdivision>
+			<subdivision type="ssbn" draft="contributed">צפון בחר אל-ע׳זאל</subdivision>
+			<subdivision type="ssbw" draft="contributed">מערב בחר אל-ע׳זאל</subdivision>
+			<subdivision type="ssec" draft="contributed">אקווטוריה התיכונה</subdivision>
+			<subdivision type="ssee" draft="contributed">אקווטוריה המזרחית</subdivision>
+			<subdivision type="ssew" draft="contributed">אקווטוריה המערבית</subdivision>
+			<subdivision type="ssjg" draft="contributed">ג׳ונגליי</subdivision>
+			<subdivision type="sslk" draft="contributed">מדינת האגמים</subdivision>
+			<subdivision type="ssnu" draft="contributed">מדינת הנילוס העליון</subdivision>
+			<subdivision type="ssuy" draft="contributed">מדינת האיחוד</subdivision>
+			<subdivision type="sswr" draft="contributed">ואראפ</subdivision>
+			<subdivision type="svli" draft="contributed">לה ליברטד</subdivision>
+			<subdivision type="svpa" draft="contributed">לה פאס</subdivision>
+			<subdivision type="sydr" draft="contributed">מחוז דרעא</subdivision>
+			<subdivision type="sydy" draft="contributed">מחוז דיר א-זור</subdivision>
+			<subdivision type="syha" draft="contributed">מחוז אל-חסכה</subdivision>
+			<subdivision type="syhi" draft="contributed">מחוז חומס</subdivision>
+			<subdivision type="syhl" draft="contributed">מחוז חלב</subdivision>
+			<subdivision type="syhm" draft="contributed">מחוז חמה</subdivision>
+			<subdivision type="syid" draft="contributed">מחוז אדלב</subdivision>
+			<subdivision type="syla" draft="contributed">מחוז לטקיה</subdivision>
+			<subdivision type="syqu" draft="contributed">מחוז קוניטרה</subdivision>
+			<subdivision type="syra" draft="contributed">מחוז א-רקה</subdivision>
+			<subdivision type="syrd" draft="contributed">ריף דמשק</subdivision>
+			<subdivision type="sysu" draft="contributed">מחוז א-סווידא</subdivision>
+			<subdivision type="syta" draft="contributed">מחוז טרטוס</subdivision>
+			<subdivision type="szhh" draft="contributed">מחוז האהוהאהו</subdivision>
+			<subdivision type="szlu" draft="contributed">מחוז לובומבו</subdivision>
+			<subdivision type="szma" draft="contributed">מחוז מנזיני</subdivision>
+			<subdivision type="szsh" draft="contributed">מחוז שיסלוואני</subdivision>
+			<subdivision type="tdnd" draft="contributed">נג׳מנה</subdivision>
+			<subdivision type="th10" draft="contributed">בנגקוק</subdivision>
+			<subdivision type="th11" draft="contributed">סמוט פרקן</subdivision>
+			<subdivision type="th12" draft="contributed">נונתאבורי</subdivision>
+			<subdivision type="th50" draft="contributed">מחוז צ׳יאנג מאי</subdivision>
+			<subdivision type="th57" draft="contributed">מחוז צ׳יאנג ראי</subdivision>
+			<subdivision type="th81" draft="contributed">מחוז קראבי</subdivision>
+			<subdivision type="th83" draft="contributed">פוקט</subdivision>
+			<subdivision type="ths" draft="contributed">פאטאיה</subdivision>
+			<subdivision type="tjdu" draft="contributed">דושנבה</subdivision>
+			<subdivision type="tjgb" draft="contributed">מחוז גורנו-בדחשאן</subdivision>
+			<subdivision type="tjkt" draft="contributed">מחוז חאטלון</subdivision>
+			<subdivision type="tjra" draft="contributed">נפות בכפיפות רפובליקנית</subdivision>
+			<subdivision type="tjsu" draft="contributed">מחוז סוגד</subdivision>
+			<subdivision type="tlal" draft="contributed">מחוז אילאו</subdivision>
+			<subdivision type="tlan" draft="contributed">מחוז איינרו</subdivision>
+			<subdivision type="tlba" draft="contributed">מחוז באוקאו</subdivision>
+			<subdivision type="tlbo" draft="contributed">בובונרו</subdivision>
+			<subdivision type="tlco" draft="contributed">קובה-לימה</subdivision>
+			<subdivision type="tldi" draft="contributed">מחוז דילי</subdivision>
+			<subdivision type="tler" draft="contributed">ארמרה</subdivision>
+			<subdivision type="tlla" draft="contributed">לאוטם</subdivision>
+			<subdivision type="tlli" draft="contributed">ליקיסה</subdivision>
+			<subdivision type="tlmf" draft="contributed">מנופני</subdivision>
+			<subdivision type="tlmt" draft="contributed">מנטוטו</subdivision>
+			<subdivision type="tloe" draft="contributed">אוקוסי-אומנו</subdivision>
+			<subdivision type="tlvi" draft="contributed">ויקקה</subdivision>
+			<subdivision type="tms" draft="contributed">אשגבאט</subdivision>
+			<subdivision type="tn41" draft="contributed">קירואן</subdivision>
+			<subdivision type="tn51" draft="contributed">סוס</subdivision>
+			<subdivision type="tn61" draft="contributed">ספקס</subdivision>
+			<subdivision type="to04" draft="contributed">נוקואלופה</subdivision>
+			<subdivision type="tr01" draft="contributed">אדנה</subdivision>
+			<subdivision type="tr02" draft="contributed">אדיאמן</subdivision>
+			<subdivision type="tr06" draft="contributed">אנקרה</subdivision>
+			<subdivision type="tr08" draft="contributed">ארטווין</subdivision>
+			<subdivision type="tr11" draft="contributed">בילג׳יק</subdivision>
+			<subdivision type="tr13" draft="contributed">ביטליס</subdivision>
+			<subdivision type="tr21" draft="contributed">נפת דיארבקיר</subdivision>
+			<subdivision type="tr23" draft="contributed">נפת אלזי</subdivision>
+			<subdivision type="tr25" draft="contributed">ארזורום</subdivision>
+			<subdivision type="tr30" draft="contributed">האקארי</subdivision>
+			<subdivision type="tr31" draft="contributed">נפת האטיי</subdivision>
+			<subdivision type="tr34" draft="contributed">איסטנבול</subdivision>
+			<subdivision type="tr36" draft="contributed">קארס</subdivision>
+			<subdivision type="tr49" draft="contributed">מוש (נפה)</subdivision>
+			<subdivision type="tr60" draft="contributed">טוקט</subdivision>
+			<subdivision type="tr61" draft="contributed">מחוז טרבזון</subdivision>
+			<subdivision type="tr65" draft="contributed">ואן</subdivision>
+			<subdivision type="tr70" draft="contributed">קאראמאן</subdivision>
+			<subdivision type="tr71" draft="contributed">נפת קרקקלה</subdivision>
+			<subdivision type="tr75" draft="contributed">ארדהאן</subdivision>
+			<subdivision type="ttpos" draft="contributed">פורט אוף ספיין</subdivision>
+			<subdivision type="ttptf" draft="contributed">פוינט פורטין</subdivision>
+			<subdivision type="ttsfo" draft="contributed">סן פרננדו (טרינידד)</subdivision>
+			<subdivision type="tttob" draft="contributed">טובגו</subdivision>
+			<subdivision type="tvfun" draft="contributed">פנאפוטי</subdivision>
+			<subdivision type="tvnkf" draft="contributed">נוקופטאו</subdivision>
+			<subdivision type="tvnkl" draft="contributed">נוקולאלאה</subdivision>
+			<subdivision type="tvnma" draft="contributed">ננומאה</subdivision>
+			<subdivision type="twcyq" draft="contributed">ג׳יאיי</subdivision>
+			<subdivision type="twhsz" draft="contributed">שינג׳ו</subdivision>
+			<subdivision type="twkee" draft="contributed">ג׳ילונג</subdivision>
+			<subdivision type="twkhh" draft="contributed">גאושיונג</subdivision>
+			<subdivision type="twkin" draft="contributed">קואמוי</subdivision>
+			<subdivision type="twtnn" draft="contributed">טאינאן</subdivision>
+			<subdivision type="twtpe" draft="contributed">טאיפיי</subdivision>
+			<subdivision type="twtxg" draft="contributed">טאיג׳ונג</subdivision>
+			<subdivision type="tz08" draft="contributed">קיגומה</subdivision>
+			<subdivision type="tz12" draft="contributed">לינדי</subdivision>
+			<subdivision type="ua05" draft="contributed">מחוז ויניצה</subdivision>
+			<subdivision type="ua07" draft="contributed">מחוז ווהלין</subdivision>
+			<subdivision type="ua09" draft="contributed">מחוז לוהנסק</subdivision>
+			<subdivision type="ua12" draft="contributed">דנפרופטרובסק</subdivision>
+			<subdivision type="ua14" draft="contributed">מחוז דונצק</subdivision>
+			<subdivision type="ua18" draft="contributed">מחוז ז׳יטומיר</subdivision>
+			<subdivision type="ua21" draft="contributed">זקרפטיה</subdivision>
+			<subdivision type="ua23" draft="contributed">זפורוז׳יה</subdivision>
+			<subdivision type="ua26" draft="contributed">מחוז איוונו-פרנקיבסק</subdivision>
+			<subdivision type="ua30" draft="contributed">קייב</subdivision>
+			<subdivision type="ua32" draft="contributed">מחוז קייב</subdivision>
+			<subdivision type="ua35" draft="contributed">מחוז קירובוגרד</subdivision>
+			<subdivision type="ua40" draft="contributed">סבסטופול</subdivision>
+			<subdivision type="ua43" draft="contributed">הרפובליקה האוטונומית של קרים</subdivision>
+			<subdivision type="ua46" draft="contributed">מחוז לבוב</subdivision>
+			<subdivision type="ua48" draft="contributed">מחוז מיקולאייב</subdivision>
+			<subdivision type="ua51" draft="contributed">מחוז אודסה</subdivision>
+			<subdivision type="ua53" draft="contributed">פולטבה</subdivision>
+			<subdivision type="ua56" draft="contributed">רובנו</subdivision>
+			<subdivision type="ua59" draft="contributed">מחוז סומי</subdivision>
+			<subdivision type="ua61" draft="contributed">מחוז טרנופול</subdivision>
+			<subdivision type="ua63" draft="contributed">מחוז חרקוב</subdivision>
+			<subdivision type="ua65" draft="contributed">מחוז חרסון</subdivision>
+			<subdivision type="ua68" draft="contributed">מחוז חמלניצקי</subdivision>
+			<subdivision type="ua71" draft="contributed">מחוז צ׳רקאסי</subdivision>
+			<subdivision type="ua74" draft="contributed">מחוז צ׳רניהיב</subdivision>
+			<subdivision type="ua77" draft="contributed">מחוז צ׳רנוביץ</subdivision>
+			<subdivision type="ug101" draft="contributed">קלנגלה</subdivision>
+			<subdivision type="ug108" draft="contributed">מחוז מוקונו</subdivision>
+			<subdivision type="ug112" draft="contributed">קאיונגה</subdivision>
+			<subdivision type="ug204" draft="contributed">ג׳ינג׳ה</subdivision>
+			<subdivision type="ug212" draft="contributed">טורורו</subdivision>
+			<subdivision type="ug308" draft="contributed">מחוז מורוטו</subdivision>
+			<subdivision type="ug311" draft="contributed">נאקאפיריפירית</subdivision>
+			<subdivision type="ug314" draft="contributed">אבים</subdivision>
+			<subdivision type="ug317" draft="contributed">אבים²</subdivision>
+			<subdivision type="ug401" draft="contributed">בונדיבוגיו</subdivision>
+			<subdivision type="ug409" draft="contributed">מאסינדי</subdivision>
+			<subdivision type="ug416" draft="contributed">בוליסה</subdivision>
+			<subdivision type="ug419" draft="contributed">בוליסה²</subdivision>
+			<subdivision type="um67" draft="contributed">אטול ג׳ונסטון</subdivision>
+			<subdivision type="um71" draft="contributed">אטול מידוויי</subdivision>
+			<subdivision type="um76" draft="contributed">נבאסה</subdivision>
+			<subdivision type="um79" draft="contributed">וייק</subdivision>
+			<subdivision type="um81" draft="contributed">בייקר</subdivision>
+			<subdivision type="um84" draft="contributed">האולנד</subdivision>
+			<subdivision type="um86" draft="contributed">ג׳רביס</subdivision>
+			<subdivision type="um89" draft="contributed">שונית קינגמן</subdivision>
+			<subdivision type="um95" draft="contributed">אטול פאלמירה</subdivision>
+			<subdivision type="usak" draft="contributed">אלסקה</subdivision>
+			<subdivision type="usal" draft="contributed">אלבמה</subdivision>
+			<subdivision type="usar" draft="contributed">ארקנסו</subdivision>
+			<subdivision type="usaz" draft="contributed">אריזונה</subdivision>
+			<subdivision type="usca" draft="contributed">קליפורניה</subdivision>
+			<subdivision type="usco" draft="contributed">קולורדו</subdivision>
+			<subdivision type="usct" draft="contributed">קונטיקט</subdivision>
+			<subdivision type="usdc" draft="contributed">וושינגטון די. סי.</subdivision>
+			<subdivision type="usde" draft="contributed">דלאוור</subdivision>
+			<subdivision type="usfl" draft="contributed">פלורידה</subdivision>
+			<subdivision type="usga" draft="contributed">ג׳ורג׳יה</subdivision>
+			<subdivision type="ushi" draft="contributed">הוואי</subdivision>
+			<subdivision type="usia" draft="contributed">איווה</subdivision>
+			<subdivision type="usid" draft="contributed">איידהו</subdivision>
+			<subdivision type="usil" draft="contributed">אילינוי</subdivision>
+			<subdivision type="usin" draft="contributed">אינדיאנה</subdivision>
+			<subdivision type="usks" draft="contributed">קנזס</subdivision>
+			<subdivision type="usky" draft="contributed">קנטקי</subdivision>
+			<subdivision type="usla" draft="contributed">לואיזיאנה</subdivision>
+			<subdivision type="usma" draft="contributed">מסצ׳וסטס</subdivision>
+			<subdivision type="usmd" draft="contributed">מרילנד</subdivision>
+			<subdivision type="usme" draft="contributed">מיין</subdivision>
+			<subdivision type="usmi" draft="contributed">מישיגן</subdivision>
+			<subdivision type="usmn" draft="contributed">מינסוטה</subdivision>
+			<subdivision type="usmo" draft="contributed">מיזורי</subdivision>
+			<subdivision type="usms" draft="contributed">מיסיסיפי</subdivision>
+			<subdivision type="usmt" draft="contributed">מונטנה</subdivision>
+			<subdivision type="usnc" draft="contributed">קרוליינה הצפונית</subdivision>
+			<subdivision type="usnd" draft="contributed">דקוטה הצפונית</subdivision>
+			<subdivision type="usne" draft="contributed">נברסקה</subdivision>
+			<subdivision type="usnh" draft="contributed">ניו המפשייר</subdivision>
+			<subdivision type="usnj" draft="contributed">ניו ג׳רזי</subdivision>
+			<subdivision type="usnm" draft="contributed">ניו מקסיקו</subdivision>
+			<subdivision type="usnv" draft="contributed">נבדה</subdivision>
+			<subdivision type="usny" draft="contributed">ניו יורק</subdivision>
+			<subdivision type="usoh" draft="contributed">אוהיו</subdivision>
+			<subdivision type="usok" draft="contributed">אוקלהומה</subdivision>
+			<subdivision type="usor" draft="contributed">אורגון</subdivision>
+			<subdivision type="uspa" draft="contributed">פנסילבניה</subdivision>
+			<subdivision type="usri" draft="contributed">רוד איילנד</subdivision>
+			<subdivision type="ussc" draft="contributed">קרוליינה הדרומית</subdivision>
+			<subdivision type="ussd" draft="contributed">דקוטה הדרומית</subdivision>
+			<subdivision type="ustn" draft="contributed">טנסי</subdivision>
+			<subdivision type="ustx" draft="contributed">טקסס</subdivision>
+			<subdivision type="usut" draft="contributed">יוטה</subdivision>
+			<subdivision type="usva" draft="contributed">וירג׳יניה</subdivision>
+			<subdivision type="usvt" draft="contributed">ורמונט</subdivision>
+			<subdivision type="uswa" draft="contributed">וושינגטון</subdivision>
+			<subdivision type="uswi" draft="contributed">ויסקונסין</subdivision>
+			<subdivision type="uswv" draft="contributed">וירג׳יניה המערבית</subdivision>
+			<subdivision type="uswy" draft="contributed">ויומינג</subdivision>
+			<subdivision type="uyar" draft="contributed">ארטיגס</subdivision>
+			<subdivision type="uydu" draft="contributed">דורסנו</subdivision>
+			<subdivision type="uymo" draft="contributed">מונטווידאו</subdivision>
+			<subdivision type="uytt" draft="contributed">טריינטה אי טרס</subdivision>
+			<subdivision type="uzan" draft="contributed">מחוז אנדיז׳ן</subdivision>
+			<subdivision type="uzfa" draft="contributed">מחוז פרגנה</subdivision>
+			<subdivision type="uzqr" draft="contributed">קרקלפקסטן</subdivision>
+			<subdivision type="uzsu" draft="contributed">מחוז סורח׳אן-דריא</subdivision>
+			<subdivision type="uztk" draft="contributed">טשקנט</subdivision>
+			<subdivision type="vea" draft="contributed">מחוז הבירה של ונצואלה</subdivision>
+			<subdivision type="veb" draft="contributed">אנסואטגי</subdivision>
+			<subdivision type="vec" draft="contributed">אפורה</subdivision>
+			<subdivision type="ved" draft="contributed">ארגואה</subdivision>
+			<subdivision type="vee" draft="contributed">ברינס</subdivision>
+			<subdivision type="vef" draft="contributed">בוליבר</subdivision>
+			<subdivision type="veg" draft="contributed">קרבובו</subdivision>
+			<subdivision type="veh" draft="contributed">קוחדס</subdivision>
+			<subdivision type="vei" draft="contributed">פלקון</subdivision>
+			<subdivision type="vej" draft="contributed">גואריקו</subdivision>
+			<subdivision type="vek" draft="contributed">לרה</subdivision>
+			<subdivision type="vel" draft="contributed">מרידה</subdivision>
+			<subdivision type="vem" draft="contributed">מירנדה</subdivision>
+			<subdivision type="ven" draft="contributed">מונגס</subdivision>
+			<subdivision type="veo" draft="contributed">נואבה אספרטה</subdivision>
+			<subdivision type="vep" draft="contributed">פורטוגסה</subdivision>
+			<subdivision type="ver" draft="contributed">סוקרה</subdivision>
+			<subdivision type="ves" draft="contributed">טאצ׳ירה</subdivision>
+			<subdivision type="vet" draft="contributed">טרוחיו</subdivision>
+			<subdivision type="veu" draft="contributed">יארקוי</subdivision>
+			<subdivision type="vev" draft="contributed">סוליה</subdivision>
+			<subdivision type="vew" draft="contributed">הדפנדנסיות הפדרליות של ונצואלה</subdivision>
+			<subdivision type="vex" draft="contributed">ורגאס</subdivision>
+			<subdivision type="vey" draft="contributed">דלטה אמקורו</subdivision>
+			<subdivision type="vez" draft="contributed">אמסונאס</subdivision>
+			<subdivision type="vn24" draft="contributed">קוואנג בין</subdivision>
+			<subdivision type="vn63" draft="contributed">אה נם</subdivision>
+			<subdivision type="vnct" draft="contributed">קאנטחו</subdivision>
+			<subdivision type="vndn" draft="contributed">דננג</subdivision>
+			<subdivision type="vnhn" draft="contributed">האנוי</subdivision>
+			<subdivision type="vnhp" draft="contributed">היפונג</subdivision>
+			<subdivision type="vnsg" draft="contributed">הו צ׳י מין סיטי</subdivision>
+			<subdivision type="wfal" draft="contributed">אלו</subdivision>
+			<subdivision type="yeab" draft="contributed">אבין</subdivision>
+			<subdivision type="yead" draft="contributed">עדן</subdivision>
+			<subdivision type="yeam" draft="contributed">עמראן</subdivision>
+			<subdivision type="yeba" draft="contributed">אל-ביידא</subdivision>
+			<subdivision type="yeda" draft="contributed">א-דאלע</subdivision>
+			<subdivision type="yedh" draft="contributed">ד׳מאר</subdivision>
+			<subdivision type="yehd" draft="contributed">חצרמוות</subdivision>
+			<subdivision type="yehj" draft="contributed">חג׳ה</subdivision>
+			<subdivision type="yehu" draft="contributed">אל-חודיידה</subdivision>
+			<subdivision type="yeib" draft="contributed">איב</subdivision>
+			<subdivision type="yeja" draft="contributed">אל-ג׳וף</subdivision>
+			<subdivision type="yela" draft="contributed">לחג׳</subdivision>
+			<subdivision type="yema" draft="contributed">מארב</subdivision>
+			<subdivision type="yemr" draft="contributed">אל-מהרה</subdivision>
+			<subdivision type="yemw" draft="contributed">אל-מחוית</subdivision>
+			<subdivision type="yera" draft="contributed">רימה</subdivision>
+			<subdivision type="yesa" draft="contributed">צנעא</subdivision>
+			<subdivision type="yesd" draft="contributed">צעדה</subdivision>
+			<subdivision type="yesh" draft="contributed">שבוה</subdivision>
+			<subdivision type="yesn" draft="contributed">צנעא²</subdivision>
+			<subdivision type="yeta" draft="contributed">תעז</subdivision>
+			<subdivision type="zaec" draft="contributed">הכף המזרחי</subdivision>
+			<subdivision type="zafs" draft="contributed">המדינה החופשית</subdivision>
+			<subdivision type="zagt" draft="contributed">חאוטנג</subdivision>
+			<subdivision type="zalp" draft="contributed">לימפופו</subdivision>
+			<subdivision type="zamp" draft="contributed">מפומלנגה</subdivision>
+			<subdivision type="zanc" draft="contributed">הכף הצפוני</subdivision>
+			<subdivision type="zanl" draft="contributed">קוואזולו-נטאל</subdivision>
+			<subdivision type="zanw" draft="contributed">הפרובינציה הצפון-מערבית</subdivision>
+			<subdivision type="zawc" draft="contributed">הכף המערבי</subdivision>
+			<subdivision type="zwme" draft="contributed">משונאלנד מזרח פרובינציה</subdivision>
+		</subdivisions>
+	</localeDisplayNames>
+</ldml>

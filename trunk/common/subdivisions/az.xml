@@ -1,0 +1,1067 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2018 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="az"/>
+	</identity>
+	<localeDisplayNames>
+		<subdivisions>
+			<subdivision type="ad05" draft="contributed">Ordino</subdivision>
+			<subdivision type="aeaz" draft="contributed">Əbu-Dabi</subdivision>
+			<subdivision type="aedu" draft="contributed">Dubay</subdivision>
+			<subdivision type="aefu" draft="contributed">Əl-Füceyrə əmirliyi</subdivision>
+			<subdivision type="aesh" draft="contributed">Şarja</subdivision>
+			<subdivision type="afbal" draft="contributed">Bəlx vilayəti</subdivision>
+			<subdivision type="afbam" draft="contributed">Bamiyan</subdivision>
+			<subdivision type="afbdg" draft="contributed">Badğis</subdivision>
+			<subdivision type="afbds" draft="contributed">Bədəxşan</subdivision>
+			<subdivision type="afbgl" draft="contributed">Bəğlan</subdivision>
+			<subdivision type="afday" draft="contributed">Daykündi</subdivision>
+			<subdivision type="affra" draft="contributed">Fərah</subdivision>
+			<subdivision type="affyb" draft="contributed">Fəryab</subdivision>
+			<subdivision type="afgha" draft="contributed">Qəzni</subdivision>
+			<subdivision type="afgho" draft="contributed">Qövr</subdivision>
+			<subdivision type="afhel" draft="contributed">Hilmənd</subdivision>
+			<subdivision type="afher" draft="contributed">Herat vilayəti</subdivision>
+			<subdivision type="afjow" draft="contributed">Cövzcan</subdivision>
+			<subdivision type="afkab" draft="contributed">Kabil vilayəti</subdivision>
+			<subdivision type="afkan" draft="contributed">Qəndəhar vilayəti</subdivision>
+			<subdivision type="afkap" draft="contributed">Kapisa</subdivision>
+			<subdivision type="afkdz" draft="contributed">Künduz</subdivision>
+			<subdivision type="afkho" draft="contributed">Xust</subdivision>
+			<subdivision type="afknr" draft="contributed">Künər</subdivision>
+			<subdivision type="aflag" draft="contributed">Ləğman</subdivision>
+			<subdivision type="aflog" draft="contributed">Lövgər vilayəti</subdivision>
+			<subdivision type="afnan" draft="contributed">Nəngərhar</subdivision>
+			<subdivision type="afnim" draft="contributed">Nimruz</subdivision>
+			<subdivision type="afnur" draft="contributed">Nuristan</subdivision>
+			<subdivision type="afpan" draft="contributed">Pəncşir</subdivision>
+			<subdivision type="afpar" draft="contributed">Pərvan</subdivision>
+			<subdivision type="afpia" draft="contributed">Pəktiya</subdivision>
+			<subdivision type="afpka" draft="contributed">Pəktika</subdivision>
+			<subdivision type="afsam" draft="contributed">Səməngan</subdivision>
+			<subdivision type="afsar" draft="contributed">Səri-Pul</subdivision>
+			<subdivision type="aftak" draft="contributed">Təxar</subdivision>
+			<subdivision type="afuru" draft="contributed">Uruzgan</subdivision>
+			<subdivision type="afwar" draft="contributed">Vərdək</subdivision>
+			<subdivision type="afzab" draft="contributed">Zabul vilayəti</subdivision>
+			<subdivision type="al11" draft="contributed">Tirana vilayəti</subdivision>
+			<subdivision type="amag" draft="contributed">Ağin</subdivision>
+			<subdivision type="amar" draft="contributed">Ararat mərzi</subdivision>
+			<subdivision type="amav" draft="contributed">Armavir mərzi</subdivision>
+			<subdivision type="amer" draft="contributed">İrəvan</subdivision>
+			<subdivision type="amgr" draft="contributed">Geğarkunik</subdivision>
+			<subdivision type="amkt" draft="contributed">Kotayk mərzi</subdivision>
+			<subdivision type="amlo" draft="contributed">Loru mahalı</subdivision>
+			<subdivision type="amsh" draft="contributed">Amasiya</subdivision>
+			<subdivision type="amsu" draft="contributed">Sünik</subdivision>
+			<subdivision type="amtv" draft="contributed">Tavuş</subdivision>
+			<subdivision type="amvd" draft="contributed">Dərələyəz mahalı</subdivision>
+			<subdivision type="aobgo" draft="contributed">Benqo</subdivision>
+			<subdivision type="aocab" draft="contributed">Kabinda</subdivision>
+			<subdivision type="arc" draft="contributed">Buenos Ayres</subdivision>
+			<subdivision type="are" draft="contributed">Entre-Rios</subdivision>
+			<subdivision type="at6" draft="contributed">Ştiriya</subdivision>
+			<subdivision type="at9" draft="contributed">Vyana</subdivision>
+			<subdivision type="auact" draft="contributed">Avstraliya Paytaxt Ərazisi</subdivision>
+			<subdivision type="aunsw" draft="contributed">Yeni Cənubi Uels</subdivision>
+			<subdivision type="aunt" draft="contributed">Şimal ərazisi</subdivision>
+			<subdivision type="auqld" draft="contributed">Kvinslend</subdivision>
+			<subdivision type="ausa" draft="contributed">Cənubi Avstraliya</subdivision>
+			<subdivision type="autas" draft="contributed">Tasmaniya</subdivision>
+			<subdivision type="auvic" draft="contributed">Viktoriya</subdivision>
+			<subdivision type="auwa" draft="contributed">Qərbi Avstraliya</subdivision>
+			<subdivision type="azabs" draft="contributed">Abşeron</subdivision>
+			<subdivision type="azaga" draft="contributed">Ağstafa</subdivision>
+			<subdivision type="azagc" draft="contributed">Ağcabədi</subdivision>
+			<subdivision type="azagm" draft="contributed">Ağdam</subdivision>
+			<subdivision type="azags" draft="contributed">Ağdaş</subdivision>
+			<subdivision type="azagu" draft="contributed">Ağsu</subdivision>
+			<subdivision type="azast" draft="contributed">Astara</subdivision>
+			<subdivision type="azba" draft="contributed">Bakı</subdivision>
+			<subdivision type="azbab" draft="contributed">Babək</subdivision>
+			<subdivision type="azbal" draft="contributed">Balakən</subdivision>
+			<subdivision type="azbar" draft="contributed">Bərdə</subdivision>
+			<subdivision type="azbey" draft="contributed">Beyləqan</subdivision>
+			<subdivision type="azbil" draft="contributed">Biləsuvar rayonu</subdivision>
+			<subdivision type="azcab" draft="contributed">Cəbrayıl</subdivision>
+			<subdivision type="azcal" draft="contributed">Cəlilabad</subdivision>
+			<subdivision type="azcul" draft="contributed">Culfa rayonu</subdivision>
+			<subdivision type="azdas" draft="contributed">Daşkəsən</subdivision>
+			<subdivision type="azfuz" draft="contributed">Füzuli</subdivision>
+			<subdivision type="azga" draft="contributed">Gəncə</subdivision>
+			<subdivision type="azgad" draft="contributed">Gədəbəy</subdivision>
+			<subdivision type="azgor" draft="contributed">Goranboy</subdivision>
+			<subdivision type="azgoy" draft="contributed">Göyçay</subdivision>
+			<subdivision type="azgyg" draft="contributed">Göygöl</subdivision>
+			<subdivision type="azhac" draft="contributed">Hacıqabul</subdivision>
+			<subdivision type="azimi" draft="contributed">İmişli</subdivision>
+			<subdivision type="azism" draft="contributed">İsmayıllı</subdivision>
+			<subdivision type="azkal" draft="contributed">Kəlbəcər</subdivision>
+			<subdivision type="azkan" draft="contributed">Kəngərli</subdivision>
+			<subdivision type="azkur" draft="contributed">Kürdəmir</subdivision>
+			<subdivision type="azla" draft="contributed">Lənkəran</subdivision>
+			<subdivision type="azlac" draft="contributed">Laçın</subdivision>
+			<subdivision type="azlan" draft="contributed">Lənkəran²</subdivision>
+			<subdivision type="azler" draft="contributed">Lerik</subdivision>
+			<subdivision type="azmas" draft="contributed">Masallı</subdivision>
+			<subdivision type="azmi" draft="contributed">Mingəçevir</subdivision>
+			<subdivision type="aznef" draft="contributed">Neftçala</subdivision>
+			<subdivision type="aznv" draft="contributed">Naxçıvan</subdivision>
+			<subdivision type="aznx" draft="contributed">Naxçıvan Muxtar Respublikası</subdivision>
+			<subdivision type="azogu" draft="contributed">Oğuz</subdivision>
+			<subdivision type="azord" draft="contributed">Ordubad</subdivision>
+			<subdivision type="azqab" draft="contributed">Qəbələ</subdivision>
+			<subdivision type="azqax" draft="contributed">Qax</subdivision>
+			<subdivision type="azqaz" draft="contributed">Qazax</subdivision>
+			<subdivision type="azqba" draft="contributed">Quba</subdivision>
+			<subdivision type="azqbi" draft="contributed">Qubadlı</subdivision>
+			<subdivision type="azqob" draft="contributed">Qobustan</subdivision>
+			<subdivision type="azqus" draft="contributed">Qusar</subdivision>
+			<subdivision type="azsa" draft="contributed">Şəki</subdivision>
+			<subdivision type="azsab" draft="contributed">Sabirabad</subdivision>
+			<subdivision type="azsad" draft="contributed">Sədərək</subdivision>
+			<subdivision type="azsah" draft="contributed">Şahbuz</subdivision>
+			<subdivision type="azsak" draft="contributed">Şəki²</subdivision>
+			<subdivision type="azsal" draft="contributed">Salyan</subdivision>
+			<subdivision type="azsar" draft="contributed">Şərur</subdivision>
+			<subdivision type="azsat" draft="contributed">Saatlı</subdivision>
+			<subdivision type="azsbn" draft="contributed">Şabran (rayon)</subdivision>
+			<subdivision type="azsiy" draft="contributed">Siyəzən</subdivision>
+			<subdivision type="azskr" draft="contributed">Şəmkir</subdivision>
+			<subdivision type="azsm" draft="contributed">Sumqayıt</subdivision>
+			<subdivision type="azsmi" draft="contributed">Şamaxı</subdivision>
+			<subdivision type="azsmx" draft="contributed">Samux</subdivision>
+			<subdivision type="azsr" draft="contributed">Şirvan</subdivision>
+			<subdivision type="azsus" draft="contributed">Şuşa</subdivision>
+			<subdivision type="aztar" draft="contributed">Tərtər</subdivision>
+			<subdivision type="aztov" draft="contributed">Tovuz</subdivision>
+			<subdivision type="azuca" draft="contributed">Ucar</subdivision>
+			<subdivision type="azxa" draft="contributed">Xankəndi</subdivision>
+			<subdivision type="azxac" draft="contributed">Xaçmaz</subdivision>
+			<subdivision type="azxci" draft="contributed">Xocalı</subdivision>
+			<subdivision type="azxiz" draft="contributed">Xızı</subdivision>
+			<subdivision type="azxvd" draft="contributed">Xocavənd</subdivision>
+			<subdivision type="azyar" draft="contributed">Yardımlı</subdivision>
+			<subdivision type="azye" draft="contributed">Yevlax</subdivision>
+			<subdivision type="azyev" draft="contributed">Yevlax²</subdivision>
+			<subdivision type="azzan" draft="contributed">Zəngilan</subdivision>
+			<subdivision type="azzaq" draft="contributed">Zaqatala</subdivision>
+			<subdivision type="azzar" draft="contributed">Zərdab</subdivision>
+			<subdivision type="babih" draft="contributed">Bosniya və Herseqovina Federasiyası</subdivision>
+			<subdivision type="basrp" draft="contributed">Bosniya Serb Respublikası</subdivision>
+			<subdivision type="bd22" draft="contributed">Cessur</subdivision>
+			<subdivision type="bevlg" draft="contributed">Flandriya</subdivision>
+			<subdivision type="bevov" draft="contributed">Şərqi Flandiriya</subdivision>
+			<subdivision type="bevwv" draft="contributed">Qərbi Flandiriya</subdivision>
+			<subdivision type="bewbr" draft="contributed">Vallonskiy Brabant</subdivision>
+			<subdivision type="bewht" draft="contributed">Eno</subdivision>
+			<subdivision type="bewlg" draft="contributed">Lej</subdivision>
+			<subdivision type="bewna" draft="contributed">Namyur</subdivision>
+			<subdivision type="bg01" draft="contributed">Blaqoyevqrad vilayəti</subdivision>
+			<subdivision type="bg05" draft="contributed">Vidin vilayəti</subdivision>
+			<subdivision type="bg06" draft="contributed">Vratsa vilayəti</subdivision>
+			<subdivision type="bg23" draft="contributed">Sofiya</subdivision>
+			<subdivision type="bg28" draft="contributed">Yambol vilayəti</subdivision>
+			<subdivision type="bqbo" draft="contributed">Boneyr adası</subdivision>
+			<subdivision type="bqsa" draft="contributed">Saba</subdivision>
+			<subdivision type="bqse" draft="contributed">Sint-Estatius</subdivision>
+			<subdivision type="brac" draft="contributed">Akri</subdivision>
+			<subdivision type="bral" draft="contributed">Alaqoas</subdivision>
+			<subdivision type="bram" draft="contributed">Amazonas</subdivision>
+			<subdivision type="brap" draft="contributed">Amapa</subdivision>
+			<subdivision type="brba" draft="contributed">Baiya</subdivision>
+			<subdivision type="brce" draft="contributed">Seara</subdivision>
+			<subdivision type="brdf" draft="contributed">Federal dairə</subdivision>
+			<subdivision type="bres" draft="contributed">Espiritu-Santu</subdivision>
+			<subdivision type="brgo" draft="contributed">Qoyas</subdivision>
+			<subdivision type="brma" draft="contributed">Maranyan</subdivision>
+			<subdivision type="brmg" draft="contributed">Minas-Jerays</subdivision>
+			<subdivision type="brms" draft="contributed">Matu-Qrosu-du-Sul</subdivision>
+			<subdivision type="brmt" draft="contributed">Matu-Qrosu</subdivision>
+			<subdivision type="brpa" draft="contributed">Para</subdivision>
+			<subdivision type="brpb" draft="contributed">Paraiba</subdivision>
+			<subdivision type="brpe" draft="contributed">Pernambuku</subdivision>
+			<subdivision type="brpi" draft="contributed">Piaui</subdivision>
+			<subdivision type="brpr" draft="contributed">Parana</subdivision>
+			<subdivision type="brrj" draft="contributed">Rio-de-Janeyro</subdivision>
+			<subdivision type="brrn" draft="contributed">Riu-Qrandi-du-Norti</subdivision>
+			<subdivision type="brro" draft="contributed">Rondoniya</subdivision>
+			<subdivision type="brrr" draft="contributed">Rorayma</subdivision>
+			<subdivision type="brrs" draft="contributed">Riu-Qrandi-du-Sul</subdivision>
+			<subdivision type="brsc" draft="contributed">Santa-Katarina</subdivision>
+			<subdivision type="brse" draft="contributed">Serjipi</subdivision>
+			<subdivision type="brsp" draft="contributed">San-Paulo</subdivision>
+			<subdivision type="brto" draft="contributed">Tokantins</subdivision>
+			<subdivision type="bwfr" draft="contributed">Frensistaun</subdivision>
+			<subdivision type="bwga" draft="contributed">Qaborone</subdivision>
+			<subdivision type="bwjw" draft="contributed">Cvanenq</subdivision>
+			<subdivision type="bybr" draft="contributed">Brest vilayəti</subdivision>
+			<subdivision type="byhm" draft="contributed">Minsk</subdivision>
+			<subdivision type="byho" draft="contributed">Qomel vilayəti</subdivision>
+			<subdivision type="byhr" draft="contributed">Qrodno vilayəti</subdivision>
+			<subdivision type="byma" draft="contributed">Mogilyov vilayəti</subdivision>
+			<subdivision type="bymi" draft="contributed">Minsk vilayəti</subdivision>
+			<subdivision type="byvi" draft="contributed">Vitebsk vilayəti</subdivision>
+			<subdivision type="caab" draft="contributed">Alberta</subdivision>
+			<subdivision type="cabc" draft="contributed">Britaniya Kolumbiyası</subdivision>
+			<subdivision type="camb" draft="contributed">Manitoba</subdivision>
+			<subdivision type="canb" draft="contributed">Nyu-Brunsvik</subdivision>
+			<subdivision type="canl" draft="contributed">Nyufaundlend və Labrador</subdivision>
+			<subdivision type="cans" draft="contributed">Yeni Şotlandiya</subdivision>
+			<subdivision type="cant" draft="contributed">Şimal-Qərb Əraziləri</subdivision>
+			<subdivision type="canu" draft="contributed">Nunavut</subdivision>
+			<subdivision type="caon" draft="contributed">Ontario</subdivision>
+			<subdivision type="cape" draft="contributed">Şahzadə Eduard Adası</subdivision>
+			<subdivision type="caqc" draft="contributed">Kvebek</subdivision>
+			<subdivision type="cask" draft="contributed">Saskaçevan</subdivision>
+			<subdivision type="cayt" draft="contributed">Yukon</subdivision>
+			<subdivision type="cdkn" draft="contributed">Kinşasa</subdivision>
+			<subdivision type="cfbgf" draft="contributed">Bangi</subdivision>
+			<subdivision type="cgbzv" draft="contributed">Brazzavil</subdivision>
+			<subdivision type="chsz" draft="contributed">Şvis</subdivision>
+			<subdivision type="chti" draft="contributed">Ticino</subdivision>
+			<subdivision type="chzg" draft="contributed">Çuq</subdivision>
+			<subdivision type="ciab" draft="contributed">Abican</subdivision>
+			<subdivision type="ciym" draft="contributed">Yamosukro</subdivision>
+			<subdivision type="cnah" draft="contributed">Anhoy</subdivision>
+			<subdivision type="cnbj" draft="contributed">Pekin</subdivision>
+			<subdivision type="cncq" draft="contributed">Çuntsin</subdivision>
+			<subdivision type="cnfj" draft="contributed">Fucyen</subdivision>
+			<subdivision type="cngs" draft="contributed">Qansu</subdivision>
+			<subdivision type="cngx" draft="contributed">Quansi-Çjuan muxtar rayonu</subdivision>
+			<subdivision type="cnhe" draft="contributed">Hebei</subdivision>
+			<subdivision type="cnhi" draft="contributed">Haynan</subdivision>
+			<subdivision type="cnhk" draft="contributed">Honkonq</subdivision>
+			<subdivision type="cnhn" draft="contributed">Xunan</subdivision>
+			<subdivision type="cnjs" draft="contributed">Cianqsu</subdivision>
+			<subdivision type="cnjx" draft="contributed">Jianqxi</subdivision>
+			<subdivision type="cnmo" draft="contributed">Makao</subdivision>
+			<subdivision type="cnnm" draft="contributed">Daxili Monqolustan Muxtar Rayonu</subdivision>
+			<subdivision type="cnnx" draft="contributed">Ninsya-Huey Muxtar Rayonu</subdivision>
+			<subdivision type="cnsc" draft="contributed">Sıçuan</subdivision>
+			<subdivision type="cnsh" draft="contributed">Şanxay</subdivision>
+			<subdivision type="cntj" draft="contributed">Tyantszin</subdivision>
+			<subdivision type="cnxz" draft="contributed">Tibet muxtar rayonu</subdivision>
+			<subdivision type="cnzj" draft="contributed">Çjetszyan</subdivision>
+			<subdivision type="codc" draft="contributed">Boqota</subdivision>
+			<subdivision type="cz10" draft="contributed">Praqa</subdivision>
+			<subdivision type="cz20" draft="contributed">Orta Çex diyarı</subdivision>
+			<subdivision type="cz31" draft="contributed">Cənubi Çex diyarı</subdivision>
+			<subdivision type="cz32" draft="contributed">Plzen diyarı</subdivision>
+			<subdivision type="cz41" draft="contributed">Karlovı Varı diyarı</subdivision>
+			<subdivision type="cz42" draft="contributed">Ustetskiy diyarı</subdivision>
+			<subdivision type="cz51" draft="contributed">Liberets diyarı</subdivision>
+			<subdivision type="cz52" draft="contributed">Kraloveqradetskiy diyarı</subdivision>
+			<subdivision type="cz53" draft="contributed">Pardubitskiy diyarı</subdivision>
+			<subdivision type="cz63" draft="contributed">Vısoçina diyarı</subdivision>
+			<subdivision type="cz64" draft="contributed">Cənubi Moraviya diyarı</subdivision>
+			<subdivision type="cz71" draft="contributed">Olomoutskiy diyarı</subdivision>
+			<subdivision type="cz72" draft="contributed">Zlin diyarı</subdivision>
+			<subdivision type="cz80" draft="contributed">Moraviya-Sileziya diyarı</subdivision>
+			<subdivision type="debb" draft="contributed">Brandenburq</subdivision>
+			<subdivision type="debe" draft="contributed">Berlin</subdivision>
+			<subdivision type="debw" draft="contributed">Baden-Vürtemberq</subdivision>
+			<subdivision type="deby" draft="contributed">Bavariya</subdivision>
+			<subdivision type="dehb" draft="contributed">Bremen əyaləti</subdivision>
+			<subdivision type="dehe" draft="contributed">Hessen</subdivision>
+			<subdivision type="dehh" draft="contributed">Hamburq</subdivision>
+			<subdivision type="demv" draft="contributed">Meklenburq-Ön Pomeraniya</subdivision>
+			<subdivision type="deni" draft="contributed">Aşağı Saksoniya</subdivision>
+			<subdivision type="denw" draft="contributed">Şimali Reyn-Vestfaliya</subdivision>
+			<subdivision type="derp" draft="contributed">Reynland-Pfalts</subdivision>
+			<subdivision type="desh" draft="contributed">Şlezviq-Holşteyn</subdivision>
+			<subdivision type="desl" draft="contributed">Saarland</subdivision>
+			<subdivision type="desn" draft="contributed">Saksoniya</subdivision>
+			<subdivision type="dest" draft="contributed">Saksoniya-Anhalt</subdivision>
+			<subdivision type="deth" draft="contributed">Türingiya</subdivision>
+			<subdivision type="djdj" draft="contributed">Cibuti</subdivision>
+			<subdivision type="ee70" draft="contributed">Raplamaa</subdivision>
+			<subdivision type="esan" draft="contributed">Andalusiya</subdivision>
+			<subdivision type="esar" draft="contributed">Araqon</subdivision>
+			<subdivision type="esas" draft="contributed">Asturiya</subdivision>
+			<subdivision type="escb" draft="contributed">Kantabriya</subdivision>
+			<subdivision type="esce" draft="contributed">Seuta</subdivision>
+			<subdivision type="escl" draft="contributed">Kastiliya və Leon</subdivision>
+			<subdivision type="escm" draft="contributed">Kastiliya – La-Mança</subdivision>
+			<subdivision type="esct" draft="contributed">Kataloniya</subdivision>
+			<subdivision type="esex" draft="contributed">Estremadura</subdivision>
+			<subdivision type="esga" draft="contributed">Qalisiya</subdivision>
+			<subdivision type="esib" draft="contributed">Balear adaları</subdivision>
+			<subdivision type="eslo" draft="contributed">Rioxa</subdivision>
+			<subdivision type="esmc" draft="contributed">Mursiya</subdivision>
+			<subdivision type="esml" draft="contributed">Melilya</subdivision>
+			<subdivision type="esna" draft="contributed">Navarra²</subdivision>
+			<subdivision type="esnc" draft="contributed">Navarra</subdivision>
+			<subdivision type="espm" draft="contributed">Balear adaları²</subdivision>
+			<subdivision type="espv" draft="contributed">Basklar ölkəsi</subdivision>
+			<subdivision type="esri" draft="contributed">Rioxa²</subdivision>
+			<subdivision type="ess" draft="contributed">Kantabriya²</subdivision>
+			<subdivision type="etaa" draft="contributed">Əddis-Əbəbə</subdivision>
+			<subdivision type="fr02" draft="contributed">Ena departamenti</subdivision>
+			<subdivision type="fr14" draft="contributed">Kalvados</subdivision>
+			<subdivision type="fr15" draft="contributed">Kantal</subdivision>
+			<subdivision type="fr21" draft="contributed">Kot-d’Or</subdivision>
+			<subdivision type="fr24" draft="contributed">Dordon</subdivision>
+			<subdivision type="fr33" draft="contributed">Jirond</subdivision>
+			<subdivision type="fr43" draft="contributed">Ot-Luağ</subdivision>
+			<subdivision type="fr44" draft="contributed">Luar-Atlantik</subdivision>
+			<subdivision type="fr47" draft="contributed">Lo və Qaronna</subdivision>
+			<subdivision type="fr61" draft="contributed">Orn</subdivision>
+			<subdivision type="fr67" draft="contributed">Aşağı Reyn</subdivision>
+			<subdivision type="fr68" draft="contributed">Yuxarı Reyn</subdivision>
+			<subdivision type="fr75" draft="contributed">Paris</subdivision>
+			<subdivision type="fr77" draft="contributed">Sena və Marna</subdivision>
+			<subdivision type="fr80" draft="contributed">Somma</subdivision>
+			<subdivision type="fr92" draft="contributed">O-de-Sen</subdivision>
+			<subdivision type="frara" draft="contributed">Overn-Rona-Alp</subdivision>
+			<subdivision type="frbre" draft="contributed">Bretan</subdivision>
+			<subdivision type="frcor" draft="contributed">Korsika</subdivision>
+			<subdivision type="frcvl" draft="contributed">Sentr</subdivision>
+			<subdivision type="fridf" draft="contributed">İl de Frans</subdivision>
+			<subdivision type="frnor" draft="contributed">Normandiya</subdivision>
+			<subdivision type="frocc" draft="contributed">Lanqedok-Russillyon-Midi-Pirenei</subdivision>
+			<subdivision type="frpac" draft="contributed">Provans-Alp-Kot d’Azur</subdivision>
+			<subdivision type="frpdl" draft="contributed">Pei dö lə Luar</subdivision>
+			<subdivision type="gbabe" draft="contributed">Aberdin</subdivision>
+			<subdivision type="gbbdg" draft="contributed">Barkinq və Dagenhem borosu</subdivision>
+			<subdivision type="gbben" draft="contributed">Brent borosu</subdivision>
+			<subdivision type="gbbex" draft="contributed">Beksli borosu</subdivision>
+			<subdivision type="gbbir" draft="contributed">Birmingem</subdivision>
+			<subdivision type="gbbmh" draft="contributed">Bornmut</subdivision>
+			<subdivision type="gbbne" draft="contributed">Barnet borosu</subdivision>
+			<subdivision type="gbbpl" draft="contributed">Bləkpul</subdivision>
+			<subdivision type="gbbst" draft="contributed">Bristol</subdivision>
+			<subdivision type="gbcov" draft="contributed">Koventri</subdivision>
+			<subdivision type="gbcrf" draft="contributed">Kardiff</subdivision>
+			<subdivision type="gbder" draft="contributed">Derbi</subdivision>
+			<subdivision type="gbdev" draft="contributed">Devon</subdivision>
+			<subdivision type="gbdnd" draft="contributed">Dandi</subdivision>
+			<subdivision type="gbedh" draft="contributed">Edinburq</subdivision>
+			<subdivision type="gbeng">İngiltərə</subdivision>
+			<subdivision type="gbgbn" draft="contributed">Böyük Britaniya</subdivision>
+			<subdivision type="gbglg" draft="contributed">Qlazqo</subdivision>
+			<subdivision type="gbgre" draft="contributed">Qrinviç borosu</subdivision>
+			<subdivision type="gbhrt" draft="contributed">Hartfordşir</subdivision>
+			<subdivision type="gbiow" draft="contributed">Vayt adası</subdivision>
+			<subdivision type="gbken" draft="contributed">Kent</subdivision>
+			<subdivision type="gbkhl" draft="contributed">Kinqston-apon-Hall</subdivision>
+			<subdivision type="gblan" draft="contributed">Lankaşir</subdivision>
+			<subdivision type="gblce" draft="contributed">Lester</subdivision>
+			<subdivision type="gbliv" draft="contributed">Liverpul</subdivision>
+			<subdivision type="gblnd" draft="contributed">London</subdivision>
+			<subdivision type="gblut" draft="contributed">Luton</subdivision>
+			<subdivision type="gbmdb" draft="contributed">Midlsbro</subdivision>
+			<subdivision type="gbnet" draft="contributed">Nyukasl apon Tayn</subdivision>
+			<subdivision type="gbnfk" draft="contributed">Norfolk</subdivision>
+			<subdivision type="gbngm" draft="contributed">Nottingem</subdivision>
+			<subdivision type="gbnir" draft="contributed">Şimali İrlandiya</subdivision>
+			<subdivision type="gbork" draft="contributed">Orkney adaları</subdivision>
+			<subdivision type="gboxf" draft="contributed">Oksford</subdivision>
+			<subdivision type="gbply" draft="contributed">Plimut</subdivision>
+			<subdivision type="gbpol" draft="contributed">Puul</subdivision>
+			<subdivision type="gbpor" draft="contributed">Portsmut</subdivision>
+			<subdivision type="gbrdg" draft="contributed">Ridinq</subdivision>
+			<subdivision type="gbsct">Şotlandiya</subdivision>
+			<subdivision type="gbshf" draft="contributed">Şeffild</subdivision>
+			<subdivision type="gbslf" draft="contributed">Salford</subdivision>
+			<subdivision type="gbsom" draft="contributed">Somerset</subdivision>
+			<subdivision type="gbsos" draft="contributed">Sauthend-on-Si</subdivision>
+			<subdivision type="gbsry" draft="contributed">Surrey</subdivision>
+			<subdivision type="gbste" draft="contributed">Stok-on-Trent</subdivision>
+			<subdivision type="gbsth" draft="contributed">Sauthempton</subdivision>
+			<subdivision type="gbswa" draft="contributed">Suonsi</subdivision>
+			<subdivision type="gbukm" draft="contributed">Böyük Britaniya²</subdivision>
+			<subdivision type="gbwar" draft="contributed">Uorvikşir</subdivision>
+			<subdivision type="gbwls">Uels</subdivision>
+			<subdivision type="gbwlv" draft="contributed">Vulverhempton</subdivision>
+			<subdivision type="gbwsm" draft="contributed">Vestminster borosu</subdivision>
+			<subdivision type="gbyor" draft="contributed">York</subdivision>
+			<subdivision type="gbzet" draft="contributed">Şetland adaları</subdivision>
+			<subdivision type="geab" draft="contributed">Abxaziya</subdivision>
+			<subdivision type="geaj" draft="contributed">Acarıstan Muxtar Respublikası</subdivision>
+			<subdivision type="gegu" draft="contributed">Quriya</subdivision>
+			<subdivision type="geim" draft="contributed">İmeretiya</subdivision>
+			<subdivision type="geka" draft="contributed">Kaxetiya</subdivision>
+			<subdivision type="gekk" draft="contributed">Aşağı Kartli</subdivision>
+			<subdivision type="gemm" draft="contributed">Mtsxeta-Mtianeti</subdivision>
+			<subdivision type="gerl" draft="contributed">Raça-Leçxumi və Aşağı Svaneti diyarı</subdivision>
+			<subdivision type="gesj" draft="contributed">Samtsxe-Cavaxeti</subdivision>
+			<subdivision type="gesk" draft="contributed">Yuxarı Kartli</subdivision>
+			<subdivision type="gesz" draft="contributed">Sameqrelo-Yuxarı Svaneti diyarı</subdivision>
+			<subdivision type="getb" draft="contributed">Tbilisi</subdivision>
+			<subdivision type="gmb" draft="contributed">Banjul</subdivision>
+			<subdivision type="gnc" draft="contributed">Konakri</subdivision>
+			<subdivision type="gr69" draft="contributed">Afon</subdivision>
+			<subdivision type="gra" draft="contributed">Şərqi Makedoniya və Trakya</subdivision>
+			<subdivision type="grb" draft="contributed">Orta Makedoniya</subdivision>
+			<subdivision type="grc" draft="contributed">Qərbi Makedoniya</subdivision>
+			<subdivision type="gre" draft="contributed">Fessaliya</subdivision>
+			<subdivision type="gwbs" draft="contributed">Bisau</subdivision>
+			<subdivision type="hr21" draft="contributed">Zaqreb</subdivision>
+			<subdivision type="hubu" draft="contributed">Budapeşt</subdivision>
+			<subdivision type="hubz" draft="contributed">Borşod-Abauy-Zemplen</subdivision>
+			<subdivision type="hude" draft="contributed">Debrecen</subdivision>
+			<subdivision type="hudu" draft="contributed">Dunauyvaroş</subdivision>
+			<subdivision type="hups" draft="contributed">Peç</subdivision>
+			<subdivision type="huvm" draft="contributed">Vesprem</subdivision>
+			<subdivision type="idjk" draft="contributed">Cakarta</subdivision>
+			<subdivision type="idjw" draft="contributed">Yava</subdivision>
+			<subdivision type="idnu" draft="contributed">Kiçik Zond adaları</subdivision>
+			<subdivision type="idsl" draft="contributed">Sulavesi</subdivision>
+			<subdivision type="idsm" draft="contributed">Sumatra</subdivision>
+			<subdivision type="ieu" draft="contributed">Olster</subdivision>
+			<subdivision type="ild" draft="contributed">İsrail cənub dairəsi</subdivision>
+			<subdivision type="ilha" draft="contributed">Hayfa dairəsi</subdivision>
+			<subdivision type="iljm" draft="contributed">Qüds dairəsi</subdivision>
+			<subdivision type="ilm" draft="contributed">İsrail mərkəzi dairəsi</subdivision>
+			<subdivision type="ilta" draft="contributed">Təl-Əviv dairəsi</subdivision>
+			<subdivision type="ilz" draft="contributed">İsrail şimal dairəsi</subdivision>
+			<subdivision type="inap" draft="contributed">Andhra Pradeş</subdivision>
+			<subdivision type="inas" draft="contributed">Assam</subdivision>
+			<subdivision type="inbr" draft="contributed">Bihar</subdivision>
+			<subdivision type="indl" draft="contributed">Dehli</subdivision>
+			<subdivision type="inga" draft="contributed">Qoa</subdivision>
+			<subdivision type="ingj" draft="contributed">Qucarat</subdivision>
+			<subdivision type="inhp" draft="contributed">Himaçal Pradeş</subdivision>
+			<subdivision type="injk" draft="contributed">Cammu və Kəşmir</subdivision>
+			<subdivision type="inmh" draft="contributed">Maxaraştra</subdivision>
+			<subdivision type="inmn" draft="contributed">Manipur</subdivision>
+			<subdivision type="inmz" draft="contributed">Mizoram</subdivision>
+			<subdivision type="innl" draft="contributed">Naqalend</subdivision>
+			<subdivision type="inor" draft="contributed">Orissa</subdivision>
+			<subdivision type="inpb" draft="contributed">Pəncab ştatı</subdivision>
+			<subdivision type="inrj" draft="contributed">Racastan</subdivision>
+			<subdivision type="insk" draft="contributed">Sikkim</subdivision>
+			<subdivision type="intg" draft="contributed">Telanqana</subdivision>
+			<subdivision type="intr" draft="contributed">Tripura</subdivision>
+			<subdivision type="inup" draft="contributed">Uttar Pradeş</subdivision>
+			<subdivision type="iqan" draft="contributed">Əl-Anbar</subdivision>
+			<subdivision type="iqar" draft="contributed">Ərbil</subdivision>
+			<subdivision type="iqba" draft="contributed">Bəsrə</subdivision>
+			<subdivision type="iqbb" draft="contributed">Babil</subdivision>
+			<subdivision type="iqbg" draft="contributed">Bağdad</subdivision>
+			<subdivision type="iqda" draft="contributed">Dəhuk</subdivision>
+			<subdivision type="iqdi" draft="contributed">Diyalə</subdivision>
+			<subdivision type="iqdq" draft="contributed">Ziqar</subdivision>
+			<subdivision type="iqka" draft="contributed">Kərbəla</subdivision>
+			<subdivision type="iqki" draft="contributed">Kərkük</subdivision>
+			<subdivision type="iqma" draft="contributed">Meysan</subdivision>
+			<subdivision type="iqmu" draft="contributed">Əl-Müsənnə</subdivision>
+			<subdivision type="iqna" draft="contributed">Nəcəf</subdivision>
+			<subdivision type="iqni" draft="contributed">Ninəvə</subdivision>
+			<subdivision type="iqqa" draft="contributed">Əl-Qədisiyə</subdivision>
+			<subdivision type="iqsd" draft="contributed">Səlahəddin</subdivision>
+			<subdivision type="iqsu" draft="contributed">Süleymaniyə</subdivision>
+			<subdivision type="iqwa" draft="contributed">Vasit</subdivision>
+			<subdivision type="ir01" draft="contributed">Şərqi Azərbaycan ostanı</subdivision>
+			<subdivision type="ir02" draft="contributed">Qərbi Azərbaycan ostanı</subdivision>
+			<subdivision type="ir03" draft="contributed">Ərdəbil ostanı</subdivision>
+			<subdivision type="ir04" draft="contributed">İsfahan ostanı</subdivision>
+			<subdivision type="ir05" draft="contributed">İlam ostanı</subdivision>
+			<subdivision type="ir06" draft="contributed">Buşehr ostanı</subdivision>
+			<subdivision type="ir07" draft="contributed">Tehran ostanı</subdivision>
+			<subdivision type="ir08" draft="contributed">Çahar-Mahal və Bəxtiyari ostanı</subdivision>
+			<subdivision type="ir10" draft="contributed">Xuzistan ostanı</subdivision>
+			<subdivision type="ir11" draft="contributed">Zəncan ostanı</subdivision>
+			<subdivision type="ir12" draft="contributed">Simnan ostanı</subdivision>
+			<subdivision type="ir13" draft="contributed">Sistan və Bəlucistan ostanı</subdivision>
+			<subdivision type="ir14" draft="contributed">Fars ostanı</subdivision>
+			<subdivision type="ir15" draft="contributed">Kirman ostanı</subdivision>
+			<subdivision type="ir16" draft="contributed">Kürdüstan ostanı</subdivision>
+			<subdivision type="ir17" draft="contributed">Kirmanşah ostanı</subdivision>
+			<subdivision type="ir18" draft="contributed">Kohgiluyə və Boyer-Əhməd ostanı</subdivision>
+			<subdivision type="ir19" draft="contributed">Gilan ostanı</subdivision>
+			<subdivision type="ir20" draft="contributed">Luristan ostanı</subdivision>
+			<subdivision type="ir21" draft="contributed">Mazandaran ostanı</subdivision>
+			<subdivision type="ir22" draft="contributed">Mərkəzi ostanı</subdivision>
+			<subdivision type="ir23" draft="contributed">Hörmüzgan ostanı</subdivision>
+			<subdivision type="ir24" draft="contributed">Həmədan ostanı</subdivision>
+			<subdivision type="ir25" draft="contributed">Yəzd ostanı</subdivision>
+			<subdivision type="ir26" draft="contributed">Qum ostanı</subdivision>
+			<subdivision type="ir27" draft="contributed">Gülüstan ostanı</subdivision>
+			<subdivision type="ir28" draft="contributed">Qəzvin ostanı</subdivision>
+			<subdivision type="ir29" draft="contributed">Cənubi Xorasan ostanı</subdivision>
+			<subdivision type="ir30" draft="contributed">Rəzəvi Xorasan ostanı</subdivision>
+			<subdivision type="ir31" draft="contributed">Şimali Xorasan ostanı</subdivision>
+			<subdivision type="ir32" draft="contributed">Əlburz ostanı</subdivision>
+			<subdivision type="is1" draft="contributed">Hövüdborqarsvaydid</subdivision>
+			<subdivision type="is2" draft="contributed">Sudurnes</subdivision>
+			<subdivision type="is3" draft="contributed">Vesturland</subdivision>
+			<subdivision type="is4" draft="contributed">Vestfirdir</subdivision>
+			<subdivision type="is5" draft="contributed">Nordurland Vestra</subdivision>
+			<subdivision type="is6" draft="contributed">Nordürland Eystra</subdivision>
+			<subdivision type="is7" draft="contributed">Eystürland</subdivision>
+			<subdivision type="is8" draft="contributed">Südürland</subdivision>
+			<subdivision type="it21" draft="contributed">Pyemont</subdivision>
+			<subdivision type="it23" draft="contributed">Aosta Valley</subdivision>
+			<subdivision type="it25" draft="contributed">Lombardiya</subdivision>
+			<subdivision type="it32" draft="contributed">Trentino-Alto Adice</subdivision>
+			<subdivision type="it34" draft="contributed">Veneto</subdivision>
+			<subdivision type="it36" draft="contributed">Firulli-Venesiya-Culiya</subdivision>
+			<subdivision type="it42" draft="contributed">Liquriya</subdivision>
+			<subdivision type="it52" draft="contributed">Toskana</subdivision>
+			<subdivision type="it62" draft="contributed">Latsio</subdivision>
+			<subdivision type="it65" draft="contributed">Abruzzo</subdivision>
+			<subdivision type="it72" draft="contributed">Kampaniya</subdivision>
+			<subdivision type="it75" draft="contributed">Apuliya</subdivision>
+			<subdivision type="it77" draft="contributed">Bazilikata</subdivision>
+			<subdivision type="it78" draft="contributed">Kalabriya</subdivision>
+			<subdivision type="it82" draft="contributed">Siciliya</subdivision>
+			<subdivision type="it88" draft="contributed">Sardiniya</subdivision>
+			<subdivision type="itao" draft="contributed">Aosta</subdivision>
+			<subdivision type="itbz" draft="contributed">Cənubi Tirol</subdivision>
+			<subdivision type="itkr" draft="contributed">Krotone</subdivision>
+			<subdivision type="itme" draft="contributed">Messina</subdivision>
+			<subdivision type="itrg" draft="contributed">Raquza</subdivision>
+			<subdivision type="itsr" draft="contributed">Sirakuza</subdivision>
+			<subdivision type="jp01" draft="contributed">Hokkaydo (prefektura)</subdivision>
+			<subdivision type="jp02" draft="contributed">Aomori</subdivision>
+			<subdivision type="jp03" draft="contributed">İvate</subdivision>
+			<subdivision type="jp04" draft="contributed">Miyaqi</subdivision>
+			<subdivision type="jp05" draft="contributed">Akita</subdivision>
+			<subdivision type="jp06" draft="contributed">Yamaqata</subdivision>
+			<subdivision type="jp07" draft="contributed">Fukusima</subdivision>
+			<subdivision type="jp08" draft="contributed">İbaraki</subdivision>
+			<subdivision type="jp09" draft="contributed">Totiqi</subdivision>
+			<subdivision type="jp10" draft="contributed">Qumma</subdivision>
+			<subdivision type="jp11" draft="contributed">Saytama</subdivision>
+			<subdivision type="jp12" draft="contributed">Tiba</subdivision>
+			<subdivision type="jp13" draft="contributed">Tokio</subdivision>
+			<subdivision type="jp14" draft="contributed">Kanaqava</subdivision>
+			<subdivision type="jp15" draft="contributed">Niiqata</subdivision>
+			<subdivision type="jp16" draft="contributed">Toyama</subdivision>
+			<subdivision type="jp17" draft="contributed">İşikava</subdivision>
+			<subdivision type="jp18" draft="contributed">Fukui</subdivision>
+			<subdivision type="jp19" draft="contributed">Yamanaşi</subdivision>
+			<subdivision type="jp20" draft="contributed">Naqano</subdivision>
+			<subdivision type="jp21" draft="contributed">Qifu</subdivision>
+			<subdivision type="jp22" draft="contributed">Sidzuoka</subdivision>
+			<subdivision type="jp23" draft="contributed">Ayti</subdivision>
+			<subdivision type="jp24" draft="contributed">Mie</subdivision>
+			<subdivision type="jp25" draft="contributed">Şiqa</subdivision>
+			<subdivision type="jp26" draft="contributed">Kyoto</subdivision>
+			<subdivision type="jp27" draft="contributed">Osaka</subdivision>
+			<subdivision type="jp28" draft="contributed">Hyöqo</subdivision>
+			<subdivision type="jp29" draft="contributed">Nara</subdivision>
+			<subdivision type="jp30" draft="contributed">Vakayama</subdivision>
+			<subdivision type="jp31" draft="contributed">Tottori</subdivision>
+			<subdivision type="jp32" draft="contributed">Simane</subdivision>
+			<subdivision type="jp33" draft="contributed">Okayama</subdivision>
+			<subdivision type="jp34" draft="contributed">Xirosima</subdivision>
+			<subdivision type="jp35" draft="contributed">Yamaquti</subdivision>
+			<subdivision type="jp36" draft="contributed">Tokusima</subdivision>
+			<subdivision type="jp37" draft="contributed">Kaqava</subdivision>
+			<subdivision type="jp38" draft="contributed">Ehime</subdivision>
+			<subdivision type="jp39" draft="contributed">Koçi</subdivision>
+			<subdivision type="jp40" draft="contributed">Fukuoka</subdivision>
+			<subdivision type="jp41" draft="contributed">Saqa</subdivision>
+			<subdivision type="jp42" draft="contributed">Naqasaki</subdivision>
+			<subdivision type="jp43" draft="contributed">Kumamoto</subdivision>
+			<subdivision type="jp44" draft="contributed">Oita</subdivision>
+			<subdivision type="jp45" draft="contributed">Miyazaki</subdivision>
+			<subdivision type="jp46" draft="contributed">Kaqoşima</subdivision>
+			<subdivision type="jp47" draft="contributed">Okinava</subdivision>
+			<subdivision type="kgb" draft="contributed">Batkən vilayəti</subdivision>
+			<subdivision type="kgc" draft="contributed">Çuy vilayəti</subdivision>
+			<subdivision type="kggb" draft="contributed">Bişkek</subdivision>
+			<subdivision type="kggo" draft="contributed">Oş</subdivision>
+			<subdivision type="kgj" draft="contributed">Cəlalabad vilayəti</subdivision>
+			<subdivision type="kgn" draft="contributed">Narin vilayəti</subdivision>
+			<subdivision type="kgo" draft="contributed">Oş vilayəti</subdivision>
+			<subdivision type="kgt" draft="contributed">Talas vilayəti</subdivision>
+			<subdivision type="kgy" draft="contributed">İsıkgöl vilayəti</subdivision>
+			<subdivision type="kh12" draft="contributed">Pnompen</subdivision>
+			<subdivision type="kma" draft="contributed">Anjuan</subdivision>
+			<subdivision type="kmg" draft="contributed">Qrand Komor</subdivision>
+			<subdivision type="kmm" draft="contributed">Moheli</subdivision>
+			<subdivision type="kp01" draft="contributed">Pxenyan</subdivision>
+			<subdivision type="kp09" draft="contributed">Hamqyon-Pukto</subdivision>
+			<subdivision type="kp13" draft="contributed">Rason</subdivision>
+			<subdivision type="kp14" draft="contributed">Nampxo</subdivision>
+			<subdivision type="kr11" draft="contributed">Seul</subdivision>
+			<subdivision type="kr26" draft="contributed">Busan</subdivision>
+			<subdivision type="kr29" draft="contributed">Kvanju</subdivision>
+			<subdivision type="kr31" draft="contributed">Ulsan</subdivision>
+			<subdivision type="kr49" draft="contributed">Çejudo adası</subdivision>
+			<subdivision type="kzakm" draft="contributed">Aqmola vilayəti</subdivision>
+			<subdivision type="kzakt" draft="contributed">Aqtöbe vilayəti</subdivision>
+			<subdivision type="kzala" draft="contributed">Almatı</subdivision>
+			<subdivision type="kzalm" draft="contributed">Almatı vilayəti</subdivision>
+			<subdivision type="kzast" draft="contributed">Astana</subdivision>
+			<subdivision type="kzaty" draft="contributed">Atırau vilayəti</subdivision>
+			<subdivision type="kzbay" draft="contributed">Baykonur</subdivision>
+			<subdivision type="kzkar" draft="contributed">Karaqanda vilayəti</subdivision>
+			<subdivision type="kzkus" draft="contributed">Qostanay vilayəti</subdivision>
+			<subdivision type="kzkzy" draft="contributed">Qızılorda vilayəti</subdivision>
+			<subdivision type="kzman" draft="contributed">Manğıstau vilayəti</subdivision>
+			<subdivision type="kzpav" draft="contributed">Pavlodar vilayəti</subdivision>
+			<subdivision type="kzsev" draft="contributed">Şimalı Qazaxıstan vilayəti</subdivision>
+			<subdivision type="kzvos" draft="contributed">Şərqi Qazaxıstan əyaləti</subdivision>
+			<subdivision type="kzyuz" draft="contributed">Cənubi Qazaxıstan əyaləti</subdivision>
+			<subdivision type="kzzap" draft="contributed">Qərbi Qazaxıstan əyaləti</subdivision>
+			<subdivision type="kzzha" draft="contributed">Cambul vilayəti</subdivision>
+			<subdivision type="laou" draft="contributed">Udomsay əyaləti</subdivision>
+			<subdivision type="li01" draft="contributed">Balçers</subdivision>
+			<subdivision type="li02" draft="contributed">Eşen</subdivision>
+			<subdivision type="li07" draft="contributed">Şan</subdivision>
+			<subdivision type="li09" draft="contributed">Trizen</subdivision>
+			<subdivision type="li11" draft="contributed">Vaduts</subdivision>
+			<subdivision type="lt04" draft="contributed">Anikşçyay rayonu</subdivision>
+			<subdivision type="lucl" draft="contributed">Klervo</subdivision>
+			<subdivision type="lugr" draft="contributed">Qrevenmaxer</subdivision>
+			<subdivision type="lume" draft="contributed">Merş</subdivision>
+			<subdivision type="lv109" draft="contributed">Vilyan</subdivision>
+			<subdivision type="lvdgv" draft="contributed">Dauqavpils</subdivision>
+			<subdivision type="lvjel" draft="contributed">Yelqava</subdivision>
+			<subdivision type="lvjkb" draft="contributed">Yekabpils</subdivision>
+			<subdivision type="lvjur" draft="contributed">Yurmala</subdivision>
+			<subdivision type="lvrez" draft="contributed">Rezekne</subdivision>
+			<subdivision type="lvrix" draft="contributed">Riqa</subdivision>
+			<subdivision type="lvvmr" draft="contributed">Valmiera</subdivision>
+			<subdivision type="lyba" draft="contributed">Benqazi</subdivision>
+			<subdivision type="macas" draft="contributed">Kasablanka</subdivision>
+			<subdivision type="mafes" draft="contributed">Fəs</subdivision>
+			<subdivision type="mamoh" draft="contributed">Məhəmmədiyyə</subdivision>
+			<subdivision type="marab" draft="contributed">Rabat</subdivision>
+			<subdivision type="matng" draft="contributed">Tanjer</subdivision>
+			<subdivision type="mcco" draft="contributed">La-Kondamin</subdivision>
+			<subdivision type="mcla" draft="contributed">Larvotto</subdivision>
+			<subdivision type="mcmc" draft="contributed">Monte Karlo</subdivision>
+			<subdivision type="mcmg" draft="contributed">Moneqetti</subdivision>
+			<subdivision type="mcmo" draft="contributed">Monako Vill</subdivision>
+			<subdivision type="mcsr" draft="contributed">Sen-Roman</subdivision>
+			<subdivision type="mdba" draft="contributed">Belsı</subdivision>
+			<subdivision type="mdbd" draft="contributed">Bender</subdivision>
+			<subdivision type="mdcu" draft="contributed">Kişinyov</subdivision>
+			<subdivision type="mdga" draft="contributed">Qaqauziya</subdivision>
+			<subdivision type="mhmaj" draft="contributed">Macuro</subdivision>
+			<subdivision type="mk85" draft="contributed">Skopye</subdivision>
+			<subdivision type="mlbko" draft="contributed">Bamako</subdivision>
+			<subdivision type="mm07" draft="contributed">İravadi dairəsi</subdivision>
+			<subdivision type="mn1" draft="contributed">Ulan-Bator</subdivision>
+			<subdivision type="mn043" draft="contributed">Xovd aymakı</subdivision>
+			<subdivision type="mn046" draft="contributed">Uvs</subdivision>
+			<subdivision type="mn071" draft="contributed">Bayan-Ölgiy</subdivision>
+			<subdivision type="mn073" draft="contributed">Arxanqay</subdivision>
+			<subdivision type="mt60" draft="contributed">Valletta</subdivision>
+			<subdivision type="mupu" draft="contributed">Port Luiz</subdivision>
+			<subdivision type="mv26" draft="contributed">Kaafu atollu</subdivision>
+			<subdivision type="mvmle" draft="contributed">Male</subdivision>
+			<subdivision type="mwba" draft="contributed">Balaka</subdivision>
+			<subdivision type="mwbl" draft="contributed">Blantyre</subdivision>
+			<subdivision type="mwc" draft="contributed">Mərkəz bölgəsi</subdivision>
+			<subdivision type="mwck" draft="contributed">Chikwawa</subdivision>
+			<subdivision type="mwcr" draft="contributed">Chiradzulu</subdivision>
+			<subdivision type="mwct" draft="contributed">Chitipa</subdivision>
+			<subdivision type="mwde" draft="contributed">Dedza</subdivision>
+			<subdivision type="mwdo" draft="contributed">Dowa</subdivision>
+			<subdivision type="mwkr" draft="contributed">Karonga</subdivision>
+			<subdivision type="mwks" draft="contributed">Kasungu</subdivision>
+			<subdivision type="mwli" draft="contributed">Lilongwe</subdivision>
+			<subdivision type="mwlk" draft="contributed">Likoma</subdivision>
+			<subdivision type="mwmc" draft="contributed">Mchinji</subdivision>
+			<subdivision type="mwmg" draft="contributed">Mangochi</subdivision>
+			<subdivision type="mwmh" draft="contributed">Machinga</subdivision>
+			<subdivision type="mwmu" draft="contributed">Mulanje</subdivision>
+			<subdivision type="mwmw" draft="contributed">Mwanza</subdivision>
+			<subdivision type="mwmz" draft="contributed">Mzimba</subdivision>
+			<subdivision type="mwn" draft="contributed">Şimal bölgəsi</subdivision>
+			<subdivision type="mwnb" draft="contributed">Nkhata Bay</subdivision>
+			<subdivision type="mwne" draft="contributed">Neno</subdivision>
+			<subdivision type="mwni" draft="contributed">Ntchisi</subdivision>
+			<subdivision type="mwnk" draft="contributed">Nkhotakota</subdivision>
+			<subdivision type="mwns" draft="contributed">Nsanje</subdivision>
+			<subdivision type="mwnu" draft="contributed">Ntcheu</subdivision>
+			<subdivision type="mwph" draft="contributed">Phalombe</subdivision>
+			<subdivision type="mwru" draft="contributed">Rumphi</subdivision>
+			<subdivision type="mws" draft="contributed">Cənub bölgəsi</subdivision>
+			<subdivision type="mwsa" draft="contributed">Salima</subdivision>
+			<subdivision type="mwth" draft="contributed">Thyolo</subdivision>
+			<subdivision type="mwzo" draft="contributed">Zomba</subdivision>
+			<subdivision type="mxbcn" draft="contributed">Aşağı Kaliforniya</subdivision>
+			<subdivision type="mxchh" draft="contributed">Çiuaua</subdivision>
+			<subdivision type="mxcmx" draft="contributed">Mexiko</subdivision>
+			<subdivision type="mxoax" draft="contributed">Oaxaka</subdivision>
+			<subdivision type="my01" draft="contributed">Cohor</subdivision>
+			<subdivision type="my02" draft="contributed">Kedah</subdivision>
+			<subdivision type="my03" draft="contributed">Kelantan</subdivision>
+			<subdivision type="my04" draft="contributed">Malakka</subdivision>
+			<subdivision type="my05" draft="contributed">Neqeri Sembilan</subdivision>
+			<subdivision type="my06" draft="contributed">Pahanq</subdivision>
+			<subdivision type="my07" draft="contributed">Pinanq</subdivision>
+			<subdivision type="my08" draft="contributed">Perak</subdivision>
+			<subdivision type="my09" draft="contributed">Perlis</subdivision>
+			<subdivision type="my10" draft="contributed">Selanqor</subdivision>
+			<subdivision type="my11" draft="contributed">Trenqanu</subdivision>
+			<subdivision type="my12" draft="contributed">Sabah</subdivision>
+			<subdivision type="my13" draft="contributed">Saravak</subdivision>
+			<subdivision type="my14" draft="contributed">Kuala Lumpur</subdivision>
+			<subdivision type="my15" draft="contributed">Labuan</subdivision>
+			<subdivision type="my16" draft="contributed">Putracaya</subdivision>
+			<subdivision type="mzmpm" draft="contributed">Maputu</subdivision>
+			<subdivision type="ne8" draft="contributed">Niamey</subdivision>
+			<subdivision type="nlbq1" draft="contributed">Boneyr adası</subdivision>
+			<subdivision type="nlbq2" draft="contributed">Saba</subdivision>
+			<subdivision type="nlbq3" draft="contributed">Sint-Estatius</subdivision>
+			<subdivision type="nlgr" draft="contributed">Xroninqen</subdivision>
+			<subdivision type="nlnb" draft="contributed">Şimali Brabant</subdivision>
+			<subdivision type="nlnh" draft="contributed">Şimali Hollandiya</subdivision>
+			<subdivision type="nlut" draft="contributed">Utrext vilayəti</subdivision>
+			<subdivision type="nlzh" draft="contributed">Cənubi Hollandiya</subdivision>
+			<subdivision type="no03" draft="contributed">Oslo</subdivision>
+			<subdivision type="no21" draft="contributed">Şpisbergen</subdivision>
+			<subdivision type="no22" draft="contributed">Yan Mayen</subdivision>
+			<subdivision type="nr14" draft="contributed">Yaren</subdivision>
+			<subdivision type="nzcit" draft="contributed">Çatem</subdivision>
+			<subdivision type="pa8" draft="contributed">Panama əyaləti</subdivision>
+			<subdivision type="pgncd" draft="contributed">Port Morsbi</subdivision>
+			<subdivision type="ph14" draft="contributed">Müsəlman Mindanao muxtar regionu</subdivision>
+			<subdivision type="phbil" draft="contributed">Biliran adası</subdivision>
+			<subdivision type="phboh" draft="contributed">Bohol</subdivision>
+			<subdivision type="phmad" draft="contributed">Marinduke</subdivision>
+			<subdivision type="phzmb" draft="contributed">Zambales</subdivision>
+			<subdivision type="pkba" draft="contributed">Bəlucistan</subdivision>
+			<subdivision type="pkgb" draft="contributed">Gilgit-Baltistan</subdivision>
+			<subdivision type="pkjk" draft="contributed">Azad Kəşmir</subdivision>
+			<subdivision type="pkpb" draft="contributed">Pəncab</subdivision>
+			<subdivision type="pt20" draft="contributed">Azor adaları</subdivision>
+			<subdivision type="pt30" draft="contributed">Madeyra</subdivision>
+			<subdivision type="pyasu" draft="contributed">Asunson</subdivision>
+			<subdivision type="qada" draft="contributed">Doha</subdivision>
+			<subdivision type="rob" draft="contributed">Buxarest</subdivision>
+			<subdivision type="rs00" draft="contributed">Belqrad</subdivision>
+			<subdivision type="rskm" draft="contributed">Kosova ve Metohiya muxtar vilayəti</subdivision>
+			<subdivision type="rsvo" draft="contributed">Voevodina</subdivision>
+			<subdivision type="ruad" draft="contributed">Adıgey</subdivision>
+			<subdivision type="rual" draft="contributed">Altay Respublikası</subdivision>
+			<subdivision type="rualt" draft="contributed">Altay diyarı</subdivision>
+			<subdivision type="ruamu" draft="contributed">Amur vilayəti</subdivision>
+			<subdivision type="ruark" draft="contributed">Arxangelsk vilayəti</subdivision>
+			<subdivision type="ruast" draft="contributed">Həştərxan vilayəti</subdivision>
+			<subdivision type="ruba" draft="contributed">Başqırdıstan</subdivision>
+			<subdivision type="rubel" draft="contributed">Belqorod vilayəti</subdivision>
+			<subdivision type="rubry" draft="contributed">Bryansk vilayəti</subdivision>
+			<subdivision type="rubu" draft="contributed">Buryatiya</subdivision>
+			<subdivision type="ruce" draft="contributed">Çeçenistan</subdivision>
+			<subdivision type="ruche" draft="contributed">Çelyabinsk vilayəti</subdivision>
+			<subdivision type="ruchu" draft="contributed">Çukotka Muxtar Dairəsi</subdivision>
+			<subdivision type="rucu" draft="contributed">Çuvaşıstan</subdivision>
+			<subdivision type="ruda" draft="contributed">Dağıstan</subdivision>
+			<subdivision type="ruin" draft="contributed">İnquşetiya</subdivision>
+			<subdivision type="ruirk" draft="contributed">İrkutsk vilayəti</subdivision>
+			<subdivision type="ruiva" draft="contributed">İvanovo vilayəti</subdivision>
+			<subdivision type="rukam" draft="contributed">Kamçatka diyarı</subdivision>
+			<subdivision type="rukb" draft="contributed">Kabardin-Balkariya</subdivision>
+			<subdivision type="rukc" draft="contributed">Qaraçay-Çerkesiya</subdivision>
+			<subdivision type="rukda" draft="contributed">Krasnodar diyarı</subdivision>
+			<subdivision type="rukem" draft="contributed">Kemerovo vilayəti</subdivision>
+			<subdivision type="rukgd" draft="contributed">Kalininqrad vilayəti</subdivision>
+			<subdivision type="rukgn" draft="contributed">Kurqan vilayəti</subdivision>
+			<subdivision type="rukha" draft="contributed">Xabarovsk diyarı</subdivision>
+			<subdivision type="rukhm" draft="contributed">Xantı-Mansi Muxtar Dairəsi</subdivision>
+			<subdivision type="rukir" draft="contributed">Kirov vilayəti</subdivision>
+			<subdivision type="rukk" draft="contributed">Xakasiya</subdivision>
+			<subdivision type="rukl" draft="contributed">Kalmıkiya</subdivision>
+			<subdivision type="ruklu" draft="contributed">Kaluqa vilayəti</subdivision>
+			<subdivision type="ruko" draft="contributed">Komi Respublikası</subdivision>
+			<subdivision type="rukos" draft="contributed">Kostroma vilayəti</subdivision>
+			<subdivision type="rukr" draft="contributed">Kareliya Respublikası</subdivision>
+			<subdivision type="rukrs" draft="contributed">Kursk vilayəti</subdivision>
+			<subdivision type="rukya" draft="contributed">Krasnoyarsk diyarı</subdivision>
+			<subdivision type="rulen" draft="contributed">Leninqrad vilayəti</subdivision>
+			<subdivision type="rulip" draft="contributed">Lipetsk vilayəti</subdivision>
+			<subdivision type="rumag" draft="contributed">Maqadan vilayəti</subdivision>
+			<subdivision type="rume" draft="contributed">Mari El</subdivision>
+			<subdivision type="rumo" draft="contributed">Mordoviya</subdivision>
+			<subdivision type="rumos" draft="contributed">Moskva vilayəti</subdivision>
+			<subdivision type="rumow" draft="contributed">Moskva</subdivision>
+			<subdivision type="rumur" draft="contributed">Murmansk vilayəti</subdivision>
+			<subdivision type="runen" draft="contributed">Nenets Muxtar Dairəsi</subdivision>
+			<subdivision type="rungr" draft="contributed">Novqorod vilayəti</subdivision>
+			<subdivision type="runiz" draft="contributed">Nijeqorod vilayəti</subdivision>
+			<subdivision type="runvs" draft="contributed">Novosibirsk vilayəti</subdivision>
+			<subdivision type="ruoms" draft="contributed">Omsk vilayəti</subdivision>
+			<subdivision type="ruore" draft="contributed">Orenburq vilayəti</subdivision>
+			<subdivision type="ruorl" draft="contributed">Orlov vilayəti</subdivision>
+			<subdivision type="ruper" draft="contributed">Perm diyarı</subdivision>
+			<subdivision type="rupnz" draft="contributed">Penza vilayəti</subdivision>
+			<subdivision type="rupri" draft="contributed">Primorsk diyarı</subdivision>
+			<subdivision type="rupsk" draft="contributed">Pskov vilayəti</subdivision>
+			<subdivision type="ruros" draft="contributed">Rostov vilayəti</subdivision>
+			<subdivision type="rurya" draft="contributed">Ryazan vilayəti</subdivision>
+			<subdivision type="rusa" draft="contributed">Saxa Respublikası</subdivision>
+			<subdivision type="rusak" draft="contributed">Saxalin vilayəti</subdivision>
+			<subdivision type="rusam" draft="contributed">Samara vilayəti</subdivision>
+			<subdivision type="rusar" draft="contributed">Saratov vilayəti</subdivision>
+			<subdivision type="ruse" draft="contributed">Şimali Osetiya</subdivision>
+			<subdivision type="rusmo" draft="contributed">Smolensk vilayəti</subdivision>
+			<subdivision type="ruspe" draft="contributed">Sankt-Peterburq</subdivision>
+			<subdivision type="rusta" draft="contributed">Stavropol diyarı</subdivision>
+			<subdivision type="rusve" draft="contributed">Sverdlovsk vilayəti</subdivision>
+			<subdivision type="ruta" draft="contributed">Tatarıstan</subdivision>
+			<subdivision type="rutam" draft="contributed">Tambov vilayəti</subdivision>
+			<subdivision type="rutom" draft="contributed">Tomsk vilayəti</subdivision>
+			<subdivision type="rutul" draft="contributed">Tula vilayəti</subdivision>
+			<subdivision type="rutve" draft="contributed">Tver vilayəti</subdivision>
+			<subdivision type="ruty" draft="contributed">Tıva</subdivision>
+			<subdivision type="rutyu" draft="contributed">Tümen vilayəti</subdivision>
+			<subdivision type="ruud" draft="contributed">Udmurtiya</subdivision>
+			<subdivision type="ruuly" draft="contributed">Ulyanovsk vilayəti</subdivision>
+			<subdivision type="ruvgg" draft="contributed">Volqoqrad vilayəti</subdivision>
+			<subdivision type="ruvla" draft="contributed">Vladimir vilayəti</subdivision>
+			<subdivision type="ruvlg" draft="contributed">Voloqda vilayəti</subdivision>
+			<subdivision type="ruvor" draft="contributed">Voronej vilayəti</subdivision>
+			<subdivision type="ruyan" draft="contributed">Yamalo-Nenets Muxtar Dairəsi</subdivision>
+			<subdivision type="ruyar" draft="contributed">Yaroslavl vilayəti</subdivision>
+			<subdivision type="ruyev" draft="contributed">Yəhudi Muxtar Vilayəti</subdivision>
+			<subdivision type="ruzab" draft="contributed">Zabaykalsk diyarı</subdivision>
+			<subdivision type="rw01" draft="contributed">Kiqali</subdivision>
+			<subdivision type="sbct" draft="contributed">Honiara</subdivision>
+			<subdivision type="sem" draft="contributed">Skane</subdivision>
+			<subdivision type="shac" draft="contributed">Askenson adası</subdivision>
+			<subdivision type="shhl" draft="contributed">Müqəddəs Yelena adası</subdivision>
+			<subdivision type="skbc" draft="contributed">Banska Bistritsa bölgəsi</subdivision>
+			<subdivision type="skbl" draft="contributed">Bratislava bölgəsi</subdivision>
+			<subdivision type="skki" draft="contributed">Koşitse bölgəsi</subdivision>
+			<subdivision type="skni" draft="contributed">Nitra bölgəsi</subdivision>
+			<subdivision type="skpv" draft="contributed">Preşov bölgəsi</subdivision>
+			<subdivision type="skta" draft="contributed">Trnava bölgəsi</subdivision>
+			<subdivision type="sktc" draft="contributed">Trençin bölgəsi</subdivision>
+			<subdivision type="skzi" draft="contributed">Jilina bölgəsi</subdivision>
+			<subdivision type="sm07" draft="contributed">San Marino</subdivision>
+			<subdivision type="sydy" draft="contributed">Deyr əz-Zor mühafazası</subdivision>
+			<subdivision type="syha" draft="contributed">Əl-Həsəkə mühafazası</subdivision>
+			<subdivision type="syhi" draft="contributed">Hims mühafazası</subdivision>
+			<subdivision type="syhl" draft="contributed">Hələb mühafazası</subdivision>
+			<subdivision type="syhm" draft="contributed">Həma mühafazası</subdivision>
+			<subdivision type="syid" draft="contributed">İdlib mühafazası</subdivision>
+			<subdivision type="syla" draft="contributed">Latakiya mühafazası</subdivision>
+			<subdivision type="syqu" draft="contributed">Əl-Qüneytrə mühafazası</subdivision>
+			<subdivision type="syra" draft="contributed">Ər-Rəqqə mühafazası</subdivision>
+			<subdivision type="syrd" draft="contributed">Dəməşq mühafazası</subdivision>
+			<subdivision type="sysu" draft="contributed">Əs-Süveydə mühafazası</subdivision>
+			<subdivision type="syta" draft="contributed">Tərtus mühafazası</subdivision>
+			<subdivision type="tdnd" draft="contributed">Ncamena</subdivision>
+			<subdivision type="th10" draft="contributed">Banqkok</subdivision>
+			<subdivision type="th94" draft="contributed">Pattani</subdivision>
+			<subdivision type="tjdu" draft="contributed">Düşənbə</subdivision>
+			<subdivision type="tjgb" draft="contributed">Dağlıq Bədəxşan Muxtar Vilayəti</subdivision>
+			<subdivision type="tjsu" draft="contributed">Sogd vilayəti</subdivision>
+			<subdivision type="tlmf" draft="contributed">Manufaxi</subdivision>
+			<subdivision type="tma" draft="contributed">Ahal vilayəti</subdivision>
+			<subdivision type="tmb" draft="contributed">Balkan vilayəti</subdivision>
+			<subdivision type="tmd" draft="contributed">Daşoğuz vilayəti</subdivision>
+			<subdivision type="tml" draft="contributed">Lebap vilayəti</subdivision>
+			<subdivision type="tmm" draft="contributed">Marı vilayəti</subdivision>
+			<subdivision type="tms" draft="contributed">Aşqabad</subdivision>
+			<subdivision type="tr01" draft="contributed">Adana vilayəti</subdivision>
+			<subdivision type="tr02" draft="contributed">Adıyaman vilayəti</subdivision>
+			<subdivision type="tr03" draft="contributed">Afyonkarahisar vilayəti</subdivision>
+			<subdivision type="tr04" draft="contributed">Ağrı vilayəti</subdivision>
+			<subdivision type="tr05" draft="contributed">Amasya vilayəti</subdivision>
+			<subdivision type="tr06" draft="contributed">Ankara ili</subdivision>
+			<subdivision type="tr07" draft="contributed">Antalya vilayəti</subdivision>
+			<subdivision type="tr08" draft="contributed">Artvin vilayəti</subdivision>
+			<subdivision type="tr09" draft="contributed">Aydın vilayəti</subdivision>
+			<subdivision type="tr10" draft="contributed">Balıkəsir vilayəti</subdivision>
+			<subdivision type="tr11" draft="contributed">Biləcik vilayəti</subdivision>
+			<subdivision type="tr12" draft="contributed">Bingöl vilayəti</subdivision>
+			<subdivision type="tr13" draft="contributed">Bitlis vilayəti</subdivision>
+			<subdivision type="tr14" draft="contributed">Bolu vilayəti</subdivision>
+			<subdivision type="tr15" draft="contributed">Burdur vilayəti</subdivision>
+			<subdivision type="tr16" draft="contributed">Bursa vilayəti</subdivision>
+			<subdivision type="tr17" draft="contributed">Çanaqqala vilayəti</subdivision>
+			<subdivision type="tr18" draft="contributed">Çankırı ili</subdivision>
+			<subdivision type="tr19" draft="contributed">Çorum ili</subdivision>
+			<subdivision type="tr20" draft="contributed">Dənizli vilayəti</subdivision>
+			<subdivision type="tr21" draft="contributed">Diyarbəkir vilayəti</subdivision>
+			<subdivision type="tr22" draft="contributed">Ədirnə vilayəti</subdivision>
+			<subdivision type="tr23" draft="contributed">Elazığ ili</subdivision>
+			<subdivision type="tr24" draft="contributed">Ərzincan ili</subdivision>
+			<subdivision type="tr25" draft="contributed">Ərzurum ili</subdivision>
+			<subdivision type="tr26" draft="contributed">Əskişəhər ili</subdivision>
+			<subdivision type="tr27" draft="contributed">Qaziantep ili</subdivision>
+			<subdivision type="tr28" draft="contributed">Girəsun ili</subdivision>
+			<subdivision type="tr29" draft="contributed">Gümüşxanə ili</subdivision>
+			<subdivision type="tr30" draft="contributed">Hakkari vilayəti</subdivision>
+			<subdivision type="tr31" draft="contributed">Hatay vilayəti</subdivision>
+			<subdivision type="tr32" draft="contributed">İsparta ili</subdivision>
+			<subdivision type="tr33" draft="contributed">Mersin vilayəti</subdivision>
+			<subdivision type="tr34" draft="contributed">İstanbul ili</subdivision>
+			<subdivision type="tr35" draft="contributed">İzmir ili</subdivision>
+			<subdivision type="tr36" draft="contributed">Qars vilayəti</subdivision>
+			<subdivision type="tr37" draft="contributed">Kastamonu ili</subdivision>
+			<subdivision type="tr38" draft="contributed">Kayseri ili</subdivision>
+			<subdivision type="tr39" draft="contributed">Kırklareli ili</subdivision>
+			<subdivision type="tr40" draft="contributed">Kırşəhər vilayəti</subdivision>
+			<subdivision type="tr41" draft="contributed">Kocaeli vilayəti</subdivision>
+			<subdivision type="tr42" draft="contributed">Konya vilayəti</subdivision>
+			<subdivision type="tr43" draft="contributed">Kütahya vilayəti</subdivision>
+			<subdivision type="tr44" draft="contributed">Malatya vilayəti</subdivision>
+			<subdivision type="tr45" draft="contributed">Manisa vilayəti</subdivision>
+			<subdivision type="tr46" draft="contributed">Qəhrəmanmaraş ili</subdivision>
+			<subdivision type="tr47" draft="contributed">Mardin vilayəti</subdivision>
+			<subdivision type="tr48" draft="contributed">Muğla vilayəti</subdivision>
+			<subdivision type="tr49" draft="contributed">Muş ili</subdivision>
+			<subdivision type="tr50" draft="contributed">Nevşəhər ili</subdivision>
+			<subdivision type="tr51" draft="contributed">Niğdə ili</subdivision>
+			<subdivision type="tr52" draft="contributed">Ordu ili</subdivision>
+			<subdivision type="tr53" draft="contributed">Rizə ili</subdivision>
+			<subdivision type="tr54" draft="contributed">Sakarya vilayəti</subdivision>
+			<subdivision type="tr55" draft="contributed">Samsun ili</subdivision>
+			<subdivision type="tr56" draft="contributed">Siirt ili</subdivision>
+			<subdivision type="tr57" draft="contributed">Sinop vilayəti</subdivision>
+			<subdivision type="tr58" draft="contributed">Sivas ili</subdivision>
+			<subdivision type="tr59" draft="contributed">Təkirdağ vilayəti</subdivision>
+			<subdivision type="tr60" draft="contributed">Toqat ili</subdivision>
+			<subdivision type="tr61" draft="contributed">Trabzon ili</subdivision>
+			<subdivision type="tr62" draft="contributed">Tuncəli ili</subdivision>
+			<subdivision type="tr63" draft="contributed">Şanlıurfa ili</subdivision>
+			<subdivision type="tr64" draft="contributed">Uşaq ili</subdivision>
+			<subdivision type="tr65" draft="contributed">Van vilayəti</subdivision>
+			<subdivision type="tr66" draft="contributed">Yozqat vilayəti</subdivision>
+			<subdivision type="tr67" draft="contributed">Zonquldak ili</subdivision>
+			<subdivision type="tr68" draft="contributed">Ağsaray vilayəti</subdivision>
+			<subdivision type="tr69" draft="contributed">Bayburt ili</subdivision>
+			<subdivision type="tr70" draft="contributed">Karaman ili</subdivision>
+			<subdivision type="tr72" draft="contributed">Batman vilayəti</subdivision>
+			<subdivision type="tr73" draft="contributed">Şırnaq ili</subdivision>
+			<subdivision type="tr74" draft="contributed">Bartın vilayəti</subdivision>
+			<subdivision type="tr75" draft="contributed">Ərdəhan vilayəti</subdivision>
+			<subdivision type="tr76" draft="contributed">İğdır vilayəti</subdivision>
+			<subdivision type="tr77" draft="contributed">Yalova ili</subdivision>
+			<subdivision type="tr78" draft="contributed">Karabük ili</subdivision>
+			<subdivision type="tr79" draft="contributed">Kilis vilayəti</subdivision>
+			<subdivision type="tr80" draft="contributed">Osmaniyə ili</subdivision>
+			<subdivision type="tr81" draft="contributed">Düzcə ili</subdivision>
+			<subdivision type="ttcha" draft="contributed">Çaquanas</subdivision>
+			<subdivision type="ttpos" draft="contributed">Port of Spein</subdivision>
+			<subdivision type="tvfun" draft="contributed">Funafuti</subdivision>
+			<subdivision type="twkee" draft="contributed">Kiilunq</subdivision>
+			<subdivision type="twkin" draft="contributed">Szinmınsyundao</subdivision>
+			<subdivision type="twtpe" draft="contributed">Taybey</subdivision>
+			<subdivision type="ua05" draft="contributed">Vinnitsya vilayəti</subdivision>
+			<subdivision type="ua07" draft="contributed">Volın vilayəti</subdivision>
+			<subdivision type="ua09" draft="contributed">Luqansk vilayəti</subdivision>
+			<subdivision type="ua12" draft="contributed">Dnepropetrovsk vilayəti</subdivision>
+			<subdivision type="ua14" draft="contributed">Donetsk Oblastı</subdivision>
+			<subdivision type="ua18" draft="contributed">Jitomir vilayəti</subdivision>
+			<subdivision type="ua21" draft="contributed">Zakarpattya vilayəti</subdivision>
+			<subdivision type="ua23" draft="contributed">Zaporojya vilayəti</subdivision>
+			<subdivision type="ua26" draft="contributed">İvano-Frankivsk vilayəti</subdivision>
+			<subdivision type="ua30" draft="contributed">Kiyev</subdivision>
+			<subdivision type="ua32" draft="contributed">Kiyev vilayəti</subdivision>
+			<subdivision type="ua35" draft="contributed">Kirovoqrad vilayəti</subdivision>
+			<subdivision type="ua40" draft="contributed">Sevastopol</subdivision>
+			<subdivision type="ua43" draft="contributed">Krım Muxtar Respublikası</subdivision>
+			<subdivision type="ua46" draft="contributed">Lvov vilayəti</subdivision>
+			<subdivision type="ua48" draft="contributed">Nikolayev vilayəti</subdivision>
+			<subdivision type="ua51" draft="contributed">Odessa vilayəti</subdivision>
+			<subdivision type="ua53" draft="contributed">Poltava vilayəti</subdivision>
+			<subdivision type="ua56" draft="contributed">Rivne vilayəti</subdivision>
+			<subdivision type="ua59" draft="contributed">Sumı vilayəti</subdivision>
+			<subdivision type="ua61" draft="contributed">Ternopil vilayəti</subdivision>
+			<subdivision type="ua63" draft="contributed">Xarkov vilayəti</subdivision>
+			<subdivision type="ua65" draft="contributed">Xerson vilayəti</subdivision>
+			<subdivision type="ua68" draft="contributed">Xmelnitski vilayəti</subdivision>
+			<subdivision type="ua71" draft="contributed">Çerkası vilayəti</subdivision>
+			<subdivision type="ua74" draft="contributed">Çerniqov vilayəti</subdivision>
+			<subdivision type="ua77" draft="contributed">Çernivtsı vilayəti</subdivision>
+			<subdivision type="um67" draft="contributed">Conston rifi</subdivision>
+			<subdivision type="um71" draft="contributed">Miduey rifi</subdivision>
+			<subdivision type="um76" draft="contributed">Navassa adası</subdivision>
+			<subdivision type="um79" draft="contributed">Ueyk rifi</subdivision>
+			<subdivision type="um81" draft="contributed">Beyker adası</subdivision>
+			<subdivision type="um84" draft="contributed">Haulend adası</subdivision>
+			<subdivision type="um86" draft="contributed">Carvis adası</subdivision>
+			<subdivision type="um89" draft="contributed">Kinqmen rifi</subdivision>
+			<subdivision type="um95" draft="contributed">Palmira rifi</subdivision>
+			<subdivision type="usak" draft="contributed">Alyaska</subdivision>
+			<subdivision type="usal" draft="contributed">Alabama</subdivision>
+			<subdivision type="usar" draft="contributed">Arkanzas</subdivision>
+			<subdivision type="usaz" draft="contributed">Arizona</subdivision>
+			<subdivision type="usca" draft="contributed">Kaliforniya</subdivision>
+			<subdivision type="usco" draft="contributed">Kolorado</subdivision>
+			<subdivision type="usct" draft="contributed">Konnektikut</subdivision>
+			<subdivision type="usdc" draft="contributed">Vaşinqton</subdivision>
+			<subdivision type="usde" draft="contributed">Delaver</subdivision>
+			<subdivision type="usfl" draft="contributed">Florida</subdivision>
+			<subdivision type="usga" draft="contributed">Corciya</subdivision>
+			<subdivision type="ushi" draft="contributed">Havay</subdivision>
+			<subdivision type="usia" draft="contributed">Ayova</subdivision>
+			<subdivision type="usid" draft="contributed">Aydaho</subdivision>
+			<subdivision type="usil" draft="contributed">İllinoys</subdivision>
+			<subdivision type="usin" draft="contributed">İndiana</subdivision>
+			<subdivision type="usks" draft="contributed">Kanzas</subdivision>
+			<subdivision type="usky" draft="contributed">Kentukki</subdivision>
+			<subdivision type="usla" draft="contributed">Luiziana</subdivision>
+			<subdivision type="usma" draft="contributed">Massaçusets</subdivision>
+			<subdivision type="usmd" draft="contributed">Merilend</subdivision>
+			<subdivision type="usme" draft="contributed">Men</subdivision>
+			<subdivision type="usmi" draft="contributed">Miçiqan</subdivision>
+			<subdivision type="usmn" draft="contributed">Minnesota</subdivision>
+			<subdivision type="usmo" draft="contributed">Missuri</subdivision>
+			<subdivision type="usms" draft="contributed">Missisipi</subdivision>
+			<subdivision type="usmt" draft="contributed">Montana</subdivision>
+			<subdivision type="usnc" draft="contributed">Şimali Karolina</subdivision>
+			<subdivision type="usnd" draft="contributed">Şimali Dakota</subdivision>
+			<subdivision type="usne" draft="contributed">Nebraska</subdivision>
+			<subdivision type="usnh" draft="contributed">Nyu Hempşir</subdivision>
+			<subdivision type="usnj" draft="contributed">Nyu Cersi</subdivision>
+			<subdivision type="usnm" draft="contributed">Nyu Meksiko</subdivision>
+			<subdivision type="usnv" draft="contributed">Nevada</subdivision>
+			<subdivision type="usny" draft="contributed">Nyu York</subdivision>
+			<subdivision type="usoh" draft="contributed">Ohayo</subdivision>
+			<subdivision type="usok" draft="contributed">Oklahoma</subdivision>
+			<subdivision type="usor" draft="contributed">Oreqon</subdivision>
+			<subdivision type="uspa" draft="contributed">Pensilvaniya</subdivision>
+			<subdivision type="usri" draft="contributed">Rod-Aylend</subdivision>
+			<subdivision type="ussc" draft="contributed">Cənubi Karolina</subdivision>
+			<subdivision type="ussd" draft="contributed">Cənubi Dakota</subdivision>
+			<subdivision type="ustn" draft="contributed">Tennessi</subdivision>
+			<subdivision type="ustx" draft="contributed">Texas</subdivision>
+			<subdivision type="usut" draft="contributed">Yuta</subdivision>
+			<subdivision type="usva" draft="contributed">Virciniya</subdivision>
+			<subdivision type="usvt" draft="contributed">Vermont</subdivision>
+			<subdivision type="uswa" draft="contributed">Vaşinqton²</subdivision>
+			<subdivision type="uswi" draft="contributed">Viskonsin</subdivision>
+			<subdivision type="uswv" draft="contributed">Qərbi Virciniya</subdivision>
+			<subdivision type="uswy" draft="contributed">Vayominq</subdivision>
+			<subdivision type="uymo" draft="contributed">Montevideo</subdivision>
+			<subdivision type="uzan" draft="contributed">Əndican vilayəti</subdivision>
+			<subdivision type="uzbu" draft="contributed">Buxara vilayəti</subdivision>
+			<subdivision type="uzfa" draft="contributed">Fərqanə vilayəti</subdivision>
+			<subdivision type="uzji" draft="contributed">Cizzəx vilayəti</subdivision>
+			<subdivision type="uzng" draft="contributed">Namangan Vilayəti</subdivision>
+			<subdivision type="uznw" draft="contributed">Nəvai vilayəti</subdivision>
+			<subdivision type="uzqa" draft="contributed">Qaşqadərya vilayəti</subdivision>
+			<subdivision type="uzqr" draft="contributed">Qaraqalpaqıstan Respublikası</subdivision>
+			<subdivision type="uzsa" draft="contributed">Səmərqənd vilayəti</subdivision>
+			<subdivision type="uzsi" draft="contributed">Sırdərya vilayəti</subdivision>
+			<subdivision type="uzsu" draft="contributed">Surxandərya vilayəti</subdivision>
+			<subdivision type="uztk" draft="contributed">Daşkənd</subdivision>
+			<subdivision type="uzto" draft="contributed">Daşkənd vilayəti</subdivision>
+			<subdivision type="uzxo" draft="contributed">Xarəzm vilayəti</subdivision>
+			<subdivision type="vndn" draft="contributed">Dananq</subdivision>
+			<subdivision type="vnhn" draft="contributed">Hanoy</subdivision>
+			<subdivision type="vnsg" draft="contributed">Hoşimin</subdivision>
+			<subdivision type="yesa" draft="contributed">Sana</subdivision>
+			<subdivision type="zaec" draft="contributed">Şərqi Burun vilayəti</subdivision>
+			<subdivision type="zafs" draft="contributed">Fri Steyt vilayəti</subdivision>
+			<subdivision type="zagt" draft="contributed">Qautenq vilayəti</subdivision>
+			<subdivision type="zalp" draft="contributed">Limpopo vilayəti</subdivision>
+			<subdivision type="zamp" draft="contributed">Mpumalanqa vilayəti</subdivision>
+			<subdivision type="zanc" draft="contributed">Şimal Burun əyaləti</subdivision>
+			<subdivision type="zanl" draft="contributed">Kvazulu-Natal vilayəti</subdivision>
+			<subdivision type="zanw" draft="contributed">Şimal-Qərb vilayəti</subdivision>
+			<subdivision type="zawc" draft="contributed">Qərbi Kaap vilayəti</subdivision>
+		</subdivisions>
+	</localeDisplayNames>
+</ldml>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 2018 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="ha" target="ha_NE" direction="forward" alias="ha-NE-t-ha">
+			<tRule>
+:: [yYƴƳʼ] ;
+:: NFC ;
+
+ʼy→ƴ ;
+ʼY→Ƴ ;
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

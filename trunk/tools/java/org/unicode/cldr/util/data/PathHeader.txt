@@ -1,0 +1,423 @@
+# Date for generating Section/Page/Header/Code in Survey Tool and elsewhere.
+# IMPORTANT:
+# Be careful, order matters. It is used to determine the order on the page and in menus. Also, be sure to put longer matches first, unless terminated with $.
+# The quoting of \[ is handled automatically, as is alt=X
+# If you add new paths, change @type="..." => @type="%A"
+# The syntax &function(data) means that a function generates both the string AND the ordering. The functions MUST be supported in PathHeader.java
+# To use alphabetic ordering for a header or code, call &alphaOrder()
+# The only function that can be in Page right now are &metazone and &calendar, and NO functions can be in Section
+# A * at the front (like *$1) means to not change the sorting group.
+
+# VARIABLES
+%a = [^"]*+
+%A = ([^"]*+)
+%B = ([^"/]*+)
+%E = ([-a-zA-Z_]*)
+%F = (electric|frequency)
+%H = ([hH])
+%L = (long|short|narrow)
+%M = (Alaska_Hawaii|Bering|Dominican|Goose_Bay|Greenland_Central|Yukon|Dutch_Guiana|Africa_FarWestern|Liberia|British|Irish|Kuybyshev|Sverdlovsk|Baku|Tbilisi|Turkey|Yerevan|Aktyubinsk|Ashkhabad|Dushanbe|Frunze|Kizilorda|Oral|Samarkand|Shevchenko|Tashkent|Uralsk|Urumqi|Dacca|Karachi|Borneo|Malaya|Kwajalein)
+%N = (gregorian|generic|buddhist|chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|japanese|persian|roc)
+%O = (gregorian|chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|persian)
+%P = (future|past)
+%R = (gregorian|buddhist|coptic|ethiopic|ethiopic-amete-alem|hebrew|indian|islamic|japanese|persian|roc)
+%S = ([^/]*+)
+%T = (nanosecond|microsecond|millisecond|second|minute|hour|day|week|month|year|century)
+%V = (speed|acceleration)
+%W = (temperature|pressure)
+%X = (energy|power)
+
+#RULES
+//ldml/identity/%E[@type="%A"]    ; Special ; Identity ; $1 ; $2 ; HIDE
+//ldml/identity/version                 ; Special ; Version ; null ; version ; HIDE
+//ldml/identity/generation                 ; Special ; Version ; null ; generation ; HIDE
+
+# default items need to be deprecated but haven't been yet.
+//ldml/(.*)/default$         ; Special ; Suppress ; Default ; $1 ; HIDE
+//ldml/(.*)/alias$           ; Special ; Suppress ; Alias ; $1 ; HIDE
+
+### Core Data
+//ldml/characters/exemplarCharacters$                       ; Core Data ; Alphabetic Information ; Characters in Use ; Main Letters
+//ldml/characters/exemplarCharacters[@type="%A"]            ; Core Data ; Alphabetic Information ; Characters in Use ; Others: $1
+
+//ldml/numbers/(default)NumberingSystem                       ; Core Data ; Numbering Systems ; Numbering System ; $1
+//ldml/numbers/otherNumberingSystems/(%E)                   ; Core Data ; Numbering Systems ; Numbering System ; $1
+
+### Locale Display Names
+//ldml/localeDisplayNames/localeDisplayPattern/%E              ; Locale Display Names ; Locale Name Patterns ; Locale Formatting ; &localePattern($1)
+//ldml/localeDisplayNames/codePatterns/codePattern[@type="%A"] ; Locale Display Names ; Locale Name Patterns ; Locale Field Fallbacks ; $1
+//ldml/localeDisplayNames/languages/language[@type="%A"]       ; Locale Display Names ; &languageSection($1) ; &firstLetter($1) ; &languageSort($1)
+//ldml/localeDisplayNames/scripts/script[@type="%A"]           ; Locale Display Names ; Scripts ; &categoryFromScript($1) ; $1
+//ldml/localeDisplayNames/territories/territory[@type="%A"]    ; Locale Display Names ; &territorySection($1) ; &categoryFromTerritory($1) ; $1
+//ldml/localeDisplayNames/subdivisions/subdivision[@type="%A"]    ; Locale Display Names ; &territorySection($1) ; &categoryFromTerritory($1)-Subdivisions ; $1
+//ldml/localeDisplayNames/variants/variant[@type="%A"]         ; Locale Display Names ; Locale Variants ; null ; $1
+//ldml/localeDisplayNames/keys/key[@type="%A"]                 ; Locale Display Names ; Keys ; &categoryFromKey($1) ; $1
+//ldml/localeDisplayNames/types/type[@key="%A"][@type="%A"]    ; Locale Display Names ; Keys ; *&categoryFromKey($1) ; $1-$2
+
+### Date & Time Formatting
+//ldml/dates/fields/field[@type="%A"]/displayName                           ; DateTime ; Fields ; Date Fields ; &datefield($1)
+//ldml/dates/fields/field[@type="%A"]/relative[@type="%A"]                  ; DateTime ; Fields ; &relativeDate($1) ; &numericSort($2)
+//ldml/dates/fields/field[@type="%A"]/relativeTime[@type="%P"]/relativeTimePattern[@count="%A"] ; DateTime ; Fields ; &relativeDate($1) ; &count($2-$3)
+//ldml/dates/fields/field[@type="%A"]/relativePeriod ; DateTime ; Fields ; &relativeDate($1) ; Period
+
+//ldml/dates/calendars/calendar[@type="%R"]/eras/eraAbbr/era[@type="%A"]   ; DateTime ; &calendar($1) ; &calField(Eras:abbreviated:none) ; $2
+//ldml/dates/calendars/calendar[@type="%R"]/eras/eraNames/era[@type="%A"]  ; DateTime ; &calendar($1) ; &calField(Eras:wide:none) ; $2
+//ldml/dates/calendars/calendar[@type="%R"]/eras/eraNarrow/era[@type="%A"] ; DateTime ; &calendar($1) ; &calField(Eras:narrow:none) ; $2
+//ldml/dates/calendars/calendar[@type="%A"]/eras/eraAbbr/era[@type="%A"]   ; Special  ; Suppress ; &calendar($1) ; &calField(Eras:abbreviated:none)-$2 ; HIDE
+//ldml/dates/calendars/calendar[@type="%A"]/eras/eraNames/era[@type="%A"]  ; Special  ; Suppress ; &calendar($1) ; &calField(Eras:wide:none)-$2 ; HIDE
+//ldml/dates/calendars/calendar[@type="%A"]/eras/eraNarrow/era[@type="%A"] ; Special  ; Suppress ; &calendar($1) ; &calField(Eras:narrow:none)-$2 ; HIDE
+
+//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="%A"]/quarterWidth[@type="%A"]/quarter[@type="%A"]    ; DateTime ; &calendar(gregorian) ; &calField(Quarters:$2:$1) ; $3
+//ldml/dates/calendars/calendar[@type="%A"]/quarters/quarterContext[@type="%A"]/quarterWidth[@type="%A"]/quarter[@type="%A"]    ; Special  ; Suppress ; &calendar($1) ; &calField(Quarters:$3:$2)-$4 ; HIDE
+
+//ldml/dates/calendars/calendar[@type="%O"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"][@yeartype="%A"]  ; DateTime ; &calendar($1) ; &calField(Months:$3:$2) ; &month($4) (leap)
+//ldml/dates/calendars/calendar[@type="%O"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"]            ; DateTime ; &calendar($1) ; &calField(Months:$3:$2) ; &month($4)
+//ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"][@yeartype="%A"]  ; Special  ; Suppress ;  &calendar($1) ; &calField(Months:$3:$2)-&month($4) (leap) ; HIDE
+//ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"]            ; Special  ; Suppress ;  &calendar($1) ; &calField(Months:$3:$2)-&month($4) ; HIDE
+
+//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="%A"]/dayWidth[@type="%A"]/day[@type="%A"]                    ; DateTime ; &calendar(gregorian) ; &calField(Days:$2:$1) ; &day($3)
+//ldml/dates/calendars/calendar[@type="%A"]/days/dayContext[@type="%A"]/dayWidth[@type="%A"]/day[@type="%A"]                    ; Special  ; Suppress ; &calendar($1) ; &calField(Days:$3:$2)-&day($4) ; HIDE
+
+//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="%A"]/dayPeriodWidth[@type="%A"]/dayPeriod[@type="%A"]  ; DateTime ; &calendar(gregorian) ; &calField(DayPeriods:$2:$1) ; &dayPeriod($3)
+//ldml/dates/calendars/calendar[@type="%A"]/dayPeriods/dayPeriodContext[@type="%A"]/dayPeriodWidth[@type="%A"]/dayPeriod[@type="%A"]  ; Special  ; Suppress ; &calendar($1) ; &calField(DayPeriods:$3:$2)-&dayPeriod($4) ; HIDE
+
+//ldml/dates/calendars/calendar[@type="%N"]/dateFormats/dateFormatLength[@type="%A"]/dateFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &calField(Formats:Standard:date) ; $2 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateFormats/dateFormatLength[@type="%A"]/dateFormat[@type="%A"]/pattern[@type="%A"]       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:date)-$2 ; HIDE
+
+//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="%A"]/timeFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar(gregorian) ; &calField(Formats:Standard:time) ; $1 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/timeFormats/timeFormatLength[@type="%A"]/timeFormat[@type="%A"]/pattern[@type="%A"]       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:time)-$2 ; HIDE
+
+//ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/dateTimeFormatLength[@type="%A"]/dateTimeFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &calField(Formats:Standard:dateTime) ; $2 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/dateTimeFormatLength[@type="%A"]/dateTimeFormat[@type="%A"]/pattern[@type="%A"]       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:dateTime)-$2 ; HIDE
+
+//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E*(a|b|B)*[h]%a)"]     ; DateTime ; &calendar(gregorian); &calField(Formats:Flexible:time12) ; $1 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E*[Hms]%a)"]           ; DateTime ; &calendar(gregorian); &calField(Formats:Flexible:time24) ; $1 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E*(a|b|B)*[h]%a)"]       ; DateTime ; &calendar(generic); &calField(Formats:Flexible:time12) ; $1 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E*[Hms]%a)"]             ; DateTime ; &calendar(generic); &calField(Formats:Flexible:time24) ; $1 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="chinese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E*(a|b|B)*[h]%a)"]       ; DateTime ; &calendar(chinese); &calField(Formats:Flexible:time12) ; $1 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="chinese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E*[Hms]%a)"]             ; DateTime ; &calendar(chinese); &calField(Formats:Flexible:time24) ; $1 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"][@count="%A"]       ; DateTime ; &calendar(gregorian); &calField(Formats:Flexible:date) ; $1-$2 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(?![^"]*[hHms])%A"]            ; DateTime ; &calendar($1); &calField(Formats:Flexible:date) ; $2 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"]                           ; Special  ; Suppress ; &calendar($1); &calField(Formats:Flexible:date)-$2 ; HIDE
+
+//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/appendItems/appendItem[@request="(Timezone)"]    ; DateTime ; &calendar(gregorian) ; &calField(Formats:Flexible:Append) ; $1  ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="(Timezone)"]    ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Flexible:Append)-$2 ; HIDE
+
+//ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/intervalFormats/intervalFormatFallback                              ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:Fallback) ; Fallback ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatFallback                              ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Intervals:Fallback)-Fallback ; HIDE
+
+//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h%A"]/greatestDifference[@id="%A"] ; DateTime ; &calendar(gregorian) ; &calField(Formats:Intervals:time12) ; h$1/$2 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="H%A"]/greatestDifference[@id="%A"] ; DateTime ; &calendar(gregorian) ; &calField(Formats:Intervals:time24) ; H$1/$2 ; LTR_ALWAYS
+
+//ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="%A"]/greatestDifference[@id="%A"] ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:date) ; $2/$3 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="%A"]/greatestDifference[@id="%A"] ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Intervals:date)-$2/$3 ; HIDE
+
+//ldml/dates/calendars/calendar[@type="%A"]/cyclicNameSets/cyclicNameSet[@type="%A"]/cyclicNameContext[@type="%A"]/cyclicNameWidth[@type="%A"]/cyclicName[@type="%A"]   ; DateTime ; &calendar($1) ; $2 ; cyclic-$3-$4-$5
+//ldml/dates/calendars/calendar[@type="%A"]/monthPatterns/monthPatternContext[@type="%A"]/monthPatternWidth[@type="%A"]/monthPattern[@type="%A"]    ; DateTime ; &calendar($1) ; monthPatterns ; monthPattern-$2-$3-$4
+
+### Timezones
+
+# Hide Etc/GMT[+-]...
+//ldml/dates/timeZoneNames/zone[@type="Etc/(GMT|UTC)(.*)"]/exemplarCity ; Special  ; Suppress ; Etc/$1$2 ; exemplarCity ; HIDE
+//ldml/dates/timeZoneNames/zone[@type="%B/%A"]/exemplarCity             ; Timezones ; &timeZonePage($1/$2) ; Cities and Regions ; $2
+
+//ldml/dates/timeZoneNames/metazone[@type="%M"]/%E/%E       ; Special ; Deprecated ; $1 ; &timezoneSorting($3-$2) ; HIDE
+//ldml/dates/timeZoneNames/metazone[@type="%A"]/%E/%E       ; Timezones ; &metazone($1) ; $1 ; &timezoneSorting($3-$2)
+//ldml/dates/timeZoneNames/zone[@type="%A"]/%E/%E           ; Timezones ; Overrides ; $1 ; &timezoneSorting($3-$2)
+
+//ldml/dates/timeZoneNames/%E[@type="%A"]                   ; Timezones ; Timezone Display Patterns ; null ; &tzdpField($1-$2)
+//ldml/dates/timeZoneNames/%E                               ; Timezones ; Timezone Display Patterns ; null ; &tzdpField($1)
+
+
+### Numbers
+
+//ldml/numbers/minimumGroupingDigits																	; Numbers ; Symbols ; Grouping Control ; Minimum Grouping Digits
+
+//ldml/numbers/symbols[@numberSystem="%A"]/timeSeparator                                                ; Numbers ; Symbols ; Time Symbols &numberingSystem($1) ; Time Separator
+//ldml/numbers/symbols[@numberSystem="%A"]/%E                                                           ; Numbers ; Symbols ; Symbols &numberingSystem($1) ; &number($2)
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]    ; Numbers ; Number Formatting Patterns ; Standard Patterns &numberingSystem($2) ; &numberFormat($5-$1) ; LTR_ALWAYS
+//ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"]                             ; Numbers ; Number Formatting Patterns ; Currency Unit Patterns &numberingSystem($1) ; &count(currencies-$2) ; LTR_ALWAYS
+//ldml/numbers/miscPatterns[@numberSystem="%A"]/pattern[@type=\"%A\"]                                   ; Numbers ; Number Formatting Patterns ; Miscellaneous Patterns &numberingSystem($1) ; $2 ; LTR_ALWAYS
+
+//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"%A\"]     ; Numbers ; Minimal Pairs ; Ordinal ; $1 ; LTR_ALWAYS
+//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"%A\"]        ; Numbers ; Minimal Pairs ; Plural ; $1 ; LTR_ALWAYS
+
+//ldml/numbers/(currency)Formats[@numberSystem="latn"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting ; Short Currency &numberingSystem(latn); &count2($6-digits-$3-$7)
+//ldml/numbers/(currency)Formats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting (Other Numbering Systems) ; Short Currency &numberingSystem($2) ; &count2($7-digits-$4-$8) ; HIDE
+//ldml/numbers/%EFormats[@numberSystem="latn"]/%EFormatLength[@type="(long)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"]  ; Numbers ; Compact Decimal Formatting ; Long Formats &numberingSystem(latn) ; &count2($6-digits-$3-$7)
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(long)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"]  ; Numbers ; Compact Decimal Formatting (Other Numbering Systems) ; Long Formats &numberingSystem($2) ; &count2($7-digits-$4-$8) ; HIDE
+//ldml/numbers/%EFormats[@numberSystem="latn"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting ; Short Formats &numberingSystem(latn) ; &count2($6-digits-$3-$7)
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting (Other Numbering Systems) ; Short Formats &numberingSystem($2) ; &count2($7-digits-$4-$8) ; HIDE
+
+### Currencies
+
+//ldml/numbers/currencies/currency[@type="%A"]/displayName$                 ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name)
+//ldml/numbers/currencies/currency[@type="%A"]/displayName[@count="%A"]     ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name-$2)
+//ldml/numbers/currencies/currency[@type="%A"]/symbol$                      ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &currencySymbol($1-symbol)
+//ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="narrow"]        ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &currencySymbol($1-symbol-narrow)
+//ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="variant"]        ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &currencySymbol($1-symbol-variant)
+
+//ldml/numbers/currencies/currency[@type="%A"]/decimal				; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name)-decimal
+//ldml/numbers/currencies/currency[@type="%A"]/group				; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name)-grouping
+//ldml/numbers/currencies/currency[@type="%A"]/pattern[@type="%A"]	; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name)-pattern-$2
+
+### Units
+
+//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type="%A"] ; Units ; Measurement Systems ; null ; $1
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="duration-%T%A"]/displayName                             ; Units ; Duration ; &datefield($2$3) ; &unitCount($1-displayName)
+//ldml/units/unitLength[@type="%L"]/unit[@type="duration-%T%A"]/unitPattern[@count="%A"]                ; Units ; Duration ; &datefield($2$3) ; &unitCount($1-$4)
+//ldml/units/unitLength[@type="%L"]/unit[@type="duration-%T%A"]/perUnitPattern                          ; Units ; Duration ; &datefield($2$3) ; &unitCount($1-per)
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="length-%A"]/displayName                                 ; Units ; Length ; &unit(length-$2) ; &unitCount($1-displayName)
+//ldml/units/unitLength[@type="%L"]/unit[@type="length-%A"]/unitPattern[@count="%A"]                    ; Units ; Length ; &unit(length-$2) ; &unitCount($1-$3)
+//ldml/units/unitLength[@type="%L"]/unit[@type="length-%A"]/perUnitPattern                              ; Units ; Length ; &unit(length-$2) ; &unitCount($1-per)
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="area-%A"]/displayName                                   ; Units ; Area ; &unit(area-$2) ; &unitCount($1-displayName)
+//ldml/units/unitLength[@type="%L"]/unit[@type="area-%A"]/unitPattern[@count="%A"]                      ; Units ; Area ; &unit(area-$2) ; &unitCount($1-$3)
+//ldml/units/unitLength[@type="%L"]/unit[@type="area-%A"]/perUnitPattern                                ; Units ; Area ; &unit(area-$2) ; &unitCount($1-per)
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="volume-%A"]/displayName                                 ; Units ; Volume ; &unit(volume-$2) ; &unitCount($1-displayName)
+//ldml/units/unitLength[@type="%L"]/unit[@type="volume-%A"]/unitPattern[@count="%A"]                    ; Units ; Volume ; &unit(volume-$2) ; &unitCount($1-$3)
+//ldml/units/unitLength[@type="%L"]/unit[@type="volume-%A"]/perUnitPattern                              ; Units ; Volume ; &unit(volume-$2) ; &unitCount($1-per)
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="%V-%A"]/displayName                                     ; Units ; Speed and Acceleration ; &unit($2-$3) ; &unitCount($1-displayName)
+//ldml/units/unitLength[@type="%L"]/unit[@type="%V-%A"]/unitPattern[@count="%A"]                        ; Units ; Speed and Acceleration ; &unit($2-$3) ; &unitCount($1-$4)
+//ldml/units/unitLength[@type="%L"]/unit[@type="%V-%A"]/perUnitPattern                                  ; Units ; Speed and Acceleration ; &unit($2-$3) ; &unitCount($1-per)
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="mass-%A"]/displayName                                   ; Units ; Mass and Weight ; &unit(mass-$2) ; &unitCount($1-displayName)
+//ldml/units/unitLength[@type="%L"]/unit[@type="mass-%A"]/unitPattern[@count="%A"]                      ; Units ; Mass and Weight ; &unit(mass-$2) ; &unitCount($1-$3)
+//ldml/units/unitLength[@type="%L"]/unit[@type="mass-%A"]/perUnitPattern                                ; Units ; Mass and Weight ; &unit(mass-$2) ; &unitCount($1-per)
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="%X-%A"]/displayName                                     ; Units ; Energy and Power ; &unit($2-$3) ; &unitCount($1-displayName)
+//ldml/units/unitLength[@type="%L"]/unit[@type="%X-%A"]/unitPattern[@count="%A"]                        ; Units ; Energy and Power ; &unit($2-$3) ; &unitCount($1-$4)
+//ldml/units/unitLength[@type="%L"]/unit[@type="%X-%A"]/perUnitPattern                                  ; Units ; Energy and Power ; &unit($2-$3) ; &unitCount($1-per)
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="%F-%A"]/displayName                                     ; Units ; Electrical and Frequency ; &unit($2-$3) ; &unitCount($1-displayName)
+//ldml/units/unitLength[@type="%L"]/unit[@type="%F-%A"]/unitPattern[@count="%A"]                        ; Units ; Electrical and Frequency ; &unit($2-$3) ; &unitCount($1-$4)
+//ldml/units/unitLength[@type="%L"]/unit[@type="%F-%A"]/perUnitPattern                                  ; Units ; Electrical and Frequency ; &unit($2-$3) ; &unitCount($1-per)
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="%W-%A"]/displayName                                     ; Units ; Weather ; &unit($2-$3) ; &unitCount($1-displayName)
+//ldml/units/unitLength[@type="%L"]/unit[@type="%W-%A"]/unitPattern[@count="%A"]                        ; Units ; Weather ; &unit($2-$3) ; &unitCount($1-$4)
+//ldml/units/unitLength[@type="%L"]/unit[@type="%W-%A"]/perUnitPattern                                  ; Units ; Weather ; &unit($2-$3) ; &unitCount($1-per)
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="digital-%A"]/displayName                                ; Units ; Digital ; &unit(digital-$2) ; &unitCount($1-displayName)
+//ldml/units/unitLength[@type="%L"]/unit[@type="digital-%A"]/unitPattern[@count="%A"]                   ; Units ; Digital ; &unit(digital-$2) ; &unitCount($1-$3)
+//ldml/units/unitLength[@type="%L"]/unit[@type="digital-%A"]/perUnitPattern                             ; Units ; Digital ; &unit(digital-$2) ; &unitCount($1-per)
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="%A"]/displayName                                        ; Units ; Other Units ; &unit($2) ; &unitCount($1-displayName)
+//ldml/units/unitLength[@type="%L"]/unit[@type="%A"]/unitPattern[@count="%A"]                           ; Units ; Other Units ; &unit($2) ; &unitCount($1-$3)
+//ldml/units/unitLength[@type="%L"]/unit[@type="%A"]/perUnitPattern                                     ; Units ; Other Units ; &unit($2) ; &unitCount($1-per)
+
+//ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/compoundUnitPattern                        ; Units ; Compound Units ; $2 ; $1
+//ldml/units/durationUnit[@type="(hms|hm|ms)"]                                                        	; Units ; Duration ; Duration Patterns ; $1
+
+//ldml/units/unitLength[@type="%L"]/coordinateUnit/displayName                                          ; Units ; Coordinates ; all ; &unitCount($1-displayName)
+//ldml/units/unitLength[@type="%L"]/coordinateUnit/coordinateUnitPattern[@type="%A"]                    ; Units ; Coordinates ; $2 ; &unitCount($1)
+
+### Miscellaneous
+//ldml/listPatterns/listPattern/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; “And” List ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="standard-short"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Short “and” List ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="standard-narrow"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Narrow “and” List ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="or"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; “Or” List ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="or-short"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Short “Or” List ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="or-narrow"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Narrow “Or” List ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="unit"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Unit List ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="unit-short"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Short Unit List ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="unit-narrow"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Narrow Unit List ; &listOrder($1)
+
+//ldml/characters/ellipsis[@type="%A"]                      ; Misc ; Linguistic Elements ; Ellipsis ; $1
+
+//ldml/characters/parseLenients[@scope="%A"][@level="%A"]/parseLenient[@sample="%A"] ; Misc ; Linguistic Elements ; Parse ; $1-$2($3)
+
+//ldml/delimiters/quotation%E                               ; Misc ; Linguistic Elements ; Quotation Marks ; $1
+//ldml/delimiters/alternateQuotation%E                      ; Misc ; Linguistic Elements ; Quotation Marks ; embedded-$1
+//ldml/characters/moreInformation                           ; Misc ; Linguistic Elements ; Symbols ; More Information
+//ldml/posix/messages/%Estr                                 ; Misc ; Linguistic Elements ; Yes and No ; posix-$1
+//ldml/localeDisplayNames/transformNames/transformName[@type="%A"]          ; Misc ; Transforms ; null ; $1
+
+
+//ldml/typographicNames/axisName[@type="%A"]	; Characters ; Typography ; Axis ; $1
+//ldml/typographicNames/styleName[@type="%A"][@subtype="%A"]	; Characters ; Typography; Style ; $1-$2
+//ldml/typographicNames/featureName[@type="%A"]			; Characters ; Typography ; Feature ; $1
+
+#Emoji, etc.
+
+//ldml/characterLabels/characterLabelPattern[@type="%A"][@count="%A"]	; Characters ; Category ; Pattern ; $1-$2
+//ldml/characterLabels/characterLabelPattern[@type="%A"]	; Characters ; Category ; Pattern ; $1
+//ldml/characterLabels/characterLabel[@type="%A"]			; Characters ; Category ; Label ; $1
+
+//ldml/localeDisplayNames/annotationPatterns/annotationPattern[@type="%A"] ; Characters ; Category ; Link ; $1
+
+# Use special hyphens
+//ldml/annotations/annotation[@cp="%A"][@type="tts"]	; Characters ; &major($1) ; &minor($1) ; &alphaOrder($1 -name)
+//ldml/annotations/annotation[@cp="%A"]					; Characters ; &major($1) ; &minor($1) ; &alphaOrder($1 –keywords)
+
+#OLD
+//ldml/annotations/annotation_[@cp="%A"]/_tts			; Characters ; Annotation ; $1 ; TTS ; HIDE
+
+#Outside of Main
+
+//ldml/rbnf/rulesetGrouping[@type="%A"]/ruleset[@type="%A"]/rbnfrule_/_value			; Supplemental ; RBNF ; $1-$2 ; value ; HIDE
+//ldml/rbnf/rulesetGrouping[@type="%A"]/ruleset[@type="%A"]/rbnfrule_/_radix			; Supplemental ; RBNF ; $1-$2 ; radix ; HIDE
+//ldml/rbnf/rulesetGrouping[@type="%A"]/ruleset[@type="%A"]/rbnfrule			; Supplemental ; RBNF ; $1-$2 ; rule ; HIDE
+//ldml/rbnf/rulesetGrouping[@type="%A"]/ruleset[@type="%A"]/_access			; Supplemental ; RBNF ; $1-$2 ; access ; HIDE
+
+//ldml/segmentations/segmentation[@type="%A"]/suppressions[@type="%A"]/suppression[@_q="%A"]			; Supplemental ; Segmentation ; $1 ; suppression-$2-$3 ; HIDE
+//ldml/segmentations/segmentation[@type="%A"]/variables/variable[@id="%A"]			; Supplemental ; Segmentation ; $1 ; variable-$2 ; HIDE
+//ldml/segmentations/segmentation[@type="%A"]/segmentRules/rule[@id="%A"]			; Supplemental ; Segmentation ; $1 ; rule-$2 ; HIDE
+
+//ldml/collations/defaultCollation	; Misc ; Linguistic Elements ; Collation ; default ; HIDE
+//ldml/collations/collation[@type="%A"][@alt="%A"]/cr	; Misc ; Linguistic Elements ; Collation ; $1-$2 ; HIDE
+//ldml/collations/collation[@type="%A"]/cr	; Misc ; Linguistic Elements ; Collation ; $1 ; HIDE
+//ldml/collations/collation[@type="%A"]/(%E)	; Misc ; Linguistic Elements ; Collation ; $1-$2 ; HIDE
+//ldml/collations/collation[@type="%A"]/(%E)(.*)	; Misc ; Linguistic Elements ; Collation ; $1-$2-$3 ; HIDE
+//ldml/collations/collation[@type="%A"]	; Misc ; Linguistic Elements ; Collation ; $1 ; HIDE
+
+
+# HIDE OTHERS
+//ldml/layout/orientation/(%E)                              ; Special ; Alphabetic Information ; Layout ; $1 ; HIDE
+
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="%A"]    ; Special ; Suppress ; Append-Fallback-$1 ; $2 ; HIDE
+
+//ldml/contextTransforms/contextTransformUsage[@type="%E"]/contextTransform[@type="%E"]              ; Special ; Suppress ; Usage-$1 ; $2 ; HIDE
+
+
+//ldml/fallback                             ; Special ; Deprecated ; null ; fallback ; DEPRECATED
+//ldml/layout/inList                        ; Special ; Deprecated ; null ; inList ; DEPRECATED
+//ldml/layout/inText[@type="%A"]            ; Special ; Deprecated ; inText ; $1 ; DEPRECATED
+
+//ldml/numbers/currencyFormats[@numberSystem="%A"]/currencySpacing/%E/%E        						; Special ; Number Formatting Patterns ; Currency Spacing &numberingSystem($1) ; $2-$3 ; HIDE
+
+# Suppress the numbers without numbering system.
+//ldml/numbers/currencyFormats/unitPattern[@count="%A"]                     							; Special ; Deprecated ; latn ; currencies-count=$1 ; HIDE
+//ldml/numbers/currencyFormats/currencySpacing/%E/%E                                                    ; Special ; Deprecated ; latn ; currencySpacing-$1-$2 ; HIDE
+//ldml/numbers/symbols/%E                                                                               ; Special ; Deprecated ; latn ; symbols-$1 ; HIDE
+//ldml/numbers/%EFormats/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]                        ; Special ; Deprecated ; $1 ; pattern-$5-$4 ; HIDE
+//ldml/numbers/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]            ; Special ; Deprecated ; $1 ; pattern-$3-$6 ; HIDE
+
+//ldml/numbers/symbols/.*                                               ; Numbers ; Deprecated ; Deprecated ; Deprecated
+//ldml/numbers/%EFormats/.*      										; Numbers ; Deprecated ; Deprecated ; Deprecated
+//ldml/numbers/miscPatterns/.*                                     ; Numbers ; Deprecated ; Deprecated ; Deprecated
+
+//ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/%E[@type="%A"]                     ; Special ; Deprecated ; $1 ; $1-$2-$3-$4 ; HIDE
+//ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]                                    ; Special ; Deprecated ; $1 ; $1-$2 ; HIDE
+
+# Ultimate fallback (Error)
+//ldml/%S/(.*)                                                                              ; Special ; Unknown ; $1 ; $2 ; DEPRECATED
+//ldml/(.*)                                                                                 ; Special ; Unknown ; Unknown ; $2 ; DEPRECATED
+
+# BCP47
+//ldmlBCP47/version			; Special ; Version; BCP47 ; plain ; HIDE
+//supplementalData/version			; Special ; Version ; Supplemental ; plain ; HIDE
+
+//ldmlBCP47/keyword/key[@extension="%A"][@name="%A"]/type[@name="%A"]/%E			; BCP47 ; $1_Extension ; $2-$3; $4 ; HIDE
+//ldmlBCP47/keyword/key[@extension="%A"][@name="%A"]/type[@name="%A"]			; BCP47 ; $1_Extension ; $2-$3; value ; HIDE
+//ldmlBCP47/keyword/key[@extension="%A"][@name="%A"]/type/%E						; BCP47 ; $1_Extension ; $2; $3 ; HIDE
+//ldmlBCP47/keyword/key[@extension="%A"][@name="%A"]/_%E						; BCP47 ; $1_Extension ; $2; $3 ; HIDE
+//ldmlBCP47/keyword/key[@extension="%A"][@name="%A"]						; BCP47 ; $1_Extension ; $2; value ; HIDE
+
+//ldmlBCP47/keyword/key[@name="%A"]/type[@name="%A"]/%E								; BCP47 ; u_Extension ; $1-$2; $3 ; HIDE
+//ldmlBCP47/keyword/key[@name="%A"]/type[@name="%A"]								; BCP47 ; u_Extension ; $1-$2; value ; HIDE
+//ldmlBCP47/keyword/key[@name="%A"]/type/%E											; BCP47 ; u_Extension ; $1; $2 ; HIDE
+//ldmlBCP47/keyword/key[@name="%A"]/_%E											; BCP47 ; u_Extension ; $1; $2 ; HIDE
+
+# Ultimate fallback (Error)
+#//ldmlBCP47/%S/(.*)                                                                              ; BCP47 ; Unknown ; $1 ; $2 ; DEPRECATED
+#//ldmlBCP47/(.*)                                                                                 ; BCP47 ; Unknown ; Unknown ; $2 ; DEPRECATED
+
+# Supplemental
+
+//supplementalData/metadata/alias/%EAlias[@type="%A"]/_reason			; Supplemental ; Alias ; $1 ; &alphaOrder($2-reason) ; HIDE
+//supplementalData/metadata/alias/%EAlias[@type="%A"]/_replacement		; Supplemental ; Alias ; $1 ; &alphaOrder($2-replacement); HIDE
+
+//supplementalData/idValidity/id[@type="%A"][@idStatus="%A"]			; Supplemental ; IdValidity ; $1 ; $2 ; HIDE
+
+//supplementalData/codeMappings/territoryCodes[@type="%A"]/_%E			; Supplemental ; RegionMapping ; $1 ; $2 ; HIDE
+//supplementalData/windowsZones/mapTimezones/mapZone[@other="%A"][@territory="%A"]/_type			; Supplemental ; WZoneMapping ; $1 ; $2 ; HIDE
+
+//supplementalData/parentLocales/parentLocale[@parent="%A"]/_locales			; Supplemental ; Locale ; Parent ; $1 ; HIDE
+//supplementalData/metadata/skipDefaultLocale/_services			; Supplemental ; Locale ; SkipDefault ; plain ; HIDE
+//supplementalData/metadata/defaultContent/_locales			; Supplemental ; Locale ; DefaultContent ; plain ; HIDE
+
+//supplementalData/likelySubtags/likelySubtag[@from="%A"]/_to			; Supplemental ; Likely ; Subtag ; $1 ; HIDE
+
+//supplementalData/languageMatching/languageMatches[@type="%A"]/languageMatch[@desired="%A"][@supported="%A"]/_%E			; Supplemental ; LanguageMatch ; $1 ; $2-$3-$4 ; HIDE
+//supplementalData/languageMatching/languageMatches[@type="%A"]/languageMatch/_%E			; Supplemental ; LanguageMatch ; $1 ; $2 ; HIDE
+//supplementalData/languageMatching/languageMatches[@type="%A"]/paradigmLocales/_%E			; Supplemental ; LanguageMatch ; $1 ; paradigmLocales ; HIDE
+//supplementalData/languageMatching/languageMatches[@type="%A"]/matchVariable[@id="%A"]/_%E	; Supplemental ; LanguageMatch ; $1 ; matchVariable-$2 ; HIDE
+
+//supplementalData/languageData/language[@type="%A"]/_%E			; Supplemental ; Language ; $1 ; $2 ; HIDE
+//supplementalData/languageData/language[@type="%A"][@alt="%A"]/_%E			; Supplemental ; Language ; $1 ; $3-$2 ; HIDE
+
+//supplementalData/transforms/transform[@source="%A"][@target="%A"][@direction="%A"]/%E			; Supplemental ; Transform ; &transform($3,$1,$2) ; $4 ; HIDE
+//supplementalData/transforms/transform[@source="%A"][@target="%A"][@variant="%A"][@direction="%A"]/%E			; Supplemental ; Transform ;  &transform($4,$1,$2,$3) ; $5 ; HIDE
+
+//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"]/unitPreference[@regions="%A"]			; Supplemental ; UnitPreferences ; $1/$2 ; $3 ; HIDE
+//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"]/unitPreference[@regions="%A"][@alt="%A"]			; Supplemental ; UnitPreferences ; $1/$2 ; $3-$4 ; HIDE
+//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"][@scope="%A"]/unitPreference[@regions="%A"]			; Supplemental ; UnitPreferences ; $1/$2/$3 ; $4 ; HIDE
+//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"][@scope="%A"]/unitPreference[@regions="%A"][@alt="%A"]			; Supplemental ; UnitPreferences ; $1/$2/$3 ; $4-$5 ; HIDE
+
+//supplementalData/territoryInfo/territory[@type="%A"]/languagePopulation[@type="%A"]/_%E			; Supplemental ; LanguageInfo ; $1/$2 ; $3 ; HIDE
+//supplementalData/territoryInfo/territory[@type="%A"]/_%E			; Supplemental ; TerritoryInfo ; $1 ; $2 ; HIDE
+
+//supplementalData/languageGroups/languageGroup[@parent="%A"]			; Supplemental ; LanguageGroup ; $1 ; parent-child ; HIDE
+
+//supplementalData/characters/character-fallback/character[@value="%A"]/substitute			; Supplemental ; Fallback ; $1 ; plain ; DEPRECATED
+
+//supplementalData/gender/personList[@type="%A"]/_locales			; Supplemental ; Gender ; List ; $1 ; HIDE
+
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@from="%A"][@to="%A"]/_mzone			; Supplemental ; Metazone ; $1 ; $2-$3 ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@from="%A"]/_mzone			; Supplemental ; Metazone ; $1 ; $2..∞ ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@to="%A"]/_mzone			; Supplemental ; Metazone ; $1 ; -∞..$2 ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone/_mzone			; Supplemental ; Metazone ; $1 ; -∞..∞ ; HIDE
+
+//supplementalData/metaZones/mapTimezones[@type="%A"]/mapZone[@other="%A"][@territory="%A"]/_type			; Supplemental ; Metazone ; $1 ; $2-$3 ; HIDE
+//supplementalData/primaryZones/primaryZone[@iso3166="%A"]			; Supplemental ; Metazone ; Primary ; $1 ; HIDE
+
+//supplementalData/numberingSystems/numberingSystem[@id="%A"]/_%E			; Supplemental ; NumberSystem ; $1 ; $2 ; HIDE
+
+//supplementalData/plurals[@type="%A"]/pluralRules[@locales="%A"]/pluralRule[@count="%A"]			; Supplemental ; Plural ; $1-$2 ; $3 ; HIDE
+//supplementalData/plurals/pluralRanges[@locales="%A"]/pluralRange[@start="%A"][@end="%A"]			; Supplemental ; PluralRange ; $1 ; $2–$3 ; HIDE
+//supplementalData/plurals/pluralRanges[@locales="%A"]/pluralRange_[@start="%A"][@end="%A"]/_result			; Supplemental ; PluralRange ; $1 ;  $2–$3-result ; HIDE
+//supplementalData/plurals/pluralRanges[@locales="%A"]/pluralRange[@end="%A"][@start="%A"]			; Supplemental ; PluralRange ; $1 ; $3–$2 ; HIDE
+//supplementalData/plurals/pluralRanges[@locales="%A"]/pluralRange_[@end="%A"][@start="%A"]/_result			; Supplemental ; PluralRange ; $1 ;  $3–$2-result ; HIDE
+
+//supplementalData/territoryContainment/group[@type="%A"]/_%E			; Supplemental ; Containment ; $1 ; $2 ; HIDE
+//supplementalData/territoryContainment/group[@type="%A"][@status="%A"]/_contains			; Supplemental ; Containment ; $1 ; $2 ; HIDE
+//supplementalData/subdivisionContainment/subgroup[@type="%A"]/_contains			; Supplemental ; Containment ; $1 ; sub ; HIDE
+//supplementalData/subdivisionContainment/subgroup[@type="%A"][@subtype="%A"]/_contains			; Supplemental ; Containment ; $1 ; sub-$2 ; HIDE
+
+//supplementalData/currencyData/fractions/info[@iso4217="%A"]/_%E			; Supplemental ; Currency ; $1 ; Fractions-$2 ; HIDE
+//supplementalData/codeMappings/currencyCodes[@type="%A"]/_numeric			; Supplemental ; Currency ; $1 ; NumericCode ; HIDE
+
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@from="%A"][@to="%A"][@iso4217="%A"]/_tender			; Supplemental ; Currency ; $1 ; $4–$2–$3 ; HIDE
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@to="%A"][@iso4217="%A"]/_tender			; Supplemental ; Currency ; $1 ; $3–-∞..$2 ; HIDE
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@from="%A"][@iso4217="%A"]/_tender			; Supplemental ; Currency ; $1 ; $3–$2..∞ ; HIDE
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@iso4217="%A"]/_tender			; Supplemental ; Currency ; $1 ; $2–-∞..∞; HIDE
+
+//supplementalData/calendarData/calendar[@type="%A"]/eras/era[@type="%A"]/_%E			; Supplemental ; Calendar ; $1 ; $2-$3 ; HIDE
+//supplementalData/calendarData/calendar[@type="%A"]/calendarSystem/_type			; Supplemental ; Calendar ; $1 ; calendar_type ; HIDE
+
+//supplementalData/calendarPreferenceData/calendarPreference[@territories="%A"]/_ordering			; Supplemental ; Calendar ; Preference ; $1 ; HIDE
+
+//supplementalData/weekData/minDays[@count="%A"]/_territories			; Supplemental ; WeekData ; minDays ; $1 ; HIDE
+//supplementalData/weekData/firstDay[@day="%A"]/_territories			; Supplemental ; WeekData ; firstDay ; $1 ; HIDE
+//supplementalData/weekData/firstDay[@day="%A"][@alt="%A"]/_territories			; Supplemental ; WeekData ; firstDay-$2 ; $1 ; HIDE
+//supplementalData/weekData/weekendStart[@day="%A"]/_territories			; Supplemental ; WeekData ; weekendStart ; $1 ; HIDE
+//supplementalData/weekData/weekendEnd[@day="%A"]/_territories			; Supplemental ; WeekData ; weekendEnd ; $1 ; HIDE
+//supplementalData/weekData/weekOfPreference[@locales="%A"]/_ordering			; Supplemental ; WeekData ; weekOfPreference ; $1 ; HIDE
+
+//supplementalData/timeData/hours[@allowed="%A"][@preferred="%A"]/_%E			; Supplemental ; WeekData ; hours-$2-$3 ; $1 ; HIDE
+
+//supplementalData/measurementData/measurementSystem[@type="%A"]/_territories			; Supplemental ; Measurement ; default ; $1 ; HIDE
+//supplementalData/measurementData/measurementSystem[@type="%A"][@category="%A"]/_territories			; Supplemental ; Measurement ; $2 ; $1 ; HIDE
+//supplementalData/measurementData/paperSize[@type="%A"]/_territories			; Supplemental ; Measurement ; Paper ; $1 ; HIDE
+
+//supplementalData/dayPeriodRuleSet[@type="%A"]/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_%E			; Supplemental ; DayPeriod ; $1-$2 ; $3-$4 ; HIDE
+//supplementalData/dayPeriodRuleSet/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_%E			; Supplemental ; DayPeriod ; $1 ; $2-$3 ; HIDE
+
+# Ultimate fallback (Error)
+//supplementalData/%S/(.*)                                                                              ; Supplemental ; Unknown ; $1 ; $2 ; DEPRECATED
+//supplementalData/(.*)                                                                                 ; Supplemental ; Unknown ; Unknown ; $2 ; DEPRECATED
+

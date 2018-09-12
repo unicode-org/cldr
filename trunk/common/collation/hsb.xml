@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 2014 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+  <identity>
+    <version number="$Revision$" />
+    <language type="hsb" />
+  </identity>
+  <collations>
+    <collation type="standard" references="Prawopisny słownik hornjoserbskeje rěče, Pawoł Völkel,
+                                           wobdźěłał Timo Meškank, 1970/2005, ISBN 3-7420-1920-1 ">
+      <cr><![CDATA[
+      &C<č<<<Č<ć<<<Ć
+      &E<ě<<<Ě
+      &H<ch<<<cH<<<Ch<<<CH
+      &[before 1] L<ł<<<Ł
+      &R<ř<<<Ř
+      &S<š<<<Š
+      &Z<ž<<<Ž<ź<<<Ź
+      ]]></cr>
+    </collation>
+  </collations>
+</ldml>

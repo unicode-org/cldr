@@ -1,0 +1,499 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="http://unicode.org/cldr/apps/surveytool.css">
+<title>Help Text file for Supplemental Charts</title>
+<style type="text/css">
+<!--
+DIV.chat {
+	PADDING-RIGHT: 2px;
+	PADDING-LEFT: 2px;
+	PADDING-BOTTOM: 4px;
+	PADDING-TOP: 4px
+}
+
+DIV.in {
+	HEIGHT: 1px;
+	TEXT-ALIGN: left
+}
+
+DIV.1st {
+	PADDING-TOP: 4px
+}
+-->
+</style>
+</head>
+<body>
+	<h1 align="center">Chart Messages</h1>
+	<p>
+		This is a help-text file for use with the survey tool. You can add a
+		new row, where the <i>key</i> is a key that the program knows about,
+		and the <i>Text to Insert</i> is what you want to show up as help
+		text, or modify existing text. <b>The software that interprets
+			this expects a particular format, so don't make arbitrary changes
+			(see the end). </b>
+	</p>
+	<table id="table1" style="border-collapse: collapse;" border="1"
+		cellpadding="4" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<th>Key</th>
+				<th>Text to Insert</th>
+			</tr>
+			<tr>
+				<td>territory_language_information</td>
+				<td>The main goal for CLDR language data is to provide
+					approximate figures for the literate, functional population for
+					each language in each territory: that is, the population that is
+					able to read and write each language, and is comfortable enough to
+					use it with computers.
+					<p>The GDP and Literacy figures are taken from the World Bank
+						where available, otherwise supplemented by FactBook data and other
+						sources. The GDP figures are "PPP (constant 2000 international
+						$)". Much of the per-language data is taken from the Ethnologue,
+						but is supplemented and processed using many other sources,
+						including per-country census data. (The focus of the Ethnologue is
+						native speakers, which includes people who are not literate, and
+						excludes people who are functional second-langauge users.)</p>
+					<p>
+						The literacy rate may be discounted to reflect the actual usage of
+						the written form in normal daily life. Thus languages that are
+						typically not written, such as Swiss German, will be given a low
+						literacy rate, even though the whole population <i>could</i> write
+						in Swiss German.
+					</p>
+					<p>The percentages may add up to more than 100% due to
+						multilingual populations, or may be less than 100% due to
+						illiteracy or because the data has not yet been gathered or
+						processed. Languages with a small population may be omitted.</p>
+					<p>Official status is supplied where available, formatted as
+						{O}. Hovering with the mouse shows a short description.</p>
+					<ul>
+						<li><b>Likely languages and scripts:</b>To see (and verify)
+							the likely languages and scripts for this subtag, click on the
+							country code.</li>
+						<li><b>Reporting Defects:</b> If you find errors or omissions
+							in this data, please report the information with the <i>bug</i>
+							or <i>add new</i> links, below.</li>
+						<li><b>XML Source:</b> <a
+							href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">
+								supplementalData.xml</a> (see the &lt;territoryInfo&gt;,
+							&lt;calendarData&gt;, &lt;weekData&gt;, and
+							&lt;measurementData&gt; elements)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>language_territory_information</td>
+				<td>
+					<p align="left">
+						The language data is provided for localization testing, and is
+						under development for CLDR 1.5. For information on the meaning of
+						the different values, see <a
+							href="territory_language_information.html">Territory-Language
+							Information</a>.
+					</p>
+					<ul>
+						<li><b>Reporting Defects:</b> If you find errors or omissions
+							in this data, or add a new territory for a language, see the <i>add
+								new</i> links below.</li>
+						<li><b>XML Source:</b> <a
+							href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">
+								supplementalData.xml</a> (see the &lt;territoryInfo&gt; element)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>detailed_territory_currency_information</td>
+				<td>
+					<p align="left">
+						The following table shows when currencies were in use in different
+						countries. See also <a href="#format_info">Decimal Digits and
+							Rounding</a>. The digits column shows the number of digits to use; if
+						there is special rounding (such as for CH), that is in
+						parentheses. The Countries column shows which countries the
+						currency is <font face="Lucida Sans Unicode">—</font> <i>or
+							has been</i> <font face="Lucida Sans Unicode">—</font> used in,
+						officially.
+					</p>
+					<ul>
+						<li><b>Reporting Defects:</b> If you find errors or omissions
+							in this data, please report the information with a <a
+							target="_blank" href="http://unicode.org/cldr/trac/newticket">
+								bug report</a>.</li>
+						<li><b>XML Source:</b> <a
+							href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">
+								supplementalData.xml</a> (see the &lt;currencyData&gt; element)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>languages_and_scripts</td>
+				<td>This table shows some information about the scripts
+					commonly used with different languages. This information is not
+					complete, and is being enhanced over time. The table is sorted by
+					language; for the same information sorted by script, see <a
+					name="scripts_and_languages" href="scripts_and_languages.html">Scripts
+						and Languages</a>. The following conventions are used in the table:
+					<table id="table2" style="margin: 1em; border-collapse: collapse;"
+						border="1">
+						<tbody>
+							<tr>
+								<th align="left">Column</th>
+								<th align="left">Comment</th>
+							</tr>
+							<tr>
+								<td>Language</td>
+								<td>Where there isn't any information in Unicode CLDR as to
+									which languages are written in a given script, the language
+									code is given as <i>Unknown or Invalid Language</i> ("und").
+								</td>
+							</tr>
+							<tr>
+								<td>ML</td>
+								<td>The modern language column shows "O" if the language is
+									not in customary modern use (currently following ISO 639-3
+									Types: Ancient, Extinct, Historical, or Constructed).</td>
+							</tr>
+							<tr>
+								<td>P</td>
+								<td>The Primary column shows "N" if the language is neither
+									an official nor a defacto-official language of some country.
+									For more information, see <a
+									name="language_territory_information"
+									href="http://www.unicode.org/cldr/data/charts/supplemental/language_territory_information.html">Language-Territory
+										Information</a>.
+								</td>
+							</tr>
+							<tr>
+								<td>Script</td>
+								<td>Where there isn't any information in Unicode CLDR as to
+									which script is used by a language, the script code is given as
+									<i>Unknown or Invalid Script</i> ("Zzzz").
+								</td>
+							</tr>
+							<tr>
+								<td>MS</td>
+								<td>The modern script column shows "N" if the script is not
+									in customary modern use.</td>
+							</tr>
+						</tbody>
+					</table>
+					<ul>
+						<li><b>Reporting Defects:</b> If you find errors or omissions
+							in this data, please report the information with a <a
+							target="_blank" href="http://unicode.org/cldr/trac/newticket">
+								bug report</a>.</li>
+						<li><b>XML Source:</b> <a
+							href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">
+								supplementalData.xml</a> (see the &lt;languageData&gt; element)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>scripts_and_languages</td>
+				<td>This table shows some information about the scripts
+					commonly used with different languages. This information is not
+					complete, and is being enhanced over time. The table is sorted by
+					script; for the same information sorted by language, see <a
+					name="languages_and_scripts"
+					href="http://www.unicode.org/cldr/data/charts/supplemental/languages_and_scripts.html">Languages
+						and Scripts</a>. The following conventions are used in the table:
+					<table id="table3" style="margin: 1em; border-collapse: collapse;"
+						border="1">
+						<tbody>
+							<tr>
+								<th align="left">Column</th>
+								<th align="left">Comment</th>
+							</tr>
+							<tr>
+								<td>Language</td>
+								<td>Where there isn't any information in Unicode CLDR as to
+									which languages are written in a given script, the language
+									code is given as <i>Unknown or Invalid Language</i> ("und").
+								</td>
+							</tr>
+							<tr>
+								<td>ML</td>
+								<td>The modern language column shows "O" if the language is
+									not in customary modern use (currently following ISO 639-3
+									Types: Ancient, Extinct, Historical, or Constructed).</td>
+							</tr>
+							<tr>
+								<td>P</td>
+								<td>The Primary column shows "N" if the language
+									combination is neither an official nor a defacto-official
+									language of some country. For more information, see <a
+									name="language_territory_information0"
+									href="http://www.unicode.org/cldr/data/charts/supplemental/language_territory_information.html">Language-Territory
+										Information</a>.
+								</td>
+							</tr>
+							<tr>
+								<td>Script</td>
+								<td>Where there isn't any information in Unicode CLDR as to
+									which script is used by a language, the script code is given as
+									<i>Unknown or Invalid Script</i> ("Zzzz").
+								</td>
+							</tr>
+							<tr>
+								<td>MS</td>
+								<td>The modern script column shows "N" if the script is not
+									in customary modern use.</td>
+							</tr>
+						</tbody>
+					</table>
+					<ul>
+						<li><b>Reporting Defects:</b> If you find errors or omissions
+							in this data, please report the information with a <a
+							target="_blank" href="http://unicode.org/cldr/trac/newticket">
+								bug report</a>.</li>
+						<li><b>XML Source:</b> <a
+							href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">
+								supplementalData.xml</a> (see the &lt;languageData&gt; element)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>territory_containment_un_m_49</td>
+				<td>
+					<p align="left">
+						The <b>Territory Containment</b> table shows the organization of
+						territories and regions according to <a
+							href="http://unstats.un.org/unsd/methods/m49/m49regin.htm">UN
+							M.49</a>, starting with the World. (CLDR supplements this table with
+						the QO code for outlying areas that would not otherwise be
+						included.) As the last column, the timezone IDs for that country
+						are listed.
+					</p>
+					<ul>
+						<li><b>Reporting Defects:</b> If you find errors or omissions
+							in this data, please report the information with a <a
+							target="_blank" href="http://unicode.org/cldr/trac/newticket">
+								bug report</a>. However, such reports should be limited to cases
+							where the information here deviates from <a
+							href="http://unstats.un.org/unsd/methods/m49/m49regin.htm">UN
+								M.49</a>.</li>
+						<li><b>XML Source:</b> <a
+							href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">
+								supplementalData.xml</a> (see the &lt;territoryContainment&gt; and
+							&lt;timezoneData&gt; elements)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>zone_tzid</td>
+				<td>
+					<p align="left">
+						The <b>Zone-Tzid</b> table shows the mapping from Windows timezone
+						IDs to the standard TZIDs.
+					</p>
+					<ul>
+						<li><b>Reporting Defects:</b> If you find errors or omissions
+							in this data, please report the information with a <a
+							target="_blank" href="http://unicode.org/cldr/trac/newticket">
+								bug report</a>.</li>
+						<li><b>XML Source:</b>under &lt;mapTimezones&gt; in <a
+							href="http://unicode.org/cldr/data/common/supplemental/metaZones.xml">metaZones.xml</a>
+							and <a
+							href="http://unicode.org/cldr/data/common/supplemental/windowsZones.xml">windowsZones.xml</a></li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>character_fallback_substitutions</td>
+				<td>The <b>Character Fallback Substitutions</b> table shows
+					recommended fallbacks for use when a charset or supported
+					repertoire does not contain a desired character, using the data
+					from <a
+					href="http://unicode.org/cldr/data/common/supplemental/characters.xml">characters.xml</a>.
+					There is more than one possible fallback: the recommended usage is
+					that when a character <i>value</i> is not in the desired repertoire
+					the following process is used, whereby the first value that is
+					wholly in the desired repertoire is used.
+					<ul>
+						<li><code>toNFC</code>(<i>value</i>)</li>
+						<li>other canonically equivalent sequences, if there are any</li>
+						<li>the explicit <i>substitutes</i> value from <a
+							href="http://unicode.org/cldr/data/common/supplemental/characters.xml">characters.xml</a>
+							(in order)
+						</li>
+						<li><code>toNFKC</code>(<i>value</i>)</li>
+					</ul>
+					<p>
+						The <b>Explicit</b>, <b>NFC</b>, and <b>NFKC</b> <i>substitutes</i>
+						are shown in the chart by different colors. Note that the
+						character fallbacks do lose information, and should not be used
+						where there is a viable alternative, such as HTML escapes.
+					</p>
+					<ul>
+						<li><b>Reporting Defects:</b> If you find errors or omissions
+							in this data, please report the information with a <a
+							target="_blank" href="http://unicode.org/cldr/trac/newticket">
+								bug report</a>.</li>
+						<li><b>XML Source:</b> <a
+							href="http://unicode.org/cldr/data/common/supplemental/characters.xml">characters.xml</a>&nbsp;
+						</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>aliases</td>
+				<td>
+					<p align="left">
+						<b>Aliases</b> show how to map deprecated codes or aliases onto
+						the ones that should be used to access CLDR data. Most other
+						metadata is not shown in tables; the source data should be
+						consulted. Codes are shown in brackets before or after the English
+						name, eg "Vanuatu [VU]"
+					</p>
+					<ul>
+						<li><b>Reporting Defects:</b> If you find errors or omissions
+							in this data, please report the information with a <a
+							target="_blank" href="http://unicode.org/cldr/trac/newticket">
+								bug report</a>.</li>
+						<li><b>XML Source:</b> <a
+							href="http://unicode.org/cldr/data/common/supplemental/supplementalMetadata.xml">
+								supplementalMetadata.xml</a> (see the &lt;alias&gt; element)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>likely_subtags</td>
+				<td>There are a number of situations where it is useful to be
+					able to find the most likely language, script, or region, if that
+					information is otherwise missing. For example:
+					<ul>
+						<li><span>Given the language "zh" and the region "TW",
+								what is the most likely script?</span></li>
+						<li><span>Given the script "Thai" what is the most
+								likely language or region?</span></li>
+						<li><span>Given the region TW, what is the most likely
+								language and script?</span></li>
+					</ul>
+					<p>
+						<span>Conversely, given a locale, it is useful to find out
+							which fields (language, script, or region) may be superfluous, in
+							the sense that they contain the likely tags. For example,
+							"en_Latn" can be simplified down to "en" since "Latn" is the
+							likely script for "en"; "ja_Japn_JP" can be simplified down to
+							"ja".</span>
+					</p>
+					<p>
+						<span>The <i>likelySubtag</i> supplemental data provides
+							default information for computing these values. This data is
+							based on the default content data, the population data, and the
+							the suppress-script data in [<a
+							href="http://unicode.org/draft/reports/tr35/tr35.html#BCP47">BCP47</a>].
+							It is heuristically derived, and may change over time. The chart
+							shows how the data "fills in" the missing fields in the <span
+							class="source">source values</span> to get the <span
+							class="target">target values</span>.
+						</span>
+					</p>
+					<ul>
+						<li><b>Reporting Defects:</b> If you find errors or omissions
+							in this data, please report the information with a <a
+							target="_blank" href="http://unicode.org/cldr/trac/newticket">bug
+								report</a>.</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>language_plural_rules</td>
+				<td>
+					<p>
+						Languages vary in how they handle plurals of nouns or unit
+						expressions ("hours", "meters", and so on). Some languages have
+						two forms, like English; some languages have only a single form;
+						and some languages have multiple forms (see <a href="#sl">Slovenian</a>
+						below). They also vary between cardinals (such as 1, 2, or 3) and
+						ordinals (such as 1st, 2nd, or 3rd), and in ranges of cardinals
+						(such as "1-2", used in expressions like "1-2 meters long"). CLDR
+						uses short, mnemonic tags for these plural categories. For more
+						information on these categories, see <a
+							href="http://cldr.unicode.org/index/cldr-spec/plural-rules">Plural
+							Rules</a>.
+					</p>
+					<p></p>
+					<ul>
+						<li><b>Examples:</b> The symbol ~ (as in "1.7~2.1") has a
+							special meaning: it is a range of numbers that includes the end
+							points (1.7 and 2.1), and everything between that has exactly the
+							same number of decimals as the end points (thus also 1.8, 1.9,
+							and 2.0, but not 2 or 1.91 or 1.90). The samples are generated mechanically, and
+							are not comprehensive: “0, 2~19, 101~119, …” could show up as the less-complete
+							“0, 2~16, 101 …”.</li>
+						<li><b>Reporting Defects:</b> When you find errors or
+							omissions in this data, please report the information with a <a
+							target="_blank" href="http://unicode.org/cldr/trac/newticket">bug
+								report</a>. But first read &quot;Reporting Defects&quot; on <a
+							href="http://cldr.unicode.org/index/cldr-spec/plural-rules">Plural
+								Rules</a>.</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>error_locale_header|error_index_header</td>
+				<td>
+					<p>
+						Please review and correct them. Note that errors in <span
+							style="font-style: italic;">sublocales</span> are often fixed by
+						fixing the main locale.<br> <br>
+					</p>
+					<div style="margin-left: 40px;">
+						<span style="font-style: italic;">This list is only
+							generated daily, and so may not reflect fixes you have made until
+							tomorrow. (There were production problems in integrating it fully
+							into the Survey tool. However, it should let you see the problems
+							and make sure that they get taken care of.)</span>
+					</div>
+					<p>
+						The table below gives a count for each of the following kinds of
+						items. The focus is on correcting the problems, and getting enough
+						votes for "minimal approval" (status=<span
+							style="font-style: italic; font-weight: bold;">contributed</span>
+						-- high enough to get incorporated into most implementations).
+					</p>
+					<ul>
+						<li><span style="font-weight: bold;">Disputed:</span> Of
+							those voting on an item, if enough switched their vote the item
+							could have minimal approval.</li>
+						<li><span style="font-weight: bold;">Conflicted:</span> For
+							this many items, the organization is losing a vote because of
+							conflicts within the organization.</li>
+						<li><span style="font-weight: bold;">Error:</span> The item
+							has a serious error and must be corrected.</li>
+						<li><span style="font-weight: bold;">Warning:</span> The item
+							has a significant problem that should be corrected.</li>
+						<li><span style="font-weight: bold;">Missing Coverage:</span>
+							These items should be translated but are missing.</li>
+						<li><span style="font-weight: bold;">Missing Votes:</span>
+							These items have translations, but not enough votes for "minimal
+							approval".</li>
+					</ul>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>The text to insert can be fairly arbitrary HTML. The software
+		that reads this table will search the first column (eg between
+		&lt;td&gt; and &lt;/td&gt;) and return the contents of the second
+		column.</p>
+	<p>
+		<b>WARNING</b>
+	</p>
+	<ul>
+		<li><b><i>It uses a very dumb parser, so make sure that
+					table elements are matched, eg &lt;td&gt; with &lt;/td&gt;, and
+					also that &lt;tr&gt;, &lt;/tr&gt;, &lt;table&gt;, and
+					&lt;/table&gt; are on separate lines.</i></b></li>
+		<li><b><i>The regular expression for the key must match
+					the whole path, so if it is an interior substring, remember to add
+					.* on both ends.</i></b></li>
+	</ul>
+</body>
+</html>

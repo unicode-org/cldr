@@ -1,0 +1,34 @@
+table.tv-table, table.tvs-table {
+	border-collapse: collapse;
+}
+
+table.tv-table, th.tv-th, tr.tv-tr, td.tv-num, td.tv-code, td.tv-eng, td.tv-last,
+	td.tv-win, td.tv-fix, table.tvs-table, tr.tvs-tr, td.tvs-count, td.tvs-abb,
+	td.tvs-desc, td.tv-test {
+	border: 1px solid gray;
+}
+
+td.tv-num, td.tv-code, td.tv-eng, td.tv-last, td.tv-fix, td.tvs-count,
+	td.tvs-abb, td.tvs-desc {
+	background-color: #FFFFCC;
+}
+
+td.tv-num, td.tvs-count {
+	text-align: right;
+}
+
+th.tv-th, th.tvs-th {
+	background-color: #DDDDDD;
+}
+
+td.tv-win {
+	background-color: #CCFFCC;
+}
+
+td.tv-miss, td.tv-null {
+	background-color: #FFCCCC;
+}
+
+.vvh {
+	background-color: #99FFFF;
+}

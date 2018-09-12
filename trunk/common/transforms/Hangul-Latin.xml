@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="Hang" target="Latn" direction="forward" alias="Hangul-Latin und-Latn-t-und-hang">
+			<tRule>
+::['ᄀ-하-ᅵᆨ-ᇂㄱ-ㄿㅁ-ㅃㅅ-ㅣ㈀-㈜㉠-㉻가-힣＇ﾡ-ﾯﾱ-ﾳﾵ-ﾾￂ-ￇￊ-ￏￒ-ￗￚ-ￜ];
+::NFKD;
+::ConjoiningJamo-Latin;
+::NFC;
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

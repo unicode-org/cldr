@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$" />
+		<language type="sl" />
+	</identity>
+	<collations >
+		<collation type="standard" references="Anton Bajec: Slovar slovenskega knjižnega jezika ISBN 86-341-1111-3">
+			<cr><![CDATA[
+				&C<č<<<Č<ć<<<Ć
+				&D<đ<<<Đ
+				&S<š<<<Š
+				&Z<ž<<<Ž
+			]]></cr>
+		</collation>
+		<collation type="standard" draft="unconfirmed" alt="proposed">
+			<cr><![CDATA[
+				&C<č<<<Č
+				&S<š<<<Š
+				&Z<ž<<<Ž
+			]]></cr>
+		</collation>
+	</collations>
+</ldml>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!-- Copyright © 1991-2015 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html -->
+<supplementalData>
+	<version number="$Revision$" />
+	<transforms>
+		<transform source="nv" target="nv_FONIPA" direction="forward" alias="nv-fonipa-t-nv">
+			<tRule><![CDATA[
+::Lower;
+::NFC;
+
+# References
+# [1] https://en.wikipedia.org/wiki/Navajo_language#Orthography
+# [2] https://en.wikipedia.org/wiki/Navajo_phonology
+
+$apostrophe = [’ ʼ \'];
+
+ą́ą́ → ɑ̃́ː;
+áá → ɑ́ː;
+ąą → ɑ̃ː;
+aa → ɑː;
+ą́ → ɑ̃́;
+á → ɑ́;
+ą → ɑ̃;
+a → ɑ;
+
+ę́ę́ → ẽ́ː;
+éé → éː;
+ęę → ẽː;
+ee → eː;
+ę́ → ẽ́;
+é → é;
+ę → ẽ;
+e → e;
+
+į́į́ → ɪ̃́ː;
+íí → ɪ́ː;
+įį → ɪ̃ː;
+ii → ɪː;
+į́ → ɪ̃́;
+í → ɪ́;
+į → ɪ̃;
+i → ɪ;
+
+ǫ́ǫ́ → ṍː;
+óó → óː;
+ǫǫ → õː;
+oo → oː;
+ǫ́ → ṍ;
+ó → ó;
+ǫ → õ;
+o → o;
+
+$apostrophe → ʔ;
+b → p;
+ch $apostrophe → t͡ʃʼ;
+ch → t͡ʃʰ;
+dl → tˡ;
+dz → t͡s; 
+d → t;
+gh → ɣ;
+g → k;
+hw → xʷ;
+h → h;
+j → t͡ʃ;
+k $apostrophe → kʼ;
+kw → k͡xʷ;
+k → k͡x;
+l → l;
+ł → ɬ;
+m → m;
+n → n;
+sh → ʃ;
+s → s;
+tł $apostrophe → t͡ɬʼ;
+tł → t͡ɬʰ;
+ts $apostrophe → t͡sʼ;
+ts → t͡sʰ;
+t $apostrophe → tʼ;
+t → t͡x;
+w → w;
+x → x;
+y → j;
+zh → ʒ;
+z → z;
+
+::NULL;
+
+{ɣ} [{ṍ} {ó} {õ} {o}] → ɣʷ;
+
+			]]></tRule>
+		</transform> 
+	</transforms>
+</supplementalData>

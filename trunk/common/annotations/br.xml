@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2018 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="br"/>
+	</identity>
+	<annotations>
+		<annotation cp="👺">gobilin</annotation>
+		<annotation cp="👺" type="tts">gobilin</annotation>
+		<annotation cp="👶">babig | yaouank</annotation>
+		<annotation cp="👶" type="tts">babig</annotation>
+		<annotation cp="🧒">bugel | yaouank</annotation>
+		<annotation cp="🧒" type="tts">bugel</annotation>
+		<annotation cp="👦">paotr | yaouank</annotation>
+		<annotation cp="👦" type="tts">paotr</annotation>
+		<annotation cp="👧">placʼh | yaouank</annotation>
+		<annotation cp="👧" type="tts">placʼh</annotation>
+		<annotation cp="🧑">den deuet</annotation>
+		<annotation cp="🧑" type="tts">den deuet</annotation>
+		<annotation cp="👨">gwaz</annotation>
+		<annotation cp="👨" type="tts">gwaz</annotation>
+		<annotation cp="👩">maouez</annotation>
+		<annotation cp="👩" type="tts">maouez</annotation>
+		<annotation cp="👴">gwaz kozh</annotation>
+		<annotation cp="👴" type="tts">gwaz kozh</annotation>
+		<annotation cp="👵">maouez kozh</annotation>
+		<annotation cp="👵" type="tts">maouez kozh</annotation>
+		<annotation cp="👨‍🎓">studier</annotation>
+		<annotation cp="👨‍🎓" type="tts">studier</annotation>
+		<annotation cp="👩‍🎓">studierez</annotation>
+		<annotation cp="👩‍🎓" type="tts">studierez</annotation>
+		<annotation cp="👨‍🏫">kelenner</annotation>
+		<annotation cp="👨‍🏫" type="tts">kelenner</annotation>
+		<annotation cp="👩‍🏫">kelennerez</annotation>
+		<annotation cp="👩‍🏫" type="tts">kelennerez</annotation>
+		<annotation cp="👨‍⚖">barner</annotation>
+		<annotation cp="👨‍⚖" type="tts">barner</annotation>
+		<annotation cp="👩‍⚖">barnerez</annotation>
+		<annotation cp="👩‍⚖" type="tts">barnerez</annotation>
+		<annotation cp="👨‍🌾">labourer-douar</annotation>
+		<annotation cp="👨‍🌾" type="tts">labourer-douar</annotation>
+		<annotation cp="👩‍🌾">labourerez-douar</annotation>
+		<annotation cp="👩‍🌾" type="tts">labourerez-douar</annotation>
+		<annotation cp="👨‍🍳">keginer</annotation>
+		<annotation cp="👨‍🍳" type="tts">keginer</annotation>
+		<annotation cp="👩‍🍳">keginerez</annotation>
+		<annotation cp="👩‍🍳" type="tts">keginerez</annotation>
+		<annotation cp="👨‍🏭">micherour</annotation>
+		<annotation cp="👨‍🏭" type="tts">micherour</annotation>
+		<annotation cp="👩‍🏭">micherourez</annotation>
+		<annotation cp="👩‍🏭" type="tts">micherourez</annotation>
+		<annotation cp="👨‍💼">implijad</annotation>
+		<annotation cp="👨‍💼" type="tts">implijad</annotation>
+		<annotation cp="👩‍💼">implijadez</annotation>
+		<annotation cp="👩‍💼" type="tts">implijadez</annotation>
+		<annotation cp="👨‍🔬">skiantour</annotation>
+		<annotation cp="👨‍🔬" type="tts">skiantour</annotation>
+		<annotation cp="👩‍🔬">skiantourez</annotation>
+		<annotation cp="👩‍🔬" type="tts">skiantourez</annotation>
+		<annotation cp="👨‍💻">stlennegour</annotation>
+		<annotation cp="👨‍💻" type="tts">stlennegour</annotation>
+		<annotation cp="👩‍💻">stlennegourez</annotation>
+		<annotation cp="👩‍💻" type="tts">stlennegourez</annotation>
+		<annotation cp="👨‍🎤">kaner</annotation>
+		<annotation cp="👨‍🎤" type="tts">kaner</annotation>
+		<annotation cp="👩‍🎤">kanerez</annotation>
+		<annotation cp="👩‍🎤" type="tts">kanerez</annotation>
+		<annotation cp="👨‍🎨">arzour</annotation>
+		<annotation cp="👨‍🎨" type="tts">arzour</annotation>
+		<annotation cp="👩‍🎨">arzourez</annotation>
+		<annotation cp="👩‍🎨" type="tts">arzourez</annotation>
+		<annotation cp="👨‍✈">levier</annotation>
+		<annotation cp="👨‍✈" type="tts">levier</annotation>
+		<annotation cp="👩‍✈">levierez</annotation>
+		<annotation cp="👩‍✈" type="tts">levierez</annotation>
+		<annotation cp="👨‍🚀">astraer</annotation>
+		<annotation cp="👨‍🚀" type="tts">astraer</annotation>
+		<annotation cp="👩‍🚀">astraerez</annotation>
+		<annotation cp="👩‍🚀" type="tts">astraerez</annotation>
+		<annotation cp="👨‍🚒">pomper</annotation>
+		<annotation cp="👨‍🚒" type="tts">pomper</annotation>
+		<annotation cp="👩‍🚒">pomperez</annotation>
+		<annotation cp="👩‍🚒" type="tts">pomperez</annotation>
+		<annotation cp="👮">polis</annotation>
+		<annotation cp="👮" type="tts">polis</annotation>
+		<annotation cp="👮‍♂">poliser</annotation>
+		<annotation cp="👮‍♂" type="tts">poliser</annotation>
+		<annotation cp="👮‍♀">poliserez</annotation>
+		<annotation cp="👮‍♀" type="tts">poliserez</annotation>
+		<annotation cp="🕵">igoun</annotation>
+		<annotation cp="🕵" type="tts">igoun</annotation>
+		<annotation cp="🕵‍♂">igounier</annotation>
+		<annotation cp="🕵‍♂" type="tts">igounier</annotation>
+		<annotation cp="🕵‍♀">igounierez</annotation>
+		<annotation cp="🕵‍♀" type="tts">igounierez</annotation>
+		<annotation cp="🤴">priñs</annotation>
+		<annotation cp="🤴" type="tts">priñs</annotation>
+		<annotation cp="👸">priñsez</annotation>
+		<annotation cp="👸" type="tts">priñsez</annotation>
+		<annotation cp="🎅">Tad Nedeleg</annotation>
+		<annotation cp="🎅" type="tts">Tad Nedeleg</annotation>
+		<annotation cp="🤶">Mamm Nedeleg</annotation>
+		<annotation cp="🤶" type="tts">Mamm Nedeleg</annotation>
+		<annotation cp="🧙">maj</annotation>
+		<annotation cp="🧙" type="tts">maj</annotation>
+		<annotation cp="🧙‍♀">hudourez</annotation>
+		<annotation cp="🧙‍♀" type="tts">hudourez</annotation>
+		<annotation cp="🧙‍♂">hudour</annotation>
+		<annotation cp="🧙‍♂" type="tts">hudour</annotation>
+		<annotation cp="🧛‍♀">sunerez-gwad</annotation>
+		<annotation cp="🧛‍♀" type="tts">sunerez-gwad</annotation>
+		<annotation cp="🧛‍♂">suner-gwad</annotation>
+		<annotation cp="🧛‍♂" type="tts">suner-gwad</annotation>
+		<annotation cp="🧟‍♀">zombiez</annotation>
+		<annotation cp="🧟‍♀" type="tts">zombiez</annotation>
+		<annotation cp="🧟‍♂">zombi</annotation>
+		<annotation cp="🧟‍♂" type="tts">zombi</annotation>
+		<annotation cp="🕳">toull</annotation>
+		<annotation cp="🕳" type="tts">toull</annotation>
+		<annotation cp="👓">lunedoù</annotation>
+		<annotation cp="👓" type="tts">lunedoù</annotation>
+		<annotation cp="🕶">lunedoù-heol</annotation>
+		<annotation cp="🕶" type="tts">lunedoù-heol</annotation>
+		<annotation cp="👔">kravatenn</annotation>
+		<annotation cp="👔" type="tts">kravatenn</annotation>
+		<annotation cp="👖">jeanʼs</annotation>
+		<annotation cp="👖" type="tts">jeanʼs</annotation>
+		<annotation cp="🧣">skerb</annotation>
+		<annotation cp="🧣" type="tts">skerb</annotation>
+		<annotation cp="🧤">manegoù</annotation>
+		<annotation cp="🧤" type="tts">manegoù</annotation>
+		<annotation cp="🧥">mantell</annotation>
+		<annotation cp="🧥" type="tts">mantell</annotation>
+		<annotation cp="🧦">loeroù</annotation>
+		<annotation cp="🧦" type="tts">loeroù</annotation>
+		<annotation cp="👗">sae</annotation>
+		<annotation cp="👗" type="tts">sae</annotation>
+		<annotation cp="👘">kimono</annotation>
+		<annotation cp="👘" type="tts">kimono</annotation>
+		<annotation cp="👙">bikini</annotation>
+		<annotation cp="👙" type="tts">bikini</annotation>
+		<annotation cp="👛">doug-moneiz</annotation>
+		<annotation cp="👛" type="tts">doug-moneiz</annotation>
+		<annotation cp="👜">sacʼh-dorn</annotation>
+		<annotation cp="👜" type="tts">sacʼh-dorn</annotation>
+		<annotation cp="🎒">sacʼh-skol</annotation>
+		<annotation cp="🎒" type="tts">sacʼh-skol</annotation>
+		<annotation cp="👟">botez sport</annotation>
+		<annotation cp="👟" type="tts">botez sport</annotation>
+		<annotation cp="👑">kurunenn</annotation>
+		<annotation cp="👑" type="tts">kurunenn</annotation>
+		<annotation cp="🎩">tog moull uhel</annotation>
+		<annotation cp="🎩" type="tts">tog moull uhel</annotation>
+		<annotation cp="📿">chapeled</annotation>
+		<annotation cp="📿" type="tts">chapeled</annotation>
+		<annotation cp="💄">ruz-muzelloù</annotation>
+		<annotation cp="💄" type="tts">ruz-muzelloù</annotation>
+		<annotation cp="💍">gwalenn</annotation>
+		<annotation cp="💍" type="tts">gwalenn</annotation>
+		<annotation cp="💎">maen prizius</annotation>
+		<annotation cp="💎" type="tts">maen prizius</annotation>
+		<annotation cp="🐒">marmouz</annotation>
+		<annotation cp="🐒" type="tts">marmouz</annotation>
+		<annotation cp="🦍">gorilh</annotation>
+		<annotation cp="🦍" type="tts">gorilh</annotation>
+		<annotation cp="🐶">penn ki</annotation>
+		<annotation cp="🐶" type="tts">penn ki</annotation>
+		<annotation cp="🐕">ki</annotation>
+		<annotation cp="🐕" type="tts">ki</annotation>
+		<annotation cp="🐩">ki rodellek</annotation>
+		<annotation cp="🐩" type="tts">ki rodellek</annotation>
+		<annotation cp="🐺">penn bleiz</annotation>
+		<annotation cp="🐺" type="tts">penn bleiz</annotation>
+		<annotation cp="🦊">penn louarn</annotation>
+		<annotation cp="🦊" type="tts">penn louarn</annotation>
+		<annotation cp="🐱">penn kazh</annotation>
+		<annotation cp="🐱" type="tts">penn kazh</annotation>
+		<annotation cp="🐈">kazh</annotation>
+		<annotation cp="🐈" type="tts">kazh</annotation>
+		<annotation cp="🦁">penn leon</annotation>
+		<annotation cp="🦁" type="tts">penn leon</annotation>
+		<annotation cp="🐯">penn tigr</annotation>
+		<annotation cp="🐯" type="tts">penn tigr</annotation>
+		<annotation cp="🐅">tigr</annotation>
+		<annotation cp="🐅" type="tts">tigr</annotation>
+		<annotation cp="🐆">loupard</annotation>
+		<annotation cp="🐆" type="tts">loupard</annotation>
+		<annotation cp="🐴">penn marcʼh</annotation>
+		<annotation cp="🐴" type="tts">penn marcʼh</annotation>
+		<annotation cp="🐎">marcʼh</annotation>
+		<annotation cp="🐎" type="tts">marcʼh</annotation>
+		<annotation cp="🦄">unkorneg</annotation>
+		<annotation cp="🦄" type="tts">unkorneg</annotation>
+		<annotation cp="🦓">roudenneg</annotation>
+		<annotation cp="🦓" type="tts">roudenneg</annotation>
+		<annotation cp="🦌">karv</annotation>
+		<annotation cp="🦌" type="tts">karv</annotation>
+		<annotation cp="🐮">penn buocʼh</annotation>
+		<annotation cp="🐮" type="tts">penn buocʼh</annotation>
+		<annotation cp="🐂">ejen</annotation>
+		<annotation cp="🐂" type="tts">ejen</annotation>
+		<annotation cp="🐃">bual</annotation>
+		<annotation cp="🐃" type="tts">bual</annotation>
+		<annotation cp="🐄">buocʼh</annotation>
+		<annotation cp="🐄" type="tts">buocʼh</annotation>
+		<annotation cp="🐗">hocʼh gouez</annotation>
+		<annotation cp="🐗" type="tts">hocʼh gouez</annotation>
+		<annotation cp="🐏">tourz</annotation>
+		<annotation cp="🐏" type="tts">tourz</annotation>
+		<annotation cp="🐑">dañvad</annotation>
+		<annotation cp="🐑" type="tts">dañvad</annotation>
+		<annotation cp="🐐">gavr</annotation>
+		<annotation cp="🐐" type="tts">gavr</annotation>
+		<annotation cp="🐪">dremedal</annotation>
+		<annotation cp="🐪" type="tts">dremedal</annotation>
+		<annotation cp="🐫">kañval</annotation>
+		<annotation cp="🐫" type="tts">kañval</annotation>
+		<annotation cp="🦒">jirafenn</annotation>
+		<annotation cp="🦒" type="tts">jirafenn</annotation>
+		<annotation cp="🐘">olifant</annotation>
+		<annotation cp="🐘" type="tts">olifant</annotation>
+		<annotation cp="🦏">frikorneg</annotation>
+		<annotation cp="🦏" type="tts">frikorneg</annotation>
+		<annotation cp="🐭">penn logodenn</annotation>
+		<annotation cp="🐭" type="tts">penn logodenn</annotation>
+		<annotation cp="🐁">logodenn</annotation>
+		<annotation cp="🐁" type="tts">logodenn</annotation>
+		<annotation cp="🐀">razh</annotation>
+		<annotation cp="🐀" type="tts">razh</annotation>
+		<annotation cp="🐹">penn hamster</annotation>
+		<annotation cp="🐹" type="tts">penn hamster</annotation>
+		<annotation cp="🐿">gwiñver</annotation>
+		<annotation cp="🐿" type="tts">gwiñver</annotation>
+		<annotation cp="🦔">heureuchin</annotation>
+		<annotation cp="🦔" type="tts">heureuchin</annotation>
+		<annotation cp="🐻">penn arzh</annotation>
+		<annotation cp="🐻" type="tts">penn arzh</annotation>
+		<annotation cp="🐨">koala</annotation>
+		<annotation cp="🐨" type="tts">koala</annotation>
+		<annotation cp="🐼">penn panda</annotation>
+		<annotation cp="🐼" type="tts">penn panda</annotation>
+		<annotation cp="🦃">kog-Spagn</annotation>
+		<annotation cp="🦃" type="tts">kog-Spagn</annotation>
+		<annotation cp="🐔">yar</annotation>
+		<annotation cp="🐔" type="tts">yar</annotation>
+		<annotation cp="🐓">kilhog</annotation>
+		<annotation cp="🐓" type="tts">kilhog</annotation>
+		<annotation cp="🐤">poñsin</annotation>
+		<annotation cp="🐤" type="tts">poñsin</annotation>
+		<annotation cp="🐧">god</annotation>
+		<annotation cp="🐧" type="tts">god</annotation>
+		<annotation cp="🕊">koulm</annotation>
+		<annotation cp="🕊" type="tts">koulm</annotation>
+		<annotation cp="🦅">erer</annotation>
+		<annotation cp="🦅" type="tts">erer</annotation>
+		<annotation cp="🦆">houad</annotation>
+		<annotation cp="🦆" type="tts">houad</annotation>
+		<annotation cp="🦉">kaouenn</annotation>
+		<annotation cp="🦉" type="tts">kaouenn</annotation>
+		<annotation cp="🐊">krokodil</annotation>
+		<annotation cp="🐊" type="tts">krokodil</annotation>
+		<annotation cp="🐢">baot</annotation>
+		<annotation cp="🐢" type="tts">baot</annotation>
+		<annotation cp="🦎">glazard</annotation>
+		<annotation cp="🦎" type="tts">glazard</annotation>
+		<annotation cp="🐍">naer</annotation>
+		<annotation cp="🐍" type="tts">naer</annotation>
+		<annotation cp="🐋">balum</annotation>
+		<annotation cp="🐋" type="tts">balum</annotation>
+		<annotation cp="🐬">delfin</annotation>
+		<annotation cp="🐬" type="tts">delfin</annotation>
+		<annotation cp="🐟">pesk</annotation>
+		<annotation cp="🐟" type="tts">pesk</annotation>
+		<annotation cp="🐡">loar-vor</annotation>
+		<annotation cp="🐡" type="tts">loar-vor</annotation>
+		<annotation cp="🦈">rinkin</annotation>
+		<annotation cp="🦈" type="tts">rinkin</annotation>
+		<annotation cp="🐙">morgazh</annotation>
+		<annotation cp="🐙" type="tts">morgazh</annotation>
+		<annotation cp="🦀">krank</annotation>
+		<annotation cp="🦀" type="tts">krank</annotation>
+		<annotation cp="🦐">chevr</annotation>
+		<annotation cp="🦐" type="tts">chevr</annotation>
+		<annotation cp="🦑">stivell</annotation>
+		<annotation cp="🦑" type="tts">stivell</annotation>
+		<annotation cp="🐌">maligorn</annotation>
+		<annotation cp="🐌" type="tts">maligorn</annotation>
+		<annotation cp="🦋">balafenn</annotation>
+		<annotation cp="🦋" type="tts">balafenn</annotation>
+		<annotation cp="🐛">biskoulenn</annotation>
+		<annotation cp="🐛" type="tts">biskoulenn</annotation>
+		<annotation cp="🐜">merienenn</annotation>
+		<annotation cp="🐜" type="tts">merienenn</annotation>
+		<annotation cp="🐝">gwenanenn</annotation>
+		<annotation cp="🐝" type="tts">gwenanenn</annotation>
+		<annotation cp="🐞">buocʼhan</annotation>
+		<annotation cp="🐞" type="tts">buocʼhan</annotation>
+		<annotation cp="🦗">krank-raden</annotation>
+		<annotation cp="🦗" type="tts">krank-raden</annotation>
+		<annotation cp="🕷">kevnidenn</annotation>
+		<annotation cp="🕷" type="tts">kevnidenn</annotation>
+		<annotation cp="🦂">krug</annotation>
+		<annotation cp="🦂" type="tts">krug</annotation>
+		<annotation cp="🌲">avalpineg</annotation>
+		<annotation cp="🌲" type="tts">avalpineg</annotation>
+		<annotation cp="🌳">deliaoueg</annotation>
+		<annotation cp="🌳" type="tts">deliaoueg</annotation>
+		<annotation cp="🌴">gwez-palmez</annotation>
+		<annotation cp="🌴" type="tts">gwez-palmez</annotation>
+		<annotation cp="🌵">kaktuz</annotation>
+		<annotation cp="🌵" type="tts">kaktuz</annotation>
+		<annotation cp="☘">melchon</annotation>
+		<annotation cp="☘" type="tts">melchon</annotation>
+		<annotation cp="🍇">rezin</annotation>
+		<annotation cp="🍇" type="tts">rezin</annotation>
+		<annotation cp="🍈">meloñs</annotation>
+		<annotation cp="🍈" type="tts">meloñs</annotation>
+		<annotation cp="🍉">pastekez</annotation>
+		<annotation cp="🍉" type="tts">pastekez</annotation>
+		<annotation cp="🍊">mandarin</annotation>
+		<annotation cp="🍊" type="tts">mandarin</annotation>
+		<annotation cp="🍋">sitroñs</annotation>
+		<annotation cp="🍋" type="tts">sitroñs</annotation>
+		<annotation cp="🍌">bananez</annotation>
+		<annotation cp="🍌" type="tts">bananez</annotation>
+		<annotation cp="🍍">ananaz</annotation>
+		<annotation cp="🍍" type="tts">ananaz</annotation>
+		<annotation cp="🍎">aval ruz</annotation>
+		<annotation cp="🍎" type="tts">aval ruz</annotation>
+		<annotation cp="🍏">aval glas</annotation>
+		<annotation cp="🍏" type="tts">aval glas</annotation>
+		<annotation cp="🍐">per</annotation>
+		<annotation cp="🍐" type="tts">per</annotation>
+		<annotation cp="🍑">pechez</annotation>
+		<annotation cp="🍑" type="tts">pechez</annotation>
+		<annotation cp="🍒">kerez</annotation>
+		<annotation cp="🍒" type="tts">kerez</annotation>
+		<annotation cp="🍓">sivi</annotation>
+		<annotation cp="🍓" type="tts">sivi</annotation>
+		<annotation cp="🥝">kiwi</annotation>
+		<annotation cp="🥝" type="tts">kiwi</annotation>
+		<annotation cp="🍅">tomatez</annotation>
+		<annotation cp="🍅" type="tts">tomatez</annotation>
+		<annotation cp="🥥">kraoñ-kokoz</annotation>
+		<annotation cp="🥥" type="tts">kraoñ-kokoz</annotation>
+		<annotation cp="🥑">avoukez</annotation>
+		<annotation cp="🥑" type="tts">avoukez</annotation>
+		<annotation cp="🍆">berjinez</annotation>
+		<annotation cp="🍆" type="tts">berjinez</annotation>
+		<annotation cp="🥔">aval-douar</annotation>
+		<annotation cp="🥔" type="tts">aval-douar</annotation>
+		<annotation cp="🥕">karotez</annotation>
+		<annotation cp="🥕" type="tts">karotez</annotation>
+		<annotation cp="🥒">kokombrez</annotation>
+		<annotation cp="🥒" type="tts">kokombrez</annotation>
+		<annotation cp="🥦">brikoli</annotation>
+		<annotation cp="🥦" type="tts">brikoli</annotation>
+		<annotation cp="🥜">kakaouetez</annotation>
+		<annotation cp="🥜" type="tts">kakaouetez</annotation>
+		<annotation cp="🌰">kistin</annotation>
+		<annotation cp="🌰" type="tts">kistin</annotation>
+		<annotation cp="🍞">bara</annotation>
+		<annotation cp="🍞" type="tts">bara</annotation>
+		<annotation cp="🥐">kornegenn</annotation>
+		<annotation cp="🥐" type="tts">kornegenn</annotation>
+		<annotation cp="🥖">baget</annotation>
+		<annotation cp="🥖" type="tts">baget</annotation>
+		<annotation cp="🥞">krampouezh</annotation>
+		<annotation cp="🥞" type="tts">krampouezh</annotation>
+		<annotation cp="🍔">hamburger</annotation>
+		<annotation cp="🍔" type="tts">hamburger</annotation>
+		<annotation cp="🍟">fritez</annotation>
+		<annotation cp="🍟" type="tts">fritez</annotation>
+		<annotation cp="🍕">pizza</annotation>
+		<annotation cp="🍕" type="tts">pizza</annotation>
+		<annotation cp="🌭">hot-dog</annotation>
+		<annotation cp="🌭" type="tts">hot-dog</annotation>
+		<annotation cp="🥪">sandwich</annotation>
+		<annotation cp="🥪" type="tts">sandwich</annotation>
+		<annotation cp="🥚">vi</annotation>
+		<annotation cp="🥚" type="tts">vi</annotation>
+		<annotation cp="🍳">vi war ar plad</annotation>
+		<annotation cp="🍳" type="tts">vi war ar plad</annotation>
+		<annotation cp="🍧">greunitad</annotation>
+		<annotation cp="🍧" type="tts">greunitad</annotation>
+		<annotation cp="🍨">dienn-skorn</annotation>
+		<annotation cp="🍨" type="tts">dienn-skorn</annotation>
+		<annotation cp="🍪">cookie</annotation>
+		<annotation cp="🍪" type="tts">cookie</annotation>
+		<annotation cp="🎂">gwastell deiz-ha-bloaz</annotation>
+		<annotation cp="🎂" type="tts">gwastell deiz-ha-bloaz</annotation>
+		<annotation cp="🍰">sablegenn</annotation>
+		<annotation cp="🍰" type="tts">sablegenn</annotation>
+		<annotation cp="🥧">tartezenn</annotation>
+		<annotation cp="🥧" type="tts">tartezenn</annotation>
+		<annotation cp="🍬">madig</annotation>
+		<annotation cp="🍬" type="tts">madig</annotation>
+		<annotation cp="🍭">sunig</annotation>
+		<annotation cp="🍭" type="tts">sunig</annotation>
+		<annotation cp="🍯">podad mel</annotation>
+		<annotation cp="🍯" type="tts">podad mel</annotation>
+		<annotation cp="🍼">bured</annotation>
+		<annotation cp="🍼" type="tts">bured</annotation>
+		<annotation cp="🥛">gwerennad laezh</annotation>
+		<annotation cp="🥛" type="tts">gwerennad laezh</annotation>
+		<annotation cp="☕">evaj tomm</annotation>
+		<annotation cp="☕" type="tts">evaj tomm</annotation>
+		<annotation cp="🍶">sake</annotation>
+		<annotation cp="🍶" type="tts">sake</annotation>
+		<annotation cp="🍷">gwerennad gwin</annotation>
+		<annotation cp="🍷" type="tts">gwerennad gwin</annotation>
+		<annotation cp="🍺">chop bier</annotation>
+		<annotation cp="🍺" type="tts">chop bier</annotation>
+		<annotation cp="🍻">chopadoù bier</annotation>
+		<annotation cp="🍻" type="tts">chopadoù bier</annotation>
+		<annotation cp="🍴">kontell ha fourchetez</annotation>
+		<annotation cp="🍴" type="tts">kontell ha fourchetez</annotation>
+		<annotation cp="🥄">loa</annotation>
+		<annotation cp="🥄" type="tts">loa</annotation>
+		<annotation cp="🔪">kontell-gegin</annotation>
+		<annotation cp="🔪" type="tts">kontell-gegin</annotation>
+		<annotation cp="🏺">añforenn</annotation>
+		<annotation cp="🏺" type="tts">añforenn</annotation>
+		<annotation cp="🗺">kartenn ar bed</annotation>
+		<annotation cp="🗺" type="tts">kartenn ar bed</annotation>
+		<annotation cp="🗾">kartenn Japan</annotation>
+		<annotation cp="🗾" type="tts">kartenn Japan</annotation>
+		<annotation cp="⛰">menez</annotation>
+		<annotation cp="⛰" type="tts">menez</annotation>
+		<annotation cp="🌋">menez-tan</annotation>
+		<annotation cp="🌋" type="tts">menez-tan</annotation>
+		<annotation cp="🏜">dezerzh</annotation>
+		<annotation cp="🏜" type="tts">dezerzh</annotation>
+		<annotation cp="🏝">enezenn didud</annotation>
+		<annotation cp="🏝" type="tts">enezenn didud</annotation>
+		<annotation cp="🏞">park | park broadel</annotation>
+		<annotation cp="🏞" type="tts">park broadel</annotation>
+		<annotation cp="🏟">stad</annotation>
+		<annotation cp="🏟" type="tts">stad</annotation>
+		<annotation cp="🏛">savadur klasel</annotation>
+		<annotation cp="🏛" type="tts">savadur klasel</annotation>
+		<annotation cp="🏘">tiez</annotation>
+		<annotation cp="🏘" type="tts">tiez</annotation>
+		<annotation cp="🏠">ti</annotation>
+		<annotation cp="🏠" type="tts">ti</annotation>
+		<annotation cp="🏤">ti-post</annotation>
+		<annotation cp="🏤" type="tts">ti-post</annotation>
+		<annotation cp="🏥">ospital</annotation>
+		<annotation cp="🏥" type="tts">ospital</annotation>
+		<annotation cp="🏦">bank</annotation>
+		<annotation cp="🏦" type="tts">bank</annotation>
+		<annotation cp="🏨">leti</annotation>
+		<annotation cp="🏨" type="tts">leti</annotation>
+		<annotation cp="🏪">gourstalig</annotation>
+		<annotation cp="🏪" type="tts">gourstalig</annotation>
+		<annotation cp="🏫">skol</annotation>
+		<annotation cp="🏫" type="tts">skol</annotation>
+		<annotation cp="🏬">stal vras</annotation>
+		<annotation cp="🏬" type="tts">stal vras</annotation>
+		<annotation cp="🏭">labouradeg | savadur</annotation>
+		<annotation cp="🏭" type="tts">labouradeg</annotation>
+		<annotation cp="🏯">kastell japanat</annotation>
+		<annotation cp="🏯" type="tts">kastell japanat</annotation>
+		<annotation cp="🏰">kastell</annotation>
+		<annotation cp="🏰" type="tts">kastell</annotation>
+		<annotation cp="💒">eured</annotation>
+		<annotation cp="💒" type="tts">eured</annotation>
+		<annotation cp="⛪">iliz</annotation>
+		<annotation cp="⛪" type="tts">iliz</annotation>
+		<annotation cp="🕌">moskeenn</annotation>
+		<annotation cp="🕌" type="tts">moskeenn</annotation>
+		<annotation cp="🕍">sinagogenn</annotation>
+		<annotation cp="🕍" type="tts">sinagogenn</annotation>
+		<annotation cp="⛩">santual shinto</annotation>
+		<annotation cp="⛩" type="tts">santual shinto</annotation>
+		<annotation cp="🕋">kaaba</annotation>
+		<annotation cp="🕋" type="tts">kaaba</annotation>
+		<annotation cp="⛲">feunteun</annotation>
+		<annotation cp="⛲" type="tts">feunteun</annotation>
+		<annotation cp="⛺">teltenn</annotation>
+		<annotation cp="⛺" type="tts">teltenn</annotation>
+		<annotation cp="🎪">pabell</annotation>
+		<annotation cp="🎪" type="tts">pabell</annotation>
+		<annotation cp="🚂">stlejerez</annotation>
+		<annotation cp="🚂" type="tts">stlejerez</annotation>
+		<annotation cp="🚃">bagon</annotation>
+		<annotation cp="🚃" type="tts">bagon</annotation>
+		<annotation cp="🚄">TTB</annotation>
+		<annotation cp="🚄" type="tts">TTB</annotation>
+		<annotation cp="🚅">tren tizh bras</annotation>
+		<annotation cp="🚅" type="tts">tren tizh bras</annotation>
+		<annotation cp="🚆">tren</annotation>
+		<annotation cp="🚆" type="tts">tren</annotation>
+		<annotation cp="🚇">metro</annotation>
+		<annotation cp="🚇" type="tts">metro</annotation>
+		<annotation cp="🚊">tramgarr</annotation>
+		<annotation cp="🚊" type="tts">tramgarr</annotation>
+		<annotation cp="🚝">unroudenn</annotation>
+		<annotation cp="🚝" type="tts">unroudenn</annotation>
+		<annotation cp="🚋">bagon tramgarr</annotation>
+		<annotation cp="🚋" type="tts">bagon tramgarr</annotation>
+		<annotation cp="🚎">trollebus</annotation>
+		<annotation cp="🚎" type="tts">trollebus</annotation>
+		<annotation cp="🚐">minibus</annotation>
+		<annotation cp="🚐" type="tts">minibus</annotation>
+		<annotation cp="🚑">ambulañs</annotation>
+		<annotation cp="🚑" type="tts">ambulañs</annotation>
+		<annotation cp="🚓">karr polis</annotation>
+		<annotation cp="🚓" type="tts">karr polis</annotation>
+		<annotation cp="🚕">taksi</annotation>
+		<annotation cp="🚕" type="tts">taksi</annotation>
+		<annotation cp="🚗">karr-tan</annotation>
+		<annotation cp="🚗" type="tts">karr-tan</annotation>
+		<annotation cp="🚚">karr-samm degas</annotation>
+		<annotation cp="🚚" type="tts">karr-samm degas</annotation>
+		<annotation cp="🚜">traktor</annotation>
+		<annotation cp="🚜" type="tts">traktor</annotation>
+		<annotation cp="🛢">barilhad tireoul</annotation>
+		<annotation cp="🛢" type="tts">barilhad tireoul</annotation>
+		<annotation cp="⚓">eor</annotation>
+		<annotation cp="⚓" type="tts">eor</annotation>
+		<annotation cp="🛶">bag | kanoe</annotation>
+		<annotation cp="🛶" type="tts">kanoe</annotation>
+		<annotation cp="🚢">lestr</annotation>
+		<annotation cp="🚢" type="tts">lestr</annotation>
+		<annotation cp="🚁">biñsaskell</annotation>
+		<annotation cp="🚁" type="tts">biñsaskell</annotation>
+		<annotation cp="🚟">fundren</annotation>
+		<annotation cp="🚟" type="tts">fundren</annotation>
+		<annotation cp="🚠">fungarr</annotation>
+		<annotation cp="🚠" type="tts">fungarr</annotation>
+		<annotation cp="🛰">egor | loarell</annotation>
+		<annotation cp="🛰" type="tts">loarell</annotation>
+		<annotation cp="🚀">egor | fuzeenn</annotation>
+		<annotation cp="🚀" type="tts">fuzeenn</annotation>
+		<annotation cp="🛸">NIDI | pladenn-nij</annotation>
+		<annotation cp="🛸" type="tts">pladenn-nij</annotation>
+		<annotation cp="⌛">eurier-traezh</annotation>
+		<annotation cp="⌛" type="tts">eurier-traezh</annotation>
+		<annotation cp="⌚">montr</annotation>
+		<annotation cp="⌚" type="tts">montr</annotation>
+		<annotation cp="⏰">dihuner</annotation>
+		<annotation cp="⏰" type="tts">dihuner</annotation>
+		<annotation cp="⏱">kronometr</annotation>
+		<annotation cp="⏱" type="tts">kronometr</annotation>
+		<annotation cp="⏲">horolaj</annotation>
+		<annotation cp="⏲" type="tts">horolaj</annotation>
+		<annotation cp="🕰">pandulenn</annotation>
+		<annotation cp="🕰" type="tts">pandulenn</annotation>
+		<annotation cp="🕐">un eur</annotation>
+		<annotation cp="🕐" type="tts">un eur</annotation>
+		<annotation cp="🕜">un eur hanter</annotation>
+		<annotation cp="🕜" type="tts">un eur hanter</annotation>
+		<annotation cp="🕑">div eur</annotation>
+		<annotation cp="🕑" type="tts">div eur</annotation>
+		<annotation cp="🕝">div eur hanter</annotation>
+		<annotation cp="🕝" type="tts">div eur hanter</annotation>
+		<annotation cp="🕒">teir eur</annotation>
+		<annotation cp="🕒" type="tts">teir eur</annotation>
+		<annotation cp="🕞">teir eur hanter</annotation>
+		<annotation cp="🕞" type="tts">teir eur hanter</annotation>
+		<annotation cp="🕓">peder eur</annotation>
+		<annotation cp="🕓" type="tts">peder eur</annotation>
+		<annotation cp="🕟">peder eur hanter</annotation>
+		<annotation cp="🕟" type="tts">peder eur hanter</annotation>
+		<annotation cp="🕔">pemp eur</annotation>
+		<annotation cp="🕔" type="tts">pemp eur</annotation>
+		<annotation cp="🕠">pemp eur hanter</annotation>
+		<annotation cp="🕠" type="tts">pemp eur hanter</annotation>
+		<annotation cp="🕕">cʼhwecʼh eur</annotation>
+		<annotation cp="🕕" type="tts">cʼhwecʼh eur</annotation>
+		<annotation cp="🕡">cʼhwecʼh eur hanter</annotation>
+		<annotation cp="🕡" type="tts">cʼhwecʼh eur hanter</annotation>
+		<annotation cp="🕖">seizh eur</annotation>
+		<annotation cp="🕖" type="tts">seizh eur</annotation>
+		<annotation cp="🕢">seizh eur hanter</annotation>
+		<annotation cp="🕢" type="tts">seizh eur hanter</annotation>
+		<annotation cp="🕗">eizh eur</annotation>
+		<annotation cp="🕗" type="tts">eizh eur</annotation>
+		<annotation cp="🕣">eizh eur hanter</annotation>
+		<annotation cp="🕣" type="tts">eizh eur hanter</annotation>
+		<annotation cp="🕘">nav eur</annotation>
+		<annotation cp="🕘" type="tts">nav eur</annotation>
+		<annotation cp="🕤">nav eur hanter</annotation>
+		<annotation cp="🕤" type="tts">nav eur hanter</annotation>
+		<annotation cp="🕙">dek eur</annotation>
+		<annotation cp="🕙" type="tts">dek eur</annotation>
+		<annotation cp="🕥">dek eur hanter</annotation>
+		<annotation cp="🕥" type="tts">dek eur hanter</annotation>
+		<annotation cp="🕚">unnek eur</annotation>
+		<annotation cp="🕚" type="tts">unnek eur</annotation>
+		<annotation cp="🕦">unnek eur hanter</annotation>
+		<annotation cp="🕦" type="tts">unnek eur hanter</annotation>
+		<annotation cp="🌑">loar nevez</annotation>
+		<annotation cp="🌑" type="tts">loar nevez</annotation>
+		<annotation cp="🌓">hanterloar ar cʼhresk</annotation>
+		<annotation cp="🌓" type="tts">hanterloar ar cʼhresk</annotation>
+		<annotation cp="🌔">loar vras ar c’hresk</annotation>
+		<annotation cp="🌔" type="tts">loar vras ar c’hresk</annotation>
+		<annotation cp="🌕">loargann</annotation>
+		<annotation cp="🌕" type="tts">loargann</annotation>
+		<annotation cp="🌖">loar vras an digresk</annotation>
+		<annotation cp="🌖" type="tts">loar vras an digresk</annotation>
+		<annotation cp="🌗">hanterloar an digresk</annotation>
+		<annotation cp="🌗" type="tts">hanterloar an digresk</annotation>
+		<annotation cp="🌙">kreskenn loar</annotation>
+		<annotation cp="🌙" type="tts">kreskenn loar</annotation>
+		<annotation cp="☀">heol</annotation>
+		<annotation cp="☀" type="tts">heol</annotation>
+		<annotation cp="🌪">tornadenn</annotation>
+		<annotation cp="🌪" type="tts">tornadenn</annotation>
+		<annotation cp="🌀">kelcʼhwidenn</annotation>
+		<annotation cp="🌀" type="tts">kelcʼhwidenn</annotation>
+		<annotation cp="⚡">tredanvarr uhel</annotation>
+		<annotation cp="⚡" type="tts">tredanvarr uhel</annotation>
+		<annotation cp="❄">malzenn ercʼh</annotation>
+		<annotation cp="❄" type="tts">malzenn ercʼh</annotation>
+		<annotation cp="☄">kometenn</annotation>
+		<annotation cp="☄" type="tts">kometenn</annotation>
+		<annotation cp="🔥">tan</annotation>
+		<annotation cp="🔥" type="tts">tan</annotation>
+		<annotation cp="🎄">gwezenn Nedeleg</annotation>
+		<annotation cp="🎄" type="tts">gwezenn Nedeleg</annotation>
+		<annotation cp="🎆">tan-arvest</annotation>
+		<annotation cp="🎆" type="tts">tan-arvest</annotation>
+		<annotation cp="🎈">cʼhwezigell</annotation>
+		<annotation cp="🎈" type="tts">cʼhwezigell</annotation>
+		<annotation cp="🎉">kotilhon</annotation>
+		<annotation cp="🎉" type="tts">kotilhon</annotation>
+		<annotation cp="🎊">koñfeti</annotation>
+		<annotation cp="🎊" type="tts">koñfeti</annotation>
+		<annotation cp="🎋">gwez-hetoù</annotation>
+		<annotation cp="🎋" type="tts">gwez-hetoù</annotation>
+		<annotation cp="🎀">seizenn</annotation>
+		<annotation cp="🎀" type="tts">seizenn</annotation>
+		<annotation cp="🎁">prof</annotation>
+		<annotation cp="🎁" type="tts">prof</annotation>
+		<annotation cp="🎖">medalenn vilourel</annotation>
+		<annotation cp="🎖" type="tts">medalenn vilourel</annotation>
+		<annotation cp="🏆">trofe</annotation>
+		<annotation cp="🏆" type="tts">trofe</annotation>
+		<annotation cp="🏅">medalenn sport</annotation>
+		<annotation cp="🏅" type="tts">medalenn sport</annotation>
+		<annotation cp="🥇">medalenn aour</annotation>
+		<annotation cp="🥇" type="tts">medalenn aour</annotation>
+		<annotation cp="🥈">medalenn arcʼhant</annotation>
+		<annotation cp="🥈" type="tts">medalenn arcʼhant</annotation>
+		<annotation cp="🥉">medalenn arem</annotation>
+		<annotation cp="🥉" type="tts">medalenn arem</annotation>
+		<annotation cp="⚽">mell fobal</annotation>
+		<annotation cp="⚽" type="tts">mell fobal</annotation>
+		<annotation cp="🏀">basket-ball</annotation>
+		<annotation cp="🏀" type="tts">basket-ball</annotation>
+		<annotation cp="🏐">volley-ball</annotation>
+		<annotation cp="🏐" type="tts">volley-ball</annotation>
+		<annotation cp="🏉">rugbi</annotation>
+		<annotation cp="🏉" type="tts">rugbi</annotation>
+		<annotation cp="🎾">tennis</annotation>
+		<annotation cp="🎾" type="tts">tennis</annotation>
+		<annotation cp="🎳">bowling</annotation>
+		<annotation cp="🎳" type="tts">bowling</annotation>
+		<annotation cp="🏑">hoke war leton</annotation>
+		<annotation cp="🏑" type="tts">hoke war leton</annotation>
+		<annotation cp="🏒">hoke war skorn</annotation>
+		<annotation cp="🏒" type="tts">hoke war skorn</annotation>
+		<annotation cp="🏓">ping pong</annotation>
+		<annotation cp="🏓" type="tts">ping pong</annotation>
+		<annotation cp="🏸">badminton</annotation>
+		<annotation cp="🏸" type="tts">badminton</annotation>
+		<annotation cp="🥊">maneg boks</annotation>
+		<annotation cp="🥊" type="tts">maneg boks</annotation>
+		<annotation cp="⛸">botez-ruzikat</annotation>
+		<annotation cp="⛸" type="tts">botez-ruzikat</annotation>
+		<annotation cp="🎣">lazheta</annotation>
+		<annotation cp="🎣" type="tts">lazheta</annotation>
+		<annotation cp="🎿">ski</annotation>
+		<annotation cp="🎿" type="tts">ski</annotation>
+		<annotation cp="🛷">luj</annotation>
+		<annotation cp="🛷" type="tts">luj</annotation>
+		<annotation cp="🎱">bilhard</annotation>
+		<annotation cp="🎱" type="tts">bilhard</annotation>
+		<annotation cp="🔮">boulenn strink</annotation>
+		<annotation cp="🔮" type="tts">boulenn strink</annotation>
+		<annotation cp="🎮">cʼhoari video</annotation>
+		<annotation cp="🎮" type="tts">cʼhoari video</annotation>
+		<annotation cp="🎲">cʼhoari diñsoù | diñs</annotation>
+		<annotation cp="🎲" type="tts">diñs</annotation>
+		<annotation cp="♠">pikez | pikezenn</annotation>
+		<annotation cp="♠" type="tts">pikez</annotation>
+		<annotation cp="♥">keur | keurenn</annotation>
+		<annotation cp="♥" type="tts">keur</annotation>
+		<annotation cp="♦">karo | karoenn</annotation>
+		<annotation cp="♦" type="tts">karo</annotation>
+		<annotation cp="♣">treflez | treflezenn</annotation>
+		<annotation cp="♣" type="tts">treflez</annotation>
+		<annotation cp="🃏">joker | kartenn joker</annotation>
+		<annotation cp="🃏" type="tts">joker</annotation>
+		<annotation cp="📢">uhelgomzer</annotation>
+		<annotation cp="📢" type="tts">uhelgomzer</annotation>
+		<annotation cp="📣">megafon</annotation>
+		<annotation cp="📣" type="tts">megafon</annotation>
+		<annotation cp="📯">korn ar paotr-marc’h</annotation>
+		<annotation cp="📯" type="tts">korn ar paotr-marc’h</annotation>
+		<annotation cp="🔔">kloc’h</annotation>
+		<annotation cp="🔔" type="tts">kloc’h</annotation>
+		<annotation cp="🎼">kevrollenn | skrid-sonerezh | sonerezh</annotation>
+		<annotation cp="🎼" type="tts">skrid-sonerezh</annotation>
+		<annotation cp="🎵">notenn | sonerezh</annotation>
+		<annotation cp="🎵" type="tts">notenn sonerezh</annotation>
+		<annotation cp="🎶">notenn | notennoù | sonerezh</annotation>
+		<annotation cp="🎶" type="tts">notennoù sonerezh</annotation>
+		<annotation cp="🎤">mikrofon</annotation>
+		<annotation cp="🎤" type="tts">mikrofon</annotation>
+		<annotation cp="📻">skingomzer</annotation>
+		<annotation cp="📻" type="tts">skingomzer</annotation>
+		<annotation cp="🎷">saksofon</annotation>
+		<annotation cp="🎷" type="tts">saksofon</annotation>
+		<annotation cp="🎸">gitar</annotation>
+		<annotation cp="🎸" type="tts">gitar</annotation>
+		<annotation cp="🎹">klavier sonerezh</annotation>
+		<annotation cp="🎹" type="tts">klavier sonerezh</annotation>
+		<annotation cp="🎺">trompilh</annotation>
+		<annotation cp="🎺" type="tts">trompilh</annotation>
+		<annotation cp="🎻">violoñs</annotation>
+		<annotation cp="🎻" type="tts">violoñs</annotation>
+		<annotation cp="🥁">toumperezh</annotation>
+		<annotation cp="🥁" type="tts">toumperezh</annotation>
+		<annotation cp="📱">pellgomzer hezoug</annotation>
+		<annotation cp="📱" type="tts">pellgomzer hezoug</annotation>
+		<annotation cp="☎">pellgomzer</annotation>
+		<annotation cp="☎" type="tts">pellgomzer</annotation>
+		<annotation cp="📠">pelleiler</annotation>
+		<annotation cp="📠" type="tts">pelleiler</annotation>
+		<annotation cp="🔋">pil</annotation>
+		<annotation cp="🔋" type="tts">pil</annotation>
+		<annotation cp="🔌">lugell | lugell dredan | tredan</annotation>
+		<annotation cp="🔌" type="tts">lugell dredan</annotation>
+		<annotation cp="💻">PC | urzhiataer | urzhiataer hezoug</annotation>
+		<annotation cp="💻" type="tts">urzhiataer hezoug</annotation>
+		<annotation cp="🖥">urzhiataer | urzhiataer burev</annotation>
+		<annotation cp="🖥" type="tts">urzhiataer burev</annotation>
+		<annotation cp="🖨">moullerez | urzhiataer</annotation>
+		<annotation cp="🖨" type="tts">moullerez</annotation>
+		<annotation cp="⌨">klavier | urzhiataer</annotation>
+		<annotation cp="⌨" type="tts">klavier</annotation>
+		<annotation cp="🖱">logodenn | urzhiataer</annotation>
+		<annotation cp="🖱" type="tts">logodenn urzhiataer</annotation>
+		<annotation cp="💽">pladenn galet</annotation>
+		<annotation cp="💽" type="tts">pladenn galet</annotation>
+		<annotation cp="💾">pladennig</annotation>
+		<annotation cp="💾" type="tts">pladennig</annotation>
+		<annotation cp="💿">CD</annotation>
+		<annotation cp="💿" type="tts">CD</annotation>
+		<annotation cp="📀">DVD</annotation>
+		<annotation cp="📀" type="tts">DVD</annotation>
+		<annotation cp="🎥">kamera</annotation>
+		<annotation cp="🎥" type="tts">kamera</annotation>
+		<annotation cp="🎞">kocʼhenn</annotation>
+		<annotation cp="🎞" type="tts">kocʼhenn</annotation>
+		<annotation cp="📽">lucʼhvanner</annotation>
+		<annotation cp="📽" type="tts">lucʼhvanner</annotation>
+		<annotation cp="📺">skinwel</annotation>
+		<annotation cp="📺" type="tts">skinwel</annotation>
+		<annotation cp="📷">lucʼhskeudennerez</annotation>
+		<annotation cp="📷" type="tts">lucʼhskeudennerez</annotation>
+		<annotation cp="📹">kamenroller</annotation>
+		<annotation cp="📹" type="tts">kamenroller</annotation>
+		<annotation cp="📼">kasedig-video</annotation>
+		<annotation cp="📼" type="tts">kasedig-video</annotation>
+		<annotation cp="🕯">goulaouenn</annotation>
+		<annotation cp="🕯" type="tts">goulaouenn</annotation>
+		<annotation cp="💡">klogorenn</annotation>
+		<annotation cp="💡" type="tts">klogorenn</annotation>
+		<annotation cp="🔦">etev-goulaouiñ</annotation>
+		<annotation cp="🔦" type="tts">etev-goulaouiñ</annotation>
+		<annotation cp="🏮">lampig ruz</annotation>
+		<annotation cp="🏮" type="tts">lampig ruz</annotation>
+		<annotation cp="📕">levr serr</annotation>
+		<annotation cp="📕" type="tts">levr serr</annotation>
+		<annotation cp="📖">levr digor</annotation>
+		<annotation cp="📖" type="tts">levr digor</annotation>
+		<annotation cp="📗">levr gwer</annotation>
+		<annotation cp="📗" type="tts">levr gwer</annotation>
+		<annotation cp="📘">levr glas</annotation>
+		<annotation cp="📘" type="tts">levr glas</annotation>
+		<annotation cp="📙">levr orañjez</annotation>
+		<annotation cp="📙" type="tts">levr orañjez</annotation>
+		<annotation cp="📚">levrioù</annotation>
+		<annotation cp="📚" type="tts">levrioù</annotation>
+		<annotation cp="📓">karned</annotation>
+		<annotation cp="📓" type="tts">karned</annotation>
+		<annotation cp="📒">renkell</annotation>
+		<annotation cp="📒" type="tts">renkell</annotation>
+		<annotation cp="📰">kazetenn</annotation>
+		<annotation cp="📰" type="tts">kazetenn</annotation>
+		<annotation cp="🏷">tikedenn</annotation>
+		<annotation cp="🏷" type="tts">tikedenn</annotation>
+		<annotation cp="✉">golo-lizher</annotation>
+		<annotation cp="✉" type="tts">golo-lizher</annotation>
+		<annotation cp="📧">postel</annotation>
+		<annotation cp="📧" type="tts">postel</annotation>
+		<annotation cp="📦">pakad</annotation>
+		<annotation cp="📦" type="tts">pakad</annotation>
+		<annotation cp="✏">kreion</annotation>
+		<annotation cp="✏" type="tts">kreion</annotation>
+		<annotation cp="🖋">stilo pluenn</annotation>
+		<annotation cp="🖋" type="tts">stilo pluenn</annotation>
+		<annotation cp="🖊">boulbluenn | stilo</annotation>
+		<annotation cp="🖊" type="tts">stilo</annotation>
+		<annotation cp="🖌">barr-livañ</annotation>
+		<annotation cp="🖌" type="tts">barr-livañ</annotation>
+		<annotation cp="📁">goloenn</annotation>
+		<annotation cp="📁" type="tts">goloenn</annotation>
+		<annotation cp="🗂">dispartier</annotation>
+		<annotation cp="🗂" type="tts">dispartier</annotation>
+		<annotation cp="🔨">benveg | morzhol</annotation>
+		<annotation cp="🔨" type="tts">morzhol</annotation>
+		<annotation cp="🗡">badalenn</annotation>
+		<annotation cp="🗡" type="tts">badalenn</annotation>
+		<annotation cp="🔫">pistolenn</annotation>
+		<annotation cp="🔫" type="tts">pistolenn</annotation>
+		<annotation cp="🛡">skoed</annotation>
+		<annotation cp="🛡" type="tts">skoed</annotation>
+		<annotation cp="🔧">alcʼhwez rodig</annotation>
+		<annotation cp="🔧" type="tts">alcʼhwez rodig</annotation>
+		<annotation cp="⚙">rod dantek</annotation>
+		<annotation cp="⚙" type="tts">rod dantek</annotation>
+		<annotation cp="🗜">serjant</annotation>
+		<annotation cp="🗜" type="tts">serjant</annotation>
+		<annotation cp="⚗">lambig</annotation>
+		<annotation cp="⚗" type="tts">lambig</annotation>
+		<annotation cp="🔬">mikroskop</annotation>
+		<annotation cp="🔬" type="tts">mikroskop</annotation>
+		<annotation cp="🔭">teleskop</annotation>
+		<annotation cp="🔭" type="tts">teleskop</annotation>
+		<annotation cp="📡">stign loarell</annotation>
+		<annotation cp="📡" type="tts">stign loarell</annotation>
+		<annotation cp="💉">strinkell</annotation>
+		<annotation cp="💉" type="tts">strinkell</annotation>
+		<annotation cp="💊">pilulenn</annotation>
+		<annotation cp="💊" type="tts">pilulenn</annotation>
+		<annotation cp="🚪">dor</annotation>
+		<annotation cp="🚪" type="tts">dor</annotation>
+		<annotation cp="🛏">gwele</annotation>
+		<annotation cp="🛏" type="tts">gwele</annotation>
+		<annotation cp="🚽">privezioù</annotation>
+		<annotation cp="🚽" type="tts">privezioù</annotation>
+		<annotation cp="🛁">kibell</annotation>
+		<annotation cp="🛁" type="tts">kibell</annotation>
+		<annotation cp="🚬">sigaretenn</annotation>
+		<annotation cp="🚬" type="tts">sigaretenn</annotation>
+		<annotation cp="⚰">charke</annotation>
+		<annotation cp="⚰" type="tts">charke</annotation>
+		<annotation cp="⚱">jarl-kañv</annotation>
+		<annotation cp="⚱" type="tts">jarl-kañv</annotation>
+		<annotation cp="♈">an Tourz</annotation>
+		<annotation cp="♈" type="tts">an Tourz</annotation>
+		<annotation cp="♉">an Tarv</annotation>
+		<annotation cp="♉" type="tts">an Tarv</annotation>
+		<annotation cp="♊">ar Gevelled</annotation>
+		<annotation cp="♊" type="tts">ar Gevelled</annotation>
+		<annotation cp="♋">ar Krank</annotation>
+		<annotation cp="♋" type="tts">ar Krank</annotation>
+		<annotation cp="♌">al Leon</annotation>
+		<annotation cp="♌" type="tts">al Leon</annotation>
+		<annotation cp="♍">ar Gwercʼhez</annotation>
+		<annotation cp="♍" type="tts">ar Gwercʼhez</annotation>
+		<annotation cp="♎">ar Balañsoù</annotation>
+		<annotation cp="♎" type="tts">ar Balañsoù</annotation>
+		<annotation cp="♏">ar Krug</annotation>
+		<annotation cp="♏" type="tts">ar Krug</annotation>
+		<annotation cp="♐">ar Saezhataer</annotation>
+		<annotation cp="♐" type="tts">ar Saezhataer</annotation>
+		<annotation cp="♑">ar Gavr</annotation>
+		<annotation cp="♑" type="tts">ar Gavr</annotation>
+		<annotation cp="♒">ar Skuilher-dour</annotation>
+		<annotation cp="♒" type="tts">ar Skuilher-dour</annotation>
+		<annotation cp="♓">ar Pesked</annotation>
+		<annotation cp="♓" type="tts">ar Pesked</annotation>
+		<annotation cp="⛎">Naeretaer</annotation>
+		<annotation cp="⛎" type="tts">Naeretaer</annotation>
+	</annotations>
+</ldml>

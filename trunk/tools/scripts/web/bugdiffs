@@ -1,0 +1,2486 @@
+#!/usr/bin/perl -w
+#--*-Perl-*--
+
+# NOTES:
+#
+# 'tagscan' refers to the procedure of examining the CVS data (rlog output
+# for each file) and determining what bug IDs exist between two tags.
+#
+# 'dcuthelp' refers to the procedures of examining the CVS rlog cache
+# given a tag and a list of bugs, and helping to incorporate those bug
+# fixes into the tag.  For this to occur, in each file, any changes after
+# tag within the bug list must be contiguous and must begin in the tag's
+# revision.
+#
+# Params:
+#  debug - if set, output debugging info
+#  user - user name
+#  path_info - override actual path info, for debugging, e.g., "/form"
+#  mod - module(s) list
+#  include_attic - if set, include Attic during search (ignored by default)
+
+use strict;
+use CGI;
+#use CGI::Carp qw(fatalsToBrowser); # Do NOT use this -- doesn't work
+use File::Path;
+use IO::Handle;
+use Time::Local 'timelocal_nocheck';
+use Carp;
+#use Data::Dumper;
+
+use vars qw($QUERY $DEBUG $USER $TITLE $CLDR
+	    $DIFF_URL $DIFF_URL_SUFFIX $CVSWEB_REP_ID $CVSWEB_REP_SUFF $LOG_URL_SUFFIX $SHOW_URL $SHOW_URL_SUFFIX $LOG_URL
+	    $CVSROOT $BASE_REV %MOD_ABBREV $DEFAULT_MOD $NO_JITTERBUG
+	    $CACHE $INSTA $INSTA_ATTIC
+	    $UPDATE_COUNT $UPDATE_ATTIC_COUNT $UPDATE_NONATTIC_COUNT
+	    $TAGSCAN_TAG_LO $TAGSCAN_TAG_HI %TAGSCAN_IDS $TAGSCAN_COUNT
+	    $TAGSCAN_TAG_HI_DATE
+	    %TAGSCAN_ALLTAGS %TAGSCAN_WHY
+	    $DCUTHELP_TAG %DCUTHELP_IDS
+	    @DCUTHELP_BADFILES $DCUTHELP_COUNT @DCUTHELP_RETAGS
+	    @TAGLESS_FILES @BRANCHED_FILES @NO_JITTERBUG_FILES
+	    %MODE_MAP $NOW $YEAR $CVS_MSG_KW
+	    );
+
+&initGlobals;
+&main;
+exit(0);
+
+#---------------------------------------------------------------------
+sub initGlobals() {
+    $QUERY = new CGI;
+
+    $DEBUG = $QUERY->param('debug');
+    $CLDR=1;
+
+    # User name, if any.  We try to propagate the user name so a logged-in
+    # jitterbug user can stay that way.
+    $USER = $QUERY->param('user');
+
+    $CVSWEB_REP_ID = "ICU";	
+
+    if ($CLDR == 0) {
+    	$TITLE="ICU Jitterbug Diffs";
+    } else {
+	$TITLE="CLDR Jitterbug Diffs";
+    }
+    #$CVSWEB_REP_SUFF = "&cvsroot=" . $CVSWEB_REP_ID;
+    $CVSWEB_REP_SUFF = "";
+
+    # The following URLs should be suffixed with a module name
+    # such as "icu/icu".
+
+    # Display the diffs between two revisions of a file
+    # E.g., suffix with "/icu/icu/license.html.diff?r1=1.2&r2=1.3"
+    $DIFF_URL = "http://www.unicode.org/cgi-bin/viewcvs.cgi"; # No trailing "/"
+    $DIFF_URL_SUFFIX = $CVSWEB_REP_SUFF;
+
+    # Display a specific file revision
+    # E.g., suffix with "/icu/icu/license.html?rev=1.1$SHOW_URL_SUFFIX"
+    $SHOW_URL = $DIFF_URL; # No trailing "/"
+    $SHOW_URL_SUFFIX = "&content-type=text/x-cvsweb-markup" . $CVSWEB_REP_SUFF;
+
+    # Display the CVS log for a file
+    # E.g., suffix with "/icu/icu/license.html"
+    $LOG_URL = $DIFF_URL; # No trailing "/"
+    $LOG_URL_SUFFIX = $CVSWEB_REP_SUFF;
+
+    # CVS root
+    if ( $CLDR == 0 ) {
+	$CVSROOT = "/data/mirrors/icu"; # Must NOT end with "/"
+    } else {
+	$CVSROOT = "/home/cvsroot";
+    }
+
+    # A fake revision number indicating the slot before the oldest revision in
+    # the rlog history.  Not user visible.
+    $BASE_REV = "0";    
+
+    if ($CLDR == 0) {
+    # Recognized abbreviated module names.
+    %MOD_ABBREV = (
+        icu          => 'icu',
+        icuapps      => 'icuapps',
+        icu4j        => 'icu4j',
+        icu4jni      => 'icu4jni',
+        unicodetools => 'unicodetools',
+        charset      => 'charset',
+    );
+
+    # Default modules to search
+    $DEFAULT_MOD = 'icu icu4j';
+    } else {
+    # Recognized abbreviated module names.
+    %MOD_ABBREV = (
+        cldr      => 'cldr',
+        common      => 'cldr/common',
+    );
+
+    # Default modules to search
+    $DEFAULT_MOD = 'common';
+    }
+	
+
+    # Magic Jitterbug ID used when a CVS checkin does not include a
+    # Jitterbug ID.  Should be unlikely (or impossible) to be a real
+    # Jitterbug ID.
+    $NO_JITTERBUG = 9999987;
+
+    # Root of our cache of CVS meta-information.  Right now this cache
+    # takes the form of a mirror of /usr/cvs.  We only mirror
+    # /usr/cvs/icu/icu and /usr/cvs/icu4j/icu4j at this point.  All CVS
+    # files (*,v) have an identically named file in the same location in
+    # the cache.  Currently the cache file is the output of rlog.  In the
+    # future a more compressed form could be used (although there isn't
+    # much to be gained, maybe 10%).  Instead of grepping over the CVS
+    # repository, we grep over the cache.  This cuts the grep time by
+    # about 90%.  Before using the cache, we update it by walking through
+    # the CVS repository and checking file mod dates.  Any file that's
+    # been changed gets updated in the cache.
+    # Use real path; link causes problems.
+    #$CACHE = "/www/software10/cgi-bin/icu/grepj.cache";
+    if($CLDR==0) {
+    	$CACHE = "/tmp/icu-grepj.cache"; # No trailing "/"
+    } else {
+    	$CACHE = "/tmp/icu-grepj-cldr.cache"; # No trailing "/"
+    }
+
+    # Another cache that holds the results of the last searches.
+    # Invalidate this cache whenever the main cache needs updating.
+    # This cache consists of files named "1234".  Each file
+    # contains the final HTML for that bug ID.  Searches that include
+    # the attic are kept in a subdirectory 'Attic'.
+    $INSTA = "$CACHE/insta";
+    $INSTA_ATTIC = "$INSTA/Attic";
+
+    # Count of updated cache files
+    $UPDATE_COUNT = 0;
+    $UPDATE_ATTIC_COUNT = 0;
+    $UPDATE_NONATTIC_COUNT = 0;
+
+    # Dispatch table mapping path_info to sub
+    %MODE_MAP = (
+	'/top'         =>  \&emit_top,
+	'/form'        =>  \&emit_form,
+	'/difflist'    =>  \&emit_difflist,
+	'/nav'         =>  \&emit_nav,
+	'/result'      =>  \&emit_result,
+	'/help'        =>  \&emit_help,
+	'/admintop'    =>  \&emit_admintop,
+	'/adminform'   =>  \&emit_adminform,
+	'/adminresult' =>  \&emit_adminresult,
+        '/localdiff'   =>  \&emit_localdiff,
+    );
+
+    $NOW = time();
+    $YEAR = 1900+@{[localtime]}[5]; # Get the current year
+
+    # Regex for grepping for jitterbug checkin comments
+    # Will be surrounded by parens
+    if($CLDR == 0) {
+	$CVS_MSG_KW = "jitterbug|fixed";
+    } else {
+    	$CVS_MSG_KW = "cldrbug";
+    }
+}
+
+#---------------------------------------------------------------------
+# This script generates various frames within framesets.  The 'mode'
+# parameter determines which frame is generated.
+sub main() {
+
+    STDOUT->autoflush(1); # Make progress output appear progressively...
+
+    my $needed = 'h'; # next up: 'h'eader or 'e'nd_html
+
+    eval {
+	local $SIG{'__DIE__'}; # disable installed DIE hooks
+	local $SIG{'__WARN__'} = sub {  die $_[0]; }; # transmute warnings
+
+	# The path info specifies what we are being called to emit.
+	# This script emits the frameset and the frames within it
+	# depending on this param.  For the URL
+	# "http://oss.software.ibm.com/cvs/icu-jinfo/foo", the path
+	# info is "/foo".  The path info can be overridden (for debugging)
+	# with a CGI param of "path_info=/bar".
+	my $path_info = $QUERY->path_info;
+	if ($QUERY->param('path_info')) {
+	    $path_info = $QUERY->param('path_info');
+	}
+	
+	# Simplify it:  "/foo/..." or "/foo&..." => "/foo"
+	$path_info =~ s|(\w)\W.*|$1|;
+	$path_info ||= '/top'; # default
+	
+	my $fn = $MODE_MAP{$path_info};
+	die "unknown path_info \"$path_info\"" unless ($fn);
+
+	if ($path_info ne '/localdiff') {
+	    print $QUERY->header;
+	    $needed = 'e';
+	}
+
+	$fn->();
+    };
+
+    if ($@) {
+	if ($needed eq 'h') {
+	    print $QUERY->header;
+	    $needed = 'e';
+	}
+	print "<hr><b>Internal error: ", $@,
+              "<br>Please contact <a href=\"mailto:alanliu\@us.ibm.com\">Alan</a></b>";
+    }
+
+    if ($needed eq 'e') {
+	print $QUERY->end_html;
+    }
+}
+
+#---------------------------------------------------------------------
+# Create URL for the reviewer index
+# @param user (or empty string if none)
+sub reviewersURL {
+    my $user = shift || '';
+    $user = "?user=$user" if ($user);
+    return "http://bugs.icu-project.org/cgibin/private/byname/review$user";
+}
+
+#---------------------------------------------------------------------
+# Create URL for jitterbug
+# @param user (or empty string if none)
+# @param ID (or empty if none);
+sub jitterbugURL {
+    my $user = shift || '';
+    my $id = shift || '';
+
+   if($CLDR == 0) {
+    if ($id ne '') {
+	if ($user) {
+	    return "http://bugs.icu-project.org/cgibin/private/icu-bugs-private?;user=$user;findid=$id";
+	} else {
+	    return "http://bugs.icu-project.org/cgibin/icu-bugs?findid=$id";
+	}
+    } else {
+	if ($user) {
+	    return "http://bugs.icu-project.org/cgibin/private/icu-bugs-private?;user=$user;";
+	} else {
+	    return "http://bugs.icu-project.org/cgibin/icu-bugs";
+	}
+    }
+  } else {
+    if ($id ne '') {
+	if ($user) {
+	    return "http://bugs.icu-project.org/cgibin/cldr/locale-bugs-private?;user=$user;findid=$id";
+	} else {
+	    return "http://bugs.icu-project.org/cgibin/locale-bugs?findid=$id";
+	}
+    } else {
+	if ($user) {
+	    return "http://bugs.icu-project.org/cgibin/cldr/locale-bugs-private?;user=$user;";
+	} else {
+	    return "http://bugs.icu-project.org/cgibin/locale-bugs";
+	}
+    }
+   }
+}
+
+######################################################################
+# HTML GUI
+######################################################################
+
+# Emit the HTML for the top frameset in normal (bug diffs) mode
+sub emit_top {
+    # Propagate url parameters down to the frames within the frameset
+
+    my $self = $QUERY->url(-full=>1, -query=>1);
+    my $f  = urlPathInfo($self, '/form');
+    my $dl = urlPathInfo($self, '/difflist');
+    my $n  = urlPathInfo($self, '/nav');
+    my $r  = urlPathInfo($self, '/result');
+
+    print <<END;
+<html><head><title>$TITLE</title></head>
+<!--$self-->
+<frameset cols="300,*">
+ <frameset rows="135,*">
+  <frame src="$f" name="form" scrolling=no>
+  <frame src="$dl" name="difflist">
+ </frameset>
+ <frame src="$r" name="result">
+</frameset>
+END
+
+# <frameset rows="30,*">
+#  <frame src="$n" name="nav" scrolling=no>
+#  <frame src="$r" name="result">
+# </frameset>
+}
+
+sub emit_form {
+    print $QUERY->start_html(-title=>$TITLE,
+                             -target=>'difflist');
+
+    my $script_name = $QUERY->script_name;
+
+    print $QUERY->startform(-action=>urlPathInfo($script_name, '/difflist'),
+                            -target=>'difflist',
+			    -method=>'GET');
+
+    my $user = $QUERY->param('user') || '';
+
+    print "<H2>$TITLE"; # h1 too big
+    print " <FONT SIZE=-1>($user)</FONT>" if ($user);
+    print "</H2>";
+
+    print "ID? ",$QUERY->textfield(-name=>'id',-size=>5)
+	, $QUERY->submit(-name=>'Search')
+	, " <FONT SIZE=-1><A href=\""
+	, urlPathInfo($script_name, '/help')
+	, "\">Help</A></FONT>";
+
+    print "\&nbsp;<FONT SIZE=-1>"
+	, "<A href=\"", urlPathInfo($script_name, '/admintop')
+	, "?user=$user\" target=\"_top\">Admin</A></FONT>";
+ 
+    print "<BR>\nModules:&nbsp;";
+    print $QUERY->textfield(-name=>'mod',
+			    -default=>$DEFAULT_MOD,
+			    -size=>30);
+
+    print "<BR>\n";
+
+    print "<FONT SIZE=-1>";
+    print $QUERY->checkbox(-name=>"include_attic",
+                           -label=>"Incl. Attic");
+    print $QUERY->checkbox(-name=>"localdiff",
+			   -label=>"Local Diff");
+    print "</FONT>";
+
+    print "\&nbsp;<A href=\"", reviewersURL($user), "\" target=\"_top\" title=\"List bugs by reviewer\">Reviewers</A>";
+
+    print "\&nbsp;<A href=\"", jitterbugURL($user), "\" target=\"_top\" title=\"Go to main Jitterbug page\">Jitterbug</A>";
+
+    # Propagate params that don't have corresponding form elements
+    print $QUERY->hidden('user');
+    print $QUERY->hidden('debug');
+    if($CLDR==1) {
+      print $QUERY->hidden('cldr');
+    }
+
+    print $QUERY->end_form;
+}
+
+sub emit_nav {
+    print $QUERY->start_html(-title=>$TITLE,
+                             -target=>'result');
+    print "Under construction: Navigation bar goes here";
+}
+
+sub emit_difflist {
+    print $QUERY->start_html(-title=>$TITLE,
+                             -target=>'result');
+
+    ############################################################
+    # ID
+
+    my $ID = $QUERY->param('id') || '';
+    $ID =~ s/\s//g;
+
+    #print "<br/><b>query:</b>";
+    #print $QUERY->Dump;
+    #print "<br/>";
+
+    if ($ID eq '') {
+	print "(Warning: search, but No ID given.)<br/> \n";
+        &emit_help;
+        return;
+    }
+
+    if ($ID =~ /^0*(\d+)$/) {
+	$ID = $1;
+    } else {
+        print "\"$ID\" is not a valid Jitterbug ID.  Please ";
+        print "enter one or more decimal digits.";
+        return;
+    }
+
+    ############################################################
+    # User
+
+    my $user = $QUERY->param('user');
+
+    ############################################################
+    # Modules
+
+    my @m;
+    return if (!parseMod(\@m)); # what modules are we searching?
+
+    my $localDiff = $QUERY->param('localdiff');
+
+    # Only use the INSTA cache for standard module searches.
+    my $isStd = (join(' ', sort @m) eq 'icu/icu icu4j/icu4j')
+	&& !$localDiff;
+
+    ############################################################
+    # Output
+
+    print "What is Jitterbug ", jitterbugLink($user, $ID), "?";
+
+    foreach (@m) {
+	updateCacheDir($_);
+    }
+
+    # If the cache has been updated then the instaCache entries
+    # are all invalid and must be deleted.  Otherwise try to
+    # look up the diffs from the instaCache.
+    mkpath($INSTA_ATTIC, 0, 0777);
+    if ($UPDATE_COUNT) {
+	print "done ($UPDATE_NONATTIC_COUNT,$UPDATE_ATTIC_COUNT).";
+	resetInstaCache(0);
+    } elsif ($isStd) {
+	my $diffs = instaGet($ID);
+	if ($diffs) {
+	    print $diffs;
+	    print "<BR><EM><FONT SIZE=-1>(Results from cache)</FONT></EM>";
+	    return;
+	}
+    }
+
+    # If we don't find the ID in the instaCache, then generate
+    # the diffs the hard way and store the result in the
+    # instaCache.
+    my $diffs;
+    foreach my $module (@m) {
+	debugOut("module $module") if ($DEBUG);
+	my $m = $module;
+	$m =~ s|^.+/||;
+        $diffs .= out("<HR><CENTER><B><FONT SIZE=+1>", uc($m),
+		      "</FONT></B></CENTER><HR>");
+        debugOut("+generateDiffsList($ID, $module)") if ($DEBUG);
+        $diffs .= generateDiffsList($ID, $module);
+        debugOut("-generateDiffsList($ID, $module)") if ($DEBUG);
+    }
+    instaPut($ID, $diffs) if ($isStd);
+}
+
+sub emit_localdiff {
+    print $QUERY->header(-type=>'application/octet-stream',
+			 -attachment=>'localdiff.bat');
+    my $file = $QUERY->param('file');
+    my $r1 = $QUERY->param('r1');
+    my $r2 = $QUERY->param('r2');
+    my $mod = $QUERY->param('m');
+    my $leaf = $file;
+    $leaf =~ s|.*[/\\]([^/\\]+)+$|$1|;
+    $file = "$mod/$file";
+    my $eol = "\015\012"; # DOS eol
+    print "cd %TEMP%$eol";
+    print "mkdir grepj$eol";
+    print "cd grepj$eol";
+    print "set CVSROOT=:pserver:$USER\@oss.software.ibm.com:/usr/cvs/$mod$eol";
+    print "cvs checkout -p -r $r1 $file > $leaf-$r1$eol";
+    print "cvs checkout -p -r $r2 $file > $leaf-$r2$eol";
+    print "start wincmp $leaf-$r1 $leaf-$r2$eol";
+    print "del \%0$eol";
+}
+
+sub emit_result {
+    print $QUERY->start_html(-title=>$TITLE);
+}
+
+sub emit_help {
+    my $x = join(" ", sort keys(%MOD_ABBREV));
+    print <<END;
+Search the ICU and ICU4J CVS repositories for changes committed against
+a specific Jitterbug.
+
+<P>For a change to be recognized,
+its commit comment must start with "<CODE>Jitterbug <B>n</B></CODE>",
+where <CODE><B>n</B></CODE> is the bug ID.
+
+<P>The search generates a list of all files changes for this bug,
+together with the specific revisions in each
+file that are relevant (there may be more than one).
+
+<P>In the diff list,
+select a <B>file name link</B> to see the CVS log
+for that file.
+
+<P>Select a <B>revision link</B> to see changes
+checked in against that revision.  "Diff" revision links
+show diffs against the previous revision.  "View" links
+show initial check in revisions.
+
+<P>If a file contains more than one revision relevant to this
+Jitterbug ID, then an <B>overall revision link</B> will be available.
+Use this to see the effect of all changes at once.  <I>If the revisions
+are not contiguous, then this diff will contain changes
+not related to this Jitterbug.</I>  In that case you may
+prefer to view the individual diffs instead.
+
+<P><B>Incl. Attic</B> causes files under any directory named
+"Attic" to be included.
+
+<P><B>Local Diff</B> enables special links that look like this [*]
+which cause your browser to download a Windows batch file.  The
+batch file, when executed, will bring up the relevant diffs in
+Compare It!.  For this to work, you need the following:
+
+<UL><LI><B>cvs</B> must be on your PATH.  For example, you may
+add <CODE>C:\\Program Files\\GNU\\WinCVS 1.2</CODE> to your PATH.
+<LI><B>wincmp</B> must be on your PATH.  This is the Compare It!
+executable.  For example, you may add <CODE>C:\\Program Files\\Compare
+It!</CODE> to your PATH.
+<LI>You must be "logged in" for the cvs checkouts to work.  If your
+name is present in parentheses next to "ICU Jitterbug Diffs" in the
+upper left frame, you are logged in.
+</UL>
+
+<P><B>Modules</B> lists the modules to be searched.  By default
+this is "icu icu4j" but any modules (under /usr/cvs) may be listed.
+Full module names (e.g., "icu/icuapps") may be used.  The following
+abbreviations are recognized:  <CODE>$x</CODE>.
+END
+}
+
+######################################################################
+# Admin GUI
+######################################################################
+
+# Emit the HTML for the top frameset in admin mode
+sub emit_admintop {
+    # Propagate url parameters down to the frames within the frameset
+
+    my $self = $QUERY->url(-full=>1, -query=>1);
+    my $f = urlPathInfo($self, '/adminform');
+    my $r = urlPathInfo($self, '/adminresult');
+    my $TITLETXT = $TITLE;
+
+    #if ($id ne '') {
+#`h	TITLETXT = "$id - $TITLETXT";
+  #  }
+
+    print <<END;
+<html><head><title>$TITLE</title></head>
+<frameset cols="300,*">
+  <frame src="$f" name="adminform" scrolling=yes>
+  <frame src="$r" name="adminresult">
+</frameset>
+END
+}
+
+# Print the admin input form.
+sub emit_adminform {
+
+    print $QUERY->start_html(-title=>$TITLE,
+                             -target=>'adminresult');
+
+    my $script_name = $QUERY->script_name;
+
+    print $QUERY->startform(-action=>urlPathInfo($script_name, '/adminresult'),
+                            -TARGET=>'adminresult');
+
+    print "<FONT SIZE=+2><B>Administrative Tools</B></FONT>";
+
+    my $user = $QUERY->param('user');
+    my $u = $user ? "?user=$user" : '';
+    print "\&nbsp;<FONT SIZE=-1>"
+	, "<A href=\"$script_name$u\" target=\"_top\">Back</A></FONT><BR>";
+
+    print '<FONT SIZE=-1>Tags may be specified in full, e.g. '
+	, '"release-2-4", or as release numbers, such as "2.4".  ',
+	'Specify module(s) here for commands below.',
+	'</FONT><BR>';
+
+    print "Modules:&nbsp;";
+    print $QUERY->textfield(-name=>'mod',
+			    -default=>$DEFAULT_MOD,
+			    -size=>30);
+    print "<HR>";
+
+    print "<B>List Bugs Between CVS Tags</B><BR>";
+    print "<TABLE><TR><TD nowrap>Start Tag:</TD><TD>";
+    print $QUERY->textfield(-name=>'tag_lo',-size=>30);
+    print "</TD></TR><TR><TD nowrap>End Tag:</TD><TD>";
+    print $QUERY->textfield(-name=>'tag_hi',-size=>30);
+    print "</TD></TR><TR><TD></TD><TD>";
+    print $QUERY->submit(-name=>'Find Bugs');
+    print "</TD></TR></TABLE>";
+    print '<FONT SIZE=-1>Bugs are listed that occur after the start tag, up to and including the end tag.  Specify module(s) above.</FONT>';
+
+    print "<HR>\n";
+
+    print "<B>DCUT Helper</B><BR>";
+    print "<TABLE><TR><TD>Tag:</TD><TD>";
+    print $QUERY->textfield(-name=>'dcut_tag',-size=>33);
+    print "</TD></TR><TR VALIGN=TOP><TD>Bug IDs:</TD><TD>";
+    print $QUERY->textarea(-name=>'dcut_ids',-rows=>8,-columns=>26);
+    print "</TD></TR><TR><TD></TD><TD>";
+    print $QUERY->submit(-name=>'Check');
+    print "</TD></TR></TABLE>";
+    print '<FONT SIZE=-1>Enter a CVS tag and list of bugs to incorporate '
+	, 'those bugs into the tag.  '
+	, 'Specify module(s) above.</FONT>';
+
+    print "<HR>\n";
+
+    print $QUERY->submit(-name=>'Reset Insta Cache'), "<BR>";
+    print '<FONT SIZE=-1>The insta cache contains the HTML output for previous'
+        , ' bug diff search results.  In some cases (typically during script'
+        , ' development), it can get out of sync.</FONT>';
+
+    print "<HR>\n";
+
+    print $QUERY->submit(-name=>'Delete Cache File:'), "&nbsp;";
+    print $QUERY->textfield(-name=>'del_cache',-size=>17), "<BR>";
+    print '<FONT SIZE=-1 >Delete a file from the cache.  Path is relative'
+	, ' to cache root and must begin with the module path'
+	, ' (e.g. "icu/icu").</FONT>';
+
+    # Propagate params that don't have corresponding form elements
+    print $QUERY->hidden('user');
+    print $QUERY->hidden('debug');
+
+    print $QUERY->end_form;
+}
+
+# Implement the admin functions.
+sub emit_adminresult {
+    print $QUERY->start_html(-title=>$TITLE);
+
+    if ($QUERY->param('Find Bugs')) {
+	&do_tagscan;
+	return;
+    }
+
+    if ($QUERY->param('Check')) {
+	&do_dcuthelp;
+	return;
+    }
+
+    if ($QUERY->param('Reset Insta Cache')) {
+	resetInstaCache(1);
+	print "Cache at $INSTA has been erased.";
+	return;
+    }
+
+    if ($QUERY->param('Delete Cache File:')) {
+	my $f = $QUERY->param('del_cache');
+	# Careful here -- don't let the user delete anything but a
+	# legitimate cache file.  Watch out for "..", "~", "$", etc.
+	if ($f !~ m|^[a-z0-9_]+(/[a-z0-9_]+)+\.[a-z0-9]+$|i) {
+	    print "\"$f\" does not look like a valid path.";
+	    return;
+	}
+	$f = $CACHE . '/' . $f . ',v';
+ 	if (! -e $f) {
+	    print "\"$f\" does not exist.";
+	    return;
+	}
+ 	if (! -f $f) {
+	    print "\"$f\" is not a file.";
+	    return;
+	}
+	unlink($f);
+	# This check doesn't seem to work.
+ 	#if (! -e $f) {
+	#    print "Error: Could not delete \"$f\".";
+	#    return;
+	#} else {	
+	    print "Cache file \"$f\" deleted.";
+	#}
+	return;
+    }
+}
+
+######################################################################
+# Jitterbug diffs
+######################################################################
+
+#---------------------------------------------------------------------
+# Find the diffs for a jitterbug and display them.
+# Also display other useful links for this bug.
+# Param: ID number
+# Param: module name ("icu/icu" or "icu4j/icu4j" or other)
+# Return: The generated HTML.  Also print it to STDOUT
+# on the fly.
+sub generateDiffsList {
+    my $ID = shift;
+    my $module = shift;
+    my $result;
+
+    my $greproot = "$CACHE/$module";
+    my $log_url  = "$LOG_URL/$module/";
+    my $show_url = "$SHOW_URL/$module/";
+    my $diff_url = "$DIFF_URL/$module/";
+
+    # ID matching pattern
+    my $pat = "0*$ID";
+
+    # During merging, the bug IDs 1-98 for icu4j were migrated to
+    # 1301-1398.  Therefore, when the user requests a bug in the range
+    # 1301-1398, we search under both n and n-1300 in icu4j
+    # repository.
+    if ($module =~ /^icu4j/ && $ID >= 1301 && $ID <= 1398) {
+        my $ID2 = $ID - 1300;
+        $pat = "($pat|0*$ID2)";
+    }
+
+    # -E use extended regexp
+    # -i ignore case
+    # -I ignore binary files
+    # -l stop at first match and list file name
+    # -r recurse
+    # N/A now that we cache the rlog output
+    #my $flags = $ignoreBinaries ? "-EiIlr" : "-Eilr";
+
+    # (1 of 3 REGEXPS) SEE ALSO other regexps; keep them in sync
+    # TODO improve error handling in following line
+    my @files = `grep -Eilr "($CVS_MSG_KW)[ \\t]*$pat\\b" $greproot`;
+
+    if (!$QUERY->param('include_attic')) {
+        @files = grep(!m|/attic/|i, @files);
+    }
+    
+    if (@files < 1) {
+        $result .= out("No changes found for Jitterbug $ID.\n");
+        return $result;
+    }
+    
+    $result .= out("<FONT SIZE=-1>");
+
+    my $first = 1;
+
+    foreach my $f (sort cmpfiles @files) {
+        my @r = findRevisions($f, $pat);
+
+        if ($first) {
+            $first = 0;
+        } else {
+            $result .= out("<HR>\n");
+        }
+
+	my $localDiff = $QUERY->param('localdiff');
+
+        my $relFile = $f;
+        $relFile =~ s/^$greproot\///;
+        $relFile =~ s/,v//;
+        my $a = '';
+        my $b = $relFile;
+        if ($b =~ m|(.*/)(.+)|) {
+            ($a ,$b) = ($1, $2);
+        }
+        $result .= out("$a<A href=\"$log_url$relFile?$LOG_URL_SUFFIX\" title=\"View CVS log for $b\"><B>$b</B></A><BR>");
+        if (@r > 1) {
+            # Show diff of earliest to latest.
+            my $discontiguous = 0;
+            for (my $i=0; $i<$#r; $i++) { # [sic] from first to last-1
+                if ($r[$i]->{old} ne $r[$i+1]->{new}) {
+                    $discontiguous = 1;
+                    last;
+                }
+            }
+            my $new = $r[0]->{new};
+            my $old = $r[$#r]->{old};
+            $result .= out("<CENTER>");
+	    if ($discontiguous) {
+		$result .= out("<B>Contains other changes: </B>");
+	    }
+            if ($old eq $BASE_REV) {
+                $result .= out("<A href=\"$show_url$relFile?rev=$new$SHOW_URL_SUFFIX\">");
+                $result .= out("<B>View $new</B></A>");
+            } else {
+                $result .= out("<A href=\"$diff_url$relFile?r1=$old&r2=$new$DIFF_URL_SUFFIX\">");
+                $result .= out("<B>Diff $new vs $old</B></A>");
+		if ($localDiff) {
+		    my $self = $QUERY->url(-full=>1, -query=>1);
+		    my $url = urlPathInfo($self, '/localdiff');
+		    my $mod = $module;
+		    $mod =~ s|/.+||;
+		    out(" [<A href=\"$url;m=$mod;file=$relFile;r1=$old;r2=$new$DIFF_URL_SUFFIX\">*</A>]");
+		}
+            }
+
+            # Construct contiguous ranges if the overall diff is
+            # discontiguous.
+            if ($discontiguous) {
+                my @ranges;
+                my $start = 0;
+                for (my $i=0; $i<$#r; $i++) { # [sic] from first to last-1
+                    if ($r[$i]->{old} ne $r[$i+1]->{new}) {
+                        push @ranges, [$start, $i];
+                        $start = $i+1;
+                    }
+                }
+                push @ranges, [$start, $#r];
+                my $first = 1;
+                foreach my $range (@ranges) {
+                    my $new = $r[$range->[0]]->{new};
+                    my $old = $r[$range->[1]]->{old};
+                    if ($first) {
+                        $result .= out("<BR>\n(");
+                        $first = 0;
+                    } else {
+                        $result .= out("<BR>\n");
+                    }
+                    if ($old eq $BASE_REV) {
+                        $result .= out("<A href=\"$show_url$relFile?rev=$new$SHOW_URL_SUFFIX\">");
+                        $result .= out("View $new</A>");
+                    } else {
+                        $result .= out("<A href=\"$diff_url$relFile?r1=$old&r2=$new$DIFF_URL_SUFFIX\">");
+                        $result .= out("Diff $new vs $old</A>");
+			if ($localDiff) {
+			    my $self = $QUERY->url(-full=>1, -query=>1);
+			    my $url = urlPathInfo($self, '/localdiff');
+			    my $mod = $module;
+			    $mod =~ s|/.+||;
+			    out(" [<A href=\"$url;m=$mod;file=$relFile;r1=$old;r2=$new$DIFF_URL_SUFFIX\">*</A>]");
+			}
+                    }
+                }
+                $result .= out(")");
+            }
+
+            $result .= out("</CENTER>");
+        }
+
+        for (my $i=0; $i<@r; $i++) {
+            my $h = $r[$i];
+            my $new = $h->{new};
+            my $old = $h->{old};
+            if ($old eq $BASE_REV) {
+                $result .= out("<A href=\"$show_url$relFile?rev=$new$SHOW_URL_SUFFIX\">");
+                $result .= out("<B>View $new</B></A>");
+            } else {
+                $result .= out("<A href=\"$diff_url$relFile?r1=$old&r2=$new$DIFF_URL_SUFFIX\">");
+                $result .= out("<B>Diff $new</B></A>");
+		if ($localDiff) {
+		    my $self = $QUERY->url(-full=>1, -query=>1);
+		    my $url = urlPathInfo($self, '/localdiff');
+		    my $mod = $module;
+		    $mod =~ s|/.+||;
+		    out(" [<A href=\"$url;m=$mod;file=$relFile;r1=$old;r2=$new$DIFF_URL_SUFFIX\">*</A>]");
+		}
+            }
+            $result .= out(" <EM>", $h->{date}, "</EM> by <EM>", $h->{author}, "</EM><BR>");
+            $result .= out($h->{comment});
+            $result .= out("<BR>\n");
+        }
+    }
+
+    $result .= out("</FONT>");
+    $result;
+}
+
+# Sort criterion for file diffs
+sub cmpfiles {
+    my $aa = $a;
+    my $bb = $b;
+    $aa =~ s|/unicode(/[^/]+)$|$1|;
+    $bb =~ s|/unicode(/[^/]+)$|$1|;
+    $aa =~ s|\.h,|.1h,|;
+    $bb =~ s|\.h,|.1h,|;
+    return $aa cmp $bb;
+}
+
+# Sort criterion for revision numbers, e.g. "1.9" vs "1.10"
+sub cmprevs {
+    my @a = split('\.', $a);
+    my @b = split('\.', $b);
+    for (my $i=0; $i<=$#a && $i<=$#b; ++$i) {
+        my $c = $b[$i] - $a[$i]; 
+        return $c if ($c);
+    }
+    return $#b - $#a;
+}
+
+######################################################################
+# tagscan
+######################################################################
+
+# Perform a "tagscan" and emit the results.  A tagscan is a scan of
+# the CVS rlog cache in which bug IDs between two tags are compiled.
+# If a file is marked 'dead' it is ignored.  If it was created after
+# the latest date of the HI tag (as determined by checking _every_
+# file's date for that tag) then it is ignored.
+sub do_tagscan {
+    $TAGSCAN_TAG_LO = expandTag($QUERY->param('tag_lo'));
+    $TAGSCAN_TAG_HI = expandTag($QUERY->param('tag_hi'));
+
+    $TAGSCAN_TAG_HI_DATE = '';
+
+    if (!$TAGSCAN_TAG_LO || !$TAGSCAN_TAG_HI) {
+	print "Please enter two CVS tags and try again.";
+	return;
+    }
+
+    my $user = $QUERY->param('user');
+
+    my @m;
+    return if (!parseMod(\@m)); # what modules are we searching?
+
+    # Slight limitation -- our tagLink will only refer to the first module
+    print "Searching module(s) <B>", join(", ", @m)
+	, "</B> for bugs after tag <B>",
+	tagLink($TAGSCAN_TAG_LO,$m[0],'grepj_2'),
+	"</B> up to and including tag <B>",
+	tagLink($TAGSCAN_TAG_HI,$m[0],'grepj_2'),
+	"</B>.  <EM>Note: Dead files and Attic files will be ignored.</EM><BR>\n";
+
+    foreach (@m) {
+	updateCacheDir($_);
+    }
+
+    if ($UPDATE_COUNT) {
+	print "done ($UPDATE_NONATTIC_COUNT,$UPDATE_ATTIC_COUNT).";
+    }
+
+    %TAGSCAN_IDS = ();
+#at	%TAGSCAN_ALLTAGS = ();
+    %TAGSCAN_WHY = ();
+    $TAGSCAN_COUNT = 0;
+    print "<HR>Scanning CVS tree for bug IDs...";
+    foreach (@m) {
+	tagscanDir($_);
+    }
+    print "done.<HR>";
+
+    # Filter out tagless files that were created after the HI tag
+    # date.
+    my @a;
+    foreach my $f (@TAGLESS_FILES) {
+	my $d = getRev11Date("$CACHE/$f");
+	if ($d && $d le $TAGSCAN_TAG_HI_DATE) {
+	    push @a, $f;
+	}
+    }
+    @TAGLESS_FILES = @a;
+
+    if (@NO_JITTERBUG_FILES) {
+	print "The following revisions have no associated Jitterbug, or the bug number could not be parsed from the checkin comment.\n";
+	print "Checkins older than a year are not listed.\n";
+	print "<BLOCKQUOTE>";
+	print join("<BR>\n",
+		   map {logLink($_->[0],'grepj_2') .
+			", " . $_->[1] . "<BR><CODE>" .
+			$_->[2] . "</CODE>"}
+		   @NO_JITTERBUG_FILES);
+	print "</BLOCKQUOTE><HR>\n";
+    }
+
+    if (@TAGLESS_FILES) {
+	print "<EM>The following ", scalar @TAGLESS_FILES
+	    , " files were ignored because they are missing one or both tags."
+	    , " </EM>Files created after <B>$TAGSCAN_TAG_HI</B> should not be listed"
+	    , " here.\n<BLOCKQUOTE>";
+	print join("<BR>\n",
+		   map {logLink($_,'grepj_2')}
+		   @TAGLESS_FILES)
+	    , "</BLOCKQUOTE><HR>\n";
+    }
+
+    if (@BRANCHED_FILES) {
+	print "<EM>The following ", scalar @BRANCHED_FILES
+	    , " files were ignored because the tags occur on different"
+	    , " branches.\n</EM><BLOCKQUOTE>";
+	print join("<BR>\n",
+		   map {logLink($_->[0],'grepj_2') .
+			": " . $_->[1] . " => " . $_->[2]}
+		   @BRANCHED_FILES)
+	    , "</BLOCKQUOTE><HR>\n";
+    }
+
+#at	print "Other tags seen: ",
+#at	      join(" ", 
+#at		   map {my $a=tagToRelease($_); $a?"$_($a)":"$_*"}
+#at                sort keys %TAGSCAN_ALLTAGS), "\n<HR>";
+
+    print "Details: "
+	, join("; ",
+	       map {"(" . jitterbugLink($user, $_, 'grepj_2') .
+                    ": " . join(", ",
+                 map {s|^.+?/||; s|,v$||; $_} sort keys %{$TAGSCAN_WHY{$_}}) . ")"}
+	       sort {$a<=>$b} keys %TAGSCAN_WHY)
+	, "<HR>\n";
+
+    print "Jitterbug IDs found (",scalar keys %TAGSCAN_IDS,"): "
+	, join(", ",
+	       map {jitterbugLink($user, $_, 'grepj_2')}
+	       sort {$a<=>$b} keys %TAGSCAN_IDS);
+
+    my $bugs = join(',', sort {$a<=>$b} keys %TAGSCAN_IDS);
+    print <<END;
+  <form method=post action=http://bugs.icu-project.org/cgibin/private/tasklist/buglist.html>
+    <input type=hidden name=tag1 value=$TAGSCAN_TAG_LO>
+    <input type=hidden name=tag2 value=$TAGSCAN_TAG_HI>
+    <input type=hidden name=bugs value="$bugs">
+   <input type=submit value="Bug List Report">
+  </form>
+END
+    my $bugs2 = join(' ', sort {$a<=>$b} keys %TAGSCAN_IDS);
+    print <<END;
+  <form method=GET action=http://bugs.icu-project.org/cgibin/private/byname/review>
+    <input type=hidden name=user value=$user>
+    <input type=hidden name=bugs value="$bugs2">
+    <input type=hidden name=showclosed value=>
+   <input type=submit value="Reviewer Report">
+  </form>
+END
+    print <<END;
+  <form method=GET action=http://bugs.icu-project.org/cgibin/private/byname/assign>
+    <input type=hidden name=user value=$user>
+    <input type=hidden name=bugs value="$bugs2">
+    <input type=hidden name=showclosed value=>
+   <input type=submit value="Assignee Report">
+  </form>
+END
+}
+
+# Given a relative path to $CVSROOT, tagscan the
+# corresponding item under $CACHE.  Path may point to a
+# file or a directory.
+# @param relative directory, not ending in "/", e.g. "icu/icu"
+# @param item name in that directory
+sub tagscanEntry {
+    my $relDir = shift;
+    my $item = shift; # A file or dir in $CVSROOT/$relDir
+
+    if (-d "$CACHE/$relDir/$item") {
+        tagscanDir("$relDir/$item");
+    } elsif ($item =~ /,v$/) {
+        tagscanFile("$relDir/$item");
+    }
+}
+
+# Given a relative directory path to $CACHE, tagscan the
+# underlying files.
+# @param relative directory, not ending in "/", e.g. "icu/icu"
+sub tagscanDir {
+    my $relDir = shift;
+
+    # Ignore stuff in the Attic
+    return if ($relDir eq 'Attic');
+
+    debugOut("+tagscanDir($relDir)") if ($DEBUG);
+
+    my $cacheDir = "$CACHE/$relDir";
+
+    # First tagscan files in this directory
+    opendir(DIR, $cacheDir);
+    my @cacheList = grep !/^\.\.?$/, readdir(DIR);
+    closedir(DIR);
+
+    # Tagscan each individual entry
+    foreach (@cacheList) {
+        tagscanEntry($relDir, $_);
+    }
+
+    debugOut("-tagscanDir($relDir)") if ($DEBUG);
+}
+
+# Given a relative file path to $CVSROOT, tagscan the
+# corresponding file under $CACHE, if necessary.
+# @param relative file path
+sub tagscanFile {
+    my $relFile = shift;
+
+    # Display progress; it takes awhile
+    if (++$TAGSCAN_COUNT % 100 == 0) {
+	print " $TAGSCAN_COUNT...";
+    }
+
+    # This file contains the output of rlog.
+    my $file = "$CACHE/$relFile";
+
+    # Parse the rlog file.  Start by extracting the tag names.  Look
+    # for the TAGSCAN_TAG_LO and TAGSCAN_TAG_HI's associated revision
+    # numbers.
+    open(IN, $file);
+    while (<IN>) {
+	last if (/^symbolic names:\s*$/);
+    }
+    my $rev_lo;
+    my $rev_hi;
+    my $rel_min; # lowest release number seen
+    my @odd_tags;
+    if ($TAGSCAN_TAG_HI eq 'HEAD') {
+	$rev_hi = 'HEAD';
+    }
+    while (<IN>) {
+	last if (/^\S/);
+	if (!$rev_lo && /^\s+$TAGSCAN_TAG_LO:\s*(\S+)/) {
+	    $rev_lo = $1;
+	}
+	elsif (!$rev_hi && /^\s+$TAGSCAN_TAG_HI:\s*(\S+)/) {
+	    $rev_hi = $1;
+	}
+	elsif (/^\s+(\S+?):/) {
+	    my $tag = $1;
+#at	    $TAGSCAN_ALLTAGS{$tag} = 1;
+	    my $r = tagToRelease($tag);
+	    if ($r) {
+		if (!$rel_min) {
+		    $rel_min = $r;
+		} elsif ($r < $rel_min) {
+		    $rel_min = $r;
+		}
+	    } else {
+		push @odd_tags, $tag;
+	    }
+	}
+    }
+
+    # Check for dead files.  Look ahead and find the state of the head
+    # revision.
+    my $pos = tell(IN);
+    my $state = '';
+    while (<IN>) {
+	if (/^date:.+state: ([A-Za-z]+)/) {
+	    $state = $1;
+	    last;
+	}
+    }    
+    seek(IN,$pos,0);
+
+    # If this file is 'dead', we're done.
+    return if ($state eq 'dead');
+
+    # Usually we find both tags.  However, in several special cases one
+    # or both tags will be missing.
+    if (!$rev_lo || !$rev_hi) {
+	my $ok = 0;
+
+	# If we see the high tag, but not the low, then this may be a
+	# new file (created after the low tag).  To check for this, examine
+	# the other tags.  If this is a new file; we can just scan
+	# from rev_hi all the end of the log (with rev_lo set to '1.1').
+	if ($rev_hi) {
+	    if (!$rel_min) {
+		# The only tag seen was the HI tag.
+		$ok = 1;
+	    } else {
+		my $lo = tagToRelease($TAGSCAN_TAG_LO);
+		if ($lo && $rel_min > $lo && (scalar @odd_tags)==0) {
+		    # Other tags were seen, but all were above the LO tag.
+		    $ok = 1;
+		}
+	    }
+	    $rev_lo = '1.1';
+	}
+
+	if (!$ok) {
+	    push @TAGLESS_FILES, $relFile;
+	    return;
+	}
+    }
+
+    # If the low and high revisions are the same then there are no bugs
+    # to record from this file.
+    if ($rev_lo eq $rev_hi) {
+	# Scan down to get the date of the rev_hi
+	while (<IN>) {
+	    if (/^revision $rev_hi\s*$/) {
+		$_ = <IN>; # Read date line
+		if (/^date: (.+?);/) {
+		    $TAGSCAN_TAG_HI_DATE = $1
+			if ($TAGSCAN_TAG_HI_DATE lt $1);
+		} else {
+		    cantParse('date', $relFile, $_, $rev_hi);
+		}
+	    }
+	}
+	return;
+    }
+
+    my $inRange;
+
+    my @result;
+
+    # The rlog output (the CACHE file) contains a series
+    # of groups of lines, like so:
+    #|----------------------------
+    #|revision 1.40
+    #|date: 2001/08/02 18:24:58;  author: grhoten;  state: Exp;  lines: +82 -73
+    #|jitterbug 1080: general readme.html updates
+    # That is, the first line has the revision #.
+    # The third line has the bug ID.
+
+    # Are revisions on the same branch?
+    my $branch_lo = revToBranch($rev_lo);
+    my $branch_hi = revToBranch($rev_hi);
+    if ($branch_lo eq $branch_hi) {
+	
+	while (<IN>) {
+	    if (/^-{20,}$/) {
+		$_ = <IN>; # Read revision line
+		if (/revision (\S+)/) {
+		    my $rev = $1;
+		    last if ($rev eq $rev_lo);
+		    if (!$inRange) {
+			if ($rev eq $rev_hi || $rev_hi eq 'HEAD') {
+			    $inRange = 1;
+			}
+		    }
+		    if ($inRange) {
+			my $date = <IN>; # Read date line
+			$_ = <IN>; # Read comment or branches: line
+			$_ = <IN> if (/^branches:/); # Read line after branches:
+			my $id;
+			if (/^\s*jitterbug\s+0*(\d+)/i) {
+			    $id = $1;
+			} else {
+			    push @NO_JITTERBUG_FILES, [$relFile, $rev, $_]
+				if (noJitterbugFilter($rev, $date));
+			    $id = $NO_JITTERBUG;
+			}
+			push @result, [$rev, $id, $date];
+		    }
+		} else {
+		    cantParse('revision', $relFile, $_);
+		    last; # This is very bad - bail out
+		}
+	    }
+	}
+    }
+
+    elsif ($branch_hi =~ /^\Q$branch_lo\E\./) {
+	# Special case:  E.g., going from 1.25 => 1.25.2.1 means
+	# going from branch 1 to 1.25.2.  We can handle this.
+	
+	my @revs = traverseRevisions($rev_lo, $rev_hi);
+
+	#print "[$relFile: ", join(",",@revs), "]";
+
+	shift(@revs); # discard rev_lo
+	my %revs;
+	foreach (@revs) { $revs{$_} = 1; } # convert to hash
+
+	while (<IN>) {
+	    if (/^-{20,}$/) {
+		$_ = <IN>; # Read revision line
+		if (/revision (\S+)/) {
+		    my $rev = $1;
+		    if (exists $revs{$rev}) {
+			delete $revs{$rev};
+			my $date = <IN>; # Read date line
+			if ($rev eq $rev_hi) {
+			    # Record latest date corresponding to HI tag
+			    if ($date =~ /^date: (.+?);/) {
+				$TAGSCAN_TAG_HI_DATE = $1
+				    if ($TAGSCAN_TAG_HI_DATE lt $1);
+			    } else {
+				cantParse('date', $relFile, $date, $rev);
+			    }
+			}
+			$_ = <IN>; # Read comment or branches: line
+			$_ = <IN> if (/^branches:/); # Read line after branches:
+			my $id;
+			if (/^\s*jitterbug\s+0*(\d+)/i) {
+			    $id = $1;
+			    $TAGSCAN_WHY{$id}->{$relFile} = 1;
+			} else {
+			    push @NO_JITTERBUG_FILES, [$relFile, $rev, $_]
+				if (noJitterbugFilter($rev, $date));
+			    $id = $NO_JITTERBUG;
+			}
+			$TAGSCAN_IDS{$id} = 1;
+			last unless (%revs);
+		    }
+		} else {
+		    cantParse('revision', $relFile, $_);
+		    last; # This is very bad - bail out
+		}
+	    }
+	}
+    }
+
+    else {
+	# Tags on different branches
+	push @BRANCHED_FILES, [$relFile, $rev_lo, $rev_hi];
+    }
+
+    close(IN);
+    my $a = \@result;
+
+    foreach my $revision (@$a) {
+	# $revision->[ revision, jitterbug ID, date: line ]
+	$TAGSCAN_IDS{$revision->[1]} = 1;
+	$TAGSCAN_WHY{$revision->[1]}->{$relFile} = 1;
+    }
+
+    if (@$a) {
+	# Record latest date corresponding to HI tag
+	if ($a->[0]->[2] =~ /^date: (.+?);/) {
+	    $TAGSCAN_TAG_HI_DATE = $1
+		if ($TAGSCAN_TAG_HI_DATE lt $1);
+	} else {
+	    cantParse('date', $relFile, $a->[0]->[2], $a->[0]->[0]);
+	}
+    }
+}
+
+######################################################################
+# dcuthelp
+######################################################################
+
+# Perform a "dcuthelp" and emit the results.
+sub do_dcuthelp {
+    $DCUTHELP_TAG = expandTag($QUERY->param('dcut_tag'));
+    my $ids = $QUERY->param('dcut_ids');
+    my $user = $QUERY->param('user');
+
+    # Process the ID list; create a hash of IDs in %DCUTHELP_IDS
+    $ids =~ s/,/ /g;
+    my @ids = grep { /\S/ } split(/\s+/, $ids);
+    my @bogus = grep { !/^\d+$/ } @ids;
+    if (@bogus) {
+	print "These are not valid Jitterbug IDs: ", join(", ", @bogus);
+	return;
+    }
+    foreach my $id (@ids) {
+	local $_ = $id;
+	s/^0+//;
+	if (!$_) { print "0 is not a valid Jitterbug ID."; return; }
+	if (exists $DCUTHELP_IDS{$_}) { print "$id is duplicated in the Jitterbug ID list."; return; }
+	$DCUTHELP_IDS{$_} = 1;
+    }
+
+    if ($DCUTHELP_TAG!~/\S/ || 0==scalar keys %DCUTHELP_IDS) {
+	print "Please enter a CVS tag and list of Jitterbug IDs and try again.";
+	return;
+    }
+
+    my @m;
+    return if (!parseMod(\@m)); # what modules are we searching?
+
+    # Announce our intentions
+    print "Performing a DCUT check in module(s) <B>", join(", ", @m)
+        , "</B> against tag <B>", tagLink($DCUTHELP_TAG,$m[0],'grepj_2'),
+	"</B>";
+    print " with Jitterbug IDs <B>";
+    print join(", ",
+	       map {jitterbugLink($user, $_, 'grepj_2')}
+	       sort {$a<=>$b} keys %DCUTHELP_IDS)
+	, "</B>";
+    print ".\n";
+
+    foreach (@m) {
+	updateCacheDir($_);
+    }
+
+    if ($UPDATE_COUNT) {
+	print "done ($UPDATE_NONATTIC_COUNT,$UPDATE_ATTIC_COUNT).";
+    }
+
+    $DCUTHELP_COUNT = 0;
+    print "<HR>Scanning CVS tree...";
+    foreach (@m) {
+	dcuthelpDir($_);
+    }
+    print "done.";
+
+    if (@NO_JITTERBUG_FILES) {
+	print "<HR>The following revisions have no associated Jitterbug, or the bug number could not be parsed from the checkin comment.\n";
+	print "Checkins older than a year are not listed.\n";
+	print "<BLOCKQUOTE>";
+	print join("<BR>\n",
+		   map {logLink($_->[0],'grepj_2') .
+			", " . $_->[1] . "<BR><CODE>" .
+			$_->[2] . "</CODE>"}
+		   @NO_JITTERBUG_FILES);
+	print "</BLOCKQUOTE>\n";
+    }
+
+    my %tagless;
+    if (@TAGLESS_FILES) {
+	print "<HR><EM>The following ", scalar @TAGLESS_FILES
+	    , " files are missing the tag <B>"
+	    , $DCUTHELP_TAG, "</B>.  They were treated as if the tag existed "
+	    , "on the initial revision.</EM>\n<BLOCKQUOTE>";
+	print join("<BR>\n",
+		   map {logLink($_, 'grepj_2')}
+		   @TAGLESS_FILES);
+	print "</BLOCKQUOTE>\n";
+	for my $f (@TAGLESS_FILES) { $tagless{$f} = 1; }
+    }
+
+    if (@BRANCHED_FILES) {
+	print "<HR><EM><B>Error: The following ", scalar @BRANCHED_FILES
+	    , " files contain the listed bug changes on different "
+	    , " branches.\n</B></EM><BLOCKQUOTE>";
+	print join("<BR>\n",
+		   map {logLink($_->[0],'grepj_2') .
+			": " . $_->[1] . ", " . $_->[2]}
+		   @BRANCHED_FILES)
+	    , "</BLOCKQUOTE>\n";
+    }
+
+    if (@DCUTHELP_BADFILES) {
+	print "<HR><EM><B>Error: The following "
+	    , scalar @DCUTHELP_BADFILES,
+	    " files contain intermingled bug fixes not specified in the list.",
+	    "</B></EM>\n<BLOCKQUOTE>";
+	my %badids;
+	foreach (@DCUTHELP_BADFILES) {
+	    my $relFile = $_->[0];
+	    my $ids = $_->[1];
+	    print logLink($relFile, 'grepj_2'), ": "
+		, join(", ",
+		       map {jitterbugLink($user, $_, 'grepj_2')}
+		       @$ids)
+		, "<BR>\n";
+	    foreach my $i (@$ids) { $badids{$i} = 1; }
+	}
+	print "</BLOCKQUOTE>\n";
+	print "Jitterbug changes not in the list: "
+            , join(", ",
+                   map {jitterbugLink($user, $_, 'grepj_2')}
+                   sort {$a<=>$b} keys %badids)
+            , "\n";
+    }
+
+    if (@DCUTHELP_RETAGS) {
+	print "<HR>CVS commands to update the tags in files containing "
+	    ,"only the listed bugs (copy & paste into a shell window).";
+	if (@DCUTHELP_BADFILES || @BRANCHED_FILES) {
+	    print "<B>WARNING!  Some files (see above) contain other bug changes!  Files below are all \"legal\" but you may wish to address above problems before retagging.</B>";
+	}
+	print "<BR><BR><CODE><FONT SIZE=-1>";
+	print "cd $CVSROOT<BR>\n";
+	# Two passes, one for normal files, another for tagless
+	my $tagless_count = 0;
+	for (my $pass=0; $pass<2; ++$pass) {
+	    print "<FONT COLOR=\"#0000FF\"># The following files do not contain the tag $DCUTHELP_TAG<BR>\n" if ($pass);
+	    foreach (@DCUTHELP_RETAGS) {
+		my $relFile = $_->[0];
+		if ($pass == 0) {
+		    if ($tagless{$relFile}) {
+			++$tagless_count;
+			next;
+		    }
+		} else {
+		    next unless ($tagless{$relFile});
+		}
+		my $rev_hi = $_->[1];
+		$relFile =~ s/,v$//;
+		my $onBranch = ($rev_hi =~ /\d+\.\d+\.\d+/);
+		print "<FONT COLOR=\"#FF0000\">" if ($onBranch);
+		print "cvs tag -F -r $rev_hi $DCUTHELP_TAG $relFile";
+		print "</FONT>" if ($onBranch);
+		print "<BR>\n";
+	    }
+	    last unless ($tagless_count);
+	    print "</FONT>\n" if ($pass);
+	}
+	print "</FONT></CODE>";
+    } else {
+	print "<HR>Nothing to do; no clean checkins for bugs "
+	    , join(", ",
+		   map {jitterbugLink($user, $_, 'grepj_2')}
+		   sort {$a<=>$b} keys %DCUTHELP_IDS)
+	    , " after "
+	    , tagLink($DCUTHELP_TAG,$m[0],'grepj_2')
+	    , " in module(s) <B>"
+	    , join(", ", @m), "</B>.\n"
+	    ;
+    }
+}
+
+# Given a relative path to $CVSROOT, dcuthelp the
+# corresponding item under $CACHE.  Path may point to a
+# file or a directory.
+# @param relative directory, not ending in "/", e.g. "icu/icu"
+# @param item name in that directory
+sub dcuthelpEntry {
+    my $relDir = shift;
+    my $item = shift; # A file or dir in $CVSROOT/$relDir
+
+    # Ignore stuff in the Attic
+    return if ($item eq 'Attic');
+
+    if (-d "$CACHE/$relDir/$item") {
+        dcuthelpDir("$relDir/$item");
+    } elsif ($item =~ /,v$/) {
+        dcuthelpFile("$relDir/$item");
+    }
+}
+
+# Given a relative directory path to $CACHE, dcuthelp the
+# underlying files.
+# @param relative directory, not ending in "/", e.g. "icu/icu"
+sub dcuthelpDir {
+    my $relDir = shift;
+
+    debugOut("dcuthelpDir($relDir)") if ($DEBUG);
+
+    my $cacheDir = "$CACHE/$relDir";
+
+    # First dcuthelp files in this directory
+    opendir(DIR, $cacheDir);
+    my @cacheList = grep !/^\.\.?$/, readdir(DIR);
+    closedir(DIR);
+
+    # Dcuthelp each individual entry
+    foreach (@cacheList) {
+        dcuthelpEntry($relDir, $_);
+    }
+}
+
+# Given a relative file path to $CVSROOT, dcuthelp the
+# corresponding file under $CACHE.
+# @param relative file path
+sub dcuthelpFile {
+    my $relFile = shift;
+
+    # Display progress; it takes awhile
+    if (++$DCUTHELP_COUNT % 100 == 0) {
+	print " $DCUTHELP_COUNT...";
+    }
+
+    # This file contains the output of rlog.
+    my $file = "$CACHE/$relFile";
+
+    # Parse the rlog file.  Start by extracting the tag names.  Look
+    # for the DCUTHELP_TAG and its associated revision
+    # number.
+    open(IN, $file);
+    while (<IN>) {
+	last if (/^symbolic names:\s*$/);
+    }
+    my $rev_tag = '';
+    while (<IN>) {
+	last if (/^\S/);
+	if (/^\s+$DCUTHELP_TAG:\s*(\S+)/) {
+	    $rev_tag = $1;
+	    last;
+	}
+    }
+
+    # Check for dead files.  Look ahead and find the state of the head
+    # revision.
+    my $pos = tell(IN);
+    my $state = '';
+    while (<IN>) {
+	if (/^date:.+state: ([A-Za-z]+)/) {
+	    $state = $1;
+	    last;
+	}
+    }
+    seek(IN,$pos,0);
+
+    # If this file is 'dead', we're done.
+    return if ($state eq 'dead');
+
+    # If the tag is missing, record the fact.  Continue to process
+    # the file as if the tag existed on the earliest revision.
+    # This allows the tagging of newly added files.
+    if (!$rev_tag) {
+	push @TAGLESS_FILES, $relFile;
+    }
+
+    # I'm going to assume the rlog output (the CACHE file) contains a series
+    # of groups of lines, like so:
+    #|----------------------------
+    #|revision 1.40
+    #|date: 2001/08/02 18:24:58;  author: grhoten;  state: Exp;  lines: +82 -73
+    #|jitterbug 1080: general readme.html updates
+    # That is, the first line has the revision #.
+    # The third line has the bug ID.  Sometimes the third line has a
+    # branch field.
+
+    # Find bug IDs later than the given tag, and record any that aren't
+    # on the allowed list.  Locate $rev_hi - the high
+    # revision of any bug found in the list.
+    my @problem_ids; # Bug IDs between $rev_tag and $rev_hi not in the list
+    my $rev_hi;
+    my $bottom_rev = ''; # Last revision in the file
+    while (<IN>) {
+        if (/^-{20,}$/) {
+	    $_ = <IN>; # Read revision line
+	    if (/revision (\S+)/) {
+		my $rev = $1;
+		$bottom_rev = $rev;
+		if ($rev eq $rev_tag) {
+		    # Scan remainder of file to record last rev
+		    while (<IN>) {
+			if (/^-{20,}$/) {
+			    $_ = <IN>; # Read revision line
+			    $bottom_rev = $1 if (/revision (\S+)/);
+			}
+		    }
+		    last;
+		}
+		my $date = <IN>; # Read date line
+		$_ = <IN>; # Read comment or branches: line
+		$_ = <IN> if (/^branches:/); # Read line after branches:
+		my $id;
+		if (/^\s*jitterbug\s+0*(\d+)/i) {
+		    $id = $1;
+		} else {
+		    push @NO_JITTERBUG_FILES, [$relFile, $rev, $_]
+			if (noJitterbugFilter($rev, $date));
+		    $id = $NO_JITTERBUG;
+		}
+		my $in_list = (exists $DCUTHELP_IDS{$id});
+#		# Handle tagless files a little differently
+#		if (!$rev_tag) {
+#		    if (!$rev_hi) {
+#			if ($in_list) {
+#			    $rev_hi = $rev;
+#			} else {
+#			}
+#		    }
+#
+#		}
+		if (!$rev_hi) {
+		    if ($in_list) {
+			$rev_hi = $rev;
+		    }
+		} else {
+		    if (!$in_list) {
+			push @problem_ids, $id;
+		    }
+		}
+	    } else {
+		cantParse('revision', $relFile, $_);
+	    }
+        }
+    }
+
+    # If the bottom revision looks like a branch, then we need
+    # to do extra processing.  Branch revisions are listed at the
+    # end of the rlog output.
+    if ($bottom_rev =~ /\d+\.\d+\.\d+\.\d+/ &&
+	$bottom_rev ne '1.1.1.1') {
+
+	# This file contains branches; do special handling
+
+	# Parse all the revisions and form a branch tree.
+	# Construct a hash (%tree) of revision numbers to jitterbugs.
+	# In addition, "$rev-" maps to a ref to an array of branches,
+	# if any.
+	my %tree;
+	seek(IN,0,0); # rewind to start
+	while (<IN>) {
+	    if (/^-{20,}$/) {
+		$_ = <IN>; # Read revision line
+		if (/revision (\S+)/) {
+		    my $rev = $1;
+		    my $date = <IN>; # Read date line
+		    $_ = <IN>; # Read comment or branches: line
+		    if (/^branches:\s*(.*)/) {
+			my @branches = split(/;\s*/, $1);
+			$tree{$rev . '-'} = \@branches;
+			$_ = <IN>; # Read comment line
+		    }
+		    my $id;
+		    if (/^\s*jitterbug\s+0*(\d+)/i) {
+			$id = $1;
+		    } else {
+			push @NO_JITTERBUG_FILES, [$relFile, $rev, $_]
+			    if (noJitterbugFilter($rev, $date));
+			$id = $NO_JITTERBUG;
+		    }
+		    $tree{$rev} = $id;
+		} else {
+		    cantParse('revision', $relFile, $_);
+		}
+	    }
+	}
+
+#	print "[$relFile: ";
+#	print join("; ",
+#		   map {$_ . " => " .
+#		       (ref($tree{$_})
+#			?("(".join(",",@{$tree{$_}}).")")
+#			:$tree{$_})}
+#		   sort keys %tree);
+
+	$rev_hi = dcuthelpScan(\%tree, $rev_tag, 1);
+
+#	print ": scan=>$rev_hi]";
+
+	@problem_ids = ();
+	if ($rev_hi =~ /;/) {
+	    # Tags on different branches
+	    my @a = split(/;/, $rev_hi);
+	    unshift @a, $relFile;
+	    push @BRANCHED_FILES, \@a;
+	    return;
+	} elsif ($rev_hi) {
+	    my @revs = traverseRevisions($rev_tag, $rev_hi);
+
+	    shift(@revs); # discard rev_lo
+	    my %revs;
+	    foreach (@revs) { $revs{$_} = 1; } # convert to hash
+
+	    seek(IN,0,0); # rewind to start
+	    while (<IN>) {
+		if (/^-{20,}$/) {
+		    $_ = <IN>; # Read revision line
+		    if (/revision (\S+)/) {
+			my $rev = $1;
+			if (exists $revs{$rev}) {
+			    delete $revs{$rev};
+			    my $date = <IN>; # Read date line
+			    $_ = <IN>; # Read comment or branches: line
+			    $_ = <IN> if (/^branches:/); # Read line after branches:
+			    my $id;
+			    if (/^\s*jitterbug\s+0*(\d+)/i) {
+				$id = $1;
+			    } else {
+				push @NO_JITTERBUG_FILES, [$relFile, $rev, $_]
+				    if (noJitterbugFilter($rev, $date));
+				$id = $NO_JITTERBUG;
+			    }
+			    if (!exists $DCUTHELP_IDS{$id}) {
+				push @problem_ids, $id;
+			    }
+			    last unless (%revs);
+			}
+		    } else {
+			cantParse('revision', $relFile, $_);
+			last; # This is very bad - bail out
+		    }
+		}
+	    }    
+	}
+    }
+
+    if (@problem_ids) {
+	my @a = sortedUniqueInts(@problem_ids);
+	push @DCUTHELP_BADFILES, [$relFile, \@a];
+    } elsif ($rev_hi) {
+	# This file is okay; record the data needed for moving the tag
+	push @DCUTHELP_RETAGS, [$relFile, $rev_hi];
+    }
+
+    close(IN);
+}
+
+# Given a revision tree (see dcuthelpFile), look for %DCUTHELP_IDS
+# bugs along various branches, starting at a given revision.  Proceed
+# along the branch of the given revision by incrementing it using
+# incRev().  If any revision along the way is a branch point, follow
+# that branch by recursing.  If found on two split branches,
+# return 'rev;rev'.  If not found at all, return ''.  If found on
+# exactly one branch, return the furthest revision at which it was
+# found.
+#
+# @param tree, as created by dcuthelpFile
+# @param first revision to examine
+# @param if true, exclude given revision from bug search
+#        but not from branch analysis.
+#
+# @return either a revision, or 'rev;rev' if the bugs occur
+#         on two split branches, or '' if the bugs aren't seen.
+sub dcuthelpScan {
+    my $tree = shift; # parsed revision tree; see dcuthelpFile
+    my $rev = shift; # rev to start at
+    my $exclusive = shift || ''; # is $rev exclusive?
+
+#   print "[scan $tree $rev $exclusive]";
+
+    # If there are no branches between $rev and the end of its branch,
+    # then return the top revision at which one of %DCUTHELP_IDS is seen.
+    my $branchrev = ''; # First rev at which branch was seen, if any
+    my $lastbugrev = ''; # Last rev at which bug was seen
+    my $r;
+    for ($r=$rev ;exists $tree->{$r}; $r=incRev($r)) {
+#	print "{$r}";
+	if (exists $DCUTHELP_IDS{$tree->{$r}}) {
+	    $lastbugrev = $r;
+	}
+	if (exists $tree->{"$r-"}) {
+	    $branchrev = $r;
+	    last;
+	}
+    }
+
+    # If $exclusive it true, can't return this rev.
+    if ($exclusive && ($lastbugrev eq $rev)) {
+	$lastbugrev = '';
+    }
+
+    # If there are no branches we are done.
+    if (!$branchrev) {
+	return $lastbugrev;
+    }
+
+    # Otherwise, examine the n branches and the continuation of
+    # this branch separately.  Convert branch revisions to the first
+    # rev on each branch, e.g., "1.14.2" => "1.14.2.1"
+    my @branches = map {"$_.1"} @{$tree->{"$branchrev-"}};
+    $r = incRev($branchrev);
+    push @branches, $r if (exists $tree->{$r});
+
+    $r = '';
+    foreach (@branches) {
+	my $a = dcuthelpScan($tree, $_);
+	return $a if ($a =~ /;/);
+	if ($a) {
+	    if ($r) {
+		# Our bugs were seen on more than one branch
+		return "$r;$a";
+	    }
+	    $r = $a;
+	}
+    }
+
+    # If we haven't seen it on any branches, use result up to the
+    # branch point, found above.
+    $r ||= $lastbugrev;
+
+    return $r;
+}
+
+######################################################################
+# CVS rlog cache
+######################################################################
+
+#---------------------------------------------------------------------
+# Given a relative path to $CVSROOT, update the
+# corresponding item under $CACHE.  Path may point to a
+# file or a directory.
+# @param relative directory, not ending in "/", e.g. "icu/icu"
+# @param item name in that directory
+sub updateCacheEntry {
+    my $relDir = shift;
+    my $item = shift; # A file or dir in $CVSROOT/$relDir
+
+    if (-d "$CVSROOT/$relDir/$item") {
+        updateCacheDir("$relDir/$item");
+    } elsif ($item =~ /,v$/) {
+        updateCacheFile("$relDir/$item");
+    }
+}
+
+#---------------------------------------------------------------------
+# Given a relative directory path to $CVSROOT, update the
+# corresponding directory under $CACHE.
+# @param relative directory, not ending in "/", e.g. "icu/icu"
+sub updateCacheDir {
+    my $relDir = shift;
+
+    debugOut("+updateCacheDir($relDir)") if ($DEBUG);
+
+    my $cvsDir = "$CVSROOT/$relDir";
+    my $cacheDir = "$CACHE/$relDir";
+
+    # First update files in this directory
+    opendir(DIR, $cvsDir);
+    my @cvsList = grep !/^\.\.?$/ && $_ ne 'CVS', readdir(DIR);
+    closedir(DIR);
+    my %cvsPruneHash;
+    foreach (@cvsList) { $cvsPruneHash{$_} = 1; }
+    if (!$QUERY->param('include_attic')) {
+        @cvsList = grep !/^attic$/i, @cvsList;
+    }
+    my %cvsHash;
+    foreach (@cvsList) { $cvsHash{$_} = 1; }
+
+    # Update/create the cache directory.  If it doesn't exist,
+    # create it.  If it does, prune out any obsolete entries.
+    if (-d $cacheDir) {
+        if (!opendir(DIR, $cacheDir)) {
+            print "Can't open dir $cacheDir: $!";
+	    debugOut("-!updateCacheDir($relDir)") if ($DEBUG);
+            return;
+        }
+        my @cacheList = grep !/^\.\.?$/, readdir(DIR);
+        closedir(DIR);
+
+        # Delete things that don't exist in CVS
+        foreach (@cacheList) {
+            if (!exists $cvsPruneHash{$_}) {
+		debugOut ( " Removing $cacheDir/$_ .." ) if ($DEBUG);
+                rmtree("$cacheDir/$_", 0, 1);
+            }
+        }
+    } else {
+        mkpath($cacheDir, 0, 0777);
+    }
+
+    # Update each individual entry
+    foreach (@cvsList) {
+        updateCacheEntry($relDir, $_);
+    }
+
+    debugOut("-updateCacheDir($relDir)") if ($DEBUG);
+}
+
+#---------------------------------------------------------------------
+# Given a relative file path to $CVSROOT, update the
+# corresponding file under $CACHE, if necessary.
+# @param relative file path
+sub updateCacheFile {
+    my $relFile = shift;
+
+    if (! -e "$CACHE/$relFile" ||
+        (-M "$CACHE/$relFile" > -M "$CVSROOT/$relFile")) {
+        if (!$UPDATE_COUNT) {
+            print "<HR>Updating cache...";
+	    if(! -e "$CACHE/$relFile") { 
+		debugOut ( " because $CACHE/$relFile was not cached.." ) if ($DEBUG);
+	    } else {
+		debugOut ( " because $relFile was updated.." ) if ($DEBUG);
+	    }
+        } elsif ($UPDATE_COUNT % 25 == 0) {
+	    print " $UPDATE_COUNT...";
+	}
+        ++$UPDATE_COUNT;
+	if ($relFile =~ m|/attic/|i) {
+	    ++$UPDATE_ATTIC_COUNT;
+	} else {
+	    ++$UPDATE_NONATTIC_COUNT;
+	}
+	my $f = "$CACHE/$relFile";
+	command("rlog $CVSROOT/$relFile > $f", $f);
+	my $size = -s $f;
+	if ($size <= 0) {
+	    print " <B>{Fatal Error: rlog of $relFile failed}</B> ";
+	    unlink($f);
+	}
+	command("touch -r $CVSROOT/$relFile $f");
+    }
+}
+
+######################################################################
+# instaCache
+######################################################################
+
+#---------------------------------------------------------------------
+# Lookup an ID in the instaCache, and return the diffs stored
+# there.  If there is no entry for the ID, then return the
+# empty string.  The ID will be suffixed with 'a' if the
+# Attic is included.
+sub instaGet {
+    my $id = shift;
+    my $diffs;
+    my $dir = $QUERY->param('include_attic') ? $INSTA_ATTIC : $INSTA;
+    my $file = "$dir/$id";
+    if (-e $file) {
+	if (open(IN, $file)) {
+	    while (<IN>) { $diffs .= $_; }
+	    close(IN);
+	}
+    }
+    return $diffs;
+}
+
+#---------------------------------------------------------------------
+# Store diffs for the given ID in the instaCache.  The ID will be
+# suffixed with 'a' if the Attic is included.
+sub instaPut {
+    my $id = shift;
+    my $diffs = shift;
+    my $dir = $QUERY->param('include_attic') ? $INSTA_ATTIC : $INSTA;
+    my $file = "$dir/$id";
+    open(IN, ">$file") or return;
+    print IN $diffs;
+    close(IN);
+}
+
+#---------------------------------------------------------------------
+# Reset the instaCache by deleting all entries.  We need
+# to do this whenever the main cache is invalidated.
+# Param: if true, then force reset of all instaCaches.
+# Otherwise do a smart reset based on the update counts.
+sub resetInstaCache {
+    if (shift) {
+	command("rm -rf $INSTA"); # Recursive
+	return;
+    }
+
+    # If there have been changes to non-Attic files, we
+    # have to reset everything.
+    if ($UPDATE_NONATTIC_COUNT) {
+	# The following will fail with:
+	# rm: cannot remove `/tmp/icu-grepj.cache/insta/Attic': Is a directory
+	#command("rm -f $INSTA/*") if (-d $INSTA);
+	command("find $INSTA -type f -maxdepth 1 -exec rm {} \\;")
+	    if (-d $INSTA);
+    } else {
+	# Otherwise just clear the attic instaCache
+	command("rm -f $INSTA_ATTIC/*") if (-d $INSTA_ATTIC);
+    }
+}
+
+######################################################################
+# CVS Utilities
+######################################################################
+
+#---------------------------------------------------------------------
+# Get the date corresponding to the revision 1.1 in the
+# given rlog output.  We use this as the "creation date" for the
+# corresponding CVS file.
+# @param absolute rlog output file path (in the cache)
+# @return date string of the form "2002/08/23 23:21:38"
+sub getRev11Date {
+    my $file = shift;
+
+    # Parse the rlog file.  Return the date line for 1.1
+    open(IN, $file);
+    while (<IN>) {
+	if (/^-{20,}$/) {
+	    $_ = <IN>;
+	    if (/revision 1.1$/) {
+		$_ = <IN>;
+		if (/^date: (.+?);/) {
+		    return $1;
+		}
+	    }
+	}
+    }
+    close(IN);
+
+    ''; # Parse failure - should never happen
+}
+
+#---------------------------------------------------------------------
+# Given a ,v file, find the revisions containing the
+# jitterbug ID change.  Return an array of hash refs.
+# Newest revision is first, that is, it is $result[0].
+# Each hash has:
+#   new (revision#)
+#   old (revision#)
+#   date
+#   author
+#   comment
+# If the very first revision is labeled with the jitterbug
+# $ID, then {old} will be $BASE_REV.
+#
+sub findRevisions {
+    my $file = shift;
+    my $pat = shift;
+    my @result;
+
+    # rlog output:
+    #|revision 1.3
+    #|date: 1999/10/14 22:14:04;  author: schererm;  state: Exp;  lines: +4 -2
+    #|jitterbug 14: echo off now and use the Release versions of the tools
+    #|----------------------------
+    #|revision 1.2
+    #|date: 1999/10/13 01:10:24;  author: schererm;  state: Exp;  lines: +9 -6
+    #|jitterbug 15: windows: genrb puts .res files into the current directory
+    #|more text
+    #|----------------------------
+    #|revision 1.1
+    #|date: 1999/10/12 21:50:30;  author: schererm;  state: Exp;
+    #|jitterbug 14: Windows: create a batch file to make the /icu/data files
+    #|=============================================================================
+
+    # We read our rlog info from the cache now
+    my %log; # $log{<revision>} = <block of text>
+    my $l=''; my $r='';
+    open(IN, $file);
+    while (<IN>) {
+        if (/^-{20,}$/) {
+	    $log{$r} = $l if ($r);
+            $l = $r = '';
+        } elsif ($r) {
+            $l .= $_;
+        } else {
+	    if (/revision\s+(\S+)/) {
+		$r = $1;
+		die "Duplicate revision $r in $file" if (exists $log{$r});
+	    }
+	}
+    }
+    close(IN);
+    $log{$r} = $l if ($r);
+
+    for $r (sort cmprevs keys %log) {
+        local $_ = $log{$r};
+
+        # (2 of 3 REGEXPS) SEE ALSO other regexps; keep them in sync
+        if (/^\s*(?:$CVS_MSG_KW)\s*$pat\b/im) {
+            my %h;
+            $h{new} = $r;
+	    my $rold = decRev($r);
+            if (exists $log{$rold}) {
+                $h{old} = $rold;
+            } else {
+                $h{old} = $BASE_REV;
+            }
+            if (/date:\s*(.+?);/) {
+                $h{date} = $1;
+            }
+            if (/author:\s*(.+?);/) {
+                $h{author} = $1;
+            }
+
+            # (3 of 3 REGEXPS) SEE ALSO other regexps; keep them in sync
+            if (/^\s*(?:$CVS_MSG_KW)\s*$pat\b(.*)/ism) {
+                local $_ = $1;
+                s/^\s*:?\s*//;
+                s/\s*----+\s*$//;
+                s/\s*====+\s*$//;
+                s/\s*\n+\s*/ /g;
+                $h{comment} = $_;
+            }
+            push @result, \%h;
+        }
+    }
+
+    @result;
+}
+
+######################################################################
+# CVS tag parsing
+######################################################################
+
+#---------------------------------------------------------------------
+# Given a tag name like this: "2.1", expand it to "release-2-1".
+# Convert 'head' (case insens.) to 'HEAD'.
+# Otherwise leave it alone.
+sub expandTag {
+    local $_ = shift;
+    s/^\s+//;
+    s/\s+$//;
+    if (/^\d+(\.\d+)/) {
+	s|\.|-|g;
+	$_ = "release-" . $_;
+    } elsif (/^head$/i) {
+	$_ = 'HEAD';
+    }
+    $_;
+}
+
+#---------------------------------------------------------------------
+# Given a tag name like this: "release-1-5-0-d03", return a normalized
+# release number.  The release number in this case would be 1500003.
+# The final release (no 'd') "release-1-5-0" is 1500099; that is, it
+# behaves like "d99".  Up to 5 digits are allowed prior to the 'd'
+# number (if any).  This should suffice; in practice we use only 4
+# (e.g., "release-1-4-1-2").  Assume all numbers are single digits
+# except for the 'd' number.  The tag must start with /release-?/.
+# All digits must be separated by '-', except the '-' before the 'd03'
+# may be omitted.  One or two digits are allowed after the 'd'.
+# Trailing text after an otherwise valid tag, with no 'd', is treated
+# as a 'd' of 00, e.g., "release-2-0-2s-branch".
+#
+# @param a tag string, like "release-1-5-0-d03"
+# @param a release integer, that can be compared numerically,
+#        like 1500003, or if the tag can't be parsed.
+sub tagToRelease {
+    local $_ = shift;
+    if (s/^release-?//i) {
+	my @a;
+	my $d = -1;
+	for (;;) {
+	    if (s/^(\d)-// ||
+		s/^(\d)$// ||
+		s/(\d)(\D)/$2/) { # e.g., "release-1-4-2d01"
+		push @a, $1;
+	    } elsif ($d<0 && s/^d(\d{1,2})$//) {
+		$d = $1;
+	    } else {
+		last;
+	    }
+	}
+	# If we have some trailing non-standard text, and no 'd',
+	# then treat it as a 'd' of 00.
+	if ($_ && $d<0 && (scalar @a)>0) {
+	    $_ = '';
+	    $d = 0;
+	}
+	if (!$_) {
+	    push @a, (0, 0, 0, 0); # Pad with 0's
+	    @a = @a[0..4];
+	    return join('',@a) . sprintf("%02d", $d<0?99:$d);
+	}
+    }
+    0; # parse failure
+}
+
+######################################################################
+# Utilities
+######################################################################
+
+# Output a string in debug mode
+# Usage:  debugOut("string") if ($DEBUG);
+sub debugOut {
+    print "<P><FONT SIZE=-1><B>", join(" ", @_), "</B></FONT></P>";
+}
+
+#|# Set or change a GET param of a URL.  If the param exists,
+#|# change it.  If it doesn't, add it.
+#|# @param a URL, with or without trailing parameters
+#|# @param a parameter string of the form a=b, a=, or a
+#|# @param modified URL
+#|sub urlParam {
+#|    my $url = shift;
+#|    my $param = shift;
+#|    my $key = $param;
+#|    $key =~ s/=.*//;
+#|    if ($url =~ s/([\?&;])$key=[^&;]*/$1$param/ ||
+#|	$url =~ s/([\?&;])$key$/$1$param/) {
+#|	return $url;
+#|    }
+#|    $url . ($url =~ /\?/ ? '&' : '?') . $param;
+#|}
+
+# Append the given path-info to the given URL
+# Param: URL, possibly including '?xxx=yyy' params, NOT ending in '/'
+# Param: Path info, MUST start with '/'
+sub urlPathInfo {
+    my $url = shift;
+    my $pi = shift;
+    if ($url =~ s|\?|$pi?|) {
+    } else {
+	$url .= $pi;
+    }
+    $url;
+}
+
+# Parse the module params given by the user
+# @param ref to array to receive list of modules.  Prior contents will
+#        be lost.
+# @return 1 on success, or 0 if bad or no modules were seen.
+sub parseMod {
+    my $m = shift; # ref to array
+    my @badMod;
+
+    my $mod = $QUERY->param('mod') || $DEFAULT_MOD;
+    $mod =~ s|^\s+||;
+    $mod =~ s|\s+$||;
+    $mod =~ s|\s+| |g;
+    @$m = split(' ', $mod);
+    foreach (@$m) {
+	# !Modify element of @m in place!
+	$_ = $MOD_ABBREV{$_} if (exists $MOD_ABBREV{$_});
+	push @badMod, $_ if (! -d "$CVSROOT/$_");
+    }
+    if (@badMod) {
+	print "Invalid modules: <CODE>",
+	      join(" ", @badMod), "</CODE>";
+	print "<BR>Did you try the full module name (e.g. \"icu/charset\")?  Only some modules can be abbreviated: <CODE>", join(" ", sort keys %MOD_ABBREV), "</CODE>.";
+	return 0;
+    }
+    1;
+}
+
+# Return the HTML for a link to the given jitterbug.
+# @param user
+# @param bug ID
+# @param OPTIONAL target
+# @return HTML for A tag
+sub jitterbugLink {
+    my $user = shift;
+    my $id = shift;
+    my $targ = shift || '';
+    if ($id eq $NO_JITTERBUG) {
+	return "<EM>no jitterbug</EM>";
+    }
+    $targ = " target=\"$targ\"" if ($targ);
+    "<A href=\"" . jitterbugURL($user, $id) . "\"$targ>$id</A>";
+}
+
+# Return the HTML for a link to the WebCVS log of a file.
+# @param relative path (from $CVSROOT) to file, optionally with
+#        trailing ",v"
+# @param OPTIONAL target
+# @return HTML for A tag
+sub logLink {
+    my $relFile = shift;
+    my $targ = shift;
+    $targ = " target=\"$targ\"" if ($targ);
+    $relFile =~ s/,v$//;
+    "<A href=\"$LOG_URL/$relFile\"$targ>$relFile</A>";
+}
+
+# Return the HTML for a link to the WebCVS "tag" page.  This will
+# just be the page for the root of the given module, with the given
+# tag selected.
+# @param tag
+# @param module, e.g., "icu/icu"
+# @param OPTIONAL target
+# @return HTML for A tag
+sub tagLink {
+    my $tag = shift;
+    my $mod = shift;
+    my $targ = shift;
+    $targ = " target=\"$targ\"" if ($targ);
+    "<A href=\"$LOG_URL/$mod/?only_with_tag=$tag\"$targ>$tag</A>";
+}
+
+# Emit an error (in HTML) about failing to parse a line.
+# @param what can't be parsed, e.g., 'revision'
+# @param relative file path, e.g., 'icu/icu/readme.html'
+# @param the line that can't be parsed
+# @param revision
+sub cantParse {
+    my $what = shift;
+    my $relFile = shift;
+    my $line = shift;
+    my $rev = shift;
+    $rev = ', '.$rev if ($rev);
+    print "<BR>Error: Can't parse $what in "
+	, logLink($relFile, 'grepj_2'), "$rev:<BR>\n";
+    print "<CODE>$line</CODE><BR>";
+}
+
+# Print the given string(s) to STDOUT and also return the
+# output as a single string.
+sub out {
+    local $_ = join('', @_);
+    print;
+    $_;
+}
+
+# Given an array of numbers, return a sorted unique list.
+sub sortedUniqueInts {
+    my @a = @_;
+    my %a;
+    foreach (@a) {
+	s/^0+(\d)/$1/;
+	$a{$_} = 1;
+    }
+    sort {$a<=>$b} keys %a;
+}
+
+# Convert a revision number to a branch number.
+# Generally this means dropping the last dotted integer, but if
+# the last two dotted integers are 0.n, then the 0. must be dropped:
+# 1.14.0.2 => 1.14.2.  (This is a magic CVS revision representing
+# the branch.)  Also 'HEAD' is branch '1'.
+sub revToBranch {
+    local $_ = shift;
+    s/\.0(\.\d+)$/$1/ || s/\.\d+$// || s/HEAD/1/;
+    $_;
+}
+
+# Given two CVS revisions, return a sequence of revisions traversing
+# the logical path between them.
+#
+# WARNING!: The revisions must actually have a path between them.  If
+# you pass in 1.4 => 1.2 or 1.5 => 1.2.2.4 the sub will run
+# infinitely.
+#
+# @param low revision, e.g. 1.2 or 1.2.0.4
+# @param high revision, e.g., 1.5.2.3
+# @return an array of revisions from low to high inclusive
+sub traverseRevisions {
+    my $rev_lo = shift;
+    my $rev_hi = shift;
+    my @a = split(/\./, $rev_lo);
+    my @limit = split(/\./, $rev_hi);
+    my @list;
+    for (;;) {
+	push @list, join('.', @a);
+	if (@a == @limit) {
+	    last if ($a[-1] == $limit[-1]);
+	    # Fall through
+	} else {
+	    my $a = join('.', @a);
+	    if ($rev_hi =~ /^\Q$a\E\./) {
+		push @a, $limit[@a];
+		push @a, 1;
+		next;
+	    }
+	    # Else fall through
+	}
+
+	if ($a[-2] == 0) {
+	    # Handle magic CVS revisions like 1.14.0.2
+	    $a[-2] = $a[-1];
+	    $a[-1] = 1;
+	} else {
+	    $a[-1]++;
+	}
+    }
+    @list;
+}
+
+# Given a CVS numeric revision, increment it (increment last integer)
+sub incRev {
+    local $_ = shift;
+    if (/(\d+)$/) {
+	my $i = $1 + 1;
+	s/\d+$/$i/;
+	return $_;
+    }
+    die "Can't increment $_";
+}
+
+# Given a CVS numeric revisions, decrement it.  This handles
+# branches.  If the resulting revision number goes to zero,
+# return BASE_REV.  Does not handle magic revisions like 1.14.0.2.
+# 1.3 => 1.2
+# 1.3.2.1 => 1.3
+# 1.3.2.2 => 1.3.2.1
+sub decRev {
+    local $_ = shift;
+    if (/(\d+)$/) {
+	my $i = $1 - 1;
+	if ($i >= 1) {
+	    s/\d+$/$i/;
+	} elsif (s/(^1\.\d+)\.2\.1$/$1/) {
+	    # 1.3.2.1 => 1.3
+	} else {
+	    return $BASE_REV;
+	}
+	return $_;
+    }
+    die "Can't decrement $_";
+}
+
+# Given a date string, in CVS format, like "2003/05/29 22:10:17",
+# return the duration $NOW - x, in days.
+sub ageInDays {
+    local $_ = shift;
+    if (m|(\d+)/(\d+)/(\d+)\s+(\d+):(\d+):(\d+)|) {
+	my ($y,$m,$d,$H,$M,$S) = ($1,$2-1,$3,$4,$5,$6);
+	if ($y =~ /^\d\d$/) {
+	    $y = 100*int($YEAR / 100) + $y;
+	    $y -= 100 if ($y > $YEAR);
+	}
+	return ($NOW - timelocal_nocheck($S,$M,$H,$d,$m,$y)) / 86400.0;
+    } else {
+	die "Can't parse date $_\n";
+    }
+}
+
+# Filter for which files we care about that don't have jitterbugs.
+# Our rule is that if the checkin is over a year old, we don't care
+# about it.  We used to also require the revision to be 1.1 or 1.1.1.1
+# to be ignored, but we dropped this.
+sub noJitterbugFilter {
+    my $rev = shift;
+    my $date = shift;
+    #if ($rev eq '1.1' || $rev eq '1.1.1.1') {
+	return ageInDays($date) <= 365.25;
+    #}
+    #1;
+}
+
+# Execute a command, trapping errors.
+# Options second arg: Path to a file to delete upon failure
+sub command {
+    my $cmd = shift;
+    my $fileToDeleteOnFailure = shift;
+
+    my $err = "$CACHE/grepj.stderr";
+    my $status = system($cmd . " 2> $err");
+    if ($status != 0) {
+	unlink($fileToDeleteOnFailure) if defined($fileToDeleteOnFailure);
+	print "<HR><B>Fatal Error: "
+	    . "\"$cmd\" exited with value "
+	    . ($status >> 8)
+	    . " (signal " . ($status & 127) . ")"
+	    . (($status & 128) ? " (core dumped)" : "")
+	    . "<BR></B>";
+	print "stderr:<BR>";
+	if (open(IN, $err)) {
+	    while (<IN>) {
+		print $_, "<BR>";
+	    }
+	    close(IN);
+	}
+	croak "Couldn't execute \"$cmd\"";
+    }
+}
+
+#eof

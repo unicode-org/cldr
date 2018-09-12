@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2017 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="fa" target="fa_FONIPA" direction="forward" alias="fa-fonipa-t-fa">
+			<tRule><![CDATA[
+[\u200c \u200d] → ;  # Strip off ZWJ and ZWNJ.
+::NFD;
+
+# Rewrite similarly-looking Arabic letters to Persian.
+ي → ی;
+ى → ی;
+ك → ک;
+ە → ه;
+::NULL;
+
+$VOWEL = [ َ ِ  ُ  ٓ ا و ی];
+$BOUNDARY = [^[:L:][:M:][:N:]];
+$IPA_CONSONANT = [ m n p b t d k ɡ ʔ f v s z ʃ ʒ ʁ ɢ h χ {t͡ʃ} {d͡ʒ} l ɾ ];
+
+# Vowels
+یّ → jj;
+($VOWEL)ّ → ّ | $1;
+َیْ → æj;
+ِیْ → ej;
+
+َوْ → ov;
+ِی → iː;
+
+َه → æ;
+[^ːeoæ] {ه} $BOUNDARY → e;
+[e] {ه} $BOUNDARY → ;
+اَ → æ;
+اً $BOUNDARY → æn;
+َ → æ;
+یه → je;
+{هٔ} $BOUNDARY → jæ;
+یٰ → ɒː;
+{ی} $VOWEL → j;
+ی → iː;
+
+$BOUNDARY {ای} → iː;
+ا\u0653 → ɒː;
+آ → ɒː;
+اِ → e;
+اُ → o;
+او → uː;
+ا → ɒː; # Probably [^$BOUNDARY]
+ِ → e;
+هِ → e;
+
+{و} $VOWEL → v;
+$IPA_CONSONANT {و} → uː;
+ُ{و} $IPA_CONSONANT → uː;
+
+$BOUNDARY {و} $BOUNDARY → va;
+و → ;
+ُ → o;
+
+# Consonants
+پ → p;
+ب → b;
+[ت ط] → t;
+د → d;
+ک → k;
+گ → ɡ;
+[ع ء] → ʔ;
+چ → t͡ʃ;
+ج → d͡ʒ;
+ف → f;
+[س ص ث] → s;
+[ز ذ ض ظ] → z;
+ش → ʃ;
+ژ → ʒ;
+خ → χ;
+غ → ʁ;
+ق → ɢ;
+ح → h;
+م → m;
+ن → n;
+ه → h;
+ل → l;
+ر → ɾ;
+
+ْ → ;
+::NULL;
+
+# TODO: How to handle these?
+([$IPA_CONSONANT|$VOWEL]){ّ} → $1;
+
+[ ّ ٔ ً ٰ ] → ;
+
+::NFC;
+
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

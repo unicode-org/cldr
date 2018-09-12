@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="Mlym" target="Latn" direction="forward" alias="Malayalam-Latin und-Latn-t-und-mlym">
+			<tRule>
+::[ം-ഃഅ-ഌഎ-ഐഒ-നപ-ഹാ-ൃെ-ൈൊ-്ൗൠ-ൡ൦-൯];
+::NFD;
+::Malayalam-InterIndic;
+::InterIndic-Latin;
+::NFC;
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

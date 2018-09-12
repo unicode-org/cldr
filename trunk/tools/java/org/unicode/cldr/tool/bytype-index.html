@@ -1,0 +1,124 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>By-Type Charts</title>
+<link rel="stylesheet" type="text/css"
+	href="http://www.unicode.org/webscripts/standard_styles.css">
+<link rel="stylesheet" type="text/css" href="index.css">
+
+</head>
+
+<body>
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td colspan="2">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td class="icon"><a href="http://www.unicode.org/"> <img
+								border="0" src="http://www.unicode.org/webscripts/logo60s2.gif"
+								align="middle" alt="[Unicode]" width="34" height="33"></a>&nbsp;&nbsp;
+							<a class="bar"
+							href="http://www.unicode.org/cldr/comparison_charts.html"><font
+								size="3">CLDR Charts</font></a></td>
+						<td class="bar"><a href="http://www.unicode.org" class="bar">Home</a>
+							| <a href="http://www.unicode.org/sitemap/" class="bar">Site
+								Map</a> | <a href="http://www.unicode.org/search/" class="bar">Search</a></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="gray">&nbsp;</td>
+		</tr>
+	</table>
+	<div class="body">
+		<h1 align="center">By-Type Charts</h1>
+		<div style='text-align: center'>
+			<table style="margin: 1em">
+				<tr>
+					<td align="left" nowrap width="20%">CLDR Version 33β</td>
+					<td style="text-align: center" nowrap width="50%"><b><font
+							size="4"> <a href="../index.html">Main Charts Index</a></font></b></td>
+					<td style="text-align: right" nowrap width="20%">2018-03-09</td>
+				</tr>
+			</table>
+			</div>
+		<p>These charts provide a side-by-side comparison of data from
+			different locales for each field. For example, one can see all the
+			locales that are left-to-right, or all the different translations of
+			the Arabic script across languages. The following describes the
+			format.</p>
+		<p>At the top of each page, an index shows the available data.
+			Click on any of these to get to the related data:</p>
+		%header%
+		<p>The remainder of each page provides the values in the different
+			locales, such as the following:</p>
+		<blockquote>
+			<table class="table" id="table1">
+				<tr>
+					<th class="path" colSpan="2">currency-currencyFormatLength
+						(English: ¤#,##0.00)</th>
+				</tr>
+				<tr>
+					<th class="value">#,##0.00 ¤</th>
+					<td class="td"><i>·am·</i> ·bg_BG· ·ca_ES· ·cs_CZ· <i>·da·</i>
+						·de_BE· ·de_DE· ·de_LU· ·en_BE· ·es_ES· ·et_EE· ·eu_ES· ·fi_FI·
+						·fr· <i>·fur·</i> ·gl_ES· ·he_IL· <i>·hu·</i> ·hu_HU· ·is_IS·
+						·lt_LT· ·lv_LV· ·nb_NO· ·nl_BE· ·nn_NO· ·pl_PL· ·ps_AF· ·pt_PT·
+						·ro_RO· ·ru_UA· ·sk_SK· <i>·sl_SI·</i> <i>·sv·</i> ·sw_TZ· <i>·tr·</i>
+						·uk_UA· <i>·uz_Arab·</i> ·vi·</td>
+				</tr>
+				<tr>
+					<th class="value">#,##0.00&nbsp;¤</th>
+					<td class="td">·fi· <i>·se·</i></td>
+				</tr>
+				<tr>
+					<th class="value">#,##0.00 ¤;-¤ #,##0.00</th>
+					<td class="td">·kk_KZ·</td>
+				</tr>
+				<tr>
+					<th class="value">#,##0.00 ¤;&#39;‪&#39;-#,##0.00&#39;‬&#39; ¤</th>
+					<td class="td">·fa·</td>
+				</tr>
+				<tr>
+					<th class="value">...</th>
+					<td class="td">&nbsp;</td>
+				</tr>
+			</table>
+		</blockquote>
+		<p>
+			This example shows that the currency pattern is represented by
+			&quot;#,##0.00 ¤&quot; in the locales <i>·am·</i> ·bg_BG· ·ca_ES·
+			·cs_CZ· <i>·da·</i> ·de_BE·...; represented by
+			&quot;#,##0.00&nbsp;¤&quot; in the locales ·fi· <i>·se·; </i>and so
+			on. At the top, the English value (&quot;¤#,##0.00&quot;) is included
+			for comparison. Hovering the mouse over the non-Latin value may show
+			a transliteration, such as <span title="Anglo-amerikanskaâ"><b>Англо-американская</b></span>.
+		</p>
+		<p>
+			Each locale identifier is bounded by a middle dot (&quot;·&quot;).
+			This can be used in searching on the page: for example, to search for
+			any locale starting with &quot;bg&quot; by searching for ·bg, or for
+			any locale ending with &quot;PT&quot; by searching for _PT·. The
+			middle dot is used to avoid spurious matches with actual data. Data
+			that is <i>unconfirmed</i> or <i>provisional</i> is marked by a <i>red-italic</i>
+			locale identifier, such as <font color="#ff6633"><i>·bn_BD·</i></font>.
+		</p>
+		<p>
+			Many data values are straightforward, such as month names. Others,
+			such as the number formats, are more complicated. For more
+			information on the formats, see <a
+				href="http://cldr.unicode.org/index/survey-tool">Survey Tool</a> and
+			<a href="http://cldr.unicode.org/translation">Translation
+				Guidelines</a>.
+		</p>
+		<h2>Exemplars</h2>
+		<p>The exemplar charts are extracts from "Alphabetic Information",
+			formatted to present in grids.</p>
+	</div>
+</body>
+
+</html>
+

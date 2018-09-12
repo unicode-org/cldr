@@ -1,0 +1,239 @@
+#
+#  start state, scan position is at the beginning of the pattern.
+#
+start:
+    '['                  n set-open       ^set-finish
+    '\'                  n set-escape     ^set-finish
+    default                errorDeath                               doRuleError
+    
+#
+# [set expression] parsing,
+#    All states involved in parsing set expressions have names beginning with "set-"
+#
+
+set-open:
+   '^'                   n  set-open2                               doSetNegate
+   ':'                      set-posix                               doSetPosixProp
+   default                  set-open2
+
+set-open2:
+   ']'                   n  set-after-lit                           doSetLiteral
+   default                  set-start
+
+#  set-posix:
+#                  scanned a '[:'  If it really is a [:property:], doSetPosixProp will have
+#                  moved the scan to the closing ']'.  If it wasn't a property
+#                  expression, the scan will still be at the opening ':', which should
+#                  be interpreted as a normal set expression.
+set-posix:
+    ']'                  n   pop                                    doSetEnd
+    ':'                      set-start
+    default                  errorDeath                             doRuleError  # should not be possible.
+
+#
+#   set-start   after the [ and special case leading characters (^ and/or ]) but before
+#               everything else.   A '-' is literal at this point.
+#
+set-start:
+    ']'                  n  pop                                     doSetEnd
+    '['                  n  set-open      ^set-after-set            doSetBeginUnion
+    '\'                  n  set-escape
+    '-'                  n  set-start-dash
+    '&'                  n  set-start-amp
+    default              n  set-after-lit                           doSetLiteral
+
+#    set-start-dash    Turn "[--" into a syntax error.
+#                           "[-x" is good, - and x are literals.
+#
+set-start-dash:
+    '-'                     errorDeath                              doRuleError
+    default                 set-after-lit                           doSetAddDash
+
+#    set-start-amp     Turn "[&&" into a syntax error.
+#                           "[&x" is good, & and x are literals.
+#
+set-start-amp:
+    '&'                     errorDeath                              doRuleError
+    default                 set-after-lit                           doSetAddAmp
+
+#
+#   set-after-lit    The last thing scanned was a literal character within a set.
+#                    Can be followed by anything.  Single '-' or '&' are
+#                    literals in this context, not operators.
+set-after-lit:
+    ']'                  n  pop                                     doSetEnd
+    '['                  n  set-open      ^set-after-set            doSetBeginUnion
+    '-'                  n  set-lit-dash
+    '&'                  n  set-lit-amp
+    '\'                  n  set-escape
+    eof                     errorDeath                              doSetNoCloseError
+    default              n  set-after-lit                           doSetLiteral
+
+set-after-set:
+    ']'                  n  pop                                     doSetEnd
+    '['                  n  set-open      ^set-after-set            doSetBeginUnion
+    '-'                  n  set-set-dash
+    '&'                  n  set-set-amp
+    '\'                  n  set-escape
+    eof                     errorDeath                              doSetNoCloseError
+    default              n  set-after-lit                           doSetLiteral
+
+set-after-range:
+    ']'                  n  pop                                     doSetEnd
+    '['                  n  set-open      ^set-after-set            doSetBeginUnion
+    '-'                  n  set-range-dash
+    '&'                  n  set-range-amp
+    '\'                  n  set-escape
+    eof                     errorDeath                              doSetNoCloseError
+    default              n  set-after-lit                           doSetLiteral
+    
+
+# set-after-op
+#     After a --  or &&
+#     It is an error to close a set at this point.
+#
+set-after-op:
+    '['                  n  set-open         ^set-after-set         doSetBeginUnion
+    ']'                     errorDeath                              doSetOpError
+    '\'                  n  set-escape
+    default              n  set-after-lit                           doSetLiteral
+
+#
+#   set-set-amp
+#      Have scanned [[set]&
+#      Could be a '&' intersection operator, if a set follows.
+#      Could be the start of a '&&' operator.
+#      Otherewise is a literal.
+set-set-amp:
+    '['                  n  set-open      ^set-after-set           doSetBeginIntersection1
+    '&'                  n  set-after-op                           doSetIntersection2
+    default                 set-after-lit                          doSetAddAmp
+
+
+# set-lit-amp   Have scanned "[literals&"
+#               Could be a start of "&&" operator or a literal
+#               In [abc&[def]],   the '&' is a literal
+#
+set-lit-amp:
+    '&'                  n  set-after-op                            doSetIntersection2
+    default                 set-after-lit                           doSetAddAmp
+
+
+#
+#  set-set-dash
+#      Have scanned [set]-
+#      Could be a '-' difference operator, if a [set] follows.
+#      Could be the start of a '--' operator.
+#      Otherwise is a literal.
+set-set-dash:
+    '['                  n  set-open      ^set-after-set           doSetBeginDifference1
+    '-'                  n  set-after-op                           doSetDifference2
+    default                 set-after-lit                          doSetAddDash
+
+
+#
+#  set-range-dash
+#      scanned  a-b-  or \w-
+#         any set or range like item where the trailing single '-' should
+#         be literal, not a set difference operation.
+#         A trailing "--" is still a difference operator.
+set-range-dash:
+    '-'                  n  set-after-op                           doSetDifference2
+    default                 set-after-lit                          doSetAddDash
+
+
+set-range-amp:
+    '&'                  n  set-after-op                           doSetIntersection2
+    default                 set-after-lit                          doSetAddAmp
+
+
+#  set-lit-dash
+#     Have scanned "[literals-" Could be a range or a -- operator or a literal
+#     In [abc-[def]], the '-' is a literal (confirmed with a Java test)
+#        [abc-\p{xx}  the '-' is an error
+#        [abc-]       the '-' is a literal
+#        [ab-xy]      the '-' is a range
+#
+set-lit-dash:
+    '-'                  n  set-after-op                            doSetDifference2
+    '['                     set-after-lit                           doSetAddDash
+    ']'                     set-after-lit                           doSetAddDash
+    '\'                  n  set-lit-dash-escape
+    default              n  set-after-range                         doSetRange
+
+# set-lit-dash-escape
+#
+#    scanned "[literal-\"
+#    Could be a range, if the \ introduces an escaped literal char or a named char.
+#    Otherwise it is an error.
+#
+set-lit-dash-escape:
+   's'                      errorDeath                             doSetOpError
+   'S'                      errorDeath                             doSetOpError
+   'w'                      errorDeath                             doSetOpError
+   'W'                      errorDeath                             doSetOpError
+   'd'                      errorDeath                             doSetOpError
+   'D'                      errorDeath                             doSetOpError
+   'N'                      set-name-start    ^set-after-range          doStartNamedChar
+   'x'                      set-hex-start    ^set-after-range          doStartHex
+   default               n  set-after-range                        doSetRange
+# TODO fix 'N', 'x'
+   
+#
+#  set-escape
+#       Common back-slash escape processing within set expressions
+#
+set-escape:
+   'p'                   n  set-prop-start    ^set-after-set          doStartSetProp
+   'P'                   n  set-prop-start    ^set-after-set          doStartSetProp
+   'N'                   n  set-name-start    ^set-after-lit          doStartNamedChar
+   'x'                   n  set-hex-start ^set-after-lit         doStartHex
+   's'                   n  set-after-range                         doSetBackslash_s
+   'S'                   n  set-after-range                         doSetBackslash_S
+   'w'                   n  set-after-range                         doSetBackslash_w
+   'W'                   n  set-after-range                         doSetBackslash_W
+   'd'                   n  set-after-range                         doSetBackslash_d
+   'D'                   n  set-after-range                         doSetBackslash_D
+   default               n  set-after-lit                           doSetLiteralEscaped 
+# TODO add \r, \n, etc
+
+set-prop-start:
+    '{'                  n  set-prop-cont                                    
+    default                 errorDeath
+
+set-prop-cont:
+    '}'                  n  pop                                     doPropName
+    '='                  n  set-value                               doPropRelation
+    '≠'                  n  set-value                               doPropRelation
+    default              n  set-prop-cont
+
+set-value:
+    '}'                  n  pop                                     doPropValue
+    default              n  set-value
+
+set-name-start:
+    '{'                  n  set-name-cont                                    
+    default                 errorDeath
+
+set-name-cont:
+    '}'                  n  pop                                     doName
+    [\ \-0-9A-Za-z]      n  set-name-cont
+    default              n  errorDeath
+
+set-hex-start:
+    '{'                  n  set-hex-cont                                     
+    default                 errorDeath
+
+set-hex-cont:
+    '}'                  n  pop                                     doHex
+    [0-9A-Fa-f]          n  set-hex-cont
+    default              n  errorDeath
+    
+#
+# set-finish
+#     Have just encountered the final ']' that completes a [set], and
+#     arrived here via a pop.  From here, we exit the set parsing world, and go
+#     back to generic regular expression parsing.
+#
+set-finish:
+    default                 exit                              doSetFinish

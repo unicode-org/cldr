@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="he" target="he_Latn" variant="BGN" direction="forward" draft="contributed" alias="Hebrew-Latin/BGN he-Latn-t-he-m0-bgn">
+			<tRule><![CDATA[
+#
+########################################################################
+# BGN/PCGN 1981 System
+#
+# The BGN/PCGN system for Hebrew was designed for use in romanizing
+# names written in the Hebrew alphabet. The Roman letters and letter
+# combinations shown as equivalents to the Hebrew characters reflect
+# the eastern variety of Hebrew, i.e., the language spoken in
+# the Republic of Armenia.
+#
+# The Hebrew Alphabet as defined by the BGN (Page 33-35):
+#
+# אבגדהוזחטיכךלמםנןסעפףצץקרששת
+#
+# Originally prepared by Michael Everson <everson@evertype.com>
+########################################################################
+#
+# MINIMAL FILTER: Hebrew-Latin
+#
+
+:: [ ְֱֲֳִֵֶַָֹֻּׁׂאבגדהוזחטיךכלםמןנסעףפץצקרשת׳] ;
+:: NFD (NFC) ;
+#
+#
+########################################################################
+
+
+#
+########################################################################
+#
+# Define All Transformation Variables
+#
+########################################################################
+#
+
+$alef = ’;
+$ayin = ‘;
+#
+#
+# Use this $wordBoundary until bug 2034 is fixed in ICU:
+# http://bugs.icu-project.org/cgi-bin/icu-bugs/transliterate?id=2034;expression=boundary;user=guest
+#
+
+$wordBoundary = [^[:L:][:M:][:N:]] ;
+#
+#
+########################################################################
+
+
+#
+########################################################################
+#
+# Rules moved to front to avoid masking
+#
+########################################################################
+#
+
+בּ → b ; # HEBREW LETTER BET + DAGESH
+פּ → P ; # HEBREW LETTER PE + DAGESH
+גּ → g ; # HEBREW LETTER GIMEL + DAGESH
+ג׳ → ǧ ; # HEBREW LETTER GIMEL + GERESH
+וּ → u ; # HEBREW LETTER VAV + POINT DAGESH
+וֹ → o ; # HEBREW LETTER VAV + POINT HOLAM
+צ׳ → č ; # HEBREW LETTER TSADI + GERESH
+ז׳ → ž ; # HEBREW LETTER ZAYIN + GERESH
+דּ → d ; # HEBREW LETTER DALET + DAGESH
+הּ → h ; # HEBREW LETTER HE + DAGESH
+ךּ → k ; # HEBREW LETTER FINAL KAF + DAGESH
+כּ → k ; # HEBREW LETTER KAF + DAGESH
+ךְ → kh ; # HEBREW LETTER FINAL KAF + SHEVA
+תּ → t ; # HEBREW LETTER TAV + DAGESH
+#
+#
+########################################################################
+
+
+#
+########################################################################
+#
+# Start of Alphabetic Transformations
+#
+########################################################################
+#
+
+א → $alef ; # HEBREW LETTER ALEF
+ב → v ; # HEBREW LETTER BET
+ג → g ; # HEBREW LETTER GIMEL
+ד → d ; # HEBREW LETTER DALET
+ה → h ; # HEBREW LETTER HE
+ח → ẖ ; # HEBREW LETTER HET
+ו → w ; # HEBREW LETTER VAV
+ז → z ; # HEBREW LETTER ZAYIN
+[טת] → t ; # HEBREW LETTER TET
+י → y ; # HEBREW LETTER YOD
+[כך] → kh ; # HEBREW LETTER KAF and FINAL KAF
+ל → l ; # HEBREW LETTER LAMED
+[מם] → m ; # HEBREW LETTER MEM and FINAL MEM
+[נן] → n ; # HEBREW LETTER NUN and FINAL NUN
+ס → s ; # HEBREW LETTER SAMEKH
+ע → $ayin ; # HEBREW LETTER AYIN
+[פף] → f ; # HEBREW LETTER PE and FINAL PE
+[צץ] → ẕ ; # HEBREW LETTER TSADI and FINAL TSADI
+ק → q ; # HEBREW LETTER QOF
+ר → r ; # HEBREW LETTER RESH
+שׁ → sh ; # HEBREW LETTER SHIN
+שׂ → s ; # HEBREW LETTER SHIN
+
+ַ → a ; # HEBREW POINT PATAH
+ֲ → a ; # HEBREW POINT HATAF PATAH
+ָ → o ; # HEBREW POINT QAMATS
+ֶ → e ; # HEBREW POINT SEGOL
+ֱ → e ; # HEBREW POINT HATAF SEGOL
+ֵי → e ; # HEBREW POINT TSERE + LETTER YOD
+ֵ → e ; # HEBREW POINT TSERE
+ְ → e ; # HEBREW POINT SHEVA
+ִי → i ; # HEBREW POINT HIRIQ + LETTER YOD
+ִ → i ; # HEBREW POINT HIRIQ
+ֳ → o ; # HEBREW LETTER HATAF QAMATS
+ֹ → o ; # HEBREW POINT HOLAM
+ֻ → u ; # HEBREW POINT QUBUTS
+#
+#
+########################################################################
+
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

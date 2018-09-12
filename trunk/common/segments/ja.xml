@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2018 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="ja"/>
+	</identity>
+	<segmentations>
+		<segmentation type="LineBreak">
+			<variables>
+				<variable id="$ID">[[\p{Line_Break=Ideographic}] [$CJ]]</variable>
+				<variable id="$NS">\p{Line_Break=Nonstarter}</variable>
+			</variables>
+		</segmentation>
+		<segmentation type="WordBreak">
+			<variables>
+				<variable id="$Hiragana">\p{Hiragana}</variable>
+				<variable id="$Hiragana">($Hiragana $FE*)</variable>
+				<variable id="$Ideographic">[[\p{Ideographic}] [\u3005 \u3007 \u303B]]</variable>
+				<variable id="$Ideographic">($Ideographic $FE*)</variable>
+			</variables>
+			<segmentRules>
+				<rule id="13.3"> $Hiragana × $Hiragana </rule>
+				<rule id="13.4"> $Ideographic × $Ideographic </rule>
+			</segmentRules>
+		</segmentation>
+	</segmentations>
+</ldml>

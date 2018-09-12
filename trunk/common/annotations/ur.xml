@@ -1,0 +1,2689 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2018 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="ur"/>
+	</identity>
+	<annotations>
+		<annotation cp="🏻">اسکن | ایموجی | تبدیل کار | ٹون | جلد کی ہلکی رنگت</annotation>
+		<annotation cp="🏻" type="tts">جلد کی ہلکی رنگت</annotation>
+		<annotation cp="🏼">اسکن | ایموجی | تبدیل کار | ٹون | جلد کی درمیانی -ہلکی رنگت</annotation>
+		<annotation cp="🏼" type="tts">جلد کی درمیانی -ہلکی رنگت</annotation>
+		<annotation cp="🏽">اسکن | ایموجی | تبدیل کار | ٹون | جلد کی درمیانی رنگت</annotation>
+		<annotation cp="🏽" type="tts">جلد کی درمیانی رنگت</annotation>
+		<annotation cp="🏾">اسکن | ایموجی | تبدیل کار | ٹون | جلد کی درمیانی سیاہ رنگت</annotation>
+		<annotation cp="🏾" type="tts">جلد کی درمیانی سیاہ رنگت</annotation>
+		<annotation cp="🏿">اسکن | ایموجی | تبدیل کار | ٹون | جلد کی سیاہ رنگت</annotation>
+		<annotation cp="🏿" type="tts">جلد کی سیاہ رنگت</annotation>
+		<annotation cp="😀">چہرہ | کھل کے ہنستا چہرہ | کھلا | منہ | ہنسی</annotation>
+		<annotation cp="😀" type="tts">کھل کے ہنستا چہرہ</annotation>
+		<annotation cp="😁">آنکھ | چہرہ | کھلا | مسکراتی آنکھیں لیے ہنستا چہرہ | مسکراہٹ | منہ | ہنسنا</annotation>
+		<annotation cp="😁" type="tts">مسکراتی آنکھیں لیے ہنستا چہرہ</annotation>
+		<annotation cp="😂">آنسو | چہرہ | خوشی | خوشی کے آنسوؤں والا چہرہ | ہنسی</annotation>
+		<annotation cp="😂" type="tts">خوشی کے آنسوؤں والا چہرہ</annotation>
+		<annotation cp="🤣">چہرہ | لوٹ پوٹ | ہنستے ہنستے لوٹ پوٹ ہونا | ہنسی</annotation>
+		<annotation cp="🤣" type="tts">ہنستے ہنستے لوٹ پوٹ ہونا</annotation>
+		<annotation cp="😃">بڑی آنکھوں والا کھلے منہ والا مسکراتا چہرہ | چہرہ | مسکراہٹ | منہ</annotation>
+		<annotation cp="😃" type="tts">بڑی آنکھوں والا کھلے منہ والا مسکراتا چہرہ</annotation>
+		<annotation cp="😄">آنکھ | چہرہ | کھلے منہ اور مسکراتی آنکھوں والا مسکراتا چہرہ | مسکراہٹ | منہ</annotation>
+		<annotation cp="😄" type="tts">کھلے منہ اور مسکراتی آنکھوں والا مسکراتا چہرہ</annotation>
+		<annotation cp="😅">پسینہ | ٹھنڈ | چہرہ | کھلے منہ اور ٹھنڈے پسینے والا مسکراتا چہرہ | مسکراہٹ</annotation>
+		<annotation cp="😅" type="tts">کھلے منہ اور ٹھنڈے پسینے والا مسکراتا چہرہ</annotation>
+		<annotation cp="😆">چہرہ | کھلے منہ اور سختی سے بند آنکھوں والا مسکراتا چہرہ | مسکراہٹ | مطمئن | منہ | ہنسی</annotation>
+		<annotation cp="😆" type="tts">کھلے منہ اور سختی سے بند آنکھوں والا مسکراتا چہرہ</annotation>
+		<annotation cp="😉">آنکھ جھپکنا | آنکھ مارتا چہرہ | چہرہ</annotation>
+		<annotation cp="😉" type="tts">آنکھ مارتا چہرہ</annotation>
+		<annotation cp="😊">آنکھ | چہرہ | مسکراتی آنکھوں والا مسکراتا چہرہ | مسکراہٹ</annotation>
+		<annotation cp="😊" type="tts">مسکراتی آنکھوں والا مسکراتا چہرہ</annotation>
+		<annotation cp="😋">چہرہ | مزیدار | مزیدار کھانے کا ذائقہ دینے والا چہرہ | مسکراہٹ</annotation>
+		<annotation cp="😋" type="tts">مزیدار کھانے کا ذائقہ دینے والا چہرہ</annotation>
+		<annotation cp="😎">آنکھ | چشمہ | چمکیلا | دھوپ | دھوپ کا چشمہ لگائے مسکراتا چہرہ | سورج | مسکراہٹ</annotation>
+		<annotation cp="😎" type="tts">دھوپ کا چشمہ لگائے مسکراتا چہرہ</annotation>
+		<annotation cp="😍">آنکھ | پیار | چہرہ | دل | دل کی شکل کی آنکھوں والا مسکراتا چہرہ</annotation>
+		<annotation cp="😍" type="tts">دل کی شکل کی آنکھوں والا مسکراتا چہرہ</annotation>
+		<annotation cp="😘">بوسہ | بوسہ اچھالتا چہرہ | چہرہ | دل</annotation>
+		<annotation cp="😘" type="tts">بوسہ اچھالتا چہرہ</annotation>
+		<annotation cp="🥰">تین دلوں کے ساتھ مسکراتا چہرہ | عقیدت | فریفتگی | محبت میں مبتلا</annotation>
+		<annotation cp="🥰" type="tts">تین دلوں کے ساتھ مسکراتا چہرہ</annotation>
+		<annotation cp="😗">بوسہ | بوسہ لیتا چہرہ | چہرہ</annotation>
+		<annotation cp="😗" type="tts">بوسہ لیتا چہرہ</annotation>
+		<annotation cp="😙">آنکھ | بوسہ | چہرہ | مسکراتی آنکھوں کے ساتھ بوسہ لیتا چہرہ | مسکراہٹ</annotation>
+		<annotation cp="😙" type="tts">مسکراتی آنکھوں کے ساتھ بوسہ لیتا چہرہ</annotation>
+		<annotation cp="😚">آنکھ | بند | بند آنکھوں کے ساتھ بوسہ لیتا چہرہ | بوسہ | چہرہ</annotation>
+		<annotation cp="😚" type="tts">بند آنکھوں کے ساتھ بوسہ لیتا چہرہ</annotation>
+		<annotation cp="☺">پر سکون | چہرہ | مسکراتا چہرہ | مسکراہٹ</annotation>
+		<annotation cp="☺" type="tts">مسکراتا چہرہ</annotation>
+		<annotation cp="🙂">چہرہ | مدھم مسکراہٹ والا چہرہ | مسکراہٹ</annotation>
+		<annotation cp="🙂" type="tts">مدھم مسکراہٹ والا چہرہ</annotation>
+		<annotation cp="🤗">چہرہ | گلے ملتا چہرہ | گلے ملنا</annotation>
+		<annotation cp="🤗" type="tts">گلے ملتا چہرہ</annotation>
+		<annotation cp="🤩">آنکھیں | تارہ | چہرہ | ستارہ زدہ | مسکراتا</annotation>
+		<annotation cp="🤩" type="tts">ستارہ زدہ</annotation>
+		<annotation cp="🤔">چہرہ | سوچتا چہرہ | سوچنا</annotation>
+		<annotation cp="🤔" type="tts">سوچتا چہرہ</annotation>
+		<annotation cp="🤨">اٹھی ہوئی بھویں والا چہرہ | بد اعتمادی | شکی</annotation>
+		<annotation cp="🤨" type="tts">اٹھی ہوئی بھویں والا چہرہ</annotation>
+		<annotation cp="😐">چہرہ | غیر جانبدار | غیر جانبدار چہرہ</annotation>
+		<annotation cp="😐" type="tts">غیر جانبدار چہرہ</annotation>
+		<annotation cp="😑">اظہار سے عاری چہرہ | بغیر تاثر | چہرہ</annotation>
+		<annotation cp="😑" type="tts">اظہار سے عاری چہرہ</annotation>
+		<annotation cp="😶">بغیر منہ والا چہرہ | چہرہ | خاموشی | منہ</annotation>
+		<annotation cp="😶" type="tts">بغیر منہ والا چہرہ</annotation>
+		<annotation cp="🙄">آنکھیں | چہرہ | گھومتی آنکھوں والا چہرہ | گھومنا</annotation>
+		<annotation cp="🙄" type="tts">گھومتی آنکھوں والا چہرہ</annotation>
+		<annotation cp="😏">چہرہ | طنزیہ | طنزیہ مسکراہٹ والا چہرہ</annotation>
+		<annotation cp="😏" type="tts">طنزیہ مسکراہٹ والا چہرہ</annotation>
+		<annotation cp="😣">پُرعزم چہرہ | پُرعظم | چہرہ</annotation>
+		<annotation cp="😣" type="tts">پُرعزم چہرہ</annotation>
+		<annotation cp="😥">پر سکون | چہرہ | مایوس | مایوس لیکن پر سکون چہرہ</annotation>
+		<annotation cp="😥" type="tts">مایوس لیکن پر سکون چہرہ</annotation>
+		<annotation cp="😮">چہرہ | کھلا ہوا | کھلے منہ والا چہرہ | منہ</annotation>
+		<annotation cp="😮" type="tts">کھلے منہ والا چہرہ</annotation>
+		<annotation cp="🤐">چہرہ | سلا ہوا | منہ | منہ سیے ہوئے چہرہ</annotation>
+		<annotation cp="🤐" type="tts">منہ سیے ہوئے چہرہ</annotation>
+		<annotation cp="😯">چہرہ | حیرت | شدید حیرت زدہ چہرہ</annotation>
+		<annotation cp="😯" type="tts">شدید حیرت زدہ چہرہ</annotation>
+		<annotation cp="😪">چہرہ | خوابیدہ چہرہ | غنودگی</annotation>
+		<annotation cp="😪" type="tts">خوابیدہ چہرہ</annotation>
+		<annotation cp="😫">تھکا ہوا چہرہ | تھکان | چہرہ</annotation>
+		<annotation cp="😫" type="tts">تھکا ہوا چہرہ</annotation>
+		<annotation cp="😴">چہرہ | سوتا ہوا چہرہ | سونا</annotation>
+		<annotation cp="😴" type="tts">سوتا ہوا چہرہ</annotation>
+		<annotation cp="😌">پُر سکون | پُر سکون چہرہ | چہرہ</annotation>
+		<annotation cp="😌" type="tts">پُر سکون چہرہ</annotation>
+		<annotation cp="😛">چہرہ | زبان | زبان نکالے چہرہ</annotation>
+		<annotation cp="😛" type="tts">زبان نکالے چہرہ</annotation>
+		<annotation cp="😜">آنکھ | چہرہ | زبان | زبان نکالے اور آنکھ مارتا چہرہ | مزاق</annotation>
+		<annotation cp="😜" type="tts">زبان نکالے اور آنکھ مارتا چہرہ</annotation>
+		<annotation cp="😝">آنکھ | چہرہ | خوفناک | زبان | زبان نکالے اور سختی سے بند آنکھوں والا چہرہ</annotation>
+		<annotation cp="😝" type="tts">زبان نکالے اور سختی سے بند آنکھوں والا چہرہ</annotation>
+		<annotation cp="🤤">چہرہ | رال ٹپکاتا چہرہ | رال ٹپکنا</annotation>
+		<annotation cp="🤤" type="tts">رال ٹپکاتا چہرہ</annotation>
+		<annotation cp="😒">اداس چہرہ | چہرہ | نا خوش</annotation>
+		<annotation cp="😒" type="tts">اداس چہرہ</annotation>
+		<annotation cp="😓">پسینہ | ٹھنڈ | ٹھنڈے پسینے والا چہرہ | چہرہ</annotation>
+		<annotation cp="😓" type="tts">ٹھنڈے پسینے والا چہرہ</annotation>
+		<annotation cp="😔">چہرہ | سوچ میں ڈوبا چہرہ | غمزدہ</annotation>
+		<annotation cp="😔" type="tts">سوچ میں ڈوبا چہرہ</annotation>
+		<annotation cp="😕">الجھن زدہ چہرہ | چہرہ | کنفیوز</annotation>
+		<annotation cp="😕" type="tts">الجھن زدہ چہرہ</annotation>
+		<annotation cp="🙃">الٹآ | الٹا چہرہ | چہرہ</annotation>
+		<annotation cp="🙃" type="tts">الٹا چہرہ</annotation>
+		<annotation cp="🤑">چہرہ | ڈالر | ڈالر کی زبان والا چہرہ | منہ</annotation>
+		<annotation cp="🤑" type="tts">ڈالر کی زبان والا چہرہ</annotation>
+		<annotation cp="😲">تکلیف | چہرہ | حیرت | حیرت زدہ چہرہ</annotation>
+		<annotation cp="😲" type="tts">حیرت زدہ چہرہ</annotation>
+		<annotation cp="☹">تیوری | تیوری زدہ چہرہ | چہرہ</annotation>
+		<annotation cp="☹" type="tts">تیوری زدہ چہرہ</annotation>
+		<annotation cp="🙁">تیوری | چہرہ | ہلکا سا تیوری زدہ چہرہ</annotation>
+		<annotation cp="🙁" type="tts">ہلکا سا تیوری زدہ چہرہ</annotation>
+		<annotation cp="😖">انتہائی کنفیوز | بے ترتیب چہرہ | چہرہ</annotation>
+		<annotation cp="😖" type="tts">بے ترتیب چہرہ</annotation>
+		<annotation cp="😞">چہرہ | مایوس</annotation>
+		<annotation cp="😞" type="tts">مایوس چہرہ</annotation>
+		<annotation cp="😟">پریشان | چہرہ</annotation>
+		<annotation cp="😟" type="tts">پریشان چہرہ</annotation>
+		<annotation cp="😤">چہرہ | فتخ | ناک سے دھواں نکالتا چہرہ</annotation>
+		<annotation cp="😤" type="tts">ناک سے دھواں نکالتا چہرہ</annotation>
+		<annotation cp="😢">آنسو | چہرہ | روتا ہوا چہرہ | رونا</annotation>
+		<annotation cp="😢" type="tts">روتا ہوا چہرہ</annotation>
+		<annotation cp="😭">آنسو | چہرہ | رونا | زار و قطار روتا چہرہ</annotation>
+		<annotation cp="😭" type="tts">زار و قطار روتا چہرہ</annotation>
+		<annotation cp="😦">تیوری | چہرہ | کھلا ہوا | منہ | منہ کھولے تیوری چڑھاتا چہرہ</annotation>
+		<annotation cp="😦" type="tts">منہ کھولے تیوری چڑھاتا چہرہ</annotation>
+		<annotation cp="😧">تکلیف | تکلیف زدہ چہرہ | چہرہ</annotation>
+		<annotation cp="😧" type="tts">تکلیف زدہ چہرہ</annotation>
+		<annotation cp="😨">چہرہ | خوف | خوفزدہ چہرہ</annotation>
+		<annotation cp="😨" type="tts">خوفزدہ چہرہ</annotation>
+		<annotation cp="😩">اکتایا ہوا چہرہ | تھکاوٹ | چہرہ</annotation>
+		<annotation cp="😩" type="tts">اکتایا ہوا چہرہ</annotation>
+		<annotation cp="🤯">حیران | سر پھٹنا</annotation>
+		<annotation cp="🤯" type="tts">سر پھٹنا</annotation>
+		<annotation cp="😬">چہرہ | مضحکہ خیز چہرہ | ناگواریت</annotation>
+		<annotation cp="😬" type="tts">مضحکہ خیز چہرہ</annotation>
+		<annotation cp="😰">پسینہ | ٹھنڈا | کھلے منہ اور ٹھنڈے پسینے والا چہرہ | منہ | نیلا</annotation>
+		<annotation cp="😰" type="tts">کھلے منہ اور ٹھنڈے پسینے والا چہرہ</annotation>
+		<annotation cp="😱">چہرہ | چیخ | خوف | خوف سے چلاتا چہرہ</annotation>
+		<annotation cp="😱" type="tts">خوف سے چلاتا چہرہ</annotation>
+		<annotation cp="🥵">بُخار زَدہ | پسینے سے شرابور | حرارت زدگی | سرخ چہرہ | گرم</annotation>
+		<annotation cp="🥵" type="tts">سرخ چہرہ</annotation>
+		<annotation cp="🥶">برف کے قلمیں | بہت زیادہ سرد | ٹھنڈا | سرد چہرہ | سردی سے ماؤف | نیلگوں چہرہ</annotation>
+		<annotation cp="🥶" type="tts">سرد چہرہ</annotation>
+		<annotation cp="😳">چہرہ | سرخ | شرمندگی | شرمندگی سے سرخ چہرہ</annotation>
+		<annotation cp="😳" type="tts">شرمندگی سے سرخ چہرہ</annotation>
+		<annotation cp="🤪">آنکھ | بڑی | پاگل پن والا چہرہ | چھوٹی</annotation>
+		<annotation cp="🤪" type="tts">پاگل پن والا چہرہ</annotation>
+		<annotation cp="😵">چکر | چکراتا چہرہ | چہرہ</annotation>
+		<annotation cp="😵" type="tts">چکراتا چہرہ</annotation>
+		<annotation cp="😡">چہرہ | نا خوش | نا شاد چہرہ</annotation>
+		<annotation cp="😡" type="tts">نا شاد چہرہ</annotation>
+		<annotation cp="😠">چہرہ | غصہ | غصے والا چہرہ</annotation>
+		<annotation cp="😠" type="tts">غصے والا چہرہ</annotation>
+		<annotation cp="🤬">گالیاں دینا | منہ پر علامات والا چہرہ</annotation>
+		<annotation cp="🤬" type="tts">منہ پر علامات والا چہرہ</annotation>
+		<annotation cp="😷">ٹھنڈ | چہرہ | ڈاکٹر | طبی ماسک والا چہرہ | ماسک</annotation>
+		<annotation cp="😷" type="tts">طبی ماسک والا چہرہ</annotation>
+		<annotation cp="🤒">بیمار | تھرمامیٹر | تھرمامیٹر لیے چہرہ | چہرہ</annotation>
+		<annotation cp="🤒" type="tts">تھرمامیٹر لیے چہرہ</annotation>
+		<annotation cp="🤕">پٹی | چہرہ | زخم | سر پر پٹی باندھے چہرہ</annotation>
+		<annotation cp="🤕" type="tts">سر پر پٹی باندھے چہرہ</annotation>
+		<annotation cp="🤢">چہرہ | متلی | متلی کی کیفیت والا چہرہ</annotation>
+		<annotation cp="🤢" type="tts">متلی کی کیفیت والا چہرہ</annotation>
+		<annotation cp="🤮">بیمار | قے | قے کرتا چہرہ</annotation>
+		<annotation cp="🤮" type="tts">قے کرتا چہرہ</annotation>
+		<annotation cp="🤧">بیماری | چھینک | چھینکیں مارتا چہرہ | چہرہ</annotation>
+		<annotation cp="🤧" type="tts">چھینکیں مارتا چہرہ</annotation>
+		<annotation cp="😇">افسانوی | چہرہ | فرشتہ | مسکراہٹ | معصوم | ہالہ لیے مسکراتا چہرہ</annotation>
+		<annotation cp="😇" type="tts">ہالہ لیے مسکراتا چہرہ</annotation>
+		<annotation cp="🤠">چہرہ | کاؤ بوائے | کاؤ بوائے ہیٹ کے ساتھ چہرہ | ہیٹ</annotation>
+		<annotation cp="🤠" type="tts">کاؤ بوائے ہیٹ کے ساتھ چہرہ</annotation>
+		<annotation cp="🥳">باجا | پارٹی | پارٹی سے لطف اندوز ہوتا چہرہ | ٹوپی | جشن</annotation>
+		<annotation cp="🥳" type="tts">پارٹی سے لطف اندوز ہوتا چہرہ</annotation>
+		<annotation cp="🥴">اُلجھن کا شکار شہرہ | ٹیڑھی میڑھی آنکھیں | چکرایا ہُوا | مخمُور | مدہوش | ناہموار منہ</annotation>
+		<annotation cp="🥴" type="tts">اُلجھن کا شکار شہرہ</annotation>
+		<annotation cp="🥺">التجا کرنا | رحم | طفلانہ آنکھیں | ملتجی چہرہ</annotation>
+		<annotation cp="🥺" type="tts">ملتجی چہرہ</annotation>
+		<annotation cp="🤥">جھوٹ | جھوٹ بولتا چہرہ | چہرہ</annotation>
+		<annotation cp="🤥" type="tts">جھوٹ بولتا چہرہ</annotation>
+		<annotation cp="🤫">چپ | خاموش | خاموش رہنے کا اشارہ کرنے والہ چہرہ</annotation>
+		<annotation cp="🤫" type="tts">خاموش رہنے کا اشارہ کرنے والہ چہرہ</annotation>
+		<annotation cp="🤭">افوہ | منہ پر ہاتھ رکھا ہوا چہرہ</annotation>
+		<annotation cp="🤭" type="tts">منہ پر ہاتھ رکھا ہوا چہرہ</annotation>
+		<annotation cp="🧐">ایک چشمہ پہنا ہوا چہرہ | بند ناک والا چہرہ</annotation>
+		<annotation cp="🧐" type="tts">ایک چشمہ پہنا ہوا چہرہ</annotation>
+		<annotation cp="🤓">بیوقوفانہ | چہرہ</annotation>
+		<annotation cp="🤓" type="tts">بیوقوفانہ چہرہ</annotation>
+		<annotation cp="😈">چہرہ | شیطانی مسکراہٹ | شیطانی مسکراہٹ والا چہرہ</annotation>
+		<annotation cp="😈" type="tts">شیطانی مسکراہٹ والا چہرہ</annotation>
+		<annotation cp="👿">چہرہ | شرارتی | شریر شیطان | شیطان</annotation>
+		<annotation cp="👿" type="tts">شریر شیطان</annotation>
+		<annotation cp="🤡">جوکر | چہرہ</annotation>
+		<annotation cp="🤡" type="tts">جوکر چہرہ</annotation>
+		<annotation cp="👹">افسانوی | جاپانی | جن | چہرہ | شیطانی جن</annotation>
+		<annotation cp="👹" type="tts">شیطانی جن</annotation>
+		<annotation cp="👺">افسانوی | جاپانی | جن | چہرہ | لمبی ناک اور مونچھوں والا دیو</annotation>
+		<annotation cp="👺" type="tts">لمبی ناک اور مونچھوں والا دیو</annotation>
+		<annotation cp="💀">افسانوی | جن | چہرہ | کھوپڑی | موت</annotation>
+		<annotation cp="💀" type="tts">کھوپڑی</annotation>
+		<annotation cp="☠">کراس | کراس شدہ ہڈیوں کے ساتھ کھوپڑی | کھوپڑی | موت | ہڈیاں</annotation>
+		<annotation cp="☠" type="tts">کراس شدہ ہڈیوں کے ساتھ کھوپڑی</annotation>
+		<annotation cp="👻">افسانوی | بھوت | جن | چہرہ</annotation>
+		<annotation cp="👻" type="tts">بھوت</annotation>
+		<annotation cp="👽">چہرہ | خلا | خلائی مخلوق | مخلوق</annotation>
+		<annotation cp="👽" type="tts">خلائی مخلوق</annotation>
+		<annotation cp="👾">چہرہ | خلا | خلائی دیو | دیو</annotation>
+		<annotation cp="👾" type="tts">خلائی دیو</annotation>
+		<annotation cp="🤖">چہرہ | روبوٹ</annotation>
+		<annotation cp="🤖" type="tts">روبوٹ چہرہ</annotation>
+		<annotation cp="💩">چہرہ | ڈھیر | گندگی | گندگی کا ڈھیر</annotation>
+		<annotation cp="💩" type="tts">گندگی کا ڈھیر</annotation>
+		<annotation cp="😺">بلی | چہرہ | کھلے منہ کے ساتھ مسکراتی بلی کا چہرہ | مسکراہٹ | منہ</annotation>
+		<annotation cp="😺" type="tts">کھلے منہ کے ساتھ مسکراتی بلی کا چہرہ</annotation>
+		<annotation cp="😸">بلی | چہرہ | مسکراتی آنکھوں والی کھل کے ہنستی بلی کا چہرہ | مسکراہٹ</annotation>
+		<annotation cp="😸" type="tts">مسکراتی آنکھوں والی کھل کے ہنستی بلی کا چہرہ</annotation>
+		<annotation cp="😹">آنسو | بلی | چہرہ | خوشی | خوشی کے آنسو لیے بلی کا چہرہ</annotation>
+		<annotation cp="😹" type="tts">خوشی کے آنسو لیے بلی کا چہرہ</annotation>
+		<annotation cp="😻">بلی | پیار | چہرہ | دل | دل کی شکل والی آنکھوں کے ساتھ مسکراتی بلی کا چہرہ</annotation>
+		<annotation cp="😻" type="tts">دل کی شکل والی آنکھوں کے ساتھ مسکراتی بلی کا چہرہ</annotation>
+		<annotation cp="😼">بلی | بلی کا طنزیہ مسکراہٹ والا چہرہ | چہرہ | طنز | مسکراہٹ</annotation>
+		<annotation cp="😼" type="tts">بلی کا طنزیہ مسکراہٹ والا چہرہ</annotation>
+		<annotation cp="😽">آنکھ | بلی | بند آنکھوں کے ساتھ بوسہ لیتا بلی کا چہرہ | بھوسہ | چہرہ</annotation>
+		<annotation cp="😽" type="tts">بند آنکھوں کے ساتھ بوسہ لیتا بلی کا چہرہ</annotation>
+		<annotation cp="🙀">بلی | تھکا ہوا بلی کا چہرہ | تھکا ہوا ہونا | چہرہ</annotation>
+		<annotation cp="🙀" type="tts">تھکا ہوا بلی کا چہرہ</annotation>
+		<annotation cp="😿">آنسو | بلی | چہرہ | روتا ہوا بلی کا چہرہ | رونا</annotation>
+		<annotation cp="😿" type="tts">روتا ہوا بلی کا چہرہ</annotation>
+		<annotation cp="😾">بلی | بلی کا نا شاد چہرہ | چہرہ | نا شاد ہونا</annotation>
+		<annotation cp="😾" type="tts">بلی کا نا شاد چہرہ</annotation>
+		<annotation cp="🙈">بندر | چہرہ | دیکھو | نہیں | ہاتھ سے آنکھیں چھپائے بندر</annotation>
+		<annotation cp="🙈" type="tts">ہاتھ سے آنکھیں چھپائے بندر</annotation>
+		<annotation cp="🙉">بندر | چہرہ | سنو | کانوں کو ہاتھ سے چھپائے بندر | نہیں</annotation>
+		<annotation cp="🙉" type="tts">کانوں کو ہاتھ سے چھپائے بندر</annotation>
+		<annotation cp="🙊">بندر | بولو | چہرہ | منہ کو ہاتھوں سے بند کیے بندر | نہیں</annotation>
+		<annotation cp="🙊" type="tts">منہ کو ہاتھوں سے بند کیے بندر</annotation>
+		<annotation cp="👶">انسان | بچہ | طفل</annotation>
+		<annotation cp="👶" type="tts">طفل</annotation>
+		<annotation cp="🧒">بچہ | صنفی غیر جانبدار | نوجوان</annotation>
+		<annotation cp="🧒" type="tts">بچہ</annotation>
+		<annotation cp="👦">انسان | لڑکا</annotation>
+		<annotation cp="👦" type="tts">لڑکا</annotation>
+		<annotation cp="👧">انسان | لڑکی</annotation>
+		<annotation cp="👧" type="tts">لڑکی</annotation>
+		<annotation cp="🧑">بالغ | شخص | صنفی غیر جانبدار</annotation>
+		<annotation cp="🧑" type="tts">شخص</annotation>
+		<annotation cp="👱">بال | بندہ | سنہرے | سنہرے بالوں والا شخص</annotation>
+		<annotation cp="👱" type="tts">سنہرے بالوں والا شخص</annotation>
+		<annotation cp="👨">انسان | مرد</annotation>
+		<annotation cp="👨" type="tts">مرد</annotation>
+		<annotation cp="👱‍♂">بھورے بال | سنہرے بال | سنہرے بالوں والا مرد | مرد</annotation>
+		<annotation cp="👱‍♂" type="tts">سنہرے بالوں والا مرد</annotation>
+		<annotation cp="🧔">داڑھی | داڑھی والا شخص</annotation>
+		<annotation cp="🧔" type="tts">داڑھی والا شخص</annotation>
+		<annotation cp="👩">انسان | عورت</annotation>
+		<annotation cp="👩" type="tts">عورت</annotation>
+		<annotation cp="👱‍♀">بھورے بال | سنہرے بال | سنہرے بالوں والی عورت | عورت</annotation>
+		<annotation cp="👱‍♀" type="tts">سنہرے بالوں والی عورت</annotation>
+		<annotation cp="🧓">بوڑھا | بوڑھا بالغ | صنفی غیر جانبدار</annotation>
+		<annotation cp="🧓" type="tts">بوڑھا بالغ</annotation>
+		<annotation cp="👴">انسان | بوڑھا | بوڑھا آدمی | مرد</annotation>
+		<annotation cp="👴" type="tts">بوڑھا آدمی</annotation>
+		<annotation cp="👵">انسان | بوڑھی | عورت</annotation>
+		<annotation cp="👵" type="tts">بوڑھی عورت</annotation>
+		<annotation cp="👨‍⚕">ڈاکٹر | صحت | کارکن | مرد | مرد ہیلتھ ورکر</annotation>
+		<annotation cp="👨‍⚕" type="tts">مرد ہیلتھ ورکر</annotation>
+		<annotation cp="👩‍⚕">ڈاکٹر | صحت | عورت | عورت ہیلتھ ورکر | کارکن</annotation>
+		<annotation cp="👩‍⚕" type="tts">عورت ہیلتھ ورکر</annotation>
+		<annotation cp="👨‍🎓">اسکول | طالب علم | گریجوئیشن | مرد | مرد طالب علم</annotation>
+		<annotation cp="👨‍🎓" type="tts">مرد طالب علم</annotation>
+		<annotation cp="👩‍🎓">اسکول | طالب علم | عورت | عورت طالب علم | گریجوئیشن</annotation>
+		<annotation cp="👩‍🎓" type="tts">عورت طالب علم</annotation>
+		<annotation cp="👨‍🏫">استاد | اسکول | پروفیسر</annotation>
+		<annotation cp="👨‍🏫" type="tts">استاد</annotation>
+		<annotation cp="👩‍🏫">استانی | اسکول | پروفیسر</annotation>
+		<annotation cp="👩‍🏫" type="tts">استانی</annotation>
+		<annotation cp="👨‍⚖">انصاف | عدالت | کورٹ | مرد | مرد جج</annotation>
+		<annotation cp="👨‍⚖" type="tts">مرد جج</annotation>
+		<annotation cp="👩‍⚖">انصاف | عدالت | عورت | عورت جج | کورٹ</annotation>
+		<annotation cp="👩‍⚖" type="tts">عورت جج</annotation>
+		<annotation cp="👨‍🌾">باغبان | کاشت کار | کسان | مرد | مرد کاشت کار</annotation>
+		<annotation cp="👨‍🌾" type="tts">مرد کاشت کار</annotation>
+		<annotation cp="👩‍🌾">باغبان | عورت | عورت کاشت کار | کاشت کار | کسان</annotation>
+		<annotation cp="👩‍🌾" type="tts">عورت کاشت کار</annotation>
+		<annotation cp="👨‍🍳">باورچی | شیف | مرد</annotation>
+		<annotation cp="👨‍🍳" type="tts">مرد باورچی</annotation>
+		<annotation cp="👩‍🍳">باورچی | شیف | عورت</annotation>
+		<annotation cp="👩‍🍳" type="tts">عورت باورچی</annotation>
+		<annotation cp="👨‍🔧">الیکٹریشن | کاریگر | مرد | مکینک</annotation>
+		<annotation cp="👨‍🔧" type="tts">مرد مکینک</annotation>
+		<annotation cp="👩‍🔧">الیکٹریشن | عورت مکینک | کاریگر | مرد | مکینک</annotation>
+		<annotation cp="👩‍🔧" type="tts">عورت مکینک</annotation>
+		<annotation cp="👨‍🏭">فیکٹری | کارکن | کاریگر | مرد</annotation>
+		<annotation cp="👨‍🏭" type="tts">مرد فیکٹری کارکن</annotation>
+		<annotation cp="👩‍🏭">عورت | فیکٹری | کارکن | کاریگر</annotation>
+		<annotation cp="👩‍🏭" type="tts">عورت فیکٹری کارکن</annotation>
+		<annotation cp="👨‍💼">دفتر | کارکن | مرد | ملازم</annotation>
+		<annotation cp="👨‍💼" type="tts">مرد دفتر کارکن</annotation>
+		<annotation cp="👩‍💼">دفتر | عورت | کارکن | ملازم</annotation>
+		<annotation cp="👩‍💼" type="tts">عورت دفتر کارکن</annotation>
+		<annotation cp="👨‍🔬">بیالوجسٹ | سائنسدان | کیمسٹ | مرد</annotation>
+		<annotation cp="👨‍🔬" type="tts">مرد سائنسدان</annotation>
+		<annotation cp="👩‍🔬">بیالوجسٹ | سائنسدان | عورت | کیمسٹ</annotation>
+		<annotation cp="👩‍🔬" type="tts">عورت سائنسدان</annotation>
+		<annotation cp="👨‍💻">کمپیوٹر | کوڈر | لیپ ٹاپ | مرد | مرد ٹیکنولاجسٹ</annotation>
+		<annotation cp="👨‍💻" type="tts">مرد ٹیکنولاجسٹ</annotation>
+		<annotation cp="👩‍💻">عورت | عورت ٹیکنولاجسٹ | کمپیوٹر | کوڈر | لیپ ٹاپ</annotation>
+		<annotation cp="👩‍💻" type="tts">عورت ٹیکنولاجسٹ</annotation>
+		<annotation cp="👨‍🎤">سنگر | فنکار | گلوکار</annotation>
+		<annotation cp="👨‍🎤" type="tts">گلوکار</annotation>
+		<annotation cp="👩‍🎤">سنگر | فنکار | گلوکارہ</annotation>
+		<annotation cp="👩‍🎤" type="tts">گلوکارہ</annotation>
+		<annotation cp="👨‍🎨">آرٹسٹ | سنگر | فنکار</annotation>
+		<annotation cp="👨‍🎨" type="tts">فنکار</annotation>
+		<annotation cp="👩‍🎨">آرٹسٹ | سنگر | فنکارہ</annotation>
+		<annotation cp="👩‍🎨" type="tts">فنکارہ</annotation>
+		<annotation cp="👨‍✈">آسمان | پائلٹ | مرد | ہوائی جہاز</annotation>
+		<annotation cp="👨‍✈" type="tts">مرد پائلٹ</annotation>
+		<annotation cp="👩‍✈">آسمان | پائلٹ | عورت | ہوائی جہاز</annotation>
+		<annotation cp="👩‍✈" type="tts">عورت پائلٹ</annotation>
+		<annotation cp="👨‍🚀">خلا | خلاباز | راکٹ | مرد</annotation>
+		<annotation cp="👨‍🚀" type="tts">مرد خلاباز</annotation>
+		<annotation cp="👩‍🚀">خلا | خلاباز | راکٹ | عورت خلاباز | مرد</annotation>
+		<annotation cp="👩‍🚀" type="tts">عورت خلاباز</annotation>
+		<annotation cp="👨‍🚒">آگ | آگ بجھانے والا | فائر فائٹر | مرد | مرد فائر فائٹر</annotation>
+		<annotation cp="👨‍🚒" type="tts">مرد فائر فائٹر</annotation>
+		<annotation cp="👩‍🚒">آگ | آگ بجھانے والی | عورت فائر فائٹر | فائر فائٹر | مرد</annotation>
+		<annotation cp="👩‍🚒" type="tts">عورت فائر فائٹر</annotation>
+		<annotation cp="👮">آفیسر | پولیس</annotation>
+		<annotation cp="👮" type="tts">پولیس آفیسر</annotation>
+		<annotation cp="👮‍♂">آفیسر | پولیس | پولیس اسٹیشن | مرد</annotation>
+		<annotation cp="👮‍♂" type="tts">مرد پولیس آفیسر</annotation>
+		<annotation cp="👮‍♀">آفیسر | پولیس | پولیس اسٹیشن | عورت</annotation>
+		<annotation cp="👮‍♀" type="tts">عورت پولیس آفیسر</annotation>
+		<annotation cp="🕵">جاسوس | سراغ کا پتا لگانے والا</annotation>
+		<annotation cp="🕵" type="tts">جاسوس</annotation>
+		<annotation cp="🕵‍♂">جاسوس | سراغ کا پتا لگانے والا | مرد</annotation>
+		<annotation cp="🕵‍♂" type="tts">مرد جاسوس</annotation>
+		<annotation cp="🕵‍♀">جاسوس عورت | سراغ کا پتا لگانے والی | عورت جاسوس</annotation>
+		<annotation cp="🕵‍♀" type="tts">عورت جاسوس</annotation>
+		<annotation cp="💂">حفاظت | سیکیورٹی | گارڈ</annotation>
+		<annotation cp="💂" type="tts">گارڈ</annotation>
+		<annotation cp="💂‍♂">حفاظت | سیکیورٹی مرد | گارڈ | مرد گارڈ</annotation>
+		<annotation cp="💂‍♂" type="tts">مرد گارڈ</annotation>
+		<annotation cp="💂‍♀">حفاظت | سیکیورٹی | عورت | گارڈ</annotation>
+		<annotation cp="💂‍♀" type="tts">عورت گارڈ</annotation>
+		<annotation cp="👷">بند آنکھوں والا مستری | ٹوپی | مزدور</annotation>
+		<annotation cp="👷" type="tts">بند آنکھوں والا مستری</annotation>
+		<annotation cp="👷‍♂">تعمیر | عمارت | مرد | مزدور</annotation>
+		<annotation cp="👷‍♂" type="tts">مرد مزدور</annotation>
+		<annotation cp="👷‍♀">تعمیر | عمارت | عورت | مزدور</annotation>
+		<annotation cp="👷‍♀" type="tts">عورت مزدور</annotation>
+		<annotation cp="🤴">شہزادہ</annotation>
+		<annotation cp="🤴" type="tts">شہزادہ</annotation>
+		<annotation cp="👸">افسانوی | شہزادی | کہانی</annotation>
+		<annotation cp="👸" type="tts">شہزادی</annotation>
+		<annotation cp="👳">آدمی | پگڑی | پگڑی والا شخص</annotation>
+		<annotation cp="👳" type="tts">پگڑی والا شخص</annotation>
+		<annotation cp="👳‍♂">پگڑی | پگڑی والا مرد | سردار | مرد</annotation>
+		<annotation cp="👳‍♂" type="tts">پگڑی والا مرد</annotation>
+		<annotation cp="👳‍♀">پگڑی | پگڑی والی عورت | سردارنی | عورت</annotation>
+		<annotation cp="👳‍♀" type="tts">پگڑی والی عورت</annotation>
+		<annotation cp="👲">آدمی | ٹوپی | چینی ٹوپی والا شخص</annotation>
+		<annotation cp="👲" type="tts">چینی ٹوپی والا شخص</annotation>
+		<annotation cp="🧕">حجاب | سر پر اسکارف پہنے عورت | سر کا اسکارف</annotation>
+		<annotation cp="🧕" type="tts">سر پر اسکارف پہنے عورت</annotation>
+		<annotation cp="🤵">تقریب | دلہا | سوٹ | سوٹڈ بوٹڈ آدمی</annotation>
+		<annotation cp="🤵" type="tts">سوٹڈ بوٹڈ آدمی</annotation>
+		<annotation cp="👰">دلہن | روایتی سفید لباس میں دلہن | شادی</annotation>
+		<annotation cp="👰" type="tts">روایتی سفید لباس میں دلہن</annotation>
+		<annotation cp="🤰">حاملہ | عورت</annotation>
+		<annotation cp="🤰" type="tts">حاملہ عورت</annotation>
+		<annotation cp="🤱">بچہ | پرورش | پستان | دودھ پلانا</annotation>
+		<annotation cp="🤱" type="tts">دودھ پلانا</annotation>
+		<annotation cp="👼">افسانوی | بچہ | بے بی فرشتہ | چہرہ | فرشتہ</annotation>
+		<annotation cp="👼" type="tts">بے بی فرشتہ</annotation>
+		<annotation cp="🎅">باپ | جشن | سانتا | سانتا کلاز | کرسمس</annotation>
+		<annotation cp="🎅" type="tts">سانتا کلاز</annotation>
+		<annotation cp="🤶">کرسمس | مدر</annotation>
+		<annotation cp="🤶" type="tts">مدر کرسمس</annotation>
+		<annotation cp="🦸">اچھا | سپر پاور | سپر ہیرو | ہیرو | ہیروئن</annotation>
+		<annotation cp="🦸" type="tts">سپر ہیرو</annotation>
+		<annotation cp="🦸‍♀">اچھا | خاتون سپر ہیرو | سپر پاور | عورت | ہیرو | ہیروئن</annotation>
+		<annotation cp="🦸‍♀" type="tts">خاتون سپر ہیرو</annotation>
+		<annotation cp="🦸‍♂">اچھا | سپر پاور | مرد | مرد سپر ہیرو | ہیرو</annotation>
+		<annotation cp="🦸‍♂" type="tts">مرد سپر ہیرو</annotation>
+		<annotation cp="🦹">برائی | سپر پاور | سپر ولن | مجرم | ولن</annotation>
+		<annotation cp="🦹" type="tts">سپر ولن</annotation>
+		<annotation cp="🦹‍♀">برائی | خاتون سپر ولن | سپر پاور | عورت | مجرم | ولن</annotation>
+		<annotation cp="🦹‍♀" type="tts">خاتون سپر ولن</annotation>
+		<annotation cp="🦹‍♂">برائی | سپر پاور | مجرم | مرد | مرد سپر ولن | ولن</annotation>
+		<annotation cp="🦹‍♂" type="tts">مرد سپر ولن</annotation>
+		<annotation cp="🧙">جادوگر | چادوگرنی</annotation>
+		<annotation cp="🧙" type="tts">جادوگر</annotation>
+		<annotation cp="🧙‍♀">جادوگر عورت | جادوگرنی | چڑیل</annotation>
+		<annotation cp="🧙‍♀" type="tts">جادوگر عورت</annotation>
+		<annotation cp="🧙‍♂">جادوگر | جادوگر آدمی</annotation>
+		<annotation cp="🧙‍♂" type="tts">جادوگر آدمی</annotation>
+		<annotation cp="🧚">اوبیران | پری | پک | ٹائٹینیا</annotation>
+		<annotation cp="🧚" type="tts">پری</annotation>
+		<annotation cp="🧚‍♀">پری عورت | ٹائٹینیا</annotation>
+		<annotation cp="🧚‍♀" type="tts">پری عورت</annotation>
+		<annotation cp="🧚‍♂">اوبیران | پک | مرد پری</annotation>
+		<annotation cp="🧚‍♂" type="tts">مرد پری</annotation>
+		<annotation cp="🧛">خون خوار | ڈریکلا | زندہ</annotation>
+		<annotation cp="🧛" type="tts">خون خوار</annotation>
+		<annotation cp="🧛‍♀">خون خوار عورت | زندہ</annotation>
+		<annotation cp="🧛‍♀" type="tts">خون خوار عورت</annotation>
+		<annotation cp="🧛‍♂">خون خوار آدمی | ڈریکلا | زندہ</annotation>
+		<annotation cp="🧛‍♂" type="tts">خون خوار آدمی</annotation>
+		<annotation cp="🧜">پانی کے جاندار | جل پری</annotation>
+		<annotation cp="🧜" type="tts">پانی کے جاندار</annotation>
+		<annotation cp="🧜‍♀">جل پری | سمندری عورت</annotation>
+		<annotation cp="🧜‍♀" type="tts">جل پری</annotation>
+		<annotation cp="🧜‍♂">جل مانس | سمندری دیوتا</annotation>
+		<annotation cp="🧜‍♂" type="tts">جل مانس</annotation>
+		<annotation cp="🧝">پریت | جادوئی</annotation>
+		<annotation cp="🧝" type="tts">پریت</annotation>
+		<annotation cp="🧝‍♀">پریت عورت | جادوئی</annotation>
+		<annotation cp="🧝‍♀" type="tts">پریت عورت</annotation>
+		<annotation cp="🧝‍♂">پریت آدمی | جادوئی</annotation>
+		<annotation cp="🧝‍♂" type="tts">پریت آدمی</annotation>
+		<annotation cp="🧞">جن</annotation>
+		<annotation cp="🧞" type="tts">جن</annotation>
+		<annotation cp="🧞‍♀">جن | عورت جن</annotation>
+		<annotation cp="🧞‍♀" type="tts">عورت جن</annotation>
+		<annotation cp="🧞‍♂">جن | مرد جن</annotation>
+		<annotation cp="🧞‍♂" type="tts">مرد جن</annotation>
+		<annotation cp="🧟">چلتا پھرتا مردہ | زندہ | زندہ مردہ</annotation>
+		<annotation cp="🧟" type="tts">زندہ مردہ</annotation>
+		<annotation cp="🧟‍♀">چلتا پھرتا مردہ | زندہ | زندہ مردہ عورت</annotation>
+		<annotation cp="🧟‍♀" type="tts">زندہ مردہ عورت</annotation>
+		<annotation cp="🧟‍♂">چلتا پھرتا مردہ | زندہ | زندہ مردہ مرد</annotation>
+		<annotation cp="🧟‍♂" type="tts">زندہ مردہ مرد</annotation>
+		<annotation cp="🙍">اشارہ | تیوری | تیوری چڑھائے شخص</annotation>
+		<annotation cp="🙍" type="tts">تیوری چڑھائے شخص</annotation>
+		<annotation cp="🙍‍♂">گھورتا ہوا مرد | گھورنا | مرد | ناراضگی ظاہر کرتا ہوا مرد</annotation>
+		<annotation cp="🙍‍♂" type="tts">گھورتا ہوا مرد</annotation>
+		<annotation cp="🙍‍♀">عورت | گھورتی ہوئی عورت | گھورنا | ناراضگی ظاہر کرتی ہوئی عورت</annotation>
+		<annotation cp="🙍‍♀" type="tts">گھورتی ہوئی عورت</annotation>
+		<annotation cp="🙎">اشارہ | نا شاد | نا شاد شخص</annotation>
+		<annotation cp="🙎" type="tts">نا شاد شخص</annotation>
+		<annotation cp="🙎‍♂">اداسی ظاہر کرنا | مرد | منھ بسورنا | منہ بسورتا ہوا مرد | ہونٹ دبانا</annotation>
+		<annotation cp="🙎‍♂" type="tts">منہ بسورتا ہوا مرد</annotation>
+		<annotation cp="🙎‍♀">اداسی ظاہر کرنا | عورت | منھ بسورنا | منہ بسورتی ہوا عورت | ہونٹ دبانا</annotation>
+		<annotation cp="🙎‍♀" type="tts">منہ بسورتی ہوا عورت</annotation>
+		<annotation cp="🙅">منع کرنا | نہیں | نہیں کا اشارہ | ہاتھ</annotation>
+		<annotation cp="🙅" type="tts">نہیں کا اشارہ</annotation>
+		<annotation cp="🙅‍♂">اشارہ | ٹھیک نہیں ہونے کا اشارہ کرتا ہوا مرد | روکنا | مرد | منع کرنا</annotation>
+		<annotation cp="🙅‍♂" type="tts">ٹھیک نہیں ہونے کا اشارہ کرتا ہوا مرد</annotation>
+		<annotation cp="🙅‍♀">اشارہ | ٹھیک نہیں ہونے کا اشارہ کرتی ہوئی عورت | روکنا | عورت | منع کرنا</annotation>
+		<annotation cp="🙅‍♀" type="tts">ٹھیک نہیں ہونے کا اشارہ کرتی ہوئی عورت</annotation>
+		<annotation cp="🙆">ٹھیک ہے | ہاتھ | ہاں کا اشارہ</annotation>
+		<annotation cp="🙆" type="tts">ہاں کا اشارہ</annotation>
+		<annotation cp="🙆‍♂">اجازت دینا | اشارہ | اوکے | ٹھیک ہے کا اشارہ کرتا ہوا مرد | مرد</annotation>
+		<annotation cp="🙆‍♂" type="tts">ٹھیک ہے کا اشارہ کرتا ہوا مرد</annotation>
+		<annotation cp="🙆‍♀">اجازت دینا | اشارہ | اوکے | ٹھیک ہے کا اشارہ کرتی ہوئی عورت | عورت</annotation>
+		<annotation cp="🙆‍♀" type="tts">ٹھیک ہے کا اشارہ کرتی ہوئی عورت</annotation>
+		<annotation cp="💁">مدد | معلومات | معلوماتی ڈیسک والا بندہ</annotation>
+		<annotation cp="💁" type="tts">معلوماتی ڈیسک والا بندہ</annotation>
+		<annotation cp="💁‍♂">تجویر | تجویز دیتا ہوا مرد | رائے | مرد | معلومات</annotation>
+		<annotation cp="💁‍♂" type="tts">تجویز دیتا ہوا مرد</annotation>
+		<annotation cp="💁‍♀">تجویر | تجویز دیتی ہوئی عورت | رائے | عورت | معلومات</annotation>
+		<annotation cp="💁‍♀" type="tts">تجویز دیتی ہوئی عورت</annotation>
+		<annotation cp="🙋">اٹھانا | خوش | ہاتھ | ہاتھ بلند کیے خوش شخص</annotation>
+		<annotation cp="🙋" type="tts">ہاتھ بلند کیے خوش شخص</annotation>
+		<annotation cp="🙋‍♂">اشارہ | مرد | ہاتھ اٹھاتا ہوا مرد | ہاتھ اٹھانا</annotation>
+		<annotation cp="🙋‍♂" type="tts">ہاتھ اٹھاتا ہوا مرد</annotation>
+		<annotation cp="🙋‍♀">اشارہ | عورت | ہاتھ اٹھاتی ہوئی عورت | ہاتھ اٹھانا</annotation>
+		<annotation cp="🙋‍♀" type="tts">ہاتھ اٹھاتی ہوئی عورت</annotation>
+		<annotation cp="🙇">اشارہ | جھکنا | جھکے ہوئے شخص | معافی</annotation>
+		<annotation cp="🙇" type="tts">جھکے ہوئے شخص</annotation>
+		<annotation cp="🙇‍♂">افسوس | بہت زیادہ جھکا ہوا مرد | مرد | معافی | معذرت</annotation>
+		<annotation cp="🙇‍♂" type="tts">بہت زیادہ جھکا ہوا مرد</annotation>
+		<annotation cp="🙇‍♀">افسوس | بہت زیادہ جھکی ہوئی عورت | عورت | معافی | معذرت</annotation>
+		<annotation cp="🙇‍♀" type="tts">بہت زیادہ جھکی ہوئی عورت</annotation>
+		<annotation cp="🤦">بے یقینی | پیشانی | پیشانی پر ہاتھ | چہرہ | غصہ | ہاتھ</annotation>
+		<annotation cp="🤦" type="tts">پیشانی پر ہاتھ</annotation>
+		<annotation cp="🤦‍♂">بے یقینی | پیشانی | شرمندگی | شرمندگی ظاہر کرتا ہوا مرد | مرد</annotation>
+		<annotation cp="🤦‍♂" type="tts">شرمندگی ظاہر کرتا ہوا مرد</annotation>
+		<annotation cp="🤦‍♀">بے یقینی | پیشانی | شرمندگی | شرمندگی ظاہر کرتی ہوئی عورت | عورت</annotation>
+		<annotation cp="🤦‍♀" type="tts">شرمندگی ظاہر کرتی ہوئی عورت</annotation>
+		<annotation cp="🤷">بے پرواہی | کندھے اچکانا | لا علمی</annotation>
+		<annotation cp="🤷" type="tts">کندھے اچکانا</annotation>
+		<annotation cp="🤷‍♂">بے پرواہی | شک | کندھے اچکاتا ہوا مرد | کندھے اچکانا | لا علمی</annotation>
+		<annotation cp="🤷‍♂" type="tts">کندھے اچکاتا ہوا مرد</annotation>
+		<annotation cp="🤷‍♀">بے پرواہی | شک | کندھے اچکاتی ہوئی عورت | کندھے اچکانا | لا علمی</annotation>
+		<annotation cp="🤷‍♀" type="tts">کندھے اچکاتی ہوئی عورت</annotation>
+		<annotation cp="💆">چہرے کا مساج | مساج</annotation>
+		<annotation cp="💆" type="tts">چہرے کا مساج</annotation>
+		<annotation cp="💆‍♂">چہرا | چہرے کی مالش کراتا ہوا مرد | مالش | مرد | مساج</annotation>
+		<annotation cp="💆‍♂" type="tts">چہرے کی مالش کراتا ہوا مرد</annotation>
+		<annotation cp="💆‍♀">چہرا | چہرے کی مالش کراتی ہوئی عورت | عورت | مالش | مساج</annotation>
+		<annotation cp="💆‍♀" type="tts">چہرے کی مالش کراتی ہوئی عورت</annotation>
+		<annotation cp="💇">حجام | حجامت</annotation>
+		<annotation cp="💇" type="tts">حجامت</annotation>
+		<annotation cp="💇‍♂">بال کٹواتا ہوا مرد | بال کٹوانا | حجام | مرد</annotation>
+		<annotation cp="💇‍♂" type="tts">بال کٹواتا ہوا مرد</annotation>
+		<annotation cp="💇‍♀">بال کٹواتی ہوئی عورت | بال کٹوانا | حجام | عورت</annotation>
+		<annotation cp="💇‍♀" type="tts">بال کٹواتی ہوئی عورت</annotation>
+		<annotation cp="🚶">پیدل | پیدل چلتا شخص | شخص</annotation>
+		<annotation cp="🚶" type="tts">پیدل چلتا شخص</annotation>
+		<annotation cp="🚶‍♂">پیدل چلتا ہوا مرد | پیدل چلنا | ٹہلنا | چہل قدمی کرنا | مرد</annotation>
+		<annotation cp="🚶‍♂" type="tts">پیدل چلتا ہوا مرد</annotation>
+		<annotation cp="🚶‍♀">پیدل چلتی ہوئی عورت | پیدل چلنا | ٹہلنا | چہل قدمی کرنا | عورت</annotation>
+		<annotation cp="🚶‍♀" type="tts">پیدل چلتی ہوئی عورت</annotation>
+		<annotation cp="🏃">دوڑتا ہوا شخص | دوڑنا | شخص</annotation>
+		<annotation cp="🏃" type="tts">دوڑتا ہوا شخص</annotation>
+		<annotation cp="🏃‍♂">بھاگنا | تیز چلنا | دوڑتا ہوا مرد | دوڑنا | مرد</annotation>
+		<annotation cp="🏃‍♂" type="tts">دوڑتا ہوا مرد</annotation>
+		<annotation cp="🏃‍♀">بھاگنا | تیز چلنا | دوڑتی ہوئی عورت | دوڑنا | عورت</annotation>
+		<annotation cp="🏃‍♀" type="tts">دوڑتی ہوئی عورت</annotation>
+		<annotation cp="💃">ڈانس | ڈانسر | لڑکی</annotation>
+		<annotation cp="💃" type="tts">ڈانسر</annotation>
+		<annotation cp="🕺">آدمی | ناچ | ناچتا ہوا شخص</annotation>
+		<annotation cp="🕺" type="tts">ناچتا ہوا شخص</annotation>
+		<annotation cp="👯">پارٹی کرتی عورتیں | ڈانس | عورت | لڑکی</annotation>
+		<annotation cp="👯" type="tts">پارٹی کرتی عورتیں</annotation>
+		<annotation cp="👯‍♂">پارٹی | تفریح | ڈانس | ڈانس کرتے ہوئے مرد | مرد</annotation>
+		<annotation cp="👯‍♂" type="tts">ڈانس کرتے ہوئے مرد</annotation>
+		<annotation cp="👯‍♀">پارٹی | تفریح | ڈانس | ڈانس کرتی ہوئی عورتیں | عورت</annotation>
+		<annotation cp="👯‍♀" type="tts">ڈانس کرتی ہوئی عورتیں</annotation>
+		<annotation cp="🧖">ایک شخص بھاپ سے بھرے کمرے میں | بھاپ سے بھرا | غسل خانہ</annotation>
+		<annotation cp="🧖" type="tts">ایک شخص بھاپ سے بھرے کمرے میں</annotation>
+		<annotation cp="🧖‍♀">ایک خاتون بھاپ سے بھرے کمرے میں | بھاپ سے بھرا | غسل خانہ</annotation>
+		<annotation cp="🧖‍♀" type="tts">ایک خاتون بھاپ سے بھرے کمرے میں</annotation>
+		<annotation cp="🧖‍♂">ایک مرد بھاپ سے بھرے کمرے میں | بھاپ سے بھرا | غسل خانہ</annotation>
+		<annotation cp="🧖‍♂" type="tts">ایک مرد بھاپ سے بھرے کمرے میں</annotation>
+		<annotation cp="🧗">چڑھتا ہوا شخص | چڑھنے والا</annotation>
+		<annotation cp="🧗" type="tts">چڑھتا ہوا شخص</annotation>
+		<annotation cp="🧗‍♀">چرھنے والی | چڑھتی ہوئی عورت</annotation>
+		<annotation cp="🧗‍♀" type="tts">چڑھتی ہوئی عورت</annotation>
+		<annotation cp="🧗‍♂">چڑھتا ہوا آدمی | چڑھنے والا</annotation>
+		<annotation cp="🧗‍♂" type="tts">چڑھتا ہوا آدمی</annotation>
+		<annotation cp="🧘">پالتی مار کر بیٹھا شخص | مراقبہ | یوگا</annotation>
+		<annotation cp="🧘" type="tts">پالتی مار کر بیٹھا شخص</annotation>
+		<annotation cp="🧘‍♀">پالتی مار کر بیٹھی عورت | مراقبہ | یوگا</annotation>
+		<annotation cp="🧘‍♀" type="tts">پالتی مار کر بیٹھی عورت</annotation>
+		<annotation cp="🧘‍♂">پالتی مار کر بیٹھا آدمی | مراقبہ | یوگا</annotation>
+		<annotation cp="🧘‍♂" type="tts">پالتی مار کر بیٹھا آدمی</annotation>
+		<annotation cp="🛀">باتھ ٹب | نہاتا ہوا شخص</annotation>
+		<annotation cp="🛀" type="tts">نہاتا ہوا شخص</annotation>
+		<annotation cp="🛌">بستر میں لیٹا شخص | نیند | ہوٹل</annotation>
+		<annotation cp="🛌" type="tts">بستر میں لیٹا شخص</annotation>
+		<annotation cp="🕴">بزنس | بزنس سوٹ پہنے ہوا میں معلق شخص | سوٹ | شخص | معلق | ہوا</annotation>
+		<annotation cp="🕴" type="tts">بزنس سوٹ پہنے ہوا میں معلق شخص</annotation>
+		<annotation cp="🗣">بولتا سر | بولنا | چہرہ | سر</annotation>
+		<annotation cp="🗣" type="tts">بولتا سر</annotation>
+		<annotation cp="👤">آدمی کا خاکہ | خاکہ</annotation>
+		<annotation cp="👤" type="tts">آدمی کا خاکہ</annotation>
+		<annotation cp="👥">آدمیوں کے خاکے | خاکہ</annotation>
+		<annotation cp="👥" type="tts">آدمیوں کے خاکے</annotation>
+		<annotation cp="🤺">بندہ | تلوار | تلوار بازی | کھیل</annotation>
+		<annotation cp="🤺" type="tts">تلوار بازی</annotation>
+		<annotation cp="🏇">دوڑ | کھیل | گھڑ دوڑ | گھوڑا</annotation>
+		<annotation cp="🏇" type="tts">گھڑ دوڑ</annotation>
+		<annotation cp="⛷">اسکائر | اسکائی | برف</annotation>
+		<annotation cp="⛷" type="tts">اسکائر</annotation>
+		<annotation cp="🏂">اسکائی | برف | سنو بورڈ | سنو بورڈر</annotation>
+		<annotation cp="🏂" type="tts">سنو بورڈر</annotation>
+		<annotation cp="🏌">کھلاڑی | گالف | گالف کا کھلاڑی</annotation>
+		<annotation cp="🏌" type="tts">گالف کا کھلاڑی</annotation>
+		<annotation cp="🏌‍♂">کھلاڑی | کھیلنا | گالف | گالف کھیلتا ہوا مرد | مرد</annotation>
+		<annotation cp="🏌‍♂" type="tts">گالف کھیلتا ہوا مرد</annotation>
+		<annotation cp="🏌‍♀">عورت | کھلاڑی | کھیلنا | گالف | گالف کھیلتی ہوئی عورت</annotation>
+		<annotation cp="🏌‍♀" type="tts">گالف کھیلتی ہوئی عورت</annotation>
+		<annotation cp="🏄">پانی | تختہ | سرف | سرفر</annotation>
+		<annotation cp="🏄" type="tts">سرفر</annotation>
+		<annotation cp="🏄‍♂">پانی | تختہ | سرفنگ کرتا ہوا مرد | کھیلنا | مرد</annotation>
+		<annotation cp="🏄‍♂" type="tts">سرفنگ کرتا ہوا مرد</annotation>
+		<annotation cp="🏄‍♀">پانی | تختہ | سرفنگ کرتی ہوئی عورت | عورت | کھیلنا</annotation>
+		<annotation cp="🏄‍♀" type="tts">سرفنگ کرتی ہوئی عورت</annotation>
+		<annotation cp="🚣">چپوؤں والی کشتی | سواری | کشتی</annotation>
+		<annotation cp="🚣" type="tts">چپوؤں والی کشتی</annotation>
+		<annotation cp="🚣‍♂">پانی | سواری | کشتی | کشتی چلاتا ہوا مرد | مرد</annotation>
+		<annotation cp="🚣‍♂" type="tts">کشتی چلاتا ہوا مرد</annotation>
+		<annotation cp="🚣‍♀">پانی | سواری | عورت | کشتی | کشتی چلاتی ہوئی عورت</annotation>
+		<annotation cp="🚣‍♀" type="tts">کشتی چلاتی ہوئی عورت</annotation>
+		<annotation cp="🏊">پانی | تیراک | تیراکی</annotation>
+		<annotation cp="🏊" type="tts">تیراک</annotation>
+		<annotation cp="🏊‍♂">پانی | تیراکی | تیراکی کرتا ہوا مرد | مرد</annotation>
+		<annotation cp="🏊‍♂" type="tts">تیراکی کرتا ہوا مرد</annotation>
+		<annotation cp="🏊‍♀">پانی | تیراکی | تیراکی کرتی ہوئی عورت | عورت</annotation>
+		<annotation cp="🏊‍♀" type="tts">تیراکی کرتی ہوئی عورت</annotation>
+		<annotation cp="⛹">بال | بال سے کھیلتا شخص | بندہ</annotation>
+		<annotation cp="⛹" type="tts">بال سے کھیلتا شخص</annotation>
+		<annotation cp="⛹‍♂">بال | بال سے کھیلتا ہوا مرد | کھیلنا | مرد | میدان</annotation>
+		<annotation cp="⛹‍♂" type="tts">بال سے کھیلتا ہوا مرد</annotation>
+		<annotation cp="⛹‍♀">بال | بال سے کھیلتی ہوئی عورت | عورت | کھیلنا | میدان</annotation>
+		<annotation cp="⛹‍♀" type="tts">بال سے کھیلتی ہوئی عورت</annotation>
+		<annotation cp="🏋">اٹھانا | وزن | وزن اٹھائے شخص</annotation>
+		<annotation cp="🏋" type="tts">وزن اٹھائے شخص</annotation>
+		<annotation cp="🏋‍♂">اٹھانا | جم | مرد | وزن | وزن اٹھاتا ہوا مرد</annotation>
+		<annotation cp="🏋‍♂" type="tts">وزن اٹھاتا ہوا مرد</annotation>
+		<annotation cp="🏋‍♀">اٹھانا | جم | عورت | وزن | وزن اٹھاتی ہوئی عورت</annotation>
+		<annotation cp="🏋‍♀" type="tts">وزن اٹھاتی ہوئی عورت</annotation>
+		<annotation cp="🚴">سائیکل | سوار</annotation>
+		<annotation cp="🚴" type="tts">سائیکل سوار</annotation>
+		<annotation cp="🚴‍♂">چلانا | سائیکل | سائیکل سوار مرد | سڑک | مرد</annotation>
+		<annotation cp="🚴‍♂" type="tts">سائیکل سوار مرد</annotation>
+		<annotation cp="🚴‍♀">چلانا | سائیکل | سائیکل سوار عورت | سڑک | عورت</annotation>
+		<annotation cp="🚴‍♀" type="tts">سائیکل سوار عورت</annotation>
+		<annotation cp="🚵">بائیک | سائیکل | سوار | ماؤنٹین</annotation>
+		<annotation cp="🚵" type="tts">ماؤنٹین بائیک</annotation>
+		<annotation cp="🚵‍♂">چلانا | سائیکل | ماؤنٹین | ماؤنٹین بائیک پر سوار مرد | مرد</annotation>
+		<annotation cp="🚵‍♂" type="tts">ماؤنٹین بائیک پر سوار مرد</annotation>
+		<annotation cp="🚵‍♀">چلانا | سائیکل | عورت | ماؤنٹین | ماؤنٹین بائیک پر سوار عورت</annotation>
+		<annotation cp="🚵‍♀" type="tts">ماؤنٹین بائیک پر سوار عورت</annotation>
+		<annotation cp="🏎">ریس | ریس کی کار | کار | کھیل</annotation>
+		<annotation cp="🏎" type="tts">ریس کی کار</annotation>
+		<annotation cp="🏍">ریس | سائیکل | موٹر</annotation>
+		<annotation cp="🏍" type="tts">موٹر سائیکل</annotation>
+		<annotation cp="🤸">بندہ | جمناسٹکس | قلابازی | قلابازی لگاتا شخص | کھیل</annotation>
+		<annotation cp="🤸" type="tts">قلابازی لگاتا شخص</annotation>
+		<annotation cp="🤸‍♂">جمناسٹکس | قلابازی | قلابازی کھاتا ہوا مرد | کھیل | مرد</annotation>
+		<annotation cp="🤸‍♂" type="tts">قلابازی کھاتا ہوا مرد</annotation>
+		<annotation cp="🤸‍♀">جمناسٹکس | عورت | قلابازی | قلابازی کھاتی ہوئی عورت | کھیل</annotation>
+		<annotation cp="🤸‍♀" type="tts">قلابازی کھاتی ہوئی عورت</annotation>
+		<annotation cp="🤼">بندہ | پہلوان | کشتی | کھیل</annotation>
+		<annotation cp="🤼" type="tts">پہلوان</annotation>
+		<annotation cp="🤼‍♂">پہلوان | کشتی | کھیل | مرد | مردوں کی کشتی</annotation>
+		<annotation cp="🤼‍♂" type="tts">مردوں کی کشتی</annotation>
+		<annotation cp="🤼‍♀">پہلوان | عورت | عورتوں کی کشتی | کشتی | کھیل</annotation>
+		<annotation cp="🤼‍♀" type="tts">عورتوں کی کشتی</annotation>
+		<annotation cp="🤽">بندہ | پانی | پولو | کھیل | واٹر پولو</annotation>
+		<annotation cp="🤽" type="tts">واٹر پولو</annotation>
+		<annotation cp="🤽‍♂">پانی | پولو | کھیل | مرد | واٹر پولو کھیلتا ہوا مرد</annotation>
+		<annotation cp="🤽‍♂" type="tts">واٹر پولو کھیلتا ہوا مرد</annotation>
+		<annotation cp="🤽‍♀">پانی | پولو | عورت | کھیل | واٹر پولو کھیلتی ہوئی عورت</annotation>
+		<annotation cp="🤽‍♀" type="tts">واٹر پولو کھیلتی ہوئی عورت</annotation>
+		<annotation cp="🤾">بال | بندہ | کھیل | ہینڈ بال</annotation>
+		<annotation cp="🤾" type="tts">ہینڈ بال</annotation>
+		<annotation cp="🤾‍♂">کھیل | مرد | میدان | ہینڈ بال | ہینڈ بال کھیلتا ہوا مرد</annotation>
+		<annotation cp="🤾‍♂" type="tts">ہینڈ بال کھیلتا ہوا مرد</annotation>
+		<annotation cp="🤾‍♀">عورت | کھیل | میدان | ہینڈ بال | ہینڈ بال کھیلتی ہوئی عورت</annotation>
+		<annotation cp="🤾‍♀" type="tts">ہینڈ بال کھیلتی ہوئی عورت</annotation>
+		<annotation cp="🤹">توازن | شعبدہ بازی | مداری | مہارت</annotation>
+		<annotation cp="🤹" type="tts">شعبدہ بازی</annotation>
+		<annotation cp="🤹‍♂">شعبدہ باز مرد | شعبدہ بازی | کھیل | مداری | مرد</annotation>
+		<annotation cp="🤹‍♂" type="tts">شعبدہ باز مرد</annotation>
+		<annotation cp="🤹‍♀">شعبدہ باز عورت | شعبدہ بازی | عورت | کھیل | مداری</annotation>
+		<annotation cp="🤹‍♀" type="tts">شعبدہ باز عورت</annotation>
+		<annotation cp="👫">تھامنا | جوڑا | ہاتھ | ہاتھ تھامے مرد اور عورت</annotation>
+		<annotation cp="👫" type="tts">ہاتھ تھامے مرد اور عورت</annotation>
+		<annotation cp="👬">تھامنا | جوڑا | مرد | ہاتھ | ہاتھ تھامے دو مرد</annotation>
+		<annotation cp="👬" type="tts">ہاتھ تھامے دو مرد</annotation>
+		<annotation cp="👭">تھامنا | جوڑا | عورتیں | ہاتھ | ہاتھ تھامے دو عورتیں</annotation>
+		<annotation cp="👭" type="tts">ہاتھ تھامے دو عورتیں</annotation>
+		<annotation cp="💏">بوسہ | جوڑا | رومانس</annotation>
+		<annotation cp="💏" type="tts">بوسہ</annotation>
+		<annotation cp="💑">جوڑا | دل | دل اور جوڑا | رومانس</annotation>
+		<annotation cp="💑" type="tts">دل اور جوڑا</annotation>
+		<annotation cp="👪">باپ | بچہ | خاندان | ماں</annotation>
+		<annotation cp="👪" type="tts">خاندان</annotation>
+		<annotation cp="🤳">تصویر | سیلفی | فون | کیمرہ</annotation>
+		<annotation cp="🤳" type="tts">سیلفی</annotation>
+		<annotation cp="💪">بازوؤں کے ڈولے | جسم | ڈولے</annotation>
+		<annotation cp="💪" type="tts">بازوؤں کے ڈولے</annotation>
+		<annotation cp="🦵">ٹانگ | ٹھوکر | عضو</annotation>
+		<annotation cp="🦵" type="tts">ٹانگ</annotation>
+		<annotation cp="🦶">پاؤں | پاؤں مارنا | ٹھوکر</annotation>
+		<annotation cp="🦶" type="tts">پاؤں</annotation>
+		<annotation cp="👈">انگلی | بائیں | بائیں اشارہ کرتی بیک ہینڈ شہادت کی انگلی | جسم | ہاتھ</annotation>
+		<annotation cp="👈" type="tts">بائیں اشارہ کرتی بیک ہینڈ شہادت کی انگلی</annotation>
+		<annotation cp="👉">انگلی | جسم | دائیں | دائیں اشارہ کرتی بیک ہینڈ شہادت کی انگلی | ہاتھ</annotation>
+		<annotation cp="👉" type="tts">دائیں اشارہ کرتی بیک ہینڈ شہادت کی انگلی</annotation>
+		<annotation cp="☝">انگلی | اوپر | اوپر اشارہ کرتی شہادت کی انگلی | جسم | ہاتھ</annotation>
+		<annotation cp="☝" type="tts">اوپر اشارہ کرتی شہادت کی انگلی</annotation>
+		<annotation cp="👆">اوپر | اوپر اشارہ کرتی بیک ہینڈ شہادت کی انگلی | جسم | شہادت کی انگلی | ہاتھ</annotation>
+		<annotation cp="👆" type="tts">اوپر اشارہ کرتی بیک ہینڈ شہادت کی انگلی</annotation>
+		<annotation cp="🖕">جسم | درمیانی انگلی | ہاتھ</annotation>
+		<annotation cp="🖕" type="tts">درمیانی انگلی</annotation>
+		<annotation cp="👇">جسم | شہادت کی انگلی | نیچے | نیچے اشارہ کرتی بیک ہینڈ شہادت کی انگلی | ہاتھ</annotation>
+		<annotation cp="👇" type="tts">نیچے اشارہ کرتی بیک ہینڈ شہادت کی انگلی</annotation>
+		<annotation cp="✌">جسم | فتح | فتح کا نشان بناتا ہاتھ | نشان | ہاتھ</annotation>
+		<annotation cp="✌" type="tts">فتح کا نشان بناتا ہاتھ</annotation>
+		<annotation cp="🤞">امید | انگلی | قسمت | کراس | کراس بناتی انگلیاں</annotation>
+		<annotation cp="🤞" type="tts">کراس بناتی انگلیاں</annotation>
+		<annotation cp="🖖">اَتش فشاں | انگلی | جسم | ہاتھ | وولکن سلیوٹ</annotation>
+		<annotation cp="🖖" type="tts">وولکن سلیوٹ</annotation>
+		<annotation cp="🤘">انگلی | جسم | سینگ | ہاتھ | ہاتھ سے سینگوں کا نشان</annotation>
+		<annotation cp="🤘" type="tts">ہاتھ سے سینگوں کا نشان</annotation>
+		<annotation cp="🤙">اشارہ | کال | کال کرنے کا اشارہ | ہاتھ</annotation>
+		<annotation cp="🤙" type="tts">کال کرنے کا اشارہ</annotation>
+		<annotation cp="🖐">انگلی | پھیلانا | پھیلی ہوئی انگلیوں کے ساتھ بلند ہاتھ | جسم | ہاتھ</annotation>
+		<annotation cp="🖐" type="tts">پھیلی ہوئی انگلیوں کے ساتھ بلند ہاتھ</annotation>
+		<annotation cp="✋">بلند ہاتھ | جسم | ہاتھ</annotation>
+		<annotation cp="✋" type="tts">بلند ہاتھ</annotation>
+		<annotation cp="👌">اوکے | اوکے کا نشان بناتا ہاتھ | جسم | نشان | ہاتھ</annotation>
+		<annotation cp="👌" type="tts">اوکے کا نشان بناتا ہاتھ</annotation>
+		<annotation cp="👍">انگوٹھا | اوپر | جسم | سب اچھا کا نشان بناتا انگوٹھا | ہاتھ</annotation>
+		<annotation cp="👍" type="tts">سب اچھا کا نشان بناتا انگوٹھا</annotation>
+		<annotation cp="👎">اچھا نہ ہونے کا نشان بناتا انگوٹھا | انگوٹھا | جسم | نیچے | ہاتھ</annotation>
+		<annotation cp="👎" type="tts">اچھا نہ ہونے کا نشان بناتا انگوٹھا</annotation>
+		<annotation cp="✊">بلند مُٹھی | جسم | مٹھی | ہاتھ</annotation>
+		<annotation cp="✊" type="tts">بلند مُٹھی</annotation>
+		<annotation cp="👊">آتا ہوا مُکا | جسم | مکا | ہاتھ</annotation>
+		<annotation cp="👊" type="tts">آتا ہوا مُکا</annotation>
+		<annotation cp="🤛">بائیں سمت | بائیں سمت میں مکا | مکا</annotation>
+		<annotation cp="🤛" type="tts">بائیں سمت میں مکا</annotation>
+		<annotation cp="🤜">دائیں سمت | دائیں سمت میں مکا | مکا</annotation>
+		<annotation cp="🤜" type="tts">دائیں سمت میں مکا</annotation>
+		<annotation cp="🤚">پشت | کھڑا | کھڑے ہاتھ کی پشت | ہاتھ</annotation>
+		<annotation cp="🤚" type="tts">کھڑے ہاتھ کی پشت</annotation>
+		<annotation cp="👋">جسم | لہرانا | ہاتھ</annotation>
+		<annotation cp="👋" type="tts">ہاتھ لہرانا</annotation>
+		<annotation cp="🤟">آپ سے محبت | آپ سے محبت کا اشارہ | ہاتھ</annotation>
+		<annotation cp="🤟" type="tts">آپ سے محبت کا اشارہ</annotation>
+		<annotation cp="✍">جسم | لکھتا ہوا ہاتھ | لکھنا | ہاتھ</annotation>
+		<annotation cp="✍" type="tts">لکھتا ہوا ہاتھ</annotation>
+		<annotation cp="👏">تالی | تالیاں بجاتے ہاتھ | جسم | ہاتھ</annotation>
+		<annotation cp="👏" type="tts">تالیاں بجاتے ہاتھ</annotation>
+		<annotation cp="👐">جسم | کھلے ہاتھ | کھولے | ہاتھ</annotation>
+		<annotation cp="👐" type="tts">کھلے ہاتھ</annotation>
+		<annotation cp="🙌">جسم | جشن | ہاتھ | ہاتھ بلند کیے ہوئے شخص</annotation>
+		<annotation cp="🙌" type="tts">ہاتھ بلند کیے ہوئے شخص</annotation>
+		<annotation cp="🤲">ایک ساتھ ہتھیلیاں اٹھانا | نماز</annotation>
+		<annotation cp="🤲" type="tts">ایک ساتھ ہتھیلیاں اٹھانا</annotation>
+		<annotation cp="🙏">اشارہ | بندھے ہاتھ | دعا | شکریہ</annotation>
+		<annotation cp="🙏" type="tts">بندھے ہاتھ</annotation>
+		<annotation cp="🤝">ملانا | ہاتھ</annotation>
+		<annotation cp="🤝" type="tts">ہاتھ ملانا</annotation>
+		<annotation cp="💅">پالش | جسم | خیال | ناخن | نیل پالش</annotation>
+		<annotation cp="💅" type="tts">نیل پالش</annotation>
+		<annotation cp="👂">جسم | کان</annotation>
+		<annotation cp="👂" type="tts">کان</annotation>
+		<annotation cp="👃">جسم | ناک</annotation>
+		<annotation cp="👃" type="tts">ناک</annotation>
+		<annotation cp="👣">جسم | قدم | قدموں کے نشانات | نشان</annotation>
+		<annotation cp="👣" type="tts">قدموں کے نشانات</annotation>
+		<annotation cp="👀">آنکھیں | جسم</annotation>
+		<annotation cp="👀" type="tts">آنکھیں</annotation>
+		<annotation cp="👁">آنکھ | جسم</annotation>
+		<annotation cp="👁" type="tts">آنکھ</annotation>
+		<annotation cp="👁‍🗨">آنکھ | دھمکی | دھمکی روکنے کی مہم | مہم</annotation>
+		<annotation cp="👁‍🗨" type="tts">دھمکی روکنے کی مہم</annotation>
+		<annotation cp="🧠">دماغ | ذہین</annotation>
+		<annotation cp="🧠" type="tts">دماغ</annotation>
+		<annotation cp="🦴">ڈھانچا | ہڈی</annotation>
+		<annotation cp="🦴" type="tts">ہڈی</annotation>
+		<annotation cp="🦷">دانت | معالج دندان</annotation>
+		<annotation cp="🦷" type="tts">دانت</annotation>
+		<annotation cp="👅">جسم | زبان</annotation>
+		<annotation cp="👅" type="tts">زبان</annotation>
+		<annotation cp="👄">جسم | منہ</annotation>
+		<annotation cp="👄" type="tts">منہ</annotation>
+		<annotation cp="🦰">ادرک | سرخ بال | سرخ سر</annotation>
+		<annotation cp="🦰" type="tts">سرخ بال</annotation>
+		<annotation cp="🦱">افریقی | گھنگھریالے | گھنگھریالے بال | گیسو</annotation>
+		<annotation cp="🦱" type="tts">گھنگھریالے بال</annotation>
+		<annotation cp="🦳">بال | بوڑھا | خاکستری | سفید</annotation>
+		<annotation cp="🦳" type="tts">سفید بال</annotation>
+		<annotation cp="🦲">شیو کیا ہوا | کوئی بال نہیں | کیمیائی علاج | گنجا</annotation>
+		<annotation cp="🦲" type="tts">گنجا</annotation>
+		<annotation cp="💋">بوسہ | بوسے کا نشان | ہونٹ</annotation>
+		<annotation cp="💋" type="tts">بوسے کا نشان</annotation>
+		<annotation cp="💘">تیر | تیر پیوست ہوا دل | دل | زخمی</annotation>
+		<annotation cp="💘" type="tts">تیر پیوست ہوا دل</annotation>
+		<annotation cp="💝">دل | ربن | ربن باندھے دل</annotation>
+		<annotation cp="💝" type="tts">ربن باندھے دل</annotation>
+		<annotation cp="💖">پر جوش | چمکتا دل | دل</annotation>
+		<annotation cp="💖" type="tts">چمکتا دل</annotation>
+		<annotation cp="💗">بڑھتا ہوا دل | پر جوش | دل | نروس</annotation>
+		<annotation cp="💗" type="tts">بڑھتا ہوا دل</annotation>
+		<annotation cp="💓">دل | دھڑکتا دل | دھڑکن</annotation>
+		<annotation cp="💓" type="tts">دھڑکتا دل</annotation>
+		<annotation cp="💞">دل | گھومتے دل | گھومنا</annotation>
+		<annotation cp="💞" type="tts">گھومتے دل</annotation>
+		<annotation cp="💕">پیار | دل | دو دل</annotation>
+		<annotation cp="💕" type="tts">دو دل</annotation>
+		<annotation cp="💌">پیار | خط | رومانس | محبت بھرا خط</annotation>
+		<annotation cp="💌" type="tts">محبت بھرا خط</annotation>
+		<annotation cp="❣">دل | علامتِ ندائیہ | علامتِ ندائیہ والا بھاری دل</annotation>
+		<annotation cp="❣" type="tts">علامتِ ندائیہ والا بھاری دل</annotation>
+		<annotation cp="💔">ٹوٹا ہوا | ٹوٹا ہوا دل | دل</annotation>
+		<annotation cp="💔" type="tts">ٹوٹا ہوا دل</annotation>
+		<annotation cp="❤">دل | سرخ</annotation>
+		<annotation cp="❤" type="tts">سرخ دل</annotation>
+		<annotation cp="🧡">نارنجی | نارنجی دل</annotation>
+		<annotation cp="🧡" type="tts">نارنجی دل</annotation>
+		<annotation cp="💛">پیلا | دل</annotation>
+		<annotation cp="💛" type="tts">پیلا دل</annotation>
+		<annotation cp="💚">دل | سبز</annotation>
+		<annotation cp="💚" type="tts">سبز دل</annotation>
+		<annotation cp="💙">دل | نیلا</annotation>
+		<annotation cp="💙" type="tts">نیلا دل</annotation>
+		<annotation cp="💜">ارغوانی | دل</annotation>
+		<annotation cp="💜" type="tts">ارغوانی دل</annotation>
+		<annotation cp="🖤">برا | دل | شیطانی | کالا</annotation>
+		<annotation cp="🖤" type="tts">کالا دل</annotation>
+		<annotation cp="💟">دل | دل کی ڈیکوریشن | ڈیکوریشن</annotation>
+		<annotation cp="💟" type="tts">دل کی ڈیکوریشن</annotation>
+		<annotation cp="💤">زززززز | لفظی علامت | نیند</annotation>
+		<annotation cp="💤" type="tts">زززززز</annotation>
+		<annotation cp="💢">علامت | غصہ | غصے کی علامت</annotation>
+		<annotation cp="💢" type="tts">غصے کی علامت</annotation>
+		<annotation cp="💣">آگ | بم | بمباری</annotation>
+		<annotation cp="💣" type="tts">بم</annotation>
+		<annotation cp="💥">تصادم | ٹکر</annotation>
+		<annotation cp="💥" type="tts">تصادم</annotation>
+		<annotation cp="💦">پسینہ | پسینے کے قطرے | قطرے</annotation>
+		<annotation cp="💦" type="tts">پسینے کے قطرے</annotation>
+		<annotation cp="💨">تیزی | تیزی سے دوڑنا | دوڑنا</annotation>
+		<annotation cp="💨" type="tts">تیزی سے دوڑنا</annotation>
+		<annotation cp="💫">سر چکرانا | علامت</annotation>
+		<annotation cp="💫" type="tts">سر چکرانا</annotation>
+		<annotation cp="💬">علامت | غبارہ | گفتگو</annotation>
+		<annotation cp="💬" type="tts">گفتگو غبارہ</annotation>
+		<annotation cp="🗨">بایاں | علامت | غبارہ | گفتگو غبارہ بائیں</annotation>
+		<annotation cp="🗨" type="tts">گفتگو غبارہ بائیں</annotation>
+		<annotation cp="🗯">دایاں | علامت | غبارہ | غصہ غبارہ دائیں</annotation>
+		<annotation cp="🗯" type="tts">غصہ غبارہ دائیں</annotation>
+		<annotation cp="💭">سوچ | علامت | غبارہ</annotation>
+		<annotation cp="💭" type="tts">سوچ غبارہ</annotation>
+		<annotation cp="🕳">چھید | خالی جگہ | سوراخ</annotation>
+		<annotation cp="🕳" type="tts">سوراخ</annotation>
+		<annotation cp="👓">آنکھ | جشمے | چشمے | لباس</annotation>
+		<annotation cp="👓" type="tts">چشمے</annotation>
+		<annotation cp="🕶">آنکھ | جشمے | دھوپ چشمے | لباس</annotation>
+		<annotation cp="🕶" type="tts">دھوپ چشمے</annotation>
+		<annotation cp="🥽">آنکھوں کا تحفظ | تیراکی | گاگل | ویلڈنگ</annotation>
+		<annotation cp="🥽" type="tts">گاگل</annotation>
+		<annotation cp="🥼">تجربہ | ڈاکٹر | سائنسدان | لیب میں پہننے والا کوٹ</annotation>
+		<annotation cp="🥼" type="tts">لیب میں پہننے والا کوٹ</annotation>
+		<annotation cp="👔">لباس | نیک ٹائی | نیکٹائی</annotation>
+		<annotation cp="👔" type="tts">نیکٹائی</annotation>
+		<annotation cp="👕">ٹی شرٹ | لباس</annotation>
+		<annotation cp="👕" type="tts">ٹی شرٹ</annotation>
+		<annotation cp="👖">جینز | لباس</annotation>
+		<annotation cp="👖" type="tts">جینز</annotation>
+		<annotation cp="🧣">اسکارف | گردن</annotation>
+		<annotation cp="🧣" type="tts">اسکارف</annotation>
+		<annotation cp="🧤">دستانے</annotation>
+		<annotation cp="🧤" type="tts">دستانے</annotation>
+		<annotation cp="🧥">جیکٹ | کوٹ</annotation>
+		<annotation cp="🧥" type="tts">کوٹ</annotation>
+		<annotation cp="🧦">جراب | جرابیں</annotation>
+		<annotation cp="🧦" type="tts">جرابیں</annotation>
+		<annotation cp="👗">ڈریس | کپڑے | لباس</annotation>
+		<annotation cp="👗" type="tts">لباس</annotation>
+		<annotation cp="👘">خواتین کا روایتی جاپانی لباس | لباس</annotation>
+		<annotation cp="👘" type="tts">خواتین کا روایتی جاپانی لباس</annotation>
+		<annotation cp="👙">بکنی | لباس</annotation>
+		<annotation cp="👙" type="tts">بکنی</annotation>
+		<annotation cp="👚">عورت | عورتوں کے کپڑے | لباس</annotation>
+		<annotation cp="👚" type="tts">عورتوں کے کپڑے</annotation>
+		<annotation cp="👛">پرس | پیسہ | لباس</annotation>
+		<annotation cp="👛" type="tts">پرس</annotation>
+		<annotation cp="👜">بیگ | لباس | ہینڈ بیگ</annotation>
+		<annotation cp="👜" type="tts">ہینڈ بیگ</annotation>
+		<annotation cp="👝">بیگ | لباس</annotation>
+		<annotation cp="👝" type="tts">بیگ</annotation>
+		<annotation cp="🛍">بیگ | شاپنگ | شاپنگ بیگز | ہوٹل</annotation>
+		<annotation cp="🛍" type="tts">شاپنگ بیگز</annotation>
+		<annotation cp="🎒">اسکول | اسکول کا بستہ | بیگ</annotation>
+		<annotation cp="🎒" type="tts">اسکول کا بستہ</annotation>
+		<annotation cp="👞">آدمی | جوتا | لباس | مرد کا جوتا</annotation>
+		<annotation cp="👞" type="tts">مرد کا جوتا</annotation>
+		<annotation cp="👟">جوتے | دوڑنے والا جوتا | لباس</annotation>
+		<annotation cp="👟" type="tts">دوڑنے والا جوتا</annotation>
+		<annotation cp="🥾">بوٹ | بیک پیکنگ | کیمپنگ | ہائکنگ</annotation>
+		<annotation cp="🥾" type="tts">ہائکنگ بوٹ</annotation>
+		<annotation cp="🥿">آسانی سے پہنا جا سکنے والا | بیلے فلیٹ | سلیپر | ہموار جوتا</annotation>
+		<annotation cp="🥿" type="tts">ہموار جوتا</annotation>
+		<annotation cp="👠">اونچی ایڑی | اونچی ایڑی والا جوتا | جوتا | عورت | لباس</annotation>
+		<annotation cp="👠" type="tts">اونچی ایڑی والا جوتا</annotation>
+		<annotation cp="👡">جوتا | سینڈل | عورت | عورت کی سینڈل | لباس</annotation>
+		<annotation cp="👡" type="tts">عورت کی سینڈل</annotation>
+		<annotation cp="👢">بوٹ | جوتا | عورت | عورت کا بوٹ | لباس</annotation>
+		<annotation cp="👢" type="tts">عورت کا بوٹ</annotation>
+		<annotation cp="👑">بادشاہ | تاج | لباس | ملکہ</annotation>
+		<annotation cp="👑" type="tts">تاج</annotation>
+		<annotation cp="👒">عورت | عورت کا ہیٹ | لباس | ہیٹ</annotation>
+		<annotation cp="👒" type="tts">عورت کا ہیٹ</annotation>
+		<annotation cp="🎩">اوپری ٹوپ | ٹاپ ہیٹ | لباس</annotation>
+		<annotation cp="🎩" type="tts">اوپری ٹوپ</annotation>
+		<annotation cp="🎓">ٹوپی | گریجوئیشن | گریجوئیشن کیپ | لباس</annotation>
+		<annotation cp="🎓" type="tts">گریجوئیشن کیپ</annotation>
+		<annotation cp="🧢">بلڈ کیپ | بیس بال ٹوپی</annotation>
+		<annotation cp="🧢" type="tts">بلڈ کیپ</annotation>
+		<annotation cp="⛑">ٹوپی | چہرہ | سفید کراس والا ہیلمٹ | ہیلمٹ</annotation>
+		<annotation cp="⛑" type="tts">سفید کراس والا ہیلمٹ</annotation>
+		<annotation cp="📿">تسبیح کے دانے | لباس | مذہب</annotation>
+		<annotation cp="📿" type="tts">تسبیح کے دانے</annotation>
+		<annotation cp="💄">لپ اسٹک | میک اپ</annotation>
+		<annotation cp="💄" type="tts">لپ اسٹک</annotation>
+		<annotation cp="💍">انگوٹھی | رومانس | ہیرا</annotation>
+		<annotation cp="💍" type="tts">انگوٹھی</annotation>
+		<annotation cp="💎">رومانس | قیمتی پتھر | ہیرا</annotation>
+		<annotation cp="💎" type="tts">ہیرا</annotation>
+		<annotation cp="🐵">بندر | بندر کا چہرہ | جانور</annotation>
+		<annotation cp="🐵" type="tts">بندر کا چہرہ</annotation>
+		<annotation cp="🐒">بندر | جانور</annotation>
+		<annotation cp="🐒" type="tts">بندر</annotation>
+		<annotation cp="🦍">جانور | گوریلا</annotation>
+		<annotation cp="🦍" type="tts">گوریلا</annotation>
+		<annotation cp="🐶">جانور | چہرہ | کتا | کتے کا چہرہ</annotation>
+		<annotation cp="🐶" type="tts">کتے کا چہرہ</annotation>
+		<annotation cp="🐕">جانور | کتا</annotation>
+		<annotation cp="🐕" type="tts">کتا</annotation>
+		<annotation cp="🐩">پوڈل | جانور</annotation>
+		<annotation cp="🐩" type="tts">پوڈل</annotation>
+		<annotation cp="🐺">بھیڑیا | بھیڑیے کا چہرہ | جانور</annotation>
+		<annotation cp="🐺" type="tts">بھیڑیے کا چہرہ</annotation>
+		<annotation cp="🦊">جانور | چہرہ | لومڑی | لومڑی کا چہرہ</annotation>
+		<annotation cp="🦊" type="tts">لومڑی کا چہرہ</annotation>
+		<annotation cp="🦝">راکون | متجسس | مکار</annotation>
+		<annotation cp="🦝" type="tts">راکون</annotation>
+		<annotation cp="🐱">بلی | بلی کا چہرہ | پالتو | جانور</annotation>
+		<annotation cp="🐱" type="tts">بلی کا چہرہ</annotation>
+		<annotation cp="🐈">بلی | پالتو | جانور</annotation>
+		<annotation cp="🐈" type="tts">بلی</annotation>
+		<annotation cp="🦁">اسد | ببر شیر کا چہرہ | ببرشیر | جانور | شیر کا چہرہ</annotation>
+		<annotation cp="🦁" type="tts">شیر کا چہرہ</annotation>
+		<annotation cp="🐯">ٹائیگر | ٹائیگر کا چہرہ | جانور</annotation>
+		<annotation cp="🐯" type="tts">ٹائیگر کا چہرہ</annotation>
+		<annotation cp="🐅">ٹائیگر | جانور</annotation>
+		<annotation cp="🐅" type="tts">ٹائیگر</annotation>
+		<annotation cp="🐆">تیندوا | جانور</annotation>
+		<annotation cp="🐆" type="tts">تیندوا</annotation>
+		<annotation cp="🐴">جانور | گھوڑا | گھوڑے کا چہرہ</annotation>
+		<annotation cp="🐴" type="tts">گھوڑے کا چہرہ</annotation>
+		<annotation cp="🐎">جانور | گھوڑا</annotation>
+		<annotation cp="🐎" type="tts">گھوڑا</annotation>
+		<annotation cp="🦄">جانور | چہرہ | یونیکارن | یونیکارن کا چہرہ</annotation>
+		<annotation cp="🦄" type="tts">یونیکارن کا چہرہ</annotation>
+		<annotation cp="🦓">دھاری | زیبرا</annotation>
+		<annotation cp="🦓" type="tts">زیبرا</annotation>
+		<annotation cp="🦌">جانور | ہرن</annotation>
+		<annotation cp="🦌" type="tts">ہرن</annotation>
+		<annotation cp="🐮">جانور | گائے | گائے کا چہرہ</annotation>
+		<annotation cp="🐮" type="tts">گائے کا چہرہ</annotation>
+		<annotation cp="🐂">بیل | جانور</annotation>
+		<annotation cp="🐂" type="tts">بیل</annotation>
+		<annotation cp="🐃">بھینس | پانی کی بھینس | جانور</annotation>
+		<annotation cp="🐃" type="tts">پانی کی بھینس</annotation>
+		<annotation cp="🐄">جانور | گائے</annotation>
+		<annotation cp="🐄" type="tts">گائے</annotation>
+		<annotation cp="🐷">جانور | سور | سور کا چہرہ</annotation>
+		<annotation cp="🐷" type="tts">سور کا چہرہ</annotation>
+		<annotation cp="🐖">جانور | سور</annotation>
+		<annotation cp="🐖" type="tts">سور</annotation>
+		<annotation cp="🐗">جانور | جنگلی سور | سوؤر</annotation>
+		<annotation cp="🐗" type="tts">جنگلی سور</annotation>
+		<annotation cp="🐽">چہرہ | سور | سور کی ناک | ناک</annotation>
+		<annotation cp="🐽" type="tts">سور کی ناک</annotation>
+		<annotation cp="🐏">بھیڑ | جانور | نر بھیڑ</annotation>
+		<annotation cp="🐏" type="tts">نر بھیڑ</annotation>
+		<annotation cp="🐑">جانور | مادہ بھیڑ</annotation>
+		<annotation cp="🐑" type="tts">مادہ بھیڑ</annotation>
+		<annotation cp="🐐">برج | بکری | جانور | جدی</annotation>
+		<annotation cp="🐐" type="tts">بکری</annotation>
+		<annotation cp="🐪">اونٹ | جانور | کوہان</annotation>
+		<annotation cp="🐪" type="tts">اونٹ</annotation>
+		<annotation cp="🐫">اونٹ | جانور | دو کوہانوں والا اونٹ | کوہان</annotation>
+		<annotation cp="🐫" type="tts">دو کوہانوں والا اونٹ</annotation>
+		<annotation cp="🦙">الپاکا | اون | گوآناکو | لاما | ویکونیا</annotation>
+		<annotation cp="🦙" type="tts">لاما</annotation>
+		<annotation cp="🦒">دھبے | زرافہ</annotation>
+		<annotation cp="🦒" type="tts">زرافہ</annotation>
+		<annotation cp="🐘">جانور | ہاتھی</annotation>
+		<annotation cp="🐘" type="tts">ہاتھی</annotation>
+		<annotation cp="🦏">جانور | گینڈا</annotation>
+		<annotation cp="🦏" type="tts">گینڈا</annotation>
+		<annotation cp="🦛">دریائی گھوڑا</annotation>
+		<annotation cp="🦛" type="tts">دریائی گھوڑا</annotation>
+		<annotation cp="🐭">جانور | چہرہ | چوہا | چوہے کا چہرہ</annotation>
+		<annotation cp="🐭" type="tts">چوہے کا چہرہ</annotation>
+		<annotation cp="🐁">جانور | چوہا | سفید چوہا</annotation>
+		<annotation cp="🐁" type="tts">سفید چوہا</annotation>
+		<annotation cp="🐀">جانور | چوہا</annotation>
+		<annotation cp="🐀" type="tts">چوہا</annotation>
+		<annotation cp="🐹">جانور | چہرہ | ہیمسٹر | ہیمسٹر کا چہرہ</annotation>
+		<annotation cp="🐹" type="tts">ہیمسٹر کا چہرہ</annotation>
+		<annotation cp="🐰">جانور | چہرہ | خرگوش | خرگوش کا چہرہ</annotation>
+		<annotation cp="🐰" type="tts">خرگوش کا چہرہ</annotation>
+		<annotation cp="🐇">جانور | خرگوش</annotation>
+		<annotation cp="🐇" type="tts">خرگوش</annotation>
+		<annotation cp="🐿">جانور | گلہری</annotation>
+		<annotation cp="🐿" type="tts">گلہری</annotation>
+		<annotation cp="🦔">خار پشت | خاردار</annotation>
+		<annotation cp="🦔" type="tts">خار پشت</annotation>
+		<annotation cp="🦇">جانور | چمگادڑ</annotation>
+		<annotation cp="🦇" type="tts">چمگادڑ</annotation>
+		<annotation cp="🐻">جانور | ریچھ | ریچھ کا چہرہ</annotation>
+		<annotation cp="🐻" type="tts">ریچھ کا چہرہ</annotation>
+		<annotation cp="🐨">جانور | ریچھ | کوآلا</annotation>
+		<annotation cp="🐨" type="tts">کوآلا</annotation>
+		<annotation cp="🐼">پانڈا | پانڈا کا چہرہ | جانور</annotation>
+		<annotation cp="🐼" type="tts">پانڈا کا چہرہ</annotation>
+		<annotation cp="🦘">آسٹریلیا | چھلانگ | کینگرو | مارسوپئیل | ننھا کینگرو</annotation>
+		<annotation cp="🦘" type="tts">کینگرو</annotation>
+		<annotation cp="🦡">افریقی بجو | بجو | پریشان کرنا</annotation>
+		<annotation cp="🦡" type="tts">بجو</annotation>
+		<annotation cp="🐾">پنجوں کے نشانات | پنجے | جانور | نشان</annotation>
+		<annotation cp="🐾" type="tts">پنجوں کے نشانات</annotation>
+		<annotation cp="🦃">ٹرکی | جانور</annotation>
+		<annotation cp="🦃" type="tts">ٹرکی</annotation>
+		<annotation cp="🐔">جانور | چکن</annotation>
+		<annotation cp="🐔" type="tts">چکن</annotation>
+		<annotation cp="🐓">جانور | مرغ | مرغی</annotation>
+		<annotation cp="🐓" type="tts">مرغی</annotation>
+		<annotation cp="🐣">انڈے سے نکلتا چوزہ | بچہ | جانور | چوزہ</annotation>
+		<annotation cp="🐣" type="tts">انڈے سے نکلتا چوزہ</annotation>
+		<annotation cp="🐤">بببی چوزہ | بچہ | جانور | چوزہ</annotation>
+		<annotation cp="🐤" type="tts">بببی چوزہ</annotation>
+		<annotation cp="🐥">بچہ | جانور | چوزہ | سامنے دیکھتا بیبی چوزہ</annotation>
+		<annotation cp="🐥" type="tts">سامنے دیکھتا بیبی چوزہ</annotation>
+		<annotation cp="🐦">آسمان | پرنده | پرندہ | چڑیا</annotation>
+		<annotation cp="🐦" type="tts">پرنده</annotation>
+		<annotation cp="🐧">پنگوئن</annotation>
+		<annotation cp="🐧" type="tts">پنگوئن</annotation>
+		<annotation cp="🕊">امن | پرندہ | فاختہ</annotation>
+		<annotation cp="🕊" type="tts">فاختہ</annotation>
+		<annotation cp="🦅">پرندہ | عقاب</annotation>
+		<annotation cp="🦅" type="tts">عقاب</annotation>
+		<annotation cp="🦆">بطخ | پرندہ</annotation>
+		<annotation cp="🦆" type="tts">بطخ</annotation>
+		<annotation cp="🦢">بدصورت بط بچہ | پرندہ | جوان ہنس | راج ہنس</annotation>
+		<annotation cp="🦢" type="tts">راج ہنس</annotation>
+		<annotation cp="🦉">الو | پرندہ | عقلمند</annotation>
+		<annotation cp="🦉" type="tts">الو</annotation>
+		<annotation cp="🦚">پرندہ | مغرور | مور | مورنی | نمائشی</annotation>
+		<annotation cp="🦚" type="tts">مور</annotation>
+		<annotation cp="🦜">پرندہ | طوطا | قزاق | گفتگو</annotation>
+		<annotation cp="🦜" type="tts">طوطا</annotation>
+		<annotation cp="🐸">چہرہ | مینڈک | مینڈک کا چہرہ</annotation>
+		<annotation cp="🐸" type="tts">مینڈک کا چہرہ</annotation>
+		<annotation cp="🐊">جانور | مگرمچھ</annotation>
+		<annotation cp="🐊" type="tts">مگرمچھ</annotation>
+		<annotation cp="🐢">جانور | کچھوا</annotation>
+		<annotation cp="🐢" type="tts">کچھوا</annotation>
+		<annotation cp="🦎">جانور | چھپکلی | رینگنا</annotation>
+		<annotation cp="🦎" type="tts">چھپکلی</annotation>
+		<annotation cp="🐍">جانور | سانپ</annotation>
+		<annotation cp="🐍" type="tts">سانپ</annotation>
+		<annotation cp="🐲">جانور | چہرہ | ڈریگن | ڈریگن کا چہرہ</annotation>
+		<annotation cp="🐲" type="tts">ڈریگن کا چہرہ</annotation>
+		<annotation cp="🐉">جانور | ڈریگن</annotation>
+		<annotation cp="🐉" type="tts">ڈریگن</annotation>
+		<annotation cp="🦕">جسیم سبزی خور ڈائنوساروں کا ایک طبقہ | سارپا</annotation>
+		<annotation cp="🦕" type="tts">سارپا</annotation>
+		<annotation cp="🦖">ٹائرانوسرس ریکس | ٹی ریکس</annotation>
+		<annotation cp="🦖" type="tts">ٹی ریکس</annotation>
+		<annotation cp="🐳">پانی کا فوارہ نکالتی وہیل | جانور | وہیل</annotation>
+		<annotation cp="🐳" type="tts">پانی کا فوارہ نکالتی وہیل</annotation>
+		<annotation cp="🐋">جانور | وہیل</annotation>
+		<annotation cp="🐋" type="tts">وہیل</annotation>
+		<annotation cp="🐬">جانور | ڈولفن</annotation>
+		<annotation cp="🐬" type="tts">ڈولفن</annotation>
+		<annotation cp="🐟">جانور | مچھلی</annotation>
+		<annotation cp="🐟" type="tts">مچھلی</annotation>
+		<annotation cp="🐠">ٹراپکل | مچھلی</annotation>
+		<annotation cp="🐠" type="tts">ٹراپکل مچھلی</annotation>
+		<annotation cp="🐡">بلو مچھلی | مچھلی</annotation>
+		<annotation cp="🐡" type="tts">بلو مچھلی</annotation>
+		<annotation cp="🦈">شارک | مچھلی</annotation>
+		<annotation cp="🦈" type="tts">شارک</annotation>
+		<annotation cp="🐙">آکٹوپس | جانور</annotation>
+		<annotation cp="🐙" type="tts">آکٹوپس</annotation>
+		<annotation cp="🐚">جانور | شیل | مرغولے دار شیل</annotation>
+		<annotation cp="🐚" type="tts">مرغولے دار شیل</annotation>
+		<annotation cp="🦀">جانور | کیکڑا</annotation>
+		<annotation cp="🦀" type="tts">کیکڑا</annotation>
+		<annotation cp="🦞">پنجے | سمندری غذا | گاڑھا سوپ | لوبسٹر</annotation>
+		<annotation cp="🦞" type="tts">لوبسٹر</annotation>
+		<annotation cp="🦐">جھینگا | خوراک</annotation>
+		<annotation cp="🦐" type="tts">جھینگا</annotation>
+		<annotation cp="🦑">خوراک | قیر ماہی</annotation>
+		<annotation cp="🦑" type="tts">قیر ماہی</annotation>
+		<annotation cp="🐌">جانور | گھونگھا</annotation>
+		<annotation cp="🐌" type="tts">گھونگھا</annotation>
+		<annotation cp="🦋">تتلی | خوبصورت | کیڑہ</annotation>
+		<annotation cp="🦋" type="tts">تتلی</annotation>
+		<annotation cp="🐛">کن کھجورا | کیڑا</annotation>
+		<annotation cp="🐛" type="tts">کن کھجورا</annotation>
+		<annotation cp="🐜">چیونٹی</annotation>
+		<annotation cp="🐜" type="tts">چیونٹی</annotation>
+		<annotation cp="🐝">شہد | شہد کی مکھی | مکھی</annotation>
+		<annotation cp="🐝" type="tts">شہد کی مکھی</annotation>
+		<annotation cp="🐞">کھٹمل | کیڑا</annotation>
+		<annotation cp="🐞" type="tts">کھٹمل</annotation>
+		<annotation cp="🦗">ٹڈا | گرگٹ</annotation>
+		<annotation cp="🦗" type="tts">گرگٹ</annotation>
+		<annotation cp="🕷">کیڑا | مکڑی</annotation>
+		<annotation cp="🕷" type="tts">مکڑی</annotation>
+		<annotation cp="🕸">کیڑا | مکڑی | مکڑی کا جالا</annotation>
+		<annotation cp="🕸" type="tts">مکڑی کا جالا</annotation>
+		<annotation cp="🦂">بچھو | جانور</annotation>
+		<annotation cp="🦂" type="tts">بچھو</annotation>
+		<annotation cp="🦟">بخار | بیماری | کیڑا | مچھر | ملیریا | وائرس</annotation>
+		<annotation cp="🦟" type="tts">مچھر</annotation>
+		<annotation cp="🦠">امیبا | بیکٹیریا | جرثومہ | وائرس</annotation>
+		<annotation cp="🦠" type="tts">جرثومہ</annotation>
+		<annotation cp="💐">پھول | پودہ | گلدستہ</annotation>
+		<annotation cp="💐" type="tts">گلدستہ</annotation>
+		<annotation cp="🌸">بلاسم | پھول | پودہ | چیری</annotation>
+		<annotation cp="🌸" type="tts">چیری بلاسم</annotation>
+		<annotation cp="💮">پھول | سفید پھول</annotation>
+		<annotation cp="💮" type="tts">سفید پھول</annotation>
+		<annotation cp="🏵">پھول | پودا | گلاب کا نقش</annotation>
+		<annotation cp="🏵" type="tts">گلاب کا نقش</annotation>
+		<annotation cp="🌹">پھول | پودا | گلاب</annotation>
+		<annotation cp="🌹" type="tts">گلاب</annotation>
+		<annotation cp="🥀">پھول | مرجھایا | مرجھایا ہوا پھول</annotation>
+		<annotation cp="🥀" type="tts">مرجھایا ہوا پھول</annotation>
+		<annotation cp="🌺">پھول | پودا | گل خطمی</annotation>
+		<annotation cp="🌺" type="tts">گل خطمی</annotation>
+		<annotation cp="🌻">پھول | پودا | سورج | سورج مکھی کا پھول</annotation>
+		<annotation cp="🌻" type="tts">سورج مکھی کا پھول</annotation>
+		<annotation cp="🌼">پھول | پودا | شگوفہ</annotation>
+		<annotation cp="🌼" type="tts">شگوفہ</annotation>
+		<annotation cp="🌷">پھول | پودا | نرگس کا پھول</annotation>
+		<annotation cp="🌷" type="tts">نرگس کا پھول</annotation>
+		<annotation cp="🌱">پودا | ننھا</annotation>
+		<annotation cp="🌱" type="tts">ننھا پودا</annotation>
+		<annotation cp="🌲">پودا | درخت | سدا بہار</annotation>
+		<annotation cp="🌲" type="tts">سدا بہار</annotation>
+		<annotation cp="🌳">پت جھڑ | پت جھڑ درخت | پودا | درخت</annotation>
+		<annotation cp="🌳" type="tts">پت جھڑ درخت</annotation>
+		<annotation cp="🌴">پام | پام کا درخت | پودا | درخت</annotation>
+		<annotation cp="🌴" type="tts">پام کا درخت</annotation>
+		<annotation cp="🌵">پودا | کیکٹس</annotation>
+		<annotation cp="🌵" type="tts">کیکٹس</annotation>
+		<annotation cp="🌾">پودا | چاول | چاولوں کا گٹھا</annotation>
+		<annotation cp="🌾" type="tts">چاولوں کا گٹھا</annotation>
+		<annotation cp="🌿">پتا | پودا | جڑی بوٹی</annotation>
+		<annotation cp="🌿" type="tts">جڑی بوٹی</annotation>
+		<annotation cp="☘">پودا | تین پتی پھول</annotation>
+		<annotation cp="☘" type="tts">تین پتی پھول</annotation>
+		<annotation cp="🍀">پتا | پودا | چار | چار پتیوں والی گھاس</annotation>
+		<annotation cp="🍀" type="tts">چار پتیوں والی گھاس</annotation>
+		<annotation cp="🍁">پودا | گرنا | میپل | میپل کے پتے</annotation>
+		<annotation cp="🍁" type="tts">میپل کے پتے</annotation>
+		<annotation cp="🍂">پتا | پودا | گرنا | گرے ہوئے پتے</annotation>
+		<annotation cp="🍂" type="tts">گرے ہوئے پتے</annotation>
+		<annotation cp="🍃">پتا | پودا | ہوا | ہوا میں پھڑپھڑاتے پتے</annotation>
+		<annotation cp="🍃" type="tts">ہوا میں پھڑپھڑاتے پتے</annotation>
+		<annotation cp="🍇">انگور | پھل</annotation>
+		<annotation cp="🍇" type="tts">انگور</annotation>
+		<annotation cp="🍈">پھل | خربوزہ</annotation>
+		<annotation cp="🍈" type="tts">خربوزہ</annotation>
+		<annotation cp="🍉">پھل | تربوز</annotation>
+		<annotation cp="🍉" type="tts">تربوز</annotation>
+		<annotation cp="🍊">پھل | چھوٹا سنگترہ | سنترہ</annotation>
+		<annotation cp="🍊" type="tts">چھوٹا سنگترہ</annotation>
+		<annotation cp="🍋">پھل | لیموں</annotation>
+		<annotation cp="🍋" type="tts">لیموں</annotation>
+		<annotation cp="🍌">پھل | کیلا</annotation>
+		<annotation cp="🍌" type="tts">کیلا</annotation>
+		<annotation cp="🍍">انناس | پھل</annotation>
+		<annotation cp="🍍" type="tts">انناس</annotation>
+		<annotation cp="🥭">آم | پھل | ٹروپیکل</annotation>
+		<annotation cp="🥭" type="tts">آم</annotation>
+		<annotation cp="🍎">پھل | سرخ | سیب</annotation>
+		<annotation cp="🍎" type="tts">سرخ سیب</annotation>
+		<annotation cp="🍏">پھل | سبز | سیب</annotation>
+		<annotation cp="🍏" type="tts">سبز سیب</annotation>
+		<annotation cp="🍐">پھل | ناشپاتی</annotation>
+		<annotation cp="🍐" type="tts">ناشپاتی</annotation>
+		<annotation cp="🍑">آڑو | پھل</annotation>
+		<annotation cp="🍑" type="tts">آڑو</annotation>
+		<annotation cp="🍒">پھل | چیریاں</annotation>
+		<annotation cp="🍒" type="tts">چیریاں</annotation>
+		<annotation cp="🍓">اسٹابری | پھل</annotation>
+		<annotation cp="🍓" type="tts">اسٹابری</annotation>
+		<annotation cp="🥝">پھل | خوراک | کیوی | کیوی فروٹ</annotation>
+		<annotation cp="🥝" type="tts">کیوی فروٹ</annotation>
+		<annotation cp="🍅">پھل | ٹماٹر</annotation>
+		<annotation cp="🍅" type="tts">ٹماٹر</annotation>
+		<annotation cp="🥥">پینا کولاڈا | کھجور | ناریل</annotation>
+		<annotation cp="🥥" type="tts">ناریل</annotation>
+		<annotation cp="🥑">ایوو کیڈو | پھل | خوراک</annotation>
+		<annotation cp="🥑" type="tts">ایوو کیڈو</annotation>
+		<annotation cp="🍆">بینگن | سبزی</annotation>
+		<annotation cp="🍆" type="tts">بینگن</annotation>
+		<annotation cp="🥔">آلو | خوراک | سبزی</annotation>
+		<annotation cp="🥔" type="tts">آلو</annotation>
+		<annotation cp="🥕">خوراک | سبزی | گاجر</annotation>
+		<annotation cp="🥕" type="tts">گاجر</annotation>
+		<annotation cp="🌽">پودا | چھلی</annotation>
+		<annotation cp="🌽" type="tts">چھلی</annotation>
+		<annotation cp="🌶">پودا | تیز | مرچ</annotation>
+		<annotation cp="🌶" type="tts">تیز مرچ</annotation>
+		<annotation cp="🥒">خوراک | سبزی | سلاد | کھیرا</annotation>
+		<annotation cp="🥒" type="tts">کھیرا</annotation>
+		<annotation cp="🥬">بند گوبھی | چینی بند گوبھی | سلاد پتہ | ہرے پتوں والی سبزی</annotation>
+		<annotation cp="🥬" type="tts">ہرے پتوں والی سبزی</annotation>
+		<annotation cp="🥦">جنگلی گوبھی | شاخ گوبھی</annotation>
+		<annotation cp="🥦" type="tts">شاخ گوبھی</annotation>
+		<annotation cp="🍄">پودا | کھمبی</annotation>
+		<annotation cp="🍄" type="tts">کھمبی</annotation>
+		<annotation cp="🥜">خوراک | سبزی | مونگ پھلی</annotation>
+		<annotation cp="🥜" type="tts">مونگ پھلی</annotation>
+		<annotation cp="🌰">پودا | شاہ بلوط | شاہ بلوط کا پھل</annotation>
+		<annotation cp="🌰" type="tts">شاہ بلوط کا پھل</annotation>
+		<annotation cp="🍞">بریڈ | ڈبل روٹی | روٹی | نان</annotation>
+		<annotation cp="🍞" type="tts">ڈبل روٹی</annotation>
+		<annotation cp="🥐">خوراک | روٹی | فرنچ | ہلال نما | ہلال نما روٹی</annotation>
+		<annotation cp="🥐" type="tts">ہلال نما روٹی</annotation>
+		<annotation cp="🥖">بریڈ | بیگٹ | بیگٹ ڈبل روٹی | خوراک | ڈبل روٹی | فرنچ</annotation>
+		<annotation cp="🥖" type="tts">بیگٹ ڈبل روٹی</annotation>
+		<annotation cp="🥨">گانٹھ کی شکل کی بسکٹ | موڑی ہوئی</annotation>
+		<annotation cp="🥨" type="tts">گانٹھ کی شکل کی بسکٹ</annotation>
+		<annotation cp="🥯">بیکری | بیگل | شمئیر</annotation>
+		<annotation cp="🥯" type="tts">بیگل</annotation>
+		<annotation cp="🥞">پین کیک | پین کیکس | خوراک</annotation>
+		<annotation cp="🥞" type="tts">پین کیکس</annotation>
+		<annotation cp="🧀">پنیر | پنیر کا ٹکڑا | ٹکڑا</annotation>
+		<annotation cp="🧀" type="tts">پنیر کا ٹکڑا</annotation>
+		<annotation cp="🍖">اسنیک | گوشت | ہڈی | ہڈی پر گوشت</annotation>
+		<annotation cp="🍖" type="tts">ہڈی پر گوشت</annotation>
+		<annotation cp="🍗">اسنیک | ٹانگ | چکن | چکن کی ٹانگ</annotation>
+		<annotation cp="🍗" type="tts">چکن کی ٹانگ</annotation>
+		<annotation cp="🥩">چاپ | سوّر کا گوشت | گوشت کا ٹکڑا</annotation>
+		<annotation cp="🥩" type="tts">گوشت کا ٹکڑا</annotation>
+		<annotation cp="🥓">خوراک | سور | سور کا نمکین گوشت | گوشت | نمکین</annotation>
+		<annotation cp="🥓" type="tts">سور کا نمکین گوشت</annotation>
+		<annotation cp="🍔">اسنیک | برگر | ہیم برگر</annotation>
+		<annotation cp="🍔" type="tts">ہیم برگر</annotation>
+		<annotation cp="🍟">اسنیک | فرائز | فرنچ</annotation>
+		<annotation cp="🍟" type="tts">فرنچ فرائز</annotation>
+		<annotation cp="🍕">اسنیک | پزا | پنیر | ٹکڑا</annotation>
+		<annotation cp="🍕" type="tts">پزا</annotation>
+		<annotation cp="🌭">اسنیک | بریڈ | ہاٹ ڈاگ</annotation>
+		<annotation cp="🌭" type="tts">ہاٹ ڈاگ</annotation>
+		<annotation cp="🥪">ڈبل روٹی | سینڈوچ</annotation>
+		<annotation cp="🥪" type="tts">سینڈوچ</annotation>
+		<annotation cp="🌮">اسنیک | پراٹھا | مسالہ | مسالے بھرا پراٹھا | میکسیکن</annotation>
+		<annotation cp="🌮" type="tts">مسالے بھرا پراٹھا</annotation>
+		<annotation cp="🌯">اسنیک | بریٹو | مسالہ | میکسیکن</annotation>
+		<annotation cp="🌯" type="tts">بریٹو</annotation>
+		<annotation cp="🥙">بھری ہوئی | بھری ہوئی چپاتی | چپاتی | خوراک | کباب</annotation>
+		<annotation cp="🥙" type="tts">بھری ہوئی چپاتی</annotation>
+		<annotation cp="🥚">انڈا | خوراک</annotation>
+		<annotation cp="🥚" type="tts">انڈا</annotation>
+		<annotation cp="🍳">انڈا | پکتا ہوا انڈہ | پین</annotation>
+		<annotation cp="🍳" type="tts">پکتا ہوا انڈہ</annotation>
+		<annotation cp="🥘">پین | خوراک | کم گہرا | کم گہرے پین میں خوراک</annotation>
+		<annotation cp="🥘" type="tts">کم گہرے پین میں خوراک</annotation>
+		<annotation cp="🍲">برتن | خوراک | خوراک کا برتن</annotation>
+		<annotation cp="🍲" type="tts">خوراک کا برتن</annotation>
+		<annotation cp="🥣">اناج | چمچ اور کٹورا | دلیہ | ناشتہ</annotation>
+		<annotation cp="🥣" type="tts">چمچ اور کٹورا</annotation>
+		<annotation cp="🥗">خوراک | سبز | سلاد</annotation>
+		<annotation cp="🥗" type="tts">سبز سلاد</annotation>
+		<annotation cp="🍿">اسنیک | پاپ کارن</annotation>
+		<annotation cp="🍿" type="tts">پاپ کارن</annotation>
+		<annotation cp="🧂">مصالحہ | نمک | نمک دانی</annotation>
+		<annotation cp="🧂" type="tts">نمک</annotation>
+		<annotation cp="🥫">ڈبہ | ڈبہ بند کھانا</annotation>
+		<annotation cp="🥫" type="tts">ڈبہ بند کھانا</annotation>
+		<annotation cp="🍱">بنٹو | بنٹو باکس | ڈبہ</annotation>
+		<annotation cp="🍱" type="tts">بنٹو باکس</annotation>
+		<annotation cp="🍘">پاپڑ | چاول | چاولوں کے پاپڑ</annotation>
+		<annotation cp="🍘" type="tts">چاولوں کے پاپڑ</annotation>
+		<annotation cp="🍙">جاپانی | چاول | چاولوں کے بالز | گیند</annotation>
+		<annotation cp="🍙" type="tts">چاولوں کے بالز</annotation>
+		<annotation cp="🍚">پکے ہوئے | پکے ہوئے چاول | چاول</annotation>
+		<annotation cp="🍚" type="tts">پکے ہوئے چاول</annotation>
+		<annotation cp="🍛">چاول | شوربہ | شوربے والے چاول</annotation>
+		<annotation cp="🍛" type="tts">شوربے والے چاول</annotation>
+		<annotation cp="🍜">بھاپ نکالتا پیالہ | پیالہ | نوڈل</annotation>
+		<annotation cp="🍜" type="tts">بھاپ نکالتا پیالہ</annotation>
+		<annotation cp="🍝">اسپیگٹی | کھانا</annotation>
+		<annotation cp="🍝" type="tts">اسپیگٹی</annotation>
+		<annotation cp="🍠">آلو | بُھنا ہوا | بُھنا ہوا میٹھا آلو | میٹھا</annotation>
+		<annotation cp="🍠" type="tts">بُھنا ہوا میٹھا آلو</annotation>
+		<annotation cp="🍢">اوڈن | سٹک | سمندری کھانا | کباب</annotation>
+		<annotation cp="🍢" type="tts">اوڈن</annotation>
+		<annotation cp="🍣">جاپانی | سوشی | کھانا</annotation>
+		<annotation cp="🍣" type="tts">سوشی</annotation>
+		<annotation cp="🍤">تلا ہوا | تلا ہوا شرمپ | شرمپ</annotation>
+		<annotation cp="🍤" type="tts">تلا ہوا شرمپ</annotation>
+		<annotation cp="🍥">بگولا بنا مچھلی کا کیک | پیسٹری | کیک | مچھلی</annotation>
+		<annotation cp="🍥" type="tts">بگولا بنا مچھلی کا کیک</annotation>
+		<annotation cp="🥮">تہوار | چاند نما کیک | خزاں</annotation>
+		<annotation cp="🥮" type="tts">چاند نما کیک</annotation>
+		<annotation cp="🍡">جاپانی | ڈینگو | سٹک | میٹھا</annotation>
+		<annotation cp="🍡" type="tts">ڈینگو</annotation>
+		<annotation cp="🥟">پاٹ سٹیکر | پکوڑی</annotation>
+		<annotation cp="🥟" type="tts">پکوڑی</annotation>
+		<annotation cp="🥠">پروفیسی | قسمت والا بسکٹ</annotation>
+		<annotation cp="🥠" type="tts">قسمت والا بسکٹ</annotation>
+		<annotation cp="🥡">پارسل کا ڈبہ | صدف کی بالٹی</annotation>
+		<annotation cp="🥡" type="tts">پارسل کا ڈبہ</annotation>
+		<annotation cp="🍦">برف | سافٹ آئس کریم | کریم | میٹھی | نرم</annotation>
+		<annotation cp="🍦" type="tts">سافٹ آئس کریم</annotation>
+		<annotation cp="🍧">برف | تراشی ہوئی | تراشیدہ برف | میٹھی</annotation>
+		<annotation cp="🍧" type="tts">تراشیدہ برف</annotation>
+		<annotation cp="🍨">آئس کریم | برف | کریم | میٹھی</annotation>
+		<annotation cp="🍨" type="tts">آئس کریم</annotation>
+		<annotation cp="🍩">ڈونٹ | میٹھا</annotation>
+		<annotation cp="🍩" type="tts">ڈونٹ</annotation>
+		<annotation cp="🍪">کوکی | میٹھا</annotation>
+		<annotation cp="🍪" type="tts">کوکی</annotation>
+		<annotation cp="🎂">پیسٹری | جشن | سالگرہ کا کیک | کیک | میٹھا</annotation>
+		<annotation cp="🎂" type="tts">سالگرہ کا کیک</annotation>
+		<annotation cp="🍰">پیسٹری | ٹکڑا | کیک | کیک کا ٹکڑا | میٹھا</annotation>
+		<annotation cp="🍰" type="tts">کیک کا ٹکڑا</annotation>
+		<annotation cp="🧁">بیکری | کپ کیک | میٹھا</annotation>
+		<annotation cp="🧁" type="tts">کپ کیک</annotation>
+		<annotation cp="🥧">بھرنا | پائي | پیسری</annotation>
+		<annotation cp="🥧" type="tts">پائي</annotation>
+		<annotation cp="🍫">بار | چاکلیٹ | میٹھی</annotation>
+		<annotation cp="🍫" type="tts">چاکلیٹ بار</annotation>
+		<annotation cp="🍬">کینڈی | میٹھی</annotation>
+		<annotation cp="🍬" type="tts">کینڈی</annotation>
+		<annotation cp="🍭">کینڈی | لالی پاپ | میٹھی</annotation>
+		<annotation cp="🍭" type="tts">لالی پاپ</annotation>
+		<annotation cp="🍮">کسٹرڈ | میٹھا</annotation>
+		<annotation cp="🍮" type="tts">کسٹرڈ</annotation>
+		<annotation cp="🍯">برتن | شہد | شہد کا برتن | میٹھا</annotation>
+		<annotation cp="🍯" type="tts">شہد کا برتن</annotation>
+		<annotation cp="🍼">بچہ | بوتل | دودھ | فیڈر</annotation>
+		<annotation cp="🍼" type="tts">فیڈر</annotation>
+		<annotation cp="🥛">دودھ | دودھ کا گلاس | گلاس | مشروب</annotation>
+		<annotation cp="🥛" type="tts">دودھ کا گلاس</annotation>
+		<annotation cp="☕">چائے | کافی | گرم</annotation>
+		<annotation cp="☕" type="tts">گرم کافی</annotation>
+		<annotation cp="🍵">ٹی کپ | چائے | کپ | ہینڈل کے بغیر چائے کا کپ</annotation>
+		<annotation cp="🍵" type="tts">ہینڈل کے بغیر چائے کا کپ</annotation>
+		<annotation cp="🍶">بار | بوتل | پینا | جاپانی شراب | شراب</annotation>
+		<annotation cp="🍶" type="tts">جاپانی شراب</annotation>
+		<annotation cp="🍾">بار | بوتل | پینا | کارک | کارک لگی بوتل</annotation>
+		<annotation cp="🍾" type="tts">کارک لگی بوتل</annotation>
+		<annotation cp="🍷">بار | پینا | شراب | شراب کا گلاس | گلاس</annotation>
+		<annotation cp="🍷" type="tts">شراب کا گلاس</annotation>
+		<annotation cp="🍸">بار | پینا | کاک ٹیل | کاک ٹیل گلاس | گلاس</annotation>
+		<annotation cp="🍸" type="tts">کاک ٹیل گلاس</annotation>
+		<annotation cp="🍹">بار | پینا | ٹراپکل | ٹراپکل مشروب</annotation>
+		<annotation cp="🍹" type="tts">ٹراپکل مشروب</annotation>
+		<annotation cp="🍺">بار | بیئر کا مگ | شراب | مگ</annotation>
+		<annotation cp="🍺" type="tts">بیئر کا مگ</annotation>
+		<annotation cp="🍻">بار | ٹکراتے بیئر کے مگ | شراب | مگ</annotation>
+		<annotation cp="🍻" type="tts">ٹکراتے بیئر کے مگ</annotation>
+		<annotation cp="🥂">آپس میں ٹکراتے گلاس | ٹکرانا | خوشی منانا | گلاس | مشروب</annotation>
+		<annotation cp="🥂" type="tts">آپس میں ٹکراتے گلاس</annotation>
+		<annotation cp="🥃">شراب | گلاس | وہسکی | وہسکی والا گلاس</annotation>
+		<annotation cp="🥃" type="tts">وہسکی والا گلاس</annotation>
+		<annotation cp="🥤">جوس | سوڈا | کپ اور اسٹرا</annotation>
+		<annotation cp="🥤" type="tts">کپ اور اسٹرا</annotation>
+		<annotation cp="🥢">چینی کانٹا</annotation>
+		<annotation cp="🥢" type="tts">چینی کانٹا</annotation>
+		<annotation cp="🍽">پلیٹ | چھری | چھری کانٹے کے ساتھ پلیٹ | کانٹا</annotation>
+		<annotation cp="🍽" type="tts">چھری کانٹے کے ساتھ پلیٹ</annotation>
+		<annotation cp="🍴">چھری | کانٹا | کانٹا اور چھری</annotation>
+		<annotation cp="🍴" type="tts">کانٹا اور چھری</annotation>
+		<annotation cp="🥄">چمچ | کھانے کی میز</annotation>
+		<annotation cp="🥄" type="tts">چمچ</annotation>
+		<annotation cp="🔪">آلہ | چھری | کچن کی چھری | کُکنگ</annotation>
+		<annotation cp="🔪" type="tts">کچن کی چھری</annotation>
+		<annotation cp="🏺">اوزار | ایمفورا | بُرج دِلو | پانی | جگ | ہتھیار</annotation>
+		<annotation cp="🏺" type="tts">ایمفورا</annotation>
+		<annotation cp="🌍">افریقہ | دنیا | زمین | گلوب | یورپ اور افریقہ کو دکھاتا گلوب</annotation>
+		<annotation cp="🌍" type="tts">یورپ اور افریقہ کو دکھاتا گلوب</annotation>
+		<annotation cp="🌎">امریکہ | امریکہ کو دکھاتا گلوب | دنیا | زمین | گلوب</annotation>
+		<annotation cp="🌎" type="tts">امریکہ کو دکھاتا گلوب</annotation>
+		<annotation cp="🌏">آسٹریلیا | ایشیا | ایشیا اور آسٹریلیا کو دکھاتا گلوب | زمین | گلوب</annotation>
+		<annotation cp="🌏" type="tts">ایشیا اور آسٹریلیا کو دکھاتا گلوب</annotation>
+		<annotation cp="🌐">دنیا | زمین | طول البلد | طول البلد کو دکھاتا گلوب | گلوب</annotation>
+		<annotation cp="🌐" type="tts">طول البلد کو دکھاتا گلوب</annotation>
+		<annotation cp="🗺">دنیا | دنیا کا نقشہ | نقشہ</annotation>
+		<annotation cp="🗺" type="tts">دنیا کا نقشہ</annotation>
+		<annotation cp="🗾">جاپان | جاپان کا نقشہ | نقشہ</annotation>
+		<annotation cp="🗾" type="tts">جاپان کا نقشہ</annotation>
+		<annotation cp="🧭">قُطب نُما | مقناطیسی | نقشے کی مدد سے راستہ تلاش کرنا | نیویگیشن</annotation>
+		<annotation cp="🧭" type="tts">قُطب نُما</annotation>
+		<annotation cp="🏔">برف | برف سے ڈھکا پہاڑ | پہاڑ | ٹھنڈ</annotation>
+		<annotation cp="🏔" type="tts">برف سے ڈھکا پہاڑ</annotation>
+		<annotation cp="⛰">پہاڑ | چٹان</annotation>
+		<annotation cp="⛰" type="tts">پہاڑ</annotation>
+		<annotation cp="🌋">آتش فشاں | آگ | پھٹنا | پہاڑ | موسم</annotation>
+		<annotation cp="🌋" type="tts">آتش فشاں</annotation>
+		<annotation cp="🗻">پہاڑ | فیوجی | ماؤنٹ فیوجی</annotation>
+		<annotation cp="🗻" type="tts">ماؤنٹ فیوجی</annotation>
+		<annotation cp="🏕">پڑاؤ | ڈیرا | سفر | کیمپنگ</annotation>
+		<annotation cp="🏕" type="tts">پڑاؤ</annotation>
+		<annotation cp="🏖">چھتری | ساحل | ساحل اور چھتری</annotation>
+		<annotation cp="🏖" type="tts">ساحل اور چھتری</annotation>
+		<annotation cp="🏜">بیابان | ریگستان | صحرا</annotation>
+		<annotation cp="🏜" type="tts">صحرا</annotation>
+		<annotation cp="🏝">جزیرہ | صحرا | صحرائی جزیرہ</annotation>
+		<annotation cp="🏝" type="tts">صحرائی جزیرہ</annotation>
+		<annotation cp="🏞">پارک | نیشنل پارک</annotation>
+		<annotation cp="🏞" type="tts">نیشنل پارک</annotation>
+		<annotation cp="🏟">اسٹیڈیم | گراؤنڈ | میدان</annotation>
+		<annotation cp="🏟" type="tts">اسٹیڈیم</annotation>
+		<annotation cp="🏛">عمارت | کلاسیکی</annotation>
+		<annotation cp="🏛" type="tts">کلاسیکی عمارت</annotation>
+		<annotation cp="🏗">تعمیر | عمارت | عمارت کی تعمیر</annotation>
+		<annotation cp="🏗" type="tts">عمارت کی تعمیر</annotation>
+		<annotation cp="🧱">اینٹ | اینٹیں | تعمیراتی مادہ | دیوار | گارا</annotation>
+		<annotation cp="🧱" type="tts">اینٹ</annotation>
+		<annotation cp="🏘">عمارت | گھر | گھر کی عمارتیں</annotation>
+		<annotation cp="🏘" type="tts">گھر کی عمارتیں</annotation>
+		<annotation cp="🏚">عمارت | گھر | ویران | ویران گھر کی عمارت</annotation>
+		<annotation cp="🏚" type="tts">ویران گھر کی عمارت</annotation>
+		<annotation cp="🏠">عمارت | گھر | گھر کی عمارت</annotation>
+		<annotation cp="🏠" type="tts">گھر کی عمارت</annotation>
+		<annotation cp="🏡">باغ | باغ والا گھر | عمارت | گھر</annotation>
+		<annotation cp="🏡" type="tts">باغ والا گھر</annotation>
+		<annotation cp="🏢">آفس کی عمارت | عمارت</annotation>
+		<annotation cp="🏢" type="tts">آفس کی عمارت</annotation>
+		<annotation cp="🏣">پوسٹ | جاپانی | جاپانی پوسٹ آفس | عمارت</annotation>
+		<annotation cp="🏣" type="tts">جاپانی پوسٹ آفس</annotation>
+		<annotation cp="🏤">پوسٹ | پوسٹ آفس | عمارت</annotation>
+		<annotation cp="🏤" type="tts">پوسٹ آفس</annotation>
+		<annotation cp="🏥">اسپتال | دوائی | ڈاکٹر | عمارت</annotation>
+		<annotation cp="🏥" type="tts">اسپتال</annotation>
+		<annotation cp="🏦">بینک | عمارت</annotation>
+		<annotation cp="🏦" type="tts">بینک</annotation>
+		<annotation cp="🏨">عمارت | ہوٹل</annotation>
+		<annotation cp="🏨" type="tts">ہوٹل</annotation>
+		<annotation cp="🏩">عمارت | محبت | محبت کا ہوٹل | ہوٹل</annotation>
+		<annotation cp="🏩" type="tts">محبت کا ہوٹل</annotation>
+		<annotation cp="🏪">اسٹور | سہولت بخش اسٹور | عمارت</annotation>
+		<annotation cp="🏪" type="tts">سہولت بخش اسٹور</annotation>
+		<annotation cp="🏫">اسکول | عمارت</annotation>
+		<annotation cp="🏫" type="tts">اسکول</annotation>
+		<annotation cp="🏬">اسٹور | ڈپارٹمنٹ | عمارت</annotation>
+		<annotation cp="🏬" type="tts">ڈپارٹمنٹ اسٹور</annotation>
+		<annotation cp="🏭">عمارت | فیکٹری</annotation>
+		<annotation cp="🏭" type="tts">فیکٹری</annotation>
+		<annotation cp="🏯">جاپانی | عمارت | قلعہ</annotation>
+		<annotation cp="🏯" type="tts">جاپانی قلعہ</annotation>
+		<annotation cp="🏰">عمارت | قلعہ</annotation>
+		<annotation cp="🏰" type="tts">قلعہ</annotation>
+		<annotation cp="💒">شادی | عمارت | گرجہ</annotation>
+		<annotation cp="💒" type="tts">شادی</annotation>
+		<annotation cp="🗼">ٹاور | ٹوکیو</annotation>
+		<annotation cp="🗼" type="tts">ٹوکیو ٹاور</annotation>
+		<annotation cp="🗽">آزادی | مجسمہ</annotation>
+		<annotation cp="🗽" type="tts">مجسمہ آزادی</annotation>
+		<annotation cp="⛪">عمارت | عیسائیت | کراس | گرجا گھر</annotation>
+		<annotation cp="⛪" type="tts">گرجا گھر</annotation>
+		<annotation cp="🕌">عبادت | عمارت | مسجد | مسلمان</annotation>
+		<annotation cp="🕌" type="tts">مسجد</annotation>
+		<annotation cp="🕍">عبادت گاہ | یہودی | یہودیوں کی عبادت گاہ</annotation>
+		<annotation cp="🕍" type="tts">یہودیوں کی عبادت گاہ</annotation>
+		<annotation cp="⛩">شنٹو مزار | مذہب | مزار</annotation>
+		<annotation cp="⛩" type="tts">شنٹو مزار</annotation>
+		<annotation cp="🕋">عبادت | عمارت | کعبہ | مسلمان | مکہ</annotation>
+		<annotation cp="🕋" type="tts">کعبہ</annotation>
+		<annotation cp="⛲">پانی کا چشمہ | چشمہ | فاؤنٹين | فواره</annotation>
+		<annotation cp="⛲" type="tts">چشمہ</annotation>
+		<annotation cp="⛺">خیمہ | ڈیرا | شامیانہ | کیمپنگ</annotation>
+		<annotation cp="⛺" type="tts">خیمہ</annotation>
+		<annotation cp="🌁">دھند | کُہر آلود | موسم</annotation>
+		<annotation cp="🌁" type="tts">کُہر آلود</annotation>
+		<annotation cp="🌃">رات | ستاروں بھری رات | ستارے | موسم</annotation>
+		<annotation cp="🌃" type="tts">ستاروں بھری رات</annotation>
+		<annotation cp="🏙">اونچی عمارتیں | شہر | عمارت</annotation>
+		<annotation cp="🏙" type="tts">اونچی عمارتیں</annotation>
+		<annotation cp="🌄">پہاڑ | پہاڑوں پر طلوع آفتاب | سورج | طلوع | موسم</annotation>
+		<annotation cp="🌄" type="tts">پہاڑوں پر طلوع آفتاب</annotation>
+		<annotation cp="🌅">سورج | صبح | طلوع آفتاب | موسم</annotation>
+		<annotation cp="🌅" type="tts">طلوع آفتاب</annotation>
+		<annotation cp="🌆">سورج | شام | شام کے وقت اونچی عمارتیں | عمارت | موسم</annotation>
+		<annotation cp="🌆" type="tts">شام کے وقت اونچی عمارتیں</annotation>
+		<annotation cp="🌇">سورج | عمارت | غروب | غروبِ آفتاب | موسم</annotation>
+		<annotation cp="🌇" type="tts">غروبِ آفتاب</annotation>
+		<annotation cp="🌉">پل | رات | رات کے وقت پُل | موسم</annotation>
+		<annotation cp="🌉" type="tts">رات کے وقت پُل</annotation>
+		<annotation cp="♨">بھاپ | گرم | ندی</annotation>
+		<annotation cp="♨" type="tts">گرم ندی</annotation>
+		<annotation cp="🌌">خلا | کہکشاں</annotation>
+		<annotation cp="🌌" type="tts">کہکشاں</annotation>
+		<annotation cp="🎠">جھولا | گھوڑا | گھومتے جھولے کا گھوڑا | گھومنا</annotation>
+		<annotation cp="🎠" type="tts">گھومتے جھولے کا گھوڑا</annotation>
+		<annotation cp="🎡">آسمانی جھولا | پارک | پہیہ | جھولا</annotation>
+		<annotation cp="🎡" type="tts">آسمانی جھولا</annotation>
+		<annotation cp="🎢">پارک | رولر | کوسٹر</annotation>
+		<annotation cp="🎢" type="tts">رولر کوسٹر</annotation>
+		<annotation cp="💈">پول | حجام | حجام کا پول</annotation>
+		<annotation cp="💈" type="tts">حجام کا پول</annotation>
+		<annotation cp="🎪">ٹینٹ | سرکس | سرکس کا ٹینٹ</annotation>
+		<annotation cp="🎪" type="tts">سرکس کا ٹینٹ</annotation>
+		<annotation cp="🚂">انجن | بھاپ | ریل | ریل کا انجن</annotation>
+		<annotation cp="🚂" type="tts">ریل کا انجن</annotation>
+		<annotation cp="🚃">بجلی | پٹری | ریل گاڑی | گاڑی</annotation>
+		<annotation cp="🚃" type="tts">ریل گاڑی</annotation>
+		<annotation cp="🚄">پٹری | تیز رفتار ٹرین | رفتار | ریل</annotation>
+		<annotation cp="🚄" type="tts">تیز رفتار ٹرین</annotation>
+		<annotation cp="🚅">بلٹ | بلٹ کے ناک والی تیز رفتار ٹرین | ٹرین | رفتار</annotation>
+		<annotation cp="🚅" type="tts">بلٹ کے ناک والی تیز رفتار ٹرین</annotation>
+		<annotation cp="🚆">ٹرین | سواری</annotation>
+		<annotation cp="🚆" type="tts">ٹرین</annotation>
+		<annotation cp="🚇">ریلوے | زیر زمین | میٹرو</annotation>
+		<annotation cp="🚇" type="tts">میٹرو</annotation>
+		<annotation cp="🚈">ریلوے | سواری | لائٹ ریل</annotation>
+		<annotation cp="🚈" type="tts">لائٹ ریل</annotation>
+		<annotation cp="🚉">اسٹیشن | ٹرین | ریلوے</annotation>
+		<annotation cp="🚉" type="tts">اسٹیشن</annotation>
+		<annotation cp="🚊">ٹرام | سواری</annotation>
+		<annotation cp="🚊" type="tts">ٹرام</annotation>
+		<annotation cp="🚝">ریل | سواری | مونو ریل</annotation>
+		<annotation cp="🚝" type="tts">مونو ریل</annotation>
+		<annotation cp="🚞">پہاڑ | ریلوے | گاڑی | ماؤنٹین ریلوے</annotation>
+		<annotation cp="🚞" type="tts">ماؤنٹین ریلوے</annotation>
+		<annotation cp="🚋">ٹرالی بس | ٹرام | ٹرام کار | گاڑی</annotation>
+		<annotation cp="🚋" type="tts">ٹرام کار</annotation>
+		<annotation cp="🚌">بس | سواری</annotation>
+		<annotation cp="🚌" type="tts">بس</annotation>
+		<annotation cp="🚍">آتی ہوئی | آتی ہوئی بس | بس</annotation>
+		<annotation cp="🚍" type="tts">آتی ہوئی بس</annotation>
+		<annotation cp="🚎">بس | ٹرالی | ٹرام</annotation>
+		<annotation cp="🚎" type="tts">ٹرالی بس</annotation>
+		<annotation cp="🚐">بس | سواری | منی بس</annotation>
+		<annotation cp="🚐" type="tts">منی بس</annotation>
+		<annotation cp="🚑">ایمبولنس | سواری</annotation>
+		<annotation cp="🚑" type="tts">ایمبولنس</annotation>
+		<annotation cp="🚒">انجن | ٹرک | فائر</annotation>
+		<annotation cp="🚒" type="tts">فائر انجن</annotation>
+		<annotation cp="🚓">پولیس | پولیس کار | گاڑی</annotation>
+		<annotation cp="🚓" type="tts">پولیس کار</annotation>
+		<annotation cp="🚔">آتی ہوئی | آتی ہوئی پولیس کار | پولیس | کار</annotation>
+		<annotation cp="🚔" type="tts">آتی ہوئی پولیس کار</annotation>
+		<annotation cp="🚕">ٹیکسی | سواری</annotation>
+		<annotation cp="🚕" type="tts">ٹیکسی</annotation>
+		<annotation cp="🚖">آتی ہوئی | آتی ہوئی ٹیکسی | ٹیکسی</annotation>
+		<annotation cp="🚖" type="tts">آتی ہوئی ٹیکسی</annotation>
+		<annotation cp="🚗">سواری | کار</annotation>
+		<annotation cp="🚗" type="tts">کار</annotation>
+		<annotation cp="🚘">آتی ہوئی | آتی ہوئی کار | کار</annotation>
+		<annotation cp="🚘" type="tts">آتی ہوئی کار</annotation>
+		<annotation cp="🚙">تفریحی | گاڑی</annotation>
+		<annotation cp="🚙" type="tts">تفریحی گاڑی</annotation>
+		<annotation cp="🚚">ٹرک | ڈلیوری</annotation>
+		<annotation cp="🚚" type="tts">ڈلیوری ٹرک</annotation>
+		<annotation cp="🚛">ٹرک | جوڑ والی گاڑی | سواری | لاری</annotation>
+		<annotation cp="🚛" type="tts">جوڑ والی گاڑی</annotation>
+		<annotation cp="🚜">ٹریکٹر | سواری</annotation>
+		<annotation cp="🚜" type="tts">ٹریکٹر</annotation>
+		<annotation cp="🚲">سائیکل | سواری</annotation>
+		<annotation cp="🚲" type="tts">سائیکل</annotation>
+		<annotation cp="🛴">سکوٹر | کک</annotation>
+		<annotation cp="🛴" type="tts">کک سکوٹر</annotation>
+		<annotation cp="🛹">اسکیٹنگ تختہ | تختہ</annotation>
+		<annotation cp="🛹" type="tts">اسکیٹنگ تختہ</annotation>
+		<annotation cp="🛵">سکوٹر | موٹر | موٹر والا سکوٹر</annotation>
+		<annotation cp="🛵" type="tts">موٹر والا سکوٹر</annotation>
+		<annotation cp="🚏">بس | بس اسٹاپ</annotation>
+		<annotation cp="🚏" type="tts">بس اسٹاپ</annotation>
+		<annotation cp="🛣">سڑک | موٹر وے</annotation>
+		<annotation cp="🛣" type="tts">موٹر وے</annotation>
+		<annotation cp="🛤">ٹرین | ریلوے | ریلوے ٹریک</annotation>
+		<annotation cp="🛤" type="tts">ریلوے ٹریک</annotation>
+		<annotation cp="🛢">تیل | تیل کا ڈرم | ڈرم</annotation>
+		<annotation cp="🛢" type="tts">تیل کا ڈرم</annotation>
+		<annotation cp="⛽">فیول | فیول پمپ | گیس</annotation>
+		<annotation cp="⛽" type="tts">فیول پمپ</annotation>
+		<annotation cp="🚨">پولیس | پولیس کار کی لائٹ | کار | لائٹ</annotation>
+		<annotation cp="🚨" type="tts">پولیس کار کی لائٹ</annotation>
+		<annotation cp="🚥">اشارہ | افقی ٹریفک لائٹ | ٹریفک | لائٹ</annotation>
+		<annotation cp="🚥" type="tts">افقی ٹریفک لائٹ</annotation>
+		<annotation cp="🚦">اشارہ | ٹریفک | عمودی ٹریفک لائٹ | لائٹ</annotation>
+		<annotation cp="🚦" type="tts">عمودی ٹریفک لائٹ</annotation>
+		<annotation cp="🛑">آٹھ زاویے | رکنا | رکنے کا نشان | نشان</annotation>
+		<annotation cp="🛑" type="tts">رکنے کا نشان</annotation>
+		<annotation cp="🚧">تعمیر | رکاوٹ</annotation>
+		<annotation cp="🚧" type="tts">تعمیر</annotation>
+		<annotation cp="⚓">آلہ | اینکر | بحری جہاز</annotation>
+		<annotation cp="⚓" type="tts">اینکر</annotation>
+		<annotation cp="⛵">بادبانی کشتی | سمندر | کشتی</annotation>
+		<annotation cp="⛵" type="tts">بادبانی کشتی</annotation>
+		<annotation cp="🛶">چھوٹی | ڈونگی | کشتی</annotation>
+		<annotation cp="🛶" type="tts">چھوٹی کشتی</annotation>
+		<annotation cp="🚤">انجن والی کشتی | سواری | کشتی</annotation>
+		<annotation cp="🚤" type="tts">انجن والی کشتی</annotation>
+		<annotation cp="🛳">سواری | کشتی | مسافر | مسافر بحری جہاز</annotation>
+		<annotation cp="🛳" type="tts">مسافر بحری جہاز</annotation>
+		<annotation cp="⛴">سواری | فیری | کشتی</annotation>
+		<annotation cp="⛴" type="tts">فیری</annotation>
+		<annotation cp="🛥">سواری | موٹر بوٹ</annotation>
+		<annotation cp="🛥" type="tts">موٹر بوٹ</annotation>
+		<annotation cp="🚢">بحری جہاز | سواری</annotation>
+		<annotation cp="🚢" type="tts">بحری جہاز</annotation>
+		<annotation cp="✈">سوری | ہوائی جہاز</annotation>
+		<annotation cp="✈" type="tts">ہوائی جہاز</annotation>
+		<annotation cp="🛩">چھوٹا | چھوٹا ہوائی جہاز | سواری | ہوائی جہاز</annotation>
+		<annotation cp="🛩" type="tts">چھوٹا ہوائی جہاز</annotation>
+		<annotation cp="🛫">روانگی | ہوائی جہاز | ہوائی جہاز کی روانگی</annotation>
+		<annotation cp="🛫" type="tts">ہوائی جہاز کی روانگی</annotation>
+		<annotation cp="🛬">آمد | ہوائی جہاز | ہوائی جہاز کی آمد</annotation>
+		<annotation cp="🛬" type="tts">ہوائی جہاز کی آمد</annotation>
+		<annotation cp="💺">سیٹ | فرنیچر | کرسی</annotation>
+		<annotation cp="💺" type="tts">سیٹ</annotation>
+		<annotation cp="🚁">سواری | ہیلی کاپٹر</annotation>
+		<annotation cp="🚁" type="tts">ہیلی کاپٹر</annotation>
+		<annotation cp="🚟">ریلوے | معلق</annotation>
+		<annotation cp="🚟" type="tts">معلق ریلوے</annotation>
+		<annotation cp="🚠">پہاڑ | پہاڑی کیبل وے | کیبل</annotation>
+		<annotation cp="🚠" type="tts">پہاڑی کیبل وے</annotation>
+		<annotation cp="🚡">ٹرام وے | کیبل | گاڑی | ہوائی | ہوائی ٹرام وے</annotation>
+		<annotation cp="🚡" type="tts">ہوائی ٹرام وے</annotation>
+		<annotation cp="🛰">آسمان | خلا | خلائی جہاز | سیارہ | سیٹلائٹ</annotation>
+		<annotation cp="🛰" type="tts">سیٹلائٹ</annotation>
+		<annotation cp="🚀">آسمان | خلا | خلائی جہاز | راکٹ</annotation>
+		<annotation cp="🚀" type="tts">راکٹ</annotation>
+		<annotation cp="🛸">اڑن تشتری | نامعلوم اڑن تشتری</annotation>
+		<annotation cp="🛸" type="tts">اڑن تشتری</annotation>
+		<annotation cp="🛎">بیل | بیل ہاپ | بیل ہاپ بیل</annotation>
+		<annotation cp="🛎" type="tts">بیل ہاپ بیل</annotation>
+		<annotation cp="🧳">پیکنگ | سامان | سفر</annotation>
+		<annotation cp="🧳" type="tts">سامان</annotation>
+		<annotation cp="⌛">ریت | گھڑی</annotation>
+		<annotation cp="⌛" type="tts">ریت گھڑی</annotation>
+		<annotation cp="⏳">ریت | ریت گھڑی میں گرتی ہوئی ریت | گرتی ہوئی ریت کے ساتھ ریت گھڑی | گھڑی</annotation>
+		<annotation cp="⏳" type="tts">ریت گھڑی میں گرتی ہوئی ریت</annotation>
+		<annotation cp="⌚">ٹائم | کلاک | گھڑی | وقت</annotation>
+		<annotation cp="⌚" type="tts">گھڑی</annotation>
+		<annotation cp="⏰">الارم | کلاک</annotation>
+		<annotation cp="⏰" type="tts">الارم کلاک</annotation>
+		<annotation cp="⏱">اسٹاپ واچ | گھڑی</annotation>
+		<annotation cp="⏱" type="tts">اسٹاپ واچ</annotation>
+		<annotation cp="⏲">ٹائمر | ٹائمر کلاک | گھڑی</annotation>
+		<annotation cp="⏲" type="tts">ٹائمر کلاک</annotation>
+		<annotation cp="🕰">گھڑی | مینٹل پیس کلاک</annotation>
+		<annotation cp="🕰" type="tts">مینٹل پیس کلاک</annotation>
+		<annotation cp="🕛">12:00 | بارہ | بارہ کا وقت | گھڑی</annotation>
+		<annotation cp="🕛" type="tts">بارہ کا وقت</annotation>
+		<annotation cp="🕧">12:30 | بارہ | بارہ بج کر تیس منٹ | تیس | گھڑی</annotation>
+		<annotation cp="🕧" type="tts">بارہ بج کر تیس منٹ</annotation>
+		<annotation cp="🕐">1:00 | ایک | ایک بجے کا وقت | گھڑی</annotation>
+		<annotation cp="🕐" type="tts">ایک بجے کا وقت</annotation>
+		<annotation cp="🕜">1:30 | ایک | ایک بج کر تیس منٹ | تیس | گھڑی</annotation>
+		<annotation cp="🕜" type="tts">ایک بج کر تیس منٹ</annotation>
+		<annotation cp="🕑">2:00 | دو | دو بجے کا وقت | گھڑی</annotation>
+		<annotation cp="🕑" type="tts">دو بجے کا وقت</annotation>
+		<annotation cp="🕝">2:30 | تیس | دو | دو بج کر تیس منٹ | گھڑی</annotation>
+		<annotation cp="🕝" type="tts">دو بج کر تیس منٹ</annotation>
+		<annotation cp="🕒">3:00 | تین | تین بجے کا وقت | گھڑی</annotation>
+		<annotation cp="🕒" type="tts">تین بجے کا وقت</annotation>
+		<annotation cp="🕞">3:30 | تیس | تین | تین بج کر تیس منٹ | گھڑی</annotation>
+		<annotation cp="🕞" type="tts">تین بج کر تیس منٹ</annotation>
+		<annotation cp="🕓">4:00 | چار | چار بجے کا وقت | گھڑی</annotation>
+		<annotation cp="🕓" type="tts">چار بجے کا وقت</annotation>
+		<annotation cp="🕟">4:30 | تیس | چار | چار بج کر تیس منٹ | گھڑی</annotation>
+		<annotation cp="🕟" type="tts">چار بج کر تیس منٹ</annotation>
+		<annotation cp="🕔">5:00 | پانچ | پانچ بجے کا وقت | گھڑی</annotation>
+		<annotation cp="🕔" type="tts">پانچ بجے کا وقت</annotation>
+		<annotation cp="🕠">5:30 | پانچ | پانچ بج کر تیس منٹ | تیس | گھڑی</annotation>
+		<annotation cp="🕠" type="tts">پانچ بج کر تیس منٹ</annotation>
+		<annotation cp="🕕">6:00 | چھ | چھ بجے کا وقت | گھڑی</annotation>
+		<annotation cp="🕕" type="tts">چھ بجے کا وقت</annotation>
+		<annotation cp="🕡">6:30 | تیس | چھ | چھ بج کر تیس منٹ | وقت</annotation>
+		<annotation cp="🕡" type="tts">چھ بج کر تیس منٹ</annotation>
+		<annotation cp="🕖">7:00 | سات | سات بجے کا وقت | گھڑی</annotation>
+		<annotation cp="🕖" type="tts">سات بجے کا وقت</annotation>
+		<annotation cp="🕢">07:30 | تیس | سات | سات بج کر تیس منٹ | گھڑی</annotation>
+		<annotation cp="🕢" type="tts">سات بج کر تیس منٹ</annotation>
+		<annotation cp="🕗">08:00 | آٹھ | آٹھ بجے کا وقت | گھڑی</annotation>
+		<annotation cp="🕗" type="tts">آٹھ بجے کا وقت</annotation>
+		<annotation cp="🕣">08:30 | آٹھ | آٹھ بج کر تیس منٹ | تیس | گھڑی</annotation>
+		<annotation cp="🕣" type="tts">آٹھ بج کر تیس منٹ</annotation>
+		<annotation cp="🕘">09:00 | گھڑی | نو | نو بجے کا وقت</annotation>
+		<annotation cp="🕘" type="tts">نو بجے کا وقت</annotation>
+		<annotation cp="🕤">09:30 | تیس | گھڑی | نو | نو بج کر تیس منٹ</annotation>
+		<annotation cp="🕤" type="tts">نو بج کر تیس منٹ</annotation>
+		<annotation cp="🕙">10:00 | دس | دس بجے کا وقت | گھڑی</annotation>
+		<annotation cp="🕙" type="tts">دس بجے کا وقت</annotation>
+		<annotation cp="🕥">10:30 | تیس | دس | دس بج کر تیس منٹ | گھڑی</annotation>
+		<annotation cp="🕥" type="tts">دس بج کر تیس منٹ</annotation>
+		<annotation cp="🕚">11:00 | گھڑی | گیارہ | گیارہ بجے کا وقت</annotation>
+		<annotation cp="🕚" type="tts">گیارہ بجے کا وقت</annotation>
+		<annotation cp="🕦">11:30 | تیس | گھڑی | گیارہ | گیارہ بج کر تیس منٹ</annotation>
+		<annotation cp="🕦" type="tts">گیارہ بج کر تیس منٹ</annotation>
+		<annotation cp="🌑">چاند | سیاہ | موسم | نیا چاند</annotation>
+		<annotation cp="🌑" type="tts">نیا چاند</annotation>
+		<annotation cp="🌒">بڑھتا ہوا ہلال چاند | چاند | موسم | ہلال</annotation>
+		<annotation cp="🌒" type="tts">بڑھتا ہوا ہلال چاند</annotation>
+		<annotation cp="🌓">پہلے کوارٹر کا چاند | چاند | کوارٹر | موسم</annotation>
+		<annotation cp="🌓" type="tts">پہلے کوارٹر کا چاند</annotation>
+		<annotation cp="🌔">آدھے سے زیادہ بڑھتا ہوا چاند | بڑھتا ہوا | چاند | موسم</annotation>
+		<annotation cp="🌔" type="tts">آدھے سے زیادہ بڑھتا ہوا چاند</annotation>
+		<annotation cp="🌕">چاند | مکمل | موسم</annotation>
+		<annotation cp="🌕" type="tts">مکمل چاند</annotation>
+		<annotation cp="🌖">چاند | گھٹتا ہوا | گھٹتا ہوا آدھے سے زیادہ چاند | موسم</annotation>
+		<annotation cp="🌖" type="tts">گھٹتا ہوا آدھے سے زیادہ چاند</annotation>
+		<annotation cp="🌗">آخری کوارٹر کا چاند | چاند | کوارٹر | موسم</annotation>
+		<annotation cp="🌗" type="tts">آخری کوارٹر کا چاند</annotation>
+		<annotation cp="🌘">چاند | گھٹتا ہوا ہلال چاند | موسم | ہلال</annotation>
+		<annotation cp="🌘" type="tts">گھٹتا ہوا ہلال چاند</annotation>
+		<annotation cp="🌙">چاند | موسم | ہلال</annotation>
+		<annotation cp="🌙" type="tts">ہلال چاند</annotation>
+		<annotation cp="🌚">چاند | چہرہ | موسم | نئے چاند کا چہرہ</annotation>
+		<annotation cp="🌚" type="tts">نئے چاند کا چہرہ</annotation>
+		<annotation cp="🌛">پہلے کوارٹر کا چاند مع چہرہ | چاند | چہرہ | موسم</annotation>
+		<annotation cp="🌛" type="tts">پہلے کوارٹر کا چاند مع چہرہ</annotation>
+		<annotation cp="🌜">آخری کوارٹر کا چاند مع چہرہ | چاند | چہرہ | موسم</annotation>
+		<annotation cp="🌜" type="tts">آخری کوارٹر کا چاند مع چہرہ</annotation>
+		<annotation cp="🌡">تھرمامیٹر | موسم</annotation>
+		<annotation cp="🌡" type="tts">تھرمامیٹر</annotation>
+		<annotation cp="☀">سورج | صاف | کرنیں | موسم</annotation>
+		<annotation cp="☀" type="tts">سورج</annotation>
+		<annotation cp="🌝">چہرہ | چہرے والا پورا چاند | خلا | صاف | مکمل | موسم</annotation>
+		<annotation cp="🌝" type="tts">چہرے والا پورا چاند</annotation>
+		<annotation cp="🌞">چہرہ | چہرے والا سورج | خلا | سورج | صاف | موسم</annotation>
+		<annotation cp="🌞" type="tts">چہرے والا سورج</annotation>
+		<annotation cp="⭐">ستارہ | سفید میڈیم ستارہ</annotation>
+		<annotation cp="⭐" type="tts">سفید میڈیم ستارہ</annotation>
+		<annotation cp="🌟">چمکتا | ستارہ</annotation>
+		<annotation cp="🌟" type="tts">چمکتا ستارہ</annotation>
+		<annotation cp="🌠">ستارہ | شہابِ ثاقب | گرتا</annotation>
+		<annotation cp="🌠" type="tts">شہابِ ثاقب</annotation>
+		<annotation cp="☁">بادل | موسم</annotation>
+		<annotation cp="☁" type="tts">بادل</annotation>
+		<annotation cp="⛅">بادل | بادلوں کے پیچھے چھپا سورج | سورج | موسم</annotation>
+		<annotation cp="⛅" type="tts">بادلوں کے پیچھے چھپا سورج</annotation>
+		<annotation cp="⛈">بادل | بارش | گرج چمک اور بارش والے بادل | موسم</annotation>
+		<annotation cp="⛈" type="tts">گرج چمک اور بارش والے بادل</annotation>
+		<annotation cp="🌤">بادل | چھوٹے بادل کے پیچھے چھپا سورج | سورج | موسم</annotation>
+		<annotation cp="🌤" type="tts">چھوٹے بادل کے پیچھے چھپا سورج</annotation>
+		<annotation cp="🌥">بادل | بڑے بادل کے پیچھے چھپا سورج | سورج | موسم</annotation>
+		<annotation cp="🌥" type="tts">بڑے بادل کے پیچھے چھپا سورج</annotation>
+		<annotation cp="🌦">بادل | بادلوں کے پیچھے چھپا سورج اور بارش | بارش | سورج | موسم</annotation>
+		<annotation cp="🌦" type="tts">بادلوں کے پیچھے چھپا سورج اور بارش</annotation>
+		<annotation cp="🌧">بادل | بادل اور بارش | بارش | موسم</annotation>
+		<annotation cp="🌧" type="tts">بادل اور بارش</annotation>
+		<annotation cp="🌨">بادل | بادل اور برفباری | برف | موسم</annotation>
+		<annotation cp="🌨" type="tts">بادل اور برفباری</annotation>
+		<annotation cp="🌩">بادل | بادل اور گرج چمک | بجلی کی چمک | موسم</annotation>
+		<annotation cp="🌩" type="tts">بادل اور گرج چمک</annotation>
+		<annotation cp="🌪">بادل | تیز ہوا | جھکڑ | موسم</annotation>
+		<annotation cp="🌪" type="tts">جھکڑ</annotation>
+		<annotation cp="🌫">بادل | کُہر | موسم</annotation>
+		<annotation cp="🌫" type="tts">کُہر</annotation>
+		<annotation cp="🌬">بادل | چہرہ | منہ سے ہوا نکالتا چہرہ | موسم | ہوا</annotation>
+		<annotation cp="🌬" type="tts">منہ سے ہوا نکالتا چہرہ</annotation>
+		<annotation cp="🌀">گرداب | موسم</annotation>
+		<annotation cp="🌀" type="tts">گرداب</annotation>
+		<annotation cp="🌈">بارش | قوس قزاح | موسم</annotation>
+		<annotation cp="🌈" type="tts">قوس قزاح</annotation>
+		<annotation cp="🌂">بارش | بند چھتری | چھتڑی | موسم</annotation>
+		<annotation cp="🌂" type="tts">بند چھتری</annotation>
+		<annotation cp="☂">بارش | چھتری | لباس | موسم</annotation>
+		<annotation cp="☂" type="tts">چھتری</annotation>
+		<annotation cp="☔">بارش | بارش کے قطروں والی چھتری | چھتڑی | لباس | موسم</annotation>
+		<annotation cp="☔" type="tts">بارش کے قطروں والی چھتری</annotation>
+		<annotation cp="⛱">بارش | چھتڑی | زمین میں گڑی چھتری | سورج | موسم</annotation>
+		<annotation cp="⛱" type="tts">زمین میں گڑی چھتری</annotation>
+		<annotation cp="⚡">بجلی | خطرہ | ہائی وولٹیج | وولٹیج</annotation>
+		<annotation cp="⚡" type="tts">ہائی وولٹیج</annotation>
+		<annotation cp="❄">برف | برف کے گولے | ٹھنڈ | موسم</annotation>
+		<annotation cp="❄" type="tts">برف کے گولے</annotation>
+		<annotation cp="☃">برف | برف کا آدمی | ٹھنڈ | موسم</annotation>
+		<annotation cp="☃" type="tts">برف کا آدمی</annotation>
+		<annotation cp="⛄">برف | برف کے بغیر برف کا آدمی | ٹھنڈ | موسم</annotation>
+		<annotation cp="⛄" type="tts">برف کے بغیر برف کا آدمی</annotation>
+		<annotation cp="☄">خلا | قطبی ستارہ</annotation>
+		<annotation cp="☄" type="tts">قطبی ستارہ</annotation>
+		<annotation cp="🔥">آگ | اوزار</annotation>
+		<annotation cp="🔥" type="tts">آگ</annotation>
+		<annotation cp="💧">ٹھنڈ | قطرہ | موسم</annotation>
+		<annotation cp="💧" type="tts">قطرہ</annotation>
+		<annotation cp="🌊">پانی | پانی کی لہر | لہر | موسم</annotation>
+		<annotation cp="🌊" type="tts">پانی کی لہر</annotation>
+		<annotation cp="🎃">جشن | کدو | کدو کی لالٹین | لالٹین</annotation>
+		<annotation cp="🎃" type="tts">کدو کی لالٹین</annotation>
+		<annotation cp="🎄">جشن | درخت | کرسمس | کرسمس کا درخت</annotation>
+		<annotation cp="🎄" type="tts">کرسمس کا درخت</annotation>
+		<annotation cp="🎆">آتشبازی | تفریح | جشن | خوشی | مزہ</annotation>
+		<annotation cp="🎆" type="tts">آتشبازی</annotation>
+		<annotation cp="🎇">آتش بازی | پھلجری | جشن</annotation>
+		<annotation cp="🎇" type="tts">پھلجری</annotation>
+		<annotation cp="🧨">آتش بازی | پٹاخہ | دھماکا خیز | ڈائنامیٹ</annotation>
+		<annotation cp="🧨" type="tts">پٹاخہ</annotation>
+		<annotation cp="✨">چمک | چمکتے ستارے | ستارہ</annotation>
+		<annotation cp="✨" type="tts">چمکتے ستارے</annotation>
+		<annotation cp="🎈">بلون | جشن | خوشی | غبارہ | مزہ</annotation>
+		<annotation cp="🎈" type="tts">غبارہ</annotation>
+		<annotation cp="🎉">پارٹی | پارٹی کے پٹاخے | پٹاخے | جشن</annotation>
+		<annotation cp="🎉" type="tts">پارٹی کے پٹاخے</annotation>
+		<annotation cp="🎊">بالز | رنگین کاغذ | رنگین کاغذ کے بالز</annotation>
+		<annotation cp="🎊" type="tts">رنگین کاغذ کے بالز</annotation>
+		<annotation cp="🎋">تنابتا درخت | جاپانی | جشن | درخت</annotation>
+		<annotation cp="🎋" type="tts">تنابتا درخت</annotation>
+		<annotation cp="🎍">پائن | پائن سے سجاوٹ | پودا | جاپانی | جشن</annotation>
+		<annotation cp="🎍" type="tts">پائن سے سجاوٹ</annotation>
+		<annotation cp="🎎">تہوار | جاپان | جاپانی گڑیاں | جشن | گڑیا</annotation>
+		<annotation cp="🎎" type="tts">جاپانی گڑیاں</annotation>
+		<annotation cp="🎏">جاپان | جشن | ہوا | ہوائی جرابیں</annotation>
+		<annotation cp="🎏" type="tts">ہوائی جرابیں</annotation>
+		<annotation cp="🎐">جھنکار | گھنٹی | ہوا | ہوائی جھنکار</annotation>
+		<annotation cp="🎐" type="tts">ہوائی جھنکار</annotation>
+		<annotation cp="🎑">جشن | چاند | چاند کی رسم | رسم</annotation>
+		<annotation cp="🎑" type="tts">چاند کی رسم</annotation>
+		<annotation cp="🧧">تحفہ | خوش قسمتی | رقم | سرخ لفافہ | لائی سی | ہونگ باؤ</annotation>
+		<annotation cp="🧧" type="tts">سرخ لفافہ</annotation>
+		<annotation cp="🎀">تحفہ | جشن | ربن</annotation>
+		<annotation cp="🎀" type="tts">ربن</annotation>
+		<annotation cp="🎁">تحفہ | جشن | کاغذ میں لپٹا تحفہ | کاغذ میں لیٹا تحفہ | لپٹا ہوا</annotation>
+		<annotation cp="🎁" type="tts">کاغذ میں لپٹا تحفہ</annotation>
+		<annotation cp="🎗">جشن | ربن | یاددہانی | یاددہانی کا ربن</annotation>
+		<annotation cp="🎗" type="tts">یاددہانی کا ربن</annotation>
+		<annotation cp="🎟">ٹکٹ | داخلہ</annotation>
+		<annotation cp="🎟" type="tts">داخلہ ٹکٹ</annotation>
+		<annotation cp="🎫">تقریب | ٹکٹ | داخلہ</annotation>
+		<annotation cp="🎫" type="tts">ٹکٹ</annotation>
+		<annotation cp="🎖">انعام | فوج | فوجی میڈل | میڈل</annotation>
+		<annotation cp="🎖" type="tts">فوجی میڈل</annotation>
+		<annotation cp="🏆">انعام | ٹرافی</annotation>
+		<annotation cp="🏆" type="tts">ٹرافی</annotation>
+		<annotation cp="🏅">اسپورٹس | انعام | میڈل</annotation>
+		<annotation cp="🏅" type="tts">اسپورٹس میڈل</annotation>
+		<annotation cp="🥇">اول | گولڈ | میڈل | نمبر</annotation>
+		<annotation cp="🥇" type="tts">گولڈ میڈل</annotation>
+		<annotation cp="🥈">دوسرا | سلور | میڈل | نمبر</annotation>
+		<annotation cp="🥈" type="tts">سلور میڈل</annotation>
+		<annotation cp="🥉">برونز | تیسرا | میڈل | نمبر</annotation>
+		<annotation cp="🥉" type="tts">برونز میڈل</annotation>
+		<annotation cp="⚽">فٹبال | کھیل | گیند | میدان</annotation>
+		<annotation cp="⚽" type="tts">فٹبال</annotation>
+		<annotation cp="⚾">امریکہ | بال | بیس بال | کھیل</annotation>
+		<annotation cp="⚾" type="tts">بیس بال</annotation>
+		<annotation cp="🥎">بازو کے نیچے | دستانہ | گیند | نرم گیند</annotation>
+		<annotation cp="🥎" type="tts">نرم گیند</annotation>
+		<annotation cp="🏀">باسکٹ | بال | کھیل</annotation>
+		<annotation cp="🏀" type="tts">باسکٹ بال</annotation>
+		<annotation cp="🏐">بال | کھیل | والی بال</annotation>
+		<annotation cp="🏐" type="tts">والی بال</annotation>
+		<annotation cp="🏈">امریکی | فٹبال | کھیل</annotation>
+		<annotation cp="🏈" type="tts">امریکی فٹبال</annotation>
+		<annotation cp="🏉">امریکی | رغبی | رگبی فٹبال | فٹبال | کھیل</annotation>
+		<annotation cp="🏉" type="tts">رگبی فٹبال</annotation>
+		<annotation cp="🎾">بال | ٹینس | کھیل</annotation>
+		<annotation cp="🎾" type="tts">ٹینس</annotation>
+		<annotation cp="🥏">اڑتی ہوئی ڈسک | انتہائی</annotation>
+		<annotation cp="🥏" type="tts">اڑتی ہوئی ڈسک</annotation>
+		<annotation cp="🎳">باؤلنگ | بال | بوتلیں | کھیل</annotation>
+		<annotation cp="🎳" type="tts">باؤلنگ</annotation>
+		<annotation cp="🏏">بال | بیٹ | کرکٹ | کھیل</annotation>
+		<annotation cp="🏏" type="tts">کرکٹ</annotation>
+		<annotation cp="🏑">بال | فیلڈ ہاکی | کھیل | میدان | ہاکی</annotation>
+		<annotation cp="🏑" type="tts">فیلڈ ہاکی</annotation>
+		<annotation cp="🏒">آئس ہاکی اسٹک اور پک | اسٹک | برف | پک | کھیل | ہاکی</annotation>
+		<annotation cp="🏒" type="tts">آئس ہاکی اسٹک اور پک</annotation>
+		<annotation cp="🥍">چھڑی | گول | گیند | لکراس</annotation>
+		<annotation cp="🥍" type="tts">لکراس</annotation>
+		<annotation cp="🏓">بال | ٹیبل | ٹیبل ٹینس | ریکٹ | کھیل</annotation>
+		<annotation cp="🏓" type="tts">ٹیبل ٹینس</annotation>
+		<annotation cp="🏸">بیڈمنٹن | ریکٹ | شٹل | کھیل | نیٹ</annotation>
+		<annotation cp="🏸" type="tts">بیڈمنٹن</annotation>
+		<annotation cp="🥊">باکسنگ | باکسنگ کے دستانے | دستانے | کھیل</annotation>
+		<annotation cp="🥊" type="tts">باکسنگ کے دستانے</annotation>
+		<annotation cp="🥋">کراٹے | کھیل | مارشل آرٹس | مارشل آرٹس کا یونیفارم | یونیفارم</annotation>
+		<annotation cp="🥋" type="tts">مارشل آرٹس کا یونیفارم</annotation>
+		<annotation cp="🥅">کھیل | گول | نیٹ</annotation>
+		<annotation cp="🥅" type="tts">گول نیٹ</annotation>
+		<annotation cp="⛳">کھیل | گالف | گڑھے میں جھنڈا | گیند | میدان میں سوراخ</annotation>
+		<annotation cp="⛳" type="tts">گڑھے میں جھنڈا</annotation>
+		<annotation cp="⛸">آئس اسٹیک | اسٹیک | برف</annotation>
+		<annotation cp="⛸" type="tts">آئس اسٹیک</annotation>
+		<annotation cp="🎣">پانی | ڈنڈا | شکار | فشنگ پول | مچھلی</annotation>
+		<annotation cp="🎣" type="tts">فشنگ پول</annotation>
+		<annotation cp="🎽">جاگنگ | دوڑنے کی شرٹ | شرٹ | واکنگ</annotation>
+		<annotation cp="🎽" type="tts">دوڑنے کی شرٹ</annotation>
+		<annotation cp="🎿">اسکائی | اسکائیز | برف</annotation>
+		<annotation cp="🎿" type="tts">اسکائیز</annotation>
+		<annotation cp="🛷">برف گاڑی | بے پہیوں کی گاڑی</annotation>
+		<annotation cp="🛷" type="tts">برف گاڑی</annotation>
+		<annotation cp="🥌">پتھر | کرلنگ پتھر | کھیل</annotation>
+		<annotation cp="🥌" type="tts">کرلنگ پتھر</annotation>
+		<annotation cp="🎯">براہ راست نشانہ | تیر اندازی | کھیل | نشانہ | ہدف</annotation>
+		<annotation cp="🎯" type="tts">براہ راست نشانہ</annotation>
+		<annotation cp="🎱">آٹھ | بال | بلیئرڈز | کھیل</annotation>
+		<annotation cp="🎱" type="tts">بلیئرڈز</annotation>
+		<annotation cp="🔮">بال | فینٹسی | قسمت | کرسٹل</annotation>
+		<annotation cp="🔮" type="tts">کرسٹل بال</annotation>
+		<annotation cp="🧿">بری نظر | بری نظر کیلئے تعویز | تعویز | طلسمان | موتی | نظر</annotation>
+		<annotation cp="🧿" type="tts">بری نظر کیلئے تعویز</annotation>
+		<annotation cp="🎮">کھیل | ویڈیو | ویڈیو گیم</annotation>
+		<annotation cp="🎮" type="tts">ویڈیو گیم</annotation>
+		<annotation cp="🕹">جوائے اسٹک | کنٹرول | کھیل | ویڈیو</annotation>
+		<annotation cp="🕹" type="tts">جوائے اسٹک</annotation>
+		<annotation cp="🎰">سلاٹ مشین | گیم</annotation>
+		<annotation cp="🎰" type="tts">سلاٹ مشین</annotation>
+		<annotation cp="🎲">ڈائس | کھیل | گیم ڈائی</annotation>
+		<annotation cp="🎲" type="tts">گیم ڈائی</annotation>
+		<annotation cp="🧩">اشارہ | باہم مربوط | پزل | ٹکڑا | جِگسا</annotation>
+		<annotation cp="🧩" type="tts">جِگسا</annotation>
+		<annotation cp="🧸">روئی سے بھرا | کھلونا | کھلونا بھالو | کھیلنے کی چیز | مخملی</annotation>
+		<annotation cp="🧸" type="tts">کھلونا بھالو</annotation>
+		<annotation cp="♠">پتہ | تاش | حکم | حکم کا پتہ | کھیل</annotation>
+		<annotation cp="♠" type="tts">حکم کا پتہ</annotation>
+		<annotation cp="♥">پان | پان کا پتہ | پتہ | تاش | کھیل</annotation>
+		<annotation cp="♥" type="tts">پان کا پتہ</annotation>
+		<annotation cp="♦">اینٹ | اینٹ کا پتہ | پتہ | تاش | کھیل</annotation>
+		<annotation cp="♦" type="tts">اینٹ کا پتہ</annotation>
+		<annotation cp="♣">پتہ | تاش | چڑیا | چڑیا کا پتہ | کھیل</annotation>
+		<annotation cp="♣" type="tts">چڑیا کا پتہ</annotation>
+		<annotation cp="♟">شطرنج | شطرنج کا پیادہ | قابل مصرف | مہرہ</annotation>
+		<annotation cp="♟" type="tts">شطرنج کا پیادہ</annotation>
+		<annotation cp="🃏">پتہ | تاش | جوکر | کھیل</annotation>
+		<annotation cp="🃏" type="tts">جوکر</annotation>
+		<annotation cp="🀄">سرخ | کھیل | ماہجونگ | ماہجونگ ریڈ ڈریگن</annotation>
+		<annotation cp="🀄" type="tts">ماہجونگ ریڈ ڈریگن</annotation>
+		<annotation cp="🎴">تاش | جاپانی | جاپانی تاش کا کھیل | کھیل</annotation>
+		<annotation cp="🎴" type="tts">جاپانی تاش کا کھیل</annotation>
+		<annotation cp="🎭">تھیٹر | فن | فنونِ لطیفہ | ماسک</annotation>
+		<annotation cp="🎭" type="tts">فنونِ لطیفہ</annotation>
+		<annotation cp="🖼">تصویر | فریم | فریم میں جڑی تصویر | فن</annotation>
+		<annotation cp="🖼" type="tts">فریم میں جڑی تصویر</annotation>
+		<annotation cp="🎨">آرٹسٹ پیلٹ | پینٹنگ | عجائب گھر | فن</annotation>
+		<annotation cp="🎨" type="tts">آرٹسٹ پیلٹ</annotation>
+		<annotation cp="🧵">چرخی | دھاگہ | ڈوری | سلائی | سوئی</annotation>
+		<annotation cp="🧵" type="tts">دھاگہ</annotation>
+		<annotation cp="🧶">اونی دھاگہ | بُننا | کروشیا | گولہ</annotation>
+		<annotation cp="🧶" type="tts">اونی دھاگہ</annotation>
+		<annotation cp="🔇">آواز | اسپیکر | اسپیکر بند | خاموشی</annotation>
+		<annotation cp="🔇" type="tts">اسپیکر بند</annotation>
+		<annotation cp="🔈">آواز | اسپیکر | دھیمی آواز نکالتے اسپیکر</annotation>
+		<annotation cp="🔈" type="tts">دھیمی آواز نکالتے اسپیکر</annotation>
+		<annotation cp="🔉">آواز | اسپیکر | اوسط آواز نکالتے اسپیکر</annotation>
+		<annotation cp="🔉" type="tts">اوسط آواز نکالتے اسپیکر</annotation>
+		<annotation cp="🔊">آواز | اسپیکر | بلند | بلند آواز نکالتے اسپیکر</annotation>
+		<annotation cp="🔊" type="tts">بلند آواز نکالتے اسپیکر</annotation>
+		<annotation cp="📢">اجتماع | بلند آواز | خطاب | لاؤڈ اسپیکر</annotation>
+		<annotation cp="📢" type="tts">لاؤڈ اسپیکر</annotation>
+		<annotation cp="📣">آلہ | تیز آواز | میگا فون</annotation>
+		<annotation cp="📣" type="tts">میگا فون</annotation>
+		<annotation cp="📯">پوسٹل | ساز | ہارن</annotation>
+		<annotation cp="📯" type="tts">پوسٹل ہارن</annotation>
+		<annotation cp="🔔">آواز | گھنٹی</annotation>
+		<annotation cp="🔔" type="tts">گھنٹی</annotation>
+		<annotation cp="🔕">خاموشی | سکوت | گھنٹی | گھنٹی پر سلیش | ممانعت</annotation>
+		<annotation cp="🔕" type="tts">گھنٹی پر سلیش</annotation>
+		<annotation cp="🎼">اسکور | موسیقی | میوزیکل اسکور</annotation>
+		<annotation cp="🎼" type="tts">میوزیکل اسکور</annotation>
+		<annotation cp="🎵">موسیقی | میوزیکل نوٹ | نوٹ</annotation>
+		<annotation cp="🎵" type="tts">میوزیکل نوٹ</annotation>
+		<annotation cp="🎶">موسیقی | میوزیکل نوٹس | نوٹس</annotation>
+		<annotation cp="🎶" type="tts">میوزیکل نوٹس</annotation>
+		<annotation cp="🎙">اسٹوڈیو | مائیک | مائیکروفون | موسیقی</annotation>
+		<annotation cp="🎙" type="tts">اسٹوڈیو مائیکروفون</annotation>
+		<annotation cp="🎚">سلائیڈر | لیول | موسیقی</annotation>
+		<annotation cp="🎚" type="tts">لیول سلائیڈر</annotation>
+		<annotation cp="🎛">کنٹرول | کنٹرول کرنے والی نابز | موسیقی | نابز</annotation>
+		<annotation cp="🎛" type="tts">کنٹرول کرنے والی نابز</annotation>
+		<annotation cp="🎤">مائیک | مائیکروفون | موسیقی</annotation>
+		<annotation cp="🎤" type="tts">مائیکروفون</annotation>
+		<annotation cp="🎧">موسیقی | ہیڈ فون</annotation>
+		<annotation cp="🎧" type="tts">ہیڈ فون</annotation>
+		<annotation cp="📻">برقی آلہ | ریڈیو</annotation>
+		<annotation cp="📻" type="tts">ریڈیو</annotation>
+		<annotation cp="🎷">آلہ | سیکسو فون | موسیقی</annotation>
+		<annotation cp="🎷" type="tts">سیکسو فون</annotation>
+		<annotation cp="🎸">آلہ | گٹار | موسیقی</annotation>
+		<annotation cp="🎸" type="tts">گٹار</annotation>
+		<annotation cp="🎹">آلہ | کی بورڈ | موسیقی | میوزیکل کی بورڈ</annotation>
+		<annotation cp="🎹" type="tts">میوزیکل کی بورڈ</annotation>
+		<annotation cp="🎺">آلہ | ٹرمپٹ | موسیقی</annotation>
+		<annotation cp="🎺" type="tts">ٹرمپٹ</annotation>
+		<annotation cp="🎻">آلہ | موسیقی | وائلن</annotation>
+		<annotation cp="🎻" type="tts">وائلن</annotation>
+		<annotation cp="🥁">اسٹکس | ڈرم | موسیقی</annotation>
+		<annotation cp="🥁" type="tts">ڈرم</annotation>
+		<annotation cp="📱">برقی آلہ | فون | موبائل</annotation>
+		<annotation cp="📱" type="tts">موبائل فون</annotation>
+		<annotation cp="📲">تیر | تیر کے نشان کے ساتھ موبائل فون | فون | موبائل | نشان</annotation>
+		<annotation cp="📲" type="tts">تیر کے نشان کے ساتھ موبائل فون</annotation>
+		<annotation cp="☎">برقی آلہ | ٹیلیفون | فون</annotation>
+		<annotation cp="☎" type="tts">ٹیلیفون</annotation>
+		<annotation cp="📞">برقی آلہ | ٹیلیفون کا ریسیور | ریسیور | فون</annotation>
+		<annotation cp="📞" type="tts">ٹیلیفون کا ریسیور</annotation>
+		<annotation cp="📟">برقی آلہ | پیجر</annotation>
+		<annotation cp="📟" type="tts">پیجر</annotation>
+		<annotation cp="📠">برقی آلہ | فیکس | فیکس مشین</annotation>
+		<annotation cp="📠" type="tts">فیکس مشین</annotation>
+		<annotation cp="🔋">بیٹری | پاور | قوت</annotation>
+		<annotation cp="🔋" type="tts">بیٹری</annotation>
+		<annotation cp="🔌">الیکٹرک پلگ | برقی | پلگ</annotation>
+		<annotation cp="🔌" type="tts">الیکٹرک پلگ</annotation>
+		<annotation cp="💻">کمپیوٹر | لیپ ٹاپ | لیپ ٹاپ کمپیوٹر</annotation>
+		<annotation cp="💻" type="tts">لیپ ٹاپ کمپیوٹر</annotation>
+		<annotation cp="🖥">ڈیسک ٹاپ | ڈیسک ٹاپ کمپیوٹر | کمپیوٹر</annotation>
+		<annotation cp="🖥" type="tts">ڈیسک ٹاپ کمپیوٹر</annotation>
+		<annotation cp="🖨">پرنٹ | پرنٹر | کمپیوٹر</annotation>
+		<annotation cp="🖨" type="tts">پرنٹر</annotation>
+		<annotation cp="⌨">ٹائپنگ | کمپیوٹر | کی بورڈ</annotation>
+		<annotation cp="⌨" type="tts">کی بورڈ</annotation>
+		<annotation cp="🖱">کرسر | کمپیوٹر | کمپیوٹر ماؤس</annotation>
+		<annotation cp="🖱" type="tts">کمپیوٹر ماؤس</annotation>
+		<annotation cp="🖲">بال | ٹریک | کمپیوٹر</annotation>
+		<annotation cp="🖲" type="tts">ٹریک بال</annotation>
+		<annotation cp="💽">ڈسک | کمپیوٹر | منی</annotation>
+		<annotation cp="💽" type="tts">منی ڈسک</annotation>
+		<annotation cp="💾">ڈسک | فلاپی | کمپیوٹر</annotation>
+		<annotation cp="💾" type="tts">فلاپی ڈسک</annotation>
+		<annotation cp="💿">آپٹکل | ڈسک | کمپیوٹر</annotation>
+		<annotation cp="💿" type="tts">آپٹکل ڈسک</annotation>
+		<annotation cp="📀">ڈسک | ڈی وی ڈی | کمپیوٹر</annotation>
+		<annotation cp="📀" type="tts">ڈی وی ڈی</annotation>
+		<annotation cp="🧮">حساب کتاب | گِنتارا</annotation>
+		<annotation cp="🧮" type="tts">گِنتارا</annotation>
+		<annotation cp="🎥">سینما | فلم | کیمرا | مووی کیمرا</annotation>
+		<annotation cp="🎥" type="tts">مووی کیمرا</annotation>
+		<annotation cp="🎞">سینما | فریم | فلم | فلم کے فریم</annotation>
+		<annotation cp="🎞" type="tts">فلم کے فریم</annotation>
+		<annotation cp="📽">پروجیکٹر | سینما | فلم</annotation>
+		<annotation cp="📽" type="tts">فلم پروجیکٹر</annotation>
+		<annotation cp="🎬">فلم | کلیپر | کلیپر بورڈ</annotation>
+		<annotation cp="🎬" type="tts">کلیپر بورڈ</annotation>
+		<annotation cp="📺">ٹی وی | ٹیلی ویژن | ویڈیو</annotation>
+		<annotation cp="📺" type="tts">ٹیلی ویژن</annotation>
+		<annotation cp="📷">کیمرا | ویڈیو</annotation>
+		<annotation cp="📷" type="tts">کیمرا</annotation>
+		<annotation cp="📸">فلیش | فلیش والا کیمرا | کیمرا | ویڈیو</annotation>
+		<annotation cp="📸" type="tts">فلیش والا کیمرا</annotation>
+		<annotation cp="📹">کیمرا | ویڈیو</annotation>
+		<annotation cp="📹" type="tts">ویڈیو کیمرا</annotation>
+		<annotation cp="📼">ٹیپ | ویڈیو | ویڈیو کیسٹ</annotation>
+		<annotation cp="📼" type="tts">ویڈیو کیسٹ</annotation>
+		<annotation cp="🔍">آلہ | اشارہ | بائیں | بائیں اشارہ کرتا محدب عدسہ | سمت | عدسہ | محدب</annotation>
+		<annotation cp="🔍" type="tts">بائیں اشارہ کرتا محدب عدسہ</annotation>
+		<annotation cp="🔎">آلہ | اشارہ | دائیں | دائیں اشارہ کرتا محدب عدسہ | سمت | عدسہ | محدب</annotation>
+		<annotation cp="🔎" type="tts">دائیں اشارہ کرتا محدب عدسہ</annotation>
+		<annotation cp="🕯">بتی | روشنی | موم</annotation>
+		<annotation cp="🕯" type="tts">موم بتی</annotation>
+		<annotation cp="💡">برقی | بلب | روشنی | لائٹ بلب</annotation>
+		<annotation cp="💡" type="tts">لائٹ بلب</annotation>
+		<annotation cp="🔦">برقی | ٹارچ | روشنی | فلیش | فلیش لائٹ</annotation>
+		<annotation cp="🔦" type="tts">فلیش لائٹ</annotation>
+		<annotation cp="🏮">بار | روشنی | سرخ | سرخ کاغذی لالٹین | سرخ مرچ | لالٹین</annotation>
+		<annotation cp="🏮" type="tts">سرخ کاغذی لالٹین</annotation>
+		<annotation cp="📔">سجاوٹ | سجاوٹی کوور والی نوٹ بک | کتاب | کوور | نوٹ بک</annotation>
+		<annotation cp="📔" type="tts">سجاوٹی کوور والی نوٹ بک</annotation>
+		<annotation cp="📕">بند | کتاب</annotation>
+		<annotation cp="📕" type="tts">بند کتاب</annotation>
+		<annotation cp="📖">کتاب | کھلی</annotation>
+		<annotation cp="📖" type="tts">کھلی کتاب</annotation>
+		<annotation cp="📗">رنگ | سبز | کتاب</annotation>
+		<annotation cp="📗" type="tts">سبز کتاب</annotation>
+		<annotation cp="📘">رنگ | کتاب | نیلا | نیلی کتاب</annotation>
+		<annotation cp="📘" type="tts">نیلی کتاب</annotation>
+		<annotation cp="📙">رنگ | کتاب | نارنجی</annotation>
+		<annotation cp="📙" type="tts">نارنجی کتاب</annotation>
+		<annotation cp="📚">کتاب | کتابیں</annotation>
+		<annotation cp="📚" type="tts">کتابیں</annotation>
+		<annotation cp="📓">کتاب | نوٹ بک</annotation>
+		<annotation cp="📓" type="tts">نوٹ بک</annotation>
+		<annotation cp="📒">لیجر | نوٹ بک</annotation>
+		<annotation cp="📒" type="tts">لیجر</annotation>
+		<annotation cp="📃">دستاویز | صفحہ | مڑا ہوا | مڑا ہوا صفحہ</annotation>
+		<annotation cp="📃" type="tts">مڑا ہوا صفحہ</annotation>
+		<annotation cp="📜">اسکرول | صفحہ</annotation>
+		<annotation cp="📜" type="tts">اسکرول</annotation>
+		<annotation cp="📄">سامنے | صفحہ | صفحے کا سامنے والا حصہ</annotation>
+		<annotation cp="📄" type="tts">صفحے کا سامنے والا حصہ</annotation>
+		<annotation cp="📰">اخبار | اطلاع | خبر | معلومات</annotation>
+		<annotation cp="📰" type="tts">اخبار</annotation>
+		<annotation cp="🗞">اخبار | رول | رول کیا ہوا اخبار | کاغذ</annotation>
+		<annotation cp="🗞" type="tts">رول کیا ہوا اخبار</annotation>
+		<annotation cp="📑">بک مارک | بُک مارک ٹیبز | ٹیبز</annotation>
+		<annotation cp="📑" type="tts">بُک مارک ٹیبز</annotation>
+		<annotation cp="🔖">بک مارک | بُک مارک</annotation>
+		<annotation cp="🔖" type="tts">بُک مارک</annotation>
+		<annotation cp="🏷">ٹیگ | لیبل</annotation>
+		<annotation cp="🏷" type="tts">لیبل</annotation>
+		<annotation cp="💰">بیگ | پیسوں کا بیگ | ڈالر | رقم</annotation>
+		<annotation cp="💰" type="tts">پیسوں کا بیگ</annotation>
+		<annotation cp="💴">بنک | رقم | نوٹ | ین | ین بینک نوٹ</annotation>
+		<annotation cp="💴" type="tts">ین بینک نوٹ</annotation>
+		<annotation cp="💵">بنک | ڈالر | ڈالر بینک نوٹ | رقم | نوٹ</annotation>
+		<annotation cp="💵" type="tts">ڈالر بینک نوٹ</annotation>
+		<annotation cp="💶">بنک | رقم | نوٹ | یورو | یورو بینک نوٹ</annotation>
+		<annotation cp="💶" type="tts">یورو بینک نوٹ</annotation>
+		<annotation cp="💷">بنک | پاؤنڈ | پاؤنڈ بینک نوٹ | رقم | نوٹ</annotation>
+		<annotation cp="💷" type="tts">پاؤنڈ بینک نوٹ</annotation>
+		<annotation cp="💸">اڑنا | بنک | پر | پروں والے نوٹ | ڈالر | رقم | نوٹ</annotation>
+		<annotation cp="💸" type="tts">پروں والے نوٹ</annotation>
+		<annotation cp="💳">بنک | رقم | کارڈ | کریڈٹ</annotation>
+		<annotation cp="💳" type="tts">کریڈٹ کارڈ</annotation>
+		<annotation cp="🧾">اکاؤنٹنگ | ثبوت | حساب نویسی | رسید | شہادت</annotation>
+		<annotation cp="🧾" type="tts">رسید</annotation>
+		<annotation cp="💹">اضافہ | بنک | چارٹ | رقم | گراف | ین | ین کے ساتھ صعودی چارٹ</annotation>
+		<annotation cp="💹" type="tts">ین کے ساتھ صعودی چارٹ</annotation>
+		<annotation cp="💱">بنک | تبادلہ | رقم | کرنسی | کرنسی کا تبادلہ</annotation>
+		<annotation cp="💱" type="tts">کرنسی کا تبادلہ</annotation>
+		<annotation cp="💲">بنک | بھاری ڈالر سائن | ڈالر | رقم | کرنسی</annotation>
+		<annotation cp="💲" type="tts">بھاری ڈالر سائن</annotation>
+		<annotation cp="✉">پیغام | ڈاک | لفافہ</annotation>
+		<annotation cp="✉" type="tts">لفافہ</annotation>
+		<annotation cp="📧">ای میل | پیغام | خط</annotation>
+		<annotation cp="📧" type="tts">ای میل</annotation>
+		<annotation cp="📨">آتا ہوا لفافہ | ای میل | پیغام | ڈاک | وصولی</annotation>
+		<annotation cp="📨" type="tts">آتا ہوا لفافہ</annotation>
+		<annotation cp="📩">ای میل | پیغام | تیر | تیر کا نشان اور لفافہ | ڈاک | نشان</annotation>
+		<annotation cp="📩" type="tts">تیر کا نشان اور لفافہ</annotation>
+		<annotation cp="📤">آؤٹ باکس ٹرے | بھیجا ہوا | ٹرے | خط</annotation>
+		<annotation cp="📤" type="tts">آؤٹ باکس ٹرے</annotation>
+		<annotation cp="📥">ان باکس ٹرے | ٹرے | خط | موصولہ</annotation>
+		<annotation cp="📥" type="tts">ان باکس ٹرے</annotation>
+		<annotation cp="📦">باکس | پارسل | پیکج</annotation>
+		<annotation cp="📦" type="tts">پیکج</annotation>
+		<annotation cp="📫">باکس | بلند جھنڈا | بلند جھنڈے والا بند میل باکس | بند | میل</annotation>
+		<annotation cp="📫" type="tts">بلند جھنڈے والا بند میل باکس</annotation>
+		<annotation cp="📪">باکس | بند | جھکا جھنڈا | جھکے ہوئے جھنڈے والا بند میل باکس | میل</annotation>
+		<annotation cp="📪" type="tts">جھکے ہوئے جھنڈے والا بند میل باکس</annotation>
+		<annotation cp="📬">باکس | بلند جھنڈا | بلند جھنڈے والا کھلا میل باکس | کھلا | میل</annotation>
+		<annotation cp="📬" type="tts">بلند جھنڈے والا کھلا میل باکس</annotation>
+		<annotation cp="📭">باکس | جھکا جھنڈا | جھکے ہوئے جھنڈے والا کھلا میل باکس | کھلا | میل</annotation>
+		<annotation cp="📭" type="tts">جھکے ہوئے جھنڈے والا کھلا میل باکس</annotation>
+		<annotation cp="📮">باکس | پوسٹ باکس | میل</annotation>
+		<annotation cp="📮" type="tts">پوسٹ باکس</annotation>
+		<annotation cp="🗳">باکس | بیلٹ | بیلٹ کے ساتھ بیلٹ باکس</annotation>
+		<annotation cp="🗳" type="tts">بیلٹ کے ساتھ بیلٹ باکس</annotation>
+		<annotation cp="✏">اسٹیشنری | پنسل</annotation>
+		<annotation cp="✏" type="tts">پنسل</annotation>
+		<annotation cp="✒">اسٹیشنری | پن | سیاہ | نب</annotation>
+		<annotation cp="✒" type="tts">سیاہ نب</annotation>
+		<annotation cp="🖋">اسٹیشنری | پن | فاؤنٹین پن</annotation>
+		<annotation cp="🖋" type="tts">فاؤنٹین پن</annotation>
+		<annotation cp="🖊">اسٹیشنری | بال پن | پن</annotation>
+		<annotation cp="🖊" type="tts">پن</annotation>
+		<annotation cp="🖌">اسٹیشنری | برش | پینٹ برش | پینٹنگ</annotation>
+		<annotation cp="🖌" type="tts">پینٹ برش</annotation>
+		<annotation cp="🖍">اسٹیشنری | رنگ | کرے آن</annotation>
+		<annotation cp="🖍" type="tts">کرے آن</annotation>
+		<annotation cp="📝">اسٹیشنری | پنسل | میمو</annotation>
+		<annotation cp="📝" type="tts">میمو</annotation>
+		<annotation cp="💼">اسٹیشنری | بریف کیس</annotation>
+		<annotation cp="💼" type="tts">بریف کیس</annotation>
+		<annotation cp="📁">اسٹیشنری | فائل | فولڈر</annotation>
+		<annotation cp="📁" type="tts">فائل فولڈر</annotation>
+		<annotation cp="📂">اسٹیشنری | فائل | فولڈر | کھلا</annotation>
+		<annotation cp="📂" type="tts">کھلا فائل فولڈر</annotation>
+		<annotation cp="🗂">اسٹیشنری | انڈیکس | تقسیم کار | کارڈ | کارڈ انڈیکس کے تقسیم کار</annotation>
+		<annotation cp="🗂" type="tts">کارڈ انڈیکس کے تقسیم کار</annotation>
+		<annotation cp="📅">اسٹیشنری | تاریخ | کیلنڈر</annotation>
+		<annotation cp="📅" type="tts">کیلنڈر</annotation>
+		<annotation cp="📆">اسٹیشنری | ٹیئر آف کیلنڈر | قسم | کیلنڈر</annotation>
+		<annotation cp="📆" type="tts">ٹیئر آف کیلنڈر</annotation>
+		<annotation cp="🗒">اسٹیشنری | سپائرل | سپائرل نوٹ بک | نوٹ بک</annotation>
+		<annotation cp="🗒" type="tts">سپائرل نوٹ بک</annotation>
+		<annotation cp="🗓">اسٹیشنری | سپائرل | کیلنڈر</annotation>
+		<annotation cp="🗓" type="tts">سپائرل کیلنڈر</annotation>
+		<annotation cp="📇">اسٹیشنری | انڈیکس | کارڈ</annotation>
+		<annotation cp="📇" type="tts">کارڈ انڈیکس</annotation>
+		<annotation cp="📈">اسٹیشنری | بڑھوتری | چارٹ | صعودی چارٹ</annotation>
+		<annotation cp="📈" type="tts">صعودی چارٹ</annotation>
+		<annotation cp="📉">اسٹیشنری | تنزلی | چارٹ</annotation>
+		<annotation cp="📉" type="tts">تنزلی چارٹ</annotation>
+		<annotation cp="📊">اسٹیشنری | بار | چارٹ | گراف</annotation>
+		<annotation cp="📊" type="tts">بار چارٹ</annotation>
+		<annotation cp="📋">اسٹیشنری | کلپ بورڈ</annotation>
+		<annotation cp="📋" type="tts">کلپ بورڈ</annotation>
+		<annotation cp="📌">اسٹیشنری | پُش پن | پِن</annotation>
+		<annotation cp="📌" type="tts">پُش پن</annotation>
+		<annotation cp="📍">اسٹیشنری | پِن | گول | گول پُش پن</annotation>
+		<annotation cp="📍" type="tts">گول پُش پن</annotation>
+		<annotation cp="📎">اسٹیشنری | پیپر | کلپ</annotation>
+		<annotation cp="📎" type="tts">پیپر کلپ</annotation>
+		<annotation cp="🖇">اسٹیشنری | پیپر | جڑے ہوئے | جڑے ہوئے پیپر کلپس | کلپ</annotation>
+		<annotation cp="🖇" type="tts">جڑے ہوئے پیپر کلپس</annotation>
+		<annotation cp="📏">اسٹریٹ رولر | اسٹیشنری | رولر | سیدھا</annotation>
+		<annotation cp="📏" type="tts">اسٹریٹ رولر</annotation>
+		<annotation cp="📐">اسٹیشنری | تکونی | رولر</annotation>
+		<annotation cp="📐" type="tts">تکونی رولر</annotation>
+		<annotation cp="✂">آلہ | اسٹیشنری | قینچی</annotation>
+		<annotation cp="✂" type="tts">قینچی</annotation>
+		<annotation cp="🗃">اسٹیشنری | باکس | فائل | کارڈ</annotation>
+		<annotation cp="🗃" type="tts">کارڈ فائل باکس</annotation>
+		<annotation cp="🗄">اسٹیشنری | فائل | کیبنٹ</annotation>
+		<annotation cp="🗄" type="tts">فائل کیبنٹ</annotation>
+		<annotation cp="🗑">ٹوکری | ردی | ردی کی ٹوکری</annotation>
+		<annotation cp="🗑" type="tts">ردی کی ٹوکری</annotation>
+		<annotation cp="🔒">بند | لاک</annotation>
+		<annotation cp="🔒" type="tts">لاک</annotation>
+		<annotation cp="🔓">کھلا | لاک</annotation>
+		<annotation cp="🔓" type="tts">کھلا لاک</annotation>
+		<annotation cp="🔏">پرائیویسی | پن | پن کے ساتھ لاک | لاک</annotation>
+		<annotation cp="🔏" type="tts">پن کے ساتھ لاک</annotation>
+		<annotation cp="🔐">بند | چابی | چابی کے ساتھ بند لاک | لاک | محفوظ</annotation>
+		<annotation cp="🔐" type="tts">چابی کے ساتھ بند لاک</annotation>
+		<annotation cp="🔑">پاسورڈ | چابی | لاک</annotation>
+		<annotation cp="🔑" type="tts">چابی</annotation>
+		<annotation cp="🗝">پاسورڈ | پرانا | پرانی چابی | لاک</annotation>
+		<annotation cp="🗝" type="tts">پرانی چابی</annotation>
+		<annotation cp="🔨">آلہ | ہتھوڑا</annotation>
+		<annotation cp="🔨" type="tts">ہتھوڑا</annotation>
+		<annotation cp="⛏">آلہ | کدال</annotation>
+		<annotation cp="⛏" type="tts">کدال</annotation>
+		<annotation cp="⚒">آلہ | کدال | ہتھوڑا | ہتھوڑا اور کدال</annotation>
+		<annotation cp="⚒" type="tts">ہتھوڑا اور کدال</annotation>
+		<annotation cp="🛠">آلہ | رینچ | ہتھوڑا | ہتھوڑا اور رینچ</annotation>
+		<annotation cp="🛠" type="tts">ہتھوڑا اور رینچ</annotation>
+		<annotation cp="🗡">آلہ | خنجر | ہتھیار</annotation>
+		<annotation cp="🗡" type="tts">خنجر</annotation>
+		<annotation cp="⚔">تلواریں | کراس | کراس کی شکل بناتی تلواریں | ہتھیار</annotation>
+		<annotation cp="⚔" type="tts">کراس کی شکل بناتی تلواریں</annotation>
+		<annotation cp="🔫">پستول | ہتھیار</annotation>
+		<annotation cp="🔫" type="tts">پستول</annotation>
+		<annotation cp="🏹">تیر | تیر اور کمان | جنگ | کمان | ہتھیار</annotation>
+		<annotation cp="🏹" type="tts">تیر اور کمان</annotation>
+		<annotation cp="🛡">حفاظت | شیلڈ | ہتھیار</annotation>
+		<annotation cp="🛡" type="tts">شیلڈ</annotation>
+		<annotation cp="🔧">آلہ | رینچ</annotation>
+		<annotation cp="🔧" type="tts">رینچ</annotation>
+		<annotation cp="🔩">آلہ | بولٹ | نٹ | نٹ اور بولٹ</annotation>
+		<annotation cp="🔩" type="tts">نٹ اور بولٹ</annotation>
+		<annotation cp="⚙">آلہ | گراری | گیئر</annotation>
+		<annotation cp="⚙" type="tts">گیئر</annotation>
+		<annotation cp="🗜">آلہ | کمپریشن</annotation>
+		<annotation cp="🗜" type="tts">کمپریشن</annotation>
+		<annotation cp="⚖">آلہ | برابر | برابر پلڑوں والا ترازو | پلڑے | ترازو</annotation>
+		<annotation cp="⚖" type="tts">برابر پلڑوں والا ترازو</annotation>
+		<annotation cp="🔗">تالا | جوڑ | رابطہ | لنک</annotation>
+		<annotation cp="🔗" type="tts">لنک</annotation>
+		<annotation cp="⛓">آلہ | زنجیر | زنجیریں</annotation>
+		<annotation cp="⛓" type="tts">زنجیریں</annotation>
+		<annotation cp="🧰">اوزار | ٹُول بکس | صندوق | مکینک</annotation>
+		<annotation cp="🧰" type="tts">ٹُول بکس</annotation>
+		<annotation cp="🧲">کشش | گھڑ نعل | مقناطیس | مقناطیسی</annotation>
+		<annotation cp="🧲" type="tts">مقناطیس</annotation>
+		<annotation cp="⚗">آلہ | الیمبک</annotation>
+		<annotation cp="⚗" type="tts">الیمبک</annotation>
+		<annotation cp="🧪">تجربہ | ٹیسٹ ٹیوب | سائنس | کیمسٹ | کیمسٹری | لیب</annotation>
+		<annotation cp="🧪" type="tts">ٹیسٹ ٹیوب</annotation>
+		<annotation cp="🧫">بائیالوجسٹ | بائیالوجی | بیکٹیریا | پیٹری ڈش | ثقافت | لیب</annotation>
+		<annotation cp="🧫" type="tts">پیٹری ڈش</annotation>
+		<annotation cp="🧬">ارتقاء | بائیالوجسٹ | جین | جینیات | ڈی این اے | زندگی</annotation>
+		<annotation cp="🧬" type="tts">ڈی این اے</annotation>
+		<annotation cp="🔬">آلہ | سکوپ | مائیکرو | مائیکروسکوپ</annotation>
+		<annotation cp="🔬" type="tts">مائیکروسکوپ</annotation>
+		<annotation cp="🔭">آلہ | ٹیلی | سکوپ</annotation>
+		<annotation cp="🔭" type="tts">ٹیلی سکوپ</annotation>
+		<annotation cp="📡">آلہ | انٹینا | ڈش | سٹلائٹ | سیٹلائٹ انٹینا</annotation>
+		<annotation cp="📡" type="tts">سیٹلائٹ انٹینا</annotation>
+		<annotation cp="💉">آلہ | دوائی | ڈاکٹر | سرنج | سوئی</annotation>
+		<annotation cp="💉" type="tts">سرنج</annotation>
+		<annotation cp="💊">بیماری | دوائی | ڈاکٹر | گولی</annotation>
+		<annotation cp="💊" type="tts">گولی</annotation>
+		<annotation cp="🚪">چوکھٹ | داخلی دروازہ | دروازہ | دہلیز | راستہ</annotation>
+		<annotation cp="🚪" type="tts">دروازہ</annotation>
+		<annotation cp="🛏">بستر | نیند | ہوٹل</annotation>
+		<annotation cp="🛏" type="tts">بستر</annotation>
+		<annotation cp="🛋">کاؤچ | کاؤچ اور لیمپ | لیمپ | ہوٹل</annotation>
+		<annotation cp="🛋" type="tts">کاؤچ اور لیمپ</annotation>
+		<annotation cp="🚽">بیت الخلا | ٹائلٹ | غسل خانہ</annotation>
+		<annotation cp="🚽" type="tts">بیت الخلا</annotation>
+		<annotation cp="🚿">پانی | شاور</annotation>
+		<annotation cp="🚿" type="tts">شاور</annotation>
+		<annotation cp="🛁">نہانا | نہانے کا ٹب</annotation>
+		<annotation cp="🛁" type="tts">نہانے کا ٹب</annotation>
+		<annotation cp="🧴">سورج کی تمازت سے بچنے کے لیے جِلدی کریم | شیمپو | لوشن | لوشن کی بوتل | موئسچرائزر</annotation>
+		<annotation cp="🧴" type="tts">لوشن کی بوتل</annotation>
+		<annotation cp="🧷">پَنک راک | حِفاظتی پِن | ڈائپر</annotation>
+		<annotation cp="🧷" type="tts">حِفاظتی پِن</annotation>
+		<annotation cp="🧹">جادوگرنی | جھاڑو | جھاڑو لگانا | صفائی</annotation>
+		<annotation cp="🧹" type="tts">جھاڑو</annotation>
+		<annotation cp="🧺">پکنک | ٹوکری | فارمنگ | لانڈری</annotation>
+		<annotation cp="🧺" type="tts">ٹوکری</annotation>
+		<annotation cp="🧻">ٹوائلٹ پیپر | کاغذی تولیے | کاغذی رول</annotation>
+		<annotation cp="🧻" type="tts">کاغذی رول</annotation>
+		<annotation cp="🧼">ٹکیہ | جھاگ | صابن | صابن کی ڈش | صفائی | غسل</annotation>
+		<annotation cp="🧼" type="tts">صابن</annotation>
+		<annotation cp="🧽">اسفنج | جذب کرنے والا | صفائی | مسام دار</annotation>
+		<annotation cp="🧽" type="tts">اسفنج</annotation>
+		<annotation cp="🧯">آتش | آگ بجھانا | آگ بُجھانے والا آلہ | ٹھنڈا کرنا</annotation>
+		<annotation cp="🧯" type="tts">آگ بُجھانے والا آلہ</annotation>
+		<annotation cp="🛒">ٹرالی | شاپنگ</annotation>
+		<annotation cp="🛒" type="tts">شاپنگ ٹرالی</annotation>
+		<annotation cp="🚬">دھواں | سگریٹ کشی | سگریٹ نوشی</annotation>
+		<annotation cp="🚬" type="tts">سگریٹ نوشی</annotation>
+		<annotation cp="⚰">تابوت | جنازہ | کفن | موت</annotation>
+		<annotation cp="⚰" type="tts">تابوت</annotation>
+		<annotation cp="⚱">برتن | راکھ | مردے کی راکھ والا مرتبان | موت</annotation>
+		<annotation cp="⚱" type="tts">مردے کی راکھ والا مرتبان</annotation>
+		<annotation cp="🗿">چہرہ | مجسمہ | موآئی</annotation>
+		<annotation cp="🗿" type="tts">موآئی</annotation>
+		<annotation cp="🏧">آٹو میٹک | اے ٹی ایم | اے ٹی ایم کی علامت | بنک | رقم</annotation>
+		<annotation cp="🏧" type="tts">اے ٹی ایم کی علامت</annotation>
+		<annotation cp="🚮">ٹوکری | ردی | کوڑا ٹوکری میں کا سائن</annotation>
+		<annotation cp="🚮" type="tts">کوڑا ٹوکری میں کا سائن</annotation>
+		<annotation cp="🚰">پانی | پینا | پینے کا پانی</annotation>
+		<annotation cp="🚰" type="tts">پینے کا پانی</annotation>
+		<annotation cp="♿">پہیے | رسائی | کرسی | وہیل چیئر</annotation>
+		<annotation cp="♿" type="tts">وہیل چیئر</annotation>
+		<annotation cp="🚹">ٹوائلٹ | مرد | مردوں کا ٹوائلٹ</annotation>
+		<annotation cp="🚹" type="tts">مردوں کا ٹوائلٹ</annotation>
+		<annotation cp="🚺">ٹوائلٹ | عورتوں کا ٹوائلٹ | عورتیں</annotation>
+		<annotation cp="🚺" type="tts">عورتوں کا ٹوائلٹ</annotation>
+		<annotation cp="🚻">ٹوائلٹ | ریسٹ روم | کمرہ</annotation>
+		<annotation cp="🚻" type="tts">ریسٹ روم</annotation>
+		<annotation cp="🚼">بے بی | بے بی کی علامت | سائن</annotation>
+		<annotation cp="🚼" type="tts">بے بی کی علامت</annotation>
+		<annotation cp="🚾">ٹوائلٹ | کمرہ | واش روم</annotation>
+		<annotation cp="🚾" type="tts">واش روم</annotation>
+		<annotation cp="🛂">پاسپورٹ | کنٹرول</annotation>
+		<annotation cp="🛂" type="tts">پاسپورٹ کنٹرول</annotation>
+		<annotation cp="🛃">ادارہ | کسٹمز</annotation>
+		<annotation cp="🛃" type="tts">کسٹمز</annotation>
+		<annotation cp="🛄">سامان | سامان کا کلیم | کلیم</annotation>
+		<annotation cp="🛄" type="tts">سامان کا کلیم</annotation>
+		<annotation cp="🛅">چُھوٹا ہوا سامان | سامان | لاکر | محفوظ</annotation>
+		<annotation cp="🛅" type="tts">چُھوٹا ہوا سامان</annotation>
+		<annotation cp="⚠">انتباہ | ٹریفک | سائن</annotation>
+		<annotation cp="⚠" type="tts">انتباہ</annotation>
+		<annotation cp="🚸">بچوں کے گزرنے کا سائن | بچے | ٹریفک | سائن | سڑک</annotation>
+		<annotation cp="🚸" type="tts">بچوں کے گزرنے کا سائن</annotation>
+		<annotation cp="⛔">ٹریفک | داخلہ | داخلہ ممنوع | سائن | منع</annotation>
+		<annotation cp="⛔" type="tts">داخلہ ممنوع</annotation>
+		<annotation cp="🚫">ٹریفک | داخلہ | سائن | ممنوع | منع</annotation>
+		<annotation cp="🚫" type="tts">ممنوع</annotation>
+		<annotation cp="🚳">ٹریفک | سائن | سائیکل | سائیکلیں ممنوع | منع</annotation>
+		<annotation cp="🚳" type="tts">سائیکلیں ممنوع</annotation>
+		<annotation cp="🚭">ٹریفک | سائن | سگریٹ کشی | سگریٹ کشی منع ہے | منع</annotation>
+		<annotation cp="🚭" type="tts">سگریٹ کشی منع ہے</annotation>
+		<annotation cp="🚯">سائن | کوڑا | کوڑا پھینکنا منع ہے | منع</annotation>
+		<annotation cp="🚯" type="tts">کوڑا پھینکنا منع ہے</annotation>
+		<annotation cp="🚱">پانی | پینا | سائن | منع | نا پینے والا پانی</annotation>
+		<annotation cp="🚱" type="tts">نا پینے والا پانی</annotation>
+		<annotation cp="🚷">پیدل | پیدل چلنے والے ممنوع | ٹریفک | سائن | منع</annotation>
+		<annotation cp="🚷" type="tts">پیدل چلنے والے ممنوع</annotation>
+		<annotation cp="📵">فون | منع | موبائل | موبائل فون ممنوع</annotation>
+		<annotation cp="📵" type="tts">موبائل فون ممنوع</annotation>
+		<annotation cp="🔞">اٹھارہ | اٹھارہ سے کم عمر کی اجازت نہیں | پابندی | سائن | عمر</annotation>
+		<annotation cp="🔞" type="tts">اٹھارہ سے کم عمر کی اجازت نہیں</annotation>
+		<annotation cp="☢">تابکار | تابکاری | شعاعیں</annotation>
+		<annotation cp="☢" type="tts">تابکاری</annotation>
+		<annotation cp="☣">جاندار | حیات | زندگی کے لیے مضر | نقصان دہ</annotation>
+		<annotation cp="☣" type="tts">زندگی کے لیے مضر</annotation>
+		<annotation cp="⬆">اوپر کا تیر | تیر | سائن | سمت | شمال</annotation>
+		<annotation cp="⬆" type="tts">اوپر کا تیر</annotation>
+		<annotation cp="↗">اوپر دائیں تیر | تیر | سائن | سمت | شمال مشرق</annotation>
+		<annotation cp="↗" type="tts">اوپر دائیں تیر</annotation>
+		<annotation cp="➡">تیر | دائیں تیر | سائن | سمت | مشرق</annotation>
+		<annotation cp="➡" type="tts">دائیں تیر</annotation>
+		<annotation cp="↘">تیر | جنوب مشرق | سائن | سمت | نیچے دائیں تیر</annotation>
+		<annotation cp="↘" type="tts">نیچے دائیں تیر</annotation>
+		<annotation cp="⬇">تیر | جنوب | سائن | سمت | نیچے کا تیر</annotation>
+		<annotation cp="⬇" type="tts">نیچے کا تیر</annotation>
+		<annotation cp="↙">تیر | جنوب مغرب | سائن | سمت | نیچے بائیں تیر</annotation>
+		<annotation cp="↙" type="tts">نیچے بائیں تیر</annotation>
+		<annotation cp="⬅">بائیں تیر | تیر | سائن | سمت | مغرب</annotation>
+		<annotation cp="⬅" type="tts">بائیں تیر</annotation>
+		<annotation cp="↖">اوپر بائیں تیر | تیر | سائن | سمت | شمال مغرب</annotation>
+		<annotation cp="↖" type="tts">اوپر بائیں تیر</annotation>
+		<annotation cp="↕">اوپر نیچے تیر | تیر | سائن | سمت</annotation>
+		<annotation cp="↕" type="tts">اوپر نیچے تیر</annotation>
+		<annotation cp="↔">تیر | دائیں بائیں تیر | سائن | سمت</annotation>
+		<annotation cp="↔" type="tts">دائیں بائیں تیر</annotation>
+		<annotation cp="↩">بائیں مڑتا ہوا دائیں تیر | تیر | سائن | سمت</annotation>
+		<annotation cp="↩" type="tts">بائیں مڑتا ہوا دائیں تیر</annotation>
+		<annotation cp="↪">تیر | دائیں مڑتا ہوا بائیں تیر | سائن | سمت</annotation>
+		<annotation cp="↪" type="tts">دائیں مڑتا ہوا بائیں تیر</annotation>
+		<annotation cp="⤴">اوپر مڑتا ہوا دائیں تیر | تیر | سائن | سمت</annotation>
+		<annotation cp="⤴" type="tts">اوپر مڑتا ہوا دائیں تیر</annotation>
+		<annotation cp="⤵">تیر | سائن | سمت | نیچے مڑتا ہوا دائیں تیر</annotation>
+		<annotation cp="⤵" type="tts">نیچے مڑتا ہوا دائیں تیر</annotation>
+		<annotation cp="🔃">تیر | سائن | سمت | گھڑی کی سمت | گھڑی کی سمت میں عمودی تیر</annotation>
+		<annotation cp="🔃" type="tts">گھڑی کی سمت میں عمودی تیر</annotation>
+		<annotation cp="🔄">تیر | سائن | سمت | گھڑی کی مخالف سمت | گھڑی کی مخالف سمت میں تیر بٹن</annotation>
+		<annotation cp="🔄" type="tts">گھڑی کی مخالف سمت میں تیر بٹن</annotation>
+		<annotation cp="🔙">پیچھے | تیر | واپسی تیر</annotation>
+		<annotation cp="🔙" type="tts">واپسی تیر</annotation>
+		<annotation cp="🔚">اختتام | تیر</annotation>
+		<annotation cp="🔚" type="tts">اختتام تیر</annotation>
+		<annotation cp="🔛">آن | آن! تیر | تیر</annotation>
+		<annotation cp="🔛" type="tts">آن! تیر</annotation>
+		<annotation cp="🔜">تیر | جلد</annotation>
+		<annotation cp="🔜" type="tts">جلد تیر</annotation>
+		<annotation cp="🔝">اوپر | بالا تیر | تیر</annotation>
+		<annotation cp="🔝" type="tts">بالا تیر</annotation>
+		<annotation cp="🛐">جگہ | عبادت | عبادت گاہ | مذہب</annotation>
+		<annotation cp="🛐" type="tts">عبادت گاہ</annotation>
+		<annotation cp="⚛">ایٹم | ایٹم کی علامت | لادین</annotation>
+		<annotation cp="⚛" type="tts">ایٹم کی علامت</annotation>
+		<annotation cp="🕉">اوم | مذہب | ہندو</annotation>
+		<annotation cp="🕉" type="tts">اوم</annotation>
+		<annotation cp="✡">پیغمبر | داؤد | داؤد کا ستارہ | ستارہ | مذہب | یہودی</annotation>
+		<annotation cp="✡" type="tts">داؤد کا ستارہ</annotation>
+		<annotation cp="☸">بدھ مت | پہیہ | دھرم | دھرم چکر | مذہب</annotation>
+		<annotation cp="☸" type="tts">دھرم چکر</annotation>
+		<annotation cp="☯">تاؤ | مذہب | ین | ین یینگ</annotation>
+		<annotation cp="☯" type="tts">ین یینگ</annotation>
+		<annotation cp="✝">عیسائیت | کراس | لاطینی کراس | مذہب</annotation>
+		<annotation cp="✝" type="tts">لاطینی کراس</annotation>
+		<annotation cp="☦">روایتی مذہبی کراس | عیسائیت | کراس | مذہب</annotation>
+		<annotation cp="☦" type="tts">روایتی مذہبی کراس</annotation>
+		<annotation cp="☪">اسلام | ستارہ اور ہلال | ستارہ و ہلال | مذہب | مسلمان</annotation>
+		<annotation cp="☪" type="tts">ستارہ اور ہلال</annotation>
+		<annotation cp="☮">امن | امن کا نشان | نشان</annotation>
+		<annotation cp="☮" type="tts">امن کا نشان</annotation>
+		<annotation cp="🕎">کینڈل اسٹک | مذہب | مینورہ</annotation>
+		<annotation cp="🕎" type="tts">مینورہ</annotation>
+		<annotation cp="🔯">چھ | ستارہ | قسمت | کونے | نکتہ دار چھ کونوں والا ستارہ</annotation>
+		<annotation cp="🔯" type="tts">نکتہ دار چھ کونوں والا ستارہ</annotation>
+		<annotation cp="♈">برج | حمل</annotation>
+		<annotation cp="♈" type="tts">برج حمل</annotation>
+		<annotation cp="♉">برج | برج ثور | بیل</annotation>
+		<annotation cp="♉" type="tts">برج ثور</annotation>
+		<annotation cp="♊">برج | برج جوزا | جُڑواں</annotation>
+		<annotation cp="♊" type="tts">برج جوزا</annotation>
+		<annotation cp="♋">برج | برج سرطان | کيکڑا</annotation>
+		<annotation cp="♋" type="tts">برج سرطان</annotation>
+		<annotation cp="♌">برج | برج اسد | شیر</annotation>
+		<annotation cp="♌" type="tts">برج اسد</annotation>
+		<annotation cp="♍">برج | برج سنبلہ | عورت</annotation>
+		<annotation cp="♍" type="tts">برج سنبلہ</annotation>
+		<annotation cp="♎">برج | میزان</annotation>
+		<annotation cp="♎" type="tts">برج میزان</annotation>
+		<annotation cp="♏">بچھو | برج | برج عقرب</annotation>
+		<annotation cp="♏" type="tts">برج عقرب</annotation>
+		<annotation cp="♐">برج | برج قوس | تیر انداز</annotation>
+		<annotation cp="♐" type="tts">برج قوس</annotation>
+		<annotation cp="♑">برج | برج جدی | بکرا</annotation>
+		<annotation cp="♑" type="tts">برج جدی</annotation>
+		<annotation cp="♒">برج | برج دلو | پانی</annotation>
+		<annotation cp="♒" type="tts">برج دلو</annotation>
+		<annotation cp="♓">برج | برج حوت | مچھلی</annotation>
+		<annotation cp="♓" type="tts">برج حوت</annotation>
+		<annotation cp="⛎">برج | برج حوا | سانپ</annotation>
+		<annotation cp="⛎" type="tts">برج حوا</annotation>
+		<annotation cp="🔀">بٹن | ٹریکس | ٹریکس کو شفل کرنے کا بٹن | شفل</annotation>
+		<annotation cp="🔀" type="tts">ٹریکس کو شفل کرنے کا بٹن</annotation>
+		<annotation cp="🔁">بٹن | ٹریکس | دوہرانہ | دوہرانے کا بٹن</annotation>
+		<annotation cp="🔁" type="tts">دوہرانے کا بٹن</annotation>
+		<annotation cp="🔂">ایک دفعہ | ایک دفعہ دوہرانے کا بٹن | بٹن | ٹریکس | دوہرانہ</annotation>
+		<annotation cp="🔂" type="tts">ایک دفعہ دوہرانے کا بٹن</annotation>
+		<annotation cp="▶">بٹن | ٹریکس | چلانا | چلانے کا بٹن</annotation>
+		<annotation cp="▶" type="tts">چلانے کا بٹن</annotation>
+		<annotation cp="⏩">بٹن | تیز فارورڈ بٹن | ٹریکس | فارورڈ</annotation>
+		<annotation cp="⏩" type="tts">تیز فارورڈ بٹن</annotation>
+		<annotation cp="⏭">اگلا | اگلا ٹریک بٹن | بٹن | ٹریکس</annotation>
+		<annotation cp="⏭" type="tts">اگلا ٹریک بٹن</annotation>
+		<annotation cp="⏯">بٹن | ٹریکس | چلانا | چلانے یا روکنے کا بٹن | روکنا</annotation>
+		<annotation cp="⏯" type="tts">چلانے یا روکنے کا بٹن</annotation>
+		<annotation cp="◀">بٹن | پیچھے | پیچھے جانے کا بٹن | ٹریکس</annotation>
+		<annotation cp="◀" type="tts">پیچھے جانے کا بٹن</annotation>
+		<annotation cp="⏪">بٹن | پیچھے | تیزی سے پیچھے جانے کا بٹن | ٹریکس</annotation>
+		<annotation cp="⏪" type="tts">تیزی سے پیچھے جانے کا بٹن</annotation>
+		<annotation cp="⏮">آخری | آخری ٹریک کا بٹن | بٹن | ٹریکس</annotation>
+		<annotation cp="⏮" type="tts">آخری ٹریک کا بٹن</annotation>
+		<annotation cp="🔼">اوپر | اوپر کا بٹن | بٹن | ٹریکس</annotation>
+		<annotation cp="🔼" type="tts">اوپر کا بٹن</annotation>
+		<annotation cp="⏫">اوپر | بٹن | تیزی | تیزی سے اوپر کا بٹن | ٹریکس</annotation>
+		<annotation cp="⏫" type="tts">تیزی سے اوپر کا بٹن</annotation>
+		<annotation cp="🔽">بٹن | ٹریکس | نیچے | نیچے کا بٹن</annotation>
+		<annotation cp="🔽" type="tts">نیچے کا بٹن</annotation>
+		<annotation cp="⏬">بٹن | تیزی | تیزی سے نیچے کا بٹن | ٹریکس | نیچے</annotation>
+		<annotation cp="⏬" type="tts">تیزی سے نیچے کا بٹن</annotation>
+		<annotation cp="⏸">بٹن | ٹریکس | وقفہ | وقفہ ڈالنے کا بٹن</annotation>
+		<annotation cp="⏸" type="tts">وقفہ ڈالنے کا بٹن</annotation>
+		<annotation cp="⏹">بٹن | ٹریکس | روکنا | روکنے کا بٹن</annotation>
+		<annotation cp="⏹" type="tts">روکنے کا بٹن</annotation>
+		<annotation cp="⏺">بٹن | ٹریکس | ریکارڈ | ریکارڈ کا بٹن</annotation>
+		<annotation cp="⏺" type="tts">ریکارڈ کا بٹن</annotation>
+		<annotation cp="⏏">بٹن | ٹریکس | نکالنا | نکالنے کا بٹن</annotation>
+		<annotation cp="⏏" type="tts">نکالنے کا بٹن</annotation>
+		<annotation cp="🎦">سینما | فلم</annotation>
+		<annotation cp="🎦" type="tts">سینما</annotation>
+		<annotation cp="🔅">بٹن | ٹریکس | دھیما | دھیما کا بٹن</annotation>
+		<annotation cp="🔅" type="tts">دھیما کا بٹن</annotation>
+		<annotation cp="🔆">بٹن | ٹریکس | روشن | روشن کا بٹن</annotation>
+		<annotation cp="🔆" type="tts">روشن کا بٹن</annotation>
+		<annotation cp="📶">انٹینا | انٹینا بارز | بار | سگنلز | فون | موبائل</annotation>
+		<annotation cp="📶" type="tts">انٹینا بارز</annotation>
+		<annotation cp="📳">فون | موبائل | وائبریشن | وائبریشن موڈ</annotation>
+		<annotation cp="📳" type="tts">وائبریشن موڈ</annotation>
+		<annotation cp="📴">بند | فون | موبائل</annotation>
+		<annotation cp="📴" type="tts">بند موبائل فون</annotation>
+		<annotation cp="♀">علامت | عورت | عورتوں کیلئے | لڑکی</annotation>
+		<annotation cp="♀" type="tts">عورتوں کیلئے</annotation>
+		<annotation cp="♂">علامت | لڑکا | مرد | مردوں کیلئے</annotation>
+		<annotation cp="♂" type="tts">مردوں کیلئے</annotation>
+		<annotation cp="⚕">صحت | طبی | علامت | نشان</annotation>
+		<annotation cp="⚕" type="tts">طبی علامت</annotation>
+		<annotation cp="♾">عالمگیر | غیر محدود | لامحدود | ہمیشہ</annotation>
+		<annotation cp="♾" type="tts">لامحدود</annotation>
+		<annotation cp="♻">ری سائیکلنگ | ری سائیکلنگ کا نشان | نشان</annotation>
+		<annotation cp="♻" type="tts">ری سائیکلنگ کا نشان</annotation>
+		<annotation cp="⚜">آسٹریلیا | پتیاں | پھول | تین | تین پتیوں والا للی</annotation>
+		<annotation cp="⚜" type="tts">تین پتیوں والا للی</annotation>
+		<annotation cp="🔱">آلہ | اینکر | بحری جہاز | سہ شاخہ آلہ | علامت</annotation>
+		<annotation cp="🔱" type="tts">سہ شاخہ آلہ</annotation>
+		<annotation cp="📛">بیج | نام | نام کا بیج</annotation>
+		<annotation cp="📛" type="tts">نام کا بیج</annotation>
+		<annotation cp="🔰">جاپانی | شروعات | شروعات کرنے والے کا جاپانی نشان | نشان</annotation>
+		<annotation cp="🔰" type="tts">شروعات کرنے والے کا جاپانی نشان</annotation>
+		<annotation cp="⭕">بھاری بڑا دائرہ | دائرہ | علامت</annotation>
+		<annotation cp="⭕" type="tts">بھاری بڑا دائرہ</annotation>
+		<annotation cp="✅">چیک | سفید | سفید بھاری چیک کا نشان | علامت</annotation>
+		<annotation cp="✅" type="tts">سفید بھاری چیک کا نشان</annotation>
+		<annotation cp="☑">بیلٹ باکس | چیک | چیک کے نشان والا بیلٹ باکس | علامت</annotation>
+		<annotation cp="☑" type="tts">چیک کے نشان والا بیلٹ باکس</annotation>
+		<annotation cp="✔">بھاری چیک کا نشان | چیک | علامت</annotation>
+		<annotation cp="✔" type="tts">بھاری چیک کا نشان</annotation>
+		<annotation cp="✖">بھاری ضرب کا نشان | ضرب | علامت</annotation>
+		<annotation cp="✖" type="tts">بھاری ضرب کا نشان</annotation>
+		<annotation cp="❌">علامت | کراس | کراس کا نشان</annotation>
+		<annotation cp="❌" type="tts">کراس کا نشان</annotation>
+		<annotation cp="❎">بٹن | علامت | کراس | کراس کے نشان کا بٹن</annotation>
+		<annotation cp="❎" type="tts">کراس کے نشان کا بٹن</annotation>
+		<annotation cp="➕">بھاری جمع کا نشان | جمع | علامت</annotation>
+		<annotation cp="➕" type="tts">بھاری جمع کا نشان</annotation>
+		<annotation cp="➖">بھاری منفی کا نشان | علامت | نفی</annotation>
+		<annotation cp="➖" type="tts">بھاری منفی کا نشان</annotation>
+		<annotation cp="➗">بھاری تقسیم کا نشان | تقسیم | علامت</annotation>
+		<annotation cp="➗" type="tts">بھاری تقسیم کا نشان</annotation>
+		<annotation cp="➰">رسی | کرل ہوئی | کرل ہوئی رسی</annotation>
+		<annotation cp="➰" type="tts">کرل ہوئی رسی</annotation>
+		<annotation cp="➿">دوہری | دوہری کرل ہوئی رسی | رسی | کرل ہوئی</annotation>
+		<annotation cp="➿" type="tts">دوہری کرل ہوئی رسی</annotation>
+		<annotation cp="〽">باری | باری کی تبدیلی کا نشان | علامت | موسیقار</annotation>
+		<annotation cp="〽" type="tts">باری کی تبدیلی کا نشان</annotation>
+		<annotation cp="✳">آٹھ | آٹھ کانٹوں والا اسٹیرسک | اسٹیرسک | علامت | کانٹے</annotation>
+		<annotation cp="✳" type="tts">آٹھ کانٹوں والا اسٹیرسک</annotation>
+		<annotation cp="✴">آٹھ | آٹھ کونوں والا ستارہ | ستارہ | علامت | کونے</annotation>
+		<annotation cp="✴" type="tts">آٹھ کونوں والا ستارہ</annotation>
+		<annotation cp="❇">چمک | علامت</annotation>
+		<annotation cp="❇" type="tts">چمک</annotation>
+		<annotation cp="‼">جذبات | دوہری علامتِ ندائیہ | رموزِ اوقاف | ندائیہ</annotation>
+		<annotation cp="‼" type="tts">دوہری علامتِ ندائیہ</annotation>
+		<annotation cp="⁉">رموزِ اوقاف | سوالیہ | ندائیہ | ندائیہ سوالیہ نشان</annotation>
+		<annotation cp="⁉" type="tts">ندائیہ سوالیہ نشان</annotation>
+		<annotation cp="❓">رموزِ اوقاف | سوالیہ | سوالیہ نشان</annotation>
+		<annotation cp="❓" type="tts">سوالیہ نشان</annotation>
+		<annotation cp="❔">رموزِ اوقاف | سفید | سفید سوالیہ نشان | سوالیہ</annotation>
+		<annotation cp="❔" type="tts">سفید سوالیہ نشان</annotation>
+		<annotation cp="❕">رموزِ اوقاف | سفید | سفید ندائیہ نشان | ندائیہ</annotation>
+		<annotation cp="❕" type="tts">سفید ندائیہ نشان</annotation>
+		<annotation cp="❗">رموزِ اوقاف | ندائیہ | ندائیہ نشان</annotation>
+		<annotation cp="❗" type="tts">ندائیہ نشان</annotation>
+		<annotation cp="〰">ڈیش | رموزِ اوقاف | لہردار</annotation>
+		<annotation cp="〰" type="tts">لہردار ڈیش</annotation>
+		<annotation cp="©">علامت | کاپی رائٹ</annotation>
+		<annotation cp="©" type="tts">کاپی رائٹ</annotation>
+		<annotation cp="®">رجسٹرڈ | علامت</annotation>
+		<annotation cp="®" type="tts">رجسٹرڈ</annotation>
+		<annotation cp="™">تجارت | تجارتی نشان | نشان</annotation>
+		<annotation cp="™" type="tts">تجارتی نشان</annotation>
+		<annotation cp="💯">اسکور | پورے | سو | سو پوائنٹس</annotation>
+		<annotation cp="💯" type="tts">سو پوائنٹس</annotation>
+		<annotation cp="🔠">ان پٹ | ان پٹ لاطینی بڑے حروف | بڑے | حروف | لاطینی</annotation>
+		<annotation cp="🔠" type="tts">ان پٹ لاطینی بڑے حروف</annotation>
+		<annotation cp="🔡">ان پٹ | ان پٹ لاطینی چھوٹے حروف | چھوٹے | حروف | لاطینی</annotation>
+		<annotation cp="🔡" type="tts">ان پٹ لاطینی چھوٹے حروف</annotation>
+		<annotation cp="🔢">اعداد | ان پٹ | ان پٹ اعداد</annotation>
+		<annotation cp="🔢" type="tts">ان پٹ اعداد</annotation>
+		<annotation cp="🔣">ان پٹ | ان پٹ علامات | علامات</annotation>
+		<annotation cp="🔣" type="tts">ان پٹ علامات</annotation>
+		<annotation cp="🔤">ان پٹ | ان پٹ لاطینی حروف | حروف | لاطینی</annotation>
+		<annotation cp="🔤" type="tts">ان پٹ لاطینی حروف</annotation>
+		<annotation cp="🅰">A بٹن (خون کی قسم) | اے | خون</annotation>
+		<annotation cp="🅰" type="tts">A بٹن (خون کی قسم)</annotation>
+		<annotation cp="🆎">AB بٹن (خون کی قسم) | اے بی | خون</annotation>
+		<annotation cp="🆎" type="tts">AB بٹن (خون کی قسم)</annotation>
+		<annotation cp="🅱">B بٹن (خون کی قسم) | بی | خون</annotation>
+		<annotation cp="🅱" type="tts">B بٹن (خون کی قسم)</annotation>
+		<annotation cp="🆑">cl | CL بٹن | چوکور</annotation>
+		<annotation cp="🆑" type="tts">CL بٹن</annotation>
+		<annotation cp="🆒">چوکور | کول | کول بٹن</annotation>
+		<annotation cp="🆒" type="tts">کول بٹن</annotation>
+		<annotation cp="🆓">چوکور | فراغت | مفت بٹن</annotation>
+		<annotation cp="🆓" type="tts">مفت بٹن</annotation>
+		<annotation cp="ℹ">ماخذ | معلومات</annotation>
+		<annotation cp="ℹ" type="tts">معلومات</annotation>
+		<annotation cp="🆔">id | ID بٹن | چوکور</annotation>
+		<annotation cp="🆔" type="tts">ID بٹن</annotation>
+		<annotation cp="Ⓜ">m | حرف | گول | گول M</annotation>
+		<annotation cp="Ⓜ" type="tts">گول M</annotation>
+		<annotation cp="🆕">چوکور | نیا | نیا بٹن</annotation>
+		<annotation cp="🆕" type="tts">نیا بٹن</annotation>
+		<annotation cp="🆖">ng | NG بٹن | چوکور</annotation>
+		<annotation cp="🆖" type="tts">NG بٹن</annotation>
+		<annotation cp="🅾">o | O بٹن (خون کی قسم) | بٹن</annotation>
+		<annotation cp="🅾" type="tts">O بٹن (خون کی قسم)</annotation>
+		<annotation cp="🆗">ok | اوکے بٹن | چوکور</annotation>
+		<annotation cp="🆗" type="tts">اوکے بٹن</annotation>
+		<annotation cp="🅿">p | P بٹن | بٹن</annotation>
+		<annotation cp="🅿" type="tts">P بٹن</annotation>
+		<annotation cp="🆘">sos | SOS بٹن | چوکور</annotation>
+		<annotation cp="🆘" type="tts">SOS بٹن</annotation>
+		<annotation cp="🆙">اوپر | اوپر! بٹن | بٹن</annotation>
+		<annotation cp="🆙" type="tts">اوپر! بٹن</annotation>
+		<annotation cp="🆚">vs | VS بٹن | چوکور</annotation>
+		<annotation cp="🆚" type="tts">VS بٹن</annotation>
+		<annotation cp="🈁">جاپانی &quot;یہاں&quot; بٹن | چاپانی | چوکور</annotation>
+		<annotation cp="🈁" type="tts">جاپانی &quot;یہاں&quot; بٹن</annotation>
+		<annotation cp="🈂">جاپانی | جاپانی &quot;سروس چارج&quot; بٹن | چوکور</annotation>
+		<annotation cp="🈂" type="tts">جاپانی &quot;سروس چارج&quot; بٹن</annotation>
+		<annotation cp="🈷">تصویری علامت | جاپانی | جاپانی &quot;ماہانہ رقم&quot; بٹن | چاند | چوکور</annotation>
+		<annotation cp="🈷" type="tts">جاپانی &quot;ماہانہ رقم&quot; بٹن</annotation>
+		<annotation cp="🈶">تصویری علامت | جاپانی | جاپانی &quot;مفت نہیں&quot; بٹن | چوکور | موجودگی</annotation>
+		<annotation cp="🈶" type="tts">جاپانی &quot;مفت نہیں&quot; بٹن</annotation>
+		<annotation cp="🈯">انگلی | تصویری علامت | جاپانی | جاپانی &quot;محفوظ&quot; بٹن | چوکور</annotation>
+		<annotation cp="🈯" type="tts">جاپانی &quot;محفوظ&quot; بٹن</annotation>
+		<annotation cp="🉐">تصویری علامت | جاپانی | جاپانی &quot;سودا بازی &quot; بٹن | دائرہ | فائدہ</annotation>
+		<annotation cp="🉐" type="tts">جاپانی &quot;سودا بازی &quot; بٹن</annotation>
+		<annotation cp="🈹">تصویری علامت | تقسیم | جاپانی | جاپانی &quot;رعایت&quot; بٹن | چوکور</annotation>
+		<annotation cp="🈹" type="tts">جاپانی &quot;رعایت&quot; بٹن</annotation>
+		<annotation cp="🈚">تصویری علامت | جاپانی | جاپانی &quot;مفت&quot; بٹن | چوکور | نفی</annotation>
+		<annotation cp="🈚" type="tts">جاپانی &quot;مفت&quot; بٹن</annotation>
+		<annotation cp="🈲">تصویری علامت | جاپانی | جاپانی &quot;ممنوع&quot; بٹن | چوکور | ممانعت</annotation>
+		<annotation cp="🈲" type="tts">جاپانی &quot;ممنوع&quot; بٹن</annotation>
+		<annotation cp="🉑">تصویری علامت | جاپانی &quot;قابل قبول&quot; بٹن | چینی | گول | منظوری</annotation>
+		<annotation cp="🉑" type="tts">جاپانی &quot;قابل قبول&quot; بٹن</annotation>
+		<annotation cp="🈸">اپلائی | تصویری علامت | جاپانی &quot;اپلیکیشن&quot; بٹن | چوکور | چینی</annotation>
+		<annotation cp="🈸" type="tts">جاپانی &quot;اپلیکیشن&quot; بٹن</annotation>
+		<annotation cp="🈴">اکٹھے | تصویری علامت | جاپانی &quot;پاس کرنے کا گریڈ&quot; بٹن | چوکور | چینی</annotation>
+		<annotation cp="🈴" type="tts">جاپانی &quot;پاس کرنے کا گریڈ&quot; بٹن</annotation>
+		<annotation cp="🈳">تصویری علامت | جاپانی &quot;خالی اسامی&quot; علامت | چوکور | چینی | خالی</annotation>
+		<annotation cp="🈳" type="tts">جاپانی &quot;خالی اسامی&quot; علامت</annotation>
+		<annotation cp="㊗">تصویری علامت | جاپانی &quot;مبارکباد&quot; بٹن | چینی | گول | مبارکباد</annotation>
+		<annotation cp="㊗" type="tts">جاپانی &quot;مبارکباد&quot; بٹن</annotation>
+		<annotation cp="㊙">تصویری علامت | جاپانی &quot;خفیہ&quot; بٹن | چینی | خفیہ | گول</annotation>
+		<annotation cp="㊙" type="tts">جاپانی &quot;خفیہ&quot; بٹن</annotation>
+		<annotation cp="🈺">آپریشن | تصویری علامت | جاپانی &quot;کاروبار کے لیے کھلا&quot; بٹن | چوکور | چینی</annotation>
+		<annotation cp="🈺" type="tts">جاپانی &quot;کاروبار کے لیے کھلا&quot; بٹن</annotation>
+		<annotation cp="🈵">تصویری علامت | جاپانی &quot;کوئی اسامی نہیں&quot; علامت | چوکور | چینی | کاملیت</annotation>
+		<annotation cp="🈵" type="tts">جاپانی &quot;کوئی اسامی نہیں&quot; علامت</annotation>
+		<annotation cp="🔴">جیومیٹری | دائرہ | سرخ</annotation>
+		<annotation cp="🔴" type="tts">سرخ دائرہ</annotation>
+		<annotation cp="🔵">جیومیٹری | دائرہ | نیلا</annotation>
+		<annotation cp="🔵" type="tts">نیلا دائرہ</annotation>
+		<annotation cp="⚪">جیومیٹری | دائرہ | سفید</annotation>
+		<annotation cp="⚪" type="tts">سفید دائرہ</annotation>
+		<annotation cp="⚫">جیومیٹری | دائرہ | کالا</annotation>
+		<annotation cp="⚫" type="tts">کالا دائرہ</annotation>
+		<annotation cp="⬜">بڑا | جیومیٹری | چوکور | سفید</annotation>
+		<annotation cp="⬜" type="tts">سفید بڑا چوکور</annotation>
+		<annotation cp="⬛">بڑا | جیومیٹری | چوکور | کالا</annotation>
+		<annotation cp="⬛" type="tts">کالا بڑا چوکور</annotation>
+		<annotation cp="◼">جیومیٹری | چوکور | کالا | میڈیم</annotation>
+		<annotation cp="◼" type="tts">کالا میڈیم چوکور</annotation>
+		<annotation cp="◻">جیومیٹری | چوکور | سفید | سفید میڈیم چوکور | میڈِم</annotation>
+		<annotation cp="◻" type="tts">سفید میڈیم چوکور</annotation>
+		<annotation cp="◽">جیومیٹری | چھوٹا | چوکور | سفید | سفید میڈِیم چھوٹا چوکور | میڈِم</annotation>
+		<annotation cp="◽" type="tts">سفید میڈِیم چھوٹا چوکور</annotation>
+		<annotation cp="◾">جیومیٹری | چھوٹا | چوکور | کالا | میڈیم</annotation>
+		<annotation cp="◾" type="tts">کالا میڈیم چھوٹا چوکور</annotation>
+		<annotation cp="▫">جیومیٹری | چھوٹا | چوکور | سفید</annotation>
+		<annotation cp="▫" type="tts">سفید چھوٹا چوکور</annotation>
+		<annotation cp="▪">جیومیٹری | چوکور | کالا | کالا چھوٹا چوکور</annotation>
+		<annotation cp="▪" type="tts">کالا چھوٹا چوکور</annotation>
+		<annotation cp="🔶">بڑا نارنجی ہیرا | جیومیٹری | نارنجی | ہیرا</annotation>
+		<annotation cp="🔶" type="tts">بڑا نارنجی ہیرا</annotation>
+		<annotation cp="🔷">بڑا نیلا ہیرا | جیومیٹری | نیلا | ہیرا</annotation>
+		<annotation cp="🔷" type="tts">بڑا نیلا ہیرا</annotation>
+		<annotation cp="🔸">جیومیٹری | چھوٹا نارنجی ہیرا | نارنجی | ہیرا</annotation>
+		<annotation cp="🔸" type="tts">چھوٹا نارنجی ہیرا</annotation>
+		<annotation cp="🔹">جیومیٹری | چھوٹا نیلا ہیرا | نیلا | ہیرا</annotation>
+		<annotation cp="🔹" type="tts">چھوٹا نیلا ہیرا</annotation>
+		<annotation cp="🔺">اوپر اشارہ کرتی سرخ مثلث | جیومیٹری | مثلث | نارنجی</annotation>
+		<annotation cp="🔺" type="tts">اوپر اشارہ کرتی سرخ مثلث</annotation>
+		<annotation cp="🔻">جیومیٹری | مثلث | نارنجی | نیچے اشارہ کرتی سرخ مثلث</annotation>
+		<annotation cp="🔻" type="tts">نیچے اشارہ کرتی سرخ مثلث</annotation>
+		<annotation cp="💠">جیومیٹری | نکتہ | نکتے والا ہیرا | ہیرا</annotation>
+		<annotation cp="💠" type="tts">نکتے والا ہیرا</annotation>
+		<annotation cp="🔘">بٹن | جیومیٹری | ریڈیو</annotation>
+		<annotation cp="🔘" type="tts">ریڈیو بٹن</annotation>
+		<annotation cp="🔲">بٹن | جیومیٹری | چوکور | سیاہ چوکور بٹن | کالا</annotation>
+		<annotation cp="🔲" type="tts">سیاہ چوکور بٹن</annotation>
+		<annotation cp="🔳">بٹن | جیومیٹری | چوکور | سفید</annotation>
+		<annotation cp="🔳" type="tts">سفید چوکور بٹن</annotation>
+		<annotation cp="🏁">جھنڈا | خانوں والا جھنڈا | ریسنگ</annotation>
+		<annotation cp="🏁" type="tts">خانوں والا جھنڈا</annotation>
+		<annotation cp="🚩">تکون | تکونی جھنڈا | جھنڈا</annotation>
+		<annotation cp="🚩" type="tts">تکونی جھنڈا</annotation>
+		<annotation cp="🎌">جاپانی | جشن | کراس | کراس کی شکل میں جھنڈے</annotation>
+		<annotation cp="🎌" type="tts">کراس کی شکل میں جھنڈے</annotation>
+		<annotation cp="🏴">جھنڈا | کالا | لہراتا</annotation>
+		<annotation cp="🏴" type="tts">لہراتا کالا جھنڈا</annotation>
+		<annotation cp="🏳">جھنڈا | سفید | لہراتا</annotation>
+		<annotation cp="🏳" type="tts">لہراتا سفید جھنڈا</annotation>
+		<annotation cp="🏳‍🌈">پرچم | رینبو | قوس قزح | قوس قزح پرچم</annotation>
+		<annotation cp="🏳‍🌈" type="tts">قوس قزح پرچم</annotation>
+		<annotation cp="🏴‍☠">جولی راجر | خزانہ | غارت گری | قزاق | قزاقوں کا جھنڈا</annotation>
+		<annotation cp="🏴‍☠" type="tts">قزاقوں کا جھنڈا</annotation>
+	</annotations>
+</ldml>

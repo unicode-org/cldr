@@ -1,0 +1,2358 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2018 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="be"/>
+	</identity>
+	<localeDisplayNames>
+		<subdivisions>
+			<subdivision type="aeaj" draft="contributed">Эмірат Аджман</subdivision>
+			<subdivision type="aeaz" draft="contributed">Эмірат Абу-Дабі</subdivision>
+			<subdivision type="aedu" draft="contributed">Эмірат Дубай</subdivision>
+			<subdivision type="aefu" draft="contributed">Эмірат Эль-Фуджайра</subdivision>
+			<subdivision type="aerk" draft="contributed">Эмірат Рас-эль-Хайма</subdivision>
+			<subdivision type="aesh" draft="contributed">Эмірат Шарджа</subdivision>
+			<subdivision type="aeuq" draft="contributed">Эмірат Ум-эль-Кайвайн</subdivision>
+			<subdivision type="afbal" draft="contributed">Правінцыя Балх</subdivision>
+			<subdivision type="afbam" draft="contributed">Правінцыя Баміян</subdivision>
+			<subdivision type="afbdg" draft="contributed">Правінцыя Бадгіс</subdivision>
+			<subdivision type="afbds" draft="contributed">Правінцыя Бадахшан</subdivision>
+			<subdivision type="afbgl" draft="contributed">Правінцыя Баглан</subdivision>
+			<subdivision type="afday" draft="contributed">Правінцыя Дайкундзі</subdivision>
+			<subdivision type="affra" draft="contributed">Правінцыя Фарах</subdivision>
+			<subdivision type="afgha" draft="contributed">Правінцыя Газні</subdivision>
+			<subdivision type="afgho" draft="contributed">Правінцыя Гор</subdivision>
+			<subdivision type="afhel" draft="contributed">Правінцыя Гільменд</subdivision>
+			<subdivision type="afher" draft="contributed">Правінцыя Герат</subdivision>
+			<subdivision type="afjow" draft="contributed">Правінцыя Джаўзджан</subdivision>
+			<subdivision type="afkab" draft="contributed">Правінцыя Кабул</subdivision>
+			<subdivision type="afkan" draft="contributed">Правінцыя Кандагар</subdivision>
+			<subdivision type="afkap" draft="contributed">Правінцыя Капіса</subdivision>
+			<subdivision type="afkdz" draft="contributed">Правінцыя Кундуз</subdivision>
+			<subdivision type="afkho" draft="contributed">Правінцыя Хост</subdivision>
+			<subdivision type="afknr" draft="contributed">Правінцыя Кунар</subdivision>
+			<subdivision type="aflag" draft="contributed">Правінцыя Лагман</subdivision>
+			<subdivision type="aflog" draft="contributed">Правінцыя Лагар</subdivision>
+			<subdivision type="afnan" draft="contributed">Правінцыя Нангархар</subdivision>
+			<subdivision type="afnim" draft="contributed">Правінцыя Німроз</subdivision>
+			<subdivision type="afnur" draft="contributed">Правінцыя Нурыстан</subdivision>
+			<subdivision type="afpan" draft="contributed">Правінцыя Панджшэр</subdivision>
+			<subdivision type="afpar" draft="contributed">Правінцыя Парван</subdivision>
+			<subdivision type="afpia" draft="contributed">Правінцыя Пактыя</subdivision>
+			<subdivision type="afpka" draft="contributed">Правінцыя Пактыка</subdivision>
+			<subdivision type="afsam" draft="contributed">Правінцыя Саманган</subdivision>
+			<subdivision type="afsar" draft="contributed">Правінцыя Сары-Пуль</subdivision>
+			<subdivision type="aftak" draft="contributed">Правінцыя Тахар</subdivision>
+			<subdivision type="afuru" draft="contributed">Правінцыя Урузган</subdivision>
+			<subdivision type="afwar" draft="contributed">Правінцыя Вардак</subdivision>
+			<subdivision type="afzab" draft="contributed">Правінцыя Забуль</subdivision>
+			<subdivision type="ag10" draft="contributed">Востраў Барбуда</subdivision>
+			<subdivision type="ag11" draft="contributed">Востраў Рэдонда</subdivision>
+			<subdivision type="al01" draft="contributed">Вобласць Берат</subdivision>
+			<subdivision type="al02" draft="contributed">Дурэс</subdivision>
+			<subdivision type="al03" draft="contributed">вобласць Эльбасан</subdivision>
+			<subdivision type="al06" draft="contributed">вобласць Корча</subdivision>
+			<subdivision type="al07" draft="contributed">Кукес</subdivision>
+			<subdivision type="al08" draft="contributed">Лежа</subdivision>
+			<subdivision type="al10" draft="contributed">Шкодэр</subdivision>
+			<subdivision type="al11" draft="contributed">вобласць Тырана</subdivision>
+			<subdivision type="al12" draft="contributed">Вобласць Влёра</subdivision>
+			<subdivision type="amag" draft="contributed">Марз Арагацотн</subdivision>
+			<subdivision type="amar" draft="contributed">Марз Арарат</subdivision>
+			<subdivision type="amav" draft="contributed">Марз Армавір</subdivision>
+			<subdivision type="amer" draft="contributed">Ерэван</subdivision>
+			<subdivision type="amgr" draft="contributed">Марз Гегаркунік</subdivision>
+			<subdivision type="amkt" draft="contributed">Марз Катайк</subdivision>
+			<subdivision type="amlo" draft="contributed">Марз Лары</subdivision>
+			<subdivision type="amsh" draft="contributed">Марз Шырак</subdivision>
+			<subdivision type="amsu" draft="contributed">Марз Сюнік</subdivision>
+			<subdivision type="amtv" draft="contributed">Марз Тавуш</subdivision>
+			<subdivision type="amvd" draft="contributed">Марз Ваёц-Дзор</subdivision>
+			<subdivision type="aobgo" draft="contributed">Правінцыя Бенга</subdivision>
+			<subdivision type="aobgu" draft="contributed">Правінцыя Бенгела</subdivision>
+			<subdivision type="aobie" draft="contributed">Правінцыя Біе</subdivision>
+			<subdivision type="aocab" draft="contributed">Правінцыя Кабінда</subdivision>
+			<subdivision type="aoccu" draft="contributed">Правінцыя Кванда-Кубанга</subdivision>
+			<subdivision type="aocnn" draft="contributed">Правінцыя Куненэ</subdivision>
+			<subdivision type="aocno" draft="contributed">Правінцыя Паўночная Кванза</subdivision>
+			<subdivision type="aocus" draft="contributed">Правінцыя Паўднёвая Кванза</subdivision>
+			<subdivision type="aohua" draft="contributed">Правінцыя Уамба</subdivision>
+			<subdivision type="aohui" draft="contributed">Правінцыя Уіла</subdivision>
+			<subdivision type="aolno" draft="contributed">Паўночная Лунда</subdivision>
+			<subdivision type="aolsu" draft="contributed">Правінцыя Паўднёвая Лунда</subdivision>
+			<subdivision type="aolua" draft="contributed">правінцыя Луанда</subdivision>
+			<subdivision type="aomal" draft="contributed">Правінцыя Маланжэ</subdivision>
+			<subdivision type="aomox" draft="contributed">Правінцыя Мошыка</subdivision>
+			<subdivision type="aonam" draft="contributed">Правінцыя Намібэ</subdivision>
+			<subdivision type="aouig" draft="contributed">Правінцыя Уіжэ</subdivision>
+			<subdivision type="aozai" draft="contributed">Правінцыя Заірэ</subdivision>
+			<subdivision type="ara" draft="contributed">Правінцыя Сальта</subdivision>
+			<subdivision type="arb" draft="contributed">правінцыя Буэнас-Айрэс</subdivision>
+			<subdivision type="arc" draft="contributed">Буэнас-Айрэс</subdivision>
+			<subdivision type="ard" draft="contributed">Правінцыя Сан-Луіс</subdivision>
+			<subdivision type="are" draft="contributed">правінцыя Энтрэ-Рыас</subdivision>
+			<subdivision type="arf" draft="contributed">Правінцыя Ла-Рыёха, Аргенціна</subdivision>
+			<subdivision type="arh" draft="contributed">Правінцыя Чака</subdivision>
+			<subdivision type="arj" draft="contributed">Правінцыя Сан-Хуан</subdivision>
+			<subdivision type="ark" draft="contributed">Правінцыя Катамарка</subdivision>
+			<subdivision type="arl" draft="contributed">Правінцыя Ла-Пампа</subdivision>
+			<subdivision type="arm" draft="contributed">правінцыя Мендоса</subdivision>
+			<subdivision type="arn" draft="contributed">правінцыя Місьёнес</subdivision>
+			<subdivision type="arp" draft="contributed">Правінцыя Фармоса</subdivision>
+			<subdivision type="arq" draft="contributed">Правінцыя Неўкен</subdivision>
+			<subdivision type="arr" draft="contributed">Правінцыя Рыа-Негра</subdivision>
+			<subdivision type="ars" draft="contributed">правінцыя Санта-Фэ</subdivision>
+			<subdivision type="art" draft="contributed">правінцыя Тукуман</subdivision>
+			<subdivision type="aru" draft="contributed">Правінцыя Чубут</subdivision>
+			<subdivision type="arv" draft="contributed">Вогненная Зямля, Антарктыда і астравы Паўднёвай Атлантыкі</subdivision>
+			<subdivision type="arw" draft="contributed">Правінцыя Карыентэс</subdivision>
+			<subdivision type="arx" draft="contributed">правінцыя Кордава</subdivision>
+			<subdivision type="ary" draft="contributed">правінцыя Жужуй</subdivision>
+			<subdivision type="arz" draft="contributed">Правінцыя Санта-Крус</subdivision>
+			<subdivision type="at1" draft="contributed">Бургенланд</subdivision>
+			<subdivision type="at2" draft="contributed">Карынтыя</subdivision>
+			<subdivision type="at3" draft="contributed">Ніжняя Аўстрыя</subdivision>
+			<subdivision type="at4" draft="contributed">Верхняя Аўстрыя</subdivision>
+			<subdivision type="at5" draft="contributed">Зальцбург, федэральная зямля</subdivision>
+			<subdivision type="at6" draft="contributed">Штырыя</subdivision>
+			<subdivision type="at7" draft="contributed">Ціроль</subdivision>
+			<subdivision type="at8" draft="contributed">Форарльберг</subdivision>
+			<subdivision type="at9" draft="contributed">Вена</subdivision>
+			<subdivision type="auact" draft="contributed">Аўстралійская сталічная тэрыторыя</subdivision>
+			<subdivision type="aunsw" draft="contributed">штат Новы Паўднёвы Уэльс</subdivision>
+			<subdivision type="aunt" draft="contributed">Паўночная тэрыторыя, Аўстралія</subdivision>
+			<subdivision type="auqld" draft="contributed">Штат Квінслэнд</subdivision>
+			<subdivision type="ausa" draft="contributed">Штат Паўднёвая Аўстралія</subdivision>
+			<subdivision type="autas" draft="contributed">Тасманія</subdivision>
+			<subdivision type="auvic" draft="contributed">штат Вікторыя</subdivision>
+			<subdivision type="auwa" draft="contributed">Штат Заходняя Аўстралія</subdivision>
+			<subdivision type="azba" draft="contributed">Баку</subdivision>
+			<subdivision type="azga" draft="contributed">Гянджа</subdivision>
+			<subdivision type="azlan" draft="contributed">Горад Ленкарань</subdivision>
+			<subdivision type="aznv" draft="contributed">Горад Нахічэвань</subdivision>
+			<subdivision type="aznx" draft="contributed">Нахічэванская Аўтаномная Рэспубліка</subdivision>
+			<subdivision type="azord" draft="contributed">Ардубадскі раён</subdivision>
+			<subdivision type="azqaz" draft="contributed">Казахскі раён</subdivision>
+			<subdivision type="azskr" draft="contributed">Шамкірскі раён</subdivision>
+			<subdivision type="azsm" draft="contributed">Сумгаіт</subdivision>
+			<subdivision type="azsr" draft="contributed">Шырван</subdivision>
+			<subdivision type="azxa" draft="contributed">Горад Сцепанакерт</subdivision>
+			<subdivision type="azye" draft="contributed">Еўлах</subdivision>
+			<subdivision type="azyev" draft="contributed">Еўлахскі раён</subdivision>
+			<subdivision type="babih" draft="contributed">Федэрацыя Босніі і Герцагавіны</subdivision>
+			<subdivision type="babrc" draft="contributed">Акруга Брчко</subdivision>
+			<subdivision type="basrp" draft="contributed">Рэспубліка Сербская</subdivision>
+			<subdivision type="bb09" draft="contributed">Сент-Пітэр</subdivision>
+			<subdivision type="bd55" draft="contributed">Рангпур</subdivision>
+			<subdivision type="bdf" draft="contributed">Рангпур²</subdivision>
+			<subdivision type="bebru" draft="contributed">Брусельскі сталічны рэгіён</subdivision>
+			<subdivision type="bevan" draft="contributed">правінцыя Антверпен</subdivision>
+			<subdivision type="bevbr" draft="contributed">Фламандскі Брабант</subdivision>
+			<subdivision type="bevlg" draft="contributed">Фламандскі рэгіён</subdivision>
+			<subdivision type="bevli" draft="contributed">Правінцыя Лімбург</subdivision>
+			<subdivision type="bevov" draft="contributed">Усходняя Фландрыя</subdivision>
+			<subdivision type="bevwv" draft="contributed">Заходняя Фландрыя</subdivision>
+			<subdivision type="bewal" draft="contributed">Валонія</subdivision>
+			<subdivision type="bewbr" draft="contributed">Валонскі Брабант</subdivision>
+			<subdivision type="bewht" draft="contributed">Правінцыя Эно</subdivision>
+			<subdivision type="bewlg" draft="contributed">правінцыя Льеж</subdivision>
+			<subdivision type="bewlx" draft="contributed">правінцыя Люксембург</subdivision>
+			<subdivision type="bewna" draft="contributed">Правінцыя Намюр</subdivision>
+			<subdivision type="bg01" draft="contributed">Благаеўградская вобласць</subdivision>
+			<subdivision type="bg02" draft="contributed">Бургаская вобласць</subdivision>
+			<subdivision type="bg03" draft="contributed">Варненская вобласць</subdivision>
+			<subdivision type="bg04" draft="contributed">Вялікатырноўская вобласць</subdivision>
+			<subdivision type="bg05" draft="contributed">Відынская вобласць</subdivision>
+			<subdivision type="bg06" draft="contributed">Урачанская вобласць</subdivision>
+			<subdivision type="bg07" draft="contributed">Габроўская вобласць</subdivision>
+			<subdivision type="bg08" draft="contributed">Дабрыцкая вобласць</subdivision>
+			<subdivision type="bg09" draft="contributed">Кірджалійская вобласць</subdivision>
+			<subdivision type="bg10" draft="contributed">Кюсцендыльская вобласць</subdivision>
+			<subdivision type="bg11" draft="contributed">Ловечская вобласць</subdivision>
+			<subdivision type="bg12" draft="contributed">Мантанская вобласць</subdivision>
+			<subdivision type="bg13" draft="contributed">Пазарджыкская вобласць</subdivision>
+			<subdivision type="bg14" draft="contributed">Пернікская вобласць</subdivision>
+			<subdivision type="bg15" draft="contributed">Плевенская вобласць</subdivision>
+			<subdivision type="bg16" draft="contributed">Плоўдзіўская вобласць</subdivision>
+			<subdivision type="bg17" draft="contributed">Разградская вобласць</subdivision>
+			<subdivision type="bg18" draft="contributed">Русенская вобласць</subdivision>
+			<subdivision type="bg19" draft="contributed">Сілістрэнская вобласць</subdivision>
+			<subdivision type="bg20" draft="contributed">Слівенская вобласць</subdivision>
+			<subdivision type="bg21" draft="contributed">Смалянская вобласць</subdivision>
+			<subdivision type="bg22" draft="contributed">Гарадская вобласць Сафія</subdivision>
+			<subdivision type="bg23" draft="contributed">Сафійская вобласць</subdivision>
+			<subdivision type="bg24" draft="contributed">Старазагорская вобласць</subdivision>
+			<subdivision type="bg25" draft="contributed">Тырговішцкая вобласць</subdivision>
+			<subdivision type="bg26" draft="contributed">Хаскаўская вобласць</subdivision>
+			<subdivision type="bg27" draft="contributed">Шуменская вобласць</subdivision>
+			<subdivision type="bg28" draft="contributed">Ямбальская вобласць</subdivision>
+			<subdivision type="bos" draft="contributed">дэпартамент Санта-Крус</subdivision>
+			<subdivision type="bqbo" draft="contributed">Востраў Банайрэ</subdivision>
+			<subdivision type="bqsa" draft="contributed">Востраў Саба</subdivision>
+			<subdivision type="bqse" draft="contributed">Востраў Сінт-Эстаціус</subdivision>
+			<subdivision type="brac" draft="contributed">Штат Акры</subdivision>
+			<subdivision type="bral" draft="contributed">штат Алагоас</subdivision>
+			<subdivision type="bram" draft="contributed">Штат Амазонас</subdivision>
+			<subdivision type="brap" draft="contributed">Штат Амапа</subdivision>
+			<subdivision type="brba" draft="contributed">штат Баія</subdivision>
+			<subdivision type="brce" draft="contributed">Штат Сеара</subdivision>
+			<subdivision type="brdf" draft="contributed">Федэральная акруга Бразілія</subdivision>
+			<subdivision type="bres" draft="contributed">Штат Эспірыту-Санту</subdivision>
+			<subdivision type="brgo" draft="contributed">Штат Гаяс</subdivision>
+			<subdivision type="brma" draft="contributed">Штат Мараньян</subdivision>
+			<subdivision type="brmg" draft="contributed">штат Мінас-Жэрайс</subdivision>
+			<subdivision type="brms" draft="contributed">штат Мату-Гросу-ду-Сул</subdivision>
+			<subdivision type="brmt" draft="contributed">Штат Мату-Гросу</subdivision>
+			<subdivision type="brpa" draft="contributed">Пара</subdivision>
+			<subdivision type="brpb" draft="contributed">Штат Параіба</subdivision>
+			<subdivision type="brpe" draft="contributed">штат Пернамбуку</subdivision>
+			<subdivision type="brpi" draft="contributed">Штат Піауі</subdivision>
+			<subdivision type="brpr" draft="contributed">штат Парана</subdivision>
+			<subdivision type="brrj" draft="contributed">штат Рыа-дэ-Жанэйра</subdivision>
+			<subdivision type="brrn" draft="contributed">Штат Рыу-Гранды-ду-Норты</subdivision>
+			<subdivision type="brro" draft="contributed">Штат Рандонія</subdivision>
+			<subdivision type="brrr" draft="contributed">Штат Рарайма</subdivision>
+			<subdivision type="brrs" draft="contributed">штат Рыу-Гранды-ду-Сул</subdivision>
+			<subdivision type="brsc" draft="contributed">штат Санта-Катарына</subdivision>
+			<subdivision type="brse" draft="contributed">штат Сержыпі</subdivision>
+			<subdivision type="brsp" draft="contributed">штат Сан-Паўлу</subdivision>
+			<subdivision type="brto" draft="contributed">Штат Такантынс</subdivision>
+			<subdivision type="bsci" draft="contributed">Востраў Кэт</subdivision>
+			<subdivision type="bsin" draft="contributed">Інагуа</subdivision>
+			<subdivision type="bsss" draft="contributed">Востраў Сан-Сальвадор</subdivision>
+			<subdivision type="bt33" draft="contributed">Бумтанг</subdivision>
+			<subdivision type="bwce" draft="contributed">Цэнтральная акруга, Батсвана</subdivision>
+			<subdivision type="bwfr" draft="contributed">Горад Франсістаўн</subdivision>
+			<subdivision type="bwga" draft="contributed">Горад Габаронэ</subdivision>
+			<subdivision type="bwgh" draft="contributed">Акруга Ганзі</subdivision>
+			<subdivision type="bwkg" draft="contributed">Акруга Кгалагадзі</subdivision>
+			<subdivision type="bwkl" draft="contributed">Акруга Кгатленг</subdivision>
+			<subdivision type="bwkw" draft="contributed">Акруга Квененг</subdivision>
+			<subdivision type="bwne" draft="contributed">Паўночна-усходняя акруга, Батсвана</subdivision>
+			<subdivision type="bwnw" draft="contributed">Паўночна-заходняя акруга, Батсвана</subdivision>
+			<subdivision type="bwse" draft="contributed">Паўднёва-усходняя акруга, Батсвана</subdivision>
+			<subdivision type="bwso" draft="contributed">Паўднёвая акруга, Батсвана</subdivision>
+			<subdivision type="bybr" draft="contributed">Брэсцкая вобласць</subdivision>
+			<subdivision type="byhm" draft="contributed">Мінск</subdivision>
+			<subdivision type="byho" draft="contributed">Гомельская вобласць</subdivision>
+			<subdivision type="byhr" draft="contributed">Гродзенская вобласць</subdivision>
+			<subdivision type="byma" draft="contributed">Магілёўская вобласць</subdivision>
+			<subdivision type="bymi" draft="contributed">Мінская вобласць</subdivision>
+			<subdivision type="byvi" draft="contributed">Віцебская вобласць</subdivision>
+			<subdivision type="bzbz" draft="contributed">акруга Беліз</subdivision>
+			<subdivision type="caab" draft="contributed">Правінцыя Альберта</subdivision>
+			<subdivision type="cabc" draft="contributed">Правінцыя Брытанская Калумбія</subdivision>
+			<subdivision type="camb" draft="contributed">Правінцыя Манітоба</subdivision>
+			<subdivision type="canb" draft="contributed">Правінцыя Нью-Брансуік</subdivision>
+			<subdivision type="canl" draft="contributed">Правінцыя Ньюфаўндленд і Лабрадор</subdivision>
+			<subdivision type="cans" draft="contributed">Правінцыя Новая Шатландыя</subdivision>
+			<subdivision type="cant" draft="contributed">Паўночна-Заходнія тэрыторыі</subdivision>
+			<subdivision type="canu" draft="contributed">Нунавут</subdivision>
+			<subdivision type="caon" draft="contributed">Правінцыя Антарыа</subdivision>
+			<subdivision type="cape" draft="contributed">Востраў Прынца Эдуарда</subdivision>
+			<subdivision type="caqc" draft="contributed">Правінцыя Квебек</subdivision>
+			<subdivision type="cask" draft="contributed">Правінцыя Саскачэван</subdivision>
+			<subdivision type="cayt" draft="contributed">Тэрыторыя Юкан</subdivision>
+			<subdivision type="cdbc" draft="contributed">Правінцыя Цэнтральнае Конга</subdivision>
+			<subdivision type="cdbu" draft="contributed">Правінцыя Ніжняе Уэле</subdivision>
+			<subdivision type="cdeq" draft="contributed">Экватарыяльная правінцыя</subdivision>
+			<subdivision type="cdhk" draft="contributed">Правінцыя Верхняя Катанга</subdivision>
+			<subdivision type="cdhl" draft="contributed">Правінцыя Верхняе Ламамі</subdivision>
+			<subdivision type="cdhu" draft="contributed">Правінцыя Верхняе Уэле</subdivision>
+			<subdivision type="cdkc" draft="contributed">Правінцыя Лулуа</subdivision>
+			<subdivision type="cdke" draft="contributed">Правінцыя Усходняе Касаі</subdivision>
+			<subdivision type="cdkg" draft="contributed">Правінцыя Кванго</subdivision>
+			<subdivision type="cdkl" draft="contributed">Правінцыя Квілу</subdivision>
+			<subdivision type="cdkn" draft="contributed">Кіншаса</subdivision>
+			<subdivision type="cdlo" draft="contributed">Правінцыя Ламамі</subdivision>
+			<subdivision type="cdlu" draft="contributed">Правінцыя Луалаба</subdivision>
+			<subdivision type="cdma" draft="contributed">Правінцыя Маніема</subdivision>
+			<subdivision type="cdmn" draft="contributed">Правінцыя Маі-Ндамбэ</subdivision>
+			<subdivision type="cdmo" draft="contributed">Правінцыя Мангала</subdivision>
+			<subdivision type="cdnk" draft="contributed">Правінцыя Паўночнае Ківу</subdivision>
+			<subdivision type="cdnu" draft="contributed">Правінцыя Паўночнае Убангі</subdivision>
+			<subdivision type="cdsa" draft="contributed">Правінцыя Санкуру</subdivision>
+			<subdivision type="cdsk" draft="contributed">Правінцыя Паўднёвае Ківу</subdivision>
+			<subdivision type="cdsu" draft="contributed">Правінцыя Паўднёвае Убангі</subdivision>
+			<subdivision type="cdta" draft="contributed">Правінцыя Танганьіка</subdivision>
+			<subdivision type="cdto" draft="contributed">Правінцыя Чапо</subdivision>
+			<subdivision type="cdtu" draft="contributed">Правінцыя Чуапа</subdivision>
+			<subdivision type="cfbgf" draft="contributed">Горад Бангі</subdivision>
+			<subdivision type="cgbzv" draft="contributed">Бразавіль</subdivision>
+			<subdivision type="chag" draft="contributed">Кантон Ааргау</subdivision>
+			<subdivision type="chai" draft="contributed">Кантон Апенцэль — Інерродэн</subdivision>
+			<subdivision type="char" draft="contributed">Кантон Апенцэль — Інерродэн²</subdivision>
+			<subdivision type="chbe" draft="contributed">Кантон Берн</subdivision>
+			<subdivision type="chbl" draft="contributed">Кантон Базель-Ланд</subdivision>
+			<subdivision type="chbs" draft="contributed">Кантон Базель-Штат</subdivision>
+			<subdivision type="chfr" draft="contributed">Кантон Фрыбур</subdivision>
+			<subdivision type="chge" draft="contributed">Кантон Жэнева</subdivision>
+			<subdivision type="chgl" draft="contributed">Кантон Гларус</subdivision>
+			<subdivision type="chgr" draft="contributed">Кантон Граўбюндэн</subdivision>
+			<subdivision type="chju" draft="contributed">Кантон Юра</subdivision>
+			<subdivision type="chlu" draft="contributed">Кантон Люцэрн</subdivision>
+			<subdivision type="chne" draft="contributed">Кантон Нёўшатэль</subdivision>
+			<subdivision type="chnw" draft="contributed">Кантон Нідвальдэн</subdivision>
+			<subdivision type="chow" draft="contributed">Кантон Обвальдэн</subdivision>
+			<subdivision type="chsg" draft="contributed">Кантон Санкт-Гален</subdivision>
+			<subdivision type="chsh" draft="contributed">Кантон Шафхаўзен</subdivision>
+			<subdivision type="chso" draft="contributed">Кантон Залатурн</subdivision>
+			<subdivision type="chsz" draft="contributed">Кантон Швіц</subdivision>
+			<subdivision type="chtg" draft="contributed">Кантон Тургау</subdivision>
+			<subdivision type="chti" draft="contributed">Кантон Тычына</subdivision>
+			<subdivision type="chur" draft="contributed">Кантон Уры</subdivision>
+			<subdivision type="chvd" draft="contributed">Во</subdivision>
+			<subdivision type="chvs" draft="contributed">Кантон Вале</subdivision>
+			<subdivision type="chzg" draft="contributed">Кантон Цуг</subdivision>
+			<subdivision type="chzh" draft="contributed">кантон Цюрых</subdivision>
+			<subdivision type="ciab" draft="contributed">Абіджан</subdivision>
+			<subdivision type="ciym" draft="contributed">Горад Ямусукра</subdivision>
+			<subdivision type="cizz" draft="contributed">Рэгіён Занзан</subdivision>
+			<subdivision type="clan" draft="contributed">вобласць Антафагаста</subdivision>
+			<subdivision type="clco" draft="contributed">Какімба</subdivision>
+			<subdivision type="cllr" draft="contributed">Лос-Рыяс</subdivision>
+			<subdivision type="clma" draft="contributed">Магальянес і Чылійская Антарктыка</subdivision>
+			<subdivision type="clml" draft="contributed">Мауле</subdivision>
+			<subdivision type="clvs" draft="contributed">вобласць Вальпараіса</subdivision>
+			<subdivision type="cmad" draft="contributed">Рэгіён Адамава</subdivision>
+			<subdivision type="cmce" draft="contributed">Цэнтральны рэгіён, Камерун</subdivision>
+			<subdivision type="cmen" draft="contributed">Крайні Паўночны рэгіён</subdivision>
+			<subdivision type="cmes" draft="contributed">Усходні рэгіён</subdivision>
+			<subdivision type="cmlt" draft="contributed">Прыбярэжны рэгіён</subdivision>
+			<subdivision type="cmno" draft="contributed">Паўночны рэгіён</subdivision>
+			<subdivision type="cmnw" draft="contributed">Паўночна-Заходні рэгіён</subdivision>
+			<subdivision type="cmou" draft="contributed">Заходні рэгіён, Камерун</subdivision>
+			<subdivision type="cmsu" draft="contributed">Паўднёвы рэгіён</subdivision>
+			<subdivision type="cmsw" draft="contributed">Паўднёва-Заходні рэгіён, Камерун</subdivision>
+			<subdivision type="cnah" draft="contributed">Правінцыя Аньхой</subdivision>
+			<subdivision type="cnbj" draft="contributed">Пекін</subdivision>
+			<subdivision type="cncq" draft="contributed">Горад Чунцын</subdivision>
+			<subdivision type="cnfj" draft="contributed">Правінцыя Фуцзянь</subdivision>
+			<subdivision type="cngd" draft="contributed">Правінцыя Гуандун</subdivision>
+			<subdivision type="cngs" draft="contributed">Правінцыя Ганьсу</subdivision>
+			<subdivision type="cngx" draft="contributed">Гуансі-Чжуанскі аўтаномны раён</subdivision>
+			<subdivision type="cngz" draft="contributed">Правінцыя Гуйчжоу</subdivision>
+			<subdivision type="cnha" draft="contributed">Правінцыя Хэнань</subdivision>
+			<subdivision type="cnhb" draft="contributed">Правінцыя Хубэй</subdivision>
+			<subdivision type="cnhe" draft="contributed">Правінцыя Хэбэй</subdivision>
+			<subdivision type="cnhi" draft="contributed">Правінцыя Хайнань</subdivision>
+			<subdivision type="cnhk" draft="contributed">Ганконг</subdivision>
+			<subdivision type="cnhl" draft="contributed">Правінцыя Хэйлунцзян</subdivision>
+			<subdivision type="cnhn" draft="contributed">Правінцыя Хунань</subdivision>
+			<subdivision type="cnjl" draft="contributed">Правінцыя Гірын</subdivision>
+			<subdivision type="cnjs" draft="contributed">Правінцыя Цзянсу</subdivision>
+			<subdivision type="cnjx" draft="contributed">Правінцыя Цзянсі</subdivision>
+			<subdivision type="cnln" draft="contributed">Правінцыя Ляанін</subdivision>
+			<subdivision type="cnmo" draft="contributed">Макаа</subdivision>
+			<subdivision type="cnnm" draft="contributed">Унутраная Манголія</subdivision>
+			<subdivision type="cnnx" draft="contributed">Нінся-Хуэйскі аўтаномны раён</subdivision>
+			<subdivision type="cnqh" draft="contributed">Правінцыя Цынхай</subdivision>
+			<subdivision type="cnsc" draft="contributed">Правінцыя Сычуань</subdivision>
+			<subdivision type="cnsd" draft="contributed">Правінцыя Шаньдун</subdivision>
+			<subdivision type="cnsh" draft="contributed">Шанхай</subdivision>
+			<subdivision type="cnsn" draft="contributed">Правінцыя Шэньсі</subdivision>
+			<subdivision type="cnsx" draft="contributed">Правінцыя Шаньсі</subdivision>
+			<subdivision type="cnxj" draft="contributed">Сіньцзян-Уйгурскі аўтаномны раён</subdivision>
+			<subdivision type="cnxz" draft="contributed">Тыбецкі аўтаномны раён</subdivision>
+			<subdivision type="cnyn" draft="contributed">Правінцыя Юньнань</subdivision>
+			<subdivision type="cnzj" draft="contributed">Правінцыя Чжэцзян</subdivision>
+			<subdivision type="coant" draft="contributed">Анцьёкія</subdivision>
+			<subdivision type="coatl" draft="contributed">дэпартамент Атлантыка</subdivision>
+			<subdivision type="cocau" draft="contributed">дэпартамент Каўка</subdivision>
+			<subdivision type="cocho" draft="contributed">дэпартамент Чако</subdivision>
+			<subdivision type="codc" draft="contributed">Багата</subdivision>
+			<subdivision type="comag" draft="contributed">Магдалена</subdivision>
+			<subdivision type="consa" draft="contributed">дэпартамент Нортэ-дэ-Сантандэр</subdivision>
+			<subdivision type="covac" draft="contributed">дэпартамент Валье-дэль-Каўка</subdivision>
+			<subdivision type="crh" draft="contributed">Правінцыя Эрэдзія</subdivision>
+			<subdivision type="crsj" draft="contributed">правінцыя Сан-Хасэ</subdivision>
+			<subdivision type="cu03" draft="contributed">Гавана</subdivision>
+			<subdivision type="cu04" draft="contributed">Правінцыя Матансас</subdivision>
+			<subdivision type="cu05" draft="contributed">Правінцыя Вілья-Клара</subdivision>
+			<subdivision type="cu06" draft="contributed">Правінцыя Сьенфуэгас</subdivision>
+			<subdivision type="cu08" draft="contributed">Правінцыя Сьега-дэ-Авіла</subdivision>
+			<subdivision type="cu09" draft="contributed">Правінцыя Камагуэй</subdivision>
+			<subdivision type="cu10" draft="contributed">Правінцыя Лас-Тунас</subdivision>
+			<subdivision type="cu11" draft="contributed">Альгін</subdivision>
+			<subdivision type="cu12" draft="contributed">Правінцыя Гранма</subdivision>
+			<subdivision type="cu14" draft="contributed">Правінцыя Гуантанама</subdivision>
+			<subdivision type="cu99" draft="contributed">Востраў Хувентуд</subdivision>
+			<subdivision type="cvb" draft="contributed">астравы Барлавенту</subdivision>
+			<subdivision type="cvpr" draft="contributed">Прая</subdivision>
+			<subdivision type="cy01" draft="contributed">Нікосія</subdivision>
+			<subdivision type="cz10" draft="contributed">Прага</subdivision>
+			<subdivision type="cz20" draft="contributed">Сярэднячэшскі край</subdivision>
+			<subdivision type="cz31" draft="contributed">Паўднёвачэшскі край</subdivision>
+			<subdivision type="cz32" draft="contributed">Пльзенскі край</subdivision>
+			<subdivision type="cz41" draft="contributed">Карлаварскі край</subdivision>
+			<subdivision type="cz42" draft="contributed">Усцецкі край</subdivision>
+			<subdivision type="cz51" draft="contributed">Ліберацкі край</subdivision>
+			<subdivision type="cz52" draft="contributed">Кралавеградзецкі край</subdivision>
+			<subdivision type="cz53" draft="contributed">Пардубіцкі край</subdivision>
+			<subdivision type="cz63" draft="contributed">Край Высачына</subdivision>
+			<subdivision type="cz64" draft="contributed">Паўднёвамараўскі край</subdivision>
+			<subdivision type="cz71" draft="contributed">Оламаўцкі край</subdivision>
+			<subdivision type="cz72" draft="contributed">Злінскі край</subdivision>
+			<subdivision type="cz80" draft="contributed">Мараўскасілезскі край</subdivision>
+			<subdivision type="cz101" draft="contributed">Прага 1</subdivision>
+			<subdivision type="cz102" draft="contributed">Прага 2</subdivision>
+			<subdivision type="cz103" draft="contributed">Прага 3</subdivision>
+			<subdivision type="cz201" draft="contributed">раён Бенешаў</subdivision>
+			<subdivision type="cz202" draft="contributed">Бераўн</subdivision>
+			<subdivision type="cz203" draft="contributed">Кладна</subdivision>
+			<subdivision type="cz205" draft="contributed">раён Кутна-Гора</subdivision>
+			<subdivision type="cz206" draft="contributed">Мельнік</subdivision>
+			<subdivision type="cz207" draft="contributed">Млада Болеслаў</subdivision>
+			<subdivision type="cz208" draft="contributed">раён Німбурк</subdivision>
+			<subdivision type="cz209" draft="contributed">Прага-ўсход</subdivision>
+			<subdivision type="cz311" draft="contributed">Раён Чэске-Будзеёвіцы</subdivision>
+			<subdivision type="cz312" draft="contributed">раён Чэскі-Крумлаў</subdivision>
+			<subdivision type="cz314" draft="contributed">Пісек</subdivision>
+			<subdivision type="cz315" draft="contributed">Прахаціцы</subdivision>
+			<subdivision type="cz317" draft="contributed">Табар</subdivision>
+			<subdivision type="cz322" draft="contributed">раён Клатаві</subdivision>
+			<subdivision type="cz323" draft="contributed">акруга Пльзень-горад</subdivision>
+			<subdivision type="cz411" draft="contributed">Хеб</subdivision>
+			<subdivision type="cz412" draft="contributed">Раён Карлавы Вары</subdivision>
+			<subdivision type="cz421" draft="contributed">Дзечын</subdivision>
+			<subdivision type="cz423" draft="contributed">Літамержыцэ</subdivision>
+			<subdivision type="cz424" draft="contributed">раён Лоўні</subdivision>
+			<subdivision type="cz426" draft="contributed">Цепліцы</subdivision>
+			<subdivision type="cz427" draft="contributed">Усці-над-Лабем</subdivision>
+			<subdivision type="cz514" draft="contributed">раён Семілі</subdivision>
+			<subdivision type="cz521" draft="contributed">раён Градзец-Кралавэ</subdivision>
+			<subdivision type="cz524" draft="contributed">раён Рыхнаў над Кнежнау</subdivision>
+			<subdivision type="cz525" draft="contributed">раён Трутнаў</subdivision>
+			<subdivision type="cz531" draft="contributed">Хрудзім</subdivision>
+			<subdivision type="cz532" draft="contributed">раён Пардубіцы</subdivision>
+			<subdivision type="cz533" draft="contributed">раён Світаві</subdivision>
+			<subdivision type="cz631" draft="contributed">раён Гаўлічкаў Брод</subdivision>
+			<subdivision type="cz632" draft="contributed">Раён Йіглава</subdivision>
+			<subdivision type="cz633" draft="contributed">Пельгржымаў</subdivision>
+			<subdivision type="cz634" draft="contributed">раён Тршэбіч</subdivision>
+			<subdivision type="cz641" draft="contributed">Раён Бланска</subdivision>
+			<subdivision type="cz642" draft="contributed">Брно-горад</subdivision>
+			<subdivision type="cz643" draft="contributed">Брно-прыгарад</subdivision>
+			<subdivision type="cz644" draft="contributed">Раён Бржэцлаў</subdivision>
+			<subdivision type="cz646" draft="contributed">Раён Вішкаў</subdivision>
+			<subdivision type="cz647" draft="contributed">Раён Знойма</subdivision>
+			<subdivision type="cz712" draft="contributed">Оламаўц</subdivision>
+			<subdivision type="cz713" draft="contributed">Просцеёў</subdivision>
+			<subdivision type="cz714" draft="contributed">раён Пршэраў</subdivision>
+			<subdivision type="cz721" draft="contributed">Кромержыж</subdivision>
+			<subdivision type="cz723" draft="contributed">раён Усецін</subdivision>
+			<subdivision type="cz724" draft="contributed">Злін</subdivision>
+			<subdivision type="cz803" draft="contributed">раён Карвіна</subdivision>
+			<subdivision type="cz804" draft="contributed">Новы-Йічын</subdivision>
+			<subdivision type="cz805" draft="contributed">раён Опава</subdivision>
+			<subdivision type="cz806" draft="contributed">Острава-горад</subdivision>
+			<subdivision type="debb" draft="contributed">Брандэнбург</subdivision>
+			<subdivision type="debe" draft="contributed">Берлін</subdivision>
+			<subdivision type="debw" draft="contributed">Бадэн-Вюртэмберг</subdivision>
+			<subdivision type="deby" draft="contributed">Баварыя</subdivision>
+			<subdivision type="dehb" draft="contributed">Вольны ганзейскі горад Брэмен</subdivision>
+			<subdivision type="dehe" draft="contributed">Гесэн</subdivision>
+			<subdivision type="dehh" draft="contributed">Гамбург</subdivision>
+			<subdivision type="demv" draft="contributed">Мекленбург-Пярэдняя Памеранія</subdivision>
+			<subdivision type="deni" draft="contributed">Ніжняя Саксонія</subdivision>
+			<subdivision type="denw" draft="contributed">Паўночны Рэйн-Вестфалія</subdivision>
+			<subdivision type="derp" draft="contributed">Рэйнланд-Пфальц</subdivision>
+			<subdivision type="desh" draft="contributed">Шлезвіг-Гольштэйн</subdivision>
+			<subdivision type="desl" draft="contributed">Саар</subdivision>
+			<subdivision type="desn" draft="contributed">Саксонія</subdivision>
+			<subdivision type="dest" draft="contributed">Саксонія-Ангальт</subdivision>
+			<subdivision type="deth" draft="contributed">Цюрынгія</subdivision>
+			<subdivision type="djar" draft="contributed">Рэгіён Арта</subdivision>
+			<subdivision type="djdi" draft="contributed">Рэгіён Дыхіл</subdivision>
+			<subdivision type="djdj" draft="contributed">Горад Джыбуці</subdivision>
+			<subdivision type="djob" draft="contributed">Рэгіён Абок</subdivision>
+			<subdivision type="djta" draft="contributed">Рэгіён Таджура</subdivision>
+			<subdivision type="dk81" draft="contributed">Вобласць Паўночная Ютландыя</subdivision>
+			<subdivision type="dk82" draft="contributed">Цэнтральная Ютландыя</subdivision>
+			<subdivision type="dk83" draft="contributed">Паўднёвая Данія</subdivision>
+			<subdivision type="dk84" draft="contributed">Сталічная вобласць</subdivision>
+			<subdivision type="dk85" draft="contributed">Зеландыя</subdivision>
+			<subdivision type="dz01" draft="contributed">Адрар</subdivision>
+			<subdivision type="dz02" draft="contributed">Правінцыя Эш-Шэліф</subdivision>
+			<subdivision type="dz03" draft="contributed">Правінцыя Агуат</subdivision>
+			<subdivision type="dz04" draft="contributed">Правінцыя Ум-эль-Буахі</subdivision>
+			<subdivision type="dz05" draft="contributed">Правінцыя Батна</subdivision>
+			<subdivision type="dz06" draft="contributed">Правінцыя Беджая</subdivision>
+			<subdivision type="dz07" draft="contributed">Правінцыя Біскра</subdivision>
+			<subdivision type="dz08" draft="contributed">Правінцыя Бешар</subdivision>
+			<subdivision type="dz09" draft="contributed">Правінцыя Бліда</subdivision>
+			<subdivision type="dz10" draft="contributed">Правінцыя Буіра</subdivision>
+			<subdivision type="dz11" draft="contributed">Правінцыя Таманрасет</subdivision>
+			<subdivision type="dz12" draft="contributed">Правінцыя Тэбеса</subdivision>
+			<subdivision type="dz13" draft="contributed">Правінцыя Тлемсен</subdivision>
+			<subdivision type="dz14" draft="contributed">Правінцыя Тыярэт</subdivision>
+			<subdivision type="dz15" draft="contributed">Правінцыя Тызі-Узу</subdivision>
+			<subdivision type="dz16" draft="contributed">правінцыя Алжыр</subdivision>
+			<subdivision type="dz17" draft="contributed">Правінцыя Джэльфа</subdivision>
+			<subdivision type="dz18" draft="contributed">Правінцыя Джыджэль</subdivision>
+			<subdivision type="dz19" draft="contributed">Правінцыя Сетыф</subdivision>
+			<subdivision type="dz20" draft="contributed">Правінцыя Саіда</subdivision>
+			<subdivision type="dz21" draft="contributed">Правінцыя Скікда</subdivision>
+			<subdivision type="dz22" draft="contributed">Правінцыя Сідзі-Бель-Абес</subdivision>
+			<subdivision type="dz23" draft="contributed">Правінцыя Анаба</subdivision>
+			<subdivision type="dz24" draft="contributed">Правінцыя Гельма</subdivision>
+			<subdivision type="dz25" draft="contributed">Правінцыя Канстанціна</subdivision>
+			<subdivision type="dz26" draft="contributed">Правінцыя Медэа</subdivision>
+			<subdivision type="dz27" draft="contributed">Правінцыя Мастаганем</subdivision>
+			<subdivision type="dz28" draft="contributed">Правінцыя Мсіла</subdivision>
+			<subdivision type="dz29" draft="contributed">правінцыя Маскара</subdivision>
+			<subdivision type="dz30" draft="contributed">Правінцыя Уаргла</subdivision>
+			<subdivision type="dz31" draft="contributed">Правінцыя Аран</subdivision>
+			<subdivision type="dz32" draft="contributed">Правінцыя Эль-Баяд</subdivision>
+			<subdivision type="dz33" draft="contributed">Правінцыя Ілізі</subdivision>
+			<subdivision type="dz34" draft="contributed">Правінцыя Бордж-Бу-Арэрыдж</subdivision>
+			<subdivision type="dz35" draft="contributed">Правінцыя Бумердэс</subdivision>
+			<subdivision type="dz36" draft="contributed">Правінцыя Эль-Тарф</subdivision>
+			<subdivision type="dz37" draft="contributed">Правінцыя Тындуф</subdivision>
+			<subdivision type="dz38" draft="contributed">Правінцыя Тысемсілт</subdivision>
+			<subdivision type="dz39" draft="contributed">Правінцыя Эль-Уэд</subdivision>
+			<subdivision type="dz40" draft="contributed">Правінцыя Хеншэла</subdivision>
+			<subdivision type="dz41" draft="contributed">Правінцыя Сук-Ахрас</subdivision>
+			<subdivision type="dz42" draft="contributed">Правінцыя Тыпаса</subdivision>
+			<subdivision type="dz43" draft="contributed">Правінцыя Міла</subdivision>
+			<subdivision type="dz44" draft="contributed">Правінцыя Айн-Дэфла</subdivision>
+			<subdivision type="dz45" draft="contributed">Правінцыя Наама</subdivision>
+			<subdivision type="dz46" draft="contributed">Правінцыя Айн-Тэмушэнт</subdivision>
+			<subdivision type="dz47" draft="contributed">Правінцыя Гардая</subdivision>
+			<subdivision type="dz48" draft="contributed">Правінцыя Рэлізан</subdivision>
+			<subdivision type="eca" draft="contributed">Правінцыя Асуай</subdivision>
+			<subdivision type="ecb" draft="contributed">Правінцыя Балівар</subdivision>
+			<subdivision type="ecc" draft="contributed">Правінцыя Карчы</subdivision>
+			<subdivision type="ecd" draft="contributed">Правінцыя Арэльяна</subdivision>
+			<subdivision type="ece" draft="contributed">Правінцыя Эсмеральдас</subdivision>
+			<subdivision type="ecf" draft="contributed">Правінцыя Каньяр</subdivision>
+			<subdivision type="ecg" draft="contributed">Правінцыя Гуаяс</subdivision>
+			<subdivision type="ech" draft="contributed">Правінцыя Чымбараса</subdivision>
+			<subdivision type="eci" draft="contributed">Правінцыя Імбабура</subdivision>
+			<subdivision type="ecl" draft="contributed">Правінцыя Лоха</subdivision>
+			<subdivision type="ecm" draft="contributed">Правінцыя Манабі</subdivision>
+			<subdivision type="ecn" draft="contributed">Правінцыя Напа</subdivision>
+			<subdivision type="eco" draft="contributed">Правінцыя Эль-Ора</subdivision>
+			<subdivision type="ecp" draft="contributed">Правінцыя Пічынча</subdivision>
+			<subdivision type="ecr" draft="contributed">Правінцыя Лос-Рыяс</subdivision>
+			<subdivision type="ecsd" draft="contributed">Правінцыя Санта-Дамінга-дэ-лос-Тсачылас</subdivision>
+			<subdivision type="ecse" draft="contributed">Правінцыя Санта-Элена</subdivision>
+			<subdivision type="ect" draft="contributed">Правінцыя Тунгурауа</subdivision>
+			<subdivision type="ecu" draft="contributed">Правінцыя Сукумбіас</subdivision>
+			<subdivision type="ecw" draft="contributed">Правінцыя Галапагос</subdivision>
+			<subdivision type="ecx" draft="contributed">Правінцыя Катапаксі</subdivision>
+			<subdivision type="ecy" draft="contributed">Правінцыя Пастаса</subdivision>
+			<subdivision type="ecz" draft="contributed">Правінцыя Самора-Чынчыпэ</subdivision>
+			<subdivision type="ee39" draft="contributed">Павет Хійу</subdivision>
+			<subdivision type="ee44" draft="contributed">павет Іда-Віру</subdivision>
+			<subdivision type="ee49" draft="contributed">Павет Йыгева</subdivision>
+			<subdivision type="ee51" draft="contributed">Павет Ярва</subdivision>
+			<subdivision type="ee57" draft="contributed">Павет Ляэнэ</subdivision>
+			<subdivision type="ee59" draft="contributed">Павет Ляэнэ-Віру</subdivision>
+			<subdivision type="ee65" draft="contributed">Павет Пылва</subdivision>
+			<subdivision type="ee67" draft="contributed">Павет Пярну</subdivision>
+			<subdivision type="ee70" draft="contributed">Павет Рапла</subdivision>
+			<subdivision type="ee74" draft="contributed">Павет Саарэ</subdivision>
+			<subdivision type="ee78" draft="contributed">павет Тарту</subdivision>
+			<subdivision type="ee82" draft="contributed">Павет Валга</subdivision>
+			<subdivision type="ee84" draft="contributed">Павет Вільяндзі</subdivision>
+			<subdivision type="ee86" draft="contributed">Павет Выру</subdivision>
+			<subdivision type="egalx" draft="contributed">Мухафаза Александрыя</subdivision>
+			<subdivision type="egasn" draft="contributed">Мухафаза Асуан</subdivision>
+			<subdivision type="egast" draft="contributed">Мухафаза Асьют</subdivision>
+			<subdivision type="egbh" draft="contributed">Мухафаза Бухейра</subdivision>
+			<subdivision type="egbns" draft="contributed">Мухафаза Бені-Суэйф</subdivision>
+			<subdivision type="egc" draft="contributed">Мухафаза Каір</subdivision>
+			<subdivision type="egdk" draft="contributed">Дакахлія</subdivision>
+			<subdivision type="eggz" draft="contributed">Эль-Гіза</subdivision>
+			<subdivision type="egkn" draft="contributed">Кена</subdivision>
+			<subdivision type="eglx" draft="contributed">Луксор</subdivision>
+			<subdivision type="egmn" draft="contributed">Эль-Мінья</subdivision>
+			<subdivision type="egmnf" draft="contributed">Мінуфія</subdivision>
+			<subdivision type="egpts" draft="contributed">Мухафаза Порт-Саід</subdivision>
+			<subdivision type="esa" draft="contributed">правінцыя Алікантэ</subdivision>
+			<subdivision type="esab" draft="contributed">Правінцыя Альбасетэ</subdivision>
+			<subdivision type="esal" draft="contributed">Правінцыя Альмерыя</subdivision>
+			<subdivision type="esan" draft="contributed">Андалусія</subdivision>
+			<subdivision type="esar" draft="contributed">Арагон</subdivision>
+			<subdivision type="esas" draft="contributed">Астурыя</subdivision>
+			<subdivision type="esav" draft="contributed">Правінцыя Авіла</subdivision>
+			<subdivision type="esb" draft="contributed">правінцыя Барселона</subdivision>
+			<subdivision type="esba" draft="contributed">Бадахас</subdivision>
+			<subdivision type="esbi" draft="contributed">правінцыя Біская</subdivision>
+			<subdivision type="esbu" draft="contributed">Правінцыя Бургас</subdivision>
+			<subdivision type="esc" draft="contributed">Правінцыя Ла-Карунья</subdivision>
+			<subdivision type="esca" draft="contributed">правінцыя Кадыс</subdivision>
+			<subdivision type="escb" draft="contributed">Кантабрыя</subdivision>
+			<subdivision type="escc" draft="contributed">Касерэс</subdivision>
+			<subdivision type="esce" draft="contributed">Сеўта</subdivision>
+			<subdivision type="escl" draft="contributed">Кастылія і Леон</subdivision>
+			<subdivision type="escm" draft="contributed">Кастылія — Ла-Манча</subdivision>
+			<subdivision type="esco" draft="contributed">Правінцыя Кордава</subdivision>
+			<subdivision type="escr" draft="contributed">Сьюдад-Рэаль</subdivision>
+			<subdivision type="escs" draft="contributed">правінцыя Кастэльён</subdivision>
+			<subdivision type="esct" draft="contributed">Каталонія</subdivision>
+			<subdivision type="escu" draft="contributed">Куэнка</subdivision>
+			<subdivision type="esex" draft="contributed">Эстрэмадура</subdivision>
+			<subdivision type="esga" draft="contributed">Галісія</subdivision>
+			<subdivision type="esgc" draft="contributed">Правінцыя Лас-Пальмас</subdivision>
+			<subdivision type="esgi" draft="contributed">правінцыя Херона</subdivision>
+			<subdivision type="esgr" draft="contributed">Правінцыя Гранада</subdivision>
+			<subdivision type="esgu" draft="contributed">правінцыя Гвадалахара</subdivision>
+			<subdivision type="esh" draft="contributed">Правінцыя Уэльва</subdivision>
+			<subdivision type="eshu" draft="contributed">Правінцыя Уэска</subdivision>
+			<subdivision type="esib" draft="contributed">Балеарскія астравы</subdivision>
+			<subdivision type="esj" draft="contributed">Правінцыя Хаэн</subdivision>
+			<subdivision type="esl" draft="contributed">правінцыя Льейда</subdivision>
+			<subdivision type="esle" draft="contributed">Леон</subdivision>
+			<subdivision type="eslo" draft="contributed">Рыёха</subdivision>
+			<subdivision type="eslu" draft="contributed">Правінцыя Луга</subdivision>
+			<subdivision type="esm" draft="contributed">Правінцыя Мадрыд</subdivision>
+			<subdivision type="esma" draft="contributed">Правінцыя Малага</subdivision>
+			<subdivision type="esmc" draft="contributed">Мурсія</subdivision>
+			<subdivision type="esmd" draft="contributed">аўтаномная супольнасць Мадрыд</subdivision>
+			<subdivision type="esml" draft="contributed">Мелілья</subdivision>
+			<subdivision type="esna" draft="contributed">аўтаномная супольнасць Навара</subdivision>
+			<subdivision type="esnc" draft="contributed">Навара, аўтаномная супольнасць</subdivision>
+			<subdivision type="eso" draft="contributed">Астурыя²</subdivision>
+			<subdivision type="esor" draft="contributed">Правінцыя Арэнсэ</subdivision>
+			<subdivision type="esp" draft="contributed">правінцыя Паленсія</subdivision>
+			<subdivision type="espm" draft="contributed">Балеарскія астравы²</subdivision>
+			<subdivision type="espo" draft="contributed">правінцыя Пантэведра</subdivision>
+			<subdivision type="espv" draft="contributed">Краіна Баскаў</subdivision>
+			<subdivision type="esri" draft="contributed">Рыёха²</subdivision>
+			<subdivision type="ess" draft="contributed">Кантабрыя²</subdivision>
+			<subdivision type="essa" draft="contributed">правінцыя Саламанка</subdivision>
+			<subdivision type="esse" draft="contributed">правінцыя Севілья</subdivision>
+			<subdivision type="essg" draft="contributed">Сеговія</subdivision>
+			<subdivision type="esso" draft="contributed">Правінцыя Сорыя</subdivision>
+			<subdivision type="esss" draft="contributed">Гіпускоа</subdivision>
+			<subdivision type="est" draft="contributed">правінцыя Тарагона</subdivision>
+			<subdivision type="este" draft="contributed">Тэруэль</subdivision>
+			<subdivision type="estf" draft="contributed">правінцыя Санта-Крус-дэ-Тэнэрыфэ</subdivision>
+			<subdivision type="esto" draft="contributed">Правінцыя Таледа</subdivision>
+			<subdivision type="esv" draft="contributed">Правінцыя Валенсія</subdivision>
+			<subdivision type="esva" draft="contributed">Вальядалід</subdivision>
+			<subdivision type="esvc" draft="contributed">аўтаномная супольнасць Валенсія</subdivision>
+			<subdivision type="esvi" draft="contributed">правінцыя Алава</subdivision>
+			<subdivision type="esz" draft="contributed">правінцыя Сарагоса</subdivision>
+			<subdivision type="esza" draft="contributed">Правінцыя Самора</subdivision>
+			<subdivision type="etaa" draft="contributed">Адыс-Абеба</subdivision>
+			<subdivision type="etdd" draft="contributed">Горад Дырэ-Дауа</subdivision>
+			<subdivision type="fi03" draft="contributed">Паўднёвая Астработнія</subdivision>
+			<subdivision type="fi04" draft="contributed">Паўднёвае Сава</subdivision>
+			<subdivision type="fi05" draft="contributed">Кайнуу</subdivision>
+			<subdivision type="fi08" draft="contributed">Цэнтральная Фінляндыя</subdivision>
+			<subdivision type="fi09" draft="contributed">Кюменлаакса</subdivision>
+			<subdivision type="fi10" draft="contributed">Лапландыя</subdivision>
+			<subdivision type="fi11" draft="contributed">Пірканмаа</subdivision>
+			<subdivision type="fi12" draft="contributed">Астработнія</subdivision>
+			<subdivision type="fi15" draft="contributed">Паўночнае Сава</subdivision>
+			<subdivision type="fi16" draft="contributed">Пяят-Хямэ</subdivision>
+			<subdivision type="fi17" draft="contributed">Сатакунта</subdivision>
+			<subdivision type="fi18" draft="contributed">Усіма</subdivision>
+			<subdivision type="fi19" draft="contributed">Паўднёва-Заходняя Фінляндыя</subdivision>
+			<subdivision type="fjr" draft="contributed">Востраў Ратума</subdivision>
+			<subdivision type="fmksa" draft="contributed">Востраў Касрае</subdivision>
+			<subdivision type="fmtrk" draft="contributed">Астравы Чуўк</subdivision>
+			<subdivision type="fr01" draft="contributed">Дэпартамент Эн</subdivision>
+			<subdivision type="fr02" draft="contributed">Дэпартамент Эна</subdivision>
+			<subdivision type="fr2a" draft="contributed">Корсіка Паўднёвая</subdivision>
+			<subdivision type="fr2b" draft="contributed">Корсіка Верхняя</subdivision>
+			<subdivision type="fr03" draft="contributed">Дэпартамент Алье</subdivision>
+			<subdivision type="fr04" draft="contributed">Альпы Верхняга Праванса</subdivision>
+			<subdivision type="fr05" draft="contributed">Верхнія Альпы</subdivision>
+			<subdivision type="fr06" draft="contributed">Дэпартамент Альпы Прыморскія</subdivision>
+			<subdivision type="fr07" draft="contributed">Ардэш</subdivision>
+			<subdivision type="fr08" draft="contributed">дэпартамент Ардэны</subdivision>
+			<subdivision type="fr10" draft="contributed">Дэпартамент Об</subdivision>
+			<subdivision type="fr11" draft="contributed">Дэпартамент Од</subdivision>
+			<subdivision type="fr12" draft="contributed">Аверон</subdivision>
+			<subdivision type="fr13" draft="contributed">Буш-дзю-Рон</subdivision>
+			<subdivision type="fr14" draft="contributed">Дэпартамент Кальвадос</subdivision>
+			<subdivision type="fr15" draft="contributed">Дэпартамент Канталь</subdivision>
+			<subdivision type="fr16" draft="contributed">Шаранта</subdivision>
+			<subdivision type="fr17" draft="contributed">Дэпартамент Шаранта Прыморская</subdivision>
+			<subdivision type="fr18" draft="contributed">Шэр, дэпартамент</subdivision>
+			<subdivision type="fr19" draft="contributed">Карэз</subdivision>
+			<subdivision type="fr23" draft="contributed">Кроз, дэпартамент</subdivision>
+			<subdivision type="fr24" draft="contributed">Дардонь</subdivision>
+			<subdivision type="fr25" draft="contributed">Дэпартамент Ду</subdivision>
+			<subdivision type="fr26" draft="contributed">Дэпартамент Дром</subdivision>
+			<subdivision type="fr27" draft="contributed">Дэпартамент Эр</subdivision>
+			<subdivision type="fr28" draft="contributed">Эр і Луар</subdivision>
+			<subdivision type="fr29" draft="contributed">Фіністэр</subdivision>
+			<subdivision type="fr30" draft="contributed">Дэпартамент Гар</subdivision>
+			<subdivision type="fr31" draft="contributed">Гарона Верхняя</subdivision>
+			<subdivision type="fr32" draft="contributed">Дэпартамент Жэр</subdivision>
+			<subdivision type="fr33" draft="contributed">Жыронда</subdivision>
+			<subdivision type="fr34" draft="contributed">Дэпартамент Эро</subdivision>
+			<subdivision type="fr35" draft="contributed">Іль і Вілен</subdivision>
+			<subdivision type="fr36" draft="contributed">Дэпартамент Эндр</subdivision>
+			<subdivision type="fr37" draft="contributed">Эндр і Луара</subdivision>
+			<subdivision type="fr38" draft="contributed">Дэпартамент Ізер</subdivision>
+			<subdivision type="fr39" draft="contributed">Дэпартамент Юра</subdivision>
+			<subdivision type="fr40" draft="contributed">Дэпартамент Ланды</subdivision>
+			<subdivision type="fr41" draft="contributed">Луар і Шэр</subdivision>
+			<subdivision type="fr42" draft="contributed">Дэпартамент Луара</subdivision>
+			<subdivision type="fr43" draft="contributed">Дэпартамент Луара Верхняя</subdivision>
+			<subdivision type="fr44" draft="contributed">Луара Атлантычная</subdivision>
+			<subdivision type="fr45" draft="contributed">Луарэ</subdivision>
+			<subdivision type="fr46" draft="contributed">Дэпартамент Ло</subdivision>
+			<subdivision type="fr47" draft="contributed">Дэпартамент Ло і Гарона</subdivision>
+			<subdivision type="fr48" draft="contributed">Дэпартамент Лазер</subdivision>
+			<subdivision type="fr49" draft="contributed">Мен і Луара</subdivision>
+			<subdivision type="fr50" draft="contributed">Дэпартамент Манш</subdivision>
+			<subdivision type="fr51" draft="contributed">Дэпартамент Марна</subdivision>
+			<subdivision type="fr52" draft="contributed">Дэпартамент Марна Верхняя</subdivision>
+			<subdivision type="fr53" draft="contributed">Дэпартамент Маен</subdivision>
+			<subdivision type="fr54" draft="contributed">Дэпартамент Мёрт і Мозель</subdivision>
+			<subdivision type="fr55" draft="contributed">Дэпартамент Мёз</subdivision>
+			<subdivision type="fr56" draft="contributed">Марбіян</subdivision>
+			<subdivision type="fr57" draft="contributed">Дэпартамент Мозель</subdivision>
+			<subdivision type="fr58" draft="contributed">Дэпартамент Ньеўр</subdivision>
+			<subdivision type="fr59" draft="contributed">Дэпартамент Нор</subdivision>
+			<subdivision type="fr60" draft="contributed">Дэпартамент Уаза</subdivision>
+			<subdivision type="fr61" draft="contributed">Дэпартамент Орн</subdivision>
+			<subdivision type="fr62" draft="contributed">Дэпартамент Па-дэ-Кале</subdivision>
+			<subdivision type="fr63" draft="contributed">Дэпартамент Пюі-дэ-Дом</subdivision>
+			<subdivision type="fr64" draft="contributed">Пірэнеі Атлантычныя</subdivision>
+			<subdivision type="fr65" draft="contributed">Дэпартамент Пірэнеі Верхнія</subdivision>
+			<subdivision type="fr66" draft="contributed">Дэпартамент Пірэнеі Усходнія</subdivision>
+			<subdivision type="fr67" draft="contributed">Рэйн Ніжні</subdivision>
+			<subdivision type="fr68" draft="contributed">Рэйн Верхні</subdivision>
+			<subdivision type="fr69" draft="contributed">Рона</subdivision>
+			<subdivision type="fr70" draft="contributed">Дэпартамент Сона Верхняя</subdivision>
+			<subdivision type="fr71" draft="contributed">Дэпартамент Сона і Луара</subdivision>
+			<subdivision type="fr72" draft="contributed">Дэпартамент Сарта</subdivision>
+			<subdivision type="fr73" draft="contributed">Дэпартамент Савоя</subdivision>
+			<subdivision type="fr74" draft="contributed">Дэпартамент Верхняя Савоя</subdivision>
+			<subdivision type="fr75" draft="contributed">Парыж</subdivision>
+			<subdivision type="fr76" draft="contributed">Сена Прыморская</subdivision>
+			<subdivision type="fr77" draft="contributed">Дэпартамент Сена і Марна</subdivision>
+			<subdivision type="fr78" draft="contributed">Івелін</subdivision>
+			<subdivision type="fr79" draft="contributed">Дзё-Сеўр</subdivision>
+			<subdivision type="fr80" draft="contributed">Дэпартамент Сома</subdivision>
+			<subdivision type="fr81" draft="contributed">Дэпартамент Тарн</subdivision>
+			<subdivision type="fr82" draft="contributed">Тарн і Гарона</subdivision>
+			<subdivision type="fr83" draft="contributed">Дэпартамент Вар</subdivision>
+			<subdivision type="fr84" draft="contributed">Ваклюз</subdivision>
+			<subdivision type="fr85" draft="contributed">Вандэя</subdivision>
+			<subdivision type="fr88" draft="contributed">Дэпартамент Вагезы</subdivision>
+			<subdivision type="fr89" draft="contributed">Дэпартамент Іона</subdivision>
+			<subdivision type="fr90" draft="contributed">Тэрыторыя Бельфор</subdivision>
+			<subdivision type="fr91" draft="contributed">Дэпартамент Эсон</subdivision>
+			<subdivision type="fr92" draft="contributed">О-дэ-Сен</subdivision>
+			<subdivision type="fr93" draft="contributed">Сен-Сен-Дэні</subdivision>
+			<subdivision type="fr94" draft="contributed">Валь-дэ-Марн</subdivision>
+			<subdivision type="frara" draft="contributed">Авернь — Рона-Альпы</subdivision>
+			<subdivision type="frbre" draft="contributed">Брэтань</subdivision>
+			<subdivision type="frcor" draft="contributed">Корсіка</subdivision>
+			<subdivision type="frcvl" draft="contributed">Рэгіён Цэнтр</subdivision>
+			<subdivision type="frges" draft="contributed">Гранд Эст</subdivision>
+			<subdivision type="frhdf" draft="contributed">рэгіён О-дэ-Франс</subdivision>
+			<subdivision type="fridf" draft="contributed">Іль-дэ-Франс</subdivision>
+			<subdivision type="frnaq" draft="contributed">Новая Аквітанія</subdivision>
+			<subdivision type="frnor" draft="contributed">Рэгіён Нармандыя</subdivision>
+			<subdivision type="frocc" draft="contributed">рэгіён Аксітанія</subdivision>
+			<subdivision type="frpac" draft="contributed">Праванс-Альпы-Лазурны бераг</subdivision>
+			<subdivision type="frpdl" draft="contributed">Землі Луары</subdivision>
+			<subdivision type="ga8" draft="contributed">правінцыя Агаўэ-Марытым</subdivision>
+			<subdivision type="gbabd" draft="contributed">Абердзіншыр</subdivision>
+			<subdivision type="gbabe" draft="contributed">Абердзін</subdivision>
+			<subdivision type="gbagy" draft="contributed">Англсі</subdivision>
+			<subdivision type="gbans" draft="contributed">Вобласць Ангус</subdivision>
+			<subdivision type="gbbas" draft="contributed">Бат і Паўночна-Усходні Сомерсет</subdivision>
+			<subdivision type="gbbdg" draft="contributed">бора Баркінг і Дагенем</subdivision>
+			<subdivision type="gbben" draft="contributed">Брэнт</subdivision>
+			<subdivision type="gbbex" draft="contributed">Бекслі</subdivision>
+			<subdivision type="gbbfs" draft="contributed">акруга Белфаст</subdivision>
+			<subdivision type="gbbge" draft="contributed">Брыджэнд</subdivision>
+			<subdivision type="gbbir" draft="contributed">Бірмінгем</subdivision>
+			<subdivision type="gbbkm" draft="contributed">Бакінгемшыр</subdivision>
+			<subdivision type="gbbmh" draft="contributed">Горад Борнмут</subdivision>
+			<subdivision type="gbbne" draft="contributed">Барнет</subdivision>
+			<subdivision type="gbbnh" draft="contributed">Брайтан і Хоўв</subdivision>
+			<subdivision type="gbbns" draft="contributed">Муніцыпальны раён Барнслі</subdivision>
+			<subdivision type="gbbol" draft="contributed">раён Болтан</subdivision>
+			<subdivision type="gbbpl" draft="contributed">Горад Блэкпул</subdivision>
+			<subdivision type="gbbrd" draft="contributed">бора Брэдфард</subdivision>
+			<subdivision type="gbbry" draft="contributed">Бромлі</subdivision>
+			<subdivision type="gbbst" draft="contributed">Брысталь</subdivision>
+			<subdivision type="gbbur" draft="contributed">Беры</subdivision>
+			<subdivision type="gbcam" draft="contributed">Кембрыджшыр</subdivision>
+			<subdivision type="gbcay" draft="contributed">Кайрфілі</subdivision>
+			<subdivision type="gbcbf" draft="contributed">Цэнтральны Бедфардшыр</subdivision>
+			<subdivision type="gbche" draft="contributed">Усходні Чэшыр</subdivision>
+			<subdivision type="gbchw" draft="contributed">Заходні Чэшыр і Чэстэр</subdivision>
+			<subdivision type="gbcld" draft="contributed">Калдэрдэйл</subdivision>
+			<subdivision type="gbcma" draft="contributed">Камбрыя</subdivision>
+			<subdivision type="gbcmd" draft="contributed">Бора Кэмдэн</subdivision>
+			<subdivision type="gbcmn" draft="contributed">Кармартэншыр</subdivision>
+			<subdivision type="gbcon" draft="contributed">Паўвостраў Корнуал</subdivision>
+			<subdivision type="gbcov" draft="contributed">Ковентры</subdivision>
+			<subdivision type="gbcrf" draft="contributed">акруга Кардыф</subdivision>
+			<subdivision type="gbcry" draft="contributed">бора Кройдан</subdivision>
+			<subdivision type="gbdby" draft="contributed">Графства Дэрбішыр</subdivision>
+			<subdivision type="gbden" draft="contributed">графства Дэнбішыр</subdivision>
+			<subdivision type="gbder" draft="contributed">Дэрбі</subdivision>
+			<subdivision type="gbdev" draft="contributed">Графства Дэваншыр</subdivision>
+			<subdivision type="gbdgy" draft="contributed">Дамфрыс-энд-Галаўэй</subdivision>
+			<subdivision type="gbdnc" draft="contributed">бора Данкастэр</subdivision>
+			<subdivision type="gbdnd" draft="contributed">Горад Дандзі</subdivision>
+			<subdivision type="gbdor" draft="contributed">Дорсет</subdivision>
+			<subdivision type="gbdur" draft="contributed">Графства Дарэм</subdivision>
+			<subdivision type="gbeal" draft="contributed">Бора Ілінг</subdivision>
+			<subdivision type="gbeay" draft="contributed">Усходні Эйршыр</subdivision>
+			<subdivision type="gbedh" draft="contributed">Эдынбург</subdivision>
+			<subdivision type="gbeln" draft="contributed">Усходні Лотыян</subdivision>
+			<subdivision type="gbels" draft="contributed">Знешнія Гебрыдскія астравы</subdivision>
+			<subdivision type="gbenf" draft="contributed">Энфілд</subdivision>
+			<subdivision type="gbeng">Англія</subdivision>
+			<subdivision type="gbery" draft="contributed">Усходні райдынг Ёркшыра</subdivision>
+			<subdivision type="gbess" draft="contributed">Эсэкс</subdivision>
+			<subdivision type="gbesx" draft="contributed">Усходні Сусекс</subdivision>
+			<subdivision type="gbfif" draft="contributed">Файф</subdivision>
+			<subdivision type="gbfln" draft="contributed">Флінтшыр</subdivision>
+			<subdivision type="gbgbn" draft="contributed">востраў Вялікабрытанія</subdivision>
+			<subdivision type="gbglg" draft="contributed">Глазга</subdivision>
+			<subdivision type="gbgls" draft="contributed">Глостэршыр</subdivision>
+			<subdivision type="gbgre" draft="contributed">Грынвіч</subdivision>
+			<subdivision type="gbgwn" draft="contributed">Гвінед</subdivision>
+			<subdivision type="gbhal" draft="contributed">Халтан</subdivision>
+			<subdivision type="gbham" draft="contributed">Графства Хэмпшыр</subdivision>
+			<subdivision type="gbhav" draft="contributed">бора Хейверынг</subdivision>
+			<subdivision type="gbhck" draft="contributed">Хакні</subdivision>
+			<subdivision type="gbhef" draft="contributed">Графства Херэфардшыр</subdivision>
+			<subdivision type="gbhld" draft="contributed">Хайленд</subdivision>
+			<subdivision type="gbhmf" draft="contributed">Хамерсміт і Фулем</subdivision>
+			<subdivision type="gbhrt" draft="contributed">Хартфардшыр</subdivision>
+			<subdivision type="gbhrw" draft="contributed">Хараў</subdivision>
+			<subdivision type="gbios" draft="contributed">Астравы Сілі</subdivision>
+			<subdivision type="gbiow" draft="contributed">Востраў Уайт</subdivision>
+			<subdivision type="gbisl" draft="contributed">Ізлінгтан</subdivision>
+			<subdivision type="gbivc" draft="contributed">Інверклайд</subdivision>
+			<subdivision type="gbkec" draft="contributed">Бора Кенсінгтон і Чэлсі</subdivision>
+			<subdivision type="gbken" draft="contributed">Кент</subdivision>
+			<subdivision type="gbkhl" draft="contributed">Горад Кінгстан-апон-Хал</subdivision>
+			<subdivision type="gbktt" draft="contributed">Кінгстан-на-Тэмзе</subdivision>
+			<subdivision type="gbkwl" draft="contributed">Ноўслі</subdivision>
+			<subdivision type="gblan" draft="contributed">Ланкашыр</subdivision>
+			<subdivision type="gblbh" draft="contributed">бора Ламбет</subdivision>
+			<subdivision type="gblce" draft="contributed">Лестэр</subdivision>
+			<subdivision type="gblds" draft="contributed">Сіці-оф-Лідс</subdivision>
+			<subdivision type="gblec" draft="contributed">Лестэршыр</subdivision>
+			<subdivision type="gblew" draft="contributed">Луішэм</subdivision>
+			<subdivision type="gblin" draft="contributed">Графства Лінкальншыр</subdivision>
+			<subdivision type="gbliv" draft="contributed">Ліверпул</subdivision>
+			<subdivision type="gblnd" draft="contributed">Сіці</subdivision>
+			<subdivision type="gbman" draft="contributed">Манчэстэр</subdivision>
+			<subdivision type="gbmdb" draft="contributed">Горад Мідлсбра</subdivision>
+			<subdivision type="gbmln" draft="contributed">Мідлотыян</subdivision>
+			<subdivision type="gbmon" draft="contributed">Монмутшыр</subdivision>
+			<subdivision type="gbmrt" draft="contributed">Мертан</subdivision>
+			<subdivision type="gbnay" draft="contributed">Паўночны Эйршыр</subdivision>
+			<subdivision type="gbnbl" draft="contributed">Нартумберленд</subdivision>
+			<subdivision type="gbnel" draft="contributed">Паўночна-Усходні Лінкальншыр</subdivision>
+			<subdivision type="gbnet" draft="contributed">Ньюкасл-эпон-Тайн</subdivision>
+			<subdivision type="gbnfk" draft="contributed">Графства Норфалк</subdivision>
+			<subdivision type="gbngm" draft="contributed">Горад Нотынгем</subdivision>
+			<subdivision type="gbnir" draft="contributed">Паўночная Ірландыя</subdivision>
+			<subdivision type="gbnsm" draft="contributed">Паўночны Сомерсет</subdivision>
+			<subdivision type="gbnth" draft="contributed">Графства Нартгемптаншыр</subdivision>
+			<subdivision type="gbntt" draft="contributed">Нотынгемшыр</subdivision>
+			<subdivision type="gbnwp" draft="contributed">Ньюпарт</subdivision>
+			<subdivision type="gbnyk" draft="contributed">Норт-Ёркшыр</subdivision>
+			<subdivision type="gbold" draft="contributed">Олдэм</subdivision>
+			<subdivision type="gbork" draft="contributed">Аркнейскія астравы</subdivision>
+			<subdivision type="gboxf" draft="contributed">Оксфардшыр</subdivision>
+			<subdivision type="gbpem" draft="contributed">Пембрукшыр</subdivision>
+			<subdivision type="gbpkn" draft="contributed">Перт-энд-Кінрос</subdivision>
+			<subdivision type="gbply" draft="contributed">Горад Плімут</subdivision>
+			<subdivision type="gbpor" draft="contributed">Портсмут</subdivision>
+			<subdivision type="gbpow" draft="contributed">Графства Повіс</subdivision>
+			<subdivision type="gbrct" draft="contributed">Ронта-Кінан-Тав</subdivision>
+			<subdivision type="gbrdb" draft="contributed">Рэдбрыдж</subdivision>
+			<subdivision type="gbrdg" draft="contributed">Рэдынг</subdivision>
+			<subdivision type="gbrfw" draft="contributed">Рэнфрушыр</subdivision>
+			<subdivision type="gbric" draft="contributed">Рычманд-апан-Тэмс</subdivision>
+			<subdivision type="gbsay" draft="contributed">Паўднёвы Эйршыр</subdivision>
+			<subdivision type="gbscb" draft="contributed">Скотыш-Бордэрс</subdivision>
+			<subdivision type="gbsct">Шатландыя</subdivision>
+			<subdivision type="gbsfk" draft="contributed">графства Суфалк</subdivision>
+			<subdivision type="gbsft" draft="contributed">Сефтан</subdivision>
+			<subdivision type="gbsgc" draft="contributed">Паўднёвы Глостэршыр</subdivision>
+			<subdivision type="gbshf" draft="contributed">Шэфілд</subdivision>
+			<subdivision type="gbshr" draft="contributed">графства Шропшыр</subdivision>
+			<subdivision type="gbskp" draft="contributed">Стокпарт</subdivision>
+			<subdivision type="gbslg" draft="contributed">Слау</subdivision>
+			<subdivision type="gbslk" draft="contributed">Саўт-Ланаркшыр</subdivision>
+			<subdivision type="gbsol" draft="contributed">раён Соліхал</subdivision>
+			<subdivision type="gbsom" draft="contributed">Сомерсет</subdivision>
+			<subdivision type="gbsos" draft="contributed">Горад Саўтэнд-он-Сі</subdivision>
+			<subdivision type="gbsry" draft="contributed">Сурэй</subdivision>
+			<subdivision type="gbste" draft="contributed">Горад Сток-он-Трэнт</subdivision>
+			<subdivision type="gbstg" draft="contributed">Стэрлінг</subdivision>
+			<subdivision type="gbsth" draft="contributed">Горад Саўтгемптан</subdivision>
+			<subdivision type="gbsts" draft="contributed">Стафардшыр</subdivision>
+			<subdivision type="gbswa" draft="contributed">Суонсі</subdivision>
+			<subdivision type="gbswk" draft="contributed">Саўтуарк</subdivision>
+			<subdivision type="gbtam" draft="contributed">бора Тэймсайд</subdivision>
+			<subdivision type="gbtob" draft="contributed">Торбэй</subdivision>
+			<subdivision type="gbtwh" draft="contributed">Таўэр-Хэмлетс</subdivision>
+			<subdivision type="gbukm" draft="contributed">Вялікабрытанія</subdivision>
+			<subdivision type="gbwar" draft="contributed">графства Уорыкшыр</subdivision>
+			<subdivision type="gbwbk" draft="contributed">Заходні Беркшыр</subdivision>
+			<subdivision type="gbwdu" draft="contributed">Заходні Дамбартаншыр</subdivision>
+			<subdivision type="gbwft" draft="contributed">Уолтэм-Форэст</subdivision>
+			<subdivision type="gbwil" draft="contributed">Уілтшыр</subdivision>
+			<subdivision type="gbwkf" draft="contributed">Уэйкфілд</subdivision>
+			<subdivision type="gbwln" draft="contributed">Заходні Лотыян</subdivision>
+			<subdivision type="gbwls">Уэльс</subdivision>
+			<subdivision type="gbwlv" draft="contributed">Горад Вулверхэмптан</subdivision>
+			<subdivision type="gbwnd" draft="contributed">Уондсуэрт</subdivision>
+			<subdivision type="gbwnm" draft="contributed">Віндзар і Мэйдэнхэд</subdivision>
+			<subdivision type="gbwor" draft="contributed">графства Вустэршыр</subdivision>
+			<subdivision type="gbwrl" draft="contributed">раён Уірал</subdivision>
+			<subdivision type="gbwrt" draft="contributed">Уорынгтан</subdivision>
+			<subdivision type="gbwrx" draft="contributed">Рэксем</subdivision>
+			<subdivision type="gbwsm" draft="contributed">Вэстмінстэр</subdivision>
+			<subdivision type="gbwsx" draft="contributed">Заходні Сусекс</subdivision>
+			<subdivision type="gbyor" draft="contributed">Горад Ёрк</subdivision>
+			<subdivision type="gbzet" draft="contributed">Шэтландскія астравы</subdivision>
+			<subdivision type="geab" draft="contributed">Абхазія</subdivision>
+			<subdivision type="geaj" draft="contributed">Аджарыя</subdivision>
+			<subdivision type="gegu" draft="contributed">Гурыя</subdivision>
+			<subdivision type="geim" draft="contributed">Імерэція</subdivision>
+			<subdivision type="geka" draft="contributed">Кахетыя</subdivision>
+			<subdivision type="gekk" draft="contributed">Квема Картлі</subdivision>
+			<subdivision type="gemm" draft="contributed">Мцхета-Мтыянеці</subdivision>
+			<subdivision type="gerl" draft="contributed">Рача-Лечхумі і Квема Сванеці</subdivision>
+			<subdivision type="gesj" draft="contributed">Самцхе-Джавахеці</subdivision>
+			<subdivision type="gesk" draft="contributed">Шыда Картлі</subdivision>
+			<subdivision type="gesz" draft="contributed">Самегрэла-Зема Сванеці</subdivision>
+			<subdivision type="getb" draft="contributed">Тбілісі</subdivision>
+			<subdivision type="ghaa" draft="contributed">рэгіён Вялікая Акра</subdivision>
+			<subdivision type="ghah" draft="contributed">рэгіён Ашанці</subdivision>
+			<subdivision type="ghba" draft="contributed">Рэгіён Бронг Ахафо</subdivision>
+			<subdivision type="ghcp" draft="contributed">Цэнтральны рэгіён</subdivision>
+			<subdivision type="ghep" draft="contributed">Усходні рэгіён</subdivision>
+			<subdivision type="ghnp" draft="contributed">Паўночны рэгіён</subdivision>
+			<subdivision type="ghtv" draft="contributed">Рэгіён Вольта</subdivision>
+			<subdivision type="ghue" draft="contributed">Верхні ўсходні рэгіён</subdivision>
+			<subdivision type="ghuw" draft="contributed">Верхні заходні рэгіён</subdivision>
+			<subdivision type="ghwp" draft="contributed">Заходні рэгіён</subdivision>
+			<subdivision type="glku" draft="contributed">Куялек</subdivision>
+			<subdivision type="gmb" draft="contributed">Горад Банжул</subdivision>
+			<subdivision type="gml" draft="contributed">Ніжняя Рака, акруга Гамбіі</subdivision>
+			<subdivision type="gmm" draft="contributed">Цэнтральная Рака, акруга Гамбіі</subdivision>
+			<subdivision type="gmn" draft="contributed">Паўночны Бераг, акруга Гамбіі</subdivision>
+			<subdivision type="gmu" draft="contributed">Верхняя Рака, акруга Гамбіі</subdivision>
+			<subdivision type="gmw" draft="contributed">Заходні раён</subdivision>
+			<subdivision type="gnb" draft="contributed">Рэгіён Баке</subdivision>
+			<subdivision type="gnc" draft="contributed">Горад Конакры</subdivision>
+			<subdivision type="gnd" draft="contributed">Рэгіён Кіндыя</subdivision>
+			<subdivision type="gnf" draft="contributed">Рэгіён Фарана</subdivision>
+			<subdivision type="gnk" draft="contributed">Рэгіён Канкан</subdivision>
+			<subdivision type="gnl" draft="contributed">Рэгіён Лабэ</subdivision>
+			<subdivision type="gnm" draft="contributed">Рэгіён Маму</subdivision>
+			<subdivision type="gnn" draft="contributed">Рэгіён Нзерэкарэ</subdivision>
+			<subdivision type="gr69" draft="contributed">Гара Афон</subdivision>
+			<subdivision type="gra" draft="contributed">Усходняя Македонія і Фракія</subdivision>
+			<subdivision type="grb" draft="contributed">Цэнтральная Македонія</subdivision>
+			<subdivision type="grc" draft="contributed">Заходняя Македонія</subdivision>
+			<subdivision type="grd" draft="contributed">Эпір</subdivision>
+			<subdivision type="gre" draft="contributed">Фесалія</subdivision>
+			<subdivision type="grf" draft="contributed">Перыферыя Іанічныя астравы</subdivision>
+			<subdivision type="grg" draft="contributed">Заходняя Грэцыя</subdivision>
+			<subdivision type="grh" draft="contributed">Цэнтральная Грэцыя</subdivision>
+			<subdivision type="gri" draft="contributed">Атыка</subdivision>
+			<subdivision type="grj" draft="contributed">Акруга Пелапанес</subdivision>
+			<subdivision type="grk" draft="contributed">Паўночныя Эгейскія астравы</subdivision>
+			<subdivision type="grl" draft="contributed">Паўднёвыя Эгейскія астравы</subdivision>
+			<subdivision type="grm" draft="contributed">Акруга Крыт</subdivision>
+			<subdivision type="gtgu" draft="contributed">дэпартамент Гватэмала</subdivision>
+			<subdivision type="gwbs" draft="contributed">Бісау</subdivision>
+			<subdivision type="hnfm" draft="contributed">Франсіска Марасан</subdivision>
+			<subdivision type="hnib" draft="contributed">Астравы Іслас-дэ-ла-Баія</subdivision>
+			<subdivision type="hnva" draft="contributed">Валье</subdivision>
+			<subdivision type="hr01" draft="contributed">Заграбская жупанія</subdivision>
+			<subdivision type="hr04" draft="contributed">Карлавачка</subdivision>
+			<subdivision type="hr05" draft="contributed">Вараждзінская жупанія</subdivision>
+			<subdivision type="hr07" draft="contributed">Белаварска-Білагорская жупанія</subdivision>
+			<subdivision type="hr08" draft="contributed">Прыморска-Горанская жупанія</subdivision>
+			<subdivision type="hr10" draft="contributed">Віравіціцка-Падраўская жупанія</subdivision>
+			<subdivision type="hr11" draft="contributed">Пожажска-Славонская жупанія</subdivision>
+			<subdivision type="hr12" draft="contributed">Бродска-Посаўская жупанія</subdivision>
+			<subdivision type="hr13" draft="contributed">Задарская жупанія</subdivision>
+			<subdivision type="hr14" draft="contributed">Осіецка-Бараньская жупанія</subdivision>
+			<subdivision type="hr15" draft="contributed">Шыбенска-Кнінская жупанія</subdivision>
+			<subdivision type="hr16" draft="contributed">Вукаварска-Срэмская жупанія</subdivision>
+			<subdivision type="hr17" draft="contributed">Спліцка-Далмацінская жупанія</subdivision>
+			<subdivision type="hr19" draft="contributed">Дуброўніцка-Нерэтванская жупанія</subdivision>
+			<subdivision type="hr21" draft="contributed">Заграб</subdivision>
+			<subdivision type="htou" draft="contributed">Заходні дэпартамент Гаіці</subdivision>
+			<subdivision type="huba" draft="contributed">Баранья</subdivision>
+			<subdivision type="hubc" draft="contributed">Бекешчаба</subdivision>
+			<subdivision type="hube" draft="contributed">медзье Бекеш</subdivision>
+			<subdivision type="hubk" draft="contributed">Бач-Кішкун</subdivision>
+			<subdivision type="hubu" draft="contributed">Будапешт</subdivision>
+			<subdivision type="hubz" draft="contributed">Боршад-Абауй-Земплен</subdivision>
+			<subdivision type="hucs" draft="contributed">Чанград</subdivision>
+			<subdivision type="hude" draft="contributed">Горад Дэбрэцэн</subdivision>
+			<subdivision type="hueg" draft="contributed">Горад Эгер</subdivision>
+			<subdivision type="huer" draft="contributed">Горад Эрд</subdivision>
+			<subdivision type="hufe" draft="contributed">Феер</subdivision>
+			<subdivision type="hugs" draft="contributed">Дзьёр-Мошан-Шопран</subdivision>
+			<subdivision type="hugy" draft="contributed">Горад Дзьёр</subdivision>
+			<subdivision type="huhb" draft="contributed">Хайду-Біхар</subdivision>
+			<subdivision type="huhe" draft="contributed">Хевеш</subdivision>
+			<subdivision type="huhv" draft="contributed">Хадмезёвашархей</subdivision>
+			<subdivision type="hujn" draft="contributed">Яс-Надзькун-Сольнак</subdivision>
+			<subdivision type="huke" draft="contributed">Камаром-Эстэргам</subdivision>
+			<subdivision type="hukm" draft="contributed">Кечкемет</subdivision>
+			<subdivision type="hukv" draft="contributed">Капашвар</subdivision>
+			<subdivision type="humi" draft="contributed">Мішкальц</subdivision>
+			<subdivision type="hunk" draft="contributed">Горад Надзьканіжа</subdivision>
+			<subdivision type="huno" draft="contributed">Ноград</subdivision>
+			<subdivision type="huny" draft="contributed">Горад Ньірэдзьхаза</subdivision>
+			<subdivision type="hupe" draft="contributed">Пешт</subdivision>
+			<subdivision type="hups" draft="contributed">Печ</subdivision>
+			<subdivision type="husd" draft="contributed">Сегед</subdivision>
+			<subdivision type="husf" draft="contributed">Горад Секешфехервар</subdivision>
+			<subdivision type="hush" draft="contributed">Сомбатхей</subdivision>
+			<subdivision type="husk" draft="contributed">Горад Сольнак</subdivision>
+			<subdivision type="husn" draft="contributed">Горад Шопран</subdivision>
+			<subdivision type="huso" draft="contributed">медзье Шомадзь</subdivision>
+			<subdivision type="huss" draft="contributed">Горад Сексард</subdivision>
+			<subdivision type="husz" draft="contributed">Сабальч-Сатмар-Берэг</subdivision>
+			<subdivision type="hutb" draft="contributed">Горад Татабанья</subdivision>
+			<subdivision type="huto" draft="contributed">медзье Тольна</subdivision>
+			<subdivision type="huva" draft="contributed">Ваш</subdivision>
+			<subdivision type="huve" draft="contributed">Веспрэм</subdivision>
+			<subdivision type="huvm" draft="contributed">Горад Веспрэм</subdivision>
+			<subdivision type="huze" draft="contributed">Горад Залаэгерсег</subdivision>
+			<subdivision type="idac" draft="contributed">Правінцыя Ачэх</subdivision>
+			<subdivision type="idbe" draft="contributed">Правінцыя Бенгкулу</subdivision>
+			<subdivision type="idbt" draft="contributed">Правінцыя Бантэн</subdivision>
+			<subdivision type="idgo" draft="contributed">Правінцыя Гарантала</subdivision>
+			<subdivision type="idjk" draft="contributed">Горад Джакарта</subdivision>
+			<subdivision type="idjt" draft="contributed">Цэнтральная Ява</subdivision>
+			<subdivision type="idjw" draft="contributed">Востраў Ява</subdivision>
+			<subdivision type="idka" draft="contributed">Інданезійскі Калімантан</subdivision>
+			<subdivision type="idki" draft="contributed">Правінцыя Усходні Калімантан</subdivision>
+			<subdivision type="idkr" draft="contributed">Астравы Рыау</subdivision>
+			<subdivision type="idku" draft="contributed">Паўночны Калімантан</subdivision>
+			<subdivision type="idma" draft="contributed">Правінцыя Малуку</subdivision>
+			<subdivision type="idml" draft="contributed">Малукскія астравы</subdivision>
+			<subdivision type="idmu" draft="contributed">Паўночнае Малуку</subdivision>
+			<subdivision type="idnu" draft="contributed">Малыя Зондскія астравы</subdivision>
+			<subdivision type="idpa" draft="contributed">Правінцыя Папуа</subdivision>
+			<subdivision type="idri" draft="contributed">Правінцыя Рыау</subdivision>
+			<subdivision type="idsa" draft="contributed">Правінцыя Паўночны Сулавесі</subdivision>
+			<subdivision type="idsb" draft="contributed">Правінцыя Заходняя Суматра</subdivision>
+			<subdivision type="idsg" draft="contributed">Правінцыя Паўднёва-Усходні Сулавесі</subdivision>
+			<subdivision type="idsl" draft="contributed">Востраў Сулавесі</subdivision>
+			<subdivision type="idsm" draft="contributed">Востраў Суматра</subdivision>
+			<subdivision type="idsn" draft="contributed">Правінцыя Паўднёвы Сулавесі</subdivision>
+			<subdivision type="idsr" draft="contributed">Правінцыя Заходні Сулавесі</subdivision>
+			<subdivision type="idst" draft="contributed">Правінцыя Цэнтральны Сулавесі</subdivision>
+			<subdivision type="idsu" draft="contributed">Правінцыя Паўночная Суматра</subdivision>
+			<subdivision type="iec" draft="contributed">Конахт</subdivision>
+			<subdivision type="iece" draft="contributed">графства Клэр</subdivision>
+			<subdivision type="iecn" draft="contributed">графства Каван</subdivision>
+			<subdivision type="ieco" draft="contributed">Графства Корк</subdivision>
+			<subdivision type="iecw" draft="contributed">графства Карлау</subdivision>
+			<subdivision type="ied" draft="contributed">Дублін</subdivision>
+			<subdivision type="iedl" draft="contributed">графства Донегал</subdivision>
+			<subdivision type="ieg" draft="contributed">графства Голуэй</subdivision>
+			<subdivision type="ieke" draft="contributed">Графства Кілдэр</subdivision>
+			<subdivision type="iekk" draft="contributed">Кілкені</subdivision>
+			<subdivision type="iel" draft="contributed">Ленстэр</subdivision>
+			<subdivision type="ield" draft="contributed">графства Лонгфард</subdivision>
+			<subdivision type="ielh" draft="contributed">графства Лаўт</subdivision>
+			<subdivision type="ielk" draft="contributed">графства Лімерык</subdivision>
+			<subdivision type="ielm" draft="contributed">графства Літрым</subdivision>
+			<subdivision type="iels" draft="contributed">графтсва Лііш</subdivision>
+			<subdivision type="iem" draft="contributed">Манстэр</subdivision>
+			<subdivision type="iemh" draft="contributed">графства Міт</subdivision>
+			<subdivision type="iemo" draft="contributed">Мэё</subdivision>
+			<subdivision type="ieoy" draft="contributed">графства Офалі</subdivision>
+			<subdivision type="iern" draft="contributed">графства Раскоман</subdivision>
+			<subdivision type="ieso" draft="contributed">графства Слайга</subdivision>
+			<subdivision type="ieta" draft="contributed">графства Тыперэры</subdivision>
+			<subdivision type="ieu" draft="contributed">Ольстэр</subdivision>
+			<subdivision type="iewd" draft="contributed">графства Уотэрфард</subdivision>
+			<subdivision type="iewh" draft="contributed">графства Уэстміт</subdivision>
+			<subdivision type="ieww" draft="contributed">графства Уіклау</subdivision>
+			<subdivision type="iewx" draft="contributed">графства Уэксфард</subdivision>
+			<subdivision type="ild" draft="contributed">Паўднёвая акруга Ізраіля</subdivision>
+			<subdivision type="ilha" draft="contributed">Хайфская акруга</subdivision>
+			<subdivision type="iljm" draft="contributed">Іерусалімская акруга</subdivision>
+			<subdivision type="ilm" draft="contributed">Цэнтральная акруга</subdivision>
+			<subdivision type="ilta" draft="contributed">Тэль-Авіўская акруга</subdivision>
+			<subdivision type="ilz" draft="contributed">Паўночная акруга</subdivision>
+			<subdivision type="inan" draft="contributed">Андаманскія і Нікабарскія астравы</subdivision>
+			<subdivision type="inap" draft="contributed">Андхра-Прадэш</subdivision>
+			<subdivision type="inar" draft="contributed">Аруначал-Прадэш</subdivision>
+			<subdivision type="inas" draft="contributed">Асам</subdivision>
+			<subdivision type="inbr" draft="contributed">Біхар</subdivision>
+			<subdivision type="inch" draft="contributed">Чандыгарх</subdivision>
+			<subdivision type="inct" draft="contributed">Чхатысгарх</subdivision>
+			<subdivision type="indd" draft="contributed">Даман і Дыу</subdivision>
+			<subdivision type="indl" draft="contributed">Горад Дэлі</subdivision>
+			<subdivision type="indn" draft="contributed">Дадра і Нагархавелі</subdivision>
+			<subdivision type="inga" draft="contributed">Гоа</subdivision>
+			<subdivision type="ingj" draft="contributed">Гуджарат</subdivision>
+			<subdivision type="inhp" draft="contributed">Хімачал-Прадэш</subdivision>
+			<subdivision type="injh" draft="contributed">Джхаркханд</subdivision>
+			<subdivision type="injk" draft="contributed">Джаму і Кашмір</subdivision>
+			<subdivision type="inka" draft="contributed">Карнатака</subdivision>
+			<subdivision type="inkl" draft="contributed">Керала</subdivision>
+			<subdivision type="inld" draft="contributed">Лакшадвіп</subdivision>
+			<subdivision type="inmh" draft="contributed">Махараштра</subdivision>
+			<subdivision type="inml" draft="contributed">Мегхалая</subdivision>
+			<subdivision type="inmn" draft="contributed">Маніпур</subdivision>
+			<subdivision type="inmz" draft="contributed">Мізарам</subdivision>
+			<subdivision type="innl" draft="contributed">Нагаленд</subdivision>
+			<subdivision type="inor" draft="contributed">Арыса</subdivision>
+			<subdivision type="inpb" draft="contributed">Пенджаб, Індыя</subdivision>
+			<subdivision type="inpy" draft="contributed">Пандышэры</subdivision>
+			<subdivision type="inrj" draft="contributed">Раджастхан</subdivision>
+			<subdivision type="insk" draft="contributed">Сікім</subdivision>
+			<subdivision type="intn" draft="contributed">Тамілнад</subdivision>
+			<subdivision type="intr" draft="contributed">Трыпура</subdivision>
+			<subdivision type="inup" draft="contributed">Утар-Прадэш</subdivision>
+			<subdivision type="inut" draft="contributed">Утаракханд</subdivision>
+			<subdivision type="inwb" draft="contributed">Заходняя Бенгалія</subdivision>
+			<subdivision type="iqan" draft="contributed">Мухафаза Анбар</subdivision>
+			<subdivision type="iqba" draft="contributed">Басра</subdivision>
+			<subdivision type="iqbb" draft="contributed">Бабіль</subdivision>
+			<subdivision type="iqbg" draft="contributed">Багдад</subdivision>
+			<subdivision type="iqsd" draft="contributed">правінцыя Салах-эд-Дзін</subdivision>
+			<subdivision type="iqsu" draft="contributed">Мухафаза Сулейманія</subdivision>
+			<subdivision type="ir01" draft="contributed">Усходні Азербайджан</subdivision>
+			<subdivision type="ir03" draft="contributed">Ардэбіль</subdivision>
+			<subdivision type="ir04" draft="contributed">астан Ісфахан</subdivision>
+			<subdivision type="ir07" draft="contributed">астан Тэгеран</subdivision>
+			<subdivision type="ir08" draft="contributed">Астан Чахармахаль і Бахціярыя</subdivision>
+			<subdivision type="ir10" draft="contributed">Хузестан</subdivision>
+			<subdivision type="ir11" draft="contributed">Зенджан</subdivision>
+			<subdivision type="ir14" draft="contributed">Фарс</subdivision>
+			<subdivision type="ir16" draft="contributed">Астан Курдыстан</subdivision>
+			<subdivision type="ir17" draft="contributed">Керманшах</subdivision>
+			<subdivision type="ir19" draft="contributed">Гілян</subdivision>
+			<subdivision type="ir21" draft="contributed">Астан Мазендэран</subdivision>
+			<subdivision type="ir24" draft="contributed">Хамадан</subdivision>
+			<subdivision type="ir25" draft="contributed">Езд</subdivision>
+			<subdivision type="ir27" draft="contributed">Галестан</subdivision>
+			<subdivision type="ir28" draft="contributed">Астан Казвін</subdivision>
+			<subdivision type="ir29" draft="contributed">Астан Паўднёвы Харасан</subdivision>
+			<subdivision type="is1" draft="contributed">Хёвюдбаргарсвайдыд</subdivision>
+			<subdivision type="is2" draft="contributed">Судурнэс</subdivision>
+			<subdivision type="is4" draft="contributed">Вестфірдзір</subdivision>
+			<subdivision type="is6" draft="contributed">рэгіён Нордурланд-Эйстра</subdivision>
+			<subdivision type="is8" draft="contributed">Судурланд</subdivision>
+			<subdivision type="it25" draft="contributed">Ламбардыя</subdivision>
+			<subdivision type="it32" draft="contributed">Трэнціна-Альта-Адыджэ</subdivision>
+			<subdivision type="it34" draft="contributed">Венета</subdivision>
+			<subdivision type="it36" draft="contributed">Фрыулі-Венецыя-Джулія</subdivision>
+			<subdivision type="it42" draft="contributed">Лігурыя</subdivision>
+			<subdivision type="it45" draft="contributed">Эмілія-Раманья</subdivision>
+			<subdivision type="it52" draft="contributed">Таскана</subdivision>
+			<subdivision type="it55" draft="contributed">Умбрыя</subdivision>
+			<subdivision type="it57" draft="contributed">Марке</subdivision>
+			<subdivision type="it62" draft="contributed">Лацыа</subdivision>
+			<subdivision type="it65" draft="contributed">Абруца</subdivision>
+			<subdivision type="it67" draft="contributed">Малізэ</subdivision>
+			<subdivision type="it72" draft="contributed">Кампанія</subdivision>
+			<subdivision type="it75" draft="contributed">Апулія</subdivision>
+			<subdivision type="it77" draft="contributed">Базіліката</subdivision>
+			<subdivision type="it78" draft="contributed">Калабрыя</subdivision>
+			<subdivision type="it82" draft="contributed">Сіцылія</subdivision>
+			<subdivision type="it88" draft="contributed">Сардзінія</subdivision>
+			<subdivision type="itag" draft="contributed">правінцыя Агрыджэнта</subdivision>
+			<subdivision type="ital" draft="contributed">правінцыя Алесандрыя</subdivision>
+			<subdivision type="itan" draft="contributed">Анкона</subdivision>
+			<subdivision type="itap" draft="contributed">правінцыя Асколі-Пічэна</subdivision>
+			<subdivision type="itar" draft="contributed">правінцыя Арэца</subdivision>
+			<subdivision type="itat" draft="contributed">правінцыя Асці</subdivision>
+			<subdivision type="itav" draft="contributed">правінцыя Авеліна</subdivision>
+			<subdivision type="itba" draft="contributed">правінцыя Бары</subdivision>
+			<subdivision type="itbg" draft="contributed">правінцыя Бергама</subdivision>
+			<subdivision type="itbl" draft="contributed">Правінцыя Белуна</subdivision>
+			<subdivision type="itbn" draft="contributed">правінцыя Беневента</subdivision>
+			<subdivision type="itbo" draft="contributed">Правінцыя Балоння</subdivision>
+			<subdivision type="itbr" draft="contributed">Правінцыя Брындзізі</subdivision>
+			<subdivision type="itbs" draft="contributed">правінцыя Брэшыя</subdivision>
+			<subdivision type="itbt" draft="contributed">правінцыя Барлета-Андрыя-Трані</subdivision>
+			<subdivision type="itcb" draft="contributed">правінцыя Кампабаса</subdivision>
+			<subdivision type="itce" draft="contributed">правінцыя Казерта</subdivision>
+			<subdivision type="itcl" draft="contributed">правінцыя Кальтанісета</subdivision>
+			<subdivision type="itcn" draft="contributed">Кунеа</subdivision>
+			<subdivision type="itco" draft="contributed">правінцыя Кома</subdivision>
+			<subdivision type="itcr" draft="contributed">Крэмона</subdivision>
+			<subdivision type="itcs" draft="contributed">правінцыя Казенца</subdivision>
+			<subdivision type="itct" draft="contributed">Катанія</subdivision>
+			<subdivision type="itcz" draft="contributed">правінцыя Катандзара</subdivision>
+			<subdivision type="iten" draft="contributed">Энна</subdivision>
+			<subdivision type="itfc" draft="contributed">Правінцыя Фарлі-Чэзена</subdivision>
+			<subdivision type="itfe" draft="contributed">Правінцыя Ферара</subdivision>
+			<subdivision type="itfg" draft="contributed">правінцыя Фоджа</subdivision>
+			<subdivision type="itfi" draft="contributed">правінцыя Фларэнцыя</subdivision>
+			<subdivision type="itfm" draft="contributed">Правінцыя Ферма</subdivision>
+			<subdivision type="itfr" draft="contributed">правінцыя Фразінонэ</subdivision>
+			<subdivision type="itge" draft="contributed">метрапольны горад Генуя</subdivision>
+			<subdivision type="itgo" draft="contributed">правінцыя Гарыцыя</subdivision>
+			<subdivision type="itgr" draft="contributed">Грасета</subdivision>
+			<subdivision type="itim" draft="contributed">правінцыя Імперыя</subdivision>
+			<subdivision type="itkr" draft="contributed">правінцыя Кратонэ</subdivision>
+			<subdivision type="itlc" draft="contributed">правінцыя Лека</subdivision>
+			<subdivision type="itle" draft="contributed">правінцыя Лечэ</subdivision>
+			<subdivision type="itli" draft="contributed">Ліворна</subdivision>
+			<subdivision type="itlo" draft="contributed">правінцыя Лодзі</subdivision>
+			<subdivision type="itlt" draft="contributed">правінцыя Лаціна</subdivision>
+			<subdivision type="itlu" draft="contributed">правінцыя Лука</subdivision>
+			<subdivision type="itmb" draft="contributed">правінцыя Монца і Брыянца</subdivision>
+			<subdivision type="itmc" draft="contributed">Правінцыя Мачэрата</subdivision>
+			<subdivision type="itme" draft="contributed">правінцыя Месіна</subdivision>
+			<subdivision type="itmi" draft="contributed">правінцыя Мілан</subdivision>
+			<subdivision type="itmn" draft="contributed">Мантуя</subdivision>
+			<subdivision type="itmo" draft="contributed">правінцыя Модэна</subdivision>
+			<subdivision type="itms" draft="contributed">правінцыя Маса-Карара</subdivision>
+			<subdivision type="itmt" draft="contributed">правінцыя Матэра</subdivision>
+			<subdivision type="itna" draft="contributed">Неапаль</subdivision>
+			<subdivision type="itno" draft="contributed">правінцыя Навара</subdivision>
+			<subdivision type="itnu" draft="contributed">правінцыя Нуора</subdivision>
+			<subdivision type="itor" draft="contributed">Арыстана</subdivision>
+			<subdivision type="itpa" draft="contributed">правінцыя Палерма</subdivision>
+			<subdivision type="itpd" draft="contributed">Падуя</subdivision>
+			<subdivision type="itpe" draft="contributed">правінцыя Пескара</subdivision>
+			<subdivision type="itpg" draft="contributed">правінцыя Перуджа</subdivision>
+			<subdivision type="itpi" draft="contributed">Піза</subdivision>
+			<subdivision type="itpn" draft="contributed">правінцыя Пардэнонэ</subdivision>
+			<subdivision type="itpo" draft="contributed">правінцыя Прата</subdivision>
+			<subdivision type="itpr" draft="contributed">Правінцыя Парма</subdivision>
+			<subdivision type="itpt" draft="contributed">Правінцыя Пістоя</subdivision>
+			<subdivision type="itpu" draft="contributed">Правінцыя Пезара-э-Урбіна</subdivision>
+			<subdivision type="itpv" draft="contributed">Павія</subdivision>
+			<subdivision type="itpz" draft="contributed">Патэнца</subdivision>
+			<subdivision type="itra" draft="contributed">Правінцыя Равена</subdivision>
+			<subdivision type="itrc" draft="contributed">Рэджа-Калабрыя</subdivision>
+			<subdivision type="itre" draft="contributed">Правінцыя Рэджа-Эмілія</subdivision>
+			<subdivision type="itrg" draft="contributed">правінцыя Рагуза</subdivision>
+			<subdivision type="itri" draft="contributed">правінцыя Рыеці</subdivision>
+			<subdivision type="itrm" draft="contributed">правінцыя Рым</subdivision>
+			<subdivision type="itrn" draft="contributed">Правінцыя Рыміні</subdivision>
+			<subdivision type="itro" draft="contributed">правінцыя Равіга</subdivision>
+			<subdivision type="itsa" draft="contributed">правінцыя Салерна</subdivision>
+			<subdivision type="itsi" draft="contributed">правінцыя Сіена</subdivision>
+			<subdivision type="itso" draft="contributed">правінцыя Сондрыа</subdivision>
+			<subdivision type="itsp" draft="contributed">Спецыя</subdivision>
+			<subdivision type="itsr" draft="contributed">Сіракуза</subdivision>
+			<subdivision type="itss" draft="contributed">Правінцыя Сасары</subdivision>
+			<subdivision type="itsv" draft="contributed">правінцыя Савона</subdivision>
+			<subdivision type="itta" draft="contributed">правінцыя Таранта</subdivision>
+			<subdivision type="ittn" draft="contributed">правінцыя Трэнта</subdivision>
+			<subdivision type="itto" draft="contributed">правінцыя Турын</subdivision>
+			<subdivision type="ittp" draft="contributed">Трапані</subdivision>
+			<subdivision type="ittr" draft="contributed">правінцыя Тэрні</subdivision>
+			<subdivision type="itts" draft="contributed">правінцыя Трыест</subdivision>
+			<subdivision type="ittv" draft="contributed">правінцыя Трэвіза</subdivision>
+			<subdivision type="itud" draft="contributed">правінцыя Удзінэ</subdivision>
+			<subdivision type="itva" draft="contributed">Правінцыя Варэзэ</subdivision>
+			<subdivision type="itvb" draft="contributed">правінцыя Вербана-Кузья-Асола</subdivision>
+			<subdivision type="itvc" draft="contributed">правінцыя Верчэлі</subdivision>
+			<subdivision type="itve" draft="contributed">Венецыя</subdivision>
+			<subdivision type="itvi" draft="contributed">правінцыя Вічэнца</subdivision>
+			<subdivision type="itvr" draft="contributed">Верона</subdivision>
+			<subdivision type="itvt" draft="contributed">правінцыя Вітэрба</subdivision>
+			<subdivision type="itvv" draft="contributed">правінцыя Віба-Валентыя</subdivision>
+			<subdivision type="jm06" draft="contributed">Прыход Сент-Эн</subdivision>
+			<subdivision type="joam" draft="contributed">Аман</subdivision>
+			<subdivision type="jp01" draft="contributed">Губернатарства Хакайда</subdivision>
+			<subdivision type="jp02" draft="contributed">прэфекрута Аомары</subdivision>
+			<subdivision type="jp03" draft="contributed">Прэфектура Іватэ</subdivision>
+			<subdivision type="jp06" draft="contributed">Прэфектура Ямагата</subdivision>
+			<subdivision type="jp07" draft="contributed">прэфектура Фукусіма</subdivision>
+			<subdivision type="jp08" draft="contributed">прэфектура Ібаракі</subdivision>
+			<subdivision type="jp09" draft="contributed">прэфектура Татыгі</subdivision>
+			<subdivision type="jp10" draft="contributed">прэфектура Гуму</subdivision>
+			<subdivision type="jp11" draft="contributed">Прэфектура Сайтама</subdivision>
+			<subdivision type="jp12" draft="contributed">Прэфектура Тыба</subdivision>
+			<subdivision type="jp13" draft="contributed">Токіа</subdivision>
+			<subdivision type="jp14" draft="contributed">прэфектура Канагава</subdivision>
+			<subdivision type="jp15" draft="contributed">Прэфектура Ніігата</subdivision>
+			<subdivision type="jp17" draft="contributed">прэфектура Ісікава</subdivision>
+			<subdivision type="jp21" draft="contributed">Прэфектура Гіфу</subdivision>
+			<subdivision type="jp22" draft="contributed">прэфектура Сідзуока</subdivision>
+			<subdivision type="jp23" draft="contributed">прэфектура Айты</subdivision>
+			<subdivision type="jp24" draft="contributed">Прэфектура Міэ</subdivision>
+			<subdivision type="jp25" draft="contributed">прэфектура Сіга</subdivision>
+			<subdivision type="jp26" draft="contributed">прэфектура Кіёта</subdivision>
+			<subdivision type="jp27" draft="contributed">прэфектура Осака</subdivision>
+			<subdivision type="jp28" draft="contributed">Прэфектура Хіёга</subdivision>
+			<subdivision type="jp29" draft="contributed">Нара</subdivision>
+			<subdivision type="jp34" draft="contributed">Хірасіма</subdivision>
+			<subdivision type="jp35" draft="contributed">Прэфектура Ямагуты</subdivision>
+			<subdivision type="jp36" draft="contributed">прэфектура Такусіма</subdivision>
+			<subdivision type="jp37" draft="contributed">прэфектура Кагава</subdivision>
+			<subdivision type="jp38" draft="contributed">прэфектура Эхімэ</subdivision>
+			<subdivision type="jp39" draft="contributed">Прэфектура Коты</subdivision>
+			<subdivision type="jp40" draft="contributed">прэфектура Фукуока</subdivision>
+			<subdivision type="jp42" draft="contributed">Прэфектура Нагасакі</subdivision>
+			<subdivision type="jp43" draft="contributed">Прэфектура Кумамота</subdivision>
+			<subdivision type="jp44" draft="contributed">прэфектура Оіта</subdivision>
+			<subdivision type="jp45" draft="contributed">прэфектура Міядзакі</subdivision>
+			<subdivision type="jp46" draft="contributed">прэфектура Кагосіма</subdivision>
+			<subdivision type="jp47" draft="contributed">Прэфектура Акінава</subdivision>
+			<subdivision type="ke28" draft="contributed">Мамбаса</subdivision>
+			<subdivision type="ke30" draft="contributed">Найробі</subdivision>
+			<subdivision type="ke36" draft="contributed">акруга Ньеры</subdivision>
+			<subdivision type="kgb" draft="contributed">Баткенская вобласць</subdivision>
+			<subdivision type="kgc" draft="contributed">Чуйская вобласць</subdivision>
+			<subdivision type="kggb" draft="contributed">Горад Бішкек</subdivision>
+			<subdivision type="kggo" draft="contributed">Ош</subdivision>
+			<subdivision type="kgj" draft="contributed">Джалал-Абадская вобласць</subdivision>
+			<subdivision type="kgn" draft="contributed">Нарынская вобласць</subdivision>
+			<subdivision type="kgo" draft="contributed">Ошская вобласць</subdivision>
+			<subdivision type="kgt" draft="contributed">Талаская вобласць</subdivision>
+			<subdivision type="kgy" draft="contributed">Ісык-Кульская вобласць</subdivision>
+			<subdivision type="kh3" draft="contributed">Кампангцям</subdivision>
+			<subdivision type="kh6" draft="contributed">Кампонгтхам</subdivision>
+			<subdivision type="kh12" draft="contributed">Пнампень</subdivision>
+			<subdivision type="kh14" draft="contributed">Прэйвэнг</subdivision>
+			<subdivision type="kh18" draft="contributed">Горад Сіануквіль</subdivision>
+			<subdivision type="kh22" draft="contributed">Адармеанцьей</subdivision>
+			<subdivision type="kig" draft="contributed">Астравы Гілберта</subdivision>
+			<subdivision type="kil" draft="contributed">Астравы Лайн</subdivision>
+			<subdivision type="kip" draft="contributed">Астравы Фенікс</subdivision>
+			<subdivision type="kma" draft="contributed">Востраў Анжуан</subdivision>
+			<subdivision type="kmg" draft="contributed">Востраў Нгазіджа</subdivision>
+			<subdivision type="kmm" draft="contributed">Востраў Мвалі</subdivision>
+			<subdivision type="knk" draft="contributed">Востраў Сент-Кітс</subdivision>
+			<subdivision type="knn" draft="contributed">Востраў Невіс</subdivision>
+			<subdivision type="kp01" draft="contributed">Горад Пхеньян</subdivision>
+			<subdivision type="kp09" draft="contributed">Хамгён-Пукта</subdivision>
+			<subdivision type="kr11" draft="contributed">Сеул</subdivision>
+			<subdivision type="kr26" draft="contributed">Горад Пусан</subdivision>
+			<subdivision type="kr27" draft="contributed">Тэгу</subdivision>
+			<subdivision type="kr28" draft="contributed">Горад Інчхон</subdivision>
+			<subdivision type="kr29" draft="contributed">Горад Кванджу</subdivision>
+			<subdivision type="kr42" draft="contributed">правінцыя Канвандо</subdivision>
+			<subdivision type="kr43" draft="contributed">Чхунчхон-Пукто</subdivision>
+			<subdivision type="kr45" draft="contributed">Паўночная Чала</subdivision>
+			<subdivision type="kr46" draft="contributed">Паўднёвая Чала</subdivision>
+			<subdivision type="kr47" draft="contributed">Кёнсан-Пукта</subdivision>
+			<subdivision type="kr49" draft="contributed">Чэджуда</subdivision>
+			<subdivision type="kzakm" draft="contributed">Акмалінская вобласць</subdivision>
+			<subdivision type="kzakt" draft="contributed">Акцюбінская вобласць</subdivision>
+			<subdivision type="kzala" draft="contributed">Алма-Ата</subdivision>
+			<subdivision type="kzalm" draft="contributed">Алмацінская вобласць</subdivision>
+			<subdivision type="kzast" draft="contributed">Горад Астана</subdivision>
+			<subdivision type="kzaty" draft="contributed">Атыраўская вобласць</subdivision>
+			<subdivision type="kzbay" draft="contributed">Горад Байканур</subdivision>
+			<subdivision type="kzkar" draft="contributed">Карагандзінская вобласць</subdivision>
+			<subdivision type="kzkus" draft="contributed">Кастанайская вобласць</subdivision>
+			<subdivision type="kzkzy" draft="contributed">Кызылардзінская вобласць</subdivision>
+			<subdivision type="kzman" draft="contributed">Мангістаўская вобласць</subdivision>
+			<subdivision type="kzpav" draft="contributed">Паўладарская вобласць</subdivision>
+			<subdivision type="kzsev" draft="contributed">Паўночна-Казахстанская вобласць</subdivision>
+			<subdivision type="kzvos" draft="contributed">Усходне-Казахстанская вобласць</subdivision>
+			<subdivision type="kzyuz" draft="contributed">Паўднёва-Казахстанская вобласць</subdivision>
+			<subdivision type="kzzap" draft="contributed">Заходне-Казахстанская вобласць</subdivision>
+			<subdivision type="kzzha" draft="contributed">Жамбылская вобласць</subdivision>
+			<subdivision type="laat" draft="contributed">Атапы</subdivision>
+			<subdivision type="lalp" draft="contributed">Луангпхабанг</subdivision>
+			<subdivision type="lasv" draft="contributed">Саванакхет</subdivision>
+			<subdivision type="lbba" draft="contributed">Правінцыя Бейрут</subdivision>
+			<subdivision type="lbbi" draft="contributed">Правінцыя Бекаа</subdivision>
+			<subdivision type="lbja" draft="contributed">Правінцыя Паўднёвы Ліван</subdivision>
+			<subdivision type="lbjl" draft="contributed">Горны Ліван</subdivision>
+			<subdivision type="lc06" draft="contributed">Грос-Айлет</subdivision>
+			<subdivision type="li01" draft="contributed">Бальцэрс</subdivision>
+			<subdivision type="li02" draft="contributed">Эшэн</subdivision>
+			<subdivision type="li03" draft="contributed">Гампрын</subdivision>
+			<subdivision type="li04" draft="contributed">Маўрэн</subdivision>
+			<subdivision type="li05" draft="contributed">Планкен</subdivision>
+			<subdivision type="li06" draft="contributed">Ругель</subdivision>
+			<subdivision type="li07" draft="contributed">Горад Шан</subdivision>
+			<subdivision type="li08" draft="contributed">Шэленберг</subdivision>
+			<subdivision type="li09" draft="contributed">Трызен</subdivision>
+			<subdivision type="li10" draft="contributed">Трызенберг</subdivision>
+			<subdivision type="li11" draft="contributed">Горад Вадуц</subdivision>
+			<subdivision type="lrbg" draft="contributed">Бонг</subdivision>
+			<subdivision type="lrbm" draft="contributed">Бомі</subdivision>
+			<subdivision type="lrcm" draft="contributed">Гранд-Кейп-Маўнт</subdivision>
+			<subdivision type="lrgb" draft="contributed">Гранд-Баса</subdivision>
+			<subdivision type="lrgg" draft="contributed">Гранд-Гедэ</subdivision>
+			<subdivision type="lrgk" draft="contributed">Гранд-Кру</subdivision>
+			<subdivision type="lrgp" draft="contributed">Гбарпалу</subdivision>
+			<subdivision type="lrlo" draft="contributed">Лофа</subdivision>
+			<subdivision type="lrmg" draft="contributed">Маргібі</subdivision>
+			<subdivision type="lrmo" draft="contributed">Мантсерада</subdivision>
+			<subdivision type="lrmy" draft="contributed">Акруга Мэрыленд</subdivision>
+			<subdivision type="lrni" draft="contributed">Німба</subdivision>
+			<subdivision type="lrrg" draft="contributed">Рывер-Гі</subdivision>
+			<subdivision type="lrri" draft="contributed">Акруга Рывер-Сес</subdivision>
+			<subdivision type="lrsi" draft="contributed">Сіноэ</subdivision>
+			<subdivision type="lt01" draft="contributed">Акмянскі раён</subdivision>
+			<subdivision type="lt03" draft="contributed">Алітускі раён</subdivision>
+			<subdivision type="lt04" draft="contributed">Анікшчайскі раён</subdivision>
+			<subdivision type="lt06" draft="contributed">Біржаўскі раён</subdivision>
+			<subdivision type="lt07" draft="contributed">Друскенінкайскае самакіраванне</subdivision>
+			<subdivision type="lt08" draft="contributed">Эляктрэнайскае самакіраванне</subdivision>
+			<subdivision type="lt09" draft="contributed">Ігналінскі раён</subdivision>
+			<subdivision type="lt10" draft="contributed">Ёнаўскі раён</subdivision>
+			<subdivision type="lt11" draft="contributed">Ёнішкіскі раён</subdivision>
+			<subdivision type="lt14" draft="contributed">Кальварыйскае самакіраванне</subdivision>
+			<subdivision type="lt15" draft="contributed">Каўнаскае гарадское самакіраванне</subdivision>
+			<subdivision type="lt16" draft="contributed">Каўнаскі раён</subdivision>
+			<subdivision type="lt17" draft="contributed">Казлурудскае самакіраванне</subdivision>
+			<subdivision type="lt18" draft="contributed">Кейданскі раён</subdivision>
+			<subdivision type="lt19" draft="contributed">Кяльмскі раён</subdivision>
+			<subdivision type="lt21" draft="contributed">Клайпедскі раён</subdivision>
+			<subdivision type="lt22" draft="contributed">Крацінгскі раён</subdivision>
+			<subdivision type="lt23" draft="contributed">Купішкскі раён</subdivision>
+			<subdivision type="lt24" draft="contributed">Лаздзіяйскі раён</subdivision>
+			<subdivision type="lt25" draft="contributed">Марыямпальскае самакіраванне</subdivision>
+			<subdivision type="lt26" draft="contributed">Мажэйкейскі раён</subdivision>
+			<subdivision type="lt27" draft="contributed">Малетайскі раён</subdivision>
+			<subdivision type="lt29" draft="contributed">Пагегейскае самакіраванне</subdivision>
+			<subdivision type="lt30" draft="contributed">Пакруойскі раён</subdivision>
+			<subdivision type="lt33" draft="contributed">Паневежыскі раён</subdivision>
+			<subdivision type="lt34" draft="contributed">Пасваліскі раён</subdivision>
+			<subdivision type="lt36" draft="contributed">Прэнайскі раён</subdivision>
+			<subdivision type="lt37" draft="contributed">Радзівілішкаўскі раён</subdivision>
+			<subdivision type="lt38" draft="contributed">Расяйнейскі раён</subdivision>
+			<subdivision type="lt39" draft="contributed">Рыетаваскае самакіраванне</subdivision>
+			<subdivision type="lt40" draft="contributed">Рокішкіскі раён</subdivision>
+			<subdivision type="lt41" draft="contributed">Шакейскі раён</subdivision>
+			<subdivision type="lt44" draft="contributed">Шаўляйскі раён</subdivision>
+			<subdivision type="lt46" draft="contributed">Шылуцкі раён</subdivision>
+			<subdivision type="lt47" draft="contributed">Шырвінцкі раён</subdivision>
+			<subdivision type="lt49" draft="contributed">Свянцянскі раён</subdivision>
+			<subdivision type="lt50" draft="contributed">Таўрагскі раён</subdivision>
+			<subdivision type="lt51" draft="contributed">Цяльшайскі раён</subdivision>
+			<subdivision type="lt52" draft="contributed">Тракайскі раён</subdivision>
+			<subdivision type="lt53" draft="contributed">Укмяргскі раён</subdivision>
+			<subdivision type="lt54" draft="contributed">Уцянскі раён</subdivision>
+			<subdivision type="lt55" draft="contributed">Варэнскі раён</subdivision>
+			<subdivision type="lt56" draft="contributed">Вілкавішкіскі раён</subdivision>
+			<subdivision type="lt57" draft="contributed">Вільнюскае гарадское самакіраванне</subdivision>
+			<subdivision type="lt58" draft="contributed">Вільнюскі раён</subdivision>
+			<subdivision type="lt60" draft="contributed">Зарасайскі раён</subdivision>
+			<subdivision type="ltal" draft="contributed">Алітускі павет</subdivision>
+			<subdivision type="ltkl" draft="contributed">Клайпедскі павет</subdivision>
+			<subdivision type="ltku" draft="contributed">Каўнаскі павет</subdivision>
+			<subdivision type="ltmr" draft="contributed">Марыямпальскі павет</subdivision>
+			<subdivision type="ltpn" draft="contributed">Панявежыскі павет</subdivision>
+			<subdivision type="ltsa" draft="contributed">Шаўляйскі павет</subdivision>
+			<subdivision type="ltta" draft="contributed">Таўрагскі павет</subdivision>
+			<subdivision type="ltte" draft="contributed">Цяльшэйскі павет</subdivision>
+			<subdivision type="ltut" draft="contributed">Уцянскі павет</subdivision>
+			<subdivision type="ltvl" draft="contributed">Вільнюскі павет</subdivision>
+			<subdivision type="lucl" draft="contributed">Клерво</subdivision>
+			<subdivision type="lulu" draft="contributed">Люксембург</subdivision>
+			<subdivision type="lume" draft="contributed">Мерш</subdivision>
+			<subdivision type="lurd" draft="contributed">кантон Рэданж</subdivision>
+			<subdivision type="lurm" draft="contributed">Кантон Рэміх</subdivision>
+			<subdivision type="lv001" draft="contributed">Агланскі край</subdivision>
+			<subdivision type="lv002" draft="contributed">Айзкраўкльскі край</subdivision>
+			<subdivision type="lv003" draft="contributed">Айзпуцкі край</subdivision>
+			<subdivision type="lv004" draft="contributed">Акнісцкі край</subdivision>
+			<subdivision type="lv005" draft="contributed">Алайскі край</subdivision>
+			<subdivision type="lv006" draft="contributed">Алсунгскі край</subdivision>
+			<subdivision type="lv007" draft="contributed">Алуксненскі край</subdivision>
+			<subdivision type="lv008" draft="contributed">Амацкі край</subdivision>
+			<subdivision type="lv009" draft="contributed">Апскі край</subdivision>
+			<subdivision type="lv010" draft="contributed">Аўцскі край</subdivision>
+			<subdivision type="lv011" draft="contributed">Адажскі край</subdivision>
+			<subdivision type="lv012" draft="contributed">Бабіцкі край</subdivision>
+			<subdivision type="lv013" draft="contributed">Балданскі край</subdivision>
+			<subdivision type="lv014" draft="contributed">Балцінаўскі край</subdivision>
+			<subdivision type="lv015" draft="contributed">Балвскі край</subdivision>
+			<subdivision type="lv016" draft="contributed">Баўскі край</subdivision>
+			<subdivision type="lv017" draft="contributed">Бэвэрынскі край</subdivision>
+			<subdivision type="lv018" draft="contributed">Броцэнскі край</subdivision>
+			<subdivision type="lv019" draft="contributed">Буртніекскі край</subdivision>
+			<subdivision type="lv020" draft="contributed">Царнікаўскі край</subdivision>
+			<subdivision type="lv021" draft="contributed">Цэсвайнскі край</subdivision>
+			<subdivision type="lv022" draft="contributed">Цэсіскі край</subdivision>
+			<subdivision type="lv023" draft="contributed">Цыблскі край</subdivision>
+			<subdivision type="lv024" draft="contributed">Дагдскі край</subdivision>
+			<subdivision type="lv025" draft="contributed">Даўгаўпілскі край</subdivision>
+			<subdivision type="lv026" draft="contributed">Добэльскі край</subdivision>
+			<subdivision type="lv027" draft="contributed">Дундагскі край</subdivision>
+			<subdivision type="lv028" draft="contributed">Дурбскі край</subdivision>
+			<subdivision type="lv029" draft="contributed">Энгурскі край</subdivision>
+			<subdivision type="lv030" draft="contributed">Эргльскі край</subdivision>
+			<subdivision type="lv031" draft="contributed">Гаркалнскі край</subdivision>
+			<subdivision type="lv032" draft="contributed">Гробінскі край</subdivision>
+			<subdivision type="lv033" draft="contributed">Гулбенскі край</subdivision>
+			<subdivision type="lv034" draft="contributed">Іецаўскі край</subdivision>
+			<subdivision type="lv035" draft="contributed">Ікшкільскі край</subdivision>
+			<subdivision type="lv036" draft="contributed">Ілуксцкі край</subdivision>
+			<subdivision type="lv037" draft="contributed">Інчукалнскі край</subdivision>
+			<subdivision type="lv039" draft="contributed">Яўнпіебалгскі край</subdivision>
+			<subdivision type="lv040" draft="contributed">Яўнпілскі край</subdivision>
+			<subdivision type="lv041" draft="contributed">Елгаўскі край</subdivision>
+			<subdivision type="lv042" draft="contributed">Екабпілскі край</subdivision>
+			<subdivision type="lv043" draft="contributed">Кандаўскі край</subdivision>
+			<subdivision type="lv044" draft="contributed">Карсаўскі край</subdivision>
+			<subdivision type="lv045" draft="contributed">Коцэнскі край</subdivision>
+			<subdivision type="lv046" draft="contributed">Кокнэскі край</subdivision>
+			<subdivision type="lv047" draft="contributed">Краслаўскі край</subdivision>
+			<subdivision type="lv048" draft="contributed">Крымулдскі край</subdivision>
+			<subdivision type="lv049" draft="contributed">Крустпілскі край</subdivision>
+			<subdivision type="lv050" draft="contributed">Кулдыгскі край</subdivision>
+			<subdivision type="lv051" draft="contributed">Кегумскі край</subdivision>
+			<subdivision type="lv052" draft="contributed">Кекаўскі край</subdivision>
+			<subdivision type="lv053" draft="contributed">Ліелвардскі край</subdivision>
+			<subdivision type="lv054" draft="contributed">Лімбажскі край</subdivision>
+			<subdivision type="lv055" draft="contributed">Лігатнэнскі край</subdivision>
+			<subdivision type="lv056" draft="contributed">Ліванскі край</subdivision>
+			<subdivision type="lv057" draft="contributed">Лубанскі край</subdivision>
+			<subdivision type="lv058" draft="contributed">Лудзенскі край</subdivision>
+			<subdivision type="lv059" draft="contributed">Маданскі край</subdivision>
+			<subdivision type="lv060" draft="contributed">Мазсалацкі край</subdivision>
+			<subdivision type="lv061" draft="contributed">Малпілскі край</subdivision>
+			<subdivision type="lv062" draft="contributed">Марупскі край</subdivision>
+			<subdivision type="lv063" draft="contributed">Мэрсрагскі край</subdivision>
+			<subdivision type="lv064" draft="contributed">Наўкшэнскі край</subdivision>
+			<subdivision type="lv065" draft="contributed">Нэрэцкі край</subdivision>
+			<subdivision type="lv066" draft="contributed">Ніцкі край</subdivision>
+			<subdivision type="lv067" draft="contributed">Огрскі край</subdivision>
+			<subdivision type="lv068" draft="contributed">Олайнскі край</subdivision>
+			<subdivision type="lv069" draft="contributed">Озалніекскі край</subdivision>
+			<subdivision type="lv070" draft="contributed">Паргаўйскі край</subdivision>
+			<subdivision type="lv071" draft="contributed">Павіласцкі край</subdivision>
+			<subdivision type="lv072" draft="contributed">Плявіньскі край</subdivision>
+			<subdivision type="lv073" draft="contributed">Прэйльскі край</subdivision>
+			<subdivision type="lv074" draft="contributed">Прыекульскі край</subdivision>
+			<subdivision type="lv075" draft="contributed">Прыекульскі край²</subdivision>
+			<subdivision type="lv076" draft="contributed">Раўнскі край</subdivision>
+			<subdivision type="lv077" draft="contributed">Рэзэкненскі край</subdivision>
+			<subdivision type="lv078" draft="contributed">Рыебіньскі край</subdivision>
+			<subdivision type="lv079" draft="contributed">Ройскі край</subdivision>
+			<subdivision type="lv080" draft="contributed">Ропажскі край</subdivision>
+			<subdivision type="lv081" draft="contributed">Руцаўскі край</subdivision>
+			<subdivision type="lv082" draft="contributed">Ругайскі край</subdivision>
+			<subdivision type="lv083" draft="contributed">Рундальскі край</subdivision>
+			<subdivision type="lv084" draft="contributed">Руіенскі край</subdivision>
+			<subdivision type="lv085" draft="contributed">Салскі край</subdivision>
+			<subdivision type="lv086" draft="contributed">Салацгрыўскі край</subdivision>
+			<subdivision type="lv087" draft="contributed">Саласпілскі край</subdivision>
+			<subdivision type="lv088" draft="contributed">Салдускі край</subdivision>
+			<subdivision type="lv089" draft="contributed">Саўлкрасцкі край</subdivision>
+			<subdivision type="lv090" draft="contributed">Сейскі край</subdivision>
+			<subdivision type="lv091" draft="contributed">Сігулдскі край</subdivision>
+			<subdivision type="lv092" draft="contributed">Скрывэрскі край</subdivision>
+			<subdivision type="lv093" draft="contributed">Скрундскі край</subdivision>
+			<subdivision type="lv094" draft="contributed">Смілтэнскі край</subdivision>
+			<subdivision type="lv095" draft="contributed">Стопіньскі край</subdivision>
+			<subdivision type="lv096" draft="contributed">Стрэнцкі край</subdivision>
+			<subdivision type="lv097" draft="contributed">Талсінскі край</subdivision>
+			<subdivision type="lv098" draft="contributed">Тэрвэцкі край</subdivision>
+			<subdivision type="lv099" draft="contributed">Тукумскі край</subdivision>
+			<subdivision type="lv100" draft="contributed">Вайнёдскі край</subdivision>
+			<subdivision type="lv101" draft="contributed">Валцкі край</subdivision>
+			<subdivision type="lv102" draft="contributed">Вараклянскі край</subdivision>
+			<subdivision type="lv103" draft="contributed">Варкаўскі край</subdivision>
+			<subdivision type="lv104" draft="contributed">Вецпіебалгскі край</subdivision>
+			<subdivision type="lv105" draft="contributed">Вэцумніекскі край</subdivision>
+			<subdivision type="lv106" draft="contributed">Вэнтспілскі край</subdivision>
+			<subdivision type="lv107" draft="contributed">Віесіцкі край</subdivision>
+			<subdivision type="lv108" draft="contributed">Вілякскі край</subdivision>
+			<subdivision type="lv109" draft="contributed">Вілянскі край</subdivision>
+			<subdivision type="lv110" draft="contributed">Зілупскі край</subdivision>
+			<subdivision type="lvdgv" draft="contributed">Даўгаўпілс</subdivision>
+			<subdivision type="lvjel" draft="contributed">Елгава</subdivision>
+			<subdivision type="lvjkb" draft="contributed">Екабпілс</subdivision>
+			<subdivision type="lvjur" draft="contributed">Юрмала</subdivision>
+			<subdivision type="lvlpx" draft="contributed">Ліепая</subdivision>
+			<subdivision type="lvrez" draft="contributed">Горад Рэзэкнэ</subdivision>
+			<subdivision type="lvrix" draft="contributed">Рыга</subdivision>
+			<subdivision type="lvven" draft="contributed">Горад Вэнтспілс</subdivision>
+			<subdivision type="lvvmr" draft="contributed">Валміера</subdivision>
+			<subdivision type="lyba" draft="contributed">Горад Бенгазі</subdivision>
+			<subdivision type="lybu" draft="contributed">Эль-Бутнан</subdivision>
+			<subdivision type="lyjg" draft="contributed">Муніцыпалітэт Эль-Джабал-эль-Гарбі</subdivision>
+			<subdivision type="lyji" draft="contributed">Муніцыпалітэт Эль-Джыфара</subdivision>
+			<subdivision type="lyju" draft="contributed">Муніцыпалітэт Эль-Джуфра</subdivision>
+			<subdivision type="lykf" draft="contributed">Муніцыпалітэт Эль-Куфра</subdivision>
+			<subdivision type="lymb" draft="contributed">Муніцыпалітэт Эль-Маргаб</subdivision>
+			<subdivision type="lymi" draft="contributed">Муніцыпалітэт Місурата</subdivision>
+			<subdivision type="lymq" draft="contributed">Муніцыпалітэт Марзук</subdivision>
+			<subdivision type="lynl" draft="contributed">Муніцыпалітэт Налут</subdivision>
+			<subdivision type="lysr" draft="contributed">Муніцыпалітэт Сурт</subdivision>
+			<subdivision type="lytb" draft="contributed">Муніцыпалітэт Тарабулус</subdivision>
+			<subdivision type="lywa" draft="contributed">Муніцыпалітэт Эль-Вахат</subdivision>
+			<subdivision type="ma02" draft="contributed">Вобласць Гарб-Шрарда-Бені-Хсен</subdivision>
+			<subdivision type="ma10" draft="contributed">Вобласць Дукала-Абда</subdivision>
+			<subdivision type="ma14" draft="contributed">Вобласць Гулімім-Эс-Смара</subdivision>
+			<subdivision type="maagd" draft="contributed">Агадыр</subdivision>
+			<subdivision type="macas" draft="contributed">Касабланка</subdivision>
+			<subdivision type="mafes" draft="contributed">Горад Фес</subdivision>
+			<subdivision type="mamek" draft="contributed">Горад Мекнес</subdivision>
+			<subdivision type="mammd" draft="contributed">Маракеш</subdivision>
+			<subdivision type="mammn" draft="contributed">Маракеш²</subdivision>
+			<subdivision type="maouj" draft="contributed">Горад Уджда</subdivision>
+			<subdivision type="marab" draft="contributed">Горад Рабат</subdivision>
+			<subdivision type="masal" draft="contributed">Горад Сале</subdivision>
+			<subdivision type="masyb" draft="contributed">Маракеш³</subdivision>
+			<subdivision type="matng" draft="contributed">Танжэр</subdivision>
+			<subdivision type="mcco" draft="contributed">Ла-Кандамін</subdivision>
+			<subdivision type="mcmc" draft="contributed">Монтэ-Карла</subdivision>
+			<subdivision type="mcmo" draft="contributed">Горад Манака</subdivision>
+			<subdivision type="mdba" draft="contributed">Горад Бельцы</subdivision>
+			<subdivision type="mdbd" draft="contributed">Горад Бендэр</subdivision>
+			<subdivision type="mdbr" draft="contributed">Брычанскі раён</subdivision>
+			<subdivision type="mdcl" draft="contributed">Каларашскі раён</subdivision>
+			<subdivision type="mdcu" draft="contributed">Кішынёў</subdivision>
+			<subdivision type="mddr" draft="contributed">Дрокіеўскі раён</subdivision>
+			<subdivision type="mdfl" draft="contributed">Фларэшцкі раён</subdivision>
+			<subdivision type="mdga" draft="contributed">Гагаузія</subdivision>
+			<subdivision type="mdsn" draft="contributed">Аўтаномнае тэрытарыяльнае ўтварэнне з асаблівым прававым статусам Прыднястроўе</subdivision>
+			<subdivision type="mdst" draft="contributed">Страшэнскі раён</subdivision>
+			<subdivision type="mdta" draft="contributed">Тараклійскі раён</subdivision>
+			<subdivision type="mdte" draft="contributed">Целянешцкі раён</subdivision>
+			<subdivision type="me06" draft="contributed">Цэцінэ</subdivision>
+			<subdivision type="mgt" draft="contributed">правінцыя Антананарыву</subdivision>
+			<subdivision type="mhebo" draft="contributed">Атол Эбон</subdivision>
+			<subdivision type="mhjal" draft="contributed">Атол Джалуіт</subdivision>
+			<subdivision type="mhkil" draft="contributed">Востраў Кілі</subdivision>
+			<subdivision type="mhkwa" draft="contributed">Атол Кваджалейн</subdivision>
+			<subdivision type="mhmaj" draft="contributed">Горад Маджура</subdivision>
+			<subdivision type="mhron" draft="contributed">Атол Рангелап</subdivision>
+			<subdivision type="mhuti" draft="contributed">Атол Утырык</subdivision>
+			<subdivision type="mk40" draft="contributed">абшчына Кічава</subdivision>
+			<subdivision type="mk47" draft="contributed">абшчына Куманава</subdivision>
+			<subdivision type="ml3" draft="contributed">Сікасо</subdivision>
+			<subdivision type="mlbko" draft="contributed">Горад Бамако</subdivision>
+			<subdivision type="mm06" draft="contributed">Янгон</subdivision>
+			<subdivision type="mn1" draft="contributed">Улан-Батар</subdivision>
+			<subdivision type="mr03" draft="contributed">Вобласць Асаба</subdivision>
+			<subdivision type="mr05" draft="contributed">Вобласць Бракна</subdivision>
+			<subdivision type="mr07" draft="contributed">Адрар</subdivision>
+			<subdivision type="mr12" draft="contributed">Вобласць Іншыры</subdivision>
+			<subdivision type="mt03" draft="contributed">Біргу</subdivision>
+			<subdivision type="mt04" draft="contributed">Горад Біркіркара</subdivision>
+			<subdivision type="mt26" draft="contributed">Марса</subdivision>
+			<subdivision type="mt39" draft="contributed">Горад Паала</subdivision>
+			<subdivision type="mt43" draft="contributed">Кормі</subdivision>
+			<subdivision type="mt60" draft="contributed">Горад Валета</subdivision>
+			<subdivision type="mt64" draft="contributed">Забар</subdivision>
+			<subdivision type="muag" draft="contributed">Архіпелаг Агалега</subdivision>
+			<subdivision type="mucc" draft="contributed">Каргадас-Карахас</subdivision>
+			<subdivision type="mupu" draft="contributed">Порт-Луі</subdivision>
+			<subdivision type="muro" draft="contributed">Востраў Радрыгес</subdivision>
+			<subdivision type="mvmle" draft="contributed">Горад Мале</subdivision>
+			<subdivision type="mwc" draft="contributed">Цэнтральны рэгіён</subdivision>
+			<subdivision type="mwks" draft="contributed">раён Касунгу</subdivision>
+			<subdivision type="mwli" draft="contributed">раён Лілонгвэ</subdivision>
+			<subdivision type="mwmh" draft="contributed">раён Мачынга</subdivision>
+			<subdivision type="mwmz" draft="contributed">раён Мзімба</subdivision>
+			<subdivision type="mwn" draft="contributed">Паўночны рэгіён</subdivision>
+			<subdivision type="mwnk" draft="contributed">раён Нхатакота</subdivision>
+			<subdivision type="mws" draft="contributed">Паўднёвы рэгіён</subdivision>
+			<subdivision type="mwzo" draft="contributed">раён Зомба</subdivision>
+			<subdivision type="mxagu" draft="contributed">Штат Агуаскальентэс</subdivision>
+			<subdivision type="mxbcn" draft="contributed">Штат Ніжняя Каліфорнія</subdivision>
+			<subdivision type="mxbcs" draft="contributed">Штат Паўднёвая Ніжняя Каліфорнія</subdivision>
+			<subdivision type="mxcam" draft="contributed">Штат Кампечэ</subdivision>
+			<subdivision type="mxchh" draft="contributed">Штат Чыўаўа</subdivision>
+			<subdivision type="mxcmx" draft="contributed">Мехіка</subdivision>
+			<subdivision type="mxcoa" draft="contributed">Штат Кааўіла</subdivision>
+			<subdivision type="mxcol" draft="contributed">Штат Каліма</subdivision>
+			<subdivision type="mxdur" draft="contributed">Штат Дуранга</subdivision>
+			<subdivision type="mxgro" draft="contributed">Штат Герэра</subdivision>
+			<subdivision type="mxgua" draft="contributed">Штат Гуанахуата</subdivision>
+			<subdivision type="mxhid" draft="contributed">Штат Ідальга</subdivision>
+			<subdivision type="mxjal" draft="contributed">штат Халіска</subdivision>
+			<subdivision type="mxmex" draft="contributed">Штат Мехіка</subdivision>
+			<subdivision type="mxmic" draft="contributed">штат Мічаакан</subdivision>
+			<subdivision type="mxmor" draft="contributed">Штат Марэлас</subdivision>
+			<subdivision type="mxnay" draft="contributed">Штат Наярыт</subdivision>
+			<subdivision type="mxnle" draft="contributed">Штат Нуэва-Леон</subdivision>
+			<subdivision type="mxoax" draft="contributed">Штат Аахака</subdivision>
+			<subdivision type="mxpue" draft="contributed">Штат Пуэбла</subdivision>
+			<subdivision type="mxque" draft="contributed">Штат Керэтара</subdivision>
+			<subdivision type="mxroo" draft="contributed">Штат Кінтана-Роа</subdivision>
+			<subdivision type="mxsin" draft="contributed">Штат Сіналоа</subdivision>
+			<subdivision type="mxslp" draft="contributed">Штат Сан-Луіс-Патасі</subdivision>
+			<subdivision type="mxson" draft="contributed">Штат Санора</subdivision>
+			<subdivision type="mxtab" draft="contributed">Штат Табаска</subdivision>
+			<subdivision type="mxtam" draft="contributed">Штат Тамауліпас</subdivision>
+			<subdivision type="mxtla" draft="contributed">Штат Тласкала</subdivision>
+			<subdivision type="mxver" draft="contributed">Штат Веракрус</subdivision>
+			<subdivision type="mxyuc" draft="contributed">Штат Юкатан</subdivision>
+			<subdivision type="mxzac" draft="contributed">Штат Сакатэкас</subdivision>
+			<subdivision type="my08" draft="contributed">Перак</subdivision>
+			<subdivision type="my10" draft="contributed">Селангор</subdivision>
+			<subdivision type="my12" draft="contributed">Сабах</subdivision>
+			<subdivision type="my13" draft="contributed">Саравак</subdivision>
+			<subdivision type="my14" draft="contributed">Горад Куала-Лумпур</subdivision>
+			<subdivision type="my15" draft="contributed">Лабуан</subdivision>
+			<subdivision type="mzmpm" draft="contributed">Горад Мапуту</subdivision>
+			<subdivision type="ne8" draft="contributed">Горад Ніямей</subdivision>
+			<subdivision type="ngde" draft="contributed">штат Дэльта</subdivision>
+			<subdivision type="nged" draft="contributed">штат Эда</subdivision>
+			<subdivision type="ngen" draft="contributed">Энугу</subdivision>
+			<subdivision type="ngkt" draft="contributed">штат Кацына</subdivision>
+			<subdivision type="ngla" draft="contributed">штат Лагас</subdivision>
+			<subdivision type="nibo" draft="contributed">Дэпартамент Баака</subdivision>
+			<subdivision type="nica" draft="contributed">Дэпартамент Караса</subdivision>
+			<subdivision type="nici" draft="contributed">Дэпартамент Чынандэга</subdivision>
+			<subdivision type="nico" draft="contributed">Дэпартамент Чанталес</subdivision>
+			<subdivision type="nies" draft="contributed">Дэпартамент Эстэлі</subdivision>
+			<subdivision type="nigr" draft="contributed">Дэпартамент Гранада</subdivision>
+			<subdivision type="niji" draft="contributed">Дэпартамент Хінатэга</subdivision>
+			<subdivision type="nile" draft="contributed">Дэпартамент Леон</subdivision>
+			<subdivision type="nimd" draft="contributed">Дэпартамент Мадрыс</subdivision>
+			<subdivision type="nimn" draft="contributed">Дэпартамент Манагуа</subdivision>
+			<subdivision type="nims" draft="contributed">Дэпартамент Масая</subdivision>
+			<subdivision type="nimt" draft="contributed">Дэпартамент Матагальпа</subdivision>
+			<subdivision type="nins" draft="contributed">Дэпартамент Нуэва-Сеговія</subdivision>
+			<subdivision type="niri" draft="contributed">Дэпартамент Рывас</subdivision>
+			<subdivision type="nisj" draft="contributed">Дэпартамент Сан-Хуан</subdivision>
+			<subdivision type="nlbq1" draft="contributed">Востраў Банайрэ</subdivision>
+			<subdivision type="nlbq2" draft="contributed">Востраў Саба</subdivision>
+			<subdivision type="nlbq3" draft="contributed">Востраў Сінт-Эстаціус</subdivision>
+			<subdivision type="nldr" draft="contributed">Дрэнтэ</subdivision>
+			<subdivision type="nlfl" draft="contributed">Флеваланд</subdivision>
+			<subdivision type="nlfr" draft="contributed">Фрысландыя</subdivision>
+			<subdivision type="nlge" draft="contributed">правінцыя Гелдэрланд</subdivision>
+			<subdivision type="nlgr" draft="contributed">Правінцыя Гронінген</subdivision>
+			<subdivision type="nlli" draft="contributed">Лімбург</subdivision>
+			<subdivision type="nlnb" draft="contributed">Паўночны Брабант</subdivision>
+			<subdivision type="nlnh" draft="contributed">Паўночная Галандыя</subdivision>
+			<subdivision type="nlov" draft="contributed">Аверэйсел</subdivision>
+			<subdivision type="nlut" draft="contributed">правінцыя Утрэхт</subdivision>
+			<subdivision type="nlze" draft="contributed">Зеландыя</subdivision>
+			<subdivision type="nlzh" draft="contributed">Паўднёвая Галандыя</subdivision>
+			<subdivision type="no01" draft="contributed">Эстфал</subdivision>
+			<subdivision type="no02" draft="contributed">Акерсхус</subdivision>
+			<subdivision type="no03" draft="contributed">Осла</subdivision>
+			<subdivision type="no04" draft="contributed">Хедмарк</subdivision>
+			<subdivision type="no05" draft="contributed">Оплан</subdivision>
+			<subdivision type="no06" draft="contributed">Бускеруд</subdivision>
+			<subdivision type="no07" draft="contributed">Вестфал</subdivision>
+			<subdivision type="no08" draft="contributed">Тэлемарк</subdivision>
+			<subdivision type="no09" draft="contributed">Эўст-Агдэр</subdivision>
+			<subdivision type="no10" draft="contributed">Вест-Агдэр</subdivision>
+			<subdivision type="no11" draft="contributed">Ругалан</subdivision>
+			<subdivision type="no12" draft="contributed">Хордалан</subdivision>
+			<subdivision type="no15" draft="contributed">Мёрэ-ог-Румсдал</subdivision>
+			<subdivision type="no16" draft="contributed">Сёр-Трондэлаг</subdivision>
+			<subdivision type="no17" draft="contributed">Нур-Трондэлаг</subdivision>
+			<subdivision type="no18" draft="contributed">Нурлан</subdivision>
+			<subdivision type="no19" draft="contributed">Тромс</subdivision>
+			<subdivision type="no20" draft="contributed">Фінмарк</subdivision>
+			<subdivision type="no21" draft="contributed">Шпіцберген</subdivision>
+			<subdivision type="no22" draft="contributed">Востраў Ян-Маен</subdivision>
+			<subdivision type="np3" draft="contributed">Заходні рэгіён</subdivision>
+			<subdivision type="nplu" draft="contributed">Лумбіні</subdivision>
+			<subdivision type="nr14" draft="contributed">Ярэн</subdivision>
+			<subdivision type="nzauk" draft="contributed">Окленд</subdivision>
+			<subdivision type="nzcit" draft="contributed">Астравы Чатэм</subdivision>
+			<subdivision type="nzwko" draft="contributed">Рэгіён Вайката</subdivision>
+			<subdivision type="pa1" draft="contributed">Правінцыя Бокас-дэль-Тора</subdivision>
+			<subdivision type="pa8" draft="contributed">правінцыя Панама</subdivision>
+			<subdivision type="peama" draft="contributed">Рэгіён Амасонас</subdivision>
+			<subdivision type="peanc" draft="contributed">Рэгіён Анкаш</subdivision>
+			<subdivision type="peapu" draft="contributed">Рэгіён Апурымак</subdivision>
+			<subdivision type="peare" draft="contributed">Рэгіён Арэкіпа</subdivision>
+			<subdivision type="peaya" draft="contributed">Рэгіён Аякуча</subdivision>
+			<subdivision type="pecaj" draft="contributed">Рэгіён Кахамарка</subdivision>
+			<subdivision type="pecus" draft="contributed">Рэгіён Куска</subdivision>
+			<subdivision type="pehuc" draft="contributed">Рэгіён Гуанука</subdivision>
+			<subdivision type="pehuv" draft="contributed">Рэгіён Гуанкавеліка</subdivision>
+			<subdivision type="peica" draft="contributed">Рэгіён Іка</subdivision>
+			<subdivision type="pejun" draft="contributed">Рэгіён Хунін</subdivision>
+			<subdivision type="pelal" draft="contributed">Рэгіён Ла-Лібертад</subdivision>
+			<subdivision type="pelam" draft="contributed">Рэгіён Ламбаеке</subdivision>
+			<subdivision type="pelim" draft="contributed">Рэгіён Ліма</subdivision>
+			<subdivision type="pelma" draft="contributed">правінцыя Ліма</subdivision>
+			<subdivision type="pelor" draft="contributed">Рэгіён Ларэта</subdivision>
+			<subdivision type="pemoq" draft="contributed">Рэгіён Макегуа</subdivision>
+			<subdivision type="pepas" draft="contributed">Рэгіён Паска</subdivision>
+			<subdivision type="pepun" draft="contributed">Рэгіён Пуна</subdivision>
+			<subdivision type="pesam" draft="contributed">Рэгіён Сан-Марцін</subdivision>
+			<subdivision type="petac" draft="contributed">Рэгіён Такна</subdivision>
+			<subdivision type="petum" draft="contributed">Рэгіён Тумбес</subdivision>
+			<subdivision type="peuca" draft="contributed">Рэгіён Укаялі</subdivision>
+			<subdivision type="pgncd" draft="contributed">Горад Порт-Морсбі</subdivision>
+			<subdivision type="ph00" draft="contributed">Сталічны Рэгіён</subdivision>
+			<subdivision type="ph08" draft="contributed">Усходнія Вісаі</subdivision>
+			<subdivision type="ph14" draft="contributed">Аўтаномны рэгіён у Мусульманскім Мінданаа</subdivision>
+			<subdivision type="phplw" draft="contributed">Правінцыя Палаван</subdivision>
+			<subdivision type="phsle" draft="contributed">Паўднёвы Лейтэ</subdivision>
+			<subdivision type="pkba" draft="contributed">Правінцыя Белуджыстан</subdivision>
+			<subdivision type="pkgb" draft="contributed">Гілгіт-Балтыстан</subdivision>
+			<subdivision type="pkis" draft="contributed">Федэральная сталічная тэрыторыя</subdivision>
+			<subdivision type="pkjk" draft="contributed">Азад Кашмір</subdivision>
+			<subdivision type="pkkp" draft="contributed">Хайбер-Пахтунхва</subdivision>
+			<subdivision type="pkpb" draft="contributed">Пенджаб</subdivision>
+			<subdivision type="pksd" draft="contributed">Правінцыя Сінд</subdivision>
+			<subdivision type="pkta" draft="contributed">Федэральна кіраваныя племянныя тэрыторыі</subdivision>
+			<subdivision type="plds" draft="contributed">Ніжнесілезскае ваяводства</subdivision>
+			<subdivision type="plkp" draft="contributed">Куяўска-Паморскае ваяводства</subdivision>
+			<subdivision type="pllb" draft="contributed">Любушскае ваяводства</subdivision>
+			<subdivision type="plld" draft="contributed">Лодзьскае ваяводства</subdivision>
+			<subdivision type="pllu" draft="contributed">Люблінскае ваяводства</subdivision>
+			<subdivision type="plma" draft="contributed">Малапольскае ваяводства</subdivision>
+			<subdivision type="plmz" draft="contributed">Мазавецкае ваяводства</subdivision>
+			<subdivision type="plop" draft="contributed">Апольскае ваяводства</subdivision>
+			<subdivision type="plpd" draft="contributed">Падляскае ваяводства</subdivision>
+			<subdivision type="plpk" draft="contributed">Падкарпацкае ваяводства</subdivision>
+			<subdivision type="plpm" draft="contributed">Паморскае ваяводства</subdivision>
+			<subdivision type="plsk" draft="contributed">Свентакшыскае ваяводства</subdivision>
+			<subdivision type="plsl" draft="contributed">Сілезскае ваяводства</subdivision>
+			<subdivision type="plwn" draft="contributed">Вармінска-Мазурскае ваяводства</subdivision>
+			<subdivision type="plwp" draft="contributed">Велікапольскае ваяводства</subdivision>
+			<subdivision type="plzp" draft="contributed">Заходнепаморскае ваяводства</subdivision>
+			<subdivision type="psbth" draft="contributed">Віфлеем</subdivision>
+			<subdivision type="psjem" draft="contributed">Іерусалім</subdivision>
+			<subdivision type="psnbs" draft="contributed">Наблус</subdivision>
+			<subdivision type="pt01" draft="contributed">акруга Авейру</subdivision>
+			<subdivision type="pt02" draft="contributed">Бежа</subdivision>
+			<subdivision type="pt03" draft="contributed">акруга Брага</subdivision>
+			<subdivision type="pt04" draft="contributed">акруга Браганса</subdivision>
+			<subdivision type="pt05" draft="contributed">акруга Каштэлу-Бранку</subdivision>
+			<subdivision type="pt06" draft="contributed">Каімбра</subdivision>
+			<subdivision type="pt07" draft="contributed">акруга Эвара</subdivision>
+			<subdivision type="pt08" draft="contributed">акруга Фару</subdivision>
+			<subdivision type="pt09" draft="contributed">акруга Гуарда</subdivision>
+			<subdivision type="pt10" draft="contributed">акруга Лейрыя</subdivision>
+			<subdivision type="pt11" draft="contributed">акруга Лісабон</subdivision>
+			<subdivision type="pt12" draft="contributed">акруга Порталегры</subdivision>
+			<subdivision type="pt13" draft="contributed">акруга Порту</subdivision>
+			<subdivision type="pt14" draft="contributed">акруга Сантарэн</subdivision>
+			<subdivision type="pt15" draft="contributed">акруга Сетубал</subdivision>
+			<subdivision type="pt17" draft="contributed">акруга Віла-Рэал</subdivision>
+			<subdivision type="pt18" draft="contributed">акруга Візеу</subdivision>
+			<subdivision type="pt20" draft="contributed">Азорскія астравы</subdivision>
+			<subdivision type="pt30" draft="contributed">Мадэйра</subdivision>
+			<subdivision type="pw010" draft="contributed">Востраў Ангаур</subdivision>
+			<subdivision type="pw150" draft="contributed">Горад Корар</subdivision>
+			<subdivision type="pw370" draft="contributed">Астравы Сансарол</subdivision>
+			<subdivision type="py5" draft="contributed">дэпартамент Каагуасу</subdivision>
+			<subdivision type="py11" draft="contributed">дэпартамент Сентраль</subdivision>
+			<subdivision type="pyasu" draft="contributed">Асунсьён</subdivision>
+			<subdivision type="qada" draft="contributed">Горад Доха</subdivision>
+			<subdivision type="roab" draft="contributed">жудзец Алба</subdivision>
+			<subdivision type="roag" draft="contributed">Арджэш</subdivision>
+			<subdivision type="roar" draft="contributed">жудзец Арад</subdivision>
+			<subdivision type="rob" draft="contributed">Бухарэст</subdivision>
+			<subdivision type="robc" draft="contributed">Бакэў</subdivision>
+			<subdivision type="robr" draft="contributed">Жудзец Брэіла</subdivision>
+			<subdivision type="robt" draft="contributed">Баташані</subdivision>
+			<subdivision type="rocj" draft="contributed">Клуж</subdivision>
+			<subdivision type="rocl" draft="contributed">жудзец Кэлэрашы</subdivision>
+			<subdivision type="rocs" draft="contributed">жудзец Караш-Северын</subdivision>
+			<subdivision type="rodb" draft="contributed">жудзец Дымбавіца</subdivision>
+			<subdivision type="rodj" draft="contributed">жудзец Долж</subdivision>
+			<subdivision type="rogj" draft="contributed">Горж</subdivision>
+			<subdivision type="rohd" draft="contributed">жудзец Хунедаара</subdivision>
+			<subdivision type="rois" draft="contributed">Ясы</subdivision>
+			<subdivision type="romh" draft="contributed">жудзец Мехедынцы</subdivision>
+			<subdivision type="romm" draft="contributed">жудзец Марамурэш</subdivision>
+			<subdivision type="roms" draft="contributed">Мюрэш</subdivision>
+			<subdivision type="root" draft="contributed">Олт</subdivision>
+			<subdivision type="roph" draft="contributed">Прахова</subdivision>
+			<subdivision type="rosb" draft="contributed">жудзец Сібіу</subdivision>
+			<subdivision type="rosj" draft="contributed">жудзец Сэлаж</subdivision>
+			<subdivision type="rosm" draft="contributed">жудзец Сату-Марэ</subdivision>
+			<subdivision type="rosv" draft="contributed">жудзец Сучава</subdivision>
+			<subdivision type="rotl" draft="contributed">жудзец Тулча</subdivision>
+			<subdivision type="rotm" draft="contributed">Тыміш</subdivision>
+			<subdivision type="rotr" draft="contributed">жудзец Тэлеарман</subdivision>
+			<subdivision type="rovl" draft="contributed">жудзец Вылча</subdivision>
+			<subdivision type="rovn" draft="contributed">Вранча</subdivision>
+			<subdivision type="rovs" draft="contributed">Васлуй</subdivision>
+			<subdivision type="rs00" draft="contributed">Бялград</subdivision>
+			<subdivision type="rs01" draft="contributed">Паўночна-Бацкая акруга</subdivision>
+			<subdivision type="rs03" draft="contributed">Паўночна-Банацкая акруга</subdivision>
+			<subdivision type="rs04" draft="contributed">Паўднёва-Банацкая акруга</subdivision>
+			<subdivision type="rs05" draft="contributed">Заходне-Бацкая акруга</subdivision>
+			<subdivision type="rs06" draft="contributed">Паўднёва-Бачская акруга</subdivision>
+			<subdivision type="rs07" draft="contributed">Срэмская акруга</subdivision>
+			<subdivision type="rs08" draft="contributed">Мачванская акруга</subdivision>
+			<subdivision type="rs09" draft="contributed">Калубарская акруга</subdivision>
+			<subdivision type="rs11" draft="contributed">Бранічаўская акруга</subdivision>
+			<subdivision type="rs12" draft="contributed">Шумадыйская акруга</subdivision>
+			<subdivision type="rs16" draft="contributed">Злацібарская акруга</subdivision>
+			<subdivision type="rs17" draft="contributed">Маравіцкая акруга</subdivision>
+			<subdivision type="rs18" draft="contributed">Рашская акруга</subdivision>
+			<subdivision type="rs19" draft="contributed">Расінская акруга</subdivision>
+			<subdivision type="rs20" draft="contributed">Нішаўская акруга</subdivision>
+			<subdivision type="rs23" draft="contributed">Ябланіцкая акруга</subdivision>
+			<subdivision type="rs26" draft="contributed">Печская акруга</subdivision>
+			<subdivision type="rskm" draft="contributed">Косава і Мятохія</subdivision>
+			<subdivision type="rsvo" draft="contributed">аўтаномны край Ваяводзіна</subdivision>
+			<subdivision type="ruad" draft="contributed">Адыгея</subdivision>
+			<subdivision type="rual" draft="contributed">Рэспубліка Алтай</subdivision>
+			<subdivision type="rualt" draft="contributed">Алтайскі край</subdivision>
+			<subdivision type="ruamu" draft="contributed">Амурская вобласць</subdivision>
+			<subdivision type="ruark" draft="contributed">Архангельская вобласць</subdivision>
+			<subdivision type="ruast" draft="contributed">Астраханская вобласць</subdivision>
+			<subdivision type="ruba" draft="contributed">Башкартастан</subdivision>
+			<subdivision type="rubel" draft="contributed">Белгародская вобласць</subdivision>
+			<subdivision type="rubry" draft="contributed">Бранская вобласць</subdivision>
+			<subdivision type="rubu" draft="contributed">Бурація</subdivision>
+			<subdivision type="ruce" draft="contributed">Чачня</subdivision>
+			<subdivision type="ruche" draft="contributed">Чалябінская вобласць</subdivision>
+			<subdivision type="ruchu" draft="contributed">Чукоцкая аўтаномная акруга</subdivision>
+			<subdivision type="rucu" draft="contributed">Чувашыя</subdivision>
+			<subdivision type="ruda" draft="contributed">Дагестан</subdivision>
+			<subdivision type="ruin" draft="contributed">Інгушэція</subdivision>
+			<subdivision type="ruirk" draft="contributed">Іркуцкая вобласць</subdivision>
+			<subdivision type="ruiva" draft="contributed">Іванаўская вобласць</subdivision>
+			<subdivision type="rukam" draft="contributed">Камчацкі край</subdivision>
+			<subdivision type="rukb" draft="contributed">Кабардзіна-Балкарыя</subdivision>
+			<subdivision type="rukc" draft="contributed">Карачаева-Чаркесія</subdivision>
+			<subdivision type="rukda" draft="contributed">Краснадарскі край</subdivision>
+			<subdivision type="rukem" draft="contributed">Кемераўская вобласць</subdivision>
+			<subdivision type="rukgd" draft="contributed">Калінінградская вобласць</subdivision>
+			<subdivision type="rukgn" draft="contributed">Курганская вобласць</subdivision>
+			<subdivision type="rukha" draft="contributed">Хабараўскі край</subdivision>
+			<subdivision type="rukhm" draft="contributed">Ханты-Мансійская аўтаномная акруга — Югра</subdivision>
+			<subdivision type="rukir" draft="contributed">Кіраўская вобласць</subdivision>
+			<subdivision type="rukk" draft="contributed">Хакасія</subdivision>
+			<subdivision type="rukl" draft="contributed">Калмыкія</subdivision>
+			<subdivision type="ruklu" draft="contributed">Калужская вобласць</subdivision>
+			<subdivision type="ruko" draft="contributed">Рэспубліка Комі</subdivision>
+			<subdivision type="rukos" draft="contributed">Кастрамская вобласць</subdivision>
+			<subdivision type="rukr" draft="contributed">Карэлія</subdivision>
+			<subdivision type="rukrs" draft="contributed">Курская вобласць</subdivision>
+			<subdivision type="rukya" draft="contributed">Краснаярскі край</subdivision>
+			<subdivision type="rulen" draft="contributed">Ленінградская вобласць</subdivision>
+			<subdivision type="rulip" draft="contributed">Ліпецкая вобласць</subdivision>
+			<subdivision type="rumag" draft="contributed">Магаданская вобласць</subdivision>
+			<subdivision type="rume" draft="contributed">Марый Эл</subdivision>
+			<subdivision type="rumo" draft="contributed">Мардовія</subdivision>
+			<subdivision type="rumos" draft="contributed">Маскоўская вобласць</subdivision>
+			<subdivision type="rumow" draft="contributed">Масква</subdivision>
+			<subdivision type="rumur" draft="contributed">Мурманская вобласць</subdivision>
+			<subdivision type="runen" draft="contributed">Ненецкая аўтаномная акруга</subdivision>
+			<subdivision type="rungr" draft="contributed">Наўгародская вобласць</subdivision>
+			<subdivision type="runiz" draft="contributed">Ніжагародская вобласць</subdivision>
+			<subdivision type="runvs" draft="contributed">Новасібірская вобласць</subdivision>
+			<subdivision type="ruoms" draft="contributed">Омская вобласць</subdivision>
+			<subdivision type="ruore" draft="contributed">Арэнбургская вобласць</subdivision>
+			<subdivision type="ruorl" draft="contributed">Арлоўская вобласць</subdivision>
+			<subdivision type="ruper" draft="contributed">Пермскі край</subdivision>
+			<subdivision type="rupnz" draft="contributed">Пензенская вобласць</subdivision>
+			<subdivision type="rupri" draft="contributed">Прыморскі край</subdivision>
+			<subdivision type="rupsk" draft="contributed">Пскоўская вобласць</subdivision>
+			<subdivision type="ruros" draft="contributed">Растоўская вобласць</subdivision>
+			<subdivision type="rurya" draft="contributed">Разанская вобласць</subdivision>
+			<subdivision type="rusa" draft="contributed">Якуція</subdivision>
+			<subdivision type="rusak" draft="contributed">Сахалінская вобласць</subdivision>
+			<subdivision type="rusam" draft="contributed">Самарская вобласць</subdivision>
+			<subdivision type="rusar" draft="contributed">Саратаўская вобласць</subdivision>
+			<subdivision type="ruse" draft="contributed">Паўночная Асеція — Аланія</subdivision>
+			<subdivision type="rusmo" draft="contributed">Смаленская вобласць</subdivision>
+			<subdivision type="ruspe" draft="contributed">Санкт-Пецярбург</subdivision>
+			<subdivision type="rusta" draft="contributed">Стаўрапольскі край</subdivision>
+			<subdivision type="rusve" draft="contributed">Свярдлоўская вобласць</subdivision>
+			<subdivision type="ruta" draft="contributed">Татарстан</subdivision>
+			<subdivision type="rutam" draft="contributed">Тамбоўская вобласць</subdivision>
+			<subdivision type="rutom" draft="contributed">Томская вобласць</subdivision>
+			<subdivision type="rutul" draft="contributed">Тульская вобласць</subdivision>
+			<subdivision type="rutve" draft="contributed">Цвярская вобласць</subdivision>
+			<subdivision type="ruty" draft="contributed">Тува</subdivision>
+			<subdivision type="rutyu" draft="contributed">Цюменская вобласць</subdivision>
+			<subdivision type="ruud" draft="contributed">Удмуртыя</subdivision>
+			<subdivision type="ruuly" draft="contributed">Ульянаўская вобласць</subdivision>
+			<subdivision type="ruvgg" draft="contributed">Валгаградская вобласць</subdivision>
+			<subdivision type="ruvla" draft="contributed">Уладзімірская вобласць</subdivision>
+			<subdivision type="ruvlg" draft="contributed">Валагодская вобласць</subdivision>
+			<subdivision type="ruvor" draft="contributed">Варонежская вобласць</subdivision>
+			<subdivision type="ruyan" draft="contributed">Ямала-Ненецкая аўтаномная акруга</subdivision>
+			<subdivision type="ruyar" draft="contributed">Яраслаўская вобласць</subdivision>
+			<subdivision type="ruyev" draft="contributed">Яўрэйская аўтаномная вобласць</subdivision>
+			<subdivision type="ruzab" draft="contributed">Забайкальскі край</subdivision>
+			<subdivision type="rw01" draft="contributed">Горад Кігалі</subdivision>
+			<subdivision type="sa01" draft="contributed">Правінцыя Рыяд</subdivision>
+			<subdivision type="sa02" draft="contributed">Правінцыя Мекка</subdivision>
+			<subdivision type="sa03" draft="contributed">Эль-Медына</subdivision>
+			<subdivision type="sa04" draft="contributed">Эш-Шаркія</subdivision>
+			<subdivision type="sa05" draft="contributed">Правінцыя Эль-Касім</subdivision>
+			<subdivision type="sa06" draft="contributed">Правінцыя Хаіль</subdivision>
+			<subdivision type="sa07" draft="contributed">Правінцыя Табук</subdivision>
+			<subdivision type="sa08" draft="contributed">Эль-Худуд эш-Шамалія</subdivision>
+			<subdivision type="sa09" draft="contributed">Правінцыя Джызан</subdivision>
+			<subdivision type="sa10" draft="contributed">Правінцыя Наджран</subdivision>
+			<subdivision type="sa11" draft="contributed">Правінцыя Эль-Баха</subdivision>
+			<subdivision type="sa12" draft="contributed">Правінцыя Эль-Джаўф</subdivision>
+			<subdivision type="sa14" draft="contributed">Правінцыя Асір</subdivision>
+			<subdivision type="sbct" draft="contributed">Горад Ханіяра</subdivision>
+			<subdivision type="sdkh" draft="contributed">Хартум</subdivision>
+			<subdivision type="seab" draft="contributed">лен Стакгольм</subdivision>
+			<subdivision type="seac" draft="contributed">Лен Вестэрботэн</subdivision>
+			<subdivision type="sebd" draft="contributed">Лен Норботэн</subdivision>
+			<subdivision type="sec" draft="contributed">лен Упсала</subdivision>
+			<subdivision type="sed" draft="contributed">лен Сёдэрманланд</subdivision>
+			<subdivision type="see" draft="contributed">лен Эстэргётланд</subdivision>
+			<subdivision type="sef" draft="contributed">лен Ёнчэпінг</subdivision>
+			<subdivision type="seg" draft="contributed">Лен Крунуберг</subdivision>
+			<subdivision type="seh" draft="contributed">Лен Кальмар</subdivision>
+			<subdivision type="sei" draft="contributed">Лен Готланд</subdivision>
+			<subdivision type="sek" draft="contributed">Блекінгэ</subdivision>
+			<subdivision type="sem" draft="contributed">Лен Сконэ</subdivision>
+			<subdivision type="sen" draft="contributed">лен Халанд</subdivision>
+			<subdivision type="seo" draft="contributed">лен Вестра-Гёталанд</subdivision>
+			<subdivision type="ses" draft="contributed">лен Вермланд</subdivision>
+			<subdivision type="set" draft="contributed">Лен Эрэбру</subdivision>
+			<subdivision type="seu" draft="contributed">Лен Вестманланд</subdivision>
+			<subdivision type="sew" draft="contributed">Лен Даларна</subdivision>
+			<subdivision type="sex" draft="contributed">лен Еўлебарг</subdivision>
+			<subdivision type="sey" draft="contributed">Лен Вестэрнорланд</subdivision>
+			<subdivision type="sez" draft="contributed">Лен Емтланд</subdivision>
+			<subdivision type="shac" draft="contributed">Востраў Ушэсця</subdivision>
+			<subdivision type="shhl" draft="contributed">Востраў Святой Алены</subdivision>
+			<subdivision type="si011" draft="contributed">Цэле</subdivision>
+			<subdivision type="si032" draft="contributed">Грасупле</subdivision>
+			<subdivision type="si048" draft="contributed">Качэўе</subdivision>
+			<subdivision type="si052" draft="contributed">Горад Крань</subdivision>
+			<subdivision type="si061" draft="contributed">Любляна</subdivision>
+			<subdivision type="si070" draft="contributed">Марыбар</subdivision>
+			<subdivision type="si084" draft="contributed">Горад Нова-Горыца</subdivision>
+			<subdivision type="si085" draft="contributed">Нова-Места</subdivision>
+			<subdivision type="si096" draft="contributed">Горад Птуй</subdivision>
+			<subdivision type="si140" draft="contributed">Врхніка</subdivision>
+			<subdivision type="skbc" draft="contributed">Банскабістрыцкі край</subdivision>
+			<subdivision type="skbl" draft="contributed">Браціслаўскі край</subdivision>
+			<subdivision type="skki" draft="contributed">Кошыцкі край</subdivision>
+			<subdivision type="skni" draft="contributed">Нітранскі край</subdivision>
+			<subdivision type="skpv" draft="contributed">Прэшаўскі край</subdivision>
+			<subdivision type="skta" draft="contributed">Трнаўскі край</subdivision>
+			<subdivision type="sktc" draft="contributed">Трэнчынскі край</subdivision>
+			<subdivision type="skzi" draft="contributed">Жылінскі край</subdivision>
+			<subdivision type="sle" draft="contributed">Усходняя правінцыя, Сьера-Леонэ</subdivision>
+			<subdivision type="slw" draft="contributed">Заходняя вобласць, Сьера-Леонэ</subdivision>
+			<subdivision type="sm07" draft="contributed">Горад Сан-Марына</subdivision>
+			<subdivision type="sndk" draft="contributed">вобласць Дакар</subdivision>
+			<subdivision type="snlg" draft="contributed">Луга</subdivision>
+			<subdivision type="snse" draft="contributed">рэгіён Седзіу</subdivision>
+			<subdivision type="snth" draft="contributed">вобласць Ціес</subdivision>
+			<subdivision type="sosd" draft="contributed">Сярэдняя Шабеле</subdivision>
+			<subdivision type="ssbw" draft="contributed">Заходні Бахр-эль-Газаль</subdivision>
+			<subdivision type="ssnu" draft="contributed">Штат Верхні Ніл</subdivision>
+			<subdivision type="sydi" draft="contributed">Мухафаза Дамаск</subdivision>
+			<subdivision type="syhi" draft="contributed">Хомс</subdivision>
+			<subdivision type="syhl" draft="contributed">Халеб</subdivision>
+			<subdivision type="tdnd" draft="contributed">Горад Нджамена</subdivision>
+			<subdivision type="tgm" draft="contributed">Прыморская вобласць</subdivision>
+			<subdivision type="th10" draft="contributed">Бангкок</subdivision>
+			<subdivision type="tjdu" draft="contributed">Горад Душанбэ</subdivision>
+			<subdivision type="tjgb" draft="contributed">Горна-Бадахшанская аўтаномная вобласць</subdivision>
+			<subdivision type="tjkt" draft="contributed">Хатлонская вобласць</subdivision>
+			<subdivision type="tjsu" draft="contributed">Сагдыйская вобласць</subdivision>
+			<subdivision type="tldi" draft="contributed">Дылі</subdivision>
+			<subdivision type="tma" draft="contributed">Ахалскі велаят</subdivision>
+			<subdivision type="tmb" draft="contributed">Балканскі велаят</subdivision>
+			<subdivision type="tml" draft="contributed">Лябапскі велаят</subdivision>
+			<subdivision type="tmm" draft="contributed">Марыйскі велаят</subdivision>
+			<subdivision type="tms" draft="contributed">Ашхабад</subdivision>
+			<subdivision type="tn11" draft="contributed">вілает Туніс</subdivision>
+			<subdivision type="tn12" draft="contributed">Вілает Арыяна</subdivision>
+			<subdivision type="tn13" draft="contributed">Вілает Бен-Арус</subdivision>
+			<subdivision type="tn14" draft="contributed">Вілает Мануба</subdivision>
+			<subdivision type="tn21" draft="contributed">Вілает Набуль</subdivision>
+			<subdivision type="tn22" draft="contributed">Вілает Загван</subdivision>
+			<subdivision type="tn23" draft="contributed">Вілает Бізерта</subdivision>
+			<subdivision type="tn31" draft="contributed">Вілает Беджа</subdivision>
+			<subdivision type="tn32" draft="contributed">Вілает Джэндуба</subdivision>
+			<subdivision type="tn33" draft="contributed">Вілает Эль-Кеф</subdivision>
+			<subdivision type="tn34" draft="contributed">Вілает Сільяна</subdivision>
+			<subdivision type="tn41" draft="contributed">Вілает Кайруан</subdivision>
+			<subdivision type="tn42" draft="contributed">Вілает Касерын</subdivision>
+			<subdivision type="tn43" draft="contributed">Вілает Сідзі-Бу-Зід</subdivision>
+			<subdivision type="tn51" draft="contributed">Вілает Сус</subdivision>
+			<subdivision type="tn52" draft="contributed">Вілает Манасцір</subdivision>
+			<subdivision type="tn53" draft="contributed">Вілает Махдзія</subdivision>
+			<subdivision type="tn61" draft="contributed">Вілает Сфакс</subdivision>
+			<subdivision type="tn71" draft="contributed">Вілает Гафса</subdivision>
+			<subdivision type="tn72" draft="contributed">Вілает Таўзар</subdivision>
+			<subdivision type="tn73" draft="contributed">Вілает Кебілі</subdivision>
+			<subdivision type="tn81" draft="contributed">Вілает Габес</subdivision>
+			<subdivision type="tn82" draft="contributed">Вілает Медзенін</subdivision>
+			<subdivision type="tn83" draft="contributed">Вілает Татавін</subdivision>
+			<subdivision type="to04" draft="contributed">Востраў Тангатапу</subdivision>
+			<subdivision type="tr01" draft="contributed">Правінцыя Адана</subdivision>
+			<subdivision type="tr02" draft="contributed">Правінцыя Адыяман</subdivision>
+			<subdivision type="tr04" draft="contributed">Правінцыя Агры</subdivision>
+			<subdivision type="tr05" draft="contributed">Правінцыя Амасья</subdivision>
+			<subdivision type="tr06" draft="contributed">Правінцыя Анкара</subdivision>
+			<subdivision type="tr07" draft="contributed">Правінцыя Анталья</subdivision>
+			<subdivision type="tr08" draft="contributed">Правінцыя Артвін</subdivision>
+			<subdivision type="tr09" draft="contributed">Правінцыя Айдын</subdivision>
+			<subdivision type="tr10" draft="contributed">Правінцыя Балыкесір</subdivision>
+			<subdivision type="tr11" draft="contributed">Правінцыя Біледжык</subdivision>
+			<subdivision type="tr12" draft="contributed">Правінцыя Бінгёль</subdivision>
+			<subdivision type="tr13" draft="contributed">Правінцыя Бітліс</subdivision>
+			<subdivision type="tr14" draft="contributed">Правінцыя Балу</subdivision>
+			<subdivision type="tr15" draft="contributed">Правінцыя Бурдур</subdivision>
+			<subdivision type="tr16" draft="contributed">Правінцыя Бурса</subdivision>
+			<subdivision type="tr17" draft="contributed">Правінцыя Чанакале</subdivision>
+			<subdivision type="tr18" draft="contributed">Правінцыя Чанкыры</subdivision>
+			<subdivision type="tr19" draft="contributed">Правінцыя Чарум</subdivision>
+			<subdivision type="tr20" draft="contributed">Правінцыя Дэнізлі</subdivision>
+			<subdivision type="tr21" draft="contributed">Правінцыя Дыярбакыр</subdivision>
+			<subdivision type="tr22" draft="contributed">Правінцыя Эдзірне</subdivision>
+			<subdivision type="tr23" draft="contributed">Правінцыя Элязыг</subdivision>
+			<subdivision type="tr24" draft="contributed">Правінцыя Эрзінджан</subdivision>
+			<subdivision type="tr25" draft="contributed">Правінцыя Эрзурум</subdivision>
+			<subdivision type="tr26" draft="contributed">Правінцыя Эскішэхір</subdivision>
+			<subdivision type="tr27" draft="contributed">Правінцыя Газіянтэп</subdivision>
+			<subdivision type="tr28" draft="contributed">Правінцыя Гірэсун</subdivision>
+			<subdivision type="tr29" draft="contributed">Правінцыя Гюмюшханэ</subdivision>
+			<subdivision type="tr30" draft="contributed">Правінцыя Хаккары</subdivision>
+			<subdivision type="tr31" draft="contributed">Правінцыя Хатай</subdivision>
+			<subdivision type="tr32" draft="contributed">Правінцыя Ыспарта</subdivision>
+			<subdivision type="tr33" draft="contributed">Правінцыя Мерсін</subdivision>
+			<subdivision type="tr34" draft="contributed">Правінцыя Стамбул</subdivision>
+			<subdivision type="tr35" draft="contributed">Правінцыя Ізмір</subdivision>
+			<subdivision type="tr36" draft="contributed">Правінцыя Карс</subdivision>
+			<subdivision type="tr37" draft="contributed">Правінцыя Кастаману</subdivision>
+			<subdivision type="tr38" draft="contributed">Правінцыя Кайсеры</subdivision>
+			<subdivision type="tr39" draft="contributed">Правінцыя Кыркларэлі</subdivision>
+			<subdivision type="tr40" draft="contributed">Правінцыя Кыршэхір</subdivision>
+			<subdivision type="tr41" draft="contributed">Правінцыя Каджаэлі</subdivision>
+			<subdivision type="tr42" draft="contributed">Правінцыя Конья</subdivision>
+			<subdivision type="tr45" draft="contributed">Правінцыя Маніса</subdivision>
+			<subdivision type="tr46" draft="contributed">Правінцыя Кахраманмараш</subdivision>
+			<subdivision type="tr47" draft="contributed">Правінцыя Мардзін</subdivision>
+			<subdivision type="tr48" draft="contributed">Правінцыя Мугла</subdivision>
+			<subdivision type="tr49" draft="contributed">Правінцыя Муш</subdivision>
+			<subdivision type="tr50" draft="contributed">Правінцыя Неўшэхір</subdivision>
+			<subdivision type="tr51" draft="contributed">Правінцыя Нійдэ</subdivision>
+			<subdivision type="tr52" draft="contributed">Правінцыя Арду</subdivision>
+			<subdivision type="tr53" draft="contributed">Правінцыя Рызэ</subdivision>
+			<subdivision type="tr55" draft="contributed">Правінцыя Самсун</subdivision>
+			<subdivision type="tr56" draft="contributed">Правінцыя Сіірт</subdivision>
+			<subdivision type="tr57" draft="contributed">Правінцыя Сіноп</subdivision>
+			<subdivision type="tr58" draft="contributed">Правінцыя Сівас</subdivision>
+			<subdivision type="tr59" draft="contributed">Правінцыя Тэкірдаг</subdivision>
+			<subdivision type="tr60" draft="contributed">Правінцыя Такат</subdivision>
+			<subdivision type="tr61" draft="contributed">Правінцыя Трабзон</subdivision>
+			<subdivision type="tr62" draft="contributed">Правінцыя Тунджэлі</subdivision>
+			<subdivision type="tr63" draft="contributed">Правінцыя Шанлыўрфа</subdivision>
+			<subdivision type="tr64" draft="contributed">Правінцыя Ушак</subdivision>
+			<subdivision type="tr65" draft="contributed">Правінцыя Ван</subdivision>
+			<subdivision type="tr66" draft="contributed">Правінцыя Ёзгат</subdivision>
+			<subdivision type="tr67" draft="contributed">Правінцыя Зангулдак</subdivision>
+			<subdivision type="tr68" draft="contributed">Правінцыя Аксарай</subdivision>
+			<subdivision type="tr69" draft="contributed">Правінцыя Байбурт</subdivision>
+			<subdivision type="tr70" draft="contributed">Правінцыя Караман</subdivision>
+			<subdivision type="tr71" draft="contributed">Правінцыя Кырыкале</subdivision>
+			<subdivision type="tr72" draft="contributed">Правінцыя Батман</subdivision>
+			<subdivision type="tr73" draft="contributed">Правінцыя Шырнак</subdivision>
+			<subdivision type="tr74" draft="contributed">Правінцыя Бартын</subdivision>
+			<subdivision type="tr75" draft="contributed">Правінцыя Ардахан</subdivision>
+			<subdivision type="tr76" draft="contributed">Правінцыя Ыйдыр</subdivision>
+			<subdivision type="tr77" draft="contributed">Правінцыя Ялава</subdivision>
+			<subdivision type="tr78" draft="contributed">Правінцыя Карабюк</subdivision>
+			<subdivision type="tr79" draft="contributed">Правінцыя Кіліс</subdivision>
+			<subdivision type="tr80" draft="contributed">Правінцыя Асманіе</subdivision>
+			<subdivision type="tr81" draft="contributed">Правінцыя Дзюзджэ</subdivision>
+			<subdivision type="ttcha" draft="contributed">Горад Чагуанас</subdivision>
+			<subdivision type="ttpos" draft="contributed">Горад Порт-оф-Спейн</subdivision>
+			<subdivision type="ttptf" draft="contributed">Пойнт Фортын</subdivision>
+			<subdivision type="ttsfo" draft="contributed">Горад Сан-Фернанда, Трынідад і Табага</subdivision>
+			<subdivision type="tttob" draft="contributed">Востраў Табага</subdivision>
+			<subdivision type="tvfun" draft="contributed">Атол Фунафуці</subdivision>
+			<subdivision type="tvnit" draft="contributed">Востраў Ніўтао</subdivision>
+			<subdivision type="tvnkf" draft="contributed">Атол Нукуфетау</subdivision>
+			<subdivision type="tvnkl" draft="contributed">Атол Нукулаэлаэ</subdivision>
+			<subdivision type="tvnma" draft="contributed">Атол Нанумеа</subdivision>
+			<subdivision type="tvnmg" draft="contributed">Востраў Нануманга</subdivision>
+			<subdivision type="tvnui" draft="contributed">Атол Нуі</subdivision>
+			<subdivision type="tvvai" draft="contributed">Атол Ваітупу</subdivision>
+			<subdivision type="twhsz" draft="contributed">Сіньчжу</subdivision>
+			<subdivision type="twpif" draft="contributed">Піндун</subdivision>
+			<subdivision type="twtnn" draft="contributed">Горад Тайнань</subdivision>
+			<subdivision type="twtpe" draft="contributed">Тайбэй</subdivision>
+			<subdivision type="tz13" draft="contributed">Мара</subdivision>
+			<subdivision type="tz17" draft="contributed">Мтвара</subdivision>
+			<subdivision type="tz19" draft="contributed">Пвані</subdivision>
+			<subdivision type="ua05" draft="contributed">Вінніцкая вобласць</subdivision>
+			<subdivision type="ua07" draft="contributed">Валынская вобласць</subdivision>
+			<subdivision type="ua09" draft="contributed">Луганская вобласць</subdivision>
+			<subdivision type="ua12" draft="contributed">Днепрапятроўская вобласць</subdivision>
+			<subdivision type="ua14" draft="contributed">Данецкая вобласць</subdivision>
+			<subdivision type="ua18" draft="contributed">Жытомірская вобласць</subdivision>
+			<subdivision type="ua21" draft="contributed">Закарпацкая вобласць</subdivision>
+			<subdivision type="ua23" draft="contributed">Запарожская вобласць</subdivision>
+			<subdivision type="ua26" draft="contributed">Івана-Франкоўская вобласць</subdivision>
+			<subdivision type="ua30" draft="contributed">Кіеў</subdivision>
+			<subdivision type="ua32" draft="contributed">Кіеўская вобласць</subdivision>
+			<subdivision type="ua35" draft="contributed">Кіраваградская вобласць</subdivision>
+			<subdivision type="ua40" draft="contributed">Севастопаль</subdivision>
+			<subdivision type="ua43" draft="contributed">Аўтаномная Рэспубліка Крым</subdivision>
+			<subdivision type="ua46" draft="contributed">Львоўская вобласць</subdivision>
+			<subdivision type="ua48" draft="contributed">Мікалаеўская вобласць</subdivision>
+			<subdivision type="ua51" draft="contributed">Адэская вобласць</subdivision>
+			<subdivision type="ua53" draft="contributed">Палтаўская вобласць</subdivision>
+			<subdivision type="ua56" draft="contributed">Ровенская вобласць</subdivision>
+			<subdivision type="ua59" draft="contributed">Сумская вобласць</subdivision>
+			<subdivision type="ua61" draft="contributed">Цярнопальская вобласць</subdivision>
+			<subdivision type="ua63" draft="contributed">Харкаўская вобласць</subdivision>
+			<subdivision type="ua65" draft="contributed">Херсонская вобласць</subdivision>
+			<subdivision type="ua68" draft="contributed">Хмяльніцкая вобласць</subdivision>
+			<subdivision type="ua71" draft="contributed">Чаркаская вобласць</subdivision>
+			<subdivision type="ua74" draft="contributed">Чарнігаўская вобласць</subdivision>
+			<subdivision type="ua77" draft="contributed">Чарнавіцкая вобласць</subdivision>
+			<subdivision type="ug316" draft="contributed">Кабака</subdivision>
+			<subdivision type="ug319" draft="contributed">Кабака²</subdivision>
+			<subdivision type="um67" draft="contributed">Атол Джонстан</subdivision>
+			<subdivision type="um71" draft="contributed">Атол Мідуэй</subdivision>
+			<subdivision type="um76" draft="contributed">Востраў Наваса</subdivision>
+			<subdivision type="um79" draft="contributed">Востраў Уэйк</subdivision>
+			<subdivision type="um81" draft="contributed">Востраў Бэйкер</subdivision>
+			<subdivision type="um84" draft="contributed">Востраў Хоўленд</subdivision>
+			<subdivision type="um86" draft="contributed">Востраў Джарвіс</subdivision>
+			<subdivision type="um89" draft="contributed">Рыф Кінгмэн</subdivision>
+			<subdivision type="um95" draft="contributed">Атол Пальміра</subdivision>
+			<subdivision type="usak" draft="contributed">Штат Аляска</subdivision>
+			<subdivision type="usal" draft="contributed">Штат Алабама</subdivision>
+			<subdivision type="usar" draft="contributed">Штат Арканзас</subdivision>
+			<subdivision type="usaz" draft="contributed">Штат Арызона</subdivision>
+			<subdivision type="usca" draft="contributed">Штат Каліфорнія</subdivision>
+			<subdivision type="usco" draft="contributed">Штат Каларада</subdivision>
+			<subdivision type="usct" draft="contributed">Канектыкут</subdivision>
+			<subdivision type="usdc" draft="contributed">Вашынгтон</subdivision>
+			<subdivision type="usde" draft="contributed">Штат Дэлавэр</subdivision>
+			<subdivision type="usfl" draft="contributed">Штат Фларыда</subdivision>
+			<subdivision type="usga" draft="contributed">Штат Джорджыя</subdivision>
+			<subdivision type="ushi" draft="contributed">Штат Гаваі</subdivision>
+			<subdivision type="usia" draft="contributed">Штат Аява</subdivision>
+			<subdivision type="usid" draft="contributed">Штат Айдаха</subdivision>
+			<subdivision type="usil" draft="contributed">Штат Ілінойс</subdivision>
+			<subdivision type="usin" draft="contributed">Штат Індыяна</subdivision>
+			<subdivision type="usks" draft="contributed">Штат Канзас</subdivision>
+			<subdivision type="usky" draft="contributed">Штат Кентукі</subdivision>
+			<subdivision type="usla" draft="contributed">Штат Луізіяна</subdivision>
+			<subdivision type="usma" draft="contributed">Масачусетс</subdivision>
+			<subdivision type="usmd" draft="contributed">Штат Мэрыленд</subdivision>
+			<subdivision type="usme" draft="contributed">Штат Мэн</subdivision>
+			<subdivision type="usmi" draft="contributed">Штат Мічыган</subdivision>
+			<subdivision type="usmn" draft="contributed">Штат Мінесота</subdivision>
+			<subdivision type="usmo" draft="contributed">Штат Місуры</subdivision>
+			<subdivision type="usms" draft="contributed">Штат Місісіпі</subdivision>
+			<subdivision type="usmt" draft="contributed">Штат Мантана</subdivision>
+			<subdivision type="usnc" draft="contributed">Штат Паўночная Караліна</subdivision>
+			<subdivision type="usnd" draft="contributed">Штат Паўночная Дакота</subdivision>
+			<subdivision type="usne" draft="contributed">Штат Небраска</subdivision>
+			<subdivision type="usnh" draft="contributed">Штат Нью-Гэмпшыр</subdivision>
+			<subdivision type="usnj" draft="contributed">Штат Нью-Джэрсі</subdivision>
+			<subdivision type="usnm" draft="contributed">Штат Нью-Мексіка</subdivision>
+			<subdivision type="usnv" draft="contributed">Штат Невада</subdivision>
+			<subdivision type="usny" draft="contributed">Штат Нью-Ёрк</subdivision>
+			<subdivision type="usoh" draft="contributed">Штат Агая</subdivision>
+			<subdivision type="usok" draft="contributed">Штат Аклахома</subdivision>
+			<subdivision type="usor" draft="contributed">Штат Арэгон</subdivision>
+			<subdivision type="uspa" draft="contributed">Штат Пенсільванія</subdivision>
+			<subdivision type="usri" draft="contributed">Штат Род-Айленд</subdivision>
+			<subdivision type="ussc" draft="contributed">Штат Паўднёвая Караліна</subdivision>
+			<subdivision type="ussd" draft="contributed">Штат Паўднёвая Дакота</subdivision>
+			<subdivision type="ustn" draft="contributed">Штат Тэнесі</subdivision>
+			<subdivision type="ustx" draft="contributed">Штат Тэхас</subdivision>
+			<subdivision type="usut" draft="contributed">Штат Юта</subdivision>
+			<subdivision type="usva" draft="contributed">Штат Вірджынія</subdivision>
+			<subdivision type="usvt" draft="contributed">Штат Вермонт</subdivision>
+			<subdivision type="uswa" draft="contributed">Вашынгтон²</subdivision>
+			<subdivision type="uswi" draft="contributed">Штат Вісконсін</subdivision>
+			<subdivision type="uswv" draft="contributed">Штат Заходняя Вірджынія</subdivision>
+			<subdivision type="uswy" draft="contributed">Штат Ваёмінг</subdivision>
+			<subdivision type="uyca" draft="contributed">дэпартамент Канелонес</subdivision>
+			<subdivision type="uyco" draft="contributed">дэпартамент Калонія</subdivision>
+			<subdivision type="uyma" draft="contributed">Дэпартамент Мальданада</subdivision>
+			<subdivision type="uymo" draft="contributed">Мантэвідэа</subdivision>
+			<subdivision type="uyrn" draft="contributed">дэпартамент Рыа-Негра</subdivision>
+			<subdivision type="uysa" draft="contributed">дэпартамент Сальта</subdivision>
+			<subdivision type="uzan" draft="contributed">Андыжанскі вілает</subdivision>
+			<subdivision type="uzfa" draft="contributed">Ферганскі вілает</subdivision>
+			<subdivision type="uzji" draft="contributed">Джызакская вобласць</subdivision>
+			<subdivision type="uzng" draft="contributed">Наманганскі вілает</subdivision>
+			<subdivision type="uznw" draft="contributed">Навойскі вілает</subdivision>
+			<subdivision type="uzqr" draft="contributed">Каракалпакстан</subdivision>
+			<subdivision type="uzsa" draft="contributed">Самаркандская вобласць</subdivision>
+			<subdivision type="uztk" draft="contributed">Ташкент</subdivision>
+			<subdivision type="uzto" draft="contributed">Ташкенцкі вілает</subdivision>
+			<subdivision type="uzxo" draft="contributed">Харэзмская вобласць</subdivision>
+			<subdivision type="vc06" draft="contributed">Акруга Грэнадзіны</subdivision>
+			<subdivision type="vea" draft="contributed">Сталічная акруга Венесуэлы</subdivision>
+			<subdivision type="veb" draft="contributed">Штат Ансаатэгі</subdivision>
+			<subdivision type="vec" draft="contributed">Штат Апурэ</subdivision>
+			<subdivision type="ved" draft="contributed">Штат Арагуа</subdivision>
+			<subdivision type="vee" draft="contributed">Штат Барынас</subdivision>
+			<subdivision type="vef" draft="contributed">Штат Балівар</subdivision>
+			<subdivision type="veg" draft="contributed">Штат Карабоба</subdivision>
+			<subdivision type="veh" draft="contributed">Штат Кахедэс</subdivision>
+			<subdivision type="vei" draft="contributed">Штат Фалькон</subdivision>
+			<subdivision type="vej" draft="contributed">Штат Гуарыка</subdivision>
+			<subdivision type="vek" draft="contributed">Штат Лара</subdivision>
+			<subdivision type="vel" draft="contributed">Штат Мерыда</subdivision>
+			<subdivision type="vem" draft="contributed">Штат Міранда</subdivision>
+			<subdivision type="ven" draft="contributed">Штат Манагас</subdivision>
+			<subdivision type="veo" draft="contributed">Штат Нуэва-Эспарта</subdivision>
+			<subdivision type="vep" draft="contributed">Штат Партугеса</subdivision>
+			<subdivision type="ver" draft="contributed">Штат Сукрэ</subdivision>
+			<subdivision type="ves" draft="contributed">Штат Тачыра</subdivision>
+			<subdivision type="vet" draft="contributed">Штат Трухільё</subdivision>
+			<subdivision type="veu" draft="contributed">Штат Яракуй</subdivision>
+			<subdivision type="vev" draft="contributed">Штат Сулія</subdivision>
+			<subdivision type="vew" draft="contributed">Федэральныя ўладанні Венесуэлы</subdivision>
+			<subdivision type="vex" draft="contributed">Штат Варгас</subdivision>
+			<subdivision type="vey" draft="contributed">Штат Дэльта-Амакура</subdivision>
+			<subdivision type="vez" draft="contributed">Штат Амасонас</subdivision>
+			<subdivision type="vn24" draft="contributed">Куангбінь</subdivision>
+			<subdivision type="vn25" draft="contributed">Куангчы</subdivision>
+			<subdivision type="vn29" draft="contributed">Куангнгай</subdivision>
+			<subdivision type="vn51" draft="contributed">Чавінь</subdivision>
+			<subdivision type="vnct" draft="contributed">Кантхо</subdivision>
+			<subdivision type="vndn" draft="contributed">Горад Дананг</subdivision>
+			<subdivision type="vnhn" draft="contributed">Горад Ханой</subdivision>
+			<subdivision type="vnhp" draft="contributed">Горад Хайфон</subdivision>
+			<subdivision type="vnsg" draft="contributed">Горад Хашымін</subdivision>
+			<subdivision type="vumap" draft="contributed">Правінцыя Малампа</subdivision>
+			<subdivision type="vupam" draft="contributed">Правінцыя Пенама</subdivision>
+			<subdivision type="vusam" draft="contributed">Правінцыя Санма</subdivision>
+			<subdivision type="vusee" draft="contributed">Правінцыя Шэфа</subdivision>
+			<subdivision type="vutae" draft="contributed">Правінцыя Тафеа</subdivision>
+			<subdivision type="vutob" draft="contributed">Правінцыя Торба</subdivision>
+			<subdivision type="yeja" draft="contributed">Эль-Джауф</subdivision>
+			<subdivision type="yesa" draft="contributed">Горад Сана</subdivision>
+			<subdivision type="yesn" draft="contributed">Сана</subdivision>
+			<subdivision type="zaec" draft="contributed">Усходне-Капская правінцыя</subdivision>
+			<subdivision type="zafs" draft="contributed">Фры-Стэйт</subdivision>
+			<subdivision type="zagt" draft="contributed">Гаўтэнг</subdivision>
+			<subdivision type="zalp" draft="contributed">Правінцыя Лімпопа</subdivision>
+			<subdivision type="zamp" draft="contributed">Правінцыя Мпумаланга</subdivision>
+			<subdivision type="zanc" draft="contributed">Паўночна-Капская правінцыя</subdivision>
+			<subdivision type="zanl" draft="contributed">Правінцыя Квазулу-Натал</subdivision>
+			<subdivision type="zanw" draft="contributed">Паўночна-Заходняя правінцыя</subdivision>
+			<subdivision type="zawc" draft="contributed">Заходне-Капская правінцыя</subdivision>
+			<subdivision type="zm01" draft="contributed">Заходняя правінцыя</subdivision>
+			<subdivision type="zm02" draft="contributed">Цэнтральная правінцыя, Замбія</subdivision>
+			<subdivision type="zm03" draft="contributed">Усходняя правінцыя</subdivision>
+			<subdivision type="zm04" draft="contributed">Правінцыя Луапула</subdivision>
+			<subdivision type="zm05" draft="contributed">Паўночная правінцыя, Замбія</subdivision>
+			<subdivision type="zm06" draft="contributed">Паўночна-Заходняя правінцыя</subdivision>
+			<subdivision type="zm07" draft="contributed">Паўднёвая правінцыя</subdivision>
+			<subdivision type="zm08" draft="contributed">Правінцыя Капербелт</subdivision>
+			<subdivision type="zm09" draft="contributed">Правінцыя Лусака</subdivision>
+			<subdivision type="zwbu" draft="contributed">Булавая</subdivision>
+		</subdivisions>
+	</localeDisplayNames>
+</ldml>

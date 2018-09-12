@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2014 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="es" /> 
+	</identity>
+	<collations>
+		<collation type="search">
+			<cr><![CDATA[
+				[import und-u-co-search]
+				# Below are the rules specific to es.
+				# These rules match standard collation below.
+				&N<ñ<<<Ñ
+			]]></cr>
+		</collation>
+		<collation type="standard">
+			<cr><![CDATA[
+				&N<ñ<<<Ñ
+			]]></cr>
+		</collation>
+		<collation type="traditional">
+			<cr><![CDATA[
+				&N<ñ<<<Ñ
+				&C<ch<<<Ch<<<CH
+				&l<ll<<<Ll<<<LL
+			]]></cr>
+		</collation>
+		<collation draft="unconfirmed" alt="proposed" type="traditional">
+			<cr><![CDATA[
+				&N<ñ<<<Ñ
+				&C<ch<<<cH<<<Ch<<<CH
+				&l<ll<<<lL<<<Ll<<<LL
+			]]></cr>
+		</collation>
+	</collations>
+</ldml>

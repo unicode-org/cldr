@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="Beng" target="Guru" direction="forward" alias="Bengali-Gurmukhi und-Guru-t-und-beng">
+			<tRule>
+::[।-॥ঁ-ঃঅ-ঌএ-ঐও-নপ-রলশ-হ়-ৄে-ৈো-্ৗড়-ঢ়য়-ৣ০-৺ৎ];
+::NFD;
+::Bengali-InterIndic;
+::InterIndic-Gurmukhi;
+::NFC;
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

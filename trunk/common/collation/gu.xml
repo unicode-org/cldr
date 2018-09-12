@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$" />
+		<language type="gu" />
+	</identity>
+	<collations >
+		<collation type="standard" references="M. B. Belsare: Gujarati-English Dictionary ISBN:8120600908">
+			<cr><![CDATA[
+				[normalization on]
+				[reorder Gujr Deva Beng Guru Orya Taml Telu Knda Mlym Sinh]
+				#
+				#	The following tailoring is an adjustment of the DUCET collation
+				#	order for ANUSVARA, CANDRABINDU, and VISARGA. Instead of being
+				#	sorted with secondary weights, they are collated on primary level
+				#	before the independent vowels. CANDRABINDU is secondary different
+				#	from ANUSVARA.
+				# 
+				&ૐ<ં<<ઁ<ઃ
+			]]></cr>
+		</collation>
+		<collation type="standard" references="http://www.eki.ee/wgrs/rom1_gu.pdf"
+			draft="unconfirmed" alt="proposed">
+			<cr><![CDATA[
+				[normalization on]
+				[reorder Gujr Deva Beng Guru Orya Taml Telu Knda Mlym Sinh]
+				#
+				#	The following tailoring is an adjustment of the DUCET collation
+				#	order for ANUSVARA, CANDRABINDU, and VISARGA. Instead of being
+				#	sorted with secondary weights, they are collated on primary level
+				#	before the independent vowels. CANDRABINDU is secondary different
+				#	from ANUSVARA.
+				# 
+				&ૐ<ં<<ઁ<ઃ
+				#
+				#	The following tailoring is an adjustment of the DUCET collation
+				#	order for LLA. Instead of being sorted after LA, LLA is sorted
+				#	after HA.
+				# 
+				&હ<ળ
+			]]></cr>
+		</collation>
+	</collations>
+</ldml>

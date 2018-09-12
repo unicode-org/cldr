@@ -1,0 +1,4567 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="en-us">
+<link rel="stylesheet" href="http://www.unicode.org/reports/reports.css"
+	type="text/css">
+<title>UTS #35: Unicode LDML: General</title>
+<style type="text/css">
+<!--
+.dtd {
+	font-family: monospace;
+	font-size: 90%;
+	background-color: #CCCCFF;
+	border-style: dotted;
+	border-width: 1px;
+}
+
+.xmlExample {
+	font-family: monospace;
+	font-size: 80%
+}
+
+.blockedInherited {
+	font-style: italic;
+	font-weight: bold;
+	border-style: dashed;
+	border-width: 1px;
+	background-color: #FF0000
+}
+
+.inherited {
+	font-weight: bold;
+	border-style: dashed;
+	border-width: 1px;
+	background-color: #00FF00
+}
+
+.element {
+	font-weight: bold;
+	color: red;
+}
+
+.attribute {
+	font-weight: bold;
+	color: maroon;
+}
+
+.attributeValue {
+	font-weight: bold;
+	color: blue;
+}
+
+li, p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em
+}
+
+h2, h3, h4, table {
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+}
+-->
+</style>
+</head>
+
+<body>
+
+	<table class="header" width="100%">
+		<tr>
+			<td class="icon"><a href="http://unicode.org"> <img
+					alt="[Unicode]" src="http://unicode.org/webscripts/logo60s2.gif"
+					width="34" height="33"
+					style="vertical-align: middle; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; border-top-width: 0px;"></a>&nbsp;
+				<a class="bar" href="http://www.unicode.org/reports/">Technical
+					Reports</a></td>
+		</tr>
+		<tr>
+			<td class="gray">&nbsp;</td>
+		</tr>
+	</table>
+	<div class="body">
+		<h2 style="text-align: center">
+			<span class="changed">Proposed Update </span>Unicode Technical
+			Standard #35
+		</h2>
+		<h1 style="text-align: center">
+			Unicode Locale Data Markup Language (LDML)<br> Part 2: General
+		</h1>
+
+		<!-- At least the first row of this header table should be identical across the parts of this UTS. -->
+		<table border="1" cellpadding="2" cellspacing="0" class="wide">
+			<tr>
+				<td>Version</td>
+				<td class="changed">34</td>
+			</tr>
+			<tr>
+				<td>Editors</td>
+				<td>Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>)
+					and <a href="tr35.html#Acknowledgments">other CLDR committee
+						members</a></td>
+			</tr>
+		</table>
+
+		<p>
+			For the full header, summary, and status, see <a href="tr35.html">
+				Part 1: Core</a>
+		</p>
+
+		<h3>
+			<i>Summary</i>
+		</h3>
+		<p>
+			This document describes parts of an XML format (<i>vocabulary</i>)
+			for the exchange of structured locale data. This format is used in
+			the <a href="http://cldr.unicode.org/">Unicode Common Locale Data
+				Repository</a>.
+		</p>
+
+		<p>
+			This is a partial document, describing general parts of the LDML:
+			display names &amp; transforms, etc. For the other parts of the LDML
+			see the <a href="tr35.html">main LDML document</a> and the links
+			above.
+		</p>
+
+		<h3>
+			<i>Status</i>
+		</h3>
+
+		<!-- NOT YET APPROVED -->
+		<p>
+				<i class="changed">This is a<b><font color="#ff3333">
+				draft </font></b>document which may be updated, replaced, or superseded by
+				other documents at any time. Publication does not imply endorsement
+				by the Unicode Consortium. This is not a stable document; it is
+				inappropriate to cite this document as other than a work in
+				progress.
+			</i>
+		</p>
+		<!-- END NOT YET APPROVED -->
+		<!-- APPROVED 
+		<p>
+			<i>This document has been reviewed by Unicode members and other
+				interested parties, and has been approved for publication by the
+				Unicode Consortium. This is a stable document and may be used as
+				reference material or cited as a normative reference by other
+				specifications.</i>
+		</p>
+		 END APPROVED -->
+
+		<blockquote>
+			<p>
+				<i><b>A Unicode Technical Standard (UTS)</b> is an independent
+					specification. Conformance to the Unicode Standard does not imply
+					conformance to any UTS.</i>
+			</p>
+		</blockquote>
+		<p>
+			<i>Please submit corrigenda and other comments with the CLDR bug
+				reporting form [<a href="tr35.html#Bugs">Bugs</a>]. Related
+				information that is useful in understanding this document is found
+				in the <a href="tr35.html#References">References</a>. For the latest
+				version of the Unicode Standard see [<a href="tr35.html#Unicode">Unicode</a>].
+				For a list of current Unicode Technical Reports see [<a
+				href="tr35.html#Reports">Reports</a>]. For more information about
+				versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>].
+			</i>
+		</p>
+
+		<!-- This section of Parts should be identical in all of the parts of this UTS. -->
+		<h2>
+			<a name="Parts" href="#Parts">Parts</a>
+		</h2>
+		<p>The LDML specification is divided into the following parts:</p>
+		<ul class="toc">
+			<li>Part 1: <a href="tr35.html#Contents">Core</a> (languages,
+				locales, basic structure)
+			</li>
+			<li>Part 2: <a href="tr35-general.html#Contents">General</a>
+				(display names &amp; transforms, etc.)
+			</li>
+			<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a>
+				(number &amp; currency formatting)
+			</li>
+			<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date,
+				time, time zone formatting)
+			</li>
+			<li>Part 5: <a href="tr35-collation.html#Contents">Collation</a>
+				(sorting, searching, grouping)
+			</li>
+			<li>Part 6: <a href="tr35-info.html#Contents">Supplemental</a>
+				(supplemental data)
+			</li>
+			<li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a>
+				(keyboard mappings)
+			</li>
+		</ul>
+		<h2>
+			<a name="Contents" href="#Contents">Contents of Part 2, General</a>
+		</h2>
+		<!-- START Generated TOC: CheckHtmlFiles -->
+		<ul class="toc">
+			<li>1 <a href="#Display_Name_Elements">Display Name Elements</a></li>
+			<li>2 <a href="#Layout_Elements">Layout Elements</a></li>
+			<li>3 <a href="#Character_Elements">Character Elements</a>
+				<ul class="toc">
+					<li>3.1 <a href="#Exemplars">Exemplars</a>
+						<ul class="toc">
+							<li>3.1.1 <a href="#ExemplarSyntax">Exemplar Syntax</a></li>
+							<li>3.1.2 <a href="#Restrictions">Restrictions</a></li>
+						</ul>
+					</li>
+					<li>3.2 <a href="#Character_Mapping">Mapping</a></li>
+					<li>3.3 <a href="#IndexLabels">Index Labels</a></li>
+					<li>3.4 <a href="#Ellipsis">Ellipsis</a></li>
+					<li>3.5 <a href="#Character_More_Info">More Information</a></li>
+					<li>3.6 <a href="#Character_Parse_Lenient">Parse Lenient</a></li>
+				</ul>
+			</li>
+			<li>4 <a href="#Delimiter_Elements">Delimiter Elements</a></li>
+			<li>5 <a href="#Measurement_System_Data">Measurement System
+					Data</a>
+				<ul class="toc">
+					<li>5.1 <a href="#Measurement_Elements">Measurement
+							Elements (deprecated)</a></li>
+				</ul>
+			</li>
+			<li>6 <a href="#Unit_Elements">Unit Elements</a>
+				<ul class="toc">
+					<li>6.1 <a href="#perUnitPatterns">per Unit patterns</a></li>
+					<li>6.2 <a href="#Unit_Sequences">Unit Sequences</a></li>
+					<li>6.3 <a href="#durationUnit">durationUnit</a></li>
+					<li>6.4 <a href="#coordinateUnit">coordinateUnit</a></li>
+					<li>6.5 <a href="#Territory_Based_Unit_Preferences">Territory-Based
+							Unit Preferences</a></li>
+				</ul>
+			</li>
+			<li>7 <a href="#POSIX_Elements">POSIX Elements</a></li>
+			<li>8 <a href="#Reference_Elements">Reference Element</a></li>
+			<li>9 <a href="#Segmentations">Segmentations</a>
+				<ul class="toc">
+					<li>9.1 <a href="#Segmentation_Inheritance">Segmentation
+							Inheritance</a></li>
+					<li>9.2 <a href="#Segmentation_Exceptions">Segmentation
+							Suppressions</a></li>
+				</ul>
+			</li>
+			<li>10 <a href="#Transforms">Transforms</a>
+				<ul class="toc">
+					<li>10.1 <a href="#Inheritance">Inheritance</a>
+						<ul class="toc">
+							<li>10.1.1 <a href="#Pivots">Pivots</a></li>
+						</ul>
+					</li>
+					<li>10.2 <a href="#Variants">Variants</a></li>
+					<li>10.3 <a href="#Transform_Rules_Syntax">Transform Rules
+							Syntax</a>
+						<ul class="toc">
+							<li>10.3.1 <a href="#Dual_Rules">Dual Rules</a></li>
+							<li>10.3.2 <a href="#Context">Context</a></li>
+							<li>10.3.3 <a href="#Revisiting">Revisiting</a></li>
+							<li>10.3.4 <a href="#Example">Example</a></li>
+							<li>10.3.5 <a href="#Rule_Syntax">Rule Syntax</a></li>
+							<li>10.3.6 <a href="#Transform_Rules">Transform Rules</a></li>
+							<li>10.3.7 <a href="#Variable_Definition_Rules">Variable
+									Definition Rules</a></li>
+							<li>10.3.8 <a href="#Filter_Rules">Filter Rules</a></li>
+							<li>10.3.9 <a href="#Conversion_Rules">Conversion Rules</a></li>
+							<li>10.3.10 <a
+								href="#Intermixing_Transform_Rules_and_Conversion_Rules">Intermixing
+									Transform Rules and Conversion Rules</a></li>
+							<li>10.3.11 <a href="#Inverse_Summary">Inverse Summary</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>11 <a href="#ListPatterns">List Patterns</a>
+				<ul class="toc">
+					<li>11.1 <a href="#List_Gender">Gender of Lists</a></li>
+				</ul>
+			</li>
+			<li>12 <a href="#Context_Transform_Elements">ContextTransform
+					Elements</a>
+				<ul class="toc">
+					<li>Table: <a
+						href="#contextTransformUsage_type_attribute_values">Element
+							contextTransformUsage type attribute values</a></li>
+				</ul>
+			</li>
+			<li>13 <a href="#Choice_Patterns">Choice Patterns</a></li>
+			<li>14 <a href="#Annotations">Annotations and Labels</a>
+			  <ul class="toc">
+			    <li>14.1 <a href="#SynthesizingNames">Synthesizing Sequence Names</a></li>
+			    <li>14.2 <a href="#Character_Labels">Annotations Character Labels</a></li>
+			    <li>14.3 <a href="#Typographic_Names">Typographic Names</a></li>
+		      </ul>
+			</li>
+		</ul>
+		<!-- END Generated TOC: CheckHtmlFiles -->
+		<h2>
+			1 <a name="Display_Name_Elements" href="#Display_Name_Elements">Display
+				Name Elements</a>
+		</h2>
+		<p class="dtd">&lt;!ELEMENT localeDisplayNames ( alias | (
+			localeDisplayPattern?, languages?, scripts?, territories?,
+			subdivisions?, variants?, keys?, types?, transformNames?,
+			measurementSystemNames?, codePatterns?, special* ) )&gt;</p>
+		<p>
+			Display names for scripts, languages, countries, currencies, and
+			variants in this locale are supplied by this element. They supply
+			localized names for these items for use in user-interfaces for
+			various purposes such as displaying menu lists, displaying a language
+			name in a dialog, and so on. Capitalization should follow the
+			conventions used in the middle of running text; the
+			&lt;contextTransforms&gt; element may be used to specify the
+			appropriate capitalization for other contexts (see <i>Section 12
+				<a href="#Context_Transform_Elements">ContextTransform Elements</a>
+			</i>). Examples are given below.
+		</p>
+
+		<blockquote>
+			<p class="note">
+				<b>Note:</b> The "<span style="color: blue">en</span>" locale may
+				contain translated names for deprecated codes for debugging
+				purposes. Translation of deprecated codes into other languages is
+				discouraged.
+			</p>
+		</blockquote>
+
+		<p>Where present, the display names must be unique; that is, two
+			distinct code would not get the same display name. (There is one
+			exception to this: in time zones, where parsing results would give
+			the same GMT offset, the standard and daylight display names can be
+			the same across different time zone IDs.)</p>
+
+		<p>
+			Any translations should follow customary practice for the locale in
+			question. For more information, see [<a href="tr35.html#DataFormats">Data
+				Formats</a>].
+		</p>
+
+		<p class="element2">&lt;localeDisplayPattern&gt;</p>
+
+		<p class="dtd">&lt;!ELEMENT localeDisplayPattern ( alias |
+			(localePattern*, localeSeparator*, localeKeyTypePattern*, special*) )
+			&gt;</p>
+
+		<p>For compound language (locale) IDs such as "pt_BR" which
+			contain additional subtags beyond the initial language code: When the
+			&lt;languages&gt; data does not explicitly specify a display name
+			such as "Brazilian Portuguese" for a given compound language ID,
+			"Portuguese (Brazil)" from the display names of the subtags.</p>
+
+		<p>It includes three sub-elements:</p>
+		<ul>
+			<li>The &lt;localePattern&gt; element specifies a pattern such
+				as "{0} ({1})" in which {0} is replaced by the display name for the
+				primary language subtag and {1} is replaced by a list of the display
+				names for the remaining subtags.</li>
+			<li>The &lt;localeSeparator&gt; element specifies a pattern such
+				as "{0}, {1}" used when appending a subtag display name to the list
+				in the &lt;localePattern&gt; subpattern {1} above. If that list
+				includes more than one display name, then &lt;localeSeparator&gt;
+				subpattern {1} represents a new display name to be appended to the
+				current list in {0}. <em>Note: Before CLDR 24, the
+					&lt;localeSeparator&gt; element specified a separator string such
+					as ", ", not a pattern.</em>
+			</li>
+			<li>The &lt;localeKeyTypePattern&gt; element specifies the
+				pattern used to display key-type pairs, such as "{0}: {1}"</li>
+		</ul>
+
+		<p>For example, for the locale identifier
+			zh_Hant_CN_co_pinyin_cu_USD, the display would be "Chinese
+			(Traditional, China, Pinyin Sort Order, Currency: USD)". The key-type
+			for co_pinyin doesn't use the localeKeyTypePattern because there is a
+			translation for the key-type in English:</p>
+
+		<blockquote>
+			<p>&lt;type type="pinyin" key="collation"&gt;Pinyin Sort
+				Order&lt;/type&gt;</p>
+		</blockquote>
+
+		<p class="element2">&lt;languages&gt;</p>
+
+		<p>
+			This contains a list of elements that provide the user-translated
+			names for language codes, as described in <i> <a
+				href="tr35.html#Unicode_Language_and_Locale_Identifiers">Section
+					3, Unicode Language and Locale Identifiers</a></i>.
+		</p>
+
+		<blockquote>
+			<pre>&lt;language type="<span style="color: blue">ab</span>"&gt;<span
+					style="color: blue">Abkhazian</span>&lt;/language&gt;
+&lt;language type="<span style="color: blue">aa</span>"&gt;<span
+					style="color: blue">Afar</span>&lt;/language&gt;
+&lt;language type="<span style="color: blue">af</span>"&gt;<span
+					style="color: blue">Afrikaans</span>&lt;/language&gt;
+&lt;language type="<span style="color: blue">sq</span>"&gt;<span
+					style="color: blue">Albanian</span>&lt;/language&gt;
+</pre>
+		</blockquote>
+		<p>There should be no expectation that the list of
+			languages with translated names be complete: there are thousands of
+			languages that could have translated names. For debugging purposes or
+			comparison, when a language display name is missing, the Description
+			field of the language subtag registry can be used to supply a
+			fallback English user-readable name.</p>
+		<p>The type can actually be any locale ID as specified above. The
+			set of which locale IDs is not fixed, and depends on the locale. For
+			example, in one language one could translate the following locale
+			IDs, and in another, fall back on the normal composition.</p>
+
+		<table border="1" cellpadding="4" cellspacing="0">
+			<tr>
+				<th width="33%">type</th>
+				<th width="33%">translation</th>
+				<th width="34%">composition</th>
+			</tr>
+			<tr>
+				<td width="33%">nl_BE</td>
+				<td width="33%">Flemish</td>
+				<td width="34%">Dutch (Belgium)</td>
+			</tr>
+			<tr>
+				<td width="33%">zh_Hans</td>
+				<td width="33%">Simplified Chinese</td>
+				<td width="34%">Chinese (Simplified)</td>
+			</tr>
+			<tr>
+				<td width="33%">en_GB</td>
+				<td width="33%">British English</td>
+				<td width="34%">English (United Kingdom)</td>
+			</tr>
+		</table>
+
+		<p>Thus when a complete locale ID is formed by composition, the
+			longest match in the language type is used, and the remaining fields
+			(if any) added using composition.</p>
+
+		<p>Alternate short forms may be provided for some languages (and
+			for territories and other display names), for example.</p>
+
+		<blockquote>
+			<pre>&lt;language type="<span style="color: blue">az</span>"&gt;<span
+					style="color: blue">Azerbaijani</span>&lt;/language&gt;
+&lt;language type="<span style="color: blue">az</span>" alt="<span
+					style="color: blue">short</span>"&gt;<span style="color: blue">Azeri</span>&lt;/language&gt;
+&lt;language type="<span style="color: blue">en_GB</span>"&gt;<span
+					style="color: blue">British English</span>&lt;/language&gt;
+&lt;language type="<span style="color: blue">en_GB</span>" alt="<span
+					style="color: blue">short</span>"&gt;<span style="color: blue">U.K. English</span>&lt;/language&gt;
+&lt;language type="<span style="color: blue">en_US</span>"&gt;<span
+					style="color: blue">American English</span>&lt;/language&gt;
+&lt;language type="<span style="color: blue">en_US</span>" alt="<span
+					style="color: blue">short</span>"&gt;<span style="color: blue">U.S. English</span>&lt;/language&gt;
+</pre>
+		</blockquote>
+
+		<p class="element2">&lt;scripts&gt;</p>
+
+		<p>
+			This element can contain an number of script elements. Each script
+			element provides the localized name for a script code, as described
+			in <i> <a
+				href="tr35.html#Unicode_Language_and_Locale_Identifiers">Section
+					3, Unicode Language and Locale Identifiers</a>
+			</i>(see also <i>UAX #24: Script Names</i> [<a
+				href="http://www.unicode.org/reports/tr41/#UAX24">UAX24</a>]). For
+			example, in the language of this locale, the name for the Latin
+			script might be "Romana", and for the Cyrillic script is "Kyrillica".
+			That would be expressed with the following.
+		</p>
+
+		<blockquote>
+			<pre>&lt;script type="<span style="color: blue">Latn</span>"&gt;<span
+					style="color: blue">Romana</span>&lt;/script&gt;
+&lt;script type="<span style="color: blue">Cyrl</span>"&gt;<span
+					style="color: blue">Kyrillica</span>&lt;/script&gt;
+</pre>
+		</blockquote>
+
+		<p>The script names are most commonly used in conjunction with a
+			language name, using the &lt;localePattern&gt; combining pattern, and
+			the default form of the script name should be suitable for such use.
+			When a script name requires a different form for stand-alone use,
+			this can be specified using the "stand-alone" alternate:</p>
+
+		<blockquote>
+			<pre>&lt;script type="<span style="color: blue">Hans</span>"&gt;<span
+					style="color: blue">Simplified</span>&lt;/script&gt;
+&lt;script type="<span style="color: blue">Hans</span>" alt="<span
+					style="color: blue">stand-alone</span>"&gt;<span
+					style="color: blue">Simplified Han</span>&lt;/script&gt;
+&lt;script type="<span style="color: blue">Hant</span>"&gt;<span
+					style="color: blue">Traditional</span>&lt;/script&gt;
+&lt;script type="<span style="color: blue">Hant</span>" alt="<span
+					style="color: blue">stand-alone</span>"&gt;<span
+					style="color: blue">Traditional Han</span>&lt;/script&gt;
+</pre>
+		</blockquote>
+
+		<p>This will produce results such as the following:</p>
+		<ul>
+			<li>Display name of language + script, using
+				&lt;localePattern&gt;: “Chinese (Simplified)”</li>
+			<li>Display name of script alone, using &lt;localePattern&gt;:
+				“Simplified Han”</li>
+		</ul>
+
+		<p class="element2">&lt;territories&gt;</p>
+
+		<p>
+			This contains a list of elements that provide the user-translated
+			names for territory codes, as described in <i> <a
+				href="tr35.html#Unicode_Language_and_Locale_Identifiers">Section
+					3, Unicode Language and Locale Identifiers</a></i>.
+		</p>
+
+		<blockquote>
+			<pre>&lt;territory type="<span style="color: blue">AD</span>"&gt;<span
+					style="color: blue">Andorra</span>&lt;/territory&gt;
+&lt;territory type="<span style="color: blue">AF</span>"&gt;<span
+					style="color: blue">Afghanistan</span>&lt;/territory&gt;
+&lt;territory type="<span style="color: blue">AL</span>"&gt;<span
+					style="color: blue">Albania</span>&lt;/territory&gt;
+&lt;territory type="<span style="color: blue">AO</span>"&gt;<span
+					style="color: blue">Angola</span>&lt;/territory&gt;
+&lt;territory type="<span style="color: blue">DZ</span>"&gt;<span
+					style="color: blue">Algeria</span>&lt;/territory&gt;
+&lt;territory type="<span style="color: blue">GB</span>"&gt;<span
+					style="color: blue">United Kingdom</span>&lt;/territory&gt;
+&lt;territory type="<span style="color: blue">GB</span>" alt="<span
+					style="color: blue">short</span>"&gt;<span style="color: blue">U.K.</span>&lt;/territory&gt;
+&lt;territory type="<span style="color: blue">US</span>"&gt;<span
+					style="color: blue">United States</span>&lt;/territory&gt;
+&lt;territory type="<span style="color: blue">US</span>" alt="<span
+					style="color: blue">short</span>"&gt;<span style="color: blue">U.S.</span>&lt;/territory&gt;
+</pre>
+		</blockquote>
+
+		<p class="element2">&lt;variants&gt;</p>
+
+		<p>
+			This contains a list of elements that provide the user-translated
+			names for the <i>variant_code</i> values described in <i> <a
+				href="tr35.html#Unicode_Language_and_Locale_Identifiers">Section
+					3, Unicode Language and Locale Identifiers</a>
+			</i>.
+		</p>
+
+		<blockquote>
+			<pre>&lt;variant type="<span style="color: blue">nynorsk</span>"&gt;<span
+					style="color: blue">Nynorsk</span>&lt;/variant&gt;
+</pre>
+		</blockquote>
+
+		<p class="element2">&lt;keys&gt;</p>
+
+		<p>
+			This contains a list of elements that provide the user-translated
+			names for the <i>key</i> values described in <i> <a
+				href="tr35.html#Unicode_Language_and_Locale_Identifiers">Section
+					3, Unicode Language and Locale Identifiers</a></i>.
+		</p>
+
+		<blockquote>
+			<pre>&lt;key type="<span style="color: blue">collation</span>"&gt;<span
+					style="color: blue">Sortierung</span>&lt;/key&gt;
+</pre>
+		</blockquote>
+
+		<p class="element2">&lt;types&gt;</p>
+
+		<p>
+			This contains a list of elements that provide the user-translated
+			names&nbsp; for the <i>type</i> values described in <i> <a
+				href="tr35.html#Unicode_Language_and_Locale_Identifiers">Section
+					3, Unicode Language and Locale Identifiers</a>
+			</i>. Since the translation of an option name may depend on the <i>key</i>
+			it is used with, the latter is optionally supplied.
+		</p>
+
+		<blockquote>
+			<pre>&lt;type type="<span style="color: blue">phonebook</span>" key="<span
+					style="color: blue">collation</span>"&gt;<span style="color: blue">Telefonbuch</span>&lt;/type&gt;
+</pre>
+		</blockquote>
+
+		<p class="element2">&lt;measurementSystemNames&gt;</p>
+
+		<p>
+			This contains a list of elements that provide the user-translated
+			names for systems of measurement. The types currently supported are "<span
+				style="color: blue">US</span>", "<span style="color: blue">metric</span>",
+			and "<span style="color: blue">UK</span>".
+		</p>
+
+		<blockquote>
+			<pre>&lt;measurementSystemName type="<span style="color: blue">US</span>"&gt;<span
+					style="color: blue">U.S.</span>&lt;/type&gt;
+</pre>
+		</blockquote>
+
+		<p class="note">
+			<b>Note:</b> In the future, we may need to add display names for the
+			particular measurement units (millimeter versus millimetre versus
+			whatever the Greek, Russian, etc are), and a message format for
+			positioning those with respect to numbers. For example, "{number}
+			{unitName}" in some languages, but "{unitName} {number}" in others.
+		</p>
+
+		<p class="element2">&lt;transformNames&gt;</p>
+
+		<p>&nbsp; </p>
+
+		<blockquote>
+			<pre>&lt;transformName type="<span style="color: blue">Numeric</span>"&gt;<span
+					style="color: blue">Numeric</span>&lt;/type&gt;
+</pre>
+		</blockquote>
+
+		<p class="element2">&lt;codePatterns&gt;</p>
+
+		<blockquote>
+			<pre>&lt;codePattern type="<span style="color: blue">language</span>"&gt;<span
+					style="color: blue">Language: {0}</span>&lt;/type&gt;
+</pre>
+		</blockquote>
+		<p class="dtd">
+			&lt;!ELEMENT subdivisions ( alias | ( subdivision | special )* ) &gt;<br>
+			&lt;!ELEMENT subdivision ( #PCDATA )&gt;
+		</p>
+		<p>Note that the subdivision names are in separate files, in the
+			subdivisions/ directory. The type values are the fully qualified
+			subdivsion names. For example:</p>
+		<p class="xmlExample">
+			&lt;subdivision type=&quot;AL-04&quot;&gt;Fier
+			County&lt;/subdivision&gt;<br> &lt;subdivision
+			type=&quot;AL-FR&quot;&gt;Fier&lt;/subdivision&gt; &lt;!-- in AL-04 :
+			Fier County --&gt;<br> &lt;subdivision
+			type=&quot;AL-LU&quot;&gt;Lushnjë&lt;/subdivision&gt; &lt;!-- in
+			AL-04 : Fier County --&gt;<br> &lt;subdivision
+			type=&quot;AL-MK&quot;&gt;Mallakastër&lt;/subdivision&gt; &lt;!-- in
+			AL-04 : Fier County --&gt;
+		</p>
+		<p>
+			See also <strong>Part 6</strong> <em>Section 2.1.1 <a
+				href="tr35-info.html#Subdivision_Containment">Subdivision
+					Containment</a></em>.
+		</p>
+
+
+		<h2>
+			2 <a name="Layout_Elements" href="#Layout_Elements">Layout
+				Elements</a>
+		</h2>
+
+
+		<p class="dtd">&lt;!ELEMENT layout ( alias | (orientation*,
+			inList*, inText*, special*) ) &gt;</p>
+		<p>This top-level element specifies general layout features. It
+			currently only has one possible element (other than &lt;special&gt;,
+			which is always permitted).</p>
+
+		<p class="dtd">
+			&lt;!ELEMENT orientation ( characterOrder*, lineOrder*, special* )
+			&gt;<br> &lt;!ELEMENT characterOrder ( #PCDATA ) &gt;<br>
+			&lt;!ELEMENT lineOrder ( #PCDATA ) &gt;
+		</p>
+
+		<p>The lineOrder and characterOrder elements specify the default
+			general ordering of lines within a page, and characters within a
+			line. The possible values are:</p>
+
+		<table>
+			<tr>
+				<th>Direction</th>
+				<th>Value</th>
+			</tr>
+			<tr>
+				<td rowspan="2">Vertical</td>
+				<td>top-to-bottom</td>
+			</tr>
+			<tr>
+				<td>bottom-to-top</td>
+			</tr>
+			<tr>
+				<td rowspan="2">Horizontal</td>
+				<td>left-to-right</td>
+			</tr>
+			<tr>
+				<td>right-to-left</td>
+			</tr>
+		</table>
+
+		<p>
+			If the value of lineOrder is one of the vertical values, then the
+			value of characterOrder must be one of the horizontal values, and
+			vice versa. For example, for English the lines are top-to-bottom, and
+			the characters are left-to-right. For Mongolian (in the Mongolian
+			Script) the lines are right-to-left, and the characters are top to
+			bottom. This does not override the ordering behavior of bidirectional
+			text; it does, however, supply the paragraph direction for that text
+			(for more information, see <i>UAX #9: The Bidirectional Algorithm</i>
+			[<a href="http://www.unicode.org/reports/tr41/#UAX9">UAX9</a>]).
+		</p>
+
+		<p>For dates, times, and other data to appear in the right order,
+			the display for them should be set to the orientation of the locale.</p>
+
+		<p>&lt;inList&gt; (deprecated)</p>
+
+		<p>
+			The &lt;inList&gt; element is deprecated and has been superseded by
+			the &lt;contextTransforms&gt; element; see <i>Section 12 <a
+				href="#Context_Transform_Elements">ContextTransform Elements</a>
+			</i>.
+		</p>
+
+		<p>This element controls whether display names (language,
+			territory, etc) are title cased in GUI menu lists and the like. It is
+			only used in languages where the normal display is lower case, but
+			title case is used in lists. There are two options:</p>
+
+		<pre>&lt;inList casing="titlecase-words"&gt;</pre>
+		<pre>&lt;inList casing="titlecase-firstword"&gt;</pre>
+
+		<p>
+			In both cases, the title case operation is the default title case
+			function defined by Chapter 3 of <i>[<a href="tr35.html#Unicode">Unicode</a>]
+			</i>. In the second case, only the first word (using the word boundaries
+			for that locale) will be title cased. The results can be fine-tuned
+			by using alt="list" on any element where titlecasing as defined by
+			the Unicode Standard will produce the wrong value. For example,
+			suppose that "turc de Crimée" is a value, and the title case should
+			be "Turc de Crimée". Then that can be expressed using the alt="list"
+			value.
+		</p>
+
+		<p>&lt;inText&gt; (deprecated)</p>
+
+		<p>
+			The &lt;inList&gt; element is deprecated and has been superseded by
+			the &lt;contextTransforms&gt; element; see <i>Section 12 <a
+				href="#Context_Transform_Elements">ContextTransform Elements</a>
+			</i>.
+		</p>
+
+		<p>This element indicates the casing of the data in the category
+			identified by the inText type attribute, when that data is written in
+			text or how it would appear in a dictionary. For example :</p>
+
+		<pre>&lt;inText type="languages"&gt;lowercase-words&lt;/inText&gt;</pre>
+
+		<p>indicates that language names embedded in text are normally
+			written in lower case. The possible values and their meanings are :</p>
+
+		<ul>
+			<li>titlecase-words : all words in the phrase should be title
+				case</li>
+			<li>titlecase-firstword : the first word should be title case</li>
+			<li>lowercase-words : all words in the phrase should be lower
+				case</li>
+			<li>mixed : a mixture of upper and lower case is permitted.
+				generally used when the correct value is unknown.</li>
+		</ul>
+
+
+		<h2>
+			3 <a name="Character_Elements" href="#Character_Elements">Character
+				Elements</a>
+		</h2>
+
+
+		<p class="dtd">&lt;!ELEMENT characters ( alias | ( exemplarCharacters*, ellipsis*, moreInformation*, stopwords*, indexLabels*, mapping*, parseLenients*, special* ) ) &gt;</p>
+		<p>
+			The &lt;characters&gt; element provides optional information about
+			characters that are in common use in the locale, and information that
+			can be helpful in picking resources or data appropriate for the
+			locale, such as when choosing among character encodings that are
+			typically used to transmit data in the language of the locale. It may
+			also be used to help reduce confusability issues: see [<a
+				href="http://www.unicode.org/reports/tr41/#UTR36">UTR39</a>]. It
+			typically only occurs in a language locale, not in a
+			language/territory locale. The stopwords are an experimental feature,
+			and should not be used.
+		</p>
+		<h3>
+			3.1 <a name="Exemplars" href="#Exemplars">Exemplars</a>
+		</h3>
+
+		<p>Exemplars are characters used by a language, separated into
+			different categories. The following table provides a summary, with
+			more details below.</p>
+		<table>
+			<tr>
+				<th scope="col">Type</th>
+				<th scope="col">Description</th>
+				<th scope="col">Examples</th>
+			</tr>
+			<tr>
+				<td>main / standard</td>
+				<td>Main letters used in the language</td>
+				<td style="font-family: Georgia, 'Times New Roman', Times, serif">a-z
+					å æ ø</td>
+			</tr>
+			<tr>
+				<td><span class="element2">auxiliary</span></td>
+				<td>Additional characters for common foreign words, technical
+					usage</td>
+				<td style="font-family: Georgia, 'Times New Roman', Times, serif">á
+					à ă â å ä ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ú ù ŭ û
+					ü ū ÿ</td>
+			</tr>
+			<tr>
+				<td><span class="element2">index</span></td>
+				<td>Characters for the header of an index</td>
+				<td style="font-family: Georgia, 'Times New Roman', Times, serif">A
+					B C D E F G H I J K L M N O P Q R S T U V W X Y Z</td>
+			</tr>
+			<tr>
+				<td>punctuation</td>
+				<td>Common punctuation</td>
+				<td style="font-family: Georgia, 'Times New Roman', Times, serif">-
+					‐ – — , ; \: ! ? . … “ ” ‘ ’ ( ) [ ] § @ * / &amp; # † ‡ ′ ″</td>
+			</tr>
+		  <tr>
+			  <td>numbers</td>
+			  <td>The characters needed to display the common number formats: decimal, percent, and currency.</td>
+			  <td style="font-family: Georgia, 'Times New Roman', Times, serif">[\u061C\u200E \- , ٫ ٬ . % ٪ ‰ ؉ + 0٠ 1١ 2٢ 3٣ 4٤ 5٥ 6٦ 7٧ 8٨ 9٩]</td>
+		  </tr>
+		</table>
+		<p>
+			The basic exemplar character sets (main and auxiliary) contain the
+			commonly used letters for a given modern form of a language, which
+			can be for testing and for determining the appropriate repertoire of
+			letters for charset conversion or collation. ("Letter" is interpreted
+			broadly, as anything having the property Alphabetic in the [<a
+				href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>], which also
+			includes syllabaries and ideographs.) It is not a complete set of
+			letters used for a language, nor should it be considered to apply to
+			multiple languages in a particular country. Punctuation and other
+			symbols should not be included in the main and auxiliary sets. In
+			particular, format characters like CGJ are not included.
+		</p>
+		<p>
+			There are five sets altogether: main, auxiliary, punctuation, numbers, and
+			index. The <i>main</i> set should contain the minimal set required
+			for users of the language, while the <i>auxiliary</i> exemplar set is
+			designed to encompass additional characters: those non-native or
+			historical characters that would customarily occur in common
+			publications, dictionaries, and so on. Major style guidelines are
+			good references for the auxiliary set. So, for example, if Irish
+			newspapers and magazines would commonly have Danish names using å,
+			for example, then it would be appropriate to include å in the
+			auxiliary exemplar characters; just not in the main exemplar set.
+			Thus English has the following:
+		</p>
+
+		<p>
+			&lt;exemplarCharacters&gt;[a b c d e f g h i j k l m n o p q r s t u
+			v w x y z]&lt;/exemplarCharacters&gt;<br> &lt;exemplarCharacters
+			type="auxiliary"&gt;[á à ă â å ä ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó
+			ò ŏ ô ö ø ō œ ú ù ŭ û ü ū ÿ]&lt;/exemplarCharacters&gt;
+		</p>
+
+		<p>For a given language, there are a few factors that help for
+			determining whether a character belongs in the auxiliary set, instead
+			of the main set:</p>
+
+		<ul>
+			<li>The character is not available on all normal keyboards.</li>
+			<li>It is acceptable to always use spellings that avoid that
+				character.</li>
+		</ul>
+
+		<p>For example, the exemplar character set for en (English) is the
+			set [a-z]. This set does not contain the accented letters that are
+			sometimes seen in words like "résumé" or "naïve", because it is
+			acceptable in common practice to spell those words without the
+			accents. The exemplar character set for fr (French), on the other
+			hand, must contain those characters: [a-z é è ù ç à â ê î ô û æ œ ë ï
+			ÿ]. The main set typically includes those letters commonly
+			"alphabet".</p>
+
+		<p>
+			The <em>punctuation</em> set consists of common punctuation
+			characters that are used with the language (corresponding to main and
+			auxiliary). Symbols may also be included where they are common in
+			plain text, such as ©. It does not include characters with narrow
+			technical usage, such as dictionary punctuation/symbols or copy-edit
+			symbols. For example, English would have something like the
+			following:
+		</p>
+
+		<blockquote>
+			- ‐ – — <br> , ; : ! ? . … <br> ' &lsquo; &rsquo; " &ldquo;
+			&rdquo; ′ ″ <br> ( ) [ ] { } ⟨ ⟩<br> © ® ™ @ &amp; ° ‧ ·/ #
+			% ¶ § * † ‡<br> + − ± × ÷ &lt; ≤ = ≅ ≥ &gt; √<br>
+		</blockquote>
+
+		<p>
+			The numbers exemplars does not currently include lesser-used characters: exponential notation (3.1 × 10²³, ∞, NAN). Nor does it contain the units or currency symbols such as $, ¥, ₹,… It does contain %, because that occurs in the percent format. It may contain some special formatting characters like the RLM. A full list of the currency symbols used with that locale are in the &lt;currencies&gt; element, while the units can be gotten from  the &lt;units&gt; element (both using inheritance, of course).The digits used in each numbering system are accessed in
+			numberingSystems.xml. For more information, see <em><strong>Part
+					3: <a href="tr35-numbers.html#Contents">Numbers</a> </strong>, Section 2 <a href="tr35-numbers.html#Number_Elements">Number
+		Elements</a></em>. </p>
+        <p> <em>Examples for zh.xml:</em> </p>
+        <table>
+          <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Description</th>
+          </tr>
+          <tr>
+            <td>defaultNumberingSystem</td>
+            <td>latn</td>
+          </tr>
+          <tr>
+            <td>otherNumberingSystems/native</td>
+            <td>hanidec</td>
+          </tr>
+          <tr>
+            <td>otherNumberingSystems/traditional</td>
+            <td>hans</td>
+          </tr>
+          <tr>
+            <td>otherNumberingSystems/finance</td>
+            <td>hansfin</td>
+          </tr>
+        </table>
+        <p>When determining the character repertoire needed to support a
+			language, a reasonable initial set would include at least the
+			characters in the main and punctuation exemplar sets, along with the
+			digits and common symbols associated with the numberSystems supported
+			for the locale (see <i> <a
+				href="tr35-numbers.html#Numbering_Systems">Numbering Systems</a></i>).
+		</p>
+
+		<p>
+			The <em>index</em> characters are a set of characters for use as a UI
+			"index", that is, a list of clickable characters (or character
+			sequences) that allow the user to see a segment of a larger "target"
+			list. For details see the <a
+				href="tr35-collation.html#Collation_Indexes">Unicode LDML:
+				Collation</a> document. The index set may only contain characters whose
+			lowercase versions are in the main and auxiliary exemplar sets,
+			though for cased languages the index exemplars are typically in
+			uppercase. Characters from the auxiliary exemplar set may be
+			necessary in the index set if it needs to properly handle items such
+			as names which may require characters not included in the main
+			exemplar set.
+		</p>
+
+		<p>Here is a sample of the XML structure:</p>
+
+		<pre>&lt;exemplarCharacters type="index"&gt;[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]&lt;/exemplarCharacters&gt;</pre>
+
+		<p>The display of the index characters can be modified with the
+			Index labels elements, discussed in Section 5.6.4.</p>
+
+		<h4>
+			3.1.1 <a name="ExemplarSyntax" href="#ExemplarSyntax">Exemplar
+				Syntax</a>
+		</h4>
+
+
+		<p>
+			In all of the exemplar characters, the list of characters is in the <a
+				href="tr35.html#Unicode_Sets">Unicode Set</a> format, which normally
+			allows boolean combinations of sets of letters and Unicode
+			properties.
+		</p>
+
+		<p>
+			Sequences of characters that act like a single letter in the language
+			— especially in collation — are included within braces, such as [a-z
+			á é í ó ú ö ü ő ű {cs} {dz} {dzs} {gy} ...]. The characters should be
+			in normalized form (NFC). Where combining marks are used
+			generatively, and apply to a large number of base characters (such as
+			in Indic scripts), the individual combining marks should be included.
+			Where they are used with only a few base characters, the specific
+			combinations should be included. Wherever there is not a precomposed
+			character (for example, single codepoint) for a given combination,
+			that must be included within braces. For example, to include
+			sequences from the <a href="http://unicode.org/standard/where/">Where
+				is my Character?</a> page on the Unicode site, one would write: [{ch}
+			{tʰ} {x̣} {ƛ̓} {ą́} {i̇́} {ト゚}], but for French one would just write
+			[a-z é è ù ...]. When in doubt use braces, since it does no harm to
+			include them around single code points: for example, [a-z {é} {è} {ù}
+			...].
+		</p>
+
+		<p>If the letter 'z' were only ever used in the combination 'tz',
+			then we might have [a-y {tz}] in the main set. (The language would
+			probably have plain 'z' in the auxiliary set, for use in foreign
+			words.) If combining characters can be used productively in
+			combination with a large number of others (such as say Indic matras),
+			then they are not listed in all the possible combinations, but
+			separately, such as:</p>
+
+		<blockquote>[‌ ‍ ॐ ०-९ ऄ-ऋ ॠ ऌ ॡ ऍ-क क़ ख ख़ ग ग़ घ-ज ज़
+			झ-ड ड़ ढ ढ़ ण-फ फ़ ब-य य़ र-ह ़ ँ-ः ॑-॔ ऽ ् ॽ ा-ॄ ॢ ॣ ॅ-ौ]</blockquote>
+
+		<p>The exemplar character set for Han characters is composed
+			somewhat differently. It is even harder to draw a clear line for Han
+			characters, since usage is more like a frequency curve that slowly
+			trails off to the right in terms of decreasing frequency. So for this
+			case, the exemplar characters simply contain a set of reasonably
+			frequent characters for the language.</p>
+
+		<p>The ordering of the characters in the set is irrelevant, but
+			for readability in the XML file the characters should be in sorted
+			order according to the locale's conventions. The main and auxiliary
+			sets should only contain lower case characters (except for the
+			special case of Turkish and similar languages, where the dotted
+			capital I should be included); the upper case letters are to be
+			mechanically added when the set is used. For more information on
+			casing, see the discussion of Special Casing in the Unicode Character
+			Database.</p>
+
+		<h4>
+			3.1.2 <a name="Restrictions" href="#Restrictions">Restrictions</a>
+		</h4>
+
+
+		<ol>
+			<li>The main, auxiliary and index sets are normally restricted
+				to those letters with a specific <a
+				href="http://unicode.org/Public/UNIDATA/Scripts.txt">Script </a>character
+				property (that is, not the values Common or Inherited) or required <a
+				href="http://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">Default_Ignorable_Code_Point</a>
+				characters (such as a non-joiner), or combining marks, or the <a
+				href="http://www.unicode.org/Public/UNIDATA/auxiliary/WordBreakProperty.txt">Word_Break</a>
+				properties <a name="Katakana" href="#Katakana">Katakana</a>, <a
+				name="ALetter" href="#ALetter">ALetter</a>, or <a name="MidLetter"
+				href="#MidLetter">MidLetter</a>.
+			</li>
+
+			<li>The auxiliary set should not overlap with the main set.
+				There is one exception to this: Hangul Syllables and CJK Ideographs
+				can overlap between the sets.</li>
+
+			<li>Any <a
+				href="http://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">Default_Ignorable_Code_Point</a>s
+				should be in the auxiliary set , or, if they are only needed for
+				currency formatting, in the currency set. These can include
+				characters such as U+200E LEFT-TO-RIGHT MARK and U+200F
+				RIGHT-TO-LEFT MARK which may be needed in bidirectional text in
+				order for date, currency or other formats to display correctly.
+			</li>
+			<li>For exemplar characters the <a href="tr35.html#Unicode_Sets">Unicode
+					Set</a> format is restricted so as to not use properties or boolean
+				combinations .
+			</li>
+		</ol>
+
+		<h3>
+			3.2 <a name="Character_Mapping" href="#Character_Mapping">Mapping</a>
+		</h3>
+
+		<p>
+			<b>This element has been deprecated.</b> For information on its
+			structure and how it was intended to specify locale-specific
+			preferred encodings for various purposes (e-mail, web), see the <a
+				href="http://www.unicode.org/reports/tr35/tr35-39/tr35-general.html#Character_Mapping">Mapping</a>
+			section from the CLDR 27 version of the LDML Specification.
+		</p>
+
+
+		<h3>
+			3.3 <a name="IndexLabels" href="#IndexLabels">Index Labels</a>
+		</h3>
+
+		<p>
+			<b>This element and its subelements have been deprecated.</b> For
+			information on its structure and how it was intended to provide data
+			for a compressed display of index exemplar characters where space is
+			limited, see the <a
+				href="http://www.unicode.org/reports/tr35/tr35-39/tr35-general.html#IndexLabels">Index
+				Labels</a> section from the CLDR 27 version of the LDML Specification.
+		</p>
+
+		<p class="dtd">&lt;!ELEMENT indexLabels (indexSeparator*,
+			compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*,
+			indexLabelAfter*, indexLabel*) &gt;</p>
+
+
+		<h3>
+			3.4 <a name="Ellipsis" href="#Ellipsis">Ellipsis</a>
+		</h3>
+
+		<p class="dtd">
+			&lt;!ELEMENT ellipsis ( #PCDATA ) &gt;<br> &lt;!ATTLIST ellipsis
+			type ( initial | medial | final | word-initial | word-medial |
+			word-final ) #IMPLIED &gt;
+		</p>
+
+		<p>The ellipsis element provides patterns for use when truncating
+			strings. There are three versions: initial for removing an initial
+			part of the string (leaving final characters); medial for removing
+			from the center of the string (leaving initial and final characters),
+			and final for removing a final part of the string (leaving initial
+			characters). For example, the following uses the ellipsis character
+			in all three cases (although some languages may have different
+			characters for different positions).</p>
+
+		<p>
+			<code>
+				&lt;ellipsis type="initial"&gt;…{0}&lt;/ellipsis&gt;<br>
+				&lt;ellipsis type="medial"&gt;{0}…{1}&lt;/ellipsis&gt;<br>
+				&lt;ellipsis type="final"&gt;{0}…&lt;/ellipsis&gt;
+			</code>
+		</p>
+		<p>There are alternatives for cases where the breaks are on a word
+			boundary, where some languages include a space. For example, such as
+			case would be:</p>
+		<p>
+			<code>&lt;ellipsis type="word-initial"&gt;…
+				{0}&lt;/ellipsis&gt;</code>
+		</p>
+
+		<h3>
+			3.5 <a name="Character_More_Info" href="#Character_More_Info">More
+				Information</a>
+		</h3>
+
+
+		<p>The moreInformation string is one that can be displayed in an
+			interface to indicate that more information is available. For
+			example:</p>
+		<p>&lt;moreInformation&gt;?&lt;/moreInformation&gt;</p>
+		<h3> 3.6 <a name="Character_Parse_Lenient" href="#Character_Parse_Lenient">Parse Lenient</a> </h3>
+		  <p  class='dtd'>&lt;!ELEMENT parseLenients ( alias | ( parseLenient*, special* ) ) &gt;<br>
+		    &lt;!ATTLIST parseLenients scope (general | number | date) #REQUIRED &gt;<br>
+		    &lt;!ATTLIST parseLenients level (lenient | stricter) #REQUIRED &gt;</p>
+		  <p class='dtd'>&lt;!ELEMENT parseLenient ( #PCDATA ) &gt;<br>
+		    &lt;!ATTLIST parseLenient sample CDATA #REQUIRED &gt;<br>
+		    &lt;!ATTLIST parseLenient alt NMTOKENS #IMPLIED &gt;<br>
+		    &lt;!ATTLIST parseLenient draft (approved | contributed | provisional | unconfirmed) #IMPLIED &gt;<br>
+		  </p>
+<p>Example:</p>
+<pre>&lt;parseLenients scope=&quot;date&quot; level=&quot;lenient&quot;&gt;
+    &lt;parseLenient sample=&quot;-&quot;&gt;[\-./]&lt;/parseLenient&gt;
+    &lt;parseLenient sample=&quot;:&quot;&gt;[\:∶]&lt;/parseLenient&gt;
+&lt;/parseLenients&gt;</pre>
+<p>The parseLenient elements are used to indicate that characters within a particular UnicodeSet are normally to be treated as equivalent when doing a lenient parse. The <strong>scope</strong> attribute value defines where the lenient sets are intended for use. The <strong>level</strong> attribute value is included for future expansion; currently the only value is &quot;lenient&quot;.</p>
+<p>The <strong>sample</strong> attribute value is a paradigm element of that UnicodeSet, but the only reason for pulling it out separately is so that different classes of characters are separated, and to enable inheritance overriding. The first version of this data is populated with the data used for lenient parsing from ICU.</p>
+
+		<h2>
+			4 <a name="Delimiter_Elements" href="#Delimiter_Elements">Delimiter
+				Elements</a>
+		</h2>
+
+
+		<p class="dtd">&lt;!ELEMENT delimiters (alias | (quotationStart*,
+			quotationEnd*, alternateQuotationStart*, alternateQuotationEnd*,
+			special*)) &gt;</p>
+
+		<p>The delimiters supply common delimiters for bracketing
+			quotations. The quotation marks are used with simple quoted text,
+			such as:</p>
+
+		<blockquote>
+			<p>He said, “Don’t be absurd!”</p>
+		</blockquote>
+
+		<p>When quotations are nested, the quotation marks and alternate
+			marks are used in an alternating fashion:</p>
+
+		<blockquote>
+			<p>He said, “Remember what the Mad Hatter said: ‘Not the same
+				thing a bit! Why you might just as well say that “I see what I eat”
+				is the same thing as “I eat what I see”!’”</p>
+		</blockquote>
+
+		<p>
+			<code>&lt;quotationStart&gt;</code>
+			<span style="color: blue">“</span>
+			<code>&lt;/quotationStart&gt;</code>
+			<br>
+			<code>&lt;quotationEnd&gt;</code>
+			<span style="color: blue">”</span>
+			<code>&lt;/quotationEnd&gt;</code>
+			<br>
+			<code>&lt;alternateQuotationStart&gt;</code>
+			<span style="color: blue">‘</span>
+			<code>&lt;/alternateQuotationStart&gt;</code>
+			<br>
+			<code>&lt;alternateQuotationEnd&gt;</code>
+			<span style="color: blue">’</span>
+			<code>&lt;/alternateQuotationEnd&gt;</code>
+		</p>
+
+
+		<h2>
+			5 <a name="Measurement_System_Data" href="#Measurement_System_Data">Measurement
+				System Data</a>
+		</h2>
+
+
+		<p class="dtd">
+			&lt;!ELEMENT measurementData ( measurementSystem*, paperSize* ) &gt;<br>
+			<br> &lt;!ELEMENT measurementSystem EMPTY &gt;<br>
+			&lt;!ATTLIST measurementSystem type ( metric | US | UK ) #REQUIRED
+			&gt;<br> &lt;!ATTLIST measurementSystem category ( temperature )
+			#IMPLIED &gt;<br>&lt;!ATTLIST measurementSystem territories
+			NMTOKENS #REQUIRED &gt;<br> <br> &lt;!ELEMENT paperSize
+			EMPTY &gt;<br> &lt;!ATTLIST paperSize type ( A4 | US-Letter )
+			#REQUIRED &gt;<br> &lt;!ATTLIST paperSize territories NMTOKENS
+			#REQUIRED &gt;
+		</p>
+
+		<p>The measurement system is the normal measurement system in
+			common everyday use (except for date/time). For example:</p>
+
+		<pre>&lt;measurementData&gt;
+ &lt;measurementSystem type=&quot;metric&quot;  territories=&quot;001&quot;/&gt;
+ &lt;measurementSystem type=&quot;US&quot;  territories=&quot;LR MM US&quot;/&gt;
+ &lt;measurementSystem type=&quot;metric&quot; category=&quot;temperature&quot; territories=&quot;LR MM&quot;/&gt;
+ &lt;measurementSystem type=&quot;US&quot; category=&quot;temperature&quot; territories=&quot;BS BZ KY PR PW&quot;/&gt;
+ &lt;measurementSystem type=&quot;UK&quot;  territories=&quot;GB&quot;/&gt;
+ &lt;paperSize type=&quot;A4&quot;  territories=&quot;001&quot;/&gt;
+ &lt;paperSize type=&quot;US-Letter&quot;  territories=&quot;BZ CA CL CO CR GT MX NI PA PH PR SV US VE&quot;/&gt;
+&lt;/measurementData&gt;</pre>
+
+		<p>The values are "metric", "US", or "UK"; others may be added
+			over time.</p>
+		<ul>
+			<li>The "metric" value indicates the use of SI [<a
+				href="tr35.html#ISO1000">ISO1000</a>] base or derived units, or
+				non-SI units accepted for use with SI: for example, meters,
+				kilograms, liters, and degrees Celsius.
+			</li>
+			<li>The "US" value indicates the customary system of measurement
+				as used in the United States: feet, inches, pints, quarts, degrees
+				Fahrenheit, and so on.</li>
+			<li>The "UK" value indicates the mix of metric units and
+				Imperial units (feet, inches, pints, quarts, and so on) used in the
+				United Kingdom, in which Imperial volume units such
+				as pint, quart, and gallon are different sizes than in the "US"
+				customary system. For more detail about specific units
+				for various usages, see <strong>Part 6: Supplemental:</strong> <em>Section 2.4.1
+				<a href="tr35-info.html#Preferred_Units_For_Usage">Preferred Units for
+				Specific Usages</a></em>.
+			</li>
+		</ul>
+		<p>In some cases, it may be common to use different measurement
+			systems for different categories of measurements. For example, the
+			following indicates that for the category of temperature, in the
+			regions LR and MM, it is more common to use metric units than US
+			units.</p>
+
+		<pre>
+			&lt;measurementSystem type=&quot;metric&quot; category=&quot;temperature&quot; territories=&quot;LR MM&quot;/&gt;
+		</pre>
+
+		<p>The paperSize attribute gives the height and width of paper
+			used for normal business letters. The values are "A4" and
+			"US-Letter".</p>
+
+		<p>For both measurementSystem entries and paperSize entries, later
+			entries for specific territories such as "US" will override the value
+			assigned to that territory by earlier entries for more inclusive
+			territories such as "001".</p>
+
+		<p>The measurement information was formerly in the main LDML file,
+			and had a somewhat different format.</p>
+			
+		<p>Again, for finer-grained detail about specific units
+			for various usages, see <strong>Part 6: Supplemental:</strong> <em>Section 2.4.1
+			<a href="tr35-info.html#Preferred_Units_For_Usage">Preferred Units for
+			Specific Usages</a></em>.</p>
+
+		<h3>
+			5.1 <a name="Measurement_Elements" href="#Measurement_Elements">Measurement
+				Elements (deprecated)</a>
+		</h3>
+
+
+		<p class="dtd">&lt;!ELEMENT measurement (alias |
+			(measurementSystem?, paperSize?, special*)) &gt;</p>
+		<p>The measurement element is deprecated in the main LDML files,
+			because the data is more appropriately organized as connected to
+			territories, not to linguistic data. Instead, the measurementData
+			element in the supplemental data file should be used.</p>
+
+
+		<h2>
+			6 <a name="Unit_Elements" href="#Unit_Elements">Unit Elements</a>
+		</h2>
+
+
+		<p class="dtd">
+			&lt;!ELEMENT units (alias | (unit*, unitLength*, durationUnit*,
+			special*) ) &gt;<br> <br> &lt;!ELEMENT unitLength (alias |
+			(compoundUnit*, unit*, coordinateUnit*, special*) ) &gt;<br>
+			&lt;!ATTLIST unitLength type (long | short | narrow) #REQUIRED &gt; <br>
+			<br> &lt;!ELEMENT compoundUnit (alias | (compoundUnitPattern*,
+			special*) ) &gt;<br> &lt;!ATTLIST compoundUnit type NMTOKEN
+			#REQUIRED &gt; <br> <br> &lt;!ELEMENT unit (alias |
+			(displayName*, unitPattern*, perUnitPattern*, special*) ) &gt;<br>
+			&lt;!ATTLIST unit type NMTOKEN #REQUIRED &gt; <br> <br>
+			&lt;!ELEMENT durationUnit (alias | (durationUnitPattern*, special*) )
+			&gt;<br> &lt;!ATTLIST durationUnit type NMTOKEN #REQUIRED &gt; <br>
+			<br> &lt;!ELEMENT unitPattern ( #PCDATA ) &gt;<br>
+			&lt;!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many
+			| other) #REQUIRED &gt; <br> <br> &lt;!ELEMENT
+			compoundUnitPattern ( #PCDATA ) &gt;<br> <br> &lt;!ELEMENT
+			coordinateUnit ( alias | ( <span class="changed">displayName*, </span>coordinateUnitPattern*, special* ) ) &gt;<br>&lt;!ELEMENT
+			coordinateUnitPattern ( #PCDATA ) &gt;<br> &lt;!ATTLIST
+			coordinateUnitPattern type (north | east | south | west) #REQUIRED
+			&gt; <br> <br> &lt;!ELEMENT durationUnitPattern ( #PCDATA )
+			&gt;<br>
+		</p>
+
+		<p>These elements specify the localized way of formatting
+			quantities of units such as years, months, days, hours, minutes and
+			seconds— for example, in English, "1 day" or "3 days". The English
+			rules that produce this example are as follows ({0} indicates the
+			position of the formatted numeric value):</p>
+
+		<pre>&lt;unit type="day"&gt;
+&nbsp;&nbsp;&lt;displayName&gt;days&lt;/displayName&gt;
+&nbsp;&nbsp;&lt;unitPattern count="one"&gt;<span style="color: blue">{0} day</span>&lt;/unitName&gt;
+&nbsp;&nbsp;&lt;unitPattern count="other"&gt;<span style="color: blue">{0} days</span>&lt;/unitName&gt;
+&lt;/unit&gt;</pre>
+
+		<p>
+			Units, like other values with a <strong>count</strong> attribute, use
+			a special inheritance. See <strong>Part 1: Core:</strong> <em>Section
+				4.1 <a href="tr35.html#Multiple_Inheritance">Multiple
+					Inheritance</a>
+			</em>.
+		</p>
+		<p>The displayName is used for labels, such as in a UI. It is
+			typically lowercased and as neutral a plural form as possible, and
+			then uses the casing context for the proper display. For example, for
+			English in a UI it would appear as titlecase:</p>
+		<p>
+			<strong>Duration:</strong>
+		</p>
+		<table style="margin-left: 5em">
+			<tr>
+				<td>Days</td>
+				<td style="color: silver">enter the vacation length</td>
+			</tr>
+		</table>
+		<p>&nbsp;</p>
+		<p>The units in CLDR are not comprehensive; it is anticipated that
+			more will be added over time. The codes currently supported are found
+			in the root.xml file, in items of the type:</p>
+		<p class="xmlExample">&lt;unit type=&quot;X-Y&quot;&gt;</p>
+		<p>
+			The characters up to the first hyphen are the <strong>type</strong>,
+			while the remainder after that hyphen are the <strong>unit</strong>.
+		</p>
+		<p class="xmlExample">&lt;unit
+			type=&quot;acceleration-g-force&quot;&gt;</p>
+		<p>​</p>
+		<p>
+			Examples of these include the following. The complete list is in the
+			validity data: see <em>Section <a href="tr35.html#Validity_Data">3.11
+					Validity Data</a></em>.
+		</p>
+		<table>
+			<tr>
+				<td><strong>Type</strong></td>
+				<td><strong>Unit</strong></td>
+				<td><strong>Sample Format</strong></td>
+			</tr>
+			<tr>
+				<td><em>acceleration</em></td>
+				<td>g-force</td>
+				<td>{0} G</td>
+			</tr>
+			<tr>
+				<td><em>acceleration</em></td>
+				<td>meter-per-second-squared</td>
+				<td>{0} m/s²</td>
+			</tr>
+			<tr>
+				<td><em>angle</em></td>
+				<td>revolution</td>
+				<td>{0} rev</td>
+			</tr>
+			<tr>
+				<td><em>angle</em></td>
+				<td>radian</td>
+				<td>{0} rad</td>
+			</tr>
+			<tr>
+				<td><em>angle</em></td>
+				<td>degree</td>
+				<td>{0}°</td>
+			</tr>
+			<tr>
+				<td><em>angle</em></td>
+				<td>arc-minute</td>
+				<td>{0}′</td>
+			</tr>
+			<tr>
+				<td><em>angle</em></td>
+				<td>arc-second</td>
+				<td>{0}″</td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>square-kilometer</td>
+				<td>{0} km²</td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>hectare</td>
+				<td>{0} ha</td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>square-meter</td>
+				<td>{0} m²</td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>square-centimeter</td>
+				<td>{0} cm²</td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>square-mile</td>
+				<td>{0} mi²</td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>acre</td>
+				<td>{0} ac</td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>square-yard</td>
+				<td>{0} yd²</td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>square-foot</td>
+				<td>{0} ft²</td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>square-inch</td>
+				<td>{0} in²</td>
+			</tr>
+			<tr>
+				<td><em>concentr</em></td>
+				<td>karat</td>
+				<td>{0} kt</td>
+				<td class="changed">dimensionless</td>
+			</tr>
+			<tr>
+				<td><em>concentr</em></td>
+				<td>milligram-per-deciliter</td>
+				<td>{0} mg/dL</td>
+			</tr>
+			<tr>
+				<td><em>concentr</em></td>
+				<td>millimole-per-liter</td>
+				<td>{0} mmol/L</td>
+			</tr>
+			<tr>
+				<td><em>concentr</em></td>
+				<td>part-per-million</td>
+				<td>{0} ppm</td>
+				<td class="changed">dimensionless</td>
+			</tr>
+			<tr class="changed">
+				<td><em>concentr</em></td>
+				<td>percent</td>
+				<td>{0}%</td>
+				<td>dimensionless</td>
+			</tr>
+			<tr class="changed">
+				<td><em>concentr</em></td>
+				<td>permille</td>
+				<td>{0}‰</td>
+				<td>dimensionless</td>
+			</tr>
+			<tr>
+				<td><em>consumption</em></td>
+				<td>liter-per-kilometer</td>
+				<td>{0} L/km</td>
+			</tr>
+			<tr>
+				<td><em>consumption</em></td>
+				<td>liter-per-100kilometers</td>
+				<td>{0} L/100km</td>
+			</tr>
+			<tr>
+				<td><em>consumption</em></td>
+				<td>mile-per-gallon (US)</td>
+				<td>{0} mpg</td>
+			</tr>
+			<tr>
+				<td><em>consumption</em></td>
+				<td>mile-per-gallon-imperial</td>
+				<td>{0} mpg Imp.</td>
+			</tr>
+			<tr class="changed">
+				<td><em>digital</em></td>
+				<td>petabyte</td>
+				<td>{0} PB</td>
+			</tr>
+			<tr>
+				<td><em>digital</em></td>
+				<td>terabyte</td>
+				<td>{0} TB</td>
+			</tr>
+			<tr>
+				<td><em>digital</em></td>
+				<td>terabit</td>
+				<td>{0} Tb</td>
+			</tr>
+			<tr>
+				<td><em>digital</em></td>
+				<td>gigabyte</td>
+				<td>{0} GB</td>
+			</tr>
+			<tr>
+				<td><em>digital</em></td>
+				<td>gigabit</td>
+				<td>{0} Gb</td>
+			</tr>
+			<tr>
+				<td><em>digital</em></td>
+				<td>megabyte</td>
+				<td>{0} MB</td>
+			</tr>
+			<tr>
+				<td><em>digital</em></td>
+				<td>megabit</td>
+				<td>{0} Mb</td>
+			</tr>
+			<tr>
+				<td><em>digital</em></td>
+				<td>kilobyte</td>
+				<td>{0} kB</td>
+			</tr>
+			<tr>
+				<td><em>digital</em></td>
+				<td>kilobit</td>
+				<td>{0} kb</td>
+			</tr>
+			<tr>
+				<td><em>digital</em></td>
+				<td>byte</td>
+				<td>{0} byte</td>
+			</tr>
+			<tr>
+				<td><em>digital</em></td>
+				<td>bit</td>
+				<td>{0} bit</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>century</td>
+				<td>{0} c</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>year</td>
+				<td>{0} y</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>year-person</td>
+				<td>{0} y</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>month</td>
+				<td>{0} m</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>month-person</td>
+				<td>{0} m</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>week</td>
+				<td>{0} w</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>week-person</td>
+				<td>{0} w</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>day</td>
+				<td>{0} d</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>day-person</td>
+				<td>{0} d</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>hour</td>
+				<td>{0} h</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>minute</td>
+				<td>{0} min</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>second</td>
+				<td>{0} s</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>millisecond</td>
+				<td>{0} ms</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>microsecond</td>
+				<td>{0} μs</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>nanosecond</td>
+				<td>{0} ns</td>
+			</tr>
+			<tr>
+				<td><em>electric</em></td>
+				<td>ampere</td>
+				<td>{0} A</td>
+			</tr>
+			<tr>
+				<td><em>electric</em></td>
+				<td>milliampere</td>
+				<td>{0} mA</td>
+			</tr>
+			<tr>
+				<td><em>electric</em></td>
+				<td>ohm</td>
+				<td>{0} Ω</td>
+			</tr>
+			<tr>
+				<td><em>electric</em></td>
+				<td>volt</td>
+				<td>{0} V</td>
+			</tr>
+			<tr>
+				<td><em>energy</em></td>
+				<td>kilocalorie</td>
+				<td>{0} kcal</td>
+			</tr>
+			<tr>
+				<td><em>energy</em></td>
+				<td>calorie</td>
+				<td>{0} cal</td>
+			</tr>
+			<tr>
+				<td><em>energy</em></td>
+				<td>foodcalorie</td>
+				<td>{0} Cal</td>
+			</tr>
+			<tr>
+				<td><em>energy</em></td>
+				<td>kilojoule</td>
+				<td>{0} kJ</td>
+			</tr>
+			<tr>
+				<td><em>energy</em></td>
+				<td>joule</td>
+				<td>{0} J</td>
+			</tr>
+			<tr>
+				<td><em>energy</em></td>
+				<td>kilowatt-hour</td>
+				<td>{0} kWh</td>
+			</tr>
+			<tr>
+				<td><em>frequency</em></td>
+				<td>gigahertz</td>
+				<td>{0} GHz</td>
+			</tr>
+			<tr>
+				<td><em>frequency</em></td>
+				<td>megahertz</td>
+				<td>{0} MHz</td>
+			</tr>
+			<tr>
+				<td><em>frequency</em></td>
+				<td>kilohertz</td>
+				<td>{0} kHz</td>
+			</tr>
+			<tr>
+				<td><em>frequency</em></td>
+				<td>hertz</td>
+				<td>{0} Hz</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>kilometer</td>
+				<td>{0} km</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>meter</td>
+				<td>{0} m</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>decimeter</td>
+				<td>{0} dm</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>centimeter</td>
+				<td>{0} cm</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>millimeter</td>
+				<td>{0} mm</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>micrometer</td>
+				<td>{0} µm</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>nanometer</td>
+				<td>{0} nm</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>picometer</td>
+				<td>{0} pm</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>mile</td>
+				<td>{0} mi</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>yard</td>
+				<td>{0} yd</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>foot</td>
+				<td>{0} ft</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>inch</td>
+				<td>{0} in</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>parsec</td>
+				<td>{0} pc</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>light-year</td>
+				<td>{0} ly</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>astronomical-unit</td>
+				<td>{0} au</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>furlong</td>
+				<td>{0} fur</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>fathom</td>
+				<td>{0} fm</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>nautical-mile</td>
+				<td>{0} nmi</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>mile-scandinavian</td>
+				<td>{0} smi</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>point</td>
+				<td>{0} pt</td>
+				<td> typographic point, 1/72 inch</td>
+			</tr>
+			<tr>
+				<td><em>light</em></td>
+				<td>lux</td>
+				<td>{0} lx</td>
+			</tr>
+			<tr>
+				<td><em>mass</em></td>
+				<td>metric-ton</td>
+				<td>{0} t</td>
+			</tr>
+			<tr>
+				<td><em>mass</em></td>
+				<td>kilogram</td>
+				<td>{0} kg</td>
+			</tr>
+			<tr>
+				<td><em>mass</em></td>
+				<td>gram</td>
+				<td>{0} g</td>
+			</tr>
+			<tr>
+				<td><em>mass</em></td>
+				<td>milligram</td>
+				<td>{0} mg</td>
+			</tr>
+			<tr>
+				<td><em>mass</em></td>
+				<td>microgram</td>
+				<td>{0} µg</td>
+			</tr>
+			<tr>
+				<td><em>mass</em></td>
+				<td>ton</td>
+				<td>{0} tn</td>
+			</tr>
+			<tr>
+				<td><em>mass</em></td>
+				<td>stone</td>
+				<td>{0} st</td>
+			</tr>
+			<tr>
+				<td><em>mass</em></td>
+				<td>pound</td>
+				<td>{0} lb</td>
+			</tr>
+			<tr>
+				<td><em>mass</em></td>
+				<td>ounce</td>
+				<td>{0} oz</td>
+			</tr>
+			<tr>
+				<td><em>mass</em></td>
+				<td>ounce-troy</td>
+				<td>{0} oz t</td>
+			</tr>
+			<tr>
+				<td><em>mass</em></td>
+				<td>carat</td>
+				<td>{0} CD</td>
+			</tr>
+			<tr>
+				<td><em>power</em></td>
+				<td>gigawatt</td>
+				<td>{0} GW</td>
+			</tr>
+			<tr>
+				<td><em>power</em></td>
+				<td>megawatt</td>
+				<td>{0} MW</td>
+			</tr>
+			<tr>
+				<td><em>power</em></td>
+				<td>kilowatt</td>
+				<td>{0} kW</td>
+			</tr>
+			<tr>
+				<td><em>power</em></td>
+				<td>watt</td>
+				<td>{0} W</td>
+			</tr>
+			<tr>
+				<td><em>power</em></td>
+				<td>milliwatt</td>
+				<td>{0} mW</td>
+			</tr>
+			<tr>
+				<td><em>power</em></td>
+				<td>horsepower</td>
+				<td>{0} hp</td>
+			</tr>
+			<tr>
+				<td><em>pressure</em></td>
+				<td>hectopascal</td>
+				<td>{0} hPa</td>
+			</tr>
+			<tr>
+				<td><em>pressure</em></td>
+				<td>millimeter-of-mercury</td>
+				<td>{0} mm Hg</td>
+			</tr>
+			<tr>
+				<td><em>pressure</em></td>
+				<td>pound-per-square-inch</td>
+				<td>{0} psi</td>
+			</tr>
+			<tr>
+				<td><em>pressure</em></td>
+				<td>inch-hg</td>
+				<td>{0} inHg</td>
+			</tr>
+			<tr>
+				<td><em>pressure</em></td>
+				<td>millibar</td>
+				<td>{0} mbar</td>
+			</tr>
+			<tr class="changed">
+				<td><em>pressure</em></td>
+				<td>atmosphere</td>
+				<td>{0} atm</td>
+			</tr>
+			<tr>
+				<td><em>speed</em></td>
+				<td>kilometer-per-hour</td>
+				<td>{0} km/h</td>
+			</tr>
+			<tr>
+				<td><em>speed</em></td>
+				<td>meter-per-second</td>
+				<td>{0} m/s</td>
+			</tr>
+			<tr>
+				<td><em>speed</em></td>
+				<td>mile-per-hour</td>
+				<td>{0} mi/h</td>
+			</tr>
+			<tr>
+				<td><em>speed</em></td>
+				<td>knot</td>
+				<td>{0} kn</td>
+			</tr>
+			<tr>
+				<td><em>temperature</em></td>
+				<td>generic</td>
+				<td>{0}°</td>
+			</tr>
+			<tr>
+				<td><em>temperature</em></td>
+				<td>celsius</td>
+				<td>{0}°C</td>
+			</tr>
+			<tr>
+				<td><em>temperature</em></td>
+				<td>fahrenheit</td>
+				<td>{0}°F</td>
+			</tr>
+			<tr>
+				<td><em>temperature</em></td>
+				<td>kelvin</td>
+				<td>{0} K</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>cubic-kilometer</td>
+				<td>{0} km³</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>cubic-meter</td>
+				<td>{0} m³</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>cubic-centimeter</td>
+				<td>{0} cm³</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>cubic-mile</td>
+				<td>{0} mi³</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>cubic-yard</td>
+				<td>{0} yd³</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>cubic-foot</td>
+				<td>{0} ft³</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>cubic-inch</td>
+				<td>{0} in³</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>megaliter</td>
+				<td>{0} ML</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>hectoliter</td>
+				<td>{0} hL</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>liter</td>
+				<td>{0} L</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>deciliter</td>
+				<td>{0} dL</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>centiliter</td>
+				<td>{0} cL</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>milliliter</td>
+				<td>{0} mL</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>pint-metric</td>
+				<td>{0} mpt</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>cup-metric</td>
+				<td>{0} mc</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>acre-foot</td>
+				<td>{0} ac ft</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>bushel</td>
+				<td>{0} bu</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>gallon (US)</td>
+				<td>{0} gal</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>gallon-imperial</td>
+				<td>{0} gal Imp.</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>quart</td>
+				<td>{0} qt</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>pint</td>
+				<td>{0} pt</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>cup</td>
+				<td>{0} c</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>fluid-ounce</td>
+				<td>{0} fl oz</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>tablespoon</td>
+				<td>{0} tbsp</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>teaspoon</td>
+				<td>{0} tsp</td>
+			</tr>
+		</table>
+		<p>
+			There are three widths: <strong>long</strong>, <strong>short</strong>,
+			and <strong>narrow</strong>. As usual, the narrow forms may not be
+			unique: in English, 1′ could mean 1 minute of arc, or 1 foot. Thus
+			narrow forms should only be used where the context makes the meaning
+			clear.
+		</p>
+		<p>
+			Where the unit of measurement is one of the <a
+				href="http://physics.nist.gov/cuu/Units/units.html">International
+				System of Units (SI)</a>, the short and narrow forms will typically use
+			the international symbols, such as “mm” for millimeter. They may,
+			however, be different if that is customary for the language or
+			locale. For example, in Russian it may be more typical to see the
+			Cyrillic characters “мм”.
+		</p>
+		<p>Units are included for translation even where they are not
+			typically used in a particular locale, such as kilometers in the US,
+			or inches in Germany. This is to account for use by travelers and
+			specialized domains, such as the German “̌Fernseher von 32 bis 55
+			Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.</p>
+		<p>For temperature, there is a special unit &lt;unit
+			type=&quot;temperature-generic&quot;&gt;, which is used when it is
+			clear from context whether Celcius or Fahrenheit is implied.</p>
+		<p>For duration, there are special units such as &lt;unit
+			type=&quot;duration-year-person&quot;&gt; and &lt;unit
+			type=&quot;duration-year-week&quot;&gt; for indicating the age of a
+			person, which requires special forms in some languages. For example,
+			in "zh", references to a person being 3 days old or 30 years old
+			would use the forms “他3天大” and “他30岁” respectively.</p>
+		<h3>
+			6.1 <a name="perUnitPatterns" href="#perUnitPatterns">per Unit
+				patterns</a><a name="compoundUnitPattern" href="#compoundUnitPattern"></a>
+		</h3>
+		<p>
+			A common combination of units is X per Y, such as <em>miles per
+				hour</em> or <em>liters per second</em>. Some units already have
+			'precomputed' forms, such as <strong>kilometer-per-hour</strong>;
+			where such units exist, they should be used in preference. There are
+			two other patterns that can be used to compose unit symbols or names.
+		</p>
+		<p>
+			<strong>compoundUnit</strong> — This is used to construct a pattern
+			from two unit names. For example, a form such as &quot;{0} per
+			{1}&quot; or &quot;{0}/{1}&quot; can be used to construct cases such
+			as &quot;2 feet<strong> per </strong>second&quot; or &quot;ft<strong>/</strong>s&quot;
+		</p>
+		<p>
+			<strong>perUnitPattern</strong> — This is used as the denominator
+			with another unit name. For example, a form such as &quot;{0} per
+			second&quot; can be used to form &quot;2 feet<strong> per
+				second</strong>&quot;.
+		</p>
+		<p>The difference between these is that in some inflected
+			languages, the compoundUnit cannot be used to form grammatical
+			phrases. This is typically because the &quot;per&quot; +
+			&quot;second&quot; combine in a non-trivial way. For such languages,
+			the compoundUnit should only be used as a fallback, when there is no
+			other recourse.</p>
+		<p>When constructing a pattern for value=V, numeratorUnit=N,
+			denominatorUnit=D, the following precess is used.</p>
+		<ol>
+			<li>If there is a compound form for N/D already available, use
+				it.</li>
+			<li>Otherwise, format the N pattern with the number using plural
+				categories.
+				<ul>
+					<li>→ &quot;3 kilograms&quot;</li>
+				</ul>
+			</li>
+			<li>See if there is a <strong>perUnitPattern</strong> for D.
+
+				<ol>
+					<li>If so, then substitute the formatted numerator into the <strong>perUnitPattern</strong>
+						<ul>
+							<li>&quot;3 kilograms&quot; + &quot;{0} per second&quot; →
+								&quot;3 kilograms per second&quot;</li>
+						</ul>
+					</li>
+					<li>If not, get the <strong>compoundUnit</strong> pattern, and
+						substitute the formatted numerator for {0} and the singular form
+						of the denominator for {1}, after stripping the {0} and trimming
+						spaces.
+						<ul>
+							<li>&quot;3 kilograms&quot; + &quot;{0} per {1}&quot; +
+								&quot;{0} second&quot; →</li>
+							<li>&quot;3 kilograms&quot; + &quot;{0} per {1}&quot; +
+								&quot;second&quot; →</li>
+							<li>&quot;3 kilograms per second&quot;</li>
+						</ul></li>
+				</ol>
+			</li>
+		</ol>
+		<p>The patterns can have different unit lengths, so the
+			appropriate unit length should be used (with fallbacks if necessary).</p>
+		<h3>
+			6.2 <a name="Unit_Sequences" href="#Unit_Sequences">Unit
+				Sequences</a>
+		</h3>
+		<p>
+			Units may be used in composed sequences, such as <strong>5°
+				30′</strong> for 5 degrees 30 minutes, or <strong>3 ft 2 in.</strong>For that
+			purpose, the appropriate width of the unit listPattern can be used to
+			compose the units in a sequence.
+		</p>
+		<pre>&lt;listPattern type=&quot;unit&quot;&gt; (for the long form)
+&lt;listPattern type=&quot;unit-narrow&quot;&gt;
+&lt;listPattern type=&quot;unit-short&quot;&gt;
+</pre>
+		<h3>
+			6.3 <a name="durationUnit" href="#durationUnit">durationUnit</a>
+		</h3>
+		<p>The durationUnit is a special type of unit used for composed
+			time unit durations.</p>
+		<pre>&lt;durationUnit type=&quot;hms&quot;&gt;
+  &lt;durationUnitPattern&gt;h:mm:ss&lt;/durationUnitPattern&gt; &lt;!-- 33:04:59 --&gt;
+&lt;/durationUnit&gt;   </pre>
+		<p>The type contains a skeleton, where 'h' stands for hours, 'm'
+			for minutes, and 's' for sections. These are the same symbols used in
+			availableFormats, except that there is no need to distinguish
+			different forms of the hour.</p>
+
+		<h3>
+			6.4 <a name="coordinateUnit" href="#coordinateUnit">coordinateUnit</a>
+		</h3>
+		<p>
+			The <strong>coordinateUnitPattern</strong> is a special type of
+			pattern used for composing degrees of latitude and longitude, with an
+			indicator of the quadrant. There are exactly 4 type values<span class="changed">,
+			plus a displayName for the items in this category</span>. An angle
+			is composed using the appropriate combination of the <strong>angle-degrees</strong>,
+			<strong>angle-arc-minute</strong> and <strong>angle-arc-second</strong>
+			values. It is then substituted for the placeholder field {0} in the
+			appropriate <strong>coordinateUnit</strong> pattern.
+		</p>
+		<p class="xmlExample">
+			<span class="changed">&lt;displayName&gt;direction&lt;/displayName&gt;<br></span>
+			&lt;coordinateUnitPattern
+			type=&quot;east&quot;&gt;{0}E&lt;/coordinateUnitPattern&gt;<br>
+			&lt;coordinateUnitPattern
+			type=&quot;north&quot;&gt;{0}N&lt;/coordinateUnitPattern&gt;<br>
+			&lt;coordinateUnitPattern
+			type=&quot;south&quot;&gt;{0}S&lt;/coordinateUnitPattern&gt;<br>
+			&lt;coordinateUnitPattern
+			type=&quot;west&quot;&gt;{0}W&lt;/coordinateUnitPattern&gt;
+		</p>
+
+		<h3>
+			6.5 <a name="Territory_Based_Unit_Preferences"
+				href="#Territory_Based_Unit_Preferences">Territory-Based Unit
+				Preferences</a>
+		</h3>
+		<p>Different locales have different preferences
+			for which unit or combination of units is used for a particular
+			usage, such as measuring a person’s height. This is more fine-grained
+			than merely a preference for metric versus US or UK measurement
+			systems. For example, one locale may use meters alone, while another
+			may use centimeters alone or a combination of meters and centimeters;
+			a third may use inches alone, or (informally) a combination of feet
+			and inches.</p>
+		<p>
+			The &lt;unitPreferenceData&gt; element, described in <a
+				href="tr35-info.html#Preferred_Units_For_Usage">Preferred Units
+				for Specific Usages</a>, provides information on which unit or
+			combination of units is used for various purposes in different
+			locales, with options for the level of formality and the scale of the
+			measurement (e.g measuring the height of an adult versus that of an
+			infant).
+		</p>
+
+		<h2>
+			7 <a name="POSIX_Elements" href="#POSIX_Elements">POSIX Elements</a>
+		</h2>
+
+
+		<p class="dtd">
+			&lt;!ELEMENT posix (alias | (messages*, special*)) &gt;<br>
+			&lt;!ELEMENT messages (alias | ( yesstr*, nostr*)) &gt;
+		</p>
+
+		<p>The following are included for compatibility with POSIX.</p>
+
+		<p>
+			&lt;posix&gt;<br> &nbsp;&nbsp;&nbsp;&nbsp;&lt;posix:messages&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;posix:yesstr&gt;<span
+				style="color: #0000FF">ja</span>&lt;/posix:yesstr&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;posix:nostr&gt;<span
+				style="color: #0000FF">nein</span>&lt;/posix:nostr&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;/posix:messages&gt;<br>
+			&lt;posix&gt;
+		</p>
+
+		<ol>
+			<li>The values for yesstr and nostr contain a colon-separated
+				list of strings that would normally be recognized as "yes" and "no"
+				responses. For cased languages, this shall include only the lower
+				case version. POSIX locale generation tools must generate the upper
+				case equivalents, and the abbreviated versions, and add the English
+				words wherever they do not conflict. Examples:
+				<ul>
+					<li>ja → ja:Ja:j:J:yes:Yes:y:Y</li>
+					<li>ja → ja:Ja:j:J:yes:Yes // exclude y:Y if it conflicts with
+						the native "no".</li>
+				</ul>
+			</li>
+
+			<li>The older elements yesexpr and noexpr are deprecated. They
+				should instead be generated from yesstr and nostr so that they match
+				all the responses.</li>
+		</ol>
+
+		<p>So for English, the appropriate strings and expressions would
+			be as follows:</p>
+
+		<p>
+			yesstr "yes:y"<br> nostr "no:n"
+		</p>
+
+		<p>The generated yesexpr and noexpr would be:</p>
+
+		<p>
+			<code>
+				yesexpr "^([yY]([eE][sS])?)"<br>
+			</code>
+			This would match y,Y,yes,yeS,yEs,yES,Yes,YeS,YEs,YES.<br> <br>
+			<code>noexpr "^([nN][oO]?)"</code>
+			<br> This would match n,N,no,nO,No,NO.
+		</p>
+
+
+		<h2>
+			8 <a name="Reference_Elements" href="#Reference_Elements">Reference
+				Element</a>
+		</h2>
+
+
+		<p>(Use only in supplemental data; deprecated for ldml.dtd and
+			locale data)</p>
+		<p class="dtd">
+			&lt;!ELEMENT references ( reference* ) &gt;<br> &lt;!ELEMENT
+			reference ( #PCDATA ) &gt;<br> &lt;!ATTLIST reference type
+			NMTOKEN #REQUIRED&gt;<br> &lt;!ATTLIST reference standard ( true
+			| false ) #IMPLIED &gt;<br> &lt;!ATTLIST reference uri CDATA
+			#IMPLIED &gt;
+		</p>
+
+		<p>The references section supplies a central location for
+			specifying references and standards. The uri should be supplied if at
+			all possible. If not online, then a ISBN number should be supplied,
+			such as in the following example:</p>
+
+		<p class="example">
+			&lt;reference type="R2"
+			uri="http://www.ur.se/nyhetsjournalistik/3lan.html"&gt;Landskoder på
+			Internet&lt;/reference&gt;<br> &lt;reference type="R3"
+			uri="URN:ISBN:91-47-04974-X"&gt;Svenska skrivregler&lt;/reference&gt;
+		</p>
+
+
+		<h2>
+			9 <a name="Segmentations" href="#Segmentations">Segmentations</a>
+		</h2>
+
+		<p class="dtd">&lt;!ELEMENT segmentations ( alias | segmentation*)
+			&gt;</p>
+		<p class="dtd">
+			&lt;!ELEMENT segmentation ( alias | (variables?, segmentRules? ,
+			exceptions?, suppressions?) | special*) &gt; <br> &lt;!ATTLIST
+			segmentation type NMTOKEN #REQUIRED &gt;
+		</p>
+		<p class="dtd">&lt;!ELEMENT variables ( alias | variable*) &gt;</p>
+		<p class="dtd">
+			&lt;!ELEMENT variable ( #PCDATA ) &gt;<br> &lt;!ATTLIST variable
+			id CDATA #REQUIRED &gt;
+		</p>
+		<p class="dtd">&lt;!ELEMENT segmentRules ( alias | rule*) &gt;</p>
+		<p class="dtd">
+			&lt;!ELEMENT rule ( #PCDATA ) &gt;<br> &lt;!ATTLIST rule id
+			NMTOKEN #REQUIRED &gt;
+		</p>
+		<p class="dtd">&lt;!ELEMENT suppressions ( suppression* ) &gt;</p>
+		<p class="dtd">&lt;!ATTLIST suppressions type NMTOKEN "standard"
+			&gt;</p>
+		<p class="dtd">&lt;!ATTLIST suppressions draft ( approved |
+			contributed | provisional | unconfirmed ) #IMPLIED &gt;</p>
+		<p class="dtd">&lt;!ELEMENT suppression ( #PCDATA ) &gt;</p>
+
+		<p>
+			The segmentations element provides for segmentation of text into
+			words, lines, or other segments. The structure is based on [<a
+				href="http://www.unicode.org/reports/tr41/#UAX29">UAX29</a>]
+			notation, but adapted to be machine-readable. It uses a list of
+			variables (representing character classes) and a list of rules. Each
+			must have an id attribute.
+		</p>
+
+		<p>
+			The rules in <i>root</i> implement the segmentations found in [<a
+				href="http://www.unicode.org/reports/tr41/#UAX29">UAX29</a>] and [<a
+				href="http://www.unicode.org/reports/tr41/#UAX14">UAX14</a>], for
+			grapheme clusters, words, sentences, and lines. They can be
+			overridden by rules in child locales.
+		</p>
+
+		<p>Here is an example:</p>
+
+		<pre>&lt;segmentations&gt;
+  &lt;segmentation type="GraphemeClusterBreak"&gt;
+    &lt;variables&gt;
+      &lt;variable id="$CR"&gt;\p{Grapheme_Cluster_Break=CR}&lt;/variable&gt;
+      &lt;variable id="$LF"&gt;\p{Grapheme_Cluster_Break=LF}&lt;/variable&gt;
+      &lt;variable id="$Control"&gt;\p{Grapheme_Cluster_Break=Control}&lt;/variable&gt;
+      &lt;variable id="$Extend"&gt;\p{Grapheme_Cluster_Break=Extend}&lt;/variable&gt;
+      &lt;variable id="$L"&gt;\p{Grapheme_Cluster_Break=L}&lt;/variable&gt;
+      &lt;variable id="$V"&gt;\p{Grapheme_Cluster_Break=V}&lt;/variable&gt;
+      &lt;variable id="$T"&gt;\p{Grapheme_Cluster_Break=T}&lt;/variable&gt;
+      &lt;variable id="$LV"&gt;\p{Grapheme_Cluster_Break=LV}&lt;/variable&gt;
+      &lt;variable id="$LVT"&gt;\p{Grapheme_Cluster_Break=LVT}&lt;/variable&gt;
+    &lt;/variables&gt;
+    &lt;segmentRules&gt;
+      &lt;rule id="3"&gt; $CR × $LF &lt;/rule&gt;
+      &lt;rule id="4"&gt; ( $Control | $CR | $LF ) ÷ &lt;/rule&gt;
+      &lt;rule id="5"&gt; ÷ ( $Control | $CR | $LF ) &lt;/rule&gt;
+      &lt;rule id="6"&gt; $L × ( $L | $V | $LV | $LVT ) &lt;/rule&gt;
+      &lt;rule id="7"&gt; ( $LV | $V ) × ( $V | $T ) &lt;/rule&gt;
+      &lt;rule id="8"&gt; ( $LVT | $T) × $T &lt;/rule&gt;
+      &lt;rule id="9"&gt; × $Extend &lt;/rule&gt;
+    &lt;/segmentRules&gt;
+  &lt;/segmentation&gt;
+...</pre>
+
+		<p>
+			<b>Variables:</b> All variable ids must start with a $, and otherwise
+			be valid identifiers according to the Unicode definitions in [<a
+				href="http://www.unicode.org/reports/tr41/#UAX31">UAX31</a>]. The
+			contents of a variable is a regular expression using variables and <a
+				href="tr35.html#Unicode_Sets">UnicodeSet</a>s. The ordering of
+			variables is important; they are evaluated in order from first to
+			last (see <i><a href="#Segmentation_Inheritance">Section 9.1
+					Segmentation Inheritance</a></i>). It is an error to use a variable before
+			it is defined.
+		</p>
+
+		<p>
+			<b>Rules:</b> The contents of a rule uses the syntax of [<a
+				href="http://www.unicode.org/reports/tr41/#UAX29">UAX29</a>]. The
+			rules are evaluated in numeric id order (which may not be the order
+			in which the appear in the file). The first rule that matches
+			determines the status of a boundary position, that is, whether it
+			breaks or not. Thus ÷ means a break is allowed; × means a break is
+			forbidden. It is an error if the rule does not contain exactly one of
+			these characters (except where a rule has no contents at all, or if
+			the rule uses a variable that has not been defined.
+		</p>
+
+		<p>There are some implicit rules:</p>
+
+		<ul>
+			<li>The implicit initial rules are always "start-of-text ÷" and
+				"÷ end-of-text"; these are not to be included explicitly.</li>
+			<li>The implicit final rule is always "Any ÷ Any". This is not
+				to be included explicitly.</li>
+		</ul>
+
+		<blockquote>
+			<p>
+				<b>Note:</b> A rule like X Format* -&gt; X in [<a
+					href="http://www.unicode.org/reports/tr41/#UAX29">UAX29</a>] and [<a
+					href="http://www.unicode.org/reports/tr41/#UAX14">UAX14</a>] is not
+				supported. Instead, this needs to be expressed as normal regular
+				expressions. The normal way to support this is to modify the
+				variables, such as in the following example:
+			</p>
+
+			<pre id="line870">&lt;variable id="$Format"&gt;\p{Word_Break=Format}&lt;/variable&gt;
+&lt;variable id="$Katakana"&gt;\p{Word_Break=Katakana}&lt;/variable&gt;
+...
+&lt;!-- In place of rule 3, add format and extend to everything --&gt;
+&lt;variable id="$X"&gt;[$Format $Extend]*&lt;/variable&gt;
+&lt;variable id="$Katakana"&gt;($Katakana $X)&lt;/variable&gt;
+&lt;variable id="$ALetter"&gt;($ALetter $X)&lt;/variable&gt;
+...</pre>
+		</blockquote>
+
+		<h3>
+			9.1 <a name="Segmentation_Inheritance"
+				href="#Segmentation_Inheritance">Segmentation Inheritance</a>
+		</h3>
+
+
+		<p>Variables and rules both inherit from the parent.</p>
+
+		<p>
+			<b>Variables:</b> The child&#39;s variable list is logically appended
+			to the parent&#39;s, and evaluated in that order. For example:
+		</p>
+
+		<p>
+			<font color="#0000FF"><code>// in parent</code></font>
+			<code>
+				<br> &lt;variable id="$AL"&gt;[:linebreak=AL:]&lt;/variable&gt;<br>
+				&lt;variable id="$YY"&gt;[[:linebreak=XX:]$AL]&lt;/variable&gt;
+			</code>
+			<font color="#0000FF"><code>// adds $AL</code></font>
+		</p>
+
+		<p>
+			<font color="#0000FF"><code>// in child</code></font>
+			<code>
+				<br> &lt;variable id="$AL"&gt;[$AL &amp;&amp;
+				[^a-z]]&lt;/variable&gt; <font color="#0000FF">// changes
+					$AL, does not affect $YY</font><br> &lt;variable
+				id="$ABC"&gt;[abc]&lt;/variable&gt;
+			</code>
+			<font color="#0000FF"><code>// adds new rule</code></font>
+		</p>
+
+		<p>
+			<b>Rules:</b> The rules are also logically appended to the
+			parent&#39;s. Because rules are evaluated in numeric id order, to
+			insert a rule in between others just requires using an intermediate
+			number. For example, to insert a rule after id="10.1" and before
+			id="10.2", just use id="10.15". To delete a rule, use empty contents,
+			such as:
+		</p>
+
+		<p>
+			<code>&lt;rule id="3"/&gt;</code>
+			<font color="#0000FF"><code> // deletes rule 3</code></font>
+		</p>
+
+
+		<h3>
+			9.2 <a name="Segmentation_Exceptions" href="#Segmentation_Exceptions">Segmentation
+				Suppressions </a>
+		</h3>
+
+		<p>
+			<b>Note:</b> As of CLDR 26, the
+			<code>&lt;suppressions&gt;</code>
+			data is to be considered a technology preview. Data currently in CLDR
+			was extracted from the Unicode Localization Interoperability project,
+			or ULI. See <a href="http://uli.unicode.org">http://uli.unicode.org</a>
+			for more information on the ULI project.
+		</p>
+
+		<p>
+			The segmentation <b>suppressions</b> list provides a set of cases
+			which, though otherwise identified as a segment by rules, should be
+			skipped (suppressed) during segmentation.
+		</p>
+
+		<p>For example, in the English phrase "Mr. Smith", CLDR
+			segmentation rules would normally find a Sentence Break between "Mr"
+			and "Smith". However, typically, "Mr." is just an abbreviation for
+			"Mister", and not actually the end of a sentence.</p>
+
+		<p>
+			Each suppression has a separate
+			<code>&lt;suppression&gt;</code>
+			element, whose contents are the break to be skipped.
+		</p>
+
+		<p>Example:</p>
+
+		<pre>
+    &lt;segmentation type="SentenceBreak"&gt;
+      &lt;suppressions type="standard" draft="provisional"&gt;
+        &lt;suppression&gt;Maj.&lt;/suppression&gt;
+        &lt;suppression&gt;Mr.&lt;/suppression&gt;
+        &lt;suppression&gt;Lt.Cdr.&lt;/suppression&gt;
+	. . .
+      &lt;/suppressions&gt;
+    &lt;/segmentation&gt;
+                </pre>
+
+		<p>
+			<b>Note:</b> These elements were called
+			<code>&lt;exceptions&gt;</code>
+			and
+			<code>&lt;exception&gt;</code>
+			prior to CLDR 26, but those names are now deprecated.
+		</p>
+
+		<h2>
+			10 <a name="Transforms" href="#Transforms">Transforms</a>
+		</h2>
+
+
+		<p>
+			Transforms provide a set of rules for transforming text via a
+			specialized set of context-sensitive matching rules. They are
+			commonly used for transliterations or transcriptions, but also other
+			transformations such as full-width to half-width (for <i>katakana</i>
+			characters). The rules can be simple one-to-one relationships between
+			characters, or involve more complicated mappings. Here is an example:
+		</p>
+
+		<pre>&lt;transform source="Greek" target="Latin" variant="UNGEGN" direction="both"&gt;
+...
+  &lt;comment&gt;Useful variables&lt;/comment&gt;
+  &lt;tRule&gt;$gammaLike = [ΓΚΞΧγκξχϰ] ;&lt;/tRule&gt;
+  &lt;tRule&gt;$egammaLike = [GKXCgkxc] ;&lt;/tRule&gt;
+...
+  &lt;comment&gt;Rules are predicated on running NFD first, and NFC afterwards&lt;/comment&gt;
+  &lt;tRule&gt;::NFD (NFC) ;&lt;/tRule&gt;
+...
+  &lt;tRule&gt;λ ↔ l ;&lt;/tRule&gt;
+  &lt;tRule&gt;Λ ↔ L ;&lt;/tRule&gt;
+...
+  &lt;tRule&gt;γ } $gammaLike ↔ n } $egammaLike ;&lt;/tRule&gt;
+  &lt;tRule&gt;γ ↔ g ;&lt;/tRule&gt;
+...
+  &lt;tRule&gt;::NFC (NFD) ;&lt;/tRule&gt;
+...
+&lt;/transform&gt;</pre>
+
+		<p>The source and target values are valid locale identifiers,
+			where &#39;und&#39; means an unspecified language, plus some
+			additional extensions.</p>
+
+		<ul>
+			<li>The long names of a script according to [<a
+				href="http://www.unicode.org/reports/tr41/#UAX24">UAX24</a>] may be
+				used instead of the short script codes. The script identifier may
+				also omit und; that is, "und_Latn" may be written as just "Latn".
+			</li>
+
+			<li>The long names of the English languages may also be used
+				instead of the languages.</li>
+
+			<li>The term "Any" may be used instead of a solitary "und".</li>
+
+			<li>Other identifiers may be used for special purposes. In CLDR,
+				these include: Accents, Digit, Fullwidth, Halfwidth, Jamo,
+				NumericPinyin, Pinyin, Publishing, Tone. (Other than these values,
+				valid private use locale identifiers should be used, such as
+				"x-Special".)</li>
+
+			<li>When presenting localizing transform names, the "und_" is
+				normally omitted. Thus for a transliterator with the ID
+				"und_Latn-und_Grek" (or the equivalent "Latin-Greek"), the
+				translated name for Greek would be Λατινικό-Ελληνικό.</li>
+		</ul>
+		<p>In version 29.0, BCP47 identifiers were added
+			as aliases (while retaining the old identifiers). The following table
+			shows the relationship between the old identifiers and the BCP47
+			format identifiers.</p>
+		<table class='simple'>
+			<tbody>
+				<tr>
+					<th>Old ID</th>
+					<th>BCP47 ID</th>
+					<th>Comments</th>
+				</tr>
+				<tr>
+					<td><strong>es_FONIPA</strong>-es_419_FONIPA</td>
+					<td>es-419-fonipa-t-<strong>es-fonipa</strong></td>
+					<td rowspan="2">The order reverses with -t-. That is, the
+						language subtag part is what results.</td>
+				</tr>
+				<tr>
+					<td><strong>hy_AREVMDA</strong>-hy_AREVMDA_FONIPA</td>
+					<td>hy-arevmda-fonipa-t-<strong>hy-arevmda</strong></td>
+				</tr>
+				<tr>
+					<td><strong>Devanagari</strong>-Latin</td>
+					<td>und-Latn-t-<strong>und-deva</strong></td>
+					<td rowspan="2">Scripts add <strong>und-</strong></td>
+				</tr>
+				<tr>
+					<td><strong>Latin</strong>-Devanagari</td>
+					<td>und-Deva-t-<strong>und-latn</strong></td>
+				</tr>
+				<tr>
+					<td>Greek-Latin/UNGEGN</td>
+					<td>und-Latn-t-und-grek-<strong>m0-ungegn</strong></td>
+					<td>Variants use the <strong>-m0-</strong> key.
+					</td>
+				</tr>
+				<tr>
+					<td>Russian-Latin/BGN</td>
+					<td>ru<strong>-Latn</strong>-t-ru-m0-bgn
+					</td>
+					<td>Languages will have a script when it isn’t the default.</td>
+				</tr>
+				<tr>
+					<td>Any-Hex/xml</td>
+					<td>und-t-<strong>d0-hex</strong>-m0-xml
+					</td>
+					<td rowspan="2"><strong>Any</strong> becomes <strong>und</strong>,
+						and keys <strong>d0</strong> (destination) and <strong>s0</strong>
+						(source) are used for non-locales.</td>
+				</tr>
+				<tr>
+					<td>Hex-Any/xml</td>
+					<td>und-t-<strong>s0-hex</strong>-m0-xml
+					</td>
+				</tr>
+				<tr>
+					<td>Any-<strong>Publishing</strong></td>
+					<td>und-t-d0-<strong>publish</strong></td>
+					<td rowspan="2">Non-locales are normally the lowercases of the
+						old ID, but may change because of BCP47 length restrictions.</td>
+				</tr>
+				<tr>
+					<td><strong>Publishing</strong>-Any</td>
+					<td>und-t-s0-<strong>publish</strong></td>
+				</tr>
+			</tbody>
+		</table>
+		<p>Note that the script and region codes are cased
+			iff they are in the main subtag, but are lowercase in extensions.</p>
+		<h3>
+			10.1 <a name="Inheritance" href="#Inheritance">Inheritance</a>
+		</h3>
+
+		<p>The CLDR transforms are built using the following locale
+			inheritance. While this inheritance is not required of LDML
+			implementations, the transforms supplied with CLDR may not otherwise
+			behave as expected without some changes.</p>
+
+		<p>For either the source or the target, the fallback starts from
+			the maximized locale ID (using the likely-subtags data). It also uses
+			the country for lookup before the base language is reached, and root
+			is never accessed: instead the script(s) associated with the language
+			are used. Where there are multiple scripts, the maximized script is
+			tried first, and then the other scripts associated with the language
+			(from supplemental data).</p>
+
+		<p>
+			For example, see the bolded items below in the fallback chain for <strong>az_IR</strong>.
+		</p>
+
+		<table>
+			<tr>
+				<th>&nbsp;</th>
+				<th>Locale ID</th>
+				<th>Comments</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td><strong>az_Arab_IR</strong></td>
+				<td>The maximized locale for az_IR</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>az_Arab</td>
+				<td>Normal fallback</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td><strong>az_IR</strong></td>
+				<td>Inserted country locale</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>az</td>
+				<td>Normal fallback</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td><strong>Arab</strong></td>
+				<td>Maximized script</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td><strong>Cyrl</strong></td>
+				<td>Other associated script</td>
+			</tr>
+		</table>
+
+		<p>The source, target, and variant use "laddered" fallback, where
+			the source changes the most quickly (using the above rules), then the
+			target (using the above rules), then the variant if any, is
+			discarded. That is, in pseudo code:</p>
+
+		<ul>
+			<li>for variant in {variant, ""}
+				<ul>
+					<li>for target in target-chain
+						<ul>
+							<li>for source in source-chain
+								<ul>
+									<li>transform = lookup source-target/variant</li>
+									<li>if transform != null return transform</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+
+		<p>
+			For example, here is the fallback chain for <strong>ru_RU-el_GR/BGN</strong>.
+		</p>
+		<div align="center">
+			<table>
+				<tr>
+					<th>source</th>
+					<th>&nbsp;</th>
+					<th>target</th>
+					<th>variant</th>
+				</tr>
+				<tr>
+					<td>ru_RU</td>
+					<td>-</td>
+					<td>el_GR</td>
+					<td>/BGN</td>
+				</tr>
+				<tr>
+					<td>ru</td>
+					<td>-</td>
+					<td>el_GR</td>
+					<td>/BGN</td>
+				</tr>
+				<tr>
+					<td>Cyrl</td>
+					<td>-</td>
+					<td>el_GR</td>
+					<td>/BGN</td>
+				</tr>
+				<tr>
+					<td>ru_RU</td>
+					<td>-</td>
+					<td>el</td>
+					<td>/BGN</td>
+				</tr>
+				<tr>
+					<td>ru</td>
+					<td>-</td>
+					<td>el</td>
+					<td>/BGN</td>
+				</tr>
+				<tr>
+					<td>Cyrl</td>
+					<td>-</td>
+					<td>el</td>
+					<td>/BGN</td>
+				</tr>
+				<tr>
+					<td>ru_RU</td>
+					<td>-</td>
+					<td>Grek</td>
+					<td>/BGN</td>
+				</tr>
+				<tr>
+					<td>ru</td>
+					<td>-</td>
+					<td>Grek</td>
+					<td>/BGN</td>
+				</tr>
+				<tr>
+					<td>Cyrl</td>
+					<td>-</td>
+					<td>Grek</td>
+					<td>/BGN</td>
+				</tr>
+				<tr>
+					<td>ru_RU</td>
+					<td>-</td>
+					<td>el_GR</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>ru</td>
+					<td>-</td>
+					<td>el_GR</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Cyrl</td>
+					<td>-</td>
+					<td>el_GR</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>ru_RU</td>
+					<td>-</td>
+					<td>el</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>ru</td>
+					<td>-</td>
+					<td>el</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Cyrl</td>
+					<td>-</td>
+					<td>el</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>ru_RU</td>
+					<td>-</td>
+					<td>Grek</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>ru</td>
+					<td>-</td>
+					<td>Grek</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Cyrl</td>
+					<td>-</td>
+					<td>Grek</td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		<p>Japanese and Korean are special, since they can
+			be represented by combined script codes, such as ja_Jpan, ja_Hrkt,
+			ja_Hira, or ja_Kana. These need to be considered in the above
+			fallback chain as well.</p>
+		<h4>
+			10.1.1 <a name="Pivots" href="#Pivots">Pivots</a>
+		</h4>
+		<p>
+			Transforms can also use <i>pivots</i>. These are used when there is
+			no direct transform between a source and target, but there are
+			transforms X-Y and Y-Z. In such a case, the transforms can be
+			internally chained to get X-Y = X-Y;Y-Z. This is done explicitly with
+			the Indic script transforms: to get Devanagari-Latin, internally it
+			is done by transforming first from Devanagari to Interindic (an
+			internal superset encoding for Indic scripts), then from Interindic
+			to Latin. This allows there to be only N sets of transform rules for
+			the Indic scripts: each one to and from Interindic. These pivots are
+			explicitly represented in the CLDR transforms.
+		</p>
+		<p>
+			The pivots can also be produced automatically (implicitly), as a
+			fallback. A particularly useful pivot is IPA, since that tends to
+			preserve pronunciation. For example, <em>Czech to IPA</em> can be
+			chained with <em>IPA to Katakana</em> to get <em>Czech to
+				Katakana</em>.
+		</p>
+		<p>CLDR often has special forms of IPA: not just
+			&quot;und-FONIPA&quot; but &quot;cs-FONIPA&quot;: specifically IPA
+			that has come from Czech. These variants typically preserve some
+			features of the source language — such as double consonants — that
+			are indistinguishable from single consonants in that language, but
+			that are often preserved in traditional transliterations. Thus when
+			matching prospective pivots, FONIPA is treated specially. If there is
+			an exact match, that match is used (such as cs-cs_FONIPA +
+			cs_FONIPA-ko). Otherwise, the language is ignored, as for example in
+			cs-cs_FONIPA + ru_FONIPA-ko.</p>
+		<p>The interaction of implicit pivots and
+			inheritance may result in a longer inheritance chain lookup than
+			desired, so implementers may consider having some sort of caching
+			mechanism to increase performance.</p>
+		<h3>
+			10.2 <a name="Variants" href="#Variants">Variants</a>
+		</h3>
+
+		<p>
+			Variants used in CLDR include UNGEGN and BGN, both indicating sources
+			for transliterations. There is an additional attribute
+			<code>private="true"</code>
+			which is used to indicate that the transform is meant for internal
+			use, and should not be displayed as a separate choice in a UI.
+		</p>
+
+		<p>There are many different systems of transliteration. The goal
+			for the "unqualified" script transliterations are</p>
+
+		<ol>
+			<li>to be lossless when going to Latin and back</li>
+			<li>to be as lossless as possible when going to other scripts</li>
+			<li>to abide by a common standard as much as possible (possibly
+				supplemented to meet goals 1 and 2).</li>
+		</ol>
+
+		<p>Language-to-language transliterations, and variant
+			script-to-script transliterations are generally transcriptions, and
+			not expected to be lossless.</p>
+
+		<p>Additional transliterations may also be defined, such as
+			customized language-specific transliterations (such as between
+			Russian and French), or those that match a particular transliteration
+			standard, such as the following:</p>
+
+		<ul>
+			<li>UNGEGN - United Nations Group of Experts on Geographical
+				Names</li>
+			<li>BGN - United States Board on Geographic Names</li>
+			<li>ISO9 - ISO/IEC 9</li>
+			<li>ISO15915 - ISO/IEC 15915</li>
+			<li>ISCII91 - ISCII 91</li>
+			<li>KMOCT - South Korean Ministry of Culture &amp; Tourism</li>
+			<li>USLC - US Library of Congress</li>
+			<li>UKPCGN - Permanent Committee on Geographical Names for
+				British Official Use</li>
+			<li>RUGOST - Russian Main Administration of Geodesy and
+				Cartography</li>
+		</ul>
+
+		<p>
+			The rules for transforms are described in Section 10.3 <a
+				href="#Transform_Rules_Syntax">Transform Rules Syntax</a>. For more
+			information on Transliteration, see <a
+				href="http://cldr.unicode.org/index/cldr-spec/transliteration-guidelines">Transliteration
+				Guidelines</a>.
+		</p>
+
+		<h3>
+			10.3 <a name="Transform_Rules_Syntax" href="#Transform_Rules_Syntax">Transform
+				Rules Syntax</a>
+		</h3>
+
+
+		<p class="dtd">
+			&lt;!ELEMENT transforms ( transform*) &gt;<br> &lt;!ELEMENT
+			transform ((comment | tRule)*) &gt;<br> &lt;!ATTLIST transform
+			source CDATA #IMPLIED &gt;<br> &lt;!ATTLIST transform target
+			CDATA #IMPLIED &gt;<br> &lt;!ATTLIST transform variant CDATA
+			#IMPLIED &gt;<br> &lt;!ATTLIST transform direction ( forward |
+			backward | both ) "both" &gt;<br> &lt;!ATTLIST
+				transform alias CDATA #IMPLIED &gt; <br>   &lt;!--@VALUE--&gt;
+				<br> &lt;!ATTLIST transform backwardAlias CDATA #IMPLIED &gt; <br>
+				  &lt;!--@VALUE--&gt;
+			<br> &lt;!ATTLIST transform visibility ( internal | external )
+			"external" &gt;<br> &lt;!ELEMENT comment (#PCDATA) &gt;<br>
+			&lt;!ELEMENT tRule (#PCDATA) &gt;
+		</p>
+		<p>
+			The transform attributes indicate the <strong>source</strong>, <strong>target</strong>,
+			<strong>direction</strong>, and <strong>alias</strong>es. For
+			example:
+		</p>
+		<p class='example'>
+			&lt;transform<br>   source=&quot;ja_Hrkt&quot;<br>  
+			target=&quot;ja_Latn&quot;<br>   variant=&quot;BGN&quot;<br>
+			  direction=&quot;forward&quot;<br>  
+			draft=&quot;provisional&quot;<br>  
+			alias=&quot;Katakana-Latin/BGN ja-Latn-t-ja-hrkt-m0-bgn&quot;&gt;
+		</p>
+		<p>
+			The direction is either <strong>forward</strong> or <strong>both</strong>
+			(<strong>backward</strong> is possible in theory, but not used). This
+			indicates which directions the rules support.
+		</p>
+		<p>
+			If the direction is <strong>forward</strong>, then an ID is composed
+			from <strong>target + &quot;-&quot; + source + &quot;/&quot;
+				+ variant</strong>. If the direction is <strong>both</strong>, then the
+			inverse ID is also value: <strong>source + &quot;-&quot; +
+				target + &quot;/&quot; + variant</strong>. The <strong>alias</strong>
+			attribute contains a space-delimited list of alternant forward IDs,
+			while the <strong>backwardAlias</strong> contains a space-delimited
+			list of alternant backward IDs. The BCP47 versions of the IDs will be
+			in the <strong>alias</strong> and/or <strong>backwardAlias</strong>
+			attributes.
+		</p>
+		<p>
+			The <strong>visibility</strong> attribute indicates whether the IDs
+			should be externally visible, or whether they are only used
+			internally.
+		</p>
+		<p>In previous versions, the rules were expressed
+			as fine-grained XML. That was discarded in CLDR version 29, in favor
+			of a simpler format where the separate rules are simply terminated
+			with &quot;;&quot;.</p>
+		<p>
+			The transform rules are similar to regular-expression substitutions,
+			but adapted to the specific domain of text transformations. The rules
+			and comments in this discussion will be intermixed, with # marking
+			the comments. The simplest rule is a
+			conversion rule, which replaces one string of characters with
+			another. The conversion rule takes the following form:
+		</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>xy → z ;</code></td>
+			</tr>
+		</table>
+
+		<p>This converts any substring "xy" into "z". Rules are executed
+			in order; consider the following rules:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						sch → sh ;<br> ss → z ;
+					</code></td>
+			</tr>
+		</table>
+
+		<p>This conversion rule transforms "bass school" into "baz shool".
+			The transform walks through the string from start to finish. Thus
+			given the rules above "bassch" will convert to "bazch", because the
+			"ss" rule is found before the "sch" rule in the string (later, we'll
+			see a way to override this behavior). If two rules can both apply at
+			a given point in the string, then the transform applies the first
+			rule in the list.</p>
+
+		<p>All of the ASCII characters except numbers and letters are
+			reserved for use in the rule syntax, as are the characters →, ←, ↔.
+			Normally, these characters do not need to be converted. However, to
+			convert them use either a pair of single quotes or a slash. The pair
+			of single quotes can be used to surround a whole string of text. The
+			slash affects only the character immediately after it. For example,
+			to convert from a U+2190 ( ← ) LEFTWARDS ARROW to the string "arrow
+			sign" (with a space), use one of the following rules:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						\←&nbsp;&nbsp; →&nbsp; arrow\ sign ;<br> '←'&nbsp;&nbsp;
+						→&nbsp;&nbsp; 'arrow sign' ;<br> '←'&nbsp;&nbsp;
+						→&nbsp;&nbsp; arrow' 'sign ;
+					</code></td>
+			</tr>
+		</table>
+
+		<p>Spaces may be inserted anywhere without any effect on the
+			rules. Use extra space to separate items out for clarity without
+			worrying about the effects. This feature is particularly useful with
+			combining marks; it is handy to put some spaces around it to separate
+			it from the surrounding text. The following is an example:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>&nbsp;→ i ; #
+						an iota-subscript diacritic turns into an i.</code></td>
+			</tr>
+		</table>
+
+		<p>For a real space in the rules, place quotes around it. For a
+			real backslash, either double it \\, or quote it '\'. For a real
+			single quote, double it '', or place a backslash before it \'.</p>
+
+		<p>Any text that starts with a hash mark and concludes a line is a
+			comment. Comments help document how the rules work. The following
+			shows a comment in a rule:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>x → ks ; #
+						change every x into ks</code></td>
+			</tr>
+		</table>
+
+		<p>The “\u” and “\x” hex notations can be used instead of any
+			letter. For instance, instead of using the Greek π, one could write
+			either of the following:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						\u03C0 → p ;<br> \x{3C0} → p ;
+					</code></td>
+			</tr>
+		</table>
+
+		<p>One can also define and use variables, such as:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						$pi = \u03C0 ;<br> $pi → p ;
+					</code></td>
+			</tr>
+		</table>
+
+		<h4>
+			10.3.1 <a name="Dual_Rules" href="#Dual_Rules">Dual Rules</a>
+		</h4>
+		<p>Rules can also specify what happens when an inverse transform
+			is formed. To do this, we reverse the direction of the "←" sign. Thus
+			the above example becomes:</p>
+
+		<table cellspacing="0" cellpadding="8">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>$pi ← p ;</code></td>
+			</tr>
+		</table>
+
+		<p>With the inverse transform, "p" will convert to the Greek p.
+			These two directions can be combined together into a dual conversion
+			rule by using the "↔" operator, yielding:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>$pi ↔ p ;</code></td>
+			</tr>
+		</table>
+
+		<h4>
+			10.3.2 <a name="Context" href="#Context">Context</a>
+		</h4>
+
+		<p>Context can be used to have the results of a transformation be
+			different depending on the characters before or after. The following
+			rule removes hyphens, but only when they follow lowercase characters:
+		</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code> [:Lowercase:]
+						{ '-' → ; </code></td>
+			</tr>
+		</table>
+
+		<p>Contexts can be before or after or both, such as in a rule to
+			remove hyphens between lowercase and uppercase letters:</p>
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>[:Lowercase:] {
+						'-' } [:Uppercase:] → ;</code></td>
+			</tr>
+		</table>
+		<p>Each context is optional and may be empty; the following two
+			rules are equivalent:</p>
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						$pi ↔ p ;<br> {$pi} ↔ {p} ;
+					</code></td>
+			</tr>
+		</table>
+		<p>
+			The context itself ([:
+			<code> Lowercase </code>
+			:]) is unaffected by the replacement; only the text within braces is
+			changed.
+		</p>
+		<p>
+			Character classes (UnicodeSets) in the contexts can contain the
+			special symbol $, which means “off either end of the string”. It is
+			roughly similar to $ and ^ in regex. Unlike normal regex, however, it
+			can occur in character classes. Thus the following rule removes
+			hyphens that are after lowercase characters, <em>or</em> are at the
+			start of a string.
+		</p>
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>[[:Lowercase:]$]
+						{'-' → ;</code></td>
+			</tr>
+		</table>
+
+		<p>
+			Thus the negation of a UnicodeSet will normally also match before or
+			after the end of a string. The following will remove hyphens that are
+			not after lowercase characters<em>, including hyphens at the
+				start of a string</em>.
+		</p>
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>[^[:Lowercase:]]
+						{'-' → ;</code></td>
+			</tr>
+		</table>
+		<p>It will thus convert “-B A-B a-b” to “B AB a-b”.</p>
+		<h4>
+			10.3.3 <a name="Revisiting" href="#Revisiting">Revisiting</a>
+		</h4>
+
+		<p>If the resulting text contains a vertical bar "|", then that
+			means that processing will proceed from that point and that the
+			transform will revisit part of the resulting text. Thus the | marks a
+			"cursor" position. For example, if we have the following, then the
+			string "xa" will convert to "w".</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						x → y | z ;<br> z a → w;
+					</code></td>
+			</tr>
+		</table>
+
+		<p>First, "xa" is converted to "yza". Then the processing will
+			continue from after the character "y", pick up the "za", and convert
+			it. Had we not had the "|", the result would have been simply "yza".
+			The '@' character can be used as filler character to place the
+			revisiting point off the start or end of the string. Thus the
+			following causes x to be replaced, and the cursor to be backed up by
+			two characters.</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>x → |@@y;</code></td>
+			</tr>
+		</table>
+
+		<h4>
+			10.3.4 <a name="Example" href="#Example">Example</a>
+		</h4>
+
+		<p>The following shows how these features are combined together in
+			the Transliterator "Any-Publishing". This transform converts the
+			ASCII typewriter conventions into text more suitable for desktop
+			publishing (in English). It turns straight quotation marks or UNIX
+			style quotation marks into curly quotation marks, fixes multiple
+			spaces, and converts double-hyphens into a dash.</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						# Variables<br> <br> $single = \' ;<br> $space = '
+						' ;<br> $double = \" ;<br> $back = \` ;<br> $tab =
+						'\u0008' ;<br> <br> # the following is for spaces, line
+						ends, (, [, {, ...<br> $makeRight = [[:separator:][:start
+						punctuation:][:initial punctuation:]] ;<br> <br> # fix
+						UNIX quotes<br> <br> $back $back → “ ; # generate right
+						d.q.m. (double quotation mark)<br> $back → ‘ ;<br> <br>
+						# fix typewriter quotes, by context<br> <br> $makeRight
+						{ $double ↔ “ ; # convert a double to right d.q.m. after certain
+						chars<br> ^ { $double → “ ; # convert a double at the start
+						of the line.<br> $double ↔ ” ; # otherwise convert to a left
+						q.m.<br> <br> $makeRight {$single} ↔ ‘ ; # do the same
+						for s.q.m.s<br> ^ {$single} → ‘ ;<br> $single ↔ ’;<br>
+						<br> # fix multiple spaces and hyphens<br> <br>
+						$space {$space} → ; # collapse multiple spaces<br> '--' ↔ — ;
+						# convert fake dash into real one
+					</code></td>
+			</tr>
+		</table>
+		<p>There is an online demo where the rules can be tested, at:</p>
+		<p>
+			<a target="demo" href="http://unicode.org/cldr/utility/transform.jsp">http://unicode.org/cldr/utility/transform.jsp</a>
+		</p>
+		<h4>
+			10.3.5 <a name="Rule_Syntax" href="#Rule_Syntax">Rule Syntax</a>
+		</h4>
+
+		<p>The following describes the full format of the list of rules
+			used to create a transform. Each rule in the list is terminated by a
+			semicolon. The list consists of the following:</p>
+
+		<ul>
+			<li>an optional filter rule</li>
+			<li>zero or more transform rules</li>
+			<li>zero or more variable-definition rules</li>
+			<li>zero or more conversion rules</li>
+			<li>an optional inverse filter rule</li>
+		</ul>
+
+		<p>The filter rule, if present, must appear at the beginning of
+			the list, before any of the other rules.&nbsp; The inverse filter
+			rule, if present, must appear at the end of the list, after all of
+			the other rules.&nbsp; The other rules may occur in any order and be
+			freely intermixed.</p>
+
+		<p>The rule list can also generate the inverse of the transform.
+			In that case, the inverse of each of the rules is used, as described
+			below.</p>
+
+		<h4>
+			10.3.6 <a name="Transform_Rules" href="#Transform_Rules">Transform
+				Rules</a>
+		</h4>
+
+		<p>Each transform rule consists of two colons followed by a
+			transform name, which is of the form source-target. For example:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						:: NFD ;<br> :: und_Latn-und_Greek ;<br> :: Latin-Greek;
+						# alternate form
+					</code></td>
+			</tr>
+		</table>
+
+		<p>If either the source or target is 'und', it can be omitted,
+			thus 'und_NFC' is equivalent to 'NFC'. For compatibility, the English
+			names for scripts can be used instead of the und_Latn locale name,
+			and "Any" can be used instead of "und". Case is not significant.</p>
+
+		<p>The following transforms are defined not by rules, but by the
+			operations in the Unicode Standard, and may be used in building any
+			other transform:</p>
+
+		<blockquote>
+			<b>Any-NFC, Any-NFD, Any-NFKD, Any-NFKC</b> - the normalization forms
+			defined by [<a href="http://www.unicode.org/reports/tr41/#UAX15">UAX15</a>].<br>
+			<p>
+				<b>Any-Lower, Any-Upper, Any-Title</b> - full case transformations,
+				defined by [<a href="tr35.html#Unicode">Unicode</a>] Chapter 3.
+			</p>
+		</blockquote>
+
+		<p>In addition, the following special cases are defined:</p>
+
+		<blockquote>
+			<b>Any-Null</b> - has no effect; that is, each character is left
+			alone.<br> <b>Any-Remove</b> - maps each character to the empty
+			string; this, removes each character.
+		</blockquote>
+
+		<p>The inverse of a transform rule uses parentheses to indicate
+			what should be done when the inverse transform is used. For example:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						:: lower () ; # only executed for the normal<br> :: (lower) ;
+						# only executed for the inverse<br> :: lower ; # executed for
+						both the normal and the inverse
+					</code></td>
+			</tr>
+		</table>
+
+		<h4>
+			10.3.7 <a name="Variable_Definition_Rules"
+				href="#Variable_Definition_Rules">Variable Definition Rules</a>
+		</h4>
+
+		<p>Each variable definition is of the following form:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>$variableName =
+						contents ;</code></td>
+			</tr>
+		</table>
+
+		<p>
+			The variable name can contain letters and digits, but must start with
+			a letter. More precisely, the variable names use Unicode identifiers
+			as defined by [<a href="http://www.unicode.org/reports/tr41/#UAX31">UAX31</a>].
+			The identifier properties allow for the use of foreign letters and
+			numbers.
+		</p>
+
+		<p>The contents of a variable definition is any sequence of
+			Unicode sets and characters or characters. For example:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>$mac = M [aA]
+						[cC] ;</code></td>
+			</tr>
+		</table>
+
+		<p>Variables are only replaced within other variable definition
+			rules and within conversion rules. They have no effect on
+			transliteration rules.</p>
+
+		<h4>
+			10.3.8 <a name="Filter_Rules" href="#Filter_Rules">Filter Rules</a>
+		</h4>
+
+		<p>A filter rule consists of two colons followed by a UnicodeSet.
+			This filter is global in that only the characters matching the filter
+			will be affected by any transform rules or conversion rules. The
+			inverse filter rule consists of two colons followed by a UnicodeSet
+			in parentheses. This filter is also global for the inverse transform.</p>
+
+		<p>For example, the Hiragana-Latin transform can be implemented by
+			"pivoting" through the Katakana converter, as follows:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						:: [:^Katakana:] ; # do not touch any katakana that was in the
+						text!<br> :: Hiragana-Katakana;<br> :: Katakana-Latin;<br>
+						:: ([:^Katakana:]) ; # do not touch any katakana that was in the
+						text<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						# for the inverse either!
+					</code></td>
+			</tr>
+		</table>
+
+		<p>The filters keep the transform from mistakenly converting any
+			of the "pivot" characters. Note that this is a case where a rule list
+			contains no conversion rules at all, just transform rules and
+			filters.</p>
+
+		<h4>
+			10.3.9 <a name="Conversion_Rules" href="#Conversion_Rules">Conversion
+				Rules</a>
+		</h4>
+
+		<p>Conversion rules can be forward, backward, or double. The
+			complete conversion rule syntax is described below:</p>
+
+		<p>
+			<b>Forward</b>
+		</p>
+
+		<blockquote>
+			<p>A forward conversion rule is of the following form:</p>
+
+			<blockquote>
+				<pre>before_context { text_to_replace } after_context → completed_result | result_to_revisit ;</pre>
+			</blockquote>
+
+			<p>If there is no before_context, then the "{" can be omitted. If
+				there is no after_context, then the "}" can be omitted. If there is
+				no result_to_revisit, then the "|" can be omitted. A forward
+				conversion rule is only executed for the normal transform and is
+				ignored when generating the inverse transform.</p>
+		</blockquote>
+
+		<p>
+			<b>Backward</b>
+		</p>
+
+		<blockquote>
+			<p>A backward conversion rule is of the following form:</p>
+
+			<blockquote>
+				<pre>completed_result | result_to_revisit ← before_context { text_to_replace } after_context ;</pre>
+			</blockquote>
+
+			<p>The same omission rules apply as in the case of forward
+				conversion rules. A backward conversion rule is only executed for
+				the inverse transform and is ignored when generating the normal
+				transform.</p>
+		</blockquote>
+
+		<p>
+			<b>Dual</b>
+		</p>
+		<blockquote>
+			<p>A dual conversion rule combines a forward conversion rule and
+				a backward conversion rule into one, as discussed above. It is of
+				the form:</p>
+
+			<table cellspacing="0" cellpadding="8" border="1">
+				<tr>
+					<td valign="top" bgcolor="#eeeeee"><code>a { b | c } d
+							↔ e { f | g } h ;</code></td>
+				</tr>
+			</table>
+
+			<p>When generating the normal transform and the inverse, the
+				revisit mark "|" and the before and after contexts are ignored on
+				the sides where they do not belong. Thus, the above is exactly
+				equivalent to the sequence of the following two rules:</p>
+
+			<table cellspacing="0" cellpadding="8" border="1">
+				<tr>
+					<td valign="top" bgcolor="#eeeeee"><code>
+							a { b c } d&nbsp; →&nbsp; f | g&nbsp; ;<br> b | c&nbsp;
+							←&nbsp; e { f g } h ;&nbsp;
+						</code></td>
+				</tr>
+			</table>
+		</blockquote>
+
+		<h4>
+			10.3.10 <a name="Intermixing_Transform_Rules_and_Conversion_Rules"
+				href="#Intermixing_Transform_Rules_and_Conversion_Rules">
+				Intermixing Transform Rules and Conversion Rules</a>
+		</h4>
+
+		<p>Transform rules and conversion rules may be freely intermixed.
+			Inserting a transform rule into the middle of a set of conversion
+			rules has an important side effect.</p>
+
+		<p>Normally, conversion rules are considered together as a
+			group.&nbsp; The only time their order in the rule set is important
+			is when more than one rule matches at the same point in the
+			string.&nbsp; In that case, the one that occurs earlier in the rule
+			set wins.&nbsp; In all other situations, when multiple rules match
+			overlapping parts of the string, the one that matches earlier wins.</p>
+
+		<p>Transform rules apply to the whole string.&nbsp; If you have
+			several transform rules in a row, the first one is applied to the
+			whole string, then the second one is applied to the whole string, and
+			so on.&nbsp; To reconcile this behavior with the behavior of
+			conversion rules, transform rules have the side effect of breaking a
+			surrounding set of conversion rules into two groups: First all of the
+			conversion rules before the transform rule are applied as a group to
+			the whole string in the usual way, then the transform rule is applied
+			to the whole string, and then the conversion rules after the
+			transform rule are applied as a group to the whole string.&nbsp; For
+			example, consider the following rules:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						abc → xyz;<br> xyz → def;<br> ::Upper;
+					</code></td>
+			</tr>
+		</table>
+
+		<p>If you apply these rules to “abcxyz”, you get “XYZDEF”.&nbsp;
+			If you move the “::Upper;” to the middle of the rule set and change
+			the cases accordingly, then applying this to “abcxyz” produces
+			“DEFDEF”.</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						abc → xyz;<br> ::Upper;<br> XYZ → DEF;
+					</code></td>
+			</tr>
+		</table>
+
+		<p>This is because “::Upper;” causes the transliterator to reset
+			to the beginning of the string. The first rule turns the string into
+			“xyzxyz”, the second rule upper cases the whole thing to “XYZXYZ”,
+			and the third rule turns this into “DEFDEF”.</p>
+
+		<p>This can be useful when a transform naturally occurs in
+			multiple “passes.”&nbsp; Consider this rule set:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						[:Separator:]* → ' ';<br> 'high school' → 'H.S.';<br>
+						'middle school' → 'M.S.';<br> 'elementary school' → 'E.S.';
+					</code></td>
+			</tr>
+		</table>
+
+		<p>If you apply this rule to “high school”, you get “H.S.”, but if
+			you apply it to “high&nbsp; school” (with two spaces), you just get
+			“high school” (with one space). To have “high&nbsp; school” (with two
+			spaces) turn into “H.S.”, you'd either have to have the first rule
+			back up some arbitrary distance (far enough to see “elementary”, if
+			you want all the rules to work), or you have to include the whole
+			left-hand side of the first rule in the other rules, which can make
+			them hard to read and maintain:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						$space = [:Separator:]*;<br> high $space school → 'H.S.';<br>
+						middle $space school → 'M.S.';<br> elementary $space school →
+						'E.S.';
+					</code></td>
+			</tr>
+		</table>
+
+		<p>
+			Instead, you can simply insert “
+			<code>::Null;</code>
+			” in order to get things to work right:
+		</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						[:Separator:]* → ' ';<br> ::Null;<br> 'high school' →
+						'H.S.';<br> 'middle school' → 'M.S.';<br> 'elementary
+						school' → 'E.S.';
+					</code></td>
+			</tr>
+		</table>
+
+		<p>The “::Null;” has no effect of its own (the null transform, by
+			definition, does not do anything), but it splits the other rules into
+			two “passes”: The first rule is applied to the whole string,
+			normalizing all runs of white space into single spaces, and then we
+			start over at the beginning of the string to look for the phrases.
+			“high&nbsp;&nbsp;&nbsp; school” (with four spaces) gets correctly
+			converted to “H.S.”.</p>
+
+		<p>This can also sometimes be useful with rules that have
+			overlapping domains.&nbsp; Consider this rule set from before:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						sch → sh ;<br> ss → z ;
+					</code></td>
+			</tr>
+		</table>
+
+		<p>Apply this rule to “bassch” results in “bazch” because “ss”
+			matches earlier in the string than “sch”. If you really wanted
+			“bassh”—that is, if you wanted the first rule to win even when the
+			second rule matches earlier in the string, you'd either have to add
+			another rule for this special case...</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						sch → sh ;<br> ssch → ssh;<br> ss → z ;
+					</code></td>
+			</tr>
+		</table>
+
+		<p>...or you could use a transform rule to apply the conversions
+			in two passes:</p>
+
+		<table cellspacing="0" cellpadding="8" border="1">
+			<tr>
+				<td valign="top" bgcolor="#eeeeee"><code>
+						sch → sh ;<br> ::Null;<br> ss → z ;
+					</code></td>
+			</tr>
+		</table>
+
+		<h4>
+			10.3.11 <a name="Inverse_Summary" href="#Inverse_Summary">Inverse
+				Summary</a>
+		</h4>
+
+		<p>The following table shows how the same rule list generates two
+			different transforms, where the inverse is restated in terms of
+			forward rules (this is a contrived example, simply to show the
+			reordering):</p>
+
+		<table>
+			<tr bgcolor="#99ccff">
+				<th bgcolor="#cccccc">Original Rules</th>
+				<th bgcolor="#cccccc">Forward</th>
+				<th bgcolor="#cccccc">Inverse</th>
+			</tr>
+			<tr bgcolor="#99ccff">
+				<td bgcolor="#eeeeee"><code>
+						:: [:Uppercase Letter:] ;<br> :: latin-greek ;<br> ::
+						greek-japanese ;<br> x ↔ y ;<br> z → w ;<br> r ← m
+						; <br> :: upper;<br> a → b ;<br> c ↔ d ;<br>
+						:: any-publishing ;<br> :: ([:Number:]) ;
+					</code></td>
+				<td bgcolor="#eeeeee"><code>
+						:: [:Uppercase Letter:] ;<br> :: latin-greek ;<br> ::
+						greek-japanese ;<br> x → y ;<br> z → w ;<br> ::
+						upper ;<br> a → b ;<br> c → d ;<br> ::
+						any-publishing ;<br>
+					</code></td>
+				<td bgcolor="#eeeeee"><code>
+						:: [:Number:] ;<br> :: publishing-any ;<br> d → c ;<br>
+						:: lower ;<br> y → x ;<br> m → r ;<br> ::
+						japanese-greek ;<br> :: greek-latin ;<br>
+					</code></td>
+			</tr>
+		</table>
+
+		<p>Note how the irrelevant rules (the inverse filter rule and the
+			rules containing ←) are omitted (ignored, actually) in the forward
+			direction, and notice how things are reversed: the transform rules
+			are inverted and happen in the opposite order, and the groups of
+			conversion rules are also executed in the opposite relative order
+			(although the rules within each group are executed in the same
+			order).</p>
+
+		<h2>
+			11 <a name="ListPatterns" href="#ListPatterns">List Patterns</a>
+		</h2>
+
+
+		<p class="dtd">&lt;!ELEMENT listPatterns (alias | (listPattern*,
+			special*)) &gt;</p>
+
+		<p class="dtd">
+			&lt;!ELEMENT listPattern (alias | (listPatternPart*, special*)) &gt;<br>
+			&lt;!ATTLIST listPattern type (NMTOKEN) #IMPLIED &gt;
+		</p>
+
+		<p class="dtd">
+			&lt;!ELEMENT listPatternPart ( #PCDATA ) &gt;<br> &lt;!ATTLIST
+			listPatternPart type (start | middle | end | 2 | 3) #REQUIRED &gt;
+		</p>
+
+		<p>List patterns can be used to format variable-length lists of
+			things in a locale-sensitive manner, such as "Monday, Tuesday,
+			Friday, and Saturday" (in English) versus "lundi, mardi, vendredi et
+			samedi" (in French). For example, consider the following example:</p>
+
+		<pre class="example">&lt;listPatterns&gt;
+ &lt;listPattern&gt;
+  &lt;listPatternPart type="2"&gt;{0} and {1}&lt;/listPatternPart&gt;
+  &lt;listPatternPart type="start"&gt;{0}, {1}&lt;/listPatternPart&gt;
+  &lt;listPatternPart type="middle"&gt;{0}, {1}&lt;/listPatternPart&gt;
+  &lt;listPatternPart type="end"&gt;{0}, and {1}&lt;/listPatternPart&gt;
+ &lt;/listPattern&gt;
+&lt;/listPatterns&gt;</pre>
+
+		<p>The data is used as follows: If there is a type type matches
+			exactly the number of elements in the desired list (such as "2" in
+			the above list), then use that pattern. Otherwise,</p>
+
+		<ol>
+			<li>Format the last two elements with the "end" format.</li>
+			<li>Then use middle format to add on subsequent elements working
+				towards the front, all but the very first element. That is, {1} is
+				what you've already done, and {0} is the previous element.</li>
+			<li>Then use "start" to add the front element, again with {1} as
+				what you've done so far, and {0} is the first element.</li>
+		</ol>
+		<p>Thus a list (a,b,c,...m, n) is formatted as:
+			start(a,middle(b,middle(c,middle(...end(m, n))...)))</p>
+
+
+		<p>The following type attributes are in use:</p>
+		<table border="1" cellpadding="2" cellspacing="0" class='simple'>
+		  <tr>
+		    <th>type attribute value</th>
+		    <th>Description</th>
+		    <th>Examples</th>
+	      </tr>
+		  <tr>
+		    <td nowrap>standard (or no <strong>type</strong>)</td>
+		    <td>A typical 'and' list for arbitrary placeholders</td>
+		    <td nowrap><em>January, February, and March</em></td>
+	      </tr>
+			  <tr>
+		    <td>standard-short</td>
+		    <td>A short version of a 'and' list, suitable for use with short or abbreviated placeholder values</td>
+		    <td><em>Jan., Feb., and Mar.</em></td>
+	      </tr>
+	  <tr>
+		    <td>or</td>
+		    <td>A typical 'or' list for arbitrary placeholders</td>
+		    <td><em>January, February, or March</em></td>
+	      </tr>
+	  <tr>
+	    <td>or-short</td>
+	    <td>A short version of an 'or' list</td>
+	    <td><em>Jan., Feb., or Mar.</em></td>
+	    </tr>
+	  <tr>
+	    <td>unit</td>
+	    <td>A list suitable for wide units</td>
+	    <td><em>3 feet, 7 inches</em></td>
+	    </tr>
+	  <tr>
+	    <td>unit-short</td>
+	    <td>A list suitable for short units</td>
+	    <td><em>3 ft, 7 in</em></td>
+	    </tr>
+	  <tr>
+	    <td>unit-narrow</td>
+	    <td>A list suitable for narrow units, where space on the screen is very limited.</td>
+	    <td><em>3′ 7″</em></td>
+	    </tr>
+      </table>
+		<p>In many languages there may not be a difference among many of these lists. In others, the spacing, the length or presence or a conjunction, and the separators may change.</p>
+
+		<h3>
+			11.1 <a name="List_Gender" href="#List_Gender">Gender of Lists</a>
+		</h3>
+
+
+		<p class="dtd">
+			&lt;!-- Gender List support --&gt;<br> &lt;!ELEMENT gender (
+			personList+ ) &gt;<br> &lt;!ELEMENT personList EMPTY &gt;<br>
+			&lt;!ATTLIST personList type ( neutral | mixedNeutral | maleTaints )
+			#REQUIRED &gt;<br> &lt;!ATTLIST personList locales NMTOKENS
+			#REQUIRED &gt;<br>
+		</p>
+
+		<p>This can be used to determine the gender of a list of 2 or more
+			persons, such as "Tom and Mary", for use with gender-selection
+			messages. For example,</p>
+
+		<pre class="example">
+  &lt;supplementalData&gt;
+    &lt;gender&gt;
+      &lt;!-- neutral: gender(list) = other --&gt;
+      &lt;personList type="neutral" locales="af da en..."/&gt;
+
+      &lt;!-- mixedNeutral: gender(all male) = male, gender(all female) = female, otherwise gender(list) = other --&gt;
+      &lt;personList type="mixedNeutral" locales="el"/&gt;
+
+      &lt;!-- maleTaints: gender(all female) = female, otherwise gender(list) = male --&gt;
+      &lt;personList type="maleTaints" locales="ar ca..."/&gt;
+    &lt;/gender&gt;
+  &lt;/supplementalData&gt;</pre>
+
+		<p>There are three ways the gender of a list can be formatted:</p>
+
+		<ol>
+			<li><b>neutral:</b> A gender-independent "other" form will be
+				used for the list.</li>
+
+			<li><b>mixedNeutral:</b> If the elements of the list are all
+				male, "male" form is used for the list. If all the elements of the
+				lists are female, "female" form is used. If the list has a mix of
+				male, female and neutral names, the "other" form is used.</li>
+
+			<li><b>maleTaints:</b> If all the elements of the lists are
+				female, "female" form is used, otherwise the "male" form is used.</li>
+		</ol>
+
+
+		<h2>
+			12 <a name="Context_Transform_Elements"
+				href="#Context_Transform_Elements">ContextTransform Elements</a>
+		</h2>
+
+
+		<p class="dtd">
+			&lt;!ELEMENT contextTransforms ( alias | (contextTransformUsage*,
+			special*)) &gt;<br> &lt;!ELEMENT contextTransformUsage ( alias |
+			(contextTransform*, special*)) &gt;<br> &lt;!ATTLIST
+			contextTransformUsage type CDATA #REQUIRED &gt;<br> &lt;!ELEMENT
+			contextTransform ( #PCDATA ) &gt;<br> &lt;!ATTLIST
+			contextTransform type ( uiListOrMenu | stand-alone ) #REQUIRED &gt;
+		</p>
+
+		<p>CLDR locale elements provide data for display names or symbols
+			in many categories. The default capitalization for these elements is
+			intended to be the form used in the middle of running text. In many
+			languages, other capitalization may be required in other contexts,
+			depending on the type of name or symbol.</p>
+
+		<p>
+			Each &lt;contextTransformUsage&gt; element’s type attribute specifies
+			a category of data from the table below; the element includes one or
+			more &lt;contextTransform&gt; elements that specify how to perform
+			capitalization of this category of data in different contexts. The
+			&lt;contextTransform&gt; elements are needed primarily for cases in
+			which the capitalization is other than the default form used in the
+			middle of running text. However, it is also useful to mark cases in
+			which it is <em>known</em> that no transformation from this default
+			form is needed; this may be necessary, for example, to override the
+			transformation specified by a parent locale. The following values are
+			currently defined for the &lt;contextTransform&gt; element:
+		</p>
+
+		<ul>
+			<li>"titlecase-firstword" designates the case in which raw CLDR
+				text that is in middle-of-sentence form, typically lowercase, needs
+				to have its first word titlecased.</li>
+			<li>"no-change" designates the case in which it is known that no
+				change from the raw CLDR text (middle-of-sentence form) is needed.</li>
+		</ul>
+
+		<p>Four contexts for capitalization behavior are currently
+			identified. Two need no data, and hence have no corresponding
+			&lt;contextTransform&gt; elements:</p>
+
+		<ul>
+			<li>In the middle of running text: This is the default form, so
+				no additional data is required.</li>
+			<li>At the beginning of a complete sentence: The initial word is
+				titlecased, no additional data is required to indicate this.</li>
+		</ul>
+
+		<p>Two other contexts require &lt;contextTransform&gt; elements if
+			their capitalization behavior is other than the default for running
+			text. The context is identified by the type attribute, as follows:</p>
+
+		<ul>
+			<li>uiListOrMenu: Capitalization appropriate to a user-interface
+				list or menu.</li>
+			<li>stand-alone: Capitalization appropriate to an isolated
+				user-interface element (e.g. an isolated name on a calendar page)</li>
+		</ul>
+
+		<p>Example:</p>
+
+		<pre>    &lt;contextTransforms&gt;
+        &lt;contextTransformUsage type="languages"&gt;
+             &lt;contextTransform type="uiListOrMenu"&gt;titlecase-firstword&lt;/contextTransform&gt;
+             &lt;contextTransform type="stand-alone"&gt;titlecase-firstword&lt;/contextTransform&gt;
+        &lt;/contextTransformUsage&gt;
+        &lt;contextTransformUsage type="month-format-except-narrow"&gt;
+             &lt;contextTransform type="uiListOrMenu"&gt;titlecase-firstword&lt;/contextTransform&gt;
+        &lt;/contextTransformUsage&gt;
+        &lt;contextTransformUsage type="month-standalone-except-narrow"&gt;
+             &lt;contextTransform type="uiListOrMenu"&gt;titlecase-firstword&lt;/contextTransform&gt;
+        &lt;/contextTransformUsage&gt;
+    &lt;/contextTransforms&gt;</pre>
+
+		<table cellspacing="0" cellpadding="2" border="1" class='simple'>
+			<caption>
+				<a name="contextTransformUsage_type_attribute_values"
+					href="#contextTransformUsage_type_attribute_values">Element
+					contextTransformUsage type attribute values</a>
+			</caption>
+			<tr>
+				<th>type attribute value</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td>all</td>
+				<td>Special value, indicates that the specified transformation
+					applies to all of the categories below</td>
+			</tr>
+			<tr>
+				<td>language</td>
+				<td>localeDisplayNames language names</td>
+			</tr>
+			<tr>
+				<td>script</td>
+				<td>localeDisplayNames script names</td>
+			</tr>
+			<tr>
+				<td>territory</td>
+				<td>localeDisplayNames territory names</td>
+			</tr>
+			<tr>
+				<td>variant</td>
+				<td>localeDisplayNames variant names</td>
+			</tr>
+			<tr>
+				<td>key</td>
+				<td>localeDisplayNames key names</td>
+			</tr>
+			<tr>
+				<td>keyValue</td>
+				<td>localeDisplayNames key value type names</td>
+			</tr>
+			<tr>
+				<td>month-format-except-narrow</td>
+				<td>dates/calendars/calendar[type=*]/months format wide and
+					abbreviated month names</td>
+			</tr>
+			<tr>
+				<td>month-standalone-except-narrow</td>
+				<td>dates/calendars/calendar[type=*]/months stand-alone wide
+					and abbreviated month names</td>
+			</tr>
+			<tr>
+				<td>month-narrow</td>
+				<td>dates/calendars/calendar[type=*]/months format and
+					stand-alone narrow month names</td>
+			</tr>
+			<tr>
+				<td>day-format-except-narrow</td>
+				<td>dates/calendars/calendar[type=*]/days format wide and
+					abbreviated day names</td>
+			</tr>
+			<tr>
+				<td>day-standalone-except-narrow</td>
+				<td>dates/calendars/calendar[type=*]/days stand-alone wide and
+					abbreviated day names</td>
+			</tr>
+			<tr>
+				<td>day-narrow</td>
+				<td>dates/calendars/calendar[type=*]/days format and
+					stand-alone narrow day names</td>
+			</tr>
+			<tr>
+				<td>era-name</td>
+				<td>dates/calendars/calendar[type=*]/eras (wide) era names</td>
+			</tr>
+			<tr>
+				<td>era-abbr</td>
+				<td>dates/calendars/calendar[type=*]/eras abbreviated era names</td>
+			</tr>
+			<tr>
+				<td>era-narrow</td>
+				<td>dates/calendars/calendar[type=*]/eras narrow era names</td>
+			</tr>
+			<tr>
+				<td>quarter-format-wide</td>
+				<td>dates/calendars/calendar[type=*]/quarters format wide
+					quarter names</td>
+			</tr>
+			<tr>
+				<td>quarter-standalone-wide</td>
+				<td>dates/calendars/calendar[type=*]/quarters stand-alone wide
+					quarter names</td>
+			</tr>
+			<tr>
+				<td>quarter-abbreviated</td>
+				<td>dates/calendars/calendar[type=*]/quarters format and
+					stand-alone abbreviated quarter names</td>
+			</tr>
+			<tr>
+				<td>quarter-narrow</td>
+				<td>dates/calendars/calendar[type=*]/quarters format and
+					stand-alone narrow quarter names</td>
+			</tr>
+			<tr>
+				<td>calendar-field</td>
+				<td>dates/fields/field[type=*]/displayName field names<br>(for
+					relative forms see type "tense" below)
+				</td>
+			</tr>
+			<tr>
+				<td>zone-exemplarCity</td>
+				<td>dates/timeZoneNames/zone[type=*]/exemplarCity city names</td>
+			</tr>
+			<tr>
+				<td>zone-long</td>
+				<td>dates/timeZoneNames/zone[type=*]/long zone names</td>
+			</tr>
+			<tr>
+				<td>zone-short</td>
+				<td>dates/timeZoneNames/zone[type=*]/short zone names</td>
+			</tr>
+			<tr>
+				<td>metazone-long</td>
+				<td>dates/timeZoneNames/metazone[type=*]/long metazone names</td>
+			</tr>
+			<tr>
+				<td>metazone-short</td>
+				<td>dates/timeZoneNames/metazone[type=*]/short metazone names</td>
+			</tr>
+			<tr>
+				<td>symbol</td>
+				<td>numbers/currencies/currency[type=*]/symbol symbol names</td>
+			</tr>
+			<tr>
+				<td>currencyName</td>
+				<td>numbers/currencies/currency[type=*]/displayName currency
+					names</td>
+			</tr>
+			<tr>
+				<td>currencyName-count</td>
+				<td>numbers/currencies/currency[type=*]/displayName[count=*]
+					currency names for use with count</td>
+			</tr>
+			<tr>
+				<td>relative</td>
+				<td>dates/fields/field[type=*]/relative and
+					dates/fields/field[type=*]/relativeTime relative field names</td>
+			</tr>
+			<tr>
+				<td>unit-pattern</td>
+				<td>units/unitLength[type=*]/unit[type=*]/unitPattern[count=*]
+					unit names</td>
+			</tr>
+			<tr>
+				<td>number-spellout</td>
+				<td>rbnf/rulesetGrouping[type=*]/ruleset[type=*]/rbnfrule
+					number spellout rules</td>
+			</tr>
+		</table>
+
+		<h2>
+			13 <a name="Choice_Patterns" href="#Choice_Patterns">Choice
+				Patterns</a>
+		</h2>
+
+
+		<p>A choice pattern is a string that chooses among a number of
+			strings, based on numeric value. It has the following form:</p>
+
+		<p>
+			&lt;choice_pattern&gt; = &lt;choice&gt; ( '|' &lt;choice&gt; )*<br>
+			&lt;choice&gt; = &lt;number&gt;&lt;relation&gt;&lt;string&gt;<br>
+			&lt;number&gt; = ('+' | '-')? (<font size="3">'∞' | [0-9]+
+				('.' [0-9]+)?)<br> &lt;relation&gt; = '&lt;' | '
+			</font><span style="color: blue">≤'</span>
+		</p>
+
+		<p>The interpretation of a choice pattern is that given a number
+			N, the pattern is scanned from right to left, for each choice
+			evaluating &lt;number&gt; &lt;relation&gt; N. The first choice that
+			matches results in the corresponding string. If no match is found,
+			then the first string is used. For example:</p>
+
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="33%">Pattern</td>
+				<td width="33%">N</td>
+				<td width="34%">Result</td>
+			</tr>
+			<tr>
+				<td width="33%" rowspan="4">0≤Rf|1≤Ru|1&lt;Re</td>
+				<td width="33%">-<font size="3">∞, </font>-3, -1, -0.000001
+				</td>
+				<td width="34%">Rf (defaulted to first string)</td>
+			</tr>
+			<tr>
+				<td width="33%">0, 0.01, 0.9999</td>
+				<td width="34%">Rf</td>
+			</tr>
+			<tr>
+				<td width="33%">1</td>
+				<td width="34%">Ru</td>
+			</tr>
+			<tr>
+				<td width="33%">1.00001, 5, 99, <font size="3">∞</font></td>
+				<td width="34%">Re</td>
+			</tr>
+		</table>
+		<p>Quoting is done using ' characters, as in date or number
+			formats.</p>
+		<h2>
+			14 <a name="Annotations" href="#Annotations">Annotations and Labels</a>
+		</h2>
+		<p>Annotations provide information about characters, typically
+			used in input. For example, on a mobile keyboard they can be used to
+			do completion. They are typically used for symbols, especially emoji
+			characters.  </p>
+		<p>For more information, see version 5.0 or <a href="http://unicode.org/reports/tr51/">UTR #51, Unicode Emoji</a>. (Note that during the period between the publication of CLDR v31 and that of Emoji 5.0, the “Latest Proposed Update” link should be used to get to the draft specification for Emoji 5.0.)<br>
+		</p>
+
+		<p class="dtd">&lt;!ELEMENT annotations ( annotation* ) &gt;</p>
+		<p class="dtd">&lt;!ELEMENT annotation ( #PCDATA ) &gt;</p>
+		<p class="dtd">&lt;!ATTLIST annotation cp CDATA #REQUIRED &gt;</p>
+		<p class="dtd">&lt;!ATTLIST annotation type (tts) #IMPLIED &gt;</p>
+
+		<p>There are two kinds of annotations: <strong>short names</strong>, and <strong>keywords</strong>.</p>
+      <p>With an attribute <strong>type="tts"</strong>, the value is  a <strong>short name</strong>, such as one that can be used for text-to-speech. It should be treated as one of the element values for other
+          purposes.</p>
+        <p>When there is no<strong> type </strong>attribute, the value is a set of <strong>keywords</strong>, delimited by |. Spaces around each element are to be trimmed. The <strong>keywords</strong> are  words associated with the character(s) that might be used in searching for the character, or in predictive typing on keyboards. The short name itself can be used as a keyword.</p>
+        <p>Here is an example from German:</p>
+
+		<pre class="example">
+&lt;annotation cp="👎"&gt;schlecht | Hand | Daumen | nach unten&lt;/annotation&gt;
+&lt;annotation cp="👎" type="tts"&gt;Daumen runter&lt;/annotation&gt;
+</pre>
+
+		<p>The cp attribute value has two formats: either a single string, or if contained within […] a UnicodeSet. The latter format can contain 
+			multiple code points or strings. A code point pr string can occur in multiple annotation
+			element <strong>cp</strong> values, such as the following, which also contains the
+			&quot;thumbs down&quot; character.</p>
+		<pre class="example"><span >&lt;annotation cp='[☝✊-✍👆-👐👫-👭💁🖐🖕🖖🙅🙆🙋🙌🙏🤘]'&gt;hand&lt;/annotation&gt;</span></pre>
+		<p>Both for short names and keywords, values do not have to match between different languages. They should be the most common values that people using <em>that</em> language
+			would associated with those characters. For example, a &quot;black heart&quot; might
+			have the association of &quot;wicked&quot; in English, but not in some other languages.</p>
+		<p>The cp value may contain sequences, but does not contain any Emoji or Text
+  		Variant (VS15 &amp; VS16) characters. All such characters should be removed before looking up any short names and keywords.</p>
+		<h3>
+			14.1 <a name="SynthesizingNames" href="#SynthesizingNames">Synthesizing Sequence Names</a>
+		</h3>
+		<p>Many emoji are represented by sequences of characters. When there are no annotation
+			elements for that string, the short name can be synthesized as follows.
+			<strong>Note:</strong> The process details may change after the release of this
+			specification, and may further change in the future if other sequences are added.
+			Please see the <a href='https://sites.google.com/site/cldr/index/downloads/cldr-30#TOC-Known-Issues'>Known
+			Issues</a> section of the CLDR download page for any updates.</p>
+		<ol>
+		  <li>If  <strong>sequence</strong> is an <strong>emoji flag sequence</strong>, look up the territory name in CLDR for the
+		  		corresponding ASCII characters and return as the short name. For example, the regional
+		  		indicator symbols P+F would map to “Französisch-Polynesien” in German.</li>
+		  <li>If <strong>sequence</strong> is an <strong>emoji tag sequence</strong>, look up the subdivision name in CLDR for the
+		  		corresponding ASCII characters and return as the short name. For example, the TAG characters gbsct would map to “Schottland” in German.</li>
+		  <li>If  <strong>sequence</strong> is a keycap sequence or 🔟, use the characterLabel for &quot;keycap&quot;
+		  		as the <strong>prefixName</strong> and  set the <strong>suffix</strong> to be the sequence (or &quot;10&quot; in the case of 🔟), then go to step 8.</li>
+		  <li>Let<strong> suffix</strong> and <strong>prefixName</strong> be &quot;&quot;.</li>
+		  <li>If  <strong>sequence</strong> contains any emoji modifiers, move them (in order) into <strong>suffix</strong>, removing them from  <strong>sequence</strong>.		  </li>
+		  <li>If  <strong>sequence</strong> is a &quot;KISS&quot;, &quot;HEART&quot; or &quot;FAMILY&quot; emoji
+		  		ZWJ sequence, move the characters in  <strong>sequence</strong> to the front of <strong>suffix</strong>, and set the <strong>sequence</strong> to be  &quot;💏&quot;, &quot;💑&quot;, or &quot;👪&quot;
+		  		respectively, and go to step 7.
+		        <ol>
+		      <li>A KISS sequence contains ZWJ, &quot;💋&quot;,  and &quot;❤&quot;, which are skipped in moving to <strong>suffix</strong>.</li>
+		      <li>A HEART sequence contains ZWJ and &quot;❤&quot;, which are skipped in moving to <strong>suffix</strong>.</li>
+		      <li>A FAMILY sequence contains only characters from the set {👦, 👧, 👨, 👩, 👴, 👵, 👶}.
+		      		Nothing is skipped in  moving to <strong>suffix</strong>, except ZWJ.</li>
+	        </ol>
+		  </li>
+		  <li>If   <strong>sequence</strong> ends with ♂ or ♀, and does not have a name, remove the ♂ or ♀  and move the name for &quot;👨&quot; or
+	      &quot;👩&quot; respectively to the start of<strong> prefixName</strong>.</li>
+		  <li>Transform   <strong>sequence</strong> and append to <strong>prefixName</strong>, by successively getting  names for the longest subsequences, skipping any singleton ZWJ characters. If there is more than one name,  use the listPattern for unit-short, type=2 to link them.</li>
+		  <li>Transform <strong>suffix</strong> into <strong>suffixName</strong> in the same manner.</li>
+		  <li>If both the <strong>prefixName</strong> and <strong>suffixName</strong> are non-empty, form the name by joining them with the  &quot;category-list&quot; characterLabelPattern and return it. Otherwise return whichever of them is non-empty.</li>
+	    </ol>
+		<p>The synthesized keywords can follow a similar process.</p>
+		<ol>
+		  <li>For an <strong>emoji flag sequence</strong> or <strong>emoji tag sequence</strong> representing a subdivision, use &quot;flag&quot;.</li>
+		  <li>For keycap sequences, use &quot;keycap&quot;.</li>
+		  <li>For other sequences, add the keywords for the subsequences used to get the short names for <strong>prefixName</strong>, and the short names used for <strong>suffixName</strong>.</li>
+	    </ol>
+		<p>Some examples for   English data (v30) are given in the following table.</p>
+	  <table cellspacing="0" cellpadding="2" border="1">
+        <caption>Synthesized Emoji Sequence Names</caption>
+		  <tbody>
+		    <tr>
+		      <th>Sequence</th>
+		      <th>Short Name</th>
+		      <th>Keywords</th>
+	        </tr>
+		    <tr>
+		      <td>🇪🇺</td>
+		      <td>European Union</td>
+		      <td>flag</td>
+	        </tr>
+		    <tr>
+		      <td>#️⃣</td>
+		      <td>keycap: #</td>
+		      <td>keycap</td>
+	        </tr>
+		    <tr>
+		      <td>9️⃣</td>
+		      <td>keycap: 9</td>
+		      <td>keycap</td>
+	        </tr>
+		    <tr>
+		      <td>💏</td>
+		      <td>kiss</td>
+		      <td>couple</td>
+	        </tr>
+		    <tr>
+		      <td>👩‍❤️‍💋‍👩</td>
+		      <td>kiss: woman, woman</td>
+		      <td>couple, woman</td>
+	        </tr>
+		    <tr>
+		      <td>💑</td>
+		      <td>couple with heart</td>
+		      <td>love, couple</td>
+	        </tr>
+		    <tr>
+		      <td>👩‍❤️‍👩</td>
+		      <td>couple with heart: woman, woman</td>
+		      <td>love, couple, woman</td>
+	        </tr>
+		    <tr>
+		      <td>👪</td>
+		      <td>family</td>
+		      <td>family</td>
+	        </tr>
+		    <tr>
+		      <td>👩‍👩‍👧</td>
+		      <td>family: woman, woman, girl</td>
+		      <td>woman, family, girl</td>
+	        </tr>
+		    <tr>
+		      <td>👦🏻</td>
+		      <td>boy: light skin tone</td>
+		      <td>young, light skin tone, boy</td>
+	        </tr>
+		    <tr>
+		      <td>👩🏿</td>
+		      <td>woman: dark skin tone</td>
+		      <td>woman, dark skin tone</td>
+	        </tr>
+		    <tr>
+		      <td>👨‍⚖</td>
+		      <td>man judge</td>
+		      <td>scales, justice, man</td>
+	        </tr>
+		    <tr>
+		      <td>👨🏿‍⚖</td>
+		      <td>man judge: dark skin tone</td>
+		      <td>scales, justice, dark skin tone, man</td>
+	        </tr>
+		    <tr>
+		      <td>👩‍⚖</td>
+		      <td>woman judge</td>
+		      <td>woman, scales, judge</td>
+	        </tr>
+		    <tr>
+		      <td>👩🏼‍⚖</td>
+		      <td>woman judge: medium-light skin tone</td>
+		      <td>woman, scales, medium-light skin tone, judge</td>
+	        </tr>
+		    <tr>
+		      <td>👮</td>
+		      <td>police officer</td>
+		      <td>police, cop, officer</td>
+	        </tr>
+		    <tr>
+		      <td>👮🏿</td>
+		      <td>police officer: dark skin tone</td>
+		      <td>police, cop, officer, dark skin tone</td>
+	        </tr>
+		    <tr>
+		      <td>👮‍♂️</td>
+		      <td>man police officer</td>
+		      <td>police, cop, officer, man</td>
+	        </tr>
+		    <tr>
+		      <td>👮🏼‍♂️</td>
+		      <td>man police officer: medium-light skin tone</td>
+		      <td>police, cop, officer, medium-light skin tone, man</td>
+	        </tr>
+		    <tr>
+		      <td>👮‍♀️</td>
+		      <td>woman police officer</td>
+		      <td>police, woman, cop, officer</td>
+	        </tr>
+		    <tr>
+		      <td>👮🏿‍♀️</td>
+		      <td>woman police officer: dark skin tone</td>
+		      <td>police, woman, cop, officer, dark skin tone</td>
+	        </tr>
+		    <tr>
+		      <td>🚴</td>
+		      <td>person biking</td>
+		      <td>cyclist, bicycle, biking</td>
+	        </tr>
+		    <tr>
+		      <td>🚴🏿</td>
+		      <td>person biking: dark skin tone</td>
+		      <td>cyclist, bicycle, biking, dark skin tone</td>
+	        </tr>
+		    <tr>
+		      <td>🚴‍♂️</td>
+		      <td>man biking</td>
+		      <td>cyclist, bicycle, biking, man</td>
+	        </tr>
+		    <tr>
+		      <td>🚴🏿‍♂️</td>
+		      <td>man biking: dark skin tone</td>
+		      <td>cyclist, bicycle, biking, dark skin tone, man</td>
+	        </tr>
+		    <tr>
+		      <td>🚴‍♀️</td>
+		      <td>woman biking</td>
+		      <td>cyclist, woman, bicycle, biking</td>
+	        </tr>
+		    <tr>
+		      <td>🚴🏿‍♀️</td>
+		      <td>woman biking: dark skin tone</td>
+		      <td>cyclist, woman, bicycle, biking, dark skin tone</td>
+	        </tr>
+	      </tbody>
+	  </table>
+
+
+	  <p>
+			For more information, see <a href='http://unicode.org/reports/tr51'>Unicode
+				Emoji</a>.
+		</p>
+	  		<h3>
+			14.2 <a name="Character_Labels" href="#Character_Labels">Annotations Character Labels</a>
+		</h3>
+	  		<p class="dtd">&lt;!ELEMENT characterLabels ( alias | ( characterLabelPattern*, characterLabel*, special* ) ) &gt; </p>
+	  		<p class="dtd">&lt;!ELEMENT characterLabelPattern ( #PCDATA ) &gt; </p>
+	  		<p class="dtd">&lt;!ATTLIST characterLabelPattern type NMTOKEN #REQUIRED &gt;</p>
+	  		<p class="dtd">&lt;!ATTLIST characterLabelPattern count (0 | 1 | zero | one | two | few | many | other) #IMPLIED &gt;     &lt;!-- count only used for certain patterns&quot; --&gt;</p>
+	  		<p class="dtd">&lt;!ELEMENT characterLabel ( #PCDATA ) &gt; </p>
+	  		<p class="dtd">&lt;!ATTLIST characterLabel type NMTOKEN #REQUIRED &gt;</p>
+            <p>The character labels can be used for categories or groups of characters in a character picker or keyboard palette. They have the above structure. Items with special meanings are explained below. Many of the categories are based on terms used in Unicode. Consult the <a href='http://www.unicode.org/glossary/'>Unicode Glossary</a> where the meaning is not clear.</p>
+<p>The following are special patterns used in composing labels.</p>
+<table>
+<caption>characterLabelPattern</caption>
+<tr>
+  <th>Type</th>
+  <th>English</th>
+  <th>Description of the group specified.</th>
+</tr>
+<tr><th>all</th><td>{0} — all</td>
+<td>Used where the title {0} is just a subset. For example, {0} might be &quot;Latin&quot;, and contain the most common Latin characters. Then &quot;Latin — all&quot; would be all of them.</td></tr>
+<tr><th>category-list</th><td>{0}: {1}</td>
+<td>Use for a name, where {0} is the main item like &quot;Family&quot;, and {1} is a list of one or more components or subcategories. The list is formatted using a list pattern.</td></tr>
+<tr><th>compatibility</th><td>{0} — compatibility</td>
+<td>For grouping Unicode compatibility characters separately, such as &quot;Arabic — compatibility&quot;.</td></tr>
+<tr><th>enclosed</th><td>{0} — enclosed</td>
+<td>For indicating enclosed forms, such as &quot;digits — enclosed&quot;</td></tr>
+<tr><th>extended</th><td>{0} — extended</td>
+<td>For indicating a group of &quot;extended&quot; characters (special use, technical, etc.)</td></tr>
+<tr><th>historic</th><td>{0} — historic</td>
+  <td>For indicating a group of &quot;historic&quot; characters (no longer in common use).</td></tr>
+<tr><th>miscellaneous</th><td>{0} — miscellaneous</td>
+  <td>For indicating a group of &quot;miscellaneous&quot; characters (typically that don't fall into a broader class).</td></tr>
+<tr><th>other</th><td>{0} — other</td>
+  <td>Used where the title {0} is just a subset. For example, {0} might be &quot;Latin&quot;, and contain the most common Latin characters. Then &quot;Latin — other&quot; would be the rest of them.</td></tr>
+<tr><th>scripts</th><td>scripts — {0}</td>
+<td>For indicating a group of &quot;scripts&quot; characters matching {0}. The value for {0} may be a geographic indicator, like &quot;Africa&quot; (although there are specific combinations listed below), or some other designation, like &quot;other&quot; (from below).</td></tr>
+<tr>
+  <th>strokes</th><td>{0} strokes</td>
+  <td>Used as an index title for CJK characters. It takes a &quot;count&quot; value, which allows the right plural form to be specified for the language.</td></tr>
+</table>
+<p>The following are character labels. Where the meaning of the label is fairly clear (like "animal") or is in the Unicode glossary, it is omitted.</p>
+<table>
+<caption>characterLabel</caption>
+<tr><th>activities</th><td>activity</td>
+<td>Human activities, such as running.</td></tr>
+<tr><th>african_scripts</th><td>African script</td>
+<td>Scripts associated with the continent of Africa.</td></tr>
+<tr><th>american_scripts</th><td>American script</td>
+<td>Scripts associated with the continents of North and South America.</td></tr>
+<tr><th>animals_nature</th><td>animal or nature</td>
+  <td>A broad category uses for </td></tr>
+<tr><th>arrows</th><td>arrow</td>
+<td>Arrow symbols</td></tr>
+<tr><th>body</th><td>body</td>
+<td>Symbols for body parts, such as an arm.</td></tr>
+<tr><th>box_drawing</th><td>box drawing</td>
+<td>Unicode box-drawing characters (geometric shapes)</td></tr>
+<tr><th>bullets_stars</th><td>bullet or star</td>
+<td>Unicode bullets (such as • or ‣ or ⁍) or stars (★✩✪✵...)</td></tr>
+<tr><th>consonantal_jamo</th><td>consonantal jamo</td>
+  <td>Korean Jamo consonants.</td></tr>
+<tr><th>currency_symbols</th><td>currency symbol</td>
+  <td>Symbols such as $, ¥, £</td></tr>
+<tr><th>dash_connector</th><td>dash or connector</td>
+  <td>Characters like _ or ⁓</td></tr>
+<tr><th>dingbats</th><td>dingbat</td>
+<td>Font dingbat characters, such as ❿ or ♜.</td></tr>
+<tr><th>downwards_upwards_arrows</th><td>downwards upwards arrow</td>
+  <td>⇕,...</td></tr>
+<tr><th>female</th><td>female</td>
+<td>Indicates that a character is female or feminine in appearance.</td></tr>
+<tr><th>format</th><td>format</td>
+<td>A Unicode format character.</td></tr>
+<tr><th>format_whitespace</th><td>format &amp; whitespace</td>
+  <td>A Unicode format character or whitespace.</td></tr>
+<tr><th>full_width_form_variant</th><td>full-width variant</td>
+  <td>Full width variant, such as a wide A.</td></tr>
+<tr><th>half_width_form_variant</th><td>half-width variant</td>
+<td>Narrow width variant, such as a half-width katakana character.</td></tr>
+<tr><th>han_characters</th><td>Han character</td>
+  <td>Han (aka CJK: Chinese, Japanese, or Korean) ideograph</td></tr>
+<tr><th>han_radicals</th><td>Han radical</td>
+  <td>Radical (component) used in Han characters.</td></tr>
+<tr><th>hanja</th><td>hanja</td>
+  <td>Korean name for Han character.</td></tr>
+<tr><th>hanzi_simplified</th><td>Hanzi (simplified)</td>
+  <td>Simplified Chinese ideograph</td></tr>
+<tr><th>hanzi_traditional</th><td>Hanzi (traditional)</td>
+  <td>Traditional Chinese ideograph</td></tr>
+<tr><th>historic_scripts</th><td>historic script</td>
+  <td>Script no longer in common modern usage, such as Runes or Hieroglyphs.</td></tr>
+<tr><th>ideographic_desc_characters</th><td>ideographic desc. character</td>
+  <td>Special Unicode characters (see the glossary).</td></tr>
+<tr><th>kanji</th><td>kanji</td>
+  <td>Japanese Han ideograph</td></tr>
+<tr><th>keycap</th><td>keycap</td>
+  <td>A key on a computer keyboard or phone. For example, the &quot;3&quot; key on a phone or laptop would be &quot;keycap: 3&quot;</td></tr>
+<tr><th>limited_use</th><td>limited-use</td>
+<td>Not in common modern use.</td></tr>
+<tr><th>male</th><td>male</td>
+  <td>Indicates that a character is male or masculine in appearance.</td></tr>
+<tr><th>modifier</th><td>modifier</td>
+<td>A Unicode modifier letter or symbol.</td></tr>
+<tr><th>nonspacing</th><td>nonspacing</td>
+  <td>Uses for characters that occupy no width by themselves, such as the ¨ over the a in ä.</td></tr>
+</table>
+		  		<h3>
+			14.3 <a name="Typographic_Names" href="#Typographic_Names">Typographic Names</a>
+		</h3>
+
+		<p class='dtd'>&lt;!ELEMENT typographicNames ( alias | ( axisName*, styleName*, featureName*, special* ) ) &gt;</p>
+		<p class='dtd'>&lt;!ELEMENT axisName ( #PCDATA ) &gt;<br>
+		  &lt;!ATTLIST axisName type (ital | opsz | slnt | wdth | wght) #REQUIRED &gt;<br>
+	  &lt;!ATTLIST axisName alt NMTOKENS #IMPLIED &gt;</p>
+		<p class='dtd'>&lt;!ELEMENT styleName ( #PCDATA ) &gt;<br>
+		  &lt;!ATTLIST styleName type (ital | opsz | slnt | wdth | wght) #REQUIRED &gt;<br>
+		  &lt;!ATTLIST styleName subtype NMTOKEN #REQUIRED &gt;<br>
+	  &lt;!ATTLIST styleName alt NMTOKENS #IMPLIED &gt;</p>
+		<p class='dtd'>&lt;!ELEMENT featureName ( #PCDATA ) &gt;<br>
+		  &lt;!ATTLIST featureName type (afrc | cpsp | dlig | frac | lnum | onum | ordn | pnum | smcp | tnum | zero) #REQUIRED &gt;<br>
+	  &lt;!ATTLIST featureName alt NMTOKENS #IMPLIED &gt;</p>
+		<p>The typographic names provide for names of font features for use in a UI. This is useful for apps that show the name of font styles and design axes according to the user’s languages. It would also be useful for system-level libraries.</p>
+		<p>The identifers (types) use the tags from the OpenType Feature Tag Registry. Given their large number, only the names of frequently-used OpenType feature names are available CLDR. (Many features are not user-visible settings, but instead serve as a data channel for sofware to pass information to the font). 
+		The example below shows an approach for using the CLDR data. Of course, applications are free to implement their own algorithms depending on their specific needs.</p>
+<p>To find a localized subfamily name such as &ldquo;Extraleicht Schmal&rdquo; for a font called &ldquo;Extralight Condensed&rdquo;, a system or application library might do the following: </p>
+        <ol>
+          <li>
+            <p>Determine the set of languages in which the subfamily name can potentially be returned.This is the union of the languages for which the font contains &lsquo;name&rsquo; table entries with ID 2 or 17, plus the languages for which CLDR supplies typographic names. </p>
+          </li>
+          <li>
+            <p>Use a language matching algorithm such as in ICU to find the best available language given the user preferences. The resulting subfamily name will be localized to this language. </p>
+          </li>
+          <li>
+            <p>If the font&rsquo;s &lsquo;name&rsquo; table contains a typographic subfamily name (ID17) in this language and all font variation axes are set to their defaults, return this name. </p>
+          </li>
+          <li>
+            <p>If the font&rsquo;s &lsquo;name&rsquo; table contains a font subfamilyname (&lsquo;name&rsquo;ID2) in this language and all font variation axes are set to their defaults, return this name. </p>
+          </li>
+          <li>
+            <p>If the font has a style attributes (STAT) table, lookup the design axis tags and their ordering. If the font has no STAT table, assume [Width, Weight, Slant] as axis ordering, and infer the font&rsquo;s style atributes from other available data in the font (eg. the OS/2 table). </p>
+          </li>
+          <li>For each design axis, find a localized style name for its value.
+             <ol>
+            <li>If the font&rsquo;s style attributes point to a &lsquo;name&rsquo; table entry that is available the result language, use this name.</li>
+            <li>Otherwise, generate a fallback name from CLDR style Name data. 
+               <ol>
+                <li>The type key is the OpenType axis tag ( &lsquo;wght&rsquo;). The subtype and alt keys are taken from the entry in English CLDR where the string is equal to the English name in the font. For example, when the font uses a weight whose English style name is &ldquo;Extralight&rdquo;, this will lead to subtype = &ldquo;200&rdquo; and alt = &ldquo;variant&rdquo;. If there is no match, take the axis value (&ldquo;200&rdquo;) for subtype and the empty string for alt. </li>
+              <li>Look up (type, subtype) in a data table derived from CLDR&rsquo;s style names. If CLDR supplies multiple alternate names for this (type, subtype), use the one whose &ldquo;alt&rdquo; key is matching; otherwise, use the default alternate (which has no &ldquo;alt&rdquo; atribute in CLDR).</li>
+            </ol>
+          </li>
+        </ol>
+        </li>
+        <li>Concatenate the strings, with a separator between them.</li>
+        </ol>
+
+	  <hr>
+		<p class="copyright">
+			Copyright © 2001–2018 Unicode, Inc. All
+			Rights Reserved. The Unicode Consortium makes no expressed or implied
+			warranty of any kind, and assumes no liability for errors or
+			omissions. No liability is assumed for incidental and consequential
+			damages in connection with or arising out of the use of the
+			information or programs contained or accompanying this technical
+			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
+				of Use</a> apply.
+		</p>
+		<p class="copyright">Unicode and the Unicode logo are trademarks
+			of Unicode, Inc., and are registered in some jurisdictions.</p>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,1753 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2018 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="hy"/>
+	</identity>
+	<localeDisplayNames>
+		<subdivisions>
+			<subdivision type="ad02" draft="contributed">Կանիլո</subdivision>
+			<subdivision type="ad03" draft="contributed">Էնկամպ</subdivision>
+			<subdivision type="ad04" draft="contributed">Լա Մասսանա</subdivision>
+			<subdivision type="ad05" draft="contributed">Օրդինո</subdivision>
+			<subdivision type="ad06" draft="contributed">Սանթ Ժուլիա դե Լորիա</subdivision>
+			<subdivision type="ad08" draft="contributed">Էսքալդես-Էնդորգան</subdivision>
+			<subdivision type="aeaj" draft="contributed">Աջմանի Էմիրություն</subdivision>
+			<subdivision type="aeaz" draft="contributed">Աբու Դաբիի Էմիրություն</subdivision>
+			<subdivision type="aedu" draft="contributed">Դուբայի Էմիրություն</subdivision>
+			<subdivision type="aefu" draft="contributed">Ֆուջեյրայի Էմիրություն</subdivision>
+			<subdivision type="aerk" draft="contributed">Ռաս-ալ-Խայմայի էմիրություն</subdivision>
+			<subdivision type="aesh" draft="contributed">Շարժայի Էմիրություն</subdivision>
+			<subdivision type="aeuq" draft="contributed">Ումմ ալ-Քուվեյնի Էմիրություն</subdivision>
+			<subdivision type="afbam" draft="contributed">Բամիան</subdivision>
+			<subdivision type="afbdg" draft="contributed">Բադղիս</subdivision>
+			<subdivision type="afbds" draft="contributed">Բադախշան</subdivision>
+			<subdivision type="afgha" draft="contributed">Ղազնի</subdivision>
+			<subdivision type="afhel" draft="contributed">Հիլմենդ</subdivision>
+			<subdivision type="afkan" draft="contributed">Ղանդահար վիլայեթ</subdivision>
+			<subdivision type="afnim" draft="contributed">Նիմրուզ</subdivision>
+			<subdivision type="aftak" draft="contributed">Տախար</subdivision>
+			<subdivision type="al01" draft="contributed">Բերատի գավառ</subdivision>
+			<subdivision type="al02" draft="contributed">Դուրրես</subdivision>
+			<subdivision type="al03" draft="contributed">Էլբասանի գավառ</subdivision>
+			<subdivision type="al04" draft="contributed">Ֆիերիի գավառ</subdivision>
+			<subdivision type="al05" draft="contributed">Գիրոկաստրայի գավառ</subdivision>
+			<subdivision type="al06" draft="contributed">Կորչայի գավառ</subdivision>
+			<subdivision type="al07" draft="contributed">Կուկասի գավառ</subdivision>
+			<subdivision type="al08" draft="contributed">Լեժա</subdivision>
+			<subdivision type="al09" draft="contributed">Դիբարի գավառ</subdivision>
+			<subdivision type="al10" draft="contributed">Շկոդեր</subdivision>
+			<subdivision type="al11" draft="contributed">Տիրանայի գավառ</subdivision>
+			<subdivision type="al12" draft="contributed">Վլյորա</subdivision>
+			<subdivision type="amag" draft="contributed">Արագածոտնի մարզ</subdivision>
+			<subdivision type="amar" draft="contributed">Արարատի մարզ</subdivision>
+			<subdivision type="amav" draft="contributed">Արմավիրի մարզ</subdivision>
+			<subdivision type="amer" draft="contributed">Երևան</subdivision>
+			<subdivision type="amgr" draft="contributed">Գեղարքունիքի մարզ</subdivision>
+			<subdivision type="amkt" draft="contributed">Կոտայքի մարզ</subdivision>
+			<subdivision type="amlo" draft="contributed">Լոռու մարզ</subdivision>
+			<subdivision type="amsh" draft="contributed">Շիրակի մարզ</subdivision>
+			<subdivision type="amsu" draft="contributed">Սյունիքի մարզ</subdivision>
+			<subdivision type="amtv" draft="contributed">Տավուշի մարզ</subdivision>
+			<subdivision type="amvd" draft="contributed">Վայոց ձորի մարզ</subdivision>
+			<subdivision type="ara" draft="contributed">Սալտա</subdivision>
+			<subdivision type="arb" draft="contributed">Բուենոս Այրես</subdivision>
+			<subdivision type="arc" draft="contributed">Բուենոս Այրես²</subdivision>
+			<subdivision type="ard" draft="contributed">Սան Լուիս</subdivision>
+			<subdivision type="are" draft="contributed">Էնտրե Ռիոս</subdivision>
+			<subdivision type="arf" draft="contributed">Լա Ռիոխա</subdivision>
+			<subdivision type="arh" draft="contributed">Չակո</subdivision>
+			<subdivision type="arq" draft="contributed">Նեուկեն</subdivision>
+			<subdivision type="arr" draft="contributed">Ռիո Նեգրո պրովինցիա</subdivision>
+			<subdivision type="ars" draft="contributed">Սանտա Ֆե նահանգ</subdivision>
+			<subdivision type="aru" draft="contributed">Չուբուտ</subdivision>
+			<subdivision type="arv" draft="contributed">Հրո Երկիր, Անտարկտիդա և Հարավային Ատլանտիկայի կղզիներ</subdivision>
+			<subdivision type="arx" draft="contributed">Կորդովա</subdivision>
+			<subdivision type="ary" draft="contributed">Խուխույ</subdivision>
+			<subdivision type="arz" draft="contributed">Սանտա Կրուս</subdivision>
+			<subdivision type="at1" draft="contributed">Բուրգենլանդ</subdivision>
+			<subdivision type="at2" draft="contributed">Կարինտիա</subdivision>
+			<subdivision type="at3" draft="contributed">Ստորին Ավստրիա</subdivision>
+			<subdivision type="at4" draft="contributed">Վերին Ավստրիա</subdivision>
+			<subdivision type="at5" draft="contributed">Զալցբուրգ</subdivision>
+			<subdivision type="at6" draft="contributed">Շտիրիա</subdivision>
+			<subdivision type="at7" draft="contributed">Տիրոլ</subdivision>
+			<subdivision type="at8" draft="contributed">Ֆորալբերգ</subdivision>
+			<subdivision type="at9" draft="contributed">Վիեննա</subdivision>
+			<subdivision type="auact" draft="contributed">Ավստրալիական մայրաքաղաքային տարածք</subdivision>
+			<subdivision type="aunsw" draft="contributed">Նոր Հարավային Ուելս</subdivision>
+			<subdivision type="aunt" draft="contributed">Հյուսիսային տարածք</subdivision>
+			<subdivision type="auqld" draft="contributed">Քվինսլենդ</subdivision>
+			<subdivision type="ausa" draft="contributed">Հարավային Ավստրալիա</subdivision>
+			<subdivision type="autas" draft="contributed">Թասմանիա</subdivision>
+			<subdivision type="auvic" draft="contributed">Վիկտորիա</subdivision>
+			<subdivision type="auwa" draft="contributed">Արևմտյան Ավստրալիա</subdivision>
+			<subdivision type="azabs" draft="contributed">Ապշերոնի շրջան</subdivision>
+			<subdivision type="azaga" draft="contributed">Աղստևի շրջան</subdivision>
+			<subdivision type="azagc" draft="contributed">Աղջաբեդի շրջան</subdivision>
+			<subdivision type="azags" draft="contributed">Աղդաշի շրջան</subdivision>
+			<subdivision type="azagu" draft="contributed">Աղսուի շրջան</subdivision>
+			<subdivision type="azast" draft="contributed">Աստարայի շրջան</subdivision>
+			<subdivision type="azba" draft="contributed">Բաքու</subdivision>
+			<subdivision type="azbab" draft="contributed">Բաբեկի շրջան</subdivision>
+			<subdivision type="azcul" draft="contributed">Ջուղայի շրջան</subdivision>
+			<subdivision type="azdas" draft="contributed">Դաշկեսանի շրջան</subdivision>
+			<subdivision type="azfuz" draft="contributed">Ֆիզուլիի շրջան</subdivision>
+			<subdivision type="azga" draft="contributed">Գանձակ</subdivision>
+			<subdivision type="azgad" draft="contributed">Գետաբեկի շրջան</subdivision>
+			<subdivision type="azgor" draft="contributed">Գերանբոյի շրջան</subdivision>
+			<subdivision type="azgyg" draft="contributed">Գոյգյոլի շրջան</subdivision>
+			<subdivision type="azhac" draft="contributed">Հաջիգաբուլի շրջան</subdivision>
+			<subdivision type="azkan" draft="contributed">Քենգերլիի շրջան</subdivision>
+			<subdivision type="azlan" draft="contributed">Լենքորան</subdivision>
+			<subdivision type="azmi" draft="contributed">Մինգեչաուր</subdivision>
+			<subdivision type="aznv" draft="contributed">Նախիջևան</subdivision>
+			<subdivision type="aznx" draft="contributed">Նախիջևանի Ինքնավար Հանրապետություն</subdivision>
+			<subdivision type="azogu" draft="contributed">Վարդաշենի շրջան</subdivision>
+			<subdivision type="azord" draft="contributed">Որդուարի շրջան</subdivision>
+			<subdivision type="azqaz" draft="contributed">Ղազախի շրջան</subdivision>
+			<subdivision type="azsa" draft="contributed">Շաքի</subdivision>
+			<subdivision type="azsad" draft="contributed">Սանդրուքի շրջան</subdivision>
+			<subdivision type="azsah" draft="contributed">Շահբուզի շրջան</subdivision>
+			<subdivision type="azsak" draft="contributed">Շաքիի շրջան</subdivision>
+			<subdivision type="azsar" draft="contributed">Շարուրի շրջան</subdivision>
+			<subdivision type="azskr" draft="contributed">Շամխորի շրջան</subdivision>
+			<subdivision type="azsm" draft="contributed">Սումգայիթ</subdivision>
+			<subdivision type="azsr" draft="contributed">Շիրվան</subdivision>
+			<subdivision type="azsus" draft="contributed">Շուշիի շրջան</subdivision>
+			<subdivision type="aztar" draft="contributed">Թարթառի շրջան</subdivision>
+			<subdivision type="aztov" draft="contributed">Թովուզի շրջան</subdivision>
+			<subdivision type="azxa" draft="contributed">Ստեփանակերտ</subdivision>
+			<subdivision type="azxci" draft="contributed">Խոջալուի շրջան</subdivision>
+			<subdivision type="azye" draft="contributed">Եվլախ</subdivision>
+			<subdivision type="azzaq" draft="contributed">Զաքաթալայի շրջան</subdivision>
+			<subdivision type="babih" draft="contributed">Բոսնիա և Հերցեգովինա ֆեդերացիա</subdivision>
+			<subdivision type="basrp" draft="contributed">Սերբական Հանրապետություն</subdivision>
+			<subdivision type="bb08" draft="contributed">Սեն Միշել</subdivision>
+			<subdivision type="bebru" draft="contributed">Բրյուսել</subdivision>
+			<subdivision type="bevan" draft="contributed">Անտվերպեն</subdivision>
+			<subdivision type="bevbr" draft="contributed">Ֆլամանդական Բրաբանտ</subdivision>
+			<subdivision type="bevlg" draft="contributed">Ֆլանդրիա</subdivision>
+			<subdivision type="bevli" draft="contributed">Լիմբուրգ</subdivision>
+			<subdivision type="bevov" draft="contributed">Արևելյան Ֆլանդրիա</subdivision>
+			<subdivision type="bevwv" draft="contributed">Արևմտյան Ֆլանդրիա</subdivision>
+			<subdivision type="bewal" draft="contributed">Վալոնիա</subdivision>
+			<subdivision type="bewbr" draft="contributed">Վալոնյան Բրաբանտ</subdivision>
+			<subdivision type="bewht" draft="contributed">Էնո</subdivision>
+			<subdivision type="bewlg" draft="contributed">Լիեժ</subdivision>
+			<subdivision type="bewlx" draft="contributed">Լյուքսեմբուրգ</subdivision>
+			<subdivision type="bewna" draft="contributed">Նամյուր</subdivision>
+			<subdivision type="bg01" draft="contributed">Բլագոևգրադի մարզ</subdivision>
+			<subdivision type="bg02" draft="contributed">Բուրգասի մարզ</subdivision>
+			<subdivision type="bg03" draft="contributed">Վարնայի մարզ</subdivision>
+			<subdivision type="bg04" draft="contributed">Վելիկո Տիրնովոյի մարզ</subdivision>
+			<subdivision type="bg05" draft="contributed">Վիդինի մարզ</subdivision>
+			<subdivision type="bg06" draft="contributed">Վրաչայի մարզ</subdivision>
+			<subdivision type="bg07" draft="contributed">Գաբրովոյի մարզ</subdivision>
+			<subdivision type="bg08" draft="contributed">Դոբրիչի մարզ</subdivision>
+			<subdivision type="bg09" draft="contributed">Կարջալիի մարզ</subdivision>
+			<subdivision type="bg10" draft="contributed">Կյուստենդիլի մարզ</subdivision>
+			<subdivision type="bg11" draft="contributed">Լովեչի մարզ</subdivision>
+			<subdivision type="bg12" draft="contributed">Մոնտանայի մարզ</subdivision>
+			<subdivision type="bg13" draft="contributed">Պազարջիկի մարզ</subdivision>
+			<subdivision type="bg14" draft="contributed">Պերնիկի մարզ</subdivision>
+			<subdivision type="bg15" draft="contributed">Պլևենի մարզ</subdivision>
+			<subdivision type="bg16" draft="contributed">Պլովդիվի մարզ</subdivision>
+			<subdivision type="bg17" draft="contributed">Ռազգրադի մարզ</subdivision>
+			<subdivision type="bg18" draft="contributed">Ռուսեի մարզ</subdivision>
+			<subdivision type="bg19" draft="contributed">Սիլիստրայի մարզ</subdivision>
+			<subdivision type="bg20" draft="contributed">Սլիվենի մարզ</subdivision>
+			<subdivision type="bg21" draft="contributed">Սմոլյանի մարզ</subdivision>
+			<subdivision type="bg23" draft="contributed">Սոֆիայի մարզ</subdivision>
+			<subdivision type="bg24" draft="contributed">Ստարա Զագորայի մարզ</subdivision>
+			<subdivision type="bg25" draft="contributed">Տարգովիշտեի մարզ</subdivision>
+			<subdivision type="bg26" draft="contributed">Հասկովոյի մարզ</subdivision>
+			<subdivision type="bg27" draft="contributed">Շումենի մարզ</subdivision>
+			<subdivision type="bg28" draft="contributed">Յամբոլի մարզ</subdivision>
+			<subdivision type="bh14" draft="contributed">Հարավային մուհաֆազա</subdivision>
+			<subdivision type="bibb" draft="contributed">Բուբանզա շրջան</subdivision>
+			<subdivision type="biki" draft="contributed">Կիրունդո շրջան</subdivision>
+			<subdivision type="bikr" draft="contributed">Կարուզի շրջան</subdivision>
+			<subdivision type="bimu" draft="contributed">Մուրամվյա շրջան</subdivision>
+			<subdivision type="birt" draft="contributed">Ռուտանա շրջան</subdivision>
+			<subdivision type="bqbo" draft="contributed">Բոնեյրե</subdivision>
+			<subdivision type="bqsa" draft="contributed">Սաբա կղզի</subdivision>
+			<subdivision type="bqse" draft="contributed">Սինտ Էվստատիուս</subdivision>
+			<subdivision type="bral" draft="contributed">Ալագոաս</subdivision>
+			<subdivision type="bram" draft="contributed">Ամազոնաս</subdivision>
+			<subdivision type="brap" draft="contributed">Ամապա</subdivision>
+			<subdivision type="brba" draft="contributed">Իտամարաժու</subdivision>
+			<subdivision type="bres" draft="contributed">Էսպիրիտո Սանտո</subdivision>
+			<subdivision type="brgo" draft="contributed">Գոյաս</subdivision>
+			<subdivision type="brma" draft="contributed">Մարանյան</subdivision>
+			<subdivision type="brmg" draft="contributed">Մինաս Ժերաիս</subdivision>
+			<subdivision type="brms" draft="contributed">Մատու Գրոսու դու Սուլ</subdivision>
+			<subdivision type="brmt" draft="contributed">Մատու Գրոսու</subdivision>
+			<subdivision type="brpa" draft="contributed">Պարա</subdivision>
+			<subdivision type="brpb" draft="contributed">Պարաիբա</subdivision>
+			<subdivision type="brpe" draft="contributed">Պերնամբուկու</subdivision>
+			<subdivision type="brpi" draft="contributed">Պիաուի</subdivision>
+			<subdivision type="brpr" draft="contributed">Պարանա</subdivision>
+			<subdivision type="brrj" draft="contributed">Ռիո դե Ժանեյրո</subdivision>
+			<subdivision type="brrn" draft="contributed">Ռիու Գրանդի դու Նորտի</subdivision>
+			<subdivision type="brro" draft="contributed">Ռոնդոնիա</subdivision>
+			<subdivision type="brrs" draft="contributed">Ռիու Գրանդի դու Սուլ</subdivision>
+			<subdivision type="brsc" draft="contributed">Սանտա Կատարինա</subdivision>
+			<subdivision type="brse" draft="contributed">Սերժիպի</subdivision>
+			<subdivision type="brsp" draft="contributed">Սան Պաուլու</subdivision>
+			<subdivision type="bwga" draft="contributed">Գաբորոնե</subdivision>
+			<subdivision type="bybr" draft="contributed">Բրեստի մարզ</subdivision>
+			<subdivision type="byhm" draft="contributed">Մինսկ</subdivision>
+			<subdivision type="byho" draft="contributed">Գոմելի մարզ</subdivision>
+			<subdivision type="byhr" draft="contributed">Գրոդնոյի մարզ</subdivision>
+			<subdivision type="byma" draft="contributed">Մոգիլյովի մարզ</subdivision>
+			<subdivision type="bymi" draft="contributed">Մինսկի մարզ</subdivision>
+			<subdivision type="byvi" draft="contributed">Վիտեբսկի մարզ</subdivision>
+			<subdivision type="caab" draft="contributed">Ալբերտա</subdivision>
+			<subdivision type="cabc" draft="contributed">Բրիտանական Կոլումբիա</subdivision>
+			<subdivision type="camb" draft="contributed">Մանիթոբա</subdivision>
+			<subdivision type="canb" draft="contributed">Նյու Բրանսուիկ</subdivision>
+			<subdivision type="canl" draft="contributed">Նյուֆաունդլենդ և Լաբրադոր</subdivision>
+			<subdivision type="cans" draft="contributed">Նոր Շոտլանդիա</subdivision>
+			<subdivision type="cant" draft="contributed">Հյուսիսարևմտյան տարածքներ</subdivision>
+			<subdivision type="canu" draft="contributed">Նունավութ</subdivision>
+			<subdivision type="caon" draft="contributed">Օնտարիո</subdivision>
+			<subdivision type="cape" draft="contributed">Էդուարդ արքայազնի կղզի</subdivision>
+			<subdivision type="caqc" draft="contributed">Քվեբեք</subdivision>
+			<subdivision type="cask" draft="contributed">Սասկաչևան</subdivision>
+			<subdivision type="cayt" draft="contributed">Յուկոն</subdivision>
+			<subdivision type="cdbc" draft="contributed">Ներքին Կոնգո</subdivision>
+			<subdivision type="cdhk" draft="contributed">Վերին Կատանգա</subdivision>
+			<subdivision type="cdhl" draft="contributed">Վերին Լոմամի</subdivision>
+			<subdivision type="cdhu" draft="contributed">Վերին Ուելե</subdivision>
+			<subdivision type="cdke" draft="contributed">Արևելյան Կասայ</subdivision>
+			<subdivision type="cdkl" draft="contributed">Կվիլու</subdivision>
+			<subdivision type="cdkn" draft="contributed">Կինշասա</subdivision>
+			<subdivision type="cfbgf" draft="contributed">Բանգի</subdivision>
+			<subdivision type="cgbzv" draft="contributed">Բրազավիլ</subdivision>
+			<subdivision type="chag" draft="contributed">Արգաու</subdivision>
+			<subdivision type="chbl" draft="contributed">Բազել-Լանդ</subdivision>
+			<subdivision type="chge" draft="contributed">Ժնև</subdivision>
+			<subdivision type="chgr" draft="contributed">Գրաուբյուդեն</subdivision>
+			<subdivision type="chnw" draft="contributed">Նիդվալդեն</subdivision>
+			<subdivision type="chsz" draft="contributed">Շվից</subdivision>
+			<subdivision type="chti" draft="contributed">Տիչինո</subdivision>
+			<subdivision type="chzh" draft="contributed">Ցյուրիխ</subdivision>
+			<subdivision type="ciab" draft="contributed">Աբիջան</subdivision>
+			<subdivision type="ciym" draft="contributed">Յամուսուկրո</subdivision>
+			<subdivision type="clai" draft="contributed">Այսեն</subdivision>
+			<subdivision type="clan" draft="contributed">Անտոֆագաստա</subdivision>
+			<subdivision type="clap" draft="contributed">Արիկա և Պարինակոտա</subdivision>
+			<subdivision type="clar" draft="contributed">Արուկանիա</subdivision>
+			<subdivision type="clat" draft="contributed">Ատակամա</subdivision>
+			<subdivision type="clbi" draft="contributed">Բիոբիո</subdivision>
+			<subdivision type="clco" draft="contributed">Կոկիմբո</subdivision>
+			<subdivision type="clll" draft="contributed">Լոս Լագոս</subdivision>
+			<subdivision type="cllr" draft="contributed">Լոս Ռիոս</subdivision>
+			<subdivision type="clma" draft="contributed">Մագալանես և Չիլիական Անտարկտիկա</subdivision>
+			<subdivision type="clml" draft="contributed">Մաուլե</subdivision>
+			<subdivision type="clrm" draft="contributed">Սանտյագոյի մայրաքաղաքային տարածաշրջան</subdivision>
+			<subdivision type="clta" draft="contributed">Տարապակա</subdivision>
+			<subdivision type="clvs" draft="contributed">Վալպարաիսո</subdivision>
+			<subdivision type="cmes" draft="contributed">Արևելյան շրջան</subdivision>
+			<subdivision type="cmlt" draft="contributed">Լիտտորալ</subdivision>
+			<subdivision type="cmou" draft="contributed">Արևմտյան շրջան</subdivision>
+			<subdivision type="cmsw" draft="contributed">Հարավարևմտյան շրջան</subdivision>
+			<subdivision type="cnah" draft="contributed">Անհոյ</subdivision>
+			<subdivision type="cnbj" draft="contributed">Պեկին</subdivision>
+			<subdivision type="cnfj" draft="contributed">Ֆուցզյան</subdivision>
+			<subdivision type="cngd" draft="contributed">Գուանդուն</subdivision>
+			<subdivision type="cngx" draft="contributed">Գուանսի-Չժոունի ինքնավար շրջան</subdivision>
+			<subdivision type="cngz" draft="contributed">Գույչժոու</subdivision>
+			<subdivision type="cnha" draft="contributed">Հենան</subdivision>
+			<subdivision type="cnhe" draft="contributed">Հեբեյ</subdivision>
+			<subdivision type="cnhk" draft="contributed">Հոնկոնգ</subdivision>
+			<subdivision type="cnhl" draft="contributed">Հեյլունցզյան</subdivision>
+			<subdivision type="cnjl" draft="contributed">Գիրին</subdivision>
+			<subdivision type="cnjs" draft="contributed">Ցզյանսու</subdivision>
+			<subdivision type="cnjx" draft="contributed">Ցզյանսի</subdivision>
+			<subdivision type="cnln" draft="contributed">Լյաոնին</subdivision>
+			<subdivision type="cnmo" draft="contributed">Մակաու</subdivision>
+			<subdivision type="cnnx" draft="contributed">Նինսյա-Խուեյ</subdivision>
+			<subdivision type="cnqh" draft="contributed">Ցինհայ</subdivision>
+			<subdivision type="cnsc" draft="contributed">Սիչուան</subdivision>
+			<subdivision type="cnsd" draft="contributed">Շանդուն</subdivision>
+			<subdivision type="cnsh" draft="contributed">Շանհայ</subdivision>
+			<subdivision type="cnsn" draft="contributed">Շենսի</subdivision>
+			<subdivision type="cnsx" draft="contributed">Շանսի</subdivision>
+			<subdivision type="cntj" draft="contributed">Տյանցզին</subdivision>
+			<subdivision type="cnxz" draft="contributed">Տիբեթի ինքնավար շրջան</subdivision>
+			<subdivision type="cnyn" draft="contributed">Յունան</subdivision>
+			<subdivision type="cnzj" draft="contributed">Չժեցզյան</subdivision>
+			<subdivision type="coama" draft="contributed">Ամազոնաս</subdivision>
+			<subdivision type="coant" draft="contributed">Անտիոքիա</subdivision>
+			<subdivision type="cobol" draft="contributed">Բոլիվար</subdivision>
+			<subdivision type="cocau" draft="contributed">Կաուկա</subdivision>
+			<subdivision type="cocho" draft="contributed">Չոկո</subdivision>
+			<subdivision type="codc" draft="contributed">Բոգոտա</subdivision>
+			<subdivision type="comag" draft="contributed">Մագդալենա շրջան</subdivision>
+			<subdivision type="cra" draft="contributed">Ալախուելա</subdivision>
+			<subdivision type="crc" draft="contributed">Կարտագո</subdivision>
+			<subdivision type="crg" draft="contributed">Գուանակաստե</subdivision>
+			<subdivision type="crh" draft="contributed">Էրեդիա</subdivision>
+			<subdivision type="crl" draft="contributed">Լիմոն</subdivision>
+			<subdivision type="crp" draft="contributed">Պունտարենաս</subdivision>
+			<subdivision type="crsj" draft="contributed">Սան Խոսե</subdivision>
+			<subdivision type="cu04" draft="contributed">Մատանսաս</subdivision>
+			<subdivision type="cu99" draft="contributed">Խուվենտուդ</subdivision>
+			<subdivision type="cvta" draft="contributed">Տարրաֆալ</subdivision>
+			<subdivision type="cy01" draft="contributed">Նիկոսիայի շրջան</subdivision>
+			<subdivision type="cy02" draft="contributed">Լիմասոլի շրջան</subdivision>
+			<subdivision type="cy03" draft="contributed">Լարնակայի շրջան</subdivision>
+			<subdivision type="cy04" draft="contributed">Ֆամագուստայի շրջան</subdivision>
+			<subdivision type="cy05" draft="contributed">Պաֆոսի շրջան</subdivision>
+			<subdivision type="cy06" draft="contributed">Կիրենիայի շրջան</subdivision>
+			<subdivision type="cz10" draft="contributed">Պրահա</subdivision>
+			<subdivision type="cz20" draft="contributed">Կենտրոնաչեխական շրջան</subdivision>
+			<subdivision type="cz20b" draft="contributed">Նիմբուրկի շրջան</subdivision>
+			<subdivision type="cz20c" draft="contributed">Արևելապրահյան շրջան</subdivision>
+			<subdivision type="cz63" draft="contributed">Վիսոչինի ծայրամաս</subdivision>
+			<subdivision type="cz64" draft="contributed">Հարավային Մորավիայի շրջան</subdivision>
+			<subdivision type="cz72" draft="contributed">Զլինի երկրամաս</subdivision>
+			<subdivision type="cz101" draft="contributed">Պրահա 1</subdivision>
+			<subdivision type="cz102" draft="contributed">Պրահա 2</subdivision>
+			<subdivision type="cz103" draft="contributed">Պրահա 3</subdivision>
+			<subdivision type="cz104" draft="contributed">Պրահա 4</subdivision>
+			<subdivision type="cz105" draft="contributed">Պրահա 5</subdivision>
+			<subdivision type="cz106" draft="contributed">Պրահա 6</subdivision>
+			<subdivision type="cz107" draft="contributed">Պրահա 7</subdivision>
+			<subdivision type="cz108" draft="contributed">Պրահա 8</subdivision>
+			<subdivision type="cz109" draft="contributed">Պրահա 9</subdivision>
+			<subdivision type="cz110" draft="contributed">Պրահա 10</subdivision>
+			<subdivision type="cz111" draft="contributed">Պրահա 11</subdivision>
+			<subdivision type="cz112" draft="contributed">Պրահա 12</subdivision>
+			<subdivision type="cz113" draft="contributed">Պրահա 13</subdivision>
+			<subdivision type="cz114" draft="contributed">Պրահա 14</subdivision>
+			<subdivision type="cz115" draft="contributed">Պրահա 15</subdivision>
+			<subdivision type="cz116" draft="contributed">Պրահա 16</subdivision>
+			<subdivision type="cz117" draft="contributed">Պրահա17</subdivision>
+			<subdivision type="cz118" draft="contributed">Պրահա 18</subdivision>
+			<subdivision type="cz120" draft="contributed">Պրահա 20</subdivision>
+			<subdivision type="cz121" draft="contributed">Պրահա 21</subdivision>
+			<subdivision type="cz122" draft="contributed">Պրահա 22</subdivision>
+			<subdivision type="cz201" draft="contributed">Խեբի շրջան</subdivision>
+			<subdivision type="cz202" draft="contributed">Կարլովի Վարիի շրջան</subdivision>
+			<subdivision type="cz203" draft="contributed">Սոկոլովի շրջան</subdivision>
+			<subdivision type="cz204" draft="contributed">Բենեշովի շրջան</subdivision>
+			<subdivision type="cz205" draft="contributed">Բերոունի շրջան</subdivision>
+			<subdivision type="cz206" draft="contributed">Կլադնոյի շրջան</subdivision>
+			<subdivision type="cz207" draft="contributed">Կոլինի շրջան</subdivision>
+			<subdivision type="cz208" draft="contributed">Կուտնա Հորայի շրջան</subdivision>
+			<subdivision type="cz209" draft="contributed">Պրահայի արևելք</subdivision>
+			<subdivision type="cz311" draft="contributed">Չեսկե Բուդեյովիցեի շրջան</subdivision>
+			<subdivision type="cz312" draft="contributed">Չեսկե Կրումլովի շրջան</subdivision>
+			<subdivision type="cz313" draft="contributed">Յինդրիխուվ Հրադեցի շրջան</subdivision>
+			<subdivision type="cz314" draft="contributed">Պիսեկի շրջան</subdivision>
+			<subdivision type="cz315" draft="contributed">Պրախատիցեի շրջան</subdivision>
+			<subdivision type="cz316" draft="contributed">Ստրակոնիցեի շրջան</subdivision>
+			<subdivision type="cz317" draft="contributed">Տաբորի շրջան</subdivision>
+			<subdivision type="cz321" draft="contributed">Դոմաժլիցեի շրջան</subdivision>
+			<subdivision type="cz322" draft="contributed">Կլատովի շրջան</subdivision>
+			<subdivision type="cz326" draft="contributed">Ռոկիցանկի շրջան</subdivision>
+			<subdivision type="cz327" draft="contributed">Տախովի շրջան</subdivision>
+			<subdivision type="cz411" draft="contributed">Նախոդի շրջան</subdivision>
+			<subdivision type="cz412" draft="contributed">Ռիխնով-նադ-Կնեժնոուի շրջան</subdivision>
+			<subdivision type="cz413" draft="contributed">Տրուտնովի շրջան</subdivision>
+			<subdivision type="cz421" draft="contributed">Դեչինի շրջան</subdivision>
+			<subdivision type="cz422" draft="contributed">Խոմուտովի շրջան</subdivision>
+			<subdivision type="cz423" draft="contributed">Լիտոմերիցեի շրջան</subdivision>
+			<subdivision type="cz424" draft="contributed">Լոունի շրջան</subdivision>
+			<subdivision type="cz425" draft="contributed">Մոստի շրջան</subdivision>
+			<subdivision type="cz426" draft="contributed">Տեպլիցեի շրջան</subdivision>
+			<subdivision type="cz427" draft="contributed">Ուստի-նադ-Լաբեմի շրջան</subdivision>
+			<subdivision type="cz511" draft="contributed">Չեսկա Լիպայի շրջան</subdivision>
+			<subdivision type="cz512" draft="contributed">Յաբլոնեց-նադ-Նիսոուի շրջան</subdivision>
+			<subdivision type="cz513" draft="contributed">Լիբերեցի շրջան</subdivision>
+			<subdivision type="cz514" draft="contributed">Սեմիլիի շրջան</subdivision>
+			<subdivision type="cz521" draft="contributed">Արևմտապրահյան շրջան</subdivision>
+			<subdivision type="cz522" draft="contributed">Պրիբրամի շրջան</subdivision>
+			<subdivision type="cz523" draft="contributed">Ռակովնիկի շրջան</subdivision>
+			<subdivision type="cz524" draft="contributed">Հրադեց Կրալովեի շրջան</subdivision>
+			<subdivision type="cz525" draft="contributed">Յիչինի շրջան</subdivision>
+			<subdivision type="cz531" draft="contributed">Խրուդիմի շրջան</subdivision>
+			<subdivision type="cz532" draft="contributed">Պարուբիցեի շրջան</subdivision>
+			<subdivision type="cz533" draft="contributed">Սվիտավիի շրջան</subdivision>
+			<subdivision type="cz534" draft="contributed">Ուստի-նադ-Օրլիցի շրջան</subdivision>
+			<subdivision type="cz631" draft="contributed">Հավլիչկուվ Բրոդի շրջան</subdivision>
+			<subdivision type="cz632" draft="contributed">Յիհլավայի շրջան</subdivision>
+			<subdivision type="cz633" draft="contributed">Պելհրիմովի շրջան</subdivision>
+			<subdivision type="cz634" draft="contributed">Տրեբիչի շրջան</subdivision>
+			<subdivision type="cz635" draft="contributed">Զդար-նադ-Սազավոուի շրջան</subdivision>
+			<subdivision type="cz641" draft="contributed">Բլանսկոյի շրջան</subdivision>
+			<subdivision type="cz643" draft="contributed">Բրնո-վենկովի շրջան</subdivision>
+			<subdivision type="cz644" draft="contributed">Բրեցլավի շրջան</subdivision>
+			<subdivision type="cz645" draft="contributed">Հոդոնինի շրջան</subdivision>
+			<subdivision type="cz646" draft="contributed">Վիշկովի շրջան</subdivision>
+			<subdivision type="cz647" draft="contributed">Զնոյմոյի շրջան</subdivision>
+			<subdivision type="cz711" draft="contributed">Յեսենիկի շրջան</subdivision>
+			<subdivision type="cz712" draft="contributed">Օլոմոուցի շրջան</subdivision>
+			<subdivision type="cz713" draft="contributed">Պրոստեյովի շրջան</subdivision>
+			<subdivision type="cz714" draft="contributed">Պշերովի շրջան</subdivision>
+			<subdivision type="cz715" draft="contributed">Շումպերկի շրջան</subdivision>
+			<subdivision type="cz721" draft="contributed">Կրոմերիժի շրջան</subdivision>
+			<subdivision type="cz722" draft="contributed">Ուհարսյե Հրադանիշտեի շրջան</subdivision>
+			<subdivision type="cz723" draft="contributed">Վսետինի շրջան</subdivision>
+			<subdivision type="cz724" draft="contributed">Զլինիի շրջան</subdivision>
+			<subdivision type="cz801" draft="contributed">Բրունտալի շրջան</subdivision>
+			<subdivision type="cz802" draft="contributed">Ֆրիդեկ-Միստեկի շրջան</subdivision>
+			<subdivision type="cz803" draft="contributed">Կարվինայի շրջան</subdivision>
+			<subdivision type="cz804" draft="contributed">Նովի Յիչինի շրջան</subdivision>
+			<subdivision type="cz805" draft="contributed">Օպավայի շրջան</subdivision>
+			<subdivision type="cz806" draft="contributed">Օստրավայի շրջան</subdivision>
+			<subdivision type="debb" draft="contributed">Բրանդենբուրգ</subdivision>
+			<subdivision type="debe" draft="contributed">Բեռլին</subdivision>
+			<subdivision type="debw" draft="contributed">Բադեն-Վյուրթեմբերգ</subdivision>
+			<subdivision type="deby" draft="contributed">Բավարիա</subdivision>
+			<subdivision type="dehe" draft="contributed">Հեսսեն</subdivision>
+			<subdivision type="dehh" draft="contributed">Համբուրգ</subdivision>
+			<subdivision type="demv" draft="contributed">Մեկլենբուրգ-Առաջավոր Պոմերանիա</subdivision>
+			<subdivision type="deni" draft="contributed">Ստորին Սաքսոնիա</subdivision>
+			<subdivision type="denw" draft="contributed">Հյուսիսային Հռենոս-Վեստֆալիա</subdivision>
+			<subdivision type="derp" draft="contributed">Ռայնլանդ Պֆալց</subdivision>
+			<subdivision type="desh" draft="contributed">Շլեզվիգ-Հոլշտայն</subdivision>
+			<subdivision type="desl" draft="contributed">Սաարլանդ</subdivision>
+			<subdivision type="desn" draft="contributed">Սաքսոնիա</subdivision>
+			<subdivision type="dest" draft="contributed">Սաքսոնիա-Անհալթ</subdivision>
+			<subdivision type="deth" draft="contributed">Թուրինգիա</subdivision>
+			<subdivision type="djas" draft="contributed">Ալի Սաբիյեհ</subdivision>
+			<subdivision type="djdi" draft="contributed">Դիխիլ</subdivision>
+			<subdivision type="djdj" draft="contributed">Ջիբութի</subdivision>
+			<subdivision type="djob" draft="contributed">Օբոքի երկրամաս</subdivision>
+			<subdivision type="djta" draft="contributed">Թանջուրահ</subdivision>
+			<subdivision type="dk81" draft="contributed">Հյուսիսային Դանիա տարածաշրջան</subdivision>
+			<subdivision type="dk82" draft="contributed">Կենտրոնական Յուտլանդիա տարածաշրջան</subdivision>
+			<subdivision type="dk83" draft="contributed">Հարավային Դանիա տարածաշրջան</subdivision>
+			<subdivision type="dk84" draft="contributed">Մայրաքաղաքային տարածաշրջան</subdivision>
+			<subdivision type="dk85" draft="contributed">Զելանդիա տարածաշրջան</subdivision>
+			<subdivision type="eca" draft="contributed">Ասուայ</subdivision>
+			<subdivision type="ecb" draft="contributed">Բոլիվար</subdivision>
+			<subdivision type="ecc" draft="contributed">Կարչի</subdivision>
+			<subdivision type="eco" draft="contributed">Էլ Օրո</subdivision>
+			<subdivision type="ecp" draft="contributed">Պիչինչա</subdivision>
+			<subdivision type="ecr" draft="contributed">Լոս Ռիո</subdivision>
+			<subdivision type="ecs" draft="contributed">Մորոնա Սանտյագո</subdivision>
+			<subdivision type="ecsd" draft="contributed">Սանտա Դոմինգո դե լոս Տսաչիլաս</subdivision>
+			<subdivision type="ect" draft="contributed">Տունգուրահուա</subdivision>
+			<subdivision type="ecx" draft="contributed">Կոտոպախի</subdivision>
+			<subdivision type="ee37" draft="contributed">Հարյումաա</subdivision>
+			<subdivision type="ee39" draft="contributed">Հիյումաա</subdivision>
+			<subdivision type="ee44" draft="contributed">Իդա-Վիրումաա</subdivision>
+			<subdivision type="ee49" draft="contributed">Յիգևամաա</subdivision>
+			<subdivision type="ee51" draft="contributed">Յարվամաա</subdivision>
+			<subdivision type="ee57" draft="contributed">Լյաենեմաա</subdivision>
+			<subdivision type="ee59" draft="contributed">Լյաենե-Վիրումաա</subdivision>
+			<subdivision type="ee65" draft="contributed">Պիլվամաա</subdivision>
+			<subdivision type="ee67" draft="contributed">Պյարնումաա</subdivision>
+			<subdivision type="ee70" draft="contributed">Ռապլամաա</subdivision>
+			<subdivision type="ee74" draft="contributed">Սաարեմաա</subdivision>
+			<subdivision type="ee78" draft="contributed">Տարտումաա</subdivision>
+			<subdivision type="ee82" draft="contributed">Վալգամաա</subdivision>
+			<subdivision type="ee84" draft="contributed">Վիլյանդիմաա</subdivision>
+			<subdivision type="ee86" draft="contributed">Վիրումաա</subdivision>
+			<subdivision type="egalx" draft="contributed">Ալեքսանդրիա</subdivision>
+			<subdivision type="egasn" draft="contributed">Ասուան</subdivision>
+			<subdivision type="egast" draft="contributed">Ասյութ</subdivision>
+			<subdivision type="egba" draft="contributed">Կարմիր ծով</subdivision>
+			<subdivision type="egbh" draft="contributed">Բուհեյրա</subdivision>
+			<subdivision type="egbns" draft="contributed">Բենի Սուեյֆ</subdivision>
+			<subdivision type="egc" draft="contributed">Կահիրե</subdivision>
+			<subdivision type="egdk" draft="contributed">Դակահլիա</subdivision>
+			<subdivision type="egdt" draft="contributed">Դումյաթ</subdivision>
+			<subdivision type="egfym" draft="contributed">Ալ-Ֆայում</subdivision>
+			<subdivision type="eggh" draft="contributed">Ղարբիա</subdivision>
+			<subdivision type="eggz" draft="contributed">Ալ-Գիզա</subdivision>
+			<subdivision type="egis" draft="contributed">Իսմայիլիա</subdivision>
+			<subdivision type="egjs" draft="contributed">Հարավային Սինայ</subdivision>
+			<subdivision type="eglx" draft="contributed">Լուքսոր</subdivision>
+			<subdivision type="egmn" draft="contributed">Էլ Մինյա</subdivision>
+			<subdivision type="egmnf" draft="contributed">Մինուֆիա</subdivision>
+			<subdivision type="egshr" draft="contributed">Շարկիա</subdivision>
+			<subdivision type="egsin" draft="contributed">Հյուսիսային Սինայ</subdivision>
+			<subdivision type="egsuz" draft="contributed">Սուեզ</subdivision>
+			<subdivision type="esa" draft="contributed">Ալիկանտե</subdivision>
+			<subdivision type="esab" draft="contributed">Ալբասետե</subdivision>
+			<subdivision type="esal" draft="contributed">Ալմերիա</subdivision>
+			<subdivision type="esan" draft="contributed">Անդալուզիա</subdivision>
+			<subdivision type="esar" draft="contributed">Արագոն</subdivision>
+			<subdivision type="esas" draft="contributed">Աստուրիա</subdivision>
+			<subdivision type="esba" draft="contributed">Բադախոս</subdivision>
+			<subdivision type="esc" draft="contributed">Լա Կորունյա նահանգ</subdivision>
+			<subdivision type="esca" draft="contributed">Կադիս</subdivision>
+			<subdivision type="escb" draft="contributed">Կանտաբրիա</subdivision>
+			<subdivision type="escc" draft="contributed">Կասարես</subdivision>
+			<subdivision type="esce" draft="contributed">Սեուտա</subdivision>
+			<subdivision type="escl" draft="contributed">Կաստիլիա և Լեոն</subdivision>
+			<subdivision type="escm" draft="contributed">Կաստիլիա-Լա Մանչա</subdivision>
+			<subdivision type="esct" draft="contributed">Կատալոնիա</subdivision>
+			<subdivision type="esex" draft="contributed">Էստրեմադուրա</subdivision>
+			<subdivision type="esga" draft="contributed">Գալիսիա</subdivision>
+			<subdivision type="esgc" draft="contributed">Լաս Պալմաս</subdivision>
+			<subdivision type="esh" draft="contributed">Ուելվա</subdivision>
+			<subdivision type="eshu" draft="contributed">Ուեսկա</subdivision>
+			<subdivision type="esib" draft="contributed">Բալեարյան կղզիներ</subdivision>
+			<subdivision type="esj" draft="contributed">Խաեն</subdivision>
+			<subdivision type="esle" draft="contributed">Լեոնի շրջան</subdivision>
+			<subdivision type="eslo" draft="contributed">Ռիոխա</subdivision>
+			<subdivision type="eslu" draft="contributed">Լուգո</subdivision>
+			<subdivision type="esmc" draft="contributed">Մուրսիա</subdivision>
+			<subdivision type="esmd" draft="contributed">Մադրիդ</subdivision>
+			<subdivision type="esml" draft="contributed">Մելիլյա</subdivision>
+			<subdivision type="esna" draft="contributed">Նավառա</subdivision>
+			<subdivision type="esnc" draft="contributed">Նավարրա</subdivision>
+			<subdivision type="eso" draft="contributed">Աստուրիա²</subdivision>
+			<subdivision type="espm" draft="contributed">Բալեարյան կղզիներ²</subdivision>
+			<subdivision type="espv" draft="contributed">Բասկերի երկիր</subdivision>
+			<subdivision type="esri" draft="contributed">Ռիոխա²</subdivision>
+			<subdivision type="ess" draft="contributed">Կանտաբրիա²</subdivision>
+			<subdivision type="esse" draft="contributed">Սևիլյա</subdivision>
+			<subdivision type="esss" draft="contributed">Գիպուսկոա</subdivision>
+			<subdivision type="estf" draft="contributed">Սանտա Կրուս դե Տեներիֆե</subdivision>
+			<subdivision type="esv" draft="contributed">Վալենսիա</subdivision>
+			<subdivision type="esva" draft="contributed">Վալյադոլիդ</subdivision>
+			<subdivision type="esvc" draft="contributed">Վալենսիա²</subdivision>
+			<subdivision type="esvi" draft="contributed">Ալավա</subdivision>
+			<subdivision type="etaa" draft="contributed">Ադիս Աբեբա</subdivision>
+			<subdivision type="etam" draft="contributed">Ամհարա</subdivision>
+			<subdivision type="fi02" draft="contributed">Հարավային Կարելիա</subdivision>
+			<subdivision type="fi03" draft="contributed">Հարավային Օստրոբոտնիա</subdivision>
+			<subdivision type="fi04" draft="contributed">Հարավային Սավո</subdivision>
+			<subdivision type="fi05" draft="contributed">Կաինուու</subdivision>
+			<subdivision type="fi07" draft="contributed">Կենտրոնական Օստրոբոտնիա</subdivision>
+			<subdivision type="fi08" draft="contributed">Կենտրոնական Ֆինլանդիա</subdivision>
+			<subdivision type="fi10" draft="contributed">Լափլանդ</subdivision>
+			<subdivision type="fi11" draft="contributed">Պիրկանմաա</subdivision>
+			<subdivision type="fi13" draft="contributed">Հյուսիսային Կարելիա</subdivision>
+			<subdivision type="fi14" draft="contributed">Հյուսիսային Օստրոբոտնիա</subdivision>
+			<subdivision type="fi15" draft="contributed">Հյուսիսային Սավո</subdivision>
+			<subdivision type="fi16" draft="contributed">Պյայատ-Հյամե</subdivision>
+			<subdivision type="fi17" draft="contributed">Սատակունա</subdivision>
+			<subdivision type="fi18" draft="contributed">Ուուսիմաա</subdivision>
+			<subdivision type="fjr" draft="contributed">Ռոտումա</subdivision>
+			<subdivision type="fr01" draft="contributed">Էն</subdivision>
+			<subdivision type="fr02" draft="contributed">Էնա</subdivision>
+			<subdivision type="fr2a" draft="contributed">Հարավային Կորսիկա</subdivision>
+			<subdivision type="fr2b" draft="contributed">Վերին Կորսիկա</subdivision>
+			<subdivision type="fr03" draft="contributed">Ալյե</subdivision>
+			<subdivision type="fr04" draft="contributed">Վերին Ալպերի Պրովանս</subdivision>
+			<subdivision type="fr05" draft="contributed">Վերին Ալպեր</subdivision>
+			<subdivision type="fr06" draft="contributed">Ծովափնյա Ալպեր</subdivision>
+			<subdivision type="fr07" draft="contributed">Արդեշ</subdivision>
+			<subdivision type="fr08" draft="contributed">Արդեններ</subdivision>
+			<subdivision type="fr09" draft="contributed">Արյեժ</subdivision>
+			<subdivision type="fr10" draft="contributed">Օբ</subdivision>
+			<subdivision type="fr11" draft="contributed">Օդ</subdivision>
+			<subdivision type="fr12" draft="contributed">Ավերոն</subdivision>
+			<subdivision type="fr13" draft="contributed">Բուշ-դյու-Ռոն</subdivision>
+			<subdivision type="fr14" draft="contributed">Կալվադոս</subdivision>
+			<subdivision type="fr15" draft="contributed">Կանտալ</subdivision>
+			<subdivision type="fr16" draft="contributed">Շարանտ</subdivision>
+			<subdivision type="fr17" draft="contributed">Ծովափնյա Շարանտ</subdivision>
+			<subdivision type="fr18" draft="contributed">Շեր</subdivision>
+			<subdivision type="fr19" draft="contributed">Կորեզ</subdivision>
+			<subdivision type="fr23" draft="contributed">Կրյոզ</subdivision>
+			<subdivision type="fr24" draft="contributed">Դորդոն</subdivision>
+			<subdivision type="fr25" draft="contributed">Դու</subdivision>
+			<subdivision type="fr26" draft="contributed">Դրոմ</subdivision>
+			<subdivision type="fr27" draft="contributed">Էր</subdivision>
+			<subdivision type="fr28" draft="contributed">Էր և Լուար</subdivision>
+			<subdivision type="fr29" draft="contributed">Ֆինիստեր</subdivision>
+			<subdivision type="fr30" draft="contributed">Գար</subdivision>
+			<subdivision type="fr31" draft="contributed">Վերին Գարոն</subdivision>
+			<subdivision type="fr32" draft="contributed">Ժեր</subdivision>
+			<subdivision type="fr33" draft="contributed">Ժիրոնդ</subdivision>
+			<subdivision type="fr34" draft="contributed">Էրո</subdivision>
+			<subdivision type="fr35" draft="contributed">Իլ և Վիլեն</subdivision>
+			<subdivision type="fr36" draft="contributed">Էնդր</subdivision>
+			<subdivision type="fr37" draft="contributed">Էնդր և Լուար</subdivision>
+			<subdivision type="fr38" draft="contributed">Իզեր</subdivision>
+			<subdivision type="fr39" draft="contributed">Յուրա</subdivision>
+			<subdivision type="fr40" draft="contributed">Լանդեր</subdivision>
+			<subdivision type="fr41" draft="contributed">Լուար և Շեր</subdivision>
+			<subdivision type="fr42" draft="contributed">Լուար</subdivision>
+			<subdivision type="fr43" draft="contributed">Վերին Լուար</subdivision>
+			<subdivision type="fr44" draft="contributed">Ատլանտյան Լուար</subdivision>
+			<subdivision type="fr45" draft="contributed">Լուարե</subdivision>
+			<subdivision type="fr46" draft="contributed">Լո</subdivision>
+			<subdivision type="fr47" draft="contributed">Լո և Գարոն</subdivision>
+			<subdivision type="fr48" draft="contributed">Լոզեր</subdivision>
+			<subdivision type="fr49" draft="contributed">Մեն և Լուար</subdivision>
+			<subdivision type="fr50" draft="contributed">Մանշ</subdivision>
+			<subdivision type="fr51" draft="contributed">Մարն</subdivision>
+			<subdivision type="fr52" draft="contributed">Վերին Մարն</subdivision>
+			<subdivision type="fr53" draft="contributed">Մայեն</subdivision>
+			<subdivision type="fr54" draft="contributed">Մյորթ և Մոզել</subdivision>
+			<subdivision type="fr55" draft="contributed">Մյոզ</subdivision>
+			<subdivision type="fr56" draft="contributed">Մորբիան</subdivision>
+			<subdivision type="fr57" draft="contributed">Մոզել</subdivision>
+			<subdivision type="fr58" draft="contributed">Նյևր</subdivision>
+			<subdivision type="fr59" draft="contributed">Նոր</subdivision>
+			<subdivision type="fr60" draft="contributed">Ուազ</subdivision>
+			<subdivision type="fr61" draft="contributed">Օրն</subdivision>
+			<subdivision type="fr62" draft="contributed">Պա-դը-Կալե</subdivision>
+			<subdivision type="fr63" draft="contributed">Պյուի-դը-Դոմ</subdivision>
+			<subdivision type="fr64" draft="contributed">Ատլանտյան Պիրենեյներ</subdivision>
+			<subdivision type="fr65" draft="contributed">Վերին Պիրենեյներ</subdivision>
+			<subdivision type="fr66" draft="contributed">Արևելյան Պիրենեյներ</subdivision>
+			<subdivision type="fr67" draft="contributed">Ներքին Ռեն</subdivision>
+			<subdivision type="fr68" draft="contributed">Վերին Հռենոս</subdivision>
+			<subdivision type="fr69" draft="contributed">Ռոն</subdivision>
+			<subdivision type="fr70" draft="contributed">Վերին Սոն</subdivision>
+			<subdivision type="fr71" draft="contributed">Սոն-է-Լուար</subdivision>
+			<subdivision type="fr72" draft="contributed">Սարթ</subdivision>
+			<subdivision type="fr73" draft="contributed">Սավոյ</subdivision>
+			<subdivision type="fr74" draft="contributed">Վերին Սավոյ</subdivision>
+			<subdivision type="fr75" draft="contributed">Փարիզ</subdivision>
+			<subdivision type="fr76" draft="contributed">Ծովամերձ Սեն</subdivision>
+			<subdivision type="fr77" draft="contributed">Սեն-է-Մարն</subdivision>
+			<subdivision type="fr78" draft="contributed">Իվելին</subdivision>
+			<subdivision type="fr79" draft="contributed">Դյու-Սևր</subdivision>
+			<subdivision type="fr80" draft="contributed">Սոմ</subdivision>
+			<subdivision type="fr81" draft="contributed">Թարն</subdivision>
+			<subdivision type="fr82" draft="contributed">Թարն-է-Գարոն</subdivision>
+			<subdivision type="fr83" draft="contributed">Վար</subdivision>
+			<subdivision type="fr84" draft="contributed">Վոքլյուզ</subdivision>
+			<subdivision type="fr85" draft="contributed">Վանդե</subdivision>
+			<subdivision type="fr86" draft="contributed">Վյեն</subdivision>
+			<subdivision type="fr87" draft="contributed">Օտ-Վյեն</subdivision>
+			<subdivision type="fr88" draft="contributed">Վոգեզներ</subdivision>
+			<subdivision type="fr89" draft="contributed">Յոն</subdivision>
+			<subdivision type="fr90" draft="contributed">Բելֆորի տարածք</subdivision>
+			<subdivision type="fr91" draft="contributed">Էսոն</subdivision>
+			<subdivision type="fr92" draft="contributed">Օ-դը-Սեն</subdivision>
+			<subdivision type="fr93" draft="contributed">Սեն-Սեն-Դենի</subdivision>
+			<subdivision type="fr94" draft="contributed">Վալ-դը-Մարն</subdivision>
+			<subdivision type="fr95" draft="contributed">Վալ-դը-Ուազ</subdivision>
+			<subdivision type="frbre" draft="contributed">Բրետան</subdivision>
+			<subdivision type="frcor" draft="contributed">Կորսիկա</subdivision>
+			<subdivision type="frges" draft="contributed">Գրանդ Էստ</subdivision>
+			<subdivision type="frhdf" draft="contributed">Օ-դը-Ֆրանս</subdivision>
+			<subdivision type="fridf" draft="contributed">Իլ-դը-Ֆրանս</subdivision>
+			<subdivision type="frnaq" draft="contributed">Նոր Ակվիտանիա</subdivision>
+			<subdivision type="frpac" draft="contributed">Պրովանս-Ալպեր-Լազուր ափ</subdivision>
+			<subdivision type="frpdl" draft="contributed">Լուարայի երկիր</subdivision>
+			<subdivision type="gbabd" draft="contributed">Աբերդինշիր</subdivision>
+			<subdivision type="gbabe" draft="contributed">Աբերդին</subdivision>
+			<subdivision type="gbagy" draft="contributed">Անգլսի</subdivision>
+			<subdivision type="gbans" draft="contributed">Անգուս</subdivision>
+			<subdivision type="gbbfs" draft="contributed">Բելֆաստ</subdivision>
+			<subdivision type="gbbir" draft="contributed">Բիրմինգհեմ</subdivision>
+			<subdivision type="gbbkm" draft="contributed">Բաքինհեմշիր</subdivision>
+			<subdivision type="gbbmh" draft="contributed">Բորնմութ</subdivision>
+			<subdivision type="gbbne" draft="contributed">Բարնեթ</subdivision>
+			<subdivision type="gbbnh" draft="contributed">Բրայթոն և Հոուֆ</subdivision>
+			<subdivision type="gbbpl" draft="contributed">Բլեքփուլ</subdivision>
+			<subdivision type="gbbrd" draft="contributed">Բրադֆորդ</subdivision>
+			<subdivision type="gbbry" draft="contributed">Բրոմլի</subdivision>
+			<subdivision type="gbbst" draft="contributed">Բրիստոլ</subdivision>
+			<subdivision type="gbcam" draft="contributed">Քեմբրիջշիր</subdivision>
+			<subdivision type="gbche" draft="contributed">Արևելյան Չեշիր</subdivision>
+			<subdivision type="gbcma" draft="contributed">Կումբրիա</subdivision>
+			<subdivision type="gbcmd" draft="contributed">Քամդեն</subdivision>
+			<subdivision type="gbcon" draft="contributed">Կոռնուոլ</subdivision>
+			<subdivision type="gbcov" draft="contributed">Կովենտրի</subdivision>
+			<subdivision type="gbcrf" draft="contributed">Քարդիֆ</subdivision>
+			<subdivision type="gbcry" draft="contributed">Քրոյդոն</subdivision>
+			<subdivision type="gbdby" draft="contributed">Դերբիշիր</subdivision>
+			<subdivision type="gbden" draft="contributed">Դենբիշիր</subdivision>
+			<subdivision type="gbder" draft="contributed">Դերբի</subdivision>
+			<subdivision type="gbdev" draft="contributed">Դևոն</subdivision>
+			<subdivision type="gbdnd" draft="contributed">Դանդի</subdivision>
+			<subdivision type="gbdor" draft="contributed">Դորսետ</subdivision>
+			<subdivision type="gbdur" draft="contributed">Դարհեմ</subdivision>
+			<subdivision type="gbeay" draft="contributed">Արևելյան Էյրշիր</subdivision>
+			<subdivision type="gbedh" draft="contributed">Էդինբուրգ</subdivision>
+			<subdivision type="gbenf" draft="contributed">Էնֆիլդ</subdivision>
+			<subdivision type="gbeng">Անգլիա</subdivision>
+			<subdivision type="gbess" draft="contributed">Էսեքս</subdivision>
+			<subdivision type="gbesx" draft="contributed">Արևելյան Սասիքս</subdivision>
+			<subdivision type="gbfif" draft="contributed">Ֆայֆ</subdivision>
+			<subdivision type="gbgbn" draft="contributed">Մեծ Բրիտանիա</subdivision>
+			<subdivision type="gbglg" draft="contributed">Գլազգո</subdivision>
+			<subdivision type="gbgls" draft="contributed">Գլուսթերշիր</subdivision>
+			<subdivision type="gbgre" draft="contributed">Գրինվիչ</subdivision>
+			<subdivision type="gbham" draft="contributed">Հեմփշիր</subdivision>
+			<subdivision type="gbhck" draft="contributed">Հակնի</subdivision>
+			<subdivision type="gbhef" draft="contributed">Հերեֆորդշիր</subdivision>
+			<subdivision type="gbhil" draft="contributed">Հիլինգդոն</subdivision>
+			<subdivision type="gbhmf" draft="contributed">Համերսմիթ և Ֆուլեմ</subdivision>
+			<subdivision type="gbhns" draft="contributed">Հաունսլոու</subdivision>
+			<subdivision type="gbhrt" draft="contributed">Հարթֆորշիր</subdivision>
+			<subdivision type="gbhrw" draft="contributed">Հարրոու</subdivision>
+			<subdivision type="gbhry" draft="contributed">Հարինգի</subdivision>
+			<subdivision type="gbios" draft="contributed">Սիլլի կղզիներ</subdivision>
+			<subdivision type="gbiow" draft="contributed">Ուայթ կղզի</subdivision>
+			<subdivision type="gbisl" draft="contributed">Իսլինգթոն</subdivision>
+			<subdivision type="gbkec" draft="contributed">Կենսինգտոն և Չելսի</subdivision>
+			<subdivision type="gbken" draft="contributed">Քենթ</subdivision>
+			<subdivision type="gbkhl" draft="contributed">Հալ</subdivision>
+			<subdivision type="gbkir" draft="contributed">Կիրկլիս</subdivision>
+			<subdivision type="gbktt" draft="contributed">Քինգսթոն ափոն Թեմզ</subdivision>
+			<subdivision type="gblan" draft="contributed">Լանկաշիր</subdivision>
+			<subdivision type="gblbh" draft="contributed">Լամբեթ</subdivision>
+			<subdivision type="gblce" draft="contributed">Լեսթեր</subdivision>
+			<subdivision type="gblec" draft="contributed">Լեստերշիր</subdivision>
+			<subdivision type="gblin" draft="contributed">Լինկոլնշիր</subdivision>
+			<subdivision type="gbliv" draft="contributed">Լիվերպուլ</subdivision>
+			<subdivision type="gblnd" draft="contributed">Լոնդոնյան Սիթի</subdivision>
+			<subdivision type="gblut" draft="contributed">Լութոն</subdivision>
+			<subdivision type="gbman" draft="contributed">Մանչեսթեր</subdivision>
+			<subdivision type="gbmdb" draft="contributed">Միդլսբրո</subdivision>
+			<subdivision type="gbmrt" draft="contributed">Մերտոն</subdivision>
+			<subdivision type="gbnbl" draft="contributed">Նորթամբերլենդ</subdivision>
+			<subdivision type="gbnet" draft="contributed">Նյուքասլ-ափոն-Թայն</subdivision>
+			<subdivision type="gbnfk" draft="contributed">Նորֆոլկ</subdivision>
+			<subdivision type="gbngm" draft="contributed">Նոթինգհեմ</subdivision>
+			<subdivision type="gbnir" draft="contributed">Հյուսիսային Իռլանդիա</subdivision>
+			<subdivision type="gbnsm" draft="contributed">Հյուսիսային Սոմերսեթ</subdivision>
+			<subdivision type="gbnth" draft="contributed">Նորթհեմփթոնշիր</subdivision>
+			<subdivision type="gbntt" draft="contributed">Նոթթինգեմշիր</subdivision>
+			<subdivision type="gbnwm" draft="contributed">Նյուհեմ</subdivision>
+			<subdivision type="gbnyk" draft="contributed">Նորթ Յորքշիր</subdivision>
+			<subdivision type="gbork" draft="contributed">Օրկնեյան կղզիներ</subdivision>
+			<subdivision type="gboxf" draft="contributed">Օքսֆորդշիր</subdivision>
+			<subdivision type="gbpkn" draft="contributed">Փերթ և Կինրոս</subdivision>
+			<subdivision type="gbply" draft="contributed">Պլիմուտ</subdivision>
+			<subdivision type="gbpol" draft="contributed">Պուլ</subdivision>
+			<subdivision type="gbpor" draft="contributed">Պորտսմութ</subdivision>
+			<subdivision type="gbpow" draft="contributed">Պոուիս</subdivision>
+			<subdivision type="gbpte" draft="contributed">Պիտերբորո</subdivision>
+			<subdivision type="gbrdg" draft="contributed">Ռեդինգ</subdivision>
+			<subdivision type="gbric" draft="contributed">Ռիչմոնդ ափոն Թեմզա</subdivision>
+			<subdivision type="gbsct">Շոտլանդիա</subdivision>
+			<subdivision type="gbsft" draft="contributed">Սեֆթոն</subdivision>
+			<subdivision type="gbsgc" draft="contributed">Հարավային Գլուսթերշիր</subdivision>
+			<subdivision type="gbshf" draft="contributed">Շեֆիլդ</subdivision>
+			<subdivision type="gbshr" draft="contributed">Շրոպշիր</subdivision>
+			<subdivision type="gbslg" draft="contributed">Սլաու</subdivision>
+			<subdivision type="gbsnd" draft="contributed">Սանդերլենդ</subdivision>
+			<subdivision type="gbsom" draft="contributed">Սոմերսեթ</subdivision>
+			<subdivision type="gbsos" draft="contributed">Սաութենդ-օն-Սի</subdivision>
+			<subdivision type="gbsry" draft="contributed">Սյուրեյ</subdivision>
+			<subdivision type="gbste" draft="contributed">Սթոք-օն-Թրենտ</subdivision>
+			<subdivision type="gbsth" draft="contributed">Սաութհեմփթոն</subdivision>
+			<subdivision type="gbsts" draft="contributed">Սթեֆորդշիր</subdivision>
+			<subdivision type="gbswa" draft="contributed">Սուոնսի</subdivision>
+			<subdivision type="gbswk" draft="contributed">Սաութուրք</subdivision>
+			<subdivision type="gbukm" draft="contributed">Միացյալ Թագավորություն</subdivision>
+			<subdivision type="gbwbk" draft="contributed">Արևմտյան Բերկշիր</subdivision>
+			<subdivision type="gbwdu" draft="contributed">Արևմտյան Դանբարտոնշիր</subdivision>
+			<subdivision type="gbwil" draft="contributed">Ուիլտշիր</subdivision>
+			<subdivision type="gbwls">Ուելս</subdivision>
+			<subdivision type="gbwlv" draft="contributed">Վուլվերհեմպտոն</subdivision>
+			<subdivision type="gbwnd" draft="contributed">Ուոնդսուերտ</subdivision>
+			<subdivision type="gbwnm" draft="contributed">Վինձոր և Մեյդենհեդ</subdivision>
+			<subdivision type="gbwor" draft="contributed">Վուստերշիր</subdivision>
+			<subdivision type="gbwsm" draft="contributed">Վեստմինստեր</subdivision>
+			<subdivision type="gbwsx" draft="contributed">Արևմտյան Սասեքս</subdivision>
+			<subdivision type="gbyor" draft="contributed">Յորք</subdivision>
+			<subdivision type="gbzet" draft="contributed">Շետլանդյան կղզիներ</subdivision>
+			<subdivision type="geab" draft="contributed">Աբխազիա</subdivision>
+			<subdivision type="geaj" draft="contributed">Աջարիա</subdivision>
+			<subdivision type="gegu" draft="contributed">Գուրիայի մարզ</subdivision>
+			<subdivision type="geim" draft="contributed">Իմերեթի մարզ</subdivision>
+			<subdivision type="geka" draft="contributed">Կախեթի մարզ</subdivision>
+			<subdivision type="gekk" draft="contributed">Քվեմո Քարթլիի մարզ</subdivision>
+			<subdivision type="gemm" draft="contributed">Մցխեթ-Մթիանեթ</subdivision>
+			<subdivision type="gerl" draft="contributed">Ռաճա-Լեչխում և Քվեմո Սվանեթ</subdivision>
+			<subdivision type="gesj" draft="contributed">Սամցխե-Ջավախք</subdivision>
+			<subdivision type="gesk" draft="contributed">Շիդա Քարթլիի մարզ</subdivision>
+			<subdivision type="gesz" draft="contributed">Սամեգրելո-Զեմո Սվանեթ</subdivision>
+			<subdivision type="getb" draft="contributed">Թբիլիսի</subdivision>
+			<subdivision type="ghcp" draft="contributed">Կենտրոնական շրջան</subdivision>
+			<subdivision type="glku" draft="contributed">Կույալեք</subdivision>
+			<subdivision type="glqa" draft="contributed">Քաասուիտսուպ</subdivision>
+			<subdivision type="glqe" draft="contributed">Քեքատա</subdivision>
+			<subdivision type="glsm" draft="contributed">Սերմերսոոք</subdivision>
+			<subdivision type="gmb" draft="contributed">Բանջուլ</subdivision>
+			<subdivision type="gml" draft="contributed">Ցածր գետ</subdivision>
+			<subdivision type="gmm" draft="contributed">Կենտրոնական գետ</subdivision>
+			<subdivision type="gmn" draft="contributed">Հյուսիսային ափ</subdivision>
+			<subdivision type="gmu" draft="contributed">Վերին գետ</subdivision>
+			<subdivision type="gmw" draft="contributed">Արևմտյան ափ</subdivision>
+			<subdivision type="gnc" draft="contributed">Կոնակրի</subdivision>
+			<subdivision type="gr69" draft="contributed">Աֆոն</subdivision>
+			<subdivision type="gra" draft="contributed">Արևելյան Մակեդոնիա և Թրակիա</subdivision>
+			<subdivision type="grb" draft="contributed">Կենտրոնական Մակեդոնիա</subdivision>
+			<subdivision type="grd" draft="contributed">Էպիրուս</subdivision>
+			<subdivision type="gre" draft="contributed">Թեսալիա</subdivision>
+			<subdivision type="grf" draft="contributed">Հոնիական կղզիներ</subdivision>
+			<subdivision type="grg" draft="contributed">Արևմտյան Հունաստան</subdivision>
+			<subdivision type="grh" draft="contributed">Կենտրոնական Հունաստան</subdivision>
+			<subdivision type="gri" draft="contributed">Ատիկա</subdivision>
+			<subdivision type="grk" draft="contributed">Հյուսիսային Եգեյան կղզիներ</subdivision>
+			<subdivision type="grl" draft="contributed">Հարավային Եգեյան կղզիներ</subdivision>
+			<subdivision type="gtsr" draft="contributed">Սանտա Ռոսա</subdivision>
+			<subdivision type="gwbs" draft="contributed">Բիսաու</subdivision>
+			<subdivision type="hr08" draft="contributed">Պրիմորսկո Գորանսկա</subdivision>
+			<subdivision type="hr09" draft="contributed">Լիչկո Սենսկա</subdivision>
+			<subdivision type="hr13" draft="contributed">Զադար</subdivision>
+			<subdivision type="hr15" draft="contributed">Շիբենիկ Կնին</subdivision>
+			<subdivision type="hr17" draft="contributed">Սպլիտսկո Դալմատինսկա</subdivision>
+			<subdivision type="hr18" draft="contributed">Իստրիա</subdivision>
+			<subdivision type="hr19" draft="contributed">Դուբրովնիկ Ներետվա</subdivision>
+			<subdivision type="hr21" draft="contributed">Զագրեբ</subdivision>
+			<subdivision type="hubc" draft="contributed">Բեկեշչաբա</subdivision>
+			<subdivision type="hubu" draft="contributed">Բուդապեշտ</subdivision>
+			<subdivision type="hude" draft="contributed">Դեբրեցեն</subdivision>
+			<subdivision type="hudu" draft="contributed">Դունաույվարոշ</subdivision>
+			<subdivision type="hueg" draft="contributed">Էգեր</subdivision>
+			<subdivision type="hufe" draft="contributed">Ֆեյեր</subdivision>
+			<subdivision type="hugy" draft="contributed">Դյոր</subdivision>
+			<subdivision type="huhv" draft="contributed">Հոդմեզյովաշարհեյ</subdivision>
+			<subdivision type="hukm" draft="contributed">Կեչկեմետ</subdivision>
+			<subdivision type="hukv" draft="contributed">Կապոշվար</subdivision>
+			<subdivision type="humi" draft="contributed">Միշկոլց</subdivision>
+			<subdivision type="huny" draft="contributed">Նյիրեդխազա</subdivision>
+			<subdivision type="hupe" draft="contributed">Պեշտ</subdivision>
+			<subdivision type="hups" draft="contributed">Պեչ</subdivision>
+			<subdivision type="husd" draft="contributed">Սեգեդ</subdivision>
+			<subdivision type="husf" draft="contributed">Սեկաշֆեհերվար</subdivision>
+			<subdivision type="hush" draft="contributed">Սոմբատհեյ</subdivision>
+			<subdivision type="husk" draft="contributed">Սոլնոկ</subdivision>
+			<subdivision type="husn" draft="contributed">Շոպրոն</subdivision>
+			<subdivision type="huso" draft="contributed">Սոմոգի</subdivision>
+			<subdivision type="huss" draft="contributed">Սեկսարդ</subdivision>
+			<subdivision type="husz" draft="contributed">Սաբոլճ-Սատմար-Բերեգ շրջան</subdivision>
+			<subdivision type="hutb" draft="contributed">Թաթաբանյա</subdivision>
+			<subdivision type="huva" draft="contributed">Վաս</subdivision>
+			<subdivision type="huvm" draft="contributed">Վեսպրեմ</subdivision>
+			<subdivision type="huze" draft="contributed">Զալաեգերսեգ</subdivision>
+			<subdivision type="idjk" draft="contributed">Ջակարտա</subdivision>
+			<subdivision type="idjw" draft="contributed">Ճավա</subdivision>
+			<subdivision type="idml" draft="contributed">Մոլուքային կղզիներ</subdivision>
+			<subdivision type="idpp" draft="contributed">Արևմտյան Իրիան</subdivision>
+			<subdivision type="idsl" draft="contributed">Ցելեբես Սուլավեսի</subdivision>
+			<subdivision type="idsm" draft="contributed">Սումատրա</subdivision>
+			<subdivision type="iec" draft="contributed">Կոննախտ</subdivision>
+			<subdivision type="ieco" draft="contributed">Կորկ</subdivision>
+			<subdivision type="ied" draft="contributed">Դուբլին</subdivision>
+			<subdivision type="iekk" draft="contributed">Կիլկենի</subdivision>
+			<subdivision type="ielk" draft="contributed">Լիմերիկ</subdivision>
+			<subdivision type="iem" draft="contributed">Մանսթեր</subdivision>
+			<subdivision type="iemo" draft="contributed">Մեյո</subdivision>
+			<subdivision type="iern" draft="contributed">Ռոսքոմոն</subdivision>
+			<subdivision type="ieso" draft="contributed">Սլայգո</subdivision>
+			<subdivision type="ieu" draft="contributed">Օլսթեր</subdivision>
+			<subdivision type="ieww" draft="contributed">Ուիկլոու</subdivision>
+			<subdivision type="ild" draft="contributed">Հարավային մարզ</subdivision>
+			<subdivision type="ilha" draft="contributed">Հայֆայի մարզ</subdivision>
+			<subdivision type="iljm" draft="contributed">Երուսաղեմի մարզ</subdivision>
+			<subdivision type="ilm" draft="contributed">Կենտրոնական մարզ</subdivision>
+			<subdivision type="ilta" draft="contributed">Թել Ավիվի մարզ</subdivision>
+			<subdivision type="ilz" draft="contributed">Հյուսիսային մարզ</subdivision>
+			<subdivision type="inap" draft="contributed">Անդհրա-Պրադեշ</subdivision>
+			<subdivision type="inar" draft="contributed">Արունաչալ Պրադեշ</subdivision>
+			<subdivision type="inas" draft="contributed">Ասսամ</subdivision>
+			<subdivision type="inbr" draft="contributed">Բիհար</subdivision>
+			<subdivision type="indl" draft="contributed">Դելի</subdivision>
+			<subdivision type="ingj" draft="contributed">Գուջարաթ</subdivision>
+			<subdivision type="inhp" draft="contributed">Հիմաչալ-Պրադեշ</subdivision>
+			<subdivision type="inhr" draft="contributed">Հարյանա</subdivision>
+			<subdivision type="injk" draft="contributed">Ջամմու և Քաշմիր</subdivision>
+			<subdivision type="inka" draft="contributed">Կառնատակա</subdivision>
+			<subdivision type="inkl" draft="contributed">Կերալա</subdivision>
+			<subdivision type="inmh" draft="contributed">Մահարաշտրա</subdivision>
+			<subdivision type="inml" draft="contributed">Մեգհալայա</subdivision>
+			<subdivision type="inmn" draft="contributed">Մանիպուր</subdivision>
+			<subdivision type="inmp" draft="contributed">Մադհյա Պրադեշ</subdivision>
+			<subdivision type="inpb" draft="contributed">Փենջաբ</subdivision>
+			<subdivision type="inrj" draft="contributed">Ռաջասթան</subdivision>
+			<subdivision type="intn" draft="contributed">Տամիլանդ</subdivision>
+			<subdivision type="intr" draft="contributed">Տրիպուրա</subdivision>
+			<subdivision type="inup" draft="contributed">Ուտան Պրադեչ</subdivision>
+			<subdivision type="inwb" draft="contributed">Արևմտյան Բենգալիա</subdivision>
+			<subdivision type="iqni" draft="contributed">Նինվեի մարզ</subdivision>
+			<subdivision type="ir01" draft="contributed">Արևելյան Ադրբեջան</subdivision>
+			<subdivision type="ir02" draft="contributed">Արևմտյան Ադրբեջան</subdivision>
+			<subdivision type="ir03" draft="contributed">Արդաբիլ</subdivision>
+			<subdivision type="ir04" draft="contributed">Իսֆահան</subdivision>
+			<subdivision type="ir05" draft="contributed">Իլամ</subdivision>
+			<subdivision type="ir06" draft="contributed">Բուշեր</subdivision>
+			<subdivision type="ir07" draft="contributed">Թեհրան</subdivision>
+			<subdivision type="ir08" draft="contributed">Չարմահալ և Բախտիյարի</subdivision>
+			<subdivision type="ir10" draft="contributed">Խուզեստան</subdivision>
+			<subdivision type="ir11" draft="contributed">Զանջան</subdivision>
+			<subdivision type="ir12" draft="contributed">Սեմնան</subdivision>
+			<subdivision type="ir14" draft="contributed">Ֆարս</subdivision>
+			<subdivision type="ir17" draft="contributed">Քերմանշահի նահանգ</subdivision>
+			<subdivision type="ir19" draft="contributed">Գիլան</subdivision>
+			<subdivision type="ir21" draft="contributed">Մազանդարան</subdivision>
+			<subdivision type="ir26" draft="contributed">Ղոմի նահանգ</subdivision>
+			<subdivision type="ir27" draft="contributed">Գոլեստան</subdivision>
+			<subdivision type="ir30" draft="contributed">Ռազավի Խորասան</subdivision>
+			<subdivision type="is1" draft="contributed">Հյովյուդբորգարսվայդիդ</subdivision>
+			<subdivision type="is2" draft="contributed">Սուդուրնես</subdivision>
+			<subdivision type="is3" draft="contributed">Վեստուրլանդ</subdivision>
+			<subdivision type="is4" draft="contributed">Վեստֆիրդիր</subdivision>
+			<subdivision type="is5" draft="contributed">Նորդուրլանդ Վեստրա</subdivision>
+			<subdivision type="is6" draft="contributed">Նորդուրլանդ Էյստրա</subdivision>
+			<subdivision type="is7" draft="contributed">Էյստյուրլանդ</subdivision>
+			<subdivision type="is8" draft="contributed">Սյուդյուրլանդ</subdivision>
+			<subdivision type="it21" draft="contributed">Պիեմոնտ</subdivision>
+			<subdivision type="it25" draft="contributed">Լոմբարդիա</subdivision>
+			<subdivision type="it32" draft="contributed">Տրենտինո Ալտո Ադիջե</subdivision>
+			<subdivision type="it34" draft="contributed">Վենետո</subdivision>
+			<subdivision type="it36" draft="contributed">Ֆրիուլի Վենեցիա Ջուլյա</subdivision>
+			<subdivision type="it42" draft="contributed">Լիգուրիա</subdivision>
+			<subdivision type="it45" draft="contributed">Էմիլիա Ռոմանիա</subdivision>
+			<subdivision type="it52" draft="contributed">Տոսկանա</subdivision>
+			<subdivision type="it55" draft="contributed">Ումբրիա</subdivision>
+			<subdivision type="it57" draft="contributed">Մարկե</subdivision>
+			<subdivision type="it62" draft="contributed">Լացիո</subdivision>
+			<subdivision type="it65" draft="contributed">Աբրուցցո</subdivision>
+			<subdivision type="it67" draft="contributed">Մոլիզե</subdivision>
+			<subdivision type="it72" draft="contributed">Կամպանիա</subdivision>
+			<subdivision type="it75" draft="contributed">Ապուլիա</subdivision>
+			<subdivision type="it77" draft="contributed">Բազիլիկատա</subdivision>
+			<subdivision type="it78" draft="contributed">Կալաբրիա</subdivision>
+			<subdivision type="it82" draft="contributed">Սիցիլիա</subdivision>
+			<subdivision type="it88" draft="contributed">Սարդինիա</subdivision>
+			<subdivision type="itag" draft="contributed">Ագրիջենտո</subdivision>
+			<subdivision type="ital" draft="contributed">Ալեսանդրիա</subdivision>
+			<subdivision type="itan" draft="contributed">Անկոնա</subdivision>
+			<subdivision type="itao" draft="contributed">Աոստա</subdivision>
+			<subdivision type="itap" draft="contributed">Ասկոլի Պիչենո</subdivision>
+			<subdivision type="itar" draft="contributed">Արեցո</subdivision>
+			<subdivision type="itat" draft="contributed">Աստի</subdivision>
+			<subdivision type="itav" draft="contributed">Ավելինո</subdivision>
+			<subdivision type="itba" draft="contributed">Բարի</subdivision>
+			<subdivision type="itbg" draft="contributed">Բերգամո</subdivision>
+			<subdivision type="itbi" draft="contributed">Բիելլա</subdivision>
+			<subdivision type="itbl" draft="contributed">Բելունո</subdivision>
+			<subdivision type="itbn" draft="contributed">Բենևենտո</subdivision>
+			<subdivision type="itbo" draft="contributed">Բոլոնյա գավառ</subdivision>
+			<subdivision type="itbr" draft="contributed">Բրինդիզի</subdivision>
+			<subdivision type="itbs" draft="contributed">Բրեշիա</subdivision>
+			<subdivision type="itbt" draft="contributed">Բարլետա-Անդրիա-Տրանի</subdivision>
+			<subdivision type="itbz" draft="contributed">Բոլցանո</subdivision>
+			<subdivision type="itca" draft="contributed">Կալիարի</subdivision>
+			<subdivision type="itcb" draft="contributed">Կամպոբասո</subdivision>
+			<subdivision type="itce" draft="contributed">Կազերտա</subdivision>
+			<subdivision type="itch" draft="contributed">Կիետի</subdivision>
+			<subdivision type="itci" draft="contributed">Կարբոնիա-Իգլեզիաս</subdivision>
+			<subdivision type="itcl" draft="contributed">Կալտանիսետա</subdivision>
+			<subdivision type="itco" draft="contributed">Կոմո</subdivision>
+			<subdivision type="itcr" draft="contributed">Կրեմոնա</subdivision>
+			<subdivision type="itcs" draft="contributed">Կոզենցա</subdivision>
+			<subdivision type="itct" draft="contributed">Կատանիա</subdivision>
+			<subdivision type="itcz" draft="contributed">Կատանձարո</subdivision>
+			<subdivision type="iten" draft="contributed">Էննա</subdivision>
+			<subdivision type="itfc" draft="contributed">Ֆորլի Չեզանա</subdivision>
+			<subdivision type="itfe" draft="contributed">Ֆերերա</subdivision>
+			<subdivision type="itfg" draft="contributed">Ֆոջա</subdivision>
+			<subdivision type="itfi" draft="contributed">Ֆլորենցիա</subdivision>
+			<subdivision type="itfm" draft="contributed">Ֆերմո</subdivision>
+			<subdivision type="itfr" draft="contributed">Ֆրոզինոնե</subdivision>
+			<subdivision type="itgo" draft="contributed">Կաղապար:Գորիցիայի գավառ</subdivision>
+			<subdivision type="itgr" draft="contributed">Գրոսետո</subdivision>
+			<subdivision type="itim" draft="contributed">Իմպերիա</subdivision>
+			<subdivision type="itis" draft="contributed">Իզերնիա</subdivision>
+			<subdivision type="itkr" draft="contributed">Կրոտոնե</subdivision>
+			<subdivision type="itlc" draft="contributed">Լեքո</subdivision>
+			<subdivision type="itle" draft="contributed">Լեչե</subdivision>
+			<subdivision type="itli" draft="contributed">Լիվորնո</subdivision>
+			<subdivision type="itlo" draft="contributed">Լոդի</subdivision>
+			<subdivision type="itlt" draft="contributed">Լատինա</subdivision>
+			<subdivision type="itlu" draft="contributed">Կաղապար:Լուկայի գավառ</subdivision>
+			<subdivision type="itmb" draft="contributed">Մոնցա և Բրիանցա</subdivision>
+			<subdivision type="itmc" draft="contributed">Մաչերատա</subdivision>
+			<subdivision type="itme" draft="contributed">Մեսսինա</subdivision>
+			<subdivision type="itmi" draft="contributed">Միլան</subdivision>
+			<subdivision type="itmn" draft="contributed">Մանտուա</subdivision>
+			<subdivision type="itmo" draft="contributed">Կաղապար:Մոդենայի գավառ</subdivision>
+			<subdivision type="itms" draft="contributed">Մասսա-Կարարա</subdivision>
+			<subdivision type="itmt" draft="contributed">Մատերա</subdivision>
+			<subdivision type="itno" draft="contributed">Նովարա</subdivision>
+			<subdivision type="itnu" draft="contributed">Նուորո</subdivision>
+			<subdivision type="itog" draft="contributed">Օլիաստրա</subdivision>
+			<subdivision type="itor" draft="contributed">Օրիստանո</subdivision>
+			<subdivision type="itot" draft="contributed">Օլբիա-Տեմպիո</subdivision>
+			<subdivision type="itpa" draft="contributed">Պալերմո</subdivision>
+			<subdivision type="itpc" draft="contributed">Պիաչենցա</subdivision>
+			<subdivision type="itpd" draft="contributed">Պադովա</subdivision>
+			<subdivision type="itpe" draft="contributed">Պեսկարա</subdivision>
+			<subdivision type="itpg" draft="contributed">Պերուջա</subdivision>
+			<subdivision type="itpi" draft="contributed">Պիզա</subdivision>
+			<subdivision type="itpn" draft="contributed">Պորդենոնե</subdivision>
+			<subdivision type="itpo" draft="contributed">Պրատո</subdivision>
+			<subdivision type="itpr" draft="contributed">Պարմա</subdivision>
+			<subdivision type="itpt" draft="contributed">Պիստոիա</subdivision>
+			<subdivision type="itpu" draft="contributed">Պեզարո է Ուրբինո</subdivision>
+			<subdivision type="itpv" draft="contributed">Պավիա</subdivision>
+			<subdivision type="itpz" draft="contributed">Պոտենցա</subdivision>
+			<subdivision type="itra" draft="contributed">Ռավեննա</subdivision>
+			<subdivision type="itrc" draft="contributed">Ռեջիո Կալաբրիա</subdivision>
+			<subdivision type="itre" draft="contributed">Ռեջիո Էմիլիա</subdivision>
+			<subdivision type="itrg" draft="contributed">Ռագուզա</subdivision>
+			<subdivision type="itri" draft="contributed">Ռիետի</subdivision>
+			<subdivision type="itrm" draft="contributed">Հռոմ</subdivision>
+			<subdivision type="itrn" draft="contributed">Ռիմինի</subdivision>
+			<subdivision type="itro" draft="contributed">Ռովիգո</subdivision>
+			<subdivision type="itsa" draft="contributed">Սալեռնո</subdivision>
+			<subdivision type="itsi" draft="contributed">Սիենա</subdivision>
+			<subdivision type="itso" draft="contributed">Սոնդրիո</subdivision>
+			<subdivision type="itsp" draft="contributed">Սպեցիա</subdivision>
+			<subdivision type="itsr" draft="contributed">Սիրակուզա</subdivision>
+			<subdivision type="itss" draft="contributed">Սասսարի</subdivision>
+			<subdivision type="itsv" draft="contributed">Սավոնա</subdivision>
+			<subdivision type="itta" draft="contributed">Տարանտո</subdivision>
+			<subdivision type="itte" draft="contributed">Տերամո</subdivision>
+			<subdivision type="ittn" draft="contributed">Տրենտո</subdivision>
+			<subdivision type="itto" draft="contributed">Թուրին</subdivision>
+			<subdivision type="ittr" draft="contributed">Տեռնի</subdivision>
+			<subdivision type="ittv" draft="contributed">Տրևիզո</subdivision>
+			<subdivision type="itud" draft="contributed">Ուդինե</subdivision>
+			<subdivision type="itva" draft="contributed">Վարեզե</subdivision>
+			<subdivision type="itvb" draft="contributed">Վերբանիո-Կուզիո-Օսոլա</subdivision>
+			<subdivision type="itvc" draft="contributed">Վերչելլի</subdivision>
+			<subdivision type="itve" draft="contributed">Վենետիկ</subdivision>
+			<subdivision type="itvi" draft="contributed">Վիչենցա</subdivision>
+			<subdivision type="itvr" draft="contributed">Վերոնա</subdivision>
+			<subdivision type="itvs" draft="contributed">Մեդիո Կամպիդանո</subdivision>
+			<subdivision type="itvt" draft="contributed">Վիտերբո</subdivision>
+			<subdivision type="itvv" draft="contributed">Վիբո Վալենտիա</subdivision>
+			<subdivision type="jm04" draft="contributed">Պորտլենդի համայնք</subdivision>
+			<subdivision type="jm07" draft="contributed">Թրելոնի եկեղեցական ծուխ</subdivision>
+			<subdivision type="joam" draft="contributed">Ամմանի մարզ</subdivision>
+			<subdivision type="joaq" draft="contributed">Ակաբայի մարզ</subdivision>
+			<subdivision type="joat" draft="contributed">Ալ-Տաֆիլայի մարզ</subdivision>
+			<subdivision type="joir" draft="contributed">Իրբիդի մարզ</subdivision>
+			<subdivision type="joja" draft="contributed">Ջարաշի մարզ</subdivision>
+			<subdivision type="joma" draft="contributed">Ալ-Մաֆրակի մարզ</subdivision>
+			<subdivision type="jomd" draft="contributed">Մադաբայի մարզ</subdivision>
+			<subdivision type="jomn" draft="contributed">Մաանի մարզ</subdivision>
+			<subdivision type="jp01" draft="contributed">Հոկայդո</subdivision>
+			<subdivision type="jp02" draft="contributed">Աոմորի</subdivision>
+			<subdivision type="jp03" draft="contributed">Իվատե</subdivision>
+			<subdivision type="jp04" draft="contributed">Միյագի</subdivision>
+			<subdivision type="jp05" draft="contributed">Ակիտա</subdivision>
+			<subdivision type="jp07" draft="contributed">Ֆուկուսիմա</subdivision>
+			<subdivision type="jp10" draft="contributed">Գումմա</subdivision>
+			<subdivision type="jp11" draft="contributed">Սայտամա</subdivision>
+			<subdivision type="jp13" draft="contributed">Տոկիո</subdivision>
+			<subdivision type="jp14" draft="contributed">Կանագավա</subdivision>
+			<subdivision type="jp15" draft="contributed">Նիիգատա</subdivision>
+			<subdivision type="jp16" draft="contributed">Տոյամա</subdivision>
+			<subdivision type="jp23" draft="contributed">Այչի</subdivision>
+			<subdivision type="jp24" draft="contributed">Միե</subdivision>
+			<subdivision type="jp27" draft="contributed">Օսակայի պրեֆեկտուրա</subdivision>
+			<subdivision type="jp30" draft="contributed">Վակայամա</subdivision>
+			<subdivision type="jp35" draft="contributed">Յամագուտի</subdivision>
+			<subdivision type="jp40" draft="contributed">Ֆուկուոկա</subdivision>
+			<subdivision type="jp42" draft="contributed">Նագասակի</subdivision>
+			<subdivision type="jp45" draft="contributed">Միյաձակի</subdivision>
+			<subdivision type="jp46" draft="contributed">Կոգոշիմա</subdivision>
+			<subdivision type="jp47" draft="contributed">Օկինավա</subdivision>
+			<subdivision type="ke20" draft="contributed">Լայկիպիա</subdivision>
+			<subdivision type="ke31" draft="contributed">Նակուրու շրջան</subdivision>
+			<subdivision type="kgb" draft="contributed">Բաթկենի մարզ</subdivision>
+			<subdivision type="kgc" draft="contributed">Չույի մարզ</subdivision>
+			<subdivision type="kggb" draft="contributed">Բիշքեկ</subdivision>
+			<subdivision type="kggo" draft="contributed">Օշ</subdivision>
+			<subdivision type="kgj" draft="contributed">Ջալալաբադի մարզ</subdivision>
+			<subdivision type="kgn" draft="contributed">Նարինի մարզ</subdivision>
+			<subdivision type="kgo" draft="contributed">Օշի մարզ</subdivision>
+			<subdivision type="kgt" draft="contributed">Թալասի մարզ</subdivision>
+			<subdivision type="kgy" draft="contributed">Իսիք Քուլի մարզ</subdivision>
+			<subdivision type="kh12" draft="contributed">Պնոմպեն</subdivision>
+			<subdivision type="kig" draft="contributed">Գիլբերտի կղզիներ</subdivision>
+			<subdivision type="kp01" draft="contributed">Փհենյան</subdivision>
+			<subdivision type="kp07" draft="contributed">Կանգվանդո</subdivision>
+			<subdivision type="kr11" draft="contributed">Սեուլ</subdivision>
+			<subdivision type="kr26" draft="contributed">Բուսան</subdivision>
+			<subdivision type="kr27" draft="contributed">Դեգու</subdivision>
+			<subdivision type="kr28" draft="contributed">Ինչոն</subdivision>
+			<subdivision type="kr29" draft="contributed">Գվանջու</subdivision>
+			<subdivision type="kr30" draft="contributed">Դեջոն</subdivision>
+			<subdivision type="kr31" draft="contributed">Ուլսան</subdivision>
+			<subdivision type="kr41" draft="contributed">Գյոնգի-դո</subdivision>
+			<subdivision type="kr42" draft="contributed">Գանգվոն-դո</subdivision>
+			<subdivision type="kr43" draft="contributed">Հյուսիսային Չունգչոնգ</subdivision>
+			<subdivision type="kr44" draft="contributed">Հարավային Չունգչոնգ</subdivision>
+			<subdivision type="kr45" draft="contributed">Հյուսիսային Ջոլա</subdivision>
+			<subdivision type="kr46" draft="contributed">Հարավային Ջոլա</subdivision>
+			<subdivision type="kr47" draft="contributed">Հյուսիսային Գյոնգսանգ</subdivision>
+			<subdivision type="kr48" draft="contributed">Հարավային Գյոնգսանգ</subdivision>
+			<subdivision type="kr49" draft="contributed">Ջեջու նահանգ</subdivision>
+			<subdivision type="kr50" draft="contributed">Սեջոնգ</subdivision>
+			<subdivision type="kwfa" draft="contributed">Էլ Ֆարվանիյահ</subdivision>
+			<subdivision type="kwha" draft="contributed">Հավալի</subdivision>
+			<subdivision type="kwja" draft="contributed">Էլ Ջահրա</subdivision>
+			<subdivision type="kwku" draft="contributed">Ալ Ասիմա</subdivision>
+			<subdivision type="kwmu" draft="contributed">Մուբարաք Էլ Քաբիր</subdivision>
+			<subdivision type="kzakm" draft="contributed">Աքմոլայի մարզ</subdivision>
+			<subdivision type="kzala" draft="contributed">Ալմաթի</subdivision>
+			<subdivision type="kzalm" draft="contributed">Ալմաթի շրջան</subdivision>
+			<subdivision type="kzast" draft="contributed">Աստանա</subdivision>
+			<subdivision type="kzaty" draft="contributed">Արիտաու մարզ</subdivision>
+			<subdivision type="kzkar" draft="contributed">Կարագանդայի մարզ</subdivision>
+			<subdivision type="kzkus" draft="contributed">Կոստանայ շրջան</subdivision>
+			<subdivision type="kzkzy" draft="contributed">Կզըլ-Օրդայի մարզ</subdivision>
+			<subdivision type="kzpav" draft="contributed">Պավլոդարի մարզ</subdivision>
+			<subdivision type="kzsev" draft="contributed">Հյուսիս-Ղազախստանյան մարզ</subdivision>
+			<subdivision type="kzvos" draft="contributed">Արևելաղազախական շրջան</subdivision>
+			<subdivision type="kzyuz" draft="contributed">Հարավ-Ղազախստանյան մարզ</subdivision>
+			<subdivision type="kzzap" draft="contributed">Արևմտյան Ղազախստանի մարզ</subdivision>
+			<subdivision type="laxe" draft="contributed">Սեկոնգ</subdivision>
+			<subdivision type="lbba" draft="contributed">Բեյրութի մարզ</subdivision>
+			<subdivision type="lbbi" draft="contributed">Բեկաայի մարզ</subdivision>
+			<subdivision type="lbja" draft="contributed">Հարավային Լիբանան</subdivision>
+			<subdivision type="lbjl" draft="contributed">Լեռնային Լիբանանի պրովինցիա</subdivision>
+			<subdivision type="lbna" draft="contributed">Նաբատիայի մարզ</subdivision>
+			<subdivision type="li03" draft="contributed">Գամպրին</subdivision>
+			<subdivision type="li11" draft="contributed">Վադուց</subdivision>
+			<subdivision type="lrbg" draft="contributed">Բոնգ երկրամաս</subdivision>
+			<subdivision type="lrbm" draft="contributed">Բոմի երկրամաս</subdivision>
+			<subdivision type="lrcm" draft="contributed">Գրանդ Քեյփ-Մաունթ երկրամաս</subdivision>
+			<subdivision type="lrgb" draft="contributed">Գրանդ Բասսա երկրամաս</subdivision>
+			<subdivision type="lrgg" draft="contributed">Գրանդ Գեդեհ երկրամաս</subdivision>
+			<subdivision type="lrgk" draft="contributed">Գրանդ Կրու երկրամաս</subdivision>
+			<subdivision type="lrgp" draft="contributed">Գբարպոլու երկրամաս</subdivision>
+			<subdivision type="lrlo" draft="contributed">Լոֆա երկրամաս</subdivision>
+			<subdivision type="lrmg" draft="contributed">Մարգիբի երկրամաս</subdivision>
+			<subdivision type="lrmo" draft="contributed">Մոնտսերադո երկրամաս</subdivision>
+			<subdivision type="lrmy" draft="contributed">Մերիլենդ երկրամաս</subdivision>
+			<subdivision type="lrni" draft="contributed">Նիմբա երկրամաս</subdivision>
+			<subdivision type="lrrg" draft="contributed">Ռիվր Գի երկրամաս</subdivision>
+			<subdivision type="lrri" draft="contributed">Ռիվրցես երկրամաս</subdivision>
+			<subdivision type="lrsi" draft="contributed">Սինոե երկրամաս</subdivision>
+			<subdivision type="lsb" draft="contributed">Բութա Բութե</subdivision>
+			<subdivision type="lsc" draft="contributed">Լերիբե</subdivision>
+			<subdivision type="lsd" draft="contributed">Բերեա</subdivision>
+			<subdivision type="lse" draft="contributed">Մաֆեթենգ</subdivision>
+			<subdivision type="lt04" draft="contributed">Անիկշչայի շրջան</subdivision>
+			<subdivision type="ltkl" draft="contributed">Կլայպեդի գավառ</subdivision>
+			<subdivision type="ltpn" draft="contributed">Պանավեժի կոմսություն</subdivision>
+			<subdivision type="ltta" draft="contributed">Տաուրագեսի կոմսություն</subdivision>
+			<subdivision type="ltut" draft="contributed">Ուտենայի գավառ</subdivision>
+			<subdivision type="ltvl" draft="contributed">Վիլնյուսի կոմսություն</subdivision>
+			<subdivision type="lv001" draft="contributed">Ագլոնյան երկրամաս</subdivision>
+			<subdivision type="lv002" draft="contributed">Այզկրաուկլեի շրջան</subdivision>
+			<subdivision type="lv003" draft="contributed">Աիզկրաուկլյան շրջան</subdivision>
+			<subdivision type="lv004" draft="contributed">Ակնիստեի շրջան</subdivision>
+			<subdivision type="lv005" draft="contributed">Ալոյան շրջան</subdivision>
+			<subdivision type="lv006" draft="contributed">Ալսունգյան շրջան</subdivision>
+			<subdivision type="lv007" draft="contributed">Ալուքսենեի շրջան</subdivision>
+			<subdivision type="lv008" draft="contributed">Ամատայի շրջան</subdivision>
+			<subdivision type="lv009" draft="contributed">Ապեի շրջան</subdivision>
+			<subdivision type="lv010" draft="contributed">Ասուցեի շրջան</subdivision>
+			<subdivision type="lv011" draft="contributed">Ադաժի շրջան</subdivision>
+			<subdivision type="lv012" draft="contributed">Բաբիտեի շրջան</subdivision>
+			<subdivision type="lv013" draft="contributed">Բալդոնեի շրջան</subdivision>
+			<subdivision type="lv014" draft="contributed">Բալտինավայի շրջան</subdivision>
+			<subdivision type="lv015" draft="contributed">Բալվիի շրջան</subdivision>
+			<subdivision type="lv016" draft="contributed">Բաուսկայի շրջան</subdivision>
+			<subdivision type="lv017" draft="contributed">Բեվերինյան շրջան</subdivision>
+			<subdivision type="lv018" draft="contributed">Բրոցենի շրջան</subdivision>
+			<subdivision type="lv019" draft="contributed">Բուրտնիեկի շրջան</subdivision>
+			<subdivision type="lv023" draft="contributed">Ցիբլայի շրջան</subdivision>
+			<subdivision type="lv024" draft="contributed">Դագդայի շրջան</subdivision>
+			<subdivision type="lv025" draft="contributed">Դաուգավպիլսի շրջան</subdivision>
+			<subdivision type="lv026" draft="contributed">Դոբելեի շրջան</subdivision>
+			<subdivision type="lv027" draft="contributed">Դունդագայի շրջան</subdivision>
+			<subdivision type="lv028" draft="contributed">Դուրբեի շրջան</subdivision>
+			<subdivision type="lv029" draft="contributed">Էնգուրեյի շրջան</subdivision>
+			<subdivision type="lv031" draft="contributed">Գարկալնեի շրջան</subdivision>
+			<subdivision type="lv032" draft="contributed">Գրոբինյայի շրջան</subdivision>
+			<subdivision type="lv033" draft="contributed">Գուլբենեի շրջան</subdivision>
+			<subdivision type="lv034" draft="contributed">Իեցավայի շրջան</subdivision>
+			<subdivision type="lv035" draft="contributed">Իքշկիլեի շրջան</subdivision>
+			<subdivision type="lv037" draft="contributed">Ինչուկալնսի շրջան</subdivision>
+			<subdivision type="lv038" draft="contributed">Յաունելգավաի շրջան</subdivision>
+			<subdivision type="lv041" draft="contributed">Ելգավայի շրջան</subdivision>
+			<subdivision type="lv042" draft="contributed">Եկաբպիսլի շրջան</subdivision>
+			<subdivision type="lv043" draft="contributed">Կանդավայի շրջան</subdivision>
+			<subdivision type="lv045" draft="contributed">Կոցենիի շրջան</subdivision>
+			<subdivision type="lv046" draft="contributed">Կոկնեսեի շրջան</subdivision>
+			<subdivision type="lv048" draft="contributed">Կրիմուլդայի շրջան</subdivision>
+			<subdivision type="lv049" draft="contributed">Կրուստպիլսի շրջան</subdivision>
+			<subdivision type="lv052" draft="contributed">Կեկավայի շրջան</subdivision>
+			<subdivision type="lv053" draft="contributed">Լիելվարդեի շրջան</subdivision>
+			<subdivision type="lv054" draft="contributed">Լիմբաժիի շրջան</subdivision>
+			<subdivision type="lv055" draft="contributed">Լիգատնեի շրջան</subdivision>
+			<subdivision type="lv056" draft="contributed">Լիվանիի շրջան</subdivision>
+			<subdivision type="lv061" draft="contributed">Մալպիլսի շրջան</subdivision>
+			<subdivision type="lv062" draft="contributed">Մարուպեի շրջան</subdivision>
+			<subdivision type="lv063" draft="contributed">Մերսրագսի շրջան</subdivision>
+			<subdivision type="lv064" draft="contributed">Նաուկշենի շրջան</subdivision>
+			<subdivision type="lv065" draft="contributed">Ներետայի շրջան</subdivision>
+			<subdivision type="lv066" draft="contributed">Նիցայի շրջան</subdivision>
+			<subdivision type="lv067" draft="contributed">Օգրեի շրջան</subdivision>
+			<subdivision type="lv068" draft="contributed">Օլաինեի շրջան</subdivision>
+			<subdivision type="lv069" draft="contributed">Օզոլնիեկիի շրջան</subdivision>
+			<subdivision type="lv070" draft="contributed">Պարգաույայի շրջան</subdivision>
+			<subdivision type="lv076" draft="contributed">Ռաունայի շրջան</subdivision>
+			<subdivision type="lv078" draft="contributed">Ռիեբինիյի շրջան</subdivision>
+			<subdivision type="lv082" draft="contributed">Ռուգայիի շրջան</subdivision>
+			<subdivision type="lv083" draft="contributed">Ռունդալեի շրջան</subdivision>
+			<subdivision type="lv084" draft="contributed">Ռույիենայի շրջան</subdivision>
+			<subdivision type="lv085" draft="contributed">Սալայի շրջան</subdivision>
+			<subdivision type="lv087" draft="contributed">Սալասպիլսի շրջան</subdivision>
+			<subdivision type="lv088" draft="contributed">Սալդուսի շրջան</subdivision>
+			<subdivision type="lv090" draft="contributed">Սեյայի շրջան</subdivision>
+			<subdivision type="lv092" draft="contributed">Սկրիվերի շրջան</subdivision>
+			<subdivision type="lv094" draft="contributed">Սմիլտենեի շրջան</subdivision>
+			<subdivision type="lv095" draft="contributed">Ստոպինյիի շրջան</subdivision>
+			<subdivision type="lv097" draft="contributed">Տալսիի շրջան</subdivision>
+			<subdivision type="lv099" draft="contributed">Տուկումայի շրջան</subdivision>
+			<subdivision type="lv100" draft="contributed">Վայնոդեի շրջան</subdivision>
+			<subdivision type="lv101" draft="contributed">Վալկայի շրջան</subdivision>
+			<subdivision type="lv102" draft="contributed">Վարակլյանիի շրջան</subdivision>
+			<subdivision type="lv103" draft="contributed">Վարկավա</subdivision>
+			<subdivision type="lv104" draft="contributed">Վեցպիեբալգա</subdivision>
+			<subdivision type="lv106" draft="contributed">Վենտսպիլսի շրջան</subdivision>
+			<subdivision type="lv107" draft="contributed">Վիեսիտեի շրջան</subdivision>
+			<subdivision type="lv110" draft="contributed">Զիլուպեի շրջան</subdivision>
+			<subdivision type="lvdgv" draft="contributed">Դաուգավպիլս</subdivision>
+			<subdivision type="lvjel" draft="contributed">Ելգավա</subdivision>
+			<subdivision type="lvjkb" draft="contributed">Եկաբպիլս</subdivision>
+			<subdivision type="lvjur" draft="contributed">Յուրմալա</subdivision>
+			<subdivision type="lvlpx" draft="contributed">Լիեպայա</subdivision>
+			<subdivision type="lvrez" draft="contributed">Ռեզեկնե</subdivision>
+			<subdivision type="lvrix" draft="contributed">Ռիգա</subdivision>
+			<subdivision type="lvven" draft="contributed">Վենտսպիլս</subdivision>
+			<subdivision type="lvvmr" draft="contributed">Վալմիերա</subdivision>
+			<subdivision type="lyba" draft="contributed">Բենգազի</subdivision>
+			<subdivision type="lybu" draft="contributed">Էլ-Բուտնան</subdivision>
+			<subdivision type="lydr" draft="contributed">Դերնա</subdivision>
+			<subdivision type="lymq" draft="contributed">Մարզուկ</subdivision>
+			<subdivision type="lytb" draft="contributed">Տարաբուլուս</subdivision>
+			<subdivision type="lyws" draft="contributed">Վադի ալ-Շատի</subdivision>
+			<subdivision type="macas" draft="contributed">Կասաբլանկա</subdivision>
+			<subdivision type="mafes" draft="contributed">Ֆես</subdivision>
+			<subdivision type="mamek" draft="contributed">Մեկնես</subdivision>
+			<subdivision type="mammd" draft="contributed">Մառակեշ</subdivision>
+			<subdivision type="mammn" draft="contributed">Մառակեշ²</subdivision>
+			<subdivision type="marab" draft="contributed">Ռաբաթ</subdivision>
+			<subdivision type="masyb" draft="contributed">Մառակեշ³</subdivision>
+			<subdivision type="matng" draft="contributed">Տանժեր</subdivision>
+			<subdivision type="mcco" draft="contributed">Լա Կոնդամին</subdivision>
+			<subdivision type="mcfo" draft="contributed">Ֆոնվյեյ</subdivision>
+			<subdivision type="mcmc" draft="contributed">Մոնտե Կառլո</subdivision>
+			<subdivision type="mcmo" draft="contributed">Մոնակո</subdivision>
+			<subdivision type="mdba" draft="contributed">Բելցի</subdivision>
+			<subdivision type="mdbd" draft="contributed">Բենդերի</subdivision>
+			<subdivision type="mdcu" draft="contributed">Քիշնև</subdivision>
+			<subdivision type="mdhi" draft="contributed">Հնչեշտի շրջան</subdivision>
+			<subdivision type="mdso" draft="contributed">Սորոկի շրջան</subdivision>
+			<subdivision type="mhjal" draft="contributed">Ջալուիտ</subdivision>
+			<subdivision type="mhmaj" draft="contributed">Մաջուրո</subdivision>
+			<subdivision type="mk05" draft="contributed">Բոգդանցիի համայնք</subdivision>
+			<subdivision type="mk13" draft="contributed">Վելեսի համայնք</subdivision>
+			<subdivision type="mk18" draft="contributed">Գևգելիայի համայնք</subdivision>
+			<subdivision type="mk20" draft="contributed">Գրադսկոյի համայնք</subdivision>
+			<subdivision type="mk24" draft="contributed">Դեմիր Կապիայի համայնք</subdivision>
+			<subdivision type="mk26" draft="contributed">Դոյրան</subdivision>
+			<subdivision type="mk32" draft="contributed">Զելենիկովո</subdivision>
+			<subdivision type="mk49" draft="contributed">Լոզովոյի համայնք</subdivision>
+			<subdivision type="mk62" draft="contributed">Պրիլեպ մունիցիպիալիտետ</subdivision>
+			<subdivision type="mk85" draft="contributed">Սկոպյե</subdivision>
+			<subdivision type="mlbko" draft="contributed">Բամակո</subdivision>
+			<subdivision type="mm07" draft="contributed">Իրավադի</subdivision>
+			<subdivision type="mm11" draft="contributed">Կաչին</subdivision>
+			<subdivision type="mm12" draft="contributed">Կայա</subdivision>
+			<subdivision type="mm14" draft="contributed">Չին</subdivision>
+			<subdivision type="mm15" draft="contributed">Մոն</subdivision>
+			<subdivision type="mm17" draft="contributed">Շան</subdivision>
+			<subdivision type="mn1" draft="contributed">Ուլան Բատոր</subdivision>
+			<subdivision type="mn047" draft="contributed">Տուվե</subdivision>
+			<subdivision type="mt04" draft="contributed">Բիրկիրկարա</subdivision>
+			<subdivision type="mt06" draft="contributed">Բորմլա</subdivision>
+			<subdivision type="mt12" draft="contributed">Գզիրա</subdivision>
+			<subdivision type="mt13" draft="contributed">Այնսիլեմ</subdivision>
+			<subdivision type="mt26" draft="contributed">Մարսա</subdivision>
+			<subdivision type="mt32" draft="contributed">Մոստա</subdivision>
+			<subdivision type="mt44" draft="contributed">Կուրենդի</subdivision>
+			<subdivision type="mt46" draft="contributed">Ռաբաթ</subdivision>
+			<subdivision type="mt47" draft="contributed">Սաֆի</subdivision>
+			<subdivision type="mt56" draft="contributed">Սիլեմա</subdivision>
+			<subdivision type="mt60" draft="contributed">Վալետա</subdivision>
+			<subdivision type="mt61" draft="contributed">Շահրա</subdivision>
+			<subdivision type="mupu" draft="contributed">Պորտ Լուի</subdivision>
+			<subdivision type="mv20" draft="contributed">Բաա ատոլ</subdivision>
+			<subdivision type="mvmle" draft="contributed">Մալե</subdivision>
+			<subdivision type="mxagu" draft="contributed">Ագուասկալիենտես</subdivision>
+			<subdivision type="mxbcn" draft="contributed">Ստորին Կալիֆոռնիա</subdivision>
+			<subdivision type="mxbcs" draft="contributed">Հարավային Ստորին Կալիֆոռնիա</subdivision>
+			<subdivision type="mxcam" draft="contributed">Կամպեչե</subdivision>
+			<subdivision type="mxchh" draft="contributed">Չիուաուա</subdivision>
+			<subdivision type="mxchp" draft="contributed">Չիապաս</subdivision>
+			<subdivision type="mxcmx" draft="contributed">Մեխիկո</subdivision>
+			<subdivision type="mxcoa" draft="contributed">Կոաուիլա</subdivision>
+			<subdivision type="mxcol" draft="contributed">Կոլիմա</subdivision>
+			<subdivision type="mxdur" draft="contributed">Դուրանգո</subdivision>
+			<subdivision type="mxgro" draft="contributed">Գեռերո</subdivision>
+			<subdivision type="mxgua" draft="contributed">Գուանախուատո</subdivision>
+			<subdivision type="mxhid" draft="contributed">Իդալգո</subdivision>
+			<subdivision type="mxjal" draft="contributed">Խալիսկո</subdivision>
+			<subdivision type="mxmex" draft="contributed">Մեխիկո²</subdivision>
+			<subdivision type="mxmic" draft="contributed">Միչոական</subdivision>
+			<subdivision type="mxmor" draft="contributed">Մորելոս</subdivision>
+			<subdivision type="mxnay" draft="contributed">Նայարիտ</subdivision>
+			<subdivision type="mxnle" draft="contributed">Նուևո Լեոն</subdivision>
+			<subdivision type="mxoax" draft="contributed">Օահակա</subdivision>
+			<subdivision type="mxpue" draft="contributed">Պուեբլա</subdivision>
+			<subdivision type="mxque" draft="contributed">Կերետարո</subdivision>
+			<subdivision type="mxroo" draft="contributed">Կինտանա Ռոո</subdivision>
+			<subdivision type="mxsin" draft="contributed">Սինալոա</subdivision>
+			<subdivision type="mxslp" draft="contributed">Սան Լուիս</subdivision>
+			<subdivision type="mxson" draft="contributed">Սոնորա</subdivision>
+			<subdivision type="mxtab" draft="contributed">Տաբասկո</subdivision>
+			<subdivision type="mxtam" draft="contributed">Տամաուլիպաս</subdivision>
+			<subdivision type="mxtla" draft="contributed">Տլասկալա</subdivision>
+			<subdivision type="mxver" draft="contributed">Վերակրուս</subdivision>
+			<subdivision type="mxyuc" draft="contributed">Յուկատան նահանգ</subdivision>
+			<subdivision type="mxzac" draft="contributed">Սակատեկաս</subdivision>
+			<subdivision type="my07" draft="contributed">Պինանգ</subdivision>
+			<subdivision type="my12" draft="contributed">Սաբահ</subdivision>
+			<subdivision type="my14" draft="contributed">Կուալա Լումպուր</subdivision>
+			<subdivision type="mzmpm" draft="contributed">Մապուտու</subdivision>
+			<subdivision type="ne8" draft="contributed">Նիամեյ</subdivision>
+			<subdivision type="ngla" draft="contributed">Լագոս</subdivision>
+			<subdivision type="nile" draft="contributed">Լեոն</subdivision>
+			<subdivision type="nlbq1" draft="contributed">Բոնեյրե</subdivision>
+			<subdivision type="nlbq2" draft="contributed">Սաբա կղզի</subdivision>
+			<subdivision type="nlbq3" draft="contributed">Սինտ Էվստատիուս</subdivision>
+			<subdivision type="nldr" draft="contributed">Դրենթե</subdivision>
+			<subdivision type="nlfl" draft="contributed">Ֆլևոլանդ</subdivision>
+			<subdivision type="nlfr" draft="contributed">Ֆրիսլանդիա</subdivision>
+			<subdivision type="nlge" draft="contributed">Խելդեռլանդ</subdivision>
+			<subdivision type="nlgr" draft="contributed">Խրոնինգեն</subdivision>
+			<subdivision type="nlli" draft="contributed">Լիմբուրխ</subdivision>
+			<subdivision type="nlnb" draft="contributed">Հյուսիսային Բրաբանդ</subdivision>
+			<subdivision type="nlnh" draft="contributed">Հյուսիսային Հոլանդիա</subdivision>
+			<subdivision type="nlov" draft="contributed">Օվերեյսել</subdivision>
+			<subdivision type="nlze" draft="contributed">Զեյլանդ</subdivision>
+			<subdivision type="nlzh" draft="contributed">Հարավային Հոլանդիա</subdivision>
+			<subdivision type="no01" draft="contributed">Էստֆոլդ</subdivision>
+			<subdivision type="no02" draft="contributed">Ակերսհուս</subdivision>
+			<subdivision type="no03" draft="contributed">Օսլո</subdivision>
+			<subdivision type="no04" draft="contributed">Հեդմարկ</subdivision>
+			<subdivision type="no05" draft="contributed">Օպլանդ</subdivision>
+			<subdivision type="no06" draft="contributed">Բուսկերուդ</subdivision>
+			<subdivision type="no07" draft="contributed">Վեստֆոլ</subdivision>
+			<subdivision type="no10" draft="contributed">Վեստ-Ագդեր</subdivision>
+			<subdivision type="no11" draft="contributed">Ռուգլան</subdivision>
+			<subdivision type="no12" draft="contributed">Հորդալան</subdivision>
+			<subdivision type="no16" draft="contributed">Սյոր Տրյոնդելագ</subdivision>
+			<subdivision type="no17" draft="contributed">Նուր Տրյոնդելագ</subdivision>
+			<subdivision type="no18" draft="contributed">Նուռլան</subdivision>
+			<subdivision type="no19" draft="contributed">Թրոմս</subdivision>
+			<subdivision type="no20" draft="contributed">Ֆինմարք</subdivision>
+			<subdivision type="no21" draft="contributed">Շպիցբերգեն</subdivision>
+			<subdivision type="no22" draft="contributed">Յան Մայեն</subdivision>
+			<subdivision type="np1" draft="contributed">Կենտրոնական շրջան</subdivision>
+			<subdivision type="np3" draft="contributed">Արևմտյան շրջան</subdivision>
+			<subdivision type="npga" draft="contributed">Գանդակի</subdivision>
+			<subdivision type="nplu" draft="contributed">Լումբինի</subdivision>
+			<subdivision type="nr02" draft="contributed">Անաբար</subdivision>
+			<subdivision type="nr03" draft="contributed">Անետան</subdivision>
+			<subdivision type="nr04" draft="contributed">Անիբար</subdivision>
+			<subdivision type="nr05" draft="contributed">Բաիտի</subdivision>
+			<subdivision type="nr06" draft="contributed">Բոե</subdivision>
+			<subdivision type="nr07" draft="contributed">Բուադա</subdivision>
+			<subdivision type="nr08" draft="contributed">Դենիգոմոդու</subdivision>
+			<subdivision type="nr09" draft="contributed">Եվա</subdivision>
+			<subdivision type="nr10" draft="contributed">Իուվ</subdivision>
+			<subdivision type="nr11" draft="contributed">Մենենգ</subdivision>
+			<subdivision type="nr12" draft="contributed">Նիբոկ</subdivision>
+			<subdivision type="nr13" draft="contributed">Ուաբո</subdivision>
+			<subdivision type="nr14" draft="contributed">Յարեն</subdivision>
+			<subdivision type="nzauk" draft="contributed">Օքլենդ</subdivision>
+			<subdivision type="nzbop" draft="contributed">Բեյ օֆ Փլենթի</subdivision>
+			<subdivision type="nzcit" draft="contributed">Չաթեմ կղզիներ</subdivision>
+			<subdivision type="nzgis" draft="contributed">Գիսբորն</subdivision>
+			<subdivision type="nzntl" draft="contributed">Նորթլենդ</subdivision>
+			<subdivision type="nzwko" draft="contributed">Ուակիթո</subdivision>
+			<subdivision type="peanc" draft="contributed">Անկաշ</subdivision>
+			<subdivision type="pehuv" draft="contributed">Ուանկավելիկա</subdivision>
+			<subdivision type="pesam" draft="contributed">Սան Մարտին տարածաշրջան</subdivision>
+			<subdivision type="pgncd" draft="contributed">Պորտ Մորսբի</subdivision>
+			<subdivision type="ph05" draft="contributed">Բիկոլի շրջան</subdivision>
+			<subdivision type="ph07" draft="contributed">Կենտրոնական Վիսարյա</subdivision>
+			<subdivision type="phalb" draft="contributed">Ալբայ</subdivision>
+			<subdivision type="phcas" draft="contributed">Հարավային Կամարինես</subdivision>
+			<subdivision type="phcav" draft="contributed">Կավիտե</subdivision>
+			<subdivision type="phceb" draft="contributed">Սեբու</subdivision>
+			<subdivision type="phtar" draft="contributed">Տարլակ</subdivision>
+			<subdivision type="pkjk" draft="contributed">Ազադ Քաշմիր</subdivision>
+			<subdivision type="pkpb" draft="contributed">Փենջաբ</subdivision>
+			<subdivision type="pksd" draft="contributed">Սինդ</subdivision>
+			<subdivision type="pkta" draft="contributed">Ֆեդերալ կառավարվող ցեղային տարածքներ</subdivision>
+			<subdivision type="pllu" draft="contributed">Լյուբլինի վոևոդություն</subdivision>
+			<subdivision type="plmz" draft="contributed">Մազովեցի վոյեվոդություն</subdivision>
+			<subdivision type="plzp" draft="contributed">Արևմտյան Պոմորիեի վոեվոդություն</subdivision>
+			<subdivision type="pt01" draft="contributed">Ավեյրու</subdivision>
+			<subdivision type="pt20" draft="contributed">Ազորյան կղզիներ</subdivision>
+			<subdivision type="pt30" draft="contributed">Մադեյրա</subdivision>
+			<subdivision type="pw002" draft="contributed">Այիմելիկ</subdivision>
+			<subdivision type="pw004" draft="contributed">Այրայ</subdivision>
+			<subdivision type="pw150" draft="contributed">Կորոր</subdivision>
+			<subdivision type="pw350" draft="contributed">Պելելիու</subdivision>
+			<subdivision type="pw370" draft="contributed">Սոնսորոլ</subdivision>
+			<subdivision type="py4" draft="contributed">Գուաիրա</subdivision>
+			<subdivision type="pyasu" draft="contributed">Ասունսյոն</subdivision>
+			<subdivision type="qada" draft="contributed">Դոհա</subdivision>
+			<subdivision type="rob" draft="contributed">Բուխարեստ</subdivision>
+			<subdivision type="robt" draft="contributed">Բոտոշանի</subdivision>
+			<subdivision type="rosm" draft="contributed">Սատու Մարե</subdivision>
+			<subdivision type="rs00" draft="contributed">Բելգրադ</subdivision>
+			<subdivision type="rsvo" draft="contributed">Վոյեվոդինա</subdivision>
+			<subdivision type="ruad" draft="contributed">Ադիգեա</subdivision>
+			<subdivision type="rual" draft="contributed">Ալթայի հանրապետություն</subdivision>
+			<subdivision type="rualt" draft="contributed">Ալթայի երկրամաս</subdivision>
+			<subdivision type="ruamu" draft="contributed">Ամուրի մարզ</subdivision>
+			<subdivision type="ruark" draft="contributed">Արխանգելսկի մարզ</subdivision>
+			<subdivision type="ruast" draft="contributed">Աստրախանի մարզ</subdivision>
+			<subdivision type="ruba" draft="contributed">Բաշկորտոստան</subdivision>
+			<subdivision type="rubel" draft="contributed">Բելգորոդի մարզ</subdivision>
+			<subdivision type="rubry" draft="contributed">Բրյանսկի մարզ</subdivision>
+			<subdivision type="rubu" draft="contributed">Բուրյաթիա</subdivision>
+			<subdivision type="ruce" draft="contributed">Չեչնիա</subdivision>
+			<subdivision type="ruche" draft="contributed">Չելյաբինսկի մարզ</subdivision>
+			<subdivision type="ruchu" draft="contributed">Չուկոտկայի ինքնավար օկրուգ</subdivision>
+			<subdivision type="rucu" draft="contributed">Չուվաշիա</subdivision>
+			<subdivision type="ruda" draft="contributed">Դաղստան</subdivision>
+			<subdivision type="ruin" draft="contributed">Ինգուշեթիա</subdivision>
+			<subdivision type="ruirk" draft="contributed">Իրկուտսկի մարզ</subdivision>
+			<subdivision type="ruiva" draft="contributed">Իվանովոյի մարզ</subdivision>
+			<subdivision type="rukb" draft="contributed">Կաբարդա-Բալկարիա</subdivision>
+			<subdivision type="rukc" draft="contributed">Կարաչայ-Չերքեզիա</subdivision>
+			<subdivision type="rukda" draft="contributed">Կրասնոդարի երկրամաս</subdivision>
+			<subdivision type="rukem" draft="contributed">Կեմերովոյի մարզ</subdivision>
+			<subdivision type="rukgd" draft="contributed">Կալինինգրադի մարզ</subdivision>
+			<subdivision type="rukgn" draft="contributed">Կուրգանի մարզ</subdivision>
+			<subdivision type="rukha" draft="contributed">Խաբարովսկի երկրամաս</subdivision>
+			<subdivision type="rukhm" draft="contributed">Խանտի-Մանսիական Ինքնավար Շրջան</subdivision>
+			<subdivision type="rukir" draft="contributed">Կիրովի մարզ</subdivision>
+			<subdivision type="rukk" draft="contributed">Խակասիա</subdivision>
+			<subdivision type="rukl" draft="contributed">Կալմիկիա</subdivision>
+			<subdivision type="ruklu" draft="contributed">Կալուգայի մարզ</subdivision>
+			<subdivision type="ruko" draft="contributed">Կոմի Հանրապետություն</subdivision>
+			<subdivision type="rukos" draft="contributed">Կոստրոմայի մարզ</subdivision>
+			<subdivision type="rukr" draft="contributed">Կարելիայի Հանրապետություն</subdivision>
+			<subdivision type="rukrs" draft="contributed">Կուրսկի մարզ</subdivision>
+			<subdivision type="rukya" draft="contributed">Կրասնոյարսկի երկրամաս</subdivision>
+			<subdivision type="rulen" draft="contributed">Լենինգրադի մարզ</subdivision>
+			<subdivision type="rulip" draft="contributed">Լիպեցկի մարզ</subdivision>
+			<subdivision type="rumag" draft="contributed">Մագադանի մարզ</subdivision>
+			<subdivision type="rume" draft="contributed">Մարիյ Էլ</subdivision>
+			<subdivision type="rumo" draft="contributed">Մորդովիա</subdivision>
+			<subdivision type="rumos" draft="contributed">Մոսկվայի մարզ</subdivision>
+			<subdivision type="rumow" draft="contributed">Մոսկվա</subdivision>
+			<subdivision type="rumur" draft="contributed">Մուրմանսկի մարզ</subdivision>
+			<subdivision type="runen" draft="contributed">Նենեցյան ինքնավար օկրուգ</subdivision>
+			<subdivision type="rungr" draft="contributed">Նովգորոդի մարզ</subdivision>
+			<subdivision type="runiz" draft="contributed">Նիժնի Նովգորոդի մարզ</subdivision>
+			<subdivision type="runvs" draft="contributed">Նովոսիբիրսկի մարզ</subdivision>
+			<subdivision type="ruoms" draft="contributed">Օմսկի մարզ</subdivision>
+			<subdivision type="ruore" draft="contributed">Օրենբուրգի մարզ</subdivision>
+			<subdivision type="ruorl" draft="contributed">Օրյոլի մարզ</subdivision>
+			<subdivision type="ruper" draft="contributed">Պերմի երկրամաս</subdivision>
+			<subdivision type="rupnz" draft="contributed">Պենզայի մարզ</subdivision>
+			<subdivision type="rupri" draft="contributed">Պրիմորիեի երկրամաս</subdivision>
+			<subdivision type="rupsk" draft="contributed">Պսկովի մարզ</subdivision>
+			<subdivision type="ruros" draft="contributed">Ռոստովի մարզ</subdivision>
+			<subdivision type="rurya" draft="contributed">Ռյազանի մարզ</subdivision>
+			<subdivision type="rusa" draft="contributed">Սախա-Յակուտիայի հանրապետություն</subdivision>
+			<subdivision type="rusak" draft="contributed">Սախալինի մարզ</subdivision>
+			<subdivision type="rusam" draft="contributed">Սամարայի մարզ</subdivision>
+			<subdivision type="rusar" draft="contributed">Սարատովի մարզ</subdivision>
+			<subdivision type="ruse" draft="contributed">Հյուսիսային Օսիա</subdivision>
+			<subdivision type="rusmo" draft="contributed">Սմոլենսկի մարզ</subdivision>
+			<subdivision type="ruspe" draft="contributed">Սանկտ Պետերբուրգ</subdivision>
+			<subdivision type="rusta" draft="contributed">Ստավրոպոլի երկրամաս</subdivision>
+			<subdivision type="rusve" draft="contributed">Սվերդլովսկի մարզ</subdivision>
+			<subdivision type="ruta" draft="contributed">Թաթարստան</subdivision>
+			<subdivision type="rutam" draft="contributed">Տամբովի մարզ</subdivision>
+			<subdivision type="rutom" draft="contributed">Տոմսկի մարզ</subdivision>
+			<subdivision type="rutul" draft="contributed">Տուլայի մարզ</subdivision>
+			<subdivision type="rutve" draft="contributed">Տվերի մարզ</subdivision>
+			<subdivision type="ruty" draft="contributed">Տիվա</subdivision>
+			<subdivision type="rutyu" draft="contributed">Տյումենի մարզ</subdivision>
+			<subdivision type="ruud" draft="contributed">Ուդմուրտիա</subdivision>
+			<subdivision type="ruuly" draft="contributed">Ուլյանովսկի մարզ</subdivision>
+			<subdivision type="ruvgg" draft="contributed">Վոլգոգրադի մարզ</subdivision>
+			<subdivision type="ruvla" draft="contributed">Վլադիմիրի մարզ</subdivision>
+			<subdivision type="ruvlg" draft="contributed">Վոլոգդայի մարզ</subdivision>
+			<subdivision type="ruvor" draft="contributed">Վորոնեժի մարզ</subdivision>
+			<subdivision type="ruyan" draft="contributed">Յամալ-Նենեցյան ինքնավար օկրուգ</subdivision>
+			<subdivision type="ruyar" draft="contributed">Յարոսլավլի մարզ</subdivision>
+			<subdivision type="ruyev" draft="contributed">Հրեական ինքնավար մարզ</subdivision>
+			<subdivision type="ruzab" draft="contributed">Անդրբայկալյան երկրամաս</subdivision>
+			<subdivision type="rw01" draft="contributed">Կիգալի</subdivision>
+			<subdivision type="rw02" draft="contributed">Արևելյան նահանգ</subdivision>
+			<subdivision type="rw05" draft="contributed">Հարավային նահանգ</subdivision>
+			<subdivision type="sa06" draft="contributed">Հայիլի էմիրություն</subdivision>
+			<subdivision type="sbce" draft="contributed">Կենտրոնական նահանգ</subdivision>
+			<subdivision type="sbch" draft="contributed">Չոիսեուլ նահանգ</subdivision>
+			<subdivision type="sbct" draft="contributed">Հոնիարա</subdivision>
+			<subdivision type="sdds" draft="contributed">Հարավային Դարֆուր</subdivision>
+			<subdivision type="sdks" draft="contributed">Հարավային Կորդոֆան</subdivision>
+			<subdivision type="seab" draft="contributed">Ստոկհոլմի լեն</subdivision>
+			<subdivision type="sebd" draft="contributed">Նորրբոտտեն</subdivision>
+			<subdivision type="sec" draft="contributed">Ուփսալա</subdivision>
+			<subdivision type="sed" draft="contributed">Սյոդերմանլանդ</subdivision>
+			<subdivision type="see" draft="contributed">Էստերգյոտլանդ</subdivision>
+			<subdivision type="sek" draft="contributed">Բլեքինգե</subdivision>
+			<subdivision type="set" draft="contributed">Էրեբրու</subdivision>
+			<subdivision type="shac" draft="contributed">Համբարձման կղզի</subdivision>
+			<subdivision type="shhl" draft="contributed">Սուրբ Հեղինեի կղզի</subdivision>
+			<subdivision type="si001" draft="contributed">Այդովշչինա</subdivision>
+			<subdivision type="si046" draft="contributed">Կոբարիդ</subdivision>
+			<subdivision type="si063" draft="contributed">Լյուտոմեր</subdivision>
+			<subdivision type="si090" draft="contributed">Պիրան</subdivision>
+			<subdivision type="skbl" draft="contributed">Բրատիսլավայի երկրամաս</subdivision>
+			<subdivision type="skta" draft="contributed">Տրնավայի երկրամաս</subdivision>
+			<subdivision type="sln" draft="contributed">Հյուսիսային նահանգ</subdivision>
+			<subdivision type="sm02" draft="contributed">Կիեզանուովա</subdivision>
+			<subdivision type="sm04" draft="contributed">Ֆաետանո</subdivision>
+			<subdivision type="sm05" draft="contributed">Ֆիորենտինո</subdivision>
+			<subdivision type="sm07" draft="contributed">Սան Մարինո</subdivision>
+			<subdivision type="sm08" draft="contributed">Մոնտեջարդինո</subdivision>
+			<subdivision type="somu" draft="contributed">Մուդուգ</subdivision>
+			<subdivision type="sosa" draft="contributed">Սանագ</subdivision>
+			<subdivision type="ssec" draft="contributed">Կենտրոնական Էկվատորիա</subdivision>
+			<subdivision type="sydi" draft="contributed">Դամասկոսի մարզ</subdivision>
+			<subdivision type="sydr" draft="contributed">Դառաայի մարզ</subdivision>
+			<subdivision type="sydy" draft="contributed">Դեյր-էլ-Զորի մարզ</subdivision>
+			<subdivision type="syha" draft="contributed">Ալ-Հասաքայի մարզ</subdivision>
+			<subdivision type="syhi" draft="contributed">Հոմսի մարզ</subdivision>
+			<subdivision type="syhl" draft="contributed">Հալեպի մարզ</subdivision>
+			<subdivision type="syhm" draft="contributed">Համայի մարզ</subdivision>
+			<subdivision type="syid" draft="contributed">Իդլիբի մարզ</subdivision>
+			<subdivision type="syla" draft="contributed">Լաթակիայի մարզ</subdivision>
+			<subdivision type="syqu" draft="contributed">Ալ-Կունեյտրայի մարզ</subdivision>
+			<subdivision type="syra" draft="contributed">Ալ-Ռակկայի մարզ</subdivision>
+			<subdivision type="syrd" draft="contributed">Ռիֆ Դիմաշկ</subdivision>
+			<subdivision type="sysu" draft="contributed">Ալ-Սուեյդայի մարզ</subdivision>
+			<subdivision type="syta" draft="contributed">Տարտուսի մարզ</subdivision>
+			<subdivision type="tdbo" draft="contributed">Բորկու</subdivision>
+			<subdivision type="tdnd" draft="contributed">Նջամենա</subdivision>
+			<subdivision type="th10" draft="contributed">Բանգկոկ</subdivision>
+			<subdivision type="th46" draft="contributed">Կալասին</subdivision>
+			<subdivision type="tjdu" draft="contributed">Դուշանբե</subdivision>
+			<subdivision type="tjkt" draft="contributed">Խալտոնի մարզ</subdivision>
+			<subdivision type="tjsu" draft="contributed">Սոգդիյան մարզ</subdivision>
+			<subdivision type="tma" draft="contributed">Ահալի վելայաթ</subdivision>
+			<subdivision type="tmb" draft="contributed">Բալկանի վելայաթ</subdivision>
+			<subdivision type="tmd" draft="contributed">Դաշողուզի վելայաթ</subdivision>
+			<subdivision type="tml" draft="contributed">Լեբապի վելայաթ</subdivision>
+			<subdivision type="tmm" draft="contributed">Մարիի վելայաթ</subdivision>
+			<subdivision type="tms" draft="contributed">Աշխաբադ</subdivision>
+			<subdivision type="tr01" draft="contributed">Ադանա</subdivision>
+			<subdivision type="tr02" draft="contributed">Ադըյաման</subdivision>
+			<subdivision type="tr03" draft="contributed">Աֆիոնկարահիսարի նահանգ</subdivision>
+			<subdivision type="tr04" draft="contributed">Աղրի</subdivision>
+			<subdivision type="tr05" draft="contributed">Ամասիայի նահանգ</subdivision>
+			<subdivision type="tr06" draft="contributed">Անկարա</subdivision>
+			<subdivision type="tr07" draft="contributed">Անթալիա</subdivision>
+			<subdivision type="tr08" draft="contributed">Արդվինի նահանգ</subdivision>
+			<subdivision type="tr09" draft="contributed">Այդընի նահանգ</subdivision>
+			<subdivision type="tr10" draft="contributed">Բալըքեսիր</subdivision>
+			<subdivision type="tr11" draft="contributed">Բիլեջիկ</subdivision>
+			<subdivision type="tr12" draft="contributed">Բինգյոլ</subdivision>
+			<subdivision type="tr13" draft="contributed">Բիթլիս</subdivision>
+			<subdivision type="tr14" draft="contributed">Բոլուի նահանգ</subdivision>
+			<subdivision type="tr15" draft="contributed">Բուրդուր</subdivision>
+			<subdivision type="tr16" draft="contributed">Բուրսա</subdivision>
+			<subdivision type="tr17" draft="contributed">Չանաքկալե</subdivision>
+			<subdivision type="tr19" draft="contributed">Չորումի նահանգ</subdivision>
+			<subdivision type="tr20" draft="contributed">Դենիզլիի նահանգ</subdivision>
+			<subdivision type="tr21" draft="contributed">Դիարբեքիր</subdivision>
+			<subdivision type="tr22" draft="contributed">Էդիրնե</subdivision>
+			<subdivision type="tr23" draft="contributed">Խարբերդի նահանգ</subdivision>
+			<subdivision type="tr24" draft="contributed">Էրզինջանի նահանգ</subdivision>
+			<subdivision type="tr25" draft="contributed">Էրզրում</subdivision>
+			<subdivision type="tr26" draft="contributed">Էսքիշեհիր</subdivision>
+			<subdivision type="tr27" draft="contributed">Գազիանթեփ</subdivision>
+			<subdivision type="tr28" draft="contributed">Գիրեսուն</subdivision>
+			<subdivision type="tr29" draft="contributed">Գյումյուշխանե</subdivision>
+			<subdivision type="tr30" draft="contributed">Հակյարի</subdivision>
+			<subdivision type="tr31" draft="contributed">Հաթայ</subdivision>
+			<subdivision type="tr32" draft="contributed">Ըսպարտայի նահանգ</subdivision>
+			<subdivision type="tr33" draft="contributed">Մերսին</subdivision>
+			<subdivision type="tr34" draft="contributed">Ստամբուլի նահանգ</subdivision>
+			<subdivision type="tr35" draft="contributed">Իզմիրի նահանգ</subdivision>
+			<subdivision type="tr36" draft="contributed">Կարսի նահանգ</subdivision>
+			<subdivision type="tr37" draft="contributed">Կաստամոնու</subdivision>
+			<subdivision type="tr38" draft="contributed">Կայսերի</subdivision>
+			<subdivision type="tr39" draft="contributed">Քըրքլարելի</subdivision>
+			<subdivision type="tr40" draft="contributed">Քըրշեհիր</subdivision>
+			<subdivision type="tr41" draft="contributed">Կոջաելի</subdivision>
+			<subdivision type="tr42" draft="contributed">Կոնիա</subdivision>
+			<subdivision type="tr43" draft="contributed">Քյութահիայի նահանգ</subdivision>
+			<subdivision type="tr44" draft="contributed">Մալաթիա</subdivision>
+			<subdivision type="tr45" draft="contributed">Մանիսայի նահանգ</subdivision>
+			<subdivision type="tr46" draft="contributed">Մարաշի նահանգ</subdivision>
+			<subdivision type="tr47" draft="contributed">Մարդին</subdivision>
+			<subdivision type="tr48" draft="contributed">Մուղլայի նահանգ</subdivision>
+			<subdivision type="tr49" draft="contributed">Մուշ</subdivision>
+			<subdivision type="tr50" draft="contributed">Նևշեհիր</subdivision>
+			<subdivision type="tr51" draft="contributed">Նիղդե</subdivision>
+			<subdivision type="tr52" draft="contributed">Օրդու</subdivision>
+			<subdivision type="tr53" draft="contributed">Ռիզե</subdivision>
+			<subdivision type="tr54" draft="contributed">Սակարիա</subdivision>
+			<subdivision type="tr55" draft="contributed">Սամսուն</subdivision>
+			<subdivision type="tr56" draft="contributed">Սղերթ</subdivision>
+			<subdivision type="tr57" draft="contributed">Սինոպ</subdivision>
+			<subdivision type="tr58" draft="contributed">Սիվաս</subdivision>
+			<subdivision type="tr59" draft="contributed">Թեքիրդաղ</subdivision>
+			<subdivision type="tr60" draft="contributed">Թոկաթ</subdivision>
+			<subdivision type="tr61" draft="contributed">Տրապիզոն</subdivision>
+			<subdivision type="tr62" draft="contributed">Թունջելի</subdivision>
+			<subdivision type="tr63" draft="contributed">Ուռհայի նահանգ</subdivision>
+			<subdivision type="tr64" draft="contributed">Ուշաքի նահանգ</subdivision>
+			<subdivision type="tr65" draft="contributed">Վան</subdivision>
+			<subdivision type="tr66" draft="contributed">Յոզգաթի նահանգ</subdivision>
+			<subdivision type="tr68" draft="contributed">Ակսարայ</subdivision>
+			<subdivision type="tr69" draft="contributed">Բայբուրթի նահանգ</subdivision>
+			<subdivision type="tr70" draft="contributed">Կարաման</subdivision>
+			<subdivision type="tr71" draft="contributed">Քըրըքկալե</subdivision>
+			<subdivision type="tr72" draft="contributed">Բաթման</subdivision>
+			<subdivision type="tr73" draft="contributed">Շըրնաք</subdivision>
+			<subdivision type="tr74" draft="contributed">Բարթըն</subdivision>
+			<subdivision type="tr75" draft="contributed">Արդահանի նահանգ</subdivision>
+			<subdivision type="tr76" draft="contributed">Իգդիրի նահանգ</subdivision>
+			<subdivision type="tr77" draft="contributed">Յալովա</subdivision>
+			<subdivision type="tr78" draft="contributed">Կարաբյուկ</subdivision>
+			<subdivision type="tr79" draft="contributed">Քիլիս</subdivision>
+			<subdivision type="tr80" draft="contributed">Օսմանիյե</subdivision>
+			<subdivision type="tr81" draft="contributed">Դյուզջեի նահանգ</subdivision>
+			<subdivision type="ttcha" draft="contributed">Չագունաս</subdivision>
+			<subdivision type="ttpos" draft="contributed">Պորտ օֆ Սփեյն</subdivision>
+			<subdivision type="tvfun" draft="contributed">Ֆունաֆուտի</subdivision>
+			<subdivision type="twkhh" draft="contributed">Գաոսյուն</subdivision>
+			<subdivision type="twtnn" draft="contributed">Թայնան</subdivision>
+			<subdivision type="twtpe" draft="contributed">Թայբեյ</subdivision>
+			<subdivision type="ua05" draft="contributed">Վիննիցայի մարզ</subdivision>
+			<subdivision type="ua07" draft="contributed">Վոլինի մարզ</subdivision>
+			<subdivision type="ua09" draft="contributed">Լուգանսկի մարզ</subdivision>
+			<subdivision type="ua12" draft="contributed">Դնեպրոպետրովսկի մարզ</subdivision>
+			<subdivision type="ua14" draft="contributed">Դոնեցկի մարզ</subdivision>
+			<subdivision type="ua18" draft="contributed">Ժիտոմիրի մարզ</subdivision>
+			<subdivision type="ua21" draft="contributed">Անդրկարպատյան մարզ</subdivision>
+			<subdivision type="ua23" draft="contributed">Զապորոժիեի մարզ</subdivision>
+			<subdivision type="ua26" draft="contributed">Իվանո-Ֆրանկովսկի մարզ</subdivision>
+			<subdivision type="ua30" draft="contributed">Կիև</subdivision>
+			<subdivision type="ua32" draft="contributed">Կիևի մարզ</subdivision>
+			<subdivision type="ua35" draft="contributed">Կիրովոգրադի մարզ</subdivision>
+			<subdivision type="ua40" draft="contributed">Սևաստոպոլ</subdivision>
+			<subdivision type="ua43" draft="contributed">Ղրիմի Ինքնավար Հանրապետություն</subdivision>
+			<subdivision type="ua46" draft="contributed">Լվովի մարզ</subdivision>
+			<subdivision type="ua48" draft="contributed">Նիկոլաևի մարզ</subdivision>
+			<subdivision type="ua51" draft="contributed">Օդեսայի մարզ</subdivision>
+			<subdivision type="ua53" draft="contributed">Պոլտավայի մարզ</subdivision>
+			<subdivision type="ua56" draft="contributed">Ռովնոյի մարզ</subdivision>
+			<subdivision type="ua59" draft="contributed">Սումիի մարզ</subdivision>
+			<subdivision type="ua61" draft="contributed">Տերնոպոլի մարզ</subdivision>
+			<subdivision type="ua63" draft="contributed">Խարկովի մարզ</subdivision>
+			<subdivision type="ua65" draft="contributed">Խերսոնի մարզ</subdivision>
+			<subdivision type="ua68" draft="contributed">Խմելնիցկիի մարզ</subdivision>
+			<subdivision type="ua71" draft="contributed">Չերկասիի մարզ</subdivision>
+			<subdivision type="ua74" draft="contributed">Չեռնիգովի մարզ</subdivision>
+			<subdivision type="ua77" draft="contributed">Չեռնովցիի մարզ</subdivision>
+			<subdivision type="ug203" draft="contributed">Իգանգա</subdivision>
+			<subdivision type="ugc" draft="contributed">Կենտրոնական շրջան</subdivision>
+			<subdivision type="uge" draft="contributed">Արևելյան շրջան</subdivision>
+			<subdivision type="ugw" draft="contributed">Արեւմտյան մարզ</subdivision>
+			<subdivision type="um67" draft="contributed">Ջոնստոն</subdivision>
+			<subdivision type="um71" draft="contributed">Միդուեյ</subdivision>
+			<subdivision type="um76" draft="contributed">Նավասա կղզի</subdivision>
+			<subdivision type="um79" draft="contributed">Ուեյք</subdivision>
+			<subdivision type="um81" draft="contributed">Բեյկերի Կղզի</subdivision>
+			<subdivision type="um84" draft="contributed">Հաուլենդ</subdivision>
+			<subdivision type="um86" draft="contributed">Ջարվիս</subdivision>
+			<subdivision type="um89" draft="contributed">Քինգմեն խութ</subdivision>
+			<subdivision type="um95" draft="contributed">Պալմիրա</subdivision>
+			<subdivision type="usak" draft="contributed">Ալյասկա</subdivision>
+			<subdivision type="usal" draft="contributed">Ալաբամա</subdivision>
+			<subdivision type="usar" draft="contributed">Արկանզաս</subdivision>
+			<subdivision type="usaz" draft="contributed">Արիզոնա</subdivision>
+			<subdivision type="usca" draft="contributed">Կալիֆոռնիա</subdivision>
+			<subdivision type="usco" draft="contributed">Կոլորադո</subdivision>
+			<subdivision type="usct" draft="contributed">Կոնեկտիկուտ</subdivision>
+			<subdivision type="usdc" draft="contributed">Վաշինգտոն, Կոլումբիայի շրջան</subdivision>
+			<subdivision type="usde" draft="contributed">Դելավեր</subdivision>
+			<subdivision type="usfl" draft="contributed">Ֆլորիդա</subdivision>
+			<subdivision type="usga" draft="contributed">Ջորջիա</subdivision>
+			<subdivision type="ushi" draft="contributed">Հավայի</subdivision>
+			<subdivision type="usia" draft="contributed">Այովա</subdivision>
+			<subdivision type="usid" draft="contributed">Այդահո</subdivision>
+			<subdivision type="usil" draft="contributed">Իլինոյս</subdivision>
+			<subdivision type="usin" draft="contributed">Ինդիանա</subdivision>
+			<subdivision type="usks" draft="contributed">Կանզաս</subdivision>
+			<subdivision type="usky" draft="contributed">Կենտուկի</subdivision>
+			<subdivision type="usla" draft="contributed">Լուիզիանա</subdivision>
+			<subdivision type="usma" draft="contributed">Մասաչուսեթս</subdivision>
+			<subdivision type="usmd" draft="contributed">Մերիլենդ</subdivision>
+			<subdivision type="usme" draft="contributed">Մեն</subdivision>
+			<subdivision type="usmi" draft="contributed">Միչիգան</subdivision>
+			<subdivision type="usmn" draft="contributed">Մինեսոտա</subdivision>
+			<subdivision type="usmo" draft="contributed">Միսսուրի</subdivision>
+			<subdivision type="usms" draft="contributed">Միսսիսիպի</subdivision>
+			<subdivision type="usmt" draft="contributed">Մոնտանա</subdivision>
+			<subdivision type="usnc" draft="contributed">Հյուսիսային Կարոլինա</subdivision>
+			<subdivision type="usnd" draft="contributed">Հյուսիսային Դակոտա</subdivision>
+			<subdivision type="usne" draft="contributed">Նեբրասկա</subdivision>
+			<subdivision type="usnh" draft="contributed">Նյու Հեմպշիր</subdivision>
+			<subdivision type="usnj" draft="contributed">Նյու Ջերսի</subdivision>
+			<subdivision type="usnm" draft="contributed">Նյու Մեքսիկո</subdivision>
+			<subdivision type="usnv" draft="contributed">Նևադա</subdivision>
+			<subdivision type="usny" draft="contributed">Նյու Յորք</subdivision>
+			<subdivision type="usoh" draft="contributed">Օհայո</subdivision>
+			<subdivision type="usok" draft="contributed">Օկլահոմա</subdivision>
+			<subdivision type="usor" draft="contributed">Օրեգոն</subdivision>
+			<subdivision type="uspa" draft="contributed">Փենսիլվանիա</subdivision>
+			<subdivision type="usri" draft="contributed">Ռոդ Այլենդ</subdivision>
+			<subdivision type="ussc" draft="contributed">Հարավային Կարոլինա</subdivision>
+			<subdivision type="ussd" draft="contributed">Հարավային Դակոթա</subdivision>
+			<subdivision type="ustn" draft="contributed">Թենեսի</subdivision>
+			<subdivision type="ustx" draft="contributed">Տեխաս</subdivision>
+			<subdivision type="usut" draft="contributed">Յուտա</subdivision>
+			<subdivision type="usva" draft="contributed">Վիրջինիա</subdivision>
+			<subdivision type="usvt" draft="contributed">Վերմոնտ</subdivision>
+			<subdivision type="uswa" draft="contributed">Վաշինգտոն</subdivision>
+			<subdivision type="uswi" draft="contributed">Վիսկոնսին</subdivision>
+			<subdivision type="uswv" draft="contributed">Արևմտյան Վիրջինիա</subdivision>
+			<subdivision type="uswy" draft="contributed">Վայոմինգ</subdivision>
+			<subdivision type="uymo" draft="contributed">Մոնտեվիդեո</subdivision>
+			<subdivision type="uyta" draft="contributed">Տակուարեմբո</subdivision>
+			<subdivision type="uzbu" draft="contributed">Բուխարայի մարզ</subdivision>
+			<subdivision type="uzqa" draft="contributed">Կաշկադարյայի մարզ</subdivision>
+			<subdivision type="uzsu" draft="contributed">Սուրխանդարյայի մարզ</subdivision>
+			<subdivision type="uztk" draft="contributed">Տաշքենդ</subdivision>
+			<subdivision type="uzxo" draft="contributed">Խորեզմի մարզ</subdivision>
+			<subdivision type="veb" draft="contributed">Անսոատեգի</subdivision>
+			<subdivision type="vec" draft="contributed">Ապուրե</subdivision>
+			<subdivision type="ved" draft="contributed">Արագուա</subdivision>
+			<subdivision type="vee" draft="contributed">Բարինաս</subdivision>
+			<subdivision type="vez" draft="contributed">Ամազոնաս</subdivision>
+			<subdivision type="vn22" draft="contributed">Նգեան</subdivision>
+			<subdivision type="vn29" draft="contributed">Կուանգնգայ</subdivision>
+			<subdivision type="vndn" draft="contributed">Դանանգ</subdivision>
+			<subdivision type="vnhn" draft="contributed">Հանոյ</subdivision>
+			<subdivision type="vnhp" draft="contributed">Հայֆոն</subdivision>
+			<subdivision type="vnsg" draft="contributed">Հոշիմին</subdivision>
+			<subdivision type="yesa" draft="contributed">Սանաա</subdivision>
+			<subdivision type="zafs" draft="contributed">Ֆրի Սթեյթ</subdivision>
+			<subdivision type="zagt" draft="contributed">Գաուտենգ</subdivision>
+			<subdivision type="zalp" draft="contributed">Լիմպոպո</subdivision>
+			<subdivision type="zanc" draft="contributed">Հյուսիսային Քեյփ</subdivision>
+			<subdivision type="zanl" draft="contributed">Նատալ</subdivision>
+			<subdivision type="zawc" draft="contributed">Արևելյան Քեյփ</subdivision>
+			<subdivision type="zm01" draft="contributed">Արևմտյան պրովինցիա</subdivision>
+		</subdivisions>
+	</localeDisplayNames>
+</ldml>

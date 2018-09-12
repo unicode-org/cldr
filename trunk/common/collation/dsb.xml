@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2014 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="dsb" /> 
+	</identity>
+	<collations>
+		<collation type="standard" references="Starosta: Dolnoserbsko-nimski słownik, Niedersorbischdeutsches Wörterbuch, Bautzen 1999, ISBN 3-7420-1096-4">
+			<cr><![CDATA[
+			&C<č<<<Č<ć<<<Ć
+			&E<ě<<<Ě
+			&H<ch<<<cH<<<Ch<<<CH
+			&[before 1] L<ł<<<Ł
+			&N<ń<<<Ń
+			&R<ŕ<<<Ŕ
+			&S<š<<<Š<ś<<<Ś
+			&Z<ž<<<Ž<ź<<<Ź
+			]]></cr>
+		</collation>
+	</collations>
+</ldml>

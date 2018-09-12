@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2018 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="en"/>
+		<territory type="GB"/>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="nds_NL">West Low German</language>
+		</languages>
+		<territories>
+			<territory type="BL">St Barthélemy</territory>
+			<territory type="KN">St Kitts &amp; Nevis</territory>
+			<territory type="LC">St Lucia</territory>
+			<territory type="MF">St Martin</territory>
+			<territory type="PM">St Pierre &amp; Miquelon</territory>
+			<territory type="SH">St Helena</territory>
+			<territory type="UM">US Outlying Islands</territory>
+			<territory type="US" alt="short">US</territory>
+			<territory type="VC">St Vincent &amp; Grenadines</territory>
+			<territory type="VI">US Virgin Islands</territory>
+		</territories>
+	</localeDisplayNames>
+	<dates>
+		<calendars>
+			<calendar type="generic">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MEd">E dd/MM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M–M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">dd/MM–dd/MM</greatestDifference>
+							<greatestDifference id="M">dd/MM–dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d–d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y–y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">d–d MMM y G</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="gregorian">
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>HH:mm:ss zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern>HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<intervalFormats>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="h">h–h a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H">HH–HH</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="h">h–h a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H">HH–HH v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M–M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d–d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y–y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">d–d MMM y</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="islamic">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MEd">E dd/MM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<fields/>
+		<timeZoneNames>
+			<zone type="America/St_Barthelemy">
+				<exemplarCity>St Barthélemy</exemplarCity>
+			</zone>
+			<zone type="America/St_Johns">
+				<exemplarCity>St John’s</exemplarCity>
+			</zone>
+			<zone type="Europe/London">
+				<short>
+					<daylight>BST</daylight>
+				</short>
+			</zone>
+			<zone type="America/St_Kitts">
+				<exemplarCity>St Kitts</exemplarCity>
+			</zone>
+			<zone type="America/St_Lucia">
+				<exemplarCity>St Lucia</exemplarCity>
+			</zone>
+			<zone type="Atlantic/St_Helena">
+				<exemplarCity>St Helena</exemplarCity>
+			</zone>
+			<zone type="America/St_Vincent">
+				<exemplarCity>St Vincent</exemplarCity>
+			</zone>
+			<zone type="America/St_Thomas">
+				<exemplarCity>St Thomas</exemplarCity>
+			</zone>
+			<metazone type="Europe_Central">
+				<short>
+					<generic>CET</generic>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<short>
+					<generic>EET</generic>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Western">
+				<short>
+					<generic>WET</generic>
+					<standard>WET</standard>
+					<daylight>WEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Pierre_Miquelon">
+				<long>
+					<generic>St Pierre &amp; Miquelon Time</generic>
+					<standard>St Pierre &amp; Miquelon Standard Time</standard>
+					<daylight>St Pierre &amp; Miquelon Daylight Time</daylight>
+				</long>
+			</metazone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<currencies>
+			<currency type="SHP">
+				<displayName>St Helena Pound</displayName>
+				<displayName count="one">St Helena pound</displayName>
+				<displayName count="other">St Helena pounds</displayName>
+			</currency>
+		</currencies>
+	</numbers>
+	<units>
+		<unitLength type="long">
+			<unit type="concentr-percent">
+				<displayName draft="contributed">per cent</displayName>
+				<unitPattern count="one" draft="contributed">{0} per cent</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} per cent</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName draft="contributed">per mille</displayName>
+				<unitPattern count="one" draft="contributed">{0} per mille</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} per mille</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="concentr-percent">
+				<displayName draft="contributed">per cent</displayName>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName draft="contributed">per mille</displayName>
+			</unit>
+		</unitLength>
+	</units>
+	<listPatterns>
+		<listPattern>
+			<listPatternPart type="end">{0} and {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="end">{0} or {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-short">
+			<listPatternPart type="end">{0} and {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
+</ldml>

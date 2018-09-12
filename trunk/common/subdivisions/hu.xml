@@ -1,0 +1,2364 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2018 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="hu"/>
+	</identity>
+	<localeDisplayNames>
+		<subdivisions>
+			<subdivision type="ad02" draft="contributed">Canillo közösség</subdivision>
+			<subdivision type="ad03" draft="contributed">Encamp közösség</subdivision>
+			<subdivision type="ad04" draft="contributed">La Massana közösség</subdivision>
+			<subdivision type="ad05" draft="contributed">Ordino közösség</subdivision>
+			<subdivision type="ad06" draft="contributed">Sant Julià de Lòria közösség</subdivision>
+			<subdivision type="ad07" draft="contributed">Andorra la Vella közösség</subdivision>
+			<subdivision type="ad08" draft="contributed">Escaldes-Engordany közösség</subdivision>
+			<subdivision type="aedu" draft="contributed">Dubaj</subdivision>
+			<subdivision type="aerk" draft="contributed">Rász el-Haima</subdivision>
+			<subdivision type="afbal" draft="contributed">Balh tartomány</subdivision>
+			<subdivision type="afbam" draft="contributed">Bámiján tartomány</subdivision>
+			<subdivision type="afbgl" draft="contributed">Baglán tartomány</subdivision>
+			<subdivision type="afhel" draft="contributed">Helmand tartomány</subdivision>
+			<subdivision type="afnan" draft="contributed">Nangarhar</subdivision>
+			<subdivision type="ag10" draft="contributed">Barbuda</subdivision>
+			<subdivision type="ag11" draft="contributed">Redonda</subdivision>
+			<subdivision type="al01" draft="contributed">Berat megye</subdivision>
+			<subdivision type="al02" draft="contributed">Durrës megye</subdivision>
+			<subdivision type="al03" draft="contributed">Elbasan megye</subdivision>
+			<subdivision type="al04" draft="contributed">Fier megye</subdivision>
+			<subdivision type="al05" draft="contributed">Gjirokastra megye</subdivision>
+			<subdivision type="al06" draft="contributed">Korça megye</subdivision>
+			<subdivision type="al07" draft="contributed">Kukës megye</subdivision>
+			<subdivision type="al08" draft="contributed">Lezha megye</subdivision>
+			<subdivision type="al09" draft="contributed">Dibra megye</subdivision>
+			<subdivision type="al10" draft="contributed">Shkodra megye</subdivision>
+			<subdivision type="al11" draft="contributed">Tirana megye</subdivision>
+			<subdivision type="al12" draft="contributed">Vlora megye</subdivision>
+			<subdivision type="amag" draft="contributed">Aragacotn tartomány</subdivision>
+			<subdivision type="amar" draft="contributed">Ararat tartomány</subdivision>
+			<subdivision type="amav" draft="contributed">Armavir tartomány</subdivision>
+			<subdivision type="amer" draft="contributed">Jereván</subdivision>
+			<subdivision type="amgr" draft="contributed">Gegarkounik tartomány</subdivision>
+			<subdivision type="amkt" draft="contributed">Kotajk tartomány</subdivision>
+			<subdivision type="amlo" draft="contributed">Lorj tartomány</subdivision>
+			<subdivision type="amsh" draft="contributed">Sirak tartomány</subdivision>
+			<subdivision type="amsu" draft="contributed">Szjounik tartomány</subdivision>
+			<subdivision type="amtv" draft="contributed">Tavous tartomány</subdivision>
+			<subdivision type="amvd" draft="contributed">Vajoc Dzor tartomány</subdivision>
+			<subdivision type="aocab" draft="contributed">Cabinda</subdivision>
+			<subdivision type="aonam" draft="contributed">Namibe Provincia</subdivision>
+			<subdivision type="arb" draft="contributed">Buenos Aires tartomány</subdivision>
+			<subdivision type="arc" draft="contributed">Buenos Aires</subdivision>
+			<subdivision type="are" draft="contributed">Entre Ríos tartomány</subdivision>
+			<subdivision type="arh" draft="contributed">Chaco tartomány</subdivision>
+			<subdivision type="arj" draft="contributed">San Juan tartomány</subdivision>
+			<subdivision type="ark" draft="contributed">Catamarca tartomány</subdivision>
+			<subdivision type="arm" draft="contributed">Mendoza tartomány</subdivision>
+			<subdivision type="arn" draft="contributed">Misiones tartomány</subdivision>
+			<subdivision type="arp" draft="contributed">Formosa tartomány</subdivision>
+			<subdivision type="arq" draft="contributed">Neuquén tartomány</subdivision>
+			<subdivision type="arr" draft="contributed">Río Negro tartomány</subdivision>
+			<subdivision type="aru" draft="contributed">Chubut tartomány</subdivision>
+			<subdivision type="arw" draft="contributed">Corrientes tartomány</subdivision>
+			<subdivision type="arx" draft="contributed">Córdoba tartomány</subdivision>
+			<subdivision type="ary" draft="contributed">Jujuy tartomány</subdivision>
+			<subdivision type="arz" draft="contributed">Santa Cruz tartomány</subdivision>
+			<subdivision type="at1" draft="contributed">Burgenland</subdivision>
+			<subdivision type="at2" draft="contributed">Karintia</subdivision>
+			<subdivision type="at3" draft="contributed">Alsó-Ausztria</subdivision>
+			<subdivision type="at4" draft="contributed">Felső-Ausztria</subdivision>
+			<subdivision type="at5" draft="contributed">Salzburg</subdivision>
+			<subdivision type="at6" draft="contributed">Stájerország</subdivision>
+			<subdivision type="at7" draft="contributed">Tirol</subdivision>
+			<subdivision type="at8" draft="contributed">Vorarlberg</subdivision>
+			<subdivision type="at9" draft="contributed">Bécs</subdivision>
+			<subdivision type="auact" draft="contributed">Ausztráliai fővárosi terület</subdivision>
+			<subdivision type="aunsw" draft="contributed">Új-Dél-Wales</subdivision>
+			<subdivision type="aunt" draft="contributed">Északi terület</subdivision>
+			<subdivision type="auqld" draft="contributed">Queensland</subdivision>
+			<subdivision type="ausa" draft="contributed">Dél-Ausztrália</subdivision>
+			<subdivision type="autas" draft="contributed">Tasmania</subdivision>
+			<subdivision type="auvic" draft="contributed">Victoria</subdivision>
+			<subdivision type="auwa" draft="contributed">Nyugat-Ausztrália</subdivision>
+			<subdivision type="azabs" draft="contributed">Abşeroni járás</subdivision>
+			<subdivision type="azaga" draft="contributed">Ağstafai járás</subdivision>
+			<subdivision type="azagc" draft="contributed">Ağcabədi járás</subdivision>
+			<subdivision type="azagm" draft="contributed">Ağdami járás</subdivision>
+			<subdivision type="azags" draft="contributed">Ağdaşi járás</subdivision>
+			<subdivision type="azba" draft="contributed">Baku</subdivision>
+			<subdivision type="azbal" draft="contributed">Balakəni járás</subdivision>
+			<subdivision type="azcab" draft="contributed">Cəbrayıl járás</subdivision>
+			<subdivision type="azcal" draft="contributed">Cəlilabadi járás</subdivision>
+			<subdivision type="azdas" draft="contributed">Daşkəsəni járás</subdivision>
+			<subdivision type="azfuz" draft="contributed">Füzuli járás</subdivision>
+			<subdivision type="azga" draft="contributed">Gəncə</subdivision>
+			<subdivision type="azgad" draft="contributed">Gədəbəyi járás</subdivision>
+			<subdivision type="azism" draft="contributed">İsmayıllı járás</subdivision>
+			<subdivision type="azkal" draft="contributed">Kəlbəcəri járás</subdivision>
+			<subdivision type="azlac" draft="contributed">Laçıni járás</subdivision>
+			<subdivision type="aznv" draft="contributed">Nahicseván</subdivision>
+			<subdivision type="aznx" draft="contributed">Nahicseván²</subdivision>
+			<subdivision type="azogu" draft="contributed">Oğuzi járás</subdivision>
+			<subdivision type="azqab" draft="contributed">Qəbələi járás</subdivision>
+			<subdivision type="azqax" draft="contributed">Qaxi járás</subdivision>
+			<subdivision type="azqaz" draft="contributed">Qazaxi járás</subdivision>
+			<subdivision type="azqba" draft="contributed">Qubai járás</subdivision>
+			<subdivision type="azqbi" draft="contributed">Qubadlı járás</subdivision>
+			<subdivision type="azqus" draft="contributed">Qusari járás</subdivision>
+			<subdivision type="azsak" draft="contributed">Şəki járás</subdivision>
+			<subdivision type="azsiy" draft="contributed">Siyəzəni járás</subdivision>
+			<subdivision type="azskr" draft="contributed">Şəmkiri járás</subdivision>
+			<subdivision type="azsm" draft="contributed">Sumqayit</subdivision>
+			<subdivision type="azsmi" draft="contributed">Şamaxı járás</subdivision>
+			<subdivision type="azsmx" draft="contributed">Samuxi járás</subdivision>
+			<subdivision type="azsus" draft="contributed">Şuşai járás</subdivision>
+			<subdivision type="aztar" draft="contributed">Tərtəri járás</subdivision>
+			<subdivision type="aztov" draft="contributed">Tovuzi járás</subdivision>
+			<subdivision type="azxa" draft="contributed">Sztepanakert</subdivision>
+			<subdivision type="azxac" draft="contributed">Xaçmazi járás</subdivision>
+			<subdivision type="azxci" draft="contributed">Xocalı járás</subdivision>
+			<subdivision type="azxiz" draft="contributed">Xızı járás</subdivision>
+			<subdivision type="azxvd" draft="contributed">Xocavəndi járás</subdivision>
+			<subdivision type="azye" draft="contributed">Yevlakh</subdivision>
+			<subdivision type="azzan" draft="contributed">Zəngilani járás</subdivision>
+			<subdivision type="azzaq" draft="contributed">Zaqatalai járás</subdivision>
+			<subdivision type="babih" draft="contributed">Bosznia-hercegovinai Föderáció</subdivision>
+			<subdivision type="babrc" draft="contributed">Brčkói Körzet</subdivision>
+			<subdivision type="basrp" draft="contributed">Boszniai Szerb Köztársaság</subdivision>
+			<subdivision type="bebru" draft="contributed">Brüsszel fővárosi régió</subdivision>
+			<subdivision type="bevan" draft="contributed">Antwerpen</subdivision>
+			<subdivision type="bevbr" draft="contributed">Flamand-Brabant</subdivision>
+			<subdivision type="bevlg" draft="contributed">Flandria</subdivision>
+			<subdivision type="bevli" draft="contributed">Limburg</subdivision>
+			<subdivision type="bevov" draft="contributed">Kelet-Flandria</subdivision>
+			<subdivision type="bevwv" draft="contributed">Nyugat-Flandria</subdivision>
+			<subdivision type="bewal" draft="contributed">Vallónia</subdivision>
+			<subdivision type="bewbr" draft="contributed">Vallon-Brabant</subdivision>
+			<subdivision type="bewht" draft="contributed">Hainaut</subdivision>
+			<subdivision type="bewlg" draft="contributed">Liège</subdivision>
+			<subdivision type="bewlx" draft="contributed">Luxembourg</subdivision>
+			<subdivision type="bewna" draft="contributed">Namur</subdivision>
+			<subdivision type="bg01" draft="contributed">Blagoevgrad megye</subdivision>
+			<subdivision type="bg02" draft="contributed">Burgasz megye</subdivision>
+			<subdivision type="bg07" draft="contributed">Gabrovo megye</subdivision>
+			<subdivision type="bg08" draft="contributed">Dobrics megye</subdivision>
+			<subdivision type="bg09" draft="contributed">Kardzsali megye</subdivision>
+			<subdivision type="bg10" draft="contributed">Kjusztendil megye</subdivision>
+			<subdivision type="bg18" draft="contributed">Rusze megye</subdivision>
+			<subdivision type="bg23" draft="contributed">Szófia</subdivision>
+			<subdivision type="bg26" draft="contributed">Haszkovo megye</subdivision>
+			<subdivision type="bg28" draft="contributed">Jambol megye</subdivision>
+			<subdivision type="bh13" draft="contributed">Főváros kormányzóság</subdivision>
+			<subdivision type="bh14" draft="contributed">Déli kormányzóság</subdivision>
+			<subdivision type="bh15" draft="contributed">Muharrak kormányzóság</subdivision>
+			<subdivision type="bh17" draft="contributed">Északi kormányzóság</subdivision>
+			<subdivision type="bjak" draft="contributed">Atakora</subdivision>
+			<subdivision type="bjal" draft="contributed">Alibori</subdivision>
+			<subdivision type="bjaq" draft="contributed">Atlantique</subdivision>
+			<subdivision type="bjbo" draft="contributed">Borgou</subdivision>
+			<subdivision type="bjco" draft="contributed">Collines</subdivision>
+			<subdivision type="bjdo" draft="contributed">Donga</subdivision>
+			<subdivision type="bjko" draft="contributed">Couffo</subdivision>
+			<subdivision type="bjli" draft="contributed">Littoral</subdivision>
+			<subdivision type="bjmo" draft="contributed">Mono</subdivision>
+			<subdivision type="bjou" draft="contributed">Ouémé</subdivision>
+			<subdivision type="bjpl" draft="contributed">Plateau</subdivision>
+			<subdivision type="bjzo" draft="contributed">Zou</subdivision>
+			<subdivision type="bqbo" draft="contributed">Bonaire</subdivision>
+			<subdivision type="bqsa" draft="contributed">Saba</subdivision>
+			<subdivision type="bqse" draft="contributed">Sint Eustatius</subdivision>
+			<subdivision type="brac" draft="contributed">Acre</subdivision>
+			<subdivision type="bral" draft="contributed">Alagoas</subdivision>
+			<subdivision type="bram" draft="contributed">Amazonas</subdivision>
+			<subdivision type="brap" draft="contributed">Amapá</subdivision>
+			<subdivision type="brba" draft="contributed">Bahia</subdivision>
+			<subdivision type="brce" draft="contributed">Ceará</subdivision>
+			<subdivision type="brdf" draft="contributed">Szövetségi kerület</subdivision>
+			<subdivision type="bres" draft="contributed">Espírito Santo</subdivision>
+			<subdivision type="brgo" draft="contributed">Goiás</subdivision>
+			<subdivision type="brma" draft="contributed">Maranhão</subdivision>
+			<subdivision type="brmg" draft="contributed">Minas Gerais</subdivision>
+			<subdivision type="brms" draft="contributed">Mato Grosso do Sul</subdivision>
+			<subdivision type="brmt" draft="contributed">Mato Grosso</subdivision>
+			<subdivision type="brpa" draft="contributed">Pará</subdivision>
+			<subdivision type="brpb" draft="contributed">Paraíba</subdivision>
+			<subdivision type="brpe" draft="contributed">Pernambuco</subdivision>
+			<subdivision type="brpi" draft="contributed">Piauí</subdivision>
+			<subdivision type="brpr" draft="contributed">Paraná</subdivision>
+			<subdivision type="brrj" draft="contributed">Rio de Janeiro</subdivision>
+			<subdivision type="brrn" draft="contributed">Rio Grande do Norte</subdivision>
+			<subdivision type="brro" draft="contributed">Rondônia</subdivision>
+			<subdivision type="brrr" draft="contributed">Roraima</subdivision>
+			<subdivision type="brrs" draft="contributed">Río Grande del Sur</subdivision>
+			<subdivision type="brsc" draft="contributed">Santa Catarina</subdivision>
+			<subdivision type="brse" draft="contributed">Sergipe</subdivision>
+			<subdivision type="brsp" draft="contributed">São Paulo</subdivision>
+			<subdivision type="brto" draft="contributed">Tocatins</subdivision>
+			<subdivision type="bt11" draft="contributed">Paro körzet</subdivision>
+			<subdivision type="bt12" draft="contributed">Chukha körzet</subdivision>
+			<subdivision type="bt13" draft="contributed">Haa körzet</subdivision>
+			<subdivision type="bt14" draft="contributed">Samtse körzet</subdivision>
+			<subdivision type="bt15" draft="contributed">Thimphu körzet</subdivision>
+			<subdivision type="bt21" draft="contributed">Tsirang körzet</subdivision>
+			<subdivision type="bt22" draft="contributed">Dagana körzet</subdivision>
+			<subdivision type="bt23" draft="contributed">Punakha körzet</subdivision>
+			<subdivision type="bt24" draft="contributed">Wangdue Phodrang körzet</subdivision>
+			<subdivision type="bt31" draft="contributed">Sarpang körzet</subdivision>
+			<subdivision type="bt32" draft="contributed">Trongsa körzet</subdivision>
+			<subdivision type="bt33" draft="contributed">Bumthang körzet</subdivision>
+			<subdivision type="bt34" draft="contributed">Zhemgang körzet</subdivision>
+			<subdivision type="bt41" draft="contributed">Trashigang körzet</subdivision>
+			<subdivision type="bt42" draft="contributed">Mongar körzet</subdivision>
+			<subdivision type="bt43" draft="contributed">Pemagatshel körzet</subdivision>
+			<subdivision type="bt44" draft="contributed">Lhuntse körzet</subdivision>
+			<subdivision type="bt45" draft="contributed">Samdrup Jongkhar körzet</subdivision>
+			<subdivision type="btga" draft="contributed">Gasa körzet</subdivision>
+			<subdivision type="btty" draft="contributed">Trashiyangtse körzet</subdivision>
+			<subdivision type="bwga" draft="contributed">Gaborone</subdivision>
+			<subdivision type="bwlo" draft="contributed">Lobatse</subdivision>
+			<subdivision type="bybr" draft="contributed">Breszti terület</subdivision>
+			<subdivision type="byhm" draft="contributed">Minszk</subdivision>
+			<subdivision type="byho" draft="contributed">Homeli terület</subdivision>
+			<subdivision type="byhr" draft="contributed">Hrodnai terület</subdivision>
+			<subdivision type="byma" draft="contributed">Mahiljovi terület</subdivision>
+			<subdivision type="bymi" draft="contributed">Minszki terület</subdivision>
+			<subdivision type="byvi" draft="contributed">Vicebszki terület</subdivision>
+			<subdivision type="caab" draft="contributed">Alberta</subdivision>
+			<subdivision type="cabc" draft="contributed">Brit Columbia</subdivision>
+			<subdivision type="camb" draft="contributed">Manitoba</subdivision>
+			<subdivision type="canb" draft="contributed">Új-Brunswick</subdivision>
+			<subdivision type="canl" draft="contributed">Új-Fundland és Labrador</subdivision>
+			<subdivision type="cans" draft="contributed">Új-Skócia</subdivision>
+			<subdivision type="cant" draft="contributed">Északnyugati területek</subdivision>
+			<subdivision type="canu" draft="contributed">Nunavut</subdivision>
+			<subdivision type="caon" draft="contributed">Ontario</subdivision>
+			<subdivision type="cape" draft="contributed">Prince Edward-sziget</subdivision>
+			<subdivision type="caqc" draft="contributed">Québec</subdivision>
+			<subdivision type="cask" draft="contributed">Saskatchewan</subdivision>
+			<subdivision type="cayt" draft="contributed">Yukon</subdivision>
+			<subdivision type="cdbc" draft="contributed">Alsó-Kongó</subdivision>
+			<subdivision type="cdbu" draft="contributed">Alsó-Uele tartomány</subdivision>
+			<subdivision type="cdeq" draft="contributed">Egyenlítői tartomány (2009)</subdivision>
+			<subdivision type="cdhk" draft="contributed">Felső-Katanga tartomány</subdivision>
+			<subdivision type="cdhl" draft="contributed">Felső-Lomami tartomány</subdivision>
+			<subdivision type="cdhu" draft="contributed">Felső-Uele tartomány</subdivision>
+			<subdivision type="cdkc" draft="contributed">Lulua tartomány</subdivision>
+			<subdivision type="cdke" draft="contributed">Kelet-Kasai tartomány</subdivision>
+			<subdivision type="cdkg" draft="contributed">Kwango tartomány</subdivision>
+			<subdivision type="cdkl" draft="contributed">Kwilu tartomány</subdivision>
+			<subdivision type="cdkn" draft="contributed">Kinshasa</subdivision>
+			<subdivision type="cdlo" draft="contributed">Lomami tartomány</subdivision>
+			<subdivision type="cdlu" draft="contributed">Lualaba tartomány</subdivision>
+			<subdivision type="cdma" draft="contributed">Maniema tartomány</subdivision>
+			<subdivision type="cdmn" draft="contributed">Mai-Ndombe tartomány</subdivision>
+			<subdivision type="cdmo" draft="contributed">Mongala tartomány</subdivision>
+			<subdivision type="cdnk" draft="contributed">Észak-Kivu tartomány</subdivision>
+			<subdivision type="cdnu" draft="contributed">Észak-Ubangi tartomány</subdivision>
+			<subdivision type="cdsa" draft="contributed">Sankuru tartomány</subdivision>
+			<subdivision type="cdsk" draft="contributed">Dél-Kivu tartomány</subdivision>
+			<subdivision type="cdsu" draft="contributed">Dél-Ubangi tartomány</subdivision>
+			<subdivision type="cdta" draft="contributed">Tanganyika tartomány</subdivision>
+			<subdivision type="cdto" draft="contributed">Tshopo tartomány</subdivision>
+			<subdivision type="cdtu" draft="contributed">Tshuapa tartomány</subdivision>
+			<subdivision type="cfbgf" draft="contributed">Bangui</subdivision>
+			<subdivision type="cgbzv" draft="contributed">Brazzaville</subdivision>
+			<subdivision type="chag" draft="contributed">Aargau kanton</subdivision>
+			<subdivision type="chai" draft="contributed">Appenzell Innerrhoden kanton</subdivision>
+			<subdivision type="char" draft="contributed">Appenzell Ausserrhoden kanton</subdivision>
+			<subdivision type="chbe" draft="contributed">Bern kanton</subdivision>
+			<subdivision type="chbl" draft="contributed">Basel-Landschaft kanton</subdivision>
+			<subdivision type="chbs" draft="contributed">Basel-Stadt kanton</subdivision>
+			<subdivision type="chfr" draft="contributed">Fribourg kanton</subdivision>
+			<subdivision type="chge" draft="contributed">Genf kanton</subdivision>
+			<subdivision type="chgl" draft="contributed">Glarus kanton</subdivision>
+			<subdivision type="chgr" draft="contributed">Graubünden kanton</subdivision>
+			<subdivision type="chju" draft="contributed">Jura kanton</subdivision>
+			<subdivision type="chlu" draft="contributed">Luzern kanton</subdivision>
+			<subdivision type="chne" draft="contributed">Neuchâtel kanton</subdivision>
+			<subdivision type="chnw" draft="contributed">Nidwalden kanton</subdivision>
+			<subdivision type="chow" draft="contributed">Obwalden kanton</subdivision>
+			<subdivision type="chsg" draft="contributed">Sankt Gallen kanton</subdivision>
+			<subdivision type="chsh" draft="contributed">Schaffhausen kanton</subdivision>
+			<subdivision type="chso" draft="contributed">Solothurn kanton</subdivision>
+			<subdivision type="chsz" draft="contributed">Schwyz kanton</subdivision>
+			<subdivision type="chtg" draft="contributed">Thurgau kanton</subdivision>
+			<subdivision type="chti" draft="contributed">Ticino kanton</subdivision>
+			<subdivision type="chur" draft="contributed">Uri kanton</subdivision>
+			<subdivision type="chvd" draft="contributed">Vaud kanton</subdivision>
+			<subdivision type="chvs" draft="contributed">Wallis kanton</subdivision>
+			<subdivision type="chzg" draft="contributed">Zug kanton</subdivision>
+			<subdivision type="chzh" draft="contributed">Zürich kanton</subdivision>
+			<subdivision type="ciab" draft="contributed">Abidjan</subdivision>
+			<subdivision type="ciym" draft="contributed">Yamoussoukro</subdivision>
+			<subdivision type="clai" draft="contributed">Aysén régió</subdivision>
+			<subdivision type="clar" draft="contributed">Araucanía régió</subdivision>
+			<subdivision type="clbi" draft="contributed">Biobío régió</subdivision>
+			<subdivision type="clll" draft="contributed">Los Lagos régió</subdivision>
+			<subdivision type="cllr" draft="contributed">Los Ríos régió</subdivision>
+			<subdivision type="clml" draft="contributed">Maule régió</subdivision>
+			<subdivision type="clvs" draft="contributed">Valparaíso régió</subdivision>
+			<subdivision type="cnah" draft="contributed">Anhuj</subdivision>
+			<subdivision type="cnbj" draft="contributed">Peking</subdivision>
+			<subdivision type="cncq" draft="contributed">Csungking</subdivision>
+			<subdivision type="cnfj" draft="contributed">Fucsien</subdivision>
+			<subdivision type="cngd" draft="contributed">Kuangtung</subdivision>
+			<subdivision type="cngs" draft="contributed">Kanszu</subdivision>
+			<subdivision type="cngx" draft="contributed">Kuanghszi-Csuang Autonóm Terület</subdivision>
+			<subdivision type="cngz" draft="contributed">Kujcsou</subdivision>
+			<subdivision type="cnha" draft="contributed">Honan</subdivision>
+			<subdivision type="cnhb" draft="contributed">Hupej</subdivision>
+			<subdivision type="cnhe" draft="contributed">Hopej</subdivision>
+			<subdivision type="cnhi" draft="contributed">Hajnan</subdivision>
+			<subdivision type="cnhk" draft="contributed">Hongkong</subdivision>
+			<subdivision type="cnhl" draft="contributed">Hejlungcsiang</subdivision>
+			<subdivision type="cnhn" draft="contributed">Hunan</subdivision>
+			<subdivision type="cnjl" draft="contributed">Csilin</subdivision>
+			<subdivision type="cnjs" draft="contributed">Csiangszu</subdivision>
+			<subdivision type="cnjx" draft="contributed">Csianghszi</subdivision>
+			<subdivision type="cnln" draft="contributed">Liaoning</subdivision>
+			<subdivision type="cnmo" draft="contributed">Makaó</subdivision>
+			<subdivision type="cnnm" draft="contributed">Belső-Mongólia Autonóm Terület</subdivision>
+			<subdivision type="cnnx" draft="contributed">Ninghszia-Huj Autonóm Terület</subdivision>
+			<subdivision type="cnqh" draft="contributed">Csinghaj</subdivision>
+			<subdivision type="cnsc" draft="contributed">Szecsuan</subdivision>
+			<subdivision type="cnsd" draft="contributed">Santung</subdivision>
+			<subdivision type="cnsh" draft="contributed">Sanghaj</subdivision>
+			<subdivision type="cnsn" draft="contributed">Senhszi</subdivision>
+			<subdivision type="cnsx" draft="contributed">Sanhszi</subdivision>
+			<subdivision type="cntj" draft="contributed">Tiencsin</subdivision>
+			<subdivision type="cnxj" draft="contributed">Hszincsiang-Ujgur Autonóm Terület</subdivision>
+			<subdivision type="cnxz" draft="contributed">Tibeti Autonóm Terület</subdivision>
+			<subdivision type="cnyn" draft="contributed">Jünnan</subdivision>
+			<subdivision type="cnzj" draft="contributed">Csöcsiang</subdivision>
+			<subdivision type="coama" draft="contributed">Amazonas megye</subdivision>
+			<subdivision type="coant" draft="contributed">Antioquia megye</subdivision>
+			<subdivision type="coara" draft="contributed">Arauca megye</subdivision>
+			<subdivision type="coatl" draft="contributed">Atlántico megye</subdivision>
+			<subdivision type="cobol" draft="contributed">Bolívar megye</subdivision>
+			<subdivision type="coboy" draft="contributed">Boyacá megye</subdivision>
+			<subdivision type="cocal" draft="contributed">Caldas megye</subdivision>
+			<subdivision type="cocaq" draft="contributed">Caquetá megye</subdivision>
+			<subdivision type="cocas" draft="contributed">Casanare megye</subdivision>
+			<subdivision type="cocau" draft="contributed">Cauca megye</subdivision>
+			<subdivision type="coces" draft="contributed">Cesar megye</subdivision>
+			<subdivision type="cocho" draft="contributed">Chocó megye</subdivision>
+			<subdivision type="cocor" draft="contributed">Córdoba megye</subdivision>
+			<subdivision type="cocun" draft="contributed">Cundinamarca megye</subdivision>
+			<subdivision type="codc" draft="contributed">Bogotá</subdivision>
+			<subdivision type="cogua" draft="contributed">Guainía megye</subdivision>
+			<subdivision type="coguv" draft="contributed">Guaviare megye</subdivision>
+			<subdivision type="cohui" draft="contributed">Huila megye</subdivision>
+			<subdivision type="colag" draft="contributed">La Guajira megye</subdivision>
+			<subdivision type="comag" draft="contributed">Magdalena megye</subdivision>
+			<subdivision type="comet" draft="contributed">Meta megye</subdivision>
+			<subdivision type="conar" draft="contributed">Nariño megye</subdivision>
+			<subdivision type="consa" draft="contributed">Észak-Santander megye</subdivision>
+			<subdivision type="coput" draft="contributed">Putumayo megye</subdivision>
+			<subdivision type="coqui" draft="contributed">Quindío megye</subdivision>
+			<subdivision type="coris" draft="contributed">Risaralda megye</subdivision>
+			<subdivision type="cosan" draft="contributed">Santander megye</subdivision>
+			<subdivision type="cosap" draft="contributed">San Andrés y Providencia megye</subdivision>
+			<subdivision type="cosuc" draft="contributed">Sucre megye</subdivision>
+			<subdivision type="cotol" draft="contributed">Tolima megye</subdivision>
+			<subdivision type="covac" draft="contributed">Valle del Cauca megye</subdivision>
+			<subdivision type="covau" draft="contributed">Vaupés megye</subdivision>
+			<subdivision type="covid" draft="contributed">Vichada megye</subdivision>
+			<subdivision type="crh" draft="contributed">Heredia tartomány</subdivision>
+			<subdivision type="cu01" draft="contributed">Pinar del Río</subdivision>
+			<subdivision type="cu03" draft="contributed">Havanna</subdivision>
+			<subdivision type="cu04" draft="contributed">Matanzas</subdivision>
+			<subdivision type="cu05" draft="contributed">Villa Clara</subdivision>
+			<subdivision type="cu06" draft="contributed">Cienfuegos</subdivision>
+			<subdivision type="cu07" draft="contributed">Sancti Spíritus</subdivision>
+			<subdivision type="cu08" draft="contributed">Ciego de Ávila</subdivision>
+			<subdivision type="cu09" draft="contributed">Camagüey</subdivision>
+			<subdivision type="cu10" draft="contributed">Las Tunas</subdivision>
+			<subdivision type="cu11" draft="contributed">Holguín</subdivision>
+			<subdivision type="cu12" draft="contributed">Granma</subdivision>
+			<subdivision type="cu14" draft="contributed">Guantánamo</subdivision>
+			<subdivision type="cu15" draft="contributed">Artemisa</subdivision>
+			<subdivision type="cu16" draft="contributed">Mayabeque</subdivision>
+			<subdivision type="cu99" draft="contributed">Isla de la Juventud</subdivision>
+			<subdivision type="cvcr" draft="contributed">Santa Cruz</subdivision>
+			<subdivision type="cvsl" draft="contributed">Sal</subdivision>
+			<subdivision type="cy03" draft="contributed">Lárnaka kerület</subdivision>
+			<subdivision type="cz10" draft="contributed">Prága</subdivision>
+			<subdivision type="cz20" draft="contributed">Közép-csehországi kerület</subdivision>
+			<subdivision type="cz20a" draft="contributed">Nyugat-prágai járás</subdivision>
+			<subdivision type="cz20b" draft="contributed">Příbrami járás</subdivision>
+			<subdivision type="cz20c" draft="contributed">Rakovníki járás</subdivision>
+			<subdivision type="cz31" draft="contributed">Dél-csehországi kerület</subdivision>
+			<subdivision type="cz32" draft="contributed">Plzeňi kerület</subdivision>
+			<subdivision type="cz41" draft="contributed">Karlovy Vary-i kerület</subdivision>
+			<subdivision type="cz42" draft="contributed">Ústí nad Labem-i kerület</subdivision>
+			<subdivision type="cz51" draft="contributed">Libereci kerület</subdivision>
+			<subdivision type="cz52" draft="contributed">Hradec Králové-i kerület</subdivision>
+			<subdivision type="cz53" draft="contributed">Pardubicei kerület</subdivision>
+			<subdivision type="cz63" draft="contributed">Vysočina kerület</subdivision>
+			<subdivision type="cz64" draft="contributed">Dél-morvaországi kerület</subdivision>
+			<subdivision type="cz71" draft="contributed">Olomouci kerület</subdivision>
+			<subdivision type="cz72" draft="contributed">Zlíni kerület</subdivision>
+			<subdivision type="cz80" draft="contributed">Morva-sziléziai kerület</subdivision>
+			<subdivision type="cz101" draft="contributed">Prága 1</subdivision>
+			<subdivision type="cz102" draft="contributed">Prága 2</subdivision>
+			<subdivision type="cz106" draft="contributed">Prága 6</subdivision>
+			<subdivision type="cz107" draft="contributed">Prága 7</subdivision>
+			<subdivision type="cz108" draft="contributed">Prága 8</subdivision>
+			<subdivision type="cz109" draft="contributed">Prága 9</subdivision>
+			<subdivision type="cz110" draft="contributed">Prága 10</subdivision>
+			<subdivision type="cz116" draft="contributed">Prága 16</subdivision>
+			<subdivision type="cz201" draft="contributed">Benešovi járás</subdivision>
+			<subdivision type="cz202" draft="contributed">Berouni járás</subdivision>
+			<subdivision type="cz203" draft="contributed">Kladnói járás</subdivision>
+			<subdivision type="cz204" draft="contributed">Kolíni járás</subdivision>
+			<subdivision type="cz205" draft="contributed">Kutná Hora-i járás</subdivision>
+			<subdivision type="cz206" draft="contributed">Mělníki járás</subdivision>
+			<subdivision type="cz207" draft="contributed">Mladá Boleslav-i járás</subdivision>
+			<subdivision type="cz208" draft="contributed">Nymburki járás</subdivision>
+			<subdivision type="cz209" draft="contributed">Kelet-prágai járás</subdivision>
+			<subdivision type="cz311" draft="contributed">České Budějovice-i járás</subdivision>
+			<subdivision type="cz312" draft="contributed">Český Krumlov-i járás</subdivision>
+			<subdivision type="cz313" draft="contributed">Jindřichův Hradec-i járás</subdivision>
+			<subdivision type="cz314" draft="contributed">Píseki járás</subdivision>
+			<subdivision type="cz315" draft="contributed">Prachaticei járás</subdivision>
+			<subdivision type="cz316" draft="contributed">Strakonicei járás</subdivision>
+			<subdivision type="cz317" draft="contributed">Tábori járás</subdivision>
+			<subdivision type="cz321" draft="contributed">Domažlicei járás</subdivision>
+			<subdivision type="cz322" draft="contributed">Klatovy-i járás</subdivision>
+			<subdivision type="cz323" draft="contributed">Plzeň városi járás</subdivision>
+			<subdivision type="cz324" draft="contributed">Dél-plzeňi járás</subdivision>
+			<subdivision type="cz325" draft="contributed">Észak-plzeňi járás</subdivision>
+			<subdivision type="cz326" draft="contributed">Rokycany-i járás</subdivision>
+			<subdivision type="cz327" draft="contributed">Tachovi járás</subdivision>
+			<subdivision type="cz411" draft="contributed">Chebi járás</subdivision>
+			<subdivision type="cz412" draft="contributed">Karlovy Vary-i járás</subdivision>
+			<subdivision type="cz413" draft="contributed">Sokolovi járás</subdivision>
+			<subdivision type="cz421" draft="contributed">Děčíni járás</subdivision>
+			<subdivision type="cz422" draft="contributed">Chomutovi járás</subdivision>
+			<subdivision type="cz423" draft="contributed">Litoměřicei járás</subdivision>
+			<subdivision type="cz424" draft="contributed">Louny-i járás</subdivision>
+			<subdivision type="cz425" draft="contributed">Mosti járás</subdivision>
+			<subdivision type="cz426" draft="contributed">Teplicei járás</subdivision>
+			<subdivision type="cz427" draft="contributed">Ústí nad Labem-i járás</subdivision>
+			<subdivision type="cz511" draft="contributed">Česká Lípa-i járás</subdivision>
+			<subdivision type="cz512" draft="contributed">Jablonec nad Nisou-i járás</subdivision>
+			<subdivision type="cz513" draft="contributed">Libereci járás</subdivision>
+			<subdivision type="cz514" draft="contributed">Semily-i járás</subdivision>
+			<subdivision type="cz521" draft="contributed">Hradec Králové-i járás</subdivision>
+			<subdivision type="cz522" draft="contributed">Jičíni járás</subdivision>
+			<subdivision type="cz523" draft="contributed">Náchodi járás</subdivision>
+			<subdivision type="cz524" draft="contributed">Rychnov nad Kněžnou-i járás</subdivision>
+			<subdivision type="cz525" draft="contributed">Trutnovi járás</subdivision>
+			<subdivision type="cz531" draft="contributed">Chrudimi járás</subdivision>
+			<subdivision type="cz532" draft="contributed">Pardubicei járás</subdivision>
+			<subdivision type="cz533" draft="contributed">Svitavy-i járás</subdivision>
+			<subdivision type="cz534" draft="contributed">Ústí nad Orlicí-i járás</subdivision>
+			<subdivision type="cz631" draft="contributed">Havlíčkův Brod-i járás</subdivision>
+			<subdivision type="cz632" draft="contributed">Jihlavai járás</subdivision>
+			<subdivision type="cz633" draft="contributed">Pelhřimovi járás</subdivision>
+			<subdivision type="cz634" draft="contributed">Třebíči járás</subdivision>
+			<subdivision type="cz635" draft="contributed">Žďár nad Sázavou-i járás</subdivision>
+			<subdivision type="cz641" draft="contributed">Blanskói járás</subdivision>
+			<subdivision type="cz642" draft="contributed">Brno városi járás</subdivision>
+			<subdivision type="cz643" draft="contributed">Brno-vidéki járás</subdivision>
+			<subdivision type="cz644" draft="contributed">Břeclavi járás</subdivision>
+			<subdivision type="cz645" draft="contributed">Hodoníni járás</subdivision>
+			<subdivision type="cz646" draft="contributed">Vyškovi járás</subdivision>
+			<subdivision type="cz647" draft="contributed">Znojmói járás</subdivision>
+			<subdivision type="cz711" draft="contributed">Jeseníki járás</subdivision>
+			<subdivision type="cz712" draft="contributed">Olomouci járás</subdivision>
+			<subdivision type="cz713" draft="contributed">Prostějovi járás</subdivision>
+			<subdivision type="cz714" draft="contributed">Přerovi járás</subdivision>
+			<subdivision type="cz715" draft="contributed">Šumperki járás</subdivision>
+			<subdivision type="cz721" draft="contributed">Kroměříži járás</subdivision>
+			<subdivision type="cz722" draft="contributed">Uherské Hradiště-i járás</subdivision>
+			<subdivision type="cz723" draft="contributed">Vsetíni járás</subdivision>
+			<subdivision type="cz724" draft="contributed">Zlíni járás</subdivision>
+			<subdivision type="cz801" draft="contributed">Bruntáli járás</subdivision>
+			<subdivision type="cz802" draft="contributed">Frýdek-místeki járás</subdivision>
+			<subdivision type="cz803" draft="contributed">Karvinái járás</subdivision>
+			<subdivision type="cz804" draft="contributed">Nový Jičín-i járás</subdivision>
+			<subdivision type="cz805" draft="contributed">Opavai járás</subdivision>
+			<subdivision type="cz806" draft="contributed">Ostrava városi járás</subdivision>
+			<subdivision type="debb" draft="contributed">Brandenburg</subdivision>
+			<subdivision type="debe" draft="contributed">Berlin</subdivision>
+			<subdivision type="debw" draft="contributed">Baden-Württemberg</subdivision>
+			<subdivision type="deby" draft="contributed">Bajorország</subdivision>
+			<subdivision type="dehb" draft="contributed">Bréma</subdivision>
+			<subdivision type="dehe" draft="contributed">Hessen</subdivision>
+			<subdivision type="dehh" draft="contributed">Hamburg</subdivision>
+			<subdivision type="demv" draft="contributed">Mecklenburg–Elő-Pomeránia</subdivision>
+			<subdivision type="deni" draft="contributed">Alsó-Szászország</subdivision>
+			<subdivision type="denw" draft="contributed">Észak-Rajna-Vesztfália</subdivision>
+			<subdivision type="derp" draft="contributed">Rajna-vidék–Pfalz</subdivision>
+			<subdivision type="desh" draft="contributed">Schleswig-Holstein</subdivision>
+			<subdivision type="desl" draft="contributed">Saar-vidék</subdivision>
+			<subdivision type="desn" draft="contributed">Szászország</subdivision>
+			<subdivision type="dest" draft="contributed">Szász-Anhalt</subdivision>
+			<subdivision type="deth" draft="contributed">Türingia</subdivision>
+			<subdivision type="djar" draft="contributed">Arta régió</subdivision>
+			<subdivision type="djdj" draft="contributed">Dzsibuti</subdivision>
+			<subdivision type="dk81" draft="contributed">Nordjylland régió</subdivision>
+			<subdivision type="dk82" draft="contributed">Midtjylland régió</subdivision>
+			<subdivision type="dk83" draft="contributed">Syddanmark régió</subdivision>
+			<subdivision type="dk84" draft="contributed">Hovedstaden régió</subdivision>
+			<subdivision type="dk85" draft="contributed">Sjælland régió</subdivision>
+			<subdivision type="dz13" draft="contributed">Tilimszán tartomány</subdivision>
+			<subdivision type="dz36" draft="contributed">El Tarf tartomány</subdivision>
+			<subdivision type="dz42" draft="contributed">Tipáza</subdivision>
+			<subdivision type="eca" draft="contributed">Azuay tartomány</subdivision>
+			<subdivision type="ecb" draft="contributed">Bolívar tartomány</subdivision>
+			<subdivision type="ecc" draft="contributed">Carchi tartomány</subdivision>
+			<subdivision type="ecd" draft="contributed">Orellana tartomány</subdivision>
+			<subdivision type="ece" draft="contributed">Esmeraldas tartomány</subdivision>
+			<subdivision type="ecf" draft="contributed">Cañar tartomány</subdivision>
+			<subdivision type="ecg" draft="contributed">Guayas tartomány</subdivision>
+			<subdivision type="ech" draft="contributed">Chimborazo tartomány</subdivision>
+			<subdivision type="eci" draft="contributed">Imbabura tartomány</subdivision>
+			<subdivision type="ecl" draft="contributed">Loja tartomány</subdivision>
+			<subdivision type="ecm" draft="contributed">Manabí tartomány</subdivision>
+			<subdivision type="ecn" draft="contributed">Napo tartomány</subdivision>
+			<subdivision type="eco" draft="contributed">El Oro tartomány</subdivision>
+			<subdivision type="ecp" draft="contributed">Pichincha tartomány</subdivision>
+			<subdivision type="ecr" draft="contributed">Los Ríos tartomány</subdivision>
+			<subdivision type="ecs" draft="contributed">Morona Santiago tartomány</subdivision>
+			<subdivision type="ecx" draft="contributed">Cotopaxi tartomány</subdivision>
+			<subdivision type="ee37" draft="contributed">Harjumaa</subdivision>
+			<subdivision type="ee39" draft="contributed">Hiiumaa</subdivision>
+			<subdivision type="ee44" draft="contributed">Ida-Virumaa</subdivision>
+			<subdivision type="ee49" draft="contributed">Jõgevamaa</subdivision>
+			<subdivision type="ee51" draft="contributed">Järvamaa</subdivision>
+			<subdivision type="ee57" draft="contributed">Läänemaa</subdivision>
+			<subdivision type="ee59" draft="contributed">Lääne-Virumaa</subdivision>
+			<subdivision type="ee65" draft="contributed">Põlvamaa</subdivision>
+			<subdivision type="ee67" draft="contributed">Pärnumaa</subdivision>
+			<subdivision type="ee70" draft="contributed">Raplamaa</subdivision>
+			<subdivision type="ee74" draft="contributed">Saaremaa</subdivision>
+			<subdivision type="ee82" draft="contributed">Valgamaa</subdivision>
+			<subdivision type="ee84" draft="contributed">Viljandimaa</subdivision>
+			<subdivision type="ee86" draft="contributed">Võrumaa</subdivision>
+			<subdivision type="egmt" draft="contributed">Matrúh</subdivision>
+			<subdivision type="egshg" draft="contributed">Szohág kormányzóság</subdivision>
+			<subdivision type="esa" draft="contributed">Alicante tartomány</subdivision>
+			<subdivision type="esab" draft="contributed">Albacete</subdivision>
+			<subdivision type="esal" draft="contributed">Almería</subdivision>
+			<subdivision type="esan" draft="contributed">Andalúzia</subdivision>
+			<subdivision type="esar" draft="contributed">Aragónia</subdivision>
+			<subdivision type="esas" draft="contributed">Asztúria</subdivision>
+			<subdivision type="esav" draft="contributed">Ávila</subdivision>
+			<subdivision type="esb" draft="contributed">Barcelona tartomány</subdivision>
+			<subdivision type="esba" draft="contributed">Badajoz tartomány</subdivision>
+			<subdivision type="esbi" draft="contributed">Bizkaia</subdivision>
+			<subdivision type="esbu" draft="contributed">Burgos</subdivision>
+			<subdivision type="esc" draft="contributed">A Coruña</subdivision>
+			<subdivision type="esca" draft="contributed">Cádiz</subdivision>
+			<subdivision type="escb" draft="contributed">Kantábria</subdivision>
+			<subdivision type="escc" draft="contributed">Cáceres</subdivision>
+			<subdivision type="esce" draft="contributed">Ceuta</subdivision>
+			<subdivision type="escl" draft="contributed">Kasztília és León</subdivision>
+			<subdivision type="escm" draft="contributed">Kasztília-La Mancha</subdivision>
+			<subdivision type="esco" draft="contributed">Córdoba</subdivision>
+			<subdivision type="escr" draft="contributed">Ciudad Real</subdivision>
+			<subdivision type="escs" draft="contributed">Castellón</subdivision>
+			<subdivision type="esct" draft="contributed">Katalónia</subdivision>
+			<subdivision type="escu" draft="contributed">Cuenca</subdivision>
+			<subdivision type="esex" draft="contributed">Extremadura</subdivision>
+			<subdivision type="esga" draft="contributed">Galicia</subdivision>
+			<subdivision type="esgc" draft="contributed">Las Palmas</subdivision>
+			<subdivision type="esgi" draft="contributed">Girona</subdivision>
+			<subdivision type="esgr" draft="contributed">Granada</subdivision>
+			<subdivision type="esgu" draft="contributed">Guadalajara</subdivision>
+			<subdivision type="esh" draft="contributed">Huelva tartomány</subdivision>
+			<subdivision type="eshu" draft="contributed">Huesca</subdivision>
+			<subdivision type="esib" draft="contributed">Baleár-szigetek</subdivision>
+			<subdivision type="esj" draft="contributed">Jaén</subdivision>
+			<subdivision type="esl" draft="contributed">Lleida</subdivision>
+			<subdivision type="esle" draft="contributed">León</subdivision>
+			<subdivision type="eslo" draft="contributed">La Rioja</subdivision>
+			<subdivision type="eslu" draft="contributed">Lugo</subdivision>
+			<subdivision type="esma" draft="contributed">Málaga</subdivision>
+			<subdivision type="esmc" draft="contributed">Murcia tartomány</subdivision>
+			<subdivision type="esmd" draft="contributed">Madrid tartomány</subdivision>
+			<subdivision type="esml" draft="contributed">Melilla</subdivision>
+			<subdivision type="esna" draft="contributed">Navarra²</subdivision>
+			<subdivision type="esnc" draft="contributed">Navarra</subdivision>
+			<subdivision type="esor" draft="contributed">Ourense</subdivision>
+			<subdivision type="esp" draft="contributed">Palencia</subdivision>
+			<subdivision type="espm" draft="contributed">Baleár-szigetek²</subdivision>
+			<subdivision type="espo" draft="contributed">Pontevedra</subdivision>
+			<subdivision type="espv" draft="contributed">Baszkföld</subdivision>
+			<subdivision type="esri" draft="contributed">La Rioja²</subdivision>
+			<subdivision type="ess" draft="contributed">Kantábria²</subdivision>
+			<subdivision type="essa" draft="contributed">Salamanca</subdivision>
+			<subdivision type="esse" draft="contributed">Sevilla</subdivision>
+			<subdivision type="essg" draft="contributed">Segovia</subdivision>
+			<subdivision type="esso" draft="contributed">Soria</subdivision>
+			<subdivision type="esss" draft="contributed">Gipuzkoa</subdivision>
+			<subdivision type="est" draft="contributed">Tarragona</subdivision>
+			<subdivision type="este" draft="contributed">Teruel</subdivision>
+			<subdivision type="estf" draft="contributed">Santa Cruz de Tenerife</subdivision>
+			<subdivision type="esto" draft="contributed">Toledo</subdivision>
+			<subdivision type="esv" draft="contributed">Valencia tartomány</subdivision>
+			<subdivision type="esva" draft="contributed">Valladolid</subdivision>
+			<subdivision type="esvc" draft="contributed">Valencia</subdivision>
+			<subdivision type="esvi" draft="contributed">Araba</subdivision>
+			<subdivision type="esz" draft="contributed">Zaragoza</subdivision>
+			<subdivision type="esza" draft="contributed">Zamora</subdivision>
+			<subdivision type="etaa" draft="contributed">Addisz-Abeba</subdivision>
+			<subdivision type="etaf" draft="contributed">Afar</subdivision>
+			<subdivision type="etam" draft="contributed">Amhara</subdivision>
+			<subdivision type="etbe" draft="contributed">Benishangul-Gumuz</subdivision>
+			<subdivision type="etdd" draft="contributed">Dire Dawa</subdivision>
+			<subdivision type="etga" draft="contributed">Gambela</subdivision>
+			<subdivision type="etha" draft="contributed">Harar (szövetségi állam)</subdivision>
+			<subdivision type="etor" draft="contributed">Oromia</subdivision>
+			<subdivision type="etsn" draft="contributed">Déli nemzetek, nemzetiségek és népek</subdivision>
+			<subdivision type="etso" draft="contributed">Szomália</subdivision>
+			<subdivision type="etti" draft="contributed">Tigré</subdivision>
+			<subdivision type="fi05" draft="contributed">Kainuu</subdivision>
+			<subdivision type="fi10" draft="contributed">Lappföld</subdivision>
+			<subdivision type="fi11" draft="contributed">Pirkanmaa</subdivision>
+			<subdivision type="fi13" draft="contributed">Észak-Karjala</subdivision>
+			<subdivision type="fi14" draft="contributed">Észak-Pohjanmaa</subdivision>
+			<subdivision type="fi15" draft="contributed">Észak-Savo</subdivision>
+			<subdivision type="fi17" draft="contributed">Satakunta tartomány</subdivision>
+			<subdivision type="fi18" draft="contributed">Nyland tartomány</subdivision>
+			<subdivision type="fmksa" draft="contributed">Kosrae-sziget</subdivision>
+			<subdivision type="fr01" draft="contributed">Ain</subdivision>
+			<subdivision type="fr02" draft="contributed">Aisne</subdivision>
+			<subdivision type="fr2a" draft="contributed">Corse-du-Sud</subdivision>
+			<subdivision type="fr2b" draft="contributed">Haute-Corse</subdivision>
+			<subdivision type="fr03" draft="contributed">Allier</subdivision>
+			<subdivision type="fr04" draft="contributed">Alpes-de-Haute-Provence</subdivision>
+			<subdivision type="fr05" draft="contributed">Hautes-Alpes</subdivision>
+			<subdivision type="fr06" draft="contributed">Alpes-Maritimes</subdivision>
+			<subdivision type="fr07" draft="contributed">Ardèche</subdivision>
+			<subdivision type="fr08" draft="contributed">Ardennes</subdivision>
+			<subdivision type="fr09" draft="contributed">Ariège</subdivision>
+			<subdivision type="fr10" draft="contributed">Aube</subdivision>
+			<subdivision type="fr11" draft="contributed">Aude</subdivision>
+			<subdivision type="fr12" draft="contributed">Aveyron</subdivision>
+			<subdivision type="fr13" draft="contributed">Bouches-du-Rhône</subdivision>
+			<subdivision type="fr14" draft="contributed">Calvados</subdivision>
+			<subdivision type="fr15" draft="contributed">Cantal</subdivision>
+			<subdivision type="fr16" draft="contributed">Charente</subdivision>
+			<subdivision type="fr17" draft="contributed">Charente-Maritime</subdivision>
+			<subdivision type="fr18" draft="contributed">Cher</subdivision>
+			<subdivision type="fr19" draft="contributed">Corrèze</subdivision>
+			<subdivision type="fr21" draft="contributed">Côte-d’Or</subdivision>
+			<subdivision type="fr22" draft="contributed">Côtes-d’Armor</subdivision>
+			<subdivision type="fr23" draft="contributed">Creuse</subdivision>
+			<subdivision type="fr24" draft="contributed">Dordogne</subdivision>
+			<subdivision type="fr25" draft="contributed">Doubs</subdivision>
+			<subdivision type="fr26" draft="contributed">Drôme</subdivision>
+			<subdivision type="fr27" draft="contributed">Eure</subdivision>
+			<subdivision type="fr28" draft="contributed">Eure-et-Loir</subdivision>
+			<subdivision type="fr29" draft="contributed">Finistère</subdivision>
+			<subdivision type="fr30" draft="contributed">Gard</subdivision>
+			<subdivision type="fr31" draft="contributed">Haute-Garonne</subdivision>
+			<subdivision type="fr32" draft="contributed">Gers</subdivision>
+			<subdivision type="fr33" draft="contributed">Gironde</subdivision>
+			<subdivision type="fr34" draft="contributed">Hérault</subdivision>
+			<subdivision type="fr35" draft="contributed">Ille-et-Vilaine</subdivision>
+			<subdivision type="fr36" draft="contributed">Indre</subdivision>
+			<subdivision type="fr37" draft="contributed">Indre-et-Loire</subdivision>
+			<subdivision type="fr38" draft="contributed">Isère</subdivision>
+			<subdivision type="fr39" draft="contributed">Jura</subdivision>
+			<subdivision type="fr40" draft="contributed">Landes</subdivision>
+			<subdivision type="fr41" draft="contributed">Loir-et-Cher</subdivision>
+			<subdivision type="fr42" draft="contributed">Loire</subdivision>
+			<subdivision type="fr43" draft="contributed">Haute-Loire</subdivision>
+			<subdivision type="fr44" draft="contributed">Loire-Atlantique</subdivision>
+			<subdivision type="fr45" draft="contributed">Loiret</subdivision>
+			<subdivision type="fr46" draft="contributed">Lot</subdivision>
+			<subdivision type="fr47" draft="contributed">Lot-et-Garonne</subdivision>
+			<subdivision type="fr48" draft="contributed">Lozère</subdivision>
+			<subdivision type="fr49" draft="contributed">Maine-et-Loire</subdivision>
+			<subdivision type="fr50" draft="contributed">Manche</subdivision>
+			<subdivision type="fr51" draft="contributed">Marne</subdivision>
+			<subdivision type="fr52" draft="contributed">Haute-Marne</subdivision>
+			<subdivision type="fr53" draft="contributed">Mayenne</subdivision>
+			<subdivision type="fr54" draft="contributed">Meurthe-et-Moselle</subdivision>
+			<subdivision type="fr55" draft="contributed">Meuse</subdivision>
+			<subdivision type="fr56" draft="contributed">Morbihan</subdivision>
+			<subdivision type="fr57" draft="contributed">Moselle</subdivision>
+			<subdivision type="fr58" draft="contributed">Nièvre</subdivision>
+			<subdivision type="fr59" draft="contributed">Nord</subdivision>
+			<subdivision type="fr60" draft="contributed">Oise</subdivision>
+			<subdivision type="fr61" draft="contributed">Orne</subdivision>
+			<subdivision type="fr62" draft="contributed">Pas-de-Calais</subdivision>
+			<subdivision type="fr63" draft="contributed">Puy-de-Dôme</subdivision>
+			<subdivision type="fr64" draft="contributed">Pyrénées-Atlantiques</subdivision>
+			<subdivision type="fr65" draft="contributed">Hautes-Pyrénées</subdivision>
+			<subdivision type="fr66" draft="contributed">Pyrénées-Orientales</subdivision>
+			<subdivision type="fr67" draft="contributed">Bas-Rhin</subdivision>
+			<subdivision type="fr68" draft="contributed">Haut-Rhin</subdivision>
+			<subdivision type="fr69" draft="contributed">Rhône</subdivision>
+			<subdivision type="fr70" draft="contributed">Haute-Saône</subdivision>
+			<subdivision type="fr71" draft="contributed">Saône-et-Loire</subdivision>
+			<subdivision type="fr72" draft="contributed">Sarthe</subdivision>
+			<subdivision type="fr73" draft="contributed">Savoie</subdivision>
+			<subdivision type="fr74" draft="contributed">Haute-Savoie</subdivision>
+			<subdivision type="fr75" draft="contributed">Párizs</subdivision>
+			<subdivision type="fr76" draft="contributed">Seine-Maritime</subdivision>
+			<subdivision type="fr77" draft="contributed">Seine-et-Marne</subdivision>
+			<subdivision type="fr78" draft="contributed">Yvelines</subdivision>
+			<subdivision type="fr79" draft="contributed">Deux-Sèvres</subdivision>
+			<subdivision type="fr80" draft="contributed">Somme</subdivision>
+			<subdivision type="fr81" draft="contributed">Tarn</subdivision>
+			<subdivision type="fr82" draft="contributed">Tarn-et-Garonne</subdivision>
+			<subdivision type="fr83" draft="contributed">Var</subdivision>
+			<subdivision type="fr84" draft="contributed">Vaucluse</subdivision>
+			<subdivision type="fr85" draft="contributed">Vendée</subdivision>
+			<subdivision type="fr86" draft="contributed">Vienne</subdivision>
+			<subdivision type="fr87" draft="contributed">Haute-Vienne</subdivision>
+			<subdivision type="fr88" draft="contributed">Vosges</subdivision>
+			<subdivision type="fr89" draft="contributed">Yonne</subdivision>
+			<subdivision type="fr90" draft="contributed">Territoire de Belfort</subdivision>
+			<subdivision type="fr91" draft="contributed">Essonne</subdivision>
+			<subdivision type="fr92" draft="contributed">Hauts-de-Seine</subdivision>
+			<subdivision type="fr93" draft="contributed">Seine-Saint-Denis</subdivision>
+			<subdivision type="fr94" draft="contributed">Val-de-Marne</subdivision>
+			<subdivision type="fr95" draft="contributed">Val-d’Oise</subdivision>
+			<subdivision type="frara" draft="contributed">Auvergne-Rhône-Alpes</subdivision>
+			<subdivision type="frbre" draft="contributed">Bretagne</subdivision>
+			<subdivision type="frcor" draft="contributed">Korzika</subdivision>
+			<subdivision type="frcvl" draft="contributed">Centre-Val de Loire</subdivision>
+			<subdivision type="frhdf" draft="contributed">Felső-Franciaország</subdivision>
+			<subdivision type="fridf" draft="contributed">Île-de-France</subdivision>
+			<subdivision type="frnaq" draft="contributed">Új-Aquitania</subdivision>
+			<subdivision type="frpac" draft="contributed">Provence-Alpes-Côte d’Azur</subdivision>
+			<subdivision type="frpdl" draft="contributed">Loire mente</subdivision>
+			<subdivision type="gbabd" draft="contributed">Aberdeenshire</subdivision>
+			<subdivision type="gbabe" draft="contributed">Aberdeen</subdivision>
+			<subdivision type="gbagy" draft="contributed">Anglesey</subdivision>
+			<subdivision type="gbbdg" draft="contributed">Barking and Dagenham kerület</subdivision>
+			<subdivision type="gbben" draft="contributed">Brent kerület</subdivision>
+			<subdivision type="gbbex" draft="contributed">Bexley kerület</subdivision>
+			<subdivision type="gbbir" draft="contributed">Birmingham</subdivision>
+			<subdivision type="gbbkm" draft="contributed">Buckinghamshire</subdivision>
+			<subdivision type="gbbmh" draft="contributed">Bournemouth</subdivision>
+			<subdivision type="gbbne" draft="contributed">Barnet kerület</subdivision>
+			<subdivision type="gbbpl" draft="contributed">Blackpool</subdivision>
+			<subdivision type="gbbry" draft="contributed">Bromley kerület</subdivision>
+			<subdivision type="gbbst" draft="contributed">Bristol</subdivision>
+			<subdivision type="gbcam" draft="contributed">Cambridgeshire</subdivision>
+			<subdivision type="gbcma" draft="contributed">Cumbria</subdivision>
+			<subdivision type="gbcmd" draft="contributed">Camden kerület</subdivision>
+			<subdivision type="gbcmn" draft="contributed">Carmarthenshire</subdivision>
+			<subdivision type="gbcon" draft="contributed">Cornwall</subdivision>
+			<subdivision type="gbcov" draft="contributed">Coventry</subdivision>
+			<subdivision type="gbcrf" draft="contributed">Cardiff</subdivision>
+			<subdivision type="gbcry" draft="contributed">Croydon kerület</subdivision>
+			<subdivision type="gbdby" draft="contributed">Derbyshire</subdivision>
+			<subdivision type="gbder" draft="contributed">Derby</subdivision>
+			<subdivision type="gbdev" draft="contributed">Devon</subdivision>
+			<subdivision type="gbdnd" draft="contributed">Dundee</subdivision>
+			<subdivision type="gbdor" draft="contributed">Dorset</subdivision>
+			<subdivision type="gbdur" draft="contributed">Durham</subdivision>
+			<subdivision type="gbeal" draft="contributed">Ealing kerület</subdivision>
+			<subdivision type="gbeay" draft="contributed">East Ayrshire</subdivision>
+			<subdivision type="gbedh" draft="contributed">Edinburgh</subdivision>
+			<subdivision type="gbenf" draft="contributed">Enfield kerület</subdivision>
+			<subdivision type="gbeng">Anglia</subdivision>
+			<subdivision type="gbery" draft="contributed">East Riding of Yorkshire</subdivision>
+			<subdivision type="gbess" draft="contributed">Essex</subdivision>
+			<subdivision type="gbesx" draft="contributed">East Sussex</subdivision>
+			<subdivision type="gbfif" draft="contributed">Fife</subdivision>
+			<subdivision type="gbfln" draft="contributed">Flintshire</subdivision>
+			<subdivision type="gbgbn" draft="contributed">Brit-sziget</subdivision>
+			<subdivision type="gbglg" draft="contributed">Glasgow</subdivision>
+			<subdivision type="gbgls" draft="contributed">Gloucestershire</subdivision>
+			<subdivision type="gbgre" draft="contributed">London Borough of Greenwich</subdivision>
+			<subdivision type="gbgwn" draft="contributed">Gwynedd</subdivision>
+			<subdivision type="gbhal" draft="contributed">Borough of Halton</subdivision>
+			<subdivision type="gbham" draft="contributed">Hampshire</subdivision>
+			<subdivision type="gbhav" draft="contributed">Havering kerület</subdivision>
+			<subdivision type="gbhck" draft="contributed">Hackney, London</subdivision>
+			<subdivision type="gbhef" draft="contributed">Herefordshire</subdivision>
+			<subdivision type="gbhil" draft="contributed">Hillingdon kerület</subdivision>
+			<subdivision type="gbhmf" draft="contributed">London Borough of Hammersmith and Fulham</subdivision>
+			<subdivision type="gbhns" draft="contributed">Hounslow kerület</subdivision>
+			<subdivision type="gbhrt" draft="contributed">Hertfordshire</subdivision>
+			<subdivision type="gbhrw" draft="contributed">Harrow kerület</subdivision>
+			<subdivision type="gbhry" draft="contributed">Haringey kerület</subdivision>
+			<subdivision type="gbios" draft="contributed">Scilly-szigetek</subdivision>
+			<subdivision type="gbiow" draft="contributed">Wight-sziget</subdivision>
+			<subdivision type="gbisl" draft="contributed">Islington kerület</subdivision>
+			<subdivision type="gbkec" draft="contributed">Royal Borough of Kensington and Chelsea</subdivision>
+			<subdivision type="gbken" draft="contributed">Kent</subdivision>
+			<subdivision type="gbkhl" draft="contributed">Kingston upon Hull</subdivision>
+			<subdivision type="gbkir" draft="contributed">Kirklees</subdivision>
+			<subdivision type="gbktt" draft="contributed">Kingston upon Thames kerület</subdivision>
+			<subdivision type="gblan" draft="contributed">Lancashire</subdivision>
+			<subdivision type="gblce" draft="contributed">Leicester</subdivision>
+			<subdivision type="gblds" draft="contributed">City of Leeds</subdivision>
+			<subdivision type="gblec" draft="contributed">Leicestershire</subdivision>
+			<subdivision type="gblew" draft="contributed">Lewisham kerület</subdivision>
+			<subdivision type="gblin" draft="contributed">Lincolnshire</subdivision>
+			<subdivision type="gbliv" draft="contributed">Liverpool</subdivision>
+			<subdivision type="gblnd" draft="contributed">City of London</subdivision>
+			<subdivision type="gblut" draft="contributed">Luton</subdivision>
+			<subdivision type="gbman" draft="contributed">Manchester</subdivision>
+			<subdivision type="gbmdb" draft="contributed">Middlesbrough</subdivision>
+			<subdivision type="gbmrt" draft="contributed">Merton kerület</subdivision>
+			<subdivision type="gbnay" draft="contributed">North Ayrshire</subdivision>
+			<subdivision type="gbnbl" draft="contributed">Northumberland</subdivision>
+			<subdivision type="gbnet" draft="contributed">Newcastle upon Tyne</subdivision>
+			<subdivision type="gbnfk" draft="contributed">Norfolk</subdivision>
+			<subdivision type="gbngm" draft="contributed">Nottingham</subdivision>
+			<subdivision type="gbnir" draft="contributed">Észak-Írország</subdivision>
+			<subdivision type="gbnth" draft="contributed">Northamptonshire</subdivision>
+			<subdivision type="gbntl" draft="contributed">Neath Port Talbot</subdivision>
+			<subdivision type="gbntt" draft="contributed">Nottinghamshire</subdivision>
+			<subdivision type="gbnty" draft="contributed">North Tyneside</subdivision>
+			<subdivision type="gbnwm" draft="contributed">Newham kerület</subdivision>
+			<subdivision type="gbnyk" draft="contributed">North Yorkshire</subdivision>
+			<subdivision type="gbork" draft="contributed">Orkney-szigetek</subdivision>
+			<subdivision type="gboxf" draft="contributed">Oxfordshire</subdivision>
+			<subdivision type="gbpem" draft="contributed">Pembrokeshire</subdivision>
+			<subdivision type="gbply" draft="contributed">Plymouth</subdivision>
+			<subdivision type="gbpol" draft="contributed">Poole</subdivision>
+			<subdivision type="gbpor" draft="contributed">Portsmouth</subdivision>
+			<subdivision type="gbpow" draft="contributed">Powys</subdivision>
+			<subdivision type="gbpte" draft="contributed">Peterborough</subdivision>
+			<subdivision type="gbrct" draft="contributed">Rhondda Cynon Taf</subdivision>
+			<subdivision type="gbrdb" draft="contributed">Redbridge kerület</subdivision>
+			<subdivision type="gbrdg" draft="contributed">Reading</subdivision>
+			<subdivision type="gbric" draft="contributed">Richmond upon Thames kerület</subdivision>
+			<subdivision type="gbrut" draft="contributed">Rutland</subdivision>
+			<subdivision type="gbsct">Skócia</subdivision>
+			<subdivision type="gbsfk" draft="contributed">Suffolk</subdivision>
+			<subdivision type="gbsft" draft="contributed">Metropolitan Borough of Sefton</subdivision>
+			<subdivision type="gbsgc" draft="contributed">South Gloucestershire</subdivision>
+			<subdivision type="gbshf" draft="contributed">Sheffield</subdivision>
+			<subdivision type="gbshr" draft="contributed">Shropshire</subdivision>
+			<subdivision type="gbslg" draft="contributed">Slough</subdivision>
+			<subdivision type="gbslk" draft="contributed">South Lanarkshire</subdivision>
+			<subdivision type="gbsom" draft="contributed">Somerset</subdivision>
+			<subdivision type="gbsos" draft="contributed">Southend-on-Sea</subdivision>
+			<subdivision type="gbsry" draft="contributed">Surrey</subdivision>
+			<subdivision type="gbste" draft="contributed">Stoke-on-Trent</subdivision>
+			<subdivision type="gbsth" draft="contributed">Southampton</subdivision>
+			<subdivision type="gbstn" draft="contributed">Sutton kerület</subdivision>
+			<subdivision type="gbsts" draft="contributed">Staffordshire</subdivision>
+			<subdivision type="gbsty" draft="contributed">South Tyneside</subdivision>
+			<subdivision type="gbswa" draft="contributed">Swansea</subdivision>
+			<subdivision type="gbswk" draft="contributed">London Borough of Southwark</subdivision>
+			<subdivision type="gbthr" draft="contributed">Thurrock</subdivision>
+			<subdivision type="gbukm" draft="contributed">Egyesült Királyság</subdivision>
+			<subdivision type="gbwar" draft="contributed">Warwickshire</subdivision>
+			<subdivision type="gbwft" draft="contributed">Waltham Forest kerület</subdivision>
+			<subdivision type="gbwil" draft="contributed">Wiltshire</subdivision>
+			<subdivision type="gbwkf" draft="contributed">City of Wakefield</subdivision>
+			<subdivision type="gbwll" draft="contributed">Walsall kerület</subdivision>
+			<subdivision type="gbwls">Wales</subdivision>
+			<subdivision type="gbwlv" draft="contributed">Wolverhampton</subdivision>
+			<subdivision type="gbwor" draft="contributed">Worcestershire</subdivision>
+			<subdivision type="gbwrt" draft="contributed">Warrington</subdivision>
+			<subdivision type="gbwsm" draft="contributed">City of Westminster</subdivision>
+			<subdivision type="gbwsx" draft="contributed">West Sussex</subdivision>
+			<subdivision type="gbyor" draft="contributed">York</subdivision>
+			<subdivision type="gbzet" draft="contributed">Shetland</subdivision>
+			<subdivision type="geab" draft="contributed">Abházia</subdivision>
+			<subdivision type="geaj" draft="contributed">Adzsaria</subdivision>
+			<subdivision type="gegu" draft="contributed">Guria</subdivision>
+			<subdivision type="geim" draft="contributed">Imereti</subdivision>
+			<subdivision type="geka" draft="contributed">Kaheti</subdivision>
+			<subdivision type="gekk" draft="contributed">Alsó-Kartli</subdivision>
+			<subdivision type="gemm" draft="contributed">Mcheta-Mtianeti</subdivision>
+			<subdivision type="gerl" draft="contributed">Racsa-Lecshumi és Alsó-Szvanéti</subdivision>
+			<subdivision type="gesj" draft="contributed">Szamche-Dzsavaheti</subdivision>
+			<subdivision type="gesk" draft="contributed">Felső-Kartli</subdivision>
+			<subdivision type="gesz" draft="contributed">Szamegrelo-Felső-Szvanéti</subdivision>
+			<subdivision type="getb" draft="contributed">Tbiliszi</subdivision>
+			<subdivision type="gmb" draft="contributed">Banjul</subdivision>
+			<subdivision type="gnc" draft="contributed">Conakry</subdivision>
+			<subdivision type="gqbn" draft="contributed">Bioko Norte tartomány</subdivision>
+			<subdivision type="gqkn" draft="contributed">Kié-Ntem tartomány</subdivision>
+			<subdivision type="gr69" draft="contributed">Athosz-hegy</subdivision>
+			<subdivision type="gra" draft="contributed">Kelet-Makedónia és Thrákia</subdivision>
+			<subdivision type="grb" draft="contributed">Közép-Makedónia</subdivision>
+			<subdivision type="grc" draft="contributed">Nyugat-Makedónia</subdivision>
+			<subdivision type="grd" draft="contributed">Epirusz</subdivision>
+			<subdivision type="gre" draft="contributed">Thesszália</subdivision>
+			<subdivision type="grg" draft="contributed">Nyugat-Görögország</subdivision>
+			<subdivision type="grh" draft="contributed">Közép-Görögország</subdivision>
+			<subdivision type="grj" draft="contributed">Peloponnészosz</subdivision>
+			<subdivision type="grk" draft="contributed">Észak-Égei-szigetek</subdivision>
+			<subdivision type="grl" draft="contributed">Dél-Égei-szigetek</subdivision>
+			<subdivision type="gtav" draft="contributed">Alta Verapaz megye</subdivision>
+			<subdivision type="gtbv" draft="contributed">Baja Verapaz megye</subdivision>
+			<subdivision type="gtcm" draft="contributed">Chimaltenango megye</subdivision>
+			<subdivision type="gtcq" draft="contributed">Chiquimula megye</subdivision>
+			<subdivision type="gtes" draft="contributed">Escuintla megye</subdivision>
+			<subdivision type="gtgu" draft="contributed">Guatemala megye</subdivision>
+			<subdivision type="gthu" draft="contributed">Huehuetenango megye</subdivision>
+			<subdivision type="gtiz" draft="contributed">Izabal megye</subdivision>
+			<subdivision type="gtja" draft="contributed">Jalapa megye</subdivision>
+			<subdivision type="gtju" draft="contributed">Jutiapa megye</subdivision>
+			<subdivision type="gtpe" draft="contributed">Petén megye</subdivision>
+			<subdivision type="gtpr" draft="contributed">El Progreso megye</subdivision>
+			<subdivision type="gtqc" draft="contributed">Quiché megye</subdivision>
+			<subdivision type="gtqz" draft="contributed">Quetzaltenango megye</subdivision>
+			<subdivision type="gtre" draft="contributed">Retalhuleu megye</subdivision>
+			<subdivision type="gtsa" draft="contributed">Sacatepéquez megye</subdivision>
+			<subdivision type="gtsm" draft="contributed">San Marcos megye</subdivision>
+			<subdivision type="gtso" draft="contributed">Sololá megye</subdivision>
+			<subdivision type="gtsr" draft="contributed">Santa Rosa megye</subdivision>
+			<subdivision type="gtsu" draft="contributed">Suchitepéquez megye</subdivision>
+			<subdivision type="gtto" draft="contributed">Totonicapán megye</subdivision>
+			<subdivision type="gtza" draft="contributed">Zacapa megye</subdivision>
+			<subdivision type="gwbs" draft="contributed">Bissau</subdivision>
+			<subdivision type="hnat" draft="contributed">Atlántida megye</subdivision>
+			<subdivision type="hnch" draft="contributed">Choluteca megye</subdivision>
+			<subdivision type="hncl" draft="contributed">Colón megye</subdivision>
+			<subdivision type="hncm" draft="contributed">Comayagua megye</subdivision>
+			<subdivision type="hncp" draft="contributed">Copán megye</subdivision>
+			<subdivision type="hncr" draft="contributed">Cortés megye</subdivision>
+			<subdivision type="hnep" draft="contributed">El Paraíso megye</subdivision>
+			<subdivision type="hnfm" draft="contributed">Francisco Morazán megye</subdivision>
+			<subdivision type="hngd" draft="contributed">Gracias a Dios megye</subdivision>
+			<subdivision type="hnib" draft="contributed">Islas de la Bahía megye</subdivision>
+			<subdivision type="hnin" draft="contributed">Intibucá megye</subdivision>
+			<subdivision type="hnle" draft="contributed">Lempira megye</subdivision>
+			<subdivision type="hnlp" draft="contributed">La Paz megye</subdivision>
+			<subdivision type="hnoc" draft="contributed">Ocotepeque megye</subdivision>
+			<subdivision type="hnol" draft="contributed">Olancho megye</subdivision>
+			<subdivision type="hnsb" draft="contributed">Santa Bárbara megye</subdivision>
+			<subdivision type="hnva" draft="contributed">Valle megye</subdivision>
+			<subdivision type="hnyo" draft="contributed">Yoro megye</subdivision>
+			<subdivision type="hr01" draft="contributed">Zágráb megye</subdivision>
+			<subdivision type="hr02" draft="contributed">Krapina-Zagorje megye</subdivision>
+			<subdivision type="hr03" draft="contributed">Sziszek-Moslavina megye</subdivision>
+			<subdivision type="hr04" draft="contributed">Károlyváros megye</subdivision>
+			<subdivision type="hr05" draft="contributed">Varasd megye</subdivision>
+			<subdivision type="hr06" draft="contributed">Kapronca-Körös megye</subdivision>
+			<subdivision type="hr07" draft="contributed">Belovár-Bilogora megye</subdivision>
+			<subdivision type="hr08" draft="contributed">Tengermellék-Hegyvidék megye</subdivision>
+			<subdivision type="hr09" draft="contributed">Lika-Zengg megye</subdivision>
+			<subdivision type="hr10" draft="contributed">Verőce-Drávamente megye</subdivision>
+			<subdivision type="hr11" draft="contributed">Pozsega-Szlavónia megye</subdivision>
+			<subdivision type="hr12" draft="contributed">Bród-Szávamente megye</subdivision>
+			<subdivision type="hr13" draft="contributed">Zára megye</subdivision>
+			<subdivision type="hr14" draft="contributed">Eszék-Baranya megye</subdivision>
+			<subdivision type="hr15" draft="contributed">Šibenik-Knin megye</subdivision>
+			<subdivision type="hr16" draft="contributed">Vukovár-Szerém megye</subdivision>
+			<subdivision type="hr17" draft="contributed">Split-Dalmácia megye</subdivision>
+			<subdivision type="hr18" draft="contributed">Isztria megye</subdivision>
+			<subdivision type="hr19" draft="contributed">Dubrovnik-Neretva megye</subdivision>
+			<subdivision type="hr20" draft="contributed">Muraköz megye</subdivision>
+			<subdivision type="hr21" draft="contributed">Zágráb</subdivision>
+			<subdivision type="huba" draft="contributed">Baranya megye</subdivision>
+			<subdivision type="hubc" draft="contributed">Békéscsaba</subdivision>
+			<subdivision type="hube" draft="contributed">Békés megye</subdivision>
+			<subdivision type="hubk" draft="contributed">Bács-Kiskun megye</subdivision>
+			<subdivision type="hubu" draft="contributed">Budapest</subdivision>
+			<subdivision type="hubz" draft="contributed">Borsod-Abaúj-Zemplén megye</subdivision>
+			<subdivision type="hucs" draft="contributed">Csongrád megye</subdivision>
+			<subdivision type="hude" draft="contributed">Debrecen</subdivision>
+			<subdivision type="hudu" draft="contributed">Dunaújváros</subdivision>
+			<subdivision type="hueg" draft="contributed">Eger</subdivision>
+			<subdivision type="huer" draft="contributed">Érd</subdivision>
+			<subdivision type="hufe" draft="contributed">Fejér megye</subdivision>
+			<subdivision type="hugs" draft="contributed">Győr-Moson-Sopron megye</subdivision>
+			<subdivision type="hugy" draft="contributed">Győr</subdivision>
+			<subdivision type="huhb" draft="contributed">Hajdú-Bihar megye</subdivision>
+			<subdivision type="huhe" draft="contributed">Heves megye</subdivision>
+			<subdivision type="huhv" draft="contributed">Hódmezővásárhely</subdivision>
+			<subdivision type="hujn" draft="contributed">Jász-Nagykun-Szolnok megye</subdivision>
+			<subdivision type="huke" draft="contributed">Komárom-Esztergom megye</subdivision>
+			<subdivision type="hukm" draft="contributed">Kecskemét</subdivision>
+			<subdivision type="hukv" draft="contributed">Kaposvár</subdivision>
+			<subdivision type="humi" draft="contributed">Miskolc</subdivision>
+			<subdivision type="hunk" draft="contributed">Nagykanizsa</subdivision>
+			<subdivision type="huno" draft="contributed">Nógrád megye</subdivision>
+			<subdivision type="huny" draft="contributed">Nyíregyháza</subdivision>
+			<subdivision type="hupe" draft="contributed">Pest megye</subdivision>
+			<subdivision type="hups" draft="contributed">Pécs</subdivision>
+			<subdivision type="husd" draft="contributed">Szeged</subdivision>
+			<subdivision type="husf" draft="contributed">Székesfehérvár</subdivision>
+			<subdivision type="hush" draft="contributed">Szombathely</subdivision>
+			<subdivision type="husk" draft="contributed">Szolnok</subdivision>
+			<subdivision type="husn" draft="contributed">Sopron</subdivision>
+			<subdivision type="huso" draft="contributed">Somogy megye</subdivision>
+			<subdivision type="huss" draft="contributed">Szekszárd</subdivision>
+			<subdivision type="hust" draft="contributed">Salgótarján</subdivision>
+			<subdivision type="husz" draft="contributed">Szabolcs-Szatmár-Bereg megye</subdivision>
+			<subdivision type="hutb" draft="contributed">Tatabánya</subdivision>
+			<subdivision type="huto" draft="contributed">Tolna megye</subdivision>
+			<subdivision type="huva" draft="contributed">Vas megye</subdivision>
+			<subdivision type="huve" draft="contributed">Veszprém megye</subdivision>
+			<subdivision type="huvm" draft="contributed">Veszprém</subdivision>
+			<subdivision type="huza" draft="contributed">Zala megye</subdivision>
+			<subdivision type="huze" draft="contributed">Zalaegerszeg</subdivision>
+			<subdivision type="idac" draft="contributed">Aceh</subdivision>
+			<subdivision type="idba" draft="contributed">Bali</subdivision>
+			<subdivision type="idbb" draft="contributed">Bangka-Belitung</subdivision>
+			<subdivision type="idbe" draft="contributed">Bengkulu</subdivision>
+			<subdivision type="idjk" draft="contributed">Jakarta</subdivision>
+			<subdivision type="idjt" draft="contributed">Jawa Tengah</subdivision>
+			<subdivision type="idjw" draft="contributed">Jáva</subdivision>
+			<subdivision type="idml" draft="contributed">Maluku-szigetek</subdivision>
+			<subdivision type="idnu" draft="contributed">Kis-Szunda-szigetek</subdivision>
+			<subdivision type="idsl" draft="contributed">Celebesz</subdivision>
+			<subdivision type="idsm" draft="contributed">Szumátra</subdivision>
+			<subdivision type="idyo" draft="contributed">Yogyakarta</subdivision>
+			<subdivision type="iec" draft="contributed">Connacht</subdivision>
+			<subdivision type="iece" draft="contributed">Clare megye</subdivision>
+			<subdivision type="iecn" draft="contributed">Cavan megye</subdivision>
+			<subdivision type="ieco" draft="contributed">Cork megye</subdivision>
+			<subdivision type="iecw" draft="contributed">Carlow megye</subdivision>
+			<subdivision type="iedl" draft="contributed">Donegal megye</subdivision>
+			<subdivision type="ieg" draft="contributed">Galway megye</subdivision>
+			<subdivision type="ieke" draft="contributed">Kildare megye</subdivision>
+			<subdivision type="iekk" draft="contributed">Kilkenny megye</subdivision>
+			<subdivision type="ieky" draft="contributed">Kerry megye</subdivision>
+			<subdivision type="ield" draft="contributed">Longford megye</subdivision>
+			<subdivision type="ielh" draft="contributed">Louth megye</subdivision>
+			<subdivision type="ielk" draft="contributed">Limerick megye</subdivision>
+			<subdivision type="iels" draft="contributed">Laois megye</subdivision>
+			<subdivision type="iemn" draft="contributed">Monaghan megye</subdivision>
+			<subdivision type="iemo" draft="contributed">Mayo megye</subdivision>
+			<subdivision type="ieso" draft="contributed">Sligo megye</subdivision>
+			<subdivision type="iewd" draft="contributed">Waterford megye</subdivision>
+			<subdivision type="ieww" draft="contributed">Wicklow megye</subdivision>
+			<subdivision type="iewx" draft="contributed">Wexford megye</subdivision>
+			<subdivision type="ild" draft="contributed">Déli körzet</subdivision>
+			<subdivision type="ilha" draft="contributed">Haifai körzet</subdivision>
+			<subdivision type="iljm" draft="contributed">Jeruzsálemi körzet</subdivision>
+			<subdivision type="ilm" draft="contributed">Központi körzet</subdivision>
+			<subdivision type="ilta" draft="contributed">Tel-Avivi járás</subdivision>
+			<subdivision type="ilz" draft="contributed">Északi körzet</subdivision>
+			<subdivision type="inan" draft="contributed">Andamán- és Nikobár-szigetek</subdivision>
+			<subdivision type="inap" draft="contributed">Ándhra Prades</subdivision>
+			<subdivision type="inar" draft="contributed">Arunácsal Prades</subdivision>
+			<subdivision type="inas" draft="contributed">Asszám</subdivision>
+			<subdivision type="inbr" draft="contributed">Bihár</subdivision>
+			<subdivision type="inch" draft="contributed">Csandígarh</subdivision>
+			<subdivision type="inct" draft="contributed">Cshattíszgarh</subdivision>
+			<subdivision type="indd" draft="contributed">Daman és Diu</subdivision>
+			<subdivision type="indl" draft="contributed">Delhi</subdivision>
+			<subdivision type="indn" draft="contributed">Dadra és Nagar Haveli</subdivision>
+			<subdivision type="inga" draft="contributed">Goa</subdivision>
+			<subdivision type="ingj" draft="contributed">Gudzsarát</subdivision>
+			<subdivision type="inhp" draft="contributed">Himácsal Prades</subdivision>
+			<subdivision type="inhr" draft="contributed">Harijána</subdivision>
+			<subdivision type="injh" draft="contributed">Dzshárkhand</subdivision>
+			<subdivision type="injk" draft="contributed">Dzsammu és Kasmír</subdivision>
+			<subdivision type="inka" draft="contributed">Karnátaka</subdivision>
+			<subdivision type="inkl" draft="contributed">Kerala</subdivision>
+			<subdivision type="inld" draft="contributed">Laksadíva</subdivision>
+			<subdivision type="inmh" draft="contributed">Mahárástra</subdivision>
+			<subdivision type="inml" draft="contributed">Meghálaja</subdivision>
+			<subdivision type="inmn" draft="contributed">Manipur</subdivision>
+			<subdivision type="inmp" draft="contributed">Madhja Prades</subdivision>
+			<subdivision type="inmz" draft="contributed">Mizoram</subdivision>
+			<subdivision type="innl" draft="contributed">Nágaföld</subdivision>
+			<subdivision type="inor" draft="contributed">Orisza</subdivision>
+			<subdivision type="inpb" draft="contributed">Pandzsáb</subdivision>
+			<subdivision type="inpy" draft="contributed">Puduccseri</subdivision>
+			<subdivision type="inrj" draft="contributed">Rádzsasztán</subdivision>
+			<subdivision type="insk" draft="contributed">Szikkim</subdivision>
+			<subdivision type="intg" draft="contributed">Telangána</subdivision>
+			<subdivision type="intn" draft="contributed">Tamilnádu</subdivision>
+			<subdivision type="intr" draft="contributed">Tripura</subdivision>
+			<subdivision type="inup" draft="contributed">Uttar Prades</subdivision>
+			<subdivision type="inut" draft="contributed">Uttarakhand</subdivision>
+			<subdivision type="inwb" draft="contributed">Nyugat-Bengál</subdivision>
+			<subdivision type="iqan" draft="contributed">Anbár kormányzóság</subdivision>
+			<subdivision type="iqar" draft="contributed">Erbíl kormányzóság</subdivision>
+			<subdivision type="iqba" draft="contributed">Baszra kormányzóság</subdivision>
+			<subdivision type="iqbb" draft="contributed">Bábil kormányzóság</subdivision>
+			<subdivision type="iqbg" draft="contributed">Bagdad kormányzóság</subdivision>
+			<subdivision type="iqda" draft="contributed">Dahúk kormányzóság</subdivision>
+			<subdivision type="iqdi" draft="contributed">Dijála kormányzóság</subdivision>
+			<subdivision type="iqdq" draft="contributed">Dzi Kár kormányzóság</subdivision>
+			<subdivision type="iqka" draft="contributed">Kerbela kormányzóság</subdivision>
+			<subdivision type="iqki" draft="contributed">Kirkuk kormányzóság</subdivision>
+			<subdivision type="iqma" draft="contributed">Mejszán kormányzóság</subdivision>
+			<subdivision type="iqmu" draft="contributed">Muszanna kormányzóság</subdivision>
+			<subdivision type="iqna" draft="contributed">Nedzsef kormányzóság</subdivision>
+			<subdivision type="iqni" draft="contributed">Ninive kormányzóság</subdivision>
+			<subdivision type="iqqa" draft="contributed">Kádiszijja kormányzóság</subdivision>
+			<subdivision type="iqsd" draft="contributed">Szaláh ed-Dín kormányzóság</subdivision>
+			<subdivision type="iqsu" draft="contributed">Szulejmánijja kormányzóság</subdivision>
+			<subdivision type="iqwa" draft="contributed">Vászit kormányzóság</subdivision>
+			<subdivision type="ir01" draft="contributed">Kelet-Azerbajdzsán tartomány</subdivision>
+			<subdivision type="ir02" draft="contributed">Nyugat-Azerbajdzsán tartomány</subdivision>
+			<subdivision type="ir03" draft="contributed">Ardabil tartomány</subdivision>
+			<subdivision type="ir04" draft="contributed">Iszfahán tartomány</subdivision>
+			<subdivision type="ir05" draft="contributed">Ilám tartomány</subdivision>
+			<subdivision type="ir06" draft="contributed">Busehr tartomány</subdivision>
+			<subdivision type="ir07" draft="contributed">Teherán tartomány</subdivision>
+			<subdivision type="ir08" draft="contributed">Csahármahál és Bahtijári tartomány</subdivision>
+			<subdivision type="ir10" draft="contributed">Huzesztán tartomány</subdivision>
+			<subdivision type="ir11" draft="contributed">Zandzsán tartomány</subdivision>
+			<subdivision type="ir12" draft="contributed">Szemnán tartomány</subdivision>
+			<subdivision type="ir13" draft="contributed">Szisztán és Beludzsisztán tartomány</subdivision>
+			<subdivision type="ir14" draft="contributed">Fársz tartomány</subdivision>
+			<subdivision type="ir15" draft="contributed">Kermán tartomány</subdivision>
+			<subdivision type="ir16" draft="contributed">Kurdisztán tartomány</subdivision>
+			<subdivision type="ir18" draft="contributed">Kohgiluje és Bujer Ahmad tartomány</subdivision>
+			<subdivision type="ir19" draft="contributed">Gilán tartomány</subdivision>
+			<subdivision type="ir20" draft="contributed">Loresztán tartomány</subdivision>
+			<subdivision type="ir21" draft="contributed">Mázandarán tartomány</subdivision>
+			<subdivision type="ir22" draft="contributed">Markazi tartomány</subdivision>
+			<subdivision type="ir23" draft="contributed">Hormozgán tartomány</subdivision>
+			<subdivision type="ir24" draft="contributed">Hamadán tartomány</subdivision>
+			<subdivision type="ir25" draft="contributed">Jazd tartomány</subdivision>
+			<subdivision type="ir26" draft="contributed">Kom tartomány</subdivision>
+			<subdivision type="ir27" draft="contributed">Golesztán tartomány</subdivision>
+			<subdivision type="ir28" draft="contributed">Kazvin tartomány</subdivision>
+			<subdivision type="ir29" draft="contributed">Dél-Horászán tartomány</subdivision>
+			<subdivision type="ir30" draft="contributed">Razavi Horászán tartomány</subdivision>
+			<subdivision type="ir31" draft="contributed">Észak-Horászán tartomány</subdivision>
+			<subdivision type="ir32" draft="contributed">Alborz tartomány</subdivision>
+			<subdivision type="is1" draft="contributed">Nagy-Reykjavík</subdivision>
+			<subdivision type="is4" draft="contributed">Vestfirðir</subdivision>
+			<subdivision type="it21" draft="contributed">Piemont</subdivision>
+			<subdivision type="it23" draft="contributed">Valle d’Aosta</subdivision>
+			<subdivision type="it25" draft="contributed">Lombardia</subdivision>
+			<subdivision type="it32" draft="contributed">Trentino-Alto Adige</subdivision>
+			<subdivision type="it34" draft="contributed">Veneto</subdivision>
+			<subdivision type="it36" draft="contributed">Friuli-Venezia Giulia</subdivision>
+			<subdivision type="it42" draft="contributed">Liguria</subdivision>
+			<subdivision type="it45" draft="contributed">Emilia-Romagna</subdivision>
+			<subdivision type="it52" draft="contributed">Toszkána</subdivision>
+			<subdivision type="it55" draft="contributed">Umbria</subdivision>
+			<subdivision type="it57" draft="contributed">Marche</subdivision>
+			<subdivision type="it62" draft="contributed">Lazio</subdivision>
+			<subdivision type="it65" draft="contributed">Abruzzo</subdivision>
+			<subdivision type="it67" draft="contributed">Molise</subdivision>
+			<subdivision type="it72" draft="contributed">Campania</subdivision>
+			<subdivision type="it75" draft="contributed">Puglia</subdivision>
+			<subdivision type="it77" draft="contributed">Basilicata</subdivision>
+			<subdivision type="it78" draft="contributed">Calabria</subdivision>
+			<subdivision type="it82" draft="contributed">Szicília</subdivision>
+			<subdivision type="it88" draft="contributed">Szardínia</subdivision>
+			<subdivision type="itag" draft="contributed">Agrigento megye</subdivision>
+			<subdivision type="ital" draft="contributed">Alessandria megye</subdivision>
+			<subdivision type="itan" draft="contributed">Ancona megye</subdivision>
+			<subdivision type="itao" draft="contributed">Aosta</subdivision>
+			<subdivision type="itap" draft="contributed">Ascoli Piceno megye</subdivision>
+			<subdivision type="itaq" draft="contributed">L’Aquila megye</subdivision>
+			<subdivision type="itar" draft="contributed">Arezzo megye</subdivision>
+			<subdivision type="itat" draft="contributed">Asti megye</subdivision>
+			<subdivision type="itav" draft="contributed">Avellino megye</subdivision>
+			<subdivision type="itba" draft="contributed">Bari megye</subdivision>
+			<subdivision type="itbg" draft="contributed">Bergamo megye</subdivision>
+			<subdivision type="itbi" draft="contributed">Biella megye</subdivision>
+			<subdivision type="itbl" draft="contributed">Belluno megye</subdivision>
+			<subdivision type="itbn" draft="contributed">Benevento megye</subdivision>
+			<subdivision type="itbo" draft="contributed">Bologna megye</subdivision>
+			<subdivision type="itbr" draft="contributed">Brindisi megye</subdivision>
+			<subdivision type="itbs" draft="contributed">Brescia megye</subdivision>
+			<subdivision type="itbt" draft="contributed">Barletta-Andria-Trani megye</subdivision>
+			<subdivision type="itbz" draft="contributed">Bolzano autonóm megye</subdivision>
+			<subdivision type="itca" draft="contributed">Cagliari megye</subdivision>
+			<subdivision type="itcb" draft="contributed">Campobasso megye</subdivision>
+			<subdivision type="itce" draft="contributed">Caserta megye</subdivision>
+			<subdivision type="itch" draft="contributed">Chieti megye</subdivision>
+			<subdivision type="itci" draft="contributed">Carbonia-Iglesias megye</subdivision>
+			<subdivision type="itcl" draft="contributed">Caltanissetta megye</subdivision>
+			<subdivision type="itcn" draft="contributed">Cuneo megye</subdivision>
+			<subdivision type="itco" draft="contributed">Como megye</subdivision>
+			<subdivision type="itcr" draft="contributed">Cremona megye</subdivision>
+			<subdivision type="itcs" draft="contributed">Cosenza megye</subdivision>
+			<subdivision type="itct" draft="contributed">Catania megye</subdivision>
+			<subdivision type="itcz" draft="contributed">Catanzaro megye</subdivision>
+			<subdivision type="iten" draft="contributed">Enna megye</subdivision>
+			<subdivision type="itfc" draft="contributed">Forlì-Cesena megye</subdivision>
+			<subdivision type="itfe" draft="contributed">Ferrara megye</subdivision>
+			<subdivision type="itfg" draft="contributed">Foggia megye</subdivision>
+			<subdivision type="itfi" draft="contributed">Firenze megye</subdivision>
+			<subdivision type="itfm" draft="contributed">Fermo megye</subdivision>
+			<subdivision type="itfr" draft="contributed">Frosinone megye</subdivision>
+			<subdivision type="itgo" draft="contributed">Gorizia megye</subdivision>
+			<subdivision type="itgr" draft="contributed">Grosseto megye</subdivision>
+			<subdivision type="itim" draft="contributed">Imperia megye</subdivision>
+			<subdivision type="itis" draft="contributed">Isernia megye</subdivision>
+			<subdivision type="itkr" draft="contributed">Crotone megye</subdivision>
+			<subdivision type="itlc" draft="contributed">Lecco megye</subdivision>
+			<subdivision type="itle" draft="contributed">Lecce megye</subdivision>
+			<subdivision type="itli" draft="contributed">Livorno megye</subdivision>
+			<subdivision type="itlo" draft="contributed">Lodi megye</subdivision>
+			<subdivision type="itlt" draft="contributed">Latina megye</subdivision>
+			<subdivision type="itlu" draft="contributed">Lucca megye</subdivision>
+			<subdivision type="itmb" draft="contributed">Monza e Brianza megye</subdivision>
+			<subdivision type="itmc" draft="contributed">Macerata megye</subdivision>
+			<subdivision type="itme" draft="contributed">Messina megye</subdivision>
+			<subdivision type="itmi" draft="contributed">Milánó megye</subdivision>
+			<subdivision type="itmn" draft="contributed">Mantova megye</subdivision>
+			<subdivision type="itmo" draft="contributed">Modena megye</subdivision>
+			<subdivision type="itms" draft="contributed">Massa-Carrara megye</subdivision>
+			<subdivision type="itmt" draft="contributed">Matera megye</subdivision>
+			<subdivision type="itna" draft="contributed">Nápoly megye</subdivision>
+			<subdivision type="itno" draft="contributed">Novara megye</subdivision>
+			<subdivision type="itnu" draft="contributed">Nuoro megye</subdivision>
+			<subdivision type="itog" draft="contributed">Ogliastra megye</subdivision>
+			<subdivision type="itor" draft="contributed">Oristano megye</subdivision>
+			<subdivision type="itot" draft="contributed">Olbia-Tempio megye</subdivision>
+			<subdivision type="itpa" draft="contributed">Palermo megye</subdivision>
+			<subdivision type="itpc" draft="contributed">Piacenza megye</subdivision>
+			<subdivision type="itpd" draft="contributed">Padova megye</subdivision>
+			<subdivision type="itpe" draft="contributed">Pescara megye</subdivision>
+			<subdivision type="itpg" draft="contributed">Perugia megye</subdivision>
+			<subdivision type="itpi" draft="contributed">Pisa megye</subdivision>
+			<subdivision type="itpn" draft="contributed">Pordenone megye</subdivision>
+			<subdivision type="itpo" draft="contributed">Prato megye</subdivision>
+			<subdivision type="itpr" draft="contributed">Parma megye</subdivision>
+			<subdivision type="itpt" draft="contributed">Pistoia megye</subdivision>
+			<subdivision type="itpu" draft="contributed">Pesaro és Urbino megye</subdivision>
+			<subdivision type="itpv" draft="contributed">Pavia megye</subdivision>
+			<subdivision type="itpz" draft="contributed">Potenza megye</subdivision>
+			<subdivision type="itra" draft="contributed">Ravenna megye</subdivision>
+			<subdivision type="itrc" draft="contributed">Reggio Calabria megye</subdivision>
+			<subdivision type="itre" draft="contributed">Reggio Emilia megye</subdivision>
+			<subdivision type="itrg" draft="contributed">Ragusa megye</subdivision>
+			<subdivision type="itri" draft="contributed">Rieti megye</subdivision>
+			<subdivision type="itrm" draft="contributed">Róma megye</subdivision>
+			<subdivision type="itrn" draft="contributed">Rimini megye</subdivision>
+			<subdivision type="itro" draft="contributed">Rovigo megye</subdivision>
+			<subdivision type="itsa" draft="contributed">Salerno megye</subdivision>
+			<subdivision type="itsi" draft="contributed">Siena megye</subdivision>
+			<subdivision type="itso" draft="contributed">Sondrio megye</subdivision>
+			<subdivision type="itsp" draft="contributed">La Spezia megye</subdivision>
+			<subdivision type="itsr" draft="contributed">Syracuse megye</subdivision>
+			<subdivision type="itss" draft="contributed">Sassari megye</subdivision>
+			<subdivision type="itsv" draft="contributed">Savona megye</subdivision>
+			<subdivision type="itta" draft="contributed">Taranto megye</subdivision>
+			<subdivision type="itte" draft="contributed">Teramo megye</subdivision>
+			<subdivision type="ittn" draft="contributed">Trento megye</subdivision>
+			<subdivision type="itto" draft="contributed">Torino megye</subdivision>
+			<subdivision type="ittp" draft="contributed">Trapani megye</subdivision>
+			<subdivision type="ittr" draft="contributed">Terni megye</subdivision>
+			<subdivision type="itts" draft="contributed">Trieszt megye</subdivision>
+			<subdivision type="ittv" draft="contributed">Treviso megye</subdivision>
+			<subdivision type="itud" draft="contributed">Udine megye</subdivision>
+			<subdivision type="itva" draft="contributed">Varese megye</subdivision>
+			<subdivision type="itvb" draft="contributed">Verbano-Cusio-Ossola megye</subdivision>
+			<subdivision type="itvc" draft="contributed">Vercelli megye</subdivision>
+			<subdivision type="itve" draft="contributed">Velence megye</subdivision>
+			<subdivision type="itvi" draft="contributed">Vicenza megye</subdivision>
+			<subdivision type="itvr" draft="contributed">Verona megye</subdivision>
+			<subdivision type="itvs" draft="contributed">Medio Campidano megye</subdivision>
+			<subdivision type="itvt" draft="contributed">Viterbo megye</subdivision>
+			<subdivision type="itvv" draft="contributed">Vibo Valentia megye</subdivision>
+			<subdivision type="joaj" draft="contributed">Adzslún kormányzóság</subdivision>
+			<subdivision type="joam" draft="contributed">Főváros kormányzóság (Jordánia)</subdivision>
+			<subdivision type="joaq" draft="contributed">Akaba kormányzóság</subdivision>
+			<subdivision type="joat" draft="contributed">Tafíla kormányzóság</subdivision>
+			<subdivision type="joaz" draft="contributed">Zarká kormányzóság</subdivision>
+			<subdivision type="joba" draft="contributed">Balká kormányzóság</subdivision>
+			<subdivision type="joir" draft="contributed">Irbid kormányzóság</subdivision>
+			<subdivision type="joja" draft="contributed">Dzseras kormányzóság</subdivision>
+			<subdivision type="joka" draft="contributed">Karak kormányzóság</subdivision>
+			<subdivision type="joma" draft="contributed">Mafrak kormányzóság</subdivision>
+			<subdivision type="jomd" draft="contributed">Mádaba kormányzóság</subdivision>
+			<subdivision type="jomn" draft="contributed">Maán kormányzóság</subdivision>
+			<subdivision type="jp01" draft="contributed">Hokkaidó prefektúra</subdivision>
+			<subdivision type="jp02" draft="contributed">Aomori prefektúra</subdivision>
+			<subdivision type="jp03" draft="contributed">Ivate prefektúra</subdivision>
+			<subdivision type="jp04" draft="contributed">Mijagi prefektúra</subdivision>
+			<subdivision type="jp05" draft="contributed">Akita prefektúra</subdivision>
+			<subdivision type="jp06" draft="contributed">Jamagata prefektúra</subdivision>
+			<subdivision type="jp07" draft="contributed">Fukusima prefektúra</subdivision>
+			<subdivision type="jp08" draft="contributed">Ibaraki prefektúra</subdivision>
+			<subdivision type="jp09" draft="contributed">Tocsigi prefektúra</subdivision>
+			<subdivision type="jp10" draft="contributed">Gunma prefektúra</subdivision>
+			<subdivision type="jp11" draft="contributed">Szaitama prefektúra</subdivision>
+			<subdivision type="jp12" draft="contributed">Csiba prefektúra</subdivision>
+			<subdivision type="jp13" draft="contributed">Tokió</subdivision>
+			<subdivision type="jp14" draft="contributed">Kanagava prefektúra</subdivision>
+			<subdivision type="jp15" draft="contributed">Niigata prefektúra</subdivision>
+			<subdivision type="jp16" draft="contributed">Tojama prefektúra</subdivision>
+			<subdivision type="jp17" draft="contributed">Isikava prefektúra</subdivision>
+			<subdivision type="jp18" draft="contributed">Fukui prefektúra</subdivision>
+			<subdivision type="jp19" draft="contributed">Jamanasi prefektúra</subdivision>
+			<subdivision type="jp20" draft="contributed">Nagano prefektúra</subdivision>
+			<subdivision type="jp21" draft="contributed">Gifu prefektúra</subdivision>
+			<subdivision type="jp22" draft="contributed">Sizuoka prefektúra</subdivision>
+			<subdivision type="jp23" draft="contributed">Aicsi prefektúra</subdivision>
+			<subdivision type="jp24" draft="contributed">Mie prefektúra</subdivision>
+			<subdivision type="jp25" draft="contributed">Siga prefektúra</subdivision>
+			<subdivision type="jp26" draft="contributed">Kiotó prefektúra</subdivision>
+			<subdivision type="jp27" draft="contributed">Oszaka prefektúra</subdivision>
+			<subdivision type="jp28" draft="contributed">Hjógo prefektúra</subdivision>
+			<subdivision type="jp29" draft="contributed">Nara prefektúra</subdivision>
+			<subdivision type="jp30" draft="contributed">Vakajama prefektúra</subdivision>
+			<subdivision type="jp31" draft="contributed">Tottori prefektúra</subdivision>
+			<subdivision type="jp32" draft="contributed">Simane prefektúra</subdivision>
+			<subdivision type="jp33" draft="contributed">Okajama prefektúra</subdivision>
+			<subdivision type="jp34" draft="contributed">Hirosima prefektúra</subdivision>
+			<subdivision type="jp35" draft="contributed">Jamagucsi prefektúra</subdivision>
+			<subdivision type="jp36" draft="contributed">Tokusima prefektúra</subdivision>
+			<subdivision type="jp37" draft="contributed">Kagava prefektúra</subdivision>
+			<subdivision type="jp38" draft="contributed">Ehime prefektúra</subdivision>
+			<subdivision type="jp39" draft="contributed">Kócsi prefektúra</subdivision>
+			<subdivision type="jp40" draft="contributed">Fukuoka prefektúra</subdivision>
+			<subdivision type="jp41" draft="contributed">Szaga prefektúra</subdivision>
+			<subdivision type="jp42" draft="contributed">Nagaszaki prefektúra</subdivision>
+			<subdivision type="jp43" draft="contributed">Kumamoto prefektúra</subdivision>
+			<subdivision type="jp44" draft="contributed">Óita prefektúra</subdivision>
+			<subdivision type="jp45" draft="contributed">Mijazaki prefektúra</subdivision>
+			<subdivision type="jp46" draft="contributed">Kagosima prefektúra</subdivision>
+			<subdivision type="jp47" draft="contributed">Okinava prefektúra</subdivision>
+			<subdivision type="kgc" draft="contributed">Csüi tartomány</subdivision>
+			<subdivision type="kggb" draft="contributed">Biskek</subdivision>
+			<subdivision type="kggo" draft="contributed">Os</subdivision>
+			<subdivision type="kgn" draft="contributed">Narin tartomány</subdivision>
+			<subdivision type="kh12" draft="contributed">Phnompen</subdivision>
+			<subdivision type="kh14" draft="contributed">Prejveng tartomány</subdivision>
+			<subdivision type="kh15" draft="contributed">Puszat tartomány</subdivision>
+			<subdivision type="kh17" draft="contributed">Sziemreap tartomány</subdivision>
+			<subdivision type="kh18" draft="contributed">Kampongszom</subdivision>
+			<subdivision type="kh20" draft="contributed">Szvajrieng tartomány</subdivision>
+			<subdivision type="kh21" draft="contributed">Takeo tartomány</subdivision>
+			<subdivision type="kma" draft="contributed">Anjouan</subdivision>
+			<subdivision type="knn" draft="contributed">Nevis</subdivision>
+			<subdivision type="kp01" draft="contributed">Phenjan</subdivision>
+			<subdivision type="kp02" draft="contributed">Dél-Phjongan</subdivision>
+			<subdivision type="kp03" draft="contributed">Észak-Phjongan</subdivision>
+			<subdivision type="kp04" draft="contributed">Csagang tartomány</subdivision>
+			<subdivision type="kp05" draft="contributed">Dél-Hvanghe</subdivision>
+			<subdivision type="kp06" draft="contributed">Észak-Hvanghe</subdivision>
+			<subdivision type="kp07" draft="contributed">Kangvon</subdivision>
+			<subdivision type="kp08" draft="contributed">Dél-Hamgjong</subdivision>
+			<subdivision type="kp09" draft="contributed">Észak-Hamgjong</subdivision>
+			<subdivision type="kp10" draft="contributed">Rjanggang</subdivision>
+			<subdivision type="kp13" draft="contributed">Raszon</subdivision>
+			<subdivision type="kp14" draft="contributed">Nampho</subdivision>
+			<subdivision type="kr11" draft="contributed">Szöul</subdivision>
+			<subdivision type="kr26" draft="contributed">Puszan</subdivision>
+			<subdivision type="kr27" draft="contributed">Tegu</subdivision>
+			<subdivision type="kr28" draft="contributed">Incshon</subdivision>
+			<subdivision type="kr29" draft="contributed">Kvangdzsu</subdivision>
+			<subdivision type="kr30" draft="contributed">Tedzson</subdivision>
+			<subdivision type="kr31" draft="contributed">Ulszan</subdivision>
+			<subdivision type="kr41" draft="contributed">Kjonggi</subdivision>
+			<subdivision type="kr42" draft="contributed">Kangvon</subdivision>
+			<subdivision type="kr43" draft="contributed">Észak-Cshungcshong</subdivision>
+			<subdivision type="kr44" draft="contributed">Dél-Cshungcshong</subdivision>
+			<subdivision type="kr45" draft="contributed">Észak-Csolla</subdivision>
+			<subdivision type="kr46" draft="contributed">Dél-Csolla</subdivision>
+			<subdivision type="kr47" draft="contributed">Észak-Kjongszang</subdivision>
+			<subdivision type="kr48" draft="contributed">Dél-Kjongszang</subdivision>
+			<subdivision type="kr49" draft="contributed">Csedzsu-sziget</subdivision>
+			<subdivision type="kr50" draft="contributed">Szedzsong (település)</subdivision>
+			<subdivision type="kwah" draft="contributed">Ahmadi kormányzóság</subdivision>
+			<subdivision type="kwfa" draft="contributed">Farvánijja kormányzóság</subdivision>
+			<subdivision type="kwha" draft="contributed">Havalli kormányzóság</subdivision>
+			<subdivision type="kwja" draft="contributed">Dzsahrá kormányzóság</subdivision>
+			<subdivision type="kwku" draft="contributed">Főváros kormányzóság (Kuvait)</subdivision>
+			<subdivision type="kwmu" draft="contributed">Mubárak el-Kabír kormányzóság</subdivision>
+			<subdivision type="kzala" draft="contributed">Almati</subdivision>
+			<subdivision type="kzast" draft="contributed">Asztana</subdivision>
+			<subdivision type="kzbay" draft="contributed">Bajkonur</subdivision>
+			<subdivision type="kzkar" draft="contributed">Karagandi terület</subdivision>
+			<subdivision type="kzkus" draft="contributed">Kosztanaji terület</subdivision>
+			<subdivision type="laat" draft="contributed">Attapö tartomány</subdivision>
+			<subdivision type="labk" draft="contributed">Bokeo tartomány</subdivision>
+			<subdivision type="labl" draft="contributed">Bolikhamszaj tartomány</subdivision>
+			<subdivision type="lach" draft="contributed">Tjampatszak tartomány</subdivision>
+			<subdivision type="laho" draft="contributed">Huaphan tartomány</subdivision>
+			<subdivision type="lakh" draft="contributed">Khammuan tartomány</subdivision>
+			<subdivision type="lalm" draft="contributed">Luangnamtha tartomány</subdivision>
+			<subdivision type="lalp" draft="contributed">Luangprabang tartomány</subdivision>
+			<subdivision type="laou" draft="contributed">Udomszaj tartomány</subdivision>
+			<subdivision type="laph" draft="contributed">Phongszali tartomány</subdivision>
+			<subdivision type="lasl" draft="contributed">Szalavan tartomány</subdivision>
+			<subdivision type="lasv" draft="contributed">Szavannakhet tartomány</subdivision>
+			<subdivision type="lavi" draft="contributed">Vientián tartomány</subdivision>
+			<subdivision type="lavt" draft="contributed">Vientián prefektúra</subdivision>
+			<subdivision type="laxa" draft="contributed">Szajnjabuli tartomány</subdivision>
+			<subdivision type="laxe" draft="contributed">Szekong tartomány</subdivision>
+			<subdivision type="laxi" draft="contributed">Sziangkhuang tartomány</subdivision>
+			<subdivision type="lbak" draft="contributed">Akkár kormányzóság</subdivision>
+			<subdivision type="lbas" draft="contributed">Észak kormányzóság</subdivision>
+			<subdivision type="lbbh" draft="contributed">Baalbek-Hermel kormányzóság</subdivision>
+			<subdivision type="lbbi" draft="contributed">Bekaa kormányzóság</subdivision>
+			<subdivision type="lbja" draft="contributed">Dél kormányzóság</subdivision>
+			<subdivision type="lbjl" draft="contributed">Libanon-hegy kormányzóság</subdivision>
+			<subdivision type="lbna" draft="contributed">Nabatijja kormányzóság</subdivision>
+			<subdivision type="li02" draft="contributed">Eschen</subdivision>
+			<subdivision type="li07" draft="contributed">Schaan</subdivision>
+			<subdivision type="li08" draft="contributed">Schellenberg</subdivision>
+			<subdivision type="li09" draft="contributed">Triesen</subdivision>
+			<subdivision type="li11" draft="contributed">Vaduz</subdivision>
+			<subdivision type="lv072" draft="contributed">Pliavinių</subdivision>
+			<subdivision type="lv099" draft="contributed">Tukums község</subdivision>
+			<subdivision type="lvdgv" draft="contributed">Daugavpils</subdivision>
+			<subdivision type="lvjel" draft="contributed">Jelgava</subdivision>
+			<subdivision type="lvjkb" draft="contributed">Jēkabpils</subdivision>
+			<subdivision type="lvjur" draft="contributed">Jūrmala</subdivision>
+			<subdivision type="lvlpx" draft="contributed">Liepāja</subdivision>
+			<subdivision type="lvrez" draft="contributed">Rēzekne</subdivision>
+			<subdivision type="lvrix" draft="contributed">Riga</subdivision>
+			<subdivision type="lvven" draft="contributed">Ventspils</subdivision>
+			<subdivision type="lvvmr" draft="contributed">Valmiera</subdivision>
+			<subdivision type="lyba" draft="contributed">Bengázi</subdivision>
+			<subdivision type="lybu" draft="contributed">Butnán tartomány</subdivision>
+			<subdivision type="lydr" draft="contributed">Darna tartomány</subdivision>
+			<subdivision type="lygt" draft="contributed">Gát tartomány</subdivision>
+			<subdivision type="lyja" draft="contributed">Dzsabal el-Ahdar tartomány</subdivision>
+			<subdivision type="lyjg" draft="contributed">Dzsabal el-Garbi tartomány</subdivision>
+			<subdivision type="lyji" draft="contributed">Dzsifára tartomány</subdivision>
+			<subdivision type="lyju" draft="contributed">Dzsufra tartomány</subdivision>
+			<subdivision type="lykf" draft="contributed">Kufra tartomány</subdivision>
+			<subdivision type="lymb" draft="contributed">Markab tartomány</subdivision>
+			<subdivision type="lymi" draft="contributed">Miszráta tartomány</subdivision>
+			<subdivision type="lymj" draft="contributed">Mardzs tartomány</subdivision>
+			<subdivision type="lymq" draft="contributed">Murzuk tartomány</subdivision>
+			<subdivision type="lynl" draft="contributed">Nálút tartomány</subdivision>
+			<subdivision type="lynq" draft="contributed">Nukát el-Hamsz tartomány</subdivision>
+			<subdivision type="lysb" draft="contributed">Szabha tartomány</subdivision>
+			<subdivision type="lysr" draft="contributed">Szurt tartomány</subdivision>
+			<subdivision type="lytb" draft="contributed">Tripoli tartomány</subdivision>
+			<subdivision type="lywa" draft="contributed">Váhát tartomány</subdivision>
+			<subdivision type="lywd" draft="contributed">Vádi el-Haját tartomány</subdivision>
+			<subdivision type="lyws" draft="contributed">Vádi es-Sáti tartomány</subdivision>
+			<subdivision type="lyza" draft="contributed">Závija tartomány</subdivision>
+			<subdivision type="maagd" draft="contributed">Agadir</subdivision>
+			<subdivision type="maasz" draft="contributed">Assa-Zag</subdivision>
+			<subdivision type="macas" draft="contributed">Casablanca</subdivision>
+			<subdivision type="mafes" draft="contributed">Fez</subdivision>
+			<subdivision type="mamek" draft="contributed">Meknesz</subdivision>
+			<subdivision type="mammd" draft="contributed">Marrákes</subdivision>
+			<subdivision type="mammn" draft="contributed">Marrákes²</subdivision>
+			<subdivision type="maouj" draft="contributed">Oujda</subdivision>
+			<subdivision type="marab" draft="contributed">Rabat</subdivision>
+			<subdivision type="masal" draft="contributed">Szale</subdivision>
+			<subdivision type="masyb" draft="contributed">Marrákes³</subdivision>
+			<subdivision type="matng" draft="contributed">Tanger</subdivision>
+			<subdivision type="mcco" draft="contributed">La Condamine</subdivision>
+			<subdivision type="mcfo" draft="contributed">Fontvieille</subdivision>
+			<subdivision type="mcmc" draft="contributed">Monte-Carlo</subdivision>
+			<subdivision type="mcmg" draft="contributed">Moneghetti</subdivision>
+			<subdivision type="mcmo" draft="contributed">Monaco</subdivision>
+			<subdivision type="mdan" draft="contributed">Anenii Noi járás</subdivision>
+			<subdivision type="mdba" draft="contributed">Bălți</subdivision>
+			<subdivision type="mdbd" draft="contributed">Bender</subdivision>
+			<subdivision type="mdbr" draft="contributed">Briceni járás</subdivision>
+			<subdivision type="mdbs" draft="contributed">Basarabeasca járás</subdivision>
+			<subdivision type="mdca" draft="contributed">Cahul járás</subdivision>
+			<subdivision type="mdcl" draft="contributed">Călăraşi járás</subdivision>
+			<subdivision type="mdcm" draft="contributed">Cimişlia járás</subdivision>
+			<subdivision type="mdcs" draft="contributed">Căuşeni járás</subdivision>
+			<subdivision type="mdct" draft="contributed">Cantemir járás</subdivision>
+			<subdivision type="mdcu" draft="contributed">Chișinău</subdivision>
+			<subdivision type="mdga" draft="contributed">Gagauzia</subdivision>
+			<subdivision type="mgt" draft="contributed">Antananarivo megye</subdivision>
+			<subdivision type="mhalk" draft="contributed">Ailuk Atoll</subdivision>
+			<subdivision type="mhaur" draft="contributed">Aur Atoll</subdivision>
+			<subdivision type="mhebo" draft="contributed">Ebon Atoll</subdivision>
+			<subdivision type="mhjal" draft="contributed">Jaluit Atoll</subdivision>
+			<subdivision type="mhkil" draft="contributed">Kili</subdivision>
+			<subdivision type="mhmaj" draft="contributed">Majuro</subdivision>
+			<subdivision type="mhmal" draft="contributed">Maloelap Atoll</subdivision>
+			<subdivision type="mk02" draft="contributed">Aracsinovo</subdivision>
+			<subdivision type="mk03" draft="contributed">Berovo</subdivision>
+			<subdivision type="mk11" draft="contributed">Vaszilevói járás</subdivision>
+			<subdivision type="mk19" draft="contributed">Gosztivari járás</subdivision>
+			<subdivision type="mk22" draft="contributed">Debarca</subdivision>
+			<subdivision type="mk25" draft="contributed">Demir Hiszar</subdivision>
+			<subdivision type="mk46" draft="contributed">Krusevói járás</subdivision>
+			<subdivision type="mk50" draft="contributed">Mavrovo i Rosztusa</subdivision>
+			<subdivision type="mk53" draft="contributed">Mogila</subdivision>
+			<subdivision type="mk65" draft="contributed">Rankovce község</subdivision>
+			<subdivision type="mk72" draft="contributed">Sztruga község</subdivision>
+			<subdivision type="mk81" draft="contributed">Csesinovo-Oblesevo</subdivision>
+			<subdivision type="mk85" draft="contributed">Szkopje</subdivision>
+			<subdivision type="ml1" draft="contributed">Kayes régió</subdivision>
+			<subdivision type="ml2" draft="contributed">Koulikoro régió</subdivision>
+			<subdivision type="ml3" draft="contributed">Sikasso régió</subdivision>
+			<subdivision type="ml7" draft="contributed">Gao régió</subdivision>
+			<subdivision type="ml8" draft="contributed">Kidal régió</subdivision>
+			<subdivision type="mlbko" draft="contributed">Bamako</subdivision>
+			<subdivision type="mn1" draft="contributed">Ulánbátor</subdivision>
+			<subdivision type="mn035" draft="contributed">Orhon (tartomány)</subdivision>
+			<subdivision type="mn037" draft="contributed">Darhan-Úl ajmag</subdivision>
+			<subdivision type="mn039" draft="contributed">Hentij tartomány</subdivision>
+			<subdivision type="mn041" draft="contributed">Hövszgöl ajmag</subdivision>
+			<subdivision type="mn043" draft="contributed">Hovd tartomány</subdivision>
+			<subdivision type="mn046" draft="contributed">Uvsz tartomány</subdivision>
+			<subdivision type="mn047" draft="contributed">Központi tartomány</subdivision>
+			<subdivision type="mn049" draft="contributed">Szelenge ajmag</subdivision>
+			<subdivision type="mn051" draft="contributed">Szühebátor ajmag</subdivision>
+			<subdivision type="mn053" draft="contributed">Ömnögovi ajmag</subdivision>
+			<subdivision type="mn055" draft="contributed">Övörhangaj ajmag</subdivision>
+			<subdivision type="mn057" draft="contributed">Dzavhan tartomány</subdivision>
+			<subdivision type="mn059" draft="contributed">Közép-Góbi tartomány</subdivision>
+			<subdivision type="mn061" draft="contributed">Keleti tartomány (Mongólia)</subdivision>
+			<subdivision type="mn063" draft="contributed">Kelet-Góbi tartomány</subdivision>
+			<subdivision type="mn064" draft="contributed">Góbi-Szümber ajmag</subdivision>
+			<subdivision type="mn065" draft="contributed">Góbi-Altaj tartomány</subdivision>
+			<subdivision type="mn067" draft="contributed">Bulgan tartomány</subdivision>
+			<subdivision type="mn069" draft="contributed">Bajanhongor tartomány</subdivision>
+			<subdivision type="mn071" draft="contributed">Bajan-Ölgij tartomány</subdivision>
+			<subdivision type="mn073" draft="contributed">Észak-Hangáj tartomány</subdivision>
+			<subdivision type="mt01" draft="contributed">Attard</subdivision>
+			<subdivision type="mt02" draft="contributed">Balzan</subdivision>
+			<subdivision type="mt03" draft="contributed">Birgu</subdivision>
+			<subdivision type="mt04" draft="contributed">Birkirkara</subdivision>
+			<subdivision type="mt05" draft="contributed">Birżebbuġa</subdivision>
+			<subdivision type="mt06" draft="contributed">Bormla</subdivision>
+			<subdivision type="mt07" draft="contributed">Dingli</subdivision>
+			<subdivision type="mt08" draft="contributed">Fgura</subdivision>
+			<subdivision type="mt09" draft="contributed">Floriana</subdivision>
+			<subdivision type="mt10" draft="contributed">Fontana (Gozo)</subdivision>
+			<subdivision type="mt11" draft="contributed">Gudja</subdivision>
+			<subdivision type="mt12" draft="contributed">Gżira</subdivision>
+			<subdivision type="mt13" draft="contributed">Għajnsielem</subdivision>
+			<subdivision type="mt14" draft="contributed">Għarb</subdivision>
+			<subdivision type="mt15" draft="contributed">Għargħur</subdivision>
+			<subdivision type="mt16" draft="contributed">Għasri</subdivision>
+			<subdivision type="mt17" draft="contributed">Għaxaq</subdivision>
+			<subdivision type="mt18" draft="contributed">Ħamrun</subdivision>
+			<subdivision type="mt19" draft="contributed">Iklin</subdivision>
+			<subdivision type="mt20" draft="contributed">Isla</subdivision>
+			<subdivision type="mt21" draft="contributed">Kalkara</subdivision>
+			<subdivision type="mt22" draft="contributed">Kerċem</subdivision>
+			<subdivision type="mt23" draft="contributed">Kirkop</subdivision>
+			<subdivision type="mt24" draft="contributed">Lija</subdivision>
+			<subdivision type="mt25" draft="contributed">Luqa</subdivision>
+			<subdivision type="mt26" draft="contributed">Marsa</subdivision>
+			<subdivision type="mt27" draft="contributed">Marsaskala</subdivision>
+			<subdivision type="mt28" draft="contributed">Marsaxlokk</subdivision>
+			<subdivision type="mt29" draft="contributed">Mdina</subdivision>
+			<subdivision type="mt30" draft="contributed">Mellieħa</subdivision>
+			<subdivision type="mt31" draft="contributed">Mġarr</subdivision>
+			<subdivision type="mt32" draft="contributed">Mosta</subdivision>
+			<subdivision type="mt33" draft="contributed">Mqabba</subdivision>
+			<subdivision type="mt34" draft="contributed">Msida</subdivision>
+			<subdivision type="mt35" draft="contributed">Mtarfa</subdivision>
+			<subdivision type="mt36" draft="contributed">Munxar</subdivision>
+			<subdivision type="mt37" draft="contributed">Nadur</subdivision>
+			<subdivision type="mt38" draft="contributed">Naxxar</subdivision>
+			<subdivision type="mt39" draft="contributed">Paola</subdivision>
+			<subdivision type="mt40" draft="contributed">Pembroke</subdivision>
+			<subdivision type="mt41" draft="contributed">Pietà</subdivision>
+			<subdivision type="mt42" draft="contributed">Qala</subdivision>
+			<subdivision type="mt43" draft="contributed">Qormi</subdivision>
+			<subdivision type="mt44" draft="contributed">Qrendi</subdivision>
+			<subdivision type="mt45" draft="contributed">Rabat</subdivision>
+			<subdivision type="mt46" draft="contributed">Rabat²</subdivision>
+			<subdivision type="mt47" draft="contributed">Safi</subdivision>
+			<subdivision type="mt48" draft="contributed">San Ġiljan</subdivision>
+			<subdivision type="mt49" draft="contributed">San Ġwann</subdivision>
+			<subdivision type="mt50" draft="contributed">San Lawrenz</subdivision>
+			<subdivision type="mt51" draft="contributed">San Pawl il-Baħar</subdivision>
+			<subdivision type="mt52" draft="contributed">Sannat</subdivision>
+			<subdivision type="mt53" draft="contributed">Santa Luċija</subdivision>
+			<subdivision type="mt54" draft="contributed">Santa Venera</subdivision>
+			<subdivision type="mt55" draft="contributed">Siġġiewi</subdivision>
+			<subdivision type="mt56" draft="contributed">Sliema</subdivision>
+			<subdivision type="mt57" draft="contributed">Swieqi</subdivision>
+			<subdivision type="mt58" draft="contributed">Ta’ Xbiex</subdivision>
+			<subdivision type="mt59" draft="contributed">Tarxien</subdivision>
+			<subdivision type="mt60" draft="contributed">Valletta</subdivision>
+			<subdivision type="mt61" draft="contributed">Xagħra</subdivision>
+			<subdivision type="mt62" draft="contributed">Xewkija</subdivision>
+			<subdivision type="mt63" draft="contributed">Xgħajra</subdivision>
+			<subdivision type="mt64" draft="contributed">Żabbar</subdivision>
+			<subdivision type="mt65" draft="contributed">Żebbuġ</subdivision>
+			<subdivision type="mt66" draft="contributed">Żebbuġ²</subdivision>
+			<subdivision type="mt67" draft="contributed">Żejtun</subdivision>
+			<subdivision type="mt68" draft="contributed">Żurrieq</subdivision>
+			<subdivision type="mupu" draft="contributed">Port Louis</subdivision>
+			<subdivision type="mv00" draft="contributed">Déli-Ari-atoll</subdivision>
+			<subdivision type="mv01" draft="contributed">Addu-atoll</subdivision>
+			<subdivision type="mv02" draft="contributed">Északi-Ari-atoll</subdivision>
+			<subdivision type="mv03" draft="contributed">Fadiffolu-atoll</subdivision>
+			<subdivision type="mv04" draft="contributed">Felidu-atoll</subdivision>
+			<subdivision type="mv05" draft="contributed">Haddunmati-atoll</subdivision>
+			<subdivision type="mv07" draft="contributed">Északi-Tiladummati-atoll</subdivision>
+			<subdivision type="mv08" draft="contributed">Kolumadulu-atoll</subdivision>
+			<subdivision type="mv12" draft="contributed">Mulaku-atoll</subdivision>
+			<subdivision type="mv13" draft="contributed">Északi-Malosmadulu-atoll</subdivision>
+			<subdivision type="mv23" draft="contributed">Déli-Tiladummati-atoll</subdivision>
+			<subdivision type="mv24" draft="contributed">Északi-Miladummadulu-atoll</subdivision>
+			<subdivision type="mv25" draft="contributed">Déli-Miladummadulu-atoll</subdivision>
+			<subdivision type="mv26" draft="contributed">Male-atoll</subdivision>
+			<subdivision type="mvmle" draft="contributed">Malé</subdivision>
+			<subdivision type="mxagu" draft="contributed">Aguascalientes</subdivision>
+			<subdivision type="mxbcn" draft="contributed">Alsó-Kalifornia</subdivision>
+			<subdivision type="mxbcs" draft="contributed">Déli-Alsó-Kalifornia</subdivision>
+			<subdivision type="mxcam" draft="contributed">Campeche</subdivision>
+			<subdivision type="mxchh" draft="contributed">Chihuahua</subdivision>
+			<subdivision type="mxchp" draft="contributed">Chiapas</subdivision>
+			<subdivision type="mxcmx" draft="contributed">Mexikóváros</subdivision>
+			<subdivision type="mxcoa" draft="contributed">Coahuila</subdivision>
+			<subdivision type="mxcol" draft="contributed">Colima</subdivision>
+			<subdivision type="mxdur" draft="contributed">Durango</subdivision>
+			<subdivision type="mxgro" draft="contributed">Guerrero</subdivision>
+			<subdivision type="mxgua" draft="contributed">Guanajuato</subdivision>
+			<subdivision type="mxhid" draft="contributed">Hidalgo</subdivision>
+			<subdivision type="mxjal" draft="contributed">Jalisco</subdivision>
+			<subdivision type="mxmex" draft="contributed">México</subdivision>
+			<subdivision type="mxmic" draft="contributed">Michoacán</subdivision>
+			<subdivision type="mxmor" draft="contributed">Morelos</subdivision>
+			<subdivision type="mxnay" draft="contributed">Nayarit</subdivision>
+			<subdivision type="mxnle" draft="contributed">Új-León</subdivision>
+			<subdivision type="mxoax" draft="contributed">Oaxaca</subdivision>
+			<subdivision type="mxpue" draft="contributed">Puebla</subdivision>
+			<subdivision type="mxque" draft="contributed">Querétaro</subdivision>
+			<subdivision type="mxroo" draft="contributed">Quintana Roo</subdivision>
+			<subdivision type="mxsin" draft="contributed">Sinaloa</subdivision>
+			<subdivision type="mxslp" draft="contributed">San Luis Potosí</subdivision>
+			<subdivision type="mxson" draft="contributed">Sonora</subdivision>
+			<subdivision type="mxtab" draft="contributed">Tabasco</subdivision>
+			<subdivision type="mxtam" draft="contributed">Tamaulipas</subdivision>
+			<subdivision type="mxtla" draft="contributed">Tlaxcala</subdivision>
+			<subdivision type="mxver" draft="contributed">Veracruz</subdivision>
+			<subdivision type="mxyuc" draft="contributed">Yucatán</subdivision>
+			<subdivision type="mxzac" draft="contributed">Zacatecas</subdivision>
+			<subdivision type="my01" draft="contributed">Johor</subdivision>
+			<subdivision type="my02" draft="contributed">Kedah</subdivision>
+			<subdivision type="my03" draft="contributed">Kelantan</subdivision>
+			<subdivision type="my04" draft="contributed">Melaka</subdivision>
+			<subdivision type="my05" draft="contributed">Negeri Sembilan</subdivision>
+			<subdivision type="my06" draft="contributed">Pahang</subdivision>
+			<subdivision type="my07" draft="contributed">Pinang</subdivision>
+			<subdivision type="my08" draft="contributed">Perak</subdivision>
+			<subdivision type="my09" draft="contributed">Perlis</subdivision>
+			<subdivision type="my10" draft="contributed">Selangor</subdivision>
+			<subdivision type="my11" draft="contributed">Terengganu</subdivision>
+			<subdivision type="my12" draft="contributed">Sabah</subdivision>
+			<subdivision type="my13" draft="contributed">Sarawak</subdivision>
+			<subdivision type="my14" draft="contributed">Kuala Lumpur</subdivision>
+			<subdivision type="my16" draft="contributed">Putrajaya</subdivision>
+			<subdivision type="mzmpm" draft="contributed">Maputo</subdivision>
+			<subdivision type="ne8" draft="contributed">Niamey</subdivision>
+			<subdivision type="ngab" draft="contributed">Abia állam</subdivision>
+			<subdivision type="ngna" draft="contributed">Nasarawa</subdivision>
+			<subdivision type="ngri" draft="contributed">Rivers állam</subdivision>
+			<subdivision type="nian" draft="contributed">Región Autónoma del Atlántico Norte</subdivision>
+			<subdivision type="nias" draft="contributed">Región Autónoma del Atlántico Sur</subdivision>
+			<subdivision type="nibo" draft="contributed">Boaco megye</subdivision>
+			<subdivision type="nica" draft="contributed">Carazo megye</subdivision>
+			<subdivision type="nici" draft="contributed">Chinandega megye</subdivision>
+			<subdivision type="nico" draft="contributed">Chontales megye</subdivision>
+			<subdivision type="nies" draft="contributed">Estelí megye</subdivision>
+			<subdivision type="nigr" draft="contributed">Granada megye</subdivision>
+			<subdivision type="niji" draft="contributed">Jinotega megye</subdivision>
+			<subdivision type="nile" draft="contributed">León megye</subdivision>
+			<subdivision type="nimd" draft="contributed">Madriz megye</subdivision>
+			<subdivision type="nimn" draft="contributed">Managua megye</subdivision>
+			<subdivision type="nims" draft="contributed">Masaya megye</subdivision>
+			<subdivision type="nimt" draft="contributed">Matagalpa megye</subdivision>
+			<subdivision type="nins" draft="contributed">Nueva Segovia megye</subdivision>
+			<subdivision type="niri" draft="contributed">Rivas megye</subdivision>
+			<subdivision type="nisj" draft="contributed">Río San Juan megye</subdivision>
+			<subdivision type="nlbq1" draft="contributed">Bonaire</subdivision>
+			<subdivision type="nlbq2" draft="contributed">Saba</subdivision>
+			<subdivision type="nlbq3" draft="contributed">Sint Eustatius</subdivision>
+			<subdivision type="nldr" draft="contributed">Drenthe</subdivision>
+			<subdivision type="nlfl" draft="contributed">Flevoland</subdivision>
+			<subdivision type="nlfr" draft="contributed">Frízföld</subdivision>
+			<subdivision type="nlge" draft="contributed">Gelderland</subdivision>
+			<subdivision type="nlgr" draft="contributed">Groningen</subdivision>
+			<subdivision type="nlli" draft="contributed">Limburg</subdivision>
+			<subdivision type="nlnb" draft="contributed">Észak-Brabant</subdivision>
+			<subdivision type="nlnh" draft="contributed">Észak-Holland</subdivision>
+			<subdivision type="nlov" draft="contributed">Overijssel</subdivision>
+			<subdivision type="nlut" draft="contributed">Utrecht</subdivision>
+			<subdivision type="nlze" draft="contributed">Zeeland</subdivision>
+			<subdivision type="nlzh" draft="contributed">Dél-Holland</subdivision>
+			<subdivision type="no01" draft="contributed">Østfold megye</subdivision>
+			<subdivision type="no02" draft="contributed">Akershus megye</subdivision>
+			<subdivision type="no03" draft="contributed">Oslo</subdivision>
+			<subdivision type="no04" draft="contributed">Hedmark megye</subdivision>
+			<subdivision type="no05" draft="contributed">Oppland megye</subdivision>
+			<subdivision type="no06" draft="contributed">Buskerud megye</subdivision>
+			<subdivision type="no07" draft="contributed">Vestfold megye</subdivision>
+			<subdivision type="no08" draft="contributed">Telemark megye</subdivision>
+			<subdivision type="no09" draft="contributed">Aust-Agder megye</subdivision>
+			<subdivision type="no10" draft="contributed">Vest-Agder megye</subdivision>
+			<subdivision type="no11" draft="contributed">Rogaland megye</subdivision>
+			<subdivision type="no12" draft="contributed">Hordaland megye</subdivision>
+			<subdivision type="no14" draft="contributed">Sogn og Fjordane megye</subdivision>
+			<subdivision type="no15" draft="contributed">Møre og Romsdal megye</subdivision>
+			<subdivision type="no16" draft="contributed">Sør-Trøndelag megye</subdivision>
+			<subdivision type="no17" draft="contributed">Nord-Trøndelag megye</subdivision>
+			<subdivision type="no18" draft="contributed">Nordland megye</subdivision>
+			<subdivision type="no19" draft="contributed">Troms megye</subdivision>
+			<subdivision type="no20" draft="contributed">Finnmark megye</subdivision>
+			<subdivision type="no21" draft="contributed">Spitzbergák</subdivision>
+			<subdivision type="no22" draft="contributed">Jan Mayen-sziget</subdivision>
+			<subdivision type="nr14" draft="contributed">Yaren</subdivision>
+			<subdivision type="nzauk" draft="contributed">Auckland régió</subdivision>
+			<subdivision type="nzcan" draft="contributed">Canterbury régió</subdivision>
+			<subdivision type="nzcit" draft="contributed">Chatham-szigetek</subdivision>
+			<subdivision type="nzntl" draft="contributed">Northland</subdivision>
+			<subdivision type="nzota" draft="contributed">Otago régió</subdivision>
+			<subdivision type="nzwko" draft="contributed">Waikato</subdivision>
+			<subdivision type="ombu" draft="contributed">Burajmi kormányzóság</subdivision>
+			<subdivision type="omda" draft="contributed">Belső régió (Omán)</subdivision>
+			<subdivision type="omma" draft="contributed">Maszkat kormányzóság</subdivision>
+			<subdivision type="ommu" draft="contributed">Muszandam kormányzóság</subdivision>
+			<subdivision type="omwu" draft="contributed">Középső régió</subdivision>
+			<subdivision type="omza" draft="contributed">Záhira régió</subdivision>
+			<subdivision type="omzu" draft="contributed">Zofár kormányzóság</subdivision>
+			<subdivision type="peama" draft="contributed">Amazonas megye</subdivision>
+			<subdivision type="peanc" draft="contributed">Ancash megye</subdivision>
+			<subdivision type="peapu" draft="contributed">Apurímac megye</subdivision>
+			<subdivision type="peare" draft="contributed">Arequipa megye</subdivision>
+			<subdivision type="peaya" draft="contributed">Ayacucho megye</subdivision>
+			<subdivision type="pecaj" draft="contributed">Cajamarca megye</subdivision>
+			<subdivision type="pecal" draft="contributed">Callao tartomány</subdivision>
+			<subdivision type="pecus" draft="contributed">Cusco megye</subdivision>
+			<subdivision type="pehuc" draft="contributed">Huánuco megye</subdivision>
+			<subdivision type="pehuv" draft="contributed">Huancavelica megye</subdivision>
+			<subdivision type="peica" draft="contributed">Ica megye</subdivision>
+			<subdivision type="pejun" draft="contributed">Junín megye</subdivision>
+			<subdivision type="pelal" draft="contributed">La Libertad megye</subdivision>
+			<subdivision type="pelam" draft="contributed">Lambayeque megye</subdivision>
+			<subdivision type="pelim" draft="contributed">Lima megye</subdivision>
+			<subdivision type="pelor" draft="contributed">Loreto megye</subdivision>
+			<subdivision type="pemdd" draft="contributed">Madre de Dios megye</subdivision>
+			<subdivision type="pemoq" draft="contributed">Moquegua megye</subdivision>
+			<subdivision type="pepas" draft="contributed">Pasco megye</subdivision>
+			<subdivision type="pepiu" draft="contributed">Piura megye</subdivision>
+			<subdivision type="pepun" draft="contributed">Puno megye</subdivision>
+			<subdivision type="pesam" draft="contributed">San Martín megye</subdivision>
+			<subdivision type="petac" draft="contributed">Tacna megye</subdivision>
+			<subdivision type="petum" draft="contributed">Tumbes megye</subdivision>
+			<subdivision type="peuca" draft="contributed">Ucayali megye</subdivision>
+			<subdivision type="pgmpm" draft="contributed">Madang tartomány</subdivision>
+			<subdivision type="pgncd" draft="contributed">Port Moresby</subdivision>
+			<subdivision type="phboh" draft="contributed">Bohol</subdivision>
+			<subdivision type="phili" draft="contributed">Iloilo</subdivision>
+			<subdivision type="phmas" draft="contributed">Masbate</subdivision>
+			<subdivision type="phplw" draft="contributed">Palawan</subdivision>
+			<subdivision type="pkba" draft="contributed">Beludzsisztán</subdivision>
+			<subdivision type="pkkp" draft="contributed">Hajber-Pahtunhva</subdivision>
+			<subdivision type="pkpb" draft="contributed">Pandzsáb</subdivision>
+			<subdivision type="pksd" draft="contributed">Szindh</subdivision>
+			<subdivision type="plds" draft="contributed">Alsó-sziléziai vajdaság</subdivision>
+			<subdivision type="plkp" draft="contributed">Kujávia-Pomerániai vajdaság</subdivision>
+			<subdivision type="pllb" draft="contributed">Lubusi vajdaság</subdivision>
+			<subdivision type="plld" draft="contributed">Łódźi vajdaság</subdivision>
+			<subdivision type="pllu" draft="contributed">Lublini vajdaság</subdivision>
+			<subdivision type="plma" draft="contributed">Kis-lengyelországi vajdaság</subdivision>
+			<subdivision type="plmz" draft="contributed">Mazóviai vajdaság</subdivision>
+			<subdivision type="plop" draft="contributed">Opolei vajdaság</subdivision>
+			<subdivision type="plpd" draft="contributed">Podlasiei vajdaság</subdivision>
+			<subdivision type="plpk" draft="contributed">Kárpátaljai vajdaság</subdivision>
+			<subdivision type="plpm" draft="contributed">Pomerániai vajdaság</subdivision>
+			<subdivision type="plsk" draft="contributed">Szentkereszt vajdaság</subdivision>
+			<subdivision type="plsl" draft="contributed">Sziléziai vajdaság</subdivision>
+			<subdivision type="plwn" draft="contributed">Varmia-Mazúriai vajdaság</subdivision>
+			<subdivision type="plwp" draft="contributed">Nagy-Lengyelországi vajdaság</subdivision>
+			<subdivision type="plzp" draft="contributed">Nyugat-Pomerániai vajdaság</subdivision>
+			<subdivision type="psbth" draft="contributed">Betlehem kormányzóság</subdivision>
+			<subdivision type="psdeb" draft="contributed">Dejr el-Balah kormányzóság</subdivision>
+			<subdivision type="psgza" draft="contributed">Gáza kormányzóság</subdivision>
+			<subdivision type="pshbn" draft="contributed">Hebron kormányzóság</subdivision>
+			<subdivision type="psjem" draft="contributed">Jeruzsálem kormányzóság</subdivision>
+			<subdivision type="psjen" draft="contributed">Dzsenín kormányzóság</subdivision>
+			<subdivision type="psjrh" draft="contributed">Jerikó kormányzóság</subdivision>
+			<subdivision type="pskys" draft="contributed">Hán Júnisz kormányzóság</subdivision>
+			<subdivision type="psnbs" draft="contributed">Náblusz kormányzóság</subdivision>
+			<subdivision type="psngz" draft="contributed">Észak-Gáza kormányzóság</subdivision>
+			<subdivision type="psqqa" draft="contributed">Kalkílija kormányzóság</subdivision>
+			<subdivision type="psrbh" draft="contributed">Rámalláh és el-Bíra kormányzóság</subdivision>
+			<subdivision type="psrfh" draft="contributed">Rafah kormányzóság</subdivision>
+			<subdivision type="psslt" draft="contributed">Szalfít kormányzóság</subdivision>
+			<subdivision type="pstbs" draft="contributed">Túbász kormányzóság</subdivision>
+			<subdivision type="pstkm" draft="contributed">Túlkarm kormányzóság</subdivision>
+			<subdivision type="pt01" draft="contributed">Aveiro</subdivision>
+			<subdivision type="pt02" draft="contributed">Beja</subdivision>
+			<subdivision type="pt03" draft="contributed">Braga</subdivision>
+			<subdivision type="pt04" draft="contributed">Bragança</subdivision>
+			<subdivision type="pt05" draft="contributed">Castelo Branco</subdivision>
+			<subdivision type="pt06" draft="contributed">Coimbra</subdivision>
+			<subdivision type="pt07" draft="contributed">Évora</subdivision>
+			<subdivision type="pt08" draft="contributed">Faro</subdivision>
+			<subdivision type="pt09" draft="contributed">Guarda</subdivision>
+			<subdivision type="pt10" draft="contributed">Leiria</subdivision>
+			<subdivision type="pt11" draft="contributed">Lisszabon</subdivision>
+			<subdivision type="pt12" draft="contributed">Portalegre</subdivision>
+			<subdivision type="pt14" draft="contributed">Santarém</subdivision>
+			<subdivision type="pt15" draft="contributed">Setúbal</subdivision>
+			<subdivision type="pt16" draft="contributed">Viana do Castelo</subdivision>
+			<subdivision type="pt18" draft="contributed">Viseu</subdivision>
+			<subdivision type="pt20" draft="contributed">Azori-szigetek</subdivision>
+			<subdivision type="pt30" draft="contributed">Madeira-szigetek</subdivision>
+			<subdivision type="pw212" draft="contributed">Melekeok</subdivision>
+			<subdivision type="py1" draft="contributed">Concepción megye</subdivision>
+			<subdivision type="py2" draft="contributed">San Pedro megye</subdivision>
+			<subdivision type="py3" draft="contributed">Cordillera megye</subdivision>
+			<subdivision type="py4" draft="contributed">Guairá megye</subdivision>
+			<subdivision type="py5" draft="contributed">Caaguazú megye</subdivision>
+			<subdivision type="py6" draft="contributed">Caazapá megye</subdivision>
+			<subdivision type="py7" draft="contributed">Itapúa megye</subdivision>
+			<subdivision type="py8" draft="contributed">Misiones megye</subdivision>
+			<subdivision type="py9" draft="contributed">Paraguarí megye</subdivision>
+			<subdivision type="py10" draft="contributed">Alto Paraná megye</subdivision>
+			<subdivision type="py11" draft="contributed">Central megye</subdivision>
+			<subdivision type="py12" draft="contributed">Ñeembucú megye</subdivision>
+			<subdivision type="py13" draft="contributed">Amambay megye</subdivision>
+			<subdivision type="py14" draft="contributed">Canindeyú megye</subdivision>
+			<subdivision type="py15" draft="contributed">Presidente Hayes megye</subdivision>
+			<subdivision type="py16" draft="contributed">Alto Paraguay megye</subdivision>
+			<subdivision type="py19" draft="contributed">Boquerón megye</subdivision>
+			<subdivision type="pyasu" draft="contributed">Asunción</subdivision>
+			<subdivision type="qada" draft="contributed">Doha</subdivision>
+			<subdivision type="roab" draft="contributed">Fehér megye</subdivision>
+			<subdivision type="roag" draft="contributed">Argeș megye</subdivision>
+			<subdivision type="roar" draft="contributed">Arad megye</subdivision>
+			<subdivision type="rob" draft="contributed">Bukarest</subdivision>
+			<subdivision type="robc" draft="contributed">Bákó megye</subdivision>
+			<subdivision type="robh" draft="contributed">Bihar megye</subdivision>
+			<subdivision type="robn" draft="contributed">Beszterce-Naszód megye</subdivision>
+			<subdivision type="robr" draft="contributed">Brăila megye</subdivision>
+			<subdivision type="robt" draft="contributed">Botoșani megye</subdivision>
+			<subdivision type="robv" draft="contributed">Brassó megye</subdivision>
+			<subdivision type="robz" draft="contributed">Buzău megye</subdivision>
+			<subdivision type="rocj" draft="contributed">Kolozs megye</subdivision>
+			<subdivision type="rocl" draft="contributed">Călărași megye</subdivision>
+			<subdivision type="rocs" draft="contributed">Krassó-Szörény megye</subdivision>
+			<subdivision type="roct" draft="contributed">Constanța megye</subdivision>
+			<subdivision type="rocv" draft="contributed">Kovászna megye</subdivision>
+			<subdivision type="rodb" draft="contributed">Dâmbovița megye</subdivision>
+			<subdivision type="rodj" draft="contributed">Dolj megye</subdivision>
+			<subdivision type="rogj" draft="contributed">Gorj megye</subdivision>
+			<subdivision type="rogl" draft="contributed">Galați megye</subdivision>
+			<subdivision type="rogr" draft="contributed">Giurgiu megye</subdivision>
+			<subdivision type="rohd" draft="contributed">Hunyad megye</subdivision>
+			<subdivision type="rohr" draft="contributed">Hargita megye</subdivision>
+			<subdivision type="roif" draft="contributed">Ilfov megye</subdivision>
+			<subdivision type="roil" draft="contributed">Ialomița megye</subdivision>
+			<subdivision type="rois" draft="contributed">Iași megye</subdivision>
+			<subdivision type="romh" draft="contributed">Mehedinți megye</subdivision>
+			<subdivision type="romm" draft="contributed">Máramaros megye</subdivision>
+			<subdivision type="roms" draft="contributed">Maros megye</subdivision>
+			<subdivision type="ront" draft="contributed">Neamț megye</subdivision>
+			<subdivision type="root" draft="contributed">Olt megye</subdivision>
+			<subdivision type="roph" draft="contributed">Prahova megye</subdivision>
+			<subdivision type="rosb" draft="contributed">Szeben megye</subdivision>
+			<subdivision type="rosj" draft="contributed">Szilágy megye</subdivision>
+			<subdivision type="rosm" draft="contributed">Szatmár megye</subdivision>
+			<subdivision type="rosv" draft="contributed">Suceava megye</subdivision>
+			<subdivision type="rotl" draft="contributed">Tulcea megye</subdivision>
+			<subdivision type="rotm" draft="contributed">Temes megye</subdivision>
+			<subdivision type="rotr" draft="contributed">Teleorman megye</subdivision>
+			<subdivision type="rovl" draft="contributed">Vâlcea megye</subdivision>
+			<subdivision type="rovn" draft="contributed">Vrancea megye</subdivision>
+			<subdivision type="rovs" draft="contributed">Vaslui megye</subdivision>
+			<subdivision type="rs00" draft="contributed">Belgrád</subdivision>
+			<subdivision type="rs01" draft="contributed">Észak-bácskai körzet</subdivision>
+			<subdivision type="rs02" draft="contributed">Közép-bánsági körzet</subdivision>
+			<subdivision type="rs03" draft="contributed">Észak-bánsági körzet</subdivision>
+			<subdivision type="rs04" draft="contributed">Dél-bánsági körzet</subdivision>
+			<subdivision type="rs05" draft="contributed">Nyugat-bácskai körzet</subdivision>
+			<subdivision type="rs06" draft="contributed">Dél-bácskai körzet</subdivision>
+			<subdivision type="rs07" draft="contributed">Szerémségi körzet</subdivision>
+			<subdivision type="rs14" draft="contributed">Bor körzet</subdivision>
+			<subdivision type="rs16" draft="contributed">Zlatibor körzet</subdivision>
+			<subdivision type="rskm" draft="contributed">Koszovó és Metóhia Autonóm Tartomány</subdivision>
+			<subdivision type="rsvo" draft="contributed">Vajdaság Autonóm Tartomány</subdivision>
+			<subdivision type="ruad" draft="contributed">Adigeföld</subdivision>
+			<subdivision type="rual" draft="contributed">Altaj Köztársaság</subdivision>
+			<subdivision type="rualt" draft="contributed">Altaji határterület</subdivision>
+			<subdivision type="ruamu" draft="contributed">Amuri terület</subdivision>
+			<subdivision type="ruark" draft="contributed">Arhangelszki terület</subdivision>
+			<subdivision type="ruast" draft="contributed">Asztraháni terület</subdivision>
+			<subdivision type="ruba" draft="contributed">Baskíria</subdivision>
+			<subdivision type="rubel" draft="contributed">Belgorodi terület</subdivision>
+			<subdivision type="rubry" draft="contributed">Brjanszki terület</subdivision>
+			<subdivision type="rubu" draft="contributed">Burjátföld</subdivision>
+			<subdivision type="ruce" draft="contributed">Csecsenföld</subdivision>
+			<subdivision type="ruche" draft="contributed">Cseljabinszki terület</subdivision>
+			<subdivision type="ruchu" draft="contributed">Csukcsföld</subdivision>
+			<subdivision type="rucu" draft="contributed">Csuvasföld</subdivision>
+			<subdivision type="ruda" draft="contributed">Dagesztán</subdivision>
+			<subdivision type="ruin" draft="contributed">Ingusföld</subdivision>
+			<subdivision type="ruirk" draft="contributed">Irkutszki terület</subdivision>
+			<subdivision type="ruiva" draft="contributed">Ivanovói terület</subdivision>
+			<subdivision type="rukam" draft="contributed">Kamcsatkai határterület</subdivision>
+			<subdivision type="rukb" draft="contributed">Kabard- és Balkárföld</subdivision>
+			<subdivision type="rukc" draft="contributed">Karacsáj- és Cserkeszföld</subdivision>
+			<subdivision type="rukda" draft="contributed">Krasznodari határterület</subdivision>
+			<subdivision type="rukem" draft="contributed">Kemerovói terület</subdivision>
+			<subdivision type="rukgd" draft="contributed">Kalinyingrádi terület</subdivision>
+			<subdivision type="rukgn" draft="contributed">Kurgani terület</subdivision>
+			<subdivision type="rukha" draft="contributed">Habarovszki határterület</subdivision>
+			<subdivision type="rukhm" draft="contributed">Hanti- és Manysiföld</subdivision>
+			<subdivision type="rukir" draft="contributed">Kirovi terület</subdivision>
+			<subdivision type="rukk" draft="contributed">Hakaszföld</subdivision>
+			<subdivision type="rukl" draft="contributed">Kalmükföld</subdivision>
+			<subdivision type="ruklu" draft="contributed">Kalugai terület</subdivision>
+			<subdivision type="ruko" draft="contributed">Komiföld</subdivision>
+			<subdivision type="rukos" draft="contributed">Kosztromai terület</subdivision>
+			<subdivision type="rukr" draft="contributed">Karélia</subdivision>
+			<subdivision type="rukrs" draft="contributed">Kurszki terület</subdivision>
+			<subdivision type="rukya" draft="contributed">Krasznojarszki határterület</subdivision>
+			<subdivision type="rulen" draft="contributed">Leningrádi terület</subdivision>
+			<subdivision type="rulip" draft="contributed">Lipecki terület</subdivision>
+			<subdivision type="rumag" draft="contributed">Magadani terület</subdivision>
+			<subdivision type="rume" draft="contributed">Mariföld</subdivision>
+			<subdivision type="rumo" draft="contributed">Mordvinföld</subdivision>
+			<subdivision type="rumos" draft="contributed">Moszkvai terület</subdivision>
+			<subdivision type="rumow" draft="contributed">Moszkva</subdivision>
+			<subdivision type="rumur" draft="contributed">Murmanszki terület</subdivision>
+			<subdivision type="runen" draft="contributed">Nyenyecföld</subdivision>
+			<subdivision type="rungr" draft="contributed">Novgorodi terület</subdivision>
+			<subdivision type="runiz" draft="contributed">Nyizsnyij Novgorod-i terület</subdivision>
+			<subdivision type="runvs" draft="contributed">Novoszibirszki terület</subdivision>
+			<subdivision type="ruoms" draft="contributed">Omszki terület</subdivision>
+			<subdivision type="ruore" draft="contributed">Orenburgi terület</subdivision>
+			<subdivision type="ruorl" draft="contributed">Orjoli terület</subdivision>
+			<subdivision type="ruper" draft="contributed">Permi határterület</subdivision>
+			<subdivision type="rupnz" draft="contributed">Penzai terület</subdivision>
+			<subdivision type="rupri" draft="contributed">Tengermelléki határterület</subdivision>
+			<subdivision type="rupsk" draft="contributed">Pszkovi terület</subdivision>
+			<subdivision type="ruros" draft="contributed">Rosztovi terület</subdivision>
+			<subdivision type="rurya" draft="contributed">Rjazanyi terület</subdivision>
+			<subdivision type="rusa" draft="contributed">Jakutföld</subdivision>
+			<subdivision type="rusak" draft="contributed">Szahalini terület</subdivision>
+			<subdivision type="rusam" draft="contributed">Szamarai terület</subdivision>
+			<subdivision type="rusar" draft="contributed">Szaratovi terület</subdivision>
+			<subdivision type="ruse" draft="contributed">Észak-Oszétia</subdivision>
+			<subdivision type="rusmo" draft="contributed">Szmolenszki terület</subdivision>
+			<subdivision type="ruspe" draft="contributed">Szentpétervár</subdivision>
+			<subdivision type="rusta" draft="contributed">Sztavropoli határterület</subdivision>
+			<subdivision type="rusve" draft="contributed">Szverdlovszki terület</subdivision>
+			<subdivision type="ruta" draft="contributed">Tatárföld</subdivision>
+			<subdivision type="rutam" draft="contributed">Tambovi terület</subdivision>
+			<subdivision type="rutom" draft="contributed">Tomszki terület</subdivision>
+			<subdivision type="rutul" draft="contributed">Tulai terület</subdivision>
+			<subdivision type="rutve" draft="contributed">Tveri terület</subdivision>
+			<subdivision type="ruty" draft="contributed">Tuva</subdivision>
+			<subdivision type="rutyu" draft="contributed">Tyumenyi terület</subdivision>
+			<subdivision type="ruud" draft="contributed">Udmurtföld</subdivision>
+			<subdivision type="ruuly" draft="contributed">Uljanovszki terület</subdivision>
+			<subdivision type="ruvgg" draft="contributed">Volgográdi terület</subdivision>
+			<subdivision type="ruvla" draft="contributed">Vlagyimiri terület</subdivision>
+			<subdivision type="ruvlg" draft="contributed">Vologdai terület</subdivision>
+			<subdivision type="ruvor" draft="contributed">Voronyezsi terület</subdivision>
+			<subdivision type="ruyan" draft="contributed">Jamali Nyenyecföld</subdivision>
+			<subdivision type="ruyar" draft="contributed">Jaroszlavli terület</subdivision>
+			<subdivision type="ruyev" draft="contributed">Zsidó autonóm terület</subdivision>
+			<subdivision type="ruzab" draft="contributed">Bajkálontúli határterület</subdivision>
+			<subdivision type="rw01" draft="contributed">Kigali</subdivision>
+			<subdivision type="sa01" draft="contributed">Rijád tartomány</subdivision>
+			<subdivision type="sa02" draft="contributed">Mekka tartomány</subdivision>
+			<subdivision type="sa03" draft="contributed">Medina tartomány</subdivision>
+			<subdivision type="sa04" draft="contributed">Keleti tartomány</subdivision>
+			<subdivision type="sa05" draft="contributed">Kaszím tartomány</subdivision>
+			<subdivision type="sa06" draft="contributed">Háil tartomány</subdivision>
+			<subdivision type="sa07" draft="contributed">Tabúk tartomány</subdivision>
+			<subdivision type="sa08" draft="contributed">Északi határvidék tartomány</subdivision>
+			<subdivision type="sa09" draft="contributed">Dzsízán tartomány</subdivision>
+			<subdivision type="sa10" draft="contributed">Nadzsrán tartomány</subdivision>
+			<subdivision type="sa11" draft="contributed">Báha tartomány</subdivision>
+			<subdivision type="sa12" draft="contributed">Dzsauf tartomány (Szaúd-Arábia)</subdivision>
+			<subdivision type="sa14" draft="contributed">Aszír tartomány</subdivision>
+			<subdivision type="sbct" draft="contributed">Honiara</subdivision>
+			<subdivision type="sdks" draft="contributed">Dél-Kordofán</subdivision>
+			<subdivision type="seab" draft="contributed">Stockholm megye</subdivision>
+			<subdivision type="seac" draft="contributed">Västerbotten megye</subdivision>
+			<subdivision type="sebd" draft="contributed">Norrbotten megye</subdivision>
+			<subdivision type="sec" draft="contributed">Uppsala megye</subdivision>
+			<subdivision type="sed" draft="contributed">Södermanland megye</subdivision>
+			<subdivision type="see" draft="contributed">Östergötland megye</subdivision>
+			<subdivision type="sef" draft="contributed">Jönköping megye</subdivision>
+			<subdivision type="seg" draft="contributed">Kronoberg megye</subdivision>
+			<subdivision type="seh" draft="contributed">Kalmar megye</subdivision>
+			<subdivision type="sei" draft="contributed">Gotland megye</subdivision>
+			<subdivision type="sek" draft="contributed">Blekinge megye</subdivision>
+			<subdivision type="sem" draft="contributed">Skåne megye</subdivision>
+			<subdivision type="sen" draft="contributed">Halland megye</subdivision>
+			<subdivision type="seo" draft="contributed">Västra Götaland megye</subdivision>
+			<subdivision type="ses" draft="contributed">Värmland megye</subdivision>
+			<subdivision type="set" draft="contributed">Örebro megye</subdivision>
+			<subdivision type="seu" draft="contributed">Västmanland megye</subdivision>
+			<subdivision type="sew" draft="contributed">Dalarna megye</subdivision>
+			<subdivision type="sex" draft="contributed">Gävleborg megye</subdivision>
+			<subdivision type="sey" draft="contributed">Västernorrland megye</subdivision>
+			<subdivision type="sez" draft="contributed">Jämtland megye</subdivision>
+			<subdivision type="shac" draft="contributed">Ascension-sziget</subdivision>
+			<subdivision type="shhl" draft="contributed">Szent Ilona</subdivision>
+			<subdivision type="si001" draft="contributed">Ajdovščina</subdivision>
+			<subdivision type="si002" draft="contributed">Belatinc község</subdivision>
+			<subdivision type="si004" draft="contributed">Bohinj község</subdivision>
+			<subdivision type="si007" draft="contributed">Brda község</subdivision>
+			<subdivision type="si008" draft="contributed">Brezovica</subdivision>
+			<subdivision type="si009" draft="contributed">Brežice</subdivision>
+			<subdivision type="si010" draft="contributed">Csendlak</subdivision>
+			<subdivision type="si012" draft="contributed">Cerklje na Gorenjskem</subdivision>
+			<subdivision type="si015" draft="contributed">Cserföld</subdivision>
+			<subdivision type="si016" draft="contributed">Črna na Koroškem</subdivision>
+			<subdivision type="si017" draft="contributed">Črnomelj</subdivision>
+			<subdivision type="si033" draft="contributed">Sal</subdivision>
+			<subdivision type="si037" draft="contributed">Ig</subdivision>
+			<subdivision type="si040" draft="contributed">Izola</subdivision>
+			<subdivision type="si041" draft="contributed">Jesenice</subdivision>
+			<subdivision type="si046" draft="contributed">Kobarid</subdivision>
+			<subdivision type="si047" draft="contributed">Kebeleszentmárton</subdivision>
+			<subdivision type="si048" draft="contributed">Kočevje</subdivision>
+			<subdivision type="si050" draft="contributed">Koper városi község</subdivision>
+			<subdivision type="si052" draft="contributed">Kranj</subdivision>
+			<subdivision type="si053" draft="contributed">Kranjska Gora</subdivision>
+			<subdivision type="si056" draft="contributed">Kuzma</subdivision>
+			<subdivision type="si057" draft="contributed">Laško</subdivision>
+			<subdivision type="si059" draft="contributed">Lendva</subdivision>
+			<subdivision type="si061" draft="contributed">Ljubljana városi község</subdivision>
+			<subdivision type="si070" draft="contributed">Maribor városi község</subdivision>
+			<subdivision type="si071" draft="contributed">Medvode</subdivision>
+			<subdivision type="si078" draft="contributed">Alsómarác község</subdivision>
+			<subdivision type="si080" draft="contributed">Muraszombat község</subdivision>
+			<subdivision type="si084" draft="contributed">Nova Gorica</subdivision>
+			<subdivision type="si086" draft="contributed">Adorjánfalva</subdivision>
+			<subdivision type="si087" draft="contributed">Ormosd</subdivision>
+			<subdivision type="si090" draft="contributed">Piran</subdivision>
+			<subdivision type="si096" draft="contributed">Ptuj</subdivision>
+			<subdivision type="si097" draft="contributed">Battyánd község</subdivision>
+			<subdivision type="si100" draft="contributed">Radenci</subdivision>
+			<subdivision type="si103" draft="contributed">Ravne na Koroškem</subdivision>
+			<subdivision type="si105" draft="contributed">Szarvaslak</subdivision>
+			<subdivision type="si113" draft="contributed">Vendbeszterce</subdivision>
+			<subdivision type="si114" draft="contributed">Slovenske Konjice</subdivision>
+			<subdivision type="si128" draft="contributed">Tolmin</subdivision>
+			<subdivision type="si129" draft="contributed">Trbovlje</subdivision>
+			<subdivision type="si132" draft="contributed">Bántornya község</subdivision>
+			<subdivision type="si142" draft="contributed">Zagorje ob Savi község</subdivision>
+			<subdivision type="si148" draft="contributed">Benedikt</subdivision>
+			<subdivision type="si150" draft="contributed">Bloke</subdivision>
+			<subdivision type="si154" draft="contributed">Dobje</subdivision>
+			<subdivision type="si156" draft="contributed">Dobronak község</subdivision>
+			<subdivision type="si158" draft="contributed">Felsőlendva község</subdivision>
+			<subdivision type="si161" draft="contributed">Őrihodos község</subdivision>
+			<subdivision type="si176" draft="contributed">Ráckanizsa község</subdivision>
+			<subdivision type="si182" draft="contributed">Sveti Andraž v Slovenskih goricah</subdivision>
+			<subdivision type="si183" draft="contributed">Šempeter–Vrtojba község</subdivision>
+			<subdivision type="si187" draft="contributed">Nagypalina</subdivision>
+			<subdivision type="si193" draft="contributed">Žužemberk</subdivision>
+			<subdivision type="si201" draft="contributed">Renče - Vogrsko</subdivision>
+			<subdivision type="si204" draft="contributed">Sveta Trojica v Slovenskih goricah</subdivision>
+			<subdivision type="si210" draft="contributed">Sveti Jurij v Slovenskih goricah</subdivision>
+			<subdivision type="si213" draft="contributed">Ankaran</subdivision>
+			<subdivision type="skbc" draft="contributed">Besztercebánya megye</subdivision>
+			<subdivision type="skbl" draft="contributed">Pozsony megye</subdivision>
+			<subdivision type="skki" draft="contributed">Kassa megye</subdivision>
+			<subdivision type="skni" draft="contributed">Nyitra megye</subdivision>
+			<subdivision type="skpv" draft="contributed">Eperjes megye</subdivision>
+			<subdivision type="skta" draft="contributed">Nagyszombat megye</subdivision>
+			<subdivision type="sktc" draft="contributed">Trencsén megye</subdivision>
+			<subdivision type="skzi" draft="contributed">Zsolna megye</subdivision>
+			<subdivision type="sm01" draft="contributed">Acquaviva</subdivision>
+			<subdivision type="sm02" draft="contributed">Chiesanuova</subdivision>
+			<subdivision type="sm03" draft="contributed">Domagnano</subdivision>
+			<subdivision type="sm04" draft="contributed">Faetano</subdivision>
+			<subdivision type="sm05" draft="contributed">Fiorentino</subdivision>
+			<subdivision type="sm06" draft="contributed">Borgo Maggiore</subdivision>
+			<subdivision type="sm07" draft="contributed">San Marino</subdivision>
+			<subdivision type="sm08" draft="contributed">Montegiardino</subdivision>
+			<subdivision type="sm09" draft="contributed">Serravalle</subdivision>
+			<subdivision type="sndb" draft="contributed">Diourbel régió</subdivision>
+			<subdivision type="svah" draft="contributed">Ahuachapán megye</subdivision>
+			<subdivision type="svca" draft="contributed">Cabañas megye</subdivision>
+			<subdivision type="svch" draft="contributed">Chalatenango megye</subdivision>
+			<subdivision type="svcu" draft="contributed">Cuscatlán megye</subdivision>
+			<subdivision type="svli" draft="contributed">La Libertad megye</subdivision>
+			<subdivision type="svmo" draft="contributed">Morazán megye</subdivision>
+			<subdivision type="svpa" draft="contributed">La Paz megye</subdivision>
+			<subdivision type="svsa" draft="contributed">Santa Ana megye</subdivision>
+			<subdivision type="svsm" draft="contributed">San Miguel megye</subdivision>
+			<subdivision type="svso" draft="contributed">Sonsonate megye</subdivision>
+			<subdivision type="svss" draft="contributed">San Salvador megye</subdivision>
+			<subdivision type="svsv" draft="contributed">San Vicente megye</subdivision>
+			<subdivision type="svun" draft="contributed">La Unión megye</subdivision>
+			<subdivision type="svus" draft="contributed">Usulután megye</subdivision>
+			<subdivision type="sydy" draft="contributed">Dajr ez-Zaur kormányzóság</subdivision>
+			<subdivision type="syha" draft="contributed">Haszaka kormányzóság</subdivision>
+			<subdivision type="syhi" draft="contributed">Homsz kormányzóság</subdivision>
+			<subdivision type="syhl" draft="contributed">Aleppó kormányzóság</subdivision>
+			<subdivision type="syhm" draft="contributed">Hamá kormányzóság</subdivision>
+			<subdivision type="syid" draft="contributed">Idlib kormányzóság</subdivision>
+			<subdivision type="syla" draft="contributed">Latakia kormányzóság</subdivision>
+			<subdivision type="syra" draft="contributed">Rakka kormányzóság</subdivision>
+			<subdivision type="syrd" draft="contributed">Ríf Dimask kormányzóság</subdivision>
+			<subdivision type="syta" draft="contributed">Tartúsz kormányzóság</subdivision>
+			<subdivision type="tdnd" draft="contributed">N’Djamena</subdivision>
+			<subdivision type="th10" draft="contributed">Bangkok</subdivision>
+			<subdivision type="th21" draft="contributed">Rayong</subdivision>
+			<subdivision type="th22" draft="contributed">Csanthaburi tartomány</subdivision>
+			<subdivision type="th32" draft="contributed">Szurin</subdivision>
+			<subdivision type="th57" draft="contributed">Csiangraj tartomány</subdivision>
+			<subdivision type="th80" draft="contributed">Nakhonszithammarat tartomány</subdivision>
+			<subdivision type="th81" draft="contributed">Krabi</subdivision>
+			<subdivision type="th82" draft="contributed">Phangnga tartomány</subdivision>
+			<subdivision type="th83" draft="contributed">Phuket</subdivision>
+			<subdivision type="th84" draft="contributed">Szuratthani tartomány</subdivision>
+			<subdivision type="th92" draft="contributed">Trang tartomány</subdivision>
+			<subdivision type="ths" draft="contributed">Pattaja</subdivision>
+			<subdivision type="tjdu" draft="contributed">Dusanbe</subdivision>
+			<subdivision type="tmb" draft="contributed">Balkan</subdivision>
+			<subdivision type="tms" draft="contributed">Aşgabat</subdivision>
+			<subdivision type="tn12" draft="contributed">Ariana kormányzóság</subdivision>
+			<subdivision type="tn13" draft="contributed">Ben Arous kormányzóság</subdivision>
+			<subdivision type="tn23" draft="contributed">Bizerte kormányzóság</subdivision>
+			<subdivision type="tn31" draft="contributed">Béja kormányzóság</subdivision>
+			<subdivision type="tn71" draft="contributed">Gafsa kormányzóság</subdivision>
+			<subdivision type="tn81" draft="contributed">Gabès kormányzóság</subdivision>
+			<subdivision type="tr01" draft="contributed">Adana</subdivision>
+			<subdivision type="tr02" draft="contributed">Adıyaman</subdivision>
+			<subdivision type="tr03" draft="contributed">Afyonkarahisar</subdivision>
+			<subdivision type="tr04" draft="contributed">Ağrı</subdivision>
+			<subdivision type="tr05" draft="contributed">Amasya</subdivision>
+			<subdivision type="tr06" draft="contributed">Ankara</subdivision>
+			<subdivision type="tr07" draft="contributed">Antalya</subdivision>
+			<subdivision type="tr08" draft="contributed">Artvin</subdivision>
+			<subdivision type="tr09" draft="contributed">Aydın</subdivision>
+			<subdivision type="tr10" draft="contributed">Balıkesir</subdivision>
+			<subdivision type="tr11" draft="contributed">Bilecik</subdivision>
+			<subdivision type="tr12" draft="contributed">Bingöl</subdivision>
+			<subdivision type="tr13" draft="contributed">Bitlis</subdivision>
+			<subdivision type="tr14" draft="contributed">Bolu</subdivision>
+			<subdivision type="tr15" draft="contributed">Burdur</subdivision>
+			<subdivision type="tr16" draft="contributed">Bursa</subdivision>
+			<subdivision type="tr17" draft="contributed">Çanakkale</subdivision>
+			<subdivision type="tr18" draft="contributed">Çankırı (tartomány)</subdivision>
+			<subdivision type="tr19" draft="contributed">Çorum (tartomány)</subdivision>
+			<subdivision type="tr20" draft="contributed">Denizli</subdivision>
+			<subdivision type="tr21" draft="contributed">Diyarbakır</subdivision>
+			<subdivision type="tr22" draft="contributed">Edirne</subdivision>
+			<subdivision type="tr23" draft="contributed">Elazığ</subdivision>
+			<subdivision type="tr24" draft="contributed">Erzincan</subdivision>
+			<subdivision type="tr25" draft="contributed">Erzurum</subdivision>
+			<subdivision type="tr26" draft="contributed">Eskişehir</subdivision>
+			<subdivision type="tr27" draft="contributed">Gaziantep</subdivision>
+			<subdivision type="tr28" draft="contributed">Giresun</subdivision>
+			<subdivision type="tr29" draft="contributed">Gümüşhane</subdivision>
+			<subdivision type="tr30" draft="contributed">Hakkari</subdivision>
+			<subdivision type="tr31" draft="contributed">Hatay</subdivision>
+			<subdivision type="tr32" draft="contributed">Isparta</subdivision>
+			<subdivision type="tr33" draft="contributed">Mersin</subdivision>
+			<subdivision type="tr34" draft="contributed">İstanbul</subdivision>
+			<subdivision type="tr35" draft="contributed">İzmir (tartomány)</subdivision>
+			<subdivision type="tr36" draft="contributed">Kars</subdivision>
+			<subdivision type="tr37" draft="contributed">Kastamonu</subdivision>
+			<subdivision type="tr38" draft="contributed">Kayseri</subdivision>
+			<subdivision type="tr39" draft="contributed">Kırklareli</subdivision>
+			<subdivision type="tr40" draft="contributed">Kırşehir</subdivision>
+			<subdivision type="tr41" draft="contributed">Kocaeli</subdivision>
+			<subdivision type="tr42" draft="contributed">Konya</subdivision>
+			<subdivision type="tr43" draft="contributed">Kütahya</subdivision>
+			<subdivision type="tr44" draft="contributed">Malatya</subdivision>
+			<subdivision type="tr45" draft="contributed">Manisa</subdivision>
+			<subdivision type="tr46" draft="contributed">Kahramanmaraş</subdivision>
+			<subdivision type="tr47" draft="contributed">Mardin</subdivision>
+			<subdivision type="tr48" draft="contributed">Muğla</subdivision>
+			<subdivision type="tr49" draft="contributed">Muş</subdivision>
+			<subdivision type="tr50" draft="contributed">Nevşehir</subdivision>
+			<subdivision type="tr51" draft="contributed">Niğde</subdivision>
+			<subdivision type="tr52" draft="contributed">Ordu</subdivision>
+			<subdivision type="tr53" draft="contributed">Rize</subdivision>
+			<subdivision type="tr54" draft="contributed">Sakarya</subdivision>
+			<subdivision type="tr55" draft="contributed">Samsun</subdivision>
+			<subdivision type="tr56" draft="contributed">Siirt</subdivision>
+			<subdivision type="tr57" draft="contributed">Sinop</subdivision>
+			<subdivision type="tr58" draft="contributed">Sivas</subdivision>
+			<subdivision type="tr59" draft="contributed">Tekirdağ</subdivision>
+			<subdivision type="tr60" draft="contributed">Tokat</subdivision>
+			<subdivision type="tr61" draft="contributed">Trabzon</subdivision>
+			<subdivision type="tr62" draft="contributed">Tunceli</subdivision>
+			<subdivision type="tr63" draft="contributed">Şanlıurfa (tartomány)</subdivision>
+			<subdivision type="tr64" draft="contributed">Uşak</subdivision>
+			<subdivision type="tr65" draft="contributed">Van</subdivision>
+			<subdivision type="tr66" draft="contributed">Yozgat</subdivision>
+			<subdivision type="tr67" draft="contributed">Zonguldak (tartomány)</subdivision>
+			<subdivision type="tr68" draft="contributed">Aksaray</subdivision>
+			<subdivision type="tr69" draft="contributed">Bayburt</subdivision>
+			<subdivision type="tr70" draft="contributed">Karaman</subdivision>
+			<subdivision type="tr71" draft="contributed">Kırıkkale</subdivision>
+			<subdivision type="tr72" draft="contributed">Batman</subdivision>
+			<subdivision type="tr73" draft="contributed">Şırnak</subdivision>
+			<subdivision type="tr74" draft="contributed">Bartın</subdivision>
+			<subdivision type="tr75" draft="contributed">Ardahan</subdivision>
+			<subdivision type="tr76" draft="contributed">Iğdır</subdivision>
+			<subdivision type="tr77" draft="contributed">Yalova</subdivision>
+			<subdivision type="tr78" draft="contributed">Karabük</subdivision>
+			<subdivision type="tr79" draft="contributed">Kilis</subdivision>
+			<subdivision type="tr80" draft="contributed">Osmaniye</subdivision>
+			<subdivision type="tr81" draft="contributed">Düzce</subdivision>
+			<subdivision type="ttcha" draft="contributed">Chaguanas</subdivision>
+			<subdivision type="ttpos" draft="contributed">Port of Spain</subdivision>
+			<subdivision type="tttob" draft="contributed">Tobago</subdivision>
+			<subdivision type="tvfun" draft="contributed">Funafuti</subdivision>
+			<subdivision type="tvnit" draft="contributed">Niutao</subdivision>
+			<subdivision type="tvnkf" draft="contributed">Nukufetau</subdivision>
+			<subdivision type="tvnkl" draft="contributed">Nukulaelae</subdivision>
+			<subdivision type="tvnma" draft="contributed">Nanumea</subdivision>
+			<subdivision type="tvnmg" draft="contributed">Nanumanga</subdivision>
+			<subdivision type="tvnui" draft="contributed">Nui</subdivision>
+			<subdivision type="tvvai" draft="contributed">Vaitupu</subdivision>
+			<subdivision type="twcyq" draft="contributed">Csiaji</subdivision>
+			<subdivision type="twhsz" draft="contributed">Hszincsu</subdivision>
+			<subdivision type="twkee" draft="contributed">Csilung</subdivision>
+			<subdivision type="twkhh" draft="contributed">Kaohsziung</subdivision>
+			<subdivision type="twkin" draft="contributed">Csinmen-szigetek</subdivision>
+			<subdivision type="twtao" draft="contributed">Taojüan megye</subdivision>
+			<subdivision type="twtnn" draft="contributed">Tajnan</subdivision>
+			<subdivision type="twtpe" draft="contributed">Tajpej</subdivision>
+			<subdivision type="twtxg" draft="contributed">Tajcshung</subdivision>
+			<subdivision type="ua05" draft="contributed">Vinnicjai terület</subdivision>
+			<subdivision type="ua07" draft="contributed">Volinyi terület</subdivision>
+			<subdivision type="ua09" draft="contributed">Luhanszki terület</subdivision>
+			<subdivision type="ua12" draft="contributed">Dnyipropetrovszki terület</subdivision>
+			<subdivision type="ua14" draft="contributed">Donecki terület</subdivision>
+			<subdivision type="ua18" draft="contributed">Zsitomiri terület</subdivision>
+			<subdivision type="ua21" draft="contributed">Kárpátalja</subdivision>
+			<subdivision type="ua23" draft="contributed">Zaporizzsjai terület</subdivision>
+			<subdivision type="ua26" draft="contributed">Ivano-frankivszki terület</subdivision>
+			<subdivision type="ua30" draft="contributed">Kijev</subdivision>
+			<subdivision type="ua32" draft="contributed">Kijevi terület</subdivision>
+			<subdivision type="ua35" draft="contributed">Kirovohradi terület</subdivision>
+			<subdivision type="ua40" draft="contributed">Szevasztopol</subdivision>
+			<subdivision type="ua43" draft="contributed">Krími Autonóm Köztársaság</subdivision>
+			<subdivision type="ua46" draft="contributed">Lvivi terület</subdivision>
+			<subdivision type="ua48" draft="contributed">Mikolajivi terület</subdivision>
+			<subdivision type="ua51" draft="contributed">Odesszai terület</subdivision>
+			<subdivision type="ua53" draft="contributed">Poltavai terület</subdivision>
+			<subdivision type="ua59" draft="contributed">Szumi terület</subdivision>
+			<subdivision type="ua61" draft="contributed">Ternopili terület</subdivision>
+			<subdivision type="ua63" draft="contributed">Harkivi terület</subdivision>
+			<subdivision type="ua65" draft="contributed">Herszoni terület</subdivision>
+			<subdivision type="ua68" draft="contributed">Hmelnickiji terület</subdivision>
+			<subdivision type="ua71" draft="contributed">Cserkaszi terület</subdivision>
+			<subdivision type="ua74" draft="contributed">Csernyihivi terület</subdivision>
+			<subdivision type="ua77" draft="contributed">Csernyivci terület</subdivision>
+			<subdivision type="um67" draft="contributed">Johnston-atoll</subdivision>
+			<subdivision type="um71" draft="contributed">Midway-atoll</subdivision>
+			<subdivision type="um76" draft="contributed">Navassa-sziget</subdivision>
+			<subdivision type="um79" draft="contributed">Wake-sziget</subdivision>
+			<subdivision type="um81" draft="contributed">Baker-sziget</subdivision>
+			<subdivision type="um84" draft="contributed">Howland-sziget</subdivision>
+			<subdivision type="um86" draft="contributed">Jarvis-sziget</subdivision>
+			<subdivision type="um89" draft="contributed">Kingman-zátony</subdivision>
+			<subdivision type="um95" draft="contributed">Palmyra-atoll</subdivision>
+			<subdivision type="usak" draft="contributed">Alaszka</subdivision>
+			<subdivision type="usal" draft="contributed">Alabama</subdivision>
+			<subdivision type="usar" draft="contributed">Arkansas</subdivision>
+			<subdivision type="usaz" draft="contributed">Arizona</subdivision>
+			<subdivision type="usca" draft="contributed">Kalifornia</subdivision>
+			<subdivision type="usco" draft="contributed">Colorado</subdivision>
+			<subdivision type="usct" draft="contributed">Connecticut</subdivision>
+			<subdivision type="usdc" draft="contributed">Washington</subdivision>
+			<subdivision type="usde" draft="contributed">Delaware</subdivision>
+			<subdivision type="usfl" draft="contributed">Florida</subdivision>
+			<subdivision type="usga" draft="contributed">Georgia</subdivision>
+			<subdivision type="ushi" draft="contributed">Hawaii</subdivision>
+			<subdivision type="usia" draft="contributed">Iowa</subdivision>
+			<subdivision type="usid" draft="contributed">Idaho</subdivision>
+			<subdivision type="usil" draft="contributed">Illinois</subdivision>
+			<subdivision type="usin" draft="contributed">Indiana</subdivision>
+			<subdivision type="usks" draft="contributed">Kansas</subdivision>
+			<subdivision type="usky" draft="contributed">Kentucky</subdivision>
+			<subdivision type="usla" draft="contributed">Louisiana</subdivision>
+			<subdivision type="usma" draft="contributed">Massachusetts</subdivision>
+			<subdivision type="usmd" draft="contributed">Maryland</subdivision>
+			<subdivision type="usme" draft="contributed">Maine</subdivision>
+			<subdivision type="usmi" draft="contributed">Michigan</subdivision>
+			<subdivision type="usmn" draft="contributed">Minnesota</subdivision>
+			<subdivision type="usmo" draft="contributed">Missouri</subdivision>
+			<subdivision type="usms" draft="contributed">Mississippi</subdivision>
+			<subdivision type="usmt" draft="contributed">Montana</subdivision>
+			<subdivision type="usnc" draft="contributed">Észak-Karolina</subdivision>
+			<subdivision type="usnd" draft="contributed">Észak-Dakota</subdivision>
+			<subdivision type="usne" draft="contributed">Nebraska</subdivision>
+			<subdivision type="usnh" draft="contributed">New Hampshire</subdivision>
+			<subdivision type="usnj" draft="contributed">New Jersey</subdivision>
+			<subdivision type="usnm" draft="contributed">Új-Mexikó</subdivision>
+			<subdivision type="usnv" draft="contributed">Nevada</subdivision>
+			<subdivision type="usny" draft="contributed">New York</subdivision>
+			<subdivision type="usoh" draft="contributed">Ohio</subdivision>
+			<subdivision type="usok" draft="contributed">Oklahoma</subdivision>
+			<subdivision type="usor" draft="contributed">Oregon</subdivision>
+			<subdivision type="uspa" draft="contributed">Pennsylvania</subdivision>
+			<subdivision type="usri" draft="contributed">Rhode Island</subdivision>
+			<subdivision type="ussc" draft="contributed">Dél-Karolina</subdivision>
+			<subdivision type="ussd" draft="contributed">Dél-Dakota</subdivision>
+			<subdivision type="ustn" draft="contributed">Tennessee</subdivision>
+			<subdivision type="ustx" draft="contributed">Texas</subdivision>
+			<subdivision type="usut" draft="contributed">Utah</subdivision>
+			<subdivision type="usva" draft="contributed">Virginia</subdivision>
+			<subdivision type="usvt" draft="contributed">Vermont</subdivision>
+			<subdivision type="uswa" draft="contributed">Washington²</subdivision>
+			<subdivision type="uswi" draft="contributed">Wisconsin</subdivision>
+			<subdivision type="uswv" draft="contributed">Nyugat-Virginia</subdivision>
+			<subdivision type="uswy" draft="contributed">Wyoming</subdivision>
+			<subdivision type="uyar" draft="contributed">Artigas megye</subdivision>
+			<subdivision type="uyca" draft="contributed">Canelones megye</subdivision>
+			<subdivision type="uycl" draft="contributed">Cerro Largo megye</subdivision>
+			<subdivision type="uyco" draft="contributed">Colonia megye</subdivision>
+			<subdivision type="uydu" draft="contributed">Durazno megye</subdivision>
+			<subdivision type="uyfd" draft="contributed">Florida megye</subdivision>
+			<subdivision type="uyfs" draft="contributed">Flores megye</subdivision>
+			<subdivision type="uyla" draft="contributed">Lavalleja megye</subdivision>
+			<subdivision type="uyma" draft="contributed">Maldonado megye</subdivision>
+			<subdivision type="uymo" draft="contributed">Montevideo megye</subdivision>
+			<subdivision type="uypa" draft="contributed">Paysandú megye</subdivision>
+			<subdivision type="uyrn" draft="contributed">Río Negro megye</subdivision>
+			<subdivision type="uyro" draft="contributed">Rocha megye</subdivision>
+			<subdivision type="uyrv" draft="contributed">Rivera megye</subdivision>
+			<subdivision type="uysa" draft="contributed">Salto megye</subdivision>
+			<subdivision type="uysj" draft="contributed">San José megye</subdivision>
+			<subdivision type="uyso" draft="contributed">Soriano megye</subdivision>
+			<subdivision type="uyta" draft="contributed">Tacuarembó megye</subdivision>
+			<subdivision type="uytt" draft="contributed">Treinta y Tres megye</subdivision>
+			<subdivision type="uzqr" draft="contributed">Karakalpaksztán</subdivision>
+			<subdivision type="uztk" draft="contributed">Taskent</subdivision>
+			<subdivision type="uzto" draft="contributed">Taskenti terület</subdivision>
+			<subdivision type="veb" draft="contributed">Anzoátegui</subdivision>
+			<subdivision type="vec" draft="contributed">Apure</subdivision>
+			<subdivision type="vem" draft="contributed">Miranda</subdivision>
+			<subdivision type="vey" draft="contributed">Delta Amacuro</subdivision>
+			<subdivision type="vez" draft="contributed">Amazonas</subdivision>
+			<subdivision type="vn24" draft="contributed">Quang Binh</subdivision>
+			<subdivision type="vnct" draft="contributed">Cần Thơ</subdivision>
+			<subdivision type="vndn" draft="contributed">Đà Nẵng</subdivision>
+			<subdivision type="vnhn" draft="contributed">Hanoi</subdivision>
+			<subdivision type="vnhp" draft="contributed">Hải Phòng</subdivision>
+			<subdivision type="vnsg" draft="contributed">Ho Si Minh-város</subdivision>
+			<subdivision type="wfal" draft="contributed">Alo</subdivision>
+			<subdivision type="wfsg" draft="contributed">Sigave</subdivision>
+			<subdivision type="wfuv" draft="contributed">Uvea</subdivision>
+			<subdivision type="yeab" draft="contributed">Abjan kormányzóság</subdivision>
+			<subdivision type="yead" draft="contributed">Áden kormányzóság</subdivision>
+			<subdivision type="yeam" draft="contributed">Amrán kormányzóság</subdivision>
+			<subdivision type="yeba" draft="contributed">Bajdá kormányzóság</subdivision>
+			<subdivision type="yeda" draft="contributed">Dáli kormányzóság</subdivision>
+			<subdivision type="yedh" draft="contributed">Dzamár kormányzóság</subdivision>
+			<subdivision type="yehd" draft="contributed">Hadramaut kormányzóság</subdivision>
+			<subdivision type="yehj" draft="contributed">Haddzsa kormányzóság</subdivision>
+			<subdivision type="yehu" draft="contributed">Hudajda kormányzóság</subdivision>
+			<subdivision type="yeib" draft="contributed">Ibb kormányzóság</subdivision>
+			<subdivision type="yeja" draft="contributed">Dzsauf kormányzóság</subdivision>
+			<subdivision type="yela" draft="contributed">Lahidzs kormányzóság</subdivision>
+			<subdivision type="yema" draft="contributed">Marib kormányzóság</subdivision>
+			<subdivision type="yemr" draft="contributed">Mahra kormányzóság</subdivision>
+			<subdivision type="yemw" draft="contributed">Mahvít kormányzóság</subdivision>
+			<subdivision type="yera" draft="contributed">Rajma kormányzóság</subdivision>
+			<subdivision type="yesa" draft="contributed">Szanaa</subdivision>
+			<subdivision type="yesd" draft="contributed">Szaada kormányzóság</subdivision>
+			<subdivision type="yesh" draft="contributed">Sabva kormányzóság</subdivision>
+			<subdivision type="yesn" draft="contributed">Szanaa kormányzóság</subdivision>
+			<subdivision type="yeta" draft="contributed">Taizz kormányzóság</subdivision>
+			<subdivision type="zaec" draft="contributed">Kelet-Fokföld</subdivision>
+			<subdivision type="zafs" draft="contributed">Szabadállam</subdivision>
+			<subdivision type="zanc" draft="contributed">Észak-Fokföld</subdivision>
+			<subdivision type="zanl" draft="contributed">KwaZulu-Natal</subdivision>
+			<subdivision type="zawc" draft="contributed">Nyugat-Fokföld</subdivision>
+		</subdivisions>
+	</localeDisplayNames>
+</ldml>

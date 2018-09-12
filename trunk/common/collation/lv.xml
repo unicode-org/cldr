@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="lv" /> 
+	</identity>
+		<collations  >
+			<collation type="standard" references="Dzintra Kalniņa: Latvian-English Dictionary ISBN 9984-700-52-6">
+				<cr><![CDATA[
+					&[before 1]D<č<<<Č
+					&[before 1]H<ģ<<<Ģ
+					&I<<y<<<Y
+					&[before 1]L<ķ<<<Ķ
+					&[before 1]M<ļ<<<Ļ
+					&[before 1]O<ņ<<<Ņ
+					&[before 1]S<ŗ<<<Ŗ
+					&[before 1]T<š<<<Š
+					&[before 1]Ʒ<ž<<<Ž
+				]]></cr>
+			</collation>
+		</collations>
+</ldml>

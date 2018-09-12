@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2017 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="de" target="ASCII" direction="forward" alias="de-t-de-d0-ascii">
+			<tRule>
+$AE = [Ä {A \u0308}];
+$OE = [Ö {O \u0308}];
+$UE = [Ü {U \u0308}];
+
+[ä {a \u0308}] → ae;
+[ö {o \u0308}] → oe;
+[ü {u \u0308}] → ue;
+
+{$AE} [:Lowercase:] → Ae;
+{$OE} [:Lowercase:] → Oe;
+{$UE} [:Lowercase:] → Ue;
+
+$AE → AE;
+$OE → OE;
+$UE → UE;
+
+::Any-ASCII;
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

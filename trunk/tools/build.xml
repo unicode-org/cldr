@@ -1,0 +1,63 @@
+<project name="CLDR Distribution" default="all" basedir=".">
+  <target name="init">
+    <tstamp/>
+    <property name="version" value="33.0"/>
+    <property name="dist.dir" value="dist"/>
+    <property name="dist.conf.dir" value="dist.conf"/>
+    <property name="excludes.file" value="${dist.conf.dir}/distExcludes.txt"/>
+    <property name="includes.common.file" value="${dist.conf.dir}/includes-common.txt"/>
+    <property name="includes.tools.file" value="${dist.conf.dir}/includes-tools.txt"/>
+    <property name="includes.keyboards.file" value="${dist.conf.dir}/includes-keyboards.txt"/>
+  </target>
+
+  <target name="all" depends="dist-common,dist-tools,dist-keyboards"/>
+
+  <target name="clean" depends="init" description="Clean out the distribution directory">
+    <delete dir="${dist.dir}"/>
+  </target>
+
+  <target name="dist-excludes" depends="init">
+    <exec dir="scripts" executable="bash">
+      <arg line="distUpdateExcludes.sh"/>
+    </exec>
+  </target>
+
+  <target name="dist-dir">
+    <mkdir dir="${dist.dir}"/>
+  </target>
+
+  <target name="dist-common" depends="init,dist-dir,dist-excludes">
+    <zip destfile="${dist.dir}/core.zip"
+         compress="yes">
+         <fileset
+             excludesfile="${excludes.file}"
+             dir=".."
+             includesfile="${includes.common.file}"
+         />
+    </zip>
+    <symlink link="${dist.dir}/cldr-common-${version}.zip" resource="core.zip"/>
+  </target>
+
+  <target name="dist-tools" depends="init,dist-dir,dist-excludes">
+    <zip destfile="${dist.dir}/tools.zip"
+         compress="yes">
+         <fileset
+             excludesfile="${excludes.file}"
+             dir=".."
+             includesfile="${includes.tools.file}"
+         />
+    </zip>
+    <symlink link="${dist.dir}/cldr-tools-${version}.zip" resource="tools.zip"/>
+  </target>
+  <target name="dist-keyboards" depends="init,dist-dir,dist-excludes">
+    <zip destfile="${dist.dir}/keyboards.zip"
+         compress="yes">
+         <fileset
+             excludesfile="${excludes.file}"
+             dir=".."
+             includesfile="${includes.keyboards.file}"
+         />
+    </zip>
+    <symlink link="${dist.dir}/cldr-keyboards-${version}.zip" resource="keyboards.zip"/>
+  </target>
+</project>

@@ -1,0 +1,93 @@
+h1 {
+	margin-bottom: 1em
+}
+
+.body {
+	
+}
+
+.td, .th, .value, .rtl_value, .path, .head, .pathHeader {
+	border: 1px solid #0000FF;
+	text-align: left;
+	vertical-align: top;
+	font-size: 75%
+}
+
+p {
+	text-indent: -5em;
+	margin-left: 5em
+}
+
+.pathHeader {
+	font-weight: bold;
+	background-color: #000099;
+	font-size: 120%;
+	color: white
+}
+
+.path {
+	font-weight: bold;
+	background-color: #ddddFF
+}
+
+.head {
+	background-color: #DDDDFF;
+	font-weight: normal;
+	FONT-FAMILY: Arial, Geneva, sans-serif
+}
+
+.table {
+	border-collapse: collapse;
+	margin-top: 1em
+}
+
+i {
+	color: red
+}
+
+.value, .rtl_value {
+	font-weight: normal;
+	padding-left: 1em
+}
+
+.value {
+	width: 25%;
+}
+
+.rtl_value {
+	width: 1%;
+	direction: rtl;
+	text-align: right
+}
+
+caption {
+	font-weight: bold;
+	text-align: left;
+	font-size: 120%;
+	margin-top: 1em
+}
+
+.cell, .empty, .head {
+	text-align: center;
+	border: 1px solid #0000FF;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.left {
+	text-align: left;
+}
+
+.cell {
+	text-align: center;
+	border: 1px solid #0000FF;
+	background-color: #DDFFDD
+}
+
+.empty {
+	width: 25%;
+	border-right: 0px solid #0000FF;
+	border-left: 0px solid #0000FF;
+}

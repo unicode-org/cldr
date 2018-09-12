@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="mt"/>
+	</identity>
+		<collations>
+			<collation type="standard">
+				<cr><![CDATA[
+[caseFirst upper]  # DMS MSA 200:2009
+
+# This collation follows Maltese Standard DMS MSA 200:2009
+# The document is available at:
+#  <http://www.kunsilltalmalti.gov.mt/filebank/documents/2009-10-14%20MSA%20Specification%20for%20Maltese%20locale%20(abbozz%20finali).pdf>
+# More information is available at: (search for "MSA 200")
+#  <http://www.kunsilltalmalti.gov.mt/rizorsi>
+
+&[before 1]c<ċ<<<Ċ
+&[before 1]g<ġ<<<Ġ
+# DMS 200:2009 says that "għ" shall be treated as one letter.
+&[before 1]h<għ<<<gĦ<<<Għ<<<GĦ
+# DMS 200:2009 says that "ie" shall be treated as two letters: i + e.
+&[before 1]i<ħ<<<Ħ
+&[before 1]z<ż<<<Ż
+				]]></cr>
+			</collation>
+		</collations>
+</ldml>

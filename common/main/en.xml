@@ -1305,6 +1305,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="d0" type="ascii">To ASCII</type>
 			<type key="d0" type="casefold">To Casefolded</type>
 			<type key="d0" type="charname">To Unicode Character Names</type>
+			<type key="d0" type="digit">To Digit Form Of Accent</type>
 			<type key="d0" type="fcc">To Unicode FCC</type>
 			<type key="d0" type="fcd">To Unicode FCD</type>
 			<type key="d0" type="fwidth">To Fullwidth</type>
@@ -1321,6 +1322,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="d0" type="remove">To Empty String</type>
 			<type key="d0" type="title">To Titlecase</type>
 			<type key="d0" type="upper">To Uppercase</type>
+			<type key="d0" type="zawgyi">To Zawgyi Myanmar Encoding</type>
 			<type key="em" type="default">Use Default Presentation For Emoji Characters</type>
 			<type key="em" type="emoji">Prefer Emoji Presentation For Emoji Characters</type>
 			<type key="em" type="text">Prefer Text Presentation For Emoji Characters</type>
@@ -1386,15 +1388,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="lw" type="normal">Normal Line Breaks For Words</type>
 			<type key="m0" type="alaloc">US ALA-LOC Transliteration</type>
 			<type key="m0" type="bgn">US BGN Transliteration</type>
+			<type key="m0" type="c11">Hex Transforms Using C11 Syntax</type>
+			<type key="m0" type="css">Hex Transforms Using CSS Syntax</type>
 			<type key="m0" type="buckwalt">Buckwalter Arabic Transliteration</type>
 			<type key="m0" type="din">German DIN Transliteration</type>
 			<type key="m0" type="gost">CIS GOST Transliteration</type>
 			<type key="m0" type="iso">ISO Transliteration</type>
+			<type key="m0" type="java">Hex Transforms Using Java Syntax</type>
 			<type key="m0" type="mcst">Korean MCST Transliteration</type>
 			<type key="m0" type="mns">Mongolian National Standard Transliteration</type>
+			<type key="m0" type="percent">Hex Transforms Using Percent Syntax</type>
+			<type key="m0" type="perl">Hex Transforms Using Perl Syntax</type>
+			<type key="m0" type="plain">Hex Transforms With No Surrounding Syntax</type>
 			<type key="m0" type="prprname">Personal Name Transliteration Variant</type>
 			<type key="m0" type="satts">Standard Arabic Technical Transliteration</type>
 			<type key="m0" type="ungegn">UN GEGN Transliteration</type>
+			<type key="m0" type="unicode">Hex Transforms Using Unicode Syntax</type>
+			<type key="m0" type="xml">Hex Transforms Using XML Syntax</type>
+			<type key="m0" type="xml10">Hex Transforms Using XML Decimal Syntax</type>
 			<type key="ms" type="metric">Metric System</type>
 			<type key="ms" type="uksystem">Imperial Measurement System</type>
 			<type key="ms" type="ussystem">US Measurement System</type>

@@ -265,6 +265,7 @@ public class ShowLocaleCoverage {
     static final Map<String, String> versionToYear = new HashMap<>();
     static {
         int[][] mapping = {
+            { 34, 2018 },
             { 32, 2017 },
             { 30, 2016 },
             { 28, 2015 },

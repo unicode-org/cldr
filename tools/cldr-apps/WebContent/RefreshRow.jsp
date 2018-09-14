@@ -215,11 +215,6 @@
 					}
 					return;
 				}
-
-				/*         DataSection section = DataSection.make(null, mySession, locale,
-				 xp, false, Level.COMPREHENSIVE.toString());
-				 */// r.put("testResults", JSONWriter.wrap(result));
-					//r.put("testsRun", cc.toString());
 				int oldSize = section.getAll().size();
 				DataSection.DataRow row = section.getDataRow(xp);
 				if (row != null) {
@@ -227,29 +222,16 @@
 						row.showVotingResults(ctx);
 					}
 					ctx.flush();
-
-					if (false) {%><td>
-            ROw: <%=row%><br>
-            current: <%=row.getCurrentItem()%>
-            uf: <%=ctx.getUserFile().cldrfile.isEmpty()%>
-            section size: <%=section.getAll().size()%> (was <%=oldSize%>), 
-            xpath: <%=section.xpathPrefix%>
-            skippedDueToCoverage: <%=section.skippedDueToCoverage%>,
-            items: <%=row.items.size()%>
-            </td>
-
-            <%
-            	}
-            		} else {
-    					if(!isJson) {
-    						response.sendError(500, "Row not found");
-    					} else {
-    						JSONWriter r = new JSONWriter(out).object().
-    								key("err").value("Row not found.").endObject();
-    					}
-    					return;
-            		}
-            	}
+        		} else {
+					if(!isJson) {
+						response.sendError(500, "Row not found");
+					} else {
+						JSONWriter r = new JSONWriter(out).object().
+								key("err").value("Row not found.").endObject();
+					}
+					return;
+        		}
+        	}
 			
 	    	} finally {
 	    		// put the name back.

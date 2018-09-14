@@ -164,16 +164,10 @@ public class InterestSort extends SortMode {
             }
         }, new Partition.Membership("Missing") {
             public boolean isMember(DataRow p) {
-                // found inherited item (extrapaths and some special paths may not
-                // have an inherited item)
-                /*
-                 * TODO: if inheritedLocale moves from CandidateItem to DataRow,
-                 * then p.inheritedItem.inheritedLocale may be simplified to p.inheritedLocale here.
-                 * Also, should change all "DataRow p" to "DataRow row".
-                 */
-                return p.inheritedItem != null &&
-                    (CLDRLocale.ROOT == p.inheritedItem.inheritedLocale || XMLSource.CODE_FALLBACK_ID
-                        .equals(p.inheritedItem.inheritedLocale.getBaseName()));
+                // extrapaths and some special paths may not have an inherited item
+                return p.inheritedLocale != null &&
+                    (CLDRLocale.ROOT == p.inheritedLocale ||
+                    XMLSource.CODE_FALLBACK_ID.equals(p.inheritedLocale.getBaseName()));
             }
         }, new Partition.Membership("Inherited") {
             public boolean isMember(DataRow p) {

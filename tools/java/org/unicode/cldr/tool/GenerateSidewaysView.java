@@ -778,17 +778,17 @@ public class GenerateSidewaysView {
     }
 
     public static String getHeader(Set<PathHeader> set) {
-        StringBuffer out = new StringBuffer("<table><tr>");
+        StringBuffer out = new StringBuffer("<table class='simple'><tr>");
         String lastMain = "";
         String lastSub = "";
         for (PathHeader pathHeader : set) {
             String mainName = pathHeader.getSection();
-            String subName = pathHeader.getPage();
+            String subName = TransliteratorUtilities.toHTML.transform(pathHeader.getPage());
             if (!mainName.equals(lastMain)) {
                 if (lastMain.length() != 0) {
                     out.append("</tr>" + System.lineSeparator() + "<tr>");
                 }
-                out.append("<th align='right' nowrap><b>"
+                out.append("<th align='right' nowrap style='vertical-align: top'><b>"
                     + TransliteratorUtilities.toHTML.transform(mainName)
                     + ":&nbsp;</b></th><td>");
                 lastMain = mainName;

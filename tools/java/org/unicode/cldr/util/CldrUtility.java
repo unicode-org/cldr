@@ -73,9 +73,12 @@ public class CldrUtility {
     // path even though a parent does.
     public static final String NO_INHERITANCE_MARKER = new String(new char[] { 0x2205, 0x2205, 0x2205 });
 
-    // Constant for "↑↑↑". Indicates a "passthru" vote to the parent locale. If CLDRFile ever
-    // finds this value in a data field, writing of the field should be suppressed.
+    /**
+     * Define the constant INHERITANCE_MARKER for "↑↑↑", used by Survey Tool to indicate a "passthru" vote to the parent locale.
+     * If CLDRFile ever finds this value in a data field, writing of the field should be suppressed.
+     */
     public static final String INHERITANCE_MARKER = new String(new char[] { 0x2191, 0x2191, 0x2191 });
+
     public static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
 
     /**

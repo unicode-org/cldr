@@ -929,7 +929,7 @@ public class SurveyForum {
         ctx.put(WebContext.ZOOMED_IN, true);
         String podBase = DataSection.xpathToSectionBase(base_xpath);
         DataSection section = ctx.getSection(podBase);
-        section.showPeasShort(ctx, item_xpath);
+        section.showDataRowsShort(ctx, item_xpath);
         return podBase;
     }
 

@@ -913,6 +913,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * @param r
          *            if non-null, resolver to re-use.
          * @return the new or updated resolver
+         * 
+         * This function is called by getResolver, and may also call itself recursively.
          */
         private VoteResolver<String> getResolverInternal(PerXPathData perXPathData, String path, VoteResolver<String> r) {
             if (path == null)
@@ -936,9 +938,18 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
              */
             r.useKeywordAnnotationVoting = path.startsWith("//ldml/annotations/annotation") && !path.contains(Emoji.TYPE_TTS);
 
-            // Workaround
+            // Workaround (workaround what?)
             CLDRFile.Status status = new CLDRFile.Status();
             diskFile.getSourceLocaleID(path, status); // ask disk file
+
+            /*
+             * TODO: Fix bug: the baileyValue set here is not, in general, the same as the one in updateInheritedValue
+             * in DataSection.java! There,
+             * inheritedValue = ourSrc.getConstructedBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
+             * For example, here we get baileyValue = "Veräifachts Chineesisch",
+             * but in updateInheritedValue we get inheritedValue = "Chineesisch (Veräifachti Chineesischi Schrift)".
+             * That's for http://localhost:8080/cldr-apps/v#/gsw_FR/Languages_A_D/3f16ed8804cebb7d
+             */
             String baileyValue = null;
             if (status.pathWhereFound.equals(path)) {
                 // we found it on the same path, so no aliasing
@@ -2034,10 +2045,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     }
 
     /**
-     * Returns userid of flagger, or null if not flagged
+     * Does the list of flags contain one for this locale and xpath?
+     *
      * @param locale
      * @param xpath
-     * @return user or null
+     * @return true or false
      */
     public boolean getFlag(CLDRLocale locale, int xpath) {
         synchronized (STFactory.class) {

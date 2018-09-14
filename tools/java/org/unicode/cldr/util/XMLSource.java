@@ -938,6 +938,12 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 }
                 if (source.hasValueAtDPath(xpath)) {
                     String value = source.getValueAtDPath(xpath);
+                    /*
+                     * TODO: this looks dubious, see https://unicode.org/cldr/trac/ticket/11299
+                     * 
+                     * Both the "immediate parent" and the "ultimate ancestor" may be of interest, as for
+                     * "Jump to Original" -- does this code result in skipping the immediate parent?
+                     */
                     if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
                         continue;
                     }

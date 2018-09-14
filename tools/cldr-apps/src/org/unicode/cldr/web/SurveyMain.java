@@ -5502,20 +5502,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
     }
 
-    static int PODTABLE_WIDTH = 13;
-
-    /** width, in columns, of the typical data table **/
-
     /**
-     * @deprecated
-     * @param ctx
-     * @param section
-     * @param zoomedIn
-     * @param canModify
+     *  width, in columns, of the typical data table
      */
-    static void printSectionTableOpen(WebContext ctx, DataSection section, boolean zoomedIn, boolean canModify) {
-        DataSection.printSectionTableOpen(ctx, section, zoomedIn, canModify);
-    }
+    static int PODTABLE_WIDTH = 13;
 
     /**
      * section may be null.

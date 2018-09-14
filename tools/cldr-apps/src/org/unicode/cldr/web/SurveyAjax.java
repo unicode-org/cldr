@@ -165,9 +165,9 @@ public class SurveyAjax extends HttpServlet {
 
         public static JSONObject wrap(final VoteResolver<String> r) throws JSONException {
             JSONObject ret = new JSONObject().put("raw", r.toString()).put("isDisputed", r.isDisputed())
-                /* .put("isEstablished", r.isEstablished()) NOTUSED */
                 .put("lastReleaseStatus", r.getLastReleaseStatus())
-                .put("winningValue", r.getWinningValue()).put("lastReleaseValue", r.getLastReleaseValue())
+                .put("winningValue", r.getWinningValue())
+                .put("lastReleaseValue", r.getLastReleaseValue())
                 .put("requiredVotes", r.getRequiredVotes())
                 .put("winningStatus", r.getWinningStatus());
 
@@ -583,7 +583,13 @@ public class SurveyAjax extends HttpServlet {
                                     String checkval = val;
                                     if (CldrUtility.INHERITANCE_MARKER.equals(val)) {
                                         Output<String> localeWhereFound = new Output<String>();
-                                        checkval = file.getBaileyValue(xp, null, localeWhereFound);
+                                        /*
+                                         * TODO: this looks dubious, see https://unicode.org/cldr/trac/ticket/11299
+                                         * temporarily for debugging, don't change checkval, but do call
+                                         * getBaileyValue in order to get localeWhereFound
+                                         */
+                                        // checkval = file.getBaileyValue(xp, null, localeWhereFound);
+                                        file.getBaileyValue(xp, null, localeWhereFound);
                                     }
                                     cc.check(xp, result, checkval);
                                     dataEmpty = file.isEmpty();
@@ -2309,10 +2315,12 @@ public class SurveyAjax extends HttpServlet {
      * @throws VoteNotAcceptedException 
      * @throws InvalidXPathException
      *
-     * TODO: for https://unicode.org/cldr/trac/ticket/11299
-     * figure out what needs to happen if candVal = val = INHERITANCE_MARKER,
-     * see "ci = pvi.getItem(candVal)", what if that returns inheritedItem
-     * with inheritedItem.rawValue = INHERITANCE_MARKER?
+     * Note: the function CandidateItem.getItem in DataSection.java
+     * called from here as ci = pvi.getItem(candVal)
+     * has been revised for https://unicode.org/cldr/trac/ticket/11299
+     * -- when val = candVal = INHERITANCE_MARKER, it now returns inheritedItem
+     * with inheritedItem.rawValue = INHERITANCE_MARKER. This appears to work
+     * correctly so no change has been made here.
      */
     private void submitVoteOrAbstention(JSONWriter r, String val, CookieSession mySession, CLDRLocale locale,
             String xp, STFactory stf, String otherErr, final List<CheckStatus> result,

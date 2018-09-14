@@ -3115,13 +3115,16 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * tool), then the Bailey value is returned.
      *
      * @param path
-     * @return
+     * @return the winning value
+     * 
+     * TODO: check whether this is called only when appropriate, see https://unicode.org/cldr/trac/ticket/11299
+     * Compare getStringValueWithBailey which is identical except getStringValue versus getWinningValue. 
      */
     public String getWinningValueWithBailey(String path) {
-        Output<String> localeWhereFound = new Output<String>();
-        Output<String> pathWhereFound = new Output<String>();
         String winningValue = getWinningValue(path);
         if (CldrUtility.INHERITANCE_MARKER.equals(winningValue)) {
+            Output<String> localeWhereFound = new Output<String>();
+            Output<String> pathWhereFound = new Output<String>();
             winningValue = getBaileyValue(path, pathWhereFound, localeWhereFound);
         }
         return winningValue;
@@ -3133,13 +3136,16 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * tool), then the Bailey value is returned.
      *
      * @param path
-     * @return
+     * @return the string value
+     * 
+     * TODO: check whether this is called only when appropriate, see https://unicode.org/cldr/trac/ticket/11299
+     * Compare getWinningValueWithBailey wich is identical except getWinningValue versus getStringValue. 
      */
     public String getStringValueWithBailey(String path) {
-        Output<String> localeWhereFound = new Output<String>();
-        Output<String> pathWhereFound = new Output<String>();
         String value = getStringValue(path);
         if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+            Output<String> localeWhereFound = new Output<String>();
+            Output<String> pathWhereFound = new Output<String>();
             value = getBaileyValue(path, pathWhereFound, localeWhereFound);
         }
         return value;

@@ -201,8 +201,8 @@ define({
 		voteInfo_winningKey_desc: "This mark shows the item which is currently winning.",
 		voteInfo_perValue_desc: "This shows the state and voters for a particular item.",
 		voteInfo_moreInfo: "Click here for a full explanation of the icons and their meanings.",
-		voteInfo_acceptInherited: "[Accept Inherited Value]",
-		voteInfo_baileyVoteList: "These votes are for the inherited value. They are also listed under the specific value below.",
+		voteInfo_votesForInheritance: "These are votes for inheritance.",
+		voteInfo_votesForSpecificValue: "These are votes for the specific value currently matching the inherited value. Votes for this specific value are combined with any votes for inheritance.",
 		// CheckCLDR.StatusAction 
 		StatusAction_msg:              "Not submitted: ${0}",
 		StatusAction_popupmsg:         "Sorry, your vote for '${1}' could not be submitted: ${0}", // same as StatusAction_msg but with context

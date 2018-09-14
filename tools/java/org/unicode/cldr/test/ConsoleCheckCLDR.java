@@ -155,7 +155,7 @@ public class ConsoleCheckCLDR {
         source_all(new Params().setHelp(
             "Partially qualified directories. Standard subdirectories added if not specified (/main, /annotations, /subdivisions). (Conflicts with -s.)")
             .setMatch(".*").setFlag('S').setDefault("common,seed,exemplars")), //, 'S', <changed>),
-        bailey(new Params().setHelp("check bailey values (↑↑↑)")), //, 'b', UOption.NO_ARG)
+        bailey(new Params().setHelp("check bailey values (" + CldrUtility.INHERITANCE_MARKER + ")")), //, 'b', UOption.NO_ARG)
         exemplarError(new Params().setFlag('E').setHelp("include to force strict Exemplar check"));
 
         // BOILERPLATE TO COPY
@@ -219,6 +219,9 @@ public class ConsoleCheckCLDR {
     };
     private static final boolean PATH_IN_COUNT = false;
 
+    /*
+     * TODO: unused? Should be used?
+     */
     private static String[] HelpMessage = {
         "-h \t This message",
         "-s \t Source directory, default = " + SOURCE_DIRS,
@@ -235,7 +238,7 @@ public class ConsoleCheckCLDR {
         "-n \t No aliases",
         "-u \t User, eg -uu148",
         "-y \t error/warning subtype filter, eg unexpectedOrderOfEraYear",
-        "-b \t check bailey values (↑↑↑)",
+        "-b \t check bailey values (" + CldrUtility.INHERITANCE_MARKER + ")",
     };
 
     static Counter<ErrorType> subtotalCount = new Counter<ErrorType>(true); // new ErrorCount();
@@ -652,7 +655,7 @@ public class ConsoleCheckCLDR {
                 }
                 String value = file.getStringValue(path);
                 if (baileyTest) {
-                    value = "↑↑↑";
+                    value = CldrUtility.INHERITANCE_MARKER;
                 }
                 String fullPath = file.getFullXPath(path);
 

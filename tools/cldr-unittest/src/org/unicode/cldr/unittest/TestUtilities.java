@@ -592,11 +592,21 @@ public class TestUtilities extends TestFmwkPlus {
 
     /** Test user data. Restructured to be easier to read, more typesafe */
     enum TestUser {
-        guestS(801, Organization.guest, Level.street), gnomeS(701, Organization.gnome, Level.street), googleV(404, Organization.google, Level.vetter), googleS(
-            411, Organization.google, Level.street), googleV2(424, Organization.google, Level.vetter), appleV(304, Organization.apple, Level.vetter), adobeE(
-                208, Organization.adobe, Level.expert), ibmS(101, Organization.ibm, Level.street), ibmV(134, Organization.ibm, Level.vetter), ibmE(118,
-                    Organization.ibm, Level.expert), ibmT(129, Organization.ibm, Level.tc), guestS2(802, Organization.guest, Level.street),
-                    ;
+        guestS(801, Organization.guest, Level.street),
+        gnomeS(701, Organization.gnome, Level.street),
+        gnomeV(702, Organization.gnome, Level.vetter),
+        googleV(404, Organization.google, Level.vetter),
+        googleS(411, Organization.google, Level.street),
+        googleV2(424, Organization.google, Level.vetter),
+        appleV(304, Organization.apple, Level.vetter),
+        adobeE(208, Organization.adobe, Level.expert),
+        adobeV(209, Organization.adobe, Level.vetter),
+        ibmS(101, Organization.ibm, Level.street),
+        ibmV(134, Organization.ibm, Level.vetter),
+        ibmE(118, Organization.ibm, Level.expert),
+        ibmT(129, Organization.ibm, Level.tc),
+        guestS2(802, Organization.guest, Level.street);
+
         public static final Map<Integer, VoterInfo> TEST_USERS;
         public final Integer voterId;
         public final VoterInfo voterInfo;
@@ -1530,10 +1540,13 @@ public class TestUtilities extends TestFmwkPlus {
     public void testBaileyVotes() {
         VoteResolver.setVoterToInfo(TestUser.TEST_USERS);
         VoteResolver<String> resolver = new VoteResolver<String>();
-        VoteStatus voteStatus;
+        CLDRLocale locale = CLDRLocale.getInstance("de");
+        PathHeader path = null;
 
-        // Simple case, all = bailey
-        resolver.setLocale("de");
+        /*
+         * Simple case, all = bailey
+         */
+        resolver.setLocale(locale, path);
         resolver.setBaileyValue("bailey");
         resolver.setTrunk("foo", Status.approved);
 
@@ -1542,30 +1555,54 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.add("bailey", TestUser.googleV.voterId);
         assertEquals("Simple case, all = bailey", "bailey", resolver.getWinningValue());
 
+        /*
+         * Another simple case, all = INHERITANCE_MARKER
+         * Added per https://unicode.org/cldr/trac/ticket/11299
+         */
         resolver.clear();
-        resolver.setLocale("de");
+        resolver.setLocale(locale, path);
+        resolver.setBaileyValue("bailey");
+        resolver.setTrunk("foo", Status.approved);
+
+        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.appleV.voterId);
+        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
+        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.googleV.voterId);
+        assertEquals("Another simple case, all = INHERITANCE_MARKER", CldrUtility.INHERITANCE_MARKER, resolver.getWinningValue());
+
+        /*
+         * INHERITANCE_MARKER should win here, having more votes than bailey.
+         * Changed per https://unicode.org/cldr/trac/ticket/11299
+         */
+        resolver.clear();
+        resolver.setLocale(locale, path);
         resolver.setBaileyValue("bailey");
         resolver.setTrunk("foo", Status.approved);
 
         resolver.add("bailey", TestUser.appleV.voterId);
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.googleV.voterId);
-        assertEquals("The bailey value and explicit value combine to win", "bailey", resolver.getWinningValue());
+        assertEquals("The bailey value and explicit value combine to win", CldrUtility.INHERITANCE_MARKER, resolver.getWinningValue());
 
-        // The bailey value and explicit value combine to win
+        /*
+         * INHERITANCE_MARKER should win here, having equal number of votes with bailey;
+         * first they combine to win over other-vote.
+         * Changed per https://unicode.org/cldr/trac/ticket/11299
+         */
         resolver.clear();
-        resolver.setLocale("de");
+        resolver.setLocale(locale, path);
         resolver.setBaileyValue("bailey");
         resolver.setTrunk("foo", Status.approved);
 
         resolver.add("bailey", TestUser.appleV.voterId);
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
         resolver.add("other-vote", TestUser.googleV.voterId);
-        assertEquals("The bailey value and explicit value combine to win", "bailey", resolver.getWinningValue());
+        assertEquals("The bailey value and explicit value combine to win again", CldrUtility.INHERITANCE_MARKER, resolver.getWinningValue());
 
-        // The bailey value and explicit value combine to win
+        /*
+         * Split vote, no action
+         */
         resolver.clear();
-        resolver.setLocale("de");
+        resolver.setLocale(locale, path);
         resolver.setBaileyValue("bailey");
         resolver.setTrunk("foo", Status.approved);
 
@@ -1574,16 +1611,23 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.add("other-vote", TestUser.googleV.voterId);
         assertEquals("Split vote, no action", "foo", resolver.getWinningValue());
 
-        // Currently the only case where CldrUtility.INHERITANCE_MARKER wins is where they all are.
+        /*
+         * Bailey should win if it has MORE votes than INHERITANCE_MARKER, helped
+         * by the presence of INHERITANCE_MARKER to win over other-vote.
+         * Changed per https://unicode.org/cldr/trac/ticket/11299
+         * Previously, "the only case where CldrUtility.INHERITANCE_MARKER wins is where they all are";
+         * now we already have several tests above where INHERITANCE_MARKER wins.
+         */
         resolver.clear();
-        resolver.setLocale("de");
+        resolver.setLocale(locale, path);
         resolver.setBaileyValue("bailey");
         resolver.setTrunk("foo", Status.approved);
 
-        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.googleV.voterId);
-        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.appleV.voterId);
+        resolver.add("bailey", TestUser.googleV.voterId);
+        resolver.add("bailey", TestUser.appleV.voterId);
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
-        assertEquals("Currently the only case where CldrUtility.INHERITANCE_MARKER wins is where they all are", CldrUtility.INHERITANCE_MARKER,
-            resolver.getWinningValue());
+        resolver.add("other-vote", TestUser.adobeV.voterId);
+        resolver.add("other-vote", TestUser.gnomeV.voterId);
+        assertEquals("Bailey wins with help of INHERITANCE_MARKER", "bailey", resolver.getWinningValue());
     }
 }

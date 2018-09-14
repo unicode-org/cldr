@@ -1078,13 +1078,23 @@ abstract public class CheckCLDR {
         // throw new InternalError("CheckCLDR problem: value must not be null");
         // }
         result.clear();
-        // If the item is non-winning, and either inherited or it is code-fallback, then don't run
-        // any tests on this item.  See http://unicode.org/cldr/trac/ticket/7574
-        if (value == cldrFileToCheck.getBaileyValue(path, null, null) && value != cldrFileToCheck.getWinningValue(path)) {
+
+        /*
+         * If the item is non-winning, and either inherited or it is code-fallback, then don't run
+         * any tests on this item.  See http://unicode.org/cldr/trac/ticket/7574
+         *
+         * The following conditional formerly used "value == ..." and "value != ...", which in Java doesn't
+         * mean what it does in some other languages. The condition has been changed to use the equals() method.
+         * Since value can be null, check for that first.
+         */
+        // if (value == cldrFileToCheck.getBaileyValue(path, null, null) && value != cldrFileToCheck.getWinningValue(path)) {
+        if (value != null
+                && value.equals(cldrFileToCheck.getBaileyValue(path, null, null))
+                && !value.equals(cldrFileToCheck.getWinningValue(path))) {
             return this;
         }
         // If we're being asked to run tests for an inheritance marker, then we need to change it
-        // to the "real" value first before running tests. Testing the value "↑↑↑" doesn't make sense.
+        // to the "real" value first before running tests. Testing the value CldrUtility.INHERITANCE_MARKER ("↑↑↑") doesn't make sense.
         if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
             value = cldrFileToCheck.getConstructedBaileyValue(path, null, null);
             // If it hasn't changed, then don't run any tests.
@@ -1194,7 +1204,7 @@ abstract public class CheckCLDR {
             Options options, List<CheckStatus> result) {
             result.clear();
             // If we're being asked to run tests for an inheritance marker, then we need to change it
-            // to the "real" value first before running tests. Testing the value "↑↑↑" doesn't make sense.
+            // to the "real" value first before running tests. Testing the value CldrUtility.INHERITANCE_MARKER ("↑↑↑") doesn't make sense.
             if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
                 value = getCldrFileToCheck().getConstructedBaileyValue(path, null, null);
             }

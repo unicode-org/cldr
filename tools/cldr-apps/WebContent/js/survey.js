@@ -22,6 +22,11 @@ const INHERITANCE_MARKER = "↑↑↑";
  * TODO: delete the following fixes for Object.keys, Array.isArray, and String.trim,
  * which are probably not needed anymore with the current system requirements of SurveyTool,
  * namely, versions of Chrome, Firefox, Safari, Edge not more than six months old.
+ * 
+ * References indicating full support in current browsers:
+ *  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+ *  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
+ *  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim
  */
 
 /**
@@ -406,7 +411,7 @@ LocaleMap.prototype.getLanguage = function getLanguage(locid) {
 
 /**
  * @class XpathMap
- * This manages xpid / strid / PathHeader etc mappings.
+ * This manages xpathId / strid / PathHeader etc mappings.
  * It is a cache, and gets populated with data 'volunteered' by page loads, so that
  * hopefully it doesn't need to do any network operations on its own.
  * However, it MAY BE capable of filling in any missing data via AJAX. This is why its operations are async.
@@ -428,7 +433,7 @@ function XpathMap() {
 	 */
 	this.stridToInfo = {};
 	/**
-	 * Map xpid (such as 1337) to info
+	 * Map xpathId (such as 1337) to info
 	 * @property XpathMap.xpidToInfo
 	 */
 	this.xpidToInfo = {};
@@ -2267,7 +2272,7 @@ function appendForumStuff(tr, theRow, forumDiv) {
 	var theForum = 	locmap.getLanguage(surveyCurrentLocale);
 	forumDiv.replyStub = contextPath + "/survey?forum=" + theForum + "&_=" + surveyCurrentLocale + "&replyto=";
 	forumDiv.postUrl = forumDiv.replyStub + "x"+theRow;
-	forumDiv.url = contextPath + "/SurveyAjax?xpath=" + theRow.xpid + "&_=" + surveyCurrentLocale + "&fhash="
+	forumDiv.url = contextPath + "/SurveyAjax?xpath=" + theRow.xpathId + "&_=" + surveyCurrentLocale + "&fhash="
 		+ theRow.rowHash + "&vhash=" + "&s=" + tr.theTable.session
 		+ "&voteinfo=t";
 }
@@ -2693,65 +2698,69 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 	return false;
 }
 
-// returns a popinto function
-function showItemInfoFn(theRow, item, vHash, newButton, div) {
+/**
+ * Return a function that will show info for the given item in the Info Panel.
+ * 
+ * @param theRow the data row
+ * @param item the candidate item
+ * @returns the function
+ * 
+ * Called only by addVitem.
+ */
+function showItemInfoFn(theRow, item) {
 	return function(td) {
-		//div.className = 'd-item-selected';
-		var isInherited = false;
 		var h3 = document.createElement("div");
 		var displayValue = item.value;
-		if (item.value == INHERITANCE_MARKER) {
+		if (item.value === INHERITANCE_MARKER) {
 			displayValue = theRow.inheritedValue;
-			isInherited = true;
 		}
 
 		var span = appendItem(h3, displayValue, item.pClass); /* no need to pass in 'tr' - clicking this span would have no effect. */
 		setLang(span);
 		h3.className="span";
-		if(false) { // click to copy
-			h3.onclick = function() {
-				if(tr.inputBox) {
-					tr.inputBox.value  = item.value;
-				}
-				return false;
-			};
-			h3.title = stui.clickToCopy;
-		}
 		td.appendChild(h3);
 
-		if ( item.value) {
-               h3.appendChild(createChunk(stui.sub("pClass_"+item.pClass, item ),"p","pClassExplain"));
-		}
-		if (   item.pClass === 'alias'
-			|| item.pClass === 'fallback'
-		    || item.pClass === 'fallback_root' ) {
-			isInherited = true;
+		if (item.value) {
+			/*
+			 * Strings produced here, used as keys for stui.js, may include:
+			 *  "pClass_winner", "pClass_alias", "pClass_fallback", "pClass_fallback_code", "pClass_fallback_root", "pClass_loser".
+			 *  See getPClass in DataSection.java.
+			 *  
+			 *  TODO: why not show stars, etc., here?
+			 */
+			h3.appendChild(createChunk(stui.sub("pClass_"+item.pClass, item ),"p","pClassExplain"));
 		}
 
-		if ( isInherited && (theRow.inheritedLocale || theRow.inheritedXpid )) {
-			var clickyLink = createChunk(stui.str('followAlias'), "a", 'followAlias');
-			clickyLink.href = '#/'+ ( theRow.inheritedLocale || surveyCurrentLocale )+
-				'//'+ ( theRow.inheritedXpid || theRow.xpstrid ); //linkToLocale(subLoc);
-			h3.appendChild(clickyLink);
+		if (item.value === INHERITANCE_MARKER) {
+			/*
+			 * Add a link in the Info Panel for "Jump to Original" (stui.str('followAlias')),
+			 * if theRow.inheritedLocale or theRow.inheritedXpid is defined.
+			 *
+			 * Normally at least one of theRow.inheritedLocale and theRow.inheritedXpid should be
+			 * defined whenever we have an INHERITANCE_MARKER item. Otherwise an error is reported
+			 * by checkRowConsistency.
+			 */
+			if (theRow.inheritedLocale || theRow.inheritedXpid) {
+				var clickyLink = createChunk(stui.str('followAlias'), "a", 'followAlias');
+				clickyLink.href = '#/'+ ( theRow.inheritedLocale || surveyCurrentLocale )+
+					'//'+ ( theRow.inheritedXpid || theRow.xpstrid ); //linkToLocale(subLoc);
+				h3.appendChild(clickyLink);
+			}
 		}
 
 		var newDiv = document.createElement("div");
 		td.appendChild(newDiv);
 
-		var newHtml = "";
-
 		if (item.tests) {
-			newHtml += testsToHtml(item.tests);
+			newDiv.innerHTML = testsToHtml(item.tests);
 		} else {
-			newHtml = "<i>no tests</i>";
+			newDiv.innerHTML = "<i>no tests</i>";
 		}
 
-		newDiv.innerHTML = newHtml;
-
-		if(item.example) {
+		if (item.example) {
 			appendExample(td, item.example);
 		}
-	}; // end fn
+	}; // end function(td)
 }
 
 function appendExample(parent, text, loc) {
@@ -2782,10 +2791,10 @@ function addVitem(td, tr, theRow, item, newButton) {
 		return;
 	}
 	var displayValue = item.value;
-	if (item.value == INHERITANCE_MARKER) {
-		item.pClass = theRow.inheritedPClass == "winner" ? "fallback" : theRow.inheritedPClass;
-		displayValue = theRow.inheritedValue;
+	if (item.value === INHERITANCE_MARKER) {
+		displayValue = theRow.inheritedValue; // TODO: what if theRow.inheritedValue is undefined, as it sometimes is?
 	}
+	
 	var choiceField = document.createElement("div");
 	var wrap;
 	choiceField.className = "choice-field";
@@ -2803,7 +2812,11 @@ function addVitem(td, tr, theRow, item, newButton) {
 	setLang(span);
 	checkLRmarker(choiceField, span.dir, item.value);
 
-	if(item.isOldValue==true && !isWinner) {
+	/*
+	 * TODO: show star even if isWinner? See https://unicode.org/cldr/trac/ticket/11386
+	 * That can be done by commenting out " && !isWinner" here...
+	 */
+	if(item.isOldValue==true /*** && !isWinner ***/) {
 		addIcon(choiceField,"i-star");
 	}
 	if(item.votes && !isWinner) {
@@ -2818,6 +2831,19 @@ function addVitem(td, tr, theRow, item, newButton) {
 			var newIcon = addIcon(choiceField,"i-stop"); // DEBUG
 		}
 	}
+
+	/*
+	 * Note: history is maybe only defined for debugging; won't normally display it in production.
+	 * See DataSection.USE_CANDIDATE_HISTORY which currently should be false for production, so
+	 * that item.history will be undefined.
+	 */
+	if (item.history) {
+		const historyText = " ☛" + item.history;
+		const historyTag = createChunk(historyText, "span", "");
+		choiceField.appendChild(historyTag);
+		listenToPop(historyText, tr, historyTag);
+	}
+
 	if(newButton &&
 			theRow.voteVhash == item.valueHash &&
 			theRow.items[theRow.voteVhash].votes &&
@@ -2829,25 +2855,14 @@ function addVitem(td, tr, theRow, item, newButton) {
 
 	div.appendChild(choiceField);
 
-	var inheritedClassName = "fallback";
-	var defaultClassName = "fallback_code";
-
-    // wire up the onclick
-	td.showFn = item.showFn = showItemInfoFn(theRow,item,item.valueHash,newButton,div);
+    // wire up the onclick function for the Info Panel
+	td.showFn = item.showFn = showItemInfoFn(theRow,item);
 	div.popParent = tr;
 	listenToPop(null, tr, div, td.showFn);
 	td.appendChild(div);
 
     if(item.example && item.value != item.examples ) {
 		appendExample(div,item.example);
-	}
-}
-
-function calcPClass(value, winner) {
-	if(value==winner) {
-		return "winner";
-	} else {
-		return "value";
 	}
 }
 
@@ -2879,18 +2894,15 @@ function appendExtraAttributes(container, theRow) {
  * Dashboard columns are:
  * Code    English    CLDR 33    Winning 34    Action
  * 
- * TODO: even after moving most of its code to about six new subroutines, this function still has 194 lines. Shorten it.
- * 
  * Called by insertRowsIntoTbody and loadHandler (in refreshRow2).
  */
 function updateRow(tr, theRow) {
 	tr.theRow = theRow;
 
+	checkRowConsistency(theRow);
+
 	/*
 	 * For convenience, set up two hashes, for reverse mapping from value or rawValue to item.
-	 * 
-	 * At the same time, find the item with rawValue === INHERITANCE_MARKER and if found mark it with
-	 * "item.isVoteForBailey = true" and point to it with "tr.voteForBaileyItem = item".
 	 */	
 	tr.valueToItem = {}; // hash:  string value to item (which has a div)
 	tr.rawValueToItem = {}; // hash:  string value to item (which has a div)
@@ -2899,47 +2911,6 @@ function updateRow(tr, theRow) {
 		if(item.value) {
 			tr.valueToItem[item.value] = item; // back link by value
 			tr.rawValueToItem[item.rawValue] = item; // back link by value
-			if(item.rawValue === INHERITANCE_MARKER) { // This is a vote for Bailey.
-				item.isVoteForBailey = true;
-				tr.voteForBaileyItem = item;
-			}
-		}
-		/*
-		 * TODO: get rid of "isBailey". Instead, distinguish two kinds of votes for inherited value in Survey Tool
-		 * https://unicode.org/cldr/trac/ticket/11299
-		 * "Soft" item will have item.rawValue === INHERITANCE_MARKER
-		 * "Hard" item (if any) will have item.rawValue === theRow.inheritedValue
-		 * Usage will not be same as for old tr.voteForBaileyItem and tr.baileyItem; info that pertains
-		 * to the whole row will be in theRow rather than in either the soft or hard item.
-		 */
-		if(item.isBailey) {
-			tr.baileyItem = item; // This is the actual Bailey item (target of the votes)
-		}
-	}
-
-	/*
-	 * If there's a "soft" item, move/copy votes from "soft" to "hard" item.
-	 * Report error "there is no Bailey Target item" if there's a "soft" item without a corresponding "hard" item.
-	 * TODO: don't move votes here! See https://unicode.org/cldr/trac/ticket/11299
-	 * The server should set up the data we need. Here on the client isn't the place for it.
-	 * Also, it should be normal to have "soft" item but no "hard" item. There should only be a "hard" item
-	 * if a user voted for it by entering the value manually.
-	 * Currently updateInheritedValue adds isBailey item that looks "hard" but contains essential inheritance info.
-	 * That inheritance info belongs in the "soft" item or, better, in the DataRow (theRow) instead of any CandidateItem (theRow.items).
-	 * A hard item for Bailey should be like any other non-inheritance item.
-	 */
-	if(tr.voteForBaileyItem) {
-		// Some people voted for Bailey. Move those votes over to the actual target.
-		if(!tr.baileyItem) {
-			console.error('For ' + theRow.xpstrid + ' - there is no Bailey Target item!');
-			// don't delete the item
-		} else {
-			tr.baileyItem.votes = tr.baileyItem.votes || {};
-			for(var k in tr.voteForBaileyItem.votes) {
-				tr.baileyItem.votes[k] = tr.voteForBaileyItem.votes[k]; //  move vote from ↑↑↑ INHERITANCE_MARKER to explicit item
-				tr.baileyItem.votes[k].isVoteForBailey = true;
-				// no need to remove - will be handled specially below.
-			}
 		}
 	}
 
@@ -2957,15 +2928,12 @@ function updateRow(tr, theRow) {
 	tr.ticketOnly = (tr.theTable.json.canModify && tr.statusAction.ticket);
 	tr.canChange = (tr.canModify && tr.statusAction.change);
 
-    /*
-     * TODO: if theRow could be null or undefined here, shouldn't that have been checked far earlier??
-     */
-    if(!theRow || !theRow.xpid) {
+	if(!theRow || !theRow.xpathId) {
 		tr.innerHTML="<td><i>ERROR: missing row</i></td>";
 		return;
 	}
 	if(!tr.xpstrid) {
-		tr.xpid = theRow.xpid;
+		tr.xpathId = theRow.xpathId;
 		tr.xpstrid = theRow.xpstrid;
 		if(tr.xpstrid) {
 			tr.id = "r@"+tr.xpstrid;
@@ -3074,8 +3042,8 @@ function updateRow(tr, theRow) {
 	updateRowNoAbstainCell(tr, theRow, config, children, protoButton);
 
 	/*
-	 * Do something related to coverage.
-	 * TODO: explain.
+	 * Set className for this row to "vother" and "cov..." based on the coverage value.
+	 * Elsewhere className can get values including "ferrbox", "tr_err", "tr_checking2".
 	 */
 	tr.className = 'vother cov' + theRow.coverageValue;
 
@@ -3085,6 +3053,50 @@ function updateRow(tr, theRow) {
 	 */
 	if(surveyCurrentId!== '' && surveyCurrentId === tr.id) {
 		window.showCurrentId(); // refresh again - to get the updated voting status.
+	}
+}
+
+/**
+ * Check whether the data for this row is consistent, and report to console error
+ * if it isn't.
+ *
+ * @param theRow the data from the server for this row
+ *
+ * Called by updateRow.
+ * 
+ * Inconsistencies should primarily be detected/reported/fixed on server (DataSection.java)
+ * rather than here on the client, but better late than never, and these checks may be useful
+ * for automated testing with WebDriver.
+ */
+function checkRowConsistency(theRow) {
+	'use strict';
+	if (!theRow.winningVhash) {
+		/*
+		 * The server, not the client, is responsible for ensuring that a winning item is present.
+		 */
+		console.error('For ' + theRow.xpstrid + ' - there is no winningVhash');
+	} else if (theRow.items && !theRow.items[theRow.winningVhash]) {
+		console.error('For ' + theRow.xpstrid + ' - there is winningVhash but no item for it');
+	}
+	for (var k in theRow.items) {
+		var item = theRow.items[k];
+		if (item.value === INHERITANCE_MARKER) {
+			if (!theRow.inheritedValue) {
+				/*
+				 * In earlier implementation, essentially the same error was reported as "... there is no Bailey Target item!")
+				 * Reference: https://unicode.org/cldr/trac/ticket/11238
+				 */ 
+				console.error('For ' + theRow.xpstrid + ' - there is INHERITANCE_MARKER without inheritedValue');
+			} else if (!theRow.inheritedLocale && !theRow.inheritedXpid) {
+				/*
+				 * It is probably a bug if item.value === INHERITANCE_MARKER but theRow.inheritedLocale and
+				 * theRow.inheritedXpid are both undefined (null on server).
+				 * This happens with "example C" in
+				 *     https://unicode.org/cldr/trac/ticket/11299#comment:15
+				 */
+				console.log('For ' + theRow.xpstrid + ' - there is INHERITANCE_MARKER without inheritedLocale or inheritedXpid');
+			}
+		}
 	}
 }
 
@@ -3149,18 +3161,36 @@ function updateRowVoteInfo(tr, theRow) {
 		}
 		// heading row
 		var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_tr_heading");
-		if (!item.isVoteForBailey && (!item.votes || Object.keys(item.votes).length == 0)) {
-		} else {
+		if (item.rawValue === INHERITANCE_MARKER || (item.votes && Object.keys(item.votes).length > 0)) {
 			vrow.appendChild(createChunk(stui.str("voteInfo_orgColumn"), "td", "voteInfo_orgColumn voteInfo_td"));
 		}
 		var isection = createChunk(null, "div", "voteInfo_iconBar");
+		var isectionIsUsed = false;
 		var vvalue = createChunk("User", "td", "voteInfo_valueTitle voteInfo_td");
 		var vbadge = createChunk(vote, "span", "badge");
-		if (value == vr.winningValue) {
+
+		/*
+		 * Note: due to the existence of the function fixWinningValue in DataSection.java, here on the the client
+		 * we should use theRow.winningValue, not vr.winningValue. Eventually VoteResolver.getWinningValue may be
+		 * fixed in such a way that fixWinningValue isn't necessary and there won't be a distinction between
+		 * theRow.winningValue and vr.winningValue. Cf. theRow.winningVhash.
+		 * TODO: alternatively, could we just check for item.pClass === "winner" here?
+		 */
+		if (value == theRow.winningValue) {
 			appendIcon(isection, "voteInfo_winningItem d-dr-" + theRow.voteResolver.winningStatus);
+			isectionIsUsed = true;
 		}
-		if (value == vr.lastReleaseValue) {
+
+		/*
+		 * For adding star for last release value, we could check item.isOldValue or (value == vr.lastReleaseValue);
+		 * ideally the two should be consistent. The star icon should be applied to old value = inherited value when
+		 * appropriate. Work is in progress on ticket 11299, whether item with value INHERITANCE_MARKER has isOldValue,
+		 * whether vr.lastReleaseValue is ever INHERITANCE_MARKER. For flexibility, for now, show star if either of the
+		 * conditions is true.
+		 */
+		if (value == vr.lastReleaseValue || item.isOldValue) {
 			appendIcon(isection, "voteInfo_lastRelease i-star");
+			isectionIsUsed = true;
 		}
 		/* Disable all usage of the "i-vote" (vote.png, check-mark in a square) icon pending
 		 * clarification/documentation of its meaning/purpose.
@@ -3168,116 +3198,39 @@ function updateRowVoteInfo(tr, theRow) {
 		 * See https://unicode.org/cldr/trac/ticket/10521#comment:29
 		 */
 		/***
-		if(value != vr.winningValue) {
-				appendIcon(isection,"i-vote");
+		if(value != theRow.winningValue) {
+			appendIcon(isection,"i-vote");
+			isectionIsUsed = true;
 		}
 		***/
 		setLang(valdiv);
-		if (value == INHERITANCE_MARKER) {
-			appendItem(valdiv, stui.str("voteInfo_acceptInherited"), "fallback", tr);
-			valdiv.appendChild(createChunk(stui.str('voteInfo_baileyVoteList'), 'p'));
+		if (value === INHERITANCE_MARKER) {
+			appendItem(valdiv, theRow.inheritedValue, item.pClass, tr);
+			valdiv.appendChild(createChunk(stui.str("voteInfo_votesForInheritance"), 'p'));
 		} else {
-			appendItem(valdiv, value, calcPClass(value, vr.winningValue), tr);
+			/*
+			 * TODO: alternatively, could we just check for item.pClass === "winner" here?
+			 */
+			appendItem(valdiv, value, (value == theRow.winningValue) ? "winner" : "value", tr);
+			if (value === theRow.inheritedValue) {
+				valdiv.appendChild(createChunk(stui.str('voteInfo_votesForSpecificValue'), 'p'));
+			}
 		}
-		valdiv.appendChild(isection);
+		if (isectionIsUsed) {
+			valdiv.appendChild(isection);			
+		}
 		vrow.appendChild(vvalue);
 		var cell = createChunk(null, "td", "voteInfo_voteTitle voteInfo_voteCount voteInfo_td" + "");
 		cell.appendChild(vbadge);
 		vrow.appendChild(cell);
 		vdiv.appendChild(vrow);
-		var createVoter = function(v) {
-			if (v == null) {
-				return createChunk("(missing information)!", "i", "stopText");
-			}
-			var div = createChunk(v.name || stui.str('emailHidden'), "td", "voteInfo_voterInfo voteInfo_td");
-			div.setAttribute('data-name', v.name || stui.str('emailHidden'));
-			div.setAttribute('data-email', v.email || '');
-			return div;
-		};
 		if (!item.votes || Object.keys(item.votes).length == 0) {
 			var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading");
 			vrow.appendChild(createChunk(stui.str("voteInfo_noVotes"), "td", "voteInfo_noVotes voteInfo_td"));
 			vrow.appendChild(createChunk(null, "td", "voteInfo_noVotes voteInfo_td"));
 			vdiv.appendChild(vrow);
-		} else if (item.isVoteForBailey) {
-			// show the raw votes.
-			for (var kk in item.votes) {
-				var thevote = item.votes[kk];
-				var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading fallback");
-				vrow.appendChild(createChunk(thevote.org, "td", "voteInfo_orgColumn voteInfo_td"));
-				vrow.appendChild(createVoter(thevote)); // voteInfo_td
-				vdiv.appendChild(vrow);
-			}
 		} else {
-			for (org in theRow.voteResolver.orgs) {
-				var theOrg = vr.orgs[org];
-				var vrRaw = {};
-				var orgVoteValue = theOrg.votes[value];
-				if (orgVoteValue !== undefined && orgVoteValue > 0) { // someone in the org actually voted for it
-					var topVoter = null; // top voter for this item
-					var orgsVote = (theOrg.orgVote == value);
-					var topVoterTime = 0; // Calculating the latest time for a user from same org
-					if (orgsVote) {
-						// find a top-ranking voter to use for the top line
-						for (var voter in item.votes) {
-							if (item.votes[voter].org == org && item.votes[voter].votes == theOrg.votes[value]) {
-								if (topVoterTime != 0) {
-									// Get the latest time vote only
-									if (vr.nameTime[item.votes[topVoter].name] < vr.nameTime[item.votes[voter].name]) {
-										topVoter = voter;
-										console.log(item);
-										console.log(vr.nameTime[item.votes[topVoter].name]);
-										topVoterTime = vr.nameTime[item.votes[topVoter].name];
-									}
-								} else {
-									topVoter = voter;
-									console.log(item);
-									console.log(vr.nameTime[item.votes[topVoter].name]);
-									topVoterTime = vr.nameTime[item.votes[topVoter].name];
-								}
-							}
-						}
-					} else {
-						// just find someone in the right org..
-						for (var voter in item.votes) {
-							if (item.votes[voter].org == org) {
-								topVoter = voter;
-								break;
-							}
-						}
-					}
-					// ORG SUBHEADING row
-					var baileyClass = (item.votes[topVoter] && item.votes[topVoter].isVoteForBailey) ? " fallback" : "";
-					var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading");
-					vrow.appendChild(createChunk(org, "td", "voteInfo_orgColumn voteInfo_td"));
-					if (item.votes[topVoter]) {
-						vrow.appendChild(createVoter(item.votes[topVoter])); // voteInfo_td
-					} else {
-						vrow.appendChild(createVoter(null));
-					}
-					if (orgsVote) {
-						var cell = createChunk(null, "td", "voteInfo_orgsVote voteInfo_voteCount voteInfo_td" + baileyClass);
-						cell.appendChild(createChunk(orgVoteValue, "span", "badge"));
-						vrow.appendChild(cell);
-					} else
-						vrow.appendChild(createChunk(orgVoteValue, "td", "voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td" + baileyClass));
-					vdiv.appendChild(vrow);
-					//now, other rows:
-					for (var voter in item.votes) {
-						if (item.votes[voter].org != org || // wrong org or
-							voter == topVoter) { // already done
-							continue; // skip
-						}
-						// OTHER VOTER row
-						var baileyClass = (item.votes[voter].isVoteForBailey) ? " fallback" : "";
-						var vrow = createChunk(null, "tr", "voteInfo_tr");
-						vrow.appendChild(createChunk("", "td", "voteInfo_orgColumn voteInfo_td")); // spacer
-						vrow.appendChild(createVoter(item.votes[voter])); // voteInfo_td
-						vrow.appendChild(createChunk(item.votes[voter].votes, "td", "voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td" + baileyClass));
-						vdiv.appendChild(vrow);
-					}
-				}
-			}
+			updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv);
 		}
 		perValueContainer.appendChild(valdiv);
 		perValueContainer.appendChild(vdiv);
@@ -3291,6 +3244,122 @@ function updateRowVoteInfo(tr, theRow) {
 	// done with voteresolver table
 	if (stdebug_enabled) {
 		tr.voteDiv.appendChild(createChunk(vr.raw, "p", "debugStuff"));
+	}
+}
+
+/**
+ * Update the vote info for one candidate item in this row, looping through all the orgs.
+ * Information will be displayed in the Information Panel (right edge of window).
+ * 
+ * @param theRow the row
+ * @param vr the vote resolver
+ * @param value the value of the candidate item
+ * @param item the candidate item
+ * @param vdiv a table created by the caller as vdiv = createChunk(null, "table", "voteInfo_perValue table table-vote")
+ */
+function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
+	'use strict';
+	var createVoter = function(v) {
+		if (v == null) {
+			return createChunk("(missing information)!", "i", "stopText");
+		}
+		var div = createChunk(v.name || stui.str('emailHidden'), "td", "voteInfo_voterInfo voteInfo_td");
+		div.setAttribute('data-name', v.name || stui.str('emailHidden'));
+		div.setAttribute('data-email', v.email || '');
+		return div;
+	};
+	for (org in theRow.voteResolver.orgs) {
+		var theOrg = vr.orgs[org];
+		var vrRaw = {};
+		/*
+		 * Prior to changes for ticket 11299 there was a bug here when value = INHERITANCE_MARKER,
+		 * theOrg.orgVote = INHERITANCE_MARKER, but theOrg.votes had one member, and was is for "latn" 
+		 * not INHERITANCE_MARKER; bug was on server, problematic substitutions of "soft" votes with "hard" votes, now fixed.
+		 */
+		var orgVoteValue = theOrg.votes[value];
+		if (orgVoteValue !== undefined && orgVoteValue > 0) { // someone in the org actually voted for it
+			var topVoter = null; // top voter for this item
+			var orgsVote = (theOrg.orgVote == value);
+			var topVoterTime = 0; // Calculating the latest time for a user from same org
+			if (orgsVote) {
+				// find a top-ranking voter to use for the top line
+				for (var voter in item.votes) {
+					if (item.votes[voter].org == org && item.votes[voter].votes == theOrg.votes[value]) {
+						if (topVoterTime != 0) {
+							// Get the latest time vote only
+							if (vr.nameTime[item.votes[topVoter].name] < vr.nameTime[item.votes[voter].name]) {
+								topVoter = voter;
+								// console.log(item);
+								// console.log(vr.nameTime[item.votes[topVoter].name]);
+								topVoterTime = vr.nameTime[item.votes[topVoter].name];
+							}
+						} else {
+							topVoter = voter;
+							// console.log(item);
+							// console.log(vr.nameTime[item.votes[topVoter].name]);
+							topVoterTime = vr.nameTime[item.votes[topVoter].name];
+						}
+					}
+				}
+			} else {
+				// just find someone in the right org..
+				for (var voter in item.votes) {
+					if (item.votes[voter].org == org) {
+						topVoter = voter;
+						break;
+					}
+				}
+			}
+			// ORG SUBHEADING row
+
+			/*
+			 * There was some buggy code here, testing item.votes[topVoter].isVoteForBailey, but no element
+			 * of the votes array could have had isVoteForBailey, which was a property of an "item" (CandidateItem)
+			 * not a "vote" (based on UserRegistry.User -- see CandidateItem.toJSONString in DataSection.java)
+			 * 
+			 * item.votes[topVoter].isVoteForBailey was always undefined (effectively false), so baileyClass
+			 * was always "" (empty string) here.
+			 * 
+			 * This has been fixed, to test item.rawValue === INHERITANCE_MARKER instead.
+			 * 
+			 * This only affects cells ("td" elements) with style "voteInfo_voteCount", which appear in the info panel,
+			 * and which have contents like '<span class="badge">12</span>'. If the "fallback" style is added, then
+			 * these circled numbers are surrounded (outside the circle) by a colored background.
+			 * 
+			 * TODO: see whether the colored background is actually wanted in this context, around the numbers.
+			 * For now, display it, and use item.pClass rather than literal "fallback" so the color matches when
+			 * item.pClass is "alias", "fallback_root", etc.
+			 */
+			var baileyClass = (item.rawValue === INHERITANCE_MARKER) ? " " + item.pClass : "";
+			var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading");
+			vrow.appendChild(createChunk(org, "td", "voteInfo_orgColumn voteInfo_td"));
+			if (item.votes[topVoter]) {
+				vrow.appendChild(createVoter(item.votes[topVoter])); // voteInfo_td
+			} else {
+				vrow.appendChild(createVoter(null));
+			}
+			if (orgsVote) {
+				var cell = createChunk(null, "td", "voteInfo_orgsVote voteInfo_voteCount voteInfo_td" + baileyClass);
+				cell.appendChild(createChunk(orgVoteValue, "span", "badge"));
+				vrow.appendChild(cell);
+			} else {
+				vrow.appendChild(createChunk(orgVoteValue, "td", "voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td" + baileyClass));
+			}
+			vdiv.appendChild(vrow);
+			// now, other rows:
+			for (var voter in item.votes) {
+				if (item.votes[voter].org != org || // wrong org or
+					voter == topVoter) { // already done
+					continue; // skip
+				}
+				// OTHER VOTER row
+				var vrow = createChunk(null, "tr", "voteInfo_tr");
+				vrow.appendChild(createChunk("", "td", "voteInfo_orgColumn voteInfo_td")); // spacer
+				vrow.appendChild(createVoter(item.votes[voter])); // voteInfo_td
+				vrow.appendChild(createChunk(item.votes[voter].votes, "td", "voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td" + baileyClass));
+				vdiv.appendChild(vrow);
+			}
+		}
 	}
 }
 
@@ -3330,13 +3399,13 @@ function updateRowCodeCell(tr, theRow, config, children) {
 	if (stdebug_enabled) {
 		var anch = document.createElement("i");
 		anch.className = "anch";
-		anch.id = theRow.xpid;
+		anch.id = theRow.xpathId;
 		children[config.codecell].appendChild(anch);
 		anch.appendChild(document.createTextNode("#"));
 		var go = document.createElement("a");
 		go.className = "anch-go";
 		go.appendChild(document.createTextNode("zoom"));
-		go.href = window.location.pathname + "?_=" + surveyCurrentLocale + "&x=r_rxt&xp=" + theRow.xpid;
+		go.href = window.location.pathname + "?_=" + surveyCurrentLocale + "&x=r_rxt&xp=" + theRow.xpathId;
 		children[config.codecell].appendChild(go);
 		var js = document.createElement("a");
 		js.className = "anch-go";
@@ -3434,40 +3503,13 @@ function updateRowProposedWinningCell(tr, theRow, config, children, protoButton)
 	}
 	setLang(children[config.proposedcell]);
 	tr.proposedcell = children[config.proposedcell];
+
 	/*
-	 * TODO: fix bug in the following block.
-	 * See https://unicode.org/cldr/trac/ticket/11299#comment:10
-	 *
-	 * When do we have theRow.winningVhash == "" and/or theRow.winningValue == ""?
-	 * When both those conditions are true (and they often are), then regardless of whether isFallback is true or false,
-	 * theFallbackValue gets set to the LAST element of theRow.items ... and which element is the LAST
-	 * element is probably browser-dependent, see
-	 * https://stackoverflow.com/questions/280713/elements-order-in-a-for-in-loop
-	 * 
-	 * Typically we'd expect winningVhash and winningValue both to be empty, or both to be non-empty, but
-	 * there are strange exceptions, see example C in ticket 11299.
-	 *
-	 * There seems to be no reason for theFallbackValue; might as well directly
-	 * assign theRow.winningVhash = k -- but that's a relatively minor issue.
-	 * 
-	 * Aside from having this bug, this block shouldn't exist since the server should
-	 * be responsible for making sure winningVhash and winningValue are never empty.
+	 * If server doesn't do its job properly, theRow.items[theRow.winningVhash] may be undefined.
+	 * Check for that here to prevent crash in addVitem. An error message might be appropriate here
+	 * in that case, though the consistency checking really should happen earlier.
 	 */
-	if (theRow.items && theRow.winningVhash == "") {
-		// find the fallback value
-		var theFallbackValue = null;
-		for (var k in theRow.items) {
-			// console.log("DEBUG: k = [" + k + "], value = [" + value + "], isFallback = " + theRow.items[k].isFallback);			
-			if (theRow.items[k].isFallback || theRow.winningValue == "") {
-				theFallbackValue = k;
-			}
-		}
-		if (theFallbackValue !== null) {
-			// console.log("DEBUG: changing winningVhash to theFallbackValue = [" + theFallbackValue + "]");
-			theRow.winningVhash = theFallbackValue;
-		}
-	}
-	if (theRow.items && theRow.winningVhash) {
+	if (theRow.items && theRow.winningVhash && theRow.items[theRow.winningVhash]) {
 		addVitem(children[config.proposedcell], tr, theRow, theRow.items[theRow.winningVhash], cloneAnon(protoButton));
 	} else {
 		children[config.proposedcell].showFn = function() {}; // nothing else to show
@@ -3593,13 +3635,7 @@ function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd)
 	/* Add the other vote info -- that is, vote info for the "Others" column.
 	 */
 	for (k in theRow.items) {
-		if ((k === theRow.winningVhash) // skip vote for winner
-			/*
-			 * TODO: the following "skip vote for ↑↑↑" (INHERITANCE_MARKER) is dubious,
-			 *  see https://unicode.org/cldr/trac/ticket/11299
-			 */
-			||
-			(theRow.items[k].isVoteForBailey)) { // skip vote for ↑↑↑
+		if (k === theRow.winningVhash) { // skip vote for winner
 			continue;
 		}
 		hadOtherItems = true;
@@ -3748,7 +3784,7 @@ function insertRowsIntoTbody(theTable,tbody) {
 			console.log("Missing row " + k);
 		}
 		// update the xpath map
-		xpathMap.put({id: theRow.xpid,
+		xpathMap.put({id: theRow.xpathId,
 					  hex: theRow.xpstrid,
 					  path: theRow.xpath,
 					  ph: {
@@ -4611,6 +4647,7 @@ function showV() {
 				console.log("!json.oldvotes");
 				showLoader(null,"Error while  loading "+subkey+": <br><div style='border: 1px solid red;'>" + "no data" + "</div>");
 				handleDisconnect("while loading- no "+subkey+"",json);
+				return false;
 			} else {
 				return true;
 			}
@@ -4679,7 +4716,6 @@ function showV() {
 		};
 
 		function updateCoverageMenuTitle() {
-			var cov = '';
 			if(surveyUserCov) {
 				$('#coverage-info').text(stui.str('coverage_' + surveyUserCov));
 			}
@@ -4715,6 +4751,7 @@ function showV() {
             }
             menubuttons.set(menubuttons.locale, surveyCurrentLocaleName);
 		}
+
 		/**
 		 * Update the #hash and menus to the current settings.
 		 * @method updateHashAndMenus
@@ -6140,7 +6177,7 @@ function showV() {
 function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
 	showLoader(tr.theTable.theDiv.loader,stui.loadingOneRow);
 	// vHash not used.
-    var ourUrl = contextPath + "/RefreshRow.jsp?what="+WHAT_GETROW+"&xpath="+theRow.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+/*"&vhash="+vHash+*/"&s="+tr.theTable.session +"&json=t&automatic=t";
+    var ourUrl = contextPath + "/RefreshRow.jsp?what="+WHAT_GETROW+"&xpath="+theRow.xpathId +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+/*"&vhash="+vHash+*/"&s="+tr.theTable.session +"&json=t&automatic=t";
 
     if(isDashboard()) {
     	ourUrl += "&dashboard=true";
@@ -6169,7 +6206,7 @@ function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
         		} else {
         	        tr.className = "ferrbox";
         	        console.log("could not find " + tr.rowHash + " in " + json);
-        	        onFailure("refreshRow2: Could not refresh this single row: Server failed to return xpath #"+theRow.xpid+" for locale "+surveyCurrentLocale);
+        	        onFailure("refreshRow2: Could not refresh this single row: Server failed to return xpath #"+theRow.xpathId+" for locale "+surveyCurrentLocale);
         		}
            }catch(e) {
                console.log("Error in ajax post [refreshRow2] ",e.message);
@@ -6251,14 +6288,14 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 	console.log("Vote for " + tr.rowHash + " v='"+vHash+"', value='"+value+"'");
 	var ourContent = {
 			what: what,
-			xpath: tr.xpid,
+			xpath: tr.xpathId,
 			"_": surveyCurrentLocale,
 			fhash: tr.rowHash,
 			vhash: vHash,
 			s: tr.theTable.session
 	};
 
-	var ourUrl = contextPath + "/SurveyAjax"; // ?what="+what+"&xpath="+tr.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
+	var ourUrl = contextPath + "/SurveyAjax"; // ?what="+what+"&xpath="+tr.xpathId +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
 
 	// vote reduced
 	var voteReduced = document.getElementById("voteReduced");
@@ -6371,7 +6408,7 @@ function handleCancelWiredClick(tr,theRow,vHash,button) {
 	theRow.proposedResults = null;
 
 	console.log("Delete " + tr.rowHash + " v='"+vHash+"', value='"+value+"'");
-	var ourUrl = contextPath + "/SurveyAjax?what="+what+"&xpath="+tr.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
+	var ourUrl = contextPath + "/SurveyAjax?what="+what+"&xpath="+tr.xpathId +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
 	var loadHandler = function(json){
 		try {
 			if(json.err && json.err.length >0) {

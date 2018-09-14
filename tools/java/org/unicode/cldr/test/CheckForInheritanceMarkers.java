@@ -18,7 +18,7 @@ public class CheckForInheritanceMarkers extends CheckCLDR {
             result.add(new CheckStatus().setCause(this)
                 .setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.inheritanceMarkerNotAllowed)
-                .setMessage("Inheritance marker ↑↑↑ not allowed in a data value."));
+                .setMessage("Inheritance marker " + CldrUtility.INHERITANCE_MARKER + " not allowed in a data value."));
         }
         return this;
     }

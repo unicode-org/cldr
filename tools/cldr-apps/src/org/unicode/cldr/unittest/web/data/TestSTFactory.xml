@@ -108,7 +108,7 @@
     <verify status="approved" locale="zh_Hant" xpath="//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator">{1} na {0}</verify>
  -->
  
-  	<!--  testing vote for inherited ↑↑↑ -->
+  	<!--  testing vote for inherited ↑↑↑ (CldrUtility.INHERITANCE_MARKER) -->
     <!--  first switch und to AAA -->
     <vote name="A" locale="und" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote>
     <vote name="B" locale="und" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote>
@@ -126,8 +126,12 @@
     <vote name="B" locale="und" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote>
     <vote name="C" locale="und" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote>
 	<verify status="approved" locale="und" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >BBB</verify>
-	<verify status="provisional" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >AAA</verify> <!-- split vote. AAA wins -->
-	
+
+	<!-- The following test assumes: that ↑↑↑ (CldrUtility.INHERITANCE_MARKER) participates as such in voting resolution;
+		that ↑↑↑ beats AAA in the tie-breaker based on collation order; and that ↑↑↑ resolves to the Bailey value BBB.
+		Before 2018-8-17, the expected winner was AAA, since AAA beat BBB in the tie-breaker after ↑↑↑ was replaced by BBB. -->
+	<verify status="provisional" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >BBB</verify> <!-- split vote. ↑↑↑ wins -->
+
     <vote name="B" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote> <!--  explicit agree -->
 	<verify status="approved" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >BBB</verify> <!-- BBB wins. -->
  

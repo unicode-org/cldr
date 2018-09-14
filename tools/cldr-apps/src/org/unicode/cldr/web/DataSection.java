@@ -75,10 +75,36 @@ import com.ibm.icu.util.Output;
  * sortable, as well, and has some level of persistence.
  *
  * This class was formerly named DataPod
- **/
-
+ */
 public class DataSection implements JSONString {
+
+    /*
+     * For debugging only (so far), setting USE_CANDIDATE_HISTORY to true causes
+     * a "history" to be constructed and passed to the client for each CandidateItem,
+     * indicating how/when/why it was added. This should be false for production.
+     */
+    private static boolean USE_CANDIDATE_HISTORY = false;
+
+    /*
+     * A placeholder for winningValue when resolver.getWinningValue()
+     * returns null, due to unsolved bugs.
+     */
+    private static String ERROR_NO_WINNING_VALUE = "error-no-winning-value";
+
+    /*
+     * TODO: order classes consistently; inner classes should all be at top or all be at bottom.
+     * Default for Eclipse "Sort Members" is to put Types, including inner classes, before all
+     * other members; however, it also alphabetizes methods, which may not be helpful.
+     */
+    
+    /**
+     * The baseline CLDRFile for this DataSection
+     */
     public CLDRFile baselineFile;
+    
+    /**
+     * The DisplayAndInputProcessor for this DataSection
+     */
     private DisplayAndInputProcessor processor = null;
 
     /**
@@ -87,33 +113,15 @@ public class DataSection implements JSONString {
      * This class was formerly named "Pea"
      *
      * @author srl
-     *
      */
     public class DataRow implements JSONString, PathValueInfo {
 
         /**
-         * The CandidateItem is a particular alternative item which could be chosen or voted for.
+         * A CandidateItem represents a particular alternative item which could be chosen or voted for.
          *
          * Each DataRow has, in general, any number of these items in DataRow.items.
          */
         public class CandidateItem implements Comparable<CandidateItem>, JSONString, CandidateInfo {
-
-            /**
-             * altProposed is the proposed part of the name (or NULL for nondraft)
-             *
-             * TODO: there appears to be confusion between this final (constant) string, and
-             * a local variable formerly also named "altProposed" (now altProp) declared in populateFrom.
-             *
-             * In versions of this code prior to https://unicode.org/cldr/trac/changeset/6566
-             * this string was not declared as final; it was initialized to null and sometimes
-             * later set to different values.
-             *
-             * This string is public since it is referenced by DefaultDataSubmissionResultHandler.java,
-             * but that referencing probably no longer serves any purpose.
-             * 
-             * Can this be removed?
-             */
-            public static final String altProposed = "n/a";
 
             /**
              * rawValue is the actual value of this CandidateItem, that is, the string for which
@@ -129,30 +137,6 @@ public class DataSection implements JSONString {
              * occurrences of the word "value".
              */
             final private String rawValue;
-
-            /**
-             * isBailey means this CandidateItem is the fallback value.
-             *
-             * TODO: what are the distinctions between isBailey, isFallback, and isParentFallback?
-             * Probably all three will be removed for https://unicode.org/cldr/trac/ticket/11299
-             * and instead the Bailey+fallback item will be identified by rawValue==INHERITANCE_MARKER.
-             */
-            private boolean isBailey = false;
-
-            /**
-             * isFallback means this CandidateItem is from the parent locale - don't consider it a win (?).
-             */
-            boolean isFallback = false;
-
-            /**
-             * isParentFallback is true if this CandidateItem is not actually part of this locale, but is just
-             * the parent fallback (inheritedItem)
-             *
-             * isParentFallback is not used on the client. The only place its is used (rather than set) on
-             * the server is in CandidateItem.toString, whose purpose isn't documented.
-             * TODO: remove isParentFallback if it serves no useful purpose.
-             */
-            private boolean isParentFallback = false;
 
             /**
              * isOldValue means the value of this CandidateItem is equal to oldValue, which is a member of DataRow.
@@ -174,41 +158,6 @@ public class DataSection implements JSONString {
             private Vector<ExampleEntry> examples = null;
 
             /**
-             * inheritedLocale is the locale from which this CandidateItem is inherited.
-             *
-             * null except for inheritedItem = the item with isFallback true?
-             * That is, inheritedItem.inheritedLocale = true, and item.inheritedLocale = false unless item = inheritedItem?
-             *
-             * CandidateItem.inheritedLocale on the server corresponds to theRow.inheritedLocale on the client.
-             *
-             * Renamed 2018-8-13 from inheritFrom to inheritedLocale, for consistency with the name on the client which was
-             * already inheritedLocale.
-             * 
-             * TODO: move inheritedLocale from CandidateItem to DataRow.
-             * On the client, this locale is a per-row thing; but currently on the server, it's a per-item thing
-             * (since inheritedItem is a CandidateItem).
-             * Since there's only one such locale per row, it shouldn't be treated as a per-item thing.
-             *
-             * inheritedLocale is accessed from InterestSort.java for Partition.Membership("Missing"), otherwise it could be private.
-             */
-            CLDRLocale inheritedLocale = null;
-
-            /**
-             * pathWhereFound, if not null, may be, for example:
-             * //ldml/numbers/currencies/currency[@type="AUD"]/displayName[@count="one"]
-             *
-             * If not null it may cause getPClass to return "alias".
-             *
-             * inheritedItem.pathWhereFound may be assigned a non-null value.
-             *
-             * TODO: pathWhereFound should be a field of DataRow, not CandidateItem; on client it's theRow.pathWhereFound.
-             * Complication: style "alias" may be returned by getPClass if pathWhereFound != null; that condition
-             * might be replaced by value == INHERITANCE_MARKER, however, that may not be equivalent, see where
-             * sourceLocaleStatus.pathWhereFound gets assigned to myItem.pathWhereFound...
-             */
-            private String pathWhereFound = null;
-
-            /**
              * tests is included in json data sent to client
              *
              * See setTests and getCheckStatusList
@@ -221,19 +170,21 @@ public class DataSection implements JSONString {
             private Set<UserRegistry.User> votes = null;
 
             /**
-             * see getOriginalValueHash
+             * see getValueHash
              */
-            private String originalValueHash = null;
+            private String valueHash = null;
 
             /**
-             * see getAdjustedValueHash
+             * A history of events in the creation of this CandidateItem,
+             * for debugging and possibly for inspection by users;
+             * unused if USE_CANDIDATE_HISTORY is false.
              */
-            private String adjustedValueHash = null;
-
+            private String history = null;
+            
             /**
              * Create a new CandidateItem with the given value
              *
-             * @param value
+             * @param value,  may be null if called by setShimTests!
              *
              * This constructor sets this.rawValue, which is final (can't be changed once set here).
              */
@@ -280,44 +231,13 @@ public class DataSection implements JSONString {
             /**
              * Get the hash of the raw value of this candidate item.
              *
-             * This item's raw value is assumed to have been set already.
-             *
-             * Here, "original" means "not adjusted"; compare getAdjustedValueHash.
-             *
-             * @return the hash of the original raw value
+             * @return the hash of the raw value
              */
-            private String getOriginalValueHash() {
-                if (originalValueHash == null) {
-                    originalValueHash = DataSection.getValueHash(rawValue);
+            private String getValueHash() {
+                if (valueHash == null) {
+                    valueHash = DataSection.getValueHash(rawValue);
                 }
-                return originalValueHash;
-            }
-
-            /**
-             * Get the adjusted hash of the raw value of this candidate item.
-             *
-             * Here, "adjusted" means that under certain conditions this function may return the
-             * hash of CldrUtility.INHERITANCE_MARKER instead of the hash of this item's raw value.
-             * Compare getOriginalValueHash.
-             *
-             * The conditions are: isFallback && !locale.isLanguageLocale().
-             *
-             * TODO: Probably remove this as part of work on https://unicode.org/cldr/trac/ticket/11299 
-             * Otherwise, document the reasons for the adjustment. Does it still serve a purpose, or should
-             * all getAdjustedValueHash be changed to getOriginalValueHash? The adjustment lead in one
-             * context to duplicate keys getting overwritten and the browser console error "there is no Bailey Target item".
-             *
-             * @return the adjusted hash
-             */
-            private String getAdjustedValueHash() {
-                if (adjustedValueHash == null) {
-                    if (isFallback && !locale.isLanguageLocale()) {
-                        adjustedValueHash = DataSection.getValueHash(CldrUtility.INHERITANCE_MARKER);
-                    } else {
-                        adjustedValueHash = DataSection.getValueHash(rawValue);
-                    }
-                }
-                return adjustedValueHash;
+                return valueHash;
             }
 
             /**
@@ -365,32 +285,13 @@ public class DataSection implements JSONString {
             }
 
             /**
-             * Is this a winning (non fallback) CandidateItem?
-             * 
-             * TODO: why any restriction to "(non fallback)"? The code in this function doesn't seem to impose
-             * such a restriction anyway, in spite of the comment.
-             * 
-             * TODO: trigger a warning if winningValue == null?
-             * 
-             * Called by getPClass, CandidateItem.toString, and addItem.
-             * TODO: move this function below its three callers, or just inline the code. Note that winningValue is a field of DataRow.
-             */
-            private boolean isWinner() {
-                if (winningValue != null) {
-                    return winningValue.equals(rawValue);
-                } else {
-                    return false;
-                }
-            }
-
-            /**
              * Get the class for this CandidateItem
              *
              * @return the class as a string, for example, "winner"
              * 
              * All return values: "winner", "alias", "fallback", "fallback_code", "fallback_root", "loser".
              * 
-             * Called by CandidateItem.toJSONString (for item.pClass) and also by DataRow.toJSONString (for theRow.inheritedPClass)
+             * Called by CandidateItem.toJSONString (for item.pClass)
              * 
              * Relationships between class, color, and inheritance (http://cldr.unicode.org/index/survey-tool/guide#TOC-Inheritance):
              * "The inherited values are color coded:
@@ -403,64 +304,43 @@ public class DataSection implements JSONString {
              *      [corresponds with "fallback_root" or "fallback_code" and {background-color: #FFDDDD;}]
              */
             private String getPClass() {
-                String pClass;
-                
-                if (isWinner() && !isFallback && inheritedLocale == null) {
+                if (rawValue.equals(CldrUtility.INHERITANCE_MARKER)) {
+                    if (pathWhereFound != null) {
+                        /*
+                         * surveytool.css has:
+                         *  .alias {background-color: #ddf;}
+                         *  
+                         *  This can happen when called from CandidateItem.toJSONString (for item.pClass).
+                         *  Try http://localhost:8080/cldr-apps/v#/aa/Fields/
+                         */
+                        return "alias";
+                    }
                     /*
-                     * TODO: Revise as needed per https://unicode.org/cldr/trac/ticket/11299
-                     * 
-                     * An item can be both winning and alias/fallback (vote for inheritance). For display, it
-                     * seems that the alias/fallback class is more important, that is, if an item is both
-                     * winning and inherited, then its color is determined by inheritance not by whether it's winning.
-                     * That appears to be the reason why we do not return "winner" if isFallback or inheritedLocale != null.
-                     * Could move this condition lower: "... else if (isWinner()) ..."
+                     * surveytool.css has:
+                     *  .fallback {background-color:#5bc0de;padding: .1em .4em .2em;}
+                     *  .fallback_root, .fallback_code {border: 1px dotted #f00 !important;background-color: #FFDDDD;}
+                     */
+                    if (inheritedLocale != null && XMLSource.CODE_FALLBACK_ID.equals(inheritedLocale.getBaseName())) {
+                        return "fallback_code";
+                    }
+                    if (inheritedLocale == CLDRLocale.ROOT) {
+                        return "fallback_root";
+                    }
+                    return "fallback";
+                }
+                if (winningValue != null && winningValue.equals(rawValue)) {
+                    /*
+                     * An item can be both winning and inherited (alias/fallback). If an item is both
+                     * winning and inherited, then its class/style/color is determined by inheritance,
+                     * not by whether it's winning.
                      * 
                      * redesign.css has:
                      * .winner, .value {font-weight:bold;}
                      * .value-div .winner, .value-div .value {font-size:16px;}
                      */
-                    pClass = "winner";
-                } else if (pathWhereFound != null) {
-                    /*
-                     * surveytool.css has:
-                     *  .alias {background-color: #ddf;}
-                     *  
-                     *  This can happen when called from here by DataRow.toJSONString (for theRow.inheritedPClass):
-                     *  jo.put("inheritedPClass", inheritedItem != null ? inheritedItem.getPClass() : "fallback");
-                     *  
-                     *  It can also happen when called from CandidateItem.toJSONString (for item.pClass). Either way,
-                     *  Typically isBailey = true, isFallback = true, isParentFallback = true; try http://localhost:8080/cldr-apps/v#/aa/Fields/
-                     *
-                     * TODO: if pathWhereFound becomes a field of DataRow instead of CandidateItem, what will be
-                     * the appropriate condition for "alias"?
-                     * How about (rawValue == INHERITANCE_MARKER && pathWhereFound != null)? That's if we set inheritedItem.rawValue = INHERITANCE_MARKER
-                     */
-                    pClass = "alias";
-                } else if (isFallback || (inheritedLocale != null)) {
-                    /*
-                     * surveytool.css has:
-                     *  .fallback {background-color:#5bc0de;padding: .1em .4em .2em;}
-                     *  .fallback_root, .fallback_code {border: 1px dotted #f00 !important;background-color: #FFDDDD;}
-                     *
-                     * survey.js has:
-                     *  var inheritedClassName = "fallback";
-                     *  var defaultClassName = "fallback_code";
-                     * 
-                     * TODO: if inheritedLocale becomes a field of DataRow instead of CandidateItem, what will be
-                     * the appropriate condition to replace "if (isFallback || (inheritedLocale != null)) above?
-                     * How about (rawValue == INHERITANCE_MARKER && pathWhereFound == null)?
-                     */
-                    if (inheritedLocale != null && XMLSource.CODE_FALLBACK_ID.equals(inheritedLocale.getBaseName())) {
-                        pClass = "fallback_code";
-                    } else if (inheritedLocale == CLDRLocale.ROOT) {
-                        pClass = "fallback_root";
-                    } else {
-                        pClass = "fallback";
-                    }
-                } else {
-                    pClass = "loser";
+                    return "winner";
                 }
-                return pClass;
+                return "loser";
             }
 
             /**
@@ -491,9 +371,6 @@ public class DataSection implements JSONString {
                     }
                 }
                 if (weHaveTests) {
-                    /* row */hasTests = true;
-                    parentRow.hasTests = true;
-
                     if (errorCount > 0) /* row */
                         hasErrors = true;
                     if (warningCount > 0) /* row */
@@ -536,22 +413,23 @@ public class DataSection implements JSONString {
             @Override
             public String toJSONString() throws JSONException {
                 JSONObject j = new JSONObject()
-                    /* TODO: should this be getAdjustedValueHash or getOriginalValueHash? */
-                    .put("valueHash", getAdjustedValueHash())
+                    .put("valueHash", getValueHash())
                     .put("rawValue", rawValue)
                     .put("value", getProcessedValue())
                     .put("example", getExample())
                     .put("isOldValue", isOldValue)
-                    .put("isBailey", isBailey)
-                    .put("isFallback", isFallback)
                     .put("pClass", getPClass())
-                    .put("tests", SurveyAjax.JSONWriter.wrap(this.tests));
+                    .put("tests", SurveyAjax.JSONWriter.wrap(this.tests));                
+                if (USE_CANDIDATE_HISTORY) {
+                    j.put("history", history);
+                }
                 Set<User> theVotes = getVotes();
                 if (theVotes != null && !theVotes.isEmpty()) {
                     JSONObject voteList = new JSONObject();
                     for (UserRegistry.User u : theVotes) {
-                        if (u.getLevel() == VoteResolver.Level.locked)
-                            continue; // dont care
+                        if (u.getLevel() == VoteResolver.Level.locked) {
+                            continue; // don't care
+                        }
                         JSONObject uu = new JSONObject();
                         uu.put("org", u.getOrganization());
                         uu.put("level", u.getLevel());
@@ -586,16 +464,8 @@ public class DataSection implements JSONString {
              */
             @Override
             public String toString() {
-                /*
-                 * TODO: CandidateItem.altProposed is declared as "final", with the value "n/a".
-                 * What is the point of including it in the returned string here?
-                 *
-                 * There may be confusion between the final (constant) string CandidateItem.altProposed
-                 * and the local variable (now "altProp") declared in populateFrom?
-                 */
-                return "{Item v='" + rawValue + "', altProposed='" + CandidateItem.altProposed + "', inheritedLocale='" + inheritedLocale + "'"
-                    + (isWinner() ? ",winner" : "") + (isFallback ? ",isFallback" : "")
-                    + (isParentFallback ? ",isParentFallback" : "") + "}";
+                String winner = (winningValue != null && winningValue.equals(rawValue)) ? ",winner" : "";
+                return "{Item v='" + rawValue + "'" + winner + "}";
             }
 
             /**
@@ -630,16 +500,24 @@ public class DataSection implements JSONString {
          * Class DataRow continues here.
          */
 
-        /*
-         * TODO: altType is referenced by row.jsp but appears to be null always, could be removed?
+        /**
+         * inheritedLocale is the locale from which this DataRow inherits.
          *
-         * The code in row.jsp is:
+         * DataRow.inheritedLocale on the server corresponds to theRow.inheritedLocale on the client.
          *
-         *  <% if (p.altType !=null) { %>
-         *  <br> (<%= p.altType %> alternative)
-         *  <% } %>
+         * inheritedLocale is accessed from InterestSort.java for Partition.Membership("Missing"), otherwise it could be private.
          */
-        public String altType = null; // alt type (NOT to be confused with -proposedn)
+        CLDRLocale inheritedLocale = null;
+
+        /**
+         * pathWhereFound, if not null, may be, for example:
+         * //ldml/numbers/currencies/currency[@type="AUD"]/displayName[@count="one"]
+         * 
+         * It is the inheritance path for "sideways" inheritance.
+         *
+         * If not null it may cause getPClass to return "alias".
+         */
+        private String pathWhereFound = null;
 
         /*
          * TODO: document confirmStatus and other members of DataRow
@@ -650,51 +528,74 @@ public class DataSection implements JSONString {
          * Calculated coverage level for this DataRow.
          */
         public int coverageValue;
-        List<CandidateItem> candidateItems = null;
 
         private String displayName = null;
         // these apply to the 'winning' item, if applicable
         boolean hasErrors = false;
-        boolean hasInherited = false; // True if has inherited value
+
         boolean hasMultipleProposals = false; // true if more than 1 proposal is available
 
-        boolean hasProps = false; // true if has some proposed items
-
-        // true even if only the non-winning subitems have tests.
-        boolean hasTests = false;
-
+        /**
+         * Does this DataRow have warnings?
+         */
         boolean hasWarnings = false;
 
-        /*
-         * inheritedItem is a CandidateItem representing the vetted value inherited from parent
+        /**
+         * inheritedItem is a CandidateItem representing the vetted value inherited from parent.
+         *
+         * Change for https://unicode.org/cldr/trac/ticket/11299 : formerly the rawValue for
+         * inheritedItem was the Bailey value. Instead, now rawValue will be INHERITANCE_MARKER,
+         * and the Bailey value will be stored in DataRow.inheritedValue.
+         * 
+         * inheritedItem is set by updateInheritedValue and by setShimTests
          */
-        public CandidateItem inheritedItem = null;
+        private CandidateItem inheritedItem = null;
 
+        /**
+         * inheritedValue is the "Bailey" value, that is, the value that this DataRow will have if
+         * it inherits from another row or from another locale.
+         */
+        private String inheritedValue = null;
+
+        /**
+         * The winning item for this DataRow.
+         */
         private CandidateItem winningItem = null;
+
+        /**
+         * The candidate items for this DataRow, stored in a Map whose keys are CandidateItem.rawValue
+         * and whose values are CandidateItem objects.
+         * 
+         * Public for access by RefreshRow.jsp.
+         */
         public Map<String, CandidateItem> items = new TreeMap<String, CandidateItem>();
 
-        String myFieldHash = null;
         /** Cache of field hash **/
+        String myFieldHash = null;
 
         /* parentRow - defaults to self if it is a "super" (i.e. parent without any
          * alternate)
          */
         public DataRow parentRow = this;
 
+        /**
+         * Used only in the function getPrettyPath
+         */
         private String pp = null;
+        
+        /**
+         * The pretty path for this DataRow, set by the constructor.
+         * 
+         *  Accessed by NameSort.java, SortMode.java, datarow_short_code.jsp
+         */
         public String prettyPath = null;
-
-        CandidateItem previousItem = null;
 
         /*
          * Ordering for use in collator
+         * 
+         * Referenced by SortMode.java
          */
         public int reservedForSort[] = SortMode.reserveForSort();
-        public String uri = null; // URI for the type
-
-        String[] valuesList = null; // if non null - list of acceptable values.
-
-        public int voteType = 0; // status of THIS item
         
         /**
          * The winning value for this DataRow
@@ -713,14 +614,27 @@ public class DataSection implements JSONString {
         @Deprecated
         int winningXpathId = -1;
 
+        /**
+         * The xpath for this DataRow, assigned in the constructor.
+         */
         private String xpath;
 
+        /**
+         * The xpathId for this DataRow, assigned in the constructor based on xpath.
+         * 
+         * Accessed by SortMode.java
+         */
         int xpathId = -1;
-        public boolean zoomOnly = false; // if true - don't show any editing in
-        public String oldValue;
+        
+        /**
+         * The value for this DataRow in the previous release version.
+         */
+        private String oldValue;
+        
+        /**
+         * The PathHeader for this DataRow, assigned in the constructor based on xpath.
+         */
         private PathHeader pathHeader;
-
-        // the zoomout view, they must zoom in. TODO: explain "zoom(out)"
 
         /**
          * Create a new DataRow for the given xpath.
@@ -738,31 +652,86 @@ public class DataSection implements JSONString {
             }
             VoteResolver<String> resolver = ballotBox.getResolver(xpath);
             /*
-             * TODO: address the situation if winningValue gets null or empty string here;
-             * null/empty winningValue should not be sent to the client!
-             * Also fix the bug where client receives non-empty winningValue but empty winningVhash.
+             * Note: we set winningValue = resolver.getWinningValue() here, but we
+             * may change winningValue subsequently in fixWinningValue().
+             * 
+             * There is a need to address the situation if winningValue gets null or empty string here.
+             * Fix the bug where winningVhash is empty or undefined on client.
              * See https://unicode.org/cldr/trac/ticket/11299 "Example C".
              */
             winningValue = resolver.getWinningValue();
             confirmStatus = resolver.getWinningStatus();
+
+            oldValue = resolver.getLastReleaseValue();
+
             this.displayName = baselineFile.getStringValue(xpath);
         }
 
-        public CandidateItem addItem(String value) {
+        /**
+         * Add a new CandidateItem to this DataRow, with the given value; or, if this DataRow already
+         * has an item with this value, return it.
+         *
+         * If the item is new, then:
+         *  check whether the item is winning, and if so make winningItem point to it;
+         *  check whether the item matches oldValue, and if so set isOldValue = true.
+         * 
+         * @param value
+         * @param candidateHistory a string used for debugging and possibly also for describing to the user
+         *          how/why/when/where the item was added
+         * @return the new or existing item with the given value
+         *
+         * Sequential order in which addItem may be called (as of 2018-09-10) for a given DataRow:
+         *
+         * (1) For INHERITANCE_MARKER (if inheritedValue = ourSrc.getConstructedBaileyValue not null):
+         *     in updateInheritedValue (called by populateFromThisXpath):
+         *         inheritedItem = addItem(CldrUtility.INHERITANCE_MARKER, "inheritedItem");
+         *
+         * (2) For votes:
+         *     in populateFromThisXpathAddItemsForVotes (called by populateFromThisXpath):
+         *         CandidateItem item2 = row.addItem(avalue, "votes");
+         *
+         * (3) For winningValue:
+         *     in populateFromThisXpath:
+         *         row.addItem(row.winningValue, "winningValue");
+         *
+         * (4) For oldValue (if not null, not in votes, and not same as ourValue):
+         *     in populateFromThisXpath:
+         *         row.addItem(row.oldValue, "oldValue");
+         *
+         * (5) For INHERITANCE_MARKER (if not in votes and locale.getCountry isn't empty):
+         *     in populateFromThisXpath:
+         *         row.addItem(CldrUtility.INHERITANCE_MARKER, "getCountry");
+         *
+         * (6) For ourValue:
+         *     in addOurValue (called by populateFromThisXpath):
+         *         CandidateItem myItem = row.addItem(ourValue, "ourValue");
+         */
+        private CandidateItem addItem(String value, String candidateHistory) {
+            /*
+             * TODO: Clarify the purpose of changing null to empty string here, rather than
+             * simply doing nothing, or reporting an error. There appears to be no reason to
+             * add an item with null or empty value.
+             */
             final String kValue = (value == null) ? "" : value;
-            CandidateItem pi = items.get(kValue);
-            if (pi != null)
-                return pi;
-            pi = new CandidateItem(value);
-            items.put(kValue, pi);
-            if (pi.isWinner()) {
-                winningItem = pi;
+            CandidateItem item = items.get(kValue);
+            if (item != null) {
+                if (USE_CANDIDATE_HISTORY) {
+                    item.history += "+" + candidateHistory;
+                }
+                return item;
+            }
+            item = new CandidateItem(value);
+            if (USE_CANDIDATE_HISTORY) {
+                item.history = candidateHistory;
+            }
+            items.put(kValue, item);
+            if (winningValue != null && winningValue.equals(value)) {
+                winningItem = item;
             }
             if (oldValue != null && oldValue.equals(value)) {
-                previousItem = pi;
-                pi.isOldValue = true;
+                item.isOldValue = true;
             }
-            return pi;
+            return item;
         }
 
         /**
@@ -781,6 +750,8 @@ public class DataSection implements JSONString {
          * Return the winning (current) item for this DataRow.
          *
          * @return winningItem
+         * 
+         * "The type DataSection.DataRow must implement the inherited abstract method CLDRInfo.PathValueInfo.getCurrentItem()
          */
         public CandidateItem getCurrentItem() {
             return winningItem;
@@ -810,17 +781,6 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * Get a list of proposed items, if any.
-         *
-         * @deprecated use getValues() instead
-         * @see #getValues()
-         */
-        @SuppressWarnings("unchecked")
-        public Collection<CandidateItem> getItems() {
-            return ((Collection<CandidateItem>) getValues());
-        }
-
-        /**
          * Get the CandidateItem for this DataRow that has the given value.
          * 
          * @param value
@@ -829,26 +789,32 @@ public class DataSection implements JSONString {
          * Called only from SurveyAjax.java, as "ci = pvi.getItem(candVal)".
          */
         public CandidateItem getItem(String value) {
-            /*
-             * TODO: this looks dubious, may change for https://unicode.org/cldr/trac/ticket/11299
-             * Under what circumstances would the caller (processRequest in SurveyAjax.java under
-             * WHAT_SUBMIT) have value = INHERITANCE_MARKER? That code for (what.equals(WHAT_SUBMIT))
-             * runs when the user votes, and in fact when the user votes for the inherited value
-             * ("soft" vote), we get called with value = INHERITANCE_MARKER. What happens after
-             * that is complicated. If we return null, processRequest may create a new CandidateInfo
-             * -- which is an interface that CandidateItem implements...
-             */
-            if (value.equals(CldrUtility.INHERITANCE_MARKER)) {
-                for (CandidateItem item : items.values()) {
-                    if (item.isFallback) {
-                        return item;
-                    }
-                }
-                return null;
-            }
             return items.get(value);
         }
 
+        /**
+         * Get a list of proposed items, for this DataRow.
+         *
+         * @deprecated use getValues() instead
+         * @see #getValues()
+         * 
+         * Called by getVotesForUser.
+         * 
+         * Also called from row.jsp -- how to replace getItems() there with getValues()? Confusion over return type,
+         *    Collection<? extends CandidateInfo>
+         *       versus
+         *    Collection<CandidateItem>
+         *    
+         * Also called from r_txt.jsp whose usage isn't clear.
+         */
+        @SuppressWarnings("unchecked")
+        public Collection<CandidateItem> getItems() {
+            return ((Collection<CandidateItem>) getValues());
+        }
+
+        /**
+         * Get a list of proposed items, if any, for this DataRow.
+         */
         @Override
         public Collection<? extends CandidateInfo> getValues() {
             return items.values();
@@ -868,7 +834,6 @@ public class DataSection implements JSONString {
                 return ctx.base() + "?" + "_=" + ctx.getLocale() + "&amp;x=timezones&amp;zone=" + zone;
             }
             return null;
-
         }
 
         /**
@@ -882,8 +847,9 @@ public class DataSection implements JSONString {
             /* see gatherVotes - getVotes() is populated with a
              * set drawn from the getInfo() singletons.
              */
-            if (infoForUser == null)
+            if (infoForUser == null) {
                 return null;
+            }
             for (CandidateItem item : getItems()) {
                 Set<User> votes = item.getVotes();
                 if (votes != null && votes.contains(infoForUser)) {
@@ -891,25 +857,6 @@ public class DataSection implements JSONString {
                 }
             }
             return null; /* not found. */
-        }
-
-        /**
-         * @see #getCurrentItem()
-         * @return
-         */
-        CandidateItem getWinningItem() {
-            if (winningValue == null)
-                return null;
-            // TODO: the following is dubious, see https://unicode.org/cldr/trac/ticket/11299
-            if (winningValue.equals(CldrUtility.INHERITANCE_MARKER)) {
-                for (CandidateItem ci : items.values()) {
-                    if (ci.isFallback) {
-                        return ci;
-                    }
-                }
-            }
-            CandidateItem ci = items.get(winningValue);
-            return ci;
         }
 
         public String getWinningValue() {
@@ -928,6 +875,16 @@ public class DataSection implements JSONString {
             return NAME_TYPE_PATTERN.matcher(prettyPath).matches();
         }
 
+        /**
+         * 
+         * @param ctx
+         * @param canModify
+         * @param zoomedIn
+         * @param specialUrl
+         * @return
+         * 
+         * Called only by row.jsp
+         */
         public String itemTypeName(WebContext ctx, boolean canModify, boolean zoomedIn, String specialUrl) {
             StringBuilder sb = new StringBuilder();
             String disputeIcon = "";
@@ -953,21 +910,23 @@ public class DataSection implements JSONString {
         }
 
         /**
+         * If inheritedItem is null, possibly create inheritedItem; otherwise do nothing.
+         *
+         * inheritedItem is normally null when setShimTests is called by populateFromThisXpath,
+         * unless setShimTests has already been called by ensureComplete, for some timezones.
+         *
          * A Shim is a candidate item which does not correspond to actual XML
          * data, but is synthesized.
          *
          * @param base_xpath
          * @param base_xpath_string
          * @param checkCldr
-         * @param options
+         *
+         * Called by populateFromThisXpath (if isExtraPath), and by ensureComplete (for timezones)
          */
-        void setShimTests(int base_xpath, String base_xpath_string, TestResultBundle checkCldr, Map<String, String> options) {
-            CandidateItem shimItem = inheritedItem;
-
-            if (shimItem == null) {
-                shimItem = new CandidateItem(null);
-                shimItem.isFallback = false; // TODO: delete, redundant since new CandidateItem(null) always sets isFallback = false
-
+        private void setShimTests(int base_xpath, String base_xpath_string, TestResultBundle checkCldr) {
+            if (inheritedItem == null) {
+                CandidateItem shimItem = new CandidateItem(null);
                 List<CheckStatus> iTests = new ArrayList<CheckStatus>();
                 checkCldr.check(base_xpath_string, iTests, null);
                 if (!iTests.isEmpty()) {
@@ -975,12 +934,21 @@ public class DataSection implements JSONString {
                     if (shimItem.setTests(iTests)) {
                         // had valid tests
                         inheritedItem = shimItem;
-                        inheritedItem.isParentFallback = true;
                     }
                 }
             }
         }
 
+        /**
+         * Does the DataSection, to which this DataRow belongs, have examples?
+         *
+         * @return true or false
+         * 
+         * TODO: Why is this a method of DataRow, when the field of the same name that it returns
+         * is a field of DataSection??
+         * 
+         * Called only by row.jsp
+         */
         public boolean hasExamples() {
             return hasExamples;
         }
@@ -1119,110 +1087,239 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * Calculate the inherited item for this DataRow from the vetted parent locale,
-         * possibly including tests
+         * After constructing this new DataRow, change its winningValue if needed for consistency
+         * with inheritedValue, ourValue, and ourValueIsInherited. Also in some circumstances fix
+         * inheritedValue if it is null.
          *
-         * @param vettedParent
-         *            CLDRFile for the parent locale, resolved with vetting on ( really just the current )
-         * @param checkCldr
-         *            The tests to use
+         * We may need to fix winningValue if:
+         *     (A) it's null (due to bugs, or ...?)
+         *     (B) it should be INHERITANCE_MARKER but isn't
          *
-         * Called only by populateFrom.
-         * TODO: move this function below its only caller, populateFrom.
-         * 
-         * TODO: Distinguish two kinds of votes for inherited value in Survey Tool
-         *     https://unicode.org/cldr/trac/ticket/11299
-         * This function currently creates a CandidateItem with value equal to the Bailey value,
-         * which makes it look like a "hard/explicit" vote for the Bailey value, NOT a "soft/implicit"
-         * vote for inheritance, which would have value equal to INHERITANCE_MARKER. Horrible confusion
-         * is the result. Change this function to set the value to INHERITANCE_MARKER, and to store
-         * the actual Bailey value elsewhere, such as a field of DataRow. Get rid of, or merge with,
-         * the code that currently does "p.addItem(CldrUtility.INHERITANCE_MARKER)" in populateFrom.
+         * The circumstances under which winningValue and/or ourValue may be null aren't very clear;
+         * sometimes "extra paths" are involved. This should be documented more clearly, or any bugs
+         * that result in bogus null should be fixed.
+         *
+         * When "soft" inheritance is currently winning, we always want winningValue to be INHERITANCE_MARKER,
+         * but resolver.getWinningValue() may return lastReleaseValue (not INHERITANCE_MARKER) if there are
+         * currently no votes. TODO: determine when, if ever, winningValue should be changed to INHERITANCE_MARKER
+         * if winningValue equals inheritedValue.
+         *
+         * We have two ways of getting the currently winning value for a row:
+         *     (1) winningValue = resolver.getWinningValue()
+         *     (2) ourValue = ourSrc.getStringValue(xpath)
+         * Often these are equal. They can be different when one or the other (but not both) is null,
+         * or when winningValue is INHERITANCE_MARKER. ourValue is never (?) INHERITANCE_MARKER.
+         *
+         * ourValue and winningValue can also be different even when neither is null or INHERITANCE_MARKER,
+         * and that is especially perplexing. This happens, for example at v#/pt_PT/Buddhist
+         * ourValueIsInherited = true
+         * ourValue = "d MMM y G" and winningValue = "dd/MM/y G" are DIFFERENT
+         * xpath = //ldml/dates/calendars/calendar[@type="buddhist"]/dateFormats/dateFormatLength[@type="medium"]/dateFormat[@type="standard"]/pattern[@type="standard"]
+         *
+         * Another example, also at v#/pt_PT/Buddhist
+         * ourValueIsInherited = false
+         * ourValue = E, d 'de' MMM – E, d 'de' MMM 'de' y G and winningValue = E, d – E, d 'de' MMM 'de' y G
+         * xpath = //ldml/dates/calendars/calendar[@type="buddhist"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="d"]
+         *
+         * Other urls that may produce unexpected results if debugging code is added in this function:
+         *
+         * TODO: Fix resolver.getWinningValue to make this function unnecessary. Questions:
+         *    (1) What does it mean, and what should be done, when ourValue and winningValue aren't equal?
+         *    (2) How to recognize when winningValue needs changing to INHERITANCE_MARKER (ideally not here but in getWinningValue)?
+         * Note: When winningValue equals ourValue and ourValueIsInherited is true, it would be tempting to infer that
+         * winningValue should be INHERITANCE_MARKER, and to expect inheritedValue and ourValue should be equal.
+         * Code like this could be considered:
+         *
+         * if (ourValue.equals(winningValue) && ourValueIsInherited) {
+         *     winningValue = CldrUtility.INHERITANCE_MARKER;
+         *     assert(inheritedValue.equals(ourValue));
+         * }
+         *
+         * (We already have something similar below, but only if winningValue == null && inheritedValue == null.)
+         *
+         * However, there's an alternative explanation in such cases, which is that winningValue represents a
+         * winning "hard" vote for the explicit value, while ourValue represents a losing "soft" vote for inheritance.
+         *
+         * Note: due to the existence of this function, the client should use theRow.winningValue, not vr.winningValue. 
+         *
+         * http://localhost:8080/cldr-apps/v#/en_CA/Gregorian/
+         *
+         * Reference: https://unicode.org/cldr/trac/ticket/11299
+         *
+         * @param ourValue the String that was obtained as ourSrc.getStringValue(xpath)
+         * @param ourValueIsInherited the boolean that was obtained as !(sourceLocale.equals(locale.toString()))
          */
-        private void updateInheritedValue(CLDRFile vettedParent, TestResultBundle checkCldr) {
+        private void fixWinningValue(String ourValue, boolean ourValueIsInherited) {
+            if (winningValue == null) {
+                if (inheritedValue != null) {
+                    /*
+                     * Formerly something equivalent to this was done on the client. TODO: explain the justification; why
+                     * treat soft inheritance as the default, rather than, for example, the old (last release) value? 
+                     * Anyway, if this happens, it should happen here on the server, not on the client.
+                     * And, preferably resolver.getWinningValue() should never return null.
+                     */
+                    winningValue = CldrUtility.INHERITANCE_MARKER;
+                } else if (ourValue != null) {
+                    /*
+                     * This happens, for example at v#/en/Symbols
+                     * ourValue = E
+                     * xpath = //ldml/numbers/symbols[@numberSystem="gong"]/exponential
+                     * http://localhost:8080/cldr-apps/v#/aa/Numbering_Systems/
+                     * TODO: fix or explain this seeming contradiction, and decide what to do about it. For now,
+                     * use ourValue and ourValueIsInherited instead of winningValue, with the rationale that
+                     * resolver.getWinningValue() and ourSrc.getStringValue(xpath) are both supposed to give the
+                     * winning value, but the former might be buggy (null) in some circumstances where the latter isn't. 
+                     */
+                    if (ourValueIsInherited) {
+                        /***
+                        System.out.println("Debugging in fixWinningValue: winningValue is null" +
+                            "; ourValueIsInherited = " + ourValueIsInherited +
+                            "; setting winningValue = INHERITANCE_MARKER; inheritedValue = ourValue = " + ourValue +
+                            "; xpath = " + xpath);
+                        ***/
+                        winningValue = CldrUtility.INHERITANCE_MARKER;
+                        inheritedValue = ourValue;
+                    } else {
+                        /***
+                        System.out.println("Debugging in fixWinningValue: winningValue is null" +
+                            "; ourValueIsInherited = " + ourValueIsInherited +
+                            "; setting winningValue = ourValue; ourValue = " + ourValue +
+                            "; xpath = " + xpath);
+                        ***/
+                        winningValue = ourValue;
+                    }
+                } else {
+                    /*
+                     * TODO: Fix the bugs that lead to winningValue being null, which happens often, but never should.
+                     * In the meantime, the client should ALWAYS get a winningVhash, corresponding to winningValue and
+                     * winningItem, even if it's a placeholder or error message, since determination of the winning value
+                     * is the server's responsibility. Sometimes null winningValue goes with "Status:Missing" (black X icon);
+                     * even then an inherited value should normally be available as fallback.
+                     * 
+                     * Note that setting a non-null winningValue here affects subsequent creation of winningItem.
+                     */
+                    /***
+                    System.out.println("Debugging in fixWinningValue: ERROR_NO_WINNING_VALUE; xpath = " + xpath);
+                    ***/
+                    winningValue = ERROR_NO_WINNING_VALUE;
+                }
+            }
+        }
+
+        /**
+         * Calculate the inherited item for this DataRow, possibly including tests;
+         * possibly set some fields in the DataRow, which may include inheritedValue,
+         * inheritedItem, inheritedLocale, pathWhereFound
+         *
+         * @param ourSrc the CLDRFile
+         * @param checkCldr the tests to use
+         *
+         * Called only by populateFromThisXpath, which is a method of DataSection.
+         * 
+         * Reference: Distinguish two kinds of votes for inherited value in Survey Tool
+         *     https://unicode.org/cldr/trac/ticket/11299
+         * This function formerly created a CandidateItem with value equal to the Bailey value,
+         * which made it look like a "hard/explicit" vote for the Bailey value, NOT a "soft/implicit"
+         * vote for inheritance, which would have value equal to INHERITANCE_MARKER. Horrible confusion
+         * was the result. This function has been changed to set the value to INHERITANCE_MARKER, and to store
+         * the actual Bailey value in the inheritedValue field of DataRow.
+         *
+         * TODO: Get rid of, or merge with, the code that currently does 'row.addItem(CldrUtility.INHERITANCE_MARKER, "getCountry")' in populateFromThisXpath.
+         * 
+         * Normally (always?) inheritedItem is null when this function is called; however, in principle
+         * it may be possible that inheritedItem isn't null due to ensureComplete calling setShimTests.
+         */
+        private void updateInheritedValue(CLDRFile ourSrc, TestResultBundle checkCldr) {
             long lastTime = System.currentTimeMillis();
-            if (vettedParent == null) {
-                return;
-            }
-            if (xpathId == -1) {
-                return;
-            }
 
-            String xpath = sm.xpt.getById(xpathId);
-            if (TRACE_TIME)
-                System.err.println("@@0:" + (System.currentTimeMillis() - lastTime));
-            if (xpath == null) {
-                return;
+            /*
+             * Set the inheritedValue field of the DataRow containing this CandidateItem.
+             * Also possibly set the inheritedLocale and pathWhereFound fields of the DataRow.
+             *
+             * TODO: fix bug, return value of getConstructedBaileyValue here gives
+             * inheritedValue = "Chineesisch (Veräifachti Chineesischi Schrift)"
+             * but getResolverInternal gets baileyValue = "Veräifachts Chineesisch".
+             * That's for http://localhost:8080/cldr-apps/v#/gsw_FR/Languages_A_D/3f16ed8804cebb7d
+             */
+            Output<String> inheritancePathWhereFound = new Output<String>(); // may become pathWhereFound
+            Output<String> localeWhereFound = new Output<String>(); // may be used to construct inheritedLocale
+            inheritedValue = ourSrc.getConstructedBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
+            
+            if (TRACE_TIME) {
+                System.err.println("@@1:" + (System.currentTimeMillis() - lastTime));
             }
-
-            if ((vettedParent != null) && (inheritedItem == null)) {
-                Output<String> inheritancePathWhereFound = new Output<String>();
-                Output<String> localeWhereFound = new Output<String>();
-                
+            if (inheritedValue == null) {
                 /*
-                 * TODO: instead of local variable constructedBaileyValue, maybe assign directly to a String field of DataRow,
-                 * named getConstructedBaileyValue or inheritedValue.
+                 * No inherited value.
+                 *
+                 * This happens often. For example, v#/en/Alphabetic_Information
+                 * xpath = //ldml/characters/exemplarCharacters[@type="index"]
+                 * In the caller, ourValueIsInherited is false and ourValue isn't null
+                 * 
+                 * Another example: v#/pt_PT/Gregorian
+                 * xpath = //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMEEEEd"]
+                 * ourValueIsInherited = false; ourValue = "EEEE, d/MM/y"; isExtraPath = false
+                 *
+                 * TODO: what are the implications when ourSrc.getConstructedBaileyValue has returned null?
+                 * Unless we're at root, shouldn't there always be a non-null inheritedValue here?
+                 * See https://unicode.org/cldr/trac/ticket/11299
                  */
-                String constructedBaileyValue = vettedParent.getConstructedBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
-                if (TRACE_TIME)
-                    System.err.println("@@1:" + (System.currentTimeMillis() - lastTime));
+                // System.out.println("Warning: no inherited value in updateInheritedValue; xpath = " + xpath);
+            } else {
+                /*
+                 * Unless this DataRow already has an item with value INHERITANCE_MARKER,
+                 * add a new item, to be the inheritedItem of this DataRow, with value INHERITANCE_MARKER.
+                 *
+                 * Call addItem even if item with this value already exists, for simplicity and to update inheritedItem.history.
+                 *
+                 * Set inheritedItem = the item with value INHERITANCE_MARKER.
+                 */                    
+                inheritedItem = addItem(CldrUtility.INHERITANCE_MARKER, "inheritedItem");
 
-                if (constructedBaileyValue == null) {
-                    // no inherited value
-                } else if (!items.containsKey(constructedBaileyValue)) {
-                    inheritedItem = addItem(constructedBaileyValue);
-                    if (TRACE_TIME)
-                        System.err.println("@@2:" + (System.currentTimeMillis() - lastTime));
-                    inheritedItem.isParentFallback = true;
+                if (TRACE_TIME) {
+                    System.err.println("@@2:" + (System.currentTimeMillis() - lastTime));
+                }
+                inheritedLocale = CLDRLocale.getInstance(localeWhereFound.value);
 
-                    if (TRACE_TIME)
+                if (inheritancePathWhereFound.value != null && !inheritancePathWhereFound.value.equals(xpath)) {
+                    pathWhereFound = inheritancePathWhereFound.value;
+
+                    if (TRACE_TIME) {
                         System.err.println("@@3:" + (System.currentTimeMillis() - lastTime));
-                    String sourceLocale = localeWhereFound.value; // WAS: vettedParent.getSourceLocaleID(xpath, sourceLocaleStatus);
-                    if (TRACE_TIME)
-                        System.err.println("@@4:" + (System.currentTimeMillis() - lastTime));
-
-                    inheritedItem.inheritedLocale = CLDRLocale.getInstance(sourceLocale);
-
-                    if (inheritancePathWhereFound.value != null && !inheritancePathWhereFound.value.equals(xpath)) {
-                        inheritedItem.pathWhereFound = inheritancePathWhereFound.value;
-                        if (TRACE_TIME)
-                            System.err.println("@@5:" + (System.currentTimeMillis() - lastTime));
-
-                        /*
-                         * TODO: does xpathToBaseXpathId have any useful side-effect here? If not,
-                         * delete this call to it. Formerly the return value was assigned to
-                         * aliasFromXpath, whose value was unused.
-                         */
-                        sm.xpt.xpathToBaseXpathId(inheritancePathWhereFound.value);
-                        if (TRACE_TIME)
-                            System.err.println("@@6:" + (System.currentTimeMillis() - lastTime));
                     }
 
-                    inheritedItem.isBailey = true;
-                    inheritedItem.isFallback = true;
-                } else { // item already contained
-                    CandidateItem otherItem = items.get(constructedBaileyValue);
-                    otherItem.isBailey = true;
-                    otherItem.isFallback = true;
-                    inheritedItem = otherItem;
-                }
-            }
+                    /*
+                     * TODO: does xpathToBaseXpathId have any useful side-effect here? If not,
+                     * delete this call to it. Formerly the return value was assigned to
+                     * aliasFromXpath, whose value was unused.
+                     */
+                    sm.xpt.xpathToBaseXpathId(inheritancePathWhereFound.value);
 
+                    if (TRACE_TIME) {
+                        System.err.println("@@4:" + (System.currentTimeMillis() - lastTime));
+                    }
+                }                    
+            }
             if ((checkCldr != null) && (inheritedItem != null) && (inheritedItem.tests == null)) {
-                if (TRACE_TIME)
-                    System.err.println("@@7:" + (System.currentTimeMillis() - lastTime));
+                if (TRACE_TIME) {
+                    System.err.println("@@5:" + (System.currentTimeMillis() - lastTime));
+                }
+
                 List<CheckStatus> iTests = new ArrayList<CheckStatus>();
-                checkCldr.check(xpath, iTests, inheritedItem.rawValue);
-                if (TRACE_TIME)
-                    System.err.println("@@8:" + (System.currentTimeMillis() - lastTime));
+
+                checkCldr.check(xpath, iTests, inheritedValue);
+
+                if (TRACE_TIME) {
+                    System.err.println("@@6:" + (System.currentTimeMillis() - lastTime));
+                }
+                
                 if (!iTests.isEmpty()) {
                     inheritedItem.setTests(iTests);
-                    if (TRACE_TIME)
-                        System.err.println("@@9:" + (System.currentTimeMillis() - lastTime));
                 }
             }
-            if (TRACE_TIME)
-                System.err.println("@@10:" + (System.currentTimeMillis() - lastTime));
+            if (TRACE_TIME) {
+                System.err.println("@@7:" + (System.currentTimeMillis() - lastTime));
+            }
         }
 
         /**
@@ -1246,147 +1343,183 @@ public class DataSection implements JSONString {
          * DataSection.toJSONString calls DataSection.DataRow.toJSONString repeatedly for each DataRow.
          * DataSection.DataRow.toJSONString calls DataSection.DataRow.CandidateItem.toJSONString
          * repeatedly for each CandidateItem.
+         *
+         * TODO: It would be cleaner, and might be more testable and less bug-prone, to separate
+         * the construction of the JSON from the completion and validation of the DataRow.
+         * It might be best to make all the values needed by client into fields of the DataRow,
+         * if they aren't already; or make them fields of a new object, and then we could do
+         * consistency checking on that object. The DataRow object itself is complex; the test
+         * would be specifically for the data representing what becomes "theRow" on the client,
+         * AFTER that data has all been prepared/derived. See checkDataRowConsistency for work
+         * in progress.
          */
         @Override
         public String toJSONString() throws JSONException {
 
             try {
-                /*
-                 * TODO: fix bug here, where getWinningItem() may return null even though
-                 * already winningValue != null.
-                 */
-                String winningVhash = "";
-                CandidateItem winningItem = getWinningItem();
-                if (winningItem != null) {
-                    /* Use getOriginalValueHash here, not getAdjustedValueHash. This is to fix
-                     * a regression due to changeset 14263 as seen on smoketest, described as
-                     * "seemingly duplicate votes visible" at https://unicode.org/cldr/trac/ticket/10521 */
-                    winningVhash = winningItem.getOriginalValueHash();
-                }
+                String winningVhash = DataSection.getValueHash(winningValue);
+
                 String voteVhash = "";
-                String ourVote = null;
                 if (userForVotelist != null) {
-                    ourVote = ballotBox.getVoteValue(userForVotelist, xpath);
+                    String ourVote = ballotBox.getVoteValue(userForVotelist, xpath);
                     if (ourVote != null) {
                         CandidateItem voteItem = items.get(ourVote);
                         if (voteItem != null) {
-                            /* TODO: should this be getAdjustedValueHash or getOriginalValueHash? */
-                            voteVhash = voteItem.getAdjustedValueHash();
+                            voteVhash = voteItem.getValueHash();
                         }
                     }
                 }
 
                 JSONObject itemsJson = new JSONObject();
-                /*
-                 * TODO: completeness+consistency checking for items, see https://unicode.org/cldr/trac/ticket/11299
-                 * and commented-out gotBailey debugging code below.
-                 * If we get rid of isBailey, could test for one item with INHERITANCE_MARKER
-                 * 
-                 * JSON sent from server to client must be COMPLETE and CONSISTENT
-                 * Establish and test rules like:
-                 *   Neither winningValue nor winningVHash can be empty;
-                 *   There must be an item that corresponds to the winningValue;
-                 *   There must be an item with INHERITANCE_MARKER;
-                 *   ...
-                 */
-                /// Boolean gotBailey = false;
                 for (CandidateItem i : items.values()) {
-                    /* getOriginalValueHash, not getAdjustedValueHash, is required here.
-                     * items.values() may include an item with value ↑↑↑ INHERITANCE_MARKER and isBailey = false, and an item
-                     * with an inherited value and isBailey = true, isFallback = true, locale.isLanguageLocale() = false.
-                     * If getAdjustedValueHash were called here (as it was, under the old name getValueHash), both items would
-                     * get the same key DataSection.getValueHash(CldrUtility.INHERITANCE_MARKER) = 4oaR4oaR4oaR, and only the
-                     * last one would remain in itemsJson, leading to the browser console error "there is no Bailey Target item".
-                     * See https://unicode.org/cldr/trac/ticket/10521
-                     * See http://www.ietf.org/rfc/rfc4627.txt - "the names within an object SHOULD be unique".
-                     */
-                    String key = i.getOriginalValueHash();
+                    String key = i.getValueHash();
                     if (itemsJson.has(key)) {
-                        System.out.println("Warning: value hash key " + key + " is duplicate");
+                        System.out.println("Error: value hash key " + key + " is duplicate");
                     }
                     itemsJson.put(key, i);
-                    /// if (i.isBailey) {
-                    ///     gotBailey = true;
-                    /// }
                 }
-                /// if (!gotBailey) {
-                ///    System.out.println("Warning: no isBailey value in DataSection.java!");
-                /// }
 
                 String displayExample = null;
                 ExampleBuilder b = getExampleBuilder();
                 if (b != null) {
                     displayExample = b.getExampleHtml(xpath, displayName, ExampleType.ENGLISH);
                 }
-                String pathCode = "?";
+
+                String code = "?";
                 PathHeader ph = getPathHeader();
                 if (ph != null) {
-                    pathCode = ph.getCode();
+                    code = ph.getCode();
                 }
 
                 VoteResolver<String> resolver = ballotBox.getResolver(xpath);
-                JSONObject jo = new JSONObject();
-                jo.put("xpath", xpath);
-                jo.put("xpid", xpathId);
-                jo.put("rowFlagged", sm.getSTFactory().getFlag(locale, xpathId));
-                jo.put("xpstrid", XPathTable.getStringIDString(xpath));
-                jo.put("winningValue", winningValue != null ? winningValue : "");
-                jo.put("displayName", displayName);
-                jo.put("displayExample", displayExample);
-                jo.put("statusAction", getStatusAction());
-                jo.put("code", pathCode);
-                jo.put("extraAttributes", getNonDistinguishingAttributes());
-                jo.put("coverageValue", coverageValue);
-                jo.put("hasErrors", hasErrors);
-                jo.put("hasWarnings", hasWarnings);
-                jo.put("confirmStatus", confirmStatus);
-                jo.put("hasVoted", userForVotelist != null ? userHasVoted(userForVotelist.id) : false);
-                jo.put("winningVhash", winningVhash);
-                jo.put("ourVote", ourVote);
-                jo.put("voteVhash", voteVhash);
-                jo.put("voteResolver", SurveyAjax.JSONWriter.wrap(resolver));
-                jo.put("items", itemsJson);
+                JSONObject voteResolver = SurveyAjax.JSONWriter.wrap(resolver);
+
+                boolean rowFlagged = sm.getSTFactory().getFlag(locale, xpathId);
+
+                String xpstrid = XPathTable.getStringIDString(xpath);
+
+                StatusAction statusAction = getStatusAction();
+
+                Map<String, String> extraAttributes = getNonDistinguishingAttributes();
+
+                boolean hasVoted = (userForVotelist != null) ? userHasVoted(userForVotelist.id) : false;
+
+                String inheritedXpid = (pathWhereFound != null) ? XPathTable.getStringIDString(pathWhereFound) : null;
+
+                boolean canFlagOnLosing = (resolver.getRequiredVotes() == VoteResolver.HIGH_BAR);
+
+                String dir = (ph.getSurveyToolStatus() == SurveyToolStatus.LTR_ALWAYS) ? "ltr" : null;
+
+                if (DEBUG) {
+                    checkDataRowConsistency();
+                }
 
                 /*
-                 * TODO: inheritedItem.rawValue is currently the Bailey value, but may be changed to INHERITANCE_MARKER
-                 * (for https://unicode.org/cldr/trac/ticket/11299)
-                 * and what we send to the client here as theRow.inheritedItem should be a member of DataRow, not
-                 * CandidateItem.
-                 * 
-                 * Likewise inheritedItem.pathWhereFound which we send to the client here as theRow.pathWhereFound
-                 * should be a member of DataRow, not CandidateItem.
-                 * 
-                 * Likewise inheritedItem.inheritedLocale which we send to the client here as theRow.inheritedLocale
-                 * should be a member of DataRow, not CandidateItem.
-                 * 
-                 * Likewise inheritedItem.getPClass() which we send to the client here as theRow.inheritedPClass
-                 * only depends on DataRow, not CandidateItem... Also, inheritedPClass is currently only used once
-                 * on the client, in a strange way, maybe should be on server not client, if anywhere:
-                 * if (item.value == INHERITANCE_MARKER) {
-                 *   item.pClass = theRow.inheritedPClass == "winner" ? "fallback" : theRow.inheritedPClass;
-                 *   displayValue = theRow.inheritedItem;
-                 * }
-                 * 
-                 * The inherited value, currently stored as inheritedItem.rawValue, should be a field of DataRow,
-                 * not stored in a CandidateItem (except when there is a "hard" vote for the Bailey value).
-                 * It corresponds to theRow.inheritedValue on the client, so it should named inheritedValue
-                 * in DataRow as well, not to be confused with inheritedItem which was formerly named inheritedValue.
+                 * When the second argument to JSONObject.put is null, then the key is removed if present.
+                 * Here that means that the client will not receive anything for that key!
                  */
-                jo.put("inheritedValue", inheritedItem != null ? inheritedItem.rawValue : null);
-                jo.put("inheritedXPath", inheritedItem != null ? inheritedItem.pathWhereFound : null);
-                jo.put("inheritedXpid",
-                    (inheritedItem != null && inheritedItem.pathWhereFound != null) ? XPathTable.getStringIDString(inheritedItem.pathWhereFound) : null);
-                jo.put("inheritedLocale", inheritedItem != null ? inheritedItem.inheritedLocale : null);
-                jo.put("inheritedPClass", inheritedItem != null ? inheritedItem.getPClass() : "fallback");
-                jo.put("canFlagOnLosing", resolver.getRequiredVotes() == VoteResolver.HIGH_BAR);
-                if (ph.getSurveyToolStatus() == SurveyToolStatus.LTR_ALWAYS) {
-                    jo.put("dir", "ltr");
-                }
+                JSONObject jo = new JSONObject();
+                /*
+                 * At last count (2018-09-10) there are 22 key/value pairs here, of which 8 are fields
+                 * of DataRow, and 14 are local variables in this function. Some of the local variables
+                 * like voteResolver and itemsJson are specially "wrapped up" for json; maybe with those
+                 * as exceptions, the rest should become fields of DataRow to facilitate consistency
+                 * checking without sending them all as parameters to checkDataRowConsistency.
+                 * Anyway, try to keep the names same on server and client, and avoid using function calls
+                 * or compound expressions for the arguments passed to jo.put here. 
+                 */
+                jo.put("canFlagOnLosing", canFlagOnLosing);
+                jo.put("code", code);
+                jo.put("confirmStatus", confirmStatus);
+                jo.put("coverageValue", coverageValue);
+                jo.put("dir", dir);
+                jo.put("displayExample", displayExample);
+                jo.put("displayName", displayName);
+                jo.put("extraAttributes", extraAttributes);
+                jo.put("hasVoted", hasVoted);
+                jo.put("inheritedLocale", inheritedLocale);
+                jo.put("inheritedValue", inheritedValue);
+                jo.put("inheritedXpid", inheritedXpid);
+                jo.put("items", itemsJson);
+                jo.put("rowFlagged", rowFlagged);
+                jo.put("statusAction", statusAction);
+                jo.put("voteResolver", voteResolver);
+                jo.put("voteVhash", voteVhash);
+                jo.put("winningValue", winningValue);
+                jo.put("winningVhash", winningVhash);
+                jo.put("xpath", xpath);
+                jo.put("xpathId", xpathId);
+                jo.put("xpstrid", xpstrid);
                 return jo.toString();
             } catch (Throwable t) {
-                SurveyLog.logException(t, "Exception in toJSONString of " + this);
+                SurveyLog.logException(t, "Exception in DataRow.toJSONString of " + this);
                 throw new JSONException(t);
             }
+        }
+
+        /**
+         * Check whether the data for this row is consistent.
+         *
+         * This function may serve as a basis for more automated testing, and a place
+         * to put some debugging code while work is on progress.
+         *
+         * TODO: clarify what needs to be checked here for completeness+consistency.
+         * References: https://unicode.org/cldr/trac/ticket/11299
+         * and https://unicode.org/cldr/trac/ticket/11238
+         *
+         * Compare fixWinningValue(); here we're not fixing (changing) anything, only
+         * reporting.
+         *
+         * JSON sent from server to client must be COMPLETE and CONSISTENT
+         * Establish and test rules like:
+         *   winningVHash cannot be empty;
+         *   There must be an item that corresponds to the winningValue;
+         *   There must be an item with INHERITANCE_MARKER;
+         *   ...
+         *
+         * We may get winningValue and inheritedValue both null,
+         * such as for "http://localhost:8080/cldr-apps/v#/fr_CA/CAsia/"
+         * xpath = //ldml/dates/timeZoneNames/metazone[@type="Kyrgystan"]/long/generic
+         * xpath = //ldml/dates/timeZoneNames/metazone[@type="Qyzylorda"]/long/generic
+         * These are "extra" paths.
+         *
+         * Note: client doesn't use DataRow.winningValue currently. It uses winningVhash. Also,
+         * client uses vr.winningValue, a.k.a. theRow.voteResolver.winningValue, which gets
+         * set by wrap() in SurveyAjax.java in "put("winningValue", r.getWinningValue())"...
+         * Need to check voteResolver.winningValue for consistency too!
+         *
+         * A bug may occur on the client if there is no item for winningVhash.
+         *
+         * See updateRowProposedWinningCell in survey.js:
+         * addVitem(children[config.proposedcell], tr, theRow, theRow.items[theRow.winningVhash], cloneAnon(protoButton));
+         *
+         * We get an error "item is undefined" in addVitem if theRow.items[theRow.winningVhash] isn't defined.
+         *
+         * Get that, for example, at http://localhost:8080/cldr-apps/v#/fr_CA/CAsia/
+         */
+        private void checkDataRowConsistency() {
+            if (winningValue == null) {
+                System.out.println("Error in checkDataRowConsistency: winningValue is null; xpath = " + xpath +
+                    "; inheritedValue = " + inheritedValue);
+            }
+            if (getItem(winningValue) == null) {
+                System.out.println("Error in checkDataRowConsistency: getItem(winningValue) is null; xpath = " + xpath +
+                    "; inheritedValue = " + inheritedValue);
+            }
+            /*
+             * It is probably a bug if we have an item with INHERITANCE_MARKER
+             * but inheritedLocale and pathWhereFound (basis of inheritedXpid) are both null.
+             * This happens with "example C" in https://unicode.org/cldr/trac/ticket/11299#comment:15 .
+             * See showItemInfoFn in survey.js
+             */
+            if (inheritedItem != null && inheritedLocale == null && pathWhereFound == null) {
+                System.out.println("Error in checkDataRowConsistency: inheritedItem without inheritedLocale or pathWhereFound" +
+                    "; xpath = " + xpath + "; inheritedValue = " + inheritedValue);
+            }
+            /*
+             * Note: we could also report if ERROR_NO_WINNING_VALUE.equals(winningValue) here; or uncomment
+             * debugging code in fixWinningValue.
+             */
         }
 
         /*
@@ -2040,7 +2173,7 @@ public class DataSection implements JSONString {
                 ctx.flush();
             }
             if (pageId == null) {
-                section.ensureComplete(ourSrc, checkCldr, null, workingCoverageLevel);
+                section.ensureComplete(ourSrc, checkCldr, workingCoverageLevel);
                 popCount = section.getAll().size();
             }
             if (showLoading && ctx != null && SHOW_TIME) {
@@ -2140,6 +2273,11 @@ public class DataSection implements JSONString {
     // hash of examples
     Hashtable<String, ExampleEntry> exampleHash = new Hashtable<String, ExampleEntry>();
 
+    /**
+     * Does this DataSection have examples?
+     * 
+     * TODO: resolve confusion: this is a field of DataSection, but it's returned by a function with the same name in DataRow
+     */
     public boolean hasExamples = false;
 
     /*
@@ -2220,18 +2358,14 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * TODO: never called? Compare functions with same name in PathHeader, WebContext
-     * @return
+     * Get the page id
+     * 
+     * @return pageId
+     * 
+     * Called from RefreshRow.jsp
      */
     public PageId getPageId() {
         return pageId;
-    }
-
-    /**
-     * TODO: never called?
-     */
-    public long age() {
-        return System.currentTimeMillis() - touchTime;
     }
 
     /**
@@ -2240,6 +2374,8 @@ public class DataSection implements JSONString {
      * @param sortMode
      * @param matcher
      * @return the DisplaySet
+     * 
+     * Called from RefreshRow.jsp
      */
     public DisplaySet createDisplaySet(SortMode sortMode, XPathMatcher matcher) {
         DisplaySet aDisplaySet = sortMode.createDisplaySet(matcher, rowsHash.values());
@@ -2256,8 +2392,7 @@ public class DataSection implements JSONString {
      *
      * TODO: Actually still called by DataSection.make, clarify whether "obsolete"
      */
-    private void ensureComplete(CLDRFile ourSrc, TestResultBundle checkCldr, Map<String, String> options,
-        String workingCoverageLevel) {
+    private void ensureComplete(CLDRFile ourSrc, TestResultBundle checkCldr, String workingCoverageLevel) {
 
         STFactory stf = sm.getSTFactory();
         SectionId sectionId = (pageId != null) ? pageId.getSectionId() : null;
@@ -2381,10 +2516,10 @@ public class DataSection implements JSONString {
                     int base_xpath = sm.xpt.getByXpath(base_xpath_string);
 
                     // set up tests
-                    myp.setShimTests(base_xpath, base_xpath_string, checkCldr, options);
-                }
-            }
-        } // tz
+                    myp.setShimTests(base_xpath, base_xpath_string, checkCldr);
+                } // end inner for loop
+            } // end outer for loop
+        } // end if timezone
     }
 
     /**
@@ -2411,21 +2546,14 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Get the BallotBox for this DataSection
-     *
-     * @return the BallotBox
-     */
-    public BallotBox<User> getBallotBox() {
-        return ballotBox;
-    }
-
-    /**
      * Get the row for the given xpath in this DataSection
      *
      * Linear search for matching item.
      *
      * @param xpath the integer...
      * @return the matching DataRow
+     * 
+     * Called from r_rxt.jsp
      */
     public DataRow getDataRow(int xpath) {
         return getDataRow(sm.xpt.getById(xpath));
@@ -2446,12 +2574,12 @@ public class DataSection implements JSONString {
         if (rowsHash == null) {
             throw new InternalError("rowsHash is null");
         }
-        DataRow p = rowsHash.get(xpath);
-        if (p == null) {
-            p = new DataRow(xpath);
-            addDataRow(p);
+        DataRow row = rowsHash.get(xpath);
+        if (row == null) {
+            row = new DataRow(xpath);
+            addDataRow(row);
         }
-        return p;
+        return row;
     }
 
     /**
@@ -2476,7 +2604,7 @@ public class DataSection implements JSONString {
     /**
      * Get the number of things that were skipped due to coverage
      *
-     * TODO: clarify what kind of things, and why it means for them to be "skipped due to coverage"
+     * TODO: clarify what kind of things, and what it means for them to be "skipped due to coverage"
      *
      * @return the number of things that were skipped
      */
@@ -2491,31 +2619,20 @@ public class DataSection implements JSONString {
      * @param checkCldr the TestResultBundle
      * @param workingCoverageLevel
      *
-     * Called only by DataSection.make, as section.populateFrom(ourSrc, checkCldr, workingCoverageLevel);
-     * 
-     * TODO: shorten this function, over 300 lines
+     * Called only by DataSection.make, as section.populateFrom(ourSrc, checkCldr, workingCoverageLevel).
      */
     private void populateFrom(CLDRFile ourSrc, TestResultBundle checkCldr, String workingCoverageLevel) {
         XPathParts xpp = new XPathParts(null, null);
-        CLDRFile aFile = ourSrc; // TODO: why not just use ourSrc directly? Having two variables ourSrc and aFile seems to serve no purpose.
         STFactory stf = sm.getSTFactory();
         CLDRFile oldFile = stf.getOldFile(locale);
         diskFile = stf.getDiskFile(locale);
         List<CheckStatus> examplesResult = new ArrayList<CheckStatus>();
-        long lastTime = -1;
         String workPrefix = xpathPrefix;
-        long nextTime = -1;
-        int count = 0;
-        long countStart = 0;
-        if (SHOW_TIME) {
-            lastTime = countStart = System.currentTimeMillis();
-        }
 
         int workingCoverageValue = Level.fromString(workingCoverageLevel).getLevel();
 
         Set<String> allXpaths;
 
-        String continent = null;
         Set<String> extraXpaths = null;
         List<CheckStatus> checkCldrResult = new ArrayList<CheckStatus>();
 
@@ -2527,18 +2644,18 @@ public class DataSection implements JSONString {
             allXpaths = new HashSet<String>();
             extraXpaths = new HashSet<String>();
 
-            /* ** Determine which xpaths to show */
-            if (xpathPrefix.startsWith("//ldml/units")) {
-                canName = false;
-            } else if (xpathPrefix.startsWith("//ldml/numbers")) {
+            /* Determine which xpaths to show */
+            if (xpathPrefix.startsWith("//ldml/units") || xpathPrefix.startsWith("//ldml/numbers")) {
                 canName = false;
             } else if (xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
+                String continent = null;
                 int continentStart = xpathPrefix.indexOf(DataSection.CONTINENT_DIVIDER);
                 if (continentStart > 0) {
                     continent = xpathPrefix.substring(xpathPrefix.indexOf(DataSection.CONTINENT_DIVIDER) + 1);
                 }
-                if (DEBUG)
+                if (DEBUG) {
                     System.err.println(xpathPrefix + ": -> continent " + continent);
+                }
                 if (!xpathPrefix.contains("@type")) {
                     // if it's not a zoom-in..
                     workPrefix = "//ldml/dates/timeZoneNames/metazone";
@@ -2550,25 +2667,47 @@ public class DataSection implements JSONString {
             isCalendar = xpathPrefix.startsWith("//ldml/dates/calendars");
             isMetazones = xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone");
 
-            /* ** Build the set of xpaths */
+            /* Build the set of xpaths */
             // iterate over everything in this prefix ..
             Set<String> baseXpaths = stf.getPathsForFile(locale, xpathPrefix);
 
             allXpaths.addAll(baseXpaths);
-            if (aFile.getSupplementalDirectory() == null) {
-                throw new InternalError("?!! aFile hsa no supplemental dir!");
+            if (ourSrc.getSupplementalDirectory() == null) {
+                throw new InternalError("?!! ourSrc hsa no supplemental dir!");
             }
-            aFile.getExtraPaths(workPrefix, extraXpaths);
+            ourSrc.getExtraPaths(workPrefix, extraXpaths);
             extraXpaths.removeAll(baseXpaths);
             allXpaths.addAll(extraXpaths);
 
             // Process extra paths.
-            if (DEBUG)
+            if (DEBUG) {
                 System.err.println("@@X@ base[" + workPrefix + "]: " + baseXpaths.size() + ", extra: " + extraXpaths.size());
-
+            }
         }
+        populateFromAllXpaths(allXpaths, workPrefix, ourSrc, oldFile, extraXpaths, stf, workingCoverageValue, xpp, checkCldr, examplesResult, checkCldrResult);
+    }
+    
+    /**
+     * Populate this DataSection with a row for each of the given xpaths
+     *
+     * @param allXpaths the set of xpaths
+     * @param workPrefix
+     * @param ourSrc
+     * @param oldFile
+     * @param extraXpaths
+     * @param stf
+     * @param workingCoverageValue
+     * @param xpp
+     * @param checkCldr
+     * @param examplesResult
+     * @param checkCldrResult
+     * 
+     * TODO: resurrect SHOW_TIME and TRACE_TIME code, deleted in revision 14327, if and when needed for debugging.
+     * It was deleted when this code was moved from populateFrom to new subroutine populateFromAllXpaths.
+     */
+    private void populateFromAllXpaths(Set<String> allXpaths, String workPrefix, CLDRFile ourSrc, CLDRFile oldFile, Set<String> extraXpaths, STFactory stf,
+        int workingCoverageValue, XPathParts xpp, TestResultBundle checkCldr, List<CheckStatus> examplesResult, List<CheckStatus> checkCldrResult) {
 
-        /* ** iterate over all xpaths */
         for (String xpath : allXpaths) {
             if (xpath == null) {
                 throw new InternalError("null xpath in allXpaths");
@@ -2579,29 +2718,17 @@ public class DataSection implements JSONString {
                     continue;
                 }
                 if (!xpath.startsWith(workPrefix)) {
-                    if (DEBUG && SurveyMain.isUnofficial())
+                    if (DEBUG && SurveyMain.isUnofficial()) {
                         System.err.println("@@ BAD XPATH " + xpath);
+                    }
                     continue;
-                } else if (aFile.isPathExcludedForSurvey(xpath)) {
-                    if (DEBUG && SurveyMain.isUnofficial())
+                } else if (ourSrc.isPathExcludedForSurvey(xpath)) {
+                    if (DEBUG && SurveyMain.isUnofficial()) {
                         System.err.println("@@ excluded:" + xpath);
+                    }
                     continue;
                 } else if (DEBUG) {
                     System.err.println("allPath: " + xpath);
-                }
-            }
-            /*
-             * 'extra' paths get shim treatment
-             */
-            boolean isExtraPath = extraXpaths != null && extraXpaths.contains(xpath);
-
-            if (SHOW_TIME) {
-                count++;
-                nextTime = System.currentTimeMillis();
-                if ((nextTime - lastTime) > 10000) {
-                    lastTime = nextTime;
-                    System.err.println("[] " + locale + ":" + xpathPrefix + " #" + count + ", or "
-                        + (((double) (System.currentTimeMillis() - countStart)) / count) + "ms per.");
                 }
             }
 
@@ -2614,7 +2741,7 @@ public class DataSection implements JSONString {
                 continue;
             }
 
-            String fullPath = aFile.getFullXPath(xpath);
+            String fullPath = ourSrc.getFullXPath(xpath);
             int base_xpath = sm.xpt.xpathToBaseXpathId(xpath);
             String baseXpath = sm.xpt.getById(base_xpath);
 
@@ -2628,207 +2755,277 @@ public class DataSection implements JSONString {
             if (fullPath == null) {
                 fullPath = xpath; // (this is normal for 'extra' paths)
             }
-
-            if (TRACE_TIME)
-                System.err.println("ns0  " + (System.currentTimeMillis() - nextTime));
-            String value = isExtraPath ? null : aFile.getStringValue(xpath);
-            if (value == null) {
-                if (DEBUG) {
-                    System.err.println("warning: populatefrom " + this + ": " + locale + ":" + xpath + " = NULL! wasExtraPath="
-                        + isExtraPath);
-                }
-                isExtraPath = true;
-            }
-
-            // determine 'alt' param
-            String alt = sm.xpt.altFromPathToTinyXpath(xpath, xpp);
-
-            /* FULL path processing (references.. alt proposed.. ) */
-            xpp.clear();
-            xpp.initialize(fullPath);
-            String lelement = xpp.getElement(-1);
-            xpp.findAttributeValue(lelement, LDMLConstants.ALT);
-            String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
-            if (TRACE_TIME)
-                System.err.println("n04  " + (System.currentTimeMillis() - nextTime));
-
-            /*
-             * This local variable named "altProp" was formerly named "altProposed" and shouldn't be
-             * confused with the constant string CandidateItem.altProposed ("n/a").
-             */
-            String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
-            String altProp = typeAndProposed[1];
-
             // Now we are ready to add the data
+            populateFromThisXpath(xpath, extraXpaths, ourSrc, oldFile, xpp, fullPath, checkCldr, coverageValue, base_xpath, examplesResult, checkCldrResult);
+        }
+    }
 
-            // Load the 'data row' which represents one user visible row.
-            // (may be nested in the case of alt types) (nested??)
-            DataRow p = getDataRow(xpath);
+    /**
+     * Add data to this DataSection including a possibly new DataRow for the given xpath
+     *
+     * @param xpath
+     * @param extraXpaths
+     * @param ourSrc
+     * @param oldFile
+     * @param xpp
+     * @param fullPath
+     * @param checkCldr
+     * @param coverageValue
+     * @param base_xpath
+     * @param examplesResult
+     * @param checkCldrResult
+     */
+    private void populateFromThisXpath(String xpath, Set<String> extraXpaths, CLDRFile ourSrc, CLDRFile oldFile, XPathParts xpp, String fullPath,
+        TestResultBundle checkCldr, int coverageValue, int base_xpath, List<CheckStatus> examplesResult, List<CheckStatus> checkCldrResult) {
+        /*
+         * 'extra' paths get shim treatment
+         * 
+         * NOTE: this is a sufficient but not a necessary condition for isExtraPath; if it gets false here,
+         * it may still get true below if ourSrc.getStringValue returns null.
+         */
+        boolean isExtraPath = extraXpaths != null && extraXpaths.contains(xpath);
 
-            if (oldFile != null) {
-                p.oldValue = oldFile.getStringValueWithBailey(xpath);
-            } else {
-                p.oldValue = null;
+        /*
+         * TODO: clarify the significance and usage of the local variable ourValue.
+         * Formerly it was named "value"; the new name "ourValue" reflects that it is
+         * gotten as ourSrc.getStringValue(xpath).
+         *
+         * If not null, it's ourSrc.getStringValue(xpath); not possible (confirm?) for that
+         * to be CldrUtility.INHERITANCE_MARKER. getStringValue effectively resolves that to
+         * the Bailey value -- could that possibly be causing a "hard" vote to be treated as
+         * winning when in reality it may have been a "soft" vote that was winning?
+         *
+         * ourValue DOES reflect the current votes (if any). To see this, enter a new winning
+         * value for a row, for example "test-bogus" in place of "occitan" in the first row
+         * of http://localhost:8080/cldr-apps/v#/fr_CA/Languages_O_S/24368393ccee3451
+         * and ourValue will get "test-bogus" here.
+         * Then vote for "soft" inheritance, and ourValue will get "occitan" here (NOT CldrUtility.INHERITANCE_MARKER).
+         * How does ourValue relate to winningValue, oldValue, etc.?
+         * ourSrc contrasts with oldFile; both are type CLDRFile.
+         * Each CLDRFile has a dataSource, which is an XMLSource, an abstract class.
+         * These classes extends XMLSource: DelegateXMLSource, DummyXMLSource, ResolvingSource,
+         * SimpleXMLSource. Generally (always?) in this context ourSrc.dataSource is a
+         * ResolvingSource, and ourSrc.dataSource.currentSource is a DataBackedSource.
+         * ourSrc is initialized as follows:
+         *         CLDRFile ourSrc = sm.getSTFactory().make(locale.getBaseName(), true, true);
+         * 
+         * See fixWinningValue for more related comments.
+         */
+
+        String ourValue = isExtraPath ? null : ourSrc.getStringValue(xpath);
+        if (ourValue == null) {
+            /*
+             * This happens, for example, with xpath = "//ldml/dates/timeZoneNames/metazone[@type=\"Kyrgystan\"]/long/generic"
+             * at http://localhost:8080/cldr-apps/v#/fr_CA/CAsia/
+             * 
+             * getStringValue calls getFallbackPath which calls getRawExtraPaths which contains xpath
+             */
+            if (DEBUG) {
+                System.err.println("warning: populateFromThisXpath " + this + ": " + locale + ":" + xpath + " = NULL! wasExtraPath="
+                    + isExtraPath);
             }
-            Set<String> v = ballotBox.getValues(xpath);
-            if (v != null) {
-                for (String avalue : v) {
-                    if (DEBUG)
-                        System.err.println(" //val='" + avalue + "' vs " + value + " in " + xpath);
-                    if (!avalue.equals(value)) {
-                        CandidateItem item2 = p.addItem(avalue);
-                        if (avalue != null && (checkCldr != null)) {
-                            List<CheckStatus> item2Result = new ArrayList<CheckStatus>();
-                            checkCldr.check(xpath, item2Result, avalue);
-                            if (!item2Result.isEmpty()) {
-                                item2.setTests(item2Result);
-                            }
-                        }
-                    }
+            isExtraPath = true;
+        }
+
+        // determine 'alt' param
+        String alt = sm.xpt.altFromPathToTinyXpath(xpath, xpp);
+
+        /* FULL path processing (references.. alt proposed.. ) */
+        xpp.clear();
+        xpp.initialize(fullPath);
+        String lelement = xpp.getElement(-1);
+        xpp.findAttributeValue(lelement, LDMLConstants.ALT);
+        String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
+
+        String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
+        String altProp = typeAndProposed[1];
+
+        CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
+        String sourceLocale = ourSrc.getSourceLocaleID(xpath, sourceLocaleStatus);
+
+        boolean ourValueIsInherited = !(sourceLocale.equals(locale.toString()));
+
+        /*
+         * Load the 'data row' which represents one user visible row.
+         * (may be nested in the case of alt types) (nested??)
+         *  
+         * Is it ever true that rowsHash already contains xpath here, or does getDataRow always create a new DataRow here?
+         * Seemingly getDataRow always creates a new DataRow here.
+         */
+        DataRow row = getDataRow(xpath);
+
+        /*
+         * Call updateInheritedValue before fixWinningValue, so that the latter can use inheritedValue as needed.
+         * 
+         * Normally row.inheritedItem is null at this point, unless setShimTests has already been called
+         * by ensureComplete, for some timezones. If row.inheritedItem is null, possibly create it.
+         * 
+         * However, skip updateInheritedValue if isExtra. See setShimTests below, which may set inheritedItem
+         * when isExtraPath.
+         */
+        if (row.inheritedItem == null && !isExtraPath) {
+            row.updateInheritedValue(ourSrc, checkCldr);
+        }
+        row.fixWinningValue(ourValue, ourValueIsInherited);
+
+        Set<String> v = ballotBox.getValues(xpath);
+        if (v != null) {
+            populateFromThisXpathAddItemsForVotes(v, xpath, row, checkCldr);
+        }
+
+        /*
+         * Add an item for winningValue if there isn't one already.
+         */
+        if (row.winningValue != null) {
+            row.addItem(row.winningValue, "winningValue");
+        }
+
+        /*
+         * Add an item for oldValue if there isn't one already.
+         *
+         * TODO: clarify whether the conditions "!row.oldValue.equals(ourValue)" and
+         * "v == null || !v.contains(row.oldValue)" are needed here and if so why.
+         */
+        if (row.oldValue != null && !row.oldValue.equals(ourValue) && (v == null || !v.contains(row.oldValue))) {
+            row.addItem(row.oldValue, "oldValue");
+        }
+
+        row.coverageValue = coverageValue;
+
+        if (locale.getCountry() != null && locale.getCountry().length() > 0) {
+            /*
+             * If "vote for inherited" isn't already represented as an item, add it (child locales only).
+             * 
+             * TODO: Note that updateInheritedValue is called above, unless isExtraPath; normally
+             * it's the job of updateInheritedValue to do addItem(CldrUtility.INHERITANCE_MARKER); is there
+             * any need to call it here as well? setShimTests below may also do addItem(CldrUtility.INHERITANCE_MARKER).
+             */            
+            row.addItem(CldrUtility.INHERITANCE_MARKER, "getCountry");
+        }
+
+        if (row.inheritedItem == null && isExtraPath) {
+            /*
+             * This is an 'extra' item- it doesn't exist in xml (including root).
+             * For example, isExtraPath may be true when xpath is:
+             *  '//ldml/dates/timeZoneNames/metazone[@type="Mexico_Northwest"]/short/standard'
+             * and the URL ends with "v#/aa/NAmerica/".
+             * Set up 'shim' tests, to display coverage.
+             */
+            row.setShimTests(base_xpath, this.sm.xpt.getById(base_xpath), checkCldr);
+        }
+        if (row.getDisplayName() == null) {
+            canName = false; // disable 'view by name' if not all have names.
+        }
+
+        // If it is draft and not proposed.. make it proposed-draft
+        if (((eDraft != null) && (!eDraft.equals("false"))) && (altProp == null)) {
+            altProp = SurveyMain.PROPOSED_DRAFT;
+        }
+        
+        /*
+         * If ourValue is inherited, do NOT add a CandidateItem for it.
+         * TODO: clarify. If ourValue is inherited, then indeed there should be an item
+         * for "soft" inheritance with INHERITANCE_MARKER, but no item for hard/explicit value unless it has votes.
+         * Test if this value of ourValueIsInherited is reliable and consistent with what happens in updateInheritedValue.
+         */
+        if (ourValueIsInherited && !isExtraPath) {
+             return;
+        }
+        if (altProp != null && !ourValueIsInherited && altProp != SurveyMain.PROPOSED_DRAFT) { // 'draft=true'
+            row.hasMultipleProposals = true;
+        }
+        CLDRLocale setInheritFrom = ourValueIsInherited ? CLDRLocale.getInstance(sourceLocale) : null;
+        if (checkCldr != null) {
+            checkCldr.check(xpath, checkCldrResult, isExtraPath ? null : ourValue);
+            checkCldr.getExamples(xpath, isExtraPath ? null : ourValue, examplesResult);
+        }
+        if (ourValue != null && ourValue.length() > 0) {
+            addOurValue(ourValue, row, checkCldrResult, sourceLocaleStatus, xpath, setInheritFrom, examplesResult);
+        }
+    }
+
+    /**
+     * For each string in the given set, based on values that have votes,
+     * add an item to the given row with that string as its value,
+     * unless the string matches ourValue.
+     * 
+     * Also run some tests if appropriate.
+     * 
+     * @param v the set of values that have votes
+     * @param xpath
+     * @param row the DataRow
+     * @param checkCldr the TestResultBundle, or null
+     *
+     * TODO: populateFromThisXpathAddItemsForVotes could be a method of DataRow instead of DataSection, then wouldn't need row, xpath as params
+     */
+    private void populateFromThisXpathAddItemsForVotes(Set<String> v, String xpath, DataRow row, TestResultBundle checkCldr) {
+        for (String avalue : v) {
+            CandidateItem item2 = row.addItem(avalue, "votes");
+            if (avalue != null && checkCldr != null) {
+                List<CheckStatus> item2Result = new ArrayList<CheckStatus>();
+                checkCldr.check(xpath, item2Result, avalue);
+                if (!item2Result.isEmpty()) {
+                    item2.setTests(item2Result);
                 }
             }
-            if (p.oldValue != null && !p.oldValue.equals(value) && (v == null || !v.contains(p.oldValue))) {
-                // if "oldValue" isn't already represented as an item, add it.
-                CandidateItem oldItem = p.addItem(p.oldValue);
-                oldItem.isOldValue = true;
+        }
+    }
+
+    /**
+     * Add an item for "ourValue" to the given DataRow, and set various fields of the DataRow
+     *
+     * @param ourValue
+     * @param row
+     * @param checkCldrResult
+     * @param sourceLocaleStatus
+     * @param xpath
+     * @param setInheritFrom
+     * @param examplesResult
+     * 
+     * TODO: addOurValue could be a method of DataRow instead of DataSection, then wouldn't need row, xpath as params
+     */
+    private void addOurValue(String ourValue, DataRow row, List<CheckStatus> checkCldrResult,
+            org.unicode.cldr.util.CLDRFile.Status sourceLocaleStatus, String xpath, CLDRLocale setInheritFrom,
+            List<CheckStatus> examplesResult) {
+
+        CandidateItem myItem = row.addItem(ourValue, "ourValue");
+
+        if (DEBUG) {
+            System.err.println("Added item " + ourValue + " - now items=" + row.items.size());
+        }
+
+        if (!checkCldrResult.isEmpty()) {
+            myItem.setTests(checkCldrResult);
+            /*
+             * set the parent, can't reuse it if nonempty
+             */
+            checkCldrResult = new ArrayList<CheckStatus>();
+        }
+
+        if (sourceLocaleStatus != null && sourceLocaleStatus.pathWhereFound != null
+                && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
+            row.pathWhereFound = sourceLocaleStatus.pathWhereFound;
+        }
+        if (setInheritFrom != null) {
+            row.inheritedLocale = setInheritFrom;
+        }        
+
+        /*
+         * Store who voted for what. [ this could be loaded at displaytime..]
+         * 
+         * TODO: explain the following block.
+         * myItem.examples is assigned to here, but not referenced anywhere else,
+         * so what is this block for, and does examples need to be a member of
+         * CandidateItem rather than just a local variable here?
+         */
+        if (!examplesResult.isEmpty()) {
+            // reuse the same ArrayList unless it contains something
+            if (myItem.examples == null) {
+                myItem.examples = new Vector<ExampleEntry>();
             }
-            if ((locale.getCountry() != null && locale.getCountry().length() > 0) && (v == null || !v.contains(CldrUtility.INHERITANCE_MARKER))) {
-                // if "vote for inherited" isn't already represented as an item, add it (child locales only)
-                p.addItem(CldrUtility.INHERITANCE_MARKER);
-            }
-
-            p.coverageValue = coverageValue;
-
-            if (isExtraPath) {
-                // This is an 'extra' item- it doesn't exist in xml (including root).
-                // For example, isExtraPath may be true when xpath is:
-                // '//ldml/dates/timeZoneNames/metazone[@type="Mexico_Northwest"]/short/standard'
-                // and the URL ends with "v#/aa/NAmerica/".
-                // Set up 'shim' tests, to display coverage.
-                p.setShimTests(base_xpath, this.sm.xpt.getById(base_xpath), checkCldr, null);
-            } else if (p.inheritedItem == null) {
-                // This item fell back from root. Make sure it has an Item, and that tests are run.
-                p.updateInheritedValue(ourSrc, checkCldr);
-            }
-
-            if (TRACE_TIME)
-                System.err.println("n05  " + (System.currentTimeMillis() - nextTime));
-
-            if ((p.getDisplayName() == null)) {
-                canName = false; // disable 'view by name' if not all have names.
-            }
-            if (TRACE_TIME)
-                System.err.println("n06  " + (System.currentTimeMillis() - nextTime));
-
-            // If it is draft and not proposed.. make it proposed-draft
-            if (((eDraft != null) && (!eDraft.equals("false"))) && (altProp == null)) {
-                altProp = SurveyMain.PROPOSED_DRAFT;
-            }
-
-            if (TRACE_TIME)
-                System.err.println("n06a  " + (System.currentTimeMillis() - nextTime));
-
-            CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
-            if (TRACE_TIME)
-                System.err.println("n06b  " + (System.currentTimeMillis() - nextTime));
-            String sourceLocale = aFile.getSourceLocaleID(xpath, sourceLocaleStatus);
-            if (TRACE_TIME)
-                System.err.println("n06c  " + (System.currentTimeMillis() - nextTime));
-            boolean isInherited = !(sourceLocale.equals(locale.toString()));
-            if (TRACE_TIME)
-                System.err.println("n06d  " + (System.currentTimeMillis() - nextTime));
-
-            // ** IF it is inherited, do NOT add any Items.
-            if (isInherited && !isExtraPath) {
-                if (TRACE_TIME)
-                    System.err.println("n06da  [src:" + sourceLocale + " vs " + locale + ", sttus:" + sourceLocaleStatus + "] "
-                        + (System.currentTimeMillis() - nextTime));
-                if (TRACE_TIME)
-                    System.err.println("n06dc  " + (System.currentTimeMillis() - nextTime));
-                continue;
-            }
-            if (TRACE_TIME)
-                System.err.println("n06e  " + (System.currentTimeMillis() - nextTime));
-
-            if (TRACE_TIME)
-                System.err.println("n07  " + (System.currentTimeMillis() - nextTime));
-
-            // ?? simplify this.
-            if (altProp == null) {
-                if (isInherited) {
-                    p.hasInherited = true;
-                }
-            } else {
-                if (!isInherited) {
-                    p.hasProps = true;
-                    if (altProp != SurveyMain.PROPOSED_DRAFT) { // 'draft=true'
-                        p.hasMultipleProposals = true;
-                    }
-                } else {
-                    p.hasInherited = true;
-                }
-            }
-
-            CLDRLocale setInheritFrom = (isInherited) ? CLDRLocale.getInstance(sourceLocale) : null;
-
-            // ***** Set up Candidate Items *****
-            // These are the items users may choose between
-            //
-            if (checkCldr != null) {
-                if (TRACE_TIME)
-                    System.err.println("n07.1  (check) " + (System.currentTimeMillis() - nextTime));
-                checkCldr.check(xpath, checkCldrResult, isExtraPath ? null : value);
-                if (TRACE_TIME)
-                    System.err.println("n07.2  (check) " + (System.currentTimeMillis() - nextTime));
-                checkCldr.getExamples(xpath, isExtraPath ? null : value, examplesResult);
-            }
-
-            if (value != null && value.length() > 0) {
-                DataSection.DataRow.CandidateItem myItem = null;
-
-                if (TRACE_TIME)
-                    System.err.println("n08  (check) " + (System.currentTimeMillis() - nextTime));
-                myItem = p.addItem(value);
-
-                if (DEBUG) {
-                    System.err.println("Added item " + value + " - now items=" + p.items.size());
-                }
-
-                if (!checkCldrResult.isEmpty()) {
-                    myItem.setTests(checkCldrResult);
-                    /*
-                     * set the parent, can't reuse it if nonempty
-                     */
-                    checkCldrResult = new ArrayList<CheckStatus>();
-                }
-
-                if (sourceLocaleStatus != null && sourceLocaleStatus.pathWhereFound != null
-                    && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
-                    myItem.pathWhereFound = sourceLocaleStatus.pathWhereFound;
-                }
-                myItem.inheritedLocale = setInheritFrom;
-                if (setInheritFrom == null) {
-                    myItem.isFallback = false; // TODO: redundant?
-                    myItem.isParentFallback = false;
-                }
-                /*
-                 * Store who voted for what. [ this could be loaded at displaytime..]
-                 * 
-                 * TODO: explain the following block.
-                 * myItem.examples is assigned to here, but not referenced anywhere else,
-                 * so what is this block for, and does examples need to be a member of
-                 * CandidateItem rather than just a local variable here?
-                 */
-                if (!examplesResult.isEmpty()) {
-                    // reuse the same ArrayList unless it contains something
-                    if (myItem.examples == null) {
-                        myItem.examples = new Vector<ExampleEntry>();
-                    }
-                    for (Iterator<CheckStatus> it3 = examplesResult.iterator(); it3.hasNext();) {
-                        CheckCLDR.CheckStatus status = it3.next();
-                        myItem.examples.add(addExampleEntry(new ExampleEntry(this, p, myItem, status)));
-                    }
-                }
+            for (Iterator<CheckStatus> it3 = examplesResult.iterator(); it3.hasNext();) {
+                CheckCLDR.CheckStatus status = it3.next();
+                myItem.examples.add(addExampleEntry(new ExampleEntry(this, row, myItem, status)));
             }
         }
     }
@@ -2855,26 +3052,6 @@ public class DataSection implements JSONString {
 
         // Call the method below that has the same name, different parameters
         showSection(ctx, canModify, matcher, zoomedIn);
-    }
-
-    /**
-     * Show a single item, in a very limited view.
-     *
-     * @param ctx
-     * @param item_xpath
-     *            xpath of the one item to show
-     *
-     *  Called only by showXpathShort in SurveyForum.java
-     */
-    public void showPeasShort(WebContext ctx, int item_xpath) {
-        DataRow row = getDataRow(item_xpath);
-        if (row != null) {
-            row.showDataRowShort(ctx);
-        } else {
-            ctx.println("<tr><td colspan='2'>" + ctx.iconHtml("stop", "internal error")
-                + "<i>internal error: nothing to show for xpath " + item_xpath + "," + " " + sm.xpt.getById(item_xpath)
-                + "</i></td></tr>");
-        }
     }
 
     /**
@@ -2930,8 +3107,8 @@ public class DataSection implements JSONString {
                 // see if we can find this base_xpath somewhere..
                 int pn = 0;
                 for (int i = 0; i < dSet.rows.length && (moveSkip == -1); i++) {
-                    DataRow p = dSet.rows[i];
-                    if (p.getXpathId() == xfind) {
+                    DataRow row = dSet.rows[i];
+                    if (row.getXpathId() == xfind) {
                         moveSkip = pn;
                     }
                     pn++;
@@ -3011,6 +3188,29 @@ public class DataSection implements JSONString {
     }
 
     /**
+     * Show a single item, in a very limited view.
+     *
+     * @param ctx
+     * @param item_xpath
+     *            xpath of the one item to show
+     *
+     *  Called only by showXpathShort in SurveyForum.java
+     *  
+     *  Changed name from showPeasShort to showDataRowsShort, and moved from between the two methods
+     *  named showSection, 2018-8-19
+     */
+    public void showDataRowsShort(WebContext ctx, int item_xpath) {
+        DataRow row = getDataRow(item_xpath);
+        if (row != null) {
+            row.showDataRowShort(ctx);
+        } else {
+            ctx.println("<tr><td colspan='2'>" + ctx.iconHtml("stop", "internal error")
+                + "<i>internal error: nothing to show for xpath " + item_xpath + "," + " " + sm.xpt.getById(item_xpath)
+                + "</i></td></tr>");
+        }
+    }
+
+    /**
      * @param ctx
      * @param matcher
      * @return
@@ -3054,7 +3254,17 @@ public class DataSection implements JSONString {
         touchTime = System.currentTimeMillis();
     }
 
-    /** width, in columns, of the typical data table **/
+
+    /**
+     * Print something...
+     *
+     * @param ctx
+     * @param section
+     * @param zoomedIn
+     * @param canModify
+     * 
+     * Called by showXpath in SurveyForum.java, and by showSection
+     */
     static void printSectionTableOpen(WebContext ctx, DataSection section, boolean zoomedIn, boolean canModify) {
         ctx.println("<a name='st_data'></a>");
         ctx.println("<table summary='Data Items for " + ctx.getLocale().toString() + " " + section.xpathPrefix

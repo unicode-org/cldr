@@ -221,7 +221,7 @@ public class ChartDelta extends Chart {
                 pw.print("\t" + nf.format(total));
             } else {
                 final long current = counter2.getCount(item);
-                pw.print("\t" + pf.format(current / (double) total));
+                pw.print("\t" + nf.format(current));
             }
         }
         pw.println();

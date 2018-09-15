@@ -211,7 +211,7 @@ public class GenerateValidityXml {
         // we want to keep any code that is valid in any territory, so
         info.remove("XXX", Status.deprecated);
         info.remove("XXX", Status.regular);
-        
+
         // just to make sure info never disappears
         Map<String, Status> oldCodes = OLD_VALIDITY.getCodeToStatus(LstrType.currency);
         for (Entry<String, Status> entry : oldCodes.entrySet()) {
@@ -270,13 +270,6 @@ public class GenerateValidityXml {
             }
             // gather data
             info.clear();
-            switch (type) {// HACK for now
-            case script: 
-                info.put("Zsye", Status.special); 
-                break;
-            default: 
-                break;
-            }
             for (Entry<String, Map<LstrField, String>> entry2 : entry.getValue().entrySet()) {
                 String code = entry2.getKey();
                 if (type == LstrType.language && code.startsWith("bh")) {
@@ -311,18 +304,28 @@ public class GenerateValidityXml {
                     }
                     break;
                 case script:
-                    if (type == LstrType.script && subtype == Validity.Status.regular) {
-                        ScriptMetadata.Info scriptInfo = ScriptMetadata.getInfo(code);
-                        if (scriptInfo == null && !code.equals("Hrkt")) {
-                            skippedScripts.add(code);
-                            continue;
+                    switch (code) {
+                    case "Qaag":
+                    case "Zsye": 
+                        subtype = Status.special;
+                        break;
+                    default:
+                        if (subtype == Validity.Status.regular) {
+                            ScriptMetadata.Info scriptInfo = ScriptMetadata.getInfo(code);
+                            if (scriptInfo == null && !code.equals("Hrkt")) {
+                                skippedScripts.add(code);
+                                continue;
+                            }
                         }
+                        break;
                     }
                     break;
                 case variant:
                     if (VARIANT_EXTRAS.contains(code)) {
                         continue;
                     }
+                default:
+                    break;
                 }
                 info.put(code, subtype);
             }

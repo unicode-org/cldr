@@ -1385,9 +1385,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             isoCurrenciesToCountries.keySet());
         missing.removeAll(modernCurrencyCodes.keySet());
         if (missing.size() != 0) {
-            if (!logKnownIssue("cldrbug:11167", "Missing codes compared to ISO: " + missing.toString())) {
-                errln("Missing codes compared to ISO: " + missing.toString());
-            }
+            errln("Missing codes compared to ISO: " + missing.toString());
         }
 
         for (String currency : modernCurrencyCodes.keySet()) {

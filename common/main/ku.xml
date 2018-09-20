@@ -1020,7 +1020,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">€</symbol>
 			</currency>
 			<currency type="TRY">
-				<symbol>TL</symbol>
+				<pattern>¤#,##0.00</pattern>
+				<symbol>₺</symbol>
+				<symbol alt="narrow" draft="contributed">₺</symbol>
+				<symbol alt="variant" draft="contributed">TL</symbol>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">

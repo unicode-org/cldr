@@ -788,6 +788,18 @@ public class CheckDates extends FactoryCheckCLDR {
                                 "Please change your pattern to match what was asked, such as ({3}), with the right punctuation and/or ordering for your language. See http://cldr.org/translation/date-time-patterns.",
                             id, skeletonCanonical, value, fixedValue));
             }
+            if (dateTypePatternType == DateTimePatternType.AVAILABLE) {
+                // index y+w+ must correpond to pattern containing only Y+ and w+
+                if (idCanonical.matches("y+w+") && !(skeleton.matches("Y+w+") || skeleton.matches("w+Y+"))) {
+                    result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.incorrectDatePattern)
+                        .setMessage("For id {0}, the pattern ({1}) must contain fields Y and w, and no others.", id, value));
+                }
+                // index M+W msut correspond to pattern containing only M+/L+ and W
+                if (idCanonical.matches("M+W") && !(skeletonCanonical.matches("M+W") || skeletonCanonical.matches("WM+"))) {
+                    result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.incorrectDatePattern)
+                        .setMessage("For id {0}, the pattern ({1}) must contain fields M or L, plus W, and no others.", id, value));
+                }
+            }
             String failureMessage = (String) flexInfo.getFailurePath(path);
             if (failureMessage != null) {
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)

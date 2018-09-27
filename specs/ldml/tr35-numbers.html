@@ -818,14 +818,15 @@ h2, h3, h4, table {
 		<p>The miscPatterns supply additional patterns for special
 			purposes. The currently defined values are:</p>
 		<dl>
-			<dt>
-				<strong>atLeast</strong>
-			</dt>
-			<dd>indicates a number or higher, such as: “99+” to indicate
-				that there are 99 items or more.</dd>
-			<dt>
-				<strong>range</strong>
-			</dt>
+			<dt class='changed'><strong>approximately</strong> </dt>
+            <dd class='changed'>indicates an approximate number, such as: “~99”</dd>
+            <dt class='changed'><strong>atMost</strong> </dt>
+            <dd class='changed'>indicates a number or lower, such as: “<code>≤</code>99” to indicate
+              that there are 99 items or fewer.</dd>
+            <dt><strong>atLeast</strong> </dt>
+            <dd>indicates a number or higher, such as: “99+” to indicate
+              that there are 99 items or more.</dd>
+            <dt><strong>range</strong></dt>
 			<dd>indicates a range of numbers, such as: “99–103” to indicate
 				that there are from 99 to 103 items.</dd>
 		</dl>
@@ -834,11 +835,13 @@ h2, h3, h4, table {
 		</p>
 		<p>
 			<code>
-				&lt;miscPatterns numberSystem=&quot;…&quot;&gt;<br>
-				  &lt;pattern type=&quot;atLeast&quot;&gt;⩾{0}&lt;/pattern&gt;<br>
-				  &lt;pattern type=&quot;range&quot;&gt;{0}–{1}&lt;/pattern&gt;<br>
-				&lt;/miscPatterns&gt;
-			</code>
+				&lt;miscPatterns numberSystem=&quot;…&quot;&gt;<br>		
+				<span class='changed'>  &lt;pattern type=&quot;approximately&quot;&gt;~{0}&lt;/pattern&gt;</span><br>
+				 				&lt;pattern type=&quot;atLeast&quot;&gt;≥{0}&lt;/pattern&gt; 			<br>
+				<span class='changed'>  &lt;pattern type=&quot;atMost&quot;&gt;≤{0}&lt;/pattern&gt;</span><br>
+				  
+				&lt;pattern type=&quot;range&quot;&gt;{0}–{1}&lt;/pattern&gt; 		<br>
+				&lt;/miscPatterns&gt;</code>
 		</p>
   <h3>
 		2.6 <a name="Minimal_Pairs" href="#Minimal_Pairs">Minimal Pairs</a></h3>

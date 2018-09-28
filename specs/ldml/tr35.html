@@ -772,13 +772,15 @@ h5 {
 						<a href="#unicode_language_id" name="unicode_language_id">unicode_language_id</a>
 					</code></td>
 				<td><code>
-						= (unicode_language_subtag <br>     (sep
+						= &quot;root&quot;<br>
+						| (unicode_language_subtag <br>     (sep
 						unicode_script_subtag)? <br>   | unicode_script_subtag)<br>
 						(sep unicode_region_subtag)? <br> (sep
 						unicode_variant_subtag)* ;
 					</code></td>
 				<td><code>
-						= (unicode_language_subtag <br>     [sep
+						= &quot;root&quot;<br>
+| (unicode_language_subtag <br>     [sep
 						unicode_script_subtag] <br>   / unicode_script_subtag)<br>
 						[sep unicode_region_subtag] <br> *(sep
 						unicode_variant_subtag)
@@ -788,12 +790,8 @@ h5 {
 				<td><code>
 						<a href="#unicode_language_subtag" name="unicode_language_subtag">unicode_language_subtag</a>
 					</code></td>
-				<td><code> = <span class='changed'>"root" | </span>alpha{2,3}<br>
-				    
-			    | alpha{5,8}; </code></td>
-				<td><code> = <span class='changed'>"root" / </span>2*3ALPHA <br>
-				    
-			    / 5*8ALPHA </code></td>
+				<td><code> = alpha{2,3} | alpha{5,8}; </code></td>
+				<td><code> = 2*3ALPHA / 5*8ALPHA </code></td>
 				<td><code>
 						<a href='#unicode_language_subtag_validity'>validity</a><br>
 						<a href='http://unicode.org/cldr/latest/common/validity/language.xml'>latest-data</a>
@@ -907,9 +905,8 @@ h5 {
 					BCP 47 U Extension</a>
 			</em> and <em>Section 3.7 <a href="#BCP47_T_Extension">Unicode
 					BCP 47 T Extension</a></em>. The following table defines syntactically
-			well-formed identifiers: they are not necessarily valid identifiers.
-			For additional validity criteria, see the links on the right.
-		</p>
+			        <em>well-formed</em> identifiers: they are not necessarily <em>valid</em> identifiers.
+		For additional validity criteria, see the links on the right. </p>
 		<table border="0">
 			<tr>
 				<th>&nbsp;</th>
@@ -1000,7 +997,7 @@ private-use_extensions?</span> ; </code></td>
 		  <tr>
 				<td><code>key</code></td>
 				<td><code>
-						= alphanum ALPHA ;
+						= alphanum alpha ;
 					</code></td>
 				<td><code>
 						= alphanum ALPHA

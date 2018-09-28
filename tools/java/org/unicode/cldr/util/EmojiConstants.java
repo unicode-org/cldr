@@ -27,6 +27,9 @@ public class EmojiConstants {
 
     public static final String KISS = "💋";
     public static final String HEART = "❤";
+    public static final String TAG_TERM = UTF16.valueOf(0xE007F);
+    public static final String BLACK_FLAG = UTF16.valueOf(0x1F3F4);
+    public static final String HANDSHAKE = UTF16.valueOf(0x1f91d);
     public static final String MALE_SIGN = "♂";
     public static final String FEMALE_SIGN = "♀";
     public static final String MAN = "👨";
@@ -69,11 +72,12 @@ public class EmojiConstants {
         .add(JOINER_STRING)
         .freeze();
     public static final UnicodeSet REM_GROUP_SKIP_SET = new UnicodeSet(REM_SKIP_SET)
-        .add(EmojiConstants.HEART).add(EmojiConstants.KISS)
-        .add(MALE_SIGN).add(FEMALE_SIGN)
+        .add(EmojiConstants.HEART)
+        .add(EmojiConstants.KISS)
+        .add(EmojiConstants.HANDSHAKE)
+        .add(MALE_SIGN)
+        .add(FEMALE_SIGN)
         .freeze();
-    public static final String TAG_TERM = UTF16.valueOf(0xE007F);
-    public static final String BLACK_FLAG = UTF16.valueOf(0x1F3F4);
 
     public static String getTagSpec(String code) {
         StringBuilder b = new StringBuilder();

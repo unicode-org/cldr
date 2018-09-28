@@ -4,9 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -405,6 +405,11 @@ public class Annotations {
                     rem = code + rem;
                     code = "💑";
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
+                } else if (code.contains(EmojiConstants.HANDSHAKE)) {
+                    code = code.startsWith(EmojiConstants.MAN) ? "👬"
+                        : code.endsWith(EmojiConstants.MAN) ? "👫" 
+                            : "👭";
+                    skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
                 } else if (EmojiConstants.FAMILY_MARKERS.containsAll(code)) {
                     rem = code + rem;
                     code = "👪";
@@ -446,11 +451,18 @@ public class Annotations {
             }
 
             boolean hackBlond = EmojiConstants.HAIR_EXPLICIT.contains(base.codePointAt(0));
-            List<String> arguments = new ArrayList<>();
-            
+            Collection<String> arguments = new ArrayList<>();
+            int lastSkin = -1;
+
             for (int mod : CharSequences.codePoints(rem)) {
                 if (ignore.contains(mod)) {
                     continue;
+                }
+                if (EmojiConstants.MODIFIERS.contains(mod)) {
+                    if (lastSkin == mod) {
+                        continue;
+                    }
+                    lastSkin = mod; // collapse skin tones. TODO fix if we ever do multi-skin families
                 }
                 Annotations stock = baseData.get(mod);
                 String modName = null;
@@ -493,7 +505,9 @@ public class Annotations {
                     annotations.add(modName);
                 }
             }
-            shortName = pattern.format(shortName, listPattern.format(arguments));
+            if (!arguments.isEmpty()) {
+                shortName = pattern.format(shortName, listPattern.format(arguments));
+            }
             Annotations result = new Annotations(annotations, (needMarker ? ENGLISH_MARKER : "") + shortName);
             return result;
         }

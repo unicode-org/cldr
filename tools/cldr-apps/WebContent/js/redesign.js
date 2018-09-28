@@ -57,17 +57,21 @@ $(function() {
     $('body').on('click', '.toggle-right', toggleRightPanel);
     $('.tip-log').tooltip({placement:'bottom'});
     $('body').keydown(function(event) {
-    	if($(':focus').length === 0) {
-    		if(event.keyCode === 37) {
-    			chgPage(-1);
-    			event.preventDefault();
-    		} else if (event.keyCode === 39) {
-    			chgPage(1);
-    			event.preventDefault();
-    		}
+		/*
+		 * Some browsers (e.g., Firefox) treat Backspace (or Delete on macOS) as a shortcut for
+		 * going to the previous page in the browser's history. That's a problem when we have an
+		 * input window open for the user to type a new candidate item, especially if the window
+		 * is still visible but has lost focus. Prevent that behavior for backspace when the input
+		 * window has lost focus. Formerly, key codes 37 (left arrow) and 39 (right arrow) were used
+		 * here as shortcuts for chgPage(-1) and chgPage(1), respectively. However, that caused
+		 * problems similar to the problem with Backspace. Reference: https://unicode.org/cldr/trac/ticket/11218
+		 */
+    	if ($(':focus').length === 0) {
+            if (event.keyCode === 8) { // backspace
+    	        event.preventDefault();
+            }
     	}
     })
-    //initFeedBack();
 });
 
 //size the sidebar relative to the header

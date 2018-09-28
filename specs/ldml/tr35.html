@@ -108,7 +108,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td class="changed">2018-05-10</td>
+				<td class="changed">2018-09-28</td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -772,13 +772,13 @@ h5 {
 						<a href="#unicode_language_id" name="unicode_language_id">unicode_language_id</a>
 					</code></td>
 				<td><code>
-						="root" <br> | (unicode_language_subtag <br>     (sep
+						= (unicode_language_subtag <br>     (sep
 						unicode_script_subtag)? <br>   | unicode_script_subtag)<br>
 						(sep unicode_region_subtag)? <br> (sep
 						unicode_variant_subtag)* ;
 					</code></td>
 				<td><code>
-						="root" <br> / (unicode_language_subtag <br>     [sep
+						= (unicode_language_subtag <br>     [sep
 						unicode_script_subtag] <br>   / unicode_script_subtag)<br>
 						[sep unicode_region_subtag] <br> *(sep
 						unicode_variant_subtag)
@@ -788,8 +788,12 @@ h5 {
 				<td><code>
 						<a href="#unicode_language_subtag" name="unicode_language_subtag">unicode_language_subtag</a>
 					</code></td>
-				<td><code> = alpha{2,3} | alpha{5,8}; </code></td>
-				<td><code> = 2*3ALPHA / 5*8ALPHA </code></td>
+				<td><code> = <span class='changed'>"root" | </span>alpha{2,3}<br>
+				    
+			    | alpha{5,8}; </code></td>
+				<td><code> = <span class='changed'>"root" / </span>2*3ALPHA <br>
+				    
+			    / 5*8ALPHA </code></td>
 				<td><code>
 						<a href='#unicode_language_subtag_validity'>validity</a><br>
 						<a href='http://unicode.org/cldr/latest/common/validity/language.xml'>latest-data</a>
@@ -918,16 +922,27 @@ h5 {
 						<a href="#unicode_locale_id" name="unicode_locale_id">unicode_locale_id</a>
 					</code></td>
 				<td><code>
-						= unicode_language_id<br>   (transformed_extensions  <br>
-						  unicode_locale_extensions? <br> |
-						unicode_locale_extensions?<br>   transformed_extensions?) ;
+						= unicode_language_id<br>
+						   <span class='changed'>extensions*<br>
+						   
+private-use_extensions?</span> ; </code></td>
+				<td><code>
+						= unicode_language_id<br>
+						   <span class='changed'>[extensions]   <br>
+						   
+				   1*private-use_extensions </span></code></td>
+			</tr>
+		  <tr class='changed'>
+				<td><code>
+				<a href="#extensions" name="extensions">extensions</a>
 					</code></td>
 				<td><code>
-						= unicode_language_id<br>   ([trasformed_extensions <br>
-						  [unicode_locale_extensions]]<br>
-						/ [unicode_locale_extensions <br>  
-						[transformed_extensions]])
-					</code></td>
+						= unicode_locale_extensions <br>
+				| transformed_extensions <br>
+				| other_extensions ;</code></td>
+				<td><code>= unicode_locale_extensions <br>
+/ transformed_extensions <br>
+/ other_extensions</code></td>
 			</tr>
 			<tr>
 				<td><code>
@@ -939,7 +954,7 @@ h5 {
 						(sep keyword)*) ;
 					</code></td>
 				<td><code>
-						= sep <span class="changed">[uU]</span> <br>   (1*(sep keyword) <br>   / 1*(sep
+						= sep <span class="changed">&quot;u&quot;</span> <br>   (1*(sep keyword) <br>   / 1*(sep
 						attribute) *(sep keyword))
 					</code></td>
 			</tr>
@@ -951,15 +966,38 @@ h5 {
 					= sep <span class="changed">[tT]</span> <br>   ((<span class='changed'>sep</span> tlang (<span class="changed">sep</span> tfield)*) <br>
 					  | (<span class="changed">sep</span> tfield)+) ; </code></td>
 				<td><code>
-						= sep <span class="changed">[tT]</span> <br>   ((<span class="changed">sep</span> tlang
+						= sep <span class="changed">&quot;t&quot;</span> <br>   ((<span class="changed">sep</span> tlang
 					*(<span class="changed">sep</span> tfield)) <br>   / 1*(<span class="changed">sep</span> tfield)) </code></td>
+			</tr>
+			<tr class='changed'>
+				<td><code><a href="#pu_extensions" name="pu_extensions">pu_extensions</a></code></td>
+				<td><code>= sep [xX] <br>
+				    
+			    (sep alphanum{1,8})* ;</code></td>
+				<td><code>= sep &quot;x&quot; <br>
+				    
+			    [sep 1*8alphanum]</code></td>
+			</tr>
+		  <tr class='changed'>
+				<td><code><a href="#other_extensions" name="other_extensions">other_extensions</a></code></td>
+				<td><code>= [alphanum-[tTuUxX]]<br>
+				    
+			    (sep alphanum{2,8})* ;</code></td>
+				<td><code>= (DIGIT<br>
+				      
+			    / %x61-%x73<br>
+			        / %x76-%x77<br>
+			        
+			    / %x79-%x7A)<br>
+  
+	        *(sep 2*8alphanum)</code></td>
 			</tr>
 			<tr>
 				<td><code>keyword</code></td>
 				<td><code>= key (sep type)? ;</code></td>
 				<td><code>= key [sep type]</code></td>
 			</tr>
-			<tr>
+		  <tr>
 				<td><code>key</code></td>
 				<td><code>
 						= alphanum ALPHA ;
@@ -1083,15 +1121,16 @@ h5 {
 			more information, see <i><a href="#Language_and_Locale_IDs">Section
 					3.10 Language and Locale IDs</a></i>.
 		</p>
-		<p>
+		<p class='removed'>
 			Although not shown in the syntax above, Unicode locale identifiers
 			may also have [<a href="#BCP47">BCP47</a>] extensions (other than
 			&quot;u&quot; and &quot;t&quot;) and private use subtags; these are
 			not, however, relevant to their use in Unicode.
 		</p>
 		<p></p>
-		<p>
-			As for terminology, the term <i>code</i> may also be used instead of
+		<p class='changed'>As of the release of this specification, there were no other_extensions defined. The other_extensions are present in the syntax to allow implementations to preserve that information. There cannot be more than one extension with the same singleton (-u-, -t-, ...). The private use extension must come after all other extensions. 
+		</p>
+		<p>As for terminology, the term <i>code</i> may also be used instead of
 			&quot;subtag&quot;, and &quot;territory&quot; instead of
 			&quot;region&quot;. The primary language subtag is also called the <i>base
 				language code</i>. For example, the base language code for
@@ -1100,15 +1139,21 @@ h5 {
 		</p>
 		<p>
 			The identifiers can vary in case and in the separator characters. The
-		&quot;-&quot; and &quot;_&quot; separators are treated as equivalent.</p>
+			&quot;-&quot; and &quot;_&quot; separators are treated as equivalent<span class='changed'>, although &quot;-&quot; is preferred.</span></p>
 	  <p>All identifier field values are case-insensitive. Although case
 			distinctions do not carry any special meaning, an implementation of
 			LDML should use the casing recommendations in [<a href="#BCP47">BCP47</a>],
 			especially when a Unicode locale identifier is used for locale data
-			exchange in software protocols. The recommendation is that: the
-			region subtag is in uppercase, the script subtag is in title case,
-			and all other subtags are in lowercase.
-		</p>
+		exchange in software protocols.</p>
+	  <p class='changed'>The canonical form of a <code><a href="#unicode_locale_id">unicode_locale_id</a></code> has:</p>
+	  <ul>
+	    <li>	<span class="changed">a language tag (those beginning with a script tag only are specialized use)</span></li>
+	    <li>any script subtag  in title case (eg, Hant)</li>
+	    <li>any region subtag  in uppercase (eg, DE)</li>
+        <li>all other subtags  in lowercase (eg, en)</li>
+	    <li class='changed'>any variants in alphabetical order (eg, en-fonipa-scouse, not en-scouse-fonipa)</li>
+	    <li class='changed'>any extensions in alphabetical order by their singleton (eg, en-t-xxx-u-yyy, not en-u-yyy-t-xxx)</li>
+      </ul>
 		<p>
 		<b>Note:</b>		    <span class='changed'>The current version of CLDR data uses some non-preferred forms for backward compatibility. </span>This might be changed in future CLDR releases.</p>
 		<ul class='changed'>
@@ -1132,6 +1177,7 @@ h5 {
 				<ul>
 					<li>No irregular or BCP47 grandfathered tags are allowed</li>
 					<li>No extlang subtags are allowed</li>
+					<li class='changed'>A tag must not start with the subtag &quot;x&quot;. Thus a <em>privateuse</em> (eg x-abc) can only be after a language subtag like &quot;und&quot;</li>
 				</ul>
 			</li>
 			<li>It allows for certain additions:
@@ -1141,8 +1187,9 @@ h5 {
 					</li>
 					<li>"root" to indicate the generic locale used as the parent
 						of all languages in the CLDR data model.</li>
-					<li>Defined semantics of certain private use codes, and some
-						"macrolanguage" codes.</li>
+					<li>Certain private use codes, and some
+						"macrolanguage" codes have defined semantics.</li>
+				  <li class='changed'>The language tag may begin with a script rather than a language (specialized use only).</li>
 				</ul>
 			</li>
 		</ul>
@@ -1160,6 +1207,7 @@ h5 {
 			<li>Replace the "_" separators with "-"</li>
 			<li>Replace the special language identifier "root" with the BCP
 				47 primary language tag "und"</li>
+			<li><span class="changed">Add an initial &quot;und&quot; primary language subtag if the first subtag is a script.</span></li>
 		</ol>
 		For example,
 		<blockquote>
@@ -1186,9 +1234,10 @@ h5 {
 		</p>
 		<ol>
 			<li>Canonicalize the language tag (afterwards, there will be no
-				extlang subtag)</li>
+				extlang subtag).</li>
 			<li>Replace the BCP 47 primary language subtag "und" with "root"
-				if no script, region, or variant subtags are present</li>
+				if no script, region, or variant subtags are present <span class="changed"> (the change to root is optional, but used in CLDR data)</span>.</li>
+			<li><span class="changed">Add an initial &quot;und&quot; primary language subtag if the first subtag is &quot;x&quot;.</span></li>
 			<li>If the BCP 47 primary language subtag matches the <i>type</i>
 				attribute of a <i>languageAlias</i> element in <a
 				href="tr35-info.html#Supplemental_Data">Supplemental Data</a>,
@@ -1231,14 +1280,14 @@ h5 {
 				<td>no changes</td>
 			</tr>
 			<tr>
-				<td><code>und</code></td>
-				<td><code>root</code></td>
-				<td>no changes</td>
+				<td><code>und-US</code></td>
+				<td><code>und-US</code></td>
+				<td>no change to &quot;und&quot;, because a region subtag is present</td>
 			</tr>
 			<tr>
-				<td><code>und-US</code></td>
-				<td><code>und-US</code></td>
-				<td>no changes, because region subtag is present</td>
+				<td><code>und</code></td>
+				<td><code>root</code></td>
+				<td>changes to &quot;root&quot; <span class="changed">(where used in CLDR data)</span></td>
 			</tr>
 			<tr>
 				<td nowrap><code>und-u-cu-USD</code></td>
@@ -1273,13 +1322,17 @@ h5 {
 						type=&quot;SU&quot; replacement=&quot;RU AM AZ BY EE GE KZ KG LV
 						LT MD TJ TM UA UZ&quot; …/&gt;</code></td>
 			</tr>
+			<tr class='changed'>
+			  <td><code>x-abc</code></td>
+			  <td><code>und-x-abc</code></td>
+			  <td>changes, so that there is always a base language tag</td>
+		  </tr>
 		</table>
 
 		<p>
 			<b>Note:</b> In some rare cases, BCP 47 language tags cannot be
 			converted to valid Unicode language/locale identifiers, such as
-			certain [<a href="#BCP47">BCP 47</a>] grandfathered tags.
-		</p>
+			certain [<a href="#BCP47">BCP 47</a>] grandfathered tags<span class='changed'> with no  with no &quot;Preferred-Value&quot; or alias</span>.</p>
 		<h3>
 			<a name="Field_Definitions" href="#Field_Definitions">3.4
 				Language Identifier Field Definitions </a>
@@ -8634,10 +8687,15 @@ decimal?, group?, special*)) &gt;</pre>
 <ul>
   <li><strong>Section 3.2 <a 
 				href="#Unicode_locale_identifier">Unicode Locale Identifier</a></strong>
-    <ul>
-      <li>Fix cases of "-" in the syntax that should have been sep, and note that &quot;-&quot; is the canonical (preferred) form.</li>
-      <li>Fixed &quot;u&quot; and &quot;t&quot; in the syntax to [uU] and [tT], resp., to reflect that case is ignored when parsing.</li>
-    </ul>
+[<a href="http://unicode.org/cldr/trac/ticket/11435">#11435</a>]
+[<a href="http://unicode.org/cldr/trac/ticket/11434">#11434</a>]
+<ul>
+  <li>Fixed cases of "-" in the syntax that should have been <em>sep</em>, and note that &quot;-&quot; is the canonical (preferred) form.</li>
+  <li>Fixed &quot;u&quot; and &quot;t&quot; in the syntax to [uU] and [tT], resp., to reflect that case is ignored when parsing.</li>
+  <li>Included specific syntax rather than just noting &quot;Although not shown in the syntax above, Unicode locale identifiers may also have [BCP47] extensions (other than &quot;u&quot; and &quot;t&quot;) and private use subtags.&quot;</li>
+  <li>Reformated and fleshed out the canonical form description; listed where CLDR uses non-canonical forms.</li>
+  <li>Added missing details about how Unicode Locale Identifiers differ from BCP47, and how to convert between them.</li>
+</ul>
   </li>
   <li><strong>Section 3.4
     <a href="#Field_Definitions">Language Identifier Field Definitions </a> 

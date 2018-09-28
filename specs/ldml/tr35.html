@@ -935,11 +935,11 @@ h5 {
 							name="unicode_locale_extensions">unicode_locale_extensions</a>
 					</code></td>
 				<td><code>
-						= sep "u"<br>   ((sep keyword)+ <br>   |(sep attribute)+
+						= sep <span class="changed">[uU]</span><br>   ((sep keyword)+ <br>   |(sep attribute)+
 						(sep keyword)*) ;
 					</code></td>
 				<td><code>
-						= sep "u" <br>   (1*(sep keyword) <br>   / 1*(sep
+						= sep <span class="changed">[uU]</span> <br>   (1*(sep keyword) <br>   / 1*(sep
 						attribute) *(sep keyword))
 					</code></td>
 			</tr>
@@ -948,13 +948,11 @@ h5 {
 						<a href="#transformed_extensions" name="transformed_extensions">transformed_extensions</a>
 					</code></td>
 				<td><code>
-						= sep &quot;t&quot; <br>   (("-" tlang ("-" tfield)*) <br>
-						  | ("-" tfield)+) ;
-					</code></td>
+					= sep <span class="changed">[tT]</span> <br>   ((<span class='changed'>sep</span> tlang (<span class="changed">sep</span> tfield)*) <br>
+					  | (<span class="changed">sep</span> tfield)+) ; </code></td>
 				<td><code>
-						= sep &quot;t&quot; <br>   ((&quot;-&quot; tlang
-						*(&quot;-&quot; tfield)) <br>   / 1*(&quot;-&quot; tfield))
-					</code></td>
+						= sep <span class="changed">[tT]</span> <br>   ((<span class="changed">sep</span> tlang
+					*(<span class="changed">sep</span> tfield)) <br>   / 1*(<span class="changed">sep</span> tfield)) </code></td>
 			</tr>
 			<tr>
 				<td><code>keyword</code></td>
@@ -1037,17 +1035,11 @@ h5 {
 			<tr>
 				<td><code>tlang</code></td>
 				<td><code>
-						= unicode_language_subtag <br>   (&quot;-&quot;
-						unicode_script_subtag)? <br>   (&quot;-&quot;
-						unicode_region_subtag)? <br>   (&quot;-&quot;
-						unicode_variant_subtag)* ;
-					</code></td>
+					= unicode_language_subtag<br>   (<span class="changed">sep</span> unicode_script_subtag)?<br>   (<span class="changed">sep</span> unicode_region_subtag)?<br>   (<span class="changed">sep</span> unicode_variant_subtag)* ; </code></td>
 				<td><code>
-						= unicode_language_subtag <br>   [&quot;-&quot;
-						unicode_script_subtag] <br>   [&quot;-&quot;
-						unicode_region_subtag] <br>  
-						*(&quot;-&quot;unicode_variant_subtag)
-					</code></td>
+						= unicode_language_subtag <br>   [<span class="changed">sep</span> unicode_script_subtag] <br>   [<span class="changed">sep</span> unicode_region_subtag] <br> 
+						 
+					*(<span class="changed">sep</span> unicode_variant_subtag) </code></td>
 			</tr>
 			<tr>
 				<td><code>tfield</code></td>
@@ -1077,8 +1069,8 @@ h5 {
 				<td><code>
 						tvalue
 					</code></td>
-				<td><code>= (&quot;-&quot; alphanum{3,8})+ ;</code></td>
-				<td><code>= 1*(&quot;-&quot; 3*8alphanum)</code></td>
+				<td><code>= (<span class="changed">sep</span> alphanum{3,8})+ ;</code></td>
+				<td><code>= 1*(<span class="changed">sep</span> 3*8alphanum)</code></td>
 			</tr>
 		</table>
 
@@ -1108,8 +1100,8 @@ h5 {
 		</p>
 		<p>
 			The identifiers can vary in case and in the separator characters. The
-			&quot;-&quot; and &quot;_&quot; separators are treated as equivalent.
-			All identifier field values are case-insensitive. Although case
+		&quot;-&quot; and &quot;_&quot; separators are treated as equivalent.</p>
+	  <p>All identifier field values are case-insensitive. Although case
 			distinctions do not carry any special meaning, an implementation of
 			LDML should use the casing recommendations in [<a href="#BCP47">BCP47</a>],
 			especially when a Unicode locale identifier is used for locale data
@@ -1118,10 +1110,13 @@ h5 {
 			and all other subtags are in lowercase.
 		</p>
 		<p>
-			<b>Note:</b> The current version of CLDR uses upper case letters for
-			variant subtags in its file names for backward compatibility reasons.
-			This might be changed in future CLDR releases.
-		</p>
+		<b>Note:</b>		    <span class='changed'>The current version of CLDR data uses some non-preferred forms for backward compatibility. </span>This might be changed in future CLDR releases.</p>
+		<ul class='changed'>
+		  <li>It uses upper case letters for
+		    variant subtags, while the preferred forms are all uppercase.</li>
+		  <li>It uses &quot;_&quot; as the separator, while the preferred form of the separator is  "-".</li>
+		  <li>It uses &quot;root&quot;, while the preferred form is &quot;und&quot;.</li>
+      </ul>
 		<h3>
 			<a name="BCP_47_Conformance" href="#BCP_47_Conformance">3.3 BCP
 				47 Conformance</a>
@@ -8637,12 +8632,19 @@ decimal?, group?, special*)) &gt;</pre>
 				locales, basic structure)
 	</strong></p>
 <ul>
-  <li><strong>Section <a href="#Field_Definitions">3.4
-    Language Identifier Field Definitions </a> 
+  <li><strong>Section 3.2 <a 
+				href="#Unicode_locale_identifier">Unicode Locale Identifier</a></strong>
+    <ul>
+      <li>Fix cases of "-" in the syntax that should have been sep, and note that &quot;-&quot; is the canonical (preferred) form.</li>
+      <li>Fixed &quot;u&quot; and &quot;t&quot; in the syntax to [uU] and [tT], resp., to reflect that case is ignored when parsing.</li>
+    </ul>
+  </li>
+  <li><strong>Section 3.4
+    <a href="#Field_Definitions">Language Identifier Field Definitions </a> 
     </strong>
     <ul>
       <li>Added special script code Qaag [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
-  </ul>
+      </ul>
   </li>
   <li><strong>Section 3.5.3 <a href="#Private_Use">Private Use Codes</a></strong>
     <ul>

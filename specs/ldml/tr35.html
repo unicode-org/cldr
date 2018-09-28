@@ -1322,7 +1322,7 @@ private-use_extensions?</span> ; </code></td>
 						type=&quot;SU&quot; replacement=&quot;RU AM AZ BY EE GE KZ KG LV
 						LT MD TJ TM UA UZ&quot; …/&gt;</code></td>
 			</tr>
-			<tr class='changed'>
+		  <tr class='changed'>
 			  <td><code>x-abc</code></td>
 			  <td><code>und-x-abc</code></td>
 			  <td>changes, so that there is always a base language tag</td>
@@ -3047,8 +3047,14 @@ zh-Hant-HK</pre>
 				element <code>&lt;id type="subdivision"…&gt;… ussct
 					…&lt;/id&gt;</code></li>
 		</ul>
-		<p>
-			A <a href="#unicode_subdivision_subtag"></a>
+		<p class="changed"><span >If a <a href='#unicode_locale_id'>unicode_locale_id</a> contains both a <a
+				href="#unicode_region_subtag">unicode_region_subtag</a> and a <a
+				href="#unicode_subdivision_id">unicode_subdivision_id</a>, it is only valid if the <a
+				href="#unicode_subdivision_id">unicode_subdivision_id</a> starts with the <a
+				href="#unicode_region_subtag">unicode_region_subtag</a> (case-insensitively).<br>
+        </span>
+		</p>
+		<p class='removed'>A <a href="#unicode_subdivision_subtag"></a>
 			<a
 				href="#unicode_subdivision_id">unicode_subdivision_id</a> is only
 			valid in a <a href='#unicode_locale_id'>unicode_locale_id</a> if it starts with the <a
@@ -3057,20 +3063,22 @@ zh-Hant-HK</pre>
 			likely subtags, and comparing
 				case-insensitively).
 		</p>
+		<p class='changed'>It is  recommended that a <a href='#unicode_locale_id'>unicode_locale_id</a> contain a <a
+				href="#unicode_region_subtag">unicode_region_subtag</a> if it contains a <a
+				href="#unicode_subdivision_id">unicode_subdivision_id</a>. That produces better behavior if the <a
+				href="#unicode_subdivision_id">unicode_subdivision_id</a> is ignored by an implementation or if the language tag is truncated.		</p>
 		<p>
 			Examples:<br>
 		</p>
 		<ul>
 			<li>en-<strong>US</strong>-u-sd-<strong>us</strong>ca
 				is valid — the region &quot;US&quot; matches
-			</li>
+			the first part of "usca"</li>
 			<li>en-<strong>CA</strong>-u-sd-<strong>gb</strong>sct is
-				invalid — the region &quot;gb&quot; does not match &quot;CA&quot;
-			</li>
-			<li>en-u-sd-<strong>gb</strong>sct is invalid — after adding
-				likely subtags, this becomes en<strong>-Latn-US</strong>-u-sd-<strong>gb</strong>sct,
-				where the region &quot;gb&quot; does not match &quot;US&quot;
-			</li>
+				invalid — <span class='changed'>the region &quot;CA&quot; doesn't not match the first part of &quot;gbsct&quot;. An implementation should  disregard the subdivision id (or return an error).</span></li>
+			<li>en-u-sd-<strong>gb</strong>sct is <span class="changed">valid but not recommended — an implementation that ignores the <a
+				href="#unicode_subdivision_id">unicode_subdivision_id</a> could add likely subtags and get the invalid en<strong>-Latn-US</strong>-u-sd-<strong>gb</strong>sct</span></li>
+            <li>en-u-sd-<strong>us</strong>ca is <span class="changed">valid but not recommended — adding likely subtags works, but it might have worse fallback behavior</span></li>
 		</ul>
 		<p>
 			In version 28.0, the subdivisions in the
@@ -8707,7 +8715,12 @@ decimal?, group?, special*)) &gt;</pre>
   <li><strong>Section 3.5.3 <a href="#Private_Use">Private Use Codes</a></strong>
     <ul>
       <li>Adjusted table to move Qaag, XA, and XB into <em>defined</em>. The XA and XB were correct in the identity file (a change in a previous release), but had not been added to that table. [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
-    </ul>
+      </ul>
+  </li>
+  <li><strong>Section 3.6.5.1 <a  href="#Validity">Validity</a></strong> 
+    <ul>
+      <li>Softened the requirement that there be region code matching the first 2 letters of the subdivision code. ​That was needlessly strict, and introduces a dependency on <em>likely subtags</em> that should not be there. [<a href="http://unicode.org/cldr/trac/ticket/11397">#11397</a>]</li>
+  </ul>
   </li>
   </ul>
 <p><strong>Part 2: <a href="tr35-general.html#Contents">General</a>

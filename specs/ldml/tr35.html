@@ -1433,7 +1433,12 @@ h5 {
 							<td colspan="2"><strong>deprecated</strong>: the <em>canonicalized</em>
 								form is Zinh</td>
 						</tr>
-						<tr>
+						<tr class='changed'>
+							<td><code>Qaag</code></td>
+							<td>Zawgyi</td>
+							<td colspan="2">Qaag is a special script code for identifying the non-standard use of Myanmar characters for display with the Zawgyi font. The purpose of the code is to enable migration to standard, interoperable use of Unicode by providing an identifier for Zawgyi for tagging text, applications, input methods, font tables, transformations, and other mechanisms used for migration.</td>
+						</tr>
+					  <tr>
 							<td><code>Zinh</code></td>
 							<td>Inherited</td>
 							<td colspan="2">&nbsp;</td>
@@ -1758,11 +1763,11 @@ zh-Hant-HK</pre>
 			<tr>
 				<td rowspan="3">script</td>
 				<td>defined</td>
-				<td>Qaai (obsolete)</td>
+				<td><span class='changed'>Qaag</span>, Qaai (obsolete)</td>
 			</tr>
 			<tr>
 				<td>reserved</td>
-				<td>Qaaa..Qaap</td>
+				<td>Qaaa..<span class='changed'>Qaaf Qaah Qaaj..</span>Qaap</td>
 			</tr>
 			<tr>
 				<td>excluded</td>
@@ -1771,15 +1776,15 @@ zh-Hant-HK</pre>
 			<tr>
 				<td rowspan="3">region</td>
 				<td>defined</td>
-				<td>QO, QU, UK, XK, ZZ</td>
+				<td>QO, QU, UK, <span class='changed'>XA, XB, </span>XK, ZZ</td>
 			</tr>
 			<tr>
 				<td>reserved</td>
-				<td>AA, QM..QZ</td>
+				<td>AA 			QM..<span class='changed'>QN QP..QT QV</span>..QZ</td>
 			</tr>
 			<tr>
 				<td>excluded</td>
-				<td>XA..XJ, XL..XZ</td>
+				<td>X<span class='changed'>C</span>..XJ, XL..XZ</td>
 			</tr>
 			<tr>
 				<td rowspan="3">timezone</td>
@@ -8631,25 +8636,45 @@ decimal?, group?, special*)) &gt;</pre>
 <p><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages,
 				locales, basic structure)
 	</strong></p>
+<ul>
+  <li><strong>Section <a href="#Field_Definitions">3.4
+    Language Identifier Field Definitions </a> 
+    </strong>
+    <ul>
+      <li>Added special script code Qaag [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
+  </ul>
+  </li>
+  <li><strong>Section 3.5.3 <a href="#Private_Use">Private Use Codes</a></strong>
+    <ul>
+      <li>Adjusted table to move Qaag, XA, and XB into <em>defined</em>. The XA and XB were correct in the identity file (a change in a previous release), but had not been added to that table. [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
+    </ul>
+  </li>
+  </ul>
 <p><strong>Part 2: <a href="tr35-general.html#Contents">General</a>
 		(display names &amp; transforms, etc.)
 	</strong></p>
-<blockquote><strong>Section 6 <a href="tr35-general.html#Unit_Elements">Unit Elements</a> </strong></blockquote>
 <ul>
-  <li>Added several new units: percent and permille, petabyte, and atmosphere.
-    [<a href="http://unicode.org/cldr/trac/ticket/10632">#10632</a>]
-    [<a href="http://unicode.org/cldr/trac/ticket/10410">#10410</a>]
-    [<a href="http://unicode.org/cldr/trac/ticket/10600">#10600</a>]</li>
-  <li>Added &lt;displayName&gt; element for &lt;coordinateUnit&gt;.
-    [<a href="http://unicode.org/cldr/trac/ticket/9986">#9986</a>]</li>
-</ul>
+  <li><strong>Section 6 <a href="tr35-general.html#Unit_Elements">Unit Elements</a> </strong>
+    <ul>
+      <li>Added several new units: percent and permille, petabyte, and atmosphere.
+        [<a href="http://unicode.org/cldr/trac/ticket/10632">#10632</a>]
+        [<a href="http://unicode.org/cldr/trac/ticket/10410">#10410</a>]
+        [<a href="http://unicode.org/cldr/trac/ticket/10600">#10600</a>]</li>
+      <li>Added &lt;displayName&gt; element for &lt;coordinateUnit&gt;.
+        [<a href="http://unicode.org/cldr/trac/ticket/9986">#9986</a>]</li>
+      </ul>
+  </li>
+  </ul>
 <p><strong>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a>
 		(number &amp; currency formatting)
 	</strong></p>
-<blockquote><strong>Section 2.5 <a href="tr35-numbers.html#Miscellaneous_Patterns">Miscellaneous Patterns</a></strong></blockquote>
 <ul>
-  <li>Documented <strong>approximately</strong> and <strong>atMost</strong>. [<a href="http://unicode.org/cldr/trac/ticket/11354">#11354</a>]</li>
-</ul>
+  <li><strong>Section 2.5 <a href="tr35-numbers.html#Miscellaneous_Patterns">Miscellaneous Patterns</a></strong>
+    <ul>
+      <li>Documented <strong>approximately</strong> and <strong>atMost</strong>. [<a href="http://unicode.org/cldr/trac/ticket/11354">#11354</a>]</li>
+    </ul>
+  </li>
+  </ul>
 <p><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date,
 				time, time zone formatting)
 	</strong></p>
@@ -8663,89 +8688,7 @@ decimal?, group?, special*)) &gt;</pre>
 		(keyboard mappings)
 	</strong>	  </p>
 </div>
-<p><b>Revision 51</b></p>
-<p><strong>Part 1: <a href="tr35.html#Contents">Core</a></strong></p>
-<ul>
-  <li>Section 5.3.3 <a href="#Unicode_Sets">Unicode Sets</a>
-    <ul>
-      <li>Added EBNF notation, as in <a href="http://www.unicode.org/reports/tr18/#Hex_notation">Hex notation</a>. [<a
-				  href="http://unicode.org/cldr/trac/ticket/10670">#10670</a>]</li>
-      <li>Added \u{xxx} notation. [<a
-				  href="http://unicode.org/cldr/trac/ticket/10669">#10669</a>]</li>
-    </ul>
-  </li>
-
-  <li>Section 5.5 <a href="#Valid_Attribute_Values">Valid Attribute Values</a>
-    <ul>
-      <li>Noted that the &lt;blockingItems&gt; and &lt;distinguishingItems&gt; elements are now
-      	deprecated. [<a
-			href="http://unicode.org/cldr/trac/ticket/10194">#10194</a>]</li>
-    </ul>
-  </li>
-
-  <li>Sections 6.2 <a href="#Extended_Pictographic">Extended Pictographic</a>
-	<ul>
-		<li>Retracted ExtendedPictographic.txt, since it is now part of the emoji data. [<a
-				  href="http://unicode.org/cldr/trac/ticket/10931">#10931</a>]</li>
-	</ul>
-  </li>
-
-  <li>Section 6.3 <a href="#Labels.txt">Labels.txt</a>
- 	 <ul>
-    	<li>Added new section on character label data. [<a
-				  href="http://unicode.org/cldr/trac/ticket/10931">#10931</a>]</li>
-  	</ul>
-  </li>
-</ul>
-<p><strong>Part 2: <a href="tr35-general.html#Contents">General</a></strong></p>
-<ul>
-  <li>Section 5 <a href="tr35-general.html#Measurement_System_Data">Measurement System Data</a>
-    <ul>
-      <li>Improved the description of the "UK" measurement system, and referred for
-      finer-grained detail on measurement unit usage to <strong>Part 6: Supplemental:</strong>
-      <em>Section 2.4.1 <a href="tr35-info.html#Preferred_Units_For_Usage">Preferred Units
-      for Specific Usages</a></em>. [<a
-				  href="http://unicode.org/cldr/trac/ticket/10850">#10850</a>]</li>
-    </ul>
-  </li>
-  <li>Section 14.3 <a href="tr35-general.html#Typographic_Names">Typographic Names</a>
-    <ul>
-      <li>Added description of new elements for names of typographic features. [<a
-				  href="http://unicode.org/cldr/trac/ticket/10948">#10948</a>]  </li>
-    </ul>
-  </li>
-</ul>
-<p><strong>Part 7</strong>: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings) </p>
-  <p><em>Major extensions to handle more complex scripts, including the following:</em> [<a
-				  href="http://unicode.org/cldr/trac/ticket/10926">#10926</a>]</p>
-<ul>
-  <li>Section 5.8 <a href="tr35-keyboards.html#Element_map">Element: map</a>
-    <ul>
-      <li>Added 3 attributes to control appearance and behavior.</li>
-    </ul>
-  </li>
-  <li>The sections on &lt;transforms&gt; and &lt;transform&gt; were also renumbered to match the ordering of the elements in the DTD, and significantly extended.
-    <ul>
-      <li>5.17 <a href="tr35-keyboards.html#Element_transforms">Element: transforms</a></li>
-      <li>5.18 <a href="tr35-keyboards.html#Element_transform">Element: transform</a></li>
-      </ul>
-  </li>
-  <li>The following new sections were added:
-    <ul>
-      <li>5.9 <a href="tr35-keyboards.html#Element_import">Element: import</a></li>
-      <li>5.10 <a href="tr35-keyboards.html#Element_displayMap">Element: displayMap</a></li>
-      <li>5.11 <a href="tr35-keyboards.html#Element_display">Element: display</a></li>
-      <li>5.12 <a href="tr35-keyboards.html#Element_layer">Element: layer</a></li>
-      <li>5.13 <a href="tr35-keyboards.html#Element_row">Element: row</a></li>
-      <li>5.14 <a href="tr35-keyboards.html#Element_switch">Element: switch</a></li>
-      <li>5.15 <a href="tr35-keyboards.html#Element_vkeys">Element: vkeys</a></li>
-      <li>5.16 <a href="tr35-keyboards.html#Element_vkey">Element: vkey</a></li>
-      <li>5.19 <a href="tr35-keyboards.html#Element_reorder">Element: reorder</a></li>
-      <li>5.20 <a href="tr35-keyboards.html#Element_final">Element: final</a></li>
-      <li>5.21 <a href="tr35-keyboards.html#Element_backspaces">Element: backspaces</a></li>
-      <li>5.22 <a href="tr35-keyboards.html#Element_backspace">Element: backspace</a></li>
-    </ul>
-	</ul>
+<p>&nbsp;</p>
 
 
 	  <p>Modifications in previous versions are listed in those respective versions. Click on <strong>Previous Version</strong> in the header until you get to the desired version.</p>

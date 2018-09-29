@@ -765,7 +765,7 @@ h5 {
 				<th>&nbsp;</th>
 				<th><div align="center">EBNF</div></th>
 				<th><div align="center">ABNF</div></th>
-				<th><div align="center">Validity</div></th>
+				<th><div align="center">Validity / Comments</div></th>
 			</tr>
 			<tr>
 				<td><code>
@@ -775,17 +775,18 @@ h5 {
 						= &quot;root&quot;<br>
 						| (unicode_language_subtag <br>     (sep
 						unicode_script_subtag)? <br>   | unicode_script_subtag)<br>
-						(sep unicode_region_subtag)? <br> (sep
+						  (sep unicode_region_subtag)? <br> 
+						  (sep
 						unicode_variant_subtag)* ;
 					</code></td>
 				<td><code>
 						= &quot;root&quot;<br>
 | (unicode_language_subtag <br>     [sep
 						unicode_script_subtag] <br>   / unicode_script_subtag)<br>
-						[sep unicode_region_subtag] <br> *(sep
+						  [sep unicode_region_subtag] <br> 
+						  *(sep
 						unicode_variant_subtag)
-					</code></td>
-			</tr>
+					</code></td><td>"root" is treated as a special <code>unicode_language_subtag</code></tr>
 			<tr>
 				<td><code>
 						<a href="#unicode_language_subtag" name="unicode_language_subtag">unicode_language_subtag</a>
@@ -922,12 +923,12 @@ h5 {
 						= unicode_language_id<br>
 						   <span class='changed'>extensions*<br>
 						   
-private-use_extensions?</span> ; </code></td>
+pu_extensions?</span> ; </code></td>
 				<td><code>
 						= unicode_language_id<br>
 						   <span class='changed'>[extensions]   <br>
 						   
-				   1*private-use_extensions </span></code></td>
+				   1*pu_extensions </span></code></td>
 			</tr>
 		  <tr class='changed'>
 				<td><code>
@@ -1154,8 +1155,8 @@ private-use_extensions?</span> ; </code></td>
 		<p>
 		<b>Note:</b>		    <span class='changed'>The current version of CLDR data uses some non-preferred forms for backward compatibility. </span>This might be changed in future CLDR releases.</p>
 		<ul class='changed'>
-		  <li>It uses upper case letters for
-		    variant subtags, while the preferred forms are all uppercase.</li>
+		  <li>It uses uppercase letters for
+		    variant subtags, while the preferred forms are all lowercase.</li>
 		  <li>It uses &quot;_&quot; as the separator, while the preferred form of the separator is  "-".</li>
 		  <li>It uses &quot;root&quot;, while the preferred form is &quot;und&quot;.</li>
       </ul>
@@ -1184,8 +1185,8 @@ private-use_extensions?</span> ; </code></td>
 					</li>
 					<li>"root" to indicate the generic locale used as the parent
 						of all languages in the CLDR data model.</li>
-					<li>Certain private use codes, and some
-						"macrolanguage" codes have defined semantics.</li>
+					<li>Certain codes that are private-use <span class='changed'>in BCP-47 and ISO are given semantics by LDML</span>.</li>
+					<li>Each macrolanguage <span class='changed'>has an identified  primary encompassed language. That encompassed language is treated as an alias for the macrolanguage, and thus is replaced when canonicalizing.</span></li>
 				  <li class='changed'>The language tag may begin with a script rather than a language (specialized use only).</li>
 				</ul>
 			</li>
@@ -1808,7 +1809,7 @@ zh-Hant-HK</pre>
 			<tr>
 				<td rowspan="3">script</td>
 				<td>defined</td>
-				<td><span class='changed'>Qaag</span>, Qaai (obsolete)</td>
+				<td>Qaai (obsolete)<span class='changed'>, Qaag</span></td>
 			</tr>
 			<tr>
 				<td>reserved</td>

@@ -3063,7 +3063,7 @@ zh-Hant-HK</pre>
 		</p>
 		<p class='changed'>It is  recommended that a <a href='#unicode_locale_id'>unicode_locale_id</a> contain a <a
 				href="#unicode_region_subtag">unicode_region_subtag</a> if it contains a <a
-				href="#unicode_subdivision_id">unicode_subdivision_id</a>. That produces better behavior if the <a
+				href="#unicode_subdivision_id">unicode_subdivision_id</a> and the region would not be added by adding likely subtags. That produces better behavior if the <a
 				href="#unicode_subdivision_id">unicode_subdivision_id</a> is ignored by an implementation or if the language tag is truncated.		</p>
 		<p>
 			Examples:<br>
@@ -3072,11 +3072,11 @@ zh-Hant-HK</pre>
 			<li>en-<strong>US</strong>-u-sd-<strong>us</strong>ca
 				is valid — the region &quot;US&quot; matches
 			the first part of "usca"</li>
+			<li>en-u-sd-<strong>us</strong>ca is <span class="changed">valid — it still works after adding likely subtags.</span></li>
 			<li>en-<strong>CA</strong>-u-sd-<strong>gb</strong>sct is
 				invalid — <span class='changed'>the region &quot;CA&quot; doesn't not match the first part of &quot;gbsct&quot;. An implementation should  disregard the subdivision id (or return an error).</span></li>
 			<li>en-u-sd-<strong>gb</strong>sct is <span class="changed">valid but not recommended — an implementation that ignores the <a
-				href="#unicode_subdivision_id">unicode_subdivision_id</a> could add likely subtags and get the invalid en<strong>-Latn-US</strong>-u-sd-<strong>gb</strong>sct</span></li>
-            <li>en-u-sd-<strong>us</strong>ca is <span class="changed">valid but not recommended — adding likely subtags works, but it might have worse fallback behavior</span></li>
+				href="#unicode_subdivision_id">unicode_subdivision_id</a> can get the wrong fallback behavior, or could add likely subtags and get the invalid en<strong>-Latn-US</strong>-u-sd-<strong>gb</strong>sct</span></li>
 		</ul>
 		<p>
 			In version 28.0, the subdivisions in the

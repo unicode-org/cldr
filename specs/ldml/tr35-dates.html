@@ -1942,24 +1942,26 @@ h2, h3, h4, table {
 			that are considered acceptable in the region. The defaults are those
 			specified for region 001.</p>
 		<p>
-			There is a single preferred value, and multiple allowed
-			values. The meanings of the values H, h, K, k are defined in <a
-				href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>. The allowed values are in preference order,
-				and are used with the 'C' hour skeleton pattern symbol.
-		</p>
+			There is a single <code>preferred</code> value, and multiple <code>allowed</code> values. The meanings of the values H, h, K, k<span class='changed'>, b and B</span> are defined in <a
+				href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>. The <code>allowed</code> values are in preference order,
+				and are used with the 'C' hour skeleton pattern symbol.</p>
 		<p>For example, in the following, RU (Russia) is marked as using
 			only 24 hour time, and in particular the 24 hour time that goes from
 			0..23 (H), rather than from 1..24 (k).</p>
 
-		<pre>&lt;timeData&gt;
+	  <pre>&lt;timeData&gt;
     &lt;hours preferred="H" allowed="H h" regions="001 …"/&gt;
     &lt;hours preferred="H" allowed="H K h" regions="JP"/&gt;
     &lt;hours preferred="H" allowed="H" regions="IL RU"/&gt;
     &lt;hours preferred="h" allowed="H h" regions="AE AG AL … US … ZW"/&gt;
-    …
+    …</pre>
+    <div class='changed'>
+		<p>The  B and b date symbols provide for formats like “3:00 at night”. When the ‘C’ option is used, the values in <code>allowed</code> are traversed from first to last, picking the first available format. For example, in the following a system that supports hB should choose that as the most preferred format for the C (not the <code>preferred</code> value H).</p>
+	  <pre>&lt;hours preferred="H" allowed="hB H" regions="CD"/&gt;
+&lt;hours preferred="H" allowed="hB hb h H" regions="KE MM TZ UG"/&gt;
 </pre>
-
-		<h3>
+	  Some systems may not want to use B and b, even if preferred for the locale, so for compatibility the <code>preferred</code> value is limited  to {H, h, K, k}, and is the option selected by the ‘j’ date symbol. Thus the <code>preferred</code> value may not be the same as the first <code>allowed</code> value.</div>
+	    <h3>
 			4.5 <a name="Day_Period_Rule_Sets" href="#Day_Period_Rule_Sets">Day
 				Period Rule Sets </a>
 		</h3>

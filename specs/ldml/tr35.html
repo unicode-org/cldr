@@ -387,6 +387,8 @@ h5 {
 									for Draft Status</a></li>
 							<li>4.2.5 <a href="#Keyword_and_Default_Resolution">Keyword
 									and Default Resolution</a></li>
+							<li class='changed'>4.2.6 <a 
+				href="#Inheritance_vs_Related">Inheritance vs Related Information</a></li>
 						</ul>
 					</li>
 					<li>4.3 <a href="#Likely_Subtags">Likely Subtags</a></li>
@@ -3915,8 +3917,9 @@ root</pre>
 			using US dollars, just displayed in the manner governed by the locale
 			"fr". When a locale id does not specify a region, the region-specific
 			items such as those above are obtained from the likely region for the
-			locale (obtained via <a href="#Likely_Subtags">Likely Subtags</a>).
-		</p>
+			locale (obtained via <a href="#Likely_Subtags">Likely Subtags</a>).</p>
+		<p class="changed">For the relationship between <span >Inheritance, DefaultContent, LikelySubtags, and LocaleMatching, see Section 4.2.6 <a 
+				href="tr35.html#Inheritance_vs_Related">Inheritance vs Related Information</a>.</span></p>
 		<h3>
 			<a href="#Lookup" name="Lookup">4.1 Lookup</a>
 		</h3>
@@ -3979,8 +3982,7 @@ root</pre>
 			lookup still stops at naq.xml.</p>
 
 		<div id="iqaw2" style="margin-top: 0px; margin-bottom: 0px;">
-			<table id="a1bn" border="1" cellpadding="3" cellspacing="0"
-				style="font-size: 1em; line-height: inherit; border-collapse: collapse">
+			<table class='simple' id="a1bn" border="1" cellpadding="3" cellspacing="0">
 				<caption>
 					<a href="#Lookup-Differences" name="Lookup-Differences">Lookup
 						Differences</a>
@@ -4186,8 +4188,7 @@ root</pre>
 		<p>
 			<em>Examples:</em>
 		</p>
-		<table border="1" cellpadding="3" cellspacing="0" id="a1bn3"
-			style="font-size: 1em; line-height: inherit; border-collapse: collapse">
+		<table class='simple' border="1" cellpadding="3" cellspacing="0" id="a1bn3">
 			<caption>
 				<a name="Count_Fallback_normal" href="#Count_Fallback_normal">Count
 					Fallback: normal</a>
@@ -4245,8 +4246,7 @@ root</pre>
 				&lt;/unitLength&gt;
 			</code>
 		</p>
-		<table border="1" cellpadding="3" cellspacing="0" id="a1bn2"
-			style="font-size: 1em; line-height: inherit; border-collapse: collapse">
+		<table class='simple' border="1" cellpadding="3" cellspacing="0" id="a1bn2">
 			<caption>
 				<a name="Count_Fallback_currency" href="#Count_Fallback_currency">Count
 					Fallback: currency</a>
@@ -4654,7 +4654,7 @@ root</pre>
 				type=&#39;B&#39;&gt;</li>
 		</ul>
 		<p>Here are the searches for various combinations.</p>
-		<table border="1" cellpadding="0" cellspacing="0">
+		<table class='simple' border="1" cellpadding="0" cellspacing="0">
 			<tr>
 				<td><strong>User Input</strong></td>
 				<td><strong>Lookup in Locale</strong></td>
@@ -4749,7 +4749,7 @@ root</pre>
 		</table>
 		<p>Examples of &quot;search&quot; collator lookup; 'de' has a
 			language-specific version, but 'en' does not:</p>
-		<table border="1" cellpadding="0" cellspacing="0">
+		<table class='simple' border="1" cellpadding="0" cellspacing="0">
 			<tr>
 				<td><strong>User Input</strong></td>
 				<td><strong>Lookup in Locale</strong></td>
@@ -4793,7 +4793,7 @@ root</pre>
 				specifies &quot;stroke&quot;. However any of the available Chinese
 				collation types can be explicitly requested for any Chinese locale.</li>
 		</ul>
-		<table border="1" cellpadding="0" cellspacing="0">
+		<table class='simple' border="1" cellpadding="0" cellspacing="0">
 			<tr>
 				<td><strong>User Input</strong></td>
 				<td><strong>Lookup in Locale</strong></td>
@@ -4866,10 +4866,91 @@ root</pre>
 			display names, the default value is the identifier itself whenever if
 			no value is found in the root. Thus if there is no display name for
 			the region code &#39;QA&#39; in root, then the display name is simply
-			&#39;QA&#39;.</p>
+			&#39;QA&#39;.	  </p>
+	  <div class='changed'>
+		<h4>
+		  <a name="Inheritance_vs_Related" href="#Inheritance_vs_Related">4.2.6 Inheritance vs Related Information</a>
+		</h4>
+	    <p>There are related types of data and processing that are easy to confuse:</p>
+		  <table class='simple'>
+		    <tr>
+		      <td rowspan="4"><p><strong>Inheritance</strong></p></td>
+		      <td colspan="2">Part of the internal mechanism used by CLDR to organize and manage locale data.
+		        This is used to share common resources, and ease maintenance, and provide the best fallback behavior in the absence of data. <em>Should not be used for locale matching or likely subtags.</em></td>
+	        </tr>
+		    <tr>
+		      <td><em>Example:</em></td>
+		      <td>parent(en_AU) ⇒ en_001<br>
+	          parent(en_001) ⇒ en<br>
+	          parent(en) ⇒ root</td>
+	        </tr>
+		    <tr>
+		      <td><em>Data: </em></td>
+		      <td>supplementalData.xml &lt;parentLocale&gt;</td>
+	        </tr>
+		    <tr>
+		      <td><em>Spec:</em></td>
+		      <td><strong>Section <a href="#Inheritance_and_Validity">4.2 Inheritance and Validity</a></strong></td>
+	        </tr>
+		    <tr>
+		      <td rowspan="4"><strong>DefaultContent</strong></td>
+		      <td colspan="2">Part of the internal mechanism used by CLDR to manage locale data. A particular sublocale is designated the defaultContent for a parent, so that the parent exhibits consistent behavior.  <em>Should not be used for locale matching or likely subtags.</em></td>
+	        </tr>
+		    <tr>
+		      <td><em>Example:</em></td>
+		      <td>addLikelySubtags(sr-ME) ⇒ sr-Latn-ME, minimize(de-Latn-DE) ⇒ de</td>
+	        </tr>
+		    <tr>
+		      <td><em>Data: </em></td>
+		      <td>supplementalMetadata.xml &lt;defaultContent&gt;</td>
+	        </tr>
+		    <tr>
+		      <td><em>Spec:</em></td>
+		      <td><strong>Part 6: Section 9.3 <a  href="tr35-info.html#Default_Content">Default Content</a>
+		      </strong></td>
+	        </tr>
+		    <tr>
+   		    <tr>
+		      <td rowspan="4"><strong>LikelySubtags</strong></td>
+		      <td colspan="2">Provides most likely full subtag (script and region) in the absence of other information. A core component of LocaleMatching.</td>
+	        </tr>
+		    <tr>
+		      <td><em>Example:</em></td>
+		      <td>addLikelySubtags(zh) ⇒ zh-Hans-CN<br>
+		        addLikelySubtags(zh-TW) ⇒ zh-Hant-TW <br>
+minimize(zh-Hans, favorRegion) ⇒ zh-TW</td>
+	        </tr>
+		    <tr>
+		      <td><em>Data: </em></td>
+		      <td>likelySubtags.xml &lt;likelySubtags&gt;</td>
+	        </tr>
+		    <tr>
+		      <td><em>Spec:</em></td>
+		      <td><strong>Section <a href="#Likely_Subtags">4.3 Likely
+			  Subtags</a></strong></td>
+	        </tr>
+		    <tr>
+		      <td rowspan="4"><strong>LocaleMatching</strong></td>
+		      <td colspan="2">Provides the   best match for the user’s language(s) among an application’s supported languages.  </td>
+	        </tr>
+		    <tr>
+		      <td><em>Example:</em></td>
+		      <td>bestLocale(userLangs=&lt;en, fr&gt;, appLangs=&lt;fr-CA, ru&gt;) ⇒ fr-CA</td>
+	        </tr>
+		    <tr>
+		      <td><em>Data: </em></td>
+		      <td>languageInfo.xml &lt;languageMatching&gt;</td>
+	        </tr>
+		    <tr>
+		      <td><em>Spec:</em></td>
+		      <td><strong>Section 
+              <a href="#LanguageMatching">4.4 Language Matching</a></strong></td>
+	        </tr>
+        </table>
+      </div>
 
 		<h3>
-			<a name="Likely_Subtags" href="#Likely_Subtags">4.3 Likely
+		  <a name="Likely_Subtags" href="#Likely_Subtags">4.3 Likely
 				Subtags</a>
 		</h3>
 		<p class="dtd">
@@ -4896,7 +4977,8 @@ root</pre>
 			suppress-script data in [<a href="#BCP47">BCP47</a>]. It is
 			heuristically derived, and may change over time.
 		</p>
-		<p>
+	  <p class="changed">For the relationship between <span >Inheritance, DefaultContent, LikelySubtags, and LocaleMatching, see <strong><em>Section 4.2.6 <a 
+				href="tr35.html#Inheritance_vs_Related">Inheritance vs Related Information</a></em></strong>.</span></p>		<p>
 			To look up data in the table, see if a locale matches one of the <b>from</b>
 			attribute values. If so, fetch the corresponding <b>to</b> attribute
 			value. For example, the Chinese data looks like the following:
@@ -5075,7 +5157,7 @@ root</pre>
 		<p>A variant of this favors the script over the region, thus using
 			{language, language_script, language_region} in the above. If that
 			variant is used, then the result in this example would be zh_Hant
-			instead of zh_TW.</p>
+			instead of zh_TW.		</p>
 		<h3>
 			<a name="LanguageMatching" href="#LanguageMatching">4.4 Language
 				Matching</a>
@@ -5122,17 +5204,19 @@ root</pre>
 			ideally an implementation would allow me to select {gsw, de, fr} as
 			my preferred list of languages, skipping Italian because my
 			comprehension is not good enough for arbitrary content.</p>
-		Language Matching can also be used to get fallback data elements. In
-		many cases, there may not be full data for a particular locale. For
-		example, for a Breton speaker, the best fallback if data is
-		unavailable might be French. That is, suppose we have found a Breton
-		bundle, but it does not contain translation for the key &quot;CN&quot;
-		(for the country China). It is best to return &quot;chine&quot;,
-		rather than falling back to the value default language such as Russian
-		and getting &quot;Кітай&quot;.&nbsp; The language matching data can be
-		used to get the closest fallback locales (of those supported) to a
-		given language.
-		<p>
+		<p>Language Matching can also be used to get fallback data elements. In
+		  many cases, there may not be full data for a particular locale. For
+		  example, for a Breton speaker, the best fallback if data is
+		  unavailable might be French. That is, suppose we have found a Breton
+		  bundle, but it does not contain translation for the key &quot;CN&quot;
+		  (for the country China). It is best to return &quot;chine&quot;,
+		  rather than falling back to the value default language such as Russian
+		  and getting &quot;Кітай&quot;.&nbsp; The language matching data can be
+		  used to get the closest fallback locales (of those supported) to a
+		  given language.
+</p>
+	  <p class="changed">For the relationship between <span >Inheritance, DefaultContent, LikelySubtags, and LocaleMatching, see <strong><em>Section 4.2.6 <a 
+				href="tr35.html#Inheritance_vs_Related">Inheritance vs Related Information</a></em></strong>.</span></p>		<p>
 			When such fallback is used for inherited item lookup, the normal
 			order of inheritance is used for inherited item lookup, except that
 			before using any data from <strong>root</strong>, the data for the
@@ -8723,13 +8807,20 @@ decimal?, group?, special*)) &gt;</pre>
       <li>Softened the requirement that there be region code matching the first 2 letters of the subdivision code. ​That was needlessly strict, and introduces a dependency on <em>likely subtags</em> that should not be there. [<a href="http://unicode.org/cldr/trac/ticket/11397">#11397</a>]</li>
       </ul>
   </li>
-  <li><strong>Section 
-      <a href="#Unicode_Sets">5.3.3 Unicode Sets</a> 
+  <li><strong>Section 4.2.6 <a 
+				href="#Inheritance_vs_Related">Inheritance vs Related Information</a>
+  </strong>
+    <ul>
+      <li>Added table to explain the relationship between Inheritance, DefaultContent, LikelySubtags, and LocaleMatching.</li>
+  </ul>
+  </li>
+  <li><strong>Section 5.3.3
+    <a href="#Unicode_Sets">Unicode Sets</a> 
     </strong>
     <ul>
       <li>Clarified the relation between UnicodeSet and <a
 				href="http://www.unicode.org/reports/tr41/#UTS18">UTS #18</a> [<a href="http://unicode.org/cldr/trac/ticket/11232">#11232</a>]</li>
-  </ul>
+      </ul>
   </li>
   </ul>
 <p><strong>Part 2: <a href="tr35-general.html#Contents">General</a>
@@ -8776,19 +8867,35 @@ decimal?, group?, special*)) &gt;</pre>
 <ul>
   <li><strong>Section 4.4 <a  href="tr35-dates.html#Time_Data">Time Data</a></strong>
     <ul>
-      <li>Documented the relation between @allowed and @preferred. [<a href="http://unicode.org/cldr/trac/ticket/9930">#9930</a>]</li>
+      <li>Documented the relation between @allowed and @preferred. [<a href="http://unicode.org/cldr/trac/ticket/9930">#9930</a>]  </li>
+    </ul>
+  </li>
 </ul>
-	</li></ul>
-	<p> 4.4 <a name="Time_Data" href="#Time_Data">Time Data</a> </p>
 <p><strong>Part 5: <a href="tr35-collation.html#Contents">Collation</a>
 		(sorting, searching, grouping)
 	</strong></p>
+<ul>
+  <li><em>no changes</em></li>
+</ul>
 <p><strong>Part 6: <a href="tr35-info.html#Contents">Supplemental</a>
 		(supplemental data)
 	</strong></p>
+<ul>
+  <li> <strong>Section 9.3 <a href="tr35-info.html#Default_Content">Default
+				Content</a></strong>
+    <ul>
+      <li>Added pointer to <strong>Section 4.2.6 <a 
+				href="#Inheritance_vs_Related">Inheritance vs Related Information</a> </strong></li>
+  </ul>
+  </li>
+  </ul>
 <p><strong>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a>
 		(keyboard mappings)
 	</strong>	  </p>
+	<ul>
+  <li><em>no changes</em></li>
+</ul>
+
 </div>
 <p>&nbsp;</p>
 

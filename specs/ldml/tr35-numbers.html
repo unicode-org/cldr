@@ -1161,15 +1161,17 @@ h2, h3, h4, table {
 			is no explicit negative subpattern, the implicit negative subpattern
 			is the ASCII minus sign (-) prefixed to the positive subpattern. That
 			is, &quot;0.00&quot; alone is equivalent to &quot;0.00;-0.00&quot;.
-			(The data in CLDR is normalized to remove an explicit subpattern
-			where it would be identical to the explicit form.) If there is an
-			explicit negative subpattern, it serves only to specify the negative
-			prefix and suffix; the number of digits, minimal digits, and other
-			characteristics are ignored in the negative subpattern. That means
-			that &quot;#,##0.0#;(#)&quot; has precisely the same result as
-			&quot;#,##0.0#;(#,##0.0#)&quot;. However in the CLDR data, the format
-			is normalized so that the other characteristics are preserved, just
-			for readability.</p>
+			(The data in CLDR is normalized to remove an <span class="changed">explicit negative</span> subpattern
+			where it would be identical to the <span class='changed'>implicit</span> form.)</p>
+		<p><span class='changed'> Note that if an negative subpattern is used as-is: a minus sign is <em>not</em> added, eg &quot;0.00;0.00&quot; ≠ &quot;0.00;-0.00&quot;. Trailing semicolons  are ignored, eg &quot;0.00;&quot; = &quot;0.00&quot;. Whitespace is not ignored, including those around semicolons, so &quot;0.00; -0.00&quot; ≠ &quot;0.00; -0.00&quot;.</span></p>
+		<p>If there is an
+		  explicit negative subpattern, it serves only to specify the negative
+		  prefix and suffix; the number of digits, minimal digits, and other
+		  characteristics are ignored in the negative subpattern. That means
+		  that &quot;#,##0.0#;(#)&quot; has precisely the same result as
+		  &quot;#,##0.0#;(#,##0.0#)&quot;. However in the CLDR data, the format
+		  is normalized so that the other characteristics are preserved, just
+		  for readability.		</p>
 		<blockquote>
 			<p>
 				<b>Note: </b>The thousands separator and decimal separator in

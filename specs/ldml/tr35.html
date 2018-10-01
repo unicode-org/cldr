@@ -6016,10 +6016,13 @@ root</pre>
 			brackets. In this context, a code point means a string consisting of
 			exactly one code point.
 		</p>
-		<p>
-			A UnicodeSet is based on a subset of features found in <i>UTS
-				#18: Unicode Regular Expressions</i> [<a
-				href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>]. A UnicodeSet may be used in specifications
+		<p class='changed'>
+			A UnicodeSet  implements the  semantics in <i>UTS
+			#18: Unicode Regular Expressions</i> [<a
+				href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>] Levels 1 &amp; 2 that are relevant to determining sets of characters. Note however that it may deviate from the syntax provided in [<a
+				href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>], which is illustrative rather than a requirement. There is one exception to the supported semantics, Section <a href="http://unicode.org/reports/tr18/#RL2.6">RL2.6</a> <em>Wildcards in Property Values</em>. That feature can be supported in clients such as ICU by implementing a “hook” as is done in the <a href="https://unicode.org/cldr/utility/list-unicodeset.jsp?a=\p{name=/APPLE/}">online UnicodeSet utilities</a>.</p>
+		<p>I believe that UnicodeSet in UTS #35 (and the implementation in ICU) does implement all of the suggested semantics in UTS #18 Levels 1&amp;2 that are relevant to determining sets of characters. (Some clauses are not relevant to that, such as support of &quot;\b&quot; or line boundaries.)  There is one exception: ​http://unicode.org/reports/tr18/#RL2.6. That can be supported fairly easily in ICU by implementing a &quot;hook&quot;, as is done on ​https://unicode.org/cldr/utility/list-unicodeset.jsp?a=\p{name=/APPLE/}. But if you find any discrepancies, please let Andy and me know.</p>
+		<p>A UnicodeSet may be used in specifications
 				outside of the domain of LDML. In such a case, the specification may
 				support a subset of the syntax provided here.</p>
 	  <p>The following provides EBNF syntax for a UnicodeSet:</p>
@@ -8718,6 +8721,14 @@ decimal?, group?, special*)) &gt;</pre>
   <li><strong>Section 3.6.5.1 <a  href="#Validity">Validity</a></strong> 
     <ul>
       <li>Softened the requirement that there be region code matching the first 2 letters of the subdivision code. ​That was needlessly strict, and introduces a dependency on <em>likely subtags</em> that should not be there. [<a href="http://unicode.org/cldr/trac/ticket/11397">#11397</a>]</li>
+      </ul>
+  </li>
+  <li><strong>Section 
+      <a href="#Unicode_Sets">5.3.3 Unicode Sets</a> 
+    </strong>
+    <ul>
+      <li>Clarified the relation between UnicodeSet and <a
+				href="http://www.unicode.org/reports/tr41/#UTS18">UTS #18</a> [<a href="http://unicode.org/cldr/trac/ticket/11232">#11232</a>]</li>
   </ul>
   </li>
   </ul>

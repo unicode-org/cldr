@@ -1323,7 +1323,7 @@ h2, h3, h4, table {
 			rules that produce this example are as follows ({0} indicates the
 			position of the formatted numeric value):</p>
 
-		<pre>&lt;unit type="day"&gt;
+		<pre>&lt;unit type="<span class='changed'>duration-</span>day"&gt;
 &nbsp;&nbsp;&lt;displayName&gt;days&lt;/displayName&gt;
 &nbsp;&nbsp;&lt;unitPattern count="one"&gt;<span style="color: blue">{0} day</span>&lt;/unitName&gt;
 &nbsp;&nbsp;&lt;unitPattern count="other"&gt;<span style="color: blue">{0} days</span>&lt;/unitName&gt;
@@ -1350,19 +1350,21 @@ h2, h3, h4, table {
 			</tr>
 		</table>
 		<p>&nbsp;</p>
-		<p>The units in CLDR are not comprehensive; it is anticipated that
-			more will be added over time. The codes currently supported are found
-			in the root.xml file, in items of the type:</p>
-		<p class="xmlExample">&lt;unit type=&quot;X-Y&quot;&gt;</p>
-		<p>
-			The characters up to the first hyphen are the <strong>type</strong>,
-			while the remainder after that hyphen are the <strong>unit</strong>.
-		</p>
+		<div class='changed'>
+		<p>The value of the type attribute are <em>unit identifiers</em>. Syntactically, they have the following structure:</p>
+		<div class='syntax'>
+		<p>unit_identifier := type &quot;-&quot; unit</p>
+		<p>type := [a-z]+</p>
+		<p>unit := [a-z]+([-][a-z]+)*</p>
+		</div>
+		<p>Example:		</p>
+		</div>
 		<p class="xmlExample">&lt;unit
 			type=&quot;acceleration-g-force&quot;&gt;</p>
 		<p>​</p>
 		<p>
-			Examples of these include the following. The complete list is in the
+			Examples of these include <span class='changed'>but are not limited to</span> the following. The units in CLDR are not comprehensive; it is anticipated that
+			more will be added over time. The complete list <span class='changed'>of supported units</span> is in the
 			validity data: see <em>Section <a href="tr35.html#Validity_Data">3.11
 					Validity Data</a></em>.
 		</p>

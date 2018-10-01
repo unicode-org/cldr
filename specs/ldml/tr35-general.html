@@ -2927,8 +2927,8 @@ h2, h3, h4, table {
 			internal superset encoding for Indic scripts), then from Interindic
 			to Latin. This allows there to be only N sets of transform rules for
 			the Indic scripts: each one to and from Interindic. These pivots are
-			explicitly represented in the CLDR transforms.
-		</p>
+			explicitly represented in the CLDR transforms.</p>
+		<p class='changed'>Note that the characters currently used by Interindic are private use characters. To prevent those from “leaking” out into text, transforms converting from Interindic must ensure that they convert all the possible values used in Interindic.</p>
 		<p>
 			The pivots can also be produced automatically (implicitly), as a
 			fallback. A particularly useful pivot is IPA, since that tends to

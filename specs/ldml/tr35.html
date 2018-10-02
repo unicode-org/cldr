@@ -108,7 +108,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td class="changed">2018-09-28</td>
+				<td class="changed">2018-10-02</td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -293,7 +293,7 @@ h5 {
 									Identifiers</a></li>
 							<li>3.6.4 <a href="#Unicode_Locale_Extension_Data_Files">U
 									Extension Data Files</a>
-								<ul class="toc">
+								<ul class="toc removed">
 									<li>3.6.4.1 <a href="#CODEPOINTS">CODEPOINTS</a></li>
 									<li>3.6.4.2 <a href="#REORDER_CODE">REORDER_CODE</a></li>
 									<li>3.6.4.3 <a href="#RG_KEY_VALUE">RG_KEY_VALUE</a></li>
@@ -1174,25 +1174,35 @@ pu_extensions?</span> ; </code></td>
 		</p>
 		<ul>
 			<li>It does not allow for the full syntax of [<a href="#BCP47">BCP47</a>]:
-				<ul>
-					<li>No irregular or BCP47 grandfathered tags are allowed</li>
-					<li>No extlang subtags are allowed</li>
-					<li class='changed'>A tag must not start with the subtag &quot;x&quot;. Thus a <em>privateuse</em> (eg x-abc) can only be after a language subtag like &quot;und&quot;</li>
-				</ul>
-			</li>
-			<li>It allows for certain additions:
-				<ul>
-					<li>For field separator characters, the "_" character can be
-						used as well as the "-" used in [<a href="#BCP47">BCP47</a>].
-					</li>
-					<li>"root" to indicate the generic locale used as the parent
-						of all languages in the CLDR data model.</li>
-					<li>Certain codes that are private-use <span class='changed'>in BCP-47 and ISO are given semantics by LDML</span>.</li>
-					<li>Each macrolanguage <span class='changed'>has an identified  primary encompassed language. That encompassed language is treated as an alias for the macrolanguage, and thus is replaced when canonicalizing.</span></li>
-				  <li class='changed'>The language tag may begin with a script rather than a language (specialized use only).</li>
-				</ul>
-			</li>
+              <ul>
+		  <li>No extlang subtags are allowed <span class='changed'>(as in the BCP47 canonical form, see BCP 47 <a href="https://tools.ietf.org/html/bcp47#section-4.5">Section 4.5</a> and <a href="https://tools.ietf.org/html/bcp47#section-3.1.7" target="_blank" >Section 3.1.7</a>)</span></li>
+		  <li>No irregular or BCP47 grandfathered tags are allowed</li>
+		  <li class='changed'>A tag must not start with the subtag &quot;x&quot;: thus a <em>privateuse</em> (eg x-abc) can only be after a language subtag, like &quot;und&quot;</li>
 		</ul>
+			</li>
+			<li>It allows for certain semantic additions and constraints:
+				<ul>
+					<li>Certain codes that are private-use <span class='changed'>in BCP-47 and ISO are given semantics by LDML</span></li>
+					<li>Each macrolanguage <span class='changed'>has an identified  primary encompassed language, which  is treated as an alias for the macrolanguage, and thus is replaced when canonicalizing (as allowed by BCP47, see <a href="https://tools.ietf.org/html/bcp47#section-4.1.2">Section 4.1.2</a>)</span></li>
+				</ul>
+			</li>
+					<li><span  class='changed'>It allows certain syntax for backwards compatibility  (not BCP47-compatible):</span>
+                      <ul>
+                        <li>The "_" character for field separator characters, as well as the "-" used in [<a href="#BCP47">BCP47</a>]
+                          <span class="changed">(however, the canonical form is with &quot;-&quot;)</span></li>
+                        <li>The subtag "root" to indicate the generic locale used as the parent
+                          of all languages in the CLDR data model				      <span class="changed">(&quot;und&quot; can be used instead)</span></li>
+                        <li class='changed'>The language tag may begin with a script rather than a language. This is specialized use only, and  not required for CLDR conformance.</li>
+                      </ul>
+		  </li>
+		</ul>
+		<p><span class="changed">The term <em>Unicode BCP47 locale identifier</em> can be used where the backwards compatibility syntax is disallowed:</span></p>
+		<ul>
+		  <li><span class="changed">All Unicode language and locale identifiers can be converted to Unicode BCP47 language and locale identifiers </span></li>
+		  <li><span class="changed">All Unicode BCP47 language and locale identifiers are</span> valid BCP47 language tags</li>
+		  <li>All BCP 47 language tags can be converted to valid Unicode language/locale identifiers, with a <span class="changed">handfull of exceptions:</span>
+		    certain [<a href="#BCP47">BCP 47</a>] grandfathered tags<span class='changed'> with no &quot;Preferred-Value&quot; or alias (those could be preserved as private use, but they are of little use)</span></li>
+      </ul>
 		<h4>
 			<a name="BCP_47_Language_Tag_Conversion"
 				href="#BCP_47_Language_Tag_Conversion">3.3.1 BCP 47 Language Tag
@@ -1328,11 +1338,6 @@ pu_extensions?</span> ; </code></td>
 			  <td>changes, so that there is always a base language tag</td>
 		  </tr>
 		</table>
-
-		<p>
-			<b>Note:</b> In some rare cases, BCP 47 language tags cannot be
-			converted to valid Unicode language/locale identifiers, such as
-			certain [<a href="#BCP47">BCP 47</a>] grandfathered tags<span class='changed'> with no &quot;Preferred-Value&quot; or alias</span>.</p>
 		<h3>
 			<a name="Field_Definitions" href="#Field_Definitions">3.4
 				Language Identifier Field Definitions </a>
@@ -2716,7 +2721,7 @@ zh-Hant-HK</pre>
 					interpretation of each one is listed below.
 				</p>
 				<h5>
-					<a name="CODEPOINTS" href="#CODEPOINTS">3.6.4.1 CODEPOINTS</a>
+					<a name="CODEPOINTS" href="#CODEPOINTS">CODEPOINTS</a>
 				</h5>
 				<p>
 					The type name <strong>"CODEPOINTS"</strong> is reserved for a
@@ -2771,8 +2776,7 @@ zh-Hant-HK</pre>
 				</p>
 
 				<h5>
-					<a name="REORDER_CODE" href="#REORDER_CODE">3.6.4.2
-						REORDER_CODE</a>
+					<a name="REORDER_CODE" href="#REORDER_CODE">REORDER_CODE</a>
 				</h5>
 				<p>
 					The type name <strong>"REORDER_CODE"</strong> is reserved for
@@ -2786,8 +2790,7 @@ zh-Hant-HK</pre>
 					</a>.
 				</p>
 				<h5>
-					<a name="RG_KEY_VALUE" href="#RG_KEY_VALUE">3.6.4.3
-						RG_KEY_VALUE</a>
+					<a name="RG_KEY_VALUE" href="#RG_KEY_VALUE">RG_KEY_VALUE</a>
 				</h5>
 				<p>
 					The type name <strong>"RG_KEY_VALUE"</strong> is reserved for
@@ -2804,8 +2807,7 @@ zh-Hant-HK</pre>
 					common/validity/subdivision.xml.
 				</p>
 				<h5>
-					<a name="SUBDIVISION_CODE" href="#SUBDIVISION_CODE">3.6.4.4
-						SUBDIVISION_CODE</a>
+					<a name="SUBDIVISION_CODE" href="#SUBDIVISION_CODE">SUBDIVISION_CODE</a>
 				</h5>
 				<p>
 					The type name <strong>"SUBDIVISION_CODE"</strong> is reserved for
@@ -2817,7 +2819,7 @@ zh-Hant-HK</pre>
 					used with prior agreement.
 				</p>
 				<h5>
-					<a name="PRIVATE_USE" href="#PRIVATE_USE">3.6.4.5 PRIVATE_USE</a>
+					<a name="PRIVATE_USE" href="#PRIVATE_USE">PRIVATE_USE</a>
 				</h5>
 				<p>
 					The type name <strong>"PRIVATE_USE"</strong> is reserved for
@@ -2839,7 +2841,7 @@ zh-Hant-HK</pre>
 					<tbody>
 						<tr>
 							<th>single</th>
-							<td>Only a single type value is allowed. This is the default
+							<td><span class='changed'>Either exactly one</span> type value, or no type value<span class='changed'> (but only if the value of &quot;true&quot; would be valid)</span>. This is the default
 								if no valueType attribute is present.</td>
 						</tr>
 						<tr>
@@ -8788,7 +8790,13 @@ decimal?, group?, special*)) &gt;</pre>
   <li>Included specific syntax rather than just noting &quot;Although not shown in the syntax above, Unicode locale identifiers may also have [BCP47] extensions (other than &quot;u&quot; and &quot;t&quot;) and private use subtags.&quot;</li>
   <li>Reformated and fleshed out the canonical form description; listed where CLDR uses non-canonical forms.</li>
   <li>Added missing details about how Unicode Locale Identifiers differ from BCP47, and how to convert between them.</li>
-</ul>
+  </ul>
+  </li>
+  <li><strong>Section 3.3 <a href="#BCP_47_Conformance">BCP
+    47 Conformance</a> </strong>
+<ul>
+  <li>Reorganized for clarity, introduced new term <em>Unicode BCP47 locale identifier</em>. [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
+  </ul>
   </li>
   <li><strong>Section 3.4
     <a href="#Field_Definitions">Language Identifier Field Definitions </a> 
@@ -8801,6 +8809,11 @@ decimal?, group?, special*)) &gt;</pre>
     <ul>
       <li>Adjusted table to move Qaag, XA, and XB into <em>defined</em>. The XA and XB were correct in the identity file (a change in a previous release), but had not been added to that table. [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
       </ul>
+  </li>
+  <li>Section 3.6.4 <a href="#Unicode_Locale_Extension_Data_Files" >U Extension Data Files</a></h4>
+    <ul>
+      <li>Qualified valueType, since a key's value may be empty (if &quot;true&quot;). [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
+    </ul>
   </li>
   <li><strong>Section 3.6.5.1 <a  href="#Validity">Validity</a></strong> 
     <ul>

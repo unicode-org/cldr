@@ -1744,8 +1744,10 @@ h2, h3, h4, table {
 			particular numeric value <em>n</em> using the (long) display name:
 		</p>
 		<ol>
-			<li>First see if there is a count with an explicit number (0 or
-				1). If so, use that string.</li>
+			<li><span class="changed">If the numeric value is exactly 0 or 1, </span>first
+				see if there is a count with a <span class="changed">matching </span>explicit
+				number (0 or 1). If so, use that string<span class="changed"> (see
+				<a href="#Explicit_0_1_rules">Explicit 0 and 1 rules</a>)</span>.</li>
 			<li>Otherwise, determine the count value that corresponds to <em>n</em>
 				using the rules in <i><a href="#Language_Plural_Rules">Section
 						5 - Language Plural Rules</a></i></li>
@@ -2170,11 +2172,16 @@ h2, h3, h4, table {
 			form &quot;few&quot; may be used for the numeric range 2–4 in one
 			language and 3–9 in another):</p>
 		<ul>
-			<li>zero</li>
-			<li>one</li>
+			<li>zero<span class="changed"> (see also plural case “0”, described in
+				<a href="#Explicit_0_1_rules">Explicit 0 and 1 rules</a>)</span></li>
+			<li>one<span class="changed"> (see also plural case “1”, described in
+				<a href="#Explicit_0_1_rules">Explicit 0 and 1 rules</a>)</span></li>
 			<li>two</li>
 			<li>few</li>
 			<li>many</li>
+
+
+				
 		</ul>
 		<p>In addition, an &quot;other&quot; tag is always implicitly
 			defined to cover the forms not explicitly designated by the tags
@@ -2240,6 +2247,50 @@ h2, h3, h4, table {
 		<p>There are also variants of the above: for example, short
 			fractions may have the Digits behavior, but longer fractions may just
 			look at the final digit of the fraction.</p>
+
+		<h4 class="changed">
+			<a name="Explicit_0_1_rules" href="#Explicit_0_1_rules">Explicit 0 and 1 rules</a>
+		</h4>
+		<p class="changed">
+			Some types of CLDR data (such as
+			<a href="tr35-general.html#Unit_Elements">unitPatterns</a> and
+			<a href="#Currencies">currency displayNames</a>) allow specification of plural
+			rules for explicit cases “0” and “1”, in addition to the language-specific
+			plural cases specified above: “zero”, “one”, “two” ... “other”. For the
+			language-specific plural rules:</p>
+			<ul class="changed">
+			<li>The rules depend on language; for a given language, only a subset of the
+				cases may be defined. For example, English only defines “one” and “other”,
+				cases like “two” and “few” cannot be used in plurals for English CLDR
+				items.</li>
+			<li>Each plural case may cover multiple numeric values, and may depend on the
+				formatting of those values. For example, in French the “one” case covers
+				0.0 through 1.99.</li>
+			<li>The “one” case, if defined, includes at least some formatted forms of the
+				numeric value 1; the “zero” case, if defined, includes at least some
+				formatted forms of the numeric value 0.</li>
+			</ul>
+		<p class="changed">By contrast, for the explicit cases “0” and “1”:</p>
+			<ul class="changed">
+			<li>The explicit “0” and “1” cases are not defined by language-specific rules,
+				and are available in any language for the CLDR data items that accept them.</li>
+			<li>The explicit “0” and “1” cases apply to the exact numeric values 0 and 1
+				respectively. These cases are typically used for plurals of items that
+				do not have fractional value, like books or files.</li>
+			<li>The explicit “0” and “1” cases have precedence over the “zero” and “one”
+				cases. For example, if for a particular element CLDR data includes values
+				for both the “1” and “one” cases, then the “1” value is used for numeric
+				values of exactly 1, while the “one” value is used for any other formatted
+				numeric values matching the “one” plural rule for the language.</li>
+			</ul>
+		<p class="changed">Usage example: In English (which only defines language-specific
+			rules for “one” and “other”) this can be used to have  special behavior for 0:</p>
+			<ul class="changed">
+			<li>count=“0”: no books</li>
+			<li>count=“one”: {0} book, e.g. “1 book”</li>
+			<li>count=“other”: {0} books, e.g. “3 books”</li>
+			</ul>
+
 		<h3>
 			5.1 <a name="Plural_rules_syntax" href="#Plural_rules_syntax">Plural
 				rules syntax</a>

@@ -4911,7 +4911,6 @@ root</pre>
 		      <td><strong>Part 6: Section 9.3 <a  href="tr35-info.html#Default_Content">Default Content</a>
 		      </strong></td>
 	        </tr>
-		    <tr>
    		    <tr>
 		      <td rowspan="4"><strong>LikelySubtags</strong></td>
 		      <td colspan="2">Provides most likely full subtag (script and region) in the absence of other information. A core component of LocaleMatching.</td>
@@ -8810,7 +8809,7 @@ decimal?, group?, special*)) &gt;</pre>
       <li>Adjusted table to move Qaag, XA, and XB into <em>defined</em>. The XA and XB were correct in the identity file (a change in a previous release), but had not been added to that table. [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
       </ul>
   </li>
-  <li>Section 3.6.4 <a href="#Unicode_Locale_Extension_Data_Files" >U Extension Data Files</a></h4>
+  <li>Section 3.6.4 <a href="#Unicode_Locale_Extension_Data_Files" >U Extension Data Files</a>
     <ul>
       <li>Qualified valueType, since a key's value may be empty (if &quot;true&quot;). [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
     </ul>
@@ -8842,13 +8841,15 @@ decimal?, group?, special*)) &gt;</pre>
 <ul>
   <li><strong>Section 6 <a href="tr35-general.html#Unit_Elements">Unit Elements</a> </strong>
     <ul>
+      <li>Added &lt;displayName&gt; element for &lt;coordinateUnit&gt;.
+        [<a href="http://unicode.org/cldr/trac/ticket/9986">#9986</a>]</li>
+      <li>Noted that unitPatterns can use explicit count values “0” and “1”.
+      	[<a href="http://unicode.org/cldr/trac/ticket/10922">#10922</a>]</li>
+      <li>Defined the syntax  of unit identifiers [<a href="http://unicode.org/cldr/trac/ticket/11271">#11271</a>]</li>
       <li>Added several new units: percent and permille, petabyte, and atmosphere.
         [<a href="http://unicode.org/cldr/trac/ticket/10632">#10632</a>]
         [<a href="http://unicode.org/cldr/trac/ticket/10410">#10410</a>]
         [<a href="http://unicode.org/cldr/trac/ticket/10600">#10600</a>]</li>
-      <li>Added &lt;displayName&gt; element for &lt;coordinateUnit&gt;.
-        [<a href="http://unicode.org/cldr/trac/ticket/9986">#9986</a>]</li>
-      <li>Defined the syntax  of unit identifiers [<a href="http://unicode.org/cldr/trac/ticket/11271">#11271</a>]</li>
       </ul>
   </li>
   <li><strong>Section 10.1.1 <a href="tr35-general.html#Pivots">Pivots</a></strong>
@@ -8873,7 +8874,15 @@ decimal?, group?, special*)) &gt;</pre>
       <li>Documented edge cases for negative subpatterns (and whitespace)  [<a href="http://unicode.org/cldr/trac/ticket/10703">#10703</a>]</li>
     </ul>
   </li>
+  <li><strong>Section 5 <a href="tr35-numbers.html#Language_Plural_Rules">Language Plural Rules</a></strong>
+    <ul>
+      <li>Added a new section <a href="tr35-numbers.html#Explicit_0_1_rules">Explicit 0 and
+      	1 rules</a> covering the language-independent explicit plural cases “0” and “1”.
+      	[<a href="http://unicode.org/cldr/trac/ticket/10922">#10922</a>]</li>
+      </ul>
+  </li>
   </ul>
+
 <p><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date,
 				time, time zone formatting)
 	</strong></p>

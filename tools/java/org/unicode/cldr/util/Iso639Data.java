@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 
 import com.google.common.base.Splitter;
 import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class Iso639Data {
@@ -29,6 +30,8 @@ public class Iso639Data {
     static Relation<String, String> toNames;
 
     static Relation<String, String> toRetirements;
+    
+    static Map<String, String> toChangeTo;
 
     static Map<String, Scope> toScope;
 
@@ -294,6 +297,7 @@ public class Iso639Data {
             toType = new HashMap<String, Type>();
             toNames = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
             toRetirements = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
+            toChangeTo = new TreeMap<String, String>();
             macro_encompassed = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
             encompassed_macro = new HashMap<String, String>();
             toSource = new HashMap<String, Source>();
@@ -359,7 +363,13 @@ public class Iso639Data {
                 String alpha3 = parts[0];
                 if (alpha3.equals("Id"))
                     continue;
+                // Id   Ref_Name    Ret_Reason  Change_To   Ret_Remedy  Effective
+                // fri  Western Frisian C   fry     2007-02-01
+
                 toNames.put(alpha3, parts[1]);
+                if (!parts[3].isEmpty()) {
+                    toChangeTo.put(alpha3, parts[3]);
+                }
                 toRetirements.put(alpha3, line);
                 // skip inverted name for now
             }
@@ -583,6 +593,7 @@ public class Iso639Data {
             toNames.freeze();
             toRetirements.freeze();
             macro_encompassed.freeze();
+            toChangeTo = ImmutableMap.copyOf(toChangeTo);
 
         } catch (IOException e) {
             throw new ICUUncheckedIOException("Cannot parse file", e);
@@ -632,5 +643,15 @@ public class Iso639Data {
     public static Set<String> getEncompassed() {
         return encompassed_macro.keySet();
     }
+    
+    public static String getChangeTo(String subtag) {
+        return getChangeToMap().get(subtag);
+    }
 
+    public static Map<String, String> getChangeToMap() {
+        if (toChangeTo == null) {
+            getData();
+        }
+        return toChangeTo;
+    }
 }

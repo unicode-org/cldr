@@ -598,7 +598,11 @@ public class ShowLocaleCoverage {
             .setCellPattern("{0,number}")
             //.addColumn("Target Level", "class='target'", null, "class='target'", true).setBreakSpans(true)
             ;
-        tsv_summary.println("Status\tCode\tEnglish Name\tNative Name\tScript\tCLDR target\tSublocales\tFields\t∪ UC\tModern%\tModerate%\tBasic%\tCore%\tCore-Missing");
+        tsv_summary.println("Status\tCode\tEnglish Name\tNative Name\tScript\tCLDR target\tSublocales\tFields\tUC"
+            + "\tModern\tMiss /UC"
+            + "\tModerate\tMiss /UC"
+            + "\tBasic\tMiss /UC"
+            + "\tCore\tMiss /UC\tCore-Missing");
         NumberFormat tsvPercent = NumberFormat.getPercentInstance(Locale.ENGLISH);
         tsvPercent.setMaximumFractionDigits(2);
 
@@ -786,7 +790,7 @@ public class ShowLocaleCoverage {
                 
                 tsv_summary
                 .append('\t').append(sumFound+"")
-                .append('\t').append((sumFound + sumUnconfirmed)+"")
+                .append('\t').append(sumUnconfirmed+"")
                 ;
 
 
@@ -808,7 +812,8 @@ public class ShowLocaleCoverage {
 //                    .addCell(unconfirmedCoverage / total)
                     ;
                     tsv_summary
-                    .append('\t').append(tsvPercent.format(confirmedCoverage / total))
+                    .append('\t').append(String.valueOf(confirmedCoverage))
+                    .append('\t').append(String.valueOf(total-confirmedCoverage))
                     ;
 
                     if (RAW_DATA) {

@@ -34,6 +34,12 @@ import com.ibm.icu.util.VersionInfo;
  */
 public class ChartDtdDelta extends Chart {
 
+    private static final String DEPRECATED_PREFIX = "⊖";
+
+    private static final String NEW_PREFIX = "+";
+    
+    private static final Set<String> OMITTED_ATTRIBUTES = Collections.singleton("⊕");
+
     public static void main(String[] args) {
         new ChartDtdDelta().writeChart(null);
     }
@@ -50,14 +56,14 @@ public class ChartDtdDelta extends Chart {
 
     @Override
     public String getExplanation() {
-        return "<p>Shows additions to the LDML dtds over time. New elements or attributes are indicated with a + sign. "
-            + "Currently deprecated elements and attributes are omitted."
+        return "<p>Shows changes to the LDML dtds over time. "
+            + "New elements or attributes are indicated with a + sign, and newly deprecated ones with a ⊖ sign. "
+            + "Element attributes are abbreviated as ⊕ if where is no change to them, but the element is newly the child of another. "
             + "<p>";
     }
 
     @Override
     public void writeContents(FormattedFileWriter pw) throws IOException {
-
         TablePrinter tablePrinter = new TablePrinter()
             .addColumn("Version", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
             .setSortPriority(0)
@@ -114,12 +120,12 @@ public class ChartDtdDelta extends Chart {
 
         for (DiffElement datum : data) {
             tablePrinter.addRow()
-                .addCell(datum.getVersionString())
-                .addCell(datum.dtdType)
-                .addCell(datum.newPath)
-                .addCell(datum.newElement)
-                .addCell(datum.attributeNames)
-                .finishRow();
+            .addCell(datum.getVersionString())
+            .addCell(datum.dtdType)
+            .addCell(datum.newPath)
+            .addCell(datum.newElement)
+            .addCell(datum.attributeNames)
+            .finishRow();
         }
         pw.write(tablePrinter.toTable());
         pw.write(Utility.repeat("<br>", 50));
@@ -142,8 +148,8 @@ public class ChartDtdDelta extends Chart {
     }
 
     private void diff(String prefix, DtdData dtdLast, DtdData dtdCurrent) {
-        Map<String, Element> oldNameToElement = dtdLast == null ? Collections.EMPTY_MAP : dtdLast.getElementFromName();
-        checkNames(prefix, dtdCurrent, oldNameToElement, "/", dtdCurrent.ROOT, new HashSet<Element>());
+        Map<String, Element> oldNameToElement = dtdLast == null ? Collections.emptyMap() : dtdLast.getElementFromName();
+        checkNames(prefix, dtdCurrent, dtdLast, oldNameToElement, "/", dtdCurrent.ROOT, new HashSet<Element>(), false);
     }
 
     static final DtdType DEBUG_DTD = null; // set to enable
@@ -151,18 +157,10 @@ public class ChartDtdDelta extends Chart {
     static final boolean SHOW = false;
 
     @SuppressWarnings("unused")
-    private void checkNames(String version, DtdData dtdCurrent, Map<String, Element> oldNameToElement, String path, Element element, HashSet<Element> seen) {
-        if (seen.contains(element)) {
-            return;
-        }
-        seen.add(element);
+    private void checkNames(String version, DtdData dtdCurrent, DtdData dtdLast, Map<String, Element> oldNameToElement, String path, Element element, 
+        HashSet<Element> seen, boolean showAnyway) {
         String name = element.getName();
-        if (SHOW && ToolConstants.CHART_DISPLAY_VERSION.equals(version)) {
-            System.out.println(dtdCurrent.dtdType + "\t" + name);
-        }
-        if (DEBUG_DTD == dtdCurrent.dtdType && name.contains(DEBUG_ELEMENT)) {
-            int debug = 0;
-        }
+
         if (SKIP_ELEMENTS.contains(name)) {
             return;
         }
@@ -170,24 +168,56 @@ public class ChartDtdDelta extends Chart {
             return;
         }
 
-        if (isDeprecated(dtdCurrent.dtdType, name, "*")) { // SDI.isDeprecated(dtdCurrent.dtdType, name, "*", "*")) {
-            return;
-        }
-
         String newPath = path + "/" + element.name;
 
+        // if an element is newly a child of another but has already been seen, you'll have special indication
+        if (seen.contains(element)) {
+            if (showAnyway) {
+                addData(dtdCurrent, NEW_PREFIX + name, version, newPath, OMITTED_ATTRIBUTES);
+            }
+            return;
+        }
+        
+        seen.add(element);
+        if (SHOW && ToolConstants.CHART_DISPLAY_VERSION.equals(version)) {
+            System.out.println(dtdCurrent.dtdType + "\t" + name);
+        }
+        if (DEBUG_DTD == dtdCurrent.dtdType && name.contains(DEBUG_ELEMENT)) {
+            int debug = 0;
+        }
+
+
+        Element oldElement = null;
+
         if (!oldNameToElement.containsKey(name)) {
-            Set<String> attributeNames = getAttributeNames(dtdCurrent, name, Collections.EMPTY_MAP, element.getAttributes());
-            addData(dtdCurrent, "+" + name, version, newPath, attributeNames);
+            Set<String> attributeNames = getAttributeNames(dtdCurrent, dtdLast, name, Collections.emptyMap(), element.getAttributes());
+            addData(dtdCurrent, NEW_PREFIX + name, version, newPath, attributeNames);
         } else {
-            Element oldElement = oldNameToElement.get(name);
-            Set<String> attributeNames = getAttributeNames(dtdCurrent, name, oldElement.getAttributes(), element.getAttributes());
+            oldElement = oldNameToElement.get(name);
+            Set<String> attributeNames = getAttributeNames(dtdCurrent, dtdLast, name, oldElement.getAttributes(), element.getAttributes());
+            boolean currentDeprecated = element.isDeprecated();
+            boolean lastDeprecated = dtdLast == null ? false : oldElement.isDeprecated(); //  + (currentDeprecated ? "ⓓ" : "")
+            boolean newlyDeprecated = currentDeprecated && !lastDeprecated;
+            if (newlyDeprecated) {
+                addData(dtdCurrent, DEPRECATED_PREFIX + name, version, newPath, Collections.emptySet());
+            }
             if (!attributeNames.isEmpty()) {
-                addData(dtdCurrent, name, version, newPath, attributeNames);
+                addData(dtdCurrent, (newlyDeprecated ? DEPRECATED_PREFIX : "") + name, version, newPath, attributeNames);
             }
         }
+        if (element.getName().equals("coordinateUnit")) {
+            System.out.println(version + "\toordinateUnit\t" + element.getChildren().keySet());
+        }
+        Set<Element> oldChildren = oldElement == null ? Collections.emptySet() : oldElement.getChildren().keySet();
         for (Element child : element.getChildren().keySet()) {
-            checkNames(version, dtdCurrent, oldNameToElement, newPath, child, seen);
+            showAnyway = true;
+            for (Element oldChild : oldChildren) {
+                if (oldChild.getName().equals(child.getName())) {
+                    showAnyway = false;
+                    break;
+                }
+            }
+            checkNames(version, dtdCurrent, dtdLast, oldNameToElement, newPath, child, seen, showAnyway);
         }
     }
 
@@ -214,7 +244,7 @@ public class ChartDtdDelta extends Chart {
             }
             dtdType = dtdCurrent.dtdType;
             this.newPath = fix(newPath);
-            this.attributeNames = attributeNames2.isEmpty() ? NONE : "+" + CollectionUtilities.join(attributeNames2, ", +");
+            this.attributeNames = attributeNames2.isEmpty() ? NONE : CollectionUtilities.join(attributeNames2, ", ");
             this.newElement = newElement;
         }
 
@@ -250,37 +280,50 @@ public class ChartDtdDelta extends Chart {
         data.add(item);
     }
 
-    static final Set<String> SKIP_ELEMENTS = ImmutableSet.of("generation", "identity", "special", "telephoneCodeData");
+    static final Set<String> SKIP_ELEMENTS = ImmutableSet.of("generation", "identity", "special"); // , "telephoneCodeData"
+
     static final Multimap<DtdType, String> SKIP_TYPE_ELEMENTS = ImmutableMultimap.of(DtdType.ldml, "alias");
 
     static final Set<String> SKIP_ATTRIBUTES = ImmutableSet.of("references", "standard", "draft", "alt");
 
-    private static Set<String> getAttributeNames(DtdData dtdCurrent, String elementName, Map<Attribute, Integer> attributesOld,
+    private static Set<String> getAttributeNames(DtdData dtdCurrent, DtdData dtdLast, String elementName, 
+        Map<Attribute, Integer> attributesOld,
         Map<Attribute, Integer> attributes) {
         Set<String> names = new LinkedHashSet<>();
-        main: for (Attribute attribute : attributes.keySet()) {
-            String name = attribute.getName();
-            if (SKIP_ATTRIBUTES.contains(name)) {
-                continue;
-            }
-            if (isDeprecated(dtdCurrent.dtdType, elementName, name)) { // SDI.isDeprecated(dtdCurrent, elementName, name, "*")) {
-                continue;
-            }
-            for (Attribute attributeOld : attributesOld.keySet()) {
-                if (attributeOld.name.equals(name)) {
-                    continue main;
-                }
-            }
-            names.add(name);
+        if (elementName.equals("coordinateUnit")) {
+            int debug = 0;
         }
+
+        main: 
+            // we want to add a name that is new or that becomes deprecated
+            for (Attribute attribute : attributes.keySet()) {
+                String name = attribute.getName();
+                if (SKIP_ATTRIBUTES.contains(name)) {
+                    continue;
+                }
+                String display = NEW_PREFIX + name;
+//            if (isDeprecated(dtdCurrent, elementName, name)) { // SDI.isDeprecated(dtdCurrent, elementName, name, "*")) {
+//                continue;
+//            }
+                for (Attribute attributeOld : attributesOld.keySet()) {
+                    if (attributeOld.name.equals(name)) {
+                        if (attribute.isDeprecated() && !attributeOld.isDeprecated()) {
+                            display = DEPRECATED_PREFIX + name;
+                        } else {
+                            continue main;
+                        }
+                    }
+                }
+                names.add(display);
+            }
         return names;
     }
 
-    private static boolean isDeprecated(DtdType dtdType, String elementName, String attributeName) {
-        try {
-            return DtdData.getInstance(dtdType).isDeprecated(elementName, attributeName, "*");
-        } catch (DtdData.IllegalByDtdException e) {
-            return true;
-        }
-    }
+//    private static boolean isDeprecated(DtdData dtdCurrent, String elementName, String attributeName) {
+//        try {
+//            return dtdCurrent.isDeprecated(elementName, attributeName, "*");
+//        } catch (DtdData.IllegalByDtdException e) {
+//            return true;
+//        }
+//    }
 }

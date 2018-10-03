@@ -1024,10 +1024,17 @@ public class StandardCodes {
     static final String registryName = CldrUtility.getProperty("registry", "language-subtag-registry");
 
     public enum LstrType {
-        language("und", "zxx", "mul", "mis", "root"), script("Zzzz", "Zsym", "Zxxx", "Zmth"), region("ZZ"), variant(), extlang(true, false), grandfathered(true,
-            false), redundant(true, false),
+        language("und", "zxx", "mul", "mis", "root"), 
+        script("Zzzz", "Zsym", "Zxxx", "Zmth"), 
+        region("ZZ"), 
+        variant(), 
+        extlang(true, false), 
+        grandfathered(true, false),
+        redundant(true, false),
         /** specialized codes for validity; TODO: rename LstrType **/
-        currency(false, true, "XXX"), subdivision(false, true), unit(false, true);
+        currency(false, true, "XXX"),
+        subdivision(false, true),
+        unit(false, true);
 
         public final Set<String> specials;
         public final String unknown;

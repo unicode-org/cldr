@@ -1530,6 +1530,32 @@ h2, h3, h4, table {
 				value field&#39;s width, including adjusting between &quot;MMM&quot;
 				and &quot;MMMM&quot;, and using different variants of the same
 				field, such as &#39;v&#39; and &#39;z&#39;.</li>
+			<li class="changed">If no match was found from the previous steps and the
+				skeleton combines date fields such as y,M,d with time fields such as
+				H,h,m,s, then an intervalFormatItem can be synthesized as follows:
+				<ol>
+					<li>For greatestDifference values corresponding to the date fields
+						in the skeleton, use the mechanisms described under
+						<a href="#availableFormats_appendItems">availableFormats</a>
+						to generate the complete date-time pattern corresponding to the
+						skeleton, and then combine two such patterns using the
+						intervalFormatFallback pattern (the result will be the same for
+						each greatestDifference of a day or longer). For example:<br>
+						MMMdHm/d → "MMM d 'at' H:mm – MMM d 'at' H:mm" → "Jan 3 at 9:00 – Jan 6 at 11:00"</li>
+					<li>For greatestDifference values corresponding to the time fields
+						in the skeleton, separate the skeleton into a date fields part
+						and a time fields part. Use the mechanisms described under
+						availableFormats to generate a date pattern corresponding to the
+						date fields part. Use the time fields part to look up an
+						intervalFormatItem. For each greatestDifferent in the
+						intervalFormatItem, generate a pattern by using the
+						<a href="#dateTimeFormat">dateTimeFormat</a> to combine the date
+						pattern with the intervalFormatItem’s greatestDifference element
+						value. For example:<br>
+						MMMdHm/H → "MMM d 'at' H:mm – H:mm" → "Jan 3 at 9:00 – 11:00"
+						</li>
+				</ol>
+				</li>
 			<li>If a match is found from previous steps, compute the
 				calendar field with the greatest difference between start and end
 				datetime. If there is no difference among any of the fields in the

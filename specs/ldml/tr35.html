@@ -1196,18 +1196,17 @@ pu_extensions?</span> ; </code></td>
                       </ul>
 		  </li>
 		</ul>
-		<p><span class="changed">The term <em>Unicode BCP47 locale identifier</em> can be used where the backwards compatibility syntax is disallowed:</span></p>
+		<p><span class="changed">The term <em>Unicode BCP47 locale identifier</em> can be used where the backwards compatibility syntax is disallowed. </span></p>
 		<ul>
-		  <li><span class="changed">All Unicode language and locale identifiers can be converted to Unicode BCP47 language and locale identifiers </span></li>
-		  <li><span class="changed">All Unicode BCP47 language and locale identifiers are</span> valid BCP47 language tags</li>
-		  <li>All BCP 47 language tags can be converted to valid Unicode language/locale identifiers, with a <span class="changed">handfull of exceptions:</span>
-		    certain [<a href="#BCP47">BCP 47</a>] grandfathered tags<span class='changed'> with no &quot;Preferred-Value&quot; or alias (those could be preserved as private use, but they are of little use)</span></li>
+		  <li><span class="changed">All Unicode BCP47  locale identifiers are both  BCP47 language tags and  Unicode locale identifiers</span></li>
       </ul>
 		<h4>
 			<a name="BCP_47_Language_Tag_Conversion"
 				href="#BCP_47_Language_Tag_Conversion">3.3.1 BCP 47 Language Tag
 				Conversion</a>
 		</h4>
+		<p class='changed'>All  Unicode  locale identifiers can be converted to [<a
+				href="#BCP47">BCP 47</a>] language tags, and all BCP 47 language tags can be converted to valid Unicode locale identifiers (with a handfull of unimportant exceptions:  [<a href="#BCP47">BCP 47</a>] grandfathered tags that it wasn't worth adding  &quot;Preferred-Value&quot; fields  or aliases).
 		<p>
 			A Unicode language/locale identifier can be converted to a valid [<a
 				href="#BCP47">BCP 47</a>] language tag by performing the following

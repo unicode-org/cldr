@@ -1471,7 +1471,13 @@ h2, h3, h4, table {
 				the exponent grouping. The most common use of this is to generate <em>engineering
 					notation</em>, in which the exponent is a multiple of three, for
 				example, &quot;##0.###E0&quot;. The number 12345 is formatted using
-				&quot;##0.####E0&quot; as &quot;12.345E3&quot;.
+				&quot;##0.####E0&quot; as &quot;12.345E3&quot;. <span class='changed'>For backwards compatibility, the integer formats have the following patterns:</span>
+				<ul class='changed'>
+				  <li>#E0 means infinite precision scientific notation</li>
+				  <li>0E0 means one digit scientific notation</li>
+				  <li>###E0 means engineering notation with infinite precision (change from current behavior)</li>
+				  <li>##0E0 means engineering notation rounded to the integer (current behavior)</li>
+			  </ul>
 			</li>
 			<li>When using scientific notation, the formatter controls the
 				digit counts using significant digits logic. The maximum number of

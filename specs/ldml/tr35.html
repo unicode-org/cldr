@@ -1206,7 +1206,7 @@ pu_extensions?</span> ; </code></td>
 				Conversion</a>
 		</h4>
 		<p class='changed'>All  Unicode  locale identifiers can be converted to [<a
-				href="#BCP47">BCP47</a>] language tags, and all [<a href="#BCP47">BCP47</a>] language tags can be converted to valid Unicode locale identifiers (with a handful of unimportant exceptions:   BCP 47 grandfathered tags that were’t worth adding  &quot;Preferred-Value&quot; fields).
+				href="#BCP47">BCP47</a>] language tags, and all [<a href="#BCP47">BCP47</a>] language tags can be converted to valid Unicode locale identifiers.
 	  <p>
 			A Unicode language/locale identifier can be converted to a valid [<a
 				href="#BCP47">BCP47</a>] language tag by performing the following
@@ -1243,10 +1243,9 @@ pu_extensions?</span> ; </code></td>
 		</p>
 		<ol>
 			<li>Canonicalize the language tag (afterwards, there will be no
-				extlang subtag).</li>
+				extlang subtags).</li>
 			<li>Replace the BCP 47 primary language subtag "und" with "root"
 				if no script, region, or variant subtags are present <span class="changed"> (the change to root is optional, but used in CLDR data)</span>.</li>
-			<li><span class="changed">Add an initial &quot;und&quot; primary language subtag if the first subtag is &quot;x&quot;.</span></li>
 			<li>If the BCP 47 primary language subtag matches the <i>type</i>
 				attribute of a <i>languageAlias</i> element in <a
 				href="tr35-info.html#Supplemental_Data">Supplemental Data</a>,
@@ -1275,6 +1274,8 @@ pu_extensions?</span> ; </code></td>
 					</li>
 				</ol>
 			</li>
+		  <li class='changed'>If the tag is one of the five grandfathered tags (cel-gaulish, i-default, i-enochian, i-mingo, zh-min) remaining after step #1,  prefix by &quot;und-x-&quot;.</li>
+		  <li class='changed'>If the first subtag is &quot;x&quot;, prefix by &quot;und-&quot;.</li>
 		</ol>
 		<p>Examples</p>
 		<table>
@@ -1296,7 +1297,7 @@ pu_extensions?</span> ; </code></td>
 			<tr>
 				<td><code>und</code></td>
 				<td><code>root</code></td>
-				<td>changes to &quot;root&quot; <span class="changed">(where used in CLDR data)</span></td>
+				<td>changes to &quot;root&quot; <span class="changed">(if used for CLDR data)</span></td>
 			</tr>
 			<tr>
 				<td nowrap><code>und-u-cu-USD</code></td>
@@ -1336,6 +1337,11 @@ pu_extensions?</span> ; </code></td>
 			  <td><code>und-x-abc</code></td>
 			  <td>prefix with &quot;und-&quot;, so that there is always a base language subtag</td>
 		  </tr>
+		  <tr class='changed'>
+		    <td><code>i-enochian</code></td>
+		    <td><code>und-x-i-enochian</code></td>
+		    <td>prefix any grandfathered tags with &quot;und-x-&quot;</td>
+	      </tr>
 		</table>
 		<h3>
 			<a name="Field_Definitions" href="#Field_Definitions">3.4

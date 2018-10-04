@@ -745,7 +745,7 @@ h5 {
 			data.
 		</p>
 		<p>
-			The BCP47 extensions (-u- and -t-) are described in <em>Section
+			The BCP 47 extensions (-u- and -t-) are described in <em>Section
 				3.6 <a href="#u_Extension">Unicode BCP 47 U Extension</a>
 			</em> and <em>Section 3.7 <a href="#BCP47_T_Extension">Unicode
 					BCP 47 T Extension</a></em>.
@@ -888,7 +888,7 @@ h5 {
 				<a href="#unicode_language_id">unicode_language_id</a>
 			</code>
 			values are not intended for general interchange, because they are not
-			valid BCP47 tags. Instead, they are intended for certain protocols
+			valid BCP 47 tags. Instead, they are intended for certain protocols
 			such as the identification of transliterators or font ScriptLangTag
 			values.
 		</p>
@@ -1175,18 +1175,18 @@ pu_extensions?</span> ; </code></td>
 		<ul>
 			<li>It does not allow for the full syntax of [<a href="#BCP47">BCP47</a>]:
               <ul>
-		  <li>No extlang subtags are allowed <span class='changed'>(as in the BCP47 canonical form, see BCP 47 <a href="https://tools.ietf.org/html/bcp47#section-4.5">Section 4.5</a> and <a href="https://tools.ietf.org/html/bcp47#section-3.1.7" target="_blank" >Section 3.1.7</a>)</span></li>
-		  <li>No irregular or BCP47 grandfathered tags are allowed</li>
+		  <li>No extlang subtags are allowed <span class='changed'>(as in the BCP 47 canonical form, see BCP 47 <a href="https://tools.ietf.org/html/bcp47#section-4.5">Section 4.5</a> and <a href="https://tools.ietf.org/html/bcp47#section-3.1.7" target="_blank" >Section 3.1.7</a>)</span></li>
+		  <li>No irregular or BCP 47 grandfathered tags are allowed</li>
 		  <li class='changed'>A tag must not start with the subtag &quot;x&quot;: thus a <em>privateuse</em> (eg x-abc) can only be after a language subtag, like &quot;und&quot;</li>
 		</ul>
 			</li>
 			<li>It allows for certain semantic additions and constraints:
 				<ul>
 					<li>Certain codes that are private-use <span class='changed'>in BCP-47 and ISO are given semantics by LDML</span></li>
-					<li>Each macrolanguage <span class='changed'>has an identified  primary encompassed language, which  is treated as an alias for the macrolanguage, and thus is replaced when canonicalizing (as allowed by BCP47, see <a href="https://tools.ietf.org/html/bcp47#section-4.1.2">Section 4.1.2</a>)</span></li>
+					<li>Each macrolanguage <span class='changed'>has an identified  primary encompassed language, which  is treated as an alias for the macrolanguage, and thus is replaced when canonicalizing (as allowed by BCP 47, see <a href="https://tools.ietf.org/html/bcp47#section-4.1.2">Section 4.1.2</a>)</span></li>
 				</ul>
 			</li>
-					<li><span  class='changed'>It allows certain syntax for backwards compatibility  (not BCP47-compatible):</span>
+					<li><span  class='changed'>It allows certain syntax for backwards compatibility  (not BCP 47-compatible):</span>
                       <ul>
                         <li>The "_" character for field separator characters, as well as the "-" used in [<a href="#BCP47">BCP47</a>]
                           <span class="changed">(however, the canonical form is with &quot;-&quot;)</span></li>
@@ -1196,9 +1196,9 @@ pu_extensions?</span> ; </code></td>
                       </ul>
 		  </li>
 		</ul>
-		<p><span class="changed">The term <em>Unicode BCP47 locale identifier</em> can be used where the backwards compatibility syntax is disallowed. </span></p>
+		<p><span class="changed">The term <em>Unicode BCP 47 locale identifier</em> can be used where the backwards compatibility syntax is disallowed. </span></p>
 		<ul>
-		  <li><span class="changed">All Unicode BCP47  locale identifiers are both  BCP47 language tags and  Unicode locale identifiers</span></li>
+		  <li><span class="changed">All Unicode BCP 47  locale identifiers are both BCP 47 language tags and  Unicode locale identifiers</span></li>
       </ul>
 		<h4>
 			<a name="BCP_47_Language_Tag_Conversion"
@@ -1206,10 +1206,10 @@ pu_extensions?</span> ; </code></td>
 				Conversion</a>
 		</h4>
 		<p class='changed'>All  Unicode  locale identifiers can be converted to [<a
-				href="#BCP47">BCP 47</a>] language tags, and all BCP 47 language tags can be converted to valid Unicode locale identifiers (with a handfull of unimportant exceptions:  [<a href="#BCP47">BCP 47</a>] grandfathered tags that it wasn't worth adding  &quot;Preferred-Value&quot; fields  or aliases).
-		<p>
+				href="#BCP47">BCP47</a>] language tags, and all [<a href="#BCP47">BCP47</a>] language tags can be converted to valid Unicode locale identifiers (with a handful of unimportant exceptions:   BCP 47 grandfathered tags that were’t worth adding  &quot;Preferred-Value&quot; fields).
+	  <p>
 			A Unicode language/locale identifier can be converted to a valid [<a
-				href="#BCP47">BCP 47</a>] language tag by performing the following
+				href="#BCP47">BCP47</a>] language tag by performing the following
 			transformation.
 		</p>
 		<ol>
@@ -1237,7 +1237,7 @@ pu_extensions?</span> ; </code></td>
 			<code>und-u-cu-usd</code>
 		</blockquote>
 		<p>
-			A valid [<a href="#BCP47">BCP 47</a>] language tag can be converted
+			A valid [<a href="#BCP47">BCP47</a>] language tag can be converted
 			to a valid Unicode language/locale identifier by performing the
 			following transformation.
 		</p>
@@ -1334,7 +1334,7 @@ pu_extensions?</span> ; </code></td>
 		  <tr class='changed'>
 			  <td><code>x-abc</code></td>
 			  <td><code>und-x-abc</code></td>
-			  <td>changes, so that there is always a base language subtag</td>
+			  <td>prefix with &quot;und-&quot;, so that there is always a base language subtag</td>
 		  </tr>
 		</table>
 		<h3>
@@ -1434,7 +1434,30 @@ pu_extensions?</span> ; </code></td>
 					</p>
 					<p>The CLDR provides data for normalizing language/locale
 						codes, including mapping overlong codes like &quot;eng-840&quot;
-						or &quot;eng-USA&quot; to the correct code &quot;en-US&quot;.</p></td>
+						or &quot;eng-USA&quot; to the correct code &quot;en-US&quot;.</p>
+					<p class='changed'>The following are special language subtags:</p>
+                    <table  class='simple changed' border="1" cellspacing="0" cellpadding="2">
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td><strong>Name</strong></td>
+                        <td><strong>Comment</strong></td>
+                      </tr>
+                      <tr>
+                        <td><code>mis</code></td>
+                        <td>Uncoded languages</td>
+                        <td>The content is in a language that doesn't yet have an ISO 639 code.</td>
+                      </tr>
+                      <tr>
+                        <td><code>mul</code></td>
+                        <td>Multiple languages</td>
+                        <td>The content contains  more than one language or text that is simultaneously in multiple languages (such as brand names).</td>
+                      </tr>
+                      <tr>
+                        <td><code>zxx</code></td>
+                        <td>No linguistic content</td>
+                        <td>The content  is not in any particular languages (such as images, symbols, etc.)</td>
+                      </tr>
+                    </table></td>
 			</tr>
 			<tr>
 				<td><a href="#unicode_script_subtag_validity"
@@ -1474,7 +1497,7 @@ pu_extensions?</span> ; </code></td>
 						</tr>
 					</table>
 					<p>
-						Unicode identifiers give specific semantics to six Unicode Script values. For more information, see also [<a
+						Unicode identifiers give specific semantics to certain Unicode Script values. For more information, see also [<a
 							href="http://www.unicode.org/reports/tr41/#UAX24">UAX24</a>]:
 					</p>
 					<table cellspacing="0" cellpadding="2" border="1"
@@ -1593,6 +1616,18 @@ pu_extensions?</span> ; </code></td>
 								form is GB</td>
 							<td>exceptionally reserved</td>
 						</tr>
+						<tr class='changed'>
+						  <td><code>XA</code></td>
+						  <td>Pseudo-Accents</td>
+						  <td>special code indicting derived testing locale with English + added accents and lengthened</td>
+						  <td>private use</td>
+					  </tr>
+						<tr class='changed'>
+						  <td><code>XB</code></td>
+						  <td>Pseudo-Bidi</td>
+						  <td>special code indicting derived testing locale with forced RTL English</td>
+						  <td>private use</td>
+					  </tr>
 						<tr>
 							<td><code>XK</code></td>
 							<td>Kosovo</td>
@@ -1686,7 +1721,7 @@ zh-Hant-HK</pre>
 			<tr>
 				<td>Language</td>
 				<td><code>und</code></td>
-				<td>Undetermined language</td>
+				<td>Undetermined language<span class='changed'>, also used for “root”</span></td>
 			</tr>
 			<tr>
 				<td>Script</td>
@@ -1713,7 +1748,7 @@ zh-Hant-HK</pre>
 			</tr>
 			<tr>
 				<td>Subdivision</td>
-				<td>ZZZZ</td>
+				<td><em class='changed'>&lt;region&gt;</em>zzzz</td>
 				<td>Unknown or Invalid Subdivision</td>
 			</tr>
 		</table>
@@ -1841,8 +1876,8 @@ zh-Hant-HK</pre>
 			<tr>
 				<td rowspan="3">timezone</td>
 				<td>defined</td>
-				<td>IANA: Etc/Unknown<br> bcp47: as listed in the bcp47
-					file
+				<td>IANA: Etc/Unknown<br> 
+					bcp47: as listed in bcp47<span class='changed'>/timezone.xml</span>
 				</td>
 			</tr>
 			<tr>
@@ -1959,9 +1994,9 @@ zh-Hant-HK</pre>
 				15924 Registration Authority has exceptionally reserved it</a>, which
 			means that it will not be assigned for any purpose.
 		</p>
-		<p>The BCP47 form for keys and types is the canonical form, and
+		<p>The BCP 47 form for keys and types is the canonical form, and
 			recommended. Other aliases are included for backwards compatibility.
-		</p>
+	  </p>
 		<table>
 			<caption>
 				<a name="Key_Type_Definitions" href="#Key_Type_Definitions">Key/Type
@@ -2574,7 +2609,7 @@ zh-Hant-HK</pre>
 			LDML makes certain stability guarantees on this data: <br>
 		</p>
 		<ol>
-			<li>Like other BCP47 identifiers, once a numeric identifier is
+			<li>Like other BCP 47 identifiers, once a numeric identifier is
 				added to <strong>bcp47/number.xml</strong> or <strong>numberingSystems.xml</strong>,
 				it will never be removed from either of those files.
 			</li>
@@ -2911,8 +2946,8 @@ zh-Hant-HK</pre>
 				<b>alias</b> (Not applicable to &lt;attribute&gt;)
 			</dt>
 			<dd>
-				<p>The BCP47 form is the canonical form, and recommended. Other
-					aliases are included only for backwards compatibility.</p>
+				<p>The BCP 47 form is the canonical form, and recommended. Other
+			  aliases are included only for backwards compatibility.</p>
 			</dd>
 			<dd>
 				<em>Example:</em>
@@ -2922,7 +2957,7 @@ zh-Hant-HK</pre>
 					&lt;type name="phonebk" <strong>alias="phonebook"</strong>
 					description="Phonebook style ordering (such as in German)"/&gt;<br>
 				</p>
-				The preferred term, and the only one to be used in BCP47, is the
+				The preferred term, and the only one to be used in BCP 47, is the
 				name: in this example, &quot;phonebk&quot;.<br>
 			</dd>
 			<dd>
@@ -3018,13 +3053,13 @@ zh-Hant-HK</pre>
 			&quot;zzzz&quot;, such as &quot;uszzzz&quot; for an unknown
 			subdivision of the US. Other codes may be added for stability.</p>
 		<p>
-			Like BCP47, CLDR requires stable codes, which are not guaranteed for
+			Like BCP 47, CLDR requires stable codes, which are not guaranteed for
 			ISO 3166-2 (nor have the ISO 3166-2
 				codes been stable in the past). If an ISO 3166-2 code is removed, it
 			remains valid (though marked as deprecated) in CLDR. If an ICU 3166-2
 			code is reused (for the same region), then CLDR will define a new
 			equivalent code using these a 4-character suffixes.
-		</p>
+	  </p>
 		<h5>
 			<a name="Validity" href="#Validity">3.6.5.1 Validity</a>
 		</h5>
@@ -3084,8 +3119,8 @@ zh-Hant-HK</pre>
 		<p>
 			In version 28.0, the subdivisions in the
 			validity files used the ISO format, uppercase with a hyphen separating two
-			components, instead of the BCP47 format.
-		</p>
+			components, instead of the BCP 47 format.
+	  </p>
 		<h3>
 			<a name="t_Extension"></a><a name="BCP47_T_Extension"
 				href="#BCP47_T_Extension">3.7 Unicode BCP 47 T Extension</a>
@@ -3807,7 +3842,7 @@ typically be a 'platform' or vendor designation.</td>
 				file contains more information about these codes, and which codes
 				should be used instead.</li>
 			<li><strong>private_use</strong> — codes that, for CLDR, are
-				considered private use. Note that some BCP47 private-use codes have
+				considered private use. Note that some BCP 47 private-use codes have
 				defined CLDR semantics, and are considered regular codes. For more
 				information, see <em>Section 3.5.3 <a href="#Private_Use">Private
 						Use Codes</a>.
@@ -3825,8 +3860,8 @@ typically be a 'platform' or vendor designation.</td>
 		<p>
 			In version 28.0, the subdivisions in the
 			validity files used the ISO format, uppercase with a hyphen separating two
-			components, instead of the BCP47 format.
-		</p>
+			components, instead of the BCP 47 format.
+	  </p>
 		<h2>
 			<a name="Locale_Inheritance" href="#Locale_Inheritance">4 Locale
 				Inheritance and Matching</a>
@@ -5366,10 +5401,10 @@ minimize(zh-Hans, favorRegion) ⇒ zh-TW</td>
 			<li>resulting language: en<br>
 			</li>
 		</ul>
-		<p>Part of this is because 'und' has a special function in BCP47;
+		<p>Part of this is because 'und' has a special function in BCP 47;
 			it stands in for 'no supplied base language'. To prevent this from
 			happening, if the desired base language is und, the language matcher
-			should not apply likely subtags to it. </p>
+	  should not apply likely subtags to it. </p>
 		<p>Examples:</p>
 		<p>For example, suppose that nn-DE and nb-FR are being compared.
 			They are first maximized to nn-Latn-DE and nb-Latn-FR, respectively.
@@ -8787,13 +8822,13 @@ decimal?, group?, special*)) &gt;</pre>
   <li>Fixed &quot;u&quot; and &quot;t&quot; in the syntax to [uU] and [tT], resp., to reflect that case is ignored when parsing.</li>
   <li>Included specific syntax rather than just noting &quot;Although not shown in the syntax above, Unicode locale identifiers may also have [BCP47] extensions (other than &quot;u&quot; and &quot;t&quot;) and private use subtags.&quot;</li>
   <li>Reformated and fleshed out the canonical form description; listed where CLDR uses non-canonical forms.</li>
-  <li>Added missing details about how Unicode Locale Identifiers differ from BCP47, and how to convert between them.</li>
+  <li>Added missing details about how Unicode Locale Identifiers differ from BCP 47, and how to convert between them.</li>
   </ul>
   </li>
   <li><strong>Section 3.3 <a href="#BCP_47_Conformance">BCP
     47 Conformance</a> </strong>
 <ul>
-  <li>Reorganized for clarity, introduced new term <em>Unicode BCP47 locale identifier</em>. [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
+  <li>Reorganized for clarity, introduced new term <em>Unicode BCP 47 locale identifier</em>. [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
   </ul>
   </li>
   <li><strong>Section 3.4

@@ -6204,10 +6204,9 @@ minimize(zh-Hans, favorRegion) ⇒ zh-TW</td>
 			#18: Unicode Regular Expressions</i> [<a
 				href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>] Levels 1 &amp; 2 that are relevant to determining sets of characters. Note however that it may deviate from the syntax provided in [<a
 				href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>], which is illustrative rather than a requirement. There is one exception to the supported semantics, Section <a href="http://unicode.org/reports/tr18/#RL2.6">RL2.6</a> <em>Wildcards in Property Values</em>. That feature can be supported in clients such as ICU by implementing a “hook” as is done in the <a href="https://unicode.org/cldr/utility/list-unicodeset.jsp?a=\p{name=/APPLE/}">online UnicodeSet utilities</a>.</p>
-		<p>I believe that UnicodeSet in UTS #35 (and the implementation in ICU) does implement all of the suggested semantics in UTS #18 Levels 1&amp;2 that are relevant to determining sets of characters. (Some clauses are not relevant to that, such as support of &quot;\b&quot; or line boundaries.)  There is one exception: ​http://unicode.org/reports/tr18/#RL2.6. That can be supported fairly easily in ICU by implementing a &quot;hook&quot;, as is done on ​https://unicode.org/cldr/utility/list-unicodeset.jsp?a=\p{name=/APPLE/}. But if you find any discrepancies, please let Andy and me know.</p>
-		<p>A UnicodeSet may be used in specifications
+		<p>A UnicodeSet may be cited in specifications
 				outside of the domain of LDML. In such a case, the specification may
-				support a subset of the syntax provided here.</p>
+				specify a subset of the syntax provided here.</p>
 	  <p>The following provides EBNF syntax for a UnicodeSet:</p>
 	  <div align='center'>
 		<table class='simple'>

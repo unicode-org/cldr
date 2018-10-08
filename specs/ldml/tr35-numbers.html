@@ -1471,21 +1471,51 @@ h2, h3, h4, table {
 				the exponent grouping. The most common use of this is to generate <em>engineering
 					notation</em>, in which the exponent is a multiple of three, for
 				example, &quot;##0.###E0&quot;. The number 12345 is formatted using
-				&quot;##0.####E0&quot; as &quot;12.345E3&quot;. <span class='changed'>For backwards compatibility, the integer formats have the following patterns:</span>
-				<ul class='changed'>
-				  <li>#E0 means infinite precision scientific notation</li>
-				  <li>0E0 means one digit scientific notation</li>
-				  <li>###E0 means engineering notation with infinite precision (change from current behavior)</li>
-				  <li>##0E0 means engineering notation rounded to the integer (current behavior)</li>
-			  </ul>
+			&quot;##0.####E0&quot; as &quot;12.345E3&quot;.			</li>
+			<li class='changed'>
+			  <p>When using scientific notation, the formatter controls the digit counts using logic for significant digits. The maximum number of significant digits comes from the mantissa portion of the pattern: the string of #, 0, and period (&quot;.&quot;) characters immediately preceding the E. To get the maximum number of significant digits, use the following algorithm:<br>
+		      </p>
+			  <ol>
+			    <li>If the mantissa pattern contains a period:
+			      <ol>
+			        <li>If the mantissa pattern contains at least one 0:
+			          <ul>
+			            <li>Return the number of 0s before the period added to the number of #s or 0s after the period</li>
+		              </ul>
+		            </li>
+			        <li>Else:
+			          <ul>
+			            <li>Return 1 plus the number of #s after the period</li>
+		              </ul>
+		            </li>
+		          </ol>
+		        </li>
+			    <li>Else:
+			      <ol>
+			        <li>If the mantissa pattern contains at least one 0:
+			          <ul>
+			            <li>Return the number of 0s.</li>
+		              </ul>
+		            </li>
+			        <li>Else:
+			          <ul>
+			            <li>Return positive infinity.</li>
+		              </ul>
+		            </li>
+		          </ol>
+		        </li>
+		      </ol>
+			  <p>Examples:<br>
+		      </p>
+			  <ul>
+			    <li>0.##E0 means a max of 3 significant digits.</li>
+			    <li>#.##E0 also means a max of 3 significant digits.</li>
+			    <li>#.0#E0 means a max of 2 significant digits.</li>
+			    <li>0E0 means a max of 1 significant digit.</li>
+			    <li>#E0 means infinite precision.</li>
+			    <li>###E0 means engineering notation with infinite precision.			</li>
+		      </ul>
 			</li>
-			<li>When using scientific notation, the formatter controls the
-				digit counts using significant digits logic. The maximum number of
-				significant digits limits the total number of integer and fraction
-				digits that will be shown in the mantissa; it does not affect
-				parsing. For example, 12345 formatted with &quot;##0.##E0&quot; is
-				&quot;12.3E3&quot;. See the section on significant digits for more
-				details.</li>
 			<li>Exponential patterns may not contain grouping separators.</li>
 		</ul>
 		<h3>

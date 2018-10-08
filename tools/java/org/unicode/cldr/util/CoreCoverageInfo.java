@@ -33,7 +33,8 @@ public class CoreCoverageInfo {
     private static final LikelySubtags ls = new LikelySubtags(sdi);
 
     public enum CoreItems {
-        main_exemplar, auxiliary_exemplar, // numbers_exemplar, punctuation_exemplar, index_exemplar(Level.MODERN)
+        // Drop the exemplars, since 
+        // main_exemplar, auxiliary_exemplar, // numbers_exemplar, punctuation_exemplar, index_exemplar(Level.MODERN)
         orientation, 
         plurals, 
         default_content, likely_subtags, 
@@ -47,10 +48,10 @@ public class CoreCoverageInfo {
         public static Set<CoreItems> ONLY_RECOMMENDED = ImmutableSet.copyOf(
             EnumSet.of(romanization, ordinals));
         
-        private static final Set<CoreItems> EXEMPLARS = ImmutableSet.copyOf(EnumSet.of(
-            main_exemplar, auxiliary_exemplar
-            //, numbers_exemplar, punctuation_exemplar, index_exemplar
-            ));
+//        private static final Set<CoreItems> EXEMPLARS = ImmutableSet.copyOf(EnumSet.of(
+//            main_exemplar, auxiliary_exemplar
+//            //, numbers_exemplar, punctuation_exemplar, index_exemplar
+//            ));
 
         public static final int COUNT = CoreItems.values().length;
         public final Level desiredLevel;
@@ -83,29 +84,29 @@ public class CoreCoverageInfo {
         //      (04) Exemplar sets: main, auxiliary, index, punctuation. [main/xxx.xml]
         //      These must reflect the Unicode model. For more information, see tr35-general.html#Character_Elements.
         boolean isRtl = false;
-        for (CoreItems exemplar : CoreItems.EXEMPLARS) {
-            String type = exemplar.toString();
-            type = type.substring(0, type.indexOf('_'));
-
-            String path = "//ldml/characters/exemplarCharacters";
-            boolean isMain = type.equals("main");
-            if (!isMain) {
-                path += "[@type=\"" + type + "\"]";
-            }
-            String value = file.getStringValue(path);
-            if (value != null) {
-                String sourceLocale = file.getSourceLocaleID(path, null);
-                if (locale.equals(sourceLocale)) {
-                    result.add(exemplar);
-                }
-            } else {
-                detailedErrors.put(exemplar, path);
-            }
-            if (isMain && result.contains(exemplar)) {
-                UnicodeSet main = new UnicodeSet(value);
-                isRtl = isRtl(main);
-            }
-        }
+//        for (CoreItems exemplar : CoreItems.EXEMPLARS) {
+//            String type = exemplar.toString();
+//            type = type.substring(0, type.indexOf('_'));
+//
+//            String path = "//ldml/characters/exemplarCharacters";
+//            boolean isMain = type.equals("main");
+//            if (!isMain) {
+//                path += "[@type=\"" + type + "\"]";
+//            }
+//            String value = file.getStringValue(path);
+//            if (value != null) {
+//                String sourceLocale = file.getSourceLocaleID(path, null);
+//                if (locale.equals(sourceLocale)) {
+//                    result.add(exemplar);
+//                }
+//            } else {
+//                detailedErrors.put(exemplar, path);
+//            }
+//            if (isMain && result.contains(exemplar)) {
+//                UnicodeSet main = new UnicodeSet(value);
+//                isRtl = isRtl(main);
+//            }
+//        }
         //      (02) Orientation (bidi writing systems only) [main/xxx.xml]
         String path = "//ldml/layout/orientation/characterOrder";
         String value = file.getStringValue(path);

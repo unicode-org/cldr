@@ -50,6 +50,7 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.NumberFormat;
@@ -73,7 +74,7 @@ public class ChartDelta extends Chart {
     enum MyOptions {
         fileFilter(new Params().setHelp("filter by dir/locale, eg: ^main/en$ or .*/en").setDefault(".*").setMatch(".*")), verbose(
             new Params().setHelp("verbose debugging messages")),
-            ;
+        ;
 
         // BOILERPLATE TO COPY
         final Option option;
@@ -146,7 +147,11 @@ public class ChartDelta extends Chart {
     @Override
     public void writeContents(FormattedFileWriter pw) throws IOException {
         FormattedFileWriter.Anchors anchors = new FormattedFileWriter.Anchors();
-        writeSubcharts(anchors);
+        FileUtilities.copyFile(ChartDelta.class, "index.css", getDirectory());
+        counter.clear();
+        fileCounters.clear();
+        writeNonLdmlPlain(anchors);
+        writeLdml(anchors);
         pw.setIndex("Main Chart Index", "../index.html");
         pw.write(anchors.toString());
     }
@@ -231,172 +236,178 @@ public class ChartDelta extends Chart {
         FileUtilities.copyFile(ChartDelta.class, "index.css", getDirectory());
         counter.clear();
         fileCounters.clear();
-        try (PrintWriter tsvFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, DIR_NAME), DIR_NAME + ".tsv")) {
-            tsvFile.println("# Section\tPage\tHeader\tCode\tLocale\tOld\tNew\tLevel");
-            writeLdml(anchors, tsvFile);
-            tsvFile.println("# EOF");
-        }
-        try (PrintWriter tsvFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, DIR_NAME), DIR_NAME + "_supp.tsv")) {
-            tsvFile.println("# Section\tPage\tHeader\tCode\tOld\tNew");
-            writeNonLdmlPlain(anchors, getDirectory(), tsvFile);
-            tsvFile.println("# EOF");
-        }
+        writeNonLdmlPlain(anchors);
+        writeLdml(anchors);
     }
 
-    private void writeLdml(Anchors anchors, PrintWriter tsvFile) {
-        // set up factories
-        List<Factory> factories = new ArrayList<>();
-        List<Factory> oldFactories = new ArrayList<>();
+    private void writeLdml(Anchors anchors)  throws IOException {
+
+        try (PrintWriter tsvFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, DIR_NAME), DIR_NAME + ".tsv");
+            PrintWriter tsvCountFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, DIR_NAME), DIR_NAME + "_count.tsv");
+            ) {
+            tsvFile.println("# Section\tPage\tHeader\tCode\tLocale\tOld\tNew\tLevel");
+
+            // set up factories
+            List<Factory> factories = new ArrayList<>();
+            List<Factory> oldFactories = new ArrayList<>();
 //        factories.add(Factory.make(CLDRPaths.BASE_DIRECTORY + "common/" + "main", ".*"));
 //        oldFactories.add(Factory.make(LAST_ARCHIVE_DIRECTORY + "common/" + "main", ".*"));
 
-        for (String dir : DtdType.ldml.directories) {
-            if (dir.equals("annotationsDerived") || dir.equals("casing")) {
-                continue;
-            }
-            String current = (ToolConstants.CLDR_VERSIONS.contains(ToolConstants.LAST_CHART_VERSION)
-                ? CURRENT_DIRECTORY : CLDRPaths.BASE_DIRECTORY) + "common/" + dir;
-            String past = LAST_ARCHIVE_DIRECTORY + "common/" + dir;
-            try {
-                factories.add(Factory.make(current, ".*"));
-            } catch (Exception e1) {
-                System.out.println("Skipping: " + dir + "\t" + e1.getMessage());
-                continue; // skip where the directories don't exist in old versions
-            }
-            try {
-                oldFactories.add(Factory.make(past, ".*"));
-            } catch (Exception e) {
-                System.out.println("Couldn't open factory: " + past);
-                past = null;
-                oldFactories.add(null);
-            }
-            System.out.println("Will examine: " + dir + "\t\t" + current + "\t\t" + past);
-        }
-        if (factories.isEmpty()) {
-            throw new IllegalArgumentException("No factories found");
-        }
-        // get a list of all the locales to cycle over
+            Counter<PathHeader> counts = new Counter<>();
 
-        Relation<String, String> baseToLocales = Relation.of(new TreeMap<String, Set<String>>(), HashSet.class);
-        Matcher m = fileMatcher.matcher("");
-        Set<String> defaultContents = SDI.getDefaultContentLocales();
-        LanguageTagParser ltp = new LanguageTagParser();
-        LikelySubtags ls = new LikelySubtags(SDI);
-        for (String file : factories.get(0).getAvailable()) {
-            if (defaultContents.contains(file)) {
-                continue;
+            for (String dir : DtdType.ldml.directories) {
+                if (dir.equals("annotationsDerived") || dir.equals("casing")) {
+                    continue;
+                }
+                String current = (ToolConstants.CLDR_VERSIONS.contains(ToolConstants.LAST_CHART_VERSION)
+                    ? CURRENT_DIRECTORY : CLDRPaths.BASE_DIRECTORY) + "common/" + dir;
+                String past = LAST_ARCHIVE_DIRECTORY + "common/" + dir;
+                try {
+                    factories.add(Factory.make(current, ".*"));
+                } catch (Exception e1) {
+                    System.out.println("Skipping: " + dir + "\t" + e1.getMessage());
+                    continue; // skip where the directories don't exist in old versions
+                }
+                try {
+                    oldFactories.add(Factory.make(past, ".*"));
+                } catch (Exception e) {
+                    System.out.println("Couldn't open factory: " + past);
+                    past = null;
+                    oldFactories.add(null);
+                }
+                System.out.println("Will examine: " + dir + "\t\t" + current + "\t\t" + past);
             }
-            if (!m.reset(file).matches()) {
-                continue;
+            if (factories.isEmpty()) {
+                throw new IllegalArgumentException("No factories found");
             }
-            String base = file.equals("root") ? "root" : ltp.set(ls.minimize(file)).getLanguageScript();
-            baseToLocales.put(base, file);
-        }
+            // get a list of all the locales to cycle over
 
-        // do keyboards later
+            Relation<String, String> baseToLocales = Relation.of(new TreeMap<String, Set<String>>(), HashSet.class);
+            Matcher m = fileMatcher.matcher("");
+            Set<String> defaultContents = SDI.getDefaultContentLocales();
+            LanguageTagParser ltp = new LanguageTagParser();
+            LikelySubtags ls = new LikelySubtags(SDI);
+            for (String file : factories.get(0).getAvailable()) {
+                if (defaultContents.contains(file)) {
+                    continue;
+                }
+                if (!m.reset(file).matches()) {
+                    continue;
+                }
+                String base = file.equals("root") ? "root" : ltp.set(ls.minimize(file)).getLanguageScript();
+                baseToLocales.put(base, file);
+            }
 
-        Status currentStatus = new Status();
-        Status oldStatus = new Status();
-        Set<PathDiff> diff = new TreeSet<>();
-        Set<String> paths = new HashSet<>();
+            // do keyboards later
 
-        Relation<PathHeader, String> diffAll = Relation.of(new TreeMap<PathHeader, Set<String>>(), TreeSet.class);
+            Status currentStatus = new Status();
+            Status oldStatus = new Status();
+            Set<PathDiff> diff = new TreeSet<>();
+            Set<String> paths = new HashSet<>();
+
+            Relation<PathHeader, String> diffAll = Relation.of(new TreeMap<PathHeader, Set<String>>(), TreeSet.class);
 //        XPathParts pathPlain = new XPathParts();
-        for (Entry<String, Set<String>> baseNLocale : baseToLocales.keyValuesSet()) {
-            String base = baseNLocale.getKey();
+            for (Entry<String, Set<String>> baseNLocale : baseToLocales.keyValuesSet()) {
+                String base = baseNLocale.getKey();
 //            int qCount = 0;
-            for (int i = 0; i < factories.size(); ++i) {
-                Factory factory = factories.get(i);
-                Factory oldFactory = oldFactories.get(i);
-                List<File> sourceDirs = Arrays.asList(factory.getSourceDirectories());
-                if (sourceDirs.size() != 1) {
-                    throw new IllegalArgumentException("Internal error: expect single source dir");
-                }
-                File sourceDir = sourceDirs.get(0);
-                String sourceDirLeaf = sourceDir.getName();
-                //System.out.println(sourceDirLeaf);
-                boolean resolving = !sourceDirLeaf.contains("subdivisions")
-                    && !sourceDirLeaf.contains("transforms");
-                for (String locale : baseNLocale.getValue()) {
-                    //System.out.println("\t" + locale);
-                    String nameAndLocale = sourceDirLeaf + "/" + locale;
-                    if (fileFilter != null && !fileFilter.reset(nameAndLocale).find()) {
-                        if (verbose) {
-                            System.out.println("SKIPPING: " + nameAndLocale);
-                        }
-                        continue;
+                for (int i = 0; i < factories.size(); ++i) {
+                    Factory factory = factories.get(i);
+                    Factory oldFactory = oldFactories.get(i);
+                    List<File> sourceDirs = Arrays.asList(factory.getSourceDirectories());
+                    if (sourceDirs.size() != 1) {
+                        throw new IllegalArgumentException("Internal error: expect single source dir");
                     }
+                    File sourceDir = sourceDirs.get(0);
+                    String sourceDirLeaf = sourceDir.getName();
+                    //System.out.println(sourceDirLeaf);
+                    boolean resolving = !sourceDirLeaf.contains("subdivisions")
+                        && !sourceDirLeaf.contains("transforms");
+                    for (String locale : baseNLocale.getValue()) {
+                        //System.out.println("\t" + locale);
+                        String nameAndLocale = sourceDirLeaf + "/" + locale;
+                        if (fileFilter != null && !fileFilter.reset(nameAndLocale).find()) {
+                            if (verbose) {
+                                System.out.println("SKIPPING: " + nameAndLocale);
+                            }
+                            continue;
+                        }
 //                    boolean isBase = locale.equals(base);
-                    if (verbose) {
-                        System.out.println(nameAndLocale);
-                    }
-                    CLDRFile current = makeWithFallback(factory, locale, resolving);
-                    CLDRFile old = makeWithFallback(oldFactory, locale, resolving);
-                    if (!locale.equals("root") && current.getLocaleID().equals("root") && old.getLocaleID().equals("root")) {
-                        continue;
-                    }
-                    if (old == EMPTY_CLDR && current == EMPTY_CLDR) {
-                        continue;
-                    }
-                    paths.clear();
-                    for (String path : current.fullIterable()) {
-                        paths.add(path);
-                    }
-                    for (String path : old.fullIterable()) {
-                        paths.add(path);
-                    }
-
-                    Output<String> reformattedValue = new Output<String>();
-                    Output<Boolean> hasReformattedValue = new Output<Boolean>();
-
-                    for (String path : paths) {
-                        if (path.startsWith("//ldml/identity")
-                            || path.endsWith("/alias")
-                            || path.startsWith("//ldml/segmentations") // do later
-                            || path.startsWith("//ldml/rbnf") // do later
-                        ) {
+                        if (verbose) {
+                            System.out.println(nameAndLocale);
+                        }
+                        CLDRFile current = makeWithFallback(factory, locale, resolving);
+                        CLDRFile old = makeWithFallback(oldFactory, locale, resolving);
+                        if (!locale.equals("root") && current.getLocaleID().equals("root") && old.getLocaleID().equals("root")) {
                             continue;
                         }
-                        if (path.contains("/tRule")) {
-                            int debug = 0;
-                        }
-                        PathHeader ph = getPathHeader(path);
-                        if (ph == null) {
+                        if (old == EMPTY_CLDR && current == EMPTY_CLDR) {
                             continue;
                         }
-
-                        String oldValue = null;
-                        String currentValue = null;
-
-                        {
-                            String sourceLocaleCurrent = current.getSourceLocaleID(path, currentStatus);
-                            String sourceLocaleOld = getReformattedPath(oldStatus, old, path, reformattedValue, hasReformattedValue);
-
-                            // filter out stuff that differs at a higher level
-                            if (!sourceLocaleCurrent.equals(locale)
-                                && !sourceLocaleOld.equals(locale)) {
-                                continue;
-                            }
-                            if (!path.equals(currentStatus.pathWhereFound)
-                                && !path.equals(oldStatus.pathWhereFound)) {
-                                continue;
-                            }
-                            // fix some incorrect cases?
-
-                            currentValue = current.getStringValue(path);
-                            oldValue = hasReformattedValue.value ? reformattedValue.value : old.getStringValue(path);
+                        paths.clear();
+                        for (String path : current.fullIterable()) {
+                            paths.add(path);
                         }
-                        // handle non-distinguishing attributes
-                        addPathDiff(sourceDir, old, current, locale, ph, diff);
+                        for (String path : old.fullIterable()) {
+                            paths.add(path);
+                        }
 
-                        addValueDiff(sourceDir, oldValue, currentValue, locale, ph, diff, diffAll);
+                        Output<String> reformattedValue = new Output<String>();
+                        Output<Boolean> hasReformattedValue = new Output<Boolean>();
+
+                        for (String path : paths) {
+                            if (path.startsWith("//ldml/identity")
+                                || path.endsWith("/alias")
+                                || path.startsWith("//ldml/segmentations") // do later
+                                || path.startsWith("//ldml/rbnf") // do later
+                                ) {
+                                continue;
+                            }
+                            if (path.contains("/tRule")) {
+                                int debug = 0;
+                            }
+                            PathHeader ph = getPathHeader(path);
+                            if (ph == null) {
+                                continue;
+                            }
+
+                            String oldValue = null;
+                            String currentValue = null;
+
+                            {
+                                String sourceLocaleCurrent = current.getSourceLocaleID(path, currentStatus);
+                                String sourceLocaleOld = getReformattedPath(oldStatus, old, path, reformattedValue, hasReformattedValue);
+
+                                // filter out stuff that differs at a higher level
+                                if (!sourceLocaleCurrent.equals(locale)
+                                    && !sourceLocaleOld.equals(locale)) {
+                                    continue;
+                                }
+                                if (!path.equals(currentStatus.pathWhereFound)
+                                    && !path.equals(oldStatus.pathWhereFound)) {
+                                    continue;
+                                }
+                                // fix some incorrect cases?
+
+                                currentValue = current.getStringValue(path);
+                                oldValue = hasReformattedValue.value ? reformattedValue.value : old.getStringValue(path);
+                            }
+                            // handle non-distinguishing attributes
+                            addPathDiff(sourceDir, old, current, locale, ph, diff);
+
+                            addValueDiff(sourceDir, oldValue, currentValue, locale, ph, diff, diffAll);
+                        }
                     }
                 }
+                writeDiffs(anchors, base, diff, tsvFile, counts);
+                diff.clear();
             }
-            writeDiffs(anchors, base, diff, tsvFile);
-            diff.clear();
+            writeDiffs(anchors, diffAll);
+
+            writeCounter(tsvCountFile, "Count", counts);
+            tsvFile.println("# EOF");
+            tsvCountFile.println("# EOF");
         }
-        writeDiffs(anchors, diffAll);
+
     }
 
     private String getReformattedPath(Status oldStatus, CLDRFile old, String path, Output<String> value, Output<Boolean> hasReformattedValue) {
@@ -626,13 +637,13 @@ public class ChartDelta extends Chart {
             for (String value : entry.getValue()) {
                 String[] oldNew = value.split(SEP);
                 tablePrinter.addRow()
-                    .addCell(ph.getSectionId())
-                    .addCell(ph.getPageId())
-                    .addCell(ph.getHeader())
-                    .addCell(ph.getCode())
-                    .addCell(oldNew[0])
-                    .addCell(oldNew[1])
-                    .finishRow();
+                .addCell(ph.getSectionId())
+                .addCell(ph.getPageId())
+                .addCell(ph.getHeader())
+                .addCell(ph.getCode())
+                .addCell(oldNew[0])
+                .addCell(oldNew[1])
+                .finishRow();
             }
         }
         writeTable(anchors, file, tablePrinter, title, tsvFile);
@@ -649,16 +660,16 @@ public class ChartDelta extends Chart {
             PathHeader ph = row.getKey();
             Set<String> locales = row.getValue();
             tablePrinter.addRow()
-                .addCell(ph.getSectionId())
-                .addCell(ph.getPageId())
-                .addCell(ph.getHeader())
-                .addCell(ph.getCode())
-                .addCell(CollectionUtilities.join(locales, " "))
-                .finishRow();
+            .addCell(ph.getSectionId())
+            .addCell(ph.getPageId())
+            .addCell(ph.getHeader())
+            .addCell(ph.getCode())
+            .addCell(CollectionUtilities.join(locales, " "))
+            .finishRow();
         }
     }
 
-    private void writeDiffs(Anchors anchors, String file, Set<PathDiff> diff, PrintWriter tsvFile) {
+    private void writeDiffs(Anchors anchors, String file, Set<PathDiff> diff, PrintWriter tsvFile, Counter<PathHeader> counts) {
         if (diff.isEmpty()) {
             return;
         }
@@ -674,6 +685,7 @@ public class ChartDelta extends Chart {
 
         for (PathDiff row : diff) {
             PathHeaderSegment phs = row.get0();
+            counts.add(phs.get0(), 1);
             String locale = row.get1();
             String oldValue = row.get2();
             String currentValue = row.get3();
@@ -694,17 +706,19 @@ public class ChartDelta extends Chart {
             String fixedNewValue = currentValue == null ? "▷removed◁" : TransliteratorUtilities.toHTML.transform(currentValue);
 
             tablePrinter.addRow()
-                .addCell(ph.getSectionId())
-                .addCell(ph.getPageId())
-                .addCell(ph.getHeader())
-                .addCell(specialCode)
-                .addCell(locale)
-                .addCell(fixedOldValue)
-                .addCell(fixedNewValue)
-                .addCell(coverageLevel)
-                .finishRow();
+            .addCell(ph.getSectionId())
+            .addCell(ph.getPageId())
+            .addCell(ph.getHeader())
+            .addCell(specialCode)
+            .addCell(locale)
+            .addCell(fixedOldValue)
+            .addCell(fixedNewValue)
+            .addCell(coverageLevel)
+            .finishRow();
+
         }
         writeTable(anchors, file, tablePrinter, ENGLISH.getName(file) + " Delta", tsvFile);
+
         diff.clear();
     }
 
@@ -762,112 +776,148 @@ public class ChartDelta extends Chart {
         chartDeltaSub.writeChart(anchors);
     }
 
-    public void writeNonLdmlPlain(Anchors anchors, String directory, PrintWriter tsvFile) {
-        Multimap<PathHeader, String> bcp = TreeMultimap.create();
-        Multimap<PathHeader, String> supplemental = TreeMultimap.create();
-        Multimap<PathHeader, String> transforms = TreeMultimap.create();
-
-        for (String dir : new File(CLDRPaths.BASE_DIRECTORY + "common/").list()) {
-            if (DtdType.ldml.directories.contains(dir)
-                || dir.equals(".DS_Store")
-                || dir.equals("dtd") // TODO as flat files
-                || dir.equals("properties") // TODO as flat files
-                || dir.equals("uca") // TODO as flat files
+    public void writeNonLdmlPlain(Anchors anchors) throws IOException {
+        try (PrintWriter tsvFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, DIR_NAME), DIR_NAME + "_supp.tsv");
+            PrintWriter tsvCountFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, DIR_NAME), DIR_NAME + "_supp_count.tsv");
             ) {
-                continue;
-            }
-            File dir1 = new File(LAST_ARCHIVE_DIRECTORY + "common/" + dir);
-            File dir2 = new File(CLDRPaths.BASE_DIRECTORY + "common/" + dir);
+            tsvFile.println("# Section\tPage\tHeader\tCode\tOld\tNew");
 
-            for (String file : dir2.list()) {
-                if (!file.endsWith(".xml")) {
+            Multimap<PathHeader, String> bcp = TreeMultimap.create();
+            Multimap<PathHeader, String> supplemental = TreeMultimap.create();
+            Multimap<PathHeader, String> transforms = TreeMultimap.create();
+
+            Counter<PathHeader> countSame = new Counter<>();
+            Counter<PathHeader> countAdded = new Counter<>();
+            Counter<PathHeader> countDeleted = new Counter<>();
+
+            for (String dir : new File(CLDRPaths.BASE_DIRECTORY + "common/").list()) {
+                if (DtdType.ldml.directories.contains(dir)
+                    || dir.equals(".DS_Store")
+                    || dir.equals("dtd") // TODO as flat files
+                    || dir.equals("properties") // TODO as flat files
+                    || dir.equals("uca") // TODO as flat files
+                    ) {
                     continue;
                 }
-                String parentAndFile = dir + "/" + file;
-                String base = file.substring(0, file.length() - 4);
-                if (fileFilter != null && !fileFilter.reset(dir + "/" + base).find()) {
-                    if (verbose) {
-                        System.out.println("SKIPPING: " + dir + "/" + base);
-                    }
-                    continue;
-                }
+                File dir1 = new File(LAST_ARCHIVE_DIRECTORY + "common/" + dir);
+                File dir2 = new File(CLDRPaths.BASE_DIRECTORY + "common/" + dir);
 
-                if (verbose) {
-                    System.out.println(file);
-                }
-                Relation<PathHeader, String> contents1 = fillData(dir1.toString() + "/", file);
-                Relation<PathHeader, String> contents2 = fillData(dir2.toString() + "/", file);
-
-                Set<PathHeader> keys = new TreeSet<PathHeader>(CldrUtility.ifNull(contents1.keySet(), Collections.<PathHeader> emptySet()));
-                keys.addAll(CldrUtility.ifNull(contents2.keySet(), Collections.<PathHeader> emptySet()));
-                DtdType dtdType = null;
-                for (PathHeader key : keys) {
-                    String originalPath = key.getOriginalPath();
-                    if (originalPath.contains("/paradigmLocales")) {
-                        int debug = 0;
-                    }
-                    boolean isTransform = originalPath.contains("/tRule");
-                    if (dtdType == null) {
-                        dtdType = DtdType.fromPath(originalPath);
-                    }
-                    Multimap<PathHeader, String> target = dtdType == DtdType.ldmlBCP47 ? bcp
-                        : isTransform ? transforms
-                            : supplemental;
-                    Set<String> set1 = contents1.get(key);
-                    Set<String> set2 = contents2.get(key);
-
-                    if (Objects.equals(set1, set2)) {
-                        if (file.equals(DEBUG_FILE)) { // for debugging
-                            System.out.println("**Same: " + key + "\t" + set1);
-                        }
-                        addChange(parentAndFile, ChangeType.same, set1.size());
+                for (String file : dir2.list()) {
+                    if (!file.endsWith(".xml")) {
                         continue;
                     }
-                    if (set1 == null) {
-                        addChange(parentAndFile, ChangeType.added, set2.size());
-                        for (String s : set2) {
-                            addRow(target, key, "▷missing◁", s);
+                    String parentAndFile = dir + "/" + file;
+                    String base = file.substring(0, file.length() - 4);
+                    if (fileFilter != null && !fileFilter.reset(dir + "/" + base).find()) {
+                        if (verbose) {
+                            System.out.println("SKIPPING: " + dir + "/" + base);
                         }
-                    } else if (set2 == null) {
-                        addChange(parentAndFile, ChangeType.deleted, set1.size());
-                        for (String s : set1) {
-                            addRow(target, key, s, "▷removed◁");
+                        continue;
+                    }
+
+                    if (verbose) {
+                        System.out.println(file);
+                    }
+                    Relation<PathHeader, String> contents1 = fillData(dir1.toString() + "/", file);
+                    Relation<PathHeader, String> contents2 = fillData(dir2.toString() + "/", file);
+
+                    Set<PathHeader> keys = new TreeSet<PathHeader>(CldrUtility.ifNull(contents1.keySet(), Collections.<PathHeader> emptySet()));
+                    keys.addAll(CldrUtility.ifNull(contents2.keySet(), Collections.<PathHeader> emptySet()));
+                    DtdType dtdType = null;
+                    for (PathHeader key : keys) {
+                        String originalPath = key.getOriginalPath();
+                        if (originalPath.contains("/paradigmLocales")) {
+                            int debug = 0;
                         }
-                    } else {
-                        Set<String> s1M2 = set1;
-                        Set<String> s2M1 = set2;
+                        boolean isTransform = originalPath.contains("/tRule");
+                        if (dtdType == null) {
+                            dtdType = DtdType.fromPath(originalPath);
+                        }
+                        Multimap<PathHeader, String> target = dtdType == DtdType.ldmlBCP47 ? bcp
+                            : isTransform ? transforms
+                                : supplemental;
+                        Set<String> set1 = contents1.get(key);
+                        Set<String> set2 = contents2.get(key);
+
+                        if (Objects.equals(set1, set2)) {
+                            if (file.equals(DEBUG_FILE)) { // for debugging
+                                System.out.println("**Same: " + key + "\t" + set1);
+                            }
+                            addChange(parentAndFile, ChangeType.same, set1.size());
+                            countSame.add(key, 1);
+                            continue;
+                        }
+                        if (set1 == null) {
+                            addChange(parentAndFile, ChangeType.added, set2.size());
+                            for (String s : set2) {
+                                addRow(target, key, "▷missing◁", s);
+                                countAdded.add(key, 1);
+                            }
+                        } else if (set2 == null) {
+                            addChange(parentAndFile, ChangeType.deleted, set1.size());
+                            for (String s : set1) {
+                                addRow(target, key, s, "▷removed◁");
+                                countDeleted.add(key, 1);
+                            }
+                        } else {
+                            Set<String> s1M2 = set1;
+                            Set<String> s2M1 = set2;
 //                        Set<String> s1M2 = new LinkedHashSet<>(set1);
 //                        s1M2.removeAll(set2);
 //                        Set<String> s2M1 = new LinkedHashSet<>(set2);
 //                        s2M1.removeAll(set1);
-                        if (s1M2.isEmpty()) {
-                            addRow(target, key, "▷missing◁", CollectionUtilities.join(s2M1, ", "));
-                            addChange(parentAndFile, ChangeType.added, s2M1.size());
-                        } else if (s2M1.isEmpty()) {
-                            addRow(target, key, CollectionUtilities.join(s1M2, ", "), "▷removed◁");
-                            addChange(parentAndFile, ChangeType.deleted, s1M2.size());
-                        } else {
-                            String valueOld;
-                            String valueCurrent;
+                            if (s1M2.isEmpty()) {
+                                addRow(target, key, "▷missing◁", CollectionUtilities.join(s2M1, ", "));
+                                addChange(parentAndFile, ChangeType.added, s2M1.size());
+                                countAdded.add(key, 1);
+                            } else if (s2M1.isEmpty()) {
+                                addRow(target, key, CollectionUtilities.join(s1M2, ", "), "▷removed◁");
+                                addChange(parentAndFile, ChangeType.deleted, s1M2.size());
+                                countDeleted.add(key, 1);
+                            } else {
+                                String valueOld;
+                                String valueCurrent;
 
-                            int[] sameAndNotInSecond = new int[2];
-                            valueOld = getFilteredValue(s1M2, s1M2, sameAndNotInSecond);
-                            addChange(parentAndFile, ChangeType.same, sameAndNotInSecond[0]);
-                            addChange(parentAndFile, ChangeType.deleted, sameAndNotInSecond[1]);
-                            sameAndNotInSecond[1] = 0;
-                            valueCurrent = getFilteredValue(s2M1, s1M2, sameAndNotInSecond);
-                            addChange(parentAndFile, ChangeType.added, sameAndNotInSecond[1]);
-                            addRow(target, key, valueOld, valueCurrent);
+                                int[] sameAndNotInSecond = new int[2];
+                                valueOld = getFilteredValue(s1M2, s1M2, sameAndNotInSecond);
+                                addChange(parentAndFile, ChangeType.same, sameAndNotInSecond[0]);
+                                countSame.add(key, 1);
+                                addChange(parentAndFile, ChangeType.deleted, sameAndNotInSecond[1]);
+                                sameAndNotInSecond[1] = 0;
+                                countDeleted.add(key, 1);
+                                valueCurrent = getFilteredValue(s2M1, s1M2, sameAndNotInSecond);
+                                addChange(parentAndFile, ChangeType.added, sameAndNotInSecond[1]);
+                                addRow(target, key, valueOld, valueCurrent);
+                                countAdded.add(key, 1);
+                            }
                         }
                     }
                 }
             }
-        }
-        //    private void writeDiffs(Anchors anchors, String file, String title, Relation<PathHeader, String> bcp) {
+            //    private void writeDiffs(Anchors anchors, String file, String title, Relation<PathHeader, String> bcp) {
 
-        writeDiffs(anchors, "bcp47", "¤¤BCP47 Delta", bcp, tsvFile);
-        writeDiffs(anchors, "supplemental-data", "¤¤Supplemental Delta", supplemental, tsvFile);
-        writeDiffs(anchors, "transforms", "¤¤Transforms Delta", transforms, tsvFile);
+            writeDiffs(anchors, "bcp47", "¤¤BCP47 Delta", bcp, tsvFile);
+            writeDiffs(anchors, "supplemental-data", "¤¤Supplemental Delta", supplemental, tsvFile);
+            writeDiffs(anchors, "transforms", "¤¤Transforms Delta", transforms, tsvFile);
+
+            writeCounter(tsvCountFile, "CountSame", countSame);
+            tsvCountFile.println();
+            writeCounter(tsvCountFile, "CountAdded", countAdded);
+            tsvCountFile.println();
+            writeCounter(tsvCountFile, "CountDeleted", countDeleted);
+
+            tsvFile.println("# EOF");
+            tsvCountFile.println("# EOF");
+        }
+    }
+
+    private void writeCounter(PrintWriter tsvFile, String title, Counter<PathHeader> countDeleted) {
+        tsvFile.append("# "
+            + title
+            + "\tPathHeader\n\n");
+        for (R2<Long, PathHeader> entry : countDeleted.getEntrySetSortedByCount(false, null)) {
+            tsvFile.println(entry.get0() + "\t" + entry.get1());
+        }
     }
 
     private void addRow(Multimap<PathHeader, String> target, PathHeader key, String oldItem, String newItem) {

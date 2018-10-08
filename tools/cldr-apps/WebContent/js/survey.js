@@ -590,14 +590,30 @@ if(!stuidebug_enabled) {
 }
 
 /**
- * Is the keyboard 'busy'? i.e., it's a bad time to change the DOM
+ * Is the keyboard or input widget 'busy'? i.e., it's a bad time to change the DOM
+ *
  * @method isInputBusy
+ * @return true if window.getSelection().anchorNode.className contains "dijitInp" or "popover-content",
+ *         else false
+ *
+ * "popover-content" identifies the little input window, created using bootstrap, that appears when the
+ * user clicks an add ("+") button. Added "popover-content" per https://unicode.org/cldr/trac/ticket/11265.
+ *
+ * TODO: clarify dependence on "dijitInp"; is that still used here, and if so, when?
+ * Add automated regression testing to anticipate future changes to bootstrap/dojo/dijit/etc.
  */
 function isInputBusy() {
-	if(!window.getSelection) return false;
+	if (!window.getSelection) {
+		return false;
+	}
 	var sel = window.getSelection();
-	if(sel && sel.anchorNode && sel.anchorNode.className && sel.anchorNode.className.indexOf("dijitInp")!=-1) {
-		return true;
+	if (sel && sel.anchorNode && sel.anchorNode.className) {
+		if (sel.anchorNode.className.indexOf("dijitInp") != -1) {
+			return true;
+		}
+		if (sel.anchorNode.className.indexOf("popover-content") != -1) {
+			return true;
+		}
 	}
 	return false;
 }

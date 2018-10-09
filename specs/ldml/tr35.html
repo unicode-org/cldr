@@ -1680,13 +1680,13 @@ pu_extensions?</span> ; </code></td>
 						<tr class='changed'>
 						  <td><code>XA</code></td>
 						  <td>Pseudo-Accents</td>
-						  <td>special code indicting derived testing locale with English + added accents and lengthened</td>
+						  <td>special code indicating derived testing locale with English + added accents and lengthened</td>
 						  <td>private use</td>
 					  </tr>
 						<tr class='changed'>
 						  <td><code>XB</code></td>
 						  <td>Pseudo-Bidi</td>
-						  <td>special code indicting derived testing locale with forced RTL English</td>
+						  <td>special code indicating derived testing locale with forced RTL English</td>
 						  <td>private use</td>
 					  </tr>
 						<tr>
@@ -8888,14 +8888,30 @@ decimal?, group?, special*)) &gt;</pre>
   <li><strong>Section 3.3 <a href="#BCP_47_Conformance">BCP
     47 Conformance</a> </strong>
 <ul>
-  <li>Reorganized for clarity, introduced new term <em>Unicode BCP 47 locale identifier</em>. [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
+  <li>Reorganized for clarity, introduced new terms <em>Unicode BCP 47 locale identifier</em> and <em>Unicode CLDR locale identifier</em>. [<a href="http://unicode.org/cldr/trac/ticket/11451">#11451</a>]</li>
   </ul>
+  </li>
+  <li><strong>Section 3.3.1 <a  href="http://unicode.org/repos/cldr/trunk/specs/ldml/tr35.html#BCP_47_Language_Tag_Conversion">BCP 47 Language Tag Conversion</a>
+    [<a href="http://unicode.org/cldr/trac/ticket/11451">#11451</a>]</strong>
+    <ul>
+      <li>Now handles private-use extensions and grandfathered tags.</li>
+      <li>Added more examples.</li>
+      <li>Separated into three conversions.
+        <ul>
+          <li> <a  href="http://unicode.org/repos/cldr/trunk/specs/ldml/tr35.html#Language_Tag_to_Locale_Identifier">BCP 47 Language Tag to Unicode BCP 47 Locale Identifier</a>          </li>
+          <li> <a  href="http://unicode.org/repos/cldr/trunk/specs/ldml/tr35.html#Unicode_Locale_Identifier_CLDR_to_BCP_47">Unicode Locale Identifier: CLDR to BCP 47</a>          </li>
+          <li> <a  href="http://unicode.org/repos/cldr/trunk/specs/ldml/tr35.html#Unicode_Locale_Identifier_BCP_47_to_CLDR">Unicode Locale Identifier: BCP 47 to CLDR</a>          </li>
+        </ul>
+      </li>
+      </ul>
   </li>
   <li><strong>Section 3.4
     <a href="#Field_Definitions">Language Identifier Field Definitions </a> 
     </strong>
     <ul>
       <li>Added special script code Qaag [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
+      <li>Documented special language subtags mis, mul, zxx [<a href="http://unicode.org/cldr/trac/ticket/11451">#11451</a>]</li>
+      <li>Documented special region subtags XA and XB [<a href="http://unicode.org/cldr/trac/ticket/11451">#11451</a>]</li>
       </ul>
   </li>
   <li><strong>Section 3.5.3 <a href="#Private_Use">Private Use Codes</a></strong>
@@ -8903,10 +8919,11 @@ decimal?, group?, special*)) &gt;</pre>
       <li>Adjusted table to move Qaag, XA, and XB into <em>defined</em>. The XA and XB were correct in the identity file (a change in a previous release), but had not been added to that table. [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
       </ul>
   </li>
-  <li>Section 3.6.4 <a href="#Unicode_Locale_Extension_Data_Files" >U Extension Data Files</a>
+  <li><strong>Section 3.6.4 <a href="#Unicode_Locale_Extension_Data_Files" >U Extension Data Files</a>
+    </strong>
     <ul>
       <li>Qualified valueType, since a key's value may be empty (if &quot;true&quot;). [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
-    </ul>
+  </ul>
   </li>
   <li><strong>Section 3.6.5.1 <a  href="#Validity">Validity</a></strong> 
     <ul>

@@ -8,6 +8,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.web.STFactory;
+import org.unicode.cldr.web.WebContext;
 
 import com.ibm.icu.dev.test.TestFmwk;
 
@@ -47,5 +48,35 @@ public class TestMisc extends TestFmwk {
 
             assertEquals(loc + ":" + xpath, (long) expectedSize, (long) lms.getSize(loc, xpath));
         }
+    }
+ 
+    /**
+     * Test that the function WebContext.isCoverageOrganization returns
+     * true for "Microsoft" and "microsoft", and false for "FakeOrgName".
+     *
+     * Reference: https://unicode.org/cldr/trac/ticket/10289
+     */
+    public void TestIsCoverageOrganization() {
+        String orgName = "Microsoft";
+        try {
+            if (!WebContext.isCoverageOrganization(orgName)) {
+                errln("❌ isCoverageOrganization(" + orgName + ") false, expected true.");
+                return;
+            }
+            orgName = orgName.toLowerCase();
+            if (!WebContext.isCoverageOrganization(orgName)) {
+                errln("❌ isCoverageOrganization(" + orgName + ") false, expected true.");
+                return;
+            }
+            orgName = "FakeOrgName";
+            if (WebContext.isCoverageOrganization(orgName)) {
+                errln("❌ isCoverageOrganization(" + orgName + ") true, expected false.");
+                return;
+            }
+        } catch (Exception e) {
+            errln("❌ isCoverageOrganization(" + orgName + "). Unexpected exception: " + e.toString() + " - " + e.getMessage());
+            return;
+        }
+        System.out.println("✅");
     }
 }

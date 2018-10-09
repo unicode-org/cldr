@@ -902,12 +902,12 @@ h5 {
 		</h3>
 		<p>
 			A <i>Unicode locale identifier</i> is composed of a Unicode language
-			identifier plus (optional) locale extensions (U and T). It has the
+			identifier plus (optional) locale extensions<span class='removed'> (U and T)</span>. It has the
 			following structure. The semantics of the U and T extensions are
 			explained in <em>Section 3.6 <a href="#u_Extension">Unicode
 					BCP 47 U Extension</a>
 			</em> and <em>Section 3.7 <a href="#BCP47_T_Extension">Unicode
-					BCP 47 T Extension</a></em>. The following table defines syntactically
+			BCP 47 T Extension</a></em>. <span class='changed'>Other extensions and private use extensions are supported for pass-through.</span> The following table defines syntactically
 			        <em>well-formed</em> identifiers: they are not necessarily <em>valid</em> identifiers.
 		For additional validity criteria, see the links on the right. </p>
 		<table border="0">
@@ -1491,11 +1491,8 @@ pu_extensions?</span> ; </code></td>
 						Chinese (Taiwan), not &quot;cmn-TW&quot;.
 					</p>
 					<p>
-						The private use codes from
-						<code>qfz..qtz</code>
-						will never be given specific semantics in Unicode identifiers, and
-						are thus safe for use for other purposes by other applications.
-					</p>
+						The private use codes <span class='changed'>listed in Section 3.5.3 <a href="#Private_Use">Private Use Codes</a></span> will never be given specific semantics in Unicode identifiers, and
+					are thus safe for use for other purposes by other applications. </p>
 					<p>The CLDR provides data for normalizing language/locale
 						codes, including mapping overlong codes like &quot;eng-840&quot;
 						or &quot;eng-USA&quot; to the correct code &quot;en-US&quot;.</p>
@@ -1634,7 +1631,7 @@ pu_extensions?</span> ; </code></td>
 							<td colspan="2">&nbsp;</td>
 						</tr>
 					</table>
-					<p>The private use subtags from Qaaq..Qabx will never be given
+					<p>The private use subtags <span class='changed'>listed in Section 3.5.3 <a href="#Private_Use">Private Use Codes</a></span> will never be given
 						specific semantics in Unicode identifiers, and are thus safe for
 			  use for other purposes by other applications.</p></td>
 			</tr>
@@ -1705,7 +1702,7 @@ pu_extensions?</span> ; </code></td>
 							<td>private use</td>
 						</tr>
 					</table>
-					<p>The private use subtags from XA..XZ will normally never be
+					<p>The private use subtags <span class='changed'>listed in Section 3.5.3 <a href="#Private_Use">Private Use Codes</a></span> will normally never be
 						given specific semantics in Unicode identifiers, and are thus safe
 						for use for other purposes by other applications. However, LDML
 						may follow widespread industry practice in the use of some of
@@ -1886,7 +1883,7 @@ zh-Hant-HK</pre>
 				particular CLDR semantics in the future, and thus can normally be
 				used by applications without worrying about collisions. However,
 				CLDR may follow widespread industry practice in the use of some of
-				these codes, such as for XK.</li>
+				these codes, such as for <span class='changed'>XA, XB, and </span>XK.</li>
 		</ul>
 		<table>
 			<caption>
@@ -3176,7 +3173,7 @@ zh-Hant-HK</pre>
 			the first part of "usca"</li>
 			<li>en-u-sd-<strong>us</strong>ca is <span class="changed">valid — it still works after adding likely subtags.</span></li>
 			<li>en-<strong>CA</strong>-u-sd-<strong>gb</strong>sct is
-				invalid — <span class='changed'>the region &quot;CA&quot; doesn't not match the first part of &quot;gbsct&quot;. An implementation should  disregard the subdivision id (or return an error).</span></li>
+				invalid — <span class='changed'>the region &quot;CA&quot; does not match the first part of &quot;gbsct&quot;. An implementation should  disregard the subdivision id (or return an error).</span></li>
 			<li>en-u-sd-<strong>gb</strong>sct is <span class="changed">valid but not recommended — an implementation that ignores the <a
 				href="#unicode_subdivision_id">unicode_subdivision_id</a> can get the wrong fallback behavior, or could add likely subtags and get the invalid en<strong>-Latn-US</strong>-u-sd-<strong>gb</strong>sct</span></li>
 		</ul>

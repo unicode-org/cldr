@@ -239,7 +239,7 @@ h2, h3, h4, table {
 
 			<li>4 <a href="#Supplemental_Code_Mapping">Supplemental Code
 					Mapping</a></li>
-			<li>5 <a href="#Telephone_Code_Data">Telephone Code Data</a></li>
+			<li>5 <a href="#Telephone_Code_Data">Telephone Code Data</a><span class="changed"> (Deprecated)</span></li>
 			<li>6 <a href="#Postal_Code_Validation">Postal Code
 					Validation (Deprecated)</a></li>
 			<li>7 <a href="#Supplemental_Character_Fallback_Data">Supplemental
@@ -1022,7 +1022,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			territoryCodes numeric NMTOKEN #REQUIRED&gt;<br> &lt;!ATTLIST
 			territoryCodes alpha3 NMTOKEN #REQUIRED&gt;<br> &lt;!ATTLIST
 			territoryCodes fips10 NMTOKEN #IMPLIED&gt;<br> &lt;!ATTLIST
-			territoryCodes internet NMTOKENS #IMPLIED&gt;
+			territoryCodes internet NMTOKENS #IMPLIED&gt;<span class="changed"> [deprecated]</span>
 		</p>
 		<p class="dtd">
 			&lt;!ELEMENT currencyCodes EMPTY &gt;<br> &lt;!ATTLIST
@@ -1045,7 +1045,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 &lt;territoryCodes type=&quot;AD&quot; numeric=&quot;020&quot; alpha3=&quot;AND&quot; fips10=&quot;AN&quot;/&gt;
 &lt;territoryCodes type=&quot;AE&quot; numeric=&quot;784&quot; alpha3=&quot;ARE&quot;/&gt;
 ...
-&lt;territoryCodes type=&quot;GB&quot; numeric=&quot;826&quot; alpha3=&quot;GBR&quot; fips10=&quot;UK&quot; internet=&quot;UK GB&quot;/&gt;
+&lt;territoryCodes type=&quot;GB&quot; numeric=&quot;826&quot; alpha3=&quot;GBR&quot; fips10=&quot;UK&quot;<span class="removed"> internet=&quot;UK GB&quot;</span>/&gt;
 ...
 &lt;territoryCodes type=&quot;QU&quot; numeric=&quot;967&quot; alpha3=&quot;QUU&quot; internet=&quot;EU&quot;/&gt;
 ...
@@ -1071,8 +1071,9 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 </pre>
 		<h2>
 			5 <a name="Telephone_Code_Data" href="#Telephone_Code_Data">Telephone
-				Code Data</a>
+				Code Data</a><span class="changed"> (Deprecated)</span>
 		</h2>
+		<p class="changed">Deprecated in CLDR v34, and data removed.</p>
 
 		<p class="dtd">
 			&lt;!ELEMENT telephoneCodeData ( codesByTerritory* ) &gt;<br> <br>

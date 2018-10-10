@@ -518,6 +518,8 @@ h5 {
 							validSubLocales</a></li>
 					<li>A.16 <a href="#postCodeElements">Elements
 							postalCodeData, postCodeRegex</a></li>
+					<li class="changed">A.17 <a href="#telephoneCodeData">Element
+							telephoneCodeData</a></li>
 				</ul>
 			</li>
 			<li>Annex B <a href="#Links_to_Other_Parts">Links to Other Parts</a>
@@ -7676,6 +7678,13 @@ decimal?, group?, special*)) &gt;</pre>
 				Validation</a>
 		</p>
 
+		<h3 class="changed">
+			<a name="telephoneCodeData" href="#telephoneCodeData">A.17 Element
+				telephoneCodeData</a>
+		</h3>
+		<p class="changed">The element &lt;telephoneCodeData&gt; and its subelements have
+			been deprecated and the data removed.</p>
+
 		<hr>
 		<h2>
 			<a name="Links_to_Other_Parts" href="#Links_to_Other_Parts">Annex B
@@ -9023,7 +9032,7 @@ decimal?, group?, special*)) &gt;</pre>
   </li>
   <li><strong>Section 4.4 <a  href="tr35-dates.html#Time_Data">Time Data</a></strong>
     <ul>
-      <li>Documented the relation between @allowed and @preferred. [<a href="http://unicode.org/cldr/trac/ticket/9930">#9930</a>]  </li>
+      <li>Documented the relation between @allowed and @preferred. [<a href="http://unicode.org/cldr/trac/ticket/9930">#9930</a>]</li>
     </ul>
   </li>
 </ul>
@@ -9037,6 +9046,21 @@ decimal?, group?, special*)) &gt;</pre>
 		(supplemental data)
 	</strong></p>
 <ul>
+  <li> <strong>Section 4 <a href="tr35-info.html#Supplemental_Code_Mapping">Supplemental
+  		Code Mapping</a></strong>
+    <ul>
+      <li>For the element &lt;territoryCodes&gt;, deprecated the internet attribute.
+      	[<a href="http://unicode.org/cldr/trac/ticket/11072">#11072</a>]</li>
+    </ul>
+  </li>
+
+  <li> <strong>Section 5 <a href="tr35-info.html#Telephone_Code_Data">Telephone
+				Code Data</a></strong>
+    <ul>
+      <li>Now deprecated, and data removed. [<a href="http://unicode.org/cldr/trac/ticket/10383">#10383</a>]</li>
+    </ul>
+  </li>
+
   <li> <strong>Section 9.3 <a href="tr35-info.html#Default_Content">Default
 				Content</a></strong>
     <ul>
@@ -9044,7 +9068,7 @@ decimal?, group?, special*)) &gt;</pre>
 				href="#Inheritance_vs_Related">Inheritance vs Related Information</a> </strong></li>
   </ul>
   </li>
-  </ul>
+</ul>
 <p><strong>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a>
 		(keyboard mappings)
 	</strong>	  </p>

@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">34</td>
+				<td>34</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -129,7 +129,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 				<i class="changed">This is a<b><font color="#ff3333">
 				draft </font></b>document which may be updated, replaced, or superseded by
@@ -139,8 +139,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -148,7 +148,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -1530,7 +1530,7 @@ h2, h3, h4, table {
 				value field&#39;s width, including adjusting between &quot;MMM&quot;
 				and &quot;MMMM&quot;, and using different variants of the same
 				field, such as &#39;v&#39; and &#39;z&#39;.</li>
-			<li class="changed">If no match was found from the previous steps and the
+			<li>If no match was found from the previous steps and the
 				skeleton combines date fields such as y,M,d with time fields such as
 				H,h,m,s, then an intervalFormatItem can be synthesized as follows:
 				<ol>
@@ -1968,7 +1968,7 @@ h2, h3, h4, table {
 			that are considered acceptable in the region. The defaults are those
 			specified for region 001.</p>
 		<p>
-			There is a single <code>preferred</code> value, and multiple <code>allowed</code> values. The meanings of the values H, h, K, k<span class='changed'>, b and B</span> are defined in <a
+			There is a single <code>preferred</code> value, and multiple <code>allowed</code> values. The meanings of the values H, h, K, k, b and B are defined in <a
 				href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>. The <code>allowed</code> values are in preference order,
 				and are used with the 'C' hour skeleton pattern symbol.</p>
 		<p>For example, in the following, RU (Russia) is marked as using
@@ -1981,12 +1981,11 @@ h2, h3, h4, table {
     &lt;hours preferred="H" allowed="H" regions="IL RU"/&gt;
     &lt;hours preferred="h" allowed="H h" regions="AE AG AL … US … ZW"/&gt;
     …</pre>
-    <div class='changed'>
 		<p>The  B and b date symbols provide for formats like “3:00 at night”. When the ‘C’ option is used, the values in <code>allowed</code> are traversed from first to last, picking the first available format. For example, in the following a system that supports hB should choose that as the most preferred format for the C (not the <code>preferred</code> value H).</p>
 	  <pre>&lt;hours preferred="H" allowed="hB H" regions="CD"/&gt;
 &lt;hours preferred="H" allowed="hB hb h H" regions="KE MM TZ UG"/&gt;
 </pre>
-	  Some systems may not want to use B and b, even if preferred for the locale, so for compatibility the <code>preferred</code> value is limited  to {H, h, K, k}, and is the option selected by the ‘j’ date symbol. Thus the <code>preferred</code> value may not be the same as the first <code>allowed</code> value.</div>
+	  Some systems may not want to use B and b, even if preferred for the locale, so for compatibility the <code>preferred</code> value is limited  to {H, h, K, k}, and is the option selected by the ‘j’ date symbol. Thus the <code>preferred</code> value may not be the same as the first <code>allowed</code> value.
 	    <h3>
 			4.5 <a name="Day_Period_Rule_Sets" href="#Day_Period_Rule_Sets">Day
 				Period Rule Sets </a>

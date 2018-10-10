@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">34</td>
+				<td>34</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -130,7 +130,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 				<i class="changed">This is a<b><font color="#ff3333">
 				draft </font></b>document which may be updated, replaced, or superseded by
@@ -140,8 +140,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -149,7 +149,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -1310,7 +1310,7 @@ h2, h3, h4, table {
 			&lt;!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many
 			| other) #REQUIRED &gt; <br> <br> &lt;!ELEMENT
 			compoundUnitPattern ( #PCDATA ) &gt;<br> <br> &lt;!ELEMENT
-			coordinateUnit ( alias | ( <span class="changed">displayName*, </span>coordinateUnitPattern*, special* ) ) &gt;<br>&lt;!ELEMENT
+			coordinateUnit ( alias | ( displayName*, coordinateUnitPattern*, special* ) ) &gt;<br>&lt;!ELEMENT
 			coordinateUnitPattern ( #PCDATA ) &gt;<br> &lt;!ATTLIST
 			coordinateUnitPattern type (north | east | south | west) #REQUIRED
 			&gt; <br> <br> &lt;!ELEMENT durationUnitPattern ( #PCDATA )
@@ -1323,13 +1323,13 @@ h2, h3, h4, table {
 			rules that produce this example are as follows ({0} indicates the
 			position of the formatted numeric value):</p>
 
-		<pre>&lt;unit type="<span class='changed'>duration-</span>day"&gt;
+		<pre>&lt;unit type="duration-day"&gt;
 &nbsp;&nbsp;&lt;displayName&gt;days&lt;/displayName&gt;
 &nbsp;&nbsp;&lt;unitPattern count="one"&gt;<span style="color: blue">{0} day</span>&lt;/unitName&gt;
 &nbsp;&nbsp;&lt;unitPattern count="other"&gt;<span style="color: blue">{0} days</span>&lt;/unitName&gt;
 &lt;/unit&gt;</pre>
 
-		<p class="changed">In addition to supporting language-specific plural cases
+		<p>In addition to supporting language-specific plural cases
 			such as “one” and “other”, unitPatterns support the language-independent
 			explicit cases “0” and “1” for special handling of numeric values that are
 			exactly 0 or 1; see
@@ -1355,7 +1355,6 @@ h2, h3, h4, table {
 			</tr>
 		</table>
 		<p>&nbsp;</p>
-		<div class='changed'>
 		<p>The value of the type attribute are <em>unit identifiers</em>. Syntactically, they have the following structure:</p>
 		<div class='syntax'>
 		<p>unit_identifier := type &quot;-&quot; unit</p>
@@ -1363,13 +1362,12 @@ h2, h3, h4, table {
 		<p>unit := [a-z]+([-][a-z]+)*</p>
 		</div>
 		<p>Example:		</p>
-		</div>
 		<p class="xmlExample">&lt;unit
 			type=&quot;acceleration-g-force&quot;&gt;</p>
 		<p>​</p>
 		<p>
-			Examples of these include <span class='changed'>but are not limited to</span> the following. The units in CLDR are not comprehensive; it is anticipated that
-			more will be added over time. The complete list <span class='changed'>of supported units</span> is in the
+			Examples of these include but are not limited to the following. The units in CLDR are not comprehensive; it is anticipated that
+			more will be added over time. The complete list of supported units is in the
 			validity data: see <em>Section <a href="tr35.html#Validity_Data">3.11
 					Validity Data</a></em>.
 		</p>
@@ -1463,7 +1461,7 @@ h2, h3, h4, table {
 				<td><em>concentr</em></td>
 				<td>karat</td>
 				<td>{0} kt</td>
-				<td class="changed">dimensionless</td>
+				<td>dimensionless</td>
 			</tr>
 			<tr>
 				<td><em>concentr</em></td>
@@ -1479,15 +1477,15 @@ h2, h3, h4, table {
 				<td><em>concentr</em></td>
 				<td>part-per-million</td>
 				<td>{0} ppm</td>
-				<td class="changed">dimensionless</td>
+				<td>dimensionless</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>concentr</em></td>
 				<td>percent</td>
 				<td>{0}%</td>
 				<td>dimensionless</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>concentr</em></td>
 				<td>permille</td>
 				<td>{0}‰</td>
@@ -1513,7 +1511,7 @@ h2, h3, h4, table {
 				<td>mile-per-gallon-imperial</td>
 				<td>{0} mpg Imp.</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>digital</em></td>
 				<td>petabyte</td>
 				<td>{0} PB</td>
@@ -1929,7 +1927,7 @@ h2, h3, h4, table {
 				<td>millibar</td>
 				<td>{0} mbar</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>pressure</em></td>
 				<td>atmosphere</td>
 				<td>{0} atm</td>
@@ -2228,15 +2226,15 @@ h2, h3, h4, table {
 		<p>
 			The <strong>coordinateUnitPattern</strong> is a special type of
 			pattern used for composing degrees of latitude and longitude, with an
-			indicator of the quadrant. There are exactly 4 type values<span class="changed">,
-			plus a displayName for the items in this category</span>. An angle
+			indicator of the quadrant. There are exactly 4 type values,
+			plus a displayName for the items in this category. An angle
 			is composed using the appropriate combination of the <strong>angle-degrees</strong>,
 			<strong>angle-arc-minute</strong> and <strong>angle-arc-second</strong>
 			values. It is then substituted for the placeholder field {0} in the
 			appropriate <strong>coordinateUnit</strong> pattern.
 		</p>
 		<p class="xmlExample">
-			<span class="changed">&lt;displayName&gt;direction&lt;/displayName&gt;<br></span>
+			&lt;displayName&gt;direction&lt;/displayName&gt;<br>
 			&lt;coordinateUnitPattern
 			type=&quot;east&quot;&gt;{0}E&lt;/coordinateUnitPattern&gt;<br>
 			&lt;coordinateUnitPattern
@@ -2933,7 +2931,7 @@ h2, h3, h4, table {
 			to Latin. This allows there to be only N sets of transform rules for
 			the Indic scripts: each one to and from Interindic. These pivots are
 			explicitly represented in the CLDR transforms.</p>
-		<p class='changed'>Note that the characters currently used by Interindic are private use characters. To prevent those from “leaking” out into text, transforms converting from Interindic must ensure that they convert all the possible values used in Interindic.</p>
+		<p>Note that the characters currently used by Interindic are private use characters. To prevent those from “leaking” out into text, transforms converting from Interindic must ensure that they convert all the possible values used in Interindic.</p>
 		<p>
 			The pivots can also be produced automatically (implicitly), as a
 			fallback. A particularly useful pivot is IPA, since that tends to

@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">34</td>
+				<td>34</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -130,7 +130,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 				<i class="changed">This is a<b><font color="#ff3333">
 				draft </font></b>document which may be updated, replaced, or superseded by
@@ -140,8 +140,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -149,7 +149,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -818,10 +818,10 @@ h2, h3, h4, table {
 		<p>The miscPatterns supply additional patterns for special
 			purposes. The currently defined values are:</p>
 		<dl>
-			<dt class='changed'><strong>approximately</strong> </dt>
-            <dd class='changed'>indicates an approximate number, such as: “~99”</dd>
-            <dt class='changed'><strong>atMost</strong> </dt>
-            <dd class='changed'>indicates a number or lower, such as: “<code>≤</code>99” to indicate
+			<dt><strong>approximately</strong> </dt>
+            <dd>indicates an approximate number, such as: “~99”</dd>
+            <dt><strong>atMost</strong> </dt>
+            <dd>indicates a number or lower, such as: “<code>≤</code>99” to indicate
               that there are 99 items or fewer.</dd>
             <dt><strong>atLeast</strong> </dt>
             <dd>indicates a number or higher, such as: “99+” to indicate
@@ -836,9 +836,9 @@ h2, h3, h4, table {
 		<p>
 			<code>
 				&lt;miscPatterns numberSystem=&quot;…&quot;&gt;<br>		
-				<span class='changed'>  &lt;pattern type=&quot;approximately&quot;&gt;~{0}&lt;/pattern&gt;</span><br>
+				  &lt;pattern type=&quot;approximately&quot;&gt;~{0}&lt;/pattern&gt;<br>
 				 				&lt;pattern type=&quot;atLeast&quot;&gt;≥{0}&lt;/pattern&gt; 			<br>
-				<span class='changed'>  &lt;pattern type=&quot;atMost&quot;&gt;≤{0}&lt;/pattern&gt;</span><br>
+				  &lt;pattern type=&quot;atMost&quot;&gt;≤{0}&lt;/pattern&gt;<br>
 				  
 				&lt;pattern type=&quot;range&quot;&gt;{0}–{1}&lt;/pattern&gt; 		<br>
 				&lt;/miscPatterns&gt;</code>
@@ -1161,9 +1161,9 @@ h2, h3, h4, table {
 			is no explicit negative subpattern, the implicit negative subpattern
 			is the ASCII minus sign (-) prefixed to the positive subpattern. That
 			is, &quot;0.00&quot; alone is equivalent to &quot;0.00;-0.00&quot;.
-			(The data in CLDR is normalized to remove an <span class="changed">explicit negative</span> subpattern
-			where it would be identical to the <span class='changed'>implicit</span> form.)</p>
-		<p><span class='changed'> Note that if an negative subpattern is used as-is: a minus sign is <em>not</em> added, eg &quot;0.00;0.00&quot; ≠ &quot;0.00;-0.00&quot;. Trailing semicolons  are ignored, eg &quot;0.00;&quot; = &quot;0.00&quot;. Whitespace is not ignored, including those around semicolons, so &quot;0.00; -0.00&quot; ≠ &quot;0.00; -0.00&quot;.</span></p>
+			(The data in CLDR is normalized to remove an explicit negative subpattern
+			where it would be identical to the implicit form.)</p>
+		<p> Note that if an negative subpattern is used as-is: a minus sign is <em>not</em> added, eg &quot;0.00;0.00&quot; ≠ &quot;0.00;-0.00&quot;. Trailing semicolons  are ignored, eg &quot;0.00;&quot; = &quot;0.00&quot;. Whitespace is not ignored, including those around semicolons, so &quot;0.00; -0.00&quot; ≠ &quot;0.00; -0.00&quot;.</p>
 		<p>If there is an
 		  explicit negative subpattern, it serves only to specify the negative
 		  prefix and suffix; the number of digits, minimal digits, and other
@@ -1472,7 +1472,7 @@ h2, h3, h4, table {
 					notation</em>, in which the exponent is a multiple of three, for
 				example, &quot;##0.###E0&quot;. The number 12345 is formatted using
 			&quot;##0.####E0&quot; as &quot;12.345E3&quot;.			</li>
-			<li class='changed'>
+			<li>
 			  <p>When using scientific notation, the formatter controls the digit counts using logic for significant digits. The maximum number of significant digits comes from the mantissa portion of the pattern: the string of #, 0, and period (&quot;.&quot;) characters immediately preceding the E. To get the maximum number of significant digits, use the following algorithm:<br>
 		      </p>
 			  <ol>
@@ -1780,10 +1780,10 @@ h2, h3, h4, table {
 			particular numeric value <em>n</em> using the (long) display name:
 		</p>
 		<ol>
-			<li><span class="changed">If the numeric value is exactly 0 or 1, </span>first
-				see if there is a count with a <span class="changed">matching </span>explicit
-				number (0 or 1). If so, use that string<span class="changed"> (see
-				<a href="#Explicit_0_1_rules">Explicit 0 and 1 rules</a>)</span>.</li>
+			<li>If the numeric value is exactly 0 or 1, first
+				see if there is a count with a matching explicit
+				number (0 or 1). If so, use that string (see
+				<a href="#Explicit_0_1_rules">Explicit 0 and 1 rules</a>).</li>
 			<li>Otherwise, determine the count value that corresponds to <em>n</em>
 				using the rules in <i><a href="#Language_Plural_Rules">Section
 						5 - Language Plural Rules</a></i></li>
@@ -2208,10 +2208,10 @@ h2, h3, h4, table {
 			form &quot;few&quot; may be used for the numeric range 2–4 in one
 			language and 3–9 in another):</p>
 		<ul>
-			<li>zero<span class="changed"> (see also plural case “0”, described in
-				<a href="#Explicit_0_1_rules">Explicit 0 and 1 rules</a>)</span></li>
-			<li>one<span class="changed"> (see also plural case “1”, described in
-				<a href="#Explicit_0_1_rules">Explicit 0 and 1 rules</a>)</span></li>
+			<li>zero (see also plural case “0”, described in
+				<a href="#Explicit_0_1_rules">Explicit 0 and 1 rules</a>)</li>
+			<li>one (see also plural case “1”, described in
+				<a href="#Explicit_0_1_rules">Explicit 0 and 1 rules</a>)</li>
 			<li>two</li>
 			<li>few</li>
 			<li>many</li>
@@ -2284,17 +2284,17 @@ h2, h3, h4, table {
 			fractions may have the Digits behavior, but longer fractions may just
 			look at the final digit of the fraction.</p>
 
-		<h4 class="changed">
+		<h4>
 			<a name="Explicit_0_1_rules" href="#Explicit_0_1_rules">Explicit 0 and 1 rules</a>
 		</h4>
-		<p class="changed">
+		<p >
 			Some types of CLDR data (such as
 			<a href="tr35-general.html#Unit_Elements">unitPatterns</a> and
 			<a href="#Currencies">currency displayNames</a>) allow specification of plural
 			rules for explicit cases “0” and “1”, in addition to the language-specific
 			plural cases specified above: “zero”, “one”, “two” ... “other”. For the
 			language-specific plural rules:</p>
-			<ul class="changed">
+			<ul>
 			<li>The rules depend on language; for a given language, only a subset of the
 				cases may be defined. For example, English only defines “one” and “other”,
 				cases like “two” and “few” cannot be used in plurals for English CLDR
@@ -2306,8 +2306,8 @@ h2, h3, h4, table {
 				numeric value 1; the “zero” case, if defined, includes at least some
 				formatted forms of the numeric value 0.</li>
 			</ul>
-		<p class="changed">By contrast, for the explicit cases “0” and “1”:</p>
-			<ul class="changed">
+		<p>By contrast, for the explicit cases “0” and “1”:</p>
+			<ul>
 			<li>The explicit “0” and “1” cases are not defined by language-specific rules,
 				and are available in any language for the CLDR data items that accept them.</li>
 			<li>The explicit “0” and “1” cases apply to the exact numeric values 0 and 1
@@ -2319,9 +2319,9 @@ h2, h3, h4, table {
 				values of exactly 1, while the “one” value is used for any other formatted
 				numeric values matching the “one” plural rule for the language.</li>
 			</ul>
-		<p class="changed">Usage example: In English (which only defines language-specific
+		<p>Usage example: In English (which only defines language-specific
 			rules for “one” and “other”) this can be used to have  special behavior for 0:</p>
-			<ul class="changed">
+			<ul>
 			<li>count=“0”: no books</li>
 			<li>count=“one”: {0} book, e.g. “1 book”</li>
 			<li>count=“other”: {0} books, e.g. “3 books”</li>

@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1>
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">34</td>
+				<td>34</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -132,7 +132,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 				<i class="changed">This is a<b><font color="#ff3333">
 				draft </font></b>document which may be updated, replaced, or superseded by
@@ -142,8 +142,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -151,7 +151,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 
 		<blockquote>
@@ -1916,15 +1916,15 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			white space characters need to be enclosed in apostrophes. For
 			example:
 			<code>&amp;'\u0020'='\u3000'</code>.
-			<span class="changed">Note: The unescaping is done by ICU tools (genrb) and demos before passing
+			Note: The unescaping is done by ICU tools (genrb) and demos before passing
 			rule strings into the ICU library code.
-			The ICU collation API does not unescape rule strings.</span>
+			The ICU collation API does not unescape rule strings.
 		</p>
 
 		<p>
 			The ASCII double quote must be both escaped (so that the collation
 			syntax can be enclosed in pairs of double quotes in programming
-			environments <span class="changed">such as ICU resource bundle .txt files</span>)
+			environments such as ICU resource bundle .txt files)
 			and quoted. For example:
 			<code>&amp;'\u0022'&lt;&lt;&lt;x</code>
 		</p>

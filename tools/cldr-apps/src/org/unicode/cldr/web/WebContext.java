@@ -1385,7 +1385,7 @@ public class WebContext implements Cloneable, Appendable {
      * @return true if the organization participates in coverage, else false
      */
     public static boolean isCoverageOrganization(String org) {
-        return (org != null && StandardCodes.make().getLocaleCoverageOrganizations().contains(Organization.fromString(org)));
+        return (org != null && StandardCodes.make().getLocaleCoverageOrganizationStrings().contains(org.toLowerCase()));
     }
 
     /**

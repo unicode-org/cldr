@@ -108,7 +108,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td class="changed">2018-10-09</td>
+				<td class="changed">2018-10-10</td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -1479,6 +1479,11 @@ pu_extensions?</span> ; </code></td>
 							<td><code>kok</code></td>
 							<td><code>knn</code></td>
 						</tr>
+						<tr class="changed">
+							<td>Northern Kurdish</td>
+							<td><code>ku</code></td>
+							<td><code>kmr</code></td>
+						</tr>
 					</table>
 					<p>
 						If a language subtag matches the type attribute of a languageAlias
@@ -1491,11 +1496,16 @@ pu_extensions?</span> ; </code></td>
 						Chinese (Taiwan), not &quot;cmn-TW&quot;.
 					</p>
 					<p>
-						The private use codes <span class='changed'>listed as <strong>excluded</strong> in <em>Section 3.5.3 <a href="#Private_Use">Private Use Codes</a></em></span> will never be given specific semantics in Unicode identifiers, and
+						The private use codes <span class='changed'>listed as <strong>excluded</strong>
+						in <em>Section 3.5.3 <a href="#Private_Use">Private Use Codes</a></em></span>
+						will never be given specific semantics in Unicode identifiers, and
 					are thus safe for use for other purposes by other applications. </p>
 					<p>The CLDR provides data for normalizing language/locale
 						codes, including mapping overlong codes like &quot;eng-840&quot;
-						or &quot;eng-USA&quot; to the correct code &quot;en-US&quot;.</p>
+						or &quot;eng-USA&quot; to the correct code &quot;en-US&quot;<span class="changed">;
+						see the
+						<strong><a href="https://www.unicode.org/cldr/charts/latest/supplemental/aliases.html">Aliases</a></strong>
+						Chart</span>.</p>
 					<p class='changed'>The following are special language subtags:</p>
                     <table  class='simple changed' border="1" cellspacing="0" cellpadding="2">
                       <tr>
@@ -8909,8 +8919,10 @@ decimal?, group?, special*)) &gt;</pre>
     <a href="#Field_Definitions">Language Identifier Field Definitions </a> 
     </strong>
     <ul>
-      <li>Added special script code Qaag [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
+      <li>Added another macrolanguage example ku (used for kmr), and link to Aliases chart
+      	[<a href="http://unicode.org/cldr/trac/ticket/11470">#11470</a>]</li>
       <li>Documented special language subtags mis, mul, zxx [<a href="http://unicode.org/cldr/trac/ticket/11451">#11451</a>]</li>
+      <li>Added special script code Qaag [<a href="http://unicode.org/cldr/trac/ticket/11408">#11408</a>]</li>
       <li>Documented special region subtags XA and XB [<a href="http://unicode.org/cldr/trac/ticket/11451">#11451</a>]</li>
       </ul>
   </li>

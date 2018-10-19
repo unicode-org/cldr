@@ -1004,8 +1004,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="Asia/Pyongyang">
 				<usesMetazone to="2015-08-14 15:00" mzone="Korea"/>
-				<usesMetazone to="2018-05-04 15:30" from="2015-08-14 15:00" mzone="Pyongyang"/>
-				<usesMetazone from="2018-05-04 15:30" mzone="Korea"/>
+				<usesMetazone to="2018-05-04 15:00" from="2015-08-14 15:00" mzone="Pyongyang"/>
+				<usesMetazone from="2018-05-04 15:00" mzone="Korea"/>
 			</timezone>
 			<timezone type="Asia/Qatar">
 				<usesMetazone to="1972-05-31 20:00" mzone="Gulf"/>
@@ -1376,7 +1376,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="Europe/Volgograd">
 				<usesMetazone to="1992-03-28 22:00" mzone="Volgograd"/>
-				<usesMetazone from="1992-03-28 22:00" mzone="Moscow"/>
+				<usesMetazone to="2018-10-27 23:00" from="1992-03-28 22:00" mzone="Moscow"/>
+				<usesMetazone from="2018-10-27 23:00" mzone="Volgograd"/>
 			</timezone>
 			<timezone type="Europe/Warsaw">
 				<usesMetazone mzone="Europe_Central"/>

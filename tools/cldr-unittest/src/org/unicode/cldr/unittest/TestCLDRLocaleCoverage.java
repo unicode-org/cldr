@@ -11,6 +11,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 import com.ibm.icu.dev.util.CollectionUtilities;
 
@@ -37,11 +38,13 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
      * Tests that cldr is a superset.
      */
     public void TestCldrSuperset() {
-        checkCldrLocales(Organization.google, ERR);
         checkCldrLocales(Organization.apple, ERR);
+        checkCldrLocales(Organization.google, ERR);
         checkCldrLocales(Organization.microsoft, WARN);
     }
 
+    static Set<String> SKIP_SUPERSET = ImmutableSet.of("to", "fo");
+    
     private void checkCldrLocales(Organization organization, int warningLevel) {
         // use a union, so that items can be higher
         EnumSet<Level> modernModerate = EnumSet.of(Level.MODERATE, Level.MODERN);
@@ -49,13 +52,13 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         Set<String> orgLocalesModerate = sc.getLocaleCoverageLocales(organization, modernModerate);
         Set<String> cldrLocalesModerate = sc.getLocaleCoverageLocales(Organization.cldr, modernModerate);
         Set<String> failures = checkCldrLocalesSuperset(modernModerate, cldrLocalesModerate, organization, orgLocalesModerate, warningLevel,
-            Collections.emptySet());
+            SKIP_SUPERSET);
 
         EnumSet<Level> modernSet = EnumSet.of(Level.MODERN);
         Set<String> orgLocalesModern = sc.getLocaleCoverageLocales(organization, modernSet);
         Set<String> cldrLocalesModern = sc.getLocaleCoverageLocales(Organization.cldr, modernSet);
         failures = new HashSet<>(failures);
-        failures.add("to"); // ok to be moderate
+        failures.addAll(SKIP_SUPERSET);
         checkCldrLocalesSuperset(modernSet, cldrLocalesModern, organization, orgLocalesModern, warningLevel, failures);
     }
 

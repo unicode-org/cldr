@@ -24,7 +24,8 @@ public class ToolConstants {
 
     // Change the following for each release depending on the phase
 
-    private static final String DEFAULT_CHART_VERSION = "34";
+    private static final String DEFAULT_CHART_VERSION = "35";
+    public static final String LAST_RELEASE_VERSION = "34";
     private static final ChartStatus DEFAULT_CHART_STATUS = ChartStatus.beta;
 
     // DON'T CHANGE ANY OF THE FOLLOWING; THEY ARE DRIVEN BY THE ABOVE
@@ -37,7 +38,7 @@ public class ToolConstants {
 
     // build from the above
     public static final boolean BETA = CHART_STATUS == ChartStatus.beta;
-    public static final String CHART_DISPLAY_VERSION = CHART_VERSION + (BETA ? "β" : "");
+    public static final String CHART_DISPLAY_VERSION = CHART_VERSION;
     public static final String CHART_SOURCE = "http://unicode.org/repos/cldr/"
         + (CHART_STATUS != ChartStatus.release ? "trunk/" : "tags/release-" + CHART_VERSION + "/");
 
@@ -64,11 +65,11 @@ public class ToolConstants {
         "30.0",
         "31.0",
         "32.0",
-        "33.0"
+        "33.0",
+        "34.0"
     // add to this once the release is final!
     );
     public static final String PREVIOUS_CHART_VERSION;
-    public static final String LAST_RELEASE_VERSION = "33.1";
     static {
         String last = "";
         for (String current : CLDR_VERSIONS) {

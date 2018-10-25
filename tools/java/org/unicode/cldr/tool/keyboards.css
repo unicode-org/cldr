@@ -90,3 +90,14 @@ table {
 	font-weight: bold;
 	color: red
 }
+
+.version {
+    content: "β";
+    color: black;
+    font-weight: bold;
+}
+.version::after {
+    content: "β";
+    color: red;
+    font-weight: bold;
+}

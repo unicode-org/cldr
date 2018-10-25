@@ -16,6 +16,7 @@ import org.unicode.cldr.test.BuildIcuCompactDecimalFormat;
 import org.unicode.cldr.test.BuildIcuCompactDecimalFormat.CurrencyStyle;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.tool.ShowData;
 import org.unicode.cldr.tool.ShowPlurals;
 import org.unicode.cldr.tool.TablePrinter;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -57,6 +58,9 @@ public class VerifyCompactNumbers {
      */
     public static void main(String[] args) throws IOException {
         myOptions.parse(MyOptions.organization, args, true);
+        FileCopier.copy(ShowData.class, "verify-index.html", DIR, "index.html");
+        FileCopier.copy(ShowData.class, "index.css", DIR, "index.css");
+
 
         String organization = MyOptions.organization.option.getValue();
         String filter = MyOptions.filter.option.getValue();

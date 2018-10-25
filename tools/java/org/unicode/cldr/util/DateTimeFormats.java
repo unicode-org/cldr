@@ -22,6 +22,7 @@ import org.unicode.cldr.util.ICUServiceBuilder.Width;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
+import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateIntervalFormat;
@@ -41,6 +42,7 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 public class DateTimeFormats {
+    private static final Date SAMPLE_DATE_DEFAULT_END = new Date(2099 - 1900, 0, 13, 14, 45, 59);
     private static final String DIR = CLDRPaths.CHART_DIRECTORY + "/verify/dates/";
     private static SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
     private static Map<String, PreferredAndAllowedHour> timeData = sdi.getTimeData();
@@ -78,19 +80,32 @@ public class DateTimeFormats {
 
     private static final String SAMPLE_DATE_STRING = CldrUtility.isoFormat(SAMPLE_DATE);
 
-    private static final Date[] SAMPLE_DATE_END = {
-        // "G", "y", "M",
-        null, new Date(2013 - 1900, 0, 13, 14, 45, 59), new Date(2012 - 1900, 1, 13, 14, 45, 59),
-        // "w", "W", "d",
-        null, null, new Date(2012 - 1900, 0, 14, 14, 45, 59),
-        // "D", "E", "F",
-        null, new Date(2012 - 1900, 0, 14, 14, 45, 59), null,
-        // "a", "h", "H",
-        new Date(2012 - 1900, 0, 13, 2, 45, 59), new Date(2012 - 1900, 0, 13, 15, 45, 59),
-        new Date(2012 - 1900, 0, 13, 15, 45, 59),
-        // "m",
-        new Date(2012 - 1900, 0, 13, 14, 46, 59)
-    };;
+    private static final Map<String,Date> SAMPLE_DATE_END = ImmutableMap.<String,Date>builder()
+        .put("G", SAMPLE_DATE_DEFAULT_END)
+        .put("y", new Date(2013 - 1900, 0, 13, 14, 45, 59))
+        .put("M", new Date(2012 - 1900, 1, 13, 14, 45, 59))
+        .put("w", SAMPLE_DATE_DEFAULT_END)
+        .put("W", SAMPLE_DATE_DEFAULT_END)
+        .put("d", new Date(2012 - 1900, 0, 14, 14, 45, 59))
+        .put("D", SAMPLE_DATE_DEFAULT_END)
+        .put("E", new Date(2012 - 1900, 0, 14, 14, 45, 59))
+        .put("F", SAMPLE_DATE_DEFAULT_END)
+        .put("a", new Date(2012 - 1900, 0, 13, 2, 45, 59))
+        .put("h", new Date(2012 - 1900, 0, 13, 15, 45, 59))
+        .put("H", new Date(2012 - 1900, 0, 13, 15, 45, 59))
+        .put("m", SAMPLE_DATE_DEFAULT_END)
+        .build();
+//        // "G", "y", "M",
+//        null, new Date(2013 - 1900, 0, 13, 14, 45, 59), new Date(2012 - 1900, 1, 13, 14, 45, 59),
+//        // "w", "W", "d",
+//        null, null, new Date(2012 - 1900, 0, 14, 14, 45, 59),
+//        // "D", "E", "F",
+//        null, new Date(2012 - 1900, 0, 14, 14, 45, 59), null,
+//        // "a", "h", "H",
+//        new Date(2012 - 1900, 0, 13, 2, 45, 59), new Date(2012 - 1900, 0, 13, 15, 45, 59),
+//        new Date(2012 - 1900, 0, 13, 15, 45, 59),
+//        // "m",
+//        new Date(2012 - 1900, 0, 13, 14, 46, 59)
 
     private DateTimePatternGenerator generator;
     private ULocale locale;
@@ -501,8 +516,8 @@ public class DateTimeFormats {
                 DateIntervalFormat dateIntervalFormat = new DateIntervalFormat(mainSkeleton, dateIntervalInfo,
                     icuServiceBuilder.getDateFormat(calendarID, generator.getBestPattern(mainSkeleton)));
                 String diffString = skeleton.substring(slashPos + 1).replace('j', 'H');
-                int diffNumber = find(CALENDAR_FIELD_TO_PATTERN_LETTER, diffString);
-                Date endDate = SAMPLE_DATE_END[diffNumber];
+//                int diffNumber = find(CALENDAR_FIELD_TO_PATTERN_LETTER, diffString);
+                Date endDate = SAMPLE_DATE_END.get(diffString);
                 try {
                     example = dateIntervalFormat.format(new DateInterval(SAMPLE_DATE.getTime(), endDate.getTime()));
                 } catch (Exception e) {

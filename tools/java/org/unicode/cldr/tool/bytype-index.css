@@ -91,3 +91,14 @@ caption {
 	border-right: 0px solid #0000FF;
 	border-left: 0px solid #0000FF;
 }
+
+.version {
+    content: "β";
+    color: black;
+    font-weight: bold;
+}
+.version::after {
+    content: "β";
+    color: red;
+    font-weight: bold;
+}

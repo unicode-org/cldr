@@ -24,3 +24,14 @@ td.main {
 	vertical-align: top;
 	background-color: #DDDDDD
 }
+
+.version {
+    content: "β";
+    color: black;
+    font-weight: bold;
+}
+.version::after {
+    content: "β";
+    color: red;
+    font-weight: bold;
+}

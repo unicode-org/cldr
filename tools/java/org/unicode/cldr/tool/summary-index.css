@@ -163,3 +163,14 @@ td.c01 {
 	border-style: none;
 	width: 1em;
 }
+
+.version {
+    content: "β";
+    color: black;
+    font-weight: bold;
+}
+.version::after {
+    content: "β";
+    color: red;
+    font-weight: bold;
+}

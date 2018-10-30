@@ -56,7 +56,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Africa/Casablanca">
 				<usesMetazone to="1984-03-16 00:00" mzone="Europe_Western"/>
 				<usesMetazone to="1985-12-31 23:00" from="1984-03-16 00:00" mzone="Europe_Central"/>
-				<usesMetazone from="1985-12-31 23:00" mzone="Europe_Western"/>
+				<usesMetazone to="2018-10-26 23:00" from="1985-12-31 23:00" mzone="Europe_Western"/>
+				<usesMetazone from="2018-10-26 23:00" mzone="Europe_Central"/>
 			</timezone>
 			<timezone type="Africa/Ceuta">
 				<usesMetazone to="1984-03-16 00:00" mzone="Europe_Western"/>
@@ -79,7 +80,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="Africa/El_Aaiun">
 				<usesMetazone to="1976-04-14 01:00" mzone="Africa_FarWestern"/>
-				<usesMetazone from="1976-04-14 01:00" mzone="Europe_Western"/>
+				<usesMetazone to="2018-10-26 23:00" from="1976-04-14 01:00" mzone="Europe_Western"/>
+				<usesMetazone from="2018-10-26 23:00" mzone="Europe_Central"/>
 			</timezone>
 			<timezone type="Africa/Freetown">
 				<usesMetazone mzone="GMT"/>

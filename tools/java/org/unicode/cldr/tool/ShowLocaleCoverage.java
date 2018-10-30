@@ -1141,6 +1141,12 @@ public class ShowLocaleCoverage {
         public boolean hadVotesSometimeThisRelease() {
             throw new UnsupportedOperationException();
         }
+        public CLDRLocale getLocale() {
+            throw new UnsupportedOperationException();
+        }
+        public String getXpath() {
+            throw new UnsupportedOperationException();
+        }
     };
 
     public static String spreadsheetLine(String locale, String language, String script, String nativeValue, Level cldrLocaleLevelGoal, 

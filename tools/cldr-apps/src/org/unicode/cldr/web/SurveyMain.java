@@ -5082,10 +5082,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             return;
 
         boolean useCache = isUnofficial(); // NB: do NOT use the cache if we are
-        // in unofficial mode. Parsing here
+        // in official mode. Parsing here
         // doesn't take very long (about
         // 16s), but
         // we want to save some time during development iterations.
+        // In production, we want the files to be more carefully checked every time.
 
         Hashtable<CLDRLocale, CLDRLocale> aliasMapNew = new Hashtable<CLDRLocale, CLDRLocale>();
         Hashtable<CLDRLocale, String> directionMapNew = new Hashtable<CLDRLocale, String>();

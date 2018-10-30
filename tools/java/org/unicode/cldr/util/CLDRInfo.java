@@ -21,9 +21,13 @@ public class CLDRInfo {
 
         String getLastReleaseValue();
 
-        Level getCoverageLevel(); // OK
+        Level getCoverageLevel();
 
         boolean hadVotesSometimeThisRelease();
+        
+        CLDRLocale getLocale();
+
+        String getXpath();
     }
 
     public interface CandidateInfo { // DataSection.DataRow.CandidateItem will implement

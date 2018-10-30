@@ -765,6 +765,10 @@ public class DataSection implements JSONString {
             return intgroup;
         }
 
+        /**
+         * Get the locale for this DataRow
+         */
+        @Override
         public CLDRLocale getLocale() {
             return locale;
         }
@@ -863,6 +867,10 @@ public class DataSection implements JSONString {
             return winningValue;
         }
 
+        /**
+         * Get the xpath for this DataRow
+         */
+        @Override
         public String getXpath() {
             return xpath;
         }

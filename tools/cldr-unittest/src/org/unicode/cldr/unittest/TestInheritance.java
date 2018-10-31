@@ -348,13 +348,13 @@ public class TestInheritance extends TestFmwk {
             if (parentLocale != null) {
                 if (!"root".equals(parentLocale)
                     && !lp.set(loc).getLanguage()
-                        .equals(lp.set(parentLocale).getLanguage())) {
+                    .equals(lp.set(parentLocale).getLanguage())) {
                     errln("Parent locale [" + parentLocale + "] for locale ["
                         + loc + "] cannot be a different language code.");
                 }
                 if (!"root".equals(parentLocale)
                     && !lp.set(loc).getScript()
-                        .equals(lp.set(parentLocale).getScript())) {
+                    .equals(lp.set(parentLocale).getScript())) {
                     errln("Parent locale [" + parentLocale + "] for locale ["
                         + loc + "] cannot be a different script code.");
                 }
@@ -526,7 +526,7 @@ public class TestInheritance extends TestFmwk {
                     consistent = likelyLangScript.equals(dc)
                         && likelyMax.equals(dcFromLangScript)
                         || dcScript.isEmpty()
-                            && !likelyMax.equals(dcFromLangScript);
+                        && !likelyMax.equals(dcFromLangScript);
                     // || dcScript.isEmpty() && dcRegion.equals(likelyMaxRegion)
                     // && dcFromLangScript == null;
                 }
@@ -1048,7 +1048,7 @@ public class TestInheritance extends TestFmwk {
             return codePoint == string.charAt(0);
         case 2:
             return codePoint >= 0x10000
-                && codePoint == Character.codePointAt(string, 0);
+            && codePoint == Character.codePointAt(string, 0);
         default:
             return false;
         }
@@ -1084,8 +1084,12 @@ public class TestInheritance extends TestFmwk {
             }
         }
         if (!STANDARD_CODES.getAvailableCodes(subtagType).contains(subtag)) {
-            errln("Locale " + localeID + " contains illegal "
-                + showCode(subtagType, subtag));
+            if (subtagType.equals("script") && ("Elym".equals(subtag) || "Nand".equals(subtag))) {
+                logKnownIssue("cldr ticket:11478", "Hack new script code: " + subtag);          // hack to add script codes"
+            } else {
+                errln("Locale " + localeID + " contains illegal "
+                    + showCode(subtagType, subtag));
+            }
         } else if (!allowDeprecated) {
             // "language" -> "sh" -> <{"sr_Latn"}, reason>
             R2<List<String>, String> deprecatedInfo = DEPRECATED_INFO.get(
@@ -1143,16 +1147,16 @@ public class TestInheritance extends TestFmwk {
         for (K key : keys) {
             if (!a.containsKey(key)) {
                 result.append(key).append("→‹").append(a.get(key))
-                    .append("›,∅; ");
+                .append("›,∅; ");
             } else if (!b.containsKey(key)) {
                 result.append(key).append("→∅,‹").append(b.get(key))
-                    .append("›; ");
+                .append("›; ");
             } else {
                 V aKey = a.get(key);
                 V bKey = b.get(key);
                 if (!equals(aKey, bKey)) {
                     result.append(key).append("→‹").append(a.get(key))
-                        .append("›,‹").append(b.get(key)).append("›; ");
+                    .append("›,‹").append(b.get(key)).append("›; ");
                 }
             }
         }

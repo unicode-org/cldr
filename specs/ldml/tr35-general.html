@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			Unicode Technical
+			<span class="changed">Proposed Update </span>Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td>34</td>
+				<td class="changed">35</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -130,7 +130,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED 
+		<!-- NOT YET APPROVED -->
 		<p>
 				<i class="changed">This is a<b><font color="#ff3333">
 				draft </font></b>document which may be updated, replaced, or superseded by
@@ -140,8 +140,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		 END NOT YET APPROVED -->
-		<!-- APPROVED -->
+		<!-- END NOT YET APPROVED -->
+		<!-- APPROVED 
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -149,7 +149,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		<!-- END APPROVED -->
+		 END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -1355,746 +1355,895 @@ h2, h3, h4, table {
 			</tr>
 		</table>
 		<p>&nbsp;</p>
-		<p>The value of the type attribute are <em>unit identifiers</em>. Syntactically, they have the following structure:</p>
-		<div class='syntax'>
-		<p>unit_identifier := type &quot;-&quot; unit</p>
-		<p>type := [a-z]+</p>
-		<p>unit := [a-z]+([-][a-z]+)*</p>
-		</div>
-		<p>Example:		</p>
-		<p class="xmlExample">&lt;unit
+		<p>The value of the type attribute are <em>unit identifiers</em> (e.g., <code>duration-day</code>). Syntactically, they have the following structure:</p>
+		<table>
+		<tr><td><code>unit_identifier</code></td><td><code>:= type &quot;-&quot; unit</code></td></tr>
+		<tr><td><code>type</code></td><td><code>:= [a-z]+</code></td></tr>
+		<tr><td><code>unit</code></td><td><code class="removed">:= [a-z]+([-][a-z]+)*<br/></code><code class="changed">:= compound_unit | simple_unit</code></td></tr>
+		<tr class="changed"><td><code>compound_unit</code></td><td><code>:= simple_unit &quot;-per-&quot; simple_unit</code></td></tr>
+		<tr class="changed"><td><code>simple_unit</code></td><td><code>:= [a-z]+([-][a-z]+)*</code> and may not contain <code>&quot;-per-&quot;</code></td></tr>
+		</table>
+		<p class="removed">Example:		</p>
+		<p class="removed xmlExample">&lt;unit
 			type=&quot;acceleration-g-force&quot;&gt;</p>
-		<p>​</p>
+		<p class="changed">The <code>unit</code> part (e.g., <code>day</code>) is known as an <em>unqualified unit identifier</em>.  Both the unit identifier and the unqualified unit identifier are guaranteed to be unique, and clients can use either one to identify a unit. The associations between types and units are as prescribed in CLDR data; it is invalid for a client to create any additional associations. Except as specified in <em>Section 6.6 <a href="#Private_Use_Units">Private-Use Units</a></em>, all values for <code>type</code> and <code>simple_unit</code>​ are reserved by CLDR. It is valid to construct a <code>compound_unit</code> with any two valid <code>simple_unit</code>s; the first <code>simple_unit</code> in a <code>compound_unit</code> is called the <em>numerator</em>, and the second <code>simple_unit</code> in a <code>compound_unit</code> is called the <em>demonimator</em>.</p>
 		<p>
-			Examples of these include but are not limited to the following. The units in CLDR are not comprehensive; it is anticipated that
+			<span class="removed">Examples of these include but are not limited to the following.</span>
+			<span class="changed">The following table contains examples of types and units currently defined by CLDR.</span>
+			The units in CLDR are not comprehensive; it is anticipated that
 			more will be added over time. The complete list of supported units is in the
 			validity data: see <em>Section <a href="tr35.html#Validity_Data">3.11
 					Validity Data</a></em>.
+			<span class="changed">The compound units in the table below either require specialized formatting or have a numerator and/or demoninator that are not defined as valid standalone units.  Note: as explained in <em>Section 6.1 <a href="perUnitPatterns">per Unit patterns</a></em>, CLDR provides data to format any compound unit composed of two simple units from the following table.</span>
 		</p>
 		<table>
 			<tr>
-				<td><strong>Type</strong></td>
-				<td><strong>Unit</strong></td>
-				<td><strong>Sample Format</strong></td>
+				<th>Type</th>
+				<th>Unit<br/>(<em>Unqualified Unit Identifier</em>)</th>
+				<th class="changed">Compound?</th>
+				<th>Sample Format</th>
 			</tr>
 			<tr>
 				<td><em>acceleration</em></td>
 				<td>g-force</td>
+				<td class="changed">simple</td>
 				<td>{0} G</td>
 			</tr>
 			<tr>
 				<td><em>acceleration</em></td>
 				<td>meter-per-second-squared</td>
+				<td class="changed">compound</td>
 				<td>{0} m/s²</td>
 			</tr>
 			<tr>
 				<td><em>angle</em></td>
 				<td>revolution</td>
+				<td class="changed">simple</td>
 				<td>{0} rev</td>
 			</tr>
 			<tr>
 				<td><em>angle</em></td>
 				<td>radian</td>
+				<td class="changed">simple</td>
 				<td>{0} rad</td>
 			</tr>
 			<tr>
 				<td><em>angle</em></td>
 				<td>degree</td>
+				<td class="changed">simple</td>
 				<td>{0}°</td>
 			</tr>
 			<tr>
 				<td><em>angle</em></td>
 				<td>arc-minute</td>
+				<td class="changed">simple</td>
 				<td>{0}′</td>
 			</tr>
 			<tr>
 				<td><em>angle</em></td>
 				<td>arc-second</td>
+				<td class="changed">simple</td>
 				<td>{0}″</td>
 			</tr>
 			<tr>
 				<td><em>area</em></td>
 				<td>square-kilometer</td>
+				<td class="changed">simple</td>
 				<td>{0} km²</td>
 			</tr>
 			<tr>
 				<td><em>area</em></td>
 				<td>hectare</td>
+				<td class="changed">simple</td>
 				<td>{0} ha</td>
 			</tr>
 			<tr>
 				<td><em>area</em></td>
 				<td>square-meter</td>
+				<td class="changed">simple</td>
 				<td>{0} m²</td>
 			</tr>
 			<tr>
 				<td><em>area</em></td>
 				<td>square-centimeter</td>
+				<td class="changed">simple</td>
 				<td>{0} cm²</td>
 			</tr>
 			<tr>
 				<td><em>area</em></td>
 				<td>square-mile</td>
+				<td class="changed">simple</td>
 				<td>{0} mi²</td>
 			</tr>
 			<tr>
 				<td><em>area</em></td>
 				<td>acre</td>
+				<td class="changed">simple</td>
 				<td>{0} ac</td>
 			</tr>
 			<tr>
 				<td><em>area</em></td>
 				<td>square-yard</td>
+				<td class="changed">simple</td>
 				<td>{0} yd²</td>
 			</tr>
 			<tr>
 				<td><em>area</em></td>
 				<td>square-foot</td>
+				<td class="changed">simple</td>
 				<td>{0} ft²</td>
 			</tr>
 			<tr>
 				<td><em>area</em></td>
 				<td>square-inch</td>
+				<td class="changed">simple</td>
 				<td>{0} in²</td>
 			</tr>
 			<tr>
 				<td><em>concentr</em></td>
 				<td>karat</td>
+				<td class="changed">simple</td>
 				<td>{0} kt</td>
 				<td>dimensionless</td>
 			</tr>
 			<tr>
 				<td><em>concentr</em></td>
 				<td>milligram-per-deciliter</td>
+				<td class="changed">compound</td>
 				<td>{0} mg/dL</td>
 			</tr>
 			<tr>
 				<td><em>concentr</em></td>
 				<td>millimole-per-liter</td>
+				<td class="changed">compound</td>
 				<td>{0} mmol/L</td>
 			</tr>
 			<tr>
 				<td><em>concentr</em></td>
 				<td>part-per-million</td>
+				<td class="changed">compound</td>
 				<td>{0} ppm</td>
 				<td>dimensionless</td>
 			</tr>
 			<tr>
 				<td><em>concentr</em></td>
 				<td>percent</td>
+				<td class="changed">simple</td>
 				<td>{0}%</td>
 				<td>dimensionless</td>
 			</tr>
 			<tr>
 				<td><em>concentr</em></td>
 				<td>permille</td>
+				<td class="changed">simple</td>
 				<td>{0}‰</td>
 				<td>dimensionless</td>
 			</tr>
 			<tr>
 				<td><em>consumption</em></td>
 				<td>liter-per-kilometer</td>
+				<td class="changed">compound</td>
 				<td>{0} L/km</td>
 			</tr>
 			<tr>
 				<td><em>consumption</em></td>
 				<td>liter-per-100kilometers</td>
+				<td class="changed">compound</td>
 				<td>{0} L/100km</td>
 			</tr>
 			<tr>
 				<td><em>consumption</em></td>
 				<td>mile-per-gallon (US)</td>
+				<td class="changed">compound</td>
 				<td>{0} mpg</td>
 			</tr>
 			<tr>
 				<td><em>consumption</em></td>
 				<td>mile-per-gallon-imperial</td>
+				<td class="changed">compound</td>
 				<td>{0} mpg Imp.</td>
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
 				<td>petabyte</td>
+				<td class="changed">simple</td>
 				<td>{0} PB</td>
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
 				<td>terabyte</td>
+				<td class="changed">simple</td>
 				<td>{0} TB</td>
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
 				<td>terabit</td>
+				<td class="changed">simple</td>
 				<td>{0} Tb</td>
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
 				<td>gigabyte</td>
+				<td class="changed">simple</td>
 				<td>{0} GB</td>
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
 				<td>gigabit</td>
+				<td class="changed">simple</td>
 				<td>{0} Gb</td>
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
 				<td>megabyte</td>
+				<td class="changed">simple</td>
 				<td>{0} MB</td>
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
 				<td>megabit</td>
+				<td class="changed">simple</td>
 				<td>{0} Mb</td>
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
 				<td>kilobyte</td>
+				<td class="changed">simple</td>
 				<td>{0} kB</td>
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
 				<td>kilobit</td>
+				<td class="changed">simple</td>
 				<td>{0} kb</td>
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
 				<td>byte</td>
+				<td class="changed">simple</td>
 				<td>{0} byte</td>
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
 				<td>bit</td>
+				<td class="changed">simple</td>
 				<td>{0} bit</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>century</td>
+				<td class="changed">simple</td>
 				<td>{0} c</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>year</td>
+				<td class="changed">simple</td>
 				<td>{0} y</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>year-person</td>
+				<td class="changed">simple</td>
 				<td>{0} y</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>month</td>
+				<td class="changed">simple</td>
 				<td>{0} m</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>month-person</td>
+				<td class="changed">simple</td>
 				<td>{0} m</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>week</td>
+				<td class="changed">simple</td>
 				<td>{0} w</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>week-person</td>
+				<td class="changed">simple</td>
 				<td>{0} w</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>day</td>
+				<td class="changed">simple</td>
 				<td>{0} d</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>day-person</td>
+				<td class="changed">simple</td>
 				<td>{0} d</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>hour</td>
+				<td class="changed">simple</td>
 				<td>{0} h</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>minute</td>
+				<td class="changed">simple</td>
 				<td>{0} min</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>second</td>
+				<td class="changed">simple</td>
 				<td>{0} s</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>millisecond</td>
+				<td class="changed">simple</td>
 				<td>{0} ms</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>microsecond</td>
+				<td class="changed">simple</td>
 				<td>{0} μs</td>
 			</tr>
 			<tr>
 				<td><em>duration</em></td>
 				<td>nanosecond</td>
+				<td class="changed">simple</td>
 				<td>{0} ns</td>
 			</tr>
 			<tr>
 				<td><em>electric</em></td>
 				<td>ampere</td>
+				<td class="changed">simple</td>
 				<td>{0} A</td>
 			</tr>
 			<tr>
 				<td><em>electric</em></td>
 				<td>milliampere</td>
+				<td class="changed">simple</td>
 				<td>{0} mA</td>
 			</tr>
 			<tr>
 				<td><em>electric</em></td>
 				<td>ohm</td>
+				<td class="changed">simple</td>
 				<td>{0} Ω</td>
 			</tr>
 			<tr>
 				<td><em>electric</em></td>
 				<td>volt</td>
+				<td class="changed">simple</td>
 				<td>{0} V</td>
 			</tr>
 			<tr>
 				<td><em>energy</em></td>
 				<td>kilocalorie</td>
+				<td class="changed">simple</td>
 				<td>{0} kcal</td>
 			</tr>
 			<tr>
 				<td><em>energy</em></td>
 				<td>calorie</td>
+				<td class="changed">simple</td>
 				<td>{0} cal</td>
 			</tr>
 			<tr>
 				<td><em>energy</em></td>
 				<td>foodcalorie</td>
+				<td class="changed">simple</td>
 				<td>{0} Cal</td>
 			</tr>
 			<tr>
 				<td><em>energy</em></td>
 				<td>kilojoule</td>
+				<td class="changed">simple</td>
 				<td>{0} kJ</td>
 			</tr>
 			<tr>
 				<td><em>energy</em></td>
 				<td>joule</td>
+				<td class="changed">simple</td>
 				<td>{0} J</td>
 			</tr>
 			<tr>
 				<td><em>energy</em></td>
 				<td>kilowatt-hour</td>
+				<td class="changed">simple</td>
 				<td>{0} kWh</td>
 			</tr>
 			<tr>
 				<td><em>frequency</em></td>
 				<td>gigahertz</td>
+				<td class="changed">simple</td>
 				<td>{0} GHz</td>
 			</tr>
 			<tr>
 				<td><em>frequency</em></td>
 				<td>megahertz</td>
+				<td class="changed">simple</td>
 				<td>{0} MHz</td>
 			</tr>
 			<tr>
 				<td><em>frequency</em></td>
 				<td>kilohertz</td>
+				<td class="changed">simple</td>
 				<td>{0} kHz</td>
 			</tr>
 			<tr>
 				<td><em>frequency</em></td>
 				<td>hertz</td>
+				<td class="changed">simple</td>
 				<td>{0} Hz</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>kilometer</td>
+				<td class="changed">simple</td>
 				<td>{0} km</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>meter</td>
+				<td class="changed">simple</td>
 				<td>{0} m</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>decimeter</td>
+				<td class="changed">simple</td>
 				<td>{0} dm</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>centimeter</td>
+				<td class="changed">simple</td>
 				<td>{0} cm</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>millimeter</td>
+				<td class="changed">simple</td>
 				<td>{0} mm</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>micrometer</td>
+				<td class="changed">simple</td>
 				<td>{0} µm</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>nanometer</td>
+				<td class="changed">simple</td>
 				<td>{0} nm</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>picometer</td>
+				<td class="changed">simple</td>
 				<td>{0} pm</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>mile</td>
+				<td class="changed">simple</td>
 				<td>{0} mi</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>yard</td>
+				<td class="changed">simple</td>
 				<td>{0} yd</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>foot</td>
+				<td class="changed">simple</td>
 				<td>{0} ft</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>inch</td>
+				<td class="changed">simple</td>
 				<td>{0} in</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>parsec</td>
+				<td class="changed">simple</td>
 				<td>{0} pc</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>light-year</td>
+				<td class="changed">simple</td>
 				<td>{0} ly</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>astronomical-unit</td>
+				<td class="changed">simple</td>
 				<td>{0} au</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>furlong</td>
+				<td class="changed">simple</td>
 				<td>{0} fur</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>fathom</td>
+				<td class="changed">simple</td>
 				<td>{0} fm</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>nautical-mile</td>
+				<td class="changed">simple</td>
 				<td>{0} nmi</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>mile-scandinavian</td>
+				<td class="changed">simple</td>
 				<td>{0} smi</td>
 			</tr>
 			<tr>
 				<td><em>length</em></td>
 				<td>point</td>
+				<td class="changed">simple</td>
 				<td>{0} pt</td>
 				<td> typographic point, 1/72 inch</td>
 			</tr>
 			<tr>
 				<td><em>light</em></td>
 				<td>lux</td>
+				<td class="changed">simple</td>
 				<td>{0} lx</td>
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
 				<td>metric-ton</td>
+				<td class="changed">simple</td>
 				<td>{0} t</td>
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
 				<td>kilogram</td>
+				<td class="changed">simple</td>
 				<td>{0} kg</td>
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
 				<td>gram</td>
+				<td class="changed">simple</td>
 				<td>{0} g</td>
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
 				<td>milligram</td>
+				<td class="changed">simple</td>
 				<td>{0} mg</td>
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
 				<td>microgram</td>
+				<td class="changed">simple</td>
 				<td>{0} µg</td>
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
 				<td>ton</td>
+				<td class="changed">simple</td>
 				<td>{0} tn</td>
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
 				<td>stone</td>
+				<td class="changed">simple</td>
 				<td>{0} st</td>
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
 				<td>pound</td>
+				<td class="changed">simple</td>
 				<td>{0} lb</td>
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
 				<td>ounce</td>
+				<td class="changed">simple</td>
 				<td>{0} oz</td>
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
 				<td>ounce-troy</td>
+				<td class="changed">simple</td>
 				<td>{0} oz t</td>
 			</tr>
 			<tr>
 				<td><em>mass</em></td>
 				<td>carat</td>
+				<td class="changed">simple</td>
 				<td>{0} CD</td>
 			</tr>
 			<tr>
 				<td><em>power</em></td>
 				<td>gigawatt</td>
+				<td class="changed">simple</td>
 				<td>{0} GW</td>
 			</tr>
 			<tr>
 				<td><em>power</em></td>
 				<td>megawatt</td>
+				<td class="changed">simple</td>
 				<td>{0} MW</td>
 			</tr>
 			<tr>
 				<td><em>power</em></td>
 				<td>kilowatt</td>
+				<td class="changed">simple</td>
 				<td>{0} kW</td>
 			</tr>
 			<tr>
 				<td><em>power</em></td>
 				<td>watt</td>
+				<td class="changed">simple</td>
 				<td>{0} W</td>
 			</tr>
 			<tr>
 				<td><em>power</em></td>
 				<td>milliwatt</td>
+				<td class="changed">simple</td>
 				<td>{0} mW</td>
 			</tr>
 			<tr>
 				<td><em>power</em></td>
 				<td>horsepower</td>
+				<td class="changed">simple</td>
 				<td>{0} hp</td>
 			</tr>
 			<tr>
 				<td><em>pressure</em></td>
 				<td>hectopascal</td>
+				<td class="changed">simple</td>
 				<td>{0} hPa</td>
 			</tr>
 			<tr>
 				<td><em>pressure</em></td>
 				<td>millimeter-of-mercury</td>
+				<td class="changed">simple</td>
 				<td>{0} mm Hg</td>
 			</tr>
 			<tr>
 				<td><em>pressure</em></td>
 				<td>pound-per-square-inch</td>
+				<td class="changed">compound</td>
 				<td>{0} psi</td>
 			</tr>
 			<tr>
 				<td><em>pressure</em></td>
 				<td>inch-hg</td>
+				<td class="changed">simple</td>
 				<td>{0} inHg</td>
 			</tr>
 			<tr>
 				<td><em>pressure</em></td>
 				<td>millibar</td>
+				<td class="changed">simple</td>
 				<td>{0} mbar</td>
 			</tr>
 			<tr>
 				<td><em>pressure</em></td>
 				<td>atmosphere</td>
+				<td class="changed">simple</td>
 				<td>{0} atm</td>
 			</tr>
 			<tr>
 				<td><em>speed</em></td>
 				<td>kilometer-per-hour</td>
+				<td class="changed">compound</td>
 				<td>{0} km/h</td>
 			</tr>
 			<tr>
 				<td><em>speed</em></td>
 				<td>meter-per-second</td>
+				<td class="changed">compound</td>
 				<td>{0} m/s</td>
 			</tr>
 			<tr>
 				<td><em>speed</em></td>
 				<td>mile-per-hour</td>
+				<td class="changed">compound</td>
 				<td>{0} mi/h</td>
 			</tr>
 			<tr>
 				<td><em>speed</em></td>
 				<td>knot</td>
+				<td class="changed">simple</td>
 				<td>{0} kn</td>
 			</tr>
 			<tr>
 				<td><em>temperature</em></td>
 				<td>generic</td>
+				<td class="changed">simple</td>
 				<td>{0}°</td>
 			</tr>
 			<tr>
 				<td><em>temperature</em></td>
 				<td>celsius</td>
+				<td class="changed">simple</td>
 				<td>{0}°C</td>
 			</tr>
 			<tr>
 				<td><em>temperature</em></td>
 				<td>fahrenheit</td>
+				<td class="changed">simple</td>
 				<td>{0}°F</td>
 			</tr>
 			<tr>
 				<td><em>temperature</em></td>
 				<td>kelvin</td>
+				<td class="changed">simple</td>
 				<td>{0} K</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>cubic-kilometer</td>
+				<td class="changed">simple</td>
 				<td>{0} km³</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>cubic-meter</td>
+				<td class="changed">simple</td>
 				<td>{0} m³</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>cubic-centimeter</td>
+				<td class="changed">simple</td>
 				<td>{0} cm³</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>cubic-mile</td>
+				<td class="changed">simple</td>
 				<td>{0} mi³</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>cubic-yard</td>
+				<td class="changed">simple</td>
 				<td>{0} yd³</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>cubic-foot</td>
+				<td class="changed">simple</td>
 				<td>{0} ft³</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>cubic-inch</td>
+				<td class="changed">simple</td>
 				<td>{0} in³</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>megaliter</td>
+				<td class="changed">simple</td>
 				<td>{0} ML</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>hectoliter</td>
+				<td class="changed">simple</td>
 				<td>{0} hL</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>liter</td>
+				<td class="changed">simple</td>
 				<td>{0} L</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>deciliter</td>
+				<td class="changed">simple</td>
 				<td>{0} dL</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>centiliter</td>
+				<td class="changed">simple</td>
 				<td>{0} cL</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>milliliter</td>
+				<td class="changed">simple</td>
 				<td>{0} mL</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>pint-metric</td>
+				<td class="changed">simple</td>
 				<td>{0} mpt</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>cup-metric</td>
+				<td class="changed">simple</td>
 				<td>{0} mc</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>acre-foot</td>
+				<td class="changed">simple</td>
 				<td>{0} ac ft</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>bushel</td>
+				<td class="changed">simple</td>
 				<td>{0} bu</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>gallon (US)</td>
+				<td class="changed">simple</td>
 				<td>{0} gal</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>gallon-imperial</td>
+				<td class="changed">simple</td>
 				<td>{0} gal Imp.</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>quart</td>
+				<td class="changed">simple</td>
 				<td>{0} qt</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>pint</td>
+				<td class="changed">simple</td>
 				<td>{0} pt</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>cup</td>
+				<td class="changed">simple</td>
 				<td>{0} c</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>fluid-ounce</td>
+				<td class="changed">simple</td>
 				<td>{0} fl oz</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>tablespoon</td>
+				<td class="changed">simple</td>
 				<td>{0} tbsp</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
 				<td>teaspoon</td>
+				<td class="changed">simple</td>
 				<td>{0} tsp</td>
 			</tr>
 		</table>
@@ -2160,9 +2309,9 @@ h2, h3, h4, table {
 		<p>When constructing a pattern for value=V, numeratorUnit=N,
 			denominatorUnit=D, the following precess is used.</p>
 		<ol>
-			<li>If there is a compound form for N/D already available, use
+			<li>If there is a compound form for N/D already available <span class='changed'>(e.g., <code>kilometer-per-hour</code>)</span>, use
 				it.</li>
-			<li>Otherwise, format the N pattern with the number using plural
+			<li>Otherwise <span class='changed'>(e.g., <code>kilogram-per-second</code>)</span>, format the N pattern with the number using plural
 				categories.
 				<ul>
 					<li>→ &quot;3 kilograms&quot;</li>
@@ -2267,6 +2416,24 @@ h2, h3, h4, table {
 			measurement (e.g measuring the height of an adult versus that of an
 			infant).
 		</p>
+
+		<div class="changed">
+		<h3>
+			6.6 <a name="Private_Use_Units" href="#Private_Use_Units">Private-Use Units</a>
+		</h3>
+		<p>
+			CLDR has reserved the <code>&quot;x-&quot;</code> prefix in the <code>simple_unit</code> part of the unit identifer BNF for private-use units.  CLDR will never define a type or unit such that the unit identifier starts with <code>&quot;x-&quot;</code>, ends with <code>&quot;-x&quot;</code>, or contains <code>&quot;-x-&quot;</code>.
+		</p>
+		<p>
+			For example, if you wanted to define your own unit "foo", you could use the unqualified unit identifier <code>&quot;x-foo&quot;</code>.
+		</p>
+		<p>
+			It is valid to construct compound units containing one or more private-use simple units.  For example, <code>&quot;x-foo-per-second&quot;</code> and <code>&quot;x-foo-per-x-bar&quot;</code> are both valid unqualified unit identifiers for compound units.
+		</p>
+		<p>
+			As explained earlier, CLDR defines all associations between types and units.  It is therefore not possible to construct a valid unit identifier containing a private-use unit; only unqualified unit identifiers are possible.
+		</p>
+		</div>
 
 		<h2>
 			7 <a name="POSIX_Elements" href="#POSIX_Elements">POSIX Elements</a>

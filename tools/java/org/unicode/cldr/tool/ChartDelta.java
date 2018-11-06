@@ -619,6 +619,9 @@ public class ChartDelta extends Chart {
     }
 
     private void writeDiffs(Anchors anchors, String file, String title, Multimap<PathHeader, String> bcp, PrintWriter tsvFile) {
+        if (bcp.isEmpty()) {
+            return;
+        }
         TablePrinter tablePrinter = new TablePrinter()
             .addColumn("Section", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
             .addColumn("Page", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)//.setRepeatDivider(true)

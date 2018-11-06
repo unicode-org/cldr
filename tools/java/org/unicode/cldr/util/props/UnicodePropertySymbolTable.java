@@ -183,7 +183,7 @@ public class UnicodePropertySymbolTable extends UnicodeSet.XSymbolTable {
                     + prop.getAvailableValues() + " or in " + prop.getValueAliases());
           }
           if (isAge) {
-            set = prop.getSet(new ComparisonMatcher(propertyValue, Relation.geq));
+            set = prop.getSet(new ComparisonMatcher(propertyValue, Relation.geq, DOUBLE_STRING_COMPARATOR));
           } else {
             set = prop.getSet(propertyValue);
           }
@@ -220,15 +220,19 @@ public class UnicodePropertySymbolTable extends UnicodeSet.XSymbolTable {
     public enum Relation {less, leq, equal, geq, greater}
 
     public static class ComparisonMatcher implements PatternMatcher {
-        Relation relation;
-        static Comparator comparator = new UTF16.StringComparator(true, false,0);
-
+        final Relation relation;
+        final Comparator<String> comparator;
         String pattern;
 
-        public ComparisonMatcher(String pattern, Relation comparator) {
-          this.relation = comparator;
-          this.pattern = pattern;
-        }
+        public ComparisonMatcher(String pattern, Relation relation) {
+            this(pattern, relation, new UTF16.StringComparator(true, false,0));
+          }
+
+        public ComparisonMatcher(String pattern, Relation relation, Comparator<String> comparator) {
+            this.relation = relation;
+            this.pattern = pattern;
+            this.comparator = comparator;
+          }
 
         public boolean matches(Object value) {
           int comp = comparator.compare(pattern, value.toString());
@@ -246,4 +250,33 @@ public class UnicodePropertySymbolTable extends UnicodeSet.XSymbolTable {
           return this;
         }
       }
+    
+    /**
+     * Special parser for doubles. Anything not parsable is higher than everything else.
+     */
+    public static final Comparator<String> DOUBLE_STRING_COMPARATOR = new Comparator<String>(){
+
+        @Override
+        public int compare(String o1, String o2) {
+            int f1 = o1.codePointAt(0);
+            int f2 = o2.codePointAt(0);
+            boolean n1 = f1 < '0' || f1 > '9';
+            boolean n2 = f2 < '0' || f2 > '9';
+            if (n1) {
+                return n2 ? o1.compareTo(o2) : 1;
+            } else if (n2) {
+                return -1;
+            }
+            double d1 = Double.parseDouble(o1);
+            double d2 = Double.parseDouble(o2);
+            if (Double.isNaN(d1) || Double.isNaN(d2)) {
+                throw new IllegalArgumentException();
+            }
+                
+            return d1 > d2 ? 1 
+                    : d1 < d2 ? -1
+                        : 0;
+        }
+        
+    };
   }

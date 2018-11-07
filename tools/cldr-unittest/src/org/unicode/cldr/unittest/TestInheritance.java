@@ -1084,12 +1084,7 @@ public class TestInheritance extends TestFmwk {
             }
         }
         if (!STANDARD_CODES.getAvailableCodes(subtagType).contains(subtag)) {
-            if (subtagType.equals("script") && ("Elym".equals(subtag) || "Nand".equals(subtag))) {
-                logKnownIssue("cldr ticket:11478", "Hack new script code: " + subtag);          // hack to add script codes"
-            } else {
-                errln("Locale " + localeID + " contains illegal "
-                    + showCode(subtagType, subtag));
-            }
+            errln("Locale " + localeID + " contains illegal " + showCode(subtagType, subtag));
         } else if (!allowDeprecated) {
             // "language" -> "sh" -> <{"sr_Latn"}, reason>
             R2<List<String>, String> deprecatedInfo = DEPRECATED_INFO.get(

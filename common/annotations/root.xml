@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
-For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Proper interpretation of these files requires synthesis of missing items, as per
-​http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations
-Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
--->
+<!-- Copyright © 1991-2018 Unicode, Inc. For terms of use, see http://www.unicode.org/copyright.html 
+	Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in 
+	the U.S. and other countries. CLDR data files are interpreted according to 
+	the LDML specification (http://unicode.org/reports/tr35/) Proper interpretation 
+	of these files requires synthesis of missing items, as per ​http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations 
+	Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ 
+	for derived annotations. -->
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<language type="root"/>
+		<version number="$Revision$" />
+		<language type="root" />
 	</identity>
 	<annotations>
 		<annotation cp="🏻">E440</annotation>
@@ -2687,5 +2685,153 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">E1156</annotation>
 		<annotation cp="🏴‍☠">E11:003</annotation>
 		<annotation cp="🏴‍☠" type="tts">E11:003</annotation>
+		<annotation cp="🐕‍🦺">E12-001</annotation> 	<!-- 1F415 200D 1F9BA: service dog -->
+		<annotation cp="🐕‍🦺" type="tts">E12-001</annotation>
+		<annotation cp="👨‍🦯">E12-002</annotation> 	<!-- 1F468 200D 1F9AF: man with probing cane -->
+		<annotation cp="👨‍🦯" type="tts">E12-002</annotation>
+		<annotation cp="👨‍🦼">E12-003</annotation> 	<!-- 1F468 200D 1F9BC: man in motorized wheelchair -->
+		<annotation cp="👨‍🦼" type="tts">E12-003</annotation>
+		<annotation cp="👨‍🦽">E12-004</annotation> 	<!-- 1F468 200D 1F9BD: man in manual wheelchair -->
+		<annotation cp="👨‍🦽" type="tts">E12-004</annotation>
+		<annotation cp="👩‍🦯">E12-005</annotation> 	<!-- 1F469 200D 1F9AF: woman with probing cane -->
+		<annotation cp="👩‍🦯" type="tts">E12-005</annotation>
+		<annotation cp="👩‍🦼">E12-006</annotation> 	<!-- 1F469 200D 1F9BC: woman in motorized wheelchair -->
+		<annotation cp="👩‍🦼" type="tts">E12-006</annotation>
+		<annotation cp="👩‍🦽">E12-007</annotation> 	<!-- 1F469 200D 1F9BD: woman in manual wheelchair -->
+		<annotation cp="👩‍🦽" type="tts">E12-007</annotation>
+		<annotation cp="🛕">E12-008</annotation> 	<!-- 1F6D5: hindu temple -->
+		<annotation cp="🛕" type="tts">E12-008</annotation>
+		<annotation cp="🛺">E12-009</annotation> 	<!-- 1F6FA: auto rickshaw -->
+		<annotation cp="🛺" type="tts">E12-009</annotation>
+		<annotation cp="🟠">E12-010</annotation> 	<!-- 1F7E0: orange circle -->
+		<annotation cp="🟠" type="tts">E12-010</annotation>
+		<annotation cp="🟡">E12-011</annotation> 	<!-- 1F7E1: yellow circle -->
+		<annotation cp="🟡" type="tts">E12-011</annotation>
+		<annotation cp="🟢">E12-012</annotation> 	<!-- 1F7E2: green circle -->
+		<annotation cp="🟢" type="tts">E12-012</annotation>
+		<annotation cp="🟣">E12-013</annotation> 	<!-- 1F7E3: purple circle -->
+		<annotation cp="🟣" type="tts">E12-013</annotation>
+		<annotation cp="🟤">E12-014</annotation> 	<!-- 1F7E4: brown circle -->
+		<annotation cp="🟤" type="tts">E12-014</annotation>
+		<annotation cp="🟥">E12-015</annotation> 	<!-- 1F7E5: red square -->
+		<annotation cp="🟥" type="tts">E12-015</annotation>
+		<annotation cp="🟦">E12-016</annotation> 	<!-- 1F7E6: blue square -->
+		<annotation cp="🟦" type="tts">E12-016</annotation>
+		<annotation cp="🟧">E12-017</annotation> 	<!-- 1F7E7: orange square -->
+		<annotation cp="🟧" type="tts">E12-017</annotation>
+		<annotation cp="🟨">E12-018</annotation> 	<!-- 1F7E8: yellow square -->
+		<annotation cp="🟨" type="tts">E12-018</annotation>
+		<annotation cp="🟩">E12-019</annotation> 	<!-- 1F7E9: green square -->
+		<annotation cp="🟩" type="tts">E12-019</annotation>
+		<annotation cp="🟪">E12-020</annotation> 	<!-- 1F7EA: purple square -->
+		<annotation cp="🟪" type="tts">E12-020</annotation>
+		<annotation cp="🟫">E12-021</annotation> 	<!-- 1F7EB: brown square -->
+		<annotation cp="🟫" type="tts">E12-021</annotation>
+		<annotation cp="🤍">E12-022</annotation> 	<!-- 1F90D: white heart -->
+		<annotation cp="🤍" type="tts">E12-022</annotation>
+		<annotation cp="🤎">E12-023</annotation> 	<!-- 1F90E: brown heart -->
+		<annotation cp="🤎" type="tts">E12-023</annotation>
+		<annotation cp="🤏">E12-024</annotation> 	<!-- 1F90F: pinching hand -->
+		<annotation cp="🤏" type="tts">E12-024</annotation>
+		<annotation cp="🤿">E12-025</annotation> 	<!-- 1F93F: diving mask -->
+		<annotation cp="🤿" type="tts">E12-025</annotation>
+		<annotation cp="🥱">E12-026</annotation> 	<!-- 1F971: yawning face -->
+		<annotation cp="🥱" type="tts">E12-026</annotation>
+		<annotation cp="🥻">E12-027</annotation> 	<!-- 1F97B: sari -->
+		<annotation cp="🥻" type="tts">E12-027</annotation>
+		<annotation cp="🦥">E12-028</annotation> 	<!-- 1F9A5: sloth -->
+		<annotation cp="🦥" type="tts">E12-028</annotation>
+		<annotation cp="🦦">E12-029</annotation> 	<!-- 1F9A6: otter -->
+		<annotation cp="🦦" type="tts">E12-029</annotation>
+		<annotation cp="🦧">E12-030</annotation> 	<!-- 1F9A7: orangutan -->
+		<annotation cp="🦧" type="tts">E12-030</annotation>
+		<annotation cp="🦨">E12-031</annotation> 	<!-- 1F9A8: skunk -->
+		<annotation cp="🦨" type="tts">E12-031</annotation>
+		<annotation cp="🦩">E12-032</annotation> 	<!-- 1F9A9: flamingo -->
+		<annotation cp="🦩" type="tts">E12-032</annotation>
+		<annotation cp="🦪">E12-033</annotation> 	<!-- 1F9AA: oyster -->
+		<annotation cp="🦪" type="tts">E12-033</annotation>
+		<annotation cp="🦮">E12-034</annotation> 	<!-- 1F9AE: guide dog -->
+		<annotation cp="🦮" type="tts">E12-034</annotation>
+		<annotation cp="🦯">E12-035</annotation> 	<!-- 1F9AF: probing cane -->
+		<annotation cp="🦯" type="tts">E12-035</annotation>
+		<annotation cp="🦺">E12-036</annotation> 	<!-- 1F9BA: safety vest -->
+		<annotation cp="🦺" type="tts">E12-036</annotation>
+		<annotation cp="🦻">E12-037</annotation> 	<!-- 1F9BB: ear with hearing aid -->
+		<annotation cp="🦻" type="tts">E12-037</annotation>
+		<annotation cp="🦼">E12-038</annotation> 	<!-- 1F9BC: motorized wheelchair -->
+		<annotation cp="🦼" type="tts">E12-038</annotation>
+		<annotation cp="🦽">E12-039</annotation> 	<!-- 1F9BD: manual wheelchair -->
+		<annotation cp="🦽" type="tts">E12-039</annotation>
+		<annotation cp="🦾">E12-040</annotation> 	<!-- 1F9BE: mechanical arm -->
+		<annotation cp="🦾" type="tts">E12-040</annotation>
+		<annotation cp="🦿">E12-041</annotation> 	<!-- 1F9BF: mechanical leg -->
+		<annotation cp="🦿" type="tts">E12-041</annotation>
+		<annotation cp="🧃">E12-042</annotation> 	<!-- 1F9C3: beverage box -->
+		<annotation cp="🧃" type="tts">E12-042</annotation>
+		<annotation cp="🧄">E12-043</annotation> 	<!-- 1F9C4: garlic -->
+		<annotation cp="🧄" type="tts">E12-043</annotation>
+		<annotation cp="🧅">E12-044</annotation> 	<!-- 1F9C5: onion -->
+		<annotation cp="🧅" type="tts">E12-044</annotation>
+		<annotation cp="🧆">E12-045</annotation> 	<!-- 1F9C6: falafel -->
+		<annotation cp="🧆" type="tts">E12-045</annotation>
+		<annotation cp="🧇">E12-046</annotation> 	<!-- 1F9C7: waffle -->
+		<annotation cp="🧇" type="tts">E12-046</annotation>
+		<annotation cp="🧈">E12-047</annotation> 	<!-- 1F9C8: butter -->
+		<annotation cp="🧈" type="tts">E12-047</annotation>
+		<annotation cp="🧉">E12-048</annotation> 	<!-- 1F9C9: mate -->
+		<annotation cp="🧉" type="tts">E12-048</annotation>
+		<annotation cp="🧊">E12-049</annotation> 	<!-- 1F9CA: ice cube -->
+		<annotation cp="🧊" type="tts">E12-049</annotation>
+		<annotation cp="🧍">E12-050</annotation> 	<!-- 1F9CD: person standing -->
+		<annotation cp="🧍" type="tts">E12-050</annotation>
+		<annotation cp="🧍‍♀">E12-051</annotation> 	<!-- 1F9CD 200D 2640: woman standing -->
+		<annotation cp="🧍‍♀" type="tts">E12-051</annotation>
+		<annotation cp="🧍‍♂">E12-052</annotation> 	<!-- 1F9CD 200D 2642: man standing -->
+		<annotation cp="🧍‍♂" type="tts">E12-052</annotation>
+		<annotation cp="🧎">E12-053</annotation> 	<!-- 1F9CE: person kneeling -->
+		<annotation cp="🧎" type="tts">E12-053</annotation>
+		<annotation cp="🧎‍♀">E12-054</annotation> 	<!-- 1F9CE 200D 2640: woman kneeling -->
+		<annotation cp="🧎‍♀" type="tts">E12-054</annotation>
+		<annotation cp="🧎‍♂">E12-055</annotation> 	<!-- 1F9CE 200D 2642: man kneeling -->
+		<annotation cp="🧎‍♂" type="tts">E12-055</annotation>
+		<annotation cp="🧏">E12-056</annotation> 	<!-- 1F9CF: deaf person -->
+		<annotation cp="🧏" type="tts">E12-056</annotation>
+		<annotation cp="🧏‍♀">E12-057</annotation> 	<!-- 1F9CF 200D 2640: deaf woman -->
+		<annotation cp="🧏‍♀" type="tts">E12-057</annotation>
+		<annotation cp="🧏‍♂">E12-058</annotation> 	<!-- 1F9CF 200D 2642: deaf man -->
+		<annotation cp="🧏‍♂" type="tts">E12-058</annotation>
+		<annotation cp="🩰">E12-059</annotation> 	<!-- 1FA70: ballet shoes -->
+		<annotation cp="🩰" type="tts">E12-059</annotation>
+		<annotation cp="🩱">E12-060</annotation> 	<!-- 1FA71: one-piece -->
+		<annotation cp="🩱" type="tts">E12-060</annotation>
+		<annotation cp="🩲">E12-061</annotation> 	<!-- 1FA72: briefs -->
+		<annotation cp="🩲" type="tts">E12-061</annotation>
+		<annotation cp="🩳">E12-062</annotation> 	<!-- 1FA73: shorts -->
+		<annotation cp="🩳" type="tts">E12-062</annotation>
+		<annotation cp="🩸">E12-063</annotation> 	<!-- 1FA78: drop of blood -->
+		<annotation cp="🩸" type="tts">E12-063</annotation>
+		<annotation cp="🩹">E12-064</annotation> 	<!-- 1FA79: adhesive bandage -->
+		<annotation cp="🩹" type="tts">E12-064</annotation>
+		<annotation cp="🩺">E12-065</annotation> 	<!-- 1FA7A: stethoscope -->
+		<annotation cp="🩺" type="tts">E12-065</annotation>
+		<annotation cp="🪀">E12-066</annotation> 	<!-- 1FA80: yo-yo -->
+		<annotation cp="🪀" type="tts">E12-066</annotation>
+		<annotation cp="🪁">E12-067</annotation> 	<!-- 1FA81: kite -->
+		<annotation cp="🪁" type="tts">E12-067</annotation>
+		<annotation cp="🪂">E12-068</annotation> 	<!-- 1FA82: parachute -->
+		<annotation cp="🪂" type="tts">E12-068</annotation>
+		<annotation cp="🪐">E12-069</annotation> 	<!-- 1FA90: ringed planet -->
+		<annotation cp="🪐" type="tts">E12-069</annotation>
+		<annotation cp="🪑">E12-070</annotation> 	<!-- 1FA91: chair -->
+		<annotation cp="🪑" type="tts">E12-070</annotation>
+		<annotation cp="🪒">E12-071</annotation> 	<!-- 1FA92: razor -->
+		<annotation cp="🪒" type="tts">E12-071</annotation>
+		<annotation cp="🪓">E12-072</annotation> 	<!-- 1FA93: axe -->
+		<annotation cp="🪓" type="tts">E12-072</annotation>
+		<annotation cp="🪔">E12-073</annotation> 	<!-- 1FA94: diya lamp -->
+		<annotation cp="🪔" type="tts">E12-073</annotation>
+		<annotation cp="🪕">E12-074</annotation> 	<!-- 1FA95: banjo -->
+		<annotation cp="🪕" type="tts">E12-074</annotation>
 	</annotations>
 </ldml>

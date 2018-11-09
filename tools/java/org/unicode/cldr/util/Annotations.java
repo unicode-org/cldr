@@ -124,6 +124,8 @@ public class Annotations {
             return result;
         }
 
+        static final Pattern SPACES = Pattern.compile("\\s+");
+        
         @Override
         public void handlePathValue(String path, String value) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
@@ -144,6 +146,11 @@ public class Annotations {
             String type = parts.getAttributeValue(-1, "type");
             String alt = parts.getAttributeValue(-1, "alt");
 
+            // clean up value
+            String value2 = SPACES.matcher(value).replaceAll(" ").trim();
+            if (!value2.equals(value)) {
+                value = value2;
+            }
             if (alt != null) {
                 // do nothing for now
             } else if ("tts".equals(type)) {

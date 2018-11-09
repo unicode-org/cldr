@@ -278,8 +278,8 @@ public class PathHeader implements Comparable<PathHeader> {
         Category(SectionId.Characters),
 
         // [Smileys, People, Animals & Nature, Food & Drink, Travel & Places, Activities, Objects, Symbols, Flags] 
-        Smileys(SectionId.Characters),
-        People(SectionId.Characters),
+        Smileys(SectionId.Characters, "Smileys & Emotion"),
+        People(SectionId.Characters, "People & Body"),
         Animals_Nature(SectionId.Characters, "Animals & Nature"),
         Food_Drink(SectionId.Characters, "Food & Drink"),
         Travel_Places(SectionId.Characters, "Travel & Places"),

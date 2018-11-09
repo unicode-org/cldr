@@ -105,8 +105,8 @@ public class TestAnnotations extends TestFmwkPlus {
         AnnotationSet eng = Annotations.getDataSet("en");
         String[][] tests = { // the expected value for keywords can use , as well as |.
             {"👨🏻", "man: light skin tone", "adult | man | light skin tone"},
-            {"👱‍♂️", "man: blond hair", "blond | blond-haired man | man | man: blond hair"},
-            {"👱🏻‍♂️", "man: light skin tone, blond hair", "blond, blond-haired man, man, man: blond hair, light skin tone, blond hair"},
+            {"👱‍♂️", "man: blond hair", "blond, blond-haired man, hair, man"},
+            {"👱🏻‍♂️", "man: light skin tone, blond hair", "blond, blond-haired man, hair, man, light skin tone, blond hair"},
             {"👨‍🦰", "man: red hair", "adult | man | red hair"},
             { "👨🏻‍🦰", "man: light skin tone, red hair", "adult | man | light skin tone| red hair"},
             { "🇪🇺", "flag: European Union", "flag" },

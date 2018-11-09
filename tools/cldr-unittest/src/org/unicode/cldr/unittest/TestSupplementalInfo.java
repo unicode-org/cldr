@@ -817,9 +817,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     if (item != preferredAndAllowedHour.preferred) {
                         String message = "Inconsistent values for " + region + ": preferred=" + preferredAndAllowedHour.preferred
                             + " but that isn't the first " + oldSchool + " in allowed: " + preferredAndAllowedHour.allowed;
-                        if (!logKnownIssue("cldrbug:11448", message)) {
+                        //if (!logKnownIssue("cldrbug:11448", message)) {
                             errln(message);
-                        }
+                        //}
                     }
                     break;
                 }

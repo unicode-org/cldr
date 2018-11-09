@@ -68,6 +68,9 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         ANNOTATIONS("//ldml/annotations/annotation\\[@cp=\".*\"\\]\\[@type=\"tts\"\\]", MatchType.REGEX, 15),
         CARDINAL_MINIMAL("//ldml/numbers/minimalPairs/pluralMinimalPairs", MatchType.PREFIX, 16),
         ORDINAL_MINIMAL("//ldml/numbers/minimalPairs/ordinalMinimalPairs", MatchType.PREFIX, 17), 
+        TYPOGRAPHIC_AXIS("//ldml/typographicNames/axisName", MatchType.PREFIX, 18), 
+        TYPOGRAPHIC_FEATURE("//ldml/typographicNames/featureName", MatchType.PREFIX, 19), 
+        TYPOGRAPHIC_STYLE("//ldml/typographicNames/styleName", MatchType.PREFIX, 20), 
         ;
 
         private MatchType matchType;

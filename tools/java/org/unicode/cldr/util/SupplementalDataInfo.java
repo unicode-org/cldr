@@ -280,7 +280,7 @@ public class SupplementalDataInfo {
      * Simple language/script/region information
      */
     public static class BasicLanguageData implements Comparable<BasicLanguageData>,
-        com.ibm.icu.util.Freezable<BasicLanguageData> {
+    com.ibm.icu.util.Freezable<BasicLanguageData> {
         public enum Type {
             primary, secondary
         };
@@ -355,13 +355,13 @@ public class SupplementalDataInfo {
             if (scripts.size() == 0 && territories.size() == 0)
                 return "";
             return "\t\t<language type=\""
-                + languageSubtag
-                + "\""
-                + (scripts.size() == 0 ? "" : " scripts=\""
-                    + CldrUtility.join(scripts, " ") + "\"")
-                + (territories.size() == 0 ? "" : " territories=\""
-                    + CldrUtility.join(territories, " ") + "\"")
-                + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
+            + languageSubtag
+            + "\""
+            + (scripts.size() == 0 ? "" : " scripts=\""
+                + CldrUtility.join(scripts, " ") + "\"")
+            + (territories.size() == 0 ? "" : " territories=\""
+                + CldrUtility.join(territories, " ") + "\"")
+            + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
         }
 
         public String toString() {
@@ -556,8 +556,8 @@ public class SupplementalDataInfo {
 
         public String toString() {
             return "{" + formatDate(from)
-                + ", "
-                + formatDate(to) + "}";
+            + ", "
+            + formatDate(to) + "}";
         }
 
         public static String formatDate(long date) {
@@ -1489,7 +1489,7 @@ public class SupplementalDataInfo {
                     parts.getAttributeValue(3, "supported"),
                     percent != null ? Integer.parseInt(percent)
                         : 100 - Integer.parseInt(distance),
-                    "true".equals(parts.getAttributeValue(3, "oneway"))));
+                        "true".equals(parts.getAttributeValue(3, "oneway"))));
                 break;
             default:
                 throw new IllegalArgumentException("Unknown element");
@@ -1795,13 +1795,13 @@ public class SupplementalDataInfo {
                     .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
                     .setWritingPopulation(writingPercent * languagePopulation / 100)
                     .setOfficialStatus(officialStatus)
-                // .setGdp(languageGdp)
-                ;
+                    // .setGdp(languageGdp)
+                    ;
                 newData.freeze();
                 if (territoryLanguageToPopulation.get(language) != null) {
                     System.out
-                        .println("Internal Problem in supplementalData: multiple data items for "
-                            + language + ", " + territory + "\tSkipping " + newData);
+                    .println("Internal Problem in supplementalData: multiple data items for "
+                        + language + ", " + territory + "\tSkipping " + newData);
                     return true;
                 }
 
@@ -1921,10 +1921,10 @@ public class SupplementalDataInfo {
             String language = (String) parts.getAttributeValue(2, "type");
             BasicLanguageData languageData = new BasicLanguageData();
             languageData
-                .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
-                    : BasicLanguageData.Type.secondary);
+            .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
+                : BasicLanguageData.Type.secondary);
             languageData.setScripts(parts.getAttributeValue(2, "scripts"))
-                .setTerritories(parts.getAttributeValue(2, "territories"));
+            .setTerritories(parts.getAttributeValue(2, "territories"));
             Map<Type, BasicLanguageData> map = languageToBasicLanguageData.get(language);
             if (map == null) {
                 languageToBasicLanguageData.put(language, map = new EnumMap<Type, BasicLanguageData>(
@@ -1941,8 +1941,8 @@ public class SupplementalDataInfo {
                 return false;
             }
             System.out
-                .println("Internal Problem in supplementalData: range check fails for "
-                    + input + ", min: " + min + ", max:" + max + "\t" + path);
+            .println("Internal Problem in supplementalData: range check fails for "
+                + input + ", min: " + min + ", max:" + max + "\t" + path);
 
             return false;
         }
@@ -2487,15 +2487,15 @@ public class SupplementalDataInfo {
         while (i.hasNext()) {
             CoverageLevelInfo ci = i.next();
             String regex = "//ldml/" + ci.match.replace('\'', '"')
-                .replaceAll("\\[", "\\\\[")
-                .replaceAll("\\]", "\\\\]")
-                .replace("${Target-Language}", targetLanguage)
-                .replace("${Target-Scripts}", targetScriptString)
-                .replace("${Target-Territories}", targetTerritoryString)
-                .replace("${Target-TimeZones}", targetTimeZoneString)
-                .replace("${Target-Currencies}", targetCurrencyString)
-                .replace("${Target-Plurals}", targetPluralsString)
-                .replace("${Calendar-List}", calendarListString);
+            .replaceAll("\\[", "\\\\[")
+            .replaceAll("\\]", "\\\\]")
+            .replace("${Target-Language}", targetLanguage)
+            .replace("${Target-Scripts}", targetScriptString)
+            .replace("${Target-Territories}", targetTerritoryString)
+            .replace("${Target-TimeZones}", targetTimeZoneString)
+            .replace("${Target-Currencies}", targetCurrencyString)
+            .replace("${Target-Plurals}", targetPluralsString)
+            .replace("${Calendar-List}", calendarListString);
 
             // Special logic added for coverage fields that are only to be applicable
             // to certain territories
@@ -2944,7 +2944,7 @@ public class SupplementalDataInfo {
         String locales = path.getAttributeValue(2, "locales").trim();
         DayPeriodInfo.Type type = typeString == null
             ? DayPeriodInfo.Type.format
-            : DayPeriodInfo.Type.valueOf(typeString.trim());
+                : DayPeriodInfo.Type.valueOf(typeString.trim());
         if (!locales.equals(lastDayPeriodLocales) || type != lastDayPeriodType) {
             if (lastDayPeriodLocales != null) {
                 addDayPeriodInfo();
@@ -3044,7 +3044,7 @@ public class SupplementalDataInfo {
             String result = path.getAttributeValue(-1, "result");
             lastPluralRanges.add(rangeStart == null ? null : Count.valueOf(rangeStart),
                 rangeEnd == null ? null : Count.valueOf(rangeEnd),
-                Count.valueOf(result));
+                    Count.valueOf(result));
             return true;
         } else if ("pluralRules".equals(element)) {
 
@@ -3140,7 +3140,12 @@ public class SupplementalDataInfo {
                     if (b.length() != 0) {
                         b.append(", ");
                     }
-                    b.append(fractions.get(i));
+                    FixedDecimal fraction = fractions.get(i);
+                    String formatted = String.format(
+                        Locale.ROOT,
+                        "%." + fraction.getVisibleDecimalDigitCount() + "f",
+                        fraction.getSource());
+                    b.append(formatted);
                     ++fractionCount;
                 }
                 b.append(", …");

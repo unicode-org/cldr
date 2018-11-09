@@ -31,6 +31,7 @@ import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.GregorianCalendar;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.ULocale;
 
 /**
  * A mapper that converts supplemental LDML data from CLDR to the ICU data
@@ -426,12 +427,10 @@ public class SupplementalMapper {
     private static long getMilliSeconds(String dateStr, DateFieldType type)
         throws ParseException {
         int count = countHyphens(dateStr);
-        SimpleDateFormat format = new SimpleDateFormat();
-        if (count == 2) {
-            format.applyPattern("yyyy-MM-dd");
-        } else {
+        if (count != 2) {
             throw new RuntimeException("Tried to parse invalid date: " + dateStr);
         }
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", ULocale.ROOT);
         TimeZone timezone = TimeZone.getTimeZone("GMT");
         format.setTimeZone(timezone);
         Date date = format.parse(dateStr);

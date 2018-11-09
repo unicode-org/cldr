@@ -40,8 +40,18 @@
 //ldml/characters/exemplarCharacters$                       ; Core Data ; Alphabetic Information ; Characters in Use ; Main Letters
 //ldml/characters/exemplarCharacters[@type="%A"]            ; Core Data ; Alphabetic Information ; Characters in Use ; Others: $1
 
+//ldml/characters/parseLenients[@scope="%A"][@level="%A"]/parseLenient[@sample="%A"] ; Core Data ; Alphabetic Information ; Parse ; $1-$2($3)
+
+//ldml/characters/ellipsis[@type="%A"]                      ; Core Data ; Alphabetic Information ; Ellipsis ; $1
+
+//ldml/delimiters/quotation%E                               ; Core Data ; Alphabetic Information ; Quotation Marks ; $1
+//ldml/delimiters/alternateQuotation%E                      ; Core Data ; Alphabetic Information ; Quotation Marks ; embedded-$1
+//ldml/characters/moreInformation                           ; Core Data ; Alphabetic Information ; Symbols ; More Information
+
 //ldml/numbers/(default)NumberingSystem                       ; Core Data ; Numbering Systems ; Numbering System ; $1
 //ldml/numbers/otherNumberingSystems/(%E)                   ; Core Data ; Numbering Systems ; Numbering System ; $1
+
+//ldml/posix/messages/%Estr                                 ; Core Data ; Alphabetic Information ; Yes and No ; posix-$1
 
 ### Locale Display Names
 //ldml/localeDisplayNames/localeDisplayPattern/%E              ; Locale Display Names ; Locale Name Patterns ; Locale Formatting ; &localePattern($1)
@@ -226,14 +236,6 @@
 //ldml/listPatterns/listPattern[@type="unit-short"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Short Unit List ; &listOrder($1)
 //ldml/listPatterns/listPattern[@type="unit-narrow"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Narrow Unit List ; &listOrder($1)
 
-//ldml/characters/ellipsis[@type="%A"]                      ; Misc ; Linguistic Elements ; Ellipsis ; $1
-
-//ldml/characters/parseLenients[@scope="%A"][@level="%A"]/parseLenient[@sample="%A"] ; Misc ; Linguistic Elements ; Parse ; $1-$2($3)
-
-//ldml/delimiters/quotation%E                               ; Misc ; Linguistic Elements ; Quotation Marks ; $1
-//ldml/delimiters/alternateQuotation%E                      ; Misc ; Linguistic Elements ; Quotation Marks ; embedded-$1
-//ldml/characters/moreInformation                           ; Misc ; Linguistic Elements ; Symbols ; More Information
-//ldml/posix/messages/%Estr                                 ; Misc ; Linguistic Elements ; Yes and No ; posix-$1
 //ldml/localeDisplayNames/transformNames/transformName[@type="%A"]          ; Misc ; Transforms ; null ; $1
 
 

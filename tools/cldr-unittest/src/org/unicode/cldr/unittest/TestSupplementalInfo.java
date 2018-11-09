@@ -904,8 +904,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         // if we have a case like CA, where en uses 12/24 but fr uses 24, remove
         // it for safety
         only24region.removeAll(either24or12region);
-        // There are always exceptions... Remove VA (Vatican), since it allows 12/24
-        // but the de facto langauge is Italian.
+        // There are always exceptions... Remove SM (San Marino) and VA (Vatican),
+        // since they allows 12/24 but the de facto langauge is Italian.
+        only24region.remove("SM");
         only24region.remove("VA");
         // also remove all the regions where 'h' is preferred
         only24region.removeAll(current12preferred);

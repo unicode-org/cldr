@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -30,6 +31,7 @@ public class Emoji {
     static final UnicodeMap<String> emojiToMajorCategory = new UnicodeMap<>();
     static final UnicodeMap<String> emojiToMinorCategory = new UnicodeMap<>();
     static final Map<String, Integer> minorToOrder = new HashMap<>();
+    static final Map<String, Integer> emojiToOrder = new LinkedHashMap<>();
     static final UnicodeSet nonConstructed = new UnicodeSet();
     static final UnicodeSet allRgi = new UnicodeSet();
     static final UnicodeSet allRgiNoES = new UnicodeSet();
@@ -43,6 +45,7 @@ public class Emoji {
         Splitter semi = Splitter.on(';').trimResults();
         String majorCategory = null;
         String minorCategory = null;
+        int minorOrder = 0;
         for (String line : FileUtilities.in(Emoji.class, "data/emoji/emoji-test.txt")) {
             if (line.startsWith("#")) {
                 line = line.substring(1).trim();
@@ -51,7 +54,7 @@ public class Emoji {
                 } else if (line.startsWith("subgroup:")) {
                     minorCategory = line.substring("subgroup:".length()).trim();
                     if (!minorToOrder.containsKey(minorCategory)) {
-                        minorToOrder.put(minorCategory, minorToOrder.size());
+                        minorToOrder.put(minorCategory, minorOrder = minorToOrder.size());
                     }
                 }
                 continue;
@@ -70,11 +73,14 @@ public class Emoji {
             }
             emojiToMajorCategory.put(original, majorCategory);
             emojiToMinorCategory.put(original, minorCategory);
-
+            
             // add all the non-constructed values to a set for annotations
 
             String minimal = original.replace(EMOJI_VARIANT, "");
             boolean singleton = CharSequences.getSingleCodePoint(minimal) != Integer.MAX_VALUE;
+            if (!emojiToOrder.containsKey(minimal)) {
+                emojiToOrder.put(minimal, emojiToOrder.size());
+            }
 
             // skip constructed values
             if (minimal.contains(COMBINING_ENCLOSING_KEYCAP)
@@ -121,6 +127,11 @@ public class Emoji {
 
     public static int getMinorToOrder(String minor) {
         Integer result = minorToOrder.get(minor);
+        return result == null ? Integer.MAX_VALUE : result;
+    }
+    
+    public static int getEmojiToOrder(String minor) {
+        Integer result = emojiToOrder.get(minor);
         return result == null ? Integer.MAX_VALUE : result;
     }
 

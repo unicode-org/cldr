@@ -72,8 +72,8 @@ public class ChartDelta extends Chart {
     private static final String LOG_DIR = CLDRPaths.GEN_DIRECTORY + "charts/";
 
     enum MyOptions {
-        fileFilter(new Params().setHelp("filter by dir/locale, eg: ^main/en$ or .*/en").setDefault(".*").setMatch(".*")), verbose(
-            new Params().setHelp("verbose debugging messages")),
+        fileFilter(new Params().setHelp("filter by dir/locale, eg: ^main/en$ or .*/en").setDefault(".*").setMatch(".*")),
+        verbose(new Params().setHelp("verbose debugging messages")),
         ;
 
         // BOILERPLATE TO COPY

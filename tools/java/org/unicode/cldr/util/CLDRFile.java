@@ -1758,6 +1758,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         static Pattern WHITESPACE_WITH_LF = PatternCache.get("\\s*\\u000a\\s*");
         Matcher whitespaceWithLf = WHITESPACE_WITH_LF.matcher("");
+        static final UnicodeSet CONTROLS = new UnicodeSet("[:cc:]");
 
         /**
          * Trim leading whitespace if there is a linefeed among them, then the same with trailing.
@@ -1766,6 +1767,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
          * @return
          */
         private String trimWhitespaceSpecial(String source) {
+            if (DEBUG && CONTROLS.containsSome(source)) {
+                System.out.println("*** " + source);
+            }
             if (!source.contains("\n")) {
                 return source;
             }

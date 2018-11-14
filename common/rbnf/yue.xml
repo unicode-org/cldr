@@ -197,5 +197,11 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="0">第=%spellout-numbering=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
+        <rulesetGrouping type="OrdinalRules">
+            <ruleset type="digits-ordinal">
+                <rbnfrule value="-x">第−→#,##0→;</rbnfrule>
+                <rbnfrule value="0">第=#,##0=;</rbnfrule>
+            </ruleset>
+        </rulesetGrouping>
     </rbnf>
 </ldml>

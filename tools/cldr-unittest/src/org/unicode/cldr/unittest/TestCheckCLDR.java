@@ -2,19 +2,26 @@ package org.unicode.cldr.unittest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.CheckCLDR.InputMethod;
 import org.unicode.cldr.test.CheckCLDR.Options;
+import org.unicode.cldr.test.CheckCLDR.Phase;
+import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.test.CheckConsistentCasing;
 import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.CheckForExemplars;
@@ -22,20 +29,32 @@ import org.unicode.cldr.test.CheckNames;
 import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
+import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
+import org.unicode.cldr.util.CLDRInfo.UserInfo;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.DayPeriodInfo.Type;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StringId;
+import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R5;
 import com.ibm.icu.text.UnicodeSet;
 
 public class TestCheckCLDR extends TestFmwk {
@@ -269,27 +288,27 @@ public class TestCheckCLDR extends TestFmwk {
             // override.overridePath = path;
             final String resolvedValue = dummyValue == null ? patched
                 .getStringValue(path) : dummyValue;
-            test.handleCheck(path, patched.getFullXPath(path), resolvedValue,
-                options, result);
-            if (result.size() != 0) {
-                for (CheckStatus item : result) {
-                    addExemplars(item, missingCurrencyExemplars,
-                        missingExemplars);
-                    final String mainMessage = StringId.getId(path) + "\t"
-                        + pathHeader + "\t" + english.getStringValue(path)
-                        + "\t" + item.getType() + "\t" + item.getSubtype();
-                    if (unique != null) {
-                        if (unique.contains(mainMessage)) {
-                            continue;
-                        } else {
-                            unique.add(mainMessage);
+                test.handleCheck(path, patched.getFullXPath(path), resolvedValue,
+                    options, result);
+                if (result.size() != 0) {
+                    for (CheckStatus item : result) {
+                        addExemplars(item, missingCurrencyExemplars,
+                            missingExemplars);
+                        final String mainMessage = StringId.getId(path) + "\t"
+                            + pathHeader + "\t" + english.getStringValue(path)
+                            + "\t" + item.getType() + "\t" + item.getSubtype();
+                        if (unique != null) {
+                            if (unique.contains(mainMessage)) {
+                                continue;
+                            } else {
+                                unique.add(mainMessage);
+                            }
                         }
+                        logln(localeID + "\t" + mainMessage + "\t" + resolvedValue
+                            + "\t" + item.getMessage() + "\t"
+                            + pathHeader.getOriginalPath());
                     }
-                    logln(localeID + "\t" + mainMessage + "\t" + resolvedValue
-                        + "\t" + item.getMessage() + "\t"
-                        + pathHeader.getOriginalPath());
                 }
-            }
         }
         if (missingCurrencyExemplars.size() != 0) {
             logln(localeID + "\tMissing Exemplars (Currency):\t"
@@ -528,6 +547,155 @@ public class TestCheckCLDR extends TestFmwk {
 
             testFile.remove(path1);
             testFile.remove(path2);
+        }
+    }
+
+    public void TestShowRowAction() {
+        Map<Key,Pair<Boolean,String>> actionToExamplePath = new TreeMap<>();
+        Counter<Key> counter = new Counter<>();
+
+        for (String locale : Arrays.asList("jv", "fr", "vo")) {
+            DummyPathValueInfo dummyPathValueInfo = new DummyPathValueInfo();
+            dummyPathValueInfo.locale = CLDRLocale.getInstance(locale);
+            CLDRFile cldrFile = testInfo.getCldrFactory().make(locale, true);
+            CLDRFile cldrFileUnresolved = testInfo.getCldrFactory().make(locale, false);
+
+            Set<PathHeader> sorted = new TreeSet<>();
+            for (String path : cldrFile) {
+                PathHeader ph = pathHeaderFactory.fromPath(path);
+                sorted.add(ph);
+            }
+
+            for (Phase phase : Arrays.asList(Phase.SUBMISSION, Phase.VETTING)) {
+                for (CheckStatus.Type status : Arrays.asList(CheckStatus.warningType, CheckStatus.errorType)) {
+                    dummyPathValueInfo.checkStatusType = status;
+
+                    for (PathHeader ph : sorted) {
+                        String path = ph.getOriginalPath();
+
+                        //String phString = ph.toString();
+                        SurveyToolStatus surveyToolStatus = ph.getSurveyToolStatus();
+                        dummyPathValueInfo.xpath = path;
+                        dummyPathValueInfo.lastReleaseValue = cldrFileUnresolved.getStringValue(path);
+                        StatusAction action = phase.getShowRowAction(
+                            dummyPathValueInfo, 
+                            InputMethod.DIRECT, 
+                            surveyToolStatus, 
+                            dummyUserInfo);
+
+                        if (surveyToolStatus == SurveyToolStatus.HIDE) {
+                            assertEquals("HIDE ==> FORBID_READONLY", StatusAction.FORBID_READONLY, action);
+                        } else if (CheckCLDR.LIMITED_SUBMISSION) {
+                            if (status == CheckStatus.Type.Error) {
+                                assertEquals("ERROR ==> ALLOW", StatusAction.ALLOW, action);
+                            } else if (locale.equalsIgnoreCase("vo")) {
+                                assertEquals("vo ==> FORBID_READONLY", StatusAction.FORBID_READONLY, action);
+                            } else if (dummyPathValueInfo.lastReleaseValue == null) {
+                                assertEquals("missing ==> ALLOW", StatusAction.ALLOW, action);
+                            }
+                        }
+
+                        if (isVerbose()) {
+                            Key key = new Key(locale, phase, status, surveyToolStatus, action);
+                            counter.add(key,1);
+
+                            if (!actionToExamplePath.containsKey(key)) {
+                                // for debugging
+                                if (locale.equals("vo") && action == StatusAction.ALLOW) {
+                                    StatusAction action2 = phase.getShowRowAction(
+                                        dummyPathValueInfo, 
+                                        InputMethod.DIRECT, 
+                                        surveyToolStatus, 
+                                        dummyUserInfo);
+                                }
+                                actionToExamplePath.put(key, Pair.of(dummyPathValueInfo.lastReleaseValue != null, path));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (isVerbose()) {
+            for (Entry<Key, Pair<Boolean, String>> entry : actionToExamplePath.entrySet()) {
+                System.out.print("\n" + entry.getKey() + "\t" + entry.getValue().getFirst() + "\t" + entry.getValue().getSecond());
+            }
+            System.out.println();
+            for (R2<Long, Key> entry : counter.getEntrySetSortedByCount(false, null)) {
+                System.out.println(entry.get0() + "\t" + entry.get1());
+            }
+        }
+    }
+
+    static class Key extends R5<Phase, CheckStatus.Type, SurveyToolStatus, StatusAction, String> {
+        public Key(String locale, Phase phase, CheckStatus.Type status, SurveyToolStatus stStatus, StatusAction action) {
+            super(phase, status, stStatus, action, locale);
+        }
+        @Override
+        public String toString() {
+            return  get0() + "\t" + get1() + "\t" + get2() + "\t" + get3() + "\t" + get4();
+        }
+    }
+
+//    private static CLDRURLS URLS = testInfo.urls();
+
+    private static final PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(testInfo.getEnglish());
+
+//    private static final CoverageInfo coverageInfo = new CoverageInfo(testInfo.getSupplementalDataInfo());
+
+    private static final VoterInfo dummyVoterInfo = new VoterInfo(Organization.cldr, 
+        org.unicode.cldr.util.VoteResolver.Level.vetter, 
+        "somename");
+
+    private static final UserInfo dummyUserInfo = new UserInfo() {
+        public VoterInfo getVoterInfo() {
+            return dummyVoterInfo;
+        }
+    };
+
+    private static class DummyPathValueInfo implements PathValueInfo {
+        private CLDRLocale locale;
+        private String xpath;
+        private String lastReleaseValue;
+        private CheckStatus.Type checkStatusType;
+
+        private CandidateInfo candidateInfo = new CandidateInfo() {
+            @Override
+            public String getValue() {
+                throw new UnsupportedOperationException();
+            }
+            @Override
+            public Collection<UserInfo> getUsersVotingOn() {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public List<CheckStatus> getCheckStatusList() {
+                return checkStatusType == null ? Collections.emptyList()
+                    : Collections.singletonList(new CheckStatus().setMainType(checkStatusType));
+            }
+
+        };
+
+        public Collection<? extends CandidateInfo> getValues() {
+            throw new UnsupportedOperationException();
+        }
+        public CandidateInfo getCurrentItem() {
+            return candidateInfo;
+        }
+        public String getLastReleaseValue() {
+            return lastReleaseValue;
+        }
+        public Level getCoverageLevel() {
+            return Level.MODERN;
+        }
+        public boolean hadVotesSometimeThisRelease() {
+            throw new UnsupportedOperationException();
+        }
+        public CLDRLocale getLocale() {
+            return locale;
+        }
+        public String getXpath() {
+            return xpath;
         }
     }
 }

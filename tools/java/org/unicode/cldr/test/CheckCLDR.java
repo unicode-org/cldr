@@ -33,6 +33,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PatternCache;
@@ -67,6 +68,9 @@ import com.ibm.icu.util.ICUUncheckedIOException;
  * @author davis
  */
 abstract public class CheckCLDR {
+
+    public static final boolean LIMITED_SUBMISSION = true; // TODO represent differently
+
     private static CLDRFile displayInformation;
 
     private CLDRFile cldrFileToCheck;
@@ -100,7 +104,11 @@ abstract public class CheckCLDR {
         /**
          * Disallow (for various reasons)
          */
-        FORBID_ERRORS(true), FORBID_READONLY(true), FORBID_UNLESS_DATA_SUBMISSION(true), FORBID_COVERAGE(true), FORBID_NEEDS_TICKET(true);
+        FORBID_ERRORS(true), 
+        FORBID_READONLY(true), 
+        FORBID_UNLESS_DATA_SUBMISSION(true), 
+        FORBID_COVERAGE(true), 
+        FORBID_NEEDS_TICKET(true);
 
         private final boolean isForbidden;
 
@@ -162,6 +170,8 @@ abstract public class CheckCLDR {
                 : Phase.valueOf(value);
         }
 
+        static Set<String> CLDR_LOCALES;
+
         /**
          * Return whether or not to show a row, and if so, how.
          *
@@ -177,7 +187,7 @@ abstract public class CheckCLDR {
             InputMethod inputMethod,
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
-        ) {
+            ) {
 
             // always forbid deprecated items - don't show.
             if (status == SurveyToolStatus.DEPRECATED) {
@@ -198,33 +208,63 @@ abstract public class CheckCLDR {
                 return StatusAction.ALLOW;
             }
 
-            // if the coverage level is optional, disallow everything
-            if (pathValueInfo.getCoverageLevel().compareTo(Level.COMPREHENSIVE) > 0) {
-                return StatusAction.FORBID_COVERAGE;
-            }
+            // remove this since we no longer have an 'optional' level
+//            // if the coverage level is optional, disallow everything
+//            if (pathValueInfo.getCoverageLevel().compareTo(Level.COMPREHENSIVE) > 0) {
+//                return StatusAction.FORBID_COVERAGE;
+//            }
 
             if (status == SurveyToolStatus.HIDE) {
                 return StatusAction.FORBID_READONLY;
             }
 
+            CandidateInfo winner = pathValueInfo.getCurrentItem();
+            ValueStatus valueStatus = getValueStatus(winner, ValueStatus.NONE);
+            
+            boolean ALLOWED_IN_LIMITED = false;
+            if (LIMITED_SUBMISSION) {
+                // have to do lazy eval because otherwise CLDRConfig is called too early in the boot process
+                synchronized (SUBMISSION) {
+                    if (CLDR_LOCALES == null) {
+                        CLDR_LOCALES = StandardCodes.make().getLocaleToLevel(Organization.cldr).keySet();
+                    }
+                }
+                ALLOWED_IN_LIMITED = CLDR_LOCALES.contains(pathValueInfo.getLocale().toString());
+            }
             if (this == Phase.SUBMISSION) {
+                // if limited submission, and winner doesn't have an error, limit the values
+                if (LIMITED_SUBMISSION && valueStatus != ValueStatus.ERROR) {
+
+                    // all but CLDR locales are locked
+                    if (!ALLOWED_IN_LIMITED) {
+                        return StatusAction.FORBID_READONLY;
+                    } else {
+                        int debug = 0; // for debugging
+                    }
+
+                    // all items except missing are locked
+                    if (pathValueInfo.getLastReleaseValue() != null) {
+                        return StatusAction.FORBID_READONLY;
+                    } else {
+                        int debug = 0; // for debugging
+                    }
+                }
                 return (status == SurveyToolStatus.READ_WRITE || status == SurveyToolStatus.LTR_ALWAYS)
                     ? StatusAction.ALLOW
-                    : StatusAction.ALLOW_VOTING_AND_TICKET;
+                        : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
 
             // We are not in submission.
+            if (LIMITED_SUBMISSION && valueStatus != ValueStatus.ERROR && !ALLOWED_IN_LIMITED) {
+                return StatusAction.FORBID_READONLY;
+            }
+
             // Only allow ADD if we have an error or warning
-            ValueStatus valueStatus = ValueStatus.NONE;
-            CandidateInfo winner = pathValueInfo.getCurrentItem();
             // Only check winning value for errors/warnings per ticket #8677
-            // We used to check all candidates.
-//            for (CandidateInfo value : pathValueInfo.getValues()) {
-            valueStatus = getValueStatus(winner, valueStatus);
             if (valueStatus != ValueStatus.NONE) {
                 return (status == SurveyToolStatus.READ_WRITE || status == SurveyToolStatus.LTR_ALWAYS)
                     ? StatusAction.ALLOW
-                    : StatusAction.ALLOW_VOTING_AND_TICKET;
+                        : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
 //            }
 
@@ -251,7 +291,7 @@ abstract public class CheckCLDR {
             InputMethod inputMethod,
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
-        ) {
+            ) {
             if (status != SurveyToolStatus.READ_WRITE && status != SurveyToolStatus.LTR_ALWAYS) {
                 return StatusAction.FORBID_READONLY; // not writable.
             }
@@ -537,9 +577,9 @@ abstract public class CheckCLDR {
             for (Option o : Option.values()) {
                 if (options[o.ordinal()] != null) {
                     sb.append(o)
-                        .append('=')
-                        .append(options[o.ordinal()])
-                        .append(' ');
+                    .append('=')
+                    .append(options[o.ordinal()])
+                    .append(' ');
                 }
             }
             return sb.toString();
@@ -589,8 +629,8 @@ abstract public class CheckCLDR {
             .add(new CheckWidths())
             .add(new CheckPlaceHolders())
             .add(new CheckNew(factory)) // this is at the end; it will check for other certain other errors and warnings and
-        // not add a message if there are any.
-        ;
+            // not add a message if there are any.
+            ;
     }
 
     /**
@@ -997,16 +1037,16 @@ abstract public class CheckCLDR {
         public static void appendLine(StringBuffer htmlMessage, String pattern, String input, String formatted,
             String reparsed) {
             htmlMessage.append("<tr><td><input type='text' name='pattern' value='")
-                .append(TransliteratorUtilities.toXML.transliterate(pattern))
-                .append("'></td><td><input type='text' name='input' value='")
-                .append(TransliteratorUtilities.toXML.transliterate(input))
-                .append("'></td><td>")
-                .append("<input type='submit' value='Test' name='Test'>")
-                .append("</td><td>" + "<input type='text' name='formatted' value='")
-                .append(TransliteratorUtilities.toXML.transliterate(formatted))
-                .append("'></td><td>" + "<input type='text' name='reparsed' value='")
-                .append(TransliteratorUtilities.toXML.transliterate(reparsed))
-                .append("'></td></tr>");
+            .append(TransliteratorUtilities.toXML.transliterate(pattern))
+            .append("'></td><td><input type='text' name='input' value='")
+            .append(TransliteratorUtilities.toXML.transliterate(input))
+            .append("'></td><td>")
+            .append("<input type='submit' value='Test' name='Test'>")
+            .append("</td><td>" + "<input type='text' name='formatted' value='")
+            .append(TransliteratorUtilities.toXML.transliterate(formatted))
+            .append("'></td><td>" + "<input type='text' name='reparsed' value='")
+            .append(TransliteratorUtilities.toXML.transliterate(reparsed))
+            .append("'></td></tr>");
         }
 
         /**
@@ -1014,7 +1054,7 @@ abstract public class CheckCLDR {
          */
         public static void appendTitle(StringBuffer htmlMessage) {
             htmlMessage.append("<table border='1' cellspacing='0' cellpadding='2'" +
-            // " style='border-collapse: collapse' style='width: 100%'" +
+                // " style='border-collapse: collapse' style='width: 100%'" +
                 "><tr>" +
                 "<th>Pattern</th>" +
                 "<th>Unlocalized Input</th>" +
@@ -1089,8 +1129,8 @@ abstract public class CheckCLDR {
          */
         // if (value == cldrFileToCheck.getBaileyValue(path, null, null) && value != cldrFileToCheck.getWinningValue(path)) {
         if (value != null
-                && value.equals(cldrFileToCheck.getBaileyValue(path, null, null))
-                && !value.equals(cldrFileToCheck.getWinningValue(path))) {
+            && value.equals(cldrFileToCheck.getBaileyValue(path, null, null))
+            && !value.equals(cldrFileToCheck.getWinningValue(path))) {
             return this;
         }
         // If we're being asked to run tests for an inheritance marker, then we need to change it
@@ -1259,7 +1299,7 @@ abstract public class CheckCLDR {
                 .setMessage("Internal error in {0}. Exception: {1}, Message: {2}, Trace: {3}",
                     new Object[] { item.getClass().getName(), e.getClass().getName(), e,
                         Arrays.asList(e.getStackTrace())
-                    }));
+                }));
         }
 
         public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,

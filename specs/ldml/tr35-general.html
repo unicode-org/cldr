@@ -1258,14 +1258,14 @@
     <table>
       <tr>
         <td><code>unit_identifier</code></td>
-        <td><code>:= type "-" unit</code></td>
+        <td><code>:= type "-" <span class="removed">unit</span><span class="changed">core_unit_identifier</span></code></td>
       </tr>
       <tr>
         <td><code>type</code></td>
         <td><code>:= [a-z]+</code></td>
       </tr>
       <tr>
-        <td><code>unit</code></td>
+        <td><code class="removed">unit</code><code class="changed">core_unit_identifier</code></td>
         <td><code class="removed">:=
         [a-z]+([-][a-z]+)*<br></code><code class="changed">:=
         compound_unit | simple_unit</code></td>
@@ -1283,18 +1283,17 @@
     <p class="removed">Example:</p>
     <p class="removed xmlExample">&lt;unit
     type="acceleration-g-force"&gt;</p>
-    <p class="changed">The <code>unit</code> part (e.g.,
-    <code>day</code>) is known as an <em>unqualified unit
-    identifier</em>. Both the unit identifier and the unqualified
-    unit identifier are guaranteed to be unique, and clients can
-    use either one to identify a unit. The associations between
-    types and units are as prescribed in CLDR data; it is invalid
-    for a client to create any additional associations. Except as
-    specified in <em>Section 6.6 <a href=
-    "#Private_Use_Units">Private-Use Units</a></em>, all values for
-    <code>type</code> and <code>simple_unit</code>​ are reserved by
-    CLDR. It is valid to construct a <code>compound_unit</code>
-    with any two valid <code>simple_unit</code>s; the first
+    <p class="changed">Both the unit identifier and the <em>core unit
+    identifier</em> (e.g., <code>day</code>) are guaranteed to be
+    unique, and clients can use either one to identify a unit. The
+    associations between types and core unit identifiers are as
+    prescribed in CLDR data; it is invalid for a client to create any
+    additional associations. Except as specified in <em>Section 6.6
+    <a href="#Private_Use_Units">Private-Use Units</a></em>, all
+    values for <code>type</code> and <code>simple_unit</code>​ are
+    reserved by CLDR. It is valid to construct a
+    <code>compound_unit</code> with any two valid
+    <code>simple_unit</code>s; the first
     <code>simple_unit</code> in a <code>compound_unit</code> is
     called the <em>numerator</em>, and the second
     <code>simple_unit</code> in a <code>compound_unit</code> is
@@ -1316,8 +1315,7 @@
     <table>
       <tr>
         <th>Type</th>
-        <th>Unit<br>
-        (<em>Unqualified Unit Identifier</em>)</th>
+        <th class="changed">Core Unit Identifier</th>
         <th class="changed">Compound?</th>
         <th>Sample Format</th>
       </tr>
@@ -2344,21 +2342,22 @@
       id="Private_Use_Units">Private-Use Units</a></h3>
       <p>CLDR has reserved the <code>"x-"</code> prefix in the
       <code>simple_unit</code> part of the unit identifer BNF for
-      private-use units. CLDR will never define a type or unit such
-      that the unit identifier starts with <code>"x-"</code>, ends
-      with <code>"-x"</code>, or contains <code>"-x-"</code>.</p>
+      private-use units. CLDR will never define a type, simple unit,
+      or compound unit such that the unit identifier starts with
+      <code>"x-"</code>, ends with <code>"-x"</code>, or contains
+      <code>"-x-"</code>.</p>
       <p>For example, if you wanted to define your own unit "foo",
-      you could use the unqualified unit identifier
+      you could use the simple unit
       <code>"x-foo"</code>.</p>
       <p>It is valid to construct compound units containing one or
       more private-use simple units. For example,
       <code>"x-foo-per-second"</code> and
-      <code>"x-foo-per-x-bar"</code> are both valid unqualified
+      <code>"x-foo-per-x-bar"</code> are both valid core
       unit identifiers for compound units.</p>
       <p>As explained earlier, CLDR defines all associations
       between types and units. It is therefore not possible to
       construct a valid unit identifier containing a private-use
-      unit; only unqualified unit identifiers are possible.</p>
+      unit; only core unit identifiers are possible.</p>
     </div>
     <h2>7 <a name="POSIX_Elements" href="#POSIX_Elements" id=
     "POSIX_Elements">POSIX Elements</a></h2>

@@ -2632,7 +2632,7 @@ public class DataSection implements JSONString {
     private void populateFrom(CLDRFile ourSrc, TestResultBundle checkCldr, String workingCoverageLevel) {
         XPathParts xpp = new XPathParts(null, null);
         STFactory stf = sm.getSTFactory();
-        CLDRFile oldFile = stf.getOldFile(locale);
+        CLDRFile oldFile = stf.getOldFileResolved(locale);
         diskFile = stf.getDiskFile(locale);
         List<CheckStatus> examplesResult = new ArrayList<CheckStatus>();
         String workPrefix = xpathPrefix;

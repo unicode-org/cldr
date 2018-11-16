@@ -4701,8 +4701,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     throw new InternalError(msg);
                 }
             }
-            File oldCommonA = new File(oldBase, "common/main");
-            File oldSeedA = new File(oldBase, "seed/main");
+            File oldCommonA = new File(oldBase, "common/annotations");
+            File oldSeedA = new File(oldBase, "seed/annotations");
             oldCommonA.mkdirs(); // may not exist
             oldSeedA.mkdirs(); // may not exist
 

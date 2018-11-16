@@ -355,6 +355,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         private CLDRFile file = null, rFile = null;
         private CLDRLocale locale;
         private CLDRFile oldFile;
+        private CLDRFile oldFileUnresolved;
         private boolean readonly;
         private MutableStamp stamp = null;
 
@@ -809,12 +810,24 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
         }
 
-        public synchronized CLDRFile getOldFile() {
-            if (oldFile == null && !oldFileMissing) {
+        public synchronized CLDRFile getOldFileResolved() {
+            if (oldFileMissing) { // common flag across both resolve and unresolved
+                return null;
+            } else if (oldFile == null) {
                 oldFile = sm.getOldFile(locale, true);
                 oldFileMissing = (oldFile == null); // if we get null, it's because the file wasn't available.
             }
             return oldFile;
+        }
+
+        public synchronized CLDRFile getOldFileUnresolved() {
+            if (oldFileMissing) { // common flag across both resolve and unresolved
+                return null;
+            } else if (oldFileUnresolved == null) {
+                oldFileUnresolved = sm.getOldFile(locale, false);
+                oldFileMissing = (oldFileUnresolved == null); // if we get null, it's because the file wasn't available.
+            }
+            return oldFileUnresolved;
         }
 
         // public VoteResolver<String> getResolver(Map<User, String> m, String
@@ -946,16 +959,18 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             // Set established locale
             r.setLocale(locale, getPathHeader(path));
 
-            CLDRFile anOldFile = getOldFile();
-            if (anOldFile == null)
-                anOldFile = diskFile; // use 'current' for 'previous' if
+            // ticket:11427 we only want *unresolved* last values 
+            // and if the old file is missing, treat as empty.
+            CLDRFile anOldFile = getOldFileUnresolved(); 
+//            if (anOldFile == null)
+//                anOldFile = diskFile; // use 'current' for 'previous' if
             // previous is missing.
 
             // set prior release (if present)
-            final String lastValue = anOldFile.getStringValue(path);
-            final Status lastStatus = getStatus(anOldFile, path, lastValue);
+            final String lastValue = anOldFile == null ? null : anOldFile.getStringValue(path);
+            final Status lastStatus = lastValue == null ? Status.missing : getStatus(anOldFile, path, lastValue);
             if (ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(lastValue)) {
-                r.setLastRelease(lastValue, lastValue == null ? Status.missing : lastStatus); /* add the last release value */
+                r.setLastRelease(lastValue, lastStatus); /* add the last release value */
             } else {
                 r.setLastRelease(null, Status.missing); /* missing last release value  due to error. */
             }
@@ -2104,8 +2119,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * @param locale
      * @return
      */
-    public CLDRFile getOldFile(CLDRLocale locale) {
-        return get(locale).getOldFile();
+    public CLDRFile getOldFileResolved(CLDRLocale locale) {
+        return get(locale).getOldFileResolved();
     }
 
     /**

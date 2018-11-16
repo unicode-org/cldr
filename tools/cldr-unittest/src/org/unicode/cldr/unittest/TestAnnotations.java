@@ -316,7 +316,8 @@ public class TestAnnotations extends TestFmwkPlus {
     public void testListFormatter() {
         Object[][] tests = {
             {"en", ListTypeLength.NORMAL, "ABC", "A, B, and C"},
-            {"en", ListTypeLength.AND_SHORT, "ABC", "A, B, and C"},
+            {"en", ListTypeLength.AND_SHORT, "ABC", "A, B, & C"},
+            {"en", ListTypeLength.AND_NARROW, "ABC", "A, B, C"},
             {"en", ListTypeLength.OR_WIDE, "ABC", "A, B, or C"}
         };
         Factory factory = CLDRConfig.getInstance().getCldrFactory();

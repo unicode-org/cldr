@@ -17,7 +17,10 @@ public class XListFormatter {
     public enum ListTypeLength {
         AND_WIDE(""), 
         AND_SHORT("[@type=\"standard-short\"]"), 
+        AND_NARROW("[@type=\"standard-narrow\"]"), 
         OR_WIDE("[@type=\"or\"]"), 
+        OR_SHORT("[@type=\"or-short\"]"), 
+        OR_NARROW("[@type=\"or-narrow\"]"), 
         UNIT_WIDE("[@type=\"unit\"]"), 
         UNIT_SHORT("[@type=\"unit-short\"]"), 
         UNIT_NARROW("[@type=\"unit-narrow\"]")

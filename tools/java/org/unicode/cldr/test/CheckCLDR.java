@@ -219,6 +219,9 @@ abstract public class CheckCLDR {
             }
 
             CandidateInfo winner = pathValueInfo.getCurrentItem();
+            if ("тлусты".equals(winner.getValue())) {
+                int debug = 0;
+            }
             ValueStatus valueStatus = getValueStatus(winner, ValueStatus.NONE);
             
             boolean ALLOWED_IN_LIMITED = false;

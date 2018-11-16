@@ -661,7 +661,7 @@ public class TestCheckCLDR extends TestFmwk {
         private CandidateInfo candidateInfo = new CandidateInfo() {
             @Override
             public String getValue() {
-                throw new UnsupportedOperationException();
+                return null;
             }
             @Override
             public Collection<UserInfo> getUsersVotingOn() {

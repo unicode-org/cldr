@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision: 11914 $"/>
+		<language type="fil" /> 
+	</identity>
+		<collations >
+			<collation type="standard" references="http://std.dkuug.dk/jtc1/sc2/wg2/docs/N2300.htm (N2165)">
+				<cr><![CDATA[
+					&N<ñ<<<Ñ<ng<<<Ng<<<NG
+				]]></cr>
+			</collation>
+		</collations>
+</ldml>

@@ -961,10 +961,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
             // ticket:11427 we only want *unresolved* last values 
             // and if the old file is missing, treat as empty.
-            CLDRFile anOldFile = getOldFileUnresolved(); 
-//            if (anOldFile == null)
-//                anOldFile = diskFile; // use 'current' for 'previous' if
-            // previous is missing.
+            CLDRFile anOldFile = getOldFileResolved(); 
+            if (anOldFile == null) {
+                anOldFile = diskFile; // use 'current' for 'previous' if previous is missing.
+            }
 
             // set prior release (if present)
             final String lastValue = anOldFile == null ? null : anOldFile.getStringValue(path);

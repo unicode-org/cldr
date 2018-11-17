@@ -65,6 +65,7 @@ import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.UserRegistry.User;
 
+import com.google.common.collect.ImmutableList;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.Output;
 
@@ -349,7 +350,7 @@ public class DataSection implements JSONString {
              * @return true if any valid tests were found, else false
              */
             private boolean setTests(List<CheckStatus> testList) {
-                tests = testList;
+                tests = ImmutableList.copyOf(testList);
                 // only consider non-example tests as notable.
                 boolean weHaveTests = false;
                 int errorCount = 0;
@@ -632,6 +633,11 @@ public class DataSection implements JSONString {
         private String oldValue;
         
         /**
+         * The status for this DataRow in the previous release version.
+         */
+        private Status oldStatus;
+
+        /**
          * The PathHeader for this DataRow, assigned in the constructor based on xpath.
          */
         private PathHeader pathHeader;
@@ -663,6 +669,7 @@ public class DataSection implements JSONString {
             confirmStatus = resolver.getWinningStatus();
 
             oldValue = resolver.getLastReleaseValue();
+            oldStatus = resolver.getLastReleaseStatus();
 
             this.displayName = baselineFile.getStringValue(xpath);
         }
@@ -1573,6 +1580,14 @@ public class DataSection implements JSONString {
         @Override
         public String getLastReleaseValue() {
             return oldValue;
+        }
+
+        /**
+         * Get the last release value for this DataRow
+         */
+        @Override
+        public Status getLastReleaseStatus() {
+            return oldStatus;
         }
 
         /**

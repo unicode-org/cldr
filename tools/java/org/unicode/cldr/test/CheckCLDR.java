@@ -42,6 +42,7 @@ import org.unicode.cldr.util.RegexFileParser.RegexLineParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoteResolver.Status;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.impl.Row.R3;
@@ -246,7 +247,7 @@ abstract public class CheckCLDR {
                     }
 
                     // all items except missing are locked
-                    if (pathValueInfo.getLastReleaseValue() != null) {
+                    if (pathValueInfo.getLastReleaseStatus() != Status.missing) {
                         return StatusAction.FORBID_READONLY;
                     } else {
                         int debug = 0; // for debugging

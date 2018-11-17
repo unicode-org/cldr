@@ -223,7 +223,7 @@ abstract public class CheckCLDR {
             if (winner != null && "тлусты".equals(winner.getValue())) {
                 int debug = 0;
             }
-            ValueStatus valueStatus = getValueStatus(winner, ValueStatus.NONE);
+            ValueStatus valueStatus = getValueStatus(winner, ValueStatus.NONE, null);
             
             boolean ALLOWED_IN_LIMITED = false;
             if (LIMITED_SUBMISSION) {
@@ -316,7 +316,7 @@ abstract public class CheckCLDR {
             }
 
             // Disallow errors.
-            ValueStatus valueStatus = getValueStatus(enteredValue, ValueStatus.NONE);
+            ValueStatus valueStatus = getValueStatus(enteredValue, ValueStatus.NONE, CheckStatus.crossCheckSubtypes);
             if (valueStatus == ValueStatus.ERROR) {
                 return StatusAction.FORBID_ERRORS;
             }
@@ -332,7 +332,7 @@ abstract public class CheckCLDR {
                 if (value == enteredValue) {
                     return StatusAction.ALLOW;
                 }
-                valueStatus = getValueStatus(value, valueStatus);
+                valueStatus = getValueStatus(value, valueStatus, CheckStatus.crossCheckSubtypes);
             }
 
             // If there were any errors/warnings on other values, allow
@@ -350,7 +350,7 @@ abstract public class CheckCLDR {
             ERROR, WARNING, NONE
         }
 
-        private ValueStatus getValueStatus(CandidateInfo value, ValueStatus previous) {
+        private ValueStatus getValueStatus(CandidateInfo value, ValueStatus previous, Set<Subtype> changeErrorToWarning) {
             if (previous == ValueStatus.ERROR || value == null) {
                 return previous;
             }
@@ -358,7 +358,7 @@ abstract public class CheckCLDR {
             for (CheckStatus item : value.getCheckStatusList()) {
                 CheckStatus.Type type = item.getType();
                 if (type.equals(CheckStatus.Type.Error)) {
-                    if (CheckStatus.crossCheckSubtypes.contains(item.getSubtype())) {
+                    if (changeErrorToWarning != null && changeErrorToWarning.contains(item.getSubtype())) {
                         return ValueStatus.WARNING;
                     } else {
                         return ValueStatus.ERROR;
@@ -770,6 +770,9 @@ abstract public class CheckCLDR {
             static Pattern TO_STRING = PatternCache.get("([A-Z])");
         };
 
+        /** 
+         * These error don't prevent entry during submission, since they become valid if a different row is changed.
+         */
         public static EnumSet<Subtype> crossCheckSubtypes = EnumSet.of(
             Subtype.dateSymbolCollision,
             Subtype.displayCollision,

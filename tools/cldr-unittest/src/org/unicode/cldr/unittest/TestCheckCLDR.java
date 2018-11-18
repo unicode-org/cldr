@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -33,6 +34,7 @@ import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
@@ -48,10 +50,12 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
+import com.google.common.base.Objects;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R5;
@@ -697,5 +701,51 @@ public class TestCheckCLDR extends TestFmwk {
         public String getXpath() {
             return xpath;
         }
+    }
+    
+    /**
+     * Check that the English changes are captured
+     */
+    public void TestALLOWED_IN_LIMITED_PATHS() {
+        CLDRConfig conf = testInfo;
+        Factory factory = conf.getMainAndAnnotationsFactory();
+        File[] paths = {
+            new File(CLDRPaths.LAST_COMMON_DIRECTORY + "main/"),
+            new File(CLDRPaths.LAST_COMMON_DIRECTORY + "annotations/"),
+        };
+        Factory factoryOld = SimpleFactory.make(paths, ".*");
+
+        CLDRFile english = factory.make("en", true);
+        CLDRFile oldEnglish = factoryOld.make("en", true);
+        Set<String> newPaths = new TreeSet<>();
+        Set<String> diffValues = new TreeSet<>();
+        for (String path : english) {
+            if (path.contains("/alias")) {
+                continue;
+            }
+            String value = english.getStringValue(path);
+            String valueOld = oldEnglish.getStringValue(path);
+            boolean isDiff = false;
+            if (valueOld == null) {
+                newPaths.add(path);
+            } else if (!Objects.equal(value, valueOld)) {
+                diffValues.add(path);
+                isDiff = true;
+            }
+            boolean regexMatch = CheckCLDR.Phase.ALLOWED_IN_LIMITED_PATHS.matcher(path).lookingAt();
+            if (isDiff && !regexMatch) {
+                errln("Match fails with " + path);
+            } if (!isDiff && regexMatch) {
+                if (path.endsWith("/listPatternPart[@type=\"start\"]") 
+                    || path.endsWith("/listPatternPart[@type=\"middle\"]") 
+                    || path.endsWith("[@type=\"tts\"]") 
+                    || path.endsWith("[@cp=\"🧩\"]") 
+                    ) {
+                    continue;
+                }
+                errln("Match overshoots with " + path);
+            }
+        }
+
     }
 }

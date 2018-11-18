@@ -172,6 +172,12 @@ abstract public class CheckCLDR {
         }
 
         static Set<String> CLDR_LOCALES;
+        public static final Pattern ALLOWED_IN_LIMITED_PATHS = Pattern.compile(
+            "//ldml/"
+            + "(listPatterns/listPattern\\[@type=\"standard"
+            + "|annotations/annotation\\[@cp=\"([©®‼⁉☑✅✔✖✨✳✴❇❌❎❓-❕❗❣ ➕-➗👫-👭👱🥰🧩]|👱‍♀|👱‍♂)\""
+            + "|localeDisplayNames/scripts/script\\[@type=\"(Elym|Hmnp|Nand|Wcho)\""
+            + ")");
 
         /**
          * Return whether or not to show a row, and if so, how.
@@ -247,9 +253,11 @@ abstract public class CheckCLDR {
                     }
 
                     // all items except missing are locked
-                    if (pathValueInfo.getLastReleaseStatus() != Status.missing) {
+                    if (pathValueInfo.getLastReleaseStatus() != Status.missing
+                        && !ALLOWED_IN_LIMITED_PATHS.matcher(pathValueInfo.getXpath()).lookingAt()) {
                         return StatusAction.FORBID_READONLY;
                     } else {
+                        String s = pathValueInfo.getXpath();
                         int debug = 0; // for debugging
                     }
                 }

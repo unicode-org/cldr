@@ -707,6 +707,10 @@ public class TestCheckCLDR extends TestFmwk {
      * Check that the English changes are captured
      */
     public void TestALLOWED_IN_LIMITED_PATHS() {
+        if (logKnownIssue("cldrbug:11583", "Comment out test until last release data is available for unit tests")) {
+            return;
+        }
+        
         CLDRConfig conf = testInfo;
         Factory factory = conf.getMainAndAnnotationsFactory();
         File[] paths = {

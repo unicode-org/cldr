@@ -24,7 +24,7 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class CheckDisplayCollisions extends FactoryCheckCLDR {
-    private static final String DEBUG_PATH = null; // example: "//ldml/dates/fields/field[@type=\"sun-narrow\"]/relative[@type=\"-1\"]";
+    private static final String DEBUG_PATH_PART = "-mass"; // example: "//ldml/dates/fields/field[@type=\"sun-narrow\"]/relative[@type=\"-1\"]";
     /**
      * Set to true to get verbose logging of path removals
      */
@@ -52,7 +52,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     private static enum Type {
         LANGUAGE("//ldml/localeDisplayNames/languages/language", MatchType.PREFIX, 0),
         SCRIPT("//ldml/localeDisplayNames/scripts/script", MatchType.PREFIX, 1),
-        TERRITORY("//ldml/localeDisplayNames/territories/territory", MatchType.PREFIX, 2),
+        TERRITORY("//ldml/localeDisplayNames/(territories/territory|subdivisions/subdivision\\[@type=\"gb(eng|sct|wls)\")", MatchType.REGEX, 2),
         VARIANT("//ldml/localeDisplayNames/variants/variant", MatchType.PREFIX, 3),
         CURRENCY("//ldml/numbers/currencies/currency", MatchType.PREFIX, 4),
         ZONE("//ldml/dates/timeZoneNames/zone", MatchType.PREFIX, 5),
@@ -244,9 +244,11 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
 
-        if (path.contains("minimalPairs")) {
+        // get the paths with the same value. If there aren't duplicates, continue;
+        if (DEBUG_PATH_PART != null & path.contains(DEBUG_PATH_PART)) {
             int debug = 0;
         }
+
         if (value == null || value.length() == 0) {
             return this;
         }
@@ -265,10 +267,6 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             return this;
         }
 
-        // get the paths with the same value. If there aren't duplicates, continue;
-        if (path.equals(DEBUG_PATH)) {
-            int debug = 0;
-        }
 
         Matcher matcher = null;
         String message = "Can't have same translation as {0}. Please change either this name or the other one. "
@@ -316,10 +314,10 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 }
             }
             // account for collisions with England and the UK. Error message is a bit off for now.
-            String subdivisionPath = nameToSubdivisionId.get(value);
-            if (subdivisionPath != null) {
-                paths.add(subdivisionPath);
-            }
+//            String subdivisionPath = nameToSubdivisionId.get(value);
+//            if (subdivisionPath != null) {
+//                paths.add(subdivisionPath);
+//            }
             paths.addAll(duplicatePaths);
         }
 
@@ -565,7 +563,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         Matcher currentAttributesToIgnore,
         Equivalence equivalence) {
 
-        if (path.equals(DEBUG_PATH)) {
+        if (DEBUG_PATH_PART != null & path.contains(DEBUG_PATH_PART)) {
             int debug = 0;
         }
 
@@ -635,7 +633,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         return locale.equals(XMLSource.CODE_FALLBACK_ID);
     }
 
-    private Map<String,String> nameToSubdivisionId = Collections.emptyMap();
+//    private Map<String,String> nameToSubdivisionId = Collections.emptyMap();
 
     @Override
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
@@ -643,7 +641,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         // pick up the 3 subdivisions
-        nameToSubdivisionId = EmojiSubdivisionNames.getNameToSubdivisionPath(cldrFileToCheck.getLocaleID());
+//        nameToSubdivisionId = EmojiSubdivisionNames.getNameToSubdivisionPath(cldrFileToCheck.getLocaleID());
         return this;
     }
 

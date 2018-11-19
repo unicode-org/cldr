@@ -319,6 +319,13 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 //                paths.add(subdivisionPath);
 //            }
             paths.addAll(duplicatePaths);
+        } else if (myType == Type.ANNOTATIONS) { 
+            // make sure that annotations don't have same value as regions, eg “日本” for 🇯🇵 & 🗾
+            // NOTE: this is an asymmetric test; we presume the name of the region is ok.
+            Set<String> duplicatePaths = getPathsWithValue(
+                getResolvedCldrFileToCheck(), path, value, Type.TERRITORY,
+                Type.TERRITORY.getPrefix(), null, currentAttributesToIgnore, Equivalence.normal);
+            paths.addAll(duplicatePaths);
         }
 
         // Group territories into emoji (but asymmetric! — if a territory has the same name as an emoji, it is the emoji's fault!

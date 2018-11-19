@@ -44,6 +44,7 @@ import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
 
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.ListFormatter;
@@ -178,6 +179,7 @@ abstract public class CheckCLDR {
             + "|annotations/annotation\\[@cp=\"([©®‼⁉☑✅✔✖✨✳✴❇❌❎❓-❕❗❣ ➕-➗👫-👭👱🥰🧩]|👱‍♀|👱‍♂)\""
             + "|localeDisplayNames/scripts/script\\[@type=\"(Elym|Hmnp|Nand|Wcho)\""
             + ")");
+        static Set<String> HIGH_LEVEL_LOCALES = ImmutableSet.of("chr", "gd", "fo");
 
         /**
          * Return whether or not to show a row, and if so, how.
@@ -236,7 +238,9 @@ abstract public class CheckCLDR {
                 // have to do lazy eval because otherwise CLDRConfig is called too early in the boot process
                 synchronized (SUBMISSION) {
                     if (CLDR_LOCALES == null) {
-                        CLDR_LOCALES = StandardCodes.make().getLocaleToLevel(Organization.cldr).keySet();
+                        CLDR_LOCALES = ImmutableSet.<String>builder()
+                            .addAll(HIGH_LEVEL_LOCALES)
+                            .addAll(StandardCodes.make().getLocaleToLevel(Organization.cldr).keySet()).build();
                     }
                 }
                 ALLOWED_IN_LIMITED = CLDR_LOCALES.contains(pathValueInfo.getLocale().toString());

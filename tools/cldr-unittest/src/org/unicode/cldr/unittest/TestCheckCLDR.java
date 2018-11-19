@@ -28,6 +28,9 @@ import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.CheckForExemplars;
 import org.unicode.cldr.test.CheckNames;
 import org.unicode.cldr.test.CheckNew;
+import org.unicode.cldr.test.SimpleTestCache;
+import org.unicode.cldr.test.TestCache;
+import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
@@ -110,6 +113,55 @@ public class TestCheckCLDR extends TestFmwk {
         for (String path : english) {
             c.check(path, english.getFullXPath(path),
                 english.getStringValue(path), options, possibleErrors);
+        }
+    }
+
+    /**
+     * Test the SimpleTestCache and TestResultBundle objects
+     */
+    public void TestSimpleTestCache() {
+        String localeString = "en";
+        CLDRLocale locale = CLDRLocale.getInstance(localeString);
+        CheckCLDR.Options checkCldrOptions = new Options(locale, Phase.SUBMISSION, "default", "basic");
+        TestCache testCache = new SimpleTestCache();
+        testCache.setFactory(testInfo.getCldrFactory(), ".*", CheckCLDR.getDisplayInformation()); 
+        TestResultBundle bundle = testCache.getBundle(checkCldrOptions);
+        final CLDRFile cldrFile = testInfo.getCLDRFile(localeString, true);
+        /*
+         * Loop through the set of paths twice. The second time should be much faster.
+         * Measured times for the two passes, without pathCache in TestResultBundle,
+         * 4017 and 3293 milliseconds. With pathCache, 4125 and 46 milliseconds.
+         * That's with locale "en", all 19698 paths. Results for "fr" were similar.
+         * To save time, limit the number of paths if getInclusion() is small.
+         * A thousand paths take about half a second to loop through twice.
+         */
+        int maxPathCount = (getInclusion() < 5) ? 1000 : 100000;
+        double[] deltaTime = {0, 0};
+        for (int i = 0; i < 2; i++) {
+            List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
+            int pathCount = 0;
+            double startTime = System.currentTimeMillis();
+            for (String path : cldrFile) {
+                String fullPath = cldrFile.getFullXPath(path);
+                String value = cldrFile.getStringValue(path);
+                bundle.check(fullPath, possibleErrors, value);
+                if (++pathCount == maxPathCount) {
+                    break;
+                }
+            }
+            deltaTime[i] = System.currentTimeMillis() - startTime;
+            /*
+             * Expect possibleErrors to have size zero.
+             * A future enhancement of this test could modify some values to force errors,
+             * and confirm that the errors are returned identically the first and second times. 
+             */
+            assertEquals("possibleErrors, loop index " + i, possibleErrors.size(), 0);
+        }
+        /*
+         * Expect second time to be about a hundredth of first time; error if more than a fiftieth.
+         */
+        if (deltaTime[1] > deltaTime[0] / 50) {
+            errln("TestResultBundle cache should yield more benefit: times " + deltaTime[0] +  " and " + deltaTime[1]);
         }
     }
 

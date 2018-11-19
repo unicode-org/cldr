@@ -149,7 +149,7 @@ public class SimpleXMLSource extends XMLSource {
     static final Normalizer2 NFKC = Normalizer2.getNFKCInstance();
 
     // The following includes letters, marks, numbers, currencies, and *selected* symbols/punctuation
-    static final UnicodeSet NON_ALPHANUM = new UnicodeSet("[^[:L:][:M:][:N:][:Sc:]/+\\-°′″%‰٪؉−⍰()]").freeze();
+    static final UnicodeSet NON_ALPHANUM = new UnicodeSet("[^[:L:][:M:][:N:][:Sc:]/+\\-°′″%‰٪؉−⍰()⊕☉]").freeze();
 
     public static String normalize(String valueToMatch) {
         return replace(NON_ALPHANUM, NFKCCF.normalize(valueToMatch), "");

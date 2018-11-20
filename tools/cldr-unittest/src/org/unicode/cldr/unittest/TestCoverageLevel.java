@@ -594,11 +594,14 @@ public class TestCoverageLevel extends TestFmwkPlus {
                         if (!request.equals("Timezone")) {
                             continue;
                         }
-                    }
-                    if (element.equals("dayPeriod")) {
+                    } else if (element.equals("dayPeriod")) {
                         if ("variant".equals(xpp.findAttributeValue("dayPeriod", "alt"))) {
                             continue;
                         }
+                    } else if (element.equals("dateFormatItem")) {
+                        //ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']
+                        assertEquals(path, Level.BASIC, lvl);
+                        continue;
                     }
                 }
             } else if (path.startsWith("//ldml/units")) {

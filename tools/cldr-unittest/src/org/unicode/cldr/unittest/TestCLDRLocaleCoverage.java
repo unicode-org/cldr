@@ -12,6 +12,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.tool.MinimizeRegex;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
@@ -35,8 +36,6 @@ import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.text.UnicodeSet;
-
-import doc.org.unicode.cldr.tool.MinimizeRegex;
 
 public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     private static StandardCodes sc = StandardCodes.make();

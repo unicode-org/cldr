@@ -362,7 +362,15 @@ public class TestCoverageLevel extends TestFmwkPlus {
             + "was|wbp|wuu|"
             + "xmf|"
             + "ya[op]|yrl|"
-            + "zap?|zbl|ze[an])");
+            + "zap?|zbl|ze[an]|"
+            + "gil|tlh|gil|tlh|tet|ro_MD|ss|new|ba|iu|suk|kmb|rup|sms|udm|lus|gn|ada|kbd|kcg|eka|"
+            + "dak|nap|bin|arn|kfo|ch|ab|fa_AF|kac|ty|tvl|arp|aa|ng|hup|wa|min|ilo|kru|hil|sat|bho|"
+            + "jbo|pag|tig|bi|mus|tyv|pcm|ace|tum|mh|fon|chk|awa|root|hz|chm|mdf|kaj|nr|dar|shn|zun|"
+            + "cho|li|moh|nso|sw_CD|srn|lad|ve|gaa|pam|ale|sma|sba|lua|kha|sc|nv|men|cv|quc|pap|bla|"
+            + "kj|anp|an|niu|mni|dv|swb|pau|gor|nqo|krc|crs|gwi|zza|mad|nog|lez|byn|sad|ssy|mag|iba|"
+            + "tpi|kum|wal|mos|dzg|gez|io|tn|snk|mai|ady|chy|mwl|sco|av|efi|war|mic|loz|scn|smj|tem|"
+            + "dgr|mak|inh|lun|ts|fj|na|kpe|sr_ME|trv|rap|bug|ban|xal|oc|alt|nia|myv|ain|rar|krl|ay|"
+            + "syr|kv|umb|)");
 
         final Pattern script100 = PatternCache.get("("
             + "Adlm|Afak|Aghb|Ahom|Armi|Avst|Bali|Bamu|Bass|Batk|Bhks|Blis|Brah|Bugi|Buhd|"

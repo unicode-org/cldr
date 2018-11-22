@@ -89,7 +89,7 @@ public class VoteResolver<T> {
      * weight.
      */
     public enum Level {
-        locked(0, 999), street(1, 10), vetter(4, 5), expert(8, 3), manager(4, 2), tc(20, 1), admin(100, 0);
+        locked(0, 999), street(1, 10), anonymous(0, 8), vetter(4, 5), expert(8, 3), manager(4, 2), tc(20, 1), admin(100, 0);
         private int votes;
         private int stlevel;
 

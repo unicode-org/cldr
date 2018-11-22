@@ -68,6 +68,14 @@ public class UserRegistry {
      * Special constant for specifying access to no locales. Used with intlocs (not with locale access)
      */
     public static final String NO_LOCALES = "none";
+    
+    /**
+     * The number of anonymous users, ANONYMOUS_USER_COUNT, limits the number of distinct values that
+     * can be added for a given locale and path as anonymous imported old losing votes. If eventually more
+     * are needed, ANONYMOUS_USER_COUNT can be increased and more anonymous users will automatically
+     * be created.
+     */
+    private static final int ANONYMOUS_USER_COUNT = 20;
 
     /**
      * Thrown to indicate the caller should log out.
@@ -169,6 +177,8 @@ public class UserRegistry {
     /**< Guest Vetter **/
     public static final int LOCKED = VoteResolver.Level.locked.getSTLevel();
     /**< Locked user - can't login **/
+    public static final int ANONYMOUS = VoteResolver.Level.anonymous.getSTLevel();
+    /**< Anonymous user - special for imported old losing votes **/
 
     public static final int LIMIT_LEVEL = 10000;
     /** max level **/
@@ -1591,6 +1601,10 @@ public class UserRegistry {
         return (u != null) && (u.userlevel == UserRegistry.LOCKED);
     }
 
+    public static final boolean userIsExactlyAnonymous(User u) {
+        return (u != null) && (u.userlevel == UserRegistry.ANONYMOUS);
+    }
+
     // * user rights
     /** can create a user in a different organization? */
     public static final boolean userCreateOtherOrgs(User u) {
@@ -2056,6 +2070,11 @@ public class UserRegistry {
 
     Set<User> specialUsers = null;
 
+    /*
+     * TODO: getSpecialUsers is unused (with or without boolean arg)?
+     * Delete if the code is obsolete.
+     */
+
     public Set<User> getSpecialUsers() {
         return getSpecialUsers(false);
     }
@@ -2234,6 +2253,8 @@ public class UserRegistry {
 
     /**
      * Not yet implemented.
+     * 
+     * TODO: get rid of this code, or document its purpose, referencing a ticket.
      *
      * @return
      */
@@ -2545,4 +2566,115 @@ public class UserRegistry {
         return 1;
     }
 
+    /**
+     * Cache of the set of anonymous users
+     */
+    private Set<User> anonymousUsers = null;
+
+    /**
+     * Get the set of anonymous users, employing a cache.
+     * If there aren't as many as there should be (ANONYMOUS_USER_COUNT), create some.
+     * An "anonymous user" is one whose userlevel is ANONYMOUS.
+     *
+     * @return the Set.
+     */
+    public Set<User> getAnonymousUsers() {
+        if (anonymousUsers == null) {
+            anonymousUsers = getAnonymousUsersFromDb();
+            int existingCount = anonymousUsers.size(); 
+            if (existingCount < ANONYMOUS_USER_COUNT) {
+                createAnonymousUsers(existingCount, ANONYMOUS_USER_COUNT);
+                /*
+                 * After createAnonymousUsers, call userModified to clear voterInfo, so it will
+                 * be reloaded and include the new anonymous users. Otherwise, we would get an
+                 * "Unknown voter" exception in OrganizationToValueAndVote.add when trying to
+                 * add a vote for one of the new anonymous users.
+                 */
+                userModified();
+                anonymousUsers = getAnonymousUsersFromDb();
+            }
+        }
+        return anonymousUsers;
+    }
+
+    /**
+     * Get the set of anonymous users by running a database query.
+     *
+     * @return the Set.
+     */
+    private Set<User> getAnonymousUsersFromDb() {
+        Set<User> set = new HashSet<User>();
+        ResultSet rs = null;
+        Connection conn = null;
+        try {
+            conn = DBUtils.getInstance().getDBConnection();
+            rs = list(null, conn);
+            // id,userlevel,name,email,org,locales,intlocs,lastlogin
+            while (rs.next()) {
+                int userlevel = rs.getInt(2);
+                if (userlevel == ANONYMOUS) {
+                    User u = new User(rs.getInt(1));
+                    u.userlevel = userlevel;
+                    u.name = DBUtils.getStringUTF8(rs, 3);
+                    u.email = rs.getString(4);
+                    u.org = rs.getString(5);
+                    u.locales = rs.getString(6);
+                    if (isAllLocales(u.locales)) {
+                        u.locales = ALL_LOCALES;
+                    }
+                    u.intlocs = rs.getString(7);
+                    u.last_connect = rs.getTimestamp(8);
+                    set.add(u);
+                }
+            }
+        } catch (SQLException se) {
+            logger.log(java.util.logging.Level.SEVERE,
+                "UserRegistry: SQL error getting anonymous users - " + DBUtils.unchainSqlException(se), se);
+        } catch (Throwable t) {
+            logger.log(java.util.logging.Level.SEVERE,
+                "UserRegistry: some error getting anonymous users - " + t.toString(), t);
+        } finally {
+            DBUtils.close(rs, conn);
+        }
+        return set;
+    }
+
+    /**
+     * Given that there aren't enough anonymous users in the database yet, create some.
+     * 
+     * @param existingCount the number of anonymous users that already exist
+     * @param desiredCount the desired total number of anonymous users
+     */
+    private void createAnonymousUsers(int existingCount, int desiredCount) {
+        Connection conn = null;
+        Statement s = null;
+        try {
+            conn = DBUtils.getInstance().getDBConnection();
+            s = conn.createStatement();
+            for (int i = existingCount + 1; i <= desiredCount; i++) {
+                /*
+                 * Don't specify the user id; a new unique id will be assigned automatically.
+                 * Names are like "anon#3"; emails are like "anon3@example.org".
+                 */
+                String sql = "INSERT INTO " + CLDR_USERS
+                    + "(userlevel, name, email, org, password, locales) VALUES("
+                    + ANONYMOUS + ","                // userlevel
+                    + "'anon#" + i + "',"            // name
+                    + "'anon" + i + "@example.org'," // email
+                    + "'cldr',"                      // org
+                    + "'',"                          // password
+                    + "'" + ALL_LOCALES + "')";      // locales
+                s.execute(sql);
+            }
+            conn.commit();
+        } catch (SQLException se) {
+            logger.log(java.util.logging.Level.SEVERE,
+                "UserRegistry: SQL error creating anonymous users - " + DBUtils.unchainSqlException(se), se);
+        } catch (Throwable t) {
+            logger.log(java.util.logging.Level.SEVERE,
+                "UserRegistry: some error creating anonymous users - " + t.toString(), t);
+        } finally {
+            DBUtils.close(s, conn);
+        }
+    }
 }

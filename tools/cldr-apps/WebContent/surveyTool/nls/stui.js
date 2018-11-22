@@ -243,7 +243,7 @@ define({
 		v_oldvotes_no_contested: "No losing votes.",
 		v_oldvotes_no_old_here: "No old votes to import. You're done with this locale!",
 		v_oldvotes_no_old: "No old votes to import. You're done with old votes!",
-		v_submit_msg: "Vote for selected items",
+		v_submit_msg: "Import selected items",
 		v_submit_busy: "Submitting...",
 		v_oldvote_auto_msg: "CLDR: Old Winning Votes Imported Message",
 		v_oldvote_auto_desc_msg: "${count} old winning votes were automatically imported",

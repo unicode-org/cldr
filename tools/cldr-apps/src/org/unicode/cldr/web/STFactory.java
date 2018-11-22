@@ -1959,6 +1959,27 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 conn.commit();
                 System.err.println("Created table " + DBUtils.Table.VOTE_FLAGGED);
             }
+            if (!DBUtils.hasTable(conn, DBUtils.Table.IMPORT.toString())) {
+                /*
+                 * Create the IMPORT table, for keeping track of imported old losing votes.
+                 * Use DB_SQL_BINCOLLATE for compatibility with existing vote tables, which
+                 * (on st.unicode.org as of 2018-11-08) have "DEFAULT CHARSET=latin1 COLLATE=latin1_bin".
+                 */
+                s = conn.createStatement();
+                String valueLen = DBUtils.db_Mysql ? "(750)" : "";
+                sql = "CREATE TABLE " + DBUtils.Table.IMPORT + "( " + "locale VARCHAR(20), " + "xpath INT NOT NULL, " + "value "
+                    + DBUtils.DB_SQL_UNICODE + ", "
+                    + " PRIMARY KEY (locale,xpath,value" + valueLen + ") " + " ) "
+                    + DBUtils.DB_SQL_BINCOLLATE;
+                s.execute(sql);
+
+                sql = "CREATE UNIQUE INDEX  " + DBUtils.Table.IMPORT + " ON " + DBUtils.Table.IMPORT + " (locale,xpath,value" + valueLen + ")";
+                s.execute(sql);
+                s.close();
+                s = null; // don't close twice.
+                conn.commit();
+                System.err.println("Created table " + DBUtils.Table.IMPORT);
+             }
         } catch (SQLException se) {
             SurveyLog.logException(se, "SQL: " + sql);
             SurveyMain.busted("Setting up DB for STFactory, SQL: " + sql, se);

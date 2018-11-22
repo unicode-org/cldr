@@ -3287,13 +3287,16 @@ function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
 	for (org in theRow.voteResolver.orgs) {
 		var theOrg = vr.orgs[org];
 		var vrRaw = {};
-		/*
-		 * Prior to changes for ticket 11299 there was a bug here when value = INHERITANCE_MARKER,
-		 * theOrg.orgVote = INHERITANCE_MARKER, but theOrg.votes had one member, and was is for "latn" 
-		 * not INHERITANCE_MARKER; bug was on server, problematic substitutions of "soft" votes with "hard" votes, now fixed.
-		 */
 		var orgVoteValue = theOrg.votes[value];
-		if (orgVoteValue !== undefined && orgVoteValue > 0) { // someone in the org actually voted for it
+		/*
+		 * We should display something under "Org." and "User" even when orgVoteValue is zero (not undefined),
+		 * for "anonymous" imported losing votes. Therefore do not require orgVoteValue > 0 here.
+		 * There does not appear to be any circumstance where we need to hide a zero vote count (on the client).
+		 * If we do discover such a circumstance, we could display 0 vote only if voter is "anonymous";
+		 * currently such voters have org = "cldr"; but if we don't need such a dependency here, don't add it.
+		 * Reference: https://unicode.org/cldr/trac/ticket/11517 
+		 */
+		if (orgVoteValue !== undefined) { // someone in the org actually voted for it
 			var topVoter = null; // top voter for this item
 			var orgsVote = (theOrg.orgVote == value);
 			var topVoterTime = 0; // Calculating the latest time for a user from same org
@@ -4418,6 +4421,11 @@ function showV() {
 			this.loadSpecial(name, function onSuccess(special) {
 				special.parseHash(hash, pieces);
 			}, function onFailure(e) {
+				/*
+				 * TODO: get rid of this console warning for name = "oldvotes".
+				 * There's not a known problem with old votes. It's not clear why
+				 * the warning occurs. See "window.parseHash(dojoHash())"
+				 */
 				console.log("OtherSpecial.parseHash: Failed to load " + name + " - " + e);
 			});
 		};
@@ -5443,10 +5451,6 @@ function showV() {
 
 							removeAllChildNodes(theDiv);
 
-							// changed h2txt, v_oldvotes_title per https://unicode.org/cldr/trac/ticket/11135
-							// TODO: simplify if votesafter, newVersion no longer used
-							// var h2var = {votesafter:json.oldvotes.votesafter, newVersion:json.status.newVersion};
-							// var h2txt = stui.sub("v_oldvotes_title",h2var);
 							var h2txt = stui.str("v_oldvotes_title");
 							theDiv.appendChild(createChunk(h2txt, "h2", "v-title"));
 
@@ -5511,116 +5515,7 @@ function showV() {
 								oldVotesLocaleMsg.innerHTML = ovLocMsg;
 								theDiv.appendChild(oldVotesLocaleMsg);
 								if ((json.oldvotes.contested && json.oldvotes.contested.length > 0) || (json.oldvotes.uncontested && json.oldvotes.uncontested.length > 0)) {
-
-									function showVoteTable(voteList, type) {
-										var t = document.createElement("table");
-										t.id = 'oldVotesAcceptList';
-										var th = document.createElement("thead");
-										var tb = document.createElement("tbody");
-
-										var tr = document.createElement("tr");
-										tr.appendChild(createChunk(stui.str("v_oldvotes_path"),"th","code"));
-										tr.appendChild(createChunk(json.BASELINE_LANGUAGE_NAME,"th","v-comp"));
-										tr.appendChild(createChunk(stui.sub("v_oldvotes_winning_msg", {version: surveyLastVoteVersion}),"th","v-win"));
-										tr.appendChild(createChunk(stui.str("v_oldvotes_mine"),"th","v-mine"));
-
-										var accept;
-										tr.appendChild(accept=createChunk(stui.str("v_oldvotes_accept"),"th","v-accept"));
-										th.appendChild(tr);
-										t.appendChild(th);
-										var oldPath = '';
-										var oldSplit = [];
-										for(var k in voteList) {
-											var row = voteList[k];
-											var tr = document.createElement("tr");
-											var tdp;
-											var rowTitle = '';
-
-											// delete common substring
-											var pathSplit = row.pathHeader.split('	');
-											for(var nn in pathSplit) {
-												if(pathSplit[nn] != oldSplit[nn]) {
-													break;
-												}
-											}
-											if(nn != pathSplit.length-1) {
-												// need a header row.
-												var trh = document.createElement('tr');
-												trh.className='subheading';
-												var tdh = document.createElement('th');
-												tdh.colSpan = 5;
-												for(var nn in pathSplit) {
-													if(nn < pathSplit.length-1) {
-														tdh.appendChild(createChunk(pathSplit[nn],"span","pathChunk"));
-													}
-												}
-												trh.appendChild(tdh);
-												tb.appendChild(trh);
-											}
-											oldSplit = pathSplit;
-											rowTitle = pathSplit[pathSplit.length - 1];
-
-											tdp = createChunk("","td","v-path");
-
-											var dtpl = createChunk(rowTitle, "a");
-											dtpl.href = "v#/"+surveyCurrentLocale+"//"+row.strid;
-											dtpl.target='_CLDR_ST_view';
-											tdp.appendChild(dtpl);
-
-											tr.appendChild(tdp);
-											var td00 = createChunk(row.baseValue,"td","v-comp"); // english
-											tr.appendChild(td00);
-											var td0 = createChunk("","td","v-win");
-											if(row.winValue) {
-												var span0 = appendItem(td0, row.winValue, "winner");
-												span0.dir = json.oldvotes.dir;
-											}
-											tr.appendChild(td0);
-											var td1 = createChunk("","td","v-mine");
-											var label  = createChunk("","label","");
-											var span1 = appendItem(label, row.myValue, "value");
-											td1.appendChild(label);
-											span1.dir = json.oldvotes.dir;
-											tr.appendChild(td1);
-											var td2 = createChunk("","td","v-accept");
-											var box = createChunk("","input","");
-											box.type="checkbox";
-											if(type=='uncontested') { // uncontested true by default
-												box.checked=true;
-											}
-											row.box = box; // backlink
-											td2.appendChild(box);
-											tr.appendChild(td2);
-
-											(function(tr,box,tdp){return function(){
-                                                // allow click anywhere
-											    listenFor(tr, "click", function(e) {
-													box.checked = !box.checked;
-													stStopPropagation(e);
-													return false;
-												});
-                                                // .. but not on the path.  Also listem to the box and do nothing
-												listenFor([tdp,box], "click", function(e) {
-													stStopPropagation(e);
-													return false;
-												});
-											};})(tr,box,tdp)();
-
-											tb.appendChild(tr);
-										}
-										t.appendChild(tb);
-
-										t.appendChild(createLinkToFn("v_oldvotes_none", function() {
-											for(var k in json.oldvotes[type]) {
-												var row = json.oldvotes[type][k];
-												row.box.checked = false;
-											}
-										}, "button"));
-										return t;
-									}
-
 									var frag = document.createDocumentFragment();
-
 									const oldVoteCount = (json.oldvotes.contested ? json.oldvotes.contested.length : 0) +
 									                     (json.oldvotes.uncontested ? json.oldvotes.uncontested.length : 0);
 									var summaryMsg = stui.sub("v_oldvotes_count_msg", {count: oldVoteCount});
@@ -5648,7 +5543,7 @@ function showV() {
 											content.appendChild(createChunk(title,"h2","v-oldvotes-sub"));
 										}
 
-										content.appendChild(showVoteTable(jsondata, type));
+										content.appendChild(showVoteTable(jsondata, type, json.BASELINE_LANGUAGE_NAME, json.oldvotes.dir));
 
 										var submit = BusyButton({
 											label: stui.str("v_submit_msg"),
@@ -5658,7 +5553,6 @@ function showV() {
 										submit.on("click",function(e) {
 											setDisplayed(navChunk, false);
 											var confirmList= []; // these will be revoted with current params
-											var deleteList = []; // these will be deleted
 
 											// explicit confirm list -  save us desync hassle
 											for(var kk in jsondata ) {
@@ -5670,11 +5564,10 @@ function showV() {
 											var saveList = {
 													locale: surveyCurrentLocale,
 													confirmList: confirmList,
-													deleteList: deleteList
 											};
 
 											console.log(saveList.toString());
-											console.log("Submitting " + type + " " +  confirmList.length + " for confirm and " + deleteList.length + " for deletion");
+											console.log("Submitting " + type + " " + confirmList.length + " for confirm");
 
 											var url = contextPath + "/SurveyAjax?what=oldvotes&_="+surveyCurrentLocale+"&s="+surveySessionId+"&doSubmit=true&"+cacheKill();
 											myLoad(url, "(submitting oldvotes " + surveyCurrentLocale + ")", function(json) {
@@ -6185,6 +6078,183 @@ function showV() {
 		}); // end stui  load
 	});  // end require()
 } // end showV
+
+/**
+ * Get a table showing old votes available for importing, along with
+ * controls for choosing which votes to import. 
+ *
+ * @param voteList the array of old votes
+ * @param type "contested" for losing votes or "uncontested" for winning votes
+ * @param baselineLanguage a string indicating the baseline language, generally "English"
+ * @param dir the direction, such as "ltr" for left-to-right
+ * @returns a new div element containing the table and controls
+ * 
+ * Called only by addOldvotesType
+ */
+function showVoteTable(voteList, type, baselineLanguage, dir) {
+    'use strict';
+    var voteTableDiv = document.createElement("div");
+    var t = document.createElement("table");
+    t.id = 'oldVotesAcceptList';
+    voteTableDiv.appendChild(t);
+    var th = document.createElement("thead");
+    var tb = document.createElement("tbody");
+    var tr = document.createElement("tr");
+    tr.appendChild(createChunk(stui.str("v_oldvotes_path"), "th", "code"));
+    tr.appendChild(createChunk(baselineLanguage, "th", "v-comp"));
+    tr.appendChild(createChunk(stui.sub("v_oldvotes_winning_msg", {
+        version: surveyLastVoteVersion
+    }), "th", "v-win"));
+    tr.appendChild(createChunk(stui.str("v_oldvotes_mine"), "th", "v-mine"));
+    tr.appendChild(createChunk(stui.str("v_oldvotes_accept"), "th", "v-accept"));
+    th.appendChild(tr);
+    t.appendChild(th);
+    var oldPath = '';
+    var oldSplit = [];
+    var mainCategories = [];
+    for (var k in voteList) {
+        var row = voteList[k];
+        var tr = document.createElement("tr");
+        var tdp;
+        var rowTitle = '';
+
+        // delete common substring
+        var pathSplit = row.pathHeader.split('	');
+        for (var nn in pathSplit) {
+            if (pathSplit[nn] != oldSplit[nn]) {
+                break;
+            }
+        }
+        if (nn != pathSplit.length - 1) {
+            // need a header row.
+            var trh = document.createElement('tr');
+            trh.className = 'subheading';
+            var tdh = document.createElement('th');
+            tdh.colSpan = 5;
+            for (var nn in pathSplit) {
+                if (nn < pathSplit.length - 1) {
+                    tdh.appendChild(createChunk(pathSplit[nn], "span", "pathChunk"));
+                }
+            }
+            trh.appendChild(tdh);
+            tb.appendChild(trh);
+        }
+        if (mainCategories.indexOf(pathSplit[0]) === -1) {
+            mainCategories.push(pathSplit[0]);
+        }
+        oldSplit = pathSplit;
+        rowTitle = pathSplit[pathSplit.length - 1];
+
+        tdp = createChunk("", "td", "v-path");
+
+        var dtpl = createChunk(rowTitle, "a");
+        dtpl.href = "v#/" + surveyCurrentLocale + "//" + row.strid;
+        dtpl.target = '_CLDR_ST_view';
+        tdp.appendChild(dtpl);
+
+        tr.appendChild(tdp);
+        var td00 = createChunk(row.baseValue, "td", "v-comp"); // english
+        tr.appendChild(td00);
+        var td0 = createChunk("", "td", "v-win");
+        if (row.winValue) {
+            var span0 = appendItem(td0, row.winValue, "winner");
+            span0.dir = dir;
+        }
+        tr.appendChild(td0);
+        var td1 = createChunk("", "td", "v-mine");
+        var label = createChunk("", "label", "");
+        var span1 = appendItem(label, row.myValue, "value");
+        td1.appendChild(label);
+        span1.dir = dir;
+        tr.appendChild(td1);
+        var td2 = createChunk("", "td", "v-accept");
+        var box = createChunk("", "input", "");
+        box.type = "checkbox";
+        if (type == 'uncontested') { // uncontested true by default
+            box.checked = true;
+        }
+        row.box = box; // backlink
+        td2.appendChild(box);
+        tr.appendChild(td2);
+
+        (function(tr, box, tdp) {
+            return function() {
+                // allow click anywhere
+                listenFor(tr, "click", function(e) {
+                    box.checked = !box.checked;
+                    stStopPropagation(e);
+                    return false;
+                });
+                // .. but not on the path.  Also listen to the box and do nothing
+                listenFor([tdp, box], "click", function(e) {
+                    stStopPropagation(e);
+                    return false;
+                });
+            };
+        })(tr, box, tdp)();
+
+        tb.appendChild(tr);
+    }
+    t.appendChild(tb);
+    addImportVotesFooter(voteTableDiv, voteList, mainCategories);
+    return voteTableDiv;
+}
+
+/**
+ * Add to the given div a footer with buttons for choosing all or none
+ * of the old votes, and with checkboxes for choosing all or none within
+ * each of two or more main categories such as "Locale Display Names".
+ *
+ * @param voteTableDiv the div to add to
+ * @param voteList the list of old votes
+ * @param mainCategories the list of main categories
+ * 
+ * Called only by showVoteTable
+ * 
+ * Reference: https://unicode.org/cldr/trac/ticket/11517
+ */
+function addImportVotesFooter(voteTableDiv, voteList, mainCategories) {
+    'use strict';
+    voteTableDiv.appendChild(createLinkToFn("Choose All" /* TODO: "v_oldvotes_all" */, function() {
+        for (var k in voteList) {
+        	voteList[k].box.checked = true;
+        }
+        for (var cat in mainCategories) {
+    		$("#cat" + cat).prop('checked', true);
+        }
+    }, "button"));
+
+    voteTableDiv.appendChild(createLinkToFn("v_oldvotes_none", function() {
+        for (var k in voteList) {
+        	voteList[k].box.checked = false;
+        }
+        for (var cat in mainCategories) {
+    		$("#cat" + cat).prop('checked', false);
+        }
+    }, "button"));
+
+    if (mainCategories.length > 1) {
+    	voteTableDiv.appendChild(document.createTextNode(/* TODO: stui */ " Choose all/none in section: "));
+    	for (var cat in mainCategories) {
+    		let mainCat = mainCategories[cat];
+    		var checkbox = document.createElement("input");
+    		checkbox.type = "checkbox";
+    		checkbox.id = "cat" + cat;
+    		voteTableDiv.appendChild(checkbox);
+    		voteTableDiv.appendChild(document.createTextNode(mainCat + ' '));
+    		listenFor(checkbox, "click", function(e) {
+    	        for (var k in voteList) {
+    	        	var row = voteList[k];
+    	        	if (row.pathHeader.startsWith(mainCat)) {
+        	            row.box.checked = this.checked;    	        		
+    	        	}
+    	        }
+    			stStopPropagation(e);
+    			return false;
+    		});
+    	}
+    }
+}
 
 /**
  * reload a specific row

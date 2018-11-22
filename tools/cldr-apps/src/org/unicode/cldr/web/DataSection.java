@@ -2649,7 +2649,6 @@ public class DataSection implements JSONString {
         STFactory stf = sm.getSTFactory();
         CLDRFile oldFile = stf.getOldFileResolved(locale);
         diskFile = stf.getDiskFile(locale);
-        List<CheckStatus> examplesResult = new ArrayList<CheckStatus>();
         String workPrefix = xpathPrefix;
 
         int workingCoverageValue = Level.fromString(workingCoverageLevel).getLevel();
@@ -2657,7 +2656,6 @@ public class DataSection implements JSONString {
         Set<String> allXpaths;
 
         Set<String> extraXpaths = null;
-        List<CheckStatus> checkCldrResult = new ArrayList<CheckStatus>();
 
         if (pageId != null) {
             allXpaths = PathHeader.Factory.getCachedPaths(pageId.getSectionId(), pageId);
@@ -2707,7 +2705,7 @@ public class DataSection implements JSONString {
                 System.err.println("@@X@ base[" + workPrefix + "]: " + baseXpaths.size() + ", extra: " + extraXpaths.size());
             }
         }
-        populateFromAllXpaths(allXpaths, workPrefix, ourSrc, oldFile, extraXpaths, stf, workingCoverageValue, xpp, checkCldr, examplesResult, checkCldrResult);
+        populateFromAllXpaths(allXpaths, workPrefix, ourSrc, oldFile, extraXpaths, stf, workingCoverageValue, xpp, checkCldr);
     }
     
     /**
@@ -2722,14 +2720,12 @@ public class DataSection implements JSONString {
      * @param workingCoverageValue
      * @param xpp
      * @param checkCldr
-     * @param examplesResult
-     * @param checkCldrResult
      * 
      * TODO: resurrect SHOW_TIME and TRACE_TIME code, deleted in revision 14327, if and when needed for debugging.
      * It was deleted when this code was moved from populateFrom to new subroutine populateFromAllXpaths.
      */
     private void populateFromAllXpaths(Set<String> allXpaths, String workPrefix, CLDRFile ourSrc, CLDRFile oldFile, Set<String> extraXpaths, STFactory stf,
-        int workingCoverageValue, XPathParts xpp, TestResultBundle checkCldr, List<CheckStatus> examplesResult, List<CheckStatus> checkCldrResult) {
+        int workingCoverageValue, XPathParts xpp, TestResultBundle checkCldr) {
 
         for (String xpath : allXpaths) {
             if (xpath == null) {
@@ -2779,7 +2775,7 @@ public class DataSection implements JSONString {
                 fullPath = xpath; // (this is normal for 'extra' paths)
             }
             // Now we are ready to add the data
-            populateFromThisXpath(xpath, extraXpaths, ourSrc, oldFile, xpp, fullPath, checkCldr, coverageValue, base_xpath, examplesResult, checkCldrResult);
+            populateFromThisXpath(xpath, extraXpaths, ourSrc, oldFile, xpp, fullPath, checkCldr, coverageValue, base_xpath);
         }
     }
 
@@ -2795,11 +2791,9 @@ public class DataSection implements JSONString {
      * @param checkCldr
      * @param coverageValue
      * @param base_xpath
-     * @param examplesResult
-     * @param checkCldrResult
      */
     private void populateFromThisXpath(String xpath, Set<String> extraXpaths, CLDRFile ourSrc, CLDRFile oldFile, XPathParts xpp, String fullPath,
-        TestResultBundle checkCldr, int coverageValue, int base_xpath, List<CheckStatus> examplesResult, List<CheckStatus> checkCldrResult) {
+        TestResultBundle checkCldr, int coverageValue, int base_xpath) {
         /*
          * 'extra' paths get shim treatment
          * 
@@ -2958,6 +2952,8 @@ public class DataSection implements JSONString {
             row.hasMultipleProposals = true;
         }
         CLDRLocale setInheritFrom = ourValueIsInherited ? CLDRLocale.getInstance(sourceLocale) : null;
+        List<CheckStatus> checkCldrResult = new ArrayList<CheckStatus>();
+        List<CheckStatus> examplesResult = new ArrayList<CheckStatus>();
         if (checkCldr != null) {
             checkCldr.check(xpath, checkCldrResult, isExtraPath ? null : ourValue);
             checkCldr.getExamples(xpath, isExtraPath ? null : ourValue, examplesResult);
@@ -3019,10 +3015,6 @@ public class DataSection implements JSONString {
 
         if (!checkCldrResult.isEmpty()) {
             myItem.setTests(checkCldrResult);
-            /*
-             * set the parent, can't reuse it if nonempty
-             */
-            checkCldrResult = new ArrayList<CheckStatus>();
         }
 
         if (sourceLocaleStatus != null && sourceLocaleStatus.pathWhereFound != null

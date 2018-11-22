@@ -28,7 +28,6 @@ import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.CheckForExemplars;
 import org.unicode.cldr.test.CheckNames;
 import org.unicode.cldr.test.CheckNew;
-import org.unicode.cldr.test.SimpleTestCache;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
@@ -117,14 +116,14 @@ public class TestCheckCLDR extends TestFmwk {
     }
 
     /**
-     * Test the SimpleTestCache and TestResultBundle objects
+     * Test the TestCache and TestResultBundle objects
      */
-    public void TestSimpleTestCache() {
+    public void TestTestCache() {
         String localeString = "en";
         CLDRLocale locale = CLDRLocale.getInstance(localeString);
         CheckCLDR.Options checkCldrOptions = new Options(locale, Phase.SUBMISSION, "default", "basic");
-        TestCache testCache = new SimpleTestCache();
-        testCache.setFactory(testInfo.getCldrFactory(), ".*", CheckCLDR.getDisplayInformation()); 
+        TestCache testCache = new TestCache();
+        testCache.setFactory(testInfo.getCldrFactory(), ".*"); 
         TestResultBundle bundle = testCache.getBundle(checkCldrOptions);
         final CLDRFile cldrFile = testInfo.getCLDRFile(localeString, true);
         /*

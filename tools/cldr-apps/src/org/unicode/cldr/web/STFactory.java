@@ -31,7 +31,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.ExampleGenerator;
-import org.unicode.cldr.test.SimpleTestCache;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
@@ -1635,11 +1634,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     /**
      * Test cache against (this)
      */
-    TestCache gTestCache = new SimpleTestCache();
+    TestCache gTestCache = new TestCache();
     /**
      * Test cache against disk. For rejecting items.
      */
-    TestCache gDiskTestCache = new SimpleTestCache();
+    TestCache gDiskTestCache = new TestCache();
 
     /**
      * The infamous back-pointer.
@@ -1662,9 +1661,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             setSupplementalDirectory(sm.getDiskFactory().getSupplementalDirectory());
 
             progress.update("setup test cache");
-            gTestCache.setFactory(this, "(?!.*(CheckCoverage).*).*", sm.getBaselineFile());
+            gTestCache.setFactory(this, "(?!.*(CheckCoverage).*).*");
             progress.update("setup disk test cache");
-            gDiskTestCache.setFactory(sm.getDiskFactory(), "(?!.*(CheckCoverage).*).*", sm.getBaselineFile());
+            gDiskTestCache.setFactory(sm.getDiskFactory(), "(?!.*(CheckCoverage).*).*");
             sm.reg.addListener(this);
             progress.update("reload all users");
             handleUserChanged(null);

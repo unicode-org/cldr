@@ -16,10 +16,10 @@ public enum CldrVersion {
     unknown;
 
     private final String baseDirectory;
-    private final String name;
+    private final String dotName;
 
     public String toString() {
-        return name;
+        return dotName;
     };
     public static CldrVersion from(VersionInfo versionInfo) {
         return valueOf("v" + versionInfo.getVersionString(2, 4).replace('.', '_'));
@@ -31,11 +31,12 @@ public enum CldrVersion {
         return baseDirectory;
     }
     private CldrVersion() {
-        if (name().charAt(0) < 'A') {
-            name = name().substring(1).replace('_', '.');
+        String oldName = name();
+        if (oldName.charAt(0) == 'v') {
+            dotName = oldName.substring(1).replace('_', '.');
             baseDirectory = CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + toString() + "/";
         } else {
-            name = name();
+            dotName = oldName;
             baseDirectory = CLDRPaths.BASE_DIRECTORY;
         }
     }

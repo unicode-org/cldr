@@ -1132,7 +1132,7 @@ public class TestBasic extends TestFmwkPlus {
             return;
         }
 
-        final String oldCommon = CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + CldrVersion.v22_1.toString() + "/common";
+        final String oldCommon = CldrVersion.v22_1.getBaseDirectory() + "/common";
 
         // set up exceptions
         Set<String> changedToEmpty = new HashSet<String>(
@@ -1319,7 +1319,7 @@ public class TestBasic extends TestFmwkPlus {
             }
 
             for (CldrVersion version : CldrVersion.values()) {
-                if (version == CldrVersion.trunk) {
+                if (version == CldrVersion.trunk || version == CldrVersion.unknown) {
                     continue;
                 } else if (version == CldrVersion.v1_1_1) {
                     break;

@@ -4199,11 +4199,11 @@ function setLang(node, loc) {
 
 	if(overridedir){
 		node.dir = overridedir;
-	} else if (info.dir) {
+	} else if (info && info.dir) {
 		node.dir = info.dir;
 	}
 
-	if(info.bcp47) {
+	if(info && info.bcp47) {
 		node.lang = info.bcp47;
 	}
 }
@@ -4502,6 +4502,12 @@ function showV() {
 				var pieces = hash.substr(0).split("/");
 				if(pieces.length > 1) {
 					surveyCurrentLocale = pieces[1]; // could be null
+					/*
+					 * TODO: find a way if possible to fix here when surveyCurrentLocale === "USER".
+					 * It may be necessary (and sufficient) to wait for server response, see "USER" elsewhere
+					 * in this file. cachedJson.loc and _thePages.loc are generally (always?) undefined here.
+					 * Reference: https://unicode.org/cldr/trac/ticket/11161
+					 */
 				} else {
 					surveyCurrentLocale = '';
 				}
@@ -5873,7 +5879,9 @@ function showV() {
 					return;
 				} else {
 					locmap = new LocaleMap(json.locmap);
-
+					if (surveyCurrentLocale === "USER" && json.loc) {
+						surveyCurrentLocale = json.loc; // reference: https://unicode.org/cldr/trac/ticket/11161
+					}
 					// make this into a hashmap.
 					if(json.canmodify) {
 						var canmodify = {};

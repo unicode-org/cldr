@@ -4,15 +4,19 @@
 	CLDRConfigImpl.setUrls(request);
 	WebContext ctx = new WebContext(request, response);
 	ElapsedTimer et = new ElapsedTimer();
+	/*
+	 * TODO: fix indentation throughout this file
+	 */
 			String what = request.getParameter(SurveyAjax.REQ_WHAT);
 			String sess = request.getParameter(SurveyMain.QUERY_SESSION);
 			String loc = request.getParameter(SurveyMain.QUERY_LOCALE);
 			
-			//locale can have either - or _
-			loc = (loc == null) ? null : loc.replace("-", "_");
-			
-			CLDRLocale l = SurveyAjax.validateLocale(new PrintWriter(out), loc);
-			if(l==null) return;
+			CLDRLocale l = SurveyAjax.validateLocale(new PrintWriter(out), loc, sess);
+			if (l==null) {
+				return;
+			}
+			loc = l.toString(); // normalized
+
 			ctx.setLocale(l);
             String xpath = WebContext.decodeFieldString(request.getParameter(SurveyForum.F_XPATH));
             String strid = WebContext.decodeFieldString(request.getParameter("strid"));
@@ -41,6 +45,9 @@
 	    	try {
 			curThread.setName(request.getServletPath()+":"+loc+":"+xpath);
 	    	
+			/*
+			 * TODO: delete this block, it's dead code, we already returned if l was null
+			 */
 			if (l == null) {
 				if(!isJson) {
 					response.sendError(500, "Bad locale.");
@@ -109,6 +116,10 @@
 			ctx.session = mySession;
 			ctx.sm = ctx.session.sm;
 			ctx.setServletPath(ctx.sm.defaultServletPath);
+			
+			/*
+			 * TODO: this is redundant, we already have CLDRLocale l, and ctx.setLocale(l) above 
+			 */
 			CLDRLocale locale = CLDRLocale.getInstance(loc);
 			
 			ctx.setLocale(locale);

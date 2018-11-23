@@ -20,12 +20,11 @@
 	ctx.session = cs;
 	ctx.sm = cs.sm;
 
-	//locale can have either - or _
-	loc = (loc == null) ? null : loc.replace("-", "_");
-
-	CLDRLocale l = SurveyAjax.validateLocale(new PrintWriter(out), loc);
-	if (l == null)
+	CLDRLocale l = SurveyAjax.validateLocale(new PrintWriter(out), loc, sess);
+	if (l == null) {
 		return;
+	}
+	// If we needed loc below, we would first normalize it with loc = l.toString() 
 	ctx.setLocale(l);
 %>	
 <%

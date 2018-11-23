@@ -332,15 +332,13 @@ public class SurveyAjax extends HttpServlet {
         String fieldHash = request.getParameter(SurveyMain.QUERY_FIELDHASH);
         CookieSession mySession = null;
 
-        //loc can have either - or _
-        loc = (loc == null) ? null : loc.replace('-', '_');
-
         CLDRLocale l = null;
         if (sm != null && SurveyMain.isSetup && loc != null && !loc.isEmpty()) {
-            l = validateLocale(out, loc);
+            l = validateLocale(out, loc, sess);
             if (l == null) {
                 return; // error was already thrown.
             }
+            loc = l.toString(); // normalized
         }
 
         try {
@@ -1284,17 +1282,40 @@ public class SurveyAjax extends HttpServlet {
 
     /**
      * Validate a locale. Prints standardized error if not found.
-     * @param sm
-     * @param out
-     * @param loc
-     * @return
+     *
+     * @param out the PrintWriter for reporting errors
+     * @param loc the locale string; if for a sublocale, it can have either - or _ as in "fr-CA" or "fr_CA"
+     * @param sess the session string, in case we need the user for "USER" wildcard
+     * @return the CLDRLocale, or null for failure
      * @throws IOException
      */
-    public static CLDRLocale validateLocale(PrintWriter out, String loc) throws IOException {
+    public static CLDRLocale validateLocale(PrintWriter out, String loc, String sess) throws IOException {
         CLDRLocale ret;
+        /*
+         * TODO: use SurveyMain.isSetup here to avoid deprecation warnings?
+         */
         if (CookieSession.sm == null || CookieSession.sm.isSetup == false) {
             sendNoSurveyMain(out);
             return null;
+        }
+        /*
+         * loc can have either - or _; normalize to _
+         */
+        loc = (loc == null) ? null : loc.replace('-', '_');
+        /*
+         * Support "USER" as a "wildcard" for locale name, replacing it with a locale suitable for the
+         * current user, or "fr" (French) as a fallback. Reference: https://unicode.org/cldr/trac/ticket/11161
+         */
+        if ("USER".equals(loc) && sess != null && !sess.isEmpty()) {
+            CookieSession.checkForExpiredSessions();
+            CookieSession mySession = CookieSession.retrieve(sess);
+            String locales = mySession.user.locales;
+            if (locales == null || "".equals(locales) || UserRegistry.isAllLocales(locales)) {
+                loc = "fr";
+            } else {
+                String localeArray[] = UserRegistry.tokenizeLocale(locales);
+                loc = localeArray.length == 0 ? "fr" : localeArray[0];
+            }
         }
         if (loc == null || loc.isEmpty() || (ret = CLDRLocale.getInstance(loc)) == null || !SurveyMain.getLocalesSet().contains(ret)) {
             JSONWriter r = newJSON();

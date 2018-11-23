@@ -26,6 +26,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCoverage;
 import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.test.CoverageLevel2;
@@ -890,11 +891,14 @@ public class VettingViewer<T> {
                     problems.add(Choice.missingCoverage);
                     problemCounter.increment(Choice.missingCoverage);
                 }
+                if (Phase.ALLOWED_IN_LIMITED_PATHS.matcher(path).lookingAt()) {
+                    problems.add(Choice.englishChanged);
+                    problemCounter.increment(Choice.englishChanged);
+                }
                 boolean itemsOkIfVoted = SUPPRESS
                     && voteStatus == VoteStatus.ok;
 
-                if (!itemsOkIfVoted
-                    && outdatedPaths.isOutdated(localeID, path)) {
+                if (!CheckCLDR.LIMITED_SUBMISSION && !itemsOkIfVoted && outdatedPaths.isOutdated(localeID, path)) {
                     // the outdated paths compares the base value, before
                     // data submission,
                     // so see if the value changed.

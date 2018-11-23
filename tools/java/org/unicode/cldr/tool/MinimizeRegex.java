@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
@@ -74,9 +75,18 @@ public class MinimizeRegex {
      */
     public static String compressWith(Set<String> flattened, UnicodeSet set) {
         String recompressed = compress(flattened, new Output<Boolean>());
-        Set<String> flattened2 = flatten(Pattern.compile(recompressed), "", set);
+        Set<String> flattened2;
+        try {
+            flattened2 = flatten(Pattern.compile(recompressed), "", set);
+        } catch (PatternSyntaxException e) {
+            int loc = e.getIndex();
+            if (loc >= 0) {
+                recompressed = recompressed.substring(0,loc) + "$$$$$" + recompressed.substring(loc);
+            }
+            throw new IllegalArgumentException("Failed to parse: " + recompressed, e);
+        }
         if (!flattened2.equals(flattened)) {
-            throw new IllegalArgumentException("Failed to compress: " + flattened + " using " + set);
+            throw new IllegalArgumentException("Failed to compress:\n" + flattened + "\n≠ " + flattened2);
         }
         return recompressed;
     }

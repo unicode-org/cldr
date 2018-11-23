@@ -67,8 +67,7 @@ public class ChartDelta extends Chart {
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     private static final String LAST_ARCHIVE_DIRECTORY = CLDRPaths.LAST_DIRECTORY;
-    private static final String CURRENT_DIRECTORY = CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" +
-        ToolConstants.LAST_CHART_VERSION + "/";
+    private static final String CURRENT_DIRECTORY = CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.LAST_CHART_VERSION + "/";
     private static final String LOG_DIR = CLDRPaths.GEN_DIRECTORY + "charts/";
 
     enum MyOptions {
@@ -240,6 +239,11 @@ public class ChartDelta extends Chart {
         writeLdml(anchors);
     }
 
+    private static final File[] PATHS = {
+        new File(CLDRPaths.MAIN_DIRECTORY),
+        new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
+        };
+
     private void writeLdml(Anchors anchors)  throws IOException {
 
         try (PrintWriter tsvFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, DIR_NAME), DIR_NAME + ".tsv");
@@ -260,7 +264,8 @@ public class ChartDelta extends Chart {
                     continue;
                 }
                 String current = (ToolConstants.CLDR_VERSIONS.contains(ToolConstants.LAST_CHART_VERSION)
-                    ? CURRENT_DIRECTORY : CLDRPaths.BASE_DIRECTORY) + "common/" + dir;
+                    ? CURRENT_DIRECTORY 
+                        : CLDRPaths.BASE_DIRECTORY) + "common/" + dir;
                 String past = LAST_ARCHIVE_DIRECTORY + "common/" + dir;
                 try {
                     factories.add(Factory.make(current, ".*"));

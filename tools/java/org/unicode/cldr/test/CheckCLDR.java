@@ -176,7 +176,7 @@ abstract public class CheckCLDR {
         public static final Pattern ALLOWED_IN_LIMITED_PATHS = Pattern.compile(
             "//ldml/"
             + "(listPatterns/listPattern\\[@type=\"standard"
-            + "|annotations/annotation\\[@cp=\"([©®‼⁉☑✅✔✖✨✳✴❇❌❎❓-❕❗❣ ➕-➗👫-👭👱🥰🧩]|👱‍♀|👱‍♂)\""
+            + "|annotations/annotation\\[@cp=\"([©®‼⁉☑✅✔✖✨✳✴❇❌❎❓-❕❗❣ ➕-➗👫-👭👱🥰🧩🧔]|👱‍♀|👱‍♂)\""
             + "|localeDisplayNames/scripts/script\\[@type=\"(Elym|Hmnp|Nand|Wcho)\""
             + ")");
         static Set<String> HIGH_LEVEL_LOCALES = ImmutableSet.of("chr", "gd", "fo");
@@ -228,9 +228,9 @@ abstract public class CheckCLDR {
             }
 
             CandidateInfo winner = pathValueInfo.getCurrentItem();
-            if (winner != null && "тлусты".equals(winner.getValue())) {
-                int debug = 0;
-            }
+//            if (winner != null && "тлусты".equals(winner.getValue())) {
+//                int debug = 0;
+//            }
             ValueStatus valueStatus = getValueStatus(winner, ValueStatus.NONE, null);
             
             boolean ALLOWED_IN_LIMITED = false;

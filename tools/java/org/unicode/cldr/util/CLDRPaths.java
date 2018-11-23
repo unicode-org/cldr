@@ -14,6 +14,16 @@ import com.google.common.collect.ImmutableList;
  */
 
 public class CLDRPaths {
+    private static final String CASING_SUBDIR = "casing/";
+    private static final String VALIDITY_SUBDIR = "validity/";
+    private static final String ANNOTATIONS_DERIVED_SUBDIR = "annotationsDerived/";
+    private static final String COLLATION_SUBDIR = "collation/";
+    private static final String RBNF_SUBDIR = "rbnf/";
+    private static final String TRANSFORMS_SUBDIR = "transforms/";
+    private static final String MAIN_SUBDIR = "main/";
+    private static final String SUBDIVISIONS_SUBDIR = "subdivisions/";
+    private static final String ANNOTATIONS_SUBDIR = "annotations/";
+    
     /** default working directory for Eclipse is . = ${workspace_loc:cldr}, which is <CLDR>/tools/java/ */
     // set the base directory with -Dcldrdata=<value>
     // if the main is different, use -Dcldrmain=<value>
@@ -26,25 +36,25 @@ public class CLDRPaths {
     // // get up to
     // <CLDR>
     public static final String COMMON_DIRECTORY = CldrUtility.getPath(BASE_DIRECTORY, "common/");
-    public static final String COLLATION_DIRECTORY = CldrUtility.getPath(COMMON_DIRECTORY, "collation/");
-    public static final String CASING_DIRECTORY = CldrUtility.getPath(COMMON_DIRECTORY, "casing/");
+    public static final String COLLATION_DIRECTORY = CldrUtility.getPath(COMMON_DIRECTORY, COLLATION_SUBDIR);
+    public static final String CASING_DIRECTORY = CldrUtility.getPath(COMMON_DIRECTORY, CASING_SUBDIR);
     public static final String MAIN_DIRECTORY = CldrUtility.getProperty("CLDR_MAIN",
-        CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "main"));
+        CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, MAIN_SUBDIR));
 
-    public static final String RBNF_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "rbnf/");
-    public static final String TRANSFORMS_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "transforms/");
-    public static final String ANNOTATIONS_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "annotations/");
-    public static final String SUBDIVISIONS_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "subdivisions/");
-    public static final String ANNOTATIONS_DERIVED_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "annotationsDerived/");
+    public static final String RBNF_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, RBNF_SUBDIR);
+    public static final String TRANSFORMS_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, TRANSFORMS_SUBDIR);
+    public static final String ANNOTATIONS_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, ANNOTATIONS_SUBDIR);
+    public static final String SUBDIVISIONS_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, SUBDIVISIONS_SUBDIR);
+    public static final String ANNOTATIONS_DERIVED_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, ANNOTATIONS_DERIVED_SUBDIR);
+    public static final String VALIDITY_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, VALIDITY_SUBDIR);
 
     public static final String SEED_DIRECTORY = CldrUtility.getProperty("CLDR_SEED",
-        CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "../seed/main"));
-    public static final String SEED_COLLATION_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../collation/");
-    public static final String SEED_CASING_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../casing/");
-    public static final String SEED_ANNOTATIONS_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../annotations/");
-    public static final String VALIDITY_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "validity/");
+        CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "../" + "seed/" + MAIN_SUBDIR));
+    public static final String SEED_COLLATION_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../" + COLLATION_SUBDIR);
+    public static final String SEED_CASING_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../" + CASING_SUBDIR);
+    public static final String SEED_ANNOTATIONS_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../" + ANNOTATIONS_SUBDIR);
 
-    public static final String EXEMPLARS_DIRECTORY = CldrUtility.getPath(CLDRPaths.BASE_DIRECTORY, "exemplars/main/");
+    public static final String EXEMPLARS_DIRECTORY = CldrUtility.getPath(CLDRPaths.BASE_DIRECTORY, "exemplars/" + MAIN_SUBDIR);
 
     public static final String TMP_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
         CldrUtility.getPath(BASE_DIRECTORY, "../cldr-tmp/")));
@@ -65,7 +75,7 @@ public class CLDRPaths {
         CldrUtility.getPath(BASE_DIRECTORY, "../cldr-private/")));
 
     public static final String LAST_COMMON_DIRECTORY = CldrUtility.getPath(CLDRPaths.LAST_DIRECTORY, "common/");
-    public static final String LAST_TRANSFORMS_DIRECTORY = CldrUtility.getPath(CLDRPaths.LAST_COMMON_DIRECTORY, "transforms/");
+    public static final String LAST_TRANSFORMS_DIRECTORY = CldrUtility.getPath(CLDRPaths.LAST_COMMON_DIRECTORY, TRANSFORMS_SUBDIR);
 
     public static final String GEN_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_GEN_DIR",
         CldrUtility.getPath(LOCAL_DIRECTORY, "Generated/cldr/")));

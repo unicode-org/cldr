@@ -20,7 +20,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.test.DisplayAndInputProcessor;
-import org.unicode.cldr.tool.GenerateBirth.Versions;
+import org.unicode.cldr.tool.CldrVersion;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
@@ -1132,7 +1132,7 @@ public class TestBasic extends TestFmwkPlus {
             return;
         }
 
-        final String oldCommon = CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + Versions.v22_1.toString() + "/common";
+        final String oldCommon = CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + CldrVersion.v22_1.toString() + "/common";
 
         // set up exceptions
         Set<String> changedToEmpty = new HashSet<String>(
@@ -1318,10 +1318,10 @@ public class TestBasic extends TestFmwkPlus {
                 return;
             }
 
-            for (Versions version : Versions.values()) {
-                if (version == Versions.trunk) {
+            for (CldrVersion version : CldrVersion.values()) {
+                if (version == CldrVersion.trunk) {
                     continue;
-                } else if (version == Versions.v1_1_1) {
+                } else if (version == CldrVersion.v1_1_1) {
                     break;
                 }
                 DtdData dtdDataOld;
@@ -1332,11 +1332,11 @@ public class TestBasic extends TestFmwkPlus {
                     switch (type) {
                     case ldmlBCP47:
                     case ldmlICU:
-                        tooOld = version.compareTo(Versions.v1_7_2) >= 0;
+                        tooOld = version.compareTo(CldrVersion.v1_7_2) >= 0;
                         break;
                     case keyboard:
                     case platform:
-                        tooOld = version.compareTo(Versions.v22_1) >= 0;
+                        tooOld = version.compareTo(CldrVersion.v22_1) >= 0;
                         break;
                     default:
                         break;

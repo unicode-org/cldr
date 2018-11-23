@@ -1,13 +1,18 @@
 package org.unicode.cldr.unittest;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
 import org.unicode.cldr.test.OutdatedPaths;
+import org.unicode.cldr.tool.CldrVersion;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.PathHeader;
+
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 
 public class TestOutdatedPaths extends TestFmwkPlus {
 
@@ -18,6 +23,21 @@ public class TestOutdatedPaths extends TestFmwkPlus {
     }
 
     OutdatedPaths outdatedPaths = new OutdatedPaths();
+    
+    public void TestBirths() {
+        Multimap<CldrVersion, String> birthToPaths = TreeMultimap.create();
+        for (String path : testInfo.getEnglish()) {
+            CldrVersion birth = outdatedPaths.getEnglishBirth(path);
+            if (birth == null) birth = CldrVersion.unknown;
+            birthToPaths.put(birth, path);
+        }
+        int accum = 0;
+        for (Entry<CldrVersion, Collection<String>> entry : birthToPaths.asMap().entrySet()) {
+            int size = entry.getValue().size();
+            accum += size;
+            System.out.println(entry.getKey() + "\t" + size + "\t" + accum);
+        }
+    }
 
     public void TestBasic() {
         assertEquals("English should have none", 0,
@@ -39,10 +59,10 @@ public class TestOutdatedPaths extends TestFmwkPlus {
     }
 
     // use for debugging
-    public void TestShow() {
+    public void xTestShow() {
         if (isVerbose()) {
             PathHeader.Factory pathHeaders = PathHeader.getFactory(testInfo.getEnglish());
-            checkShow(pathHeaders, "fr");
+            // checkShow(pathHeaders, "fr");
             checkShow(pathHeaders, "de");
         }
     }

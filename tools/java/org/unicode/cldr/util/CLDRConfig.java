@@ -643,7 +643,7 @@ public class CLDRConfig extends Properties {
         return ret.toArray(new File[ret.size()]);
     }
 
-    private File[] fileArrayFromStringArray(File dir, String... subdirNames) {
+    public File[] fileArrayFromStringArray(File dir, String... subdirNames) {
         File[] fileList = new File[subdirNames.length];
         int i = 0;
         for (String item : subdirNames) {

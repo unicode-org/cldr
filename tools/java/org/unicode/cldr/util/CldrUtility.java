@@ -1003,7 +1003,6 @@ public class CldrUtility {
         return getInputStream(CldrUtility.class, "data/" + name);
     }
 
-    @SuppressWarnings("resource")
     public static InputStream getInputStream(Class<?> callingClass, String relativePath) {
         InputStream is = callingClass.getResourceAsStream(relativePath);
         // add buffering

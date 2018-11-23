@@ -2,8 +2,10 @@ package org.unicode.cldr.unittest;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
@@ -21,7 +23,10 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LanguageInfo;
+import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
+import org.unicode.cldr.util.Validity;
+import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
@@ -40,7 +45,33 @@ public class TestAttributeValues extends TestFmwk {
         new TestAttributeValues().run(args);
     }
 
-    public void TestA() {
+    // TODO move over tests for AttributeValueValidity
+    
+    public void TestUnits() {
+        Validity validity = Validity.getInstance();
+        Map<String, Validity.Status> unitTest = validity.getCodeToStatus(LstrType.unit);
+        Set<String> results = new TreeSet<>();
+
+        for (String path : config.getEnglish()) {
+            if (path.contains("length-point")) {
+                int debug = 0;
+            }
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            //ldml/units/unitLength[@type="long"]/unit[@type="length-kilometer"]/displayName
+            switch(parts.getElement(1)) {
+            case "units":
+                if ("unit".equals(parts.getElement(3))) {
+                    String type = parts.getAttributeValue(3, "type");
+                    if (!unitTest.containsKey(type)) {
+                        results.add(type);
+                    }
+                }
+            }
+        }
+        assertEquals("Invalid units in English (may be problem with English or Validity)", Collections.emptySet(), results);
+    }
+
+    public void xTestA() {
         MatcherPattern mp = AttributeValueValidity.getMatcherPattern("$language");
         for (String language : LanguageInfo.getAvailable()) {
             if (mp.matches(language, null)) {
@@ -73,7 +104,7 @@ public class TestAttributeValues extends TestFmwk {
         return value;
     }
 
-    public void TestSingleFile() {
+    public void oldTestSingleFile() {
         Errors errors = new Errors();
         Set<AttributeValueSpec> missing = new TreeSet<>();
         VerifyAttributeValues.check(CLDRPaths.MAIN_DIRECTORY + "en.xml", errors, missing);
@@ -85,7 +116,7 @@ public class TestAttributeValues extends TestFmwk {
         }
     }
 
-    public void TestCoreValidity() {
+    public void oldTestCoreValidity() {
         int maxPerDirectory = getInclusion() <= 5 ? 20 : Integer.MAX_VALUE;
         Matcher fileMatcher = null;
         Set<AttributeValueSpec> missing = new LinkedHashSet<>();

@@ -186,6 +186,7 @@ public class TestAll extends TestGroup {
             "org.unicode.cldr.unittest.NumberingSystemsTest",
             "org.unicode.cldr.unittest.StandardCodesTest",
             "org.unicode.cldr.unittest.TestAnnotations",
+            "org.unicode.cldr.unittest.TestAttributeValues",
             "org.unicode.cldr.unittest.TestBasic",
             "org.unicode.cldr.unittest.TestCLDRFile",
             "org.unicode.cldr.unittest.TestCLDRUtils",

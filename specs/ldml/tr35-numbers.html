@@ -541,7 +541,13 @@ System Data</a>.</em> ) &gt;<br>
         defined. No CLDR locales are known to have a need to
         specify timeSeparator symbols that depend on number system;
         if this changes in the future a different timeSeparator
-        pattern character will be defined.</p>
+        pattern character will be defined.<span class="changed"> In
+        the meantime, since CLDR data consumers can still request
+        the timeSeparator symbol. it should match the symbol
+        actually used in the
+        <a href="tr35-dates.html#timeFormats">timeFormats</a> and
+        <a href="tr35-dates.html#availableFormats_appendItems">availableFormats</a>
+        items.</span></p>
       </dd>
     </dl>
     <p>Example:</p>

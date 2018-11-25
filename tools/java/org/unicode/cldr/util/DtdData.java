@@ -1297,7 +1297,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "volume-pint-metric", "volume-cup-metric",
         "volume-acre-foot",
         "volume-bushel", "volume-gallon", "volume-gallon-imperial", "volume-quart", "volume-pint", "volume-cup",
-        "volume-fluid-ounce", "volume-tablespoon", "volume-teaspoon").freeze();
+        "volume-fluid-ounce", "volume-fluid-ounce-imperial", "volume-tablespoon", "volume-teaspoon").freeze();
 
     static MapComparator<String> countValueOrder = new MapComparator<String>().add(
         "0", "1", "zero", "one", "two", "few", "many", "other").freeze();

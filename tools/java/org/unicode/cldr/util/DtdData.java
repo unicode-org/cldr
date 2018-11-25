@@ -1253,7 +1253,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "area-square-mile", "area-acre", "area-square-yard", "area-square-foot", "area-square-inch",
         "concentr-karat",
         "concentr-milligram-per-deciliter", "concentr-millimole-per-liter",
-        "concentr-part-per-million", "concentr-percent", "concentr-permille",
+        "concentr-part-per-million", "concentr-percent", "concentr-permille", "concentr-permyriad",
         "consumption-liter-per-kilometer", "consumption-liter-per-100kilometers",
         "consumption-mile-per-gallon", "consumption-mile-per-gallon-imperial",
         "digital-petabyte", "digital-terabyte", "digital-terabit", "digital-gigabyte", "digital-gigabit",

@@ -379,8 +379,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 parts.set(curVal);
                 String unit = parts.getAttributeValue(typeLocation, "type");
                 // we also break the units into two groups: durations and others. Also never collide with a compoundUnitPattern.
-                if (myUnit.equals(unit) || unit != null && isDuration != unit.startsWith("duration") ||
-                    compoundUnitPatterns.reset(curVal).find()) {
+                if (unit == null || myUnit.equals(unit) || isDuration != unit.startsWith("duration") || compoundUnitPatterns.reset(curVal).find()) {
                     iterator.remove();
                     log("Removed '" + curVal + "': COLLISON WITH UNIT  " + unit);
                 } else {

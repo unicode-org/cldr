@@ -129,8 +129,9 @@
 
 	<!-- The following test assumes: that ↑↑↑ (CldrUtility.INHERITANCE_MARKER) participates as such in voting resolution;
 		that ↑↑↑ beats AAA in the tie-breaker based on collation order; and that ↑↑↑ resolves to the Bailey value BBB.
-		Before 2018-8-17, the expected winner was AAA, since AAA beat BBB in the tie-breaker after ↑↑↑ was replaced by BBB. -->
-	<verify status="provisional" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >BBB</verify> <!-- split vote. ↑↑↑ wins -->
+		Before 2018-8-17, the expected winner was AAA, since AAA beat BBB in the tie-breaker after ↑↑↑ was replaced by BBB.
+		As of 2018-11-26, expected status is "inherited" (formerly it was "provisional"). -->
+	<verify status="inherited" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >BBB</verify> <!-- split vote. ↑↑↑ wins -->
 
     <vote name="B" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote> <!--  explicit agree -->
 	<verify status="approved" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >BBB</verify> <!-- BBB wins. -->

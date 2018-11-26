@@ -70,9 +70,26 @@ public class VoteResolver<T> {
 
     /**
      * The status levels according to the committee, in ascending order
+     *
+     * Status corresponds to icons as follows:
+     * A checkmark means it’s approved and is slated to be used. A cross means it’s a missing value.
+     * Green/orange check: The item has enough votes to be used in CLDR.
+     * Red/orange/black X: The item does not have enough votes to be used in CLDR, by most implementations (or is completely missing).
+     * Reference: http://cldr.unicode.org/index/survey-tool/guide
+     * 
+     * New November, 2018:
+     * Orange up-arrow: the item is inherited, i.e., winningValue is INHERITANCE_MARKER (↑↑↑), and does not
+     * have enough votes for a check. Reference: https://unicode.org/cldr/trac/ticket/11103
+     * 
+     * Status.approved:    approved.png    = green check
+     * Status.contributed: contributed.png = orange check
+     * Status.inherited:   inherited.png   = orange up-arrow
+     * Status.provisional: provisional.png = orange X
+     * Status.unconfirmed: unconfirmed.png = red X
+     * Status.missing:     missing.png     = black X
      */
     public enum Status {
-        missing, unconfirmed, provisional, contributed, approved;
+        missing, unconfirmed, provisional, inherited, contributed, approved;
         public static Status fromString(String source) {
             return source == null ? missing : Status.valueOf(source);
         }
@@ -845,6 +862,9 @@ public class VoteResolver<T> {
                 winningValue = trunkValue;
             } else {
                 winningStatus = lastReleaseStatus;
+                if (CldrUtility.INHERITANCE_MARKER.equals(lastReleaseValue)) {
+                    winningStatus = Status.inherited;
+                }
                 winningValue = lastReleaseValue;
             }
             valuesWithSameVotes.add(winningValue); // may be null
@@ -1238,15 +1258,30 @@ public class VoteResolver<T> {
         return weightArray;
     }
 
+    /**
+     * Compute the status for the winning value.
+     * 
+     * @param weight1 the weight (vote count) for the best value
+     * @param weight2 the weight (vote count) for the next-best value
+     * @param oldStatus the old status (trunkStatus)
+     * @return the Status
+     */
     private Status computeStatus(long weight1, long weight2, Status oldStatus) {
-        int orgCount = organizationToValueAndVote.getOrgCount(winningValue);
-        return weight1 > weight2 &&
-            (weight1 >= requiredVotes) ? Status.approved
-                : weight1 > weight2 &&
-                    (weight1 >= 4 && Status.contributed.compareTo(oldStatus) > 0
-                        || weight1 >= 2 && orgCount >= 2) ? Status.contributed
-                            : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
-                                : Status.unconfirmed;
+        if (weight1 > weight2 && weight1 >= requiredVotes) {
+            return Status.approved;
+        }
+        if (weight1 > weight2 &&
+            (weight1 >= 4 && Status.contributed.compareTo(oldStatus) > 0
+                || weight1 >= 2 && organizationToValueAndVote.getOrgCount(winningValue) >= 2) ) {
+            return Status.contributed;
+        }
+        if (CldrUtility.INHERITANCE_MARKER.equals(winningValue)) {
+            return Status.inherited;
+        }
+        if (weight1 >= weight2 && weight1 >= 2) {
+            return Status.provisional;
+        }
+        return Status.unconfirmed;
     }
 
     public Status getPossibleWinningStatus() {

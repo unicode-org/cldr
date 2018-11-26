@@ -1300,7 +1300,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "speed-kilometer-per-hour", "speed-meter-per-second", "speed-mile-per-hour", "speed-knot",
         "temperature-generic", "temperature-celsius", "temperature-fahrenheit", "temperature-kelvin",
         "torque-pound-foot",
-        "torque-newton",
+        "torque-newton-meter",
         "volume-cubic-kilometer", "volume-cubic-meter", "volume-cubic-centimeter",
         "volume-cubic-mile", "volume-cubic-yard", "volume-cubic-foot", "volume-cubic-inch",
         "volume-megaliter", "volume-hectoliter", "volume-liter", "volume-deciliter", "volume-centiliter", "volume-milliliter",

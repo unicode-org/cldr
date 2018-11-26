@@ -157,9 +157,10 @@ public class TestCheckCLDR extends TestFmwk {
             assertEquals("possibleErrors, loop index " + i, possibleErrors.size(), 0);
         }
         /*
-         * Expect second time to be about a hundredth of first time; error if more than a fiftieth.
+         * Expect second time to be about a hundredth of first time; error if more than a tenth.
+         * On one occasion, smoketest had times 171.0 and 5.0.
          */
-        if (deltaTime[1] > deltaTime[0] / 50) {
+        if (deltaTime[1] > deltaTime[0] / 10) {
             errln("TestResultBundle cache should yield more benefit: times " + deltaTime[0] +  " and " + deltaTime[1]);
         }
     }

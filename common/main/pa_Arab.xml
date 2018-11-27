@@ -208,6 +208,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<otherNumberingSystems>
 			<native>arabext</native>
 		</otherNumberingSystems>
+		<symbols numberSystem="arabext">
+			<timeSeparator>:</timeSeparator>
+		</symbols>
 		<symbols numberSystem="latn">
 			<plusSign>‎+</plusSign> <!-- includes LRM before sign -->
 			<minusSign>‎-</minusSign> <!-- includes LRM before sign (002D) -->

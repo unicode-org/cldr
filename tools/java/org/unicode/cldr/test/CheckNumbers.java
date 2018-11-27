@@ -44,6 +44,10 @@ public class CheckNumbers extends FactoryCheckCLDR {
     private Set<Count> pluralTypes;
     private Map<Count, Set<Double>> pluralExamples;
     private Set<String> validNumberingSystems;
+    
+    private String defaultNumberingSystem;
+    private String defaultTimeSeparatorPath;
+    private String patternForHm;
 
     /**
      * A number formatter used to show the English format for comparison.
@@ -94,6 +98,17 @@ public class CheckNumbers extends FactoryCheckCLDR {
         pluralTypes = pluralInfo.getCounts();
         pluralExamples = pluralInfo.getCountToExamplesMap();
         validNumberingSystems = supplementalData.getNumberingSystems();
+
+        CLDRFile resolvedFile = getResolvedCldrFileToCheck();
+        defaultNumberingSystem = resolvedFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+        if (defaultNumberingSystem == null || !validNumberingSystems.contains(defaultNumberingSystem)) {
+            defaultNumberingSystem = "latn";
+        }
+        defaultTimeSeparatorPath = "//ldml/numbers/symbols[@numberSystem=\"" + defaultNumberingSystem + "\"]/timeSeparator";
+        // Note for the above, an actual time separator path may add the following after the above:
+        // [@alt='...'] and/or [@draft='...']
+        // Ideally we would get the following for default calendar, here we just use gregorian; probably OK
+        patternForHm = resolvedFile.getWinningValue("//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='Hm']");
 
         return this;
     }
@@ -161,6 +176,17 @@ public class CheckNumbers extends FactoryCheckCLDR {
                     .setSubtype(Subtype.illegalNumberingSystem)
                     .setMessage("Invalid numbering system: " + value));
 
+            }
+        }
+
+        if (path.contains(defaultTimeSeparatorPath) && !path.contains("[@alt=") && value != null) {
+            // timeSeparator for default numbering system should be in availableFormats Hm item
+            if (patternForHm != null && !patternForHm.contains(value)) {
+                result.add(new CheckStatus()
+                    .setCause(this)
+                    .setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.invalidSymbol)
+                    .setMessage("Invalid timeSeparator: " + value + "; must match what is used in Hm time pattern: " + patternForHm));
             }
         }
 

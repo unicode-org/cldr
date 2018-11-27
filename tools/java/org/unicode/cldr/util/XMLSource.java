@@ -1258,6 +1258,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             { "hebr", "numbers" },
             { "hebrew", "calendar" },
             { "hmng", "numbers" },
+            { "hmnp", "numbers" },
             { "indian", "calendar" },
             { "islamic", "calendar" },
             { "islamic-civil", "calendar" },
@@ -1332,6 +1333,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             { "ussystem", "ms" },
             { "vaii", "numbers" },
             { "wara", "numbers" },
+            { "wcho", "numbers" },
             { "zhuyin", "collation" } };
 
         private static final boolean SKIP_SINGLEZONES = false;

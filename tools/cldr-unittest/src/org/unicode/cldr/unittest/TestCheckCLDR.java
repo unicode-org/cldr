@@ -28,6 +28,7 @@ import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.CheckForExemplars;
 import org.unicode.cldr.test.CheckNames;
 import org.unicode.cldr.test.CheckNew;
+import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
@@ -57,7 +58,6 @@ import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
-import com.google.common.base.Objects;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R5;
@@ -755,6 +755,29 @@ public class TestCheckCLDR extends TestFmwk {
         }
     }
     
+    public void TestSubmissionLocales() {
+        
+        // will need to change this for new releases!!
+        
+        String pathNotSameValue = "//ldml/listPatterns/listPattern[@type=\"standard\"]";
+        String pathSameValue = "//ldml/listPatterns/listPattern[@type=\"or\"]";
+        
+        // outside of cldr, skip all except isError
+        assertTrue("vo, engSame, isError, !isMissing", SubmissionLocales.allowEvenIfLimited("vo", pathSameValue, true, false));
+        assertFalse("vo, engSame, !isError, isMissing", SubmissionLocales.allowEvenIfLimited("vo", pathSameValue, false, true));
+        assertFalse("vo, !engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("vo", pathNotSameValue, false, false));
+        assertFalse("vo, engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("vo", pathSameValue, false, false));
+        // new cldr locale, allow all
+        assertTrue("jv, engSame, isError, !isMissing", SubmissionLocales.allowEvenIfLimited("jv", pathSameValue, true, false));
+        assertTrue("jv, engSame, !isError, isMissing", SubmissionLocales.allowEvenIfLimited("jv", pathSameValue, false, true));
+        assertTrue("jv, !engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("jv", pathNotSameValue, false, false));
+        assertTrue("jv, engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("jv", pathSameValue, false, false));
+        // old cldr locale, allow isError, or missing in last release, or EnglishChanged
+        assertTrue("fr, engSame, isError, !isMissing", SubmissionLocales.allowEvenIfLimited("fr", pathSameValue, true, false));
+        assertTrue("fr, engSame, !isError, isMissing", SubmissionLocales.allowEvenIfLimited("fr", pathSameValue, false, true));
+        assertTrue("fr, !engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("fr", pathNotSameValue, false, false));
+        assertFalse("fr, engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("fr", pathSameValue, false, false));
+    }
     /**
      * Check that the English changes are captured
      */
@@ -775,6 +798,7 @@ public class TestCheckCLDR extends TestFmwk {
         CLDRFile oldEnglish = factoryOld.make("en", true);
         Set<String> newPaths = new TreeSet<>();
         Set<String> diffValues = new TreeSet<>();
+        boolean firstFail = true;
         for (String path : english) {
             if (path.contains("/alias")) {
                 continue;
@@ -784,14 +808,21 @@ public class TestCheckCLDR extends TestFmwk {
             boolean isDiff = false;
             if (valueOld == null) {
                 newPaths.add(path);
-            } else if (!Objects.equal(value, valueOld)) {
+            } else if (value != null 
+                && !value.equalsIgnoreCase(valueOld)
+                && !path.startsWith("//ldml/localeDisplayNames/types/type[@key=\"m0\"]")) {
                 diffValues.add(path);
                 isDiff = true;
             }
-            boolean regexMatch = CheckCLDR.Phase.ALLOWED_IN_LIMITED_PATHS.matcher(path).lookingAt();
+            boolean regexMatch = SubmissionLocales.pathAllowedInLimitedSubmission(path);
             if (isDiff && !regexMatch) {
-                errln("Match fails with " + path);
+                errln("Match fails with " + path + ", old: " + valueOld + ", new: " + value 
+                    + (firstFail ? "\nAdd these to regex in SubmissionLocales or filter from this test if unimportant" : ""));
+                firstFail = false;
             } if (!isDiff && regexMatch) {
+                
+                // will need to change this for new releases!!
+
                 if (path.endsWith("/listPatternPart[@type=\"start\"]") 
                     || path.endsWith("/listPatternPart[@type=\"middle\"]") 
                     || path.endsWith("[@type=\"tts\"]") 

@@ -33,7 +33,6 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PatternCache;
@@ -44,7 +43,6 @@ import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
 
-import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.ListFormatter;
@@ -172,15 +170,6 @@ abstract public class CheckCLDR {
                 : Phase.valueOf(value);
         }
 
-        static Set<String> CLDR_LOCALES;
-        public static final Pattern ALLOWED_IN_LIMITED_PATHS = Pattern.compile(
-            "//ldml/"
-            + "(listPatterns/listPattern\\[@type=\"standard"
-            + "|annotations/annotation\\[@cp=\"([©®‼⁉☑✅✔✖✨✳✴❇❌❎❓-❕❗❣ ➕-➗👫-👭👱🥰🧩🧔]|👱‍♀|👱‍♂)\""
-            + "|localeDisplayNames/scripts/script\\[@type=\"(Elym|Hmnp|Nand|Wcho)\""
-            + ")");
-        static Set<String> HIGH_LEVEL_LOCALES = ImmutableSet.of("chr", "gd", "fo");
-
         /**
          * Return whether or not to show a row, and if so, how.
          *
@@ -232,48 +221,20 @@ abstract public class CheckCLDR {
 //                int debug = 0;
 //            }
             ValueStatus valueStatus = getValueStatus(winner, ValueStatus.NONE, null);
-            
-            boolean ALLOWED_IN_LIMITED = false;
-            if (LIMITED_SUBMISSION) {
-                // have to do lazy eval because otherwise CLDRConfig is called too early in the boot process
-                synchronized (SUBMISSION) {
-                    if (CLDR_LOCALES == null) {
-                        CLDR_LOCALES = ImmutableSet.<String>builder()
-                            .addAll(HIGH_LEVEL_LOCALES)
-                            .addAll(StandardCodes.make().getLocaleToLevel(Organization.cldr).keySet()).build();
-                    }
-                }
-                ALLOWED_IN_LIMITED = CLDR_LOCALES.contains(pathValueInfo.getLocale().toString());
+
+            // if limited submission, and winner doesn't have an error, limit the values
+
+            if (LIMITED_SUBMISSION && !SubmissionLocales.allowEvenIfLimited(pathValueInfo.getLocale().toString(), pathValueInfo.getXpath(), valueStatus == ValueStatus.ERROR, pathValueInfo.getLastReleaseStatus() == Status.missing)) {
+                return StatusAction.FORBID_READONLY;
             }
+
             if (this == Phase.SUBMISSION) {
-                // if limited submission, and winner doesn't have an error, limit the values
-                if (LIMITED_SUBMISSION && valueStatus != ValueStatus.ERROR) {
-
-                    // all but CLDR locales are locked
-                    if (!ALLOWED_IN_LIMITED) {
-                        return StatusAction.FORBID_READONLY;
-                    } else {
-                        int debug = 0; // for debugging
-                    }
-
-                    // all items except missing are locked
-                    if (pathValueInfo.getLastReleaseStatus() != Status.missing
-                        && !ALLOWED_IN_LIMITED_PATHS.matcher(pathValueInfo.getXpath()).lookingAt()) {
-                        return StatusAction.FORBID_READONLY;
-                    } else {
-                        String s = pathValueInfo.getXpath();
-                        int debug = 0; // for debugging
-                    }
-                }
                 return (status == SurveyToolStatus.READ_WRITE || status == SurveyToolStatus.LTR_ALWAYS)
                     ? StatusAction.ALLOW
                         : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
 
-            // We are not in submission.
-            if (LIMITED_SUBMISSION && valueStatus != ValueStatus.ERROR && !ALLOWED_IN_LIMITED) {
-                return StatusAction.FORBID_READONLY;
-            }
+            // We are in vetting, not in submission
 
             // Only allow ADD if we have an error or warning
             // Only check winning value for errors/warnings per ticket #8677
@@ -358,11 +319,11 @@ abstract public class CheckCLDR {
             return StatusAction.FORBID_UNLESS_DATA_SUBMISSION;
         }
 
-        enum ValueStatus {
+        public enum ValueStatus {
             ERROR, WARNING, NONE
         }
 
-        private ValueStatus getValueStatus(CandidateInfo value, ValueStatus previous, Set<Subtype> changeErrorToWarning) {
+        public ValueStatus getValueStatus(CandidateInfo value, ValueStatus previous, Set<Subtype> changeErrorToWarning) {
             if (previous == ValueStatus.ERROR || value == null) {
                 return previous;
             }

@@ -67,7 +67,7 @@ public class CheckNew extends FactoryCheckCLDR {
         if (modified != null) return this;
 
         boolean isOutdated = outdatedPaths.isOutdated(cldrFileToCheck.getLocaleID(), path)
-            || Phase.ALLOWED_IN_LIMITED_PATHS.matcher(path).lookingAt();
+            || SubmissionLocales.pathAllowedInLimitedSubmission(path);
 
         if (!isOutdated) {
             return this;

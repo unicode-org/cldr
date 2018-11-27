@@ -31,6 +31,7 @@ import org.unicode.cldr.test.CheckCoverage;
 import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.OutdatedPaths;
+import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.ToolConstants;
@@ -873,10 +874,17 @@ public class VettingViewer<T> {
                 if (level.compareTo(usersLevel) > 0) {
                     continue;
                 }
-
+                
                 problems.clear();
                 htmlMessage.setLength(0);
                 String oldValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
+
+                if (CheckCLDR.LIMITED_SUBMISSION) {
+                    Phase phase = nonVettingPhase ? Phase.SUBMISSION : Phase.VETTING;
+                    if (!SubmissionLocales.allowEvenIfLimited(localeID, path, errorStatus == ErrorChecker.Status.error, oldValue == null)) {
+                        continue;
+                    };
+                }
 
                 if (choices.contains(Choice.changedOldValue)) {
                     if (oldValue != null && !oldValue.equals(value)) {
@@ -891,7 +899,7 @@ public class VettingViewer<T> {
                     problems.add(Choice.missingCoverage);
                     problemCounter.increment(Choice.missingCoverage);
                 }
-                if (Phase.ALLOWED_IN_LIMITED_PATHS.matcher(path).lookingAt()) {
+                if (SubmissionLocales.pathAllowedInLimitedSubmission(path)) {
                     problems.add(Choice.englishChanged);
                     problemCounter.increment(Choice.englishChanged);
                 }

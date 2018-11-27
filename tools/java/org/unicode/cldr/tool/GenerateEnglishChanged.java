@@ -11,7 +11,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -78,10 +78,9 @@ private static final boolean TRIAL = false;
             }
         }
 
-        Matcher matcher = CheckCLDR.Phase.ALLOWED_IN_LIMITED_PATHS.matcher("");
         int errorCount = 0;
         for (String path : abbreviatedPaths) {
-            if (!matcher.reset(path).lookingAt()) {
+            if (!SubmissionLocales.pathAllowedInLimitedSubmission(path)) {
                 System.out.println("Failed to match: " + path);
                 errorCount++;
             }

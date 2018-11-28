@@ -2836,13 +2836,6 @@ function addVitem(td, tr, theRow, item, newButton) {
 		addIcon(choiceField,"i-star");
 	}
 	if(item.votes && !isWinner) {
-		/* Disable all usage of the "i-vote" (vote.png, check-mark in a square) icon pending
-		 * clarification/documentation of its meaning/purpose.
-		 * Comment out in two places: here in addVitem, and in updateRowVoteInfo.
-		 * See https://unicode.org/cldr/trac/ticket/10521#comment:29
-		 */
-		// addIcon(choiceField,"i-vote");
-
 		if(item.valueHash == theRow.voteVhash && theRow.canFlagOnLosing && !theRow.rowFlagged){
 			var newIcon = addIcon(choiceField,"i-stop"); // DEBUG
 		}
@@ -3208,17 +3201,6 @@ function updateRowVoteInfo(tr, theRow) {
 			appendIcon(isection, "voteInfo_lastRelease i-star");
 			isectionIsUsed = true;
 		}
-		/* Disable all usage of the "i-vote" (vote.png, check-mark in a square) icon pending
-		 * clarification/documentation of its meaning/purpose.
-		 * Comment out in two places: here in updateRowVoteInfo, and in addVitem.
-		 * See https://unicode.org/cldr/trac/ticket/10521#comment:29
-		 */
-		/***
-		if(value != theRow.winningValue) {
-			appendIcon(isection,"i-vote");
-			isectionIsUsed = true;
-		}
-		***/
 		setLang(valdiv);
 		if (value === INHERITANCE_MARKER) {
 			appendItem(valdiv, theRow.inheritedValue, item.pClass, tr);

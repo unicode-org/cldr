@@ -516,12 +516,6 @@ function labelizeIcon() {
 	                 type:'primary',
 	                 text:'Last Value',
 	                 title:'The value from the last release.'
-	             },
-	             {
-	            	 selector:'.i-vote',
-	                 type:'default',
-	                 text:'Voted',
-	                 title:'This at least one vote for this value, but it is losing'
 	             }
                  ];
 	

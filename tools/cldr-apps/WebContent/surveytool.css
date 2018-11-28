@@ -2622,20 +2622,6 @@ h3.voteInfo_key_title {
 	padding-right:  2px;
 }
 
-.d-vo-false {
-    text-align: center;
-    width: 16px;
-	height: 16px;
-	background: url(bar0.png) no-repeat center center;
-}
-
-.d-vo-true {
-	text-align: center;
-	width: 16px;
-	height: 16px;
-	background: url(vote.png) no-repeat center center;
-}
-
 .d-no-vo-false {
     text-align: center;
     background: #9999d0;
@@ -2648,14 +2634,6 @@ h3.voteInfo_key_title {
 .d-no, .d-status {
     width:  32px;
 }
-
-/*.d-vo-false:hover, .d-vo-true:hover,
-.d-st-warn:hover, .d-st-stop:hover, .d-st-okay:hover {
-	border: 2px solid navy;
-	width: 16px;
-	height: 16px;
-	background: url(zoom.png) no-repeat center center;
-}*/
 
 .d-item {
 	display:  inline-box;
@@ -2918,36 +2896,11 @@ transition: background-color 0.2s;
 	background: url(star.png) no-repeat center center;
 }
 
-/*.d-item-selected:hover .i-example-zoom,span.i-example-zoom {
-	padding: 2px;
-	width: 16px;
-	height: 16px;
-	background: url(zoom.png) no-repeat center center;
-	float: right;
-}*/
-
-/*.d-item-selected .i-example-zoom,
-.d-item:hover .i-example-zoom {
-	padding: 2px;
-	width: 16px;
-	height: 16px;
-	background-color: purple;
-	float: right;
-	margin:  1px solid red;
-}*/
-.d-dr-approved,.d-dr-contributed,.d-dr-unconfirmed,.d-dr-provisional,.d-dr-missing,.i-star,.i-vote, .label-icon {
+.d-dr-approved,.d-dr-contributed,.d-dr-unconfirmed,.d-dr-provisional,.d-dr-missing,.i-star,.label-icon {
 	position:relative;
 	left:5px;
 	display:inline-block;
 	vertical-align: middle;
-}
-
-
-.i-vote {
-	padding: 2px;
-	width: 17px;
-	height: 17px;
-	background: url(vote.png) no-repeat center center;
 }
 
 .i-stop {
@@ -3132,19 +3085,6 @@ div.voterList p {
 	padding-top: 0;
 	margin-top:0;
 	margin-bottom:  0.5em;
-}
-
-div.voterList p span, div.voterList p address {
-	display:  table-cell;
-	padding-left:  0.25em;
-	padding-right:  0.25em;
-}
-
-
-div.voterList .voterOrg {
-	background: url('vote.png') no-repeat;
-	padding-left:  20px;
-	font-size:  smaller;
 }
 
 /* formatting for date time review */

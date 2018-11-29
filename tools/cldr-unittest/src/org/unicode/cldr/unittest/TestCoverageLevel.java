@@ -470,8 +470,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     && path.endsWith("exemplarCity")) {
                     continue;
                 }
-                // We don't survey for short timezone names
-                if (path.contains("/short/")) {
+                // We don't survey for short timezone names or at least some alts
+                if (path.contains("/short/") || path.contains("[@alt=\"formal\"]")) {
                     continue;
                 }
             } else if (xpp.containsElement("metazone")) {

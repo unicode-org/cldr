@@ -180,6 +180,7 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"]",
         "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"([^\"]*+)\"]",
         "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/exemplarCity",
+        "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/exemplarCity[@alt=\"([^\"]*+)\"]",
         "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/daylight",
         "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/short/generic",
         "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/short/standard",

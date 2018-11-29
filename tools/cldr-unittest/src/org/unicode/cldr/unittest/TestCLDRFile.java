@@ -186,6 +186,7 @@ public class TestCLDRFile extends TestFmwk {
                         || path.contains("/relative[@type=\"2\"]")
                         || path.startsWith("//ldml/contextTransforms/contextTransformUsage")
                         || path.contains("[@alt=\"variant\"]")
+                        || path.contains("[@alt=\"formal\"]")
                         || (path.contains("dayPeriod[@type=")
                             && (path.endsWith("1\"]") || path.endsWith("\"am\"]") || path.endsWith("\"pm\"]") || path.endsWith("\"midnight\"]"))) // morning1, afternoon1, ...
                         || (path.startsWith("//ldml/characters/exemplarCharacters[@type=\"index\"]")

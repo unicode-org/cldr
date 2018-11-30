@@ -5496,11 +5496,7 @@ function showV() {
 								theDiv.appendChild(createChunk(json.oldvotes.localeDisplayName, "h3","v-title2"));
 								var oldVotesLocaleMsg = document.createElement("p");
 								oldVotesLocaleMsg.className = "helpContent";
-								var ovLocMsg = stui.sub("v_oldvotes_locale_msg", {version: surveyLastVoteVersion, locale: json.oldvotes.localeDisplayName});
-								if (!json.oldvotes.uncontested || json.oldvotes.uncontested.length == 0) {
-									ovLocMsg = stui.sub("v_oldvotes_winning_already_imported", {version: surveyLastVoteVersion}) + " " + ovLocMsg;
-								}
-								oldVotesLocaleMsg.innerHTML = ovLocMsg;
+								oldVotesLocaleMsg.innerHTML = stui.sub("v_oldvotes_locale_msg", {version: surveyLastVoteVersion, locale: json.oldvotes.localeDisplayName});
 								theDiv.appendChild(oldVotesLocaleMsg);
 								if ((json.oldvotes.contested && json.oldvotes.contested.length > 0) || (json.oldvotes.uncontested && json.oldvotes.uncontested.length > 0)) {
 									var frag = document.createDocumentFragment();
@@ -6205,7 +6201,7 @@ function showVoteTable(voteList, type, baselineLanguage, dir) {
  */
 function addImportVotesFooter(voteTableDiv, voteList, mainCategories) {
     'use strict';
-    voteTableDiv.appendChild(createLinkToFn("Choose All" /* TODO: "v_oldvotes_all" */, function() {
+    voteTableDiv.appendChild(createLinkToFn("v_oldvotes_all", function() {
         for (var k in voteList) {
         	voteList[k].box.checked = true;
         }
@@ -6224,7 +6220,7 @@ function addImportVotesFooter(voteTableDiv, voteList, mainCategories) {
     }, "button"));
 
     if (mainCategories.length > 1) {
-    	voteTableDiv.appendChild(document.createTextNode(/* TODO: stui */ " Choose all/none in section: "));
+    	voteTableDiv.appendChild(document.createTextNode(stui.str("v_oldvotes_all_section")));
     	for (var cat in mainCategories) {
     		let mainCat = mainCategories[cat];
     		var checkbox = document.createElement("input");

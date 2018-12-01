@@ -2748,20 +2748,7 @@ function showItemInfoFn(theRow, item) {
 		}
 
 		if (item.value === INHERITANCE_MARKER) {
-			/*
-			 * Add a link in the Info Panel for "Jump to Original" (stui.str('followAlias')),
-			 * if theRow.inheritedLocale or theRow.inheritedXpid is defined.
-			 *
-			 * Normally at least one of theRow.inheritedLocale and theRow.inheritedXpid should be
-			 * defined whenever we have an INHERITANCE_MARKER item. Otherwise an error is reported
-			 * by checkRowConsistency.
-			 */
-			if (theRow.inheritedLocale || theRow.inheritedXpid) {
-				var clickyLink = createChunk(stui.str('followAlias'), "a", 'followAlias');
-				clickyLink.href = '#/'+ ( theRow.inheritedLocale || surveyCurrentLocale )+
-					'//'+ ( theRow.inheritedXpid || theRow.xpstrid ); //linkToLocale(subLoc);
-				h3.appendChild(clickyLink);
-			}
+			addJumpToOriginal(theRow, h3);
 		}
 
 		var newDiv = document.createElement("div");
@@ -2777,6 +2764,42 @@ function showItemInfoFn(theRow, item) {
 			appendExample(td, item.example);
 		}
 	}; // end function(td)
+}
+
+/**
+ * Add a link in the Info Panel for "Jump to Original" (stui.str('followAlias')),
+ * if theRow.inheritedLocale or theRow.inheritedXpid is defined.
+ *
+ * Normally at least one of theRow.inheritedLocale and theRow.inheritedXpid should be
+ * defined whenever we have an INHERITANCE_MARKER item. Otherwise an error is reported
+ * by checkRowConsistency.
+ *
+ * This is currently (2018-12-01) the only place inheritedLocale or inheritedXpid is used on the client.
+ * An alternative would be for the server to send the link (clickyLink.href), instead of inheritedLocale
+ * and inheritedXpid, to the client, avoiding the need for the client to know so much, including the need
+ * to replace 'code-fallback' with 'root' or when to use surveyCurrentLocale in place of inheritedLocale
+ * or use xpstrid in place of inheritedXpid.
+ * 
+ * @param theRow the row
+ * @param el the element to which to append the link
+ */
+function addJumpToOriginal(theRow, el) {
+	if (theRow.inheritedLocale || theRow.inheritedXpid) {
+		var loc = theRow.inheritedLocale;
+		if (!loc) {
+			loc = surveyCurrentLocale;
+		} else if (loc === 'code-fallback') {
+			/*
+			 * Never use 'code-fallback' in the link, use 'root' instead.
+			 * On the server, 'code-fallback' sometimes goes by the name XMLSource.CODE_FALLBACK_ID.
+			 * Reference: https://unicode.org/cldr/trac/ticket/11622
+			 */
+			loc = 'root';
+		}
+		var clickyLink = createChunk(stui.str('followAlias'), "a", 'followAlias');
+		clickyLink.href = '#/'+ loc + '//'+ (theRow.inheritedXpid || theRow.xpstrid);
+		el.appendChild(clickyLink);
+	}	
 }
 
 function appendExample(parent, text, loc) {

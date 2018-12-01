@@ -628,7 +628,6 @@ public class VoteResolver<T> {
         }
     };
 
-
     /**
      * Set the last-release value and status for this VoteResolver.
      *
@@ -638,8 +637,17 @@ public class VoteResolver<T> {
      * TODO: possibly that change should be done in the caller instead; also there may be room
      * for improvement in determining whether the last release value, when it matches the
      * inherited value, should be associated with a "hard" or "soft" candidate item.
+     * Possibly the more accurate lastRelease value would be:
+     *    if the lastRelease's baileyValue(path) == lastReleaseValue(path)
+     *    then use INHERITANCE_MARKER
+     * or maybe add an extra clause:
+     *    if the lastRelease's baileyValue(path) == lastReleaseValue(path)
+     *    && votes(lastReleaseValue) < votes(INHERITANCE_MARKER)
+     *    then use INHERITANCE_MARKER
      *
      * Reference: https://unicode.org/cldr/trac/ticket/11299
+     *            https://unicode.org/cldr/trac/ticket/11611
+     *            https://unicode.org/cldr/trac/ticket/11420
      *
      * @param lastReleaseValue the last-release value
      * @param lastReleaseStatus the last-release status
@@ -651,7 +659,9 @@ public class VoteResolver<T> {
         /*
          * Depending on the order in which setLastRelease and setBaileyValue are called,
          * bailey might not be set yet; often baileySet is false here. Keep the implementation
-         * robust regardless of the order in which the two functions are called.
+         * robust regardless of the order in which the two functions are called. Alternatively,
+         * we might enforce a particular order. Currently (2018-12-1) getResolverInternal calls
+         * setLastRelease and setTrunk before it calls setBaileyValue.
          */
         if (organizationToValueAndVote != null
                 && organizationToValueAndVote.baileySet
@@ -661,9 +671,33 @@ public class VoteResolver<T> {
         }
     }
 
+    /**
+     * Set the trunk value and status for this VoteResolver.
+     *
+     * If the value matches the bailey value, change it to CldrUtility.INHERITANCE_MARKER,
+     * in order to distinguish "soft" votes for inheritance from "hard" votes for the specific
+     * value that currently matches the inherited value. Compare similar code in setLastRelease.
+     *
+     * Reference: https://unicode.org/cldr/trac/ticket/11611
+     *
+     * @param trunkValue the trunk value
+     * @param trunkStatus the trunk status
+     */
     public void setTrunk(T trunkValue, Status trunkStatus) {
         this.trunkValue = trunkValue;
         this.trunkStatus = trunkValue == null ? Status.missing : trunkStatus;
+
+        /*
+         * Depending on the order in which setTrunk and setBaileyValue are called,
+         * bailey might not be set yet. Keep the implementation robust regardless
+         * of the order in which the two functions are called.
+         */
+        if (organizationToValueAndVote != null
+                && organizationToValueAndVote.baileySet
+                && organizationToValueAndVote.baileyValue != null
+                && organizationToValueAndVote.baileyValue.equals(trunkValue)) {
+            this.trunkValue = (T) CldrUtility.INHERITANCE_MARKER;
+        }
     }
 
     public T getLastReleaseValue() {
@@ -741,23 +775,47 @@ public class VoteResolver<T> {
     }
 
     /**
+     * Get the bailey value (what the inherited value would be if there were no
+     * explicit value) for this VoteResolver.
+     *
+     * Throw an exception if !baileySet.
+     *
+     * @return the bailey value.
+     *
+     * Called by STFactory.PerLocaleData.getResolverInternal in the special
+     * circumstance where getWinningValue has returned INHERITANCE_MARKER.
+     */
+    public T getBaileyValue() {
+        if (organizationToValueAndVote == null
+                || organizationToValueAndVote.baileySet == false) {
+            throw new IllegalArgumentException("setBaileyValue must be called before getBaileyValue");
+        }
+        return organizationToValueAndVote.baileyValue;
+    }
+
+    /**
      * Set the Bailey value (what the inherited value would be if there were no explicit value).
      * This value is used in handling any {@link CldrUtility.INHERITANCE_MARKER}.
      * This value must be set <i>before</i> adding values. Usually by calling CLDRFile.getBaileyValue().
      *
-     * Also, revise lastReleaseValue to INHERITANCE_MARKER if appropriate.
+     * Also, revise lastReleaseValue and/or trunkValue to INHERITANCE_MARKER if appropriate.
      */
     public void setBaileyValue(T baileyValue) {
         organizationToValueAndVote.baileySet = true;
         organizationToValueAndVote.baileyValue = baileyValue;
 
         /*
-         * If setLastRelease was called before setBaileyValue (as appears often to be the case),
-         * then lastRelease may need fixing here. Similar code in setLastRelease makes the implementation
-         * robust regardless of the order in which the two functions are called.
+         * If setLastRelease (or setTrunk) was called before setBaileyValue (as appears often to be the case),
+         * then lastRelease (or trunkValue) may need fixing here. Similar code in setLastRelease (and setTrunk)
+         * makes the implementation robust regardless of the order in which the functions are called.
          */
-        if (baileyValue != null && baileyValue.equals(lastReleaseValue)) {
-            lastReleaseValue = (T) CldrUtility.INHERITANCE_MARKER;
+        if (baileyValue != null) {
+            if (baileyValue.equals(lastReleaseValue)) {
+                lastReleaseValue = (T) CldrUtility.INHERITANCE_MARKER;
+            }
+            if (baileyValue.equals(trunkValue)) {
+                trunkValue = (T) CldrUtility.INHERITANCE_MARKER;
+            }
         }
     }
 

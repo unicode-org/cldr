@@ -38,6 +38,7 @@ import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LDMLUtilities;
@@ -930,6 +931,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
              * For example, here we get baileyValue = "Veräifachts Chineesisch",
              * but in updateInheritedValue we get inheritedValue = "Chineesisch (Veräifachti Chineesischi Schrift)".
              * That's for http://localhost:8080/cldr-apps/v#/gsw_FR/Languages_A_D/3f16ed8804cebb7d
+             * Reference https://unicode.org/cldr/trac/ticket/11420
              */
             String baileyValue = null;
             if (status.pathWhereFound.equals(path)) {
@@ -944,12 +946,24 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             } else {
                 // the path changed, so use that path to get the right value
                 // from the *current* file (not the parent)
-//              System.out.println("≥≥@@@>>" + path +" << " + status.pathWhereFound);
                 r = getResolverInternal(peekXpathData(status.pathWhereFound), status.pathWhereFound, r);
-                // Issue- "status.pathWhereFound"'s votes may not have been counted yet.
-                baileyValue = r.getWinningValue();
-//              System.out.println("≥≥@@@>>" + path +" << " + status.pathWhereFound + " == " + baileyValue);
-//              baileyValue = currentFile.getStringValue(status.pathWhereFound);
+                /*
+                 * Caution: never set baileyValue = INHERITANCE_MARKER!
+                 * That happened here, with "baileyValue = r.getWinningValue()" when
+                 * getWinningValue returned INHERITANCE_MARKER.
+                 * http://localhost:8080/cldr-apps/v#/ko/Gregorian/42291caf2163ca8d
+                 * Third "BCE" row ("eraNarrow"), which inherits from second "BCE" row ("eraAbbr").
+                 * We got hard BCE in Winning column, soft BCE in Others column.
+                 * Recursive call to PerLocaleData.getResolverInternal was involved.
+                 * If r.getWinningValue() returns INHERITANCE_MARKER, then set
+                 * this.baileyValue = r.getBaileyValue().
+                 * Reference https://unicode.org/cldr/trac/ticket/11611
+                 */
+                String wv = r.getWinningValue();
+                if (CldrUtility.INHERITANCE_MARKER.equals(wv)) {
+                    wv = r.getBaileyValue();
+                }
+                baileyValue = wv;                    
                 r.clear(); // clear it again
             }
 

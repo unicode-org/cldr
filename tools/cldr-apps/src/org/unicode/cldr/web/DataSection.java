@@ -2828,7 +2828,6 @@ public class DataSection implements JSONString {
          * 
          * See fixWinningValue for more related comments.
          */
-
         String ourValue = isExtraPath ? null : ourSrc.getStringValue(xpath);
         if (ourValue == null) {
             /*
@@ -2979,6 +2978,10 @@ public class DataSection implements JSONString {
      */
     private void populateFromThisXpathAddItemsForVotes(Set<String> v, String xpath, DataRow row, TestResultBundle checkCldr) {
         for (String avalue : v) {
+            Set<User> votes = ballotBox.getVotesForValue(xpath, avalue);
+            if (votes == null || votes.size() == 0) {
+                continue;
+            }
             CandidateItem item2 = row.addItem(avalue, "votes");
             if (avalue != null && checkCldr != null) {
                 List<CheckStatus> item2Result = new ArrayList<CheckStatus>();
@@ -2993,6 +2996,9 @@ public class DataSection implements JSONString {
     /**
      * Add an item for "ourValue" to the given DataRow, and set various fields of the DataRow
      *
+     * TODO: rename this function and/or move parts elsewhere? The setting of various fields may be
+     * more necessary than adding an item for ourValue. This function lacks a coherent purpose.
+     * 
      * @param ourValue
      * @param row
      * @param checkCldrResult
@@ -3007,13 +3013,22 @@ public class DataSection implements JSONString {
             org.unicode.cldr.util.CLDRFile.Status sourceLocaleStatus, String xpath, CLDRLocale setInheritFrom,
             List<CheckStatus> examplesResult) {
 
-        CandidateItem myItem = row.addItem(ourValue, "ourValue");
-
-        if (DEBUG) {
-            System.err.println("Added item " + ourValue + " - now items=" + row.items.size());
+        /*
+         * Skip ourValue if it matches inheritedValue. Otherwise we tend to get both "hard" and "soft"
+         * inheritance items even when there are no votes yet in the current cycle. This is related
+         * to the open question of how ourValue is related to winningValue (often but not always the same),
+         * and why there is any need at all for ourValue in addition to winningValue.
+         * Reference: https://unicode.org/cldr/trac/ticket/11611
+         */
+        CandidateItem myItem = null;
+        if (!(ourValue != null && ourValue.equals(row.inheritedValue))) {
+            myItem = row.addItem(ourValue, "ourValue");
+            if (DEBUG) {
+                System.err.println("Added item " + ourValue + " - now items=" + row.items.size());
+            }
         }
 
-        if (!checkCldrResult.isEmpty()) {
+        if (myItem != null && !checkCldrResult.isEmpty()) {
             myItem.setTests(checkCldrResult);
         }
 
@@ -3031,9 +3046,9 @@ public class DataSection implements JSONString {
          * TODO: explain the following block.
          * myItem.examples is assigned to here, but not referenced anywhere else,
          * so what is this block for, and does examples need to be a member of
-         * CandidateItem rather than just a local variable here?
+         * CandidateItem (as it currently is) rather than just a local variable here?
          */
-        if (!examplesResult.isEmpty()) {
+        if (myItem != null && !examplesResult.isEmpty()) {
             // reuse the same ArrayList unless it contains something
             if (myItem.examples == null) {
                 myItem.examples = new Vector<ExampleEntry>();

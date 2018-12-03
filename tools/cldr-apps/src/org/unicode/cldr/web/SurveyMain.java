@@ -6195,11 +6195,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     static protected File[] getInFiles() {
         //        ElapsedTimer et = SurveyLog.DEBUG ? new ElapsedTimer("getInFiles()") : null;
         Set<File> s = new HashSet<File>();
-        for (File f : getInFiles(fileBase)) {
-            s.add(f);
+        if (fileBase != null) {
+            for (File f : getInFiles(fileBase)) {
+                s.add(f);
+            }
         }
-        for (File f : getInFiles(fileBaseSeed)) {
-            s.add(f);
+        if (fileBaseSeed != null) {
+            for (File f : getInFiles(fileBaseSeed)) {
+                s.add(f);
+            }
         }
         File arr[] = s.toArray(new File[s.size()]);
         //        SurveyLog.debug(et);

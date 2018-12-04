@@ -612,13 +612,13 @@ public class VoteResolver<T> {
     private SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
 
     /**
-     * useKeywordAnnotationVoting: when true, use a special voting method for keyword
+     * usingKeywordAnnotationVoting: when true, use a special voting method for keyword
      * annotations that have multiple values separated by bar, like "happy | joyful".
      * See http://unicode.org/cldr/trac/ticket/10973 .
      * public, set in STFactory.java; could make it private and add param to
      * the VoteResolver constructor.
      */
-    public boolean useKeywordAnnotationVoting = false;
+    private boolean usingKeywordAnnotationVoting = false;
 
     private final Comparator<T> ucaCollator = new Comparator<T>() {
         Collator col = Collator.getInstance(ULocale.ENGLISH);
@@ -768,7 +768,7 @@ public class VoteResolver<T> {
         this.lastReleaseStatus = Status.missing;
         this.trunkValue = null;
         this.trunkStatus = Status.missing;
-        this.useKeywordAnnotationVoting = false;
+        this.setUsingKeywordAnnotationVoting(false);
         organizationToValueAndVote.clear();
         resolved = false;
         values.clear();
@@ -951,7 +951,7 @@ public class VoteResolver<T> {
         /*
          * Adjust sortedValues and voteCount as needed for annotation keywords.
          */
-        if (useKeywordAnnotationVoting) {
+        if (isUsingKeywordAnnotationVoting()) {
             adjustAnnotationVoteCounts(sortedValues, voteCount);
         }
 
@@ -1896,5 +1896,23 @@ public class VoteResolver<T> {
             || orgVote.equals(value)
             || CldrUtility.INHERITANCE_MARKER.equals(value)
                 && orgVote.equals(organizationToValueAndVote.baileyValue);
+    }
+
+    /**
+     * Is this VoteResolver using keyword annotation voting?
+     *
+     * @return true or false
+     */
+    public boolean isUsingKeywordAnnotationVoting() {
+        return usingKeywordAnnotationVoting;
+    }
+
+    /**
+     * Set whether this VoteResolver should use keyword annotation voting.
+     *
+     * @param usingKeywordAnnotationVoting true or false
+     */
+    public void setUsingKeywordAnnotationVoting(boolean usingKeywordAnnotationVoting) {
+        this.usingKeywordAnnotationVoting = usingKeywordAnnotationVoting;
     }
 }

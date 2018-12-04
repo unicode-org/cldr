@@ -915,10 +915,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
              * Special voting is only for keyword paths, not for name paths.
              * Compare path dependencies in DisplayAndInputProcessor.java. See also VoteResolver.splitAnnotationIntoComponentsList.
              * Note: this does not affect the occurrences of "new VoteResolver" in ConsoleCheckCLDR.java or TestUtilities.java;
-             * if those tests ever involve annotation keywords, they could set useKeywordAnnotationVoting as needed, or a new
-             * constructor for VoteResolver could take useKeywordAnnotationVoting (or the path) as a parameter.
+             * if those tests ever involve annotation keywords, they could call setUsingKeywordAnnotationVoting as needed.
              */
-            r.useKeywordAnnotationVoting = path.startsWith("//ldml/annotations/annotation") && !path.contains(Emoji.TYPE_TTS);
+            r.setUsingKeywordAnnotationVoting(path.startsWith("//ldml/annotations/annotation") && !path.contains(Emoji.TYPE_TTS));
 
             // Workaround (workaround what?)
             CLDRFile.Status status = new CLDRFile.Status();

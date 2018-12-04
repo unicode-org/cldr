@@ -3010,7 +3010,18 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     public VersionInfo getDtdVersionInfo() {
-        return dataSource.getDtdVersionInfo();
+        VersionInfo result = dataSource.getDtdVersionInfo();
+        if (result != null || isEmpty()) {
+            return result;
+        }
+        // for old files, pick the version from the @version attribute
+        String path = dataSource.iterator().next();
+        String full = getFullXPath(path);
+        XPathParts parts = XPathParts.getFrozenInstance(full);
+        String versionString = parts.findFirstAttributeValue("version");
+        return versionString == null 
+            ? null 
+                : VersionInfo.getInstance(versionString);
     }
 
     public String getStringValue(String path, boolean ignoreOtherLeafAttributes) {

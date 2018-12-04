@@ -59,7 +59,7 @@ public class TestOutdatedPaths extends TestFmwkPlus {
     }
 
     // use for debugging
-    public void xTestShow() {
+    public void TestShow() {
         if (isVerbose()) {
             PathHeader.Factory pathHeaders = PathHeader.getFactory(testInfo.getEnglish());
             // checkShow(pathHeaders, "fr");

@@ -28,10 +28,11 @@ public final class SubmissionLocales {
     public static final Pattern ALLOWED_IN_LIMITED_PATHS = Pattern.compile(
         "//ldml/"
             + "(listPatterns/listPattern\\[@type=\"standard"
-            + "|annotations/annotation\\[@cp=\"([©®‼⁉☑✅✔✖✨✳✴❇❌❎❓-❕❗❣ ➕-➗👫-👭👱🥰🧩🧔]|👱‍♀|👱‍♂)\""
+            + "|annotations/annotation\\[@cp=\"([©®‼⁉☑✅✔✖✨✳✴❇❌❎❓-❕❗❣ ➕-➗👫-👭👱🥰🧩🧔😸😺😹😼😻🦊😽😼⭕😺😿😾😻😸😹🐺⭕🦄😽🐼🐸😿🤖🐹🐻🙀🦁]|👱‍♀|👱‍♂)\""
             + "|localeDisplayNames/"
-            + "(scripts/script\\[@type=\"(Elym|Hmnp|Nand|Wcho)\""
-            + "|territories/territory\\[@type=\"MO\"]"
+            +   "(scripts/script\\[@type=\"(Elym|Hmnp|Nand|Wcho)\""
+            +    "|territories/territory\\[@type=\"MO\"]"
+            +    "|types/type\\[@key=\"numbers\"]\\[@type=\"(hmnp|wcho)\"]"
             + ")"
             + ")"
             );

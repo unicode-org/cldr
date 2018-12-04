@@ -70,13 +70,11 @@ public class TestExampleGenerator extends TestFmwk {
         }
     }
 
+    /**  
+     * Only add to this if the example should NEVER appear.
+     * <br>WARNING - do not disable the test by putting in too broad a match. Make sure the paths are reasonably granular.
+     */
     static final Set<String> DELIBERATE_EXCLUDED_EXAMPLES = ImmutableSet.of(
-        // WARNING - do not disable the test by putting in too broad a match. Make sure the paths are reasonably granular.
-
-        // ========
-        // DELIBERATE EXCLUSIONS; no need to have these in context.
-        // ========
-
         "//ldml/layout/orientation/characterOrder",
         "//ldml/layout/orientation/lineOrder",
         "//ldml/characters/moreInformation",
@@ -107,19 +105,13 @@ public class TestExampleGenerator extends TestFmwk {
 
         "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"([^\"]*+)\"]",
         "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"([^\"]*+)\"]",
-        "//ldml/characterLabels/characterLabelPattern[@type=\"([^\"]*+)\"]",
-        "//ldml/characterLabels/characterLabelPattern[@type=\"([^\"]*+)\"][@count=\"([^\"]*+)\"]",
-        "//ldml/characterLabels/characterLabel[@type=\"([^\"]*+)\"]",
-        "//ldml/typographicNames/axisName[@type=\"([^\"]*+)\"]",
-        "//ldml/typographicNames/styleName[@type=\"([^\"]*+)\"][@subtype=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
-        "//ldml/typographicNames/styleName[@type=\"([^\"]*+)\"][@subtype=\"([^\"]*+)\"]",
-        "//ldml/typographicNames/featureName[@type=\"([^\"]*+)\"]",
-        "//ldml/characters/parseLenients[@scope=\"([^\"]*+)\"][@level=\"([^\"]*+)\"]/parseLenient[@sample=\"([^\"]*+)\"]",
-        "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"([^\"]*+)\"]"
+        "//ldml/characters/parseLenients[@scope=\"([^\"]*+)\"][@level=\"([^\"]*+)\"]/parseLenient[@sample=\"([^\"]*+)\"]"
         );
+    // Only add to above if the example should NEVER appear.
 
-    /**
-        TEMPORARY EXCLUSIONS; TODO: add examples later 
+    /**  
+     * Add to this if the example SHOULD appear, but we don't have it yet.
+     * <br>TODO Add later
      */
     static final Set<String> TEMPORARY_EXCLUDED_EXAMPLES = ImmutableSet.of(
 
@@ -163,12 +155,26 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/coordinateUnit/coordinateUnitPattern[@type=\"([^\"]*+)\"]",
         "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/coordinateUnit/displayName",
 
+        "//ldml/characterLabels/characterLabelPattern[@type=\"([^\"]*+)\"]",
+        "//ldml/characterLabels/characterLabelPattern[@type=\"([^\"]*+)\"][@count=\"([^\"]*+)\"]",
+        "//ldml/characterLabels/characterLabel[@type=\"([^\"]*+)\"]",
+        "//ldml/typographicNames/axisName[@type=\"([^\"]*+)\"]",
+        "//ldml/typographicNames/styleName[@type=\"([^\"]*+)\"][@subtype=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
+        "//ldml/typographicNames/styleName[@type=\"([^\"]*+)\"][@subtype=\"([^\"]*+)\"]",
+        "//ldml/typographicNames/featureName[@type=\"([^\"]*+)\"]",
+        
+        "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"([^\"]*+)\"]",
+
         "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard" // Error: (TestExampleGenerator.java:245) No background:   <Coordinated Universal Time>    〖Coordinated Universal Time〗    
-
-    // WARNING - do not disable the test by putting in too broad a match. Make sure the paths are reasonably granular.
-
     );
+    // Add to above if the example SHOULD appear, but we don't have it yet. TODO Add later
 
+
+    /**  
+     * Only add to this if the background should NEVER appear.
+     * <br>The background is used when the element is used as part of another format. 
+     * <br>WARNING - do not disable the test by putting in too broad a match. Make sure the paths are reasonably granular.
+     */
     static final Set<String> DELIBERATE_OK_TO_MISS_BACKGROUND = ImmutableSet.of(
         "//ldml/numbers/defaultNumberingSystem",
         "//ldml/numbers/otherNumberingSystems/native",
@@ -189,6 +195,14 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/standard",
         "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/daylight",
         "//ldml/units/durationUnit[@type=\"([^\"]*+)\"]/durationUnitPattern");
+    // Only add to above if the background should NEVER appear.
+
+    
+    /**  
+     * Add to this if the background SHOULD appear, but we don't have them yet.
+     * <br> The background is used when the element is used as part of another format. 
+     * <br> TODO Add later
+     */
     static final Set<String> TEMPORARY_OK_TO_MISS_BACKGROUND = ImmutableSet.of(
         "//ldml/numbers/defaultNumberingSystem",
         "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"([^\"]*+)\"][@count=\"([^\"]*+)\"]",
@@ -196,6 +210,7 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/generic",
         "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/standard",
         "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/daylight");
+    // Add to above if the background SHOULD appear, but we don't have them yet. TODO Add later
 
     public void TestAllPaths() {
         ExampleGenerator exampleGenerator = getExampleGenerator("en");
@@ -214,7 +229,7 @@ public class TestExampleGenerator extends TestFmwk {
             if (TEMPORARY_EXCLUDED_EXAMPLES.contains(plainStarred)) {
                 if (logKnownIssue(
                     "Cldrbug:6342",
-                    "In our tests, make sure that either we have an example for every path that is used in context.")) {
+                    "Need an example for each path used in context: " + plainStarred)) {
                     continue;
                 }
                 continue;
@@ -249,9 +264,16 @@ public class TestExampleGenerator extends TestFmwk {
                             + "\t" + javaEscapedStarred);
                     }
                 } else if (!simplified.contains("❬")
-                    && !DELIBERATE_OK_TO_MISS_BACKGROUND.contains(plainStarred)
-                    && !TEMPORARY_OK_TO_MISS_BACKGROUND.contains(plainStarred)) {
+                    && !DELIBERATE_OK_TO_MISS_BACKGROUND.contains(plainStarred)) {
                     if (!seen.contains(javaEscapedStarred)) {
+
+                        if (TEMPORARY_OK_TO_MISS_BACKGROUND.contains(plainStarred)
+                            && logKnownIssue(
+                            "Cldrbug:6342",
+                            "Make sure that background appears: " + simplified + "; " + plainStarred)) {
+                            continue;
+                        }
+
                         errln("No background:\t<" + value + ">\t" + simplified
                             + "\t" + javaEscapedStarred);
                     }

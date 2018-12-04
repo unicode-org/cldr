@@ -415,12 +415,23 @@ public class TestCheckCLDR extends TestFmwk {
     }
 
     public void TestCheckNew() {
-        String path = "//ldml/dates/timeZoneNames/zone[@type=\"Europe/Dublin\"]/long/daylight";
-        CheckCLDR c = new CheckNew(testInfo.getCldrFactory());
+        // this needs to be a <locale,path> that is currently outdated (birth older than English's)
+        // if the test fails with "no failure message"
+        // * run GenerateBirths (if you haven't done so)
+        // * look at readable results in the log file in CLDRPaths.TMP_DIRECTORY + "dropbox/births/"
+        // * for fr.txt (or may change locale)
+        // * find a path that is outdated. 
+        //   * To work on both limited and full submissions, choose one with English = trunk
+        //   * Sometimes the English change is suppressed in a limited release if the change is small. Pick another in that case.
+        // * check the data files to ensure that it is in fact outdated.
+        // * change the path to that value
+        
+        String locale = "fr";
+        String path = "//ldml/localeDisplayNames/territories/territory[@type=\"MO\"][@alt=\"short\"]";
+        CheckCLDR c = new CheckNew(testInfo.getCommonAndSeedAndMainAndAnnotationsFactory());
         List<CheckStatus> result = new ArrayList<CheckStatus>();
         Map<String, String> options = new HashMap<String, String>();
-        c.setCldrFileToCheck(testInfo.getCLDRFile("fr", true),
-            options, result);
+        c.setCldrFileToCheck(testInfo.getCLDRFile(locale, true), options, result);
         c.check(path, path, "foobar", options, result);
         for (CheckStatus status : result) {
             if (status.getSubtype() != Subtype.modifiedEnglishValue) {
@@ -428,7 +439,7 @@ public class TestCheckCLDR extends TestFmwk {
             }
             assertEquals(
                 null,
-                "The English value for this field changed from “Irish Summer Time” to “Irish Standard Time’, but the corresponding value for your locale didn't change.",
+                "The English value for this field changed from “Macau” to “Macao’, but the corresponding value for your locale didn't change.",
                 status.getMessage());
             return;
         }
@@ -799,6 +810,9 @@ public class TestCheckCLDR extends TestFmwk {
         Set<String> newPaths = new TreeSet<>();
         Set<String> diffValues = new TreeSet<>();
         boolean firstFail = true;
+        
+        UnicodeSet okAnnotations = new UnicodeSet("[🤖 😺 😸 😹 😻-😽 🙀 😿 😾 🐺 🦊 🦁 🦄 🐹 🐻 🐼 🐸 🧩 ⭕]").freeze();
+        
         for (String path : english) {
             if (path.contains("/alias")) {
                 continue;
@@ -819,20 +833,20 @@ public class TestCheckCLDR extends TestFmwk {
                 errln("Match fails with " + path + ", old: " + valueOld + ", new: " + value 
                     + (firstFail ? "\nAdd these to regex in SubmissionLocales or filter from this test if unimportant" : ""));
                 firstFail = false;
-            } if (!isDiff && regexMatch) {
+            } else if (!isDiff && regexMatch) {
                 
                 // will need to change this for new releases!!
 
                 if (path.endsWith("/listPatternPart[@type=\"start\"]") 
                     || path.endsWith("/listPatternPart[@type=\"middle\"]") 
                     || path.endsWith("[@type=\"tts\"]") 
-                    || path.endsWith("[@cp=\"🧩\"]") 
+                    || okAnnotations.containsSome(path)
                     ) {
                     continue;
                 }
-                errln("Match overshoots with " + path);
+                errln("Match overshoots with " + path 
+                    + (firstFail ? "\nAdd these to regex in SubmissionLocales or filter from this test if unimportant" : ""));
             }
         }
-
     }
 }

@@ -703,7 +703,7 @@ public final class XPathParts implements Freezable<XPathParts> {
 
         public Element(String element, Map<String, String> attributes) {
             this.frozen = false;
-            this.element = element.intern();
+            this.element = element.intern();  // allow fast comparison
             if (attributes == null) {
                 this.attributes = null;
             } else {
@@ -719,6 +719,7 @@ public final class XPathParts implements Freezable<XPathParts> {
         }
 
         public void putAttribute(String attribute, String value) {
+            attribute = attribute.intern(); // allow fast comparison
             if (frozen) {
                 throw new UnsupportedOperationException("Can't modify frozen object.");
             }

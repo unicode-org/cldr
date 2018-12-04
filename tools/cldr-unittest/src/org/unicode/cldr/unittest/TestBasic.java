@@ -1318,11 +1318,11 @@ public class TestBasic extends TestFmwkPlus {
                 return;
             }
 
-            for (CldrVersion version : CldrVersion.values()) {
-                if (version == CldrVersion.trunk || version == CldrVersion.unknown) {
+            for (CldrVersion version : CldrVersion.CLDR_VERSIONS_DESCENDING) {
+                if (version == CldrVersion.unknown || version == CldrVersion.trunk) {
                     continue;
-                } else if (version == CldrVersion.v1_1_1) {
-                    break;
+//                } else if (version == CldrVersion.trunk) {
+//                    continue;
                 }
                 DtdData dtdDataOld;
                 try {

@@ -59,7 +59,6 @@ public class CheckNew extends FactoryCheckCLDR {
                         .setSubtype(Subtype.valueMustBeOverridden)
                         .setMessage("This value must be a real translation, NOT the name/keyword placeholder."));
                 }
-                return this;
             }
         }
 

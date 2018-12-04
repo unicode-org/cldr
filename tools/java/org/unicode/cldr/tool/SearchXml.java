@@ -24,6 +24,7 @@ import org.unicode.cldr.util.XMLFileReader;
 
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.UnicodeRegex;
+import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
@@ -458,8 +459,14 @@ public class SearchXml {
         System.out.println("locale=" + fileWithoutSuffix
             + ";\taction=add"
             + ";\tnew_path=" + path
-            + ";\tnew_value=" + values2
+            + ";\tnew_value=" + escape(values2)
             + (otherValues == null ? "" : ";\tother_value=" + otherValues));
+    }
+
+    static final Transliterator showInvisibles = Transliterator.getInstance("[[:whitespace:][:cf:]-[\\u0020]]hex/perl");
+    
+    private static String escape(String source) {
+        return showInvisibles.transform(source);
     }
 
     static Set<String> defaultContent = SupplementalDataInfo.getInstance().getDefaultContentLocales();

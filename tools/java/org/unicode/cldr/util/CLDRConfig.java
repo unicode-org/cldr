@@ -319,7 +319,8 @@ public class CLDRConfig extends Properties {
                 File[] paths = {
                     new File(CLDRPaths.MAIN_DIRECTORY),
                     new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
-                    new File(CLDRPaths.SEED_DIRECTORY)
+                    new File(CLDRPaths.SEED_DIRECTORY),
+                    new File(CLDRPaths.SEED_ANNOTATIONS_DIRECTORY)
                 };
                 commonAndSeedAndMainAndAnnotationsFactory = SimpleFactory.make(paths, ".*");
             }
@@ -330,7 +331,9 @@ public class CLDRConfig extends Properties {
     public Factory getFullCldrFactory() {
         synchronized (FULL_FACTORY_SYNC) {
             if (fullFactory == null) {
-                File[] paths = { new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.SEED_DIRECTORY) };
+                File[] paths = {
+                    new File(CLDRPaths.MAIN_DIRECTORY), 
+                    new File(CLDRPaths.SEED_DIRECTORY)};
                 fullFactory = SimpleFactory.make(paths, ".*");
             }
         }

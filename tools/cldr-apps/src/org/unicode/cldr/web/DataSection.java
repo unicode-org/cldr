@@ -701,7 +701,7 @@ public class DataSection implements JSONString {
          *     in populateFromThisXpath:
          *         row.addItem(row.winningValue, "winningValue");
          *
-         * (4) For oldValue (if not null, not in votes, and not same as ourValue):
+         * (4) For oldValue (if not null, and not same as ourValue):
          *     in populateFromThisXpath:
          *         row.addItem(row.oldValue, "oldValue");
          *
@@ -2897,12 +2897,16 @@ public class DataSection implements JSONString {
         }
 
         /*
-         * Add an item for oldValue if there isn't one already.
+         * Add an item for oldValue if there isn't one already. Do so even if it occurs
+         * in the vote array v, since populateFromThisXpathAddItemsForVotes may skip items
+         * for which getVotesForValue is null or empty. There is no harm in calling addItem
+         * twice for the same value.
          *
-         * TODO: clarify whether the conditions "!row.oldValue.equals(ourValue)" and
-         * "v == null || !v.contains(row.oldValue)" are needed here and if so why.
+         * TODO: clarify whether the condition "!row.oldValue.equals(ourValue)" is
+         * needed here and if so why. (For example, if ourValue same as inheritedValue,
+         * don't treat it as a "hard" item.) 
          */
-        if (row.oldValue != null && !row.oldValue.equals(ourValue) && (v == null || !v.contains(row.oldValue))) {
+        if (row.oldValue != null && !row.oldValue.equals(ourValue)) {
             row.addItem(row.oldValue, "oldValue");
         }
 

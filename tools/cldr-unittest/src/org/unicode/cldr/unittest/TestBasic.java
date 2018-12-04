@@ -1132,6 +1132,10 @@ public class TestBasic extends TestFmwkPlus {
             return;
         }
 
+        if (logKnownIssue("cldrbug:11583", "Comment out test until last release data is available for unit tests")) {
+            return;
+        }
+
         final String oldCommon = CldrVersion.v22_1.getBaseDirectory() + "/common";
 
         // set up exceptions
@@ -1315,6 +1319,10 @@ public class TestBasic extends TestFmwkPlus {
 
             // Only run the rest in exhaustive mode, since it requires CLDR_ARCHIVE_DIRECTORY
             if (getInclusion() <= 5) {
+                return;
+            }
+            
+            if (logKnownIssue("cldrbug:11583", "Comment out test until last release data is available for unit tests")) {
                 return;
             }
 

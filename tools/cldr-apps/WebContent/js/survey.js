@@ -5875,7 +5875,7 @@ function showV() {
 				theLocale = 'und';
 			}
 			const saveLoadingMessage = $('#LoadingMessageSection').html();
-			if (userID) {
+			if (typeof userID !== 'undefined' && userID) {
 				$('#LoadingMessageSection').html("Please wait while Survey Tool"
 						+ " is loading initial menus, and importing old votes."
 						+ "<br><b>Importing old votes may take a little while the first time you log in.</b>"

@@ -5874,8 +5874,16 @@ function showV() {
 			if(surveyCurrentLocale===null || surveyCurrentLocale=='') {
 				theLocale = 'und';
 			}
+			const saveLoadingMessage = $('#LoadingMessageSection').html();
+			if (userID) {
+				$('#LoadingMessageSection').html("Please wait while Survey Tool"
+						+ " is loading initial menus, and importing old votes."
+						+ "<br><b>Importing old votes may take a little while the first time you log in.</b>"
+						+ "<br><img src='loader.gif'>");
+			}
 			var xurl = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=menus&locmap="+true+cacheKill();
 			myLoad(xurl, "initial menus for " + surveyCurrentLocale, function(json) {
+				$('#LoadingMessageSection').html(saveLoadingMessage);
 				if(!verifyJson(json,'locmap')) {
 					return;
 				} else {

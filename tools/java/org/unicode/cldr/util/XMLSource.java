@@ -1411,6 +1411,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             addFallbackCode(CLDRFile.TERRITORY_NAME, "FK", "FK", "variant");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "MK", "MK", "variant");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "TL", "TL", "variant");
+            addFallbackCode(CLDRFile.TERRITORY_NAME, "SZ", "SZ", "variant");
 
             addFallbackCode(CLDRFile.TERRITORY_NAME, "XA", "XA");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "XB", "XB");

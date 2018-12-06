@@ -830,8 +830,8 @@ public class TestCheckCLDR extends TestFmwk {
             }
             boolean regexMatch = SubmissionLocales.pathAllowedInLimitedSubmission(path);
             if (isDiff && !regexMatch) {
-                errln("Match fails with " + path + ", old: " + valueOld + ", new: " + value 
-                    + (firstFail ? "\nAdd these to regex in SubmissionLocales or filter from this test if unimportant" : ""));
+                errln((firstFail ? "Add these to regex in SubmissionLocales OR filter from this test if unimportant:\n\t\t\t" : "")
+                    + "Match fails with " + path + ", old: " + valueOld + ", new: " + value);
                 firstFail = false;
             } else if (!isDiff && regexMatch) {
                 

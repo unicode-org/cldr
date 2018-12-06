@@ -52,7 +52,7 @@ public class GenerateBirth {
     final static Options myOptions = new Options()
         .add("target", ".*", CLDRPaths.BIRTH_DATA_DIR,
             "The target directory for building the text files that show the results.")
-        .add("log", ".*", CLDRPaths.TMP_DIRECTORY + "dropbox/births/",
+        .add("log", ".*", CLDRPaths.AUX_DIRECTORY + "births/" + CldrVersion.trunk.getVersionInfo().getVersionString(2, 4),
             "The target directory for building the text files that show the results.")
         .add(
             "file",

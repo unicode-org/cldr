@@ -31,11 +31,22 @@ public final class SubmissionLocales {
             + "|annotations/annotation\\[@cp=\"([©®‼⁉☑✅✔✖✨✳✴❇❌❎❓-❕❗❣ ➕-➗👫-👭👱🥰🧩🧔😸😺😹😼😻🦊😽😼⭕😺😿😾😻😸😹🐺⭕🦄😽🐼🐸😿🤖🐹🐻🙀🦁]|👱‍♀|👱‍♂)\""
             + "|localeDisplayNames/"
             +   "(scripts/script\\[@type=\"(Elym|Hmnp|Nand|Wcho)\""
-            +    "|territories/territory\\[@type=\"MO\"]"
+            +    "|territories/territory\\[@type=\"(MO|SZ)\"](\\[@alt=\"variant\"])?"
             +    "|types/type\\[@key=\"numbers\"]\\[@type=\"(hmnp|wcho)\"]"
-            + ")"
+            +   ")"
+            + "|dates/timeZoneNames/(metazone\\[@type=\"Macau\"]"
+            +   "|zone\\[@type=\"Asia/Macau\"]"
+            +   ")"
             + ")"
             );
+    
+//ldml/dates/timeZoneNames/metazone[@type="Macau"]/long/daylight, old: Macau Summer Time, new: Macao Summer Time
+//ldml/dates/timeZoneNames/metazone[@type="Macau"]/long/standard, old: Macau Standard Time, new: Macao Standard Time
+//ldml/localeDisplayNames/territories/territory[@type="SZ"][@alt="variant"], old: SZ, new: Swaziland
+//ldml/dates/timeZoneNames/zone[@type="Asia/Macau"]/exemplarCity, old: Macau, new: Macao
+//ldml/dates/timeZoneNames/metazone[@type="Macau"]/long/generic, old: Macau Time, new: Macao Time
+//ldml/localeDisplayNames/territories/territory[@type="SZ"], old: Swaziland, new: Eswatini
+
 
     /**
      * Only call this if LIMITED_SUBMISSION

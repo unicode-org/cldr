@@ -99,7 +99,11 @@ public class TestBasic extends TestFmwkPlus {
         Pair.of("ldml", "version"),
         Pair.of("supplementalData", "version"),
         Pair.of("ldmlICU", "version"),
-        Pair.of("layout", "standard"));
+        Pair.of("layout", "standard"),
+        Pair.of("currency", "id"),      // for v1.1.1
+        Pair.of("monthNames", "type"),  // for v1.1.1
+        Pair.of("alias", "type")        // for v1.1.1
+        );
 
     private static final ImmutableSet<Pair<String, String>> knownChildExceptions = ImmutableSet.of(
         Pair.of("abbreviationFallback", "special"),
@@ -1127,11 +1131,6 @@ public class TestBasic extends TestFmwkPlus {
 
     public void TestBasicDTDCompatibility() {
 
-        // Only run the rest in exhaustive mode, since it requires CLDR_ARCHIVE_DIRECTORY
-        if (getInclusion() <= 5) {
-            return;
-        }
-
         if (logKnownIssue("cldrbug:11583", "Comment out test until last release data is available for unit tests")) {
             return;
         }
@@ -1316,11 +1315,6 @@ public class TestBasic extends TestFmwkPlus {
                 type
                     + " DTD elements with children must have 'special' elements",
                 Collections.EMPTY_SET, elementsWithoutSpecial);
-
-            // Only run the rest in exhaustive mode, since it requires CLDR_ARCHIVE_DIRECTORY
-            if (getInclusion() <= 5) {
-                return;
-            }
             
             if (logKnownIssue("cldrbug:11583", "Comment out test until last release data is available for unit tests")) {
                 return;
@@ -1329,8 +1323,6 @@ public class TestBasic extends TestFmwkPlus {
             for (CldrVersion version : CldrVersion.CLDR_VERSIONS_DESCENDING) {
                 if (version == CldrVersion.unknown || version == CldrVersion.trunk) {
                     continue;
-//                } else if (version == CldrVersion.trunk) {
-//                    continue;
                 }
                 DtdData dtdDataOld;
                 try {
@@ -1340,11 +1332,11 @@ public class TestBasic extends TestFmwkPlus {
                     switch (type) {
                     case ldmlBCP47:
                     case ldmlICU:
-                        tooOld = version.compareTo(CldrVersion.v1_7_2) >= 0;
+                        tooOld = version.isOlderThan(CldrVersion.v1_7_2);
                         break;
                     case keyboard:
                     case platform:
-                        tooOld = version.compareTo(CldrVersion.v22_1) >= 0;
+                        tooOld = version.isOlderThan(CldrVersion.v22_1);
                         break;
                     default:
                         break;
@@ -1352,7 +1344,8 @@ public class TestBasic extends TestFmwkPlus {
                     if (tooOld) {
                         continue;
                     } else {
-                        throw e;
+                        errln(version + ": " + e.getClass().getSimpleName() + ", " + e.getMessage());
+                        continue;
                     }
                 }
                 // verify that if E is in dtdDataOld, then it is in dtdData, and
@@ -1382,7 +1375,7 @@ public class TestBasic extends TestFmwkPlus {
                                 continue;
                             }
                             assertNotNull(
-                                type + " DTD - Children of «"
+                                type + " DTD - Trunk children of «"
                                     + newElement.getName()
                                     + "» must be superset of v"
                                     + version + ", and must contain «"
@@ -1398,13 +1391,12 @@ public class TestBasic extends TestFmwkPlus {
                                 continue;
                             }
                             assertNotNull(
-                                type + " DTD - Attributes of «"
+                                type + " DTD - Trunk attributes of «"
                                     + newElement.getName()
                                     + "» must be superset of v"
                                     + version + ", and must contain «"
                                     + oldAttribute.getName() + "»",
                                 newAttribute);
-
                         }
                     }
                 }

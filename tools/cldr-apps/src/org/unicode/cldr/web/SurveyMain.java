@@ -2758,6 +2758,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 while (rs.next()) {
                     int theirId = rs.getInt(1);
                     int theirLevel = rs.getInt(2);
+                    /*
+                     * In this context always silently skip anonymous users. Don't send email to anon20@example.org.
+                     * This interface could be changed to treat anonymous users more like locked users, if there is
+                     * ever motivation; but anonymous users should never be sent email.
+                     * Reference: https://unicode.org/cldr/trac/ticket/11517
+                     */
+                    if (theirLevel == UserRegistry.ANONYMOUS) {
+                        continue;
+                    }
                     if (!showLocked
                         && theirLevel >= UserRegistry.LOCKED
                         && just == null /* if only one user, show regardless of lock state. */) {

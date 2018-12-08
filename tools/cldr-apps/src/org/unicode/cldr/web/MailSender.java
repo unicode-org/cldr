@@ -52,7 +52,7 @@ public class MailSender implements Runnable {
     private UserRegistry.User getUser(int user) {
         if (user < 1) user = 1;
         UserRegistry.User u = CookieSession.sm.reg.getInfo(user);
-        if (u == null || UserRegistry.userIsLocked(u)) {
+        if (u == null || UserRegistry.userIsLocked(u) || UserRegistry.userIsExactlyAnonymous(u)) {
             return null;
         }
         return u;
@@ -60,7 +60,7 @@ public class MailSender implements Runnable {
 
     private String getEmailForUser(int user) {
         UserRegistry.User u = CookieSession.sm.reg.getInfo(user);
-        if (u == null || UserRegistry.userIsLocked(u)) {
+        if (u == null || UserRegistry.userIsLocked(u) || UserRegistry.userIsExactlyAnonymous(u)) {
             return null;
         }
 
@@ -427,8 +427,8 @@ public class MailSender implements Runnable {
                         String why;
                         int badCount;
                         UserRegistry.User u = CookieSession.sm.reg.getInfo(to);
-                        if (u != null && UserRegistry.userIsLocked(u)) {
-                            why = "user " + u + " is locked";
+                        if (u != null && (UserRegistry.userIsLocked(u) || UserRegistry.userIsExactlyAnonymous(u))) {
+                            why = "user " + u + " is locked or anonymous";
                         } else {
                             why = "user (#" + to + ") does not exist";
                         }

@@ -243,7 +243,8 @@ public class SurveyForum {
                     int uid = rs.getInt(1);
 
                     UserRegistry.User u = sm.reg.getInfo(uid);
-                    if (u != null && u.email != null && u.email.length() > 0 && !UserRegistry.userIsLocked(u)) {
+                    if (u != null && u.email != null && u.email.length() > 0
+                            && !(UserRegistry.userIsLocked(u) || UserRegistry.userIsExactlyAnonymous(u))) {
                         if (UserRegistry.userIsVetter(u)) {
                             cc_emails.add(u.id);
                         } else {

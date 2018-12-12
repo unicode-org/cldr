@@ -25,7 +25,7 @@ public class TestLocalCurrency extends TestFmwk {
     }
 
     private int maxLocalizedSymbols(String region) {
-        final List<String> regionsWithTwoCurrencySymbols = Arrays.asList("AZ",
+        final List<String> regionsWithTwoCurrencySymbols = Arrays.asList("AE", "AZ",
             "BA", "CN", "DZ", "ET", "IQ", "IR", "LK", "KM", "MA", "MR", "MK", "PK",
             "RS", "SD", "SY", "TN", "UZ");
         if (regionsWithTwoCurrencySymbols.contains(region)) {
@@ -43,7 +43,7 @@ public class TestLocalCurrency extends TestFmwk {
         Map<String, Set<String>> localizedCurrencySymbols = new HashMap<String, Set<String>>();
         Map<String, Set<String>> regionToLocales = new HashMap<String, Set<String>>();
 
-        List<String> nonLocalizedOK = Arrays.asList("AZN", "CHF", "CVE", "GEL",
+        List<String> nonLocalizedOK = Arrays.asList("AED", "AZN", "CHF", "CVE", "GEL",
             "HRK", "HUF", "IQD", "IRR", "ISK", "KPW", "LTL", "MAD", "MDL", "RON", "RSD",
             "SDG", "THB", "TMT");
 

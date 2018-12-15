@@ -2021,9 +2021,22 @@ function showForumStuff(frag, forumDiv, tr) {
 
 			var url = contextPath + "/SurveyAjax?what=getsideways&_="+surveyCurrentLocale+"&s="+surveySessionId+"&xpath="+tr.theRow.xpstrid +  cacheKill();
 			myLoad(url, "sidewaysView", function(json) {
-				// if there is 1 sublocale(+ 1 default), we do nothing
-				var locale_count = Object.keys(json.others).length + json.novalue.length;
-				if(locale_count <= 2){
+				/*
+				 * Count the number of unique locales in json.others and json.novalue.
+				 *
+				 * There was a bug here:
+				 *    var locale_count = Object.keys(json.others).length + json.novalue.length;
+				 * This's not a valid way to count the locales, since the keys of json.others are candidate
+				 * values, not locales. Reference: https://unicode.org/cldr/trac/ticket/11688
+				 */
+				var relatedLocales = json.novalue.slice();
+				for (var s in json.others) {
+					for (var t in json.others[s]) {
+						relatedLocales[json.others[s][t]] = true;
+					}
+				}
+				// if there is 1 sublocale (+ 1 default), we do nothing
+				if (Object.keys(relatedLocales).length <= 2) {
 					oneLocales[surveyCurrentLocale] = true;
 					updateIf(sidewaysControl, "");
 				}else{
@@ -2061,8 +2074,9 @@ function showForumStuff(frag, forumDiv, tr) {
 								}
 							}
 						}
+
 						// compare all sublocale values
-						var appendLocaleList = function appendLocaleList(list) {
+						var appendLocaleList = function appendLocaleList(list, curValue) {
 							var group = document.createElement("optGroup");
 							var br = document.createElement("optGroup");
 							group.appendChild(br);
@@ -2070,18 +2084,8 @@ function showForumStuff(frag, forumDiv, tr) {
 							group.setAttribute("label", "Regional Variants for " + curLocale);
 							group.setAttribute("title", "Regional Variants for " + curLocale);
 
-							var curValue = null;
 							var escape = "\u00A0\u00A0\u00A0";
 							var unequalSign = "\u2260\u00A0";
-
-							// find the currenct locale name
-							for(var l=0;l<list.length;l++){
-								var loc = list[l][0];
-								if(loc === surveyCurrentLocale) {
-									curValue = list[l][1];
-									break;
-								}
-							};
 
 							for(var l=0;l<list.length;l++) {
 								var loc = list[l][0];
@@ -2117,18 +2121,37 @@ function showForumStuff(frag, forumDiv, tr) {
 						var dataList = [];
 
 						var popupSelect = document.createElement("select");
-						var inheritValue = null; // inherit value for no-value object
 						for(var s in json.others) {
 							for(var t in json.others[s]){
-								if(json.others[s][t] === topLocale){
-									inheritValue = s;
-								}
 								dataList.push([json.others[s][t], s]);
 							}
 						}
-						if(json.novalue) {
-							for(s in json.novalue){
-								dataList.push([json.novalue[s], inheritValue]);
+
+						/*
+						 * Set curValue = the value for surveyCurrentLocale
+						 */
+						var curValue = null;
+						for (var l = 0; l < dataList.length; l++){
+							var loc = dataList[l][0];
+							if (loc === surveyCurrentLocale) {
+								curValue = dataList[l][1];
+								break;
+							}
+						}
+						/*
+						 * Force the use of unequalSign in the regional comparison pop-up for locales in
+						 * json.novalue, by assigning a value that's different from curValue.
+						 *
+						 * Formerly the inherited value (based on topLocale) was used here; that was a bug.
+						 * If the server doesn't know the winning value, then the client shouldn't pretend to know.
+						 * The server code has been fixed to resolve most such cases.
+						 *
+						 * Reference: https://unicode.org/cldr/trac/ticket/11688
+						 */
+						if (json.novalue) {
+							const differentValue = (curValue === 'A') ? 'B' : 'A'; // anything different from curValue
+							for (s in json.novalue) {
+								dataList.push([json.novalue[s], differentValue]);
 							}
 						}
 						mergeReadBase(dataList);
@@ -2137,7 +2160,7 @@ function showForumStuff(frag, forumDiv, tr) {
 						dataList = dataList.sort(function(a,b) {
 							return locmap.getRegionAndOrVariantName(a[0]) > locmap.getRegionAndOrVariantName(b[0]);
 					    });
-						appendLocaleList(dataList);
+						appendLocaleList(dataList, curValue);
 
 						var group = document.createElement("optGroup");
 						popupSelect.appendChild(group);

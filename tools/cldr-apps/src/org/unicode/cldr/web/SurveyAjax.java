@@ -924,10 +924,15 @@ public class SurveyAjax extends HttpServlet {
                         r.put("topLocale", topLocale);
                         final Collection<CLDRLocale> relatedLocs = sm.getRelatedLocs(topLocale); // sublocales of the 'top' locale
                         JSONObject others = new JSONObject(); // values
-                        JSONArray empties = new JSONArray(); // no value
+                        JSONArray novalue = new JSONArray(); // no value
                         for (CLDRLocale ol : relatedLocs) {
-                            //if(ol == l) continue;
-                            XMLSource src = sm.getSTFactory().makeSource(ol.getBaseName(), false);
+                            /*
+                             * Use resolved = true for src to get the winning value for each related locale.
+                             * Formerly it was false, leading to a bug in which the client wrongly guessed
+                             * the values for locales in json.novalue.
+                             * Reference: https://unicode.org/cldr/trac/ticket/11688
+                             */
+                            XMLSource src = sm.getSTFactory().makeSource(ol.getBaseName(), true);
                             String ov = src.getValueAtDPath(xpathString);
                             if (ov != null) {
                                 JSONArray other = null;
@@ -939,11 +944,11 @@ public class SurveyAjax extends HttpServlet {
                                 }
                                 other.put(ol.getBaseName());
                             } else {
-                                empties.put(ol.getBaseName());
+                                novalue.put(ol.getBaseName());
                             }
                         }
                         r.put("others", others);
-                        r.put("novalue", empties);
+                        r.put("novalue", novalue);
                         send(r, out);
                     } else if (what.equals(WHAT_SEARCH)) {
                         mySession.userDidAction();

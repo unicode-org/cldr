@@ -179,18 +179,6 @@ public class JspWebContext extends WebContext {
      */
     public void closeMainForm() {
         if (mainFormState == MainFormState.OPEN) {
-            String nextStep = (String) this.get("nextStep");
-            if (nextStep != null) {
-                this.println("Not implemented:  nextStep");
-                STFactory.unimp();
-                // this.println("<input type='hidden' name='step' value='"+
-                // nextStep+"'>");
-            }
-            // if(canModify()) {
-            // this.println("<input type='submit' value='Submit'>");
-            // } else {
-            // this.println("<input type='submit' value='Continue'>");
-            // }
             sm.printPathListClose(this);
             mainFormState = MainFormState.CLOSED;
             if (debugJsp()) {

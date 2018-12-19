@@ -2000,11 +2000,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                  * (on st.unicode.org as of 2018-12-19) have "DEFAULT CHARSET=latin1 COLLATE=latin1_bin".
                  */
                 s = conn.createStatement();
-                sql = "CREATE TABLE " + DBUtils.Table.IMPORT_AUTO + "(user INT NOT NULL, PRIMARY KEY (user)) "
+                sql = "CREATE TABLE " + DBUtils.Table.IMPORT_AUTO + "(userid INT NOT NULL, PRIMARY KEY (userid) ) "
                     + DBUtils.DB_SQL_BINCOLLATE;
                 s.execute(sql);
 
-                sql = "CREATE UNIQUE INDEX  " + DBUtils.Table.IMPORT_AUTO + " ON " + DBUtils.Table.IMPORT_AUTO + " (user)";
+                sql = "CREATE UNIQUE INDEX  " + DBUtils.Table.IMPORT_AUTO + " ON " + DBUtils.Table.IMPORT_AUTO + " (userid)";
                 s.execute(sql);
                 s.close();
                 s = null; // don't close twice.

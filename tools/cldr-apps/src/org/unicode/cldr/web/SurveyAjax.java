@@ -2187,7 +2187,7 @@ public class SurveyAjax extends HttpServlet {
         try {
             if ("ask".equals(action)) {
                 count = DBUtils.sqlCount("SELECT count(*) AS count FROM " + autoImportTable
-                    + " WHERE user=" + userId);
+                    + " WHERE userid=" + userId);
             } else if ("set".equals(action)) {
                 conn = DBUtils.getInstance().getDBConnection();
                 ps = DBUtils.prepareStatementWithArgs(conn, "INSERT INTO " + autoImportTable

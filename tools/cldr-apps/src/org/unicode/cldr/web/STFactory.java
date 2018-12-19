@@ -1993,6 +1993,24 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 conn.commit();
                 System.err.println("Created table " + DBUtils.Table.IMPORT);
              }
+            if (!DBUtils.hasTable(conn, DBUtils.Table.IMPORT_AUTO.toString())) {
+                /*
+                 * Create the IMPORT_AUTO table, for keeping track of which users have auto-imported old winning votes.
+                 * Use DB_SQL_BINCOLLATE for compatibility with existing vote tables, which
+                 * (on st.unicode.org as of 2018-12-19) have "DEFAULT CHARSET=latin1 COLLATE=latin1_bin".
+                 */
+                s = conn.createStatement();
+                sql = "CREATE TABLE " + DBUtils.Table.IMPORT_AUTO + "(user INT NOT NULL, PRIMARY KEY (user)) "
+                    + DBUtils.DB_SQL_BINCOLLATE;
+                s.execute(sql);
+
+                sql = "CREATE UNIQUE INDEX  " + DBUtils.Table.IMPORT_AUTO + " ON " + DBUtils.Table.IMPORT_AUTO + " (user)";
+                s.execute(sql);
+                s.close();
+                s = null; // don't close twice.
+                conn.commit();
+                System.err.println("Created table " + DBUtils.Table.IMPORT_AUTO);
+             }
         } catch (SQLException se) {
             SurveyLog.logException(se, "SQL: " + sql);
             SurveyMain.busted("Setting up DB for STFactory, SQL: " + sql, se);

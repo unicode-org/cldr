@@ -2126,6 +2126,11 @@ public class SurveyAjax extends HttpServlet {
     public int doAutoImportOldWinningVotes(JSONWriter r, User user, SurveyMain sm)
                throws ServletException, IOException, JSONException, SQLException {
 
+        if (alreadyAutoImportedVotes(user.id, "ask")) {
+            return 0;
+        }
+        alreadyAutoImportedVotes(user.id, "set");
+
         final String newVotesTable = DBUtils.Table.VOTE_VALUE.toString(); // the table name like "cldr_vote_value_34" or "cldr_vote_value_34_beta"
         JSONObject oldvotes = new JSONObject();
 
@@ -2160,6 +2165,42 @@ public class SurveyAjax extends HttpServlet {
             r.put("autoImportedOldWinningVotes", confirmations);
         }      
         return confirmations;
+    }
+
+    /**
+     * Ask, or set, whether the user has already had their old winning votes automatically imported.
+     *
+     * The versioned table IMPORT_AUTO has a row for the user if and only if auto-import has been done for this user for this session.
+     *
+     * If the action is "ask", return true or false to indicate whether or not the table has a row for this user.
+     * If the action is "set", add a row to the table for this user.
+     *
+     * @param userId the user id
+     * @param action "ask" or "set"
+     * @return true or false (only used for "ask")
+     */
+    private boolean alreadyAutoImportedVotes(int userId, String action) {
+        final String autoImportTable = DBUtils.Table.IMPORT_AUTO.toString(); // the table name like "cldr_import_auto_35"
+        int count = 0;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            if ("ask".equals(action)) {
+                count = DBUtils.sqlCount("SELECT count(*) AS count FROM " + autoImportTable
+                    + " WHERE user=" + userId);
+            } else if ("set".equals(action)) {
+                conn = DBUtils.getInstance().getDBConnection();
+                ps = DBUtils.prepareStatementWithArgs(conn, "INSERT INTO " + autoImportTable
+                    + " VALUES (" + userId + ")");
+                count = ps.executeUpdate();
+                conn.commit();
+            }
+        } catch (SQLException e) {
+            SurveyLog.logException(e, "SQL exception: " + autoImportTable);
+        } finally {
+            DBUtils.close(ps, conn);
+        }
+        return count > 0;
     }
 
     /**
@@ -2218,7 +2259,8 @@ public class SurveyAjax extends HttpServlet {
                     }
                 }
             } catch (InvalidXPathException ix) {
-                SurveyLog.logException(ix, "Bad XPath: Trying to vote for " + xpathString);
+                // Silently ignore InvalidXPathException, otherwise logs grow too fast with useless errors
+                // SurveyLog.logException(ix, "Bad XPath: Trying to vote for " + xpathString);
             } catch (VoteNotAcceptedException ix) {
                 SurveyLog.logException(ix, "Vote not accepted: Trying to vote for " + xpathString);
             } catch (IllegalByDtdException ix) {
@@ -2228,7 +2270,7 @@ public class SurveyAjax extends HttpServlet {
         // System.out.println("importAllOldWinningVotes: imported " + confirmations + " votes in " + oldVotesTable);
         return confirmations;
     }
-    
+
     /**
      * Does the value in question either match or inherent the current value?
      * 

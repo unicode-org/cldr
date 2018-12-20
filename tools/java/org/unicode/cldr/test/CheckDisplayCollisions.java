@@ -29,6 +29,13 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
      * Set to true to get verbose logging of path removals
      */
     private static final boolean LOG_PATH_REMOVALS = false;
+    
+    /**
+     * Set to true to prevent "Turkey" from being used for both 🇹🇷 -name and 🦃 -name.
+     * (Means clients need to use the "flag: Turkey" format.)
+     */
+    private static final boolean CHECK_FLAG_AND_EMOJI = false;
+
 
     // Get Date-Time in milliseconds
     private static long getDateTimeinMillis(int year, int month, int date) {
@@ -240,6 +247,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         super(factory);
     }
 
+    @SuppressWarnings("unused")
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
@@ -319,26 +327,16 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 //                paths.add(subdivisionPath);
 //            }
             paths.addAll(duplicatePaths);
-        } else if (myType == Type.ANNOTATIONS) { 
+        } else if (CHECK_FLAG_AND_EMOJI && myType == Type.ANNOTATIONS) { 
             // make sure that annotations don't have same value as regions, eg “日本” for 🇯🇵 & 🗾
             // NOTE: this is an asymmetric test; we presume the name of the region is ok.
             Set<String> duplicatePaths = getPathsWithValue(
                 getResolvedCldrFileToCheck(), path, value, Type.TERRITORY,
                 Type.TERRITORY.getPrefix(), null, currentAttributesToIgnore, Equivalence.normal);
-            paths.addAll(duplicatePaths);
+            if (!duplicatePaths.isEmpty()) {
+                paths.addAll(duplicatePaths);
+            }
         }
-
-        // Group territories into emoji (but asymmetric! — if a territory has the same name as an emoji, it is the emoji's fault!
-        // If the new format for synthesized flag names is accepted, this is no longer a problem, but leaving the code here for reference.
-//        if (myType == Type.ANNOTATIONS) {
-//            Set<String> duplicatePaths = getPathsWithValue(
-//                getResolvedCldrFileToCheck(), path, value, Type.TERRITORY,
-//                Type.TERRITORY.getPrefix(), null, currentAttributesToIgnore, Equivalence.normal);
-//            paths.addAll(duplicatePaths);
-//            // NOTE: this is slightly overdone, in that it also counts items like 019 colliding with 🌎. But doesn't hurt.
-//            // TODO, add 3 subdivisions
-//        }
-
 
         if (paths.isEmpty()) {
 //            System.out.println("Paths is empty");

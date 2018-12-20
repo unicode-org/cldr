@@ -19,6 +19,10 @@ public class CheckWidths extends CheckCLDR {
     private static CoverageLevel2 coverageLevel;
     private Level requiredLevel;
 
+    /**
+     * Controls for the warning about too many components, and for when to cause error. 
+     */
+    public static final int WARN_COMPONENTS_PER_ANNOTATION = 7;
     public static final int MAX_COMPONENTS_PER_ANNOTATION = 16;
     
     SupplementalDataInfo supplementalData;
@@ -304,7 +308,7 @@ public class CheckWidths extends CheckCLDR {
             new Limit(20 * EM, 100 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE),
         })
         .add("//ldml/annotations/annotation[@cp=%A]", new Limit[] {
-            new Limit(5, MAX_COMPONENTS_PER_ANNOTATION, Measure.SET_ELEMENTS, LimitType.MAXIMUM, Special.BARS) // Allow up to 5 with no warning, up to 7 with no error.
+            new Limit(WARN_COMPONENTS_PER_ANNOTATION, MAX_COMPONENTS_PER_ANNOTATION, Measure.SET_ELEMENTS, LimitType.MAXIMUM, Special.BARS) // Allow up to 5 with no warning, up to 7 with no error.
         })
         ;
 

@@ -920,9 +920,12 @@ public class VoteResolver<T> {
                 winningValue = trunkValue;
             } else {
                 winningStatus = lastReleaseStatus;
+                /***
+                 Temporarily comment this out for https://unicode.org/cldr/trac/ticket/11721
                 if (CldrUtility.INHERITANCE_MARKER.equals(lastReleaseValue)) {
                     winningStatus = Status.inherited;
                 }
+                ***/
                 winningValue = lastReleaseValue;
             }
             valuesWithSameVotes.add(winningValue); // may be null
@@ -1333,9 +1336,12 @@ public class VoteResolver<T> {
                 || weight1 >= 2 && organizationToValueAndVote.getOrgCount(winningValue) >= 2) ) {
             return Status.contributed;
         }
+        /***
+          Temporarily comment this out for https://unicode.org/cldr/trac/ticket/11721
         if (CldrUtility.INHERITANCE_MARKER.equals(winningValue)) {
             return Status.inherited;
         }
+        ***/
         if (weight1 >= weight2 && weight1 >= 2) {
             return Status.provisional;
         }

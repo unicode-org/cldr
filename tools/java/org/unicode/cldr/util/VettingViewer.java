@@ -893,8 +893,10 @@ public class VettingViewer<T> {
                     }
                 }
                 VoteStatus voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, user);
+                boolean itemsOkIfVoted = SUPPRESS
+                    && voteStatus == VoteStatus.ok;
 
-                MissingStatus missingStatus = getMissingStatus(sourceFile, path, status, latin);
+                MissingStatus missingStatus = itemsOkIfVoted ? MissingStatus.PRESENT : getMissingStatus(sourceFile, path, status, latin);
                 if (choices.contains(Choice.missingCoverage) && missingStatus == MissingStatus.ABSENT) {
                     problems.add(Choice.missingCoverage);
                     problemCounter.increment(Choice.missingCoverage);
@@ -903,9 +905,6 @@ public class VettingViewer<T> {
                     problems.add(Choice.englishChanged);
                     problemCounter.increment(Choice.englishChanged);
                 }
-                boolean itemsOkIfVoted = SUPPRESS
-                    && voteStatus == VoteStatus.ok;
-
                 if (!CheckCLDR.LIMITED_SUBMISSION && !itemsOkIfVoted && outdatedPaths.isOutdated(localeID, path)) {
                     // the outdated paths compares the base value, before
                     // data submission,

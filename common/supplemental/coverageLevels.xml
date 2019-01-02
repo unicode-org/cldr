@@ -392,7 +392,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="basic" match="numbers/currencies/currency[@type='%currency40']/displayName[@count='${Target-Plurals}']"/>
 		<coverageLevel value="basic" match="dates/calendars/calendar[@type='gregorian']/quarters/quarterContext[@type='%contextTypes']/quarterWidth[@type='%allWidths']/quarter[@type='%quarterTypes']"/>
 		<coverageLevel value="basic" match="dates/fields/field[@type='%dayFieldTypes']/displayName"/>
-		<coverageLevel value="basic" match="dates/fields/field[@type='day']/relative[@type='(-1|0|1)']"/>
+		<coverageLevel value="basic" match="dates/fields/field[@type='day(-short|-narrow)?']/relative[@type='(-1|0|1)']"/>
 		<coverageLevel inTerritory="%chineseCalendarTerritories" value="basic" match="dates/calendars/calendar[@type='chinese']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='%monthTypes']"/>
 		<coverageLevel inTerritory="%chineseCalendarTerritories" value="basic" match="dates/calendars/calendar[@type='chinese']/dateFormats/dateFormatLength[@type='%dateTimeFormatLengths']/dateFormat%stdPattern"/>
 		<coverageLevel inTerritory="EG" value="basic" match="dates/calendars/calendar[@type='coptic']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='%monthTypes']"/>
@@ -590,7 +590,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatDateItems']/greatestDifference[@id='%intervalFormatGDiff']"/>
 		<coverageLevel inLanguage="(hi|zh)" value="moderate" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatTimeItemsDayPer']/greatestDifference[@id='%intervalFormatGDiff']"/>
 		<coverageLevel inLanguage="(hi|zh)" value="moderate" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatTimeItemsDayPer']/greatestDifference[@id='%intervalFormatGDiff']"/>
-		<coverageLevel value="moderate" match="dates/fields/field[@type='(year|month|week)']/relative[@type='(-1|0|1)']"/>
+		<coverageLevel value="moderate" match="dates/fields/field[@type='(year|month|week)(-short|-narrow)?']/relative[@type='(-1|0|1)']"/>
 		<coverageLevel value="moderate" match="dates/fields/field[@type='week(-short|-narrow)?']/relativePeriod"/>
 		<coverageLevel value="moderate" match="dates/timeZoneNames/metazone[@type='%metazone60']/long/generic"/>
 		<coverageLevel value="moderate" match="dates/timeZoneNames/metazone[@type='%metazone60']/long/standard"/>

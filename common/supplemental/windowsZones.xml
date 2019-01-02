@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<windowsZones>
-		<mapTimezones otherVersion="7e10c00" typeVersion="2018g">
+		<mapTimezones otherVersion="7e10c00" typeVersion="2018i">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -40,7 +40,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC-09:00) Alaska -->
 			<mapZone other="Alaskan Standard Time" territory="001" type="America/Anchorage"/>
-			<mapZone other="Alaskan Standard Time" territory="US" type="America/Anchorage America/Juneau America/Metlakatla America/Nome America/Sitka America/Yakutat"/>
+			<mapZone other="Alaskan Standard Time" territory="US" type="America/Anchorage America/Juneau America/Nome America/Sitka America/Yakutat"/>
 
 			<!-- (UTC-09:00) Coordinated Universal Time-09 -->
 			<mapZone other="UTC-09" territory="001" type="Etc/GMT+9"/>
@@ -59,7 +59,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- (UTC-08:00) Pacific Time (US & Canada) -->
 			<mapZone other="Pacific Standard Time" territory="001" type="America/Los_Angeles"/>
 			<mapZone other="Pacific Standard Time" territory="CA" type="America/Vancouver America/Dawson America/Whitehorse"/>
-			<mapZone other="Pacific Standard Time" territory="US" type="America/Los_Angeles"/>
+			<mapZone other="Pacific Standard Time" territory="US" type="America/Los_Angeles America/Metlakatla"/>
 			<mapZone other="Pacific Standard Time" territory="ZZ" type="PST8PDT"/>
 
 			<!-- (UTC-07:00) Arizona -->
@@ -528,7 +528,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- (UTC+05:00) Ashgabat, Tashkent -->
 			<mapZone other="West Asia Standard Time" territory="001" type="Asia/Tashkent"/>
 			<mapZone other="West Asia Standard Time" territory="AQ" type="Antarctica/Mawson"/>
-			<mapZone other="West Asia Standard Time" territory="KZ" type="Asia/Oral Asia/Aqtau Asia/Aqtobe Asia/Atyrau"/>
+			<mapZone other="West Asia Standard Time" territory="KZ" type="Asia/Oral Asia/Aqtau Asia/Aqtobe Asia/Atyrau Asia/Qyzylorda"/>
 			<mapZone other="West Asia Standard Time" territory="MV" type="Indian/Maldives"/>
 			<mapZone other="West Asia Standard Time" territory="TF" type="Indian/Kerguelen"/>
 			<mapZone other="West Asia Standard Time" territory="TJ" type="Asia/Dushanbe"/>
@@ -562,7 +562,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Central Asia Standard Time" territory="CN" type="Asia/Urumqi"/>
 			<mapZone other="Central Asia Standard Time" territory="IO" type="Indian/Chagos"/>
 			<mapZone other="Central Asia Standard Time" territory="KG" type="Asia/Bishkek"/>
-			<mapZone other="Central Asia Standard Time" territory="KZ" type="Asia/Almaty Asia/Qyzylorda"/>
+			<mapZone other="Central Asia Standard Time" territory="KZ" type="Asia/Almaty Asia/Qostanay"/>
 			<mapZone other="Central Asia Standard Time" territory="ZZ" type="Etc/GMT-6"/>
 
 			<!-- (UTC+06:00) Dhaka -->

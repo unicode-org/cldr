@@ -111,6 +111,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
          */
         public static Type getType(String path) {
             for (Type type : values()) {
+                if (type==Type.FIELDS_NARROW) continue; // skip FIELDS_NARROW so the corresponding paths are included in FIELDS_RELATIVE
                 if (type.matchType == MatchType.PREFIX) {
                     if (path.startsWith(type.getPrefix())) {
                         return type;

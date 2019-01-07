@@ -31,6 +31,7 @@ import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 import com.google.common.base.Function;
+import com.ibm.icu.util.ICUException;
 
 /**
  * Convenience class to make reading XML data files easier. The main method is read();
@@ -48,6 +49,8 @@ public class XMLFileReader {
     public static int CONTENT_HANDLER = 1, ERROR_HANDLER = 2, LEXICAL_HANDLER = 4, DECLARATION_HANDLER = 8;
 
     private MyContentHandler DEFAULT_DECLHANDLER = new MyContentHandler();
+    // TODO Add way to skip gathering value contents
+    // private ElementOnlyContentHandler ELEMENT_ONLY_DECLHANDLER = new ElementOnlyContentHandler();
     private SimpleHandler simpleHandler;
 
     public static class SimpleHandler {
@@ -171,6 +174,17 @@ public class XMLFileReader {
         }
     }
 
+    
+    public abstract class ElementOnlyContentHandler extends MyContentHandler {
+        @Override
+        public void characters(char[] ch, int start, int length) throws SAXException {
+            // do nothing
+        }
+        @Override
+        public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
+            // do nothing
+        }
+    }
     private class MyContentHandler implements ContentHandler, LexicalHandler, DeclHandler, ErrorHandler {
         StringBuffer chars = new StringBuffer();
         StringBuffer commentChars = new StringBuffer();
@@ -463,7 +477,17 @@ public class XMLFileReader {
                 .read(filename, -1, validating);
             return data;
         } catch (Exception e) {
-            throw new IllegalArgumentException(filename, e);
+            throw new ICUException(filename, e);
+        }
+    }
+    
+    public static void processPathValues(String filename, boolean validating, SimpleHandler simpleHandler) {
+        try {
+            new XMLFileReader()
+                .setHandler(simpleHandler)
+                .read(filename, -1, validating);
+        } catch (Exception e) {
+            throw new ICUException(filename, e);
         }
     }
 

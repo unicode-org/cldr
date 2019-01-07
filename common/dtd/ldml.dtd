@@ -29,10 +29,13 @@ $Revision$
 
 <!ELEMENT alias ( special* ) >
 <!ATTLIST alias source NMTOKEN #REQUIRED >
+	<!--@MATCH:list/locale-->
     <!--@VALUE-->
 <!ATTLIST alias path CDATA #IMPLIED >
+	<!--@MATCH:regex/\.\..*-->
     <!--@VALUE-->
 <!ATTLIST alias alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST alias draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -41,8 +44,10 @@ $Revision$
 
 <!ELEMENT version EMPTY >
 <!ATTLIST version number CDATA #REQUIRED >
+	<!--@MATCH:regex/\$Revision.*\$-->
     <!--@METADATA-->
 <!ATTLIST version cldrVersion CDATA #FIXED "35" >
+	<!--@MATCH:regex/.*-->
     <!--@VALUE-->
 <!ATTLIST version draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -60,7 +65,9 @@ $Revision$
 
 <!ELEMENT language ( #PCDATA ) >
 <!ATTLIST language type NMTOKEN #REQUIRED >
+    <!--@MATCH:validity/locale-->
 <!ATTLIST language alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/long, secondary, short, variant-->
 <!ATTLIST language draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -69,7 +76,9 @@ $Revision$
 
 <!ELEMENT script ( #PCDATA ) >
 <!ATTLIST script type NMTOKEN #REQUIRED >
+    <!--@MATCH:validity/script-->
 <!ATTLIST script alt NMTOKENS #IMPLIED >
+   	<!--@MATCH:list/secondary, short, stand-alone, variant-->
 <!ATTLIST script draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -78,7 +87,9 @@ $Revision$
 
 <!ELEMENT territory ( #PCDATA ) >
 <!ATTLIST territory type NMTOKEN #REQUIRED >
+    <!--@MATCH:validity/region-->
 <!ATTLIST territory alt NMTOKENS #IMPLIED >
+	<!--@MATCH:list/short, variant-->
 <!ATTLIST territory draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -87,7 +98,9 @@ $Revision$
 
 <!ELEMENT variant ( #PCDATA ) >
 <!ATTLIST variant type NMTOKEN #REQUIRED >
+    <!--@MATCH:validity/variant-->
 <!ATTLIST variant alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/secondary, variant-->
 <!ATTLIST variant draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -99,6 +112,7 @@ $Revision$
 <!ELEMENT fallback ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST fallback alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST fallback draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
@@ -114,6 +128,7 @@ $Revision$
 
 <!ELEMENT localeDisplayPattern ( alias | ( localePattern*, localeSeparator*, localeKeyTypePattern*, special* ) ) >
 <!ATTLIST localeDisplayPattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST localeDisplayPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -122,6 +137,7 @@ $Revision$
 
 <!ELEMENT localePattern ( #PCDATA ) >
 <!ATTLIST localePattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST localePattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST localePattern references CDATA #IMPLIED >
@@ -129,6 +145,7 @@ $Revision$
 
 <!ELEMENT localeSeparator ( #PCDATA ) >
 <!ATTLIST localeSeparator alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST localeSeparator draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST localeSeparator references CDATA #IMPLIED >
@@ -136,6 +153,7 @@ $Revision$
 
 <!ELEMENT localeKeyTypePattern ( #PCDATA ) >
 <!ATTLIST localeKeyTypePattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST localeKeyTypePattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST localeKeyTypePattern references CDATA #IMPLIED >
@@ -195,7 +213,9 @@ $Revision$
 
 <!ELEMENT subdivision ( #PCDATA ) >
 <!ATTLIST subdivision type NMTOKEN #REQUIRED >
+    <!--@MATCH:validity/subdivision-->
 <!ATTLIST subdivision alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST subdivision draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
@@ -231,7 +251,9 @@ $Revision$
 
 <!ELEMENT key ( #PCDATA ) >
 <!ATTLIST key type NMTOKEN #REQUIRED >
+	<!--@MATCH:bcp47/anykey-->
 <!ATTLIST key alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST key draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -255,8 +277,11 @@ $Revision$
 
 <!ELEMENT type ( #PCDATA ) >
 <!ATTLIST type key NMTOKEN #REQUIRED >
+	<!--@MATCH:bcp47/anykey-->
 <!ATTLIST type type NMTOKEN #REQUIRED >
+	<!--@MATCH:bcp47/anyvalue-->
 <!ATTLIST type alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/short, variant-->
 <!ATTLIST type draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -277,6 +302,7 @@ $Revision$
 <!ATTLIST transformName type NMTOKEN #REQUIRED >
     <!--@DEPRECATED-->
 <!ATTLIST transformName alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST transformName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
@@ -300,6 +326,7 @@ $Revision$
 <!ELEMENT measurementSystemName ( #PCDATA ) >
 <!ATTLIST measurementSystemName type (US | metric | UK) #REQUIRED >
 <!ATTLIST measurementSystemName alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST measurementSystemName draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -310,7 +337,9 @@ $Revision$
 
 <!ELEMENT codePattern ( #PCDATA ) >
 <!ATTLIST codePattern type NMTOKEN #REQUIRED >
+	<!--@MATCH:list/language, script, territory-->
 <!ATTLIST codePattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST codePattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST codePattern references CDATA #IMPLIED >
@@ -334,6 +363,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST orientation alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST orientation draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -345,11 +375,13 @@ $Revision$
 
 <!ELEMENT characterOrder ( #PCDATA ) >
 <!ATTLIST characterOrder alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST characterOrder draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
 <!ELEMENT lineOrder ( #PCDATA ) >
 <!ATTLIST lineOrder alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST lineOrder draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
@@ -359,6 +391,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST inList alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST inList draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -372,6 +405,7 @@ $Revision$
 <!ATTLIST inText type (languages | scripts | territories | variants | keys | types | measurementSystemNames | monthWidth | dayWidth | quarterWidth | long | fields | currency) #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST inText alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST inText draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
@@ -384,6 +418,7 @@ $Revision$
 
 <!ELEMENT contextTransforms ( alias | ( contextTransformUsage*, special* ) ) >
 <!ATTLIST contextTransforms alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST contextTransforms draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -395,7 +430,9 @@ $Revision$
 
 <!ELEMENT contextTransformUsage ( alias | ( contextTransform*, special* ) ) >
 <!ATTLIST contextTransformUsage type CDATA #REQUIRED >
+	<!--@MATCH:list/calendar-field, currencyName, day-format-except-narrow, day-standalone-except-narrow, era-abbr, era-name, keyValue, languages, month-format-except-narrow, month-standalone-except-narrow, number-spellout, relative, script, typographicNames-->
 <!ATTLIST contextTransformUsage alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST contextTransformUsage draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -408,6 +445,7 @@ $Revision$
 <!ELEMENT contextTransform ( #PCDATA ) >
 <!ATTLIST contextTransform type (uiListOrMenu | stand-alone) #REQUIRED >
 <!ATTLIST contextTransform alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST contextTransform draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST contextTransform references CDATA #IMPLIED >
@@ -424,6 +462,7 @@ $Revision$
 <!ATTLIST exemplarCharacters type (auxiliary | standard | punctuation | currencySymbol | index | numbers) #IMPLIED >
     <!--@DEPRECATED:currencySymbol-->
 <!ATTLIST exemplarCharacters alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST exemplarCharacters draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST exemplarCharacters standard CDATA #IMPLIED >
@@ -446,6 +485,7 @@ $Revision$
 <!ELEMENT ellipsis ( #PCDATA ) >
 <!ATTLIST ellipsis type (initial | medial | final | word-initial | word-medial | word-final) #IMPLIED >
 <!ATTLIST ellipsis alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST ellipsis draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST ellipsis references CDATA #IMPLIED >
@@ -453,6 +493,7 @@ $Revision$
 
 <!ELEMENT moreInformation ( #PCDATA ) >
 <!ATTLIST moreInformation alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST moreInformation draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST moreInformation references CDATA #IMPLIED >
@@ -466,6 +507,7 @@ $Revision$
 <!ATTLIST stopwordList type NMTOKEN #REQUIRED >
     <!--@DEPRECATED-->
 <!ATTLIST stopwordList alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST stopwordList draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
@@ -480,6 +522,7 @@ $Revision$
 <!ELEMENT indexSeparator ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST indexSeparator alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST indexSeparator draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
@@ -491,6 +534,7 @@ $Revision$
 <!ELEMENT compressedIndexSeparator ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST compressedIndexSeparator alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST compressedIndexSeparator draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
@@ -502,6 +546,7 @@ $Revision$
 <!ELEMENT indexRangePattern ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST indexRangePattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST indexRangePattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
@@ -513,6 +558,7 @@ $Revision$
 <!ELEMENT indexLabelBefore ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST indexLabelBefore alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST indexLabelBefore draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
@@ -524,6 +570,7 @@ $Revision$
 <!ELEMENT indexLabelAfter ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST indexLabelAfter alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST indexLabelAfter draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
@@ -540,6 +587,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST indexLabel alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST indexLabel draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
@@ -580,7 +628,9 @@ $Revision$
 
 <!ELEMENT parseLenient ( #PCDATA ) >
 <!ATTLIST parseLenient sample CDATA #REQUIRED >
+	<!--@MATCH:regex/.*-->
 <!ATTLIST parseLenient alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST parseLenient draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
@@ -588,6 +638,7 @@ $Revision$
 
 <!ELEMENT delimiters ( alias | ( quotationStart*, quotationEnd*, alternateQuotationStart*, alternateQuotationEnd*, special* ) ) >
 <!ATTLIST delimiters alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST delimiters draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -602,6 +653,7 @@ $Revision$
 
 <!ELEMENT quotationStart ( #PCDATA | cp )* >
 <!ATTLIST quotationStart alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST quotationStart draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST quotationStart references CDATA #IMPLIED >
@@ -609,6 +661,7 @@ $Revision$
 
 <!ELEMENT quotationEnd ( #PCDATA | cp )* >
 <!ATTLIST quotationEnd alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST quotationEnd draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST quotationEnd references CDATA #IMPLIED >
@@ -616,6 +669,7 @@ $Revision$
 
 <!ELEMENT alternateQuotationStart ( #PCDATA | cp )* >
 <!ATTLIST alternateQuotationStart alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST alternateQuotationStart draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST alternateQuotationStart references CDATA #IMPLIED >
@@ -623,6 +677,7 @@ $Revision$
 
 <!ELEMENT alternateQuotationEnd ( #PCDATA | cp )* >
 <!ATTLIST alternateQuotationEnd alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST alternateQuotationEnd draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST alternateQuotationEnd references CDATA #IMPLIED >
@@ -634,6 +689,7 @@ $Revision$
     <!-- use measurementData in supplemental instead -->
     <!--@DEPRECATED-->
 <!ATTLIST measurement alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST measurement draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -660,6 +716,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST measurementSystem alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST measurementSystem draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -678,6 +735,7 @@ $Revision$
     <!-- use paperSize in supplemental instead -->
     <!--@DEPRECATED-->
 <!ATTLIST paperSize alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST paperSize draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -695,6 +753,7 @@ $Revision$
 <!ELEMENT height ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST height alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST height draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -706,6 +765,7 @@ $Revision$
 <!ELEMENT width ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST width alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST width draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -718,6 +778,7 @@ $Revision$
 
 <!ELEMENT dates ( alias | ( localizedPatternChars*, dateRangePattern*, calendars?, fields?, timeZoneNames?, special* ) ) >
 <!ATTLIST dates alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST dates draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -733,6 +794,7 @@ $Revision$
 <!ELEMENT localizedPatternChars ( #PCDATA | cp )* >
     <!--@DEPRECATED-->
 <!ATTLIST localizedPatternChars alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST localizedPatternChars draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -751,6 +813,7 @@ $Revision$
     <!-- use intervalFormats. -->
     <!--@DEPRECATED-->
 <!ATTLIST dateRangePattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST dateRangePattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
@@ -783,6 +846,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST default alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST default draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -794,7 +858,9 @@ $Revision$
 <!ELEMENT calendar ( alias | ( months?, monthNames?, monthAbbr?, monthPatterns?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*, dayPeriods?, eras?, cyclicNameSets?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special* ) ) >
     <!-- use of fields is deprecated here -->
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
+    <!--@MATCH:bcp47/ca-->
 <!ATTLIST calendar alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST calendar draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -809,6 +875,7 @@ $Revision$
 
 <!ELEMENT months ( alias | ( default*, monthContext*, special* ) ) >
 <!ATTLIST months alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST months draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -824,6 +891,7 @@ $Revision$
 <!ELEMENT monthContext ( alias | ( default*, monthWidth*, special* ) ) >
 <!ATTLIST monthContext type (format | stand-alone) #REQUIRED >
 <!ATTLIST monthContext alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST monthContext draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -839,6 +907,7 @@ $Revision$
 <!ELEMENT monthWidth ( alias | ( month*, special* ) ) >
 <!ATTLIST monthWidth type (abbreviated | narrow | wide) #REQUIRED >
 <!ATTLIST monthWidth alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST monthWidth draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -855,6 +924,7 @@ $Revision$
 <!ATTLIST month type (1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13) #REQUIRED >
 <!ATTLIST month yeartype (standard | leap) #IMPLIED >
 <!ATTLIST month alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST month draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST month references CDATA #IMPLIED >
@@ -874,6 +944,7 @@ $Revision$
 
 <!ELEMENT monthPatterns ( alias | ( monthPatternContext*, special* ) ) >
 <!ATTLIST monthPatterns alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST monthPatterns draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -886,6 +957,7 @@ $Revision$
 <!ELEMENT monthPatternContext ( alias | ( monthPatternWidth*, special* ) ) >
 <!ATTLIST monthPatternContext type (format | stand-alone | numeric) #REQUIRED >
 <!ATTLIST monthPatternContext alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST monthPatternContext draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -898,6 +970,7 @@ $Revision$
 <!ELEMENT monthPatternWidth ( alias | ( monthPattern*, special* ) ) >
 <!ATTLIST monthPatternWidth type (abbreviated | narrow | wide | all) #REQUIRED >
 <!ATTLIST monthPatternWidth alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST monthPatternWidth draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -910,6 +983,7 @@ $Revision$
 <!ELEMENT monthPattern ( #PCDATA ) >
 <!ATTLIST monthPattern type (leap | standardAfterLeap | combined) #REQUIRED >
 <!ATTLIST monthPattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST monthPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST monthPattern references CDATA #IMPLIED >
@@ -917,6 +991,7 @@ $Revision$
 
 <!ELEMENT days ( alias | ( default*, dayContext*, special* ) ) >
 <!ATTLIST days alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST days draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -932,6 +1007,7 @@ $Revision$
 <!ELEMENT dayContext ( alias | ( default*, dayWidth*, special* ) ) >
 <!ATTLIST dayContext type (format | stand-alone) #REQUIRED >
 <!ATTLIST dayContext alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST dayContext draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -947,6 +1023,7 @@ $Revision$
 <!ELEMENT dayWidth ( alias | ( day*, special* ) ) >
 <!ATTLIST dayWidth type (abbreviated | narrow | short | wide) #REQUIRED >
 <!ATTLIST dayWidth alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST dayWidth draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -962,6 +1039,7 @@ $Revision$
 <!ELEMENT day ( #PCDATA ) >
 <!ATTLIST day type (sun | mon | tue | wed | thu | fri | sat) #REQUIRED >
 <!ATTLIST day alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST day draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -982,6 +1060,7 @@ $Revision$
 
 <!ELEMENT quarters ( alias | ( default*, quarterContext*, special* ) ) >
 <!ATTLIST quarters alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST quarters draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -994,6 +1073,7 @@ $Revision$
 <!ELEMENT quarterContext ( alias | ( default*, quarterWidth*, special* ) ) >
 <!ATTLIST quarterContext type (format | stand-alone) #REQUIRED >
 <!ATTLIST quarterContext alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST quarterContext draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1006,6 +1086,7 @@ $Revision$
 <!ELEMENT quarterWidth ( alias | ( quarter*, special* ) ) >
 <!ATTLIST quarterWidth type (abbreviated | narrow | wide) #REQUIRED >
 <!ATTLIST quarterWidth alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST quarterWidth draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1018,6 +1099,7 @@ $Revision$
 <!ELEMENT quarter ( #PCDATA ) >
 <!ATTLIST quarter type (1 | 2 | 3 | 4) #REQUIRED >
 <!ATTLIST quarter alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST quarter draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1028,6 +1110,7 @@ $Revision$
     <!-- use supplemental weekData -->
     <!--@DEPRECATED-->
 <!ATTLIST week alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST week draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -1047,6 +1130,7 @@ $Revision$
 <!ATTLIST minDays count (1 | 2 | 3 | 4 | 5 | 6 | 7) #REQUIRED >
     <!--@DEPRECATED-->
 <!ATTLIST minDays alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST minDays draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -1062,6 +1146,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST firstDay alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST firstDay draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -1080,6 +1165,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST weekendStart alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST weekendStart draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -1098,6 +1184,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST weekendEnd alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST weekendEnd draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -1110,6 +1197,7 @@ $Revision$
     <!-- use dayPeriods -->
     <!--@DEPRECATED-->
 <!ATTLIST am alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST am draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -1125,6 +1213,7 @@ $Revision$
     <!-- use dayPeriods -->
     <!--@DEPRECATED-->
 <!ATTLIST pm alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST pm draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -1145,6 +1234,7 @@ $Revision$
 
 <!ELEMENT dayPeriodContext ( alias | ( dayPeriodWidth*, special* ) ) >
 <!ATTLIST dayPeriodContext type NMTOKEN #REQUIRED >
+    <!--@MATCH:list/format, stand-alone-->
 <!ATTLIST dayPeriodContext draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1161,7 +1251,9 @@ $Revision$
 
 <!ELEMENT dayPeriod ( #PCDATA ) >
 <!ATTLIST dayPeriod type NMTOKEN #REQUIRED >
+	<!--@MATCH:list/afternoon1, afternoon2, am, evening1, evening2, midnight, morning1, morning2, night1, night2, noon, pm-->
 <!ATTLIST dayPeriod alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST dayPeriod draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST dayPeriod references CDATA #IMPLIED >
@@ -1169,6 +1261,7 @@ $Revision$
 
 <!ELEMENT eras ( alias | ( eraNames?, eraAbbr?, eraNarrow?, special* ) ) >
 <!ATTLIST eras alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST eras draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1183,6 +1276,7 @@ $Revision$
 
 <!ELEMENT eraNames ( alias | ( era*, special* ) ) >
 <!ATTLIST eraNames alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST eraNames draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1194,7 +1288,9 @@ $Revision$
 
 <!ELEMENT era ( #PCDATA ) >
 <!ATTLIST era type NMTOKEN #REQUIRED >
+	<!--@MATCH:range/0~237-->
 <!ATTLIST era alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST era draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1203,6 +1299,7 @@ $Revision$
 
 <!ELEMENT eraAbbr ( alias | ( era*, special* ) ) >
 <!ATTLIST eraAbbr alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST eraAbbr draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1214,6 +1311,7 @@ $Revision$
 
 <!ELEMENT eraNarrow ( alias | ( era*, special* ) ) >
 <!ATTLIST eraNarrow alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST eraNarrow draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1225,6 +1323,7 @@ $Revision$
 
 <!ELEMENT cyclicNameSets ( alias | ( cyclicNameSet*, special* ) ) >
 <!ATTLIST cyclicNameSets alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST cyclicNameSets draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1237,6 +1336,7 @@ $Revision$
 <!ELEMENT cyclicNameSet ( alias | ( cyclicNameContext*, special* ) ) >
 <!ATTLIST cyclicNameSet type (years | months | days | dayParts | zodiacs | solarTerms) #REQUIRED >
 <!ATTLIST cyclicNameSet alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST cyclicNameSet draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1249,6 +1349,7 @@ $Revision$
 <!ELEMENT cyclicNameContext ( alias | ( cyclicNameWidth*, special* ) ) >
 <!ATTLIST cyclicNameContext type (format | stand-alone) #REQUIRED >
 <!ATTLIST cyclicNameContext alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST cyclicNameContext draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1261,6 +1362,7 @@ $Revision$
 <!ELEMENT cyclicNameWidth ( alias | ( cyclicName*, special* ) ) >
 <!ATTLIST cyclicNameWidth type (abbreviated | narrow | wide) #REQUIRED >
 <!ATTLIST cyclicNameWidth alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST cyclicNameWidth draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1272,7 +1374,9 @@ $Revision$
 
 <!ELEMENT cyclicName ( #PCDATA ) >
 <!ATTLIST cyclicName type NMTOKEN #REQUIRED >
+	<!--@MATCH:range/1~60-->
 <!ATTLIST cyclicName alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST cyclicName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST cyclicName references CDATA #IMPLIED >
@@ -1289,6 +1393,7 @@ $Revision$
 <!ELEMENT dateFormatLength ( alias | ( default*, dateFormat*, special* ) ) >
 <!ATTLIST dateFormatLength type (full | long | medium | short) #REQUIRED >
 <!ATTLIST dateFormatLength alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST dateFormatLength draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1303,7 +1408,9 @@ $Revision$
 
 <!ELEMENT dateFormat ( alias | ( pattern*, displayName*, special* ) ) >
 <!ATTLIST dateFormat type NMTOKEN "standard" >
+	<!--@MATCH:list/standard-->
 <!ATTLIST dateFormat alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST dateFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1318,11 +1425,15 @@ $Revision$
 
 <!ELEMENT pattern ( #PCDATA ) >
 <!ATTLIST pattern type NMTOKEN "standard" >
+	<!--@MATCH:list/1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1000000000000, 10000000000000, 100000000000000, approximately, atLeast, atMost, range, standard-->
 <!ATTLIST pattern numbers CDATA #IMPLIED >
+    <!--@MATCH:list/M=romanlow, d=hanidays, hanidec, hebr-->
+    <!--TODO: generalize this to be any (M=|d=)?<numberSystem>-->
     <!--@VALUE-->
 <!ATTLIST pattern count (0 | 1 | zero | one | two | few | many | other) #IMPLIED >
     <!-- Only used for decimalFormats type="1000..." -->
 <!ATTLIST pattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST pattern draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1333,6 +1444,7 @@ $Revision$
 <!ATTLIST displayName count (0 | 1 | zero | one | two | few | many | other) #IMPLIED >
     <!-- only for currencies -->
 <!ATTLIST displayName alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST displayName draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1350,6 +1462,7 @@ $Revision$
 <!ELEMENT timeFormatLength ( alias | ( default*, timeFormat*, special* ) ) >
 <!ATTLIST timeFormatLength type (full | long | medium | short) #REQUIRED >
 <!ATTLIST timeFormatLength alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST timeFormatLength draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1364,7 +1477,9 @@ $Revision$
 
 <!ELEMENT timeFormat ( alias | ( pattern*, displayName*, special* ) ) >
 <!ATTLIST timeFormat type NMTOKEN "standard" >
+	<!--@MATCH:list/standard-->
 <!ATTLIST timeFormat alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST timeFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1388,6 +1503,7 @@ $Revision$
 <!ELEMENT dateTimeFormatLength ( alias | ( default*, dateTimeFormat*, special* ) ) >
 <!ATTLIST dateTimeFormatLength type (full | long | medium | short) #IMPLIED >
 <!ATTLIST dateTimeFormatLength alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST dateTimeFormatLength draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1402,7 +1518,9 @@ $Revision$
 
 <!ELEMENT dateTimeFormat ( alias | ( pattern*, displayName*, special* ) ) >
 <!ATTLIST dateTimeFormat type NMTOKEN "standard" >
+	<!--@MATCH:list/standard-->
 <!ATTLIST dateTimeFormat alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST dateTimeFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1417,6 +1535,7 @@ $Revision$
 
 <!ELEMENT availableFormats ( alias | ( dateFormatItem*, special* ) ) >
 <!ATTLIST availableFormats alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST availableFormats draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1428,8 +1547,11 @@ $Revision$
 
 <!ELEMENT dateFormatItem ( #PCDATA ) >
 <!ATTLIST dateFormatItem id CDATA #REQUIRED >
+    <!--@MATCH:list/Bh, Bhm, Bhms, E, EBhm, EBhms, EEEEd, EHm, EHms, Ed, Ehm, Ehms, Gy, GyM, GyMMM, GyMMMEEEEd, GyMMMEd, GyMMMM, GyMMMMEd, GyMMMMd, GyMMMd, GyMd, H, HHmm, HHmmZ, HHmmss, Hm, HmZ, Hmm, Hms, Hmsv, Hmsvvvv, Hmv, M, MEEEEd, MEd, MMM, MMMEEEEd, MMMEd, MMMM, MMMMEEEEd, MMMMEd, MMMMW, MMMMd, MMMMdd, MMMd, MMMdd, MMd, MMdd, Md, Mdd, UM, UMMM, UMMMd, UMd, d, h, hhmm, hhmmss, hm, hms, hmsv, hmsvvvv, hmv, mmss, ms, y, yM, yMEEEEd, yMEd, yMM, yMMM, yMMMEEEEd, yMMMEd, yMMMM, yMMMMEEEEd, yMMMMEd, yMMMMccccd, yMMMMd, yMMMd, yMMdd, yMd, yQ, yQQQ, yQQQQ, yw, yyyy, yyyyM, yyyyMEEEEd, yyyyMEd, yyyyMM, yyyyMMM, yyyyMMMEEEEd, yyyyMMMEd, yyyyMMMM, yyyyMMMMEd, yyyyMMMMccccd, yyyyMMMMd, yyyyMMMd, yyyyMMdd, yyyyMd, yyyyQQQ, yyyyQQQQ-->
+    <!--TODO rationalize this list-->
 <!ATTLIST dateFormatItem count (zero | one | two | few | many | other) #IMPLIED >
 <!ATTLIST dateFormatItem alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST dateFormatItem draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1438,6 +1560,7 @@ $Revision$
 
 <!ELEMENT appendItems ( alias | ( appendItem*, special* ) ) >
 <!ATTLIST appendItems alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST appendItems draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1449,7 +1572,9 @@ $Revision$
 
 <!ELEMENT appendItem ( #PCDATA ) >
 <!ATTLIST appendItem request CDATA #REQUIRED >
+	<!--@MATCH:list/Day, Day-Of-Week, Era, Hour, Minute, Month, Quarter, Second, Timezone, Week, Year-->
 <!ATTLIST appendItem alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST appendItem draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1458,6 +1583,7 @@ $Revision$
 
 <!ELEMENT intervalFormats ( alias | ( intervalFormatFallback*, intervalFormatItem*, special* ) ) >
 <!ATTLIST intervalFormats alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST intervalFormats draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1469,6 +1595,7 @@ $Revision$
 
 <!ELEMENT intervalFormatFallback ( #PCDATA ) >
 <!ATTLIST intervalFormatFallback alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST intervalFormatFallback draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST intervalFormatFallback references CDATA #IMPLIED >
@@ -1479,7 +1606,10 @@ $Revision$
 
 <!ELEMENT intervalFormatItem ( alias | ( greatestDifference*, special* ) ) >
 <!ATTLIST intervalFormatItem id NMTOKEN #REQUIRED >
+    <!--@MATCH:list/Bh, Bhm, Gy, GyM, GyMEd, GyMMM, GyMMMEd, GyMMMd, GyMd, H, Hm, Hmv, Hv, M, MEd, MMM, MMMEEEEd, MMMEd, MMMM, MMMMEd, MMMMd, MMMd, Md, d, h, hm, hmv, hv, y, yM, yMEd, yMMM, yMMMEEEEd, yMMMEd, yMMMM, yMMMMEEEEd, yMMMMEd, yMMMMd, yMMMd, yMd-->
+    <!--TODO: check to see if this should be minimized-->
 <!ATTLIST intervalFormatItem alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST intervalFormatItem draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1491,7 +1621,9 @@ $Revision$
 
 <!ELEMENT greatestDifference ( #PCDATA ) >
 <!ATTLIST greatestDifference id NMTOKEN #REQUIRED >
+    <!--@MATCH:list/B, G, H, M, a, d, h, m, y-->
 <!ATTLIST greatestDifference alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST greatestDifference draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST greatestDifference references CDATA #IMPLIED >
@@ -1502,6 +1634,7 @@ $Revision$
 
 <!ELEMENT fields ( alias | ( field*, special* ) ) >
 <!ATTLIST fields alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST fields draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1517,6 +1650,7 @@ $Revision$
 <!ELEMENT field ( alias | ( displayName*, relative*, relativeTime*, relativePeriod*, special* ) ) >
 <!ATTLIST field type (era | era-short | era-narrow | year | year-short | year-narrow | quarter | quarter-short | quarter-narrow | month | month-short | month-narrow | week | week-short | week-narrow | weekOfMonth | weekOfMonth-short | weekOfMonth-narrow | day | day-short | day-narrow | dayOfYear | dayOfYear-short | dayOfYear-narrow | weekday | weekday-short | weekday-narrow | weekdayOfMonth | weekdayOfMonth-short | weekdayOfMonth-narrow | sun | sun-short | sun-narrow | mon | mon-short | mon-narrow | tue | tue-short | tue-narrow | wed | wed-short | wed-narrow | thu | thu-short | thu-narrow | fri | fri-short | fri-narrow | sat | sat-short | sat-narrow | dayperiod | dayperiod-short | dayperiod-narrow | hour | hour-short | hour-narrow | minute | minute-short | minute-narrow | second | second-short | second-narrow | zone | zone-short | zone-narrow) #IMPLIED >
 <!ATTLIST field alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST field draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1531,7 +1665,10 @@ $Revision$
 
 <!ELEMENT relative ( #PCDATA ) >
 <!ATTLIST relative type NMTOKEN #IMPLIED >
+	<!--@MATCH:range/-2~3-->
+	<!--TODO: determine whether to allow 3-->
 <!ATTLIST relative alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST relative draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1543,7 +1680,9 @@ $Revision$
 
 <!ELEMENT relativeTime ( alias | ( relativeTimePattern*, special* ) ) >
 <!ATTLIST relativeTime type NMTOKEN #REQUIRED >
+    <!--@MATCH:list/future, past-->
 <!ATTLIST relativeTime alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST relativeTime draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1556,6 +1695,7 @@ $Revision$
 <!ELEMENT relativeTimePattern ( #PCDATA ) >
 <!ATTLIST relativeTimePattern count (zero | one | two | few | many | other) #REQUIRED >
 <!ATTLIST relativeTimePattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST relativeTimePattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST relativeTimePattern references CDATA #IMPLIED >
@@ -1566,6 +1706,7 @@ $Revision$
 
 <!ELEMENT relativePeriod ( #PCDATA ) >
 <!ATTLIST relativePeriod alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST relativePeriod draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
@@ -1579,6 +1720,7 @@ $Revision$
 
 <!ELEMENT hourFormat ( #PCDATA ) >
 <!ATTLIST hourFormat alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST hourFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1588,6 +1730,7 @@ $Revision$
 <!ELEMENT hoursFormat ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST hoursFormat alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST hoursFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -1598,6 +1741,7 @@ $Revision$
 
 <!ELEMENT gmtFormat ( #PCDATA ) >
 <!ATTLIST gmtFormat alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST gmtFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1606,6 +1750,7 @@ $Revision$
 
 <!ELEMENT gmtZeroFormat ( #PCDATA ) >
 <!ATTLIST gmtZeroFormat alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST gmtZeroFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1615,6 +1760,7 @@ $Revision$
 <!ELEMENT regionFormat ( #PCDATA ) >
 <!ATTLIST regionFormat type (standard | daylight) #IMPLIED >
 <!ATTLIST regionFormat alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST regionFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1623,6 +1769,7 @@ $Revision$
 
 <!ELEMENT fallbackFormat ( #PCDATA ) >
 <!ATTLIST fallbackFormat alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST fallbackFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1632,6 +1779,7 @@ $Revision$
 <!ELEMENT fallbackRegionFormat ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST fallbackRegionFormat alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST fallbackRegionFormat draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
@@ -1651,6 +1799,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST abbreviationFallback alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST abbreviationFallback draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -1671,6 +1820,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST preferenceOrdering alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST preferenceOrdering draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -1685,6 +1835,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST singleCountries alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST singleCountries draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -1695,7 +1846,10 @@ $Revision$
 
 <!ELEMENT zone ( alias | ( long*, short*, commonlyUsed*, exemplarCity*, special* ) ) >
 <!ATTLIST zone type CDATA #REQUIRED >
+    <!--@MATCH:bcp47/tz-->
+
 <!ATTLIST zone alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST zone draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1710,6 +1864,7 @@ $Revision$
 
 <!ELEMENT long ( alias | ( generic*, standard*, daylight*, special* ) ) >
 <!ATTLIST long alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST long draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1721,6 +1876,7 @@ $Revision$
 
 <!ELEMENT generic ( #PCDATA ) >
 <!ATTLIST generic alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST generic draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1729,6 +1885,7 @@ $Revision$
 
 <!ELEMENT standard ( #PCDATA ) >
 <!ATTLIST standard alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST standard draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1737,6 +1894,7 @@ $Revision$
 
 <!ELEMENT daylight ( #PCDATA ) >
 <!ATTLIST daylight alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST daylight draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1745,6 +1903,7 @@ $Revision$
 
 <!ELEMENT short ( alias | ( generic*, standard*, daylight*, special* ) ) >
 <!ATTLIST short alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST short draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1760,6 +1919,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST commonlyUsed alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST commonlyUsed draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -1770,6 +1930,7 @@ $Revision$
 
 <!ELEMENT exemplarCity ( #PCDATA ) >
 <!ATTLIST exemplarCity alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/formal, secondary-->
 <!ATTLIST exemplarCity draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1778,7 +1939,9 @@ $Revision$
 
 <!ELEMENT metazone ( alias | ( long*, short*, commonlyUsed*, special* ) ) >
 <!ATTLIST metazone type CDATA #REQUIRED >
+	<!--@MATCH:metazone-->
 <!ATTLIST metazone alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST metazone draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1795,6 +1958,7 @@ $Revision$
 
 <!ELEMENT numbers ( alias | ( defaultNumberingSystem*, otherNumberingSystems*, minimumGroupingDigits*, symbols*, decimalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, miscPatterns*, minimalPairs*, special* ) ) >
 <!ATTLIST numbers alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST numbers draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1809,6 +1973,7 @@ $Revision$
 
 <!ELEMENT defaultNumberingSystem ( #PCDATA ) >
 <!ATTLIST defaultNumberingSystem alt NMTOKENS #IMPLIED >
+    <!--@MATCH:bcp47/nu-->
 <!ATTLIST defaultNumberingSystem draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1817,30 +1982,35 @@ $Revision$
 
 <!ELEMENT otherNumberingSystems ( alias | ( native*, traditional*, finance*, special* ) ) >
 <!ATTLIST otherNumberingSystems alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST otherNumberingSystems draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT native ( #PCDATA ) >
 <!ATTLIST native alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST native draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 
 <!ELEMENT traditional ( #PCDATA ) >
 <!ATTLIST traditional alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST traditional draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 
 <!ELEMENT finance ( #PCDATA ) >
 <!ATTLIST finance alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST finance draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 
 <!ELEMENT minimumGroupingDigits ( #PCDATA ) >
 <!ATTLIST minimumGroupingDigits alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST minimumGroupingDigits draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST minimumGroupingDigits references CDATA #IMPLIED >
@@ -1848,6 +2018,7 @@ $Revision$
 
 <!ELEMENT symbols ( alias | ( decimal*, group*, list*, percentSign*, nativeZeroDigit*, patternDigit*, plusSign*, minusSign*, exponential*, superscriptingExponent*, perMille*, infinity*, nan*, currencyDecimal*, currencyGroup*, timeSeparator*, special* ) ) >
 <!ATTLIST symbols alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST symbols draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1860,9 +2031,11 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST symbols numberSystem CDATA #IMPLIED >
+    <!--@MATCH:bcp47/nu-->
 
 <!ELEMENT decimal ( #PCDATA ) >
 <!ATTLIST decimal alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST decimal draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1873,6 +2046,7 @@ $Revision$
 
 <!ELEMENT group ( #PCDATA ) >
 <!ATTLIST group alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST group draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1883,6 +2057,7 @@ $Revision$
 
 <!ELEMENT list ( #PCDATA ) >
 <!ATTLIST list alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST list draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1893,6 +2068,7 @@ $Revision$
 
 <!ELEMENT percentSign ( #PCDATA ) >
 <!ATTLIST percentSign alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST percentSign draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1904,6 +2080,7 @@ $Revision$
 <!ELEMENT nativeZeroDigit ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST nativeZeroDigit alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST nativeZeroDigit draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -1917,6 +2094,7 @@ $Revision$
 <!ELEMENT patternDigit ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST patternDigit alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST patternDigit draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -1929,6 +2107,7 @@ $Revision$
 
 <!ELEMENT plusSign ( #PCDATA ) >
 <!ATTLIST plusSign alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST plusSign draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1939,6 +2118,7 @@ $Revision$
 
 <!ELEMENT minusSign ( #PCDATA ) >
 <!ATTLIST minusSign alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST minusSign draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1949,6 +2129,7 @@ $Revision$
 
 <!ELEMENT exponential ( #PCDATA ) >
 <!ATTLIST exponential alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST exponential draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1959,6 +2140,7 @@ $Revision$
 
 <!ELEMENT superscriptingExponent ( #PCDATA ) >
 <!ATTLIST superscriptingExponent alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST superscriptingExponent draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST superscriptingExponent references CDATA #IMPLIED >
@@ -1966,6 +2148,7 @@ $Revision$
 
 <!ELEMENT perMille ( #PCDATA ) >
 <!ATTLIST perMille alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST perMille draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1976,6 +2159,7 @@ $Revision$
 
 <!ELEMENT infinity ( #PCDATA ) >
 <!ATTLIST infinity alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST infinity draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1986,6 +2170,7 @@ $Revision$
 
 <!ELEMENT nan ( #PCDATA ) >
 <!ATTLIST nan alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST nan draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1996,6 +2181,7 @@ $Revision$
 
 <!ELEMENT currencyDecimal ( #PCDATA ) >
 <!ATTLIST currencyDecimal alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST currencyDecimal draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -2006,6 +2192,7 @@ $Revision$
 
 <!ELEMENT currencyGroup ( #PCDATA ) >
 <!ATTLIST currencyGroup alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST currencyGroup draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -2016,6 +2203,7 @@ $Revision$
 
 <!ELEMENT timeSeparator ( #PCDATA ) >
 <!ATTLIST timeSeparator alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST timeSeparator draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST timeSeparator references CDATA #IMPLIED >
@@ -2029,10 +2217,12 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST decimalFormats numberSystem CDATA #IMPLIED >
+    <!--@MATCH:bcp47/nu-->
 
 <!ELEMENT decimalFormatLength ( alias | ( default*, decimalFormat*, special* ) ) >
 <!ATTLIST decimalFormatLength type (full | long | medium | short) #IMPLIED >
 <!ATTLIST decimalFormatLength alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST decimalFormatLength draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2047,7 +2237,9 @@ $Revision$
 
 <!ELEMENT decimalFormat ( alias | ( pattern*, special* ) ) >
 <!ATTLIST decimalFormat type NMTOKEN "standard" >
+	<!--@MATCH:list/standard-->
 <!ATTLIST decimalFormat alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST decimalFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2068,10 +2260,12 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST scientificFormats numberSystem CDATA #IMPLIED >
+    <!--@MATCH:bcp47/nu-->
 
 <!ELEMENT scientificFormatLength ( alias | ( default*, scientificFormat*, special* ) ) >
 <!ATTLIST scientificFormatLength type (full | long | medium | short) #IMPLIED >
 <!ATTLIST scientificFormatLength alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST scientificFormatLength draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2086,7 +2280,9 @@ $Revision$
 
 <!ELEMENT scientificFormat ( alias | ( pattern*, special* ) ) >
 <!ATTLIST scientificFormat type NMTOKEN "standard" >
+	<!--@MATCH:list/standard-->
 <!ATTLIST scientificFormat alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST scientificFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2107,10 +2303,12 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST percentFormats numberSystem CDATA #IMPLIED >
+    <!--@MATCH:bcp47/nu-->
 
 <!ELEMENT percentFormatLength ( alias | ( default*, percentFormat*, special* ) ) >
 <!ATTLIST percentFormatLength type (full | long | medium | short) #IMPLIED >
 <!ATTLIST percentFormatLength alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST percentFormatLength draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2125,7 +2323,9 @@ $Revision$
 
 <!ELEMENT percentFormat ( alias | ( pattern*, special* ) ) >
 <!ATTLIST percentFormat type NMTOKEN "standard" >
+	<!--@MATCH:list/standard-->
 <!ATTLIST percentFormat alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST percentFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2146,6 +2346,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST currencyFormats numberSystem CDATA #IMPLIED >
+    <!--@MATCH:bcp47/nu-->
 
 <!ELEMENT currencySpacing ( alias | ( beforeCurrency*, afterCurrency*, special* ) ) >
 
@@ -2153,6 +2354,7 @@ $Revision$
 
 <!ELEMENT currencyMatch ( #PCDATA ) >
 <!ATTLIST currencyMatch alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST currencyMatch draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -2161,6 +2363,7 @@ $Revision$
 
 <!ELEMENT surroundingMatch ( #PCDATA ) >
 <!ATTLIST surroundingMatch alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST surroundingMatch draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -2169,6 +2372,7 @@ $Revision$
 
 <!ELEMENT insertBetween ( #PCDATA ) >
 <!ATTLIST insertBetween alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST insertBetween draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -2180,6 +2384,7 @@ $Revision$
 <!ELEMENT currencyFormatLength ( alias | ( default*, currencyFormat*, special* ) ) >
 <!ATTLIST currencyFormatLength type (full | long | medium | short) #IMPLIED >
 <!ATTLIST currencyFormatLength alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST currencyFormatLength draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2194,7 +2399,9 @@ $Revision$
 
 <!ELEMENT currencyFormat ( alias | ( pattern*, special* ) ) >
 <!ATTLIST currencyFormat type NMTOKEN "standard" >
+	<!--@MATCH:list/accounting, standard-->
 <!ATTLIST currencyFormat alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST currencyFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2210,6 +2417,7 @@ $Revision$
 <!ELEMENT unitPattern ( #PCDATA ) >
 <!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many | other) #REQUIRED >
 <!ATTLIST unitPattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST unitPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST unitPattern references CDATA #IMPLIED >
@@ -2231,7 +2439,9 @@ $Revision$
 <!-- # warning: pattern appears twice in the above. The first is for consistency with all other cases of
     pattern + displayName; the second is for backwards compatibility -->
 <!ATTLIST currency type NMTOKEN "standard" >
+    <!--@MATCH:validity/currency-->
 <!ATTLIST currency alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST currency draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2246,6 +2456,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST symbol alt NMTOKENS #IMPLIED >
+	<!--@MATCH:list/formal, narrow, variant-->
 <!ATTLIST symbol draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -2257,22 +2468,28 @@ $Revision$
     <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST miscPatterns numberSystem CDATA #IMPLIED >
+    <!--@MATCH:bcp47/nu-->
 
 <!ELEMENT minimalPairs ( alias | ( pluralMinimalPairs*, ordinalMinimalPairs*, special* ) ) >
 <!ATTLIST minimalPairs alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST minimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT pluralMinimalPairs ( #PCDATA ) >
 <!ATTLIST pluralMinimalPairs count NMTOKEN #IMPLIED >
+	<!--@MATCH:list/few, many, one, other, two, zero-->
 <!ATTLIST pluralMinimalPairs alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST pluralMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
 <!ELEMENT ordinalMinimalPairs ( #PCDATA ) >
 <!ATTLIST ordinalMinimalPairs ordinal NMTOKEN #IMPLIED >
+	<!--@MATCH:list/few, many, one, other, two, zero-->
 <!ATTLIST ordinalMinimalPairs alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST ordinalMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
@@ -2280,6 +2497,7 @@ $Revision$
 
 <!ELEMENT units ( alias | ( unit*, unitLength*, durationUnit*, special* ) ) >
 <!ATTLIST units alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST units draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2291,7 +2509,9 @@ $Revision$
 
 <!ELEMENT unit ( alias | ( displayName*, unitPattern*, perUnitPattern*, special* ) ) >
 <!ATTLIST unit type NMTOKEN #REQUIRED >
+    <!--@MATCH:validity/unit-->
 <!ATTLIST unit alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST unit draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2303,6 +2523,7 @@ $Revision$
 
 <!ELEMENT perUnitPattern ( #PCDATA ) >
 <!ATTLIST perUnitPattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST perUnitPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST perUnitPattern references CDATA #IMPLIED >
@@ -2311,6 +2532,7 @@ $Revision$
 <!ELEMENT unitLength ( alias | ( compoundUnit*, unit*, coordinateUnit*, special* ) ) >
 <!ATTLIST unitLength type (long | short | narrow) #REQUIRED >
 <!ATTLIST unitLength alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST unitLength draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2322,7 +2544,9 @@ $Revision$
 
 <!ELEMENT compoundUnit ( alias | ( compoundUnitPattern*, special* ) ) >
 <!ATTLIST compoundUnit type NMTOKEN #REQUIRED >
+    <!--@MATCH:list/per-->
 <!ATTLIST compoundUnit alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST compoundUnit draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2334,6 +2558,7 @@ $Revision$
 
 <!ELEMENT compoundUnitPattern ( #PCDATA ) >
 <!ATTLIST compoundUnitPattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST compoundUnitPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST compoundUnitPattern references CDATA #IMPLIED >
@@ -2344,6 +2569,7 @@ $Revision$
 
 <!ELEMENT coordinateUnit ( alias | ( displayName*, coordinateUnitPattern*, special* ) ) >
 <!ATTLIST coordinateUnit alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST coordinateUnit draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2351,12 +2577,15 @@ $Revision$
 <!ELEMENT coordinateUnitPattern ( #PCDATA ) >
 <!ATTLIST coordinateUnitPattern type (north | east | south | west) #REQUIRED >
 <!ATTLIST coordinateUnitPattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST coordinateUnitPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
 <!ELEMENT durationUnit ( alias | ( durationUnitPattern*, special* ) ) >
 <!ATTLIST durationUnit type NMTOKEN #REQUIRED >
+    <!--@MATCH:list/hm, hms, ms-->
 <!ATTLIST durationUnit alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST durationUnit draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2365,6 +2594,7 @@ $Revision$
 
 <!ELEMENT durationUnitPattern ( #PCDATA ) >
 <!ATTLIST durationUnitPattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST durationUnitPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST durationUnitPattern references CDATA #IMPLIED >
@@ -2375,6 +2605,7 @@ $Revision$
 
 <!ELEMENT listPatterns ( alias | ( listPattern*, special* ) ) >
 <!ATTLIST listPatterns alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST listPatterns draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2386,7 +2617,9 @@ $Revision$
 
 <!ELEMENT listPattern ( alias | ( listPatternPart*, special* ) ) >
 <!ATTLIST listPattern type NMTOKEN #IMPLIED >
+	<!--@MATCH:list/or, or-narrow, or-short, standard-narrow, standard-short, unit, unit-narrow, unit-short-->
 <!ATTLIST listPattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST listPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2399,6 +2632,7 @@ $Revision$
 <!ELEMENT listPatternPart ( #PCDATA ) >
 <!ATTLIST listPatternPart type (start | middle | end | 2 | 3) #REQUIRED >
 <!ATTLIST listPatternPart alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST listPatternPart draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST listPatternPart references CDATA #IMPLIED >
@@ -2422,6 +2656,7 @@ $Revision$
 
 <!ELEMENT defaultCollation ( #PCDATA ) >
 <!ATTLIST defaultCollation alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST defaultCollation draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
@@ -2431,6 +2666,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST collation alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST collation draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST collation standard CDATA #IMPLIED >
@@ -2517,6 +2753,7 @@ $Revision$
 
 <!ELEMENT cr ( #PCDATA ) >
 <!ATTLIST cr alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST cr draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST cr references CDATA #IMPLIED >
@@ -2638,6 +2875,7 @@ $Revision$
 
 <!ELEMENT messages ( alias | ( yesstr*, nostr*, yesexpr*, noexpr*, special* ) ) >
 <!ATTLIST messages alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST messages draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2649,6 +2887,7 @@ $Revision$
 
 <!ELEMENT yesstr ( #PCDATA ) >
 <!ATTLIST yesstr alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST yesstr draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -2657,6 +2896,7 @@ $Revision$
 
 <!ELEMENT nostr ( #PCDATA ) >
 <!ATTLIST nostr alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST nostr draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -2666,6 +2906,7 @@ $Revision$
 <!ELEMENT yesexpr ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST yesexpr alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST yesexpr draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -2677,6 +2918,7 @@ $Revision$
 <!ELEMENT noexpr ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST noexpr alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST noexpr draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -2689,20 +2931,25 @@ $Revision$
 
 <!ELEMENT characterLabelPattern ( #PCDATA ) >
 <!ATTLIST characterLabelPattern type NMTOKEN #REQUIRED >
+	<!--@MATCH:list/all, category-list, compatibility, enclosed, extended, historic, miscellaneous, other, scripts, strokes-->
 <!ATTLIST characterLabelPattern count (0 | 1 | zero | one | two | few | many | other) #IMPLIED >
     <!-- count only used for certain patterns" -->
 <!ATTLIST characterLabelPattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST characterLabelPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
 <!ELEMENT characterLabel ( #PCDATA ) >
 <!ATTLIST characterLabel type NMTOKEN #REQUIRED >
+	<!--@MATCH:list/activities, african_scripts, american_scripts, animal, animals_nature, arrows, body, box_drawing, braille, building, bullets_stars, consonantal_jamo, currency_symbols, dash_connector, digits, dingbats, divination_symbols, downwards_arrows, downwards_upwards_arrows, east_asian_scripts, emoji, european_scripts, female, flag, flags, food_drink, format, format_whitespace, full_width_form_variant, geometric_shapes, half_width_form_variant, han_characters, han_radicals, hanja, hanzi_simplified, hanzi_traditional, heart, historic_scripts, ideographic_desc_characters, japanese_kana, kanbun, kanji, keycap, leftwards_arrows, leftwards_rightwards_arrows, letterlike_symbols, limited_use, male, math_symbols, middle_eastern_scripts, miscellaneous, modern_scripts, modifier, musical_symbols, nature, nonspacing, numbers, objects, other, paired, person, phonetic_alphabet, pictographs, place, plant, punctuation, rightwards_arrows, sign_standard_symbols, small_form_variant, smiley, smileys_people, south_asian_scripts, southeast_asian_scripts, spacing, sport, symbols, technical_symbols, tone_marks, travel, travel_places, upwards_arrows, variant_forms, vocalic_jamo, weather, western_asian_scripts, whitespace-->
 <!ATTLIST characterLabel alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST characterLabel draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
 <!ELEMENT segmentations ( alias | ( segmentation*, special* ) ) >
 <!ATTLIST segmentations alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST segmentations draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2715,6 +2962,7 @@ $Revision$
 <!ELEMENT segmentation ( alias | ( variables?, segmentRules?, exceptions?, suppressions? ) | special* ) >
 <!ATTLIST segmentation type NMTOKEN #REQUIRED >
 <!ATTLIST segmentation alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST segmentation draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2730,6 +2978,7 @@ $Revision$
     <!--@ORDERED-->
 <!ATTLIST variable id CDATA #REQUIRED >
 <!ATTLIST variable alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST variable draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -2741,6 +2990,7 @@ $Revision$
 <!ELEMENT rule ( #PCDATA ) >
 <!ATTLIST rule id NMTOKEN #REQUIRED >
 <!ATTLIST rule alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST rule draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -2767,6 +3017,7 @@ $Revision$
 <!ELEMENT suppression ( #PCDATA ) >
     <!--@ORDERED-->
 <!ATTLIST suppression alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST suppression draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
@@ -2798,6 +3049,7 @@ $Revision$
 <!ATTLIST rbnfrule decexp CDATA #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST rbnfrule alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST rbnfrule draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -2807,19 +3059,24 @@ $Revision$
 <!ELEMENT axisName ( #PCDATA ) >
 <!ATTLIST axisName type (ital | opsz | slnt | wdth | wght) #REQUIRED >
 <!ATTLIST axisName alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST axisName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
 <!ELEMENT styleName ( #PCDATA ) >
 <!ATTLIST styleName type (ital | opsz | slnt | wdth | wght) #REQUIRED >
 <!ATTLIST styleName subtype NMTOKEN #REQUIRED >
+	<!--@MATCH:list/-12, 0, 1, 100, 112.5, 12, 125, 144, 150, 18, 200, 24, 300, 350, 380, 400, 50, 500, 600, 62.5, 700, 72, 75, 8, 800, 87.5, 900, 950-->
 <!ATTLIST styleName alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
+	<!--@MATCH:list/compressed, demi, extended, heavy, narrow, short, ultra, ultrablack, ultraheavy, wide-->
 <!ATTLIST styleName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
 <!ELEMENT featureName ( #PCDATA ) >
 <!ATTLIST featureName type (afrc | cpsp | dlig | frac | lnum | onum | ordn | pnum | smcp | tnum | zero) #REQUIRED >
 <!ATTLIST featureName alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/short, variant-->
 <!ATTLIST featureName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
@@ -2827,11 +3084,13 @@ $Revision$
 
 <!ELEMENT annotation ( #PCDATA ) >
 <!ATTLIST annotation cp CDATA #REQUIRED >
+    <!--@MATCH:regex/.*-->
 <!ATTLIST annotation tts CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST annotation type (tts) #IMPLIED >
 <!ATTLIST annotation alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST annotation draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
@@ -2851,6 +3110,7 @@ $Revision$
 <!ATTLIST casingItem forceError (true | false) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST casingItem alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
 <!ATTLIST casingItem draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
@@ -2867,6 +3127,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 <!ATTLIST reference alt NMTOKENS #IMPLIED >
+    <!--@MATCH:list/variant-->
     <!--@DEPRECATED-->
 <!ATTLIST reference draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->

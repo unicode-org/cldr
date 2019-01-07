@@ -2,9 +2,11 @@ package org.unicode.cldr.unittest;
 
 import java.io.File;
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -20,21 +22,32 @@ import org.unicode.cldr.util.AttributeValueValidity.Status;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdData.ValueStatus;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LanguageInfo;
+import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
 import org.unicode.cldr.util.Validity;
+import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.unicode.cldr.util.XPathParts;
+import org.xml.sax.Attributes;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.test.TestLog;
+import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.util.Output;
 
 public class TestAttributeValues extends TestFmwk {
+    private static final Validity VALIDITY = Validity.getInstance();
     private static final File BASE_DIR = new File(CLDRPaths.BASE_DIRECTORY);
     public static final Joiner SPACE_JOINER = Joiner.on(' ');
     public static final Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults().omitEmptyStrings();
@@ -46,29 +59,148 @@ public class TestAttributeValues extends TestFmwk {
     }
 
     // TODO move over tests for AttributeValueValidity
-    
-    public void TestUnits() {
-        Validity validity = Validity.getInstance();
-        Map<String, Validity.Status> unitTest = validity.getCodeToStatus(LstrType.unit);
-        Set<String> results = new TreeSet<>();
 
-        for (String path : config.getEnglish()) {
+    public void TestValid() {
+        PathChecker pathChecker = new PathChecker(this);
+        SimpleHandler simpleHandler = new SimpleHandler() {
+            @Override
+            public void handlePathValue(String path, String value) {
+                pathChecker.checkPath(path);
+            }
+        };
+
+        List<String> localesToTest = Arrays.asList("en", "root"); // , "zh", "hi", "ja", "ru", "cy"
+        //Set<String> localesToTest = config.getCommonAndSeedAndMainAndAnnotationsFactory().getAvailable();
+        // TODO, add all other files
+//        for (String mainDirs : Arrays.asList(CLDRPaths.COMMON_DIRECTORY, CLDRPaths.SEED_DIRECTORY)) {
+//            for (String stringDir : DtdType.ldml.directories) {
+//                if (!stringDir.equals("main")) {
+//                    continue;
+//                }
+//                String dir = mainDirs + stringDir + "/";
+//                warnln(dir);
+//                File dirFile = new File(dir);
+//                if (!dirFile.exists() || !dirFile.isDirectory()) {
+//                    continue;
+//                }
+//                for (String file : dirFile.list()) {
+//                    if (!file.endsWith(".xml")) {
+//                        continue;
+//                    }
+//                    String fullFile = dir + file;
+//                    try {
+//                        new XMLFileReader()
+//                            .setHandler(simpleHandler)
+//                            .read(fullFile, -1, true);
+//                    } catch (Exception e) {
+//                        throw new ICUException(fullFile, e);
+//                    }
+//                }
+//            }
+//        }
+
+        for (String locale : localesToTest) {
+            CLDRFile file = config.getCLDRFile(locale, false);
+            for (String dpath : file) {
+                String path = file.getFullXPath(dpath);
+                pathChecker.checkPath(path);
+            }
+        }
+        pathChecker.show(true); // isVerbose());
+    }
+
+    static class PathChecker {
+        private Multimap<Row.R3<ValueStatus,String,String>,String> valueStatuses = TreeMultimap.create();
+        private Counter<ValueStatus> counter = new Counter<>();
+        private Set<String> seen = new HashSet<>();
+        private TestLog testLog;
+
+        public PathChecker(TestLog testLog) {
+            this.testLog = testLog;
+        }
+
+        private void checkPath(String path) {
+            if (seen.contains(path)) {
+                return;
+            }
+            seen.add(path);
             if (path.contains("length-point")) {
                 int debug = 0;
             }
             XPathParts parts = XPathParts.getFrozenInstance(path);
-            //ldml/units/unitLength[@type="long"]/unit[@type="length-kilometer"]/displayName
-            switch(parts.getElement(1)) {
-            case "units":
-                if ("unit".equals(parts.getElement(3))) {
-                    String type = parts.getAttributeValue(3, "type");
-                    if (!unitTest.containsKey(type)) {
-                        results.add(type);
-                    }
+            DtdData dtdData = parts.getDtdData();
+            for (int elementIndex = 0; elementIndex < parts.size(); ++elementIndex) {
+                String element = parts.getElement(elementIndex);
+                for (Entry<String, String> entry : parts.getAttributes(elementIndex).entrySet()) {
+                    String attribute = entry.getKey();
+                    String attrValue = entry.getValue();
+                    checkAttribute(dtdData, element, attribute, attrValue);
                 }
             }
         }
-        assertEquals("Invalid units in English (may be problem with English or Validity)", Collections.emptySet(), results);
+        
+        public void checkElement(DtdData dtdData, String element, Attributes atts) {
+            int length = atts.getLength();
+            for (int i = 0; i < length; ++i) {
+                checkAttribute(dtdData, element, atts.getQName(i), atts.getValue(i));
+            }
+        }
+
+        private void checkAttribute(DtdData dtdData, String element, String attribute, String attrValue) {
+            ValueStatus valueStatus = dtdData.getValueStatus(element, attribute, attrValue);
+            R3<ValueStatus, String, String> row = Row.of(valueStatus, element, attribute);
+            if (valueStatuses.put(row, attrValue)) {
+                counter.add(valueStatus, 1);
+            }
+        }
+
+        void show(boolean verbose) {
+            if (counter.get(ValueStatus.invalid) != 0) {
+                testLog.errln(counter.toString());
+            }
+            if (!verbose) {
+                return;
+            }
+            StringBuilder out = new StringBuilder();
+            out.append("\nstatus\telement\tattribute\tattribute value\n");
+
+            for(Entry<Row.R3<ValueStatus,String,String>, Collection<String>> entry : valueStatuses.asMap().entrySet()) {
+                ValueStatus valueStatus = entry.getKey().get0();
+                String elementName = entry.getKey().get1();
+                String attributeName = entry.getKey().get2();
+                Collection<String> validFound = entry.getValue();
+                out.append(
+                    valueStatus 
+                    + "\t" + elementName 
+                    + "\t" + attributeName 
+                    + "\t" + CollectionUtilities.join(validFound, ", ")
+                    + "\n"
+                    );
+                if (valueStatus == ValueStatus.valid) try {
+                    LstrType lstr = LstrType.valueOf(elementName);
+                    Map<String, Validity.Status> codeToStatus = VALIDITY.getCodeToStatus(lstr);
+                    Set<String> missing = new TreeSet<>(codeToStatus.keySet());
+                    if (lstr == LstrType.variant) {
+                        for (String item : validFound) {
+                            missing.remove(item.toLowerCase(Locale.ROOT));
+                        }
+                    } else {
+                        missing.removeAll(validFound);
+                    }
+                    missing.removeAll(VALIDITY.getStatusToCodes(lstr).get(LstrField.Deprecated));
+                    if (!missing.isEmpty()) {
+                        out.append(
+                            "missing" 
+                                + "\t" + elementName 
+                                + "\t" + attributeName 
+                                + "\t" + CollectionUtilities.join(missing, ", ")
+                                + "\n"
+                            );
+                    }
+                } catch (Exception e) {}
+            }
+            testLog.warnln(out.toString());
+        }
     }
 
     public void xTestA() {
@@ -87,12 +219,12 @@ public class TestAttributeValues extends TestFmwk {
             + "\t" + languageInfo);
     }
 
-    public void TestAttributeValueValidity() {
-        for (String test : Arrays.asList(
-            "supplementalData;     territoryAlias;     replacement;    AA")) {
-            quickTest(test);
-        }
-    }
+//    public void TestAttributeValueValidity() {
+//        for (String test : Arrays.asList(
+//            "supplementalData;     territoryAlias;     replacement;    AA")) {
+//            quickTest(test);
+//        }
+//    }
 
     private Status quickTest(String test) {
         List<String> parts = SEMI_SPACE.splitToList(test);

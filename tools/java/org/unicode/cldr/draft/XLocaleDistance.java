@@ -380,7 +380,7 @@ public class XLocaleDistance {
             if (distanceTable != null) {
                 distanceTable.value = ((StringDistanceNode) value).distanceTable;
             }
-            return starEquals && star & desired.equals(supported) ? 0 : value.distance;
+            return starEquals && star && desired.equals(supported) ? 0 : value.distance;
         }
 
         public void copy(StringDistanceTable other) {

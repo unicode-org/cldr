@@ -1,8 +1,15 @@
 package org.unicode.cldr.unittest;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -10,8 +17,14 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
+
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamReader;
 
 import org.unicode.cldr.tool.VerifyAttributeValues;
 import org.unicode.cldr.tool.VerifyAttributeValues.Errors;
@@ -31,19 +44,21 @@ import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
 import org.unicode.cldr.util.Validity;
-import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
+import org.unicode.cldr.util.XMLFileReader.FilterBomInputStream;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.Attributes;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.test.TestLog;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.util.ICUException;
 import com.ibm.icu.util.Output;
 
 public class TestAttributeValues extends TestFmwk {
@@ -60,63 +75,133 @@ public class TestAttributeValues extends TestFmwk {
 
     // TODO move over tests for AttributeValueValidity
 
-    public void TestValid() {
-        PathChecker pathChecker = new PathChecker(this);
-        SimpleHandler simpleHandler = new SimpleHandler() {
-            @Override
-            public void handlePathValue(String path, String value) {
-                pathChecker.checkPath(path);
-            }
-        };
+//    static class MyHandler extends LoggingHandler {
+//        final DtdData dtdData;
+//        final PathChecker pathChecker;
+//        public MyHandler(DtdData dtdData, PathChecker pathChecker) {
+//            this.dtdData = dtdData;
+//            this.pathChecker = pathChecker;
+//        }
+//        @Override
+//        public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
+//            pathChecker.checkElement(dtdData, qName, atts);
+//        }
+//    };
 
-        List<String> localesToTest = Arrays.asList("en", "root"); // , "zh", "hi", "ja", "ru", "cy"
-        //Set<String> localesToTest = config.getCommonAndSeedAndMainAndAnnotationsFactory().getAvailable();
-        // TODO, add all other files
-//        for (String mainDirs : Arrays.asList(CLDRPaths.COMMON_DIRECTORY, CLDRPaths.SEED_DIRECTORY)) {
-//            for (String stringDir : DtdType.ldml.directories) {
-//                if (!stringDir.equals("main")) {
-//                    continue;
-//                }
-//                String dir = mainDirs + stringDir + "/";
-//                warnln(dir);
-//                File dirFile = new File(dir);
-//                if (!dirFile.exists() || !dirFile.isDirectory()) {
-//                    continue;
-//                }
-//                for (String file : dirFile.list()) {
-//                    if (!file.endsWith(".xml")) {
-//                        continue;
-//                    }
-//                    String fullFile = dir + file;
-//                    try {
-//                        new XMLFileReader()
-//                            .setHandler(simpleHandler)
-//                            .read(fullFile, -1, true);
-//                    } catch (Exception e) {
-//                        throw new ICUException(fullFile, e);
-//                    }
-//                }
+    public void TestValid() {
+        // shortcircuits for testing
+        Set<DtdType> checkTypes = Collections.singleton(DtdType.supplementalData); // DtdType.STANDARD_SET;
+        ImmutableSet<ValueStatus> showStatuses = ImmutableSet.of(ValueStatus.invalid, ValueStatus.unknown); // all
+        
+        for (DtdType dtdType : checkTypes) {
+            PathChecker pathChecker = new PathChecker(this, DtdData.getInstance(dtdType));
+            for (String mainDirs : Arrays.asList(CLDRPaths.COMMON_DIRECTORY, CLDRPaths.SEED_DIRECTORY)) {
+                Set<String> files = new TreeSet<>();
+                for (String stringDir : dtdType.directories) {
+                    addXMLFiles(mainDirs + stringDir, files);
+                    if (isVerbose()) {
+                        warnln(mainDirs + stringDir);
+                    }
+                }
+                files
+                .parallelStream()
+                .forEach(file -> checkFile(pathChecker, file));
+            }
+            pathChecker.show(isVerbose(), showStatuses);
+        }
+//        List<String> localesToTest = Arrays.asList("en", "root"); // , "zh", "hi", "ja", "ru", "cy"
+//        Set<String> localesToTest = config.getCommonAndSeedAndMainAndAnnotationsFactory().getAvailable();
+//        // TODO, add all other files
+
+//        for (String locale : localesToTest) {
+//            CLDRFile file = config.getCLDRFile(locale, false);
+//            for (String dpath : file) {
+//                String path = file.getFullXPath(dpath);
+//                pathChecker.checkPath(path);
 //            }
 //        }
+    }
 
-        for (String locale : localesToTest) {
-            CLDRFile file = config.getCLDRFile(locale, false);
-            for (String dpath : file) {
-                String path = file.getFullXPath(dpath);
-                pathChecker.checkPath(path);
+    private void addXMLFiles(String path, Set<String> files) {
+        File dirFile = new File(path);
+        if (!dirFile.exists()) {
+            return;
+        }
+        if (!dirFile.isDirectory()) {
+            files.add(path);
+        } else {
+            for (String file : dirFile.list()) {
+                addXMLFiles(path + "/" + file, files);
             }
         }
-        pathChecker.show(true); // isVerbose());
+    }
+
+
+    private void checkFile(PathChecker pathChecker, String fullFile) {
+        if (!fullFile.endsWith(".xml")) {
+            return;
+        }
+        pathChecker.fileCount.incrementAndGet();
+        //System.out.println(fullFile);
+        XMLInputFactory f = XMLInputFactory.newInstance();
+        int _elementCount = 0;
+        int _attributeCount = 0;
+
+        try {
+            // should convert these over to new io.
+            try (InputStream fis0 = new FileInputStream(fullFile);
+                InputStream fis = new FilterBomInputStream(fis0);
+                InputStreamReader inputStreamReader = new InputStreamReader(fis, Charset.forName("UTF-8"));
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                ) {
+                XMLStreamReader r = f.createXMLStreamReader(fullFile, bufferedReader);
+                String element = null;
+                while(r.hasNext()) {
+                    switch(r.next()){
+                    case XMLStreamReader.START_ELEMENT:
+                        element = r.getLocalName();
+                        ++_elementCount;
+                        int attributeSize = r.getAttributeCount();
+                        for (int i = 0; i < attributeSize; ++i) {
+                            ++_attributeCount;
+                            String attribute = r.getAttributeLocalName(i);
+                            String attributeValue = r.getAttributeValue(i);
+                            pathChecker.checkAttribute(element, attribute, attributeValue);
+                        }
+                        break;
+                    }
+                }
+                //XMLFileReader.read("noId", inputStreamReader, -1, true, myHandler);
+            } catch (IOException e) {
+                throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fullFile).initCause(e);
+            }
+        } catch (Exception e) {
+            throw new ICUException(fullFile, e);
+        }
+        pathChecker.elementCount.addAndGet(_elementCount);
+        pathChecker.attributeCount.addAndGet(_attributeCount);
     }
 
     static class PathChecker {
-        private Multimap<Row.R3<ValueStatus,String,String>,String> valueStatuses = TreeMultimap.create();
-        private Counter<ValueStatus> counter = new Counter<>();
-        private Set<String> seen = new HashSet<>();
-        private TestLog testLog;
+        private final Multimap<Row.R3<ValueStatus,String,String>,String> valueStatuses = TreeMultimap.create();
+        private final Counter<ValueStatus> counter = new Counter<>();
+        private final Set<String> seen = new HashSet<>();
+        private final Map<String,Map<String,Map<String,Boolean>>> seenEAV = new ConcurrentHashMap<>();
+        private final TestFmwk testLog;
+        private final DtdData dtdData;
+        private final Multimap<String, String> needsTesting;
+        private final Map<String,String> matchValues;
+        
+        private final AtomicInteger fileCount = new AtomicInteger();
+        private final AtomicInteger elementCount = new AtomicInteger();
+        private final AtomicInteger attributeCount = new AtomicInteger();
 
-        public PathChecker(TestLog testLog) {
+        public PathChecker(TestFmwk testLog, DtdData dtdData) {
             this.testLog = testLog;
+            this.dtdData = dtdData;
+            Map<String,String> _matchValues = new TreeMap<>();
+            needsTesting = dtdData.getNonEnumerated(_matchValues);
+            matchValues = ImmutableMap.copyOf(_matchValues);
         }
 
         private void checkPath(String path) {
@@ -128,51 +213,92 @@ public class TestAttributeValues extends TestFmwk {
                 int debug = 0;
             }
             XPathParts parts = XPathParts.getFrozenInstance(path);
-            DtdData dtdData = parts.getDtdData();
             for (int elementIndex = 0; elementIndex < parts.size(); ++elementIndex) {
                 String element = parts.getElement(elementIndex);
                 for (Entry<String, String> entry : parts.getAttributes(elementIndex).entrySet()) {
                     String attribute = entry.getKey();
                     String attrValue = entry.getValue();
-                    checkAttribute(dtdData, element, attribute, attrValue);
+                    checkAttribute(element, attribute, attrValue);
                 }
             }
         }
-        
-        public void checkElement(DtdData dtdData, String element, Attributes atts) {
+
+        public void checkElement(String element, Attributes atts) {
             int length = atts.getLength();
             for (int i = 0; i < length; ++i) {
-                checkAttribute(dtdData, element, atts.getQName(i), atts.getValue(i));
+                checkAttribute(element, atts.getQName(i), atts.getValue(i));
             }
         }
 
-        private void checkAttribute(DtdData dtdData, String element, String attribute, String attrValue) {
+        private void checkAttribute(String element, String attribute, String attrValue) {
+            // skip cases we know we don't need to test
+            if (!needsTesting.containsEntry(element, attribute)) {
+                return;
+            }
+            // check if we've seen the EAV yet
+            // we don't need to synchronize because a miss isn't serious
+            Map<String, Map<String, Boolean>> sub = seenEAV.get(element);
+            if (sub == null) {
+                Map<String, Map<String, Boolean>> subAlready = seenEAV.putIfAbsent(element, sub = new ConcurrentHashMap<>());
+                if (subAlready != null) {
+                    sub = subAlready; // discards empty map
+                }
+            }
+            Map<String, Boolean> set = sub.get(attribute);
+            if (set == null) {
+                Map<String, Boolean> setAlready = sub.putIfAbsent(attribute, set = new ConcurrentHashMap<>());
+                if (setAlready != null) {
+                    set = setAlready; // discards empty map
+                }
+            }
+            if (set.putIfAbsent(attrValue, Boolean.TRUE) != null) {
+                return;
+            };
+
+            // get the status & store
             ValueStatus valueStatus = dtdData.getValueStatus(element, attribute, attrValue);
             R3<ValueStatus, String, String> row = Row.of(valueStatus, element, attribute);
-            if (valueStatuses.put(row, attrValue)) {
-                counter.add(valueStatus, 1);
+            synchronized (valueStatuses) {
+                if (valueStatuses.put(row, attrValue)) {
+                    counter.add(valueStatus, 1);
+                }
             }
         }
 
-        void show(boolean verbose) {
-            if (counter.get(ValueStatus.invalid) != 0) {
-                testLog.errln(counter.toString());
+        void show(boolean verbose, ImmutableSet<ValueStatus> retain) {
+            if (!testLog.logKnownIssue("cldrbug 10120", "Don't enable error until complete")) {
+                if (counter.get(ValueStatus.invalid) != 0) {
+                    testLog.errln("Invalid count, use -v for details: " + counter.toString());
+                }
+            } else {
+                testLog.warnln("Counts: " + counter.toString());
             }
             if (!verbose) {
                 return;
             }
             StringBuilder out = new StringBuilder();
-            out.append("\nstatus\telement\tattribute\tattribute value\n");
+            out.append("\n");
+
+            out.append("fileCount:\t" + dtdData.dtdType + "\t" + fileCount + "\n");
+            out.append("elementCount:\t" + dtdData.dtdType + "\t" + elementCount + "\n");
+            out.append("attributeCount:\t" + dtdData.dtdType + "\t" + attributeCount + "\n");
+            out.append("status\telement\tattribute\tmatch\tattribute value\n");
 
             for(Entry<Row.R3<ValueStatus,String,String>, Collection<String>> entry : valueStatuses.asMap().entrySet()) {
                 ValueStatus valueStatus = entry.getKey().get0();
+                if (!retain.contains(valueStatus)) {
+                    continue;
+                }
                 String elementName = entry.getKey().get1();
                 String attributeName = entry.getKey().get2();
+                String matchValue = matchValues.get(elementName + "\t" + attributeName);
                 Collection<String> validFound = entry.getValue();
                 out.append(
                     valueStatus 
+                    + "\t" + dtdData.dtdType 
                     + "\t" + elementName 
                     + "\t" + attributeName 
+                    + "\t" + (matchValue == null ? "" : matchValue)
                     + "\t" + CollectionUtilities.join(validFound, ", ")
                     + "\n"
                     );
@@ -191,8 +317,10 @@ public class TestAttributeValues extends TestFmwk {
                     if (!missing.isEmpty()) {
                         out.append(
                             "missing" 
+                                + "\t" + dtdData.dtdType 
                                 + "\t" + elementName 
                                 + "\t" + attributeName 
+                                + "\t" + "" 
                                 + "\t" + CollectionUtilities.join(missing, ", ")
                                 + "\n"
                             );

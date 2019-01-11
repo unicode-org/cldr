@@ -984,7 +984,6 @@ public class CldrUtility {
                 "Path must be relative to org/unicode/cldr/util/data  such as 'file.txt' or 'casing/file.txt', but got '"
                     + name + "'.");
         }
-
         return FileReaders.openFile(CldrUtility.class, "data/" + name);
     }
 

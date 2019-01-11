@@ -16,13 +16,20 @@ public enum DtdType {
         "collation",
         "rbnf",
         "segments",
-        "subdivisions"), ldmlICU("common/dtd/ldmlICU.dtd", ldml), supplementalData("common/dtd/ldmlSupplemental.dtd", null, null,
-            "supplemental",
-            "transforms",
-            "validity"), ldmlBCP47("common/dtd/ldmlBCP47.dtd", "1.7.2", null,
-                "bcp47"), keyboard("keyboards/dtd/ldmlKeyboard.dtd", "22.1", null,
-                    "../keyboards"), platform("keyboards/dtd/ldmlPlatform.dtd", "22.1", null,
-                        "../keyboards");
+        "subdivisions"), 
+    ldmlICU("common/dtd/ldmlICU.dtd", ldml), 
+    supplementalData("common/dtd/ldmlSupplemental.dtd", null, null,
+        "supplemental",
+        "transforms",
+        "validity"), 
+    ldmlBCP47("common/dtd/ldmlBCP47.dtd", "1.7.2", null,
+        "bcp47"), 
+    keyboard("keyboards/dtd/ldmlKeyboard.dtd", "22.1", null,
+        "../keyboards"), 
+    platform("keyboards/dtd/ldmlPlatform.dtd", "22.1", null,
+        "../keyboards");
+    public static final Set<DtdType> STANDARD_SET = ImmutableSet.of(
+        ldmlBCP47, supplementalData, ldml, keyboard, platform);
 
     static Pattern FIRST_ELEMENT = PatternCache.get("//([^/\\[]*)");
 
@@ -66,14 +73,14 @@ public enum DtdType {
         }
 
         return "<?xml version='1.0' encoding='UTF-8' ?>\n"
-            + "<!DOCTYPE " + this + " SYSTEM '../../" + dtdPath + "'>\n" // "common/dtd/ldmlSupplemental.dtd"
-            + "<!--\n"
-            + "\t© 1991-2017 Unicode, Inc.\n"
-            + "\tUnicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.\n"
-            + "\tFor terms of use, see http://www.unicode.org/copyright.html.\n"
-            + "\tCLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/).\n"
-            + gline
-            + " -->\n"
-            + "<" + this + ">\n";
+        + "<!DOCTYPE " + this + " SYSTEM '../../" + dtdPath + "'>\n" // "common/dtd/ldmlSupplemental.dtd"
+        + "<!--\n"
+        + "\t© 1991-2017 Unicode, Inc.\n"
+        + "\tUnicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.\n"
+        + "\tFor terms of use, see http://www.unicode.org/copyright.html.\n"
+        + "\tCLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/).\n"
+        + gline
+        + " -->\n"
+        + "<" + this + ">\n";
     }
 }

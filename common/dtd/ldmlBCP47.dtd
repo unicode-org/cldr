@@ -14,8 +14,10 @@ $Revision$
 <!ELEMENT version EMPTY >
     <!--@METADATA-->
 <!ATTLIST version number CDATA #REQUIRED >
+	<!--@MATCH:regex/\$Revision.*\$-->
     <!--@METADATA-->
 <!ATTLIST version cldrVersion CDATA #FIXED "35" >
+	<!--@MATCH:version-->
     <!--@VALUE-->
 
 <!ELEMENT generation EMPTY >
@@ -35,31 +37,41 @@ $Revision$
 
 <!ELEMENT key ( type* ) >
 <!ATTLIST key extension NMTOKEN #IMPLIED >
+	<!--@MATCH:any-->
 <!ATTLIST key name NMTOKEN #REQUIRED >
+	<!--@MATCH:regex/[a-z0-9]{2}-->
 <!ATTLIST key description CDATA #IMPLIED >
+	<!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST key deprecated (true | false) "false" >
     <!--@VALUE-->
 <!ATTLIST key preferred NMTOKEN #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST key alias NMTOKEN #IMPLIED >
+	<!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST key valueType (single | multiple | incremental | any) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST key since CDATA #IMPLIED >
+	<!--@MATCH:version-->
     <!--@METADATA-->
 
 <!ELEMENT type EMPTY >
 <!ATTLIST type name NMTOKEN #REQUIRED >
+	<!--@MATCH:any-->
 <!ATTLIST type description CDATA #REQUIRED >
+	<!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST type deprecated (true | false) "false" >
     <!--@VALUE-->
 <!ATTLIST type preferred NMTOKEN #IMPLIED >
+	<!--@MATCH:bcp47/anyvalue-->
     <!--@VALUE-->
 <!ATTLIST type alias CDATA #IMPLIED >
+	<!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST type since CDATA #IMPLIED >
+	<!--@MATCH:version-->
     <!--@METADATA-->
 
 <!ELEMENT attribute EMPTY >

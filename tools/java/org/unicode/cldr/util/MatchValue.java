@@ -1,20 +1,25 @@
 package org.unicode.cldr.util;
 
-import java.util.Collection;
+import java.text.ParseException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.StandardCodes.LstrType;
 
+import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.locale.XCldrStub.Splitter;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.VersionInfo;
 
 public abstract class MatchValue implements Predicate<String> {
     @Override
@@ -22,36 +27,63 @@ public abstract class MatchValue implements Predicate<String> {
     public abstract String getName();
 
     public static MatchValue of(String command) {
+        String originalArg = command;
         int colonPos = command.indexOf('/');
         String subargument = null;
         if (colonPos >= 0) {
             subargument = command.substring(colonPos + 1);
             command = command.substring(0, colonPos);
         }
-        switch (command) {
-        case "validity": 
-            return ValidityMatchValue.of(subargument);
-        case "bcp47": 
-            return Bcp47MatchValue.of(subargument);
-        case "range": 
-            return RangeMatchValue.of(subargument);
-        case "list":
-            return ListMatchValue.of(subargument);
-        case "regex":
-            return RegexMatchValue.of(subargument);
-        case "metazone":
-            return MetazoneMatchValue.of(subargument);
-        default: 
-            throw new IllegalArgumentException("Illegal/Unimplemented match type: " + subargument);
+        try {
+            MatchValue result = null;
+            switch (command) {
+            case "any":
+                result = AnyMatchValue.of(subargument);
+                break;
+            case "set":
+                result =  SetMatchValue.of(subargument);
+                break;
+            case "validity": 
+                result =  ValidityMatchValue.of(subargument);
+                break;
+            case "bcp47": 
+                result =  Bcp47MatchValue.of(subargument);
+                break;
+            case "range": 
+                result =  RangeMatchValue.of(subargument);
+                break;
+            case "literal":
+                result =  LiteralMatchValue.of(subargument);
+                break;
+            case "regex":
+                result =  RegexMatchValue.of(subargument);
+                break;
+            case "metazone":
+                result =  MetazoneMatchValue.of(subargument);
+                break;
+            case "version":
+                result =  VersionMatchValue.of(subargument);
+                break;
+            case "time":
+                result =  TimeMatchValue.of(subargument);
+                break;
+            default: 
+                throw new IllegalArgumentException("Illegal/Unimplemented match type: " + originalArg);
+            }
+            if (!originalArg.equals(result.getName())) {
+                System.err.println("Non-standard form or error: " + originalArg + " ==> " + result.getName());
+            }
+            return result;
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Problem with: " + originalArg, e);
         }
     }
 
     static class LocaleMatchValue extends MatchValue {
-        private LanguageTagParser ltp;
-        private Predicate<String> lang = new ValidityMatchValue(LstrType.language);
-        private Predicate<String> script = new ValidityMatchValue(LstrType.script);
-        private Predicate<String> region = new ValidityMatchValue(LstrType.region);
-        private Predicate<String> variant = new ValidityMatchValue(LstrType.variant);
+        private final Predicate<String> lang = new ValidityMatchValue(LstrType.language);
+        private final Predicate<String> script = new ValidityMatchValue(LstrType.script);
+        private final Predicate<String> region = new ValidityMatchValue(LstrType.region);
+        private final Predicate<String> variant = new ValidityMatchValue(LstrType.variant);
 
         @Override
         public String getName() {
@@ -63,10 +95,7 @@ public abstract class MatchValue implements Predicate<String> {
             if (!item.contains("_")) {
                 return lang.is(item);
             }
-            if (ltp == null) {
-                ltp = new LanguageTagParser();
-            }
-            ltp.set(item);
+            LanguageTagParser ltp = new LanguageTagParser().set(item);
             return lang.is(ltp.getLanguage())
                 && (ltp.getScript().isEmpty() 
                     || script.is(ltp.getScript()))
@@ -86,7 +115,7 @@ public abstract class MatchValue implements Predicate<String> {
         "Loma", "Maya", "Moon", "Nkgb", "Phlv", "Roro", "Sara", "Syre", "Syrj", "Syrn", "Teng", "Visp", "Wole");
     static final Set<String> VARIANT_HACK = ImmutableSet.of("POSIX", "REVISED", "SAAHO");
 
-    public static <T> boolean and(Predicate<T> predicate, Collection<T> items) {
+    public static <T> boolean and(Predicate<T> predicate, Iterable<T> items) {
         for (T item : items) {
             if (!predicate.is(item)) {
                 return false;
@@ -95,12 +124,21 @@ public abstract class MatchValue implements Predicate<String> {
         return true;
     }
 
+    public static <T> boolean or(Predicate<T> predicate, Iterable<T> items) {
+        for (T item : items) {
+            if (predicate.is(item)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     static public class ValidityMatchValue extends MatchValue {
         private final LstrType type;
 
         @Override
         public String getName() {
-            return type.toString();
+            return "validity/" + type.toString();
         }
 
         private ValidityMatchValue(LstrType type) {
@@ -157,11 +195,20 @@ public abstract class MatchValue implements Predicate<String> {
         }
 
         @Override
-        public boolean is(String item) {
+        public synchronized boolean is(String item) {
             if (valid == null) { // must lazy-eval
                 SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
                 Relation<String, String> keyToSubtypes = sdi.getBcp47Keys();
                 Relation<R2<String, String>, String> keySubtypeToAliases = sdi.getBcp47Aliases();
+                Map<String, String> aliasesToKey = new HashMap<>();
+                for (String key : keyToSubtypes.keySet()) {
+                    Set<String> aliases = keySubtypeToAliases.get(Row.of(key, ""));
+                    if (aliases != null) {
+                        for (String alias : aliases) {
+                            aliasesToKey.put(alias, key);
+                        }
+                    }
+                }
                 Set<String> keyList;
                 Set<String> subtypeList;
                 // TODO handle deprecated
@@ -190,7 +237,17 @@ public abstract class MatchValue implements Predicate<String> {
                     break;
                 default:
                     subtypeList = keyToSubtypes.get(key);
-                    valid = new TreeSet<>(subtypeList);
+                    if (subtypeList == null) {
+                        String key2 = aliasesToKey.get(key);
+                        if (key2 != null) {
+                            subtypeList = keyToSubtypes.get(key2);
+                        }
+                    }
+                    try {
+                        valid = new TreeSet<>(subtypeList);
+                    } catch (Exception e) {
+                        throw new IllegalArgumentException("Illegal keyValue: " + getName());
+                    }
                     for (String subtypeItem : subtypeList) {
                         addAliases(keySubtypeToAliases, key, subtypeItem);
                     }
@@ -220,19 +277,22 @@ public abstract class MatchValue implements Predicate<String> {
 
     static final Splitter RANGE = Splitter.on('~').trimResults();
 
+    // TODO: have Range that can be ints, doubles, or versions
     static public class RangeMatchValue extends MatchValue {
-        private final int start;
-        private final int end;
+        private final double start;
+        private final double end;
+        private final boolean isInt;
 
         @Override
         public String getName() {
-            return "range/" + start + "-" + end;
+            return "range/" + (isInt ? (long)start + "~" + (long)end : start + "~" + end);
         }
 
         private RangeMatchValue(String key) {
             Iterator<String> parts = RANGE.split(key).iterator();
-            start = Integer.parseInt(parts.next());
-            end = Integer.parseInt(parts.next());
+            start = Double.parseDouble(parts.next());
+            end = Double.parseDouble(parts.next());
+            isInt = !key.contains(".");
             if (parts.hasNext()) {
                 throw new IllegalArgumentException("Range must be of form <int>~<int>");
             }
@@ -244,9 +304,12 @@ public abstract class MatchValue implements Predicate<String> {
 
         @Override
         public boolean is(String item) {
-            int value;
+            if (isInt && item.contains(".")) {
+                return false;
+            }
+            double value;
             try {
-                value = Integer.parseInt(item);
+                value = Double.parseDouble(item);
             } catch (NumberFormatException e) {
                 return false;
             }
@@ -256,20 +319,20 @@ public abstract class MatchValue implements Predicate<String> {
 
     static final Splitter LIST = Splitter.on(',').trimResults();
 
-    static public class ListMatchValue extends MatchValue {
+    static public class LiteralMatchValue extends MatchValue {
         private final Set<String> items;
 
         @Override
         public String getName() {
-            return "list/" + CollectionUtilities.join(items, ", ");
+            return "literal/" + CollectionUtilities.join(items, ", ");
         }
 
-        private ListMatchValue(String key) {
+        private LiteralMatchValue(String key) {
             items = ImmutableSet.copyOf(LIST.splitToList(key));
         }
 
-        public static ListMatchValue of(String key) {
-            return new ListMatchValue(key);
+        public static LiteralMatchValue of(String key) {
+            return new LiteralMatchValue(key);
         }
 
         @Override
@@ -300,7 +363,36 @@ public abstract class MatchValue implements Predicate<String> {
         }
     }
 
+    static public class VersionMatchValue extends MatchValue {
+
+        @Override
+        public String getName() {
+            return "version";
+        }
+
+        private VersionMatchValue(String key) {
+        }
+
+        public static VersionMatchValue of(String key) {
+            if (key != null) {
+                throw new IllegalArgumentException("No parameter allowed");
+            }
+            return new VersionMatchValue(key);
+        }
+
+        @Override
+        public boolean is(String item) {
+            try {
+                VersionInfo.getInstance(item);
+            } catch (Exception e) {
+                return false;
+            }
+            return true;
+        }
+    }
+
     static public class MetazoneMatchValue extends MatchValue {
+        private Set<String> valid;
 
         @Override
         public String getName() {
@@ -308,15 +400,91 @@ public abstract class MatchValue implements Predicate<String> {
         }
 
         public static MetazoneMatchValue of(String key) {
+            if (key != null) {
+                throw new IllegalArgumentException("No parameter allowed");
+            }
             return new MetazoneMatchValue();
         }
 
         @Override
-        public boolean is(String item) {
+        public synchronized boolean is(String item) {
             // must lazy-eval
-            SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-            return sdi.getAllMetazones().contains(item);
+            if (valid == null) {
+                SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
+                valid = sdi.getAllMetazones();
+            }
+            return valid.contains(item);
         }
     }
 
+    static public class AnyMatchValue extends MatchValue {
+
+        @Override
+        public String getName() {
+            return "any";
+        }
+
+        public static AnyMatchValue of(String key) {
+            if (key != null) {
+                throw new IllegalArgumentException("No parameter allowed");
+            }
+            return new AnyMatchValue();
+        }
+
+        @Override
+        public boolean is(String item) {
+            return true;
+        }
+    }
+
+    static final Splitter SPACE_SPLITTER = Splitter.on(' ').omitEmptyStrings();
+
+    static public class SetMatchValue extends MatchValue {
+        final MatchValue subtest;
+
+        public SetMatchValue(MatchValue subtest) {
+            this.subtest = subtest;
+        }
+
+        @Override
+        public String getName() {
+            return "set/"+subtest.getName();
+        }
+
+        public static SetMatchValue of(String key) {
+            return new SetMatchValue(MatchValue.of(key));
+        }
+
+        @Override
+        public  boolean is(String items) {
+            return and(subtest,SPACE_SPLITTER.split(items));
+        }
+    }
+
+    static public class TimeMatchValue extends MatchValue {
+        final SimpleDateFormat formatter;
+
+        public TimeMatchValue(String key) {
+            formatter = new SimpleDateFormat(key,ULocale.ROOT);
+        }
+
+        @Override
+        public String getName() {
+            return "time/" + formatter.toPattern();
+        }
+
+        public static TimeMatchValue of(String key) {
+            return new TimeMatchValue(key);
+        }
+
+        @Override
+        public  boolean is(String item) {
+            try {
+                formatter.parse(item);
+                return true;
+            } catch (ParseException e) {
+                return false;
+            }
+        }
+    }
 }

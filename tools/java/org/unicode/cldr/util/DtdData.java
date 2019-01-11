@@ -25,7 +25,9 @@ import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSet.Builder;
+import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Transform;
@@ -219,6 +221,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                         deprecatedValues = Collections.unmodifiableSet(new HashSet<>(COMMA.splitToList(argument)));
                         break;
                     case "@MATCH":
+                        if (matchValue != null) {
+                            throw new IllegalArgumentException("Confliting @MATCH: " + matchValue.getName() + " & " + argument);
+                        }
                         matchValue = MatchValue.of(argument);
                         break;
                     default:
@@ -281,7 +286,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public ValueStatus getValueStatus(String value) {
             return deprecatedValues.contains(value) 
                 ? ValueStatus.invalid
-                    : !values.isEmpty() 
+                    : type == AttributeType.ENUMERATED_TYPE 
                     ? (values.containsKey(value) 
                         ? ValueStatus.valid 
                             : ValueStatus.invalid)
@@ -1085,6 +1090,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             } else if (!deprecatedValues.isEmpty()) {
                 b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + CollectionUtilities.join(deprecatedValues, ", ") + "-->");
             }
+            if (a.matchValue != null) {
+                b.append(COMMENT_PREFIX + "<!--@MATCH:" + a.matchValue.getName() + "-->");
+            }
         }
         if (current.children.size() > 0) {
             for (Element e : current.children.keySet()) {
@@ -1680,6 +1688,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return false;
     }
 
+    /**
+     * Return the value status for an EAV
+     */
     public ValueStatus getValueStatus(String elementName, String attributeName, String value) {
         Element element = nameToElement.get(elementName);
         if (element == null) {
@@ -1691,7 +1702,28 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
         return attr.getValueStatus(value);
     }
-
+    
+    /**
+     * Return element-attribute pairs with non-enumerated values, for quick checks.
+     */
+    public Multimap<String, String> getNonEnumerated(Map<String,String> matchValues) {
+        Multimap<String,String> nonEnumeratedElementToAttribute = TreeMultimap.create(); // make tree for ease of debugging
+        for (Entry<String, Element> entry : nameToElement.entrySet()) {
+            Element element = entry.getValue();
+            for (Attribute attribute : element.attributes.keySet()) {
+                if (attribute.type != AttributeType.ENUMERATED_TYPE) {
+                    String elementName = element.getName();
+                    String attrName = attribute.getName();
+                    nonEnumeratedElementToAttribute.put(elementName, attrName);
+                    if (attribute.matchValue != null) {
+                        matchValues.put(elementName + "\t" + attrName, attribute.matchValue.getName());
+                    }
+                }
+            }
+        }
+        return ImmutableSetMultimap.copyOf(nonEnumeratedElementToAttribute);
+    }
+    
     // ALWAYS KEEP AT END, FOR STATIC INIT ORDER
     private static final Map<DtdType, DtdData> CACHE;
     static {

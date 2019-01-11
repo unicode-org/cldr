@@ -49,9 +49,12 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT info EMPTY >
 <!ATTLIST info iso4217 NMTOKEN #REQUIRED >
+	<!--@MATCH:validity/currency-->
 <!ATTLIST info digits NMTOKEN #IMPLIED >
+	<!--@MATCH:range/0~5-->
     <!--@VALUE-->
 <!ATTLIST info rounding NMTOKEN #IMPLIED >
+	<!--@MATCH:range/0~5-->
     <!--@VALUE-->
 <!ATTLIST info cashDigits NMTOKEN #IMPLIED >
 	<!--@MATCH:range/0~100-->
@@ -124,10 +127,11 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT subgroup EMPTY >
 <!ATTLIST subgroup type NMTOKEN #REQUIRED >
-	<!--@MATCH:validity/region-->
+	<!--@MATCH:or/validity/region||validity/subdivision-->
 <!ATTLIST subgroup subtype NMTOKEN #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST subgroup contains NMTOKENS #IMPLIED >
+	<!--@MATCH:validity/subdivision-->
     <!--@VALUE-->
 
 <!ELEMENT languageData ( language* ) >
@@ -149,6 +153,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST language references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST language alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/secondary, variant-->
 
 <!ELEMENT territoryInfo ( territory* ) >
 <!ATTLIST territoryInfo draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
@@ -157,6 +162,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST territoryInfo references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST territoryInfo alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
 
 <!ELEMENT territory ( languagePopulation* ) >
 <!ATTLIST territory type NMTOKEN #REQUIRED >
@@ -177,6 +183,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 	<!--@MATCH:any-->
     <!--@METADATA-->
 <!ATTLIST territory alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
 
 <!ELEMENT languagePopulation EMPTY >
 <!ATTLIST languagePopulation type NMTOKEN #REQUIRED >
@@ -199,6 +206,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 	<!--@MATCH:any-->
     <!--@METADATA-->
 <!ATTLIST languagePopulation alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
 
 <!ELEMENT postalCodeData ( postCodeRegex* ) >
     <!--@DEPRECATED-->
@@ -226,6 +234,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST calendar references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST calendar alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
 
 <!ELEMENT calendarSystem EMPTY >
 <!ATTLIST calendarSystem type (solar | lunar | lunisolar | other) #REQUIRED >
@@ -239,6 +248,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT era EMPTY >
 <!ATTLIST era type NMTOKEN #REQUIRED >
+	<!--@MATCH:range/1~250-->
 <!ATTLIST era start CDATA #IMPLIED >
 	<!--@MATCH:time/yyyy-MM-dd-->
     <!--@VALUE-->
@@ -270,6 +280,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST minDays references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST minDays alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
 
 <!ELEMENT firstDay EMPTY >
 <!ATTLIST firstDay day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED >
@@ -283,6 +294,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 	<!--@MATCH:any-->
     <!--@METADATA-->
 <!ATTLIST firstDay alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
 
 <!ELEMENT weekendStart EMPTY >
 <!ATTLIST weekendStart day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED >
@@ -295,6 +307,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST weekendStart references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST weekendStart alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
 
 <!ELEMENT weekendEnd EMPTY >
 <!ATTLIST weekendEnd day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED >
@@ -307,6 +320,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST weekendEnd references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST weekendEnd alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
 
 <!ELEMENT weekOfPreference EMPTY >
 <!ATTLIST weekOfPreference locales NMTOKENS #REQUIRED >
@@ -319,9 +333,11 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT hours EMPTY >
 <!ATTLIST hours allowed NMTOKENS #REQUIRED >
+	<!--@MATCH:set/literal/H, h, K, k, hB, hb-->
 <!ATTLIST hours preferred NMTOKEN #REQUIRED >
+	<!--@MATCH:literal/H, h-->
 <!ATTLIST hours regions NMTOKENS #REQUIRED >
-	<!--@MATCH:set/validity/region-->
+	<!--@MATCH:set/or/validity/region||validity/locale-->
     <!--@VALUE-->
 <!ATTLIST hours draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
@@ -342,6 +358,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST measurementSystem references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST measurementSystem alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
 
 <!ELEMENT paperSize EMPTY >
 <!ATTLIST paperSize type (A4 | US-Letter) #REQUIRED >
@@ -354,6 +371,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST paperSize references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST paperSize alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
 
 <!ELEMENT unitPreferenceData ( unitPreferences* ) >
 
@@ -361,6 +379,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST unitPreferences category NMTOKEN #REQUIRED >
 	<!--@MATCH:literal/area, concentr, consumption, duration, energy, length, mass, pressure, speed, temperature, volume-->
 <!ATTLIST unitPreferences usage NMTOKENS #REQUIRED >
+	<!--@MATCH:literal/baromtrc, blood-glucose, food, land-agricult, land-commercl, land-residntl, music-track, person, person-age, person-usage, rainfall, road, road-travel, snowfall, tv-program, vehicle, vehicle-fuel, visiblty, weather, wind-->
 <!ATTLIST unitPreferences scope (small) #IMPLIED >
 
 <!ELEMENT unitPreference ( #PCDATA ) >
@@ -371,6 +390,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST unitPreference references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST unitPreference alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/informal, variant-->
 
 <!ELEMENT timezoneData ( mapTimezones*, zoneFormatting* ) >
     <!--@DEPRECATED-->
@@ -445,6 +465,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST character references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST character alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
 
 <!ELEMENT substitute ( #PCDATA ) >
     <!--@ORDERED-->
@@ -457,17 +478,23 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST substitute references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST substitute alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
 
 <!ELEMENT transforms ( transform* ) >
 
 <!ELEMENT transform ( ( comment | tRule )* ) >
 <!ATTLIST transform source CDATA #IMPLIED >
+	<!--@MATCH:any/TODO-->
 <!ATTLIST transform target CDATA #IMPLIED >
+	<!--@MATCH:any/TODO-->
 <!ATTLIST transform variant CDATA #IMPLIED >
+	<!--@MATCH:any/TODO-->
 <!ATTLIST transform direction (forward | backward | both) "both" >
 <!ATTLIST transform alias CDATA #IMPLIED >
+	<!--@MATCH:any/TODO-->
     <!--@VALUE-->
 <!ATTLIST transform backwardAlias CDATA #IMPLIED >
+	<!--@MATCH:any/TODO-->
     <!--@VALUE-->
 <!ATTLIST transform visibility (internal | external) "external" >
     <!--@VALUE-->
@@ -476,6 +503,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST transform references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST transform alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
 
 <!ELEMENT comment ( #PCDATA ) >
     <!--@ORDERED-->
@@ -571,42 +599,52 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT languageAlias EMPTY >
 <!ATTLIST languageAlias type NMTOKEN #REQUIRED >
+	<!--@MATCH:validity/locale-->
 <!ATTLIST languageAlias replacement NMTOKEN #REQUIRED >
+	<!--@MATCH:validity/locale-->
     <!--@VALUE-->
 <!ATTLIST languageAlias reason (deprecated | overlong | macrolanguage | legacy | bibliographic) #IMPLIED >
     <!--@VALUE-->
 
 <!ELEMENT scriptAlias EMPTY >
 <!ATTLIST scriptAlias type NMTOKEN #REQUIRED >
+	<!--@MATCH:validity/script-->
 <!ATTLIST scriptAlias replacement NMTOKEN #REQUIRED >
+	<!--@MATCH:validity/script-->
     <!--@VALUE-->
 <!ATTLIST scriptAlias reason (deprecated | overlong) #IMPLIED >
     <!--@VALUE-->
 
 <!ELEMENT territoryAlias EMPTY >
 <!ATTLIST territoryAlias type NMTOKEN #REQUIRED >
+	<!--@MATCH:set/or/validity/region||regex/[0-9]{3}|[A-Z]{3}-->
 <!ATTLIST territoryAlias replacement NMTOKENS #REQUIRED >
+	<!--@MATCH:set/validity/region-->
     <!--@VALUE-->
 <!ATTLIST territoryAlias reason (deprecated | overlong) #IMPLIED >
     <!--@VALUE-->
 
 <!ELEMENT subdivisionAlias EMPTY >
 <!ATTLIST subdivisionAlias type NMTOKEN #REQUIRED >
+	<!--@MATCH:validity/subdivision-->
 <!ATTLIST subdivisionAlias replacement NMTOKENS #REQUIRED >
+	<!--@MATCH:set/or/validity/region||validity/subdivision-->
     <!--@VALUE-->
 <!ATTLIST subdivisionAlias reason (deprecated | overlong) #IMPLIED >
     <!--@VALUE-->
 
 <!ELEMENT variantAlias EMPTY >
 <!ATTLIST variantAlias type NMTOKEN #REQUIRED >
+	<!--@MATCH:validity/variant-->
 <!ATTLIST variantAlias replacement NMTOKEN #REQUIRED >
+	<!--@MATCH:validity/variant-->
     <!--@VALUE-->
 <!ATTLIST variantAlias reason (deprecated | overlong) #IMPLIED >
     <!--@VALUE-->
 
 <!ELEMENT zoneAlias EMPTY >
 <!ATTLIST zoneAlias type CDATA #REQUIRED >
-	<!--@MATCH:bcp47/tz-->
+	<!--@MATCH:or/bcp47/tz||literal/SystemV/AST4, SystemV/AST4ADT, SystemV/CST6, SystemV/CST6CDT, SystemV/EST5, SystemV/EST5EDT, SystemV/HST10, SystemV/MST7, SystemV/MST7MDT, SystemV/PST8, SystemV/PST8PDT, SystemV/YST9, SystemV/YST9YDT-->
 <!ATTLIST zoneAlias replacement CDATA #REQUIRED >
 	<!--@MATCH:bcp47/tz-->
     <!--@VALUE-->
@@ -757,10 +795,13 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST territoryCodes type NMTOKEN #REQUIRED >
 	<!--@MATCH:validity/region-->
 <!ATTLIST territoryCodes numeric NMTOKEN #IMPLIED >
+	<!--@MATCH:range/1~999-->
     <!--@VALUE-->
 <!ATTLIST territoryCodes alpha3 NMTOKEN #IMPLIED >
+	<!--@MATCH:regex/[A-Z]{3}-->
     <!--@VALUE-->
 <!ATTLIST territoryCodes fips10 NMTOKEN #IMPLIED >
+	<!--@MATCH:regex/[A-Z]{2}-->
     <!--@VALUE-->
 <!ATTLIST territoryCodes internet NMTOKENS #IMPLIED >
     <!--@VALUE-->
@@ -768,7 +809,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT currencyCodes EMPTY >
 <!ATTLIST currencyCodes type NMTOKEN #REQUIRED >
+	<!--@MATCH:validity/currency-->
 <!ATTLIST currencyCodes numeric NMTOKEN #REQUIRED >
+	<!--@MATCH:range/1~999-->
     <!--@VALUE-->
 
 <!-- # Parent locales -->
@@ -786,7 +829,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT likelySubtag EMPTY >
 <!ATTLIST likelySubtag from NMTOKEN #REQUIRED >
+	<!--@MATCH:validity/locale-->
 <!ATTLIST likelySubtag to NMTOKEN #REQUIRED >
+	<!--@MATCH:validity/locale-->
     <!--@VALUE-->
 
 <!ELEMENT metazoneInfo ( timezone* ) >
@@ -883,6 +928,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST telephoneCountryCode alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
     <!--@DEPRECATED-->
 
 <!ELEMENT numberingSystems ( numberingSystem* ) >
@@ -895,8 +941,10 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST numberingSystem radix NMTOKEN #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST numberingSystem digits CDATA #IMPLIED >
+	<!--@MATCH:regex/\p{Nd}+-->
     <!--@VALUE-->
 <!ATTLIST numberingSystem rules CDATA #IMPLIED >
+	<!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST numberingSystem draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
@@ -955,11 +1003,13 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST reference alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
 
 <!ELEMENT languageMatching ( languageMatches* ) >
 
 <!ELEMENT languageMatches ( paradigmLocales*, matchVariable*, languageMatch* ) >
 <!ATTLIST languageMatches type NMTOKEN #REQUIRED >
+	<!--@MATCH:literal/written, written_new-->
 
 <!ELEMENT paradigmLocales EMPTY >
 <!ATTLIST paradigmLocales locales NMTOKENS #REQUIRED >
@@ -968,13 +1018,17 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT matchVariable EMPTY >
 <!ATTLIST matchVariable id CDATA #REQUIRED >
+	<!--@MATCH:regex/\$[a-zA-Z0-9_]+-->
 <!ATTLIST matchVariable value CDATA #REQUIRED >
+	<!--@MATCH:any-->
     <!--@VALUE-->
 
 <!ELEMENT languageMatch EMPTY >
     <!--@ORDERED-->
 <!ATTLIST languageMatch desired CDATA #REQUIRED >
+	<!--@MATCH:any/TODO-->
 <!ATTLIST languageMatch supported CDATA #REQUIRED >
+	<!--@MATCH:any/TODO-->
 <!ATTLIST languageMatch percent NMTOKEN #IMPLIED >
 	<!--@MATCH:range/0~100-->
     <!--@VALUE-->
@@ -988,6 +1042,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT dayPeriodRuleSet ( dayPeriodRules* ) >
 <!ATTLIST dayPeriodRuleSet type NMTOKEN #IMPLIED >
+	<!--@MATCH:literal/selection-->
 <!ATTLIST dayPeriodRuleSet draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1005,6 +1060,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT dayPeriodRule EMPTY >
 <!ATTLIST dayPeriodRule type NMTOKEN #REQUIRED >
+	<!--@MATCH:literal/afternoon1, afternoon2, am, evening1, evening2, midnight, morning1, morning2, night1, night2, noon, pm-->
 <!ATTLIST dayPeriodRule at NMTOKEN #IMPLIED >
 	<!--@MATCH:time/HH:mm-->
     <!--@VALUE-->
@@ -1033,6 +1089,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT primaryZone ( #PCDATA ) >
 <!ATTLIST primaryZone iso3166 NMTOKEN #REQUIRED >
+	<!--@MATCH:validity/region-->
 
 <!-- # Time Zones -->
 
@@ -1080,12 +1137,15 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT id ( #PCDATA ) >
 <!ATTLIST id type NMTOKEN #REQUIRED >
+	<!--@MATCH:literal/currency, language, region, script, subdivision, unit, variant-->
 <!ATTLIST id idStatus NMTOKEN #REQUIRED >
+	<!--@MATCH:literal/deprecated, macroregion, private_use, regular, special, unknown-->
 
 <!ELEMENT rgScope ( rgPath* ) >
 
 <!ELEMENT rgPath EMPTY >
 <!ATTLIST rgPath path CDATA #REQUIRED >
+	<!--@MATCH:any-->
 <!ATTLIST rgPath draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
@@ -1093,3 +1153,4 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT languageGroup ( #PCDATA ) >
 <!ATTLIST languageGroup parent NMTOKEN #REQUIRED >
+	<!--@MATCH:validity/language-->

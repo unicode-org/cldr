@@ -1,17 +1,21 @@
 package org.unicode.cldr.util;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.IntFunction;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.StandardCodes.LstrType;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
@@ -25,6 +29,11 @@ public abstract class MatchValue implements Predicate<String> {
     @Override
     public abstract boolean is(String item);
     public abstract String getName();
+    
+    @Override
+    public String toString() {
+        return getName();
+    }
 
     public static MatchValue of(String command) {
         String originalArg = command;
@@ -67,6 +76,9 @@ public abstract class MatchValue implements Predicate<String> {
             case "time":
                 result =  TimeMatchValue.of(subargument);
                 break;
+            case "or":
+                result =  OrMatchValue.of(subargument);
+                break;
             default: 
                 throw new IllegalArgumentException("Illegal/Unimplemented match type: " + originalArg);
             }
@@ -95,7 +107,12 @@ public abstract class MatchValue implements Predicate<String> {
             if (!item.contains("_")) {
                 return lang.is(item);
             }
-            LanguageTagParser ltp = new LanguageTagParser().set(item);
+            LanguageTagParser ltp;
+            try {
+                ltp = new LanguageTagParser().set(item);
+            } catch (Exception e) {
+                return false;
+            }
             return lang.is(ltp.getLanguage())
                 && (ltp.getScript().isEmpty() 
                     || script.is(ltp.getScript()))
@@ -418,17 +435,19 @@ public abstract class MatchValue implements Predicate<String> {
     }
 
     static public class AnyMatchValue extends MatchValue {
+        final String key;
+        
+        public AnyMatchValue(String key) {
+            this.key = key;
+        }
 
         @Override
         public String getName() {
-            return "any";
+            return "any" + (key == null ? "" : "/" + key);
         }
 
         public static AnyMatchValue of(String key) {
-            if (key != null) {
-                throw new IllegalArgumentException("No parameter allowed");
-            }
-            return new AnyMatchValue();
+            return new AnyMatchValue(key);
         }
 
         @Override
@@ -460,6 +479,40 @@ public abstract class MatchValue implements Predicate<String> {
             return and(subtest,SPACE_SPLITTER.split(items));
         }
     }
+
+    static final Splitter BARS_SPLITTER = Splitter.on("||").omitEmptyStrings();
+
+    static public class OrMatchValue extends MatchValue {
+        final List<MatchValue> subtests;
+
+        private OrMatchValue(Iterator<MatchValue> iterator) {
+            this.subtests = ImmutableList.copyOf(CollectionUtilities.addAll(iterator, new ArrayList<>()));
+        }
+
+        @Override
+        public String getName() {
+            return "or/"+ CollectionUtilities.join(subtests, "||");
+        }
+
+        public static OrMatchValue of(String key) {
+            IntFunction<MatchValue[]> generator = null;
+            return new OrMatchValue(BARS_SPLITTER.splitToList(key)
+                .stream()
+                .map(k -> MatchValue.of(k))
+                .iterator());
+        }
+
+        @Override
+        public  boolean is(String item) {
+            for (MatchValue subtest : subtests) {
+                if (subtest.is(item)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
 
     static public class TimeMatchValue extends MatchValue {
         final SimpleDateFormat formatter;

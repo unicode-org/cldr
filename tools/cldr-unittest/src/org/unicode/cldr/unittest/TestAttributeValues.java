@@ -282,7 +282,7 @@ public class TestAttributeValues extends TestFmwk {
             out.append("fileCount:\t" + dtdData.dtdType + "\t" + fileCount + "\n");
             out.append("elementCount:\t" + dtdData.dtdType + "\t" + elementCount + "\n");
             out.append("attributeCount:\t" + dtdData.dtdType + "\t" + attributeCount + "\n");
-            out.append("status\telement\tattribute\tmatch\tattribute value\n");
+            out.append("status\tdtdType\telement\tattribute\tmatch\t#attr values\tattr values\n");
 
             for(Entry<Row.R3<ValueStatus,String,String>, Collection<String>> entry : valueStatuses.asMap().entrySet()) {
                 ValueStatus valueStatus = entry.getKey().get0();
@@ -299,6 +299,7 @@ public class TestAttributeValues extends TestFmwk {
                     + "\t" + elementName 
                     + "\t" + attributeName 
                     + "\t" + (matchValue == null ? "" : matchValue)
+                    + "\t" + validFound.size()
                     + "\t" + CollectionUtilities.join(validFound, ", ")
                     + "\n"
                     );
@@ -320,6 +321,7 @@ public class TestAttributeValues extends TestFmwk {
                                 + "\t" + dtdData.dtdType 
                                 + "\t" + elementName 
                                 + "\t" + attributeName 
+                                + "\t" + "" 
                                 + "\t" + "" 
                                 + "\t" + CollectionUtilities.join(missing, ", ")
                                 + "\n"

@@ -12,10 +12,12 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT platform ( hardwareMap? ) >
 <!ATTLIST platform id CDATA #REQUIRED >
-
+	<!--@MATCH:literal/android, chromeos, osx, windows-->
 <!ELEMENT hardwareMap ( map+ ) >
 
 <!ELEMENT map EMPTY >
 <!ATTLIST map keycode CDATA #REQUIRED >
+	<!--@MATCH:range/0~150-->
 <!ATTLIST map iso CDATA #REQUIRED >
+	<!--@MATCH:regex/[A-E](0[0-9]|1[0-3])-->
     <!--@VALUE-->

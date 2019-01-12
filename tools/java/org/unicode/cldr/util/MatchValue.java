@@ -22,6 +22,8 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSet.SpanCondition;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.VersionInfo;
 
@@ -78,6 +80,9 @@ public abstract class MatchValue implements Predicate<String> {
                 break;
             case "or":
                 result =  OrMatchValue.of(subargument);
+                break;
+            case "unicodeset":
+                result =  UnicodeSpanMatchValue.of(subargument);
                 break;
             default: 
                 throw new IllegalArgumentException("Illegal/Unimplemented match type: " + originalArg);
@@ -334,7 +339,7 @@ public abstract class MatchValue implements Predicate<String> {
         }
     }
 
-    static final Splitter LIST = Splitter.on(',').trimResults();
+    static final Splitter LIST = Splitter.on(", ").trimResults();
 
     static public class LiteralMatchValue extends MatchValue {
         private final Set<String> items;
@@ -513,7 +518,6 @@ public abstract class MatchValue implements Predicate<String> {
         }
     }
 
-
     static public class TimeMatchValue extends MatchValue {
         final SimpleDateFormat formatter;
 
@@ -540,4 +544,27 @@ public abstract class MatchValue implements Predicate<String> {
             }
         }
     }
+    
+    static public class UnicodeSpanMatchValue extends MatchValue {
+        final UnicodeSet uset;
+
+        public UnicodeSpanMatchValue(String key) {
+            uset = new UnicodeSet(key);
+        }
+
+        @Override
+        public String getName() {
+            return "unicodeset/" + uset;
+        }
+
+        public static UnicodeSpanMatchValue of(String key) {
+            return new UnicodeSpanMatchValue(key);
+        }
+
+        @Override
+        public  boolean is(String item) {
+            return uset.span(item, SpanCondition.CONTAINED) == item.length();
+        }
+    }
+
 }

@@ -12,13 +12,17 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT keyboard ( version, generation?, names, settings?, import*, keyMap+, displayMap?, layer*, vkeys*, transforms*, reorders?, backspaces? ) >
 <!ATTLIST keyboard locale CDATA #REQUIRED >
+	<!--@MATCH:any/TODO-->
 
 <!ELEMENT version EMPTY >
 <!ATTLIST version platform CDATA #REQUIRED >
+	<!--@MATCH:version-->
     <!--@VALUE-->
 <!ATTLIST version number CDATA #REQUIRED >
+	<!--@MATCH:regex/\$Revision.*\$-->
     <!--@METADATA-->
 <!ATTLIST version cldrVersion CDATA #FIXED "35" >
+	<!--@MATCH:version-->
     <!--@METADATA-->
 
 <!ELEMENT generation EMPTY >
@@ -31,6 +35,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT name EMPTY >
 <!ATTLIST name value CDATA #REQUIRED >
+	<!--@MATCH:any-->
     <!--@VALUE-->
 
 <!ELEMENT settings EMPTY >
@@ -47,12 +52,16 @@ Except as contained in this notice, the name of a copyright holder shall not be 
      
 <!ELEMENT keyMap ( map | flicks )+ >
 <!ATTLIST keyMap modifiers CDATA #IMPLIED >
+	<!--@MATCH:any/TODO-->
 
 <!ELEMENT map EMPTY >
 <!ATTLIST map iso CDATA #REQUIRED >
+	<!--@MATCH:regex/[A-E](0[0-9]|1[0-3])-->
 <!ATTLIST map to CDATA #REQUIRED >
+	<!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST map longPress CDATA #IMPLIED >
+	<!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST map longpress-status (optional) #IMPLIED >
 <!ATTLIST map transform (no) #IMPLIED >
@@ -103,12 +112,15 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT transforms ( transform+ ) >
 <!ATTLIST transforms type CDATA #REQUIRED >
+	<!--@MATCH:literal/simple-->
 
 <!ELEMENT transform EMPTY >
 <!ATTLIST transform before CDATA #IMPLIED >
 <!ATTLIST transform from CDATA #REQUIRED >
+	<!--@MATCH:any-->
 <!ATTLIST transform after CDATA #IMPLIED >
 <!ATTLIST transform to CDATA #REQUIRED >
+	<!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST transform error (fail) #IMPLIED >
     <!--@VALUE-->

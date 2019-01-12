@@ -2662,6 +2662,7 @@ $Revision$
 
 <!ELEMENT collation ( alias | ( base?, import*, settings?, suppress_contractions?, optimize?, ( cr* | rules? ), special* ) ) >
 <!ATTLIST collation type NMTOKEN "standard" >
+	<!--@MATCH:or/bcp47/co||literal/digits-after, private-kana, private-pinyin-->
 <!ATTLIST collation visibility (internal | external) #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
@@ -2962,6 +2963,7 @@ $Revision$
 
 <!ELEMENT segmentation ( alias | ( variables?, segmentRules?, exceptions?, suppressions? ) | special* ) >
 <!ATTLIST segmentation type NMTOKEN #REQUIRED >
+    <!--@MATCH:literal/GraphemeClusterBreak, LineBreak, SentenceBreak, WordBreak-->
 <!ATTLIST segmentation alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST segmentation draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
@@ -2978,6 +2980,7 @@ $Revision$
 <!ELEMENT variable ( #PCDATA ) >
     <!--@ORDERED-->
 <!ATTLIST variable id CDATA #REQUIRED >
+    <!--@MATCH:regex/\$[a-zA-Z0-9_]+-->
 <!ATTLIST variable alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST variable draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
@@ -2990,6 +2993,7 @@ $Revision$
 
 <!ELEMENT rule ( #PCDATA ) >
 <!ATTLIST rule id NMTOKEN #REQUIRED >
+    <!--@MATCH:version-->
 <!ATTLIST rule alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST rule draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
@@ -3011,6 +3015,7 @@ $Revision$
 
 <!ELEMENT suppressions ( alias | ( suppression*, special* ) ) >
 <!ATTLIST suppressions type NMTOKEN "standard" >
+    <!--@MATCH:literal/standard-->
 <!ATTLIST suppressions draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -3026,6 +3031,7 @@ $Revision$
 
 <!ELEMENT rulesetGrouping ( alias | ( ruleset*, special* ) ) >
 <!ATTLIST rulesetGrouping type NMTOKEN #REQUIRED >
+    <!--@MATCH:literal/NumberingSystemRules, OrdinalRules, SpelloutRules-->
 <!ATTLIST rulesetGrouping draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -3033,6 +3039,7 @@ $Revision$
 <!ELEMENT ruleset ( alias | ( rbnfrule*, special* ) ) >
     <!--@ORDERED-->
 <!ATTLIST ruleset type NMTOKEN #REQUIRED >
+    <!--@MATCH:unicodeset/[\-0-9a-z]-->
 <!ATTLIST ruleset access (public | private) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST ruleset allowsParsing (true | false) #IMPLIED >
@@ -3044,8 +3051,10 @@ $Revision$
 <!ELEMENT rbnfrule ( #PCDATA ) >
     <!--@ORDERED-->
 <!ATTLIST rbnfrule value CDATA #REQUIRED >
+    <!--@MATCH:or/range/-1.0E20~1.0E20||literal/-x, 0, 0.x, NaN, -Inf, Inf, x,x, x.x-->
     <!--@VALUE-->
 <!ATTLIST rbnfrule radix CDATA #IMPLIED >
+    <!--@MATCH:literal/1,000, 100, 1000, 100000, 20-->
     <!--@VALUE-->
 <!ATTLIST rbnfrule decexp CDATA #IMPLIED >
     <!--@VALUE-->

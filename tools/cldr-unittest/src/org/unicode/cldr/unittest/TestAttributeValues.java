@@ -9,7 +9,6 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -22,6 +21,7 @@ import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
+import java.util.stream.Collectors;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamReader;
@@ -40,6 +40,8 @@ import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.ValueStatus;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LanguageInfo;
+import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
@@ -52,6 +54,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
@@ -73,36 +76,22 @@ public class TestAttributeValues extends TestFmwk {
         new TestAttributeValues().run(args);
     }
 
-    // TODO move over tests for AttributeValueValidity
-
-//    static class MyHandler extends LoggingHandler {
-//        final DtdData dtdData;
-//        final PathChecker pathChecker;
-//        public MyHandler(DtdData dtdData, PathChecker pathChecker) {
-//            this.dtdData = dtdData;
-//            this.pathChecker = pathChecker;
-//        }
-//        @Override
-//        public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
-//            pathChecker.checkElement(dtdData, qName, atts);
-//        }
-//    };
-
     public void TestValid() {
-        // shortcircuits for testing
-        Set<DtdType> checkTypes = Collections.singleton(DtdType.supplementalData); // DtdType.STANDARD_SET;
-        ImmutableSet<ValueStatus> showStatuses = ImmutableSet.of(ValueStatus.invalid, ValueStatus.unknown); // all
-        
-        for (DtdType dtdType : checkTypes) {
+        // short- circuits for testing. null means do all
+        Set<DtdType> checkTypes = null ; // ImmutableSet.of(DtdType.supplementalData, DtdType.keyboard, DtdType.platform); 
+        ImmutableSet<ValueStatus> showStatuses = null ; // ImmutableSet.of(ValueStatus.invalid, ValueStatus.unknown);
+
+        for (DtdType dtdType : checkTypes == null ? DtdType.STANDARD_SET : checkTypes) {
             PathChecker pathChecker = new PathChecker(this, DtdData.getInstance(dtdType));
             for (String mainDirs : Arrays.asList(CLDRPaths.COMMON_DIRECTORY, CLDRPaths.SEED_DIRECTORY)) {
                 Set<String> files = new TreeSet<>();
                 for (String stringDir : dtdType.directories) {
-                    addXMLFiles(mainDirs + stringDir, files);
+                    addXMLFiles(dtdType, mainDirs + stringDir, files);
                     if (isVerbose()) {
                         warnln(mainDirs + stringDir);
                     }
                 }
+                int x = files.size();
                 files
                 .parallelStream()
                 .forEach(file -> checkFile(pathChecker, file));
@@ -122,16 +111,33 @@ public class TestAttributeValues extends TestFmwk {
 //        }
     }
 
-    private void addXMLFiles(String path, Set<String> files) {
+
+    static final Set<String> CLDR_LOCALES = ImmutableSortedSet.copyOf(StandardCodes.make()
+        .getLocaleCoverageLocales(Organization.cldr)
+        .stream()
+        .map(x -> x + ".xml")
+        .collect(Collectors.toSet()));
+
+    private void addXMLFiles(DtdType dtdType, String path, Set<String> files) {
         File dirFile = new File(path);
         if (!dirFile.exists()) {
             return;
         }
         if (!dirFile.isDirectory()) {
+            if (getInclusion() <= 5 
+                && dtdType == DtdType.ldml) {
+                if (path.contains("/annotationsDerived/")) {
+                    return;
+                }
+                String ending = path.substring(path.lastIndexOf('/')+1);
+                if (!CLDR_LOCALES.contains(ending)) {
+                    return;
+                }
+            }
             files.add(path);
         } else {
             for (String file : dirFile.list()) {
-                addXMLFiles(path + "/" + file, files);
+                addXMLFiles(dtdType, path + "/" + file, files);
             }
         }
     }
@@ -191,7 +197,7 @@ public class TestAttributeValues extends TestFmwk {
         private final DtdData dtdData;
         private final Multimap<String, String> needsTesting;
         private final Map<String,String> matchValues;
-        
+
         private final AtomicInteger fileCount = new AtomicInteger();
         private final AtomicInteger elementCount = new AtomicInteger();
         private final AtomicInteger attributeCount = new AtomicInteger();
@@ -266,13 +272,16 @@ public class TestAttributeValues extends TestFmwk {
         }
 
         void show(boolean verbose, ImmutableSet<ValueStatus> retain) {
-            if (!testLog.logKnownIssue("cldrbug 10120", "Don't enable error until complete")) {
-                if (counter.get(ValueStatus.invalid) != 0) {
-                    testLog.errln("Invalid count, use -v for details: " + counter.toString());
+//          if (testLog.logKnownIssue("cldrbug 10120", "Don't enable error until complete")) {
+//              testLog.warnln("Counts: " + counter.toString());
+//          } else 
+            for (ValueStatus valueStatus : ValueStatus.values()) {
+                if (valueStatus != ValueStatus.valid && counter.get(valueStatus) != 0) {
+                    testLog.errln("Problems with " + valueStatus 
+                        + ", use -v for details: " + counter.toString());
                 }
-            } else {
-                testLog.warnln("Counts: " + counter.toString());
             }
+
             if (!verbose) {
                 return;
             }
@@ -286,7 +295,7 @@ public class TestAttributeValues extends TestFmwk {
 
             for(Entry<Row.R3<ValueStatus,String,String>, Collection<String>> entry : valueStatuses.asMap().entrySet()) {
                 ValueStatus valueStatus = entry.getKey().get0();
-                if (!retain.contains(valueStatus)) {
+                if (retain != null && !retain.contains(valueStatus)) {
                     continue;
                 }
                 String elementName = entry.getKey().get1();
@@ -314,7 +323,10 @@ public class TestAttributeValues extends TestFmwk {
                     } else {
                         missing.removeAll(validFound);
                     }
-                    missing.removeAll(VALIDITY.getStatusToCodes(lstr).get(LstrField.Deprecated));
+                    Set<String> deprecated = VALIDITY.getStatusToCodes(lstr).get(LstrField.Deprecated);
+                    if (deprecated != null) {
+                        missing.removeAll(deprecated);
+                    }
                     if (!missing.isEmpty()) {
                         out.append(
                             "missing" 

@@ -49,7 +49,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT info EMPTY >
 <!ATTLIST info iso4217 NMTOKEN #REQUIRED >
-	<!--@MATCH:validity/currency-->
+	<!--@MATCH:or/validity/currency||literal/DEFAULT-->
 <!ATTLIST info digits NMTOKEN #IMPLIED >
 	<!--@MATCH:range/0~5-->
     <!--@VALUE-->
@@ -131,7 +131,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST subgroup subtype NMTOKEN #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST subgroup contains NMTOKENS #IMPLIED >
-	<!--@MATCH:validity/subdivision-->
+	<!--@MATCH:set/validity/subdivision-->
     <!--@VALUE-->
 
 <!ELEMENT languageData ( language* ) >
@@ -248,7 +248,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT era EMPTY >
 <!ATTLIST era type NMTOKEN #REQUIRED >
-	<!--@MATCH:range/1~250-->
+	<!--@MATCH:range/0~250-->
 <!ATTLIST era start CDATA #IMPLIED >
 	<!--@MATCH:time/yyyy-MM-dd-->
     <!--@VALUE-->
@@ -599,7 +599,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT languageAlias EMPTY >
 <!ATTLIST languageAlias type NMTOKEN #REQUIRED >
-	<!--@MATCH:validity/locale-->
+	<!--@MATCH:or/validity/locale||literal/aa_SAAHO, aar, abk, afr, aka, alb, amh, ara, arg, arm, art_lojban, asm, ava, ave, aym, aze, bak, bam, baq, bel, ben, bih, bis, bod, bos, bre, bul, bur, cat, ces, cha, che, chi, chu, chv, cor, cos, cre, cym, cze, dan, deu, div, dut, dzo, ell, eng, epo, est, eus, ewe, fao, fas, fij, fin, fra, fre, fry, ful, geo, ger, gla, gle, glg, glv, gre, grn, guj, hat, hau, hbs, heb, her, hin, hmo, hrv, hun, hye, i_ami, i_bnn, i_hak, i_klingon, i_lux, i_navajo, i_pwn, i_tao, i_tay, i_tsu, ibo, ice, ido, iii, iku, ile, ina, ind, ipk, isl, ita, jav, jpn, kal, kan, kas, kat, kau, kaz, khm, kik, kin, kir, kom, kon, kor, kua, kur, lao, lat, lav, lim, lin, lit, ltz, lub, lug, mac, mah, mal, mao, mar, may, mkd, mlg, mlt, mol, mon, mri, msa, mya, nau, nav, nbl, nde, ndo, nep, nld, nno, no_BOKMAL, no_NYNORSK, no_bok, no_nyn, nob, nor, nya, oci, oji, ori, orm, oss, pan, per, pli, pol, por, pus, que, roh, ron, rum, run, rus, sag, san, scc, scr, sgn_BE_FR, sgn_BE_NL, sgn_CH_DE, sin, slk, slo, slv, sme, smo, sna, snd, som, sot, spa, sqi, srd, srp, ssw, sun, swa, swe, tah, tam, tat, tel, tgk, tgl, tha, tib, tir, ton, tsn, tso, tuk, tur, twi, uig, ukr, urd, uzb, ven, vie, vol, wel, wln, wol, xho, yid, yor, zh_guoyu, zh_hakka, zh_min_nan, zh_xiang, zha, zho, zul-->
 <!ATTLIST languageAlias replacement NMTOKEN #REQUIRED >
 	<!--@MATCH:validity/locale-->
     <!--@VALUE-->
@@ -617,7 +617,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT territoryAlias EMPTY >
 <!ATTLIST territoryAlias type NMTOKEN #REQUIRED >
-	<!--@MATCH:set/or/validity/region||regex/[0-9]{3}|[A-Z]{3}-->
+	<!--@MATCH:set/or/validity/region||regex/[0-9]{3}|[A-Z]{3}||literal/CT, DY, FQ, HV, JT, MI, NH, NQ, PC, PU, PZ, RH, UK, VD, WK-->
 <!ATTLIST territoryAlias replacement NMTOKENS #REQUIRED >
 	<!--@MATCH:set/validity/region-->
     <!--@VALUE-->
@@ -635,9 +635,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT variantAlias EMPTY >
 <!ATTLIST variantAlias type NMTOKEN #REQUIRED >
-	<!--@MATCH:validity/variant-->
+	<!--@MATCH:or/validity/variant||literal/AALAND, POLYTONI-->
 <!ATTLIST variantAlias replacement NMTOKEN #REQUIRED >
-	<!--@MATCH:validity/variant-->
+	<!--@MATCH:or/validity/variant||validity/region-->
     <!--@VALUE-->
 <!ATTLIST variantAlias reason (deprecated | overlong) #IMPLIED >
     <!--@VALUE-->
@@ -941,7 +941,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST numberingSystem radix NMTOKEN #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST numberingSystem digits CDATA #IMPLIED >
-	<!--@MATCH:regex/\p{Nd}+-->
+	<!--@MATCH:unicodeset/[\p{Nd}[\u3007\u4E00\u4E03\u4E09\u4E5D\u4E8C\u4E94\u516B\u516D\u56DB][\U0001E140-\U0001E149][\U0001E2F0-\U0001E2F9]]-->
     <!--@VALUE-->
 <!ATTLIST numberingSystem rules CDATA #IMPLIED >
 	<!--@MATCH:any-->

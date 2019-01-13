@@ -222,7 +222,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                         break;
                     case "@MATCH":
                         if (matchValue != null) {
-                            throw new IllegalArgumentException("Confliting @MATCH: " + matchValue.getName() + " & " + argument);
+                            throw new IllegalArgumentException("Conflicting @MATCH: " + matchValue.getName() + " & " + argument);
                         }
                         matchValue = MatchValue.of(argument);
                         break;
@@ -1080,6 +1080,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 //            if (attributeDeprecated != deprecatedComment) {
 //                System.out.println("*** BAD DEPRECATION ***" + a);
 //            }
+            if (a.matchValue != null) {
+                b.append(COMMENT_PREFIX + "<!--@MATCH:" + a.matchValue.getName() + "-->");
+            }
             if (METADATA.contains(a.name) || a.attributeStatus == AttributeStatus.metadata) {
                 b.append(COMMENT_PREFIX + "<!--@METADATA-->");
             } else if (!isDistinguishing(current.name, a.name)) {
@@ -1089,9 +1092,6 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
             } else if (!deprecatedValues.isEmpty()) {
                 b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + CollectionUtilities.join(deprecatedValues, ", ") + "-->");
-            }
-            if (a.matchValue != null) {
-                b.append(COMMENT_PREFIX + "<!--@MATCH:" + a.matchValue.getName() + "-->");
             }
         }
         if (current.children.size() > 0) {

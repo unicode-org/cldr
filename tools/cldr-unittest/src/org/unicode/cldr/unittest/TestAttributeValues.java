@@ -272,6 +272,7 @@ public class TestAttributeValues extends TestFmwk {
         }
 
         void show(boolean verbose, ImmutableSet<ValueStatus> retain) {
+            boolean haveProblems = false;
 //          if (testLog.logKnownIssue("cldrbug 10120", "Don't enable error until complete")) {
 //              testLog.warnln("Counts: " + counter.toString());
 //          } else 
@@ -279,23 +280,28 @@ public class TestAttributeValues extends TestFmwk {
                 if (valueStatus != ValueStatus.valid && counter.get(valueStatus) != 0) {
                     testLog.errln("Problems with " + valueStatus 
                         + ", use -v for details: " + counter.toString());
+                    haveProblems = true;
                 }
             }
 
-            if (!verbose) {
+            if (!verbose && !haveProblems) {
                 return;
             }
             StringBuilder out = new StringBuilder();
             out.append("\n");
 
-            out.append("fileCount:\t" + dtdData.dtdType + "\t" + fileCount + "\n");
-            out.append("elementCount:\t" + dtdData.dtdType + "\t" + elementCount + "\n");
-            out.append("attributeCount:\t" + dtdData.dtdType + "\t" + attributeCount + "\n");
-            out.append("status\tdtdType\telement\tattribute\tmatch\t#attr values\tattr values\n");
-
+            if (verbose) {
+        	out.append("file\tCount:\t" + dtdData.dtdType + "\t" + fileCount + "\n");
+        	out.append("element\tCount:\t" + dtdData.dtdType + "\t" + elementCount + "\n");
+        	out.append("attribute\tCount:\t" + dtdData.dtdType + "\t" + attributeCount + "\n");
+            }
+    	    out.append("status\tdtdType\telement\tattribute\tmatch\t#attr values\tattr values\n");
             for(Entry<Row.R3<ValueStatus,String,String>, Collection<String>> entry : valueStatuses.asMap().entrySet()) {
                 ValueStatus valueStatus = entry.getKey().get0();
                 if (retain != null && !retain.contains(valueStatus)) {
+                    continue;
+                }
+                if (!verbose && haveProblems && valueStatus != ValueStatus.valid) {
                     continue;
                 }
                 String elementName = entry.getKey().get1();

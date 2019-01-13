@@ -696,14 +696,26 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      *            the distinguished path where the item was found. Pass in null if you don't care.
      */
     public String getSourceLocaleID(String distinguishedXPath, CLDRFile.Status status) {
-        String result = dataSource.getSourceLocaleID(distinguishedXPath, status);
+        return getSourceLocaleIdExtended(distinguishedXPath, status, true /* skipInheritanceMarker */);
+    }
+
+    /**
+     * Find out where the value was found (for resolving locales). Returns code-fallback as the location if nothing is
+     * found
+     *
+     * @param distinguishedXPath
+     *            path (must be distinguished!)
+     * @param status
+     *            the distinguished path where the item was found. Pass in null if you don't care.
+     * @param skipInheritanceMarker if true, skip sources in which value is INHERITANCE_MARKER
+     * @return the locale id as a string
+     */
+    public String getSourceLocaleIdExtended(String distinguishedXPath, CLDRFile.Status status, boolean skipInheritanceMarker) {
+        String result = dataSource.getSourceLocaleIdExtended(distinguishedXPath, status, skipInheritanceMarker);
         if (result == XMLSource.CODE_FALLBACK_ID && dataSource.isResolving()) {
             final String fallbackPath = getFallbackPath(distinguishedXPath, false);
             if (fallbackPath != null && !fallbackPath.equals(distinguishedXPath)) {
-                result = dataSource.getSourceLocaleID(fallbackPath, status);
-                // if (status != null && status.pathWhereFound.equals(distinguishedXPath)) {
-                // status.pathWhereFound = fallbackPath;
-                // }
+                result = dataSource.getSourceLocaleIdExtended(fallbackPath, status, skipInheritanceMarker);
             }
         }
         return result;

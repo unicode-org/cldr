@@ -68,7 +68,14 @@ public class CheckCoverage extends FactoryCheckCLDR {
         }
 
         Status status = new Status();
-        String source = resolvedCldrFileToCheck.getSourceLocaleID(path, status);
+        
+        /*
+         * Need skipInheritanceMarker false for getSourceLocaleIdExtended here.
+         * Reference: https://unicode.org/cldr/trac/ticket/11720
+         * 
+         * Compare same change in getMissingStatus for https://unicode.org/cldr/trac/ticket/11765
+         */
+        String source = resolvedCldrFileToCheck.getSourceLocaleIdExtended(path, status, false /* skipInheritanceMarker */);
 
         // if the source is a language locale (that is, not root or code fallback) then we have something already, so
         // skip.

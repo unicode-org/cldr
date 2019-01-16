@@ -24,7 +24,7 @@ public class Emoji {
     public static final UnicodeSet TAGS = new UnicodeSet(0xE0000, 0xE007F).freeze();
     public static final UnicodeSet FAMILY = new UnicodeSet("[\u200D 👦-👩 💋 ❤]").freeze();
     public static final UnicodeSet GENDER = new UnicodeSet().add(0x2640).add(0x2642).freeze();
-    public static final UnicodeSet SPECIALS = new UnicodeSet("[{🏳‍🌈} {👁‍🗨} {🏴‍☠} {🐕‍🦺} {👨‍🦯} {👨‍🦼} {👨‍🦽} {👩‍🦯} {👩‍🦼} {👩‍🦽}]").freeze();
+    public static final UnicodeSet SPECIALS = new UnicodeSet("[{🧑‍🤝‍🧑}{🏳‍🌈} {👁‍🗨} {🏴‍☠} {🐕‍🦺} {👨‍🦯} {👨‍🦼} {👨‍🦽} {👩‍🦯} {👩‍🦼} {👩‍🦽}]").freeze();
     public static final UnicodeSet MAN_WOMAN = new UnicodeSet("[👨 👩]").freeze();
     public static final UnicodeSet OBJECT = new UnicodeSet("[👩 🎓 🌾 🍳 🏫 🏭 🎨 🚒 ✈ 🚀 🎤 💻 🔬 💼 🔧 ⚖ ⚕]").freeze();
 

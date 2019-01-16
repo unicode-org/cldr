@@ -41,6 +41,7 @@ public class Annotations {
     public static final String MISSING_MARKER = "⊖";
     public static final String ENGLISH_MARKER = "⊕";
     public static final String EQUIVALENT = "≣";
+    public static final String NEUTRAL_HOLDING = "🧑‍🤝‍🧑";
 
     public static final Splitter splitter = Splitter.on(Pattern.compile("[|;]")).trimResults().omitEmptyStrings();
     static final Splitter dotSplitter = Splitter.on(".").trimResults();
@@ -415,7 +416,8 @@ public class Annotations {
                 } else if (code.contains(EmojiConstants.HANDSHAKE)) {
                     code = code.startsWith(EmojiConstants.MAN) ? "👬"
                         : code.endsWith(EmojiConstants.MAN) ? "👫" 
-                            : "👭";
+                            : code.startsWith(EmojiConstants.WOMAN) ? "👭"
+                            : NEUTRAL_HOLDING;
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
                 } else if (EmojiConstants.FAMILY_MARKERS.containsAll(code)) {
                     rem = code + rem;

@@ -109,7 +109,13 @@ public class CLDRFileTransformer {
 
     private UnicodeSet unconverted = new UnicodeSet();
     private Factory factory;
-    private Map<LocaleTransform, Transliterator> transliterators = new HashMap<LocaleTransform, Transliterator>();
+    /*
+     * The transliterators map exists, and is static, to avoid wasting a lot of time creating
+     * a new Transliterator more often than necessary. (An alternative to "static" here might be to
+     * create only one CLDRFileTransformer, maybe as a member of ExampleGenerator.)
+     * Reference: https://unicode.org/cldr/trac/ticket/11657
+     */
+    private static Map<LocaleTransform, Transliterator> transliterators = new HashMap<LocaleTransform, Transliterator>();
     private String transformDir;
 
     /**

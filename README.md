@@ -1,4 +1,6 @@
 # cldr
 Common Locale Data Repository
 
-(Future Mirror)
+(Future Home)
+
+Do not use this.

@@ -74,6 +74,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
                 .add("organization", 'o', ".*", null, "The organization to filter the data for")
                 .add("makefile", 'g', ".*", null, "If set, generates makefiles and alias files for the specified type. " +
                     "The value to set should be the name of the makefile.")
+                .add("depgraphfile", 'e', ".*", null, "If set, generates a dependency graph file in JSON form summarizing parent and alias mappings between locale files. Only works when --type=locales.")
                 .add("verbose", 'v', null, null, "Debugging aids");
 
     private static final String LOCALES_DIR = "locales";
@@ -229,6 +230,13 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
                 throw new IllegalArgumentException("Supplemental directory must be specified with -s");
             }
 
+            option = options.get("depgraphfile");
+            if (option.doesOccur()) {
+                DependencyGraphData dependencyGraphData = new DependencyGraphData(
+                    supplementalDataInfo, aliasDeprecates.aliasList);
+                generateDependencyGraphFile(dependencyGraphData, option.getValue());
+            }
+
             Factory factory = Factory.make(sourceDir, ".*", DraftStatus.contributed);
             String organization = options.get("organization").getValue();
             LocaleMapper localeMapper = new LocaleMapper(factory, specialFactory,
@@ -364,6 +372,18 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             aliases = writeSyntheticFiles(splitter.getDirSources(dir), outputDir.getAbsolutePath());
             makefile = splitter.generateMakefile(aliases, outputDir.getName());
             writeMakefile(makefile, outputDir.getAbsolutePath(), makefileName);
+        }
+    }
+
+    /**
+     * Generates dependency graph files (usually named _dependencies.py).
+     */
+    private void generateDependencyGraphFile(DependencyGraphData dependencyGraphData, String filename) {
+        try {
+            dependencyGraphData.print(destinationDir, filename);
+        } catch (IOException e) {
+            System.err.println("Unable to write " + filename + ": " + e);
+            System.exit(-1);
         }
     }
 

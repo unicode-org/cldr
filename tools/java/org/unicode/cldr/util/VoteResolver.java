@@ -442,6 +442,9 @@ public class VoteResolver<T> {
                 Iterator<T> iterator = items.getKeysetSortedByCount(false).iterator();
                 T value = iterator.next();
                 long weight = items.getCount(value);
+                if (weight == 0) {
+                    continue;
+                }
                 Organization org = entry.getKey();
                 if (DEBUG) {
                     System.out.println("sortedKeys?? " + value + " " + org.displayName);

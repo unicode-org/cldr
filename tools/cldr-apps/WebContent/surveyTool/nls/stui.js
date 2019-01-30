@@ -187,6 +187,7 @@ define({
 		voteInfo_established_url: "http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value",
 		voteInfo_orgColumn: "Org.",
 		voteInfo_noVotes: "(no votes)",
+		voteInfo_anon: "(imported anonymously)",
 		voteInfo_iconBar_desc: "This area shows the status of each candidate item.",
 		voteInfo_noVotes_desc: "There were no votes for this item.",
 		voteInfo_key: "Key:",

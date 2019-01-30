@@ -3268,10 +3268,13 @@ function updateRowVoteInfo(tr, theRow) {
 		cell.appendChild(vbadge);
 		vrow.appendChild(cell);
 		vdiv.appendChild(vrow);
-		if (!item.votes || Object.keys(item.votes).length == 0) {
+		const itemVotesLength = item.votes ? Object.keys(item.votes).length : 0;
+		const anon = (itemVotesLength == 1 && item.votes[Object.keys(item.votes)[0]].level === 'anonymous');
+		if (itemVotesLength == 0 || anon) {
 			var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading");
 			vrow.appendChild(createChunk(stui.str("voteInfo_noVotes"), "td", "voteInfo_noVotes voteInfo_td"));
-			vrow.appendChild(createChunk(null, "td", "voteInfo_noVotes voteInfo_td"));
+			const anonVoter = anon ? stui.str("voteInfo_anon") : null
+			vrow.appendChild(createChunk(anonVoter, "td", "voteInfo_noVotes voteInfo_td"));
 			vdiv.appendChild(vrow);
 		} else {
 			updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv);

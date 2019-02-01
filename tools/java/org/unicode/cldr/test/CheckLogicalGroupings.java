@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.Set;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.XMLSource;
@@ -15,8 +17,29 @@ import org.unicode.cldr.util.XPathParts;
 
 public class CheckLogicalGroupings extends FactoryCheckCLDR {
 
+    boolean isTopLevel;
+    
     public CheckLogicalGroupings(Factory factory) {
         super(factory);
+    }
+
+    @Override
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
+        List<CheckStatus> possibleErrors) {
+        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        
+        // skip the test unless we are at the top level, eg 
+        //    test root, fr, sr_Latn, ...
+        //    but skip fr_CA, sr_Latn_RS, etc.
+        // TODO: could simplify some of the code later, since non-topLevel locales are skipped
+        // NOTE: we could have a weaker test. 
+              // Skip if all of the items are either inherited, or aliased *including votes for inherited (3 up arrows)*
+        
+        String parent = LocaleIDParser.getParent(cldrFileToCheck.getLocaleID());
+        boolean isTopLevel = parent == null || parent.equals("root");
+        setSkipTest(!isTopLevel);
+        
+        return this;
     }
 
     // Change MINIMUM_DRAFT_STATUS to DraftStatus.contributed if you only care about

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -16,19 +16,31 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<annotations>
 		<annotation cp="😋">delicious | face | face savouring food | savouring | smile | um | yum</annotation>
 		<annotation cp="😋" type="tts">face savouring food</annotation>
-		<annotation cp="🤨">distrust | face with raised eyebrow | sceptic | skeptic</annotation>
+		<annotation cp="🤭">oops | whoops</annotation>
 		<annotation cp="🤐">face | mouth | zip | zipper</annotation>
-		<annotation cp="🤯">exploding head | mind blown | shocked</annotation>
-		<annotation cp="🤬">cursing | expletive | face with symbols on mouth | swearing</annotation>
+		<annotation cp="🤨">distrust | face with raised eyebrow | sceptic | skeptic</annotation>
 		<annotation cp="😷">cold | doctor | face | face with medical mask | ill | mask | medicine | poorly | sick</annotation>
 		<annotation cp="🤒">face | face with thermometer | ill | poorly | sick | thermometer</annotation>
 		<annotation cp="🤕">bandage | face | face with head bandage | hurt | injury</annotation>
 		<annotation cp="🤕" type="tts">face with head bandage</annotation>
 		<annotation cp="🤧">bless you | face | gesundheit | sneeze</annotation>
-		<annotation cp="🤭">oops | whoops</annotation>
+		<annotation cp="🤯">exploding head | mind blown | shocked</annotation>
+		<annotation cp="🤬">cursing | expletive | face with symbols on mouth | swearing</annotation>
 		<annotation cp="👻">creature | face | fairy tale | fantasy | ghost | monster | spectre</annotation>
 		<annotation cp="😼">cat | cat face with wry smile | face | ironic | smile | smirk | wry</annotation>
+		<annotation cp="💫">comic | dizzy | spinning | spinning stars | star</annotation>
+		<annotation cp="💬">balloon | bubble | comic | dialogue | speech</annotation>
+		<annotation cp="🗨">dialogue | speech</annotation>
+		<annotation cp="💭" type="tts">thought bubble</annotation>
+		<annotation cp="💤">comic | sleep | sleeping | sleepy | zzz</annotation>
+		<annotation cp="✌">hand | peace hand | peace sign | v | v sign | victory</annotation>
+		<annotation cp="🤘">finger | hand | horns | rock on</annotation>
+		<annotation cp="🤙">call | call-me hand | hand</annotation>
+		<annotation cp="🤙" type="tts">call-me hand</annotation>
+		<annotation cp="🙌">celebration | gesture | hand | hooray | raised | raising hands | woo hoo | yay</annotation>
 		<annotation cp="🧒">child | gender-neutral | toddler | young</annotation>
+		<annotation cp="🙇‍♂">apology | bowing | favour | gesture | man | sorry</annotation>
+		<annotation cp="🙇‍♀">apology | bowing | favour | gesture | sorry | woman</annotation>
 		<annotation cp="👨‍🌾">farmer | gardener | man</annotation>
 		<annotation cp="👩‍🌾">farmer | gardener | woman</annotation>
 		<annotation cp="👨‍🔧">electrician | man | mechanic | plumber | tradesman | tradesperson</annotation>
@@ -48,10 +60,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎅">celebration | Christmas | claus | father | Father Christmas | santa | Santa Claus</annotation>
 		<annotation cp="🤶">celebration | Christmas | claus | mother | Mrs | Mrs Claus</annotation>
 		<annotation cp="🤶" type="tts">Mrs Claus</annotation>
-		<annotation cp="🙇‍♂">apology | bowing | favour | gesture | man | sorry</annotation>
-		<annotation cp="🙇‍♀">apology | bowing | favour | gesture | sorry | woman</annotation>
 		<annotation cp="💇">barber | beauty | haircut | hairdresser | parlour</annotation>
-		<annotation cp="🗣">face | head | silhouette | speak | speaking | talk | talking</annotation>
 		<annotation cp="🚣">boat | rowboat | rowing boat</annotation>
 		<annotation cp="🚣‍♂">boat | man | rowboat | rowing boat</annotation>
 		<annotation cp="🚣‍♀">boat | rowboat | rowing boat | woman</annotation>
@@ -61,27 +70,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚴">bicycle | biking | cyclist | person cycling</annotation>
 		<annotation cp="🚴‍♂">bicycle | biking | cyclist | man cycling</annotation>
 		<annotation cp="🚴‍♀">bicycle | biking | cyclist | woman cycling</annotation>
-		<annotation cp="🏎">car | motor racing | racing</annotation>
-		<annotation cp="🏍">motorbike | racing</annotation>
-		<annotation cp="✌">hand | peace hand | peace sign | v | v sign | victory</annotation>
-		<annotation cp="🤘">finger | hand | horns | rock on</annotation>
-		<annotation cp="🤙">call | call-me hand | hand</annotation>
-		<annotation cp="🤙" type="tts">call-me hand</annotation>
-		<annotation cp="🙌">celebration | gesture | hand | hooray | raised | raising hands | woo hoo | yay</annotation>
+		<annotation cp="🗣">face | head | silhouette | speak | speaking | talk | talking</annotation>
 		<annotation cp="🦳">grey | hair | old | white</annotation>
-		<annotation cp="💤">comic | sleep | sleeping | sleepy | zzz</annotation>
-		<annotation cp="💫">comic | dizzy | spinning | spinning stars | star</annotation>
-		<annotation cp="💬">balloon | bubble | comic | dialogue | speech</annotation>
-		<annotation cp="🗨">dialogue | speech</annotation>
-		<annotation cp="💭" type="tts">thought bubble</annotation>
-		<annotation cp="👓">clothing | eye | eyeglasses | eyewear | specs | spectacles</annotation>
-		<annotation cp="👕">clothing | shirt | T-shirt | tshirt</annotation>
-		<annotation cp="👕" type="tts">T-shirt</annotation>
-		<annotation cp="👖">clothing | trousers</annotation>
-		<annotation cp="🎒" type="tts">school bag</annotation>
-		<annotation cp="👟">athletic | clothing | shoe | trainer</annotation>
-		<annotation cp="👠">clothing | heel | shoe | stiletto | woman</annotation>
-		<annotation cp="🎓">cap | celebration | clothing | graduation | hat | mortarboard</annotation>
 		<annotation cp="🐽">face | nose | pig | snout</annotation>
 		<annotation cp="🐪">camel | dromedary | hump | one hump | single hump</annotation>
 		<annotation cp="🐫">bactrian | camel | hump | two humps | two-hump camel</annotation>
@@ -89,8 +79,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐓" type="tts">cockerel</annotation>
 		<annotation cp="🐊">alligator | croc | crocodile</annotation>
 		<annotation cp="🦖">T-Rex | T. rex | T. Rex | Tyrannosaurus Rex</annotation>
-		<annotation cp="🦐">food | prawn | shellfish | shrimp | small</annotation>
-		<annotation cp="🦑">food | mollusc | squid</annotation>
 		<annotation cp="🐞">beetle | insect | ladybeetle | ladybird | ladybug</annotation>
 		<annotation cp="🐞" type="tts">ladybird</annotation>
 		<annotation cp="🕸">spider | spider’s web | web</annotation>
@@ -114,6 +102,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥫" type="tts">tinned food</annotation>
 		<annotation cp="🍤" type="tts">fried prawn</annotation>
 		<annotation cp="🥡">oyster pail | takeaway box | takeout box</annotation>
+		<annotation cp="🦐">food | prawn | shellfish | shrimp | small</annotation>
+		<annotation cp="🦑">food | mollusc | squid</annotation>
 		<annotation cp="🍪">biscuit | cookie | dessert | sweet</annotation>
 		<annotation cp="🍪" type="tts">biscuit</annotation>
 		<annotation cp="🍰">cake | dessert | pastry | slice | sweet</annotation>
@@ -159,6 +149,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚙">camper van | motorhome | recreational | RV | sport utility | sport utility vehicle</annotation>
 		<annotation cp="🚚">delivery | delivery van | truck</annotation>
 		<annotation cp="🚚" type="tts">delivery van</annotation>
+		<annotation cp="🏎">car | motor racing | racing</annotation>
+		<annotation cp="🏍">motorbike | racing</annotation>
 		<annotation cp="🚲">bicycle | bike | cycle</annotation>
 		<annotation cp="⛽">diesel | fuel | fuelpump | gas | petrol | pump | station</annotation>
 		<annotation cp="⛵">boat | resort | sailboat | sailing | sea | yacht</annotation>
@@ -236,6 +228,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎰">fruit machine | game | one-armed bandit | slot | slot machine</annotation>
 		<annotation cp="🎲" type="tts">game dice</annotation>
 		<annotation cp="🎴">card | flower | flower playing cards | game | hanafuda | Japanese | playing</annotation>
+		<annotation cp="👓">clothing | eye | eyeglasses | eyewear | specs | spectacles</annotation>
+		<annotation cp="👕">clothing | shirt | T-shirt | tshirt</annotation>
+		<annotation cp="👕" type="tts">T-shirt</annotation>
+		<annotation cp="👖">clothing | trousers</annotation>
+		<annotation cp="🎒" type="tts">school bag</annotation>
+		<annotation cp="👟">athletic | clothing | shoe | trainer</annotation>
+		<annotation cp="👠">clothing | heel | shoe | stiletto | woman</annotation>
+		<annotation cp="🎓">cap | celebration | clothing | graduation | hat | mortarboard</annotation>
 		<annotation cp="📢">loud | loudhailer | public address</annotation>
 		<annotation cp="📢" type="tts">loudhailer</annotation>
 		<annotation cp="🎧">headphone | headphones</annotation>

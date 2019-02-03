@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,52 +23,72 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">5. mota</annotation>
 		<annotation cp="🏿">6. mota | azalaren tonua</annotation>
 		<annotation cp="🏿" type="tts">6. mota</annotation>
+		<annotation cp="🐾">atzapar | atzapar-aztarnak | aztarna | oin</annotation>
+		<annotation cp="🐾" type="tts">atzapar-aztarnak</annotation>
 		<annotation cp="😀">aurpegi | barre egiten ari den aurpegia | irribarre</annotation>
 		<annotation cp="😀" type="tts">barre egiten ari den aurpegia</annotation>
-		<annotation cp="😁">aurpegi | barre | begi | begiez barre egiten ari den aurpegia | irribarre</annotation>
-		<annotation cp="😁" type="tts">begiez barre egiten ari den aurpegia</annotation>
-		<annotation cp="😂">aurpegi | barre | malko | poz | pozez negar egiten ari den aurpegia</annotation>
-		<annotation cp="😂" type="tts">pozez negar egiten ari den aurpegia</annotation>
-		<annotation cp="🤣">barrez | leherka | lehertu</annotation>
-		<annotation cp="🤣" type="tts">barrez leherka</annotation>
 		<annotation cp="😃">aho | aurpegi | ireki | irribarre | irribarre egiten ari den aurpegia, ahoa irekita</annotation>
 		<annotation cp="😃" type="tts">irribarre egiten ari den aurpegia, ahoa irekita</annotation>
 		<annotation cp="😄">aho | aurpegi | begi | begiez irribarre egiten ari den aurpegia, ahoa irekita | ireki | irribarre</annotation>
 		<annotation cp="😄" type="tts">begiez irribarre egiten ari den aurpegia, ahoa irekita</annotation>
-		<annotation cp="😅">aurpegi | hotz | ireki | irribarre | irribarre egiten ari den aurpegia, izerdi hotzarekin eta ahora irekita | izerdi</annotation>
-		<annotation cp="😅" type="tts">irribarre egiten ari den aurpegia, izerdi hotzarekin eta ahora irekita</annotation>
+		<annotation cp="😁">aurpegi | barre | begi | begiez barre egiten ari den aurpegia | irribarre</annotation>
+		<annotation cp="😁" type="tts">begiez barre egiten ari den aurpegia</annotation>
 		<annotation cp="😆">aho | asebeteta | aurpegi | barre | ireki | irribarre | irribarre egiten ari den aurpegia, begiak itxita</annotation>
 		<annotation cp="😆" type="tts">irribarre egiten ari den aurpegia, begiak itxita</annotation>
+		<annotation cp="😅">aurpegi | hotz | ireki | irribarre | irribarre egiten ari den aurpegia, izerdi hotzarekin eta ahora irekita | izerdi</annotation>
+		<annotation cp="😅" type="tts">irribarre egiten ari den aurpegia, izerdi hotzarekin eta ahora irekita</annotation>
+		<annotation cp="🤣">barrez | leherka | lehertu</annotation>
+		<annotation cp="🤣" type="tts">barrez leherka</annotation>
+		<annotation cp="😂">aurpegi | barre | malko | poz | pozez negar egiten ari den aurpegia</annotation>
+		<annotation cp="😂" type="tts">pozez negar egiten ari den aurpegia</annotation>
+		<annotation cp="🙂">apur bat irribarre egiten ari den aurpegia | aurpegi | irribarre</annotation>
+		<annotation cp="🙂" type="tts">apur bat irribarre egiten ari den aurpegia</annotation>
+		<annotation cp="🙃">aurpegi | buruz behera | buruz behera dagoen aurpegia</annotation>
+		<annotation cp="🙃" type="tts">buruz behera dagoen aurpegia</annotation>
 		<annotation cp="😉">aurpegi | begiaz keinu egiten ari den aurpegia | keinu</annotation>
 		<annotation cp="😉" type="tts">begiaz keinu egiten ari den aurpegia</annotation>
 		<annotation cp="😊">aurpegi | begi | begiez irribarre egiten ari den aurpegia | gorritu | irribarre</annotation>
 		<annotation cp="😊" type="tts">begiez irribarre egiten ari den aurpegia</annotation>
-		<annotation cp="😋">aurpegi | dastatu | gozo | irribarre | janari gozoa dastatzen ari den aurpegia | mmm</annotation>
-		<annotation cp="😋" type="tts">janari gozoa dastatzen ari den aurpegia</annotation>
-		<annotation cp="😎">argitasun | aurpegi | begi | cool | eguzkitako betaurreko | irribarre egiten ari den aurpegia, eguzkitako betaurrekoekin</annotation>
-		<annotation cp="😎" type="tts">irribarre egiten ari den aurpegia, eguzkitako betaurrekoekin</annotation>
+		<annotation cp="😇">aingeru | argi-koroa | aurpegi | fantasia | inuzente | ipuin | irribarre | irribarre egiten ari den aurpegia argi-koroarekin</annotation>
+		<annotation cp="😇" type="tts">irribarre egiten ari den aurpegia argi-koroarekin</annotation>
+		<annotation cp="🥰">irribarre egiten ari den aurpegia, 3 bihotzekin | maiteminduta | oso gustuko | txoratze</annotation>
+		<annotation cp="🥰" type="tts">irri egiten ari den aurpegia, 3 bihotzekin</annotation>
 		<annotation cp="😍">aurpegi | begi | bihotz | irribarre | irribarre egiten ari den aurpegia, bihotz-itxurako begiekin | maitasun</annotation>
 		<annotation cp="😍" type="tts">irribarre egiten ari den aurpegia, bihotz-itxurako begiekin</annotation>
-		<annotation cp="😘">aurpegi | bihotz | musu | musu bat bidaltzen ari den aurpegia</annotation>
-		<annotation cp="😘" type="tts">musu bat bidaltzen ari den aurpegia</annotation>
-		<annotation cp="🥰">irribarre egiten ari den aurpegia, 3 bihotzekin | maiteminduta | oso gustuko | txoratze</annotation>
-		<annotation cp="🥰" type="tts">irribarre egiten ari den aurpegia, 3 bihotzekin</annotation>
-		<annotation cp="😗">aurpegi | musu | musuka ari den aurpegia</annotation>
-		<annotation cp="😗" type="tts">musuka ari den aurpegia</annotation>
-		<annotation cp="😙">aurpegi | begi | irribarre | musu | musuka eta begiez irribarre egiten ari den aurpegia</annotation>
-		<annotation cp="😙" type="tts">musuka eta begiez irribarre egiten ari den aurpegia</annotation>
-		<annotation cp="😚">aurpegi | begi | itxi | musu | musuka ari den aurpegia, begiak itxita</annotation>
-		<annotation cp="😚" type="tts">musuka ari den aurpegia, begiak itxita</annotation>
-		<annotation cp="☺">aurpegi | erlaxatuta | irribarre | irribarre egiten ari den aurpegia | nabarmen</annotation>
-		<annotation cp="☺" type="tts">irribarre egiten ari den aurpegia</annotation>
-		<annotation cp="🙂">apur bat irribarre egiten ari den aurpegia | aurpegi | irribarre</annotation>
-		<annotation cp="🙂" type="tts">apur bat irribarre egiten ari den aurpegia</annotation>
-		<annotation cp="🤗">aurpegi | besarkada | besarkada ematen ari den aurpegia | besarkatu</annotation>
-		<annotation cp="🤗" type="tts">besarkada ematen ari den aurpegia</annotation>
 		<annotation cp="🤩">aurpegi | begiak | irribarretsu | izar</annotation>
 		<annotation cp="🤩" type="tts">izar</annotation>
+		<annotation cp="😘">aurpegi | bihotz | musu | musu bat bidaltzen ari den aurpegia</annotation>
+		<annotation cp="😘" type="tts">musu bat bidaltzen ari den aurpegia</annotation>
+		<annotation cp="😗">aurpegi | musu | musuka ari den aurpegia</annotation>
+		<annotation cp="😗" type="tts">musuka ari den aurpegia</annotation>
+		<annotation cp="☺">aurpegi | erlaxatuta | irribarre | irribarre egiten ari den aurpegia | nabarmen</annotation>
+		<annotation cp="☺" type="tts">irribarre egiten ari den aurpegia</annotation>
+		<annotation cp="😚">aurpegi | begi | itxi | musu | musuka ari den aurpegia, begiak itxita</annotation>
+		<annotation cp="😚" type="tts">musuka ari den aurpegia, begiak itxita</annotation>
+		<annotation cp="😙">aurpegi | begi | irribarre | musu | musuka eta begiez irribarre egiten ari den aurpegia</annotation>
+		<annotation cp="😙" type="tts">musuka eta begiez irribarre egiten ari den aurpegia</annotation>
+		<annotation cp="😋">aurpegi | dastatu | gozo | irribarre | janari gozoa dastatzen ari den aurpegia | mmm</annotation>
+		<annotation cp="😋" type="tts">janari gozoa dastatzen ari den aurpegia</annotation>
+		<annotation cp="😛">aurpegi | mingain | mingaina kanpoan duen aurpegia</annotation>
+		<annotation cp="😛" type="tts">mingaina kanpoan duen aurpegia</annotation>
+		<annotation cp="😜">aurpegi | begi | keinu | mingain | mingaina kanpoan duen eta begiaz keinu egiten ari den aurpegia | txantxa</annotation>
+		<annotation cp="😜" type="tts">mingaina kanpoan duen eta begiaz keinu egiten ari den aurpegia</annotation>
+		<annotation cp="🤪">begi | ero-aurpegia | handi | txiki</annotation>
+		<annotation cp="🤪" type="tts">ero-aurpegia</annotation>
+		<annotation cp="😝">aurpegi | begi | mingain | mingaina kanpoan duen eta begiak itxita dituen aurpegia | txar | zapore</annotation>
+		<annotation cp="😝" type="tts">mingaina kanpoan duen eta begiak itxita dituen aurpegia</annotation>
+		<annotation cp="🤑">aho | aurpegi | diru | diru-itxurako mingaina duen aurpegia</annotation>
+		<annotation cp="🤑" type="tts">diru-itxurako mingaina duen aurpegia</annotation>
+		<annotation cp="🤗">aurpegi | besarkada | besarkada ematen ari den aurpegia | besarkatu</annotation>
+		<annotation cp="🤗" type="tts">besarkada ematen ari den aurpegia</annotation>
+		<annotation cp="🤭">ene | eskuaz ahoa estaltzen ari den aurpegia</annotation>
+		<annotation cp="🤭" type="tts">eskuaz ahoa estaltzen ari den aurpegia</annotation>
+		<annotation cp="🤫">isilarazi | isilik | isiltasuna eskatzen ari den aurpegia | ixo</annotation>
+		<annotation cp="🤫" type="tts">isiltasuna eskatzen ari den aurpegia</annotation>
 		<annotation cp="🤔">aurpegi | pentsatzen | pentsatzen ari den aurpegia</annotation>
 		<annotation cp="🤔" type="tts">pentsatzen ari den aurpegia</annotation>
+		<annotation cp="🤐">aho | aurpegi | kremailera | kremaileradun ahoa duen aurpegia</annotation>
+		<annotation cp="🤐" type="tts">kremaileradun ahoa duen aurpegia</annotation>
 		<annotation cp="🤨">bekaina jasota duen aurpegia | eszeptiko | mesfidatu</annotation>
 		<annotation cp="🤨" type="tts">bekaina jasota duen aurpegia</annotation>
 		<annotation cp="😐">aurpegi | espresiorik gabe | neutrala</annotation>
@@ -77,98 +97,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">espresiorik gabeko aurpegia</annotation>
 		<annotation cp="😶">aho | ahorik gabeko aurpegia | aurpegi | isilik | isiltasun</annotation>
 		<annotation cp="😶" type="tts">ahorik gabeko aurpegia</annotation>
-		<annotation cp="🙄">aurpegi | begiak | begiak bueltaka dituen aurpegia | biraka | bueltaka</annotation>
-		<annotation cp="🙄" type="tts">begiak bueltaka dituen aurpegia</annotation>
 		<annotation cp="😏">aurpegi | handiki | handitasun-aurpegia</annotation>
 		<annotation cp="😏" type="tts">handitasun-aurpegia</annotation>
-		<annotation cp="😣">aurpegi | aurpegi nekaezina | nekaezin | pertseberantzia</annotation>
-		<annotation cp="😣" type="tts">aurpegi nekaezina</annotation>
-		<annotation cp="😥">aurpegi | desengainatuta | desengainatuta baina lasaiago | eskerrak | lasai</annotation>
-		<annotation cp="😥" type="tts">desengainatuta baina lasaiago</annotation>
-		<annotation cp="😮">aho | ahoa irekita duen aurpegia | aurpegi | ireki | poza</annotation>
-		<annotation cp="😮" type="tts">ahoa irekita duen aurpegia</annotation>
-		<annotation cp="🤐">aho | aurpegi | kremailera | kremaileradun ahoa duen aurpegia</annotation>
-		<annotation cp="🤐" type="tts">kremaileradun ahoa duen aurpegia</annotation>
-		<annotation cp="😯">aurpegi | harridura | harridura-aurpegia | harrituta | zur eta lur</annotation>
-		<annotation cp="😯" type="tts">harridura-aurpegia</annotation>
-		<annotation cp="😪">aurpegi | lo | logura | logura-aurpegia</annotation>
-		<annotation cp="😪" type="tts">logura-aurpegia</annotation>
-		<annotation cp="😫">aurpegi | nekatu | nekatu-aurpegia</annotation>
-		<annotation cp="😫" type="tts">nekatu-aurpegia</annotation>
-		<annotation cp="😴">aurpegi | lo | lo dagoen aurpegia | zzz</annotation>
-		<annotation cp="😴" type="tts">lo dagoen aurpegia</annotation>
-		<annotation cp="😌">aurpegi | lasaitasun | lasaitasun-aurpegia</annotation>
-		<annotation cp="😌" type="tts">lasaitasun-aurpegia</annotation>
-		<annotation cp="😛">aurpegi | mingain | mingaina kanpoan duen aurpegia</annotation>
-		<annotation cp="😛" type="tts">mingaina kanpoan duen aurpegia</annotation>
-		<annotation cp="😜">aurpegi | begi | keinu | mingain | mingaina kanpoan duen eta begiaz keinu egiten ari den aurpegia | txantxa</annotation>
-		<annotation cp="😜" type="tts">mingaina kanpoan duen eta begiaz keinu egiten ari den aurpegia</annotation>
-		<annotation cp="😝">aurpegi | begi | mingain | mingaina kanpoan duen eta begiak itxita dituen aurpegia | txar | zapore</annotation>
-		<annotation cp="😝" type="tts">mingaina kanpoan duen eta begiak itxita dituen aurpegia</annotation>
-		<annotation cp="🤤">aurpegi | aurpegia lerdea dariola | lerde</annotation>
-		<annotation cp="🤤" type="tts">aurpegia lerdea dariola</annotation>
 		<annotation cp="😒">aspertu-aurpegia | aspertuta | aurpegi | triste</annotation>
 		<annotation cp="😒" type="tts">aspertu-aurpegia</annotation>
-		<annotation cp="😓">aurpegi | hotz | izerdi | izerdi hotza duen aurpegia</annotation>
-		<annotation cp="😓" type="tts">izerdi hotza duen aurpegia</annotation>
-		<annotation cp="😔">aurpegi | aurpegi pentsakorra | goibel | pentsakor</annotation>
-		<annotation cp="😔" type="tts">aurpegi pentsakorra</annotation>
-		<annotation cp="😕">aurpegi | nahasketa-aurpegia | nahastuta</annotation>
-		<annotation cp="😕" type="tts">nahasketa-aurpegia</annotation>
-		<annotation cp="🙃">aurpegi | buruz behera | buruz behera dagoen aurpegia</annotation>
-		<annotation cp="🙃" type="tts">buruz behera dagoen aurpegia</annotation>
-		<annotation cp="🤑">aho | aurpegi | diru | diru-itxurako mingaina duen aurpegia</annotation>
-		<annotation cp="🤑" type="tts">diru-itxurako mingaina duen aurpegia</annotation>
-		<annotation cp="😲">aurpegi | guztiz | harridura | harritu-aurpegia | sorpresa</annotation>
-		<annotation cp="😲" type="tts">harritu-aurpegia</annotation>
-		<annotation cp="☹">aurpegi | kopeta ilunduta duen aurpegia | kopetilun</annotation>
-		<annotation cp="☹" type="tts">kopeta ilunduta duen aurpegia</annotation>
-		<annotation cp="🙁">aurpegi | aurpegi apur bat kopetiluna | kopetilun</annotation>
-		<annotation cp="🙁" type="tts">aurpegi apur bat kopetiluna</annotation>
-		<annotation cp="😖">aurpegi | hutsegite | hutsegite-aurpegia</annotation>
-		<annotation cp="😖" type="tts">hutsegite-aurpegia</annotation>
-		<annotation cp="😞">aurpegi | etsipen | etsipen-aurpegia</annotation>
-		<annotation cp="😞" type="tts">etsipen-aurpegia</annotation>
-		<annotation cp="😟">aurpegi | aurpegi kezkatua | kezkatu</annotation>
-		<annotation cp="😟" type="tts">aurpegi kezkatua</annotation>
-		<annotation cp="😤">aurpegi | irabazi | sudurretik kea darion aurpegia | txapeldun</annotation>
-		<annotation cp="😤" type="tts">sudurretik kea darion aurpegia</annotation>
-		<annotation cp="😢">aurpegi | malko | negar | negarrez ari den aurpegia | triste</annotation>
-		<annotation cp="😢" type="tts">negarrez ari den aurpegia</annotation>
-		<annotation cp="😭">aurpegi | malko | negar | negar eta negar ari den aurpegia | triste | zotinka</annotation>
-		<annotation cp="😭" type="tts">negar eta negar ari den aurpegia</annotation>
-		<annotation cp="😦">aho | aurpegi | ireki | kopeta ilunduta eta ahoa irekita duen aurpegia | kopetilun</annotation>
-		<annotation cp="😦" type="tts">kopeta ilunduta eta ahoa irekita duen aurpegia</annotation>
-		<annotation cp="😧">aurpegi | estutasun | estutasun-aurpegia</annotation>
-		<annotation cp="😧" type="tts">estutasun-aurpegia</annotation>
-		<annotation cp="😨">aurpegi | beldur | ikara | ikara-aurpegia | ikaratu</annotation>
-		<annotation cp="😨" type="tts">ikara-aurpegia</annotation>
-		<annotation cp="😩">aurpegi | nazkatu | neke | neke-aurpegia</annotation>
-		<annotation cp="😩" type="tts">neke-aurpegia</annotation>
-		<annotation cp="🤯">lehertzear den burua | txundituta</annotation>
-		<annotation cp="🤯" type="tts">lehertzear den burua</annotation>
+		<annotation cp="🙄">aurpegi | begiak | begiak bueltaka dituen aurpegia | biraka | bueltaka</annotation>
+		<annotation cp="🙄" type="tts">begiak bueltaka dituen aurpegia</annotation>
 		<annotation cp="😬">aurpegi | imintzio | imintzio-aurpegia</annotation>
 		<annotation cp="😬" type="tts">imintzio-aurpegia</annotation>
-		<annotation cp="😰">aho | ahoa irekita eta izerdi hotza duen aurpegia | aurpegi | grinatsu | hotz | irekita | izerdi</annotation>
-		<annotation cp="😰" type="tts">ahoa irekita eta izerdi hotza duen aurpegia</annotation>
-		<annotation cp="😱">aurpegi | beldur | beldurrez oihuka ari den aurpegia | beldurti | beldurtu | izutu</annotation>
-		<annotation cp="😱" type="tts">beldurrez oihuka ari den aurpegia</annotation>
-		<annotation cp="🥵">bero | bero-bero dagoen aurpegia | bero-kolpe | gorritu | izerditan | sukartsu</annotation>
-		<annotation cp="🥵" type="tts">bero-bero dagoen aurpegia</annotation>
-		<annotation cp="🥶">aurpegi izoztu | hotz | izoztu | oso hotz | urdindu</annotation>
-		<annotation cp="🥶" type="tts">aurpegi izoztu</annotation>
-		<annotation cp="😳">aurpegi | aurpegi gorritua | gorritu | nahastu</annotation>
-		<annotation cp="😳" type="tts">aurpegi gorritua</annotation>
-		<annotation cp="🤪">begi | ero-aurpegia | handi | txiki</annotation>
-		<annotation cp="🤪" type="tts">ero-aurpegia</annotation>
-		<annotation cp="😵">aurpegi | zorabiatu | zorabio-aurpegia</annotation>
-		<annotation cp="😵" type="tts">zorabio-aurpegia</annotation>
-		<annotation cp="😡">amorru | aurpegi | aurpegi muturtua | ero | gorri | haserre | muturtu</annotation>
-		<annotation cp="😡" type="tts">aurpegi muturtua</annotation>
-		<annotation cp="😠">aurpegi | ero | haserre | haserre-aurpegia</annotation>
-		<annotation cp="😠" type="tts">haserre-aurpegia</annotation>
-		<annotation cp="🤬">ahoan ikurrak dituen aurpegia | izerditan</annotation>
-		<annotation cp="🤬" type="tts">ahoan ikurrak dituen aurpegia</annotation>
+		<annotation cp="🤥">aurpegi | aurpegi gezurtia | gezur | pinotxo</annotation>
+		<annotation cp="🤥" type="tts">aurpegi gezurtia</annotation>
+		<annotation cp="😌">aurpegi | lasaitasun | lasaitasun-aurpegia</annotation>
+		<annotation cp="😌" type="tts">lasaitasun-aurpegia</annotation>
+		<annotation cp="😔">aurpegi | aurpegi pentsakorra | goibel | pentsakor</annotation>
+		<annotation cp="😔" type="tts">aurpegi pentsakorra</annotation>
+		<annotation cp="😪">aurpegi | lo | logura | logura-aurpegia</annotation>
+		<annotation cp="😪" type="tts">logura-aurpegia</annotation>
+		<annotation cp="🤤">aurpegi | aurpegia lerdea dariola | lerde</annotation>
+		<annotation cp="🤤" type="tts">aurpegia lerdea dariola</annotation>
+		<annotation cp="😴">aurpegi | lo | lo dagoen aurpegia | zzz</annotation>
+		<annotation cp="😴" type="tts">lo dagoen aurpegia</annotation>
 		<annotation cp="😷">aurpegi | gaixo | hotzeri | maskara | mediku-maskara daraman aurpegia | medikuntza | sendagile</annotation>
 		<annotation cp="😷" type="tts">mediku-maskara daraman aurpegia</annotation>
 		<annotation cp="🤒">aurpegi | gaixo | termometro | termometroa duen aurpegia</annotation>
@@ -181,40 +129,96 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤮" type="tts">goitika ari den aurpegi</annotation>
 		<annotation cp="🤧">aurpegi | aurpegia mukiak kentzen | kendu | muki</annotation>
 		<annotation cp="🤧" type="tts">aurpegia mukiak kentzen</annotation>
-		<annotation cp="😇">aingeru | argi-koroa | aurpegi | fantasia | inuzente | ipuin | irribarre | irribarre egiten ari den aurpegia argi-koroarekin</annotation>
-		<annotation cp="😇" type="tts">irribarre egiten ari den aurpegia argi-koroarekin</annotation>
+		<annotation cp="🥵">bero | bero-bero dagoen aurpegia | bero-kolpe | gorritu | izerditan | sukartsu</annotation>
+		<annotation cp="🥵" type="tts">bero-bero dagoen aurpegia</annotation>
+		<annotation cp="🥶">aurpegi izoztu | hotz | izoztu | oso hotz | urdindu</annotation>
+		<annotation cp="🥶" type="tts">aurpegi izoztu</annotation>
+		<annotation cp="🥴">ahoa okertuta | alai | begiak okertuta | mozkortuta | tentel-aurpegia | zorabiatuta</annotation>
+		<annotation cp="🥴" type="tts">tentel-aurpegia</annotation>
+		<annotation cp="😵">aurpegi | zorabiatu | zorabio-aurpegia</annotation>
+		<annotation cp="😵" type="tts">zorabio-aurpegia</annotation>
+		<annotation cp="🤯">lehertzear den burua | txundituta</annotation>
+		<annotation cp="🤯" type="tts">lehertzear den burua</annotation>
 		<annotation cp="🤠">aurpegi | behizain | behizain txanodunaren aurpegia | txano | unai</annotation>
 		<annotation cp="🤠" type="tts">behizain txanodunaren aurpegia</annotation>
 		<annotation cp="🥳">adar | festa | kapelu | ospakizun | parrandan dabilen aurpegia</annotation>
 		<annotation cp="🥳" type="tts">parrandan dabilen aurpegia</annotation>
-		<annotation cp="🥴">ahoa okertuta | alai | begiak okertuta | mozkortuta | tentel-aurpegia | zorabiatuta</annotation>
-		<annotation cp="🥴" type="tts">tentel-aurpegia</annotation>
-		<annotation cp="🥺">aurpegi erregutzailea | begirada erregutzaile | erregutze | gupida</annotation>
-		<annotation cp="🥺" type="tts">aurpegi erregutzailea</annotation>
-		<annotation cp="🤥">aurpegi | aurpegi gezurtia | gezur | pinotxo</annotation>
-		<annotation cp="🤥" type="tts">aurpegi gezurtia</annotation>
-		<annotation cp="🤫">isilarazi | isilik | isiltasuna eskatzen ari den aurpegia | ixo</annotation>
-		<annotation cp="🤫" type="tts">isiltasuna eskatzen ari den aurpegia</annotation>
-		<annotation cp="🤭">ene | eskuaz ahoa estaltzen ari den aurpegia</annotation>
-		<annotation cp="🤭" type="tts">eskuaz ahoa estaltzen ari den aurpegia</annotation>
-		<annotation cp="🧐">aspergarria | monokulo bat duen aurpegia</annotation>
-		<annotation cp="🧐" type="tts">monokulo bat duen aurpegia</annotation>
+		<annotation cp="😎">argitasun | aurpegi | begi | cool | eguzkitako betaurreko | irribarre egiten ari den aurpegia, eguzkitako betaurrekoekin</annotation>
+		<annotation cp="😎" type="tts">irribarre egiten ari den aurpegia, eguzkitako betaurrekoekin</annotation>
 		<annotation cp="🤓">arraro | arraro-aurpegia | aurpegi | berezi</annotation>
 		<annotation cp="🤓" type="tts">arraro-aurpegia</annotation>
+		<annotation cp="🧐">aspergarria | monokulo bat duen aurpegia</annotation>
+		<annotation cp="🧐" type="tts">monokulo bat duen aurpegia</annotation>
+		<annotation cp="😕">aurpegi | nahasketa-aurpegia | nahastuta</annotation>
+		<annotation cp="😕" type="tts">nahasketa-aurpegia</annotation>
+		<annotation cp="😟">aurpegi | aurpegi kezkatua | kezkatu</annotation>
+		<annotation cp="😟" type="tts">aurpegi kezkatua</annotation>
+		<annotation cp="🙁">aurpegi | aurpegi apur bat kopetiluna | kopetilun</annotation>
+		<annotation cp="🙁" type="tts">aurpegi apur bat kopetiluna</annotation>
+		<annotation cp="☹">aurpegi | kopeta ilunduta duen aurpegia | kopetilun</annotation>
+		<annotation cp="☹" type="tts">kopeta ilunduta duen aurpegia</annotation>
+		<annotation cp="😮">aho | ahoa irekita duen aurpegia | aurpegi | ireki | poza</annotation>
+		<annotation cp="😮" type="tts">ahoa irekita duen aurpegia</annotation>
+		<annotation cp="😯">aurpegi | harridura | harridura-aurpegia | harrituta | zur eta lur</annotation>
+		<annotation cp="😯" type="tts">harridura-aurpegia</annotation>
+		<annotation cp="😲">aurpegi | guztiz | harridura | harritu-aurpegia | sorpresa</annotation>
+		<annotation cp="😲" type="tts">harritu-aurpegia</annotation>
+		<annotation cp="😳">aurpegi | aurpegi gorritua | gorritu | nahastu</annotation>
+		<annotation cp="😳" type="tts">aurpegi gorritua</annotation>
+		<annotation cp="🥺">aurpegi erregutzailea | begirada erregutzaile | erregutze | gupida</annotation>
+		<annotation cp="🥺" type="tts">aurpegi erregutzailea</annotation>
+		<annotation cp="😦">aho | aurpegi | ireki | kopeta ilunduta eta ahoa irekita duen aurpegia | kopetilun</annotation>
+		<annotation cp="😦" type="tts">kopeta ilunduta eta ahoa irekita duen aurpegia</annotation>
+		<annotation cp="😧">aurpegi | estutasun | estutasun-aurpegia</annotation>
+		<annotation cp="😧" type="tts">estutasun-aurpegia</annotation>
+		<annotation cp="😨">aurpegi | beldur | ikara | ikara-aurpegia | ikaratu</annotation>
+		<annotation cp="😨" type="tts">ikara-aurpegia</annotation>
+		<annotation cp="😰">aho | ahoa irekita eta izerdi hotza duen aurpegia | aurpegi | grinatsu | hotz | irekita | izerdi</annotation>
+		<annotation cp="😰" type="tts">ahoa irekita eta izerdi hotza duen aurpegia</annotation>
+		<annotation cp="😥">aurpegi | desengainatuta | desengainatuta baina lasaiago | eskerrak | lasai</annotation>
+		<annotation cp="😥" type="tts">desengainatuta baina lasaiago</annotation>
+		<annotation cp="😢">aurpegi | malko | negar | negarrez ari den aurpegia | triste</annotation>
+		<annotation cp="😢" type="tts">negarrez ari den aurpegia</annotation>
+		<annotation cp="😭">aurpegi | malko | negar | negar eta negar ari den aurpegia | triste | zotinka</annotation>
+		<annotation cp="😭" type="tts">negar eta negar ari den aurpegia</annotation>
+		<annotation cp="😱">aurpegi | beldur | beldurrez oihuka ari den aurpegia | beldurti | beldurtu | izutu</annotation>
+		<annotation cp="😱" type="tts">beldurrez oihuka ari den aurpegia</annotation>
+		<annotation cp="😖">aurpegi | hutsegite | hutsegite-aurpegia</annotation>
+		<annotation cp="😖" type="tts">hutsegite-aurpegia</annotation>
+		<annotation cp="😣">aurpegi | aurpegi nekaezina | nekaezin | pertseberantzia</annotation>
+		<annotation cp="😣" type="tts">aurpegi nekaezina</annotation>
+		<annotation cp="😞">aurpegi | etsipen | etsipen-aurpegia</annotation>
+		<annotation cp="😞" type="tts">etsipen-aurpegia</annotation>
+		<annotation cp="😓">aurpegi | hotz | izerdi | izerdi hotza duen aurpegia</annotation>
+		<annotation cp="😓" type="tts">izerdi hotza duen aurpegia</annotation>
+		<annotation cp="😩">aurpegi | nazkatu | neke | neke-aurpegia</annotation>
+		<annotation cp="😩" type="tts">neke-aurpegia</annotation>
+		<annotation cp="😫">aurpegi | nekatu | nekatu-aurpegia</annotation>
+		<annotation cp="😫" type="tts">nekatu-aurpegia</annotation>
+		<annotation cp="😤">aurpegi | irabazi | sudurretik kea darion aurpegia | txapeldun</annotation>
+		<annotation cp="😤" type="tts">sudurretik kea darion aurpegia</annotation>
+		<annotation cp="😡">amorru | aurpegi | aurpegi muturtua | ero | gorri | haserre | muturtu</annotation>
+		<annotation cp="😡" type="tts">aurpegi muturtua</annotation>
+		<annotation cp="😠">aurpegi | ero | haserre | haserre-aurpegia</annotation>
+		<annotation cp="😠" type="tts">haserre-aurpegia</annotation>
+		<annotation cp="🤬">ahoan ikurrak dituen aurpegia | izerditan</annotation>
+		<annotation cp="🤬" type="tts">ahoan ikurrak dituen aurpegia</annotation>
 		<annotation cp="😈">adarrak | aurpegi | fantasia | ipuin | irribarre | irribarre egiten ari den aurpegi adarduna</annotation>
 		<annotation cp="😈" type="tts">irribarre egiten ari den aurpegi adarduna</annotation>
 		<annotation cp="👿">aurpegi | deabru | deabrua | fantasia | ipuin</annotation>
 		<annotation cp="👿" type="tts">deabrua</annotation>
+		<annotation cp="💀">aurpegi | buru-hezurra | gorputz | heriotz | hil | ipuin | munstro</annotation>
+		<annotation cp="💀" type="tts">buru-hezurra</annotation>
+		<annotation cp="☠">aurpegi | buru-hezur | buru-hezurra eta hezur gurutzatuak | gorputz | heriotza | hezur gurutzatuak | hil | munstro</annotation>
+		<annotation cp="☠" type="tts">buru-hezurra eta hezur gurutzatuak</annotation>
+		<annotation cp="💩">aurpegi | gorotz | kaka | kaka-mokordoa | komiki | monstruo</annotation>
+		<annotation cp="💩" type="tts">kaka-mokordoa</annotation>
 		<annotation cp="🤡">aurpegi | pailazo | pailazo-aurpegia</annotation>
 		<annotation cp="🤡" type="tts">pailazo-aurpegia</annotation>
 		<annotation cp="👹">aurpegi | fantasia | ipuin | izaki | japoniera | munstro | ogroa</annotation>
 		<annotation cp="👹" type="tts">ogroa</annotation>
 		<annotation cp="👺">aurpegi | fantasia | ipuin | iratxoa | izaki | japoniera | munstro</annotation>
 		<annotation cp="👺" type="tts">iratxoa</annotation>
-		<annotation cp="💀">aurpegi | buru-hezurra | gorputz | heriotz | hil | ipuin | munstro</annotation>
-		<annotation cp="💀" type="tts">buru-hezurra</annotation>
-		<annotation cp="☠">aurpegi | buru-hezur | buru-hezurra eta hezur gurutzatuak | gorputz | heriotza | hezur gurutzatuak | hil | munstro</annotation>
-		<annotation cp="☠" type="tts">buru-hezurra eta hezur gurutzatuak</annotation>
 		<annotation cp="👻">aurpegi | fantasia | ipuin | izaki | mamua | munstro</annotation>
 		<annotation cp="👻" type="tts">mamua</annotation>
 		<annotation cp="👽">aurpegi | espazio | estralurtar | estralurtarra | fantasia | ipuin | izaki | munstro | ohe</annotation>
@@ -223,20 +227,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👾" type="tts">munstro estralurtarra</annotation>
 		<annotation cp="🤖">aurpegi | munstro | robot | robot-aurpegia</annotation>
 		<annotation cp="🤖" type="tts">robot-aurpegia</annotation>
-		<annotation cp="💩">aurpegi | gorotz | kaka | kaka-mokordoa | komiki | monstruo</annotation>
-		<annotation cp="💩" type="tts">kaka-mokordoa</annotation>
 		<annotation cp="😺">aho | ahoa irekita duen eta irribarre egiten ari den katu-aurpegia | aurpegi | ireki | irribarre | katu</annotation>
-		<annotation cp="😺" type="tts">ahoa irekita duen eta irribarre egiten ari den katu-aurpegia</annotation>
+		<annotation cp="😺" type="tts">ahoa irekita duen katu-aurpegi irribarretsua</annotation>
 		<annotation cp="😸">aurpegi | barre | begi | begiez barre egiten ari den katu-aurpegia | katu</annotation>
 		<annotation cp="😸" type="tts">begiez barre egiten ari den katu-aurpegia</annotation>
 		<annotation cp="😹">aurpegi | katu | malko | poz | pozez negar ari den katu-aurpegia</annotation>
 		<annotation cp="😹" type="tts">pozez negar ari den katu-aurpegia</annotation>
 		<annotation cp="😻">aurpegi | begi | bihotz | bihotz-itxurako begiak dituen eta irribarre egiten ari den katu-aurpegia | irribarre | katu | maitasun</annotation>
-		<annotation cp="😻" type="tts">bihotz-itxurako begiak dituen eta irribarre egiten ari den katu-aurpegia</annotation>
+		<annotation cp="😻" type="tts">katu irribarretsua, bihotz-itxurako begiekin</annotation>
 		<annotation cp="😼">aurpegi | ironiko | irribarre | irribarre maltzurra duen katu-aurpegia | katu | maltzur</annotation>
 		<annotation cp="😼" type="tts">irribarre maltzurra duen katu-aurpegia</annotation>
 		<annotation cp="😽">aurpegi | begi | begiak itxita dituen eta musuka ari den katu-aurpegia | katu | musu</annotation>
-		<annotation cp="😽" type="tts">begiak itxita dituen eta musuka ari den katu-aurpegia</annotation>
+		<annotation cp="😽" type="tts">begiak itxita musuka ari den katu-aurpegia</annotation>
 		<annotation cp="🙀">aurpegi | harritu | katu | leher eginda | leher eginda dagoen katu-aurpegia | nekatu</annotation>
 		<annotation cp="🙀" type="tts">leher eginda dagoen katu-aurpegia</annotation>
 		<annotation cp="😿">aurpegi | katu | malko | negar | negarrez ari den katu-aurpegia | triste</annotation>
@@ -249,6 +251,160 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙉" type="tts">gauza txarrik entzun nahi ez duen tximua</annotation>
 		<annotation cp="🙊">aurpegi | debekatu | esan | ez | gauza txarrik esan nahi ez duen tximua | keinu | txar | tximu</annotation>
 		<annotation cp="🙊" type="tts">gauza txarrik esan nahi ez duen tximua</annotation>
+		<annotation cp="💋">ezpainak | musu | musu-aztarna</annotation>
+		<annotation cp="💋" type="tts">musu-aztarna</annotation>
+		<annotation cp="💌">bihotz | gutun | maitasun | maitasun-gutuna | posta</annotation>
+		<annotation cp="💌" type="tts">maitasun-gutuna</annotation>
+		<annotation cp="💘">bihotz | bihotza geziarekin | gezi | kupido</annotation>
+		<annotation cp="💘" type="tts">bihotza geziarekin</annotation>
+		<annotation cp="💝">begizta | bihotz | bihotza begiztarekin | valentin</annotation>
+		<annotation cp="💝" type="tts">bihotza begiztarekin</annotation>
+		<annotation cp="💖">bihotz | bihotz distiratsua | distira | urduri</annotation>
+		<annotation cp="💖" type="tts">bihotz distiratsua</annotation>
+		<annotation cp="💗">bihotz | handitu | handitzen ari den bihotza | taupada | urduri | urduritasun</annotation>
+		<annotation cp="💗" type="tts">handitzen ari den bihotza</annotation>
+		<annotation cp="💓">bihotz | bihotz-taupada | taupada</annotation>
+		<annotation cp="💓" type="tts">bihotz-taupada</annotation>
+		<annotation cp="💞">bihotz | biraka | biraka ari diren bihotzak</annotation>
+		<annotation cp="💞" type="tts">biraka ari diren bihotzak</annotation>
+		<annotation cp="💕">bi bihotz | bihotz | maitasun</annotation>
+		<annotation cp="💕" type="tts">bi bihotz</annotation>
+		<annotation cp="💟">bihotz | bihotz apaindua</annotation>
+		<annotation cp="💟" type="tts">bihotz apaindua</annotation>
+		<annotation cp="❣">bihotz | bihotz-itxurako harridura-marka | harridura | marka | puntuazioa</annotation>
+		<annotation cp="❣" type="tts">bihotz-itxurako harridura-marka</annotation>
+		<annotation cp="💔">bihotz | bihotz hautsia | hautsi | hautsita</annotation>
+		<annotation cp="💔" type="tts">bihotz hautsia</annotation>
+		<annotation cp="❤">bihotz | bihotz gorria</annotation>
+		<annotation cp="❤" type="tts">bihotz gorria</annotation>
+		<annotation cp="🧡">bihotz laranja | laranja</annotation>
+		<annotation cp="🧡" type="tts">bihotz laranja</annotation>
+		<annotation cp="💛">bihotz | bihotz horia | hori</annotation>
+		<annotation cp="💛" type="tts">bihotz horia</annotation>
+		<annotation cp="💚">berde | bihotz | bihotz berdea</annotation>
+		<annotation cp="💚" type="tts">bihotz berdea</annotation>
+		<annotation cp="💙">bihotz | bihotz urdina | urdin</annotation>
+		<annotation cp="💙" type="tts">bihotz urdina</annotation>
+		<annotation cp="💜">bihotz | bihotz morea | more</annotation>
+		<annotation cp="💜" type="tts">bihotz morea</annotation>
+		<annotation cp="🖤">beltz | bihotz | bihotz beltza | zital | zorigaitz</annotation>
+		<annotation cp="🖤" type="tts">bihotz beltza</annotation>
+		<annotation cp="💯">100 | ehun | ehun puntu | oso | puntuazio</annotation>
+		<annotation cp="💯" type="tts">ehun puntu</annotation>
+		<annotation cp="💢">amorruaren ikurra | haserre | komiki | sutan</annotation>
+		<annotation cp="💢" type="tts">amorruaren ikurra</annotation>
+		<annotation cp="💥">bum | eztanda | komiki</annotation>
+		<annotation cp="💥" type="tts">eztanda</annotation>
+		<annotation cp="💫">izar | komiki | zorabiatuta</annotation>
+		<annotation cp="💫" type="tts">zorabiatuta</annotation>
+		<annotation cp="💦">izerdi | izerdi-tantatxoak | komiki | zipriztin</annotation>
+		<annotation cp="💦" type="tts">izerdi-tantatxoak</annotation>
+		<annotation cp="💨">bizi | komiki | korrika | lasterka | ziztu bizian</annotation>
+		<annotation cp="💨" type="tts">ziztu bizian</annotation>
+		<annotation cp="🕳">zulo | zuloa</annotation>
+		<annotation cp="🕳" type="tts">zuloa</annotation>
+		<annotation cp="💣">komiki | lehergailua</annotation>
+		<annotation cp="💣" type="tts">lehergailua</annotation>
+		<annotation cp="💬">bunbuilo | bunbuiloa | elkarrizketa | hizketa | komiki</annotation>
+		<annotation cp="💬" type="tts">bunbuiloa</annotation>
+		<annotation cp="👁‍🗨">begi | begi bat duen bunbuiloa | bunbuilo | lekuko</annotation>
+		<annotation cp="👁‍🗨" type="tts">begi bat duen bunbuiloa</annotation>
+		<annotation cp="🗨">elkarrizketa | ezkerrera doan bunbuiloa | hizketa</annotation>
+		<annotation cp="🗨" type="tts">ezkerrera doan bunbuiloa</annotation>
+		<annotation cp="🗯">bunbuilo | eskuinera doan sumindura-bunbuiloa | haserre | sumindu</annotation>
+		<annotation cp="🗯" type="tts">eskuinera doan sumindura-bunbuiloa</annotation>
+		<annotation cp="💭">bunbuilo | burutazio | burutazio-bunbuiloa | komiki | pentsamendu</annotation>
+		<annotation cp="💭" type="tts">burutazio-bunbuiloa</annotation>
+		<annotation cp="💤">komiki | lo | zzz</annotation>
+		<annotation cp="💤" type="tts">zzz</annotation>
+		<annotation cp="👋">esku | gorputz | mugitu | mugitzen ari den eskua</annotation>
+		<annotation cp="👋" type="tts">mugitzen ari den eskua</annotation>
+		<annotation cp="🤚">altxatuta | esku-azpi | esku-azpia altxatuta</annotation>
+		<annotation cp="🤚" type="tts">esku-azpia altxatuta</annotation>
+		<annotation cp="🖐">esku | esku altxatua eta hatz hedatuak | gorputz | hatz | hedatu</annotation>
+		<annotation cp="🖐" type="tts">esku altxatua eta hatz hedatuak</annotation>
+		<annotation cp="✋">esku | esku altxatua | gorputz</annotation>
+		<annotation cp="✋" type="tts">esku altxatua</annotation>
+		<annotation cp="🖖">agur vulkaniar | esku | hatz | spock | vulkaniar | vulkaniar agurra</annotation>
+		<annotation cp="🖖" type="tts">vulkaniar agurra</annotation>
+		<annotation cp="👌">ados | adostasuna adierazten duen eskua | esku | gorputz | ok</annotation>
+		<annotation cp="👌" type="tts">adostasuna adierazten duen eskua</annotation>
+		<annotation cp="✌">esku | garaipen | garaipena adierazten duen eskua | gorputz | v</annotation>
+		<annotation cp="✌" type="tts">garaipena adierazten duen eskua</annotation>
+		<annotation cp="🤞">esku | gurutzatu | hatz | hatz gurutzatuak | zorte</annotation>
+		<annotation cp="🤞" type="tts">hatz gurutzatuak</annotation>
+		<annotation cp="🤟">adarren keinu | adarren keinua | esku</annotation>
+		<annotation cp="🤟" type="tts">adarren keinua</annotation>
+		<annotation cp="🤘">adar | adarrak adierazten dituen eskua | esku | gorputz | hatz</annotation>
+		<annotation cp="🤘" type="tts">adarrak adierazten dituen eskua</annotation>
+		<annotation cp="🤙">deitu | deitzeko esku-keinua | esku</annotation>
+		<annotation cp="🤙" type="tts">deitzeko esku-keinua</annotation>
+		<annotation cp="👈">erakusle | esku | ezkerrera seinalatzen ari den hatz erakuslea | hatz | seinalatu</annotation>
+		<annotation cp="👈" type="tts">ezkerrera seinalatzen ari den hatz erakuslea</annotation>
+		<annotation cp="👉">erakusle | esku | eskuinera seinalatzen ari den hatz erakuslea | hatz | seinalatu</annotation>
+		<annotation cp="👉" type="tts">eskuinera seinalatzen ari den hatz erakuslea</annotation>
+		<annotation cp="👆">erakusle | esku | gora seinalatzen ari den hatz erakuslearen atzealdea | gora seinalatzen ari den hatza | hatz | seinalatu</annotation>
+		<annotation cp="👆" type="tts">gora seinalatzen ari den hatza</annotation>
+		<annotation cp="🖕">erdiko hatza | esku | gorputz | hatz</annotation>
+		<annotation cp="🖕" type="tts">erdiko hatza</annotation>
+		<annotation cp="👇">behera seinalatzen ari den hatz erakuslearen atzealdea | behera seinalatzen ari den hatza | erakusle | esku | hatz | seinalatu</annotation>
+		<annotation cp="👇" type="tts">behera seinalatzen ari den hatza</annotation>
+		<annotation cp="☝">erakusle | esku | gora seinalatzen ari den hatz erakuslea | hatz | seinalatu</annotation>
+		<annotation cp="☝" type="tts">gora seinalatzen ari den hatz erakuslea</annotation>
+		<annotation cp="👍">erpuru | erpurua gora | esku | gora | gorputz</annotation>
+		<annotation cp="👍" type="tts">erpurua gora</annotation>
+		<annotation cp="👎">behera | erpuru | erpurua behera | esku | gorputz</annotation>
+		<annotation cp="👎" type="tts">erpurua behera</annotation>
+		<annotation cp="✊">esku | estutu | ukabil | ukabil altxatua | ukabilkada</annotation>
+		<annotation cp="✊" type="tts">ukabil altxatua</annotation>
+		<annotation cp="👊">esku | estutu | gorputz | ukabil | ukabilkada</annotation>
+		<annotation cp="👊" type="tts">ukabilkada</annotation>
+		<annotation cp="🤛">ezkerrera | ukabil | ukabila ezkerrera begira</annotation>
+		<annotation cp="🤛" type="tts">ukabila ezkerrera begira</annotation>
+		<annotation cp="🤜">eskuinera | ukabil | ukabila eskuinera begira</annotation>
+		<annotation cp="🤜" type="tts">ukabila eskuinera begira</annotation>
+		<annotation cp="👏">esku | gorputz | txalo | txaloka ari diren eskuak</annotation>
+		<annotation cp="👏" type="tts">txaloka ari diren eskuak</annotation>
+		<annotation cp="🙌">altxatu | esku | eskuak altxatzen ari den pertsona | keinu | ospakizun</annotation>
+		<annotation cp="🙌" type="tts">eskuak altxatzen ari den pertsona</annotation>
+		<annotation cp="👐">esku | esku irekiak | gorputz | ireki</annotation>
+		<annotation cp="👐" type="tts">esku irekiak</annotation>
+		<annotation cp="🤲">esku-azpiak elkartuta | otoitza</annotation>
+		<annotation cp="🤲" type="tts">esku-azpiak elkartuta</annotation>
+		<annotation cp="🤝">adostasun | bilera | esku | esku-emate | esku-ematea</annotation>
+		<annotation cp="🤝" type="tts">esku-ematea</annotation>
+		<annotation cp="🙏">erregutzen ari diren eskuak | eskatu | eskerrak | mesedez | otoitz</annotation>
+		<annotation cp="🙏" type="tts">erregutzen ari diren eskuak</annotation>
+		<annotation cp="✍">esku | gorputz | idatzi | idazten ari den eskua</annotation>
+		<annotation cp="✍" type="tts">idazten ari den eskua</annotation>
+		<annotation cp="💅">azazkal | azazkaletako esmaltea | edertasun | esmalte | gorputz | kosmetika | manikura</annotation>
+		<annotation cp="💅" type="tts">azazkaletako esmaltea</annotation>
+		<annotation cp="🤳">autoargazki | autoargazkia | kamera | telefono</annotation>
+		<annotation cp="🤳" type="tts">autoargazkia</annotation>
+		<annotation cp="💪">bizeps | bizepsak | flexio | gihar | gorputz | komiki</annotation>
+		<annotation cp="💪" type="tts">bizepsak</annotation>
+		<annotation cp="🦵">gorputz-adar | hanka | ostikada</annotation>
+		<annotation cp="🦵" type="tts">hanka</annotation>
+		<annotation cp="🦶">oina | ostikada | zanpatu</annotation>
+		<annotation cp="🦶" type="tts">oina</annotation>
+		<annotation cp="👂">belarria | gorputz</annotation>
+		<annotation cp="👂" type="tts">belarria</annotation>
+		<annotation cp="👃">gorputz | sudurra</annotation>
+		<annotation cp="👃" type="tts">sudurra</annotation>
+		<annotation cp="🧠">adimentsu | argi | azkar | burmuina</annotation>
+		<annotation cp="🧠" type="tts">burmuina</annotation>
+		<annotation cp="🦷">dentista | hortza</annotation>
+		<annotation cp="🦷" type="tts">hortza</annotation>
+		<annotation cp="🦴">eskeleto | hezurra</annotation>
+		<annotation cp="🦴" type="tts">hezurra</annotation>
+		<annotation cp="👀">aurpegi | begi | begiak | gorputz</annotation>
+		<annotation cp="👀" type="tts">begiak</annotation>
+		<annotation cp="👁">begi | gorputz</annotation>
+		<annotation cp="👁" type="tts">begi</annotation>
+		<annotation cp="👅">gorputz | mingaina</annotation>
+		<annotation cp="👅" type="tts">mingaina</annotation>
+		<annotation cp="👄">ahoa | ezpainak | gorputz</annotation>
+		<annotation cp="👄" type="tts">ahoa</annotation>
 		<annotation cp="👶">haurtxo | haurtxoa</annotation>
 		<annotation cp="👶" type="tts">haurtxoa</annotation>
 		<annotation cp="🧒">gazte | genero neutroko | haur</annotation>
@@ -259,16 +415,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👧" type="tts">neska</annotation>
 		<annotation cp="🧑">genero neutroko | heldu</annotation>
 		<annotation cp="🧑" type="tts">heldu</annotation>
-		<annotation cp="👱">ilehori | pertsona ilehoria</annotation>
+		<annotation cp="👱">ile | ilehori | pertsona ilehoria</annotation>
 		<annotation cp="👱" type="tts">pertsona ilehoria</annotation>
+		<annotation cp="🧑‍🤝‍🧑">bikote | elkarri eskua ematen | eman | esku | pertsona</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts">bi pertsona elkarri eskua ematen</annotation>
 		<annotation cp="👨">gizon | gizona | gizonezko</annotation>
 		<annotation cp="👨" type="tts">gizona</annotation>
+		<annotation cp="👨‍🦯">gizon | gizonezko | irisgarritasun | itsu</annotation>
+		<annotation cp="👨‍🦯" type="tts">itsu-makila daraman gizona</annotation>
+		<annotation cp="👨‍🦼">gizon | gizonezko | gurpil-aulki | irisgarritasun</annotation>
+		<annotation cp="👨‍🦼" type="tts">gurpil-aulki motordunean doan gizona</annotation>
+		<annotation cp="👨‍🦽">gizon | gizonezko | gurpil-aulki | irisgarritasun</annotation>
+		<annotation cp="👨‍🦽" type="tts">eskuzko gurpil-aulkian doan gizona</annotation>
 		<annotation cp="👱‍♂">gizon | gizon ilehoria | gizonezko | ilehori</annotation>
 		<annotation cp="👱‍♂" type="tts">gizon ilehoria</annotation>
 		<annotation cp="🧔">bizar | pertsona bizarduna</annotation>
 		<annotation cp="🧔" type="tts">pertsona bizarduna</annotation>
 		<annotation cp="👩">emakume | emakumea | emakumezko</annotation>
 		<annotation cp="👩" type="tts">emakumea</annotation>
+		<annotation cp="👩‍🦯">emakume | emakumezko | irisgarritasun | itsu</annotation>
+		<annotation cp="👩‍🦯" type="tts">itsu-makila daraman emakumea</annotation>
+		<annotation cp="👩‍🦼">emakume | emakumezko | gurpil-aulki | irisgarritasun</annotation>
+		<annotation cp="👩‍🦼" type="tts">gurpil-aulki motordunean doan emakumea</annotation>
+		<annotation cp="👩‍🦽">emakume | emakumezko | gurpil-aulki | irisgarritasun</annotation>
+		<annotation cp="👩‍🦽" type="tts">eskuzko gurpil-aulkian doan emakumea</annotation>
 		<annotation cp="👱‍♀">emakume | emakume ilehoria | emakumezko | ilehori</annotation>
 		<annotation cp="👱‍♀" type="tts">emakume ilehoria</annotation>
 		<annotation cp="🧓">adineko | agure | genero neutroko</annotation>
@@ -277,6 +447,60 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👴" type="tts">aitona</annotation>
 		<annotation cp="👵">agure | amona | emakume | emakumezko | zahar</annotation>
 		<annotation cp="👵" type="tts">amona</annotation>
+		<annotation cp="🙍">keinu | kopeta | kopeta zimurtzen ari den pertsona | zimurtu</annotation>
+		<annotation cp="🙍" type="tts">kopeta zimurtzen ari den pertsona</annotation>
+		<annotation cp="🙍‍♂">gizon | gizonezko | keinu | kopeta | kopeta zimurtzen ari den gizona | zimurtu</annotation>
+		<annotation cp="🙍‍♂" type="tts">kopeta zimurtzen ari den gizona</annotation>
+		<annotation cp="🙍‍♀">emakume | emakumezko | keinu | kopeta | kopeta zimurtzen ari den emakumea | zimurtu</annotation>
+		<annotation cp="🙍‍♀" type="tts">kopeta zimurtzen ari den emakumea</annotation>
+		<annotation cp="🙎">keinu | muturtu | pertsona muturtua</annotation>
+		<annotation cp="🙎" type="tts">pertsona muturtua</annotation>
+		<annotation cp="🙎‍♂">gizon | gizon muturtua | gizonezko | keinu | muturtu</annotation>
+		<annotation cp="🙎‍♂" type="tts">gizon muturtua</annotation>
+		<annotation cp="🙎‍♀">emakume | emakume muturtua | emakumezko | keinu | muturtu</annotation>
+		<annotation cp="🙎‍♀" type="tts">emakume muturtua</annotation>
+		<annotation cp="🙅">ados ez dagoela adierazten ari den pertsona | debekatuta | esku | ez | galarazita | keinu</annotation>
+		<annotation cp="🙅" type="tts">ados ez dagoela adierazten ari den pertsona</annotation>
+		<annotation cp="🙅‍♂">ados ez dagoela adierazten ari den gizona | debekatuta | esku | ez | ez konforme | galarazita | gizon | gizonezko | keinu</annotation>
+		<annotation cp="🙅‍♂" type="tts">ados ez dagoela adierazten ari den gizona</annotation>
+		<annotation cp="🙅‍♀">ados ez dagoela adierazten ari den emakumea | debekatuta | emakume | emakumezko | esku | ez | ez konforme | galarazita | keinu</annotation>
+		<annotation cp="🙅‍♀" type="tts">ados ez dagoela adierazten ari den emakumea</annotation>
+		<annotation cp="🙆">ados | ados dagoela adierazten ari den pertsona | esku | keinu</annotation>
+		<annotation cp="🙆" type="tts">ados dagoela adierazten ari den pertsona</annotation>
+		<annotation cp="🙆‍♂">ados | ados dagoela adierazten ari den gizona | esku | gizon | gizonezko | keinu</annotation>
+		<annotation cp="🙆‍♂" type="tts">ados dagoela adierazten ari den gizona</annotation>
+		<annotation cp="🙆‍♀">ados | ados dagoela adierazten ari den emakumea | emakume | emakumezko | esku | keinu</annotation>
+		<annotation cp="🙆‍♀" type="tts">ados dagoela adierazten ari den emakumea</annotation>
+		<annotation cp="💁">eskean dabilen pertsona | esku | eskupeko | informazio | kokin | laguntza</annotation>
+		<annotation cp="💁" type="tts">eskean dabilen pertsona</annotation>
+		<annotation cp="💁‍♂">eskean dabilen gizona | eskupeko | gizon | gizonezko | kokin</annotation>
+		<annotation cp="💁‍♂" type="tts">eskean dabilen gizona</annotation>
+		<annotation cp="💁‍♀">emakume | emakumezko | eskean dabilen emakumea | esku | eskupeko | kokin</annotation>
+		<annotation cp="💁‍♀" type="tts">eskean dabilen emakumea</annotation>
+		<annotation cp="🙋">altxatuta | esku | eskua altxatzen ari den pertsona | keinu | pozik</annotation>
+		<annotation cp="🙋" type="tts">eskua altxatzen ari den pertsona</annotation>
+		<annotation cp="🙋‍♂">eskua altxatuta | eskua altxatzen ari den gizona | gizon | gizonezko | keinu</annotation>
+		<annotation cp="🙋‍♂" type="tts">eskua altxatzen ari den gizona</annotation>
+		<annotation cp="🙋‍♀">emakume | emakumezko | eskua altxatuta | eskua altxatzen ari den emakumea | keinu</annotation>
+		<annotation cp="🙋‍♀" type="tts">eskua altxatzen ari den emakumea</annotation>
+		<annotation cp="🙇">barkamen | barkatu | burua makurtzen ari den pertsona | keinu | makurtu</annotation>
+		<annotation cp="🙇" type="tts">burua makurtzen ari den pertsona</annotation>
+		<annotation cp="🙇‍♂">barkamen | barkatu | burua makurtzen ari den gizona | gizon | gizonezko | keinu | makurtu | mesede</annotation>
+		<annotation cp="🙇‍♂" type="tts">burua makurtzen ari den gizona</annotation>
+		<annotation cp="🙇‍♀">barkamen | barkatu | burua makurtzen ari den emakumea | emakume | emakumezko | keinu | makurtu | mesede</annotation>
+		<annotation cp="🙇‍♀" type="tts">burua makurtzen ari den emakumea</annotation>
+		<annotation cp="🤦">aurpegi | esku-azpi | esku-azpia aurpegian | sinesgaiztasun | sumindura</annotation>
+		<annotation cp="🤦" type="tts">esku-azpia aurpegian</annotation>
+		<annotation cp="🤦‍♂">esku-azpi | esku-azpia aurpegian duen gizona | gizon | gizonezko | sinesgaitasun | sumindura</annotation>
+		<annotation cp="🤦‍♂" type="tts">esku-azpia aurpegian duen gizona</annotation>
+		<annotation cp="🤦‍♀">emakume | emakumezko | esku-azpi | esku-azpia aurpegian duen emakumea | sinesgaitasun | sumindura</annotation>
+		<annotation cp="🤦‍♀" type="tts">esku-azpia aurpegian duen emakumea</annotation>
+		<annotation cp="🤷">altxatu | axolagabekeria | ezjakintasun | sorbalda | sorbaldak altxatu | zalantza</annotation>
+		<annotation cp="🤷" type="tts">sorbaldak altxatu</annotation>
+		<annotation cp="🤷‍♂">altxatu | axolagabekeria | ezjakintasuna | gizon | gizonezko | sorbaldak altxatzen ari den gizona | zalantza</annotation>
+		<annotation cp="🤷‍♂" type="tts">sorbaldak altxatzen ari den gizona</annotation>
+		<annotation cp="🤷‍♀">altxatu | axolagabekeria | emakumea | ezjakintasuna | sorbaldak altxatzen ari den emakumea | zalantza</annotation>
+		<annotation cp="🤷‍♀" type="tts">sorbaldak altxatzen ari den emakumea</annotation>
 		<annotation cp="👨‍⚕">erizaina | gizon | gizon sendagilea | gizonezko | osasun | sendagile | terapeuta</annotation>
 		<annotation cp="👨‍⚕" type="tts">gizon sendagilea</annotation>
 		<annotation cp="👩‍⚕">emakume | emakume sendagilea | emakumezko | erizain | osasun | sendagile | terapeuta</annotation>
@@ -395,112 +619,58 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤶" type="tts">gabonetako ama</annotation>
 		<annotation cp="🦸">heroi | on | superbotere | superheroi</annotation>
 		<annotation cp="🦸" type="tts">superheroi</annotation>
-		<annotation cp="🦸‍♀">emakume | emakumezko superheroi | heroi | on | superbotere</annotation>
-		<annotation cp="🦸‍♀" type="tts">emakumezko superheroi</annotation>
 		<annotation cp="🦸‍♂">gizon | gizonezko superheroi | heroi | on | superbotere</annotation>
 		<annotation cp="🦸‍♂" type="tts">gizonezko superheroi</annotation>
+		<annotation cp="🦸‍♀">emakume | emakumezko superheroi | heroi | on | superbotere</annotation>
+		<annotation cp="🦸‍♀" type="tts">emakumezko superheroi</annotation>
 		<annotation cp="🦹">bilau | gaizto | kriminal | superbilau | superbotere</annotation>
 		<annotation cp="🦹" type="tts">superbilau</annotation>
-		<annotation cp="🦹‍♀">bilau | emakume | emakumezko superbilau | gaizto | kriminal | superbotere</annotation>
-		<annotation cp="🦹‍♀" type="tts">emakumezko superbilau</annotation>
 		<annotation cp="🦹‍♂">bilau | gaizto | gizon | gizonezko superbilau | kriminal | superbotere</annotation>
 		<annotation cp="🦹‍♂" type="tts">gizonezko superbilau</annotation>
+		<annotation cp="🦹‍♀">bilau | emakume | emakumezko superbilau | gaizto | kriminal | superbotere</annotation>
+		<annotation cp="🦹‍♀" type="tts">emakumezko superbilau</annotation>
 		<annotation cp="🧙">azti | mago | sorgin</annotation>
 		<annotation cp="🧙" type="tts">mago</annotation>
-		<annotation cp="🧙‍♀">emakume mago | sorgin</annotation>
-		<annotation cp="🧙‍♀" type="tts">emakume mago</annotation>
 		<annotation cp="🧙‍♂">belagile | gizon mago</annotation>
 		<annotation cp="🧙‍♂" type="tts">gizon mago</annotation>
+		<annotation cp="🧙‍♀">emakume mago | sorgin</annotation>
+		<annotation cp="🧙‍♀" type="tts">emakume mago</annotation>
 		<annotation cp="🧚">maitagarri | Oberon | Puck | Titania</annotation>
 		<annotation cp="🧚" type="tts">maitagarri</annotation>
-		<annotation cp="🧚‍♀">(emakume) maitagarri | Titania</annotation>
-		<annotation cp="🧚‍♀" type="tts">(emakume) maitagarri</annotation>
 		<annotation cp="🧚‍♂">(gizon) maitagarri | Oberon | Puck</annotation>
 		<annotation cp="🧚‍♂" type="tts">(gizon) maitagarri</annotation>
+		<annotation cp="🧚‍♀">(emakume) maitagarri | Titania</annotation>
+		<annotation cp="🧚‍♀" type="tts">(emakume) maitagarri</annotation>
 		<annotation cp="🧛">banpiro | Drakula | hildako bizidun</annotation>
 		<annotation cp="🧛" type="tts">banpiro</annotation>
-		<annotation cp="🧛‍♀">emakume banpiro | hildako bizidun</annotation>
-		<annotation cp="🧛‍♀" type="tts">emakume banpiro</annotation>
 		<annotation cp="🧛‍♂">Drakula | gizon banpiro | hildako bizidun</annotation>
 		<annotation cp="🧛‍♂" type="tts">gizon banpiro</annotation>
+		<annotation cp="🧛‍♀">emakume banpiro | hildako bizidun</annotation>
+		<annotation cp="🧛‍♀" type="tts">emakume banpiro</annotation>
 		<annotation cp="🧜">itsas izaki | lamina | sirena</annotation>
 		<annotation cp="🧜" type="tts">itsas izaki</annotation>
-		<annotation cp="🧜‍♀">lamina | sirena</annotation>
-		<annotation cp="🧜‍♀" type="tts">lamina</annotation>
 		<annotation cp="🧜‍♂">gizon-itxurako itsas izaki | Triton</annotation>
 		<annotation cp="🧜‍♂" type="tts">gizon-itxurako itsas izaki</annotation>
+		<annotation cp="🧜‍♀">lamina | sirena</annotation>
+		<annotation cp="🧜‍♀" type="tts">lamina</annotation>
 		<annotation cp="🧝">elfo | magiko</annotation>
 		<annotation cp="🧝" type="tts">elfo</annotation>
-		<annotation cp="🧝‍♀">emakume elfo | magiko</annotation>
-		<annotation cp="🧝‍♀" type="tts">emakume elfo</annotation>
 		<annotation cp="🧝‍♂">gizon elfo | magiko</annotation>
 		<annotation cp="🧝‍♂" type="tts">gizon elfo</annotation>
+		<annotation cp="🧝‍♀">emakume elfo | magiko</annotation>
+		<annotation cp="🧝‍♀" type="tts">emakume elfo</annotation>
 		<annotation cp="🧞">djinn | iratxo</annotation>
 		<annotation cp="🧞" type="tts">iratxo</annotation>
-		<annotation cp="🧞‍♀">djinn | emakume iratxo</annotation>
-		<annotation cp="🧞‍♀" type="tts">emakume iratxo</annotation>
 		<annotation cp="🧞‍♂">djinn | gizon iratxo</annotation>
 		<annotation cp="🧞‍♂" type="tts">gizon iratxo</annotation>
+		<annotation cp="🧞‍♀">djinn | emakume iratxo</annotation>
+		<annotation cp="🧞‍♀" type="tts">emakume iratxo</annotation>
 		<annotation cp="🧟">hildako bizidun | hildako ibiltari | zonbi</annotation>
 		<annotation cp="🧟" type="tts">zonbi</annotation>
-		<annotation cp="🧟‍♀">emakume zonbi | hildako bizidun | hildako ibiltari</annotation>
-		<annotation cp="🧟‍♀" type="tts">emakume zonbi</annotation>
 		<annotation cp="🧟‍♂">gizon zonbi | hildako bizidun | hildako ibiltari</annotation>
 		<annotation cp="🧟‍♂" type="tts">gizon zonbi</annotation>
-		<annotation cp="🙍">keinu | kopeta | kopeta zimurtzen ari den pertsona | zimurtu</annotation>
-		<annotation cp="🙍" type="tts">kopeta zimurtzen ari den pertsona</annotation>
-		<annotation cp="🙍‍♂">gizon | gizonezko | keinu | kopeta | kopeta zimurtzen ari den gizona | zimurtu</annotation>
-		<annotation cp="🙍‍♂" type="tts">kopeta zimurtzen ari den gizona</annotation>
-		<annotation cp="🙍‍♀">emakume | emakumezko | keinu | kopeta | kopeta zimurtzen ari den emakumea | zimurtu</annotation>
-		<annotation cp="🙍‍♀" type="tts">kopeta zimurtzen ari den emakumea</annotation>
-		<annotation cp="🙎">keinu | muturtu | pertsona muturtua</annotation>
-		<annotation cp="🙎" type="tts">pertsona muturtua</annotation>
-		<annotation cp="🙎‍♂">gizon | gizon muturtua | gizonezko | keinu | muturtu</annotation>
-		<annotation cp="🙎‍♂" type="tts">gizon muturtua</annotation>
-		<annotation cp="🙎‍♀">emakume | emakume muturtua | emakumezko | keinu | muturtu</annotation>
-		<annotation cp="🙎‍♀" type="tts">emakume muturtua</annotation>
-		<annotation cp="🙅">ados ez dagoela adierazten ari den pertsona | debekatuta | esku | ez | galarazita | keinu</annotation>
-		<annotation cp="🙅" type="tts">ados ez dagoela adierazten ari den pertsona</annotation>
-		<annotation cp="🙅‍♂">ados ez dagoela adierazten ari den gizona | debekatuta | esku | ez | ez konforme | galarazita | gizon | gizonezko | keinu</annotation>
-		<annotation cp="🙅‍♂" type="tts">ados ez dagoela adierazten ari den gizona</annotation>
-		<annotation cp="🙅‍♀">ados ez dagoela adierazten ari den emakumea | debekatuta | emakume | emakumezko | esku | ez | ez konforme | galarazita | keinu</annotation>
-		<annotation cp="🙅‍♀" type="tts">ados ez dagoela adierazten ari den emakumea</annotation>
-		<annotation cp="🙆">ados | ados dagoela adierazten ari den pertsona | esku | keinu</annotation>
-		<annotation cp="🙆" type="tts">ados dagoela adierazten ari den pertsona</annotation>
-		<annotation cp="🙆‍♂">ados | ados dagoela adierazten ari den gizona | esku | gizon | gizonezko | keinu</annotation>
-		<annotation cp="🙆‍♂" type="tts">ados dagoela adierazten ari den gizona</annotation>
-		<annotation cp="🙆‍♀">ados | ados dagoela adierazten ari den emakumea | emakume | emakumezko | esku | keinu</annotation>
-		<annotation cp="🙆‍♀" type="tts">ados dagoela adierazten ari den emakumea</annotation>
-		<annotation cp="💁">eskean dabilen pertsona | esku | eskupeko | informazio | kokin | laguntza</annotation>
-		<annotation cp="💁" type="tts">eskean dabilen pertsona</annotation>
-		<annotation cp="💁‍♂">eskean dabilen gizona | eskupeko | gizon | gizonezko | kokin</annotation>
-		<annotation cp="💁‍♂" type="tts">eskean dabilen gizona</annotation>
-		<annotation cp="💁‍♀">emakume | emakumezko | eskean dabilen emakumea | esku | eskupeko | kokin</annotation>
-		<annotation cp="💁‍♀" type="tts">eskean dabilen emakumea</annotation>
-		<annotation cp="🙋">altxatuta | esku | eskua altxatzen ari den pertsona | keinu | pozik</annotation>
-		<annotation cp="🙋" type="tts">eskua altxatzen ari den pertsona</annotation>
-		<annotation cp="🙋‍♂">eskua altxatuta | eskua altxatzen ari den gizona | gizon | gizonezko | keinu</annotation>
-		<annotation cp="🙋‍♂" type="tts">eskua altxatzen ari den gizona</annotation>
-		<annotation cp="🙋‍♀">emakume | emakumezko | eskua altxatuta | eskua altxatzen ari den emakumea | keinu</annotation>
-		<annotation cp="🙋‍♀" type="tts">eskua altxatzen ari den emakumea</annotation>
-		<annotation cp="🙇">barkamen | barkatu | burua makurtzen ari den pertsona | keinu | makurtu</annotation>
-		<annotation cp="🙇" type="tts">burua makurtzen ari den pertsona</annotation>
-		<annotation cp="🙇‍♂">barkamen | barkatu | burua makurtzen ari den gizona | gizon | gizonezko | keinu | makurtu | mesede</annotation>
-		<annotation cp="🙇‍♂" type="tts">burua makurtzen ari den gizona</annotation>
-		<annotation cp="🙇‍♀">barkamen | barkatu | burua makurtzen ari den emakumea | emakume | emakumezko | keinu | makurtu | mesede</annotation>
-		<annotation cp="🙇‍♀" type="tts">burua makurtzen ari den emakumea</annotation>
-		<annotation cp="🤦">aurpegi | esku-azpi | esku-azpia aurpegian | sinesgaiztasun | sumindura</annotation>
-		<annotation cp="🤦" type="tts">esku-azpia aurpegian</annotation>
-		<annotation cp="🤦‍♂">esku-azpi | esku-azpia aurpegian duen gizona | gizon | gizonezko | sinesgaitasun | sumindura</annotation>
-		<annotation cp="🤦‍♂" type="tts">esku-azpia aurpegian duen gizona</annotation>
-		<annotation cp="🤦‍♀">emakume | emakumezko | esku-azpi | esku-azpia aurpegian duen emakumea | sinesgaitasun | sumindura</annotation>
-		<annotation cp="🤦‍♀" type="tts">esku-azpia aurpegian duen emakumea</annotation>
-		<annotation cp="🤷">altxatu | axolagabekeria | ezjakintasun | sorbalda | sorbaldak altxatu | zalantza</annotation>
-		<annotation cp="🤷" type="tts">sorbaldak altxatu</annotation>
-		<annotation cp="🤷‍♂">altxatu | axolagabekeria | ezjakintasuna | gizon | gizonezko | sorbaldak altxatzen ari den gizona | zalantza</annotation>
-		<annotation cp="🤷‍♂" type="tts">sorbaldak altxatzen ari den gizona</annotation>
-		<annotation cp="🤷‍♀">altxatu | axolagabekeria | emakumea | ezjakintasuna | sorbaldak altxatzen ari den emakumea | zalantza</annotation>
-		<annotation cp="🤷‍♀" type="tts">sorbaldak altxatzen ari den emakumea</annotation>
+		<annotation cp="🧟‍♀">emakume zonbi | hildako bizidun | hildako ibiltari</annotation>
+		<annotation cp="🧟‍♀" type="tts">emakume zonbi</annotation>
 		<annotation cp="💆">aurpegi | masaje | masajea egiten ari dioten pertsona | zentro</annotation>
 		<annotation cp="💆" type="tts">masajea egiten ari dioten pertsona</annotation>
 		<annotation cp="💆‍♂">aurpegi | aurpegian masajea egiten ari dioten pertsona | gizon | gizonezko | masaje | masajea jasotzen ari den pertsona</annotation>
@@ -529,6 +699,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💃" type="tts">dantzan ari den emakumea</annotation>
 		<annotation cp="🕺">dantza | gizon | gizona dantzan</annotation>
 		<annotation cp="🕺" type="tts">gizona dantzan</annotation>
+		<annotation cp="🕴">enpresa | gizon | traje | trajea daraman eta lebitatzen ari den gizona</annotation>
+		<annotation cp="🕴" type="tts">trajea daraman eta lebitatzen ari den gizona</annotation>
 		<annotation cp="👯">belarri | dantzari | neska | parrandan ari den jendea | untxi</annotation>
 		<annotation cp="👯" type="tts">parrandan ari den jendea</annotation>
 		<annotation cp="👯‍♂">belarri | dantzari | parranda | parrandan ari diren gizonak | parrandan ari diren pertsonak | untxi</annotation>
@@ -537,34 +709,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👯‍♀" type="tts">parrandan ari diren emakumeak</annotation>
 		<annotation cp="🧖">lurrun-gela | pertsona bat lurrun-gelan | sauna</annotation>
 		<annotation cp="🧖" type="tts">pertsona bat lurrun-gelan</annotation>
-		<annotation cp="🧖‍♀">emakume bat lurrun-gelan | lurrun-gela | sauna</annotation>
-		<annotation cp="🧖‍♀" type="tts">emakume bat lurrun-gelan</annotation>
 		<annotation cp="🧖‍♂">gizon bat lurrun-gelan | lurrun-gela | sauna</annotation>
 		<annotation cp="🧖‍♂" type="tts">gizon bat lurrun-gelan</annotation>
+		<annotation cp="🧖‍♀">emakume bat lurrun-gelan | lurrun-gela | sauna</annotation>
+		<annotation cp="🧖‍♀" type="tts">emakume bat lurrun-gelan</annotation>
 		<annotation cp="🧗">eskalatzailea | pertsona bat eskalatzen</annotation>
 		<annotation cp="🧗" type="tts">pertsona bat eskalatzen</annotation>
-		<annotation cp="🧗‍♀">emakume eskalatzaile | eskalatzaile</annotation>
-		<annotation cp="🧗‍♀" type="tts">emakume eskalatzaile</annotation>
 		<annotation cp="🧗‍♂">eskalatzaile | gizon eskalatzaile</annotation>
 		<annotation cp="🧗‍♂" type="tts">gizon eskalatzaile</annotation>
-		<annotation cp="🧘">meditazio | pertsona bat loto-posizioan | yoga</annotation>
-		<annotation cp="🧘" type="tts">pertsona bat loto-posizioan</annotation>
-		<annotation cp="🧘‍♀">emakume bat loto-posizioan | meditazio | yoga</annotation>
-		<annotation cp="🧘‍♀" type="tts">emakume bat loto-posizioan</annotation>
-		<annotation cp="🧘‍♂">gizon bat loto-posizioan | meditazio | yoga</annotation>
-		<annotation cp="🧘‍♂" type="tts">gizon bat loto-posizioan</annotation>
-		<annotation cp="🛀">bainu | bainuontzi | pertsona bat bainatzen</annotation>
-		<annotation cp="🛀" type="tts">pertsona bat bainatzen</annotation>
-		<annotation cp="🛌">hotel | lo | pertsona bat ohean</annotation>
-		<annotation cp="🛌" type="tts">pertsona bat ohean</annotation>
-		<annotation cp="🕴">enpresa | gizon | traje | trajea daraman eta lebitatzen ari den gizona</annotation>
-		<annotation cp="🕴" type="tts">trajea daraman eta lebitatzen ari den gizona</annotation>
-		<annotation cp="🗣">aurpegi | aurrera hitz egiten ari den burua | buru | hitz egin | hizketan ari den burua | silueta</annotation>
-		<annotation cp="🗣" type="tts">aurrera hitz egiten ari den burua</annotation>
-		<annotation cp="👤">silueta | soin | soinaren silueta</annotation>
-		<annotation cp="👤" type="tts">soinaren silueta</annotation>
-		<annotation cp="👥">silueta | soin | soinen siluetak</annotation>
-		<annotation cp="👥" type="tts">soinen siluetak</annotation>
+		<annotation cp="🧗‍♀">emakume eskalatzaile | eskalatzaile</annotation>
+		<annotation cp="🧗‍♀" type="tts">emakume eskalatzaile</annotation>
 		<annotation cp="🤺">eskrima | eskrimalari | eskrimalaria | ezpata | kirol | pertsona</annotation>
 		<annotation cp="🤺" type="tts">eskrimalaria</annotation>
 		<annotation cp="🏇">lasterketa | zaldi | zaldi-lasterketa | zaldizko</annotation>
@@ -621,10 +775,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚵‍♂" type="tts">mendiko bizikletan dabilen gizona</annotation>
 		<annotation cp="🚵‍♀">bizikleta | emakume | mendi | mendiko bizikletan dabilen emakumea | txirrindulari</annotation>
 		<annotation cp="🚵‍♀" type="tts">mendiko bizikletan dabilen emakumea</annotation>
-		<annotation cp="🏎">auto | lasterketa | lasterketa-autoa</annotation>
-		<annotation cp="🏎" type="tts">lasterketa-autoa</annotation>
-		<annotation cp="🏍">lasterketa | motozikleta</annotation>
-		<annotation cp="🏍" type="tts">motozikleta</annotation>
 		<annotation cp="🤸">alboko gurpil | alboko gurpila | gimnasia | kirol | pertsona</annotation>
 		<annotation cp="🤸" type="tts">alboko gurpila</annotation>
 		<annotation cp="🤸‍♂">gimnasia | gizon | gurpil | gurpil-ariketa egiten ari den gizona | kirol</annotation>
@@ -655,110 +805,36 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤹‍♂" type="tts">gizona malabarismotan</annotation>
 		<annotation cp="🤹‍♀">emakume | emakumea malabarismotan | emakumezko | malabarismo | zeregin ugari</annotation>
 		<annotation cp="🤹‍♀" type="tts">emakumea malabarismotan</annotation>
-		<annotation cp="👫">bikote | emakume | esku | eutsi | gizon | gizon-emakumeak batak bestearen eskuari eusten</annotation>
-		<annotation cp="👫" type="tts">gizon-emakumeak batak bestearen eskuari eusten</annotation>
-		<annotation cp="👬">bi gizon batak bestearen eskuari eusten | biki | bikote | esku | eutsi | gemini | gizon | zodiako</annotation>
-		<annotation cp="👬" type="tts">bi gizon batak bestearen eskuari eusten</annotation>
-		<annotation cp="👭">bi emakume batak bestearen eskuari eusten | bikote | emakume | esku | eutsi</annotation>
-		<annotation cp="👭" type="tts">bi emakume batak bestearen eskuari eusten</annotation>
+		<annotation cp="🧘">meditazio | pertsona bat loto-posizioan | yoga</annotation>
+		<annotation cp="🧘" type="tts">pertsona bat loto-posizioan</annotation>
+		<annotation cp="🧘‍♂">gizon bat loto-posizioan | meditazio | yoga</annotation>
+		<annotation cp="🧘‍♂" type="tts">gizon bat loto-posizioan</annotation>
+		<annotation cp="🧘‍♀">emakume bat loto-posizioan | meditazio | yoga</annotation>
+		<annotation cp="🧘‍♀" type="tts">emakume bat loto-posizioan</annotation>
+		<annotation cp="🛀">bainu | bainuontzi | pertsona bat bainatzen</annotation>
+		<annotation cp="🛀" type="tts">pertsona bat bainatzen</annotation>
+		<annotation cp="🛌">hotel | lo | pertsona bat ohean</annotation>
+		<annotation cp="🛌" type="tts">pertsona bat ohean</annotation>
+		<annotation cp="👫">bikote | elkarri eskua ematen | emakume | eman | esku | gizon</annotation>
+		<annotation cp="👫" type="tts">gizon-emakumeak elkarri eskua ematen</annotation>
+		<annotation cp="👬">biki | bikote | elkarri eskua ematen | gemini | gizon | zodiako</annotation>
+		<annotation cp="👬" type="tts">bi gizon elkarri eskua ematen</annotation>
+		<annotation cp="👭">bi emakume elkarri eskua ematen | bikote | emakume | eman | esku</annotation>
+		<annotation cp="👭" type="tts">bi emakume elkarri eskua ematen</annotation>
 		<annotation cp="💏">bikote | musu</annotation>
 		<annotation cp="💏" type="tts">musu</annotation>
 		<annotation cp="💑">bihotz | bihotza erdian duen bikotea | bikote | maitasun</annotation>
 		<annotation cp="💑" type="tts">bihotza erdian duen bikotea</annotation>
 		<annotation cp="👪">aita | ama | familia | haur</annotation>
 		<annotation cp="👪" type="tts">familia</annotation>
-		<annotation cp="🤳">autoargazki | autoargazkia | kamera | telefono</annotation>
-		<annotation cp="🤳" type="tts">autoargazkia</annotation>
-		<annotation cp="💪">bizeps | bizepsak | flexio | gihar | gorputz | komiki</annotation>
-		<annotation cp="💪" type="tts">bizepsak</annotation>
-		<annotation cp="🦵">gorputz-adar | hanka | ostikada</annotation>
-		<annotation cp="🦵" type="tts">hanka</annotation>
-		<annotation cp="🦶">oina | ostikada | zanpatu</annotation>
-		<annotation cp="🦶" type="tts">oina</annotation>
-		<annotation cp="👈">erakusle | esku | ezkerrera seinalatzen ari den hatz erakuslea | hatz | seinalatu</annotation>
-		<annotation cp="👈" type="tts">ezkerrera seinalatzen ari den hatz erakuslea</annotation>
-		<annotation cp="👉">erakusle | esku | eskuinera seinalatzen ari den hatz erakuslea | hatz | seinalatu</annotation>
-		<annotation cp="👉" type="tts">eskuinera seinalatzen ari den hatz erakuslea</annotation>
-		<annotation cp="☝">erakusle | esku | gora seinalatzen ari den hatz erakuslea | hatz | seinalatu</annotation>
-		<annotation cp="☝" type="tts">gora seinalatzen ari den hatz erakuslea</annotation>
-		<annotation cp="👆">erakusle | esku | gora seinalatzen ari den hatz erakuslearen atzealdea | gora seinalatzen ari den hatza | hatz | seinalatu</annotation>
-		<annotation cp="👆" type="tts">gora seinalatzen ari den hatza</annotation>
-		<annotation cp="🖕">erdiko hatza | esku | gorputz | hatz</annotation>
-		<annotation cp="🖕" type="tts">erdiko hatza</annotation>
-		<annotation cp="👇">behera seinalatzen ari den hatz erakuslearen atzealdea | behera seinalatzen ari den hatza | erakusle | esku | hatz | seinalatu</annotation>
-		<annotation cp="👇" type="tts">behera seinalatzen ari den hatza</annotation>
-		<annotation cp="✌">esku | garaipen | garaipena adierazten duen eskua | gorputz | v</annotation>
-		<annotation cp="✌" type="tts">garaipena adierazten duen eskua</annotation>
-		<annotation cp="🤞">esku | gurutzatu | hatz | hatz gurutzatuak | zorte</annotation>
-		<annotation cp="🤞" type="tts">hatz gurutzatuak</annotation>
-		<annotation cp="🖖">agur vulkaniar | esku | hatz | spock | vulkaniar | vulkaniar agurra</annotation>
-		<annotation cp="🖖" type="tts">vulkaniar agurra</annotation>
-		<annotation cp="🤘">adar | adarrak adierazten dituen eskua | esku | gorputz | hatz</annotation>
-		<annotation cp="🤘" type="tts">adarrak adierazten dituen eskua</annotation>
-		<annotation cp="🤙">deitu | deitzeko esku-keinua | esku</annotation>
-		<annotation cp="🤙" type="tts">deitzeko esku-keinua</annotation>
-		<annotation cp="🖐">esku | esku altxatua eta hatz hedatuak | gorputz | hatz | hedatu</annotation>
-		<annotation cp="🖐" type="tts">esku altxatua eta hatz hedatuak</annotation>
-		<annotation cp="✋">esku | esku altxatua | gorputz</annotation>
-		<annotation cp="✋" type="tts">esku altxatua</annotation>
-		<annotation cp="👌">ados | adostasuna adierazten duen eskua | esku | gorputz | ok</annotation>
-		<annotation cp="👌" type="tts">adostasuna adierazten duen eskua</annotation>
-		<annotation cp="👍">erpuru | erpurua gora | esku | gora | gorputz</annotation>
-		<annotation cp="👍" type="tts">erpurua gora</annotation>
-		<annotation cp="👎">behera | erpuru | erpurua behera | esku | gorputz</annotation>
-		<annotation cp="👎" type="tts">erpurua behera</annotation>
-		<annotation cp="✊">esku | estutu | ukabil | ukabil altxatua | ukabilkada</annotation>
-		<annotation cp="✊" type="tts">ukabil altxatua</annotation>
-		<annotation cp="👊">esku | estutu | gorputz | ukabil | ukabilkada</annotation>
-		<annotation cp="👊" type="tts">ukabilkada</annotation>
-		<annotation cp="🤛">ezkerrera | ukabil | ukabila ezkerrera begira</annotation>
-		<annotation cp="🤛" type="tts">ukabila ezkerrera begira</annotation>
-		<annotation cp="🤜">eskuinera | ukabil | ukabila eskuinera begira</annotation>
-		<annotation cp="🤜" type="tts">ukabila eskuinera begira</annotation>
-		<annotation cp="🤚">altxatuta | esku-azpi | esku-azpia altxatuta</annotation>
-		<annotation cp="🤚" type="tts">esku-azpia altxatuta</annotation>
-		<annotation cp="👋">esku | gorputz | mugitu | mugitzen ari den eskua</annotation>
-		<annotation cp="👋" type="tts">mugitzen ari den eskua</annotation>
-		<annotation cp="🤟">adarren keinu | adarren keinua | esku</annotation>
-		<annotation cp="🤟" type="tts">adarren keinua</annotation>
-		<annotation cp="✍">esku | gorputz | idatzi | idazten ari den eskua</annotation>
-		<annotation cp="✍" type="tts">idazten ari den eskua</annotation>
-		<annotation cp="👏">esku | gorputz | txalo | txaloka ari diren eskuak</annotation>
-		<annotation cp="👏" type="tts">txaloka ari diren eskuak</annotation>
-		<annotation cp="👐">esku | esku irekiak | gorputz | ireki</annotation>
-		<annotation cp="👐" type="tts">esku irekiak</annotation>
-		<annotation cp="🙌">altxatu | esku | eskuak altxatzen ari den pertsona | keinu | ospakizun</annotation>
-		<annotation cp="🙌" type="tts">eskuak altxatzen ari den pertsona</annotation>
-		<annotation cp="🤲">esku-azpiak elkartuta | otoitza</annotation>
-		<annotation cp="🤲" type="tts">esku-azpiak elkartuta</annotation>
-		<annotation cp="🙏">erregutzen ari diren eskuak | eskatu | eskerrak | mesedez | otoitz</annotation>
-		<annotation cp="🙏" type="tts">erregutzen ari diren eskuak</annotation>
-		<annotation cp="🤝">adostasun | bilera | esku | esku-emate | esku-ematea</annotation>
-		<annotation cp="🤝" type="tts">esku-ematea</annotation>
-		<annotation cp="💅">azazkal | azazkaletako esmaltea | edertasun | esmalte | gorputz | kosmetika | manikura</annotation>
-		<annotation cp="💅" type="tts">azazkaletako esmaltea</annotation>
-		<annotation cp="👂">belarria | gorputz</annotation>
-		<annotation cp="👂" type="tts">belarria</annotation>
-		<annotation cp="👃">gorputz | sudurra</annotation>
-		<annotation cp="👃" type="tts">sudurra</annotation>
+		<annotation cp="🗣">aurpegi | aurrera hitz egiten ari den burua | buru | hitz egin | hizketan ari den burua | silueta</annotation>
+		<annotation cp="🗣" type="tts">aurrera hitz egiten ari den burua</annotation>
+		<annotation cp="👤">silueta | soin | soinaren silueta</annotation>
+		<annotation cp="👤" type="tts">soinaren silueta</annotation>
+		<annotation cp="👥">silueta | soin | soinen siluetak</annotation>
+		<annotation cp="👥" type="tts">soinen siluetak</annotation>
 		<annotation cp="👣">arropa | aztarna | gorputz | oin | oin-aztarnak</annotation>
 		<annotation cp="👣" type="tts">oin-aztarnak</annotation>
-		<annotation cp="👀">aurpegi | begi | begiak | gorputz</annotation>
-		<annotation cp="👀" type="tts">begiak</annotation>
-		<annotation cp="👁">begi | gorputz</annotation>
-		<annotation cp="👁" type="tts">begi</annotation>
-		<annotation cp="👁‍🗨">begi | begi bat duen bunbuiloa | bunbuilo | lekuko</annotation>
-		<annotation cp="👁‍🗨" type="tts">begi bat duen bunbuiloa</annotation>
-		<annotation cp="🧠">adimentsu | argi | azkar | burmuina</annotation>
-		<annotation cp="🧠" type="tts">burmuina</annotation>
-		<annotation cp="🦴">eskeleto | hezurra</annotation>
-		<annotation cp="🦴" type="tts">hezurra</annotation>
-		<annotation cp="🦷">dentista | hortza</annotation>
-		<annotation cp="🦷" type="tts">hortza</annotation>
-		<annotation cp="👅">gorputz | mingaina</annotation>
-		<annotation cp="👅" type="tts">mingaina</annotation>
-		<annotation cp="👄">ahoa | ezpainak | gorputz</annotation>
-		<annotation cp="👄" type="tts">ahoa</annotation>
 		<annotation cp="🦰">ilegorri | kaskagorri</annotation>
 		<annotation cp="🦰" type="tts">ilegorri</annotation>
 		<annotation cp="🦱">afro | ile kizkur | kiribil | kizkur</annotation>
@@ -767,142 +843,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦳" type="tts">ilezuri</annotation>
 		<annotation cp="🦲">burusoil | ilegabe | ilerik gabe | kimioterapia | soildu</annotation>
 		<annotation cp="🦲" type="tts">burusoil</annotation>
-		<annotation cp="💋">ezpainak | musu | musu-aztarna</annotation>
-		<annotation cp="💋" type="tts">musu-aztarna</annotation>
-		<annotation cp="💘">bihotz | bihotza geziarekin | gezi | kupido</annotation>
-		<annotation cp="💘" type="tts">bihotza geziarekin</annotation>
-		<annotation cp="💝">begizta | bihotz | bihotza begiztarekin | valentin</annotation>
-		<annotation cp="💝" type="tts">bihotza begiztarekin</annotation>
-		<annotation cp="💖">bihotz | bihotz distiratsua | distira | urduri</annotation>
-		<annotation cp="💖" type="tts">bihotz distiratsua</annotation>
-		<annotation cp="💗">bihotz | handitu | handitzen ari den bihotza | taupada | urduri | urduritasun</annotation>
-		<annotation cp="💗" type="tts">handitzen ari den bihotza</annotation>
-		<annotation cp="💓">bihotz | bihotz-taupada | taupada</annotation>
-		<annotation cp="💓" type="tts">bihotz-taupada</annotation>
-		<annotation cp="💞">bihotz | biraka | biraka ari diren bihotzak</annotation>
-		<annotation cp="💞" type="tts">biraka ari diren bihotzak</annotation>
-		<annotation cp="💕">bi bihotz | bihotz | maitasun</annotation>
-		<annotation cp="💕" type="tts">bi bihotz</annotation>
-		<annotation cp="💌">bihotz | gutun | maitasun | maitasun-gutuna | posta</annotation>
-		<annotation cp="💌" type="tts">maitasun-gutuna</annotation>
-		<annotation cp="❣">bihotz | bihotz-itxurako harridura-marka | harridura | marka | puntuazioa</annotation>
-		<annotation cp="❣" type="tts">bihotz-itxurako harridura-marka</annotation>
-		<annotation cp="💔">bihotz | bihotz hautsia | hautsi | hautsita</annotation>
-		<annotation cp="💔" type="tts">bihotz hautsia</annotation>
-		<annotation cp="❤">bihotz | bihotz gorria</annotation>
-		<annotation cp="❤" type="tts">bihotz gorria</annotation>
-		<annotation cp="🧡">bihotz laranja | laranja</annotation>
-		<annotation cp="🧡" type="tts">bihotz laranja</annotation>
-		<annotation cp="💛">bihotz | bihotz horia | hori</annotation>
-		<annotation cp="💛" type="tts">bihotz horia</annotation>
-		<annotation cp="💚">berde | bihotz | bihotz berdea</annotation>
-		<annotation cp="💚" type="tts">bihotz berdea</annotation>
-		<annotation cp="💙">bihotz | bihotz urdina | urdin</annotation>
-		<annotation cp="💙" type="tts">bihotz urdina</annotation>
-		<annotation cp="💜">bihotz | bihotz morea | more</annotation>
-		<annotation cp="💜" type="tts">bihotz morea</annotation>
-		<annotation cp="🖤">beltz | bihotz | bihotz beltza | zital | zorigaitz</annotation>
-		<annotation cp="🖤" type="tts">bihotz beltza</annotation>
-		<annotation cp="💟">bihotz | bihotz apaindua</annotation>
-		<annotation cp="💟" type="tts">bihotz apaindua</annotation>
-		<annotation cp="💤">komiki | lo | zzz</annotation>
-		<annotation cp="💤" type="tts">zzz</annotation>
-		<annotation cp="💢">amorruaren ikurra | haserre | komiki | sutan</annotation>
-		<annotation cp="💢" type="tts">amorruaren ikurra</annotation>
-		<annotation cp="💣">komiki | lehergailua</annotation>
-		<annotation cp="💣" type="tts">lehergailua</annotation>
-		<annotation cp="💥">bum | eztanda | komiki</annotation>
-		<annotation cp="💥" type="tts">eztanda</annotation>
-		<annotation cp="💦">izerdi | izerdi-tantatxoak | komiki | zipriztin</annotation>
-		<annotation cp="💦" type="tts">izerdi-tantatxoak</annotation>
-		<annotation cp="💨">bizi | komiki | korrika | lasterka | ziztu bizian</annotation>
-		<annotation cp="💨" type="tts">ziztu bizian</annotation>
-		<annotation cp="💫">izar | komiki | zorabiatuta</annotation>
-		<annotation cp="💫" type="tts">zorabiatuta</annotation>
-		<annotation cp="💬">bunbuilo | bunbuiloa | elkarrizketa | hizketa | komiki</annotation>
-		<annotation cp="💬" type="tts">bunbuiloa</annotation>
-		<annotation cp="🗨">elkarrizketa | ezkerrera doan bunbuiloa | hizketa</annotation>
-		<annotation cp="🗨" type="tts">ezkerrera doan bunbuiloa</annotation>
-		<annotation cp="🗯">bunbuilo | eskuinera doan sumindura-bunbuiloa | haserre | sumindu</annotation>
-		<annotation cp="🗯" type="tts">eskuinera doan sumindura-bunbuiloa</annotation>
-		<annotation cp="💭">bunbuilo | burutazio | burutazio-bunbuiloa | komiki | pentsamendu</annotation>
-		<annotation cp="💭" type="tts">burutazio-bunbuiloa</annotation>
-		<annotation cp="🕳">zulo | zuloa</annotation>
-		<annotation cp="🕳" type="tts">zuloa</annotation>
-		<annotation cp="👓">arropa | begi | betaurreko | betaurrekoak</annotation>
-		<annotation cp="👓" type="tts">betaurrekoak</annotation>
-		<annotation cp="🕶">begi | betaurreko | eguzkitako betaurrekoak | ilun</annotation>
-		<annotation cp="🕶" type="tts">eguzkitako betaurrekoak</annotation>
-		<annotation cp="🥽">begien babes | igeriketa | igeriketako betaurrekoak | soldadura</annotation>
-		<annotation cp="🥽" type="tts">igeriketako betaurrekoak</annotation>
-		<annotation cp="🥼">esperimentu | laborategiko jantzia | mediku | zientzialari</annotation>
-		<annotation cp="🥼" type="tts">laborategiko jantzia</annotation>
-		<annotation cp="👔">arropa | gorbata</annotation>
-		<annotation cp="👔" type="tts">gorbata</annotation>
-		<annotation cp="👕">alkandora | arropa | elastiko | elastikoa</annotation>
-		<annotation cp="👕" type="tts">elastikoa</annotation>
-		<annotation cp="👖">arropa | galtza bakeroak | galtzak | prakak</annotation>
-		<annotation cp="👖" type="tts">galtza bakeroak</annotation>
-		<annotation cp="🧣">lepoa | zapi</annotation>
-		<annotation cp="🧣" type="tts">zapi</annotation>
-		<annotation cp="🧤">esku | eskularruak</annotation>
-		<annotation cp="🧤" type="tts">eskularruak</annotation>
-		<annotation cp="🧥">berokia | jaka</annotation>
-		<annotation cp="🧥" type="tts">berokia</annotation>
-		<annotation cp="🧦">galtzerdiak | galtzeta</annotation>
-		<annotation cp="🧦" type="tts">galtzerdiak</annotation>
-		<annotation cp="👗">arropa | soinekoa</annotation>
-		<annotation cp="👗" type="tts">soinekoa</annotation>
-		<annotation cp="👘">arropa | kimonoa</annotation>
-		<annotation cp="👘" type="tts">kimonoa</annotation>
-		<annotation cp="👙">arropa | bikinia | igeri</annotation>
-		<annotation cp="👙" type="tts">bikinia</annotation>
-		<annotation cp="👚">arropa | emakume | emakumeentzako arropa</annotation>
-		<annotation cp="👚" type="tts">emakumeentzako arropa</annotation>
-		<annotation cp="👛">arropa | diru-zorroa | txanpon</annotation>
-		<annotation cp="👛" type="tts">diru-zorroa</annotation>
-		<annotation cp="👜">arropa | eskuko poltsa | poltsa</annotation>
-		<annotation cp="👜" type="tts">eskuko poltsa</annotation>
-		<annotation cp="👝">arropa | poltsa | zorroa</annotation>
-		<annotation cp="👝" type="tts">zorroa</annotation>
-		<annotation cp="🛍">erosketa | erosketa-poltsak | hotel | poltsa</annotation>
-		<annotation cp="🛍" type="tts">erosketa-poltsak</annotation>
-		<annotation cp="🎒">bizkar-zorro | eskola | eskolako bizkar-zorroa | poltsa</annotation>
-		<annotation cp="🎒" type="tts">eskolako bizkar-zorroa</annotation>
-		<annotation cp="👞">arropa | gizon | gizonentzako oinetakoa | oinetako</annotation>
-		<annotation cp="👞" type="tts">gizonentzako oinetakoa</annotation>
-		<annotation cp="👟">arropa | kirol | korrika egiteko oinetakoa | oinetako</annotation>
-		<annotation cp="👟" type="tts">korrika egiteko oinetakoa</annotation>
-		<annotation cp="🥾">bota | kanpin | mendiko bota | motxila | xendazaletasun</annotation>
-		<annotation cp="🥾" type="tts">mendiko bota</annotation>
-		<annotation cp="🥿">mokasin | zapata lau | zapata laua | zapatila</annotation>
-		<annotation cp="🥿" type="tts">zapata laua</annotation>
-		<annotation cp="👠">arropa | emakume | oinetako | oinetako takoidunak | takoi</annotation>
-		<annotation cp="👠" type="tts">oinetako takoidunak</annotation>
-		<annotation cp="👡">arropa | emakume | emakumeentzako sandalia | oinetako | sandalia</annotation>
-		<annotation cp="👡" type="tts">emakumeentzako sandalia</annotation>
-		<annotation cp="👢">arropa | bota | emakume | emakumeentzako bota | oinetako</annotation>
-		<annotation cp="👢" type="tts">emakumeentzako bota</annotation>
-		<annotation cp="👑">arropa | errege | erregina | koroa</annotation>
-		<annotation cp="👑" type="tts">koroa</annotation>
-		<annotation cp="👒">arropa | emakume | emakumeentzako kapelua | kapelu</annotation>
-		<annotation cp="👒" type="tts">emakumeentzako kapelua</annotation>
-		<annotation cp="🎩">altu | arropa | kapelu | kapelu altua</annotation>
-		<annotation cp="🎩" type="tts">kapelu altua</annotation>
-		<annotation cp="🎓">arropa | graduatu-txanoa | graduazio | ospakizun | txano</annotation>
-		<annotation cp="🎓" type="tts">graduatu-txanoa</annotation>
-		<annotation cp="🧢">bixera</annotation>
-		<annotation cp="🧢" type="tts">bixera</annotation>
-		<annotation cp="⛑">aurpegi | gurutze | kasko | kaskoa gurutze zuriarekin | laguntza</annotation>
-		<annotation cp="⛑" type="tts">kaskoa gurutze zuriarekin</annotation>
-		<annotation cp="📿">arrosario | arrosarioa | erlijio | lepoko | otoitz</annotation>
-		<annotation cp="📿" type="tts">arrosarioa</annotation>
-		<annotation cp="💄">ezpain-margoa | kosmetika | makillaje</annotation>
-		<annotation cp="💄" type="tts">ezpain-margoa</annotation>
-		<annotation cp="💍">diamante | eraztuna</annotation>
-		<annotation cp="💍" type="tts">eraztuna</annotation>
-		<annotation cp="💎">bitxi | diamante | harribitxia</annotation>
-		<annotation cp="💎" type="tts">harribitxia</annotation>
+		<annotation cp="♀">emakume | emakumeen ikurra | emakumezko</annotation>
+		<annotation cp="♀" type="tts">emakumeen ikurra</annotation>
+		<annotation cp="♂">gizon | gizonen ikurra | gizonezko</annotation>
+		<annotation cp="♂" type="tts">gizonen ikurra</annotation>
 		<annotation cp="🐵">aurpegi | tximu | tximu-aurpegia</annotation>
 		<annotation cp="🐵" type="tts">tximu-aurpegia</annotation>
 		<annotation cp="🐒">tximu | tximua</annotation>
@@ -913,12 +857,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐶" type="tts">txakur-aurpegia</annotation>
 		<annotation cp="🐕">maskota | txakur</annotation>
 		<annotation cp="🐕" type="tts">txakur</annotation>
+		<annotation cp="🐕‍🦺">irisgarritasun | laguntza | txakur</annotation>
+		<annotation cp="🐕‍🦺" type="tts">laguntza-txakurra</annotation>
 		<annotation cp="🐩">canichea | txakur</annotation>
 		<annotation cp="🐩" type="tts">canichea</annotation>
 		<annotation cp="🐺">aurpegi | otso | otso-aurpegia</annotation>
 		<annotation cp="🐺" type="tts">otso-aurpegia</annotation>
-		<annotation cp="🦊">animalia | aurpegi | azeri | azeria</annotation>
-		<annotation cp="🦊" type="tts">azeria</annotation>
+		<annotation cp="🦊">aurpegi | azeri | azeri-aurpegia</annotation>
+		<annotation cp="🦊" type="tts">azeri-aurpegia</annotation>
 		<annotation cp="🦝">kuxkuxero | maltzur | mapatxe</annotation>
 		<annotation cp="🦝" type="tts">mapatxe</annotation>
 		<annotation cp="🐱">aurpegi | katu | katu-aurpegia | maskota</annotation>
@@ -1007,8 +953,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦘" type="tts">kanguru</annotation>
 		<annotation cp="🦡">azkonar | azkonar eztijale | gogaitu</annotation>
 		<annotation cp="🦡" type="tts">azkonar</annotation>
-		<annotation cp="🐾">atzapar | atzapar-aztarnak | aztarna | oin</annotation>
-		<annotation cp="🐾" type="tts">atzapar-aztarnak</annotation>
 		<annotation cp="🦃">indioilar | indioilarra</annotation>
 		<annotation cp="🦃" type="tts">indioilarra</annotation>
 		<annotation cp="🐔">oilo | oiloa</annotation>
@@ -1075,14 +1019,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐙" type="tts">olagarroa</annotation>
 		<annotation cp="🐚">espiral | oskol | oskol espirala</annotation>
 		<annotation cp="🐚" type="tts">oskol espirala</annotation>
-		<annotation cp="🦀">cancer | karramarroa | zodiako</annotation>
-		<annotation cp="🦀" type="tts">karramarroa</annotation>
-		<annotation cp="🦞">itsaski | itsaski-krema | matxarda | otarrain</annotation>
-		<annotation cp="🦞" type="tts">otarrain</annotation>
-		<annotation cp="🦐">ganba | itsaski | janari | txiki</annotation>
-		<annotation cp="🦐" type="tts">ganba</annotation>
-		<annotation cp="🦑">janari | molusku | txibia</annotation>
-		<annotation cp="🦑" type="tts">txibia</annotation>
 		<annotation cp="🐌">barraskilo | barraskiloa</annotation>
 		<annotation cp="🐌" type="tts">barraskiloa</annotation>
 		<annotation cp="🦋">intsektu | pinpilinpauxa | polit</annotation>
@@ -1114,7 +1050,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💮">lore | lore zuria</annotation>
 		<annotation cp="💮" type="tts">lore zuria</annotation>
 		<annotation cp="🏵">landare | saria</annotation>
-		<annotation cp="🏵" type="tts">saria</annotation>
+		<annotation cp="🏵" type="tts">kondekorazioa</annotation>
 		<annotation cp="🌹">arrosa | landare | lore</annotation>
 		<annotation cp="🌹" type="tts">arrosa</annotation>
 		<annotation cp="🥀">lore | lore zimela | zimel</annotation>
@@ -1299,6 +1235,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥠" type="tts">zortearen gaileta</annotation>
 		<annotation cp="🥡">eramateko kaxa | janari txinatarra eramateko ontzi</annotation>
 		<annotation cp="🥡" type="tts">eramateko kaxa</annotation>
+		<annotation cp="🦀">cancer | karramarroa | zodiako</annotation>
+		<annotation cp="🦀" type="tts">karramarroa</annotation>
+		<annotation cp="🦞">itsaski | itsaski-krema | matxarda | otarrain</annotation>
+		<annotation cp="🦞" type="tts">otarrain</annotation>
+		<annotation cp="🦐">ganba | itsaski | janari | txiki</annotation>
+		<annotation cp="🦐" type="tts">ganba</annotation>
+		<annotation cp="🦑">janari | molusku | txibia</annotation>
+		<annotation cp="🦑" type="tts">txibia</annotation>
 		<annotation cp="🍦">esne | gozo | izotz | izozki | izozki krematsua | postre</annotation>
 		<annotation cp="🍦" type="tts">izozki krematsua</annotation>
 		<annotation cp="🍧">arraspatu | gozo | izotz | izotz arraspatua | postre</annotation>
@@ -1547,14 +1491,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚛" type="tts">kamioi artikulatua</annotation>
 		<annotation cp="🚜">ibilgailu | traktorea</annotation>
 		<annotation cp="🚜" type="tts">traktorea</annotation>
+		<annotation cp="🏎">auto | lasterketa | lasterketa-autoa</annotation>
+		<annotation cp="🏎" type="tts">lasterketa-autoa</annotation>
+		<annotation cp="🏍">lasterketa | motozikleta</annotation>
+		<annotation cp="🏍" type="tts">motozikleta</annotation>
+		<annotation cp="🛵">moto | motoa | scooter</annotation>
+		<annotation cp="🛵" type="tts">motoa</annotation>
 		<annotation cp="🚲">ibilgailu | ziklomotor | ziklomotorra</annotation>
 		<annotation cp="🚲" type="tts">ziklomotorra</annotation>
 		<annotation cp="🛴">kick | patinetea | scooter</annotation>
 		<annotation cp="🛴" type="tts">patinetea</annotation>
 		<annotation cp="🛹">patinete | skateboard</annotation>
 		<annotation cp="🛹" type="tts">skateboard</annotation>
-		<annotation cp="🛵">moto | motoa | scooter</annotation>
-		<annotation cp="🛵" type="tts">motoa</annotation>
 		<annotation cp="🚏">autobus | autobus-geltokia | geltoki | stop</annotation>
 		<annotation cp="🚏" type="tts">autobus-geltokia</annotation>
 		<annotation cp="🛣">autobide | autobidea | errepide</annotation>
@@ -1923,6 +1871,80 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧵" type="tts">hari</annotation>
 		<annotation cp="🧶">bola | harilko | kakorratz | puntu</annotation>
 		<annotation cp="🧶" type="tts">harilko</annotation>
+		<annotation cp="👓">arropa | begi | betaurreko | betaurrekoak</annotation>
+		<annotation cp="👓" type="tts">betaurrekoak</annotation>
+		<annotation cp="🕶">begi | betaurreko | eguzkitako betaurrekoak | ilun</annotation>
+		<annotation cp="🕶" type="tts">eguzkitako betaurrekoak</annotation>
+		<annotation cp="🥽">begien babes | igeriketa | igeriketako betaurrekoak | soldadura</annotation>
+		<annotation cp="🥽" type="tts">igeriketako betaurrekoak</annotation>
+		<annotation cp="🥼">esperimentu | laborategiko jantzia | mediku | zientzialari</annotation>
+		<annotation cp="🥼" type="tts">laborategiko jantzia</annotation>
+		<annotation cp="👔">arropa | gorbata</annotation>
+		<annotation cp="👔" type="tts">gorbata</annotation>
+		<annotation cp="👕">alkandora | arropa | elastiko | elastikoa</annotation>
+		<annotation cp="👕" type="tts">elastikoa</annotation>
+		<annotation cp="👖">arropa | galtza bakeroak | galtzak | prakak</annotation>
+		<annotation cp="👖" type="tts">galtza bakeroak</annotation>
+		<annotation cp="🧣">lepoa | zapi</annotation>
+		<annotation cp="🧣" type="tts">zapi</annotation>
+		<annotation cp="🧤">esku | eskularruak</annotation>
+		<annotation cp="🧤" type="tts">eskularruak</annotation>
+		<annotation cp="🧥">berokia | jaka</annotation>
+		<annotation cp="🧥" type="tts">berokia</annotation>
+		<annotation cp="🧦">galtzerdiak | galtzeta</annotation>
+		<annotation cp="🧦" type="tts">galtzerdiak</annotation>
+		<annotation cp="👗">arropa | soinekoa</annotation>
+		<annotation cp="👗" type="tts">soinekoa</annotation>
+		<annotation cp="👘">arropa | kimonoa</annotation>
+		<annotation cp="👘" type="tts">kimonoa</annotation>
+		<annotation cp="👙">arropa | bikinia | igeri</annotation>
+		<annotation cp="👙" type="tts">bikinia</annotation>
+		<annotation cp="👚">arropa | emakume | emakumeentzako arropa</annotation>
+		<annotation cp="👚" type="tts">emakumeentzako arropa</annotation>
+		<annotation cp="👛">arropa | diru-zorroa | txanpon</annotation>
+		<annotation cp="👛" type="tts">diru-zorroa</annotation>
+		<annotation cp="👜">arropa | eskuko poltsa | poltsa</annotation>
+		<annotation cp="👜" type="tts">eskuko poltsa</annotation>
+		<annotation cp="👝">arropa | poltsa | zorroa</annotation>
+		<annotation cp="👝" type="tts">zorroa</annotation>
+		<annotation cp="🛍">erosketa | erosketa-poltsak | hotel | poltsa</annotation>
+		<annotation cp="🛍" type="tts">erosketa-poltsak</annotation>
+		<annotation cp="🎒">bizkar-zorro | eskola | eskolako bizkar-zorroa | poltsa</annotation>
+		<annotation cp="🎒" type="tts">eskolako bizkar-zorroa</annotation>
+		<annotation cp="👞">arropa | gizon | gizonentzako oinetakoa | oinetako</annotation>
+		<annotation cp="👞" type="tts">gizonentzako oinetakoa</annotation>
+		<annotation cp="👟">arropa | kirol | korrika egiteko oinetakoa | oinetako</annotation>
+		<annotation cp="👟" type="tts">korrika egiteko oinetakoa</annotation>
+		<annotation cp="🥾">bota | kanpin | mendiko bota | motxila | xendazaletasun</annotation>
+		<annotation cp="🥾" type="tts">mendiko bota</annotation>
+		<annotation cp="🥿">mokasin | zapata lau | zapata laua | zapatila</annotation>
+		<annotation cp="🥿" type="tts">zapata laua</annotation>
+		<annotation cp="👠">arropa | emakume | oinetako | oinetako takoidunak | takoi</annotation>
+		<annotation cp="👠" type="tts">oinetako takoidunak</annotation>
+		<annotation cp="👡">arropa | emakume | emakumeentzako sandalia | oinetako | sandalia</annotation>
+		<annotation cp="👡" type="tts">emakumeentzako sandalia</annotation>
+		<annotation cp="👢">arropa | bota | emakume | emakumeentzako bota | oinetako</annotation>
+		<annotation cp="👢" type="tts">emakumeentzako bota</annotation>
+		<annotation cp="👑">arropa | errege | erregina | koroa</annotation>
+		<annotation cp="👑" type="tts">koroa</annotation>
+		<annotation cp="👒">arropa | emakume | emakumeentzako kapelua | kapelu</annotation>
+		<annotation cp="👒" type="tts">emakumeentzako kapelua</annotation>
+		<annotation cp="🎩">altu | arropa | kapelu | kapelu altua</annotation>
+		<annotation cp="🎩" type="tts">kapelu altua</annotation>
+		<annotation cp="🎓">arropa | graduatu-txanoa | graduazio | ospakizun | txano</annotation>
+		<annotation cp="🎓" type="tts">graduatu-txanoa</annotation>
+		<annotation cp="🧢">bixera</annotation>
+		<annotation cp="🧢" type="tts">bixera</annotation>
+		<annotation cp="⛑">aurpegi | gurutze | kasko | kaskoa gurutze zuriarekin | laguntza</annotation>
+		<annotation cp="⛑" type="tts">kaskoa gurutze zuriarekin</annotation>
+		<annotation cp="📿">arrosario | arrosarioa | erlijio | lepoko | otoitz</annotation>
+		<annotation cp="📿" type="tts">arrosarioa</annotation>
+		<annotation cp="💄">ezpain-margoa | kosmetika | makillaje</annotation>
+		<annotation cp="💄" type="tts">ezpain-margoa</annotation>
+		<annotation cp="💍">diamante | eraztuna</annotation>
+		<annotation cp="💍" type="tts">eraztuna</annotation>
+		<annotation cp="💎">bitxi | diamante | harribitxia</annotation>
+		<annotation cp="💎" type="tts">harribitxia</annotation>
 		<annotation cp="🔇">audio | bolumen | borgorailu | bozgorailua itzalita | desaktibatu | isilarazi | isilik</annotation>
 		<annotation cp="🔇" type="tts">bozgorailua itzalita</annotation>
 		<annotation cp="🔈">bolumen | bozgorailua bolumen txikian</annotation>
@@ -2477,10 +2499,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📳" type="tts">bibrazio modua</annotation>
 		<annotation cp="📴">itzali | mugikor | sare | telefono | telefono mugikorra itzalita</annotation>
 		<annotation cp="📴" type="tts">telefono mugikorra itzalita</annotation>
-		<annotation cp="♀">emakume | emakumeen ikurra | emakumezko</annotation>
-		<annotation cp="♀" type="tts">emakumeen ikurra</annotation>
-		<annotation cp="♂">gizon | gizonen ikurra | gizonezko</annotation>
-		<annotation cp="♂" type="tts">gizonen ikurra</annotation>
 		<annotation cp="⚕">Asklepio | ikur medikoa | medizina | sendagile</annotation>
 		<annotation cp="⚕" type="tts">ikur medikoa</annotation>
 		<annotation cp="♾">beti | infinitu | mugagabe | unibertsal</annotation>
@@ -2495,19 +2513,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📛" type="tts">izen-bereizgarria</annotation>
 		<annotation cp="🔰">berde | hasiberri | hasiberria irudikatzen duen japonierako ikurra | hori | hosto | japoniera | komatxo | tresna</annotation>
 		<annotation cp="🔰" type="tts">hasiberria irudikatzen duen japonierako ikurra</annotation>
-		<annotation cp="⭕">o | zirkulu | zirkulu lodi handia</annotation>
-		<annotation cp="⭕" type="tts">zirkulu lodi handia</annotation>
-		<annotation cp="✅">markatu | tilet | tilet zuri lodia</annotation>
-		<annotation cp="✅" type="tts">tilet zuri lodia</annotation>
-		<annotation cp="☑">koadro | markatu | tilet | tileta duen koadroa</annotation>
+		<annotation cp="⭕">gorri | handi | o | zirkulu</annotation>
+		<annotation cp="⭕" type="tts">zirkulu gorri hutsa</annotation>
+		<annotation cp="✅">✓ | botoi | markatu | tilet</annotation>
+		<annotation cp="✅" type="tts">tiletaren botoia</annotation>
+		<annotation cp="☑">✓ | koadro | tilet | tileta duen koadroa</annotation>
 		<annotation cp="☑" type="tts">tileta duen koadroa</annotation>
-		<annotation cp="✔">markatu | tilet | tileta lodia</annotation>
-		<annotation cp="✔" type="tts">tileta lodia</annotation>
-		<annotation cp="✖">bider | biderketa | biderketa-ikur lodia | utzi | utzi bertan behera | x</annotation>
-		<annotation cp="✖" type="tts">biderketa-ikur lodia</annotation>
-		<annotation cp="❌">bider | biderketa | gurutze-ikurra | markatu | utzi | utzi bertan behera | x</annotation>
+		<annotation cp="✔">✓ | markatu | tilet</annotation>
+		<annotation cp="✔" type="tts">tileta</annotation>
+		<annotation cp="✖">× | biderkatu | biderketa | ikur | utzi | x</annotation>
+		<annotation cp="✖" type="tts">biderketa-ikurra</annotation>
+		<annotation cp="❌">× | biderkatu | biderketa | gurutze | markatu | utzi | x</annotation>
 		<annotation cp="❌" type="tts">gurutze-ikurra</annotation>
-		<annotation cp="❎">gurutze-ikurraren botoia | karratu | markatu</annotation>
+		<annotation cp="❎">× | gurutze-ikurraren botoia | ikur | karratu | x</annotation>
 		<annotation cp="❎" type="tts">gurutze-ikurraren botoia</annotation>
 		<annotation cp="➕">matematika | plus | plus zeinu lodia</annotation>
 		<annotation cp="➕" type="tts">plus zeinu lodia</annotation>
@@ -2542,13 +2560,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="〰">marratxo | marratxo ondulatua | ondulatu | puntuazio</annotation>
 		<annotation cp="〰" type="tts">marratxo ondulatua</annotation>
 		<annotation cp="©">copyright</annotation>
-		<annotation cp="©" type="tts">copyright</annotation>
+		<annotation cp="©" type="tts">copyrighta</annotation>
 		<annotation cp="®">erregistratu | marka | marka erregistratua</annotation>
 		<annotation cp="®" type="tts">marka erregistratua</annotation>
 		<annotation cp="™">komertzial | marka | marka komertziala | tm</annotation>
 		<annotation cp="™" type="tts">marka komertziala</annotation>
-		<annotation cp="💯">100 | ehun | ehun puntu | oso | puntuazio</annotation>
-		<annotation cp="💯" type="tts">ehun puntu</annotation>
 		<annotation cp="🔠">alfabeto | alfabeto latindarra maiuskulaz | hizki | latindar | letra | maiuskula</annotation>
 		<annotation cp="🔠" type="tts">alfabeto latindarra maiuskulaz</annotation>
 		<annotation cp="🔡">abcd | alfabeto | alfabeto latindarra minuskulaz | hizki | latindar | letra | minuskula</annotation>
@@ -2685,5 +2701,139 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">ortzadarraren bandera</annotation>
 		<annotation cp="🏴‍☠">altxor | arpilatze | Jolly Roger | pirata | piraten bandera</annotation>
 		<annotation cp="🏴‍☠" type="tts">piraten bandera</annotation>
+		<annotation cp="🛕">hindu | tenplu</annotation>
+		<annotation cp="🛕" type="tts">tenplu hindua</annotation>
+		<annotation cp="🛺">tuk tuk</annotation>
+		<annotation cp="🛺" type="tts">rickshaw motorduna</annotation>
+		<annotation cp="🟠">laranja | zirkulu</annotation>
+		<annotation cp="🟠" type="tts">zirkulu laranja</annotation>
+		<annotation cp="🟡">hori | zirkulu</annotation>
+		<annotation cp="🟡" type="tts">zirkulu horia</annotation>
+		<annotation cp="🟢">berde | zirkulu</annotation>
+		<annotation cp="🟢" type="tts">zirkulu berdea</annotation>
+		<annotation cp="🟣">more | zirkulu</annotation>
+		<annotation cp="🟣" type="tts">zirkulu morea</annotation>
+		<annotation cp="🟤">marroi | zirkulu</annotation>
+		<annotation cp="🟤" type="tts">zirkulu marroia</annotation>
+		<annotation cp="🟥">gorri | karratu</annotation>
+		<annotation cp="🟥" type="tts">karratu gorria</annotation>
+		<annotation cp="🟦">karratu | urdin</annotation>
+		<annotation cp="🟦" type="tts">karratu urdina</annotation>
+		<annotation cp="🟧">karratu | laranja</annotation>
+		<annotation cp="🟧" type="tts">karratu laranja</annotation>
+		<annotation cp="🟨">hori | karratu</annotation>
+		<annotation cp="🟨" type="tts">karratu horia</annotation>
+		<annotation cp="🟩">berde | karratu</annotation>
+		<annotation cp="🟩" type="tts">karratu berdea</annotation>
+		<annotation cp="🟪">karratu | more</annotation>
+		<annotation cp="🟪" type="tts">karratu morea</annotation>
+		<annotation cp="🟫">karratu | marroi</annotation>
+		<annotation cp="🟫" type="tts">karratu marroia</annotation>
+		<annotation cp="🤍">bihotz | zuri</annotation>
+		<annotation cp="🤍" type="tts">bihotz zuria</annotation>
+		<annotation cp="🤎">bihotz | marroi</annotation>
+		<annotation cp="🤎" type="tts">bihotz marroia</annotation>
+		<annotation cp="🤏">pixkat bat</annotation>
+		<annotation cp="🤏" type="tts">atximurka egiten ari den eskua</annotation>
+		<annotation cp="🤿">esnorkela | urpekaritza</annotation>
+		<annotation cp="🤿" type="tts">urpekari-maskara</annotation>
+		<annotation cp="🥱">aharrausi | aspertuta | nekatuta</annotation>
+		<annotation cp="🥱" type="tts">aharrausi egiten ari den aurpegia</annotation>
+		<annotation cp="🥻">arropa | soineko</annotation>
+		<annotation cp="🥻" type="tts">saria</annotation>
+		<annotation cp="🦥">alfer | motel</annotation>
+		<annotation cp="🦥" type="tts">nagia</annotation>
+		<annotation cp="🦦">arrantzatu | jolasti</annotation>
+		<annotation cp="🦦" type="tts">igaraba</annotation>
+		<annotation cp="🦧">tximino</annotation>
+		<annotation cp="🦧" type="tts">orangutana</annotation>
+		<annotation cp="🦨">kirats</annotation>
+		<annotation cp="🦨" type="tts">mofeta</annotation>
+		<annotation cp="🦩">ikusgarri | tropikal</annotation>
+		<annotation cp="🦩" type="tts">flamenkoa</annotation>
+		<annotation cp="🦪">perla | urpekaritza</annotation>
+		<annotation cp="🦪" type="tts">ostra</annotation>
+		<annotation cp="🦮">gida | irisgarritasun | itsu</annotation>
+		<annotation cp="🦮" type="tts">itsu-txakurra</annotation>
+		<annotation cp="🦯">irisgarritasun | itsu</annotation>
+		<annotation cp="🦯" type="tts">makila</annotation>
+		<annotation cp="🦺">jaka | larrialdi | segurtasun</annotation>
+		<annotation cp="🦺" type="tts">segurtasun-jaka</annotation>
+		<annotation cp="🦻">gortasun | irisgarritasun</annotation>
+		<annotation cp="🦻" type="tts">audifonoa duen belarria</annotation>
+		<annotation cp="🦼">irisgarritasun</annotation>
+		<annotation cp="🦼" type="tts">gurpil-aulki motorduna</annotation>
+		<annotation cp="🦽">irisgarritasun</annotation>
+		<annotation cp="🦽" type="tts">eskuzko gurpil-aulkia</annotation>
+		<annotation cp="🦾">irisgarritasun | prostetiko</annotation>
+		<annotation cp="🦾" type="tts">beso mekanikoa</annotation>
+		<annotation cp="🦿">irisgarritasun | prostetiko</annotation>
+		<annotation cp="🦿" type="tts">hanka mekanikoa</annotation>
+		<annotation cp="🧃">zuku-tetrabrik</annotation>
+		<annotation cp="🧃" type="tts">edari-tetrabrika</annotation>
+		<annotation cp="🧄">ongailu</annotation>
+		<annotation cp="🧄" type="tts">baratxuria</annotation>
+		<annotation cp="🧅">gozagarri</annotation>
+		<annotation cp="🧅" type="tts">tipula</annotation>
+		<annotation cp="🧆">haragi-bola | txitxirio</annotation>
+		<annotation cp="🧆" type="tts">falafela</annotation>
+		<annotation cp="🧇">burdina | zalantzati</annotation>
+		<annotation cp="🧇" type="tts">gofrea</annotation>
+		<annotation cp="🧈">esneki</annotation>
+		<annotation cp="🧈" type="tts">gurina</annotation>
+		<annotation cp="🧉">edari</annotation>
+		<annotation cp="🧉" type="tts">matea</annotation>
+		<annotation cp="🧊">hotz | iceberg</annotation>
+		<annotation cp="🧊" type="tts">izotz zatia</annotation>
+		<annotation cp="🧍">zutik | zutitu</annotation>
+		<annotation cp="🧍" type="tts">zutik dagoen pertsona</annotation>
+		<annotation cp="🧍‍♀">emakume | emakumezko | zutik</annotation>
+		<annotation cp="🧍‍♀" type="tts">zutik dagoen emakumea</annotation>
+		<annotation cp="🧍‍♂">gizon | gizonezko | zutik</annotation>
+		<annotation cp="🧍‍♂" type="tts">zutik dagoen gizona</annotation>
+		<annotation cp="🧎">belaunikatu | belauniko</annotation>
+		<annotation cp="🧎" type="tts">belauniko dagoen pertsona</annotation>
+		<annotation cp="🧎‍♀">belauniko | emakume | emakumezko</annotation>
+		<annotation cp="🧎‍♀" type="tts">belauniko dagoen emakumea</annotation>
+		<annotation cp="🧎‍♂">belauniko | gizon | gizonezko</annotation>
+		<annotation cp="🧎‍♂" type="tts">belauniko dagoen gizona</annotation>
+		<annotation cp="🧏">belarri | enzun | gor | irisgarritasun</annotation>
+		<annotation cp="🧏" type="tts">gorra</annotation>
+		<annotation cp="🧏‍♀">emakume | emakumezko | gor</annotation>
+		<annotation cp="🧏‍♀" type="tts">emakume gorra</annotation>
+		<annotation cp="🧏‍♂">gizon | gizonezko | gor</annotation>
+		<annotation cp="🧏‍♂" type="tts">gizon gorra</annotation>
+		<annotation cp="🩰">ballet | dantza</annotation>
+		<annotation cp="🩰" type="tts">balleteko oin-puntak</annotation>
+		<annotation cp="🩱">bainujantzi</annotation>
+		<annotation cp="🩱" type="tts">bainujantzi osoa</annotation>
+		<annotation cp="🩲">azpiko arropa | bainujantzi | osoa</annotation>
+		<annotation cp="🩲" type="tts">galtzontzilloak</annotation>
+		<annotation cp="🩳">azpiko arropa | bainujantzi | galtzak</annotation>
+		<annotation cp="🩳" type="tts">galtzamotzak</annotation>
+		<annotation cp="🩸">hileroko | medikuntza | odol-emate</annotation>
+		<annotation cp="🩸" type="tts">odol tanta</annotation>
+		<annotation cp="🩹">lotura</annotation>
+		<annotation cp="🩹" type="tts">lotura itsaskorra</annotation>
+		<annotation cp="🩺">bihotz | mediku | medikuntza</annotation>
+		<annotation cp="🩺" type="tts">estetoskopioa</annotation>
+		<annotation cp="🪀">gora eta behera | jostailu</annotation>
+		<annotation cp="🪀" type="tts">yoyoa</annotation>
+		<annotation cp="🪁">hegaldarazi | hegaldatu</annotation>
+		<annotation cp="🪁" type="tts">haize-parpaila</annotation>
+		<annotation cp="🪂">delta hegal | parasail | paraxut</annotation>
+		<annotation cp="🪂" type="tts">paraxuta</annotation>
+		<annotation cp="🪐">goibel | Saturno</annotation>
+		<annotation cp="🪐" type="tts">planeta eraztunduna</annotation>
+		<annotation cp="🪑">eserleku | jarleku</annotation>
+		<annotation cp="🪑" type="tts">aulki</annotation>
+		<annotation cp="🪒">bizarra kendu | zorrotz</annotation>
+		<annotation cp="🪒" type="tts">bizar-labana</annotation>
+		<annotation cp="🪓">aizkora | aizkorakada | arrakala | zur</annotation>
+		<annotation cp="🪓" type="tts">aizkora</annotation>
+		<annotation cp="🪔">diya | lanpara | olio</annotation>
+		<annotation cp="🪔" type="tts">diya lanpara</annotation>
+		<annotation cp="🪕">hari-instrumentu | musika</annotation>
+		<annotation cp="🪕" type="tts">banjoa</annotation>
 	</annotations>
 </ldml>

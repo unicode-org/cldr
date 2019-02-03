@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,52 +23,72 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">សម្បុរខ្មៅល្មម</annotation>
 		<annotation cp="🏿">ប្រភេទទី 6 | សម្បុរ | សម្បុរខ្មៅ</annotation>
 		<annotation cp="🏿" type="tts">សម្បុរខ្មៅ</annotation>
+		<annotation cp="🐾">ក្រញាំ | ដាន | ដានក្រញាំជើង</annotation>
+		<annotation cp="🐾" type="tts">ដានក្រញាំជើង</annotation>
 		<annotation cp="😀">មុខ | មុខសើច | សើច</annotation>
 		<annotation cp="😀" type="tts">មុខសើច</annotation>
-		<annotation cp="😁">ធ្មេញ | មុខសើចស្អេញ | មុុខ | ស្អេញ</annotation>
-		<annotation cp="😁" type="tts">មុខសើចស្អេញ</annotation>
-		<annotation cp="😂">​ រីករាយ | ​ សប្បាយ | ទឹកភ្នែក | មុខសើចឡើងហៀរទឹកភ្នែក | សើច</annotation>
-		<annotation cp="😂" type="tts">មុខសើចឡើងហៀរទឹកភ្នែក</annotation>
-		<annotation cp="🤣">មុខ | រមាល | លើដី | សើច | សើចរមាលលើដី</annotation>
-		<annotation cp="🤣" type="tts">សើចរមាលលើដី</annotation>
 		<annotation cp="😃">បើក | ភ្នែក | មុខ | មុខសើចបើកភ្នែកធំៗ | សើច</annotation>
 		<annotation cp="😃" type="tts">មុខសើចបើកភ្នែកធំៗ</annotation>
 		<annotation cp="😄">ភ្នែក | មាត់ | មុខសើចទាំងមាត់ និងភ្នែក | សើច</annotation>
 		<annotation cp="😄" type="tts">មុខសើចទាំងមាត់ និងភ្នែក</annotation>
-		<annotation cp="😅">ញើស | ដំណក់ទឹក | បើកមុខ | ភ្នែក | មុខ | មុខសើចចេញញើសពីថ្ងាស | សើច</annotation>
-		<annotation cp="😅" type="tts">មុខសើចចេញញើសពីថ្ងាស</annotation>
+		<annotation cp="😁">ធ្មេញ | មុខសើចស្អេញ | មុុខ | ស្អេញ</annotation>
+		<annotation cp="😁" type="tts">មុខសើចស្អេញ</annotation>
 		<annotation cp="😆">បិទ | ភ្នែក | មុខ | មុខសើចបិទភ្នែក | សើច</annotation>
 		<annotation cp="😆" type="tts">មុខសើចបិទភ្នែក</annotation>
+		<annotation cp="😅">ញើស | ដំណក់ទឹក | បើកមុខ | ភ្នែក | មុខ | មុខសើចចេញញើសពីថ្ងាស | សើច</annotation>
+		<annotation cp="😅" type="tts">មុខសើចចេញញើសពីថ្ងាស</annotation>
+		<annotation cp="🤣">មុខ | រមាល | លើដី | សើច | សើចរមាលលើដី</annotation>
+		<annotation cp="🤣" type="tts">សើចរមាលលើដី</annotation>
+		<annotation cp="😂">​ រីករាយ | ​ សប្បាយ | ទឹកភ្នែក | មុខសើចឡើងហៀរទឹកភ្នែក | សើច</annotation>
+		<annotation cp="😂" type="tts">មុខសើចឡើងហៀរទឹកភ្នែក</annotation>
+		<annotation cp="🙂">ញញឹម | មុខ | មុខចេញស្នាមញញឹមបន្តិច</annotation>
+		<annotation cp="🙂" type="tts">មុខចេញស្នាមញញឹមបន្តិច</annotation>
+		<annotation cp="🙃">ញញឹម | មុខ | មុខញញឹមបញ្រ្ចាស</annotation>
+		<annotation cp="🙃" type="tts">មុខញញឹមបញ្រ្ចាស</annotation>
 		<annotation cp="😉">ញាក់ភ្នែក | ភ្នែក | មិចភ្នែក | មុខ | មុខញាក់ភ្នែក</annotation>
 		<annotation cp="😉" type="tts">មុខញាក់ភ្នែក</annotation>
 		<annotation cp="😊">ញញឹម | មុខ | មុខក្រហម | មុខញញឹមពេញចិត្ត | អៀន</annotation>
 		<annotation cp="😊" type="tts">មុខញញឹមពេញចិត្ត</annotation>
-		<annotation cp="😋">ឃ្លាន | ឆ្ងាញ់ | ញញឹម | មុខលិឍមាត់ពេលបានម្ហូបឆ្ងាញ់ | ម្ហូបឆ្ងាញ់ | ស្រក់ទឹកមាត់</annotation>
-		<annotation cp="😋" type="tts">មុខលិឍមាត់ពេលបានម្ហូបឆ្ងាញ់</annotation>
-		<annotation cp="😎">ចាំងថ្ងៃ | ចាំងភ្នែក | ញញឹម | មុខ | មុខញញឹមពាក់វ៉ែនតាខ្មៅ | វ៉ែនតា | វ៉ែនតាខ្មៅ</annotation>
-		<annotation cp="😎" type="tts">មុខញញឹមពាក់វ៉ែនតាខ្មៅ</annotation>
-		<annotation cp="😍">ញញឹម | បេះដូង | មុខចេញរូបបេះដូងក្នុងភ្នែក | ស្នេហ៍ | ស្នេហា | ស្រឡាញ់</annotation>
-		<annotation cp="😍" type="tts">មុខចេញរូបបេះដូងក្នុងភ្នែក</annotation>
-		<annotation cp="😘">ថើប | បេះដូង | មុខថើបចេញរូបបេះដូង | ស្រឡាញ់</annotation>
-		<annotation cp="😘" type="tts">មុខថើបចេញរូបបេះដូង</annotation>
+		<annotation cp="😇">ញញឹម | ទេវតា | មុខមានរង្វង់ទេវតានៅលើក្បាល</annotation>
+		<annotation cp="😇" type="tts">មុខមានរង្វង់ទេវតានៅលើក្បាល</annotation>
 		<annotation cp="🥰">មុខញញឹមដែលមានបេះដូង 3 | លួចស្រឡាញ់ | ស្រឡាញ់ | ស្រឡាញ់ខ្លាំង</annotation>
 		<annotation cp="🥰" type="tts">មុខញញឹមដែលមានបេះដូង 3</annotation>
-		<annotation cp="😗">ថើប | មុខកំពុងថើប | ស្រឡាញ់</annotation>
-		<annotation cp="😗" type="tts">មុខកំពុងថើប</annotation>
-		<annotation cp="😙">ថើប | ភ្នែក | មុខថើបហើយភ្នែកញញឹម | ស្រឡាញ់</annotation>
-		<annotation cp="😙" type="tts">មុខថើបហើយភ្នែកញញឹម</annotation>
-		<annotation cp="😚">ថើប | បិទ | ភ្នែក | មុខថើបហើយភ្នែកបិទ</annotation>
-		<annotation cp="😚" type="tts">មុខថើបហើយភ្នែកបិទ</annotation>
-		<annotation cp="☺">ញញឹម | បិទ | ភ្នែក | មុខក្រហម | មុខញញឹមលក្ខណៈអៀន | អៀន</annotation>
-		<annotation cp="☺" type="tts">មុខញញឹមលក្ខណៈអៀន</annotation>
-		<annotation cp="🙂">ញញឹម | មុខ | មុខចេញស្នាមញញឹមបន្តិច</annotation>
-		<annotation cp="🙂" type="tts">មុខចេញស្នាមញញឹមបន្តិច</annotation>
-		<annotation cp="🤗">ញញឹម | បាតដៃ | មុខបង្ហាញដៃទាំងពីរចង់អោប | អោប</annotation>
-		<annotation cp="🤗" type="tts">មុខបង្ហាញដៃទាំងពីរចង់អោប</annotation>
+		<annotation cp="😍">ញញឹម | បេះដូង | មុខចេញរូបបេះដូងក្នុងភ្នែក | ស្នេហ៍ | ស្នេហា | ស្រឡាញ់</annotation>
+		<annotation cp="😍" type="tts">មុខចេញរូបបេះដូងក្នុងភ្នែក</annotation>
 		<annotation cp="🤩">ជួបតារា | ញញឹមស្ញាញ | តារា | ភ្នែក | មុខ</annotation>
 		<annotation cp="🤩" type="tts">ជួបតារា</annotation>
+		<annotation cp="😘">ថើប | បេះដូង | មុខថើបចេញរូបបេះដូង | ស្រឡាញ់</annotation>
+		<annotation cp="😘" type="tts">មុខថើបចេញរូបបេះដូង</annotation>
+		<annotation cp="😗">ថើប | មុខកំពុងថើប | ស្រឡាញ់</annotation>
+		<annotation cp="😗" type="tts">មុខកំពុងថើប</annotation>
+		<annotation cp="☺">ញញឹម | បិទ | ភ្នែក | មុខក្រហម | មុខញញឹមលក្ខណៈអៀន | អៀន</annotation>
+		<annotation cp="☺" type="tts">មុខញញឹមលក្ខណៈអៀន</annotation>
+		<annotation cp="😚">ថើប | បិទ | ភ្នែក | មុខថើបហើយភ្នែកបិទ</annotation>
+		<annotation cp="😚" type="tts">មុខថើបហើយភ្នែកបិទ</annotation>
+		<annotation cp="😙">ថើប | ភ្នែក | មុខថើបហើយភ្នែកញញឹម | ស្រឡាញ់</annotation>
+		<annotation cp="😙" type="tts">មុខថើបហើយភ្នែកញញឹម</annotation>
+		<annotation cp="😋">ឃ្លាន | ឆ្ងាញ់ | ញញឹម | មុខលិឍមាត់ពេលបានម្ហូបឆ្ងាញ់ | ម្ហូបឆ្ងាញ់ | ស្រក់ទឹកមាត់</annotation>
+		<annotation cp="😋" type="tts">មុខលិឍមាត់ពេលបានម្ហូបឆ្ងាញ់</annotation>
+		<annotation cp="😛">មុខលៀនអណ្តាត | លៀនអណ្តាត | អណ្តាត</annotation>
+		<annotation cp="😛" type="tts">មុខលៀនអណ្តាត</annotation>
+		<annotation cp="😜">ភ្នែក | មុុខលៀនអណ្តាតហើយបិទភ្នែកម្ខាង | លៀនអណ្តាត | អណ្តាត</annotation>
+		<annotation cp="😜" type="tts">មុុខលៀនអណ្តាតហើយបិទភ្នែកម្ខាង</annotation>
+		<annotation cp="🤪">តូច | ធំ | ធ្វើមុខឆ្កួតៗ | ភ្នែក</annotation>
+		<annotation cp="🤪" type="tts">ធ្វើមុខឆ្កួតៗ</annotation>
+		<annotation cp="😝">បិទភ្នែក | មុខលៀនអណ្តាតហើយបិទភ្នែកទាំងពីរ | លៀនអណ្តាត | អណ្តាត</annotation>
+		<annotation cp="😝" type="tts">មុខលៀនអណ្តាតហើយបិទភ្នែកទាំងពីរ</annotation>
+		<annotation cp="🤑">ដុលា្លរ | មុខ | មុខលុយ | មុខលុយ ដោយមានរូបដុល្លារលើអណា្តតនិងភ្នែក | លុយ</annotation>
+		<annotation cp="🤑" type="tts">មុខលុយ ដោយមានរូបដុល្លារលើអណា្តតនិងភ្នែក</annotation>
+		<annotation cp="🤗">ញញឹម | បាតដៃ | មុខបង្ហាញដៃទាំងពីរចង់អោប | អោប</annotation>
+		<annotation cp="🤗" type="tts">មុខបង្ហាញដៃទាំងពីរចង់អោប</annotation>
+		<annotation cp="🤭">មុខយកដៃខ្ទប់មាត់ | អុះ !</annotation>
+		<annotation cp="🤭" type="tts">មុខយកដៃខ្ទប់មាត់</annotation>
+		<annotation cp="🤫">ប្រាប់ឱ្យស្ងាត់ | ស្ងាត់</annotation>
+		<annotation cp="🤫" type="tts">ប្រាប់ឱ្យស្ងាត់</annotation>
 		<annotation cp="🤔">គិត | មុខ | មុខកំពុុងគិត</annotation>
 		<annotation cp="🤔" type="tts">មុខកំពុុងគិត</annotation>
+		<annotation cp="🤐">កុំមាត់ | បិទមាត់ | មាត់ | មុខទាញខ្សែរូតបិតមាត់ | រូត | ស្ងៀមស្ងាត់</annotation>
+		<annotation cp="🤐" type="tts">មុខទាញខ្សែរូតបិតមាត់</annotation>
 		<annotation cp="🤨">មិនជឿ | មុខបង្ហាញការមិនពេញចិត្ត | សង្ស័យ</annotation>
 		<annotation cp="🤨" type="tts">មុខបង្ហាញការមិនពេញចិត្ត</annotation>
 		<annotation cp="😐">មុខ | មុខធ្វើមាត់ស្មើ | ស្ងៀមស្ងាត់ | ស្មើ</annotation>
@@ -77,98 +97,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">មុខធម្មតាមិនបង្ហាញអារម្មណ៍</annotation>
 		<annotation cp="😶">នៅស្ងៀម | មាត់ | មុខមានតែភ្នកអត់មាត់ | អត់និយាយ | អត់មាត់</annotation>
 		<annotation cp="😶" type="tts">មុខមានតែភ្នកអត់មាត់</annotation>
-		<annotation cp="🙄">ក្រឡេបក្រឡាប់ | ភ្នែក | មុខធ្វើភ្នែកក្រឡេបក្រឡាប់</annotation>
-		<annotation cp="🙄" type="tts">មុខធ្វើភ្នែកក្រឡេបក្រឡាប់</annotation>
 		<annotation cp="😏">ចំអក | មុខញញឹមចំអក</annotation>
 		<annotation cp="😏" type="tts">មុខញញឹមចំអក</annotation>
-		<annotation cp="😣">ជ្រួញ | ធ្វើមុខជ្រួញ | មុខ</annotation>
-		<annotation cp="😣" type="tts">ធ្វើមុខជ្រួញ</annotation>
-		<annotation cp="😥">ខកចិត្ត | បែកញើស | ពេប | មុខពេបមាត់ និងទម្លាក់ទឹកមុខត | អន់ចិត្ត</annotation>
-		<annotation cp="😥" type="tts">មុខពេបមាត់ និងទម្លាក់ទឹកមុខត</annotation>
-		<annotation cp="😮">ចំហ | បើកមាត់ | មាត់ | មុខចំហមាត់បើកភ្នែក</annotation>
-		<annotation cp="😮" type="tts">មុខចំហមាត់បើកភ្នែក</annotation>
-		<annotation cp="🤐">កុំមាត់ | បិទមាត់ | មាត់ | មុខទាញខ្សែរូតបិតមាត់ | រូត | ស្ងៀមស្ងាត់</annotation>
-		<annotation cp="🤐" type="tts">មុខទាញខ្សែរូតបិតមាត់</annotation>
-		<annotation cp="😯">ភាំង | មុខចំហមាត់់ចិញ្ចើមងើបទៅលើលក្ខណៈភាំង</annotation>
-		<annotation cp="😯" type="tts">មុខចំហមាត់់ចិញ្ចើមងើបទៅលើលក្ខណៈភាំង</annotation>
-		<annotation cp="😪">ងងុយ | ដេក | មុខងងុយដេក</annotation>
-		<annotation cp="😪" type="tts">មុខងងុយដេក</annotation>
-		<annotation cp="😫">មុខអស់កម្លាំង | ហត់ | អស់កម្លាំង</annotation>
-		<annotation cp="😫" type="tts">មុខអស់កម្លាំង</annotation>
-		<annotation cp="😴">គេង | ដេក | មុខកំពុងគេង | ស្រមុក</annotation>
-		<annotation cp="😴" type="tts">មុខកំពុងគេង</annotation>
-		<annotation cp="😌">ធូរស្រាល | មុខធូរស្រាលរឿងអ្វីមួយ</annotation>
-		<annotation cp="😌" type="tts">មុខធូរស្រាលរឿងអ្វីមួយ</annotation>
-		<annotation cp="😛">មុខលៀនអណ្តាត | លៀនអណ្តាត | អណ្តាត</annotation>
-		<annotation cp="😛" type="tts">មុខលៀនអណ្តាត</annotation>
-		<annotation cp="😜">ភ្នែក | មុុខលៀនអណ្តាតហើយបិទភ្នែកម្ខាង | លៀនអណ្តាត | អណ្តាត</annotation>
-		<annotation cp="😜" type="tts">មុុខលៀនអណ្តាតហើយបិទភ្នែកម្ខាង</annotation>
-		<annotation cp="😝">បិទភ្នែក | មុខលៀនអណ្តាតហើយបិទភ្នែកទាំងពីរ | លៀនអណ្តាត | អណ្តាត</annotation>
-		<annotation cp="😝" type="tts">មុខលៀនអណ្តាតហើយបិទភ្នែកទាំងពីរ</annotation>
-		<annotation cp="🤤">មុខ | មុខហៀរទឹកមាត់ | ហៀរទឹកមាត់</annotation>
-		<annotation cp="🤤" type="tts">មុខហៀរទឹកមាត់</annotation>
 		<annotation cp="😒">ទុក្ខព្រួយ | មិនសប្បាយចិត្ត | មុខស្រពោន | ស្រពោន</annotation>
 		<annotation cp="😒" type="tts">មុខស្រពោន</annotation>
-		<annotation cp="😓">ញើស | បែកញើស | ពេបមាត់ | មុខស្រពោនមានញើសពីថ្ងាស | ស្រពោន</annotation>
-		<annotation cp="😓" type="tts">មុខស្រពោនមានញើសពីថ្ងាស</annotation>
-		<annotation cp="😔">ក្រៀមក្រំ | តូចចិត្ត | ធ្លាក់ទឹកមុខ | មុខក្រៀមក្រំ | អន់ចិត្ត</annotation>
-		<annotation cp="😔" type="tts">មុខក្រៀមក្រំ</annotation>
-		<annotation cp="😕">ឆ្ងល់ | មុខឆ្ងល់អ្វីមួយ</annotation>
-		<annotation cp="😕" type="tts">មុខឆ្ងល់អ្វីមួយ</annotation>
-		<annotation cp="🙃">ញញឹម | មុខ | មុខញញឹមបញ្រ្ចាស</annotation>
-		<annotation cp="🙃" type="tts">មុខញញឹមបញ្រ្ចាស</annotation>
-		<annotation cp="🤑">ដុលា្លរ | មុខ | មុខលុយ | មុខលុយ ដោយមានរូបដុល្លារលើអណា្តតនិងភ្នែក | លុយ</annotation>
-		<annotation cp="🤑" type="tts">មុខលុយ ដោយមានរូបដុល្លារលើអណា្តតនិងភ្នែក</annotation>
-		<annotation cp="😲">ភ្ញាក់ផ្អើល | មុខភ្ជាក់ផ្អើល</annotation>
-		<annotation cp="😲" type="tts">មុខភ្ជាក់ផ្អើល</annotation>
-		<annotation cp="☹">ក្រម៉ូវ | ពេបមាត់ | មុខក្រម៉ូវ</annotation>
-		<annotation cp="☹" type="tts">មុខក្រម៉ូវ</annotation>
-		<annotation cp="🙁">ក្រម៉ូវ | ពេបមាត់ | មុខក្រម៉ូវបន្តិច</annotation>
-		<annotation cp="🙁" type="tts">មុខក្រម៉ូវបន្តិច</annotation>
-		<annotation cp="😖">ញ៉ស់ | មុខឡប់ | មុខឡប់ៗ</annotation>
-		<annotation cp="😖" type="tts">មុខឡប់ៗ</annotation>
-		<annotation cp="😞">ក្រៀមក្រំ | ខកចិត្ត | ពេប | មុខខកចិត្ត | ស្រពោន | អន់ចិត្ត</annotation>
-		<annotation cp="😞" type="tts">មុខខកចិត្ត</annotation>
-		<annotation cp="😟">ខ្វល់ចិត្ត | ព្រួយចិត្ត | ព្រួយបារម្ហ | មុខព្រួយបារម្ភ</annotation>
-		<annotation cp="😟" type="tts">មុខព្រួយបារម្ភ</annotation>
-		<annotation cp="😤">ក្តៅចិត្ត | មុខមានចំហាយក្តៅចេញពីច្រមុះ</annotation>
-		<annotation cp="😤" type="tts">មុខមានចំហាយក្តៅចេញពីច្រមុះ</annotation>
-		<annotation cp="😢">ទឹកភ្នែក | មុខស្រក់ទឹកភ្នែក | យំ | ស្រក់ទឹកភ្នែក</annotation>
-		<annotation cp="😢" type="tts">មុខស្រក់ទឹកភ្នែក</annotation>
-		<annotation cp="😭">ទឹកភ្នែក | មុខកំពុងយំយ៉ាងខ្លាំង | យំ | យំខ្លាំង | ហូរទឹកភ្នែក</annotation>
-		<annotation cp="😭" type="tts">មុខកំពុងយំយ៉ាងខ្លាំង</annotation>
-		<annotation cp="😦">ក្រៀមក្រំ | មុខក្រៀមក្រំហើយចំហមាត់</annotation>
-		<annotation cp="😦" type="tts">មុខក្រៀមក្រំហើយចំហមាត់</annotation>
-		<annotation cp="😧">ភ័យ | មុខរន្ធត់ | រន្ធត់</annotation>
-		<annotation cp="😧" type="tts">មុខរន្ធត់</annotation>
-		<annotation cp="😨">ខ្លាច | ភ័យ | ភ័យខ្លាច | មុខភ័យខ្លាច</annotation>
-		<annotation cp="😨" type="tts">មុខភ័យខ្លាច</annotation>
-		<annotation cp="😩">មុខអស់កម្លាំងខ្លាំង | ហត់នឿយ | អស់កម្លាំង</annotation>
-		<annotation cp="😩" type="tts">មុខអស់កម្លាំងខ្លាំង</annotation>
-		<annotation cp="🤯">ក្បាលកំពុងផ្ទុះ | រន្ធត់</annotation>
-		<annotation cp="🤯" type="tts">ក្បាលកំពុងផ្ទុះ</annotation>
+		<annotation cp="🙄">ក្រឡេបក្រឡាប់ | ភ្នែក | មុខធ្វើភ្នែកក្រឡេបក្រឡាប់</annotation>
+		<annotation cp="🙄" type="tts">មុខធ្វើភ្នែកក្រឡេបក្រឡាប់</annotation>
 		<annotation cp="😬">ញេញធ្មេញ | ធ្មេញ | មុខស្អេញស្អូញ | ស្អេញ</annotation>
 		<annotation cp="😬" type="tts">មុខស្អេញស្អូញ</annotation>
-		<annotation cp="😰">ក្តៅ | ឈឺ | បែកញើស | មុខឈឺដោយថ្ងាស់ឡើងពណ៌ខៀវនិងមានញើស</annotation>
-		<annotation cp="😰" type="tts">មុខឈឺដោយថ្ងាស់ឡើងពណ៌ខៀវនិងមានញើស</annotation>
-		<annotation cp="😱">មុខស្រែកដោយភ័យ | ស្រែក</annotation>
-		<annotation cp="😱" type="tts">មុខស្រែកដោយភ័យ</annotation>
-		<annotation cp="🥵">ក្ដៅ | ចង់គ្រុន | ចាញ់ថ្ងៃ | បែកញើស | មុខក្ដៅ | មុខក្រហម</annotation>
-		<annotation cp="🥵" type="tts">មុខក្ដៅ</annotation>
-		<annotation cp="🥶">ដុំទឹកកកស្រួច | ត្រជាក់ | ត្រជាក់កក | ត្រជាក់ចង់រលេះដៃជើង | មុខត្រជាក់ឡើងកក | មុខឡើងស្វាយ</annotation>
-		<annotation cp="🥶" type="tts">មុខត្រជាក់ឡើងកក</annotation>
-		<annotation cp="😳">បើក | ភ្នែក | មុខក្រហម | មុខឡើងក្រហមព្រឿងៗ</annotation>
-		<annotation cp="😳" type="tts">មុខឡើងក្រហមព្រឿងៗ</annotation>
-		<annotation cp="🤪">តូច | ធំ | ធ្វើមុខឆ្កួតៗ | ភ្នែក</annotation>
-		<annotation cp="🤪" type="tts">ធ្វើមុខឆ្កួតៗ</annotation>
-		<annotation cp="😵">មុខ | វិលមុខ</annotation>
-		<annotation cp="😵" type="tts">វិលមុខ</annotation>
-		<annotation cp="😡">ខឹង | មុខក្រហម | មុខមួរម៉ៅខ្លាំង | មួរម៉ៅ</annotation>
-		<annotation cp="😡" type="tts">មុខមួរម៉ៅខ្លាំង</annotation>
-		<annotation cp="😠">ខឹង | មុខក្រហម | មុខមួរម៉ៅ | មួរម៉ៅ</annotation>
-		<annotation cp="😠" type="tts">មុខមួរម៉ៅ</annotation>
-		<annotation cp="🤬">ជេរ | មុខមាននិមិត្តសញ្ញាលើមាត់</annotation>
-		<annotation cp="🤬" type="tts">មុខមាននិមិត្តសញ្ញាលើមាត់</annotation>
+		<annotation cp="🤥">pinocchio | កុហក | មុខ | មុខកុហក</annotation>
+		<annotation cp="🤥" type="tts">មុខកុហក</annotation>
+		<annotation cp="😌">ធូរស្រាល | មុខធូរស្រាលរឿងអ្វីមួយ</annotation>
+		<annotation cp="😌" type="tts">មុខធូរស្រាលរឿងអ្វីមួយ</annotation>
+		<annotation cp="😔">ក្រៀមក្រំ | តូចចិត្ត | ធ្លាក់ទឹកមុខ | មុខក្រៀមក្រំ | អន់ចិត្ត</annotation>
+		<annotation cp="😔" type="tts">មុខក្រៀមក្រំ</annotation>
+		<annotation cp="😪">ងងុយ | ដេក | មុខងងុយដេក</annotation>
+		<annotation cp="😪" type="tts">មុខងងុយដេក</annotation>
+		<annotation cp="🤤">មុខ | មុខហៀរទឹកមាត់ | ហៀរទឹកមាត់</annotation>
+		<annotation cp="🤤" type="tts">មុខហៀរទឹកមាត់</annotation>
+		<annotation cp="😴">គេង | ដេក | មុខកំពុងគេង | ស្រមុក</annotation>
+		<annotation cp="😴" type="tts">មុខកំពុងគេង</annotation>
 		<annotation cp="😷">ពាក់ម៉ាស | ម៉ាស | មុខពាក់ម៉ាសគ្រូពេទ្យ</annotation>
 		<annotation cp="😷" type="tts">មុខពាក់ម៉ាសគ្រូពេទ្យ</annotation>
 		<annotation cp="🤒">ក្តៅខ្លួន | ឈឺ | មុខបៀមឧបករណ៍ស្ទង់កំដៅ</annotation>
@@ -181,40 +129,96 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤮" type="tts">មុខចង់ក្អួត</annotation>
 		<annotation cp="🤧">កណ្តាស | មុខ | មុខកណ្តាស់ | ស្បើយ</annotation>
 		<annotation cp="🤧" type="tts">មុខកណ្តាស់</annotation>
-		<annotation cp="😇">ញញឹម | ទេវតា | មុខមានរង្វង់ទេវតានៅលើក្បាល</annotation>
-		<annotation cp="😇" type="tts">មុខមានរង្វង់ទេវតានៅលើក្បាល</annotation>
+		<annotation cp="🥵">ក្ដៅ | ចង់គ្រុន | ចាញ់ថ្ងៃ | បែកញើស | មុខក្ដៅ | មុខក្រហម</annotation>
+		<annotation cp="🥵" type="tts">មុខក្ដៅ</annotation>
+		<annotation cp="🥶">ដុំទឹកកកស្រួច | ត្រជាក់ | ត្រជាក់កក | ត្រជាក់ចង់រលេះដៃជើង | មុខត្រជាក់ឡើងកក | មុខឡើងស្វាយ</annotation>
+		<annotation cp="🥶" type="tts">មុខត្រជាក់ឡើងកក</annotation>
+		<annotation cp="🥴">ធ្លាក់ភ្នែកមួយចំហៀង | មាត់ដូចរលក | មុខធីងធោង | វិលមុខ | ស្រវឹង | ស្រវឹងតិចៗ</annotation>
+		<annotation cp="🥴" type="tts">មុខធីងធោង</annotation>
+		<annotation cp="😵">មុខ | វិលមុខ</annotation>
+		<annotation cp="😵" type="tts">វិលមុខ</annotation>
+		<annotation cp="🤯">ក្បាលកំពុងផ្ទុះ | រន្ធត់</annotation>
+		<annotation cp="🤯" type="tts">ក្បាលកំពុងផ្ទុះ</annotation>
 		<annotation cp="🤠">ខូវប៊យ | ខូវហ្គឺល | មុខ | មុខពាក់មួកខូវប៊យ | មួក</annotation>
 		<annotation cp="🤠" type="tts">មុខពាក់មួកខូវប៊យ</annotation>
 		<annotation cp="🥳">ការប្រារព្ធពិធី | ប៉ី | ពិធីជប់លៀង | មុខជប់លៀង | មួក</annotation>
 		<annotation cp="🥳" type="tts">មុខជប់លៀង</annotation>
-		<annotation cp="🥴">ធ្លាក់ភ្នែកមួយចំហៀង | មាត់ដូចរលក | មុខធីងធោង | វិលមុខ | ស្រវឹង | ស្រវឹងតិចៗ</annotation>
-		<annotation cp="🥴" type="tts">មុខធីងធោង</annotation>
-		<annotation cp="🥺">ការអង្វរ | ធ្វើភ្នែកគួរឱ្យអាណិត | មុខអង្វរ | មេត្តាធម៌</annotation>
-		<annotation cp="🥺" type="tts">មុខអង្វរ</annotation>
-		<annotation cp="🤥">pinocchio | កុហក | មុខ | មុខកុហក</annotation>
-		<annotation cp="🤥" type="tts">មុខកុហក</annotation>
-		<annotation cp="🤫">ប្រាប់ឱ្យស្ងាត់ | ស្ងាត់</annotation>
-		<annotation cp="🤫" type="tts">ប្រាប់ឱ្យស្ងាត់</annotation>
-		<annotation cp="🤭">មុខយកដៃខ្ទប់មាត់ | អុះ !</annotation>
-		<annotation cp="🤭" type="tts">មុខយកដៃខ្ទប់មាត់</annotation>
-		<annotation cp="🧐">មុខពាក់វ៉ែនតាម្ខាង | ហប់</annotation>
-		<annotation cp="🧐" type="tts">មុខពាក់វ៉ែនតាម្ខាង</annotation>
+		<annotation cp="😎">ចាំងថ្ងៃ | ចាំងភ្នែក | ញញឹម | មុខ | មុខញញឹមពាក់វ៉ែនតាខ្មៅ | វ៉ែនតា | វ៉ែនតាខ្មៅ</annotation>
+		<annotation cp="😎" type="tts">មុខញញឹមពាក់វ៉ែនតាខ្មៅ</annotation>
 		<annotation cp="🤓">កំប្លែង | មុខកំប្លែង | ឡប់ឡប់ | ឡឺកី</annotation>
 		<annotation cp="🤓" type="tts">មុខកំប្លែង</annotation>
+		<annotation cp="🧐">មុខពាក់វ៉ែនតាម្ខាង | ហប់</annotation>
+		<annotation cp="🧐" type="tts">មុខពាក់វ៉ែនតាម្ខាង</annotation>
+		<annotation cp="😕">ឆ្ងល់ | មុខឆ្ងល់អ្វីមួយ</annotation>
+		<annotation cp="😕" type="tts">មុខឆ្ងល់អ្វីមួយ</annotation>
+		<annotation cp="😟">ខ្វល់ចិត្ត | ព្រួយចិត្ត | ព្រួយបារម្ហ | មុខព្រួយបារម្ភ</annotation>
+		<annotation cp="😟" type="tts">មុខព្រួយបារម្ភ</annotation>
+		<annotation cp="🙁">ក្រម៉ូវ | ពេបមាត់ | មុខក្រម៉ូវបន្តិច</annotation>
+		<annotation cp="🙁" type="tts">មុខក្រម៉ូវបន្តិច</annotation>
+		<annotation cp="☹">ក្រម៉ូវ | ពេបមាត់ | មុខក្រម៉ូវ</annotation>
+		<annotation cp="☹" type="tts">មុខក្រម៉ូវ</annotation>
+		<annotation cp="😮">ចំហ | បើកមាត់ | មាត់ | មុខចំហមាត់បើកភ្នែក</annotation>
+		<annotation cp="😮" type="tts">មុខចំហមាត់បើកភ្នែក</annotation>
+		<annotation cp="😯">ភាំង | មុខចំហមាត់់ចិញ្ចើមងើបទៅលើលក្ខណៈភាំង</annotation>
+		<annotation cp="😯" type="tts">មុខចំហមាត់់ចិញ្ចើមងើបទៅលើលក្ខណៈភាំង</annotation>
+		<annotation cp="😲">ភ្ញាក់ផ្អើល | មុខភ្ជាក់ផ្អើល</annotation>
+		<annotation cp="😲" type="tts">មុខភ្ជាក់ផ្អើល</annotation>
+		<annotation cp="😳">បើក | ភ្នែក | មុខក្រហម | មុខឡើងក្រហមព្រឿងៗ</annotation>
+		<annotation cp="😳" type="tts">មុខឡើងក្រហមព្រឿងៗ</annotation>
+		<annotation cp="🥺">ការអង្វរ | ធ្វើភ្នែកគួរឱ្យអាណិត | មុខអង្វរ | មេត្តាធម៌</annotation>
+		<annotation cp="🥺" type="tts">មុខអង្វរ</annotation>
+		<annotation cp="😦">ក្រៀមក្រំ | មុខក្រៀមក្រំហើយចំហមាត់</annotation>
+		<annotation cp="😦" type="tts">មុខក្រៀមក្រំហើយចំហមាត់</annotation>
+		<annotation cp="😧">ភ័យ | មុខរន្ធត់ | រន្ធត់</annotation>
+		<annotation cp="😧" type="tts">មុខរន្ធត់</annotation>
+		<annotation cp="😨">ខ្លាច | ភ័យ | ភ័យខ្លាច | មុខភ័យខ្លាច</annotation>
+		<annotation cp="😨" type="tts">មុខភ័យខ្លាច</annotation>
+		<annotation cp="😰">ក្តៅ | ឈឺ | បែកញើស | មុខឈឺដោយថ្ងាស់ឡើងពណ៌ខៀវនិងមានញើស</annotation>
+		<annotation cp="😰" type="tts">មុខឈឺដោយថ្ងាស់ឡើងពណ៌ខៀវនិងមានញើស</annotation>
+		<annotation cp="😥">ខកចិត្ត | បែកញើស | ពេប | មុខពេបមាត់ និងទម្លាក់ទឹកមុខត | អន់ចិត្ត</annotation>
+		<annotation cp="😥" type="tts">មុខពេបមាត់ និងទម្លាក់ទឹកមុខត</annotation>
+		<annotation cp="😢">ទឹកភ្នែក | មុខស្រក់ទឹកភ្នែក | យំ | ស្រក់ទឹកភ្នែក</annotation>
+		<annotation cp="😢" type="tts">មុខស្រក់ទឹកភ្នែក</annotation>
+		<annotation cp="😭">ទឹកភ្នែក | មុខកំពុងយំយ៉ាងខ្លាំង | យំ | យំខ្លាំង | ហូរទឹកភ្នែក</annotation>
+		<annotation cp="😭" type="tts">មុខកំពុងយំយ៉ាងខ្លាំង</annotation>
+		<annotation cp="😱">មុខស្រែកដោយភ័យ | ស្រែក</annotation>
+		<annotation cp="😱" type="tts">មុខស្រែកដោយភ័យ</annotation>
+		<annotation cp="😖">ញ៉ស់ | មុខឡប់ | មុខឡប់ៗ</annotation>
+		<annotation cp="😖" type="tts">មុខឡប់ៗ</annotation>
+		<annotation cp="😣">ជ្រួញ | ធ្វើមុខជ្រួញ | មុខ</annotation>
+		<annotation cp="😣" type="tts">ធ្វើមុខជ្រួញ</annotation>
+		<annotation cp="😞">ក្រៀមក្រំ | ខកចិត្ត | ពេប | មុខខកចិត្ត | ស្រពោន | អន់ចិត្ត</annotation>
+		<annotation cp="😞" type="tts">មុខខកចិត្ត</annotation>
+		<annotation cp="😓">ញើស | បែកញើស | ពេបមាត់ | មុខស្រពោនមានញើសពីថ្ងាស | ស្រពោន</annotation>
+		<annotation cp="😓" type="tts">មុខស្រពោនមានញើសពីថ្ងាស</annotation>
+		<annotation cp="😩">មុខអស់កម្លាំងខ្លាំង | ហត់នឿយ | អស់កម្លាំង</annotation>
+		<annotation cp="😩" type="tts">មុខអស់កម្លាំងខ្លាំង</annotation>
+		<annotation cp="😫">មុខអស់កម្លាំង | ហត់ | អស់កម្លាំង</annotation>
+		<annotation cp="😫" type="tts">មុខអស់កម្លាំង</annotation>
+		<annotation cp="😤">ក្តៅចិត្ត | មុខមានចំហាយក្តៅចេញពីច្រមុះ</annotation>
+		<annotation cp="😤" type="tts">មុខមានចំហាយក្តៅចេញពីច្រមុះ</annotation>
+		<annotation cp="😡">ខឹង | មុខក្រហម | មុខមួរម៉ៅខ្លាំង | មួរម៉ៅ</annotation>
+		<annotation cp="😡" type="tts">មុខមួរម៉ៅខ្លាំង</annotation>
+		<annotation cp="😠">ខឹង | មុខក្រហម | មុខមួរម៉ៅ | មួរម៉ៅ</annotation>
+		<annotation cp="😠" type="tts">មុខមួរម៉ៅ</annotation>
+		<annotation cp="🤬">ជេរ | មុខមាននិមិត្តសញ្ញាលើមាត់</annotation>
+		<annotation cp="🤬" type="tts">មុខមាននិមិត្តសញ្ញាលើមាត់</annotation>
 		<annotation cp="😈">ញញឹម | មុខ | មុខមានស្នែងញញឺមក្នុងបំណងមិនល្អ | ស្នែង</annotation>
 		<annotation cp="😈" type="tts">មុខមានស្នែងញញឺមក្នុងបំណងមិនល្អ</annotation>
 		<annotation cp="👿">ខឹង | ពេប | មុខ | មុខមានស្នែងខឹង | ស្នែង</annotation>
 		<annotation cp="👿" type="tts">មុខមានស្នែងខឹង</annotation>
+		<annotation cp="💀">ក្បាលខ្មោច | លលាដ៏ក្បាល</annotation>
+		<annotation cp="💀" type="tts">ក្បាលខ្មោច</annotation>
+		<annotation cp="☠">ក្បាលខ្មោច | ក្បាលខ្មោចមានឆ្អឹងក្នុងមាត់ | ឆ្អឹងខោ្មច | លលាដ៏ក្បាល</annotation>
+		<annotation cp="☠" type="tts">ក្បាលខ្មោចមានឆ្អឹងក្នុងមាត់</annotation>
+		<annotation cp="💩">គំនរអាចម៍, គំនរលាមក | លាមក | អាចម៍</annotation>
+		<annotation cp="💩" type="tts">គំនរអាចម៍, គំនរលាមក</annotation>
 		<annotation cp="🤡">ថ្លុក | មុខ | មុុខថ្លុក</annotation>
 		<annotation cp="🤡" type="tts">មុុខថ្លុក</annotation>
 		<annotation cp="👹">មុខ | មុខយក្ស | យក្ស | សត្វចម្លែក | អាក្រក់</annotation>
 		<annotation cp="👹" type="tts">មុខយក្ស</annotation>
 		<annotation cp="👺">មនុស្ស | មុខមនុស្សអាក្រក់ | អាក្រក់</annotation>
 		<annotation cp="👺" type="tts">មុខមនុស្សអាក្រក់</annotation>
-		<annotation cp="💀">ក្បាលខ្មោច | លលាដ៏ក្បាល</annotation>
-		<annotation cp="💀" type="tts">ក្បាលខ្មោច</annotation>
-		<annotation cp="☠">ក្បាលខ្មោច | ក្បាលខ្មោចមានឆ្អឹងក្នុងមាត់ | ឆ្អឹងខោ្មច | លលាដ៏ក្បាល</annotation>
-		<annotation cp="☠" type="tts">ក្បាលខ្មោចមានឆ្អឹងក្នុងមាត់</annotation>
 		<annotation cp="👻">ខោ្មចលង | ខ្មោច | លង</annotation>
 		<annotation cp="👻" type="tts">ខ្មោច</annotation>
 		<annotation cp="👽">ភពក្រៅ | មនុស្សក្រៅភព, មនុស្សចម្លែក | មនុស្សចម្លែក</annotation>
@@ -223,8 +227,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👾" type="tts">តុក្កតាក្រៅភព</annotation>
 		<annotation cp="🤖">មនុុស្សយន្ត | មុខ | មុខមនុុស្សយន្ត</annotation>
 		<annotation cp="🤖" type="tts">មុខមនុុស្សយន្ត</annotation>
-		<annotation cp="💩">គំនរអាចម៍, គំនរលាមក | លាមក | អាចម៍</annotation>
-		<annotation cp="💩" type="tts">គំនរអាចម៍, គំនរលាមក</annotation>
 		<annotation cp="😺">ឆ្មា | ញញឹម | មុខ | មុខឆ្មាញញឹម</annotation>
 		<annotation cp="😺" type="tts">មុខឆ្មាញញឹម</annotation>
 		<annotation cp="😸">ឆ្មា | មុខ | មុខឆ្មាសើច | សើច</annotation>
@@ -249,6 +251,160 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙉" type="tts">ស្វាយកដៃបិទត្រចៀកខ្លួនឯង</annotation>
 		<annotation cp="🙊">បិទច្រមុះ | ស្វា | ស្វាយកដៃខ្ទប់ច្រមុះ</annotation>
 		<annotation cp="🙊" type="tts">ស្វាយកដៃខ្ទប់ច្រមុះ</annotation>
+		<annotation cp="💋">បបេរមាត់ | ស្នាមថើប</annotation>
+		<annotation cp="💋" type="tts">ស្នាមថើប</annotation>
+		<annotation cp="💌">សំបុត្រ | សំបុត្រស្នេហា | ស្នេហា</annotation>
+		<annotation cp="💌" type="tts">សំបុត្រស្នេហា</annotation>
+		<annotation cp="💘">បេះដូង | បេះដូងត្រូវគ្រាប់ព្រួញ | ព្រួញស្នេហ៍ | ស្នេហ៍</annotation>
+		<annotation cp="💘" type="tts">បេះដូងត្រូវគ្រាប់ព្រួញ</annotation>
+		<annotation cp="💝">ចងបូ | បេះដូង | បេះដូងចងបូ | ស្រឡាញ់</annotation>
+		<annotation cp="💝" type="tts">បេះដូងចងបូ</annotation>
+		<annotation cp="💖">ចែងចាំង | បេដូង | បេះដូចចែងចាំង</annotation>
+		<annotation cp="💖" type="tts">បេះដូចចែងចាំង</annotation>
+		<annotation cp="💗">បេះដូង | បេះដូងរីកធំធាត់ | បេះដូងលោតញាប់ | រំភើប</annotation>
+		<annotation cp="💗" type="tts">បេះដូងរីកធំធាត់</annotation>
+		<annotation cp="💓">ញ័រ | បេះដូង | បេះដូងកំពុងញ័រ</annotation>
+		<annotation cp="💓" type="tts">បេះដូងកំពុងញ័រ</annotation>
+		<annotation cp="💞">បេះដូង | បេះដូងកំពុុងរង្វិលជុំ | វិល</annotation>
+		<annotation cp="💞" type="tts">បេះដូងកំពុុងរង្វិលជុំ</annotation>
+		<annotation cp="💕">បេះដូង | បេះដូងពីរ | បេះដូងមួយគូ | ស្នេហា</annotation>
+		<annotation cp="💕" type="tts">បេះដូងពីរ</annotation>
+		<annotation cp="💟">បេះដូង | ពុម្ពបេះដូង</annotation>
+		<annotation cp="💟" type="tts">ពុម្ពបេះដូង</annotation>
+		<annotation cp="❣">បេះដូង | សញ្ញាឧទាន | សញ្ញាឧទានរូបបេះដូង</annotation>
+		<annotation cp="❣" type="tts">សញ្ញាឧទានរូបបេះដូង</annotation>
+		<annotation cp="💔">បេះដូងបែកជាពីរ | បេះដូងប្រេះស្រាំ | បែកបេះដូង</annotation>
+		<annotation cp="💔" type="tts">បេះដូងបែកជាពីរ</annotation>
+		<annotation cp="❤">បេះដូង | ស្រឡាញ់</annotation>
+		<annotation cp="❤" type="tts">បេះដូង</annotation>
+		<annotation cp="🧡">បេះដូងពណ៌ទឹកក្រូច | ពណ៌ទឹកក្រូច</annotation>
+		<annotation cp="🧡" type="tts">បេះដូងពណ៌ទឹកក្រូច</annotation>
+		<annotation cp="💛">បេះដូង | បេះដូងពណ៌លឿង | លឿង</annotation>
+		<annotation cp="💛" type="tts">បេះដូងពណ៌លឿង</annotation>
+		<annotation cp="💚">បេះដូង | បេះដូងពណ៌បៃតង | បៃតង</annotation>
+		<annotation cp="💚" type="tts">បេះដូងពណ៌បៃតង</annotation>
+		<annotation cp="💙">ខៀវ | បេះដូង | បេះដូងពណ៌ខៀវ</annotation>
+		<annotation cp="💙" type="tts">បេះដូងពណ៌ខៀវ</annotation>
+		<annotation cp="💜">បេះដូង | បេះដូងពណ៌ស្វាយ | ពណ៌ស្វាយ</annotation>
+		<annotation cp="💜" type="tts">បេះដូងពណ៌ស្វាយ</annotation>
+		<annotation cp="🖤">ខ្មៅ | ធ្មប់ | បិសាច | បេះដូងពណ៌ខ្មៅ | បេះដូវ</annotation>
+		<annotation cp="🖤" type="tts">បេះដូងពណ៌ខ្មៅ</annotation>
+		<annotation cp="💯">100 | ពិន្ទុ១០០</annotation>
+		<annotation cp="💯" type="tts">ពិន្ទុ១០០</annotation>
+		<annotation cp="💢">ខឹង​ | សញ្ញាខឹង</annotation>
+		<annotation cp="💢" type="tts">សញ្ញាខឹង</annotation>
+		<annotation cp="💥">បុកគ្នា | ផ្ទុុះ</annotation>
+		<annotation cp="💥" type="tts">បុកគ្នា</annotation>
+		<annotation cp="💫">វិល | វិលវល់</annotation>
+		<annotation cp="💫" type="tts">វិលវល់</annotation>
+		<annotation cp="💦">តំណក់ទឹក | តំណក់ទឹកបី | ភ្លៀង</annotation>
+		<annotation cp="💦" type="tts">តំណក់ទឹកបី</annotation>
+		<annotation cp="💨">រត់់ | សន្ទុះខ្យល់ពីការរត់យ៉ាងលឿន</annotation>
+		<annotation cp="💨" type="tts">សន្ទុះខ្យល់ពីការរត់យ៉ាងលឿន</annotation>
+		<annotation cp="🕳">ប្រហោង | ប្រហោយ</annotation>
+		<annotation cp="🕳" type="tts">ប្រហោយ</annotation>
+		<annotation cp="💣">គ្រាប់បែក | ផ្ទុះ</annotation>
+		<annotation cp="💣" type="tts">គ្រាប់បែក</annotation>
+		<annotation cp="💬">និយាយ | ពាក្យសម្តី | រង្វង់បង្ហាញពាក្យកំពុងនិយាយខាងស្តាំ</annotation>
+		<annotation cp="💬" type="tts">រង្វង់បង្ហាញពាក្យកំពុងនិយាយខាងស្តាំ</annotation>
+		<annotation cp="👁‍🗨">ពពុះពាក្យនិយាយ | ភ្នែក | ភ្នែកក្នុងពពុះ | សាក្សី</annotation>
+		<annotation cp="👁‍🗨" type="tts">ភ្នែកក្នុងពពុះ</annotation>
+		<annotation cp="🗨">ឆ្វេង | និយាយ | រង្វង់បង្ហាញពាក្យកំពុងនិយាយខាងឆ្វេង</annotation>
+		<annotation cp="🗨" type="tts">រង្វង់បង្ហាញពាក្យកំពុងនិយាយខាងឆ្វេង</annotation>
+		<annotation cp="🗯">ខាងស្តាំ | និយាយ | រង្វង់អង្កាញ់បង្ហាញពាក្យកំពុងនិយាយខាងស្តាំ</annotation>
+		<annotation cp="🗯" type="tts">រង្វង់អង្កាញ់បង្ហាញពាក្យកំពុងនិយាយខាងស្តាំ</annotation>
+		<annotation cp="💭">គិត | និយាយ | ពពក | ពពកបង្ហាញពាក្យកំពុងគិត</annotation>
+		<annotation cp="💭" type="tts">ពពកបង្ហាញពាក្យកំពុងគិត</annotation>
+		<annotation cp="💤">គេង | ដេក | ស្រមុក | អក្សរ Z បី</annotation>
+		<annotation cp="💤" type="tts">អក្សរ Z បី</annotation>
+		<annotation cp="👋">គ្រវីដៃ | ទេ</annotation>
+		<annotation cp="👋" type="tts">គ្រវីដៃ</annotation>
+		<annotation cp="🤚">ខ្នងដៃ | ខ្នងដៃលាឡើង | លើកឡើង</annotation>
+		<annotation cp="🤚" type="tts">ខ្នងដៃលាឡើង</annotation>
+		<annotation cp="🖐">​ បាតដៃ | ប្រាំ | ម្រាមដៃ | ម្រាមប្រាំ | លើកម្រាមដៃប្រាំ</annotation>
+		<annotation cp="🖐" type="tts">លើកម្រាមដៃប្រាំ</annotation>
+		<annotation cp="✋">បាតដៃ | លើកដៃ</annotation>
+		<annotation cp="✋" type="tts">លើកដៃ</annotation>
+		<annotation cp="🖖">ផ្គុំម្រាមដៃជាពីរគូ | ម្រាមផ្គុំ</annotation>
+		<annotation cp="🖖" type="tts">ផ្គុំម្រាមដៃជាពីរគូ</annotation>
+		<annotation cp="👌">ok | ធ្វើម្រាមដៃ OK | យល់ព្រម</annotation>
+		<annotation cp="👌" type="tts">ធ្វើម្រាមដៃ OK</annotation>
+		<annotation cp="✌">V | ម្រាមពីរ | លើម្រាមដៃពីរជាអក្សរ V | អក្សរវី</annotation>
+		<annotation cp="✌" type="tts">លើម្រាមដៃពីរជាអក្សរ V</annotation>
+		<annotation cp="🤞">ខ្វែង | ខ្វែងម្រាមដៃ | ដៃ | ម្រាមដៃ | សំណាង</annotation>
+		<annotation cp="🤞" type="tts">ខ្វែងម្រាមដៃ</annotation>
+		<annotation cp="🤟">ILY | កាយវិការបង្ហាញក្ដីស្រឡាញ់ | ប្រអប់ដៃ</annotation>
+		<annotation cp="🤟" type="tts">កាយវិការបង្ហាញក្ដីស្រឡាញ់</annotation>
+		<annotation cp="🤘">ប្រើម្រាមធ្វើជាសញ្ញាស្នែង | ម្រាមពីរ | ស្នែង | អេម</annotation>
+		<annotation cp="🤘" type="tts">ប្រើម្រាមធ្វើជាសញ្ញាស្នែង</annotation>
+		<annotation cp="🤙">ដៃ | ដៃជាសញ្ញាតេទូរស័ព្ទ | តេទូរស័ព្ទ</annotation>
+		<annotation cp="🤙" type="tts">ដៃជាសញ្ញាតេទូរស័ព្ទ</annotation>
+		<annotation cp="👈">ចង្អុល | ចង្អុលទៅឆ្វេង | ឆ្វេង</annotation>
+		<annotation cp="👈" type="tts">ចង្អុលទៅឆ្វេង</annotation>
+		<annotation cp="👉">ចង្អុល | ចង្អុលទៅស្តាំ | ស្តាំ</annotation>
+		<annotation cp="👉" type="tts">ចង្អុលទៅស្តាំ</annotation>
+		<annotation cp="👆">ខ្នងដៃ | ចង្អុល | ចង្អុលទៅលើដោយបង្ហាញខ្នងដៃ | លើ</annotation>
+		<annotation cp="👆" type="tts">ចង្អុលទៅលើដោយបង្ហាញខ្នងដៃ</annotation>
+		<annotation cp="🖕">ចង្អុល | ជេរ | ដៃកណ្តាល | ម្រាមកណ្តាលចង្អុលទៅលើ</annotation>
+		<annotation cp="🖕" type="tts">ម្រាមកណ្តាលចង្អុលទៅលើ</annotation>
+		<annotation cp="👇">ក្រោម | ចង្អុល | ចង្អុលទៅក្រោម</annotation>
+		<annotation cp="👇" type="tts">ចង្អុលទៅក្រោម</annotation>
+		<annotation cp="☝">ចង្អុល | ចង្អុលទៅលើ | លើ</annotation>
+		<annotation cp="☝" type="tts">ចង្អុលទៅលើ</annotation>
+		<annotation cp="👍">មេដៃឡើងលើ | ល្អ</annotation>
+		<annotation cp="👍" type="tts">មេដៃឡើងលើ</annotation>
+		<annotation cp="👎">មេដៃចុះក្រោម | អន់</annotation>
+		<annotation cp="👎" type="tts">មេដៃចុះក្រោម</annotation>
+		<annotation cp="✊">កណ្តាប់ដៃ | ក្តាប់ | ក្តាប់ដៃ | លើកកណ្តាប់ដៃ</annotation>
+		<annotation cp="✊" type="tts">លើកកណ្តាប់ដៃ</annotation>
+		<annotation cp="👊">កណ្តាប់ដៃមើលចំពីមុខ | ក្តាប់ដៃ</annotation>
+		<annotation cp="👊" type="tts">កណ្តាប់ដៃមើលចំពីមុខ</annotation>
+		<annotation cp="🤛">កណ្តាប់ដៃ | កណ្តាប់ដៃឆ្វេង | ខាងឆ្វេង</annotation>
+		<annotation cp="🤛" type="tts">កណ្តាប់ដៃឆ្វេង</annotation>
+		<annotation cp="🤜">កណ្តាប់ដៃ | កណ្តាប់ដៃស្តាំ | ខាងស្តាំ</annotation>
+		<annotation cp="🤜" type="tts">កណ្តាប់ដៃស្តាំ</annotation>
+		<annotation cp="👏">ទះដៃ | ល្អណាស់ | ស្វាគមន៍</annotation>
+		<annotation cp="👏" type="tts">ទះដៃ</annotation>
+		<annotation cp="🙌">ដៃ | បាតដៃពីរ | លើកដៃ | លើកបង្ហាញបាតដៃទាំងពីរ</annotation>
+		<annotation cp="🙌" type="tts">លើកបង្ហាញបាតដៃទាំងពីរ</annotation>
+		<annotation cp="👐">លាដៃ | លាបង្ហាញបាតដៃទាំងពីរ</annotation>
+		<annotation cp="👐" type="tts">លាបង្ហាញបាតដៃទាំងពីរ</annotation>
+		<annotation cp="🤲">ដាក់បាតដៃទន្ទឹមគ្នា | លើកដៃបួងសួង</annotation>
+		<annotation cp="🤲" type="tts">ដាក់បាតដៃទន្ទឹមគ្នា</annotation>
+		<annotation cp="🤝">ការព្រមព្រៀង | ចាប់ | ចាប់ដៃ | ដៃ | ប្រជុំ</annotation>
+		<annotation cp="🤝" type="tts">ចាប់ដៃ</annotation>
+		<annotation cp="🙏">គោរព | សំពះ</annotation>
+		<annotation cp="🙏" type="tts">សំពះ</annotation>
+		<annotation cp="✍">ដៃកាន់ប៊ិចសរសេរ | ប៊ិច | សរសេរ</annotation>
+		<annotation cp="✍" type="tts">ដៃកាន់ប៊ិចសរសេរ</annotation>
+		<annotation cp="💅">ក្រចក | លាបថ្នាំក្រចក</annotation>
+		<annotation cp="💅" type="tts">លាបថ្នាំក្រចក</annotation>
+		<annotation cp="🤳">selfie | កាមេរ៉ា | ថត | ទូរស័ព្ទ</annotation>
+		<annotation cp="🤳" type="tts">ថត selfie</annotation>
+		<annotation cp="💪">ដៃ | សាចដុំ | សាច់ដុំដើមដៃ</annotation>
+		<annotation cp="💪" type="tts">សាច់ដុំដើមដៃ</annotation>
+		<annotation cp="🦵">ជើង | ទាត់ | អវយវៈ</annotation>
+		<annotation cp="🦵" type="tts">ជើង</annotation>
+		<annotation cp="🦶">តន្ត្រំ | ទាត់ | ប្រអប់ជើង</annotation>
+		<annotation cp="🦶" type="tts">ប្រអប់ជើង</annotation>
+		<annotation cp="👂">ត្រចៀក | ស្តាប់</annotation>
+		<annotation cp="👂" type="tts">ត្រចៀក</annotation>
+		<annotation cp="👃">ច្រមុះ | ហិត</annotation>
+		<annotation cp="👃" type="tts">ច្រមុះ</annotation>
+		<annotation cp="🧠">ខួរក្បាល | ឆ្លាតវៃ</annotation>
+		<annotation cp="🧠" type="tts">ខួរក្បាល</annotation>
+		<annotation cp="🦷">ទន្តពេទ្យ | ធ្មេញ</annotation>
+		<annotation cp="🦷" type="tts">ធ្មេញ</annotation>
+		<annotation cp="🦴">គ្រោងឆ្អឹង | ឆ្អឹង</annotation>
+		<annotation cp="🦴" type="tts">ឆ្អឹង</annotation>
+		<annotation cp="👀">ភ្នែក | មុខ | រាងកាយ</annotation>
+		<annotation cp="👀" type="tts">ភ្នែក</annotation>
+		<annotation cp="👁">កែវភ្នែក | សម្លឹងមើល</annotation>
+		<annotation cp="👁" type="tts">កែវភ្នែក</annotation>
+		<annotation cp="👅">លិឍ | អណ្តាត</annotation>
+		<annotation cp="👅" type="tts">អណ្តាត</annotation>
+		<annotation cp="👄">មាត់</annotation>
+		<annotation cp="👄" type="tts">មាត់</annotation>
 		<annotation cp="👶">កូនង៉ែត | ក្មេង | មុខកូនង៉ែត</annotation>
 		<annotation cp="👶" type="tts">មុខកូនង៉ែត</annotation>
 		<annotation cp="🧒">ក្មេង | សម្រាប់ភេទទាំងអស់</annotation>
@@ -261,14 +417,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">មនុស្សធំ</annotation>
 		<annotation cp="👱">បុរសសក់ខ្លី | មុខបុរសសក់ខ្លីពណ៌ទង់ដែង | សក់ខ្លី</annotation>
 		<annotation cp="👱" type="tts">មុខបុរសសក់ខ្លីពណ៌ទង់ដែង</annotation>
+		<annotation cp="🧑‍🤝‍🧑">កាន់ | កាន់ដៃគ្នា | គូស្នេហ៍ | ដៃ | មនុស្ស</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts">មនុស្សកាន់ដៃគ្នា</annotation>
 		<annotation cp="👨">បុរស | ពុកមាត់ | មុខ | មុខបុរសមានពុកមាត់</annotation>
 		<annotation cp="👨" type="tts">មុខបុរសមានពុកមាត់</annotation>
+		<annotation cp="👨‍🦯">បុរស | ពិការភ្នែក | លទ្ធភាព​ទទួលបាន</annotation>
+		<annotation cp="👨‍🦯" type="tts">បុរស​កាន់ឈើច្រត់សម្រាប់​ជនពិការភ្នែក</annotation>
+		<annotation cp="👨‍🦼">បុរស | រទេះរុញ | លទ្ធភាពទទួលបាន</annotation>
+		<annotation cp="👨‍🦼" type="tts">បុរស​ជិះ​រទេះជនពិការ​ដែលមាន​បំពាក់​ម៉ាស៊ីន</annotation>
+		<annotation cp="👨‍🦽">បុរស | រទេះជនពិការ | លទ្ធភាព​ទទួលបាន</annotation>
+		<annotation cp="👨‍🦽" type="tts">បុរសជិះ​រទេះជនពិការដែលរុញដោយដៃ</annotation>
 		<annotation cp="👱‍♂">ទង់ដែង | បុរស | បុរសសក់ទង់ដែង | ប្រុស | សក់</annotation>
 		<annotation cp="👱‍♂" type="tts">បុរសសក់ទង់ដែង</annotation>
 		<annotation cp="🧔">ពុកចង្កា | មនុស្សមានពុកចង្កា</annotation>
 		<annotation cp="🧔" type="tts">មនុស្សមានពុកចង្កា</annotation>
 		<annotation cp="👩">​ នារី | មុខ | មុខស្រ្តី | ស្ត្រី | ស្រី</annotation>
 		<annotation cp="👩" type="tts">មុខស្រ្តី</annotation>
+		<annotation cp="👩‍🦯">ពិការភ្នែក | លទ្ធភាព​ទទួលបាន | ស្ត្រី</annotation>
+		<annotation cp="👩‍🦯" type="tts">ស្ត្រីកាន់ឈើច្រត់សម្រាប់​ជនពិការភ្នែក</annotation>
+		<annotation cp="👩‍🦼">រទេះរុញ | លទ្ធភាពទទួលបាន | ស្ត្រី</annotation>
+		<annotation cp="👩‍🦼" type="tts">ស្ត្រី​ជិះ​រទេះជនពិការ​ដែលមាន​បំពាក់​ម៉ាស៊ីន</annotation>
+		<annotation cp="👩‍🦽">រទេះជនពិការ | លទ្ធភាព​ទទួលបាន | ស្ត្រី</annotation>
+		<annotation cp="👩‍🦽" type="tts">ស្ត្រីជិះ​រទេះជនពិការដែលរុញដោយដៃ</annotation>
 		<annotation cp="👱‍♀">ទង់ដែង | នារី | នារីសក់ទង់ដែង | សក់ | ស្រី</annotation>
 		<annotation cp="👱‍♀" type="tts">នារីសក់ទង់ដែង</annotation>
 		<annotation cp="🧓">ចាស់ | មនុស្សចាស់ | សម្រាប់ភេទទាំងអស់</annotation>
@@ -277,6 +447,60 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👴" type="tts">មុខបុរសចំណាស់ក្បាលត្រពែក</annotation>
 		<annotation cp="👵">ចំណាស់ | ចាស់ | មនុស្សចាស់ | មុខ | មុខស្រ្តីចំណាស់ | ស្ត្រីចាស់</annotation>
 		<annotation cp="👵" type="tts">មុខស្រ្តីចំណាស់</annotation>
+		<annotation cp="🙍">ក្រៀមក្រំ | មនុស្ស | មនុស្ស​កំពុងក្រៀមក្រំ</annotation>
+		<annotation cp="🙍" type="tts">មនុស្ស​កំពុងក្រៀមក្រំ</annotation>
+		<annotation cp="🙍‍♂">ក្រញ៉ូវ | ទឹកមុខ | បុរស | បុរសមុខក្រញ៉ូវ | ប្រុស</annotation>
+		<annotation cp="🙍‍♂" type="tts">បុរសមុខក្រញ៉ូវ</annotation>
+		<annotation cp="🙍‍♀">ក្រញ៉ូវ | ទឹកមុខ | នារី | នារីមុខក្រញ៉ូវ | ស្រី</annotation>
+		<annotation cp="🙍‍♀" type="tts">នារីមុខក្រញ៉ូវ</annotation>
+		<annotation cp="🙎">ខឹង | មនុស្ស | មនុស្សកំពុងមួរម៉ៅ</annotation>
+		<annotation cp="🙎" type="tts">មនុស្សកំពុងមួរម៉ៅ</annotation>
+		<annotation cp="🙎‍♂">ទឹកមុខ | បុរស | បុរសមួរម៉ៅ | ប្រុស | មួរម៉ៅ</annotation>
+		<annotation cp="🙎‍♂" type="tts">បុរសមួរម៉ៅ</annotation>
+		<annotation cp="🙎‍♀">ទឹកមុខ | នារី | នារីមួរម៉ៅ | មួរម៉ៅ | ស្រី</annotation>
+		<annotation cp="🙎‍♀" type="tts">នារីមួរម៉ៅ</annotation>
+		<annotation cp="🙅">ដៃខ្វែង | ទេ | មនុស្សខ្វែងដៃជាសញ្ញាថា ទេ | មិន | ហាមឃាត់</annotation>
+		<annotation cp="🙅" type="tts">មនុស្សខ្វែងដៃជាសញ្ញាថា ទេ</annotation>
+		<annotation cp="🙅‍♂">ឃាត់ | បដិសេធ | បុរសចេញកាយវិការបដិសេធ | មិនយល់ព្រម | ហាម</annotation>
+		<annotation cp="🙅‍♂" type="tts">បុរសចេញកាយវិការបដិសេធ</annotation>
+		<annotation cp="🙅‍♀">ឃាត់ | នារីចេញកាយវិការបដិសេធ | បដិសេធ | មិនយល់ព្រម | ហាម</annotation>
+		<annotation cp="🙅‍♀" type="tts">នារីចេញកាយវិការបដិសេធ</annotation>
+		<annotation cp="🙆">OK | កាយវិការ | ដៃ | មនុស្សផ្គុំដៃលើក្បាលជាសញ្ញាថា យល់ព្រម</annotation>
+		<annotation cp="🙆" type="tts">មនុស្សផ្គុំដៃលើក្បាលជាសញ្ញាថា យល់ព្រម</annotation>
+		<annotation cp="🙆‍♂">កាយវិការ | បុរសចេញកាយវិការយល់ព្រម | យល់ព្រម | អនុញ្ញាត</annotation>
+		<annotation cp="🙆‍♂" type="tts">បុរសចេញកាយវិការយល់ព្រម</annotation>
+		<annotation cp="🙆‍♀">កាយវិការ | នារីចេញកាយវិការយល់ព្រម | យល់ព្រម | អនុញ្ញាត</annotation>
+		<annotation cp="🙆‍♀" type="tts">នារីចេញកាយវិការយល់ព្រម</annotation>
+		<annotation cp="💁">ជួយ | ណែនាំ | ប្រាប់ព័ត៌មាន | អ្នកផ្តល់ព័ត៌មាន</annotation>
+		<annotation cp="💁" type="tts">អ្នកផ្តល់ព័ត៌មាន</annotation>
+		<annotation cp="💁‍♂">ដៃ | បុរស | បុរសសុំធីប | ប្រុស | សុំធីប</annotation>
+		<annotation cp="💁‍♂" type="tts">បុរសសុំធីប</annotation>
+		<annotation cp="💁‍♀">ដៃ | នារី | នារីសុំធីប | សុំធីប | ស្រី</annotation>
+		<annotation cp="💁‍♀" type="tts">នារីសុំធីប</annotation>
+		<annotation cp="🙋">ឆ្លើយសំណួរ | ដៃ | មនុស្សលើកដៃស្តាំ | លើកដៃ | សួរ</annotation>
+		<annotation cp="🙋" type="tts">មនុស្សលើកដៃស្តាំ</annotation>
+		<annotation cp="🙋‍♂">កាយវិការ | បុរសចេញកាយវិការលើកដៃ | ប្រុស | លើក | លើកដៃ</annotation>
+		<annotation cp="🙋‍♂" type="tts">បុរសចេញកាយវិការលើកដៃ</annotation>
+		<annotation cp="🙋‍♀">កាយវិការ | នារីចេញកាយវិការលើកដៃ | លើក | លើកដៃ | ស្រី</annotation>
+		<annotation cp="🙋‍♀" type="tts">នារីចេញកាយវិការលើកដៃ</annotation>
+		<annotation cp="🙇">គោរព | មនុស្សឱនគោរព</annotation>
+		<annotation cp="🙇" type="tts">មនុស្សឱនគោរព</annotation>
+		<annotation cp="🙇‍♂">គោរព | បុរសឱនលំទោន | សុំទោស | ឱន | ឱនលំទោន</annotation>
+		<annotation cp="🙇‍♂" type="tts">បុរសឱនលំទោន</annotation>
+		<annotation cp="🙇‍♀">គោរព | នារីឱនលំទោន | សុំទោស | ឱន | ឱនលំទោន</annotation>
+		<annotation cp="🙇‍♀" type="tts">នារីឱនលំទោន</annotation>
+		<annotation cp="🤦">ខ្ទប់មុខ | ធុញថប់ | បាតដៃ | មិនជឿ | មុខ</annotation>
+		<annotation cp="🤦" type="tts">ខ្ទប់មុខ</annotation>
+		<annotation cp="🤦‍♂">ខ្ទប់មុខ | បុរសខ្ទប់មុខ | ប្រុស | មិនជឿ | ហួសចិត្ត</annotation>
+		<annotation cp="🤦‍♂" type="tts">បុរសខ្ទប់មុខ</annotation>
+		<annotation cp="🤦‍♀">ខ្ទប់មុខ | នារីខ្ទប់មុខ | មិនជឿ | ស្រី | ហួសចិត្ត</annotation>
+		<annotation cp="🤦‍♀" type="tts">នារីខ្ទប់មុខ</annotation>
+		<annotation cp="🤷">ឆ្ងល់ | ញាក់ស្មា | អត់ខ្វល់ | អត់ដឹង</annotation>
+		<annotation cp="🤷" type="tts">ញាក់ស្មា</annotation>
+		<annotation cp="🤷‍♂">ឆ្ងល់ | ញាក់ស្មា | បុរសញាក់ស្មា | ប្រុស | អត់ដឹង</annotation>
+		<annotation cp="🤷‍♂" type="tts">បុរសញាក់ស្មា</annotation>
+		<annotation cp="🤷‍♀">ឆ្ងល់ | ញាក់ស្មា | នារីញាក់ស្មា | ស្រី | អត់ដឹង</annotation>
+		<annotation cp="🤷‍♀" type="tts">នារីញាក់ស្មា</annotation>
 		<annotation cp="👨‍⚕">គិលានុបដ្ឋាយិកា | គ្រូពេទ្យ | ពិនិត្យសុខភាព | ពេទ្យប្រុល | ព្យាបាល</annotation>
 		<annotation cp="👨‍⚕" type="tts">ពេទ្យប្រុល</annotation>
 		<annotation cp="👩‍⚕">គិលានុបដ្ឋាយិកា | គ្រូពេទ្យ | ពិនិត្យសុខភាព | ពេទ្យស្រី | ព្យាបាល</annotation>
@@ -395,112 +619,58 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤶" type="tts">ម្តាយពេលបុណ្យណូអែល</annotation>
 		<annotation cp="🦸">កំពូលវីរជន | ថាមពលពិសេស | ល្អ | វីរនារី | វីរបុរស</annotation>
 		<annotation cp="🦸" type="tts">កំពូលវីរជន</annotation>
-		<annotation cp="🦸‍♀">ថាមពលពិសេស | នារី | ល្អ | វីរនារី | វីរបុរស</annotation>
-		<annotation cp="🦸‍♀" type="tts">វីរនារី</annotation>
 		<annotation cp="🦸‍♂">ថាមពលពិសេស | នារី | ល្អ | វីរនារី | វីរបុរស</annotation>
 		<annotation cp="🦸‍♂" type="tts">វីរបុរស</annotation>
+		<annotation cp="🦸‍♀">ថាមពលពិសេស | នារី | ល្អ | វីរនារី | វីរបុរស</annotation>
+		<annotation cp="🦸‍♀" type="tts">វីរនារី</annotation>
 		<annotation cp="🦹">កំពូលជនអាក្រក់ | ជនអាក្រក់ | ថាមពលពិសេស | អាក្រក់ | ឧក្រិដ្ឋជន</annotation>
 		<annotation cp="🦹" type="tts">កំពូលជនអាក្រក់</annotation>
-		<annotation cp="🦹‍♀">កំពូលនារីអាក្រក់ | ជនអាក្រក់ | ថាមពលពិសេស | នារី | អាក្រក់ | ឧក្រិដ្ឋជន</annotation>
-		<annotation cp="🦹‍♀" type="tts">កំពូលនារីអាក្រក់</annotation>
 		<annotation cp="🦹‍♂">កំពូលបុរសអាក្រក់ | ជនអាក្រក់ | ថាមពលពិសេស | បុរស | អាក្រក់ | ឧក្រិដ្ឋជន</annotation>
 		<annotation cp="🦹‍♂" type="tts">កំពូលបុរសអាក្រក់</annotation>
+		<annotation cp="🦹‍♀">កំពូលនារីអាក្រក់ | ជនអាក្រក់ | ថាមពលពិសេស | នារី | អាក្រក់ | ឧក្រិដ្ឋជន</annotation>
+		<annotation cp="🦹‍♀" type="tts">កំពូលនារីអាក្រក់</annotation>
 		<annotation cp="🧙">ធ្មប់ | អ្នកមន្តអាគម | អ្នកវេទមន្ត</annotation>
 		<annotation cp="🧙" type="tts">អ្នកវេទមន្ត</annotation>
-		<annotation cp="🧙‍♀">ធ្មប់ស្រី | អ្នកមន្តអាគមស្រី | អ្នកវេទមន្តស្រី</annotation>
-		<annotation cp="🧙‍♀" type="tts">អ្នកវេទមន្តស្រី</annotation>
 		<annotation cp="🧙‍♂">ធ្មប់ប្រុស | អ្នកមន្តអាគមប្រុស | អ្នកវេទមន្តប្រុស</annotation>
 		<annotation cp="🧙‍♂" type="tts">អ្នកវេទមន្តប្រុស</annotation>
+		<annotation cp="🧙‍♀">ធ្មប់ស្រី | អ្នកមន្តអាគមស្រី | អ្នកវេទមន្តស្រី</annotation>
+		<annotation cp="🧙‍♀" type="tts">អ្នកវេទមន្តស្រី</annotation>
 		<annotation cp="🧚">ទីតានៀ | ផាក់ | មនុស្សទេព | អូបេរ៉ុន</annotation>
 		<annotation cp="🧚" type="tts">មនុស្សទេព</annotation>
-		<annotation cp="🧚‍♀">ទីតានៀ | ទេពធីតា</annotation>
-		<annotation cp="🧚‍♀" type="tts">ទេពធីតា</annotation>
 		<annotation cp="🧚‍♂">ទេវបុត្រ | ផាក់ | អូបេរ៉ុន</annotation>
 		<annotation cp="🧚‍♂" type="tts">ទេវបុត្រ</annotation>
+		<annotation cp="🧚‍♀">ទីតានៀ | ទេពធីតា</annotation>
+		<annotation cp="🧚‍♀" type="tts">ទេពធីតា</annotation>
 		<annotation cp="🧛">ត្រាខ្យូឡា | បិសាចជញ្ជក់ឈាម | បិសាចមិនចេះស្លាប់</annotation>
 		<annotation cp="🧛" type="tts">បិសាចជញ្ជក់ឈាម</annotation>
-		<annotation cp="🧛‍♀">បិសាចមិនចេះស្លាប់ | បិសាចស្រីជញ្ជក់ឈាម</annotation>
-		<annotation cp="🧛‍♀" type="tts">បិសាចស្រីជញ្ជក់ឈាម</annotation>
 		<annotation cp="🧛‍♂">ត្រាខ្យូឡា | បិសាចប្រុសជញ្ជក់ឈាម | បិសាចមិនចេះស្លាប់</annotation>
 		<annotation cp="🧛‍♂" type="tts">បិសាចប្រុសជញ្ជក់ឈាម</annotation>
+		<annotation cp="🧛‍♀">បិសាចមិនចេះស្លាប់ | បិសាចស្រីជញ្ជក់ឈាម</annotation>
+		<annotation cp="🧛‍♀" type="tts">បិសាចស្រីជញ្ជក់ឈាម</annotation>
 		<annotation cp="🧜">នាងមច្ឆា | ប្រុសមច្ឆា | មនុស្សមច្ឆា | ស្រីមច្ឆា</annotation>
 		<annotation cp="🧜" type="tts">មនុស្សមច្ឆា</annotation>
-		<annotation cp="🧜‍♀">នាងមច្ឆា | ស្រីមច្ឆា</annotation>
-		<annotation cp="🧜‍♀" type="tts">នាងមច្ឆា</annotation>
 		<annotation cp="🧜‍♂">ត្រាយតុន | ប្រុសមច្ឆា</annotation>
 		<annotation cp="🧜‍♂" type="tts">ប្រុសមច្ឆា</annotation>
+		<annotation cp="🧜‍♀">នាងមច្ឆា | ស្រីមច្ឆា</annotation>
+		<annotation cp="🧜‍♀" type="tts">នាងមច្ឆា</annotation>
 		<annotation cp="🧝">ដែលចេះវេទមន្ត | អែលហ្វ</annotation>
 		<annotation cp="🧝" type="tts">អែលហ្វ</annotation>
-		<annotation cp="🧝‍♀">ដែលចេះវេទមន្ត | អែលហ្វស្រី</annotation>
-		<annotation cp="🧝‍♀" type="tts">អែលហ្វស្រី</annotation>
 		<annotation cp="🧝‍♂">ដែលចេះវេទមន្ត | អែលហ្វប្រុស</annotation>
 		<annotation cp="🧝‍♂" type="tts">អែលហ្វប្រុស</annotation>
+		<annotation cp="🧝‍♀">ដែលចេះវេទមន្ត | អែលហ្វស្រី</annotation>
+		<annotation cp="🧝‍♀" type="tts">អែលហ្វស្រី</annotation>
 		<annotation cp="🧞">ជីន | ជីនី</annotation>
 		<annotation cp="🧞" type="tts">ជីនី</annotation>
-		<annotation cp="🧞‍♀">ជីន | ជីនីស្រី</annotation>
-		<annotation cp="🧞‍♀" type="tts">ជីនីស្រី</annotation>
 		<annotation cp="🧞‍♂">ជីន | ជីនីប្រុស</annotation>
 		<annotation cp="🧞‍♂" type="tts">ជីនីប្រុស</annotation>
+		<annotation cp="🧞‍♀">ជីន | ជីនីស្រី</annotation>
+		<annotation cp="🧞‍♀" type="tts">ជីនីស្រី</annotation>
 		<annotation cp="🧟">ខ្មោចដើរ | បិសាចមិនចេះស្លាប់ | ហ្សំប៊ី</annotation>
 		<annotation cp="🧟" type="tts">ហ្សំប៊ី</annotation>
-		<annotation cp="🧟‍♀">ខ្មោចដើរ | បិសាចមិនចេះស្លាប់ | ហ្សំប៊ីស្រី</annotation>
-		<annotation cp="🧟‍♀" type="tts">ហ្សំប៊ីស្រី</annotation>
 		<annotation cp="🧟‍♂">ខ្មោចដើរ | បិសាចមិនចេះស្លាប់ | ហ្សំប៊ីប្រុស</annotation>
 		<annotation cp="🧟‍♂" type="tts">ហ្សំប៊ីប្រុស</annotation>
-		<annotation cp="🙍">ក្រៀមក្រំ | មនុស្ស | មនុស្ស​កំពុងក្រៀមក្រំ</annotation>
-		<annotation cp="🙍" type="tts">មនុស្ស​កំពុងក្រៀមក្រំ</annotation>
-		<annotation cp="🙍‍♂">ក្រញ៉ូវ | ទឹកមុខ | បុរស | បុរសមុខក្រញ៉ូវ | ប្រុស</annotation>
-		<annotation cp="🙍‍♂" type="tts">បុរសមុខក្រញ៉ូវ</annotation>
-		<annotation cp="🙍‍♀">ក្រញ៉ូវ | ទឹកមុខ | នារី | នារីមុខក្រញ៉ូវ | ស្រី</annotation>
-		<annotation cp="🙍‍♀" type="tts">នារីមុខក្រញ៉ូវ</annotation>
-		<annotation cp="🙎">ខឹង | មនុស្ស | មនុស្សកំពុងមួរម៉ៅ</annotation>
-		<annotation cp="🙎" type="tts">មនុស្សកំពុងមួរម៉ៅ</annotation>
-		<annotation cp="🙎‍♂">ទឹកមុខ | បុរស | បុរសមួរម៉ៅ | ប្រុស | មួរម៉ៅ</annotation>
-		<annotation cp="🙎‍♂" type="tts">បុរសមួរម៉ៅ</annotation>
-		<annotation cp="🙎‍♀">ទឹកមុខ | នារី | នារីមួរម៉ៅ | មួរម៉ៅ | ស្រី</annotation>
-		<annotation cp="🙎‍♀" type="tts">នារីមួរម៉ៅ</annotation>
-		<annotation cp="🙅">ដៃខ្វែង | ទេ | មនុស្សខ្វែងដៃជាសញ្ញាថា ទេ | មិន | ហាមឃាត់</annotation>
-		<annotation cp="🙅" type="tts">មនុស្សខ្វែងដៃជាសញ្ញាថា ទេ</annotation>
-		<annotation cp="🙅‍♂">ឃាត់ | បដិសេធ | បុរសចេញកាយវិការបដិសេធ | មិនយល់ព្រម | ហាម</annotation>
-		<annotation cp="🙅‍♂" type="tts">បុរសចេញកាយវិការបដិសេធ</annotation>
-		<annotation cp="🙅‍♀">ឃាត់ | នារីចេញកាយវិការបដិសេធ | បដិសេធ | មិនយល់ព្រម | ហាម</annotation>
-		<annotation cp="🙅‍♀" type="tts">នារីចេញកាយវិការបដិសេធ</annotation>
-		<annotation cp="🙆">OK | កាយវិការ | ដៃ | មនុស្សផ្គុំដៃលើក្បាលជាសញ្ញាថា យល់ព្រម</annotation>
-		<annotation cp="🙆" type="tts">មនុស្សផ្គុំដៃលើក្បាលជាសញ្ញាថា យល់ព្រម</annotation>
-		<annotation cp="🙆‍♂">កាយវិការ | បុរសចេញកាយវិការយល់ព្រម | យល់ព្រម | អនុញ្ញាត</annotation>
-		<annotation cp="🙆‍♂" type="tts">បុរសចេញកាយវិការយល់ព្រម</annotation>
-		<annotation cp="🙆‍♀">កាយវិការ | នារីចេញកាយវិការយល់ព្រម | យល់ព្រម | អនុញ្ញាត</annotation>
-		<annotation cp="🙆‍♀" type="tts">នារីចេញកាយវិការយល់ព្រម</annotation>
-		<annotation cp="💁">ជួយ | ណែនាំ | ប្រាប់ព័ត៌មាន | អ្នកផ្តល់ព័ត៌មាន</annotation>
-		<annotation cp="💁" type="tts">អ្នកផ្តល់ព័ត៌មាន</annotation>
-		<annotation cp="💁‍♂">ដៃ | បុរស | បុរសសុំធីប | ប្រុស | សុំធីប</annotation>
-		<annotation cp="💁‍♂" type="tts">បុរសសុំធីប</annotation>
-		<annotation cp="💁‍♀">ដៃ | នារី | នារីសុំធីប | សុំធីប | ស្រី</annotation>
-		<annotation cp="💁‍♀" type="tts">នារីសុំធីប</annotation>
-		<annotation cp="🙋">ឆ្លើយសំណួរ | ដៃ | មនុស្សលើកដៃស្តាំ | លើកដៃ | សួរ</annotation>
-		<annotation cp="🙋" type="tts">មនុស្សលើកដៃស្តាំ</annotation>
-		<annotation cp="🙋‍♂">កាយវិការ | បុរសចេញកាយវិការលើកដៃ | ប្រុស | លើក | លើកដៃ</annotation>
-		<annotation cp="🙋‍♂" type="tts">បុរសចេញកាយវិការលើកដៃ</annotation>
-		<annotation cp="🙋‍♀">កាយវិការ | នារីចេញកាយវិការលើកដៃ | លើក | លើកដៃ | ស្រី</annotation>
-		<annotation cp="🙋‍♀" type="tts">នារីចេញកាយវិការលើកដៃ</annotation>
-		<annotation cp="🙇">គោរព | មនុស្សឱនគោរព</annotation>
-		<annotation cp="🙇" type="tts">មនុស្សឱនគោរព</annotation>
-		<annotation cp="🙇‍♂">គោរព | បុរសឱនលំទោន | សុំទោស | ឱន | ឱនលំទោន</annotation>
-		<annotation cp="🙇‍♂" type="tts">បុរសឱនលំទោន</annotation>
-		<annotation cp="🙇‍♀">គោរព | នារីឱនលំទោន | សុំទោស | ឱន | ឱនលំទោន</annotation>
-		<annotation cp="🙇‍♀" type="tts">នារីឱនលំទោន</annotation>
-		<annotation cp="🤦">ខ្ទប់មុខ | ធុញថប់ | បាតដៃ | មិនជឿ | មុខ</annotation>
-		<annotation cp="🤦" type="tts">ខ្ទប់មុខ</annotation>
-		<annotation cp="🤦‍♂">ខ្ទប់មុខ | បុរសខ្ទប់មុខ | ប្រុស | មិនជឿ | ហួសចិត្ត</annotation>
-		<annotation cp="🤦‍♂" type="tts">បុរសខ្ទប់មុខ</annotation>
-		<annotation cp="🤦‍♀">ខ្ទប់មុខ | នារីខ្ទប់មុខ | មិនជឿ | ស្រី | ហួសចិត្ត</annotation>
-		<annotation cp="🤦‍♀" type="tts">នារីខ្ទប់មុខ</annotation>
-		<annotation cp="🤷">ឆ្ងល់ | ញាក់ស្មា | អត់ខ្វល់ | អត់ដឹង</annotation>
-		<annotation cp="🤷" type="tts">ញាក់ស្មា</annotation>
-		<annotation cp="🤷‍♂">ឆ្ងល់ | ញាក់ស្មា | បុរសញាក់ស្មា | ប្រុស | អត់ដឹង</annotation>
-		<annotation cp="🤷‍♂" type="tts">បុរសញាក់ស្មា</annotation>
-		<annotation cp="🤷‍♀">ឆ្ងល់ | ញាក់ស្មា | នារីញាក់ស្មា | ស្រី | អត់ដឹង</annotation>
-		<annotation cp="🤷‍♀" type="tts">នារីញាក់ស្មា</annotation>
+		<annotation cp="🧟‍♀">ខ្មោចដើរ | បិសាចមិនចេះស្លាប់ | ហ្សំប៊ីស្រី</annotation>
+		<annotation cp="🧟‍♀" type="tts">ហ្សំប៊ីស្រី</annotation>
 		<annotation cp="💆">ក្បាល | ធ្វើសរសៃក្បាល | ម៉ាស្សា | ម៉ាស្សាក្បាល</annotation>
 		<annotation cp="💆" type="tts">ម៉ាស្សាក្បាល</annotation>
 		<annotation cp="💆‍♂">បុរស | បុរសគេងម៉ាស្សា | ប្រុស | ម៉ស្សា | មុខ</annotation>
@@ -529,6 +699,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💃" type="tts">អ្នករាំ</annotation>
 		<annotation cp="🕺">បុរស | បុុរសកំពុងរាំ | រាំ</annotation>
 		<annotation cp="🕺" type="tts">បុុរសកំពុងរាំ</annotation>
+		<annotation cp="🕴">ការងារ | បុរសស្លៀកឈុតធ្វើការ | សមរម្យ | សម្លៀកបំពាក់ធ្វើការ</annotation>
+		<annotation cp="🕴" type="tts">បុរសស្លៀកឈុតធ្វើការ</annotation>
 		<annotation cp="👯">គូ | រាំ | អ្នរាំជាគូ</annotation>
 		<annotation cp="👯" type="tts">អ្នរាំជាគូ</annotation>
 		<annotation cp="👯‍♂">ជប់លៀង | ត្រចៀកទន្សាយ | បុរសជប់លៀង | ប្រុស | អ្នករាំ</annotation>
@@ -537,34 +709,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👯‍♀" type="tts">នារីជប់លៀង</annotation>
 		<annotation cp="🧖">បន្ទប់ស្ទីម | មនុស្សនៅក្នុងបន្ទប់ស្ទីម | សូណា</annotation>
 		<annotation cp="🧖" type="tts">មនុស្សនៅក្នុងបន្ទប់ស្ទីម</annotation>
-		<annotation cp="🧖‍♀">បន្ទប់ស្ទីម | សូណា | ស្ត្រីនៅក្នុងបន្ទប់ស្ទីម</annotation>
-		<annotation cp="🧖‍♀" type="tts">ស្ត្រីនៅក្នុងបន្ទប់ស្ទីម</annotation>
 		<annotation cp="🧖‍♂">បន្ទប់ស្ទីម | បុរសនៅក្នុងបន្ទប់ស្ទីម | សូណា</annotation>
 		<annotation cp="🧖‍♂" type="tts">បុរសនៅក្នុងបន្ទប់ស្ទីម</annotation>
+		<annotation cp="🧖‍♀">បន្ទប់ស្ទីម | សូណា | ស្ត្រីនៅក្នុងបន្ទប់ស្ទីម</annotation>
+		<annotation cp="🧖‍♀" type="tts">ស្ត្រីនៅក្នុងបន្ទប់ស្ទីម</annotation>
 		<annotation cp="🧗">មនុស្សកំពុងឡើង | អ្នកឡើង</annotation>
 		<annotation cp="🧗" type="tts">មនុស្សកំពុងឡើង</annotation>
-		<annotation cp="🧗‍♀">ស្ត្រីកំពុងឡើង | អ្នកឡើង</annotation>
-		<annotation cp="🧗‍♀" type="tts">ស្ត្រីកំពុងឡើង</annotation>
 		<annotation cp="🧗‍♂">បុរសកំពុងឡើង | អ្នកឡើង</annotation>
 		<annotation cp="🧗‍♂" type="tts">បុរសកំពុងឡើង</annotation>
-		<annotation cp="🧘">មនុស្សកំពុងអង្គុយជាទម្រង់ផ្កាឈូក | យ៉ូហ្គា | សមាធិ</annotation>
-		<annotation cp="🧘" type="tts">មនុស្សកំពុងអង្គុយជាទម្រង់ផ្កាឈូក</annotation>
-		<annotation cp="🧘‍♀">យ៉ូហ្គា | សមាធិ | ស្ត្រីកំពុងអង្គុយជាទម្រង់ផ្កាឈូក</annotation>
-		<annotation cp="🧘‍♀" type="tts">ស្ត្រីកំពុងអង្គុយជាទម្រង់ផ្កាឈូក</annotation>
-		<annotation cp="🧘‍♂">បុរសកំពុងអង្គុយជាទម្រង់ផ្កាឈូក | យ៉ូហ្គា | សមាធិ</annotation>
-		<annotation cp="🧘‍♂" type="tts">បុរសកំពុងអង្គុយជាទម្រង់ផ្កាឈូក</annotation>
-		<annotation cp="🛀">ដេកត្រាំ | មនុស្សកំពុងដេកត្រាំក្នុងអាង | អាង</annotation>
-		<annotation cp="🛀" type="tts">មនុស្សកំពុងដេកត្រាំក្នុងអាង</annotation>
-		<annotation cp="🛌">ដេក | មនុស្សដេក | មនុស្សដេកលើគ្រែ | លើគ្រែ</annotation>
-		<annotation cp="🛌" type="tts">មនុស្សដេកលើគ្រែ</annotation>
-		<annotation cp="🕴">ការងារ | បុរសស្លៀកឈុតធ្វើការ | សមរម្យ | សម្លៀកបំពាក់ធ្វើការ</annotation>
-		<annotation cp="🕴" type="tts">បុរសស្លៀកឈុតធ្វើការ</annotation>
-		<annotation cp="🗣">កំពុងនិយាយ | ក្បាល | និយាយ</annotation>
-		<annotation cp="🗣" type="tts">កំពុងនិយាយ</annotation>
-		<annotation cp="👤">មនុស្ស | ស្រមោល | ស្រមោលមនុស្សត្រឹមស្មាឡើងលើ</annotation>
-		<annotation cp="👤" type="tts">ស្រមោលមនុស្សត្រឹមស្មាឡើងលើ</annotation>
-		<annotation cp="👥">ពីរនាក់ | មនុស្សពីរនាក់ | ស្រមោល | ស្រមោលមនុស្សពីរនាក់ត្រឹមស្មាឡើងលើ</annotation>
-		<annotation cp="👥" type="tts">ស្រមោលមនុស្សពីរនាក់ត្រឹមស្មាឡើងលើ</annotation>
+		<annotation cp="🧗‍♀">ស្ត្រីកំពុងឡើង | អ្នកឡើង</annotation>
+		<annotation cp="🧗‍♀" type="tts">ស្ត្រីកំពុងឡើង</annotation>
 		<annotation cp="🤺">កីឡា | ចាក់សាប | ដាវ | មនុស្ស | អ្នកកីឡាចាក់សាប</annotation>
 		<annotation cp="🤺" type="tts">អ្នកកីឡាចាក់សាប</annotation>
 		<annotation cp="🏇">ជិះសេះ | ប្រណាំងសេះ | សេះ</annotation>
@@ -621,10 +775,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚵‍♂" type="tts">បុរសជិះកង់ឡើងភ្នំ</annotation>
 		<annotation cp="🚵‍♀">កង់ | នារី | នារីជិះកង់ឡើងភ្នំ | ភ្នំ | អ្នកជិះកង់</annotation>
 		<annotation cp="🚵‍♀" type="tts">នារីជិះកង់ឡើងភ្នំ</annotation>
-		<annotation cp="🏎">ប្រណាំង | ឡាន | ឡានប្រណាំង</annotation>
-		<annotation cp="🏎" type="tts">ឡានប្រណាំង</annotation>
-		<annotation cp="🏍">ប្រណាំង | ម៉ូតូ | ម៉ូតូប្រណាំង</annotation>
-		<annotation cp="🏍" type="tts">ម៉ូតូប្រណាំង</annotation>
 		<annotation cp="🤸">កន្លែងហាត់ប្រាណ | កីឡា | ប៉ាហ៊ី | មនុស្ស</annotation>
 		<annotation cp="🤸" type="tts">ប៉ាហ៊ី</annotation>
 		<annotation cp="🤸‍♂">កាយវប្បកម្ម | កីឡា | ប៉ាហ៊ី | បុរស | បុរសកំពុងប៉ាហ៊ី</annotation>
@@ -655,6 +805,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤹‍♂" type="tts">បុរសលេងត្រែះ</annotation>
 		<annotation cp="🤹‍♀">ត្រែះ | នារី | នារីលេងត្រែះ | ពហុជំនាញ</annotation>
 		<annotation cp="🤹‍♀" type="tts">នារីលេងត្រែះ</annotation>
+		<annotation cp="🧘">មនុស្សកំពុងអង្គុយជាទម្រង់ផ្កាឈូក | យ៉ូហ្គា | សមាធិ</annotation>
+		<annotation cp="🧘" type="tts">មនុស្សកំពុងអង្គុយជាទម្រង់ផ្កាឈូក</annotation>
+		<annotation cp="🧘‍♂">បុរសកំពុងអង្គុយជាទម្រង់ផ្កាឈូក | យ៉ូហ្គា | សមាធិ</annotation>
+		<annotation cp="🧘‍♂" type="tts">បុរសកំពុងអង្គុយជាទម្រង់ផ្កាឈូក</annotation>
+		<annotation cp="🧘‍♀">យ៉ូហ្គា | សមាធិ | ស្ត្រីកំពុងអង្គុយជាទម្រង់ផ្កាឈូក</annotation>
+		<annotation cp="🧘‍♀" type="tts">ស្ត្រីកំពុងអង្គុយជាទម្រង់ផ្កាឈូក</annotation>
+		<annotation cp="🛀">ដេកត្រាំ | មនុស្សកំពុងដេកត្រាំក្នុងអាង | អាង</annotation>
+		<annotation cp="🛀" type="tts">មនុស្សកំពុងដេកត្រាំក្នុងអាង</annotation>
+		<annotation cp="🛌">ដេក | មនុស្សដេក | មនុស្សដេកលើគ្រែ | លើគ្រែ</annotation>
+		<annotation cp="🛌" type="tts">មនុស្សដេកលើគ្រែ</annotation>
 		<annotation cp="👫">កាន់ដៃ | បុរសនារី | បុរសនិងនារីកាន់ដៃគ្នា | បុ្រស្រី</annotation>
 		<annotation cp="👫" type="tts">បុរសនិងនារីកាន់ដៃគ្នា</annotation>
 		<annotation cp="👬">កាន់ដៃ | បុរស | បុរសពីរនាក់កាន់ដៃគ្នា | បុ្រស</annotation>
@@ -667,98 +827,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💑" type="tts">បេះដូងនៅចន្លោះគូស្នេហ៍</annotation>
 		<annotation cp="👪">គ្រួសារ | ឪពុកម្តាយនិងកូន | ឳពុកម្តាយ</annotation>
 		<annotation cp="👪" type="tts">ឪពុកម្តាយនិងកូន</annotation>
-		<annotation cp="🤳">selfie | កាមេរ៉ា | ថត | ទូរស័ព្ទ</annotation>
-		<annotation cp="🤳" type="tts">ថត selfie</annotation>
-		<annotation cp="💪">ដៃ | សាចដុំ | សាច់ដុំដើមដៃ</annotation>
-		<annotation cp="💪" type="tts">សាច់ដុំដើមដៃ</annotation>
-		<annotation cp="🦵">ជើង | ទាត់ | អវយវៈ</annotation>
-		<annotation cp="🦵" type="tts">ជើង</annotation>
-		<annotation cp="🦶">តន្ត្រំ | ទាត់ | ប្រអប់ជើង</annotation>
-		<annotation cp="🦶" type="tts">ប្រអប់ជើង</annotation>
-		<annotation cp="👈">ចង្អុល | ចង្អុលទៅឆ្វេង | ឆ្វេង</annotation>
-		<annotation cp="👈" type="tts">ចង្អុលទៅឆ្វេង</annotation>
-		<annotation cp="👉">ចង្អុល | ចង្អុលទៅស្តាំ | ស្តាំ</annotation>
-		<annotation cp="👉" type="tts">ចង្អុលទៅស្តាំ</annotation>
-		<annotation cp="☝">ចង្អុល | ចង្អុលទៅលើ | លើ</annotation>
-		<annotation cp="☝" type="tts">ចង្អុលទៅលើ</annotation>
-		<annotation cp="👆">ខ្នងដៃ | ចង្អុល | ចង្អុលទៅលើដោយបង្ហាញខ្នងដៃ | លើ</annotation>
-		<annotation cp="👆" type="tts">ចង្អុលទៅលើដោយបង្ហាញខ្នងដៃ</annotation>
-		<annotation cp="🖕">ចង្អុល | ជេរ | ដៃកណ្តាល | ម្រាមកណ្តាលចង្អុលទៅលើ</annotation>
-		<annotation cp="🖕" type="tts">ម្រាមកណ្តាលចង្អុលទៅលើ</annotation>
-		<annotation cp="👇">ក្រោម | ចង្អុល | ចង្អុលទៅក្រោម</annotation>
-		<annotation cp="👇" type="tts">ចង្អុលទៅក្រោម</annotation>
-		<annotation cp="✌">V | ម្រាមពីរ | លើម្រាមដៃពីរជាអក្សរ V | អក្សរវី</annotation>
-		<annotation cp="✌" type="tts">លើម្រាមដៃពីរជាអក្សរ V</annotation>
-		<annotation cp="🤞">ខ្វែង | ខ្វែងម្រាមដៃ | ដៃ | ម្រាមដៃ | សំណាង</annotation>
-		<annotation cp="🤞" type="tts">ខ្វែងម្រាមដៃ</annotation>
-		<annotation cp="🖖">ផ្គុំម្រាមដៃជាពីរគូ | ម្រាមផ្គុំ</annotation>
-		<annotation cp="🖖" type="tts">ផ្គុំម្រាមដៃជាពីរគូ</annotation>
-		<annotation cp="🤘">ប្រើម្រាមធ្វើជាសញ្ញាស្នែង | ម្រាមពីរ | ស្នែង | អេម</annotation>
-		<annotation cp="🤘" type="tts">ប្រើម្រាមធ្វើជាសញ្ញាស្នែង</annotation>
-		<annotation cp="🤙">ដៃ | ដៃជាសញ្ញាតេទូរស័ព្ទ | តេទូរស័ព្ទ</annotation>
-		<annotation cp="🤙" type="tts">ដៃជាសញ្ញាតេទូរស័ព្ទ</annotation>
-		<annotation cp="🖐">​ បាតដៃ | ប្រាំ | ម្រាមដៃ | ម្រាមប្រាំ | លើកម្រាមដៃប្រាំ</annotation>
-		<annotation cp="🖐" type="tts">លើកម្រាមដៃប្រាំ</annotation>
-		<annotation cp="✋">បាតដៃ | លើកដៃ</annotation>
-		<annotation cp="✋" type="tts">លើកដៃ</annotation>
-		<annotation cp="👌">ok | ធ្វើម្រាមដៃ OK | យល់ព្រម</annotation>
-		<annotation cp="👌" type="tts">ធ្វើម្រាមដៃ OK</annotation>
-		<annotation cp="👍">មេដៃឡើងលើ | ល្អ</annotation>
-		<annotation cp="👍" type="tts">មេដៃឡើងលើ</annotation>
-		<annotation cp="👎">មេដៃចុះក្រោម | អន់</annotation>
-		<annotation cp="👎" type="tts">មេដៃចុះក្រោម</annotation>
-		<annotation cp="✊">កណ្តាប់ដៃ | ក្តាប់ | ក្តាប់ដៃ | លើកកណ្តាប់ដៃ</annotation>
-		<annotation cp="✊" type="tts">លើកកណ្តាប់ដៃ</annotation>
-		<annotation cp="👊">កណ្តាប់ដៃមើលចំពីមុខ | ក្តាប់ដៃ</annotation>
-		<annotation cp="👊" type="tts">កណ្តាប់ដៃមើលចំពីមុខ</annotation>
-		<annotation cp="🤛">កណ្តាប់ដៃ | កណ្តាប់ដៃឆ្វេង | ខាងឆ្វេង</annotation>
-		<annotation cp="🤛" type="tts">កណ្តាប់ដៃឆ្វេង</annotation>
-		<annotation cp="🤜">កណ្តាប់ដៃ | កណ្តាប់ដៃស្តាំ | ខាងស្តាំ</annotation>
-		<annotation cp="🤜" type="tts">កណ្តាប់ដៃស្តាំ</annotation>
-		<annotation cp="🤚">ខ្នងដៃ | ខ្នងដៃលាឡើង | លើកឡើង</annotation>
-		<annotation cp="🤚" type="tts">ខ្នងដៃលាឡើង</annotation>
-		<annotation cp="👋">គ្រវីដៃ | ទេ</annotation>
-		<annotation cp="👋" type="tts">គ្រវីដៃ</annotation>
-		<annotation cp="🤟">ILY | កាយវិការបង្ហាញក្ដីស្រឡាញ់ | ប្រអប់ដៃ</annotation>
-		<annotation cp="🤟" type="tts">កាយវិការបង្ហាញក្ដីស្រឡាញ់</annotation>
-		<annotation cp="✍">ដៃកាន់ប៊ិចសរសេរ | ប៊ិច | សរសេរ</annotation>
-		<annotation cp="✍" type="tts">ដៃកាន់ប៊ិចសរសេរ</annotation>
-		<annotation cp="👏">ទះដៃ | ល្អណាស់ | ស្វាគមន៍</annotation>
-		<annotation cp="👏" type="tts">ទះដៃ</annotation>
-		<annotation cp="👐">លាដៃ | លាបង្ហាញបាតដៃទាំងពីរ</annotation>
-		<annotation cp="👐" type="tts">លាបង្ហាញបាតដៃទាំងពីរ</annotation>
-		<annotation cp="🙌">ដៃ | បាតដៃពីរ | លើកដៃ | លើកបង្ហាញបាតដៃទាំងពីរ</annotation>
-		<annotation cp="🙌" type="tts">លើកបង្ហាញបាតដៃទាំងពីរ</annotation>
-		<annotation cp="🤲">ដាក់បាតដៃទន្ទឹមគ្នា | លើកដៃបួងសួង</annotation>
-		<annotation cp="🤲" type="tts">ដាក់បាតដៃទន្ទឹមគ្នា</annotation>
-		<annotation cp="🙏">គោរព | សំពះ</annotation>
-		<annotation cp="🙏" type="tts">សំពះ</annotation>
-		<annotation cp="🤝">ការព្រមព្រៀង | ចាប់ | ចាប់ដៃ | ដៃ | ប្រជុំ</annotation>
-		<annotation cp="🤝" type="tts">ចាប់ដៃ</annotation>
-		<annotation cp="💅">ក្រចក | លាបថ្នាំក្រចក</annotation>
-		<annotation cp="💅" type="tts">លាបថ្នាំក្រចក</annotation>
-		<annotation cp="👂">ត្រចៀក | ស្តាប់</annotation>
-		<annotation cp="👂" type="tts">ត្រចៀក</annotation>
-		<annotation cp="👃">ច្រមុះ | ហិត</annotation>
-		<annotation cp="👃" type="tts">ច្រមុះ</annotation>
+		<annotation cp="🗣">កំពុងនិយាយ | ក្បាល | និយាយ</annotation>
+		<annotation cp="🗣" type="tts">កំពុងនិយាយ</annotation>
+		<annotation cp="👤">មនុស្ស | ស្រមោល | ស្រមោលមនុស្សត្រឹមស្មាឡើងលើ</annotation>
+		<annotation cp="👤" type="tts">ស្រមោលមនុស្សត្រឹមស្មាឡើងលើ</annotation>
+		<annotation cp="👥">ពីរនាក់ | មនុស្សពីរនាក់ | ស្រមោល | ស្រមោលមនុស្សពីរនាក់ត្រឹមស្មាឡើងលើ</annotation>
+		<annotation cp="👥" type="tts">ស្រមោលមនុស្សពីរនាក់ត្រឹមស្មាឡើងលើ</annotation>
 		<annotation cp="👣">ដានជើង | រាងកាយ | សម្លៀកបំពាក់ | ស្នាម</annotation>
 		<annotation cp="👣" type="tts">ដានជើង</annotation>
-		<annotation cp="👀">ភ្នែក | មុខ | រាងកាយ</annotation>
-		<annotation cp="👀" type="tts">ភ្នែក</annotation>
-		<annotation cp="👁">កែវភ្នែក | សម្លឹងមើល</annotation>
-		<annotation cp="👁" type="tts">កែវភ្នែក</annotation>
-		<annotation cp="👁‍🗨">ពពុះពាក្យនិយាយ | ភ្នែក | ភ្នែកក្នុងពពុះ | សាក្សី</annotation>
-		<annotation cp="👁‍🗨" type="tts">ភ្នែកក្នុងពពុះ</annotation>
-		<annotation cp="🧠">ខួរក្បាល | ឆ្លាតវៃ</annotation>
-		<annotation cp="🧠" type="tts">ខួរក្បាល</annotation>
-		<annotation cp="🦴">គ្រោងឆ្អឹង | ឆ្អឹង</annotation>
-		<annotation cp="🦴" type="tts">ឆ្អឹង</annotation>
-		<annotation cp="🦷">ទន្តពេទ្យ | ធ្មេញ</annotation>
-		<annotation cp="🦷" type="tts">ធ្មេញ</annotation>
-		<annotation cp="👅">លិឍ | អណ្តាត</annotation>
-		<annotation cp="👅" type="tts">អណ្តាត</annotation>
-		<annotation cp="👄">មាត់</annotation>
-		<annotation cp="👄" type="tts">មាត់</annotation>
 		<annotation cp="🦰">ខ្ញី | មនុស្សសក់ក្រហម | សក់ក្រហម</annotation>
 		<annotation cp="🦰" type="tts">សក់ក្រហម</annotation>
 		<annotation cp="🦱">សក់ក្រញាញ់ | សក់ក្រញាញ់ទម្លាក់ចុះក្រោម | សក់ប៉ោងក្រញាញ់</annotation>
@@ -767,142 +843,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦳" type="tts">សក់ស</annotation>
 		<annotation cp="🦲">ការព្យាបាលតាមបែបគីមី | គ្មានសក់ | ទំពែក | បានកោរ | អត់សក់</annotation>
 		<annotation cp="🦲" type="tts">ទំពែក</annotation>
-		<annotation cp="💋">បបេរមាត់ | ស្នាមថើប</annotation>
-		<annotation cp="💋" type="tts">ស្នាមថើប</annotation>
-		<annotation cp="💘">បេះដូង | បេះដូងត្រូវគ្រាប់ព្រួញ | ព្រួញស្នេហ៍ | ស្នេហ៍</annotation>
-		<annotation cp="💘" type="tts">បេះដូងត្រូវគ្រាប់ព្រួញ</annotation>
-		<annotation cp="💝">ចងបូ | បេះដូង | បេះដូងចងបូ | ស្រឡាញ់</annotation>
-		<annotation cp="💝" type="tts">បេះដូងចងបូ</annotation>
-		<annotation cp="💖">ចែងចាំង | បេដូង | បេះដូចចែងចាំង</annotation>
-		<annotation cp="💖" type="tts">បេះដូចចែងចាំង</annotation>
-		<annotation cp="💗">បេះដូង | បេះដូងរីកធំធាត់ | បេះដូងលោតញាប់ | រំភើប</annotation>
-		<annotation cp="💗" type="tts">បេះដូងរីកធំធាត់</annotation>
-		<annotation cp="💓">ញ័រ | បេះដូង | បេះដូងកំពុងញ័រ</annotation>
-		<annotation cp="💓" type="tts">បេះដូងកំពុងញ័រ</annotation>
-		<annotation cp="💞">បេះដូង | បេះដូងកំពុុងរង្វិលជុំ | វិល</annotation>
-		<annotation cp="💞" type="tts">បេះដូងកំពុុងរង្វិលជុំ</annotation>
-		<annotation cp="💕">បេះដូង | បេះដូងពីរ | បេះដូងមួយគូ | ស្នេហា</annotation>
-		<annotation cp="💕" type="tts">បេះដូងពីរ</annotation>
-		<annotation cp="💌">សំបុត្រ | សំបុត្រស្នេហា | ស្នេហា</annotation>
-		<annotation cp="💌" type="tts">សំបុត្រស្នេហា</annotation>
-		<annotation cp="❣">បេះដូង | សញ្ញាឧទាន | សញ្ញាឧទានរូបបេះដូង</annotation>
-		<annotation cp="❣" type="tts">សញ្ញាឧទានរូបបេះដូង</annotation>
-		<annotation cp="💔">បេះដូងបែកជាពីរ | បេះដូងប្រេះស្រាំ | បែកបេះដូង</annotation>
-		<annotation cp="💔" type="tts">បេះដូងបែកជាពីរ</annotation>
-		<annotation cp="❤">បេះដូង | ស្រឡាញ់</annotation>
-		<annotation cp="❤" type="tts">បេះដូង</annotation>
-		<annotation cp="🧡">បេះដូងពណ៌ទឹកក្រូច | ពណ៌ទឹកក្រូច</annotation>
-		<annotation cp="🧡" type="tts">បេះដូងពណ៌ទឹកក្រូច</annotation>
-		<annotation cp="💛">បេះដូង | បេះដូងពណ៌លឿង | លឿង</annotation>
-		<annotation cp="💛" type="tts">បេះដូងពណ៌លឿង</annotation>
-		<annotation cp="💚">បេះដូង | បេះដូងពណ៌បៃតង | បៃតង</annotation>
-		<annotation cp="💚" type="tts">បេះដូងពណ៌បៃតង</annotation>
-		<annotation cp="💙">ខៀវ | បេះដូង | បេះដូងពណ៌ខៀវ</annotation>
-		<annotation cp="💙" type="tts">បេះដូងពណ៌ខៀវ</annotation>
-		<annotation cp="💜">បេះដូង | បេះដូងពណ៌ស្វាយ | ពណ៌ស្វាយ</annotation>
-		<annotation cp="💜" type="tts">បេះដូងពណ៌ស្វាយ</annotation>
-		<annotation cp="🖤">ខ្មៅ | ធ្មប់ | បិសាច | បេះដូងពណ៌ខ្មៅ | បេះដូវ</annotation>
-		<annotation cp="🖤" type="tts">បេះដូងពណ៌ខ្មៅ</annotation>
-		<annotation cp="💟">បេះដូង | ពុម្ពបេះដូង</annotation>
-		<annotation cp="💟" type="tts">ពុម្ពបេះដូង</annotation>
-		<annotation cp="💤">គេង | ដេក | ស្រមុក | អក្សរ Z បី</annotation>
-		<annotation cp="💤" type="tts">អក្សរ Z បី</annotation>
-		<annotation cp="💢">ខឹង​ | សញ្ញាខឹង</annotation>
-		<annotation cp="💢" type="tts">សញ្ញាខឹង</annotation>
-		<annotation cp="💣">គ្រាប់បែក | ផ្ទុះ</annotation>
-		<annotation cp="💣" type="tts">គ្រាប់បែក</annotation>
-		<annotation cp="💥">បុកគ្នា | ផ្ទុុះ</annotation>
-		<annotation cp="💥" type="tts">បុកគ្នា</annotation>
-		<annotation cp="💦">តំណក់ទឹក | តំណក់ទឹកបី | ភ្លៀង</annotation>
-		<annotation cp="💦" type="tts">តំណក់ទឹកបី</annotation>
-		<annotation cp="💨">រត់់ | សន្ទុះខ្យល់ពីការរត់យ៉ាងលឿន</annotation>
-		<annotation cp="💨" type="tts">សន្ទុះខ្យល់ពីការរត់យ៉ាងលឿន</annotation>
-		<annotation cp="💫">វិល | វិលវល់</annotation>
-		<annotation cp="💫" type="tts">វិលវល់</annotation>
-		<annotation cp="💬">និយាយ | ពាក្យសម្តី | រង្វង់បង្ហាញពាក្យកំពុងនិយាយខាងស្តាំ</annotation>
-		<annotation cp="💬" type="tts">រង្វង់បង្ហាញពាក្យកំពុងនិយាយខាងស្តាំ</annotation>
-		<annotation cp="🗨">ឆ្វេង | និយាយ | រង្វង់បង្ហាញពាក្យកំពុងនិយាយខាងឆ្វេង</annotation>
-		<annotation cp="🗨" type="tts">រង្វង់បង្ហាញពាក្យកំពុងនិយាយខាងឆ្វេង</annotation>
-		<annotation cp="🗯">ខាងស្តាំ | និយាយ | រង្វង់អង្កាញ់បង្ហាញពាក្យកំពុងនិយាយខាងស្តាំ</annotation>
-		<annotation cp="🗯" type="tts">រង្វង់អង្កាញ់បង្ហាញពាក្យកំពុងនិយាយខាងស្តាំ</annotation>
-		<annotation cp="💭">គិត | និយាយ | ពពក | ពពកបង្ហាញពាក្យកំពុងគិត</annotation>
-		<annotation cp="💭" type="tts">ពពកបង្ហាញពាក្យកំពុងគិត</annotation>
-		<annotation cp="🕳">ប្រហោង | ប្រហោយ</annotation>
-		<annotation cp="🕳" type="tts">ប្រហោយ</annotation>
-		<annotation cp="👓">ម៉្ញូប | វ៉ែនតា</annotation>
-		<annotation cp="👓" type="tts">វ៉ែនតា</annotation>
-		<annotation cp="🕶">ខ្មៅ | ងងឹត | វ៉ែនតា | វ៉ែនតាខ្មៅ</annotation>
-		<annotation cp="🕶" type="tts">វ៉ែនតាខ្មៅ</annotation>
-		<annotation cp="🥽">ការការពារភ្នែក | ការផ្សាដែក | ការហែលទឹក | វ៉ែនតាការពារ</annotation>
-		<annotation cp="🥽" type="tts">វ៉ែនតាការពារ</annotation>
-		<annotation cp="🥼">ពិសោធន៍ | វេជ្ជបណ្ឌិត | អាវមន្ទីរពិសោធន៍ | អ្នកវិទ្យាសាស្ត្រ</annotation>
-		<annotation cp="🥼" type="tts">អាវមន្ទីរពិសោធន៍</annotation>
-		<annotation cp="👔">ក្រវាត់ក | ក្រវាត់កជាប់នឹងអាវ | អាវ</annotation>
-		<annotation cp="👔" type="tts">ក្រវាត់កជាប់នឹងអាវ</annotation>
-		<annotation cp="👕">សម្លៀកបំពាក់ | អាវ | អាវយឺត</annotation>
-		<annotation cp="👕" type="tts">អាវយឺត</annotation>
-		<annotation cp="👖">ខោ | ខោខូវប៊យ</annotation>
-		<annotation cp="👖" type="tts">ខោខូវប៊យ</annotation>
-		<annotation cp="🧣">ក | កន្សែង</annotation>
-		<annotation cp="🧣" type="tts">កន្សែង</annotation>
-		<annotation cp="🧤">ប្រអប់ដៃ | ស្រោមដៃ</annotation>
-		<annotation cp="🧤" type="tts">ស្រោមដៃ</annotation>
-		<annotation cp="🧥">អាវធំខ្លី | អាវធំវែង</annotation>
-		<annotation cp="🧥" type="tts">អាវធំវែង</annotation>
-		<annotation cp="🧦">ស្រោមជើង | ស្រោមជើងវែង</annotation>
-		<annotation cp="🧦" type="tts">ស្រោមជើង</annotation>
-		<annotation cp="👗">រ៉ូប | សម្លៀកបំពាក់</annotation>
-		<annotation cp="👗" type="tts">រ៉ូប</annotation>
-		<annotation cp="👘">គីម៉ូណូ (ឈុតប្រពៃណីជប៉ុន) | ឈុតប្រពៃណី | សម្លៀកបំពាក់</annotation>
-		<annotation cp="👘" type="tts">គីម៉ូណូ (ឈុតប្រពៃណីជប៉ុន)</annotation>
-		<annotation cp="👙">ឈុតប៊ីគីនី (ឈុតហែលទឹក) | ឈុតហែលទឹក | ស៊ិចស៊ី</annotation>
-		<annotation cp="👙" type="tts">ឈុតប៊ីគីនី (ឈុតហែលទឹក)</annotation>
-		<annotation cp="👚">មនុស្សស្រី | អាវ | អាវមនុស្សស្រី</annotation>
-		<annotation cp="👚" type="tts">អាវមនុស្សស្រី</annotation>
-		<annotation cp="👛">កាបូបដៃ | កាបូបលុយ | ការបូបដៃ | កូនកាបូប</annotation>
-		<annotation cp="👛" type="tts">ការបូបដៃ</annotation>
-		<annotation cp="👜">កាបូបយួរដៃ | កាបូបស្ពាយចំហៀង | ការបូូស្ពាយចំហៀង</annotation>
-		<annotation cp="👜" type="tts">ការបូូស្ពាយចំហៀង</annotation>
-		<annotation cp="👝">កាបូបប៊ិច | កាបូបរូត</annotation>
-		<annotation cp="👝" type="tts">កាបូបប៊ិច</annotation>
-		<annotation cp="🛍">ថង់ដាក់ទំនិញ | ថង់ដាក់ឥវ៉ាន់ | អីវ៉ាន់</annotation>
-		<annotation cp="🛍" type="tts">ថង់ដាក់ទំនិញ</annotation>
-		<annotation cp="🎒">កាតាប | កាបូបស្ពាយទៅសាលា | ស្ពាយកាតាប</annotation>
-		<annotation cp="🎒" type="tts">កាបូបស្ពាយទៅសាលា</annotation>
-		<annotation cp="👞">ស្បែកជើង | ស្បែកជើងឃ្វា | ស្បែកជើងបុរស</annotation>
-		<annotation cp="👞" type="tts">ស្បែកជើងបុរស</annotation>
-		<annotation cp="👟">ស្បែកជើងកីឡា | ស្បែងជើងរត់កីឡា</annotation>
-		<annotation cp="👟" type="tts">ស្បែងជើងរត់កីឡា</annotation>
-		<annotation cp="🥾">ការដើរ | ការធ្វើដណើរកម្សាន្ត​ដោយស្ពាយកាបូបនៅក្រោយខ្នង | ការបោះជំរំ | ស្បែកជើងកវែង</annotation>
-		<annotation cp="🥾" type="tts">ស្បែកជើងកវែង</annotation>
-		<annotation cp="🥿">ស្បែកជើងបាតរាប | ស្បែកជើងបាតរាបសម្រាប់ស្ត្រី | ស្បែកជើងបាតរាបឥតខ្សែ | ស្បែកជើងផ្ទាត់</annotation>
-		<annotation cp="🥿" type="tts">ស្បែកជើងបាតរាប</annotation>
-		<annotation cp="👠">កែងចោត | ស្បែកជើកែង | ស្បែកជើងកែងចោត</annotation>
-		<annotation cp="👠" type="tts">ស្បែកជើងកែងចោត</annotation>
-		<annotation cp="👡">ស្បែកជើងស្រី | ស្បែកជើស៊ក | ស្បែងជើងកែងស៊ក</annotation>
-		<annotation cp="👡" type="tts">ស្បែងជើងកែងស៊ក</annotation>
-		<annotation cp="👢">ស្បែកជើងកវែង | ស្បែកជើងកវែងនារី | ស្បែកជើងស្រី</annotation>
-		<annotation cp="👢" type="tts">ស្បែកជើងកវែងនារី</annotation>
-		<annotation cp="👑">ម្កុជ | ស្តេច</annotation>
-		<annotation cp="👑" type="tts">ម្កុជ</annotation>
-		<annotation cp="👒">មួកនារី | មួកស្រី</annotation>
-		<annotation cp="👒" type="tts">មួកនារី</annotation>
-		<annotation cp="🎩">មួកសៀក | មួកអ្នកលេងសៀក</annotation>
-		<annotation cp="🎩" type="tts">មួកអ្នកលេងសៀក</annotation>
-		<annotation cp="🎓">ទទួលសញ្ញាបត្រ | មួក | មួកទទួលសញ្ញាបត្រ</annotation>
-		<annotation cp="🎓" type="tts">មួកទទួលសញ្ញាបត្រ</annotation>
-		<annotation cp="🧢">មួកកាតិប</annotation>
-		<annotation cp="🧢" type="tts">មួកកាតិប</annotation>
-		<annotation cp="⛑">មួកសុវត្ថិភាព | មួកសុវត្ថិភាពមានរូបសញ្ញាបូកពណ៌ស | សុវត្ថិភាព</annotation>
-		<annotation cp="⛑" type="tts">មួកសុវត្ថិភាពមានរូបសញ្ញាបូកពណ៌ស</annotation>
-		<annotation cp="📿">ខ្សែអង្កាំអ្នកបួស | អង្កាំ</annotation>
-		<annotation cp="📿" type="tts">ខ្សែអង្កាំអ្នកបួស</annotation>
-		<annotation cp="💄">ក្រែម | ក្រែមលាបមាត់</annotation>
-		<annotation cp="💄" type="tts">ក្រែមលាបមាត់</annotation>
-		<annotation cp="💍">ចិញ្ចៀន | ពេជ្រ</annotation>
-		<annotation cp="💍" type="tts">ចិញ្ចៀន</annotation>
-		<annotation cp="💎">ត្បូង | ពេជ្រ | អលង្គា</annotation>
-		<annotation cp="💎" type="tts">ត្បូង</annotation>
+		<annotation cp="♀">នារី | ភេទ | ភេទស្រី | ស្ត្រី | ស្រី</annotation>
+		<annotation cp="♀" type="tts">ភេទស្រី</annotation>
+		<annotation cp="♂">បុរស | ប្រុស | ភេទ | ភេទប្រុស</annotation>
+		<annotation cp="♂" type="tts">ភេទប្រុស</annotation>
 		<annotation cp="🐵">មុខស្វា | ស្វា</annotation>
 		<annotation cp="🐵" type="tts">មុខស្វា</annotation>
 		<annotation cp="🐒">ស្វា | ស្វាអង្គុយ | អង្គុយ</annotation>
@@ -913,6 +857,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐶" type="tts">មុុខឆ្កែ</annotation>
 		<annotation cp="🐕">ឆ្កែ | សុនខ</annotation>
 		<annotation cp="🐕" type="tts">ឆ្កែ</annotation>
+		<annotation cp="🐕‍🦺">ការបម្រើ | ឆ្កែ | ជំនួយ | លទ្ធភាព​ទទួលបាន</annotation>
+		<annotation cp="🐕‍🦺" type="tts">ឆ្កែបម្រើ</annotation>
 		<annotation cp="🐩">ឆ្កែ | ឆ្កែកាត់រោមធ្វើម៉ូត | លេងម៉ូត</annotation>
 		<annotation cp="🐩" type="tts">ឆ្កែកាត់រោមធ្វើម៉ូត</annotation>
 		<annotation cp="🐺">ចចក | មុខឆ្កែចចក</annotation>
@@ -1007,8 +953,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦘" type="tts">កង់ហ្គូរូ</annotation>
 		<annotation cp="🦡">ផេស្ទើរ | ស្ការដែលរស់នៅក្នុងរូងក្រោមដី | ហាន់នី ប៊ែជើរ</annotation>
 		<annotation cp="🦡" type="tts">ស្ការដែលរស់នៅក្នុងរូងក្រោមដី</annotation>
-		<annotation cp="🐾">ក្រញាំ | ដាន | ដានក្រញាំជើង</annotation>
-		<annotation cp="🐾" type="tts">ដានក្រញាំជើង</annotation>
 		<annotation cp="🦃">មាន់ | មាន់ធឺឃី</annotation>
 		<annotation cp="🦃" type="tts">មាន់ធឺឃី</annotation>
 		<annotation cp="🐔">ក្បាលមាន់ | មាន់់</annotation>
@@ -1075,14 +1019,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐙" type="tts">មឹកម្រាម</annotation>
 		<annotation cp="🐚">ខ្ចៅ | សម្បកខ្ចៅ</annotation>
 		<annotation cp="🐚" type="tts">សម្បកខ្ចៅ</annotation>
-		<annotation cp="🦀">ក្តាម</annotation>
-		<annotation cp="🦀" type="tts">ក្តាម</annotation>
-		<annotation cp="🦞">ក្រញាំ | បង្កង | ស៊ុបខាប់ | អាហារសមុទ្រ</annotation>
-		<annotation cp="🦞" type="tts">បង្កង</annotation>
-		<annotation cp="🦐">តូច | បង្គារ | ពពួកខ្យង | អាហារ</annotation>
-		<annotation cp="🦐" type="tts">បង្គារ</annotation>
-		<annotation cp="🦑">មឹក | មឹកបំពង់ | សិប្បិជាតិ | អាហារ</annotation>
-		<annotation cp="🦑" type="tts">មឹកបំពង់</annotation>
 		<annotation cp="🐌">ខ្យង</annotation>
 		<annotation cp="🐌" type="tts">ខ្យង</annotation>
 		<annotation cp="🦋">មេអំបៅ | សត្វល្អិត | ស្អាត</annotation>
@@ -1299,6 +1235,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥠" type="tts">នំខូកឃីប្រាប់ជោគវាសនា</annotation>
 		<annotation cp="🥡">ប្រអប់ខ្ចប់អាហារ | ប្រអប់ដាក់អាហារ</annotation>
 		<annotation cp="🥡" type="tts">ប្រអប់ខ្ចប់អាហារ</annotation>
+		<annotation cp="🦀">ក្តាម</annotation>
+		<annotation cp="🦀" type="tts">ក្តាម</annotation>
+		<annotation cp="🦞">ក្រញាំ | បង្កង | ស៊ុបខាប់ | អាហារសមុទ្រ</annotation>
+		<annotation cp="🦞" type="tts">បង្កង</annotation>
+		<annotation cp="🦐">តូច | បង្គារ | ពពួកខ្យង | អាហារ</annotation>
+		<annotation cp="🦐" type="tts">បង្គារ</annotation>
+		<annotation cp="🦑">មឹក | មឹកបំពង់ | សិប្បិជាតិ | អាហារ</annotation>
+		<annotation cp="🦑" type="tts">មឹកបំពង់</annotation>
 		<annotation cp="🍦">ការេមកី | ការេមផ្លែឈើ</annotation>
 		<annotation cp="🍦" type="tts">ការេមផ្លែឈើ</annotation>
 		<annotation cp="🍧">ទឹកកក | ទឹកកកឈូស | បង្អែម</annotation>
@@ -1547,14 +1491,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚛" type="tts">កុងទីន័រ</annotation>
 		<annotation cp="🚜">ត្រាក់ទ័រ | រថយន្ត</annotation>
 		<annotation cp="🚜" type="tts">ត្រាក់ទ័រ</annotation>
+		<annotation cp="🏎">ប្រណាំង | ឡាន | ឡានប្រណាំង</annotation>
+		<annotation cp="🏎" type="tts">ឡានប្រណាំង</annotation>
+		<annotation cp="🏍">ប្រណាំង | ម៉ូតូ | ម៉ូតូប្រណាំង</annotation>
+		<annotation cp="🏍" type="tts">ម៉ូតូប្រណាំង</annotation>
+		<annotation cp="🛵">scooter | scooter មានម៉ាស៊ីន | ម៉ាស៊ីន</annotation>
+		<annotation cp="🛵" type="tts">scooter មានម៉ាស៊ីន</annotation>
 		<annotation cp="🚲">កង់ | ទោចក្រយាន</annotation>
 		<annotation cp="🚲" type="tts">កង់</annotation>
 		<annotation cp="🛴">scooter | scooter អត់ម៉ាស៊ីន | ធាក់</annotation>
 		<annotation cp="🛴" type="tts">scooter អត់ម៉ាស៊ីន</annotation>
 		<annotation cp="🛹">ក្ដារ | ក្ដារស្គី</annotation>
 		<annotation cp="🛹" type="tts">ក្ដារស្គី</annotation>
-		<annotation cp="🛵">scooter | scooter មានម៉ាស៊ីន | ម៉ាស៊ីន</annotation>
-		<annotation cp="🛵" type="tts">scooter មានម៉ាស៊ីន</annotation>
 		<annotation cp="🚏">ចំណតរថយន្តក្រុង | ចំណតឡានក្រុង</annotation>
 		<annotation cp="🚏" type="tts">ចំណតរថយន្តក្រុង</annotation>
 		<annotation cp="🛣">ផ្លូវ | ផ្លូវសម្រាប់យានយន្ត</annotation>
@@ -1923,6 +1871,80 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧵" type="tts">សរសៃអំបោះ</annotation>
 		<annotation cp="🧶">ចាក់ | ដុំសរសៃអំបោះ | បាល់</annotation>
 		<annotation cp="🧶" type="tts">ដុំសរសៃអំបោះ</annotation>
+		<annotation cp="👓">ម៉្ញូប | វ៉ែនតា</annotation>
+		<annotation cp="👓" type="tts">វ៉ែនតា</annotation>
+		<annotation cp="🕶">ខ្មៅ | ងងឹត | វ៉ែនតា | វ៉ែនតាខ្មៅ</annotation>
+		<annotation cp="🕶" type="tts">វ៉ែនតាខ្មៅ</annotation>
+		<annotation cp="🥽">ការការពារភ្នែក | ការផ្សាដែក | ការហែលទឹក | វ៉ែនតាការពារ</annotation>
+		<annotation cp="🥽" type="tts">វ៉ែនតាការពារ</annotation>
+		<annotation cp="🥼">ពិសោធន៍ | វេជ្ជបណ្ឌិត | អាវមន្ទីរពិសោធន៍ | អ្នកវិទ្យាសាស្ត្រ</annotation>
+		<annotation cp="🥼" type="tts">អាវមន្ទីរពិសោធន៍</annotation>
+		<annotation cp="👔">ក្រវាត់ក | ក្រវាត់កជាប់នឹងអាវ | អាវ</annotation>
+		<annotation cp="👔" type="tts">ក្រវាត់កជាប់នឹងអាវ</annotation>
+		<annotation cp="👕">សម្លៀកបំពាក់ | អាវ | អាវយឺត</annotation>
+		<annotation cp="👕" type="tts">អាវយឺត</annotation>
+		<annotation cp="👖">ខោ | ខោខូវប៊យ</annotation>
+		<annotation cp="👖" type="tts">ខោខូវប៊យ</annotation>
+		<annotation cp="🧣">ក | កន្សែង</annotation>
+		<annotation cp="🧣" type="tts">កន្សែង</annotation>
+		<annotation cp="🧤">ប្រអប់ដៃ | ស្រោមដៃ</annotation>
+		<annotation cp="🧤" type="tts">ស្រោមដៃ</annotation>
+		<annotation cp="🧥">អាវធំខ្លី | អាវធំវែង</annotation>
+		<annotation cp="🧥" type="tts">អាវធំវែង</annotation>
+		<annotation cp="🧦">ស្រោមជើង | ស្រោមជើងវែង</annotation>
+		<annotation cp="🧦" type="tts">ស្រោមជើង</annotation>
+		<annotation cp="👗">រ៉ូប | សម្លៀកបំពាក់</annotation>
+		<annotation cp="👗" type="tts">រ៉ូប</annotation>
+		<annotation cp="👘">គីម៉ូណូ (ឈុតប្រពៃណីជប៉ុន) | ឈុតប្រពៃណី | សម្លៀកបំពាក់</annotation>
+		<annotation cp="👘" type="tts">គីម៉ូណូ (ឈុតប្រពៃណីជប៉ុន)</annotation>
+		<annotation cp="👙">ឈុតប៊ីគីនី (ឈុតហែលទឹក) | ឈុតហែលទឹក | ស៊ិចស៊ី</annotation>
+		<annotation cp="👙" type="tts">ឈុតប៊ីគីនី (ឈុតហែលទឹក)</annotation>
+		<annotation cp="👚">មនុស្សស្រី | អាវ | អាវមនុស្សស្រី</annotation>
+		<annotation cp="👚" type="tts">អាវមនុស្សស្រី</annotation>
+		<annotation cp="👛">កាបូបដៃ | កាបូបលុយ | ការបូបដៃ | កូនកាបូប</annotation>
+		<annotation cp="👛" type="tts">ការបូបដៃ</annotation>
+		<annotation cp="👜">កាបូបយួរដៃ | កាបូបស្ពាយចំហៀង | ការបូូស្ពាយចំហៀង</annotation>
+		<annotation cp="👜" type="tts">ការបូូស្ពាយចំហៀង</annotation>
+		<annotation cp="👝">កាបូបប៊ិច | កាបូបរូត</annotation>
+		<annotation cp="👝" type="tts">កាបូបប៊ិច</annotation>
+		<annotation cp="🛍">ថង់ដាក់ទំនិញ | ថង់ដាក់ឥវ៉ាន់ | អីវ៉ាន់</annotation>
+		<annotation cp="🛍" type="tts">ថង់ដាក់ទំនិញ</annotation>
+		<annotation cp="🎒">កាតាប | កាបូបស្ពាយទៅសាលា | ស្ពាយកាតាប</annotation>
+		<annotation cp="🎒" type="tts">កាបូបស្ពាយទៅសាលា</annotation>
+		<annotation cp="👞">ស្បែកជើង | ស្បែកជើងឃ្វា | ស្បែកជើងបុរស</annotation>
+		<annotation cp="👞" type="tts">ស្បែកជើងបុរស</annotation>
+		<annotation cp="👟">ស្បែកជើងកីឡា | ស្បែងជើងរត់កីឡា</annotation>
+		<annotation cp="👟" type="tts">ស្បែងជើងរត់កីឡា</annotation>
+		<annotation cp="🥾">ការដើរ | ការធ្វើដណើរកម្សាន្ត​ដោយស្ពាយកាបូបនៅក្រោយខ្នង | ការបោះជំរំ | ស្បែកជើងកវែង</annotation>
+		<annotation cp="🥾" type="tts">ស្បែកជើងកវែង</annotation>
+		<annotation cp="🥿">ស្បែកជើងបាតរាប | ស្បែកជើងបាតរាបសម្រាប់ស្ត្រី | ស្បែកជើងបាតរាបឥតខ្សែ | ស្បែកជើងផ្ទាត់</annotation>
+		<annotation cp="🥿" type="tts">ស្បែកជើងបាតរាប</annotation>
+		<annotation cp="👠">កែងចោត | ស្បែកជើកែង | ស្បែកជើងកែងចោត</annotation>
+		<annotation cp="👠" type="tts">ស្បែកជើងកែងចោត</annotation>
+		<annotation cp="👡">ស្បែកជើងស្រី | ស្បែកជើស៊ក | ស្បែងជើងកែងស៊ក</annotation>
+		<annotation cp="👡" type="tts">ស្បែងជើងកែងស៊ក</annotation>
+		<annotation cp="👢">ស្បែកជើងកវែង | ស្បែកជើងកវែងនារី | ស្បែកជើងស្រី</annotation>
+		<annotation cp="👢" type="tts">ស្បែកជើងកវែងនារី</annotation>
+		<annotation cp="👑">ម្កុជ | ស្តេច</annotation>
+		<annotation cp="👑" type="tts">ម្កុជ</annotation>
+		<annotation cp="👒">មួកនារី | មួកស្រី</annotation>
+		<annotation cp="👒" type="tts">មួកនារី</annotation>
+		<annotation cp="🎩">មួកសៀក | មួកអ្នកលេងសៀក</annotation>
+		<annotation cp="🎩" type="tts">មួកអ្នកលេងសៀក</annotation>
+		<annotation cp="🎓">ទទួលសញ្ញាបត្រ | មួក | មួកទទួលសញ្ញាបត្រ</annotation>
+		<annotation cp="🎓" type="tts">មួកទទួលសញ្ញាបត្រ</annotation>
+		<annotation cp="🧢">មួកកាតិប</annotation>
+		<annotation cp="🧢" type="tts">មួកកាតិប</annotation>
+		<annotation cp="⛑">មួកសុវត្ថិភាព | មួកសុវត្ថិភាពមានរូបសញ្ញាបូកពណ៌ស | សុវត្ថិភាព</annotation>
+		<annotation cp="⛑" type="tts">មួកសុវត្ថិភាពមានរូបសញ្ញាបូកពណ៌ស</annotation>
+		<annotation cp="📿">ខ្សែអង្កាំអ្នកបួស | អង្កាំ</annotation>
+		<annotation cp="📿" type="tts">ខ្សែអង្កាំអ្នកបួស</annotation>
+		<annotation cp="💄">ក្រែម | ក្រែមលាបមាត់</annotation>
+		<annotation cp="💄" type="tts">ក្រែមលាបមាត់</annotation>
+		<annotation cp="💍">ចិញ្ចៀន | ពេជ្រ</annotation>
+		<annotation cp="💍" type="tts">ចិញ្ចៀន</annotation>
+		<annotation cp="💎">ត្បូង | ពេជ្រ | អលង្គា</annotation>
+		<annotation cp="💎" type="tts">ត្បូង</annotation>
 		<annotation cp="🔇">បាសបិទ | បាសមានឆ្នូតក្រហម (បិទសម្លេង) | បិទ | ស្ងាត់</annotation>
 		<annotation cp="🔇" type="tts">បាសមានឆ្នូតក្រហម (បិទសម្លេង)</annotation>
 		<annotation cp="🔈">បាស​ | សម្លេង</annotation>
@@ -2477,10 +2499,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📳" type="tts">សញ្ញាទូរស័ព្ទញ័រ</annotation>
 		<annotation cp="📴">ទូរស័ព្ទ | បិទ | សញ្ញា | សញ្ញាទូរស័ព្ទបិទ</annotation>
 		<annotation cp="📴" type="tts">សញ្ញាទូរស័ព្ទបិទ</annotation>
-		<annotation cp="♀">នារី | ភេទ | ភេទស្រី | ស្ត្រី | ស្រី</annotation>
-		<annotation cp="♀" type="tts">ភេទស្រី</annotation>
-		<annotation cp="♂">បុរស | ប្រុស | ភេទ | ភេទប្រុស</annotation>
-		<annotation cp="♂" type="tts">ភេទប្រុស</annotation>
 		<annotation cp="⚕">ពេទ្យ | ព្យាបាល | សញ្ញាពេទ្យ</annotation>
 		<annotation cp="⚕" type="tts">សញ្ញាពេទ្យ</annotation>
 		<annotation cp="♾">គ្មានព្រំដែន | ជារៀងរហូត | ជាសកល | សញ្ញាអនន្ត</annotation>
@@ -2547,8 +2565,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="®" type="tts">សញ្ញាអក្សរ R ក្នុងរង្វង់សម្គាល់ថាបានចុះឈ្មោះ</annotation>
 		<annotation cp="™">TM | ម៉ាក | សញ្ញា | សញ្ញាអក្សរ TM សម្គាល់ថាជាម៉ាកទំនិញ</annotation>
 		<annotation cp="™" type="tts">សញ្ញាអក្សរ TM សម្គាល់ថាជាម៉ាកទំនិញ</annotation>
-		<annotation cp="💯">100 | ពិន្ទុ១០០</annotation>
-		<annotation cp="💯" type="tts">ពិន្ទុ១០០</annotation>
 		<annotation cp="🔠">បញ្ចូល | ប៊ូតុង | ប៊ូតុងបញ្ចូលអក្សរធំ | អក្សរធំ</annotation>
 		<annotation cp="🔠" type="tts">ប៊ូតុងបញ្ចូលអក្សរធំ</annotation>
 		<annotation cp="🔡">បញ្ចូល | ប៊ូតុង | ប៊ូតុងបញ្ចូលអក្សរតូច | អក្សរតូច</annotation>
@@ -2685,5 +2701,139 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">ទង់ឥន្ទធនូ</annotation>
 		<annotation cp="🏴‍☠">Jolly Roger | កំណប់ | ការលួចប្លន់ | ចោរសមុទ្រ | ទង់ចោរសមុទ្រ</annotation>
 		<annotation cp="🏴‍☠" type="tts">ទង់ចោរសមុទ្រ</annotation>
+		<annotation cp="🛕">វិហារ | ហិណ្ឌូ</annotation>
+		<annotation cp="🛕" type="tts">វិហារសាសនាហិណ្ឌូ</annotation>
+		<annotation cp="🛺">តុតុ</annotation>
+		<annotation cp="🛺" type="tts">រ៉ឺម៉កកង់បីដែល​ប្រើម៉ាស៊ីន</annotation>
+		<annotation cp="🟠">ពណ៌ទឹកក្រូច | រង្វង់</annotation>
+		<annotation cp="🟠" type="tts">រង្វង់ពណ៌ទឹកក្រូច</annotation>
+		<annotation cp="🟡">ពណ៌លឿង | រង្វង់</annotation>
+		<annotation cp="🟡" type="tts">រង្វង់ពណ៌លឿង</annotation>
+		<annotation cp="🟢">ពណ៌បៃតង | រង្វង់</annotation>
+		<annotation cp="🟢" type="tts">រង្វង់ពណ៌បៃតង</annotation>
+		<annotation cp="🟣">ពណ៌ស្វាយ | រង្វង់</annotation>
+		<annotation cp="🟣" type="tts">រង្វង់ពណ៌ស្វាយ</annotation>
+		<annotation cp="🟤">ពណ៌ត្នោត | រង្វង់</annotation>
+		<annotation cp="🟤" type="tts">រង្វង់ពណ៌ត្នោត</annotation>
+		<annotation cp="🟥">ការ៉េ | ពណ៌ក្រហម</annotation>
+		<annotation cp="🟥" type="tts">ការ៉េ​ពណ៌ក្រហម</annotation>
+		<annotation cp="🟦">ការ៉េ | ពណ៌ខៀវ</annotation>
+		<annotation cp="🟦" type="tts">ការ៉េពណ៌ខៀវ</annotation>
+		<annotation cp="🟧">ការ៉េ | ពណ៌ទឹកក្រូច</annotation>
+		<annotation cp="🟧" type="tts">ការ៉េ​ពណ៌ទឹកក្រូច</annotation>
+		<annotation cp="🟨">ការ៉េ | ពណ៌លឿង</annotation>
+		<annotation cp="🟨" type="tts">ការ៉េ​ពណ៌​លឿង</annotation>
+		<annotation cp="🟩">ការ៉េ | ពណ៌បៃតង</annotation>
+		<annotation cp="🟩" type="tts">ការ៉េ​ពណ៌បៃតង</annotation>
+		<annotation cp="🟪">ការ៉េ | ពណ៌ស្វាយ</annotation>
+		<annotation cp="🟪" type="tts">ការ៉េ​ពណ៌ស្វាយ</annotation>
+		<annotation cp="🟫">ការ៉េ | ពណ៌ត្នោត</annotation>
+		<annotation cp="🟫" type="tts">ការ៉េពណ៌ត្នោត</annotation>
+		<annotation cp="🤍">បេះដូង | ពណ៌ស</annotation>
+		<annotation cp="🤍" type="tts">បេះដូងពណ៌ស</annotation>
+		<annotation cp="🤎">បេះដូង | ពណ៌ត្នោត</annotation>
+		<annotation cp="🤎" type="tts">បេះដូងពណ៌ត្នោត</annotation>
+		<annotation cp="🤏">បរិមាណតិច</annotation>
+		<annotation cp="🤏" type="tts">ច្បិចដៃ</annotation>
+		<annotation cp="🤿">ការមុជទឹក | ការមុជទឹកដោយពាក់​ម៉ាស់មុជទឹក | បំពង់អុកស៊ីសែន</annotation>
+		<annotation cp="🤿" type="tts">ម៉ាស់ពាក់មុជទឹក</annotation>
+		<annotation cp="🥱">គួរឱ្យធុញ | ធុញ | ស្ងាប</annotation>
+		<annotation cp="🥱" type="tts">មុខស្ងាប</annotation>
+		<annotation cp="🥻">សម្លៀកបំពាក់</annotation>
+		<annotation cp="🥻" type="tts">សារុងឥណ្ឌា</annotation>
+		<annotation cp="🦥">ខ្ជិល | យឺត</annotation>
+		<annotation cp="🦥" type="tts">ស្លុដ</annotation>
+		<annotation cp="🦦">ចាប់ត្រី | លេងច្រើន</annotation>
+		<annotation cp="🦦" type="tts">ភេ</annotation>
+		<annotation cp="🦧">ស្វាឪ</annotation>
+		<annotation cp="🦧" type="tts">ស្វាអូរ៉ង់ហ្គូតង់</annotation>
+		<annotation cp="🦨">ស្អុយ</annotation>
+		<annotation cp="🦨" type="tts">ស្កុង</annotation>
+		<annotation cp="🦩">ត្រូពិច | ពណ៌ភ្លឺច្រាល</annotation>
+		<annotation cp="🦩" type="tts">កុកពណ៌ស៊ីកូលាប</annotation>
+		<annotation cp="🦪">ការមុជទឹក | គុជខ្យង</annotation>
+		<annotation cp="🦪" type="tts">អ័រស្ទ័រ</annotation>
+		<annotation cp="🦮">នាំផ្លូវ | ពិការភ្នែក | លទ្ធភាព​ទទួលបាន</annotation>
+		<annotation cp="🦮" type="tts">ឆ្កែនាំផ្លូវ</annotation>
+		<annotation cp="🦯">ខ្វាក់ | លទ្ធភាព​ទទួលបាន</annotation>
+		<annotation cp="🦯" type="tts">ឈើច្រត់ជនពិការ</annotation>
+		<annotation cp="🦺">គ្រាអាសន្ន | សុវត្ថិភាព | អាវពោង</annotation>
+		<annotation cp="🦺" type="tts">អាវពោងសុវត្ថិភាព</annotation>
+		<annotation cp="🦻">មានការពិបាកក្នុងការស្ដាប់ | លទ្ធភាព​ទទួលបាន</annotation>
+		<annotation cp="🦻" type="tts">ត្រចៀកពាក់ឧបករណ៍ជំនួយការស្ដាប់</annotation>
+		<annotation cp="🦼">លទ្ធភាព​ចូល</annotation>
+		<annotation cp="🦼" type="tts">រទេះជនពិការដែលប្រើម៉ាស៊ីន</annotation>
+		<annotation cp="🦽">លទ្ធភាពទទួលបាន</annotation>
+		<annotation cp="🦽" type="tts">រទេះជនពិការដែលរុញដោយដៃ</annotation>
+		<annotation cp="🦾">លទ្ធភាព​ទទួលបាន | សិប្បនិម្មិត</annotation>
+		<annotation cp="🦾" type="tts">ដៃមេកានិច</annotation>
+		<annotation cp="🦿">លទ្ធភាព​ទទួលបាន | សិប្បនិម្មិត</annotation>
+		<annotation cp="🦿" type="tts">ជើងមេកានិច</annotation>
+		<annotation cp="🧃">កំប៉ុងទឹកផ្លែឈើ</annotation>
+		<annotation cp="🧃" type="tts">កំប៉ុងភេសជ្ជៈ</annotation>
+		<annotation cp="🧄">គ្រឿងបន្ថែមរសជាតិ</annotation>
+		<annotation cp="🧄" type="tts">ខ្ទឹមស</annotation>
+		<annotation cp="🧅">គ្រឿងបន្ថែមរសជាតិ</annotation>
+		<annotation cp="🧅" type="tts">ខ្ទឹមបារាំង</annotation>
+		<annotation cp="🧆">ប្រហិត | សណ្តែក​បារាំង​ពណ៌លឿង</annotation>
+		<annotation cp="🧆" type="tts">នំហ្វាឡាហ្វល់</annotation>
+		<annotation cp="🧇">ដែក | មិនច្បាស់</annotation>
+		<annotation cp="🧇" type="tts">នំពុម្ព</annotation>
+		<annotation cp="🧈">ប្រភេទអាហារដែល​ធ្វើពីទឹកដោះគោ ឬក្រែម</annotation>
+		<annotation cp="🧈" type="tts">បឺរ</annotation>
+		<annotation cp="🧉">ភេសជ្ជៈ</annotation>
+		<annotation cp="🧉" type="tts">ម៉ាតេ</annotation>
+		<annotation cp="🧊">កាតិបទឹកកក | ត្រជាក់</annotation>
+		<annotation cp="🧊" type="tts">ដុំទឹកកក</annotation>
+		<annotation cp="🧍">ការឈរ | ឈរ</annotation>
+		<annotation cp="🧍" type="tts">មនុស្សឈរ</annotation>
+		<annotation cp="🧍‍♀">ការឈរ | មនុស្សស្រី</annotation>
+		<annotation cp="🧍‍♀" type="tts">មនុស្សស្រីឈរ</annotation>
+		<annotation cp="🧍‍♂">ឈរ | មនុស្សប្រុស</annotation>
+		<annotation cp="🧍‍♂" type="tts">មនុស្សប្រុសឈរ</annotation>
+		<annotation cp="🧎">ការលុតជង្គង់ | លុតជង្គង់</annotation>
+		<annotation cp="🧎" type="tts">មនុស្សលុតជង្គង់</annotation>
+		<annotation cp="🧎‍♀">ការលុតជង្គង់ | មនុស្សស្រី</annotation>
+		<annotation cp="🧎‍♀" type="tts">មនុស្សស្រីលុតជង្គង់</annotation>
+		<annotation cp="🧎‍♂">ការលុតជង្គង់ | មនុស្សប្រុស</annotation>
+		<annotation cp="🧎‍♂" type="tts">មនុស្សប្រុសលុតជង្គង់</annotation>
+		<annotation cp="🧏">ត្រចៀក | ថ្លង់ | លទ្ធភាព​ទទួលបាន | ឮ</annotation>
+		<annotation cp="🧏" type="tts">មនុស្សថ្លង់</annotation>
+		<annotation cp="🧏‍♀">ថ្លង់ | ស្ត្រី</annotation>
+		<annotation cp="🧏‍♀" type="tts">ស្ត្រីថ្លង់</annotation>
+		<annotation cp="🧏‍♂">ថ្លង់ | បុរស</annotation>
+		<annotation cp="🧏‍♂" type="tts">មនុស្សប្រុសថ្លង់</annotation>
+		<annotation cp="🩰">របាំបាឡេ | រាំ</annotation>
+		<annotation cp="🩰" type="tts">ស្បែកជើងសម្រាប់​រាំរបាំ​បាឡេ</annotation>
+		<annotation cp="🩱">ឈុតហែលទឹក</annotation>
+		<annotation cp="🩱" type="tts">ឈុតហែលទឹក</annotation>
+		<annotation cp="🩲">ខោក្នុង | ឈុតងួតទឹក | ឈុតហែលទឹក | មួយឈុត</annotation>
+		<annotation cp="🩲" type="tts">ខោក្នុង</annotation>
+		<annotation cp="🩳">ខោក្នុង | ខោខ្លី | ឈុតងួតទឹក</annotation>
+		<annotation cp="🩳" type="tts">ខោខ្លី</annotation>
+		<annotation cp="🩸">ការធ្លាក់រដូវ | ការបរិច្ចាគឈាម | ឱសថ</annotation>
+		<annotation cp="🩸" type="tts">តំណក់ឈាម</annotation>
+		<annotation cp="🩹">បង់</annotation>
+		<annotation cp="🩹" type="tts">បង់ស្អិត</annotation>
+		<annotation cp="🩺">បេះដូង | វេជ្ជបណ្ឌិត | ឱសថ</annotation>
+		<annotation cp="🩺" type="tts">ស្តេតូ</annotation>
+		<annotation cp="🪀">ចុះឡើង | របស់ក្មេងលេង</annotation>
+		<annotation cp="🪀" type="tts">យ៉ូយ៉ូ</annotation>
+		<annotation cp="🪁">សំកាំង | ហោះ</annotation>
+		<annotation cp="🪁" type="tts">ខ្លែង</annotation>
+		<annotation cp="🪂">ឆត្រយោង | ជិះឆត្រយោង​សណ្ដោងពីក្រោយកាណូត | លោតឆត្រយោង | ហោះសំកាំង</annotation>
+		<annotation cp="🪂" type="tts">ឆត្រយោង</annotation>
+		<annotation cp="🪐">ភពសៅរ៍</annotation>
+		<annotation cp="🪐" type="tts">ភពដែលមាន​កងរង្វង់ជុំវិញ</annotation>
+		<annotation cp="🪑">កៅអី | អង្គុយ</annotation>
+		<annotation cp="🪑" type="tts">កៅអី</annotation>
+		<annotation cp="🪒">កោរ | មុត</annotation>
+		<annotation cp="🪒" type="tts">កាំបិតកោរពុកមាត់</annotation>
+		<annotation cp="🪓">កាប់ | ឈើ | ពុះ | ពូថៅដៃ</annotation>
+		<annotation cp="🪓" type="tts">ពូថៅ</annotation>
+		<annotation cp="🪔">ចង្កៀង | ឌីយ៉ា | ប្រេង</annotation>
+		<annotation cp="🪔" type="tts">ចង្កៀងឌីយ៉ា</annotation>
+		<annotation cp="🪕">តន្ត្រី | មានខ្សែ</annotation>
+		<annotation cp="🪕" type="tts">បានចូ</annotation>
 	</annotations>
 </ldml>

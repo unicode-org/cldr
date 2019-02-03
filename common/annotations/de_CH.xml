@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -16,19 +16,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😃" type="tts">grinsendes Gesicht mit grossen Augen</annotation>
 		<annotation cp="😅">Gesicht | Lachender Smiley mit kaltem Schweiss | lustig | Schweiss | schwitzen</annotation>
 		<annotation cp="😅" type="tts">Lachender Smiley mit kaltem Schweiss</annotation>
-		<annotation cp="😥">erleichtert | Gesicht | Schweiss</annotation>
+		<annotation cp="🤪">Auge | gross | klein</annotation>
 		<annotation cp="🤐">Gesicht | Mund | Reissverschluss | Smiley mit Reissverschlussmund</annotation>
 		<annotation cp="🤐" type="tts">Smiley mit Reissverschlussmund</annotation>
-		<annotation cp="😓">geschlossene Augen | Gesicht | Smiley mit kaltem Schweiss</annotation>
-		<annotation cp="😓" type="tts">Smiley mit kaltem Schweiss</annotation>
-		<annotation cp="😰">Gesicht | kalter Schweiss | offener Mund | Smiley mit offenem Mund und kaltem Schweiss</annotation>
-		<annotation cp="😰" type="tts">Smiley mit offenem Mund und kaltem Schweiss</annotation>
 		<annotation cp="🥵">erhitzt | Fieber | heiss | Hitzschlag | schwitzen</annotation>
 		<annotation cp="😳">Erröteter Smiley mit grossen Augen | Gesicht | rote Wangen | überrascht</annotation>
 		<annotation cp="😳" type="tts">Erröteter Smiley mit grossen Augen</annotation>
-		<annotation cp="🤪">Auge | gross | klein</annotation>
+		<annotation cp="😰">Gesicht | kalter Schweiss | offener Mund | Smiley mit offenem Mund und kaltem Schweiss</annotation>
+		<annotation cp="😰" type="tts">Smiley mit offenem Mund und kaltem Schweiss</annotation>
+		<annotation cp="😥">erleichtert | Gesicht | Schweiss</annotation>
+		<annotation cp="😓">geschlossene Augen | Gesicht | Smiley mit kaltem Schweiss</annotation>
+		<annotation cp="😓" type="tts">Smiley mit kaltem Schweiss</annotation>
 		<annotation cp="👽">Alien | Ausserirdischer | Ausserirdisches Wesen | Gesicht | UFO</annotation>
 		<annotation cp="👽" type="tts">Ausserirdisches Wesen</annotation>
+		<annotation cp="💥">Comic | Kollision | Zusammenstoss</annotation>
+		<annotation cp="💥" type="tts">Zusammenstoss</annotation>
+		<annotation cp="💦">Comic | Schweiss | Schweisstropfen</annotation>
+		<annotation cp="💦" type="tts">Schweisstropfen</annotation>
+		<annotation cp="🖖">Finger | Hand | Spock | Vulkanier(in) | vulkanisch | Vulkanischer Gruss</annotation>
+		<annotation cp="🖖" type="tts">Vulkanischer Gruss</annotation>
+		<annotation cp="🤘">Finger | Hand | Hörner | Rock | Teufel | Teufelsgruss</annotation>
+		<annotation cp="🤘" type="tts">Teufelsgruss</annotation>
+		<annotation cp="🦶">Fuss</annotation>
+		<annotation cp="🦶" type="tts">Fuss</annotation>
+		<annotation cp="👨‍🦯" draft="contributed">Barrierefreiheit | blind | Mann</annotation>
 		<annotation cp="🧟‍♂">Zombiemann</annotation>
 		<annotation cp="🧟‍♂" type="tts">Zombiemann</annotation>
 		<annotation cp="🚶">Fussgänger(in) | gehen | gehend | wandern</annotation>
@@ -37,23 +48,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚶‍♂" type="tts">Fussgänger</annotation>
 		<annotation cp="🚶‍♀">Frau | Fussgängerin | gehen | Spaziergang</annotation>
 		<annotation cp="🚶‍♀" type="tts">Fussgängerin</annotation>
-		<annotation cp="🦶">Fuss</annotation>
-		<annotation cp="🦶" type="tts">Fuss</annotation>
-		<annotation cp="🖖">Finger | Hand | Spock | Vulkanier(in) | vulkanisch | Vulkanischer Gruss</annotation>
-		<annotation cp="🖖" type="tts">Vulkanischer Gruss</annotation>
-		<annotation cp="🤘">Finger | Hand | Hörner | Rock | Teufel | Teufelsgruss</annotation>
-		<annotation cp="🤘" type="tts">Teufelsgruss</annotation>
 		<annotation cp="👣">Abdruck | Fuss | Fussabdrücke</annotation>
 		<annotation cp="👣" type="tts">Fussabdrücke</annotation>
 		<annotation cp="🦳">weisses Haar</annotation>
 		<annotation cp="🦳" type="tts">weisses Haar</annotation>
-		<annotation cp="💥">Comic | Kollision | Zusammenstoss</annotation>
-		<annotation cp="💥" type="tts">Zusammenstoss</annotation>
-		<annotation cp="💦">Comic | Schweiss | Schweisstropfen</annotation>
-		<annotation cp="💦" type="tts">Schweisstropfen</annotation>
-		<annotation cp="🥽">Augenschutz | Schweissen | Schwimmen</annotation>
-		<annotation cp="⛑">Helm | Helm mit weissem Kreuz | Hilfe | Kreuz</annotation>
-		<annotation cp="⛑" type="tts">Helm mit weissem Kreuz</annotation>
 		<annotation cp="💐">Blumen | Blumenstrauss | Bouquet</annotation>
 		<annotation cp="💐" type="tts">Blumenstrauss</annotation>
 		<annotation cp="🥨">verdreht</annotation>
@@ -90,6 +88,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚽">Ball | Fussball</annotation>
 		<annotation cp="⚽" type="tts">Fussball</annotation>
 		<annotation cp="🥌">Spiel | Stein</annotation>
+		<annotation cp="🥽">Augenschutz | Schweissen | Schwimmen</annotation>
+		<annotation cp="⛑">Helm | Helm mit weissem Kreuz | Hilfe | Kreuz</annotation>
+		<annotation cp="⛑" type="tts">Helm mit weissem Kreuz</annotation>
 		<annotation cp="🔍">Suche | Vergrösserungsglas</annotation>
 		<annotation cp="🔎">Suche | Vergrösserungsglas</annotation>
 		<annotation cp="📆">Abreisskalender | Kalender</annotation>
@@ -163,5 +164,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔳" type="tts">Weisse quadratische Schaltfläche</annotation>
 		<annotation cp="🏳">Fahne | wehen | Wehende weisse Fahne | weisse Fahne</annotation>
 		<annotation cp="🏳" type="tts">Wehende weisse Fahne</annotation>
+		<annotation cp="🤍" draft="contributed">Herz | weiss</annotation>
+		<annotation cp="🤍" type="tts" draft="contributed">weisses Herz</annotation>
+		<annotation cp="🤎" type="tts" draft="contributed">braunes Herz</annotation>
 	</annotations>
 </ldml>

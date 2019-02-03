@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -11,4 +11,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="en"/>
 		<territory type="GB"/>
 	</identity>
+	<annotations>
+		<annotation cp="👨‍🦯" type="tts">man with guide cane</annotation>
+		<annotation cp="👨‍🦼" type="tts">man in powered wheelchair</annotation>
+		<annotation cp="👩‍🦯" type="tts">woman with guide cane</annotation>
+		<annotation cp="👩‍🦼" type="tts">woman in powered wheelchair</annotation>
+		<annotation cp="🦳">grey | hair | old | white</annotation>
+		<annotation cp="🥬">bok choy | cabbage | kale | lettuce | pak choi</annotation>
+		<annotation cp="🥖" draft="contributed">baguette | bread | food | french | french stick</annotation>
+		<annotation cp="🥡">oyster pail | takeaway box | takeout box</annotation>
+		<annotation cp="🚃">car | electric | railway | railway carriage | train | tram | trolleybus</annotation>
+		<annotation cp="🚗" draft="contributed">automobile | car</annotation>
+		<annotation cp="🛷">sledge | sleigh</annotation>
+		<annotation cp="🧴">lotion | moisturiser | shampoo | sunscreen</annotation>
+		<annotation cp="🧷">nappy | punk rock</annotation>
+		<annotation cp="🧻">paper towels | toilet paper | toilet roll</annotation>
+		<annotation cp="✅">✓ | button | mark | tick</annotation>
+		<annotation cp="✅" type="tts">tick button</annotation>
+		<annotation cp="☑">✓ | box | tick | tick box with tick</annotation>
+		<annotation cp="☑" type="tts">tick box with tick</annotation>
+		<annotation cp="✔">✓ | mark | tick</annotation>
+		<annotation cp="✔" type="tts">tick</annotation>
+		<annotation cp="✖">× | cancel | multiplication | multiply | sign | x</annotation>
+		<annotation cp="➕">+ | math | maths | plus | sign</annotation>
+		<annotation cp="➖">- | − | math | maths | minus | sign</annotation>
+		<annotation cp="🏳‍🌈">pride | rainbow | rainbow flag</annotation>
+		<annotation cp="🛺">tuk tuk | tuk-tuk</annotation>
+		<annotation cp="🤿" draft="contributed">diving | scuba | snorkelling</annotation>
+		<annotation cp="🦯" type="tts" draft="contributed">guide cane</annotation>
+		<annotation cp="🦺">emergency | hi-vis | hi-viz | high-vis | high-viz | jacket | safety | vest</annotation>
+		<annotation cp="🦼" type="tts">powered wheelchair</annotation>
+		<annotation cp="🧄">flavouring</annotation>
+		<annotation cp="🧅">flavouring</annotation>
+		<annotation cp="🧉" type="tts">maté</annotation>
+		<annotation cp="🩲" draft="contributed">bathing suit | one-piece | pants | swimsuit | underwear</annotation>
+		<annotation cp="🩳" draft="contributed">bathing suit | boardshorts | swim shorts | underwear</annotation>
+		<annotation cp="🩹" draft="contributed">adhesive bandage | sticking plaster</annotation>
+		<annotation cp="🩹" type="tts" draft="contributed">plaster</annotation>
+		<annotation cp="🪂">hang-glide | parachute | parasail | parascend | skydive</annotation>
+		<annotation cp="🪒" draft="contributed">razor | sharp | shave | straight razor</annotation>
+		<annotation cp="🪒" type="tts" draft="contributed">cut-throat razor</annotation>
+	</annotations>
 </ldml>

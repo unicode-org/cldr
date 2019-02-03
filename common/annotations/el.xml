@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,52 +23,72 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">μεσαίος-σκούρος τόνος δέρματος</annotation>
 		<annotation cp="🏿">fitzpatrick | σκούρος τόνος δέρματος | τόνος δέρματος | τύπου 6</annotation>
 		<annotation cp="🏿" type="tts">σκούρος τόνος δέρματος</annotation>
+		<annotation cp="🐾">ίχνη | ίχνη ζώου | πατημασιές | πατούσες</annotation>
+		<annotation cp="🐾" type="tts">ίχνη ζώου</annotation>
 		<annotation cp="😀">πλατύ χαμόγελο | πρόσωπο | σαρκασμός</annotation>
 		<annotation cp="😀" type="tts">πλατύ χαμόγελο</annotation>
-		<annotation cp="😁">μάτι | περιχαρές πρόσωπο με γελαστά μάτια | πρόσωπο | σαρκασμός | χαμόγελο</annotation>
-		<annotation cp="😁" type="tts">περιχαρές πρόσωπο με γελαστά μάτια</annotation>
-		<annotation cp="😂">γέλιο | δάκρυ | κλαίω από χαρά | πρόσωπο | χαρά</annotation>
-		<annotation cp="😂" type="tts">κλαίω από χαρά</annotation>
-		<annotation cp="🤣">γέλιο | δυνατό γέλιο | ξεκαρδίζομαι | ξεκάρδισμα | πρόσωπο</annotation>
-		<annotation cp="🤣" type="tts">ξεκαρδίζομαι</annotation>
 		<annotation cp="😃">ανοιχτό | πλατύ χαμόγελο με μεγάλα μάτια | πρόσωπο | στόμα | χαμόγελο</annotation>
 		<annotation cp="😃" type="tts">πλατύ χαμόγελο με μεγάλα μάτια</annotation>
 		<annotation cp="😄">ανοιχτό | μάτι | πλατύ χαμόγελο με γελαστά μάτια | πρόσωπο | στόμα | χαμόγελο</annotation>
 		<annotation cp="😄" type="tts">πλατύ χαμόγελο με γελαστά μάτια</annotation>
-		<annotation cp="😅">ανοιχτό | ιδρώτας | κρύος | πλατύ χαμόγελο και κρύος ιδρώτας | πρόσωπο | χαμόγελο</annotation>
-		<annotation cp="😅" type="tts">πλατύ χαμόγελο και κρύος ιδρώτας</annotation>
+		<annotation cp="😁">μάτι | περιχαρές πρόσωπο με γελαστά μάτια | πρόσωπο | σαρκασμός | χαμόγελο</annotation>
+		<annotation cp="😁" type="tts">περιχαρές πρόσωπο με γελαστά μάτια</annotation>
 		<annotation cp="😆">ανοιχτό | γέλιο | ικανοποίηση | πλατύ χαμόγελο με κλειστά μάτια | πρόσωπο | στόμα | χαμόγελο</annotation>
 		<annotation cp="😆" type="tts">πλατύ χαμόγελο με κλειστά μάτια</annotation>
+		<annotation cp="😅">ανοιχτό | ιδρώτας | κρύος | πλατύ χαμόγελο και κρύος ιδρώτας | πρόσωπο | χαμόγελο</annotation>
+		<annotation cp="😅" type="tts">πλατύ χαμόγελο και κρύος ιδρώτας</annotation>
+		<annotation cp="🤣">γέλιο | δυνατό γέλιο | ξεκαρδίζομαι | ξεκάρδισμα | πρόσωπο</annotation>
+		<annotation cp="🤣" type="tts">ξεκαρδίζομαι</annotation>
+		<annotation cp="😂">γέλιο | δάκρυ | κλαίω από χαρά | πρόσωπο | χαρά</annotation>
+		<annotation cp="😂" type="tts">κλαίω από χαρά</annotation>
+		<annotation cp="🙂">ελαφρώς χαμογελαστό πρόσωπο | πρόσωπο | χαμόγελο</annotation>
+		<annotation cp="🙂" type="tts">ελαφρώς χαμογελαστό πρόσωπο</annotation>
+		<annotation cp="🙃">ανάποδο | αναποδογυρισμένο πρόσωπο | πρόσωπο</annotation>
+		<annotation cp="🙃" type="tts">αναποδογυρισμένο πρόσωπο</annotation>
 		<annotation cp="😉">κλείνω το μάτι | κλείσιμο ματιού | πρόσωπο</annotation>
 		<annotation cp="😉" type="tts">κλείσιμο ματιού</annotation>
 		<annotation cp="😊">κοκκινίζω | μάτι | πρόσωπο | χαμογελαστό πρόσωπο με γελαστά μάτια | χαμόγελο</annotation>
 		<annotation cp="😊" type="tts">χαμογελαστό πρόσωπο με γελαστά μάτια</annotation>
-		<annotation cp="😋">απολαμβάνω πεντανόστιμο φαγητό | απόλαυση | γιαμ | μιαμ | νόστιμο | πρόσωπο | χαμόγελο</annotation>
-		<annotation cp="😋" type="tts">απολαμβάνω πεντανόστιμο φαγητό</annotation>
-		<annotation cp="😎">γυαλιά | γυαλιά ηλίου | ήλιος | καιρός | μάτι | οπτικά | πρόσωπο | στυλάτος | φωτεινός | χαμογελαστό πρόσωπο με γυαλιά ηλίου | χαμόγελο</annotation>
-		<annotation cp="😎" type="tts">χαμογελαστό πρόσωπο με γυαλιά ηλίου</annotation>
-		<annotation cp="😍">αγάπη | καρδιά | μάτι | πρόσωπο | χαμογελαστό πρόσωπο με μάτια καρδούλες | χαμόγελο</annotation>
-		<annotation cp="😍" type="tts">χαμογελαστό πρόσωπο με μάτια καρδούλες</annotation>
-		<annotation cp="😘">καρδιά | πρόσωπο | στέλνω φιλί | φιλί</annotation>
-		<annotation cp="😘" type="tts">στέλνω φιλί</annotation>
+		<annotation cp="😇">άγγελος | αθώος | παραμύθι | πρόσωπο | φαντασία | φωτοστέφανο | χαμογελαστό πρόσωπο με φωτοστέφανο | χαμόγελο</annotation>
+		<annotation cp="😇" type="tts">χαμογελαστό πρόσωπο με φωτοστέφανο</annotation>
 		<annotation cp="🥰">ερωτευμένος | καψούρα | λατρεύω | χαμογελαστό προσωπάκι με 3 καρδούλες</annotation>
 		<annotation cp="🥰" type="tts">χαμογελαστό προσωπάκι με 3 καρδούλες</annotation>
-		<annotation cp="😗">πρόσωπο | φιλί | φιλώ</annotation>
-		<annotation cp="😗" type="tts">φιλώ</annotation>
-		<annotation cp="😙">μάτι | πρόσωπο | φιλί | φιλώ με γελαστά μάτια | χαμόγελο</annotation>
-		<annotation cp="😙" type="tts">φιλώ με γελαστά μάτια</annotation>
-		<annotation cp="😚">κλειστό | μάτι | πρόσωπο | φιλί | φιλώ με κλειστά μάτια</annotation>
-		<annotation cp="😚" type="tts">φιλώ με κλειστά μάτια</annotation>
-		<annotation cp="☺">πρόσωπο | σκιαγράφημα | χαλαρό | χαμογελαστό πρόσωπο | χαμόγελο</annotation>
-		<annotation cp="☺" type="tts">χαμογελαστό πρόσωπο</annotation>
-		<annotation cp="🙂">ελαφρώς χαμογελαστό πρόσωπο | πρόσωπο | χαμόγελο</annotation>
-		<annotation cp="🙂" type="tts">ελαφρώς χαμογελαστό πρόσωπο</annotation>
-		<annotation cp="🤗">αγκαλιά | αγκαλιάζω | πρόσωπο</annotation>
-		<annotation cp="🤗" type="tts">αγκαλιά</annotation>
+		<annotation cp="😍">αγάπη | καρδιά | μάτι | πρόσωπο | χαμογελαστό πρόσωπο με μάτια καρδούλες | χαμόγελο</annotation>
+		<annotation cp="😍" type="tts">χαμογελαστό πρόσωπο με μάτια καρδούλες</annotation>
 		<annotation cp="🤩">αστέρι | βλέπω αστεράκια | γκριμάτσα | μάτια | πρόσωπο</annotation>
 		<annotation cp="🤩" type="tts">βλέπω αστεράκια</annotation>
+		<annotation cp="😘">καρδιά | πρόσωπο | στέλνω φιλί | φιλί</annotation>
+		<annotation cp="😘" type="tts">στέλνω φιλί</annotation>
+		<annotation cp="😗">πρόσωπο | φιλί | φιλώ</annotation>
+		<annotation cp="😗" type="tts">φιλώ</annotation>
+		<annotation cp="☺">πρόσωπο | σκιαγράφημα | χαλαρό | χαμογελαστό πρόσωπο | χαμόγελο</annotation>
+		<annotation cp="☺" type="tts">χαμογελαστό πρόσωπο</annotation>
+		<annotation cp="😚">κλειστό | μάτι | πρόσωπο | φιλί | φιλώ με κλειστά μάτια</annotation>
+		<annotation cp="😚" type="tts">φιλώ με κλειστά μάτια</annotation>
+		<annotation cp="😙">μάτι | πρόσωπο | φιλί | φιλώ με γελαστά μάτια | χαμόγελο</annotation>
+		<annotation cp="😙" type="tts">φιλώ με γελαστά μάτια</annotation>
+		<annotation cp="😋">απολαμβάνω πεντανόστιμο φαγητό | απόλαυση | γιαμ | μιαμ | νόστιμο | πρόσωπο | χαμόγελο</annotation>
+		<annotation cp="😋" type="tts">απολαμβάνω πεντανόστιμο φαγητό</annotation>
+		<annotation cp="😛">γλώσσα | γλώσσα έξω | πρόσωπο</annotation>
+		<annotation cp="😛" type="tts">γλώσσα έξω</annotation>
+		<annotation cp="😜">αστειεύομαι | γλώσσα | γλώσσα έξω με κλειστό μάτι | κλείνω το μάτι | μάτι | πρόσωπο</annotation>
+		<annotation cp="😜" type="tts">γλώσσα έξω με κλειστό μάτι</annotation>
+		<annotation cp="🤪">μάτι | μεγάλο | μικρό | τρελή φάτσα</annotation>
+		<annotation cp="🤪" type="tts">τρελή φάτσα</annotation>
+		<annotation cp="😝">απαίσιος | γεύση | γλώσσα | γλώσσα έξω με κλειστά μάτια | μάτι | πρόσωπο</annotation>
+		<annotation cp="😝" type="tts">γλώσσα έξω με κλειστά μάτια</annotation>
+		<annotation cp="🤑">γλώσσα με λεφτά | πρόσωπο | στόμα | χρήματα</annotation>
+		<annotation cp="🤑" type="tts">γλώσσα με λεφτά</annotation>
+		<annotation cp="🤗">αγκαλιά | αγκαλιάζω | πρόσωπο</annotation>
+		<annotation cp="🤗" type="tts">αγκαλιά</annotation>
+		<annotation cp="🤭">πρόσωπο με χέρι στο στόμα | ωχ</annotation>
+		<annotation cp="🤭" type="tts">πρόσωπο με χέρι στο στόμα</annotation>
+		<annotation cp="🤫">ησυχία | πρόσωπο που κάνει σσσς</annotation>
+		<annotation cp="🤫" type="tts">πρόσωπο που κάνει σσσς</annotation>
 		<annotation cp="🤔">πρόσωπο | σκεπτόμενος | σκέφτομαι</annotation>
 		<annotation cp="🤔" type="tts">σκέφτομαι</annotation>
+		<annotation cp="🤐">ερμητικά κλειστό στόμα | πρόσωπο | στόμα | φερμουάρ</annotation>
+		<annotation cp="🤐" type="tts">ερμητικά κλειστό στόμα</annotation>
 		<annotation cp="🤨">δύσπιστος | πρόσωπο με σηκωμένο φρύδι | σκεπτικός</annotation>
 		<annotation cp="🤨" type="tts">πρόσωπο με σηκωμένο φρύδι</annotation>
 		<annotation cp="😐">ανέκφραστο | ουδέτερο | πρόσωπο</annotation>
@@ -77,98 +97,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">ανέκφραστο πρόσωπο</annotation>
 		<annotation cp="😶">ήσυχος | πρόσωπο | πρόσωπο χωρίς στόμα | σιωπηλός | στόμα</annotation>
 		<annotation cp="😶" type="tts">πρόσωπο χωρίς στόμα</annotation>
-		<annotation cp="🙄">αναποδογυριστά | βλέμμα αποδοκιμασίας | μάτια | πρόσωπο</annotation>
-		<annotation cp="🙄" type="tts">βλέμμα αποδοκιμασίας</annotation>
 		<annotation cp="😏">μειδίαμα | πρόσωπο</annotation>
 		<annotation cp="😏" type="tts">μειδίαμα</annotation>
-		<annotation cp="😣">βλέμμα απόγνωσης | επιμένω | πρόσωπο</annotation>
-		<annotation cp="😣" type="tts">βλέμμα απόγνωσης</annotation>
-		<annotation cp="😥">ανακουφισμένος | απογοητευμένο αλλά  ανακουφισμένο πρόσωπο | απογοητευμένος | πρόσωπο | φιου</annotation>
-		<annotation cp="😥" type="tts">απογοητευμένο αλλά  ανακουφισμένο πρόσωπο</annotation>
-		<annotation cp="😮">ανοικτό στόμα | ανοιχτό | πρόσωπο | στόμα | συμπόνια</annotation>
-		<annotation cp="😮" type="tts">ανοικτό στόμα</annotation>
-		<annotation cp="🤐">ερμητικά κλειστό στόμα | πρόσωπο | στόμα | φερμουάρ</annotation>
-		<annotation cp="🤐" type="tts">ερμητικά κλειστό στόμα</annotation>
-		<annotation cp="😯">άφωνος | έκπληκτο βλέμμα | έκπληκτος | πρόσωπο | συγκλονισμένος</annotation>
-		<annotation cp="😯" type="tts">έκπληκτο βλέμμα</annotation>
-		<annotation cp="😪">νυσταγμένο πρόσωπο | πρόσωπο | ύπνος</annotation>
-		<annotation cp="😪" type="tts">νυσταγμένο πρόσωπο</annotation>
-		<annotation cp="😫">κουρασμένο πρόσωπο | κουρασμένος | πρόσωπο</annotation>
-		<annotation cp="😫" type="tts">κουρασμένο πρόσωπο</annotation>
-		<annotation cp="😴">zzz | πρόσωπο | ύπνος</annotation>
-		<annotation cp="😴" type="tts">ύπνος</annotation>
-		<annotation cp="😌">ανακούφιση | ανακουφισμένος | πρόσωπο</annotation>
-		<annotation cp="😌" type="tts">ανακούφιση</annotation>
-		<annotation cp="😛">γλώσσα | γλώσσα έξω | πρόσωπο</annotation>
-		<annotation cp="😛" type="tts">γλώσσα έξω</annotation>
-		<annotation cp="😜">αστειεύομαι | γλώσσα | γλώσσα έξω με κλειστό μάτι | κλείνω το μάτι | μάτι | πρόσωπο</annotation>
-		<annotation cp="😜" type="tts">γλώσσα έξω με κλειστό μάτι</annotation>
-		<annotation cp="😝">απαίσιος | γεύση | γλώσσα | γλώσσα έξω με κλειστά μάτια | μάτι | πρόσωπο</annotation>
-		<annotation cp="😝" type="tts">γλώσσα έξω με κλειστά μάτια</annotation>
-		<annotation cp="🤤">πρόσωπο | σάλια | σαλιαρίζω</annotation>
-		<annotation cp="🤤" type="tts">σαλιαρίζω</annotation>
 		<annotation cp="😒">δυσαρέσκεια | δυσαρεστημένος | πρόσωπο</annotation>
 		<annotation cp="😒" type="tts">δυσαρέσκεια</annotation>
-		<annotation cp="😓">ιδρώτας | κρύος | πρόσωπο</annotation>
-		<annotation cp="😓" type="tts">κρύος ιδρώτας</annotation>
-		<annotation cp="😔">αποκαρδιωμένος | περισυλλογή | πρόσωπο | στοχαστικός</annotation>
-		<annotation cp="😔" type="tts">περισυλλογή</annotation>
-		<annotation cp="😕">πρόσωπο | στοχαστικός | σύγχυση</annotation>
-		<annotation cp="😕" type="tts">σύγχυση</annotation>
-		<annotation cp="🙃">ανάποδο | αναποδογυρισμένο πρόσωπο | πρόσωπο</annotation>
-		<annotation cp="🙃" type="tts">αναποδογυρισμένο πρόσωπο</annotation>
-		<annotation cp="🤑">γλώσσα με λεφτά | πρόσωπο | στόμα | χρήματα</annotation>
-		<annotation cp="🤑" type="tts">γλώσσα με λεφτά</annotation>
-		<annotation cp="😲">έκπληκτος | εντελώς | ξάφνιασμα | ξαφνιασμένος | πρόσωπο</annotation>
-		<annotation cp="😲" type="tts">ξάφνιασμα</annotation>
-		<annotation cp="☹">κατσούφιασμα | κατσουφιασμένος | πρόσωπο</annotation>
-		<annotation cp="☹" type="tts">κατσούφιασμα</annotation>
-		<annotation cp="🙁">ελαφρύ κατσούφιασμα | κατσουφιασμένος | πρόσωπο</annotation>
-		<annotation cp="🙁" type="tts">ελαφρύ κατσούφιασμα</annotation>
-		<annotation cp="😖">πρόσωπο | σάστισμα | σαστισμένος</annotation>
-		<annotation cp="😖" type="tts">σάστισμα</annotation>
-		<annotation cp="😞">απογοητευμένος | απογοήτευση | πρόσωπο</annotation>
-		<annotation cp="😞" type="tts">απογοήτευση</annotation>
-		<annotation cp="😟">ανησυχία | ανήσυχος | πρόσωπο</annotation>
-		<annotation cp="😟" type="tts">ανησυχία</annotation>
-		<annotation cp="😤">θρίαμβος | καπνοί από τη μύτη | καπνοί από τη μύτη | νικητής | πρόσωπο</annotation>
-		<annotation cp="😤" type="tts">καπνοί από τη μύτη</annotation>
-		<annotation cp="😢">δάκρυ | κλάμα | πρόσωπο | στεναχωρημένος</annotation>
-		<annotation cp="😢" type="tts">κλάμα</annotation>
-		<annotation cp="😭">γοερό κλάμα | δάκρυ | κλάμα | λυγμός | πρόσωπο | στεναχωρημένος</annotation>
-		<annotation cp="😭" type="tts">γοερό κλάμα</annotation>
-		<annotation cp="😦">ανοιχτό | κατσούφιασμα | κατσούφιασμα με ανοικτό στόμα | πρόσωπο | στόμα</annotation>
-		<annotation cp="😦" type="tts">κατσούφιασμα με ανοικτό στόμα</annotation>
-		<annotation cp="😧">αγωνία | αγωνιώδης | πρόσωπο</annotation>
-		<annotation cp="😧" type="tts">αγωνία</annotation>
-		<annotation cp="😨">πρόσωπο | τρομαγμένος | φοβισμένος | φόβος</annotation>
-		<annotation cp="😨" type="tts">φόβος</annotation>
-		<annotation cp="😩">εξαντλημένος | εξάντληση | κουρασμένος | πρόσωπο</annotation>
-		<annotation cp="😩" type="tts">εξάντληση</annotation>
-		<annotation cp="🤯">κεφάλι που εκρήγνυται | σοκαρισμένος</annotation>
-		<annotation cp="🤯" type="tts">κεφάλι που εκρήγνυται</annotation>
+		<annotation cp="🙄">αναποδογυριστά | βλέμμα αποδοκιμασίας | μάτια | πρόσωπο</annotation>
+		<annotation cp="🙄" type="tts">βλέμμα αποδοκιμασίας</annotation>
 		<annotation cp="😬">γκριμάτσα | πρόσωπο</annotation>
 		<annotation cp="😬" type="tts">γκριμάτσα</annotation>
-		<annotation cp="😰">ανοικτό στόμα και κρύος ιδρώτας | ανοιχτό | ιδρώτας | κρύος | μπλε | ξαφνικός | πρόσωπο | στόμα</annotation>
-		<annotation cp="😰" type="tts">ανοικτό στόμα και κρύος ιδρώτας</annotation>
-		<annotation cp="😱">ανοιχτό στόμα | ουρλιαχτό | ουρλιαχτό φόβου | πρόσωπο | τρομαγμένος | φοβισμένος | φόβος</annotation>
-		<annotation cp="😱" type="tts">ουρλιαχτό φόβου</annotation>
-		<annotation cp="🥵">ζεστό προσωπάκι | θερμοπληξία | πυρετός</annotation>
-		<annotation cp="🥵" type="tts">ζεστό προσωπάκι</annotation>
-		<annotation cp="🥶">κρύο | κρυοπάγημα | κρυώνω | παγώνω</annotation>
-		<annotation cp="🥶" type="tts">κρυώνω</annotation>
-		<annotation cp="😳">κοκκινισμένο πρόσωπο | κοκκινισμένος | πρόσωπο | σαστισμένος</annotation>
-		<annotation cp="😳" type="tts">κοκκινισμένο πρόσωπο</annotation>
-		<annotation cp="🤪">μάτι | μεγάλο | μικρό | τρελή φάτσα</annotation>
-		<annotation cp="🤪" type="tts">τρελή φάτσα</annotation>
-		<annotation cp="😵">ζαλάδα | ζαλισμένος | πρόσωπο</annotation>
-		<annotation cp="😵" type="tts">ζαλάδα</annotation>
-		<annotation cp="😡">θυμωμένος | κόκκινος | μορφασμός | οργή | οργισμένος | πρόσωπο</annotation>
-		<annotation cp="😡" type="tts">οργή</annotation>
-		<annotation cp="😠">θυμός | θυμωμένος | οργισμένος | πρόσωπο</annotation>
-		<annotation cp="😠" type="tts">θυμός</annotation>
-		<annotation cp="🤬">βρίσιμο | πρόσωπο με σύμβολα στο στόμα</annotation>
-		<annotation cp="🤬" type="tts">πρόσωπο με σύμβολα στο στόμα</annotation>
+		<annotation cp="🤥">πινόκιο | πρόσωπο | φάτσα ψεύτη | ψέμα</annotation>
+		<annotation cp="🤥" type="tts">φάτσα ψεύτη</annotation>
+		<annotation cp="😌">ανακούφιση | ανακουφισμένος | πρόσωπο</annotation>
+		<annotation cp="😌" type="tts">ανακούφιση</annotation>
+		<annotation cp="😔">αποκαρδιωμένος | περισυλλογή | πρόσωπο | στοχαστικός</annotation>
+		<annotation cp="😔" type="tts">περισυλλογή</annotation>
+		<annotation cp="😪">νυσταγμένο πρόσωπο | πρόσωπο | ύπνος</annotation>
+		<annotation cp="😪" type="tts">νυσταγμένο πρόσωπο</annotation>
+		<annotation cp="🤤">πρόσωπο | σάλια | σαλιαρίζω</annotation>
+		<annotation cp="🤤" type="tts">σαλιαρίζω</annotation>
+		<annotation cp="😴">zzz | πρόσωπο | ύπνος</annotation>
+		<annotation cp="😴" type="tts">ύπνος</annotation>
 		<annotation cp="😷">άρρωστος | γιατρός | ιατρική μάσκα | κρύωμα | μάσκα | πρόσωπο | φάρμακο</annotation>
 		<annotation cp="😷" type="tts">ιατρική μάσκα</annotation>
 		<annotation cp="🤒">άρρωστος | ασθενής | θερμόμετρο | πρόσωπο | πρόσωπο με θερμόμετρο</annotation>
@@ -181,40 +129,96 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤮" type="tts">πρόσωπο που κάνει εμετό</annotation>
 		<annotation cp="🤧">πρόσωπο | υγεία | φταρνίζομαι | φτάρνισμα</annotation>
 		<annotation cp="🤧" type="tts">φταρνίζομαι</annotation>
-		<annotation cp="😇">άγγελος | αθώος | παραμύθι | πρόσωπο | φαντασία | φωτοστέφανο | χαμογελαστό πρόσωπο με φωτοστέφανο | χαμόγελο</annotation>
-		<annotation cp="😇" type="tts">χαμογελαστό πρόσωπο με φωτοστέφανο</annotation>
+		<annotation cp="🥵">ζεστό προσωπάκι | θερμοπληξία | πυρετός</annotation>
+		<annotation cp="🥵" type="tts">ζεστό προσωπάκι</annotation>
+		<annotation cp="🥶">κρύο | κρυοπάγημα | κρυώνω | παγώνω</annotation>
+		<annotation cp="🥶" type="tts">κρυώνω</annotation>
+		<annotation cp="🥴">ζαλισμένο προσωπάκι | ζαλισμένος | μεθυσμένος | πιωμένος | ψιλομεθυσμένος</annotation>
+		<annotation cp="🥴" type="tts">ζαλισμένο προσωπάκι</annotation>
+		<annotation cp="😵">ζαλάδα | ζαλισμένος | πρόσωπο</annotation>
+		<annotation cp="😵" type="tts">ζαλάδα</annotation>
+		<annotation cp="🤯">κεφάλι που εκρήγνυται | σοκαρισμένος</annotation>
+		<annotation cp="🤯" type="tts">κεφάλι που εκρήγνυται</annotation>
 		<annotation cp="🤠">καουμπόης | καουμπόης με καπέλο | καουμπόισσα | καπέλο | πρόσωπο</annotation>
 		<annotation cp="🤠" type="tts">καουμπόης με καπέλο</annotation>
 		<annotation cp="🥳">γιορτή | καπέλο | κόρνα | πάρτι | προσωπάκι πάρτι</annotation>
 		<annotation cp="🥳" type="tts">προσωπάκι πάρτι</annotation>
-		<annotation cp="🥴">ζαλισμένο προσωπάκι | ζαλισμένος | μεθυσμένος | πιωμένος | ψιλομεθυσμένος</annotation>
-		<annotation cp="🥴" type="tts">ζαλισμένο προσωπάκι</annotation>
-		<annotation cp="🥺">βλέμμα κουταβιού | έλεος | ζητιανιά | προσωπάκι παρακαλετό</annotation>
-		<annotation cp="🥺" type="tts">προσωπάκι παρακαλετό</annotation>
-		<annotation cp="🤥">πινόκιο | πρόσωπο | φάτσα ψεύτη | ψέμα</annotation>
-		<annotation cp="🤥" type="tts">φάτσα ψεύτη</annotation>
-		<annotation cp="🤫">ησυχία | πρόσωπο που κάνει σσσς</annotation>
-		<annotation cp="🤫" type="tts">πρόσωπο που κάνει σσσς</annotation>
-		<annotation cp="🤭">πρόσωπο με χέρι στο στόμα | ωχ</annotation>
-		<annotation cp="🤭" type="tts">πρόσωπο με χέρι στο στόμα</annotation>
-		<annotation cp="🧐">ξενέρωτος | πρόσωπο με μονόκλ</annotation>
-		<annotation cp="🧐" type="tts">πρόσωπο με μονόκλ</annotation>
+		<annotation cp="😎">γυαλιά | γυαλιά ηλίου | ήλιος | καιρός | μάτι | οπτικά | πρόσωπο | στυλάτος | φωτεινός | χαμογελαστό πρόσωπο με γυαλιά ηλίου | χαμόγελο</annotation>
+		<annotation cp="😎" type="tts">χαμογελαστό πρόσωπο με γυαλιά ηλίου</annotation>
 		<annotation cp="🤓">πρόσωπο | σπασίκλας | φυτό</annotation>
 		<annotation cp="🤓" type="tts">σπασίκλας</annotation>
+		<annotation cp="🧐">ξενέρωτος | πρόσωπο με μονόκλ</annotation>
+		<annotation cp="🧐" type="tts">πρόσωπο με μονόκλ</annotation>
+		<annotation cp="😕">πρόσωπο | στοχαστικός | σύγχυση</annotation>
+		<annotation cp="😕" type="tts">σύγχυση</annotation>
+		<annotation cp="😟">ανησυχία | ανήσυχος | πρόσωπο</annotation>
+		<annotation cp="😟" type="tts">ανησυχία</annotation>
+		<annotation cp="🙁">ελαφρύ κατσούφιασμα | κατσουφιασμένος | πρόσωπο</annotation>
+		<annotation cp="🙁" type="tts">ελαφρύ κατσούφιασμα</annotation>
+		<annotation cp="☹">κατσούφιασμα | κατσουφιασμένος | πρόσωπο</annotation>
+		<annotation cp="☹" type="tts">κατσούφιασμα</annotation>
+		<annotation cp="😮">ανοικτό στόμα | ανοιχτό | πρόσωπο | στόμα | συμπόνια</annotation>
+		<annotation cp="😮" type="tts">ανοικτό στόμα</annotation>
+		<annotation cp="😯">άφωνος | έκπληκτο βλέμμα | έκπληκτος | πρόσωπο | συγκλονισμένος</annotation>
+		<annotation cp="😯" type="tts">έκπληκτο βλέμμα</annotation>
+		<annotation cp="😲">έκπληκτος | εντελώς | ξάφνιασμα | ξαφνιασμένος | πρόσωπο</annotation>
+		<annotation cp="😲" type="tts">ξάφνιασμα</annotation>
+		<annotation cp="😳">κοκκινισμένο πρόσωπο | κοκκινισμένος | πρόσωπο | σαστισμένος</annotation>
+		<annotation cp="😳" type="tts">κοκκινισμένο πρόσωπο</annotation>
+		<annotation cp="🥺">βλέμμα κουταβιού | έλεος | ζητιανιά | προσωπάκι παρακαλετό</annotation>
+		<annotation cp="🥺" type="tts">προσωπάκι παρακαλετό</annotation>
+		<annotation cp="😦">ανοιχτό | κατσούφιασμα | κατσούφιασμα με ανοικτό στόμα | πρόσωπο | στόμα</annotation>
+		<annotation cp="😦" type="tts">κατσούφιασμα με ανοικτό στόμα</annotation>
+		<annotation cp="😧">αγωνία | αγωνιώδης | πρόσωπο</annotation>
+		<annotation cp="😧" type="tts">αγωνία</annotation>
+		<annotation cp="😨">πρόσωπο | τρομαγμένος | φοβισμένος | φόβος</annotation>
+		<annotation cp="😨" type="tts">φόβος</annotation>
+		<annotation cp="😰">ανοικτό στόμα και κρύος ιδρώτας | ανοιχτό | ιδρώτας | κρύος | μπλε | ξαφνικός | πρόσωπο | στόμα</annotation>
+		<annotation cp="😰" type="tts">ανοικτό στόμα και κρύος ιδρώτας</annotation>
+		<annotation cp="😥">ανακουφισμένος | απογοητευμένο αλλά  ανακουφισμένο πρόσωπο | απογοητευμένος | πρόσωπο | φιου</annotation>
+		<annotation cp="😥" type="tts">απογοητευμένο αλλά  ανακουφισμένο πρόσωπο</annotation>
+		<annotation cp="😢">δάκρυ | κλάμα | πρόσωπο | στεναχωρημένος</annotation>
+		<annotation cp="😢" type="tts">κλάμα</annotation>
+		<annotation cp="😭">γοερό κλάμα | δάκρυ | κλάμα | λυγμός | πρόσωπο | στεναχωρημένος</annotation>
+		<annotation cp="😭" type="tts">γοερό κλάμα</annotation>
+		<annotation cp="😱">ανοιχτό στόμα | ουρλιαχτό | ουρλιαχτό φόβου | πρόσωπο | τρομαγμένος | φοβισμένος | φόβος</annotation>
+		<annotation cp="😱" type="tts">ουρλιαχτό φόβου</annotation>
+		<annotation cp="😖">πρόσωπο | σάστισμα | σαστισμένος</annotation>
+		<annotation cp="😖" type="tts">σάστισμα</annotation>
+		<annotation cp="😣">βλέμμα απόγνωσης | επιμένω | πρόσωπο</annotation>
+		<annotation cp="😣" type="tts">βλέμμα απόγνωσης</annotation>
+		<annotation cp="😞">απογοητευμένος | απογοήτευση | πρόσωπο</annotation>
+		<annotation cp="😞" type="tts">απογοήτευση</annotation>
+		<annotation cp="😓">ιδρώτας | κρύος | πρόσωπο</annotation>
+		<annotation cp="😓" type="tts">κρύος ιδρώτας</annotation>
+		<annotation cp="😩">εξαντλημένος | εξάντληση | κουρασμένος | πρόσωπο</annotation>
+		<annotation cp="😩" type="tts">εξάντληση</annotation>
+		<annotation cp="😫">κουρασμένο πρόσωπο | κουρασμένος | πρόσωπο</annotation>
+		<annotation cp="😫" type="tts">κουρασμένο πρόσωπο</annotation>
+		<annotation cp="😤">θρίαμβος | καπνοί από τη μύτη | καπνοί από τη μύτη | νικητής | πρόσωπο</annotation>
+		<annotation cp="😤" type="tts">καπνοί από τη μύτη</annotation>
+		<annotation cp="😡">θυμωμένος | κόκκινος | μορφασμός | οργή | οργισμένος | πρόσωπο</annotation>
+		<annotation cp="😡" type="tts">οργή</annotation>
+		<annotation cp="😠">θυμός | θυμωμένος | οργισμένος | πρόσωπο</annotation>
+		<annotation cp="😠" type="tts">θυμός</annotation>
+		<annotation cp="🤬">βρίσιμο | πρόσωπο με σύμβολα στο στόμα</annotation>
+		<annotation cp="🤬" type="tts">πρόσωπο με σύμβολα στο στόμα</annotation>
 		<annotation cp="😈">κέρατα | παραμύθι | πρόσωπο | φαντασία | χαμόγελο | χαμόγελο με κέρατα</annotation>
 		<annotation cp="😈" type="tts">χαμόγελο με κέρατα</annotation>
 		<annotation cp="👿">δαίμονας | διάβολος | παραμύθι | πρόσωπο | φαντασία</annotation>
 		<annotation cp="👿" type="tts">δαίμονας</annotation>
+		<annotation cp="💀">θάνατος | κρανίο | παραμύθι | πρόσωπο | σώμα | τέρας</annotation>
+		<annotation cp="💀" type="tts">κρανίο</annotation>
+		<annotation cp="☠">θάνατος | κρανίο με κόκκαλα | νεκροκεφαλή | οστά χιαστί | πρόσωπο | σώμα | τέρας</annotation>
+		<annotation cp="☠" type="tts">κρανίο με κόκκαλα</annotation>
+		<annotation cp="💩">κακά | κόμικ | κόπρανα | κοπριά | περιττώματα | πρόσωπο | τέρας</annotation>
+		<annotation cp="💩" type="tts">περιττώματα</annotation>
 		<annotation cp="🤡">αστεία φάτσα | κλόουν | πρόσωπο</annotation>
 		<annotation cp="🤡" type="tts">αστεία φάτσα</annotation>
 		<annotation cp="👹">ιαπωνικό | παραμύθι | πλάσμα | πρόσωπο | τέρας | φαντασία</annotation>
 		<annotation cp="👹" type="tts">τέρας</annotation>
 		<annotation cp="👺">ιαπωνικό | καλικάντζαρος | παραμύθι | πλάσμα | πρόσωπο | τέρας | φαντασία</annotation>
 		<annotation cp="👺" type="tts">καλικάντζαρος</annotation>
-		<annotation cp="💀">θάνατος | κρανίο | παραμύθι | πρόσωπο | σώμα | τέρας</annotation>
-		<annotation cp="💀" type="tts">κρανίο</annotation>
-		<annotation cp="☠">θάνατος | κρανίο με κόκκαλα | νεκροκεφαλή | οστά χιαστί | πρόσωπο | σώμα | τέρας</annotation>
-		<annotation cp="☠" type="tts">κρανίο με κόκκαλα</annotation>
 		<annotation cp="👻">παραμύθι | πλάσμα | πρόσωπο | τέρας | φαντασία | φάντασμα</annotation>
 		<annotation cp="👻" type="tts">φάντασμα</annotation>
 		<annotation cp="👽">διάστημα | εξωγήινος | ούφο | παραμύθι | πλάσμα | πρόσωπο | τέρας | φαντασία</annotation>
@@ -223,8 +227,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👾" type="tts">εξωγήινο τέρας</annotation>
 		<annotation cp="🤖">πρόσωπο | ρομπότ | τέρας</annotation>
 		<annotation cp="🤖" type="tts">ρομπότ</annotation>
-		<annotation cp="💩">κακά | κόμικ | κόπρανα | κοπριά | περιττώματα | πρόσωπο | τέρας</annotation>
-		<annotation cp="💩" type="tts">περιττώματα</annotation>
 		<annotation cp="😺">ανοιχτό | γάτα | γάτα με πλατύ χαμόγελο | πρόσωπο | στόμα | χαμόγελο</annotation>
 		<annotation cp="😺" type="tts">γάτα με πλατύ χαμόγελο</annotation>
 		<annotation cp="😸">γάτα | γάτα με πλατύ χαμόγελο και γελαστά μάτια | μάτι | πλατύ χαμόγελο | πρόσωπο | χαμόγελο</annotation>
@@ -241,14 +243,168 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙀" type="tts">έκπληκτη γάτα</annotation>
 		<annotation cp="😿">γάτα | γάτα που κλαίει | δάκρυ | θλιμμένος | κλαίω | πρόσωπο</annotation>
 		<annotation cp="😿" type="tts">γάτα που κλαίει</annotation>
-		<annotation cp="😾">γάτα | θυμωμένη γάτα | μομφασμός | πρόσωπο</annotation>
-		<annotation cp="😾" type="tts">θυμωμένη γάτα</annotation>
+		<annotation cp="😾">γάτα | κατσουφιασμένη γάτα | πρόσωπο</annotation>
+		<annotation cp="😾" type="tts">κατσουφιασμένη γάτα</annotation>
 		<annotation cp="🙈">απαγορεύεται | απαγορευμένος | βλέπω | δεν | διαβολικός | κάνω πως δεν βλέπω | κίνηση | μαϊμού | όχι | πρόσωπο</annotation>
 		<annotation cp="🙈" type="tts">κάνω πως δεν βλέπω</annotation>
 		<annotation cp="🙉">ακούω | απαγορεύεται | απαγορευμένος | δεν | διαβολικός | κάνω πως δεν ακούω | κίνηση | μαϊμού | όχι | πρόσωπο</annotation>
 		<annotation cp="🙉" type="tts">κάνω πως δεν ακούω</annotation>
 		<annotation cp="🙊">απαγορεύεται | απαγορευμένος | δεν | διαβολικός | κάνω πως δεν μιλώ | κίνηση | μαϊμού | μιλάω | όχι | πρόσωπο</annotation>
 		<annotation cp="🙊" type="tts">κάνω πως δεν μιλώ</annotation>
+		<annotation cp="💋">έρωτας | καρδιά | σημάδι | σημάδι από φιλί | φιλί | χείλη</annotation>
+		<annotation cp="💋" type="tts">σημάδι από φιλί</annotation>
+		<annotation cp="💌">αγάπη | γράμμα | έρωτας | ερωτικό γράμμα | καρδιά</annotation>
+		<annotation cp="💌" type="tts">ερωτικό γράμμα</annotation>
+		<annotation cp="💘">βέλος | έρωτας | καρδιά | καρδιά με βέλος | ρομάντζο</annotation>
+		<annotation cp="💘" type="tts">καρδιά με βέλος</annotation>
+		<annotation cp="💝">βαλεντίνος | καρδιά | καρδιά με κορδέλα | κορδέλα</annotation>
+		<annotation cp="💝" type="tts">καρδιά με κορδέλα</annotation>
+		<annotation cp="💖">αστράφτω | ενθουσιασμένος | καρδιά | καρδιά που αστράφτει</annotation>
+		<annotation cp="💖" type="tts">καρδιά που αστράφτει</annotation>
+		<annotation cp="💗">αυξανόμενος | ενθουσιασμένος | καρδιά | καρδιά που μεγαλώνει | νευρικός | παλμός καρδιάς</annotation>
+		<annotation cp="💗" type="tts">καρδιά που μεγαλώνει</annotation>
+		<annotation cp="💓">καρδιά | καρδιά που χτυπά | καρδιοχτύπι | πάλλεται | χτυπά</annotation>
+		<annotation cp="💓" type="tts">καρδιά που χτυπά</annotation>
+		<annotation cp="💞">καρδιά | καρδιές που γυρίζουν | περιστρεφόμενη</annotation>
+		<annotation cp="💞" type="tts">καρδιές που γυρίζουν</annotation>
+		<annotation cp="💕">αγάπη | δύο καρδιές | καρδιά</annotation>
+		<annotation cp="💕" type="tts">δύο καρδιές</annotation>
+		<annotation cp="💟">καρδιά | καρδιά σε πλαίσιο</annotation>
+		<annotation cp="💟" type="tts">καρδιά σε πλαίσιο</annotation>
+		<annotation cp="❣">θαυμαστικό | καρδιά | σημείο | στίξη</annotation>
+		<annotation cp="❣" type="tts">καρδιά θαυμαστικό</annotation>
+		<annotation cp="💔">καρδιά | ραγισμένη καρδιά | σπασμένος | σπάω</annotation>
+		<annotation cp="💔" type="tts">ραγισμένη καρδιά</annotation>
+		<annotation cp="❤">καρδιά | κόκκινη καρδιά</annotation>
+		<annotation cp="❤" type="tts">κόκκινη καρδιά</annotation>
+		<annotation cp="🧡">πορτοκαλί καρδιά | ποστοκάλι</annotation>
+		<annotation cp="🧡" type="tts">πορτοκαλί καρδιά</annotation>
+		<annotation cp="💛">καρδιά | κίτρινη</annotation>
+		<annotation cp="💛" type="tts">κίτρινη καρδιά</annotation>
+		<annotation cp="💚">καρδιά | πράσινη</annotation>
+		<annotation cp="💚" type="tts">πράσινη καρδιά</annotation>
+		<annotation cp="💙">καρδιά | μπλε</annotation>
+		<annotation cp="💙" type="tts">μπλε καρδιά</annotation>
+		<annotation cp="💜">καρδιά | μoβ καρδιά | μωβ</annotation>
+		<annotation cp="💜" type="tts">μoβ καρδιά</annotation>
+		<annotation cp="🖤">κακός | καρδιά | μαγεμένος | μαύρη καρδιά | μαύρο</annotation>
+		<annotation cp="🖤" type="tts">μαύρη καρδιά</annotation>
+		<annotation cp="💯">100 | βαθμολογία | εκατό | εκατό πόντοι | πλήρες</annotation>
+		<annotation cp="💯" type="tts">εκατό πόντοι</annotation>
+		<annotation cp="💢">θυμωμένος | κόμικ | οργισμένος | σύμβολο θυμού</annotation>
+		<annotation cp="💢" type="tts">σύμβολο θυμού</annotation>
+		<annotation cp="💥">κόμικ | σύγκρουση</annotation>
+		<annotation cp="💥" type="tts">σύγκρουση</annotation>
+		<annotation cp="💫">αστεράκια | αστέρι | ζαλάδα | κόμικ</annotation>
+		<annotation cp="💫" type="tts">αστεράκια</annotation>
+		<annotation cp="💦">ιδρώτας | κόμικ | πιτσιλιές | σταγόνες ιδρώτα</annotation>
+		<annotation cp="💦" type="tts">σταγόνες ιδρώτα</annotation>
+		<annotation cp="💨">κόμικ | ορμή | τρέξιμο</annotation>
+		<annotation cp="💨" type="tts">τρέξιμο</annotation>
+		<annotation cp="🕳">μαύρη | τρύπα</annotation>
+		<annotation cp="🕳" type="tts">τρύπα</annotation>
+		<annotation cp="💣">βόμβα | κόμικ</annotation>
+		<annotation cp="💣" type="tts">βόμβα</annotation>
+		<annotation cp="💬">διάλογος | κόμικ | μπαλόνι | ομιλία | συννεφάκι | συννεφάκι ομιλίας</annotation>
+		<annotation cp="💬" type="tts">συννεφάκι ομιλίας</annotation>
+		<annotation cp="👁‍🗨">μάτι | μάτι σε συννεφάκι ομιλίας | συννεφάκι | συνομιλία</annotation>
+		<annotation cp="👁‍🗨" type="tts">μάτι σε συννεφάκι ομιλίας</annotation>
+		<annotation cp="🗨">αριστερό συννεφάκι ομιλίας | διάλογος | συνομιλία</annotation>
+		<annotation cp="🗨" type="tts">αριστερό συννεφάκι ομιλίας</annotation>
+		<annotation cp="🗯">δεξί συννεφάκι θυμού | θυμός | θυμωμένος | μπαλόνι | συννεφάκι</annotation>
+		<annotation cp="🗯" type="tts">δεξί συννεφάκι θυμού</annotation>
+		<annotation cp="💭">κόμικ | μπαλόνι | σκέψη | συννεφάκι | συννεφάκι σκέψης</annotation>
+		<annotation cp="💭" type="tts">συννεφάκι σκέψης</annotation>
+		<annotation cp="💤">ζζζ | κόμικ | ύπνος</annotation>
+		<annotation cp="💤" type="tts">ζζζ</annotation>
+		<annotation cp="👋">νεύμα | σώμα | χαιρετώ | χέρι | χέρι που χαιρετά</annotation>
+		<annotation cp="👋" type="tts">χέρι που χαιρετά</annotation>
+		<annotation cp="🤚">ανάποδη χεριού | σηκωμένη ανάποδη χεριού | σηκωμένο | σηκωμένο χέρι ανάποδα</annotation>
+		<annotation cp="🤚" type="tts">σηκωμένο χέρι ανάποδα</annotation>
+		<annotation cp="🖐">ανοιχτά δάχτυλα | δάχτυλο | μούντζα | σώμα | χέρι</annotation>
+		<annotation cp="🖐" type="tts">μούντζα</annotation>
+		<annotation cp="✋">σηκωμένο χέρι | σώμα | χέρι</annotation>
+		<annotation cp="✋" type="tts">σηκωμένο χέρι</annotation>
+		<annotation cp="🖖">vulcan | δάχτυλο | σποκ | σώμα | χαιρετισμός σποκ | χέρι</annotation>
+		<annotation cp="🖖" type="tts">χαιρετισμός σποκ</annotation>
+		<annotation cp="👌">OK | σώμα | χειρονομία οκ | χέρι</annotation>
+		<annotation cp="👌" type="tts">χειρονομία οκ</annotation>
+		<annotation cp="✌">v | νίκη | σήμα της νίκης | σώμα | χέρι</annotation>
+		<annotation cp="✌" type="tts">σήμα της νίκης</annotation>
+		<annotation cp="🤞">δάχτυλα | καλή τύχη | σταυρώνω | τύχη | χέρι</annotation>
+		<annotation cp="🤞" type="tts">καλή τύχη</annotation>
+		<annotation cp="🤟">ILY | κίνηση σε αγαπώ | χέρι</annotation>
+		<annotation cp="🤟" type="tts">κίνηση σε αγαπώ</annotation>
+		<annotation cp="🤘">δάχτυλο | κέρατα | ροκάρω | σώμα | χειρονομία ροκ | χέρι</annotation>
+		<annotation cp="🤘" type="tts">χειρονομία ροκ</annotation>
+		<annotation cp="🤙">κλήση | τηλεφώνησέ μου | χέρι</annotation>
+		<annotation cp="🤙" type="tts">τηλεφώνησέ μου</annotation>
+		<annotation cp="👈">δάχτυλο | δείκτης | δείκτης χεριού προς τα αριστερά | δείχνω | σώμα | χέρι | χτύπημα</annotation>
+		<annotation cp="👈" type="tts">δείκτης χεριού προς τα αριστερά</annotation>
+		<annotation cp="👉">δάχτυλο | δείκτης | δείκτης χεριού προς τα δεξιά | δείχνω | σώμα | χέρι | χτύπημα</annotation>
+		<annotation cp="👉" type="tts">δείκτης χεριού προς τα δεξιά</annotation>
+		<annotation cp="👆">δάχτυλο | δείκτης | δείκτης χεριού προς τα επάνω ανάποδα | δείχνω | επάνω | σώμα | χέρι | χτύπημα</annotation>
+		<annotation cp="👆" type="tts">δείκτης χεριού προς τα επάνω ανάποδα</annotation>
+		<annotation cp="🖕">δάχτυλο | μεσαίο δάχτυλο | σώμα | χέρι</annotation>
+		<annotation cp="🖕" type="tts">μεσαίο δάχτυλο</annotation>
+		<annotation cp="👇">δάχτυλο | δείκτης | δείκτης χεριού προς τα κάτω ανάποδα | δείχνω | κάτω | σώμα | χέρι | χτύπημα</annotation>
+		<annotation cp="👇" type="tts">δείκτης χεριού προς τα κάτω ανάποδα</annotation>
+		<annotation cp="☝">δάχτυλο | δείκτης | δείκτης χεριού προς τα επάνω | δείχνω | επάνω | σώμα | χέρι</annotation>
+		<annotation cp="☝" type="tts">δείκτης χεριού προς τα επάνω</annotation>
+		<annotation cp="👍">+1 | αντίχειρας | επάνω | σηκωμένος αντίχειρας | σώμα | χέρι</annotation>
+		<annotation cp="👍" type="tts">σηκωμένος αντίχειρας</annotation>
+		<annotation cp="👎">-1 | αντίχειρας | κατεβασμένος αντίχειρας | κάτω | σώμα | χέρι</annotation>
+		<annotation cp="👎" type="tts">κατεβασμένος αντίχειρας</annotation>
+		<annotation cp="✊">γροθιά | μπουνιά | σηκωμένη γροθιά | σφιγμένο | χέρι</annotation>
+		<annotation cp="✊" type="tts">σηκωμένη γροθιά</annotation>
+		<annotation cp="👊">γροθιά | μπουνιά | σφιγμένο | χέρι</annotation>
+		<annotation cp="👊" type="tts">γροθιά</annotation>
+		<annotation cp="🤛">αριστερή γροθιά | γροθιά | στα αριστερά</annotation>
+		<annotation cp="🤛" type="tts">αριστερή γροθιά</annotation>
+		<annotation cp="🤜">γροθιά | δεξιά γροθιά | στα δεξιά</annotation>
+		<annotation cp="🤜" type="tts">δεξιά γροθιά</annotation>
+		<annotation cp="👏">παλαμάκια | σώμα | χειροκροτώ | χέρι</annotation>
+		<annotation cp="👏" type="tts">παλαμάκια</annotation>
+		<annotation cp="🙌">γιορτή | ζήτω | κίνηση | σηκωμένο | σώμα | χέρι | χέρια ψηλά</annotation>
+		<annotation cp="🙌" type="tts">χέρια ψηλά</annotation>
+		<annotation cp="👐">ανοικτά χέρια | ανοιχτό | σώμα | χέρι</annotation>
+		<annotation cp="👐" type="tts">ανοικτά χέρια</annotation>
+		<annotation cp="🤲">παλάμες μαζί | προσευχή</annotation>
+		<annotation cp="🤲" type="tts">παλάμες μαζί</annotation>
+		<annotation cp="🤝">συμφωνία | συνάντηση | σφίγγω | χειραψία | χέρι</annotation>
+		<annotation cp="🤝" type="tts">χειραψία</annotation>
+		<annotation cp="🙏">ενωμένα | ευχαριστώ | ζητώ | κίνηση | παρακαλώ | προσευχή | σώμα | υπόκλιση | χέρι | χέρια ενωμένα</annotation>
+		<annotation cp="🙏" type="tts">χέρια ενωμένα</annotation>
+		<annotation cp="✍">γράφω | σώμα | χέρι | χέρι που γράφει</annotation>
+		<annotation cp="✍" type="tts">χέρι που γράφει</annotation>
+		<annotation cp="💅">βάψιμο νυχιών | βερνίκι | καλλυντικά | μανικιούρ | νύχι | σώμα | φροντίδα</annotation>
+		<annotation cp="💅" type="tts">βάψιμο νυχιών</annotation>
+		<annotation cp="🤳">selfie | τηλέφωνο | φωτογραφική μηχανή</annotation>
+		<annotation cp="🤳" type="tts">selfie</annotation>
+		<annotation cp="💪">δικέφαλος | επίδειξη | κόμικ | μυς | σφιχτός δικέφαλος | σώμα</annotation>
+		<annotation cp="💪" type="tts">σφιχτός δικέφαλος</annotation>
+		<annotation cp="🦵">άκρο | κλωτσιά | πόδι</annotation>
+		<annotation cp="🦵" type="tts">πόδι</annotation>
+		<annotation cp="🦶">κάτω άκρο | κλωτσάω | κλωτσιά | πόδι</annotation>
+		<annotation cp="🦶" type="tts">κάτω άκρο</annotation>
+		<annotation cp="👂">αυτί | σώμα</annotation>
+		<annotation cp="👂" type="tts">αυτί</annotation>
+		<annotation cp="👃">μύτη | σώμα</annotation>
+		<annotation cp="👃" type="tts">μύτη</annotation>
+		<annotation cp="🧠">έξυπνος | μυαλό</annotation>
+		<annotation cp="🧠" type="tts">μυαλό</annotation>
+		<annotation cp="🦷">δόντι | οδοντίατρος</annotation>
+		<annotation cp="🦷" type="tts">δόντι</annotation>
+		<annotation cp="🦴">κόκαλο | σκελετός</annotation>
+		<annotation cp="🦴" type="tts">κόκαλο</annotation>
+		<annotation cp="👀">μάτι | μάτια | πρόσωπο | σώμα</annotation>
+		<annotation cp="👀" type="tts">μάτια</annotation>
+		<annotation cp="👁">μάτι | σώμα</annotation>
+		<annotation cp="👁" type="tts">μάτι</annotation>
+		<annotation cp="👅">γλώσσα | σώμα</annotation>
+		<annotation cp="👅" type="tts">γλώσσα</annotation>
+		<annotation cp="👄">στόμα | σώμα | χείλη</annotation>
+		<annotation cp="👄" type="tts">στόμα</annotation>
 		<annotation cp="👶">μωρό</annotation>
 		<annotation cp="👶" type="tts">μωρό</annotation>
 		<annotation cp="🧒">άφυλος | νέος | παιδί</annotation>
@@ -261,14 +417,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">ενήλικας</annotation>
 		<annotation cp="👱">ξανθός | ξανθός άνθρωπος</annotation>
 		<annotation cp="👱" type="tts">ξανθός άνθρωπος</annotation>
+		<annotation cp="🧑‍🤝‍🧑" draft="contributed">άτομο | δύο άτομα πιασμένα χέρι -χέρι | ζευγάρι | κρατώ | χέρι</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts" draft="contributed">δύο άτομα πιασμένα χέρι -χέρι</annotation>
 		<annotation cp="👨">άντρας</annotation>
 		<annotation cp="👨" type="tts">άντρας</annotation>
+		<annotation cp="👨‍🦯">άντρας | προσβασιμότητα | τυφλός</annotation>
+		<annotation cp="👨‍🦯" type="tts">άντρας με μπαστούνι για τυφλούς</annotation>
+		<annotation cp="👨‍🦼">αναπηρικό αμαξίδιο | άντρας | προσβασιμότητα</annotation>
+		<annotation cp="👨‍🦼" type="tts">άντρας σε ηλεκτροκίνητο αναπηρικό αμαξίδιο</annotation>
+		<annotation cp="👨‍🦽">αναπηρικό αμαξίδιο | άντρας | προσβασιμότητα</annotation>
+		<annotation cp="👨‍🦽" type="tts">άντρας σε χειροκίνητο αναπηρικό αμαξίδιο</annotation>
 		<annotation cp="👱‍♂">άντρας | ξανθός</annotation>
 		<annotation cp="👱‍♂" type="tts">ξανθός</annotation>
 		<annotation cp="🧔">άτομο με μούσι | μούσι</annotation>
 		<annotation cp="🧔" type="tts">άτομο με μούσι</annotation>
 		<annotation cp="👩">γυναίκα | κορίτσι</annotation>
 		<annotation cp="👩" type="tts">γυναίκα</annotation>
+		<annotation cp="👩‍🦯">γυναίκα | προσβασιμότητα | τυφλή</annotation>
+		<annotation cp="👩‍🦯" type="tts">γυναίκα με μπαστούνι για τυφλούς</annotation>
+		<annotation cp="👩‍🦼">αναπηρικό αμαξίδιο | γυναίκα | προσβασιμότητα</annotation>
+		<annotation cp="👩‍🦼" type="tts">γυναίκα σε ηλεκτροκίνητο αναπηρικό αμαξίδιο</annotation>
+		<annotation cp="👩‍🦽">αναπηρικό αμαξίδιο | γυναίκα | προσβασιμότητα</annotation>
+		<annotation cp="👩‍🦽" type="tts">γυναίκα σε χειροκίνητο αναπηρικό αμαξίδιο</annotation>
 		<annotation cp="👱‍♀">γυναίκα | ξανθιά</annotation>
 		<annotation cp="👱‍♀" type="tts">ξανθιά</annotation>
 		<annotation cp="🧓">άφυλος | ηλικιωμένος | μεγαλύτερος ενήλικας</annotation>
@@ -277,6 +447,60 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👴" type="tts">γέρος</annotation>
 		<annotation cp="👵">γριά | γυναίκα</annotation>
 		<annotation cp="👵" type="tts">γριά</annotation>
+		<annotation cp="🙍">κίνηση | συνοφρύωμα | συνοφρυωμένη γυναίκα</annotation>
+		<annotation cp="🙍" type="tts">συνοφρυωμένη γυναίκα</annotation>
+		<annotation cp="🙍‍♂">άντρας | θλίψη | μορφασμός | συνοφρυωμένος</annotation>
+		<annotation cp="🙍‍♂" type="tts">συνοφρυωμένος</annotation>
+		<annotation cp="🙍‍♀">γυναίκα | θλίψη | μορφασμός | συνοφρυωμένη</annotation>
+		<annotation cp="🙍‍♀" type="tts">συνοφρυωμένη</annotation>
+		<annotation cp="🙎">κατσουφιασμένο άτομο | κίνηση | μορφασμός</annotation>
+		<annotation cp="🙎" type="tts">κατσουφιασμένο άτομο</annotation>
+		<annotation cp="🙎‍♂">άντρας | απογοήτευση | θυμός | κατσουφιασμένος άντρας | μορφασμός</annotation>
+		<annotation cp="🙎‍♂" type="tts">κατσουφιασμένος άντρας</annotation>
+		<annotation cp="🙎‍♀">απογοήτευση | γυναίκα | θυμός | κατσουφιασμένη γυναίκα | μορφασμός</annotation>
+		<annotation cp="🙎‍♀" type="tts">κατσουφιασμένη γυναίκα</annotation>
+		<annotation cp="🙅">απαγορεύεται | απαγορευμένο | άτομο διαφωνεί | δεν | κίνηση | όχι | χέρι</annotation>
+		<annotation cp="🙅" type="tts">άτομο διαφωνεί</annotation>
+		<annotation cp="🙅‍♂">άντρας | άντρας διαφωνεί | αποδοκιμασία | διαφωνία | χειρονομία</annotation>
+		<annotation cp="🙅‍♂" type="tts">άντρας διαφωνεί</annotation>
+		<annotation cp="🙅‍♀">αποδοκιμασία | γυναίκα | γυναίκα διαφωνεί | διαφωνία | χειρονομία</annotation>
+		<annotation cp="🙅‍♀" type="tts">γυναίκα διαφωνεί</annotation>
+		<annotation cp="🙆">άτομο συμφωνεί | εντάξει | κίνηση | χέρι</annotation>
+		<annotation cp="🙆" type="tts">άτομο συμφωνεί</annotation>
+		<annotation cp="🙆‍♂">άντρας | άντρας συμφωνεί | εντάξει | χειρονομία</annotation>
+		<annotation cp="🙆‍♂" type="tts">άντρας συμφωνεί</annotation>
+		<annotation cp="🙆‍♀">γυναίκα | γυναίκα συμφωνεί | εντάξει | χειρονομία</annotation>
+		<annotation cp="🙆‍♀" type="tts">γυναίκα συμφωνεί</annotation>
+		<annotation cp="💁">άτομο προσφέρει | βοήθεια | πληροφορίες | πρόσχαρος | χέρι</annotation>
+		<annotation cp="💁" type="tts">άτομο προσφέρει</annotation>
+		<annotation cp="💁‍♂">άντρας | άντρας προσφέρει | πρόσχαρος | χειρονομία</annotation>
+		<annotation cp="💁‍♂" type="tts">άντρας προσφέρει</annotation>
+		<annotation cp="💁‍♀">γυναίκα | γυναίκα προσφέρει | πρόσχαρη | χειρονομία</annotation>
+		<annotation cp="💁‍♀" type="tts">γυναίκα προσφέρει</annotation>
+		<annotation cp="🙋">άτομο με σηκωμένο χέρι | κίνηση | σηκωμένο | χαρούμενος | χέρι</annotation>
+		<annotation cp="🙋" type="tts">άτομο με σηκωμένο χέρι</annotation>
+		<annotation cp="🙋‍♂">άντρας | άντρας με σηκωμένο χέρι | χαιρετισμός | χειρονομία</annotation>
+		<annotation cp="🙋‍♂" type="tts">άντρας με σηκωμένο χέρι</annotation>
+		<annotation cp="🙋‍♀">γυναίκα | γυναίκα με σηκωμένο χέρι | χαιρετισμός | χειρονομία</annotation>
+		<annotation cp="🙋‍♀" type="tts">γυναίκα με σηκωμένο χέρι</annotation>
+		<annotation cp="🙇">άτομο υποκλίνεται | κίνηση | λυπάμαι | συγνώμη | υπόκλιση</annotation>
+		<annotation cp="🙇" type="tts">άτομο υποκλίνεται</annotation>
+		<annotation cp="🙇‍♂">άντρας | άντρας υποκλίνεται | συγγνώμη | υπόκλιση | χειρονομία</annotation>
+		<annotation cp="🙇‍♂" type="tts">άντρας υποκλίνεται</annotation>
+		<annotation cp="🙇‍♀">γυναίκα | γυναίκα υποκλίνεται | συγγνώμη | υπόκλιση | χειρονομία</annotation>
+		<annotation cp="🙇‍♀" type="tts">γυναίκα υποκλίνεται</annotation>
+		<annotation cp="🤦">αγανάκτηση | άτομο αγανακτά | δυσπιστία | παλάμη | πρόσωπο</annotation>
+		<annotation cp="🤦" type="tts">άτομο αγανακτά</annotation>
+		<annotation cp="🤦‍♂">αγανάκτηση | άντρας | άντρας αγανακτά | πρόσωπο | χειρονομία</annotation>
+		<annotation cp="🤦‍♂" type="tts">άντρας αγανακτά</annotation>
+		<annotation cp="🤦‍♀">αγανάκτηση | γυναίκα | γυναίκα αγανακτά | πρόσωπο | χειρονομία</annotation>
+		<annotation cp="🤦‍♀" type="tts">γυναίκα αγανακτά</annotation>
+		<annotation cp="🤷">άγνοια | αδιαφορία | αμφιβολία | ανασήκωμα ώμων | άτομο σηκώνει τους ώμους</annotation>
+		<annotation cp="🤷" type="tts">άτομο σηκώνει τους ώμους</annotation>
+		<annotation cp="🤷‍♂">άγνοια | αμφιβολία | άντρας | άντρας σηκώνει τους ώμους | ώμοι</annotation>
+		<annotation cp="🤷‍♂" type="tts">άντρας σηκώνει τους ώμους</annotation>
+		<annotation cp="🤷‍♀">άγνοια | αμφιβολία | γυναίκα | γυναίκα σηκώνει τους ώμους | ώμοι</annotation>
+		<annotation cp="🤷‍♀" type="tts">γυναίκα σηκώνει τους ώμους</annotation>
 		<annotation cp="👨‍⚕">γιατρός | εργαζόμενος στην υγεία | νοσηλευτής | νοσοκόμος | υγεία</annotation>
 		<annotation cp="👨‍⚕" type="tts">εργαζόμενος στην υγεία</annotation>
 		<annotation cp="👩‍⚕">γιατρός | εργαζόμενη στην υγεία | νοσηλεύτρια | νοσοκόμα | υγεία</annotation>
@@ -395,112 +619,58 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤶" type="tts">Κυρία Άη Βασίλη</annotation>
 		<annotation cp="🦸">ήρωας | ηρωίδα | καλός | υπερδύναμη | υπερήρωας</annotation>
 		<annotation cp="🦸" type="tts">υπερήρωας</annotation>
-		<annotation cp="🦸‍♀">γυναίκα | γυναίκα υπερήρωας | ήρωας | ηρωίδα | καλή | υπερδύναμη</annotation>
-		<annotation cp="🦸‍♀" type="tts">γυναίκα υπερήρωας</annotation>
 		<annotation cp="🦸‍♂">άντρας | άντρας υπερήρωας | ήρωας | καλός | υπερδύναμη</annotation>
 		<annotation cp="🦸‍♂" type="tts">άντρας υπερήρωας</annotation>
+		<annotation cp="🦸‍♀">γυναίκα | γυναίκα υπερήρωας | ήρωας | ηρωίδα | καλή | υπερδύναμη</annotation>
+		<annotation cp="🦸‍♀" type="tts">γυναίκα υπερήρωας</annotation>
 		<annotation cp="🦹">αρχικακός | κακό | κακοποιός | κακός | υπερδύναμη</annotation>
 		<annotation cp="🦹" type="tts">αρχικακός</annotation>
-		<annotation cp="🦹‍♀">γυναίκα | γυναίκα αρχικακός | κακή | κακό | κακοποιός | υπερδύναμη</annotation>
-		<annotation cp="🦹‍♀" type="tts">γυναίκα αρχικακός</annotation>
 		<annotation cp="🦹‍♂">άντρας | άντρας αρχικακός | κακό | κακοποιός | κακός | υπερδύναμη</annotation>
 		<annotation cp="🦹‍♂" type="tts">άντρας αρχικακός</annotation>
+		<annotation cp="🦹‍♀">γυναίκα | γυναίκα αρχικακός | κακή | κακό | κακοποιός | υπερδύναμη</annotation>
+		<annotation cp="🦹‍♀" type="tts">γυναίκα αρχικακός</annotation>
 		<annotation cp="🧙">μάγισσα | μάγος</annotation>
 		<annotation cp="🧙" type="tts">μάγος</annotation>
-		<annotation cp="🧙‍♀">μάγισσα</annotation>
-		<annotation cp="🧙‍♀" type="tts">μάγισσα</annotation>
 		<annotation cp="🧙‍♂">άντρας μάγος | μάγος</annotation>
 		<annotation cp="🧙‍♂" type="tts">άντρας μάγος</annotation>
+		<annotation cp="🧙‍♀">μάγισσα</annotation>
+		<annotation cp="🧙‍♀" type="tts">μάγισσα</annotation>
 		<annotation cp="🧚">Oberon | Puck | Titania | νεράιδα</annotation>
 		<annotation cp="🧚" type="tts">νεράιδα</annotation>
-		<annotation cp="🧚‍♀">Titania | γυναίκα νεράιδα</annotation>
-		<annotation cp="🧚‍♀" type="tts">γυναίκα νεράιδα</annotation>
 		<annotation cp="🧚‍♂">Oberon | Puck | νεράιδος</annotation>
 		<annotation cp="🧚‍♂" type="tts">νεράιδος</annotation>
+		<annotation cp="🧚‍♀">Titania | γυναίκα νεράιδα</annotation>
+		<annotation cp="🧚‍♀" type="tts">γυναίκα νεράιδα</annotation>
 		<annotation cp="🧛">απέθαντος | βρυκόλακας | Δράκουλας</annotation>
 		<annotation cp="🧛" type="tts">βρυκόλακας</annotation>
-		<annotation cp="🧛‍♀">απέθαντος | γυναίκα βρυκόλακας</annotation>
-		<annotation cp="🧛‍♀" type="tts">γυναίκα βρυκόλακας</annotation>
 		<annotation cp="🧛‍♂">άντρας βρυκόλακας | απέθαντος | Δράκουλας</annotation>
 		<annotation cp="🧛‍♂" type="tts">άντρας βρυκόλακας</annotation>
+		<annotation cp="🧛‍♀">απέθαντος | γυναίκα βρυκόλακας</annotation>
+		<annotation cp="🧛‍♀" type="tts">γυναίκα βρυκόλακας</annotation>
 		<annotation cp="🧜">γοργόνα | γοργόνος</annotation>
 		<annotation cp="🧜" type="tts">γοργόνα</annotation>
-		<annotation cp="🧜‍♀">γοργόνα | γυναίκα γοργόνα</annotation>
-		<annotation cp="🧜‍♀" type="tts">γυναίκα γοργόνα</annotation>
 		<annotation cp="🧜‍♂">Triton | γοργόνος</annotation>
 		<annotation cp="🧜‍♂" type="tts">γοργόνος</annotation>
+		<annotation cp="🧜‍♀">γοργόνα | γυναίκα γοργόνα</annotation>
+		<annotation cp="🧜‍♀" type="tts">γυναίκα γοργόνα</annotation>
 		<annotation cp="🧝">μαγικό | ξωτικό</annotation>
 		<annotation cp="🧝" type="tts">ξωτικό</annotation>
-		<annotation cp="🧝‍♀">γυναίκα ξωτικό | μαγική</annotation>
-		<annotation cp="🧝‍♀" type="tts">γυναίκα ξωτικό</annotation>
 		<annotation cp="🧝‍♂">άντρας ξωτικό | μαγικός</annotation>
 		<annotation cp="🧝‍♂" type="tts">άντρας ξωτικό</annotation>
+		<annotation cp="🧝‍♀">γυναίκα ξωτικό | μαγική</annotation>
+		<annotation cp="🧝‍♀" type="tts">γυναίκα ξωτικό</annotation>
 		<annotation cp="🧞">τζίνι</annotation>
 		<annotation cp="🧞" type="tts">τζίνι</annotation>
-		<annotation cp="🧞‍♀">γυναίκα τζίνι | τζίνι</annotation>
-		<annotation cp="🧞‍♀" type="tts">γυναίκα τζίνι</annotation>
 		<annotation cp="🧞‍♂">άντρας τζίνι | τζίνι</annotation>
 		<annotation cp="🧞‍♂" type="tts">άντρας τζίνι</annotation>
+		<annotation cp="🧞‍♀">γυναίκα τζίνι | τζίνι</annotation>
+		<annotation cp="🧞‍♀" type="tts">γυναίκα τζίνι</annotation>
 		<annotation cp="🧟">απέθαντος | ζόμπι | νεκροζώντανος</annotation>
 		<annotation cp="🧟" type="tts">ζόμπι</annotation>
-		<annotation cp="🧟‍♀">απέθαντη | γυναίκα ζόμπι | νεκροζώντανη</annotation>
-		<annotation cp="🧟‍♀" type="tts">γυναίκα ζόμπι</annotation>
 		<annotation cp="🧟‍♂">άντρας ζόμπι | απέθαντοι | νεκροζώντανοι</annotation>
 		<annotation cp="🧟‍♂" type="tts">άντρας ζόμπι</annotation>
-		<annotation cp="🙍">κίνηση | συνοφρύωμα | συνοφρυωμένη γυναίκα</annotation>
-		<annotation cp="🙍" type="tts">συνοφρυωμένη γυναίκα</annotation>
-		<annotation cp="🙍‍♂">άντρας | θλίψη | μορφασμός | συνοφρυωμένος</annotation>
-		<annotation cp="🙍‍♂" type="tts">συνοφρυωμένος</annotation>
-		<annotation cp="🙍‍♀">γυναίκα | θλίψη | μορφασμός | συνοφρυωμένη</annotation>
-		<annotation cp="🙍‍♀" type="tts">συνοφρυωμένη</annotation>
-		<annotation cp="🙎">κατσουφιασμένο άτομο | κίνηση | μορφασμός</annotation>
-		<annotation cp="🙎" type="tts">κατσουφιασμένο άτομο</annotation>
-		<annotation cp="🙎‍♂">άντρας | απογοήτευση | θυμός | κατσουφιασμένος άντρας | μορφασμός</annotation>
-		<annotation cp="🙎‍♂" type="tts">κατσουφιασμένος άντρας</annotation>
-		<annotation cp="🙎‍♀">απογοήτευση | γυναίκα | θυμός | κατσουφιασμένη γυναίκα | μορφασμός</annotation>
-		<annotation cp="🙎‍♀" type="tts">κατσουφιασμένη γυναίκα</annotation>
-		<annotation cp="🙅">απαγορεύεται | απαγορευμένο | άτομο διαφωνεί | δεν | κίνηση | όχι | χέρι</annotation>
-		<annotation cp="🙅" type="tts">άτομο διαφωνεί</annotation>
-		<annotation cp="🙅‍♂">άντρας | άντρας διαφωνεί | αποδοκιμασία | διαφωνία | χειρονομία</annotation>
-		<annotation cp="🙅‍♂" type="tts">άντρας διαφωνεί</annotation>
-		<annotation cp="🙅‍♀">αποδοκιμασία | γυναίκα | γυναίκα διαφωνεί | διαφωνία | χειρονομία</annotation>
-		<annotation cp="🙅‍♀" type="tts">γυναίκα διαφωνεί</annotation>
-		<annotation cp="🙆">άτομο συμφωνεί | εντάξει | κίνηση | χέρι</annotation>
-		<annotation cp="🙆" type="tts">άτομο συμφωνεί</annotation>
-		<annotation cp="🙆‍♂">άντρας | άντρας συμφωνεί | εντάξει | χειρονομία</annotation>
-		<annotation cp="🙆‍♂" type="tts">άντρας συμφωνεί</annotation>
-		<annotation cp="🙆‍♀">γυναίκα | γυναίκα συμφωνεί | εντάξει | χειρονομία</annotation>
-		<annotation cp="🙆‍♀" type="tts">γυναίκα συμφωνεί</annotation>
-		<annotation cp="💁">άτομο προσφέρει | βοήθεια | πληροφορίες | πρόσχαρος | χέρι</annotation>
-		<annotation cp="💁" type="tts">άτομο προσφέρει</annotation>
-		<annotation cp="💁‍♂">άντρας | άντρας προσφέρει | πρόσχαρος | χειρονομία</annotation>
-		<annotation cp="💁‍♂" type="tts">άντρας προσφέρει</annotation>
-		<annotation cp="💁‍♀">γυναίκα | γυναίκα προσφέρει | πρόσχαρη | χειρονομία</annotation>
-		<annotation cp="💁‍♀" type="tts">γυναίκα προσφέρει</annotation>
-		<annotation cp="🙋">άτομο με σηκωμένο χέρι | κίνηση | σηκωμένο | χαρούμενος | χέρι</annotation>
-		<annotation cp="🙋" type="tts">άτομο με σηκωμένο χέρι</annotation>
-		<annotation cp="🙋‍♂">άντρας | άντρας με σηκωμένο χέρι | χαιρετισμός | χειρονομία</annotation>
-		<annotation cp="🙋‍♂" type="tts">άντρας με σηκωμένο χέρι</annotation>
-		<annotation cp="🙋‍♀">γυναίκα | γυναίκα με σηκωμένο χέρι | χαιρετισμός | χειρονομία</annotation>
-		<annotation cp="🙋‍♀" type="tts">γυναίκα με σηκωμένο χέρι</annotation>
-		<annotation cp="🙇">άτομο υποκλίνεται | κίνηση | λυπάμαι | συγνώμη | υπόκλιση</annotation>
-		<annotation cp="🙇" type="tts">άτομο υποκλίνεται</annotation>
-		<annotation cp="🙇‍♂">άντρας | άντρας υποκλίνεται | συγγνώμη | υπόκλιση | χειρονομία</annotation>
-		<annotation cp="🙇‍♂" type="tts">άντρας υποκλίνεται</annotation>
-		<annotation cp="🙇‍♀">γυναίκα | γυναίκα υποκλίνεται | συγγνώμη | υπόκλιση | χειρονομία</annotation>
-		<annotation cp="🙇‍♀" type="tts">γυναίκα υποκλίνεται</annotation>
-		<annotation cp="🤦">αγανάκτηση | άτομο αγανακτά | δυσπιστία | παλάμη | πρόσωπο</annotation>
-		<annotation cp="🤦" type="tts">άτομο αγανακτά</annotation>
-		<annotation cp="🤦‍♂">αγανάκτηση | άντρας | άντρας αγανακτά | πρόσωπο | χειρονομία</annotation>
-		<annotation cp="🤦‍♂" type="tts">άντρας αγανακτά</annotation>
-		<annotation cp="🤦‍♀">αγανάκτηση | γυναίκα | γυναίκα αγανακτά | πρόσωπο | χειρονομία</annotation>
-		<annotation cp="🤦‍♀" type="tts">γυναίκα αγανακτά</annotation>
-		<annotation cp="🤷">άγνοια | αδιαφορία | αμφιβολία | ανασήκωμα ώμων | άτομο σηκώνει τους ώμους</annotation>
-		<annotation cp="🤷" type="tts">άτομο σηκώνει τους ώμους</annotation>
-		<annotation cp="🤷‍♂">άγνοια | αμφιβολία | άντρας | άντρας σηκώνει τους ώμους | ώμοι</annotation>
-		<annotation cp="🤷‍♂" type="tts">άντρας σηκώνει τους ώμους</annotation>
-		<annotation cp="🤷‍♀">άγνοια | αμφιβολία | γυναίκα | γυναίκα σηκώνει τους ώμους | ώμοι</annotation>
-		<annotation cp="🤷‍♀" type="tts">γυναίκα σηκώνει τους ώμους</annotation>
+		<annotation cp="🧟‍♀">απέθαντη | γυναίκα ζόμπι | νεκροζώντανη</annotation>
+		<annotation cp="🧟‍♀" type="tts">γυναίκα ζόμπι</annotation>
 		<annotation cp="💆">κομμωτήριο | μασάζ | μασάζ στο κεφάλι</annotation>
 		<annotation cp="💆" type="tts">μασάζ στο κεφάλι</annotation>
 		<annotation cp="💆‍♂">άντρας | κεφάλι | μαλλιά | μασάζ | μασάζ στο κεφάλι άντρα</annotation>
@@ -529,6 +699,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💃" type="tts">χορεύτρια</annotation>
 		<annotation cp="🕺">άντρας | χορευτής | χορός</annotation>
 		<annotation cp="🕺" type="tts">χορευτής</annotation>
+		<annotation cp="🕴">επιχειρηματίας | κοστουμαρισμένος άντρας που αιωρείται | κουστούμι</annotation>
+		<annotation cp="🕴" type="tts">κοστουμαρισμένος άντρας που αιωρείται</annotation>
 		<annotation cp="👯">άτομα με λαγουδένια αυτιά | αυτί | γυναίκα | κορίτσι | κουνελάκι | χορεύτρια</annotation>
 		<annotation cp="👯" type="tts">άτομα με λαγουδένια αυτιά</annotation>
 		<annotation cp="👯‍♂">άντρες | άντρες με λαγουδένια αυτιά | πάρτυ | χορός</annotation>
@@ -537,34 +709,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👯‍♀" type="tts">γυναίκες με λαγουδένια αυτιά</annotation>
 		<annotation cp="🧖">άτομο σε σάουνα | σάουνα</annotation>
 		<annotation cp="🧖" type="tts">άτομο σε σάουνα</annotation>
-		<annotation cp="🧖‍♀">γυναίκα σε σάουνα | σάουνα</annotation>
-		<annotation cp="🧖‍♀" type="tts">γυναίκα σε σάουνα</annotation>
 		<annotation cp="🧖‍♂">άντρας σε σάουνα | σάουνα</annotation>
 		<annotation cp="🧖‍♂" type="tts">άντρας σε σάουνα</annotation>
+		<annotation cp="🧖‍♀">γυναίκα σε σάουνα | σάουνα</annotation>
+		<annotation cp="🧖‍♀" type="tts">γυναίκα σε σάουνα</annotation>
 		<annotation cp="🧗">άτομο που αναρριχείται | ορειβάτης</annotation>
 		<annotation cp="🧗" type="tts">άτομο που αναρριχείται</annotation>
-		<annotation cp="🧗‍♀">γυναίκα ορειβάτης | ορειβάτισσα</annotation>
-		<annotation cp="🧗‍♀" type="tts">γυναίκα ορειβάτης</annotation>
 		<annotation cp="🧗‍♂">άντρας ορειβάτης | ορειβάτης</annotation>
 		<annotation cp="🧗‍♂" type="tts">άντρας ορειβάτης</annotation>
-		<annotation cp="🧘">άτομο σε θέση λωτού | γιόγκα | διαλογισμός</annotation>
-		<annotation cp="🧘" type="tts">άτομο σε θέση λωτού</annotation>
-		<annotation cp="🧘‍♀">γιόγκα | γυναίκα σε θέση λωτού | διαλογισμός</annotation>
-		<annotation cp="🧘‍♀" type="tts">γυναίκα σε θέση λωτού</annotation>
-		<annotation cp="🧘‍♂">άντρας σε θέση λωτού | γιόγκα | διαλογισμός</annotation>
-		<annotation cp="🧘‍♂" type="tts">άντρας σε θέση λωτού</annotation>
-		<annotation cp="🛀">άνθρωπος που κάνει μπάνιο | μπανιέρα | μπάνιο</annotation>
-		<annotation cp="🛀" type="tts">άνθρωπος που κάνει μπάνιο</annotation>
-		<annotation cp="🛌">άνθρωπος σε κρεβάτι | ξενοδοχείο | ύπνος</annotation>
-		<annotation cp="🛌" type="tts">άνθρωπος σε κρεβάτι</annotation>
-		<annotation cp="🕴">επιχειρηματίας | κοστουμαρισμένος άντρας που αιωρείται | κουστούμι</annotation>
-		<annotation cp="🕴" type="tts">κοστουμαρισμένος άντρας που αιωρείται</annotation>
-		<annotation cp="🗣">κεφάλι | κεφάλι που μιλάει | μιλώ | ομιλία | πρόσωπο | φιγούρα</annotation>
-		<annotation cp="🗣" type="tts">κεφάλι που μιλάει</annotation>
-		<annotation cp="👤">περίγραμμα προτομής | προτομή | φιγούρα</annotation>
-		<annotation cp="👤" type="tts">περίγραμμα προτομής</annotation>
-		<annotation cp="👥">περίγραμμα προτομών | προτομή | φιγούρα</annotation>
-		<annotation cp="👥" type="tts">περίγραμμα προτομών</annotation>
+		<annotation cp="🧗‍♀">γυναίκα ορειβάτης | ορειβάτισσα</annotation>
+		<annotation cp="🧗‍♀" type="tts">γυναίκα ορειβάτης</annotation>
 		<annotation cp="🤺">άτομο | ξιφομαχία | ξιφομάχος | ξίφος | σπορ</annotation>
 		<annotation cp="🤺" type="tts">ξιφομάχος</annotation>
 		<annotation cp="🏇">αγώνες | άλογο | άλογο αγώνων | ιππόδρομος | καπέλο τζόκεϊ</annotation>
@@ -621,10 +775,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚵‍♂" type="tts">ορεινός ποδηλάτης</annotation>
 		<annotation cp="🚵‍♀">βουνό | γυναίκα | ορεινή ποδηλάτισσα | ποδηλασία</annotation>
 		<annotation cp="🚵‍♀" type="tts">ορεινή ποδηλάτισσα</annotation>
-		<annotation cp="🏎">αγωνιστικό | αγωνιστικό όχημα | αυτοκίνητο</annotation>
-		<annotation cp="🏎" type="tts">αγωνιστικό όχημα</annotation>
-		<annotation cp="🏍">αγωνιστικό | μοτοσικλέτα</annotation>
-		<annotation cp="🏍" type="tts">μοτοσικλέτα</annotation>
 		<annotation cp="🤸">ακροβατικά | άτομο | άτομο κάνει ρόδα | ροντάτ | σπορ</annotation>
 		<annotation cp="🤸" type="tts">άτομο κάνει ρόδα</annotation>
 		<annotation cp="🤸‍♂">άντρας | άντρας κάνει ρόδα | γυμναστική | ρόδα</annotation>
@@ -655,9 +805,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤹‍♂" type="tts">άντρας ζογκλέρ</annotation>
 		<annotation cp="🤹‍♀">γυναίκα | ζογκλέρ | κόλπα</annotation>
 		<annotation cp="🤹‍♀" type="tts">γυναίκα ζογκλέρ</annotation>
-		<annotation cp="👫">άνδρας | άντρας και γυναίκα πιασμένοι χέρι-χέρι | γυναίκα | ζευγάρι | κρατώ | χέρι</annotation>
+		<annotation cp="🧘">άτομο σε θέση λωτού | γιόγκα | διαλογισμός</annotation>
+		<annotation cp="🧘" type="tts">άτομο σε θέση λωτού</annotation>
+		<annotation cp="🧘‍♂">άντρας σε θέση λωτού | γιόγκα | διαλογισμός</annotation>
+		<annotation cp="🧘‍♂" type="tts">άντρας σε θέση λωτού</annotation>
+		<annotation cp="🧘‍♀">γιόγκα | γυναίκα σε θέση λωτού | διαλογισμός</annotation>
+		<annotation cp="🧘‍♀" type="tts">γυναίκα σε θέση λωτού</annotation>
+		<annotation cp="🛀">άνθρωπος που κάνει μπάνιο | μπανιέρα | μπάνιο</annotation>
+		<annotation cp="🛀" type="tts">άνθρωπος που κάνει μπάνιο</annotation>
+		<annotation cp="🛌">άνθρωπος σε κρεβάτι | ξενοδοχείο | ύπνος</annotation>
+		<annotation cp="🛌" type="tts">άνθρωπος σε κρεβάτι</annotation>
+		<annotation cp="👫">άντρας | άντρας και γυναίκα πιασμένοι χέρι-χέρι | γυναίκα | ζευγάρι | κρατώ | πιασμένοι χέρι-χέρι | χέρι</annotation>
 		<annotation cp="👫" type="tts">άντρας και γυναίκα πιασμένοι χέρι-χέρι</annotation>
-		<annotation cp="👬">άνδρας | δίδυμοι | δίδυμος | δύο άντρες πιασμένοι χέρι-χέρι | ζευγάρι | ζώδιο | κρατώ | χέρι</annotation>
+		<annotation cp="👬">άντρας | άντρες | δίδυμοι | Δίδυμοι | δύο άντρες πιασμένοι χέρι-χέρι | ζευγάρι</annotation>
 		<annotation cp="👬" type="tts">δύο άντρες πιασμένοι χέρι-χέρι</annotation>
 		<annotation cp="👭">γυναίκα | δύο γυναίκες πιασμένες χέρι -χέρι | ζευγάρι | κρατώ | χέρι</annotation>
 		<annotation cp="👭" type="tts">δύο γυναίκες πιασμένες χέρι -χέρι</annotation>
@@ -667,98 +827,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💑" type="tts">ζευγάρι με καρδιά</annotation>
 		<annotation cp="👪">μητέρα | οικογένεια | παιδί | πατέρας</annotation>
 		<annotation cp="👪" type="tts">οικογένεια</annotation>
-		<annotation cp="🤳">selfie | τηλέφωνο | φωτογραφική μηχανή</annotation>
-		<annotation cp="🤳" type="tts">selfie</annotation>
-		<annotation cp="💪">δικέφαλος | επίδειξη | κόμικ | μυς | σφιχτός δικέφαλος | σώμα</annotation>
-		<annotation cp="💪" type="tts">σφιχτός δικέφαλος</annotation>
-		<annotation cp="🦵">άκρο | κλωτσιά | πόδι</annotation>
-		<annotation cp="🦵" type="tts">πόδι</annotation>
-		<annotation cp="🦶">κάτω άκρο | κλωτσάω | κλωτσιά | πόδι</annotation>
-		<annotation cp="🦶" type="tts">κάτω άκρο</annotation>
-		<annotation cp="👈">δάχτυλο | δείκτης | δείκτης χεριού προς τα αριστερά | δείχνω | σώμα | χέρι | χτύπημα</annotation>
-		<annotation cp="👈" type="tts">δείκτης χεριού προς τα αριστερά</annotation>
-		<annotation cp="👉">δάχτυλο | δείκτης | δείκτης χεριού προς τα δεξιά | δείχνω | σώμα | χέρι | χτύπημα</annotation>
-		<annotation cp="👉" type="tts">δείκτης χεριού προς τα δεξιά</annotation>
-		<annotation cp="☝">δάχτυλο | δείκτης | δείκτης χεριού προς τα επάνω | δείχνω | επάνω | σώμα | χέρι</annotation>
-		<annotation cp="☝" type="tts">δείκτης χεριού προς τα επάνω</annotation>
-		<annotation cp="👆">δάχτυλο | δείκτης | δείκτης χεριού προς τα επάνω ανάποδα | δείχνω | επάνω | σώμα | χέρι | χτύπημα</annotation>
-		<annotation cp="👆" type="tts">δείκτης χεριού προς τα επάνω ανάποδα</annotation>
-		<annotation cp="🖕">δάχτυλο | μεσαίο δάχτυλο | σώμα | χέρι</annotation>
-		<annotation cp="🖕" type="tts">μεσαίο δάχτυλο</annotation>
-		<annotation cp="👇">δάχτυλο | δείκτης | δείκτης χεριού προς τα κάτω ανάποδα | δείχνω | κάτω | σώμα | χέρι | χτύπημα</annotation>
-		<annotation cp="👇" type="tts">δείκτης χεριού προς τα κάτω ανάποδα</annotation>
-		<annotation cp="✌">v | νίκη | σήμα της νίκης | σώμα | χέρι</annotation>
-		<annotation cp="✌" type="tts">σήμα της νίκης</annotation>
-		<annotation cp="🤞">δάχτυλα | καλή τύχη | σταυρώνω | τύχη | χέρι</annotation>
-		<annotation cp="🤞" type="tts">καλή τύχη</annotation>
-		<annotation cp="🖖">vulcan | δάχτυλο | σποκ | σώμα | χαιρετισμός σποκ | χέρι</annotation>
-		<annotation cp="🖖" type="tts">χαιρετισμός σποκ</annotation>
-		<annotation cp="🤘">δάχτυλο | κέρατα | ροκάρω | σώμα | χειρονομία ροκ | χέρι</annotation>
-		<annotation cp="🤘" type="tts">χειρονομία ροκ</annotation>
-		<annotation cp="🤙">κλήση | τηλεφώνησέ μου | χέρι</annotation>
-		<annotation cp="🤙" type="tts">τηλεφώνησέ μου</annotation>
-		<annotation cp="🖐">ανοιχτά δάχτυλα | δάχτυλο | μούντζα | σώμα | χέρι</annotation>
-		<annotation cp="🖐" type="tts">μούντζα</annotation>
-		<annotation cp="✋">σηκωμένο χέρι | σώμα | χέρι</annotation>
-		<annotation cp="✋" type="tts">σηκωμένο χέρι</annotation>
-		<annotation cp="👌">OK | σώμα | χειρονομία οκ | χέρι</annotation>
-		<annotation cp="👌" type="tts">χειρονομία οκ</annotation>
-		<annotation cp="👍">+1 | αντίχειρας | επάνω | σηκωμένος αντίχειρας | σώμα | χέρι</annotation>
-		<annotation cp="👍" type="tts">σηκωμένος αντίχειρας</annotation>
-		<annotation cp="👎">-1 | αντίχειρας | κατεβασμένος αντίχειρας | κάτω | σώμα | χέρι</annotation>
-		<annotation cp="👎" type="tts">κατεβασμένος αντίχειρας</annotation>
-		<annotation cp="✊">γροθιά | μπουνιά | σηκωμένη γροθιά | σφιγμένο | χέρι</annotation>
-		<annotation cp="✊" type="tts">σηκωμένη γροθιά</annotation>
-		<annotation cp="👊">γροθιά | μπουνιά | σφιγμένο | χέρι</annotation>
-		<annotation cp="👊" type="tts">γροθιά</annotation>
-		<annotation cp="🤛">αριστερή γροθιά | γροθιά | στα αριστερά</annotation>
-		<annotation cp="🤛" type="tts">αριστερή γροθιά</annotation>
-		<annotation cp="🤜">γροθιά | δεξιά γροθιά | στα δεξιά</annotation>
-		<annotation cp="🤜" type="tts">δεξιά γροθιά</annotation>
-		<annotation cp="🤚">ανάποδη χεριού | σηκωμένη ανάποδη χεριού | σηκωμένο | σηκωμένο χέρι ανάποδα</annotation>
-		<annotation cp="🤚" type="tts">σηκωμένο χέρι ανάποδα</annotation>
-		<annotation cp="👋">νεύμα | σώμα | χαιρετώ | χέρι | χέρι που χαιρετά</annotation>
-		<annotation cp="👋" type="tts">χέρι που χαιρετά</annotation>
-		<annotation cp="🤟">ILY | κίνηση σε αγαπώ | χέρι</annotation>
-		<annotation cp="🤟" type="tts">κίνηση σε αγαπώ</annotation>
-		<annotation cp="✍">γράφω | σώμα | χέρι | χέρι που γράφει</annotation>
-		<annotation cp="✍" type="tts">χέρι που γράφει</annotation>
-		<annotation cp="👏">παλαμάκια | σώμα | χειροκροτώ | χέρι</annotation>
-		<annotation cp="👏" type="tts">παλαμάκια</annotation>
-		<annotation cp="👐">ανοικτά χέρια | ανοιχτό | σώμα | χέρι</annotation>
-		<annotation cp="👐" type="tts">ανοικτά χέρια</annotation>
-		<annotation cp="🙌">γιορτή | ζήτω | κίνηση | σηκωμένο | σώμα | χέρι | χέρια ψηλά</annotation>
-		<annotation cp="🙌" type="tts">χέρια ψηλά</annotation>
-		<annotation cp="🤲">παλάμες μαζί | προσευχή</annotation>
-		<annotation cp="🤲" type="tts">παλάμες μαζί</annotation>
-		<annotation cp="🙏">ενωμένα | ευχαριστώ | ζητώ | κίνηση | παρακαλώ | προσευχή | σώμα | υπόκλιση | χέρι | χέρια ενωμένα</annotation>
-		<annotation cp="🙏" type="tts">χέρια ενωμένα</annotation>
-		<annotation cp="🤝">συμφωνία | συνάντηση | σφίγγω | χειραψία | χέρι</annotation>
-		<annotation cp="🤝" type="tts">χειραψία</annotation>
-		<annotation cp="💅">βάψιμο νυχιών | βερνίκι | καλλυντικά | μανικιούρ | νύχι | σώμα | φροντίδα</annotation>
-		<annotation cp="💅" type="tts">βάψιμο νυχιών</annotation>
-		<annotation cp="👂">αυτί | σώμα</annotation>
-		<annotation cp="👂" type="tts">αυτί</annotation>
-		<annotation cp="👃">μύτη | σώμα</annotation>
-		<annotation cp="👃" type="tts">μύτη</annotation>
+		<annotation cp="🗣">κεφάλι | κεφάλι που μιλάει | μιλώ | ομιλία | πρόσωπο | φιγούρα</annotation>
+		<annotation cp="🗣" type="tts">κεφάλι που μιλάει</annotation>
+		<annotation cp="👤">περίγραμμα προτομής | προτομή | φιγούρα</annotation>
+		<annotation cp="👤" type="tts">περίγραμμα προτομής</annotation>
+		<annotation cp="👥">περίγραμμα προτομών | προτομή | φιγούρα</annotation>
+		<annotation cp="👥" type="tts">περίγραμμα προτομών</annotation>
 		<annotation cp="👣">ίχνος | πατημασιά | πατημασιές | ρουχισμός | σώμα</annotation>
 		<annotation cp="👣" type="tts">πατημασιές</annotation>
-		<annotation cp="👀">μάτι | μάτια | πρόσωπο | σώμα</annotation>
-		<annotation cp="👀" type="tts">μάτια</annotation>
-		<annotation cp="👁">μάτι | σώμα</annotation>
-		<annotation cp="👁" type="tts">μάτι</annotation>
-		<annotation cp="👁‍🗨">μάτι | μάτι σε συννεφάκι ομιλίας | συννεφάκι | συνομιλία</annotation>
-		<annotation cp="👁‍🗨" type="tts">μάτι σε συννεφάκι ομιλίας</annotation>
-		<annotation cp="🧠">έξυπνος | μυαλό</annotation>
-		<annotation cp="🧠" type="tts">μυαλό</annotation>
-		<annotation cp="🦴">κόκαλο | σκελετός</annotation>
-		<annotation cp="🦴" type="tts">κόκαλο</annotation>
-		<annotation cp="🦷">δόντι | οδοντίατρος</annotation>
-		<annotation cp="🦷" type="tts">δόντι</annotation>
-		<annotation cp="👅">γλώσσα | σώμα</annotation>
-		<annotation cp="👅" type="tts">γλώσσα</annotation>
-		<annotation cp="👄">στόμα | σώμα | χείλη</annotation>
-		<annotation cp="👄" type="tts">στόμα</annotation>
 		<annotation cp="🦰">κόκκινα μαλλιά | κοκκινομάλλης | πυρρόξανθος</annotation>
 		<annotation cp="🦰" type="tts">κόκκινα μαλλιά</annotation>
 		<annotation cp="🦱">άφρο | μπούκλες | σγουρά | σγουρά μαλλιά</annotation>
@@ -767,142 +843,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦳" type="tts">άσπρα μαλλιά</annotation>
 		<annotation cp="🦲">καραφλός | ξυρισμένος | χημειοθεραπεία | χωρίς μαλλιά</annotation>
 		<annotation cp="🦲" type="tts">καραφλός</annotation>
-		<annotation cp="💋">έρωτας | καρδιά | σημάδι | σημάδι από φιλί | φιλί | χείλη</annotation>
-		<annotation cp="💋" type="tts">σημάδι από φιλί</annotation>
-		<annotation cp="💘">βέλος | έρωτας | καρδιά | καρδιά με βέλος | ρομάντζο</annotation>
-		<annotation cp="💘" type="tts">καρδιά με βέλος</annotation>
-		<annotation cp="💝">βαλεντίνος | καρδιά | καρδιά με κορδέλα | κορδέλα</annotation>
-		<annotation cp="💝" type="tts">καρδιά με κορδέλα</annotation>
-		<annotation cp="💖">αστράφτω | ενθουσιασμένος | καρδιά | καρδιά που αστράφτει</annotation>
-		<annotation cp="💖" type="tts">καρδιά που αστράφτει</annotation>
-		<annotation cp="💗">αυξανόμενος | ενθουσιασμένος | καρδιά | καρδιά που μεγαλώνει | νευρικός | παλμός καρδιάς</annotation>
-		<annotation cp="💗" type="tts">καρδιά που μεγαλώνει</annotation>
-		<annotation cp="💓">καρδιά | καρδιά που χτυπά | καρδιοχτύπι | πάλλεται | χτυπά</annotation>
-		<annotation cp="💓" type="tts">καρδιά που χτυπά</annotation>
-		<annotation cp="💞">καρδιά | καρδιές που γυρίζουν | περιστρεφόμενη</annotation>
-		<annotation cp="💞" type="tts">καρδιές που γυρίζουν</annotation>
-		<annotation cp="💕">αγάπη | δύο καρδιές | καρδιά</annotation>
-		<annotation cp="💕" type="tts">δύο καρδιές</annotation>
-		<annotation cp="💌">αγάπη | γράμμα | έρωτας | ερωτικό γράμμα | καρδιά</annotation>
-		<annotation cp="💌" type="tts">ερωτικό γράμμα</annotation>
-		<annotation cp="❣">θαυμαστικό | καρδιά | σημείο | στίξη</annotation>
-		<annotation cp="❣" type="tts">καρδιά θαυμαστικό</annotation>
-		<annotation cp="💔">καρδιά | ραγισμένη καρδιά | σπασμένος | σπάω</annotation>
-		<annotation cp="💔" type="tts">ραγισμένη καρδιά</annotation>
-		<annotation cp="❤">καρδιά | κόκκινη καρδιά</annotation>
-		<annotation cp="❤" type="tts">κόκκινη καρδιά</annotation>
-		<annotation cp="🧡">πορτοκαλί καρδιά | ποστοκάλι</annotation>
-		<annotation cp="🧡" type="tts">πορτοκαλί καρδιά</annotation>
-		<annotation cp="💛">καρδιά | κίτρινη</annotation>
-		<annotation cp="💛" type="tts">κίτρινη καρδιά</annotation>
-		<annotation cp="💚">καρδιά | πράσινη</annotation>
-		<annotation cp="💚" type="tts">πράσινη καρδιά</annotation>
-		<annotation cp="💙">καρδιά | μπλε</annotation>
-		<annotation cp="💙" type="tts">μπλε καρδιά</annotation>
-		<annotation cp="💜">καρδιά | μoβ καρδιά | μωβ</annotation>
-		<annotation cp="💜" type="tts">μoβ καρδιά</annotation>
-		<annotation cp="🖤">κακός | καρδιά | μαγεμένος | μαύρη καρδιά | μαύρο</annotation>
-		<annotation cp="🖤" type="tts">μαύρη καρδιά</annotation>
-		<annotation cp="💟">καρδιά | καρδιά σε πλαίσιο</annotation>
-		<annotation cp="💟" type="tts">καρδιά σε πλαίσιο</annotation>
-		<annotation cp="💤">ζζζ | κόμικ | ύπνος</annotation>
-		<annotation cp="💤" type="tts">ζζζ</annotation>
-		<annotation cp="💢">θυμωμένος | κόμικ | οργισμένος | σύμβολο θυμού</annotation>
-		<annotation cp="💢" type="tts">σύμβολο θυμού</annotation>
-		<annotation cp="💣">βόμβα | κόμικ</annotation>
-		<annotation cp="💣" type="tts">βόμβα</annotation>
-		<annotation cp="💥">κόμικ | σύγκρουση</annotation>
-		<annotation cp="💥" type="tts">σύγκρουση</annotation>
-		<annotation cp="💦">ιδρώτας | κόμικ | πιτσιλιές | σταγόνες ιδρώτα</annotation>
-		<annotation cp="💦" type="tts">σταγόνες ιδρώτα</annotation>
-		<annotation cp="💨">κόμικ | ορμή | τρέξιμο</annotation>
-		<annotation cp="💨" type="tts">τρέξιμο</annotation>
-		<annotation cp="💫">αστεράκια | αστέρι | ζαλάδα | κόμικ</annotation>
-		<annotation cp="💫" type="tts">αστεράκια</annotation>
-		<annotation cp="💬">διάλογος | κόμικ | μπαλόνι | ομιλία | συννεφάκι | συννεφάκι ομιλίας</annotation>
-		<annotation cp="💬" type="tts">συννεφάκι ομιλίας</annotation>
-		<annotation cp="🗨">αριστερό συννεφάκι ομιλίας | διάλογος | συνομιλία</annotation>
-		<annotation cp="🗨" type="tts">αριστερό συννεφάκι ομιλίας</annotation>
-		<annotation cp="🗯">δεξί συννεφάκι θυμού | θυμός | θυμωμένος | μπαλόνι | συννεφάκι</annotation>
-		<annotation cp="🗯" type="tts">δεξί συννεφάκι θυμού</annotation>
-		<annotation cp="💭">κόμικ | μπαλόνι | σκέψη | συννεφάκι | συννεφάκι σκέψης</annotation>
-		<annotation cp="💭" type="tts">συννεφάκι σκέψης</annotation>
-		<annotation cp="🕳">μαύρη | τρύπα</annotation>
-		<annotation cp="🕳" type="tts">τρύπα</annotation>
-		<annotation cp="👓">γυαλιά | ένδυμα | μάτι</annotation>
-		<annotation cp="👓" type="tts">γυαλιά</annotation>
-		<annotation cp="🕶">γυαλιά | γυαλιά ηλίου | μάτι | οπτικά | σκοτεινός</annotation>
-		<annotation cp="🕶" type="tts">γυαλιά ηλίου</annotation>
-		<annotation cp="🥽">κολύμπι | προστασία ματιών | προστατευτικά γυαλιά | συγκόλληση</annotation>
-		<annotation cp="🥽" type="tts">προστατευτικά γυαλιά</annotation>
-		<annotation cp="🥼">γιατρός | επιστήμονας | πείραμα | ρόμπα εργαστηρίου</annotation>
-		<annotation cp="🥼" type="tts">ρόμπα εργαστηρίου</annotation>
-		<annotation cp="👔">γραβάτα | ρούχο</annotation>
-		<annotation cp="👔" type="tts">γραβάτα</annotation>
-		<annotation cp="👕">μπλούζα | μπλουζάκι | πουκάμισο | ρούχο</annotation>
-		<annotation cp="👕" type="tts">μπλουζάκι</annotation>
-		<annotation cp="👖">παντελόνι | ρούχο | τζιν παντελόνι</annotation>
-		<annotation cp="👖" type="tts">τζιν παντελόνι</annotation>
-		<annotation cp="🧣">κασκόλ | λαιμός</annotation>
-		<annotation cp="🧣" type="tts">κασκόλ</annotation>
-		<annotation cp="🧤">γάντια | χέρι</annotation>
-		<annotation cp="🧤" type="tts">γάντια</annotation>
-		<annotation cp="🧥">μπουφάν | παλτό</annotation>
-		<annotation cp="🧥" type="tts">παλτό</annotation>
-		<annotation cp="🧦">καλσόν | κάλτσες</annotation>
-		<annotation cp="🧦" type="tts">κάλτσες</annotation>
-		<annotation cp="👗">ρούχο | φόρεμα</annotation>
-		<annotation cp="👗" type="tts">φόρεμα</annotation>
-		<annotation cp="👘">κιμονό | ρούχο</annotation>
-		<annotation cp="👘" type="tts">κιμονό</annotation>
-		<annotation cp="👙">κολύμβηση | μπικίνι | ρούχο</annotation>
-		<annotation cp="👙" type="tts">μπικίνι</annotation>
-		<annotation cp="👚">γυναίκα | γυναικεία ρούχα | ρούχο</annotation>
-		<annotation cp="👚" type="tts">γυναικεία ρούχα</annotation>
-		<annotation cp="👛">ένδυμα | κέρμα | πορτοφόλι</annotation>
-		<annotation cp="👛" type="tts">πορτοφόλι</annotation>
-		<annotation cp="👜">ένδυμα | τσάντα | τσάντα χειρός</annotation>
-		<annotation cp="👜" type="tts">τσάντα χειρός</annotation>
-		<annotation cp="👝">ένδυμα | κασετίνα | τσάντα | τσαντάκι</annotation>
-		<annotation cp="👝" type="tts">τσαντάκι</annotation>
-		<annotation cp="🛍">ξενοδοχείο | τσάντα | τσάντες για ψώνια | ψώνια</annotation>
-		<annotation cp="🛍" type="tts">τσάντες για ψώνια</annotation>
-		<annotation cp="🎒">σχολείο | σχολική σάκα | σχολική τσάντα | τσάντα</annotation>
-		<annotation cp="🎒" type="tts">σχολική σάκα</annotation>
-		<annotation cp="👞">άνδρας | ανδρικό παπούτσι | παπούτσι | ρουχισμός</annotation>
-		<annotation cp="👞" type="tts">ανδρικό παπούτσι</annotation>
-		<annotation cp="👟">αθλητικά | αθλητικό παπούτσι | παπούτσι | ρουχισμός</annotation>
-		<annotation cp="👟" type="tts">αθλητικό παπούτσι</annotation>
-		<annotation cp="🥾">κάμπιγκ | μπότα | μπότα ορειβασίας | ορειβασία</annotation>
-		<annotation cp="🥾" type="tts">μπότα ορειβασίας</annotation>
-		<annotation cp="🥿">επίπεδο παπούτσι | ίσιο παπούτσι | μπαλαρίνα | παντοφλέ | χαμηλοτάκουνο</annotation>
-		<annotation cp="🥿" type="tts">ίσιο παπούτσι</annotation>
-		<annotation cp="👠">γυναίκα | παπούτσι | ρουχισμός | τακούνι | ψηλοτάκουνο παπούτσι</annotation>
-		<annotation cp="👠" type="tts">ψηλοτάκουνο παπούτσι</annotation>
-		<annotation cp="👡">γυναίκα | γυναικείο σανδάλι | παπούτσι | ρουχισμός | σανδάλι</annotation>
-		<annotation cp="👡" type="tts">γυναικείο σανδάλι</annotation>
-		<annotation cp="👢">γυναίκα | γυναικεία μπότα | μπότα | παπούτσι | ρουχισμός</annotation>
-		<annotation cp="👢" type="tts">γυναικεία μπότα</annotation>
-		<annotation cp="👑">βασιλιάς | βασίλισσα | ρουχισμός | στέμμα</annotation>
-		<annotation cp="👑" type="tts">στέμμα</annotation>
-		<annotation cp="👒">γυναίκα | γυναικείο καπέλο | καπέλο | ρουχισμός</annotation>
-		<annotation cp="👒" type="tts">γυναικείο καπέλο</annotation>
-		<annotation cp="🎩">ημίψηλο καπέλο | καπέλο | ρουχισμός | ψηλό καπέλο</annotation>
-		<annotation cp="🎩" type="tts">ημίψηλο καπέλο</annotation>
-		<annotation cp="🎓">αποφοίτηση | γιορτή | καπέλο | καπέλο αποφοίτησης | ρουχισμός</annotation>
-		<annotation cp="🎓" type="tts">καπέλο αποφοίτησης</annotation>
-		<annotation cp="🧢">καπελάκι | καπέλο του μπέιζμπολ</annotation>
-		<annotation cp="🧢" type="tts">καπελάκι</annotation>
-		<annotation cp="⛑">βοήθεια | καπέλο | κράνος | κράνος με λευκό σταυρό | πρόσωπο | σταυρός</annotation>
-		<annotation cp="⛑" type="tts">κράνος με λευκό σταυρό</annotation>
-		<annotation cp="📿">θρησκεία | κολιέ | κομπολόι | προσευχή | ρουχισμός | χάντρες</annotation>
-		<annotation cp="📿" type="tts">κομπολόι</annotation>
-		<annotation cp="💄">καλλυντικά | κραγιόν | μακιγιάζ</annotation>
-		<annotation cp="💄" type="tts">κραγιόν</annotation>
-		<annotation cp="💍">δαχτυλίδι | διαμάντι | έρωτας</annotation>
-		<annotation cp="💍" type="tts">δαχτυλίδι</annotation>
-		<annotation cp="💎">διαμάντι | έρωτας | κόσμημα | πετράδι</annotation>
-		<annotation cp="💎" type="tts">διαμάντι</annotation>
+		<annotation cp="♀">γυναίκα | θηλυκό</annotation>
+		<annotation cp="♀" type="tts">θηλυκό</annotation>
+		<annotation cp="♂">άντρας | αρσενικό</annotation>
+		<annotation cp="♂" type="tts">αρσενικό</annotation>
 		<annotation cp="🐵">μαϊμού | πρόσωπο | πρόσωπο μαϊμούς</annotation>
 		<annotation cp="🐵" type="tts">πρόσωπο μαϊμούς</annotation>
 		<annotation cp="🐒">μαϊμού</annotation>
@@ -913,6 +857,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐶" type="tts">πρόσωπο σκύλου</annotation>
 		<annotation cp="🐕">κατοικίδιο | σκύλος</annotation>
 		<annotation cp="🐕" type="tts">σκύλος</annotation>
+		<annotation cp="🐕‍🦺">βοήθεια | προσβασιμότητα | σκύλος</annotation>
+		<annotation cp="🐕‍🦺" type="tts">σκύλος βοηθός</annotation>
 		<annotation cp="🐩">κανίς | σκύλος</annotation>
 		<annotation cp="🐩" type="tts">κανίς</annotation>
 		<annotation cp="🐺">λύκος | πρόσωπο | πρόσωπο λύκου</annotation>
@@ -1007,8 +953,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦘" type="tts">καγκουρό</annotation>
 		<annotation cp="🦡">ασβός | μελοασβός</annotation>
 		<annotation cp="🦡" type="tts">ασβός</annotation>
-		<annotation cp="🐾">ίχνη | ίχνη ζώου | πατημασιές | πατούσες</annotation>
-		<annotation cp="🐾" type="tts">ίχνη ζώου</annotation>
 		<annotation cp="🦃">γαλοπούλα</annotation>
 		<annotation cp="🦃" type="tts">γαλοπούλα</annotation>
 		<annotation cp="🐔">κότα | κοτόπουλο</annotation>
@@ -1075,14 +1019,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐙" type="tts">χταπόδι</annotation>
 		<annotation cp="🐚">κοχύλι | σπειροειδές</annotation>
 		<annotation cp="🐚" type="tts">σπειροειδές κοχύλι</annotation>
-		<annotation cp="🦀">ζώδιο | κάβουρας | καρκίνος</annotation>
-		<annotation cp="🦀" type="tts">κάβουρας</annotation>
-		<annotation cp="🦞">αστακός | δαγκάνες | θαλασσινά | μπισκ</annotation>
-		<annotation cp="🦞" type="tts">αστακός</annotation>
-		<annotation cp="🦐">γαρίδα | μικρό | οστρακοειδές | τροφή</annotation>
-		<annotation cp="🦐" type="tts">γαρίδα</annotation>
-		<annotation cp="🦑">καλαμάρι | μαλάκιο | τροφή</annotation>
-		<annotation cp="🦑" type="tts">καλαμάρι</annotation>
 		<annotation cp="🐌">σαλιγκάρι | σαλίγκαρος</annotation>
 		<annotation cp="🐌" type="tts">σαλιγκάρι</annotation>
 		<annotation cp="🦋">έντομο | όμορφος | πεταλούδα</annotation>
@@ -1299,6 +1235,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥠" type="tts">τυχερό μπισκότο</annotation>
 		<annotation cp="🥡">πακέτο | συσκευασία | συσκευασία φαγητού σε πακέτο | φαγητό | χάρτινο κουτάκι</annotation>
 		<annotation cp="🥡" type="tts">συσκευασία φαγητού σε πακέτο</annotation>
+		<annotation cp="🦀">ζώδιο | κάβουρας | καρκίνος</annotation>
+		<annotation cp="🦀" type="tts">κάβουρας</annotation>
+		<annotation cp="🦞">αστακός | δαγκάνες | θαλασσινά | μπισκ</annotation>
+		<annotation cp="🦞" type="tts">αστακός</annotation>
+		<annotation cp="🦐">γαρίδα | μικρό | οστρακοειδές | τροφή</annotation>
+		<annotation cp="🦐" type="tts">γαρίδα</annotation>
+		<annotation cp="🦑">καλαμάρι | μαλάκιο | τροφή</annotation>
+		<annotation cp="🦑" type="tts">καλαμάρι</annotation>
 		<annotation cp="🍦">γλυκό | επιδόρπιο | κρέμα | μαλακό | παγωμένο | παγωτό | παγωτό χωνάκι</annotation>
 		<annotation cp="🍦" type="tts">παγωτό χωνάκι</annotation>
 		<annotation cp="🍧">γλυκό | γρανίτα | επιδόρπιο | παγωτό</annotation>
@@ -1547,14 +1491,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚛" type="tts">τριαξονικό</annotation>
 		<annotation cp="🚜">όχημα | τρακτέρ</annotation>
 		<annotation cp="🚜" type="tts">τρακτέρ</annotation>
+		<annotation cp="🏎">αγωνιστικό | αγωνιστικό όχημα | αυτοκίνητο</annotation>
+		<annotation cp="🏎" type="tts">αγωνιστικό όχημα</annotation>
+		<annotation cp="🏍">αγωνιστικό | μοτοσικλέτα</annotation>
+		<annotation cp="🏍" type="tts">μοτοσικλέτα</annotation>
+		<annotation cp="🛵">ηλεκτροκίνητος | σκούτερ | σκουτεράκι</annotation>
+		<annotation cp="🛵" type="tts">σκουτεράκι</annotation>
 		<annotation cp="🚲">όχημα | ποδήλατο</annotation>
 		<annotation cp="🚲" type="tts">ποδήλατο</annotation>
 		<annotation cp="🛴">πατίνι | ποδοκίνητος</annotation>
 		<annotation cp="🛴" type="tts">πατίνι</annotation>
 		<annotation cp="🛹">σανίδα | σκέιτμπορντ</annotation>
 		<annotation cp="🛹" type="tts">σκέιτμπορντ</annotation>
-		<annotation cp="🛵">ηλεκτροκίνητος | σκούτερ | σκουτεράκι</annotation>
-		<annotation cp="🛵" type="tts">σκουτεράκι</annotation>
 		<annotation cp="🚏">λεωφορείο | στάση | στάση λεωφορείου</annotation>
 		<annotation cp="🚏" type="tts">στάση λεωφορείου</annotation>
 		<annotation cp="🛣">αυτοκινητόδρομος | δρόμος</annotation>
@@ -1923,6 +1871,80 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧵" type="tts">κλωστή</annotation>
 		<annotation cp="🧶">βελονάκι | κουβάρι | μπάλα | πλέκω</annotation>
 		<annotation cp="🧶" type="tts">κουβάρι</annotation>
+		<annotation cp="👓">γυαλιά | ένδυμα | μάτι</annotation>
+		<annotation cp="👓" type="tts">γυαλιά</annotation>
+		<annotation cp="🕶">γυαλιά | γυαλιά ηλίου | μάτι | οπτικά | σκοτεινός</annotation>
+		<annotation cp="🕶" type="tts">γυαλιά ηλίου</annotation>
+		<annotation cp="🥽">κολύμπι | προστασία ματιών | προστατευτικά γυαλιά | συγκόλληση</annotation>
+		<annotation cp="🥽" type="tts">προστατευτικά γυαλιά</annotation>
+		<annotation cp="🥼">γιατρός | επιστήμονας | πείραμα | ρόμπα εργαστηρίου</annotation>
+		<annotation cp="🥼" type="tts">ρόμπα εργαστηρίου</annotation>
+		<annotation cp="👔">γραβάτα | ρούχο</annotation>
+		<annotation cp="👔" type="tts">γραβάτα</annotation>
+		<annotation cp="👕">μπλούζα | μπλουζάκι | πουκάμισο | ρούχο</annotation>
+		<annotation cp="👕" type="tts">μπλουζάκι</annotation>
+		<annotation cp="👖">παντελόνι | ρούχο | τζιν παντελόνι</annotation>
+		<annotation cp="👖" type="tts">τζιν παντελόνι</annotation>
+		<annotation cp="🧣">κασκόλ | λαιμός</annotation>
+		<annotation cp="🧣" type="tts">κασκόλ</annotation>
+		<annotation cp="🧤">γάντια | χέρι</annotation>
+		<annotation cp="🧤" type="tts">γάντια</annotation>
+		<annotation cp="🧥">μπουφάν | παλτό</annotation>
+		<annotation cp="🧥" type="tts">παλτό</annotation>
+		<annotation cp="🧦">καλσόν | κάλτσες</annotation>
+		<annotation cp="🧦" type="tts">κάλτσες</annotation>
+		<annotation cp="👗">ρούχο | φόρεμα</annotation>
+		<annotation cp="👗" type="tts">φόρεμα</annotation>
+		<annotation cp="👘">κιμονό | ρούχο</annotation>
+		<annotation cp="👘" type="tts">κιμονό</annotation>
+		<annotation cp="👙">κολύμβηση | μπικίνι | ρούχο</annotation>
+		<annotation cp="👙" type="tts">μπικίνι</annotation>
+		<annotation cp="👚">γυναίκα | γυναικεία ρούχα | ρούχο</annotation>
+		<annotation cp="👚" type="tts">γυναικεία ρούχα</annotation>
+		<annotation cp="👛">ένδυμα | κέρμα | πορτοφόλι</annotation>
+		<annotation cp="👛" type="tts">πορτοφόλι</annotation>
+		<annotation cp="👜">ένδυμα | τσάντα | τσάντα χειρός</annotation>
+		<annotation cp="👜" type="tts">τσάντα χειρός</annotation>
+		<annotation cp="👝">ένδυμα | κασετίνα | τσάντα | τσαντάκι</annotation>
+		<annotation cp="👝" type="tts">τσαντάκι</annotation>
+		<annotation cp="🛍">ξενοδοχείο | τσάντα | τσάντες για ψώνια | ψώνια</annotation>
+		<annotation cp="🛍" type="tts">τσάντες για ψώνια</annotation>
+		<annotation cp="🎒">σχολείο | σχολική σάκα | σχολική τσάντα | τσάντα</annotation>
+		<annotation cp="🎒" type="tts">σχολική σάκα</annotation>
+		<annotation cp="👞">άνδρας | ανδρικό παπούτσι | παπούτσι | ρουχισμός</annotation>
+		<annotation cp="👞" type="tts">ανδρικό παπούτσι</annotation>
+		<annotation cp="👟">αθλητικά | αθλητικό παπούτσι | παπούτσι | ρουχισμός</annotation>
+		<annotation cp="👟" type="tts">αθλητικό παπούτσι</annotation>
+		<annotation cp="🥾">κάμπιγκ | μπότα | μπότα ορειβασίας | ορειβασία</annotation>
+		<annotation cp="🥾" type="tts">μπότα ορειβασίας</annotation>
+		<annotation cp="🥿">επίπεδο παπούτσι | ίσιο παπούτσι | μπαλαρίνα | παντοφλέ | χαμηλοτάκουνο</annotation>
+		<annotation cp="🥿" type="tts">ίσιο παπούτσι</annotation>
+		<annotation cp="👠">γυναίκα | παπούτσι | ρουχισμός | τακούνι | ψηλοτάκουνο παπούτσι</annotation>
+		<annotation cp="👠" type="tts">ψηλοτάκουνο παπούτσι</annotation>
+		<annotation cp="👡">γυναίκα | γυναικείο σανδάλι | παπούτσι | ρουχισμός | σανδάλι</annotation>
+		<annotation cp="👡" type="tts">γυναικείο σανδάλι</annotation>
+		<annotation cp="👢">γυναίκα | γυναικεία μπότα | μπότα | παπούτσι | ρουχισμός</annotation>
+		<annotation cp="👢" type="tts">γυναικεία μπότα</annotation>
+		<annotation cp="👑">βασιλιάς | βασίλισσα | ρουχισμός | στέμμα</annotation>
+		<annotation cp="👑" type="tts">στέμμα</annotation>
+		<annotation cp="👒">γυναίκα | γυναικείο καπέλο | καπέλο | ρουχισμός</annotation>
+		<annotation cp="👒" type="tts">γυναικείο καπέλο</annotation>
+		<annotation cp="🎩">ημίψηλο καπέλο | καπέλο | ρουχισμός | ψηλό καπέλο</annotation>
+		<annotation cp="🎩" type="tts">ημίψηλο καπέλο</annotation>
+		<annotation cp="🎓">αποφοίτηση | γιορτή | καπέλο | καπέλο αποφοίτησης | ρουχισμός</annotation>
+		<annotation cp="🎓" type="tts">καπέλο αποφοίτησης</annotation>
+		<annotation cp="🧢">καπελάκι | καπέλο του μπέιζμπολ</annotation>
+		<annotation cp="🧢" type="tts">καπελάκι</annotation>
+		<annotation cp="⛑">βοήθεια | καπέλο | κράνος | κράνος με λευκό σταυρό | πρόσωπο | σταυρός</annotation>
+		<annotation cp="⛑" type="tts">κράνος με λευκό σταυρό</annotation>
+		<annotation cp="📿">θρησκεία | κολιέ | κομπολόι | προσευχή | ρουχισμός | χάντρες</annotation>
+		<annotation cp="📿" type="tts">κομπολόι</annotation>
+		<annotation cp="💄">καλλυντικά | κραγιόν | μακιγιάζ</annotation>
+		<annotation cp="💄" type="tts">κραγιόν</annotation>
+		<annotation cp="💍">δαχτυλίδι | διαμάντι | έρωτας</annotation>
+		<annotation cp="💍" type="tts">δαχτυλίδι</annotation>
+		<annotation cp="💎">διαμάντι | έρωτας | κόσμημα | πετράδι</annotation>
+		<annotation cp="💎" type="tts">διαμάντι</annotation>
 		<annotation cp="🔇">αθόρυβο | ηχείο | ηχείο σε σίγαση | σίγαση | σιωπή</annotation>
 		<annotation cp="🔇" type="tts">ηχείο σε σίγαση</annotation>
 		<annotation cp="🔈">ένταση ήχου | ηχείο σε χαμηλή ένταση | χαμηλή ένταση</annotation>
@@ -2477,10 +2499,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📳" type="tts">λειτουργία δόνησης</annotation>
 		<annotation cp="📴">απενεργοποιημένο | κινητό | τηλέφωνο</annotation>
 		<annotation cp="📴" type="tts">κινητό απενεργοποιημένο</annotation>
-		<annotation cp="♀">γυναίκα | θηλυκό</annotation>
-		<annotation cp="♀" type="tts">θηλυκό</annotation>
-		<annotation cp="♂">άντρας | αρσενικό</annotation>
-		<annotation cp="♂" type="tts">αρσενικό</annotation>
 		<annotation cp="⚕">ιατρική | ιατρικό σύμβολο | ράβδος | σύμβολο</annotation>
 		<annotation cp="⚕" type="tts">ιατρικό σύμβολο</annotation>
 		<annotation cp="♾">αιώνια | άπειρο | απεριόριστα | για πάντα | καθολικό</annotation>
@@ -2547,8 +2565,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="®" type="tts">σήμα κατατεθέν</annotation>
 		<annotation cp="™">εμπορικό σήμα | σήμα</annotation>
 		<annotation cp="™" type="tts">εμπορικό σήμα</annotation>
-		<annotation cp="💯">100 | βαθμολογία | εκατό | εκατό πόντοι | πλήρες</annotation>
-		<annotation cp="💯" type="tts">εκατό πόντοι</annotation>
 		<annotation cp="🔠">γράμματα | εισαγωγή | κεφαλαία | λατινικά</annotation>
 		<annotation cp="🔠" type="tts">κεφαλαία λατινικά</annotation>
 		<annotation cp="🔡">abcd | γράμματα | εισαγωγή | λατινικά | πεζά</annotation>
@@ -2685,5 +2701,139 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">σημαία ουράνιου τόξου</annotation>
 		<annotation cp="🏴‍☠">θησαυρός | λάφυρα | πειρατής | πειρατική σημαία | Τζόλι Ρότζερ</annotation>
 		<annotation cp="🏴‍☠" type="tts">πειρατική σημαία</annotation>
+		<annotation cp="🛕">ινδουιστής | ναός</annotation>
+		<annotation cp="🛕" type="tts">ινδουιστικός ναός</annotation>
+		<annotation cp="🛺">ποδήλατο-ταξί</annotation>
+		<annotation cp="🛺" type="tts">ποδήλατο-ταξί</annotation>
+		<annotation cp="🟠">κύκλος | πορτοκαλί</annotation>
+		<annotation cp="🟠" type="tts">πορτοκαλί κύκλος</annotation>
+		<annotation cp="🟡">κίτρινος | κύκλος</annotation>
+		<annotation cp="🟡" type="tts">κίτρινος κύκλος</annotation>
+		<annotation cp="🟢">κύκλος | πράσινος</annotation>
+		<annotation cp="🟢" type="tts">πράσινος κύκλος</annotation>
+		<annotation cp="🟣">κύκλος | μοβ | μωβ</annotation>
+		<annotation cp="🟣" type="tts">μοβ κύκλος</annotation>
+		<annotation cp="🟤">καφέ | κύκλος</annotation>
+		<annotation cp="🟤" type="tts">καφέ κύκλος</annotation>
+		<annotation cp="🟥">κόκκινο | τετράγωνο</annotation>
+		<annotation cp="🟥" type="tts">κόκκινο τετράγωνο</annotation>
+		<annotation cp="🟦">μπλε | τετράγωνο</annotation>
+		<annotation cp="🟦" type="tts">μπλε τετράγωνο</annotation>
+		<annotation cp="🟧">πορτοκαλί | τετράγωνο</annotation>
+		<annotation cp="🟧" type="tts">πορτοκαλί τετράγωνο</annotation>
+		<annotation cp="🟨">κίτρινο | τετράγωνο</annotation>
+		<annotation cp="🟨" type="tts">κίτρινο τετράγωνο</annotation>
+		<annotation cp="🟩">πράσινο | τετράγωνο</annotation>
+		<annotation cp="🟩" type="tts">πράσινο τετράγωνο</annotation>
+		<annotation cp="🟪">μοβ | μωβ | τετράγωνο</annotation>
+		<annotation cp="🟪" type="tts">μοβ τετράγωνο</annotation>
+		<annotation cp="🟫">καφέ | τετράγωνο</annotation>
+		<annotation cp="🟫" type="tts">καφέ τετράγωνο</annotation>
+		<annotation cp="🤍">καρδιά | λευκό</annotation>
+		<annotation cp="🤍" type="tts">λευκή καρδιά</annotation>
+		<annotation cp="🤎">καρδιά | καφέ</annotation>
+		<annotation cp="🤎" type="tts">καφέ καρδιά</annotation>
+		<annotation cp="🤏">μικρή ποσότητα</annotation>
+		<annotation cp="🤏" type="tts">χέρι που τσιμπάει</annotation>
+		<annotation cp="🤿">αυτοκατάδυση | κατάδυση | κατάδυση με αναπνευστήρα</annotation>
+		<annotation cp="🤿" type="tts">μάσκα κατάδυσης</annotation>
+		<annotation cp="🥱">βαριέμαι | κουρασμένος | χασμουριέμαι</annotation>
+		<annotation cp="🥱" type="tts">πρόσωπο που χασμουριέται</annotation>
+		<annotation cp="🥻">ρουχισμός | φόρεμα</annotation>
+		<annotation cp="🥻" type="tts">σάρι</annotation>
+		<annotation cp="🦥">αργός | νωθρός</annotation>
+		<annotation cp="🦥" type="tts">βραδύπους</annotation>
+		<annotation cp="🦦">παιχνιδιάρικο | ψαρεύω</annotation>
+		<annotation cp="🦦" type="tts">βίδρα</annotation>
+		<annotation cp="🦧">πίθηκος</annotation>
+		<annotation cp="🦧" type="tts">ουρακοτάγκος</annotation>
+		<annotation cp="🦨">βρώμα</annotation>
+		<annotation cp="🦨" type="tts">μεφίτης</annotation>
+		<annotation cp="🦩">επιδεικτικός | τροπικός</annotation>
+		<annotation cp="🦩" type="tts">φλαμίνγκο</annotation>
+		<annotation cp="🦪">κατάδυση | μαργαριτάρι</annotation>
+		<annotation cp="🦪" type="tts">στρείδι</annotation>
+		<annotation cp="🦮">οδηγός | προσβασιμότητα | τυφλός</annotation>
+		<annotation cp="🦮" type="tts">σκύλος οδηγός</annotation>
+		<annotation cp="🦯">προσβασιμότητα | τυφλός</annotation>
+		<annotation cp="🦯" type="tts">μπαστούνι τυφλών</annotation>
+		<annotation cp="🦺">ασφάλεια | γιλέκο | έκτακτη ανάγκη</annotation>
+		<annotation cp="🦺" type="tts">γιλέκο ασφαλείας</annotation>
+		<annotation cp="🦻">βαρήκοος | προσβασιμότητα</annotation>
+		<annotation cp="🦻" type="tts">αυτί με ακουστικό βαρηκοΐας</annotation>
+		<annotation cp="🦼">προσβασιμότητα</annotation>
+		<annotation cp="🦼" type="tts">ηλεκτροκίνητο αναπηρικό αμαξίδιο</annotation>
+		<annotation cp="🦽">προσβασιμότητα</annotation>
+		<annotation cp="🦽" type="tts">αναπηρικό αμαξίδιο</annotation>
+		<annotation cp="🦾">προσβασιμότητα | προσθετικό μέλος</annotation>
+		<annotation cp="🦾" type="tts">μηχανικό χέρι</annotation>
+		<annotation cp="🦿">προσβασιμότητα | προσθετικό μέλος</annotation>
+		<annotation cp="🦿" type="tts">μηχανικό πόδι</annotation>
+		<annotation cp="🧃">κουτί χυμού</annotation>
+		<annotation cp="🧃" type="tts">κουτί ροφήματος</annotation>
+		<annotation cp="🧄">άρωμα | γεύση</annotation>
+		<annotation cp="🧄" type="tts">σκόρδο</annotation>
+		<annotation cp="🧅">άρωμα | γεύση</annotation>
+		<annotation cp="🧅" type="tts">κρεμμύδι</annotation>
+		<annotation cp="🧆">κεφτές | ρεβίθι</annotation>
+		<annotation cp="🧆" type="tts">φαλάφελ</annotation>
+		<annotation cp="🧇">αναποφάσιστος | βαφλιέρα</annotation>
+		<annotation cp="🧇" type="tts">βάφλα</annotation>
+		<annotation cp="🧈">γαλακτοκομικά</annotation>
+		<annotation cp="🧈" type="tts">βούτυρο</annotation>
+		<annotation cp="🧉">ρόφημα</annotation>
+		<annotation cp="🧉" type="tts">μάτε</annotation>
+		<annotation cp="🧊">κρύο | παγόβουνο</annotation>
+		<annotation cp="🧊" type="tts">παγάκι</annotation>
+		<annotation cp="🧍">στέκεται | στέκομαι</annotation>
+		<annotation cp="🧍" type="tts">άτομο που στέκεται</annotation>
+		<annotation cp="🧍‍♀">γυναίκα | στέκεται</annotation>
+		<annotation cp="🧍‍♀" type="tts">γυναίκα που στέκεται</annotation>
+		<annotation cp="🧍‍♂">άντρας | στέκεται</annotation>
+		<annotation cp="🧍‍♂" type="tts">άντρας που στέκεται</annotation>
+		<annotation cp="🧎">γονατίζω | γονατιστός</annotation>
+		<annotation cp="🧎" type="tts">άτομο που γονατίζει</annotation>
+		<annotation cp="🧎‍♀">γονατιστή | γυναίκα</annotation>
+		<annotation cp="🧎‍♀" type="tts">γυναίκα που γονατίζει</annotation>
+		<annotation cp="🧎‍♂">άντρας | γονατίζει</annotation>
+		<annotation cp="🧎‍♂" type="tts">άντρας που γονατίζει</annotation>
+		<annotation cp="🧏">ακοή | αυτί | κωφός | προσβασιμότητα</annotation>
+		<annotation cp="🧏" type="tts">κωφό άτομο</annotation>
+		<annotation cp="🧏‍♀">γυναίκα | κωφή</annotation>
+		<annotation cp="🧏‍♀" type="tts">κωφή γυναίκα</annotation>
+		<annotation cp="🧏‍♂">άντρας | κωφός</annotation>
+		<annotation cp="🧏‍♂" type="tts">κωφός άντρας</annotation>
+		<annotation cp="🩰">μπαλέτο | χορός</annotation>
+		<annotation cp="🩰" type="tts">παπούτσια μπαλέτου</annotation>
+		<annotation cp="🩱">ολόσωμο μαγιό</annotation>
+		<annotation cp="🩱" type="tts">ολόσωμο μαγιό</annotation>
+		<annotation cp="🩲">εσώρουχο | μαγιό | μονοκόμματο</annotation>
+		<annotation cp="🩲" type="tts">σλιπ</annotation>
+		<annotation cp="🩳">βερμούδα | εσώρουχο | μαγιό | σορτς</annotation>
+		<annotation cp="🩳" type="tts">σορτσάκι</annotation>
+		<annotation cp="🩸">αιμοδοσία | έμμηνος ρήση | φάρμακο</annotation>
+		<annotation cp="🩸" type="tts">σταγόνα αίματος</annotation>
+		<annotation cp="🩹">χανζαπλάστ</annotation>
+		<annotation cp="🩹" type="tts">αυτοκόλλητο χανζαπλάστ</annotation>
+		<annotation cp="🩺">γιατρός | καρδιά | φάρμακο</annotation>
+		<annotation cp="🩺" type="tts">στηθοσκόπιο</annotation>
+		<annotation cp="🪀">κουνιέμαι | παιχνίδι</annotation>
+		<annotation cp="🪀" type="tts">γιογιό</annotation>
+		<annotation cp="🪁">αιωρούμαι | πετάω</annotation>
+		<annotation cp="🪁" type="tts">χαρταετός</annotation>
+		<annotation cp="🪂">αιωροπτερισμός | αλεξίπτωτο | αλεξίπτωτο θαλάσσης | πτώση με αλεξίπτωτο</annotation>
+		<annotation cp="🪂" type="tts">αλεξίπτωτο</annotation>
+		<annotation cp="🪐">Κρόνος | σαρδόνιος</annotation>
+		<annotation cp="🪐" type="tts">πλανήτης με δακτύλιο</annotation>
+		<annotation cp="🪑">θέση | κάθισμα | κάθομαι</annotation>
+		<annotation cp="🪑" type="tts">καρέκλα</annotation>
+		<annotation cp="🪒">κοφτερό | ξύρισμα</annotation>
+		<annotation cp="🪒" type="tts">ξυράφι</annotation>
+		<annotation cp="🪓">ξύλο | σχίζω | τεμαχίζω | τσεκουράκι</annotation>
+		<annotation cp="🪓" type="tts">τσεκούρι</annotation>
+		<annotation cp="🪔">diya | λάδι | λάμπα</annotation>
+		<annotation cp="🪔" type="tts">λάμπα diya</annotation>
+		<annotation cp="🪕">έγχορδο | μουσική</annotation>
+		<annotation cp="🪕" type="tts">μπάντζο</annotation>
 	</annotations>
 </ldml>

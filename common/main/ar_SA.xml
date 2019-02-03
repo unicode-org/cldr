@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -13,25 +13,64 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="ar_001" draft="contributed">العربية الرسمية الحديثة</language>
 			<language type="arn" draft="contributed">المابودونجونية</language>
+			<language type="cy" draft="contributed">الويلزية</language>
+			<language type="de_AT" draft="contributed">الألمانية النمساوية</language>
+			<language type="de_CH" draft="contributed">الألمانية العليا السويسرية</language>
+			<language type="dsb" draft="contributed">صوربيا السفلى</language>
+			<language type="en_AU" draft="contributed">الإنجليزية الأسترالية</language>
+			<language type="en_CA" draft="contributed">الإنجليزية الكندية</language>
+			<language type="en_GB" draft="contributed">الإنجليزية البريطانية</language>
+			<language type="en_GB" alt="short" draft="contributed">الإنجليزية المملكة المتحدة</language>
+			<language type="en_US" draft="contributed">الإنجليزية الأمريكية</language>
+			<language type="en_US" alt="short" draft="contributed">الإنجليزية الولايات المتحدة</language>
+			<language type="es_419" draft="contributed">الإسبانية أمريكا اللاتينية</language>
+			<language type="es_ES" draft="contributed">الإسبانية الأوروبية</language>
+			<language type="es_MX" draft="contributed">الإسبانية المكسيكية</language>
+			<language type="fr_CA" draft="contributed">الفرنسية الكندية</language>
+			<language type="fr_CH" draft="contributed">الفرنسية السويسرية</language>
 			<language type="gn" draft="contributed">الغورانية</language>
 			<language type="hsb" draft="contributed">صوربيا العليا</language>
+			<language type="lb" draft="contributed">اللكسمبورغية</language>
 			<language type="lo" draft="contributed">اللاوو</language>
+			<language type="mg" draft="contributed">الملغاشي</language>
+			<language type="ml" draft="contributed">المالايالامية</language>
+			<language type="mr" draft="contributed">الماراثية</language>
+			<language type="nap" draft="contributed">النابولية</language>
+			<language type="nd" draft="contributed">النديبيل الشمالية</language>
+			<language type="nds_NL" draft="contributed">السكسونية السفلى</language>
+			<language type="nl_BE" draft="contributed">الفلمنكية</language>
+			<language type="om" draft="contributed">الأورومية</language>
+			<language type="or" draft="contributed">الأورية</language>
+			<language type="pt_BR" draft="contributed">البرتغالية البرازيلية</language>
+			<language type="pt_PT" draft="contributed">البرتغالية الأوروبية</language>
 			<language type="sh" draft="contributed">الكرواتية الصربية</language>
+			<language type="shn" draft="contributed">الشان</language>
 			<language type="sma" draft="contributed">سامي الجنوبية</language>
 			<language type="sw" draft="contributed">السواحيلية</language>
 			<language type="sw_CD" draft="contributed">السواحيلية الكونغولية</language>
 			<language type="te" draft="contributed">التيلوجو</language>
 			<language type="ti" draft="contributed">التيغرينية</language>
+			<language type="tt" draft="contributed">التترية</language>
+			<language type="ug" draft="contributed">الأويغورية</language>
+			<language type="ur" draft="contributed">الأوردية</language>
+			<language type="zh_Hans" draft="contributed">الصينية المبسطة</language>
+			<language type="zh_Hant" draft="contributed">الصينية التقليدية</language>
 		</languages>
 		<territories>
 			<territory type="AC" draft="contributed">جزيرة أسينشين</territory>
 			<territory type="BS" draft="contributed">جزر البهاما</territory>
+			<territory type="BW" draft="contributed">بوتسوانا</territory>
 			<territory type="CZ" alt="variant" draft="contributed">التشيك</territory>
 			<territory type="EA" draft="contributed">سبتة ومليلية</territory>
 			<territory type="MO" draft="contributed">ماكاو الصينية (منطقة إدارية خاصة)</territory>
 			<territory type="MO" alt="short" draft="contributed">ماكاو</territory>
 			<territory type="MS" draft="contributed">مونتيسيرات</territory>
+			<territory type="PM" draft="contributed">سان بيير ومكويلون</territory>
+			<territory type="SH" draft="contributed">سانت هيلينا</territory>
+			<territory type="SJ" draft="contributed">سفالبارد وجان ماين</territory>
+			<territory type="TA" draft="contributed">تريستان دا كونا</territory>
 			<territory type="UY" draft="contributed">أوروغواي</territory>
 		</territories>
 	</localeDisplayNames>
@@ -44,21 +83,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="morning1">فجرًا</dayPeriod>
-							<dayPeriod type="morning2">ص</dayPeriod>
-							<dayPeriod type="afternoon1">ظهرًا</dayPeriod>
-							<dayPeriod type="afternoon2">بعد الظهر</dayPeriod>
-							<dayPeriod type="evening1">مساءً</dayPeriod>
-							<dayPeriod type="night1">منتصف الليل</dayPeriod>
 							<dayPeriod type="night2">ل</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="morning1" draft="contributed">فجرًا</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="morning1" draft="contributed">فجرًا</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="morning1" draft="contributed">فجرًا</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="morning1" draft="contributed">فجرًا</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="morning1" draft="contributed">فجرًا</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<zone type="America/Mexico_City">
+				<exemplarCity draft="contributed">مكسيكو سيتي</exemplarCity>
+			</zone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>arab</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">arab</native>
+		</otherNumberingSystems>
 		<symbols numberSystem="latn">
 			<percentSign draft="contributed">٪</percentSign>
 		</symbols>

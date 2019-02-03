@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -753,6 +753,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="SX">စင့်မာတင်</territory>
 			<territory type="SY">ဆီးရီးယား</territory>
 			<territory type="SZ">ဆွာဇီလန်</territory>
+			<territory type="SZ" alt="variant">ဆွာဇီလန်</territory>
 			<territory type="TA">ထရစ္စတန် ဒါ ကွန်ဟာ</territory>
 			<territory type="TC">တခ်စ်နှင့်ကာအီကိုစ်ကျွန်းစု</territory>
 			<territory type="TD">ချဒ်</territory>
@@ -915,23 +916,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
 		<parseLenients scope="date" level="lenient">
-			<parseLenient sample="-" draft="contributed">[\--/]</parseLenient>
 			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
-			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
 			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
 			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
-			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
 			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
-			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
-			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
-		</parseLenients>
-		<parseLenients scope="number" level="stricter">
-			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
-			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
 		</parseLenients>
 	</characters>
 	<delimiters>
@@ -1032,6 +1024,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h B – h B</greatestDifference>
+							<greatestDifference id="h">h – h B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mm B</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mm B</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
 						</intervalFormatItem>
@@ -1518,7 +1519,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MMMEd">MMM d၊ E</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMMEd">MMMM d ရက် Eနေ့</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="other">MMMM လ W ပတ်မြောက်</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">MMM လ W ပတ်မြောက်</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
@@ -1537,8 +1538,55 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h B – h B</greatestDifference>
+							<greatestDifference id="h">h – h B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mm B</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mm B</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">G y – G y</greatestDifference>
+							<greatestDifference id="y">G y – y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">GGGGG y-MM – GGGGG y-MM   </greatestDifference>
+							<greatestDifference id="M">GGGGG y-MM – y-MM</greatestDifference>
+							<greatestDifference id="y">GGGGG y-MM – y-MM </greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="G">GGGGG y-MM-dd – GGGGG y-MM-dd</greatestDifference>
+							<greatestDifference id="M">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="y">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="G">GGGGG y-MM-dd, E – GGGGG y-MM-dd, E</greatestDifference>
+							<greatestDifference id="M">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="y">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">G y MMM – G y MMM</greatestDifference>
+							<greatestDifference id="M">G y MMM–MMM</greatestDifference>
+							<greatestDifference id="y">G y MMM – y MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">G y MMM d – d</greatestDifference>
+							<greatestDifference id="G">G y MMM d – G y MMM d   </greatestDifference>
+							<greatestDifference id="M">G y MMM d – MMM d</greatestDifference>
+							<greatestDifference id="y">G y MMM d – y MMM d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">G y MMM d, E – MMM d, E</greatestDifference>
+							<greatestDifference id="G">G y MMM d, E – G y MMM d, E</greatestDifference>
+							<greatestDifference id="M">G y MMM d, E – MMM d, E</greatestDifference>
+							<greatestDifference id="y">G y MMM d, E – y MMM d, E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">a h – a h</greatestDifference>
@@ -4374,12 +4422,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</otherNumberingSystems>
 		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
 		<symbols numberSystem="latn">
-			<decimal>.</decimal>
-			<group>,</group>
 			<list>;</list>
 			<percentSign>%</percentSign>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
@@ -4401,11 +4445,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nan>ဂဏန်းမဟုတ်သော</nan>
 		</symbols>
 		<decimalFormats numberSystem="latn">
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern>#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
 					<pattern type="1000" count="other">0ထောင်</pattern>
@@ -4552,7 +4591,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="AUD">
 				<displayName>ဩစတြေးလျ ဒေါ်လာ</displayName>
 				<displayName count="other">ဩစတြေးလျ ဒေါ်လာ</displayName>
-				<symbol>A$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="AWG">
@@ -4625,7 +4663,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="BRL">
 				<displayName>ဘရာဇီး ရီးယဲ</displayName>
 				<displayName count="other">ဘရာဇီး ရီးယဲ</displayName>
-				<symbol>R$</symbol>
 				<symbol alt="narrow" draft="contributed">R$</symbol>
 			</currency>
 			<currency type="BSD">
@@ -4660,18 +4697,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="BYR">
 				<displayName>ဘီလာရုဇ် ရူဘယ် (၂၀၀၀–၂၀၁၆)</displayName>
 				<displayName count="other">ဘီလာရုဇ် ရူဘယ် (၂၀၀၀–၂၀၁၆)</displayName>
-				<symbol draft="contributed">BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>ဘလိဇ် ဒေါ်လာ</displayName>
 				<displayName count="other">ဘလိဇ် ဒေါ်လာ</displayName>
 				<symbol draft="contributed">BZD</symbol>
-				<symbol alt="narrow">$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>ကနေဒါ ဒေါ်လာ</displayName>
 				<displayName count="other">ကနေဒါ ဒေါ်လာ</displayName>
-				<symbol>CA$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CDF">
@@ -4693,12 +4727,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="CNH">
 				<displayName>တရုတ် ယွမ် (ဟောင်ကောင်)</displayName>
 				<displayName count="other">တရုတ် ယွမ် (ဟောင်ကောင်)</displayName>
-				<symbol draft="contributed">CNH</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>တရုတ် ယွမ်</displayName>
 				<displayName count="other">တရုတ် ယွမ်</displayName>
-				<symbol>CN¥</symbol>
 				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="COP">
@@ -4710,7 +4742,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="CRC">
 				<displayName>ကို့စတာရီကာ ကိုလွန်</displayName>
 				<displayName count="other">ကို့စတာရီကာ ကိုလွန်</displayName>
-				<symbol>CRC</symbol>
 				<symbol alt="narrow" draft="contributed">₡</symbol>
 			</currency>
 			<currency type="CUC">
@@ -4786,7 +4817,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="EUR">
 				<displayName>ယူရို</displayName>
 				<displayName count="other">ယူရို</displayName>
-				<symbol>€</symbol>
 				<symbol alt="narrow" draft="contributed">€</symbol>
 			</currency>
 			<currency type="FJD">
@@ -4807,7 +4837,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="GBP">
 				<displayName>ဗြိတိသျှ ပေါင်</displayName>
 				<displayName count="other">ဗြိတိသျှ ပေါင်</displayName>
-				<symbol>£</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GEL">
@@ -4853,7 +4882,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="HKD">
 				<displayName>ဟောင်ကောင် ဒေါ်လာ</displayName>
 				<displayName count="other">ဟောင်ကောင် ဒေါ်လာ</displayName>
-				<symbol>HK$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="HNL">
@@ -4891,13 +4919,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="ILS">
 				<displayName>အစ္စရေး ရှဲကလ်အသစ်</displayName>
 				<displayName count="other">အစ္စရေး ရှဲကလ်အသစ်</displayName>
-				<symbol>₪</symbol>
 				<symbol alt="narrow" draft="contributed">₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>အိန္ဒိယ ရူပီး</displayName>
 				<displayName count="other">အိန္ဒိယ ရူပီး</displayName>
-				<symbol>₹</symbol>
 				<symbol alt="narrow" draft="contributed">₹</symbol>
 			</currency>
 			<currency type="IQD">
@@ -4930,7 +4956,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="JPY">
 				<displayName>ဂျပန် ယန်း</displayName>
 				<displayName count="other">ဂျပန် ယန်း</displayName>
-				<symbol>JP¥</symbol>
 				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="KES">
@@ -4964,7 +4989,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="KRW">
 				<displayName>တောင်ကိုရီးယား ဝမ်</displayName>
 				<displayName count="other">တောင်ကိုရီးယား ဝမ်</displayName>
-				<symbol>₩</symbol>
 				<symbol alt="narrow" draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KWD">
@@ -5087,7 +5111,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="MXN">
 				<displayName>မက်ကဆီကို ပီဆို</displayName>
 				<displayName count="other">မက်ကဆီကို ပီဆို</displayName>
-				<symbol>MX$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="MYR">
@@ -5134,7 +5157,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="NZD">
 				<displayName>နယူးဇီလန် ဒေါ်လာ</displayName>
 				<displayName count="other">နယူးဇီလန် ဒေါ်လာ</displayName>
-				<symbol>NZ$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="OMR">
@@ -5346,7 +5368,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="TWD">
 				<displayName>ထိုင်ဝမ် ဒေါ်လာအသစ်</displayName>
 				<displayName count="other">ထိုင်ဝမ် ဒေါ်လာအသစ်</displayName>
-				<symbol>NT$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="TZS">
@@ -5368,7 +5389,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="USD">
 				<displayName>အမေရိကန် ဒေါ်လာ</displayName>
 				<displayName count="other">အမေရိကန် ဒေါ်လာ</displayName>
-				<symbol>US$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="USN">
@@ -5401,7 +5421,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="VND">
 				<displayName>ဗီယက်နမ် ဒေါင်</displayName>
 				<displayName count="other">ဗီယက်နမ် ဒေါင်</displayName>
-				<symbol>₫</symbol>
 				<symbol alt="narrow" draft="contributed">₫</symbol>
 			</currency>
 			<currency type="VUV">
@@ -5417,7 +5436,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="XAF">
 				<displayName>ကင်မရွန်း ဖရန့်</displayName>
 				<displayName count="other">ကင်မရွန်း ဖရန့်</displayName>
-				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName>ငွေ</displayName>
@@ -5431,7 +5449,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="XCD">
 				<displayName>အရှေ့ကာရစ်ဘီယံ ဒေါ်လာ</displayName>
 				<displayName count="other">အရှေ့ကာရစ်ဘီယံ ဒေါ်လာ</displayName>
-				<symbol>EC$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="XDR">
@@ -5440,12 +5457,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="XOF">
 				<displayName>အနောက် အာဖရိက CFA ဖရန့်</displayName>
 				<displayName count="other">အနောက် အာဖရိက CFA ဖရန့်</displayName>
-				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP ဖရန့်</displayName>
 				<displayName count="other">CFP ဖရန့်</displayName>
-				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>ပလက်တီနမ်</displayName>
@@ -5563,6 +5578,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} စတုရန်းလက်မ</unitPattern>
 				<perUnitPattern>တစ်စတုရန်းလက်မလျှင် {0}</perUnitPattern>
 			</unit>
+			<unit type="area-dunam">
+				<displayName>dunams</displayName>
+				<unitPattern count="other">{0} dunam</unitPattern>
+			</unit>
 			<unit type="concentr-karat">
 				<displayName>ကာရက်</displayName>
 				<unitPattern count="other">{0} ကာရက်</unitPattern>
@@ -5586,6 +5605,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-permille">
 				<displayName>ထောင်လီစိတ်</displayName>
 				<unitPattern count="other">{0} ထောင်လီစိတ်</unitPattern>
+			</unit>
+			<unit type="concentr-permyriad">
+				<displayName>ပါမီရိတ်</displayName>
+				<unitPattern count="other">{0} ပါမီရိတ်</unitPattern>
+			</unit>
+			<unit type="concentr-mole">
+				<displayName>mol</displayName>
+				<unitPattern count="other">{0} mol</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>တစ်ကီလိုမီတာရှိ လီတာ</displayName>
@@ -5738,6 +5765,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ကီလိုဝပ်-နာရီ</displayName>
 				<unitPattern count="other">{0} ကီလိုဝပ်-နာရီ</unitPattern>
 			</unit>
+			<unit type="energy-electronvolt">
+				<displayName>အီလက်ထရွန်ဗို့</displayName>
+				<unitPattern count="other">{0} အီလက်ထရွန်ဗို့</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit">
+				<displayName>ဗြိတိသျှ သာမယ်လ်ယူနစ်</displayName>
+				<unitPattern count="other">{0} ဗြိတိသျှ သာမယ်လ်ယူနစ်</unitPattern>
+			</unit>
+			<unit type="force-pound-force">
+				<displayName>lbf</displayName>
+				<unitPattern count="other">{0} lbf</unitPattern>
+			</unit>
+			<unit type="force-newton">
+				<displayName>နယူတန်</displayName>
+				<unitPattern count="other">{0} နယူတန်</unitPattern>
+			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>ဂီဂါဟတ်ဇ်</displayName>
 				<unitPattern count="other">{0} ဂီဂါဟတ်ဇ်</unitPattern>
@@ -5831,9 +5874,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ပွိုင့်</displayName>
 				<unitPattern count="other">{0} ပွိုင့်</unitPattern>
 			</unit>
+			<unit type="length-solar-radius">
+				<displayName>ဆိုလာ ရာဒီ</displayName>
+				<unitPattern count="other">{0} ဆိုလာ ရာဒီ</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>လတ်ခ်</displayName>
 				<unitPattern count="other">{0} လတ်ခ်</unitPattern>
+			</unit>
+			<unit type="light-solar-luminosity">
+				<displayName>ဆိုလာ လူမီနိုစီတီးစ်</displayName>
+				<unitPattern count="other">{0} ဆိုလာ လူမီနိုစီးတီးစ်</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>မက်ထရစ်တန်</displayName>
@@ -5878,6 +5929,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-carat">
 				<displayName>ကာရက်</displayName>
 				<unitPattern count="other">{0} ကာရက်</unitPattern>
+			</unit>
+			<unit type="mass-dalton">
+				<displayName>ဒဲလ်တန်စ်</displayName>
+				<unitPattern count="other">{0} ဒဲလ်တန်စ်</unitPattern>
+			</unit>
+			<unit type="mass-earth-mass">
+				<displayName>ကမ္ဘာ့ဒြပ်ထု</displayName>
+				<unitPattern count="other">{0} ကမ္ဘာ့ဒြပ်ထု</unitPattern>
+			</unit>
+			<unit type="mass-solar-mass">
+				<displayName>နေရောင်ခြည် ဒြပ်ထု</displayName>
+				<unitPattern count="other">{0} နေရောင်ခြည် ဒြပ်ထု</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ဂစ်ဂါဝပ်</displayName>
@@ -5927,6 +5990,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ကမ္ဘာ့လေထု</displayName>
 				<unitPattern count="other">{0} ကမ္ဘာ့လေထု</unitPattern>
 			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName>ကီလိုပါစကယ်</displayName>
+				<unitPattern count="other">{0} ကီလိုပါစကယ်</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName>မီဂါပါစကယ်</displayName>
+				<unitPattern count="other">{0} မီဂါပါစကယ်</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ကီလိုမီတာ/နာရီ</displayName>
 				<unitPattern count="other">တစ်နာရီလျှင် {0} ကီလိုမီတာ</unitPattern>
@@ -5958,6 +6029,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="temperature-kelvin">
 				<displayName>ကယ်လ်ဗင်</displayName>
 				<unitPattern count="other">{0} ကယ်လ်ဗင်</unitPattern>
+			</unit>
+			<unit type="torque-pound-foot">
+				<displayName>lbf.ft</displayName>
+				<unitPattern count="other">{0} lbf.ft</unitPattern>
+			</unit>
+			<unit type="torque-newton-meter">
+				<displayName>နယူတန်−မီတာ</displayName>
+				<unitPattern count="other">{0} နယူတန်−မီတာ</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>ကုဗကီလိုမီတာ</displayName>
@@ -6052,6 +6131,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>အရည်အောင်စ</displayName>
 				<unitPattern count="other">{0} အရည်အောင်စ</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<displayName>Imp. fl oz</displayName>
+				<unitPattern count="other">{0} Imp. fl oz</unitPattern>
+			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>စားပွဲဇွန်း</displayName>
 				<unitPattern count="other">စားပွဲဇွန်း {0} ဇွန်း</unitPattern>
@@ -6059,6 +6142,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-teaspoon">
 				<displayName>လက်ဖက်ရည်ဇွန်း</displayName>
 				<unitPattern count="other">လက်ဖက်ရည်ဇွန်း {0} ဇွန်း</unitPattern>
+			</unit>
+			<unit type="volume-barrel">
+				<displayName>ဘယ်ရလ်စ်</displayName>
+				<unitPattern count="other">{0} ဘယ်ရလ်စ်</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>အရပ် လေးမျက်နှာ</displayName>
@@ -6141,6 +6228,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
+			<unit type="area-dunam">
+				<displayName>dunams</displayName>
+				<unitPattern count="other">{0} dunam</unitPattern>
+			</unit>
 			<unit type="concentr-karat">
 				<displayName>ကာရက်</displayName>
 				<unitPattern count="other">{0} kt</unitPattern>
@@ -6164,6 +6255,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-permille">
 				<displayName>‰</displayName>
 				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
+			<unit type="concentr-permyriad">
+				<displayName>ပါမီရိတ်</displayName>
+				<unitPattern count="other">{0}‱</unitPattern>
+			</unit>
+			<unit type="concentr-mole">
+				<displayName>mol</displayName>
+				<unitPattern count="other">{0} mol</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>လီတာ/ကီလိုမီတာ</displayName>
@@ -6316,6 +6415,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ကီလိုဝပ်-နာရီ</displayName>
 				<unitPattern count="other">{0} kWh</unitPattern>
 			</unit>
+			<unit type="energy-electronvolt">
+				<displayName>အီလက်ထရွန်ဗို့</displayName>
+				<unitPattern count="other">{0} eV</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit">
+				<displayName>BTU</displayName>
+				<unitPattern count="other">{0} Btu</unitPattern>
+			</unit>
+			<unit type="force-pound-force">
+				<displayName>lbf</displayName>
+				<unitPattern count="other">{0} lbf</unitPattern>
+			</unit>
+			<unit type="force-newton">
+				<displayName>နယူတန်</displayName>
+				<unitPattern count="other">{0} N</unitPattern>
+			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>ဂီဂါဟတ်ဇ်</displayName>
 				<unitPattern count="other">{0} GHz</unitPattern>
@@ -6409,9 +6524,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ပွိုင့်</displayName>
 				<unitPattern count="other">{0} ပွိုင့်</unitPattern>
 			</unit>
+			<unit type="length-solar-radius">
+				<displayName>ဆိုလာ ရာဒီ</displayName>
+				<unitPattern count="other">{0} R☉</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>လတ်ခ်</displayName>
 				<unitPattern count="other">{0} lx</unitPattern>
+			</unit>
+			<unit type="light-solar-luminosity">
+				<displayName>ဆိုလာ လူမီနိုစီးတီးစ်</displayName>
+				<unitPattern count="other">{0} L☉</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>မက်ထရစ်တန်</displayName>
@@ -6456,6 +6579,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-carat">
 				<displayName>ကာရက်</displayName>
 				<unitPattern count="other">{0} CD</unitPattern>
+			</unit>
+			<unit type="mass-dalton">
+				<displayName>ဒဲလ်တန်စ်</displayName>
+				<unitPattern count="other">{0} Da</unitPattern>
+			</unit>
+			<unit type="mass-earth-mass">
+				<displayName>ကမ္ဘာ့ဒြပ်ထု</displayName>
+				<unitPattern count="other">{0} M⊕</unitPattern>
+			</unit>
+			<unit type="mass-solar-mass">
+				<displayName>နေရောင်ခြည် ဒြပ်ထု</displayName>
+				<unitPattern count="other">{0} M☉</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ဂစ်ဂါဝပ်</displayName>
@@ -6505,6 +6640,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>atm</displayName>
 				<unitPattern count="other">{0} atm</unitPattern>
 			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName>kPa</displayName>
+				<unitPattern count="other">{0} kPa</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName>MPa</displayName>
+				<unitPattern count="other">{0} MPa</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ကီလိုမီတာ/နာရီ</displayName>
 				<unitPattern count="other">{0} km/h</unitPattern>
@@ -6536,6 +6679,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="temperature-kelvin">
 				<displayName>K</displayName>
 				<unitPattern count="other">{0} K</unitPattern>
+			</unit>
+			<unit type="torque-pound-foot">
+				<displayName>lbf.ft</displayName>
+				<unitPattern count="other">{0} lbf.ft</unitPattern>
+			</unit>
+			<unit type="torque-newton-meter">
+				<displayName>N.m</displayName>
+				<unitPattern count="other">{0} N.m</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>ကုဗကီလိုမီတာ</displayName>
@@ -6630,6 +6781,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>အရည်အောင်စ</displayName>
 				<unitPattern count="other">{0} fl oz</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<displayName>Imp. fl oz</displayName>
+				<unitPattern count="other">{0} fl oz Imp.</unitPattern>
+			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>စားပွဲဇွန်း</displayName>
 				<unitPattern count="other">{0} tbsp</unitPattern>
@@ -6637,6 +6792,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-teaspoon">
 				<displayName>လက်ဖက်ရည်ဇွန်း</displayName>
 				<unitPattern count="other">{0} tsp</unitPattern>
+			</unit>
+			<unit type="volume-barrel">
+				<displayName>ဘယ်ရလ်</displayName>
+				<unitPattern count="other">{0} bbl</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>လမ်းကြောင်း</displayName>

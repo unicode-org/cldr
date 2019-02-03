@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -80,6 +80,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="cad">କାଡୋ</language>
 			<language type="car">କାରିବ୍</language>
 			<language type="cch">ଆତ୍ସମ୍</language>
+			<language type="ccp">ଚକମା</language>
 			<language type="ce">ଚେଚନ୍</language>
 			<language type="ceb">ସୀବୁଆନୋ</language>
 			<language type="cgg">ଚିଗା</language>
@@ -926,7 +927,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="SV">ଏଲ୍ ସାଲଭାଡୋର୍</territory>
 			<territory type="SX">ସିଣ୍ଟ ମାର୍ଟୀନ୍‌</territory>
 			<territory type="SY">ସିରିଆ</territory>
-			<territory type="SZ">ସ୍ୱାଜିଲ୍ୟାଣ୍ଡ</territory>
+			<territory type="SZ">ଇସ୍ୱାତିନୀ</territory>
+			<territory type="SZ" alt="variant">ସ୍ୱାଜିଲ୍ୟାଣ୍ଡ</territory>
 			<territory type="TA">ଟ୍ରାଇଷ୍ଟନ୍‌ ଦା କୁନ୍‌ଚା</territory>
 			<territory type="TC">ତୁର୍କସ୍‌ ଏବଂ କାଇକୋସ୍‌ ଦ୍ୱୀପପୁଞ୍ଜ</territory>
 			<territory type="TD">ଚାଦ୍</territory>
@@ -962,6 +964,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="VU">ଭାନୁଆତୁ</territory>
 			<territory type="WF">ୱାଲିସ୍ ଏବଂ ଫୁତୁନା</territory>
 			<territory type="WS">ସାମୋଆ</territory>
+			<territory type="XA">ସିୟୁଡୋ-ଏସେଣ୍ଟ</territory>
+			<territory type="XB">ସିୟୁଡୋ-ବିଡି</territory>
 			<territory type="XK">କୋସୋଭୋ</territory>
 			<territory type="YE">ୟେମେନ୍</territory>
 			<territory type="YT">ମାୟୋଟେ</territory>
@@ -4538,13 +4542,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<otherNumberingSystems>
 			<native>orya</native>
 		</otherNumberingSystems>
-		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
 		<symbols numberSystem="latn">
-			<decimal>.</decimal>
-			<group>,</group>
 			<percentSign>%</percentSign>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
@@ -4552,11 +4551,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nan>NaN</nan>
 		</symbols>
 		<symbols numberSystem="orya">
-			<decimal>.</decimal>
-			<group>,</group>
 			<percentSign>%</percentSign>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
@@ -5858,6 +5853,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ବର୍ଗ ଇଞ୍ଚ</unitPattern>
 				<perUnitPattern>{0} ପ୍ରତି ବର୍ଗ ଇଞ୍ଚ</perUnitPattern>
 			</unit>
+			<unit type="area-dunam">
+				<displayName>ଡୁନାମ</displayName>
+				<unitPattern count="one">{0} ଡୁନାମ</unitPattern>
+				<unitPattern count="other">{0} ଡୁନାମ</unitPattern>
+			</unit>
 			<unit type="concentr-karat">
 				<displayName>କ୍ୟାରେଟ୍</displayName>
 				<unitPattern count="one">{0} କ୍ୟାରେଟ୍</unitPattern>
@@ -5887,6 +5887,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ପରମିଲ</displayName>
 				<unitPattern count="one">{0} ପରମିଲ</unitPattern>
 				<unitPattern count="other">{0} ପରମିଲ</unitPattern>
+			</unit>
+			<unit type="concentr-permyriad">
+				<displayName>ପରମାଇରିଆଡ</displayName>
+				<unitPattern count="one">{0} ପରମାଇରିଆଡ</unitPattern>
+				<unitPattern count="other">{0} ପରମାଇରିଆଡ</unitPattern>
+			</unit>
+			<unit type="concentr-mole">
+				<displayName>ମୋଲସ</displayName>
+				<unitPattern count="one">{0} ମୋଲ</unitPattern>
+				<unitPattern count="other">{0} ମୋଲସ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ଲିଟର୍ ପ୍ରତି କିଲୋମିଟର୍</displayName>
@@ -6075,6 +6085,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} କିଲୋୱାଟ୍-ଘଣ୍ଟା</unitPattern>
 				<unitPattern count="other">{0} କିଲୋୱାଟ୍-ଘଣ୍ଟା</unitPattern>
 			</unit>
+			<unit type="energy-electronvolt">
+				<displayName>ଇଲେକ୍ଟ୍ରୋନ୍‌ ଭୋଲ୍ଟ</displayName>
+				<unitPattern count="one">{0} ଇଲେକ୍ଟ୍ରୋନ୍‌ ଭୋଲ୍ଟ</unitPattern>
+				<unitPattern count="other">{0} ଇଲେକ୍ଟ୍ରୋନ୍‌ ଭୋଲ୍ଟ</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit">
+				<displayName>ବ୍ରିଟିଶ ଥର୍ମାଲ ଏକକ</displayName>
+				<unitPattern count="one">{0} ବ୍ରିଟିଶ ଥର୍ମାଲ ଏକକ</unitPattern>
+				<unitPattern count="other">{0} ବ୍ରିଟିଶ ଥର୍ମାଲ ଏକକ</unitPattern>
+			</unit>
+			<unit type="force-pound-force">
+				<displayName>ପାଉଣ୍ଡସ ଅଫ ଫୋର୍ସ</displayName>
+				<unitPattern count="one">{0} ପାଉଣ୍ଡସ ଅଫ ଫୋର୍ସ</unitPattern>
+				<unitPattern count="other">{0} ପାଉଣ୍ଡସ ଅଫ ଫୋର୍ସ</unitPattern>
+			</unit>
+			<unit type="force-newton">
+				<displayName>ନ୍ୟୁଟନ୍ସ</displayName>
+				<unitPattern count="one">{0} ନ୍ୟୁଟନ</unitPattern>
+				<unitPattern count="other">{0} ନ୍ୟୁଟନ୍ସ</unitPattern>
+			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>ଗିଗାହର୍ଜ୍</displayName>
 				<unitPattern count="one">{0} ଗିଗାହର୍ଜ୍</unitPattern>
@@ -6190,10 +6220,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ପଏଣ୍ଟ୍</unitPattern>
 				<unitPattern count="other">{0} ପଏଣ୍ଟ୍</unitPattern>
 			</unit>
+			<unit type="length-solar-radius">
+				<displayName>ସୋଲାର ରାଡି</displayName>
+				<unitPattern count="one">{0} ସୋଲାର ବ୍ୟାସାର୍ଦ୍ଧ</unitPattern>
+				<unitPattern count="other">{0} ସୋଲାର ରାଡି</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>ଲକ୍ସ</displayName>
 				<unitPattern count="one">{0} ଲକ୍ସ</unitPattern>
 				<unitPattern count="other">{0} ଲକ୍ସ</unitPattern>
+			</unit>
+			<unit type="light-solar-luminosity">
+				<displayName>ସୋଲର ଲ୍ୟୁମିନୋସିଟିସ</displayName>
+				<unitPattern count="one">{0} ସୋଲର ଲ୍ୟୁମିନୋସିଟି</unitPattern>
+				<unitPattern count="other">{0} ସୋଲର ଲ୍ୟୁମିନୋସିଟିସ</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>ମେଟ୍ରିକ୍ ଟନ୍</displayName>
@@ -6248,6 +6288,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>କ୍ୟାରେଟ୍</displayName>
 				<unitPattern count="one">{0} କ୍ୟାରେଟ୍</unitPattern>
 				<unitPattern count="other">{0} କ୍ୟାରେଟ୍</unitPattern>
+			</unit>
+			<unit type="mass-dalton">
+				<displayName>ଡାଲ୍ଟନ</displayName>
+				<unitPattern count="one">{0} ଡାଲ୍ଟନ</unitPattern>
+				<unitPattern count="other">{0} ଡାଲ୍ଟନ</unitPattern>
+			</unit>
+			<unit type="mass-earth-mass">
+				<displayName>ଅର୍ଥ ମାସେସ</displayName>
+				<unitPattern count="one">{0} ଅର୍ଥ ମାସ</unitPattern>
+				<unitPattern count="other">{0} ଅର୍ଥ ମାସେସ</unitPattern>
+			</unit>
+			<unit type="mass-solar-mass">
+				<displayName>ସୋଲର ମାସେସ</displayName>
+				<unitPattern count="one">{0} ସୋଲର ମାସ</unitPattern>
+				<unitPattern count="other">{0} ସୋଲର ମାସେସ</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ଗିଗାୱାଟ୍</displayName>
@@ -6309,6 +6364,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ଆଟମୋସ୍ପିଅର</unitPattern>
 				<unitPattern count="other">{0} ଆଟମୋସ୍ପିଅର</unitPattern>
 			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName>କିଲୋପାସକଲ</displayName>
+				<unitPattern count="one">{0} କିଲୋପାସକଲ</unitPattern>
+				<unitPattern count="other">{0} କିଲୋପାସକଲ</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName>ମେଗାପାସକଲ</displayName>
+				<unitPattern count="one">{0} ମେଗାପାସକଲ</unitPattern>
+				<unitPattern count="other">{0} ମେଗାପାସକଲ</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>କିଲୋମିଟର୍ ପ୍ରତି ଘଣ୍ଟା</displayName>
 				<unitPattern count="one">{0} କିଲୋମିଟର୍ ପ୍ରତି ଘଣ୍ଟା</unitPattern>
@@ -6348,6 +6413,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>କେଲଭିନ୍</displayName>
 				<unitPattern count="one">{0} କେଲଭିନ୍</unitPattern>
 				<unitPattern count="other">{0} କେଲଭିନ୍</unitPattern>
+			</unit>
+			<unit type="torque-pound-foot">
+				<displayName>ପାଉଣ୍ଡ-ଫିଟ</displayName>
+				<unitPattern count="one">{0} ପାଉଣ୍ଡ-ଫୁଟ</unitPattern>
+				<unitPattern count="other">{0} ପାଉଣ୍ଡ-ଫିଟ</unitPattern>
+			</unit>
+			<unit type="torque-newton-meter">
+				<displayName>ନ୍ୟୁଟନ-ମିଟର୍ସ</displayName>
+				<unitPattern count="one">{0} ନ୍ୟୁଟନ-ମିଟର</unitPattern>
+				<unitPattern count="other">{0} ନ୍ୟୁଟନ-ମିଟର୍ସ</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>କ୍ୟୁବିକ୍ କିଲୋମିଟର୍</displayName>
@@ -6464,6 +6539,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ଫ୍ଲୁଇଡ୍ ଆଉନ୍ସ</unitPattern>
 				<unitPattern count="other">{0} ଫ୍ଲୁଇଡ୍ ଆଉନ୍ସ</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<displayName>ଇମ୍ପେରିଅଲ ତରଳ ଆଉନ୍ସ</displayName>
+				<unitPattern count="one">{0} ଇମ୍ପ. ତରଳ ଆଉନ୍ସ</unitPattern>
+				<unitPattern count="other">{0} ଇମ୍ପ. ତରଳ ଆଉନ୍ସ</unitPattern>
+			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>ଖାଇବା ଚାମଚ</displayName>
 				<unitPattern count="one">{0} ଖାଇବା ଚାମଚ</unitPattern>
@@ -6473,6 +6553,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ଛୋଟ ଚାମଚ</displayName>
 				<unitPattern count="one">{0} ଛୋଟ ଚାମଚ</unitPattern>
 				<unitPattern count="other">{0} ଛୋଟ ଚାମଚ</unitPattern>
+			</unit>
+			<unit type="volume-barrel">
+				<displayName>ବାରେଲ</displayName>
+				<unitPattern count="one">{0} ବାରେଲ</unitPattern>
+				<unitPattern count="other">{0} ବାରେଲ</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>ପ୍ରଧାନ ଦିଶା</displayName>
@@ -6571,6 +6656,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ଇଞ୍ଚ²</unitPattern>
 				<perUnitPattern>{0}/ଇଞ୍ଚ²</perUnitPattern>
 			</unit>
+			<unit type="area-dunam">
+				<displayName>ଡୁନାମ</displayName>
+				<unitPattern count="one">{0} ଡୁନାମ</unitPattern>
+				<unitPattern count="other">{0} ଡୁନାମ</unitPattern>
+			</unit>
 			<unit type="concentr-karat">
 				<displayName>କ୍ୟାରେଟ୍</displayName>
 				<unitPattern count="one">{0} kt</unitPattern>
@@ -6600,6 +6690,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ପରମିଲ</displayName>
 				<unitPattern count="one">{0}‰</unitPattern>
 				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
+			<unit type="concentr-permyriad">
+				<displayName>ପରମାଇରିଆଡ</displayName>
+			</unit>
+			<unit type="concentr-mole">
+				<displayName>ମୋଲ</displayName>
+				<unitPattern count="one">ମୋଲ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ଲିଟର୍/କିମି</displayName>
@@ -6788,6 +6885,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} କିୱାଘ</unitPattern>
 				<unitPattern count="other">{0} କିୱାଘ</unitPattern>
 			</unit>
+			<unit type="energy-electronvolt">
+				<displayName>ଇଲେକ୍ଟ୍ରୋନ୍‌ ଭୋଲ୍ଟ</displayName>
+			</unit>
+			<unit type="force-pound-force">
+				<displayName>ପାଉଣ୍ଡ-ଫୋର୍ସ</displayName>
+			</unit>
+			<unit type="force-newton">
+				<displayName>ନ୍ୟୁଟନ</displayName>
+			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>GHz</displayName>
 				<unitPattern count="one">{0} GHz</unitPattern>
@@ -6903,10 +7009,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ପ</unitPattern>
 				<unitPattern count="other">{0} ପ</unitPattern>
 			</unit>
+			<unit type="length-solar-radius">
+				<displayName>ସୋଲାର ରାଡି</displayName>
+			</unit>
 			<unit type="light-lux">
 				<displayName>ଲକ୍ସ</displayName>
 				<unitPattern count="one">{0} ଲକ୍ସ</unitPattern>
 				<unitPattern count="other">{0} ଲକ୍ସ</unitPattern>
+			</unit>
+			<unit type="light-solar-luminosity">
+				<displayName>ସୋଲର ଲ୍ୟୁମିନୋସିଟିସ</displayName>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>ଟ</displayName>
@@ -6961,6 +7073,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>କ୍ୟାରେଟ୍</displayName>
 				<unitPattern count="one">{0} ସିଡି</unitPattern>
 				<unitPattern count="other">{0} ସିଡି</unitPattern>
+			</unit>
+			<unit type="mass-dalton">
+				<displayName>ଡାଲ୍ଟନ</displayName>
+				<unitPattern count="one">{0} ଡିଏ</unitPattern>
+				<unitPattern count="other">{0} ଡିଏ</unitPattern>
+			</unit>
+			<unit type="mass-earth-mass">
+				<displayName>ଅର୍ଥ ମାସେସ</displayName>
+			</unit>
+			<unit type="mass-solar-mass">
+				<displayName>ସୋଲର ମାସେସ</displayName>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ଗିୱା</displayName>
@@ -7177,6 +7300,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ଫ୍ଲୁ ଓଜ୍</unitPattern>
 				<unitPattern count="other">{0} ଫ୍ଲୁ ଓଜ୍</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<displayName>ଇମ୍ପ. ଏଫଏଲ ଓଜେ</displayName>
+			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>ଖାଇବା ଚାମଚ</displayName>
 				<unitPattern count="one">{0} ଖାଇବା ଚାମଚ</unitPattern>
@@ -7186,6 +7312,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ଛୋଟ ଚାମଚ</displayName>
 				<unitPattern count="one">{0} ଛୋଟ ଚାମଚ</unitPattern>
 				<unitPattern count="other">{0} ଛୋଟ ଚାମଚ</unitPattern>
+			</unit>
+			<unit type="volume-barrel">
+				<displayName>ବାରେଲ</displayName>
 			</unit>
 			<coordinateUnit>
 				<displayName>ଦିଗ</displayName>
@@ -7326,10 +7455,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="2">{0} କିମ୍ବା {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0}, ଓ {1}</listPatternPart>
-			<listPatternPart type="2">{0} ଓ {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
@@ -7462,7 +7588,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<axisName type="wdth">ଚ‍ଉଡା</axisName>
 		<axisName type="wght">ଓଜନ</axisName>
 		<styleName type="ital" subtype="1">କରଣୀ ଲେଖା</styleName>
-		<styleName type="opsz" subtype="8">ଶୀର୍ଷକ</styleName>
+		<styleName type="opsz" subtype="8">ଶିରୋନାମା</styleName>
 		<styleName type="opsz" subtype="12">ପାଠ୍ୟ</styleName>
 		<styleName type="opsz" subtype="18">ଶୀର୍ଷକ</styleName>
 		<styleName type="opsz" subtype="72">ପ୍ରଦର୍ଶନ</styleName>

@@ -29,14 +29,22 @@ terms of use, see http://www.unicode.org/copyright.html
 			<language type="bs">bs</language>
 			<language type="co">Korsika</language>
 			<language type="de">Jérman</language>
+			<language type="de_AT">Jérman (Ostenrik)</language>
+			<language type="de_CH">Jérman (Switserlan)</language>
 			<language type="en">Inggris</language>
+			<language type="en_AU">Inggris (Ostrali)</language>
+			<language type="en_CA">Inggris (Kanada)</language>
+			<language type="en_GB">Inggris (Karajan Manunggal)</language>
 			<language type="en_GB" alt="short">Inggris (Britania)</language>
+			<language type="en_US">Inggris (Amérika Sarékat)</language>
 			<language type="en_US" alt="short">Inggris (AS)</language>
 			<language type="es">Spanyol</language>
 			<language type="es_419">Spanyol (Amerika Latin)</language>
 			<language type="es_ES">Spanyol (Eropah)</language>
 			<language type="es_MX">Spanyol (Meksiko)</language>
 			<language type="fr">Prancis</language>
+			<language type="fr_CA">Prancis (Kanada)</language>
+			<language type="fr_CH">Prancis (Switserlan)</language>
 			<language type="hi">India</language>
 			<language type="id">Indonesia</language>
 			<language type="it">Italia</language>
@@ -47,6 +55,8 @@ terms of use, see http://www.unicode.org/copyright.html
 			<language type="nl_BE">Flemis</language>
 			<language type="pl">Polandia</language>
 			<language type="pt">Portugis</language>
+			<language type="pt_BR">Portugis (Brasil)</language>
+			<language type="pt_PT">Portugis (Portugal)</language>
 			<language type="ru">Rusia</language>
 			<language type="th">Thailand</language>
 			<language type="tr">Turki</language>
@@ -148,6 +158,7 @@ terms of use, see http://www.unicode.org/copyright.html
 			<territory type="CG" alt="variant">Républik Kongo</territory>
 			<territory type="CH">Switserlan</territory>
 			<territory type="CI">Pasisir Gadhing</territory>
+			<territory type="CI" alt="variant">Pasisir Gadhing</territory>
 			<territory type="CK">Kapuloan Cook</territory>
 			<territory type="CL">Cilé</territory>
 			<territory type="CM">Kamerun</territory>
@@ -401,8 +412,8 @@ terms of use, see http://www.unicode.org/copyright.html
 		<exemplarCharacters>[a â å b c d e é è ê g h i ì j k l m n o ò p r s t u ù w y]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[f q v x z]</exemplarCharacters>
 		<exemplarCharacters type="index">[A Â Å B C D E É È Ê G H I Ì J K L M N O Ò P R S T U Ù W Y]</exemplarCharacters>
-		<exemplarCharacters type="numbers" draft="contributed">[\- , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="contributed">[\- , ; \: ! ? . ( ) \[ \] \{ \}]</exemplarCharacters>
+		<exemplarCharacters type="numbers" draft="contributed">[%+-.0-9‰]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">[!(),-.\:;?\[\]\{\}]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
@@ -4262,7 +4273,7 @@ terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
-			<pattern type="atLeast">≥{0}</pattern>
+			<pattern type="atLeast">⩾{0}</pattern>
 			<pattern type="range">{0} – {1}</pattern>
 		</miscPatterns>
 		<minimalPairs>

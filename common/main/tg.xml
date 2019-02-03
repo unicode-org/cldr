@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2017 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -41,16 +41,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="cy">валлӣ</language>
 			<language type="da">даниягӣ</language>
 			<language type="de">немисӣ</language>
+			<language type="de_AT">немисӣ (Австрия)</language>
+			<language type="de_CH">немисӣ (Швейтсария)</language>
 			<language type="dsb">сербии поёнӣ</language>
 			<language type="dv">дивеҳӣ</language>
 			<language type="dz">дзонгха</language>
 			<language type="el">юнонӣ</language>
 			<language type="en">англисӣ</language>
+			<language type="en_AU">англисӣ (Австралия)</language>
+			<language type="en_CA">англисӣ (Канада)</language>
+			<language type="en_GB">англисӣ (Шоҳигарии Муттаҳида)</language>
 			<language type="en_GB" alt="short">англисӣ (ШМ)</language>
+			<language type="en_US">англисӣ (Иёлоти Муттаҳида)</language>
 			<language type="en_US" alt="short">англисӣ (ИМ)</language>
 			<language type="eo">эсперанто</language>
 			<language type="es">испанӣ</language>
 			<language type="es_419">испанӣ (Америкаи Лотинӣ)</language>
+			<language type="es_ES">испанӣ (Испания)</language>
+			<language type="es_MX">испанӣ (Мексика)</language>
 			<language type="et">эстонӣ</language>
 			<language type="eu">баскӣ</language>
 			<language type="fa">форсӣ</language>
@@ -59,6 +67,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fil">филиппинӣ</language>
 			<language type="fo">фарерӣ</language>
 			<language type="fr">франсузӣ</language>
+			<language type="fr_CA">франсузӣ (Канада)</language>
+			<language type="fr_CH">франсузӣ (Швейтсария)</language>
 			<language type="fy">фризии ғарбӣ</language>
 			<language type="ga">ирландӣ</language>
 			<language type="gd">шотландии гэлӣ</language>
@@ -126,6 +136,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pl">лаҳистонӣ</language>
 			<language type="ps">пушту</language>
 			<language type="pt">португалӣ</language>
+			<language type="pt_BR">португалӣ (Бразилия)</language>
+			<language type="pt_PT">португалӣ (Португалия)</language>
 			<language type="qu">кечуа</language>
 			<language type="quc">киче</language>
 			<language type="rm">ретороманӣ</language>
@@ -461,7 +473,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters>[а б в г ғ д е ё ж з и ӣ й к қ л м н о п р с т у ӯ ф х ҳ ч ҷ ш ъ э ю я]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[ц щ ы ь]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="unconfirmed">[А Б В Г Ғ Д Е Ж З И Й К Қ Л М Н О П Р С Т У Ф Х Ҳ Ч Ҷ Ш Ъ Э Ю Я]</exemplarCharacters>
-		<exemplarCharacters type="numbers">[  \- , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>«</quotationStart>
@@ -761,12 +772,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="unconfirmed">пе. чо.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">па. чо.</dayPeriod>
+							<dayPeriod type="am" draft="unconfirmed">пе. чо.</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">па. чо.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">пе. чо.</dayPeriod>
-							<dayPeriod type="pm">па. чо.</dayPeriod>
+							<dayPeriod type="am">пе. чо.</dayPeriod>
+							<dayPeriod type="pm">па. чо.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -871,7 +882,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="other">'ҳафтаи' W, MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">'ҳафтаи' W, MMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">MM-y</dateFormatItem>
@@ -883,7 +894,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">'ҳафтаи' w, Y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'ҳафтаи' w, y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -950,7 +961,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>рӯзи ҳафта</displayName>
 			</field>
 			<field type="dayperiod">
-				<displayName>пе. чо./па. чо.</displayName>
+				<displayName>пе. чо./па. чо.</displayName>
 			</field>
 			<field type="hour">
 				<displayName>соат</displayName>
@@ -1175,7 +1186,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
-			<pattern type="atLeast">≥{0}</pattern>
+			<pattern type="atLeast">⩾{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 	</numbers>

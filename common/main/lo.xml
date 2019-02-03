@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -973,7 +973,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="SV">ເອວ ຊໍວາດໍ</territory>
 			<territory type="SX">ຊິນ ມາເທັນ</territory>
 			<territory type="SY">ຊີເຣຍ</territory>
-			<territory type="SZ">ສະວາຊິແລນ</territory>
+			<territory type="SZ">​ເອ​ສະ​ວາ​ຕິ​ນີ</territory>
+			<territory type="SZ" alt="variant">ສະ​ວາ​ຊິ​ແລນ</territory>
 			<territory type="TA">ທຣິສຕັນ ດາ ກັນຮາ</territory>
 			<territory type="TC">ໝູ່ເກາະ ເທີກ ແລະ ໄຄໂຄສ</territory>
 			<territory type="TD">ຊາດ</territory>
@@ -1731,6 +1732,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">GGGGG M/y – GGGGG M/y</greatestDifference>
+							<greatestDifference id="M">GGGGG M/y – M/y</greatestDifference>
+							<greatestDifference id="y">GGGGG M/y – M/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">GGGGG d/M/y – d/M/y</greatestDifference>
+							<greatestDifference id="G">GGGGG d/M/y – GGGGG d/M/y</greatestDifference>
+							<greatestDifference id="M">GGGGG d/M/y – d/M/y</greatestDifference>
+							<greatestDifference id="y">GGGGG d/M/y – d/M/y</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">h a – h a</greatestDifference>
 							<greatestDifference id="h">h–h a</greatestDifference>
@@ -2234,6 +2246,44 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">G y – G y</greatestDifference>
+							<greatestDifference id="y">G y–y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">GGGGG MM/y – GGGGG MM/y</greatestDifference>
+							<greatestDifference id="M">GGGGG MM/y – MM/y</greatestDifference>
+							<greatestDifference id="y">GGGGG MM/y – MM/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">GGGGG dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="G">GGGGG dd/MM/y – GGGGG dd/MM/y</greatestDifference>
+							<greatestDifference id="M">GGGGG dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="y">GGGGG dd/MM/y – dd/MM/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">GGGGG E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="G">GGGGG E, dd/MM/y – GGGGG E, dd/MM/y</greatestDifference>
+							<greatestDifference id="M">GGGGG E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="y">GGGGG E, dd/MM/y – E, dd/MM/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">G MM/y – G MM/y</greatestDifference>
+							<greatestDifference id="M">G MM/y – MM</greatestDifference>
+							<greatestDifference id="y">G MM/y – MM/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">G d–d/MM/y</greatestDifference>
+							<greatestDifference id="G">G dd/MM/y– G dd/MM/y</greatestDifference>
+							<greatestDifference id="M">G dd/MM/y – dd/MM</greatestDifference>
+							<greatestDifference id="y">G dd/MM/y – dd/MM/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">G E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="G">G E, dd/MM/y – G E, dd/MM/y</greatestDifference>
+							<greatestDifference id="M">G E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="y">G E, dd/MM/y – E, dd/MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">h a – h a</greatestDifference>
@@ -5785,20 +5835,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<otherNumberingSystems>
 			<native>laoo</native>
 		</otherNumberingSystems>
-		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group>.</group>
 			<list>;</list>
 			<percentSign>%</percentSign>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>ບໍ່​ແມ່ນ​ໂຕ​ເລກ</nan>
-			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="laoo">
 			<decimalFormatLength type="long">
@@ -5835,11 +5881,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="latn">
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern>#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
 					<pattern type="1000" count="other">0 ພັນ</pattern>
@@ -6196,7 +6237,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="COP">
 				<displayName>ໂຄ​ລົມ​ບຽນ ເປ​ໂຊ</displayName>
 				<displayName count="other">ໂຄ​ລົມ​ບຽນ ເປ​ໂຊ</displayName>
-				<symbol>COP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="COU">
@@ -6547,7 +6587,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ລາວ ກີບ</displayName>
 				<displayName count="other">ລາວ ກີບ</displayName>
 				<symbol>₭</symbol>
-				<symbol alt="narrow" draft="contributed">₭</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>ເລ​ບາ​ນີ​ສ ພາວດ໌</displayName>
@@ -7301,6 +7340,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ຕາລາງນິ້ວ</unitPattern>
 				<perUnitPattern>{0} ຕໍ່ຕາລາງນິ້ວ</perUnitPattern>
 			</unit>
+			<unit type="area-dunam">
+				<displayName>ດູ​ນຳ</displayName>
+				<unitPattern count="other">{0} ດູ​ນຳ</unitPattern>
+			</unit>
 			<unit type="concentr-karat">
 				<displayName>ກະຣັດ</displayName>
 				<unitPattern count="other">{0} ກະຣັດ</unitPattern>
@@ -7324,6 +7367,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-permille">
 				<displayName>ຕໍ່ພັນ</displayName>
 				<unitPattern count="other">{0} ຕໍ່ພັນ</unitPattern>
+			</unit>
+			<unit type="concentr-permyriad">
+				<displayName>ເປີ​ມີ​ຣຽດ</displayName>
+				<unitPattern count="other">{0} ເປີ​ມີ​ຣຽດ</unitPattern>
+			</unit>
+			<unit type="concentr-mole">
+				<displayName>ໂມ​ລ</displayName>
+				<unitPattern count="other">{0} ໂມ​ລ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ລ/ກມ</displayName>
@@ -7476,6 +7527,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>kWh</displayName>
 				<unitPattern count="other">{0} kWh</unitPattern>
 			</unit>
+			<unit type="energy-electronvolt">
+				<displayName>ເອ​ເລັກ​ຕ​ຣົງ​ໂວນ</displayName>
+				<unitPattern count="other">{0} ເອ​ເລັກ​ຕ​ຣົງ​ໂວນ</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit">
+				<displayName>ຫົວ​ໜ່ວຍ​ວັດ​ແທກ​ປະ​ລິ​ມານ​ຄວາມ​ຮ້ອນ​ຂ​ອງ​ອັງ​ກິດ</displayName>
+				<unitPattern count="other">{0} ຫົວ​ໜ່ວຍ​ວັດ​ແທກ​ປະ​ລິ​ມານ​ຄວາມ​ຮ້ອນ​ຂ​ອງ​ອັງ​ກິດ</unitPattern>
+			</unit>
+			<unit type="force-pound-force">
+				<displayName>ແຮງປ​ອນ</displayName>
+				<unitPattern count="other">{0} ແຮງປ​ອນ</unitPattern>
+			</unit>
+			<unit type="force-newton">
+				<displayName>ນິວ​ເຕິນ</displayName>
+				<unitPattern count="other">{0} ນິວ​ເຕິນ</unitPattern>
+			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>GHz</displayName>
 				<unitPattern count="other">{0} GHz</unitPattern>
@@ -7569,9 +7636,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ຈຸດ</displayName>
 				<unitPattern count="other">{0} ຈຸດ</unitPattern>
 			</unit>
+			<unit type="length-solar-radius">
+				<displayName>ລັດ​ສະ​ໝີ​ດວງ​ຕາ​ເວັນ</displayName>
+				<unitPattern count="other">{0} ລັດ​ສະ​ໝີ​ດວງ​ຕາ​ເວັນ</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>
 				<unitPattern count="other">{0} lux</unitPattern>
+			</unit>
+			<unit type="light-solar-luminosity">
+				<displayName>ຄວາມ​ແຈ້ງດວງ​ຕາ​ເວັນ</displayName>
+				<unitPattern count="other">{0} ຄວາມ​ແຈ້ງດວງ​ຕາ​ເວັນ</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>t</displayName>
@@ -7616,6 +7691,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-carat">
 				<displayName>CD</displayName>
 				<unitPattern count="other">{0} CD</unitPattern>
+			</unit>
+			<unit type="mass-dalton">
+				<displayName>ດໍ​ຕັນ</displayName>
+				<unitPattern count="other">{0} ດໍ​ຕັນ</unitPattern>
+			</unit>
+			<unit type="mass-earth-mass">
+				<displayName>ມວນ​ສານ​ໜ່ວຍ​ໂລກ</displayName>
+				<unitPattern count="other">{0} ມວນ​ສານ​ໜ່ວຍ​ໂລກ</unitPattern>
+			</unit>
+			<unit type="mass-solar-mass">
+				<displayName>ມວນ​ສານດວງ​ຕາ​ເວັນ</displayName>
+				<unitPattern count="other">{0} ມວນ​ສານດວງ​ຕາ​ເວັນ</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>GW</displayName>
@@ -7665,6 +7752,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>atmospheres</displayName>
 				<unitPattern count="other">{0} atmospheres</unitPattern>
 			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName>ກິ​ໂລ​ປາ​ສ​ການ</displayName>
+				<unitPattern count="other">{0} ກິ​ໂລ​ປາ​ສ​ການ</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName>ເມ​ກາ​ປາ​ສ​ການ</displayName>
+				<unitPattern count="other">{0} ເມ​ກາ​ປາ​ສ​ການ</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ກິໂລແມັດຕໍ່ຊົ່ວໂມງ</displayName>
 				<unitPattern count="other">{0} ກິໂລແມັດຕໍ່ຊົ່ວໂມງ</unitPattern>
@@ -7696,6 +7791,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="temperature-kelvin">
 				<displayName>ອົງສາເຄວິນ</displayName>
 				<unitPattern count="other">{0} ອົງສາເຄວິນ</unitPattern>
+			</unit>
+			<unit type="torque-pound-foot">
+				<displayName>ປອນ​-ຟຸດ</displayName>
+				<unitPattern count="other">{0} ປອນ​-ຟຸດ</unitPattern>
+			</unit>
+			<unit type="torque-newton-meter">
+				<displayName>ນິວ​ເຕິນ​ແມັດ</displayName>
+				<unitPattern count="other">{0} ນິວ​ເຕິນ​ແມັດ</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>ກິໂລແມັດກ້ອນ</displayName>
@@ -7798,6 +7901,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>tsp</displayName>
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
+			<unit type="volume-barrel">
+				<displayName>ບາ​ເຣວ</displayName>
+				<unitPattern count="other">{0} ບາ​ເຣວ</unitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>ທິດທາງຕາມລຳດັບ</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
@@ -7878,6 +7985,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ນິ້ວ²</displayName>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="area-dunam">
+				<displayName>ດູ​ນຳ</displayName>
+				<unitPattern count="other">{0} ດູ​ນຳ</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
 				<displayName>ກະຣັດ</displayName>
@@ -8745,7 +8856,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="wdth" subtype="75">ຫຍໍ້</styleName>
 		<styleName type="wdth" subtype="75" alt="compressed">ບີບອັດ</styleName>
 		<styleName type="wdth" subtype="75" alt="narrow">ບີບອັດ</styleName>
-		<styleName type="wdth" subtype="87.5">ຫຍໍ້ຂຶ້ນອີກ</styleName>
+		<styleName type="wdth" subtype="87.5">ຫຍໍ້ຂຶ້ນເຄິ່ງ​ໜຶ່ງ</styleName>
 		<styleName type="wdth" subtype="87.5" alt="compressed">ກຶ່ງບີບອັດ</styleName>
 		<styleName type="wdth" subtype="87.5" alt="narrow">ກຶ່ງແຄບ</styleName>
 		<styleName type="wdth" subtype="100">ປົກກະຕິ</styleName>
@@ -8761,7 +8872,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="wdth" subtype="200">ຂະຫຍາຍທີ່ສຸດ</styleName>
 		<styleName type="wdth" subtype="200" alt="extended">ຍືດທີ່ສຸດ</styleName>
 		<styleName type="wdth" subtype="200" alt="wide">ກວ້າງທີ່ສຸດ</styleName>
-		<styleName type="wght" subtype="100">ບາງ</styleName>
+		<styleName type="wght" subtype="100">ບາງກວ່າ</styleName>
 		<styleName type="wght" subtype="200">ບາງຂຶ້ນອີກ</styleName>
 		<styleName type="wght" subtype="200" alt="ultra">ບາງທີ່ສຸດ</styleName>
 		<styleName type="wght" subtype="300">ບາງ</styleName>
@@ -8774,7 +8885,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="wght" subtype="700">ໜາ</styleName>
 		<styleName type="wght" subtype="800">ຕົວໜາພິເສດ</styleName>
 		<styleName type="wght" subtype="900">ສີດຳ</styleName>
-		<styleName type="wght" subtype="900" alt="heavy">ໜາ</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">ໜາກວ່າ</styleName>
 		<styleName type="wght" subtype="950">ສີດຳຫຼາຍພິເສດ</styleName>
 		<styleName type="wght" subtype="950" alt="ultrablack">ສີດຳທີ່ສຸດ</styleName>
 		<styleName type="wght" subtype="950" alt="ultraheavy">ໜາທີ່ສຸດ</styleName>

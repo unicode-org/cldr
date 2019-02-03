@@ -1337,7 +1337,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<parseLenient sample="." draft="unconfirmed">[.․。︒﹒．｡]</parseLenient>
 			<parseLenient sample="$" draft="unconfirmed">[\$﹩＄$]</parseLenient>
 			<parseLenient sample="£" draft="unconfirmed">[£₤]</parseLenient>
-			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
 			<parseLenient sample="-" draft="unconfirmed">[\-‒⁻₋−➖﹣－]</parseLenient>
@@ -1802,7 +1801,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</eraNames>
 					<eraAbbr>
 						<era type="0">KM</era>
+						<era type="0" alt="variant">BCE</era>
 						<era type="1">TS</era>
+						<era type="1" alt="variant">CE</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0" draft="unconfirmed">KM</era>
@@ -4868,18 +4869,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
-		<otherNumberingSystems>
-			<native draft="contributed">latn</native>
-		</otherNumberingSystems>
-		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
 		<symbols numberSystem="arab">
 			<decimal draft="unconfirmed">٫</decimal>
 			<group draft="unconfirmed">٬</group>
 			<list draft="unconfirmed">؛</list>
 			<percentSign draft="unconfirmed">٪؜</percentSign>
-			<plusSign draft="contributed">‏+</plusSign>
-			<minusSign draft="contributed">‏-</minusSign>
+			<plusSign>‏+</plusSign>
+			<minusSign>‏-</minusSign>
 			<exponential draft="unconfirmed">اس</exponential>
 			<superscriptingExponent draft="unconfirmed">×</superscriptingExponent>
 			<perMille draft="unconfirmed">؉</perMille>
@@ -5165,7 +5161,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>TF</nan>
-			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="lepc">
 			<decimal draft="unconfirmed">.</decimal>
@@ -6903,47 +6898,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Australian Dollar</displayName>
 				<displayName count="other">Australian Dollar</displayName>
 				<symbol>AUD$</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>BRL</displayName>
-			</currency>
-			<currency type="FJD">
-				<symbol>FJD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="GEL">
 				<symbol alt="variant" draft="contributed">₾</symbol>
 			</currency>
 			<currency type="NZD">
 				<symbol>NZD$</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="PGK">
-				<symbol>PGK</symbol>
-			</currency>
-			<currency type="SBD">
-				<symbol>SBD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Paʻanga fakatonga</displayName>
 				<displayName count="other">Paʻanga fakatonga</displayName>
 				<symbol>T$</symbol>
 			</currency>
-			<currency type="TWD">
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="VUV">
-				<symbol>VUV</symbol>
-			</currency>
 			<currency type="WST">
 				<displayName>Tala fakahaʻamoa</displayName>
 				<displayName count="other">Tala fakahaʻamoa</displayName>
-				<symbol>WST</symbol>
-			</currency>
-			<currency type="XPF">
-				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>Pa’anga Ta’e’ilo</displayName>

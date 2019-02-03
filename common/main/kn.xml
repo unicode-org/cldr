@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -943,6 +943,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="SX">ಸಿಂಟ್ ಮಾರ್ಟೆನ್</territory>
 			<territory type="SY">ಸಿರಿಯಾ</territory>
 			<territory type="SZ">ಸ್ವಾಜಿಲ್ಯಾಂಡ್</territory>
+			<territory type="SZ" alt="variant">ಸ್ವಾಜಿಲ್ಯಾಂಡ್‌</territory>
 			<territory type="TA">ಟ್ರಿಸ್ತನ್ ಡಾ ಕುನ್ಹಾ</territory>
 			<territory type="TC">ಟರ್ಕ್ಸ್ ಮತ್ತು ಕೈಕೋಸ್ ದ್ವೀಪಗಳು</territory>
 			<territory type="TD">ಚಾದ್</territory>
@@ -1178,19 +1179,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</delimiters>
 	<dates>
 		<calendars>
-			<calendar type="buddhist">
-				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">BE</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">BE</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">BE</era>
-					</eraNarrow>
-				</eras>
-			</calendar>
 			<calendar type="coptic">
 				<months>
 					<monthContext type="format">
@@ -1208,21 +1196,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="11" draft="contributed">ಎಪೆಪ್</month>
 							<month type="12" draft="contributed">ಮೆಸ್ರಾ</month>
 							<month type="13" draft="contributed">ನಾಸಿ</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-							<month type="13" draft="contributed">13</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ಟೌಟ್</month>
@@ -1256,21 +1229,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="12" draft="contributed">ಮೆಸ್ರಾ</month>
 							<month type="13" draft="contributed">ನಾಸಿ</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-							<month type="13" draft="contributed">13</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ಟೌಟ್</month>
 							<month type="2" draft="contributed">ಬಾಬಾ</month>
@@ -1288,20 +1246,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
-				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">ERA0</era>
-						<era type="1" draft="contributed">ERA1</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">ERA0</era>
-						<era type="1" draft="contributed">ERA1</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">ERA0</era>
-						<era type="1" draft="contributed">ERA1</era>
-					</eraNarrow>
-				</eras>
 			</calendar>
 			<calendar type="ethiopic">
 				<months>
@@ -1321,21 +1265,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="12" draft="contributed">ನಿಹಾಸ್ಸೆ</month>
 							<month type="13" draft="contributed">ಪೆಗ್ಯುಮೆನ್</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-							<month type="13" draft="contributed">13</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ಮೆಸ್ಕರೆಮ್</month>
 							<month type="2" draft="contributed">ಟೆಕೆಮ್ಟ್</month>
@@ -1368,21 +1297,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="12" draft="contributed">ನಿಹಾಸ್ಸೆ</month>
 							<month type="13" draft="contributed">ಪೆಗ್ಯುಮೆನ್</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-							<month type="13" draft="contributed">13</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ಮೆಸ್ಕರೆಮ್</month>
 							<month type="2" draft="contributed">ಟೆಕೆಮ್ಟ್</month>
@@ -1400,20 +1314,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
-				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">ERA0</era>
-						<era type="1" draft="contributed">ERA1</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">ERA0</era>
-						<era type="1" draft="contributed">ERA1</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">ERA0</era>
-						<era type="1" draft="contributed">ERA1</era>
-					</eraNarrow>
-				</eras>
 			</calendar>
 			<calendar type="generic">
 				<dateFormats>
@@ -1508,38 +1408,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a">h a – h a</greatestDifference>
-							<greatestDifference id="h">h–h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="H">HH–HH</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hm">
-							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
-							<greatestDifference id="h">h:mm–h:mm a</greatestDifference>
-							<greatestDifference id="m">h:mm–h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
-							<greatestDifference id="h">h:mm–h:mm a v</greatestDifference>
-							<greatestDifference id="m">h:mm–h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a">h a – h a v</greatestDifference>
-							<greatestDifference id="h">h–h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="H">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M–M</greatestDifference>
@@ -1986,7 +1854,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="one">'week' W 'of' MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">'week' W 'of' MMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">'week' W 'of' MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
@@ -2122,22 +1990,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="12" draft="contributed">ಎವಿ</month>
 							<month type="13" draft="contributed">ಎಲುಲ್</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="7" yeartype="leap" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-							<month type="13" draft="contributed">13</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ಟಿಶ್ರಿ</month>
 							<month type="2" draft="contributed">ಹೆಶ್‌ವಾನ್</month>
@@ -2171,22 +2023,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="11" draft="contributed">ತಮುಜ್</month>
 							<month type="12" draft="contributed">ಎವಿ</month>
 							<month type="13" draft="contributed">ಎಲುಲ್</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="7" yeartype="leap" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-							<month type="13" draft="contributed">13</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ಟಿಶ್ರಿ</month>
@@ -2206,17 +2042,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
-				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">AM</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">AM</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">AM</era>
-					</eraNarrow>
-				</eras>
 			</calendar>
 			<calendar type="indian">
 				<months>
@@ -2234,20 +2059,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="10" draft="contributed">ಪುಷ್ಯ</month>
 							<month type="11" draft="contributed">ಮಾಘ</month>
 							<month type="12" draft="contributed">ಫಾಲ್ಗುಣ</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ಚೈತ್ರ</month>
@@ -2278,20 +2089,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="10" draft="contributed">ಪುಷ್ಯ</month>
 							<month type="11" draft="contributed">ಮಾಘ</month>
 							<month type="12" draft="contributed">ಫಾಲ್ಗುಣ</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ಚೈತ್ರ</month>
@@ -2338,20 +2135,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="11">ಧು‘ಲ್-ಕಿ.</month>
 							<month type="12">ಧು‘ಲ್-ಹ.</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ಮುಹರಮ್</month>
 							<month type="2" draft="contributed">ಸಫಾರ್</month>
@@ -2382,20 +2165,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="11">ಧು‘ಲ್-ಕಿ.</month>
 							<month type="12">ಧು‘ಲ್-ಹ.</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ಮುಹರಮ್</month>
 							<month type="2" draft="contributed">ಸಫಾರ್</month>
@@ -2412,17 +2181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
-				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">AH</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">AH</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">AH</era>
-					</eraNarrow>
-				</eras>
 			</calendar>
 			<calendar type="persian">
 				<months>
@@ -2440,20 +2198,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="10" draft="contributed">ಡೇ</month>
 							<month type="11" draft="contributed">ಬಹ್ಮನ್</month>
 							<month type="12" draft="contributed">ಎಸ್ಫಾಂಡ್</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ಫರ್ವರ್ದಿನ್</month>
@@ -2485,20 +2229,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="11" draft="contributed">ಬಹ್ಮನ್</month>
 							<month type="12" draft="contributed">ಎಸ್ಫಾಂಡ್</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ಫರ್ವರ್ದಿನ್</month>
 							<month type="2" draft="contributed">ಓರ್ದಿಬೆಹೆಶ್ಟ್</month>
@@ -2515,17 +2245,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
-				<eras>
-					<eraNames>
-						<era type="0" draft="contributed">AP</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">AP</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">AP</era>
-					</eraNarrow>
-				</eras>
 			</calendar>
 			<calendar type="roc">
 				<eras>
@@ -3887,6 +3606,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>ಅಕ್ಟೋಬೆ</exemplarCity>
+			</zone>
+			<zone type="Asia/Qostanay">
+				<exemplarCity draft="contributed">ಕೊಸ್ಟನಯ್</exemplarCity>
 			</zone>
 			<zone type="Asia/Qyzylorda">
 				<exemplarCity>ಕಿಜೈಲೋರ್ದ</exemplarCity>
@@ -5466,7 +5188,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>latn</defaultNumberingSystem>
 		<otherNumberingSystems>
 			<native>knda</native>
 		</otherNumberingSystems>
@@ -5485,12 +5206,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="latn">
-			<decimal>.</decimal>
-			<group>,</group>
-			<list>;</list>
 			<percentSign>%</percentSign>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
@@ -5506,11 +5222,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="latn">
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern>#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
 					<pattern type="1000" count="one">0 ಸಾವಿರ</pattern>
@@ -5648,330 +5359,280 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ಸಂಯುಕ್ತ ಅರಬ್‌ ಎಮಿರೇಟ್‌‌ಗಳ ದಿರಾಮ್‌‌</displayName>
 				<displayName count="one">ಸಂಯುಕ್ತ ಅರಬ್‌ ಎಮಿರೇಟ್‌‌ಗಳ ದಿರಾಮ್‌‌</displayName>
 				<displayName count="other">ಸಂಯುಕ್ತ ಅರಬ್‌ ಎಮಿರೇಟ್‌‌ಗಳ ದಿರಾಮ್‌‌‍ಗಳು</displayName>
-				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>ಅಫ್‌ಘನ್ ಅಫಘಾನಿ</displayName>
 				<displayName count="one">ಅಫ್‌ಘನ್ ಅಫಘಾನಿ</displayName>
 				<displayName count="other">ಅಫ್‌ಘನ್ ಅಫಘಾನಿಗಳು</displayName>
-				<symbol>AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>ಅಲ್‌ಬೇನಿಯನ್ ಲೆಕ್</displayName>
 				<displayName count="one">ಅಲ್‌ಬೇನಿಯನ್ ಲೆಕ್</displayName>
 				<displayName count="other">ಅಲ್‌ಬೇನಿಯನ್ ಲೆಕ್</displayName>
-				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>ಅರ್ಮೆನಿಯನ್ ಡ್ರಾಮ್</displayName>
 				<displayName count="one">ಅರ್ಮೆನಿಯನ್ ಡ್ರಾಮ್</displayName>
 				<displayName count="other">ಅರ್‌ಮೇನಿಯನ್ ಡ್ರಾಮ್‌ಗಳು</displayName>
-				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>ನೆದರ್ಲೆಂಡ್ಸ್ ಆಂಟಿಲಿಯನ್ ಗಿಲ್ಡರ್</displayName>
 				<displayName count="one">ನೆದರ್ಲೆಂಡ್ಸ್ ಆಂಟಿಲಿಯನ್ ಗಿಲ್ಡರ್</displayName>
 				<displayName count="other">ನೆದರ್ಲೆಂಡ್ಸ್ ಆಂಟಿಲಿಯನ್ ಗಿಲ್ಡರ್‌ಗಳು</displayName>
-				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>ಅಂಗೋಲಾದ ಕ್ವಾನ್ಝಾ</displayName>
 				<displayName count="one">ಅಂಗೋಲಾದ ಕ್ವಾನ್ಝಾ</displayName>
 				<displayName count="other">ಅಂಗೋಲಾದ ಕ್ವಾನ್ಝಾಗಳು</displayName>
-				<symbol>AOA</symbol>
 				<symbol alt="narrow" draft="contributed">Kz</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>ಅರ್ಜೆಂಟಿನಾ ಪೆಸೊ</displayName>
 				<displayName count="one">ಅರ್ಜೆಂಟಿನಾ ಪೆಸೊ</displayName>
 				<displayName count="other">ಅರ್ಜೆಂಟಿನಾ ಪೆಸೊಗಳು</displayName>
-				<symbol>ARS</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>ಆಸ್ಟ್ರೇಲಿಯನ್ ಡಾಲರ್‌</displayName>
 				<displayName count="one">ಆಸ್ಟ್ರೇಲಿಯನ್ ಡಾಲರ್‌</displayName>
 				<displayName count="other">ಆಸ್ಟ್ರೇಲಿಯನ್ ಡಾಲರ್‌‌ಗಳು</displayName>
-				<symbol>A$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>ಅರುಬನ್ ಫ್ಲೊರೀನ್‌‌</displayName>
 				<displayName count="one">ಅರುಬನ್ ಫ್ಲೊರೀನ್‌‌</displayName>
 				<displayName count="other">ಅರುಬನ್ ಫ್ಲೊರೀನ್‌‌</displayName>
-				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>ಅಝರ್‌ಬೈಜಾನಿ ಮನಾತ್</displayName>
 				<displayName count="one">ಅಝರ್‌ಬೈಜಾನಿ ಮನಾತ್</displayName>
 				<displayName count="other">ಅಝರ್‌ಬೈಜಾನಿ ಮನಾತ್‌ಗಳು</displayName>
-				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>ಬೋಸ್ನಿಯಾ-ಹರ್ಜ್‌ಗೋವಿನ ಪರಿವರ್ತನೀಯ ಗುರುತು</displayName>
 				<displayName count="one">ಬೋಸ್ನಿಯಾ-ಹರ್ಜ್‌ಗೋವಿನ ಪರಿವರ್ತನೀಯ ಗುರುತು</displayName>
 				<displayName count="other">ಬೋಸ್ನಿಯಾ-ಹರ್ಜ್‌ಗೋವಿನ ಪರಿವರ್ತನೀಯ ಗುರುತುಗಳು</displayName>
-				<symbol>BAM</symbol>
 				<symbol alt="narrow" draft="contributed">KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>ಬರ್ಬಾಡಿಯನ್ ಡಾಲರ್</displayName>
 				<displayName count="one">ಬರ್ಬಾಡಿಯನ್ ಡಾಲರ್</displayName>
 				<displayName count="other">ಬರ್ಬಾಡಿಯನ್ ಡಾಲರ್‌ಗಳು</displayName>
-				<symbol>BBD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>ಬಾಂಗ್ಲಾದೇಶದ ಟಾಕಾ</displayName>
 				<displayName count="one">ಬಾಂಗ್ಲಾದೇಶದ ಟಾಕಾ</displayName>
 				<displayName count="other">ಬಾಂಗ್ಲಾದೇಶದ ಟಾಕಾಗಳು</displayName>
-				<symbol>BDT</symbol>
 				<symbol alt="narrow" draft="contributed">৳</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>ಬಲ್ಗೇರಿಯನ್ ಲೆವ್</displayName>
 				<displayName count="one">ಬಲ್ಗೇರಿಯನ್ ಲೆವ್</displayName>
 				<displayName count="other">ಬಲ್ಗೇರಿಯನ್ ಲೀವಾ</displayName>
-				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>ಬಹ್‌‌ರೈನಿ ದಿನಾರ್</displayName>
 				<displayName count="one">ಬಹ್‌‌ರೈನಿ ದಿನಾರ್</displayName>
 				<displayName count="other">ಬಹ್‌‌ರೈನಿ ದಿನಾರ್‌ಗಳು</displayName>
-				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>ಬುರುಂದಿಯನ್ ಫ್ರಾಂಕ್</displayName>
 				<displayName count="one">ಬುರುಂದಿಯನ್ ಫ್ರಾಂಕ್</displayName>
 				<displayName count="other">ಬುರುಂದಿಯನ್ ಫ್ರಾಂಕ್‍ಗಳು</displayName>
-				<symbol>BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>ಬರ್ಮುಡನ್ ಡಾಲರ್</displayName>
 				<displayName count="one">ಬರ್ಮುಡನ್ ಡಾಲರ್</displayName>
 				<displayName count="other">ಬರ್ಮುಡನ್ ಡಾಲರ್‌ಗಳು</displayName>
-				<symbol>BMD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>ಬ್ರೂನಿ ಡಾಲರ್</displayName>
 				<displayName count="one">ಬ್ರೂನಿ ಡಾಲರ್</displayName>
 				<displayName count="other">ಬ್ರೂನಿ ಡಾಲರ್‌ಗಳು</displayName>
-				<symbol>BND</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>ಬೊಲಿವಿಯಾದ ಬೊಲಿವಿಯಾನೊ</displayName>
 				<displayName count="one">ಬೊಲಿವಿಯಾದ ಬೊಲಿವಿಯಾನೊ</displayName>
 				<displayName count="other">ಬೊಲಿವಿಯಾದ ಬೊಲಿವಿಯಾನೊಗಳು</displayName>
-				<symbol>BOB</symbol>
 				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>ಬ್ರೆಜಿಲಿಯನ್‌ ರಿಯಲ್</displayName>
 				<displayName count="one">ಬ್ರೆಜಿಲಿಯನ್‌ ರಿಯಲ್</displayName>
 				<displayName count="other">ಬ್ರೆಜಿಲಿಯನ್ ರಿಯಲ್‍ಗಳು</displayName>
-				<symbol>R$</symbol>
 				<symbol alt="narrow" draft="contributed">R$</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>ಬಹಾಮಿಯನ್ ಡಾಲರ್</displayName>
 				<displayName count="one">ಬಹಾಮಿಯನ್ ಡಾಲರ್</displayName>
 				<displayName count="other">ಬಹಾಮಿಯನ್ ಡಾಲರ್‌ಗಳು</displayName>
-				<symbol>BSD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>ಭೂತಾನೀಸ್ ನುಲ್ತರಮ್</displayName>
 				<displayName count="one">ಭೂತಾನೀಸ್ ನುಲ್ತರಮ್</displayName>
 				<displayName count="other">ಭೂತಾನೀಸ್ ನುಲ್ತರಮ್‌ಗಳು</displayName>
-				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>ಬೋಟ್ಸ್‌ವಾನನ್ ಪುಲಾ</displayName>
 				<displayName count="one">ಬೋಟ್ಸ್‌ವಾನನ್ ಪುಲಾ</displayName>
 				<displayName count="other">ಬೋಟ್ಸ್‌ವಾನನ್ ಪುಲಾಗಳು</displayName>
-				<symbol>BWP</symbol>
 				<symbol alt="narrow" draft="contributed">P</symbol>
 			</currency>
 			<currency type="BYN">
 				<displayName>ಬೆಲಾರುಸಿಯನ್ ರೂಬಲ್</displayName>
 				<displayName count="one">ಬೆಲಾರುಸಿಯನ್ ರೂಬಲ್</displayName>
 				<displayName count="other">ಬೆಲಾರುಸಿಯನ್ ರೂಬಲ್‍ಗಳು</displayName>
-				<symbol>BYN</symbol>
 				<symbol alt="narrow" draft="contributed">р.</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>ಬೆಲಾರುಸಿಯನ್ ರೂಬಲ್ (2000–2016)</displayName>
 				<displayName count="one">ಬೆಲಾರುಸಿಯನ್ ರೂಬಲ್ (2000–2016)</displayName>
 				<displayName count="other">ಬೆಲಾರುಸಿಯನ್ ರೂಬಲ್‍ಗಳು (2000–2016)</displayName>
-				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>ಬೆಲೀಜ್ ಡಾಲರ್</displayName>
 				<displayName count="one">ಬೆಲೀಜ್ ಡಾಲರ್</displayName>
 				<displayName count="other">ಬೆಲೀಜ್ ಡಾಲರ್‌‍ಗಳು</displayName>
-				<symbol>BZD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>ಕೆನಡಾದ ಡಾಲರ್</displayName>
 				<displayName count="one">ಕೆನಡಾದ ಡಾಲರ್</displayName>
 				<displayName count="other">ಕೆನಡಾದ ಡಾಲರ್‌ಗಳು</displayName>
-				<symbol>CA$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>ಕಾಂಗೋಲೀಸ್ ಫ್ರಾಂಕ್</displayName>
 				<displayName count="one">ಕಾಂಗೋಲೀಸ್ ಫ್ರಾಂಕ್</displayName>
 				<displayName count="other">ಕಾಂಗೋಲೀಸ್ ಫ್ರಾಂಕ್‍‌ಗಳು</displayName>
-				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>ಸ್ವಿಸ್ ಫ್ರಾಂಕ್</displayName>
 				<displayName count="one">ಸ್ವಿಸ್ ಫ್ರಾಂಕ್</displayName>
 				<displayName count="other">ಸ್ವಿಸ್ ಫ್ರಾಂಕ್‍ಗಳು</displayName>
-				<symbol>CHF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>ಚಿಲಿಯ ಪೆಸೊ</displayName>
 				<displayName count="one">ಚಿಲಿಯ ಪೆಸೊ</displayName>
 				<displayName count="other">ಚಿಲಿಯ ಪೆಸೊಗಳು</displayName>
-				<symbol>CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CNH">
 				<displayName>CNH</displayName>
 				<displayName count="one">CNH</displayName>
 				<displayName count="other">CNH</displayName>
-				<symbol draft="contributed">CNH</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>ಚೈನೀಸ್ ಯುವಾನ್</displayName>
 				<displayName count="one">ಚೈನೀಸ್ ಯುವಾನ್</displayName>
 				<displayName count="other">ಚೈನೀಸ್ ಯುವಾನ್</displayName>
-				<symbol>CN¥</symbol>
 				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>ಕೊಲೊಂಬಿಯೋದ ಪೆಸೊ</displayName>
 				<displayName count="one">ಕೊಲೊಂಬಿಯೋದ ಪೆಸೊ</displayName>
 				<displayName count="other">ಕೊಲೊಂಬಿಯೋದ ಪೆಸೊಗಳು</displayName>
-				<symbol>COP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>ಕೋಸ್ಟ ರಿಕನ್ ಕೊಲನ್</displayName>
 				<displayName count="one">ಕೋಸ್ಟಾ ರಿಕಾದ ಕೊಲೊನ್‌</displayName>
 				<displayName count="other">ಕೋಸ್ಟಾ ರಿಕಾದ ಕೊಲೊನ್‌ಗಳು</displayName>
-				<symbol>CRC</symbol>
 				<symbol alt="narrow" draft="contributed">₡</symbol>
 			</currency>
 			<currency type="CUC">
 				<displayName>ಕ್ಯುಬಾದ ಪರಿವರ್ತನೀಯ ಪೆಸೊ</displayName>
 				<displayName count="one">ಕ್ಯೂಬಾದ ಪರಿವರ್ತನೀಯ ಪೆಸೊ</displayName>
 				<displayName count="other">ಕ್ಯೂಬಾದ ಪರಿವರ್ತನೀಯ ಪೆಸೊಗಳು</displayName>
-				<symbol>CUC</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>ಕ್ಯೂಬಾದ ಪೆಸೊ</displayName>
 				<displayName count="one">ಕ್ಯೂಬಾದ ಪೆಸೊ</displayName>
 				<displayName count="other">ಕ್ಯೂಬಾದ ಪೆಸೊಗಳು</displayName>
-				<symbol>CUP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>ಕೇಪ್ ವರ್ಡಿನ್ ಎಸ್‌ಕೂಡೊ</displayName>
 				<displayName count="one">ಕೇಪ್ ವರ್ಡಿನ್ ಎಸ್‌ಕೂಡೊ</displayName>
 				<displayName count="other">ಕೇಪ್ ವರ್ಡಿನ್ ಎಸ್‌ಕೂಡೊಗಳು</displayName>
-				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>ಝೆಕ್ ಗಣರಾಜ್ಯ ಕೊರೂನ</displayName>
 				<displayName count="one">ಝೆಕ್ ಗಣರಾಜ್ಯ ಕೊರೂನ</displayName>
 				<displayName count="other">ಝೆಕ್ ಗಣರಾಜ್ಯ ಕೊರೂನಗಳು</displayName>
-				<symbol>CZK</symbol>
 				<symbol alt="narrow" draft="contributed">Kč</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>ಜಿಬೊಟಿಯನ್ ಫ್ರಾಂಕ್</displayName>
 				<displayName count="one">ಜಿಬೊಟಿಯನ್ ಫ್ರಾಂಕ್</displayName>
 				<displayName count="other">ಜಿಬೊಟಿಯನ್ ಫ್ರಾಂಕ್‍ಗಳು</displayName>
-				<symbol>DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>ಡ್ಯಾನಿಶ್ ಕ್ರೋನ್</displayName>
 				<displayName count="one">ಡ್ಯಾನಿಶ್ ಕ್ರೋನ್</displayName>
 				<displayName count="other">ಡ್ಯಾನಿಶ್ ಕ್ರೋನರ್</displayName>
-				<symbol>DKK</symbol>
 				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>ಡೊಮಿನಿಕನ್ ಪೆಸೊ</displayName>
 				<displayName count="one">ಡೊಮಿನಿಕನ್ ಪೆಸೊ</displayName>
 				<displayName count="other">ಡೊಮಿನಿಕನ್ ಪೆಸೊಗಳು</displayName>
-				<symbol>DOP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>ಅಲ್ಗೇರಿಯನ್ ದಿನಾರ್</displayName>
 				<displayName count="one">ಅಲ್ಗೇರಿಯನ್ ದಿನಾರ್</displayName>
 				<displayName count="other">ಅಲ್ಗೇರಿಯನ್ ದಿನಾರ್‌‍ಗಳು</displayName>
-				<symbol>DZD</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>ಈಜಿಪ್ಷಿಯನ್ ಪೌಂಡ್‍</displayName>
 				<displayName count="one">ಈಜಿಪ್ಷಿಯನ್ ಪೌಂಡ್‍</displayName>
 				<displayName count="other">ಈಜಿಪ್ಷಿಯನ್ ಪೌಂಡ್‍ಗಳು</displayName>
-				<symbol>EGP</symbol>
 				<symbol alt="narrow" draft="contributed">E£</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>ಎರಿತ್ರಿಯನ್ ನಕ್ಫಾ</displayName>
 				<displayName count="one">ಎರಿತ್ರಿಯನ್ ನಕ್ಫಾ</displayName>
 				<displayName count="other">ಎರಿತ್ರಿಯನ್ ನಕ್ಫಾಗಳು</displayName>
-				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>ಇಥಿಯೋಪಿಯನ್ ಬಿರ್</displayName>
 				<displayName count="one">ಇಥಿಯೋಪಿಯನ್ ಬಿರ್</displayName>
 				<displayName count="other">ಇಥಿಯೋಪಿಯನ್ ಬಿರ್‌ಗಳು</displayName>
-				<symbol>ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>ಯೂರೊ</displayName>
 				<displayName count="one">ಯೂರೊ</displayName>
 				<displayName count="other">ಯೂರೊ</displayName>
-				<symbol>€</symbol>
 				<symbol alt="narrow" draft="contributed">€</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>ಫಿಜಿಯನ್ ಡಾಲರ್</displayName>
 				<displayName count="one">ಫಿಜಿಯನ್ ಡಾಲರ್</displayName>
 				<displayName count="other">ಫಿಜಿಯನ್ ಡಾಲರ್‌ಗಳು</displayName>
-				<symbol>FJD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>ಫಾಲ್ಕ್‌ಲ್ಯಾಂಡ್ ದ್ವೀಪಗಳ ಪೌಂಡ್</displayName>
 				<displayName count="one">ಫಾಲ್ಕ್‌ಲ್ಯಾಂಡ್ ದ್ವೀಪಗಳ ಪೌಂಡ್</displayName>
 				<displayName count="other">ಫಾಲ್ಕ್‌ಲ್ಯಾಂಡ್ ದ್ವೀಪಗಳ ಪೌಂಡ್‍ಗಳು</displayName>
-				<symbol>FKP</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>ಬ್ರಿಟೀಷ್ ಪೌಂಡ್</displayName>
 				<displayName count="one">ಬ್ರಿಟಿಷ್ ಪೌಂಡ್</displayName>
 				<displayName count="other">ಬ್ರಿಟೀಷ್ ಪೌಂಡ್‍ಗಳು</displayName>
-				<symbol>£</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>ಜಾರ್ಜಿಯಾದ ಲಾರಿ</displayName>
 				<displayName count="one">ಜಾರ್ಜಿಯಾದ ಲಾರಿ</displayName>
 				<displayName count="other">ಜಾರ್ಜಿಯಾದ ಲಾರಿ</displayName>
-				<symbol>GEL</symbol>
 				<symbol alt="narrow" draft="contributed">₾</symbol>
 				<symbol alt="variant" draft="contributed">₾</symbol>
 			</currency>
@@ -5979,222 +5640,189 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ಘಾನಾದ ಸೆದಿ</displayName>
 				<displayName count="one">ಘಾನಾದ ಸೆದಿ</displayName>
 				<displayName count="other">ಘಾನಾದ ಸೆದಿಗಳು</displayName>
-				<symbol>GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>ಗಿಬ್ರಾಲ್ಟರ್ ಪೌಂಡ್</displayName>
 				<displayName count="one">ಗಿಬ್ರಾಲ್ಟರ್ ಪೌಂಡ್</displayName>
 				<displayName count="other">ಗಿಬ್ರಾಲ್ಟರ್ ಪೌಂಡ್‍ಗಳು</displayName>
-				<symbol>GIP</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>ಗ್ಯಾಂಬಿಯಾದ ದಲಾಸಿ</displayName>
 				<displayName count="one">ಗ್ಯಾಂಬಿಯಾದ ದಲಾಸಿ</displayName>
 				<displayName count="other">ಗ್ಯಾಂಬಿಯಾದ ದಲಾಸಿಗಳು</displayName>
-				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>ಗಿನಿಯನ್ ಫ್ರಾಂಕ್</displayName>
 				<displayName count="one">ಗಿನಿಯನ್ ಫ್ರಾಂಕ್</displayName>
 				<displayName count="other">ಗಿನಿಯನ್ ಫ್ರಾಂಕ್‌ಗಳು</displayName>
-				<symbol>GNF</symbol>
 				<symbol alt="narrow" draft="contributed">FG</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>ಗ್ವಾಟೆಮಾಲಾದ ಕುಯಿಟ್ಸಲ್‌‌</displayName>
 				<displayName count="one">ಗ್ವಾಟೆಮಾಲಾದ ಕುಯಿಟ್ಸಲ್‌‌</displayName>
 				<displayName count="other">ಗ್ವಾಟೆಮಾಲಾದ ಕುಯಿಟ್ಸಲ್‌‌‍ಗಳು</displayName>
-				<symbol>GTQ</symbol>
 				<symbol alt="narrow" draft="contributed">Q</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>ಗುಯಾನೀಸ್‌ ಡಾಲರ್‌</displayName>
 				<displayName count="one">ಗುಯಾನೀಸ್‌ ಡಾಲರ್‌</displayName>
 				<displayName count="other">ಗುಯಾನೀಸ್‌ ಡಾಲರ್‌‌ಗಳು</displayName>
-				<symbol>GYD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>ಹಾಂಗ್ ಕಾಂಗ್ ಡಾಲರ್</displayName>
 				<displayName count="one">ಹಾಂಗ್ ಕಾಂಗ್ ಡಾಲರ್</displayName>
 				<displayName count="other">ಹಾಂಗ್ ಕಾಂಗ್ ಡಾಲರ್‌ಗಳು</displayName>
-				<symbol>HK$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>ಹೊಂಡುರಾನ್‌ ಲೆಂಪಿರಾ</displayName>
 				<displayName count="one">ಹೊಂಡುರಾನ್‌ ಲೆಂಪಿರಾ</displayName>
 				<displayName count="other">ಹೊಂಡುರಾನ್‌ ಲೆಂಪಿರಾಗಳು</displayName>
-				<symbol>HNL</symbol>
 				<symbol alt="narrow" draft="contributed">L</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>ಕ್ರೊಯೆಷ್ಯಾದ ಕೂನಾ</displayName>
 				<displayName count="one">ಕ್ರೊಯೆಷ್ಯಾದ ಕೂನಾ</displayName>
 				<displayName count="other">ಕ್ರೊಯೆಷ್ಯಾದ ಕೂನಾಗಳು</displayName>
-				<symbol>HRK</symbol>
 				<symbol alt="narrow" draft="contributed">kn</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>ಹೈಟಿಯ ಗೋರ್ದೆ</displayName>
 				<displayName count="one">ಹೈಟಿಯ ಗೋರ್ದೆ</displayName>
 				<displayName count="other">ಹೈಟಿಯ ಗೋರ್ದೆಗಳು</displayName>
-				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>ಹಂಗೇರಿಯನ್ ಫೋರಿಂಟ್</displayName>
 				<displayName count="one">ಹಂಗೇರಿಯನ್ ಫೋರಿಂಟ್</displayName>
 				<displayName count="other">ಹಂಗೇರಿಯನ್ ಫೋರಿಂಟ್‍ಗಳು</displayName>
-				<symbol>HUF</symbol>
 				<symbol alt="narrow" draft="contributed">Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>ಇಂಡೊನೇಷ್ಯಾ ರುಪೈ</displayName>
 				<displayName count="one">ಇಂಡೊನೇಷ್ಯಾ ರುಪೈ</displayName>
 				<displayName count="other">ಇಂಡೊನೇಷ್ಯಾ ರುಪೈ</displayName>
-				<symbol>IDR</symbol>
 				<symbol alt="narrow" draft="contributed">Rp</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>ಇಸ್ರೇಲಿ ನ್ಯೂ ಶೇಖಲ್</displayName>
 				<displayName count="one">ಇಸ್ರೇಲಿ ನ್ಯೂ ಶೇಖಲ್</displayName>
 				<displayName count="other">ಇಸ್ರೇಲಿ ನ್ಯೂ ಶೇಖಲ್‍ಗಳು</displayName>
-				<symbol>₪</symbol>
 				<symbol alt="narrow" draft="contributed">₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>ಭಾರತೀಯ ರೂಪಾಯಿ</displayName>
 				<displayName count="one">ಭಾರತೀಯ ರೂಪಾಯಿ</displayName>
 				<displayName count="other">ಭಾರತೀಯ ರೂಪಾಯಿಗಳು</displayName>
-				<symbol>₹</symbol>
 				<symbol alt="narrow" draft="contributed">₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>ಇರಾಕಿಯನ್ ದಿನಾರ್‌</displayName>
 				<displayName count="one">ಇರಾಖಿಯನ್ ದಿನಾರ್</displayName>
 				<displayName count="other">ಇರಾಕಿಯನ್ ದಿನಾರ್‌ಗಳು</displayName>
-				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>ಇರಾನಿಯನ್ ರಿಯಲ್</displayName>
 				<displayName count="one">ಇರಾನಿಯನ್ ರಿಯಲ್</displayName>
 				<displayName count="other">ಇರಾನಿಯನ್ ರಿಯಲ್‌ಗಳು</displayName>
-				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>ಐಸ್‌ಲ್ಯಾಂಡಿಕ್ ಕ್ರೋನಾ</displayName>
 				<displayName count="one">ಐಸ್‌ಲ್ಯಾಂಡಿಕ್ ಕ್ರೋನಾ</displayName>
 				<displayName count="other">ಐಸ್‌ಲ್ಯಾಂಡಿಕ್ ಕ್ರೋನಾ</displayName>
-				<symbol>ISK</symbol>
 				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>ಜಮೈಕನ್ ಡಾಲರ್</displayName>
 				<displayName count="one">ಜಮೈಕನ್ ಡಾಲರ್</displayName>
 				<displayName count="other">ಜಮೈಕನ್ ಡಾಲರ್‌ಗಳು</displayName>
-				<symbol>JMD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>ಜೋರ್ಡಾನಿಯನ್ ದಿನಾರ್</displayName>
 				<displayName count="one">ಜೋರ್ಡಾನಿಯನ್ ದಿನಾರ್</displayName>
 				<displayName count="other">ಜೋರ್ಡಾನಿಯನ್ ದಿನಾರ್‌ಗಳು</displayName>
-				<symbol>JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>ಜಪಾನೀಸ್ ಯೆನ್</displayName>
 				<displayName count="one">ಜಪಾನೀಸ್ ಯೆನ್</displayName>
 				<displayName count="other">ಜಪಾನೀಸ್ ಯೆನ್</displayName>
-				<symbol>JP¥</symbol>
 				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>ಕೀನ್ಯಾದ ಶಿಲ್ಲಿಂಗ್‌</displayName>
 				<displayName count="one">ಕೀನ್ಯಾದ ಶಿಲ್ಲಿಂಗ್‌</displayName>
 				<displayName count="other">ಕೀನ್ಯಾದ ಶಿಲ್ಲಿಂಗ್‌ಗಳು</displayName>
-				<symbol>KES</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>ಕಿರ್ಗಿಸ್ತಾನಿ ಸೋಮ್</displayName>
 				<displayName count="one">ಕಿರ್ಗಿಸ್ತಾನಿ ಸೋಮ್</displayName>
 				<displayName count="other">ಕಿರ್ಗಿಸ್ತಾನಿ ಸೋಮ್</displayName>
-				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>ಕಾಂಬೋಡಿಯನ್ ರಿಯಲ್</displayName>
 				<displayName count="one">ಕಾಂಬೋಡಿಯನ್ ರಿಯಲ್</displayName>
 				<displayName count="other">ಕಾಂಬೋಡಿಯನ್ ರಿಯಲ್‍ಗಳು</displayName>
-				<symbol>KHR</symbol>
 				<symbol alt="narrow" draft="contributed">៛</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>ಕೊಮೊರಿಯನ್ ಫ್ರಾಂಕ್</displayName>
 				<displayName count="one">ಕೊಮೊರಿಯನ್ ಫ್ರಾಂಕ್</displayName>
 				<displayName count="other">ಕೊಮೊರಿಯನ್ ಫ್ರಾಂಕ್‍ಗಳು</displayName>
-				<symbol>KMF</symbol>
 				<symbol alt="narrow" draft="contributed">CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>ಉತ್ತರ ಕೊರಿಯನ್ ವೋನ್</displayName>
 				<displayName count="one">ಉತ್ತರ ಕೊರಿಯನ್ ವೋನ್</displayName>
 				<displayName count="other">ಉತ್ತರ ಕೊರಿಯನ್ ವೋನ್</displayName>
-				<symbol>KPW</symbol>
 				<symbol alt="narrow" draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>ದಕ್ಷಿಣ ಕೊರಿಯನ್ ವೊನ್</displayName>
 				<displayName count="one">ದಕ್ಷಿಣ ಕೊರಿಯನ್ ವೊನ್</displayName>
 				<displayName count="other">ದಕ್ಷಿಣ ಕೊರಿಯನ್ ವೊನ್</displayName>
-				<symbol>₩</symbol>
 				<symbol alt="narrow" draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>ಕುವೈತೀ ದಿನಾರ್</displayName>
 				<displayName count="one">ಕುವೈತೀ ದಿನಾರ್</displayName>
 				<displayName count="other">ಕುವೈತೀ ದಿನಾರ್‌ಗಳು</displayName>
-				<symbol>KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>ಕೆಮ್ಯಾನ್‌ ಐಲ್ಯಾಂಡ್‌ನ ಡಾಲರ್‌</displayName>
 				<displayName count="one">ಕೆಮ್ಯಾನ್‌ ಐಲ್ಯಾಂಡ್‌ನ ಡಾಲರ್‌</displayName>
 				<displayName count="other">ಕೆಮ್ಯಾನ್‌ ಐಲ್ಯಾಂಡ್‌ನ ಡಾಲರ್‌‌ಗಳು</displayName>
-				<symbol>KYD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>ಕಜಾಕಿಸ್ತಾನಿ ತೆಂಗೆ</displayName>
 				<displayName count="one">ಕಜಕಿಸ್ತಾನ್ ತೆಂಗೇ</displayName>
 				<displayName count="other">ಕಜಾಕಿಸ್ತಾನಿ ತೆಂಗೆಗಳು</displayName>
-				<symbol>KZT</symbol>
 				<symbol alt="narrow" draft="contributed">₸</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>ಲೋಟಿಯನ್ ಕಿಪ್</displayName>
 				<displayName count="one">ಲೋಟಿಯನ್ ಕಿಪ್</displayName>
 				<displayName count="other">ಲೋಟಿಯನ್ ಕಿಪ್‍ಗಳು</displayName>
-				<symbol>LAK</symbol>
 				<symbol alt="narrow" draft="contributed">₭</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>ಲೆಬೆನೀಸ್ ಪೌಂಡ್</displayName>
 				<displayName count="one">ಲೆಬೆನೀಸ್ ಪೌಂಡ್</displayName>
 				<displayName count="other">ಲೆಬೆನೀಸ್ ಪೌಂಡ್‍ಗಳು</displayName>
-				<symbol>LBP</symbol>
 				<symbol alt="narrow" draft="contributed">L£</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>ಶ್ರೀಲಂಕಾದ ರುಪೀ</displayName>
 				<displayName count="one">ಶ್ರೀಲಂಕಾದ ರುಪೀ</displayName>
 				<displayName count="other">ಶ್ರೀಲಂಕಾದ ರುಪೀಗಳು</displayName>
-				<symbol>LKR</symbol>
 				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>ಲಿಬೇರಿಯನ್ ಡಾಲರ್</displayName>
 				<displayName count="one">ಲಿಬೇರಿಯನ್ ಡಾಲರ್</displayName>
 				<displayName count="other">ಲಿಬೇರಿಯನ್ ಡಾಲರ್‌ಗಳು</displayName>
-				<symbol>LRD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="LSL">
@@ -6204,340 +5832,287 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ಲಿಥುನಿಯನ್‌ ಲಿತಾಸ್‌</displayName>
 				<displayName count="one">ಲಿಥುನಿಯನ್‌ ಲಿತಾಸ್‌</displayName>
 				<displayName count="other">ಲಿಥುನಿಯನ್‌ ಲಿತಾಯ್</displayName>
-				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>ಲ್ಯಾಟ್ವಿಯನ್ ಲ್ಯಾಟ್ಸ್</displayName>
 				<displayName count="one">ಲ್ಯಾಟ್ವಿಯನ್ ಲ್ಯಾಟ್ಸ್</displayName>
 				<displayName count="other">ಲ್ಯಾಟ್ವಿಯನ್ ಲ್ಯಾಟಿ</displayName>
-				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>ಲಿಬಿಯಾದ ದಿನಾರ್‌</displayName>
 				<displayName count="one">ಲಿಬಿಯಾದ ದಿನಾರ್‌</displayName>
 				<displayName count="other">ಲಿಬಿಯಾದ ದಿನಾರ್‌‍ಗಳು</displayName>
-				<symbol>LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>ಮೊರೊಕನ್ ದಿರ್‌ಹಮ್</displayName>
 				<displayName count="one">ಮೊರೊಕನ್ ದಿರ್‌ಹಮ್</displayName>
 				<displayName count="other">ಮೊರೊಕನ್ ದಿರ್‌ಹಮ್‌ಗಳು</displayName>
-				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>ಮಲ್ದೋವಾದ ಲೆವೂ</displayName>
 				<displayName count="one">ಮಲ್ದೋವಾದ ಲೆವೂ</displayName>
 				<displayName count="other">ಮಲ್ದೋವಾದ ಲೆಯ್</displayName>
-				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>ಮಲಗಾಸಿ ಅರಿಯಾರಿ</displayName>
 				<displayName count="one">ಮಲಗಾಸಿ ಅರಿಯಾರಿ</displayName>
 				<displayName count="other">ಮಲಗಾಸಿ ಅರಿಯಾರಿಗಳು</displayName>
-				<symbol>MGA</symbol>
 				<symbol alt="narrow" draft="contributed">Ar</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>ಮೆಸಡೋನಿಯನ್ ದಿನಾರ್</displayName>
 				<displayName count="one">ಮೆಸಡೋನಿಯನ್ ದಿನಾರ್</displayName>
 				<displayName count="other">ಮೆಸಡೋನಿಯನ್ ದಿನಾರಿ</displayName>
-				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>ಮ್ಯಾನ್ಮಾರ್ ಕ್ಯಾಟ್</displayName>
 				<displayName count="one">ಮ್ಯಾನ್ಮಾರ್ ಕ್ಯಾಟ್</displayName>
 				<displayName count="other">ಮ್ಯಾನ್ಮಾರ್ ಕ್ಯಾಟ್‍ಗಳು</displayName>
-				<symbol>MMK</symbol>
 				<symbol alt="narrow" draft="contributed">K</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>ಮಂಗೋಲಿಯಾದ ತುಗ್ರಿಕ್‌‌</displayName>
 				<displayName count="one">ಮಂಗೋಲಿಯಾದ ತುಗ್ರಿಕ್‌‌</displayName>
 				<displayName count="other">ಮಂಗೋಲಿಯಾದ ತುಗ್ರಿಕ್‌‌‌ಗಳು</displayName>
-				<symbol>MNT</symbol>
 				<symbol alt="narrow" draft="contributed">₮</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>ಮಕ್ಯೂದ ಪಟಕಾ</displayName>
 				<displayName count="one">ಮಕ್ಯೂದ ಪಟಕಾ</displayName>
 				<displayName count="other">ಮಕ್ಯೂದ ಪಟಕಾಗಳು</displayName>
-				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>ಮೌರೀಶಿಯನಿಯನ್ ಒಗಿಯ (1973–2017)</displayName>
 				<displayName count="one">ಮೌರೀಶಿಯನಿಯನ್ ಒಗಿಯ (1973–2017)</displayName>
 				<displayName count="other">ಮೌರೀಶಿಯನಿಯನ್ ಒಗಿಯಗಳು (1973–2017)</displayName>
-				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MRU">
 				<displayName>ಮೌರೀಶಿಯನಿಯನ್ ಒಗಿಯ</displayName>
 				<displayName count="one">ಮೌರೀಶಿಯನಿಯನ್ ಒಗಿಯ</displayName>
 				<displayName count="other">ಮೌರೀಶಿಯನಿಯನ್ ಒಗಿಯಗಳು</displayName>
-				<symbol draft="contributed">MRU</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>ಮಾರಿಷಿಯನ್ ರುಪಿ</displayName>
 				<displayName count="one">ಮಾರಿಷಿಯನ್ ರುಪಿ</displayName>
 				<displayName count="other">ಮಾರಿಷಿಯನ್ ರುಪಿಗಳು</displayName>
-				<symbol>MUR</symbol>
 				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>ಮಾಲ್ಡೀವಿಯನ್ ರುಫಿಯಾ</displayName>
 				<displayName count="one">ಮಾಲ್ಡೀವಿಯನ್ ರುಫಿಯಾ</displayName>
 				<displayName count="other">ಮಾಲ್ಡೀವಿಯನ್ ರುಫಿಯಾಗಳು</displayName>
-				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>ಮಲಾವಿಯ ಕ್ವಾಚ</displayName>
 				<displayName count="one">ಮಲಾವಿಯ ಕ್ವಾಚ</displayName>
 				<displayName count="other">ಮಲಾವಿಯ ಕ್ವಾಚಗಳು</displayName>
-				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>ಮೆಕ್ಸಿಕೊದ ಪೆಸೊ</displayName>
 				<displayName count="one">ಮೆಕ್ಸಿಕೊದ ಪೆಸೊ</displayName>
 				<displayName count="other">ಮೆಕ್ಸಿಕೊದ ಪೆಸೊಗಳು</displayName>
-				<symbol>MX$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>ಮಲೇಶಿಯನ್ ರಿಂಗಿಟ್ಟ್</displayName>
 				<displayName count="one">ಮಲೇಶಿಯನ್ ರಿಂಗಿಟ್ಟ್</displayName>
 				<displayName count="other">ಮಲೇಶಿಯನ್ ರಿಂಗಿಟ್ಟ್‌ಗಳು</displayName>
-				<symbol>MYR</symbol>
 				<symbol alt="narrow" draft="contributed">RM</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>ಮೊಝಾಂಬಿಕನ್ ಮೆಟಿಕಲ್</displayName>
 				<displayName count="one">ಮೊಝಾಂಬಿಕನ್ ಮೆಟಿಕಲ್</displayName>
 				<displayName count="other">ಮೊಝಾಂಬಿಕನ್ ಮೆಟಿಕಲ್‍ಗಳು</displayName>
-				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>ನಮೀಬಿಯನ್ ಡಾಲರ್</displayName>
 				<displayName count="one">ನಮೀಬಿಯನ್ ಡಾಲರ್</displayName>
 				<displayName count="other">ನಮೀಬಿಯನ್ ಡಾಲರ್‌‍ಗಳು</displayName>
-				<symbol>NAD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>ನೈಜೀರಿಯಾದ ನೇರಾ</displayName>
 				<displayName count="one">ನೈಜೀರಿಯಾದ ನೇರಾ</displayName>
 				<displayName count="other">ನೈಜೀರಿಯಾದ ನೇರಾಗಳು</displayName>
-				<symbol>NGN</symbol>
 				<symbol alt="narrow" draft="contributed">₦</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>ನಿಕಾರಗ್ವಾದ ಕರ್ದೊಬಾ</displayName>
 				<displayName count="one">ನಿಕಾರಗ್ವಾದ ಕರ್ದೊಬಾ</displayName>
 				<displayName count="other">ನಿಕಾರಗ್ವಾದ ಕರ್ದೊಬಾಗಳು</displayName>
-				<symbol>NIO</symbol>
 				<symbol alt="narrow" draft="contributed">C$</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>ನಾರ್ವೇಯ ಕ್ರೋನ್</displayName>
 				<displayName count="one">ನಾರ್ವೇಯ ಕ್ರೋನ್</displayName>
 				<displayName count="other">ನಾರ್ವೇಯ ಕ್ರೋನರ್</displayName>
-				<symbol>NOK</symbol>
 				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>ನೇಪಾಳದ ರುಪೀ</displayName>
 				<displayName count="one">ನೇಪಾಳದ ರುಪೀ</displayName>
 				<displayName count="other">ನೇಪಾಳದ ರುಪೀಗಳು</displayName>
-				<symbol>NPR</symbol>
 				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>ನ್ಯೂಜಿಲ್ಯಾಂಡ್ ಡಾಲರ್</displayName>
 				<displayName count="one">ನ್ಯೂಜಿಲ್ಯಾಂಡ್ ಡಾಲರ್</displayName>
 				<displayName count="other">ನ್ಯೂಜಿಲ್ಯಾಂಡ್ ಡಾಲರ್‌ಗಳು</displayName>
-				<symbol>NZ$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>ಒಮಾನಿ ರಿಯಲ್</displayName>
 				<displayName count="one">ಒಮಾನಿ ರಿಯಲ್</displayName>
 				<displayName count="other">ಒಮಾನಿ ರಿಯಲ್‍ಗಳು</displayName>
-				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>ಪನಾಮಾನಿಯನ್ ಬಲ್ಬೋವಾ</displayName>
 				<displayName count="one">ಪನಾಮಾನಿಯನ್ ಬಲ್ಬೋವಾ</displayName>
 				<displayName count="other">ಪನಾಮಾನಿಯನ್ ಬಲ್ಬೋವಾಗಳು</displayName>
-				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>ಪೆರುವಿಯನ್ ಸೊಲ್</displayName>
 				<displayName count="one">ಪೆರುವಿಯನ್ ಸೊಲ್</displayName>
 				<displayName count="other">ಪೆರುವಿಯನ್ ಸೊಲ್‍ಗಳು</displayName>
-				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>ಪಪುವಾ ನ್ಯೂ ಗಿನಿಯನ್ ಕಿನಾ</displayName>
 				<displayName count="one">ಪಪುವಾ ನ್ಯೂ ಗಿನಿಯನ್ ಕಿನಾ</displayName>
 				<displayName count="other">ಪಪುವಾ ನ್ಯೂ ಗಿನಿಯನ್ ಕಿನಾ</displayName>
-				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>ಫಿಲಿಪ್ಪೈನ್ ಪೆಸೊ</displayName>
 				<displayName count="one">ಫಿಲಿಪ್ಪೈನ್ ಪೆಸೊ</displayName>
 				<displayName count="other">ಫಿಲಿಪ್ಪೈನ್ ಪೆಸೊಗಳು</displayName>
-				<symbol>PHP</symbol>
 				<symbol alt="narrow" draft="contributed">₱</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>ಪಾಕಿಸ್ತಾನದ ರುಪೀ</displayName>
 				<displayName count="one">ಪಾಕಿಸ್ತಾನದ ರುಪೀ</displayName>
 				<displayName count="other">ಪಾಕಿಸ್ತಾನದ ರುಪೀಗಳು</displayName>
-				<symbol>PKR</symbol>
 				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>ಪೊಲಿಶ್ ಝ್ಲೋಟಿ</displayName>
 				<displayName count="one">ಪೊಲಿಶ್ ಝ್ಲೋಟಿ</displayName>
 				<displayName count="other">ಪೊಲಿಶ್ ಝ್ಲೋಟಿಗಳು</displayName>
-				<symbol>PLN</symbol>
 				<symbol alt="narrow" draft="contributed">zł</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>ಪೆರುಗ್ವೇಯ ಗ್ವಾರನೀ</displayName>
 				<displayName count="one">ಪೆರುಗ್ವೇಯ ಗ್ವಾರನೀ</displayName>
 				<displayName count="other">ಪೆರುಗ್ವೇಯ ಗ್ವಾರನೀಗಳು</displayName>
-				<symbol>PYG</symbol>
 				<symbol alt="narrow" draft="contributed">₲</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>ಖತಾರಿ ರಿಯಲ್</displayName>
 				<displayName count="one">ಖತಾರಿ ರಿಯಲ್</displayName>
 				<displayName count="other">ಖತಾರಿ ರಿಯಲ್‍ಗಳು</displayName>
-				<symbol>QAR</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>ರೊಮೇನಿಯನ್ ಲೆವು</displayName>
 				<displayName count="one">ರೊಮೇನಿಯನ್ ಲೆವು</displayName>
 				<displayName count="other">ರೊಮೇನಿಯನ್ ಲೆಯ್</displayName>
-				<symbol>RON</symbol>
 				<symbol alt="narrow" draft="contributed">ಲೀ</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>ಸೆರ್ಬಿಯನ್ ದಿನಾರ್</displayName>
 				<displayName count="one">ಸೆರ್ಬಿಯನ್ ದಿನಾರ್</displayName>
 				<displayName count="other">ಸೆರ್ಬಿಯನ್ ದಿನಾರ್‌ಗಳು</displayName>
-				<symbol>RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>ರಶಿಯನ್ ರೂಬಲ್</displayName>
 				<displayName count="one">ರಶಿಯನ್ ರೂಬಲ್</displayName>
 				<displayName count="other">ರಶಿಯನ್ ರೂಬಲ್‍ಗಳು</displayName>
-				<symbol>RUB</symbol>
 				<symbol alt="narrow" draft="contributed">₽</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>ರುವಾಂಡನ್ ಫ್ರಾಂಕ್</displayName>
 				<displayName count="one">ರುವಾಂಡನ್ ಫ್ರಾಂಕ್</displayName>
 				<displayName count="other">ರುವಾಂಡನ್ ಫ್ರಾಂಕ್‍ಗಳು</displayName>
-				<symbol>RWF</symbol>
 				<symbol alt="narrow" draft="contributed">RF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>ಸೌದಿ ರಿಯಾಲ್</displayName>
 				<displayName count="one">ಸೌದಿ ರಿಯಾಲ್</displayName>
 				<displayName count="other">ಸೌದಿ ರಿಯಾಲ್‍ಗಳು</displayName>
-				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>ಸೊಲೊಮನ್ ದ್ವೀಪಗಳ ಡಾಲರ್</displayName>
 				<displayName count="one">ಸೊಲೊಮನ್ ದ್ವೀಪಗಳ ಡಾಲರ್</displayName>
 				<displayName count="other">ಸೊಲೊಮನ್ ದ್ವೀಪಗಳ ಡಾಲರ್‌ಗಳು</displayName>
-				<symbol>SBD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>ಸೆಚೊಲಿಯೊಸ್ ರುಪಿ</displayName>
 				<displayName count="one">ಸೆಚೊಲಿಯೊಸ್ ರುಪಿ</displayName>
 				<displayName count="other">ಸೆಚೊಲಿಯೊಸ್ ರುಪಿಗಳು</displayName>
-				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>ಸುಡಾನೀಸ್ ಪೌಂಡ್</displayName>
 				<displayName count="one">ಸುಡಾನೀಸ್ ಪೌಂಡ್</displayName>
 				<displayName count="other">ಸುಡಾನೀಸ್ ಪೌಂಡ್</displayName>
-				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>ಸ್ವೀಡಿಷ್ ಕ್ರೋನಾ</displayName>
 				<displayName count="one">ಸ್ವೀಡಿಷ್ ಕ್ರೋನಾ</displayName>
 				<displayName count="other">ಸ್ವೀಡಿಶ್ ಕ್ರೋನರ್</displayName>
-				<symbol>SEK</symbol>
 				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>ಸಿಂಗಾಪುರ್ ಡಾಲರ್‌</displayName>
 				<displayName count="one">ಸಿಂಗಾಪುರ್ ಡಾಲರ್‌</displayName>
 				<displayName count="other">ಸಿಂಗಾಪುರ್ ಡಾಲರ್‌‌ಗಳು</displayName>
-				<symbol>SGD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>ಸೇಂಟ್ ಹೆಲೇನಾ ಪೌಂಡ್</displayName>
 				<displayName count="one">ಸೇಂಟ್ ಹೆಲೇನಾ ಪೌಂಡ್</displayName>
 				<displayName count="other">ಸೇಂಟ್ ಹೆಲೇನಾ ಪೌಂಡ್</displayName>
-				<symbol>SHP</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>ಸಿಯೆರಾ ಲಿಯೋನಿಯನ್ ಲಿಯೋನ್</displayName>
 				<displayName count="one">ಸಿಯೆರಾ ಲಿಯೋನಿಯನ್ ಲಿಯೋನ್</displayName>
 				<displayName count="other">ಸಿಯೆರಾ ಲಿಯೋನಿಯನ್ ಲಿಯೋನ್‌ಗಳು</displayName>
-				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>ಸೊಮಾಲಿ ಶಿಲ್ಲಿಂಗ್</displayName>
 				<displayName count="one">ಸೊಮಾಲಿ ಶಿಲ್ಲಿಂಗ್</displayName>
 				<displayName count="other">ಸೊಮಾಲಿ ಶಿಲ್ಲಿಂಗ್‍ಗಳು</displayName>
-				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>ಸುರಿನಾಮೀಸ್ ಡಾಲರ್</displayName>
 				<displayName count="one">ಸುರಿನಾಮೀಸ್ ಡಾಲರ್</displayName>
 				<displayName count="other">ಸುರಿನಾಮೀಸ್ ಡಾಲರ್‌ಗಳು</displayName>
-				<symbol>SRD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SSP">
 				<displayName>ದಕ್ಷಿಣ ಸೂಡಾನೀಸ್ ಪೌಂಡ್‍</displayName>
 				<displayName count="one">ದಕ್ಷಿಣ ಸೂಡಾನೀಸ್ ಪೌಂಡ್‍</displayName>
 				<displayName count="other">ದಕ್ಷಿಣ ಸೂಡಾನೀಸ್ ಪೌಂಡ್‍‍ಗಳು</displayName>
-				<symbol>SSP</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>ಸಾವೊ ಟೋಮ್ ಮತ್ತು ಪ್ರಿನ್ಸಿಪ್ ದೊಬ್ರಾ (1977–2017)</displayName>
 				<displayName count="one">ಸಾವೊ ಟೋಮ್ ಮತ್ತು ಪ್ರಿನ್ಸಿಪ್ ದೊಬ್ರಾ (1977–2017)</displayName>
 				<displayName count="other">ಸಾವೊ ಟೋಮ್ ಮತ್ತು ಪ್ರಿನ್ಸಿಪ್ ದೊಬ್ರಾಗಳು (1977–2017)</displayName>
-				<symbol>STD</symbol>
 			</currency>
 			<currency type="STN">
 				<displayName>ಸಾವೊ ಟೋಮ್ ಮತ್ತು ಪ್ರಿನ್ಸಿಪ್ ದೊಬ್ರಾ</displayName>
 				<displayName count="one">ಸಾವೊ ಟೋಮ್ ಮತ್ತು ಪ್ರಿನ್ಸಿಪ್ ದೊಬ್ರಾ</displayName>
 				<displayName count="other">ಸಾವೊ ಟೋಮ್ ಮತ್ತು ಪ್ರಿನ್ಸಿಪ್ ದೊಬ್ರಾಗಳು</displayName>
-				<symbol draft="contributed">STN</symbol>
-				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>ಸಿರಿಯನ್ ಪೌಂಡ್</displayName>
 				<displayName count="one">ಸಿರಿಯನ್ ಪೌಂಡ್</displayName>
 				<displayName count="other">ಸಿರಿಯನ್ ಪೌಂಡ್‌ಗಳು</displayName>
-				<symbol>SYP</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>ಸ್ವಾಜಿ ಲಿಲಂಗೆನಿ</displayName>
 				<displayName count="one">ಸ್ವಾಜಿ ಲಿಲಂಗೆನಿ</displayName>
 				<displayName count="other">ಸ್ವಾಜಿ ಎಮಲಂಗೆನಿ</displayName>
-				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>ಥಾಯ್ ಬಹ್ತ್</displayName>
@@ -6550,32 +6125,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ತಜಕಿಸ್ತಾನಿ ಸೊಮೋನಿ</displayName>
 				<displayName count="one">ತಜಕಿಸ್ತಾನಿ ಸೊಮೋನಿ</displayName>
 				<displayName count="other">ತಜಕಿಸ್ತಾನಿ ಸೊಮೋನಿಗಳು</displayName>
-				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMT">
 				<displayName>ಟರ್ಕ್‍ಮೆನಿಸ್ತಾನ್ ಮನಾತ್</displayName>
 				<displayName count="one">ಟರ್ಕ್‍ಮೆನಿಸ್ತಾನ್ ಮನಾತ್</displayName>
 				<displayName count="other">ಟರ್ಕ್‍ಮೆನಿಸ್ತಾನ್ ಮನಾತ್</displayName>
-				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>ಟ್ಯುನೀಷಿಯನ್‌ ದಿನಾರ್</displayName>
 				<displayName count="one">ತುನೀಸಿಯನ್ ದಿನಾರ್</displayName>
 				<displayName count="other">ಟ್ಯುನೀಷಿಯನ್‌ ದಿನಾರ್‌ಗಳು</displayName>
-				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>ಟೊಂಗಾ ಪಾಂಗ</displayName>
 				<displayName count="one">ಟೊಂಗಾ ಪಾಂಗ</displayName>
 				<displayName count="other">ಟೊಂಗಾ ಪಾಂಗ</displayName>
-				<symbol>TOP</symbol>
 				<symbol alt="narrow" draft="contributed">T$</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>ಟರ್ಕಿಶ್ ಲಿರಾ</displayName>
 				<displayName count="one">ಟರ್ಕಿಶ್ ಲಿರಾ</displayName>
 				<displayName count="other">ಟರ್ಕಿಶ್ ಲಿರಾ</displayName>
-				<symbol>TRY</symbol>
 				<symbol alt="narrow" draft="contributed">₺</symbol>
 				<symbol alt="variant" draft="contributed">TL</symbol>
 			</currency>
@@ -6583,34 +6153,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ಟ್ರಿನಿಡಾಡ್ ಮತ್ತು ಟೊಬಾಗೊ ಡಾಲರ್</displayName>
 				<displayName count="one">ಟ್ರಿನಿಡಾಡ್ ಮತ್ತು ಟೊಬಾಗೊ ಡಾಲರ್</displayName>
 				<displayName count="other">ಟ್ರಿನಿಡಾಡ್ ಮತ್ತು ಟೊಬಾಗೊ ಡಾಲರ್‌ಗಳು</displayName>
-				<symbol>TTD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>ನ್ಯೂ ತೈವಾನ್ ಡಾಲರ್</displayName>
 				<displayName count="one">ನ್ಯೂ ತೈವಾನ್ ಡಾಲರ್</displayName>
 				<displayName count="other">ನ್ಯೂ ತೈವಾನ್ ಡಾಲರ್‌ಗಳು</displayName>
-				<symbol>NT$</symbol>
 				<symbol alt="narrow" draft="contributed">NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>ತಾನ್‌ಜೇನಿಯನ್ ಶಿಲ್ಲಿಂಗ್</displayName>
 				<displayName count="one">ತಾನ್‌ಜೇನಿಯನ್ ಶಿಲ್ಲಿಂಗ್</displayName>
 				<displayName count="other">ತಾನ್‌ಜೇನಿಯನ್ ಶಿಲ್ಲಿಂಗ್‍ಗಳು</displayName>
-				<symbol>TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>ಉಕ್ರೇನಿಯನ್ ಹ್ರಿವ್ನೀಯ</displayName>
 				<displayName count="one">ಉಕ್ರೇನಿಯನ್ ಹ್ರಿವ್ನೀಯ</displayName>
 				<displayName count="other">ಉಕ್ರೇನಿಯನ್ ಹ್ರಿವ್ನೀಯಗಳು</displayName>
-				<symbol>UAH</symbol>
 				<symbol alt="narrow" draft="contributed">₴</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>ಉಗಾಂಡನ್ ಶಿಲ್ಲಿಂಗ್</displayName>
 				<displayName count="one">ಉಗಾಂಡನ್ ಶಿಲ್ಲಿಂಗ್</displayName>
 				<displayName count="other">ಉಗಾಂಡನ್ ಶಿಲ್ಲಿಂಗ್‍ಗಳು</displayName>
-				<symbol>UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>ಅಮೆರಿಕದ ಡಾಲರ್‌</displayName>
@@ -6623,71 +6188,60 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ಉರುಗ್ವೆಯ ಪೆಸೊ</displayName>
 				<displayName count="one">ಉರುಗ್ವೆಯ ಪೆಸೊ</displayName>
 				<displayName count="other">ಉರುಗ್ವೆಯ ಪೆಸೊಗಳು</displayName>
-				<symbol>UYU</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>ಉಜ್ಬೇಕಿಸ್ತಾನ್ ಸೊಮ್</displayName>
 				<displayName count="one">ಉಜ್ಬೇಕಿಸ್ತಾನ್ ಸೊಮ್</displayName>
 				<displayName count="other">ಉಜ್ಬೇಕಿಸ್ತಾನ್ ಸೊಮ್</displayName>
-				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEF">
 				<displayName>ವೆನಿಜುಲಿಯನ್ ಬೊಲಿವರ್ (2008–2018)</displayName>
 				<displayName count="one">ವೆನಿಜುಲಿಯನ್ ಬೊಲಿವರ್ (2008–2018)</displayName>
 				<displayName count="other">ವೆನಿಜುಲಿಯನ್ ಬೊಲಿವರ್‌ಗಳು (2008–2018)</displayName>
-				<symbol>VEF</symbol>
 				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="VES">
 				<displayName>ವೆನಿಜುಲಿಯನ್ ಬೊಲಿವರ್</displayName>
 				<displayName count="one">ವೆನಿಜುಲಿಯನ್ ಬೊಲಿವರ್</displayName>
 				<displayName count="other">ವೆನಿಜುಲಿಯನ್ ಬೊಲಿವರ್‌ಗಳು</displayName>
-				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>ವಿಯೆಟ್ನಾಮೀಸ್ ಡಾಂಗ್</displayName>
 				<displayName count="one">ವಿಯೆಟ್ನಾಮೀಸ್ ಡಾಂಗ್</displayName>
 				<displayName count="other">ವಿಯೆಟ್ನಾಮೀಸ್ ಡಾಂಗ್</displayName>
-				<symbol>₫</symbol>
 				<symbol alt="narrow" draft="contributed">₫</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>ವನೂತು ವತು</displayName>
 				<displayName count="one">ವನೂತು ವತು</displayName>
 				<displayName count="other">ವನೂತು ವತುಗಳು</displayName>
-				<symbol>VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>ಸಮೋನ್ ತಲಾ</displayName>
 				<displayName count="one">ಸಮೋನ್ ತಲಾ</displayName>
 				<displayName count="other">ಸಮೋನ್ ತಲಾ</displayName>
-				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>ಮಧ್ಯ ಆಫ್ರಿಕನ್ CFA ಫ್ರಾಂಕ್</displayName>
 				<displayName count="one">ಮಧ್ಯ ಆಫ್ರಿಕನ್ CFA ಫ್ರಾಂಕ್</displayName>
 				<displayName count="other">ಮಧ್ಯ ಆಫ್ರಿಕನ್ CFA ಫ್ರಾಂಕ್‌ಗಳು</displayName>
-				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>ಪೂರ್ವ ಕೆರೀಬಿಯನ್ ಡಾಲರ್</displayName>
 				<displayName count="one">ಪೂರ್ವ ಕೆರೀಬಿಯನ್ ಡಾಲರ್</displayName>
 				<displayName count="other">ಪೂರ್ವ ಕೆರೀಬಿಯನ್ ಡಾಲರ್‌ಗಳು</displayName>
-				<symbol>EC$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>ಪಶ್ಚಿಮ ಆಫ್ರಿಕಾದ [CFA] ಫ್ರಾಂಕ್</displayName>
 				<displayName count="one">ಪಶ್ಚಿಮ ಆಫ್ರಿಕಾದ [CFA] ಫ್ರಾಂಕ್‌</displayName>
 				<displayName count="other">ಪಶ್ಚಿಮ ಆಫ್ರಿಕಾದ [CFA] ಫ್ರಾಂಕ್‌ಗಳು</displayName>
-				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>[CFP] ಫ್ರಾಂಕ್</displayName>
 				<displayName count="one">[CFP] ಫ್ರಾಂಕ್</displayName>
 				<displayName count="other">[CFP] ಫ್ರಾಂಕ್‌ಗಳು</displayName>
-				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>ಅಪರಿಚಿತ ಕರೆನ್ಸಿ</displayName>
@@ -6698,13 +6252,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ಯೆಮೆನಿ ರಿಯಲ್</displayName>
 				<displayName count="one">ಯೆಮೆನಿ ರಿಯಲ್</displayName>
 				<displayName count="other">ಯೆಮೆನಿ ರಿಯಲ್‍ಗಳು</displayName>
-				<symbol>YER</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>ದಕ್ಷಿಣ ಆಫ್ರಿಕನ್ ರಾಂಡ್</displayName>
 				<displayName count="one">ದಕ್ಷಿಣ ಆಫ್ರಿಕನ್ ರಾಂಡ್</displayName>
 				<displayName count="other">ದಕ್ಷಿಣ ಆಫ್ರಿಕನ್ ರಾಂಡ್</displayName>
-				<symbol>ZAR</symbol>
 				<symbol alt="narrow" draft="contributed">R</symbol>
 			</currency>
 			<currency type="ZMK">
@@ -6714,14 +6266,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ಜಾಂಬಿಯಾ ಕ್ವಾಚ</displayName>
 				<displayName count="one">ಜಾಂಬಿಯಾ ಕ್ವಾಚ</displayName>
 				<displayName count="other">ಜಾಂಬಿಯಾ ಕ್ವಾಚಗಳು</displayName>
-				<symbol>ZMW</symbol>
 				<symbol alt="narrow" draft="contributed">ZK</symbol>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
-			<pattern type="approximately" draft="contributed">~{0}</pattern>
 			<pattern type="atLeast">{0}+</pattern>
-			<pattern type="atMost" draft="contributed">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -6819,6 +6368,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ಚದರ ಅಂಗುಲ</unitPattern>
 				<unitPattern count="other">{0} ಚದರ ಅಂಗುಲಗಳು</unitPattern>
 				<perUnitPattern>{0} ಚದರ ಅಂಗುಲಕ್ಕೆ</perUnitPattern>
+			</unit>
+			<unit type="area-dunam">
+				<displayName draft="contributed">ಡುನಮ್ಸ್‌</displayName>
+				<unitPattern count="one" draft="contributed">{0} ಡುನಮ್‌</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ಡುನಮ್‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
 				<displayName>ಕಾರಟ್‌ಗಳು</displayName>
@@ -7152,6 +6706,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ಪಾಯಿಂಟ್</unitPattern>
 				<unitPattern count="other">{0} ಪಾಯಿಂಟ್‌ಗಳು</unitPattern>
 			</unit>
+			<unit type="length-solar-radius">
+				<displayName draft="contributed">ಸೋಲಾರ್‌ ರೇಡಿ</displayName>
+				<unitPattern count="one" draft="contributed">{0} ಸೋಲಾರ್‌ ರೇಡಿಯಸ್‌</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ಸೋಲಾರ್‌ ರೇಡಿ</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>ಲಕ್ಸ್‌‌</displayName>
 				<unitPattern count="one">{0} ಲಕ್ಸ್‌‌</unitPattern>
@@ -7216,6 +6775,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ಕ್ಯಾರೆಟ್‌</unitPattern>
 				<unitPattern count="other">{0} ಕ್ಯಾರೆಟ್‌ಗಳು</unitPattern>
 			</unit>
+			<unit type="mass-dalton">
+				<displayName draft="contributed">ಡಿಎ</displayName>
+				<unitPattern count="one" draft="contributed">{0} ಡಿಎ</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ಡಿಎ</unitPattern>
+			</unit>
+			<unit type="mass-solar-mass">
+				<displayName draft="contributed">ಸೋಲಾರ್‌ ಮಾಸ್‌</displayName>
+				<unitPattern count="one" draft="contributed">{0} ಸೋಲಾರ್‌ ಮಾಸ್‌</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ಸೋಲಾರ್‌ ಮಾಸಸ್‌</unitPattern>
+			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ಗಿಗಾವ್ಯಾಟ್‌ಗಳು</displayName>
 				<unitPattern count="one">{0} ಗಿಗಾವ್ಯಾಟ್‌</unitPattern>
@@ -7275,6 +6844,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName draft="contributed">ವಾತಾವರಣಗಳು</displayName>
 				<unitPattern count="one" draft="contributed">{0} ವಾತಾವರಣ</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ವಾತಾವರಣಗಳು</unitPattern>
+			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName draft="contributed">ಕಿಲೋಪಾಸ್ಕಲ್‌ಗಳು</displayName>
+				<unitPattern count="one" draft="contributed">{0} ಕಿಲೋಪಾಸ್ಕಲ್‌</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ಕಿಲೋಪಾಸ್ಕಲ್‌ಗಳು</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName draft="contributed">ಮೆಗಾಪಾಸ್ಕಲ್‌ಗಳು</displayName>
+				<unitPattern count="one" draft="contributed">{0} ಮೆಗಾಪಾಸ್ಕಲ್‌</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ಮೆಗಾಪಾಸ್ಕಲ್‌ಗಳು</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ಕಿಲೋಮೀಟರ್‌ಗಳು ಪ್ರತಿ ಗಂಟೆಗೆ</displayName>
@@ -7538,6 +7117,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ಅಂ²</unitPattern>
 				<perUnitPattern>{0}/ಅಂ²ಕ್ಕೆ</perUnitPattern>
 			</unit>
+			<unit type="area-dunam">
+				<displayName draft="contributed">ಡುನಮ್‌</displayName>
+				<unitPattern count="one" draft="contributed">{0} ಡುನಮ್</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ಡುನಮ್</unitPattern>
+			</unit>
 			<unit type="concentr-karat">
 				<displayName>ಕಾರಟ್‌ಗಳು</displayName>
 				<unitPattern count="one">{0} ಕಾರ.</unitPattern>
@@ -7560,13 +7144,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-percent">
 				<displayName draft="contributed">ಶೇಕಡಾ</displayName>
-				<unitPattern count="one" draft="contributed">{0}%</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}%</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<displayName draft="contributed">ಪ್ರತಿ ಸಾವಿರಕ್ಕೆ</displayName>
-				<unitPattern count="one" draft="contributed">{0}‰</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}‰</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ಲೀ/ಕಿ.ಮೀ</displayName>
@@ -7870,6 +7450,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ಪಾಯಿಂಟ್</unitPattern>
 				<unitPattern count="other">{0} ಪಾಯಿಂಟ್‌ಗಳು</unitPattern>
 			</unit>
+			<unit type="length-solar-radius">
+				<displayName draft="contributed">ಸೋಲಾರ್‌ ರೇಡಿ</displayName>
+			</unit>
 			<unit type="light-lux">
 				<displayName>ಲ.</displayName>
 				<unitPattern count="one">{0} ಲ.</unitPattern>
@@ -7934,6 +7517,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ಕ್ಯಾರೆ</unitPattern>
 				<unitPattern count="other">{0} ಕ್ಯಾರೆ</unitPattern>
 			</unit>
+			<unit type="mass-dalton">
+				<displayName draft="contributed">ಡಿಎ</displayName>
+				<unitPattern count="one" draft="contributed">{0} ಡಿಎ</unitPattern>
+			</unit>
+			<unit type="mass-solar-mass">
+				<displayName draft="contributed">ಸೋಲಾರ್‌ ಮಾಸ್‌ಗಳು</displayName>
+			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ಗಿ.ವ್ಯಾ</displayName>
 				<unitPattern count="one">{0} ಗಿ.ವ್ಯಾ</unitPattern>
@@ -7993,6 +7583,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName draft="contributed">ವಾತಾವರಣಗಳು</displayName>
 				<unitPattern count="one" draft="contributed">{0} ವಾತಾವರಣ</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ವಾತಾವರಣ</unitPattern>
+			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName draft="contributed">ಕೆಪಿಎ</displayName>
+				<unitPattern count="one" draft="contributed">{0} ಕೆಪಿಎ</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ಕೆಪಿಎ</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName draft="contributed">ಎಂಪಿಎ</displayName>
+				<unitPattern count="one" draft="contributed">{0} ಎಂಪಿಎ</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ಎಂಪಿಎ</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ಕಿ.ಮೀ/ಗಂ</displayName>
@@ -8175,10 +7775,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}ಜಿ-ಫೋ.</unitPattern>
 				<unitPattern count="other">{0}ಜಿ-ಫೋ.</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}ನಿ.</unitPattern>
 				<unitPattern count="other">{0}ನಿ.</unitPattern>
@@ -8210,11 +7806,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-square-foot">
 				<unitPattern count="one">{0}ಚ.ಅ</unitPattern>
 				<unitPattern count="other">{0}ಚ.ಅ</unitPattern>
-			</unit>
-			<unit type="concentr-percent">
-				<displayName draft="contributed">%</displayName>
-				<unitPattern count="one" draft="contributed">{0}%</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>ಲೀ/100ಕಿ.ಮೀ</displayName>
@@ -8409,11 +8000,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName draft="contributed">ಮೈ/ಗಂ</displayName>
 				<unitPattern count="one">{0}ಮೈ/ಗಂ</unitPattern>
 				<unitPattern count="other">{0}ಮೈ/ಗಂ</unitPattern>
-			</unit>
-			<unit type="temperature-generic">
-				<displayName draft="contributed">°</displayName>
-				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°ಸೆ</displayName>

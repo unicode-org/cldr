@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -91,6 +91,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="car">קאריב</language>
 			<language type="cay">קאיוגה</language>
 			<language type="cch">אטסם</language>
+			<language type="ccp">צ׳אקמה</language>
 			<language type="ce">צ׳צ׳נית</language>
 			<language type="ceb">סבואנו</language>
 			<language type="cgg">צ׳יגה</language>
@@ -696,6 +697,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG" alt="variant">קונגו (רפובליקה)</territory>
 			<territory type="CH">שווייץ</territory>
 			<territory type="CI">חוף השנהב</territory>
+			<territory type="CI" alt="variant">קוט דיוואר</territory>
 			<territory type="CK">איי קוק</territory>
 			<territory type="CL">צ׳ילה</territory>
 			<territory type="CM">קמרון</territory>
@@ -878,7 +880,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="SV">אל סלבדור</territory>
 			<territory type="SX">סנט מארטן</territory>
 			<territory type="SY">סוריה</territory>
-			<territory type="SZ">סווזילנד</territory>
+			<territory type="SZ">אסוואטיני</territory>
+			<territory type="SZ" alt="variant">סווזילנד</territory>
 			<territory type="TA">טריסטן דה קונה</territory>
 			<territory type="TC">איי טרקס וקייקוס</territory>
 			<territory type="TD">צ׳אד</territory>
@@ -1130,12 +1133,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<eraNames>
 						<era type="0" draft="contributed">הספירה הבודהיסטית</era>
 					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">BE</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">BE</era>
-					</eraNarrow>
 				</eras>
 			</calendar>
 			<calendar type="coptic">
@@ -1156,21 +1153,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="12" draft="contributed">מסרה</month>
 							<month type="13" draft="contributed">נאסי</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-							<month type="13" draft="contributed">13</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">טאוט</month>
 							<month type="2" draft="contributed">בבה</month>
@@ -1203,21 +1185,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="12" draft="contributed">מסרה</month>
 							<month type="13" draft="contributed">נאסי</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-							<month type="13" draft="contributed">13</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">טאוט</month>
 							<month type="2" draft="contributed">בבה</month>
@@ -1240,14 +1207,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<era type="0" draft="contributed">עידן 0</era>
 						<era type="1" draft="contributed">עידן 1</era>
 					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">ERA0</era>
-						<era type="1" draft="contributed">ERA1</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">ERA0</era>
-						<era type="1" draft="contributed">ERA1</era>
-					</eraNarrow>
 				</eras>
 			</calendar>
 			<calendar type="ethiopic">
@@ -1268,21 +1227,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="12">נהסה</month>
 							<month type="13">פגומן</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-							<month type="13" draft="contributed">13</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">מסקרם</month>
 							<month type="2">טקמת</month>
@@ -1315,21 +1259,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="12">נהסה</month>
 							<month type="13">פגומן</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-							<month type="13" draft="contributed">13</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">מסקרם</month>
 							<month type="2">טקמת</month>
@@ -1352,14 +1281,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<era type="0" draft="contributed">עידן 0</era>
 						<era type="1" draft="contributed">עידן 1</era>
 					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">ERA0</era>
-						<era type="1" draft="contributed">ERA1</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">ERA0</era>
-						<era type="1" draft="contributed">ERA1</era>
-					</eraNarrow>
 				</eras>
 			</calendar>
 			<calendar type="generic">
@@ -1566,20 +1487,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="10">אוק׳</month>
 							<month type="11">נוב׳</month>
 							<month type="12">דצמ׳</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">ינואר</month>
@@ -1946,10 +1853,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MMMd">d בMMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d בMMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d בMMMM</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="one">שבוע W בMMMM</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="two">שבוע W בMMMM</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="many">שבוע W בMMMM</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="other">שבוע W בMMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">שבוע W בMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="two">שבוע W בMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="many">שבוע W בMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">שבוע W בMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M.y</dateFormatItem>
@@ -1972,8 +1879,55 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h B – h B</greatestDifference>
+							<greatestDifference id="h">h–h B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm B</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">y G – y G</greatestDifference>
+							<greatestDifference id="y">y – y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">M.y GGGGG – M.y GGGGG</greatestDifference>
+							<greatestDifference id="M">M.y – M.y GGGGG</greatestDifference>
+							<greatestDifference id="y">M.y – M.y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">d.M.y – d.M.y GGGGG</greatestDifference>
+							<greatestDifference id="G">d.M.y GGGGG – d.M.y GGGGG</greatestDifference>
+							<greatestDifference id="M">d.M.y – d.M.y GGGGG</greatestDifference>
+							<greatestDifference id="y">d.M.y – d.M.y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">E, d.M.y – E, d.M.y GGGGG</greatestDifference>
+							<greatestDifference id="G">E, d.M.y GGGGG – E, d.M.y GGGGG</greatestDifference>
+							<greatestDifference id="M">E, d.M.y – E, d.M.y GGGGG</greatestDifference>
+							<greatestDifference id="y">E, d.M.y – E, d.M.y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">MMM y G – MMM y G</greatestDifference>
+							<greatestDifference id="M">MMM – MMM y G</greatestDifference>
+							<greatestDifference id="y">MMM y – MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">d – d בMMM y G</greatestDifference>
+							<greatestDifference id="G">d בMMM y G – d בMMM y G</greatestDifference>
+							<greatestDifference id="M">d בMMM – d בMMM y G</greatestDifference>
+							<greatestDifference id="y">d בMMM y – d בMMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">E, d בMMM – E, d בMMM y G</greatestDifference>
+							<greatestDifference id="G">E, d בMMM y G – E, d בMMM y G</greatestDifference>
+							<greatestDifference id="M">E, d בMMM – E, d בMMM y G</greatestDifference>
+							<greatestDifference id="y">E, d בMMM y – E, d בMMM y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">h a – h a</greatestDifference>
@@ -2180,9 +2134,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<eraAbbr>
 						<era type="0">AM</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">AM</era>
-					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -2325,20 +2276,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="11" draft="contributed">מאגהה</month>
 							<month type="12" draft="contributed">פלגונה</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">צ׳ייטרה</month>
 							<month type="2" draft="contributed">וייסקהה</month>
@@ -2369,20 +2306,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="11" draft="contributed">מאגהה</month>
 							<month type="12" draft="contributed">פלגונה</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">צ׳ייטרה</month>
 							<month type="2" draft="contributed">וייסקהה</month>
@@ -2395,7 +2318,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="9" draft="contributed">אגרהיאנה</month>
 							<month type="10" draft="contributed">פאוסה</month>
 							<month type="11" draft="contributed">מאגהה</month>
-							<month type="12" draft="contributed">Phalguna</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -2509,9 +2431,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<eraAbbr>
 						<era type="0">שנת היג׳רה</era>
 					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">AH</era>
-					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -2596,20 +2515,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="11">בהמן</month>
 							<month type="12">אספנד</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">פרורדין</month>
 							<month type="2">ארדיבהשת</month>
@@ -2640,20 +2545,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="11">בהמן</month>
 							<month type="12">אספנד</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">פרורדין</month>
 							<month type="2">ארדיבהשת</month>
@@ -2674,12 +2565,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<eraNames>
 						<era type="0" draft="contributed">הספירה הפרסית</era>
 					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="contributed">AP</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0" draft="contributed">AP</era>
-					</eraNarrow>
 				</eras>
 			</calendar>
 			<calendar type="roc">
@@ -2690,11 +2575,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="contributed">לפני R.O.C</era>
-						<era type="1" draft="contributed">R.O.C.</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0" draft="contributed">לפני R.O.C</era>
-						<era type="1" draft="contributed">R.O.C.</era>
 					</eraNarrow>
 				</eras>
 			</calendar>
@@ -4221,6 +4104,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>אקטובה</exemplarCity>
+			</zone>
+			<zone type="Asia/Qostanay">
+				<exemplarCity draft="contributed">קוסטנאי</exemplarCity>
 			</zone>
 			<zone type="Asia/Qyzylorda">
 				<exemplarCity>קיזילורדה</exemplarCity>
@@ -5785,24 +5671,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>latn</defaultNumberingSystem>
 		<otherNumberingSystems>
-			<native>latn</native>
 			<traditional>hebr</traditional>
 		</otherNumberingSystems>
 		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
-		<symbols numberSystem="cakm">
-			<infinity draft="contributed">∞</infinity>
-		</symbols>
-		<symbols numberSystem="cham">
-			<percentSign draft="contributed">%</percentSign>
-			<perMille draft="contributed">‰</perMille>
-			<infinity draft="contributed">∞</infinity>
-		</symbols>
 		<symbols numberSystem="latn">
-			<decimal>.</decimal>
-			<group>,</group>
-			<list>;</list>
 			<percentSign>%</percentSign>
 			<plusSign>‎+</plusSign>
 			<minusSign>‎-</minusSign>
@@ -5814,11 +5687,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="latn">
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern>#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
 					<pattern type="1000" count="one">‏0 אלף</pattern>
@@ -6014,7 +5882,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דירהם של איחוד הנסיכויות הערביות</displayName>
 				<displayName count="many">דירהם של איחוד הנסיכויות הערביות</displayName>
 				<displayName count="other">דירהם של איחוד הנסיכויות הערביות</displayName>
-				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>אפגני אפגני</displayName>
@@ -6022,7 +5889,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">אפגני אפגני</displayName>
 				<displayName count="many">אפגני אפגני</displayName>
 				<displayName count="other">אפגני אפגני</displayName>
-				<symbol>AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>לק אלבני</displayName>
@@ -6030,7 +5896,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">לק אלבני</displayName>
 				<displayName count="many">לק אלבני</displayName>
 				<displayName count="other">לק אלבני</displayName>
-				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>דראם ארמני</displayName>
@@ -6038,7 +5903,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דראם ארמני</displayName>
 				<displayName count="many">דראם ארמני</displayName>
 				<displayName count="other">דראם ארמני</displayName>
-				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>גילדר של האנטילים ההולנדיים</displayName>
@@ -6046,7 +5910,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">גילדר של האנטילים ההולנדיים</displayName>
 				<displayName count="many">גילדר של האנטילים ההולנדיים</displayName>
 				<displayName count="other">גילדר של האנטילים ההולנדיים</displayName>
-				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>קואנזה אנגולי</displayName>
@@ -6054,7 +5917,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">קואנזה אנגולי</displayName>
 				<displayName count="many">קואנזה אנגולי</displayName>
 				<displayName count="other">קואנזה אנגולי</displayName>
-				<symbol>AOA</symbol>
 				<symbol alt="narrow" draft="contributed">Kz</symbol>
 			</currency>
 			<currency type="AON">
@@ -6072,7 +5934,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פסו ארגנטינאי</displayName>
 				<displayName count="many">פסו ארגנטינאי</displayName>
 				<displayName count="other">פסו ארגנטינאי</displayName>
-				<symbol>ARS</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="ATS">
@@ -6084,7 +5945,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר אוסטרלי</displayName>
 				<displayName count="many">דולר אוסטרלי</displayName>
 				<displayName count="other">דולר אוסטרלי</displayName>
-				<symbol>A$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="AWG">
@@ -6093,7 +5953,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פלורין של ארובה</displayName>
 				<displayName count="many">פלורין של ארובה</displayName>
 				<displayName count="other">פלורין של ארובה</displayName>
-				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>מנאט אזרביג׳אני (1993–2006)</displayName>
@@ -6104,7 +5963,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">מאנאט אזרבייג׳ני</displayName>
 				<displayName count="many">מאנאט אזרבייג׳ני</displayName>
 				<displayName count="other">מאנאט אזרבייג׳ני</displayName>
-				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName draft="contributed">דינר של בוסניה־הרצגובינה</displayName>
@@ -6115,7 +5973,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">מארק סחיר של בוסניה והרצגובינה</displayName>
 				<displayName count="many">מארק סחיר של בוסניה והרצגובינה</displayName>
 				<displayName count="other">מארק סחיר של בוסניה והרצגובינה</displayName>
-				<symbol>BAM</symbol>
 				<symbol alt="narrow" draft="contributed">KM</symbol>
 			</currency>
 			<currency type="BBD">
@@ -6124,7 +5981,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר ברבדיאני</displayName>
 				<displayName count="many">דולר ברבדיאני</displayName>
 				<displayName count="other">דולר ברבדיאני</displayName>
-				<symbol>BBD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BDT">
@@ -6133,7 +5989,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">טאקה בנגלדשי</displayName>
 				<displayName count="many">טאקה בנגלדשי</displayName>
 				<displayName count="other">טאקה בנגלדשי</displayName>
-				<symbol>BDT</symbol>
 				<symbol alt="narrow" draft="contributed">৳</symbol>
 			</currency>
 			<currency type="BEC">
@@ -6151,7 +6006,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">לב בולגרי</displayName>
 				<displayName count="many">לב בולגרי</displayName>
 				<displayName count="other">לב בולגרי</displayName>
-				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>דינר בחרייני</displayName>
@@ -6159,7 +6013,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דינר בחרייני</displayName>
 				<displayName count="many">דינר בחרייני</displayName>
 				<displayName count="other">דינר בחרייני</displayName>
-				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>פרנק בורונדי</displayName>
@@ -6167,7 +6020,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פרנק בורונדי</displayName>
 				<displayName count="many">פרנק בורונדי</displayName>
 				<displayName count="other">פרנק בורונדי</displayName>
-				<symbol>BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>דולר ברמודה</displayName>
@@ -6175,7 +6027,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר ברמודה</displayName>
 				<displayName count="many">דולר ברמודה</displayName>
 				<displayName count="other">דולר ברמודה</displayName>
-				<symbol>BMD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BND">
@@ -6184,7 +6035,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר ברוניי</displayName>
 				<displayName count="many">דולר ברוניי</displayName>
 				<displayName count="other">דולר ברוניי</displayName>
-				<symbol>BND</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BOB">
@@ -6193,7 +6043,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">בוליביאנו</displayName>
 				<displayName count="many">בוליביאנו</displayName>
 				<displayName count="other">בוליביאנו</displayName>
-				<symbol>BOB</symbol>
 				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="BOP">
@@ -6211,7 +6060,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">ריאל ברזילאי</displayName>
 				<displayName count="many">ריאל ברזילאי</displayName>
 				<displayName count="other">ריאל ברזילאי</displayName>
-				<symbol>R$</symbol>
 				<symbol alt="narrow" draft="contributed">R$</symbol>
 			</currency>
 			<currency type="BSD">
@@ -6220,7 +6068,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר בהאמי</displayName>
 				<displayName count="many">דולר בהאמי</displayName>
 				<displayName count="other">דולר בהאמי</displayName>
-				<symbol>BSD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BTN">
@@ -6229,7 +6076,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">נגולטרום בהוטני</displayName>
 				<displayName count="many">נגולטרום בהוטני</displayName>
 				<displayName count="other">נגולטרום בהוטני</displayName>
-				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>פולה בוטסואני</displayName>
@@ -6237,7 +6083,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פולה בוטסואני</displayName>
 				<displayName count="many">פולה בוטסואני</displayName>
 				<displayName count="other">פולה בוטסואני</displayName>
-				<symbol>BWP</symbol>
 				<symbol alt="narrow" draft="contributed">P</symbol>
 			</currency>
 			<currency type="BYN">
@@ -6246,7 +6091,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">רובל בלרוסי</displayName>
 				<displayName count="many">רובל בלרוסי</displayName>
 				<displayName count="other">רובל בלרוסי</displayName>
-				<symbol>BYN</symbol>
 				<symbol alt="narrow" draft="contributed">р.</symbol>
 			</currency>
 			<currency type="BYR">
@@ -6255,7 +6099,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">רובל בלרוסי (2000–2016)</displayName>
 				<displayName count="many">רובל בלרוסי (2000–2016)</displayName>
 				<displayName count="other">רובל בלרוסי (2000–2016)</displayName>
-				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>דולר בליזי</displayName>
@@ -6263,7 +6106,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר בליזי</displayName>
 				<displayName count="many">דולר בליזי</displayName>
 				<displayName count="other">דולר בליזי</displayName>
-				<symbol>BZD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CAD">
@@ -6272,7 +6114,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר קנדי</displayName>
 				<displayName count="many">דולר קנדי</displayName>
 				<displayName count="other">דולר קנדי</displayName>
-				<symbol>CA$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CDF">
@@ -6281,7 +6122,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פרנק קונגולזי</displayName>
 				<displayName count="many">פרנק קונגולזי</displayName>
 				<displayName count="other">פרנק קונגולזי</displayName>
-				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>פרנק שוויצרי</displayName>
@@ -6289,7 +6129,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פרנק שוויצרי</displayName>
 				<displayName count="many">פרנק שוויצרי</displayName>
 				<displayName count="other">פרנק שוויצרי</displayName>
-				<symbol>CHF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>פסו צ׳ילאני</displayName>
@@ -6297,7 +6136,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פסו צ׳ילאני</displayName>
 				<displayName count="many">פסו צ׳ילאני</displayName>
 				<displayName count="other">פסו צ׳ילאני</displayName>
-				<symbol>CLP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CNH">
@@ -6323,7 +6161,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פסו קולומביאני</displayName>
 				<displayName count="many">פסו קולומביאני</displayName>
 				<displayName count="other">פסו קולומביאני</displayName>
-				<symbol>COP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CRC">
@@ -6332,7 +6169,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">קולון קוסטה־ריקני</displayName>
 				<displayName count="many">קולון קוסטה־ריקני</displayName>
 				<displayName count="other">קולון קוסטה־ריקני</displayName>
-				<symbol>CRC</symbol>
 				<symbol alt="narrow" draft="contributed">₡</symbol>
 			</currency>
 			<currency type="CSD">
@@ -6344,7 +6180,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פזו קובני להמרה</displayName>
 				<displayName count="many">פזו קובני להמרה</displayName>
 				<displayName count="other">פזו קובני להמרה</displayName>
-				<symbol>CUC</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CUP">
@@ -6353,7 +6188,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פזו קובני</displayName>
 				<displayName count="many">פזו קובני</displayName>
 				<displayName count="other">פזו קובני</displayName>
-				<symbol>CUP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CVE">
@@ -6362,7 +6196,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">אסקודו כף ורדה</displayName>
 				<displayName count="many">אסקודו כף ורדה</displayName>
 				<displayName count="other">אסקודו כף ורדה</displayName>
-				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>לירה קפריסאית</displayName>
@@ -6373,7 +6206,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">קורונה צ׳כית</displayName>
 				<displayName count="many">קורונה צ׳כית</displayName>
 				<displayName count="other">קורונה צ׳כית</displayName>
-				<symbol>CZK</symbol>
 				<symbol alt="narrow" draft="contributed">Kč</symbol>
 			</currency>
 			<currency type="DDM">
@@ -6388,7 +6220,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פרנק ג׳יבוטי</displayName>
 				<displayName count="many">פרנק ג׳יבוטי</displayName>
 				<displayName count="other">פרנק ג׳יבוטי</displayName>
-				<symbol>DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>כתר דני</displayName>
@@ -6396,7 +6227,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">כתר דני</displayName>
 				<displayName count="many">כתר דני</displayName>
 				<displayName count="other">כתר דני</displayName>
-				<symbol>DKK</symbol>
 				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="DOP">
@@ -6405,7 +6235,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פזו דומיניקני</displayName>
 				<displayName count="many">פזו דומיניקני</displayName>
 				<displayName count="other">פזו דומיניקני</displayName>
-				<symbol>DOP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="DZD">
@@ -6414,7 +6243,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דינר אלג׳ירי</displayName>
 				<displayName count="many">דינר אלג׳ירי</displayName>
 				<displayName count="other">דינר אלג׳ירי</displayName>
-				<symbol>DZD</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>סוקר אקואדורי</displayName>
@@ -6428,7 +6256,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">לירה מצרית</displayName>
 				<displayName count="many">לירה מצרית</displayName>
 				<displayName count="other">לירה מצרית</displayName>
-				<symbol>EGP</symbol>
 				<symbol alt="narrow" draft="contributed">E£</symbol>
 			</currency>
 			<currency type="ERN">
@@ -6437,7 +6264,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">נאקפה אריתראי</displayName>
 				<displayName count="many">נאקפה אריתראי</displayName>
 				<displayName count="other">נאקפה אריתראי</displayName>
-				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName draft="provisional">פזטה [ESA]</displayName>
@@ -6454,7 +6280,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">ביר אתיופי</displayName>
 				<displayName count="many">ביר אתיופי</displayName>
 				<displayName count="other">ביר אתיופי</displayName>
-				<symbol>ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>אירו</displayName>
@@ -6462,7 +6287,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">אירו</displayName>
 				<displayName count="many">אירו</displayName>
 				<displayName count="other">אירו</displayName>
-				<symbol>€</symbol>
 				<symbol alt="narrow" draft="contributed">€</symbol>
 			</currency>
 			<currency type="FIM">
@@ -6474,7 +6298,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר פיג׳י</displayName>
 				<displayName count="many">דולר פיג׳י</displayName>
 				<displayName count="other">דולר פיג׳י</displayName>
-				<symbol>FJD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="FKP">
@@ -6483,7 +6306,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">לירה של איי פוקלנד</displayName>
 				<displayName count="many">לירה של איי פוקלנד</displayName>
 				<displayName count="other">לירה של איי פוקלנד</displayName>
-				<symbol>FKP</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="FRF">
@@ -6495,7 +6317,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">לירה שטרלינג</displayName>
 				<displayName count="many">לירה שטרלינג</displayName>
 				<displayName count="other">לירה שטרלינג</displayName>
-				<symbol>£</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GEL">
@@ -6504,7 +6325,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">לארי גאורגי</displayName>
 				<displayName count="many">לארי גאורגי</displayName>
 				<displayName count="other">לארי גאורגי</displayName>
-				<symbol>GEL</symbol>
 				<symbol alt="narrow" draft="contributed">₾</symbol>
 				<symbol alt="variant" draft="contributed">₾</symbol>
 			</currency>
@@ -6514,7 +6334,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">סדי גאני</displayName>
 				<displayName count="many">סדי גאני</displayName>
 				<displayName count="other">סדי גאני</displayName>
-				<symbol>GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>פאונד גיברלטר</displayName>
@@ -6522,7 +6341,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פאונד גיברלטר</displayName>
 				<displayName count="many">פאונד גיברלטר</displayName>
 				<displayName count="other">פאונד גיברלטר</displayName>
-				<symbol>GIP</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GMD">
@@ -6531,7 +6349,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דלסי גמבי</displayName>
 				<displayName count="many">דלסי גמבי</displayName>
 				<displayName count="other">דלסי גמבי</displayName>
-				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>פרנק גינאי</displayName>
@@ -6539,7 +6356,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פרנק גינאי</displayName>
 				<displayName count="many">פרנק גינאי</displayName>
 				<displayName count="other">פרנק גינאי</displayName>
-				<symbol>GNF</symbol>
 				<symbol alt="narrow" draft="contributed">FG</symbol>
 			</currency>
 			<currency type="GRD">
@@ -6551,7 +6367,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">קצאל גואטמלי</displayName>
 				<displayName count="many">קצאל גואטמלי</displayName>
 				<displayName count="other">קצאל גואטמלי</displayName>
-				<symbol>GTQ</symbol>
 				<symbol alt="narrow" draft="contributed">Q</symbol>
 			</currency>
 			<currency type="GWP">
@@ -6563,7 +6378,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר גיאני</displayName>
 				<displayName count="many">דולר גיאני</displayName>
 				<displayName count="other">דולר גיאני</displayName>
-				<symbol>GYD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="HKD">
@@ -6572,7 +6386,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר הונג קונגי</displayName>
 				<displayName count="many">דולר הונג קונגי</displayName>
 				<displayName count="other">דולר הונג קונגי</displayName>
-				<symbol>HK$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="HNL">
@@ -6581,7 +6394,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">למפירה הונדורי</displayName>
 				<displayName count="many">למפירה הונדורי</displayName>
 				<displayName count="other">למפירה הונדורי</displayName>
-				<symbol>HNL</symbol>
 				<symbol alt="narrow" draft="contributed">L</symbol>
 			</currency>
 			<currency type="HRK">
@@ -6590,7 +6402,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">קונה קרואטי</displayName>
 				<displayName count="many">קונה קרואטי</displayName>
 				<displayName count="other">קונה קרואטי</displayName>
-				<symbol>HRK</symbol>
 				<symbol alt="narrow" draft="contributed">kn</symbol>
 			</currency>
 			<currency type="HTG">
@@ -6599,7 +6410,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">גורד האיטי</displayName>
 				<displayName count="many">גורד האיטי</displayName>
 				<displayName count="other">גורד האיטי</displayName>
-				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>פורינט הונגרי</displayName>
@@ -6607,7 +6417,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פורינט הונגרי</displayName>
 				<displayName count="many">פורינט הונגרי</displayName>
 				<displayName count="other">פורינט הונגרי</displayName>
-				<symbol>HUF</symbol>
 				<symbol alt="narrow" draft="contributed">Ft</symbol>
 			</currency>
 			<currency type="IDR">
@@ -6616,7 +6425,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">רופיה אינדונזית</displayName>
 				<displayName count="many">רופיה אינדונזית</displayName>
 				<displayName count="other">רופיה אינדונזית</displayName>
-				<symbol>IDR</symbol>
 				<symbol alt="narrow" draft="contributed">Rp</symbol>
 			</currency>
 			<currency type="IEP">
@@ -6632,7 +6440,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">שקלים חדשים</displayName>
 				<displayName count="many">שקלים חדשים</displayName>
 				<displayName count="other">שקלים חדשים</displayName>
-				<symbol>₪</symbol>
 				<symbol alt="narrow" draft="contributed">₪</symbol>
 			</currency>
 			<currency type="INR">
@@ -6641,7 +6448,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">רופי הודי</displayName>
 				<displayName count="many">רופי הודי</displayName>
 				<displayName count="other">רופי הודי</displayName>
-				<symbol>₹</symbol>
 				<symbol alt="narrow" draft="contributed">₹</symbol>
 			</currency>
 			<currency type="IQD">
@@ -6650,7 +6456,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דינר עיראקי</displayName>
 				<displayName count="many">דינר עיראקי</displayName>
 				<displayName count="other">דינר עיראקי</displayName>
-				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>ריאל איראני</displayName>
@@ -6658,7 +6463,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">ריאל איראני</displayName>
 				<displayName count="many">ריאל איראני</displayName>
 				<displayName count="other">ריאל איראני</displayName>
-				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>כתר איסלנדי</displayName>
@@ -6666,7 +6470,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">כתר איסלנדי</displayName>
 				<displayName count="many">כתר איסלנדי</displayName>
 				<displayName count="other">כתר איסלנדי</displayName>
-				<symbol>ISK</symbol>
 				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="ITL">
@@ -6678,7 +6481,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר ג׳מייקני</displayName>
 				<displayName count="many">דולר ג׳מייקני</displayName>
 				<displayName count="other">דולר ג׳מייקני</displayName>
-				<symbol>JMD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="JOD">
@@ -6687,7 +6489,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דינר ירדני</displayName>
 				<displayName count="many">דינר ירדני</displayName>
 				<displayName count="other">דינר ירדני</displayName>
-				<symbol>JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>ין יפני</displayName>
@@ -6704,7 +6505,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">שילינג קנייתי</displayName>
 				<displayName count="many">שילינג קנייתי</displayName>
 				<displayName count="other">שילינג קנייתי</displayName>
-				<symbol>KES</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>סום קירגיזי</displayName>
@@ -6712,7 +6512,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">סום קירגיזי</displayName>
 				<displayName count="many">סום קירגיזי</displayName>
 				<displayName count="other">סום קירגיזי</displayName>
-				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>ריל קמבודי</displayName>
@@ -6720,7 +6519,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">ריל קמבודי</displayName>
 				<displayName count="many">ריל קמבודי</displayName>
 				<displayName count="other">ריל קמבודי</displayName>
-				<symbol>KHR</symbol>
 				<symbol alt="narrow" draft="contributed">៛</symbol>
 			</currency>
 			<currency type="KMF">
@@ -6729,7 +6527,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פרנק קומורואי</displayName>
 				<displayName count="many">פרנק קומורואי</displayName>
 				<displayName count="other">פרנק קומורואי</displayName>
-				<symbol>KMF</symbol>
 				<symbol alt="narrow" draft="contributed">CF</symbol>
 			</currency>
 			<currency type="KPW">
@@ -6738,7 +6535,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">וון צפון קוריאני</displayName>
 				<displayName count="many">וון צפון קוריאני</displayName>
 				<displayName count="other">וון צפון קוריאני</displayName>
-				<symbol>KPW</symbol>
 				<symbol alt="narrow" draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KRW">
@@ -6747,7 +6543,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">וון דרום קוריאני</displayName>
 				<displayName count="many">וון דרום קוריאני</displayName>
 				<displayName count="other">וון דרום קוריאני</displayName>
-				<symbol>₩</symbol>
 				<symbol alt="narrow" draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KWD">
@@ -6756,7 +6551,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דינר כוויתי</displayName>
 				<displayName count="many">דינר כוויתי</displayName>
 				<displayName count="other">דינר כוויתי</displayName>
-				<symbol>KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>דולר קיימני</displayName>
@@ -6764,7 +6558,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר קיימני</displayName>
 				<displayName count="many">דולר קיימני</displayName>
 				<displayName count="other">דולר קיימני</displayName>
-				<symbol>KYD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="KZT">
@@ -6773,7 +6566,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">טנגה קזחסטני</displayName>
 				<displayName count="many">טנגה קזחסטני</displayName>
 				<displayName count="other">טנגה קזחסטני</displayName>
-				<symbol>KZT</symbol>
 				<symbol alt="narrow" draft="contributed">₸</symbol>
 			</currency>
 			<currency type="LAK">
@@ -6782,7 +6574,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">קיפ לאי</displayName>
 				<displayName count="many">קיפ לאי</displayName>
 				<displayName count="other">קיפ לאי</displayName>
-				<symbol>LAK</symbol>
 				<symbol alt="narrow" draft="contributed">₭</symbol>
 			</currency>
 			<currency type="LBP">
@@ -6791,7 +6582,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">לירה לבנונית</displayName>
 				<displayName count="many">לירה לבנונית</displayName>
 				<displayName count="other">לירה לבנונית</displayName>
-				<symbol>LBP</symbol>
 				<symbol alt="narrow" draft="contributed">L£</symbol>
 			</currency>
 			<currency type="LKR">
@@ -6800,7 +6590,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">רופי סרי לנקי</displayName>
 				<displayName count="many">רופי סרי לנקי</displayName>
 				<displayName count="other">רופי סרי לנקי</displayName>
-				<symbol>LKR</symbol>
 				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="LRD">
@@ -6809,7 +6598,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר ליברי</displayName>
 				<displayName count="many">דולר ליברי</displayName>
 				<displayName count="other">דולר ליברי</displayName>
-				<symbol>LRD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="LSL">
@@ -6821,14 +6609,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">ליטא ליטאי</displayName>
 				<displayName count="many">ליטא ליטאי</displayName>
 				<displayName count="other">ליטא ליטאי</displayName>
-				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>פרנק לוקסמבורגי</displayName>
 			</currency>
 			<currency type="LVL">
 				<displayName>לט לטבי</displayName>
-				<symbol draft="contributed">LVL</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>דינר לובי</displayName>
@@ -6836,7 +6622,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דינר לובי</displayName>
 				<displayName count="many">דינר לובי</displayName>
 				<displayName count="other">דינר לובי</displayName>
-				<symbol>LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>דירהם מרוקאי</displayName>
@@ -6844,7 +6629,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דירהם מרוקאי</displayName>
 				<displayName count="many">דירהם מרוקאי</displayName>
 				<displayName count="other">דירהם מרוקאי</displayName>
-				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>פרנק מרוקאי</displayName>
@@ -6855,7 +6639,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">לאו מולדובני</displayName>
 				<displayName count="many">לאו מולדובני</displayName>
 				<displayName count="other">לאו מולדובני</displayName>
-				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>אריארי מלגשי</displayName>
@@ -6863,7 +6646,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">אריארי מלגשי</displayName>
 				<displayName count="many">אריארי מלגשי</displayName>
 				<displayName count="other">אריארי מלגשי</displayName>
-				<symbol>MGA</symbol>
 				<symbol alt="narrow" draft="contributed">Ar</symbol>
 			</currency>
 			<currency type="MGF">
@@ -6875,7 +6657,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דינר מקדוני</displayName>
 				<displayName count="many">דינר מקדוני</displayName>
 				<displayName count="other">דינר מקדוני</displayName>
-				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>קיאט מיאנמרי</displayName>
@@ -6883,7 +6664,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">קיאט מיאנמרי</displayName>
 				<displayName count="many">קיאט מיאנמרי</displayName>
 				<displayName count="other">קיאט מיאנמרי</displayName>
-				<symbol>MMK</symbol>
 				<symbol alt="narrow" draft="contributed">K</symbol>
 			</currency>
 			<currency type="MNT">
@@ -6892,7 +6672,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">טוגרוג מונגולי</displayName>
 				<displayName count="many">טוגרוג מונגולי</displayName>
 				<displayName count="other">טוגרוג מונגולי</displayName>
-				<symbol>MNT</symbol>
 				<symbol alt="narrow" draft="contributed">₮</symbol>
 			</currency>
 			<currency type="MOP">
@@ -6901,7 +6680,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פטקה של מקאו</displayName>
 				<displayName count="many">פטקה של מקאו</displayName>
 				<displayName count="other">פטקה של מקאו</displayName>
-				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>אואוגויה מאוריטני (1973–2017)</displayName>
@@ -6909,7 +6687,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">אואוגויה מאוריטני (1973–2017)</displayName>
 				<displayName count="many">אואוגויה מאוריטני (1973–2017)</displayName>
 				<displayName count="other">אואוגויה מאוריטני (1973–2017)</displayName>
-				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MRU">
 				<displayName>אואוגויה מאוריטני</displayName>
@@ -6917,7 +6694,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">אואוגויה מאוריטני</displayName>
 				<displayName count="many">אואוגויה מאוריטני</displayName>
 				<displayName count="other">אואוגויה מאוריטני</displayName>
-				<symbol draft="contributed">MRU</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>לירה מלטית</displayName>
@@ -6928,7 +6704,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">רופי מאוריציני</displayName>
 				<displayName count="many">רופי מאוריציני</displayName>
 				<displayName count="other">רופי מאוריציני</displayName>
-				<symbol>MUR</symbol>
 				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="MVR">
@@ -6937,7 +6712,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">רופיה מלדיבית</displayName>
 				<displayName count="many">רופיה מלדיבית</displayName>
 				<displayName count="other">רופיה מלדיבית</displayName>
-				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>קואצ׳ה מלאווי</displayName>
@@ -6945,7 +6719,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">קואצ׳ה מלאווי</displayName>
 				<displayName count="many">קואצ׳ה מלאווי</displayName>
 				<displayName count="other">קואצ׳ה מלאווי</displayName>
-				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>פזו מקסיקני</displayName>
@@ -6953,7 +6726,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פזו מקסיקני</displayName>
 				<displayName count="many">פזו מקסיקני</displayName>
 				<displayName count="other">פזו מקסיקני</displayName>
-				<symbol>MX$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="MXP">
@@ -6965,7 +6737,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">רינגיט מלזי</displayName>
 				<displayName count="many">רינגיט מלזי</displayName>
 				<displayName count="other">רינגיט מלזי</displayName>
-				<symbol>MYR</symbol>
 				<symbol alt="narrow" draft="contributed">RM</symbol>
 			</currency>
 			<currency type="MZE">
@@ -6984,7 +6755,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">מטיקל מוזמביני</displayName>
 				<displayName count="many">מטיקל מוזמביני</displayName>
 				<displayName count="other">מטיקל מוזמביני</displayName>
-				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>דולר נמיבי</displayName>
@@ -6992,7 +6762,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר נמיבי</displayName>
 				<displayName count="many">דולר נמיבי</displayName>
 				<displayName count="other">דולר נמיבי</displayName>
-				<symbol>NAD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="NGN">
@@ -7001,7 +6770,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">נאירה ניגרי</displayName>
 				<displayName count="many">נאירה ניגרי</displayName>
 				<displayName count="other">נאירה ניגרי</displayName>
-				<symbol>NGN</symbol>
 				<symbol alt="narrow" draft="contributed">₦</symbol>
 			</currency>
 			<currency type="NIO">
@@ -7010,7 +6778,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">קורדובה ניקרגואה</displayName>
 				<displayName count="many">קורדובה ניקרגואה</displayName>
 				<displayName count="other">קורדובה ניקרגואה</displayName>
-				<symbol>NIO</symbol>
 				<symbol alt="narrow" draft="contributed">C$</symbol>
 			</currency>
 			<currency type="NLG">
@@ -7022,7 +6789,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">כתר נורווגי</displayName>
 				<displayName count="many">כתר נורווגי</displayName>
 				<displayName count="other">כתר נורווגי</displayName>
-				<symbol>NOK</symbol>
 				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="NPR">
@@ -7031,7 +6797,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">רופי נפאלי</displayName>
 				<displayName count="many">רופי נפאלי</displayName>
 				<displayName count="other">רופי נפאלי</displayName>
-				<symbol>NPR</symbol>
 				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="NZD">
@@ -7040,7 +6805,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר ניו זילנדי</displayName>
 				<displayName count="many">דולר ניו זילנדי</displayName>
 				<displayName count="other">דולר ניו זילנדי</displayName>
-				<symbol>NZ$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="OMR">
@@ -7049,7 +6813,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">ריאל עומאני</displayName>
 				<displayName count="many">ריאל עומאני</displayName>
 				<displayName count="other">ריאל עומאני</displayName>
-				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>בלבואה פנמי</displayName>
@@ -7057,7 +6820,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">בלבואה פנמי</displayName>
 				<displayName count="many">בלבואה פנמי</displayName>
 				<displayName count="other">בלבואה פנמי</displayName>
-				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>סול פרואני</displayName>
@@ -7065,7 +6827,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">סול פרואני</displayName>
 				<displayName count="many">סול פרואני</displayName>
 				<displayName count="other">סול פרואני</displayName>
-				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>קינה של פפואה גינאה החדשה</displayName>
@@ -7073,7 +6834,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">קינה של פפואה גינאה החדשה</displayName>
 				<displayName count="many">קינה של פפואה גינאה החדשה</displayName>
 				<displayName count="other">קינה של פפואה גינאה החדשה</displayName>
-				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>פזו פיליפיני</displayName>
@@ -7081,7 +6841,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פזו פיליפיני</displayName>
 				<displayName count="many">פזו פיליפיני</displayName>
 				<displayName count="other">פזו פיליפיני</displayName>
-				<symbol>PHP</symbol>
 				<symbol alt="narrow" draft="contributed">₱</symbol>
 			</currency>
 			<currency type="PKR">
@@ -7090,7 +6849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">רופי פקיסטני</displayName>
 				<displayName count="many">רופי פקיסטני</displayName>
 				<displayName count="other">רופי פקיסטני</displayName>
-				<symbol>PKR</symbol>
 				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="PLN">
@@ -7099,7 +6857,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">זלוטי פולני</displayName>
 				<displayName count="many">זלוטי פולני</displayName>
 				<displayName count="other">זלוטי פולני</displayName>
-				<symbol>PLN</symbol>
 				<symbol alt="narrow" draft="contributed">zł</symbol>
 			</currency>
 			<currency type="PLZ">
@@ -7114,7 +6871,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">גוארני פרגוואי</displayName>
 				<displayName count="many">גוארני פרגוואי</displayName>
 				<displayName count="other">גוארני פרגוואי</displayName>
-				<symbol>PYG</symbol>
 				<symbol alt="narrow" draft="contributed">₲</symbol>
 			</currency>
 			<currency type="QAR">
@@ -7123,7 +6879,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">ריאל קטארי</displayName>
 				<displayName count="many">ריאל קטארי</displayName>
 				<displayName count="other">ריאל קטארי</displayName>
-				<symbol>QAR</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName>לאו רומני ישן</displayName>
@@ -7134,7 +6889,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">לאו רומני</displayName>
 				<displayName count="many">לאו רומני</displayName>
 				<displayName count="other">לאו רומני</displayName>
-				<symbol>RON</symbol>
 				<symbol alt="narrow" draft="contributed">lei</symbol>
 			</currency>
 			<currency type="RSD">
@@ -7143,7 +6897,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דינר סרבי</displayName>
 				<displayName count="many">דינר סרבי</displayName>
 				<displayName count="other">דינר סרבי</displayName>
-				<symbol>RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>רובל רוסי</displayName>
@@ -7151,7 +6904,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">רובל רוסי</displayName>
 				<displayName count="many">רובל רוסי</displayName>
 				<displayName count="other">רובל רוסי</displayName>
-				<symbol>RUB</symbol>
 				<symbol alt="narrow" draft="contributed">₽</symbol>
 				<symbol alt="variant" draft="contributed">₽</symbol>
 			</currency>
@@ -7164,7 +6916,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פרנק רואנדי</displayName>
 				<displayName count="many">פרנק רואנדי</displayName>
 				<displayName count="other">פרנק רואנדי</displayName>
-				<symbol>RWF</symbol>
 				<symbol alt="narrow" draft="contributed">RF</symbol>
 			</currency>
 			<currency type="SAR">
@@ -7173,7 +6924,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">ריאל סעודי</displayName>
 				<displayName count="many">ריאל סעודי</displayName>
 				<displayName count="other">ריאל סעודי</displayName>
-				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>דולר איי שלמה</displayName>
@@ -7181,7 +6931,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר איי שלמה</displayName>
 				<displayName count="many">דולר איי שלמה</displayName>
 				<displayName count="other">דולר איי שלמה</displayName>
-				<symbol>SBD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SCR">
@@ -7190,7 +6939,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">רופי סיישלי</displayName>
 				<displayName count="many">רופי סיישלי</displayName>
 				<displayName count="other">רופי סיישלי</displayName>
-				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>דינר סודני</displayName>
@@ -7201,7 +6949,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">לירה סודנית</displayName>
 				<displayName count="many">לירה סודנית</displayName>
 				<displayName count="other">לירה סודנית</displayName>
-				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>לירה סודנית (1957–1998)</displayName>
@@ -7221,7 +6968,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר סינגפורי</displayName>
 				<displayName count="many">דולר סינגפורי</displayName>
 				<displayName count="other">דולר סינגפורי</displayName>
-				<symbol>SGD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SHP">
@@ -7230,7 +6976,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פאונד סנט הלני</displayName>
 				<displayName count="many">פאונד סנט הלני</displayName>
 				<displayName count="other">פאונד סנט הלני</displayName>
-				<symbol>SHP</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="SIT">
@@ -7245,7 +6990,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">ליאון סיירה לאוני</displayName>
 				<displayName count="many">ליאון סיירה לאוני</displayName>
 				<displayName count="other">ליאון סיירה לאוני</displayName>
-				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>שילינג סומלי</displayName>
@@ -7253,7 +6997,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">שילינג סומלי</displayName>
 				<displayName count="many">שילינג סומלי</displayName>
 				<displayName count="other">שילינג סומלי</displayName>
-				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>דולר סורינאמי</displayName>
@@ -7261,7 +7004,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר סורינאמי</displayName>
 				<displayName count="many">דולר סורינאמי</displayName>
 				<displayName count="other">דולר סורינאמי</displayName>
-				<symbol>SRD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SRG">
@@ -7273,7 +7015,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">לירה דרום-סודנית</displayName>
 				<displayName count="many">לירה דרום-סודנית</displayName>
 				<displayName count="other">לירה דרום-סודנית</displayName>
-				<symbol>SSP</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="STD">
@@ -7282,7 +7023,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דוברה של סן טומה ופרינסיפה (1977–2017)</displayName>
 				<displayName count="many">דוברה של סן טומה ופרינסיפה (1977–2017)</displayName>
 				<displayName count="other">דוברה של סן טומה ופרינסיפה (1977–2017)</displayName>
-				<symbol>STD</symbol>
 			</currency>
 			<currency type="STN">
 				<displayName>דוברה של סן טומה ופרינסיפה</displayName>
@@ -7291,7 +7031,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="many">דוברה של סן טומה ופרינסיפה</displayName>
 				<displayName count="other">דוברה של סן טומה ופרינסיפה</displayName>
 				<symbol draft="contributed">STN</symbol>
-				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>רובל סובייטי</displayName>
@@ -7309,7 +7048,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">לירה סורית</displayName>
 				<displayName count="many">לירה סורית</displayName>
 				<displayName count="other">לירה סורית</displayName>
-				<symbol>SYP</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="SZL">
@@ -7318,7 +7056,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">לילנגני סווזילנדי</displayName>
 				<displayName count="many">לילנגני סווזילנדי</displayName>
 				<displayName count="other">לילנגני סווזילנדי</displayName>
-				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>בהט תאילנדי</displayName>
@@ -7335,7 +7072,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">סומוני טג׳קיסטני</displayName>
 				<displayName count="many">סומוני טג׳קיסטני</displayName>
 				<displayName count="other">סומוני טג׳קיסטני</displayName>
-				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>מנאט טורקמאני</displayName>
@@ -7346,7 +7082,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">מאנאט טורקמני</displayName>
 				<displayName count="many">מאנאט טורקמני</displayName>
 				<displayName count="other">מאנאט טורקמני</displayName>
-				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>דינר טוניסאי</displayName>
@@ -7354,7 +7089,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דינר טוניסאי</displayName>
 				<displayName count="many">דינר טוניסאי</displayName>
 				<displayName count="other">דינר טוניסאי</displayName>
-				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>פאנגה טונגי</displayName>
@@ -7362,7 +7096,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פאנגה טונגי</displayName>
 				<displayName count="many">פאנגה טונגי</displayName>
 				<displayName count="other">פאנגה טונגי</displayName>
-				<symbol>TOP</symbol>
 				<symbol alt="narrow" draft="contributed">T$</symbol>
 			</currency>
 			<currency type="TPE">
@@ -7377,7 +7110,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">לירה טורקית חדשה</displayName>
 				<displayName count="many">לירה טורקית חדשה</displayName>
 				<displayName count="other">לירה טורקית חדשה</displayName>
-				<symbol>TRY</symbol>
 				<symbol alt="narrow" draft="contributed">₺</symbol>
 				<symbol alt="variant" draft="contributed">TL</symbol>
 			</currency>
@@ -7387,7 +7119,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר טרינידדי</displayName>
 				<displayName count="many">דולר טרינידדי</displayName>
 				<displayName count="other">דולר טרינידדי</displayName>
-				<symbol>TTD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="TWD">
@@ -7396,7 +7127,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר טייוואני חדש</displayName>
 				<displayName count="many">דולר טייוואני חדש</displayName>
 				<displayName count="other">דולר טייוואני חדש</displayName>
-				<symbol>NT$</symbol>
 				<symbol alt="narrow" draft="contributed">NT$</symbol>
 			</currency>
 			<currency type="TZS">
@@ -7405,7 +7135,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">שילינג טנזני</displayName>
 				<displayName count="many">שילינג טנזני</displayName>
 				<displayName count="other">שילינג טנזני</displayName>
-				<symbol>TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>הריבנה אוקראיני</displayName>
@@ -7413,7 +7142,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">הריבנה אוקראיני</displayName>
 				<displayName count="many">הריבנה אוקראיני</displayName>
 				<displayName count="other">הריבנה אוקראיני</displayName>
-				<symbol>UAH</symbol>
 				<symbol alt="narrow" draft="contributed">₴</symbol>
 			</currency>
 			<currency type="UGS">
@@ -7425,7 +7153,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">שילינג אוגנדי</displayName>
 				<displayName count="many">שילינג אוגנדי</displayName>
 				<displayName count="other">שילינג אוגנדי</displayName>
-				<symbol>UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>דולר אמריקאי</displayName>
@@ -7448,7 +7175,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פסו אורוגוואי</displayName>
 				<displayName count="many">פסו אורוגוואי</displayName>
 				<displayName count="other">פסו אורוגוואי</displayName>
-				<symbol>UYU</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="UZS">
@@ -7457,7 +7183,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">סום אוזבקי</displayName>
 				<displayName count="many">סום אוזבקי</displayName>
 				<displayName count="other">סום אוזבקי</displayName>
-				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>בוליבר ונצואלי (1871–2008)</displayName>
@@ -7468,7 +7193,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">בוליבר ונצואלי (2008–2018)</displayName>
 				<displayName count="many">בוליבר ונצואלי (2008–2018)</displayName>
 				<displayName count="other">בוליבר ונצואלי (2008–2018)</displayName>
-				<symbol>VEF</symbol>
 				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="VES">
@@ -7485,7 +7209,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דונג וייטנאמי</displayName>
 				<displayName count="many">דונג וייטנאמי</displayName>
 				<displayName count="other">דונג וייטנאמי</displayName>
-				<symbol>₫</symbol>
 				<symbol alt="narrow" draft="contributed">₫</symbol>
 			</currency>
 			<currency type="VUV">
@@ -7494,7 +7217,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">ואטו של ונואטו</displayName>
 				<displayName count="many">ואטו של ונואטו</displayName>
 				<displayName count="other">ואטו של ונואטו</displayName>
-				<symbol>VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>טאלה סמואי</displayName>
@@ -7502,7 +7224,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">טאלה סמואי</displayName>
 				<displayName count="many">טאלה סמואי</displayName>
 				<displayName count="other">טאלה סמואי</displayName>
-				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>פרנק CFA מרכז אפריקני</displayName>
@@ -7510,7 +7231,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פרנק CFA מרכז אפריקני</displayName>
 				<displayName count="many">פרנק CFA מרכז אפריקני</displayName>
 				<displayName count="other">פרנק CFA מרכז אפריקני</displayName>
-				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName draft="contributed">כסף</displayName>
@@ -7524,7 +7244,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">דולר מזרח קריבי</displayName>
 				<displayName count="many">דולר מזרח קריבי</displayName>
 				<displayName count="other">דולר מזרח קריבי</displayName>
-				<symbol>EC$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="XDR">
@@ -7539,7 +7258,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פרנק CFA מערב אפריקני</displayName>
 				<displayName count="many">פרנק CFA מערב אפריקני</displayName>
 				<displayName count="other">פרנק CFA מערב אפריקני</displayName>
-				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName draft="contributed">פלדיום</displayName>
@@ -7550,7 +7268,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">פרנק פולינזיה הצרפתית</displayName>
 				<displayName count="many">פרנק פולינזיה הצרפתית</displayName>
 				<displayName count="other">פרנק פולינזיה הצרפתית</displayName>
-				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName draft="contributed">פלטינה</displayName>
@@ -7574,7 +7291,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">ריאל תימני</displayName>
 				<displayName count="many">ריאל תימני</displayName>
 				<displayName count="other">ריאל תימני</displayName>
-				<symbol>YER</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName draft="provisional">דינר יגוסלבי חדש</displayName>
@@ -7591,7 +7307,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">ראנד דרום אפריקאי</displayName>
 				<displayName count="many">ראנד דרום אפריקאי</displayName>
 				<displayName count="other">ראנד דרום אפריקאי</displayName>
-				<symbol>ZAR</symbol>
 				<symbol alt="narrow" draft="contributed">R</symbol>
 			</currency>
 			<currency type="ZMK">
@@ -7603,7 +7318,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="two">קוואצ׳ה זמבי</displayName>
 				<displayName count="many">קוואצ׳ה זמבי</displayName>
 				<displayName count="other">קוואצ׳ה זמבי</displayName>
-				<symbol>ZMW</symbol>
 				<symbol alt="narrow" draft="contributed">ZK</symbol>
 			</currency>
 			<currency type="ZRN">
@@ -7749,6 +7463,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} אינץ׳ רבוע</unitPattern>
 				<perUnitPattern>{0} לאינץ׳ רבוע</perUnitPattern>
 			</unit>
+			<unit type="area-dunam">
+				<displayName>דונם</displayName>
+				<unitPattern count="two">{0} דונם</unitPattern>
+				<unitPattern count="many">{0} דונם</unitPattern>
+				<unitPattern count="other">{0} דונם</unitPattern>
+			</unit>
 			<unit type="concentr-karat">
 				<displayName>קראט</displayName>
 				<unitPattern count="one">קראט אחד</unitPattern>
@@ -7790,6 +7510,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="two">{0} פרומיל</unitPattern>
 				<unitPattern count="many">{0} פרומיל</unitPattern>
 				<unitPattern count="other">{0} פרומיל</unitPattern>
+			</unit>
+			<unit type="concentr-permyriad">
+				<displayName>רבבית</displayName>
+				<unitPattern count="one">רבבית {0}</unitPattern>
+				<unitPattern count="two">{0} רבביות</unitPattern>
+				<unitPattern count="many">{0} רבביות</unitPattern>
+				<unitPattern count="other">{0} רבביות</unitPattern>
+			</unit>
+			<unit type="concentr-mole">
+				<displayName>מול</displayName>
+				<unitPattern count="one">{0} מול</unitPattern>
+				<unitPattern count="two">{0} מול</unitPattern>
+				<unitPattern count="many">{0} מול</unitPattern>
+				<unitPattern count="other">{0} מול</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ליטרים/קילומטר</displayName>
@@ -8050,6 +7784,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} קילוואט-שעה</unitPattern>
 				<unitPattern count="other">{0} קילוואט-שעה</unitPattern>
 			</unit>
+			<unit type="energy-electronvolt">
+				<displayName>אלקטרון וולט</displayName>
+				<unitPattern count="one">{0} אלקטרון וולט</unitPattern>
+				<unitPattern count="two">{0} אלקטרון וולט</unitPattern>
+				<unitPattern count="many">{0} אלקטרון וולט</unitPattern>
+				<unitPattern count="other">{0} אלקטרון וולט</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit">
+				<displayName>יחידות תרמיות בריטיות</displayName>
+				<unitPattern count="one">{0} יחידה תרמית בריטית</unitPattern>
+				<unitPattern count="two">{0} יחידות תרמיות בריטיות</unitPattern>
+				<unitPattern count="many">{0} יחידות תרמיות בריטיות</unitPattern>
+				<unitPattern count="other">{0} יחידות תרמיות בריטיות</unitPattern>
+			</unit>
+			<unit type="force-pound-force">
+				<displayName>ליברת-כוח</displayName>
+				<unitPattern count="one">{0} ליברת-כוח</unitPattern>
+				<unitPattern count="two">{0} ליברות-כוח</unitPattern>
+				<unitPattern count="many">{0} ליברות-כוח</unitPattern>
+				<unitPattern count="other">{0} ליברות-כוח</unitPattern>
+			</unit>
+			<unit type="force-newton">
+				<displayName>ניוטון</displayName>
+				<unitPattern count="one">{0} ניוטון</unitPattern>
+				<unitPattern count="two">{0} ניוטון</unitPattern>
+				<unitPattern count="many">{0} ניוטון</unitPattern>
+				<unitPattern count="other">{0} ניוטון</unitPattern>
+			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>ג׳יגה-הרץ</displayName>
 				<unitPattern count="one">ג׳יגה-הרץ {0}</unitPattern>
@@ -8209,12 +7971,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} נק'</unitPattern>
 				<unitPattern count="other">{0} נקודות</unitPattern>
 			</unit>
+			<unit type="length-solar-radius">
+				<displayName draft="contributed">רדיוס סולרי</displayName>
+				<unitPattern count="one" draft="contributed">{0} רדיוס סולרי</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>לוקס</displayName>
 				<unitPattern count="one">לוקס אחד</unitPattern>
 				<unitPattern count="two">{0} לוקס</unitPattern>
 				<unitPattern count="many">{0} לוקס</unitPattern>
 				<unitPattern count="other">{0} לוקס</unitPattern>
+			</unit>
+			<unit type="light-solar-luminosity">
+				<displayName>אנרגיה סולארית ביחידת זמן</displayName>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>טון מטרי</displayName>
@@ -8296,6 +8065,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="two">שני קרט</unitPattern>
 				<unitPattern count="many">{0} קרט</unitPattern>
 				<unitPattern count="other">{0} קרט</unitPattern>
+			</unit>
+			<unit type="mass-dalton">
+				<displayName>דלטון</displayName>
+				<unitPattern count="one">{0} דלטון</unitPattern>
+				<unitPattern count="two">{0} דלטון</unitPattern>
+				<unitPattern count="many">{0} דלטון</unitPattern>
+				<unitPattern count="other">{0} דלטון</unitPattern>
+			</unit>
+			<unit type="mass-earth-mass">
+				<displayName>מסת כדור הארץ</displayName>
+				<unitPattern count="one">{0} מסת כדור הארץ</unitPattern>
+				<unitPattern count="two">{0} מסות כדור הארץ</unitPattern>
+				<unitPattern count="many">{0} מסות כדור הארץ</unitPattern>
+			</unit>
+			<unit type="mass-solar-mass">
+				<displayName>מסת השמש</displayName>
+				<unitPattern count="one">{0} מסת השמש</unitPattern>
+				<unitPattern count="two">{0} מסות שמש</unitPattern>
+				<unitPattern count="many">{0} מסות שמש</unitPattern>
+				<unitPattern count="other">{0} מסות שמש</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ג׳יגה ואט</displayName>
@@ -8381,6 +8170,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} אטמוספרה</unitPattern>
 				<unitPattern count="other">{0} אטמוספרות</unitPattern>
 			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName>קילו-פסקל</displayName>
+				<unitPattern count="one">{0} קילו-פסקל</unitPattern>
+				<unitPattern count="two">{0} קילו-פסקל</unitPattern>
+				<unitPattern count="many">{0} קילו-פסקל</unitPattern>
+				<unitPattern count="other">{0} קילו-פסקל</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName>מגה-פסקל</displayName>
+				<unitPattern count="one">{0} מגה-פסקל</unitPattern>
+				<unitPattern count="two">{0} מגה-פסקל</unitPattern>
+				<unitPattern count="many">{0} מגה-פסקל</unitPattern>
+				<unitPattern count="other">{0} מגה-פסקל</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>קילומטר לשעה</displayName>
 				<unitPattern count="one">{0} קילומטר לשעה</unitPattern>
@@ -8436,6 +8239,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="two">{0} קלווין</unitPattern>
 				<unitPattern count="many">{0} קלווין</unitPattern>
 				<unitPattern count="other">{0} קלווין</unitPattern>
+			</unit>
+			<unit type="torque-pound-foot">
+				<displayName>כוח פאונד</displayName>
+				<unitPattern count="one">{0} כוח פאונד</unitPattern>
+				<unitPattern count="two">{0} כוח פאונד</unitPattern>
+				<unitPattern count="many">{0} כוח פאונד</unitPattern>
+				<unitPattern count="other">{0} כוח פאונד</unitPattern>
+			</unit>
+			<unit type="torque-newton-meter">
+				<displayName>ניוטון-מטר</displayName>
+				<unitPattern count="one">{0} ניוטון-מטר</unitPattern>
+				<unitPattern count="two">{0} ניוטון-מטר</unitPattern>
+				<unitPattern count="many">{0} ניוטון-מטר</unitPattern>
+				<unitPattern count="other">{0} ניוטון-מטר</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>קילומטר מעוקב</displayName>
@@ -8596,6 +8413,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} אונקיות נוזלים</unitPattern>
 				<unitPattern count="other">{0} אונקיות נוזלים</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<displayName>אונקיית נוזלים אימפריאלית</displayName>
+				<unitPattern count="one">{0} אונקיית נוזלים אימפריאלית</unitPattern>
+				<unitPattern count="two">{0} אונקיית נוזלים אימפריאלית</unitPattern>
+				<unitPattern count="many">{0} אונקיית נוזלים אימפריאלית</unitPattern>
+				<unitPattern count="other">{0} אונקיית נוזלים אימפריאלית</unitPattern>
+			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>כפות</displayName>
 				<unitPattern count="one">כף אחת</unitPattern>
@@ -8609,6 +8433,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="two">{0} כפיות</unitPattern>
 				<unitPattern count="many">{0} כפיות</unitPattern>
 				<unitPattern count="other">{0} כפיות</unitPattern>
+			</unit>
+			<unit type="volume-barrel">
+				<displayName>חביות</displayName>
+				<unitPattern count="one">{0} חבית</unitPattern>
+				<unitPattern count="two">{0} חביות</unitPattern>
+				<unitPattern count="many">{0} חביות</unitPattern>
+				<unitPattern count="other">{0} חביות</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>רוחות השמיים</displayName>
@@ -8738,6 +8569,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="area-dunam">
+				<displayName>דונם</displayName>
+				<unitPattern count="one">{0} דונם</unitPattern>
+				<unitPattern count="two">{0} דונם</unitPattern>
+				<unitPattern count="many">{0} דונם</unitPattern>
+				<unitPattern count="other">{0} דונם</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
 				<displayName>kt</displayName>
@@ -9039,6 +8877,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="two">{0} קוט״ש</unitPattern>
 				<unitPattern count="many">{0} קוט״ש</unitPattern>
 				<unitPattern count="other">{0} קוט״ש</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit">
+				<displayName>BTU</displayName>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>GHz</displayName>
@@ -9614,23 +9455,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName draft="contributed">כוח ג׳י</displayName>
-				<unitPattern count="one" draft="contributed">{0} G</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} G</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} G</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
-			</unit>
-			<unit type="acceleration-meter-per-second-squared">
-				<displayName draft="contributed">m/s²</displayName>
-				<unitPattern count="one" draft="contributed">{0} m/s²</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} m/s²</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} m/s²</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} m/s²</unitPattern>
-			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="two" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="many" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="contributed">דקה {0}</unitPattern>
@@ -9807,17 +9631,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-microsecond">
 				<displayName draft="contributed">μsecs</displayName>
-				<unitPattern count="one" draft="contributed">{0} μs</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} μs</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} μs</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} μs</unitPattern>
-			</unit>
-			<unit type="duration-nanosecond">
-				<displayName draft="contributed">ns</displayName>
-				<unitPattern count="one" draft="contributed">{0} ns</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} ns</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} ns</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ns</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>ק״מ</displayName>
@@ -9857,20 +9670,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} מ״מ</unitPattern>
 				<unitPattern count="other">{0} מ״מ</unitPattern>
 			</unit>
-			<unit type="length-micrometer">
-				<displayName draft="contributed">µm</displayName>
-				<unitPattern count="one" draft="contributed">{0} µm</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} µm</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} µm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} µm</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName draft="contributed">nm</displayName>
-				<unitPattern count="one" draft="contributed">{0} nm</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} nm</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} nm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} nm</unitPattern>
-			</unit>
 			<unit type="length-picometer">
 				<displayName draft="contributed">פ״מ</displayName>
 				<unitPattern count="one">פיקומטר {0}</unitPattern>
@@ -9908,26 +9707,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} אינץ׳</unitPattern>
 				<perUnitPattern draft="contributed">{0}/אינץ׳</perUnitPattern>
 			</unit>
-			<unit type="length-parsec">
-				<displayName draft="contributed">pc</displayName>
-				<unitPattern count="one" draft="contributed">{0} pc</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} pc</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} pc</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} pc</unitPattern>
-			</unit>
 			<unit type="length-light-year">
 				<displayName draft="contributed">שנות אור</displayName>
 				<unitPattern count="one">שנת אור {0}</unitPattern>
 				<unitPattern count="two">{0} שנות אור</unitPattern>
 				<unitPattern count="many">{0} שנות אור</unitPattern>
 				<unitPattern count="other">{0} שנות אור</unitPattern>
-			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName draft="contributed">au</displayName>
-				<unitPattern count="one" draft="contributed">{0} au</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} au</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} au</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} au</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName draft="contributed">מ״י</displayName>
@@ -9936,26 +9721,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many" draft="contributed">{0} מ״י</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מ״י</unitPattern>
 			</unit>
-			<unit type="length-mile-scandinavian">
-				<displayName draft="contributed">smi</displayName>
-				<unitPattern count="one" draft="contributed">{0} smi</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} smi</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} smi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} smi</unitPattern>
-			</unit>
 			<unit type="length-point">
 				<displayName draft="contributed">נק׳</displayName>
 				<unitPattern count="one" draft="contributed">נק׳ {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} נק׳</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} נק׳</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} נק'</unitPattern>
-			</unit>
-			<unit type="mass-metric-ton">
-				<displayName draft="contributed">t</displayName>
-				<unitPattern count="one" draft="contributed">{0} t</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} t</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} t</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} t</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>ק״ג</displayName>
@@ -9994,54 +9765,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many" draft="contributed">{0} ט׳</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ט׳</unitPattern>
 			</unit>
-			<unit type="mass-stone">
-				<displayName draft="contributed">st</displayName>
-				<unitPattern count="one" draft="contributed">{0} st</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} st</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} st</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} st</unitPattern>
-			</unit>
 			<unit type="mass-pound">
 				<displayName draft="contributed">פאונד</displayName>
 				<unitPattern count="one" draft="contributed">ליברה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} ליבראות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ליבראות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ליבראות</unitPattern>
-				<perUnitPattern draft="contributed">{0}/lb</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
-				<displayName draft="contributed">oz</displayName>
 				<unitPattern count="one" draft="contributed">אונקיה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} אונקיות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} אונקיות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} אונקיות</unitPattern>
-				<perUnitPattern draft="contributed">{0}/oz</perUnitPattern>
-			</unit>
-			<unit type="mass-ounce-troy">
-				<displayName draft="contributed">oz t</displayName>
-				<unitPattern count="one" draft="contributed">{0} oz t</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} oz t</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} oz t</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} oz t</unitPattern>
 			</unit>
 			<unit type="mass-carat">
 				<displayName draft="contributed">קרט</displayName>
-				<unitPattern count="one" draft="contributed">{0} CD</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} CD</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} CD</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} CD</unitPattern>
-			</unit>
-			<unit type="power-kilowatt">
-				<unitPattern count="one" draft="contributed">{0} kW</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} kW</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} kW</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} kW</unitPattern>
-			</unit>
-			<unit type="power-watt">
-				<unitPattern count="one" draft="contributed">{0} W</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} W</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} W</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} W</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
 				<unitPattern count="one" draft="contributed">כ״ס {0}</unitPattern>
@@ -10050,25 +9788,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} כ״ס</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<displayName draft="contributed">hPa</displayName>
 				<unitPattern count="one">{0} hPa</unitPattern>
 				<unitPattern count="two">{0} hPa</unitPattern>
 				<unitPattern count="many">{0} hPa</unitPattern>
 				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
-			<unit type="pressure-millimeter-of-mercury">
-				<displayName draft="contributed">mm Hg</displayName>
-				<unitPattern count="one" draft="contributed">{0} mm Hg</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} mm Hg</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} mm Hg</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mm Hg</unitPattern>
-			</unit>
-			<unit type="pressure-pound-per-square-inch">
-				<displayName draft="contributed">psi</displayName>
-				<unitPattern count="one" draft="contributed">{0} psi</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} psi</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} psi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} psi</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
 				<displayName draft="contributed">in Hg</displayName>
@@ -10105,20 +9828,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} mph</unitPattern>
 				<unitPattern count="other">{0} mph</unitPattern>
 			</unit>
-			<unit type="speed-knot">
-				<displayName draft="contributed">kn</displayName>
-				<unitPattern count="one" draft="contributed">{0} kn</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} kn</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} kn</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} kn</unitPattern>
-			</unit>
-			<unit type="temperature-generic">
-				<displayName draft="contributed">°</displayName>
-				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="two" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="many" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
-			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
 				<unitPattern count="one">{0}°C</unitPattern>
@@ -10126,31 +9835,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0}°C</unitPattern>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
-			<unit type="temperature-fahrenheit">
-				<displayName draft="contributed">°F</displayName>
-				<unitPattern count="one" draft="contributed">{0}°F</unitPattern>
-				<unitPattern count="two" draft="contributed">{0}°F</unitPattern>
-				<unitPattern count="many" draft="contributed">{0}°F</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
-			</unit>
-			<unit type="temperature-kelvin">
-				<displayName draft="contributed">K</displayName>
-				<unitPattern count="one" draft="contributed">{0} K</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} K</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} K</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} K</unitPattern>
-			</unit>
 			<unit type="volume-cubic-kilometer">
 				<unitPattern count="one" draft="contributed">{0} קמ״ק</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} קמ״ק</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} קמ״ק</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} קמ״ק</unitPattern>
-			</unit>
-			<unit type="volume-cubic-mile">
-				<unitPattern count="one" draft="contributed">{0} mi³</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} mi³</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} mi³</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName>ליטר</displayName>
@@ -10350,7 +10039,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="wdth" subtype="87.5">חצי מוקטן</styleName>
 		<styleName type="wdth" subtype="87.5" alt="compressed">חצי מכווץ</styleName>
 		<styleName type="wdth" subtype="87.5" alt="narrow">חצי צר</styleName>
-		<styleName type="wdth" subtype="100">רגיל</styleName>
+		<styleName type="wdth" subtype="100">נורמלי</styleName>
 		<styleName type="wdth" subtype="112.5">חצי מוגדל</styleName>
 		<styleName type="wdth" subtype="112.5" alt="extended">חצי מורחב</styleName>
 		<styleName type="wdth" subtype="112.5" alt="wide">חצי רחב</styleName>

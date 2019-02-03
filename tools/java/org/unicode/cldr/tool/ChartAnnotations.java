@@ -358,7 +358,7 @@ public class ChartAnnotations extends Chart {
         try {
             RBC = new RuleBasedCollator(rules);
         } catch (Exception e) {
-            throw new IllegalArgumentException(e);
+            throw new IllegalArgumentException("Failure in rules for " + CLDRPaths.COMMON_DIRECTORY + "collation/" + "root", e);
         }
     }
 

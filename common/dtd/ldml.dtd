@@ -2662,7 +2662,7 @@ $Revision$
 
 <!ELEMENT collation ( alias | ( base?, import*, settings?, suppress_contractions?, optimize?, ( cr* | rules? ), special* ) ) >
 <!ATTLIST collation type NMTOKEN "standard" >
-	<!--@MATCH:or/bcp47/co||literal/digits-after, private-kana, private-pinyin-->
+	<!--@MATCH:or/bcp47/co||regex/private-.*||literal/digits-after-->
 <!ATTLIST collation visibility (internal | external) #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
@@ -2993,7 +2993,7 @@ $Revision$
 
 <!ELEMENT rule ( #PCDATA ) >
 <!ATTLIST rule id NMTOKEN #REQUIRED >
-    <!--@MATCH:version-->
+    <!--@MATCH:range/0.0~9999.0-->
 <!ATTLIST rule alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST rule draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
@@ -3039,7 +3039,7 @@ $Revision$
 <!ELEMENT ruleset ( alias | ( rbnfrule*, special* ) ) >
     <!--@ORDERED-->
 <!ATTLIST ruleset type NMTOKEN #REQUIRED >
-    <!--@MATCH:unicodeset/[\-0-9a-z]-->
+    <!--@MATCH:regex/(ord-M-)?[\-0-9a-z]+-->
 <!ATTLIST ruleset access (public | private) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST ruleset allowsParsing (true | false) #IMPLIED >

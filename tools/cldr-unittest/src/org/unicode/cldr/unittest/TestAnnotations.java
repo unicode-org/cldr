@@ -256,8 +256,8 @@ public class TestAnnotations extends TestFmwkPlus {
             Set<String> annotationPaths = enAnnotations.getPaths("//ldml/anno",
                 Pattern.compile("//ldml/annotations/annotation.*tts.*").matcher(""), new TreeSet<>());
             Set<String> annotationPathsExpected = Emoji.getNamePaths();
-            checkAMinusBIsC(locale + ".xml - Emoji.getNamePaths", annotationPaths, annotationPathsExpected, Collections.<String> emptySet());
-            checkAMinusBIsC("Emoji.getNamePaths - " + locale + ".xml", annotationPathsExpected, annotationPaths, Collections.<String> emptySet());
+            checkAMinusBIsC("(" + locale + ".xml - Emoji.getNamePaths)", annotationPaths, annotationPathsExpected, Collections.<String> emptySet());
+            checkAMinusBIsC("(Emoji.getNamePaths - " + locale + ".xml)", annotationPathsExpected, annotationPaths, Collections.<String> emptySet());
         }
     }
 

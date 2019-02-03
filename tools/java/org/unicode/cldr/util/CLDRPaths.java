@@ -48,11 +48,12 @@ public class CLDRPaths {
     public static final String ANNOTATIONS_DERIVED_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, ANNOTATIONS_DERIVED_SUBDIR);
     public static final String VALIDITY_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, VALIDITY_SUBDIR);
 
-    public static final String SEED_DIRECTORY = CldrUtility.getProperty("CLDR_SEED",
-        CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "../" + "seed/" + MAIN_SUBDIR));
-    public static final String SEED_COLLATION_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../" + COLLATION_SUBDIR);
-    public static final String SEED_CASING_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../" + CASING_SUBDIR);
-    public static final String SEED_ANNOTATIONS_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../" + ANNOTATIONS_SUBDIR);
+    public static final String SEED_DIRECTORY1 = CldrUtility.getProperty("CLDR_SEED",
+        CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "../" + "seed/"));
+    public static final String SEED_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY1, MAIN_SUBDIR);
+    public static final String SEED_COLLATION_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY1, COLLATION_SUBDIR);
+    public static final String SEED_CASING_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY1, CASING_SUBDIR);
+    public static final String SEED_ANNOTATIONS_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY1, ANNOTATIONS_SUBDIR);
 
     public static final String EXEMPLARS_DIRECTORY = CldrUtility.getPath(CLDRPaths.BASE_DIRECTORY, "exemplars/" + MAIN_SUBDIR);
 

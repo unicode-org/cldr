@@ -3,12 +3,10 @@ package org.unicode.cldr.unittest;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
-import java.util.Arrays;
-import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -22,8 +20,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import org.unicode.cldr.tool.VerifyAttributeValues;
@@ -35,7 +35,8 @@ import org.unicode.cldr.util.AttributeValueValidity.Status;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.ValueStatus;
 import org.unicode.cldr.util.DtdType;
@@ -52,19 +53,20 @@ import org.xml.sax.Attributes;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.util.ICUException;
 import com.ibm.icu.util.Output;
 
 public class TestAttributeValues extends TestFmwk {
+    private static final boolean SERIAL = false;
+
     private static final Validity VALIDITY = Validity.getInstance();
     private static final File BASE_DIR = new File(CLDRPaths.BASE_DIRECTORY);
     public static final Joiner SPACE_JOINER = Joiner.on(' ');
@@ -72,29 +74,37 @@ public class TestAttributeValues extends TestFmwk {
     static final Splitter SEMI_SPACE = Splitter.on(';').trimResults().omitEmptyStrings();
     private static final CLDRConfig config = CLDRConfig.getInstance();
 
+    static final List<String> COMMON_AND_SEED = ImmutableList.of(CLDRPaths.COMMON_DIRECTORY, CLDRPaths.SEED_DIRECTORY);
+
     public static void main(String[] args) {
         new TestAttributeValues().run(args);
     }
 
     public void TestValid() {
+        String dtdTypeArg = params.props == null ? null : (String) params.props.get("dtdtype");
+
         // short- circuits for testing. null means do all
-        Set<DtdType> checkTypes = null ; // ImmutableSet.of(DtdType.supplementalData, DtdType.keyboard, DtdType.platform); 
+        Set<DtdType> checkTypes = dtdTypeArg == null ? DtdType.STANDARD_SET 
+            : Collections.singleton(DtdType.valueOf(dtdTypeArg)) ;
         ImmutableSet<ValueStatus> showStatuses = null ; // ImmutableSet.of(ValueStatus.invalid, ValueStatus.unknown);
 
-        for (DtdType dtdType : checkTypes == null ? DtdType.STANDARD_SET : checkTypes) {
+        for (DtdType dtdType : checkTypes) {
             PathChecker pathChecker = new PathChecker(this, DtdData.getInstance(dtdType));
-            for (String mainDirs : Arrays.asList(CLDRPaths.COMMON_DIRECTORY, CLDRPaths.SEED_DIRECTORY)) {
+            for (String mainDirs : COMMON_AND_SEED) {
                 Set<String> files = new TreeSet<>();
                 for (String stringDir : dtdType.directories) {
                     addXMLFiles(dtdType, mainDirs + stringDir, files);
-                    if (isVerbose()) {
+                    if (isVerbose()) 
+                        synchronized (pathChecker.testLog) {
                         warnln(mainDirs + stringDir);
                     }
                 }
-                int x = files.size();
-                files
-                .parallelStream()
-                .forEach(file -> checkFile(pathChecker, file));
+                Stream<String> stream = SERIAL ? files.stream() : files.parallelStream();
+                stream.forEach(file -> checkFile(pathChecker, file));
+                
+//                for (String file : files) {
+//                    checkFile(pathChecker, file);
+//                }
             }
             pathChecker.show(isVerbose(), showStatuses);
         }
@@ -144,20 +154,17 @@ public class TestAttributeValues extends TestFmwk {
 
 
     private void checkFile(PathChecker pathChecker, String fullFile) {
-        /*
-         * TODO: fix XMLStreamException, see https://unicode.org/cldr/trac/ticket/10120
-         * Temporarily disable this test
-         */
-        if (true) {
-            return;
-        }
-
         if (!fullFile.endsWith(".xml")) {
             return;
         }
         pathChecker.fileCount.incrementAndGet();
-        //System.out.println(fullFile);
+//        if (isVerbose()) synchronized (this) {
+//            logln(fullFile);
+//        }
         XMLInputFactory f = XMLInputFactory.newInstance();
+//        XMLInputFactory f = XMLInputFactory.newFactory("org.apache.xerces.jaxp.SAXParserFactoryImpl",
+//            ClassLoader.getSystemClassLoader());
+
         int _elementCount = 0;
         int _attributeCount = 0;
 
@@ -171,23 +178,34 @@ public class TestAttributeValues extends TestFmwk {
                 XMLStreamReader r = f.createXMLStreamReader(fullFile, bufferedReader);
                 String element = null;
                 while(r.hasNext()) {
-                    switch(r.next()){
-                    case XMLStreamReader.START_ELEMENT:
-                        element = r.getLocalName();
-                        ++_elementCount;
-                        int attributeSize = r.getAttributeCount();
-                        for (int i = 0; i < attributeSize; ++i) {
-                            ++_attributeCount;
-                            String attribute = r.getAttributeLocalName(i);
-                            String attributeValue = r.getAttributeValue(i);
-                            pathChecker.checkAttribute(element, attribute, attributeValue);
+                    try {
+                        switch(r.next()){
+                        case XMLStreamReader.START_ELEMENT:
+                            element = r.getLocalName();
+                            ++_elementCount;
+                            int attributeSize = r.getAttributeCount();
+                            for (int i = 0; i < attributeSize; ++i) {
+                                ++_attributeCount;
+                                String attribute = r.getAttributeLocalName(i);
+                                String attributeValue = r.getAttributeValue(i);
+                                pathChecker.checkAttribute(element, attribute, attributeValue);
+                            }
+                            break;
                         }
-                        break;
+                    } catch (XMLStreamException e) {
+                        synchronized (pathChecker.testLog) {
+                            pathChecker.testLog.errln(fullFile + "error");
+                        }
+                        e.printStackTrace(pathChecker.testLog.getLogPrintWriter());
                     }
                 }
                 //XMLFileReader.read("noId", inputStreamReader, -1, true, myHandler);
-            } catch (IOException e) {
-                throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fullFile).initCause(e);
+            } catch (XMLStreamException e) {
+                if (!logKnownIssue("cldrbug 10120", "XML reading issue")) {
+                    warnln("Can't read " + fullFile);
+                } else {
+                    throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fullFile).initCause(e);
+                }
             }
         } catch (Exception e) {
             throw new ICUException(fullFile, e);
@@ -197,8 +215,8 @@ public class TestAttributeValues extends TestFmwk {
     }
 
     static class PathChecker {
-        private final Multimap<Row.R3<ValueStatus,String,String>,String> valueStatuses = TreeMultimap.create();
-        private final Counter<ValueStatus> counter = new Counter<>();
+        private final ChainedMap.M5<ValueStatus, String, String, String, Boolean> valueStatusInfo 
+        = ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), new TreeMap(), Boolean.class);
         private final Set<String> seen = new HashSet<>();
         private final Map<String,Map<String,Map<String,Boolean>>> seenEAV = new ConcurrentHashMap<>();
         private final TestFmwk testLog;
@@ -271,11 +289,8 @@ public class TestAttributeValues extends TestFmwk {
 
             // get the status & store
             ValueStatus valueStatus = dtdData.getValueStatus(element, attribute, attrValue);
-            R3<ValueStatus, String, String> row = Row.of(valueStatus, element, attribute);
-            synchronized (valueStatuses) {
-                if (valueStatuses.put(row, attrValue)) {
-                    counter.add(valueStatus, 1);
-                }
+            synchronized (valueStatusInfo) {
+                valueStatusInfo.put(valueStatus, element, attribute, attrValue, Boolean.TRUE);
             }
         }
 
@@ -285,9 +300,11 @@ public class TestAttributeValues extends TestFmwk {
 //              testLog.warnln("Counts: " + counter.toString());
 //          } else 
             for (ValueStatus valueStatus : ValueStatus.values()) {
-                if (valueStatus != ValueStatus.valid && counter.get(valueStatus) != 0) {
-                    testLog.errln("Problems with " + valueStatus 
-                        + ", use -v for details: " + counter.toString());
+                if (valueStatus == ValueStatus.valid) {
+                    continue;
+                }
+                M4<String, String, String, Boolean> info = valueStatusInfo.get(valueStatus);
+                if (info != null) {
                     haveProblems = true;
                 }
             }
@@ -298,64 +315,69 @@ public class TestAttributeValues extends TestFmwk {
             StringBuilder out = new StringBuilder();
             out.append("\n");
 
-            if (verbose) {
-        	out.append("file\tCount:\t" + dtdData.dtdType + "\t" + fileCount + "\n");
-        	out.append("element\tCount:\t" + dtdData.dtdType + "\t" + elementCount + "\n");
-        	out.append("attribute\tCount:\t" + dtdData.dtdType + "\t" + attributeCount + "\n");
-            }
-    	    out.append("status\tdtdType\telement\tattribute\tmatch\t#attr values\tattr values\n");
-            for(Entry<Row.R3<ValueStatus,String,String>, Collection<String>> entry : valueStatuses.asMap().entrySet()) {
-                ValueStatus valueStatus = entry.getKey().get0();
+            out.append("file\tCount:\t" + dtdData.dtdType + "\t" + fileCount + "\n");
+            out.append("element\tCount:\t" + dtdData.dtdType + "\t" + elementCount + "\n");
+            out.append("attribute\tCount:\t" + dtdData.dtdType + "\t" + attributeCount + "\n");
+
+            out.append("status\tdtdType\telement\tattribute\tmatch\t#attr values\tattr values\n");
+            for (Entry<ValueStatus, Map<String, Map<String, Map<String, Boolean>>>> entry : valueStatusInfo) {
+                ValueStatus valueStatus = entry.getKey();
                 if (retain != null && !retain.contains(valueStatus)) {
                     continue;
                 }
-                if (!verbose && haveProblems && valueStatus != ValueStatus.valid) {
+                if (!verbose && haveProblems && valueStatus == ValueStatus.valid) {
                     continue;
                 }
-                String elementName = entry.getKey().get1();
-                String attributeName = entry.getKey().get2();
-                String matchValue = matchValues.get(elementName + "\t" + attributeName);
-                Collection<String> validFound = entry.getValue();
-                out.append(
-                    valueStatus 
-                    + "\t" + dtdData.dtdType 
-                    + "\t" + elementName 
-                    + "\t" + attributeName 
-                    + "\t" + (matchValue == null ? "" : matchValue)
-                    + "\t" + validFound.size()
-                    + "\t" + CollectionUtilities.join(validFound, ", ")
-                    + "\n"
-                    );
-                if (valueStatus == ValueStatus.valid) try {
-                    LstrType lstr = LstrType.valueOf(elementName);
-                    Map<String, Validity.Status> codeToStatus = VALIDITY.getCodeToStatus(lstr);
-                    Set<String> missing = new TreeSet<>(codeToStatus.keySet());
-                    if (lstr == LstrType.variant) {
-                        for (String item : validFound) {
-                            missing.remove(item.toLowerCase(Locale.ROOT));
-                        }
-                    } else {
-                        missing.removeAll(validFound);
-                    }
-                    Set<String> deprecated = VALIDITY.getStatusToCodes(lstr).get(LstrField.Deprecated);
-                    if (deprecated != null) {
-                        missing.removeAll(deprecated);
-                    }
-                    if (!missing.isEmpty()) {
+                for (Entry<String, Map<String, Map<String, Boolean>>> entry2 : entry.getValue().entrySet()) {
+                    String elementName = entry2.getKey();
+                    for (Entry<String, Map<String, Boolean>> entry3 : entry2.getValue().entrySet()) {
+                        String attributeName = entry3.getKey();
+                        Set<String> validFound = entry3.getValue().keySet();
+                        String matchValue = matchValues.get(elementName + "\t" + attributeName);
                         out.append(
-                            "missing" 
-                                + "\t" + dtdData.dtdType 
-                                + "\t" + elementName 
-                                + "\t" + attributeName 
-                                + "\t" + "" 
-                                + "\t" + "" 
-                                + "\t" + CollectionUtilities.join(missing, ", ")
-                                + "\n"
+                            valueStatus 
+                            + "\t" + dtdData.dtdType 
+                            + "\t" + elementName 
+                            + "\t" + attributeName 
+                            + "\t" + (matchValue == null ? "" : matchValue)
+                            + "\t" + validFound.size()
+                            + "\t" + CollectionUtilities.join(validFound, ", ")
+                            + "\n"
                             );
+                        if (valueStatus == ValueStatus.valid) try {
+                            LstrType lstr = LstrType.valueOf(elementName);
+                            Map<String, Validity.Status> codeToStatus = VALIDITY.getCodeToStatus(lstr);
+                            Set<String> missing = new TreeSet<>(codeToStatus.keySet());
+                            if (lstr == LstrType.variant) {
+                                for (String item : validFound) {
+                                    missing.remove(item.toLowerCase(Locale.ROOT));
+                                }
+                            } else {
+                                missing.removeAll(validFound);
+                            }
+                            Set<String> deprecated = VALIDITY.getStatusToCodes(lstr).get(LstrField.Deprecated);
+                            if (deprecated != null) {
+                                missing.removeAll(deprecated);
+                            }
+                            if (!missing.isEmpty()) {
+                                out.append(
+                                    "unused" 
+                                        + "\t" + dtdData.dtdType 
+                                        + "\t" + elementName 
+                                        + "\t" + attributeName 
+                                        + "\t" + "" 
+                                        + "\t" + "" 
+                                        + "\t" + CollectionUtilities.join(missing, ", ")
+                                        + "\n"
+                                    );
+                            }
+                        } catch (Exception e) {}
                     }
-                } catch (Exception e) {}
+                } 
             }
-            testLog.warnln(out.toString());
+            synchronized (testLog) {
+                testLog.warnln(out.toString());
+            }
         }
     }
 

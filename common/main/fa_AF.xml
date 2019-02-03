@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -18,9 +18,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="as" draft="contributed">اسامی</language>
 			<language type="ast" draft="contributed">اتریشی</language>
 			<language type="az" draft="contributed">آذربایجانی</language>
+			<language type="ba" draft="contributed">باشقیری</language>
 			<language type="ckb" draft="contributed">کردی سورانی</language>
 			<language type="dv" draft="contributed">مالدیوی</language>
 			<language type="es">هسپانوی</language>
+			<language type="fa_AF" draft="contributed">دری</language>
 			<language type="fi">فنلندی</language>
 			<language type="ga">آیرلندی</language>
 			<language type="hr">کروشیایی</language>
@@ -44,12 +46,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pl">پولندی</language>
 			<language type="ps" alt="variant" draft="contributed">پشتو</language>
 			<language type="pt">پرتگالی</language>
+			<language type="ro_MD" draft="contributed">مولداویایی</language>
 			<language type="sq" draft="contributed">البانیایی</language>
 			<language type="srn" draft="contributed">زبان سرانان</language>
 			<language type="sv">سویدنی</language>
 			<language type="sw" draft="contributed">سواحلی</language>
 			<language type="tg">تاجکی</language>
 			<language type="zh_Hans" draft="contributed">چینی ساده شده</language>
+			<language type="zh_Hant" draft="contributed">چینی سنتی</language>
 			<language type="zza" draft="contributed">زازاکی</language>
 		</languages>
 		<scripts>
@@ -62,6 +66,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="AO">انگولا</territory>
 			<territory type="AQ" draft="contributed">انترکتیکا</territory>
 			<territory type="AR">ارجنتاین</territory>
+			<territory type="AU" draft="contributed">استرالیا</territory>
 			<territory type="BA">بوسنیا و هرزه‌گوینا</territory>
 			<territory type="BD">بنگله‌دیش</territory>
 			<territory type="BE">بلجیم</territory>
@@ -70,6 +75,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BO">بولیویا</territory>
 			<territory type="BR">برازیل</territory>
 			<territory type="BS">بهاماس</territory>
+			<territory type="BY" draft="contributed">بلاروس</territory>
 			<territory type="CD" draft="contributed">کانگو - کینشاسا</territory>
 			<territory type="CG" draft="contributed">کانگو - برازویل</territory>
 			<territory type="CH">سویس</territory>
@@ -82,6 +88,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="DK">دنمارک</territory>
 			<territory type="EA" draft="contributed">سئوتا و ملیلا</territory>
 			<territory type="EE">استونیا</territory>
+			<territory type="EH" draft="contributed">صحرای غربی</territory>
 			<territory type="ER">اریتریا</territory>
 			<territory type="ES">هسپانیه</territory>
 			<territory type="ET">ایتوپیا</territory>
@@ -104,6 +111,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IS">آیسلند</territory>
 			<territory type="JP">جاپان</territory>
 			<territory type="KE">کینیا</territory>
+			<territory type="KG" draft="contributed">قرقیزستان</territory>
 			<territory type="KH">کمپوچیا</territory>
 			<territory type="KP">کوریای شمالی</territory>
 			<territory type="KR">کوریای جنوبی</territory>
@@ -119,6 +127,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MX">مکسیکو</territory>
 			<territory type="MY">مالیزیا</territory>
 			<territory type="MZ">موزمبیق</territory>
+			<territory type="NE" draft="contributed">نیجر</territory>
 			<territory type="NG">نیجریا</territory>
 			<territory type="NI">نیکاراگوا</territory>
 			<territory type="NL">هالند</territory>
@@ -132,6 +141,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="PT">پرتگال</territory>
 			<territory type="PY">پاراگوای</territory>
 			<territory type="RO">رومانیا</territory>
+			<territory type="RW" draft="contributed">رواندا</territory>
 			<territory type="SE">سویدن</territory>
 			<territory type="SG">سینگاپور</territory>
 			<territory type="SI">سلونیا</territory>
@@ -140,8 +150,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SL">سیرالیون</territory>
 			<territory type="SN">سینیگال</territory>
 			<territory type="SO">سومالیه</territory>
+			<territory type="ST" draft="contributed">سائوتومه و پرینسیپ</territory>
 			<territory type="SV">السلوادور</territory>
 			<territory type="TJ">تاجکستان</territory>
+			<territory type="UA" draft="contributed">اوکراین</territory>
 			<territory type="UG" draft="contributed">یوگاندا</territory>
 			<territory type="UY">یوروگوای</territory>
 			<territory type="VC" draft="contributed">سنت وینسنت و گرنادین‌ها</territory>
@@ -174,17 +186,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">ج</month>
-							<month type="2">ف</month>
-							<month type="3">م</month>
 							<month type="4">ا</month>
-							<month type="5">م</month>
 							<month type="6">ج</month>
 							<month type="7">ج</month>
-							<month type="8">ا</month>
-							<month type="9">س</month>
-							<month type="10">ا</month>
-							<month type="11">ن</month>
-							<month type="12">د</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">جنوری</month>
@@ -218,17 +222,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">ج</month>
-							<month type="2">ف</month>
-							<month type="3">م</month>
 							<month type="4">ا</month>
-							<month type="5">م</month>
 							<month type="6">ج</month>
 							<month type="7">ج</month>
-							<month type="8">ا</month>
-							<month type="9">س</month>
-							<month type="10">ا</month>
-							<month type="11">ن</month>
-							<month type="12">د</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">جنوری</month>
@@ -283,7 +279,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="morning2" draft="contributed">صبح</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">ظهر</dayPeriod>
 							<dayPeriod type="afternoon2" draft="contributed">بعدازچاشت</dayPeriod>
-							<dayPeriod type="night1" draft="contributed">شب</dayPeriod>
 							<dayPeriod type="night2" draft="contributed">نیمه‌شب</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
@@ -291,7 +286,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="morning2" draft="contributed">صبح</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">ظهر</dayPeriod>
 							<dayPeriod type="afternoon2" draft="contributed">بعدازچاشت</dayPeriod>
-							<dayPeriod type="night1" draft="contributed">شب</dayPeriod>
 							<dayPeriod type="night2" draft="contributed">نیمه‌شب</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
@@ -301,15 +295,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="morning2" draft="contributed">صبح</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">ظهر</dayPeriod>
 							<dayPeriod type="afternoon2" draft="contributed">بعدازچاشت</dayPeriod>
-							<dayPeriod type="night1" draft="contributed">شب</dayPeriod>
 							<dayPeriod type="night2" draft="contributed">نیمه‌شب</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="afternoon1" draft="contributed">بعد از چاشت</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="morning1" draft="contributed">بامداد</dayPeriod>
 							<dayPeriod type="morning2" draft="contributed">صبح</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">ظهر</dayPeriod>
 							<dayPeriod type="afternoon2" draft="contributed">بعدازچاشت</dayPeriod>
-							<dayPeriod type="night1" draft="contributed">شب</dayPeriod>
 							<dayPeriod type="night2" draft="contributed">نیمه‌شب</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -550,6 +550,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG" alt="variant">Kongoko Errepublika</territory>
 			<territory type="CH">Suitza</territory>
 			<territory type="CI">Boli Kosta</territory>
+			<territory type="CI" alt="variant">CI</territory>
 			<territory type="CK">Cook uharteak</territory>
 			<territory type="CL">Txile</territory>
 			<territory type="CM">Kamerun</territory>
@@ -733,6 +734,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="SX">Sint Maarten</territory>
 			<territory type="SY">Siria</territory>
 			<territory type="SZ">Swazilandia</territory>
+			<territory type="SZ" alt="variant">Swazilandia</territory>
 			<territory type="TA">Tristan da Cunha</territory>
 			<territory type="TC">Turk eta Caico uharteak</territory>
 			<territory type="TD">Txad</territory>
@@ -742,6 +744,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TJ">Tajikistan</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Ekialdeko Timor</territory>
+			<territory type="TL" alt="variant">TL</territory>
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunisia</territory>
 			<territory type="TO">Tonga</territory>
@@ -1052,8 +1055,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">B h – B h</greatestDifference>
+							<greatestDifference id="h">B h–h</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">B h:mm – B h:mm</greatestDifference>
+							<greatestDifference id="h">B h:mm–h:mm</greatestDifference>
+							<greatestDifference id="m">B h:mm–h:mm</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">dd–dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">G y, MMM – G y, MMM</greatestDifference>
+							<greatestDifference id="M">G y, MMM–MMM</greatestDifference>
+							<greatestDifference id="y">G y, MMM – G y, MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">G y, MMM d–d</greatestDifference>
+							<greatestDifference id="G">G y, MMM d – G y, MMM d</greatestDifference>
+							<greatestDifference id="M">G y, MMM d – MMM d</greatestDifference>
+							<greatestDifference id="y">G y, MMM d – G y, MMM d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">G y, MMM d, E – MMM d, E</greatestDifference>
+							<greatestDifference id="G">G y, MMM d, E – G y, MMM d, E</greatestDifference>
+							<greatestDifference id="M">G y, MMM d, E – MMM d, E</greatestDifference>
+							<greatestDifference id="y">G y, MMM d, E – G y, MMM d, E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">h a – h a</greatestDifference>
@@ -1543,8 +1572,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd">MMM d, E</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="one">MMMM W. 'astea'</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="other">MMMM W. 'astea'</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">MMM W. 'astea'</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">MMM W. 'astea'</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">y/M</dateFormatItem>
@@ -1566,8 +1595,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">B h – B h</greatestDifference>
+							<greatestDifference id="h">B h–h</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">B h:mm – B h:mm</greatestDifference>
+							<greatestDifference id="h">B h:mm–h:mm</greatestDifference>
+							<greatestDifference id="m">B h:mm–h:mm</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">G y, MMM – G y, MMM</greatestDifference>
+							<greatestDifference id="M">G y, MMM–MMM</greatestDifference>
+							<greatestDifference id="y">G y, MMM – G y, MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">G y, MMM d–d</greatestDifference>
+							<greatestDifference id="G">G y, MMM d – G y, MMM d</greatestDifference>
+							<greatestDifference id="M">G y, MMM d – MMM d</greatestDifference>
+							<greatestDifference id="y">G y, MMM d – G y, MMM d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">G y, MMM d, E – MMM d, E</greatestDifference>
+							<greatestDifference id="G">G y, MMM d, E – G y, MMM d, E</greatestDifference>
+							<greatestDifference id="M">G y, MMM d, E – MMM d, E</greatestDifference>
+							<greatestDifference id="y">G y, MMM d, E – G y, MMM d, E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">h a – h a</greatestDifference>
@@ -3067,9 +3122,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Asia/Choibalsan">
 				<exemplarCity>Txoibalsan</exemplarCity>
 			</zone>
-			<zone type="Asia/Macau">
-				<exemplarCity>Macao</exemplarCity>
-			</zone>
 			<zone type="Pacific/Saipan">
 				<exemplarCity>Saipan</exemplarCity>
 			</zone>
@@ -4522,31 +4574,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
-		<otherNumberingSystems>
-			<native draft="contributed">latn</native>
-		</otherNumberingSystems>
-		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group>.</group>
 			<list>;</list>
 			<percentSign>%</percentSign>
-			<plusSign>+</plusSign>
 			<minusSign>−</minusSign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
-			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="latn">
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern>#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
 					<pattern type="1000" count="one">0000</pattern>
@@ -5540,7 +5580,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>Sao Tome eta Principeko dobra</displayName>
 				<displayName count="one">Sao Tome eta Principeko dobra</displayName>
 				<displayName count="other">Sao Tome eta Principeko dobra</displayName>
-				<symbol draft="contributed">STN</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SYP">
@@ -5865,6 +5904,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>‰</displayName>
 				<unitPattern count="one">‰ {0}</unitPattern>
 				<unitPattern count="other">‰ {0}</unitPattern>
+			</unit>
+			<unit type="concentr-permyriad">
+				<unitPattern count="one">‱ {0}</unitPattern>
+				<unitPattern count="other">‱ {0}</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litro kilometro bakoitzeko</displayName>
@@ -6287,6 +6330,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} atm</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
 			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName>kilopascalak</displayName>
+				<unitPattern count="one">{0} kilopascal</unitPattern>
+				<unitPattern count="other">{0} kilopascal</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName>megapascalak</displayName>
+				<unitPattern count="one">{0} megapascal</unitPattern>
+				<unitPattern count="other">{0} megapascal</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometro orduko</displayName>
 				<unitPattern count="one">{0} kilometro orduko</unitPattern>
@@ -6578,6 +6631,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>‰</displayName>
 				<unitPattern count="one">‰ {0}</unitPattern>
 				<unitPattern count="other">‰ {0}</unitPattern>
+			</unit>
+			<unit type="concentr-permyriad">
+				<unitPattern count="one">‱ {0}</unitPattern>
+				<unitPattern count="other">‱ {0}</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -6999,6 +7056,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>atm</displayName>
 				<unitPattern count="one">{0} atm</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName>kPa</displayName>
+				<unitPattern count="one">{0} kPa</unitPattern>
+				<unitPattern count="other">{0} kPa</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName>MPa</displayName>
+				<unitPattern count="one">{0} MPa</unitPattern>
+				<unitPattern count="other">{0} MPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

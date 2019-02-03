@@ -1732,13 +1732,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</eraAbbr>
 				</eras>
 			</calendar>
-			<calendar type="roc">
-				<eras>
-					<eraNarrow>
-						<era type="0" draft="unconfirmed">avant RdC</era>
-					</eraNarrow>
-				</eras>
-			</calendar>
 		</calendars>
 		<fields>
 			<field type="era">
@@ -4412,7 +4405,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
-			<timeSeparator draft="contributed">:</timeSeparator>
+			<timeSeparator draft="contributed">.</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>

@@ -2511,9 +2511,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="week-short">
 				<displayName>ned.</displayName>
-				<relative type="-1" draft="contributed">prošle ned.</relative>
-				<relative type="0" draft="contributed">ove ned.</relative>
-				<relative type="1" draft="contributed">sledeće ned.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} ned.</relativeTimePattern>
 					<relativeTimePattern count="few">za {0} ned.</relativeTimePattern>

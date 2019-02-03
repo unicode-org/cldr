@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,52 +23,72 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">โทนผิวสีแทน</annotation>
 		<annotation cp="🏿">โทนผิวสีเข้ม | โทนสีผิว | ผิวโทน 6</annotation>
 		<annotation cp="🏿" type="tts">โทนผิวสีเข้ม</annotation>
+		<annotation cp="🐾">รอยเท้า | รอยเท้าสัตว์</annotation>
+		<annotation cp="🐾" type="tts">รอยเท้าสัตว์</annotation>
 		<annotation cp="😀">ใบหน้า | ยิ้มกว้าง | ยิ้มยิงฟัน | หน้ายิ้มยิงฟัน</annotation>
 		<annotation cp="😀" type="tts">หน้ายิ้มยิงฟัน</annotation>
-		<annotation cp="😁">ยิงฟัน | ยิ้ม | ยิ้มยิงฟันตายิ้ม | หน้า | ฮี่ๆ | ฮี่ฮี่</annotation>
-		<annotation cp="😁" type="tts">ยิ้มยิงฟันตายิ้ม</annotation>
-		<annotation cp="😂">ดีใจ | น้ำตา | ปลื้ม | ร้องไห้ดีใจ | หน้า</annotation>
-		<annotation cp="😂" type="tts">ร้องไห้ดีใจ</annotation>
-		<annotation cp="🤣">กลิ้ง | ขำ | ขำกลิ้ง | แว้ก</annotation>
-		<annotation cp="🤣" type="tts">ขำกลิ้ง</annotation>
 		<annotation cp="😃">ตลก | ยิ้ม | ยิ้มยิงฟันปากอ้า | หน้า | หน้ายิ้มอ้าปาก | หัวเราะ | ฮ่าๆ | ฮ่าฮ่า</annotation>
 		<annotation cp="😃" type="tts">หน้ายิ้มอ้าปาก</annotation>
 		<annotation cp="😄">ตลก | ยิ้ม | หน้า | หน้ายิ้มตายิ้ม และอ้าปาก | หัวเราะ | ฮ่าๆ | ฮ่าฮ่า</annotation>
 		<annotation cp="😄" type="tts">หน้ายิ้มตายิ้ม และอ้าปาก</annotation>
-		<annotation cp="😅">ยิ้ม | ยิ้มเหงื่อตก | หน้า | เหงื่อออก</annotation>
-		<annotation cp="😅" type="tts">ยิ้มเหงื่อตก</annotation>
+		<annotation cp="😁">ยิงฟัน | ยิ้ม | ยิ้มยิงฟันตายิ้ม | หน้า | ฮี่ๆ | ฮี่ฮี่</annotation>
+		<annotation cp="😁" type="tts">ยิ้มยิงฟันตายิ้ม</annotation>
 		<annotation cp="😆">ตาหยี | ยิ้ม | ยิ้มตาหยี | หน้า</annotation>
 		<annotation cp="😆" type="tts">ยิ้มตาหยี</annotation>
+		<annotation cp="😅">ยิ้ม | ยิ้มเหงื่อตก | หน้า | เหงื่อออก</annotation>
+		<annotation cp="😅" type="tts">ยิ้มเหงื่อตก</annotation>
+		<annotation cp="🤣">กลิ้ง | ขำ | ขำกลิ้ง | แว้ก</annotation>
+		<annotation cp="🤣" type="tts">ขำกลิ้ง</annotation>
+		<annotation cp="😂">ดีใจ | น้ำตา | ปลื้ม | ร้องไห้ดีใจ | หน้า</annotation>
+		<annotation cp="😂" type="tts">ร้องไห้ดีใจ</annotation>
+		<annotation cp="🙂">ยิ้ม | หน้า | หน้ายิ้มบางๆ</annotation>
+		<annotation cp="🙂" type="tts">หน้ายิ้มบางๆ</annotation>
+		<annotation cp="🙃">กลับหัว | หน้า | หน้ากลับหัว</annotation>
+		<annotation cp="🙃" type="tts">หน้ากลับหัว</annotation>
 		<annotation cp="😉">vbvb | ขยิบตา | ยิ้ม | หน้า | อิอิ</annotation>
 		<annotation cp="😉" type="tts">ขยิบตา</annotation>
 		<annotation cp="😊">vbvb | หน้า | หน้ายิ้มตายิ้ม | อมยิ้ม | อิอิ</annotation>
 		<annotation cp="😊" type="tts">หน้ายิ้มตายิ้ม</annotation>
-		<annotation cp="😋">แลบลิ้นมุมปาก | หน้า | อร่อย</annotation>
-		<annotation cp="😋" type="tts">แลบลิ้นมุมปาก</annotation>
-		<annotation cp="😎">ยิ้ม | แว่นกันแดด | หน้า | หน้ายิ้มใส่แว่น</annotation>
-		<annotation cp="😎" type="tts">หน้ายิ้มใส่แว่น</annotation>
+		<annotation cp="😇">เทวดา | นางฟ้า | บริสุทธิ์ | ยิ้ม | ยิ้มเทวดา</annotation>
+		<annotation cp="😇" type="tts">ยิ้มเทวดา</annotation>
+		<annotation cp="🥰">ตกหลุมรัก | หน้ายิ้มพร้อมกับหัวใจหลายดวง | หลงรัก | หลงใหล | หัวใจ</annotation>
+		<annotation cp="🥰" type="tts">หน้ายิ้มพร้อมกับหัวใจหลายดวง</annotation>
 		<annotation cp="😍">ความรัก | ตา | ตาหัวใจ | ยิ้ม | หน้า | หัวใจ</annotation>
 		<annotation cp="😍" type="tts">ตาหัวใจ</annotation>
-		<annotation cp="😘">จุ๊บ | ส่งจูบ | หน้า | หน้าส่งจุ๊บ | หัวใจ</annotation>
-		<annotation cp="😘" type="tts">หน้าส่งจุ๊บ</annotation>
-		<annotation cp="🥰">ตกหลุมรัก | หน้ายิ้มพร้อมกับหัวใจ 3 ดวง | หลงรัก | หลงใหล</annotation>
-		<annotation cp="🥰" type="tts">หน้ายิ้มพร้อมกับหัวใจ 3 ดวง</annotation>
-		<annotation cp="😗">จุ๊บ | ส่งจูบ | หน้า | หน้าจุ๊บ</annotation>
-		<annotation cp="😗" type="tts">หน้าจุ๊บ</annotation>
-		<annotation cp="😙">จุ๊บ | ส่งจูบ | หน้า | หน้ายิ้มส่งจุ๊บ</annotation>
-		<annotation cp="😙" type="tts">หน้ายิ้มส่งจุ๊บ</annotation>
-		<annotation cp="😚">จุ๊บ | ส่งจูบ | หน้า | หยีตาส่งจุ๊บ</annotation>
-		<annotation cp="😚" type="tts">หยีตาส่งจุ๊บ</annotation>
-		<annotation cp="☺">ยิ้ม | หน้า | หน้ายิ้ม</annotation>
-		<annotation cp="☺" type="tts">หน้ายิ้ม</annotation>
-		<annotation cp="🙂">ยิ้ม | หน้า | หน้ายิ้มบางๆ</annotation>
-		<annotation cp="🙂" type="tts">หน้ายิ้มบางๆ</annotation>
-		<annotation cp="🤗">กอด | ยิ้ม | ยิ้มกอด | หน้า | อบอุ่น</annotation>
-		<annotation cp="🤗" type="tts">ยิ้มกอด</annotation>
 		<annotation cp="🤩">หน้าตาเป็นประกาย</annotation>
 		<annotation cp="🤩" type="tts">หน้าตาเป็นประกาย</annotation>
+		<annotation cp="😘">จุ๊บ | ส่งจูบ | หน้า | หน้าส่งจุ๊บ | หัวใจ</annotation>
+		<annotation cp="😘" type="tts">หน้าส่งจุ๊บ</annotation>
+		<annotation cp="😗">จุ๊บ | ส่งจูบ | หน้า | หน้าจุ๊บ</annotation>
+		<annotation cp="😗" type="tts">หน้าจุ๊บ</annotation>
+		<annotation cp="☺">ยิ้ม | หน้า | หน้ายิ้ม</annotation>
+		<annotation cp="☺" type="tts">หน้ายิ้ม</annotation>
+		<annotation cp="😚">จุ๊บ | ส่งจูบ | หน้า | หยีตาส่งจุ๊บ</annotation>
+		<annotation cp="😚" type="tts">หยีตาส่งจุ๊บ</annotation>
+		<annotation cp="😙">จุ๊บ | ส่งจูบ | หน้า | หน้ายิ้มส่งจุ๊บ</annotation>
+		<annotation cp="😙" type="tts">หน้ายิ้มส่งจุ๊บ</annotation>
+		<annotation cp="😋">แลบลิ้นมุมปาก | หน้า | อร่อย</annotation>
+		<annotation cp="😋" type="tts">แลบลิ้นมุมปาก</annotation>
+		<annotation cp="😛">แลบลิ้น | หน้า</annotation>
+		<annotation cp="😛" type="tts">แลบลิ้น</annotation>
+		<annotation cp="😜">ขยิบตา | แลบลิ้น | แลบลิ้นหน้าทะเล้น | หน้า</annotation>
+		<annotation cp="😜" type="tts">แลบลิ้นหน้าทะเล้น</annotation>
+		<annotation cp="🤪">หน้าตลก | หน้าเพี้ยน</annotation>
+		<annotation cp="🤪" type="tts">หน้าเพี้ยน</annotation>
+		<annotation cp="😝">แลบลิ้น | แลบลิ้นตาหยี | หน้า</annotation>
+		<annotation cp="😝" type="tts">แลบลิ้นตาหยี</annotation>
+		<annotation cp="🤑">เงิน | หน้า | หน้าเห็นแก่เงิน</annotation>
+		<annotation cp="🤑" type="tts">หน้าเห็นแก่เงิน</annotation>
+		<annotation cp="🤗">กอด | ยิ้ม | ยิ้มกอด | หน้า | อบอุ่น</annotation>
+		<annotation cp="🤗" type="tts">ยิ้มกอด</annotation>
+		<annotation cp="🤭">เอามือปิดปาก</annotation>
+		<annotation cp="🤭" type="tts">เอามือปิดปาก</annotation>
+		<annotation cp="🤫">จุ๊จุ๊ | หน้าบอกให้เงียบ</annotation>
+		<annotation cp="🤫" type="tts">หน้าบอกให้เงียบ</annotation>
 		<annotation cp="🤔">คิด | หน้า | หน้าครุ่นคิด</annotation>
 		<annotation cp="🤔" type="tts">หน้าครุ่นคิด</annotation>
+		<annotation cp="🤐">รูดซิป | รูดซิปปาก | หน้า</annotation>
+		<annotation cp="🤐" type="tts">รูดซิปปาก</annotation>
 		<annotation cp="🤨">คลางแคลงใจ | สงสัย | หน้าประหลาดใจกับยักคิ้ว</annotation>
 		<annotation cp="🤨" type="tts">หน้าประหลาดใจกับยักคิ้ว</annotation>
 		<annotation cp="😐">เฉยๆ | หน้า | หน้าเฉยๆ</annotation>
@@ -77,98 +97,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">หน้าเย็นชา</annotation>
 		<annotation cp="😶">ไม่มีปาก | หน้า | หน้าไม่มีปาก</annotation>
 		<annotation cp="😶" type="tts">หน้าไม่มีปาก</annotation>
-		<annotation cp="🙄">กลอกตา | หน้า</annotation>
-		<annotation cp="🙄" type="tts">กลอกตา</annotation>
 		<annotation cp="😏">แสยะยิ้ม | หน้า</annotation>
 		<annotation cp="😏" type="tts">แสยะยิ้ม</annotation>
-		<annotation cp="😣">หน้า | อดทน</annotation>
-		<annotation cp="😣" type="tts">อดทน</annotation>
-		<annotation cp="😥">ผิดหวัง | โล่งอก | หน้า</annotation>
-		<annotation cp="😥" type="tts">โล่งอก</annotation>
-		<annotation cp="😮">ตกใจ | หน้า | อ้าปาก</annotation>
-		<annotation cp="😮" type="tts">อ้าปาก</annotation>
-		<annotation cp="🤐">รูดซิป | รูดซิปปาก | หน้า</annotation>
-		<annotation cp="🤐" type="tts">รูดซิปปาก</annotation>
-		<annotation cp="😯">หน้า | หน้าจุ๊ๆ | ห่อปาก</annotation>
-		<annotation cp="😯" type="tts">หน้าจุ๊ๆ</annotation>
-		<annotation cp="😪">ง่วง | หน้า | หลับ</annotation>
-		<annotation cp="😪" type="tts">ง่วง</annotation>
-		<annotation cp="😫">หน้า | เหนื่อย</annotation>
-		<annotation cp="😫" type="tts">เหนื่อย</annotation>
-		<annotation cp="😴">กรน | หน้า | หลับ</annotation>
-		<annotation cp="😴" type="tts">หลับ</annotation>
-		<annotation cp="😌">โล่งใจ | หน้า</annotation>
-		<annotation cp="😌" type="tts">โล่งใจ</annotation>
-		<annotation cp="😛">แลบลิ้น | หน้า</annotation>
-		<annotation cp="😛" type="tts">แลบลิ้น</annotation>
-		<annotation cp="😜">ขยิบตา | แลบลิ้น | แลบลิ้นหน้าทะเล้น | หน้า</annotation>
-		<annotation cp="😜" type="tts">แลบลิ้นหน้าทะเล้น</annotation>
-		<annotation cp="😝">แลบลิ้น | แลบลิ้นตาหยี | หน้า</annotation>
-		<annotation cp="😝" type="tts">แลบลิ้นตาหยี</annotation>
-		<annotation cp="🤤">น้ำลาย | น้ำลายไหล | หิว</annotation>
-		<annotation cp="🤤" type="tts">น้ำลายไหล</annotation>
 		<annotation cp="😒">ไม่มีความสุข | หน้า | หน้าหน่าย</annotation>
 		<annotation cp="😒" type="tts">หน้าหน่าย</annotation>
-		<annotation cp="😓">หน้า | เหงื่อ | เหงื่อตก</annotation>
-		<annotation cp="😓" type="tts">เหงื่อตก</annotation>
-		<annotation cp="😔">คิดมาก | คิดไม่ตก | ผิดหวัง | หน้า</annotation>
-		<annotation cp="😔" type="tts">คิดไม่ตก</annotation>
-		<annotation cp="😕">สับสน | หน้า | หน้าสับสน</annotation>
-		<annotation cp="😕" type="tts">หน้าสับสน</annotation>
-		<annotation cp="🙃">กลับหัว | หน้า | หน้ากลับหัว</annotation>
-		<annotation cp="🙃" type="tts">หน้ากลับหัว</annotation>
-		<annotation cp="🤑">เงิน | หน้า | หน้าเห็นแก่เงิน</annotation>
-		<annotation cp="🤑" type="tts">หน้าเห็นแก่เงิน</annotation>
-		<annotation cp="😲">ประหลาดใจ | หน้า | หน้าประหลาดใจ</annotation>
-		<annotation cp="😲" type="tts">หน้าประหลาดใจ</annotation>
-		<annotation cp="☹">บึ้ง | หน้า | หน้าบึ้ง</annotation>
-		<annotation cp="☹" type="tts">หน้าบึ้ง</annotation>
-		<annotation cp="🙁">บึ้ง | หน้า | หน้าบึ้งเล็กน้อย</annotation>
-		<annotation cp="🙁" type="tts">หน้าบึ้งเล็กน้อย</annotation>
-		<annotation cp="😖">รำคาญ | หน้า | หน้ารำคาญ</annotation>
-		<annotation cp="😖" type="tts">หน้ารำคาญ</annotation>
-		<annotation cp="😞">ผิดหวัง | หน้า | หน้าผิดหวัง</annotation>
-		<annotation cp="😞" type="tts">หน้าผิดหวัง</annotation>
-		<annotation cp="😟">กังวล | หน้า | หน้ากังวล</annotation>
-		<annotation cp="😟" type="tts">หน้ากังวล</annotation>
-		<annotation cp="😤">ชนะแล้ว | หน้า | หน้าข่มอารมณ์</annotation>
-		<annotation cp="😤" type="tts">หน้าข่มอารมณ์</annotation>
-		<annotation cp="😢">น้ำตา | ร้องไห้ | หน้า</annotation>
-		<annotation cp="😢" type="tts">ร้องไห้</annotation>
-		<annotation cp="😭">น้ำตา | ร้องไห้ | ร้องไห้โฮ | หน้า</annotation>
-		<annotation cp="😭" type="tts">ร้องไห้โฮ</annotation>
-		<annotation cp="😦">บึ้ง | หน้า | หน้าบึ้งอ้าปาก</annotation>
-		<annotation cp="😦" type="tts">หน้าบึ้งอ้าปาก</annotation>
-		<annotation cp="😧">เจ็บปวด | หน้า | หน้าเจ็บปวด</annotation>
-		<annotation cp="😧" type="tts">หน้าเจ็บปวด</annotation>
-		<annotation cp="😨">กลัว | หน้า | หวาดกลัว</annotation>
-		<annotation cp="😨" type="tts">หวาดกลัว</annotation>
-		<annotation cp="😩">หน้า | หน้าอิดโรย | เหนื่อย</annotation>
-		<annotation cp="😩" type="tts">หน้าอิดโรย</annotation>
-		<annotation cp="🤯">ช็อค</annotation>
-		<annotation cp="🤯" type="tts">ช็อค</annotation>
+		<annotation cp="🙄">กลอกตา | หน้า</annotation>
+		<annotation cp="🙄" type="tts">กลอกตา</annotation>
 		<annotation cp="😬">เบะปาก | ยิงฟัน | หน้า</annotation>
 		<annotation cp="😬" type="tts">เบะปาก</annotation>
-		<annotation cp="😰">กังวล | กังวลเหงื่อตก | หน้า</annotation>
-		<annotation cp="😰" type="tts">กังวลเหงื่อตก</annotation>
-		<annotation cp="😱">กลัว | กลัวกรีดร้อง | หน้า</annotation>
-		<annotation cp="😱" type="tts">กลัวกรีดร้อง</annotation>
-		<annotation cp="🥵">ไข้ขึ้น | ร้อน | ร้อนตับแลบ | ร้อนมาก | เหงื่อแตกพลั่ก</annotation>
-		<annotation cp="🥵" type="tts">ร้อนมาก</annotation>
-		<annotation cp="🥶">เย็นจัด | เย็นยะเยือก | หนาว | หนาวสั่น</annotation>
-		<annotation cp="🥶" type="tts">หนาวสั่น</annotation>
-		<annotation cp="😳">หน้า | อาย | อายหน้าแดง</annotation>
-		<annotation cp="😳" type="tts">อายหน้าแดง</annotation>
-		<annotation cp="🤪">หน้าตลก | หน้าเพี้ยน</annotation>
-		<annotation cp="🤪" type="tts">หน้าเพี้ยน</annotation>
-		<annotation cp="😵">มึน | หน้า | หน้ามึน</annotation>
-		<annotation cp="😵" type="tts">หน้ามึน</annotation>
-		<annotation cp="😡">โกรธ | โกรธมาก | หน้า</annotation>
-		<annotation cp="😡" type="tts">โกรธมาก</annotation>
-		<annotation cp="😠">โมโห | หน้า | หน้าโกรธ</annotation>
-		<annotation cp="😠" type="tts">หน้าโกรธ</annotation>
-		<annotation cp="🤬">สบถ | หน้ากำลังด่า</annotation>
-		<annotation cp="🤬" type="tts">หน้ากำลังด่า</annotation>
+		<annotation cp="🤥">ขี้โกหก | ขี้จุ๊ | จมูกยาว | พิน็อคคิโอ | หน้า</annotation>
+		<annotation cp="🤥" type="tts">ขี้โกหก</annotation>
+		<annotation cp="😌">โล่งใจ | หน้า</annotation>
+		<annotation cp="😌" type="tts">โล่งใจ</annotation>
+		<annotation cp="😔">คิดมาก | คิดไม่ตก | ผิดหวัง | หน้า</annotation>
+		<annotation cp="😔" type="tts">คิดไม่ตก</annotation>
+		<annotation cp="😪">ง่วง | หน้า | หลับ</annotation>
+		<annotation cp="😪" type="tts">ง่วง</annotation>
+		<annotation cp="🤤">น้ำลาย | น้ำลายไหล | หิว</annotation>
+		<annotation cp="🤤" type="tts">น้ำลายไหล</annotation>
+		<annotation cp="😴">กรน | หน้า | หลับ</annotation>
+		<annotation cp="😴" type="tts">หลับ</annotation>
 		<annotation cp="😷">ป่วย | เป็นหวัด | ผ้าคาดปาก | หน้า</annotation>
 		<annotation cp="😷" type="tts">ผ้าคาดปาก</annotation>
 		<annotation cp="🤒">ปรอทวัดไข้ | ป่วย | หน้า | อมปรอท</annotation>
@@ -181,67 +129,121 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤮" type="tts">หน้าอาเจียน</annotation>
 		<annotation cp="🤧">ใครบ่นถึง | จาม | ป่วย | หวัด | ฮัดเช้ย</annotation>
 		<annotation cp="🤧" type="tts">จาม</annotation>
-		<annotation cp="😇">เทวดา | นางฟ้า | บริสุทธิ์ | ยิ้ม | ยิ้มเทวดา</annotation>
-		<annotation cp="😇" type="tts">ยิ้มเทวดา</annotation>
+		<annotation cp="🥵">ไข้ขึ้น | ร้อน | ร้อนตับแลบ | ร้อนมาก | เหงื่อแตกพลั่ก</annotation>
+		<annotation cp="🥵" type="tts">ร้อนมาก</annotation>
+		<annotation cp="🥶">เย็นจัด | เย็นยะเยือก | หนาว | หนาวสั่น</annotation>
+		<annotation cp="🥶" type="tts">หนาวสั่น</annotation>
+		<annotation cp="🥴">งงงวย | มึนเมา | เมา | วิงเวียน | หน้างงงวย</annotation>
+		<annotation cp="🥴" type="tts">หน้างงงวย</annotation>
+		<annotation cp="😵">มึน | หน้า | หน้ามึน</annotation>
+		<annotation cp="😵" type="tts">หน้ามึน</annotation>
+		<annotation cp="🤯">ช็อค</annotation>
+		<annotation cp="🤯" type="tts">ช็อค</annotation>
 		<annotation cp="🤠">คน | คาวบอย | คาวบอยสวมหมวก | หน้า | หมวก</annotation>
 		<annotation cp="🤠" type="tts">คาวบอยสวมหมวก</annotation>
 		<annotation cp="🥳">งานเลี้ยง | ฉลอง | ปาร์ตี้ | ไปปาร์ตี้ | หมวกปาร์ตี้</annotation>
 		<annotation cp="🥳" type="tts">ไปปาร์ตี้</annotation>
-		<annotation cp="🥴">งงงวย | มึนเมา | เมา | วิงเวียน | หน้างงงวย</annotation>
-		<annotation cp="🥴" type="tts">หน้างงงวย</annotation>
-		<annotation cp="🥺">ขอความเห็นใจ | ขอร้อง | หน้าอ้อนวอน | อ้อนวอน</annotation>
-		<annotation cp="🥺" type="tts">หน้าอ้อนวอน</annotation>
-		<annotation cp="🤥">ขี้โกหก | ขี้จุ๊ | จมูกยาว | พิน็อคคิโอ | หน้า</annotation>
-		<annotation cp="🤥" type="tts">ขี้โกหก</annotation>
-		<annotation cp="🤫">จุ๊จุ๊ | หน้าบอกให้เงียบ</annotation>
-		<annotation cp="🤫" type="tts">หน้าบอกให้เงียบ</annotation>
-		<annotation cp="🤭">เอามือปิดปาก</annotation>
-		<annotation cp="🤭" type="tts">เอามือปิดปาก</annotation>
-		<annotation cp="🧐">หน้ากับแว่นเลนส์เดียว</annotation>
-		<annotation cp="🧐" type="tts">หน้ากับแว่นเลนส์เดียว</annotation>
+		<annotation cp="😎">ยิ้ม | แว่นกันแดด | หน้า | หน้ายิ้มใส่แว่น</annotation>
+		<annotation cp="😎" type="tts">หน้ายิ้มใส่แว่น</annotation>
 		<annotation cp="🤓">จริงจัง | เด็กเนิร์ด | เนิร์ด | หน้า</annotation>
 		<annotation cp="🤓" type="tts">เด็กเนิร์ด</annotation>
+		<annotation cp="🧐">หน้ากับแว่นเลนส์เดียว</annotation>
+		<annotation cp="🧐" type="tts">หน้ากับแว่นเลนส์เดียว</annotation>
+		<annotation cp="😕">สับสน | หน้า | หน้าสับสน</annotation>
+		<annotation cp="😕" type="tts">หน้าสับสน</annotation>
+		<annotation cp="😟">กังวล | หน้า | หน้ากังวล</annotation>
+		<annotation cp="😟" type="tts">หน้ากังวล</annotation>
+		<annotation cp="🙁">บึ้ง | หน้า | หน้าบึ้งเล็กน้อย</annotation>
+		<annotation cp="🙁" type="tts">หน้าบึ้งเล็กน้อย</annotation>
+		<annotation cp="☹">บึ้ง | หน้า | หน้าบึ้ง</annotation>
+		<annotation cp="☹" type="tts">หน้าบึ้ง</annotation>
+		<annotation cp="😮">ตกใจ | หน้า | อ้าปาก</annotation>
+		<annotation cp="😮" type="tts">อ้าปาก</annotation>
+		<annotation cp="😯">หน้า | หน้าจุ๊ๆ | ห่อปาก</annotation>
+		<annotation cp="😯" type="tts">หน้าจุ๊ๆ</annotation>
+		<annotation cp="😲">ประหลาดใจ | หน้า | หน้าประหลาดใจ</annotation>
+		<annotation cp="😲" type="tts">หน้าประหลาดใจ</annotation>
+		<annotation cp="😳">หน้า | อาย | อายหน้าแดง</annotation>
+		<annotation cp="😳" type="tts">อายหน้าแดง</annotation>
+		<annotation cp="🥺">ขอความเห็นใจ | ขอร้อง | หน้าอ้อนวอน | อ้อนวอน</annotation>
+		<annotation cp="🥺" type="tts">หน้าอ้อนวอน</annotation>
+		<annotation cp="😦">บึ้ง | หน้า | หน้าบึ้งอ้าปาก</annotation>
+		<annotation cp="😦" type="tts">หน้าบึ้งอ้าปาก</annotation>
+		<annotation cp="😧">เจ็บปวด | หน้า | หน้าเจ็บปวด</annotation>
+		<annotation cp="😧" type="tts">หน้าเจ็บปวด</annotation>
+		<annotation cp="😨">กลัว | หน้า | หวาดกลัว</annotation>
+		<annotation cp="😨" type="tts">หวาดกลัว</annotation>
+		<annotation cp="😰">กังวล | กังวลเหงื่อตก | หน้า</annotation>
+		<annotation cp="😰" type="tts">กังวลเหงื่อตก</annotation>
+		<annotation cp="😥">ผิดหวัง | โล่งอก | หน้า</annotation>
+		<annotation cp="😥" type="tts">โล่งอก</annotation>
+		<annotation cp="😢">น้ำตา | ร้องไห้ | หน้า</annotation>
+		<annotation cp="😢" type="tts">ร้องไห้</annotation>
+		<annotation cp="😭">น้ำตา | ร้องไห้ | ร้องไห้โฮ | หน้า</annotation>
+		<annotation cp="😭" type="tts">ร้องไห้โฮ</annotation>
+		<annotation cp="😱">กลัว | กลัวกรีดร้อง | หน้า</annotation>
+		<annotation cp="😱" type="tts">กลัวกรีดร้อง</annotation>
+		<annotation cp="😖">รำคาญ | หน้า | หน้ารำคาญ</annotation>
+		<annotation cp="😖" type="tts">หน้ารำคาญ</annotation>
+		<annotation cp="😣">หน้า | อดทน</annotation>
+		<annotation cp="😣" type="tts">อดทน</annotation>
+		<annotation cp="😞">ผิดหวัง | หน้า | หน้าผิดหวัง</annotation>
+		<annotation cp="😞" type="tts">หน้าผิดหวัง</annotation>
+		<annotation cp="😓">หน้า | เหงื่อ | เหงื่อตก</annotation>
+		<annotation cp="😓" type="tts">เหงื่อตก</annotation>
+		<annotation cp="😩">หน้า | หน้าอิดโรย | เหนื่อย</annotation>
+		<annotation cp="😩" type="tts">หน้าอิดโรย</annotation>
+		<annotation cp="😫">หน้า | เหนื่อย</annotation>
+		<annotation cp="😫" type="tts">เหนื่อย</annotation>
+		<annotation cp="😤">ชนะแล้ว | หน้า | หน้าข่มอารมณ์</annotation>
+		<annotation cp="😤" type="tts">หน้าข่มอารมณ์</annotation>
+		<annotation cp="😡">โกรธ | โกรธมาก | หน้า</annotation>
+		<annotation cp="😡" type="tts">โกรธมาก</annotation>
+		<annotation cp="😠">โมโห | หน้า | หน้าโกรธ</annotation>
+		<annotation cp="😠" type="tts">หน้าโกรธ</annotation>
+		<annotation cp="🤬">สบถ | หน้ากำลังด่า</annotation>
+		<annotation cp="🤬" type="tts">หน้ากำลังด่า</annotation>
 		<annotation cp="😈">ปิศาจ | ภูต | ยิ้มมีเขา | หน้า</annotation>
 		<annotation cp="😈" type="tts">ยิ้มมีเขา</annotation>
 		<annotation cp="👿">ปิศาจ | ภูต | หน้า | หน้าบึ้งมีเขา</annotation>
 		<annotation cp="👿" type="tts">หน้าบึ้งมีเขา</annotation>
+		<annotation cp="💀">กะโหลก | หัวกระโหลก</annotation>
+		<annotation cp="💀" type="tts">หัวกระโหลก</annotation>
+		<annotation cp="☠">กะโหลก | กะโหลกไขว้ | ความตาย | ปิศาจ | อันตราย</annotation>
+		<annotation cp="☠" type="tts">กะโหลกไขว้</annotation>
+		<annotation cp="💩">อึ | อุนจิ</annotation>
+		<annotation cp="💩" type="tts">อุนจิ</annotation>
 		<annotation cp="🤡">โจ๊กเกอร์ | ตลก | หน้า | หน้าตลก</annotation>
 		<annotation cp="🤡" type="tts">หน้าตลก</annotation>
 		<annotation cp="👹">ญี่ปุ่น | ปิศาจ | ยักษ์ | ยักษ์ญี่ปุ่น | หน้า</annotation>
 		<annotation cp="👹" type="tts">ยักษ์ญี่ปุ่น</annotation>
 		<annotation cp="👺">ญี่ปุ่น | ปิศาจ | ปีศาจญี่ปุ่น | หน้า</annotation>
 		<annotation cp="👺" type="tts">ปีศาจญี่ปุ่น</annotation>
-		<annotation cp="💀">กะโหลก | หัวกระโหลก</annotation>
-		<annotation cp="💀" type="tts">หัวกระโหลก</annotation>
-		<annotation cp="☠">กะโหลก | กะโหลกไขว้ | ความตาย | ปิศาจ | อันตราย</annotation>
-		<annotation cp="☠" type="tts">กะโหลกไขว้</annotation>
 		<annotation cp="👻">ผี | หลอก</annotation>
 		<annotation cp="👻" type="tts">ผี</annotation>
 		<annotation cp="👽">แฟนตาซี | มนุษย์ต่างดาว | ยูเอฟโอ | หน้า | เอเลี่ยน</annotation>
 		<annotation cp="👽" type="tts">เอเลี่ยน</annotation>
 		<annotation cp="👾">นอกโลก | มนุษย์ต่างดาว | ยูเอฟโอ | สัตว์ประหลาดเอเลี่ยน | หน้า | อวกาศ | เอเลี่ยน</annotation>
 		<annotation cp="👾" type="tts">สัตว์ประหลาดเอเลี่ยน</annotation>
-		<annotation cp="🤖">หน้า | หุ่นยนต์</annotation>
+		<annotation cp="🤖">สัตว์ประหลาด | หน้า | หุ่นยนต์</annotation>
 		<annotation cp="🤖" type="tts">หุ่นยนต์</annotation>
-		<annotation cp="💩">อึ | อุนจิ</annotation>
-		<annotation cp="💩" type="tts">อุนจิ</annotation>
-		<annotation cp="😺">แมว | แมวยิ้มอ้าปาก | ยิ้ม | หน้า</annotation>
+		<annotation cp="😺">ปาก | แมว | ยิ้ม | ยิ้มอ้าปาก | หน้า</annotation>
 		<annotation cp="😺" type="tts">แมวยิ้มอ้าปาก</annotation>
-		<annotation cp="😸">แมว | แมวยิ้ม | ยิ้ม | หน้า</annotation>
-		<annotation cp="😸" type="tts">แมวยิ้ม</annotation>
-		<annotation cp="😹">แมว | แมวร้องไห้ดีใจ | ยิ้ม | ร้องไห้ | หน้า</annotation>
+		<annotation cp="😸">ตา | แมว | ยิ้ม | ยิ้มอ้าปาก | หน้า</annotation>
+		<annotation cp="😸" type="tts">แมวยิ้มอ้าปากและยิ้มออกตา</annotation>
+		<annotation cp="😹">ดีใจ | แมว | ร้องไห้ | หน้า</annotation>
 		<annotation cp="😹" type="tts">แมวร้องไห้ดีใจ</annotation>
-		<annotation cp="😻">แมว | แมวยิ้มมีตารูปหัวใจ | ยิ้ม | หน้า | หลงรัก</annotation>
+		<annotation cp="😻">ตา | แมว | ยิ้ม | หน้า | หลงรัก | หัวใจ</annotation>
 		<annotation cp="😻" type="tts">แมวยิ้มมีตารูปหัวใจ</annotation>
-		<annotation cp="😼">เจ้าเล่ห์ | แมว | แมวยิ้มเจ้าเล่ห์ | ยิ้มเยาะ | หน้า</annotation>
+		<annotation cp="😼">เจ้าเล่ห์ | แมว | ยิ้ม | ยิ้มเยาะ | หน้า</annotation>
 		<annotation cp="😼" type="tts">แมวยิ้มเจ้าเล่ห์</annotation>
-		<annotation cp="😽">แมว | แมวส่งจุ๊บ | ส่งจุ๊บ | ส่งจูบ | หน้า</annotation>
+		<annotation cp="😽">ตา | แมว | ส่งจูบ | หน้า</annotation>
 		<annotation cp="😽" type="tts">แมวส่งจุ๊บ</annotation>
-		<annotation cp="🙀">ตกใจ | แมว | แมวตกใจ | หน้า</annotation>
+		<annotation cp="🙀">ตกใจ | ประหลาดใจ | แมว | หน้า | โอ๊ะ</annotation>
 		<annotation cp="🙀" type="tts">แมวตกใจ</annotation>
-		<annotation cp="😿">แมว | แมวร้องไห้ | ร้องไห้ | หน้า</annotation>
+		<annotation cp="😿">น้ำตา | แมว | ร้องไห้ | เศร้า | หน้า</annotation>
 		<annotation cp="😿" type="tts">แมวร้องไห้</annotation>
-		<annotation cp="😾">โกรธ | แมว | แมวโกรธ | หน้า</annotation>
+		<annotation cp="😾">โกรธ | แมว | หน้า</annotation>
 		<annotation cp="😾" type="tts">แมวโกรธ</annotation>
 		<annotation cp="🙈">ปิดตา | ลิง | ลิงปิดตา</annotation>
 		<annotation cp="🙈" type="tts">ลิงปิดตา</annotation>
@@ -249,6 +251,160 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙉" type="tts">ลิงปิดหู</annotation>
 		<annotation cp="🙊">ปิดปาก | ลิง | ลิงปิดปาก</annotation>
 		<annotation cp="🙊" type="tts">ลิงปิดปาก</annotation>
+		<annotation cp="💋">จูบ | ปาก | รอยจูบ | อวัยวะ</annotation>
+		<annotation cp="💋" type="tts">รอยจูบ</annotation>
+		<annotation cp="💌">ความรัก | จดหมาย | จดหมายรัก | หัวใจ | อีเมล</annotation>
+		<annotation cp="💌" type="tts">จดหมายรัก</annotation>
+		<annotation cp="💘">ความรัก | ลูกศร | ศรปักใจ | หัวใจ</annotation>
+		<annotation cp="💘" type="tts">ศรปักใจ</annotation>
+		<annotation cp="💝">วาเลนไทน์ | หัวใจ | หัวใจผูกริบบิ้น</annotation>
+		<annotation cp="💝" type="tts">หัวใจผูกริบบิ้น</annotation>
+		<annotation cp="💖">ตื่นเต้น | รัก | หัวใจ | หัวใจวิบวับ</annotation>
+		<annotation cp="💖" type="tts">หัวใจวิบวับ</annotation>
+		<annotation cp="💗">ใจพองโต | หัวใจ</annotation>
+		<annotation cp="💗" type="tts">ใจพองโต</annotation>
+		<annotation cp="💓">หัวใจ | หัวใจเต้น</annotation>
+		<annotation cp="💓" type="tts">หัวใจเต้น</annotation>
+		<annotation cp="💞">หัวใจ | หัวใจโคจร</annotation>
+		<annotation cp="💞" type="tts">หัวใจโคจร</annotation>
+		<annotation cp="💕">ใจ 2 ดวง | รัก</annotation>
+		<annotation cp="💕" type="tts">ใจ 2 ดวง</annotation>
+		<annotation cp="💟">หัวใจ | หัวใจประดับ</annotation>
+		<annotation cp="💟" type="tts">หัวใจประดับ</annotation>
+		<annotation cp="❣">เครื่องหมาย | เครื่องหมายวรรคตอน | เครื่องหมายอัศเจรีย์ | เครื่องหมายอัศเจรีย์รูปหัวใจ</annotation>
+		<annotation cp="❣" type="tts">เครื่องหมายอัศเจรีย์รูปหัวใจ</annotation>
+		<annotation cp="💔">หัวใจ | อกหัก</annotation>
+		<annotation cp="💔" type="tts">อกหัก</annotation>
+		<annotation cp="❤">หัวใจ | หัวใจแดง | หัวใจสีแดง</annotation>
+		<annotation cp="❤" type="tts">หัวใจสีแดง</annotation>
+		<annotation cp="🧡">สีส้ม | หัวใจสีส้ม</annotation>
+		<annotation cp="🧡" type="tts">หัวใจสีส้ม</annotation>
+		<annotation cp="💛">หัวใจ | หัวใจสีเหลือง</annotation>
+		<annotation cp="💛" type="tts">หัวใจสีเหลือง</annotation>
+		<annotation cp="💚">หัวใจ | หัวใจสีเขียว</annotation>
+		<annotation cp="💚" type="tts">หัวใจสีเขียว</annotation>
+		<annotation cp="💙">หัวใจ | หัวใจสีน้ำเงิน</annotation>
+		<annotation cp="💙" type="tts">หัวใจสีน้ำเงิน</annotation>
+		<annotation cp="💜">หัวใจ | หัวใจสีม่วง</annotation>
+		<annotation cp="💜" type="tts">หัวใจสีม่วง</annotation>
+		<annotation cp="🖤">ใจดำ | ใจร้าย | ดำ | หัวใจสีดำ</annotation>
+		<annotation cp="🖤" type="tts">ใจดำ</annotation>
+		<annotation cp="💯">100 คะแนน | คะแนนเต็ม</annotation>
+		<annotation cp="💯" type="tts">คะแนนเต็ม</annotation>
+		<annotation cp="💢">โกรธ | โมโห</annotation>
+		<annotation cp="💢" type="tts">โกรธ</annotation>
+		<annotation cp="💥">การปะทะ | โกรธมาก | ชน</annotation>
+		<annotation cp="💥" type="tts">การปะทะ</annotation>
+		<annotation cp="💫">มึนหัว | เห็นดาว</annotation>
+		<annotation cp="💫" type="tts">มึนหัว</annotation>
+		<annotation cp="💦">เหงื่อ | เหงื่อหยด</annotation>
+		<annotation cp="💦" type="tts">เหงื่อหยด</annotation>
+		<annotation cp="💨">วิ่งฉิว | วิ่งหนี</annotation>
+		<annotation cp="💨" type="tts">วิ่งฉิว</annotation>
+		<annotation cp="🕳">หลุม</annotation>
+		<annotation cp="🕳" type="tts">หลุม</annotation>
+		<annotation cp="💣">โกรธมาก | ระเบิด</annotation>
+		<annotation cp="💣" type="tts">ระเบิด</annotation>
+		<annotation cp="💬">คำพูด | บทสนทนา | พูดไม่ออก | ลูกโป่ง</annotation>
+		<annotation cp="💬" type="tts">พูดไม่ออก</annotation>
+		<annotation cp="👁‍🗨">ตา | ตาในลูกโป่งคำพูด | พยาน | ลูกโป่งคำพูด</annotation>
+		<annotation cp="👁‍🗨" type="tts">ตาในลูกโป่งคำพูด</annotation>
+		<annotation cp="🗨">คำพูด | บทสนทนา | ฟองคำพูด</annotation>
+		<annotation cp="🗨" type="tts">ฟองคำพูด</annotation>
+		<annotation cp="🗯">โกรธ | ฟองคำพูด | ฟองคำพูดรุนแรง | ลูกโป่ง</annotation>
+		<annotation cp="🗯" type="tts">ฟองคำพูดรุนแรง</annotation>
+		<annotation cp="💭">ความคิด | ลูกโป่ง | ลูกโป่งความคิด</annotation>
+		<annotation cp="💭" type="tts">ลูกโป่งความคิด</annotation>
+		<annotation cp="💤">กรน | ง่วง | หลับปุ๋ย</annotation>
+		<annotation cp="💤" type="tts">หลับปุ๋ย</annotation>
+		<annotation cp="👋">โบก | โบกมือ | มือ | อวัยวะ</annotation>
+		<annotation cp="👋" type="tts">โบกมือ</annotation>
+		<annotation cp="🤚">ยกมือ | หลังมือ</annotation>
+		<annotation cp="🤚" type="tts">ยกมือ</annotation>
+		<annotation cp="🖐">ชูมือกางนิ้ว | นิ้ว | มือ | อวัยวะ</annotation>
+		<annotation cp="🖐" type="tts">ชูมือกางนิ้ว</annotation>
+		<annotation cp="✋">ตั้งฝ่ามือ | มือ | อวัยวะ</annotation>
+		<annotation cp="✋" type="tts">ตั้งฝ่ามือ</annotation>
+		<annotation cp="🖖">ชูนิ้วแบบวัลแคน | นิ้ว | มือ | วัลแคน | อวัยวะ</annotation>
+		<annotation cp="🖖" type="tts">ชูนิ้วแบบวัลแคน</annotation>
+		<annotation cp="👌">ทำมือโอเค | นิ้ว | มือ | อวัยวะ</annotation>
+		<annotation cp="👌" type="tts">ทำมือโอเค</annotation>
+		<annotation cp="✌">ชู 2 นิ้ว | ชูสองนิ้ว</annotation>
+		<annotation cp="✌" type="tts">ชู 2 นิ้ว</annotation>
+		<annotation cp="🤞">ไขว้ | โชคดี | นิ้วไขว้ | ภาวนา | มือ</annotation>
+		<annotation cp="🤞" type="tts">นิ้วไขว้</annotation>
+		<annotation cp="🤟">ทำมือ ‘ฉันรักเธอ’ | มือ</annotation>
+		<annotation cp="🤟" type="tts">ทำมือ ‘ฉันรักเธอ’</annotation>
+		<annotation cp="🤘">ชูนิ้วชาวร็อก | มือ | ร็อก | อวัยวะ</annotation>
+		<annotation cp="🤘" type="tts">ชูนิ้วชาวร็อก</annotation>
+		<annotation cp="🤙">โทร | มือ | มือโทร</annotation>
+		<annotation cp="🤙" type="tts">มือโทร</annotation>
+		<annotation cp="👈">ชี้ | ซ้าย | นิ้ว | นิ้วชี้ทางซ้าย | มือ</annotation>
+		<annotation cp="👈" type="tts">นิ้วชี้ทางซ้าย</annotation>
+		<annotation cp="👉">ขวา | ชี้ | นิ้ว | นิ้วชี้ทางขวา | มือ</annotation>
+		<annotation cp="👉" type="tts">นิ้วชี้ทางขวา</annotation>
+		<annotation cp="👆">ขึ้น | ชี้ | นิ้ว | มือ | หลังมือนิ้วชี้ขึ้น</annotation>
+		<annotation cp="👆" type="tts">หลังมือนิ้วชี้ขึ้น</annotation>
+		<annotation cp="🖕">ขึ้น | ชี้ | ชูนิ้วกลาง | นิ้ว | มือ</annotation>
+		<annotation cp="🖕" type="tts">ชูนิ้วกลาง</annotation>
+		<annotation cp="👇">ชี้ | นิ้ว | นิ้วชี้ลง | มือ | ลง</annotation>
+		<annotation cp="👇" type="tts">นิ้วชี้ลง</annotation>
+		<annotation cp="☝">ขึ้น | ชี้ | นิ้ว | นิ้วชี้ขึ้น | มือ</annotation>
+		<annotation cp="☝" type="tts">นิ้วชี้ขึ้น</annotation>
+		<annotation cp="👍">ชูนิ้วโป้งขึ้น | นิ้ว | มือ | อวัยวะ</annotation>
+		<annotation cp="👍" type="tts">ชูนิ้วโป้งขึ้น</annotation>
+		<annotation cp="👎">คว่ำนิ้วโป้งลง | นิ้ว | มือ | อวัยวะ</annotation>
+		<annotation cp="👎" type="tts">คว่ำนิ้วโป้งลง</annotation>
+		<annotation cp="✊">กำมือ | ค้อน | หมัด | อวัยวะ</annotation>
+		<annotation cp="✊" type="tts">กำมือ</annotation>
+		<annotation cp="👊">กำปั้น | ชก | มือ | อวัยวะ</annotation>
+		<annotation cp="👊" type="tts">กำปั้น</annotation>
+		<annotation cp="🤛">กำปั้น | กำปั้นขวา | ขวา</annotation>
+		<annotation cp="🤛" type="tts">กำปั้นขวา</annotation>
+		<annotation cp="🤜">กำปั้น | กำปั้นซ้าย | ซ้าย</annotation>
+		<annotation cp="🤜" type="tts">กำปั้นซ้าย</annotation>
+		<annotation cp="👏">ตบมือ | มือ | อวัยวะ</annotation>
+		<annotation cp="👏" type="tts">ตบมือ</annotation>
+		<annotation cp="🙌">ชู 2 มือ | ดีใจ | มือ | อวัยวะ</annotation>
+		<annotation cp="🙌" type="tts">ชู 2 มือ</annotation>
+		<annotation cp="👐">แบมือ | มือ | อวัยวะ</annotation>
+		<annotation cp="👐" type="tts">แบมือ</annotation>
+		<annotation cp="🤲">แบสองมือ</annotation>
+		<annotation cp="🤲" type="tts">แบสองมือ</annotation>
+		<annotation cp="🤝">คืนดี | จับมือ | เชคแฮนด์ | ร่วมงาน | ร่วมมือ</annotation>
+		<annotation cp="🤝" type="tts">จับมือ</annotation>
+		<annotation cp="🙏">ขอบคุณ | เคารพ | พนมมือ | มือ | ไหว้ | อวัยวะ</annotation>
+		<annotation cp="🙏" type="tts">พนมมือ</annotation>
+		<annotation cp="✍">เขียน | เขียนหนังสือ | มือ | อวัยวะ</annotation>
+		<annotation cp="✍" type="tts">เขียนหนังสือ</annotation>
+		<annotation cp="💅">ทำเล็บ | สีทาเล็บ</annotation>
+		<annotation cp="💅" type="tts">สีทาเล็บ</annotation>
+		<annotation cp="🤳">กล้อง | เซลฟี่ | มือถือ</annotation>
+		<annotation cp="🤳" type="tts">เซลฟี่</annotation>
+		<annotation cp="💪">กล้าม | กล้ามแขน | แข็งแรง | เบ่งกล้าม | ไบเซป</annotation>
+		<annotation cp="💪" type="tts">เบ่งกล้าม</annotation>
+		<annotation cp="🦵">ขา | เตะ</annotation>
+		<annotation cp="🦵" type="tts">ขา</annotation>
+		<annotation cp="🦶">กระทืบ | เตะ | เท้า</annotation>
+		<annotation cp="🦶" type="tts">เท้า</annotation>
+		<annotation cp="👂">ฟัง | หู | อวัยวะ</annotation>
+		<annotation cp="👂" type="tts">หู</annotation>
+		<annotation cp="👃">จมูก | ดม | อวัยวะ</annotation>
+		<annotation cp="👃" type="tts">จมูก</annotation>
+		<annotation cp="🧠">ฉลาด | สมอง</annotation>
+		<annotation cp="🧠" type="tts">สมอง</annotation>
+		<annotation cp="🦷">ฟัน | หมอฟัน</annotation>
+		<annotation cp="🦷" type="tts">ฟัน</annotation>
+		<annotation cp="🦴">กระดูก | โครงกระดูก</annotation>
+		<annotation cp="🦴" type="tts">กระดูก</annotation>
+		<annotation cp="👀">ตา | ตา 2 ข้าง | อวัยวะ</annotation>
+		<annotation cp="👀" type="tts">ตา 2 ข้าง</annotation>
+		<annotation cp="👁">ตา | ตาข้างเดียว | อวัยวะ</annotation>
+		<annotation cp="👁" type="tts">ตาข้างเดียว</annotation>
+		<annotation cp="👅">ลิ้น | อวัยวะ</annotation>
+		<annotation cp="👅" type="tts">ลิ้น</annotation>
+		<annotation cp="👄">ปาก | อวัยวะ</annotation>
+		<annotation cp="👄" type="tts">ปาก</annotation>
 		<annotation cp="👶">เด็ก | ทารก</annotation>
 		<annotation cp="👶" type="tts">ทารก</annotation>
 		<annotation cp="🧒">เด็ก</annotation>
@@ -259,17 +415,31 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👧" type="tts">เด็กหญิง</annotation>
 		<annotation cp="🧑">คน | ผู้ใหญ่</annotation>
 		<annotation cp="🧑" type="tts">คน</annotation>
-		<annotation cp="👱">คน | คนผมทอง | ผมทอง</annotation>
+		<annotation cp="👱">คนผมทอง | ผม | ผมทอง</annotation>
 		<annotation cp="👱" type="tts">คนผมทอง</annotation>
+		<annotation cp="🧑‍🤝‍🧑">คู่ | จับ | จับมือ | มือ</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts">คนจับมือกัน</annotation>
 		<annotation cp="👨">คน | ผู้ชาย</annotation>
 		<annotation cp="👨" type="tts">ผู้ชาย</annotation>
-		<annotation cp="👱‍♂">ผมทอง | ผู้ชาย | ผู้ชายผมทอง</annotation>
+		<annotation cp="👨‍🦯">การเข้าถึง | ตาบอด | ผู้ชาย</annotation>
+		<annotation cp="👨‍🦯" type="tts">ผู้ชายเดินถือไม้เท้านำทาง</annotation>
+		<annotation cp="👨‍🦼">การเข้าถึง | ผู้ชาย | วีลแชร์</annotation>
+		<annotation cp="👨‍🦼" type="tts">ผู้ชายนั่งวีลแชร์ไฟฟ้า</annotation>
+		<annotation cp="👨‍🦽">การเข้าถึง | ผู้ชาย | วีลแชร์</annotation>
+		<annotation cp="👨‍🦽" type="tts">ผู้ชายนั่งวีลแชร์ธรรมดา</annotation>
+		<annotation cp="👱‍♂">ผม | ผมทอง | ผู้ชาย | ผู้ชายผมทอง</annotation>
 		<annotation cp="👱‍♂" type="tts">ผู้ชายผมทอง</annotation>
-		<annotation cp="🧔">คนมีเครา | คนมีหนวดเครา</annotation>
-		<annotation cp="🧔" type="tts">คนมีเครา</annotation>
+		<annotation cp="🧔">คน | ผู้ชาย | มีเครา | หนวดเครา</annotation>
+		<annotation cp="🧔" type="tts">ผู้ชายมีเครา</annotation>
 		<annotation cp="👩">คน | ผู้หญิง</annotation>
 		<annotation cp="👩" type="tts">ผู้หญิง</annotation>
-		<annotation cp="👱‍♀">ผมทอง | ผู้หญิง | ผู้หญิงผมทอง</annotation>
+		<annotation cp="👩‍🦯">การเข้าถึง | ตาบอด | ผู้หญิง</annotation>
+		<annotation cp="👩‍🦯" type="tts">ผู้หญิงเดินถือไม้เท้านำทาง</annotation>
+		<annotation cp="👩‍🦼">การเข้าถึง | ผู้หญิง | วีลแชร์</annotation>
+		<annotation cp="👩‍🦼" type="tts">ผู้หญิงนั่งวีลแชร์ไฟฟ้า</annotation>
+		<annotation cp="👩‍🦽">การเข้าถึง | ผู้หญิง | วีลแชร์</annotation>
+		<annotation cp="👩‍🦽" type="tts">ผู้หญิงนั่งวีลแชร์ธรรมดา</annotation>
+		<annotation cp="👱‍♀">ผม | ผมทอง | ผู้หญิง | ผู้หญิงผมทอง</annotation>
 		<annotation cp="👱‍♀" type="tts">ผู้หญิงผมทอง</annotation>
 		<annotation cp="🧓" draft="contributed">คนชรา</annotation>
 		<annotation cp="🧓" type="tts">คนชรา</annotation>
@@ -277,6 +447,60 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👴" type="tts">ชายแก่</annotation>
 		<annotation cp="👵">คนแก่ | หญิง | หญิงแก่</annotation>
 		<annotation cp="👵" type="tts">หญิงแก่</annotation>
+		<annotation cp="🙍">ขมวดคิ้ว | คิ้ว | บึ้งตึง | หน้า</annotation>
+		<annotation cp="🙍" type="tts">ขมวดคิ้ว</annotation>
+		<annotation cp="🙍‍♂">ท่าทาง | ผู้ชาย | ผู้ชายหน้าบึ้ง | หน้าบึ้ง</annotation>
+		<annotation cp="🙍‍♂" type="tts">ผู้ชายหน้าบึ้ง</annotation>
+		<annotation cp="🙍‍♀">ท่าทาง | ผู้หญิง | ผู้หญิงหน้าบึ้ง | หน้าบึ้ง</annotation>
+		<annotation cp="🙍‍♀" type="tts">ผู้หญิงหน้าบึ้ง</annotation>
+		<annotation cp="🙎">โกรธ | งอน | ปากยื่น | หน้า</annotation>
+		<annotation cp="🙎" type="tts">ปากยื่น</annotation>
+		<annotation cp="🙎‍♂">โกรธ | ท่าทาง | ผู้ชาย | ผู้ชายโกรธ</annotation>
+		<annotation cp="🙎‍♂" type="tts">ผู้ชายโกรธ</annotation>
+		<annotation cp="🙎‍♀">โกรธ | ท่าทาง | ผู้หญิง | ผู้หญิงโกรธ</annotation>
+		<annotation cp="🙎‍♀" type="tts">ผู้หญิงโกรธ</annotation>
+		<annotation cp="🙅">มือ | มือทำท่าไม่โอเค | ไม่เห็นด้วย | ห้าม</annotation>
+		<annotation cp="🙅" type="tts">มือทำท่าไม่โอเค</annotation>
+		<annotation cp="🙅‍♂">ต้องห้าม | ท่าทาง | ผู้ชาย | ผู้ชายทำท่าไม่โอเค | ห้าม</annotation>
+		<annotation cp="🙅‍♂" type="tts">ผู้ชายทำท่าไม่โอเค</annotation>
+		<annotation cp="🙅‍♀">ต้องห้าม | ท่าทาง | ผู้หญิง | ผู้หญิงทำท่าไม่โอเค | ห้าม</annotation>
+		<annotation cp="🙅‍♀" type="tts">ผู้หญิงทำท่าไม่โอเค</annotation>
+		<annotation cp="🙆">ตกลง | ทำท่าโอเค | โอเค</annotation>
+		<annotation cp="🙆" type="tts">ทำท่าโอเค</annotation>
+		<annotation cp="🙆‍♂">ท่าทาง | ผู้ชาย | ผู้ชายทำท่าโอเค | มือ | โอเค</annotation>
+		<annotation cp="🙆‍♂" type="tts">ผู้ชายทำท่าโอเค</annotation>
+		<annotation cp="🙆‍♀">ท่าทาง | ผู้หญิง | ผู้หญิงทำท่าโอเค | มือ | โอเค</annotation>
+		<annotation cp="🙆‍♀" type="tts">ผู้หญิงทำท่าโอเค</annotation>
+		<annotation cp="💁">ความช่วยเหลือ | โต๊ะสอบถาม</annotation>
+		<annotation cp="💁" type="tts">โต๊ะสอบถาม</annotation>
+		<annotation cp="💁‍♂">แบมือ | ผู้ชาย | ผู้ชายแบมือ</annotation>
+		<annotation cp="💁‍♂" type="tts">ผู้ชายแบมือ</annotation>
+		<annotation cp="💁‍♀">แบมือ | ผู้หญิง | ผู้หญิงแบมือ</annotation>
+		<annotation cp="💁‍♀" type="tts">ผู้หญิงแบมือ</annotation>
+		<annotation cp="🙋">มีความสุข | มือ | ยกมือขึ้น</annotation>
+		<annotation cp="🙋" type="tts">ยกมือขึ้น</annotation>
+		<annotation cp="🙋‍♂">ท่าทาง | ผู้ชาย | ผู้ชายยกมือ | ยกมือ</annotation>
+		<annotation cp="🙋‍♂" type="tts">ผู้ชายยกมือ</annotation>
+		<annotation cp="🙋‍♀">ท่าทาง | ผู้หญิง | ผู้หญิงยกมือ | ยกมือ</annotation>
+		<annotation cp="🙋‍♀" type="tts">ผู้หญิงยกมือ</annotation>
+		<annotation cp="🙇">โค้งตัวคำนับ | ท่าขอโทษ</annotation>
+		<annotation cp="🙇" type="tts">ท่าขอโทษ</annotation>
+		<annotation cp="🙇‍♂">กราบ | ขอโทษ | ท่าทาง | ผู้ชาย | ผู้ชายหมอบคำนับ</annotation>
+		<annotation cp="🙇‍♂" type="tts">ผู้ชายหมอบคำนับ</annotation>
+		<annotation cp="🙇‍♀">กราบ | ขอโทษ | ท่าทาง | ผู้หญิง | ผู้หญิงหมอบคำนับ</annotation>
+		<annotation cp="🙇‍♀" type="tts">ผู้หญิงหมอบคำนับ</annotation>
+		<annotation cp="🤦">โธ่ | ผิดหวัง | สิ้นหวัง | เสียใจ | หมดกัน</annotation>
+		<annotation cp="🤦" type="tts">หมดกัน</annotation>
+		<annotation cp="🤦‍♂">ผิดหวัง | ผู้ชาย | ผู้ชายเอามือก่ายหน้าผาก | มือก่ายหน้าผาก | ไม่เชื่อ</annotation>
+		<annotation cp="🤦‍♂" type="tts">ผู้ชายเอามือก่ายหน้าผาก</annotation>
+		<annotation cp="🤦‍♀">ผิดหวัง | ผู้หญิง | ผู้หญิงเอามือก่ายหน้าผาก | มือก่ายหน้าผาก | ไม่เชื่อ</annotation>
+		<annotation cp="🤦‍♀" type="tts">ผู้หญิงเอามือก่ายหน้าผาก</annotation>
+		<annotation cp="🤷">ช่างเถอะ | ไม่แคร์ | ไม่รู้ | ไม่สน | ยักไหล่</annotation>
+		<annotation cp="🤷" type="tts">ยักไหล่</annotation>
+		<annotation cp="🤷‍♂">ผู้ชาย | ผู้ชายยักไหล่ | ไม่รู้ไม่ชี้ | ไม่สนใจ | ยักไหล่</annotation>
+		<annotation cp="🤷‍♂" type="tts">ผู้ชายยักไหล่</annotation>
+		<annotation cp="🤷‍♀">ผู้หญิง | ผู้หญิงยักไหล่ | ไม่รู้ไม่ชี้ | ไม่สนใจ | ยักไหล่</annotation>
+		<annotation cp="🤷‍♀" type="tts">ผู้หญิงยักไหล่</annotation>
 		<annotation cp="👨‍⚕">การดูแลสุขภาพ | นักบำบัด | นายแพทย์ | พยาบาล | หมอ | หมอชาย</annotation>
 		<annotation cp="👨‍⚕" type="tts">หมอชาย</annotation>
 		<annotation cp="👩‍⚕">การดูแลสุขภาพ | นักบำบัด | พยาบาล | แพทย์หญิง | หมอ | หมอหญิง</annotation>
@@ -395,112 +619,58 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤶" type="tts">นางซานต้า</annotation>
 		<annotation cp="🦸">เก่ง | จอมพลัง | ซุปเปอร์ฮีโร่ | ฮีโร่</annotation>
 		<annotation cp="🦸" type="tts">ซุปเปอร์ฮีโร่</annotation>
-		<annotation cp="🦸‍♀">เก่ง | จอมพลัง | ตัวแม่ | ผู้หญิง | ยอดหญิง | ฮีโร่</annotation>
-		<annotation cp="🦸‍♀" type="tts">ยอดหญิง</annotation>
 		<annotation cp="🦸‍♂">เก่ง | จอมพลัง | ตัวพ่อ | ผู้ชาย | พระเอก | ฮีโร่</annotation>
 		<annotation cp="🦸‍♂" type="tts">พระเอก</annotation>
+		<annotation cp="🦸‍♀">เก่ง | จอมพลัง | ตัวแม่ | ผู้หญิง | ยอดหญิง | ฮีโร่</annotation>
+		<annotation cp="🦸‍♀" type="tts">ยอดหญิง</annotation>
 		<annotation cp="🦹">ตัวร้าย | ปีศาจ | ผู้ร้าย | ยอดมนุษย์ | อาชญากร</annotation>
 		<annotation cp="🦹" type="tts">ยอดมนุษย์</annotation>
-		<annotation cp="🦹‍♀">ตัวร้าย | นางร้าย | ปีศาจ | ผู้ร้าย | ผู้หญิง | อาชญากร</annotation>
-		<annotation cp="🦹‍♀" type="tts">นางร้าย</annotation>
 		<annotation cp="🦹‍♂">ตัวโกง | ตัวร้าย | ปีศาจ | ผู้ชาย | ผู้ร้าย | อาชญากร</annotation>
 		<annotation cp="🦹‍♂" type="tts">ตัวโกง</annotation>
+		<annotation cp="🦹‍♀">ตัวร้าย | นางร้าย | ปีศาจ | ผู้ร้าย | ผู้หญิง | อาชญากร</annotation>
+		<annotation cp="🦹‍♀" type="tts">นางร้าย</annotation>
 		<annotation cp="🧙">นักเวทย์ | ผู้วิเศษ | พ่อมด | แม่มด</annotation>
 		<annotation cp="🧙" type="tts">นักเวทย์</annotation>
-		<annotation cp="🧙‍♀">ผู้วิเศษ | แม่มด</annotation>
-		<annotation cp="🧙‍♀" type="tts">แม่มด</annotation>
 		<annotation cp="🧙‍♂">ผู้วิเศษ | พ่อมด</annotation>
 		<annotation cp="🧙‍♂" type="tts">พ่อมด</annotation>
+		<annotation cp="🧙‍♀">ผู้วิเศษ | แม่มด</annotation>
+		<annotation cp="🧙‍♀" type="tts">แม่มด</annotation>
 		<annotation cp="🧚">นางฟ้า | แฟรี่</annotation>
 		<annotation cp="🧚" type="tts">นางฟ้า</annotation>
-		<annotation cp="🧚‍♀">เทพธิดา | แฟรี่ผู้หญิง</annotation>
-		<annotation cp="🧚‍♀" type="tts">เทพธิดา</annotation>
 		<annotation cp="🧚‍♂">เทพบุตร | แฟรี่ผู้ชาย</annotation>
 		<annotation cp="🧚‍♂" type="tts">เทพบุตร</annotation>
+		<annotation cp="🧚‍♀">เทพธิดา | แฟรี่ผู้หญิง</annotation>
+		<annotation cp="🧚‍♀" type="tts">เทพธิดา</annotation>
 		<annotation cp="🧛">แดร็กคูล่า | แวมไพร์ | อมตะ</annotation>
 		<annotation cp="🧛" type="tts">แวมไพร์</annotation>
-		<annotation cp="🧛‍♀">แวมไพร์ผู้หญิง | อมตะ</annotation>
-		<annotation cp="🧛‍♀" type="tts">แวมไพร์ผู้หญิง</annotation>
 		<annotation cp="🧛‍♂">แดร็กคูล่า | แวมไพร์ผู้ชาย | อมตะ</annotation>
 		<annotation cp="🧛‍♂" type="tts">แวมไพร์ผู้ชาย</annotation>
+		<annotation cp="🧛‍♀">แวมไพร์ผู้หญิง | อมตะ</annotation>
+		<annotation cp="🧛‍♀" type="tts">แวมไพร์ผู้หญิง</annotation>
 		<annotation cp="🧜">ครึ่งคนครึ่งปลา | เมอร์เมด</annotation>
 		<annotation cp="🧜" type="tts">ครึ่งคนครึ่งปลา</annotation>
-		<annotation cp="🧜‍♀">เงือก</annotation>
-		<annotation cp="🧜‍♀" type="tts">เงือก</annotation>
 		<annotation cp="🧜‍♂">เงือกชาย</annotation>
 		<annotation cp="🧜‍♂" type="tts">เงือกชาย</annotation>
+		<annotation cp="🧜‍♀">เงือก</annotation>
+		<annotation cp="🧜‍♀" type="tts">เงือก</annotation>
 		<annotation cp="🧝">จอมเวทย์ | เอลฟ์</annotation>
 		<annotation cp="🧝" type="tts">เอลฟ์</annotation>
-		<annotation cp="🧝‍♀">จอมเวทย์ | เอลฟ์ผู้หญิง</annotation>
-		<annotation cp="🧝‍♀" type="tts">เอลฟ์ผู้หญิง</annotation>
 		<annotation cp="🧝‍♂">จอมเวทย์ | เอลฟ์ผู้ชาย</annotation>
 		<annotation cp="🧝‍♂" type="tts">เอลฟ์ผู้ชาย</annotation>
+		<annotation cp="🧝‍♀">จอมเวทย์ | เอลฟ์ผู้หญิง</annotation>
+		<annotation cp="🧝‍♀" type="tts">เอลฟ์ผู้หญิง</annotation>
 		<annotation cp="🧞">ยักษ์จินนี่ | ยักษ์จีนี่</annotation>
 		<annotation cp="🧞" type="tts">ยักษ์จีนี่</annotation>
-		<annotation cp="🧞‍♀">ยักษ์จินนี่หญิง | ยักษ์จีนี่หญิง</annotation>
-		<annotation cp="🧞‍♀" type="tts">ยักษ์จีนี่หญิง</annotation>
 		<annotation cp="🧞‍♂">ยักษ์จินนี่ชาย | ยักษ์จีนี่ชาย</annotation>
 		<annotation cp="🧞‍♂" type="tts">ยักษ์จีนี่ชาย</annotation>
+		<annotation cp="🧞‍♀">ยักษ์จินนี่หญิง | ยักษ์จีนี่หญิง</annotation>
+		<annotation cp="🧞‍♀" type="tts">ยักษ์จีนี่หญิง</annotation>
 		<annotation cp="🧟">ซอมบี้ | ผีดิบ</annotation>
 		<annotation cp="🧟" type="tts">ซอมบี้</annotation>
-		<annotation cp="🧟‍♀">ซอมบี้ผู้หญิง | ผีดิบ</annotation>
-		<annotation cp="🧟‍♀" type="tts">ซอมบี้ผู้หญิง</annotation>
 		<annotation cp="🧟‍♂">ซอมบี้ผู้ชาย | ผีดิบ</annotation>
 		<annotation cp="🧟‍♂" type="tts">ซอมบี้ผู้ชาย</annotation>
-		<annotation cp="🙍">ขมวดคิ้ว | คิ้ว | บึ้งตึง | หน้า</annotation>
-		<annotation cp="🙍" type="tts">ขมวดคิ้ว</annotation>
-		<annotation cp="🙍‍♂">ท่าทาง | ผู้ชาย | ผู้ชายหน้าบึ้ง | หน้าบึ้ง</annotation>
-		<annotation cp="🙍‍♂" type="tts">ผู้ชายหน้าบึ้ง</annotation>
-		<annotation cp="🙍‍♀">ท่าทาง | ผู้หญิง | ผู้หญิงหน้าบึ้ง | หน้าบึ้ง</annotation>
-		<annotation cp="🙍‍♀" type="tts">ผู้หญิงหน้าบึ้ง</annotation>
-		<annotation cp="🙎">โกรธ | งอน | ปากยื่น | หน้า</annotation>
-		<annotation cp="🙎" type="tts">ปากยื่น</annotation>
-		<annotation cp="🙎‍♂">โกรธ | ท่าทาง | ผู้ชาย | ผู้ชายโกรธ</annotation>
-		<annotation cp="🙎‍♂" type="tts">ผู้ชายโกรธ</annotation>
-		<annotation cp="🙎‍♀">โกรธ | ท่าทาง | ผู้หญิง | ผู้หญิงโกรธ</annotation>
-		<annotation cp="🙎‍♀" type="tts">ผู้หญิงโกรธ</annotation>
-		<annotation cp="🙅">มือ | มือทำท่าไม่โอเค | ไม่เห็นด้วย | ห้าม</annotation>
-		<annotation cp="🙅" type="tts">มือทำท่าไม่โอเค</annotation>
-		<annotation cp="🙅‍♂">ต้องห้าม | ท่าทาง | ผู้ชาย | ผู้ชายทำท่าไม่โอเค | ห้าม</annotation>
-		<annotation cp="🙅‍♂" type="tts">ผู้ชายทำท่าไม่โอเค</annotation>
-		<annotation cp="🙅‍♀">ต้องห้าม | ท่าทาง | ผู้หญิง | ผู้หญิงทำท่าไม่โอเค | ห้าม</annotation>
-		<annotation cp="🙅‍♀" type="tts">ผู้หญิงทำท่าไม่โอเค</annotation>
-		<annotation cp="🙆">ตกลง | ทำท่าโอเค | โอเค</annotation>
-		<annotation cp="🙆" type="tts">ทำท่าโอเค</annotation>
-		<annotation cp="🙆‍♂">ท่าทาง | ผู้ชาย | ผู้ชายทำท่าโอเค | มือ | โอเค</annotation>
-		<annotation cp="🙆‍♂" type="tts">ผู้ชายทำท่าโอเค</annotation>
-		<annotation cp="🙆‍♀">ท่าทาง | ผู้หญิง | ผู้หญิงทำท่าโอเค | มือ | โอเค</annotation>
-		<annotation cp="🙆‍♀" type="tts">ผู้หญิงทำท่าโอเค</annotation>
-		<annotation cp="💁">ความช่วยเหลือ | โต๊ะสอบถาม</annotation>
-		<annotation cp="💁" type="tts">โต๊ะสอบถาม</annotation>
-		<annotation cp="💁‍♂">แบมือ | ผู้ชาย | ผู้ชายแบมือ</annotation>
-		<annotation cp="💁‍♂" type="tts">ผู้ชายแบมือ</annotation>
-		<annotation cp="💁‍♀">แบมือ | ผู้หญิง | ผู้หญิงแบมือ</annotation>
-		<annotation cp="💁‍♀" type="tts">ผู้หญิงแบมือ</annotation>
-		<annotation cp="🙋">มีความสุข | มือ | ยกมือขึ้น</annotation>
-		<annotation cp="🙋" type="tts">ยกมือขึ้น</annotation>
-		<annotation cp="🙋‍♂">ท่าทาง | ผู้ชาย | ผู้ชายยกมือ | ยกมือ</annotation>
-		<annotation cp="🙋‍♂" type="tts">ผู้ชายยกมือ</annotation>
-		<annotation cp="🙋‍♀">ท่าทาง | ผู้หญิง | ผู้หญิงยกมือ | ยกมือ</annotation>
-		<annotation cp="🙋‍♀" type="tts">ผู้หญิงยกมือ</annotation>
-		<annotation cp="🙇">โค้งตัวคำนับ | ท่าขอโทษ</annotation>
-		<annotation cp="🙇" type="tts">ท่าขอโทษ</annotation>
-		<annotation cp="🙇‍♂">กราบ | ขอโทษ | ท่าทาง | ผู้ชาย | ผู้ชายหมอบคำนับ</annotation>
-		<annotation cp="🙇‍♂" type="tts">ผู้ชายหมอบคำนับ</annotation>
-		<annotation cp="🙇‍♀">กราบ | ขอโทษ | ท่าทาง | ผู้หญิง | ผู้หญิงหมอบคำนับ</annotation>
-		<annotation cp="🙇‍♀" type="tts">ผู้หญิงหมอบคำนับ</annotation>
-		<annotation cp="🤦">โธ่ | ผิดหวัง | สิ้นหวัง | เสียใจ | หมดกัน</annotation>
-		<annotation cp="🤦" type="tts">หมดกัน</annotation>
-		<annotation cp="🤦‍♂">ผิดหวัง | ผู้ชาย | ผู้ชายเอามือก่ายหน้าผาก | มือก่ายหน้าผาก | ไม่เชื่อ</annotation>
-		<annotation cp="🤦‍♂" type="tts">ผู้ชายเอามือก่ายหน้าผาก</annotation>
-		<annotation cp="🤦‍♀">ผิดหวัง | ผู้หญิง | ผู้หญิงเอามือก่ายหน้าผาก | มือก่ายหน้าผาก | ไม่เชื่อ</annotation>
-		<annotation cp="🤦‍♀" type="tts">ผู้หญิงเอามือก่ายหน้าผาก</annotation>
-		<annotation cp="🤷">ช่างเถอะ | ไม่แคร์ | ไม่รู้ | ไม่สน | ยักไหล่</annotation>
-		<annotation cp="🤷" type="tts">ยักไหล่</annotation>
-		<annotation cp="🤷‍♂">ผู้ชาย | ผู้ชายยักไหล่ | ไม่รู้ไม่ชี้ | ไม่สนใจ | ยักไหล่</annotation>
-		<annotation cp="🤷‍♂" type="tts">ผู้ชายยักไหล่</annotation>
-		<annotation cp="🤷‍♀">ผู้หญิง | ผู้หญิงยักไหล่ | ไม่รู้ไม่ชี้ | ไม่สนใจ | ยักไหล่</annotation>
-		<annotation cp="🤷‍♀" type="tts">ผู้หญิงยักไหล่</annotation>
+		<annotation cp="🧟‍♀">ซอมบี้ผู้หญิง | ผีดิบ</annotation>
+		<annotation cp="🧟‍♀" type="tts">ซอมบี้ผู้หญิง</annotation>
 		<annotation cp="💆">นวด | นวดหน้า | เสริมสวย</annotation>
 		<annotation cp="💆" type="tts">นวดหน้า</annotation>
 		<annotation cp="💆‍♂">นวด | ผู้ชาย | ผู้ชายกำลังนวดหน้า | หน้า</annotation>
@@ -529,6 +699,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💃" type="tts">นักเต้น</annotation>
 		<annotation cp="🕺">คนเต้น | แดนซ์ | เต้น | ผู้ชาย</annotation>
 		<annotation cp="🕺" type="tts">คนเต้น</annotation>
+		<annotation cp="🕴">ชาย | ชายใส่สูทลอยได้ | ธุรกิจ | ลอย | สูท</annotation>
+		<annotation cp="🕴" type="tts">ชายใส่สูทลอยได้</annotation>
 		<annotation cp="👯">คน | คนในชุดหูกระต่าย | แดนเซอร์ | หูกระต่าย</annotation>
 		<annotation cp="👯" type="tts">คนในชุดหูกระต่าย</annotation>
 		<annotation cp="👯‍♂">ปาร์ตี้ | ผู้ชาย | ผู้ชายในชุดหูกระต่าย | หูกระต่าย</annotation>
@@ -537,34 +709,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👯‍♀" type="tts">ผู้หญิงในชุดหูกระต่าย</annotation>
 		<annotation cp="🧖">คนในห้องอบไอน้ำ | ซาวน่า | อบไอน้ำ</annotation>
 		<annotation cp="🧖" type="tts">คนในห้องอบไอน้ำ</annotation>
-		<annotation cp="🧖‍♀">ผู้หญิงซาวน่า | ผู้หญิงในห้องอบไอน้ำ | ผู้หญิงอบไอน้ำ</annotation>
-		<annotation cp="🧖‍♀" type="tts">ผู้หญิงในห้องอบไอน้ำ</annotation>
 		<annotation cp="🧖‍♂">ผู้ชายซาวน่า | ผู้ชายในห้องอบไอน้ำ | ผู้ชายอบไอน้ำ</annotation>
 		<annotation cp="🧖‍♂" type="tts">ผู้ชายในห้องอบไอน้ำ</annotation>
+		<annotation cp="🧖‍♀">ผู้หญิงซาวน่า | ผู้หญิงในห้องอบไอน้ำ | ผู้หญิงอบไอน้ำ</annotation>
+		<annotation cp="🧖‍♀" type="tts">ผู้หญิงในห้องอบไอน้ำ</annotation>
 		<annotation cp="🧗">คนไต่เขา | นักไต่เขา</annotation>
 		<annotation cp="🧗" type="tts">นักไต่เขา</annotation>
-		<annotation cp="🧗‍♀">ผู้หญิงไต่เขา | ผู้หญิงปีนเขา</annotation>
-		<annotation cp="🧗‍♀" type="tts">ผู้หญิงไต่เขา</annotation>
 		<annotation cp="🧗‍♂">ผู้ชายไต่เขา | ผู้ชายปีนเขา</annotation>
 		<annotation cp="🧗‍♂" type="tts">ผู้ชายไต่เขา</annotation>
-		<annotation cp="🧘">คนนั่งสมาธิ | นั่งขัดสมาธิ | โยคะ</annotation>
-		<annotation cp="🧘" type="tts">คนนั่งสมาธิ</annotation>
-		<annotation cp="🧘‍♀">นั่งขัดสมาธิ | ผู้หญิงนั่งสมาธิ | โยคะ</annotation>
-		<annotation cp="🧘‍♀" type="tts">ผู้หญิงนั่งสมาธิ</annotation>
-		<annotation cp="🧘‍♂">นั่งขัดสมาธิ | ผู้ชายนั่งสมาธิ | โยคะ</annotation>
-		<annotation cp="🧘‍♂" type="tts">ผู้ชายนั่งสมาธิ</annotation>
-		<annotation cp="🛀">คนนอนแช่น้ำในอ่าง | อ่าง | อาบน้ำ</annotation>
-		<annotation cp="🛀" type="tts">อาบน้ำ</annotation>
-		<annotation cp="🛌">คนนอนหลับ | โรงแรม | หลับ</annotation>
-		<annotation cp="🛌" type="tts">คนนอนหลับ</annotation>
-		<annotation cp="🕴">ชาย | ชายใส่สูทลอยได้ | ธุรกิจ | ลอย | สูท</annotation>
-		<annotation cp="🕴" type="tts">ชายใส่สูทลอยได้</annotation>
-		<annotation cp="🗣">คน | เงา | เงาคนกำลังพูด | พูด</annotation>
-		<annotation cp="🗣" type="tts">เงาคนกำลังพูด</annotation>
-		<annotation cp="👤">คน | เงาครึ่งตัวคนเดียว</annotation>
-		<annotation cp="👤" type="tts">เงาครึ่งตัวคนเดียว</annotation>
-		<annotation cp="👥">เงาครึ่งตัว 2 คน | ผู้คน</annotation>
-		<annotation cp="👥" type="tts">เงาครึ่งตัว 2 คน</annotation>
+		<annotation cp="🧗‍♀">ผู้หญิงไต่เขา | ผู้หญิงปีนเขา</annotation>
+		<annotation cp="🧗‍♀" type="tts">ผู้หญิงไต่เขา</annotation>
 		<annotation cp="🤺">กีฬา | ดวล | ดาบ | ฟัน | ฟันดาบ</annotation>
 		<annotation cp="🤺" type="tts">ฟันดาบ</annotation>
 		<annotation cp="🏇">แข่ง | แข่งม้า | จ๊อกกี้ | ม้า</annotation>
@@ -621,10 +775,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚵‍♂" type="tts">ผู้ชายปั่นจักรยานเสือภูเขา</annotation>
 		<annotation cp="🚵‍♀">ขี่จักรยาน | จักรยาน | นักขี่จักรยาน | ผู้หญิง | ผู้หญิงปั่นจักรยานเสือภูเขา</annotation>
 		<annotation cp="🚵‍♀" type="tts">ผู้หญิงปั่นจักรยานเสือภูเขา</annotation>
-		<annotation cp="🏎">แข่ง | รถ | รถแข่ง</annotation>
-		<annotation cp="🏎" type="tts">รถแข่ง</annotation>
-		<annotation cp="🏍">แข่ง | มอเตอร์ไซค์</annotation>
-		<annotation cp="🏍" type="tts">มอเตอร์ไซค์</annotation>
 		<annotation cp="🤸">กีฬา | คน | ตีลังกา | ยิมนาสติก | ล้อเกวียน</annotation>
 		<annotation cp="🤸" type="tts">ตีลังกา</annotation>
 		<annotation cp="🤸‍♂">กีฬา | ตีลังกา | ผู้ชาย | ผู้ชายตีลังกา | ยิมนาสติก</annotation>
@@ -655,11 +805,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤹‍♂" type="tts">ผู้ชายเล่นจั๊กกลิ้ง</annotation>
 		<annotation cp="🤹‍♀">ผู้หญิง | ผู้หญิงเล่นจั๊กกลิ้ง | โยนรับของ | เล่นกล</annotation>
 		<annotation cp="🤹‍♀" type="tts">ผู้หญิงเล่นจั๊กกลิ้ง</annotation>
+		<annotation cp="🧘">คนนั่งสมาธิ | นั่งขัดสมาธิ | โยคะ</annotation>
+		<annotation cp="🧘" type="tts">คนนั่งสมาธิ</annotation>
+		<annotation cp="🧘‍♂">นั่งขัดสมาธิ | ผู้ชายนั่งสมาธิ | โยคะ</annotation>
+		<annotation cp="🧘‍♂" type="tts">ผู้ชายนั่งสมาธิ</annotation>
+		<annotation cp="🧘‍♀">นั่งขัดสมาธิ | ผู้หญิงนั่งสมาธิ | โยคะ</annotation>
+		<annotation cp="🧘‍♀" type="tts">ผู้หญิงนั่งสมาธิ</annotation>
+		<annotation cp="🛀">คนนอนแช่น้ำในอ่าง | อ่าง | อาบน้ำ</annotation>
+		<annotation cp="🛀" type="tts">อาบน้ำ</annotation>
+		<annotation cp="🛌">คนนอนหลับ | โรงแรม | หลับ</annotation>
+		<annotation cp="🛌" type="tts">คนนอนหลับ</annotation>
 		<annotation cp="👫">คู่ | จับมือ | ชาย | ชาย-หญิงจับมือ | หญิง</annotation>
 		<annotation cp="👫" type="tts">ชาย-หญิงจับมือ</annotation>
-		<annotation cp="👬">คน | จับมือ | ชาย | ชาย-ชายจับมือ</annotation>
+		<annotation cp="👬">คู่ | จับมือ | ชาย-ชาย | แฝด | เมถุน</annotation>
 		<annotation cp="👬" type="tts">ชาย-ชายจับมือ</annotation>
-		<annotation cp="👭">คน | จับมือ | หญิง | หญิง-หญิงจับมือ</annotation>
+		<annotation cp="👭">คู่ | จับมือ | มือ | หญิง-หญิง</annotation>
 		<annotation cp="👭" type="tts">หญิง-หญิงจับมือ</annotation>
 		<annotation cp="💏">ความรัก | จูบ</annotation>
 		<annotation cp="💏" type="tts">จูบ</annotation>
@@ -667,98 +827,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💑" type="tts">คู่รัก</annotation>
 		<annotation cp="👪">คน | ครอบครัว | เด็ก | พ่อ | แม่</annotation>
 		<annotation cp="👪" type="tts">ครอบครัว</annotation>
-		<annotation cp="🤳">กล้อง | เซลฟี่ | มือถือ</annotation>
-		<annotation cp="🤳" type="tts">เซลฟี่</annotation>
-		<annotation cp="💪">กล้าม | กล้ามแขน | แข็งแรง | เบ่งกล้าม | ไบเซป</annotation>
-		<annotation cp="💪" type="tts">เบ่งกล้าม</annotation>
-		<annotation cp="🦵">ขา | เตะ</annotation>
-		<annotation cp="🦵" type="tts">ขา</annotation>
-		<annotation cp="🦶">กระทืบ | เตะ | เท้า</annotation>
-		<annotation cp="🦶" type="tts">เท้า</annotation>
-		<annotation cp="👈">ชี้ | ซ้าย | นิ้ว | นิ้วชี้ทางซ้าย | มือ</annotation>
-		<annotation cp="👈" type="tts">นิ้วชี้ทางซ้าย</annotation>
-		<annotation cp="👉">ขวา | ชี้ | นิ้ว | นิ้วชี้ทางขวา | มือ</annotation>
-		<annotation cp="👉" type="tts">นิ้วชี้ทางขวา</annotation>
-		<annotation cp="☝">ขึ้น | ชี้ | นิ้ว | นิ้วชี้ขึ้น | มือ</annotation>
-		<annotation cp="☝" type="tts">นิ้วชี้ขึ้น</annotation>
-		<annotation cp="👆">ขึ้น | ชี้ | นิ้ว | มือ | หลังมือนิ้วชี้ขึ้น</annotation>
-		<annotation cp="👆" type="tts">หลังมือนิ้วชี้ขึ้น</annotation>
-		<annotation cp="🖕">ขึ้น | ชี้ | ชูนิ้วกลาง | นิ้ว | มือ</annotation>
-		<annotation cp="🖕" type="tts">ชูนิ้วกลาง</annotation>
-		<annotation cp="👇">ชี้ | นิ้ว | นิ้วชี้ลง | มือ | ลง</annotation>
-		<annotation cp="👇" type="tts">นิ้วชี้ลง</annotation>
-		<annotation cp="✌">ชู 2 นิ้ว | ชูสองนิ้ว</annotation>
-		<annotation cp="✌" type="tts">ชู 2 นิ้ว</annotation>
-		<annotation cp="🤞">ไขว้ | โชคดี | นิ้วไขว้ | ภาวนา | มือ</annotation>
-		<annotation cp="🤞" type="tts">นิ้วไขว้</annotation>
-		<annotation cp="🖖">ชูนิ้วแบบวัลแคน | นิ้ว | มือ | วัลแคน | อวัยวะ</annotation>
-		<annotation cp="🖖" type="tts">ชูนิ้วแบบวัลแคน</annotation>
-		<annotation cp="🤘">ชูนิ้วชาวร็อก | มือ | ร็อก | อวัยวะ</annotation>
-		<annotation cp="🤘" type="tts">ชูนิ้วชาวร็อก</annotation>
-		<annotation cp="🤙">โทร | มือ | มือโทร</annotation>
-		<annotation cp="🤙" type="tts">มือโทร</annotation>
-		<annotation cp="🖐">ชูมือกางนิ้ว | นิ้ว | มือ | อวัยวะ</annotation>
-		<annotation cp="🖐" type="tts">ชูมือกางนิ้ว</annotation>
-		<annotation cp="✋">ตั้งฝ่ามือ | มือ | อวัยวะ</annotation>
-		<annotation cp="✋" type="tts">ตั้งฝ่ามือ</annotation>
-		<annotation cp="👌">ทำมือโอเค | นิ้ว | มือ | อวัยวะ</annotation>
-		<annotation cp="👌" type="tts">ทำมือโอเค</annotation>
-		<annotation cp="👍">ชูนิ้วโป้งขึ้น | นิ้ว | มือ | อวัยวะ</annotation>
-		<annotation cp="👍" type="tts">ชูนิ้วโป้งขึ้น</annotation>
-		<annotation cp="👎">คว่ำนิ้วโป้งลง | นิ้ว | มือ | อวัยวะ</annotation>
-		<annotation cp="👎" type="tts">คว่ำนิ้วโป้งลง</annotation>
-		<annotation cp="✊">กำมือ | ค้อน | หมัด | อวัยวะ</annotation>
-		<annotation cp="✊" type="tts">กำมือ</annotation>
-		<annotation cp="👊">กำปั้น | ชก | มือ | อวัยวะ</annotation>
-		<annotation cp="👊" type="tts">กำปั้น</annotation>
-		<annotation cp="🤛">กำปั้น | กำปั้นขวา | ขวา</annotation>
-		<annotation cp="🤛" type="tts">กำปั้นขวา</annotation>
-		<annotation cp="🤜">กำปั้น | กำปั้นซ้าย | ซ้าย</annotation>
-		<annotation cp="🤜" type="tts">กำปั้นซ้าย</annotation>
-		<annotation cp="🤚">ยกมือ | หลังมือ</annotation>
-		<annotation cp="🤚" type="tts">ยกมือ</annotation>
-		<annotation cp="👋">โบก | โบกมือ | มือ | อวัยวะ</annotation>
-		<annotation cp="👋" type="tts">โบกมือ</annotation>
-		<annotation cp="🤟">ทำมือ ‘ฉันรักเธอ’ | มือ</annotation>
-		<annotation cp="🤟" type="tts">ทำมือ ‘ฉันรักเธอ’</annotation>
-		<annotation cp="✍">เขียน | เขียนหนังสือ | มือ | อวัยวะ</annotation>
-		<annotation cp="✍" type="tts">เขียนหนังสือ</annotation>
-		<annotation cp="👏">ตบมือ | มือ | อวัยวะ</annotation>
-		<annotation cp="👏" type="tts">ตบมือ</annotation>
-		<annotation cp="👐">แบมือ | มือ | อวัยวะ</annotation>
-		<annotation cp="👐" type="tts">แบมือ</annotation>
-		<annotation cp="🙌">ชู 2 มือ | ดีใจ | มือ | อวัยวะ</annotation>
-		<annotation cp="🙌" type="tts">ชู 2 มือ</annotation>
-		<annotation cp="🤲">แบสองมือ</annotation>
-		<annotation cp="🤲" type="tts">แบสองมือ</annotation>
-		<annotation cp="🙏">ขอบคุณ | เคารพ | พนมมือ | มือ | ไหว้ | อวัยวะ</annotation>
-		<annotation cp="🙏" type="tts">พนมมือ</annotation>
-		<annotation cp="🤝">คืนดี | จับมือ | เชคแฮนด์ | ร่วมงาน | ร่วมมือ</annotation>
-		<annotation cp="🤝" type="tts">จับมือ</annotation>
-		<annotation cp="💅">ทำเล็บ | สีทาเล็บ</annotation>
-		<annotation cp="💅" type="tts">สีทาเล็บ</annotation>
-		<annotation cp="👂">ฟัง | หู | อวัยวะ</annotation>
-		<annotation cp="👂" type="tts">หู</annotation>
-		<annotation cp="👃">จมูก | ดม | อวัยวะ</annotation>
-		<annotation cp="👃" type="tts">จมูก</annotation>
+		<annotation cp="🗣">คน | เงา | เงาคนกำลังพูด | พูด</annotation>
+		<annotation cp="🗣" type="tts">เงาคนกำลังพูด</annotation>
+		<annotation cp="👤">คน | เงาครึ่งตัวคนเดียว</annotation>
+		<annotation cp="👤" type="tts">เงาครึ่งตัวคนเดียว</annotation>
+		<annotation cp="👥">เงาครึ่งตัว 2 คน | ผู้คน</annotation>
+		<annotation cp="👥" type="tts">เงาครึ่งตัว 2 คน</annotation>
 		<annotation cp="👣">เท้า | รอยเท้า | อวัยวะ</annotation>
 		<annotation cp="👣" type="tts">รอยเท้า</annotation>
-		<annotation cp="👀">ตา | ตา 2 ข้าง | อวัยวะ</annotation>
-		<annotation cp="👀" type="tts">ตา 2 ข้าง</annotation>
-		<annotation cp="👁">ตา | ตาข้างเดียว | อวัยวะ</annotation>
-		<annotation cp="👁" type="tts">ตาข้างเดียว</annotation>
-		<annotation cp="👁‍🗨">ตา | ตาในลูกโป่งคำพูด | พยาน | ลูกโป่งคำพูด</annotation>
-		<annotation cp="👁‍🗨" type="tts">ตาในลูกโป่งคำพูด</annotation>
-		<annotation cp="🧠">ฉลาด | สมอง</annotation>
-		<annotation cp="🧠" type="tts">สมอง</annotation>
-		<annotation cp="🦴">กระดูก | โครงกระดูก</annotation>
-		<annotation cp="🦴" type="tts">กระดูก</annotation>
-		<annotation cp="🦷">ฟัน | หมอฟัน</annotation>
-		<annotation cp="🦷" type="tts">ฟัน</annotation>
-		<annotation cp="👅">ลิ้น | อวัยวะ</annotation>
-		<annotation cp="👅" type="tts">ลิ้น</annotation>
-		<annotation cp="👄">ปาก | อวัยวะ</annotation>
-		<annotation cp="👄" type="tts">ปาก</annotation>
 		<annotation cp="🦰">ผมแดง | หัวแดง</annotation>
 		<annotation cp="🦰" type="tts">ผมแดง</annotation>
 		<annotation cp="🦱">ผมลอน | ผมหยิก | หยิก | แอฟโฟร</annotation>
@@ -767,142 +843,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦳" type="tts">ผมขาว</annotation>
 		<annotation cp="🦲">โกนหัว | คีโม | ไม่มีผม | สกินเฮด | หัวล้าน</annotation>
 		<annotation cp="🦲" type="tts">หัวล้าน</annotation>
-		<annotation cp="💋">จูบ | ปาก | รอยจูบ | อวัยวะ</annotation>
-		<annotation cp="💋" type="tts">รอยจูบ</annotation>
-		<annotation cp="💘">ความรัก | ลูกศร | ศรปักใจ | หัวใจ</annotation>
-		<annotation cp="💘" type="tts">ศรปักใจ</annotation>
-		<annotation cp="💝">วาเลนไทน์ | หัวใจ | หัวใจผูกริบบิ้น</annotation>
-		<annotation cp="💝" type="tts">หัวใจผูกริบบิ้น</annotation>
-		<annotation cp="💖">ตื่นเต้น | รัก | หัวใจ | หัวใจวิบวับ</annotation>
-		<annotation cp="💖" type="tts">หัวใจวิบวับ</annotation>
-		<annotation cp="💗">ใจพองโต | หัวใจ</annotation>
-		<annotation cp="💗" type="tts">ใจพองโต</annotation>
-		<annotation cp="💓">หัวใจ | หัวใจเต้น</annotation>
-		<annotation cp="💓" type="tts">หัวใจเต้น</annotation>
-		<annotation cp="💞">หัวใจ | หัวใจโคจร</annotation>
-		<annotation cp="💞" type="tts">หัวใจโคจร</annotation>
-		<annotation cp="💕">ใจ 2 ดวง | รัก</annotation>
-		<annotation cp="💕" type="tts">ใจ 2 ดวง</annotation>
-		<annotation cp="💌">ความรัก | จดหมาย | จดหมายรัก | หัวใจ | อีเมล</annotation>
-		<annotation cp="💌" type="tts">จดหมายรัก</annotation>
-		<annotation cp="❣">เครื่องหมายวรรคตอน | เครื่องหมายอัศเจรีย์รูปหัวใจ | ตกใจ | หัวใจ</annotation>
-		<annotation cp="❣" type="tts">เครื่องหมายอัศเจรีย์รูปหัวใจ</annotation>
-		<annotation cp="💔">หัวใจ | อกหัก</annotation>
-		<annotation cp="💔" type="tts">อกหัก</annotation>
-		<annotation cp="❤">หัวใจ | หัวใจแดง | หัวใจสีแดง</annotation>
-		<annotation cp="❤" type="tts">หัวใจสีแดง</annotation>
-		<annotation cp="🧡">สีส้ม | หัวใจสีส้ม</annotation>
-		<annotation cp="🧡" type="tts">หัวใจสีส้ม</annotation>
-		<annotation cp="💛">หัวใจ | หัวใจสีเหลือง</annotation>
-		<annotation cp="💛" type="tts">หัวใจสีเหลือง</annotation>
-		<annotation cp="💚">หัวใจ | หัวใจสีเขียว</annotation>
-		<annotation cp="💚" type="tts">หัวใจสีเขียว</annotation>
-		<annotation cp="💙">หัวใจ | หัวใจสีน้ำเงิน</annotation>
-		<annotation cp="💙" type="tts">หัวใจสีน้ำเงิน</annotation>
-		<annotation cp="💜">หัวใจ | หัวใจสีม่วง</annotation>
-		<annotation cp="💜" type="tts">หัวใจสีม่วง</annotation>
-		<annotation cp="🖤">ใจดำ | ใจร้าย | ดำ | หัวใจสีดำ</annotation>
-		<annotation cp="🖤" type="tts">ใจดำ</annotation>
-		<annotation cp="💟">หัวใจ | หัวใจประดับ</annotation>
-		<annotation cp="💟" type="tts">หัวใจประดับ</annotation>
-		<annotation cp="💤">กรน | ง่วง | หลับปุ๋ย</annotation>
-		<annotation cp="💤" type="tts">หลับปุ๋ย</annotation>
-		<annotation cp="💢">โกรธ | โมโห</annotation>
-		<annotation cp="💢" type="tts">โกรธ</annotation>
-		<annotation cp="💣">โกรธมาก | ระเบิด</annotation>
-		<annotation cp="💣" type="tts">ระเบิด</annotation>
-		<annotation cp="💥">การปะทะ | โกรธมาก | ชน</annotation>
-		<annotation cp="💥" type="tts">การปะทะ</annotation>
-		<annotation cp="💦">เหงื่อ | เหงื่อหยด</annotation>
-		<annotation cp="💦" type="tts">เหงื่อหยด</annotation>
-		<annotation cp="💨">วิ่งฉิว | วิ่งหนี</annotation>
-		<annotation cp="💨" type="tts">วิ่งฉิว</annotation>
-		<annotation cp="💫">มึนหัว | เห็นดาว</annotation>
-		<annotation cp="💫" type="tts">มึนหัว</annotation>
-		<annotation cp="💬">คำพูด | บทสนทนา | พูดไม่ออก | ลูกโป่ง</annotation>
-		<annotation cp="💬" type="tts">พูดไม่ออก</annotation>
-		<annotation cp="🗨">คำพูด | บทสนทนา | ฟองคำพูด</annotation>
-		<annotation cp="🗨" type="tts">ฟองคำพูด</annotation>
-		<annotation cp="🗯">โกรธ | ฟองคำพูด | ฟองคำพูดรุนแรง | ลูกโป่ง</annotation>
-		<annotation cp="🗯" type="tts">ฟองคำพูดรุนแรง</annotation>
-		<annotation cp="💭">ความคิด | ลูกโป่ง | ลูกโป่งความคิด</annotation>
-		<annotation cp="💭" type="tts">ลูกโป่งความคิด</annotation>
-		<annotation cp="🕳">หลุม</annotation>
-		<annotation cp="🕳" type="tts">หลุม</annotation>
-		<annotation cp="👓">ตา | แว่นตา | แว่นสายตา</annotation>
-		<annotation cp="👓" type="tts">แว่นตา</annotation>
-		<annotation cp="🕶">แดด | ตา | แว่นกันแดด | แว่นตา</annotation>
-		<annotation cp="🕶" type="tts">แว่นกันแดด</annotation>
-		<annotation cp="🥽">แว่นตากันลม | แว่นตาว่ายน้ำ | แว่นป้องกันดวงตา</annotation>
-		<annotation cp="🥽" type="tts">แว่นตากันลม</annotation>
-		<annotation cp="🥼">การทดลอง | นักวิทยาศาสตร์ | เสื้อกาวน์ | หมอ</annotation>
-		<annotation cp="🥼" type="tts">เสื้อกาวน์</annotation>
-		<annotation cp="👔">เนคไท | เสื้อผ้า</annotation>
-		<annotation cp="👔" type="tts">เนคไท</annotation>
-		<annotation cp="👕">เสื้อผ้า | เสื้อยืด</annotation>
-		<annotation cp="👕" type="tts">เสื้อยืด</annotation>
-		<annotation cp="👖">กางเกง | กางเกงขายาว | ยีนส์ | เสื้อผ้า</annotation>
-		<annotation cp="👖" type="tts">ยีนส์</annotation>
-		<annotation cp="🧣">คอ | ผ้าพันคอ</annotation>
-		<annotation cp="🧣" type="tts">ผ้าพันคอ</annotation>
-		<annotation cp="🧤">ถุงมือ | มือ</annotation>
-		<annotation cp="🧤" type="tts">ถุงมือ</annotation>
-		<annotation cp="🧥">เสื้อโค้ต | เสื้อโค้ท</annotation>
-		<annotation cp="🧥" type="tts">เสื้อโค้ต</annotation>
-		<annotation cp="🧦">ถุงเท้า | ถุงน่อง</annotation>
-		<annotation cp="🧦" type="tts">ถุงเท้า</annotation>
-		<annotation cp="👗">ชุดกระโปรง | เดรส</annotation>
-		<annotation cp="👗" type="tts">ชุดกระโปรง</annotation>
-		<annotation cp="👘">กิโมโน | เสื้อผ้า</annotation>
-		<annotation cp="👘" type="tts">กิโมโน</annotation>
-		<annotation cp="👙">บิกินี | ว่ายน้ำ | เสื้อผ้า</annotation>
-		<annotation cp="👙" type="tts">บิกินี</annotation>
-		<annotation cp="👚">เสื้อผ้า | เสื้อผู้หญิง</annotation>
-		<annotation cp="👚" type="tts">เสื้อผู้หญิง</annotation>
-		<annotation cp="👛">กระเป๋าสตางค์ | กระเป๋าใส่เงิน | กระเป๋าใส่เหรียญ</annotation>
-		<annotation cp="👛" type="tts">กระเป๋าใส่เงิน</annotation>
-		<annotation cp="👜">กระเป๋า | กระเป๋าถือ</annotation>
-		<annotation cp="👜" type="tts">กระเป๋าถือ</annotation>
-		<annotation cp="👝">กระเป๋า | กระเป๋าใบเล็ก</annotation>
-		<annotation cp="👝" type="tts">กระเป๋าใบเล็ก</annotation>
-		<annotation cp="🛍">ช้อปปิ้ง | ถุง | ถุงช็อปปิ้ง | ห้าง</annotation>
-		<annotation cp="🛍" type="tts">ถุงช็อปปิ้ง</annotation>
-		<annotation cp="🎒">กระเป๋า | กระเป๋าเรียน | เป้นักเรียน</annotation>
-		<annotation cp="🎒" type="tts">เป้นักเรียน</annotation>
-		<annotation cp="👞">ผู้ชาย | รองเท้า | รองเท้าชาย | รองเท้าผู้ชาย</annotation>
-		<annotation cp="👞" type="tts">รองเท้าชาย</annotation>
-		<annotation cp="👟">รองเท้า | รองเท้ากีฬา | รองเท้าผ้าใบ</annotation>
-		<annotation cp="👟" type="tts">รองเท้ากีฬา</annotation>
-		<annotation cp="🥾">ตั้งแคมป์ | แบ็คแพ็คกิ้ง | ปีนเขา | รองเท้าบู๊ท | รองเท้าปีนเขา</annotation>
-		<annotation cp="🥾" type="tts">รองเท้าปีนเขา</annotation>
-		<annotation cp="🥿">รองเท้าคัทชู | รองเท้าบัลเล่ต์ | รองเท้าส้นเตี้ย | รองเท้าสลิปเปอร์</annotation>
-		<annotation cp="🥿" type="tts">รองเท้าส้นเตี้ย</annotation>
-		<annotation cp="👠">รองเท้า | รองเท้าผู้หญิง | รองเท้าส้นสูง | ส้นสูง</annotation>
-		<annotation cp="👠" type="tts">รองเท้าส้นสูง</annotation>
-		<annotation cp="👡">ผู้หญิง | รองเท้า | รองเท้าแตะ | รองเท้าแตะผู้หญิง | เสื้อผ้า</annotation>
-		<annotation cp="👡" type="tts">รองเท้าแตะผู้หญิง</annotation>
-		<annotation cp="👢">ผู้หญิง | รองเท้าบู๊ต | รองเท้าบู๊ตผู้หญิง | เสื้อผ้า</annotation>
-		<annotation cp="👢" type="tts">รองเท้าบู๊ตผู้หญิง</annotation>
-		<annotation cp="👑">พระราชา | พระราชินี | มงกุฎ</annotation>
-		<annotation cp="👑" type="tts">มงกุฎ</annotation>
-		<annotation cp="👒">ผู้หญิง | หมวก | หมวกผู้หญิง</annotation>
-		<annotation cp="👒" type="tts">หมวกผู้หญิง</annotation>
-		<annotation cp="🎩">หมวก | หมวกสูง</annotation>
-		<annotation cp="🎩" type="tts">หมวกสูง</annotation>
-		<annotation cp="🎓">รับปริญญา | หมวก | หมวกรับปริญญา</annotation>
-		<annotation cp="🎓" type="tts">หมวกรับปริญญา</annotation>
-		<annotation cp="🧢">หมวกแก๊ป</annotation>
-		<annotation cp="🧢" type="tts">หมวกแก๊ป</annotation>
-		<annotation cp="⛑">กากบาท | ปลอดภัย | หมวกนิรภัย | หมวกนิรภัยมีกากบาทขาว</annotation>
-		<annotation cp="⛑" type="tts">หมวกนิรภัยมีกากบาทขาว</annotation>
-		<annotation cp="📿">ลูกประคำ | ลูกปัด | ศาสนา | สร้อย | สวดมนต์</annotation>
-		<annotation cp="📿" type="tts">ลูกประคำ</annotation>
-		<annotation cp="💄">เครื่องสำอาง | ลิปสติก</annotation>
-		<annotation cp="💄" type="tts">ลิปสติก</annotation>
-		<annotation cp="💍">ความรัก | แหวน</annotation>
-		<annotation cp="💍" type="tts">แหวน</annotation>
-		<annotation cp="💎">เพชร | อัญมณี</annotation>
-		<annotation cp="💎" type="tts">อัญมณี</annotation>
+		<annotation cp="♀">ผู้หญิง | สัญลักษณ์เพศหญิง</annotation>
+		<annotation cp="♀" type="tts">สัญลักษณ์เพศหญิง</annotation>
+		<annotation cp="♂">ผู้ชาย | สัญลักษณ์เพศชาย</annotation>
+		<annotation cp="♂" type="tts">สัญลักษณ์เพศชาย</annotation>
 		<annotation cp="🐵">ใบหน้า | ลิง | สัตว์ | หน้าลิง</annotation>
 		<annotation cp="🐵" type="tts">หน้าลิง</annotation>
 		<annotation cp="🐒">ลิง | สัตว์</annotation>
@@ -913,11 +857,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐶" type="tts">หน้าสุนัข</annotation>
 		<annotation cp="🐕">สัตว์ | สุนัข</annotation>
 		<annotation cp="🐕" type="tts">สุนัข</annotation>
+		<annotation cp="🐕‍🦺">การเข้าถึง | ความช่วยเหลือ | บริการ | สุนัข</annotation>
+		<annotation cp="🐕‍🦺" type="tts">สุนัขบริการ</annotation>
 		<annotation cp="🐩">พุดเดิ้ล | สัตว์ | สุนัข</annotation>
 		<annotation cp="🐩" type="tts">พุดเดิ้ล</annotation>
-		<annotation cp="🐺">สัตว์ | หน้า | หน้าหมาป่า | หมาป่า</annotation>
-		<annotation cp="🐺" type="tts">หน้าหมาป่า</annotation>
-		<annotation cp="🦊">จิ้งจอก | เจ้าเล่ห์ | สัตว์ | หน้า</annotation>
+		<annotation cp="🐺">หน้า | หมาป่า</annotation>
+		<annotation cp="🐺" type="tts">หมาป่า</annotation>
+		<annotation cp="🦊">จิ้งจอก | หน้า</annotation>
 		<annotation cp="🦊" type="tts">จิ้งจอก</annotation>
 		<annotation cp="🦝">ขี้สงสัย | มีเล่ห์เหลี่ยม | แรคคูน</annotation>
 		<annotation cp="🦝" type="tts">แรคคูน</annotation>
@@ -925,8 +871,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐱" type="tts">หน้าแมว</annotation>
 		<annotation cp="🐈">แมว | สัตว์</annotation>
 		<annotation cp="🐈" type="tts">แมว</annotation>
-		<annotation cp="🦁">ราศี | ราศีสิงห์ | สิงโต | หน้า | หน้าสิงโต</annotation>
-		<annotation cp="🦁" type="tts">หน้าสิงโต</annotation>
+		<annotation cp="🦁">ราศี | ราศีสิงห์ | สิงโต | หน้า</annotation>
+		<annotation cp="🦁" type="tts">สิงโต</annotation>
 		<annotation cp="🐯">สัตว์ | เสือ | หน้าเสือ</annotation>
 		<annotation cp="🐯" type="tts">หน้าเสือ</annotation>
 		<annotation cp="🐅">สัตว์ | เสือ</annotation>
@@ -937,8 +883,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐴" type="tts">หน้าม้า</annotation>
 		<annotation cp="🐎">ม้า | สัตว์</annotation>
 		<annotation cp="🐎" type="tts">ม้า</annotation>
-		<annotation cp="🦄">ยูนิคอร์น | หน้า | หน้ายูนิคอร์น</annotation>
-		<annotation cp="🦄" type="tts">หน้ายูนิคอร์น</annotation>
+		<annotation cp="🦄">ยูนิคอร์น | หน้า</annotation>
+		<annotation cp="🦄" type="tts">ยูนิคอร์น</annotation>
 		<annotation cp="🦓">ม้าลาย | ลายทาง</annotation>
 		<annotation cp="🦓" type="tts">ม้าลาย</annotation>
 		<annotation cp="🦌">กวาง | เขา | สัตว์ | หัว</annotation>
@@ -985,8 +931,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐁" type="tts">หนูตัวเล็ก</annotation>
 		<annotation cp="🐀">สัตว์ | หนู | หนูตัวใหญ่</annotation>
 		<annotation cp="🐀" type="tts">หนูตัวใหญ่</annotation>
-		<annotation cp="🐹">ใบหน้า | สัตว์ | หน้าหนูแฮมสเตอร์</annotation>
-		<annotation cp="🐹" type="tts">หน้าหนูแฮมสเตอร์</annotation>
+		<annotation cp="🐹">ใบหน้า | สัตว์ | หนูแฮมสเตอร์</annotation>
+		<annotation cp="🐹" type="tts">หนูแฮมสเตอร์</annotation>
 		<annotation cp="🐰">กระต่าย | สัตว์ | หน้า | หน้ากระต่าย</annotation>
 		<annotation cp="🐰" type="tts">หน้ากระต่าย</annotation>
 		<annotation cp="🐇">กระต่าย | สัตว์</annotation>
@@ -997,18 +943,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦔" type="tts">เฮดจ์ฮ็อก</annotation>
 		<annotation cp="🦇">ค้างคาว | ดูดเลือด | แวมไพร์ | สัตว์</annotation>
 		<annotation cp="🦇" type="tts">ค้างคาว</annotation>
-		<annotation cp="🐻">สัตว์ | หน้า | หน้าหมี | หมี</annotation>
-		<annotation cp="🐻" type="tts">หน้าหมี</annotation>
+		<annotation cp="🐻">หน้า | หมี</annotation>
+		<annotation cp="🐻" type="tts">หมี</annotation>
 		<annotation cp="🐨">โคอาล่า | สัตว์</annotation>
 		<annotation cp="🐨" type="tts">โคอาล่า</annotation>
-		<annotation cp="🐼">แพนด้า | สัตว์ | หน้า | หน้าแพนด้า | หมี</annotation>
-		<annotation cp="🐼" type="tts">หน้าแพนด้า</annotation>
+		<annotation cp="🐼">แพนด้า | หน้า</annotation>
+		<annotation cp="🐼" type="tts">แพนด้า</annotation>
 		<annotation cp="🦘">กระโดด | จิงโจ้ | โจอี้ | สัตว์ที่มีกระเป๋าหน้าท้อง | ออสเตรเลีย</annotation>
 		<annotation cp="🦘" type="tts">จิงโจ้</annotation>
 		<annotation cp="🦡">ก่อกวน | แบดเจอร์ | ฮันนี่แบดเจอร์</annotation>
 		<annotation cp="🦡" type="tts">แบดเจอร์</annotation>
-		<annotation cp="🐾">รอยเท้า | รอยเท้าสัตว์</annotation>
-		<annotation cp="🐾" type="tts">รอยเท้าสัตว์</annotation>
 		<annotation cp="🦃">ไก่งวง | สัตว์ปีก</annotation>
 		<annotation cp="🦃" type="tts">ไก่งวง</annotation>
 		<annotation cp="🐔">ไก่ | สัตว์ปีก</annotation>
@@ -1039,8 +983,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦚" type="tts">นกยูง</annotation>
 		<annotation cp="🦜">โจรสลัด | นก | นกแก้ว | พูดคุย</annotation>
 		<annotation cp="🦜" type="tts">นกแก้ว</annotation>
-		<annotation cp="🐸">กบ | หน้า | หน้ากบ</annotation>
-		<annotation cp="🐸" type="tts">หน้ากบ</annotation>
+		<annotation cp="🐸">กบ | หน้า</annotation>
+		<annotation cp="🐸" type="tts">กบ</annotation>
 		<annotation cp="🐊">จระเข้ | สัตว์</annotation>
 		<annotation cp="🐊" type="tts">จระเข้</annotation>
 		<annotation cp="🐢">เต่า | สัตว์</annotation>
@@ -1075,14 +1019,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐙" type="tts">ปลาหมึกยักษ์</annotation>
 		<annotation cp="🐚">สัตว์ | หอย</annotation>
 		<annotation cp="🐚" type="tts">หอย</annotation>
-		<annotation cp="🦀">กรกฎ | ปู | ราศี | สัตว์</annotation>
-		<annotation cp="🦀" type="tts">ปู</annotation>
-		<annotation cp="🦞">ก้ามกุ้ง | กุ้งมังกร | ซุปน้ำข้น | อาหารทะเล</annotation>
-		<annotation cp="🦞" type="tts">กุ้งมังกร</annotation>
-		<annotation cp="🦐">กุ้ง | อาหาร</annotation>
-		<annotation cp="🦐" type="tts">กุ้ง</annotation>
-		<annotation cp="🦑">ปลา | หมึก | อาหาร</annotation>
-		<annotation cp="🦑" type="tts">หมึก</annotation>
 		<annotation cp="🐌">สัตว์ | หอยทาก</annotation>
 		<annotation cp="🐌" type="tts">หอยทาก</annotation>
 		<annotation cp="🦋">ผีเสื้อ | แมลง | สวย</annotation>
@@ -1299,6 +1235,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥠" type="tts">คุกกี้เสี่ยงทาย</annotation>
 		<annotation cp="🥡">อาหารกล่องซื้อกลับบ้าน | อาหารสั่งกลับบ้าน</annotation>
 		<annotation cp="🥡" type="tts">อาหารกล่องซื้อกลับบ้าน</annotation>
+		<annotation cp="🦀">กรกฎ | ปู | ราศี | สัตว์</annotation>
+		<annotation cp="🦀" type="tts">ปู</annotation>
+		<annotation cp="🦞">ก้ามกุ้ง | กุ้งมังกร | ซุปน้ำข้น | อาหารทะเล</annotation>
+		<annotation cp="🦞" type="tts">กุ้งมังกร</annotation>
+		<annotation cp="🦐">กุ้ง | อาหาร</annotation>
+		<annotation cp="🦐" type="tts">กุ้ง</annotation>
+		<annotation cp="🦑">ปลา | หมึก | อาหาร</annotation>
+		<annotation cp="🦑" type="tts">หมึก</annotation>
 		<annotation cp="🍦">ซอฟต์ครีม | ไอศกรีม</annotation>
 		<annotation cp="🍦" type="tts">ซอฟต์ครีม</annotation>
 		<annotation cp="🍧">ของหวาน | น้ำแข็ง | น้ำแข็งไส | น้ำหวาน</annotation>
@@ -1316,7 +1260,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧁">ขนมหวาน | คัพเค้ก | เบเกอรี่</annotation>
 		<annotation cp="🧁" type="tts">คัพเค้ก</annotation>
 		<annotation cp="🥧" draft="contributed">พาย</annotation>
-		<annotation cp="🥧" type="tts" draft="contributed">พาย</annotation>
+		<annotation cp="🥧" type="tts">พาย</annotation>
 		<annotation cp="🍫">ช็อกโกแลต | ช็อกโกแลตแท่ง</annotation>
 		<annotation cp="🍫" type="tts">ช็อกโกแลต</annotation>
 		<annotation cp="🍬">ขนม | ของหวาน | ลูกอม</annotation>
@@ -1354,9 +1298,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥃">แก้ว | แก้วเหล้า | ดื่ม | เพียว | เหล้า</annotation>
 		<annotation cp="🥃" type="tts">แก้วเหล้า</annotation>
 		<annotation cp="🥤" draft="contributed">แก้วพร้อมหลอด</annotation>
-		<annotation cp="🥤" type="tts" draft="contributed">แก้วพร้อมหลอด</annotation>
+		<annotation cp="🥤" type="tts">แก้วพร้อมหลอด</annotation>
 		<annotation cp="🥢">ตะเกียบ</annotation>
-		<annotation cp="🥢" type="tts" draft="contributed">ตะเกียบ</annotation>
+		<annotation cp="🥢" type="tts">ตะเกียบ</annotation>
 		<annotation cp="🍽">จาน | จานพร้อมส้อมและมีด | ทำอาหาร | มีด | ส้อม</annotation>
 		<annotation cp="🍽" type="tts">จานพร้อมส้อมและมีด</annotation>
 		<annotation cp="🍴">ร้านอาหาร | ส้อมและมีด</annotation>
@@ -1547,14 +1491,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚛" type="tts">รถบรรทุก</annotation>
 		<annotation cp="🚜">แทร็กเตอร์ | ยานพาหนะ</annotation>
 		<annotation cp="🚜" type="tts">แทร็กเตอร์</annotation>
+		<annotation cp="🏎">แข่ง | รถ | รถแข่ง</annotation>
+		<annotation cp="🏎" type="tts">รถแข่ง</annotation>
+		<annotation cp="🏍">แข่ง | มอเตอร์ไซค์</annotation>
+		<annotation cp="🏍" type="tts">มอเตอร์ไซค์</annotation>
+		<annotation cp="🛵">รถ | รถสกู๊ตเตอร์ | สกู๊ตเตอร์</annotation>
+		<annotation cp="🛵" type="tts">รถสกู๊ตเตอร์</annotation>
 		<annotation cp="🚲">จักรยาน | ยานพาหนะ</annotation>
 		<annotation cp="🚲" type="tts">จักรยาน</annotation>
 		<annotation cp="🛴">สกู๊ตเตอร์</annotation>
 		<annotation cp="🛴" type="tts">สกู๊ตเตอร์</annotation>
 		<annotation cp="🛹">บอร์ด | สเก็ตบอร์ด</annotation>
 		<annotation cp="🛹" type="tts">สเก็ตบอร์ด</annotation>
-		<annotation cp="🛵">รถ | รถสกู๊ตเตอร์ | สกู๊ตเตอร์</annotation>
-		<annotation cp="🛵" type="tts">รถสกู๊ตเตอร์</annotation>
 		<annotation cp="🚏">ป้ายรถ | ป้ายรถบัส | ยานพาหนะ | รถบัส</annotation>
 		<annotation cp="🚏" type="tts">ป้ายรถบัส</annotation>
 		<annotation cp="🛣">ถนน | ทางด่วน</annotation>
@@ -1614,7 +1562,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚀">จรวด | ยานพาหนะ | อวกาศ</annotation>
 		<annotation cp="🚀" type="tts">จรวด</annotation>
 		<annotation cp="🛸" draft="contributed">จานบิน</annotation>
-		<annotation cp="🛸" type="tts" draft="contributed">จานบิน</annotation>
+		<annotation cp="🛸" type="tts">จานบิน</annotation>
 		<annotation cp="🛎">กระดิ่ง | กระดิ่งโรงแรม | พนักงาน | โรงแรม</annotation>
 		<annotation cp="🛎" type="tts">กระดิ่งโรงแรม</annotation>
 		<annotation cp="🧳">กระเป๋าเดินทาง | การเตรียมสัมภาระ | เดินทาง</annotation>
@@ -1781,7 +1729,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎇" type="tts">ดอกไม้ไฟ</annotation>
 		<annotation cp="🧨">ดอกไม้ไฟ | ไดนาไมต์ | ประทัด | ระเบิด</annotation>
 		<annotation cp="🧨" type="tts">ประทัด</annotation>
-		<annotation cp="✨">ดาววิบวับ | ประกายวิบวับ</annotation>
+		<annotation cp="✨">* | ดาว | ดาววิบวับ | ประกายวิบวับ</annotation>
 		<annotation cp="✨" type="tts">ประกายวิบวับ</annotation>
 		<annotation cp="🎈">เฉลิมฉลอง | ลูกโป่ง</annotation>
 		<annotation cp="🎈" type="tts">ลูกโป่ง</annotation>
@@ -1893,7 +1841,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎰" type="tts">สล็อตแมชชีน</annotation>
 		<annotation cp="🎲">ทอยลูกเต๋า | ลูกเต๋า</annotation>
 		<annotation cp="🎲" type="tts">ลูกเต๋า</annotation>
-		<annotation cp="🧩">จิ๊กซอว์ | ชิ้นส่วน | ตัวต่อ</annotation>
+		<annotation cp="🧩">คำใบ้ | จิ๊กซอว์ | ชิ้นส่วน | ตัวต่อ | ทับซ้อน | ปริศนา</annotation>
 		<annotation cp="🧩" type="tts">จิ๊กซอว์</annotation>
 		<annotation cp="🧸">ของเล่น | เครื่องเล่น | ตุ๊กตาหมี | ผ้ากำมะหยี่ | ยัดนุ่น</annotation>
 		<annotation cp="🧸" type="tts">ตุ๊กตาหมี</annotation>
@@ -1923,6 +1871,80 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧵" type="tts">ด้าย</annotation>
 		<annotation cp="🧶">กลุ่มไหม | ก้อนไหมพรม | โครเชต์ | ถัก | ไหมพรม</annotation>
 		<annotation cp="🧶" type="tts">ไหมพรม</annotation>
+		<annotation cp="👓">ตา | แว่นตา | แว่นสายตา</annotation>
+		<annotation cp="👓" type="tts">แว่นตา</annotation>
+		<annotation cp="🕶">แดด | ตา | แว่นกันแดด | แว่นตา</annotation>
+		<annotation cp="🕶" type="tts">แว่นกันแดด</annotation>
+		<annotation cp="🥽">แว่นตากันลม | แว่นตาว่ายน้ำ | แว่นป้องกันดวงตา</annotation>
+		<annotation cp="🥽" type="tts">แว่นตากันลม</annotation>
+		<annotation cp="🥼">การทดลอง | นักวิทยาศาสตร์ | เสื้อกาวน์ | หมอ</annotation>
+		<annotation cp="🥼" type="tts">เสื้อกาวน์</annotation>
+		<annotation cp="👔">เนคไท | เสื้อผ้า</annotation>
+		<annotation cp="👔" type="tts">เนคไท</annotation>
+		<annotation cp="👕">เสื้อผ้า | เสื้อยืด</annotation>
+		<annotation cp="👕" type="tts">เสื้อยืด</annotation>
+		<annotation cp="👖">กางเกง | กางเกงขายาว | ยีนส์ | เสื้อผ้า</annotation>
+		<annotation cp="👖" type="tts">ยีนส์</annotation>
+		<annotation cp="🧣">คอ | ผ้าพันคอ</annotation>
+		<annotation cp="🧣" type="tts">ผ้าพันคอ</annotation>
+		<annotation cp="🧤">ถุงมือ | มือ</annotation>
+		<annotation cp="🧤" type="tts">ถุงมือ</annotation>
+		<annotation cp="🧥">เสื้อโค้ต | เสื้อโค้ท</annotation>
+		<annotation cp="🧥" type="tts">เสื้อโค้ต</annotation>
+		<annotation cp="🧦">ถุงเท้า | ถุงน่อง</annotation>
+		<annotation cp="🧦" type="tts">ถุงเท้า</annotation>
+		<annotation cp="👗">ชุดกระโปรง | เดรส</annotation>
+		<annotation cp="👗" type="tts">ชุดกระโปรง</annotation>
+		<annotation cp="👘">กิโมโน | เสื้อผ้า</annotation>
+		<annotation cp="👘" type="tts">กิโมโน</annotation>
+		<annotation cp="👙">บิกินี | ว่ายน้ำ | เสื้อผ้า</annotation>
+		<annotation cp="👙" type="tts">บิกินี</annotation>
+		<annotation cp="👚">เสื้อผ้า | เสื้อผู้หญิง</annotation>
+		<annotation cp="👚" type="tts">เสื้อผู้หญิง</annotation>
+		<annotation cp="👛">กระเป๋าสตางค์ | กระเป๋าใส่เงิน | กระเป๋าใส่เหรียญ</annotation>
+		<annotation cp="👛" type="tts">กระเป๋าใส่เงิน</annotation>
+		<annotation cp="👜">กระเป๋า | กระเป๋าถือ</annotation>
+		<annotation cp="👜" type="tts">กระเป๋าถือ</annotation>
+		<annotation cp="👝">กระเป๋า | กระเป๋าใบเล็ก</annotation>
+		<annotation cp="👝" type="tts">กระเป๋าใบเล็ก</annotation>
+		<annotation cp="🛍">ช้อปปิ้ง | ถุง | ถุงช็อปปิ้ง | ห้าง</annotation>
+		<annotation cp="🛍" type="tts">ถุงช็อปปิ้ง</annotation>
+		<annotation cp="🎒">กระเป๋า | กระเป๋าเรียน | เป้นักเรียน</annotation>
+		<annotation cp="🎒" type="tts">เป้นักเรียน</annotation>
+		<annotation cp="👞">ผู้ชาย | รองเท้า | รองเท้าชาย | รองเท้าผู้ชาย</annotation>
+		<annotation cp="👞" type="tts">รองเท้าชาย</annotation>
+		<annotation cp="👟">รองเท้า | รองเท้ากีฬา | รองเท้าผ้าใบ</annotation>
+		<annotation cp="👟" type="tts">รองเท้ากีฬา</annotation>
+		<annotation cp="🥾">ตั้งแคมป์ | แบ็คแพ็คกิ้ง | ปีนเขา | รองเท้าบู๊ท | รองเท้าปีนเขา</annotation>
+		<annotation cp="🥾" type="tts">รองเท้าปีนเขา</annotation>
+		<annotation cp="🥿">รองเท้าคัทชู | รองเท้าบัลเล่ต์ | รองเท้าส้นเตี้ย | รองเท้าสลิปเปอร์</annotation>
+		<annotation cp="🥿" type="tts">รองเท้าส้นเตี้ย</annotation>
+		<annotation cp="👠">รองเท้า | รองเท้าผู้หญิง | รองเท้าส้นสูง | ส้นสูง</annotation>
+		<annotation cp="👠" type="tts">รองเท้าส้นสูง</annotation>
+		<annotation cp="👡">ผู้หญิง | รองเท้า | รองเท้าแตะ | รองเท้าแตะผู้หญิง | เสื้อผ้า</annotation>
+		<annotation cp="👡" type="tts">รองเท้าแตะผู้หญิง</annotation>
+		<annotation cp="👢">ผู้หญิง | รองเท้าบู๊ต | รองเท้าบู๊ตผู้หญิง | เสื้อผ้า</annotation>
+		<annotation cp="👢" type="tts">รองเท้าบู๊ตผู้หญิง</annotation>
+		<annotation cp="👑">พระราชา | พระราชินี | มงกุฎ</annotation>
+		<annotation cp="👑" type="tts">มงกุฎ</annotation>
+		<annotation cp="👒">ผู้หญิง | หมวก | หมวกผู้หญิง</annotation>
+		<annotation cp="👒" type="tts">หมวกผู้หญิง</annotation>
+		<annotation cp="🎩">หมวก | หมวกสูง</annotation>
+		<annotation cp="🎩" type="tts">หมวกสูง</annotation>
+		<annotation cp="🎓">รับปริญญา | หมวก | หมวกรับปริญญา</annotation>
+		<annotation cp="🎓" type="tts">หมวกรับปริญญา</annotation>
+		<annotation cp="🧢">หมวกแก๊ป</annotation>
+		<annotation cp="🧢" type="tts">หมวกแก๊ป</annotation>
+		<annotation cp="⛑">กากบาท | ปลอดภัย | หมวกนิรภัย | หมวกนิรภัยมีกากบาทขาว</annotation>
+		<annotation cp="⛑" type="tts">หมวกนิรภัยมีกากบาทขาว</annotation>
+		<annotation cp="📿">ลูกประคำ | ลูกปัด | ศาสนา | สร้อย | สวดมนต์</annotation>
+		<annotation cp="📿" type="tts">ลูกประคำ</annotation>
+		<annotation cp="💄">เครื่องสำอาง | ลิปสติก</annotation>
+		<annotation cp="💄" type="tts">ลิปสติก</annotation>
+		<annotation cp="💍">ความรัก | แหวน</annotation>
+		<annotation cp="💍" type="tts">แหวน</annotation>
+		<annotation cp="💎">เพชร | อัญมณี</annotation>
+		<annotation cp="💎" type="tts">อัญมณี</annotation>
 		<annotation cp="🔇">ปิดเสียง | โปรดเงียบ | ไม่ใช้เสียง</annotation>
 		<annotation cp="🔇" type="tts">ไม่ใช้เสียง</annotation>
 		<annotation cp="🔈">ลำโพง | ลำโพงเสียงเบา</annotation>
@@ -2477,10 +2499,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📳" type="tts">โหมดสั่น</annotation>
 		<annotation cp="📴">โทรศัพท์ | ปิด | ปิดมือถือ | มือถือ</annotation>
 		<annotation cp="📴" type="tts">ปิดมือถือ</annotation>
-		<annotation cp="♀">ผู้หญิง | สัญลักษณ์เพศหญิง</annotation>
-		<annotation cp="♀" type="tts">สัญลักษณ์เพศหญิง</annotation>
-		<annotation cp="♂">ผู้ชาย | สัญลักษณ์เพศชาย</annotation>
-		<annotation cp="♂" type="tts">สัญลักษณ์เพศชาย</annotation>
 		<annotation cp="⚕">การแพทย์ | คทางูไขว้ | เครื่องหมายการแพทย์ | ไม้เท้า | แอสคูลาปิอุส</annotation>
 		<annotation cp="⚕" type="tts">เครื่องหมายการแพทย์</annotation>
 		<annotation cp="♾">ตลอดกาล | ตลอดไป | ไม่มีขอบเขต | ไม่มีที่สิ้นสุด</annotation>
@@ -2495,60 +2513,58 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📛" type="tts">ป้ายชื่อ</annotation>
 		<annotation cp="🔰">เขียว | เครื่องมือ | บั้ง | ใบไม้ | สัญลักษณ์มือใหม่หัดขับ | เหลือง</annotation>
 		<annotation cp="🔰" type="tts">สัญลักษณ์มือใหม่หัดขับ</annotation>
-		<annotation cp="⭕">วงกลม | วงกลมใหญ่</annotation>
-		<annotation cp="⭕" type="tts">วงกลมใหญ่</annotation>
-		<annotation cp="✅">เครื่องหมายถูก | เครื่องหมายถูกสีขาวแบบหนา | ช่องเขียวมีเครื่องหมายถูก | เช็ค</annotation>
-		<annotation cp="✅" type="tts">เครื่องหมายถูกสีขาวแบบหนา</annotation>
-		<annotation cp="☑">เครื่องหมาย | ช่อง | ช่องดำมีเครื่องหมายถูก | ช่องลงคะแนนมีเครื่องหมายถูก | ถูก | เลือก</annotation>
-		<annotation cp="☑" type="tts">ช่องลงคะแนนมีเครื่องหมายถูก</annotation>
-		<annotation cp="✔">เครื่องหมาย | เครื่องหมายถูกแบบหนา | ถูก | เลือก</annotation>
-		<annotation cp="✔" type="tts">เครื่องหมายถูกแบบหนา</annotation>
-		<annotation cp="✖">คูณ | เครื่องหมาย | เครื่องหมายคูณ | ยกเลิก</annotation>
+		<annotation cp="⭕">o | วงกลม | สีแดง | ใหญ่</annotation>
+		<annotation cp="⭕" type="tts">วงกลมกลวงสีแดง</annotation>
+		<annotation cp="✅">✓ | เครื่องหมาย | เครื่องหมายถูก | ปุ่ม</annotation>
+		<annotation cp="✅" type="tts">ปุ่มเครื่องหมายถูก</annotation>
+		<annotation cp="☑">✓ | กล่อง | กล่องกาเครื่องหมายมีเครื่องหมายถูก | เครื่องหมายถูก</annotation>
+		<annotation cp="☑" type="tts">กล่องกาเครื่องหมายมีเครื่องหมายถูก</annotation>
+		<annotation cp="✔">✓ | เครื่องหมาย | เครื่องหมายถูก</annotation>
+		<annotation cp="✔" type="tts">เครื่องหมายถูก</annotation>
+		<annotation cp="✖">× | x | การคูณ | คูณ | เครื่องหมาย | เครื่องหมายคูณ x แบบหนา | ยกเลิก</annotation>
 		<annotation cp="✖" type="tts">เครื่องหมายคูณ</annotation>
-		<annotation cp="❌">คูณ | เครื่องหมาย | เครื่องหมายกากบาท | ยกเลิก</annotation>
+		<annotation cp="❌">x | กากบาท | คูณ | เครื่องหมายคูณ | ยกเลิก</annotation>
 		<annotation cp="❌" type="tts">เครื่องหมายกากบาท</annotation>
-		<annotation cp="❎">กากบาท | เครื่องหมาย | ปุ่มเครื่องหมายกากบาท | สี่เหลี่ยม</annotation>
+		<annotation cp="❎">× | x | เครื่องหมาย | ปุ่มเครื่องหมายกากบาท | สี่เหลี่ยม</annotation>
 		<annotation cp="❎" type="tts">ปุ่มเครื่องหมายกากบาท</annotation>
-		<annotation cp="➕">เครื่องหมายบวก | บวก</annotation>
-		<annotation cp="➕" type="tts">บวก</annotation>
-		<annotation cp="➖">เครื่องหมายลบ | ลบ</annotation>
-		<annotation cp="➖" type="tts">ลบ</annotation>
-		<annotation cp="➗">เครื่องหมายหาร | หาร</annotation>
-		<annotation cp="➗" type="tts">หาร</annotation>
+		<annotation cp="➕">+ | คณิต | เครื่องหมาย | บวก</annotation>
+		<annotation cp="➕" type="tts">เครื่องหมายบวก</annotation>
+		<annotation cp="➖">- | − | คณิต | เครื่องหมาย | ลบ</annotation>
+		<annotation cp="➖" type="tts">เครื่องหมายลบ</annotation>
+		<annotation cp="➗">÷ | คณิต | เครื่องหมาย | หาร</annotation>
+		<annotation cp="➗" type="tts">เครื่องหมายหาร</annotation>
 		<annotation cp="➰">วง | ห่วง</annotation>
 		<annotation cp="➰" type="tts">ห่วง</annotation>
 		<annotation cp="➿">เส้นโค้ง | ห่วง | ห่วง 2 รู</annotation>
 		<annotation cp="➿" type="tts">ห่วง 2 รู</annotation>
 		<annotation cp="〽">เครื่องหมาย | เครื่องหมายเปลี่ยนท่อน | ท่อน</annotation>
 		<annotation cp="〽" type="tts">เครื่องหมายเปลี่ยนท่อน</annotation>
-		<annotation cp="✳">เครื่องหมายดอกจัน | ดอกจัน</annotation>
-		<annotation cp="✳" type="tts">เครื่องหมายดอกจัน</annotation>
-		<annotation cp="✴">ดาว | ดาว 8 แฉก</annotation>
+		<annotation cp="✳">* | เครื่องหมายดอกจัน | ดอกจัน 8 ซี่</annotation>
+		<annotation cp="✳" type="tts">ดอกจัน 8 ซี่</annotation>
+		<annotation cp="✴">* | ดาว | ดาว 8 แฉก</annotation>
 		<annotation cp="✴" type="tts">ดาว 8 แฉก</annotation>
-		<annotation cp="❇">ประกาย | เปล่งประกาย</annotation>
+		<annotation cp="❇">* | ประกาย | เปล่งประกาย</annotation>
 		<annotation cp="❇" type="tts">เปล่งประกาย</annotation>
-		<annotation cp="‼">เครื่องหมาย | เครื่องหมายอัศเจรีย์คู่ | ตกใจ | อัศเจรีย์</annotation>
+		<annotation cp="‼">! | !! | เครื่องหมายวรรคตอน | เครื่องหมายอัศเจรีย์คู่ | ปังปัง</annotation>
 		<annotation cp="‼" type="tts">เครื่องหมายอัศเจรีย์คู่</annotation>
-		<annotation cp="⁉">เครื่องหมาย | เครื่องหมายอัศเจรีย์และคำถาม | ตกใจ | อัศเจรีย์</annotation>
+		<annotation cp="⁉">! | !? | ? | เครื่องหมายอัศเจรีย์และเครื่องหมายคำถาม | อัศเจรีย์</annotation>
 		<annotation cp="⁉" type="tts">เครื่องหมายอัศเจรีย์และคำถาม</annotation>
-		<annotation cp="❓">คำถาม | เครื่่องหมาย | เครื่องหมายคำถาม</annotation>
+		<annotation cp="❓">? | คำถาม | เครื่องหมาย | เครื่องหมายวรรคตอน</annotation>
 		<annotation cp="❓" type="tts">เครื่องหมายคำถาม</annotation>
-		<annotation cp="❔">คำถาม | เครื่่องหมาย | เครื่องหมายคำถามสีขาว</annotation>
+		<annotation cp="❔">? | คำถาม | เครื่องหมาย | เครื่องหมายคำถามสีขาว | เครื่องหมายวรรคตอน</annotation>
 		<annotation cp="❔" type="tts">เครื่องหมายคำถามสีขาว</annotation>
-		<annotation cp="❕">เครื่องหมาย | เครื่องหมายอัศเจรีย์สีขาว | ตกใจ | อัศเจรีย์</annotation>
+		<annotation cp="❕">! | เครื่องหมาย | เครื่องหมายวรรคตอน | เครื่องหมายอัศเจรีย์ | เครื่องหมายอัศเจรีย์สีขาว</annotation>
 		<annotation cp="❕" type="tts">เครื่องหมายอัศเจรีย์สีขาว</annotation>
-		<annotation cp="❗">เครื่องหมาย | เครื่องหมายอัศเจรีย์ | ตกใจ | อัศเจรีย์</annotation>
+		<annotation cp="❗">! | เครื่องหมาย | เครื่องหมายวรรคตอน | เครื่องหมายอัศเจรีย์</annotation>
 		<annotation cp="❗" type="tts">เครื่องหมายอัศเจรีย์</annotation>
 		<annotation cp="〰">คลื่น | เครื่องหมาย | เส้น | เส้นคลื่น</annotation>
 		<annotation cp="〰" type="tts">เส้นคลื่น</annotation>
-		<annotation cp="©">ลิขสิทธิ์ | สัญลักษณ์ลิขสิทธิ์</annotation>
-		<annotation cp="©" type="tts">สัญลักษณ์ลิขสิทธิ์</annotation>
-		<annotation cp="®">จดทะเบียน | สัญลักษณ์จดทะเบียน</annotation>
-		<annotation cp="®" type="tts">สัญลักษณ์จดทะเบียน</annotation>
+		<annotation cp="©">c | ลิขสิทธิ์ | สัญลักษณ์ลิขสิทธิ์</annotation>
+		<annotation cp="©" type="tts">ลิขสิทธิ์</annotation>
+		<annotation cp="®">r | จดทะเบียน | สัญลักษณ์จดทะเบียน</annotation>
+		<annotation cp="®" type="tts">จดทะเบียน</annotation>
 		<annotation cp="™">เครื่องหมายการค้า | ป้ายเครื่องหมายการค้า</annotation>
 		<annotation cp="™" type="tts">เครื่องหมายการค้า</annotation>
-		<annotation cp="💯">100 คะแนน | คะแนนเต็ม</annotation>
-		<annotation cp="💯" type="tts">คะแนนเต็ม</annotation>
 		<annotation cp="🔠">ภาษาอังกฤษ | อักษรตัวพิมพ์ใหญ่ | อักษรตัวใหญ่</annotation>
 		<annotation cp="🔠" type="tts">อักษรตัวพิมพ์ใหญ่</annotation>
 		<annotation cp="🔡">ภาษาอังกฤษ | อักษรตัวพิมพ์เล็ก | อักษรตัวเล็ก</annotation>
@@ -2685,5 +2701,139 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">ธงสีรุ้ง</annotation>
 		<annotation cp="🏴‍☠">ขุมทรัพย์ | จอลลีโรเจอร์ | โจรสลัด | ธงโจรสลัด | ปล้น</annotation>
 		<annotation cp="🏴‍☠" type="tts">ธงโจรสลัด</annotation>
+		<annotation cp="🛕">วัด | ฮินดู</annotation>
+		<annotation cp="🛕" type="tts">วัดฮินดู</annotation>
+		<annotation cp="🛺">ตุ๊กตุ๊ก | รถตุ๊กตุ๊ก</annotation>
+		<annotation cp="🛺" type="tts">รถสามล้อ</annotation>
+		<annotation cp="🟠">วงกลม | สีส้ม</annotation>
+		<annotation cp="🟠" type="tts">วงกลมสีส้ม</annotation>
+		<annotation cp="🟡">วงกลม | สีเหลือง</annotation>
+		<annotation cp="🟡" type="tts">วงกลมสีเหลือง</annotation>
+		<annotation cp="🟢">วงกลม | สีเขียว</annotation>
+		<annotation cp="🟢" type="tts">วงกลมสีเขียว</annotation>
+		<annotation cp="🟣">วงกลม | สีม่วง</annotation>
+		<annotation cp="🟣" type="tts">วงกลมสีม่วง</annotation>
+		<annotation cp="🟤">วงกลม | สีน้ำตาล</annotation>
+		<annotation cp="🟤" type="tts">วงกลมสีน้ำตาล</annotation>
+		<annotation cp="🟥">สีแดง | สี่เหลี่ยม</annotation>
+		<annotation cp="🟥" type="tts">สี่เหลี่ยมสีแดง</annotation>
+		<annotation cp="🟦">สีน้ำเงิน | สี่เหลี่ยม</annotation>
+		<annotation cp="🟦" type="tts">สี่เหลี่ยมสีน้ำเงิน</annotation>
+		<annotation cp="🟧">สีส้ม | สี่เหลี่ยม</annotation>
+		<annotation cp="🟧" type="tts">สี่เหลี่ยมสีส้ม</annotation>
+		<annotation cp="🟨">สี่เหลี่ยม | สีเหลือง</annotation>
+		<annotation cp="🟨" type="tts">สี่เหลี่ยมสีเหลือง</annotation>
+		<annotation cp="🟩">สีเขียว | สี่เหลี่ยม</annotation>
+		<annotation cp="🟩" type="tts">สี่เหลี่ยมสีเขียว</annotation>
+		<annotation cp="🟪">สีม่วง | สี่เหลี่ยม</annotation>
+		<annotation cp="🟪" type="tts">สี่เหลี่ยมสีม่วง</annotation>
+		<annotation cp="🟫">สีน้ำตาล | สี่เหลี่ยม</annotation>
+		<annotation cp="🟫" type="tts">สี่เหลี่ยมสีน้ำตาล</annotation>
+		<annotation cp="🤍">สีขาว | หัวใจ</annotation>
+		<annotation cp="🤍" type="tts">หัวใจสีขาว</annotation>
+		<annotation cp="🤎">สีน้ำตาล | หัวใจ</annotation>
+		<annotation cp="🤎" type="tts">หัวใจสีน้ำตาล</annotation>
+		<annotation cp="🤏">ปริมาณน้อย</annotation>
+		<annotation cp="🤏" type="tts">ทำมือบีบนิ้วเข้าหากัน</annotation>
+		<annotation cp="🤿">ดำน้ำ | ดำน้ำลึก | ดำผิวน้ำ</annotation>
+		<annotation cp="🤿" type="tts">หน้ากากดำน้ำ</annotation>
+		<annotation cp="🥱">เบื่อ | หาว | เหนื่อย</annotation>
+		<annotation cp="🥱" type="tts">หน้ากำลังหาว</annotation>
+		<annotation cp="🥻">ชุดกระโปรง | ชุดเดรส | เสื้อผ้า</annotation>
+		<annotation cp="🥻" type="tts">ชุดส่าหรี</annotation>
+		<annotation cp="🦥">ขี้เกียจ | เชื่องช้า</annotation>
+		<annotation cp="🦥" type="tts">สลอธ</annotation>
+		<annotation cp="🦦">การตกปลา | ขี้เล่น</annotation>
+		<annotation cp="🦦" type="tts">ตัวนาก</annotation>
+		<annotation cp="🦧">ลิง</annotation>
+		<annotation cp="🦧" type="tts">อุรังอุตัง</annotation>
+		<annotation cp="🦨">เหม็น</annotation>
+		<annotation cp="🦨" type="tts">สกังก์</annotation>
+		<annotation cp="🦩">ทรอปิคอล | สีสันสะดุดตา</annotation>
+		<annotation cp="🦩" type="tts">นกฟลามิงโก</annotation>
+		<annotation cp="🦪">ไข่มุก | ดำน้ำ</annotation>
+		<annotation cp="🦪" type="tts">หอยนางรม</annotation>
+		<annotation cp="🦮">การเข้าถึง | ตาบอด | นำทาง</annotation>
+		<annotation cp="🦮" type="tts">สุนัขนำทาง</annotation>
+		<annotation cp="🦯">การเข้าถึง | ตาบอด</annotation>
+		<annotation cp="🦯" type="tts">ไม้เท้านำทาง</annotation>
+		<annotation cp="🦺">ความปลอดภัย | ฉุกเฉิน | เสื้อกั๊ก</annotation>
+		<annotation cp="🦺" type="tts">เสื้อนิรภัย</annotation>
+		<annotation cp="🦻">การเข้าถึง | หูตึง</annotation>
+		<annotation cp="🦻" type="tts">หูใส่อุปกรณ์ช่วยฟัง</annotation>
+		<annotation cp="🦼">การเข้าถึง | การช่วยการเข้าถึง</annotation>
+		<annotation cp="🦼" type="tts">วีลแชร์ไฟฟ้า</annotation>
+		<annotation cp="🦽">การเข้าถึง | การช่วยการเข้าถึง</annotation>
+		<annotation cp="🦽" type="tts">วีลแชร์ธรรมดา</annotation>
+		<annotation cp="🦾">กายอุปกรณ์ | การเข้าถึง</annotation>
+		<annotation cp="🦾" type="tts">แขนกล</annotation>
+		<annotation cp="🦿">กายอุปกรณ์ | การเข้าถึง</annotation>
+		<annotation cp="🦿" type="tts">ขากล</annotation>
+		<annotation cp="🧃">น้ำผลไม้แบบกล่อง</annotation>
+		<annotation cp="🧃" type="tts">เครื่องดื่มแบบกล่อง</annotation>
+		<annotation cp="🧄">ปรุงรส</annotation>
+		<annotation cp="🧄" type="tts">กระเทียม</annotation>
+		<annotation cp="🧅">ปรุงรส</annotation>
+		<annotation cp="🧅" type="tts">หอมหัวใหญ่</annotation>
+		<annotation cp="🧆">ถั่วลูกไก่ | มีตบอล</annotation>
+		<annotation cp="🧆" type="tts">ฟาลาเฟล</annotation>
+		<annotation cp="🧇">เตารีด | ไม่ทราบ</annotation>
+		<annotation cp="🧇" type="tts">วาฟเฟิล</annotation>
+		<annotation cp="🧈">ผลิตภัณฑ์นม</annotation>
+		<annotation cp="🧈" type="tts">เนย</annotation>
+		<annotation cp="🧉">เครื่องดื่ม</annotation>
+		<annotation cp="🧉" type="tts">ชามาเต</annotation>
+		<annotation cp="🧊">ภูเขาน้ำแข็ง | หนาว</annotation>
+		<annotation cp="🧊" type="tts">ก้อนน้ำแข็ง</annotation>
+		<annotation cp="🧍">กำลังยืน | ยืน</annotation>
+		<annotation cp="🧍" type="tts">คนกำลังยืน</annotation>
+		<annotation cp="🧍‍♀">กำลังยืน | ผู้หญิง</annotation>
+		<annotation cp="🧍‍♀" type="tts">ผู้หญิงกำลังยืน</annotation>
+		<annotation cp="🧍‍♂">กำลังยืน | ผู้ชาย</annotation>
+		<annotation cp="🧍‍♂" type="tts">ผู้ชายกำลังยืน</annotation>
+		<annotation cp="🧎">กำลังคุกเข่า | คุกเข่า</annotation>
+		<annotation cp="🧎" type="tts">คนกำลังคุกเข่า</annotation>
+		<annotation cp="🧎‍♀">กำลังคุกเข่า | ผู้หญิง</annotation>
+		<annotation cp="🧎‍♀" type="tts">ผู้หญิงกำลังคุกเข่า</annotation>
+		<annotation cp="🧎‍♂">กำลังคุกเข่า | ผู้ชาย</annotation>
+		<annotation cp="🧎‍♂" type="tts">ผู้ชายกำลังคุกเข่า</annotation>
+		<annotation cp="🧏">การเข้าถึง | ฟัง | หู | หูหนวก</annotation>
+		<annotation cp="🧏" type="tts">คนหูหนวก</annotation>
+		<annotation cp="🧏‍♀">ผู้หญิง | หูหนวก</annotation>
+		<annotation cp="🧏‍♀" type="tts">ผู้หญิงหูหนวก</annotation>
+		<annotation cp="🧏‍♂">ผู้ชาย | หูหนวก</annotation>
+		<annotation cp="🧏‍♂" type="tts">ผู้ชายหูหนวก</annotation>
+		<annotation cp="🩰">เต้น | บัลเล่ต์</annotation>
+		<annotation cp="🩰" type="tts">รองเท้าบัลเล่ต์</annotation>
+		<annotation cp="🩱">ชุดเล่นน้ำ | ชุดว่ายน้ำ</annotation>
+		<annotation cp="🩱" type="tts">ชุดว่ายน้ำวันพีซ</annotation>
+		<annotation cp="🩲">ขุดชั้นใน | ชุดเล่นน้ำ | ชุดว่ายน้ำ | วันพีซ</annotation>
+		<annotation cp="🩲" type="tts">กางเกงชั้นในชาย</annotation>
+		<annotation cp="🩳">กางเกงขายาว | ขุดชั้นใน | ชุดเล่นน้ำ | ชุดว่ายน้ำ</annotation>
+		<annotation cp="🩳" type="tts">กางเกงขาสั้น</annotation>
+		<annotation cp="🩸">การบริจาคเลือด | ยา | รอบประจำเดือน</annotation>
+		<annotation cp="🩸" type="tts">หยดเลือด</annotation>
+		<annotation cp="🩹">พลาสเตอร์</annotation>
+		<annotation cp="🩹" type="tts">พลาสเตอร์ปิดแผล</annotation>
+		<annotation cp="🩺">แพทย์ | ยา | หมอ | หัวใจ</annotation>
+		<annotation cp="🩺" type="tts">เครื่องฟังตรวจ</annotation>
+		<annotation cp="🪀">ของเล่น | ขึ้นๆ ลงๆ</annotation>
+		<annotation cp="🪀" type="tts">ลูกดิ่ง</annotation>
+		<annotation cp="🪁">บิน | เล่นลม</annotation>
+		<annotation cp="🪁" type="tts">ว่าว</annotation>
+		<annotation cp="🪂">กระโดดร่ม | พาราเซล | ร่มชูชีพ | แฮงไกลเดอร์</annotation>
+		<annotation cp="🪂" type="tts">ร่มชูชีพ</annotation>
+		<annotation cp="🪐">แซตเทิร์นนายน์ | ดาวเสาร์</annotation>
+		<annotation cp="🪐" type="tts">ดาวเคราะห์ที่มีวงแหวน</annotation>
+		<annotation cp="🪑">ที่นั่ง | นั่ง</annotation>
+		<annotation cp="🪑" type="tts">เก้าอี้</annotation>
+		<annotation cp="🪒">โกนหนวด | คม</annotation>
+		<annotation cp="🪒" type="tts">ใบมีดโกน</annotation>
+		<annotation cp="🪓">ขวานด้ามเล็ก | ไม้ | แยก | สับ</annotation>
+		<annotation cp="🪓" type="tts">ขวาน</annotation>
+		<annotation cp="🪔">ดิยา | ตะเกียง | น้ำมัน</annotation>
+		<annotation cp="🪔" type="tts">ตะเกียงดิยา</annotation>
+		<annotation cp="🪕">เพลง | สตริง</annotation>
+		<annotation cp="🪕" type="tts">แบนโจ</annotation>
 	</annotations>
 </ldml>

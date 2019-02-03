@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,52 +23,72 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">中等-深肤色</annotation>
 		<annotation cp="🏿">肤色 | 较深肤色</annotation>
 		<annotation cp="🏿" type="tts">较深肤色</annotation>
+		<annotation cp="🐾">爪印 | 爪子 | 足迹</annotation>
+		<annotation cp="🐾" type="tts">爪印</annotation>
 		<annotation cp="😀">嘿嘿 | 笑脸 | 脸</annotation>
 		<annotation cp="😀" type="tts">嘿嘿</annotation>
-		<annotation cp="😁">嘻嘻 | 笑脸 | 脸</annotation>
-		<annotation cp="😁" type="tts">嘻嘻</annotation>
-		<annotation cp="😂">眼泪 | 笑 | 笑哭了 | 脸</annotation>
-		<annotation cp="😂" type="tts">笑哭了</annotation>
-		<annotation cp="🤣">地板 | 打滚 | 笑 | 笑得满地打滚 | 脸</annotation>
-		<annotation cp="🤣" type="tts">笑得满地打滚</annotation>
 		<annotation cp="😃">哈哈 | 开口笑 | 笑脸 | 脸</annotation>
 		<annotation cp="😃" type="tts">哈哈</annotation>
 		<annotation cp="😄">哈哈 | 大笑 | 开心 | 笑 | 脸 | 高兴</annotation>
 		<annotation cp="😄" type="tts">大笑</annotation>
-		<annotation cp="😅">冷汗 | 汗 | 脸 | 苦笑</annotation>
-		<annotation cp="😅" type="tts">苦笑</annotation>
+		<annotation cp="😁">嘻嘻 | 笑脸 | 脸</annotation>
+		<annotation cp="😁" type="tts">嘻嘻</annotation>
 		<annotation cp="😆">开心 | 斜眼笑 | 眯眼 | 笑 | 脸 | 高兴</annotation>
 		<annotation cp="😆" type="tts">斜眼笑</annotation>
+		<annotation cp="😅">冷汗 | 汗 | 脸 | 苦笑</annotation>
+		<annotation cp="😅" type="tts">苦笑</annotation>
+		<annotation cp="🤣">地板 | 打滚 | 笑 | 笑得满地打滚 | 脸</annotation>
+		<annotation cp="🤣" type="tts">笑得满地打滚</annotation>
+		<annotation cp="😂">眼泪 | 笑 | 笑哭了 | 脸</annotation>
+		<annotation cp="😂" type="tts">笑哭了</annotation>
+		<annotation cp="🙂">呵呵 | 开心 | 笑 | 脸</annotation>
+		<annotation cp="🙂" type="tts">呵呵</annotation>
+		<annotation cp="🙃">倒脸 | 脸 | 颠倒 | 颠倒的脸</annotation>
+		<annotation cp="🙃" type="tts">倒脸</annotation>
 		<annotation cp="😉">媚眼 | 眨眼 | 笑</annotation>
 		<annotation cp="😉" type="tts">眨眼</annotation>
 		<annotation cp="😊">害羞 | 微笑 | 羞涩 | 羞涩微笑 | 脸 | 脸红</annotation>
 		<annotation cp="😊" type="tts">羞涩微笑</annotation>
-		<annotation cp="😋">好吃 | 津津有味 | 美味 | 脸</annotation>
-		<annotation cp="😋" type="tts">好吃</annotation>
-		<annotation cp="😎">太阳镜 | 眼镜 | 酷 | 墨镜 | 墨镜笑脸</annotation>
-		<annotation cp="😎" type="tts">墨镜笑脸</annotation>
+		<annotation cp="😇">光环 | 天使 | 天真 | 幻想 | 微笑 | 微笑天使 | 脸</annotation>
+		<annotation cp="😇" type="tts">微笑天使</annotation>
+		<annotation cp="🥰">喜笑颜开 | 心 | 爱慕 | 迷恋 | 陷入爱河</annotation>
+		<annotation cp="🥰" type="tts">喜笑颜开</annotation>
 		<annotation cp="😍">爱 | 红心 | 脸 | 花痴</annotation>
 		<annotation cp="😍" type="tts">花痴</annotation>
-		<annotation cp="😘">亲亲 | 眨眼 | 脸 | 飞吻</annotation>
-		<annotation cp="😘" type="tts">飞吻</annotation>
-		<annotation cp="🥰">喜笑颜开 | 爱慕 | 迷恋 | 陷入爱河</annotation>
-		<annotation cp="🥰" type="tts">喜笑颜开</annotation>
-		<annotation cp="😗">亲亲 | 吻 | 脸</annotation>
-		<annotation cp="😗" type="tts">亲亲</annotation>
-		<annotation cp="😙">亲亲 | 吻 | 微笑 | 微笑亲亲 | 脸</annotation>
-		<annotation cp="😙" type="tts">微笑亲亲</annotation>
-		<annotation cp="😚">亲亲 | 吻 | 羞涩 | 羞涩亲亲 | 脸 | 闭眼</annotation>
-		<annotation cp="😚" type="tts">羞涩亲亲</annotation>
-		<annotation cp="☺">呵呵 | 开心 | 微笑 | 放松 | 笑 | 脸</annotation>
-		<annotation cp="☺" type="tts">微笑</annotation>
-		<annotation cp="🙂">呵呵 | 开心 | 笑 | 脸</annotation>
-		<annotation cp="🙂" type="tts">呵呵</annotation>
-		<annotation cp="🤗">抱 | 抱抱 | 拥抱 | 笑 | 脸</annotation>
-		<annotation cp="🤗" type="tts">抱抱</annotation>
 		<annotation cp="🤩">咧嘴笑 | 好崇拜哦 | 脸 | 露齿笑</annotation>
 		<annotation cp="🤩" type="tts">好崇拜哦</annotation>
+		<annotation cp="😘">亲亲 | 眨眼 | 脸 | 飞吻</annotation>
+		<annotation cp="😘" type="tts">飞吻</annotation>
+		<annotation cp="😗">亲亲 | 吻 | 脸</annotation>
+		<annotation cp="😗" type="tts">亲亲</annotation>
+		<annotation cp="☺">呵呵 | 开心 | 微笑 | 放松 | 笑 | 脸</annotation>
+		<annotation cp="☺" type="tts">微笑</annotation>
+		<annotation cp="😚">亲亲 | 吻 | 羞涩 | 羞涩亲亲 | 脸 | 闭眼</annotation>
+		<annotation cp="😚" type="tts">羞涩亲亲</annotation>
+		<annotation cp="😙">亲亲 | 吻 | 微笑 | 微笑亲亲 | 脸</annotation>
+		<annotation cp="😙" type="tts">微笑亲亲</annotation>
+		<annotation cp="😋">好吃 | 津津有味 | 美味 | 脸</annotation>
+		<annotation cp="😋" type="tts">好吃</annotation>
+		<annotation cp="😛">吐舌 | 脸 | 舌头 | 调皮</annotation>
+		<annotation cp="😛" type="tts">吐舌</annotation>
+		<annotation cp="😜">单眼 | 单眼吐舌 | 吐舌 | 开玩笑 | 脸</annotation>
+		<annotation cp="😜" type="tts">单眼吐舌</annotation>
+		<annotation cp="🤪">大眼 | 小眼 | 滑稽 | 滑稽的脸 | 疯狂的脸 | 脸</annotation>
+		<annotation cp="🤪" type="tts">滑稽</annotation>
+		<annotation cp="😝">可怕 | 吐舌 | 眯眼 | 眯眼吐舌 | 眼睛 | 脸</annotation>
+		<annotation cp="😝" type="tts">眯眼吐舌</annotation>
+		<annotation cp="🤑">发财 | 拜金 | 脸 | 见钱眼开 | 钱</annotation>
+		<annotation cp="🤑" type="tts">发财</annotation>
+		<annotation cp="🤗">抱 | 抱抱 | 拥抱 | 笑 | 脸</annotation>
+		<annotation cp="🤗" type="tts">抱抱</annotation>
+		<annotation cp="🤭">不说 | 哎呀 | 脸</annotation>
+		<annotation cp="🤭" type="tts">不说</annotation>
+		<annotation cp="🤫">嘘 | 安静 | 安静的脸</annotation>
+		<annotation cp="🤫" type="tts">安静的脸</annotation>
 		<annotation cp="🤔">思考 | 想 | 想一想 | 脸</annotation>
 		<annotation cp="🤔" type="tts">想一想</annotation>
+		<annotation cp="🤐">嘴 | 脸 | 闭嘴</annotation>
+		<annotation cp="🤐" type="tts">闭嘴</annotation>
 		<annotation cp="🤨">不信任 | 怀疑 | 挑眉 | 眉毛上挑的脸 | 脸</annotation>
 		<annotation cp="🤨" type="tts">挑眉</annotation>
 		<annotation cp="😐">冷漠 | 脸 | 面无表情</annotation>
@@ -77,98 +97,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">无语</annotation>
 		<annotation cp="😶">嘴 | 安静 | 沉默 | 脸</annotation>
 		<annotation cp="😶" type="tts">沉默</annotation>
-		<annotation cp="🙄">无语 | 白眼 | 翻白眼 | 脸</annotation>
-		<annotation cp="🙄" type="tts">翻白眼</annotation>
 		<annotation cp="😏">假笑 | 得意</annotation>
 		<annotation cp="😏" type="tts">得意</annotation>
-		<annotation cp="😣">忍耐 | 痛苦 | 脸 | 难受</annotation>
-		<annotation cp="😣" type="tts">痛苦</annotation>
-		<annotation cp="😥">失望 | 失望但如释重负 | 如释重负 | 脸</annotation>
-		<annotation cp="😥" type="tts">失望但如释重负</annotation>
-		<annotation cp="😮">吃惊 | 同情 | 啊 | 脸</annotation>
-		<annotation cp="😮" type="tts">吃惊</annotation>
-		<annotation cp="🤐">嘴 | 脸 | 闭嘴</annotation>
-		<annotation cp="🤐" type="tts">闭嘴</annotation>
-		<annotation cp="😯">吃惊 | 缄默 | 脸</annotation>
-		<annotation cp="😯" type="tts">缄默</annotation>
-		<annotation cp="😪">困 | 睡觉 | 瞌睡 | 脸</annotation>
-		<annotation cp="😪" type="tts">困</annotation>
-		<annotation cp="😫">疲倦 | 疲劳 | 疲惫 | 累 | 脸</annotation>
-		<annotation cp="😫" type="tts">累</annotation>
-		<annotation cp="😴">呼噜 | 打呼 | 睡着了 | 脸</annotation>
-		<annotation cp="😴" type="tts">睡着了</annotation>
-		<annotation cp="😌">如释重负 | 松了口气 | 松口气 | 脸</annotation>
-		<annotation cp="😌" type="tts">松了口气</annotation>
-		<annotation cp="😛">吐舌 | 脸 | 舌头 | 调皮</annotation>
-		<annotation cp="😛" type="tts">吐舌</annotation>
-		<annotation cp="😜">单眼 | 单眼吐舌 | 吐舌 | 开玩笑 | 脸</annotation>
-		<annotation cp="😜" type="tts">单眼吐舌</annotation>
-		<annotation cp="😝">可怕 | 吐舌 | 眯眼 | 眯眼吐舌 | 眼睛 | 脸</annotation>
-		<annotation cp="😝" type="tts">眯眼吐舌</annotation>
-		<annotation cp="🤤">口水 | 垂涎三尺 | 流口水 | 脸</annotation>
-		<annotation cp="🤤" type="tts">流口水</annotation>
 		<annotation cp="😒">不屑 | 不服 | 不高兴 | 脸 | 郁闷 | 鄙视</annotation>
 		<annotation cp="😒" type="tts">不高兴</annotation>
-		<annotation cp="😓">冷 | 尴尬 | 汗 | 脸</annotation>
-		<annotation cp="😓" type="tts">汗</annotation>
-		<annotation cp="😔">心事重重 | 沉思 | 脸</annotation>
-		<annotation cp="😔" type="tts">沉思</annotation>
-		<annotation cp="😕">不懂 | 困惑 | 困扰 | 疑惑 | 脸</annotation>
-		<annotation cp="😕" type="tts">困扰</annotation>
-		<annotation cp="🙃">倒脸 | 脸 | 颠倒 | 颠倒的脸</annotation>
-		<annotation cp="🙃" type="tts">倒脸</annotation>
-		<annotation cp="🤑">发财 | 拜金 | 脸 | 见钱眼开 | 钱</annotation>
-		<annotation cp="🤑" type="tts">发财</annotation>
-		<annotation cp="😲">惊 | 惊讶 | 脸 | 震惊</annotation>
-		<annotation cp="😲" type="tts">震惊</annotation>
-		<annotation cp="☹">不满 | 不爽 | 不高兴 | 皱眉 | 脸</annotation>
-		<annotation cp="☹" type="tts">不满</annotation>
-		<annotation cp="🙁">不开心 | 不高兴 | 委屈 | 微微不满 | 心情不好 | 脸</annotation>
-		<annotation cp="🙁" type="tts">微微不满</annotation>
-		<annotation cp="😖">困惑 | 焦头烂额 | 纠结 | 脸</annotation>
-		<annotation cp="😖" type="tts">困惑</annotation>
-		<annotation cp="😞">不高兴 | 失望 | 脸 | 难过</annotation>
-		<annotation cp="😞" type="tts">失望</annotation>
-		<annotation cp="😟">不高兴 | 伤心 | 担心 | 担忧 | 焦虑 | 脸</annotation>
-		<annotation cp="😟" type="tts">担心</annotation>
-		<annotation cp="😤">傲慢 | 胜利 | 自负 | 赢 | 趾高气昂</annotation>
-		<annotation cp="😤" type="tts">傲慢</annotation>
-		<annotation cp="😢">伤心 | 哭 | 泪 | 脸</annotation>
-		<annotation cp="😢" type="tts">哭</annotation>
-		<annotation cp="😭">哭 | 大哭 | 放声大哭 | 泪 | 痛哭 | 脸</annotation>
-		<annotation cp="😭" type="tts">放声大哭</annotation>
-		<annotation cp="😦">啊 | 惊讶 | 目瞪口呆 | 脸</annotation>
-		<annotation cp="😦" type="tts">啊</annotation>
-		<annotation cp="😧">极度痛苦 | 痛 | 脸 | 难受</annotation>
-		<annotation cp="😧" type="tts">极度痛苦</annotation>
-		<annotation cp="😨">害怕 | 怕 | 恐怖 | 恐惧 | 脸</annotation>
-		<annotation cp="😨" type="tts">害怕</annotation>
-		<annotation cp="😩">疲倦 | 疲劳 | 疲惫 | 累 | 累死了 | 脸</annotation>
-		<annotation cp="😩" type="tts">累死了</annotation>
-		<annotation cp="🤯">爆炸头 | 震惊</annotation>
-		<annotation cp="🤯" type="tts">爆炸头</annotation>
+		<annotation cp="🙄">无语 | 白眼 | 翻白眼 | 脸</annotation>
+		<annotation cp="🙄" type="tts">翻白眼</annotation>
 		<annotation cp="😬">咬牙切齿 | 脸 | 露齿 | 鬼脸 | 龇牙咧嘴</annotation>
 		<annotation cp="😬" type="tts">龇牙咧嘴</annotation>
-		<annotation cp="😰">冷汗 | 无语 | 汗 | 焦虑 | 紧张 | 脸</annotation>
-		<annotation cp="😰" type="tts">冷汗</annotation>
-		<annotation cp="😱">吓死 | 吓死了 | 害怕 | 尖叫 | 恐怖 | 脸</annotation>
-		<annotation cp="😱" type="tts">吓死了</annotation>
-		<annotation cp="🥵">出汗 | 发烧 | 发热 | 心狂跳 | 脸发烧 | 脸红</annotation>
-		<annotation cp="🥵" type="tts">脸发烧</annotation>
-		<annotation cp="🥶">冷 | 冷冰冰 | 冷脸 | 冻僵 | 满面寒霜</annotation>
-		<annotation cp="🥶" type="tts">冷脸</annotation>
-		<annotation cp="😳">困惑 | 害羞 | 羞涩 | 脸 | 脸红 | 茫然 | 迷茫</annotation>
-		<annotation cp="😳" type="tts">脸红</annotation>
-		<annotation cp="🤪">大眼 | 小眼 | 滑稽 | 滑稽的脸 | 疯狂的脸 | 脸</annotation>
-		<annotation cp="🤪" type="tts">滑稽</annotation>
-		<annotation cp="😵">头晕 | 头晕眼花 | 晕头 | 晕头转向 | 脸</annotation>
-		<annotation cp="😵" type="tts">晕头转向</annotation>
-		<annotation cp="😡">发火 | 发飙 | 怒 | 怒火中烧 | 生气 | 脸</annotation>
-		<annotation cp="😡" type="tts">怒火中烧</annotation>
-		<annotation cp="😠">怒 | 愤怒 | 生气 | 脸</annotation>
-		<annotation cp="😠" type="tts">生气</annotation>
-		<annotation cp="🤬">发誓 | 咒骂 | 嘴上有符号的脸 | 脸</annotation>
-		<annotation cp="🤬" type="tts">嘴上有符号的脸</annotation>
+		<annotation cp="🤥">匹诺曹 | 脸 | 说谎 | 长鼻子</annotation>
+		<annotation cp="🤥" type="tts">说谎</annotation>
+		<annotation cp="😌">如释重负 | 松了口气 | 松口气 | 脸</annotation>
+		<annotation cp="😌" type="tts">松了口气</annotation>
+		<annotation cp="😔">心事重重 | 沉思 | 脸</annotation>
+		<annotation cp="😔" type="tts">沉思</annotation>
+		<annotation cp="😪">困 | 睡觉 | 瞌睡 | 脸</annotation>
+		<annotation cp="😪" type="tts">困</annotation>
+		<annotation cp="🤤">口水 | 垂涎三尺 | 流口水 | 脸</annotation>
+		<annotation cp="🤤" type="tts">流口水</annotation>
+		<annotation cp="😴">呼噜 | 打呼 | 睡着了 | 脸</annotation>
+		<annotation cp="😴" type="tts">睡着了</annotation>
 		<annotation cp="😷">医生 | 口罩 | 感冒 | 生病 | 脸</annotation>
 		<annotation cp="😷" type="tts">感冒</annotation>
 		<annotation cp="🤒">体温计 | 发烧 | 温度计 | 生病 | 脸</annotation>
@@ -181,40 +129,96 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤮" type="tts">呕吐</annotation>
 		<annotation cp="🤧">喷嚏 | 打喷嚏 | 脸 | 鼻涕</annotation>
 		<annotation cp="🤧" type="tts">打喷嚏</annotation>
-		<annotation cp="😇">光环 | 天使 | 天真 | 幻想 | 微笑 | 微笑天使 | 脸</annotation>
-		<annotation cp="😇" type="tts">微笑天使</annotation>
+		<annotation cp="🥵">出汗 | 发烧 | 发热 | 心狂跳 | 脸发烧 | 脸红</annotation>
+		<annotation cp="🥵" type="tts">脸发烧</annotation>
+		<annotation cp="🥶">冷 | 冷冰冰 | 冷脸 | 冻僵 | 满面寒霜</annotation>
+		<annotation cp="🥶" type="tts">冷脸</annotation>
+		<annotation cp="🥴">嘴唇颤抖 | 头昏眼花 | 头晕眼花 | 微醺 | 眼花 | 醉醺醺</annotation>
+		<annotation cp="🥴" type="tts">头昏眼花</annotation>
+		<annotation cp="😵">头晕 | 头晕眼花 | 晕头 | 晕头转向 | 脸</annotation>
+		<annotation cp="😵" type="tts">晕头转向</annotation>
+		<annotation cp="🤯">爆炸头 | 震惊</annotation>
+		<annotation cp="🤯" type="tts">爆炸头</annotation>
 		<annotation cp="🤠">帽 | 牛仔 | 牛仔帽脸 | 脸</annotation>
 		<annotation cp="🤠" type="tts">牛仔帽脸</annotation>
 		<annotation cp="🥳">号角 | 帽子 | 庆祝 | 聚会 | 聚会笑脸</annotation>
 		<annotation cp="🥳" type="tts">聚会笑脸</annotation>
-		<annotation cp="🥴">嘴唇颤抖 | 头昏眼花 | 头晕眼花 | 微醺 | 眼花 | 醉醺醺</annotation>
-		<annotation cp="🥴" type="tts">头昏眼花</annotation>
-		<annotation cp="🥺">可怜兮兮的眼神 | 怜悯 | 恳求的脸 | 祈求</annotation>
-		<annotation cp="🥺" type="tts">恳求的脸</annotation>
-		<annotation cp="🤥">匹诺曹 | 脸 | 说谎 | 长鼻子</annotation>
-		<annotation cp="🤥" type="tts">说谎</annotation>
-		<annotation cp="🤫">嘘 | 安静 | 安静的脸</annotation>
-		<annotation cp="🤫" type="tts">安静的脸</annotation>
-		<annotation cp="🤭">不说 | 哎呀 | 脸</annotation>
-		<annotation cp="🤭" type="tts">不说</annotation>
-		<annotation cp="🧐">古板 | 带单片眼镜的脸</annotation>
-		<annotation cp="🧐" type="tts">带单片眼镜的脸</annotation>
+		<annotation cp="😎">太阳镜 | 眼镜 | 酷 | 墨镜 | 墨镜笑脸</annotation>
+		<annotation cp="😎" type="tts">墨镜笑脸</annotation>
 		<annotation cp="🤓">书呆子脸 | 奇葩 | 脸</annotation>
 		<annotation cp="🤓" type="tts">书呆子脸</annotation>
+		<annotation cp="🧐">古板 | 带单片眼镜的脸</annotation>
+		<annotation cp="🧐" type="tts">带单片眼镜的脸</annotation>
+		<annotation cp="😕">不懂 | 困惑 | 困扰 | 疑惑 | 脸</annotation>
+		<annotation cp="😕" type="tts">困扰</annotation>
+		<annotation cp="😟">不高兴 | 伤心 | 担心 | 担忧 | 焦虑 | 脸</annotation>
+		<annotation cp="😟" type="tts">担心</annotation>
+		<annotation cp="🙁">不开心 | 不高兴 | 委屈 | 微微不满 | 心情不好 | 脸</annotation>
+		<annotation cp="🙁" type="tts">微微不满</annotation>
+		<annotation cp="☹">不满 | 不爽 | 不高兴 | 皱眉 | 脸</annotation>
+		<annotation cp="☹" type="tts">不满</annotation>
+		<annotation cp="😮">吃惊 | 同情 | 啊 | 脸</annotation>
+		<annotation cp="😮" type="tts">吃惊</annotation>
+		<annotation cp="😯">吃惊 | 缄默 | 脸</annotation>
+		<annotation cp="😯" type="tts">缄默</annotation>
+		<annotation cp="😲">惊 | 惊讶 | 脸 | 震惊</annotation>
+		<annotation cp="😲" type="tts">震惊</annotation>
+		<annotation cp="😳">困惑 | 害羞 | 羞涩 | 脸 | 脸红 | 茫然 | 迷茫</annotation>
+		<annotation cp="😳" type="tts">脸红</annotation>
+		<annotation cp="🥺">可怜兮兮的眼神 | 怜悯 | 恳求的脸 | 祈求</annotation>
+		<annotation cp="🥺" type="tts">恳求的脸</annotation>
+		<annotation cp="😦">啊 | 惊讶 | 目瞪口呆 | 脸</annotation>
+		<annotation cp="😦" type="tts">啊</annotation>
+		<annotation cp="😧">极度痛苦 | 痛 | 脸 | 难受</annotation>
+		<annotation cp="😧" type="tts">极度痛苦</annotation>
+		<annotation cp="😨">害怕 | 怕 | 恐怖 | 恐惧 | 脸</annotation>
+		<annotation cp="😨" type="tts">害怕</annotation>
+		<annotation cp="😰">冷汗 | 无语 | 汗 | 焦虑 | 紧张 | 脸</annotation>
+		<annotation cp="😰" type="tts">冷汗</annotation>
+		<annotation cp="😥">失望 | 失望但如释重负 | 如释重负 | 脸</annotation>
+		<annotation cp="😥" type="tts">失望但如释重负</annotation>
+		<annotation cp="😢">伤心 | 哭 | 泪 | 脸</annotation>
+		<annotation cp="😢" type="tts">哭</annotation>
+		<annotation cp="😭">哭 | 大哭 | 放声大哭 | 泪 | 痛哭 | 脸</annotation>
+		<annotation cp="😭" type="tts">放声大哭</annotation>
+		<annotation cp="😱">吓死 | 吓死了 | 害怕 | 尖叫 | 恐怖 | 脸</annotation>
+		<annotation cp="😱" type="tts">吓死了</annotation>
+		<annotation cp="😖">困惑 | 焦头烂额 | 纠结 | 脸</annotation>
+		<annotation cp="😖" type="tts">困惑</annotation>
+		<annotation cp="😣">忍耐 | 痛苦 | 脸 | 难受</annotation>
+		<annotation cp="😣" type="tts">痛苦</annotation>
+		<annotation cp="😞">不高兴 | 失望 | 脸 | 难过</annotation>
+		<annotation cp="😞" type="tts">失望</annotation>
+		<annotation cp="😓">冷 | 尴尬 | 汗 | 脸</annotation>
+		<annotation cp="😓" type="tts">汗</annotation>
+		<annotation cp="😩">疲倦 | 疲劳 | 疲惫 | 累 | 累死了 | 脸</annotation>
+		<annotation cp="😩" type="tts">累死了</annotation>
+		<annotation cp="😫">疲倦 | 疲劳 | 疲惫 | 累 | 脸</annotation>
+		<annotation cp="😫" type="tts">累</annotation>
+		<annotation cp="😤">傲慢 | 胜利 | 自负 | 赢 | 趾高气昂</annotation>
+		<annotation cp="😤" type="tts">傲慢</annotation>
+		<annotation cp="😡">发火 | 发飙 | 怒 | 怒火中烧 | 生气 | 脸</annotation>
+		<annotation cp="😡" type="tts">怒火中烧</annotation>
+		<annotation cp="😠">怒 | 愤怒 | 生气 | 脸</annotation>
+		<annotation cp="😠" type="tts">生气</annotation>
+		<annotation cp="🤬">发誓 | 咒骂 | 嘴上有符号的脸 | 脸</annotation>
+		<annotation cp="🤬" type="tts">嘴上有符号的脸</annotation>
 		<annotation cp="😈">幻想 | 恶魔微笑 | 犄角 | 神话故事 | 脸</annotation>
 		<annotation cp="😈" type="tts">恶魔微笑</annotation>
 		<annotation cp="👿">幻想 | 生气的恶魔 | 顽童</annotation>
 		<annotation cp="👿" type="tts">生气的恶魔</annotation>
+		<annotation cp="💀">头骨 | 妖怪 | 死亡 | 神话故事 | 脸</annotation>
+		<annotation cp="💀" type="tts">头骨</annotation>
+		<annotation cp="☠">头骨 | 妖怪 | 死亡 | 脸 | 骨头 | 骷髅</annotation>
+		<annotation cp="☠" type="tts">骷髅</annotation>
+		<annotation cp="💩">大便 | 屎 | 怪物 | 粑粑 | 脸</annotation>
+		<annotation cp="💩" type="tts">大便</annotation>
 		<annotation cp="🤡">小丑 | 小丑脸 | 脸</annotation>
 		<annotation cp="🤡" type="tts">小丑脸</annotation>
 		<annotation cp="👹">妖怪 | 幻想 | 神话故事 | 脸 | 食人魔 | 鬼</annotation>
 		<annotation cp="👹" type="tts">食人魔</annotation>
 		<annotation cp="👺">妖怪 | 小妖精 | 幻想 | 神话故事 | 脸</annotation>
 		<annotation cp="👺" type="tts">小妖精</annotation>
-		<annotation cp="💀">头骨 | 妖怪 | 死亡 | 神话故事 | 脸</annotation>
-		<annotation cp="💀" type="tts">头骨</annotation>
-		<annotation cp="☠">头骨 | 妖怪 | 死亡 | 脸 | 骨头 | 骷髅</annotation>
-		<annotation cp="☠" type="tts">骷髅</annotation>
 		<annotation cp="👻">妖怪 | 幻想 | 幽灵 | 神话故事 | 脸 | 鬼</annotation>
 		<annotation cp="👻" type="tts">鬼</annotation>
 		<annotation cp="👽">ufo | 外星 | 外星人 | 太空 | 幻想 | 星际 | 脸</annotation>
@@ -223,32 +227,184 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👾" type="tts">外星怪物</annotation>
 		<annotation cp="🤖">怪物 | 机器人</annotation>
 		<annotation cp="🤖" type="tts">机器人</annotation>
-		<annotation cp="💩">大便 | 屎 | 怪物 | 粑粑 | 脸</annotation>
-		<annotation cp="💩" type="tts">大便</annotation>
-		<annotation cp="😺">哈哈 | 大笑的猫脸 | 猫脸 | 脸</annotation>
-		<annotation cp="😺" type="tts">大笑的猫脸</annotation>
-		<annotation cp="😸">呵呵 | 微笑的猫脸 | 猫脸 | 脸</annotation>
-		<annotation cp="😸" type="tts">微笑的猫脸</annotation>
-		<annotation cp="😹">快乐 | 猫脸 | 眼泪 | 笑出眼泪的猫脸 | 脸</annotation>
-		<annotation cp="😹" type="tts">笑出眼泪的猫脸</annotation>
-		<annotation cp="😻">猫脸 | 脸 | 花痴 | 花痴的猫脸</annotation>
-		<annotation cp="😻" type="tts">花痴的猫脸</annotation>
-		<annotation cp="😼">奸笑 | 奸笑的猫脸 | 猫脸 | 脸 | 讽刺</annotation>
-		<annotation cp="😼" type="tts">奸笑的猫脸</annotation>
-		<annotation cp="😽">亲亲 | 吻 | 猫脸 | 猫脸亲亲 | 脸</annotation>
-		<annotation cp="😽" type="tts">猫脸亲亲</annotation>
-		<annotation cp="🙀">惊讶 | 猫脸 | 疲倦 | 疲倦的猫脸 | 累 | 脸</annotation>
-		<annotation cp="🙀" type="tts">疲倦的猫脸</annotation>
-		<annotation cp="😿">哭 | 哭泣的猫脸 | 猫脸 | 眼泪 | 脸 | 难过</annotation>
-		<annotation cp="😿" type="tts">哭泣的猫脸</annotation>
-		<annotation cp="😾">猫脸 | 生气 | 生气的猫脸 | 脸</annotation>
-		<annotation cp="😾" type="tts">生气的猫脸</annotation>
+		<annotation cp="😺">哈哈 | 猫脸 | 笑 | 脸</annotation>
+		<annotation cp="😺" type="tts">大笑的猫</annotation>
+		<annotation cp="😸">呵呵 | 猫脸 | 笑 | 脸</annotation>
+		<annotation cp="😸" type="tts">微笑的猫</annotation>
+		<annotation cp="😹">喜极而泣 | 快乐 | 猫脸 | 眼泪 | 脸</annotation>
+		<annotation cp="😹" type="tts">笑出眼泪的猫</annotation>
+		<annotation cp="😻">喜欢 | 心 | 猫脸 | 脸 | 花痴</annotation>
+		<annotation cp="😻" type="tts">花痴的猫</annotation>
+		<annotation cp="😼">奸笑 | 猫脸 | 脸 | 讽刺</annotation>
+		<annotation cp="😼" type="tts">奸笑的猫</annotation>
+		<annotation cp="😽">亲亲 | 吻 | 猫脸 | 脸</annotation>
+		<annotation cp="😽" type="tts">亲亲猫</annotation>
+		<annotation cp="🙀">惊讶 | 猫脸 | 疲倦 | 累 | 脸</annotation>
+		<annotation cp="🙀" type="tts">疲倦的猫</annotation>
+		<annotation cp="😿">哭 | 猫脸 | 眼泪 | 脸 | 难过</annotation>
+		<annotation cp="😿" type="tts">哭泣的猫</annotation>
+		<annotation cp="😾">猫脸 | 生气 | 脸</annotation>
+		<annotation cp="😾" type="tts">生气的猫</annotation>
 		<annotation cp="🙈">脸 | 蒙住眼睛 | 蒙眼 | 非礼勿视</annotation>
 		<annotation cp="🙈" type="tts">非礼勿视</annotation>
 		<annotation cp="🙉">堵上耳朵 | 堵耳 | 脸 | 非礼勿听</annotation>
 		<annotation cp="🙉" type="tts">非礼勿听</annotation>
 		<annotation cp="🙊">捂上嘴巴 | 捂嘴 | 脸 | 非礼勿言</annotation>
 		<annotation cp="🙊" type="tts">非礼勿言</annotation>
+		<annotation cp="💋">吻 | 唇 | 唇印 | 浪漫</annotation>
+		<annotation cp="💋" type="tts">唇印</annotation>
+		<annotation cp="💌">信 | 情书 | 邮件</annotation>
+		<annotation cp="💌" type="tts">情书</annotation>
+		<annotation cp="💘">丘比特 | 心中箭了 | 浪漫 | 爱情 | 箭 | 红心</annotation>
+		<annotation cp="💘" type="tts">心中箭了</annotation>
+		<annotation cp="💝">爱的礼物 | 系有缎带的心 | 送你一颗心</annotation>
+		<annotation cp="💝" type="tts">系有缎带的心</annotation>
+		<annotation cp="💖">激动 | 红心 | 闪亮 | 闪亮的心</annotation>
+		<annotation cp="💖" type="tts">闪亮的心</annotation>
+		<annotation cp="💗">搏动 | 搏动的心 | 激动 | 紧张 | 红心</annotation>
+		<annotation cp="💗" type="tts">搏动的心</annotation>
+		<annotation cp="💓">心动 | 心跳 | 爱</annotation>
+		<annotation cp="💓" type="tts">心跳</annotation>
+		<annotation cp="💞">旋转 | 涌动 | 舞动的心 | 跃动</annotation>
+		<annotation cp="💞" type="tts">舞动的心</annotation>
+		<annotation cp="💕">两颗心 | 爱情</annotation>
+		<annotation cp="💕" type="tts">两颗心</annotation>
+		<annotation cp="💟">心型装饰 | 装饰</annotation>
+		<annotation cp="💟" type="tts">心型装饰</annotation>
+		<annotation cp="❣">叹号 | 心动 | 心叹号</annotation>
+		<annotation cp="❣" type="tts">心叹号</annotation>
+		<annotation cp="💔">伤心 | 心碎</annotation>
+		<annotation cp="💔" type="tts">心碎</annotation>
+		<annotation cp="❤">心 | 爱 | 红心</annotation>
+		<annotation cp="❤" type="tts">红心</annotation>
+		<annotation cp="🧡">橙 | 橙心</annotation>
+		<annotation cp="🧡" type="tts">橙心</annotation>
+		<annotation cp="💛">黄 | 黄心</annotation>
+		<annotation cp="💛" type="tts">黄心</annotation>
+		<annotation cp="💚">绿 | 绿心</annotation>
+		<annotation cp="💚" type="tts">绿心</annotation>
+		<annotation cp="💙">蓝 | 蓝心</annotation>
+		<annotation cp="💙" type="tts">蓝心</annotation>
+		<annotation cp="💜">紫 | 紫心</annotation>
+		<annotation cp="💜" type="tts">紫心</annotation>
+		<annotation cp="🖤">心 | 邪恶 | 黑心 | 黑色</annotation>
+		<annotation cp="🖤" type="tts">黑心</annotation>
+		<annotation cp="💯">一百分 | 满分 | 考试</annotation>
+		<annotation cp="💯" type="tts">一百分</annotation>
+		<annotation cp="💢">怒 | 火大 | 生气 | 青筋</annotation>
+		<annotation cp="💢" type="tts">怒</annotation>
+		<annotation cp="💥">炸 | 爆 | 爆炸</annotation>
+		<annotation cp="💥" type="tts">爆炸</annotation>
+		<annotation cp="💫">头晕 | 头晕目眩</annotation>
+		<annotation cp="💫" type="tts">头晕</annotation>
+		<annotation cp="💦">汗 | 汗滴</annotation>
+		<annotation cp="💦" type="tts">汗滴</annotation>
+		<annotation cp="💨">尾气 | 疾驰而去 | 飞奔而去</annotation>
+		<annotation cp="💨" type="tts">尾气</annotation>
+		<annotation cp="🕳">坑 | 洞 | 陷阱</annotation>
+		<annotation cp="🕳" type="tts">洞</annotation>
+		<annotation cp="💣">炸弹 | 爆炸</annotation>
+		<annotation cp="💣" type="tts">炸弹</annotation>
+		<annotation cp="💬">发言 | 对话框 | 气泡 | 话语气泡</annotation>
+		<annotation cp="💬" type="tts">话语气泡</annotation>
+		<annotation cp="👁‍🗨">对话框 | 眼睛 | 眼睛对话框</annotation>
+		<annotation cp="👁‍🗨" type="tts">眼睛对话框</annotation>
+		<annotation cp="🗨">对话框 | 朝左的话语气泡 | 话语</annotation>
+		<annotation cp="🗨" type="tts">朝左的话语气泡</annotation>
+		<annotation cp="🗯">对话框 | 愤怒 | 愤怒话语气泡</annotation>
+		<annotation cp="🗯" type="tts">愤怒话语气泡</annotation>
+		<annotation cp="💭">内心活动气泡 | 对话框 | 思想活动 | 气泡</annotation>
+		<annotation cp="💭" type="tts">内心活动气泡</annotation>
+		<annotation cp="💤">呼噜 | 打呼 | 睡着</annotation>
+		<annotation cp="💤" type="tts">睡着</annotation>
+		<annotation cp="👋">你好 | 再见 | 挥手</annotation>
+		<annotation cp="👋" type="tts">挥手</annotation>
+		<annotation cp="🤚">手 | 手背 | 立起 | 立起的手背</annotation>
+		<annotation cp="🤚" type="tts">立起的手背</annotation>
+		<annotation cp="🖐">击掌 | 布 | 手 | 手掌 | 禁止</annotation>
+		<annotation cp="🖐" type="tts">手掌</annotation>
+		<annotation cp="✋">举手 | 举起手 | 手</annotation>
+		<annotation cp="✋" type="tts">举起手</annotation>
+		<annotation cp="🖖">手 | 敬礼 | 斯波克 | 星际迷航 | 瓦肯 | 瓦肯举手礼</annotation>
+		<annotation cp="🖖" type="tts">瓦肯举手礼</annotation>
+		<annotation cp="👌">OK | 手</annotation>
+		<annotation cp="👌" type="tts">OK</annotation>
+		<annotation cp="✌">V | 成功 | 手 | 胜利 | 胜利手势</annotation>
+		<annotation cp="✌" type="tts">胜利手势</annotation>
+		<annotation cp="🤞">交叉 | 交叉的手指 | 幸运 | 手 | 手指</annotation>
+		<annotation cp="🤞" type="tts">交叉的手指</annotation>
+		<annotation cp="🤟">我爱你 | 手 | 爱你的手势</annotation>
+		<annotation cp="🤟" type="tts">爱你的手势</annotation>
+		<annotation cp="🤘">手 | 摇滚 | 角 | 金属礼</annotation>
+		<annotation cp="🤘" type="tts">摇滚</annotation>
+		<annotation cp="🤙">手 | 电话 | 给我打电话</annotation>
+		<annotation cp="🤙" type="tts">给我打电话</annotation>
+		<annotation cp="👈">反手 | 反手食指向左指 | 向左指 | 手 | 指左 | 食指</annotation>
+		<annotation cp="👈" type="tts">反手食指向左指</annotation>
+		<annotation cp="👉">反手 | 反手食指向右指 | 向右指 | 手 | 指右 | 食指</annotation>
+		<annotation cp="👉" type="tts">反手食指向右指</annotation>
+		<annotation cp="👆">反手 | 反手食指向上指 | 向上指 | 手 | 指上 | 食指</annotation>
+		<annotation cp="👆" type="tts">反手食指向上指</annotation>
+		<annotation cp="🖕">中指 | 反手 | 手 | 竖中指</annotation>
+		<annotation cp="🖕" type="tts">竖中指</annotation>
+		<annotation cp="👇">反手 | 反手食指向下指 | 向下指 | 手 | 指下 | 食指</annotation>
+		<annotation cp="👇" type="tts">反手食指向下指</annotation>
+		<annotation cp="☝">向上指 | 手 | 指上 | 食指 | 食指向上指</annotation>
+		<annotation cp="☝" type="tts">食指向上指</annotation>
+		<annotation cp="👍">同意 | 手 | 拇指向上 | 真棒 | 赞成 | 顶一下</annotation>
+		<annotation cp="👍" type="tts">拇指向上</annotation>
+		<annotation cp="👎">不赞成 | 反对 | 手 | 拇指向下 | 责备</annotation>
+		<annotation cp="👎" type="tts">拇指向下</annotation>
+		<annotation cp="✊">举起拳头 | 手 | 拳头 | 握拳</annotation>
+		<annotation cp="✊" type="tts">举起拳头</annotation>
+		<annotation cp="👊">出拳 | 手 | 打 | 拳</annotation>
+		<annotation cp="👊" type="tts">出拳</annotation>
+		<annotation cp="🤛">拳头 | 朝左 | 朝左的拳头</annotation>
+		<annotation cp="🤛" type="tts">朝左的拳头</annotation>
+		<annotation cp="🤜">手 | 拳头 | 朝右 | 朝右的拳头</annotation>
+		<annotation cp="🤜" type="tts">朝右的拳头</annotation>
+		<annotation cp="👏">拍手 | 鼓掌</annotation>
+		<annotation cp="👏" type="tts">鼓掌</annotation>
+		<annotation cp="🙌">举双手 | 击掌 | 双手 | 庆祝</annotation>
+		<annotation cp="🙌" type="tts">举双手</annotation>
+		<annotation cp="👐">双手 | 张开双手 | 摊手</annotation>
+		<annotation cp="👐" type="tts">张开双手</annotation>
+		<annotation cp="🤲">掌心向上托起 | 祷告</annotation>
+		<annotation cp="🤲" type="tts">掌心向上托起</annotation>
+		<annotation cp="🤝">会面 | 协议 | 握手</annotation>
+		<annotation cp="🤝" type="tts">握手</annotation>
+		<annotation cp="🙏">双手合十 | 拜托 | 祈求 | 祈祷 | 祝福</annotation>
+		<annotation cp="🙏" type="tts">双手合十</annotation>
+		<annotation cp="✍">写 | 写字 | 笔</annotation>
+		<annotation cp="✍" type="tts">写字</annotation>
+		<annotation cp="💅">指甲油 | 涂指甲油 | 美甲</annotation>
+		<annotation cp="💅" type="tts">涂指甲油</annotation>
+		<annotation cp="🤳">手机 | 相机 | 自拍</annotation>
+		<annotation cp="🤳" type="tts">自拍</annotation>
+		<annotation cp="💪">二头肌 | 强壮 | 肌肉</annotation>
+		<annotation cp="💪" type="tts">肌肉</annotation>
+		<annotation cp="🦵">腿 | 跛行 | 踢</annotation>
+		<annotation cp="🦵" type="tts">腿</annotation>
+		<annotation cp="🦶">脚 | 踢 | 踩</annotation>
+		<annotation cp="🦶" type="tts">脚</annotation>
+		<annotation cp="👂">听 | 耳 | 耳朵</annotation>
+		<annotation cp="👂" type="tts">耳朵</annotation>
+		<annotation cp="👃">嗅 | 闻 | 鼻 | 鼻子</annotation>
+		<annotation cp="👃" type="tts">鼻子</annotation>
+		<annotation cp="🧠">大脑 | 头脑 | 智慧 | 智能 | 脑</annotation>
+		<annotation cp="🧠" type="tts">脑</annotation>
+		<annotation cp="🦷">牙医 | 牙齿</annotation>
+		<annotation cp="🦷" type="tts">牙齿</annotation>
+		<annotation cp="🦴">骨头 | 骨骼</annotation>
+		<annotation cp="🦴" type="tts">骨头</annotation>
+		<annotation cp="👀">双眼</annotation>
+		<annotation cp="👀" type="tts">双眼</annotation>
+		<annotation cp="👁">看 | 眼 | 眼睛</annotation>
+		<annotation cp="👁" type="tts">眼睛</annotation>
+		<annotation cp="👅">舌 | 舌头 | 舔</annotation>
+		<annotation cp="👅" type="tts">舌头</annotation>
+		<annotation cp="👄">口 | 唇 | 嘴</annotation>
+		<annotation cp="👄" type="tts">嘴</annotation>
 		<annotation cp="👶">宝宝 | 小宝贝</annotation>
 		<annotation cp="👶" type="tts">小宝贝</annotation>
 		<annotation cp="🧒">儿童 | 年轻人 | 性别不明 | 性别中立</annotation>
@@ -259,17 +415,31 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👧" type="tts">女孩</annotation>
 		<annotation cp="🧑">性别中立 | 性格不明 | 成人</annotation>
 		<annotation cp="🧑" type="tts">成人</annotation>
-		<annotation cp="👱">金发 | 金色头发的人</annotation>
+		<annotation cp="👱">金发</annotation>
 		<annotation cp="👱" type="tts">金色头发的人</annotation>
+		<annotation cp="🧑‍🤝‍🧑">人 | 情侣 | 手 | 拉手 | 握手</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts">手拉手的两个人</annotation>
 		<annotation cp="👨">男 | 男人</annotation>
 		<annotation cp="👨" type="tts">男人</annotation>
-		<annotation cp="👱‍♂">男 | 金发 | 金发男</annotation>
+		<annotation cp="👨‍🦯">拐杖 | 无障碍 | 男 | 盲</annotation>
+		<annotation cp="👨‍🦯" type="tts">拄盲杖的男人</annotation>
+		<annotation cp="👨‍🦼">无障碍 | 电动 | 男 | 轮椅</annotation>
+		<annotation cp="👨‍🦼" type="tts">坐电动轮椅的男人</annotation>
+		<annotation cp="👨‍🦽">手动 | 无障碍 | 男 | 轮椅</annotation>
+		<annotation cp="👨‍🦽" type="tts">坐手动轮椅的男人</annotation>
+		<annotation cp="👱‍♂">男 | 金发</annotation>
 		<annotation cp="👱‍♂" type="tts">金发男</annotation>
-		<annotation cp="🧔">有胡子的人 | 胡子</annotation>
+		<annotation cp="🧔">人 | 男 | 络腮胡 | 胡子 | 胡须</annotation>
 		<annotation cp="🧔" type="tts">有胡子的人</annotation>
 		<annotation cp="👩">女 | 女人</annotation>
 		<annotation cp="👩" type="tts">女人</annotation>
-		<annotation cp="👱‍♀">女 | 金发 | 金发女</annotation>
+		<annotation cp="👩‍🦯">女 | 拐杖 | 无障碍 | 盲</annotation>
+		<annotation cp="👩‍🦯" type="tts">拄盲杖的女人</annotation>
+		<annotation cp="👩‍🦼">女 | 无障碍 | 电动 | 轮椅</annotation>
+		<annotation cp="👩‍🦼" type="tts">坐电动轮椅的女人</annotation>
+		<annotation cp="👩‍🦽">女 | 手动 | 无障碍 | 轮椅</annotation>
+		<annotation cp="👩‍🦽" type="tts">坐手动轮椅的女人</annotation>
+		<annotation cp="👱‍♀">女 | 金发</annotation>
 		<annotation cp="👱‍♀" type="tts">金发女</annotation>
 		<annotation cp="🧓">性别不明 | 性别中性 | 成人 | 老人 | 老年人</annotation>
 		<annotation cp="🧓" type="tts">老年人</annotation>
@@ -277,6 +447,60 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👴" type="tts">老爷爷</annotation>
 		<annotation cp="👵">老人 | 老太 | 老奶奶</annotation>
 		<annotation cp="👵" type="tts">老奶奶</annotation>
+		<annotation cp="🙍">不开心 | 皱眉</annotation>
+		<annotation cp="🙍" type="tts">皱眉</annotation>
+		<annotation cp="🙍‍♂">不开心 | 男 | 皱眉 | 皱眉男</annotation>
+		<annotation cp="🙍‍♂" type="tts">皱眉男</annotation>
+		<annotation cp="🙍‍♀">不开心 | 女 | 皱眉 | 皱眉女</annotation>
+		<annotation cp="🙍‍♀" type="tts">皱眉女</annotation>
+		<annotation cp="🙎">不开心 | 噘嘴 | 撅嘴</annotation>
+		<annotation cp="🙎" type="tts">撅嘴</annotation>
+		<annotation cp="🙎‍♂">不开心 | 噘嘴 | 撅嘴男 | 男</annotation>
+		<annotation cp="🙎‍♂" type="tts">撅嘴男</annotation>
+		<annotation cp="🙎‍♀">不开心 | 噘嘴 | 女 | 撅嘴女</annotation>
+		<annotation cp="🙎‍♀" type="tts">撅嘴女</annotation>
+		<annotation cp="🙅">不行 | 反对 | 禁止 | 禁止手势</annotation>
+		<annotation cp="🙅" type="tts">禁止手势</annotation>
+		<annotation cp="🙅‍♂">不行 | 反对 | 男 | 禁止 | 禁止手势男</annotation>
+		<annotation cp="🙅‍♂" type="tts">禁止手势男</annotation>
+		<annotation cp="🙅‍♀">不行 | 反对 | 女 | 禁止 | 禁止手势女</annotation>
+		<annotation cp="🙅‍♀" type="tts">禁止手势女</annotation>
+		<annotation cp="🙆">ok | OK手势 | 好的</annotation>
+		<annotation cp="🙆" type="tts">OK手势</annotation>
+		<annotation cp="🙆‍♂">OK | OK手势男 | 可以 | 同意 | 好的 | 男</annotation>
+		<annotation cp="🙆‍♂" type="tts">OK手势男</annotation>
+		<annotation cp="🙆‍♀">OK | OK手势女 | 可以 | 同意 | 女 | 好的</annotation>
+		<annotation cp="🙆‍♀" type="tts">OK手势女</annotation>
+		<annotation cp="💁">信息 | 前台 | 帮助</annotation>
+		<annotation cp="💁" type="tts">前台</annotation>
+		<annotation cp="💁‍♂">前台 | 前台男 | 男</annotation>
+		<annotation cp="💁‍♂" type="tts">前台男</annotation>
+		<annotation cp="💁‍♀">前台 | 前台女 | 女</annotation>
+		<annotation cp="💁‍♀" type="tts">前台女</annotation>
+		<annotation cp="🙋">举手 | 开心</annotation>
+		<annotation cp="🙋" type="tts">举手</annotation>
+		<annotation cp="🙋‍♂">举手 | 男 | 男生举手</annotation>
+		<annotation cp="🙋‍♂" type="tts">男生举手</annotation>
+		<annotation cp="🙋‍♀">举手 | 女 | 女生举手</annotation>
+		<annotation cp="🙋‍♀" type="tts">女生举手</annotation>
+		<annotation cp="🙇">不好意思 | 对不起 | 道歉 | 鞠躬</annotation>
+		<annotation cp="🙇" type="tts">鞠躬</annotation>
+		<annotation cp="🙇‍♂">不好意思 | 对不起 | 男 | 男生鞠躬 | 道歉</annotation>
+		<annotation cp="🙇‍♂" type="tts">男生鞠躬</annotation>
+		<annotation cp="🙇‍♀">不好意思 | 女 | 女生鞠躬 | 对不起 | 道歉</annotation>
+		<annotation cp="🙇‍♀" type="tts">女生鞠躬</annotation>
+		<annotation cp="🤦">捂脸 | 无语 | 难以置信</annotation>
+		<annotation cp="🤦" type="tts">捂脸</annotation>
+		<annotation cp="🤦‍♂">无语 | 男 | 男生捂脸 | 难以置信</annotation>
+		<annotation cp="🤦‍♂" type="tts">男生捂脸</annotation>
+		<annotation cp="🤦‍♀">女 | 女生捂脸 | 无语 | 难以置信</annotation>
+		<annotation cp="🤦‍♀" type="tts">女生捂脸</annotation>
+		<annotation cp="🤷">不关心 | 怀疑 | 无视 | 耸肩</annotation>
+		<annotation cp="🤷" type="tts">耸肩</annotation>
+		<annotation cp="🤷‍♂">不关心 | 怀疑 | 无视 | 男 | 男生耸肩</annotation>
+		<annotation cp="🤷‍♂" type="tts">男生耸肩</annotation>
+		<annotation cp="🤷‍♀">不关心 | 女 | 女生耸肩 | 怀疑 | 无视</annotation>
+		<annotation cp="🤷‍♀" type="tts">女生耸肩</annotation>
 		<annotation cp="👨‍⚕">医护人员 | 医生 | 护士 | 治疗师 | 男人 | 男医生</annotation>
 		<annotation cp="👨‍⚕" type="tts">男医生</annotation>
 		<annotation cp="👩‍⚕">医护人员 | 医生 | 女人 | 女医生 | 护士 | 治疗师</annotation>
@@ -395,112 +619,58 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤶" type="tts">圣诞奶奶</annotation>
 		<annotation cp="🦸">女英雄 | 好人 | 英雄 | 超级英雄 | 超能力</annotation>
 		<annotation cp="🦸" type="tts">超级英雄</annotation>
-		<annotation cp="🦸‍♀">女人 | 女超级英雄 | 好人 | 英雄 | 超能力</annotation>
-		<annotation cp="🦸‍♀" type="tts">女超级英雄</annotation>
 		<annotation cp="🦸‍♂">好人 | 男人 | 男超级英雄 | 英雄 | 超能力</annotation>
 		<annotation cp="🦸‍♂" type="tts">男超级英雄</annotation>
+		<annotation cp="🦸‍♀">女人 | 女超级英雄 | 好人 | 英雄 | 超能力</annotation>
+		<annotation cp="🦸‍♀" type="tts">女超级英雄</annotation>
 		<annotation cp="🦹">坏蛋 | 恶魔 | 罪犯 | 超级大坏蛋 | 超能力</annotation>
 		<annotation cp="🦹" type="tts">超级大坏蛋</annotation>
-		<annotation cp="🦹‍♀">坏蛋 | 女人 | 女超级大坏蛋 | 罪犯 | 超能力</annotation>
-		<annotation cp="🦹‍♀" type="tts">女超级大坏蛋</annotation>
 		<annotation cp="🦹‍♂">坏蛋 | 男人 | 男超级大坏蛋 | 罪犯 | 超能力</annotation>
 		<annotation cp="🦹‍♂" type="tts">男超级大坏蛋</annotation>
+		<annotation cp="🦹‍♀">坏蛋 | 女人 | 女超级大坏蛋 | 罪犯 | 超能力</annotation>
+		<annotation cp="🦹‍♀" type="tts">女超级大坏蛋</annotation>
 		<annotation cp="🧙">女巫 | 女魔术师 | 法师 | 男巫 | 男魔术师</annotation>
 		<annotation cp="🧙" type="tts">法师</annotation>
-		<annotation cp="🧙‍♀">女巫 | 女法师 | 女魔术师</annotation>
-		<annotation cp="🧙‍♀" type="tts">女法师</annotation>
 		<annotation cp="🧙‍♂">男巫 | 男法师 | 男魔术师</annotation>
 		<annotation cp="🧙‍♂" type="tts">男法师</annotation>
+		<annotation cp="🧙‍♀">女巫 | 女法师 | 女魔术师</annotation>
+		<annotation cp="🧙‍♀" type="tts">女法师</annotation>
 		<annotation cp="🧚">天卫三 | 天卫十五 | 天卫四 | 精灵</annotation>
 		<annotation cp="🧚" type="tts">精灵</annotation>
-		<annotation cp="🧚‍♀">仙女 | 女精灵 | 妖精王后</annotation>
-		<annotation cp="🧚‍♀" type="tts">仙女</annotation>
 		<annotation cp="🧚‍♂">仙人 | 仙男 | 天卫十五 | 天卫四 | 男精灵</annotation>
 		<annotation cp="🧚‍♂" type="tts">仙人</annotation>
+		<annotation cp="🧚‍♀">仙女 | 女精灵 | 妖精王后</annotation>
+		<annotation cp="🧚‍♀" type="tts">仙女</annotation>
 		<annotation cp="🧛">不死族 | 吸血鬼</annotation>
 		<annotation cp="🧛" type="tts">吸血鬼</annotation>
-		<annotation cp="🧛‍♀">女不死族 | 女吸血鬼</annotation>
-		<annotation cp="🧛‍♀" type="tts">女吸血鬼</annotation>
 		<annotation cp="🧛‍♂">男不死族 | 男吸血鬼</annotation>
 		<annotation cp="🧛‍♂" type="tts">男吸血鬼</annotation>
+		<annotation cp="🧛‍♀">女不死族 | 女吸血鬼</annotation>
+		<annotation cp="🧛‍♀" type="tts">女吸血鬼</annotation>
 		<annotation cp="🧜">人鱼 | 女人鱼 | 男人鱼 | 美人鱼</annotation>
 		<annotation cp="🧜" type="tts">人鱼</annotation>
-		<annotation cp="🧜‍♀">女人鱼 | 美人鱼</annotation>
-		<annotation cp="🧜‍♀" type="tts">美人鱼</annotation>
 		<annotation cp="🧜‍♂">特里同 | 男人鱼</annotation>
 		<annotation cp="🧜‍♂" type="tts">男人鱼</annotation>
+		<annotation cp="🧜‍♀">女人鱼 | 美人鱼</annotation>
+		<annotation cp="🧜‍♀" type="tts">美人鱼</annotation>
 		<annotation cp="🧝">小精灵 | 魔术</annotation>
 		<annotation cp="🧝" type="tts">小精灵</annotation>
-		<annotation cp="🧝‍♀">女小精灵 | 女性魔术</annotation>
-		<annotation cp="🧝‍♀" type="tts">女小精灵</annotation>
 		<annotation cp="🧝‍♂">男小精灵 | 男性魔术</annotation>
 		<annotation cp="🧝‍♂" type="tts">男小精灵</annotation>
+		<annotation cp="🧝‍♀">女小精灵 | 女性魔术</annotation>
+		<annotation cp="🧝‍♀" type="tts">女小精灵</annotation>
 		<annotation cp="🧞">妖怪 | 神灵</annotation>
 		<annotation cp="🧞" type="tts">妖怪</annotation>
-		<annotation cp="🧞‍♀">女妖怪 | 女神灵</annotation>
-		<annotation cp="🧞‍♀" type="tts">女妖怪</annotation>
 		<annotation cp="🧞‍♂">男妖怪 | 男神灵</annotation>
 		<annotation cp="🧞‍♂" type="tts">男妖怪</annotation>
+		<annotation cp="🧞‍♀">女妖怪 | 女神灵</annotation>
+		<annotation cp="🧞‍♀" type="tts">女妖怪</annotation>
 		<annotation cp="🧟">不死族 | 僵尸 | 行尸走肉</annotation>
 		<annotation cp="🧟" type="tts">僵尸</annotation>
-		<annotation cp="🧟‍♀">女僵尸 | 女行尸走肉</annotation>
-		<annotation cp="🧟‍♀" type="tts">女僵尸</annotation>
 		<annotation cp="🧟‍♂">男僵尸 | 男行尸走肉</annotation>
 		<annotation cp="🧟‍♂" type="tts">男僵尸</annotation>
-		<annotation cp="🙍">不开心 | 皱眉</annotation>
-		<annotation cp="🙍" type="tts">皱眉</annotation>
-		<annotation cp="🙍‍♂">不开心 | 男 | 皱眉 | 皱眉男</annotation>
-		<annotation cp="🙍‍♂" type="tts">皱眉男</annotation>
-		<annotation cp="🙍‍♀">不开心 | 女 | 皱眉 | 皱眉女</annotation>
-		<annotation cp="🙍‍♀" type="tts">皱眉女</annotation>
-		<annotation cp="🙎">不开心 | 噘嘴 | 撅嘴</annotation>
-		<annotation cp="🙎" type="tts">撅嘴</annotation>
-		<annotation cp="🙎‍♂">不开心 | 噘嘴 | 撅嘴男 | 男</annotation>
-		<annotation cp="🙎‍♂" type="tts">撅嘴男</annotation>
-		<annotation cp="🙎‍♀">不开心 | 噘嘴 | 女 | 撅嘴女</annotation>
-		<annotation cp="🙎‍♀" type="tts">撅嘴女</annotation>
-		<annotation cp="🙅">不行 | 反对 | 禁止 | 禁止手势</annotation>
-		<annotation cp="🙅" type="tts">禁止手势</annotation>
-		<annotation cp="🙅‍♂">不行 | 反对 | 男 | 禁止 | 禁止手势男</annotation>
-		<annotation cp="🙅‍♂" type="tts">禁止手势男</annotation>
-		<annotation cp="🙅‍♀">不行 | 反对 | 女 | 禁止 | 禁止手势女</annotation>
-		<annotation cp="🙅‍♀" type="tts">禁止手势女</annotation>
-		<annotation cp="🙆">ok | OK手势 | 好的</annotation>
-		<annotation cp="🙆" type="tts">OK手势</annotation>
-		<annotation cp="🙆‍♂">OK | OK手势男 | 可以 | 同意 | 好的 | 男</annotation>
-		<annotation cp="🙆‍♂" type="tts">OK手势男</annotation>
-		<annotation cp="🙆‍♀">OK | OK手势女 | 可以 | 同意 | 女 | 好的</annotation>
-		<annotation cp="🙆‍♀" type="tts">OK手势女</annotation>
-		<annotation cp="💁">信息 | 前台 | 帮助</annotation>
-		<annotation cp="💁" type="tts">前台</annotation>
-		<annotation cp="💁‍♂">前台 | 前台男 | 男</annotation>
-		<annotation cp="💁‍♂" type="tts">前台男</annotation>
-		<annotation cp="💁‍♀">前台 | 前台女 | 女</annotation>
-		<annotation cp="💁‍♀" type="tts">前台女</annotation>
-		<annotation cp="🙋">举手 | 开心</annotation>
-		<annotation cp="🙋" type="tts">举手</annotation>
-		<annotation cp="🙋‍♂">举手 | 男 | 男生举手</annotation>
-		<annotation cp="🙋‍♂" type="tts">男生举手</annotation>
-		<annotation cp="🙋‍♀">举手 | 女 | 女生举手</annotation>
-		<annotation cp="🙋‍♀" type="tts">女生举手</annotation>
-		<annotation cp="🙇">不好意思 | 对不起 | 道歉 | 鞠躬</annotation>
-		<annotation cp="🙇" type="tts">鞠躬</annotation>
-		<annotation cp="🙇‍♂">不好意思 | 对不起 | 男 | 男生鞠躬 | 道歉</annotation>
-		<annotation cp="🙇‍♂" type="tts">男生鞠躬</annotation>
-		<annotation cp="🙇‍♀">不好意思 | 女 | 女生鞠躬 | 对不起 | 道歉</annotation>
-		<annotation cp="🙇‍♀" type="tts">女生鞠躬</annotation>
-		<annotation cp="🤦">捂脸 | 无语 | 难以置信</annotation>
-		<annotation cp="🤦" type="tts">捂脸</annotation>
-		<annotation cp="🤦‍♂">无语 | 男 | 男生捂脸 | 难以置信</annotation>
-		<annotation cp="🤦‍♂" type="tts">男生捂脸</annotation>
-		<annotation cp="🤦‍♀">女 | 女生捂脸 | 无语 | 难以置信</annotation>
-		<annotation cp="🤦‍♀" type="tts">女生捂脸</annotation>
-		<annotation cp="🤷">不关心 | 怀疑 | 无视 | 耸肩</annotation>
-		<annotation cp="🤷" type="tts">耸肩</annotation>
-		<annotation cp="🤷‍♂">不关心 | 怀疑 | 无视 | 男 | 男生耸肩</annotation>
-		<annotation cp="🤷‍♂" type="tts">男生耸肩</annotation>
-		<annotation cp="🤷‍♀">不关心 | 女 | 女生耸肩 | 怀疑 | 无视</annotation>
-		<annotation cp="🤷‍♀" type="tts">女生耸肩</annotation>
+		<annotation cp="🧟‍♀">女僵尸 | 女行尸走肉</annotation>
+		<annotation cp="🧟‍♀" type="tts">女僵尸</annotation>
 		<annotation cp="💆">按摩 | 美容</annotation>
 		<annotation cp="💆" type="tts">按摩</annotation>
 		<annotation cp="💆‍♂">按摩 | 男 | 男生按摩</annotation>
@@ -529,6 +699,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💃" type="tts">跳舞的女人</annotation>
 		<annotation cp="🕺">男人 | 跳舞 | 跳舞的男人</annotation>
 		<annotation cp="🕺" type="tts">跳舞的男人</annotation>
+		<annotation cp="🕴">商务 | 正装 | 西装革履 | 西装革履的人</annotation>
+		<annotation cp="🕴" type="tts">西装革履的人</annotation>
 		<annotation cp="👯">兔耳朵 | 戴兔耳朵的人 | 派对 | 聚会 | 跳舞</annotation>
 		<annotation cp="👯" type="tts">戴兔耳朵的人</annotation>
 		<annotation cp="👯‍♂">兔先生 | 兔耳朵 | 派对 | 男生派对 | 聚会 | 跳舞</annotation>
@@ -537,34 +709,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👯‍♀" type="tts">兔女郎</annotation>
 		<annotation cp="🧖">桑拿 | 蒸房 | 蒸房里的人</annotation>
 		<annotation cp="🧖" type="tts">蒸房里的人</annotation>
-		<annotation cp="🧖‍♀">女性桑拿 | 桑拿 | 蒸房里的女人</annotation>
-		<annotation cp="🧖‍♀" type="tts">蒸房里的女人</annotation>
 		<annotation cp="🧖‍♂">桑拿 | 蒸房里的男人 | 男性桑拿</annotation>
 		<annotation cp="🧖‍♂" type="tts">蒸房里的男人</annotation>
+		<annotation cp="🧖‍♀">女性桑拿 | 桑拿 | 蒸房里的女人</annotation>
+		<annotation cp="🧖‍♀" type="tts">蒸房里的女人</annotation>
 		<annotation cp="🧗">攀爬的人 | 登山者</annotation>
 		<annotation cp="🧗" type="tts">攀爬的人</annotation>
-		<annotation cp="🧗‍♀">攀爬的女人 | 登山者</annotation>
-		<annotation cp="🧗‍♀" type="tts">攀爬的女人</annotation>
 		<annotation cp="🧗‍♂">攀爬的男人 | 登山者</annotation>
 		<annotation cp="🧗‍♂" type="tts">攀爬的男人</annotation>
-		<annotation cp="🧘">冥想 | 瑜伽 | 盘腿的人</annotation>
-		<annotation cp="🧘" type="tts">盘腿的人</annotation>
-		<annotation cp="🧘‍♀">尼姑 | 比丘尼 | 瑜伽女 | 盘腿的女人</annotation>
-		<annotation cp="🧘‍♀" type="tts">盘腿的女人</annotation>
-		<annotation cp="🧘‍♂">和尚 | 瑜伽男 | 盘腿的男人</annotation>
-		<annotation cp="🧘‍♂" type="tts">盘腿的男人</annotation>
-		<annotation cp="🛀">洗澡 | 洗澡的人 | 浴缸</annotation>
-		<annotation cp="🛀" type="tts">洗澡的人</annotation>
-		<annotation cp="🛌">入睡 | 宾馆 | 躺在床上的人 | 酒店</annotation>
-		<annotation cp="🛌" type="tts">躺在床上的人</annotation>
-		<annotation cp="🕴">商务 | 正装 | 西装革履 | 西装革履的人</annotation>
-		<annotation cp="🕴" type="tts">西装革履的人</annotation>
-		<annotation cp="🗣">剪影 | 头 | 讲话 | 说话</annotation>
-		<annotation cp="🗣" type="tts">说话</annotation>
-		<annotation cp="👤">人像 | 剪影 | 半身像</annotation>
-		<annotation cp="👤" type="tts">人像</annotation>
-		<annotation cp="👥">剪影 | 半身像 | 双人像</annotation>
-		<annotation cp="👥" type="tts">双人像</annotation>
+		<annotation cp="🧗‍♀">攀爬的女人 | 登山者</annotation>
+		<annotation cp="🧗‍♀" type="tts">攀爬的女人</annotation>
 		<annotation cp="🤺">人 | 体育 | 击剑 | 击剑选手 | 剑</annotation>
 		<annotation cp="🤺" type="tts">击剑选手</annotation>
 		<annotation cp="🏇">赛马 | 马</annotation>
@@ -621,10 +775,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚵‍♂" type="tts">男生骑山地车</annotation>
 		<annotation cp="🚵‍♀">单车 | 女 | 女生骑山地车 | 山地车 | 自行车 | 骑车</annotation>
 		<annotation cp="🚵‍♀" type="tts">女生骑山地车</annotation>
-		<annotation cp="🏎">赛车 | 跑车</annotation>
-		<annotation cp="🏎" type="tts">赛车</annotation>
-		<annotation cp="🏍">摩托 | 摩托车</annotation>
-		<annotation cp="🏍" type="tts">摩托车</annotation>
 		<annotation cp="🤸">人 | 体操 | 体育 | 侧手翻 | 翻筋斗</annotation>
 		<annotation cp="🤸" type="tts">侧手翻</annotation>
 		<annotation cp="🤸‍♂">体操 | 侧手翻 | 男 | 男生侧手翻 | 翻筋斗</annotation>
@@ -655,11 +805,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤹‍♂" type="tts">男生抛接杂耍</annotation>
 		<annotation cp="🤹‍♀">女 | 女生抛接杂耍 | 杂技 | 杂耍 | 颠球</annotation>
 		<annotation cp="🤹‍♀" type="tts">女生抛接杂耍</annotation>
-		<annotation cp="👫">一男一女 | 情侣 | 手拉手 | 手拉手的一男一女</annotation>
+		<annotation cp="🧘">冥想 | 瑜伽 | 盘腿的人</annotation>
+		<annotation cp="🧘" type="tts">盘腿的人</annotation>
+		<annotation cp="🧘‍♂">和尚 | 瑜伽男 | 盘腿的男人</annotation>
+		<annotation cp="🧘‍♂" type="tts">盘腿的男人</annotation>
+		<annotation cp="🧘‍♀">尼姑 | 比丘尼 | 瑜伽女 | 盘腿的女人</annotation>
+		<annotation cp="🧘‍♀" type="tts">盘腿的女人</annotation>
+		<annotation cp="🛀">洗澡 | 洗澡的人 | 浴缸</annotation>
+		<annotation cp="🛀" type="tts">洗澡的人</annotation>
+		<annotation cp="🛌">入睡 | 宾馆 | 躺在床上的人 | 酒店</annotation>
+		<annotation cp="🛌" type="tts">躺在床上的人</annotation>
+		<annotation cp="👫">一男一女 | 情侣 | 手拉手</annotation>
 		<annotation cp="👫" type="tts">手拉手的一男一女</annotation>
-		<annotation cp="👬">两个男人 | 情侣 | 手拉手 | 手拉手的两个男人</annotation>
+		<annotation cp="👬">两个男人 | 双子座 | 情侣 | 手拉手 | 黄道十二宫</annotation>
 		<annotation cp="👬" type="tts">手拉手的两个男人</annotation>
-		<annotation cp="👭">两个女人 | 情侣 | 手拉手 | 手拉手的两个女人</annotation>
+		<annotation cp="👭">两个女人 | 情侣 | 手拉手</annotation>
 		<annotation cp="👭" type="tts">手拉手的两个女人</annotation>
 		<annotation cp="💏">亲吻 | 情侣 | 接吻 | 浪漫</annotation>
 		<annotation cp="💏" type="tts">亲吻</annotation>
@@ -667,98 +827,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💑" type="tts">情侣</annotation>
 		<annotation cp="👪">家庭</annotation>
 		<annotation cp="👪" type="tts">家庭</annotation>
-		<annotation cp="🤳">手机 | 相机 | 自拍</annotation>
-		<annotation cp="🤳" type="tts">自拍</annotation>
-		<annotation cp="💪">二头肌 | 强壮 | 肌肉</annotation>
-		<annotation cp="💪" type="tts">肌肉</annotation>
-		<annotation cp="🦵">腿 | 跛行 | 踢</annotation>
-		<annotation cp="🦵" type="tts">腿</annotation>
-		<annotation cp="🦶">脚 | 踢 | 踩</annotation>
-		<annotation cp="🦶" type="tts">脚</annotation>
-		<annotation cp="👈">反手 | 反手食指向左指 | 向左指 | 手 | 指左 | 食指</annotation>
-		<annotation cp="👈" type="tts">反手食指向左指</annotation>
-		<annotation cp="👉">反手 | 反手食指向右指 | 向右指 | 手 | 指右 | 食指</annotation>
-		<annotation cp="👉" type="tts">反手食指向右指</annotation>
-		<annotation cp="☝">向上指 | 手 | 指上 | 食指 | 食指向上指</annotation>
-		<annotation cp="☝" type="tts">食指向上指</annotation>
-		<annotation cp="👆">反手 | 反手食指向上指 | 向上指 | 手 | 指上 | 食指</annotation>
-		<annotation cp="👆" type="tts">反手食指向上指</annotation>
-		<annotation cp="🖕">中指 | 反手 | 手 | 竖中指</annotation>
-		<annotation cp="🖕" type="tts">竖中指</annotation>
-		<annotation cp="👇">反手 | 反手食指向下指 | 向下指 | 手 | 指下 | 食指</annotation>
-		<annotation cp="👇" type="tts">反手食指向下指</annotation>
-		<annotation cp="✌">V | 成功 | 手 | 胜利 | 胜利手势</annotation>
-		<annotation cp="✌" type="tts">胜利手势</annotation>
-		<annotation cp="🤞">交叉 | 交叉的手指 | 幸运 | 手 | 手指</annotation>
-		<annotation cp="🤞" type="tts">交叉的手指</annotation>
-		<annotation cp="🖖">手 | 敬礼 | 斯波克 | 星际迷航 | 瓦肯 | 瓦肯举手礼</annotation>
-		<annotation cp="🖖" type="tts">瓦肯举手礼</annotation>
-		<annotation cp="🤘">手 | 摇滚 | 角 | 金属礼</annotation>
-		<annotation cp="🤘" type="tts">摇滚</annotation>
-		<annotation cp="🤙">手 | 电话 | 给我打电话</annotation>
-		<annotation cp="🤙" type="tts">给我打电话</annotation>
-		<annotation cp="🖐">击掌 | 布 | 手 | 手掌 | 禁止</annotation>
-		<annotation cp="🖐" type="tts">手掌</annotation>
-		<annotation cp="✋">举手 | 举起手 | 手</annotation>
-		<annotation cp="✋" type="tts">举起手</annotation>
-		<annotation cp="👌">OK | 手</annotation>
-		<annotation cp="👌" type="tts">OK</annotation>
-		<annotation cp="👍">同意 | 手 | 拇指向上 | 真棒 | 赞成 | 顶一下</annotation>
-		<annotation cp="👍" type="tts">拇指向上</annotation>
-		<annotation cp="👎">不赞成 | 反对 | 手 | 拇指向下 | 责备</annotation>
-		<annotation cp="👎" type="tts">拇指向下</annotation>
-		<annotation cp="✊">举起拳头 | 手 | 拳头 | 握拳</annotation>
-		<annotation cp="✊" type="tts">举起拳头</annotation>
-		<annotation cp="👊">出拳 | 手 | 打 | 拳</annotation>
-		<annotation cp="👊" type="tts">出拳</annotation>
-		<annotation cp="🤛">拳头 | 朝左 | 朝左的拳头</annotation>
-		<annotation cp="🤛" type="tts">朝左的拳头</annotation>
-		<annotation cp="🤜">手 | 拳头 | 朝右 | 朝右的拳头</annotation>
-		<annotation cp="🤜" type="tts">朝右的拳头</annotation>
-		<annotation cp="🤚">手 | 手背 | 立起 | 立起的手背</annotation>
-		<annotation cp="🤚" type="tts">立起的手背</annotation>
-		<annotation cp="👋">你好 | 再见 | 挥手</annotation>
-		<annotation cp="👋" type="tts">挥手</annotation>
-		<annotation cp="🤟">我爱你 | 手 | 爱你的手势</annotation>
-		<annotation cp="🤟" type="tts">爱你的手势</annotation>
-		<annotation cp="✍">写 | 写字 | 笔</annotation>
-		<annotation cp="✍" type="tts">写字</annotation>
-		<annotation cp="👏">拍手 | 鼓掌</annotation>
-		<annotation cp="👏" type="tts">鼓掌</annotation>
-		<annotation cp="👐">双手 | 张开双手 | 摊手</annotation>
-		<annotation cp="👐" type="tts">张开双手</annotation>
-		<annotation cp="🙌">举双手 | 击掌 | 双手 | 庆祝</annotation>
-		<annotation cp="🙌" type="tts">举双手</annotation>
-		<annotation cp="🤲">掌心向上托起 | 祷告</annotation>
-		<annotation cp="🤲" type="tts">掌心向上托起</annotation>
-		<annotation cp="🙏">双手合十 | 拜托 | 祈求 | 祈祷 | 祝福</annotation>
-		<annotation cp="🙏" type="tts">双手合十</annotation>
-		<annotation cp="🤝">会面 | 协议 | 握手</annotation>
-		<annotation cp="🤝" type="tts">握手</annotation>
-		<annotation cp="💅">指甲油 | 涂指甲油 | 美甲</annotation>
-		<annotation cp="💅" type="tts">涂指甲油</annotation>
-		<annotation cp="👂">听 | 耳 | 耳朵</annotation>
-		<annotation cp="👂" type="tts">耳朵</annotation>
-		<annotation cp="👃">嗅 | 闻 | 鼻 | 鼻子</annotation>
-		<annotation cp="👃" type="tts">鼻子</annotation>
+		<annotation cp="🗣">剪影 | 头 | 讲话 | 说话</annotation>
+		<annotation cp="🗣" type="tts">说话</annotation>
+		<annotation cp="👤">人像 | 剪影 | 半身像</annotation>
+		<annotation cp="👤" type="tts">人像</annotation>
+		<annotation cp="👥">剪影 | 半身像 | 双人像</annotation>
+		<annotation cp="👥" type="tts">双人像</annotation>
 		<annotation cp="👣">脚印 | 足迹</annotation>
 		<annotation cp="👣" type="tts">脚印</annotation>
-		<annotation cp="👀">双眼</annotation>
-		<annotation cp="👀" type="tts">双眼</annotation>
-		<annotation cp="👁">看 | 眼 | 眼睛</annotation>
-		<annotation cp="👁" type="tts">眼睛</annotation>
-		<annotation cp="👁‍🗨">对话框 | 眼睛 | 眼睛对话框</annotation>
-		<annotation cp="👁‍🗨" type="tts">眼睛对话框</annotation>
-		<annotation cp="🧠">大脑 | 头脑 | 智慧 | 智能 | 脑</annotation>
-		<annotation cp="🧠" type="tts">脑</annotation>
-		<annotation cp="🦴">骨头 | 骨骼</annotation>
-		<annotation cp="🦴" type="tts">骨头</annotation>
-		<annotation cp="🦷">牙医 | 牙齿</annotation>
-		<annotation cp="🦷" type="tts">牙齿</annotation>
-		<annotation cp="👅">舌 | 舌头 | 舔</annotation>
-		<annotation cp="👅" type="tts">舌头</annotation>
-		<annotation cp="👄">口 | 唇 | 嘴</annotation>
-		<annotation cp="👄" type="tts">嘴</annotation>
 		<annotation cp="🦰">姜黄色 | 红发</annotation>
 		<annotation cp="🦰" type="tts">红发</annotation>
 		<annotation cp="🦱">卷发 | 蓬松发 | 鬈发</annotation>
@@ -767,142 +843,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦳" type="tts">白发</annotation>
 		<annotation cp="🦲">光头 | 化疗 | 秃顶</annotation>
 		<annotation cp="🦲" type="tts">秃顶</annotation>
-		<annotation cp="💋">吻 | 唇 | 唇印 | 浪漫</annotation>
-		<annotation cp="💋" type="tts">唇印</annotation>
-		<annotation cp="💘">丘比特 | 心中箭了 | 浪漫 | 爱情 | 箭 | 红心</annotation>
-		<annotation cp="💘" type="tts">心中箭了</annotation>
-		<annotation cp="💝">爱的礼物 | 系有缎带的心 | 送你一颗心</annotation>
-		<annotation cp="💝" type="tts">系有缎带的心</annotation>
-		<annotation cp="💖">激动 | 红心 | 闪亮 | 闪亮的心</annotation>
-		<annotation cp="💖" type="tts">闪亮的心</annotation>
-		<annotation cp="💗">搏动 | 搏动的心 | 激动 | 紧张 | 红心</annotation>
-		<annotation cp="💗" type="tts">搏动的心</annotation>
-		<annotation cp="💓">心动 | 心跳 | 爱</annotation>
-		<annotation cp="💓" type="tts">心跳</annotation>
-		<annotation cp="💞">旋转 | 涌动 | 舞动的心 | 跃动</annotation>
-		<annotation cp="💞" type="tts">舞动的心</annotation>
-		<annotation cp="💕">两颗心 | 爱情</annotation>
-		<annotation cp="💕" type="tts">两颗心</annotation>
-		<annotation cp="💌">信 | 情书 | 邮件</annotation>
-		<annotation cp="💌" type="tts">情书</annotation>
-		<annotation cp="❣">叹号 | 心动 | 心叹号</annotation>
-		<annotation cp="❣" type="tts">心叹号</annotation>
-		<annotation cp="💔">伤心 | 心碎</annotation>
-		<annotation cp="💔" type="tts">心碎</annotation>
-		<annotation cp="❤">心 | 爱 | 红心</annotation>
-		<annotation cp="❤" type="tts">红心</annotation>
-		<annotation cp="🧡">橙 | 橙心</annotation>
-		<annotation cp="🧡" type="tts">橙心</annotation>
-		<annotation cp="💛">黄 | 黄心</annotation>
-		<annotation cp="💛" type="tts">黄心</annotation>
-		<annotation cp="💚">绿 | 绿心</annotation>
-		<annotation cp="💚" type="tts">绿心</annotation>
-		<annotation cp="💙">蓝 | 蓝心</annotation>
-		<annotation cp="💙" type="tts">蓝心</annotation>
-		<annotation cp="💜">紫 | 紫心</annotation>
-		<annotation cp="💜" type="tts">紫心</annotation>
-		<annotation cp="🖤">心 | 邪恶 | 黑心 | 黑色</annotation>
-		<annotation cp="🖤" type="tts">黑心</annotation>
-		<annotation cp="💟">心型装饰 | 装饰</annotation>
-		<annotation cp="💟" type="tts">心型装饰</annotation>
-		<annotation cp="💤">呼噜 | 打呼 | 睡着</annotation>
-		<annotation cp="💤" type="tts">睡着</annotation>
-		<annotation cp="💢">怒 | 火大 | 生气 | 青筋</annotation>
-		<annotation cp="💢" type="tts">怒</annotation>
-		<annotation cp="💣">炸弹 | 爆炸</annotation>
-		<annotation cp="💣" type="tts">炸弹</annotation>
-		<annotation cp="💥">炸 | 爆 | 爆炸</annotation>
-		<annotation cp="💥" type="tts">爆炸</annotation>
-		<annotation cp="💦">汗 | 汗滴</annotation>
-		<annotation cp="💦" type="tts">汗滴</annotation>
-		<annotation cp="💨">尾气 | 疾驰而去 | 飞奔而去</annotation>
-		<annotation cp="💨" type="tts">尾气</annotation>
-		<annotation cp="💫">头晕 | 头晕目眩</annotation>
-		<annotation cp="💫" type="tts">头晕</annotation>
-		<annotation cp="💬">发言 | 对话框 | 气泡 | 话语气泡</annotation>
-		<annotation cp="💬" type="tts">话语气泡</annotation>
-		<annotation cp="🗨">对话框 | 朝左的话语气泡 | 话语</annotation>
-		<annotation cp="🗨" type="tts">朝左的话语气泡</annotation>
-		<annotation cp="🗯">对话框 | 愤怒 | 愤怒话语气泡</annotation>
-		<annotation cp="🗯" type="tts">愤怒话语气泡</annotation>
-		<annotation cp="💭">内心活动气泡 | 对话框 | 思想活动 | 气泡</annotation>
-		<annotation cp="💭" type="tts">内心活动气泡</annotation>
-		<annotation cp="🕳">坑 | 洞 | 陷阱</annotation>
-		<annotation cp="🕳" type="tts">洞</annotation>
-		<annotation cp="👓">眼镜</annotation>
-		<annotation cp="👓" type="tts">眼镜</annotation>
-		<annotation cp="🕶">太阳镜 | 墨镜</annotation>
-		<annotation cp="🕶" type="tts">墨镜</annotation>
-		<annotation cp="🥽">护目镜 | 护眼 | 游泳 | 焊接</annotation>
-		<annotation cp="🥽" type="tts">护目镜</annotation>
-		<annotation cp="🥼">医生 | 实验人员 | 白大褂 | 科学家</annotation>
-		<annotation cp="🥼" type="tts">白大褂</annotation>
-		<annotation cp="👔">衬衫领带 | 领带</annotation>
-		<annotation cp="👔" type="tts">领带</annotation>
-		<annotation cp="👕">T恤 | 恤衫</annotation>
-		<annotation cp="👕" type="tts">T恤</annotation>
-		<annotation cp="👖">牛仔裤 | 裤子</annotation>
-		<annotation cp="👖" type="tts">牛仔裤</annotation>
-		<annotation cp="🧣">围巾</annotation>
-		<annotation cp="🧣" type="tts">围巾</annotation>
-		<annotation cp="🧤">手套</annotation>
-		<annotation cp="🧤" type="tts">手套</annotation>
-		<annotation cp="🧥">外套 | 夹克</annotation>
-		<annotation cp="🧥" type="tts">外套</annotation>
-		<annotation cp="🧦">短袜 | 袜子 | 长袜</annotation>
-		<annotation cp="🧦" type="tts">袜子</annotation>
-		<annotation cp="👗">衣服 | 连衣裙</annotation>
-		<annotation cp="👗" type="tts">连衣裙</annotation>
-		<annotation cp="👘">和服 | 日本</annotation>
-		<annotation cp="👘" type="tts">和服</annotation>
-		<annotation cp="👙">三点式 | 比基尼 | 泳装</annotation>
-		<annotation cp="👙" type="tts">比基尼</annotation>
-		<annotation cp="👚">女 | 女装 | 衣服</annotation>
-		<annotation cp="👚" type="tts">女装</annotation>
-		<annotation cp="👛">钱包</annotation>
-		<annotation cp="👛" type="tts">钱包</annotation>
-		<annotation cp="👜">手提包 | 挎包</annotation>
-		<annotation cp="👜" type="tts">手提包</annotation>
-		<annotation cp="👝">包 | 手拿包 | 手袋</annotation>
-		<annotation cp="👝" type="tts">手袋</annotation>
-		<annotation cp="🛍">包 | 袋 | 购物袋 | 逛街</annotation>
-		<annotation cp="🛍" type="tts">购物袋</annotation>
-		<annotation cp="🎒">书包 | 包</annotation>
-		<annotation cp="🎒" type="tts">书包</annotation>
-		<annotation cp="👞">男鞋 | 鞋</annotation>
-		<annotation cp="👞" type="tts">男鞋</annotation>
-		<annotation cp="👟">跑鞋 | 运动鞋 | 鞋</annotation>
-		<annotation cp="👟" type="tts">跑鞋</annotation>
-		<annotation cp="🥾">徒步 | 登山 | 登山鞋 | 远足野营 | 露营</annotation>
-		<annotation cp="🥾" type="tts">登山鞋</annotation>
-		<annotation cp="🥿">一脚蹬 | 便鞋 | 平底芭蕾舞鞋 | 平底鞋</annotation>
-		<annotation cp="🥿" type="tts">平底鞋</annotation>
-		<annotation cp="👠">女 | 鞋 | 高跟鞋</annotation>
-		<annotation cp="👠" type="tts">高跟鞋</annotation>
-		<annotation cp="👡">凉鞋 | 女 | 女式凉鞋</annotation>
-		<annotation cp="👡" type="tts">女式凉鞋</annotation>
-		<annotation cp="👢">女 | 女靴 | 靴子</annotation>
-		<annotation cp="👢" type="tts">女靴</annotation>
-		<annotation cp="👑">王冠 | 皇冠</annotation>
-		<annotation cp="👑" type="tts">皇冠</annotation>
-		<annotation cp="👒">女 | 女帽 | 帽子</annotation>
-		<annotation cp="👒" type="tts">女帽</annotation>
-		<annotation cp="🎩">帽子 | 礼帽 | 高帽</annotation>
-		<annotation cp="🎩" type="tts">礼帽</annotation>
-		<annotation cp="🎓">四方帽 | 毕业帽</annotation>
-		<annotation cp="🎓" type="tts">毕业帽</annotation>
-		<annotation cp="🧢">棒球帽 | 鸭舌帽</annotation>
-		<annotation cp="🧢" type="tts">鸭舌帽</annotation>
-		<annotation cp="⛑">十字 | 头盔 | 安全帽 | 白十字头盔</annotation>
-		<annotation cp="⛑" type="tts">白十字头盔</annotation>
-		<annotation cp="📿">宗教 | 念珠 | 珠子 | 祈祷 | 项链</annotation>
-		<annotation cp="📿" type="tts">念珠</annotation>
-		<annotation cp="💄">化妆品 | 口红 | 唇膏</annotation>
-		<annotation cp="💄" type="tts">唇膏</annotation>
-		<annotation cp="💍">戒指 | 钻戒</annotation>
-		<annotation cp="💍" type="tts">戒指</annotation>
-		<annotation cp="💎">宝石 | 钻石</annotation>
-		<annotation cp="💎" type="tts">宝石</annotation>
+		<annotation cp="♀">女性符号 | 符号 | 雌性</annotation>
+		<annotation cp="♀" type="tts">女性符号</annotation>
+		<annotation cp="♂">男性符号 | 符号 | 雄性</annotation>
+		<annotation cp="♂" type="tts">男性符号</annotation>
 		<annotation cp="🐵">猴 | 猴头</annotation>
 		<annotation cp="🐵" type="tts">猴头</annotation>
 		<annotation cp="🐒">猴 | 猴子</annotation>
@@ -913,12 +857,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐶" type="tts">狗脸</annotation>
 		<annotation cp="🐕">宠物 | 狗</annotation>
 		<annotation cp="🐕" type="tts">狗</annotation>
+		<annotation cp="🐕‍🦺">工作犬 | 无障碍 | 犬 | 狗 | 辅助</annotation>
+		<annotation cp="🐕‍🦺" type="tts">服务犬</annotation>
 		<annotation cp="🐩">卷毛狗 | 狗 | 贵宾犬</annotation>
 		<annotation cp="🐩" type="tts">贵宾犬</annotation>
-		<annotation cp="🐺">狼 | 狼头</annotation>
-		<annotation cp="🐺" type="tts">狼头</annotation>
-		<annotation cp="🦊">狐狸 | 狐狸的脸 | 脸</annotation>
-		<annotation cp="🦊" type="tts">狐狸的脸</annotation>
+		<annotation cp="🐺">头 | 狼 | 脸</annotation>
+		<annotation cp="🐺" type="tts">狼</annotation>
+		<annotation cp="🦊">头 | 狐狸 | 脸</annotation>
+		<annotation cp="🦊" type="tts">狐狸</annotation>
 		<annotation cp="🦝">好奇 | 浣熊 | 淘气</annotation>
 		<annotation cp="🦝" type="tts">浣熊</annotation>
 		<annotation cp="🐱">宠物 | 猫 | 猫脸 | 脸</annotation>
@@ -937,8 +883,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐴" type="tts">马头</annotation>
 		<annotation cp="🐎">比赛 | 赛马 | 马 | 骑马</annotation>
 		<annotation cp="🐎" type="tts">马</annotation>
-		<annotation cp="🦄">独角兽 | 独角兽头</annotation>
-		<annotation cp="🦄" type="tts">独角兽头</annotation>
+		<annotation cp="🦄">头 | 独角兽 | 脸</annotation>
+		<annotation cp="🦄" type="tts">独角兽</annotation>
 		<annotation cp="🦓">斑马 | 条纹</annotation>
 		<annotation cp="🦓" type="tts">斑马</annotation>
 		<annotation cp="🦌">鹿</annotation>
@@ -985,8 +931,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐁" type="tts">老鼠</annotation>
 		<annotation cp="🐀">耗子 | 鼠</annotation>
 		<annotation cp="🐀" type="tts">耗子</annotation>
-		<annotation cp="🐹">仓鼠 | 仓鼠脸 | 啮齿</annotation>
-		<annotation cp="🐹" type="tts">仓鼠脸</annotation>
+		<annotation cp="🐹">仓鼠 | 啮齿 | 头 | 脸</annotation>
+		<annotation cp="🐹" type="tts">仓鼠</annotation>
 		<annotation cp="🐰">兔 | 兔子头</annotation>
 		<annotation cp="🐰" type="tts">兔子头</annotation>
 		<annotation cp="🐇">兔 | 兔子</annotation>
@@ -997,18 +943,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦔" type="tts">刺猬</annotation>
 		<annotation cp="🦇">吸血鬼 | 蝙蝠</annotation>
 		<annotation cp="🦇" type="tts">蝙蝠</annotation>
-		<annotation cp="🐻">熊 | 熊头</annotation>
-		<annotation cp="🐻" type="tts">熊头</annotation>
+		<annotation cp="🐻">头 | 熊 | 脸</annotation>
+		<annotation cp="🐻" type="tts">熊</annotation>
 		<annotation cp="🐨">澳大利亚 | 考拉</annotation>
 		<annotation cp="🐨" type="tts">考拉</annotation>
-		<annotation cp="🐼">熊猫 | 熊猫脸 | 胖达</annotation>
-		<annotation cp="🐼" type="tts">熊猫脸</annotation>
+		<annotation cp="🐼">头 | 熊猫 | 胖达 | 脸</annotation>
+		<annotation cp="🐼" type="tts">熊猫</annotation>
 		<annotation cp="🦘">小袋鼠 | 有袋类动物 | 澳大利亚 | 袋鼠 | 跳</annotation>
 		<annotation cp="🦘" type="tts">袋鼠</annotation>
 		<annotation cp="🦡">獾 | 纠缠 | 蜜獾</annotation>
 		<annotation cp="🦡" type="tts">獾</annotation>
-		<annotation cp="🐾">爪印 | 爪子 | 足迹</annotation>
-		<annotation cp="🐾" type="tts">爪印</annotation>
 		<annotation cp="🦃">火鸡</annotation>
 		<annotation cp="🦃" type="tts">火鸡</annotation>
 		<annotation cp="🐔">鸡</annotation>
@@ -1039,8 +983,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦚" type="tts">孔雀</annotation>
 		<annotation cp="🦜">剽窃 | 模仿 | 说话 | 鸟 | 鹦鹉</annotation>
 		<annotation cp="🦜" type="tts">鹦鹉</annotation>
-		<annotation cp="🐸">青蛙 | 青蛙头</annotation>
-		<annotation cp="🐸" type="tts">青蛙头</annotation>
+		<annotation cp="🐸">头 | 脸 | 青蛙</annotation>
+		<annotation cp="🐸" type="tts">青蛙</annotation>
 		<annotation cp="🐊">鳄鱼</annotation>
 		<annotation cp="🐊" type="tts">鳄鱼</annotation>
 		<annotation cp="🐢">乌龟 | 海龟 | 龟</annotation>
@@ -1075,14 +1019,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐙" type="tts">章鱼</annotation>
 		<annotation cp="🐚">海螺 | 螺</annotation>
 		<annotation cp="🐚" type="tts">海螺</annotation>
-		<annotation cp="🦀">巨蟹座 | 螃蟹 | 蟹 | 黄道十二宫</annotation>
-		<annotation cp="🦀" type="tts">蟹</annotation>
-		<annotation cp="🦞">浓汤 | 海鲜 | 钳 | 龙虾</annotation>
-		<annotation cp="🦞" type="tts">龙虾</annotation>
-		<annotation cp="🦐">甲壳 | 虾 | 食物</annotation>
-		<annotation cp="🦐" type="tts">虾</annotation>
-		<annotation cp="🦑">乌贼 | 软体动物 | 食物 | 鱿鱼 | 墨鱼</annotation>
-		<annotation cp="🦑" type="tts">乌贼</annotation>
 		<annotation cp="🐌">蜗牛</annotation>
 		<annotation cp="🐌" type="tts">蜗牛</annotation>
 		<annotation cp="🦋">昆虫 | 漂亮 | 美丽 | 蝴蝶</annotation>
@@ -1299,6 +1235,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥠" type="tts">幸运饼干</annotation>
 		<annotation cp="🥡">外卖包装 | 外卖桶 | 外卖盒 | 牡蛎桶</annotation>
 		<annotation cp="🥡" type="tts">外卖盒</annotation>
+		<annotation cp="🦀">巨蟹座 | 螃蟹 | 蟹 | 黄道十二宫</annotation>
+		<annotation cp="🦀" type="tts">蟹</annotation>
+		<annotation cp="🦞">浓汤 | 海鲜 | 钳 | 龙虾</annotation>
+		<annotation cp="🦞" type="tts">龙虾</annotation>
+		<annotation cp="🦐">甲壳 | 虾 | 食物</annotation>
+		<annotation cp="🦐" type="tts">虾</annotation>
+		<annotation cp="🦑">乌贼 | 软体动物 | 食物 | 鱿鱼 | 墨鱼</annotation>
+		<annotation cp="🦑" type="tts">乌贼</annotation>
 		<annotation cp="🍦">圆筒冰淇淋 | 圆筒冰激凌</annotation>
 		<annotation cp="🍦" type="tts">圆筒冰激凌</annotation>
 		<annotation cp="🍧">冰 | 冰沙 | 刨冰 | 甜点</annotation>
@@ -1547,14 +1491,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚛" type="tts">铰接式货车</annotation>
 		<annotation cp="🚜">拖拉机</annotation>
 		<annotation cp="🚜" type="tts">拖拉机</annotation>
+		<annotation cp="🏎">赛车 | 跑车</annotation>
+		<annotation cp="🏎" type="tts">赛车</annotation>
+		<annotation cp="🏍">摩托 | 摩托车</annotation>
+		<annotation cp="🏍" type="tts">摩托车</annotation>
+		<annotation cp="🛵">小型摩托车</annotation>
+		<annotation cp="🛵" type="tts">小型摩托车</annotation>
 		<annotation cp="🚲">单车 | 脚踏车 | 自行车</annotation>
 		<annotation cp="🚲" type="tts">自行车</annotation>
 		<annotation cp="🛴">滑板车</annotation>
 		<annotation cp="🛴" type="tts">滑板车</annotation>
 		<annotation cp="🛹">板 | 滑板</annotation>
 		<annotation cp="🛹" type="tts">滑板</annotation>
-		<annotation cp="🛵">小型摩托车</annotation>
-		<annotation cp="🛵" type="tts">小型摩托车</annotation>
 		<annotation cp="🚏">公交站 | 公交车站 | 公共汽车站</annotation>
 		<annotation cp="🚏" type="tts">公交车站</annotation>
 		<annotation cp="🛣">公路 | 高速公路</annotation>
@@ -1923,6 +1871,80 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧵" type="tts">线</annotation>
 		<annotation cp="🧶">毛线 | 毛线球 | 编织 | 钩针编织物</annotation>
 		<annotation cp="🧶" type="tts">毛线</annotation>
+		<annotation cp="👓">眼镜</annotation>
+		<annotation cp="👓" type="tts">眼镜</annotation>
+		<annotation cp="🕶">太阳镜 | 墨镜</annotation>
+		<annotation cp="🕶" type="tts">墨镜</annotation>
+		<annotation cp="🥽">护目镜 | 护眼 | 游泳 | 焊接</annotation>
+		<annotation cp="🥽" type="tts">护目镜</annotation>
+		<annotation cp="🥼">医生 | 实验人员 | 白大褂 | 科学家</annotation>
+		<annotation cp="🥼" type="tts">白大褂</annotation>
+		<annotation cp="👔">衬衫领带 | 领带</annotation>
+		<annotation cp="👔" type="tts">领带</annotation>
+		<annotation cp="👕">T恤 | 恤衫</annotation>
+		<annotation cp="👕" type="tts">T恤</annotation>
+		<annotation cp="👖">牛仔裤 | 裤子</annotation>
+		<annotation cp="👖" type="tts">牛仔裤</annotation>
+		<annotation cp="🧣">围巾</annotation>
+		<annotation cp="🧣" type="tts">围巾</annotation>
+		<annotation cp="🧤">手套</annotation>
+		<annotation cp="🧤" type="tts">手套</annotation>
+		<annotation cp="🧥">外套 | 夹克</annotation>
+		<annotation cp="🧥" type="tts">外套</annotation>
+		<annotation cp="🧦">短袜 | 袜子 | 长袜</annotation>
+		<annotation cp="🧦" type="tts">袜子</annotation>
+		<annotation cp="👗">衣服 | 连衣裙</annotation>
+		<annotation cp="👗" type="tts">连衣裙</annotation>
+		<annotation cp="👘">和服 | 日本</annotation>
+		<annotation cp="👘" type="tts">和服</annotation>
+		<annotation cp="👙">三点式 | 比基尼 | 泳装</annotation>
+		<annotation cp="👙" type="tts">比基尼</annotation>
+		<annotation cp="👚">女 | 女装 | 衣服</annotation>
+		<annotation cp="👚" type="tts">女装</annotation>
+		<annotation cp="👛">钱包</annotation>
+		<annotation cp="👛" type="tts">钱包</annotation>
+		<annotation cp="👜">手提包 | 挎包</annotation>
+		<annotation cp="👜" type="tts">手提包</annotation>
+		<annotation cp="👝">包 | 手拿包 | 手袋</annotation>
+		<annotation cp="👝" type="tts">手袋</annotation>
+		<annotation cp="🛍">包 | 袋 | 购物袋 | 逛街</annotation>
+		<annotation cp="🛍" type="tts">购物袋</annotation>
+		<annotation cp="🎒">书包 | 包</annotation>
+		<annotation cp="🎒" type="tts">书包</annotation>
+		<annotation cp="👞">男鞋 | 鞋</annotation>
+		<annotation cp="👞" type="tts">男鞋</annotation>
+		<annotation cp="👟">跑鞋 | 运动鞋 | 鞋</annotation>
+		<annotation cp="👟" type="tts">跑鞋</annotation>
+		<annotation cp="🥾">徒步 | 登山 | 登山鞋 | 远足野营 | 露营</annotation>
+		<annotation cp="🥾" type="tts">登山鞋</annotation>
+		<annotation cp="🥿">一脚蹬 | 便鞋 | 平底芭蕾舞鞋 | 平底鞋</annotation>
+		<annotation cp="🥿" type="tts">平底鞋</annotation>
+		<annotation cp="👠">女 | 鞋 | 高跟鞋</annotation>
+		<annotation cp="👠" type="tts">高跟鞋</annotation>
+		<annotation cp="👡">凉鞋 | 女 | 女式凉鞋</annotation>
+		<annotation cp="👡" type="tts">女式凉鞋</annotation>
+		<annotation cp="👢">女 | 女靴 | 靴子</annotation>
+		<annotation cp="👢" type="tts">女靴</annotation>
+		<annotation cp="👑">王冠 | 皇冠</annotation>
+		<annotation cp="👑" type="tts">皇冠</annotation>
+		<annotation cp="👒">女 | 女帽 | 帽子</annotation>
+		<annotation cp="👒" type="tts">女帽</annotation>
+		<annotation cp="🎩">帽子 | 礼帽 | 高帽</annotation>
+		<annotation cp="🎩" type="tts">礼帽</annotation>
+		<annotation cp="🎓">四方帽 | 毕业帽</annotation>
+		<annotation cp="🎓" type="tts">毕业帽</annotation>
+		<annotation cp="🧢">棒球帽 | 鸭舌帽</annotation>
+		<annotation cp="🧢" type="tts">鸭舌帽</annotation>
+		<annotation cp="⛑">十字 | 头盔 | 安全帽 | 白十字头盔</annotation>
+		<annotation cp="⛑" type="tts">白十字头盔</annotation>
+		<annotation cp="📿">宗教 | 念珠 | 珠子 | 祈祷 | 项链</annotation>
+		<annotation cp="📿" type="tts">念珠</annotation>
+		<annotation cp="💄">化妆品 | 口红 | 唇膏</annotation>
+		<annotation cp="💄" type="tts">唇膏</annotation>
+		<annotation cp="💍">戒指 | 钻戒</annotation>
+		<annotation cp="💍" type="tts">戒指</annotation>
+		<annotation cp="💎">宝石 | 钻石</annotation>
+		<annotation cp="💎" type="tts">宝石</annotation>
 		<annotation cp="🔇">安静 | 已静音的扬声器 | 扬声器 | 扬声器关闭 | 无声 | 静音</annotation>
 		<annotation cp="🔇" type="tts">已静音的扬声器</annotation>
 		<annotation cp="🔈">低音量的扬声器 | 小声 | 小音量 | 扬声器 | 轻声</annotation>
@@ -2477,10 +2499,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📳" type="tts">振动模式</annotation>
 		<annotation cp="📴">关闭 | 手机 | 手机关机</annotation>
 		<annotation cp="📴" type="tts">手机关机</annotation>
-		<annotation cp="♀">女性符号 | 符号 | 雌性</annotation>
-		<annotation cp="♀" type="tts">女性符号</annotation>
-		<annotation cp="♂">男性符号 | 符号 | 雄性</annotation>
-		<annotation cp="♂" type="tts">男性符号</annotation>
 		<annotation cp="⚕">医疗标志 | 蛇杖 | 阿斯克勒庇俄斯</annotation>
 		<annotation cp="⚕" type="tts">医疗标志</annotation>
 		<annotation cp="♾">宇宙 | 无限 | 永恒</annotation>
@@ -2495,26 +2513,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📛" type="tts">姓名牌</annotation>
 		<annotation cp="🔰">V形图案 | 叶状 | 实习 | 日本新手驾驶标志 | 箭尾</annotation>
 		<annotation cp="🔰" type="tts">日本新手驾驶标志</annotation>
-		<annotation cp="⭕">O形 | 加粗大圆圈</annotation>
-		<annotation cp="⭕" type="tts">加粗大圆圈</annotation>
-		<annotation cp="✅">勾 | 勾号 | 打勾 | 白色加粗勾号</annotation>
-		<annotation cp="✅" type="tts">白色加粗勾号</annotation>
-		<annotation cp="☑">勾选框 | 带勾方格 | 符号</annotation>
+		<annotation cp="⭕">O形 | 圆圈 | 大 | 红</annotation>
+		<annotation cp="⭕" type="tts">红色空心圆圈</annotation>
+		<annotation cp="✅">勾 | 勾号 | 打勾 | 按钮</annotation>
+		<annotation cp="✅" type="tts">勾号按钮</annotation>
+		<annotation cp="☑">勾号 | 勾选框 | 复选框 | 带勾方格 | 打勾</annotation>
 		<annotation cp="☑" type="tts">勾选框</annotation>
-		<annotation cp="✔">加粗勾号 | 正确 | 符号</annotation>
-		<annotation cp="✔" type="tts">加粗勾号</annotation>
-		<annotation cp="✖">x | 加粗乘号 | 取消</annotation>
-		<annotation cp="✖" type="tts">加粗乘号</annotation>
-		<annotation cp="❌">叉号 | 取消 | 相乘</annotation>
+		<annotation cp="✔">勾号 | 对勾 | 打勾 | 正确 | 符号</annotation>
+		<annotation cp="✔" type="tts">勾号</annotation>
+		<annotation cp="✖">取消 | 相乘 | 符号</annotation>
+		<annotation cp="✖" type="tts">乘号</annotation>
+		<annotation cp="❌">交叉 | 取消 | 相乘 | 符号</annotation>
 		<annotation cp="❌" type="tts">叉号</annotation>
 		<annotation cp="❎">叉号按钮 | 取消 | 方形</annotation>
 		<annotation cp="❎" type="tts">叉号按钮</annotation>
-		<annotation cp="➕">加粗加号 | 十字 | 数学</annotation>
-		<annotation cp="➕" type="tts">加粗加号</annotation>
-		<annotation cp="➖">加粗减号 | 数学 | 横线</annotation>
-		<annotation cp="➖" type="tts">加粗减号</annotation>
-		<annotation cp="➗">加粗除号 | 数学 | 相除</annotation>
-		<annotation cp="➗" type="tts">加粗除号</annotation>
+		<annotation cp="➕">十字 | 数学 | 相加 | 符号</annotation>
+		<annotation cp="➕" type="tts">加号</annotation>
+		<annotation cp="➖">数学 | 横线 | 符号</annotation>
+		<annotation cp="➖" type="tts">减号</annotation>
+		<annotation cp="➗">数学 | 相除 | 符号</annotation>
+		<annotation cp="➗" type="tts">除号</annotation>
 		<annotation cp="➰">单环 | 卷曲环 | 标志</annotation>
 		<annotation cp="➰" type="tts">卷曲环</annotation>
 		<annotation cp="➿">双卷曲环 | 双环 | 标志</annotation>
@@ -2527,17 +2545,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✴" type="tts">八角星</annotation>
 		<annotation cp="❇">火花 | 烟火 | 闪耀</annotation>
 		<annotation cp="❇" type="tts">火花</annotation>
-		<annotation cp="‼">两个 | 双感叹号 | 吃惊 | 标点符号</annotation>
+		<annotation cp="‼">！ | ！！ | 两个 | 双感叹号 | 吃惊 | 标点符号</annotation>
 		<annotation cp="‼" type="tts">双感叹号</annotation>
-		<annotation cp="⁉">吃惊 | 感叹疑问号 | 标点符号 | 问号</annotation>
+		<annotation cp="⁉">！ | ！？ | ？ | 吃惊 | 感叹疑问号 | 标点符号 | 问号</annotation>
 		<annotation cp="⁉" type="tts">感叹疑问号</annotation>
 		<annotation cp="❓">为什么 | 标点符号 | 问号</annotation>
 		<annotation cp="❓" type="tts">问号</annotation>
-		<annotation cp="❔">为什么 | 标点符号 | 白色问号 | 空心</annotation>
+		<annotation cp="❔">？ | 为什么 | 标点符号 | 白色问号 | 空心</annotation>
 		<annotation cp="❔" type="tts">白色问号</annotation>
-		<annotation cp="❕">吃惊 | 标点符号 | 白色感叹号 | 空心</annotation>
+		<annotation cp="❕">！ | 吃惊 | 标点符号 | 白色感叹号 | 空心</annotation>
 		<annotation cp="❕" type="tts">白色感叹号</annotation>
-		<annotation cp="❗">吃惊 | 感叹号 | 标点符号</annotation>
+		<annotation cp="❗">！ | 吃惊 | 感叹号 | 标点符号</annotation>
 		<annotation cp="❗" type="tts">感叹号</annotation>
 		<annotation cp="〰">标点符号 | 波浪型破折号 | 浪花</annotation>
 		<annotation cp="〰" type="tts">波浪型破折号</annotation>
@@ -2547,8 +2565,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="®" type="tts">注册</annotation>
 		<annotation cp="™">产品 | 商标 | 标志</annotation>
 		<annotation cp="™" type="tts">商标</annotation>
-		<annotation cp="💯">一百分 | 满分 | 考试</annotation>
-		<annotation cp="💯" type="tts">一百分</annotation>
 		<annotation cp="🔠">ABCD | 打字 | 拉丁文 | 输入大写拉丁字母 | 输入法</annotation>
 		<annotation cp="🔠" type="tts">输入大写拉丁字母</annotation>
 		<annotation cp="🔡">abcd | 打字 | 拉丁文 | 输入小写拉丁字母 | 输入法</annotation>
@@ -2685,5 +2701,139 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">彩虹旗</annotation>
 		<annotation cp="🏴‍☠">掠夺 | 海上 | 海盗旗 | 财宝 | 骷髅</annotation>
 		<annotation cp="🏴‍☠" type="tts">海盗旗</annotation>
+		<annotation cp="🛕">佛寺 | 佛教 | 寺庙 | 寺院 | 庙宇</annotation>
+		<annotation cp="🛕" type="tts">印度寺庙</annotation>
+		<annotation cp="🛺">三脚鸡 | 三蹦子 | 嘟嘟车 | 自动人力车</annotation>
+		<annotation cp="🛺" type="tts">三轮摩托车</annotation>
+		<annotation cp="🟠">圆 | 圈 | 橙</annotation>
+		<annotation cp="🟠" type="tts">橙色圆</annotation>
+		<annotation cp="🟡">圆 | 圈 | 黄</annotation>
+		<annotation cp="🟡" type="tts">黄色圆</annotation>
+		<annotation cp="🟢">圆 | 圈 | 绿</annotation>
+		<annotation cp="🟢" type="tts">绿色圆</annotation>
+		<annotation cp="🟣">圆 | 圈 | 紫</annotation>
+		<annotation cp="🟣" type="tts">紫色圆</annotation>
+		<annotation cp="🟤">圆 | 圈 | 棕</annotation>
+		<annotation cp="🟤" type="tts">棕色圆</annotation>
+		<annotation cp="🟥">方块 | 方框 | 正方形 | 红</annotation>
+		<annotation cp="🟥" type="tts">红色方块</annotation>
+		<annotation cp="🟦">方块 | 方框 | 正方形 | 蓝</annotation>
+		<annotation cp="🟦" type="tts">蓝色方块</annotation>
+		<annotation cp="🟧">方块 | 方框 | 橙 | 正方形</annotation>
+		<annotation cp="🟧" type="tts">橙色方块</annotation>
+		<annotation cp="🟨">方块 | 方框 | 正方形 | 黄</annotation>
+		<annotation cp="🟨" type="tts">黄色方块</annotation>
+		<annotation cp="🟩">方块 | 方框 | 正方形 | 绿</annotation>
+		<annotation cp="🟩" type="tts">绿色方块</annotation>
+		<annotation cp="🟪">方块 | 方框 | 正方形 | 紫</annotation>
+		<annotation cp="🟪" type="tts">紫色方块</annotation>
+		<annotation cp="🟫">方块 | 方框 | 棕 | 正方形</annotation>
+		<annotation cp="🟫" type="tts">棕色方块</annotation>
+		<annotation cp="🤍">心 | 心形 | 白</annotation>
+		<annotation cp="🤍" type="tts">白心</annotation>
+		<annotation cp="🤎">心 | 心形 | 棕</annotation>
+		<annotation cp="🤎" type="tts">棕心</annotation>
+		<annotation cp="🤏">一点 | 小 | 少量</annotation>
+		<annotation cp="🤏" type="tts">捏合的手势</annotation>
+		<annotation cp="🤿">浮潜 | 深潜 | 潜水</annotation>
+		<annotation cp="🤿" type="tts">潜水面罩</annotation>
+		<annotation cp="🥱">呵欠 | 哈欠 | 困 | 无聊 | 累</annotation>
+		<annotation cp="🥱" type="tts">打呵欠</annotation>
+		<annotation cp="🥻">印度 | 披肩 | 衣服</annotation>
+		<annotation cp="🥻" type="tts">纱丽</annotation>
+		<annotation cp="🦥">慢 | 懒 | 爬树 | 迟缓</annotation>
+		<annotation cp="🦥" type="tts">树懒</annotation>
+		<annotation cp="🦦">动物 | 捕鱼 | 獭 | 鼬</annotation>
+		<annotation cp="🦦" type="tts">水獭</annotation>
+		<annotation cp="🦧">猩猩 | 猴 | 猿</annotation>
+		<annotation cp="🦧" type="tts">红毛猩猩</annotation>
+		<annotation cp="🦨">熏 | 臭 | 鼬</annotation>
+		<annotation cp="🦨" type="tts">臭鼬</annotation>
+		<annotation cp="🦩">热带 | 艳丽</annotation>
+		<annotation cp="🦩" type="tts">火烈鸟</annotation>
+		<annotation cp="🦪">海鲜 | 珍珠 | 生蚝</annotation>
+		<annotation cp="🦪" type="tts">牡蛎</annotation>
+		<annotation cp="🦮">指引 | 无障碍 | 盲</annotation>
+		<annotation cp="🦮" type="tts">导盲犬</annotation>
+		<annotation cp="🦯">拐杖 | 无障碍 | 盲</annotation>
+		<annotation cp="🦯" type="tts">盲杖</annotation>
+		<annotation cp="🦺">安全 | 紧急 | 背心 | 逃生</annotation>
+		<annotation cp="🦺" type="tts">救生衣</annotation>
+		<annotation cp="🦻">助听器 | 听力障碍 | 失聪 | 无障碍 | 聋</annotation>
+		<annotation cp="🦻" type="tts">戴助听器的耳朵</annotation>
+		<annotation cp="🦼">无障碍 | 轮椅</annotation>
+		<annotation cp="🦼" type="tts">电动轮椅</annotation>
+		<annotation cp="🦽">无障碍 | 轮椅</annotation>
+		<annotation cp="🦽" type="tts">手动轮椅</annotation>
+		<annotation cp="🦾">义肢 | 手臂 | 无障碍</annotation>
+		<annotation cp="🦾" type="tts">机械手臂</annotation>
+		<annotation cp="🦿">义肢 | 无障碍 | 腿</annotation>
+		<annotation cp="🦿" type="tts">机械腿</annotation>
+		<annotation cp="🧃">吸管 | 果汁盒 | 盒装</annotation>
+		<annotation cp="🧃" type="tts">饮料盒</annotation>
+		<annotation cp="🧄">佐料 | 大蒜 | 蒜头 | 调味</annotation>
+		<annotation cp="🧄" type="tts">蒜</annotation>
+		<annotation cp="🧅">佐料 | 调味</annotation>
+		<annotation cp="🧅" type="tts">洋葱</annotation>
+		<annotation cp="🧆">中东蔬菜球 | 油炸鹰嘴豆饼 | 肉丸 | 鹰嘴豆</annotation>
+		<annotation cp="🧆" type="tts">炸豆丸子</annotation>
+		<annotation cp="🧇">格子饼 | 点心 | 烤 | 窝夫饼</annotation>
+		<annotation cp="🧇" type="tts">华夫饼</annotation>
+		<annotation cp="🧈">乳制品 | 牛奶</annotation>
+		<annotation cp="🧈" type="tts">黄油</annotation>
+		<annotation cp="🧉">南美 | 茶 | 草本 | 饮料</annotation>
+		<annotation cp="🧉" type="tts">马黛茶</annotation>
+		<annotation cp="🧊">冰山 | 冷却 | 冷饮</annotation>
+		<annotation cp="🧊" type="tts">冰块</annotation>
+		<annotation cp="🧍">站着 | 站立</annotation>
+		<annotation cp="🧍" type="tts">站立者</annotation>
+		<annotation cp="🧍‍♀">女 | 站着 | 站立</annotation>
+		<annotation cp="🧍‍♀" type="tts">站立的女人</annotation>
+		<annotation cp="🧍‍♂">男 | 站着 | 站立</annotation>
+		<annotation cp="🧍‍♂" type="tts">站立的男人</annotation>
+		<annotation cp="🧎">跪下 | 跪坐</annotation>
+		<annotation cp="🧎" type="tts">下跪者</annotation>
+		<annotation cp="🧎‍♀">下跪 | 女 | 跪坐</annotation>
+		<annotation cp="🧎‍♀" type="tts">跪下的女人</annotation>
+		<annotation cp="🧎‍♂">下跪 | 男 | 跪坐</annotation>
+		<annotation cp="🧎‍♂" type="tts">跪下的男人</annotation>
+		<annotation cp="🧏">听力 | 无障碍 | 耳朵 | 聋</annotation>
+		<annotation cp="🧏" type="tts">失聪者</annotation>
+		<annotation cp="🧏‍♀">听力障碍 | 女 | 耳朵 | 聋</annotation>
+		<annotation cp="🧏‍♀" type="tts">失聪的女人</annotation>
+		<annotation cp="🧏‍♂">听力障碍 | 男 | 耳朵 | 聋</annotation>
+		<annotation cp="🧏‍♂" type="tts">失聪的男人</annotation>
+		<annotation cp="🩰">舞蹈 | 舞鞋 | 足尖鞋 | 跳舞</annotation>
+		<annotation cp="🩰" type="tts">芭蕾舞鞋</annotation>
+		<annotation cp="🩱">一片式 | 泳衣 | 泳装 | 游泳</annotation>
+		<annotation cp="🩱" type="tts">连体泳衣</annotation>
+		<annotation cp="🩲">一片式 | 内裤 | 泳衣 | 泳装 | 短裤</annotation>
+		<annotation cp="🩲" type="tts">三角裤</annotation>
+		<annotation cp="🩳">内裤 | 四角裤 | 泳衣 | 泳装 | 裤子</annotation>
+		<annotation cp="🩳" type="tts">短裤</annotation>
+		<annotation cp="🩸">医疗 | 月经 | 献血 | 经血 | 输血</annotation>
+		<annotation cp="🩸" type="tts">血滴</annotation>
+		<annotation cp="🩹">OK绷 | 伤口 | 绷带 | 胶布</annotation>
+		<annotation cp="🩹" type="tts">创可贴</annotation>
+		<annotation cp="🩺">医生 | 医疗 | 心脏 | 心跳 | 诊断</annotation>
+		<annotation cp="🩺" type="tts">听诊器</annotation>
+		<annotation cp="🪀">上下起落 | 玩具</annotation>
+		<annotation cp="🪀" type="tts">悠悠球</annotation>
+		<annotation cp="🪁">翱翔 | 飞翔</annotation>
+		<annotation cp="🪁" type="tts">风筝</annotation>
+		<annotation cp="🪂">帆伞 | 悬挂滑翔 | 滑翔 | 滑翔伞 | 跳伞</annotation>
+		<annotation cp="🪂" type="tts">降落伞</annotation>
+		<annotation cp="🪐">土星</annotation>
+		<annotation cp="🪐" type="tts">有环行星</annotation>
+		<annotation cp="🪑">坐 | 座位 | 椅背</annotation>
+		<annotation cp="🪑" type="tts">椅子</annotation>
+		<annotation cp="🪒">刀 | 刮 | 毛 | 胡子 | 锋利</annotation>
+		<annotation cp="🪒" type="tts">剃须刀</annotation>
+		<annotation cp="🪓">切 | 劈 | 木头 | 砍</annotation>
+		<annotation cp="🪓" type="tts">斧头</annotation>
+		<annotation cp="🪔">排灯节 | 油 | 灯 | 迪亚</annotation>
+		<annotation cp="🪔" type="tts">印度油灯</annotation>
+		<annotation cp="🪕">弦乐器 | 弹奏 | 音乐</annotation>
+		<annotation cp="🪕" type="tts">班卓琴</annotation>
 	</annotations>
 </ldml>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,52 +23,72 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">mellanmörk hy</annotation>
 		<annotation cp="🏿">hud | hudfärg | hudton 6 | mörk hy</annotation>
 		<annotation cp="🏿" type="tts">mörk hy</annotation>
+		<annotation cp="🐾">djur | tassar | tassavtryck</annotation>
+		<annotation cp="🐾" type="tts">tassavtryck</annotation>
 		<annotation cp="😀">ansikte med stort leende | leende | roligt | skratt</annotation>
 		<annotation cp="😀" type="tts">ansikte med stort leende</annotation>
-		<annotation cp="😁">leende | roligt | skratt | strålande ansikte med leende ögon</annotation>
-		<annotation cp="😁" type="tts">strålande ansikte med leende ögon</annotation>
-		<annotation cp="😂">ansikte med glädjetårar | glädjetårar</annotation>
-		<annotation cp="😂" type="tts">ansikte med glädjetårar</annotation>
-		<annotation cp="🤣">ansikte | golv | rullar | rullar runt på golvet och skrattar | skratt</annotation>
-		<annotation cp="🤣" type="tts">rullar runt på golvet och skrattar</annotation>
 		<annotation cp="😃">flinande ansikte med stora ögon | leende | öppen mun | roligt | skratt</annotation>
 		<annotation cp="😃" type="tts">flinande ansikte med stora ögon</annotation>
 		<annotation cp="😄">flinande ansikte med leende ögon | leende ögon | roligt | skratt</annotation>
 		<annotation cp="😄" type="tts">flinande ansikte med leende ögon</annotation>
-		<annotation cp="😅">flinande ansikte med svettdroppe | leende men svettas</annotation>
-		<annotation cp="😅" type="tts">flinande ansikte med svettdroppe</annotation>
+		<annotation cp="😁">leende | roligt | skratt | strålande ansikte med leende ögon</annotation>
+		<annotation cp="😁" type="tts">strålande ansikte med leende ögon</annotation>
 		<annotation cp="😆">ansikte | flinande ansikte med kisande ögon | leende med stängda ögon | öppen mun | stängda ögon</annotation>
 		<annotation cp="😆" type="tts">flinande ansikte med kisande ögon</annotation>
+		<annotation cp="😅">flinande ansikte med svettdroppe | leende men svettas</annotation>
+		<annotation cp="😅" type="tts">flinande ansikte med svettdroppe</annotation>
+		<annotation cp="🤣">ansikte | golv | rullar | rullar runt på golvet och skrattar | skratt</annotation>
+		<annotation cp="🤣" type="tts">rullar runt på golvet och skrattar</annotation>
+		<annotation cp="😂">ansikte med glädjetårar | glädjetårar</annotation>
+		<annotation cp="😂" type="tts">ansikte med glädjetårar</annotation>
+		<annotation cp="🙂">ansikte | leende | ler | småleende ansikte</annotation>
+		<annotation cp="🙂" type="tts">småleende ansikte</annotation>
+		<annotation cp="🙃">ansikte | upp-och-ner | upp-och-nervänt ansikte</annotation>
+		<annotation cp="🙃" type="tts">upp-och-nervänt ansikte</annotation>
 		<annotation cp="😉">ansikte som blinkar med ögonen | blinkar med ögonen | blinkning | flört | skämt</annotation>
 		<annotation cp="😉" type="tts">ansikte som blinkar med ögonen</annotation>
 		<annotation cp="😊">glad | leende ansikte och ögon</annotation>
 		<annotation cp="😊" type="tts">leende ansikte och ögon</annotation>
-		<annotation cp="😋">ansikte som njuter av god mat | god mat | gott | leende ansikte | smakar gott</annotation>
-		<annotation cp="😋" type="tts">ansikte som njuter av god mat</annotation>
-		<annotation cp="😎">cool | leende | leende ansikte med solglasögon | solglasögon</annotation>
-		<annotation cp="😎" type="tts">leende ansikte med solglasögon</annotation>
-		<annotation cp="😍">hjärta | kärlek | leende ansikte med hjärtformade ögon</annotation>
-		<annotation cp="😍" type="tts">leende ansikte med hjärtformade ögon</annotation>
-		<annotation cp="😘">ansikte ger en slängkyss | hjärta | puss | slängkyss</annotation>
-		<annotation cp="😘" type="tts">ansikte ger en slängkyss</annotation>
+		<annotation cp="😇">gloria | leende | leende ansikte med gloria</annotation>
+		<annotation cp="😇" type="tts">leende ansikte med gloria</annotation>
 		<annotation cp="🥰">förtjust | kär | leende ansikte med tre hjärtan</annotation>
 		<annotation cp="🥰" type="tts">leende ansikte med tre hjärtan</annotation>
-		<annotation cp="😗">puss | pussande ansikte</annotation>
-		<annotation cp="😗" type="tts">pussande ansikte</annotation>
-		<annotation cp="😙">glad | puss | pussande ansikte med leende ögon</annotation>
-		<annotation cp="😙" type="tts">pussande ansikte med leende ögon</annotation>
-		<annotation cp="😚">glad | puss | pussande ansikte med slutna ögon</annotation>
-		<annotation cp="😚" type="tts">pussande ansikte med slutna ögon</annotation>
-		<annotation cp="☺">leende ansikte | smiley</annotation>
-		<annotation cp="☺" type="tts">leende ansikte</annotation>
-		<annotation cp="🙂">ansikte | leende | ler | småleende ansikte</annotation>
-		<annotation cp="🙂" type="tts">småleende ansikte</annotation>
-		<annotation cp="🤗">ansikte | ansikte som kramas | kramas | leende</annotation>
-		<annotation cp="🤗" type="tts">ansikte som kramas</annotation>
+		<annotation cp="😍">hjärta | kärlek | leende ansikte med hjärtformade ögon</annotation>
+		<annotation cp="😍" type="tts">leende ansikte med hjärtformade ögon</annotation>
 		<annotation cp="🤩">ansikte | stjärnögt ansikte | stjärnsmäll</annotation>
 		<annotation cp="🤩" type="tts">stjärnögt ansikte</annotation>
+		<annotation cp="😘">ansikte ger en slängkyss | hjärta | puss | slängkyss</annotation>
+		<annotation cp="😘" type="tts">ansikte ger en slängkyss</annotation>
+		<annotation cp="😗">puss | pussande ansikte</annotation>
+		<annotation cp="😗" type="tts">pussande ansikte</annotation>
+		<annotation cp="☺">leende ansikte | smiley</annotation>
+		<annotation cp="☺" type="tts">leende ansikte</annotation>
+		<annotation cp="😚">glad | puss | pussande ansikte med slutna ögon</annotation>
+		<annotation cp="😚" type="tts">pussande ansikte med slutna ögon</annotation>
+		<annotation cp="😙">glad | puss | pussande ansikte med leende ögon</annotation>
+		<annotation cp="😙" type="tts">pussande ansikte med leende ögon</annotation>
+		<annotation cp="😋">ansikte som njuter av god mat | god mat | gott | leende ansikte | smakar gott</annotation>
+		<annotation cp="😋" type="tts">ansikte som njuter av god mat</annotation>
+		<annotation cp="😛">ansikte | ansikte räcker ut tungan | räcker ut tungan | tunga</annotation>
+		<annotation cp="😛" type="tts">ansikte räcker ut tungan</annotation>
+		<annotation cp="😜">blinkande ansikte | blinkande ansikte räcker ut tungan | räcker ut tungan och blinkar</annotation>
+		<annotation cp="😜" type="tts">blinkande ansikte räcker ut tungan</annotation>
+		<annotation cp="🤪">liten | öga | stor | tokigt ansikte</annotation>
+		<annotation cp="🤪" type="tts">tokigt ansikte</annotation>
+		<annotation cp="😝">äckligt | ansikte räcker ut tungan med stängda ögon | räcker ut tungan med stängda ögon | tunga</annotation>
+		<annotation cp="😝" type="tts">ansikte räcker ut tungan med stängda ögon</annotation>
+		<annotation cp="🤑">ansikte | ansikte med dollarögon | ansikte med pengamun | pengar</annotation>
+		<annotation cp="🤑" type="tts">ansikte med dollarögon</annotation>
+		<annotation cp="🤗">ansikte | ansikte som kramas | kramas | leende</annotation>
+		<annotation cp="🤗" type="tts">ansikte som kramas</annotation>
+		<annotation cp="🤭">ansikte med handen för munnen | hoppsan</annotation>
+		<annotation cp="🤭" type="tts">ansikte med handen för munnen</annotation>
+		<annotation cp="🤫">hyssjande ansikte | tyst</annotation>
+		<annotation cp="🤫" type="tts">hyssjande ansikte</annotation>
 		<annotation cp="🤔">ansikte | ansikte som tänker | tänker</annotation>
 		<annotation cp="🤔" type="tts">ansikte som tänker</annotation>
+		<annotation cp="🤐">ansikte | ansikte som tiger | dragkedja | hemlighet</annotation>
+		<annotation cp="🤐" type="tts">ansikte som tiger</annotation>
 		<annotation cp="🤨">ansikte | ansikte med höjt ögonbryn | skeptisk | tveksam</annotation>
 		<annotation cp="🤨" type="tts">ansikte med höjt ögonbryn</annotation>
 		<annotation cp="😐">ingen kommentar | neutral | neutralt ansikte</annotation>
@@ -77,98 +97,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">uttryckslöst ansikte</annotation>
 		<annotation cp="😶">ansikte utan mun | ingen mun</annotation>
 		<annotation cp="😶" type="tts">ansikte utan mun</annotation>
-		<annotation cp="🙄">ansikte | ansikte som himlar med ögonen | himlar med ögonen</annotation>
-		<annotation cp="🙄" type="tts">ansikte som himlar med ögonen</annotation>
 		<annotation cp="😏">flin | flinande ansikte | halvleende ansikte | småleende ansikte</annotation>
 		<annotation cp="😏" type="tts">halvleende ansikte</annotation>
-		<annotation cp="😣">besviken | misslyckades | står ut | uthålligt ansikte</annotation>
-		<annotation cp="😣" type="tts">uthålligt ansikte</annotation>
-		<annotation cp="😥">besviken | besviken men lättad | besviket men lättat ansikte | lättad</annotation>
-		<annotation cp="😥" type="tts">besviket men lättat ansikte</annotation>
-		<annotation cp="😮">förvånad | förvånat ansikte | öppen mun</annotation>
-		<annotation cp="😮" type="tts">förvånat ansikte</annotation>
-		<annotation cp="🤐">ansikte | ansikte som tiger | dragkedja | hemlighet</annotation>
-		<annotation cp="🤐" type="tts">ansikte som tiger</annotation>
-		<annotation cp="😯">hyssjad | hyssjat ansikte | överraskad | stum | tyst ansikte</annotation>
-		<annotation cp="😯" type="tts">hyssjat ansikte</annotation>
-		<annotation cp="😪">sömnig | sömnigt ansikte | trött</annotation>
-		<annotation cp="😪" type="tts">sömnigt ansikte</annotation>
-		<annotation cp="😫">trött | trött ansikte</annotation>
-		<annotation cp="😫" type="tts">trött ansikte</annotation>
-		<annotation cp="😴">sovande ansikte | sover</annotation>
-		<annotation cp="😴" type="tts">sovande ansikte</annotation>
-		<annotation cp="😌">lättat ansikte | lättnad</annotation>
-		<annotation cp="😌" type="tts">lättat ansikte</annotation>
-		<annotation cp="😛">ansikte | ansikte räcker ut tungan | räcker ut tungan | tunga</annotation>
-		<annotation cp="😛" type="tts">ansikte räcker ut tungan</annotation>
-		<annotation cp="😜">blinkande ansikte | blinkande ansikte räcker ut tungan | räcker ut tungan och blinkar</annotation>
-		<annotation cp="😜" type="tts">blinkande ansikte räcker ut tungan</annotation>
-		<annotation cp="😝">äckligt | ansikte räcker ut tungan med stängda ögon | räcker ut tungan med stängda ögon | tunga</annotation>
-		<annotation cp="😝" type="tts">ansikte räcker ut tungan med stängda ögon</annotation>
-		<annotation cp="🤤">ansikte | dreglande ansikte | dreglar</annotation>
-		<annotation cp="🤤" type="tts">dreglande ansikte</annotation>
 		<annotation cp="😒">inte glad | missnöjd | missnöjt ansikte</annotation>
 		<annotation cp="😒" type="tts">missnöjt ansikte</annotation>
-		<annotation cp="😓">nedslaget kallsvettigt ansikte | svettig</annotation>
-		<annotation cp="😓" type="tts">nedslaget kallsvettigt ansikte</annotation>
-		<annotation cp="😔">funderande ansikte | funderar | tänker</annotation>
-		<annotation cp="😔" type="tts">funderande ansikte</annotation>
-		<annotation cp="😕">förbryllad | förbryllat ansikte</annotation>
-		<annotation cp="😕" type="tts">förbryllat ansikte</annotation>
-		<annotation cp="🙃">ansikte | upp-och-ner | upp-och-nervänt ansikte</annotation>
-		<annotation cp="🙃" type="tts">upp-och-nervänt ansikte</annotation>
-		<annotation cp="🤑">ansikte | ansikte med dollarögon | ansikte med pengamun | pengar</annotation>
-		<annotation cp="🤑" type="tts">ansikte med dollarögon</annotation>
-		<annotation cp="😲">chockad | chockat ansikte | förvånad</annotation>
-		<annotation cp="😲" type="tts">chockat ansikte</annotation>
-		<annotation cp="☹">ansikte | ansikte med sur mun | sur</annotation>
-		<annotation cp="☹" type="tts">ansikte med sur mun</annotation>
-		<annotation cp="🙁">ansikte | ansikte med lite sur mun | sur</annotation>
-		<annotation cp="🙁" type="tts">ansikte med lite sur mun</annotation>
-		<annotation cp="😖">förvirrad | förvirrat ansikte</annotation>
-		<annotation cp="😖" type="tts">förvirrat ansikte</annotation>
-		<annotation cp="😞">besvikelse | besviken | besviket ansikte</annotation>
-		<annotation cp="😞" type="tts">besviket ansikte</annotation>
-		<annotation cp="😟">bekymrad | bekymrat ansikte | orolig</annotation>
-		<annotation cp="😟" type="tts">bekymrat ansikte</annotation>
-		<annotation cp="😤">ansikte med ånga ur näsan | seger | triumf</annotation>
-		<annotation cp="😤" type="tts">ansikte med ånga ur näsan</annotation>
-		<annotation cp="😢">gråtande ansikte | gråter | ledsen</annotation>
-		<annotation cp="😢" type="tts">gråtande ansikte</annotation>
-		<annotation cp="😭">gråt | gråter | storgråtande ansikte</annotation>
-		<annotation cp="😭" type="tts">storgråtande ansikte</annotation>
-		<annotation cp="😦">bister | ogillande ansikte med öppen mun | öppen mun</annotation>
-		<annotation cp="😦" type="tts">ogillande ansikte med öppen mun</annotation>
-		<annotation cp="😧">ångest | lider | plågat ansikte</annotation>
-		<annotation cp="😧" type="tts">plågat ansikte</annotation>
-		<annotation cp="😨">rädd | skräckinjagat ansikte | skrämt ansikte</annotation>
-		<annotation cp="😨" type="tts">skrämt ansikte</annotation>
-		<annotation cp="😩">uttröttad | uttröttat ansikte</annotation>
-		<annotation cp="😩" type="tts">uttröttat ansikte</annotation>
-		<annotation cp="🤯">chockad | exploderande huvud</annotation>
-		<annotation cp="🤯" type="tts">exploderande huvud</annotation>
+		<annotation cp="🙄">ansikte | ansikte som himlar med ögonen | himlar med ögonen</annotation>
+		<annotation cp="🙄" type="tts">ansikte som himlar med ögonen</annotation>
 		<annotation cp="😬">grimaserande ansikte | grimaserar</annotation>
 		<annotation cp="😬" type="tts">grimaserande ansikte</annotation>
-		<annotation cp="😰">blått ansikte | kallsvettig | oroligt svettigt ansikte</annotation>
-		<annotation cp="😰" type="tts">oroligt svettigt ansikte</annotation>
-		<annotation cp="😱">ansikte som skriker av fasa | livrädd | rädd | skriker</annotation>
-		<annotation cp="😱" type="tts">ansikte som skriker av fasa</annotation>
-		<annotation cp="🥵">febrig | hett | hett ansikte | rött ansikte | svett | värmeslag</annotation>
-		<annotation cp="🥵" type="tts">hett ansikte</annotation>
-		<annotation cp="🥶">blått ansikte | frostbiten | frusen | istappar | kall | kallt ansikte</annotation>
-		<annotation cp="🥶" type="tts">kallt ansikte</annotation>
-		<annotation cp="😳">generad | omtumlad | rodnande ansikte</annotation>
-		<annotation cp="😳" type="tts">rodnande ansikte</annotation>
-		<annotation cp="🤪">liten | öga | stor | tokigt ansikte</annotation>
-		<annotation cp="🤪" type="tts">tokigt ansikte</annotation>
-		<annotation cp="😵">omtumlad | omtumlat ansikte | yr</annotation>
-		<annotation cp="😵" type="tts">omtumlat ansikte</annotation>
-		<annotation cp="😡">arg | plutande | plutande ansikte | rasande | röd i ansiktet | sur</annotation>
-		<annotation cp="😡" type="tts">plutande ansikte</annotation>
-		<annotation cp="😠">arg | argt ansikte</annotation>
-		<annotation cp="😠" type="tts">argt ansikte</annotation>
-		<annotation cp="🤬">ansikte med symboler på munnen | svär</annotation>
-		<annotation cp="🤬" type="tts">ansikte med symboler på munnen</annotation>
+		<annotation cp="🤥">ansikte | ljugande ansikte | lögn | pinocchio</annotation>
+		<annotation cp="🤥" type="tts">ljugande ansikte</annotation>
+		<annotation cp="😌">lättat ansikte | lättnad</annotation>
+		<annotation cp="😌" type="tts">lättat ansikte</annotation>
+		<annotation cp="😔">funderande ansikte | funderar | tänker</annotation>
+		<annotation cp="😔" type="tts">funderande ansikte</annotation>
+		<annotation cp="😪">sömnig | sömnigt ansikte | trött</annotation>
+		<annotation cp="😪" type="tts">sömnigt ansikte</annotation>
+		<annotation cp="🤤">ansikte | dreglande ansikte | dreglar</annotation>
+		<annotation cp="🤤" type="tts">dreglande ansikte</annotation>
+		<annotation cp="😴">sovande ansikte | sover</annotation>
+		<annotation cp="😴" type="tts">sovande ansikte</annotation>
 		<annotation cp="😷">ansikte med munskydd | läkare | munskydd | sjuk</annotation>
 		<annotation cp="😷" type="tts">ansikte med munskydd</annotation>
 		<annotation cp="🤒">ansikte | ansikte med termometer | sjuk | termometer</annotation>
@@ -181,40 +129,96 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤮" type="tts">kräkande ansikte</annotation>
 		<annotation cp="🤧">ansikte | nysa | nysande ansikte | prosit</annotation>
 		<annotation cp="🤧" type="tts">nysande ansikte</annotation>
-		<annotation cp="😇">gloria | leende | leende ansikte med gloria</annotation>
-		<annotation cp="😇" type="tts">leende ansikte med gloria</annotation>
+		<annotation cp="🥵">febrig | hett | hett ansikte | rött ansikte | svett | värmeslag</annotation>
+		<annotation cp="🥵" type="tts">hett ansikte</annotation>
+		<annotation cp="🥶">blått ansikte | frostbiten | frusen | istappar | kall | kallt ansikte</annotation>
+		<annotation cp="🥶" type="tts">kallt ansikte</annotation>
+		<annotation cp="🥴">ostadig blick | på örat | påverkad | vågig mun | yr | yrt ansikte</annotation>
+		<annotation cp="🥴" type="tts">yrt ansikte</annotation>
+		<annotation cp="😵">omtumlad | omtumlat ansikte | yr</annotation>
+		<annotation cp="😵" type="tts">omtumlat ansikte</annotation>
+		<annotation cp="🤯">chockad | exploderande huvud</annotation>
+		<annotation cp="🤯" type="tts">exploderande huvud</annotation>
 		<annotation cp="🤠">ansikte | ansikte med cowboyhatt | cowboy | cowgirl | hatt</annotation>
 		<annotation cp="🤠" type="tts">ansikte med cowboyhatt</annotation>
 		<annotation cp="🥳">fest | festande ansikte | hatt | kalas | party | tuta</annotation>
 		<annotation cp="🥳" type="tts">festande ansikte</annotation>
-		<annotation cp="🥴">ostadig blick | på örat | påverkad | vågig mun | yr | yrt ansikte</annotation>
-		<annotation cp="🥴" type="tts">yrt ansikte</annotation>
-		<annotation cp="🥺">bönfallande ansikte | hundögon | nåd | tigga</annotation>
-		<annotation cp="🥺" type="tts">bönfallande ansikte</annotation>
-		<annotation cp="🤥">ansikte | ljugande ansikte | lögn | pinocchio</annotation>
-		<annotation cp="🤥" type="tts">ljugande ansikte</annotation>
-		<annotation cp="🤫">hyssjande ansikte | tyst</annotation>
-		<annotation cp="🤫" type="tts">hyssjande ansikte</annotation>
-		<annotation cp="🤭">ansikte med handen för munnen | hoppsan</annotation>
-		<annotation cp="🤭" type="tts">ansikte med handen för munnen</annotation>
-		<annotation cp="🧐">ansikte med monokel | gammaldags | torr</annotation>
-		<annotation cp="🧐" type="tts">ansikte med monokel</annotation>
+		<annotation cp="😎">cool | leende | leende ansikte med solglasögon | solglasögon</annotation>
+		<annotation cp="😎" type="tts">leende ansikte med solglasögon</annotation>
 		<annotation cp="🤓">ansikte | glasögon | nörd | nördansikte</annotation>
 		<annotation cp="🤓" type="tts">nördansikte</annotation>
+		<annotation cp="🧐">ansikte med monokel | gammaldags | torr</annotation>
+		<annotation cp="🧐" type="tts">ansikte med monokel</annotation>
+		<annotation cp="😕">förbryllad | förbryllat ansikte</annotation>
+		<annotation cp="😕" type="tts">förbryllat ansikte</annotation>
+		<annotation cp="😟">bekymrad | bekymrat ansikte | orolig</annotation>
+		<annotation cp="😟" type="tts">bekymrat ansikte</annotation>
+		<annotation cp="🙁">ansikte | ansikte med lite sur mun | sur</annotation>
+		<annotation cp="🙁" type="tts">ansikte med lite sur mun</annotation>
+		<annotation cp="☹">ansikte | ansikte med sur mun | sur</annotation>
+		<annotation cp="☹" type="tts">ansikte med sur mun</annotation>
+		<annotation cp="😮">förvånad | förvånat ansikte | öppen mun</annotation>
+		<annotation cp="😮" type="tts">förvånat ansikte</annotation>
+		<annotation cp="😯">hyssjad | hyssjat ansikte | överraskad | stum | tyst ansikte</annotation>
+		<annotation cp="😯" type="tts">hyssjat ansikte</annotation>
+		<annotation cp="😲">chockad | chockat ansikte | förvånad</annotation>
+		<annotation cp="😲" type="tts">chockat ansikte</annotation>
+		<annotation cp="😳">generad | omtumlad | rodnande ansikte</annotation>
+		<annotation cp="😳" type="tts">rodnande ansikte</annotation>
+		<annotation cp="🥺">bönfallande ansikte | hundögon | nåd | tigga</annotation>
+		<annotation cp="🥺" type="tts">bönfallande ansikte</annotation>
+		<annotation cp="😦">bister | ogillande ansikte med öppen mun | öppen mun</annotation>
+		<annotation cp="😦" type="tts">ogillande ansikte med öppen mun</annotation>
+		<annotation cp="😧">ångest | lider | plågat ansikte</annotation>
+		<annotation cp="😧" type="tts">plågat ansikte</annotation>
+		<annotation cp="😨">rädd | skräckinjagat ansikte | skrämt ansikte</annotation>
+		<annotation cp="😨" type="tts">skrämt ansikte</annotation>
+		<annotation cp="😰">blått ansikte | kallsvettig | oroligt svettigt ansikte</annotation>
+		<annotation cp="😰" type="tts">oroligt svettigt ansikte</annotation>
+		<annotation cp="😥">besviken | besviken men lättad | besviket men lättat ansikte | lättad</annotation>
+		<annotation cp="😥" type="tts">besviket men lättat ansikte</annotation>
+		<annotation cp="😢">gråtande ansikte | gråter | ledsen</annotation>
+		<annotation cp="😢" type="tts">gråtande ansikte</annotation>
+		<annotation cp="😭">gråt | gråter | storgråtande ansikte</annotation>
+		<annotation cp="😭" type="tts">storgråtande ansikte</annotation>
+		<annotation cp="😱">ansikte som skriker av fasa | livrädd | rädd | skriker</annotation>
+		<annotation cp="😱" type="tts">ansikte som skriker av fasa</annotation>
+		<annotation cp="😖">förvirrad | förvirrat ansikte</annotation>
+		<annotation cp="😖" type="tts">förvirrat ansikte</annotation>
+		<annotation cp="😣">besviken | misslyckades | står ut | uthålligt ansikte</annotation>
+		<annotation cp="😣" type="tts">uthålligt ansikte</annotation>
+		<annotation cp="😞">besvikelse | besviken | besviket ansikte</annotation>
+		<annotation cp="😞" type="tts">besviket ansikte</annotation>
+		<annotation cp="😓">nedslaget kallsvettigt ansikte | svettig</annotation>
+		<annotation cp="😓" type="tts">nedslaget kallsvettigt ansikte</annotation>
+		<annotation cp="😩">uttröttad | uttröttat ansikte</annotation>
+		<annotation cp="😩" type="tts">uttröttat ansikte</annotation>
+		<annotation cp="😫">trött | trött ansikte</annotation>
+		<annotation cp="😫" type="tts">trött ansikte</annotation>
+		<annotation cp="😤">ansikte med ånga ur näsan | seger | triumf</annotation>
+		<annotation cp="😤" type="tts">ansikte med ånga ur näsan</annotation>
+		<annotation cp="😡">arg | plutande | plutande ansikte | rasande | röd i ansiktet | sur</annotation>
+		<annotation cp="😡" type="tts">plutande ansikte</annotation>
+		<annotation cp="😠">arg | argt ansikte</annotation>
+		<annotation cp="😠" type="tts">argt ansikte</annotation>
+		<annotation cp="🤬">ansikte med symboler på munnen | svär</annotation>
+		<annotation cp="🤬" type="tts">ansikte med symboler på munnen</annotation>
 		<annotation cp="😈">horn | leende | leende ansikte med horn</annotation>
 		<annotation cp="😈" type="tts">leende ansikte med horn</annotation>
 		<annotation cp="👿">argt ansikte med horn | djävul</annotation>
 		<annotation cp="👿" type="tts">argt ansikte med horn</annotation>
+		<annotation cp="💀">dödskalle | döskalle</annotation>
+		<annotation cp="💀" type="tts">dödskalle</annotation>
+		<annotation cp="☠">dödskalle | dödskalle med ben i kors | pirater</annotation>
+		<annotation cp="☠" type="tts">dödskalle med ben i kors</annotation>
+		<annotation cp="💩">avföring | bajs | bajshög</annotation>
+		<annotation cp="💩" type="tts">bajshög</annotation>
 		<annotation cp="🤡">ansikte | clown | clownansikte | pajas</annotation>
 		<annotation cp="🤡" type="tts">clownansikte</annotation>
 		<annotation cp="👹">ansikte | japansk demon | japanskt monster | monster | saga</annotation>
 		<annotation cp="👹" type="tts">japanskt monster</annotation>
 		<annotation cp="👺">ansikte | japanskt troll | saga | troll</annotation>
 		<annotation cp="👺" type="tts">japanskt troll</annotation>
-		<annotation cp="💀">dödskalle | döskalle</annotation>
-		<annotation cp="💀" type="tts">dödskalle</annotation>
-		<annotation cp="☠">dödskalle | dödskalle med ben i kors | pirater</annotation>
-		<annotation cp="☠" type="tts">dödskalle med ben i kors</annotation>
 		<annotation cp="👻">ansikte | saga | spöke</annotation>
 		<annotation cp="👻" type="tts">spöke</annotation>
 		<annotation cp="👽">alien | rymdvarelse | saga | ufo | utomjording</annotation>
@@ -223,8 +227,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👾" type="tts">utomjordiskt monster</annotation>
 		<annotation cp="🤖">ansikte | robot | robotansikte</annotation>
 		<annotation cp="🤖" type="tts">robotansikte</annotation>
-		<annotation cp="💩">avföring | bajs | bajshög</annotation>
-		<annotation cp="💩" type="tts">bajshög</annotation>
 		<annotation cp="😺">flinande kattansikte | kattansikte | leende | leende katt</annotation>
 		<annotation cp="😺" type="tts">flinande kattansikte</annotation>
 		<annotation cp="😸">flin | flinande kattansikte med leende ögon | katt | leende | ögon</annotation>
@@ -241,14 +243,168 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙀" type="tts">uttröttat kattansikte</annotation>
 		<annotation cp="😿">gråtande kattansikte | gråter | kattansikte</annotation>
 		<annotation cp="😿" type="tts">gråtande kattansikte</annotation>
-		<annotation cp="😾">katt | katt som plutar med munnen | kattansikte | plutande kattansikte | plutar</annotation>
-		<annotation cp="😾" type="tts">plutande kattansikte</annotation>
+		<annotation cp="😾">katt | tjura | tjurande katt</annotation>
+		<annotation cp="😾" type="tts">tjurande katt</annotation>
 		<annotation cp="🙈">apa | apa ser inget | ser inget</annotation>
 		<annotation cp="🙈" type="tts">apa ser inget</annotation>
 		<annotation cp="🙉">apa | apa hör inget | hör inget</annotation>
 		<annotation cp="🙉" type="tts">apa hör inget</annotation>
 		<annotation cp="🙊">apa | apa säger inget | säger inget</annotation>
 		<annotation cp="🙊" type="tts">apa säger inget</annotation>
+		<annotation cp="💋">kärlek | kyssmärke | läppar | läppavtryck</annotation>
+		<annotation cp="💋" type="tts">läppavtryck</annotation>
+		<annotation cp="💌">brev | brev med hjärta | kärlek | kärleksbrev</annotation>
+		<annotation cp="💌" type="tts">kärleksbrev</annotation>
+		<annotation cp="💘">hjärta | hjärta med pil | kärlek | pil</annotation>
+		<annotation cp="💘" type="tts">hjärta med pil</annotation>
+		<annotation cp="💝">alla hjärtans dag | hjärta | hjärta med rosett | rosett</annotation>
+		<annotation cp="💝" type="tts">hjärta med rosett</annotation>
+		<annotation cp="💖">gnistrande hjärta | känslor | kärlek | upprymd</annotation>
+		<annotation cp="💖" type="tts">gnistrande hjärta</annotation>
+		<annotation cp="💗">hjärta | känslor | kärlek | nervös | upprymd | växande hjärta</annotation>
+		<annotation cp="💗" type="tts">växande hjärta</annotation>
+		<annotation cp="💓">bultande hjärta | bultar | hjärta | känslor | kärlek | slår</annotation>
+		<annotation cp="💓" type="tts">bultande hjärta</annotation>
+		<annotation cp="💞">hjärta | känslor | kärlek | snurrande hjärtan | snurrar</annotation>
+		<annotation cp="💞" type="tts">snurrande hjärtan</annotation>
+		<annotation cp="💕">känslor | kärlek | två hjärtan</annotation>
+		<annotation cp="💕" type="tts">två hjärtan</annotation>
+		<annotation cp="💟">hjärta | hjärtdekoration</annotation>
+		<annotation cp="💟" type="tts">hjärtdekoration</annotation>
+		<annotation cp="❣">hjärta | utropstecken | utropstecken i form av ett hjärta</annotation>
+		<annotation cp="❣" type="tts">utropstecken i form av ett hjärta</annotation>
+		<annotation cp="💔">brustet | brustet hjärta | känslor | trasigt hjärta</annotation>
+		<annotation cp="💔" type="tts">brustet hjärta</annotation>
+		<annotation cp="❤">hjärta | kärlek | rött hjärta</annotation>
+		<annotation cp="❤" type="tts">rött hjärta</annotation>
+		<annotation cp="🧡">hjärta i orange | orange</annotation>
+		<annotation cp="🧡" type="tts">hjärta i orange</annotation>
+		<annotation cp="💛">gul | gult hjärta | hjärta</annotation>
+		<annotation cp="💛" type="tts">gult hjärta</annotation>
+		<annotation cp="💚">grön | grönt hjärta | hjärta</annotation>
+		<annotation cp="💚" type="tts">grönt hjärta</annotation>
+		<annotation cp="💙">blå | blått hjärta | hjärta</annotation>
+		<annotation cp="💙" type="tts">blått hjärta</annotation>
+		<annotation cp="💜">hjärta | lila</annotation>
+		<annotation cp="💜" type="tts">lila hjärta</annotation>
+		<annotation cp="🖤">hjärta | ond | svart</annotation>
+		<annotation cp="🖤" type="tts">svart hjärta</annotation>
+		<annotation cp="💯">100 poäng | full pott</annotation>
+		<annotation cp="💯" type="tts">100 poäng</annotation>
+		<annotation cp="💢">arg | ilska | symbol för ilska</annotation>
+		<annotation cp="💢" type="tts">symbol för ilska</annotation>
+		<annotation cp="💥">explosion | kollision | serietidning | smäll</annotation>
+		<annotation cp="💥" type="tts">explosion</annotation>
+		<annotation cp="💫">omtumlad | serietidning | stjärna | yr</annotation>
+		<annotation cp="💫" type="tts">omtumlad</annotation>
+		<annotation cp="💦">serietidning | stänkande svett | svett | svettig</annotation>
+		<annotation cp="💦" type="tts">stänkande svett</annotation>
+		<annotation cp="💨">fartsymbol | springa | springer iväg</annotation>
+		<annotation cp="💨" type="tts">fartsymbol</annotation>
+		<annotation cp="🕳">hål</annotation>
+		<annotation cp="🕳" type="tts">hål</annotation>
+		<annotation cp="💣">bomb | serietidning</annotation>
+		<annotation cp="💣" type="tts">bomb</annotation>
+		<annotation cp="💬">bubbla | dialogbubbla | pratbubbla</annotation>
+		<annotation cp="💬" type="tts">pratbubbla</annotation>
+		<annotation cp="👁‍🗨">öga | öga i pratbubbla | pratbubbla | vittne</annotation>
+		<annotation cp="👁‍🗨" type="tts">öga i pratbubbla</annotation>
+		<annotation cp="🗨">pratbubbla | pratbubbla åt vänster</annotation>
+		<annotation cp="🗨" type="tts">pratbubbla åt vänster</annotation>
+		<annotation cp="🗯">arg | arg pratbubbla åt höger | pratbubbla</annotation>
+		<annotation cp="🗯" type="tts">arg pratbubbla åt höger</annotation>
+		<annotation cp="💭">bubbla | funderar | tankebubbla</annotation>
+		<annotation cp="💭" type="tts">tankebubbla</annotation>
+		<annotation cp="💤">snarkar | snarkningar | sömnig | trött | Zzz</annotation>
+		<annotation cp="💤" type="tts">snarkningar</annotation>
+		<annotation cp="👋">hand | vinka | vinkande hand</annotation>
+		<annotation cp="👋" type="tts">vinkande hand</annotation>
+		<annotation cp="🤚">hand | höjd handrygg | lyft</annotation>
+		<annotation cp="🤚" type="tts">höjd handrygg</annotation>
+		<annotation cp="🖐">finger | hand | hand med utspretade fingrar</annotation>
+		<annotation cp="🖐" type="tts">hand med utspretade fingrar</annotation>
+		<annotation cp="✋">hand | hand i luften | handflata | uppräckt</annotation>
+		<annotation cp="✋" type="tts">hand i luften</annotation>
+		<annotation cp="🖖">hand | spock | Star Trek | vulcan | vulcan-hälsning</annotation>
+		<annotation cp="🖖" type="tts">vulcan-hälsning</annotation>
+		<annotation cp="👌">hand | OK | OK-tecken | tecken</annotation>
+		<annotation cp="👌" type="tts">OK-tecken</annotation>
+		<annotation cp="✌">seger | v-tecken</annotation>
+		<annotation cp="✌" type="tts">v-tecken</annotation>
+		<annotation cp="🤞">finger | hand | korsa | korsade fingrar | lycka</annotation>
+		<annotation cp="🤞" type="tts">korsade fingrar</annotation>
+		<annotation cp="🤟">hand | jag älskar dig-gest</annotation>
+		<annotation cp="🤟" type="tts">jag älskar dig-gest</annotation>
+		<annotation cp="🤘">djävulstecknet | hand | hårdrock | horn</annotation>
+		<annotation cp="🤘" type="tts">djävulstecknet</annotation>
+		<annotation cp="🤙">hand | ring | ring mig-hand</annotation>
+		<annotation cp="🤙" type="tts">ring mig-hand</annotation>
+		<annotation cp="👈">peka åt vänster | pekfinger | vänsterpekande finger</annotation>
+		<annotation cp="👈" type="tts">vänsterpekande finger</annotation>
+		<annotation cp="👉">högerpekande finger | peka åt höger | pekfinger</annotation>
+		<annotation cp="👉" type="tts">högerpekande finger</annotation>
+		<annotation cp="👆">finger | peka uppåt | pekfinger | pekfinger upp</annotation>
+		<annotation cp="👆" type="tts">pekfinger upp</annotation>
+		<annotation cp="🖕">finger | hand | långfinger upp</annotation>
+		<annotation cp="🖕" type="tts">långfinger upp</annotation>
+		<annotation cp="👇">finger | nedåtpekande finger | peka nedåt | pekfinger</annotation>
+		<annotation cp="👇" type="tts">nedåtpekande finger</annotation>
+		<annotation cp="☝">finger | finger upp | förmaning | peka</annotation>
+		<annotation cp="☝" type="tts">finger upp</annotation>
+		<annotation cp="👍">gillar | tumme | tummen upp | upp</annotation>
+		<annotation cp="👍" type="tts">tummen upp</annotation>
+		<annotation cp="👎">ner | ogilla | tumme | tummen ned</annotation>
+		<annotation cp="👎" type="tts">tummen ned</annotation>
+		<annotation cp="✊">hand | knytnäve | knytnäve i luften</annotation>
+		<annotation cp="✊" type="tts">knytnäve i luften</annotation>
+		<annotation cp="👊">knuten hand | knytnäve</annotation>
+		<annotation cp="👊" type="tts">knuten hand</annotation>
+		<annotation cp="🤛">näve | vänster | vänstervänd</annotation>
+		<annotation cp="🤛" type="tts">vänstervänd näve</annotation>
+		<annotation cp="🤜">höger | högervänd | näve</annotation>
+		<annotation cp="🤜" type="tts">högervänd näve</annotation>
+		<annotation cp="👏">klappa | klappa händer | klappande händer</annotation>
+		<annotation cp="👏" type="tts">klappande händer</annotation>
+		<annotation cp="🙌">båda händerna i luften | hurra | räcker upp händerna</annotation>
+		<annotation cp="🙌" type="tts">båda händerna i luften</annotation>
+		<annotation cp="👐">händer | öppna</annotation>
+		<annotation cp="👐" type="tts">öppna händer</annotation>
+		<annotation cp="🤲">bön | handflatorna upp</annotation>
+		<annotation cp="🤲" type="tts">handflatorna upp</annotation>
+		<annotation cp="🤝">avtal | hand | handskakning | möte</annotation>
+		<annotation cp="🤝" type="tts">handskakning</annotation>
+		<annotation cp="🙏">be | beende händer | ber | händer | knäppta händer</annotation>
+		<annotation cp="🙏" type="tts">beende händer</annotation>
+		<annotation cp="✍">hand | hand som skriver | skriver</annotation>
+		<annotation cp="✍" type="tts">hand som skriver</annotation>
+		<annotation cp="💅">måla naglar | manikyr | nagellack | smink</annotation>
+		<annotation cp="💅" type="tts">nagellack</annotation>
+		<annotation cp="🤳">kamera | selfie | telefon</annotation>
+		<annotation cp="🤳" type="tts">selfie</annotation>
+		<annotation cp="💪">muskler | spänd biceps | stark</annotation>
+		<annotation cp="💪" type="tts">spänd biceps</annotation>
+		<annotation cp="🦵">ben | lem | sparka</annotation>
+		<annotation cp="🦵" type="tts">ben</annotation>
+		<annotation cp="🦶">fot | sparka | stampa</annotation>
+		<annotation cp="🦶" type="tts">fot</annotation>
+		<annotation cp="👂">kropp | öra</annotation>
+		<annotation cp="👂" type="tts">öra</annotation>
+		<annotation cp="👃">kropp | näsa</annotation>
+		<annotation cp="👃" type="tts">näsa</annotation>
+		<annotation cp="🧠">hjärna | klok</annotation>
+		<annotation cp="🧠" type="tts">hjärna</annotation>
+		<annotation cp="🦷">tand | tandläkare</annotation>
+		<annotation cp="🦷" type="tts">tand</annotation>
+		<annotation cp="🦴">benknota | skelett</annotation>
+		<annotation cp="🦴" type="tts">benknota</annotation>
+		<annotation cp="👀">öga | ögon</annotation>
+		<annotation cp="👀" type="tts">ögon</annotation>
+		<annotation cp="👁">kropp | öga</annotation>
+		<annotation cp="👁" type="tts">öga</annotation>
+		<annotation cp="👅">kropp | tunga</annotation>
+		<annotation cp="👅" type="tts">tunga</annotation>
+		<annotation cp="👄">läppar | mun</annotation>
+		<annotation cp="👄" type="tts">mun</annotation>
 		<annotation cp="👶">baby | bebis | liten | ung</annotation>
 		<annotation cp="👶" type="tts">bebis</annotation>
 		<annotation cp="🧒">barn | könsneutral | ung</annotation>
@@ -261,14 +417,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">person</annotation>
 		<annotation cp="👱">blond | blond person | människor</annotation>
 		<annotation cp="👱" type="tts">blond person</annotation>
+		<annotation cp="🧑‍🤝‍🧑" draft="contributed">håller händer | hand | händer | par | person</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts" draft="contributed">Personer som håller hand</annotation>
 		<annotation cp="👨">man | vuxen</annotation>
 		<annotation cp="👨" type="tts">man</annotation>
+		<annotation cp="👨‍🦯">blind | blindkäpp | man | vit käpp</annotation>
+		<annotation cp="👨‍🦯" type="tts">man med vit käpp</annotation>
+		<annotation cp="👨‍🦼">man | permobil | rullstol</annotation>
+		<annotation cp="👨‍🦼" type="tts">man i permobil</annotation>
+		<annotation cp="👨‍🦽">man | rullstol</annotation>
+		<annotation cp="👨‍🦽" type="tts">man i manuell rullstol</annotation>
 		<annotation cp="👱‍♂">blond | man</annotation>
 		<annotation cp="👱‍♂" type="tts">blond man</annotation>
 		<annotation cp="🧔">man med skägg | person med skägg | skägg</annotation>
 		<annotation cp="🧔" type="tts">man med skägg</annotation>
 		<annotation cp="👩">kvinna | vuxen</annotation>
 		<annotation cp="👩" type="tts">kvinna</annotation>
+		<annotation cp="👩‍🦯">blind | blindkäpp | kvinna | vit käpp</annotation>
+		<annotation cp="👩‍🦯" type="tts">kvinna med vit käpp</annotation>
+		<annotation cp="👩‍🦼">kvinna | permobil | rullstol</annotation>
+		<annotation cp="👩‍🦼" type="tts">kvinna i permobil</annotation>
+		<annotation cp="👩‍🦽">kvinna | rullstol</annotation>
+		<annotation cp="👩‍🦽" type="tts">kvinna i manuell rullstol</annotation>
 		<annotation cp="👱‍♀">blond | blondin | kvinna</annotation>
 		<annotation cp="👱‍♀" type="tts">blond kvinna</annotation>
 		<annotation cp="🧓">äldre | äldre person | gammal | könsneutral | vuxen</annotation>
@@ -277,6 +447,60 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👴" type="tts">gammal man</annotation>
 		<annotation cp="👵">äldre kvinna | gammal | kvinna | vuxen</annotation>
 		<annotation cp="👵" type="tts">gammal kvinna</annotation>
+		<annotation cp="🙍">person | sur | sur uppsyn</annotation>
+		<annotation cp="🙍" type="tts">sur person</annotation>
+		<annotation cp="🙍‍♂">gest | man | sur</annotation>
+		<annotation cp="🙍‍♂" type="tts">sur man</annotation>
+		<annotation cp="🙍‍♀">gest | kvinna | sur</annotation>
+		<annotation cp="🙍‍♀" type="tts">sur kvinna</annotation>
+		<annotation cp="🙎">person som plutar | plutande person | plutar</annotation>
+		<annotation cp="🙎" type="tts">plutande person</annotation>
+		<annotation cp="🙎‍♂">man | plutande man | plutar</annotation>
+		<annotation cp="🙎‍♂" type="tts">plutande man</annotation>
+		<annotation cp="🙎‍♀">kvinna | plutande kvinna | plutar</annotation>
+		<annotation cp="🙎‍♀" type="tts">plutande kvinna</annotation>
+		<annotation cp="🙅">förbjudet | gest | gest för NEJ | person gestikulerar NEJ</annotation>
+		<annotation cp="🙅" type="tts">person gestikulerar NEJ</annotation>
+		<annotation cp="🙅‍♂">förbjudet | gest | man | man gestikulerar NEJ</annotation>
+		<annotation cp="🙅‍♂" type="tts">man gestikulerar NEJ</annotation>
+		<annotation cp="🙅‍♀">förbjudet | gest | kvinna | kvinna gestikulerar NEJ</annotation>
+		<annotation cp="🙅‍♀" type="tts">kvinna gestikulerar NEJ</annotation>
+		<annotation cp="🙆">gest | gest för OK | hand | okej | person gestikulerar OK</annotation>
+		<annotation cp="🙆" type="tts">person gestikulerar OK</annotation>
+		<annotation cp="🙆‍♂">gest | gest för OK | hand | man gestikulerar OK | okej</annotation>
+		<annotation cp="🙆‍♂" type="tts">man gestikulerar OK</annotation>
+		<annotation cp="🙆‍♀">gest | gest för OK | hand | kvinna gestikulerar OK | okej</annotation>
+		<annotation cp="🙆‍♀" type="tts">kvinna gestikulerar OK</annotation>
+		<annotation cp="💁">information | människor | reception | receptionist</annotation>
+		<annotation cp="💁" type="tts">receptionist</annotation>
+		<annotation cp="💁‍♂">dricks | hjälpa | hjälpande man | information | man</annotation>
+		<annotation cp="💁‍♂" type="tts">hjälpande man</annotation>
+		<annotation cp="💁‍♀">dricks | hjälpa | hjälpande kvinna | information | kvinna</annotation>
+		<annotation cp="💁‍♀" type="tts">hjälpande kvinna</annotation>
+		<annotation cp="🙋">person | person som räcker upp handen | räcker upp handen</annotation>
+		<annotation cp="🙋" type="tts">person som räcker upp handen</annotation>
+		<annotation cp="🙋‍♂">man | man som räcker upp handen | räcka upp handen</annotation>
+		<annotation cp="🙋‍♂" type="tts">man som räcker upp handen</annotation>
+		<annotation cp="🙋‍♀">kvinna | kvinna som räcker upp handen | räcka upp handen</annotation>
+		<annotation cp="🙋‍♀" type="tts">kvinna som räcker upp handen</annotation>
+		<annotation cp="🙇">beklagar | bugande person | bugar | gest</annotation>
+		<annotation cp="🙇" type="tts">bugande person</annotation>
+		<annotation cp="🙇‍♂">beklagelse | buga | bugande man | man | ursäkt</annotation>
+		<annotation cp="🙇‍♂" type="tts">bugande man</annotation>
+		<annotation cp="🙇‍♀">beklagelse | buga | bugande kvinna | kvinna | ursäkt</annotation>
+		<annotation cp="🙇‍♀" type="tts">bugande kvinna</annotation>
+		<annotation cp="🤦">ansikte | frustration | handflata | irritation | person som slår sig för pannan | slå sig för pannan</annotation>
+		<annotation cp="🤦" type="tts">person som slår sig för pannan</annotation>
+		<annotation cp="🤦‍♂">facepalm | frustration | irritation | man | man som slår sig för pannan</annotation>
+		<annotation cp="🤦‍♂" type="tts">man som slår sig för pannan</annotation>
+		<annotation cp="🤦‍♀">facepalm | frustration | irritation | kvinna | kvinna som slår sig för pannan</annotation>
+		<annotation cp="🤦‍♀" type="tts">kvinna som slår sig för pannan</annotation>
+		<annotation cp="🤷">axelryckning | likgiltighet | okunskap | person som rycker på axlarna | tvivel</annotation>
+		<annotation cp="🤷" type="tts">person som rycker på axlarna</annotation>
+		<annotation cp="🤷‍♂">axelryckning | likgiltighet | man | man som rycker på axlarna | okunskap | tvivel</annotation>
+		<annotation cp="🤷‍♂" type="tts">man som rycker på axlarna</annotation>
+		<annotation cp="🤷‍♀">axelryckning | kvinna | kvinna som rycker på axlarna | likgiltighet | okunskap | tvivel</annotation>
+		<annotation cp="🤷‍♀" type="tts">kvinna som rycker på axlarna</annotation>
 		<annotation cp="👨‍⚕">doktor | hälsovård | läkare | man | manlig | skötare</annotation>
 		<annotation cp="👨‍⚕" type="tts">manlig läkare</annotation>
 		<annotation cp="👩‍⚕">doktor | hälsovård | kvinna | kvinnlig | läkare | skötare</annotation>
@@ -395,112 +619,58 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤶" type="tts">tomtemor</annotation>
 		<annotation cp="🦸">god | hjälte | hjältinna | man | superhjälte | superkraft | superkrafter</annotation>
 		<annotation cp="🦸" type="tts">superhjälte</annotation>
-		<annotation cp="🦸‍♀">god | hjälte | hjältinna | kvinna | kvinnlig superhjälte | man | superkraft</annotation>
-		<annotation cp="🦸‍♀" type="tts">kvinnlig superhjälte</annotation>
 		<annotation cp="🦸‍♂">god | hjälte | man | manlig superhjälte | superkraft</annotation>
 		<annotation cp="🦸‍♂" type="tts">manlig superhjälte</annotation>
+		<annotation cp="🦸‍♀">god | hjälte | hjältinna | kvinna | kvinnlig superhjälte | man | superkraft</annotation>
+		<annotation cp="🦸‍♀" type="tts">kvinnlig superhjälte</annotation>
 		<annotation cp="🦹">brottsling | elak | ond | skurk | superkraft | superkrafter | superskurk</annotation>
 		<annotation cp="🦹" type="tts">superskurk</annotation>
-		<annotation cp="🦹‍♀">brottsling | kvinna | kvinnlig superskurk | ond | skurk | superkraft</annotation>
-		<annotation cp="🦹‍♀" type="tts">kvinnlig superskurk</annotation>
 		<annotation cp="🦹‍♂">brottsling | man | manlig superskurk | ond | skurk | superkraft</annotation>
 		<annotation cp="🦹‍♂" type="tts">manlig superskurk</annotation>
+		<annotation cp="🦹‍♀">brottsling | kvinna | kvinnlig superskurk | ond | skurk | superkraft</annotation>
+		<annotation cp="🦹‍♀" type="tts">kvinnlig superskurk</annotation>
 		<annotation cp="🧙">häxa | magiker | trollkarl</annotation>
 		<annotation cp="🧙" type="tts">magiker</annotation>
-		<annotation cp="🧙‍♀">häxa | kvinnlig magiker</annotation>
-		<annotation cp="🧙‍♀" type="tts">kvinnlig magiker</annotation>
 		<annotation cp="🧙‍♂">manlig magiker | trollkarl</annotation>
 		<annotation cp="🧙‍♂" type="tts">manlig magiker</annotation>
+		<annotation cp="🧙‍♀">häxa | kvinnlig magiker</annotation>
+		<annotation cp="🧙‍♀" type="tts">kvinnlig magiker</annotation>
 		<annotation cp="🧚">älva | fé | Oberon | Puck | Titania</annotation>
 		<annotation cp="🧚" type="tts">fé</annotation>
-		<annotation cp="🧚‍♀">kvinnlig älva | kvinnlig fé | Titania</annotation>
-		<annotation cp="🧚‍♀" type="tts">kvinnlig fé</annotation>
 		<annotation cp="🧚‍♂">manlig älva | Oberon | Puck</annotation>
 		<annotation cp="🧚‍♂" type="tts">manlig älva</annotation>
+		<annotation cp="🧚‍♀">kvinnlig älva | kvinnlig fé | Titania</annotation>
+		<annotation cp="🧚‍♀" type="tts">kvinnlig fé</annotation>
 		<annotation cp="🧛">Drakula | vampyr | vandöd</annotation>
 		<annotation cp="🧛" type="tts">vampyr</annotation>
-		<annotation cp="🧛‍♀">kvinnlig vampyr | vandöd</annotation>
-		<annotation cp="🧛‍♀" type="tts">kvinnlig vampyr</annotation>
 		<annotation cp="🧛‍♂">Drakula | manlig vampyr | vandöd</annotation>
 		<annotation cp="🧛‍♂" type="tts">manlig vampyr</annotation>
+		<annotation cp="🧛‍♀">kvinnlig vampyr | vandöd</annotation>
+		<annotation cp="🧛‍♀" type="tts">kvinnlig vampyr</annotation>
 		<annotation cp="🧜">näcken | sjöjungfru | sjörå | vattenväsen</annotation>
 		<annotation cp="🧜" type="tts">vattenväsen</annotation>
-		<annotation cp="🧜‍♀">sjöjungfru | sjörå</annotation>
-		<annotation cp="🧜‍♀" type="tts">sjöjungfru</annotation>
 		<annotation cp="🧜‍♂">strömkarl | Triton</annotation>
 		<annotation cp="🧜‍♂" type="tts">strömkarl</annotation>
+		<annotation cp="🧜‍♀">sjöjungfru | sjörå</annotation>
+		<annotation cp="🧜‍♀" type="tts">sjöjungfru</annotation>
 		<annotation cp="🧝">alv | magisk</annotation>
 		<annotation cp="🧝" type="tts">alv</annotation>
-		<annotation cp="🧝‍♀">kvinnlig alv | magisk</annotation>
-		<annotation cp="🧝‍♀" type="tts">kvinnlig alv</annotation>
 		<annotation cp="🧝‍♂">magisk | manlig alv</annotation>
 		<annotation cp="🧝‍♂" type="tts">manlig alv</annotation>
+		<annotation cp="🧝‍♀">kvinnlig alv | magisk</annotation>
+		<annotation cp="🧝‍♀" type="tts">kvinnlig alv</annotation>
 		<annotation cp="🧞">ande | djinn</annotation>
 		<annotation cp="🧞" type="tts">ande</annotation>
-		<annotation cp="🧞‍♀">djinn | kvinnlig ande</annotation>
-		<annotation cp="🧞‍♀" type="tts">kvinnlig ande</annotation>
 		<annotation cp="🧞‍♂">ande | manlig ande | manlig djinn</annotation>
 		<annotation cp="🧞‍♂" type="tts">manlig ande</annotation>
+		<annotation cp="🧞‍♀">djinn | kvinnlig ande</annotation>
+		<annotation cp="🧞‍♀" type="tts">kvinnlig ande</annotation>
 		<annotation cp="🧟">levande död | odöd | vandöd | zombie</annotation>
 		<annotation cp="🧟" type="tts">zombie</annotation>
-		<annotation cp="🧟‍♀">kvinnlig zombie | levande död | odöd | vandöd</annotation>
-		<annotation cp="🧟‍♀" type="tts">kvinnlig zombie</annotation>
 		<annotation cp="🧟‍♂">levande död | manlig zombie | odöd | vandöd</annotation>
 		<annotation cp="🧟‍♂" type="tts">manlig zombie</annotation>
-		<annotation cp="🙍">person | sur | sur uppsyn</annotation>
-		<annotation cp="🙍" type="tts">sur person</annotation>
-		<annotation cp="🙍‍♂">gest | man | sur</annotation>
-		<annotation cp="🙍‍♂" type="tts">sur man</annotation>
-		<annotation cp="🙍‍♀">gest | kvinna | sur</annotation>
-		<annotation cp="🙍‍♀" type="tts">sur kvinna</annotation>
-		<annotation cp="🙎">person som plutar | plutande person | plutar</annotation>
-		<annotation cp="🙎" type="tts">plutande person</annotation>
-		<annotation cp="🙎‍♂">man | plutande man | plutar</annotation>
-		<annotation cp="🙎‍♂" type="tts">plutande man</annotation>
-		<annotation cp="🙎‍♀">kvinna | plutande kvinna | plutar</annotation>
-		<annotation cp="🙎‍♀" type="tts">plutande kvinna</annotation>
-		<annotation cp="🙅">förbjudet | gest | gest för NEJ | person gestikulerar NEJ</annotation>
-		<annotation cp="🙅" type="tts">person gestikulerar NEJ</annotation>
-		<annotation cp="🙅‍♂">förbjudet | gest | man | man gestikulerar NEJ</annotation>
-		<annotation cp="🙅‍♂" type="tts">man gestikulerar NEJ</annotation>
-		<annotation cp="🙅‍♀">förbjudet | gest | kvinna | kvinna gestikulerar NEJ</annotation>
-		<annotation cp="🙅‍♀" type="tts">kvinna gestikulerar NEJ</annotation>
-		<annotation cp="🙆">gest | gest för OK | hand | okej | person gestikulerar OK</annotation>
-		<annotation cp="🙆" type="tts">person gestikulerar OK</annotation>
-		<annotation cp="🙆‍♂">gest | gest för OK | hand | man gestikulerar OK | okej</annotation>
-		<annotation cp="🙆‍♂" type="tts">man gestikulerar OK</annotation>
-		<annotation cp="🙆‍♀">gest | gest för OK | hand | kvinna gestikulerar OK | okej</annotation>
-		<annotation cp="🙆‍♀" type="tts">kvinna gestikulerar OK</annotation>
-		<annotation cp="💁">information | människor | reception | receptionist</annotation>
-		<annotation cp="💁" type="tts">receptionist</annotation>
-		<annotation cp="💁‍♂">dricks | hjälpa | hjälpande man | information | man</annotation>
-		<annotation cp="💁‍♂" type="tts">hjälpande man</annotation>
-		<annotation cp="💁‍♀">dricks | hjälpa | hjälpande kvinna | information | kvinna</annotation>
-		<annotation cp="💁‍♀" type="tts">hjälpande kvinna</annotation>
-		<annotation cp="🙋">person | person som räcker upp handen | räcker upp handen</annotation>
-		<annotation cp="🙋" type="tts">person som räcker upp handen</annotation>
-		<annotation cp="🙋‍♂">man | man som räcker upp handen | räcka upp handen</annotation>
-		<annotation cp="🙋‍♂" type="tts">man som räcker upp handen</annotation>
-		<annotation cp="🙋‍♀">kvinna | kvinna som räcker upp handen | räcka upp handen</annotation>
-		<annotation cp="🙋‍♀" type="tts">kvinna som räcker upp handen</annotation>
-		<annotation cp="🙇">beklagar | bugande person | bugar | gest</annotation>
-		<annotation cp="🙇" type="tts">bugande person</annotation>
-		<annotation cp="🙇‍♂">beklagelse | buga | bugande man | man | ursäkt</annotation>
-		<annotation cp="🙇‍♂" type="tts">bugande man</annotation>
-		<annotation cp="🙇‍♀">beklagelse | buga | bugande kvinna | kvinna | ursäkt</annotation>
-		<annotation cp="🙇‍♀" type="tts">bugande kvinna</annotation>
-		<annotation cp="🤦">ansikte | frustration | handflata | irritation | person som slår sig för pannan | slå sig för pannan</annotation>
-		<annotation cp="🤦" type="tts">person som slår sig för pannan</annotation>
-		<annotation cp="🤦‍♂">facepalm | frustration | irritation | man | man som slår sig för pannan</annotation>
-		<annotation cp="🤦‍♂" type="tts">man som slår sig för pannan</annotation>
-		<annotation cp="🤦‍♀">facepalm | frustration | irritation | kvinna | kvinna som slår sig för pannan</annotation>
-		<annotation cp="🤦‍♀" type="tts">kvinna som slår sig för pannan</annotation>
-		<annotation cp="🤷">axelryckning | likgiltighet | okunskap | person som rycker på axlarna | tvivel</annotation>
-		<annotation cp="🤷" type="tts">person som rycker på axlarna</annotation>
-		<annotation cp="🤷‍♂">axelryckning | likgiltighet | man | man som rycker på axlarna | okunskap | tvivel</annotation>
-		<annotation cp="🤷‍♂" type="tts">man som rycker på axlarna</annotation>
-		<annotation cp="🤷‍♀">axelryckning | kvinna | kvinna som rycker på axlarna | likgiltighet | okunskap | tvivel</annotation>
-		<annotation cp="🤷‍♀" type="tts">kvinna som rycker på axlarna</annotation>
+		<annotation cp="🧟‍♀">kvinnlig zombie | levande död | odöd | vandöd</annotation>
+		<annotation cp="🧟‍♀" type="tts">kvinnlig zombie</annotation>
 		<annotation cp="💆">ansiktsmassage | behandling | massage | person som blir masserad</annotation>
 		<annotation cp="💆" type="tts">person som blir masserad</annotation>
 		<annotation cp="💆‍♂">avslapning | huvudmassage | man | man som blir masserad | man som får massage | massage</annotation>
@@ -529,6 +699,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💃" type="tts">dansande kvinna</annotation>
 		<annotation cp="🕺">dans | dansande man | man</annotation>
 		<annotation cp="🕺" type="tts">dansande man</annotation>
+		<annotation cp="🕴">kostym | människor | svävande man i kostym | svävar</annotation>
+		<annotation cp="🕴" type="tts">svävande man i kostym</annotation>
 		<annotation cp="👯">kaninöron | kvinna | människor | personer med kaninöron | tjej</annotation>
 		<annotation cp="👯" type="tts">personer med kaninöron</annotation>
 		<annotation cp="👯‍♂">dans | kaninöron | man | män | män med kaninöron | party</annotation>
@@ -537,34 +709,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👯‍♀" type="tts">kvinnor med kaninöron</annotation>
 		<annotation cp="🧖">ångbastu | bastu | person i ångbastu</annotation>
 		<annotation cp="🧖" type="tts">person i ångbastu</annotation>
-		<annotation cp="🧖‍♀">ångbastu | bastu | kvinna i ångbastu</annotation>
-		<annotation cp="🧖‍♀" type="tts">kvinna i ångbastu</annotation>
 		<annotation cp="🧖‍♂">ångbastu | bastu | man i ångbastu</annotation>
 		<annotation cp="🧖‍♂" type="tts">man i ångbastu</annotation>
+		<annotation cp="🧖‍♀">ångbastu | bastu | kvinna i ångbastu</annotation>
+		<annotation cp="🧖‍♀" type="tts">kvinna i ångbastu</annotation>
 		<annotation cp="🧗">klättrare | person klättrar | person som klättrar</annotation>
 		<annotation cp="🧗" type="tts">person som klättrar</annotation>
-		<annotation cp="🧗‍♀">klättrare | kvinna klättrar | kvinna som klättrar</annotation>
-		<annotation cp="🧗‍♀" type="tts">kvinna som klättrar</annotation>
 		<annotation cp="🧗‍♂">klättrare | man klättrar | man som klättrar</annotation>
 		<annotation cp="🧗‍♂" type="tts">man som klättrar</annotation>
-		<annotation cp="🧘">meditering | person i lotusposition | yoga</annotation>
-		<annotation cp="🧘" type="tts">person i lotusposition</annotation>
-		<annotation cp="🧘‍♀">kvinna i lotusposition | meditering | yoga</annotation>
-		<annotation cp="🧘‍♀" type="tts">kvinna i lotusposition</annotation>
-		<annotation cp="🧘‍♂">man i lotusposition | meditering | yoga</annotation>
-		<annotation cp="🧘‍♂" type="tts">man i lotusposition</annotation>
-		<annotation cp="🛀">bad | badar | badkar | person som badar</annotation>
-		<annotation cp="🛀" type="tts">person som badar</annotation>
-		<annotation cp="🛌">hotell | person i en säng | säng | sömn</annotation>
-		<annotation cp="🛌" type="tts">person i en säng</annotation>
-		<annotation cp="🕴">kostym | människor | svävande man i kostym | svävar</annotation>
-		<annotation cp="🕴" type="tts">svävande man i kostym</annotation>
-		<annotation cp="🗣">silhuett | silhuett som talar | talar</annotation>
-		<annotation cp="🗣" type="tts">silhuett som talar</annotation>
-		<annotation cp="👤">figur | figur i silhuett | människa</annotation>
-		<annotation cp="👤" type="tts">figur i silhuett</annotation>
-		<annotation cp="👥">figurer | figurer i silhuett | människor</annotation>
-		<annotation cp="👥" type="tts">figurer i silhuett</annotation>
+		<annotation cp="🧗‍♀">klättrare | kvinna klättrar | kvinna som klättrar</annotation>
+		<annotation cp="🧗‍♀" type="tts">kvinna som klättrar</annotation>
 		<annotation cp="🤺">fäktare | fäktning | person | person som fäktas | sport | svärd</annotation>
 		<annotation cp="🤺" type="tts">person som fäktas</annotation>
 		<annotation cp="🏇">häst | hästkapplöpning | jockey | kapplöpning</annotation>
@@ -621,10 +775,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚵‍♂" type="tts">man som cyklar på en mountainbike</annotation>
 		<annotation cp="🚵‍♀">cykel | cyklist | kvinna | kvinna åker mountainbike | kvinna som cyklar på en mountainbike</annotation>
 		<annotation cp="🚵‍♀" type="tts">kvinna som cyklar på en mountainbike</annotation>
-		<annotation cp="🏎">bil | racerbil | sport</annotation>
-		<annotation cp="🏎" type="tts">racerbil</annotation>
-		<annotation cp="🏍">motorcykel | racing</annotation>
-		<annotation cp="🏍" type="tts">motorcykel</annotation>
 		<annotation cp="🤸">gymnastik | hjula | person | person som hjular</annotation>
 		<annotation cp="🤸" type="tts">person som hjular</annotation>
 		<annotation cp="🤸‍♂">gymnastik | man | man som hjular</annotation>
@@ -655,7 +805,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤹‍♂" type="tts">man som jonglerar</annotation>
 		<annotation cp="🤹‍♀">jonglering | kvinna | kvinna jonglerar | kvinna som jonglerar | kvinnlig | multitask</annotation>
 		<annotation cp="🤹‍♀" type="tts">kvinna som jonglerar</annotation>
-		<annotation cp="👫">håller hand | kvinna | man | man och kvinna håller hand | människor | par</annotation>
+		<annotation cp="🧘">meditering | person i lotusposition | yoga</annotation>
+		<annotation cp="🧘" type="tts">person i lotusposition</annotation>
+		<annotation cp="🧘‍♂">man i lotusposition | meditering | yoga</annotation>
+		<annotation cp="🧘‍♂" type="tts">man i lotusposition</annotation>
+		<annotation cp="🧘‍♀">kvinna i lotusposition | meditering | yoga</annotation>
+		<annotation cp="🧘‍♀" type="tts">kvinna i lotusposition</annotation>
+		<annotation cp="🛀">bad | badar | badkar | person som badar</annotation>
+		<annotation cp="🛀" type="tts">person som badar</annotation>
+		<annotation cp="🛌">hotell | person i en säng | säng | sömn</annotation>
+		<annotation cp="🛌" type="tts">person i en säng</annotation>
+		<annotation cp="👫">håller hand | man och kvinna håller hand | människor | par</annotation>
 		<annotation cp="👫" type="tts">man och kvinna håller hand</annotation>
 		<annotation cp="👬">håller hand | människor | par | två män | två män håller hand</annotation>
 		<annotation cp="👬" type="tts">två män håller hand</annotation>
@@ -667,242 +827,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💑" type="tts">par med hjärta</annotation>
 		<annotation cp="👪">barn | familj | mamma | människor | pappa</annotation>
 		<annotation cp="👪" type="tts">familj</annotation>
-		<annotation cp="🤳">kamera | selfie | telefon</annotation>
-		<annotation cp="🤳" type="tts">selfie</annotation>
-		<annotation cp="💪">muskler | spänd biceps | stark</annotation>
-		<annotation cp="💪" type="tts">spänd biceps</annotation>
-		<annotation cp="🦵">ben | lem | sparka</annotation>
-		<annotation cp="🦵" type="tts">ben</annotation>
-		<annotation cp="🦶">fot | sparka | stampa</annotation>
-		<annotation cp="🦶" type="tts">fot</annotation>
-		<annotation cp="👈">peka åt vänster | pekfinger | vänsterpekande finger</annotation>
-		<annotation cp="👈" type="tts">vänsterpekande finger</annotation>
-		<annotation cp="👉">högerpekande finger | peka åt höger | pekfinger</annotation>
-		<annotation cp="👉" type="tts">högerpekande finger</annotation>
-		<annotation cp="☝">finger | finger upp | förmaning | peka</annotation>
-		<annotation cp="☝" type="tts">finger upp</annotation>
-		<annotation cp="👆">finger | peka uppåt | pekfinger | pekfinger upp</annotation>
-		<annotation cp="👆" type="tts">pekfinger upp</annotation>
-		<annotation cp="🖕">finger | hand | långfinger upp</annotation>
-		<annotation cp="🖕" type="tts">långfinger upp</annotation>
-		<annotation cp="👇">finger | nedåtpekande finger | peka nedåt | pekfinger</annotation>
-		<annotation cp="👇" type="tts">nedåtpekande finger</annotation>
-		<annotation cp="✌">seger | v-tecken</annotation>
-		<annotation cp="✌" type="tts">v-tecken</annotation>
-		<annotation cp="🤞">finger | hand | korsa | korsade fingrar | lycka</annotation>
-		<annotation cp="🤞" type="tts">korsade fingrar</annotation>
-		<annotation cp="🖖">hand | spock | Star Trek | vulcan | vulcan-hälsning</annotation>
-		<annotation cp="🖖" type="tts">vulcan-hälsning</annotation>
-		<annotation cp="🤘">djävulstecknet | hand | hårdrock | horn</annotation>
-		<annotation cp="🤘" type="tts">djävulstecknet</annotation>
-		<annotation cp="🤙">hand | ring | ring mig-hand</annotation>
-		<annotation cp="🤙" type="tts">ring mig-hand</annotation>
-		<annotation cp="🖐">finger | hand | hand med utspretade fingrar</annotation>
-		<annotation cp="🖐" type="tts">hand med utspretade fingrar</annotation>
-		<annotation cp="✋">hand | hand i luften | handflata | uppräckt</annotation>
-		<annotation cp="✋" type="tts">hand i luften</annotation>
-		<annotation cp="👌">hand | OK | OK-tecken | tecken</annotation>
-		<annotation cp="👌" type="tts">OK-tecken</annotation>
-		<annotation cp="👍">gillar | tumme | tummen upp | upp</annotation>
-		<annotation cp="👍" type="tts">tummen upp</annotation>
-		<annotation cp="👎">ner | ogilla | tumme | tummen ned</annotation>
-		<annotation cp="👎" type="tts">tummen ned</annotation>
-		<annotation cp="✊">hand | knytnäve | knytnäve i luften</annotation>
-		<annotation cp="✊" type="tts">knytnäve i luften</annotation>
-		<annotation cp="👊">knuten hand | knytnäve</annotation>
-		<annotation cp="👊" type="tts">knuten hand</annotation>
-		<annotation cp="🤛">näve | vänster | vänstervänd</annotation>
-		<annotation cp="🤛" type="tts">vänstervänd näve</annotation>
-		<annotation cp="🤜">höger | högervänd | näve</annotation>
-		<annotation cp="🤜" type="tts">högervänd näve</annotation>
-		<annotation cp="🤚">hand | höjd handrygg | lyft</annotation>
-		<annotation cp="🤚" type="tts">höjd handrygg</annotation>
-		<annotation cp="👋">hand | vinka | vinkande hand</annotation>
-		<annotation cp="👋" type="tts">vinkande hand</annotation>
-		<annotation cp="🤟">hand | jag älskar dig-gest</annotation>
-		<annotation cp="🤟" type="tts">jag älskar dig-gest</annotation>
-		<annotation cp="✍">hand | hand som skriver | skriver</annotation>
-		<annotation cp="✍" type="tts">hand som skriver</annotation>
-		<annotation cp="👏">klappa | klappa händer | klappande händer</annotation>
-		<annotation cp="👏" type="tts">klappande händer</annotation>
-		<annotation cp="👐">händer | öppna</annotation>
-		<annotation cp="👐" type="tts">öppna händer</annotation>
-		<annotation cp="🙌">båda händerna i luften | hurra | räcker upp händerna</annotation>
-		<annotation cp="🙌" type="tts">båda händerna i luften</annotation>
-		<annotation cp="🤲">bön | handflatorna upp</annotation>
-		<annotation cp="🤲" type="tts">handflatorna upp</annotation>
-		<annotation cp="🙏">be | beende händer | ber | händer | knäppta händer</annotation>
-		<annotation cp="🙏" type="tts">beende händer</annotation>
-		<annotation cp="🤝">avtal | hand | handskakning | möte</annotation>
-		<annotation cp="🤝" type="tts">handskakning</annotation>
-		<annotation cp="💅">måla naglar | manikyr | nagellack | smink</annotation>
-		<annotation cp="💅" type="tts">nagellack</annotation>
-		<annotation cp="👂">kropp | öra</annotation>
-		<annotation cp="👂" type="tts">öra</annotation>
-		<annotation cp="👃">kropp | näsa</annotation>
-		<annotation cp="👃" type="tts">näsa</annotation>
+		<annotation cp="🗣">silhuett | silhuett som talar | talar</annotation>
+		<annotation cp="🗣" type="tts">silhuett som talar</annotation>
+		<annotation cp="👤">figur | figur i silhuett | människa</annotation>
+		<annotation cp="👤" type="tts">figur i silhuett</annotation>
+		<annotation cp="👥">figurer | figurer i silhuett | människor</annotation>
+		<annotation cp="👥" type="tts">figurer i silhuett</annotation>
 		<annotation cp="👣">avtryck | fotavtryck | fötter</annotation>
 		<annotation cp="👣" type="tts">fotavtryck</annotation>
-		<annotation cp="👀">öga | ögon</annotation>
-		<annotation cp="👀" type="tts">ögon</annotation>
-		<annotation cp="👁">kropp | öga</annotation>
-		<annotation cp="👁" type="tts">öga</annotation>
-		<annotation cp="👁‍🗨">öga | öga i pratbubbla | pratbubbla | vittne</annotation>
-		<annotation cp="👁‍🗨" type="tts">öga i pratbubbla</annotation>
-		<annotation cp="🧠">hjärna | klok</annotation>
-		<annotation cp="🧠" type="tts">hjärna</annotation>
-		<annotation cp="🦴">benknota | skelett</annotation>
-		<annotation cp="🦴" type="tts">benknota</annotation>
-		<annotation cp="🦷">tand | tandläkare</annotation>
-		<annotation cp="🦷" type="tts">tand</annotation>
-		<annotation cp="👅">kropp | tunga</annotation>
-		<annotation cp="👅" type="tts">tunga</annotation>
-		<annotation cp="👄">läppar | mun</annotation>
-		<annotation cp="👄" type="tts">mun</annotation>
 		<annotation cp="🦰">rödhårig | röllig | rött hår</annotation>
 		<annotation cp="🦰" type="tts">rödhårig</annotation>
 		<annotation cp="🦱">afrohår | korkskruvar | lockar | lockigt hår</annotation>
 		<annotation cp="🦱" type="tts">lockigt hår</annotation>
 		<annotation cp="🦳">gammal | grått hår | vithårig | vitt hår</annotation>
 		<annotation cp="🦳" type="tts">vithårig</annotation>
-		<annotation cp="🦲">skallig | skinhead | strålbehandling | utan hår</annotation>
+		<annotation cp="🦲">kemoterapi | skallig | skinhead | utan hår</annotation>
 		<annotation cp="🦲" type="tts">skallig</annotation>
-		<annotation cp="💋">kärlek | kyssmärke | läppar | läppavtryck</annotation>
-		<annotation cp="💋" type="tts">läppavtryck</annotation>
-		<annotation cp="💘">hjärta | hjärta med pil | kärlek | pil</annotation>
-		<annotation cp="💘" type="tts">hjärta med pil</annotation>
-		<annotation cp="💝">alla hjärtans dag | hjärta | hjärta med rosett | rosett</annotation>
-		<annotation cp="💝" type="tts">hjärta med rosett</annotation>
-		<annotation cp="💖">gnistrande hjärta | känslor | kärlek | upprymd</annotation>
-		<annotation cp="💖" type="tts">gnistrande hjärta</annotation>
-		<annotation cp="💗">hjärta | känslor | kärlek | nervös | upprymd | växande hjärta</annotation>
-		<annotation cp="💗" type="tts">växande hjärta</annotation>
-		<annotation cp="💓">bultande hjärta | bultar | hjärta | känslor | kärlek | slår</annotation>
-		<annotation cp="💓" type="tts">bultande hjärta</annotation>
-		<annotation cp="💞">hjärta | känslor | kärlek | snurrande hjärtan | snurrar</annotation>
-		<annotation cp="💞" type="tts">snurrande hjärtan</annotation>
-		<annotation cp="💕">känslor | kärlek | två hjärtan</annotation>
-		<annotation cp="💕" type="tts">två hjärtan</annotation>
-		<annotation cp="💌">brev | brev med hjärta | kärlek | kärleksbrev</annotation>
-		<annotation cp="💌" type="tts">kärleksbrev</annotation>
-		<annotation cp="❣">hjärta | utropstecken | utropstecken i form av ett hjärta</annotation>
-		<annotation cp="❣" type="tts">utropstecken i form av ett hjärta</annotation>
-		<annotation cp="💔">brustet | brustet hjärta | känslor | trasigt hjärta</annotation>
-		<annotation cp="💔" type="tts">brustet hjärta</annotation>
-		<annotation cp="❤">hjärta | kärlek | rött hjärta</annotation>
-		<annotation cp="❤" type="tts">rött hjärta</annotation>
-		<annotation cp="🧡">hjärta i orange | orange</annotation>
-		<annotation cp="🧡" type="tts">hjärta i orange</annotation>
-		<annotation cp="💛">gul | gult hjärta | hjärta</annotation>
-		<annotation cp="💛" type="tts">gult hjärta</annotation>
-		<annotation cp="💚">grön | grönt hjärta | hjärta</annotation>
-		<annotation cp="💚" type="tts">grönt hjärta</annotation>
-		<annotation cp="💙">blå | blått hjärta | hjärta</annotation>
-		<annotation cp="💙" type="tts">blått hjärta</annotation>
-		<annotation cp="💜">hjärta | lila</annotation>
-		<annotation cp="💜" type="tts">lila hjärta</annotation>
-		<annotation cp="🖤">hjärta | ond | svart</annotation>
-		<annotation cp="🖤" type="tts">svart hjärta</annotation>
-		<annotation cp="💟">hjärta | hjärtdekoration</annotation>
-		<annotation cp="💟" type="tts">hjärtdekoration</annotation>
-		<annotation cp="💤">snarkar | snarkningar | sömnig | trött | Zzz</annotation>
-		<annotation cp="💤" type="tts">snarkningar</annotation>
-		<annotation cp="💢">arg | ilska | symbol för ilska</annotation>
-		<annotation cp="💢" type="tts">symbol för ilska</annotation>
-		<annotation cp="💣">bomb | serietidning</annotation>
-		<annotation cp="💣" type="tts">bomb</annotation>
-		<annotation cp="💥">explosion | kollision | serietidning | smäll</annotation>
-		<annotation cp="💥" type="tts">explosion</annotation>
-		<annotation cp="💦">serietidning | stänkande svett | svett | svettig</annotation>
-		<annotation cp="💦" type="tts">stänkande svett</annotation>
-		<annotation cp="💨">fartsymbol | springa | springer iväg</annotation>
-		<annotation cp="💨" type="tts">fartsymbol</annotation>
-		<annotation cp="💫">omtumlad | serietidning | stjärna | yr</annotation>
-		<annotation cp="💫" type="tts">omtumlad</annotation>
-		<annotation cp="💬">bubbla | dialogbubbla | pratbubbla</annotation>
-		<annotation cp="💬" type="tts">pratbubbla</annotation>
-		<annotation cp="🗨">pratbubbla | pratbubbla åt vänster</annotation>
-		<annotation cp="🗨" type="tts">pratbubbla åt vänster</annotation>
-		<annotation cp="🗯">arg | arg pratbubbla åt höger | pratbubbla</annotation>
-		<annotation cp="🗯" type="tts">arg pratbubbla åt höger</annotation>
-		<annotation cp="💭">bubbla | funderar | tankebubbla</annotation>
-		<annotation cp="💭" type="tts">tankebubbla</annotation>
-		<annotation cp="🕳">hål</annotation>
-		<annotation cp="🕳" type="tts">hål</annotation>
-		<annotation cp="👓">accessoarer | brillor | glasögon | ögon</annotation>
-		<annotation cp="👓" type="tts">glasögon</annotation>
-		<annotation cp="🕶">glasögon | solglasögon</annotation>
-		<annotation cp="🕶" type="tts">solglasögon</annotation>
-		<annotation cp="🥽">ögonskydd | simglasögon | simma | svetsning</annotation>
-		<annotation cp="🥽" type="tts">simglasögon</annotation>
-		<annotation cp="🥼">doktor | experiment | labbrock | vetenskapsman</annotation>
-		<annotation cp="🥼" type="tts">labbrock</annotation>
-		<annotation cp="👔">kläder | skjorta | skjorta med slips | slips</annotation>
-		<annotation cp="👔" type="tts">skjorta med slips</annotation>
-		<annotation cp="👕">kläder | t-shirt | tröja</annotation>
-		<annotation cp="👕" type="tts">t-shirt</annotation>
-		<annotation cp="👖">byxor | jeans | kläder</annotation>
-		<annotation cp="👖" type="tts">jeans</annotation>
-		<annotation cp="🧣">hals | halsduk | scarf</annotation>
-		<annotation cp="🧣" type="tts">halsduk</annotation>
-		<annotation cp="🧤">hand | handske</annotation>
-		<annotation cp="🧤" type="tts">handske</annotation>
-		<annotation cp="🧥">jacka | kavaj</annotation>
-		<annotation cp="🧥" type="tts">jacka</annotation>
-		<annotation cp="🧦">sockor | strumpa</annotation>
-		<annotation cp="🧦" type="tts">sockor</annotation>
-		<annotation cp="👗">kläder | klänning</annotation>
-		<annotation cp="👗" type="tts">klänning</annotation>
-		<annotation cp="👘">kimono | kläder | klänning</annotation>
-		<annotation cp="👘" type="tts">kimono</annotation>
-		<annotation cp="👙">badkläder | bikini | kläder</annotation>
-		<annotation cp="👙" type="tts">bikini</annotation>
-		<annotation cp="👚">blus | damkläder | kläder</annotation>
-		<annotation cp="👚" type="tts">blus</annotation>
-		<annotation cp="👛">accessoar | portmonnä</annotation>
-		<annotation cp="👛" type="tts">portmonnä</annotation>
-		<annotation cp="👜">accessoar | handväska | väska</annotation>
-		<annotation cp="👜" type="tts">handväska</annotation>
-		<annotation cp="👝">accessoar | clutch | kuvertväska</annotation>
-		<annotation cp="👝" type="tts">kuvertväska</annotation>
-		<annotation cp="🛍">påsar | shopping | shoppingpåsar</annotation>
-		<annotation cp="🛍" type="tts">shoppingpåsar</annotation>
-		<annotation cp="🎒">ryggsäck | skolväska | väska</annotation>
-		<annotation cp="🎒" type="tts">ryggsäck</annotation>
-		<annotation cp="👞">herrsko | sko | skor</annotation>
-		<annotation cp="👞" type="tts">herrsko</annotation>
-		<annotation cp="👟">gympasko | sko | sneaker</annotation>
-		<annotation cp="👟" type="tts">gympasko</annotation>
-		<annotation cp="🥾">camping | pjäxor | vandring | vandringskänga</annotation>
-		<annotation cp="🥾" type="tts">vandringskänga</annotation>
-		<annotation cp="🥿">ballerinasko | lågklackad | toffla</annotation>
-		<annotation cp="🥿" type="tts">ballerinasko</annotation>
-		<annotation cp="👠">högklackad sko | klack | pumps | sko</annotation>
-		<annotation cp="👠" type="tts">högklackad sko</annotation>
-		<annotation cp="👡">damsandal | sandal | sko</annotation>
-		<annotation cp="👡" type="tts">damsandal</annotation>
-		<annotation cp="👢">damstövel | sko | stövel</annotation>
-		<annotation cp="👢" type="tts">damstövel</annotation>
-		<annotation cp="👑">drottning | krona | kung | kungakrona</annotation>
-		<annotation cp="👑" type="tts">krona</annotation>
-		<annotation cp="👒">damhatt | hatt</annotation>
-		<annotation cp="👒" type="tts">damhatt</annotation>
-		<annotation cp="🎩">hatt | hög hatt</annotation>
-		<annotation cp="🎩" type="tts">hög hatt</annotation>
-		<annotation cp="🎓">examen | examenshatt | hatt | högtid</annotation>
-		<annotation cp="🎓" type="tts">examenshatt</annotation>
-		<annotation cp="🧢">basebollkeps | skärmmössa</annotation>
-		<annotation cp="🧢" type="tts">skärmmössa</annotation>
-		<annotation cp="⛑">hjälm | hjälm med vitt kors | hjälp | räddningsarbetare | räddningsarbetarhjälm | utryckningspersonal</annotation>
-		<annotation cp="⛑" type="tts">räddningsarbetarhjälm</annotation>
-		<annotation cp="📿">bön | halsband | radband | religion</annotation>
-		<annotation cp="📿" type="tts">radband</annotation>
-		<annotation cp="💄">läppstift | makeup | smink</annotation>
-		<annotation cp="💄" type="tts">läppstift</annotation>
-		<annotation cp="💍">diamant | kärlek | ring | romantik</annotation>
-		<annotation cp="💍" type="tts">ring</annotation>
-		<annotation cp="💎">ädelsten | diamant | juvel | kärlek</annotation>
-		<annotation cp="💎" type="tts">ädelsten</annotation>
+		<annotation cp="♀">kvinna | kvinnlig | kvinnosymbol</annotation>
+		<annotation cp="♀" type="tts">kvinnosymbol</annotation>
+		<annotation cp="♂">man | manlig | manssymbol</annotation>
+		<annotation cp="♂" type="tts">manssymbol</annotation>
 		<annotation cp="🐵">apa | apansikte | djur</annotation>
 		<annotation cp="🐵" type="tts">apansikte</annotation>
 		<annotation cp="🐒">apa | djur</annotation>
@@ -913,6 +857,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐶" type="tts">hundansikte</annotation>
 		<annotation cp="🐕">djur | hund | valp</annotation>
 		<annotation cp="🐕" type="tts">hund</annotation>
+		<annotation cp="🐕‍🦺">hjälp | hund | service | tillgång</annotation>
+		<annotation cp="🐕‍🦺" type="tts">servicehund</annotation>
 		<annotation cp="🐩">djur | hund | pudel</annotation>
 		<annotation cp="🐩" type="tts">pudel</annotation>
 		<annotation cp="🐺">djur | varg | vargansikte</annotation>
@@ -1007,8 +953,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦘" type="tts">känguru</annotation>
 		<annotation cp="🦡">grävling | honungsgrävling | plåga</annotation>
 		<annotation cp="🦡" type="tts">grävling</annotation>
-		<annotation cp="🐾">djur | tassar | tassavtryck</annotation>
-		<annotation cp="🐾" type="tts">tassavtryck</annotation>
 		<annotation cp="🦃">fågel | kalkon</annotation>
 		<annotation cp="🦃" type="tts">kalkon</annotation>
 		<annotation cp="🐔">fågel | höna</annotation>
@@ -1075,14 +1019,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐙" type="tts">bläckfisk</annotation>
 		<annotation cp="🐚">djur | snäcka | snäckskal</annotation>
 		<annotation cp="🐚" type="tts">snäcka</annotation>
-		<annotation cp="🦀">krabba | kräfta | skaldjur | stjärntecken</annotation>
-		<annotation cp="🦀" type="tts">krabba</annotation>
-		<annotation cp="🦞">fisksoppa | hummer | klor | skaldjur</annotation>
-		<annotation cp="🦞" type="tts">hummer</annotation>
-		<annotation cp="🦐">liten | mat | räka | skaldjur</annotation>
-		<annotation cp="🦐" type="tts">räka</annotation>
-		<annotation cp="🦑">bläck | bläckfisk | mat | mindre bläckfisk | skaldjur</annotation>
-		<annotation cp="🦑" type="tts">mindre bläckfisk</annotation>
 		<annotation cp="🐌">djur | snigel</annotation>
 		<annotation cp="🐌" type="tts">snigel</annotation>
 		<annotation cp="🦋">fjäril | insekt | sommar | vacker</annotation>
@@ -1299,6 +1235,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥠" type="tts">lyckokaka</annotation>
 		<annotation cp="🥡">hämtmatkartong | takeout box</annotation>
 		<annotation cp="🥡" type="tts">hämtmatkartong</annotation>
+		<annotation cp="🦀">krabba | kräfta | skaldjur | stjärntecken</annotation>
+		<annotation cp="🦀" type="tts">krabba</annotation>
+		<annotation cp="🦞">fisksoppa | hummer | klor | skaldjur</annotation>
+		<annotation cp="🦞" type="tts">hummer</annotation>
+		<annotation cp="🦐">liten | mat | räka | skaldjur</annotation>
+		<annotation cp="🦐" type="tts">räka</annotation>
+		<annotation cp="🦑">bläck | bläckfisk | mat | mindre bläckfisk | skaldjur</annotation>
+		<annotation cp="🦑" type="tts">mindre bläckfisk</annotation>
 		<annotation cp="🍦">efterrätt | glass | mjukglass</annotation>
 		<annotation cp="🍦" type="tts">mjukglass</annotation>
 		<annotation cp="🍧">dessert | efterrätt | is | kakigōri</annotation>
@@ -1547,14 +1491,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚛" type="tts">lastbil</annotation>
 		<annotation cp="🚜">fordon | traktor</annotation>
 		<annotation cp="🚜" type="tts">traktor</annotation>
+		<annotation cp="🏎">bil | racerbil | sport</annotation>
+		<annotation cp="🏎" type="tts">racerbil</annotation>
+		<annotation cp="🏍">motorcykel | racing</annotation>
+		<annotation cp="🏍" type="tts">motorcykel</annotation>
+		<annotation cp="🛵">motor | skoter</annotation>
+		<annotation cp="🛵" type="tts">skoter</annotation>
 		<annotation cp="🚲">cykel | fordon</annotation>
 		<annotation cp="🚲" type="tts">cykel</annotation>
 		<annotation cp="🛴">cykel | sparka | sparkcykel</annotation>
 		<annotation cp="🛴" type="tts">sparkcykel</annotation>
 		<annotation cp="🛹">bräda | skateboard</annotation>
 		<annotation cp="🛹" type="tts">skateboard</annotation>
-		<annotation cp="🛵">motor | skoter</annotation>
-		<annotation cp="🛵" type="tts">skoter</annotation>
 		<annotation cp="🚏">buss | busshållplats | hållplats</annotation>
 		<annotation cp="🚏" type="tts">busshållplats</annotation>
 		<annotation cp="🛣">motorväg | väg</annotation>
@@ -1600,7 +1548,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛬">ankomst | ankomst med flyg | flyg | resa</annotation>
 		<annotation cp="🛬" type="tts">ankomst med flyg</annotation>
 		<annotation cp="💺">flygstol | stol</annotation>
-		<annotation cp="💺" type="tts">stol</annotation>
+		<annotation cp="💺" type="tts">flygstol</annotation>
 		<annotation cp="🚁">fordon | helikopter</annotation>
 		<annotation cp="🚁" type="tts">helikopter</annotation>
 		<annotation cp="🚟">fordon | hängbana</annotation>
@@ -1841,7 +1789,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏉" type="tts">rugbyboll</annotation>
 		<annotation cp="🎾">boll | tennis | tennisboll | tennisrack och boll | tennisracket och boll</annotation>
 		<annotation cp="🎾" type="tts">tennis</annotation>
-		<annotation cp="🥏">frisbee | sista</annotation>
+		<annotation cp="🥏">frisbee | ultimate</annotation>
 		<annotation cp="🥏" type="tts">frisbee</annotation>
 		<annotation cp="🎳">bowling | bowlingklot | klot</annotation>
 		<annotation cp="🎳" type="tts">bowling</annotation>
@@ -1894,7 +1842,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎲">spel | speltärning | tärning</annotation>
 		<annotation cp="🎲" type="tts">speltärning</annotation>
 		<annotation cp="🧩">bit | ledtråd | pussel | sammanfoga</annotation>
-		<annotation cp="🧩" type="tts">pussel</annotation>
+		<annotation cp="🧩" type="tts">pusselbit</annotation>
 		<annotation cp="🧸">gosedjur | leksak | mjukdjur | nallebjörn</annotation>
 		<annotation cp="🧸" type="tts">nallebjörn</annotation>
 		<annotation cp="♠">färg | kort | spader</annotation>
@@ -1923,6 +1871,80 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧵" type="tts">tråd</annotation>
 		<annotation cp="🧶">garn | garnnystan | sticka | virka</annotation>
 		<annotation cp="🧶" type="tts">garn</annotation>
+		<annotation cp="👓">accessoarer | brillor | glasögon | ögon</annotation>
+		<annotation cp="👓" type="tts">glasögon</annotation>
+		<annotation cp="🕶">glasögon | solglasögon</annotation>
+		<annotation cp="🕶" type="tts">solglasögon</annotation>
+		<annotation cp="🥽">ögonskydd | simglasögon | simma | svetsning</annotation>
+		<annotation cp="🥽" type="tts">simglasögon</annotation>
+		<annotation cp="🥼">doktor | experiment | labbrock | vetenskapsman</annotation>
+		<annotation cp="🥼" type="tts">labbrock</annotation>
+		<annotation cp="👔">kläder | skjorta | skjorta med slips | slips</annotation>
+		<annotation cp="👔" type="tts">skjorta med slips</annotation>
+		<annotation cp="👕">kläder | t-shirt | tröja</annotation>
+		<annotation cp="👕" type="tts">t-shirt</annotation>
+		<annotation cp="👖">byxor | jeans | kläder</annotation>
+		<annotation cp="👖" type="tts">jeans</annotation>
+		<annotation cp="🧣">hals | halsduk | scarf</annotation>
+		<annotation cp="🧣" type="tts">halsduk</annotation>
+		<annotation cp="🧤">hand | handske</annotation>
+		<annotation cp="🧤" type="tts">handske</annotation>
+		<annotation cp="🧥">jacka | kavaj</annotation>
+		<annotation cp="🧥" type="tts">jacka</annotation>
+		<annotation cp="🧦">sockor | strumpa</annotation>
+		<annotation cp="🧦" type="tts">sockor</annotation>
+		<annotation cp="👗">kläder | klänning</annotation>
+		<annotation cp="👗" type="tts">klänning</annotation>
+		<annotation cp="👘">kimono | kläder | klänning</annotation>
+		<annotation cp="👘" type="tts">kimono</annotation>
+		<annotation cp="👙">badkläder | bikini | kläder</annotation>
+		<annotation cp="👙" type="tts">bikini</annotation>
+		<annotation cp="👚">blus | damkläder | kläder</annotation>
+		<annotation cp="👚" type="tts">blus</annotation>
+		<annotation cp="👛">accessoar | portmonnä</annotation>
+		<annotation cp="👛" type="tts">portmonnä</annotation>
+		<annotation cp="👜">accessoar | handväska | väska</annotation>
+		<annotation cp="👜" type="tts">handväska</annotation>
+		<annotation cp="👝">accessoar | clutch | kuvertväska</annotation>
+		<annotation cp="👝" type="tts">kuvertväska</annotation>
+		<annotation cp="🛍">påsar | shopping | shoppingpåsar</annotation>
+		<annotation cp="🛍" type="tts">shoppingpåsar</annotation>
+		<annotation cp="🎒">ryggsäck | skolväska | väska</annotation>
+		<annotation cp="🎒" type="tts">ryggsäck</annotation>
+		<annotation cp="👞">herrsko | sko | skor</annotation>
+		<annotation cp="👞" type="tts">herrsko</annotation>
+		<annotation cp="👟">gympasko | sko | sneaker</annotation>
+		<annotation cp="👟" type="tts">gympasko</annotation>
+		<annotation cp="🥾">camping | pjäxor | vandring | vandringskänga</annotation>
+		<annotation cp="🥾" type="tts">vandringskänga</annotation>
+		<annotation cp="🥿">ballerinasko | lågklackad | toffla</annotation>
+		<annotation cp="🥿" type="tts">ballerinasko</annotation>
+		<annotation cp="👠">högklackad sko | klack | pumps | sko</annotation>
+		<annotation cp="👠" type="tts">högklackad sko</annotation>
+		<annotation cp="👡">damsandal | sandal | sko</annotation>
+		<annotation cp="👡" type="tts">damsandal</annotation>
+		<annotation cp="👢">damstövel | sko | stövel</annotation>
+		<annotation cp="👢" type="tts">damstövel</annotation>
+		<annotation cp="👑">drottning | krona | kung | kungakrona</annotation>
+		<annotation cp="👑" type="tts">krona</annotation>
+		<annotation cp="👒">damhatt | hatt</annotation>
+		<annotation cp="👒" type="tts">damhatt</annotation>
+		<annotation cp="🎩">hatt | hög hatt</annotation>
+		<annotation cp="🎩" type="tts">hög hatt</annotation>
+		<annotation cp="🎓">examen | examenshatt | hatt | högtid</annotation>
+		<annotation cp="🎓" type="tts">examenshatt</annotation>
+		<annotation cp="🧢">basebollkeps | skärmmössa</annotation>
+		<annotation cp="🧢" type="tts">skärmmössa</annotation>
+		<annotation cp="⛑">hjälm | hjälm med vitt kors | hjälp | räddningsarbetare | räddningsarbetarhjälm | utryckningspersonal</annotation>
+		<annotation cp="⛑" type="tts">räddningsarbetarhjälm</annotation>
+		<annotation cp="📿">bön | halsband | radband | religion</annotation>
+		<annotation cp="📿" type="tts">radband</annotation>
+		<annotation cp="💄">läppstift | makeup | smink</annotation>
+		<annotation cp="💄" type="tts">läppstift</annotation>
+		<annotation cp="💍">diamant | kärlek | ring | romantik</annotation>
+		<annotation cp="💍" type="tts">ring</annotation>
+		<annotation cp="💎">ädelsten | diamant | juvel | kärlek</annotation>
+		<annotation cp="💎" type="tts">ädelsten</annotation>
 		<annotation cp="🔇">avstängd högtalare | tyst</annotation>
 		<annotation cp="🔇" type="tts">avstängd högtalare</annotation>
 		<annotation cp="🔈">högtalare | volym</annotation>
@@ -2477,10 +2499,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📳" type="tts">vibrationsläge</annotation>
 		<annotation cp="📴">avstängd | avstängd mobil | mobil av | telefon</annotation>
 		<annotation cp="📴" type="tts">avstängd mobil</annotation>
-		<annotation cp="♀">kvinna | kvinnlig | kvinnosymbol</annotation>
-		<annotation cp="♀" type="tts">kvinnosymbol</annotation>
-		<annotation cp="♂">man | manlig | manssymbol</annotation>
-		<annotation cp="♂" type="tts">manssymbol</annotation>
 		<annotation cp="⚕">aesculapius | medicin | medicinsk symbol | personal</annotation>
 		<annotation cp="⚕" type="tts">medicinsk symbol</annotation>
 		<annotation cp="♾">evig | oändlighet | universal</annotation>
@@ -2547,8 +2565,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="®" type="tts">registrerat varumärke</annotation>
 		<annotation cp="™">skyddat varumärke | varumärke</annotation>
 		<annotation cp="™" type="tts">skyddat varumärke</annotation>
-		<annotation cp="💯">100 poäng | full pott</annotation>
-		<annotation cp="💯" type="tts">100 poäng</annotation>
 		<annotation cp="🔠">ABC | alfabet | stora bokstäver | versaler</annotation>
 		<annotation cp="🔠" type="tts">versaler</annotation>
 		<annotation cp="🔡">gemener | små bokstäver</annotation>
@@ -2685,5 +2701,139 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">regnbågsflagga</annotation>
 		<annotation cp="🏴‍☠">pirater | plundra | sjörövarflagga | skatter</annotation>
 		<annotation cp="🏴‍☠" type="tts">sjörövarflagga</annotation>
+		<annotation cp="🛕">hindu | tempel</annotation>
+		<annotation cp="🛕" type="tts">hindutempel</annotation>
+		<annotation cp="🛺">tuk-tuk</annotation>
+		<annotation cp="🛺" type="tts">automatisk riksha</annotation>
+		<annotation cp="🟠">cirkel | orange</annotation>
+		<annotation cp="🟠" type="tts">orange cirkel</annotation>
+		<annotation cp="🟡">cirkel | gul</annotation>
+		<annotation cp="🟡" type="tts">gul cirkel</annotation>
+		<annotation cp="🟢">cirkel | grön</annotation>
+		<annotation cp="🟢" type="tts">grön cirkel</annotation>
+		<annotation cp="🟣">cirkel | lila</annotation>
+		<annotation cp="🟣" type="tts">lila cirkel</annotation>
+		<annotation cp="🟤">brun | cirkel</annotation>
+		<annotation cp="🟤" type="tts">brun cirkel</annotation>
+		<annotation cp="🟥">kvadrat | röd</annotation>
+		<annotation cp="🟥" type="tts">röd kvadrat</annotation>
+		<annotation cp="🟦">blå | kvadrat</annotation>
+		<annotation cp="🟦" type="tts">blå kvadrat</annotation>
+		<annotation cp="🟧">kvadrat | orange</annotation>
+		<annotation cp="🟧" type="tts">orange kvadrat</annotation>
+		<annotation cp="🟨">gul | kvadrat</annotation>
+		<annotation cp="🟨" type="tts">gul kvadrat</annotation>
+		<annotation cp="🟩">grön | kvadrat</annotation>
+		<annotation cp="🟩" type="tts">grön kvadrat</annotation>
+		<annotation cp="🟪">kvadrat | lila</annotation>
+		<annotation cp="🟪" type="tts">lila kvadrat</annotation>
+		<annotation cp="🟫">brun | kvadrat</annotation>
+		<annotation cp="🟫" type="tts">brun kvadrat</annotation>
+		<annotation cp="🤍">hjärta | vitt</annotation>
+		<annotation cp="🤍" type="tts">vitt hjärta</annotation>
+		<annotation cp="🤎">brunt | hjärta</annotation>
+		<annotation cp="🤎" type="tts">brunt hjärta</annotation>
+		<annotation cp="🤏">liten mängd</annotation>
+		<annotation cp="🤏" type="tts">nypande hand</annotation>
+		<annotation cp="🤿">dyka | snorkla</annotation>
+		<annotation cp="🤿" type="tts">dykmask</annotation>
+		<annotation cp="🥱">gäspa | trött | uttråkad</annotation>
+		<annotation cp="🥱" type="tts">gäspande ansikte</annotation>
+		<annotation cp="🥻">kläder | klänning</annotation>
+		<annotation cp="🥻" type="tts">sari</annotation>
+		<annotation cp="🦥">långsam | lat</annotation>
+		<annotation cp="🦥" type="tts">sengångare</annotation>
+		<annotation cp="🦦">fiskar | lekfull</annotation>
+		<annotation cp="🦦" type="tts">utter</annotation>
+		<annotation cp="🦧">apa</annotation>
+		<annotation cp="🦧" type="tts">orangutang</annotation>
+		<annotation cp="🦨">stank</annotation>
+		<annotation cp="🦨" type="tts">skunk</annotation>
+		<annotation cp="🦩" draft="provisional">flambojant | tropisk</annotation>
+		<annotation cp="🦩" type="tts">flamingo</annotation>
+		<annotation cp="🦪">dyka | pärlor</annotation>
+		<annotation cp="🦪" type="tts">ostron</annotation>
+		<annotation cp="🦮">blindhund | hjälp | hund | service</annotation>
+		<annotation cp="🦮" type="tts">ledarhund</annotation>
+		<annotation cp="🦯">blind | tillgänglighet</annotation>
+		<annotation cp="🦯" type="tts">blindkäpp</annotation>
+		<annotation cp="🦺">nöd | säkerhet | väst</annotation>
+		<annotation cp="🦺" type="tts">varselväst</annotation>
+		<annotation cp="🦻">hörselnedsättning | tillgänglighet</annotation>
+		<annotation cp="🦻" type="tts" draft="provisional">öra med hörapparat</annotation>
+		<annotation cp="🦼">tillgänglighet</annotation>
+		<annotation cp="🦼" type="tts">eldriven rullstol</annotation>
+		<annotation cp="🦽">tillgänglighet</annotation>
+		<annotation cp="🦽" type="tts">manuell rullstol</annotation>
+		<annotation cp="🦾">protes | tillgänglighet</annotation>
+		<annotation cp="🦾" type="tts" draft="provisional">mekanisk arm</annotation>
+		<annotation cp="🦿">protes | tillgänglighet</annotation>
+		<annotation cp="🦿" type="tts" draft="provisional">mekaniskt ben</annotation>
+		<annotation cp="🧃">dryckesförpackning</annotation>
+		<annotation cp="🧃" type="tts">dryckeskartong</annotation>
+		<annotation cp="🧄">smaksättning</annotation>
+		<annotation cp="🧄" type="tts">vitlök</annotation>
+		<annotation cp="🧅">smaksättning</annotation>
+		<annotation cp="🧅" type="tts">lök</annotation>
+		<annotation cp="🧆">kikärter | köttbulle</annotation>
+		<annotation cp="🧆" type="tts">falafel</annotation>
+		<annotation cp="🧇">våffeldagen | våffeljärn</annotation>
+		<annotation cp="🧇" type="tts">våffla</annotation>
+		<annotation cp="🧈">mjölkprodukt</annotation>
+		<annotation cp="🧈" type="tts">smör</annotation>
+		<annotation cp="🧉">dryck</annotation>
+		<annotation cp="🧉" type="tts">mate-te</annotation>
+		<annotation cp="🧊">isberg | kallt</annotation>
+		<annotation cp="🧊" type="tts">isbit</annotation>
+		<annotation cp="🧍">person | stående</annotation>
+		<annotation cp="🧍" type="tts">stående person</annotation>
+		<annotation cp="🧍‍♀">kvinna | stående</annotation>
+		<annotation cp="🧍‍♀" type="tts">stående kvinna</annotation>
+		<annotation cp="🧍‍♂">man | stående</annotation>
+		<annotation cp="🧍‍♂" type="tts">stående man</annotation>
+		<annotation cp="🧎">knäsittande | knästående | person</annotation>
+		<annotation cp="🧎" type="tts">knäsittande person</annotation>
+		<annotation cp="🧎‍♀">knäsittande | knästående | kvinna</annotation>
+		<annotation cp="🧎‍♀" type="tts">knäsittande kvinna</annotation>
+		<annotation cp="🧎‍♂">knäsittande | knästående | man</annotation>
+		<annotation cp="🧎‍♂" type="tts">knäsittande man</annotation>
+		<annotation cp="🧏">döv | hörsel | öra | tillgänglighet</annotation>
+		<annotation cp="🧏" type="tts">hörselskadad person</annotation>
+		<annotation cp="🧏‍♀">hörselskadad | kvinna</annotation>
+		<annotation cp="🧏‍♀" type="tts">hörselskada kvinna</annotation>
+		<annotation cp="🧏‍♂">hörselskada | man</annotation>
+		<annotation cp="🧏‍♂" type="tts">hörselskadad man</annotation>
+		<annotation cp="🩰">balett | dans</annotation>
+		<annotation cp="🩰" type="tts">ballettskor</annotation>
+		<annotation cp="🩱">simdräkt</annotation>
+		<annotation cp="🩱" type="tts">baddräkt</annotation>
+		<annotation cp="🩲">badkläder | badshorts | simutrustning</annotation>
+		<annotation cp="🩲" type="tts">badbyxor</annotation>
+		<annotation cp="🩳">badbyxor | badkläder | underkläder</annotation>
+		<annotation cp="🩳" type="tts">shorts</annotation>
+		<annotation cp="🩸">ge blod | medicin | menstruation</annotation>
+		<annotation cp="🩸" type="tts">blodsdroppe</annotation>
+		<annotation cp="🩹">bandage</annotation>
+		<annotation cp="🩹" type="tts">plåster</annotation>
+		<annotation cp="🩺">doktor | hjärta | medicin</annotation>
+		<annotation cp="🩺" type="tts">stetoskop</annotation>
+		<annotation cp="🪀">jojare | snöre | trissa</annotation>
+		<annotation cp="🪀" type="tts">jojo</annotation>
+		<annotation cp="🪁">flyga | sväva</annotation>
+		<annotation cp="🪁" type="tts">flygande drake</annotation>
+		<annotation cp="🪂">fallskärm | fallskärmshopp | hängflygning | parasegling</annotation>
+		<annotation cp="🪂" type="tts">fallskärm</annotation>
+		<annotation cp="🪐" draft="provisional">saturnine | saturnus</annotation>
+		<annotation cp="🪐" type="tts">planet med ringar</annotation>
+		<annotation cp="🪑">säte | sitta</annotation>
+		<annotation cp="🪑" type="tts">stol</annotation>
+		<annotation cp="🪒">raka | vass</annotation>
+		<annotation cp="🪒" type="tts">rakhyvel</annotation>
+		<annotation cp="🪓">hacka | hugga | klyva | ved</annotation>
+		<annotation cp="🪓" type="tts">yxa</annotation>
+		<annotation cp="🪔">diya | diyalampa | lampa | oljelampa</annotation>
+		<annotation cp="🪔" type="tts">diyalampa</annotation>
+		<annotation cp="🪕">musik | sträng</annotation>
+		<annotation cp="🪕" type="tts">banjo</annotation>
 	</annotations>
 </ldml>

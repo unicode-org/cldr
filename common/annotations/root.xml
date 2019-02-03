@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc. For terms of use, see http://www.unicode.org/copyright.html 
-	Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in 
-	the U.S. and other countries. CLDR data files are interpreted according to 
-	the LDML specification (http://unicode.org/reports/tr35/) Proper interpretation 
-	of these files requires synthesis of missing items, as per ​http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations 
-	Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ 
-	for derived annotations. -->
+<!-- Copyright © 1991-2018 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+the U.S. and other countries. CLDR data files are interpreted according to
+the LDML specification (http://unicode.org/reports/tr35/) Proper interpretation
+of these files requires synthesis of missing items, as per ​http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
+for derived annotations.
+-->
 <ldml>
 	<identity>
-		<version number="$Revision$" />
-		<language type="root" />
+		<version number="$Revision$"/>
+		<language type="root"/>
 	</identity>
 	<annotations>
 		<annotation cp="🏻">E440</annotation>
@@ -23,52 +27,72 @@
 		<annotation cp="🏾" type="tts">E443</annotation>
 		<annotation cp="🏿">E444</annotation>
 		<annotation cp="🏿" type="tts">E444</annotation>
+		<annotation cp="🐾">E507</annotation>
+		<annotation cp="🐾" type="tts">E507</annotation>
 		<annotation cp="😀">E836</annotation>
 		<annotation cp="😀" type="tts">E836</annotation>
-		<annotation cp="😁">E837</annotation>
-		<annotation cp="😁" type="tts">E837</annotation>
-		<annotation cp="😂">E838</annotation>
-		<annotation cp="😂" type="tts">E838</annotation>
-		<annotation cp="🤣">E1029</annotation>
-		<annotation cp="🤣" type="tts">E1029</annotation>
 		<annotation cp="😃">E839</annotation>
 		<annotation cp="😃" type="tts">E839</annotation>
 		<annotation cp="😄">E840</annotation>
 		<annotation cp="😄" type="tts">E840</annotation>
-		<annotation cp="😅">E841</annotation>
-		<annotation cp="😅" type="tts">E841</annotation>
+		<annotation cp="😁">E837</annotation>
+		<annotation cp="😁" type="tts">E837</annotation>
 		<annotation cp="😆">E842</annotation>
 		<annotation cp="😆" type="tts">E842</annotation>
+		<annotation cp="😅">E841</annotation>
+		<annotation cp="😅" type="tts">E841</annotation>
+		<annotation cp="🤣">E1029</annotation>
+		<annotation cp="🤣" type="tts">E1029</annotation>
+		<annotation cp="😂">E838</annotation>
+		<annotation cp="😂" type="tts">E838</annotation>
+		<annotation cp="🙂">E902</annotation>
+		<annotation cp="🙂" type="tts">E902</annotation>
+		<annotation cp="🙃">E903</annotation>
+		<annotation cp="🙃" type="tts">E903</annotation>
 		<annotation cp="😉">E845</annotation>
 		<annotation cp="😉" type="tts">E845</annotation>
 		<annotation cp="😊">E846</annotation>
 		<annotation cp="😊" type="tts">E846</annotation>
-		<annotation cp="😋">E847</annotation>
-		<annotation cp="😋" type="tts">E847</annotation>
-		<annotation cp="😎">E850</annotation>
-		<annotation cp="😎" type="tts">E850</annotation>
-		<annotation cp="😍">E849</annotation>
-		<annotation cp="😍" type="tts">E849</annotation>
-		<annotation cp="😘">E860</annotation>
-		<annotation cp="😘" type="tts">E860</annotation>
+		<annotation cp="😇">E843</annotation>
+		<annotation cp="😇" type="tts">E843</annotation>
 		<annotation cp="🥰">E11:012</annotation>
 		<annotation cp="🥰" type="tts">E11:012</annotation>
-		<annotation cp="😗">E859</annotation>
-		<annotation cp="😗" type="tts">E859</annotation>
-		<annotation cp="😙">E861</annotation>
-		<annotation cp="😙" type="tts">E861</annotation>
-		<annotation cp="😚">E862</annotation>
-		<annotation cp="😚" type="tts">E862</annotation>
-		<annotation cp="☺">E61</annotation>
-		<annotation cp="☺" type="tts">E61</annotation>
-		<annotation cp="🙂">E902</annotation>
-		<annotation cp="🙂" type="tts">E902</annotation>
-		<annotation cp="🤗">E1017</annotation>
-		<annotation cp="🤗" type="tts">E1017</annotation>
+		<annotation cp="😍">E849</annotation>
+		<annotation cp="😍" type="tts">E849</annotation>
 		<annotation cp="🤩">E1035</annotation>
 		<annotation cp="🤩" type="tts">E1035</annotation>
+		<annotation cp="😘">E860</annotation>
+		<annotation cp="😘" type="tts">E860</annotation>
+		<annotation cp="😗">E859</annotation>
+		<annotation cp="😗" type="tts">E859</annotation>
+		<annotation cp="☺">E61</annotation>
+		<annotation cp="☺" type="tts">E61</annotation>
+		<annotation cp="😚">E862</annotation>
+		<annotation cp="😚" type="tts">E862</annotation>
+		<annotation cp="😙">E861</annotation>
+		<annotation cp="😙" type="tts">E861</annotation>
+		<annotation cp="😋">E847</annotation>
+		<annotation cp="😋" type="tts">E847</annotation>
+		<annotation cp="😛">E863</annotation>
+		<annotation cp="😛" type="tts">E863</annotation>
+		<annotation cp="😜">E864</annotation>
+		<annotation cp="😜" type="tts">E864</annotation>
+		<annotation cp="🤪">E1036</annotation>
+		<annotation cp="🤪" type="tts">E1036</annotation>
+		<annotation cp="😝">E865</annotation>
+		<annotation cp="😝" type="tts">E865</annotation>
+		<annotation cp="🤑">E1011</annotation>
+		<annotation cp="🤑" type="tts">E1011</annotation>
+		<annotation cp="🤗">E1017</annotation>
+		<annotation cp="🤗" type="tts">E1017</annotation>
+		<annotation cp="🤭">E1039</annotation>
+		<annotation cp="🤭" type="tts">E1039</annotation>
+		<annotation cp="🤫">E1037</annotation>
+		<annotation cp="🤫" type="tts">E1037</annotation>
 		<annotation cp="🤔">E1014</annotation>
 		<annotation cp="🤔" type="tts">E1014</annotation>
+		<annotation cp="🤐">E1010</annotation>
+		<annotation cp="🤐" type="tts">E1010</annotation>
 		<annotation cp="🤨">E1034</annotation>
 		<annotation cp="🤨" type="tts">E1034</annotation>
 		<annotation cp="😐">E852</annotation>
@@ -77,98 +101,26 @@
 		<annotation cp="😑" type="tts">E853</annotation>
 		<annotation cp="😶">E890</annotation>
 		<annotation cp="😶" type="tts">E890</annotation>
-		<annotation cp="🙄">E904</annotation>
-		<annotation cp="🙄" type="tts">E904</annotation>
 		<annotation cp="😏">E851</annotation>
 		<annotation cp="😏" type="tts">E851</annotation>
-		<annotation cp="😣">E871</annotation>
-		<annotation cp="😣" type="tts">E871</annotation>
-		<annotation cp="😥">E873</annotation>
-		<annotation cp="😥" type="tts">E873</annotation>
-		<annotation cp="😮">E882</annotation>
-		<annotation cp="😮" type="tts">E882</annotation>
-		<annotation cp="🤐">E1010</annotation>
-		<annotation cp="🤐" type="tts">E1010</annotation>
-		<annotation cp="😯">E883</annotation>
-		<annotation cp="😯" type="tts">E883</annotation>
-		<annotation cp="😪">E878</annotation>
-		<annotation cp="😪" type="tts">E878</annotation>
-		<annotation cp="😫">E879</annotation>
-		<annotation cp="😫" type="tts">E879</annotation>
-		<annotation cp="😴">E888</annotation>
-		<annotation cp="😴" type="tts">E888</annotation>
-		<annotation cp="😌">E848</annotation>
-		<annotation cp="😌" type="tts">E848</annotation>
-		<annotation cp="😛">E863</annotation>
-		<annotation cp="😛" type="tts">E863</annotation>
-		<annotation cp="😜">E864</annotation>
-		<annotation cp="😜" type="tts">E864</annotation>
-		<annotation cp="😝">E865</annotation>
-		<annotation cp="😝" type="tts">E865</annotation>
-		<annotation cp="🤤">E1030</annotation>
-		<annotation cp="🤤" type="tts">E1030</annotation>
 		<annotation cp="😒">E854</annotation>
 		<annotation cp="😒" type="tts">E854</annotation>
-		<annotation cp="😓">E855</annotation>
-		<annotation cp="😓" type="tts">E855</annotation>
-		<annotation cp="😔">E856</annotation>
-		<annotation cp="😔" type="tts">E856</annotation>
-		<annotation cp="😕">E857</annotation>
-		<annotation cp="😕" type="tts">E857</annotation>
-		<annotation cp="🙃">E903</annotation>
-		<annotation cp="🙃" type="tts">E903</annotation>
-		<annotation cp="🤑">E1011</annotation>
-		<annotation cp="🤑" type="tts">E1011</annotation>
-		<annotation cp="😲">E886</annotation>
-		<annotation cp="😲" type="tts">E886</annotation>
-		<annotation cp="☹">E60</annotation>
-		<annotation cp="☹" type="tts">E60</annotation>
-		<annotation cp="🙁">E901</annotation>
-		<annotation cp="🙁" type="tts">E901</annotation>
-		<annotation cp="😖">E858</annotation>
-		<annotation cp="😖" type="tts">E858</annotation>
-		<annotation cp="😞">E866</annotation>
-		<annotation cp="😞" type="tts">E866</annotation>
-		<annotation cp="😟">E867</annotation>
-		<annotation cp="😟" type="tts">E867</annotation>
-		<annotation cp="😤">E872</annotation>
-		<annotation cp="😤" type="tts">E872</annotation>
-		<annotation cp="😢">E870</annotation>
-		<annotation cp="😢" type="tts">E870</annotation>
-		<annotation cp="😭">E881</annotation>
-		<annotation cp="😭" type="tts">E881</annotation>
-		<annotation cp="😦">E874</annotation>
-		<annotation cp="😦" type="tts">E874</annotation>
-		<annotation cp="😧">E875</annotation>
-		<annotation cp="😧" type="tts">E875</annotation>
-		<annotation cp="😨">E876</annotation>
-		<annotation cp="😨" type="tts">E876</annotation>
-		<annotation cp="😩">E877</annotation>
-		<annotation cp="😩" type="tts">E877</annotation>
-		<annotation cp="🤯">E1041</annotation>
-		<annotation cp="🤯" type="tts">E1041</annotation>
+		<annotation cp="🙄">E904</annotation>
+		<annotation cp="🙄" type="tts">E904</annotation>
 		<annotation cp="😬">E880</annotation>
 		<annotation cp="😬" type="tts">E880</annotation>
-		<annotation cp="😰">E884</annotation>
-		<annotation cp="😰" type="tts">E884</annotation>
-		<annotation cp="😱">E885</annotation>
-		<annotation cp="😱" type="tts">E885</annotation>
-		<annotation cp="🥵">E11:015</annotation>
-		<annotation cp="🥵" type="tts">E11:015</annotation>
-		<annotation cp="🥶">E11:016</annotation>
-		<annotation cp="🥶" type="tts">E11:016</annotation>
-		<annotation cp="😳">E887</annotation>
-		<annotation cp="😳" type="tts">E887</annotation>
-		<annotation cp="🤪">E1036</annotation>
-		<annotation cp="🤪" type="tts">E1036</annotation>
-		<annotation cp="😵">E889</annotation>
-		<annotation cp="😵" type="tts">E889</annotation>
-		<annotation cp="😡">E869</annotation>
-		<annotation cp="😡" type="tts">E869</annotation>
-		<annotation cp="😠">E868</annotation>
-		<annotation cp="😠" type="tts">E868</annotation>
-		<annotation cp="🤬">E1038</annotation>
-		<annotation cp="🤬" type="tts">E1038</annotation>
+		<annotation cp="🤥">E1031</annotation>
+		<annotation cp="🤥" type="tts">E1031</annotation>
+		<annotation cp="😌">E848</annotation>
+		<annotation cp="😌" type="tts">E848</annotation>
+		<annotation cp="😔">E856</annotation>
+		<annotation cp="😔" type="tts">E856</annotation>
+		<annotation cp="😪">E878</annotation>
+		<annotation cp="😪" type="tts">E878</annotation>
+		<annotation cp="🤤">E1030</annotation>
+		<annotation cp="🤤" type="tts">E1030</annotation>
+		<annotation cp="😴">E888</annotation>
+		<annotation cp="😴" type="tts">E888</annotation>
 		<annotation cp="😷">E891</annotation>
 		<annotation cp="😷" type="tts">E891</annotation>
 		<annotation cp="🤒">E1012</annotation>
@@ -181,40 +133,96 @@
 		<annotation cp="🤮" type="tts">E1040</annotation>
 		<annotation cp="🤧">E1033</annotation>
 		<annotation cp="🤧" type="tts">E1033</annotation>
-		<annotation cp="😇">E843</annotation>
-		<annotation cp="😇" type="tts">E843</annotation>
+		<annotation cp="🥵">E11:015</annotation>
+		<annotation cp="🥵" type="tts">E11:015</annotation>
+		<annotation cp="🥶">E11:016</annotation>
+		<annotation cp="🥶" type="tts">E11:016</annotation>
+		<annotation cp="🥴">E11:014</annotation>
+		<annotation cp="🥴" type="tts">E11:014</annotation>
+		<annotation cp="😵">E889</annotation>
+		<annotation cp="😵" type="tts">E889</annotation>
+		<annotation cp="🤯">E1041</annotation>
+		<annotation cp="🤯" type="tts">E1041</annotation>
 		<annotation cp="🤠">E1026</annotation>
 		<annotation cp="🤠" type="tts">E1026</annotation>
 		<annotation cp="🥳">E11:013</annotation>
 		<annotation cp="🥳" type="tts">E11:013</annotation>
-		<annotation cp="🥴">E11:014</annotation>
-		<annotation cp="🥴" type="tts">E11:014</annotation>
-		<annotation cp="🥺">E11:017</annotation>
-		<annotation cp="🥺" type="tts">E11:017</annotation>
-		<annotation cp="🤥">E1031</annotation>
-		<annotation cp="🤥" type="tts">E1031</annotation>
-		<annotation cp="🤫">E1037</annotation>
-		<annotation cp="🤫" type="tts">E1037</annotation>
-		<annotation cp="🤭">E1039</annotation>
-		<annotation cp="🤭" type="tts">E1039</annotation>
-		<annotation cp="🧐">E1121</annotation>
-		<annotation cp="🧐" type="tts">E1121</annotation>
+		<annotation cp="😎">E850</annotation>
+		<annotation cp="😎" type="tts">E850</annotation>
 		<annotation cp="🤓">E1013</annotation>
 		<annotation cp="🤓" type="tts">E1013</annotation>
+		<annotation cp="🧐">E1121</annotation>
+		<annotation cp="🧐" type="tts">E1121</annotation>
+		<annotation cp="😕">E857</annotation>
+		<annotation cp="😕" type="tts">E857</annotation>
+		<annotation cp="😟">E867</annotation>
+		<annotation cp="😟" type="tts">E867</annotation>
+		<annotation cp="🙁">E901</annotation>
+		<annotation cp="🙁" type="tts">E901</annotation>
+		<annotation cp="☹">E60</annotation>
+		<annotation cp="☹" type="tts">E60</annotation>
+		<annotation cp="😮">E882</annotation>
+		<annotation cp="😮" type="tts">E882</annotation>
+		<annotation cp="😯">E883</annotation>
+		<annotation cp="😯" type="tts">E883</annotation>
+		<annotation cp="😲">E886</annotation>
+		<annotation cp="😲" type="tts">E886</annotation>
+		<annotation cp="😳">E887</annotation>
+		<annotation cp="😳" type="tts">E887</annotation>
+		<annotation cp="🥺">E11:017</annotation>
+		<annotation cp="🥺" type="tts">E11:017</annotation>
+		<annotation cp="😦">E874</annotation>
+		<annotation cp="😦" type="tts">E874</annotation>
+		<annotation cp="😧">E875</annotation>
+		<annotation cp="😧" type="tts">E875</annotation>
+		<annotation cp="😨">E876</annotation>
+		<annotation cp="😨" type="tts">E876</annotation>
+		<annotation cp="😰">E884</annotation>
+		<annotation cp="😰" type="tts">E884</annotation>
+		<annotation cp="😥">E873</annotation>
+		<annotation cp="😥" type="tts">E873</annotation>
+		<annotation cp="😢">E870</annotation>
+		<annotation cp="😢" type="tts">E870</annotation>
+		<annotation cp="😭">E881</annotation>
+		<annotation cp="😭" type="tts">E881</annotation>
+		<annotation cp="😱">E885</annotation>
+		<annotation cp="😱" type="tts">E885</annotation>
+		<annotation cp="😖">E858</annotation>
+		<annotation cp="😖" type="tts">E858</annotation>
+		<annotation cp="😣">E871</annotation>
+		<annotation cp="😣" type="tts">E871</annotation>
+		<annotation cp="😞">E866</annotation>
+		<annotation cp="😞" type="tts">E866</annotation>
+		<annotation cp="😓">E855</annotation>
+		<annotation cp="😓" type="tts">E855</annotation>
+		<annotation cp="😩">E877</annotation>
+		<annotation cp="😩" type="tts">E877</annotation>
+		<annotation cp="😫">E879</annotation>
+		<annotation cp="😫" type="tts">E879</annotation>
+		<annotation cp="😤">E872</annotation>
+		<annotation cp="😤" type="tts">E872</annotation>
+		<annotation cp="😡">E869</annotation>
+		<annotation cp="😡" type="tts">E869</annotation>
+		<annotation cp="😠">E868</annotation>
+		<annotation cp="😠" type="tts">E868</annotation>
+		<annotation cp="🤬">E1038</annotation>
+		<annotation cp="🤬" type="tts">E1038</annotation>
 		<annotation cp="😈">E844</annotation>
 		<annotation cp="😈" type="tts">E844</annotation>
 		<annotation cp="👿">E572</annotation>
 		<annotation cp="👿" type="tts">E572</annotation>
+		<annotation cp="💀">E573</annotation>
+		<annotation cp="💀" type="tts">E573</annotation>
+		<annotation cp="☠">E52</annotation>
+		<annotation cp="☠" type="tts">E52</annotation>
+		<annotation cp="💩">E614</annotation>
+		<annotation cp="💩" type="tts">E614</annotation>
 		<annotation cp="🤡">E1027</annotation>
 		<annotation cp="🤡" type="tts">E1027</annotation>
 		<annotation cp="👹">E566</annotation>
 		<annotation cp="👹" type="tts">E566</annotation>
 		<annotation cp="👺">E567</annotation>
 		<annotation cp="👺" type="tts">E567</annotation>
-		<annotation cp="💀">E573</annotation>
-		<annotation cp="💀" type="tts">E573</annotation>
-		<annotation cp="☠">E52</annotation>
-		<annotation cp="☠" type="tts">E52</annotation>
 		<annotation cp="👻">E568</annotation>
 		<annotation cp="👻" type="tts">E568</annotation>
 		<annotation cp="👽">E570</annotation>
@@ -223,8 +231,6 @@
 		<annotation cp="👾" type="tts">E571</annotation>
 		<annotation cp="🤖">E1016</annotation>
 		<annotation cp="🤖" type="tts">E1016</annotation>
-		<annotation cp="💩">E614</annotation>
-		<annotation cp="💩" type="tts">E614</annotation>
 		<annotation cp="😺">E894</annotation>
 		<annotation cp="😺" type="tts">E894</annotation>
 		<annotation cp="😸">E892</annotation>
@@ -249,6 +255,160 @@
 		<annotation cp="🙉" type="tts">E909</annotation>
 		<annotation cp="🙊">E910</annotation>
 		<annotation cp="🙊" type="tts">E910</annotation>
+		<annotation cp="💋">E584</annotation>
+		<annotation cp="💋" type="tts">E584</annotation>
+		<annotation cp="💌">E585</annotation>
+		<annotation cp="💌" type="tts">E585</annotation>
+		<annotation cp="💘">E597</annotation>
+		<annotation cp="💘" type="tts">E597</annotation>
+		<annotation cp="💝">E602</annotation>
+		<annotation cp="💝" type="tts">E602</annotation>
+		<annotation cp="💖">E595</annotation>
+		<annotation cp="💖" type="tts">E595</annotation>
+		<annotation cp="💗">E596</annotation>
+		<annotation cp="💗" type="tts">E596</annotation>
+		<annotation cp="💓">E592</annotation>
+		<annotation cp="💓" type="tts">E592</annotation>
+		<annotation cp="💞">E603</annotation>
+		<annotation cp="💞" type="tts">E603</annotation>
+		<annotation cp="💕">E594</annotation>
+		<annotation cp="💕" type="tts">E594</annotation>
+		<annotation cp="💟">E604</annotation>
+		<annotation cp="💟" type="tts">E604</annotation>
+		<annotation cp="❣">E146</annotation>
+		<annotation cp="❣" type="tts">E146</annotation>
+		<annotation cp="💔">E593</annotation>
+		<annotation cp="💔" type="tts">E593</annotation>
+		<annotation cp="❤">E147</annotation>
+		<annotation cp="❤" type="tts">E147</annotation>
+		<annotation cp="🧡">E1138</annotation>
+		<annotation cp="🧡" type="tts">E1138</annotation>
+		<annotation cp="💛">E600</annotation>
+		<annotation cp="💛" type="tts">E600</annotation>
+		<annotation cp="💚">E599</annotation>
+		<annotation cp="💚" type="tts">E599</annotation>
+		<annotation cp="💙">E598</annotation>
+		<annotation cp="💙" type="tts">E598</annotation>
+		<annotation cp="💜">E601</annotation>
+		<annotation cp="💜" type="tts">E601</annotation>
+		<annotation cp="🖤">E810</annotation>
+		<annotation cp="🖤" type="tts">E810</annotation>
+		<annotation cp="💯">E620</annotation>
+		<annotation cp="💯" type="tts">E620</annotation>
+		<annotation cp="💢">E607</annotation>
+		<annotation cp="💢" type="tts">E607</annotation>
+		<annotation cp="💥">E610</annotation>
+		<annotation cp="💥" type="tts">E610</annotation>
+		<annotation cp="💫">E616</annotation>
+		<annotation cp="💫" type="tts">E616</annotation>
+		<annotation cp="💦">E611</annotation>
+		<annotation cp="💦" type="tts">E611</annotation>
+		<annotation cp="💨">E613</annotation>
+		<annotation cp="💨" type="tts">E613</annotation>
+		<annotation cp="🕳">E794</annotation>
+		<annotation cp="🕳" type="tts">E794</annotation>
+		<annotation cp="💣">E608</annotation>
+		<annotation cp="💣" type="tts">E608</annotation>
+		<annotation cp="💬">E617</annotation>
+		<annotation cp="💬" type="tts">E617</annotation>
+		<annotation cp="👁‍🗨">E1157</annotation>
+		<annotation cp="👁‍🗨" type="tts">E1157</annotation>
+		<annotation cp="🗨">E827</annotation>
+		<annotation cp="🗨" type="tts">E827</annotation>
+		<annotation cp="🗯">E828</annotation>
+		<annotation cp="🗯" type="tts">E828</annotation>
+		<annotation cp="💭">E618</annotation>
+		<annotation cp="💭" type="tts">E618</annotation>
+		<annotation cp="💤">E609</annotation>
+		<annotation cp="💤" type="tts">E609</annotation>
+		<annotation cp="👋">E520</annotation>
+		<annotation cp="👋" type="tts">E520</annotation>
+		<annotation cp="🤚">E1020</annotation>
+		<annotation cp="🤚" type="tts">E1020</annotation>
+		<annotation cp="🖐">E807</annotation>
+		<annotation cp="🖐" type="tts">E807</annotation>
+		<annotation cp="✋">E126</annotation>
+		<annotation cp="✋" type="tts">E126</annotation>
+		<annotation cp="🖖">E809</annotation>
+		<annotation cp="🖖" type="tts">E809</annotation>
+		<annotation cp="👌">E521</annotation>
+		<annotation cp="👌" type="tts">E521</annotation>
+		<annotation cp="✌">E127</annotation>
+		<annotation cp="✌" type="tts">E127</annotation>
+		<annotation cp="🤞">E1024</annotation>
+		<annotation cp="🤞" type="tts">E1024</annotation>
+		<annotation cp="🤟">E1025</annotation>
+		<annotation cp="🤟" type="tts">E1025</annotation>
+		<annotation cp="🤘">E1018</annotation>
+		<annotation cp="🤘" type="tts">E1018</annotation>
+		<annotation cp="🤙">E1019</annotation>
+		<annotation cp="🤙" type="tts">E1019</annotation>
+		<annotation cp="👈">E517</annotation>
+		<annotation cp="👈" type="tts">E517</annotation>
+		<annotation cp="👉">E518</annotation>
+		<annotation cp="👉" type="tts">E518</annotation>
+		<annotation cp="👆">E515</annotation>
+		<annotation cp="👆" type="tts">E515</annotation>
+		<annotation cp="🖕">E808</annotation>
+		<annotation cp="🖕" type="tts">E808</annotation>
+		<annotation cp="👇">E516</annotation>
+		<annotation cp="👇" type="tts">E516</annotation>
+		<annotation cp="☝">E51</annotation>
+		<annotation cp="☝" type="tts">E51</annotation>
+		<annotation cp="👍">E522</annotation>
+		<annotation cp="👍" type="tts">E522</annotation>
+		<annotation cp="👎">E523</annotation>
+		<annotation cp="👎" type="tts">E523</annotation>
+		<annotation cp="✊">E125</annotation>
+		<annotation cp="✊" type="tts">E125</annotation>
+		<annotation cp="👊">E519</annotation>
+		<annotation cp="👊" type="tts">E519</annotation>
+		<annotation cp="🤛">E1021</annotation>
+		<annotation cp="🤛" type="tts">E1021</annotation>
+		<annotation cp="🤜">E1022</annotation>
+		<annotation cp="🤜" type="tts">E1022</annotation>
+		<annotation cp="👏">E524</annotation>
+		<annotation cp="👏" type="tts">E524</annotation>
+		<annotation cp="🙌">E912</annotation>
+		<annotation cp="🙌" type="tts">E912</annotation>
+		<annotation cp="👐">E525</annotation>
+		<annotation cp="👐" type="tts">E525</annotation>
+		<annotation cp="🤲">E1044</annotation>
+		<annotation cp="🤲" type="tts">E1044</annotation>
+		<annotation cp="🤝">E1023</annotation>
+		<annotation cp="🤝" type="tts">E1023</annotation>
+		<annotation cp="🙏">E915</annotation>
+		<annotation cp="🙏" type="tts">E915</annotation>
+		<annotation cp="✍">E128</annotation>
+		<annotation cp="✍" type="tts">E128</annotation>
+		<annotation cp="💅">E578</annotation>
+		<annotation cp="💅" type="tts">E578</annotation>
+		<annotation cp="🤳">E1045</annotation>
+		<annotation cp="🤳" type="tts">E1045</annotation>
+		<annotation cp="💪">E615</annotation>
+		<annotation cp="💪" type="tts">E615</annotation>
+		<annotation cp="🦵">E11:038</annotation>
+		<annotation cp="🦵" type="tts">E11:038</annotation>
+		<annotation cp="🦶">E11:039</annotation>
+		<annotation cp="🦶" type="tts">E11:039</annotation>
+		<annotation cp="👂">E511</annotation>
+		<annotation cp="👂" type="tts">E511</annotation>
+		<annotation cp="👃">E512</annotation>
+		<annotation cp="👃" type="tts">E512</annotation>
+		<annotation cp="🧠">E1137</annotation>
+		<annotation cp="🧠" type="tts">E1137</annotation>
+		<annotation cp="🦷">E11:040</annotation>
+		<annotation cp="🦷" type="tts">E11:040</annotation>
+		<annotation cp="🦴">E11:037</annotation>
+		<annotation cp="🦴" type="tts">E11:037</annotation>
+		<annotation cp="👀">E509</annotation>
+		<annotation cp="👀" type="tts">E509</annotation>
+		<annotation cp="👁">E510</annotation>
+		<annotation cp="👁" type="tts">E510</annotation>
+		<annotation cp="👅">E514</annotation>
+		<annotation cp="👅" type="tts">E514</annotation>
+		<annotation cp="👄">E513</annotation>
+		<annotation cp="👄" type="tts">E513</annotation>
 		<annotation cp="👶">E563</annotation>
 		<annotation cp="👶" type="tts">E563</annotation>
 		<annotation cp="🧒">E1123</annotation>
@@ -263,12 +423,24 @@
 		<annotation cp="👱" type="tts">E558</annotation>
 		<annotation cp="👨">E549</annotation>
 		<annotation cp="👨" type="tts">E549</annotation>
+		<annotation cp="👨‍🦯">E12-002</annotation>
+		<annotation cp="👨‍🦯" type="tts">E12-002</annotation>
+		<annotation cp="👨‍🦼">E12-003</annotation>
+		<annotation cp="👨‍🦼" type="tts">E12-003</annotation>
+		<annotation cp="👨‍🦽">E12-004</annotation>
+		<annotation cp="👨‍🦽" type="tts">E12-004</annotation>
 		<annotation cp="👱‍♂">E1195</annotation>
 		<annotation cp="👱‍♂" type="tts">E1195</annotation>
 		<annotation cp="🧔">E1125</annotation>
 		<annotation cp="🧔" type="tts">E1125</annotation>
 		<annotation cp="👩">E550</annotation>
 		<annotation cp="👩" type="tts">E550</annotation>
+		<annotation cp="👩‍🦯">E12-005</annotation>
+		<annotation cp="👩‍🦯" type="tts">E12-005</annotation>
+		<annotation cp="👩‍🦼">E12-006</annotation>
+		<annotation cp="👩‍🦼" type="tts">E12-006</annotation>
+		<annotation cp="👩‍🦽">E12-007</annotation>
+		<annotation cp="👩‍🦽" type="tts">E12-007</annotation>
 		<annotation cp="👱‍♀">E1194</annotation>
 		<annotation cp="👱‍♀" type="tts">E1194</annotation>
 		<annotation cp="🧓">E1124</annotation>
@@ -277,6 +449,60 @@
 		<annotation cp="👴" type="tts">E561</annotation>
 		<annotation cp="👵">E562</annotation>
 		<annotation cp="👵" type="tts">E562</annotation>
+		<annotation cp="🙍">E913</annotation>
+		<annotation cp="🙍" type="tts">E913</annotation>
+		<annotation cp="🙍‍♂">E1219</annotation>
+		<annotation cp="🙍‍♂" type="tts">E1219</annotation>
+		<annotation cp="🙍‍♀">E1218</annotation>
+		<annotation cp="🙍‍♀" type="tts">E1218</annotation>
+		<annotation cp="🙎">E914</annotation>
+		<annotation cp="🙎" type="tts">E914</annotation>
+		<annotation cp="🙎‍♂">E1221</annotation>
+		<annotation cp="🙎‍♂" type="tts">E1221</annotation>
+		<annotation cp="🙎‍♀">E1220</annotation>
+		<annotation cp="🙎‍♀" type="tts">E1220</annotation>
+		<annotation cp="🙅">E905</annotation>
+		<annotation cp="🙅" type="tts">E905</annotation>
+		<annotation cp="🙅‍♂">E1211</annotation>
+		<annotation cp="🙅‍♂" type="tts">E1211</annotation>
+		<annotation cp="🙅‍♀">E1210</annotation>
+		<annotation cp="🙅‍♀" type="tts">E1210</annotation>
+		<annotation cp="🙆">E906</annotation>
+		<annotation cp="🙆" type="tts">E906</annotation>
+		<annotation cp="🙆‍♂">E1213</annotation>
+		<annotation cp="🙆‍♂" type="tts">E1213</annotation>
+		<annotation cp="🙆‍♀">E1212</annotation>
+		<annotation cp="🙆‍♀" type="tts">E1212</annotation>
+		<annotation cp="💁">E574</annotation>
+		<annotation cp="💁" type="tts">E574</annotation>
+		<annotation cp="💁‍♂">E1201</annotation>
+		<annotation cp="💁‍♂" type="tts">E1201</annotation>
+		<annotation cp="💁‍♀">E1200</annotation>
+		<annotation cp="💁‍♀" type="tts">E1200</annotation>
+		<annotation cp="🙋">E911</annotation>
+		<annotation cp="🙋" type="tts">E911</annotation>
+		<annotation cp="🙋‍♂">E1217</annotation>
+		<annotation cp="🙋‍♂" type="tts">E1217</annotation>
+		<annotation cp="🙋‍♀">E1216</annotation>
+		<annotation cp="🙋‍♀" type="tts">E1216</annotation>
+		<annotation cp="🙇">E907</annotation>
+		<annotation cp="🙇" type="tts">E907</annotation>
+		<annotation cp="🙇‍♂">E1215</annotation>
+		<annotation cp="🙇‍♂" type="tts">E1215</annotation>
+		<annotation cp="🙇‍♀">E1214</annotation>
+		<annotation cp="🙇‍♀" type="tts">E1214</annotation>
+		<annotation cp="🤦">E1032</annotation>
+		<annotation cp="🤦" type="tts">E1032</annotation>
+		<annotation cp="🤦‍♂">E1231</annotation>
+		<annotation cp="🤦‍♂" type="tts">E1231</annotation>
+		<annotation cp="🤦‍♀">E1230</annotation>
+		<annotation cp="🤦‍♀" type="tts">E1230</annotation>
+		<annotation cp="🤷">E1049</annotation>
+		<annotation cp="🤷" type="tts">E1049</annotation>
+		<annotation cp="🤷‍♂">E1233</annotation>
+		<annotation cp="🤷‍♂" type="tts">E1233</annotation>
+		<annotation cp="🤷‍♀">E1232</annotation>
+		<annotation cp="🤷‍♀" type="tts">E1232</annotation>
 		<annotation cp="👨‍⚕">E1158</annotation>
 		<annotation cp="👨‍⚕" type="tts">E1158</annotation>
 		<annotation cp="👩‍⚕">E1174</annotation>
@@ -395,112 +621,58 @@
 		<annotation cp="🤶" type="tts">E1048</annotation>
 		<annotation cp="🦸">E11:041</annotation>
 		<annotation cp="🦸" type="tts">E11:041</annotation>
-		<annotation cp="🦸‍♀">E11:042</annotation>
-		<annotation cp="🦸‍♀" type="tts">E11:042</annotation>
 		<annotation cp="🦸‍♂">E11:043</annotation>
 		<annotation cp="🦸‍♂" type="tts">E11:043</annotation>
+		<annotation cp="🦸‍♀">E11:042</annotation>
+		<annotation cp="🦸‍♀" type="tts">E11:042</annotation>
 		<annotation cp="🦹">E11:044</annotation>
 		<annotation cp="🦹" type="tts">E11:044</annotation>
-		<annotation cp="🦹‍♀">E11:045</annotation>
-		<annotation cp="🦹‍♀" type="tts">E11:045</annotation>
 		<annotation cp="🦹‍♂">E11:046</annotation>
 		<annotation cp="🦹‍♂" type="tts">E11:046</annotation>
+		<annotation cp="🦹‍♀">E11:045</annotation>
+		<annotation cp="🦹‍♀" type="tts">E11:045</annotation>
 		<annotation cp="🧙">E1130</annotation>
 		<annotation cp="🧙" type="tts">E1130</annotation>
-		<annotation cp="🧙‍♀">E1250</annotation>
-		<annotation cp="🧙‍♀" type="tts">E1250</annotation>
 		<annotation cp="🧙‍♂">E1251</annotation>
 		<annotation cp="🧙‍♂" type="tts">E1251</annotation>
+		<annotation cp="🧙‍♀">E1250</annotation>
+		<annotation cp="🧙‍♀" type="tts">E1250</annotation>
 		<annotation cp="🧚">E1131</annotation>
 		<annotation cp="🧚" type="tts">E1131</annotation>
-		<annotation cp="🧚‍♀">E1252</annotation>
-		<annotation cp="🧚‍♀" type="tts">E1252</annotation>
 		<annotation cp="🧚‍♂">E1253</annotation>
 		<annotation cp="🧚‍♂" type="tts">E1253</annotation>
+		<annotation cp="🧚‍♀">E1252</annotation>
+		<annotation cp="🧚‍♀" type="tts">E1252</annotation>
 		<annotation cp="🧛">E1132</annotation>
 		<annotation cp="🧛" type="tts">E1132</annotation>
-		<annotation cp="🧛‍♀">E1254</annotation>
-		<annotation cp="🧛‍♀" type="tts">E1254</annotation>
 		<annotation cp="🧛‍♂">E1255</annotation>
 		<annotation cp="🧛‍♂" type="tts">E1255</annotation>
+		<annotation cp="🧛‍♀">E1254</annotation>
+		<annotation cp="🧛‍♀" type="tts">E1254</annotation>
 		<annotation cp="🧜">E1133</annotation>
 		<annotation cp="🧜" type="tts">E1133</annotation>
-		<annotation cp="🧜‍♀">E1256</annotation>
-		<annotation cp="🧜‍♀" type="tts">E1256</annotation>
 		<annotation cp="🧜‍♂">E1257</annotation>
 		<annotation cp="🧜‍♂" type="tts">E1257</annotation>
+		<annotation cp="🧜‍♀">E1256</annotation>
+		<annotation cp="🧜‍♀" type="tts">E1256</annotation>
 		<annotation cp="🧝">E1134</annotation>
 		<annotation cp="🧝" type="tts">E1134</annotation>
-		<annotation cp="🧝‍♀">E1258</annotation>
-		<annotation cp="🧝‍♀" type="tts">E1258</annotation>
 		<annotation cp="🧝‍♂">E1259</annotation>
 		<annotation cp="🧝‍♂" type="tts">E1259</annotation>
+		<annotation cp="🧝‍♀">E1258</annotation>
+		<annotation cp="🧝‍♀" type="tts">E1258</annotation>
 		<annotation cp="🧞">E1135</annotation>
 		<annotation cp="🧞" type="tts">E1135</annotation>
-		<annotation cp="🧞‍♀">E1260</annotation>
-		<annotation cp="🧞‍♀" type="tts">E1260</annotation>
 		<annotation cp="🧞‍♂">E1261</annotation>
 		<annotation cp="🧞‍♂" type="tts">E1261</annotation>
+		<annotation cp="🧞‍♀">E1260</annotation>
+		<annotation cp="🧞‍♀" type="tts">E1260</annotation>
 		<annotation cp="🧟">E1136</annotation>
 		<annotation cp="🧟" type="tts">E1136</annotation>
-		<annotation cp="🧟‍♀">E1262</annotation>
-		<annotation cp="🧟‍♀" type="tts">E1262</annotation>
 		<annotation cp="🧟‍♂">E1263</annotation>
 		<annotation cp="🧟‍♂" type="tts">E1263</annotation>
-		<annotation cp="🙍">E913</annotation>
-		<annotation cp="🙍" type="tts">E913</annotation>
-		<annotation cp="🙍‍♂">E1219</annotation>
-		<annotation cp="🙍‍♂" type="tts">E1219</annotation>
-		<annotation cp="🙍‍♀">E1218</annotation>
-		<annotation cp="🙍‍♀" type="tts">E1218</annotation>
-		<annotation cp="🙎">E914</annotation>
-		<annotation cp="🙎" type="tts">E914</annotation>
-		<annotation cp="🙎‍♂">E1221</annotation>
-		<annotation cp="🙎‍♂" type="tts">E1221</annotation>
-		<annotation cp="🙎‍♀">E1220</annotation>
-		<annotation cp="🙎‍♀" type="tts">E1220</annotation>
-		<annotation cp="🙅">E905</annotation>
-		<annotation cp="🙅" type="tts">E905</annotation>
-		<annotation cp="🙅‍♂">E1211</annotation>
-		<annotation cp="🙅‍♂" type="tts">E1211</annotation>
-		<annotation cp="🙅‍♀">E1210</annotation>
-		<annotation cp="🙅‍♀" type="tts">E1210</annotation>
-		<annotation cp="🙆">E906</annotation>
-		<annotation cp="🙆" type="tts">E906</annotation>
-		<annotation cp="🙆‍♂">E1213</annotation>
-		<annotation cp="🙆‍♂" type="tts">E1213</annotation>
-		<annotation cp="🙆‍♀">E1212</annotation>
-		<annotation cp="🙆‍♀" type="tts">E1212</annotation>
-		<annotation cp="💁">E574</annotation>
-		<annotation cp="💁" type="tts">E574</annotation>
-		<annotation cp="💁‍♂">E1201</annotation>
-		<annotation cp="💁‍♂" type="tts">E1201</annotation>
-		<annotation cp="💁‍♀">E1200</annotation>
-		<annotation cp="💁‍♀" type="tts">E1200</annotation>
-		<annotation cp="🙋">E911</annotation>
-		<annotation cp="🙋" type="tts">E911</annotation>
-		<annotation cp="🙋‍♂">E1217</annotation>
-		<annotation cp="🙋‍♂" type="tts">E1217</annotation>
-		<annotation cp="🙋‍♀">E1216</annotation>
-		<annotation cp="🙋‍♀" type="tts">E1216</annotation>
-		<annotation cp="🙇">E907</annotation>
-		<annotation cp="🙇" type="tts">E907</annotation>
-		<annotation cp="🙇‍♂">E1215</annotation>
-		<annotation cp="🙇‍♂" type="tts">E1215</annotation>
-		<annotation cp="🙇‍♀">E1214</annotation>
-		<annotation cp="🙇‍♀" type="tts">E1214</annotation>
-		<annotation cp="🤦">E1032</annotation>
-		<annotation cp="🤦" type="tts">E1032</annotation>
-		<annotation cp="🤦‍♂">E1231</annotation>
-		<annotation cp="🤦‍♂" type="tts">E1231</annotation>
-		<annotation cp="🤦‍♀">E1230</annotation>
-		<annotation cp="🤦‍♀" type="tts">E1230</annotation>
-		<annotation cp="🤷">E1049</annotation>
-		<annotation cp="🤷" type="tts">E1049</annotation>
-		<annotation cp="🤷‍♂">E1233</annotation>
-		<annotation cp="🤷‍♂" type="tts">E1233</annotation>
-		<annotation cp="🤷‍♀">E1232</annotation>
-		<annotation cp="🤷‍♀" type="tts">E1232</annotation>
+		<annotation cp="🧟‍♀">E1262</annotation>
+		<annotation cp="🧟‍♀" type="tts">E1262</annotation>
 		<annotation cp="💆">E579</annotation>
 		<annotation cp="💆" type="tts">E579</annotation>
 		<annotation cp="💆‍♂">E1205</annotation>
@@ -529,6 +701,8 @@
 		<annotation cp="💃" type="tts">E576</annotation>
 		<annotation cp="🕺">E801</annotation>
 		<annotation cp="🕺" type="tts">E801</annotation>
+		<annotation cp="🕴">E795</annotation>
+		<annotation cp="🕴" type="tts">E795</annotation>
 		<annotation cp="👯">E556</annotation>
 		<annotation cp="👯" type="tts">E556</annotation>
 		<annotation cp="👯‍♂">E1193</annotation>
@@ -537,34 +711,16 @@
 		<annotation cp="👯‍♀" type="tts">E1192</annotation>
 		<annotation cp="🧖">E1127</annotation>
 		<annotation cp="🧖" type="tts">E1127</annotation>
-		<annotation cp="🧖‍♀">E1244</annotation>
-		<annotation cp="🧖‍♀" type="tts">E1244</annotation>
 		<annotation cp="🧖‍♂">E1245</annotation>
 		<annotation cp="🧖‍♂" type="tts">E1245</annotation>
+		<annotation cp="🧖‍♀">E1244</annotation>
+		<annotation cp="🧖‍♀" type="tts">E1244</annotation>
 		<annotation cp="🧗">E1128</annotation>
 		<annotation cp="🧗" type="tts">E1128</annotation>
-		<annotation cp="🧗‍♀">E1246</annotation>
-		<annotation cp="🧗‍♀" type="tts">E1246</annotation>
 		<annotation cp="🧗‍♂">E1247</annotation>
 		<annotation cp="🧗‍♂" type="tts">E1247</annotation>
-		<annotation cp="🧘">E1129</annotation>
-		<annotation cp="🧘" type="tts">E1129</annotation>
-		<annotation cp="🧘‍♀">E1248</annotation>
-		<annotation cp="🧘‍♀" type="tts">E1248</annotation>
-		<annotation cp="🧘‍♂">E1249</annotation>
-		<annotation cp="🧘‍♂" type="tts">E1249</annotation>
-		<annotation cp="🛀">E980</annotation>
-		<annotation cp="🛀" type="tts">E980</annotation>
-		<annotation cp="🛌">E987</annotation>
-		<annotation cp="🛌" type="tts">E987</annotation>
-		<annotation cp="🕴">E795</annotation>
-		<annotation cp="🕴" type="tts">E795</annotation>
-		<annotation cp="🗣">E826</annotation>
-		<annotation cp="🗣" type="tts">E826</annotation>
-		<annotation cp="👤">E545</annotation>
-		<annotation cp="👤" type="tts">E545</annotation>
-		<annotation cp="👥">E546</annotation>
-		<annotation cp="👥" type="tts">E546</annotation>
+		<annotation cp="🧗‍♀">E1246</annotation>
+		<annotation cp="🧗‍♀" type="tts">E1246</annotation>
 		<annotation cp="🤺">E1052</annotation>
 		<annotation cp="🤺" type="tts">E1052</annotation>
 		<annotation cp="🏇">E391</annotation>
@@ -621,10 +777,6 @@
 		<annotation cp="🚵‍♂" type="tts">E1227</annotation>
 		<annotation cp="🚵‍♀">E1226</annotation>
 		<annotation cp="🚵‍♀" type="tts">E1226</annotation>
-		<annotation cp="🏎">E398</annotation>
-		<annotation cp="🏎" type="tts">E398</annotation>
-		<annotation cp="🏍">E397</annotation>
-		<annotation cp="🏍" type="tts">E397</annotation>
 		<annotation cp="🤸">E1050</annotation>
 		<annotation cp="🤸" type="tts">E1050</annotation>
 		<annotation cp="🤸‍♂">E1235</annotation>
@@ -655,6 +807,16 @@
 		<annotation cp="🤹‍♂" type="tts">E1237</annotation>
 		<annotation cp="🤹‍♀">E1236</annotation>
 		<annotation cp="🤹‍♀" type="tts">E1236</annotation>
+		<annotation cp="🧘">E1129</annotation>
+		<annotation cp="🧘" type="tts">E1129</annotation>
+		<annotation cp="🧘‍♂">E1249</annotation>
+		<annotation cp="🧘‍♂" type="tts">E1249</annotation>
+		<annotation cp="🧘‍♀">E1248</annotation>
+		<annotation cp="🧘‍♀" type="tts">E1248</annotation>
+		<annotation cp="🛀">E980</annotation>
+		<annotation cp="🛀" type="tts">E980</annotation>
+		<annotation cp="🛌">E987</annotation>
+		<annotation cp="🛌" type="tts">E987</annotation>
 		<annotation cp="👫">E552</annotation>
 		<annotation cp="👫" type="tts">E552</annotation>
 		<annotation cp="👬">E553</annotation>
@@ -667,98 +829,14 @@
 		<annotation cp="💑" type="tts">E590</annotation>
 		<annotation cp="👪">E551</annotation>
 		<annotation cp="👪" type="tts">E551</annotation>
-		<annotation cp="🤳">E1045</annotation>
-		<annotation cp="🤳" type="tts">E1045</annotation>
-		<annotation cp="💪">E615</annotation>
-		<annotation cp="💪" type="tts">E615</annotation>
-		<annotation cp="🦵">E11:038</annotation>
-		<annotation cp="🦵" type="tts">E11:038</annotation>
-		<annotation cp="🦶">E11:039</annotation>
-		<annotation cp="🦶" type="tts">E11:039</annotation>
-		<annotation cp="👈">E517</annotation>
-		<annotation cp="👈" type="tts">E517</annotation>
-		<annotation cp="👉">E518</annotation>
-		<annotation cp="👉" type="tts">E518</annotation>
-		<annotation cp="☝">E51</annotation>
-		<annotation cp="☝" type="tts">E51</annotation>
-		<annotation cp="👆">E515</annotation>
-		<annotation cp="👆" type="tts">E515</annotation>
-		<annotation cp="🖕">E808</annotation>
-		<annotation cp="🖕" type="tts">E808</annotation>
-		<annotation cp="👇">E516</annotation>
-		<annotation cp="👇" type="tts">E516</annotation>
-		<annotation cp="✌">E127</annotation>
-		<annotation cp="✌" type="tts">E127</annotation>
-		<annotation cp="🤞">E1024</annotation>
-		<annotation cp="🤞" type="tts">E1024</annotation>
-		<annotation cp="🖖">E809</annotation>
-		<annotation cp="🖖" type="tts">E809</annotation>
-		<annotation cp="🤘">E1018</annotation>
-		<annotation cp="🤘" type="tts">E1018</annotation>
-		<annotation cp="🤙">E1019</annotation>
-		<annotation cp="🤙" type="tts">E1019</annotation>
-		<annotation cp="🖐">E807</annotation>
-		<annotation cp="🖐" type="tts">E807</annotation>
-		<annotation cp="✋">E126</annotation>
-		<annotation cp="✋" type="tts">E126</annotation>
-		<annotation cp="👌">E521</annotation>
-		<annotation cp="👌" type="tts">E521</annotation>
-		<annotation cp="👍">E522</annotation>
-		<annotation cp="👍" type="tts">E522</annotation>
-		<annotation cp="👎">E523</annotation>
-		<annotation cp="👎" type="tts">E523</annotation>
-		<annotation cp="✊">E125</annotation>
-		<annotation cp="✊" type="tts">E125</annotation>
-		<annotation cp="👊">E519</annotation>
-		<annotation cp="👊" type="tts">E519</annotation>
-		<annotation cp="🤛">E1021</annotation>
-		<annotation cp="🤛" type="tts">E1021</annotation>
-		<annotation cp="🤜">E1022</annotation>
-		<annotation cp="🤜" type="tts">E1022</annotation>
-		<annotation cp="🤚">E1020</annotation>
-		<annotation cp="🤚" type="tts">E1020</annotation>
-		<annotation cp="👋">E520</annotation>
-		<annotation cp="👋" type="tts">E520</annotation>
-		<annotation cp="🤟">E1025</annotation>
-		<annotation cp="🤟" type="tts">E1025</annotation>
-		<annotation cp="✍">E128</annotation>
-		<annotation cp="✍" type="tts">E128</annotation>
-		<annotation cp="👏">E524</annotation>
-		<annotation cp="👏" type="tts">E524</annotation>
-		<annotation cp="👐">E525</annotation>
-		<annotation cp="👐" type="tts">E525</annotation>
-		<annotation cp="🙌">E912</annotation>
-		<annotation cp="🙌" type="tts">E912</annotation>
-		<annotation cp="🤲">E1044</annotation>
-		<annotation cp="🤲" type="tts">E1044</annotation>
-		<annotation cp="🙏">E915</annotation>
-		<annotation cp="🙏" type="tts">E915</annotation>
-		<annotation cp="🤝">E1023</annotation>
-		<annotation cp="🤝" type="tts">E1023</annotation>
-		<annotation cp="💅">E578</annotation>
-		<annotation cp="💅" type="tts">E578</annotation>
-		<annotation cp="👂">E511</annotation>
-		<annotation cp="👂" type="tts">E511</annotation>
-		<annotation cp="👃">E512</annotation>
-		<annotation cp="👃" type="tts">E512</annotation>
+		<annotation cp="🗣">E826</annotation>
+		<annotation cp="🗣" type="tts">E826</annotation>
+		<annotation cp="👤">E545</annotation>
+		<annotation cp="👤" type="tts">E545</annotation>
+		<annotation cp="👥">E546</annotation>
+		<annotation cp="👥" type="tts">E546</annotation>
 		<annotation cp="👣">E544</annotation>
 		<annotation cp="👣" type="tts">E544</annotation>
-		<annotation cp="👀">E509</annotation>
-		<annotation cp="👀" type="tts">E509</annotation>
-		<annotation cp="👁">E510</annotation>
-		<annotation cp="👁" type="tts">E510</annotation>
-		<annotation cp="👁‍🗨">E1157</annotation>
-		<annotation cp="👁‍🗨" type="tts">E1157</annotation>
-		<annotation cp="🧠">E1137</annotation>
-		<annotation cp="🧠" type="tts">E1137</annotation>
-		<annotation cp="🦴">E11:037</annotation>
-		<annotation cp="🦴" type="tts">E11:037</annotation>
-		<annotation cp="🦷">E11:040</annotation>
-		<annotation cp="🦷" type="tts">E11:040</annotation>
-		<annotation cp="👅">E514</annotation>
-		<annotation cp="👅" type="tts">E514</annotation>
-		<annotation cp="👄">E513</annotation>
-		<annotation cp="👄" type="tts">E513</annotation>
 		<annotation cp="🦰">E11:033</annotation>
 		<annotation cp="🦰" type="tts">E11:033</annotation>
 		<annotation cp="🦱">E11:034</annotation>
@@ -767,142 +845,10 @@
 		<annotation cp="🦳" type="tts">E11:036</annotation>
 		<annotation cp="🦲">E11:035</annotation>
 		<annotation cp="🦲" type="tts">E11:035</annotation>
-		<annotation cp="💋">E584</annotation>
-		<annotation cp="💋" type="tts">E584</annotation>
-		<annotation cp="💘">E597</annotation>
-		<annotation cp="💘" type="tts">E597</annotation>
-		<annotation cp="💝">E602</annotation>
-		<annotation cp="💝" type="tts">E602</annotation>
-		<annotation cp="💖">E595</annotation>
-		<annotation cp="💖" type="tts">E595</annotation>
-		<annotation cp="💗">E596</annotation>
-		<annotation cp="💗" type="tts">E596</annotation>
-		<annotation cp="💓">E592</annotation>
-		<annotation cp="💓" type="tts">E592</annotation>
-		<annotation cp="💞">E603</annotation>
-		<annotation cp="💞" type="tts">E603</annotation>
-		<annotation cp="💕">E594</annotation>
-		<annotation cp="💕" type="tts">E594</annotation>
-		<annotation cp="💌">E585</annotation>
-		<annotation cp="💌" type="tts">E585</annotation>
-		<annotation cp="❣">E146</annotation>
-		<annotation cp="❣" type="tts">E146</annotation>
-		<annotation cp="💔">E593</annotation>
-		<annotation cp="💔" type="tts">E593</annotation>
-		<annotation cp="❤">E147</annotation>
-		<annotation cp="❤" type="tts">E147</annotation>
-		<annotation cp="🧡">E1138</annotation>
-		<annotation cp="🧡" type="tts">E1138</annotation>
-		<annotation cp="💛">E600</annotation>
-		<annotation cp="💛" type="tts">E600</annotation>
-		<annotation cp="💚">E599</annotation>
-		<annotation cp="💚" type="tts">E599</annotation>
-		<annotation cp="💙">E598</annotation>
-		<annotation cp="💙" type="tts">E598</annotation>
-		<annotation cp="💜">E601</annotation>
-		<annotation cp="💜" type="tts">E601</annotation>
-		<annotation cp="🖤">E810</annotation>
-		<annotation cp="🖤" type="tts">E810</annotation>
-		<annotation cp="💟">E604</annotation>
-		<annotation cp="💟" type="tts">E604</annotation>
-		<annotation cp="💤">E609</annotation>
-		<annotation cp="💤" type="tts">E609</annotation>
-		<annotation cp="💢">E607</annotation>
-		<annotation cp="💢" type="tts">E607</annotation>
-		<annotation cp="💣">E608</annotation>
-		<annotation cp="💣" type="tts">E608</annotation>
-		<annotation cp="💥">E610</annotation>
-		<annotation cp="💥" type="tts">E610</annotation>
-		<annotation cp="💦">E611</annotation>
-		<annotation cp="💦" type="tts">E611</annotation>
-		<annotation cp="💨">E613</annotation>
-		<annotation cp="💨" type="tts">E613</annotation>
-		<annotation cp="💫">E616</annotation>
-		<annotation cp="💫" type="tts">E616</annotation>
-		<annotation cp="💬">E617</annotation>
-		<annotation cp="💬" type="tts">E617</annotation>
-		<annotation cp="🗨">E827</annotation>
-		<annotation cp="🗨" type="tts">E827</annotation>
-		<annotation cp="🗯">E828</annotation>
-		<annotation cp="🗯" type="tts">E828</annotation>
-		<annotation cp="💭">E618</annotation>
-		<annotation cp="💭" type="tts">E618</annotation>
-		<annotation cp="🕳">E794</annotation>
-		<annotation cp="🕳" type="tts">E794</annotation>
-		<annotation cp="👓">E528</annotation>
-		<annotation cp="👓" type="tts">E528</annotation>
-		<annotation cp="🕶">E797</annotation>
-		<annotation cp="🕶" type="tts">E797</annotation>
-		<annotation cp="🥽">E11:019</annotation>
-		<annotation cp="🥽" type="tts">E11:019</annotation>
-		<annotation cp="🥼">E11:018</annotation>
-		<annotation cp="🥼" type="tts">E11:018</annotation>
-		<annotation cp="👔">E529</annotation>
-		<annotation cp="👔" type="tts">E529</annotation>
-		<annotation cp="👕">E530</annotation>
-		<annotation cp="👕" type="tts">E530</annotation>
-		<annotation cp="👖">E531</annotation>
-		<annotation cp="👖" type="tts">E531</annotation>
-		<annotation cp="🧣">E1140</annotation>
-		<annotation cp="🧣" type="tts">E1140</annotation>
-		<annotation cp="🧤">E1141</annotation>
-		<annotation cp="🧤" type="tts">E1141</annotation>
-		<annotation cp="🧥">E1142</annotation>
-		<annotation cp="🧥" type="tts">E1142</annotation>
-		<annotation cp="🧦">E1143</annotation>
-		<annotation cp="🧦" type="tts">E1143</annotation>
-		<annotation cp="👗">E532</annotation>
-		<annotation cp="👗" type="tts">E532</annotation>
-		<annotation cp="👘">E533</annotation>
-		<annotation cp="👘" type="tts">E533</annotation>
-		<annotation cp="👙">E534</annotation>
-		<annotation cp="👙" type="tts">E534</annotation>
-		<annotation cp="👚">E535</annotation>
-		<annotation cp="👚" type="tts">E535</annotation>
-		<annotation cp="👛">E536</annotation>
-		<annotation cp="👛" type="tts">E536</annotation>
-		<annotation cp="👜">E537</annotation>
-		<annotation cp="👜" type="tts">E537</annotation>
-		<annotation cp="👝">E538</annotation>
-		<annotation cp="👝" type="tts">E538</annotation>
-		<annotation cp="🛍">E988</annotation>
-		<annotation cp="🛍" type="tts">E988</annotation>
-		<annotation cp="🎒">E343</annotation>
-		<annotation cp="🎒" type="tts">E343</annotation>
-		<annotation cp="👞">E539</annotation>
-		<annotation cp="👞" type="tts">E539</annotation>
-		<annotation cp="👟">E540</annotation>
-		<annotation cp="👟" type="tts">E540</annotation>
-		<annotation cp="🥾">E11:020</annotation>
-		<annotation cp="🥾" type="tts">E11:020</annotation>
-		<annotation cp="🥿">E11:021</annotation>
-		<annotation cp="🥿" type="tts">E11:021</annotation>
-		<annotation cp="👠">E541</annotation>
-		<annotation cp="👠" type="tts">E541</annotation>
-		<annotation cp="👡">E542</annotation>
-		<annotation cp="👡" type="tts">E542</annotation>
-		<annotation cp="👢">E543</annotation>
-		<annotation cp="👢" type="tts">E543</annotation>
-		<annotation cp="👑">E526</annotation>
-		<annotation cp="👑" type="tts">E526</annotation>
-		<annotation cp="👒">E527</annotation>
-		<annotation cp="👒" type="tts">E527</annotation>
-		<annotation cp="🎩">E361</annotation>
-		<annotation cp="🎩" type="tts">E361</annotation>
-		<annotation cp="🎓">E344</annotation>
-		<annotation cp="🎓" type="tts">E344</annotation>
-		<annotation cp="🧢">E1139</annotation>
-		<annotation cp="🧢" type="tts">E1139</annotation>
-		<annotation cp="⛑">E105</annotation>
-		<annotation cp="⛑" type="tts">E105</annotation>
-		<annotation cp="📿">E699</annotation>
-		<annotation cp="📿" type="tts">E699</annotation>
-		<annotation cp="💄">E577</annotation>
-		<annotation cp="💄" type="tts">E577</annotation>
-		<annotation cp="💍">E586</annotation>
-		<annotation cp="💍" type="tts">E586</annotation>
-		<annotation cp="💎">E587</annotation>
-		<annotation cp="💎" type="tts">E587</annotation>
+		<annotation cp="♀">E62</annotation>
+		<annotation cp="♀" type="tts">E62</annotation>
+		<annotation cp="♂">E63</annotation>
+		<annotation cp="♂" type="tts">E63</annotation>
 		<annotation cp="🐵">E498</annotation>
 		<annotation cp="🐵" type="tts">E498</annotation>
 		<annotation cp="🐒">E463</annotation>
@@ -913,6 +859,8 @@
 		<annotation cp="🐶" type="tts">E499</annotation>
 		<annotation cp="🐕">E466</annotation>
 		<annotation cp="🐕" type="tts">E466</annotation>
+		<annotation cp="🐕‍🦺">E12-001</annotation>
+		<annotation cp="🐕‍🦺" type="tts">E12-001</annotation>
 		<annotation cp="🐩">E486</annotation>
 		<annotation cp="🐩" type="tts">E486</annotation>
 		<annotation cp="🐺">E503</annotation>
@@ -1007,8 +955,6 @@
 		<annotation cp="🦘" type="tts">E11:022</annotation>
 		<annotation cp="🦡">E11:031</annotation>
 		<annotation cp="🦡" type="tts">E11:031</annotation>
-		<annotation cp="🐾">E507</annotation>
-		<annotation cp="🐾" type="tts">E507</annotation>
 		<annotation cp="🦃">E1099</annotation>
 		<annotation cp="🦃" type="tts">E1099</annotation>
 		<annotation cp="🐔">E465</annotation>
@@ -1075,14 +1021,6 @@
 		<annotation cp="🐙" type="tts">E470</annotation>
 		<annotation cp="🐚">E471</annotation>
 		<annotation cp="🐚" type="tts">E471</annotation>
-		<annotation cp="🦀">E1096</annotation>
-		<annotation cp="🦀" type="tts">E1096</annotation>
-		<annotation cp="🦞">E11:028</annotation>
-		<annotation cp="🦞" type="tts">E11:028</annotation>
-		<annotation cp="🦐">E1112</annotation>
-		<annotation cp="🦐" type="tts">E1112</annotation>
-		<annotation cp="🦑">E1113</annotation>
-		<annotation cp="🦑" type="tts">E1113</annotation>
 		<annotation cp="🐌">E457</annotation>
 		<annotation cp="🐌" type="tts">E457</annotation>
 		<annotation cp="🦋">E1107</annotation>
@@ -1299,6 +1237,14 @@
 		<annotation cp="🥠" type="tts">E1084</annotation>
 		<annotation cp="🥡">E1085</annotation>
 		<annotation cp="🥡" type="tts">E1085</annotation>
+		<annotation cp="🦀">E1096</annotation>
+		<annotation cp="🦀" type="tts">E1096</annotation>
+		<annotation cp="🦞">E11:028</annotation>
+		<annotation cp="🦞" type="tts">E11:028</annotation>
+		<annotation cp="🦐">E1112</annotation>
+		<annotation cp="🦐" type="tts">E1112</annotation>
+		<annotation cp="🦑">E1113</annotation>
+		<annotation cp="🦑" type="tts">E1113</annotation>
 		<annotation cp="🍦">E299</annotation>
 		<annotation cp="🍦" type="tts">E299</annotation>
 		<annotation cp="🍧">E300</annotation>
@@ -1547,14 +1493,18 @@
 		<annotation cp="🚛" type="tts">E943</annotation>
 		<annotation cp="🚜">E944</annotation>
 		<annotation cp="🚜" type="tts">E944</annotation>
+		<annotation cp="🏎">E398</annotation>
+		<annotation cp="🏎" type="tts">E398</annotation>
+		<annotation cp="🏍">E397</annotation>
+		<annotation cp="🏍" type="tts">E397</annotation>
+		<annotation cp="🛵">E1006</annotation>
+		<annotation cp="🛵" type="tts">E1006</annotation>
 		<annotation cp="🚲">E966</annotation>
 		<annotation cp="🚲" type="tts">E966</annotation>
 		<annotation cp="🛴">E1005</annotation>
 		<annotation cp="🛴" type="tts">E1005</annotation>
 		<annotation cp="🛹">E11:004</annotation>
 		<annotation cp="🛹" type="tts">E11:004</annotation>
-		<annotation cp="🛵">E1006</annotation>
-		<annotation cp="🛵" type="tts">E1006</annotation>
 		<annotation cp="🚏">E931</annotation>
 		<annotation cp="🚏" type="tts">E931</annotation>
 		<annotation cp="🛣">E997</annotation>
@@ -1923,6 +1873,80 @@
 		<annotation cp="🧵" type="tts">E11:063</annotation>
 		<annotation cp="🧶">E11:064</annotation>
 		<annotation cp="🧶" type="tts">E11:064</annotation>
+		<annotation cp="👓">E528</annotation>
+		<annotation cp="👓" type="tts">E528</annotation>
+		<annotation cp="🕶">E797</annotation>
+		<annotation cp="🕶" type="tts">E797</annotation>
+		<annotation cp="🥽">E11:019</annotation>
+		<annotation cp="🥽" type="tts">E11:019</annotation>
+		<annotation cp="🥼">E11:018</annotation>
+		<annotation cp="🥼" type="tts">E11:018</annotation>
+		<annotation cp="👔">E529</annotation>
+		<annotation cp="👔" type="tts">E529</annotation>
+		<annotation cp="👕">E530</annotation>
+		<annotation cp="👕" type="tts">E530</annotation>
+		<annotation cp="👖">E531</annotation>
+		<annotation cp="👖" type="tts">E531</annotation>
+		<annotation cp="🧣">E1140</annotation>
+		<annotation cp="🧣" type="tts">E1140</annotation>
+		<annotation cp="🧤">E1141</annotation>
+		<annotation cp="🧤" type="tts">E1141</annotation>
+		<annotation cp="🧥">E1142</annotation>
+		<annotation cp="🧥" type="tts">E1142</annotation>
+		<annotation cp="🧦">E1143</annotation>
+		<annotation cp="🧦" type="tts">E1143</annotation>
+		<annotation cp="👗">E532</annotation>
+		<annotation cp="👗" type="tts">E532</annotation>
+		<annotation cp="👘">E533</annotation>
+		<annotation cp="👘" type="tts">E533</annotation>
+		<annotation cp="👙">E534</annotation>
+		<annotation cp="👙" type="tts">E534</annotation>
+		<annotation cp="👚">E535</annotation>
+		<annotation cp="👚" type="tts">E535</annotation>
+		<annotation cp="👛">E536</annotation>
+		<annotation cp="👛" type="tts">E536</annotation>
+		<annotation cp="👜">E537</annotation>
+		<annotation cp="👜" type="tts">E537</annotation>
+		<annotation cp="👝">E538</annotation>
+		<annotation cp="👝" type="tts">E538</annotation>
+		<annotation cp="🛍">E988</annotation>
+		<annotation cp="🛍" type="tts">E988</annotation>
+		<annotation cp="🎒">E343</annotation>
+		<annotation cp="🎒" type="tts">E343</annotation>
+		<annotation cp="👞">E539</annotation>
+		<annotation cp="👞" type="tts">E539</annotation>
+		<annotation cp="👟">E540</annotation>
+		<annotation cp="👟" type="tts">E540</annotation>
+		<annotation cp="🥾">E11:020</annotation>
+		<annotation cp="🥾" type="tts">E11:020</annotation>
+		<annotation cp="🥿">E11:021</annotation>
+		<annotation cp="🥿" type="tts">E11:021</annotation>
+		<annotation cp="👠">E541</annotation>
+		<annotation cp="👠" type="tts">E541</annotation>
+		<annotation cp="👡">E542</annotation>
+		<annotation cp="👡" type="tts">E542</annotation>
+		<annotation cp="👢">E543</annotation>
+		<annotation cp="👢" type="tts">E543</annotation>
+		<annotation cp="👑">E526</annotation>
+		<annotation cp="👑" type="tts">E526</annotation>
+		<annotation cp="👒">E527</annotation>
+		<annotation cp="👒" type="tts">E527</annotation>
+		<annotation cp="🎩">E361</annotation>
+		<annotation cp="🎩" type="tts">E361</annotation>
+		<annotation cp="🎓">E344</annotation>
+		<annotation cp="🎓" type="tts">E344</annotation>
+		<annotation cp="🧢">E1139</annotation>
+		<annotation cp="🧢" type="tts">E1139</annotation>
+		<annotation cp="⛑">E105</annotation>
+		<annotation cp="⛑" type="tts">E105</annotation>
+		<annotation cp="📿">E699</annotation>
+		<annotation cp="📿" type="tts">E699</annotation>
+		<annotation cp="💄">E577</annotation>
+		<annotation cp="💄" type="tts">E577</annotation>
+		<annotation cp="💍">E586</annotation>
+		<annotation cp="💍" type="tts">E586</annotation>
+		<annotation cp="💎">E587</annotation>
+		<annotation cp="💎" type="tts">E587</annotation>
 		<annotation cp="🔇">E707</annotation>
 		<annotation cp="🔇" type="tts">E707</annotation>
 		<annotation cp="🔈">E708</annotation>
@@ -2477,10 +2501,6 @@
 		<annotation cp="📳" type="tts">E688</annotation>
 		<annotation cp="📴">E689</annotation>
 		<annotation cp="📴" type="tts">E689</annotation>
-		<annotation cp="♀">E62</annotation>
-		<annotation cp="♀" type="tts">E62</annotation>
-		<annotation cp="♂">E63</annotation>
-		<annotation cp="♂" type="tts">E63</annotation>
 		<annotation cp="⚕">E86</annotation>
 		<annotation cp="⚕" type="tts">E86</annotation>
 		<annotation cp="♾">E11:002</annotation>
@@ -2547,8 +2567,6 @@
 		<annotation cp="®" type="tts">E1</annotation>
 		<annotation cp="™">E4</annotation>
 		<annotation cp="™" type="tts">E4</annotation>
-		<annotation cp="💯">E620</annotation>
-		<annotation cp="💯" type="tts">E620</annotation>
 		<annotation cp="🔠">E732</annotation>
 		<annotation cp="🔠" type="tts">E732</annotation>
 		<annotation cp="🔡">E733</annotation>
@@ -2685,153 +2703,139 @@
 		<annotation cp="🏳‍🌈" type="tts">E1156</annotation>
 		<annotation cp="🏴‍☠">E11:003</annotation>
 		<annotation cp="🏴‍☠" type="tts">E11:003</annotation>
-		<annotation cp="🐕‍🦺">E12-001</annotation> 	<!-- 1F415 200D 1F9BA: service dog -->
-		<annotation cp="🐕‍🦺" type="tts">E12-001</annotation>
-		<annotation cp="👨‍🦯">E12-002</annotation> 	<!-- 1F468 200D 1F9AF: man with probing cane -->
-		<annotation cp="👨‍🦯" type="tts">E12-002</annotation>
-		<annotation cp="👨‍🦼">E12-003</annotation> 	<!-- 1F468 200D 1F9BC: man in motorized wheelchair -->
-		<annotation cp="👨‍🦼" type="tts">E12-003</annotation>
-		<annotation cp="👨‍🦽">E12-004</annotation> 	<!-- 1F468 200D 1F9BD: man in manual wheelchair -->
-		<annotation cp="👨‍🦽" type="tts">E12-004</annotation>
-		<annotation cp="👩‍🦯">E12-005</annotation> 	<!-- 1F469 200D 1F9AF: woman with probing cane -->
-		<annotation cp="👩‍🦯" type="tts">E12-005</annotation>
-		<annotation cp="👩‍🦼">E12-006</annotation> 	<!-- 1F469 200D 1F9BC: woman in motorized wheelchair -->
-		<annotation cp="👩‍🦼" type="tts">E12-006</annotation>
-		<annotation cp="👩‍🦽">E12-007</annotation> 	<!-- 1F469 200D 1F9BD: woman in manual wheelchair -->
-		<annotation cp="👩‍🦽" type="tts">E12-007</annotation>
-		<annotation cp="🛕">E12-008</annotation> 	<!-- 1F6D5: hindu temple -->
+		<annotation cp="🛕">E12-008</annotation>
 		<annotation cp="🛕" type="tts">E12-008</annotation>
-		<annotation cp="🛺">E12-009</annotation> 	<!-- 1F6FA: auto rickshaw -->
+		<annotation cp="🛺">E12-009</annotation>
 		<annotation cp="🛺" type="tts">E12-009</annotation>
-		<annotation cp="🟠">E12-010</annotation> 	<!-- 1F7E0: orange circle -->
+		<annotation cp="🟠">E12-010</annotation>
 		<annotation cp="🟠" type="tts">E12-010</annotation>
-		<annotation cp="🟡">E12-011</annotation> 	<!-- 1F7E1: yellow circle -->
+		<annotation cp="🟡">E12-011</annotation>
 		<annotation cp="🟡" type="tts">E12-011</annotation>
-		<annotation cp="🟢">E12-012</annotation> 	<!-- 1F7E2: green circle -->
+		<annotation cp="🟢">E12-012</annotation>
 		<annotation cp="🟢" type="tts">E12-012</annotation>
-		<annotation cp="🟣">E12-013</annotation> 	<!-- 1F7E3: purple circle -->
+		<annotation cp="🟣">E12-013</annotation>
 		<annotation cp="🟣" type="tts">E12-013</annotation>
-		<annotation cp="🟤">E12-014</annotation> 	<!-- 1F7E4: brown circle -->
+		<annotation cp="🟤">E12-014</annotation>
 		<annotation cp="🟤" type="tts">E12-014</annotation>
-		<annotation cp="🟥">E12-015</annotation> 	<!-- 1F7E5: red square -->
+		<annotation cp="🟥">E12-015</annotation>
 		<annotation cp="🟥" type="tts">E12-015</annotation>
-		<annotation cp="🟦">E12-016</annotation> 	<!-- 1F7E6: blue square -->
+		<annotation cp="🟦">E12-016</annotation>
 		<annotation cp="🟦" type="tts">E12-016</annotation>
-		<annotation cp="🟧">E12-017</annotation> 	<!-- 1F7E7: orange square -->
+		<annotation cp="🟧">E12-017</annotation>
 		<annotation cp="🟧" type="tts">E12-017</annotation>
-		<annotation cp="🟨">E12-018</annotation> 	<!-- 1F7E8: yellow square -->
+		<annotation cp="🟨">E12-018</annotation>
 		<annotation cp="🟨" type="tts">E12-018</annotation>
-		<annotation cp="🟩">E12-019</annotation> 	<!-- 1F7E9: green square -->
+		<annotation cp="🟩">E12-019</annotation>
 		<annotation cp="🟩" type="tts">E12-019</annotation>
-		<annotation cp="🟪">E12-020</annotation> 	<!-- 1F7EA: purple square -->
+		<annotation cp="🟪">E12-020</annotation>
 		<annotation cp="🟪" type="tts">E12-020</annotation>
-		<annotation cp="🟫">E12-021</annotation> 	<!-- 1F7EB: brown square -->
+		<annotation cp="🟫">E12-021</annotation>
 		<annotation cp="🟫" type="tts">E12-021</annotation>
-		<annotation cp="🤍">E12-022</annotation> 	<!-- 1F90D: white heart -->
+		<annotation cp="🤍">E12-022</annotation>
 		<annotation cp="🤍" type="tts">E12-022</annotation>
-		<annotation cp="🤎">E12-023</annotation> 	<!-- 1F90E: brown heart -->
+		<annotation cp="🤎">E12-023</annotation>
 		<annotation cp="🤎" type="tts">E12-023</annotation>
-		<annotation cp="🤏">E12-024</annotation> 	<!-- 1F90F: pinching hand -->
+		<annotation cp="🤏">E12-024</annotation>
 		<annotation cp="🤏" type="tts">E12-024</annotation>
-		<annotation cp="🤿">E12-025</annotation> 	<!-- 1F93F: diving mask -->
+		<annotation cp="🤿">E12-025</annotation>
 		<annotation cp="🤿" type="tts">E12-025</annotation>
-		<annotation cp="🥱">E12-026</annotation> 	<!-- 1F971: yawning face -->
+		<annotation cp="🥱">E12-026</annotation>
 		<annotation cp="🥱" type="tts">E12-026</annotation>
-		<annotation cp="🥻">E12-027</annotation> 	<!-- 1F97B: sari -->
+		<annotation cp="🥻">E12-027</annotation>
 		<annotation cp="🥻" type="tts">E12-027</annotation>
-		<annotation cp="🦥">E12-028</annotation> 	<!-- 1F9A5: sloth -->
+		<annotation cp="🦥">E12-028</annotation>
 		<annotation cp="🦥" type="tts">E12-028</annotation>
-		<annotation cp="🦦">E12-029</annotation> 	<!-- 1F9A6: otter -->
+		<annotation cp="🦦">E12-029</annotation>
 		<annotation cp="🦦" type="tts">E12-029</annotation>
-		<annotation cp="🦧">E12-030</annotation> 	<!-- 1F9A7: orangutan -->
+		<annotation cp="🦧">E12-030</annotation>
 		<annotation cp="🦧" type="tts">E12-030</annotation>
-		<annotation cp="🦨">E12-031</annotation> 	<!-- 1F9A8: skunk -->
+		<annotation cp="🦨">E12-031</annotation>
 		<annotation cp="🦨" type="tts">E12-031</annotation>
-		<annotation cp="🦩">E12-032</annotation> 	<!-- 1F9A9: flamingo -->
+		<annotation cp="🦩">E12-032</annotation>
 		<annotation cp="🦩" type="tts">E12-032</annotation>
-		<annotation cp="🦪">E12-033</annotation> 	<!-- 1F9AA: oyster -->
+		<annotation cp="🦪">E12-033</annotation>
 		<annotation cp="🦪" type="tts">E12-033</annotation>
-		<annotation cp="🦮">E12-034</annotation> 	<!-- 1F9AE: guide dog -->
+		<annotation cp="🦮">E12-034</annotation>
 		<annotation cp="🦮" type="tts">E12-034</annotation>
-		<annotation cp="🦯">E12-035</annotation> 	<!-- 1F9AF: probing cane -->
+		<annotation cp="🦯">E12-035</annotation>
 		<annotation cp="🦯" type="tts">E12-035</annotation>
-		<annotation cp="🦺">E12-036</annotation> 	<!-- 1F9BA: safety vest -->
+		<annotation cp="🦺">E12-036</annotation>
 		<annotation cp="🦺" type="tts">E12-036</annotation>
-		<annotation cp="🦻">E12-037</annotation> 	<!-- 1F9BB: ear with hearing aid -->
+		<annotation cp="🦻">E12-037</annotation>
 		<annotation cp="🦻" type="tts">E12-037</annotation>
-		<annotation cp="🦼">E12-038</annotation> 	<!-- 1F9BC: motorized wheelchair -->
+		<annotation cp="🦼">E12-038</annotation>
 		<annotation cp="🦼" type="tts">E12-038</annotation>
-		<annotation cp="🦽">E12-039</annotation> 	<!-- 1F9BD: manual wheelchair -->
+		<annotation cp="🦽">E12-039</annotation>
 		<annotation cp="🦽" type="tts">E12-039</annotation>
-		<annotation cp="🦾">E12-040</annotation> 	<!-- 1F9BE: mechanical arm -->
+		<annotation cp="🦾">E12-040</annotation>
 		<annotation cp="🦾" type="tts">E12-040</annotation>
-		<annotation cp="🦿">E12-041</annotation> 	<!-- 1F9BF: mechanical leg -->
+		<annotation cp="🦿">E12-041</annotation>
 		<annotation cp="🦿" type="tts">E12-041</annotation>
-		<annotation cp="🧃">E12-042</annotation> 	<!-- 1F9C3: beverage box -->
+		<annotation cp="🧃">E12-042</annotation>
 		<annotation cp="🧃" type="tts">E12-042</annotation>
-		<annotation cp="🧄">E12-043</annotation> 	<!-- 1F9C4: garlic -->
+		<annotation cp="🧄">E12-043</annotation>
 		<annotation cp="🧄" type="tts">E12-043</annotation>
-		<annotation cp="🧅">E12-044</annotation> 	<!-- 1F9C5: onion -->
+		<annotation cp="🧅">E12-044</annotation>
 		<annotation cp="🧅" type="tts">E12-044</annotation>
-		<annotation cp="🧆">E12-045</annotation> 	<!-- 1F9C6: falafel -->
+		<annotation cp="🧆">E12-045</annotation>
 		<annotation cp="🧆" type="tts">E12-045</annotation>
-		<annotation cp="🧇">E12-046</annotation> 	<!-- 1F9C7: waffle -->
+		<annotation cp="🧇">E12-046</annotation>
 		<annotation cp="🧇" type="tts">E12-046</annotation>
-		<annotation cp="🧈">E12-047</annotation> 	<!-- 1F9C8: butter -->
+		<annotation cp="🧈">E12-047</annotation>
 		<annotation cp="🧈" type="tts">E12-047</annotation>
-		<annotation cp="🧉">E12-048</annotation> 	<!-- 1F9C9: mate -->
+		<annotation cp="🧉">E12-048</annotation>
 		<annotation cp="🧉" type="tts">E12-048</annotation>
-		<annotation cp="🧊">E12-049</annotation> 	<!-- 1F9CA: ice cube -->
+		<annotation cp="🧊">E12-049</annotation>
 		<annotation cp="🧊" type="tts">E12-049</annotation>
-		<annotation cp="🧍">E12-050</annotation> 	<!-- 1F9CD: person standing -->
+		<annotation cp="🧍">E12-050</annotation>
 		<annotation cp="🧍" type="tts">E12-050</annotation>
-		<annotation cp="🧍‍♀">E12-051</annotation> 	<!-- 1F9CD 200D 2640: woman standing -->
+		<annotation cp="🧍‍♀">E12-051</annotation>
 		<annotation cp="🧍‍♀" type="tts">E12-051</annotation>
-		<annotation cp="🧍‍♂">E12-052</annotation> 	<!-- 1F9CD 200D 2642: man standing -->
+		<annotation cp="🧍‍♂">E12-052</annotation>
 		<annotation cp="🧍‍♂" type="tts">E12-052</annotation>
-		<annotation cp="🧎">E12-053</annotation> 	<!-- 1F9CE: person kneeling -->
+		<annotation cp="🧎">E12-053</annotation>
 		<annotation cp="🧎" type="tts">E12-053</annotation>
-		<annotation cp="🧎‍♀">E12-054</annotation> 	<!-- 1F9CE 200D 2640: woman kneeling -->
+		<annotation cp="🧎‍♀">E12-054</annotation>
 		<annotation cp="🧎‍♀" type="tts">E12-054</annotation>
-		<annotation cp="🧎‍♂">E12-055</annotation> 	<!-- 1F9CE 200D 2642: man kneeling -->
+		<annotation cp="🧎‍♂">E12-055</annotation>
 		<annotation cp="🧎‍♂" type="tts">E12-055</annotation>
-		<annotation cp="🧏">E12-056</annotation> 	<!-- 1F9CF: deaf person -->
+		<annotation cp="🧏">E12-056</annotation>
 		<annotation cp="🧏" type="tts">E12-056</annotation>
-		<annotation cp="🧏‍♀">E12-057</annotation> 	<!-- 1F9CF 200D 2640: deaf woman -->
+		<annotation cp="🧏‍♀">E12-057</annotation>
 		<annotation cp="🧏‍♀" type="tts">E12-057</annotation>
-		<annotation cp="🧏‍♂">E12-058</annotation> 	<!-- 1F9CF 200D 2642: deaf man -->
+		<annotation cp="🧏‍♂">E12-058</annotation>
 		<annotation cp="🧏‍♂" type="tts">E12-058</annotation>
-		<annotation cp="🩰">E12-059</annotation> 	<!-- 1FA70: ballet shoes -->
+		<annotation cp="🩰">E12-059</annotation>
 		<annotation cp="🩰" type="tts">E12-059</annotation>
-		<annotation cp="🩱">E12-060</annotation> 	<!-- 1FA71: one-piece -->
+		<annotation cp="🩱">E12-060</annotation>
 		<annotation cp="🩱" type="tts">E12-060</annotation>
-		<annotation cp="🩲">E12-061</annotation> 	<!-- 1FA72: briefs -->
+		<annotation cp="🩲">E12-061</annotation>
 		<annotation cp="🩲" type="tts">E12-061</annotation>
-		<annotation cp="🩳">E12-062</annotation> 	<!-- 1FA73: shorts -->
+		<annotation cp="🩳">E12-062</annotation>
 		<annotation cp="🩳" type="tts">E12-062</annotation>
-		<annotation cp="🩸">E12-063</annotation> 	<!-- 1FA78: drop of blood -->
+		<annotation cp="🩸">E12-063</annotation>
 		<annotation cp="🩸" type="tts">E12-063</annotation>
-		<annotation cp="🩹">E12-064</annotation> 	<!-- 1FA79: adhesive bandage -->
+		<annotation cp="🩹">E12-064</annotation>
 		<annotation cp="🩹" type="tts">E12-064</annotation>
-		<annotation cp="🩺">E12-065</annotation> 	<!-- 1FA7A: stethoscope -->
+		<annotation cp="🩺">E12-065</annotation>
 		<annotation cp="🩺" type="tts">E12-065</annotation>
-		<annotation cp="🪀">E12-066</annotation> 	<!-- 1FA80: yo-yo -->
+		<annotation cp="🪀">E12-066</annotation>
 		<annotation cp="🪀" type="tts">E12-066</annotation>
-		<annotation cp="🪁">E12-067</annotation> 	<!-- 1FA81: kite -->
+		<annotation cp="🪁">E12-067</annotation>
 		<annotation cp="🪁" type="tts">E12-067</annotation>
-		<annotation cp="🪂">E12-068</annotation> 	<!-- 1FA82: parachute -->
+		<annotation cp="🪂">E12-068</annotation>
 		<annotation cp="🪂" type="tts">E12-068</annotation>
-		<annotation cp="🪐">E12-069</annotation> 	<!-- 1FA90: ringed planet -->
+		<annotation cp="🪐">E12-069</annotation>
 		<annotation cp="🪐" type="tts">E12-069</annotation>
-		<annotation cp="🪑">E12-070</annotation> 	<!-- 1FA91: chair -->
+		<annotation cp="🪑">E12-070</annotation>
 		<annotation cp="🪑" type="tts">E12-070</annotation>
-		<annotation cp="🪒">E12-071</annotation> 	<!-- 1FA92: razor -->
+		<annotation cp="🪒">E12-071</annotation>
 		<annotation cp="🪒" type="tts">E12-071</annotation>
-		<annotation cp="🪓">E12-072</annotation> 	<!-- 1FA93: axe -->
+		<annotation cp="🪓">E12-072</annotation>
 		<annotation cp="🪓" type="tts">E12-072</annotation>
-		<annotation cp="🪔">E12-073</annotation> 	<!-- 1FA94: diya lamp -->
+		<annotation cp="🪔">E12-073</annotation>
 		<annotation cp="🪔" type="tts">E12-073</annotation>
-		<annotation cp="🪕">E12-074</annotation> 	<!-- 1FA95: banjo -->
+		<annotation cp="🪕">E12-074</annotation>
 		<annotation cp="🪕" type="tts">E12-074</annotation>
 		<annotation cp="🧑‍🤝‍🧑">E12-099</annotation>
 		<annotation cp="🧑‍🤝‍🧑" type="tts">E12-099</annotation>

@@ -681,7 +681,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="014">𑄛𑄪𑄇𑄴𑄘𑄩 𑄃𑄜𑄳𑄢𑄨𑄇</territory>
 			<territory type="015">𑄅𑄪𑄖𑄴𑄖𑄮𑄢𑄴 𑄃𑄜𑄳𑄢𑄨𑄇</territory>
 			<territory type="017">𑄟𑄧𑄖𑄴𑄙𑄳𑄠𑄧 𑄃𑄜𑄳𑄢𑄨𑄇</territory>
-			<territory type="018">𑄘𑄧𑄉𑄨𑄚𑄴 𑄃𑄜𑄳𑄢𑄨𑄇</territory>
 			<territory type="019">𑄃𑄟𑄬𑄢𑄨𑄇𑄥𑄴</territory>
 			<territory type="021">𑄅𑄪𑄖𑄴𑄖𑄮𑄢𑄴 𑄎𑄉𑄢𑄴 𑄃𑄟𑄬𑄢𑄨𑄇</territory>
 			<territory type="029">𑄇𑄳𑄠𑄢𑄝𑄨𑄠𑄚𑄴</territory>
@@ -1425,15 +1424,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="fri">𑄥𑄪</day>
 							<day type="sat">𑄥𑄧</day>
 						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun">𑄢𑄧𑄂</day>
-							<day type="mon">𑄥𑄧𑄂</day>
-							<day type="tue">𑄟𑄧𑄂</day>
-							<day type="wed">𑄝𑄪𑄂</day>
-							<day type="thu">𑄝𑄳𑄢𑄨𑄂</day>
-							<day type="fri">𑄥𑄪𑄂</day>
-							<day type="sat">𑄥𑄧𑄂</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">𑄢𑄧𑄝𑄨𑄝𑄢𑄴</day>
 							<day type="mon">𑄥𑄧𑄟𑄴𑄝𑄢𑄴</day>
@@ -1462,15 +1452,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="thu">𑄝𑄳𑄢𑄨</day>
 							<day type="fri">𑄥𑄪</day>
 							<day type="sat">𑄥𑄧</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun">𑄢𑄧𑄂</day>
-							<day type="mon">𑄥𑄧𑄂</day>
-							<day type="tue">𑄟𑄧𑄂</day>
-							<day type="wed">𑄝𑄪𑄂</day>
-							<day type="thu">𑄝𑄳𑄢𑄨𑄂</day>
-							<day type="fri">𑄥𑄪𑄂</day>
-							<day type="sat">𑄥𑄧𑄂</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">𑄢𑄧𑄝𑄨𑄝𑄢𑄴</day>
@@ -3944,13 +3925,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>𑄃𑄧𑄌𑄴𑄑𑄳𑄢𑄬𑄣𑄨𑄠𑄧 𑄃𑄏𑄧𑄣𑄴 𑄉𑄧𑄢𑄳𑄦𑄢𑄴 𑄘𑄨𑄚𑄮𑄃𑄣𑄮𑄢𑄴 𑄃𑄧𑄇𑄴𑄖𑄧</daylight>
 				</long>
 			</metazone>
-			<metazone type="Australia_CentralWestern">
-				<long>
-					<generic>𑄃𑄧𑄌𑄴𑄑𑄳𑄢𑄬𑄣𑄨𑄠𑄧 𑄃𑄏𑄧𑄣𑄴 𑄉𑄧𑄢𑄳𑄦𑄢𑄴 𑄛𑄧𑄏𑄨𑄟𑄬𑄘𑄨 𑄃𑄧𑄇𑄴𑄖𑄧</generic>
-					<standard>𑄃𑄧𑄌𑄴𑄑𑄳𑄢𑄬𑄣𑄨𑄠𑄧 𑄃𑄏𑄧𑄣𑄴 𑄉𑄧𑄢𑄳𑄦𑄢𑄴 𑄛𑄧𑄏𑄨𑄟𑄬𑄘𑄨 𑄟𑄚𑄧𑄇𑄴 𑄃𑄧𑄇𑄴𑄖𑄧</standard>
-					<daylight>𑄃𑄧𑄌𑄴𑄑𑄳𑄢𑄬𑄣𑄨𑄠𑄧 𑄃𑄏𑄧𑄣𑄴 𑄉𑄧𑄢𑄳𑄦𑄢𑄴 𑄘𑄨𑄚𑄮𑄃𑄣𑄮𑄢𑄴 𑄃𑄧𑄇𑄴𑄖𑄧</daylight>
-				</long>
-			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
 					<generic>𑄛𑄪𑄉𑄬𑄘𑄨 𑄃𑄧𑄌𑄴𑄑𑄳𑄢𑄬𑄣𑄨𑄠𑄧 𑄃𑄧𑄇𑄴𑄖𑄧</generic>
@@ -5098,17 +5072,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">𑄇𑄧𑄋𑄴𑄉𑄮𑄣𑄨𑄌𑄴 𑄜𑄳𑄢𑄁𑄇𑄴</displayName>
 				<symbol>CDF</symbol>
 			</currency>
-			<currency type="CHE">
-				<displayName>𑄥𑄭𑄪𑄎𑄢𑄴𑄣𑄳𑄠𑄚𑄴𑄓𑄴 𑄃𑄨𑄃𑄪𑄢𑄮</displayName>
-			</currency>
 			<currency type="CHF">
 				<displayName>𑄥𑄭𑄪𑄥𑄴 𑄜𑄳𑄢𑄀</displayName>
 				<displayName count="one">𑄥𑄭𑄪𑄥𑄴 𑄜𑄳𑄢𑄀</displayName>
 				<displayName count="other">𑄥𑄭𑄪𑄥𑄴 𑄜𑄳𑄢𑄀</displayName>
 				<symbol>CHF</symbol>
-			</currency>
-			<currency type="CHW">
-				<displayName>𑄥𑄭𑄪𑄎𑄢𑄴𑄣𑄳𑄠𑄚𑄴𑄓𑄴 𑄃𑄨𑄃𑄪𑄢𑄮</displayName>
 			</currency>
 			<currency type="CLF">
 				<displayName>𑄌𑄨𑄣𑄨𑄠𑄚𑄴 𑄃𑄪𑄚𑄨𑄘𑄘𑄬𑄥𑄴 𑄘𑄨 𑄜𑄮𑄟𑄬𑄚𑄴𑄖𑄮</displayName>
@@ -5984,7 +5952,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
-				<displayName>𑄖𑄪𑄢𑄴𑄇𑄧𑄟𑄬𑄚𑄨𑄌𑄴𑄖𑄚𑄨 𑄟𑄚𑄖𑄴</displayName>
+				<displayName>𑄖𑄪𑄢𑄴𑄇𑄧𑄟𑄬𑄚𑄨𑄌𑄴𑄖𑄚𑄨 𑄟𑄚𑄖𑄴 (1993–2009)</displayName>
 			</currency>
 			<currency type="TMT">
 				<displayName>𑄖𑄪𑄢𑄴𑄇𑄧𑄟𑄬𑄚𑄨𑄌𑄴𑄖𑄚𑄨 𑄟𑄚𑄖𑄴</displayName>
@@ -6131,9 +6099,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="XAU">
 				<displayName>𑄉𑄮𑄣𑄳𑄓𑄴</displayName>
 			</currency>
-			<currency type="XBB">
-				<displayName>𑄃𑄨𑄃𑄪𑄢𑄮𑄛𑄨𑄠𑄚𑄴 𑄑𑄬𑄋𑄢𑄴 𑄃𑄬𑄇𑄧𑄇𑄴</displayName>
-			</currency>
 			<currency type="XCD">
 				<displayName>𑄛𑄪𑄉𑄬𑄘𑄨 𑄇𑄳𑄠𑄢𑄝𑄨𑄠𑄚𑄴 𑄓𑄧𑄣𑄢𑄴</displayName>
 				<displayName count="one">𑄛𑄪𑄉𑄬𑄘𑄨 𑄇𑄳𑄠𑄢𑄝𑄨𑄠𑄚𑄴 𑄓𑄧𑄣𑄢𑄴</displayName>
@@ -6191,9 +6156,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="YUN">
 				<displayName>𑄡𑄪𑄉𑄮𑄥𑄳𑄣𑄞𑄨𑄠𑄧 𑄝𑄮𑄘𑄮𑄣𑄬𑄭𑄛𑄢𑄬 𑄘𑄨𑄚𑄢𑄴</displayName>
 			</currency>
-			<currency type="ZAL">
-				<displayName>𑄘𑄧𑄉𑄨𑄚𑄴 𑄃𑄜𑄳𑄢𑄨𑄇𑄚𑄴 𑄢𑄳𑄠𑄚𑄳𑄓𑄴</displayName>
-			</currency>
 			<currency type="ZAR">
 				<displayName>𑄘𑄧𑄉𑄨𑄚𑄴 𑄃𑄜𑄳𑄢𑄨𑄇𑄚𑄴 𑄢𑄳𑄠𑄚𑄳𑄓𑄴</displayName>
 				<displayName count="one">𑄘𑄧𑄉𑄨𑄚𑄴 𑄃𑄜𑄳𑄢𑄨𑄇𑄚𑄴 𑄢𑄳𑄠𑄚𑄳𑄓𑄴</displayName>
@@ -6212,10 +6174,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow">ZK</symbol>
 			</currency>
 			<currency type="ZRN">
-				<displayName>𑄎𑄭𑄢𑄨𑄠𑄚𑄴 𑄚𑄨𑄅𑄪 𑄎𑄭𑄢𑄬</displayName>
+				<displayName>𑄎𑄭𑄢𑄨𑄠𑄚𑄴 𑄚𑄨𑄅𑄪 𑄎𑄭𑄢𑄬 (1993–1998)</displayName>
 			</currency>
 			<currency type="ZRZ">
-				<displayName>𑄎𑄭𑄢𑄨𑄠𑄚𑄴 𑄚𑄨𑄅𑄪 𑄎𑄭𑄢𑄬</displayName>
+				<displayName>𑄎𑄭𑄢𑄨𑄠𑄚𑄴 𑄚𑄨𑄅𑄪 𑄎𑄭𑄢𑄬 (1971–1993)</displayName>
 			</currency>
 			<currency type="ZWD">
 				<displayName>𑄎𑄨𑄟𑄴𑄝𑄝𑄪𑄠𑄬 𑄓𑄧𑄣𑄢𑄴 (𑄷𑄿𑄾𑄶-𑄸𑄶𑄶𑄾)</displayName>
@@ -6234,11 +6196,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<minimalPairs>
 			<pluralMinimalPairs count="one">𑄥𑄧𑄥𑄬{0}𑄑𑄨 𑄃𑄛𑄬𑄣𑄴 𑄈𑄬𑄣𑄧, 𑄥𑄨𑄠𑄚𑄴 𑄉𑄧𑄟𑄴</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">𑄥𑄧𑄥𑄬{0}𑄑𑄨 𑄃𑄛𑄬𑄣𑄴 𑄈𑄬𑄣𑄧, 𑄥𑄨𑄉𑄪𑄚𑄴 𑄉𑄧𑄟𑄴</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="few">𑄓𑄬𑄚𑄬𑄘𑄨{0}𑄌𑄳𑄆𑄬𑄢𑄴𑄛𑄧𑄘𑄳𑄠𑄬 𑄝𑄬𑄋𑄇𑄧𑄋𑄚𑄴 𑄣𑄳𑄦𑄧</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="many">𑄓𑄬𑄚𑄬𑄘𑄨 {0}𑄍𑄧𑄛𑄧𑄘𑄳𑄠𑄬 𑄝𑄬𑄋𑄇𑄧𑄋𑄚𑄴 𑄣𑄳𑄦𑄧</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="one">𑄓𑄬𑄚𑄬𑄘𑄨 {0}𑄟𑄧 𑄝𑄬𑄋𑄇𑄧𑄋𑄚𑄴 𑄣𑄳𑄦𑄧</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">𑄓𑄬𑄚𑄬𑄘𑄨{0}𑄛𑄧𑄘𑄳𑄠𑄬 𑄝𑄬𑄋𑄇𑄧𑄋𑄚𑄴 𑄣𑄳𑄦𑄧</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="two">𑄓𑄬𑄚𑄬𑄘𑄨{0}𑄛𑄧𑄘𑄳𑄠𑄬 𑄝𑄬𑄋𑄇𑄧𑄋𑄚𑄴 𑄣𑄳𑄦𑄧</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>

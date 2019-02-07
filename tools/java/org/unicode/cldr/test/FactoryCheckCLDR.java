@@ -58,4 +58,20 @@ abstract class FactoryCheckCLDR extends CheckCLDR {
     public Factory getFactory() {
         return factory;
     }
+    
+    public String getPathReferenceForMessage(String path, boolean codeOnly) {
+        PathHeader pathHeader = getPathHeaderFactory().fromPath(path);
+        String referenceToOther;
+        String code = codeOnly ? pathHeader.getCode() : pathHeader.getHeaderCode();
+        if (getPhase() == Phase.FINAL_TESTING) {
+            referenceToOther = code; // later make this more readable.
+        } else {
+            referenceToOther = "<a href=\""
+                + CLDRConfig.getInstance().urls().forPathHeader(getCldrFileToCheck().getLocaleID(), pathHeader)
+                + "\">" +
+                code
+                + "</a>";
+        }
+        return referenceToOther;
+    }
 }

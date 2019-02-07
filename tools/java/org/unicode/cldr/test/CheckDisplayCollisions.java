@@ -13,7 +13,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
@@ -443,15 +442,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         if (SKIP_TYPE_CHECK) {
             for (String pathName : paths) {
                 currentAttributesToIgnore.reset(pathName);
-                PathHeader pathHeader = getPathHeaderFactory().fromPath(pathName);
-                if (getPhase() == Phase.FINAL_TESTING) {
-                    collidingTypes.add(pathHeader.getHeaderCode()); // later make this more readable.
-                } else {
-                    collidingTypes.add("<a href=\"" + CLDRConfig.getInstance().urls().forPathHeader(getCldrFileToCheck().getLocaleID(), pathHeader)
-                        + "\">" +
-                        pathHeader.getHeaderCode() + "</a>");
-
-                }
+                collidingTypes.add(getPathReferenceForMessage(pathName, false));
             }
         } else {
             for (String dpath : paths) {

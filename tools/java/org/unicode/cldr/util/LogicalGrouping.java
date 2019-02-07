@@ -42,7 +42,7 @@ public class LogicalGrouping {
         "minute", "minute-short", "minute-narrow", "hour", "hour-short", "hour-narrow");
 
     /**
-     * Return the set of paths that are in the same logical set as the given path
+     * Return a sorted set of paths that are in the same logical set as the given path
      *
      * @param path
      *            - the distinguishing xpath

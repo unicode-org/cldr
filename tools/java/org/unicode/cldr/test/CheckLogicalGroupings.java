@@ -1,23 +1,31 @@
 package org.unicode.cldr.test;
 
-import java.util.EnumMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LogicalGrouping;
-import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-public class CheckLogicalGroupings extends FactoryCheckCLDR {
+import com.google.common.collect.ImmutableSet;
 
-    boolean isTopLevel;
+public class CheckLogicalGroupings extends FactoryCheckCLDR {
+    // Change MINIMUM_DRAFT_STATUS to DraftStatus.contributed if you only care about
+    // contributed or higher. This can help to reduce the error count when you have a lot of new data.
+
+    static final DraftStatus MIMIMUM_DRAFT_STATUS = DraftStatus.approved;
+    static final Set<Phase> PHASES_CAUSE_ERROR = ImmutableSet.of(Phase.FINAL_TESTING, Phase.VETTING);
+
+    private boolean phaseCausesError;
+    private CoverageLevel2 coverageLevel;
     
     public CheckLogicalGroupings(Factory factory) {
         super(factory);
@@ -27,25 +35,24 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
         List<CheckStatus> possibleErrors) {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
-        
+
         // skip the test unless we are at the top level, eg 
         //    test root, fr, sr_Latn, ...
         //    but skip fr_CA, sr_Latn_RS, etc.
         // TODO: could simplify some of the code later, since non-topLevel locales are skipped
         // NOTE: we could have a weaker test. 
-              // Skip if all of the items are either inherited, or aliased *including votes for inherited (3 up arrows)*
-        
+        // Skip if all of the items are either inherited, or aliased *including votes for inherited (3 up arrows)*
+
         String parent = LocaleIDParser.getParent(cldrFileToCheck.getLocaleID());
         boolean isTopLevel = parent == null || parent.equals("root");
         setSkipTest(!isTopLevel);
+        phaseCausesError = PHASES_CAUSE_ERROR.contains(getPhase());
         
+        coverageLevel = CoverageLevel2.getInstance(cldrFileToCheck.getLocaleID());
+
         return this;
     }
 
-    // Change MINIMUM_DRAFT_STATUS to DraftStatus.contributed if you only care about
-    // contributed or higher. This can help to reduce the error count when you have a lot of new data.
-
-    static final DraftStatus MIMIMUM_DRAFT_STATUS = DraftStatus.approved;
 
     // remember to add this class to the list in CheckCLDR.getCheckAll
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*LogicalGroupings.*
@@ -76,9 +83,16 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
 
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
+
         // if (fullPath == null) return this; // skip paths that we don't have
-        if (LogicalGrouping.isOptional(getCldrFileToCheck(), path)) return this;
+        if (LogicalGrouping.isOptional(getCldrFileToCheck(), path)) {
+            return this;
+        }
+
         Set<String> paths = LogicalGrouping.getPaths(getCldrFileToCheck(), path);
+        if (paths.size() < 2) return this; // skip if not part of a logical grouping
+
+        // TODO 
         Set<String> paths2 = new HashSet<String>(paths);
         for (String p : paths2) {
             if (LogicalGrouping.isOptional(getCldrFileToCheck(), p)) {
@@ -86,22 +100,36 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
             }
         }
         if (paths.size() < 2) return this; // skip if not part of a logical grouping
-        int logicalGroupingCount = 0;
+
+        Set<String> missingPaths = new HashSet<String>();
+        boolean havePath = false;
+        String firstPath = null;
         for (String apath : paths) {
-            if (isHereOrNonRoot(apath)) {
-                logicalGroupingCount++;
+            if (isHereOrNonRoot(apath)) { // ok
+                havePath = true;
+            } else {
+                if (missingPaths.isEmpty()) {
+                    firstPath = apath; // pick the first one in sorted order (LogicalGrouping.getPaths is sorted)
+                }
+                missingPaths.add(apath);
             }
-        }
-        if (logicalGroupingCount == 0) return this; // skip if the logical grouping is empty
-        if (!isHereOrNonRoot(path) ||
-            (this.getPhase().equals(Phase.FINAL_TESTING) && logicalGroupingCount != paths.size())) {
-            CheckStatus.Type showError = CheckStatus.errorType;
-            if (this.getPhase().equals(Phase.BUILD)) {
-                showError = CheckStatus.warningType;
+        }        
+
+        if (havePath && !missingPaths.isEmpty()) {
+            if (path.equals(firstPath)) {
+                Set<String> missingCodes = missingPaths
+                    .stream()
+                    .map(x -> getPathReferenceForMessage(x, true))
+                    .collect(Collectors.toSet());
+                Level cLevel = coverageLevel.getLevel(path);
+                
+                CheckStatus.Type showError = phaseCausesError ? CheckStatus.errorType : CheckStatus.warningType;
+                result.add(new CheckStatus().setCause(this).setMainType(showError)
+                    .setSubtype(Subtype.incompleteLogicalGroup)
+                    .setMessage("Incomplete logical group - missing values for: {0}; level={1}", missingCodes.toString(), cLevel));
             }
-            result.add(new CheckStatus().setCause(this).setMainType(showError)
-                .setSubtype(Subtype.incompleteLogicalGroup)
-                .setMessage("Incomplete logical group - must enter a value for all fields in the group"));
+            // skip other errors once we find missing paths
+            return this;
         }
 
         // Special test during vetting phase to allow changes in a logical group when another item in the group
@@ -137,54 +165,45 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
         //}
 
         //if (Phase.FINAL_TESTING.equals(this.getPhase())) {
-        DraftStatus myStatus = null;
-        EnumMap<DraftStatus, PathHeader> draftStatuses = new EnumMap<DraftStatus, PathHeader>(DraftStatus.class);
+
+        // Change the structure so we only check for draft status if this path fails;
+        // avoids work for ones we are not going to alert on anyway.
+
+        // If the draft status of something in the set is lower, then an implementation that filters out that draft status
+        // will get the wrong value.
+
+        String fPath = getCldrFileToCheck().getFullXPath(path);
+        XPathParts parts = XPathParts.getFrozenInstance(fPath);
+        DraftStatus myStatus = DraftStatus.forString(parts.findFirstAttributeValue("draft"));
+        if (myStatus.compareTo(MIMIMUM_DRAFT_STATUS) >= 0) {
+            return this; // bail if we are ok
+        }
+
+        // If some other path in the LG has a higher draft status, then cause error on this path. 
+        // NOTE: changed to show in Vetting, not just Resolution
+
         for (String apath : paths) {
-            String fPath = getCldrFileToCheck().getFullXPath(apath);
+            if (apath.equals(path) || missingPaths.contains(apath)) { // skip this path, skip others unless present
+                continue;
+            }
+            fPath = getCldrFileToCheck().getFullXPath(apath);
             if (fPath == null) {
                 continue;
             }
-            if (apath.startsWith("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day")) {
-                int debug = 0;
-            }
-            XPathParts parts = XPathParts.getFrozenInstance(fPath);
+            parts = XPathParts.getFrozenInstance(fPath);
             DraftStatus draftStatus = DraftStatus.forString(parts.findFirstAttributeValue("draft"));
 
-            // anything at or above the minimum is ok.
+            // Cause error for anything above myStatus
 
-            if (draftStatus.compareTo(MIMIMUM_DRAFT_STATUS) >= 0) {
-                draftStatus = DraftStatus.approved;
-            }
-            if (apath.equals(path)) { // record what this path has, for later.
-                myStatus = draftStatus;
-            }
-            PathHeader old = draftStatuses.get(draftStatus);
-            if (old == null) { // take first or path itself
-                draftStatuses.put(draftStatus, getPathHeaderFactory().fromPath(apath));
+            if (draftStatus.compareTo(myStatus) > 0) {
+                CheckStatus.Type showError = phaseCausesError ? CheckStatus.errorType : CheckStatus.warningType;
+                result.add(new CheckStatus().setCause(this).setMainType(showError)
+                    .setSubtype(Subtype.inconsistentDraftStatus) // typically warningType or errorType
+                    .setMessage("This item has a lower draft status (in its logical group) than {0}.", 
+                        getPathReferenceForMessage(apath, true))); // the
+                break; // no need to continue
             }
         }
-        if (draftStatuses.size() > 1 && myStatus != DraftStatus.approved) { // only show errors for the items that
-            // have insufficient status
-            if (myStatus != null) { // remove my status from the list
-                draftStatuses.remove(myStatus);
-            }
-            CheckStatus.Type showError = CheckStatus.warningType;
-            if (this.getPhase().equals(Phase.FINAL_TESTING)) {
-                showError = CheckStatus.errorType;
-            }
-            result.add(new CheckStatus().setCause(this).setMainType(showError)
-                .setSubtype(Subtype.inconsistentDraftStatus) // typically warningType or errorType
-                .setMessage("Logical group problem.  All members of a logical group need to be confirmed together. "
-                    + "For how to do this, see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/logical-groups'>Logical Groups</a>"
-                    + "​ in the CLDR translation guidelines.")); // the
-            // message;
-            // can
-            // be
-            // MessageFormat
-            // with
-            // arguments
-        }
-        // }
         return this;
     }
 }

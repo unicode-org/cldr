@@ -3756,17 +3756,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>Gy年M月d日EEEE</pattern>
+							<pattern numbers="y=jpanyear">Gy年M月d日EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>Gy年M月d日</pattern>
+							<pattern numbers="y=jpanyear">Gy年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>Gy年M月d日</pattern>
+							<pattern numbers="y=jpanyear">Gy年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">

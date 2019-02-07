@@ -252,7 +252,7 @@
 			<attributeValues dtds='ldml' elements='listPattern' attributes='type' type='choice'>unit unit-narrow unit-short</attributeValues>
 			<attributeValues dtds='ldml' elements='metazone' attributes='type' type='TODO'>$metazone</attributeValues>
 			<attributeValues dtds='ldml' elements='miscPatterns' attributes='numberSystem'>$_bcp47_nu</attributeValues>
-			<attributeValues dtds='ldml' elements='pattern' attributes='numbers' type='choice'>M=romanlow d=hanidays hanidec hebr</attributeValues>
+			<attributeValues dtds='ldml' elements='pattern' attributes='numbers' type='choice'>M=romanlow d=hanidays hanidec hebr y=jpanyear</attributeValues>
 			<attributeValues dtds='ldml' elements='rbnfrule' attributes='radix' type='choice'>1,000 100 1000 100000 160,000 20 3,200,000 400 5
 				64,000,000 8000</attributeValues>
 			<attributeValues dtds='ldml' elements='rbnfrule' attributes='value' type='regex'>x|x.x|0.x|-x|0|[1-9][0-9]*</attributeValues>

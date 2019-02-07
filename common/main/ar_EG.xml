@@ -17,9 +17,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</languages>
 	</localeDisplayNames>
 	<numbers>
-		<otherNumberingSystems>
-			<native draft="contributed">arab</native>
-		</otherNumberingSystems>
 		<symbols numberSystem="arab">
 			<decimal draft="contributed">٫</decimal>
 			<group draft="contributed">٬</group>
@@ -27,7 +24,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<symbols numberSystem="latn">
 			<decimal draft="contributed">.</decimal>
 			<group draft="contributed">,</group>
-			<perMille draft="contributed">‰</perMille>
 		</symbols>
 	</numbers>
 </ldml>

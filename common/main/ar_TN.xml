@@ -82,18 +82,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</dates>
 	<numbers>
 		<defaultNumberingSystem>latn</defaultNumberingSystem>
-		<otherNumberingSystems>
-			<native draft="contributed">arab</native>
-		</otherNumberingSystems>
 		<symbols numberSystem="arab">
 			<decimal draft="contributed">٫</decimal>
 			<group draft="contributed">٬</group>
-			<perMille draft="contributed">؉</perMille>
 		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group>.</group>
-			<perMille draft="contributed">‰</perMille>
 		</symbols>
 	</numbers>
 </ldml>

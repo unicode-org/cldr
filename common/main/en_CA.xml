@@ -13,32 +13,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="ar_001" draft="contributed">Modern Standard Arabic</language>
 			<language type="bn">Bengali</language>
-			<language type="de_AT" draft="contributed">Austrian German</language>
-			<language type="de_CH" draft="contributed">Swiss High German</language>
-			<language type="en_AU" draft="contributed">Australian English</language>
-			<language type="en_CA" draft="contributed">Canadian English</language>
-			<language type="en_GB" draft="contributed">British English</language>
-			<language type="en_GB" alt="short" draft="contributed">UK English</language>
-			<language type="en_US" draft="contributed">American English</language>
-			<language type="en_US" alt="short" draft="contributed">US English</language>
-			<language type="es_419" draft="contributed">Latin American Spanish</language>
-			<language type="es_ES" draft="contributed">European Spanish</language>
-			<language type="es_MX" draft="contributed">Mexican Spanish</language>
-			<language type="fa_AF" draft="contributed">Dari</language>
-			<language type="fr_CA" draft="contributed">Canadian French</language>
-			<language type="fr_CH" draft="contributed">Swiss French</language>
 			<language type="mfe">Mauritian</language>
-			<language type="nl_BE" draft="contributed">Flemish</language>
-			<language type="pt_BR" draft="contributed">Brazilian Portuguese</language>
-			<language type="pt_PT" draft="contributed">European Portuguese</language>
 			<language type="ro_MD">Moldovan</language>
-			<language type="sr_ME" draft="contributed">Montenegrin</language>
-			<language type="sw_CD" draft="contributed">Congo Swahili</language>
 			<language type="tvl">Tuvaluan</language>
-			<language type="zh_Hans" draft="contributed">Simplified Chinese</language>
-			<language type="zh_Hant" draft="contributed">Traditional Chinese</language>
 		</languages>
 		<types>
 			<type key="calendar" type="dangi">Korean Calendar</type>
@@ -50,13 +28,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="d0" type="upper">To Upper Case</type>
 		</types>
 	</localeDisplayNames>
-	<characters>
-		<exemplarCharacters draft="unconfirmed">[a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="unconfirmed">[á à ă â å ä ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ú ù ŭ û ü ū ÿ]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
-		<exemplarCharacters type="numbers" draft="unconfirmed">[\- , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="unconfirmed">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
-	</characters>
 	<dates>
 		<calendars>
 			<calendar type="chinese">
@@ -282,22 +253,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">Dec.</month>
 						</monthWidth>
 					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="unconfirmed">Jan</month>
-							<month type="2" draft="unconfirmed">Feb</month>
-							<month type="3" draft="unconfirmed">Mar</month>
-							<month type="4" draft="unconfirmed">Apr</month>
-							<month type="5" draft="contributed">May</month>
-							<month type="6" draft="unconfirmed">Jun</month>
-							<month type="7" draft="unconfirmed">Jul</month>
-							<month type="8" draft="unconfirmed">Aug</month>
-							<month type="9" draft="unconfirmed">Sep</month>
-							<month type="10" draft="unconfirmed">Oct</month>
-							<month type="11" draft="unconfirmed">Nov</month>
-							<month type="12" draft="unconfirmed">Dec</month>
-						</monthWidth>
-					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
@@ -309,17 +264,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="thu">Thu.</day>
 							<day type="fri">Fri.</day>
 							<day type="sat">Sat.</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="unconfirmed">Sun</day>
-							<day type="mon" draft="unconfirmed">Mon</day>
-							<day type="tue" draft="unconfirmed">Tue</day>
-							<day type="wed" draft="unconfirmed">Wed</day>
-							<day type="thu" draft="unconfirmed">Thu</day>
-							<day type="fri" draft="unconfirmed">Fri</day>
-							<day type="sat" draft="unconfirmed">Sat</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -867,17 +811,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one" draft="contributed">Israeli new sheqel</displayName>
 				<displayName count="other" draft="contributed">Israeli new sheqels</displayName>
 			</currency>
-			<currency type="VEF">
-				<displayName draft="contributed">Venezuelan Bolívar (2008–2018)</displayName>
-				<displayName count="one" draft="contributed">Venezuelan bolívar (2008–2018)</displayName>
-				<displayName count="other" draft="contributed">Venezuelan bolívars (2008–2018)</displayName>
-			</currency>
-			<currency type="VES">
-				<displayName draft="contributed">Venezuelan Bolívar</displayName>
-				<displayName count="one" draft="contributed">Venezuelan bolívar</displayName>
-				<displayName count="other" draft="contributed">Venezuelan bolívars</displayName>
-				<symbol draft="contributed">VES</symbol>
-			</currency>
 		</currencies>
 	</numbers>
 	<units>
@@ -974,8 +907,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName draft="contributed">mi./US gal.</displayName>
-				<unitPattern count="one" draft="contributed">{0} mpg US</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mpg US</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName draft="contributed">mi./gal.</displayName>
@@ -1127,10 +1058,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="pressure-inch-hg">
 				<displayName draft="contributed">inHg</displayName>
-			</unit>
-			<unit type="speed-kilometer-per-hour">
-				<unitPattern count="one" draft="contributed">{0} km/h</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} km/h</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName draft="contributed">metres/sec.</displayName>
@@ -1329,11 +1256,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="mass-stone">
 				<displayName draft="contributed">st.</displayName>
 			</unit>
-			<unit type="speed-kilometer-per-hour">
-				<displayName draft="contributed">km/h</displayName>
-				<unitPattern count="one" draft="contributed">{0}km/h</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}km/h</unitPattern>
-			</unit>
 			<unit type="speed-mile-per-hour">
 				<displayName draft="contributed">mi./hr.</displayName>
 			</unit>
@@ -1386,7 +1308,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="leftwards_rightwards_arrows" draft="contributed">leftward rightward arrow</characterLabel>
 		<characterLabel type="letterlike_symbols" draft="contributed">letter-like symbol</characterLabel>
 		<characterLabel type="limited_use" draft="contributed">limited use</characterLabel>
-		<characterLabel type="math_symbols" draft="contributed">math symbol</characterLabel>
 		<characterLabel type="nonspacing" draft="contributed">non-spacing</characterLabel>
 		<characterLabel type="rightwards_arrows" draft="contributed">rightward arrow</characterLabel>
 		<characterLabel type="upwards_arrows" draft="contributed">upward arrows</characterLabel>

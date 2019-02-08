@@ -263,6 +263,10 @@ characters/parseLenients/parseLenient[@sample='%anyAttribute'][@scope='%anyAttri
 
 //ldml/units/durationUnit[@type="(%A)"]/durationUnitPattern$ ; /durationUnits/$1
 
+//ldml/units/unitLength[@type="narrow"]/unit[@type="(\w++)-(%A)"]/alias[@source="locale"][@path="../unit[@type='(\w++)-(%A)']"] ; /unitsNarrow/$1/$2:alias ; values=/LOCALE/unitsNarrow/$3/$4
+//ldml/units/unitLength[@type="short"]/unit[@type="(\w++)-(%A)"]/alias[@source="locale"][@path="../unit[@type='(\w++)-(%A)']"] ; /unitsShort/$1/$2:alias ; values=/LOCALE/unitsShort/$3/$4
+//ldml/units/unitLength[@type="long"]/unit[@type="(\w++)-(%A)"]/alias[@source="locale"][@path="../unit[@type='(\w++)-(%A)']"] ; /units/$1/$2:alias ; values=/LOCALE/units/$3/$4
+
 //ldml/characterLabels/characterLabelPattern[@type="(%A)"][@count="(%A)"] ; /characterLabelPattern/$1/$2
 //ldml/characterLabels/characterLabelPattern[@type="(%A)"] ; /characterLabelPattern/$1 
 //ldml/characterLabels/characterLabel[@type="(%A)"] ; /characterLabel/$1 

@@ -229,17 +229,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤖" type="tts">mukha ng robot</annotation>
 		<annotation cp="😺">masaya | mukha | nakangiti | nakatawa | ngiti | pusa | pusang nakatawa</annotation>
 		<annotation cp="😺" type="tts">pusang nakatawa</annotation>
-		<annotation cp="😸">masaya | mata | mukha | nakangiti | pusa</annotation>
+		<annotation cp="😸">masaya | mata | mukha | nakangiti | pusa | pusang nakatawa kasama ang mga mata</annotation>
 		<annotation cp="😸" type="tts">pusang nakatawa kasama ang mga mata</annotation>
-		<annotation cp="😹">luha | masaya | mukha | naiiyak | pusa | tumatawa</annotation>
+		<annotation cp="😹">luha | masaya | mukha | naiiyak | pusa | pusang naiiyak sa kakatawa | tumatawa</annotation>
 		<annotation cp="😹" type="tts">pusang naiiyak sa kakatawa</annotation>
-		<annotation cp="😻">mata | mukha | nakangiti | pag-ibig | pagmamahal | pusa | puso</annotation>
+		<annotation cp="😻">mata | mukha | nakangiti | pag-ibig | pagmamahal | pusa | pusang nakangiti nang may hugis-pusong mga mata | puso</annotation>
 		<annotation cp="😻" type="tts">pusang nakangiti nang may hugis-pusong mga mata</annotation>
 		<annotation cp="😼">nakangisi | ngisi | pusa | pusang nakangisi</annotation>
 		<annotation cp="😼" type="tts">pusang nakangisi</annotation>
 		<annotation cp="😽">halik | humahalik | mata | nakapikit | pusa | pusang humahalik nang nakapikit</annotation>
 		<annotation cp="😽" type="tts">pusang humahalik nang nakapikit</annotation>
-		<annotation cp="🙀">mukha | nabigla | nagulat | pagod | pusa | takot</annotation>
+		<annotation cp="🙀">mukha | nabigla | nagulat | pagod | pusa | pusang pagod na pagod | takot</annotation>
 		<annotation cp="🙀" type="tts">pusang pagod na pagod</annotation>
 		<annotation cp="😿">luha | malungkot | mukha | nalulumbay | pusa | pusang umiiyak | umiiyak</annotation>
 		<annotation cp="😿" type="tts">pusang umiiyak</annotation>
@@ -417,15 +417,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">tao</annotation>
 		<annotation cp="👱">blond | buhok | lalaki | tao | taong may blond na buhok</annotation>
 		<annotation cp="👱" type="tts">taong may blond na buhok</annotation>
-		<annotation cp="🧑‍🤝‍🧑">hawak | hawak-kamay | holding hands | kamay | magkapareha | magkaparehang magkahawak-kamay | tao</annotation>
+		<annotation cp="🧑‍🤝‍🧑">hawak | hawak-kamay | holding hands | kamay | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
 		<annotation cp="🧑‍🤝‍🧑" type="tts">mga taong magkahawak-kamay</annotation>
 		<annotation cp="👨">bigote | lalaki</annotation>
 		<annotation cp="👨" type="tts">lalaki</annotation>
-		<annotation cp="👨‍🦯">bulag | lalaki | pagiging naa-access</annotation>
+		<annotation cp="👨‍🦯">bulag | lalaki | lalaking may baston | pagiging naa-access</annotation>
 		<annotation cp="👨‍🦯" type="tts">lalaking may baston</annotation>
-		<annotation cp="👨‍🦼">lalaki | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👨‍🦼">lalaki | lalaki sa de-kuryenteng wheelchair | pagiging naa-access | wheelchair</annotation>
 		<annotation cp="👨‍🦼" type="tts">lalaki sa de-kuryenteng wheelchair</annotation>
-		<annotation cp="👨‍🦽">lalaki | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👨‍🦽">lalaki | lalaki sa manu-manong wheelchair | pagiging naa-access | wheelchair</annotation>
 		<annotation cp="👨‍🦽" type="tts">lalaki sa manu-manong wheelchair</annotation>
 		<annotation cp="👱‍♂">blonde | lalaki | lalaking blonde</annotation>
 		<annotation cp="👱‍♂" type="tts">lalaking blonde</annotation>
@@ -433,11 +433,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧔" type="tts">taong may balbas</annotation>
 		<annotation cp="👩">babae</annotation>
 		<annotation cp="👩" type="tts">babae</annotation>
-		<annotation cp="👩‍🦯">babae | bulag | pagiging naa-access</annotation>
+		<annotation cp="👩‍🦯">babae | babaeng may baston | bulag | pagiging naa-access</annotation>
 		<annotation cp="👩‍🦯" type="tts">babaeng may baston</annotation>
-		<annotation cp="👩‍🦼">babae | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👩‍🦼">babae | babae sa de-kuryenteng wheelchair | pagiging naa-access | wheelchair</annotation>
 		<annotation cp="👩‍🦼" type="tts">babae sa de-kuryenteng wheelchair</annotation>
-		<annotation cp="👩‍🦽">babae | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👩‍🦽">babae | babae sa manu-manong wheelchair | pagiging naa-access | wheelchair</annotation>
 		<annotation cp="👩‍🦽" type="tts">babae sa manu-manong wheelchair</annotation>
 		<annotation cp="👱‍♀">babae | babae: blond na buhok | babaeng blond ang buhok | blonde</annotation>
 		<annotation cp="👱‍♀" type="tts">babae: blond na buhok</annotation>
@@ -815,11 +815,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛀" type="tts">taong naliligo</annotation>
 		<annotation cp="🛌">hotel | natutulog | taong nakahiga</annotation>
 		<annotation cp="🛌" type="tts">taong nakahiga</annotation>
-		<annotation cp="👫">babae | hawak-kamay | holding hands | kamay | lalaki | magkapareha</annotation>
+		<annotation cp="👫">babae | hawak-kamay | holding hands | kamay | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
 		<annotation cp="👫" type="tts">lalaki at babaeng magkahawak-kamay</annotation>
-		<annotation cp="👬">Gemini | hawak-kamay | kambal | lalaki | magkapareha | mga lalaki | zodiac</annotation>
+		<annotation cp="👬">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | lalaki | magkapareha | mga lalaki | zodiac</annotation>
 		<annotation cp="👬" type="tts">dalawang lalaking magkahawak-kamay</annotation>
-		<annotation cp="👭">babae | hawak-kamay | holding hands | kamay | magkapareha</annotation>
+		<annotation cp="👭">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | magkapareha</annotation>
 		<annotation cp="👭" type="tts">dalawang babaeng magkahawak-kamay</annotation>
 		<annotation cp="💏">couple | halik | maghahalikan | magkapareha | magkasintahan | pag-ibig | puso | romance | romansa</annotation>
 		<annotation cp="💏" type="tts">maghahalikan</annotation>
@@ -857,7 +857,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐶" type="tts">mukha ng aso</annotation>
 		<annotation cp="🐕">alaga | aso | hayop | pet</annotation>
 		<annotation cp="🐕" type="tts">aso</annotation>
-		<annotation cp="🐕‍🦺">aso | pagiging naa-access | serbisyo | tulong</annotation>
+		<annotation cp="🐕‍🦺">aso | asong panserbisyo | pagiging naa-access | serbisyo | tulong</annotation>
 		<annotation cp="🐕‍🦺" type="tts">asong panserbisyo</annotation>
 		<annotation cp="🐩">alaga | aso | hayop | pet | poodle</annotation>
 		<annotation cp="🐩" type="tts">poodle</annotation>
@@ -2547,7 +2547,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❇" type="tts">kinang</annotation>
 		<annotation cp="‼">bangbang | bantas | doble | dobleng tandang padamdam | marka | padamdam</annotation>
 		<annotation cp="‼" type="tts">dobleng tandang padamdam</annotation>
-		<annotation cp="⁉">! | !? | ? | bantas | interrobang | marka | padamdam | tanong</annotation>
+		<annotation cp="⁉">! | !? | ? | bantas | interrobang | marka | padamdam | tandang padamdam at pananong | tanong</annotation>
 		<annotation cp="⁉" type="tts">tandang padamdam at pananong</annotation>
 		<annotation cp="❓">bantas | marka | pananda | pananong | tanda | tandang pananong | tanong</annotation>
 		<annotation cp="❓" type="tts">tandang pananong</annotation>
@@ -2701,139 +2701,139 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">bahagharing bandila</annotation>
 		<annotation cp="🏴‍☠">bandila ng pirata | Jolly Roger | kayamanan | magnanakaw | pirata</annotation>
 		<annotation cp="🏴‍☠" type="tts">bandila ng pirata</annotation>
-		<annotation cp="🛕">hindu | sambahan | templo</annotation>
+		<annotation cp="🛕">hindu | hindu temple | sambahan | templo</annotation>
 		<annotation cp="🛕" type="tts">hindu temple</annotation>
-		<annotation cp="🛺">tuk tuk</annotation>
+		<annotation cp="🛺">auto rickshaw | tuk tuk</annotation>
 		<annotation cp="🛺" type="tts">auto rickshaw</annotation>
-		<annotation cp="🟠">bilog | orange</annotation>
+		<annotation cp="🟠">bilog | orange | orange na bilog</annotation>
 		<annotation cp="🟠" type="tts">orange na bilog</annotation>
-		<annotation cp="🟡">bilog | dilaw</annotation>
+		<annotation cp="🟡">bilog | dilaw | dilaw na bilog</annotation>
 		<annotation cp="🟡" type="tts">dilaw na bilog</annotation>
-		<annotation cp="🟢">berde | bilog</annotation>
+		<annotation cp="🟢">berde | berdeng bilog | bilog</annotation>
 		<annotation cp="🟢" type="tts">berdeng bilog</annotation>
-		<annotation cp="🟣">bilog | lila</annotation>
+		<annotation cp="🟣">bilog | lila | lilang bilog</annotation>
 		<annotation cp="🟣" type="tts">lilang bilog</annotation>
-		<annotation cp="🟤">bilog | brown</annotation>
+		<annotation cp="🟤">bilog | brown | brown na bilog</annotation>
 		<annotation cp="🟤" type="tts">brown na bilog</annotation>
-		<annotation cp="🟥">parisukat | pula</annotation>
+		<annotation cp="🟥">parisukat | pula | pulang parisukat</annotation>
 		<annotation cp="🟥" type="tts">pulang parisukat</annotation>
-		<annotation cp="🟦">asul | parisukat</annotation>
+		<annotation cp="🟦">asul | asul na parisukat | parisukat</annotation>
 		<annotation cp="🟦" type="tts">asul na parisukat</annotation>
-		<annotation cp="🟧">orange | parisukat</annotation>
+		<annotation cp="🟧">orange | orange na parisukat | parisukat</annotation>
 		<annotation cp="🟧" type="tts">orange na parisukat</annotation>
-		<annotation cp="🟨">dilaw | parisukat</annotation>
+		<annotation cp="🟨">dilaw | dilaw na parisukat | parisukat</annotation>
 		<annotation cp="🟨" type="tts">dilaw na parisukat</annotation>
-		<annotation cp="🟩">berde | parisukat</annotation>
+		<annotation cp="🟩">berde | berdeng parisukat | parisukat</annotation>
 		<annotation cp="🟩" type="tts">berdeng parisukat</annotation>
-		<annotation cp="🟪">lila | parisukat</annotation>
+		<annotation cp="🟪">lila | lilang parisukat | parisukat</annotation>
 		<annotation cp="🟪" type="tts">lilang parisukat</annotation>
-		<annotation cp="🟫">brown | parisukat</annotation>
+		<annotation cp="🟫">brown | brown na parisukat | parisukat</annotation>
 		<annotation cp="🟫" type="tts">brown na parisukat</annotation>
-		<annotation cp="🤍">puso | puti</annotation>
+		<annotation cp="🤍">puso | puti | puting puso</annotation>
 		<annotation cp="🤍" type="tts">puting puso</annotation>
-		<annotation cp="🤎">kayumanggi | puso</annotation>
+		<annotation cp="🤎">kayumanggi | kayumangging puso | puso</annotation>
 		<annotation cp="🤎" type="tts">kayumangging puso</annotation>
-		<annotation cp="🤏">maliit na halaga</annotation>
+		<annotation cp="🤏">kamay na kumukurot | maliit na halaga</annotation>
 		<annotation cp="🤏" type="tts">kamay na kumukurot</annotation>
-		<annotation cp="🤿">diving | scuba | snorkeling</annotation>
+		<annotation cp="🤿">diving | diving mask | scuba | snorkeling</annotation>
 		<annotation cp="🤿" type="tts">diving mask</annotation>
-		<annotation cp="🥱">humihikab | nababagot | pagod</annotation>
+		<annotation cp="🥱">humihikab | mukhang humihikab | nababagot | pagod</annotation>
 		<annotation cp="🥱" type="tts">mukhang humihikab</annotation>
-		<annotation cp="🥻">bestida | damit</annotation>
+		<annotation cp="🥻">bestida | damit | sari</annotation>
 		<annotation cp="🥻" type="tts">sari</annotation>
-		<annotation cp="🦥">mabagal | tamad</annotation>
+		<annotation cp="🦥">mabagal | Sloth | tamad</annotation>
 		<annotation cp="🦥" type="tts">Sloth</annotation>
-		<annotation cp="🦦">mapaglaro | pangingisda</annotation>
+		<annotation cp="🦦">mapaglaro | otter | pangingisda</annotation>
 		<annotation cp="🦦" type="tts">otter</annotation>
-		<annotation cp="🦧">tsonggo</annotation>
+		<annotation cp="🦧">orangutan | tsonggo</annotation>
 		<annotation cp="🦧" type="tts">orangutan</annotation>
-		<annotation cp="🦨">mabaho</annotation>
+		<annotation cp="🦨">mabaho | skunk</annotation>
 		<annotation cp="🦨" type="tts">skunk</annotation>
-		<annotation cp="🦩">magarbo | tropikal</annotation>
+		<annotation cp="🦩">flamingo | magarbo | tropikal</annotation>
 		<annotation cp="🦩" type="tts">flamingo</annotation>
-		<annotation cp="🦪">pagsisid | perlas</annotation>
+		<annotation cp="🦪">pagsisid | perlas | talaba</annotation>
 		<annotation cp="🦪" type="tts">talaba</annotation>
-		<annotation cp="🦮">bulag | gabay | pagiging naa-access</annotation>
+		<annotation cp="🦮">bulag | gabay | gabay na aso | pagiging naa-access</annotation>
 		<annotation cp="🦮" type="tts">gabay na aso</annotation>
-		<annotation cp="🦯">bulag | pagiging naa-access</annotation>
+		<annotation cp="🦯">baston | bulag | pagiging naa-access</annotation>
 		<annotation cp="🦯" type="tts">baston</annotation>
 		<annotation cp="🦺">kaligtasan | life vest | pang-emergency</annotation>
 		<annotation cp="🦺" type="tts">life vest</annotation>
-		<annotation cp="🦻">hirap makarinig | pagiging naa-access</annotation>
+		<annotation cp="🦻">hirap makarinig | pagiging naa-access | tainga na may hearing aid</annotation>
 		<annotation cp="🦻" type="tts">tainga na may hearing aid</annotation>
-		<annotation cp="🦼">pagiging naa-access</annotation>
+		<annotation cp="🦼">de-kuryenteng wheelchair | pagiging naa-access</annotation>
 		<annotation cp="🦼" type="tts">de-kuryenteng wheelchair</annotation>
-		<annotation cp="🦽">pagiging naa-access</annotation>
+		<annotation cp="🦽">manu-manong wheelchair | pagiging naa-access</annotation>
 		<annotation cp="🦽" type="tts">manu-manong wheelchair</annotation>
-		<annotation cp="🦾">pagiging naa-access | prosthetic</annotation>
+		<annotation cp="🦾">mekanikal na braso | pagiging naa-access | prosthetic</annotation>
 		<annotation cp="🦾" type="tts">mekanikal na braso</annotation>
-		<annotation cp="🦿">pagiging naa-access | prosthetic</annotation>
+		<annotation cp="🦿">mekanikal na binti | pagiging naa-access | prosthetic</annotation>
 		<annotation cp="🦿" type="tts">mekanikal na binti</annotation>
-		<annotation cp="🧃">inumin | juice | kahin ng juice</annotation>
+		<annotation cp="🧃">inumin | juice | kahin ng juice | kahon ng inumin</annotation>
 		<annotation cp="🧃" type="tts">kahon ng inumin</annotation>
-		<annotation cp="🧄">pampalasa</annotation>
+		<annotation cp="🧄">bawang | pampalasa</annotation>
 		<annotation cp="🧄" type="tts">bawang</annotation>
-		<annotation cp="🧅">pampalasa</annotation>
+		<annotation cp="🧅">pampalasa | sibuyas</annotation>
 		<annotation cp="🧅" type="tts">sibuyas</annotation>
-		<annotation cp="🧆">chickpea | meatball</annotation>
+		<annotation cp="🧆">chickpea | falafel | meatball</annotation>
 		<annotation cp="🧆" type="tts">falafel</annotation>
-		<annotation cp="🧇">hindi makapagdesisyon | hindi makapagpasya | iron</annotation>
+		<annotation cp="🧇">hindi makapagdesisyon | hindi makapagpasya | iron | waffle</annotation>
 		<annotation cp="🧇" type="tts">waffle</annotation>
-		<annotation cp="🧈">dairy | produktong gawa sa gatas</annotation>
+		<annotation cp="🧈">dairy | mantikilya | produktong gawa sa gatas</annotation>
 		<annotation cp="🧈" type="tts">mantikilya</annotation>
-		<annotation cp="🧉">inumin</annotation>
+		<annotation cp="🧉">inumin | mate</annotation>
 		<annotation cp="🧉" type="tts">mate</annotation>
-		<annotation cp="🧊">iceberg | malamig | yelo</annotation>
+		<annotation cp="🧊">ice cube | iceberg | malamig | yelo</annotation>
 		<annotation cp="🧊" type="tts">ice cube</annotation>
-		<annotation cp="🧍">nakatayo | tumayo</annotation>
+		<annotation cp="🧍">nakatayo | nakatayong tao | tumayo</annotation>
 		<annotation cp="🧍" type="tts">nakatayong tao</annotation>
-		<annotation cp="🧍‍♀">babae | nakatayo</annotation>
+		<annotation cp="🧍‍♀">babae | babaeng nakatayo | nakatayo</annotation>
 		<annotation cp="🧍‍♀" type="tts">babaeng nakatayo</annotation>
-		<annotation cp="🧍‍♂">lalaki | nakatayo</annotation>
+		<annotation cp="🧍‍♂">lalaki | lalaking nakatayo | nakatayo</annotation>
 		<annotation cp="🧍‍♂" type="tts">lalaking nakatayo</annotation>
-		<annotation cp="🧎">lumuhod | nakaluhod</annotation>
+		<annotation cp="🧎">lumuhod | nakaluhod | taong nakaluhod</annotation>
 		<annotation cp="🧎" type="tts">taong nakaluhod</annotation>
-		<annotation cp="🧎‍♀">babae | nakaluhod</annotation>
+		<annotation cp="🧎‍♀">babae | babaeng nakaluhod | nakaluhod</annotation>
 		<annotation cp="🧎‍♀" type="tts">babaeng nakaluhod</annotation>
-		<annotation cp="🧎‍♂">lalaki | nakaluhod</annotation>
+		<annotation cp="🧎‍♂">lalaki | lalaking nakaluhod | nakaluhod</annotation>
 		<annotation cp="🧎‍♂" type="tts">lalaking nakaluhod</annotation>
-		<annotation cp="🧏">bingi | pagiging naa-access | pandinig | tainga</annotation>
+		<annotation cp="🧏">bingi | pagiging naa-access | pandinig | tainga | taong bingi</annotation>
 		<annotation cp="🧏" type="tts">taong bingi</annotation>
-		<annotation cp="🧏‍♀">babae | bingi</annotation>
+		<annotation cp="🧏‍♀">babae | babaeng bingi | bingi</annotation>
 		<annotation cp="🧏‍♀" type="tts">babaeng bingi</annotation>
-		<annotation cp="🧏‍♂">bingi | lalaki</annotation>
+		<annotation cp="🧏‍♂">bingi | lalaki | lalaking bingi</annotation>
 		<annotation cp="🧏‍♂" type="tts">lalaking bingi</annotation>
-		<annotation cp="🩰">ballet | sayaw</annotation>
+		<annotation cp="🩰">ballet | sapatos pang-ballet | sayaw</annotation>
 		<annotation cp="🩰" type="tts">sapatos pang-ballet</annotation>
-		<annotation cp="🩱">bathing suit | panligo</annotation>
+		<annotation cp="🩱">bathing suit | one-piece na swimsuit | panligo</annotation>
 		<annotation cp="🩱" type="tts">one-piece na swimsuit</annotation>
-		<annotation cp="🩲">bathing suit | damit panloob | one-piece | panligo | swimsuit | underwear</annotation>
+		<annotation cp="🩲">bathing suit | damit panloob | mga brief | one-piece | panligo | swimsuit | underwear</annotation>
 		<annotation cp="🩲" type="tts">mga brief</annotation>
-		<annotation cp="🩳">bathing suit | damit panloob | panligo | pantalon | underwear</annotation>
+		<annotation cp="🩳">bathing suit | damit panloob | panligo | pantalon | shorts | underwear</annotation>
 		<annotation cp="🩳" type="tts">shorts</annotation>
-		<annotation cp="🩸">donasyon ng dugo | gamot | regla</annotation>
+		<annotation cp="🩸">donasyon ng dugo | gamot | patak ng dugo | regla</annotation>
 		<annotation cp="🩸" type="tts">patak ng dugo</annotation>
-		<annotation cp="🩹">bandaid</annotation>
+		<annotation cp="🩹">adhesive na bandaid | bandaid</annotation>
 		<annotation cp="🩹" type="tts">adhesive na bandaid</annotation>
-		<annotation cp="🩺">doktor | medisina | puso</annotation>
+		<annotation cp="🩺">doktor | medisina | puso | stethoscope</annotation>
 		<annotation cp="🩺" type="tts">stethoscope</annotation>
-		<annotation cp="🪀">laruan | pabalik-balik | pataas-pababa</annotation>
+		<annotation cp="🪀">laruan | pabalik-balik | pataas-pababa | yoyo</annotation>
 		<annotation cp="🪀" type="tts">yoyo</annotation>
-		<annotation cp="🪁">lumipad | pumailanlang</annotation>
+		<annotation cp="🪁">lumipad | pumailanlang | saranggola</annotation>
 		<annotation cp="🪁" type="tts">saranggola</annotation>
 		<annotation cp="🪂">hang-glide | pag-skydive | paglipad sa ere | parachute | parasail</annotation>
 		<annotation cp="🪂" type="tts">parachute</annotation>
-		<annotation cp="🪐">saturn | saturnine</annotation>
+		<annotation cp="🪐">planetang may singsing | saturn | saturnine</annotation>
 		<annotation cp="🪐" type="tts">planetang may singsing</annotation>
-		<annotation cp="🪑">umupo | upuan</annotation>
+		<annotation cp="🪑">silya | umupo | upuan</annotation>
 		<annotation cp="🪑" type="tts">silya</annotation>
-		<annotation cp="🪒">matalas | pang-ahit</annotation>
+		<annotation cp="🪒">matalas | pang-ahit | razor</annotation>
 		<annotation cp="🪒" type="tts">razor</annotation>
-		<annotation cp="🪓">biyakin | kahoy | maliit na palakol | pamputol | pansibak</annotation>
+		<annotation cp="🪓">biyakin | kahoy | maliit na palakol | palakol | pamputol | pansibak</annotation>
 		<annotation cp="🪓" type="tts">palakol</annotation>
-		<annotation cp="🪔">diya | lampara | langis</annotation>
+		<annotation cp="🪔">diya | lampara | lamparang diya | langis</annotation>
 		<annotation cp="🪔" type="tts">lamparang diya</annotation>
-		<annotation cp="🪕">musika | stringed</annotation>
+		<annotation cp="🪕">banjo | musika | stringed</annotation>
 		<annotation cp="🪕" type="tts">banjo</annotation>
 	</annotations>
 </ldml>

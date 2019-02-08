@@ -775,7 +775,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CX">جزیرهٔ کریسمس</territory>
 			<territory type="CY">قبرس</territory>
 			<territory type="CZ">جمهوری چک</territory>
-			<territory type="CZ" alt="variant" draft="provisional">CZ</territory>
 			<territory type="DE">آلمان</territory>
 			<territory type="DG">دیه‌گو گارسیا</territory>
 			<territory type="DJ">جیبوتی</territory>
@@ -876,7 +875,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ML">مالی</territory>
 			<territory type="MM">میانمار (برمه)</territory>
 			<territory type="MN">مغولستان</territory>
-			<territory type="MO">ماکائو، منطقه ویژه اداری چین</territory>
+			<territory type="MO">ماکائو، منطقۀ ویژۀ اداری چین</territory>
 			<territory type="MO" alt="short">ماکائو</territory>
 			<territory type="MP">جزایر ماریانای شمالی</territory>
 			<territory type="MQ">مارتینیک</territory>
@@ -983,7 +982,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="VU">وانواتو</territory>
 			<territory type="WF">والیس و فوتونا</territory>
 			<territory type="WS">ساموآ</territory>
-			<territory type="XA" draft="contributed">سندرم لهجه خارجی</territory>
 			<territory type="XK">کوزوو</territory>
 			<territory type="YE">یمن</territory>
 			<territory type="YT">مایوت</territory>
@@ -1401,7 +1399,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>d/M/y G</pattern>
+							<pattern>y/M/d G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1478,13 +1476,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatFallback>{0} تا {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B">h B – h B</greatestDifference>
-							<greatestDifference id="h">h–h B</greatestDifference>
+							<greatestDifference id="B">h B تا h B</greatestDifference>
+							<greatestDifference id="h">h تا h B</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
-							<greatestDifference id="h">h:mm–h:mm B</greatestDifference>
-							<greatestDifference id="m">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="B">h:mm B تا h:mm B</greatestDifference>
+							<greatestDifference id="h">h:mm تا h:mm B</greatestDifference>
+							<greatestDifference id="m">h:mm تا h:mm B</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d تا d</greatestDifference>
@@ -1979,8 +1977,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MMMEd">E d LLL</dateFormatItem>
 						<dateFormatItem id="MMMMd">d LLLL</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E d LLLL</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="one">هفته W از MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="other">هفته W از MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">هفتۀ W از LLLL</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">هفتۀ W از LLLL</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
@@ -2004,13 +2002,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatFallback>{0} تا {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B">h B – h B</greatestDifference>
-							<greatestDifference id="h">h–h B</greatestDifference>
+							<greatestDifference id="B">h B تا h B</greatestDifference>
+							<greatestDifference id="h">h تا h B</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
-							<greatestDifference id="h">h:mm–h:mm B</greatestDifference>
-							<greatestDifference id="m">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="B">h:mm B تا h:mm B</greatestDifference>
+							<greatestDifference id="h">h:mm تا h:mm B</greatestDifference>
+							<greatestDifference id="m">h:mm تا h:mm B</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d تا d</greatestDifference>
@@ -6909,9 +6907,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} هزارم</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName>در ده‌هزارم</displayName>
-				<unitPattern count="one">{0} در ده‌هزارم</unitPattern>
-				<unitPattern count="other">{0} در ده‌هزارم</unitPattern>
+				<displayName>ده‌هزارم</displayName>
+				<unitPattern count="one">{0} ده‌هزارم</unitPattern>
+				<unitPattern count="other">{0} ده‌هزارم</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>مول</displayName>
@@ -7241,9 +7239,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} امتیاز</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
-				<displayName draft="contributed">رادیوهای خورشیدی</displayName>
-				<unitPattern count="one" draft="contributed">{0} شعاع خورشیدی</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} رادیوهای خورشیدی</unitPattern>
+				<displayName draft="contributed">شعاع خورشید</displayName>
+				<unitPattern count="one" draft="contributed">{0} شعاع خورشید</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} شعاع خورشید</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>لوکس</displayName>
@@ -7320,9 +7318,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} جرم زمین</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
-				<displayName>جرم خورشیدی</displayName>
-				<unitPattern count="one">{0} جرم خورشیدی</unitPattern>
-				<unitPattern count="other">{0} جرم خورشیدی</unitPattern>
+				<displayName>جرم خورشید</displayName>
+				<unitPattern count="one">{0} جرم خورشید</unitPattern>
+				<unitPattern count="other">{0} جرم خورشید</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>گیگاوات</displayName>
@@ -7693,7 +7691,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>هزارم</displayName>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName>در ده‌هزارم</displayName>
+				<displayName>ده‌هزارم</displayName>
 				<unitPattern count="one">{0}‱</unitPattern>
 				<unitPattern count="other">{0}‱</unitPattern>
 			</unit>
@@ -8023,7 +8021,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} امتیاز</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
-				<displayName draft="contributed">رادیوهای خورشیدی</displayName>
+				<displayName draft="contributed">شعاع خورشید</displayName>
 				<unitPattern count="other">{0} ☉R</unitPattern>
 			</unit>
 			<unit type="light-lux">
@@ -8101,7 +8099,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ⊕M</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
-				<displayName>جرم خورشیدی</displayName>
+				<displayName>جرم خورشید</displayName>
 				<unitPattern count="one">{0} ☉M</unitPattern>
 				<unitPattern count="other">{0} ☉M</unitPattern>
 			</unit>

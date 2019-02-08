@@ -2745,7 +2745,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">Z</day>
+							<day type="mon">M</day>
 							<day type="tue">D</day>
+							<day type="wed">W</day>
 							<day type="thu">D</day>
 							<day type="fri">V</day>
 							<day type="sat">Z</day>
@@ -2781,7 +2783,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">Z</day>
+							<day type="mon">M</day>
 							<day type="tue">D</day>
+							<day type="wed">W</day>
 							<day type="thu">D</day>
 							<day type="fri">V</day>
 							<day type="sat">Z</day>
@@ -9966,6 +9970,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} kilobits</unitPattern>
 			</unit>
 			<unit type="digital-bit">
+				<unitPattern count="one">{0} bit</unitPattern>
 				<unitPattern count="other">{0} bits</unitPattern>
 			</unit>
 			<unit type="duration-century">
@@ -10646,6 +10651,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} mpg imp.</unitPattern>
 			</unit>
 			<unit type="digital-bit">
+				<unitPattern count="one">{0} bit</unitPattern>
 				<unitPattern count="other">{0} bits</unitPattern>
 			</unit>
 			<unit type="duration-century">
@@ -10916,6 +10922,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} m/gUK</unitPattern>
 			</unit>
 			<unit type="digital-bit">
+				<unitPattern count="one" draft="contributed">{0} bit</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} bits</unitPattern>
 			</unit>
 			<unit type="duration-century">

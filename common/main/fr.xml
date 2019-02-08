@@ -2563,6 +2563,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<day type="wed">M</day>
 							<day type="thu">J</day>
 							<day type="fri">V</day>
+							<day type="sat">S</day>
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun">di</day>
@@ -2600,6 +2601,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<day type="wed">M</day>
 							<day type="thu">J</day>
 							<day type="fri">V</day>
+							<day type="sat">S</day>
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun">di</day>
@@ -9559,6 +9561,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-percent">
 				<displayName>pour cent</displayName>
 				<unitPattern count="one">{0} pour cent</unitPattern>
+				<unitPattern count="other">{0} pour cent</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<displayName>pour mille</displayName>

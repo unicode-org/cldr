@@ -1656,6 +1656,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<day type="wed">S</day>
 							<day type="thu">Č</day>
 							<day type="fri">P</day>
+							<day type="sat">S</day>
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun">ned</day>
@@ -7794,6 +7795,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="digital-bit">
 				<displayName>bitovi</displayName>
+				<unitPattern count="one">{0} bit</unitPattern>
 				<unitPattern count="few">{0} bita</unitPattern>
 				<unitPattern count="other">{0} bitova</unitPattern>
 			</unit>
@@ -8608,6 +8610,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} bajtova</unitPattern>
 			</unit>
 			<unit type="digital-bit">
+				<unitPattern count="one">{0} bit</unitPattern>
 				<unitPattern count="few">{0} bita</unitPattern>
 				<unitPattern count="other">{0} bitova</unitPattern>
 			</unit>

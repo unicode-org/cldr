@@ -6755,17 +6755,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-percent">
 				<displayName draft="contributed">procents</displayName>
+				<unitPattern count="zero" draft="contributed">{0} procents</unitPattern>
 				<unitPattern count="one" draft="contributed">{0} procents</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} procents</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<displayName draft="contributed">promile</displayName>
+				<unitPattern count="zero" draft="contributed">{0} promile</unitPattern>
 				<unitPattern count="one" draft="contributed">{0} promile</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} promile</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
 				<displayName>promiriāde</displayName>
 				<unitPattern count="zero">{0}‱</unitPattern>
+				<unitPattern count="one">{0}‱</unitPattern>
+				<unitPattern count="other">{0}‱</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>moli</displayName>

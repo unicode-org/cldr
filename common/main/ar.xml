@@ -2846,8 +2846,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="day-short">
 				<displayName>يوم</displayName>
+				<relative type="-2" draft="contributed">أول أمس</relative>
 				<relative type="-1" draft="contributed">أمس</relative>
+				<relative type="0" draft="contributed">اليوم</relative>
 				<relative type="1" draft="contributed">غدًا</relative>
+				<relative type="2" draft="contributed">بعد الغد</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="zero">خلال {0} يوم</relativeTimePattern>
 					<relativeTimePattern count="one">خلال يوم واحد</relativeTimePattern>
@@ -2867,8 +2870,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="day-narrow">
 				<displayName>يوم</displayName>
+				<relative type="-2" draft="contributed">أول أمس</relative>
 				<relative type="-1" draft="contributed">أمس</relative>
+				<relative type="0" draft="contributed">اليوم</relative>
 				<relative type="1" draft="contributed">غدًا</relative>
+				<relative type="2" draft="contributed">بعد الغد</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="zero">خلال {0} يوم</relativeTimePattern>
 					<relativeTimePattern count="one">خلال يوم واحد</relativeTimePattern>
@@ -8571,7 +8577,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-permille">
 				<displayName>في الألف</displayName>
+				<unitPattern count="zero">{0} في الألف</unitPattern>
 				<unitPattern count="one">{0} في الألف</unitPattern>
+				<unitPattern count="two">{0} في الألف</unitPattern>
+				<unitPattern count="few">{0} في الألف</unitPattern>
+				<unitPattern count="many">{0} في الألف</unitPattern>
 				<unitPattern count="other">{0} في الألف</unitPattern>
 			</unit>
 			<unit type="concentr-mole">

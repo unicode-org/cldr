@@ -1,5 +1,6 @@
 package org.unicode.cldr.tool;
 
+import java.io.File;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -26,6 +27,99 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.util.Output;
 
 public class GetChanges {
+    static CLDRConfig testInfo = ToolConfig.getToolInstance();
+    static CLDRFile english = testInfo.getEnglish();
+    static boolean verbose = true;
+
+    public static void main(String[] args) {
+        Matcher localeFilter = Pattern.compile(".*").matcher("");
+        File vxml = new File(CLDRPaths.AUX_DIRECTORY, "voting/"
+            + "35"
+            + "/vxml");
+        for (File vxmlDir : vxml.listFiles()) {
+            if (!vxmlDir.isDirectory()) {
+                continue;
+            }
+            System.out.println("#Dir: " + vxmlDir);
+            String l1 = CLDRPaths.BASE_DIRECTORY + vxmlDir.getName() + "/";
+            // common, ...
+            File[] commonSeedFiles = vxmlDir.listFiles();
+            if (commonSeedFiles == null) {
+                System.out.println("#No files in: " + vxmlDir);
+                continue;
+            }
+            for (File commonSeed : commonSeedFiles) {
+                if (!commonSeed.isDirectory() 
+                    || "dtd".equals(commonSeed.getName())) {
+                    continue;
+                }
+                System.out.println("#Dir=\t" + commonSeed);
+                String l2 = l1 + commonSeed.getName();
+                // main, annotations
+                Factory factoryVxml = Factory.make(commonSeed.toString(), ".*");
+                Factory factoryTrunk = Factory.make(l2, ".*");
+
+                for (String locale : factoryVxml.getAvailable()) {
+                    if (!localeFilter.reset(locale).matches()) {
+                        continue;
+                    }
+                    if (locale.equals("root")) {
+                        continue;
+                    }
+                    CLDRFile vxmlFile;
+                    try {
+                        vxmlFile = factoryVxml.make(locale, false);
+                    } catch (Exception e1) {
+                        System.out.println("#Error: dir=\t" + commonSeed + "\t locale=\t" + locale + "\tmsg=\t" + e1.getMessage());
+                        continue;
+                    }
+                    CLDRFile trunkFile = null;
+                    try {
+                        trunkFile = factoryTrunk.make(locale, true);
+                    } catch (Exception e) {
+                    }
+                    compare(vxmlDir.getName() + "/" + commonSeed.getName(), vxmlFile, trunkFile);
+                }
+            }
+        }
+    }
+
+    private static void compare(String dir, CLDRFile vxmlFile, CLDRFile trunkFile) {
+        String localeID = vxmlFile.getLocaleID();
+        //System.out.println("#Dir: " + dir + ";\tLocale: " + localeID);
+//        Output<String> localeWhereFound = new Output<>();
+//        Output<String> pathWhereFound = new Output<>();
+        int countNew = 0;
+        for (String path : vxmlFile) {
+            if (path.contains("/identity")) {
+                continue;
+            }
+            String vxmlValue = vxmlFile.getStringValue(path);
+            String trunkValue = trunkFile == null ? null : trunkFile.getStringValue(path);
+            if (Objects.equals(vxmlValue, trunkValue)) {
+                continue;
+            }
+//            String baileyValue = vxmlFile.getBaileyValue(path, pathWhereFound, localeWhereFound);
+//            if (!localeID.equals(localeWhereFound.value)) {
+//                continue;
+//            }
+//            if (!path.equals(pathWhereFound.value)) {
+//                continue;
+//            }
+            if (trunkValue == null) {
+                ++countNew;
+                if (verbose && !dir.contains("seed")) {
+                    System.out.println("new; locale=\t" + localeID + "\tvxml=\t" + vxmlValue + "\tpath=\t" + path);
+                }
+            } else {
+                // System.out.println("diff; locale=" + localeID + ";\tvxml=" + vxmlValue + ";\ttrunk=" + trunkValue + ";\tpath=" + path);
+            }
+        }
+        if (countNew != 0) {
+            System.out.println("#Dir=\t" + dir + "\tLocale=\t" + localeID + "\tCountNew=\t" + countNew);
+        }
+    }
+
     static class Data {
         final String valueLastRelease;
         final String valueSnapshot;
@@ -48,10 +142,8 @@ public class GetChanges {
         }
     }
 
-    public static void main(String[] args) {
-        CLDRConfig testInfo = ToolConfig.getToolInstance();
-        CLDRFile english = testInfo.getEnglish();
 
+    private void old() {
         boolean onlyMissing = true;
         String release = "33.1";
 
@@ -78,7 +170,7 @@ public class GetChanges {
         Multimap<String,PathHeader> missing = TreeMultimap.create();
 
         Set<String> locales = testInfo.getStandardCodes().getLocaleCoverageLocales(Organization.cldr, Collections.singleton(Level.MODERN));
-        
+
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : locales) {
             if (!ltp.set(locale).getRegion().isEmpty() || locale.equals("sr_Latn")) {
@@ -102,7 +194,7 @@ public class GetChanges {
                 lastRelease = lastReleaseFactory.make(locale, false);
             } catch (Exception e) {
             }
-            
+
             CLDRFile trunk = null;
             try {
                 trunk = trunkFactory.make(locale, false);

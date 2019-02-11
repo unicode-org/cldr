@@ -401,9 +401,9 @@ public class OutputFileManager {
 //    Map<String,?> keepAnnotations = ImmutableMap.of("SKIP_PATH", isAnnotations.negate());
 //    Map<String, Object> options = CldrUtility.asMap(new Object[][] {
 //        { "SUPPRESS_IM", true } });
-    Map<String, Object> OPTS_SKIP_ANNOTATIONS = ImmutableMap.of("SUPPRESS_IM", true,
+    Map<String, Object> OPTS_SKIP_ANNOTATIONS = ImmutableMap.of(
         "SKIP_PATH", isAnnotations);
-    Map<String, Object> OPTS_KEEP_ANNOTATIONS = ImmutableMap.of("SUPPRESS_IM", true,
+    Map<String, Object> OPTS_KEEP_ANNOTATIONS = ImmutableMap.of(
         "SKIP_PATH", isAnnotations.negate());
 
     /**

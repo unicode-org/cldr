@@ -4762,8 +4762,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="10000000000" count="other" draft="unconfirmed">00G</pattern>
-					<pattern type="100000000000" count="other" draft="unconfirmed">000G</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0G</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00G</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000G</pattern>
 					<pattern type="1000000000000" count="other" draft="unconfirmed">0T</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00T</pattern>
 					<pattern type="100000000000000" count="other" draft="unconfirmed">000T</pattern>

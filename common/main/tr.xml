@@ -1586,6 +1586,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">G y – G y</greatestDifference>
+							<greatestDifference id="y">G y–y</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
 							<greatestDifference id="G">GGGGG MM.y – GGGGG MM.y</greatestDifference>
 							<greatestDifference id="M">GGGGG MM.y – MM.y</greatestDifference>
@@ -2114,6 +2118,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">G y – G y</greatestDifference>
+							<greatestDifference id="y">G y–y</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
 							<greatestDifference id="G">GGGGG MM.y – GGGGG MM.y</greatestDifference>
 							<greatestDifference id="M">GGGGG MM.y – MM.y</greatestDifference>
@@ -2251,7 +2259,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="5" draft="contributed">Şevat</month>
 							<month type="6" draft="contributed">Adar Rişon</month>
 							<month type="7" draft="contributed">Adar</month>
-							<month type="7"  draft="contributed" yeartype="leap">Veadar</month>
+							<month type="7" yeartype="leap" draft="contributed">Veadar</month>
 							<month type="8" draft="contributed">Nisan</month>
 							<month type="9" draft="contributed">İyar</month>
 							<month type="10" draft="contributed">Sivan</month>
@@ -2285,7 +2293,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="5" draft="contributed">Şevat</month>
 							<month type="6" draft="contributed">Adar Rişon</month>
 							<month type="7" draft="contributed">Adar</month>
-							<month type="7"  draft="contributed" yeartype="leap">Veadar</month>
+							<month type="7" yeartype="leap" draft="contributed">Veadar</month>
 							<month type="8" draft="contributed">Nisan</month>
 							<month type="9" draft="contributed">İyar</month>
 							<month type="10" draft="contributed">Sivan</month>
@@ -2301,7 +2309,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="5" draft="contributed">Şevat</month>
 							<month type="6" draft="contributed">Adar Rişon</month>
 							<month type="7" draft="contributed">Adar</month>
-							<month type="7"  draft="contributed" yeartype="leap">Veadar</month>
+							<month type="7" yeartype="leap" draft="contributed">Veadar</month>
 							<month type="8" draft="contributed">Nisan</month>
 							<month type="9" draft="contributed">İyar</month>
 							<month type="10" draft="contributed">Sivan</month>
@@ -2353,8 +2361,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="5" draft="contributed">C.evvel</month>
 							<month type="6" draft="contributed">C.ahir</month>
 							<month type="7" draft="contributed">Recep</month>
-							<month type="9" draft="contributed">Ram.</month>
 							<month type="8" draft="contributed">Şaban</month>
+							<month type="9" draft="contributed">Ram.</month>
 							<month type="10" draft="contributed">Şevval</month>
 							<month type="11" draft="contributed">Zilkade</month>
 							<month type="12" draft="contributed">Zilhicce</month>
@@ -7182,6 +7190,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">onbinde {0}</unitPattern>
 				<unitPattern count="other">onbinde {0}</unitPattern>
 			</unit>
+			<unit type="concentr-mole">
+				<displayName>mol</displayName>
+				<unitPattern count="one" draft="contributed">{0} mol</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mol</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litre/kilometre</displayName>
 				<unitPattern count="one">{0} litre/kilometre</unitPattern>
@@ -7990,6 +8003,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">‱{0}</unitPattern>
 				<unitPattern count="other">‱{0}</unitPattern>
 			</unit>
+			<unit type="concentr-mole">
+				<displayName>mol</displayName>
+				<unitPattern count="one" draft="contributed">{0} mol</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mol</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
 				<unitPattern count="one">{0} l/km</unitPattern>
@@ -8189,10 +8207,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="force-pound-force">
 				<displayName>pound kuvvet</displayName>
-				<unitPattern count="other">{0} lbf</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} lbf</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} lbf</unitPattern>
 			</unit>
 			<unit type="force-newton">
 				<displayName>newton</displayName>
+				<unitPattern count="one" draft="contributed">{0} N</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} N</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>GHz</displayName>
@@ -9035,6 +9056,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="2">{0} veya {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>

@@ -10023,6 +10023,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="end">{0}、または{1}</listPatternPart>
 			<listPatternPart type="2">{0}または{1}</listPatternPart>
 		</listPattern>
+		<listPattern type="standard-narrow">
+			<listPatternPart type="start" draft="contributed">{0}、{1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}、{1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0}、{1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0}、{1}</listPatternPart>
+		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}、{1}</listPatternPart>
 			<listPatternPart type="middle">{0}、{1}</listPatternPart>

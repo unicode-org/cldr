@@ -986,6 +986,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">G y – G y</greatestDifference>
+							<greatestDifference id="y">G y–y</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
 							<greatestDifference id="G">M/y (GGGGG) – M/y (GGGGG)</greatestDifference>
 							<greatestDifference id="M">M/y – M/y (GGGGG)</greatestDifference>
@@ -1502,6 +1506,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">G y – G y</greatestDifference>
+							<greatestDifference id="y">G y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
 							<greatestDifference id="G">M/y (GGGGG) – M/y (GGGGG)</greatestDifference>
@@ -5538,6 +5546,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} kvadrat dyum</unitPattern>
 				<perUnitPattern>{0}/kvadrat duym</perUnitPattern>
 			</unit>
+			<unit type="area-dunam">
+				<displayName>dunam</displayName>
+				<unitPattern count="one" draft="contributed">{0} dunam</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} dunam</unitPattern>
+			</unit>
 			<unit type="concentr-karat">
 				<displayName>karat</displayName>
 				<unitPattern count="one">{0} karat</unitPattern>
@@ -5572,6 +5585,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>promiriada</displayName>
 				<unitPattern count="one">{0} promiriada</unitPattern>
 				<unitPattern count="other">{0} promiriada</unitPattern>
+			</unit>
+			<unit type="concentr-mole">
+				<displayName>mol</displayName>
+				<unitPattern count="one" draft="contributed">{0} mol</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mol</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litr/kilometr</displayName>
@@ -6331,6 +6349,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} kv. duym</unitPattern>
 				<perUnitPattern>{0} kv. duym</perUnitPattern>
 			</unit>
+			<unit type="area-dunam">
+				<displayName>dunam</displayName>
+				<unitPattern count="one" draft="contributed">{0} dunam</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} dunam</unitPattern>
+			</unit>
 			<unit type="concentr-karat">
 				<displayName>karat</displayName>
 				<unitPattern count="one">{0} kt</unitPattern>
@@ -6363,6 +6386,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-permyriad">
 				<displayName>promiriada</displayName>
+				<unitPattern count="one" draft="contributed">{0}‱</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}‱</unitPattern>
+			</unit>
+			<unit type="concentr-mole">
+				<displayName>mol</displayName>
+				<unitPattern count="one" draft="contributed">{0} mol</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mol</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litr/km</displayName>
@@ -6553,6 +6583,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-electronvolt">
 				<displayName>elektronvolt</displayName>
+				<unitPattern count="one" draft="contributed">{0} eV</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} eV</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
 				<displayName>BTU</displayName>
@@ -6566,6 +6598,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="force-newton">
 				<displayName>nyuton</displayName>
+				<unitPattern count="one" draft="contributed">{0} N</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} N</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>GGs</displayName>
@@ -6684,6 +6718,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName>quyosh radiusi</displayName>
+				<unitPattern count="one" draft="contributed">{0} R☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} R☉</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lk</displayName>
@@ -6692,6 +6728,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>quyosh nuri kuchi</displayName>
+				<unitPattern count="one" draft="contributed">{0} L☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} L☉</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>t</displayName>
@@ -6749,12 +6787,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-dalton">
 				<displayName>dalton</displayName>
+				<unitPattern count="one" draft="contributed">{0} Da</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Da</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
 				<displayName>Yer massasi</displayName>
+				<unitPattern count="one" draft="contributed">{0} M⊕</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} M⊕</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
 				<displayName>quyosh massasi</displayName>
+				<unitPattern count="one" draft="contributed">{0} M☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} M☉</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>GVt</displayName>
@@ -6816,6 +6860,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} atm</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
 			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName>kPa</displayName>
+				<unitPattern count="one" draft="contributed">{0} kPa</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kPa</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName>MPa</displayName>
+				<unitPattern count="one" draft="contributed">{0} MPa</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} MPa</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/soat</displayName>
 				<unitPattern count="one">{0} km/soat</unitPattern>
@@ -6860,6 +6914,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>funt-fut</displayName>
 				<unitPattern count="one">{0} funt-fut</unitPattern>
 				<unitPattern count="other">{0} funt-fut</unitPattern>
+			</unit>
+			<unit type="torque-newton-meter">
+				<displayName>N⋅m</displayName>
+				<unitPattern count="one" draft="contributed">{0} N⋅m</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} N⋅m</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>km³</displayName>

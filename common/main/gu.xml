@@ -1162,8 +1162,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="’" draft="contributed">['ʼ՚᾽᾿’＇]</parseLenient>
+			<parseLenient sample="%" draft="contributed">[%٪﹪％]</parseLenient>
+			<parseLenient sample="‰" draft="contributed">[؉‰]</parseLenient>
 			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
 			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="¥" draft="contributed">[¥￥]</parseLenient>
+			<parseLenient sample="₩" draft="contributed">[₩￦]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
 			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
@@ -1432,8 +1437,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h B – h B</greatestDifference>
+							<greatestDifference id="h" draft="provisional">h–h B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
+							<greatestDifference id="h" draft="provisional">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="m" draft="provisional">h:mm–h:mm B</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G" draft="contributed">G y – G y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y–y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G" draft="contributed">GGGGG y-MM – GGGGG y-MM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">GGGGG y-MM – y-MM</greatestDifference>
+							<greatestDifference id="y" draft="contributed">GGGGG y-MM – y-MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
 							<greatestDifference id="d" draft="contributed">GGGGG y-dd-MM – y-dd-MM</greatestDifference>
@@ -1448,7 +1471,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y" draft="contributed">GGGGG y-dd-MM, E – y-dd-MM, E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G" draft="contributed">G y MMM – G y MMM</greatestDifference>
 							<greatestDifference id="M" draft="contributed">G y MMM – MMM</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y MMM – y MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
 							<greatestDifference id="d" draft="contributed">G y d–d MMM</greatestDifference>
@@ -1948,14 +1973,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h B – h B</greatestDifference>
 							<greatestDifference id="h">h – h B</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
 							<greatestDifference id="h">h:mm – h:mm B</greatestDifference>
 							<greatestDifference id="m">h:mm – h:mm B</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G" draft="contributed">G y – G y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y–y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G" draft="contributed">GGGGG y-MM – GGGGG y-MM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">GGGGG y-MM – y-MM</greatestDifference>
+							<greatestDifference id="y" draft="contributed">GGGGG y-MM – y-MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
 							<greatestDifference id="d" draft="contributed">GGGGG y-dd-MM – y-dd-MM</greatestDifference>
@@ -1967,6 +2003,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="d" draft="contributed">GGGGG y-dd-MM, E – y-dd-MM, E</greatestDifference>
 							<greatestDifference id="G" draft="contributed">GGGGG y-dd-MM, E – GGGGG y-dd-MM, E</greatestDifference>
 							<greatestDifference id="M" draft="contributed">GGGGG y-dd-MM, E – y-dd-MM, E</greatestDifference>
+							<greatestDifference id="y" draft="contributed">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G" draft="contributed">G y MMM – G y MMM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">G y MMM–MMM</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y MMM – y MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
 							<greatestDifference id="d" draft="contributed">G y d–d MMM</greatestDifference>
@@ -8206,6 +8248,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0}, અથવા {1}</listPatternPart>
 			<listPatternPart type="2">{0} અથવા {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-narrow">
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} અને {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} અને {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>

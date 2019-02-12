@@ -1323,8 +1323,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="’" draft="contributed">['ʼ՚᾽᾿’＇]</parseLenient>
+			<parseLenient sample="%" draft="contributed">[%٪﹪％]</parseLenient>
+			<parseLenient sample="‰" draft="contributed">[؉‰]</parseLenient>
 			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
 			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="¥" draft="contributed">[¥￥]</parseLenient>
+			<parseLenient sample="₩" draft="contributed">[₩￦]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
 			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
@@ -2260,7 +2265,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="5" draft="contributed">Szwat</month>
 							<month type="6" draft="contributed">Adar I</month>
 							<month type="7" draft="contributed">Adar</month>
-							<month type="7"  draft="contributed" yeartype="leap">Adar II</month>
+							<month type="7" yeartype="leap" draft="contributed">Adar II</month>
 							<month type="8" draft="contributed">Nisan</month>
 							<month type="9" draft="contributed">Ijar</month>
 							<month type="10" draft="contributed">Siwan</month>
@@ -2276,7 +2281,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="5" draft="contributed">Szwat</month>
 							<month type="6" draft="contributed">Adar I</month>
 							<month type="7" draft="contributed">Adar</month>
-							<month type="7"  draft="contributed" yeartype="leap">Adar II</month>
+							<month type="7" yeartype="leap" draft="contributed">Adar II</month>
 							<month type="8" draft="contributed">Nisan</month>
 							<month type="9" draft="contributed">Ijar</month>
 							<month type="10" draft="contributed">Siwan</month>
@@ -2310,7 +2315,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="5" draft="contributed">Szwat</month>
 							<month type="6" draft="contributed">Adar I</month>
 							<month type="7" draft="contributed">Adar</month>
-							<month type="7"  draft="contributed" yeartype="leap">Adar II</month>
+							<month type="7" yeartype="leap" draft="contributed">Adar II</month>
 							<month type="8" draft="contributed">Nisan</month>
 							<month type="9" draft="contributed">Ijar</month>
 							<month type="10" draft="contributed">Siwan</month>
@@ -7746,6 +7751,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="digital-bit">
 				<displayName draft="contributed">bity</displayName>
+				<unitPattern count="one" draft="contributed">{0} b</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} bity</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} bitów</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} bitu</unitPattern>

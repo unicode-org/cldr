@@ -1067,6 +1067,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<ellipsis type="word-initial">… {0}</ellipsis>
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\--/]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\:∶︓﹕：]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
+			<parseLenient sample="’" draft="contributed">['ʼ՚᾽᾿’＇]</parseLenient>
+			<parseLenient sample="%" draft="contributed">[%٪﹪％]</parseLenient>
+			<parseLenient sample="‰" draft="contributed">[؉‰]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$﹩＄]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£₤￡]</parseLenient>
+			<parseLenient sample="¥" draft="contributed">[¥￥]</parseLenient>
+			<parseLenient sample="₩" draft="contributed">[₩￦]</parseLenient>
+			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">[\-‐‒–⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
+			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -1165,8 +1189,55 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h B – h B</greatestDifference>
+							<greatestDifference id="h">h–h B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm B</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">G y – G y</greatestDifference>
+							<greatestDifference id="y">G y–y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">GGGGG y-MM – GGGGG y-MM</greatestDifference>
+							<greatestDifference id="M">GGGGG y-MM – y-MM</greatestDifference>
+							<greatestDifference id="y">GGGGG y-MM – y-MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="G">GGGGG y-MM-dd – GGGGG y-MM-dd</greatestDifference>
+							<greatestDifference id="M">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="y">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="G">GGGGG y-MM-dd, E – GGGGG y-MM-dd, E</greatestDifference>
+							<greatestDifference id="M">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="y">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">G y MMM – G y MMM</greatestDifference>
+							<greatestDifference id="M">G y MMM–MMM</greatestDifference>
+							<greatestDifference id="y">G y MMM – y MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">G y MMM d–d</greatestDifference>
+							<greatestDifference id="G">G y MMM d – G y MMM d</greatestDifference>
+							<greatestDifference id="M">G y MMM d – MMM d</greatestDifference>
+							<greatestDifference id="y">G y MMM d – y MMM d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">G y MMM d, E – MMM d, E</greatestDifference>
+							<greatestDifference id="G">G y MMM d, E – G y MMM d, E</greatestDifference>
+							<greatestDifference id="M">G y MMM d, E – MMM d, E</greatestDifference>
+							<greatestDifference id="y">G y MMM d, E – y MMM d, E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">h a – h a</greatestDifference>
@@ -1681,8 +1752,55 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h B – h B</greatestDifference>
+							<greatestDifference id="h">h–h B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm B</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">G y – G y</greatestDifference>
+							<greatestDifference id="y">G y–y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">GGGGG y-MM – GGGGG y-MM</greatestDifference>
+							<greatestDifference id="M">GGGGG y-MM – y-MM</greatestDifference>
+							<greatestDifference id="y">GGGGG y-MM – y-MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="G">GGGGG y-MM-dd – GGGGG y-MM-dd</greatestDifference>
+							<greatestDifference id="M">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="y">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="G">GGGGG y-MM-dd, E – GGGGG y-MM-dd, E</greatestDifference>
+							<greatestDifference id="M">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="y">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">G y MMM – G y MMM</greatestDifference>
+							<greatestDifference id="M">G y MMM–MMM</greatestDifference>
+							<greatestDifference id="y">G y MMM – y MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">G y MMM d–d</greatestDifference>
+							<greatestDifference id="G">G y MMM d – G y MMM d</greatestDifference>
+							<greatestDifference id="M">G y MMM d – MMM d</greatestDifference>
+							<greatestDifference id="y">G y MMM d – y MMM d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">G y MMM d, E – MMM d, E</greatestDifference>
+							<greatestDifference id="G">G y MMM d, E – G y MMM d, E</greatestDifference>
+							<greatestDifference id="M">G y MMM d, E – MMM d, E</greatestDifference>
+							<greatestDifference id="y">G y MMM d, E – y MMM d, E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">h a – h a</greatestDifference>
@@ -6730,6 +6848,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">ouguiya Mauritania</displayName>
 				<displayName count="many">ouguiya Mauritania</displayName>
 				<displayName count="other">ouguiya Mauritania</displayName>
+				<symbol draft="contributed">MRU</symbol>
 			</currency>
 			<currency type="MTL">
 				<symbol draft="contributed">MTL</symbol>
@@ -7213,6 +7332,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">dobra São Tomé a Príncipe</displayName>
 				<displayName count="many">dobra São Tomé a Príncipe</displayName>
 				<displayName count="other">dobra São Tomé a Príncipe</displayName>
+				<symbol draft="contributed">STN</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SVC">
@@ -7481,6 +7601,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">bolívar Venezuela</displayName>
 				<displayName count="many">bolívar Venezuela</displayName>
 				<displayName count="other">bolívar Venezuela</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Dong Fietnam</displayName>
@@ -7913,7 +8034,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-dunam">
 				<displayName>dunamau</displayName>
-				<unitPattern count="two">{0} ddunam</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} dunam</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} dunam</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ddunam</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} dunam</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} dunam</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} dunam</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
 				<displayName>karatau</displayName>
@@ -7971,8 +8097,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-permyriad">
 				<displayName>permyriad</displayName>
-				<unitPattern count="one">{0} permyriad</unitPattern>
-				<unitPattern count="other">{0} permyriad</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0}‱</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} permyriad</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}‱</unitPattern>
+				<unitPattern count="few" draft="contributed">{0}‱</unitPattern>
+				<unitPattern count="many" draft="contributed">{0}‱</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} permyriad</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>molau</displayName>
@@ -8316,23 +8446,39 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-electronvolt">
 				<displayName>electronfoltiau</displayName>
-				<unitPattern count="one">{0} electronfolt</unitPattern>
-				<unitPattern count="other">{0} electronfolt</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} eV</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} electronfolt</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} eV</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} eV</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} eV</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} electronfolt</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
 				<displayName>unedau thermol Prydain</displayName>
-				<unitPattern count="one">{0} uned thermol Prydain</unitPattern>
-				<unitPattern count="other">{0} uned thermol Prydain</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} Btu</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} uned thermol Prydain</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} Btu</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} Btu</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} Btu</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} uned thermol Prydain</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
 				<displayName>pwysau o rym</displayName>
-				<unitPattern count="one">{0} pwys o rym</unitPattern>
-				<unitPattern count="other">{0} pwys o rym</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} lbf</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} pwys o rym</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} lbf</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} lbf</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} lbf</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pwys o rym</unitPattern>
 			</unit>
 			<unit type="force-newton">
 				<displayName>newtonau</displayName>
-				<unitPattern count="one">{0} newton</unitPattern>
-				<unitPattern count="other">{0} newton</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} N</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} newton</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} N</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} N</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} N</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} newton</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>gigaherts</displayName>
@@ -8557,8 +8703,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName>radiysau solar</displayName>
-				<unitPattern count="one">{0} radiws solar</unitPattern>
-				<unitPattern count="other">{0} radiws solar</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} R☉</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} radiws solar</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} R☉</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} R☉</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} R☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} radiws solar</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lycsau</displayName>
@@ -8571,8 +8721,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>goleueddau solar</displayName>
-				<unitPattern count="one">{0} goleuedd solar</unitPattern>
-				<unitPattern count="other">{0} goleuedd solar</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} L☉</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} goleuedd solar</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} L☉</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} L☉</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} L☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} goleuedd solar</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>tunelli metrig</displayName>
@@ -8679,18 +8833,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-dalton">
 				<displayName>daltonau</displayName>
-				<unitPattern count="one">{0} dalton</unitPattern>
-				<unitPattern count="other">{0} dalton</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} Da</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} dalton</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} Da</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} Da</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} Da</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} dalton</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
 				<displayName>masau ddaear</displayName>
-				<unitPattern count="one">{0} más ddaear</unitPattern>
-				<unitPattern count="other">{0} más ddaear</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} M⊕</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} más ddaear</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} M⊕</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} M⊕</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} M⊕</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} más ddaear</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
 				<displayName>masau solar</displayName>
-				<unitPattern count="one">{0} más solar</unitPattern>
-				<unitPattern count="other">{0} más solar</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} M☉</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} más solar</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} M☉</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} M☉</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} M☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} más solar</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>gigawatiau</displayName>
@@ -8802,13 +8968,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>cilopascalau</displayName>
-				<unitPattern count="one">{0} cilopascal</unitPattern>
-				<unitPattern count="other">{0} cilopascal</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} kPa</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} cilopascal</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} kPa</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} kPa</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} kPa</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} cilopascal</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
 				<displayName>megapascalau</displayName>
-				<unitPattern count="one">{0} megapascal</unitPattern>
-				<unitPattern count="other">{0} megapascal</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} MPa</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} megapascal</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} MPa</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} MPa</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} MPa</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} megapascal</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>cilometrau yr awr</displayName>
@@ -8884,13 +9058,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="torque-pound-foot">
 				<displayName>pwys-troedfeddi</displayName>
-				<unitPattern count="one">{0} pwys-troedfedd</unitPattern>
-				<unitPattern count="other">{0} pwys-troedfedd</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} lbf⋅ft</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} pwys-troedfedd</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} lbf⋅ft</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} lbf⋅ft</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} lbf⋅ft</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pwys-troedfedd</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName>newton-metrau</displayName>
-				<unitPattern count="one">{0} newton-metr</unitPattern>
-				<unitPattern count="other">{0} newton-metr</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} N⋅m</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} newton-metr</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} N⋅m</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} N⋅m</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} N⋅m</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} newton-metr</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>cilometrau ciwbig</displayName>
@@ -9106,9 +9288,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
 				<displayName>Ownsiau hylifol Imp.</displayName>
-				<unitPattern count="zero">{0} fl oz Imp.</unitPattern>
-				<unitPattern count="one">{0} owns hylifol Imp.</unitPattern>
-				<unitPattern count="other">{0} owns hylifol Imp.</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} fl oz Imp.</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} owns hylifol Imp.</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} fl oz Imp.</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} fl oz Imp.</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} fl oz Imp.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} owns hylifol Imp.</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>llond llwy fwrdd</displayName>
@@ -9130,8 +9315,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-barrel">
 				<displayName>bareli</displayName>
-				<unitPattern count="one">{0} barel</unitPattern>
-				<unitPattern count="other">{0} barel</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} bbl</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} barel</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} bbl</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} bbl</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} bbl</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} barel</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>cyfeiriad cardinal</displayName>
@@ -9296,7 +9485,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-dunam">
 				<displayName>dunamau</displayName>
-				<unitPattern count="two">{0} ddunam</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} dunam</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} dunam</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ddunam</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} dunam</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} dunam</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} dunam</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
 				<displayName>karatau</displayName>
@@ -9354,6 +9548,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-permyriad">
 				<displayName>permyriad</displayName>
+				<unitPattern count="zero" draft="contributed">{0}‱</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}‱</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}‱</unitPattern>
+				<unitPattern count="few" draft="contributed">{0}‱</unitPattern>
+				<unitPattern count="many" draft="contributed">{0}‱</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}‱</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>môl</displayName>
@@ -9697,15 +9897,39 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-electronvolt">
 				<displayName>electronfolt</displayName>
+				<unitPattern count="zero" draft="contributed">{0} eV</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} eV</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} eV</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} eV</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} eV</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} eV</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
 				<displayName>BTU</displayName>
+				<unitPattern count="zero" draft="contributed">{0} Btu</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Btu</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} Btu</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} Btu</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} Btu</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Btu</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
 				<displayName>pwys-grym</displayName>
+				<unitPattern count="zero" draft="contributed">{0} lbf</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} lbf</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} lbf</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} lbf</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} lbf</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} lbf</unitPattern>
 			</unit>
 			<unit type="force-newton">
 				<displayName>newton</displayName>
+				<unitPattern count="zero" draft="contributed">{0} N</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} N</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} N</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} N</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} N</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} N</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>GHz</displayName>
@@ -9924,6 +10148,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName>radiysau solar</displayName>
+				<unitPattern count="zero" draft="contributed">{0} R☉</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} R☉</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} R☉</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} R☉</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} R☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} R☉</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lycsau</displayName>
@@ -9936,6 +10166,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>goleueddau solar</displayName>
+				<unitPattern count="zero" draft="contributed">{0} L☉</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} L☉</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} L☉</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} L☉</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} L☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} L☉</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>t</displayName>
@@ -10042,12 +10278,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-dalton">
 				<displayName>daltonau</displayName>
+				<unitPattern count="zero" draft="contributed">{0} Da</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Da</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} Da</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} Da</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} Da</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Da</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
 				<displayName>masau ddaear</displayName>
+				<unitPattern count="zero" draft="contributed">{0} M⊕</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} M⊕</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} M⊕</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} M⊕</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} M⊕</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} M⊕</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
 				<displayName>masau solar</displayName>
+				<unitPattern count="zero" draft="contributed">{0} M☉</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} M☉</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} M☉</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} M☉</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} M☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} M☉</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>GW</displayName>
@@ -10157,6 +10411,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} atm</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
 			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName>kPa</displayName>
+				<unitPattern count="zero" draft="contributed">{0} kPa</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} kPa</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} kPa</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} kPa</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} kPa</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kPa</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName>MPa</displayName>
+				<unitPattern count="zero" draft="contributed">{0} MPa</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} MPa</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} MPa</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} MPa</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} MPa</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} MPa</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="zero">{0} km/h</unitPattern>
@@ -10228,6 +10500,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} K</unitPattern>
 				<unitPattern count="many">{0} K</unitPattern>
 				<unitPattern count="other">{0} K</unitPattern>
+			</unit>
+			<unit type="torque-pound-foot">
+				<displayName>lbf⋅ft</displayName>
+				<unitPattern count="zero" draft="contributed">{0} lbf⋅ft</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} lbf⋅ft</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} lbf⋅ft</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} lbf⋅ft</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} lbf⋅ft</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} lbf⋅ft</unitPattern>
+			</unit>
+			<unit type="torque-newton-meter">
+				<displayName>N⋅m</displayName>
+				<unitPattern count="zero" draft="contributed">{0} N⋅m</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} N⋅m</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} N⋅m</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} N⋅m</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} N⋅m</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} N⋅m</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>cilometrau ciwbig</displayName>
@@ -10441,6 +10731,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} fl oz</unitPattern>
 				<unitPattern count="other">{0} fl oz</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<displayName>Imp. fl oz</displayName>
+				<unitPattern count="zero" draft="contributed">{0} fl oz Imp.</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} fl oz Imp.</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} fl oz Imp.</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} fl oz Imp.</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} fl oz Imp.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} fl oz Imp.</unitPattern>
+			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>tbsp</displayName>
 				<unitPattern count="zero">{0} tbsp</unitPattern>
@@ -10461,6 +10760,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-barrel">
 				<displayName>barel</displayName>
+				<unitPattern count="zero" draft="contributed">{0} bbl</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} bbl</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} bbl</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} bbl</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} bbl</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} bbl</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>cyfeiriad</displayName>
@@ -11602,6 +11907,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<styleName type="wdth" subtype="87.5">Lled-gywasgedig</styleName>
 		<styleName type="wdth" subtype="87.5" alt="compressed">Lled-gul</styleName>
 		<styleName type="wdth" subtype="87.5" alt="narrow">Lled-helaethedig</styleName>
+		<styleName type="wdth" subtype="100">normal</styleName>
 		<styleName type="wdth" subtype="112.5">Lled-helaethedig</styleName>
 		<styleName type="wdth" subtype="112.5" alt="extended">Lled-estynedig</styleName>
 		<styleName type="wdth" subtype="112.5" alt="wide">Lled-lydan</styleName>

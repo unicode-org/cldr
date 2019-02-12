@@ -1199,8 +1199,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="’" draft="contributed">['ʼ՚᾽᾿’＇]</parseLenient>
+			<parseLenient sample="%" draft="contributed">[%٪﹪％]</parseLenient>
+			<parseLenient sample="‰" draft="contributed">[؉‰]</parseLenient>
 			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
 			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="¥" draft="contributed">[¥￥]</parseLenient>
+			<parseLenient sample="₩" draft="contributed">[₩￦]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
 			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
@@ -7352,6 +7357,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} στιγμές</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
+				<displayName>ακτίνες Ήλιου</displayName>
 				<unitPattern count="one">{0} ακτίνα του Ήλιου</unitPattern>
 				<unitPattern count="other">{0} ακτίνες του Ήλιου</unitPattern>
 			</unit>
@@ -7361,6 +7367,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} λουξ</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
+				<displayName>ηλιακές φωτεινότητες</displayName>
 				<unitPattern count="one">{0} ηλιακή φωτεινότητα</unitPattern>
 				<unitPattern count="other">{0} ηλιακές φωτεινότητες</unitPattern>
 			</unit>
@@ -8154,6 +8161,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName>ακτίνες Ήλιου</displayName>
+				<unitPattern count="one" draft="contributed">{0} R☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} R☉</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>λουξ</displayName>
@@ -8221,7 +8230,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-dalton">
 				<displayName>Ντάλτον</displayName>
-				<unitPattern count="other">{0} Da</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} Da</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Da</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
 				<displayName>μάζες Γης</displayName>
@@ -8745,6 +8755,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="2">{0} ή {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>

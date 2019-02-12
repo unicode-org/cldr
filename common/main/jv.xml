@@ -416,8 +416,13 @@ terms of use, see http://www.unicode.org/copyright.html
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
 			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
+			<parseLenient sample="’" draft="contributed">['ʼ՚᾽᾿’＇]</parseLenient>
+			<parseLenient sample="%" draft="contributed">[%٪﹪％]</parseLenient>
+			<parseLenient sample="‰" draft="contributed">[؉‰]</parseLenient>
 			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
 			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="¥" draft="contributed">[¥￥]</parseLenient>
+			<parseLenient sample="₩" draft="contributed">[₩￦]</parseLenient>
 			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
@@ -483,8 +488,13 @@ terms of use, see http://www.unicode.org/copyright.html
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -522,6 +532,15 @@ terms of use, see http://www.unicode.org/copyright.html
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h B – h B</greatestDifference>
+							<greatestDifference id="h">h–h B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm B</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
 						</intervalFormatItem>
@@ -906,8 +925,13 @@ terms of use, see http://www.unicode.org/copyright.html
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">h B</dateFormatItem>
+						<dateFormatItem id="Bhm">h:mm B</dateFormatItem>
+						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -953,6 +977,15 @@ terms of use, see http://www.unicode.org/copyright.html
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h B – h B</greatestDifference>
+							<greatestDifference id="h">h–h B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm B</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
 						</intervalFormatItem>
@@ -1053,6 +1086,12 @@ terms of use, see http://www.unicode.org/copyright.html
 			<field type="era">
 				<displayName>era</displayName>
 			</field>
+			<field type="era-short">
+				<displayName>era</displayName>
+			</field>
+			<field type="era-narrow">
+				<displayName>era</displayName>
+			</field>
 			<field type="year">
 				<displayName>taun</displayName>
 				<relative type="-1">taun wingi</relative>
@@ -1064,6 +1103,15 @@ terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year-narrow">
 				<displayName>taun</displayName>
+				<relative type="-1">taun wingi</relative>
+				<relative type="0">taun iki</relative>
+				<relative type="1">taun ngarep</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} y</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} y</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="quarter">
 				<displayName>triwulan</displayName>
@@ -1073,6 +1121,12 @@ terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="quarter-narrow">
 				<displayName>triwulan</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} Q</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} Q</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>sasi</displayName>
@@ -1085,6 +1139,12 @@ terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="month-narrow">
 				<displayName>sasi</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} m</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} m</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>pekan</displayName>
@@ -1099,6 +1159,15 @@ terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="week-narrow">
 				<displayName>pekan</displayName>
+				<relative type="-1">pekan wingi</relative>
+				<relative type="0">pekan iki</relative>
+				<relative type="1">pekan ngarep</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} w</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} w</relativeTimePattern>
+				</relativeTime>
 				<relativePeriod>pekan kaping {0}</relativePeriod>
 			</field>
 			<field type="day">
@@ -1109,12 +1178,30 @@ terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-short">
 				<displayName>dino</displayName>
+				<relative type="-1">wingi</relative>
+				<relative type="0">saiki</relative>
+				<relative type="1">sesuk</relative>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} d</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day-narrow">
 				<displayName>dino</displayName>
+				<relative type="-1">wingi</relative>
+				<relative type="0">saiki</relative>
+				<relative type="1">sesuk</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} d</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} d</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>dino sepekan</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>Weekday Of Month</displayName>
 			</field>
 			<field type="dayperiod">
 				<displayName>isuk/wengi</displayName>
@@ -1124,18 +1211,42 @@ terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour-short">
 				<displayName>jam</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} h</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} h</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="hour-narrow">
 				<displayName>jam</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} h</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} h</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>menit</displayName>
 			</field>
 			<field type="minute-short">
 				<displayName>menit</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} min</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} min</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute-narrow">
 				<displayName>menit</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} min</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} min</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>detik</displayName>
@@ -1145,6 +1256,12 @@ terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="second-narrow">
 				<displayName>detik</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} s</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} s</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>zona wektu</displayName>
@@ -4262,7 +4379,9 @@ terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">~{0}</pattern>
 			<pattern type="atLeast">⩾{0}</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0} – {1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
@@ -4344,6 +4463,10 @@ terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} inci persegi</unitPattern>
 				<perUnitPattern>{0} saben inci persegi</perUnitPattern>
 			</unit>
+			<unit type="area-dunam">
+				<displayName>dunam</displayName>
+				<unitPattern count="other">{0} dunam</unitPattern>
+			</unit>
 			<unit type="concentr-karat">
 				<displayName>karat</displayName>
 				<unitPattern count="other">{0} karat</unitPattern>
@@ -4367,6 +4490,10 @@ terms of use, see http://www.unicode.org/copyright.html
 			<unit type="concentr-permille">
 				<displayName>permil</displayName>
 				<unitPattern count="other">{0} permil</unitPattern>
+			</unit>
+			<unit type="concentr-mole">
+				<displayName>mol</displayName>
+				<unitPattern count="other">{0} mol</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liter saben kilometer</displayName>
@@ -4922,6 +5049,10 @@ terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} inci²</unitPattern>
 				<perUnitPattern>{0}/inci²</perUnitPattern>
 			</unit>
+			<unit type="area-dunam">
+				<displayName>dunam</displayName>
+				<unitPattern count="other">{0} dunam</unitPattern>
+			</unit>
 			<unit type="concentr-karat">
 				<displayName>karat</displayName>
 				<unitPattern count="other">{0} kt</unitPattern>
@@ -4945,6 +5076,13 @@ terms of use, see http://www.unicode.org/copyright.html
 			<unit type="concentr-permille">
 				<displayName>permil</displayName>
 				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
+			<unit type="concentr-permyriad">
+				<unitPattern count="other">{0}‱</unitPattern>
+			</unit>
+			<unit type="concentr-mole">
+				<displayName>mol</displayName>
+				<unitPattern count="other">{0} mol</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liter/km</displayName>
@@ -5097,6 +5235,18 @@ terms of use, see http://www.unicode.org/copyright.html
 				<displayName>kW-jam</displayName>
 				<unitPattern count="other">{0} kW-jam</unitPattern>
 			</unit>
+			<unit type="energy-electronvolt">
+				<unitPattern count="other">{0} eV</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit">
+				<unitPattern count="other">{0} Btu</unitPattern>
+			</unit>
+			<unit type="force-pound-force">
+				<unitPattern count="other">{0} lbf</unitPattern>
+			</unit>
+			<unit type="force-newton">
+				<unitPattern count="other">{0} N</unitPattern>
+			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>GHz</displayName>
 				<unitPattern count="other">{0} GHz</unitPattern>
@@ -5190,9 +5340,15 @@ terms of use, see http://www.unicode.org/copyright.html
 				<displayName>poin</displayName>
 				<unitPattern count="other">{0} p</unitPattern>
 			</unit>
+			<unit type="length-solar-radius">
+				<unitPattern count="other">{0} R☉</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>luk</displayName>
 				<unitPattern count="other">{0} luk</unitPattern>
+			</unit>
+			<unit type="light-solar-luminosity">
+				<unitPattern count="other">{0} L☉</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>metrik ton</displayName>
@@ -5237,6 +5393,15 @@ terms of use, see http://www.unicode.org/copyright.html
 			<unit type="mass-carat">
 				<displayName>karat</displayName>
 				<unitPattern count="other">{0} karat</unitPattern>
+			</unit>
+			<unit type="mass-dalton">
+				<unitPattern count="other">{0} Da</unitPattern>
+			</unit>
+			<unit type="mass-earth-mass">
+				<unitPattern count="other">{0} M⊕</unitPattern>
+			</unit>
+			<unit type="mass-solar-mass">
+				<unitPattern count="other">{0} M☉</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>GW</displayName>
@@ -5286,6 +5451,14 @@ terms of use, see http://www.unicode.org/copyright.html
 				<displayName>atm</displayName>
 				<unitPattern count="other">{0} atm</unitPattern>
 			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName>kPa</displayName>
+				<unitPattern count="other">{0} kPa</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName>MPa</displayName>
+				<unitPattern count="other">{0} MPa</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/jam</displayName>
 				<unitPattern count="other">{0} km/jam</unitPattern>
@@ -5317,6 +5490,14 @@ terms of use, see http://www.unicode.org/copyright.html
 			<unit type="temperature-kelvin">
 				<displayName>K</displayName>
 				<unitPattern count="other">{0} K</unitPattern>
+			</unit>
+			<unit type="torque-pound-foot">
+				<displayName>lbf⋅ft</displayName>
+				<unitPattern count="other">{0} lbf⋅ft</unitPattern>
+			</unit>
+			<unit type="torque-newton-meter">
+				<displayName>N⋅m</displayName>
+				<unitPattern count="other">{0} N⋅m</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>km³</displayName>
@@ -5411,6 +5592,10 @@ terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ons banyu</displayName>
 				<unitPattern count="other">{0} ons banyu</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<displayName>Imp. fl oz</displayName>
+				<unitPattern count="other">{0} fl oz Imp.</unitPattern>
+			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>sdk mgn</displayName>
 				<unitPattern count="other">{0} sdk mgn</unitPattern>
@@ -5418,6 +5603,9 @@ terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-teaspoon">
 				<displayName>sdk teh</displayName>
 				<unitPattern count="other">{0} sdk teh</unitPattern>
+			</unit>
+			<unit type="volume-barrel">
+				<unitPattern count="other">{0} bbl</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>arah</displayName>
@@ -5538,6 +5726,17 @@ terms of use, see http://www.unicode.org/copyright.html
 			<listPatternPart type="end">{0}, utowo {1}</listPatternPart>
 			<listPatternPart type="2">{0} utowo {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="or-narrow">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, utowo {1}</listPatternPart>
+			<listPatternPart type="2">{0} utowo {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or-short">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, utowo {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
@@ -5569,4 +5768,7 @@ terms of use, see http://www.unicode.org/copyright.html
 			<nostr>ora</nostr>
 		</messages>
 	</posix>
+	<characterLabels>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
+	</characterLabels>
 </ldml>

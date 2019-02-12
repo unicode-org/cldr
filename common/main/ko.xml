@@ -1259,8 +1259,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="’" draft="contributed">['ʼ՚᾽᾿’＇]</parseLenient>
+			<parseLenient sample="%" draft="contributed">[%٪﹪％]</parseLenient>
+			<parseLenient sample="‰" draft="contributed">[؉‰]</parseLenient>
 			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
 			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="¥" draft="contributed">[¥￥]</parseLenient>
+			<parseLenient sample="₩" draft="contributed">[₩￦]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
 			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
@@ -7301,6 +7306,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-part-per-million">
 				<unitPattern count="other">{0}ppm</unitPattern>
 			</unit>
+			<unit type="concentr-permyriad">
+				<displayName draft="contributed">‱</displayName>
+				<unitPattern count="other" draft="contributed">{0}‱</unitPattern>
+			</unit>
 			<unit type="concentr-mole">
 				<displayName draft="contributed">몰</displayName>
 				<unitPattern count="other" draft="contributed">{0}몰</unitPattern>
@@ -7731,6 +7740,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}켈빈</unitPattern>
 			</unit>
 			<unit type="torque-pound-foot">
+				<displayName>lbf⋅ft</displayName>
 				<unitPattern count="other">{0}lbf⋅ft</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
@@ -7921,7 +7931,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-part-per-million">
 				<unitPattern count="other">{0}ppm</unitPattern>
 			</unit>
+			<unit type="concentr-permyriad">
+				<displayName draft="contributed">‱</displayName>
+				<unitPattern count="other" draft="contributed">{0}‱</unitPattern>
+			</unit>
 			<unit type="concentr-mole">
+				<displayName draft="contributed">mol</displayName>
 				<unitPattern count="other" draft="contributed">{0}mol</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
@@ -8060,9 +8075,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0}Btu</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
+				<displayName draft="contributed">lbf</displayName>
 				<unitPattern count="other" draft="contributed">{0}lbf</unitPattern>
 			</unit>
 			<unit type="force-newton">
+				<displayName draft="contributed">N</displayName>
 				<unitPattern count="other" draft="contributed">{0}N</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
@@ -8147,6 +8164,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}lx</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
+				<displayName draft="contributed">L☉</displayName>
 				<unitPattern count="other" draft="contributed">{0}L☉</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
@@ -8257,9 +8275,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}K</unitPattern>
 			</unit>
 			<unit type="torque-pound-foot">
+				<displayName>lbf⋅ft</displayName>
 				<unitPattern count="other">{0}lbf⋅ft</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
+				<displayName draft="contributed">N⋅m</displayName>
 				<unitPattern count="other" draft="contributed">{0}N⋅m</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
@@ -8607,6 +8627,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<listPattern type="or">
 			<listPatternPart type="end">{0} 또는 {1}</listPatternPart>
 			<listPatternPart type="2">{0} 또는 {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-narrow">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} 및 {1}</listPatternPart>
+			<listPatternPart type="2">{0} 및 {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>

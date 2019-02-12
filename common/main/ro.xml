@@ -1127,8 +1127,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="’" draft="contributed">['ʼ՚᾽᾿’＇]</parseLenient>
+			<parseLenient sample="%" draft="contributed">[%٪﹪％]</parseLenient>
+			<parseLenient sample="‰" draft="contributed">[؉‰]</parseLenient>
 			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
 			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="¥" draft="contributed">[¥￥]</parseLenient>
+			<parseLenient sample="₩" draft="contributed">[₩￦]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
 			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
@@ -1600,6 +1605,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h B – h B</greatestDifference>
+							<greatestDifference id="h">h–h B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm B</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
 						</intervalFormatItem>
@@ -2101,8 +2115,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h B – h B</greatestDifference>
+							<greatestDifference id="h">h–h B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm B</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G" draft="provisional">G y – G y</greatestDifference>
+							<greatestDifference id="y" draft="provisional">G y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
 							<greatestDifference id="G">MM.y GGGGG – MM.y GGGGG</greatestDifference>
@@ -2241,7 +2268,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="5" draft="contributed">Șevat</month>
 							<month type="6" draft="contributed">Adar I</month>
 							<month type="7" draft="contributed">Adar</month>
-							<month type="7"  draft="contributed" yeartype="leap">Adar II</month>
+							<month type="7" yeartype="leap" draft="contributed">Adar II</month>
 							<month type="8" draft="contributed">Nisan</month>
 							<month type="9" draft="contributed">Iyar</month>
 							<month type="10" draft="contributed">Sivan</month>
@@ -2257,7 +2284,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="5" draft="contributed">Șevat</month>
 							<month type="6" draft="contributed">Adar I</month>
 							<month type="7" draft="contributed">Adar</month>
-							<month type="7"  draft="contributed" yeartype="leap">Adar II</month>
+							<month type="7" yeartype="leap" draft="contributed">Adar II</month>
 							<month type="8" draft="contributed">Nisan</month>
 							<month type="9" draft="contributed">Iyar</month>
 							<month type="10" draft="contributed">Sivan</month>
@@ -2275,7 +2302,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="5" draft="contributed">Șevat</month>
 							<month type="6" draft="contributed">Adar I</month>
 							<month type="7" draft="contributed">Adar</month>
-							<month type="7"  draft="contributed" yeartype="leap">Adar II</month>
+							<month type="7" yeartype="leap" draft="contributed">Adar II</month>
 							<month type="8" draft="contributed">Nisan</month>
 							<month type="9" draft="contributed">Iyar</month>
 							<month type="10" draft="contributed">Sivan</month>
@@ -2291,7 +2318,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="5" draft="contributed">Șevat</month>
 							<month type="6" draft="contributed">Adar I</month>
 							<month type="7" draft="contributed">Adar</month>
-							<month type="7"  draft="contributed" yeartype="leap">Adar II</month>
+							<month type="7" yeartype="leap" draft="contributed">Adar II</month>
 							<month type="8" draft="contributed">Nisan</month>
 							<month type="9" draft="contributed">Iyar</month>
 							<month type="10" draft="contributed">Sivan</month>
@@ -3943,6 +3970,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Choibalsan">
 				<exemplarCity>Choibalsan</exemplarCity>
+			</zone>
+			<zone type="Asia/Macau">
+				<exemplarCity>Macao</exemplarCity>
 			</zone>
 			<zone type="Pacific/Saipan">
 				<exemplarCity>Saipan</exemplarCity>
@@ -7190,6 +7220,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} la mie</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
+				<displayName draft="contributed">‱</displayName>
 				<unitPattern count="one" draft="contributed">{0} la zece mii</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} la zece mii</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} la zece mii</unitPattern>
@@ -8115,6 +8146,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} mmol/l</unitPattern>
 				<unitPattern count="other">{0} mmol/l</unitPattern>
 			</unit>
+			<unit type="concentr-permyriad">
+				<displayName draft="contributed">‱</displayName>
+				<unitPattern count="one" draft="contributed">{0}‱</unitPattern>
+				<unitPattern count="few" draft="contributed">{0}‱</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}‱</unitPattern>
+			</unit>
 			<unit type="concentr-mole">
 				<displayName draft="contributed">mol</displayName>
 				<unitPattern count="one" draft="contributed">{0} mol</unitPattern>
@@ -8352,6 +8389,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="force-pound-force">
 				<displayName draft="contributed">livră-forță</displayName>
+				<unitPattern count="one" draft="contributed">{0} lbf</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} lbf</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} lbf</unitPattern>
 			</unit>
 			<unit type="force-newton">
 				<displayName>N</displayName>
@@ -8489,6 +8529,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} smi</unitPattern>
 				<unitPattern count="few">{0} smi</unitPattern>
 				<unitPattern count="other">{0} smi</unitPattern>
+			</unit>
+			<unit type="length-solar-radius">
+				<displayName draft="contributed">R☉</displayName>
+				<unitPattern count="one" draft="contributed">{0} R☉</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} R☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} R☉</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lx</displayName>
@@ -8712,6 +8758,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="torque-pound-foot">
 				<displayName draft="contributed">livră-forță picior</displayName>
+				<unitPattern count="one" draft="contributed">{0} lbf⋅ft</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} lbf⋅ft</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} lbf⋅ft</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName>N⋅m</displayName>
@@ -8876,6 +8925,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-barrel">
 				<displayName draft="contributed">baril</displayName>
+				<unitPattern count="one" draft="contributed">{0} bbl</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} bbl</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} bbl</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>direcție</displayName>
@@ -9098,6 +9150,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="2">{0} sau {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>

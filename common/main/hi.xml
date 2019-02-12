@@ -1281,6 +1281,44 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G" draft="contributed">G y – G y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y–y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G" draft="contributed">GGGGG y-MM – GGGGG y-MM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">GGGGG y-MM – y-MM</greatestDifference>
+							<greatestDifference id="y" draft="contributed">GGGGG y-MM – y-MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d" draft="contributed">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="G" draft="contributed">GGGGG y-MM-dd – GGGGG y-MM-dd</greatestDifference>
+							<greatestDifference id="M" draft="contributed">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="y" draft="contributed">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d" draft="contributed">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="G" draft="contributed">GGGGG y-MM-dd, E – GGGGG y-MM-dd, E</greatestDifference>
+							<greatestDifference id="M" draft="contributed">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="y" draft="contributed">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G" draft="contributed">G y MMM – G y MMM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">G y MMM–MMM</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y MMM – y MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d" draft="contributed">G y MMM d–d</greatestDifference>
+							<greatestDifference id="G" draft="contributed">G y MMM d – G y MMM d</greatestDifference>
+							<greatestDifference id="M" draft="contributed">G y MMM d – MMM d</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y MMM d – y MMM d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d" draft="contributed">G y MMM d, E – MMM d, E</greatestDifference>
+							<greatestDifference id="G" draft="contributed">G y MMM d, E – G y MMM d, E</greatestDifference>
+							<greatestDifference id="M" draft="contributed">G y MMM d, E – MMM d, E</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y MMM d, E – y MMM d, E</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h–h a</greatestDifference>
@@ -1793,6 +1831,44 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G" draft="contributed">G y – G y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y–y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G" draft="contributed">GGGGG y-MM – GGGGG y-MM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">GGGGG y-MM – y-MM</greatestDifference>
+							<greatestDifference id="y" draft="contributed">GGGGG y-MM – y-MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d" draft="contributed">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="G" draft="contributed">GGGGG y-MM-dd – GGGGG y-MM-dd</greatestDifference>
+							<greatestDifference id="M" draft="contributed">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="y" draft="contributed">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d" draft="contributed">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="G" draft="contributed">GGGGG y-MM-dd, E – GGGGG y-MM-dd, E</greatestDifference>
+							<greatestDifference id="M" draft="contributed">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="y" draft="contributed">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G" draft="contributed">G y MMM – G y MMM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">G y MMM–MMM</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y MMM – y MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d" draft="contributed">G y MMM d–d</greatestDifference>
+							<greatestDifference id="G" draft="contributed">G y MMM d – G y MMM d</greatestDifference>
+							<greatestDifference id="M" draft="contributed">G y MMM d – MMM d</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y MMM d – y MMM d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d" draft="contributed">G y MMM d, E – MMM d, E</greatestDifference>
+							<greatestDifference id="G" draft="contributed">G y MMM d, E – G y MMM d, E</greatestDifference>
+							<greatestDifference id="M" draft="contributed">G y MMM d, E – MMM d, E</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y MMM d, E – y MMM d, E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">h a – h a</greatestDifference>
@@ -6284,6 +6360,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} मिलीमोल प्रति लीटर</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-million">
+				<unitPattern count="one" draft="contributed">{0} ppm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} हिस्सा प्रति दस लाख</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
@@ -7076,6 +7153,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-permille">
 				<displayName draft="contributed">प्रति हज़ार</displayName>
 			</unit>
+			<unit type="concentr-permyriad">
+				<displayName draft="contributed">‱</displayName>
+				<unitPattern count="one" draft="contributed">{0}‱</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}‱</unitPattern>
+			</unit>
 			<unit type="concentr-mole">
 				<displayName draft="contributed">मोल</displayName>
 				<unitPattern count="one" draft="contributed">{0} मोल</unitPattern>
@@ -7198,6 +7280,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="energy-joule">
 				<displayName>जूल</displayName>
 			</unit>
+			<unit type="energy-electronvolt">
+				<displayName draft="contributed">eV</displayName>
+				<unitPattern count="one" draft="contributed">{0} eV</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} eV</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit">
+				<displayName draft="contributed">Btu</displayName>
+				<unitPattern count="one" draft="contributed">{0} Btu</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Btu</unitPattern>
+			</unit>
+			<unit type="force-pound-force">
+				<displayName draft="contributed">lbf</displayName>
+				<unitPattern count="one" draft="contributed">{0} lbf</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} lbf</unitPattern>
+			</unit>
 			<unit type="force-newton">
 				<displayName draft="contributed">न्यू॰</displayName>
 				<unitPattern count="one" draft="contributed">{0} न्यू॰</unitPattern>
@@ -7293,8 +7390,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} pt</unitPattern>
 				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
+			<unit type="length-solar-radius">
+				<displayName draft="contributed">R☉</displayName>
+				<unitPattern count="one" draft="contributed">{0} R☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} R☉</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>लक्स</displayName>
+			</unit>
+			<unit type="light-solar-luminosity">
+				<displayName draft="contributed">L☉</displayName>
+				<unitPattern count="one" draft="contributed">{0} L☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} L☉</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>मीट्रिक टन</displayName>
@@ -7355,6 +7462,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" draft="contributed">{0} डाल्टन</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} डाल्टन</unitPattern>
 			</unit>
+			<unit type="mass-earth-mass">
+				<displayName draft="contributed">M⊕</displayName>
+				<unitPattern count="one" draft="contributed">{0} M⊕</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} M⊕</unitPattern>
+			</unit>
+			<unit type="mass-solar-mass">
+				<displayName draft="contributed">M☉</displayName>
+				<unitPattern count="one" draft="contributed">{0} M☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} M☉</unitPattern>
+			</unit>
 			<unit type="power-watt">
 				<displayName>वॉट</displayName>
 			</unit>
@@ -7397,6 +7514,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>डिग्री फ़ेरनहाइट</displayName>
 				<unitPattern count="one">{0}°फ़ेरन</unitPattern>
 				<unitPattern count="other">{0}°फ़ेरन</unitPattern>
+			</unit>
+			<unit type="torque-pound-foot">
+				<displayName draft="contributed">lbf⋅ft</displayName>
+				<unitPattern count="one" draft="contributed">{0} lbf⋅ft</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} lbf⋅ft</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName draft="contributed">न्यू॰मी॰</displayName>
@@ -7517,6 +7639,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>फ़्लूइड आउंस</displayName>
 				<unitPattern count="one">{0} फ़्लूइड आउंस</unitPattern>
 				<unitPattern count="other">{0} फ़्लूइड आउंस</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<displayName draft="contributed">Imp. fl oz</displayName>
+				<unitPattern count="one" draft="contributed">{0} fl oz Imp.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} fl oz Imp.</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>टे॰ स्पून</displayName>
@@ -7769,6 +7896,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0} या {1}</listPatternPart>
 			<listPatternPart type="2">{0} या {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-narrow">
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="end" draft="contributed">{0} और {1}</listPatternPart>

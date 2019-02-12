@@ -27,6 +27,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CLDRTest;
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
 import org.unicode.cldr.util.Annotations;
@@ -48,8 +49,10 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileProcessor;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
@@ -66,6 +69,7 @@ import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Utility;
@@ -717,6 +721,7 @@ public class CLDRModify {
 
     abstract static class CLDRFilter {
         protected CLDRFile cldrFileToFilter;
+        protected CLDRFile cldrFileToFilterResolved;
         private String localeID;
         protected Set<String> availableChildren;
         private Set<String> toBeRemoved;
@@ -727,6 +732,7 @@ public class CLDRModify {
 
         public final void setFile(CLDRFile k, Factory factory, Set<String> removal, CLDRFile replacements) {
             this.cldrFileToFilter = k;
+            cldrFileToFilterResolved = null;
             this.factory = factory;
             localeID = k.getLocaleID();
             this.toBeRemoved = removal;
@@ -742,6 +748,17 @@ public class CLDRModify {
         public void handleEnd() {
         }
 
+        public CLDRFile getResolved() {
+            if (cldrFileToFilterResolved == null) {
+                if (cldrFileToFilter.isResolved()) {
+                    cldrFileToFilterResolved = cldrFileToFilter;
+                } else {
+                    cldrFileToFilterResolved = factory.make(cldrFileToFilter.getLocaleID(), true);
+                }
+            }
+            return cldrFileToFilterResolved;
+
+        }
         public void show(String reason, String detail) {
             System.out.println("%" + localeID + "\t" + reason + "\tConsidering " + detail);
         }
@@ -781,7 +798,7 @@ public class CLDRModify {
                 + "»"
                 + (newFullPath.equals(oldFullPath) || oldValueNewPath == null ? "" : oldValueNewPath
                     .equals(oldValueOldPath) ? "/=" : "/«" + oldValueNewPath + "»")
-                + "\t→\t" + (newValue == null ? "∅" : newValue.equals(oldValueOldPath) ? "=" : "«" + newValue + "»")
+                + "\t→\t" + (newValue == null ? "∅" : newValue.equals(oldValueOldPath) ? "≡" : "«" + newValue + "»")
                 + "\t" + oldFullPath
                 + (newFullPath.equals(oldFullPath) ? "" : "\t→\t" + newFullPath));
         }
@@ -2459,8 +2476,20 @@ public class CLDRModify {
         fixList.add('i', "fix Identical Children");
         fixList.add('o', "check attribute validity");
 
-        fixList.add('^', "add inheritance-marked items from vxml to trunk/common/main", new CLDRFilter() {
-            final Factory vxmlCommonMain = Factory.make(CLDRPaths.AUX_DIRECTORY + "voting/" + CLDRFile.GEN_VERSION + "/vxml/common/main", ".*");
+        fixList.add('^', "add inheritance-marked items from vxml to trunk", new CLDRFilter() {
+            Map<String, Factory> factories;
+
+            @Override
+            public void handleSetup() {
+                Map<String, Factory> _factories = new LinkedHashMap<>();
+                for (String top : Arrays.asList("common/", "seed/")) {
+                    for (String leaf : Arrays.asList("main/", "annotations/")) {
+                        String key = top + leaf;
+                        _factories.put(key, Factory.make(CLDRPaths.AUX_DIRECTORY + "voting/" + CLDRFile.GEN_VERSION + "/vxml/" + key, ".*"));
+                    }
+                }
+                factories = ImmutableMap.copyOf(_factories);
+            }
 
             @Override
             public void handleStart() {
@@ -2469,7 +2498,12 @@ public class CLDRModify {
                 if (!ltp.getRegion().isEmpty() || !ltp.getVariants().isEmpty()) {
                     return;
                 }
-                CLDRFile vxmlCommonMainFile = vxmlCommonMain.make(localeID, false);
+                File[] sourceDir = factory.getSourceDirectories();
+                if (sourceDir.length != 1) {
+                    throw new IllegalArgumentException("Can only handle single directory factory: " + Arrays.asList(sourceDir));
+                }
+                Factory vxml = factories.get(getLast2Dirs(sourceDir[0]));
+                CLDRFile vxmlCommonMainFile = vxml.make(localeID, false);
                 CLDRFile resolved = cldrFileToFilter;
                 if (!cldrFileToFilter.isResolved()) {
                     resolved = factory.make(cldrFileToFilter.getLocaleID(), true);
@@ -2492,7 +2526,7 @@ public class CLDRModify {
                     if (xpath.startsWith("//ldml/localeDisplayNames/languages/language[@type=") && xpath.contains("_")) {
                         continue;
                     }
-                    
+
                     String value = resolved.getStringValue(xpath);
                     String fullPath = vxmlCommonMainFile.getFullXPath(xpath); // get the draft status, etc.
                     add(fullPath, value, "Vote for inherited");
@@ -2505,7 +2539,97 @@ public class CLDRModify {
             }
         });
 
+        fixList.add('L', "fix logical groups by adding all the bailey values", new CLDRFilter() {
+            Set<String> seen = new HashSet<>();
+            CLDRFile resolved;
+            boolean skip;
+            CoverageLevel2 coverageLeveler;
+
+            @Override
+            public void handleStart() {
+                seen.clear();
+                resolved = getResolved();
+                skip = false;
+                coverageLeveler = null;
+                
+                String localeID = cldrFileToFilter.getLocaleID();
+                LanguageTagParser ltp = new LanguageTagParser().set(localeID);
+                if (!ltp.getRegion().isEmpty() || !ltp.getVariants().isEmpty()) {
+                    skip = true;
+                } else {
+                    coverageLeveler = CoverageLevel2.getInstance(localeID);
+                }
+            }
+            @Override
+            public void handlePath(String xpath) {
+                if (skip 
+                    || seen.contains(xpath) 
+                    || coverageLeveler.getLevel(xpath) == Level.COMPREHENSIVE) {
+                    return;
+                }
+                Set<String> paths = LogicalGrouping.getPaths(cldrFileToFilter, xpath);
+                if (paths.size() < 2) {
+                    return;
+                }
+                Set<String> needed = new LinkedHashSet<>();
+                for (String path2 : paths) {
+                    if (path2.equals(xpath)) {
+                        continue;
+                    }
+                    if (cldrFileToFilter.isHere(path2)) {
+                        continue;
+                    }
+                    if (LogicalGrouping.isOptional(cldrFileToFilter, path2)) {
+                        continue;
+                    }
+                    // ok, we have a path missing a value
+                    needed.add(path2);
+                }
+                if (needed.isEmpty()) {
+                    return;
+                }
+                // we need at least one value
+                
+                // flesh out by adding a bailey value
+                // TODO resolve the draft status in a better way
+                // For now, get the lowest draft status, and we'll reset everything to that.
+                
+                DraftStatus worstStatus = DraftStatus.contributed; // don't ever add an approved.
+                for (String path2 : paths) {
+                    XPathParts parts = XPathParts.getFrozenInstance(path2);
+                    String rawStatus = parts.getAttributeValue(-1, "draft");
+                    if (rawStatus == null) {
+                        continue;
+                    }
+                    DraftStatus df = DraftStatus.forString(rawStatus);
+                    if (df.compareTo(worstStatus) < 0) {
+                        worstStatus = df;
+                    }
+                }
+                
+                for (String path2 : paths) {
+                    String fullPath = resolved.getFullXPath(path2);
+                    String value = resolved.getStringValue(path2);
+                    if (LogicalGrouping.isOptional(cldrFileToFilter, path2) 
+                        && !cldrFileToFilter.isHere(path2)) {
+                        continue;
+                    }
+
+                    XPathParts fullparts = XPathParts.getInstance(fullPath);
+                    fullparts.setAttribute(-1, "draft", worstStatus.toString());
+                    replace(fullPath, fullparts.toString(), value, "Fleshing out bailey to " + worstStatus);
+                }
+                seen.addAll(paths);
+            }
+        });
+
     }
+
+    public static String getLast2Dirs(File sourceDir1) {
+        String[] pathElements = sourceDir1.toString().split("/");
+        return pathElements[pathElements.length-2] + "/" + pathElements[pathElements.length-1] + "/";
+    }
+
 
     // references="http://www.stat.fi/tk/tt/luokitukset/lk/kieli_02.html"
 

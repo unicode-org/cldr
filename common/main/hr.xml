@@ -7659,6 +7659,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-dunam">
 				<displayName draft="contributed">dunami</displayName>
+				<unitPattern count="one" draft="contributed">{0} dunama</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} dunama</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} dunama</unitPattern>
 			</unit>
@@ -7706,8 +7707,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>moli</displayName>
-				<unitPattern count="few">{0} mola</unitPattern>
-				<unitPattern count="other">{0} mola</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} mola</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mola</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mola</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litre po kilometru</displayName>
@@ -8545,6 +8547,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-dunam">
 				<displayName draft="contributed">dunami</displayName>
+				<unitPattern count="one" draft="contributed">{0} dunama</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} dunama</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} dunama</unitPattern>
 			</unit>
@@ -8571,13 +8574,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ‰</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
+				<displayName>‱</displayName>
 				<unitPattern count="one">{0} ‱</unitPattern>
 				<unitPattern count="few">{0} ‱</unitPattern>
 				<unitPattern count="other">{0} ‱</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<unitPattern count="few">{0} mola</unitPattern>
-				<unitPattern count="other">{0} mola</unitPattern>
+				<displayName>mol</displayName>
+				<unitPattern count="one" draft="contributed">{0} mola</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mola</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mola</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -8672,11 +8678,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="energy-joule">
 				<displayName>J</displayName>
 			</unit>
+			<unit type="energy-electronvolt">
+				<displayName draft="contributed">eV</displayName>
+				<unitPattern count="one" draft="contributed">{0} eV</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} eV</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} eV</unitPattern>
+			</unit>
 			<unit type="energy-british-thermal-unit">
 				<displayName draft="contributed">BTU</displayName>
 				<unitPattern count="one" draft="contributed">{0} BTU</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} BTU</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} BTU</unitPattern>
+			</unit>
+			<unit type="force-pound-force">
+				<displayName>lbf</displayName>
+				<unitPattern count="one" draft="contributed">{0} lbf</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} lbf</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} lbf</unitPattern>
+			</unit>
+			<unit type="force-newton">
+				<displayName>N</displayName>
+				<unitPattern count="one" draft="contributed">{0} N</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} N</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} N</unitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>m</displayName>
@@ -8705,6 +8729,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-point">
 				<displayName>točke</displayName>
 			</unit>
+			<unit type="length-solar-radius">
+				<displayName draft="contributed">R☉</displayName>
+				<unitPattern count="one" draft="contributed">{0} R☉</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} R☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} R☉</unitPattern>
+			</unit>
+			<unit type="light-solar-luminosity">
+				<displayName>L☉</displayName>
+				<unitPattern count="one" draft="contributed">{0} L☉</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} L☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} L☉</unitPattern>
+			</unit>
 			<unit type="mass-gram">
 				<displayName>g</displayName>
 			</unit>
@@ -8716,6 +8752,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-dalton">
 				<displayName draft="contributed">daltoni</displayName>
+				<unitPattern count="one" draft="contributed">{0} Da</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} Da</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} Da</unitPattern>
+			</unit>
+			<unit type="mass-earth-mass">
+				<displayName draft="contributed">M⊕</displayName>
+				<unitPattern count="one" draft="contributed">{0} M⊕</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} M⊕</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} M⊕</unitPattern>
+			</unit>
+			<unit type="mass-solar-mass">
+				<displayName draft="contributed">M☉</displayName>
+				<unitPattern count="one" draft="contributed">{0} M☉</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} M☉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} M☉</unitPattern>
 			</unit>
 			<unit type="power-watt">
 				<displayName>W</displayName>
@@ -8726,11 +8777,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} KS</unitPattern>
 				<unitPattern count="other">{0} KS</unitPattern>
 			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName>kPa</displayName>
+				<unitPattern count="one" draft="contributed">{0} kPa</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} kPa</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kPa</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName>MPa</displayName>
+				<unitPattern count="one" draft="contributed">{0} MPa</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} MPa</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} MPa</unitPattern>
+			</unit>
 			<unit type="speed-knot">
 				<displayName draft="contributed">čv</displayName>
 				<unitPattern count="one" draft="contributed">{0} čv</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} čv</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} čv</unitPattern>
+			</unit>
+			<unit type="torque-pound-foot">
+				<displayName>lbf⋅ft</displayName>
+				<unitPattern count="one" draft="contributed">{0} lbf⋅ft</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} lbf⋅ft</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} lbf⋅ft</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName>Nm</displayName>
@@ -8802,6 +8871,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" draft="contributed">{0} imp. fl oz</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} imp. fl oz</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} imp. fl oz</unitPattern>
+			</unit>
+			<unit type="volume-barrel">
+				<displayName draft="contributed">bbl</displayName>
+				<unitPattern count="one" draft="contributed">{0} bbl</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} bbl</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} bbl</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>smjer</displayName>
@@ -9001,6 +9076,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<listPattern type="or">
 			<listPatternPart type="end" draft="contributed">{0} ili {1}</listPatternPart>
 			<listPatternPart type="2" draft="contributed">{0} ili {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-narrow">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} i {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} i {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>

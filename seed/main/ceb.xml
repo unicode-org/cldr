@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
-For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
--->
+<!-- Copyright © 1991-2019 Unicode, Inc. For terms of use, see http://www.unicode.org/copyright.html 
+	Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in 
+	the U.S. and other countries. CLDR data files are interpreted according to 
+	the LDML specification (http://unicode.org/reports/tr35/) -->
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<language type="ceb"/>
+		<version number="$Revision$" />
+		<language type="ceb" />
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
@@ -94,9 +93,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</layout>
 	<characters>
 		<exemplarCharacters>[a b d e g-i k-n o p r-u w y]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[c f j q v x z]</exemplarCharacters>
-		<exemplarCharacters type="index">[a b d e g-i k-n {ng} o p r-u w y]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="contributed">[!-#\&amp;-*,-/\:;?@\[\]‘’“”…′″]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[c f j q v x z]
+		</exemplarCharacters>
+		<exemplarCharacters type="index">[a b d e g-i k-n {ng} o p
+			r-u w y]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">[!-#\&amp;-*,-/\:;?@\[\]‘’“”…′″]
+		</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -203,8 +205,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1">En</month>
-							<month type="2">Peb</month>
+							<month type="1" draft="contributed">En</month>
+							<month type="2" draft="contributed">Peb</month>
+							<month type="3" draft="contributed">Mar</month>
+							<month type="4" draft="contributed">Apr</month>
+							<month type="5" draft="contributed">May</month>
+							<month type="6" draft="contributed">Hun</month>
+							<month type="7" draft="contributed">Hul</month>
+							<month type="8" draft="contributed">Ag</month>
+							<month type="9" draft="contributed">Set</month>
+							<month type="10" draft="contributed">Okt</month>
+							<month type="11" draft="contributed">Nob</month>
+							<month type="12" draft="contributed">Dis</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">E</month>
@@ -295,7 +307,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
+							<quarter type="1" draft="contributed">Q1</quarter>
+							<quarter type="2" draft="contributed">Q2</quarter>
+							<quarter type="3" draft="contributed">Q3</quarter>
+							<quarter type="4" draft="contributed">Q4</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -609,7 +624,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="CNY">
 				<displayName>Intsik nga Yuan</displayName>
-				<displayName count="one">Intsik ng yuan</displayName>
+				<displayName count="one" draft="contributed">Intsik ng yuan</displayName>
+				<displayName count="other" draft="contributed">Intsik ng yuan</displayName>
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
@@ -632,11 +648,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="JPY">
 				<displayName>Hapon nga Yen</displayName>
-				<displayName count="one">Hapon nga yen</displayName>
+				<displayName count="one" draft="contributed">Hapon nga yen</displayName>
+				<displayName count="other" draft="contributed">Hapon nga yen</displayName>
 			</currency>
 			<currency type="RUB">
 				<displayName>Rusong ruble</displayName>
-				<displayName count="one">Rusong ruble</displayName>
+				<displayName count="one" draft="contributed">Rusong ruble</displayName>
+				<displayName count="other" draft="contributed">Rusong ruble</displayName>
 			</currency>
 			<currency type="USD">
 				<displayName>Dolyar sa US</displayName>

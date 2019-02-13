@@ -1540,24 +1540,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">Tout</month>
 							<month type="2" draft="contributed">Bâbâ</month>
 							<month type="3" draft="contributed">Hâtour</month>
+							<month type="4" draft="contributed">Kiahk</month>
 							<month type="5" draft="contributed">Toubah</month>
 							<month type="6" draft="contributed">Amshîr</month>
 							<month type="7" draft="contributed">Barmahât</month>
 							<month type="8" draft="contributed">Barmoudah</month>
+							<month type="9" draft="contributed">Bashans</month>
 							<month type="10" draft="contributed">Ba’ounah</month>
 							<month type="11" draft="contributed">Abîb</month>
 							<month type="12" draft="contributed">Misra</month>
 							<month type="13" draft="contributed">Al-nasi</month>
 						</monthWidth>
 						<monthWidth type="wide">
+							<month type="1" draft="contributed">Tout</month>
 							<month type="2" draft="contributed">Bâbâ</month>
 							<month type="3" draft="contributed">Hâtour</month>
+							<month type="4" draft="contributed">Kiahk</month>
 							<month type="5" draft="contributed">Toubah</month>
 							<month type="6" draft="contributed">Amshîr</month>
 							<month type="7" draft="contributed">Barmahât</month>
 							<month type="8" draft="contributed">Barmoudah</month>
+							<month type="9" draft="contributed">Bashans</month>
 							<month type="10" draft="contributed">Ba’ounah</month>
 							<month type="11" draft="contributed">Abîb</month>
 							<month type="12" draft="contributed">Misra</month>
@@ -1611,7 +1617,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<monthWidth type="abbreviated">
 							<month type="1" draft="contributed">Mäskäräm</month>
 							<month type="2" draft="contributed">Teqemt</month>
+							<month type="3" draft="contributed">Hedar</month>
 							<month type="4" draft="contributed">Tahesas</month>
+							<month type="5" draft="contributed">Ter</month>
 							<month type="6" draft="contributed">Yäkatit</month>
 							<month type="7" draft="contributed">Mägabit</month>
 							<month type="8" draft="contributed">Miyazya</month>
@@ -1624,7 +1632,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">Mäskäräm</month>
 							<month type="2" draft="contributed">Teqemt</month>
+							<month type="3" draft="contributed">Hedar</month>
 							<month type="4" draft="contributed">Tahesas</month>
+							<month type="5" draft="contributed">Ter</month>
 							<month type="6" draft="contributed">Yäkatit</month>
 							<month type="7" draft="contributed">Mägabit</month>
 							<month type="8" draft="contributed">Miyazya</month>
@@ -2493,6 +2503,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">Chaitra</month>
 							<month type="2" draft="contributed">Vaishākh</month>
 							<month type="3" draft="contributed">Jyaishtha</month>
 							<month type="4" draft="contributed">Āshādha</month>
@@ -2506,6 +2517,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="12" draft="contributed">Phālgun</month>
 						</monthWidth>
 						<monthWidth type="wide">
+							<month type="1" draft="contributed">Chaitra</month>
 							<month type="2" draft="contributed">Vaishākh</month>
 							<month type="3" draft="contributed">Jyaishtha</month>
 							<month type="4" draft="contributed">Āshādha</month>
@@ -2682,16 +2694,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">Farvardin</month>
+							<month type="2" draft="contributed">Ordibehesht</month>
 							<month type="3" draft="contributed">Khordād</month>
+							<month type="4" draft="contributed">Tir</month>
 							<month type="5" draft="contributed">Mordād</month>
+							<month type="6" draft="contributed">Shahrivar</month>
+							<month type="7" draft="contributed">Mehr</month>
 							<month type="8" draft="contributed">Ābān</month>
 							<month type="9" draft="contributed">Āzar</month>
+							<month type="10" draft="contributed">Dey</month>
+							<month type="11" draft="contributed">Bahman</month>
+							<month type="12" draft="contributed">Esfand</month>
 						</monthWidth>
 						<monthWidth type="wide">
+							<month type="1" draft="contributed">Farvardin</month>
+							<month type="2" draft="contributed">Ordibehesht</month>
 							<month type="3" draft="contributed">Khordād</month>
+							<month type="4" draft="contributed">Tir</month>
 							<month type="5" draft="contributed">Mordād</month>
+							<month type="6" draft="contributed">Shahrivar</month>
+							<month type="7" draft="contributed">Mehr</month>
 							<month type="8" draft="contributed">Ābān</month>
 							<month type="9" draft="contributed">Āzar</month>
+							<month type="10" draft="contributed">Dey</month>
+							<month type="11" draft="contributed">Bahman</month>
+							<month type="12" draft="contributed">Esfand</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -9440,6 +9468,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-mile">
 				<displayName draft="contributed">eng. mil</displayName>
+				<unitPattern count="one">{0}mi</unitPattern>
 				<unitPattern count="other">{0}mi</unitPattern>
 			</unit>
 			<unit type="length-yard">
@@ -9687,6 +9716,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cubic-meter">
 				<unitPattern count="one" draft="contributed">{0}m³</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}m³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<unitPattern count="one" draft="contributed">{0}cm³</unitPattern>

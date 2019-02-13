@@ -8358,6 +8358,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="acceleration-meter-per-second-squared">
 				<unitPattern count="one" draft="contributed">{0}m/s²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}m/s²</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
@@ -8490,6 +8491,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-parsec">
 				<displayName draft="contributed">parsecs</displayName>
+				<unitPattern count="one" draft="contributed">{0}pc</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}pc</unitPattern>
 			</unit>
 			<unit type="length-light-year">
@@ -8503,6 +8505,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-furlong">
 				<displayName draft="contributed">furlong</displayName>
 				<unitPattern count="one" draft="contributed">{0}fur</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}fur</unitPattern>
 			</unit>
 			<unit type="length-fathom">
 				<displayName draft="contributed">fathom</displayName>
@@ -8563,6 +8566,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}oz</unitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
+				<unitPattern count="one" draft="contributed">{0}oz t</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}oz t</unitPattern>
 			</unit>
 			<unit type="mass-carat">

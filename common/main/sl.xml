@@ -2012,15 +2012,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
-			<calendar type="hebrew">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="narrow">
-							<month type="7">7</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-			</calendar>
 			<calendar type="roc">
 				<eras>
 					<eraNames>
@@ -9497,6 +9488,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" draft="contributed">{0} KM</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} KM</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} KM</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} KM</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="one">{0} hPa</unitPattern>

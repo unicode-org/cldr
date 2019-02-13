@@ -653,7 +653,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="localeDisplayNames/languages/language[@type='%language80']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/languages/language[@type='%language80'][@alt='%shortVariant']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/scripts/script[@type='%script80']"/>
-		<coverageLevel value="modern" match="localeDisplayNames/keys/key[@type='%keys80']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/keys/key[@type='%anyAttribute']"/>
 		<coverageLevel inLanguage="pt" value="modern" match="localeDisplayNames/variants/variant[@type='%ptVariants']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='collation'][@type='%collationType80']"/>
 		<coverageLevel inLanguage="%collationType80TopLangs" value="modern" match="localeDisplayNames/types/type[@key='collation'][@type='%collationType80ForTopLangs']"/>

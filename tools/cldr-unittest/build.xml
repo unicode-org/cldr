@@ -193,7 +193,7 @@
 	<target name="datacheck" description="Run the standard data tests"
 		depends="init,build">
 		<antcall target="_dataCheck">
-			<param name="datacheck.arg" value="-S common,seed -e -z BUILD" />
+			<param name="datacheck.arg" value="-S common,seed -e -z FINAL_TESTING" />
 			<param name="datacheck.jvmarg" value="${jvm_options}" />
 		</antcall>
 	</target>
@@ -201,7 +201,7 @@
 	<target name="cldr.datacheck.logged" description="Run the standard data tests"
 		depends="init,build">
 		<antcall target="_dataCheck_logged">
-			<param name="datacheck.arg" value="-S common,seed -e -z BUILD" />
+			<param name="datacheck.arg" value="-S common,seed -e -z FINAL_TESTING" />
 			<param name="datacheck.jvmarg" value="${jvm_options}" />
 		</antcall>
 	</target>

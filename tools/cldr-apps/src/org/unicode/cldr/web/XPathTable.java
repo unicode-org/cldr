@@ -51,7 +51,10 @@ import com.ibm.icu.impl.Utility;
  */
 public class XPathTable {
     public static final String CLDR_XPATHS = "cldr_xpaths";
+
     private PrettyPath ppath = new PrettyPath();
+
+    private static final boolean DEBUG = false;
 
     /**
      * Called by SM to create the reg
@@ -209,7 +212,7 @@ public class XPathTable {
         PreparedStatement queryStmt = null;
         try {
             conn = DBUtils.getInstance().getDBConnection();
-            if (false) {
+            if (!DEBUG) {
                 addXpaths(unloadedXpaths, conn);
             } else {
                 // Debug: add paths one by one.

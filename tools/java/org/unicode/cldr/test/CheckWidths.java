@@ -165,27 +165,27 @@ public class CheckWidths extends CheckCLDR {
 
     // WARNING: errors must occur before warnings!!
     // we allow unusual units and English units to be a little longer
-    static final String ALLOW_LONGER = "(area-acre" +
-        "|area-square-foot" +
-        "|area-square-mile" +
-        "|length-foot" +
-        "|length-inch" +
-        "|length-mile" +
-        "|length-light-year" +
-        "|length-yard" +
-        "|mass-ounce" +
-        "|mass-pound" +
-        "|power-horsepower" +
-        "|pressure-inch-hg" +
-        "|pressure-millimeter-of-mercury" +
-        "|speed-mile-per-hour" +
-        "|temperature-fahrenheit" +
-        "|volume-cubic-mile" +
-        "|acceleration-g-force" +
-        "|speed-kilometer-per-hour" +
-        "|speed-meter-per-second" +
-        "|pressure-pound-per-square-inch" +
-        ")";
+    static final String ALLOW_LONGER = "(area-acre"
+        + "|area-square-foot"
+        + "|area-square-mile"
+        + "|length-foot"
+        + "|length-inch"
+        + "|length-mile"
+        + "|length-light-year"
+        + "|length-yard"
+        + "|mass-ounce"
+        + "|mass-pound"
+        + "|power-horsepower"
+        + "|pressure-inch-hg"
+        + "|pressure-millimeter-of-mercury"
+        + "|speed-mile-per-hour"
+        + "|temperature-fahrenheit"
+        + "|volume-cubic-mile"
+        + "|acceleration-g-force"
+        + "|speed-kilometer-per-hour"
+        + "|speed-meter-per-second"
+        + "|pressure-pound-per-square-inch"
+        + ")";
 
     static final String ALLOW_LONGEST = "consumption-liter-per-100kilometers";
 

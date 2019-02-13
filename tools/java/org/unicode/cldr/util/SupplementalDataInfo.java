@@ -814,7 +814,7 @@ public class SupplementalDataInfo {
             }
         }
     }
-
+    
     public static final String STAR = "*";
     public static final Set<String> STAR_SET = Builder.with(new HashSet<String>()).add("*").freeze();
 
@@ -910,6 +910,8 @@ public class SupplementalDataInfo {
     public Map<Row.R2<String, String>, String> bcp47Since = new TreeMap<Row.R2<String, String>, String>();
     public Map<Row.R2<String, String>, String> bcp47Preferred = new TreeMap<Row.R2<String, String>, String>();
     public Map<Row.R2<String, String>, String> bcp47Deprecated = new TreeMap<Row.R2<String, String>, String>();
+    public Map<String, String> bcp47ValueType = new TreeMap<String, String>();
+    
 
     public Map<String, Row.R2<String, String>> validityInfo = new LinkedHashMap<String, Row.R2<String, String>>();
     public Map<AttributeValidityInfo, String> attributeValidityInfo = new LinkedHashMap<>();
@@ -1152,6 +1154,10 @@ public class SupplementalDataInfo {
             throw new InternalError("No BCP47 key 2 subtype data was loaded from bcp47 dir " + getBcp47Directory().getAbsolutePath());
         }
         CldrUtility.protectCollection(bcp47Descriptions);
+        CldrUtility.protectCollection(bcp47Since);
+        CldrUtility.protectCollection(bcp47Preferred);
+        CldrUtility.protectCollection(bcp47Deprecated);
+        CldrUtility.protectCollection(bcp47ValueType);
 
         CoverageLevelInfo.fixEU(coverageLevels, this);
         coverageLevels = Collections.unmodifiableSortedSet(coverageLevels);
@@ -1425,6 +1431,7 @@ public class SupplementalDataInfo {
                 String subtypeSince = parts.getAttributeValue(3, "since");
                 String subtypePreferred = parts.getAttributeValue(3, "preferred");
                 String subtypeDeprecated = parts.getAttributeValue(3, "deprecated");
+                String valueType = parts.getAttributeValue(3, "deprecated");
 
                 Set<String> set = bcp47Key2Subtypes.get(key);
                 if (set != null && set.contains(key)) {
@@ -1448,6 +1455,9 @@ public class SupplementalDataInfo {
                 }
                 if (subtypeDeprecated != null) {
                     bcp47Deprecated.put(key_subtype, subtypeDeprecated);
+                }
+                if (valueType != null) {
+                    bcp47ValueType.put(subtype, valueType);
                 }
                 break;
             default:
@@ -3918,6 +3928,14 @@ public class SupplementalDataInfo {
     public Map<R2<String, String>, String> getBcp47Deprecated() {
         return bcp47Deprecated;
     }
+
+    /**
+     * Return mapping from subtype to deprecated
+     */
+    public Map<String, String> getBcp47ValueType() {
+        return bcp47ValueType;
+    }
+
 
     static Set<String> MainTimeZones;;
 

@@ -321,7 +321,7 @@ public class TestValidity extends TestFmwkPlus {
     public void TestLanguageTagParser() {
         String[][] tests = {
             { "en-cyrl_ru_variant2_variant1", "en_Cyrl_RU_VARIANT1_VARIANT2", "en-Cyrl-RU-variant1-variant2" },
-            { "EN-U-CO-PHONEBK-EM-EMOJI-T_RU", "en_t_ru_u_co_phonebk_em_emoji", "en-t-ru-u-co-phonebk-em-emoji" },
+            { "EN-U-CO-PHONEBK-EM-EMOJI-T_RU", "en@CO=PHONEBK;EM=EMOJI;T=RU", "en-t-ru-u-co-phonebk-em-emoji" },
         };
         LanguageTagParser ltp = new LanguageTagParser();
         for (String[] test : tests) {

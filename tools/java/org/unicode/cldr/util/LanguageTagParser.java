@@ -8,6 +8,7 @@
  */
 package org.unicode.cldr.util;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumSet;
@@ -30,6 +31,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.UnicodeSet;
@@ -358,25 +360,52 @@ public class LanguageTagParser {
      *            TODO
      */
     private String getExtension(String subtag, StringTokenizer st, int minLength) {
-        final String key = subtag;
-        if (extensions.containsKey(key)) {
+        String base = subtag;
+        final char extension = subtag.charAt(0);
+        if (extensions.containsKey(subtag)) {
             throwError(subtag, "Can't have two extensions with the same key");
         }
         if (!st.hasMoreElements()) {
             throwError(subtag, "Private Use / Extension requires subsequent subtag");
         }
-        ImmutableList.Builder<String> result = ImmutableList.builder();
+        boolean subkey = extension == 'u' || extension == 't';
+        boolean firstT = extension == 't';
+        boolean haveContents = false;
+        List<String> result = new ArrayList<>();
         try {
             while (st.hasMoreElements()) {
                 subtag = getSubtag(st);
                 if (subtag.length() < minLength) {
                     return subtag;
                 }
+                if (subkey && subtag.length() == 2 && !firstT) { // start new key-value pair
+                    if (!result.isEmpty() || base.length() != 1) { // don't add empty t- or u-
+                        localeExtensions.put(base, ImmutableList.copyOf(result));
+                        haveContents = true;
+                        result.clear();
+                    }
+                    base = subtag;
+                    continue;
+                }
+                firstT = false;
                 result.add(subtag);
             }
             return null;
         } finally {
-            extensions.put(key, result.build());
+            if (subkey) {
+                if (!result.isEmpty() || base.length() != 1) { // don't add empty t- or u-
+                    localeExtensions.put(base, ImmutableList.copyOf(result));
+                    haveContents = true;
+                }
+                if (!haveContents) {
+                    throw new IllegalArgumentException("extension must not be empty: " + base);
+                }
+            } else {
+                if (result.isEmpty()) {
+                    throw new IllegalArgumentException("extension must not be empty: " + base);
+                }
+                extensions.put(base, ImmutableList.copyOf(result));
+            }
         }
     }
 
@@ -451,19 +480,52 @@ public class LanguageTagParser {
                 String key = extension.getKey();
                 String value = oo.joiner.join(extension.getValue());
                 result.append(oo.separator).append(key)
-                    .append(oo.separator).append(value);
+                .append(oo.separator).append(value);
             }
         }
         if (this.localeExtensions.size() != 0) {
             if (oo == OutputOption.BCP47) {
-                throw new IllegalArgumentException("Cannot represent as BCP47 without canonicalizing first");
-            }
-            result.append('@');
-            for (Entry<String, List<String>> extension : localeExtensions.entrySet()) {
-                String key = extension.getKey();
-                String value = oo.joiner.join(extension.getValue());
-                result.append(oo != OutputOption.ICU ? key : key.toUpperCase(Locale.ROOT))
-                    .append('=').append(oo != OutputOption.ICU ? value : value.toUpperCase(Locale.ROOT));
+                List<String> tValue = localeExtensions.get("t");
+                if (tValue != null) {
+                    result.append(oo.separator).append('t')
+                    .append(oo.separator).append(oo.joiner.join(tValue));
+                    for (Entry<String, List<String>> extension : localeExtensions.entrySet()) {
+                        String key = extension.getKey();
+                        if (key.length() == 2 && key.charAt(1) < 'a') {
+                            String value = oo.joiner.join(extension.getValue());
+                            result.append(oo.separator).append(key).append(oo.separator).append(value);
+                        }
+                    }
+                }
+                boolean haveU = false;
+                for (Entry<String, List<String>> extension : localeExtensions.entrySet()) {
+                    if (!haveU) {
+                        List<String> uValue = localeExtensions.get("u");
+                        result.append(oo.separator).append('u');
+                        if (uValue != null) {
+                            result.append(oo.separator).append(oo.joiner.join(tValue));
+                        }
+                        haveU = true;
+                    }
+                    String key = extension.getKey();
+                    if (key.length() == 2 && key.charAt(1) >= 'a') {
+                        String value = oo.joiner.join(extension.getValue());
+                        result.append(oo.separator).append(key).append(oo.separator).append(value);
+                    }
+                }
+            } else {
+                result.append('@');
+                boolean needSep = false;
+                for (Entry<String, List<String>> extension : localeExtensions.entrySet()) {
+                    if (needSep) {
+                        result.append(";");
+                    }
+                    String key = extension.getKey();
+                    String value = oo.joiner.join(extension.getValue());
+                    result.append(key.toUpperCase(Locale.ROOT))
+                    .append('=').append(value.toUpperCase(Locale.ROOT));
+                    needSep = true;
+                }
             }
         }
         return result.toString();
@@ -572,5 +634,122 @@ public class LanguageTagParser {
             }
         }
         return values;
+    }
+
+    public enum Format {icu("_","_"), bcp47("-","-"), structure("; ", "=");
+        public final String separator;
+        public final String separator2;
+        private Format(String separator, String separator2) {
+            this.separator = separator;
+            this.separator2 = separator2;
+        }
+    };
+
+    public String toString(Format format) {
+        StringBuilder result = new StringBuilder();
+        if (format == Format.structure) {
+            result.append("[");
+        }
+        appendField(format, result, "language", language);
+        appendField(format, result, "script", script);
+        appendField(format, result, "region", region);
+        appendField(format, result, "variants", variants);
+        appendField(format, result, "extensions", extensions, new UnicodeSet('a','s'));
+        appendField(format, result, "localeX", localeExtensions, null);
+        appendField(format, result, "extensions", extensions,  new UnicodeSet('v','w', 'y','z'));
+        appendField(format, result, "extensions", extensions, new UnicodeSet('x','x'));
+        if (format == Format.structure) {
+            result.append("]");
+        }
+//            if (script.length() != 0) {
+//                result. += "_" + script;
+//            }
+//            if (selection.contains(Fields.REGION) && region.length() != 0) result += "_" + region;
+//            if (selection.contains(Fields.VARIANTS) && variants.size() != 0) {
+//                for (String variant : (Collection<String>) variants) {
+//                    result += "_" + variant;
+//                }
+//            }
+        return result.toString();
+    }
+
+    private void appendField(Format format, StringBuilder result, String fieldName, String fieldValue) {
+        if (!fieldValue.isEmpty()) {
+            if (result.length() > 1) {
+                result.append(format.separator);
+            }
+            if (format == Format.structure) {
+                result.append(fieldName).append("=");
+            }
+            result.append(fieldValue);
+        }
+    }
+
+    private void appendFieldKey(Format format, StringBuilder result, String fieldName, String fieldValue) {
+        result.append(format.separator).append(fieldName).append(format.separator2).append(fieldValue);
+    }
+
+    private void appendField(Format format, StringBuilder result, String fieldName, Collection<String> fieldValues) {
+        if (!fieldValues.isEmpty()) {
+            appendField(format, result, fieldName, CollectionUtilities.join(fieldValues, ","));
+        }
+    }
+
+    /**
+     * null match means it is -t- or -u-
+     */
+    private void appendField(Format format, StringBuilder result, String fieldName, Map<String, List<String>> fieldValues, UnicodeSet match) {
+        if (match == null && format != Format.structure) {
+            List<String> tLang = fieldValues.get("t");
+            List<String> uSpecial = fieldValues.get("u");
+            boolean haveTLang = tLang != null;
+            boolean haveUSpecial = uSpecial != null;
+
+            // do all the keys ending with digits first
+            boolean haveT = false;
+            boolean haveU = false;
+            StringBuilder result2 = new StringBuilder(); // put -u- at end
+            for (Entry<String, List<String>> entry : fieldValues.entrySet()) {
+                String key = entry.getKey();
+                if (key.length() < 2) {
+                    continue;
+                }
+                int lastChar = key.codePointBefore(key.length());
+                if (lastChar < 'a') {
+                    if (!haveT) {
+                        result.append(format.separator).append('t');
+                        if (haveTLang) { // empty is illegal, but just in case
+                            result.append(format.separator).append(CollectionUtilities.join(tLang, format.separator));
+                            haveTLang = false;
+                        }
+                        haveT = true;
+                    }
+                    appendFieldKey(format, result, entry.getKey(), CollectionUtilities.join(entry.getValue(), format.separator));
+                } else {
+                    if (!haveU) {
+                        result2.append(format.separator).append('u');
+                        if (haveUSpecial) { // not yet valid, but just in case
+                            result2.append(format.separator).append(CollectionUtilities.join(uSpecial, format.separator));
+                            haveUSpecial = false;
+                        }
+                        haveU = true;
+                    }
+                    appendFieldKey(format, result2, entry.getKey(), CollectionUtilities.join(entry.getValue(), format.separator));
+                }
+            }
+            if (haveTLang) {
+                result.append(format.separator).append('t').append(format.separator).append(CollectionUtilities.join(tLang, format.separator));
+            }
+            if (haveUSpecial) {
+                result2.append(format.separator).append('u').append(format.separator).append(CollectionUtilities.join(uSpecial, format.separator));
+            }
+            result.append(result2); // put in right order
+        } else {
+            for (Entry<String, List<String>> entry : fieldValues.entrySet()) {
+                if (match == null || match.contains(entry.getKey())) {
+                    appendFieldKey(format, result, entry.getKey(), CollectionUtilities.join(entry.getValue(), format.separator));
+                }
+            }
+        }
     }
 }

@@ -52,13 +52,17 @@ public class TestCLDRUtils extends TestFmwk {
     public void TestVariantName() {
         CLDRFile english = CLDRConfig.getInstance().getEnglish();
 
-        checkNames(english, "en_US_POSIX", "American English (Computer)",
-            "US English (Computer)", "English (United States, Computer)",
+        checkNames(english, "en_US_POSIX", 
+            "American English (Computer)",
+            "US English (Computer)", 
+            "English (United States, Computer)",
             "English (US, Computer)");
 
         checkNames(english, new ULocale("en_US_POSIX").toLanguageTag(),
-            "American English (Computer)", "US English (Computer)",
-            "English (United States, Computer)", "English (US, Computer)");
+            "American English (POSIX Compliant Locale)",
+            "US English (POSIX Compliant Locale)", 
+            "English (United States, POSIX Compliant Locale)",
+            "English (US, POSIX Compliant Locale)");
 
         checkNames(english, "en_HK", "English (Hong Kong SAR China)",
             "English (Hong Kong)", "English (Hong Kong SAR China)",

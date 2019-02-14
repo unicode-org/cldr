@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc. For terms of use, see http://www.unicode.org/copyright.html 
-	Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in 
-	the U.S. and other countries. CLDR data files are interpreted according to 
-	the LDML specification (http://unicode.org/reports/tr35/) -->
+<!-- Copyright © 1991-2019 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+the U.S. and other countries. CLDR data files are interpreted according to
+the LDML specification (http://unicode.org/reports/tr35/)
+-->
 <ldml>
 	<identity>
-		<version number="$Revision$" />
-		<language type="ceb" />
+		<version number="$Revision$"/>
+		<language type="ceb"/>
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
@@ -92,13 +96,10 @@
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters>[a b d e g-i k-n o p r-u w y]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[c f j q v x z]
-		</exemplarCharacters>
-		<exemplarCharacters type="index">[a b d e g-i k-n {ng} o p
-			r-u w y]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="contributed">[!-#\&amp;-*,-/\:;?@\[\]‘’“”…′″]
-		</exemplarCharacters>
+		<exemplarCharacters>[a b d e g h i k l m n o p r s t u w y]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[c f j q v x z]</exemplarCharacters>
+		<exemplarCharacters type="index">[a b d e g h i k l m n {ng} o p r s t u w y]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">[\- , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] @ * / \&amp; # ′ ″]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -327,7 +328,6 @@
 						<era type="0">WK</era>
 						<era type="0" alt="variant">WKP</era>
 						<era type="1">KP</era>
-						<era type="1" alt="variant">KP</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>

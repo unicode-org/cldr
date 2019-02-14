@@ -2235,12 +2235,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>Gy/MM/dd</pattern>
+							<pattern>GGGGGy/MM/dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>Gy/M/d</pattern>
+							<pattern>GGGGGy/M/d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -2302,10 +2302,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
-						<dateFormatItem id="yyyyM">Gy/M</dateFormatItem>
-						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">Gy/M/d(E)</dateFormatItem>
-						<dateFormatItem id="yyyyMEEEEd">Gy/M/d(EEEE)</dateFormatItem>
+						<dateFormatItem id="yyyyM">GGGGGy/M</dateFormatItem>
+						<dateFormatItem id="yyyyMd">GGGGGy/M/d</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">GGGGGy/M/d(E)</dateFormatItem>
+						<dateFormatItem id="yyyyMEEEEd">GGGGGy/M/d(EEEE)</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">Gy年M月d日(E)</dateFormatItem>
@@ -2332,22 +2332,39 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="G">Gy年～Gy年</greatestDifference>
 							<greatestDifference id="y">Gy年～y年</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="GGGGGyM">
+							<greatestDifference id="G">GGGGGy/MM～GGGGGy/MM</greatestDifference>
+							<greatestDifference id="M">GGGGGy/MM～y/MM</greatestDifference>
+							<greatestDifference id="y">GGGGGy/MM～y/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GGGGGyMd">
+							<greatestDifference id="d">GGGGGy/MM/dd～y/MM/dd</greatestDifference>
+							<greatestDifference id="G">GGGGGy/MM/dd～GGGGGy/MM/dd</greatestDifference>
+							<greatestDifference id="M">GGGGGy/MM/dd～y/MM/dd</greatestDifference>
+							<greatestDifference id="y">GGGGGy/MM/dd～y/MM/dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GGGGGyMEd">
+							<greatestDifference id="d">GGGGGy/MM/dd(E)～y/MM/dd(E)</greatestDifference>
+							<greatestDifference id="G">GGGGGy/MM/dd(E)～GGGGGy/MM/dd(E)</greatestDifference>
+							<greatestDifference id="M">GGGGGy/MM/dd(E)～y/MM/dd(E)</greatestDifference>
+							<greatestDifference id="y">GGGGGy/MM/dd(E)～y/MM/dd(E)</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G">Gy/MM～Gy/MM</greatestDifference>
-							<greatestDifference id="M">Gy/MM～y/MM</greatestDifference>
-							<greatestDifference id="y">Gy/MM～y/MM</greatestDifference>
+							<greatestDifference id="G">GGGGGy/MM～GGGGGy/MM</greatestDifference>
+							<greatestDifference id="M">GGGGGy/MM～y/MM</greatestDifference>
+							<greatestDifference id="y">GGGGGy/MM～y/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">Gy/MM/dd～y/MM/dd</greatestDifference>
-							<greatestDifference id="G">Gy/MM/dd～Gy/MM/dd</greatestDifference>
-							<greatestDifference id="M">Gy/MM/dd～y/MM/dd</greatestDifference>
-							<greatestDifference id="y">Gy/MM/dd～y/MM/dd</greatestDifference>
+							<greatestDifference id="d">GGGGGy/MM/dd～y/MM/dd</greatestDifference>
+							<greatestDifference id="G">GGGGGy/MM/dd～GGGGGy/MM/dd</greatestDifference>
+							<greatestDifference id="M">GGGGGy/MM/dd～y/MM/dd</greatestDifference>
+							<greatestDifference id="y">GGGGGy/MM/dd～y/MM/dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">Gy/MM/dd(E)～y/MM/dd(E)</greatestDifference>
-							<greatestDifference id="G">Gy/MM/dd(E)～Gy/MM/dd(E)</greatestDifference>
-							<greatestDifference id="M">Gy/MM/dd(E)～y/MM/dd(E)</greatestDifference>
-							<greatestDifference id="y">Gy/MM/dd(E)～y/MM/dd(E)</greatestDifference>
+							<greatestDifference id="d">GGGGGy/MM/dd(E)～y/MM/dd(E)</greatestDifference>
+							<greatestDifference id="G">GGGGGy/MM/dd(E)～GGGGGy/MM/dd(E)</greatestDifference>
+							<greatestDifference id="M">GGGGGy/MM/dd(E)～y/MM/dd(E)</greatestDifference>
+							<greatestDifference id="y">GGGGGy/MM/dd(E)～y/MM/dd(E)</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
 							<greatestDifference id="G">Gy年M月～Gy年M月</greatestDifference>
@@ -2427,18 +2444,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">Gy年～y年</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">Gy/MM～y/MM</greatestDifference>
-							<greatestDifference id="y">Gy/MM～y/MM</greatestDifference>
+							<greatestDifference id="M">GGGGGy/MM～y/MM</greatestDifference>
+							<greatestDifference id="y">GGGGGy/MM～y/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">Gy/MM/dd～y/MM/dd</greatestDifference>
-							<greatestDifference id="M">Gy/MM/dd～y/MM/dd</greatestDifference>
-							<greatestDifference id="y">Gy/MM/dd～y/MM/dd</greatestDifference>
+							<greatestDifference id="d">GGGGGy/MM/dd～y/MM/dd</greatestDifference>
+							<greatestDifference id="M">GGGGGy/MM/dd～y/MM/dd</greatestDifference>
+							<greatestDifference id="y">GGGGGy/MM/dd～y/MM/dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">Gy/MM/dd(E)～y/MM/dd(E)</greatestDifference>
-							<greatestDifference id="M">Gy/MM/dd(E)～y/MM/dd(E)</greatestDifference>
-							<greatestDifference id="y">Gy/MM/dd(E)～y/MM/dd(E)</greatestDifference>
+							<greatestDifference id="d">GGGGGy/MM/dd(E)～y/MM/dd(E)</greatestDifference>
+							<greatestDifference id="M">GGGGGy/MM/dd(E)～y/MM/dd(E)</greatestDifference>
+							<greatestDifference id="y">GGGGGy/MM/dd(E)～y/MM/dd(E)</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">Gy年M月～M月</greatestDifference>
@@ -3824,11 +3841,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
-						<dateFormatItem id="yyyyM">Gy/M</dateFormatItem>
-						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">Gy/M/d(E)</dateFormatItem>
-						<dateFormatItem id="yyyyMEEEEd">Gy/M/dEEEE</dateFormatItem>
-						<dateFormatItem id="yyyyMM">Gy/MM</dateFormatItem>
+						<dateFormatItem id="yyyyM">GGGGGy/M</dateFormatItem>
+						<dateFormatItem id="yyyyMd">GGGGGy/M/d</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">GGGGGy/M/d(E)</dateFormatItem>
+						<dateFormatItem id="yyyyMEEEEd">GGGGGy/M/dEEEE</dateFormatItem>
+						<dateFormatItem id="yyyyMM">GGGGGy/MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">Gy年M月d日(E)</dateFormatItem>

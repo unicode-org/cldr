@@ -167,38 +167,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
+			<!-- The parent locale uses spaces, so we must also use spaces. -->
 			<unit type="duration-year">
-				<unitPattern count="one" draft="contributed">{0}an</unitPattern>
-				<unitPattern count="few" draft="contributed">{0}ani</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}ani</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} an</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ani</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ani</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName draft="contributed">lună</displayName>
-				<unitPattern count="one" draft="contributed">{0}lună</unitPattern>
-				<unitPattern count="few" draft="contributed">{0}luni</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}luni</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} lună</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} luni</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} luni</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<unitPattern count="one" draft="contributed">{0}săpt.</unitPattern>
-				<unitPattern count="few" draft="contributed">{0}săpt.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}săpt.</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} săpt.</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} săpt.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} săpt.</unitPattern>
 			</unit>
 			<unit type="duration-day">
-				<unitPattern count="one" draft="contributed">{0}zi</unitPattern>
-				<unitPattern count="few" draft="contributed">{0}zile</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}zile</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} zi</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} zile</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} zile</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName draft="contributed">min</displayName>
-				<unitPattern count="one" draft="contributed">{0}min.</unitPattern>
-				<unitPattern count="few" draft="contributed">{0}min.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}min.</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} min.</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} min.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} min.</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName draft="contributed">msec</displayName>
-				<unitPattern count="one" draft="contributed">{0}ms</unitPattern>
-				<unitPattern count="few" draft="contributed">{0}ms</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}ms</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ms</unitPattern>
 			</unit>
 		</unitLength>
 	</units>

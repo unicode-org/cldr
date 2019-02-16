@@ -1,538 +1,656 @@
-locale=ia;	action=add;	new_path=//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMMW"][@count="one"][@draft="provisional"];	new_value='septimana' W 'de' MMMM
-locale=ia;	action=add;	new_path=//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yw"][@count="one"][@draft="provisional"];	new_value='septimana' w 'de' Y
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="year"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} annos
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="year"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} annos retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="year-short"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} an.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="year-short"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} an. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="year-narrow"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} an.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="year-narrow"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} an. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="quarter"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} trimestres
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="quarter"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} trimestres
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="quarter-short"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} trim.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="quarter-short"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} trim. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="quarter-narrow"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} trim.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="quarter-narrow"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} trim. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="month"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} menses
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="month"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} menses retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="month-short"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} mns.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="month-short"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} mns. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="month-narrow"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} mns.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="month-narrow"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} mns. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="week"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} septimanas
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="week"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} septimanas retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="week-short"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} sept.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="week-short"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} sept. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="week-narrow"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} sept.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="week-narrow"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} sept. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="day"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} dies
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="day"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} dies retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="day-short"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} dies
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="day-short"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} dies retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="day-narrow"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} dies
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="day-narrow"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} dies retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="sun"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} dominicas
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="sun"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} dominicas retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="sun-short"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} dom.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="sun-short"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} dom. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="sun-narrow"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} dom.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="sun-narrow"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} dom. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="mon"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} lunedis
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="mon"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} lunedis retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="mon-short"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} lun.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="mon-short"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} lun. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="mon-narrow"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} lun.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="mon-narrow"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} lun. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="tue"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} martedis
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="tue"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} martedis retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="tue-short"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} mar.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="tue-short"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} mar. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="tue-narrow"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} mar.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="tue-narrow"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} mar. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="wed"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} mercuridis
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="wed"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} mercuridis retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="wed-short"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} mer.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="wed-short"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} mer. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="wed-narrow"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} mer.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="wed-narrow"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} mer. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="thu"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} jovedis
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="thu"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} jovedis retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="thu-short"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} jov.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="thu-short"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} jov. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="thu-narrow"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} jov.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="thu-narrow"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} jov. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="fri"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} venerdis
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="fri"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} venerdis retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="fri-short"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} ven.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="fri-short"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} ven. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="fri-narrow"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} ven.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="fri-narrow"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} ven. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="sat"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} sabbatos
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="sat"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} sabbatos retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="sat-short"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} sab.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="sat-short"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} sab. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="sat-narrow"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} sab.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="sat-narrow"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} sab. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="hour"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} horas
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="hour"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} horas retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="hour-short"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} hr.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="hour-short"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} hr. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="hour-narrow"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} hr.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="hour-narrow"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} hr. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="minute"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} minutas
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="minute"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} minutas retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="minute-short"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} min.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="minute-short"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} min. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="minute-narrow"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} min.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="minute-narrow"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} min. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="second"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} secundas
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="second"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} secundas retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="second-short"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} sec.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="second-short"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} sec. retro
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="second-narrow"]/relativeTime[@type="future"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value=in {0} sec.
-locale=ia;	action=add;	new_path=//ldml/dates/fields/field[@type="second-narrow"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"][@draft="provisional"];	new_value={0} sec. retro
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"][@draft="provisional"];	new_value=0 milles
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000"][@count="one"][@draft="provisional"];	new_value=00 milles
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000"][@count="one"][@draft="provisional"];	new_value=000 milles
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000000"][@count="one"][@draft="provisional"];	new_value=0 milliones
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000"][@count="one"][@draft="provisional"];	new_value=00 milliones
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000000"][@count="one"][@draft="provisional"];	new_value=000 milliones
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000000000"][@count="one"][@draft="provisional"];	new_value=0 milliardos
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000000"][@count="one"][@draft="provisional"];	new_value=00 milliardos
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000000000"][@count="one"][@draft="provisional"];	new_value=000 milliardos
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000000000000"][@count="one"][@draft="provisional"];	new_value=0 billiones
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000000000"][@count="one"][@draft="provisional"];	new_value=00 billiones
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="one"][@draft="provisional"];	new_value=000 billiones
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"][@draft="provisional"];	new_value=0 mil
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000"][@count="one"][@draft="provisional"];	new_value=00 mil
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000"][@count="one"][@draft="provisional"];	new_value=000 mil
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000"][@count="one"][@draft="provisional"];	new_value=0 mln
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000"][@count="one"][@draft="provisional"];	new_value=00 mln
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000"][@count="one"][@draft="provisional"];	new_value=000 mln
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000"][@count="one"][@draft="provisional"];	new_value=0 mld
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000"][@count="one"][@draft="provisional"];	new_value=00 mld
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000"][@count="one"][@draft="provisional"];	new_value=000 mld
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000000"][@count="one"][@draft="provisional"];	new_value=0 bln
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000000"][@count="one"][@draft="provisional"];	new_value=00 bln
-locale=ia;	action=add;	new_path=//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="one"][@draft="provisional"];	new_value=000 bln
-locale=ia;	action=add;	new_path=//ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000"][@count="one"][@draft="provisional"];	new_value=¤ 0 mil
-locale=ia;	action=add;	new_path=//ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="10000"][@count="one"][@draft="provisional"];	new_value=¤ 00 mil
-locale=ia;	action=add;	new_path=//ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="100000"][@count="one"][@draft="provisional"];	new_value=¤ 000 mil
-locale=ia;	action=add;	new_path=//ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000000"][@count="one"][@draft="provisional"];	new_value=¤ 0 mln
-locale=ia;	action=add;	new_path=//ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="10000000"][@count="one"][@draft="provisional"];	new_value=¤ 00 mln
-locale=ia;	action=add;	new_path=//ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="100000000"][@count="one"][@draft="provisional"];	new_value=¤ 000 mln
-locale=ia;	action=add;	new_path=//ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000000000"][@count="one"][@draft="provisional"];	new_value=¤ 0 mld
-locale=ia;	action=add;	new_path=//ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="10000000000"][@count="one"][@draft="provisional"];	new_value=¤ 00 mld
-locale=ia;	action=add;	new_path=//ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="100000000000"][@count="one"][@draft="provisional"];	new_value=¤ 000 mld
-locale=ia;	action=add;	new_path=//ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000000000000"][@count="one"][@draft="provisional"];	new_value=¤ 0 bln
-locale=ia;	action=add;	new_path=//ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="10000000000000"][@count="one"][@draft="provisional"];	new_value=¤ 00 bln
-locale=ia;	action=add;	new_path=//ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="100000000000000"][@count="one"][@draft="provisional"];	new_value=¤ 000 bln
-locale=ia;	action=add;	new_path=//ldml/numbers/currencyFormats[@numberSystem="latn"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} {1}
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="ALL"]/displayName[@count="one"][@draft="provisional"];	new_value=lekë albanese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="ANG"]/displayName[@count="one"][@draft="provisional"];	new_value=florinos antillan
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="AOA"]/displayName[@count="one"][@draft="provisional"];	new_value=kwanzas angolan
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="ARS"]/displayName[@count="one"][@draft="provisional"];	new_value=pesos argentin
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="AUD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares australian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="AWG"]/displayName[@count="one"][@draft="provisional"];	new_value=florinos aruban
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="BAM"]/displayName[@count="one"][@draft="provisional"];	new_value=marcos convertibile de Bosnia-Herzegovina
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="BBD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares barbadian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="BGN"]/displayName[@count="one"][@draft="provisional"];	new_value=leva bulgare
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="BIF"]/displayName[@count="one"][@draft="provisional"];	new_value=francos burundese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="BMD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares bermudan
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="BOB"]/displayName[@count="one"][@draft="provisional"];	new_value=bolivianos bolivian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="BRL"]/displayName[@count="one"][@draft="provisional"];	new_value=reales brasilian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="BSD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares bahamian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="BWP"]/displayName[@count="one"][@draft="provisional"];	new_value=pula botswanese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="BYN"]/displayName[@count="one"][@draft="provisional"];	new_value=rublos bielorusse
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="BZD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares belizan
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="CAD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares canadian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="CDF"]/displayName[@count="one"][@draft="provisional"];	new_value=francos congolese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="CHF"]/displayName[@count="one"][@draft="provisional"];	new_value=francos suisse
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="CLP"]/displayName[@count="one"][@draft="provisional"];	new_value=pesos chilen
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="CNY"]/displayName[@count="one"][@draft="provisional"];	new_value=yuan chinese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="COP"]/displayName[@count="one"][@draft="provisional"];	new_value=pesos colombian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="CRC"]/displayName[@count="one"][@draft="provisional"];	new_value=colones costarican
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="CUC"]/displayName[@count="one"][@draft="provisional"];	new_value=pesos cuban convertibile
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="CUP"]/displayName[@count="one"][@draft="provisional"];	new_value=pesos cuban
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="CVE"]/displayName[@count="one"][@draft="provisional"];	new_value=escudos capoverdian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="CZK"]/displayName[@count="one"][@draft="provisional"];	new_value=coronas chec
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="DEM"]/displayName[@count="one"][@draft="provisional"];	new_value=marcos german
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="DJF"]/displayName[@count="one"][@draft="provisional"];	new_value=francos djibutian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="DKK"]/displayName[@count="one"][@draft="provisional"];	new_value=coronas danese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="DOP"]/displayName[@count="one"][@draft="provisional"];	new_value=pesos dominican
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="DZD"]/displayName[@count="one"][@draft="provisional"];	new_value=dinares algerin
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="EEK"]/displayName[@count="one"][@draft="provisional"];	new_value=coronas estonian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="EGP"]/displayName[@count="one"][@draft="provisional"];	new_value=libras egyptie
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="ERN"]/displayName[@count="one"][@draft="provisional"];	new_value=nakfas eritree
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="ETB"]/displayName[@count="one"][@draft="provisional"];	new_value=birres ethiope
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="EUR"]/displayName[@count="one"][@draft="provisional"];	new_value=euros
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="FIM"]/displayName[@count="one"][@draft="provisional"];	new_value=marcos finnese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="FJD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares fijian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="FKP"]/displayName[@count="one"][@draft="provisional"];	new_value=libras falklandese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="FRF"]/displayName[@count="one"][@draft="provisional"];	new_value=francos francese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="GBP"]/displayName[@count="one"][@draft="provisional"];	new_value=libras sterling
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="GHS"]/displayName[@count="one"][@draft="provisional"];	new_value=cedis ghanese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="GIP"]/displayName[@count="one"][@draft="provisional"];	new_value=libras de Gibraltar
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="GMD"]/displayName[@count="one"][@draft="provisional"];	new_value=dalasis gambian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="GNF"]/displayName[@count="one"][@draft="provisional"];	new_value=francos guinean
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="GTQ"]/displayName[@count="one"][@draft="provisional"];	new_value=quetzales guatemaltec
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="GYD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares guyanese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="HNL"]/displayName[@count="one"][@draft="provisional"];	new_value=lempiras hondurese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="HRK"]/displayName[@count="one"][@draft="provisional"];	new_value=kunas croate
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="HTG"]/displayName[@count="one"][@draft="provisional"];	new_value=gourdes haitian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="HUF"]/displayName[@count="one"][@draft="provisional"];	new_value=forintes hungare
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="IEP"]/displayName[@count="one"][@draft="provisional"];	new_value=libras irlandese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="INR"]/displayName[@count="one"][@draft="provisional"];	new_value=rupias indian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="ISK"]/displayName[@count="one"][@draft="provisional"];	new_value=coronas islandese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="JMD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares jamaican
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="JPY"]/displayName[@count="one"][@draft="provisional"];	new_value=yen japonese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="KES"]/displayName[@count="one"][@draft="provisional"];	new_value=shillings kenyan
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="KMF"]/displayName[@count="one"][@draft="provisional"];	new_value=francos comorian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="KYD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares del Insulas Caiman
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="LRD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares liberian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="LYD"]/displayName[@count="one"][@draft="provisional"];	new_value=dinares libyc
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="MAD"]/displayName[@count="one"][@draft="provisional"];	new_value=dirhams marocchin
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="MDL"]/displayName[@count="one"][@draft="provisional"];	new_value=lei moldave
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="MGA"]/displayName[@count="one"][@draft="provisional"];	new_value=ariary malgache
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="MKD"]/displayName[@count="one"][@draft="provisional"];	new_value=denari macedonie
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="MRO"]/displayName[@count="one"][@draft="provisional"];	new_value=ouguiyas mauritan (1973–2017)
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="MRU"]/displayName[@count="one"][@draft="provisional"];	new_value=ouguiyas mauritan
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="MUR"]/displayName[@count="one"][@draft="provisional"];	new_value=rupias mauritian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="MWK"]/displayName[@count="one"][@draft="provisional"];	new_value=kwacha malawian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="MXN"]/displayName[@count="one"][@draft="provisional"];	new_value=pesos mexican
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="MZN"]/displayName[@count="one"][@draft="provisional"];	new_value=meticales mozambican
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="NAD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares namibian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="NGN"]/displayName[@count="one"][@draft="provisional"];	new_value=nairas nigerian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="NIO"]/displayName[@count="one"][@draft="provisional"];	new_value=cordobas nicaraguan
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="NLG"]/displayName[@count="one"][@draft="provisional"];	new_value=florinos nederlandese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="NOK"]/displayName[@count="one"][@draft="provisional"];	new_value=coronas norvegian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="NZD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares neozelandese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="PAB"]/displayName[@count="one"][@draft="provisional"];	new_value=balboas panamen
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="PEN"]/displayName[@count="one"][@draft="provisional"];	new_value=soles peruvian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="PGK"]/displayName[@count="one"][@draft="provisional"];	new_value=kinas papuan
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="PLN"]/displayName[@count="one"][@draft="provisional"];	new_value=zlotys polonese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="PYG"]/displayName[@count="one"][@draft="provisional"];	new_value=guaranis paraguayan
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="RON"]/displayName[@count="one"][@draft="provisional"];	new_value=lei romanian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="RSD"]/displayName[@count="one"][@draft="provisional"];	new_value=dinares serbe
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="RUB"]/displayName[@count="one"][@draft="provisional"];	new_value=rublos russe
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="RWF"]/displayName[@count="one"][@draft="provisional"];	new_value=francos ruandese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="SBD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares del insulas Salomon
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="SCR"]/displayName[@count="one"][@draft="provisional"];	new_value=rupias seychellese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="SDG"]/displayName[@count="one"][@draft="provisional"];	new_value=libras sudanese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="SEK"]/displayName[@count="one"][@draft="provisional"];	new_value=coronas svedese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="SHP"]/displayName[@count="one"][@draft="provisional"];	new_value=libras de St. Helena
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="SLL"]/displayName[@count="one"][@draft="provisional"];	new_value=leones sierraleonese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="SOS"]/displayName[@count="one"][@draft="provisional"];	new_value=shillings somali
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="SRD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares surinamese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="SSP"]/displayName[@count="one"][@draft="provisional"];	new_value=libras sud-sudanese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="STN"]/displayName[@count="one"][@draft="provisional"];	new_value=dobras de São Tomé e Príncipe
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="SZL"]/displayName[@count="one"][@draft="provisional"];	new_value=emalangeni swazilandese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="TND"]/displayName[@count="one"][@draft="provisional"];	new_value=dinares tunisian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="TOP"]/displayName[@count="one"][@draft="provisional"];	new_value=paʻangas tongan
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="TTD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares de Trinidad e Tobago
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="TZS"]/displayName[@count="one"][@draft="provisional"];	new_value=shillings tanzanian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="UAH"]/displayName[@count="one"][@draft="provisional"];	new_value=hryvni ukrainian
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="UGX"]/displayName[@count="one"][@draft="provisional"];	new_value=shillings ugandese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="USD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares statounitese
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="UYU"]/displayName[@count="one"][@draft="provisional"];	new_value=pesos uruguayan
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="VEF"]/displayName[@count="one"][@draft="provisional"];	new_value=bolivares venezuelan (2008–2018)
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="VES"]/displayName[@count="one"][@draft="provisional"];	new_value=bolivares venezuelan
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="VUV"]/displayName[@count="one"][@draft="provisional"];	new_value=vatus vanuatuan
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="WST"]/displayName[@count="one"][@draft="provisional"];	new_value=talas samoan
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="XAF"]/displayName[@count="one"][@draft="provisional"];	new_value=francos CFA de Africa Central
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="XCD"]/displayName[@count="one"][@draft="provisional"];	new_value=dollares del Caribes Oriental
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="XOF"]/displayName[@count="one"][@draft="provisional"];	new_value=francos CFA de Africa Occidental
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="XPF"]/displayName[@count="one"][@draft="provisional"];	new_value=francos CFP
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="XXX"]/displayName[@count="one"][@draft="provisional"];	new_value=(moneta incognite)
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="ZAR"]/displayName[@count="one"][@draft="provisional"];	new_value=rand sudafrican
-locale=ia;	action=add;	new_path=//ldml/numbers/currencies/currency[@type="ZMW"]/displayName[@count="one"][@draft="provisional"];	new_value=kwacha zambian
-locale=ia;	action=add;	new_path=//ldml/numbers/minimalPairs/pluralMinimalPairs[@count="one"][@draft="provisional"];	new_value={0} dies
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="acceleration-g-force"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} fortia g
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="acceleration-meter-per-second-squared"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} metros per secunda quadrate
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="angle-revolution"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} revolutiones
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="angle-radian"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} radianos
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="angle-degree"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} grados
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="angle-arc-minute"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} minutas de arco
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="angle-arc-second"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} secundas de arco
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-kilometer"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kilometros quadrate
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-hectare"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} hectares
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-meter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} metros quadrate
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-centimeter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} centimetros quadrate
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-mile"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} millias quadrate
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-acre"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} acres
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-yard"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} yards quadrate
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-foot"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} pedes quadrate
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-inch"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} pollices quadrate
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="concentr-karat"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} carates
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="concentr-milligram-per-deciliter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} milligrammas per decilitro
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="concentr-millimole-per-liter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} millimoles per litro
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="concentr-part-per-million"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} partes per million
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="concentr-percent"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} per cento
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="concentr-permille"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} per mille
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="consumption-liter-per-kilometer"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} litros per kilometro
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="consumption-liter-per-100kilometers"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} litros per 100 kilometros
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="consumption-mile-per-gallon"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} millias per gallon
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="consumption-mile-per-gallon-imperial"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} millias per gallon imperial
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-petabyte"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} petabytes
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-terabyte"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} terabytes
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-terabit"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} terabits
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-gigabyte"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} gigabytes
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-gigabit"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} gigabits
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-megabyte"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} megabytes
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-megabit"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} megabits
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-kilobyte"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kilobytes
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-kilobit"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kilobits
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-byte"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} bytes
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-bit"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} bits
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-century"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} seculos
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} annos
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-month"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} menses
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-week"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} septimanas
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} dies
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-hour"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} horas
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-minute"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} minutas
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-second"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} secundas
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-millisecond"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} millisecundas
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-microsecond"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} microsecundas
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-nanosecond"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} nanosecundas
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="electric-ampere"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} amperes
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="electric-milliampere"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} milliamperes
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="electric-ohm"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} ohms
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="electric-volt"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} volts
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="energy-kilocalorie"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kilocalorias
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="energy-calorie"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} calorias
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="energy-foodcalorie"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kilocalorias
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="energy-kilojoule"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kilojoules
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="energy-joule"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} joules
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="energy-kilowatt-hour"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kilowatthoras
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="frequency-gigahertz"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} gigahertz
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="frequency-megahertz"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} megahertz
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="frequency-kilohertz"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kilohertz
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="frequency-hertz"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} hertz
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-kilometer"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kilometros
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-meter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} metros
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-decimeter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} decimetros
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-centimeter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} centimetros
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-millimeter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} millimetros
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-micrometer"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} micrometros
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-nanometer"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} nanometros
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-picometer"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} picometros
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-mile"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} millias
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-yard"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} yards
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-foot"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} pedes
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-inch"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} pollices
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-parsec"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} parsecs
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-light-year"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} annos lumine
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-astronomical-unit"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} unitates astronomic
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-nautical-mile"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} millias nautic
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-mile-scandinavian"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} millias scandinave
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-point"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} punctos
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="light-lux"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} lux
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-metric-ton"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} tonnas
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-kilogram"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kilogrammas
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-gram"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} grammas
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-milligram"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} milligrammas
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-microgram"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} microgrammas
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-ton"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} tonnas curte
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-pound"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} libras
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-ounce"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} uncias
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-ounce-troy"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} uncias troy
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-carat"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} carates
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-gigawatt"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} gigawatts
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-megawatt"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} megawatts
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-kilowatt"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kilowatts
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-watt"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} watts
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-milliwatt"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} milliwatts
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-horsepower"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} cavallos-vapor
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="pressure-hectopascal"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} hectopascales
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="pressure-millimeter-of-mercury"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} milimetros de mercurio
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="pressure-pound-per-square-inch"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} libras per pollice quadrate
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="pressure-inch-hg"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} pollices de mercurio
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="pressure-millibar"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} millibares
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="pressure-atmosphere"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} atmospheras
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-kilometer-per-hour"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kilometros per hora
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-meter-per-second"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} metros per secunda
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-mile-per-hour"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} millias per hora
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-knot"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} nodos
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="temperature-generic"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} grados
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="temperature-celsius"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} grados Celcius
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="temperature-fahrenheit"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} grados Fahrenheit
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="temperature-kelvin"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kelvin
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-kilometer"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kilometros cubic
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-meter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} metros cubic
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-centimeter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} centimetros cubic
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-mile"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} millias cubic
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-yard"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} yards cubic
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-foot"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} pedes cubic
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-inch"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} inches cubic
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-megaliter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} megalitros
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-hectoliter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} hectolitros
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-liter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} litros
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-deciliter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} decilitros
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-centiliter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} centilitros
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-milliliter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} millilitros
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-pint-metric"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} pintas metric
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cup-metric"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} tassas metric
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-acre-foot"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} acre-pedes
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-gallon"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} gallones
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-gallon-imperial"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} gallones imp.
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-quart"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} quartos
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-pint"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} pintas
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cup"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} tassas
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-fluid-ounce"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} uncias liquide
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-tablespoon"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} coclearatas a suppa
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-teaspoon"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} coclearatas a the
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="acceleration-g-force"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} G
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="acceleration-meter-per-second-squared"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} m/s²
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="angle-revolution"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} rev
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="angle-radian"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} rad
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="angle-degree"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}°
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="angle-arc-minute"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}′
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="angle-arc-second"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}″
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="area-square-kilometer"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} km²
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="area-hectare"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} ha
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="area-square-meter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} m²
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="area-square-centimeter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} cm²
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="area-square-mile"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} mi²
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="area-acre"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} ac
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="area-square-yard"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} yd²
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="area-square-foot"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} ft²
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="area-square-inch"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} in²
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="concentr-karat"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kt
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="concentr-milligram-per-deciliter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} mg/dL
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="concentr-millimole-per-liter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} mmol/L
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="concentr-part-per-million"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} ppm
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="concentr-percent"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}%
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="concentr-permille"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}‰
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="consumption-liter-per-kilometer"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} L/km
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="consumption-liter-per-100kilometers"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} L/100km
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="consumption-mile-per-gallon"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} mi/gal
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="consumption-mile-per-gallon-imperial"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} mi/gal imp.
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="digital-petabyte"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} PB
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="digital-terabyte"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} TB
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="digital-terabit"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} Tb
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="digital-gigabyte"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} GB
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="digital-gigabit"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} Gb
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="digital-megabyte"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} MB
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="digital-megabit"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} Mb
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="digital-kilobyte"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kB
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="digital-kilobit"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kb
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="digital-byte"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} B
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="digital-bit"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} b
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-century"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} scl
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} an
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-month"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} menses
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-week"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} sept
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-day"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} dies
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-hour"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} hr
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-minute"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} min
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-second"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} sec
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-millisecond"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} ms
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-microsecond"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}μs
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-nanosecond"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}ns
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="electric-ampere"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} A
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="electric-milliampere"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} mA
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="electric-ohm"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} Ω
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="electric-volt"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} V
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="energy-kilocalorie"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kcal
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="energy-calorie"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} cal
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="energy-foodcalorie"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kcal
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="energy-kilojoule"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kJ
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="energy-joule"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} J
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="energy-kilowatt-hour"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kWh
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="frequency-gigahertz"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} GHz
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="frequency-megahertz"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} MHz
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="frequency-kilohertz"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kHz
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="frequency-hertz"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} Hz
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-kilometer"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} km
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-meter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} m
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-decimeter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} dm
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-centimeter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} cm
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-millimeter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} mm
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-micrometer"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} µm
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-nanometer"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} nm
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-picometer"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} pm
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-mile"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} mi
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-yard"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} yd
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-foot"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} ft
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-inch"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} in
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-parsec"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} pc
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-light-year"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} al
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-astronomical-unit"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} ua
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-nautical-mile"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} nmi
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-mile-scandinavian"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} smi
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-point"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} pt
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="light-lux"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} lx
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-metric-ton"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}t
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-kilogram"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kg
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-gram"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} g
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-milligram"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} mg
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-microgram"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} µg
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-ton"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} tn
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-pound"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} lb
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-ounce"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} oz
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-ounce-troy"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} oz t
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-carat"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} ct
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="power-gigawatt"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} GW
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="power-megawatt"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} MW
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="power-kilowatt"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kW
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="power-watt"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} W
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="power-milliwatt"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} mW
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="power-horsepower"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} cv
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="pressure-hectopascal"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} hPa
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="pressure-millimeter-of-mercury"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} mm Hg
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="pressure-pound-per-square-inch"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} lb/in²
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="pressure-inch-hg"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} inHg
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="pressure-millibar"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} mbar
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="pressure-atmosphere"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} atm
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-kilometer-per-hour"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} km/h
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-meter-per-second"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} m/s
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-mile-per-hour"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} mi/h
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-knot"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} kn
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="temperature-generic"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}°
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="temperature-celsius"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} °C
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="temperature-fahrenheit"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} °F
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="temperature-kelvin"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} K
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-cubic-kilometer"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} km³
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-cubic-meter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} m³
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-cubic-centimeter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} cm³
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-cubic-mile"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} mi³
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-cubic-yard"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} yd³
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-cubic-foot"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} pd³
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-cubic-inch"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} in³
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-megaliter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} ML
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-hectoliter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} hL
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-liter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} L
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-deciliter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} dL
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-centiliter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} cL
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-milliliter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} mL
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-pint-metric"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} ptm
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-cup-metric"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} tasm
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-acre-foot"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} ac pd
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-gallon"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} gal
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-gallon-imperial"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} gal imp
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-quart"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} qt
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-pint"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} pt
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-cup"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} tas
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-fluid-ounce"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} oz liq
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-tablespoon"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} cocl. a suppa
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-teaspoon"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} cocl. a the
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="concentr-percent"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}%
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="consumption-liter-per-100kilometers"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} L/100km
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}an
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-month"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}m
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-week"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}sept
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-day"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}d
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-hour"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}h
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-minute"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}m
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-second"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}s
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-millisecond"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}ms
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="length-kilometer"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}km
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="length-meter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}m
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="length-centimeter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}cm
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="length-millimeter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}mm
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="mass-kilogram"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}kg
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="mass-gram"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}g
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-kilometer-per-hour"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0} km/h
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="temperature-celsius"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}°C
-locale=ia;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="volume-liter"]/unitPattern[@count="one"][@draft="provisional"];	new_value={0}L
-locale=ia;	action=add;	new_path=//ldml/characterLabels/characterLabelPattern[@type="strokes"][@count="one"][@draft="provisional"];	new_value={0} tractos
+locale=jv ; action=add ; new_path=3cead67f8ae5f035 ; new_value=Aghem
+locale=jv ; action=add ; new_path=260fb6c0c0209dde ; new_value=Akan
+locale=jv ; action=add ; new_path=915e508f496400f ; new_value=Amharik
+locale=jv ; action=add ; new_path=3eadc7346e0f5a88 ; new_value=Assam
+locale=jv ; action=add ; new_path=3a379e77aa91e890 ; new_value=Asu
+locale=jv ; action=add ; new_path=712372f760f980ec ; new_value=Asturia
+locale=jv ; action=add ; new_path=77492b7d377d4cdc ; new_value=Azerbaijan
+locale=jv ; action=add ; new_path=700f7be0e77ae39b ; new_value=Azeri
+locale=jv ; action=add ; new_path=363b4a1231433e8e ; new_value=Basaa
+locale=jv ; action=add ; new_path=78131d73be3d98fc ; new_value=Bemba
+locale=jv ; action=add ; new_path=32451966d1f7aef4 ; new_value=Bena
+locale=jv ; action=add ; new_path=4043f9a38addbfa3 ; new_value=Bulgaria
+locale=jv ; action=add ; new_path=6652c68f31a11fc2 ; new_value=Bambara
+locale=jv ; action=add ; new_path=6b1ab5b44fce9439 ; new_value=Tibet
+locale=jv ; action=add ; new_path=36bce4a589cda397 ; new_value=Breton
+locale=jv ; action=add ; new_path=71bc62ac1e0cf095 ; new_value=Bodo
+locale=jv ; action=add ; new_path=1c23cd54efee68be ; new_value=Katala
+locale=jv ; action=add ; new_path=3f83d49e35c35b84 ; new_value=Chechen
+locale=jv ; action=add ; new_path=54d2b8a6b397496b ; new_value=Cebuano
+locale=jv ; action=add ; new_path=1c0523cb51571abf ; new_value=Chiga
+locale=jv ; action=add ; new_path=542282d19f00853a ; new_value=Cherokee
+locale=jv ; action=add ; new_path=50b99c1c6d99711a ; new_value=Kurdi Tengah
+locale=jv ; action=add ; new_path=5554afc2db31ec ; new_value=Ceska
+locale=jv ; action=add ; new_path=1b6a513bdd9366f6 ; new_value=Slavia Gerejani
+locale=jv ; action=add ; new_path=18d077fb3707f076 ; new_value=Welsh
+locale=jv ; action=add ; new_path=6e2cb9ff29966dd5 ; new_value=Dansk
+locale=jv ; action=add ; new_path=7ced680afcd3ea58 ; new_value=Taita
+locale=jv ; action=add ; new_path=6431e2cf519dbc25 ; new_value=Zarma
+locale=jv ; action=add ; new_path=314ca97c10005996 ; new_value=Sorbia Non Standar
+locale=jv ; action=add ; new_path=3e111437db578d13 ; new_value=Duala
+locale=jv ; action=add ; new_path=6cf3b18334ed42b9 ; new_value=Jola-Fonyi
+locale=jv ; action=add ; new_path=4638afb109d2a2a0 ; new_value=Dzongkha
+locale=jv ; action=add ; new_path=30a457dd18d12da5 ; new_value=Embu
+locale=jv ; action=add ; new_path=62714a048ae10b6d ; new_value=Ewe
+locale=jv ; action=add ; new_path=53466a41920bfb38 ; new_value=Yunani
+locale=jv ; action=add ; new_path=1e6d8bbd5bd099c3 ; new_value=Esperanto
+locale=jv ; action=add ; new_path=29f87eb18dd7b2c4 ; new_value=Estonia
+locale=jv ; action=add ; new_path=2f7241270abf74fe ; new_value=Basque
+locale=jv ; action=add ; new_path=6ca47d28c298307c ; new_value=Ewondo
+locale=jv ; action=add ; new_path=27ae477903db4cc5 ; new_value=Persia
+locale=jv ; action=add ; new_path=7511a7ce7799fa0b ; new_value=Fulah
+locale=jv ; action=add ; new_path=4ab3781d227fcc46 ; new_value=Suomi
+locale=jv ; action=add ; new_path=c60c794b9117678 ; new_value=Tagalog
+locale=jv ; action=add ; new_path=19d11638f3609fe2 ; new_value=Faroe
+locale=jv ; action=add ; new_path=711d47cf80ab2975 ; new_value=Friulian
+locale=jv ; action=add ; new_path=540b398996b10ce0 ; new_value=Frisia Sisih Kulon
+locale=jv ; action=add ; new_path=22d9a449ce423c86 ; new_value=Irlandia
+locale=jv ; action=add ; new_path=61d61eb1fac7334c ; new_value=Gaulia
+locale=jv ; action=add ; new_path=58ff4884012bc33c ; new_value=Galisia
+locale=jv ; action=add ; new_path=225d5b8bb41c393 ; new_value=Jerman Swiss
+locale=jv ; action=add ; new_path=624d411afbecf6d0 ; new_value=Gujarat
+locale=jv ; action=add ; new_path=75718153ac1fcffe ; new_value=Gusii
+locale=jv ; action=add ; new_path=e593c3d7aae2b4c ; new_value=Manx
+locale=jv ; action=add ; new_path=1bfed8354572ada7 ; new_value=Hausa
+locale=jv ; action=add ; new_path=a3387025dca9a75 ; new_value=Hawaii
+locale=jv ; action=add ; new_path=180597b3001bb512 ; new_value=Ibrani
+locale=jv ; action=add ; new_path=3b393c95a6a52b4 ; new_value=Hmong
+locale=jv ; action=add ; new_path=6d43fe9eadc50e89 ; new_value=Kroasia
+locale=jv ; action=add ; new_path=6211129ff91d5c1a ; new_value=Sorbia Standar
+locale=jv ; action=add ; new_path=272eed2d2ee6437c ; new_value=Kreol Haiti
+locale=jv ; action=add ; new_path=5deafb1039de64ce ; new_value=Hungaria
+locale=jv ; action=add ; new_path=330672f4af32be9e ; new_value=Armenia
+locale=jv ; action=add ; new_path=52c570431102520b ; new_value=Interlingua
+locale=jv ; action=add ; new_path=47982bfd607379be ; new_value=Iqbo
+locale=jv ; action=add ; new_path=41fb418f571bee44 ; new_value=Sichuan Yi
+locale=jv ; action=add ; new_path=328d19a24f30b22a ; new_value=Islandia
+locale=jv ; action=add ; new_path=4b817a850faaae99 ; new_value=Ngomba
+locale=jv ; action=add ; new_path=6203845e317e2d85 ; new_value=Machame
+locale=jv ; action=add ; new_path=39dcb243fa1a2799 ; new_value=Georgia
+locale=jv ; action=add ; new_path=787d4e0576d7869a ; new_value=Kabyle
+locale=jv ; action=add ; new_path=226f4f0ad2a704ca ; new_value=Kamba
+locale=jv ; action=add ; new_path=53b4740121e84442 ; new_value=Makonde
+locale=jv ; action=add ; new_path=55808175c5b3dc2e ; new_value=Kabuverdianu
+locale=jv ; action=add ; new_path=38b92fe120d6f6b ; new_value=Koyra Chiini
+locale=jv ; action=add ; new_path=368dfa74f098b6b4 ; new_value=Kikuyu
+locale=jv ; action=add ; new_path=112f31d1a00b0f68 ; new_value=Kazakh
+locale=jv ; action=add ; new_path=6fc8fec9b8eb4953 ; new_value=Kako
+locale=jv ; action=add ; new_path=177b4a63294e3b03 ; new_value=Kalaallisut
+locale=jv ; action=add ; new_path=4bc4961de6a2c98 ; new_value=Kalenjin
+locale=jv ; action=add ; new_path=2fbc2bad8455322f ; new_value=Khmer
+locale=jv ; action=add ; new_path=3e98e22746c3e98b ; new_value=Kannada
+locale=jv ; action=add ; new_path=20b2b09614854000 ; new_value=Konkani
+locale=jv ; action=add ; new_path=1a13d2b147817161 ; new_value=Kashmiri
+locale=jv ; action=add ; new_path=31a9c7cfaa07ea4a ; new_value=Shambala
+locale=jv ; action=add ; new_path=45b9b33240d14336 ; new_value=Bafia
+locale=jv ; action=add ; new_path=4f0f83cd65f2f0c9 ; new_value=Colonia
+locale=jv ; action=add ; new_path=65b3e3fbf6497a70 ; new_value=Kurdis
+locale=jv ; action=add ; new_path=3dea8d141af8e7cd ; new_value=Kernowek
+locale=jv ; action=add ; new_path=72e5e103f39e1d8d ; new_value=Kirgis
+locale=jv ; action=add ; new_path=551fdd4693933c68 ; new_value=Latin
+locale=jv ; action=add ; new_path=d7c07f679d8e8d9 ; new_value=Langi
+locale=jv ; action=add ; new_path=45fc5f0dad6a5c6f ; new_value=Luksemburg
+locale=jv ; action=add ; new_path=7c0c2d74318d9b6a ; new_value=Ganda
+locale=jv ; action=add ; new_path=42992308733c69c7 ; new_value=Lakota
+locale=jv ; action=add ; new_path=7d3c622b3fc262bf ; new_value=Lingala
+locale=jv ; action=add ; new_path=49a6caf88e79daf1 ; new_value=Laos
+locale=jv ; action=add ; new_path=24efc5b3f250c109 ; new_value=Luri Sisih Lor
+locale=jv ; action=add ; new_path=263c441f26477aed ; new_value=Lithuania
+locale=jv ; action=add ; new_path=40090f0ac3ec29a ; new_value=Luba-Katanga
+locale=jv ; action=add ; new_path=3618e81356424116 ; new_value=Luo
+locale=jv ; action=add ; new_path=7e6ceca020f97dfc ; new_value=Luyia
+locale=jv ; action=add ; new_path=774230f76f27a54e ; new_value=Latvia
+locale=jv ; action=add ; new_path=3c00e76f2f2243b2 ; new_value=Masai
+locale=jv ; action=add ; new_path=19750adde5c2ae55 ; new_value=Meru
+locale=jv ; action=add ; new_path=79f760b3e249653a ; new_value=Morisyen
+locale=jv ; action=add ; new_path=97b58d26c0f4788 ; new_value=Malagasi
+locale=jv ; action=add ; new_path=5c9c911d5399c27b ; new_value=Makhuwa-Meeto
+locale=jv ; action=add ; new_path=2f4277862f1c0356 ; new_value=Meta’
+locale=jv ; action=add ; new_path=2acb45a2de6dc6fd ; new_value=Maori
+locale=jv ; action=add ; new_path=5d555e2ebacd93a1 ; new_value=Makedonia
+locale=jv ; action=add ; new_path=78f3e3087c24ba23 ; new_value=Malayalam
+locale=jv ; action=add ; new_path=6cc7bc4d6c007adb ; new_value=Mongolia
+locale=jv ; action=add ; new_path=1aed5a1643015693 ; new_value=Marathi
+locale=jv ; action=add ; new_path=60cebbd62a97fafe ; new_value=Melayu
+locale=jv ; action=add ; new_path=132345490064d839 ; new_value=Malta
+locale=jv ; action=add ; new_path=2b1793551ea84657 ; new_value=Mundang
+locale=jv ; action=add ; new_path=63ef268c21be0de8 ; new_value=Basa Multilingua
+locale=jv ; action=add ; new_path=54e3296486522ab ; new_value=Myanmar
+locale=jv ; action=add ; new_path=64bcc87907a7770 ; new_value=Mazanderani
+locale=jv ; action=add ; new_path=2b2f7a4d96be9f54 ; new_value=Nama
+locale=jv ; action=add ; new_path=2566ff8501493d16 ; new_value=Bokmål Norwegia
+locale=jv ; action=add ; new_path=9fd988164b08fc8 ; new_value=Ndebele Lor
+locale=jv ; action=add ; new_path=2b2fd7b13c51ef5c ; new_value=Jerman Non Standar
+locale=jv ; action=add ; new_path=32b0b69a09157bbf ; new_value=Nepal
+locale=jv ; action=add ; new_path=79d3a6aa99001871 ; new_value=Kwasio
+locale=jv ; action=add ; new_path=792dd7c07ea28773 ; new_value=Nynorsk Norwegia
+locale=jv ; action=add ; new_path=31aaa5e94dfaf0c2 ; new_value=Ngiemboon
+locale=jv ; action=add ; new_path=795be316eb537f02 ; new_value=Nuer
+locale=jv ; action=add ; new_path=45e506fa5eb1ee1f ; new_value=Nyanja
+locale=jv ; action=add ; new_path=2b89d34dcd2bcacc ; new_value=Nyankole
+locale=jv ; action=add ; new_path=792cf766be4ee1b7 ; new_value=Oromo
+locale=jv ; action=add ; new_path=cf769b80fd464b6 ; new_value=Odia
+locale=jv ; action=add ; new_path=65f8b487e67b0105 ; new_value=Ossetia
+locale=jv ; action=add ; new_path=71d9512673af4fed ; new_value=Punjab
+locale=jv ; action=add ; new_path=471b961b1c211855 ; new_value=Prusia
+locale=jv ; action=add ; new_path=54c951371ac8b6c7 ; new_value=Pashto
+locale=jv ; action=add ; new_path=7aa207022dcaec02 ; new_value=Quechua
+locale=jv ; action=add ; new_path=48798930a280653 ; new_value=Roman
+locale=jv ; action=add ; new_path=79bbf6d8cef4c15e ; new_value=Rundi
+locale=jv ; action=add ; new_path=d6e5e995515c60d ; new_value=Rumania
+locale=jv ; action=add ; new_path=13019ec0562b3141 ; new_value=Rombo
+locale=jv ; action=add ; new_path=661a714e916f35f0 ; new_value=Kinyarwanda
+locale=jv ; action=add ; new_path=2cd2ed6bc89a3595 ; new_value=Rwa
+locale=jv ; action=add ; new_path=5a363be3694a31e6 ; new_value=Sanskerta
+locale=jv ; action=add ; new_path=79262aa5d69820da ; new_value=Sakha
+locale=jv ; action=add ; new_path=3efdd2f06c7baf90 ; new_value=Samburu
+locale=jv ; action=add ; new_path=6a467f72d4840ad1 ; new_value=Sangu
+locale=jv ; action=add ; new_path=155dedef6e647c42 ; new_value=Sindhi
+locale=jv ; action=add ; new_path=5461ee0391d38394 ; new_value=Sami Sisih Lor
+locale=jv ; action=add ; new_path=5a78b41291324b49 ; new_value=Sena
+locale=jv ; action=add ; new_path=17a57cd8d4b03258 ; new_value=Koyraboro Senni
+locale=jv ; action=add ; new_path=eee63f654bc9d52 ; new_value=Sango
+locale=jv ; action=add ; new_path=5098b563976c6487 ; new_value=Tachelhit
+locale=jv ; action=add ; new_path=6b773b0f539e5dc6 ; new_value=Sinhala
+locale=jv ; action=add ; new_path=7cc18dc944091dcc ; new_value=Slowakia
+locale=jv ; action=add ; new_path=4d1dc9ed361b4929 ; new_value=Slovenia
+locale=jv ; action=add ; new_path=6df3e69286c235a6 ; new_value=Samoa
+locale=jv ; action=add ; new_path=208e8e1d7e2d8cff ; new_value=Inari Sami
+locale=jv ; action=add ; new_path=5bc1a72a40d233b5 ; new_value=Shona
+locale=jv ; action=add ; new_path=10eb13880a94007d ; new_value=Somalia
+locale=jv ; action=add ; new_path=2fa5e0b1e0e28119 ; new_value=Albania
+locale=jv ; action=add ; new_path=48b1a6b6c8ff0e3d ; new_value=Serbia
+locale=jv ; action=add ; new_path=2efb6c27a0e9aeb7 ; new_value=Sotho Sisih Kidul
+locale=jv ; action=add ; new_path=637d62ab17744526 ; new_value=Sunda
+locale=jv ; action=add ; new_path=7c87f3e9e0b63e00 ; new_value=Swedia
+locale=jv ; action=add ; new_path=7be8622a98282099 ; new_value=Swahili
+locale=jv ; action=add ; new_path=2d28859e81f3417e ; new_value=Tamil
+locale=jv ; action=add ; new_path=6bd210400dee4a6b ; new_value=Telugu
+locale=jv ; action=add ; new_path=539c9c990236ecc4 ; new_value=Teso
+locale=jv ; action=add ; new_path=30a9f9ea95918d38 ; new_value=Tajik
+locale=jv ; action=add ; new_path=5a374072ff248c3b ; new_value=Tigrinya
+locale=jv ; action=add ; new_path=4824aa6123aacc2d ; new_value=Turkmen
+locale=jv ; action=add ; new_path=1a160f94b4510f18 ; new_value=Tonga
+locale=jv ; action=add ; new_path=6bc756bf2c1bef1b ; new_value=Tatar
+locale=jv ; action=add ; new_path=63a4e7dbb39b971a ; new_value=Tasawaq
+locale=jv ; action=add ; new_path=346e71a8ed4de6f8 ; new_value=Tamazight Atlas Tengah
+locale=jv ; action=add ; new_path=225ff9e3cefec9bd ; new_value=Uighur
+locale=jv ; action=add ; new_path=75393258331b48a0 ; new_value=Ukraina
+locale=jv ; action=add ; new_path=1beb8b90c4a67343 ; new_value=Urdu
+locale=jv ; action=add ; new_path=2d1f41f43801dd1e ; new_value=Uzbek
+locale=jv ; action=add ; new_path=44287b6d4782bc24 ; new_value=Vai
+locale=jv ; action=add ; new_path=6d7c2e37642dad22 ; new_value=Vietnam
+locale=jv ; action=add ; new_path=65d16c714451f65c ; new_value=Volapuk
+locale=jv ; action=add ; new_path=510b958d69238fa8 ; new_value=Vunjo
+locale=jv ; action=add ; new_path=65ea482b4aaa13ee ; new_value=Walser
+locale=jv ; action=add ; new_path=4ccfa5f7e24388e3 ; new_value=Wolof
+locale=jv ; action=add ; new_path=7ef6e1bd36729755 ; new_value=Xhosa
+locale=jv ; action=add ; new_path=2fe3926f99b24189 ; new_value=Soga
+locale=jv ; action=add ; new_path=7bdb5846c29ba0e5 ; new_value=Yangben
+locale=jv ; action=add ; new_path=437c34b3643ed6c9 ; new_value=Yiddish
+locale=jv ; action=add ; new_path=7c2109b9de953216 ; new_value=Yoruba
+locale=jv ; action=add ; new_path=42df77a4fd7f5609 ; new_value=Kanton
+locale=jv ; action=add ; new_path=691f93d26aa315b7 ; new_value=Tamazight Moroko Standar
+locale=jv ; action=add ; new_path=450e2a2d29eab88d ; new_value=Zulu
+locale=jv ; action=add ; new_path=4ad9dcac005a90bc ; new_value=Konten tanpa linguistik
+locale=jv ; action=add ; new_path=26a9d1787aee96d5 ; new_value=Armenia
+locale=jv ; action=add ; new_path=3021d1652fc6a8c2 ; new_value=Bangla
+locale=jv ; action=add ; new_path=4ce0dc5a5581cf88 ; new_value=Bopomofo
+locale=jv ; action=add ; new_path=26e66c5cd72714a4 ; new_value=Braille
+locale=jv ; action=add ; new_path=6d08cbf4ce49f32b ; new_value=Devanagari
+locale=jv ; action=add ; new_path=7e3969525a51a0bf ; new_value=Ethiopik
+locale=jv ; action=add ; new_path=1084d72d1f2f5e68 ; new_value=Georgia
+locale=jv ; action=add ; new_path=b806d13710e0300 ; new_value=Yunani
+locale=jv ; action=add ; new_path=2f9eff302a5d3ff4 ; new_value=Gujarati
+locale=jv ; action=add ; new_path=78e9461e0014b93f ; new_value=Gurmukhi
+locale=jv ; action=add ; new_path=7b04b11e60590853 ; new_value=Han nganggo Bopomofo
+locale=jv ; action=add ; new_path=7ad00979b08041a ; new_value=Hangul
+locale=jv ; action=add ; new_path=6b160f4d80404d7a ; new_value=Ibrani
+locale=jv ; action=add ; new_path=3f0671a838d2fe81 ; new_value=Hiragana
+locale=jv ; action=add ; new_path=15c86698d964fdf ; new_value=Silabaris Jepang
+locale=jv ; action=add ; new_path=4bf7c7a6642bedfb ; new_value=Katakana
+locale=jv ; action=add ; new_path=31189f9fcf0a5be5 ; new_value=Khmer
+locale=jv ; action=add ; new_path=7185cb4a31a9caf6 ; new_value=Kannada
+locale=jv ; action=add ; new_path=50c609bb9a6a3886 ; new_value=Lao
+locale=jv ; action=add ; new_path=55c3a8c37b4eb82b ; new_value=Malayalam
+locale=jv ; action=add ; new_path=12682ec96dcea3bc ; new_value=Mongolia
+locale=jv ; action=add ; new_path=7f571610fd23503b ; new_value=Myanmar
+locale=jv ; action=add ; new_path=75a446f3251b5409 ; new_value=Odia
+locale=jv ; action=add ; new_path=7459eb903ee90b2f ; new_value=Sinhala
+locale=jv ; action=add ; new_path=3c49bd4a185dcb6a ; new_value=Tamil
+locale=jv ; action=add ; new_path=762b02b69034a08f ; new_value=Thaana
+locale=jv ; action=add ; new_path=402a7a5033096971 ; new_value=Tibetan
+locale=jv ; action=add ; new_path=4906be2d11c0b6bc ; new_value=Notasi Matematika
+locale=jv ; action=add ; new_path=6e3f50cd8d887621 ; new_value=Emoji
+locale=jv ; action=add ; new_path=27c9e428b64f55ec ; new_value=Simbol
+locale=jv ; action=add ; new_path=4b4b52bfb8751d1 ; new_value=Umum
+locale=jv ; action=add ; new_path=11a56646021b1e86 ; new_value=Tanggalan
+locale=jv ; action=add ; new_path=3b3b733148d0064d ; new_value=Format Mata Uang
+locale=jv ; action=add ; new_path=7a1056a90b3241b ; new_value=Urutan Pamilahan
+locale=jv ; action=add ; new_path=245e7472329f5da1 ; new_value=Mata Uang
+locale=jv ; action=add ; new_path=142e73381c19bfaf ; new_value=Siklus Jam (12 vs 24)
+locale=jv ; action=add ; new_path=45fd4ee5c7a3beb5 ; new_value=Gaya Ganti Baris
+locale=jv ; action=add ; new_path=77945b5b012ea902 ; new_value=Sistem Pangukuran
+locale=jv ; action=add ; new_path=112a45fe2e62d0de ; new_value=Angka
+locale=jv ; action=add ; new_path=641a8b6db7be7147 ; new_value=Tanggalan Buddha
+locale=jv ; action=add ; new_path=1e434d4fec531245 ; new_value=Tanggalan Cina
+locale=jv ; action=add ; new_path=95f1aa237f97285 ; new_value=Tanggalan Dangi
+locale=jv ; action=add ; new_path=594b6cd09ff2587c ; new_value=Tanggalan Etiopia
+locale=jv ; action=add ; new_path=4600f8c0985002e3 ; new_value=Tanggalan Ibrani
+locale=jv ; action=add ; new_path=3df52b1e4d65309a ; new_value=Tanggalan Islam
+locale=jv ; action=add ; new_path=5221727959e5fe7a ; new_value=Tanggalan Jepang
+locale=jv ; action=add ; new_path=e2df5d37fd43257 ; new_value=Tanggalan Persia
+locale=jv ; action=add ; new_path=6ddc07b95d93f621 ; new_value=Tanggalan Minguo
+locale=jv ; action=add ; new_path=1367016ec0927785 ; new_value=Format Mata Uang Akuntansi
+locale=jv ; action=add ; new_path=652417fe9333357f ; new_value=Format Mata Uang Standar
+locale=jv ; action=add ; new_path=6d507d87147fdffc ; new_value=Urutan Pamilahan Unicode Default
+locale=jv ; action=add ; new_path=23637d4b1cff7632 ; new_value=Panlusuran Tujuan Umum
+locale=jv ; action=add ; new_path=74b0407e0866025 ; new_value=Sistem 12 Jam (0–11)
+locale=jv ; action=add ; new_path=597159a595134cb9 ; new_value=Sistem 12 Jam (1–12)
+locale=jv ; action=add ; new_path=b7da0bb568a1870 ; new_value=Sistem 24 Jam (0–23)
+locale=jv ; action=add ; new_path=6e186bd24551ac94 ; new_value=Sistem 24 Jam (1–24)
+locale=jv ; action=add ; new_path=282cce0efeef5811 ; new_value=Gaya Ganti Baris Longgar
+locale=jv ; action=add ; new_path=5f8cfa615c2855f ; new_value=Gaya Ganti Baris Normal
+locale=jv ; action=add ; new_path=fd4740ef0421490 ; new_value=Gaya Ganti Baris Strik
+locale=jv ; action=add ; new_path=2584f1d27e13f3a4 ; new_value=Sistem Metrik
+locale=jv ; action=add ; new_path=5fed22bb1e5f7182 ; new_value=Sistem Pangukuran Imperial
+locale=jv ; action=add ; new_path=17c0bc7bcb60719d ; new_value=Sistem Pangukuran AS
+locale=jv ; action=add ; new_path=43c1c695e6e452a5 ; new_value=Digit Hindu-Arab
+locale=jv ; action=add ; new_path=4ac1389bf9792a2c ; new_value=Digit Hindu-Arab Diambakake
+locale=jv ; action=add ; new_path=47b00da787dbdf80 ; new_value=Angka Armenia
+locale=jv ; action=add ; new_path=280eb1e9b07706a1 ; new_value=Angka Huruf Cilik Armenia
+locale=jv ; action=add ; new_path=4f6a02a0989ace0b ; new_value=Digit Bengali
+locale=jv ; action=add ; new_path=3e6b07b8289a2048 ; new_value=Digit Devanagari
+locale=jv ; action=add ; new_path=1a3270837a81178e ; new_value=Angka Etiopia
+locale=jv ; action=add ; new_path=3443b49f42622249 ; new_value=Digit Amba Kebak
+locale=jv ; action=add ; new_path=17b875cf16139ef ; new_value=Angka Georgian
+locale=jv ; action=add ; new_path=68f29dc56ccc38af ; new_value=Angka Yunani
+locale=jv ; action=add ; new_path=408b72dafe025b4a ; new_value=Angka Huruf Cilik Yunani
+locale=jv ; action=add ; new_path=bff6a809efea474 ; new_value=Digit Gujarat
+locale=jv ; action=add ; new_path=46d478a395698105 ; new_value=Digit Gurmukhi
+locale=jv ; action=add ; new_path=2c98abe6e340c4b0 ; new_value=Angka Desimal Mandarin
+locale=jv ; action=add ; new_path=5d45c8f610f2fd4c ; new_value=Angka Mandarin Prasaja
+locale=jv ; action=add ; new_path=30741b226af7fd4a ; new_value=Angka Finansial Mandarin Prasaja
+locale=jv ; action=add ; new_path=6a05545ed03b3e3c ; new_value=Angka Mandarin Tradisional
+locale=jv ; action=add ; new_path=350a8026408f8256 ; new_value=Angka Finansial Mandarin Tradisional
+locale=jv ; action=add ; new_path=4ca74a50874df025 ; new_value=Angka Ibrani
+locale=jv ; action=add ; new_path=1eb187260a2a407f ; new_value=Angka Jepang
+locale=jv ; action=add ; new_path=5ca442cf5c197337 ; new_value=Angka Finansial Jepang
+locale=jv ; action=add ; new_path=163e5281ba51bbcf ; new_value=Digit Khmer
+locale=jv ; action=add ; new_path=3bb237c888ea6723 ; new_value=Digit Kannada
+locale=jv ; action=add ; new_path=5916e1d78c463903 ; new_value=Digit Lao
+locale=jv ; action=add ; new_path=22be9631ea3306b ; new_value=Digit Malayalam
+locale=jv ; action=add ; new_path=6817dac3893d6ff2 ; new_value=Digit Myanmar
+locale=jv ; action=add ; new_path=1e57808893a8807b ; new_value=Digit Odia
+locale=jv ; action=add ; new_path=7de5442b30568eaa ; new_value=Angka Romawi
+locale=jv ; action=add ; new_path=10e05bf8a3571f2b ; new_value=Angka Huruf Cilik Romawi
+locale=jv ; action=add ; new_path=7a4e75437b7aaf03 ; new_value=Angka Tamil Tradisional
+locale=jv ; action=add ; new_path=17e27789634b519f ; new_value=Digit Tamil
+locale=jv ; action=add ; new_path=2ae04c1bfc900859 ; new_value=Digit Telugu
+locale=jv ; action=add ; new_path=70c9734407864805 ; new_value=Digit Thailand
+locale=jv ; action=add ; new_path=709c149814cf9e45 ; new_value=Digit Tibet
+locale=jv ; action=add ; new_path=50b7a93678076f4d ; new_value=ing {0} taun
+locale=jv ; action=add ; new_path=6155fb8e0bff25d8 ; new_value={0} taun kepungkur
+locale=jv ; action=add ; new_path=5367aa2910477491 ; new_value=ing {0} tn
+locale=jv ; action=add ; new_path=697ba4281637e4e ; new_value={0} tn kepungkur
+locale=jv ; action=add ; new_path=59f2c964eb69bd03 ; new_value=kwartal wingi
+locale=jv ; action=add ; new_path=2e944097c6246d5b ; new_value=kwartal iki
+locale=jv ; action=add ; new_path=63d7f9d6d21a2a3b ; new_value=kwartal ngarep
+locale=jv ; action=add ; new_path=33fc8304604ba7b7 ; new_value=ing {0} kwartal
+locale=jv ; action=add ; new_path=781afbaaa72c2d73 ; new_value={0} kwartal kepungkur
+locale=jv ; action=add ; new_path=3882422e33174351 ; new_value=ing {0} kwrt.
+locale=jv ; action=add ; new_path=1f39ed6ed4738eb0 ; new_value={0} kwrt. kepungkur
+locale=jv ; action=add ; new_path=71165a5560b448a5 ; new_value=ing {0} sasi
+locale=jv ; action=add ; new_path=52fe5b97232d8147 ; new_value={0} sasi kepungkur
+locale=jv ; action=add ; new_path=56e78e92bf345cf0 ; new_value=ing {0} s.
+locale=jv ; action=add ; new_path=1b0439806b37a2b8 ; new_value={0} s. kepungkur
+locale=jv ; action=add ; new_path=51d289888f0427e8 ; new_value=ing {0} minggu
+locale=jv ; action=add ; new_path=67f8aae12bf2f9ea ; new_value={0} minggu kepungkur
+locale=jv ; action=add ; new_path=75cde164bb47502d ; new_value=ing {0} mgg.
+locale=jv ; action=add ; new_path=5c15ca5c6f77d2b8 ; new_value={0} mgg. kepungkur
+locale=jv ; action=add ; new_path=56e6de1e9e59b32a ; new_value=minggu jroning sesasi
+locale=jv ; action=add ; new_path=ee50c0cace7b9c2 ; new_value=mgu ing sasi
+locale=jv ; action=add ; new_path=2bdde8328fa4c698 ; new_value=mgu ing sasi
+locale=jv ; action=add ; new_path=11110c79d6a08e97 ; new_value=ing {0} dina
+locale=jv ; action=add ; new_path=3452a65a06e410e1 ; new_value={0} dina kepungkur
+locale=jv ; action=add ; new_path=ac0f1286846ac8f ; new_value=dina jroning setaun
+locale=jv ; action=add ; new_path=6f7d7106fa233a96 ; new_value=dina ing taun
+locale=jv ; action=add ; new_path=40fde6000c1bb615 ; new_value=dn ing taun
+locale=jv ; action=add ; new_path=399a844857512313 ; new_value=dina jroning sasi
+locale=jv ; action=add ; new_path=6417ed2a203caac7 ; new_value=dn jroning sasi
+locale=jv ; action=add ; new_path=758135ca5c6baa99 ; new_value=Ahad wingi
+locale=jv ; action=add ; new_path=34da11643c7613cf ; new_value=Ahad iki
+locale=jv ; action=add ; new_path=7df0c2ca06251dea ; new_value=Ahad ngarep
+locale=jv ; action=add ; new_path=776e1e1e423f9f60 ; new_value=ing {0} Ahad
+locale=jv ; action=add ; new_path=52822360fb80abf3 ; new_value={0} Ahad kepungkur
+locale=jv ; action=add ; new_path=22fa28e51e485c13 ; new_value=Ahad wingi
+locale=jv ; action=add ; new_path=50a4d81e63ee2afc ; new_value=Ahad iki
+locale=jv ; action=add ; new_path=68175c8d0973742b ; new_value=Ahad ngarep
+locale=jv ; action=add ; new_path=70f511d57c872f09 ; new_value=ing {0} Ahad
+locale=jv ; action=add ; new_path=7d0afe90a59d7dcc ; new_value={0} Ahad kepungkur
+locale=jv ; action=add ; new_path=4e1cdb259b8a680b ; new_value=Ah wingi
+locale=jv ; action=add ; new_path=458fbc00f4959a61 ; new_value=Ah iki
+locale=jv ; action=add ; new_path=e3c6a947ed26bec ; new_value=Ah ngarep
+locale=jv ; action=add ; new_path=2e088213728c297a ; new_value=ing {0} Ah
+locale=jv ; action=add ; new_path=6b5dff3648b8f062 ; new_value={0} Ah kepungkur
+locale=jv ; action=add ; new_path=569d924f57fa1a1b ; new_value=Senèn wingi
+locale=jv ; action=add ; new_path=63e1b9a0642c05a ; new_value=Senèn iki
+locale=jv ; action=add ; new_path=76b1b91293c888d2 ; new_value=Senèn ngarep
+locale=jv ; action=add ; new_path=7ec4b3073848a7af ; new_value=ing {0} Senèn
+locale=jv ; action=add ; new_path=6482eace6d9a918c ; new_value={0} Senèn kepungkur
+locale=jv ; action=add ; new_path=3663bc1e50862fa9 ; new_value=Sen. wingi
+locale=jv ; action=add ; new_path=de1feffa3b1bf22 ; new_value=Sen iki
+locale=jv ; action=add ; new_path=6656ca8324d66e93 ; new_value=Sen. ngarep
+locale=jv ; action=add ; new_path=6ea989c49743c9a1 ; new_value=ing {0} Sen.
+locale=jv ; action=add ; new_path=1de923f7018fba60 ; new_value={0} Sen. kepungkur
+locale=jv ; action=add ; new_path=2cef87a3a7f03bd2 ; new_value=Sn wingi
+locale=jv ; action=add ; new_path=6ea474ad98264183 ; new_value=Sn iki
+locale=jv ; action=add ; new_path=72480db8926b2603 ; new_value=Sn ngarep
+locale=jv ; action=add ; new_path=7ed7c028a3342dc2 ; new_value=ing {0} Sn
+locale=jv ; action=add ; new_path=50e3b239953b915e ; new_value={0} Sn kepungkur
+locale=jv ; action=add ; new_path=60aeee5107830c7f ; new_value=Selasa wingi
+locale=jv ; action=add ; new_path=4e396557ac5cf6af ; new_value=Selasa iki
+locale=jv ; action=add ; new_path=11d5a244a70d1edd ; new_value=Selasa ngarep
+locale=jv ; action=add ; new_path=230af4992050486f ; new_value=ing {0} Selasa
+locale=jv ; action=add ; new_path=1720ebee94888221 ; new_value={0} Selasa kepungkur
+locale=jv ; action=add ; new_path=214090f38a27d252 ; new_value=Sel. wingi
+locale=jv ; action=add ; new_path=125d9e946f83c74e ; new_value=Sel. iki
+locale=jv ; action=add ; new_path=428b0493296bb24 ; new_value=Sel. ngarep
+locale=jv ; action=add ; new_path=4597830050ff7680 ; new_value=ing {0} Sel.
+locale=jv ; action=add ; new_path=74be4555184293a7 ; new_value={0} Sel. kepungkur
+locale=jv ; action=add ; new_path=761e6facd5677d39 ; new_value=Sl wingi
+locale=jv ; action=add ; new_path=6305396b09ac0fb9 ; new_value=Sl iki
+locale=jv ; action=add ; new_path=566feed3e1116853 ; new_value=Sl ngarep
+locale=jv ; action=add ; new_path=6f06a048b99f9c3c ; new_value=ing {0} Sl
+locale=jv ; action=add ; new_path=5e43f52aa0551bd0 ; new_value={0} Sl kepungkur
+locale=jv ; action=add ; new_path=e06f69ad6a117ac ; new_value=Rebo wingi
+locale=jv ; action=add ; new_path=54e05622a5d1e1db ; new_value=Rebo iki
+locale=jv ; action=add ; new_path=763ab4967d162931 ; new_value=Rebo ngarep
+locale=jv ; action=add ; new_path=6734dc6ed5f21607 ; new_value=ing {0} Rebo
+locale=jv ; action=add ; new_path=fc09b2b553c0ca5 ; new_value={0} Rebo kepungkur
+locale=jv ; action=add ; new_path=473f641801a932a9 ; new_value=Reb. wingi
+locale=jv ; action=add ; new_path=4eae1facd0844394 ; new_value=Reb. iki
+locale=jv ; action=add ; new_path=43aae79868cde87c ; new_value=Reb. ngarep
+locale=jv ; action=add ; new_path=31e96f4f0d9e5d6e ; new_value=ing {0} Reb.
+locale=jv ; action=add ; new_path=54b342a5e1faa386 ; new_value={0} Reb. kepungkur
+locale=jv ; action=add ; new_path=7f45971ca5d0ae59 ; new_value=R wingi
+locale=jv ; action=add ; new_path=1f571e9948ebcc34 ; new_value=R iki
+locale=jv ; action=add ; new_path=6bd037713bd84804 ; new_value=R ngarep
+locale=jv ; action=add ; new_path=5a40dbb0a1402a32 ; new_value=ing {0} R
+locale=jv ; action=add ; new_path=3d212a587620af0c ; new_value={0} R kepungkur
+locale=jv ; action=add ; new_path=2d0670828330e6e4 ; new_value=Kemis wingi
+locale=jv ; action=add ; new_path=676542195acdcf45 ; new_value=Kemis iki
+locale=jv ; action=add ; new_path=7b16501a46dbcaa8 ; new_value=Kemis ngarep
+locale=jv ; action=add ; new_path=61fb0d982b88b7fb ; new_value=ing {0} Kemis
+locale=jv ; action=add ; new_path=28722e9a1fdf9aa0 ; new_value={0} Kemis kepungkur
+locale=jv ; action=add ; new_path=30463d55b55ea448 ; new_value=Kms. wingi
+locale=jv ; action=add ; new_path=16028bff1a89067d ; new_value=Kms. iki
+locale=jv ; action=add ; new_path=280fbebfee24240a ; new_value=Kms. ngarep
+locale=jv ; action=add ; new_path=387908ff10d0681d ; new_value=ing {0} Kms.
+locale=jv ; action=add ; new_path=ab03aaf38906ac5 ; new_value={0} Kms. kepungkur
+locale=jv ; action=add ; new_path=28690f4a7e08d6e2 ; new_value=K wingi
+locale=jv ; action=add ; new_path=3fe9bf2b5b8d6931 ; new_value=K iki
+locale=jv ; action=add ; new_path=7549b70e6b778ed1 ; new_value=K ngarep
+locale=jv ; action=add ; new_path=6cfb111ec4bbb8f4 ; new_value=ing {0} K
+locale=jv ; action=add ; new_path=300f1ae13786cb9e ; new_value={0} K kepungkur
+locale=jv ; action=add ; new_path=38a12156ac4e42f2 ; new_value=Jemuwah wingi
+locale=jv ; action=add ; new_path=5d27c87466375dbc ; new_value=Jemuwah iki
+locale=jv ; action=add ; new_path=1061ea35f7e3da25 ; new_value=Jemuwah ngarep
+locale=jv ; action=add ; new_path=10d9c63d60cc68ff ; new_value=ing {0} Jemuwah
+locale=jv ; action=add ; new_path=6cc08bab5f4b642c ; new_value={0} Jemuwah kepungkur
+locale=jv ; action=add ; new_path=557b4b71b1c45bf4 ; new_value=Jem. wingi
+locale=jv ; action=add ; new_path=1dd9fd094433bc88 ; new_value=Jem. iki
+locale=jv ; action=add ; new_path=31dd6ca213771bf6 ; new_value=Jem. ngarep
+locale=jv ; action=add ; new_path=532b49eb79b1cb1b ; new_value=ing {0} Jem.
+locale=jv ; action=add ; new_path=6e6f2f883f3c3a65 ; new_value={0} Jem. kepungkur
+locale=jv ; action=add ; new_path=71874460cea8414c ; new_value=J wingi
+locale=jv ; action=add ; new_path=366959d17bc8979 ; new_value=J iki
+locale=jv ; action=add ; new_path=42a5217d6e5a2664 ; new_value=J ngarep
+locale=jv ; action=add ; new_path=67753edd27e4be7c ; new_value=ing {0} J
+locale=jv ; action=add ; new_path=648f94e63fc77099 ; new_value={0} J kepungkur
+locale=jv ; action=add ; new_path=e3a093be61cf606 ; new_value=Setu wingi
+locale=jv ; action=add ; new_path=35beb9237d7ff567 ; new_value=Setu iki
+locale=jv ; action=add ; new_path=1abae871d9f4ce5e ; new_value=Setu ngarep
+locale=jv ; action=add ; new_path=470039db3b879b3f ; new_value=ing {0} Setu
+locale=jv ; action=add ; new_path=1517cf69b04c547 ; new_value={0} Setu kepungkur
+locale=jv ; action=add ; new_path=1a2e0de2e59094e1 ; new_value=Set. wingi
+locale=jv ; action=add ; new_path=4067b278fcf1190c ; new_value=Set. iki
+locale=jv ; action=add ; new_path=165dcc1cc710ea94 ; new_value=Set. ngarep
+locale=jv ; action=add ; new_path=57fb0deb17870cb9 ; new_value=ing {0} Set.
+locale=jv ; action=add ; new_path=66e05815aff47b7a ; new_value={0} Set. kepungkur
+locale=jv ; action=add ; new_path=1c262b136ab8e0 ; new_value=St wingi
+locale=jv ; action=add ; new_path=5bb2be0cdb56109e ; new_value=St iki
+locale=jv ; action=add ; new_path=aff6ff697cb4019 ; new_value=St ngarep
+locale=jv ; action=add ; new_path=3121cf29d2d31719 ; new_value=ing {0} St
+locale=jv ; action=add ; new_path=5783df023f4be4cf ; new_value=jam iki
+locale=jv ; action=add ; new_path=1a8e79f0091c21c3 ; new_value=ing {0} jam
+locale=jv ; action=add ; new_path=a7230011bdda744 ; new_value={0} jam kepungkur
+locale=jv ; action=add ; new_path=3c228b2609f26c6c ; new_value=menit iki
+locale=jv ; action=add ; new_path=12bf090ba5edf291 ; new_value=ing {0} mnt
+locale=jv ; action=add ; new_path=2e0aa8dd28cb2f49 ; new_value={0} men. kepungkur
+locale=jv ; action=add ; new_path=202c447875d2b8d9 ; new_value=saiki
+locale=jv ; action=add ; new_path=23958a3f8c3e03aa ; new_value=ing {0} detik
+locale=jv ; action=add ; new_path=ba74f39411b0849 ; new_value={0} detik kepungkur
+locale=jv ; action=add ; new_path=7f4d416516b26148 ; new_value=ing {0} dtk
+locale=jv ; action=add ; new_path=132532947952bd23 ; new_value={0} det. kepungkur
+locale=jv ; action=add ; new_path=176a686474f0909f ; new_value=0 èwu
+locale=jv ; action=add ; new_path=634bfabc69ed87ee ; new_value=00 èwu
+locale=jv ; action=add ; new_path=1de66f98cd29bd46 ; new_value=000 èwu
+locale=jv ; action=add ; new_path=717a9789bc2938ae ; new_value=0 yuta
+locale=jv ; action=add ; new_path=605b5fce24603223 ; new_value=00 yuta
+locale=jv ; action=add ; new_path=6af88e7de75a2ce7 ; new_value=000 yuta
+locale=jv ; action=add ; new_path=31455b644b0057fc ; new_value=0 milyar
+locale=jv ; action=add ; new_path=6069e0a4d848172a ; new_value=00 milyar
+locale=jv ; action=add ; new_path=698bc0c11ec18cd2 ; new_value=000 milyar
+locale=jv ; action=add ; new_path=3537afefc0db3ca ; new_value=0 trilyun
+locale=jv ; action=add ; new_path=23200975b8c31576 ; new_value=00 trilyun
+locale=jv ; action=add ; new_path=6386c95f642c9b21 ; new_value=000 trilyun
+locale=jv ; action=add ; new_path=17c96a7acb3b084d ; new_value=0È
+locale=jv ; action=add ; new_path=2f1b5ababb5061e3 ; new_value=00È
+locale=jv ; action=add ; new_path=36a63267a5487d31 ; new_value=000È
+locale=jv ; action=add ; new_path=76d709105676a7e5 ; new_value=0Y
+locale=jv ; action=add ; new_path=7d3ef9fc22fe375 ; new_value=00Y
+locale=jv ; action=add ; new_path=189a19d74a52d4e6 ; new_value=000Y
+locale=jv ; action=add ; new_path=3d5be6804e52d7fd ; new_value=0M
+locale=jv ; action=add ; new_path=30923d62e8f435f9 ; new_value=00M
+locale=jv ; action=add ; new_path=5fdf3896b86e69e5 ; new_value=000M
+locale=jv ; action=add ; new_path=6774ef1ba7bdb909 ; new_value=¤0K
+locale=jv ; action=add ; new_path=73e1e28ed9840b5c ; new_value=¤00K
+locale=jv ; action=add ; new_path=ff7ca46dee120b1 ; new_value=¤000K
+locale=jv ; action=add ; new_path=122a473b23a455b1 ; new_value=¤0M
+locale=jv ; action=add ; new_path=3eca6fbaaf9bdcff ; new_value=¤00M
+locale=jv ; action=add ; new_path=2a99069044b85546 ; new_value=¤000M
+locale=jv ; action=add ; new_path=15f38a11195dc9e9 ; new_value=¤0B
+locale=jv ; action=add ; new_path=385126d612ea816 ; new_value=¤00B
+locale=jv ; action=add ; new_path=5bb8abced60e67c4 ; new_value=¤000B
+locale=jv ; action=add ; new_path=3b33b4f9cc2f204e ; new_value=¤0T
+locale=jv ; action=add ; new_path=325aeb7040c6be89 ; new_value=¤00T
+locale=jv ; action=add ; new_path=6c2d85b0334854ed ; new_value=¤000T
+locale=jv ; action=add ; new_path=6bf16317ecfbf8dc ; new_value=permiriad
+locale=jv ; action=add ; new_path=1049513abc4c1830 ; new_value=elektronvolt
+locale=jv ; action=add ; new_path=57cf90af893bfa22 ; new_value=takeran panas Britania
+locale=jv ; action=add ; new_path=1f031e347cee2b43 ; new_value=pon gaya
+locale=jv ; action=add ; new_path=52488c63874aff18 ; new_value=newton
+locale=jv ; action=add ; new_path=7e48afe8d8984d0a ; new_value=solar radii
+locale=jv ; action=add ; new_path=40f0ef38d9f51f7c ; new_value=luminositas srengéngé
+locale=jv ; action=add ; new_path=3cb8d349f9927d6c ; new_value=dalton
+locale=jv ; action=add ; new_path=5871d2408471acf4 ; new_value=massa Bumi
+locale=jv ; action=add ; new_path=7cbd36996f0419ad ; new_value=massa matahari
+locale=jv ; action=add ; new_path=2797271e39b8c1f ; new_value=barel
+locale=jv ; action=add ; new_path=3319fc7aa377886b ; new_value=permiriad
+locale=jv ; action=add ; new_path=70bc9221f51a58c3 ; new_value=elektronvolt
+locale=jv ; action=add ; new_path=12c3052068ea4b66 ; new_value=BTU
+locale=jv ; action=add ; new_path=563c06c3ef775e76 ; new_value=pon gaya
+locale=jv ; action=add ; new_path=707ba037cc9f0aa0 ; new_value=newton
+locale=jv ; action=add ; new_path=813a1f7a6ea9768 ; new_value=solar radii
+locale=jv ; action=add ; new_path=5dbc5b71e4e83d1c ; new_value=luminositas srengéngé
+locale=jv ; action=add ; new_path=383c6825aa72baac ; new_value=dalton
+locale=jv ; action=add ; new_path=6e66585f50d1aa07 ; new_value=massa Bumi
+locale=jv ; action=add ; new_path=3130653ad871d2bf ; new_value=massa matahari
+locale=jv ; action=add ; new_path=7154ad490f44a817 ; new_value=barel
+locale=jv ; action=add ; new_path=299a4454c9d32b5d ; new_value={0} — kabeh
+locale=jv ; action=add ; new_path=14112d23690bfe50 ; new_value={0} — kompatibilitas
+locale=jv ; action=add ; new_path=7bb61e9db9f627c ; new_value={0} — ketutup
+locale=jv ; action=add ; new_path=7371b1ca686a5ef2 ; new_value={0} — didawakake
+locale=jv ; action=add ; new_path=77e8fa4912e58b28 ; new_value={0} — historis
+locale=jv ; action=add ; new_path=f4add945dd34ae7 ; new_value={0} — maneka warna
+locale=jv ; action=add ; new_path=53b01ae1ad3bbc42 ; new_value={0} — liyane
+locale=jv ; action=add ; new_path=2f2e3bfded8a3253 ; new_value=skrip — {0}
+locale=jv ; action=add ; new_path=1269fc9e109d1077 ; new_value={0} tunyuk
+locale=jv ; action=add ; new_path=17f98683ae857f90 ; new_value=aktivitas
+locale=jv ; action=add ; new_path=2c1ecc751d980015 ; new_value=skrip Afrika
+locale=jv ; action=add ; new_path=1b94d20595451937 ; new_value=skrip Amerika
+locale=jv ; action=add ; new_path=325cdab3c026ba2f ; new_value=kewan
+locale=jv ; action=add ; new_path=43b8d71aec66b71a ; new_value=kewan utawa alam
+locale=jv ; action=add ; new_path=5af92de030a1a4f3 ; new_value=panah
+locale=jv ; action=add ; new_path=54fd2e34f09142a2 ; new_value=awak
+locale=jv ; action=add ; new_path=1f54eaa557611ddb ; new_value=gambar kothak
+locale=jv ; action=add ; new_path=34641f9eba993b71 ; new_value=braile
+locale=jv ; action=add ; new_path=15f4f2c308493abe ; new_value=wewangunan
+locale=jv ; action=add ; new_path=75852fd9bdf5f948 ; new_value=pelor utawa lintang
+locale=jv ; action=add ; new_path=18c2d2cc86911951 ; new_value=jamo konsonan
+locale=jv ; action=add ; new_path=b36e5757c95c7c7 ; new_value=simbol mata uang
+locale=jv ; action=add ; new_path=39873c6602bf16dc ; new_value=sengkang utawa panyambung
+locale=jv ; action=add ; new_path=491dd4a47eabf33f ; new_value=simbol divinasi
+locale=jv ; action=add ; new_path=1da1d58ac1995791 ; new_value=panah mudhun
+locale=jv ; action=add ; new_path=3f3110aebbcbb8d0 ; new_value=panah munggah
+locale=jv ; action=add ; new_path=317c5e0674f494ff ; new_value=skrip Asia Wetan
+locale=jv ; action=add ; new_path=209d0e95f28b1082 ; new_value=skrip Eropa
+locale=jv ; action=add ; new_path=1b0eee2ec7d1576e ; new_value=wadon
+locale=jv ; action=add ; new_path=301ddb19ec3bce21 ; new_value=gendera
+locale=jv ; action=add ; new_path=3e0c440472a96971 ; new_value=gendera
+locale=jv ; action=add ; new_path=51cdfaf121ae1b41 ; new_value=dhaharan & unjukan
+locale=jv ; action=add ; new_path=7955bd88bac037ed ; new_value=format & spasi putih
+locale=jv ; action=add ; new_path=618de4106f139d5f ; new_value=varian amba-kebak
+locale=jv ; action=add ; new_path=113d47866c150ee6 ; new_value=wangunan geometris
+locale=jv ; action=add ; new_path=39f55ad6629cc902 ; new_value=varian amba setengah kebak
+locale=jv ; action=add ; new_path=13a5853f453232d8 ; new_value=karakter Han
+locale=jv ; action=add ; new_path=401b1c9481b99919 ; new_value=radikal Han
+locale=jv ; action=add ; new_path=7c6fa9da4767a52c ; new_value=Hanzi (prasaja)
+locale=jv ; action=add ; new_path=e6b16f0659977bd ; new_value=Hanzi (tradisional)
+locale=jv ; action=add ; new_path=f8ebb1735a724db ; new_value=ati
+locale=jv ; action=add ; new_path=2d2c57eaacfdbfe8 ; new_value=skrip tradisional
+locale=jv ; action=add ; new_path=7433704a77aa72bf ; new_value=karakter desk. ideografis
+locale=jv ; action=add ; new_path=690e3ddc3bea0bbc ; new_value=kana Jepang
+locale=jv ; action=add ; new_path=230aee8144893127 ; new_value=panah ngiwa
+locale=jv ; action=add ; new_path=799c677ba082d1ed ; new_value=panah ngiwa nengen
+locale=jv ; action=add ; new_path=715cb1833ecc5d48 ; new_value=simbol kaya huruf
+locale=jv ; action=add ; new_path=3dbbaf66fdc2367e ; new_value=panggunaan diwatesi
+locale=jv ; action=add ; new_path=30f8c1777fd94338 ; new_value=lanang
+locale=jv ; action=add ; new_path=32122442d14d4c89 ; new_value=simbol matematika
+locale=jv ; action=add ; new_path=4ed5d451c4b1a0c2 ; new_value=skrip Timur Tengah
+locale=jv ; action=add ; new_path=3f08ab23239046 ; new_value=maneka warna
+locale=jv ; action=add ; new_path=41bb79c8558a8517 ; new_value=skrip modern
+locale=jv ; action=add ; new_path=598a022214b6fa9d ; new_value=pamodhifikasi
+locale=jv ; action=add ; new_path=333e52a0bdc66027 ; new_value=simbol musik
+locale=jv ; action=add ; new_path=1352f753099c71b6 ; new_value=alam
+locale=jv ; action=add ; new_path=4e84c80229e2de1c ; new_value=nonspasi
+locale=jv ; action=add ; new_path=3db3b778ebc6455f ; new_value=angka
+locale=jv ; action=add ; new_path=10bf122bdd52ba4f ; new_value=objek
+locale=jv ; action=add ; new_path=6cfd49eb2a7196a8 ; new_value=liyane
+locale=jv ; action=add ; new_path=4655675c2e65614d ; new_value=digathukake
+locale=jv ; action=add ; new_path=42f6be8f896b77e8 ; new_value=wong
+locale=jv ; action=add ; new_path=313abe82e3fdf510 ; new_value=alfabet fonetik
+locale=jv ; action=add ; new_path=71804f21e04aa5ef ; new_value=piktograf
+locale=jv ; action=add ; new_path=208fcf976457ffac ; new_value=panggonan
+locale=jv ; action=add ; new_path=3cee6c8553de3961 ; new_value=tanduran
+locale=jv ; action=add ; new_path=174805d9795a7599 ; new_value=tandha maca
+locale=jv ; action=add ; new_path=e9b87f48b668cdf ; new_value=panah nengen
+locale=jv ; action=add ; new_path=2949ed77ab2845a7 ; new_value=tandha utawa simbol
+locale=jv ; action=add ; new_path=55565d2576960292 ; new_value=varian cilik
+locale=jv ; action=add ; new_path=3b2d53624177ad7a ; new_value=smiley utawa wong
+locale=jv ; action=add ; new_path=1e23acc4dc503ac6 ; new_value=skrip Asia Kidul
+locale=jv ; action=add ; new_path=e16891d11001ca0 ; new_value=skrip Asia Kidul Wetan
+locale=jv ; action=add ; new_path=1e6688ec99b1b905 ; new_value=spasi
+locale=jv ; action=add ; new_path=19624f4413eaac8b ; new_value=olahraga
+locale=jv ; action=add ; new_path=3888aa74b97f5b4f ; new_value=simbol
+locale=jv ; action=add ; new_path=14cccc2a881de4ab ; new_value=simbol teknis
+locale=jv ; action=add ; new_path=26a2d5e3cfef2281 ; new_value=tandha nada
+locale=jv ; action=add ; new_path=3cbfe8ae1a909c80 ; new_value=lelungan
+locale=jv ; action=add ; new_path=93b491465567c24 ; new_value=lelungan utawa panggonan
+locale=jv ; action=add ; new_path=b4ab6d41925d220 ; new_value=panah munggah
+locale=jv ; action=add ; new_path=52d279c57f1482c3 ; new_value=varian
+locale=jv ; action=add ; new_path=7dc828ce5cfbd4bd ; new_value=jamo vokal
+locale=jv ; action=add ; new_path=683406f347de63f2 ; new_value=cuaca
+locale=jv ; action=add ; new_path=42ddfa753196a4bf ; new_value=skrip Asia Kulon
+locale=jv ; action=add ; new_path=5096a4278f331fef ; new_value=spasi putih
+locale=jv ; action=add ; new_path=6cf5fde398a066ba ; new_value=miring
+locale=jv ; action=add ; new_path=12216767b0c903e3 ; new_value=bleger
+locale=jv ; action=add ; new_path=6332e62ca3139ca7 ; new_value=dhoyong
+locale=jv ; action=add ; new_path=7a470bf8fb4b3c3a ; new_value=ambane
+locale=jv ; action=add ; new_path=2e032808cbc54115 ; new_value=kandele
+locale=jv ; action=add ; new_path=5a4fc04504372371 ; new_value=aksara sinambung
+locale=jv ; action=add ; new_path=7d4eb9fe87e5f045 ; new_value=katrangan
+locale=jv ; action=add ; new_path=61f30b898c475879 ; new_value=tulisan
+locale=jv ; action=add ; new_path=12ea1b5e5a2e4864 ; new_value=panjudhulan
+locale=jv ; action=add ; new_path=7726d7c649c5ccad ; new_value=katone
+locale=jv ; action=add ; new_path=5d87e1caf147d2ce ; new_value=gambar poster
+locale=jv ; action=add ; new_path=43dc1e27be41e68e ; new_value=ndhoyong ngiwa
+locale=jv ; action=add ; new_path=33d314143e88202 ; new_value=jejeg
+locale=jv ; action=add ; new_path=5f2765226833b3d6 ; new_value=ndhoyong
+locale=jv ; action=add ; new_path=6425e4a0b9ca2154 ; new_value=ndhoyong banget
+locale=jv ; action=add ; new_path=3cc465dc71be869c ; new_value=saya dirapetake
+locale=jv ; action=add ; new_path=3db159c79a243622 ; new_value=saya dipadhetake
+locale=jv ; action=add ; new_path=386ed4849ef0d1e5 ; new_value=saya ciyut
+locale=jv ; action=add ; new_path=3126afaa8a8823af ; new_value=dirapetake banget
+locale=jv ; action=add ; new_path=774988899252a434 ; new_value=dipadhetake banget
+locale=jv ; action=add ; new_path=1b71c17bcdd11970 ; new_value=ciyut banget
+locale=jv ; action=add ; new_path=88c97688d3a611a ; new_value=dirapetake
+locale=jv ; action=add ; new_path=15ca747595d48f8c ; new_value=dipadhetake
+locale=jv ; action=add ; new_path=770e576ee25a0957 ; new_value=dipadhetake
+locale=jv ; action=add ; new_path=5f1b100e372c5f87 ; new_value=rada dirapetake
+locale=jv ; action=add ; new_path=68ec34f4df8196df ; new_value=rada dipadhetake
+locale=jv ; action=add ; new_path=3acec5402ca5ecf9 ; new_value=rada ciyut
+locale=jv ; action=add ; new_path=4b6c99c366b4c437 ; new_value=rada dijembarake
+locale=jv ; action=add ; new_path=1d5952a9910ac5c5 ; new_value=rada didawakake
+locale=jv ; action=add ; new_path=51d7e3d9834da604 ; new_value=rada amba
+locale=jv ; action=add ; new_path=575944ee5b5631ec ; new_value=dijembarake
+locale=jv ; action=add ; new_path=807039d26496ba5 ; new_value=didawakake
+locale=jv ; action=add ; new_path=5256fbf285589952 ; new_value=amba
+locale=jv ; action=add ; new_path=7621fcd3fd95875f ; new_value=dijembarake banget
+locale=jv ; action=add ; new_path=3aec4d8a752c9ccf ; new_value=didawakake banget
+locale=jv ; action=add ; new_path=c278d8fa4ef1c0f ; new_value=amba banget
+locale=jv ; action=add ; new_path=750e9e7758321719 ; new_value=saya dijembarake
+locale=jv ; action=add ; new_path=649275406f87b51b ; new_value=saya didawakake
+locale=jv ; action=add ; new_path=2061251f052c2ee1 ; new_value=saya amba
+locale=jv ; action=add ; new_path=2026de9cde6be3a7 ; new_value=kuru
+locale=jv ; action=add ; new_path=c5107eef54d4e39 ; new_value=tipis banget
+locale=jv ; action=add ; new_path=1365616efe617b30 ; new_value=saya tipis
+locale=jv ; action=add ; new_path=6622ddd3c655131 ; new_value=tipis
+locale=jv ; action=add ; new_path=73937e90cdd3354 ; new_value=rada tipis
+locale=jv ; action=add ; new_path=24abd9c0a9272cfb ; new_value=buku
+locale=jv ; action=add ; new_path=147d124e18ef76e9 ; new_value=biyasa
+locale=jv ; action=add ; new_path=7945afffd61fa3d4 ; new_value=tengahan
+locale=jv ; action=add ; new_path=2b1b7907ea65d595 ; new_value=rada kandel
+locale=jv ; action=add ; new_path=66a54bc8d821a574 ; new_value=kandel sithik
+locale=jv ; action=add ; new_path=1c4488e1a02a0602 ; new_value=kandel
+locale=jv ; action=add ; new_path=37c2a383f45461ac ; new_value=kandel banget
+locale=jv ; action=add ; new_path=435b966dbd7681ab ; new_value=ireng
+locale=jv ; action=add ; new_path=292fe4e98aa53cfe ; new_value=kenthel
+locale=jv ; action=add ; new_path=65fc607bf6590c50 ; new_value=ireng banget
+locale=jv ; action=add ; new_path=7f5edfe7ca835ee3 ; new_value=saya ireng
+locale=jv ; action=add ; new_path=6bf477ec94a13625 ; new_value=saya kenthel
+locale=jv ; action=add ; new_path=7d81d47a12c1e3f8 ; new_value=para vertikal
+locale=jv ; action=add ; new_path=6dec66ddc5173aa ; new_value=spasi aksara gedhe
+locale=jv ; action=add ; new_path=72deb48cfc329fbf ; new_value=pangiket pilihan
+locale=jv ; action=add ; new_path=24a88d6364084848 ; new_value=para dhiagonal
+locale=jv ; action=add ; new_path=6472f5e2ca7cae21 ; new_value=angka panemtu dhuwuring aksara
+locale=jv ; action=add ; new_path=1c4cb8bdf3ed00ca ; new_value=angka old-style
+locale=jv ; action=add ; new_path=18420d0c58e0da7d ; new_value=angka urut
+locale=jv ; action=add ; new_path=10fad27042d6056f ; new_value=angka proporsional
+locale=jv ; action=add ; new_path=2237ba485c13fc02 ; new_value=huruf gedhe sing cilik
+locale=jv ; action=add ; new_path=6e523ba95d3feff0 ; new_value=angka tabuler
+locale=jv ; action=add ; new_path=684bdb37639f7ea8 ; new_value=nul corek
+locale=jv ; action=add ; new_path=3317b1f428d9a7de ; new_value=Prasaja
+locale=jv ; action=add ; new_path=3e09bd64b9258f95 ; new_value=Han Prasaja
+locale=jv ; action=add ; new_path=119e60bb01e278ac ; new_value=Afrika Sisih Tengah
+locale=jv ; action=add ; new_path=3a408fc6b1e6fa2b ; new_value=Kapuloan Cocos (Keeling)
+locale=jv ; action=add ; new_path=42c05adfd60541e3 ; new_value=Greenland
+locale=jv ; action=add ; new_path=158fcbededef4487 ; new_value=Guinea
+locale=jv ; action=add ; new_path=49143be52813e42f ; new_value=Guinea-Bissau
+locale=jv ; action=add ; new_path=136260adbfeb06fe ; new_value=Kapuloan Heard lan McDonald
+locale=jv ; action=add ; new_path=4e302f46c0477a7 ; new_value=Rusia
+locale=jv ; action=add ; new_path=787d095cfbdb003f ; new_value=Kapuloan AS Paling Njaba
+locale=jv ; action=add ; new_path=4847a745bffb3ed3 ; new_value=Kutha Vatikan
+locale=jv ; action=add ; new_path=4d0d24d3d8b0eb56 ; new_value=Kapuloan Virgin Britania
+locale=jv ; action=add ; new_path=602dd39f06ddeb32 ; new_value=java

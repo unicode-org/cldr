@@ -114,7 +114,7 @@ public class ShowLanguages {
     private static void printLanguageData(Factory cldrFactory, String filename) throws IOException {
 
         new ChartDtdDelta().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
-        ShowLocaleCoverage.showCoverage(SUPPLEMENTAL_INDEX_ANCHORS);
+        ShowLocaleCoverage.showCoverage(SUPPLEMENTAL_INDEX_ANCHORS, null);
 
         new ChartDayPeriods().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         new ChartLanguageMatching().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);

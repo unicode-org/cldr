@@ -1932,14 +1932,15 @@ public class PathHeader implements Comparable<PathHeader> {
         if (n == -1) return "";
         return str.substring(0, n + 1);
     }
+    
+    public static String getUrlForLocalePath(String locale, String path) {
+        return getUrl(SURVEY_URL, locale, path);
+    }
+    
+    public String getUrlForLocalePath(String locale) {
+        return getUrl(SURVEY_URL, locale, originalPath);
+    }
 
-    /**
-     * @deprecated use CLDRConfig.urls()
-     * @param baseUrl
-     * @param locale
-     * @param path
-     * @return
-     */
     public static String getUrl(String baseUrl, String locale, String path) {
         return trimLast(baseUrl) + "v#/" + locale + "//" + StringId.getHexId(path);
     }
@@ -1956,6 +1957,11 @@ public class PathHeader implements Comparable<PathHeader> {
         return trimLast(baseUrl) + "v#/" + locale + "/" + subsection + "/";
     }
 
+    private static String SURVEY_URL = CLDRConfig.getInstance().getProperty("CLDR_SURVEY_URL", "http://st.unicode.org/cldr-apps/survey");
+
+    public static String getLinkedView(String baseUrl, CLDRFile file, String path) {
+        return getLinkedView(baseUrl, file.getLocaleID(), path);
+    }
     /**
      * @deprecated use CLDRConfig.urls()
      * @param baseUrl
@@ -1963,12 +1969,12 @@ public class PathHeader implements Comparable<PathHeader> {
      * @param path
      * @return
      */
-    public static String getLinkedView(String baseUrl, CLDRFile file, String path) {
-        String value = file.getStringValue(path);
-        if (value == null) {
-            return null;
-        }
-        return SECTION_LINK + PathHeader.getUrl(baseUrl, file.getLocaleID(), path) + "'><em>view</em></a>";
+    public static String getLinkedView(String baseUrl, String localeId, String path) {
+//        String value = file.getStringValue(path);
+//        if (value == null) {
+//            return null;
+//        }
+        return SECTION_LINK + PathHeader.getUrl(baseUrl, localeId, path) + "'><em>view</em></a>";
     }
 
     /**

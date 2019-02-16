@@ -1099,7 +1099,9 @@ public class VettingViewer<T> {
              */
             if (localeFound.equals("root") || localeFound.equals(XMLSource.CODE_FALLBACK_ID)) {
                 result = ValuePathStatus.isMissingOk(sourceFile, path, latin, isAliased)
-                    || sourceFile.getLocaleID().equals("en") ? MissingStatus.ROOT_OK : MissingStatus.ABSENT;
+                    || sourceFile.getLocaleID().equals("en") 
+                    ? MissingStatus.ROOT_OK 
+                        : MissingStatus.ABSENT;
             } else if (isAliased) {
                 result = MissingStatus.ALIASED;
             } else {

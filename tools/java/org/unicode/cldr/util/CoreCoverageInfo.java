@@ -121,12 +121,14 @@ public class CoreCoverageInfo {
         if (sdi.getPluralLocales(PluralType.cardinal).contains(baseLanguage)) {
             result.add(CoreItems.plurals);
         } else {
-            detailedErrors.put(CoreItems.plurals, "//supplementalData/plurals[@type=\"cardinal\"]");
+            detailedErrors.put(CoreItems.plurals, "//supplementalData/plurals[@type=\"cardinal\"]/pluralRules[@locales=\"" + locale
+                + "\"]/pluralRule[@count=\"other\"]");
         }
         if (sdi.getPluralLocales(PluralType.ordinal).contains(baseLanguage)) {
             result.add(CoreItems.ordinals);
         } else {
-            detailedErrors.put(CoreItems.ordinals, "//supplementalData/plurals[@type=\"ordinal\"]");
+            detailedErrors.put(CoreItems.ordinals, "//supplementalData/plurals[@type=\"ordinal\"]/pluralRules[@locales=\"" + locale
+                + "\"]/pluralRule[@count=\"other\"]");
         }
 
         //      (01) Default content script and region (normally: normally country with largest population using that language, and normal script for that).  [supplemental/supplementalMetadata.xml]
@@ -205,7 +207,7 @@ public class CoreCoverageInfo {
             if (hasFile(SpecialDir.casing, baseLanguage)) {
                 result.add(CoreItems.casing);
             } else {
-                detailedErrors.put(CoreItems.casing, "//ldml/metadata/casingData/");
+                detailedErrors.put(CoreItems.casing, "//ldml/metadata/casingData/casingItem[@type=\"*\"]");
             }
         } else {
             result.add(CoreItems.casing);

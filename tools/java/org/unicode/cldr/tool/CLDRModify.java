@@ -2248,7 +2248,7 @@ public class CLDRModify {
                                     "path==null, value=null, new_path!=null, new_value!=null:\n\t"
                                     + entry);
                         }
-                        String newPathString = newPath.getPath(cldrFileToFilter);
+                        String newPathString = newPath.getPath(getResolved());
                         if (action.action == ConfigAction.add
                             || cldrFileToFilter.getStringValue(newPathString) == null) {
                             replace(newPathString, newPathString, newValue.exactMatch, "config");

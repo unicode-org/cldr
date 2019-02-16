@@ -271,7 +271,11 @@ public class CheckWidths extends CheckCLDR {
         // \"(?!am|pm)[^\"]+\"\\
 
         // Compact number formats
-
+// pattern[@type="100000000000000"]
+        .add("//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=%A]/pattern[@type=\"100000000000000",
+            new Limit[] {
+                new Limit(4 * EM, 6 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NUMBERFORMAT)
+        })
         .add("//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=%A]/pattern[@type=\"1",
             new Limit[] {
                 new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NUMBERFORMAT)

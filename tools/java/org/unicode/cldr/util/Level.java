@@ -1,6 +1,9 @@
 package org.unicode.cldr.util;
 
 import java.util.Locale;
+import java.util.Set;
+
+import com.google.common.collect.ImmutableSet;
 
 /**
  * A simple class representing an enumeration of possible CLDR coverage levels. Levels may change in the future.
@@ -15,6 +18,8 @@ public enum Level {
     BASIC(40, "G3", 80), MODERATE(60, "G2", 70), MODERN(80, "G1", 50), COMPREHENSIVE(100, "G0", 2);
     //OPTIONAL(101, "optional", 1);
 
+    public static final Set<Level> CORE_TO_MODERN = ImmutableSet.of(CORE, BASIC, MODERATE, MODERN);
+    
     @Deprecated
     public static final Level POSIX = BASIC;
     @Deprecated

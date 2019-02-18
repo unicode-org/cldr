@@ -1139,7 +1139,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST id type NMTOKEN #REQUIRED >
 	<!--@MATCH:literal/currency, language, region, script, subdivision, unit, variant-->
 <!ATTLIST id idStatus NMTOKEN #REQUIRED >
-	<!--@MATCH:literal/deprecated, macroregion, private_use, regular, special, unknown-->
+	<!--@MATCH:literal/deprecated, macroregion, private_use, regular, reserved, special, unknown-->
 
 <!ELEMENT rgScope ( rgPath* ) >
 

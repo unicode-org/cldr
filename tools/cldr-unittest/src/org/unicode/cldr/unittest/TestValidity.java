@@ -39,8 +39,12 @@ public class TestValidity extends TestFmwkPlus {
             { LstrType.language, null, false, "root" },
             { LstrType.language, Validity.Status.special, true, "mul" },
             { LstrType.language, Validity.Status.deprecated, true, "aju" },
-            { LstrType.language, Validity.Status.private_use, true, "qaa" },
+            { LstrType.language, Validity.Status.reserved, true, "qaa", "qfy" },
+            { LstrType.language, Validity.Status.private_use, true, "qfz" },
             { LstrType.language, Validity.Status.unknown, true, "und" },
+
+            { LstrType.script, Validity.Status.reserved, true, "Qaaa", "Qaap"},
+            { LstrType.script, Validity.Status.private_use, true, "Qaaq", "Qabx"},
 
             { LstrType.script, Validity.Status.special, true, "Zanb" },
             { LstrType.script, Validity.Status.special, true, "Zinh" },
@@ -56,7 +60,10 @@ public class TestValidity extends TestFmwkPlus {
             { LstrType.region, Validity.Status.macroregion, true, "EU" },
             { LstrType.region, Validity.Status.regular, true, "XK" },
             { LstrType.region, Validity.Status.macroregion, true, "001" },
-            { LstrType.region, Validity.Status.private_use, true, "AA" },
+            
+            { LstrType.region, Validity.Status.reserved, true, "AA", "QM", "QZ"},
+            { LstrType.region, Validity.Status.private_use, true, "XC",  "XZ"},
+            
             { LstrType.region, Validity.Status.unknown, true, "ZZ" },
 
             { LstrType.subdivision, Validity.Status.unknown, true, "kzzzzz" },
@@ -78,7 +85,9 @@ public class TestValidity extends TestFmwkPlus {
                 List<Status> subtypes = subtypeRaw == null ? Arrays.asList(Status.values()) : Collections.singletonList(subtypeRaw);
                 for (Status subtype : subtypes) {
                     Set<String> actual = validity.getStatusToCodes(lstr).get(subtype);
-                    assertRelation("Validity", desired, CldrUtility.ifNull(actual, Collections.EMPTY_SET), TestFmwkPlus.CONTAINS, code);
+                    if (!assertRelation("Validity", desired, CldrUtility.ifNull(actual, Collections.EMPTY_SET), TestFmwkPlus.CONTAINS, code)) {
+                        int debug = 0;
+                    }
                 }
             }
         }
@@ -170,7 +179,9 @@ public class TestValidity extends TestFmwkPlus {
                             }
                             errln(messages, type + ":" + code + ":" + oldStatus + " => " + newStatus
                                 + " // add to exception list if really un-deprecated");
-                        } else {
+                        } else if (oldStatus == Status.private_use && newStatus == Status.regular) {
+//                          logln(messages, "OK: " + type + ":" + code + " was " + oldStatus + " => " + newStatus);
+                        } else if (oldStatus == Status.deprecated) {
                             errln(messages, type + ":" + code + " was " + oldStatus + " => " + newStatus);
                         }
                     }

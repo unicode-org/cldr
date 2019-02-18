@@ -307,6 +307,9 @@ public class GenerateValidityXml {
                     switch (code) {
                     case "Qaag":
                     case "Zsye": 
+                    case "Zanb":
+                    case "Zinh":
+                    case "Zyyy":
                         subtype = Status.special;
                         break;
                     default:

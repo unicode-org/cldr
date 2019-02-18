@@ -42,9 +42,14 @@ public class TestValidity extends TestFmwkPlus {
             { LstrType.language, Validity.Status.private_use, true, "qaa" },
             { LstrType.language, Validity.Status.unknown, true, "und" },
 
-            { LstrType.script, Validity.Status.regular, true, "Zyyy" },
+            { LstrType.script, Validity.Status.special, true, "Zanb" },
+            { LstrType.script, Validity.Status.special, true, "Zinh" },
+            { LstrType.script, Validity.Status.special, true, "Zmth" },
             { LstrType.script, Validity.Status.special, true, "Zsye" },
-            { LstrType.script, Validity.Status.regular, true, "Zyyy" },
+            { LstrType.script, Validity.Status.special, true, "Zsym" },
+            { LstrType.script, Validity.Status.special, true, "Zxxx" },
+            { LstrType.script, Validity.Status.special, true, "Zyyy" },
+
             { LstrType.script, Validity.Status.unknown, true, "Zzzz" },
 
             { LstrType.region, Validity.Status.deprecated, true, "QU" },
@@ -92,6 +97,7 @@ public class TestValidity extends TestFmwkPlus {
 
     static final Set<String> ALLOWED_UNDELETIONS = ImmutableSet.of("ug331", "nlbq1", "nlbq2", "nlbq3", "no21", "no22");
     static final Set<String> ALLOWED_MISSING = ImmutableSet.of("root", "POSIX", "REVISED", "SAAHO");
+    static final Set<String> ALLOWED_REGULAR_TO_SPECIAL = ImmutableSet.of("Zanb", "Zinh", "Zyyy");
 
     public void TestCompatibility() {
         // Only run the rest in exhaustive mode, since it requires CLDR_ARCHIVE_DIRECTORY
@@ -151,6 +157,9 @@ public class TestValidity extends TestFmwkPlus {
                             if (newStatus == Status.deprecated) {
 //                                logln(messages, "OK: " + type + ":" + code + " was " + oldStatus + " => " + newStatus);
                                 continue;
+                            } else if (newStatus == Status.special && ALLOWED_REGULAR_TO_SPECIAL.contains(code)) {
+//                              logln(messages, "OK: " + type + ":" + code + " was " + oldStatus + " => " + newStatus);
+                              continue;
                             }
                             errln(messages, type + ":" + code + ":" + oldStatus + " => " + newStatus 
                                 + " — regular item changed, and didn't become deprecated");

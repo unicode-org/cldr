@@ -71,7 +71,7 @@ public class ShowPlurals {
         pw.close();
     }
 
-    public void appendBlanksForScrolling(final Appendable pw) {
+    public static void appendBlanksForScrolling(final Appendable pw) {
         try {
             pw.append(Utility.repeat("<br>", 100)).append(System.lineSeparator());
         } catch (IOException e) {

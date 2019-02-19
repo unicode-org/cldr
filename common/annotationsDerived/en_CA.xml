@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -14,196 +14,31 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<territory type="CA"/>
 	</identity>
 	<annotations>
-		<annotation cp="🧒🏻">child | gender-neutral | toddler | unspecified gender | young | light skin tone</annotation>
-		<annotation cp="🧒🏼">child | gender-neutral | toddler | unspecified gender | young | medium-light skin tone</annotation>
-		<annotation cp="🧒🏽">child | gender-neutral | toddler | unspecified gender | young | medium skin tone</annotation>
-		<annotation cp="🧒🏾">child | gender-neutral | toddler | unspecified gender | young | medium-dark skin tone</annotation>
-		<annotation cp="🧒🏿">child | gender-neutral | toddler | unspecified gender | young | dark skin tone</annotation>
-		<annotation cp="👨🏻‍⚕">doctor | health care | man | man health worker | nurse | therapist | light skin tone</annotation>
-		<annotation cp="👨🏼‍⚕">doctor | health care | man | man health worker | nurse | therapist | medium-light skin tone</annotation>
-		<annotation cp="👨🏽‍⚕">doctor | health care | man | man health worker | nurse | therapist | medium skin tone</annotation>
-		<annotation cp="👨🏾‍⚕">doctor | health care | man | man health worker | nurse | therapist | medium-dark skin tone</annotation>
-		<annotation cp="👨🏿‍⚕">doctor | health care | man | man health worker | nurse | therapist | dark skin tone</annotation>
-		<annotation cp="👩🏻‍⚕">doctor | health care | nurse | therapist | woman | woman health worker | light skin tone</annotation>
-		<annotation cp="👩🏼‍⚕">doctor | health care | nurse | therapist | woman | woman health worker | medium-light skin tone</annotation>
-		<annotation cp="👩🏽‍⚕">doctor | health care | nurse | therapist | woman | woman health worker | medium skin tone</annotation>
-		<annotation cp="👩🏾‍⚕">doctor | health care | nurse | therapist | woman | woman health worker | medium-dark skin tone</annotation>
-		<annotation cp="👩🏿‍⚕">doctor | health care | nurse | therapist | woman | woman health worker | dark skin tone</annotation>
-		<annotation cp="👨🏻‍🌾">farmer | gardener | man | rancher | light skin tone</annotation>
-		<annotation cp="👨🏼‍🌾">farmer | gardener | man | rancher | medium-light skin tone</annotation>
-		<annotation cp="👨🏽‍🌾">farmer | gardener | man | rancher | medium skin tone</annotation>
-		<annotation cp="👨🏾‍🌾">farmer | gardener | man | rancher | medium-dark skin tone</annotation>
-		<annotation cp="👨🏿‍🌾">farmer | gardener | man | rancher | dark skin tone</annotation>
-		<annotation cp="👩🏻‍🌾">farmer | gardener | rancher | woman | light skin tone</annotation>
-		<annotation cp="👩🏼‍🌾">farmer | gardener | rancher | woman | medium-light skin tone</annotation>
-		<annotation cp="👩🏽‍🌾">farmer | gardener | rancher | woman | medium skin tone</annotation>
-		<annotation cp="👩🏾‍🌾">farmer | gardener | rancher | woman | medium-dark skin tone</annotation>
-		<annotation cp="👩🏿‍🌾">farmer | gardener | rancher | woman | dark skin tone</annotation>
-		<annotation cp="👨🏻‍🔧">electrician | man | mechanic | plumber | tradesperson | light skin tone</annotation>
-		<annotation cp="👨🏼‍🔧">electrician | man | mechanic | plumber | tradesperson | medium-light skin tone</annotation>
-		<annotation cp="👨🏽‍🔧">electrician | man | mechanic | plumber | tradesperson | medium skin tone</annotation>
-		<annotation cp="👨🏾‍🔧">electrician | man | mechanic | plumber | tradesperson | medium-dark skin tone</annotation>
-		<annotation cp="👨🏿‍🔧">electrician | man | mechanic | plumber | tradesperson | dark skin tone</annotation>
-		<annotation cp="👩🏻‍🔧">electrician | mechanic | plumber | tradesperson | woman | light skin tone</annotation>
-		<annotation cp="👩🏼‍🔧">electrician | mechanic | plumber | tradesperson | woman | medium-light skin tone</annotation>
-		<annotation cp="👩🏽‍🔧">electrician | mechanic | plumber | tradesperson | woman | medium skin tone</annotation>
-		<annotation cp="👩🏾‍🔧">electrician | mechanic | plumber | tradesperson | woman | medium-dark skin tone</annotation>
-		<annotation cp="👩🏿‍🔧">electrician | mechanic | plumber | tradesperson | woman | dark skin tone</annotation>
-		<annotation cp="👨🏻‍🚒">fire truck | firefighter | fireman | man | light skin tone</annotation>
-		<annotation cp="👨🏼‍🚒">fire truck | firefighter | fireman | man | medium-light skin tone</annotation>
-		<annotation cp="👨🏽‍🚒">fire truck | firefighter | fireman | man | medium skin tone</annotation>
-		<annotation cp="👨🏾‍🚒">fire truck | firefighter | fireman | man | medium-dark skin tone</annotation>
-		<annotation cp="👨🏿‍🚒">fire truck | firefighter | fireman | man | dark skin tone</annotation>
-		<annotation cp="👩🏻‍🚒">fire truck | firefighter | firewoman | woman | light skin tone</annotation>
-		<annotation cp="👩🏼‍🚒">fire truck | firefighter | firewoman | woman | medium-light skin tone</annotation>
-		<annotation cp="👩🏽‍🚒">fire truck | firefighter | firewoman | woman | medium skin tone</annotation>
-		<annotation cp="👩🏾‍🚒">fire truck | firefighter | firewoman | woman | medium-dark skin tone</annotation>
-		<annotation cp="👩🏿‍🚒">fire truck | firefighter | firewoman | woman | dark skin tone</annotation>
-		<annotation cp="👮🏻‍♂">cop | man | officer | police | light skin tone</annotation>
-		<annotation cp="👮🏼‍♂">cop | man | officer | police | medium-light skin tone</annotation>
-		<annotation cp="👮🏽‍♂">cop | man | officer | police | medium skin tone</annotation>
-		<annotation cp="👮🏾‍♂">cop | man | officer | police | medium-dark skin tone</annotation>
-		<annotation cp="👮🏿‍♂">cop | man | officer | police | dark skin tone</annotation>
-		<annotation cp="👮🏻‍♀">cop | officer | police | woman | light skin tone</annotation>
-		<annotation cp="👮🏼‍♀">cop | officer | police | woman | medium-light skin tone</annotation>
-		<annotation cp="👮🏽‍♀">cop | officer | police | woman | medium skin tone</annotation>
-		<annotation cp="👮🏾‍♀">cop | officer | police | woman | medium-dark skin tone</annotation>
-		<annotation cp="👮🏿‍♀">cop | officer | police | woman | dark skin tone</annotation>
-		<annotation cp="💂🏻‍♂">guard | man | light skin tone</annotation>
-		<annotation cp="💂🏼‍♂">guard | man | medium-light skin tone</annotation>
-		<annotation cp="💂🏽‍♂">guard | man | medium skin tone</annotation>
-		<annotation cp="💂🏾‍♂">guard | man | medium-dark skin tone</annotation>
-		<annotation cp="💂🏿‍♂">guard | man | dark skin tone</annotation>
-		<annotation cp="💂🏻‍♀">guard | woman | light skin tone</annotation>
-		<annotation cp="💂🏼‍♀">guard | woman | medium-light skin tone</annotation>
-		<annotation cp="💂🏽‍♀">guard | woman | medium skin tone</annotation>
-		<annotation cp="💂🏾‍♀">guard | woman | medium-dark skin tone</annotation>
-		<annotation cp="💂🏿‍♀">guard | woman | dark skin tone</annotation>
-		<annotation cp="👷🏻">construction | hat | worker | light skin tone</annotation>
-		<annotation cp="👷🏼">construction | hat | worker | medium-light skin tone</annotation>
-		<annotation cp="👷🏽">construction | hat | worker | medium skin tone</annotation>
-		<annotation cp="👷🏾">construction | hat | worker | medium-dark skin tone</annotation>
-		<annotation cp="👷🏿">construction | hat | worker | dark skin tone</annotation>
-		<annotation cp="👷🏻‍♂">construction | man | worker | light skin tone</annotation>
-		<annotation cp="👷🏼‍♂">construction | man | worker | medium-light skin tone</annotation>
-		<annotation cp="👷🏽‍♂">construction | man | worker | medium skin tone</annotation>
-		<annotation cp="👷🏾‍♂">construction | man | worker | medium-dark skin tone</annotation>
-		<annotation cp="👷🏿‍♂">construction | man | worker | dark skin tone</annotation>
-		<annotation cp="👷🏻‍♀">construction | woman | worker | light skin tone</annotation>
-		<annotation cp="👷🏼‍♀">construction | woman | worker | medium-light skin tone</annotation>
-		<annotation cp="👷🏽‍♀">construction | woman | worker | medium skin tone</annotation>
-		<annotation cp="👷🏾‍♀">construction | woman | worker | medium-dark skin tone</annotation>
-		<annotation cp="👷🏿‍♀">construction | woman | worker | dark skin tone</annotation>
-		<annotation cp="👲🏻">gua pi mao | hat | man | man with Chinese cap | light skin tone</annotation>
-		<annotation cp="👲🏼">gua pi mao | hat | man | man with Chinese cap | medium-light skin tone</annotation>
-		<annotation cp="👲🏽">gua pi mao | hat | man | man with Chinese cap | medium skin tone</annotation>
-		<annotation cp="👲🏾">gua pi mao | hat | man | man with Chinese cap | medium-dark skin tone</annotation>
-		<annotation cp="👲🏿">gua pi mao | hat | man | man with Chinese cap | dark skin tone</annotation>
-		<annotation cp="🤱🏻">baby | breast | breast-feeding | nursing | light skin tone</annotation>
-		<annotation cp="🤱🏻" type="tts">breast-feeding: light skin tone</annotation>
-		<annotation cp="🤱🏼">baby | breast | breast-feeding | nursing | medium-light skin tone</annotation>
-		<annotation cp="🤱🏼" type="tts">breast-feeding: medium-light skin tone</annotation>
-		<annotation cp="🤱🏽">baby | breast | breast-feeding | nursing | medium skin tone</annotation>
-		<annotation cp="🤱🏽" type="tts">breast-feeding: medium skin tone</annotation>
-		<annotation cp="🤱🏾">baby | breast | breast-feeding | nursing | medium-dark skin tone</annotation>
-		<annotation cp="🤱🏾" type="tts">breast-feeding: medium-dark skin tone</annotation>
-		<annotation cp="🤱🏿">baby | breast | breast-feeding | nursing | dark skin tone</annotation>
-		<annotation cp="🤱🏿" type="tts">breast-feeding: dark skin tone</annotation>
-		<annotation cp="🎅🏻">Christmas | Claus | Father | Santa | celebration | light skin tone</annotation>
-		<annotation cp="🎅🏼">Christmas | Claus | Father | Santa | celebration | medium-light skin tone</annotation>
-		<annotation cp="🎅🏽">Christmas | Claus | Father | Santa | celebration | medium skin tone</annotation>
-		<annotation cp="🎅🏾">Christmas | Claus | Father | Santa | celebration | medium-dark skin tone</annotation>
-		<annotation cp="🎅🏿">Christmas | Claus | Father | Santa | celebration | dark skin tone</annotation>
-		<annotation cp="🤶🏻">Mrs. Claus | light skin tone</annotation>
-		<annotation cp="🤶🏻" type="tts">Mrs. Claus: light skin tone</annotation>
-		<annotation cp="🤶🏼">Mrs. Claus | medium-light skin tone</annotation>
-		<annotation cp="🤶🏼" type="tts">Mrs. Claus: medium-light skin tone</annotation>
-		<annotation cp="🤶🏽">Mrs. Claus | medium skin tone</annotation>
-		<annotation cp="🤶🏽" type="tts">Mrs. Claus: medium skin tone</annotation>
-		<annotation cp="🤶🏾">Mrs. Claus | medium-dark skin tone</annotation>
-		<annotation cp="🤶🏾" type="tts">Mrs. Claus: medium-dark skin tone</annotation>
-		<annotation cp="🤶🏿">Mrs. Claus | dark skin tone</annotation>
-		<annotation cp="🤶🏿" type="tts">Mrs. Claus: dark skin tone</annotation>
-		<annotation cp="🙇🏻‍♂">apology | bowing | favor | gesture | man | sorry | light skin tone</annotation>
-		<annotation cp="🙇🏼‍♂">apology | bowing | favor | gesture | man | sorry | medium-light skin tone</annotation>
-		<annotation cp="🙇🏽‍♂">apology | bowing | favor | gesture | man | sorry | medium skin tone</annotation>
-		<annotation cp="🙇🏾‍♂">apology | bowing | favor | gesture | man | sorry | medium-dark skin tone</annotation>
-		<annotation cp="🙇🏿‍♂">apology | bowing | favor | gesture | man | sorry | dark skin tone</annotation>
-		<annotation cp="🙇🏻‍♀">apology | bowing | favor | gesture | sorry | woman | light skin tone</annotation>
-		<annotation cp="🙇🏼‍♀">apology | bowing | favor | gesture | sorry | woman | medium-light skin tone</annotation>
-		<annotation cp="🙇🏽‍♀">apology | bowing | favor | gesture | sorry | woman | medium skin tone</annotation>
-		<annotation cp="🙇🏾‍♀">apology | bowing | favor | gesture | sorry | woman | medium-dark skin tone</annotation>
-		<annotation cp="🙇🏿‍♀">apology | bowing | favor | gesture | sorry | woman | dark skin tone</annotation>
-		<annotation cp="💇🏻">barber | beauty | haircut | parlour | light skin tone</annotation>
-		<annotation cp="💇🏼">barber | beauty | haircut | parlour | medium-light skin tone</annotation>
-		<annotation cp="💇🏽">barber | beauty | haircut | parlour | medium skin tone</annotation>
-		<annotation cp="💇🏾">barber | beauty | haircut | parlour | medium-dark skin tone</annotation>
-		<annotation cp="💇🏿">barber | beauty | haircut | parlour | dark skin tone</annotation>
-		<annotation cp="🚣🏻">boat | person rowing boat | rowboat | light skin tone</annotation>
-		<annotation cp="🚣🏼">boat | person rowing boat | rowboat | medium-light skin tone</annotation>
-		<annotation cp="🚣🏽">boat | person rowing boat | rowboat | medium skin tone</annotation>
-		<annotation cp="🚣🏾">boat | person rowing boat | rowboat | medium-dark skin tone</annotation>
-		<annotation cp="🚣🏿">boat | person rowing boat | rowboat | dark skin tone</annotation>
-		<annotation cp="🚣🏻‍♂">boat | man | man rowing boat | rowboat | light skin tone</annotation>
-		<annotation cp="🚣🏼‍♂">boat | man | man rowing boat | rowboat | medium-light skin tone</annotation>
-		<annotation cp="🚣🏽‍♂">boat | man | man rowing boat | rowboat | medium skin tone</annotation>
-		<annotation cp="🚣🏾‍♂">boat | man | man rowing boat | rowboat | medium-dark skin tone</annotation>
-		<annotation cp="🚣🏿‍♂">boat | man | man rowing boat | rowboat | dark skin tone</annotation>
-		<annotation cp="🚣🏻‍♀">boat | rowboat | woman | woman rowing boat | light skin tone</annotation>
-		<annotation cp="🚣🏼‍♀">boat | rowboat | woman | woman rowing boat | medium-light skin tone</annotation>
-		<annotation cp="🚣🏽‍♀">boat | rowboat | woman | woman rowing boat | medium skin tone</annotation>
-		<annotation cp="🚣🏾‍♀">boat | rowboat | woman | woman rowing boat | medium-dark skin tone</annotation>
-		<annotation cp="🚣🏿‍♀">boat | rowboat | woman | woman rowing boat | dark skin tone</annotation>
-		<annotation cp="🏋🏻">lifter | person lifting weights | weight | weightlifter | light skin tone</annotation>
-		<annotation cp="🏋🏼">lifter | person lifting weights | weight | weightlifter | medium-light skin tone</annotation>
-		<annotation cp="🏋🏽">lifter | person lifting weights | weight | weightlifter | medium skin tone</annotation>
-		<annotation cp="🏋🏾">lifter | person lifting weights | weight | weightlifter | medium-dark skin tone</annotation>
-		<annotation cp="🏋🏿">lifter | person lifting weights | weight | weightlifter | dark skin tone</annotation>
-		<annotation cp="🏋🏻‍♂">man | man lifting weights | weight lifter | light skin tone</annotation>
-		<annotation cp="🏋🏼‍♂">man | man lifting weights | weight lifter | medium-light skin tone</annotation>
-		<annotation cp="🏋🏽‍♂">man | man lifting weights | weight lifter | medium skin tone</annotation>
-		<annotation cp="🏋🏾‍♂">man | man lifting weights | weight lifter | medium-dark skin tone</annotation>
-		<annotation cp="🏋🏿‍♂">man | man lifting weights | weight lifter | dark skin tone</annotation>
-		<annotation cp="🏋🏻‍♀">weight lifter | woman | woman lifting weights | light skin tone</annotation>
-		<annotation cp="🏋🏼‍♀">weight lifter | woman | woman lifting weights | medium-light skin tone</annotation>
-		<annotation cp="🏋🏽‍♀">weight lifter | woman | woman lifting weights | medium skin tone</annotation>
-		<annotation cp="🏋🏾‍♀">weight lifter | woman | woman lifting weights | medium-dark skin tone</annotation>
-		<annotation cp="🏋🏿‍♀">weight lifter | woman | woman lifting weights | dark skin tone</annotation>
-		<annotation cp="🤹🏻">balance | juggle | multi-task | multitask | person juggling | skill | light skin tone</annotation>
-		<annotation cp="🤹🏼">balance | juggle | multi-task | multitask | person juggling | skill | medium-light skin tone</annotation>
-		<annotation cp="🤹🏽">balance | juggle | multi-task | multitask | person juggling | skill | medium skin tone</annotation>
-		<annotation cp="🤹🏾">balance | juggle | multi-task | multitask | person juggling | skill | medium-dark skin tone</annotation>
-		<annotation cp="🤹🏿">balance | juggle | multi-task | multitask | person juggling | skill | dark skin tone</annotation>
-		<annotation cp="🤹🏻‍♂">juggling | man | multi-task | multitask | light skin tone</annotation>
-		<annotation cp="🤹🏼‍♂">juggling | man | multi-task | multitask | medium-light skin tone</annotation>
-		<annotation cp="🤹🏽‍♂">juggling | man | multi-task | multitask | medium skin tone</annotation>
-		<annotation cp="🤹🏾‍♂">juggling | man | multi-task | multitask | medium-dark skin tone</annotation>
-		<annotation cp="🤹🏿‍♂">juggling | man | multi-task | multitask | dark skin tone</annotation>
-		<annotation cp="🤹🏻‍♀">juggling | multi-task | multitask | woman | light skin tone</annotation>
-		<annotation cp="🤹🏼‍♀">juggling | multi-task | multitask | woman | medium-light skin tone</annotation>
-		<annotation cp="🤹🏽‍♀">juggling | multi-task | multitask | woman | medium skin tone</annotation>
-		<annotation cp="🤹🏾‍♀">juggling | multi-task | multitask | woman | medium-dark skin tone</annotation>
-		<annotation cp="🤹🏿‍♀">juggling | multi-task | multitask | woman | dark skin tone</annotation>
-		<annotation cp="💪🏻">flexed bicep | light skin tone</annotation>
-		<annotation cp="💪🏻" type="tts">flexed bicep: light skin tone</annotation>
-		<annotation cp="💪🏼">flexed bicep | medium-light skin tone</annotation>
-		<annotation cp="💪🏼" type="tts">flexed bicep: medium-light skin tone</annotation>
-		<annotation cp="💪🏽">flexed bicep | medium skin tone</annotation>
-		<annotation cp="💪🏽" type="tts">flexed bicep: medium skin tone</annotation>
-		<annotation cp="💪🏾">flexed bicep | medium-dark skin tone</annotation>
-		<annotation cp="💪🏾" type="tts">flexed bicep: medium-dark skin tone</annotation>
-		<annotation cp="💪🏿">flexed bicep | dark skin tone</annotation>
-		<annotation cp="💪🏿" type="tts">flexed bicep: dark skin tone</annotation>
-		<annotation cp="✌🏻">hand | v | victory | light skin tone</annotation>
-		<annotation cp="✌🏼">hand | v | victory | medium-light skin tone</annotation>
-		<annotation cp="✌🏽">hand | v | victory | medium skin tone</annotation>
-		<annotation cp="✌🏾">hand | v | victory | medium-dark skin tone</annotation>
-		<annotation cp="✌🏿">hand | v | victory | dark skin tone</annotation>
-		<annotation cp="🤘🏻">finger | hand | horns | rock on | sign of the horns | light skin tone</annotation>
-		<annotation cp="🤘🏼">finger | hand | horns | rock on | sign of the horns | medium-light skin tone</annotation>
-		<annotation cp="🤘🏽">finger | hand | horns | rock on | sign of the horns | medium skin tone</annotation>
-		<annotation cp="🤘🏾">finger | hand | horns | rock on | sign of the horns | medium-dark skin tone</annotation>
-		<annotation cp="🤘🏿">finger | hand | horns | rock on | sign of the horns | dark skin tone</annotation>
+		<annotation cp="👌🏻">hand | light skin tone | OK | perfect</annotation>
+		<annotation cp="👌🏼">hand | medium-light skin tone | OK | perfect</annotation>
+		<annotation cp="👌🏽">hand | medium skin tone | OK | perfect</annotation>
+		<annotation cp="👌🏾">hand | medium-dark skin tone | OK | perfect</annotation>
+		<annotation cp="👌🏿">dark skin tone | hand | OK | perfect</annotation>
+		<annotation cp="✌🏻">hand | light skin tone | v | victory</annotation>
+		<annotation cp="✌🏼">hand | medium-light skin tone | v | victory</annotation>
+		<annotation cp="✌🏽">hand | medium skin tone | v | victory</annotation>
+		<annotation cp="✌🏾">hand | medium-dark skin tone | v | victory</annotation>
+		<annotation cp="✌🏿">dark skin tone | hand | v | victory</annotation>
+		<annotation cp="🤟🏻">light skin tone | love you gesture</annotation>
+		<annotation cp="🤟🏻" type="tts">love you gesture: light skin tone</annotation>
+		<annotation cp="🤟🏼">love you gesture | medium-light skin tone</annotation>
+		<annotation cp="🤟🏼" type="tts">love you gesture: medium-light skin tone</annotation>
+		<annotation cp="🤟🏽">love you gesture | medium skin tone</annotation>
+		<annotation cp="🤟🏽" type="tts">love you gesture: medium skin tone</annotation>
+		<annotation cp="🤟🏾">love you gesture | medium-dark skin tone</annotation>
+		<annotation cp="🤟🏾" type="tts">love you gesture: medium-dark skin tone</annotation>
+		<annotation cp="🤟🏿">dark skin tone | love you gesture</annotation>
+		<annotation cp="🤟🏿" type="tts">love you gesture: dark skin tone</annotation>
+		<annotation cp="🤘🏻">finger | hand | horns | light skin tone | rock on | sign of the horns</annotation>
+		<annotation cp="🤘🏼">finger | hand | horns | medium-light skin tone | rock on | sign of the horns</annotation>
+		<annotation cp="🤘🏽">finger | hand | horns | medium skin tone | rock on | sign of the horns</annotation>
+		<annotation cp="🤘🏾">finger | hand | horns | medium-dark skin tone | rock on | sign of the horns</annotation>
+		<annotation cp="🤘🏿">dark skin tone | finger | hand | horns | rock on | sign of the horns</annotation>
 		<annotation cp="🤙🏻">call me hand | light skin tone</annotation>
 		<annotation cp="🤙🏻" type="tts">call me hand: light skin tone</annotation>
 		<annotation cp="🤙🏼">call me hand | medium-light skin tone</annotation>
@@ -214,35 +49,245 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤙🏾" type="tts">call me hand: medium-dark skin tone</annotation>
 		<annotation cp="🤙🏿">call me hand | dark skin tone</annotation>
 		<annotation cp="🤙🏿" type="tts">call me hand: dark skin tone</annotation>
-		<annotation cp="👌🏻">OK | hand | perfect | light skin tone</annotation>
-		<annotation cp="👌🏼">OK | hand | perfect | medium-light skin tone</annotation>
-		<annotation cp="👌🏽">OK | hand | perfect | medium skin tone</annotation>
-		<annotation cp="👌🏾">OK | hand | perfect | medium-dark skin tone</annotation>
-		<annotation cp="👌🏿">OK | hand | perfect | dark skin tone</annotation>
 		<annotation cp="🤛🏻">fist | left-facing fist | leftward | light skin tone</annotation>
 		<annotation cp="🤛🏼">fist | left-facing fist | leftward | medium-light skin tone</annotation>
 		<annotation cp="🤛🏽">fist | left-facing fist | leftward | medium skin tone</annotation>
 		<annotation cp="🤛🏾">fist | left-facing fist | leftward | medium-dark skin tone</annotation>
-		<annotation cp="🤛🏿">fist | left-facing fist | leftward | dark skin tone</annotation>
-		<annotation cp="🤜🏻">fist | right-facing fist | rightward | light skin tone</annotation>
-		<annotation cp="🤜🏼">fist | right-facing fist | rightward | medium-light skin tone</annotation>
-		<annotation cp="🤜🏽">fist | right-facing fist | rightward | medium skin tone</annotation>
-		<annotation cp="🤜🏾">fist | right-facing fist | rightward | medium-dark skin tone</annotation>
-		<annotation cp="🤜🏿">fist | right-facing fist | rightward | dark skin tone</annotation>
-		<annotation cp="🤟🏻">love you gesture | light skin tone</annotation>
-		<annotation cp="🤟🏻" type="tts">love you gesture: light skin tone</annotation>
-		<annotation cp="🤟🏼">love you gesture | medium-light skin tone</annotation>
-		<annotation cp="🤟🏼" type="tts">love you gesture: medium-light skin tone</annotation>
-		<annotation cp="🤟🏽">love you gesture | medium skin tone</annotation>
-		<annotation cp="🤟🏽" type="tts">love you gesture: medium skin tone</annotation>
-		<annotation cp="🤟🏾">love you gesture | medium-dark skin tone</annotation>
-		<annotation cp="🤟🏾" type="tts">love you gesture: medium-dark skin tone</annotation>
-		<annotation cp="🤟🏿">love you gesture | dark skin tone</annotation>
-		<annotation cp="🤟🏿" type="tts">love you gesture: dark skin tone</annotation>
-		<annotation cp="🙌🏻">celebration | gesture | hand | hooray | raised | raising hands | light skin tone</annotation>
-		<annotation cp="🙌🏼">celebration | gesture | hand | hooray | raised | raising hands | medium-light skin tone</annotation>
-		<annotation cp="🙌🏽">celebration | gesture | hand | hooray | raised | raising hands | medium skin tone</annotation>
-		<annotation cp="🙌🏾">celebration | gesture | hand | hooray | raised | raising hands | medium-dark skin tone</annotation>
-		<annotation cp="🙌🏿">celebration | gesture | hand | hooray | raised | raising hands | dark skin tone</annotation>
+		<annotation cp="🤛🏿">dark skin tone | fist | left-facing fist | leftward</annotation>
+		<annotation cp="🤜🏻">fist | light skin tone | right-facing fist | rightward</annotation>
+		<annotation cp="🤜🏼">fist | medium-light skin tone | right-facing fist | rightward</annotation>
+		<annotation cp="🤜🏽">fist | medium skin tone | right-facing fist | rightward</annotation>
+		<annotation cp="🤜🏾">fist | medium-dark skin tone | right-facing fist | rightward</annotation>
+		<annotation cp="🤜🏿">dark skin tone | fist | right-facing fist | rightward</annotation>
+		<annotation cp="🙌🏻">celebration | gesture | hand | hooray | light skin tone | raised | raising hands</annotation>
+		<annotation cp="🙌🏼">celebration | gesture | hand | hooray | medium-light skin tone | raised | raising hands</annotation>
+		<annotation cp="🙌🏽">celebration | gesture | hand | hooray | medium skin tone | raised | raising hands</annotation>
+		<annotation cp="🙌🏾">celebration | gesture | hand | hooray | medium-dark skin tone | raised | raising hands</annotation>
+		<annotation cp="🙌🏿">celebration | dark skin tone | gesture | hand | hooray | raised | raising hands</annotation>
+		<annotation cp="💪🏻">flexed bicep | light skin tone</annotation>
+		<annotation cp="💪🏻" type="tts">flexed bicep: light skin tone</annotation>
+		<annotation cp="💪🏼">flexed bicep | medium-light skin tone</annotation>
+		<annotation cp="💪🏼" type="tts">flexed bicep: medium-light skin tone</annotation>
+		<annotation cp="💪🏽">flexed bicep | medium skin tone</annotation>
+		<annotation cp="💪🏽" type="tts">flexed bicep: medium skin tone</annotation>
+		<annotation cp="💪🏾">flexed bicep | medium-dark skin tone</annotation>
+		<annotation cp="💪🏾" type="tts">flexed bicep: medium-dark skin tone</annotation>
+		<annotation cp="💪🏿">dark skin tone | flexed bicep</annotation>
+		<annotation cp="💪🏿" type="tts">flexed bicep: dark skin tone</annotation>
+		<annotation cp="🧒🏻">child | gender-neutral | light skin tone | toddler | unspecified gender | young</annotation>
+		<annotation cp="🧒🏼">child | gender-neutral | medium-light skin tone | toddler | unspecified gender | young</annotation>
+		<annotation cp="🧒🏽">child | gender-neutral | medium skin tone | toddler | unspecified gender | young</annotation>
+		<annotation cp="🧒🏾">child | gender-neutral | medium-dark skin tone | toddler | unspecified gender | young</annotation>
+		<annotation cp="🧒🏿">child | dark skin tone | gender-neutral | toddler | unspecified gender | young</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">couple | Gemini | light skin tone | man | medium-light skin tone | men | twins | two men holding hands | zodiac</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">couple | Gemini | light skin tone | man | medium skin tone | men | twins | two men holding hands | zodiac</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">couple | Gemini | man | medium skin tone | medium-light skin tone | men | twins | two men holding hands | zodiac</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">couple | Gemini | light skin tone | man | medium-dark skin tone | men | twins | two men holding hands | zodiac</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">couple | Gemini | man | medium-dark skin tone | medium-light skin tone | men | twins | two men holding hands | zodiac</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">couple | Gemini | man | medium skin tone | medium-dark skin tone | men | twins | two men holding hands | zodiac</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">couple | dark skin tone | Gemini | light skin tone | man | men | twins | two men holding hands | zodiac</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">couple | dark skin tone | Gemini | man | medium-light skin tone | men | twins | two men holding hands | zodiac</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">couple | dark skin tone | Gemini | man | medium skin tone | men | twins | two men holding hands | zodiac</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">couple | dark skin tone | Gemini | man | medium-dark skin tone | men | twins | two men holding hands | zodiac</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">couple | hand | light skin tone | medium-light skin tone | two women holding hands | woman | women</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">couple | hand | light skin tone | medium skin tone | two women holding hands | woman | women</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">couple | hand | medium skin tone | medium-light skin tone | two women holding hands | woman | women</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">couple | hand | light skin tone | medium-dark skin tone | two women holding hands | woman | women</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">couple | hand | medium-dark skin tone | medium-light skin tone | two women holding hands | woman | women</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">couple | hand | medium skin tone | medium-dark skin tone | two women holding hands | woman | women</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">couple | dark skin tone | hand | light skin tone | two women holding hands | woman | women</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">couple | dark skin tone | hand | medium-light skin tone | two women holding hands | woman | women</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">couple | dark skin tone | hand | medium skin tone | two women holding hands | woman | women</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">couple | dark skin tone | hand | medium-dark skin tone | two women holding hands | woman | women</annotation>
+		<annotation cp="🙇🏻‍♂">apology | bowing | favor | gesture | light skin tone | man | sorry</annotation>
+		<annotation cp="🙇🏼‍♂">apology | bowing | favor | gesture | man | medium-light skin tone | sorry</annotation>
+		<annotation cp="🙇🏽‍♂">apology | bowing | favor | gesture | man | medium skin tone | sorry</annotation>
+		<annotation cp="🙇🏾‍♂">apology | bowing | favor | gesture | man | medium-dark skin tone | sorry</annotation>
+		<annotation cp="🙇🏿‍♂">apology | bowing | dark skin tone | favor | gesture | man | sorry</annotation>
+		<annotation cp="🙇🏻‍♀">apology | bowing | favor | gesture | light skin tone | sorry | woman</annotation>
+		<annotation cp="🙇🏼‍♀">apology | bowing | favor | gesture | medium-light skin tone | sorry | woman</annotation>
+		<annotation cp="🙇🏽‍♀">apology | bowing | favor | gesture | medium skin tone | sorry | woman</annotation>
+		<annotation cp="🙇🏾‍♀">apology | bowing | favor | gesture | medium-dark skin tone | sorry | woman</annotation>
+		<annotation cp="🙇🏿‍♀">apology | bowing | dark skin tone | favor | gesture | sorry | woman</annotation>
+		<annotation cp="👨🏻‍⚕">doctor | health care | light skin tone | man | man health worker | nurse | therapist</annotation>
+		<annotation cp="👨🏼‍⚕">doctor | health care | man | man health worker | medium-light skin tone | nurse | therapist</annotation>
+		<annotation cp="👨🏽‍⚕">doctor | health care | man | man health worker | medium skin tone | nurse | therapist</annotation>
+		<annotation cp="👨🏾‍⚕">doctor | health care | man | man health worker | medium-dark skin tone | nurse | therapist</annotation>
+		<annotation cp="👨🏿‍⚕">dark skin tone | doctor | health care | man | man health worker | nurse | therapist</annotation>
+		<annotation cp="👩🏻‍⚕">doctor | health care | light skin tone | nurse | therapist | woman | woman health worker</annotation>
+		<annotation cp="👩🏼‍⚕">doctor | health care | medium-light skin tone | nurse | therapist | woman | woman health worker</annotation>
+		<annotation cp="👩🏽‍⚕">doctor | health care | medium skin tone | nurse | therapist | woman | woman health worker</annotation>
+		<annotation cp="👩🏾‍⚕">doctor | health care | medium-dark skin tone | nurse | therapist | woman | woman health worker</annotation>
+		<annotation cp="👩🏿‍⚕">dark skin tone | doctor | health care | nurse | therapist | woman | woman health worker</annotation>
+		<annotation cp="👨🏻‍🌾">farmer | gardener | light skin tone | man | rancher</annotation>
+		<annotation cp="👨🏼‍🌾">farmer | gardener | man | medium-light skin tone | rancher</annotation>
+		<annotation cp="👨🏽‍🌾">farmer | gardener | man | medium skin tone | rancher</annotation>
+		<annotation cp="👨🏾‍🌾">farmer | gardener | man | medium-dark skin tone | rancher</annotation>
+		<annotation cp="👨🏿‍🌾">dark skin tone | farmer | gardener | man | rancher</annotation>
+		<annotation cp="👩🏻‍🌾">farmer | gardener | light skin tone | rancher | woman</annotation>
+		<annotation cp="👩🏼‍🌾">farmer | gardener | medium-light skin tone | rancher | woman</annotation>
+		<annotation cp="👩🏽‍🌾">farmer | gardener | medium skin tone | rancher | woman</annotation>
+		<annotation cp="👩🏾‍🌾">farmer | gardener | medium-dark skin tone | rancher | woman</annotation>
+		<annotation cp="👩🏿‍🌾">dark skin tone | farmer | gardener | rancher | woman</annotation>
+		<annotation cp="👨🏻‍🔧">electrician | light skin tone | man | mechanic | plumber | tradesperson</annotation>
+		<annotation cp="👨🏼‍🔧">electrician | man | mechanic | medium-light skin tone | plumber | tradesperson</annotation>
+		<annotation cp="👨🏽‍🔧">electrician | man | mechanic | medium skin tone | plumber | tradesperson</annotation>
+		<annotation cp="👨🏾‍🔧">electrician | man | mechanic | medium-dark skin tone | plumber | tradesperson</annotation>
+		<annotation cp="👨🏿‍🔧">dark skin tone | electrician | man | mechanic | plumber | tradesperson</annotation>
+		<annotation cp="👩🏻‍🔧">electrician | light skin tone | mechanic | plumber | tradesperson | woman</annotation>
+		<annotation cp="👩🏼‍🔧">electrician | mechanic | medium-light skin tone | plumber | tradesperson | woman</annotation>
+		<annotation cp="👩🏽‍🔧">electrician | mechanic | medium skin tone | plumber | tradesperson | woman</annotation>
+		<annotation cp="👩🏾‍🔧">electrician | mechanic | medium-dark skin tone | plumber | tradesperson | woman</annotation>
+		<annotation cp="👩🏿‍🔧">dark skin tone | electrician | mechanic | plumber | tradesperson | woman</annotation>
+		<annotation cp="👨🏻‍🚒">fire truck | firefighter | fireman | light skin tone | man</annotation>
+		<annotation cp="👨🏼‍🚒">fire truck | firefighter | fireman | man | medium-light skin tone</annotation>
+		<annotation cp="👨🏽‍🚒">fire truck | firefighter | fireman | man | medium skin tone</annotation>
+		<annotation cp="👨🏾‍🚒">fire truck | firefighter | fireman | man | medium-dark skin tone</annotation>
+		<annotation cp="👨🏿‍🚒">dark skin tone | fire truck | firefighter | fireman | man</annotation>
+		<annotation cp="👩🏻‍🚒">fire truck | firefighter | firewoman | light skin tone | woman</annotation>
+		<annotation cp="👩🏼‍🚒">fire truck | firefighter | firewoman | medium-light skin tone | woman</annotation>
+		<annotation cp="👩🏽‍🚒">fire truck | firefighter | firewoman | medium skin tone | woman</annotation>
+		<annotation cp="👩🏾‍🚒">fire truck | firefighter | firewoman | medium-dark skin tone | woman</annotation>
+		<annotation cp="👩🏿‍🚒">dark skin tone | fire truck | firefighter | firewoman | woman</annotation>
+		<annotation cp="👮🏻‍♂">cop | light skin tone | man | officer | police</annotation>
+		<annotation cp="👮🏼‍♂">cop | man | medium-light skin tone | officer | police</annotation>
+		<annotation cp="👮🏽‍♂">cop | man | medium skin tone | officer | police</annotation>
+		<annotation cp="👮🏾‍♂">cop | man | medium-dark skin tone | officer | police</annotation>
+		<annotation cp="👮🏿‍♂">cop | dark skin tone | man | officer | police</annotation>
+		<annotation cp="👮🏻‍♀">cop | light skin tone | officer | police | woman</annotation>
+		<annotation cp="👮🏼‍♀">cop | medium-light skin tone | officer | police | woman</annotation>
+		<annotation cp="👮🏽‍♀">cop | medium skin tone | officer | police | woman</annotation>
+		<annotation cp="👮🏾‍♀">cop | medium-dark skin tone | officer | police | woman</annotation>
+		<annotation cp="👮🏿‍♀">cop | dark skin tone | officer | police | woman</annotation>
+		<annotation cp="💂🏻‍♂">guard | light skin tone | man</annotation>
+		<annotation cp="💂🏼‍♂">guard | man | medium-light skin tone</annotation>
+		<annotation cp="💂🏽‍♂">guard | man | medium skin tone</annotation>
+		<annotation cp="💂🏾‍♂">guard | man | medium-dark skin tone</annotation>
+		<annotation cp="💂🏿‍♂">dark skin tone | guard | man</annotation>
+		<annotation cp="💂🏻‍♀">guard | light skin tone | woman</annotation>
+		<annotation cp="💂🏼‍♀">guard | medium-light skin tone | woman</annotation>
+		<annotation cp="💂🏽‍♀">guard | medium skin tone | woman</annotation>
+		<annotation cp="💂🏾‍♀">guard | medium-dark skin tone | woman</annotation>
+		<annotation cp="💂🏿‍♀">dark skin tone | guard | woman</annotation>
+		<annotation cp="👷🏻">construction | hat | light skin tone | worker</annotation>
+		<annotation cp="👷🏼">construction | hat | medium-light skin tone | worker</annotation>
+		<annotation cp="👷🏽">construction | hat | medium skin tone | worker</annotation>
+		<annotation cp="👷🏾">construction | hat | medium-dark skin tone | worker</annotation>
+		<annotation cp="👷🏿">construction | dark skin tone | hat | worker</annotation>
+		<annotation cp="👷🏻‍♂">construction | light skin tone | man | worker</annotation>
+		<annotation cp="👷🏼‍♂">construction | man | medium-light skin tone | worker</annotation>
+		<annotation cp="👷🏽‍♂">construction | man | medium skin tone | worker</annotation>
+		<annotation cp="👷🏾‍♂">construction | man | medium-dark skin tone | worker</annotation>
+		<annotation cp="👷🏿‍♂">construction | dark skin tone | man | worker</annotation>
+		<annotation cp="👷🏻‍♀">construction | light skin tone | woman | worker</annotation>
+		<annotation cp="👷🏼‍♀">construction | medium-light skin tone | woman | worker</annotation>
+		<annotation cp="👷🏽‍♀">construction | medium skin tone | woman | worker</annotation>
+		<annotation cp="👷🏾‍♀">construction | medium-dark skin tone | woman | worker</annotation>
+		<annotation cp="👷🏿‍♀">construction | dark skin tone | woman | worker</annotation>
+		<annotation cp="👲🏻">gua pi mao | hat | light skin tone | man | man with Chinese cap</annotation>
+		<annotation cp="👲🏼">gua pi mao | hat | man | man with Chinese cap | medium-light skin tone</annotation>
+		<annotation cp="👲🏽">gua pi mao | hat | man | man with Chinese cap | medium skin tone</annotation>
+		<annotation cp="👲🏾">gua pi mao | hat | man | man with Chinese cap | medium-dark skin tone</annotation>
+		<annotation cp="👲🏿">dark skin tone | gua pi mao | hat | man | man with Chinese cap</annotation>
+		<annotation cp="🤱🏻">baby | breast | breast-feeding | light skin tone | nursing</annotation>
+		<annotation cp="🤱🏻" type="tts">breast-feeding: light skin tone</annotation>
+		<annotation cp="🤱🏼">baby | breast | breast-feeding | medium-light skin tone | nursing</annotation>
+		<annotation cp="🤱🏼" type="tts">breast-feeding: medium-light skin tone</annotation>
+		<annotation cp="🤱🏽">baby | breast | breast-feeding | medium skin tone | nursing</annotation>
+		<annotation cp="🤱🏽" type="tts">breast-feeding: medium skin tone</annotation>
+		<annotation cp="🤱🏾">baby | breast | breast-feeding | medium-dark skin tone | nursing</annotation>
+		<annotation cp="🤱🏾" type="tts">breast-feeding: medium-dark skin tone</annotation>
+		<annotation cp="🤱🏿">baby | breast | breast-feeding | dark skin tone | nursing</annotation>
+		<annotation cp="🤱🏿" type="tts">breast-feeding: dark skin tone</annotation>
+		<annotation cp="🎅🏻">celebration | Christmas | Claus | Father | light skin tone | Santa</annotation>
+		<annotation cp="🎅🏼">celebration | Christmas | Claus | Father | medium-light skin tone | Santa</annotation>
+		<annotation cp="🎅🏽">celebration | Christmas | Claus | Father | medium skin tone | Santa</annotation>
+		<annotation cp="🎅🏾">celebration | Christmas | Claus | Father | medium-dark skin tone | Santa</annotation>
+		<annotation cp="🎅🏿">celebration | Christmas | Claus | dark skin tone | Father | Santa</annotation>
+		<annotation cp="🤶🏻">light skin tone | Mrs. Claus</annotation>
+		<annotation cp="🤶🏻" type="tts">Mrs. Claus: light skin tone</annotation>
+		<annotation cp="🤶🏼">medium-light skin tone | Mrs. Claus</annotation>
+		<annotation cp="🤶🏼" type="tts">Mrs. Claus: medium-light skin tone</annotation>
+		<annotation cp="🤶🏽">medium skin tone | Mrs. Claus</annotation>
+		<annotation cp="🤶🏽" type="tts">Mrs. Claus: medium skin tone</annotation>
+		<annotation cp="🤶🏾">medium-dark skin tone | Mrs. Claus</annotation>
+		<annotation cp="🤶🏾" type="tts">Mrs. Claus: medium-dark skin tone</annotation>
+		<annotation cp="🤶🏿">dark skin tone | Mrs. Claus</annotation>
+		<annotation cp="🤶🏿" type="tts">Mrs. Claus: dark skin tone</annotation>
+		<annotation cp="💇🏻">barber | beauty | haircut | light skin tone | parlour</annotation>
+		<annotation cp="💇🏼">barber | beauty | haircut | medium-light skin tone | parlour</annotation>
+		<annotation cp="💇🏽">barber | beauty | haircut | medium skin tone | parlour</annotation>
+		<annotation cp="💇🏾">barber | beauty | haircut | medium-dark skin tone | parlour</annotation>
+		<annotation cp="💇🏿">barber | beauty | dark skin tone | haircut | parlour</annotation>
+		<annotation cp="🚣🏻">boat | light skin tone | person rowing boat | rowboat</annotation>
+		<annotation cp="🚣🏼">boat | medium-light skin tone | person rowing boat | rowboat</annotation>
+		<annotation cp="🚣🏽">boat | medium skin tone | person rowing boat | rowboat</annotation>
+		<annotation cp="🚣🏾">boat | medium-dark skin tone | person rowing boat | rowboat</annotation>
+		<annotation cp="🚣🏿">boat | dark skin tone | person rowing boat | rowboat</annotation>
+		<annotation cp="🚣🏻‍♂">boat | light skin tone | man | man rowing boat | rowboat</annotation>
+		<annotation cp="🚣🏼‍♂">boat | man | man rowing boat | medium-light skin tone | rowboat</annotation>
+		<annotation cp="🚣🏽‍♂">boat | man | man rowing boat | medium skin tone | rowboat</annotation>
+		<annotation cp="🚣🏾‍♂">boat | man | man rowing boat | medium-dark skin tone | rowboat</annotation>
+		<annotation cp="🚣🏿‍♂">boat | dark skin tone | man | man rowing boat | rowboat</annotation>
+		<annotation cp="🚣🏻‍♀">boat | light skin tone | rowboat | woman | woman rowing boat</annotation>
+		<annotation cp="🚣🏼‍♀">boat | medium-light skin tone | rowboat | woman | woman rowing boat</annotation>
+		<annotation cp="🚣🏽‍♀">boat | medium skin tone | rowboat | woman | woman rowing boat</annotation>
+		<annotation cp="🚣🏾‍♀">boat | medium-dark skin tone | rowboat | woman | woman rowing boat</annotation>
+		<annotation cp="🚣🏿‍♀">boat | dark skin tone | rowboat | woman | woman rowing boat</annotation>
+		<annotation cp="🏋🏻">lifter | light skin tone | person lifting weights | weight | weightlifter</annotation>
+		<annotation cp="🏋🏼">lifter | medium-light skin tone | person lifting weights | weight | weightlifter</annotation>
+		<annotation cp="🏋🏽">lifter | medium skin tone | person lifting weights | weight | weightlifter</annotation>
+		<annotation cp="🏋🏾">lifter | medium-dark skin tone | person lifting weights | weight | weightlifter</annotation>
+		<annotation cp="🏋🏿">dark skin tone | lifter | person lifting weights | weight | weightlifter</annotation>
+		<annotation cp="🏋🏻‍♂">light skin tone | man | man lifting weights | weight lifter</annotation>
+		<annotation cp="🏋🏼‍♂">man | man lifting weights | medium-light skin tone | weight lifter</annotation>
+		<annotation cp="🏋🏽‍♂">man | man lifting weights | medium skin tone | weight lifter</annotation>
+		<annotation cp="🏋🏾‍♂">man | man lifting weights | medium-dark skin tone | weight lifter</annotation>
+		<annotation cp="🏋🏿‍♂">dark skin tone | man | man lifting weights | weight lifter</annotation>
+		<annotation cp="🏋🏻‍♀">light skin tone | weight lifter | woman | woman lifting weights</annotation>
+		<annotation cp="🏋🏼‍♀">medium-light skin tone | weight lifter | woman | woman lifting weights</annotation>
+		<annotation cp="🏋🏽‍♀">medium skin tone | weight lifter | woman | woman lifting weights</annotation>
+		<annotation cp="🏋🏾‍♀">medium-dark skin tone | weight lifter | woman | woman lifting weights</annotation>
+		<annotation cp="🏋🏿‍♀">dark skin tone | weight lifter | woman | woman lifting weights</annotation>
+		<annotation cp="🚴🏻">bicycle | biking | cyclist | light skin tone | person biking</annotation>
+		<annotation cp="🚴🏼">bicycle | biking | cyclist | medium-light skin tone | person biking</annotation>
+		<annotation cp="🚴🏽">bicycle | biking | cyclist | medium skin tone | person biking</annotation>
+		<annotation cp="🚴🏾">bicycle | biking | cyclist | medium-dark skin tone | person biking</annotation>
+		<annotation cp="🚴🏿">bicycle | biking | cyclist | dark skin tone | person biking</annotation>
+		<annotation cp="🚴🏻‍♂">bicycle | biking | cyclist | light skin tone | man</annotation>
+		<annotation cp="🚴🏼‍♂">bicycle | biking | cyclist | man | medium-light skin tone</annotation>
+		<annotation cp="🚴🏽‍♂">bicycle | biking | cyclist | man | medium skin tone</annotation>
+		<annotation cp="🚴🏾‍♂">bicycle | biking | cyclist | man | medium-dark skin tone</annotation>
+		<annotation cp="🚴🏿‍♂">bicycle | biking | cyclist | dark skin tone | man</annotation>
+		<annotation cp="🚴🏻‍♀">bicycle | biking | cyclist | light skin tone | woman</annotation>
+		<annotation cp="🚴🏼‍♀">bicycle | biking | cyclist | medium-light skin tone | woman</annotation>
+		<annotation cp="🚴🏽‍♀">bicycle | biking | cyclist | medium skin tone | woman</annotation>
+		<annotation cp="🚴🏾‍♀">bicycle | biking | cyclist | medium-dark skin tone | woman</annotation>
+		<annotation cp="🚴🏿‍♀">bicycle | biking | cyclist | dark skin tone | woman</annotation>
+		<annotation cp="🤹🏻">balance | juggle | light skin tone | multi-task | multitask | person juggling | skill</annotation>
+		<annotation cp="🤹🏼">balance | juggle | medium-light skin tone | multi-task | multitask | person juggling | skill</annotation>
+		<annotation cp="🤹🏽">balance | juggle | medium skin tone | multi-task | multitask | person juggling | skill</annotation>
+		<annotation cp="🤹🏾">balance | juggle | medium-dark skin tone | multi-task | multitask | person juggling | skill</annotation>
+		<annotation cp="🤹🏿">balance | dark skin tone | juggle | multi-task | multitask | person juggling | skill</annotation>
+		<annotation cp="🤹🏻‍♂">juggling | light skin tone | man | multi-task | multitask</annotation>
+		<annotation cp="🤹🏼‍♂">juggling | man | medium-light skin tone | multi-task | multitask</annotation>
+		<annotation cp="🤹🏽‍♂">juggling | man | medium skin tone | multi-task | multitask</annotation>
+		<annotation cp="🤹🏾‍♂">juggling | man | medium-dark skin tone | multi-task | multitask</annotation>
+		<annotation cp="🤹🏿‍♂">dark skin tone | juggling | man | multi-task | multitask</annotation>
+		<annotation cp="🤹🏻‍♀">juggling | light skin tone | multi-task | multitask | woman</annotation>
+		<annotation cp="🤹🏼‍♀">juggling | medium-light skin tone | multi-task | multitask | woman</annotation>
+		<annotation cp="🤹🏽‍♀">juggling | medium skin tone | multi-task | multitask | woman</annotation>
+		<annotation cp="🤹🏾‍♀">juggling | medium-dark skin tone | multi-task | multitask | woman</annotation>
+		<annotation cp="🤹🏿‍♀">dark skin tone | juggling | multi-task | multitask | woman</annotation>
+		<annotation cp="👬🏻">couple | Gemini | light skin tone | man | men | twins | two men holding hands | zodiac</annotation>
+		<annotation cp="👬🏼">couple | Gemini | man | medium-light skin tone | men | twins | two men holding hands | zodiac</annotation>
+		<annotation cp="👬🏽">couple | Gemini | man | medium skin tone | men | twins | two men holding hands | zodiac</annotation>
+		<annotation cp="👬🏾">couple | Gemini | man | medium-dark skin tone | men | twins | two men holding hands | zodiac</annotation>
+		<annotation cp="👬🏿">couple | dark skin tone | Gemini | man | men | twins | two men holding hands | zodiac</annotation>
+		<annotation cp="👭🏻">couple | hand | light skin tone | two women holding hands | woman | women</annotation>
+		<annotation cp="👭🏼">couple | hand | medium-light skin tone | two women holding hands | woman | women</annotation>
+		<annotation cp="👭🏽">couple | hand | medium skin tone | two women holding hands | woman | women</annotation>
+		<annotation cp="👭🏾">couple | hand | medium-dark skin tone | two women holding hands | woman | women</annotation>
+		<annotation cp="👭🏿">couple | dark skin tone | hand | two women holding hands | woman | women</annotation>
 	</annotations>
 </ldml>

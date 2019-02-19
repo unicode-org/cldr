@@ -521,7 +521,6 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             { "cy", "two", "0" }, // n is 2
             { "ga", "two", "0" }, // n is 2
             { "iu", "two", "0" }, // n is 2
-            { "kw", "two", "0" }, // n is 2
             { "naq", "two", "0" }, // n is 2
             { "se", "two", "0" }, // n is 2
             { "sma", "two", "0" }, // n is 2
@@ -554,6 +553,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             // 4,6,9
             { "dsb", "one", "0,00,000,0000" }, // v = 0 and i % 100 = 1 or f
             // % 100 = 1
+            {"kw", "many", "00,000,0000"},  // n != 1 and n % 100 = 1,21,41,61,81
+            {"kw", "zero", "0"},    // n = 0
         };
         // parse out the exceptions
         Map<PluralInfo, Relation<Count, Integer>> exceptions = new HashMap<PluralInfo, Relation<Count, Integer>>();

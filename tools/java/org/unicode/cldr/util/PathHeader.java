@@ -1341,7 +1341,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 public String transform(String source0) {
                     String theTerritory = Containment.getRegionFromZone(source0);
                     if (theTerritory == null || theTerritory == "001") {
-                        theTerritory = (source0.equals("Asia/Qostanay"))? "KZ": "ZZ"; // cldrbug 11754 hack until CLDR's ICU4J supports the zone
+                        theTerritory = "ZZ";
                     }
                     if (singlePageTerritories.contains(theTerritory)) {
                         return englishFile.getName(CLDRFile.TERRITORY_NAME, theTerritory);

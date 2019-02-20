@@ -35,7 +35,10 @@ public class GenerateDerivedAnnotations {
         .freeze();
 
     public static void main(String[] args) throws IOException {
-        boolean missingOnly = args.length > 0 & args[0].equals("missing");
+        boolean missingOnly = args.length > 0 && args[0].equals("missing");
+        if (missingOnly) {
+            System.out.println("With the 'missing' argument files will not be written, only the missing items will be written to the console");
+        }
         
         Joiner BAR = Joiner.on(" | ");
         AnnotationSet enAnnotations = Annotations.getDataSet("en");

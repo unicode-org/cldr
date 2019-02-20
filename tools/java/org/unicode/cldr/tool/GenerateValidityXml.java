@@ -272,7 +272,7 @@ public class GenerateValidityXml {
             info.clear();
             for (Entry<String, Map<LstrField, String>> entry2 : entry.getValue().entrySet()) {
                 String code = entry2.getKey();
-                if (type == LstrType.language && code.startsWith("bh")) {
+                if (type == LstrType.language && code.startsWith("ais")) {
                     int debug = 0;
                 }
                 Map<LstrField, String> data = entry2.getValue();

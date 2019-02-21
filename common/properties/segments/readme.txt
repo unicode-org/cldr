@@ -9,10 +9,11 @@ The modifications are:
 
   LinkingConsonant=[\p{Gujr}\p{sc=Telu}\p{sc=Mlym}\p{sc=Orya}\p{sc=Beng}\p{sc=Deva}&\p{Indic_Syllabic_Category=Consonant}]
 
-  ExtCccZwj=[\p{gcb:Extend}-\p{ccc=0}] ZWJ]
+  ExtCccZwj=[\p{gcb=Extend}-\p{ccc=0}] \p{gcb=ZWJ}]
 
 Note that these categories are not gcb property values: in fact, they overlap the gcb property values.
-It is not however necessary for the rules to have disjoint categories.
+It is not however necessary for the rules to have disjoint categories. The list of scripts can be added
+to over time, as test files for them become available. 
 
 2. Adding a rule to https://unicode.org/reports/tr29/#Grapheme_Cluster_Boundary_Rules
 

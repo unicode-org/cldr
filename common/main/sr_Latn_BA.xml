@@ -205,5 +205,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="week">
+				<relative type="-1" draft="contributed">prethodne nedelje</relative>
+				<relative type="1" draft="contributed">naredne nedelje</relative>
+			</field>
+		</fields>
 	</dates>
 </ldml>

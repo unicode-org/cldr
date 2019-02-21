@@ -4,15 +4,124 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="gl"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤏🏻">chisco | miga | pouquichiño | pouquiño | ton de pel moi claro | xesto de &quot;un chisco&quot;</annotation>
+		<annotation cp="🤏🏻" type="tts">xesto de &quot;un chisco&quot;: ton de pel moi claro</annotation>
+		<annotation cp="🤏🏼">chisco | miga | pouquichiño | pouquiño | ton de pel claro | xesto de &quot;un chisco&quot;</annotation>
+		<annotation cp="🤏🏼" type="tts">xesto de &quot;un chisco&quot;: ton de pel claro</annotation>
+		<annotation cp="🤏🏽">chisco | miga | pouquichiño | pouquiño | ton de pel medio | xesto de &quot;un chisco&quot;</annotation>
+		<annotation cp="🤏🏽" type="tts">xesto de &quot;un chisco&quot;: ton de pel medio</annotation>
+		<annotation cp="🤏🏾">chisco | miga | pouquichiño | pouquiño | ton de pel escuro | xesto de &quot;un chisco&quot;</annotation>
+		<annotation cp="🤏🏾" type="tts">xesto de &quot;un chisco&quot;: ton de pel escuro</annotation>
+		<annotation cp="🤏🏿">chisco | miga | pouquichiño | pouquiño | ton de pel moi escuro | xesto de &quot;un chisco&quot;</annotation>
+		<annotation cp="🤏🏿" type="tts">xesto de &quot;un chisco&quot;: ton de pel moi escuro</annotation>
+		<annotation cp="🦻🏻">aparato auditivo | discapacidade | orella con audiófono | ton de pel moi claro | xorda | xordo</annotation>
+		<annotation cp="🦻🏻" type="tts">orella con audiófono: ton de pel moi claro</annotation>
+		<annotation cp="🦻🏼">aparato auditivo | discapacidade | orella con audiófono | ton de pel claro | xorda | xordo</annotation>
+		<annotation cp="🦻🏼" type="tts">orella con audiófono: ton de pel claro</annotation>
+		<annotation cp="🦻🏽">aparato auditivo | discapacidade | orella con audiófono | ton de pel medio | xorda | xordo</annotation>
+		<annotation cp="🦻🏽" type="tts">orella con audiófono: ton de pel medio</annotation>
+		<annotation cp="🦻🏾">aparato auditivo | discapacidade | orella con audiófono | ton de pel escuro | xorda | xordo</annotation>
+		<annotation cp="🦻🏾" type="tts">orella con audiófono: ton de pel escuro</annotation>
+		<annotation cp="🦻🏿">aparato auditivo | discapacidade | orella con audiófono | ton de pel moi escuro | xorda | xordo</annotation>
+		<annotation cp="🦻🏿" type="tts">orella con audiófono: ton de pel moi escuro</annotation>
+		<annotation cp="🧍🏻">de pé | levantada | levantado | levantarse | persoa de pé | ton de pel moi claro</annotation>
+		<annotation cp="🧍🏻" type="tts">persoa de pé: ton de pel moi claro</annotation>
+		<annotation cp="🧍🏼">de pé | levantada | levantado | levantarse | persoa de pé | ton de pel claro</annotation>
+		<annotation cp="🧍🏼" type="tts">persoa de pé: ton de pel claro</annotation>
+		<annotation cp="🧍🏽">de pé | levantada | levantado | levantarse | persoa de pé | ton de pel medio</annotation>
+		<annotation cp="🧍🏽" type="tts">persoa de pé: ton de pel medio</annotation>
+		<annotation cp="🧍🏾">de pé | levantada | levantado | levantarse | persoa de pé | ton de pel escuro</annotation>
+		<annotation cp="🧍🏾" type="tts">persoa de pé: ton de pel escuro</annotation>
+		<annotation cp="🧍🏿">de pé | levantada | levantado | levantarse | persoa de pé | ton de pel moi escuro</annotation>
+		<annotation cp="🧍🏿" type="tts">persoa de pé: ton de pel moi escuro</annotation>
+		<annotation cp="🧍🏻‍♀">de pé | levantada | levantarse | muller de pé | ton de pel moi claro</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">muller de pé: ton de pel moi claro</annotation>
+		<annotation cp="🧍🏼‍♀">de pé | levantada | levantarse | muller de pé | ton de pel claro</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">muller de pé: ton de pel claro</annotation>
+		<annotation cp="🧍🏽‍♀">de pé | levantada | levantarse | muller de pé | ton de pel medio</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">muller de pé: ton de pel medio</annotation>
+		<annotation cp="🧍🏾‍♀">de pé | levantada | levantarse | muller de pé | ton de pel escuro</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">muller de pé: ton de pel escuro</annotation>
+		<annotation cp="🧍🏿‍♀">de pé | levantada | levantarse | muller de pé | ton de pel moi escuro</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">muller de pé: ton de pel moi escuro</annotation>
+		<annotation cp="🧍🏻‍♂">de pé | home de pé | levantado | levantarse | ton de pel moi claro</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">home de pé: ton de pel moi claro</annotation>
+		<annotation cp="🧍🏼‍♂">de pé | home de pé | levantado | levantarse | ton de pel claro</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">home de pé: ton de pel claro</annotation>
+		<annotation cp="🧍🏽‍♂">de pé | home de pé | levantado | levantarse | ton de pel medio</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">home de pé: ton de pel medio</annotation>
+		<annotation cp="🧍🏾‍♂">de pé | home de pé | levantado | levantarse | ton de pel escuro</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">home de pé: ton de pel escuro</annotation>
+		<annotation cp="🧍🏿‍♂">de pé | home de pé | levantado | levantarse | ton de pel moi escuro</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">home de pé: ton de pel moi escuro</annotation>
+		<annotation cp="🧎🏻">axeonllada | axeonllado | axeonllar | persoa axeonllada | ton de pel moi claro | xeonllo</annotation>
+		<annotation cp="🧎🏻" type="tts">persoa axeonllada: ton de pel moi claro</annotation>
+		<annotation cp="🧎🏼">axeonllada | axeonllado | axeonllar | persoa axeonllada | ton de pel claro | xeonllo</annotation>
+		<annotation cp="🧎🏼" type="tts">persoa axeonllada: ton de pel claro</annotation>
+		<annotation cp="🧎🏽">axeonllada | axeonllado | axeonllar | persoa axeonllada | ton de pel medio | xeonllo</annotation>
+		<annotation cp="🧎🏽" type="tts">persoa axeonllada: ton de pel medio</annotation>
+		<annotation cp="🧎🏾">axeonllada | axeonllado | axeonllar | persoa axeonllada | ton de pel escuro | xeonllo</annotation>
+		<annotation cp="🧎🏾" type="tts">persoa axeonllada: ton de pel escuro</annotation>
+		<annotation cp="🧎🏿">axeonllada | axeonllado | axeonllar | persoa axeonllada | ton de pel moi escuro | xeonllo</annotation>
+		<annotation cp="🧎🏿" type="tts">persoa axeonllada: ton de pel moi escuro</annotation>
+		<annotation cp="🧎🏻‍♀">axeonllada | axeonllar | muller axeonllada | ton de pel moi claro | xeonllo</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">muller axeonllada: ton de pel moi claro</annotation>
+		<annotation cp="🧎🏼‍♀">axeonllada | axeonllar | muller axeonllada | ton de pel claro | xeonllo</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">muller axeonllada: ton de pel claro</annotation>
+		<annotation cp="🧎🏽‍♀">axeonllada | axeonllar | muller axeonllada | ton de pel medio | xeonllo</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">muller axeonllada: ton de pel medio</annotation>
+		<annotation cp="🧎🏾‍♀">axeonllada | axeonllar | muller axeonllada | ton de pel escuro | xeonllo</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">muller axeonllada: ton de pel escuro</annotation>
+		<annotation cp="🧎🏿‍♀">axeonllada | axeonllar | muller axeonllada | ton de pel moi escuro | xeonllo</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">muller axeonllada: ton de pel moi escuro</annotation>
+		<annotation cp="🧎🏻‍♂">axeonllado | axeonllar | home axeonllado | ton de pel moi claro | xeonllo</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">home axeonllado: ton de pel moi claro</annotation>
+		<annotation cp="🧎🏼‍♂">axeonllado | axeonllar | home axeonllado | ton de pel claro | xeonllo</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">home axeonllado: ton de pel claro</annotation>
+		<annotation cp="🧎🏽‍♂">axeonllado | axeonllar | home axeonllado | ton de pel medio | xeonllo</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">home axeonllado: ton de pel medio</annotation>
+		<annotation cp="🧎🏾‍♂">axeonllado | axeonllar | home axeonllado | ton de pel escuro | xeonllo</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">home axeonllado: ton de pel escuro</annotation>
+		<annotation cp="🧎🏿‍♂">axeonllado | axeonllar | home axeonllado | ton de pel moi escuro | xeonllo</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">home axeonllado: ton de pel moi escuro</annotation>
+		<annotation cp="🧏🏻">discapacidade | linguaxe de signos | persoa xorda | ton de pel moi claro | xorda | xordo</annotation>
+		<annotation cp="🧏🏻" type="tts">persoa xorda: ton de pel moi claro</annotation>
+		<annotation cp="🧏🏼">discapacidade | linguaxe de signos | persoa xorda | ton de pel claro | xorda | xordo</annotation>
+		<annotation cp="🧏🏼" type="tts">persoa xorda: ton de pel claro</annotation>
+		<annotation cp="🧏🏽">discapacidade | linguaxe de signos | persoa xorda | ton de pel medio | xorda | xordo</annotation>
+		<annotation cp="🧏🏽" type="tts">persoa xorda: ton de pel medio</annotation>
+		<annotation cp="🧏🏾">discapacidade | linguaxe de signos | persoa xorda | ton de pel escuro | xorda | xordo</annotation>
+		<annotation cp="🧏🏾" type="tts">persoa xorda: ton de pel escuro</annotation>
+		<annotation cp="🧏🏿">discapacidade | linguaxe de signos | persoa xorda | ton de pel moi escuro | xorda | xordo</annotation>
+		<annotation cp="🧏🏿" type="tts">persoa xorda: ton de pel moi escuro</annotation>
+		<annotation cp="🧏🏻‍♀">discapacidade | linguaxe de signos | muller xorda | ton de pel moi claro | xorda</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">muller xorda: ton de pel moi claro</annotation>
+		<annotation cp="🧏🏼‍♀">discapacidade | linguaxe de signos | muller xorda | ton de pel claro | xorda</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">muller xorda: ton de pel claro</annotation>
+		<annotation cp="🧏🏽‍♀">discapacidade | linguaxe de signos | muller xorda | ton de pel medio | xorda</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">muller xorda: ton de pel medio</annotation>
+		<annotation cp="🧏🏾‍♀">discapacidade | linguaxe de signos | muller xorda | ton de pel escuro | xorda</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">muller xorda: ton de pel escuro</annotation>
+		<annotation cp="🧏🏿‍♀">discapacidade | linguaxe de signos | muller xorda | ton de pel moi escuro | xorda</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">muller xorda: ton de pel moi escuro</annotation>
+		<annotation cp="🧏🏻‍♂">discapacidade | home xordo | linguaxe de signos | ton de pel moi claro | xordo</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">home xordo: ton de pel moi claro</annotation>
+		<annotation cp="🧏🏼‍♂">discapacidade | home xordo | linguaxe de signos | ton de pel claro | xordo</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">home xordo: ton de pel claro</annotation>
+		<annotation cp="🧏🏽‍♂">discapacidade | home xordo | linguaxe de signos | ton de pel medio | xordo</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">home xordo: ton de pel medio</annotation>
+		<annotation cp="🧏🏾‍♂">discapacidade | home xordo | linguaxe de signos | ton de pel escuro | xordo</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">home xordo: ton de pel escuro</annotation>
+		<annotation cp="🧏🏿‍♂">discapacidade | home xordo | linguaxe de signos | ton de pel moi escuro | xordo</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">home xordo: ton de pel moi escuro</annotation>
 		<annotation cp="👋🏻">man | man saudando | saudar | saúdo | ton de pel moi claro</annotation>
 		<annotation cp="👋🏻" type="tts">man saudando: ton de pel moi claro</annotation>
 		<annotation cp="👋🏼">man | man saudando | saudar | saúdo | ton de pel claro</annotation>
@@ -473,6 +582,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">home: ton de pel escuro</annotation>
 		<annotation cp="👨🏿">adulto | home | ton de pel moi escuro</annotation>
 		<annotation cp="👨🏿" type="tts">home: ton de pel moi escuro</annotation>
+		<annotation cp="👨🏻‍🦯">cego | discapacidade | home | home cun bastón guía | invidente | ton de pel moi claro</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">home cun bastón guía: ton de pel moi claro</annotation>
+		<annotation cp="👨🏼‍🦯">cego | discapacidade | home | home cun bastón guía | invidente | ton de pel claro</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">home cun bastón guía: ton de pel claro</annotation>
+		<annotation cp="👨🏽‍🦯">cego | discapacidade | home | home cun bastón guía | invidente | ton de pel medio</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">home cun bastón guía: ton de pel medio</annotation>
+		<annotation cp="👨🏾‍🦯">cego | discapacidade | home | home cun bastón guía | invidente | ton de pel escuro</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">home cun bastón guía: ton de pel escuro</annotation>
+		<annotation cp="👨🏿‍🦯">cego | discapacidade | home | home cun bastón guía | invidente | ton de pel moi escuro</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">home cun bastón guía: ton de pel moi escuro</annotation>
+		<annotation cp="👨🏻‍🦼">cadeira de rodas | discapacidade | eléctrica | home | home en cadeira de rodas motorizada | ton de pel moi claro</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">home en cadeira de rodas motorizada: ton de pel moi claro</annotation>
+		<annotation cp="👨🏼‍🦼">cadeira de rodas | discapacidade | eléctrica | home | home en cadeira de rodas motorizada | ton de pel claro</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">home en cadeira de rodas motorizada: ton de pel claro</annotation>
+		<annotation cp="👨🏽‍🦼">cadeira de rodas | discapacidade | eléctrica | home | home en cadeira de rodas motorizada | ton de pel medio</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">home en cadeira de rodas motorizada: ton de pel medio</annotation>
+		<annotation cp="👨🏾‍🦼">cadeira de rodas | discapacidade | eléctrica | home | home en cadeira de rodas motorizada | ton de pel escuro</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">home en cadeira de rodas motorizada: ton de pel escuro</annotation>
+		<annotation cp="👨🏿‍🦼">cadeira de rodas | discapacidade | eléctrica | home | home en cadeira de rodas motorizada | ton de pel moi escuro</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">home en cadeira de rodas motorizada: ton de pel moi escuro</annotation>
+		<annotation cp="👨🏻‍🦽">cadeira de rodas | discapacidade | home | home en cadeira de rodas | ton de pel moi claro</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">home en cadeira de rodas: ton de pel moi claro</annotation>
+		<annotation cp="👨🏼‍🦽">cadeira de rodas | discapacidade | home | home en cadeira de rodas | ton de pel claro</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">home en cadeira de rodas: ton de pel claro</annotation>
+		<annotation cp="👨🏽‍🦽">cadeira de rodas | discapacidade | home | home en cadeira de rodas | ton de pel medio</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">home en cadeira de rodas: ton de pel medio</annotation>
+		<annotation cp="👨🏾‍🦽">cadeira de rodas | discapacidade | home | home en cadeira de rodas | ton de pel escuro</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">home en cadeira de rodas: ton de pel escuro</annotation>
+		<annotation cp="👨🏿‍🦽">cadeira de rodas | discapacidade | home | home en cadeira de rodas | ton de pel moi escuro</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">home en cadeira de rodas: ton de pel moi escuro</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">dous homes collidos da man | homes | parella | ton de pel claro | ton de pel moi claro | xemelgos | Xémini</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">dous homes collidos da man: ton de pel claro, ton de pel moi claro</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">dous homes collidos da man | homes | parella | ton de pel medio | ton de pel moi claro | xemelgos | Xémini</annotation>
@@ -541,36 +680,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">home: ton de pel escuro, sen pelo</annotation>
 		<annotation cp="👨🏿‍🦲">adulto | home | sen pelo | ton de pel moi escuro</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">home: ton de pel moi escuro, sen pelo</annotation>
-		<annotation cp="👨🏻‍🦯">cego | discapacidade | home | home cun bastón guía | invidente | ton de pel moi claro</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">home cun bastón guía: ton de pel moi claro</annotation>
-		<annotation cp="👨🏼‍🦯">cego | discapacidade | home | home cun bastón guía | invidente | ton de pel claro</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">home cun bastón guía: ton de pel claro</annotation>
-		<annotation cp="👨🏽‍🦯">cego | discapacidade | home | home cun bastón guía | invidente | ton de pel medio</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">home cun bastón guía: ton de pel medio</annotation>
-		<annotation cp="👨🏾‍🦯">cego | discapacidade | home | home cun bastón guía | invidente | ton de pel escuro</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">home cun bastón guía: ton de pel escuro</annotation>
-		<annotation cp="👨🏿‍🦯">cego | discapacidade | home | home cun bastón guía | invidente | ton de pel moi escuro</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">home cun bastón guía: ton de pel moi escuro</annotation>
-		<annotation cp="👨🏻‍🦼">cadeira de rodas | discapacidade | eléctrica | home | home en cadeira de rodas motorizada | ton de pel moi claro</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">home en cadeira de rodas motorizada: ton de pel moi claro</annotation>
-		<annotation cp="👨🏼‍🦼">cadeira de rodas | discapacidade | eléctrica | home | home en cadeira de rodas motorizada | ton de pel claro</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">home en cadeira de rodas motorizada: ton de pel claro</annotation>
-		<annotation cp="👨🏽‍🦼">cadeira de rodas | discapacidade | eléctrica | home | home en cadeira de rodas motorizada | ton de pel medio</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">home en cadeira de rodas motorizada: ton de pel medio</annotation>
-		<annotation cp="👨🏾‍🦼">cadeira de rodas | discapacidade | eléctrica | home | home en cadeira de rodas motorizada | ton de pel escuro</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">home en cadeira de rodas motorizada: ton de pel escuro</annotation>
-		<annotation cp="👨🏿‍🦼">cadeira de rodas | discapacidade | eléctrica | home | home en cadeira de rodas motorizada | ton de pel moi escuro</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">home en cadeira de rodas motorizada: ton de pel moi escuro</annotation>
-		<annotation cp="👨🏻‍🦽">cadeira de rodas | discapacidade | home | home en cadeira de rodas | ton de pel moi claro</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">home en cadeira de rodas: ton de pel moi claro</annotation>
-		<annotation cp="👨🏼‍🦽">cadeira de rodas | discapacidade | home | home en cadeira de rodas | ton de pel claro</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">home en cadeira de rodas: ton de pel claro</annotation>
-		<annotation cp="👨🏽‍🦽">cadeira de rodas | discapacidade | home | home en cadeira de rodas | ton de pel medio</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">home en cadeira de rodas: ton de pel medio</annotation>
-		<annotation cp="👨🏾‍🦽">cadeira de rodas | discapacidade | home | home en cadeira de rodas | ton de pel escuro</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">home en cadeira de rodas: ton de pel escuro</annotation>
-		<annotation cp="👨🏿‍🦽">cadeira de rodas | discapacidade | home | home en cadeira de rodas | ton de pel moi escuro</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">home en cadeira de rodas: ton de pel moi escuro</annotation>
 		<annotation cp="👱🏻‍♂">home | loiro | louro | ton de pel moi claro</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">home louro: ton de pel moi claro</annotation>
 		<annotation cp="👱🏼‍♂">home | loiro | louro | ton de pel claro</annotation>
@@ -601,6 +710,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">muller: ton de pel escuro</annotation>
 		<annotation cp="👩🏿">adulta | muller | ton de pel moi escuro</annotation>
 		<annotation cp="👩🏿" type="tts">muller: ton de pel moi escuro</annotation>
+		<annotation cp="👩🏻‍🦯">cega | discapacidade | invidente | muller | muller cun bastón guía | ton de pel moi claro</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">muller cun bastón guía: ton de pel moi claro</annotation>
+		<annotation cp="👩🏼‍🦯">cega | discapacidade | invidente | muller | muller cun bastón guía | ton de pel claro</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">muller cun bastón guía: ton de pel claro</annotation>
+		<annotation cp="👩🏽‍🦯">cega | discapacidade | invidente | muller | muller cun bastón guía | ton de pel medio</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">muller cun bastón guía: ton de pel medio</annotation>
+		<annotation cp="👩🏾‍🦯">cega | discapacidade | invidente | muller | muller cun bastón guía | ton de pel escuro</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">muller cun bastón guía: ton de pel escuro</annotation>
+		<annotation cp="👩🏿‍🦯">cega | discapacidade | invidente | muller | muller cun bastón guía | ton de pel moi escuro</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">muller cun bastón guía: ton de pel moi escuro</annotation>
+		<annotation cp="👩🏻‍🦼">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas motorizada | ton de pel moi claro</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">muller en cadeira de rodas motorizada: ton de pel moi claro</annotation>
+		<annotation cp="👩🏼‍🦼">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas motorizada | ton de pel claro</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">muller en cadeira de rodas motorizada: ton de pel claro</annotation>
+		<annotation cp="👩🏽‍🦼">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas motorizada | ton de pel medio</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">muller en cadeira de rodas motorizada: ton de pel medio</annotation>
+		<annotation cp="👩🏾‍🦼">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas motorizada | ton de pel escuro</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">muller en cadeira de rodas motorizada: ton de pel escuro</annotation>
+		<annotation cp="👩🏿‍🦼">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas motorizada | ton de pel moi escuro</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">muller en cadeira de rodas motorizada: ton de pel moi escuro</annotation>
+		<annotation cp="👩🏻‍🦽">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas | ton de pel moi claro</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">muller en cadeira de rodas: ton de pel moi claro</annotation>
+		<annotation cp="👩🏼‍🦽">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas | ton de pel claro</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">muller en cadeira de rodas: ton de pel claro</annotation>
+		<annotation cp="👩🏽‍🦽">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas | ton de pel medio</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">muller en cadeira de rodas: ton de pel medio</annotation>
+		<annotation cp="👩🏾‍🦽">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas | ton de pel escuro</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">muller en cadeira de rodas: ton de pel escuro</annotation>
+		<annotation cp="👩🏿‍🦽">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas | ton de pel moi escuro</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">muller en cadeira de rodas: ton de pel moi escuro</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼">home | home e muller collidos da man | man | muller | parella | ton de pel claro | ton de pel moi claro</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">home e muller collidos da man: ton de pel moi claro, ton de pel claro</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏽">home | home e muller collidos da man | man | muller | parella | ton de pel medio | ton de pel moi claro</annotation>
@@ -709,36 +848,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">muller: ton de pel escuro, sen pelo</annotation>
 		<annotation cp="👩🏿‍🦲">adulta | muller | sen pelo | ton de pel moi escuro</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">muller: ton de pel moi escuro, sen pelo</annotation>
-		<annotation cp="👩🏻‍🦯">cega | discapacidade | invidente | muller | muller cun bastón guía | ton de pel moi claro</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">muller cun bastón guía: ton de pel moi claro</annotation>
-		<annotation cp="👩🏼‍🦯">cega | discapacidade | invidente | muller | muller cun bastón guía | ton de pel claro</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">muller cun bastón guía: ton de pel claro</annotation>
-		<annotation cp="👩🏽‍🦯">cega | discapacidade | invidente | muller | muller cun bastón guía | ton de pel medio</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">muller cun bastón guía: ton de pel medio</annotation>
-		<annotation cp="👩🏾‍🦯">cega | discapacidade | invidente | muller | muller cun bastón guía | ton de pel escuro</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">muller cun bastón guía: ton de pel escuro</annotation>
-		<annotation cp="👩🏿‍🦯">cega | discapacidade | invidente | muller | muller cun bastón guía | ton de pel moi escuro</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">muller cun bastón guía: ton de pel moi escuro</annotation>
-		<annotation cp="👩🏻‍🦼">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas motorizada | ton de pel moi claro</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">muller en cadeira de rodas motorizada: ton de pel moi claro</annotation>
-		<annotation cp="👩🏼‍🦼">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas motorizada | ton de pel claro</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">muller en cadeira de rodas motorizada: ton de pel claro</annotation>
-		<annotation cp="👩🏽‍🦼">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas motorizada | ton de pel medio</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">muller en cadeira de rodas motorizada: ton de pel medio</annotation>
-		<annotation cp="👩🏾‍🦼">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas motorizada | ton de pel escuro</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">muller en cadeira de rodas motorizada: ton de pel escuro</annotation>
-		<annotation cp="👩🏿‍🦼">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas motorizada | ton de pel moi escuro</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">muller en cadeira de rodas motorizada: ton de pel moi escuro</annotation>
-		<annotation cp="👩🏻‍🦽">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas | ton de pel moi claro</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">muller en cadeira de rodas: ton de pel moi claro</annotation>
-		<annotation cp="👩🏼‍🦽">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas | ton de pel claro</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">muller en cadeira de rodas: ton de pel claro</annotation>
-		<annotation cp="👩🏽‍🦽">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas | ton de pel medio</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">muller en cadeira de rodas: ton de pel medio</annotation>
-		<annotation cp="👩🏾‍🦽">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas | ton de pel escuro</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">muller en cadeira de rodas: ton de pel escuro</annotation>
-		<annotation cp="👩🏿‍🦽">cadeira de rodas | discapacidade | eléctrica | muller | muller en cadeira de rodas | ton de pel moi escuro</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">muller en cadeira de rodas: ton de pel moi escuro</annotation>
 		<annotation cp="👱🏻‍♀">loira | loura | muller | ton de pel moi claro</annotation>
 		<annotation cp="👱🏻‍♀" type="tts">muller loura: ton de pel moi claro</annotation>
 		<annotation cp="👱🏼‍♀">loira | loura | muller | ton de pel claro</annotation>
@@ -3119,115 +3228,5 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="8⃣" type="tts">tecla: 8</annotation>
 		<annotation cp="9⃣">tecla</annotation>
 		<annotation cp="9⃣" type="tts">tecla: 9</annotation>
-		<annotation cp="🤏🏻">chisco | miga | pouquichiño | pouquiño | ton de pel moi claro | xesto de &quot;un chisco&quot;</annotation>
-		<annotation cp="🤏🏻" type="tts">xesto de &quot;un chisco&quot;: ton de pel moi claro</annotation>
-		<annotation cp="🤏🏼">chisco | miga | pouquichiño | pouquiño | ton de pel claro | xesto de &quot;un chisco&quot;</annotation>
-		<annotation cp="🤏🏼" type="tts">xesto de &quot;un chisco&quot;: ton de pel claro</annotation>
-		<annotation cp="🤏🏽">chisco | miga | pouquichiño | pouquiño | ton de pel medio | xesto de &quot;un chisco&quot;</annotation>
-		<annotation cp="🤏🏽" type="tts">xesto de &quot;un chisco&quot;: ton de pel medio</annotation>
-		<annotation cp="🤏🏾">chisco | miga | pouquichiño | pouquiño | ton de pel escuro | xesto de &quot;un chisco&quot;</annotation>
-		<annotation cp="🤏🏾" type="tts">xesto de &quot;un chisco&quot;: ton de pel escuro</annotation>
-		<annotation cp="🤏🏿">chisco | miga | pouquichiño | pouquiño | ton de pel moi escuro | xesto de &quot;un chisco&quot;</annotation>
-		<annotation cp="🤏🏿" type="tts">xesto de &quot;un chisco&quot;: ton de pel moi escuro</annotation>
-		<annotation cp="🦻🏻">aparato auditivo | discapacidade | orella con audiófono | ton de pel moi claro | xorda | xordo</annotation>
-		<annotation cp="🦻🏻" type="tts">orella con audiófono: ton de pel moi claro</annotation>
-		<annotation cp="🦻🏼">aparato auditivo | discapacidade | orella con audiófono | ton de pel claro | xorda | xordo</annotation>
-		<annotation cp="🦻🏼" type="tts">orella con audiófono: ton de pel claro</annotation>
-		<annotation cp="🦻🏽">aparato auditivo | discapacidade | orella con audiófono | ton de pel medio | xorda | xordo</annotation>
-		<annotation cp="🦻🏽" type="tts">orella con audiófono: ton de pel medio</annotation>
-		<annotation cp="🦻🏾">aparato auditivo | discapacidade | orella con audiófono | ton de pel escuro | xorda | xordo</annotation>
-		<annotation cp="🦻🏾" type="tts">orella con audiófono: ton de pel escuro</annotation>
-		<annotation cp="🦻🏿">aparato auditivo | discapacidade | orella con audiófono | ton de pel moi escuro | xorda | xordo</annotation>
-		<annotation cp="🦻🏿" type="tts">orella con audiófono: ton de pel moi escuro</annotation>
-		<annotation cp="🧍🏻">de pé | levantada | levantado | levantarse | persoa de pé | ton de pel moi claro</annotation>
-		<annotation cp="🧍🏻" type="tts">persoa de pé: ton de pel moi claro</annotation>
-		<annotation cp="🧍🏼">de pé | levantada | levantado | levantarse | persoa de pé | ton de pel claro</annotation>
-		<annotation cp="🧍🏼" type="tts">persoa de pé: ton de pel claro</annotation>
-		<annotation cp="🧍🏽">de pé | levantada | levantado | levantarse | persoa de pé | ton de pel medio</annotation>
-		<annotation cp="🧍🏽" type="tts">persoa de pé: ton de pel medio</annotation>
-		<annotation cp="🧍🏾">de pé | levantada | levantado | levantarse | persoa de pé | ton de pel escuro</annotation>
-		<annotation cp="🧍🏾" type="tts">persoa de pé: ton de pel escuro</annotation>
-		<annotation cp="🧍🏿">de pé | levantada | levantado | levantarse | persoa de pé | ton de pel moi escuro</annotation>
-		<annotation cp="🧍🏿" type="tts">persoa de pé: ton de pel moi escuro</annotation>
-		<annotation cp="🧍🏻‍♀">de pé | levantada | levantarse | muller de pé | ton de pel moi claro</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">muller de pé: ton de pel moi claro</annotation>
-		<annotation cp="🧍🏼‍♀">de pé | levantada | levantarse | muller de pé | ton de pel claro</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">muller de pé: ton de pel claro</annotation>
-		<annotation cp="🧍🏽‍♀">de pé | levantada | levantarse | muller de pé | ton de pel medio</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">muller de pé: ton de pel medio</annotation>
-		<annotation cp="🧍🏾‍♀">de pé | levantada | levantarse | muller de pé | ton de pel escuro</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">muller de pé: ton de pel escuro</annotation>
-		<annotation cp="🧍🏿‍♀">de pé | levantada | levantarse | muller de pé | ton de pel moi escuro</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">muller de pé: ton de pel moi escuro</annotation>
-		<annotation cp="🧍🏻‍♂">de pé | home de pé | levantado | levantarse | ton de pel moi claro</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">home de pé: ton de pel moi claro</annotation>
-		<annotation cp="🧍🏼‍♂">de pé | home de pé | levantado | levantarse | ton de pel claro</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">home de pé: ton de pel claro</annotation>
-		<annotation cp="🧍🏽‍♂">de pé | home de pé | levantado | levantarse | ton de pel medio</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">home de pé: ton de pel medio</annotation>
-		<annotation cp="🧍🏾‍♂">de pé | home de pé | levantado | levantarse | ton de pel escuro</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">home de pé: ton de pel escuro</annotation>
-		<annotation cp="🧍🏿‍♂">de pé | home de pé | levantado | levantarse | ton de pel moi escuro</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">home de pé: ton de pel moi escuro</annotation>
-		<annotation cp="🧎🏻">axeonllada | axeonllado | axeonllar | persoa axeonllada | ton de pel moi claro | xeonllo</annotation>
-		<annotation cp="🧎🏻" type="tts">persoa axeonllada: ton de pel moi claro</annotation>
-		<annotation cp="🧎🏼">axeonllada | axeonllado | axeonllar | persoa axeonllada | ton de pel claro | xeonllo</annotation>
-		<annotation cp="🧎🏼" type="tts">persoa axeonllada: ton de pel claro</annotation>
-		<annotation cp="🧎🏽">axeonllada | axeonllado | axeonllar | persoa axeonllada | ton de pel medio | xeonllo</annotation>
-		<annotation cp="🧎🏽" type="tts">persoa axeonllada: ton de pel medio</annotation>
-		<annotation cp="🧎🏾">axeonllada | axeonllado | axeonllar | persoa axeonllada | ton de pel escuro | xeonllo</annotation>
-		<annotation cp="🧎🏾" type="tts">persoa axeonllada: ton de pel escuro</annotation>
-		<annotation cp="🧎🏿">axeonllada | axeonllado | axeonllar | persoa axeonllada | ton de pel moi escuro | xeonllo</annotation>
-		<annotation cp="🧎🏿" type="tts">persoa axeonllada: ton de pel moi escuro</annotation>
-		<annotation cp="🧎🏻‍♀">axeonllada | axeonllar | muller axeonllada | ton de pel moi claro | xeonllo</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">muller axeonllada: ton de pel moi claro</annotation>
-		<annotation cp="🧎🏼‍♀">axeonllada | axeonllar | muller axeonllada | ton de pel claro | xeonllo</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">muller axeonllada: ton de pel claro</annotation>
-		<annotation cp="🧎🏽‍♀">axeonllada | axeonllar | muller axeonllada | ton de pel medio | xeonllo</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">muller axeonllada: ton de pel medio</annotation>
-		<annotation cp="🧎🏾‍♀">axeonllada | axeonllar | muller axeonllada | ton de pel escuro | xeonllo</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">muller axeonllada: ton de pel escuro</annotation>
-		<annotation cp="🧎🏿‍♀">axeonllada | axeonllar | muller axeonllada | ton de pel moi escuro | xeonllo</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">muller axeonllada: ton de pel moi escuro</annotation>
-		<annotation cp="🧎🏻‍♂">axeonllado | axeonllar | home axeonllado | ton de pel moi claro | xeonllo</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">home axeonllado: ton de pel moi claro</annotation>
-		<annotation cp="🧎🏼‍♂">axeonllado | axeonllar | home axeonllado | ton de pel claro | xeonllo</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">home axeonllado: ton de pel claro</annotation>
-		<annotation cp="🧎🏽‍♂">axeonllado | axeonllar | home axeonllado | ton de pel medio | xeonllo</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">home axeonllado: ton de pel medio</annotation>
-		<annotation cp="🧎🏾‍♂">axeonllado | axeonllar | home axeonllado | ton de pel escuro | xeonllo</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">home axeonllado: ton de pel escuro</annotation>
-		<annotation cp="🧎🏿‍♂">axeonllado | axeonllar | home axeonllado | ton de pel moi escuro | xeonllo</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">home axeonllado: ton de pel moi escuro</annotation>
-		<annotation cp="🧏🏻">discapacidade | linguaxe de signos | persoa xorda | ton de pel moi claro | xorda | xordo</annotation>
-		<annotation cp="🧏🏻" type="tts">persoa xorda: ton de pel moi claro</annotation>
-		<annotation cp="🧏🏼">discapacidade | linguaxe de signos | persoa xorda | ton de pel claro | xorda | xordo</annotation>
-		<annotation cp="🧏🏼" type="tts">persoa xorda: ton de pel claro</annotation>
-		<annotation cp="🧏🏽">discapacidade | linguaxe de signos | persoa xorda | ton de pel medio | xorda | xordo</annotation>
-		<annotation cp="🧏🏽" type="tts">persoa xorda: ton de pel medio</annotation>
-		<annotation cp="🧏🏾">discapacidade | linguaxe de signos | persoa xorda | ton de pel escuro | xorda | xordo</annotation>
-		<annotation cp="🧏🏾" type="tts">persoa xorda: ton de pel escuro</annotation>
-		<annotation cp="🧏🏿">discapacidade | linguaxe de signos | persoa xorda | ton de pel moi escuro | xorda | xordo</annotation>
-		<annotation cp="🧏🏿" type="tts">persoa xorda: ton de pel moi escuro</annotation>
-		<annotation cp="🧏🏻‍♀">discapacidade | linguaxe de signos | muller xorda | ton de pel moi claro | xorda</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">muller xorda: ton de pel moi claro</annotation>
-		<annotation cp="🧏🏼‍♀">discapacidade | linguaxe de signos | muller xorda | ton de pel claro | xorda</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">muller xorda: ton de pel claro</annotation>
-		<annotation cp="🧏🏽‍♀">discapacidade | linguaxe de signos | muller xorda | ton de pel medio | xorda</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">muller xorda: ton de pel medio</annotation>
-		<annotation cp="🧏🏾‍♀">discapacidade | linguaxe de signos | muller xorda | ton de pel escuro | xorda</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">muller xorda: ton de pel escuro</annotation>
-		<annotation cp="🧏🏿‍♀">discapacidade | linguaxe de signos | muller xorda | ton de pel moi escuro | xorda</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">muller xorda: ton de pel moi escuro</annotation>
-		<annotation cp="🧏🏻‍♂">discapacidade | home xordo | linguaxe de signos | ton de pel moi claro | xordo</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">home xordo: ton de pel moi claro</annotation>
-		<annotation cp="🧏🏼‍♂">discapacidade | home xordo | linguaxe de signos | ton de pel claro | xordo</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">home xordo: ton de pel claro</annotation>
-		<annotation cp="🧏🏽‍♂">discapacidade | home xordo | linguaxe de signos | ton de pel medio | xordo</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">home xordo: ton de pel medio</annotation>
-		<annotation cp="🧏🏾‍♂">discapacidade | home xordo | linguaxe de signos | ton de pel escuro | xordo</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">home xordo: ton de pel escuro</annotation>
-		<annotation cp="🧏🏿‍♂">discapacidade | home xordo | linguaxe de signos | ton de pel moi escuro | xordo</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">home xordo: ton de pel moi escuro</annotation>
 	</annotations>
 </ldml>

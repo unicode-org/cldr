@@ -4,15 +4,124 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="de"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤏🏻">helle Hautfarbe | klein | kleine Menge | kleiner Betrag | unbedeutend | wenig | Wenig-Geste</annotation>
+		<annotation cp="🤏🏻" type="tts">Wenig-Geste: helle Hautfarbe</annotation>
+		<annotation cp="🤏🏼">klein | kleine Menge | kleiner Betrag | mittelhelle Hautfarbe | unbedeutend | wenig | Wenig-Geste</annotation>
+		<annotation cp="🤏🏼" type="tts">Wenig-Geste: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🤏🏽">klein | kleine Menge | kleiner Betrag | mittlere Hautfarbe | unbedeutend | wenig | Wenig-Geste</annotation>
+		<annotation cp="🤏🏽" type="tts">Wenig-Geste: mittlere Hautfarbe</annotation>
+		<annotation cp="🤏🏾">klein | kleine Menge | kleiner Betrag | mitteldunkle Hautfarbe | unbedeutend | wenig | Wenig-Geste</annotation>
+		<annotation cp="🤏🏾" type="tts">Wenig-Geste: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🤏🏿">dunkle Hautfarbe | klein | kleine Menge | kleiner Betrag | unbedeutend | wenig | Wenig-Geste</annotation>
+		<annotation cp="🤏🏿" type="tts">Wenig-Geste: dunkle Hautfarbe</annotation>
+		<annotation cp="🦻🏻">Barrierefreiheit | gehörlos | helle Hautfarbe | Hörgerät | Hörhilfe | Ohr mit Hörhilfe | taub</annotation>
+		<annotation cp="🦻🏻" type="tts">Ohr mit Hörhilfe: helle Hautfarbe</annotation>
+		<annotation cp="🦻🏼">Barrierefreiheit | gehörlos | Hörgerät | Hörhilfe | mittelhelle Hautfarbe | Ohr mit Hörhilfe | taub</annotation>
+		<annotation cp="🦻🏼" type="tts">Ohr mit Hörhilfe: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🦻🏽">Barrierefreiheit | gehörlos | Hörgerät | Hörhilfe | mittlere Hautfarbe | Ohr mit Hörhilfe | taub</annotation>
+		<annotation cp="🦻🏽" type="tts">Ohr mit Hörhilfe: mittlere Hautfarbe</annotation>
+		<annotation cp="🦻🏾">Barrierefreiheit | gehörlos | Hörgerät | Hörhilfe | mitteldunkle Hautfarbe | Ohr mit Hörhilfe | taub</annotation>
+		<annotation cp="🦻🏾" type="tts">Ohr mit Hörhilfe: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🦻🏿">Barrierefreiheit | dunkle Hautfarbe | gehörlos | Hörgerät | Hörhilfe | Ohr mit Hörhilfe | taub</annotation>
+		<annotation cp="🦻🏿" type="tts">Ohr mit Hörhilfe: dunkle Hautfarbe</annotation>
+		<annotation cp="🧍🏻">helle Hautfarbe | Stand | stehen | stehende Person</annotation>
+		<annotation cp="🧍🏻" type="tts">stehende Person: helle Hautfarbe</annotation>
+		<annotation cp="🧍🏼">mittelhelle Hautfarbe | Stand | stehen | stehende Person</annotation>
+		<annotation cp="🧍🏼" type="tts">stehende Person: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧍🏽">mittlere Hautfarbe | Stand | stehen | stehende Person</annotation>
+		<annotation cp="🧍🏽" type="tts">stehende Person: mittlere Hautfarbe</annotation>
+		<annotation cp="🧍🏾">mitteldunkle Hautfarbe | Stand | stehen | stehende Person</annotation>
+		<annotation cp="🧍🏾" type="tts">stehende Person: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧍🏿">dunkle Hautfarbe | Stand | stehen | stehende Person</annotation>
+		<annotation cp="🧍🏿" type="tts">stehende Person: dunkle Hautfarbe</annotation>
+		<annotation cp="🧍🏻‍♀">Frau | helle Hautfarbe | stehen | stehende Frau</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">stehende Frau: helle Hautfarbe</annotation>
+		<annotation cp="🧍🏼‍♀">Frau | mittelhelle Hautfarbe | stehen | stehende Frau</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">stehende Frau: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧍🏽‍♀">Frau | mittlere Hautfarbe | stehen | stehende Frau</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">stehende Frau: mittlere Hautfarbe</annotation>
+		<annotation cp="🧍🏾‍♀">Frau | mitteldunkle Hautfarbe | stehen | stehende Frau</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">stehende Frau: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧍🏿‍♀">dunkle Hautfarbe | Frau | stehen | stehende Frau</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">stehende Frau: dunkle Hautfarbe</annotation>
+		<annotation cp="🧍🏻‍♂">helle Hautfarbe | Mann | stehen | stehender Mann</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">stehender Mann: helle Hautfarbe</annotation>
+		<annotation cp="🧍🏼‍♂">Mann | mittelhelle Hautfarbe | stehen | stehender Mann</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">stehender Mann: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧍🏽‍♂">Mann | mittlere Hautfarbe | stehen | stehender Mann</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">stehender Mann: mittlere Hautfarbe</annotation>
+		<annotation cp="🧍🏾‍♂">Mann | mitteldunkle Hautfarbe | stehen | stehender Mann</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">stehender Mann: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧍🏿‍♂">dunkle Hautfarbe | Mann | stehen | stehender Mann</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">stehender Mann: dunkle Hautfarbe</annotation>
+		<annotation cp="🧎🏻">helle Hautfarbe | knien | kniend | kniende Person</annotation>
+		<annotation cp="🧎🏻" type="tts">kniende Person: helle Hautfarbe</annotation>
+		<annotation cp="🧎🏼">knien | kniend | kniende Person | mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧎🏼" type="tts">kniende Person: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧎🏽">knien | kniend | kniende Person | mittlere Hautfarbe</annotation>
+		<annotation cp="🧎🏽" type="tts">kniende Person: mittlere Hautfarbe</annotation>
+		<annotation cp="🧎🏾">knien | kniend | kniende Person | mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧎🏾" type="tts">kniende Person: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧎🏿">dunkle Hautfarbe | knien | kniend | kniende Person</annotation>
+		<annotation cp="🧎🏿" type="tts">kniende Person: dunkle Hautfarbe</annotation>
+		<annotation cp="🧎🏻‍♀">Frau | helle Hautfarbe | kniend | kniende Frau</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">kniende Frau: helle Hautfarbe</annotation>
+		<annotation cp="🧎🏼‍♀">Frau | kniend | kniende Frau | mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">kniende Frau: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧎🏽‍♀">Frau | kniend | kniende Frau | mittlere Hautfarbe</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">kniende Frau: mittlere Hautfarbe</annotation>
+		<annotation cp="🧎🏾‍♀">Frau | kniend | kniende Frau | mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">kniende Frau: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧎🏿‍♀">dunkle Hautfarbe | Frau | kniend | kniende Frau</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">kniende Frau: dunkle Hautfarbe</annotation>
+		<annotation cp="🧎🏻‍♂">helle Hautfarbe | kniend | kniender Mann | Mann</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">kniender Mann: helle Hautfarbe</annotation>
+		<annotation cp="🧎🏼‍♂">kniend | kniender Mann | Mann | mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">kniender Mann: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧎🏽‍♂">kniend | kniender Mann | Mann | mittlere Hautfarbe</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">kniender Mann: mittlere Hautfarbe</annotation>
+		<annotation cp="🧎🏾‍♂">kniend | kniender Mann | Mann | mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">kniender Mann: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧎🏿‍♂">dunkle Hautfarbe | kniend | kniender Mann | Mann</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">kniender Mann: dunkle Hautfarbe</annotation>
+		<annotation cp="🧏🏻">Barrierefreiheit | gehörlos | gehörlose Person | helle Hautfarbe | hören | Ohr | taub</annotation>
+		<annotation cp="🧏🏻" type="tts">gehörlose Person: helle Hautfarbe</annotation>
+		<annotation cp="🧏🏼">Barrierefreiheit | gehörlos | gehörlose Person | hören | mittelhelle Hautfarbe | Ohr | taub</annotation>
+		<annotation cp="🧏🏼" type="tts">gehörlose Person: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧏🏽">Barrierefreiheit | gehörlos | gehörlose Person | hören | mittlere Hautfarbe | Ohr | taub</annotation>
+		<annotation cp="🧏🏽" type="tts">gehörlose Person: mittlere Hautfarbe</annotation>
+		<annotation cp="🧏🏾">Barrierefreiheit | gehörlos | gehörlose Person | hören | mitteldunkle Hautfarbe | Ohr | taub</annotation>
+		<annotation cp="🧏🏾" type="tts">gehörlose Person: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧏🏿">Barrierefreiheit | dunkle Hautfarbe | gehörlos | gehörlose Person | hören | Ohr | taub</annotation>
+		<annotation cp="🧏🏿" type="tts">gehörlose Person: dunkle Hautfarbe</annotation>
+		<annotation cp="🧏🏻‍♀">Frau | gehörlos | gehörlose Frau | helle Hautfarbe | taub</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">gehörlose Frau: helle Hautfarbe</annotation>
+		<annotation cp="🧏🏼‍♀">Frau | gehörlos | gehörlose Frau | mittelhelle Hautfarbe | taub</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">gehörlose Frau: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧏🏽‍♀">Frau | gehörlos | gehörlose Frau | mittlere Hautfarbe | taub</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">gehörlose Frau: mittlere Hautfarbe</annotation>
+		<annotation cp="🧏🏾‍♀">Frau | gehörlos | gehörlose Frau | mitteldunkle Hautfarbe | taub</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">gehörlose Frau: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧏🏿‍♀">dunkle Hautfarbe | Frau | gehörlos | gehörlose Frau | taub</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">gehörlose Frau: dunkle Hautfarbe</annotation>
+		<annotation cp="🧏🏻‍♂">gehörlos | gehörloser Mann | helle Hautfarbe | Mann | taub</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">gehörloser Mann: helle Hautfarbe</annotation>
+		<annotation cp="🧏🏼‍♂">gehörlos | gehörloser Mann | Mann | mittelhelle Hautfarbe | taub</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">gehörloser Mann: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧏🏽‍♂">gehörlos | gehörloser Mann | Mann | mittlere Hautfarbe | taub</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">gehörloser Mann: mittlere Hautfarbe</annotation>
+		<annotation cp="🧏🏾‍♂">gehörlos | gehörloser Mann | Mann | mitteldunkle Hautfarbe | taub</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">gehörloser Mann: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧏🏿‍♂">dunkle Hautfarbe | gehörlos | gehörloser Mann | Mann | taub</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">gehörloser Mann: dunkle Hautfarbe</annotation>
 		<annotation cp="👋🏻">Hand | helle Hautfarbe | Winken | winkende Hand</annotation>
 		<annotation cp="👋🏻" type="tts">winkende Hand: helle Hautfarbe</annotation>
 		<annotation cp="👋🏼">Hand | mittelhelle Hautfarbe | Winken | winkende Hand</annotation>
@@ -473,6 +582,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">Mann: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="👨🏿">dunkle Hautfarbe | Mann</annotation>
 		<annotation cp="👨🏿" type="tts">Mann: dunkle Hautfarbe</annotation>
+		<annotation cp="👨🏻‍🦯">Barrierefreiheit | blind | helle Hautfarbe | Mann | Mann mit Gehstock | sehbehindert</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">Mann mit Gehstock: helle Hautfarbe</annotation>
+		<annotation cp="👨🏼‍🦯">Barrierefreiheit | blind | Mann | Mann mit Gehstock | mittelhelle Hautfarbe | sehbehindert</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">Mann mit Gehstock: mittelhelle Hautfarbe</annotation>
+		<annotation cp="👨🏽‍🦯">Barrierefreiheit | blind | Mann | Mann mit Gehstock | mittlere Hautfarbe | sehbehindert</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">Mann mit Gehstock: mittlere Hautfarbe</annotation>
+		<annotation cp="👨🏾‍🦯">Barrierefreiheit | blind | Mann | Mann mit Gehstock | mitteldunkle Hautfarbe | sehbehindert</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">Mann mit Gehstock: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👨🏿‍🦯">Barrierefreiheit | blind | dunkle Hautfarbe | Mann | Mann mit Gehstock | sehbehindert</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">Mann mit Gehstock: dunkle Hautfarbe</annotation>
+		<annotation cp="👨🏻‍🦼">Barrierefreiheit | helle Hautfarbe | Mann | Mann in elektrischem Rollstuhl | Rollstuhl</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">Mann in elektrischem Rollstuhl: helle Hautfarbe</annotation>
+		<annotation cp="👨🏼‍🦼">Barrierefreiheit | Mann | Mann in elektrischem Rollstuhl | mittelhelle Hautfarbe | Rollstuhl</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">Mann in elektrischem Rollstuhl: mittelhelle Hautfarbe</annotation>
+		<annotation cp="👨🏽‍🦼">Barrierefreiheit | Mann | Mann in elektrischem Rollstuhl | mittlere Hautfarbe | Rollstuhl</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">Mann in elektrischem Rollstuhl: mittlere Hautfarbe</annotation>
+		<annotation cp="👨🏾‍🦼">Barrierefreiheit | Mann | Mann in elektrischem Rollstuhl | mitteldunkle Hautfarbe | Rollstuhl</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">Mann in elektrischem Rollstuhl: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👨🏿‍🦼">Barrierefreiheit | dunkle Hautfarbe | Mann | Mann in elektrischem Rollstuhl | Rollstuhl</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">Mann in elektrischem Rollstuhl: dunkle Hautfarbe</annotation>
+		<annotation cp="👨🏻‍🦽">Barrierefreiheit | helle Hautfarbe | Mann | Mann in manuellem Rollstuhl | Rollstuhl</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">Mann in manuellem Rollstuhl: helle Hautfarbe</annotation>
+		<annotation cp="👨🏼‍🦽">Barrierefreiheit | Mann | Mann in manuellem Rollstuhl | mittelhelle Hautfarbe | Rollstuhl</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">Mann in manuellem Rollstuhl: mittelhelle Hautfarbe</annotation>
+		<annotation cp="👨🏽‍🦽">Barrierefreiheit | Mann | Mann in manuellem Rollstuhl | mittlere Hautfarbe | Rollstuhl</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">Mann in manuellem Rollstuhl: mittlere Hautfarbe</annotation>
+		<annotation cp="👨🏾‍🦽">Barrierefreiheit | Mann | Mann in manuellem Rollstuhl | mitteldunkle Hautfarbe | Rollstuhl</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">Mann in manuellem Rollstuhl: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👨🏿‍🦽">Barrierefreiheit | dunkle Hautfarbe | Mann | Mann in manuellem Rollstuhl | Rollstuhl</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">Mann in manuellem Rollstuhl: dunkle Hautfarbe</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">Händchen halten | händchenhaltende Männer | helle Hautfarbe | Männer | mittelhelle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">händchenhaltende Männer: mittelhelle Hautfarbe, helle Hautfarbe</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">Händchen halten | händchenhaltende Männer | helle Hautfarbe | Männer | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
@@ -541,36 +680,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">Mann: mitteldunkle Hautfarbe, Glatze</annotation>
 		<annotation cp="👨🏿‍🦲">dunkle Hautfarbe | Glatze | Mann</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">Mann: dunkle Hautfarbe, Glatze</annotation>
-		<annotation cp="👨🏻‍🦯">Barrierefreiheit | blind | helle Hautfarbe | Mann | Mann mit Gehstock | sehbehindert</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">Mann mit Gehstock: helle Hautfarbe</annotation>
-		<annotation cp="👨🏼‍🦯">Barrierefreiheit | blind | Mann | Mann mit Gehstock | mittelhelle Hautfarbe | sehbehindert</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">Mann mit Gehstock: mittelhelle Hautfarbe</annotation>
-		<annotation cp="👨🏽‍🦯">Barrierefreiheit | blind | Mann | Mann mit Gehstock | mittlere Hautfarbe | sehbehindert</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">Mann mit Gehstock: mittlere Hautfarbe</annotation>
-		<annotation cp="👨🏾‍🦯">Barrierefreiheit | blind | Mann | Mann mit Gehstock | mitteldunkle Hautfarbe | sehbehindert</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">Mann mit Gehstock: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👨🏿‍🦯">Barrierefreiheit | blind | dunkle Hautfarbe | Mann | Mann mit Gehstock | sehbehindert</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">Mann mit Gehstock: dunkle Hautfarbe</annotation>
-		<annotation cp="👨🏻‍🦼">Barrierefreiheit | helle Hautfarbe | Mann | Mann in elektrischem Rollstuhl | Rollstuhl</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">Mann in elektrischem Rollstuhl: helle Hautfarbe</annotation>
-		<annotation cp="👨🏼‍🦼">Barrierefreiheit | Mann | Mann in elektrischem Rollstuhl | mittelhelle Hautfarbe | Rollstuhl</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">Mann in elektrischem Rollstuhl: mittelhelle Hautfarbe</annotation>
-		<annotation cp="👨🏽‍🦼">Barrierefreiheit | Mann | Mann in elektrischem Rollstuhl | mittlere Hautfarbe | Rollstuhl</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">Mann in elektrischem Rollstuhl: mittlere Hautfarbe</annotation>
-		<annotation cp="👨🏾‍🦼">Barrierefreiheit | Mann | Mann in elektrischem Rollstuhl | mitteldunkle Hautfarbe | Rollstuhl</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">Mann in elektrischem Rollstuhl: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👨🏿‍🦼">Barrierefreiheit | dunkle Hautfarbe | Mann | Mann in elektrischem Rollstuhl | Rollstuhl</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">Mann in elektrischem Rollstuhl: dunkle Hautfarbe</annotation>
-		<annotation cp="👨🏻‍🦽">Barrierefreiheit | helle Hautfarbe | Mann | Mann in manuellem Rollstuhl | Rollstuhl</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">Mann in manuellem Rollstuhl: helle Hautfarbe</annotation>
-		<annotation cp="👨🏼‍🦽">Barrierefreiheit | Mann | Mann in manuellem Rollstuhl | mittelhelle Hautfarbe | Rollstuhl</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">Mann in manuellem Rollstuhl: mittelhelle Hautfarbe</annotation>
-		<annotation cp="👨🏽‍🦽">Barrierefreiheit | Mann | Mann in manuellem Rollstuhl | mittlere Hautfarbe | Rollstuhl</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">Mann in manuellem Rollstuhl: mittlere Hautfarbe</annotation>
-		<annotation cp="👨🏾‍🦽">Barrierefreiheit | Mann | Mann in manuellem Rollstuhl | mitteldunkle Hautfarbe | Rollstuhl</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">Mann in manuellem Rollstuhl: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👨🏿‍🦽">Barrierefreiheit | dunkle Hautfarbe | Mann | Mann in manuellem Rollstuhl | Rollstuhl</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">Mann in manuellem Rollstuhl: dunkle Hautfarbe</annotation>
 		<annotation cp="👱🏻‍♂">blond | blonder Mann | Gesicht | Haar | helle Hautfarbe | Mann | Mann: blond</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">Mann: helle Hautfarbe, blond</annotation>
 		<annotation cp="👱🏼‍♂">blond | blonder Mann | Gesicht | Haar | Mann | Mann: blond | mittelhelle Hautfarbe</annotation>
@@ -601,6 +710,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">Frau: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="👩🏿">dunkle Hautfarbe | Frau</annotation>
 		<annotation cp="👩🏿" type="tts">Frau: dunkle Hautfarbe</annotation>
+		<annotation cp="👩🏻‍🦯">Barrierefreiheit | blind | Frau | Frau mit Gehstock | helle Hautfarbe</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">Frau mit Gehstock: helle Hautfarbe</annotation>
+		<annotation cp="👩🏼‍🦯">Barrierefreiheit | blind | Frau | Frau mit Gehstock | mittelhelle Hautfarbe</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">Frau mit Gehstock: mittelhelle Hautfarbe</annotation>
+		<annotation cp="👩🏽‍🦯">Barrierefreiheit | blind | Frau | Frau mit Gehstock | mittlere Hautfarbe</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">Frau mit Gehstock: mittlere Hautfarbe</annotation>
+		<annotation cp="👩🏾‍🦯">Barrierefreiheit | blind | Frau | Frau mit Gehstock | mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">Frau mit Gehstock: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👩🏿‍🦯">Barrierefreiheit | blind | dunkle Hautfarbe | Frau | Frau mit Gehstock</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">Frau mit Gehstock: dunkle Hautfarbe</annotation>
+		<annotation cp="👩🏻‍🦼">Barrierefreiheit | Frau | Frau in elektrischem Rollstuhl | helle Hautfarbe | Rollstuhl</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">Frau in elektrischem Rollstuhl: helle Hautfarbe</annotation>
+		<annotation cp="👩🏼‍🦼">Barrierefreiheit | Frau | Frau in elektrischem Rollstuhl | mittelhelle Hautfarbe | Rollstuhl</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">Frau in elektrischem Rollstuhl: mittelhelle Hautfarbe</annotation>
+		<annotation cp="👩🏽‍🦼">Barrierefreiheit | Frau | Frau in elektrischem Rollstuhl | mittlere Hautfarbe | Rollstuhl</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">Frau in elektrischem Rollstuhl: mittlere Hautfarbe</annotation>
+		<annotation cp="👩🏾‍🦼">Barrierefreiheit | Frau | Frau in elektrischem Rollstuhl | mitteldunkle Hautfarbe | Rollstuhl</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">Frau in elektrischem Rollstuhl: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👩🏿‍🦼">Barrierefreiheit | dunkle Hautfarbe | Frau | Frau in elektrischem Rollstuhl | Rollstuhl</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">Frau in elektrischem Rollstuhl: dunkle Hautfarbe</annotation>
+		<annotation cp="👩🏻‍🦽">Barrierefreiheit | Frau | Frau in manuellem Rollstuhl | helle Hautfarbe | Rollstuhl</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">Frau in manuellem Rollstuhl: helle Hautfarbe</annotation>
+		<annotation cp="👩🏼‍🦽">Barrierefreiheit | Frau | Frau in manuellem Rollstuhl | mittelhelle Hautfarbe | Rollstuhl</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">Frau in manuellem Rollstuhl: mittelhelle Hautfarbe</annotation>
+		<annotation cp="👩🏽‍🦽">Barrierefreiheit | Frau | Frau in manuellem Rollstuhl | mittlere Hautfarbe | Rollstuhl</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">Frau in manuellem Rollstuhl: mittlere Hautfarbe</annotation>
+		<annotation cp="👩🏾‍🦽">Barrierefreiheit | Frau | Frau in manuellem Rollstuhl | mitteldunkle Hautfarbe | Rollstuhl</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">Frau in manuellem Rollstuhl: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👩🏿‍🦽">Barrierefreiheit | dunkle Hautfarbe | Frau | Frau in manuellem Rollstuhl | Rollstuhl</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">Frau in manuellem Rollstuhl: dunkle Hautfarbe</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼">Frau | Händchen halten | helle Hautfarbe | Mann | Mann und Frau halten Hände | mittelhelle Hautfarbe | Paar | Pärchen aus Frau und Mann</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">Mann und Frau halten Hände: helle Hautfarbe, mittelhelle Hautfarbe</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏽">Frau | Händchen halten | helle Hautfarbe | Mann | Mann und Frau halten Hände | mittlere Hautfarbe | Paar | Pärchen aus Frau und Mann</annotation>
@@ -709,36 +848,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">Frau: mitteldunkle Hautfarbe, Glatze</annotation>
 		<annotation cp="👩🏿‍🦲">dunkle Hautfarbe | Frau | Glatze</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">Frau: dunkle Hautfarbe, Glatze</annotation>
-		<annotation cp="👩🏻‍🦯">Barrierefreiheit | blind | Frau | Frau mit Gehstock | helle Hautfarbe</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">Frau mit Gehstock: helle Hautfarbe</annotation>
-		<annotation cp="👩🏼‍🦯">Barrierefreiheit | blind | Frau | Frau mit Gehstock | mittelhelle Hautfarbe</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">Frau mit Gehstock: mittelhelle Hautfarbe</annotation>
-		<annotation cp="👩🏽‍🦯">Barrierefreiheit | blind | Frau | Frau mit Gehstock | mittlere Hautfarbe</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">Frau mit Gehstock: mittlere Hautfarbe</annotation>
-		<annotation cp="👩🏾‍🦯">Barrierefreiheit | blind | Frau | Frau mit Gehstock | mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">Frau mit Gehstock: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👩🏿‍🦯">Barrierefreiheit | blind | dunkle Hautfarbe | Frau | Frau mit Gehstock</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">Frau mit Gehstock: dunkle Hautfarbe</annotation>
-		<annotation cp="👩🏻‍🦼">Barrierefreiheit | Frau | Frau in elektrischem Rollstuhl | helle Hautfarbe | Rollstuhl</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">Frau in elektrischem Rollstuhl: helle Hautfarbe</annotation>
-		<annotation cp="👩🏼‍🦼">Barrierefreiheit | Frau | Frau in elektrischem Rollstuhl | mittelhelle Hautfarbe | Rollstuhl</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">Frau in elektrischem Rollstuhl: mittelhelle Hautfarbe</annotation>
-		<annotation cp="👩🏽‍🦼">Barrierefreiheit | Frau | Frau in elektrischem Rollstuhl | mittlere Hautfarbe | Rollstuhl</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">Frau in elektrischem Rollstuhl: mittlere Hautfarbe</annotation>
-		<annotation cp="👩🏾‍🦼">Barrierefreiheit | Frau | Frau in elektrischem Rollstuhl | mitteldunkle Hautfarbe | Rollstuhl</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">Frau in elektrischem Rollstuhl: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👩🏿‍🦼">Barrierefreiheit | dunkle Hautfarbe | Frau | Frau in elektrischem Rollstuhl | Rollstuhl</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">Frau in elektrischem Rollstuhl: dunkle Hautfarbe</annotation>
-		<annotation cp="👩🏻‍🦽">Barrierefreiheit | Frau | Frau in manuellem Rollstuhl | helle Hautfarbe | Rollstuhl</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">Frau in manuellem Rollstuhl: helle Hautfarbe</annotation>
-		<annotation cp="👩🏼‍🦽">Barrierefreiheit | Frau | Frau in manuellem Rollstuhl | mittelhelle Hautfarbe | Rollstuhl</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">Frau in manuellem Rollstuhl: mittelhelle Hautfarbe</annotation>
-		<annotation cp="👩🏽‍🦽">Barrierefreiheit | Frau | Frau in manuellem Rollstuhl | mittlere Hautfarbe | Rollstuhl</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">Frau in manuellem Rollstuhl: mittlere Hautfarbe</annotation>
-		<annotation cp="👩🏾‍🦽">Barrierefreiheit | Frau | Frau in manuellem Rollstuhl | mitteldunkle Hautfarbe | Rollstuhl</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">Frau in manuellem Rollstuhl: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👩🏿‍🦽">Barrierefreiheit | dunkle Hautfarbe | Frau | Frau in manuellem Rollstuhl | Rollstuhl</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">Frau in manuellem Rollstuhl: dunkle Hautfarbe</annotation>
 		<annotation cp="👱🏻‍♀">blond | blonde Frau | Frau | Frau: blond | Gesicht | Haar | helle Hautfarbe</annotation>
 		<annotation cp="👱🏻‍♀" type="tts">Frau: helle Hautfarbe, blond</annotation>
 		<annotation cp="👱🏼‍♀">blond | blonde Frau | Frau | Frau: blond | Gesicht | Haar | mittelhelle Hautfarbe</annotation>
@@ -3119,115 +3228,5 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="8⃣" type="tts">Taste: 8</annotation>
 		<annotation cp="9⃣">Taste</annotation>
 		<annotation cp="9⃣" type="tts">Taste: 9</annotation>
-		<annotation cp="🤏🏻">helle Hautfarbe | klein | kleine Menge | kleiner Betrag | unbedeutend | wenig | Wenig-Geste</annotation>
-		<annotation cp="🤏🏻" type="tts">Wenig-Geste: helle Hautfarbe</annotation>
-		<annotation cp="🤏🏼">klein | kleine Menge | kleiner Betrag | mittelhelle Hautfarbe | unbedeutend | wenig | Wenig-Geste</annotation>
-		<annotation cp="🤏🏼" type="tts">Wenig-Geste: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🤏🏽">klein | kleine Menge | kleiner Betrag | mittlere Hautfarbe | unbedeutend | wenig | Wenig-Geste</annotation>
-		<annotation cp="🤏🏽" type="tts">Wenig-Geste: mittlere Hautfarbe</annotation>
-		<annotation cp="🤏🏾">klein | kleine Menge | kleiner Betrag | mitteldunkle Hautfarbe | unbedeutend | wenig | Wenig-Geste</annotation>
-		<annotation cp="🤏🏾" type="tts">Wenig-Geste: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🤏🏿">dunkle Hautfarbe | klein | kleine Menge | kleiner Betrag | unbedeutend | wenig | Wenig-Geste</annotation>
-		<annotation cp="🤏🏿" type="tts">Wenig-Geste: dunkle Hautfarbe</annotation>
-		<annotation cp="🦻🏻">Barrierefreiheit | gehörlos | helle Hautfarbe | Hörgerät | Hörhilfe | Ohr mit Hörhilfe | taub</annotation>
-		<annotation cp="🦻🏻" type="tts">Ohr mit Hörhilfe: helle Hautfarbe</annotation>
-		<annotation cp="🦻🏼">Barrierefreiheit | gehörlos | Hörgerät | Hörhilfe | mittelhelle Hautfarbe | Ohr mit Hörhilfe | taub</annotation>
-		<annotation cp="🦻🏼" type="tts">Ohr mit Hörhilfe: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🦻🏽">Barrierefreiheit | gehörlos | Hörgerät | Hörhilfe | mittlere Hautfarbe | Ohr mit Hörhilfe | taub</annotation>
-		<annotation cp="🦻🏽" type="tts">Ohr mit Hörhilfe: mittlere Hautfarbe</annotation>
-		<annotation cp="🦻🏾">Barrierefreiheit | gehörlos | Hörgerät | Hörhilfe | mitteldunkle Hautfarbe | Ohr mit Hörhilfe | taub</annotation>
-		<annotation cp="🦻🏾" type="tts">Ohr mit Hörhilfe: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🦻🏿">Barrierefreiheit | dunkle Hautfarbe | gehörlos | Hörgerät | Hörhilfe | Ohr mit Hörhilfe | taub</annotation>
-		<annotation cp="🦻🏿" type="tts">Ohr mit Hörhilfe: dunkle Hautfarbe</annotation>
-		<annotation cp="🧍🏻">helle Hautfarbe | Stand | stehen | stehende Person</annotation>
-		<annotation cp="🧍🏻" type="tts">stehende Person: helle Hautfarbe</annotation>
-		<annotation cp="🧍🏼">mittelhelle Hautfarbe | Stand | stehen | stehende Person</annotation>
-		<annotation cp="🧍🏼" type="tts">stehende Person: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧍🏽">mittlere Hautfarbe | Stand | stehen | stehende Person</annotation>
-		<annotation cp="🧍🏽" type="tts">stehende Person: mittlere Hautfarbe</annotation>
-		<annotation cp="🧍🏾">mitteldunkle Hautfarbe | Stand | stehen | stehende Person</annotation>
-		<annotation cp="🧍🏾" type="tts">stehende Person: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧍🏿">dunkle Hautfarbe | Stand | stehen | stehende Person</annotation>
-		<annotation cp="🧍🏿" type="tts">stehende Person: dunkle Hautfarbe</annotation>
-		<annotation cp="🧍🏻‍♀">Frau | helle Hautfarbe | stehen | stehende Frau</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">stehende Frau: helle Hautfarbe</annotation>
-		<annotation cp="🧍🏼‍♀">Frau | mittelhelle Hautfarbe | stehen | stehende Frau</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">stehende Frau: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧍🏽‍♀">Frau | mittlere Hautfarbe | stehen | stehende Frau</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">stehende Frau: mittlere Hautfarbe</annotation>
-		<annotation cp="🧍🏾‍♀">Frau | mitteldunkle Hautfarbe | stehen | stehende Frau</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">stehende Frau: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧍🏿‍♀">dunkle Hautfarbe | Frau | stehen | stehende Frau</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">stehende Frau: dunkle Hautfarbe</annotation>
-		<annotation cp="🧍🏻‍♂">helle Hautfarbe | Mann | stehen | stehender Mann</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">stehender Mann: helle Hautfarbe</annotation>
-		<annotation cp="🧍🏼‍♂">Mann | mittelhelle Hautfarbe | stehen | stehender Mann</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">stehender Mann: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧍🏽‍♂">Mann | mittlere Hautfarbe | stehen | stehender Mann</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">stehender Mann: mittlere Hautfarbe</annotation>
-		<annotation cp="🧍🏾‍♂">Mann | mitteldunkle Hautfarbe | stehen | stehender Mann</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">stehender Mann: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧍🏿‍♂">dunkle Hautfarbe | Mann | stehen | stehender Mann</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">stehender Mann: dunkle Hautfarbe</annotation>
-		<annotation cp="🧎🏻">helle Hautfarbe | knien | kniend | kniende Person</annotation>
-		<annotation cp="🧎🏻" type="tts">kniende Person: helle Hautfarbe</annotation>
-		<annotation cp="🧎🏼">knien | kniend | kniende Person | mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧎🏼" type="tts">kniende Person: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧎🏽">knien | kniend | kniende Person | mittlere Hautfarbe</annotation>
-		<annotation cp="🧎🏽" type="tts">kniende Person: mittlere Hautfarbe</annotation>
-		<annotation cp="🧎🏾">knien | kniend | kniende Person | mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧎🏾" type="tts">kniende Person: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧎🏿">dunkle Hautfarbe | knien | kniend | kniende Person</annotation>
-		<annotation cp="🧎🏿" type="tts">kniende Person: dunkle Hautfarbe</annotation>
-		<annotation cp="🧎🏻‍♀">Frau | helle Hautfarbe | kniend | kniende Frau</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">kniende Frau: helle Hautfarbe</annotation>
-		<annotation cp="🧎🏼‍♀">Frau | kniend | kniende Frau | mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">kniende Frau: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧎🏽‍♀">Frau | kniend | kniende Frau | mittlere Hautfarbe</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">kniende Frau: mittlere Hautfarbe</annotation>
-		<annotation cp="🧎🏾‍♀">Frau | kniend | kniende Frau | mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">kniende Frau: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧎🏿‍♀">dunkle Hautfarbe | Frau | kniend | kniende Frau</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">kniende Frau: dunkle Hautfarbe</annotation>
-		<annotation cp="🧎🏻‍♂">helle Hautfarbe | kniend | kniender Mann | Mann</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">kniender Mann: helle Hautfarbe</annotation>
-		<annotation cp="🧎🏼‍♂">kniend | kniender Mann | Mann | mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">kniender Mann: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧎🏽‍♂">kniend | kniender Mann | Mann | mittlere Hautfarbe</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">kniender Mann: mittlere Hautfarbe</annotation>
-		<annotation cp="🧎🏾‍♂">kniend | kniender Mann | Mann | mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">kniender Mann: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧎🏿‍♂">dunkle Hautfarbe | kniend | kniender Mann | Mann</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">kniender Mann: dunkle Hautfarbe</annotation>
-		<annotation cp="🧏🏻">Barrierefreiheit | gehörlos | gehörlose Person | helle Hautfarbe | hören | Ohr | taub</annotation>
-		<annotation cp="🧏🏻" type="tts">gehörlose Person: helle Hautfarbe</annotation>
-		<annotation cp="🧏🏼">Barrierefreiheit | gehörlos | gehörlose Person | hören | mittelhelle Hautfarbe | Ohr | taub</annotation>
-		<annotation cp="🧏🏼" type="tts">gehörlose Person: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧏🏽">Barrierefreiheit | gehörlos | gehörlose Person | hören | mittlere Hautfarbe | Ohr | taub</annotation>
-		<annotation cp="🧏🏽" type="tts">gehörlose Person: mittlere Hautfarbe</annotation>
-		<annotation cp="🧏🏾">Barrierefreiheit | gehörlos | gehörlose Person | hören | mitteldunkle Hautfarbe | Ohr | taub</annotation>
-		<annotation cp="🧏🏾" type="tts">gehörlose Person: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧏🏿">Barrierefreiheit | dunkle Hautfarbe | gehörlos | gehörlose Person | hören | Ohr | taub</annotation>
-		<annotation cp="🧏🏿" type="tts">gehörlose Person: dunkle Hautfarbe</annotation>
-		<annotation cp="🧏🏻‍♀">Frau | gehörlos | gehörlose Frau | helle Hautfarbe | taub</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">gehörlose Frau: helle Hautfarbe</annotation>
-		<annotation cp="🧏🏼‍♀">Frau | gehörlos | gehörlose Frau | mittelhelle Hautfarbe | taub</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">gehörlose Frau: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧏🏽‍♀">Frau | gehörlos | gehörlose Frau | mittlere Hautfarbe | taub</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">gehörlose Frau: mittlere Hautfarbe</annotation>
-		<annotation cp="🧏🏾‍♀">Frau | gehörlos | gehörlose Frau | mitteldunkle Hautfarbe | taub</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">gehörlose Frau: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧏🏿‍♀">dunkle Hautfarbe | Frau | gehörlos | gehörlose Frau | taub</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">gehörlose Frau: dunkle Hautfarbe</annotation>
-		<annotation cp="🧏🏻‍♂">gehörlos | gehörloser Mann | helle Hautfarbe | Mann | taub</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">gehörloser Mann: helle Hautfarbe</annotation>
-		<annotation cp="🧏🏼‍♂">gehörlos | gehörloser Mann | Mann | mittelhelle Hautfarbe | taub</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">gehörloser Mann: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧏🏽‍♂">gehörlos | gehörloser Mann | Mann | mittlere Hautfarbe | taub</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">gehörloser Mann: mittlere Hautfarbe</annotation>
-		<annotation cp="🧏🏾‍♂">gehörlos | gehörloser Mann | Mann | mitteldunkle Hautfarbe | taub</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">gehörloser Mann: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧏🏿‍♂">dunkle Hautfarbe | gehörlos | gehörloser Mann | Mann | taub</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">gehörloser Mann: dunkle Hautfarbe</annotation>
 	</annotations>
 </ldml>

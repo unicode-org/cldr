@@ -4,15 +4,124 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="en"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤏🏻">light skin tone | pinching hand | small amount</annotation>
+		<annotation cp="🤏🏻" type="tts">pinching hand: light skin tone</annotation>
+		<annotation cp="🤏🏼">medium-light skin tone | pinching hand | small amount</annotation>
+		<annotation cp="🤏🏼" type="tts">pinching hand: medium-light skin tone</annotation>
+		<annotation cp="🤏🏽">medium skin tone | pinching hand | small amount</annotation>
+		<annotation cp="🤏🏽" type="tts">pinching hand: medium skin tone</annotation>
+		<annotation cp="🤏🏾">medium-dark skin tone | pinching hand | small amount</annotation>
+		<annotation cp="🤏🏾" type="tts">pinching hand: medium-dark skin tone</annotation>
+		<annotation cp="🤏🏿">dark skin tone | pinching hand | small amount</annotation>
+		<annotation cp="🤏🏿" type="tts">pinching hand: dark skin tone</annotation>
+		<annotation cp="🦻🏻">accessibility | ear with hearing aid | hard of hearing | light skin tone</annotation>
+		<annotation cp="🦻🏻" type="tts">ear with hearing aid: light skin tone</annotation>
+		<annotation cp="🦻🏼">accessibility | ear with hearing aid | hard of hearing | medium-light skin tone</annotation>
+		<annotation cp="🦻🏼" type="tts">ear with hearing aid: medium-light skin tone</annotation>
+		<annotation cp="🦻🏽">accessibility | ear with hearing aid | hard of hearing | medium skin tone</annotation>
+		<annotation cp="🦻🏽" type="tts">ear with hearing aid: medium skin tone</annotation>
+		<annotation cp="🦻🏾">accessibility | ear with hearing aid | hard of hearing | medium-dark skin tone</annotation>
+		<annotation cp="🦻🏾" type="tts">ear with hearing aid: medium-dark skin tone</annotation>
+		<annotation cp="🦻🏿">accessibility | dark skin tone | ear with hearing aid | hard of hearing</annotation>
+		<annotation cp="🦻🏿" type="tts">ear with hearing aid: dark skin tone</annotation>
+		<annotation cp="🧍🏻">light skin tone | person standing | stand | standing</annotation>
+		<annotation cp="🧍🏻" type="tts">person standing: light skin tone</annotation>
+		<annotation cp="🧍🏼">medium-light skin tone | person standing | stand | standing</annotation>
+		<annotation cp="🧍🏼" type="tts">person standing: medium-light skin tone</annotation>
+		<annotation cp="🧍🏽">medium skin tone | person standing | stand | standing</annotation>
+		<annotation cp="🧍🏽" type="tts">person standing: medium skin tone</annotation>
+		<annotation cp="🧍🏾">medium-dark skin tone | person standing | stand | standing</annotation>
+		<annotation cp="🧍🏾" type="tts">person standing: medium-dark skin tone</annotation>
+		<annotation cp="🧍🏿">dark skin tone | person standing | stand | standing</annotation>
+		<annotation cp="🧍🏿" type="tts">person standing: dark skin tone</annotation>
+		<annotation cp="🧍🏻‍♀">light skin tone | standing | woman</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">woman standing: light skin tone</annotation>
+		<annotation cp="🧍🏼‍♀">medium-light skin tone | standing | woman</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">woman standing: medium-light skin tone</annotation>
+		<annotation cp="🧍🏽‍♀">medium skin tone | standing | woman</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">woman standing: medium skin tone</annotation>
+		<annotation cp="🧍🏾‍♀">medium-dark skin tone | standing | woman</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">woman standing: medium-dark skin tone</annotation>
+		<annotation cp="🧍🏿‍♀">dark skin tone | standing | woman</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">woman standing: dark skin tone</annotation>
+		<annotation cp="🧍🏻‍♂">light skin tone | man | standing</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">man standing: light skin tone</annotation>
+		<annotation cp="🧍🏼‍♂">man | medium-light skin tone | standing</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">man standing: medium-light skin tone</annotation>
+		<annotation cp="🧍🏽‍♂">man | medium skin tone | standing</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">man standing: medium skin tone</annotation>
+		<annotation cp="🧍🏾‍♂">man | medium-dark skin tone | standing</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">man standing: medium-dark skin tone</annotation>
+		<annotation cp="🧍🏿‍♂">dark skin tone | man | standing</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">man standing: dark skin tone</annotation>
+		<annotation cp="🧎🏻">kneel | kneeling | light skin tone | person kneeling</annotation>
+		<annotation cp="🧎🏻" type="tts">person kneeling: light skin tone</annotation>
+		<annotation cp="🧎🏼">kneel | kneeling | medium-light skin tone | person kneeling</annotation>
+		<annotation cp="🧎🏼" type="tts">person kneeling: medium-light skin tone</annotation>
+		<annotation cp="🧎🏽">kneel | kneeling | medium skin tone | person kneeling</annotation>
+		<annotation cp="🧎🏽" type="tts">person kneeling: medium skin tone</annotation>
+		<annotation cp="🧎🏾">kneel | kneeling | medium-dark skin tone | person kneeling</annotation>
+		<annotation cp="🧎🏾" type="tts">person kneeling: medium-dark skin tone</annotation>
+		<annotation cp="🧎🏿">dark skin tone | kneel | kneeling | person kneeling</annotation>
+		<annotation cp="🧎🏿" type="tts">person kneeling: dark skin tone</annotation>
+		<annotation cp="🧎🏻‍♀">kneeling | light skin tone | woman</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">woman kneeling: light skin tone</annotation>
+		<annotation cp="🧎🏼‍♀">kneeling | medium-light skin tone | woman</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">woman kneeling: medium-light skin tone</annotation>
+		<annotation cp="🧎🏽‍♀">kneeling | medium skin tone | woman</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">woman kneeling: medium skin tone</annotation>
+		<annotation cp="🧎🏾‍♀">kneeling | medium-dark skin tone | woman</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">woman kneeling: medium-dark skin tone</annotation>
+		<annotation cp="🧎🏿‍♀">dark skin tone | kneeling | woman</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">woman kneeling: dark skin tone</annotation>
+		<annotation cp="🧎🏻‍♂">kneeling | light skin tone | man</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">man kneeling: light skin tone</annotation>
+		<annotation cp="🧎🏼‍♂">kneeling | man | medium-light skin tone</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">man kneeling: medium-light skin tone</annotation>
+		<annotation cp="🧎🏽‍♂">kneeling | man | medium skin tone</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">man kneeling: medium skin tone</annotation>
+		<annotation cp="🧎🏾‍♂">kneeling | man | medium-dark skin tone</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">man kneeling: medium-dark skin tone</annotation>
+		<annotation cp="🧎🏿‍♂">dark skin tone | kneeling | man</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">man kneeling: dark skin tone</annotation>
+		<annotation cp="🧏🏻">accessibility | deaf | deaf person | ear | hear | light skin tone</annotation>
+		<annotation cp="🧏🏻" type="tts">deaf person: light skin tone</annotation>
+		<annotation cp="🧏🏼">accessibility | deaf | deaf person | ear | hear | medium-light skin tone</annotation>
+		<annotation cp="🧏🏼" type="tts">deaf person: medium-light skin tone</annotation>
+		<annotation cp="🧏🏽">accessibility | deaf | deaf person | ear | hear | medium skin tone</annotation>
+		<annotation cp="🧏🏽" type="tts">deaf person: medium skin tone</annotation>
+		<annotation cp="🧏🏾">accessibility | deaf | deaf person | ear | hear | medium-dark skin tone</annotation>
+		<annotation cp="🧏🏾" type="tts">deaf person: medium-dark skin tone</annotation>
+		<annotation cp="🧏🏿">accessibility | dark skin tone | deaf | deaf person | ear | hear</annotation>
+		<annotation cp="🧏🏿" type="tts">deaf person: dark skin tone</annotation>
+		<annotation cp="🧏🏻‍♀">deaf | light skin tone | woman</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">deaf woman: light skin tone</annotation>
+		<annotation cp="🧏🏼‍♀">deaf | medium-light skin tone | woman</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">deaf woman: medium-light skin tone</annotation>
+		<annotation cp="🧏🏽‍♀">deaf | medium skin tone | woman</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">deaf woman: medium skin tone</annotation>
+		<annotation cp="🧏🏾‍♀">deaf | medium-dark skin tone | woman</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">deaf woman: medium-dark skin tone</annotation>
+		<annotation cp="🧏🏿‍♀">dark skin tone | deaf | woman</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">deaf woman: dark skin tone</annotation>
+		<annotation cp="🧏🏻‍♂">deaf | light skin tone | man</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">deaf man: light skin tone</annotation>
+		<annotation cp="🧏🏼‍♂">deaf | man | medium-light skin tone</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">deaf man: medium-light skin tone</annotation>
+		<annotation cp="🧏🏽‍♂">deaf | man | medium skin tone</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">deaf man: medium skin tone</annotation>
+		<annotation cp="🧏🏾‍♂">deaf | man | medium-dark skin tone</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">deaf man: medium-dark skin tone</annotation>
+		<annotation cp="🧏🏿‍♂">dark skin tone | deaf | man</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">deaf man: dark skin tone</annotation>
 		<annotation cp="👋🏻">hand | light skin tone | wave | waving</annotation>
 		<annotation cp="👋🏻" type="tts">waving hand: light skin tone</annotation>
 		<annotation cp="👋🏼">hand | medium-light skin tone | wave | waving</annotation>
@@ -473,6 +582,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">man: medium-dark skin tone</annotation>
 		<annotation cp="👨🏿">adult | dark skin tone | man</annotation>
 		<annotation cp="👨🏿" type="tts">man: dark skin tone</annotation>
+		<annotation cp="👨🏻‍🦯">accessibility | blind | light skin tone | man | man with probing cane</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">man with probing cane: light skin tone</annotation>
+		<annotation cp="👨🏼‍🦯">accessibility | blind | man | man with probing cane | medium-light skin tone</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">man with probing cane: medium-light skin tone</annotation>
+		<annotation cp="👨🏽‍🦯">accessibility | blind | man | man with probing cane | medium skin tone</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">man with probing cane: medium skin tone</annotation>
+		<annotation cp="👨🏾‍🦯">accessibility | blind | man | man with probing cane | medium-dark skin tone</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">man with probing cane: medium-dark skin tone</annotation>
+		<annotation cp="👨🏿‍🦯">accessibility | blind | dark skin tone | man | man with probing cane</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">man with probing cane: dark skin tone</annotation>
+		<annotation cp="👨🏻‍🦼">accessibility | light skin tone | man | man in motorized wheelchair | wheelchair</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">man in motorized wheelchair: light skin tone</annotation>
+		<annotation cp="👨🏼‍🦼">accessibility | man | man in motorized wheelchair | medium-light skin tone | wheelchair</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">man in motorized wheelchair: medium-light skin tone</annotation>
+		<annotation cp="👨🏽‍🦼">accessibility | man | man in motorized wheelchair | medium skin tone | wheelchair</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">man in motorized wheelchair: medium skin tone</annotation>
+		<annotation cp="👨🏾‍🦼">accessibility | man | man in motorized wheelchair | medium-dark skin tone | wheelchair</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">man in motorized wheelchair: medium-dark skin tone</annotation>
+		<annotation cp="👨🏿‍🦼">accessibility | dark skin tone | man | man in motorized wheelchair | wheelchair</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">man in motorized wheelchair: dark skin tone</annotation>
+		<annotation cp="👨🏻‍🦽">accessibility | light skin tone | man | man in manual wheelchair | wheelchair</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">man in manual wheelchair: light skin tone</annotation>
+		<annotation cp="👨🏼‍🦽">accessibility | man | man in manual wheelchair | medium-light skin tone | wheelchair</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">man in manual wheelchair: medium-light skin tone</annotation>
+		<annotation cp="👨🏽‍🦽">accessibility | man | man in manual wheelchair | medium skin tone | wheelchair</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">man in manual wheelchair: medium skin tone</annotation>
+		<annotation cp="👨🏾‍🦽">accessibility | man | man in manual wheelchair | medium-dark skin tone | wheelchair</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">man in manual wheelchair: medium-dark skin tone</annotation>
+		<annotation cp="👨🏿‍🦽">accessibility | dark skin tone | man | man in manual wheelchair | wheelchair</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">man in manual wheelchair: dark skin tone</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">couple | Gemini | holding hands | light skin tone | man | medium-light skin tone | men | men holding hands | twins | zodiac</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">men holding hands: medium-light skin tone, light skin tone</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">couple | Gemini | holding hands | light skin tone | man | medium skin tone | men | men holding hands | twins | zodiac</annotation>
@@ -541,36 +680,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">man: medium-dark skin tone, bald</annotation>
 		<annotation cp="👨🏿‍🦲">adult | bald | dark skin tone | man</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">man: dark skin tone, bald</annotation>
-		<annotation cp="👨🏻‍🦯">accessibility | blind | light skin tone | man | man with probing cane</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">man with probing cane: light skin tone</annotation>
-		<annotation cp="👨🏼‍🦯">accessibility | blind | man | man with probing cane | medium-light skin tone</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">man with probing cane: medium-light skin tone</annotation>
-		<annotation cp="👨🏽‍🦯">accessibility | blind | man | man with probing cane | medium skin tone</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">man with probing cane: medium skin tone</annotation>
-		<annotation cp="👨🏾‍🦯">accessibility | blind | man | man with probing cane | medium-dark skin tone</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">man with probing cane: medium-dark skin tone</annotation>
-		<annotation cp="👨🏿‍🦯">accessibility | blind | dark skin tone | man | man with probing cane</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">man with probing cane: dark skin tone</annotation>
-		<annotation cp="👨🏻‍🦼">accessibility | light skin tone | man | man in motorized wheelchair | wheelchair</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">man in motorized wheelchair: light skin tone</annotation>
-		<annotation cp="👨🏼‍🦼">accessibility | man | man in motorized wheelchair | medium-light skin tone | wheelchair</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">man in motorized wheelchair: medium-light skin tone</annotation>
-		<annotation cp="👨🏽‍🦼">accessibility | man | man in motorized wheelchair | medium skin tone | wheelchair</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">man in motorized wheelchair: medium skin tone</annotation>
-		<annotation cp="👨🏾‍🦼">accessibility | man | man in motorized wheelchair | medium-dark skin tone | wheelchair</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">man in motorized wheelchair: medium-dark skin tone</annotation>
-		<annotation cp="👨🏿‍🦼">accessibility | dark skin tone | man | man in motorized wheelchair | wheelchair</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">man in motorized wheelchair: dark skin tone</annotation>
-		<annotation cp="👨🏻‍🦽">accessibility | light skin tone | man | man in manual wheelchair | wheelchair</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">man in manual wheelchair: light skin tone</annotation>
-		<annotation cp="👨🏼‍🦽">accessibility | man | man in manual wheelchair | medium-light skin tone | wheelchair</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">man in manual wheelchair: medium-light skin tone</annotation>
-		<annotation cp="👨🏽‍🦽">accessibility | man | man in manual wheelchair | medium skin tone | wheelchair</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">man in manual wheelchair: medium skin tone</annotation>
-		<annotation cp="👨🏾‍🦽">accessibility | man | man in manual wheelchair | medium-dark skin tone | wheelchair</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">man in manual wheelchair: medium-dark skin tone</annotation>
-		<annotation cp="👨🏿‍🦽">accessibility | dark skin tone | man | man in manual wheelchair | wheelchair</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">man in manual wheelchair: dark skin tone</annotation>
 		<annotation cp="👱🏻‍♂">blond | blond-haired man | hair | light skin tone | man | man: blond hair</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">man: light skin tone, blond hair</annotation>
 		<annotation cp="👱🏼‍♂">blond | blond-haired man | hair | man | man: blond hair | medium-light skin tone</annotation>
@@ -601,6 +710,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">woman: medium-dark skin tone</annotation>
 		<annotation cp="👩🏿">adult | dark skin tone | woman</annotation>
 		<annotation cp="👩🏿" type="tts">woman: dark skin tone</annotation>
+		<annotation cp="👩🏻‍🦯">accessibility | blind | light skin tone | woman | woman with probing cane</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">woman with probing cane: light skin tone</annotation>
+		<annotation cp="👩🏼‍🦯">accessibility | blind | medium-light skin tone | woman | woman with probing cane</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">woman with probing cane: medium-light skin tone</annotation>
+		<annotation cp="👩🏽‍🦯">accessibility | blind | medium skin tone | woman | woman with probing cane</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">woman with probing cane: medium skin tone</annotation>
+		<annotation cp="👩🏾‍🦯">accessibility | blind | medium-dark skin tone | woman | woman with probing cane</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">woman with probing cane: medium-dark skin tone</annotation>
+		<annotation cp="👩🏿‍🦯">accessibility | blind | dark skin tone | woman | woman with probing cane</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">woman with probing cane: dark skin tone</annotation>
+		<annotation cp="👩🏻‍🦼">accessibility | light skin tone | wheelchair | woman | woman in motorized wheelchair</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">woman in motorized wheelchair: light skin tone</annotation>
+		<annotation cp="👩🏼‍🦼">accessibility | medium-light skin tone | wheelchair | woman | woman in motorized wheelchair</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">woman in motorized wheelchair: medium-light skin tone</annotation>
+		<annotation cp="👩🏽‍🦼">accessibility | medium skin tone | wheelchair | woman | woman in motorized wheelchair</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">woman in motorized wheelchair: medium skin tone</annotation>
+		<annotation cp="👩🏾‍🦼">accessibility | medium-dark skin tone | wheelchair | woman | woman in motorized wheelchair</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">woman in motorized wheelchair: medium-dark skin tone</annotation>
+		<annotation cp="👩🏿‍🦼">accessibility | dark skin tone | wheelchair | woman | woman in motorized wheelchair</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">woman in motorized wheelchair: dark skin tone</annotation>
+		<annotation cp="👩🏻‍🦽">accessibility | light skin tone | wheelchair | woman | woman in manual wheelchair</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">woman in manual wheelchair: light skin tone</annotation>
+		<annotation cp="👩🏼‍🦽">accessibility | medium-light skin tone | wheelchair | woman | woman in manual wheelchair</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">woman in manual wheelchair: medium-light skin tone</annotation>
+		<annotation cp="👩🏽‍🦽">accessibility | medium skin tone | wheelchair | woman | woman in manual wheelchair</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">woman in manual wheelchair: medium skin tone</annotation>
+		<annotation cp="👩🏾‍🦽">accessibility | medium-dark skin tone | wheelchair | woman | woman in manual wheelchair</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">woman in manual wheelchair: medium-dark skin tone</annotation>
+		<annotation cp="👩🏿‍🦽">accessibility | dark skin tone | wheelchair | woman | woman in manual wheelchair</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">woman in manual wheelchair: dark skin tone</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼">couple | hand | hold | holding hands | light skin tone | man | medium-light skin tone | woman | woman and man holding hands</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">woman and man holding hands: light skin tone, medium-light skin tone</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏽">couple | hand | hold | holding hands | light skin tone | man | medium skin tone | woman | woman and man holding hands</annotation>
@@ -709,36 +848,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">woman: medium-dark skin tone, bald</annotation>
 		<annotation cp="👩🏿‍🦲">adult | bald | dark skin tone | woman</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">woman: dark skin tone, bald</annotation>
-		<annotation cp="👩🏻‍🦯">accessibility | blind | light skin tone | woman | woman with probing cane</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">woman with probing cane: light skin tone</annotation>
-		<annotation cp="👩🏼‍🦯">accessibility | blind | medium-light skin tone | woman | woman with probing cane</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">woman with probing cane: medium-light skin tone</annotation>
-		<annotation cp="👩🏽‍🦯">accessibility | blind | medium skin tone | woman | woman with probing cane</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">woman with probing cane: medium skin tone</annotation>
-		<annotation cp="👩🏾‍🦯">accessibility | blind | medium-dark skin tone | woman | woman with probing cane</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">woman with probing cane: medium-dark skin tone</annotation>
-		<annotation cp="👩🏿‍🦯">accessibility | blind | dark skin tone | woman | woman with probing cane</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">woman with probing cane: dark skin tone</annotation>
-		<annotation cp="👩🏻‍🦼">accessibility | light skin tone | wheelchair | woman | woman in motorized wheelchair</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">woman in motorized wheelchair: light skin tone</annotation>
-		<annotation cp="👩🏼‍🦼">accessibility | medium-light skin tone | wheelchair | woman | woman in motorized wheelchair</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">woman in motorized wheelchair: medium-light skin tone</annotation>
-		<annotation cp="👩🏽‍🦼">accessibility | medium skin tone | wheelchair | woman | woman in motorized wheelchair</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">woman in motorized wheelchair: medium skin tone</annotation>
-		<annotation cp="👩🏾‍🦼">accessibility | medium-dark skin tone | wheelchair | woman | woman in motorized wheelchair</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">woman in motorized wheelchair: medium-dark skin tone</annotation>
-		<annotation cp="👩🏿‍🦼">accessibility | dark skin tone | wheelchair | woman | woman in motorized wheelchair</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">woman in motorized wheelchair: dark skin tone</annotation>
-		<annotation cp="👩🏻‍🦽">accessibility | light skin tone | wheelchair | woman | woman in manual wheelchair</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">woman in manual wheelchair: light skin tone</annotation>
-		<annotation cp="👩🏼‍🦽">accessibility | medium-light skin tone | wheelchair | woman | woman in manual wheelchair</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">woman in manual wheelchair: medium-light skin tone</annotation>
-		<annotation cp="👩🏽‍🦽">accessibility | medium skin tone | wheelchair | woman | woman in manual wheelchair</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">woman in manual wheelchair: medium skin tone</annotation>
-		<annotation cp="👩🏾‍🦽">accessibility | medium-dark skin tone | wheelchair | woman | woman in manual wheelchair</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">woman in manual wheelchair: medium-dark skin tone</annotation>
-		<annotation cp="👩🏿‍🦽">accessibility | dark skin tone | wheelchair | woman | woman in manual wheelchair</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">woman in manual wheelchair: dark skin tone</annotation>
 		<annotation cp="👱🏻‍♀">blond hair | blond-haired woman | blonde | hair | light skin tone | woman | woman: blond hair</annotation>
 		<annotation cp="👱🏻‍♀" type="tts">woman: light skin tone, blond hair</annotation>
 		<annotation cp="👱🏼‍♀">blond hair | blond-haired woman | blonde | hair | medium-light skin tone | woman | woman: blond hair</annotation>
@@ -3119,115 +3228,5 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="8⃣" type="tts">keycap: 8</annotation>
 		<annotation cp="9⃣">keycap</annotation>
 		<annotation cp="9⃣" type="tts">keycap: 9</annotation>
-		<annotation cp="🤏🏻">light skin tone | pinching hand | small amount</annotation>
-		<annotation cp="🤏🏻" type="tts">pinching hand: light skin tone</annotation>
-		<annotation cp="🤏🏼">medium-light skin tone | pinching hand | small amount</annotation>
-		<annotation cp="🤏🏼" type="tts">pinching hand: medium-light skin tone</annotation>
-		<annotation cp="🤏🏽">medium skin tone | pinching hand | small amount</annotation>
-		<annotation cp="🤏🏽" type="tts">pinching hand: medium skin tone</annotation>
-		<annotation cp="🤏🏾">medium-dark skin tone | pinching hand | small amount</annotation>
-		<annotation cp="🤏🏾" type="tts">pinching hand: medium-dark skin tone</annotation>
-		<annotation cp="🤏🏿">dark skin tone | pinching hand | small amount</annotation>
-		<annotation cp="🤏🏿" type="tts">pinching hand: dark skin tone</annotation>
-		<annotation cp="🦻🏻">accessibility | ear with hearing aid | hard of hearing | light skin tone</annotation>
-		<annotation cp="🦻🏻" type="tts">ear with hearing aid: light skin tone</annotation>
-		<annotation cp="🦻🏼">accessibility | ear with hearing aid | hard of hearing | medium-light skin tone</annotation>
-		<annotation cp="🦻🏼" type="tts">ear with hearing aid: medium-light skin tone</annotation>
-		<annotation cp="🦻🏽">accessibility | ear with hearing aid | hard of hearing | medium skin tone</annotation>
-		<annotation cp="🦻🏽" type="tts">ear with hearing aid: medium skin tone</annotation>
-		<annotation cp="🦻🏾">accessibility | ear with hearing aid | hard of hearing | medium-dark skin tone</annotation>
-		<annotation cp="🦻🏾" type="tts">ear with hearing aid: medium-dark skin tone</annotation>
-		<annotation cp="🦻🏿">accessibility | dark skin tone | ear with hearing aid | hard of hearing</annotation>
-		<annotation cp="🦻🏿" type="tts">ear with hearing aid: dark skin tone</annotation>
-		<annotation cp="🧍🏻">light skin tone | person standing | stand | standing</annotation>
-		<annotation cp="🧍🏻" type="tts">person standing: light skin tone</annotation>
-		<annotation cp="🧍🏼">medium-light skin tone | person standing | stand | standing</annotation>
-		<annotation cp="🧍🏼" type="tts">person standing: medium-light skin tone</annotation>
-		<annotation cp="🧍🏽">medium skin tone | person standing | stand | standing</annotation>
-		<annotation cp="🧍🏽" type="tts">person standing: medium skin tone</annotation>
-		<annotation cp="🧍🏾">medium-dark skin tone | person standing | stand | standing</annotation>
-		<annotation cp="🧍🏾" type="tts">person standing: medium-dark skin tone</annotation>
-		<annotation cp="🧍🏿">dark skin tone | person standing | stand | standing</annotation>
-		<annotation cp="🧍🏿" type="tts">person standing: dark skin tone</annotation>
-		<annotation cp="🧍🏻‍♀">light skin tone | standing | woman</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">woman standing: light skin tone</annotation>
-		<annotation cp="🧍🏼‍♀">medium-light skin tone | standing | woman</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">woman standing: medium-light skin tone</annotation>
-		<annotation cp="🧍🏽‍♀">medium skin tone | standing | woman</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">woman standing: medium skin tone</annotation>
-		<annotation cp="🧍🏾‍♀">medium-dark skin tone | standing | woman</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">woman standing: medium-dark skin tone</annotation>
-		<annotation cp="🧍🏿‍♀">dark skin tone | standing | woman</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">woman standing: dark skin tone</annotation>
-		<annotation cp="🧍🏻‍♂">light skin tone | man | standing</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">man standing: light skin tone</annotation>
-		<annotation cp="🧍🏼‍♂">man | medium-light skin tone | standing</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">man standing: medium-light skin tone</annotation>
-		<annotation cp="🧍🏽‍♂">man | medium skin tone | standing</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">man standing: medium skin tone</annotation>
-		<annotation cp="🧍🏾‍♂">man | medium-dark skin tone | standing</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">man standing: medium-dark skin tone</annotation>
-		<annotation cp="🧍🏿‍♂">dark skin tone | man | standing</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">man standing: dark skin tone</annotation>
-		<annotation cp="🧎🏻">kneel | kneeling | light skin tone | person kneeling</annotation>
-		<annotation cp="🧎🏻" type="tts">person kneeling: light skin tone</annotation>
-		<annotation cp="🧎🏼">kneel | kneeling | medium-light skin tone | person kneeling</annotation>
-		<annotation cp="🧎🏼" type="tts">person kneeling: medium-light skin tone</annotation>
-		<annotation cp="🧎🏽">kneel | kneeling | medium skin tone | person kneeling</annotation>
-		<annotation cp="🧎🏽" type="tts">person kneeling: medium skin tone</annotation>
-		<annotation cp="🧎🏾">kneel | kneeling | medium-dark skin tone | person kneeling</annotation>
-		<annotation cp="🧎🏾" type="tts">person kneeling: medium-dark skin tone</annotation>
-		<annotation cp="🧎🏿">dark skin tone | kneel | kneeling | person kneeling</annotation>
-		<annotation cp="🧎🏿" type="tts">person kneeling: dark skin tone</annotation>
-		<annotation cp="🧎🏻‍♀">kneeling | light skin tone | woman</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">woman kneeling: light skin tone</annotation>
-		<annotation cp="🧎🏼‍♀">kneeling | medium-light skin tone | woman</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">woman kneeling: medium-light skin tone</annotation>
-		<annotation cp="🧎🏽‍♀">kneeling | medium skin tone | woman</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">woman kneeling: medium skin tone</annotation>
-		<annotation cp="🧎🏾‍♀">kneeling | medium-dark skin tone | woman</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">woman kneeling: medium-dark skin tone</annotation>
-		<annotation cp="🧎🏿‍♀">dark skin tone | kneeling | woman</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">woman kneeling: dark skin tone</annotation>
-		<annotation cp="🧎🏻‍♂">kneeling | light skin tone | man</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">man kneeling: light skin tone</annotation>
-		<annotation cp="🧎🏼‍♂">kneeling | man | medium-light skin tone</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">man kneeling: medium-light skin tone</annotation>
-		<annotation cp="🧎🏽‍♂">kneeling | man | medium skin tone</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">man kneeling: medium skin tone</annotation>
-		<annotation cp="🧎🏾‍♂">kneeling | man | medium-dark skin tone</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">man kneeling: medium-dark skin tone</annotation>
-		<annotation cp="🧎🏿‍♂">dark skin tone | kneeling | man</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">man kneeling: dark skin tone</annotation>
-		<annotation cp="🧏🏻">accessibility | deaf | deaf person | ear | hear | light skin tone</annotation>
-		<annotation cp="🧏🏻" type="tts">deaf person: light skin tone</annotation>
-		<annotation cp="🧏🏼">accessibility | deaf | deaf person | ear | hear | medium-light skin tone</annotation>
-		<annotation cp="🧏🏼" type="tts">deaf person: medium-light skin tone</annotation>
-		<annotation cp="🧏🏽">accessibility | deaf | deaf person | ear | hear | medium skin tone</annotation>
-		<annotation cp="🧏🏽" type="tts">deaf person: medium skin tone</annotation>
-		<annotation cp="🧏🏾">accessibility | deaf | deaf person | ear | hear | medium-dark skin tone</annotation>
-		<annotation cp="🧏🏾" type="tts">deaf person: medium-dark skin tone</annotation>
-		<annotation cp="🧏🏿">accessibility | dark skin tone | deaf | deaf person | ear | hear</annotation>
-		<annotation cp="🧏🏿" type="tts">deaf person: dark skin tone</annotation>
-		<annotation cp="🧏🏻‍♀">deaf | light skin tone | woman</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">deaf woman: light skin tone</annotation>
-		<annotation cp="🧏🏼‍♀">deaf | medium-light skin tone | woman</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">deaf woman: medium-light skin tone</annotation>
-		<annotation cp="🧏🏽‍♀">deaf | medium skin tone | woman</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">deaf woman: medium skin tone</annotation>
-		<annotation cp="🧏🏾‍♀">deaf | medium-dark skin tone | woman</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">deaf woman: medium-dark skin tone</annotation>
-		<annotation cp="🧏🏿‍♀">dark skin tone | deaf | woman</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">deaf woman: dark skin tone</annotation>
-		<annotation cp="🧏🏻‍♂">deaf | light skin tone | man</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">deaf man: light skin tone</annotation>
-		<annotation cp="🧏🏼‍♂">deaf | man | medium-light skin tone</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">deaf man: medium-light skin tone</annotation>
-		<annotation cp="🧏🏽‍♂">deaf | man | medium skin tone</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">deaf man: medium skin tone</annotation>
-		<annotation cp="🧏🏾‍♂">deaf | man | medium-dark skin tone</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">deaf man: medium-dark skin tone</annotation>
-		<annotation cp="🧏🏿‍♂">dark skin tone | deaf | man</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">deaf man: dark skin tone</annotation>
 	</annotations>
 </ldml>

@@ -2,12 +2,13 @@ package org.unicode.cldr.tool;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
 import org.unicode.cldr.util.CLDRConfig;
@@ -64,6 +65,9 @@ public class GenerateDerivedAnnotations {
                 continue;
             }
             CLDRFile target = new CLDRFile(new SimpleXMLSource(locale));
+            DisplayAndInputProcessor DAIP = new DisplayAndInputProcessor(target);
+            Exception[] internalException = new Exception[1];
+
             target.addComment("//ldml", "Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.",
                 CommentType.PREBLOCK);
             for (String derivable : derivables) {
@@ -78,18 +82,22 @@ public class GenerateDerivedAnnotations {
                 Set<String> keywords = annotations.getKeywordsMinus(derivable);
                 String path = "//ldml/annotations/annotation[@cp=\"" + derivable + "\"]";
                 if (!keywords.isEmpty()) {
-                    Set<String> keywordsFixed = new LinkedHashSet<>();
+                    Set<String> keywordsFixed = new HashSet<>();
                     for (String keyword : keywords) {
                         if (!SKIP.containsSome(keyword)) {
                             keywordsFixed.add(keyword);
                         }
                     }
                     if (!keywordsFixed.isEmpty()) {
-                        target.add(path, BAR.join(keywordsFixed));
+                        String value = BAR.join(keywordsFixed);
+                        String newValue = DAIP.processInput(path, value, internalException);
+                        target.add(path, newValue);
                     }
                 }
                 failures.remove(derivable);
-                target.add(path + "[@type=\"tts\"]", shortName);
+                String ttsPath = path + "[@type=\"tts\"]";
+                String shortName2 = DAIP.processInput(path, shortName, internalException);
+                target.add(ttsPath, shortName2);
             }
             failures.freeze();
             if (!failures.isEmpty()) {

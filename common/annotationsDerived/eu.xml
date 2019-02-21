@@ -4,15 +4,124 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="eu"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤏🏻">1–2. mota | atximurka egiten ari den eskua | pixkat bat</annotation>
+		<annotation cp="🤏🏻" type="tts">atximurka egiten ari den eskua: 1–2. mota</annotation>
+		<annotation cp="🤏🏼">3. mota | atximurka egiten ari den eskua | pixkat bat</annotation>
+		<annotation cp="🤏🏼" type="tts">atximurka egiten ari den eskua: 3. mota</annotation>
+		<annotation cp="🤏🏽">atximurka egiten ari den eskua | bitarteko azal-tonua | pixkat bat</annotation>
+		<annotation cp="🤏🏽" type="tts">atximurka egiten ari den eskua: bitarteko azal-tonua</annotation>
+		<annotation cp="🤏🏾">5. mota | atximurka egiten ari den eskua | pixkat bat</annotation>
+		<annotation cp="🤏🏾" type="tts">atximurka egiten ari den eskua: 5. mota</annotation>
+		<annotation cp="🤏🏿">6. mota | atximurka egiten ari den eskua | pixkat bat</annotation>
+		<annotation cp="🤏🏿" type="tts">atximurka egiten ari den eskua: 6. mota</annotation>
+		<annotation cp="🦻🏻">1–2. mota | audifonoa duen belarria | gortasun | irisgarritasun</annotation>
+		<annotation cp="🦻🏻" type="tts">audifonoa duen belarria: 1–2. mota</annotation>
+		<annotation cp="🦻🏼">3. mota | audifonoa duen belarria | gortasun | irisgarritasun</annotation>
+		<annotation cp="🦻🏼" type="tts">audifonoa duen belarria: 3. mota</annotation>
+		<annotation cp="🦻🏽">audifonoa duen belarria | bitarteko azal-tonua | gortasun | irisgarritasun</annotation>
+		<annotation cp="🦻🏽" type="tts">audifonoa duen belarria: bitarteko azal-tonua</annotation>
+		<annotation cp="🦻🏾">5. mota | audifonoa duen belarria | gortasun | irisgarritasun</annotation>
+		<annotation cp="🦻🏾" type="tts">audifonoa duen belarria: 5. mota</annotation>
+		<annotation cp="🦻🏿">6. mota | audifonoa duen belarria | gortasun | irisgarritasun</annotation>
+		<annotation cp="🦻🏿" type="tts">audifonoa duen belarria: 6. mota</annotation>
+		<annotation cp="🧍🏻">1–2. mota | zutik | zutik dagoen pertsona | zutitu</annotation>
+		<annotation cp="🧍🏻" type="tts">zutik dagoen pertsona: 1–2. mota</annotation>
+		<annotation cp="🧍🏼">3. mota | zutik | zutik dagoen pertsona | zutitu</annotation>
+		<annotation cp="🧍🏼" type="tts">zutik dagoen pertsona: 3. mota</annotation>
+		<annotation cp="🧍🏽">bitarteko azal-tonua | zutik | zutik dagoen pertsona | zutitu</annotation>
+		<annotation cp="🧍🏽" type="tts">zutik dagoen pertsona: bitarteko azal-tonua</annotation>
+		<annotation cp="🧍🏾">5. mota | zutik | zutik dagoen pertsona | zutitu</annotation>
+		<annotation cp="🧍🏾" type="tts">zutik dagoen pertsona: 5. mota</annotation>
+		<annotation cp="🧍🏿">6. mota | zutik | zutik dagoen pertsona | zutitu</annotation>
+		<annotation cp="🧍🏿" type="tts">zutik dagoen pertsona: 6. mota</annotation>
+		<annotation cp="🧍🏻‍♀">1–2. mota | emakume | emakumezko | zutik | zutik dagoen emakumea</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">zutik dagoen emakumea: 1–2. mota</annotation>
+		<annotation cp="🧍🏼‍♀">3. mota | emakume | emakumezko | zutik | zutik dagoen emakumea</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">zutik dagoen emakumea: 3. mota</annotation>
+		<annotation cp="🧍🏽‍♀">bitarteko azal-tonua | emakume | emakumezko | zutik | zutik dagoen emakumea</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">zutik dagoen emakumea: bitarteko azal-tonua</annotation>
+		<annotation cp="🧍🏾‍♀">5. mota | emakume | emakumezko | zutik | zutik dagoen emakumea</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">zutik dagoen emakumea: 5. mota</annotation>
+		<annotation cp="🧍🏿‍♀">6. mota | emakume | emakumezko | zutik | zutik dagoen emakumea</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">zutik dagoen emakumea: 6. mota</annotation>
+		<annotation cp="🧍🏻‍♂">1–2. mota | gizon | gizonezko | zutik | zutik dagoen gizona</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">zutik dagoen gizona: 1–2. mota</annotation>
+		<annotation cp="🧍🏼‍♂">3. mota | gizon | gizonezko | zutik | zutik dagoen gizona</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">zutik dagoen gizona: 3. mota</annotation>
+		<annotation cp="🧍🏽‍♂">bitarteko azal-tonua | gizon | gizonezko | zutik | zutik dagoen gizona</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">zutik dagoen gizona: bitarteko azal-tonua</annotation>
+		<annotation cp="🧍🏾‍♂">5. mota | gizon | gizonezko | zutik | zutik dagoen gizona</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">zutik dagoen gizona: 5. mota</annotation>
+		<annotation cp="🧍🏿‍♂">6. mota | gizon | gizonezko | zutik | zutik dagoen gizona</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">zutik dagoen gizona: 6. mota</annotation>
+		<annotation cp="🧎🏻">1–2. mota | belaunikatu | belauniko | belauniko dagoen pertsona</annotation>
+		<annotation cp="🧎🏻" type="tts">belauniko dagoen pertsona: 1–2. mota</annotation>
+		<annotation cp="🧎🏼">3. mota | belaunikatu | belauniko | belauniko dagoen pertsona</annotation>
+		<annotation cp="🧎🏼" type="tts">belauniko dagoen pertsona: 3. mota</annotation>
+		<annotation cp="🧎🏽">belaunikatu | belauniko | belauniko dagoen pertsona | bitarteko azal-tonua</annotation>
+		<annotation cp="🧎🏽" type="tts">belauniko dagoen pertsona: bitarteko azal-tonua</annotation>
+		<annotation cp="🧎🏾">5. mota | belaunikatu | belauniko | belauniko dagoen pertsona</annotation>
+		<annotation cp="🧎🏾" type="tts">belauniko dagoen pertsona: 5. mota</annotation>
+		<annotation cp="🧎🏿">6. mota | belaunikatu | belauniko | belauniko dagoen pertsona</annotation>
+		<annotation cp="🧎🏿" type="tts">belauniko dagoen pertsona: 6. mota</annotation>
+		<annotation cp="🧎🏻‍♀">1–2. mota | belauniko | belauniko dagoen emakumea | emakume | emakumezko</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">belauniko dagoen emakumea: 1–2. mota</annotation>
+		<annotation cp="🧎🏼‍♀">3. mota | belauniko | belauniko dagoen emakumea | emakume | emakumezko</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">belauniko dagoen emakumea: 3. mota</annotation>
+		<annotation cp="🧎🏽‍♀">belauniko | belauniko dagoen emakumea | bitarteko azal-tonua | emakume | emakumezko</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">belauniko dagoen emakumea: bitarteko azal-tonua</annotation>
+		<annotation cp="🧎🏾‍♀">5. mota | belauniko | belauniko dagoen emakumea | emakume | emakumezko</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">belauniko dagoen emakumea: 5. mota</annotation>
+		<annotation cp="🧎🏿‍♀">6. mota | belauniko | belauniko dagoen emakumea | emakume | emakumezko</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">belauniko dagoen emakumea: 6. mota</annotation>
+		<annotation cp="🧎🏻‍♂">1–2. mota | belauniko | belauniko dagoen gizona | gizon | gizonezko</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">belauniko dagoen gizona: 1–2. mota</annotation>
+		<annotation cp="🧎🏼‍♂">3. mota | belauniko | belauniko dagoen gizona | gizon | gizonezko</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">belauniko dagoen gizona: 3. mota</annotation>
+		<annotation cp="🧎🏽‍♂">belauniko | belauniko dagoen gizona | bitarteko azal-tonua | gizon | gizonezko</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">belauniko dagoen gizona: bitarteko azal-tonua</annotation>
+		<annotation cp="🧎🏾‍♂">5. mota | belauniko | belauniko dagoen gizona | gizon | gizonezko</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">belauniko dagoen gizona: 5. mota</annotation>
+		<annotation cp="🧎🏿‍♂">6. mota | belauniko | belauniko dagoen gizona | gizon | gizonezko</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">belauniko dagoen gizona: 6. mota</annotation>
+		<annotation cp="🧏🏻">1–2. mota | belarri | enzun | gor | gorra | irisgarritasun</annotation>
+		<annotation cp="🧏🏻" type="tts">gorra: 1–2. mota</annotation>
+		<annotation cp="🧏🏼">3. mota | belarri | enzun | gor | gorra | irisgarritasun</annotation>
+		<annotation cp="🧏🏼" type="tts">gorra: 3. mota</annotation>
+		<annotation cp="🧏🏽">belarri | bitarteko azal-tonua | enzun | gor | gorra | irisgarritasun</annotation>
+		<annotation cp="🧏🏽" type="tts">gorra: bitarteko azal-tonua</annotation>
+		<annotation cp="🧏🏾">5. mota | belarri | enzun | gor | gorra | irisgarritasun</annotation>
+		<annotation cp="🧏🏾" type="tts">gorra: 5. mota</annotation>
+		<annotation cp="🧏🏿">6. mota | belarri | enzun | gor | gorra | irisgarritasun</annotation>
+		<annotation cp="🧏🏿" type="tts">gorra: 6. mota</annotation>
+		<annotation cp="🧏🏻‍♀">1–2. mota | emakume | emakume gorra | emakumezko | gor</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">emakume gorra: 1–2. mota</annotation>
+		<annotation cp="🧏🏼‍♀">3. mota | emakume | emakume gorra | emakumezko | gor</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">emakume gorra: 3. mota</annotation>
+		<annotation cp="🧏🏽‍♀">bitarteko azal-tonua | emakume | emakume gorra | emakumezko | gor</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">emakume gorra: bitarteko azal-tonua</annotation>
+		<annotation cp="🧏🏾‍♀">5. mota | emakume | emakume gorra | emakumezko | gor</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">emakume gorra: 5. mota</annotation>
+		<annotation cp="🧏🏿‍♀">6. mota | emakume | emakume gorra | emakumezko | gor</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">emakume gorra: 6. mota</annotation>
+		<annotation cp="🧏🏻‍♂">1–2. mota | gizon | gizon gorra | gizonezko | gor</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">gizon gorra: 1–2. mota</annotation>
+		<annotation cp="🧏🏼‍♂">3. mota | gizon | gizon gorra | gizonezko | gor</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">gizon gorra: 3. mota</annotation>
+		<annotation cp="🧏🏽‍♂">bitarteko azal-tonua | gizon | gizon gorra | gizonezko | gor</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">gizon gorra: bitarteko azal-tonua</annotation>
+		<annotation cp="🧏🏾‍♂">5. mota | gizon | gizon gorra | gizonezko | gor</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">gizon gorra: 5. mota</annotation>
+		<annotation cp="🧏🏿‍♂">6. mota | gizon | gizon gorra | gizonezko | gor</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">gizon gorra: 6. mota</annotation>
 		<annotation cp="👋🏻">1–2. mota | esku | gorputz | mugitu | mugitzen ari den eskua</annotation>
 		<annotation cp="👋🏻" type="tts">mugitzen ari den eskua: 1–2. mota</annotation>
 		<annotation cp="👋🏼">3. mota | esku | gorputz | mugitu | mugitzen ari den eskua</annotation>
@@ -473,6 +582,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">gizona: 5. mota</annotation>
 		<annotation cp="👨🏿">6. mota | gizon | gizona | gizonezko</annotation>
 		<annotation cp="👨🏿" type="tts">gizona: 6. mota</annotation>
+		<annotation cp="👨🏻‍🦯">1–2. mota | gizon | gizonezko | irisgarritasun | itsu | itsu-makila daraman gizona</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">itsu-makila daraman gizona: 1–2. mota</annotation>
+		<annotation cp="👨🏼‍🦯">3. mota | gizon | gizonezko | irisgarritasun | itsu | itsu-makila daraman gizona</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">itsu-makila daraman gizona: 3. mota</annotation>
+		<annotation cp="👨🏽‍🦯">bitarteko azal-tonua | gizon | gizonezko | irisgarritasun | itsu | itsu-makila daraman gizona</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">itsu-makila daraman gizona: bitarteko azal-tonua</annotation>
+		<annotation cp="👨🏾‍🦯">5. mota | gizon | gizonezko | irisgarritasun | itsu | itsu-makila daraman gizona</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">itsu-makila daraman gizona: 5. mota</annotation>
+		<annotation cp="👨🏿‍🦯">6. mota | gizon | gizonezko | irisgarritasun | itsu | itsu-makila daraman gizona</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">itsu-makila daraman gizona: 6. mota</annotation>
+		<annotation cp="👨🏻‍🦼">1–2. mota | gizon | gizonezko | gurpil-aulki | gurpil-aulki motordunean doan gizona | irisgarritasun</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">gurpil-aulki motordunean doan gizona: 1–2. mota</annotation>
+		<annotation cp="👨🏼‍🦼">3. mota | gizon | gizonezko | gurpil-aulki | gurpil-aulki motordunean doan gizona | irisgarritasun</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">gurpil-aulki motordunean doan gizona: 3. mota</annotation>
+		<annotation cp="👨🏽‍🦼">bitarteko azal-tonua | gizon | gizonezko | gurpil-aulki | gurpil-aulki motordunean doan gizona | irisgarritasun</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">gurpil-aulki motordunean doan gizona: bitarteko azal-tonua</annotation>
+		<annotation cp="👨🏾‍🦼">5. mota | gizon | gizonezko | gurpil-aulki | gurpil-aulki motordunean doan gizona | irisgarritasun</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">gurpil-aulki motordunean doan gizona: 5. mota</annotation>
+		<annotation cp="👨🏿‍🦼">6. mota | gizon | gizonezko | gurpil-aulki | gurpil-aulki motordunean doan gizona | irisgarritasun</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">gurpil-aulki motordunean doan gizona: 6. mota</annotation>
+		<annotation cp="👨🏻‍🦽">1–2. mota | eskuzko gurpil-aulkian doan gizona | gizon | gizonezko | gurpil-aulki | irisgarritasun</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">eskuzko gurpil-aulkian doan gizona: 1–2. mota</annotation>
+		<annotation cp="👨🏼‍🦽">3. mota | eskuzko gurpil-aulkian doan gizona | gizon | gizonezko | gurpil-aulki | irisgarritasun</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">eskuzko gurpil-aulkian doan gizona: 3. mota</annotation>
+		<annotation cp="👨🏽‍🦽">bitarteko azal-tonua | eskuzko gurpil-aulkian doan gizona | gizon | gizonezko | gurpil-aulki | irisgarritasun</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">eskuzko gurpil-aulkian doan gizona: bitarteko azal-tonua</annotation>
+		<annotation cp="👨🏾‍🦽">5. mota | eskuzko gurpil-aulkian doan gizona | gizon | gizonezko | gurpil-aulki | irisgarritasun</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">eskuzko gurpil-aulkian doan gizona: 5. mota</annotation>
+		<annotation cp="👨🏿‍🦽">6. mota | eskuzko gurpil-aulkian doan gizona | gizon | gizonezko | gurpil-aulki | irisgarritasun</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">eskuzko gurpil-aulkian doan gizona: 6. mota</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">1–2. mota | 3. mota | bi gizon elkarri eskua ematen | biki | bikote | elkarri eskua ematen | gemini | gizon | zodiako</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">bi gizon elkarri eskua ematen: 3. mota eta 1–2. mota</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">1–2. mota | bi gizon elkarri eskua ematen | biki | bikote | bitarteko azal-tonua | elkarri eskua ematen | gemini | gizon | zodiako</annotation>
@@ -541,36 +680,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">gizona: 5. mota eta burusoil</annotation>
 		<annotation cp="👨🏿‍🦲">6. mota | burusoil | gizon | gizona | gizonezko</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">gizona: 6. mota eta burusoil</annotation>
-		<annotation cp="👨🏻‍🦯">1–2. mota | gizon | gizonezko | irisgarritasun | itsu | itsu-makila daraman gizona</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">itsu-makila daraman gizona: 1–2. mota</annotation>
-		<annotation cp="👨🏼‍🦯">3. mota | gizon | gizonezko | irisgarritasun | itsu | itsu-makila daraman gizona</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">itsu-makila daraman gizona: 3. mota</annotation>
-		<annotation cp="👨🏽‍🦯">bitarteko azal-tonua | gizon | gizonezko | irisgarritasun | itsu | itsu-makila daraman gizona</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">itsu-makila daraman gizona: bitarteko azal-tonua</annotation>
-		<annotation cp="👨🏾‍🦯">5. mota | gizon | gizonezko | irisgarritasun | itsu | itsu-makila daraman gizona</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">itsu-makila daraman gizona: 5. mota</annotation>
-		<annotation cp="👨🏿‍🦯">6. mota | gizon | gizonezko | irisgarritasun | itsu | itsu-makila daraman gizona</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">itsu-makila daraman gizona: 6. mota</annotation>
-		<annotation cp="👨🏻‍🦼">1–2. mota | gizon | gizonezko | gurpil-aulki | gurpil-aulki motordunean doan gizona | irisgarritasun</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">gurpil-aulki motordunean doan gizona: 1–2. mota</annotation>
-		<annotation cp="👨🏼‍🦼">3. mota | gizon | gizonezko | gurpil-aulki | gurpil-aulki motordunean doan gizona | irisgarritasun</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">gurpil-aulki motordunean doan gizona: 3. mota</annotation>
-		<annotation cp="👨🏽‍🦼">bitarteko azal-tonua | gizon | gizonezko | gurpil-aulki | gurpil-aulki motordunean doan gizona | irisgarritasun</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">gurpil-aulki motordunean doan gizona: bitarteko azal-tonua</annotation>
-		<annotation cp="👨🏾‍🦼">5. mota | gizon | gizonezko | gurpil-aulki | gurpil-aulki motordunean doan gizona | irisgarritasun</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">gurpil-aulki motordunean doan gizona: 5. mota</annotation>
-		<annotation cp="👨🏿‍🦼">6. mota | gizon | gizonezko | gurpil-aulki | gurpil-aulki motordunean doan gizona | irisgarritasun</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">gurpil-aulki motordunean doan gizona: 6. mota</annotation>
-		<annotation cp="👨🏻‍🦽">1–2. mota | eskuzko gurpil-aulkian doan gizona | gizon | gizonezko | gurpil-aulki | irisgarritasun</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">eskuzko gurpil-aulkian doan gizona: 1–2. mota</annotation>
-		<annotation cp="👨🏼‍🦽">3. mota | eskuzko gurpil-aulkian doan gizona | gizon | gizonezko | gurpil-aulki | irisgarritasun</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">eskuzko gurpil-aulkian doan gizona: 3. mota</annotation>
-		<annotation cp="👨🏽‍🦽">bitarteko azal-tonua | eskuzko gurpil-aulkian doan gizona | gizon | gizonezko | gurpil-aulki | irisgarritasun</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">eskuzko gurpil-aulkian doan gizona: bitarteko azal-tonua</annotation>
-		<annotation cp="👨🏾‍🦽">5. mota | eskuzko gurpil-aulkian doan gizona | gizon | gizonezko | gurpil-aulki | irisgarritasun</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">eskuzko gurpil-aulkian doan gizona: 5. mota</annotation>
-		<annotation cp="👨🏿‍🦽">6. mota | eskuzko gurpil-aulkian doan gizona | gizon | gizonezko | gurpil-aulki | irisgarritasun</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">eskuzko gurpil-aulkian doan gizona: 6. mota</annotation>
 		<annotation cp="👱🏻‍♂">1–2. mota | gizon | gizon ilehoria | gizonezko | ilehori</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">gizon ilehoria: 1–2. mota</annotation>
 		<annotation cp="👱🏼‍♂">3. mota | gizon | gizon ilehoria | gizonezko | ilehori</annotation>
@@ -601,6 +710,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">emakumea: 5. mota</annotation>
 		<annotation cp="👩🏿">6. mota | emakume | emakumea | emakumezko</annotation>
 		<annotation cp="👩🏿" type="tts">emakumea: 6. mota</annotation>
+		<annotation cp="👩🏻‍🦯">1–2. mota | emakume | emakumezko | irisgarritasun | itsu | itsu-makila daraman emakumea</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">itsu-makila daraman emakumea: 1–2. mota</annotation>
+		<annotation cp="👩🏼‍🦯">3. mota | emakume | emakumezko | irisgarritasun | itsu | itsu-makila daraman emakumea</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">itsu-makila daraman emakumea: 3. mota</annotation>
+		<annotation cp="👩🏽‍🦯">bitarteko azal-tonua | emakume | emakumezko | irisgarritasun | itsu | itsu-makila daraman emakumea</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">itsu-makila daraman emakumea: bitarteko azal-tonua</annotation>
+		<annotation cp="👩🏾‍🦯">5. mota | emakume | emakumezko | irisgarritasun | itsu | itsu-makila daraman emakumea</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">itsu-makila daraman emakumea: 5. mota</annotation>
+		<annotation cp="👩🏿‍🦯">6. mota | emakume | emakumezko | irisgarritasun | itsu | itsu-makila daraman emakumea</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">itsu-makila daraman emakumea: 6. mota</annotation>
+		<annotation cp="👩🏻‍🦼">1–2. mota | emakume | emakumezko | gurpil-aulki | gurpil-aulki motordunean doan emakumea | irisgarritasun</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">gurpil-aulki motordunean doan emakumea: 1–2. mota</annotation>
+		<annotation cp="👩🏼‍🦼">3. mota | emakume | emakumezko | gurpil-aulki | gurpil-aulki motordunean doan emakumea | irisgarritasun</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">gurpil-aulki motordunean doan emakumea: 3. mota</annotation>
+		<annotation cp="👩🏽‍🦼">bitarteko azal-tonua | emakume | emakumezko | gurpil-aulki | gurpil-aulki motordunean doan emakumea | irisgarritasun</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">gurpil-aulki motordunean doan emakumea: bitarteko azal-tonua</annotation>
+		<annotation cp="👩🏾‍🦼">5. mota | emakume | emakumezko | gurpil-aulki | gurpil-aulki motordunean doan emakumea | irisgarritasun</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">gurpil-aulki motordunean doan emakumea: 5. mota</annotation>
+		<annotation cp="👩🏿‍🦼">6. mota | emakume | emakumezko | gurpil-aulki | gurpil-aulki motordunean doan emakumea | irisgarritasun</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">gurpil-aulki motordunean doan emakumea: 6. mota</annotation>
+		<annotation cp="👩🏻‍🦽">1–2. mota | emakume | emakumezko | eskuzko gurpil-aulkian doan emakumea | gurpil-aulki | irisgarritasun</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">eskuzko gurpil-aulkian doan emakumea: 1–2. mota</annotation>
+		<annotation cp="👩🏼‍🦽">3. mota | emakume | emakumezko | eskuzko gurpil-aulkian doan emakumea | gurpil-aulki | irisgarritasun</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">eskuzko gurpil-aulkian doan emakumea: 3. mota</annotation>
+		<annotation cp="👩🏽‍🦽">bitarteko azal-tonua | emakume | emakumezko | eskuzko gurpil-aulkian doan emakumea | gurpil-aulki | irisgarritasun</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">eskuzko gurpil-aulkian doan emakumea: bitarteko azal-tonua</annotation>
+		<annotation cp="👩🏾‍🦽">5. mota | emakume | emakumezko | eskuzko gurpil-aulkian doan emakumea | gurpil-aulki | irisgarritasun</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">eskuzko gurpil-aulkian doan emakumea: 5. mota</annotation>
+		<annotation cp="👩🏿‍🦽">6. mota | emakume | emakumezko | eskuzko gurpil-aulkian doan emakumea | gurpil-aulki | irisgarritasun</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">eskuzko gurpil-aulkian doan emakumea: 6. mota</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼">1–2. mota | 3. mota | bikote | elkarri eskua ematen | emakume | eman | esku | gizon | gizon-emakumeak elkarri eskua ematen</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">gizon-emakumeak elkarri eskua ematen: 1–2. mota eta 3. mota</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏽">1–2. mota | bikote | bitarteko azal-tonua | elkarri eskua ematen | emakume | eman | esku | gizon | gizon-emakumeak elkarri eskua ematen</annotation>
@@ -709,36 +848,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">emakumea: 5. mota eta burusoil</annotation>
 		<annotation cp="👩🏿‍🦲">6. mota | burusoil | emakume | emakumea | emakumezko</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">emakumea: 6. mota eta burusoil</annotation>
-		<annotation cp="👩🏻‍🦯">1–2. mota | emakume | emakumezko | irisgarritasun | itsu | itsu-makila daraman emakumea</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">itsu-makila daraman emakumea: 1–2. mota</annotation>
-		<annotation cp="👩🏼‍🦯">3. mota | emakume | emakumezko | irisgarritasun | itsu | itsu-makila daraman emakumea</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">itsu-makila daraman emakumea: 3. mota</annotation>
-		<annotation cp="👩🏽‍🦯">bitarteko azal-tonua | emakume | emakumezko | irisgarritasun | itsu | itsu-makila daraman emakumea</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">itsu-makila daraman emakumea: bitarteko azal-tonua</annotation>
-		<annotation cp="👩🏾‍🦯">5. mota | emakume | emakumezko | irisgarritasun | itsu | itsu-makila daraman emakumea</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">itsu-makila daraman emakumea: 5. mota</annotation>
-		<annotation cp="👩🏿‍🦯">6. mota | emakume | emakumezko | irisgarritasun | itsu | itsu-makila daraman emakumea</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">itsu-makila daraman emakumea: 6. mota</annotation>
-		<annotation cp="👩🏻‍🦼">1–2. mota | emakume | emakumezko | gurpil-aulki | gurpil-aulki motordunean doan emakumea | irisgarritasun</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">gurpil-aulki motordunean doan emakumea: 1–2. mota</annotation>
-		<annotation cp="👩🏼‍🦼">3. mota | emakume | emakumezko | gurpil-aulki | gurpil-aulki motordunean doan emakumea | irisgarritasun</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">gurpil-aulki motordunean doan emakumea: 3. mota</annotation>
-		<annotation cp="👩🏽‍🦼">bitarteko azal-tonua | emakume | emakumezko | gurpil-aulki | gurpil-aulki motordunean doan emakumea | irisgarritasun</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">gurpil-aulki motordunean doan emakumea: bitarteko azal-tonua</annotation>
-		<annotation cp="👩🏾‍🦼">5. mota | emakume | emakumezko | gurpil-aulki | gurpil-aulki motordunean doan emakumea | irisgarritasun</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">gurpil-aulki motordunean doan emakumea: 5. mota</annotation>
-		<annotation cp="👩🏿‍🦼">6. mota | emakume | emakumezko | gurpil-aulki | gurpil-aulki motordunean doan emakumea | irisgarritasun</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">gurpil-aulki motordunean doan emakumea: 6. mota</annotation>
-		<annotation cp="👩🏻‍🦽">1–2. mota | emakume | emakumezko | eskuzko gurpil-aulkian doan emakumea | gurpil-aulki | irisgarritasun</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">eskuzko gurpil-aulkian doan emakumea: 1–2. mota</annotation>
-		<annotation cp="👩🏼‍🦽">3. mota | emakume | emakumezko | eskuzko gurpil-aulkian doan emakumea | gurpil-aulki | irisgarritasun</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">eskuzko gurpil-aulkian doan emakumea: 3. mota</annotation>
-		<annotation cp="👩🏽‍🦽">bitarteko azal-tonua | emakume | emakumezko | eskuzko gurpil-aulkian doan emakumea | gurpil-aulki | irisgarritasun</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">eskuzko gurpil-aulkian doan emakumea: bitarteko azal-tonua</annotation>
-		<annotation cp="👩🏾‍🦽">5. mota | emakume | emakumezko | eskuzko gurpil-aulkian doan emakumea | gurpil-aulki | irisgarritasun</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">eskuzko gurpil-aulkian doan emakumea: 5. mota</annotation>
-		<annotation cp="👩🏿‍🦽">6. mota | emakume | emakumezko | eskuzko gurpil-aulkian doan emakumea | gurpil-aulki | irisgarritasun</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">eskuzko gurpil-aulkian doan emakumea: 6. mota</annotation>
 		<annotation cp="👱🏻‍♀">1–2. mota | emakume | emakume ilehoria | emakumezko | ilehori</annotation>
 		<annotation cp="👱🏻‍♀" type="tts">emakume ilehoria: 1–2. mota</annotation>
 		<annotation cp="👱🏼‍♀">3. mota | emakume | emakume ilehoria | emakumezko | ilehori</annotation>
@@ -3119,115 +3228,5 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="8⃣" type="tts">tekla: 8</annotation>
 		<annotation cp="9⃣">tekla</annotation>
 		<annotation cp="9⃣" type="tts">tekla: 9</annotation>
-		<annotation cp="🤏🏻">1–2. mota | atximurka egiten ari den eskua | pixkat bat</annotation>
-		<annotation cp="🤏🏻" type="tts">atximurka egiten ari den eskua: 1–2. mota</annotation>
-		<annotation cp="🤏🏼">3. mota | atximurka egiten ari den eskua | pixkat bat</annotation>
-		<annotation cp="🤏🏼" type="tts">atximurka egiten ari den eskua: 3. mota</annotation>
-		<annotation cp="🤏🏽">atximurka egiten ari den eskua | bitarteko azal-tonua | pixkat bat</annotation>
-		<annotation cp="🤏🏽" type="tts">atximurka egiten ari den eskua: bitarteko azal-tonua</annotation>
-		<annotation cp="🤏🏾">5. mota | atximurka egiten ari den eskua | pixkat bat</annotation>
-		<annotation cp="🤏🏾" type="tts">atximurka egiten ari den eskua: 5. mota</annotation>
-		<annotation cp="🤏🏿">6. mota | atximurka egiten ari den eskua | pixkat bat</annotation>
-		<annotation cp="🤏🏿" type="tts">atximurka egiten ari den eskua: 6. mota</annotation>
-		<annotation cp="🦻🏻">1–2. mota | audifonoa duen belarria | gortasun | irisgarritasun</annotation>
-		<annotation cp="🦻🏻" type="tts">audifonoa duen belarria: 1–2. mota</annotation>
-		<annotation cp="🦻🏼">3. mota | audifonoa duen belarria | gortasun | irisgarritasun</annotation>
-		<annotation cp="🦻🏼" type="tts">audifonoa duen belarria: 3. mota</annotation>
-		<annotation cp="🦻🏽">audifonoa duen belarria | bitarteko azal-tonua | gortasun | irisgarritasun</annotation>
-		<annotation cp="🦻🏽" type="tts">audifonoa duen belarria: bitarteko azal-tonua</annotation>
-		<annotation cp="🦻🏾">5. mota | audifonoa duen belarria | gortasun | irisgarritasun</annotation>
-		<annotation cp="🦻🏾" type="tts">audifonoa duen belarria: 5. mota</annotation>
-		<annotation cp="🦻🏿">6. mota | audifonoa duen belarria | gortasun | irisgarritasun</annotation>
-		<annotation cp="🦻🏿" type="tts">audifonoa duen belarria: 6. mota</annotation>
-		<annotation cp="🧍🏻">1–2. mota | zutik | zutik dagoen pertsona | zutitu</annotation>
-		<annotation cp="🧍🏻" type="tts">zutik dagoen pertsona: 1–2. mota</annotation>
-		<annotation cp="🧍🏼">3. mota | zutik | zutik dagoen pertsona | zutitu</annotation>
-		<annotation cp="🧍🏼" type="tts">zutik dagoen pertsona: 3. mota</annotation>
-		<annotation cp="🧍🏽">bitarteko azal-tonua | zutik | zutik dagoen pertsona | zutitu</annotation>
-		<annotation cp="🧍🏽" type="tts">zutik dagoen pertsona: bitarteko azal-tonua</annotation>
-		<annotation cp="🧍🏾">5. mota | zutik | zutik dagoen pertsona | zutitu</annotation>
-		<annotation cp="🧍🏾" type="tts">zutik dagoen pertsona: 5. mota</annotation>
-		<annotation cp="🧍🏿">6. mota | zutik | zutik dagoen pertsona | zutitu</annotation>
-		<annotation cp="🧍🏿" type="tts">zutik dagoen pertsona: 6. mota</annotation>
-		<annotation cp="🧍🏻‍♀">1–2. mota | emakume | emakumezko | zutik | zutik dagoen emakumea</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">zutik dagoen emakumea: 1–2. mota</annotation>
-		<annotation cp="🧍🏼‍♀">3. mota | emakume | emakumezko | zutik | zutik dagoen emakumea</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">zutik dagoen emakumea: 3. mota</annotation>
-		<annotation cp="🧍🏽‍♀">bitarteko azal-tonua | emakume | emakumezko | zutik | zutik dagoen emakumea</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">zutik dagoen emakumea: bitarteko azal-tonua</annotation>
-		<annotation cp="🧍🏾‍♀">5. mota | emakume | emakumezko | zutik | zutik dagoen emakumea</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">zutik dagoen emakumea: 5. mota</annotation>
-		<annotation cp="🧍🏿‍♀">6. mota | emakume | emakumezko | zutik | zutik dagoen emakumea</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">zutik dagoen emakumea: 6. mota</annotation>
-		<annotation cp="🧍🏻‍♂">1–2. mota | gizon | gizonezko | zutik | zutik dagoen gizona</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">zutik dagoen gizona: 1–2. mota</annotation>
-		<annotation cp="🧍🏼‍♂">3. mota | gizon | gizonezko | zutik | zutik dagoen gizona</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">zutik dagoen gizona: 3. mota</annotation>
-		<annotation cp="🧍🏽‍♂">bitarteko azal-tonua | gizon | gizonezko | zutik | zutik dagoen gizona</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">zutik dagoen gizona: bitarteko azal-tonua</annotation>
-		<annotation cp="🧍🏾‍♂">5. mota | gizon | gizonezko | zutik | zutik dagoen gizona</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">zutik dagoen gizona: 5. mota</annotation>
-		<annotation cp="🧍🏿‍♂">6. mota | gizon | gizonezko | zutik | zutik dagoen gizona</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">zutik dagoen gizona: 6. mota</annotation>
-		<annotation cp="🧎🏻">1–2. mota | belaunikatu | belauniko | belauniko dagoen pertsona</annotation>
-		<annotation cp="🧎🏻" type="tts">belauniko dagoen pertsona: 1–2. mota</annotation>
-		<annotation cp="🧎🏼">3. mota | belaunikatu | belauniko | belauniko dagoen pertsona</annotation>
-		<annotation cp="🧎🏼" type="tts">belauniko dagoen pertsona: 3. mota</annotation>
-		<annotation cp="🧎🏽">belaunikatu | belauniko | belauniko dagoen pertsona | bitarteko azal-tonua</annotation>
-		<annotation cp="🧎🏽" type="tts">belauniko dagoen pertsona: bitarteko azal-tonua</annotation>
-		<annotation cp="🧎🏾">5. mota | belaunikatu | belauniko | belauniko dagoen pertsona</annotation>
-		<annotation cp="🧎🏾" type="tts">belauniko dagoen pertsona: 5. mota</annotation>
-		<annotation cp="🧎🏿">6. mota | belaunikatu | belauniko | belauniko dagoen pertsona</annotation>
-		<annotation cp="🧎🏿" type="tts">belauniko dagoen pertsona: 6. mota</annotation>
-		<annotation cp="🧎🏻‍♀">1–2. mota | belauniko | belauniko dagoen emakumea | emakume | emakumezko</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">belauniko dagoen emakumea: 1–2. mota</annotation>
-		<annotation cp="🧎🏼‍♀">3. mota | belauniko | belauniko dagoen emakumea | emakume | emakumezko</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">belauniko dagoen emakumea: 3. mota</annotation>
-		<annotation cp="🧎🏽‍♀">belauniko | belauniko dagoen emakumea | bitarteko azal-tonua | emakume | emakumezko</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">belauniko dagoen emakumea: bitarteko azal-tonua</annotation>
-		<annotation cp="🧎🏾‍♀">5. mota | belauniko | belauniko dagoen emakumea | emakume | emakumezko</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">belauniko dagoen emakumea: 5. mota</annotation>
-		<annotation cp="🧎🏿‍♀">6. mota | belauniko | belauniko dagoen emakumea | emakume | emakumezko</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">belauniko dagoen emakumea: 6. mota</annotation>
-		<annotation cp="🧎🏻‍♂">1–2. mota | belauniko | belauniko dagoen gizona | gizon | gizonezko</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">belauniko dagoen gizona: 1–2. mota</annotation>
-		<annotation cp="🧎🏼‍♂">3. mota | belauniko | belauniko dagoen gizona | gizon | gizonezko</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">belauniko dagoen gizona: 3. mota</annotation>
-		<annotation cp="🧎🏽‍♂">belauniko | belauniko dagoen gizona | bitarteko azal-tonua | gizon | gizonezko</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">belauniko dagoen gizona: bitarteko azal-tonua</annotation>
-		<annotation cp="🧎🏾‍♂">5. mota | belauniko | belauniko dagoen gizona | gizon | gizonezko</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">belauniko dagoen gizona: 5. mota</annotation>
-		<annotation cp="🧎🏿‍♂">6. mota | belauniko | belauniko dagoen gizona | gizon | gizonezko</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">belauniko dagoen gizona: 6. mota</annotation>
-		<annotation cp="🧏🏻">1–2. mota | belarri | enzun | gor | gorra | irisgarritasun</annotation>
-		<annotation cp="🧏🏻" type="tts">gorra: 1–2. mota</annotation>
-		<annotation cp="🧏🏼">3. mota | belarri | enzun | gor | gorra | irisgarritasun</annotation>
-		<annotation cp="🧏🏼" type="tts">gorra: 3. mota</annotation>
-		<annotation cp="🧏🏽">belarri | bitarteko azal-tonua | enzun | gor | gorra | irisgarritasun</annotation>
-		<annotation cp="🧏🏽" type="tts">gorra: bitarteko azal-tonua</annotation>
-		<annotation cp="🧏🏾">5. mota | belarri | enzun | gor | gorra | irisgarritasun</annotation>
-		<annotation cp="🧏🏾" type="tts">gorra: 5. mota</annotation>
-		<annotation cp="🧏🏿">6. mota | belarri | enzun | gor | gorra | irisgarritasun</annotation>
-		<annotation cp="🧏🏿" type="tts">gorra: 6. mota</annotation>
-		<annotation cp="🧏🏻‍♀">1–2. mota | emakume | emakume gorra | emakumezko | gor</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">emakume gorra: 1–2. mota</annotation>
-		<annotation cp="🧏🏼‍♀">3. mota | emakume | emakume gorra | emakumezko | gor</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">emakume gorra: 3. mota</annotation>
-		<annotation cp="🧏🏽‍♀">bitarteko azal-tonua | emakume | emakume gorra | emakumezko | gor</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">emakume gorra: bitarteko azal-tonua</annotation>
-		<annotation cp="🧏🏾‍♀">5. mota | emakume | emakume gorra | emakumezko | gor</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">emakume gorra: 5. mota</annotation>
-		<annotation cp="🧏🏿‍♀">6. mota | emakume | emakume gorra | emakumezko | gor</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">emakume gorra: 6. mota</annotation>
-		<annotation cp="🧏🏻‍♂">1–2. mota | gizon | gizon gorra | gizonezko | gor</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">gizon gorra: 1–2. mota</annotation>
-		<annotation cp="🧏🏼‍♂">3. mota | gizon | gizon gorra | gizonezko | gor</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">gizon gorra: 3. mota</annotation>
-		<annotation cp="🧏🏽‍♂">bitarteko azal-tonua | gizon | gizon gorra | gizonezko | gor</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">gizon gorra: bitarteko azal-tonua</annotation>
-		<annotation cp="🧏🏾‍♂">5. mota | gizon | gizon gorra | gizonezko | gor</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">gizon gorra: 5. mota</annotation>
-		<annotation cp="🧏🏿‍♂">6. mota | gizon | gizon gorra | gizonezko | gor</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">gizon gorra: 6. mota</annotation>
 	</annotations>
 </ldml>

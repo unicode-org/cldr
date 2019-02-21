@@ -4,15 +4,124 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="da"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤏🏻">lidt | lidt vist med tommel- og pegefinger | lys teint</annotation>
+		<annotation cp="🤏🏻" type="tts">lidt vist med tommel- og pegefinger: lys teint</annotation>
+		<annotation cp="🤏🏼">lidt | lidt vist med tommel- og pegefinger | medium til lys teint</annotation>
+		<annotation cp="🤏🏼" type="tts">lidt vist med tommel- og pegefinger: medium til lys teint</annotation>
+		<annotation cp="🤏🏽">lidt | lidt vist med tommel- og pegefinger | medium teint</annotation>
+		<annotation cp="🤏🏽" type="tts">lidt vist med tommel- og pegefinger: medium teint</annotation>
+		<annotation cp="🤏🏾">lidt | lidt vist med tommel- og pegefinger | medium til mørk teint</annotation>
+		<annotation cp="🤏🏾" type="tts">lidt vist med tommel- og pegefinger: medium til mørk teint</annotation>
+		<annotation cp="🤏🏿">lidt | lidt vist med tommel- og pegefinger | mørk teint</annotation>
+		<annotation cp="🤏🏿" type="tts">lidt vist med tommel- og pegefinger: mørk teint</annotation>
+		<annotation cp="🦻🏻">lys teint | øre med høreapparat</annotation>
+		<annotation cp="🦻🏻" type="tts">øre med høreapparat: lys teint</annotation>
+		<annotation cp="🦻🏼">medium til lys teint | øre med høreapparat</annotation>
+		<annotation cp="🦻🏼" type="tts">øre med høreapparat: medium til lys teint</annotation>
+		<annotation cp="🦻🏽">medium teint | øre med høreapparat</annotation>
+		<annotation cp="🦻🏽" type="tts">øre med høreapparat: medium teint</annotation>
+		<annotation cp="🦻🏾">medium til mørk teint | øre med høreapparat</annotation>
+		<annotation cp="🦻🏾" type="tts">øre med høreapparat: medium til mørk teint</annotation>
+		<annotation cp="🦻🏿">mørk teint | øre med høreapparat</annotation>
+		<annotation cp="🦻🏿" type="tts">øre med høreapparat: mørk teint</annotation>
+		<annotation cp="🧍🏻">lys teint | stående person</annotation>
+		<annotation cp="🧍🏻" type="tts">stående person: lys teint</annotation>
+		<annotation cp="🧍🏼">medium til lys teint | stående person</annotation>
+		<annotation cp="🧍🏼" type="tts">stående person: medium til lys teint</annotation>
+		<annotation cp="🧍🏽">medium teint | stående person</annotation>
+		<annotation cp="🧍🏽" type="tts">stående person: medium teint</annotation>
+		<annotation cp="🧍🏾">medium til mørk teint | stående person</annotation>
+		<annotation cp="🧍🏾" type="tts">stående person: medium til mørk teint</annotation>
+		<annotation cp="🧍🏿">mørk teint | stående person</annotation>
+		<annotation cp="🧍🏿" type="tts">stående person: mørk teint</annotation>
+		<annotation cp="🧍🏻‍♀">lys teint | stående kvinde</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">stående kvinde: lys teint</annotation>
+		<annotation cp="🧍🏼‍♀">medium til lys teint | stående kvinde</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">stående kvinde: medium til lys teint</annotation>
+		<annotation cp="🧍🏽‍♀">medium teint | stående kvinde</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">stående kvinde: medium teint</annotation>
+		<annotation cp="🧍🏾‍♀">medium til mørk teint | stående kvinde</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">stående kvinde: medium til mørk teint</annotation>
+		<annotation cp="🧍🏿‍♀">mørk teint | stående kvinde</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">stående kvinde: mørk teint</annotation>
+		<annotation cp="🧍🏻‍♂">lys teint | stående mand</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">stående mand: lys teint</annotation>
+		<annotation cp="🧍🏼‍♂">medium til lys teint | stående mand</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">stående mand: medium til lys teint</annotation>
+		<annotation cp="🧍🏽‍♂">medium teint | stående mand</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">stående mand: medium teint</annotation>
+		<annotation cp="🧍🏾‍♂">medium til mørk teint | stående mand</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">stående mand: medium til mørk teint</annotation>
+		<annotation cp="🧍🏿‍♂">mørk teint | stående mand</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">stående mand: mørk teint</annotation>
+		<annotation cp="🧎🏻">knælende | knælende person | lys teint | på knæ</annotation>
+		<annotation cp="🧎🏻" type="tts">knælende person: lys teint</annotation>
+		<annotation cp="🧎🏼">knælende | knælende person | medium til lys teint | på knæ</annotation>
+		<annotation cp="🧎🏼" type="tts">knælende person: medium til lys teint</annotation>
+		<annotation cp="🧎🏽">knælende | knælende person | medium teint | på knæ</annotation>
+		<annotation cp="🧎🏽" type="tts">knælende person: medium teint</annotation>
+		<annotation cp="🧎🏾">knælende | knælende person | medium til mørk teint | på knæ</annotation>
+		<annotation cp="🧎🏾" type="tts">knælende person: medium til mørk teint</annotation>
+		<annotation cp="🧎🏿">knælende | knælende person | mørk teint | på knæ</annotation>
+		<annotation cp="🧎🏿" type="tts">knælende person: mørk teint</annotation>
+		<annotation cp="🧎🏻‍♀">knælende kvinde | kvinde | lys teint</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">knælende kvinde: lys teint</annotation>
+		<annotation cp="🧎🏼‍♀">knælende kvinde | kvinde | medium til lys teint</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">knælende kvinde: medium til lys teint</annotation>
+		<annotation cp="🧎🏽‍♀">knælende kvinde | kvinde | medium teint</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">knælende kvinde: medium teint</annotation>
+		<annotation cp="🧎🏾‍♀">knælende kvinde | kvinde | medium til mørk teint</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">knælende kvinde: medium til mørk teint</annotation>
+		<annotation cp="🧎🏿‍♀">knælende kvinde | kvinde | mørk teint</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">knælende kvinde: mørk teint</annotation>
+		<annotation cp="🧎🏻‍♂">knælende mand | lys teint | mand</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">knælende mand: lys teint</annotation>
+		<annotation cp="🧎🏼‍♂">knælende mand | mand | medium til lys teint</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">knælende mand: medium til lys teint</annotation>
+		<annotation cp="🧎🏽‍♂">knælende mand | mand | medium teint</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">knælende mand: medium teint</annotation>
+		<annotation cp="🧎🏾‍♂">knælende mand | mand | medium til mørk teint</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">knælende mand: medium til mørk teint</annotation>
+		<annotation cp="🧎🏿‍♂">knælende mand | mand | mørk teint</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">knælende mand: mørk teint</annotation>
+		<annotation cp="🧏🏻">døv person | lys teint</annotation>
+		<annotation cp="🧏🏻" type="tts">døv person: lys teint</annotation>
+		<annotation cp="🧏🏼">døv person | medium til lys teint</annotation>
+		<annotation cp="🧏🏼" type="tts">døv person: medium til lys teint</annotation>
+		<annotation cp="🧏🏽">døv person | medium teint</annotation>
+		<annotation cp="🧏🏽" type="tts">døv person: medium teint</annotation>
+		<annotation cp="🧏🏾">døv person | medium til mørk teint</annotation>
+		<annotation cp="🧏🏾" type="tts">døv person: medium til mørk teint</annotation>
+		<annotation cp="🧏🏿">døv person | mørk teint</annotation>
+		<annotation cp="🧏🏿" type="tts">døv person: mørk teint</annotation>
+		<annotation cp="🧏🏻‍♀">døv kvinde | lys teint</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">døv kvinde: lys teint</annotation>
+		<annotation cp="🧏🏼‍♀">døv kvinde | medium til lys teint</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">døv kvinde: medium til lys teint</annotation>
+		<annotation cp="🧏🏽‍♀">døv kvinde | medium teint</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">døv kvinde: medium teint</annotation>
+		<annotation cp="🧏🏾‍♀">døv kvinde | medium til mørk teint</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">døv kvinde: medium til mørk teint</annotation>
+		<annotation cp="🧏🏿‍♀">døv kvinde | mørk teint</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">døv kvinde: mørk teint</annotation>
+		<annotation cp="🧏🏻‍♂">døv mand | lys teint</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">døv mand: lys teint</annotation>
+		<annotation cp="🧏🏼‍♂">døv mand | medium til lys teint</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">døv mand: medium til lys teint</annotation>
+		<annotation cp="🧏🏽‍♂">døv mand | medium teint</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">døv mand: medium teint</annotation>
+		<annotation cp="🧏🏾‍♂">døv mand | medium til mørk teint</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">døv mand: medium til mørk teint</annotation>
+		<annotation cp="🧏🏿‍♂">døv mand | mørk teint</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">døv mand: mørk teint</annotation>
 		<annotation cp="👋🏻">hånd | lys teint | vinker</annotation>
 		<annotation cp="👋🏻" type="tts">vinker: lys teint</annotation>
 		<annotation cp="👋🏼">hånd | medium til lys teint | vinker</annotation>
@@ -473,6 +582,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">mand: medium til mørk teint</annotation>
 		<annotation cp="👨🏿">mand | menneske | mørk teint | person</annotation>
 		<annotation cp="👨🏿" type="tts">mand: mørk teint</annotation>
+		<annotation cp="👨🏻‍🦯">lys teint | mand med blindestok</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">mand med blindestok: lys teint</annotation>
+		<annotation cp="👨🏼‍🦯">mand med blindestok | medium til lys teint</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">mand med blindestok: medium til lys teint</annotation>
+		<annotation cp="👨🏽‍🦯">mand med blindestok | medium teint</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">mand med blindestok: medium teint</annotation>
+		<annotation cp="👨🏾‍🦯">mand med blindestok | medium til mørk teint</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">mand med blindestok: medium til mørk teint</annotation>
+		<annotation cp="👨🏿‍🦯">mand med blindestok | mørk teint</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">mand med blindestok: mørk teint</annotation>
+		<annotation cp="👨🏻‍🦼">lys teint | mand i elektrisk kørestol</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">mand i elektrisk kørestol: lys teint</annotation>
+		<annotation cp="👨🏼‍🦼">mand i elektrisk kørestol | medium til lys teint</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">mand i elektrisk kørestol: medium til lys teint</annotation>
+		<annotation cp="👨🏽‍🦼">mand i elektrisk kørestol | medium teint</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">mand i elektrisk kørestol: medium teint</annotation>
+		<annotation cp="👨🏾‍🦼">mand i elektrisk kørestol | medium til mørk teint</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">mand i elektrisk kørestol: medium til mørk teint</annotation>
+		<annotation cp="👨🏿‍🦼">mand i elektrisk kørestol | mørk teint</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">mand i elektrisk kørestol: mørk teint</annotation>
+		<annotation cp="👨🏻‍🦽">lys teint | mand i manuel kørestol</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">mand i manuel kørestol: lys teint</annotation>
+		<annotation cp="👨🏼‍🦽">mand i manuel kørestol | medium til lys teint</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">mand i manuel kørestol: medium til lys teint</annotation>
+		<annotation cp="👨🏽‍🦽">mand i manuel kørestol | medium teint</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">mand i manuel kørestol: medium teint</annotation>
+		<annotation cp="👨🏾‍🦽">mand i manuel kørestol | medium til mørk teint</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">mand i manuel kørestol: medium til mørk teint</annotation>
+		<annotation cp="👨🏿‍🦽">mand i manuel kørestol | mørk teint</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">mand i manuel kørestol: mørk teint</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">hånd i hånd | lys teint | mænd | mand | medium til lys teint | par | stjernetegn | to mænd hånd i hånd | tvillingen | tvillinger</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">to mænd hånd i hånd: medium til lys teint og lys teint</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">hånd i hånd | lys teint | mænd | mand | medium teint | par | stjernetegn | to mænd hånd i hånd | tvillingen | tvillinger</annotation>
@@ -541,36 +680,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">mand: medium til mørk teint og skaldet</annotation>
 		<annotation cp="👨🏿‍🦲">mand | menneske | mørk teint | person | skaldet</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">mand: mørk teint og skaldet</annotation>
-		<annotation cp="👨🏻‍🦯">lys teint | mand med blindestok</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">mand med blindestok: lys teint</annotation>
-		<annotation cp="👨🏼‍🦯">mand med blindestok | medium til lys teint</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">mand med blindestok: medium til lys teint</annotation>
-		<annotation cp="👨🏽‍🦯">mand med blindestok | medium teint</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">mand med blindestok: medium teint</annotation>
-		<annotation cp="👨🏾‍🦯">mand med blindestok | medium til mørk teint</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">mand med blindestok: medium til mørk teint</annotation>
-		<annotation cp="👨🏿‍🦯">mand med blindestok | mørk teint</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">mand med blindestok: mørk teint</annotation>
-		<annotation cp="👨🏻‍🦼">lys teint | mand i elektrisk kørestol</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">mand i elektrisk kørestol: lys teint</annotation>
-		<annotation cp="👨🏼‍🦼">mand i elektrisk kørestol | medium til lys teint</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">mand i elektrisk kørestol: medium til lys teint</annotation>
-		<annotation cp="👨🏽‍🦼">mand i elektrisk kørestol | medium teint</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">mand i elektrisk kørestol: medium teint</annotation>
-		<annotation cp="👨🏾‍🦼">mand i elektrisk kørestol | medium til mørk teint</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">mand i elektrisk kørestol: medium til mørk teint</annotation>
-		<annotation cp="👨🏿‍🦼">mand i elektrisk kørestol | mørk teint</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">mand i elektrisk kørestol: mørk teint</annotation>
-		<annotation cp="👨🏻‍🦽">lys teint | mand i manuel kørestol</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">mand i manuel kørestol: lys teint</annotation>
-		<annotation cp="👨🏼‍🦽">mand i manuel kørestol | medium til lys teint</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">mand i manuel kørestol: medium til lys teint</annotation>
-		<annotation cp="👨🏽‍🦽">mand i manuel kørestol | medium teint</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">mand i manuel kørestol: medium teint</annotation>
-		<annotation cp="👨🏾‍🦽">mand i manuel kørestol | medium til mørk teint</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">mand i manuel kørestol: medium til mørk teint</annotation>
-		<annotation cp="👨🏿‍🦽">mand i manuel kørestol | mørk teint</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">mand i manuel kørestol: mørk teint</annotation>
 		<annotation cp="👱🏻‍♂">blond | lys teint | lyshåret | mand</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">blond mand: lys teint</annotation>
 		<annotation cp="👱🏼‍♂">blond | lyshåret | mand | medium til lys teint</annotation>
@@ -601,6 +710,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">kvinde: medium til mørk teint</annotation>
 		<annotation cp="👩🏿">kvinde | menneske | mørk teint | person</annotation>
 		<annotation cp="👩🏿" type="tts">kvinde: mørk teint</annotation>
+		<annotation cp="👩🏻‍🦯">kvinde med blindestok | lys teint</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">kvinde med blindestok: lys teint</annotation>
+		<annotation cp="👩🏼‍🦯">kvinde med blindestok | medium til lys teint</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">kvinde med blindestok: medium til lys teint</annotation>
+		<annotation cp="👩🏽‍🦯">kvinde med blindestok | medium teint</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">kvinde med blindestok: medium teint</annotation>
+		<annotation cp="👩🏾‍🦯">kvinde med blindestok | medium til mørk teint</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">kvinde med blindestok: medium til mørk teint</annotation>
+		<annotation cp="👩🏿‍🦯">kvinde med blindestok | mørk teint</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">kvinde med blindestok: mørk teint</annotation>
+		<annotation cp="👩🏻‍🦼">kvinde i elektrisk kørestol | lys teint</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">kvinde i elektrisk kørestol: lys teint</annotation>
+		<annotation cp="👩🏼‍🦼">kvinde i elektrisk kørestol | medium til lys teint</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">kvinde i elektrisk kørestol: medium til lys teint</annotation>
+		<annotation cp="👩🏽‍🦼">kvinde i elektrisk kørestol | medium teint</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">kvinde i elektrisk kørestol: medium teint</annotation>
+		<annotation cp="👩🏾‍🦼">kvinde i elektrisk kørestol | medium til mørk teint</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">kvinde i elektrisk kørestol: medium til mørk teint</annotation>
+		<annotation cp="👩🏿‍🦼">kvinde i elektrisk kørestol | mørk teint</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">kvinde i elektrisk kørestol: mørk teint</annotation>
+		<annotation cp="👩🏻‍🦽">kvinde i manuel kørestol | lys teint</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">kvinde i manuel kørestol: lys teint</annotation>
+		<annotation cp="👩🏼‍🦽">kvinde i manuel kørestol | medium til lys teint</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">kvinde i manuel kørestol: medium til lys teint</annotation>
+		<annotation cp="👩🏽‍🦽">kvinde i manuel kørestol | medium teint</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">kvinde i manuel kørestol: medium teint</annotation>
+		<annotation cp="👩🏾‍🦽">kvinde i manuel kørestol | medium til mørk teint</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">kvinde i manuel kørestol: medium til mørk teint</annotation>
+		<annotation cp="👩🏿‍🦽">kvinde i manuel kørestol | mørk teint</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">kvinde i manuel kørestol: mørk teint</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼">lys teint | mand og kvinde hånd i hånd | medium til lys teint | par</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">mand og kvinde hånd i hånd: lys teint og medium til lys teint</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏽">lys teint | mand og kvinde hånd i hånd | medium teint | par</annotation>
@@ -709,36 +848,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">kvinde: medium til mørk teint og skaldet</annotation>
 		<annotation cp="👩🏿‍🦲">kvinde | menneske | mørk teint | person | skaldet</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">kvinde: mørk teint og skaldet</annotation>
-		<annotation cp="👩🏻‍🦯">kvinde med blindestok | lys teint</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">kvinde med blindestok: lys teint</annotation>
-		<annotation cp="👩🏼‍🦯">kvinde med blindestok | medium til lys teint</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">kvinde med blindestok: medium til lys teint</annotation>
-		<annotation cp="👩🏽‍🦯">kvinde med blindestok | medium teint</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">kvinde med blindestok: medium teint</annotation>
-		<annotation cp="👩🏾‍🦯">kvinde med blindestok | medium til mørk teint</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">kvinde med blindestok: medium til mørk teint</annotation>
-		<annotation cp="👩🏿‍🦯">kvinde med blindestok | mørk teint</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">kvinde med blindestok: mørk teint</annotation>
-		<annotation cp="👩🏻‍🦼">kvinde i elektrisk kørestol | lys teint</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">kvinde i elektrisk kørestol: lys teint</annotation>
-		<annotation cp="👩🏼‍🦼">kvinde i elektrisk kørestol | medium til lys teint</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">kvinde i elektrisk kørestol: medium til lys teint</annotation>
-		<annotation cp="👩🏽‍🦼">kvinde i elektrisk kørestol | medium teint</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">kvinde i elektrisk kørestol: medium teint</annotation>
-		<annotation cp="👩🏾‍🦼">kvinde i elektrisk kørestol | medium til mørk teint</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">kvinde i elektrisk kørestol: medium til mørk teint</annotation>
-		<annotation cp="👩🏿‍🦼">kvinde i elektrisk kørestol | mørk teint</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">kvinde i elektrisk kørestol: mørk teint</annotation>
-		<annotation cp="👩🏻‍🦽">kvinde i manuel kørestol | lys teint</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">kvinde i manuel kørestol: lys teint</annotation>
-		<annotation cp="👩🏼‍🦽">kvinde i manuel kørestol | medium til lys teint</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">kvinde i manuel kørestol: medium til lys teint</annotation>
-		<annotation cp="👩🏽‍🦽">kvinde i manuel kørestol | medium teint</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">kvinde i manuel kørestol: medium teint</annotation>
-		<annotation cp="👩🏾‍🦽">kvinde i manuel kørestol | medium til mørk teint</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">kvinde i manuel kørestol: medium til mørk teint</annotation>
-		<annotation cp="👩🏿‍🦽">kvinde i manuel kørestol | mørk teint</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">kvinde i manuel kørestol: mørk teint</annotation>
 		<annotation cp="👱🏻‍♀">blond kvinde | blondine | kvinde | lys teint | lyshåret</annotation>
 		<annotation cp="👱🏻‍♀" type="tts">blond kvinde: lys teint</annotation>
 		<annotation cp="👱🏼‍♀">blond kvinde | blondine | kvinde | lyshåret | medium til lys teint</annotation>
@@ -3119,115 +3228,5 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="8⃣" type="tts">keycap: 8</annotation>
 		<annotation cp="9⃣">keycap</annotation>
 		<annotation cp="9⃣" type="tts">keycap: 9</annotation>
-		<annotation cp="🤏🏻">lidt | lidt vist med tommel- og pegefinger | lys teint</annotation>
-		<annotation cp="🤏🏻" type="tts">lidt vist med tommel- og pegefinger: lys teint</annotation>
-		<annotation cp="🤏🏼">lidt | lidt vist med tommel- og pegefinger | medium til lys teint</annotation>
-		<annotation cp="🤏🏼" type="tts">lidt vist med tommel- og pegefinger: medium til lys teint</annotation>
-		<annotation cp="🤏🏽">lidt | lidt vist med tommel- og pegefinger | medium teint</annotation>
-		<annotation cp="🤏🏽" type="tts">lidt vist med tommel- og pegefinger: medium teint</annotation>
-		<annotation cp="🤏🏾">lidt | lidt vist med tommel- og pegefinger | medium til mørk teint</annotation>
-		<annotation cp="🤏🏾" type="tts">lidt vist med tommel- og pegefinger: medium til mørk teint</annotation>
-		<annotation cp="🤏🏿">lidt | lidt vist med tommel- og pegefinger | mørk teint</annotation>
-		<annotation cp="🤏🏿" type="tts">lidt vist med tommel- og pegefinger: mørk teint</annotation>
-		<annotation cp="🦻🏻">lys teint | øre med høreapparat</annotation>
-		<annotation cp="🦻🏻" type="tts">øre med høreapparat: lys teint</annotation>
-		<annotation cp="🦻🏼">medium til lys teint | øre med høreapparat</annotation>
-		<annotation cp="🦻🏼" type="tts">øre med høreapparat: medium til lys teint</annotation>
-		<annotation cp="🦻🏽">medium teint | øre med høreapparat</annotation>
-		<annotation cp="🦻🏽" type="tts">øre med høreapparat: medium teint</annotation>
-		<annotation cp="🦻🏾">medium til mørk teint | øre med høreapparat</annotation>
-		<annotation cp="🦻🏾" type="tts">øre med høreapparat: medium til mørk teint</annotation>
-		<annotation cp="🦻🏿">mørk teint | øre med høreapparat</annotation>
-		<annotation cp="🦻🏿" type="tts">øre med høreapparat: mørk teint</annotation>
-		<annotation cp="🧍🏻">lys teint | stående person</annotation>
-		<annotation cp="🧍🏻" type="tts">stående person: lys teint</annotation>
-		<annotation cp="🧍🏼">medium til lys teint | stående person</annotation>
-		<annotation cp="🧍🏼" type="tts">stående person: medium til lys teint</annotation>
-		<annotation cp="🧍🏽">medium teint | stående person</annotation>
-		<annotation cp="🧍🏽" type="tts">stående person: medium teint</annotation>
-		<annotation cp="🧍🏾">medium til mørk teint | stående person</annotation>
-		<annotation cp="🧍🏾" type="tts">stående person: medium til mørk teint</annotation>
-		<annotation cp="🧍🏿">mørk teint | stående person</annotation>
-		<annotation cp="🧍🏿" type="tts">stående person: mørk teint</annotation>
-		<annotation cp="🧍🏻‍♀">lys teint | stående kvinde</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">stående kvinde: lys teint</annotation>
-		<annotation cp="🧍🏼‍♀">medium til lys teint | stående kvinde</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">stående kvinde: medium til lys teint</annotation>
-		<annotation cp="🧍🏽‍♀">medium teint | stående kvinde</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">stående kvinde: medium teint</annotation>
-		<annotation cp="🧍🏾‍♀">medium til mørk teint | stående kvinde</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">stående kvinde: medium til mørk teint</annotation>
-		<annotation cp="🧍🏿‍♀">mørk teint | stående kvinde</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">stående kvinde: mørk teint</annotation>
-		<annotation cp="🧍🏻‍♂">lys teint | stående mand</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">stående mand: lys teint</annotation>
-		<annotation cp="🧍🏼‍♂">medium til lys teint | stående mand</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">stående mand: medium til lys teint</annotation>
-		<annotation cp="🧍🏽‍♂">medium teint | stående mand</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">stående mand: medium teint</annotation>
-		<annotation cp="🧍🏾‍♂">medium til mørk teint | stående mand</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">stående mand: medium til mørk teint</annotation>
-		<annotation cp="🧍🏿‍♂">mørk teint | stående mand</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">stående mand: mørk teint</annotation>
-		<annotation cp="🧎🏻">knælende | knælende person | lys teint | på knæ</annotation>
-		<annotation cp="🧎🏻" type="tts">knælende person: lys teint</annotation>
-		<annotation cp="🧎🏼">knælende | knælende person | medium til lys teint | på knæ</annotation>
-		<annotation cp="🧎🏼" type="tts">knælende person: medium til lys teint</annotation>
-		<annotation cp="🧎🏽">knælende | knælende person | medium teint | på knæ</annotation>
-		<annotation cp="🧎🏽" type="tts">knælende person: medium teint</annotation>
-		<annotation cp="🧎🏾">knælende | knælende person | medium til mørk teint | på knæ</annotation>
-		<annotation cp="🧎🏾" type="tts">knælende person: medium til mørk teint</annotation>
-		<annotation cp="🧎🏿">knælende | knælende person | mørk teint | på knæ</annotation>
-		<annotation cp="🧎🏿" type="tts">knælende person: mørk teint</annotation>
-		<annotation cp="🧎🏻‍♀">knælende kvinde | kvinde | lys teint</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">knælende kvinde: lys teint</annotation>
-		<annotation cp="🧎🏼‍♀">knælende kvinde | kvinde | medium til lys teint</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">knælende kvinde: medium til lys teint</annotation>
-		<annotation cp="🧎🏽‍♀">knælende kvinde | kvinde | medium teint</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">knælende kvinde: medium teint</annotation>
-		<annotation cp="🧎🏾‍♀">knælende kvinde | kvinde | medium til mørk teint</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">knælende kvinde: medium til mørk teint</annotation>
-		<annotation cp="🧎🏿‍♀">knælende kvinde | kvinde | mørk teint</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">knælende kvinde: mørk teint</annotation>
-		<annotation cp="🧎🏻‍♂">knælende mand | lys teint | mand</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">knælende mand: lys teint</annotation>
-		<annotation cp="🧎🏼‍♂">knælende mand | mand | medium til lys teint</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">knælende mand: medium til lys teint</annotation>
-		<annotation cp="🧎🏽‍♂">knælende mand | mand | medium teint</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">knælende mand: medium teint</annotation>
-		<annotation cp="🧎🏾‍♂">knælende mand | mand | medium til mørk teint</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">knælende mand: medium til mørk teint</annotation>
-		<annotation cp="🧎🏿‍♂">knælende mand | mand | mørk teint</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">knælende mand: mørk teint</annotation>
-		<annotation cp="🧏🏻">døv person | lys teint</annotation>
-		<annotation cp="🧏🏻" type="tts">døv person: lys teint</annotation>
-		<annotation cp="🧏🏼">døv person | medium til lys teint</annotation>
-		<annotation cp="🧏🏼" type="tts">døv person: medium til lys teint</annotation>
-		<annotation cp="🧏🏽">døv person | medium teint</annotation>
-		<annotation cp="🧏🏽" type="tts">døv person: medium teint</annotation>
-		<annotation cp="🧏🏾">døv person | medium til mørk teint</annotation>
-		<annotation cp="🧏🏾" type="tts">døv person: medium til mørk teint</annotation>
-		<annotation cp="🧏🏿">døv person | mørk teint</annotation>
-		<annotation cp="🧏🏿" type="tts">døv person: mørk teint</annotation>
-		<annotation cp="🧏🏻‍♀">døv kvinde | lys teint</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">døv kvinde: lys teint</annotation>
-		<annotation cp="🧏🏼‍♀">døv kvinde | medium til lys teint</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">døv kvinde: medium til lys teint</annotation>
-		<annotation cp="🧏🏽‍♀">døv kvinde | medium teint</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">døv kvinde: medium teint</annotation>
-		<annotation cp="🧏🏾‍♀">døv kvinde | medium til mørk teint</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">døv kvinde: medium til mørk teint</annotation>
-		<annotation cp="🧏🏿‍♀">døv kvinde | mørk teint</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">døv kvinde: mørk teint</annotation>
-		<annotation cp="🧏🏻‍♂">døv mand | lys teint</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">døv mand: lys teint</annotation>
-		<annotation cp="🧏🏼‍♂">døv mand | medium til lys teint</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">døv mand: medium til lys teint</annotation>
-		<annotation cp="🧏🏽‍♂">døv mand | medium teint</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">døv mand: medium teint</annotation>
-		<annotation cp="🧏🏾‍♂">døv mand | medium til mørk teint</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">døv mand: medium til mørk teint</annotation>
-		<annotation cp="🧏🏿‍♂">døv mand | mørk teint</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">døv mand: mørk teint</annotation>
 	</annotations>
 </ldml>

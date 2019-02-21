@@ -4,15 +4,124 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="af"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤏🏻">klein hoeveelheid | knypende hand | ligte velkleur</annotation>
+		<annotation cp="🤏🏻" type="tts">knypende hand: ligte velkleur</annotation>
+		<annotation cp="🤏🏼">klein hoeveelheid | knypende hand | medium-ligte velkleur</annotation>
+		<annotation cp="🤏🏼" type="tts">knypende hand: medium-ligte velkleur</annotation>
+		<annotation cp="🤏🏽">klein hoeveelheid | knypende hand | medium velkleur</annotation>
+		<annotation cp="🤏🏽" type="tts">knypende hand: medium velkleur</annotation>
+		<annotation cp="🤏🏾">klein hoeveelheid | knypende hand | medium-donker velkleur</annotation>
+		<annotation cp="🤏🏾" type="tts">knypende hand: medium-donker velkleur</annotation>
+		<annotation cp="🤏🏿">donker velkleur | klein hoeveelheid | knypende hand</annotation>
+		<annotation cp="🤏🏿" type="tts">knypende hand: donker velkleur</annotation>
+		<annotation cp="🦻🏻">gehoorprobleme | ligte velkleur | oor met gehoorapparaat | toeganklikheid</annotation>
+		<annotation cp="🦻🏻" type="tts">oor met gehoorapparaat: ligte velkleur</annotation>
+		<annotation cp="🦻🏼">gehoorprobleme | medium-ligte velkleur | oor met gehoorapparaat | toeganklikheid</annotation>
+		<annotation cp="🦻🏼" type="tts">oor met gehoorapparaat: medium-ligte velkleur</annotation>
+		<annotation cp="🦻🏽">gehoorprobleme | medium velkleur | oor met gehoorapparaat | toeganklikheid</annotation>
+		<annotation cp="🦻🏽" type="tts">oor met gehoorapparaat: medium velkleur</annotation>
+		<annotation cp="🦻🏾">gehoorprobleme | medium-donker velkleur | oor met gehoorapparaat | toeganklikheid</annotation>
+		<annotation cp="🦻🏾" type="tts">oor met gehoorapparaat: medium-donker velkleur</annotation>
+		<annotation cp="🦻🏿">donker velkleur | gehoorprobleme | oor met gehoorapparaat | toeganklikheid</annotation>
+		<annotation cp="🦻🏿" type="tts">oor met gehoorapparaat: donker velkleur</annotation>
+		<annotation cp="🧍🏻">ligte velkleur | persoon wat staan | staan</annotation>
+		<annotation cp="🧍🏻" type="tts">persoon wat staan: ligte velkleur</annotation>
+		<annotation cp="🧍🏼">medium-ligte velkleur | persoon wat staan | staan</annotation>
+		<annotation cp="🧍🏼" type="tts">persoon wat staan: medium-ligte velkleur</annotation>
+		<annotation cp="🧍🏽">medium velkleur | persoon wat staan | staan</annotation>
+		<annotation cp="🧍🏽" type="tts">persoon wat staan: medium velkleur</annotation>
+		<annotation cp="🧍🏾">medium-donker velkleur | persoon wat staan | staan</annotation>
+		<annotation cp="🧍🏾" type="tts">persoon wat staan: medium-donker velkleur</annotation>
+		<annotation cp="🧍🏿">donker velkleur | persoon wat staan | staan</annotation>
+		<annotation cp="🧍🏿" type="tts">persoon wat staan: donker velkleur</annotation>
+		<annotation cp="🧍🏻‍♀">ligte velkleur | staan | vrou | vrou wat staan</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">vrou wat staan: ligte velkleur</annotation>
+		<annotation cp="🧍🏼‍♀">medium-ligte velkleur | staan | vrou | vrou wat staan</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">vrou wat staan: medium-ligte velkleur</annotation>
+		<annotation cp="🧍🏽‍♀">medium velkleur | staan | vrou | vrou wat staan</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">vrou wat staan: medium velkleur</annotation>
+		<annotation cp="🧍🏾‍♀">medium-donker velkleur | staan | vrou | vrou wat staan</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">vrou wat staan: medium-donker velkleur</annotation>
+		<annotation cp="🧍🏿‍♀">donker velkleur | staan | vrou | vrou wat staan</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">vrou wat staan: donker velkleur</annotation>
+		<annotation cp="🧍🏻‍♂">ligte velkleur | man | man wat staan | staan</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">man wat staan: ligte velkleur</annotation>
+		<annotation cp="🧍🏼‍♂">man | man wat staan | medium-ligte velkleur | staan</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">man wat staan: medium-ligte velkleur</annotation>
+		<annotation cp="🧍🏽‍♂">man | man wat staan | medium velkleur | staan</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">man wat staan: medium velkleur</annotation>
+		<annotation cp="🧍🏾‍♂">man | man wat staan | medium-donker velkleur | staan</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">man wat staan: medium-donker velkleur</annotation>
+		<annotation cp="🧍🏿‍♂">donker velkleur | man | man wat staan | staan</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">man wat staan: donker velkleur</annotation>
+		<annotation cp="🧎🏻">kniel | ligte velkleur | persoon wat kniel</annotation>
+		<annotation cp="🧎🏻" type="tts">persoon wat kniel: ligte velkleur</annotation>
+		<annotation cp="🧎🏼">kniel | medium-ligte velkleur | persoon wat kniel</annotation>
+		<annotation cp="🧎🏼" type="tts">persoon wat kniel: medium-ligte velkleur</annotation>
+		<annotation cp="🧎🏽">kniel | medium velkleur | persoon wat kniel</annotation>
+		<annotation cp="🧎🏽" type="tts">persoon wat kniel: medium velkleur</annotation>
+		<annotation cp="🧎🏾">kniel | medium-donker velkleur | persoon wat kniel</annotation>
+		<annotation cp="🧎🏾" type="tts">persoon wat kniel: medium-donker velkleur</annotation>
+		<annotation cp="🧎🏿">donker velkleur | kniel | persoon wat kniel</annotation>
+		<annotation cp="🧎🏿" type="tts">persoon wat kniel: donker velkleur</annotation>
+		<annotation cp="🧎🏻‍♀">kniel | ligte velkleur | vrou | vrou wat kniel</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">vrou wat kniel: ligte velkleur</annotation>
+		<annotation cp="🧎🏼‍♀">kniel | medium-ligte velkleur | vrou | vrou wat kniel</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">vrou wat kniel: medium-ligte velkleur</annotation>
+		<annotation cp="🧎🏽‍♀">kniel | medium velkleur | vrou | vrou wat kniel</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">vrou wat kniel: medium velkleur</annotation>
+		<annotation cp="🧎🏾‍♀">kniel | medium-donker velkleur | vrou | vrou wat kniel</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">vrou wat kniel: medium-donker velkleur</annotation>
+		<annotation cp="🧎🏿‍♀">donker velkleur | kniel | vrou | vrou wat kniel</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">vrou wat kniel: donker velkleur</annotation>
+		<annotation cp="🧎🏻‍♂">kniel | ligte velkleur | man | man wat kniel</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">man wat kniel: ligte velkleur</annotation>
+		<annotation cp="🧎🏼‍♂">kniel | man | man wat kniel | medium-ligte velkleur</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">man wat kniel: medium-ligte velkleur</annotation>
+		<annotation cp="🧎🏽‍♂">kniel | man | man wat kniel | medium velkleur</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">man wat kniel: medium velkleur</annotation>
+		<annotation cp="🧎🏾‍♂">kniel | man | man wat kniel | medium-donker velkleur</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">man wat kniel: medium-donker velkleur</annotation>
+		<annotation cp="🧎🏿‍♂">donker velkleur | kniel | man | man wat kniel</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">man wat kniel: donker velkleur</annotation>
+		<annotation cp="🧏🏻">doof | dowe persoon | hoor | ligte velkleur | oor | toeganklikheid</annotation>
+		<annotation cp="🧏🏻" type="tts">dowe persoon: ligte velkleur</annotation>
+		<annotation cp="🧏🏼">doof | dowe persoon | hoor | medium-ligte velkleur | oor | toeganklikheid</annotation>
+		<annotation cp="🧏🏼" type="tts">dowe persoon: medium-ligte velkleur</annotation>
+		<annotation cp="🧏🏽">doof | dowe persoon | hoor | medium velkleur | oor | toeganklikheid</annotation>
+		<annotation cp="🧏🏽" type="tts">dowe persoon: medium velkleur</annotation>
+		<annotation cp="🧏🏾">doof | dowe persoon | hoor | medium-donker velkleur | oor | toeganklikheid</annotation>
+		<annotation cp="🧏🏾" type="tts">dowe persoon: medium-donker velkleur</annotation>
+		<annotation cp="🧏🏿">donker velkleur | doof | dowe persoon | hoor | oor | toeganklikheid</annotation>
+		<annotation cp="🧏🏿" type="tts">dowe persoon: donker velkleur</annotation>
+		<annotation cp="🧏🏻‍♀">doof | dowe vrou | ligte velkleur | vrou</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">dowe vrou: ligte velkleur</annotation>
+		<annotation cp="🧏🏼‍♀">doof | dowe vrou | medium-ligte velkleur | vrou</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">dowe vrou: medium-ligte velkleur</annotation>
+		<annotation cp="🧏🏽‍♀">doof | dowe vrou | medium velkleur | vrou</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">dowe vrou: medium velkleur</annotation>
+		<annotation cp="🧏🏾‍♀">doof | dowe vrou | medium-donker velkleur | vrou</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">dowe vrou: medium-donker velkleur</annotation>
+		<annotation cp="🧏🏿‍♀">donker velkleur | doof | dowe vrou | vrou</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">dowe vrou: donker velkleur</annotation>
+		<annotation cp="🧏🏻‍♂">doof | dowe man | ligte velkleur | man</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">dowe man: ligte velkleur</annotation>
+		<annotation cp="🧏🏼‍♂">doof | dowe man | man | medium-ligte velkleur</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">dowe man: medium-ligte velkleur</annotation>
+		<annotation cp="🧏🏽‍♂">doof | dowe man | man | medium velkleur</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">dowe man: medium velkleur</annotation>
+		<annotation cp="🧏🏾‍♂">doof | dowe man | man | medium-donker velkleur</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">dowe man: medium-donker velkleur</annotation>
+		<annotation cp="🧏🏿‍♂">donker velkleur | doof | dowe man | man</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">dowe man: donker velkleur</annotation>
 		<annotation cp="👋🏻">hand | liggaam | ligte velkleur | waai | wuif | wuiwende hand</annotation>
 		<annotation cp="👋🏻" type="tts">wuiwende hand: ligte velkleur</annotation>
 		<annotation cp="👋🏼">hand | liggaam | medium-ligte velkleur | waai | wuif | wuiwende hand</annotation>
@@ -473,6 +582,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">man: medium-donker velkleur</annotation>
 		<annotation cp="👨🏿">donker velkleur | man</annotation>
 		<annotation cp="👨🏿" type="tts">man: donker velkleur</annotation>
+		<annotation cp="👨🏻‍🦯">blind | ligte velkleur | man | man met gidsstok | toeganklikheid</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">man met gidsstok: ligte velkleur</annotation>
+		<annotation cp="👨🏼‍🦯">blind | man | man met gidsstok | medium-ligte velkleur | toeganklikheid</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">man met gidsstok: medium-ligte velkleur</annotation>
+		<annotation cp="👨🏽‍🦯">blind | man | man met gidsstok | medium velkleur | toeganklikheid</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">man met gidsstok: medium velkleur</annotation>
+		<annotation cp="👨🏾‍🦯">blind | man | man met gidsstok | medium-donker velkleur | toeganklikheid</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">man met gidsstok: medium-donker velkleur</annotation>
+		<annotation cp="👨🏿‍🦯">blind | donker velkleur | man | man met gidsstok | toeganklikheid</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">man met gidsstok: donker velkleur</annotation>
+		<annotation cp="👨🏻‍🦼">ligte velkleur | man | man in motoraangedrewe rolstoel | rolstoel | toeganklikheid</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">man in motoraangedrewe rolstoel: ligte velkleur</annotation>
+		<annotation cp="👨🏼‍🦼">man | man in motoraangedrewe rolstoel | medium-ligte velkleur | rolstoel | toeganklikheid</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">man in motoraangedrewe rolstoel: medium-ligte velkleur</annotation>
+		<annotation cp="👨🏽‍🦼">man | man in motoraangedrewe rolstoel | medium velkleur | rolstoel | toeganklikheid</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">man in motoraangedrewe rolstoel: medium velkleur</annotation>
+		<annotation cp="👨🏾‍🦼">man | man in motoraangedrewe rolstoel | medium-donker velkleur | rolstoel | toeganklikheid</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">man in motoraangedrewe rolstoel: medium-donker velkleur</annotation>
+		<annotation cp="👨🏿‍🦼">donker velkleur | man | man in motoraangedrewe rolstoel | rolstoel | toeganklikheid</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">man in motoraangedrewe rolstoel: donker velkleur</annotation>
+		<annotation cp="👨🏻‍🦽">ligte velkleur | man | man in handgedrewe rolstoel | rolstoel | toeganklikheid</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">man in handgedrewe rolstoel: ligte velkleur</annotation>
+		<annotation cp="👨🏼‍🦽">man | man in handgedrewe rolstoel | medium-ligte velkleur | rolstoel | toeganklikheid</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">man in handgedrewe rolstoel: medium-ligte velkleur</annotation>
+		<annotation cp="👨🏽‍🦽">man | man in handgedrewe rolstoel | medium velkleur | rolstoel | toeganklikheid</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">man in handgedrewe rolstoel: medium velkleur</annotation>
+		<annotation cp="👨🏾‍🦽">man | man in handgedrewe rolstoel | medium-donker velkleur | rolstoel | toeganklikheid</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">man in handgedrewe rolstoel: medium-donker velkleur</annotation>
+		<annotation cp="👨🏿‍🦽">donker velkleur | man | man in handgedrewe rolstoel | rolstoel | toeganklikheid</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">man in handgedrewe rolstoel: donker velkleur</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">hande vashou | ligte velkleur | man | mans | medium-ligte velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">twee mans wat hande vashou: medium-ligte velkleur en ligte velkleur</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">hande vashou | ligte velkleur | man | mans | medium velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
@@ -541,36 +680,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">man: medium-donker velkleur en bles</annotation>
 		<annotation cp="👨🏿‍🦲">bles | donker velkleur | man</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">man: donker velkleur en bles</annotation>
-		<annotation cp="👨🏻‍🦯">blind | ligte velkleur | man | man met gidsstok | toeganklikheid</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">man met gidsstok: ligte velkleur</annotation>
-		<annotation cp="👨🏼‍🦯">blind | man | man met gidsstok | medium-ligte velkleur | toeganklikheid</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">man met gidsstok: medium-ligte velkleur</annotation>
-		<annotation cp="👨🏽‍🦯">blind | man | man met gidsstok | medium velkleur | toeganklikheid</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">man met gidsstok: medium velkleur</annotation>
-		<annotation cp="👨🏾‍🦯">blind | man | man met gidsstok | medium-donker velkleur | toeganklikheid</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">man met gidsstok: medium-donker velkleur</annotation>
-		<annotation cp="👨🏿‍🦯">blind | donker velkleur | man | man met gidsstok | toeganklikheid</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">man met gidsstok: donker velkleur</annotation>
-		<annotation cp="👨🏻‍🦼">ligte velkleur | man | man in motoraangedrewe rolstoel | rolstoel | toeganklikheid</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">man in motoraangedrewe rolstoel: ligte velkleur</annotation>
-		<annotation cp="👨🏼‍🦼">man | man in motoraangedrewe rolstoel | medium-ligte velkleur | rolstoel | toeganklikheid</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">man in motoraangedrewe rolstoel: medium-ligte velkleur</annotation>
-		<annotation cp="👨🏽‍🦼">man | man in motoraangedrewe rolstoel | medium velkleur | rolstoel | toeganklikheid</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">man in motoraangedrewe rolstoel: medium velkleur</annotation>
-		<annotation cp="👨🏾‍🦼">man | man in motoraangedrewe rolstoel | medium-donker velkleur | rolstoel | toeganklikheid</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">man in motoraangedrewe rolstoel: medium-donker velkleur</annotation>
-		<annotation cp="👨🏿‍🦼">donker velkleur | man | man in motoraangedrewe rolstoel | rolstoel | toeganklikheid</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">man in motoraangedrewe rolstoel: donker velkleur</annotation>
-		<annotation cp="👨🏻‍🦽">ligte velkleur | man | man in handgedrewe rolstoel | rolstoel | toeganklikheid</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">man in handgedrewe rolstoel: ligte velkleur</annotation>
-		<annotation cp="👨🏼‍🦽">man | man in handgedrewe rolstoel | medium-ligte velkleur | rolstoel | toeganklikheid</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">man in handgedrewe rolstoel: medium-ligte velkleur</annotation>
-		<annotation cp="👨🏽‍🦽">man | man in handgedrewe rolstoel | medium velkleur | rolstoel | toeganklikheid</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">man in handgedrewe rolstoel: medium velkleur</annotation>
-		<annotation cp="👨🏾‍🦽">man | man in handgedrewe rolstoel | medium-donker velkleur | rolstoel | toeganklikheid</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">man in handgedrewe rolstoel: medium-donker velkleur</annotation>
-		<annotation cp="👨🏿‍🦽">donker velkleur | man | man in handgedrewe rolstoel | rolstoel | toeganklikheid</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">man in handgedrewe rolstoel: donker velkleur</annotation>
 		<annotation cp="👱🏻‍♂">blond | blonde man | hare | ligte velkleur | man</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">blonde man: ligte velkleur</annotation>
 		<annotation cp="👱🏼‍♂">blond | blonde man | hare | man | medium-ligte velkleur</annotation>
@@ -601,6 +710,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">vrou: medium-donker velkleur</annotation>
 		<annotation cp="👩🏿">donker velkleur | vrou</annotation>
 		<annotation cp="👩🏿" type="tts">vrou: donker velkleur</annotation>
+		<annotation cp="👩🏻‍🦯">blind | ligte velkleur | toeganklikheid | vrou | vrou met gidsstok</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">vrou met gidsstok: ligte velkleur</annotation>
+		<annotation cp="👩🏼‍🦯">blind | medium-ligte velkleur | toeganklikheid | vrou | vrou met gidsstok</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">vrou met gidsstok: medium-ligte velkleur</annotation>
+		<annotation cp="👩🏽‍🦯">blind | medium velkleur | toeganklikheid | vrou | vrou met gidsstok</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">vrou met gidsstok: medium velkleur</annotation>
+		<annotation cp="👩🏾‍🦯">blind | medium-donker velkleur | toeganklikheid | vrou | vrou met gidsstok</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">vrou met gidsstok: medium-donker velkleur</annotation>
+		<annotation cp="👩🏿‍🦯">blind | donker velkleur | toeganklikheid | vrou | vrou met gidsstok</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">vrou met gidsstok: donker velkleur</annotation>
+		<annotation cp="👩🏻‍🦼">ligte velkleur | rolstoel | toeganklikheid | vrou | vrou in motoraangedrewe rolstoel</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">vrou in motoraangedrewe rolstoel: ligte velkleur</annotation>
+		<annotation cp="👩🏼‍🦼">medium-ligte velkleur | rolstoel | toeganklikheid | vrou | vrou in motoraangedrewe rolstoel</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">vrou in motoraangedrewe rolstoel: medium-ligte velkleur</annotation>
+		<annotation cp="👩🏽‍🦼">medium velkleur | rolstoel | toeganklikheid | vrou | vrou in motoraangedrewe rolstoel</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">vrou in motoraangedrewe rolstoel: medium velkleur</annotation>
+		<annotation cp="👩🏾‍🦼">medium-donker velkleur | rolstoel | toeganklikheid | vrou | vrou in motoraangedrewe rolstoel</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">vrou in motoraangedrewe rolstoel: medium-donker velkleur</annotation>
+		<annotation cp="👩🏿‍🦼">donker velkleur | rolstoel | toeganklikheid | vrou | vrou in motoraangedrewe rolstoel</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">vrou in motoraangedrewe rolstoel: donker velkleur</annotation>
+		<annotation cp="👩🏻‍🦽">ligte velkleur | rolstoel | toeganklikheid | vrou | vrou in handgedrewe rolstoel</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">vrou in handgedrewe rolstoel: ligte velkleur</annotation>
+		<annotation cp="👩🏼‍🦽">medium-ligte velkleur | rolstoel | toeganklikheid | vrou | vrou in handgedrewe rolstoel</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">vrou in handgedrewe rolstoel: medium-ligte velkleur</annotation>
+		<annotation cp="👩🏽‍🦽">medium velkleur | rolstoel | toeganklikheid | vrou | vrou in handgedrewe rolstoel</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">vrou in handgedrewe rolstoel: medium velkleur</annotation>
+		<annotation cp="👩🏾‍🦽">medium-donker velkleur | rolstoel | toeganklikheid | vrou | vrou in handgedrewe rolstoel</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">vrou in handgedrewe rolstoel: medium-donker velkleur</annotation>
+		<annotation cp="👩🏿‍🦽">donker velkleur | rolstoel | toeganklikheid | vrou | vrou in handgedrewe rolstoel</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">vrou in handgedrewe rolstoel: donker velkleur</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼">hand | hande vashou | hou | ligte velkleur | man | man en vrou wat hande vashou | medium-ligte velkleur | paartjie | vrou</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">man en vrou wat hande vashou: ligte velkleur en medium-ligte velkleur</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏽">hand | hande vashou | hou | ligte velkleur | man | man en vrou wat hande vashou | medium velkleur | paartjie | vrou</annotation>
@@ -709,36 +848,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">vrou: medium-donker velkleur en bles</annotation>
 		<annotation cp="👩🏿‍🦲">bles | donker velkleur | vrou</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">vrou: donker velkleur en bles</annotation>
-		<annotation cp="👩🏻‍🦯">blind | ligte velkleur | toeganklikheid | vrou | vrou met gidsstok</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">vrou met gidsstok: ligte velkleur</annotation>
-		<annotation cp="👩🏼‍🦯">blind | medium-ligte velkleur | toeganklikheid | vrou | vrou met gidsstok</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">vrou met gidsstok: medium-ligte velkleur</annotation>
-		<annotation cp="👩🏽‍🦯">blind | medium velkleur | toeganklikheid | vrou | vrou met gidsstok</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">vrou met gidsstok: medium velkleur</annotation>
-		<annotation cp="👩🏾‍🦯">blind | medium-donker velkleur | toeganklikheid | vrou | vrou met gidsstok</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">vrou met gidsstok: medium-donker velkleur</annotation>
-		<annotation cp="👩🏿‍🦯">blind | donker velkleur | toeganklikheid | vrou | vrou met gidsstok</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">vrou met gidsstok: donker velkleur</annotation>
-		<annotation cp="👩🏻‍🦼">ligte velkleur | rolstoel | toeganklikheid | vrou | vrou in motoraangedrewe rolstoel</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">vrou in motoraangedrewe rolstoel: ligte velkleur</annotation>
-		<annotation cp="👩🏼‍🦼">medium-ligte velkleur | rolstoel | toeganklikheid | vrou | vrou in motoraangedrewe rolstoel</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">vrou in motoraangedrewe rolstoel: medium-ligte velkleur</annotation>
-		<annotation cp="👩🏽‍🦼">medium velkleur | rolstoel | toeganklikheid | vrou | vrou in motoraangedrewe rolstoel</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">vrou in motoraangedrewe rolstoel: medium velkleur</annotation>
-		<annotation cp="👩🏾‍🦼">medium-donker velkleur | rolstoel | toeganklikheid | vrou | vrou in motoraangedrewe rolstoel</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">vrou in motoraangedrewe rolstoel: medium-donker velkleur</annotation>
-		<annotation cp="👩🏿‍🦼">donker velkleur | rolstoel | toeganklikheid | vrou | vrou in motoraangedrewe rolstoel</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">vrou in motoraangedrewe rolstoel: donker velkleur</annotation>
-		<annotation cp="👩🏻‍🦽">ligte velkleur | rolstoel | toeganklikheid | vrou | vrou in handgedrewe rolstoel</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">vrou in handgedrewe rolstoel: ligte velkleur</annotation>
-		<annotation cp="👩🏼‍🦽">medium-ligte velkleur | rolstoel | toeganklikheid | vrou | vrou in handgedrewe rolstoel</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">vrou in handgedrewe rolstoel: medium-ligte velkleur</annotation>
-		<annotation cp="👩🏽‍🦽">medium velkleur | rolstoel | toeganklikheid | vrou | vrou in handgedrewe rolstoel</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">vrou in handgedrewe rolstoel: medium velkleur</annotation>
-		<annotation cp="👩🏾‍🦽">medium-donker velkleur | rolstoel | toeganklikheid | vrou | vrou in handgedrewe rolstoel</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">vrou in handgedrewe rolstoel: medium-donker velkleur</annotation>
-		<annotation cp="👩🏿‍🦽">donker velkleur | rolstoel | toeganklikheid | vrou | vrou in handgedrewe rolstoel</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">vrou in handgedrewe rolstoel: donker velkleur</annotation>
 		<annotation cp="👱🏻‍♀">blond | blonde vrou | blondine | hare | ligte velkleur | vrou</annotation>
 		<annotation cp="👱🏻‍♀" type="tts">blondine: ligte velkleur</annotation>
 		<annotation cp="👱🏼‍♀">blond | blonde vrou | blondine | hare | medium-ligte velkleur | vrou</annotation>
@@ -3119,115 +3228,5 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="8⃣" type="tts">sleutelbordtoets: 8</annotation>
 		<annotation cp="9⃣">sleutelbordtoets</annotation>
 		<annotation cp="9⃣" type="tts">sleutelbordtoets: 9</annotation>
-		<annotation cp="🤏🏻">klein hoeveelheid | knypende hand | ligte velkleur</annotation>
-		<annotation cp="🤏🏻" type="tts">knypende hand: ligte velkleur</annotation>
-		<annotation cp="🤏🏼">klein hoeveelheid | knypende hand | medium-ligte velkleur</annotation>
-		<annotation cp="🤏🏼" type="tts">knypende hand: medium-ligte velkleur</annotation>
-		<annotation cp="🤏🏽">klein hoeveelheid | knypende hand | medium velkleur</annotation>
-		<annotation cp="🤏🏽" type="tts">knypende hand: medium velkleur</annotation>
-		<annotation cp="🤏🏾">klein hoeveelheid | knypende hand | medium-donker velkleur</annotation>
-		<annotation cp="🤏🏾" type="tts">knypende hand: medium-donker velkleur</annotation>
-		<annotation cp="🤏🏿">donker velkleur | klein hoeveelheid | knypende hand</annotation>
-		<annotation cp="🤏🏿" type="tts">knypende hand: donker velkleur</annotation>
-		<annotation cp="🦻🏻">gehoorprobleme | ligte velkleur | oor met gehoorapparaat | toeganklikheid</annotation>
-		<annotation cp="🦻🏻" type="tts">oor met gehoorapparaat: ligte velkleur</annotation>
-		<annotation cp="🦻🏼">gehoorprobleme | medium-ligte velkleur | oor met gehoorapparaat | toeganklikheid</annotation>
-		<annotation cp="🦻🏼" type="tts">oor met gehoorapparaat: medium-ligte velkleur</annotation>
-		<annotation cp="🦻🏽">gehoorprobleme | medium velkleur | oor met gehoorapparaat | toeganklikheid</annotation>
-		<annotation cp="🦻🏽" type="tts">oor met gehoorapparaat: medium velkleur</annotation>
-		<annotation cp="🦻🏾">gehoorprobleme | medium-donker velkleur | oor met gehoorapparaat | toeganklikheid</annotation>
-		<annotation cp="🦻🏾" type="tts">oor met gehoorapparaat: medium-donker velkleur</annotation>
-		<annotation cp="🦻🏿">donker velkleur | gehoorprobleme | oor met gehoorapparaat | toeganklikheid</annotation>
-		<annotation cp="🦻🏿" type="tts">oor met gehoorapparaat: donker velkleur</annotation>
-		<annotation cp="🧍🏻">ligte velkleur | persoon wat staan | staan</annotation>
-		<annotation cp="🧍🏻" type="tts">persoon wat staan: ligte velkleur</annotation>
-		<annotation cp="🧍🏼">medium-ligte velkleur | persoon wat staan | staan</annotation>
-		<annotation cp="🧍🏼" type="tts">persoon wat staan: medium-ligte velkleur</annotation>
-		<annotation cp="🧍🏽">medium velkleur | persoon wat staan | staan</annotation>
-		<annotation cp="🧍🏽" type="tts">persoon wat staan: medium velkleur</annotation>
-		<annotation cp="🧍🏾">medium-donker velkleur | persoon wat staan | staan</annotation>
-		<annotation cp="🧍🏾" type="tts">persoon wat staan: medium-donker velkleur</annotation>
-		<annotation cp="🧍🏿">donker velkleur | persoon wat staan | staan</annotation>
-		<annotation cp="🧍🏿" type="tts">persoon wat staan: donker velkleur</annotation>
-		<annotation cp="🧍🏻‍♀">ligte velkleur | staan | vrou | vrou wat staan</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">vrou wat staan: ligte velkleur</annotation>
-		<annotation cp="🧍🏼‍♀">medium-ligte velkleur | staan | vrou | vrou wat staan</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">vrou wat staan: medium-ligte velkleur</annotation>
-		<annotation cp="🧍🏽‍♀">medium velkleur | staan | vrou | vrou wat staan</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">vrou wat staan: medium velkleur</annotation>
-		<annotation cp="🧍🏾‍♀">medium-donker velkleur | staan | vrou | vrou wat staan</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">vrou wat staan: medium-donker velkleur</annotation>
-		<annotation cp="🧍🏿‍♀">donker velkleur | staan | vrou | vrou wat staan</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">vrou wat staan: donker velkleur</annotation>
-		<annotation cp="🧍🏻‍♂">ligte velkleur | man | man wat staan | staan</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">man wat staan: ligte velkleur</annotation>
-		<annotation cp="🧍🏼‍♂">man | man wat staan | medium-ligte velkleur | staan</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">man wat staan: medium-ligte velkleur</annotation>
-		<annotation cp="🧍🏽‍♂">man | man wat staan | medium velkleur | staan</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">man wat staan: medium velkleur</annotation>
-		<annotation cp="🧍🏾‍♂">man | man wat staan | medium-donker velkleur | staan</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">man wat staan: medium-donker velkleur</annotation>
-		<annotation cp="🧍🏿‍♂">donker velkleur | man | man wat staan | staan</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">man wat staan: donker velkleur</annotation>
-		<annotation cp="🧎🏻">kniel | ligte velkleur | persoon wat kniel</annotation>
-		<annotation cp="🧎🏻" type="tts">persoon wat kniel: ligte velkleur</annotation>
-		<annotation cp="🧎🏼">kniel | medium-ligte velkleur | persoon wat kniel</annotation>
-		<annotation cp="🧎🏼" type="tts">persoon wat kniel: medium-ligte velkleur</annotation>
-		<annotation cp="🧎🏽">kniel | medium velkleur | persoon wat kniel</annotation>
-		<annotation cp="🧎🏽" type="tts">persoon wat kniel: medium velkleur</annotation>
-		<annotation cp="🧎🏾">kniel | medium-donker velkleur | persoon wat kniel</annotation>
-		<annotation cp="🧎🏾" type="tts">persoon wat kniel: medium-donker velkleur</annotation>
-		<annotation cp="🧎🏿">donker velkleur | kniel | persoon wat kniel</annotation>
-		<annotation cp="🧎🏿" type="tts">persoon wat kniel: donker velkleur</annotation>
-		<annotation cp="🧎🏻‍♀">kniel | ligte velkleur | vrou | vrou wat kniel</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">vrou wat kniel: ligte velkleur</annotation>
-		<annotation cp="🧎🏼‍♀">kniel | medium-ligte velkleur | vrou | vrou wat kniel</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">vrou wat kniel: medium-ligte velkleur</annotation>
-		<annotation cp="🧎🏽‍♀">kniel | medium velkleur | vrou | vrou wat kniel</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">vrou wat kniel: medium velkleur</annotation>
-		<annotation cp="🧎🏾‍♀">kniel | medium-donker velkleur | vrou | vrou wat kniel</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">vrou wat kniel: medium-donker velkleur</annotation>
-		<annotation cp="🧎🏿‍♀">donker velkleur | kniel | vrou | vrou wat kniel</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">vrou wat kniel: donker velkleur</annotation>
-		<annotation cp="🧎🏻‍♂">kniel | ligte velkleur | man | man wat kniel</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">man wat kniel: ligte velkleur</annotation>
-		<annotation cp="🧎🏼‍♂">kniel | man | man wat kniel | medium-ligte velkleur</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">man wat kniel: medium-ligte velkleur</annotation>
-		<annotation cp="🧎🏽‍♂">kniel | man | man wat kniel | medium velkleur</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">man wat kniel: medium velkleur</annotation>
-		<annotation cp="🧎🏾‍♂">kniel | man | man wat kniel | medium-donker velkleur</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">man wat kniel: medium-donker velkleur</annotation>
-		<annotation cp="🧎🏿‍♂">donker velkleur | kniel | man | man wat kniel</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">man wat kniel: donker velkleur</annotation>
-		<annotation cp="🧏🏻">doof | dowe persoon | hoor | ligte velkleur | oor | toeganklikheid</annotation>
-		<annotation cp="🧏🏻" type="tts">dowe persoon: ligte velkleur</annotation>
-		<annotation cp="🧏🏼">doof | dowe persoon | hoor | medium-ligte velkleur | oor | toeganklikheid</annotation>
-		<annotation cp="🧏🏼" type="tts">dowe persoon: medium-ligte velkleur</annotation>
-		<annotation cp="🧏🏽">doof | dowe persoon | hoor | medium velkleur | oor | toeganklikheid</annotation>
-		<annotation cp="🧏🏽" type="tts">dowe persoon: medium velkleur</annotation>
-		<annotation cp="🧏🏾">doof | dowe persoon | hoor | medium-donker velkleur | oor | toeganklikheid</annotation>
-		<annotation cp="🧏🏾" type="tts">dowe persoon: medium-donker velkleur</annotation>
-		<annotation cp="🧏🏿">donker velkleur | doof | dowe persoon | hoor | oor | toeganklikheid</annotation>
-		<annotation cp="🧏🏿" type="tts">dowe persoon: donker velkleur</annotation>
-		<annotation cp="🧏🏻‍♀">doof | dowe vrou | ligte velkleur | vrou</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">dowe vrou: ligte velkleur</annotation>
-		<annotation cp="🧏🏼‍♀">doof | dowe vrou | medium-ligte velkleur | vrou</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">dowe vrou: medium-ligte velkleur</annotation>
-		<annotation cp="🧏🏽‍♀">doof | dowe vrou | medium velkleur | vrou</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">dowe vrou: medium velkleur</annotation>
-		<annotation cp="🧏🏾‍♀">doof | dowe vrou | medium-donker velkleur | vrou</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">dowe vrou: medium-donker velkleur</annotation>
-		<annotation cp="🧏🏿‍♀">donker velkleur | doof | dowe vrou | vrou</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">dowe vrou: donker velkleur</annotation>
-		<annotation cp="🧏🏻‍♂">doof | dowe man | ligte velkleur | man</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">dowe man: ligte velkleur</annotation>
-		<annotation cp="🧏🏼‍♂">doof | dowe man | man | medium-ligte velkleur</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">dowe man: medium-ligte velkleur</annotation>
-		<annotation cp="🧏🏽‍♂">doof | dowe man | man | medium velkleur</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">dowe man: medium velkleur</annotation>
-		<annotation cp="🧏🏾‍♂">doof | dowe man | man | medium-donker velkleur</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">dowe man: medium-donker velkleur</annotation>
-		<annotation cp="🧏🏿‍♂">donker velkleur | doof | dowe man | man</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">dowe man: donker velkleur</annotation>
 	</annotations>
 </ldml>

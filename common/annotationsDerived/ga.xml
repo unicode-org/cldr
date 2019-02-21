@@ -4,15 +4,124 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="ga"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤏🏻">lámh ag pinseáil | píosa beag | ton cnis gheal</annotation>
+		<annotation cp="🤏🏻" type="tts">lámh ag pinseáil: ton cnis gheal</annotation>
+		<annotation cp="🤏🏼">lámh ag pinseáil | píosa beag | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🤏🏼" type="tts">lámh ag pinseáil: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🤏🏽">lámh ag pinseáil | píosa beag | ton cnis mheánach</annotation>
+		<annotation cp="🤏🏽" type="tts">lámh ag pinseáil: ton cnis mheánach</annotation>
+		<annotation cp="🤏🏾">lámh ag pinseáil | píosa beag | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🤏🏾" type="tts">lámh ag pinseáil: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🤏🏿">lámh ag pinseáil | píosa beag | ton cnis dhorcha</annotation>
+		<annotation cp="🤏🏿" type="tts">lámh ag pinseáil: ton cnis dhorcha</annotation>
+		<annotation cp="🦻🏻">cluas le háis éisteachta | deacrachtaí éisteachta | inrochtaineacht | ton cnis gheal</annotation>
+		<annotation cp="🦻🏻" type="tts">cluas le háis éisteachta: ton cnis gheal</annotation>
+		<annotation cp="🦻🏼">cluas le háis éisteachta | deacrachtaí éisteachta | inrochtaineacht | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🦻🏼" type="tts">cluas le háis éisteachta: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🦻🏽">cluas le háis éisteachta | deacrachtaí éisteachta | inrochtaineacht | ton cnis mheánach</annotation>
+		<annotation cp="🦻🏽" type="tts">cluas le háis éisteachta: ton cnis mheánach</annotation>
+		<annotation cp="🦻🏾">cluas le háis éisteachta | deacrachtaí éisteachta | inrochtaineacht | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🦻🏾" type="tts">cluas le háis éisteachta: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🦻🏿">cluas le háis éisteachta | deacrachtaí éisteachta | inrochtaineacht | ton cnis dhorcha</annotation>
+		<annotation cp="🦻🏿" type="tts">cluas le háis éisteachta: ton cnis dhorcha</annotation>
+		<annotation cp="🧍🏻">duine ina sheasamh | seasamh | ton cnis gheal</annotation>
+		<annotation cp="🧍🏻" type="tts">duine ina sheasamh: ton cnis gheal</annotation>
+		<annotation cp="🧍🏼">duine ina sheasamh | seasamh | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧍🏼" type="tts">duine ina sheasamh: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧍🏽">duine ina sheasamh | seasamh | ton cnis mheánach</annotation>
+		<annotation cp="🧍🏽" type="tts">duine ina sheasamh: ton cnis mheánach</annotation>
+		<annotation cp="🧍🏾">duine ina sheasamh | seasamh | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧍🏾" type="tts">duine ina sheasamh: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧍🏿">duine ina sheasamh | seasamh | ton cnis dhorcha</annotation>
+		<annotation cp="🧍🏿" type="tts">duine ina sheasamh: ton cnis dhorcha</annotation>
+		<annotation cp="🧍🏻‍♀">bean | bean ina seasamh | seasamh | ton cnis gheal</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">bean ina seasamh: ton cnis gheal</annotation>
+		<annotation cp="🧍🏼‍♀">bean | bean ina seasamh | seasamh | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">bean ina seasamh: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧍🏽‍♀">bean | bean ina seasamh | seasamh | ton cnis mheánach</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">bean ina seasamh: ton cnis mheánach</annotation>
+		<annotation cp="🧍🏾‍♀">bean | bean ina seasamh | seasamh | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">bean ina seasamh: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧍🏿‍♀">bean | bean ina seasamh | seasamh | ton cnis dhorcha</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">bean ina seasamh: ton cnis dhorcha</annotation>
+		<annotation cp="🧍🏻‍♂">fear | fear ina sheasamh | seasamh | ton cnis gheal</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">fear ina sheasamh: ton cnis gheal</annotation>
+		<annotation cp="🧍🏼‍♂">fear | fear ina sheasamh | seasamh | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">fear ina sheasamh: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧍🏽‍♂">fear | fear ina sheasamh | seasamh | ton cnis mheánach</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">fear ina sheasamh: ton cnis mheánach</annotation>
+		<annotation cp="🧍🏾‍♂">fear | fear ina sheasamh | seasamh | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">fear ina sheasamh: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧍🏿‍♂">fear | fear ina sheasamh | seasamh | ton cnis dhorcha</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">fear ina sheasamh: ton cnis dhorcha</annotation>
+		<annotation cp="🧎🏻">ar do ghlúine | duine ar a ghlúine | ton cnis gheal</annotation>
+		<annotation cp="🧎🏻" type="tts">duine ar a ghlúine: ton cnis gheal</annotation>
+		<annotation cp="🧎🏼">ar do ghlúine | duine ar a ghlúine | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧎🏼" type="tts">duine ar a ghlúine: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧎🏽">ar do ghlúine | duine ar a ghlúine | ton cnis mheánach</annotation>
+		<annotation cp="🧎🏽" type="tts">duine ar a ghlúine: ton cnis mheánach</annotation>
+		<annotation cp="🧎🏾">ar do ghlúine | duine ar a ghlúine | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧎🏾" type="tts">duine ar a ghlúine: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧎🏿">ar do ghlúine | duine ar a ghlúine | ton cnis dhorcha</annotation>
+		<annotation cp="🧎🏿" type="tts">duine ar a ghlúine: ton cnis dhorcha</annotation>
+		<annotation cp="🧎🏻‍♀">ar a glúine | bean | bean ar a glúine | ton cnis gheal</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">bean ar a glúine: ton cnis gheal</annotation>
+		<annotation cp="🧎🏼‍♀">ar a glúine | bean | bean ar a glúine | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">bean ar a glúine: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧎🏽‍♀">ar a glúine | bean | bean ar a glúine | ton cnis mheánach</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">bean ar a glúine: ton cnis mheánach</annotation>
+		<annotation cp="🧎🏾‍♀">ar a glúine | bean | bean ar a glúine | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">bean ar a glúine: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧎🏿‍♀">ar a glúine | bean | bean ar a glúine | ton cnis dhorcha</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">bean ar a glúine: ton cnis dhorcha</annotation>
+		<annotation cp="🧎🏻‍♂">ar a ghlúine | fear | fear ar a ghlúine | ton cnis gheal</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">fear ar a ghlúine: ton cnis gheal</annotation>
+		<annotation cp="🧎🏼‍♂">ar a ghlúine | fear | fear ar a ghlúine | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">fear ar a ghlúine: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧎🏽‍♂">ar a ghlúine | fear | fear ar a ghlúine | ton cnis mheánach</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">fear ar a ghlúine: ton cnis mheánach</annotation>
+		<annotation cp="🧎🏾‍♂">ar a ghlúine | fear | fear ar a ghlúine | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">fear ar a ghlúine: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧎🏿‍♂">ar a ghlúine | fear | fear ar a ghlúine | ton cnis dhorcha</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">fear ar a ghlúine: ton cnis dhorcha</annotation>
+		<annotation cp="🧏🏻">bodhar | cluas | duine dall | éist | inrochtaineacht | ton cnis gheal</annotation>
+		<annotation cp="🧏🏻" type="tts">duine dall: ton cnis gheal</annotation>
+		<annotation cp="🧏🏼">bodhar | cluas | duine dall | éist | inrochtaineacht | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧏🏼" type="tts">duine dall: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧏🏽">bodhar | cluas | duine dall | éist | inrochtaineacht | ton cnis mheánach</annotation>
+		<annotation cp="🧏🏽" type="tts">duine dall: ton cnis mheánach</annotation>
+		<annotation cp="🧏🏾">bodhar | cluas | duine dall | éist | inrochtaineacht | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧏🏾" type="tts">duine dall: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧏🏿">bodhar | cluas | duine dall | éist | inrochtaineacht | ton cnis dhorcha</annotation>
+		<annotation cp="🧏🏿" type="tts">duine dall: ton cnis dhorcha</annotation>
+		<annotation cp="🧏🏻‍♀">bean | bean bhodhar | bodhar | ton cnis gheal</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">bean bhodhar: ton cnis gheal</annotation>
+		<annotation cp="🧏🏼‍♀">bean | bean bhodhar | bodhar | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">bean bhodhar: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧏🏽‍♀">bean | bean bhodhar | bodhar | ton cnis mheánach</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">bean bhodhar: ton cnis mheánach</annotation>
+		<annotation cp="🧏🏾‍♀">bean | bean bhodhar | bodhar | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">bean bhodhar: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧏🏿‍♀">bean | bean bhodhar | bodhar | ton cnis dhorcha</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">bean bhodhar: ton cnis dhorcha</annotation>
+		<annotation cp="🧏🏻‍♂">bodhar | fear | ton cnis gheal</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">fear bodhar: ton cnis gheal</annotation>
+		<annotation cp="🧏🏼‍♂">bodhar | fear | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">fear bodhar: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧏🏽‍♂">bodhar | fear | ton cnis mheánach</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">fear bodhar: ton cnis mheánach</annotation>
+		<annotation cp="🧏🏾‍♂">bodhar | fear | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">fear bodhar: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="🧏🏿‍♂">bodhar | fear | ton cnis dhorcha</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">fear bodhar: ton cnis dhorcha</annotation>
 		<annotation cp="👋🏻">croitheadh | lámh | lámh ag croitheadh | ton cnis gheal</annotation>
 		<annotation cp="👋🏻" type="tts">lámh ag croitheadh: ton cnis gheal</annotation>
 		<annotation cp="👋🏼">croitheadh | lámh | lámh ag croitheadh | ton cnis mheánach-gheal</annotation>
@@ -473,6 +582,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">fear: ton cnis mheánach-dhorcha</annotation>
 		<annotation cp="👨🏿">fear | ton cnis dhorcha</annotation>
 		<annotation cp="👨🏿" type="tts">fear: ton cnis dhorcha</annotation>
+		<annotation cp="👨🏻‍🦯">dall | fear | fear le cána | inrochtaineacht | ton cnis gheal</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">fear le cána: ton cnis gheal</annotation>
+		<annotation cp="👨🏼‍🦯">dall | fear | fear le cána | inrochtaineacht | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">fear le cána: ton cnis mheánach-gheal</annotation>
+		<annotation cp="👨🏽‍🦯">dall | fear | fear le cána | inrochtaineacht | ton cnis mheánach</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">fear le cána: ton cnis mheánach</annotation>
+		<annotation cp="👨🏾‍🦯">dall | fear | fear le cána | inrochtaineacht | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">fear le cána: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="👨🏿‍🦯">dall | fear | fear le cána | inrochtaineacht | ton cnis dhorcha</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">fear le cána: ton cnis dhorcha</annotation>
+		<annotation cp="👨🏻‍🦼">cathaoir rothaí | fear | fear i cathaoir rothaí innealta | inrochtaineacht | ton cnis gheal</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">fear i cathaoir rothaí innealta: ton cnis gheal</annotation>
+		<annotation cp="👨🏼‍🦼">cathaoir rothaí | fear | fear i cathaoir rothaí innealta | inrochtaineacht | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">fear i cathaoir rothaí innealta: ton cnis mheánach-gheal</annotation>
+		<annotation cp="👨🏽‍🦼">cathaoir rothaí | fear | fear i cathaoir rothaí innealta | inrochtaineacht | ton cnis mheánach</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">fear i cathaoir rothaí innealta: ton cnis mheánach</annotation>
+		<annotation cp="👨🏾‍🦼">cathaoir rothaí | fear | fear i cathaoir rothaí innealta | inrochtaineacht | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">fear i cathaoir rothaí innealta: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="👨🏿‍🦼">cathaoir rothaí | fear | fear i cathaoir rothaí innealta | inrochtaineacht | ton cnis dhorcha</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">fear i cathaoir rothaí innealta: ton cnis dhorcha</annotation>
+		<annotation cp="👨🏻‍🦽">cathaoir rothaí | fear | fear i gcathaoir rothaí láimhe | inrochtaineacht | ton cnis gheal</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">fear i gcathaoir rothaí láimhe: ton cnis gheal</annotation>
+		<annotation cp="👨🏼‍🦽">cathaoir rothaí | fear | fear i gcathaoir rothaí láimhe | inrochtaineacht | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">fear i gcathaoir rothaí láimhe: ton cnis mheánach-gheal</annotation>
+		<annotation cp="👨🏽‍🦽">cathaoir rothaí | fear | fear i gcathaoir rothaí láimhe | inrochtaineacht | ton cnis mheánach</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">fear i gcathaoir rothaí láimhe: ton cnis mheánach</annotation>
+		<annotation cp="👨🏾‍🦽">cathaoir rothaí | fear | fear i gcathaoir rothaí láimhe | inrochtaineacht | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">fear i gcathaoir rothaí láimhe: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="👨🏿‍🦽">cathaoir rothaí | fear | fear i gcathaoir rothaí láimhe | inrochtaineacht | ton cnis dhorcha</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">fear i gcathaoir rothaí láimhe: ton cnis dhorcha</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis gheal | ton cnis mheánach-gheal</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">beirt fhear le chéile: ton cnis mheánach-gheal, ton cnis gheal</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis gheal | ton cnis mheánach</annotation>
@@ -541,36 +680,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">fear: ton cnis mheánach-dhorcha, maol</annotation>
 		<annotation cp="👨🏿‍🦲">fear | maol | ton cnis dhorcha</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">fear: ton cnis dhorcha, maol</annotation>
-		<annotation cp="👨🏻‍🦯">dall | fear | fear le cána | inrochtaineacht | ton cnis gheal</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">fear le cána: ton cnis gheal</annotation>
-		<annotation cp="👨🏼‍🦯">dall | fear | fear le cána | inrochtaineacht | ton cnis mheánach-gheal</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">fear le cána: ton cnis mheánach-gheal</annotation>
-		<annotation cp="👨🏽‍🦯">dall | fear | fear le cána | inrochtaineacht | ton cnis mheánach</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">fear le cána: ton cnis mheánach</annotation>
-		<annotation cp="👨🏾‍🦯">dall | fear | fear le cána | inrochtaineacht | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">fear le cána: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="👨🏿‍🦯">dall | fear | fear le cána | inrochtaineacht | ton cnis dhorcha</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">fear le cána: ton cnis dhorcha</annotation>
-		<annotation cp="👨🏻‍🦼">cathaoir rothaí | fear | fear i cathaoir rothaí innealta | inrochtaineacht | ton cnis gheal</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">fear i cathaoir rothaí innealta: ton cnis gheal</annotation>
-		<annotation cp="👨🏼‍🦼">cathaoir rothaí | fear | fear i cathaoir rothaí innealta | inrochtaineacht | ton cnis mheánach-gheal</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">fear i cathaoir rothaí innealta: ton cnis mheánach-gheal</annotation>
-		<annotation cp="👨🏽‍🦼">cathaoir rothaí | fear | fear i cathaoir rothaí innealta | inrochtaineacht | ton cnis mheánach</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">fear i cathaoir rothaí innealta: ton cnis mheánach</annotation>
-		<annotation cp="👨🏾‍🦼">cathaoir rothaí | fear | fear i cathaoir rothaí innealta | inrochtaineacht | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">fear i cathaoir rothaí innealta: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="👨🏿‍🦼">cathaoir rothaí | fear | fear i cathaoir rothaí innealta | inrochtaineacht | ton cnis dhorcha</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">fear i cathaoir rothaí innealta: ton cnis dhorcha</annotation>
-		<annotation cp="👨🏻‍🦽">cathaoir rothaí | fear | fear i gcathaoir rothaí láimhe | inrochtaineacht | ton cnis gheal</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">fear i gcathaoir rothaí láimhe: ton cnis gheal</annotation>
-		<annotation cp="👨🏼‍🦽">cathaoir rothaí | fear | fear i gcathaoir rothaí láimhe | inrochtaineacht | ton cnis mheánach-gheal</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">fear i gcathaoir rothaí láimhe: ton cnis mheánach-gheal</annotation>
-		<annotation cp="👨🏽‍🦽">cathaoir rothaí | fear | fear i gcathaoir rothaí láimhe | inrochtaineacht | ton cnis mheánach</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">fear i gcathaoir rothaí láimhe: ton cnis mheánach</annotation>
-		<annotation cp="👨🏾‍🦽">cathaoir rothaí | fear | fear i gcathaoir rothaí láimhe | inrochtaineacht | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">fear i gcathaoir rothaí láimhe: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="👨🏿‍🦽">cathaoir rothaí | fear | fear i gcathaoir rothaí láimhe | inrochtaineacht | ton cnis dhorcha</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">fear i gcathaoir rothaí láimhe: ton cnis dhorcha</annotation>
 		<annotation cp="👱🏻‍♂">fear | fear: gruaig fhionn | fearr le gruaig fhionn | fionn | gruaig | gruaig fhionn | ton cnis gheal</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">fear: ton cnis gheal, gruaig fhionn</annotation>
 		<annotation cp="👱🏼‍♂">fear | fear: gruaig fhionn | fearr le gruaig fhionn | fionn | gruaig | gruaig fhionn | ton cnis mheánach-gheal</annotation>
@@ -601,6 +710,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">bean: ton cnis mheánach-dhorcha</annotation>
 		<annotation cp="👩🏿">bean | ton cnis dhorcha</annotation>
 		<annotation cp="👩🏿" type="tts">bean: ton cnis dhorcha</annotation>
+		<annotation cp="👩🏻‍🦯">bean | bean le cána | dall | inrochtaineacht | ton cnis gheal</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">bean le cána: ton cnis gheal</annotation>
+		<annotation cp="👩🏼‍🦯">bean | bean le cána | dall | inrochtaineacht | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">bean le cána: ton cnis mheánach-gheal</annotation>
+		<annotation cp="👩🏽‍🦯">bean | bean le cána | dall | inrochtaineacht | ton cnis mheánach</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">bean le cána: ton cnis mheánach</annotation>
+		<annotation cp="👩🏾‍🦯">bean | bean le cána | dall | inrochtaineacht | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">bean le cána: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="👩🏿‍🦯">bean | bean le cána | dall | inrochtaineacht | ton cnis dhorcha</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">bean le cána: ton cnis dhorcha</annotation>
+		<annotation cp="👩🏻‍🦼">bean | bean i gcathaoir rothaí innealta | cathaoir rothaí | inrochtaineacht | ton cnis gheal</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">bean i gcathaoir rothaí innealta: ton cnis gheal</annotation>
+		<annotation cp="👩🏼‍🦼">bean | bean i gcathaoir rothaí innealta | cathaoir rothaí | inrochtaineacht | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">bean i gcathaoir rothaí innealta: ton cnis mheánach-gheal</annotation>
+		<annotation cp="👩🏽‍🦼">bean | bean i gcathaoir rothaí innealta | cathaoir rothaí | inrochtaineacht | ton cnis mheánach</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">bean i gcathaoir rothaí innealta: ton cnis mheánach</annotation>
+		<annotation cp="👩🏾‍🦼">bean | bean i gcathaoir rothaí innealta | cathaoir rothaí | inrochtaineacht | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">bean i gcathaoir rothaí innealta: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="👩🏿‍🦼">bean | bean i gcathaoir rothaí innealta | cathaoir rothaí | inrochtaineacht | ton cnis dhorcha</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">bean i gcathaoir rothaí innealta: ton cnis dhorcha</annotation>
+		<annotation cp="👩🏻‍🦽">bean | bean i gcathaoir rothaí láimhe | cathaoir rothaí | inrochtaineacht | ton cnis gheal</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">bean i gcathaoir rothaí láimhe: ton cnis gheal</annotation>
+		<annotation cp="👩🏼‍🦽">bean | bean i gcathaoir rothaí láimhe | cathaoir rothaí | inrochtaineacht | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">bean i gcathaoir rothaí láimhe: ton cnis mheánach-gheal</annotation>
+		<annotation cp="👩🏽‍🦽">bean | bean i gcathaoir rothaí láimhe | cathaoir rothaí | inrochtaineacht | ton cnis mheánach</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">bean i gcathaoir rothaí láimhe: ton cnis mheánach</annotation>
+		<annotation cp="👩🏾‍🦽">bean | bean i gcathaoir rothaí láimhe | cathaoir rothaí | inrochtaineacht | ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">bean i gcathaoir rothaí láimhe: ton cnis mheánach-dhorcha</annotation>
+		<annotation cp="👩🏿‍🦽">bean | bean i gcathaoir rothaí láimhe | cathaoir rothaí | inrochtaineacht | ton cnis dhorcha</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">bean i gcathaoir rothaí láimhe: ton cnis dhorcha</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼">bean | fear | fear agus bean | fear agus bean le chéile | lámha le chéile | ton cnis gheal | ton cnis mheánach-gheal</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">fear agus bean le chéile: ton cnis gheal, ton cnis mheánach-gheal</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏽">bean | fear | fear agus bean | fear agus bean le chéile | lámha le chéile | ton cnis gheal | ton cnis mheánach</annotation>
@@ -709,36 +848,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">bean: ton cnis mheánach-dhorcha, maol</annotation>
 		<annotation cp="👩🏿‍🦲">bean | maol | ton cnis dhorcha</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">bean: ton cnis dhorcha, maol</annotation>
-		<annotation cp="👩🏻‍🦯">bean | bean le cána | dall | inrochtaineacht | ton cnis gheal</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">bean le cána: ton cnis gheal</annotation>
-		<annotation cp="👩🏼‍🦯">bean | bean le cána | dall | inrochtaineacht | ton cnis mheánach-gheal</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">bean le cána: ton cnis mheánach-gheal</annotation>
-		<annotation cp="👩🏽‍🦯">bean | bean le cána | dall | inrochtaineacht | ton cnis mheánach</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">bean le cána: ton cnis mheánach</annotation>
-		<annotation cp="👩🏾‍🦯">bean | bean le cána | dall | inrochtaineacht | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">bean le cána: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="👩🏿‍🦯">bean | bean le cána | dall | inrochtaineacht | ton cnis dhorcha</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">bean le cána: ton cnis dhorcha</annotation>
-		<annotation cp="👩🏻‍🦼">bean | bean i gcathaoir rothaí innealta | cathaoir rothaí | inrochtaineacht | ton cnis gheal</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">bean i gcathaoir rothaí innealta: ton cnis gheal</annotation>
-		<annotation cp="👩🏼‍🦼">bean | bean i gcathaoir rothaí innealta | cathaoir rothaí | inrochtaineacht | ton cnis mheánach-gheal</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">bean i gcathaoir rothaí innealta: ton cnis mheánach-gheal</annotation>
-		<annotation cp="👩🏽‍🦼">bean | bean i gcathaoir rothaí innealta | cathaoir rothaí | inrochtaineacht | ton cnis mheánach</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">bean i gcathaoir rothaí innealta: ton cnis mheánach</annotation>
-		<annotation cp="👩🏾‍🦼">bean | bean i gcathaoir rothaí innealta | cathaoir rothaí | inrochtaineacht | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">bean i gcathaoir rothaí innealta: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="👩🏿‍🦼">bean | bean i gcathaoir rothaí innealta | cathaoir rothaí | inrochtaineacht | ton cnis dhorcha</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">bean i gcathaoir rothaí innealta: ton cnis dhorcha</annotation>
-		<annotation cp="👩🏻‍🦽">bean | bean i gcathaoir rothaí láimhe | cathaoir rothaí | inrochtaineacht | ton cnis gheal</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">bean i gcathaoir rothaí láimhe: ton cnis gheal</annotation>
-		<annotation cp="👩🏼‍🦽">bean | bean i gcathaoir rothaí láimhe | cathaoir rothaí | inrochtaineacht | ton cnis mheánach-gheal</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">bean i gcathaoir rothaí láimhe: ton cnis mheánach-gheal</annotation>
-		<annotation cp="👩🏽‍🦽">bean | bean i gcathaoir rothaí láimhe | cathaoir rothaí | inrochtaineacht | ton cnis mheánach</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">bean i gcathaoir rothaí láimhe: ton cnis mheánach</annotation>
-		<annotation cp="👩🏾‍🦽">bean | bean i gcathaoir rothaí láimhe | cathaoir rothaí | inrochtaineacht | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">bean i gcathaoir rothaí láimhe: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="👩🏿‍🦽">bean | bean i gcathaoir rothaí láimhe | cathaoir rothaí | inrochtaineacht | ton cnis dhorcha</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">bean i gcathaoir rothaí láimhe: ton cnis dhorcha</annotation>
 		<annotation cp="👱🏻‍♀">bean | bean le gruaig fhionn | bean: gruaig fhionn | duine | gruaig fhionn | ton cnis gheal</annotation>
 		<annotation cp="👱🏻‍♀" type="tts">bean: ton cnis gheal, gruaig fhionn</annotation>
 		<annotation cp="👱🏼‍♀">bean | bean le gruaig fhionn | bean: gruaig fhionn | duine | gruaig fhionn | ton cnis mheánach-gheal</annotation>
@@ -3119,115 +3228,5 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="8⃣" type="tts">caipín eochrach: 8</annotation>
 		<annotation cp="9⃣">caipín eochrach</annotation>
 		<annotation cp="9⃣" type="tts">caipín eochrach: 9</annotation>
-		<annotation cp="🤏🏻">lámh ag pinseáil | píosa beag | ton cnis gheal</annotation>
-		<annotation cp="🤏🏻" type="tts">lámh ag pinseáil: ton cnis gheal</annotation>
-		<annotation cp="🤏🏼">lámh ag pinseáil | píosa beag | ton cnis mheánach-gheal</annotation>
-		<annotation cp="🤏🏼" type="tts">lámh ag pinseáil: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🤏🏽">lámh ag pinseáil | píosa beag | ton cnis mheánach</annotation>
-		<annotation cp="🤏🏽" type="tts">lámh ag pinseáil: ton cnis mheánach</annotation>
-		<annotation cp="🤏🏾">lámh ag pinseáil | píosa beag | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🤏🏾" type="tts">lámh ag pinseáil: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🤏🏿">lámh ag pinseáil | píosa beag | ton cnis dhorcha</annotation>
-		<annotation cp="🤏🏿" type="tts">lámh ag pinseáil: ton cnis dhorcha</annotation>
-		<annotation cp="🦻🏻">cluas le háis éisteachta | deacrachtaí éisteachta | inrochtaineacht | ton cnis gheal</annotation>
-		<annotation cp="🦻🏻" type="tts">cluas le háis éisteachta: ton cnis gheal</annotation>
-		<annotation cp="🦻🏼">cluas le háis éisteachta | deacrachtaí éisteachta | inrochtaineacht | ton cnis mheánach-gheal</annotation>
-		<annotation cp="🦻🏼" type="tts">cluas le háis éisteachta: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🦻🏽">cluas le háis éisteachta | deacrachtaí éisteachta | inrochtaineacht | ton cnis mheánach</annotation>
-		<annotation cp="🦻🏽" type="tts">cluas le háis éisteachta: ton cnis mheánach</annotation>
-		<annotation cp="🦻🏾">cluas le háis éisteachta | deacrachtaí éisteachta | inrochtaineacht | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🦻🏾" type="tts">cluas le háis éisteachta: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🦻🏿">cluas le háis éisteachta | deacrachtaí éisteachta | inrochtaineacht | ton cnis dhorcha</annotation>
-		<annotation cp="🦻🏿" type="tts">cluas le háis éisteachta: ton cnis dhorcha</annotation>
-		<annotation cp="🧍🏻">duine ina sheasamh | seasamh | ton cnis gheal</annotation>
-		<annotation cp="🧍🏻" type="tts">duine ina sheasamh: ton cnis gheal</annotation>
-		<annotation cp="🧍🏼">duine ina sheasamh | seasamh | ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧍🏼" type="tts">duine ina sheasamh: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧍🏽">duine ina sheasamh | seasamh | ton cnis mheánach</annotation>
-		<annotation cp="🧍🏽" type="tts">duine ina sheasamh: ton cnis mheánach</annotation>
-		<annotation cp="🧍🏾">duine ina sheasamh | seasamh | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧍🏾" type="tts">duine ina sheasamh: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧍🏿">duine ina sheasamh | seasamh | ton cnis dhorcha</annotation>
-		<annotation cp="🧍🏿" type="tts">duine ina sheasamh: ton cnis dhorcha</annotation>
-		<annotation cp="🧍🏻‍♀">bean | bean ina seasamh | seasamh | ton cnis gheal</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">bean ina seasamh: ton cnis gheal</annotation>
-		<annotation cp="🧍🏼‍♀">bean | bean ina seasamh | seasamh | ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">bean ina seasamh: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧍🏽‍♀">bean | bean ina seasamh | seasamh | ton cnis mheánach</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">bean ina seasamh: ton cnis mheánach</annotation>
-		<annotation cp="🧍🏾‍♀">bean | bean ina seasamh | seasamh | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">bean ina seasamh: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧍🏿‍♀">bean | bean ina seasamh | seasamh | ton cnis dhorcha</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">bean ina seasamh: ton cnis dhorcha</annotation>
-		<annotation cp="🧍🏻‍♂">fear | fear ina sheasamh | seasamh | ton cnis gheal</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">fear ina sheasamh: ton cnis gheal</annotation>
-		<annotation cp="🧍🏼‍♂">fear | fear ina sheasamh | seasamh | ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">fear ina sheasamh: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧍🏽‍♂">fear | fear ina sheasamh | seasamh | ton cnis mheánach</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">fear ina sheasamh: ton cnis mheánach</annotation>
-		<annotation cp="🧍🏾‍♂">fear | fear ina sheasamh | seasamh | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">fear ina sheasamh: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧍🏿‍♂">fear | fear ina sheasamh | seasamh | ton cnis dhorcha</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">fear ina sheasamh: ton cnis dhorcha</annotation>
-		<annotation cp="🧎🏻">ar do ghlúine | duine ar a ghlúine | ton cnis gheal</annotation>
-		<annotation cp="🧎🏻" type="tts">duine ar a ghlúine: ton cnis gheal</annotation>
-		<annotation cp="🧎🏼">ar do ghlúine | duine ar a ghlúine | ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧎🏼" type="tts">duine ar a ghlúine: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧎🏽">ar do ghlúine | duine ar a ghlúine | ton cnis mheánach</annotation>
-		<annotation cp="🧎🏽" type="tts">duine ar a ghlúine: ton cnis mheánach</annotation>
-		<annotation cp="🧎🏾">ar do ghlúine | duine ar a ghlúine | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧎🏾" type="tts">duine ar a ghlúine: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧎🏿">ar do ghlúine | duine ar a ghlúine | ton cnis dhorcha</annotation>
-		<annotation cp="🧎🏿" type="tts">duine ar a ghlúine: ton cnis dhorcha</annotation>
-		<annotation cp="🧎🏻‍♀">ar a glúine | bean | bean ar a glúine | ton cnis gheal</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">bean ar a glúine: ton cnis gheal</annotation>
-		<annotation cp="🧎🏼‍♀">ar a glúine | bean | bean ar a glúine | ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">bean ar a glúine: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧎🏽‍♀">ar a glúine | bean | bean ar a glúine | ton cnis mheánach</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">bean ar a glúine: ton cnis mheánach</annotation>
-		<annotation cp="🧎🏾‍♀">ar a glúine | bean | bean ar a glúine | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">bean ar a glúine: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧎🏿‍♀">ar a glúine | bean | bean ar a glúine | ton cnis dhorcha</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">bean ar a glúine: ton cnis dhorcha</annotation>
-		<annotation cp="🧎🏻‍♂">ar a ghlúine | fear | fear ar a ghlúine | ton cnis gheal</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">fear ar a ghlúine: ton cnis gheal</annotation>
-		<annotation cp="🧎🏼‍♂">ar a ghlúine | fear | fear ar a ghlúine | ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">fear ar a ghlúine: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧎🏽‍♂">ar a ghlúine | fear | fear ar a ghlúine | ton cnis mheánach</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">fear ar a ghlúine: ton cnis mheánach</annotation>
-		<annotation cp="🧎🏾‍♂">ar a ghlúine | fear | fear ar a ghlúine | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">fear ar a ghlúine: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧎🏿‍♂">ar a ghlúine | fear | fear ar a ghlúine | ton cnis dhorcha</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">fear ar a ghlúine: ton cnis dhorcha</annotation>
-		<annotation cp="🧏🏻">bodhar | cluas | duine dall | éist | inrochtaineacht | ton cnis gheal</annotation>
-		<annotation cp="🧏🏻" type="tts">duine dall: ton cnis gheal</annotation>
-		<annotation cp="🧏🏼">bodhar | cluas | duine dall | éist | inrochtaineacht | ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧏🏼" type="tts">duine dall: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧏🏽">bodhar | cluas | duine dall | éist | inrochtaineacht | ton cnis mheánach</annotation>
-		<annotation cp="🧏🏽" type="tts">duine dall: ton cnis mheánach</annotation>
-		<annotation cp="🧏🏾">bodhar | cluas | duine dall | éist | inrochtaineacht | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧏🏾" type="tts">duine dall: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧏🏿">bodhar | cluas | duine dall | éist | inrochtaineacht | ton cnis dhorcha</annotation>
-		<annotation cp="🧏🏿" type="tts">duine dall: ton cnis dhorcha</annotation>
-		<annotation cp="🧏🏻‍♀">bean | bean bhodhar | bodhar | ton cnis gheal</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">bean bhodhar: ton cnis gheal</annotation>
-		<annotation cp="🧏🏼‍♀">bean | bean bhodhar | bodhar | ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">bean bhodhar: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧏🏽‍♀">bean | bean bhodhar | bodhar | ton cnis mheánach</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">bean bhodhar: ton cnis mheánach</annotation>
-		<annotation cp="🧏🏾‍♀">bean | bean bhodhar | bodhar | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">bean bhodhar: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧏🏿‍♀">bean | bean bhodhar | bodhar | ton cnis dhorcha</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">bean bhodhar: ton cnis dhorcha</annotation>
-		<annotation cp="🧏🏻‍♂">bodhar | fear | ton cnis gheal</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">fear bodhar: ton cnis gheal</annotation>
-		<annotation cp="🧏🏼‍♂">bodhar | fear | ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">fear bodhar: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧏🏽‍♂">bodhar | fear | ton cnis mheánach</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">fear bodhar: ton cnis mheánach</annotation>
-		<annotation cp="🧏🏾‍♂">bodhar | fear | ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">fear bodhar: ton cnis mheánach-dhorcha</annotation>
-		<annotation cp="🧏🏿‍♂">bodhar | fear | ton cnis dhorcha</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">fear bodhar: ton cnis dhorcha</annotation>
 	</annotations>
 </ldml>

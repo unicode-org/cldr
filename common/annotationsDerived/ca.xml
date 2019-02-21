@@ -4,15 +4,124 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="ca"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤏🏻">mà que pessiga | pell molt clara | quantitat petita</annotation>
+		<annotation cp="🤏🏻" type="tts">mà que pessiga: pell molt clara</annotation>
+		<annotation cp="🤏🏼">mà que pessiga | pell bastant clara | quantitat petita</annotation>
+		<annotation cp="🤏🏼" type="tts">mà que pessiga: pell bastant clara</annotation>
+		<annotation cp="🤏🏽">mà que pessiga | pell morena | quantitat petita</annotation>
+		<annotation cp="🤏🏽" type="tts">mà que pessiga: pell morena</annotation>
+		<annotation cp="🤏🏾">mà que pessiga | pell fosca | quantitat petita</annotation>
+		<annotation cp="🤏🏾" type="tts">mà que pessiga: pell fosca</annotation>
+		<annotation cp="🤏🏿">mà que pessiga | pell molt fosca | quantitat petita</annotation>
+		<annotation cp="🤏🏿" type="tts">mà que pessiga: pell molt fosca</annotation>
+		<annotation cp="🦻🏻">accessibilitat | orella amb audiòfon | pell molt clara | problema d’audició</annotation>
+		<annotation cp="🦻🏻" type="tts">orella amb audiòfon: pell molt clara</annotation>
+		<annotation cp="🦻🏼">accessibilitat | orella amb audiòfon | pell bastant clara | problema d’audició</annotation>
+		<annotation cp="🦻🏼" type="tts">orella amb audiòfon: pell bastant clara</annotation>
+		<annotation cp="🦻🏽">accessibilitat | orella amb audiòfon | pell morena | problema d’audició</annotation>
+		<annotation cp="🦻🏽" type="tts">orella amb audiòfon: pell morena</annotation>
+		<annotation cp="🦻🏾">accessibilitat | orella amb audiòfon | pell fosca | problema d’audició</annotation>
+		<annotation cp="🦻🏾" type="tts">orella amb audiòfon: pell fosca</annotation>
+		<annotation cp="🦻🏿">accessibilitat | orella amb audiòfon | pell molt fosca | problema d’audició</annotation>
+		<annotation cp="🦻🏿" type="tts">orella amb audiòfon: pell molt fosca</annotation>
+		<annotation cp="🧍🏻">dempeus | dret | dreta | pell molt clara | persona dreta</annotation>
+		<annotation cp="🧍🏻" type="tts">persona dreta: pell molt clara</annotation>
+		<annotation cp="🧍🏼">dempeus | dret | dreta | pell bastant clara | persona dreta</annotation>
+		<annotation cp="🧍🏼" type="tts">persona dreta: pell bastant clara</annotation>
+		<annotation cp="🧍🏽">dempeus | dret | dreta | pell morena | persona dreta</annotation>
+		<annotation cp="🧍🏽" type="tts">persona dreta: pell morena</annotation>
+		<annotation cp="🧍🏾">dempeus | dret | dreta | pell fosca | persona dreta</annotation>
+		<annotation cp="🧍🏾" type="tts">persona dreta: pell fosca</annotation>
+		<annotation cp="🧍🏿">dempeus | dret | dreta | pell molt fosca | persona dreta</annotation>
+		<annotation cp="🧍🏿" type="tts">persona dreta: pell molt fosca</annotation>
+		<annotation cp="🧍🏻‍♀">dempeus | dona | dreta | pell molt clara</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">dona dreta: pell molt clara</annotation>
+		<annotation cp="🧍🏼‍♀">dempeus | dona | dreta | pell bastant clara</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">dona dreta: pell bastant clara</annotation>
+		<annotation cp="🧍🏽‍♀">dempeus | dona | dreta | pell morena</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">dona dreta: pell morena</annotation>
+		<annotation cp="🧍🏾‍♀">dempeus | dona | dreta | pell fosca</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">dona dreta: pell fosca</annotation>
+		<annotation cp="🧍🏿‍♀">dempeus | dona | dreta | pell molt fosca</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">dona dreta: pell molt fosca</annotation>
+		<annotation cp="🧍🏻‍♂">dempeus | dret | home | pell molt clara</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">home dret: pell molt clara</annotation>
+		<annotation cp="🧍🏼‍♂">dempeus | dret | home | pell bastant clara</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">home dret: pell bastant clara</annotation>
+		<annotation cp="🧍🏽‍♂">dempeus | dret | home | pell morena</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">home dret: pell morena</annotation>
+		<annotation cp="🧍🏾‍♂">dempeus | dret | home | pell fosca</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">home dret: pell fosca</annotation>
+		<annotation cp="🧍🏿‍♂">dempeus | dret | home | pell molt fosca</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">home dret: pell molt fosca</annotation>
+		<annotation cp="🧎🏻">agenollada | agenollat | de genolls | genoll | pell molt clara | persona agenollada</annotation>
+		<annotation cp="🧎🏻" type="tts">persona agenollada: pell molt clara</annotation>
+		<annotation cp="🧎🏼">agenollada | agenollat | de genolls | genoll | pell bastant clara | persona agenollada</annotation>
+		<annotation cp="🧎🏼" type="tts">persona agenollada: pell bastant clara</annotation>
+		<annotation cp="🧎🏽">agenollada | agenollat | de genolls | genoll | pell morena | persona agenollada</annotation>
+		<annotation cp="🧎🏽" type="tts">persona agenollada: pell morena</annotation>
+		<annotation cp="🧎🏾">agenollada | agenollat | de genolls | genoll | pell fosca | persona agenollada</annotation>
+		<annotation cp="🧎🏾" type="tts">persona agenollada: pell fosca</annotation>
+		<annotation cp="🧎🏿">agenollada | agenollat | de genolls | genoll | pell molt fosca | persona agenollada</annotation>
+		<annotation cp="🧎🏿" type="tts">persona agenollada: pell molt fosca</annotation>
+		<annotation cp="🧎🏻‍♀">agenollada | de genolls | dona | pell molt clara</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">dona agenollada: pell molt clara</annotation>
+		<annotation cp="🧎🏼‍♀">agenollada | de genolls | dona | pell bastant clara</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">dona agenollada: pell bastant clara</annotation>
+		<annotation cp="🧎🏽‍♀">agenollada | de genolls | dona | pell morena</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">dona agenollada: pell morena</annotation>
+		<annotation cp="🧎🏾‍♀">agenollada | de genolls | dona | pell fosca</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">dona agenollada: pell fosca</annotation>
+		<annotation cp="🧎🏿‍♀">agenollada | de genolls | dona | pell molt fosca</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">dona agenollada: pell molt fosca</annotation>
+		<annotation cp="🧎🏻‍♂">agenollat | de genolls | home | pell molt clara</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">home agenollat: pell molt clara</annotation>
+		<annotation cp="🧎🏼‍♂">agenollat | de genolls | home | pell bastant clara</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">home agenollat: pell bastant clara</annotation>
+		<annotation cp="🧎🏽‍♂">agenollat | de genolls | home | pell morena</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">home agenollat: pell morena</annotation>
+		<annotation cp="🧎🏾‍♂">agenollat | de genolls | home | pell fosca</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">home agenollat: pell fosca</annotation>
+		<annotation cp="🧎🏿‍♂">agenollat | de genolls | home | pell molt fosca</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">home agenollat: pell molt fosca</annotation>
+		<annotation cp="🧏🏻">accessibilitat | oïda | pell molt clara | persona sorda | sentir | sord</annotation>
+		<annotation cp="🧏🏻" type="tts">persona sorda: pell molt clara</annotation>
+		<annotation cp="🧏🏼">accessibilitat | oïda | pell bastant clara | persona sorda | sentir | sord</annotation>
+		<annotation cp="🧏🏼" type="tts">persona sorda: pell bastant clara</annotation>
+		<annotation cp="🧏🏽">accessibilitat | oïda | pell morena | persona sorda | sentir | sord</annotation>
+		<annotation cp="🧏🏽" type="tts">persona sorda: pell morena</annotation>
+		<annotation cp="🧏🏾">accessibilitat | oïda | pell fosca | persona sorda | sentir | sord</annotation>
+		<annotation cp="🧏🏾" type="tts">persona sorda: pell fosca</annotation>
+		<annotation cp="🧏🏿">accessibilitat | oïda | pell molt fosca | persona sorda | sentir | sord</annotation>
+		<annotation cp="🧏🏿" type="tts">persona sorda: pell molt fosca</annotation>
+		<annotation cp="🧏🏻‍♀">dona | pell molt clara | sorda</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">dona sorda: pell molt clara</annotation>
+		<annotation cp="🧏🏼‍♀">dona | pell bastant clara | sorda</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">dona sorda: pell bastant clara</annotation>
+		<annotation cp="🧏🏽‍♀">dona | pell morena | sorda</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">dona sorda: pell morena</annotation>
+		<annotation cp="🧏🏾‍♀">dona | pell fosca | sorda</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">dona sorda: pell fosca</annotation>
+		<annotation cp="🧏🏿‍♀">dona | pell molt fosca | sorda</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">dona sorda: pell molt fosca</annotation>
+		<annotation cp="🧏🏻‍♂">home | pell molt clara | sord</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">home sord: pell molt clara</annotation>
+		<annotation cp="🧏🏼‍♂">home | pell bastant clara | sord</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">home sord: pell bastant clara</annotation>
+		<annotation cp="🧏🏽‍♂">home | pell morena | sord</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">home sord: pell morena</annotation>
+		<annotation cp="🧏🏾‍♂">home | pell fosca | sord</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">home sord: pell fosca</annotation>
+		<annotation cp="🧏🏿‍♂">home | pell molt fosca | sord</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">home sord: pell molt fosca</annotation>
 		<annotation cp="👋🏻">mà | mà que saluda | pell molt clara | salutació</annotation>
 		<annotation cp="👋🏻" type="tts">mà que saluda: pell molt clara</annotation>
 		<annotation cp="👋🏼">mà | mà que saluda | pell bastant clara | salutació</annotation>
@@ -473,6 +582,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">home: pell fosca</annotation>
 		<annotation cp="👨🏿">home | masculí | pell molt fosca</annotation>
 		<annotation cp="👨🏿" type="tts">home: pell molt fosca</annotation>
+		<annotation cp="👨🏻‍🦯">accessibilitat | home | home amb un bastó per a invidents | invident | pell molt clara</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">home amb un bastó per a invidents: pell molt clara</annotation>
+		<annotation cp="👨🏼‍🦯">accessibilitat | home | home amb un bastó per a invidents | invident | pell bastant clara</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">home amb un bastó per a invidents: pell bastant clara</annotation>
+		<annotation cp="👨🏽‍🦯">accessibilitat | home | home amb un bastó per a invidents | invident | pell morena</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">home amb un bastó per a invidents: pell morena</annotation>
+		<annotation cp="👨🏾‍🦯">accessibilitat | home | home amb un bastó per a invidents | invident | pell fosca</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">home amb un bastó per a invidents: pell fosca</annotation>
+		<annotation cp="👨🏿‍🦯">accessibilitat | home | home amb un bastó per a invidents | invident | pell molt fosca</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">home amb un bastó per a invidents: pell molt fosca</annotation>
+		<annotation cp="👨🏻‍🦼">accessibilitat | cadira de rodes | home | home amb una cadira de rodes elèctrica | pell molt clara</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">home amb una cadira de rodes elèctrica: pell molt clara</annotation>
+		<annotation cp="👨🏼‍🦼">accessibilitat | cadira de rodes | home | home amb una cadira de rodes elèctrica | pell bastant clara</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">home amb una cadira de rodes elèctrica: pell bastant clara</annotation>
+		<annotation cp="👨🏽‍🦼">accessibilitat | cadira de rodes | home | home amb una cadira de rodes elèctrica | pell morena</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">home amb una cadira de rodes elèctrica: pell morena</annotation>
+		<annotation cp="👨🏾‍🦼">accessibilitat | cadira de rodes | home | home amb una cadira de rodes elèctrica | pell fosca</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">home amb una cadira de rodes elèctrica: pell fosca</annotation>
+		<annotation cp="👨🏿‍🦼">accessibilitat | cadira de rodes | home | home amb una cadira de rodes elèctrica | pell molt fosca</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">home amb una cadira de rodes elèctrica: pell molt fosca</annotation>
+		<annotation cp="👨🏻‍🦽">accessibilitat | cadira de rodes | home | home amb una cadira de rodes manual | pell molt clara</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">home amb una cadira de rodes manual: pell molt clara</annotation>
+		<annotation cp="👨🏼‍🦽">accessibilitat | cadira de rodes | home | home amb una cadira de rodes manual | pell bastant clara</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">home amb una cadira de rodes manual: pell bastant clara</annotation>
+		<annotation cp="👨🏽‍🦽">accessibilitat | cadira de rodes | home | home amb una cadira de rodes manual | pell morena</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">home amb una cadira de rodes manual: pell morena</annotation>
+		<annotation cp="👨🏾‍🦽">accessibilitat | cadira de rodes | home | home amb una cadira de rodes manual | pell fosca</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">home amb una cadira de rodes manual: pell fosca</annotation>
+		<annotation cp="👨🏿‍🦽">accessibilitat | cadira de rodes | home | home amb una cadira de rodes manual | pell molt fosca</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">home amb una cadira de rodes manual: pell molt fosca</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">homes | homes que s’agafen de la mà | mans agafades | pell bastant clara | pell molt clara</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">homes que s’agafen de la mà: pell bastant clara i pell molt clara</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">homes | homes que s’agafen de la mà | mans agafades | pell molt clara | pell morena</annotation>
@@ -541,36 +680,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">home: pell fosca i calvície</annotation>
 		<annotation cp="👨🏿‍🦲">calvície | home | masculí | pell molt fosca</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">home: pell molt fosca i calvície</annotation>
-		<annotation cp="👨🏻‍🦯">accessibilitat | home | home amb un bastó per a invidents | invident | pell molt clara</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">home amb un bastó per a invidents: pell molt clara</annotation>
-		<annotation cp="👨🏼‍🦯">accessibilitat | home | home amb un bastó per a invidents | invident | pell bastant clara</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">home amb un bastó per a invidents: pell bastant clara</annotation>
-		<annotation cp="👨🏽‍🦯">accessibilitat | home | home amb un bastó per a invidents | invident | pell morena</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">home amb un bastó per a invidents: pell morena</annotation>
-		<annotation cp="👨🏾‍🦯">accessibilitat | home | home amb un bastó per a invidents | invident | pell fosca</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">home amb un bastó per a invidents: pell fosca</annotation>
-		<annotation cp="👨🏿‍🦯">accessibilitat | home | home amb un bastó per a invidents | invident | pell molt fosca</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">home amb un bastó per a invidents: pell molt fosca</annotation>
-		<annotation cp="👨🏻‍🦼">accessibilitat | cadira de rodes | home | home amb una cadira de rodes elèctrica | pell molt clara</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">home amb una cadira de rodes elèctrica: pell molt clara</annotation>
-		<annotation cp="👨🏼‍🦼">accessibilitat | cadira de rodes | home | home amb una cadira de rodes elèctrica | pell bastant clara</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">home amb una cadira de rodes elèctrica: pell bastant clara</annotation>
-		<annotation cp="👨🏽‍🦼">accessibilitat | cadira de rodes | home | home amb una cadira de rodes elèctrica | pell morena</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">home amb una cadira de rodes elèctrica: pell morena</annotation>
-		<annotation cp="👨🏾‍🦼">accessibilitat | cadira de rodes | home | home amb una cadira de rodes elèctrica | pell fosca</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">home amb una cadira de rodes elèctrica: pell fosca</annotation>
-		<annotation cp="👨🏿‍🦼">accessibilitat | cadira de rodes | home | home amb una cadira de rodes elèctrica | pell molt fosca</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">home amb una cadira de rodes elèctrica: pell molt fosca</annotation>
-		<annotation cp="👨🏻‍🦽">accessibilitat | cadira de rodes | home | home amb una cadira de rodes manual | pell molt clara</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">home amb una cadira de rodes manual: pell molt clara</annotation>
-		<annotation cp="👨🏼‍🦽">accessibilitat | cadira de rodes | home | home amb una cadira de rodes manual | pell bastant clara</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">home amb una cadira de rodes manual: pell bastant clara</annotation>
-		<annotation cp="👨🏽‍🦽">accessibilitat | cadira de rodes | home | home amb una cadira de rodes manual | pell morena</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">home amb una cadira de rodes manual: pell morena</annotation>
-		<annotation cp="👨🏾‍🦽">accessibilitat | cadira de rodes | home | home amb una cadira de rodes manual | pell fosca</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">home amb una cadira de rodes manual: pell fosca</annotation>
-		<annotation cp="👨🏿‍🦽">accessibilitat | cadira de rodes | home | home amb una cadira de rodes manual | pell molt fosca</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">home amb una cadira de rodes manual: pell molt fosca</annotation>
 		<annotation cp="👱🏻‍♂">home | masculí | pell molt clara | ros</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">home ros: pell molt clara</annotation>
 		<annotation cp="👱🏼‍♂">home | masculí | pell bastant clara | ros</annotation>
@@ -601,6 +710,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">dona: pell fosca</annotation>
 		<annotation cp="👩🏿">dona | femení | pell molt fosca</annotation>
 		<annotation cp="👩🏿" type="tts">dona: pell molt fosca</annotation>
+		<annotation cp="👩🏻‍🦯">accessibilitat | dona | dona amb un bastó per a invidents | invident | pell molt clara</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">dona amb un bastó per a invidents: pell molt clara</annotation>
+		<annotation cp="👩🏼‍🦯">accessibilitat | dona | dona amb un bastó per a invidents | invident | pell bastant clara</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">dona amb un bastó per a invidents: pell bastant clara</annotation>
+		<annotation cp="👩🏽‍🦯">accessibilitat | dona | dona amb un bastó per a invidents | invident | pell morena</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">dona amb un bastó per a invidents: pell morena</annotation>
+		<annotation cp="👩🏾‍🦯">accessibilitat | dona | dona amb un bastó per a invidents | invident | pell fosca</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">dona amb un bastó per a invidents: pell fosca</annotation>
+		<annotation cp="👩🏿‍🦯">accessibilitat | dona | dona amb un bastó per a invidents | invident | pell molt fosca</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">dona amb un bastó per a invidents: pell molt fosca</annotation>
+		<annotation cp="👩🏻‍🦼">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes elèctrica | pell molt clara</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">dona amb una cadira de rodes elèctrica: pell molt clara</annotation>
+		<annotation cp="👩🏼‍🦼">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes elèctrica | pell bastant clara</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">dona amb una cadira de rodes elèctrica: pell bastant clara</annotation>
+		<annotation cp="👩🏽‍🦼">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes elèctrica | pell morena</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">dona amb una cadira de rodes elèctrica: pell morena</annotation>
+		<annotation cp="👩🏾‍🦼">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes elèctrica | pell fosca</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">dona amb una cadira de rodes elèctrica: pell fosca</annotation>
+		<annotation cp="👩🏿‍🦼">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes elèctrica | pell molt fosca</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">dona amb una cadira de rodes elèctrica: pell molt fosca</annotation>
+		<annotation cp="👩🏻‍🦽">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes manual | pell molt clara</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">dona amb una cadira de rodes manual: pell molt clara</annotation>
+		<annotation cp="👩🏼‍🦽">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes manual | pell bastant clara</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">dona amb una cadira de rodes manual: pell bastant clara</annotation>
+		<annotation cp="👩🏽‍🦽">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes manual | pell morena</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">dona amb una cadira de rodes manual: pell morena</annotation>
+		<annotation cp="👩🏾‍🦽">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes manual | pell fosca</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">dona amb una cadira de rodes manual: pell fosca</annotation>
+		<annotation cp="👩🏿‍🦽">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes manual | pell molt fosca</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">dona amb una cadira de rodes manual: pell molt fosca</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼">dona | home | home i dona que s’agafen de la mà | mans agafades | pell bastant clara | pell molt clara</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">home i dona que s’agafen de la mà: pell molt clara i pell bastant clara</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏽">dona | home | home i dona que s’agafen de la mà | mans agafades | pell molt clara | pell morena</annotation>
@@ -709,36 +848,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">dona: pell fosca i calvície</annotation>
 		<annotation cp="👩🏿‍🦲">calvície | dona | femení | pell molt fosca</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">dona: pell molt fosca i calvície</annotation>
-		<annotation cp="👩🏻‍🦯">accessibilitat | dona | dona amb un bastó per a invidents | invident | pell molt clara</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">dona amb un bastó per a invidents: pell molt clara</annotation>
-		<annotation cp="👩🏼‍🦯">accessibilitat | dona | dona amb un bastó per a invidents | invident | pell bastant clara</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">dona amb un bastó per a invidents: pell bastant clara</annotation>
-		<annotation cp="👩🏽‍🦯">accessibilitat | dona | dona amb un bastó per a invidents | invident | pell morena</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">dona amb un bastó per a invidents: pell morena</annotation>
-		<annotation cp="👩🏾‍🦯">accessibilitat | dona | dona amb un bastó per a invidents | invident | pell fosca</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">dona amb un bastó per a invidents: pell fosca</annotation>
-		<annotation cp="👩🏿‍🦯">accessibilitat | dona | dona amb un bastó per a invidents | invident | pell molt fosca</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">dona amb un bastó per a invidents: pell molt fosca</annotation>
-		<annotation cp="👩🏻‍🦼">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes elèctrica | pell molt clara</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">dona amb una cadira de rodes elèctrica: pell molt clara</annotation>
-		<annotation cp="👩🏼‍🦼">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes elèctrica | pell bastant clara</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">dona amb una cadira de rodes elèctrica: pell bastant clara</annotation>
-		<annotation cp="👩🏽‍🦼">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes elèctrica | pell morena</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">dona amb una cadira de rodes elèctrica: pell morena</annotation>
-		<annotation cp="👩🏾‍🦼">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes elèctrica | pell fosca</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">dona amb una cadira de rodes elèctrica: pell fosca</annotation>
-		<annotation cp="👩🏿‍🦼">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes elèctrica | pell molt fosca</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">dona amb una cadira de rodes elèctrica: pell molt fosca</annotation>
-		<annotation cp="👩🏻‍🦽">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes manual | pell molt clara</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">dona amb una cadira de rodes manual: pell molt clara</annotation>
-		<annotation cp="👩🏼‍🦽">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes manual | pell bastant clara</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">dona amb una cadira de rodes manual: pell bastant clara</annotation>
-		<annotation cp="👩🏽‍🦽">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes manual | pell morena</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">dona amb una cadira de rodes manual: pell morena</annotation>
-		<annotation cp="👩🏾‍🦽">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes manual | pell fosca</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">dona amb una cadira de rodes manual: pell fosca</annotation>
-		<annotation cp="👩🏿‍🦽">accessibilitat | cadira de rodes | dona | dona amb una cadira de rodes manual | pell molt fosca</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">dona amb una cadira de rodes manual: pell molt fosca</annotation>
 		<annotation cp="👱🏻‍♀">dona | femení | pell molt clara | rossa</annotation>
 		<annotation cp="👱🏻‍♀" type="tts">dona rossa: pell molt clara</annotation>
 		<annotation cp="👱🏼‍♀">dona | femení | pell bastant clara | rossa</annotation>
@@ -3119,115 +3228,5 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="8⃣" type="tts">tecla: 8</annotation>
 		<annotation cp="9⃣">tecla</annotation>
 		<annotation cp="9⃣" type="tts">tecla: 9</annotation>
-		<annotation cp="🤏🏻">mà que pessiga | pell molt clara | quantitat petita</annotation>
-		<annotation cp="🤏🏻" type="tts">mà que pessiga: pell molt clara</annotation>
-		<annotation cp="🤏🏼">mà que pessiga | pell bastant clara | quantitat petita</annotation>
-		<annotation cp="🤏🏼" type="tts">mà que pessiga: pell bastant clara</annotation>
-		<annotation cp="🤏🏽">mà que pessiga | pell morena | quantitat petita</annotation>
-		<annotation cp="🤏🏽" type="tts">mà que pessiga: pell morena</annotation>
-		<annotation cp="🤏🏾">mà que pessiga | pell fosca | quantitat petita</annotation>
-		<annotation cp="🤏🏾" type="tts">mà que pessiga: pell fosca</annotation>
-		<annotation cp="🤏🏿">mà que pessiga | pell molt fosca | quantitat petita</annotation>
-		<annotation cp="🤏🏿" type="tts">mà que pessiga: pell molt fosca</annotation>
-		<annotation cp="🦻🏻">accessibilitat | orella amb audiòfon | pell molt clara | problema d’audició</annotation>
-		<annotation cp="🦻🏻" type="tts">orella amb audiòfon: pell molt clara</annotation>
-		<annotation cp="🦻🏼">accessibilitat | orella amb audiòfon | pell bastant clara | problema d’audició</annotation>
-		<annotation cp="🦻🏼" type="tts">orella amb audiòfon: pell bastant clara</annotation>
-		<annotation cp="🦻🏽">accessibilitat | orella amb audiòfon | pell morena | problema d’audició</annotation>
-		<annotation cp="🦻🏽" type="tts">orella amb audiòfon: pell morena</annotation>
-		<annotation cp="🦻🏾">accessibilitat | orella amb audiòfon | pell fosca | problema d’audició</annotation>
-		<annotation cp="🦻🏾" type="tts">orella amb audiòfon: pell fosca</annotation>
-		<annotation cp="🦻🏿">accessibilitat | orella amb audiòfon | pell molt fosca | problema d’audició</annotation>
-		<annotation cp="🦻🏿" type="tts">orella amb audiòfon: pell molt fosca</annotation>
-		<annotation cp="🧍🏻">dempeus | dret | dreta | pell molt clara | persona dreta</annotation>
-		<annotation cp="🧍🏻" type="tts">persona dreta: pell molt clara</annotation>
-		<annotation cp="🧍🏼">dempeus | dret | dreta | pell bastant clara | persona dreta</annotation>
-		<annotation cp="🧍🏼" type="tts">persona dreta: pell bastant clara</annotation>
-		<annotation cp="🧍🏽">dempeus | dret | dreta | pell morena | persona dreta</annotation>
-		<annotation cp="🧍🏽" type="tts">persona dreta: pell morena</annotation>
-		<annotation cp="🧍🏾">dempeus | dret | dreta | pell fosca | persona dreta</annotation>
-		<annotation cp="🧍🏾" type="tts">persona dreta: pell fosca</annotation>
-		<annotation cp="🧍🏿">dempeus | dret | dreta | pell molt fosca | persona dreta</annotation>
-		<annotation cp="🧍🏿" type="tts">persona dreta: pell molt fosca</annotation>
-		<annotation cp="🧍🏻‍♀">dempeus | dona | dreta | pell molt clara</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">dona dreta: pell molt clara</annotation>
-		<annotation cp="🧍🏼‍♀">dempeus | dona | dreta | pell bastant clara</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">dona dreta: pell bastant clara</annotation>
-		<annotation cp="🧍🏽‍♀">dempeus | dona | dreta | pell morena</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">dona dreta: pell morena</annotation>
-		<annotation cp="🧍🏾‍♀">dempeus | dona | dreta | pell fosca</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">dona dreta: pell fosca</annotation>
-		<annotation cp="🧍🏿‍♀">dempeus | dona | dreta | pell molt fosca</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">dona dreta: pell molt fosca</annotation>
-		<annotation cp="🧍🏻‍♂">dempeus | dret | home | pell molt clara</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">home dret: pell molt clara</annotation>
-		<annotation cp="🧍🏼‍♂">dempeus | dret | home | pell bastant clara</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">home dret: pell bastant clara</annotation>
-		<annotation cp="🧍🏽‍♂">dempeus | dret | home | pell morena</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">home dret: pell morena</annotation>
-		<annotation cp="🧍🏾‍♂">dempeus | dret | home | pell fosca</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">home dret: pell fosca</annotation>
-		<annotation cp="🧍🏿‍♂">dempeus | dret | home | pell molt fosca</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">home dret: pell molt fosca</annotation>
-		<annotation cp="🧎🏻">agenollada | agenollat | de genolls | genoll | pell molt clara | persona agenollada</annotation>
-		<annotation cp="🧎🏻" type="tts">persona agenollada: pell molt clara</annotation>
-		<annotation cp="🧎🏼">agenollada | agenollat | de genolls | genoll | pell bastant clara | persona agenollada</annotation>
-		<annotation cp="🧎🏼" type="tts">persona agenollada: pell bastant clara</annotation>
-		<annotation cp="🧎🏽">agenollada | agenollat | de genolls | genoll | pell morena | persona agenollada</annotation>
-		<annotation cp="🧎🏽" type="tts">persona agenollada: pell morena</annotation>
-		<annotation cp="🧎🏾">agenollada | agenollat | de genolls | genoll | pell fosca | persona agenollada</annotation>
-		<annotation cp="🧎🏾" type="tts">persona agenollada: pell fosca</annotation>
-		<annotation cp="🧎🏿">agenollada | agenollat | de genolls | genoll | pell molt fosca | persona agenollada</annotation>
-		<annotation cp="🧎🏿" type="tts">persona agenollada: pell molt fosca</annotation>
-		<annotation cp="🧎🏻‍♀">agenollada | de genolls | dona | pell molt clara</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">dona agenollada: pell molt clara</annotation>
-		<annotation cp="🧎🏼‍♀">agenollada | de genolls | dona | pell bastant clara</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">dona agenollada: pell bastant clara</annotation>
-		<annotation cp="🧎🏽‍♀">agenollada | de genolls | dona | pell morena</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">dona agenollada: pell morena</annotation>
-		<annotation cp="🧎🏾‍♀">agenollada | de genolls | dona | pell fosca</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">dona agenollada: pell fosca</annotation>
-		<annotation cp="🧎🏿‍♀">agenollada | de genolls | dona | pell molt fosca</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">dona agenollada: pell molt fosca</annotation>
-		<annotation cp="🧎🏻‍♂">agenollat | de genolls | home | pell molt clara</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">home agenollat: pell molt clara</annotation>
-		<annotation cp="🧎🏼‍♂">agenollat | de genolls | home | pell bastant clara</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">home agenollat: pell bastant clara</annotation>
-		<annotation cp="🧎🏽‍♂">agenollat | de genolls | home | pell morena</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">home agenollat: pell morena</annotation>
-		<annotation cp="🧎🏾‍♂">agenollat | de genolls | home | pell fosca</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">home agenollat: pell fosca</annotation>
-		<annotation cp="🧎🏿‍♂">agenollat | de genolls | home | pell molt fosca</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">home agenollat: pell molt fosca</annotation>
-		<annotation cp="🧏🏻">accessibilitat | oïda | pell molt clara | persona sorda | sentir | sord</annotation>
-		<annotation cp="🧏🏻" type="tts">persona sorda: pell molt clara</annotation>
-		<annotation cp="🧏🏼">accessibilitat | oïda | pell bastant clara | persona sorda | sentir | sord</annotation>
-		<annotation cp="🧏🏼" type="tts">persona sorda: pell bastant clara</annotation>
-		<annotation cp="🧏🏽">accessibilitat | oïda | pell morena | persona sorda | sentir | sord</annotation>
-		<annotation cp="🧏🏽" type="tts">persona sorda: pell morena</annotation>
-		<annotation cp="🧏🏾">accessibilitat | oïda | pell fosca | persona sorda | sentir | sord</annotation>
-		<annotation cp="🧏🏾" type="tts">persona sorda: pell fosca</annotation>
-		<annotation cp="🧏🏿">accessibilitat | oïda | pell molt fosca | persona sorda | sentir | sord</annotation>
-		<annotation cp="🧏🏿" type="tts">persona sorda: pell molt fosca</annotation>
-		<annotation cp="🧏🏻‍♀">dona | pell molt clara | sorda</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">dona sorda: pell molt clara</annotation>
-		<annotation cp="🧏🏼‍♀">dona | pell bastant clara | sorda</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">dona sorda: pell bastant clara</annotation>
-		<annotation cp="🧏🏽‍♀">dona | pell morena | sorda</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">dona sorda: pell morena</annotation>
-		<annotation cp="🧏🏾‍♀">dona | pell fosca | sorda</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">dona sorda: pell fosca</annotation>
-		<annotation cp="🧏🏿‍♀">dona | pell molt fosca | sorda</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">dona sorda: pell molt fosca</annotation>
-		<annotation cp="🧏🏻‍♂">home | pell molt clara | sord</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">home sord: pell molt clara</annotation>
-		<annotation cp="🧏🏼‍♂">home | pell bastant clara | sord</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">home sord: pell bastant clara</annotation>
-		<annotation cp="🧏🏽‍♂">home | pell morena | sord</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">home sord: pell morena</annotation>
-		<annotation cp="🧏🏾‍♂">home | pell fosca | sord</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">home sord: pell fosca</annotation>
-		<annotation cp="🧏🏿‍♂">home | pell molt fosca | sord</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">home sord: pell molt fosca</annotation>
 	</annotations>
 </ldml>

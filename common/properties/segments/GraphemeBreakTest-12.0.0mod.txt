@@ -1,5 +1,5 @@
-# GraphemeBreakTest-12.0.0mod.txt
-# Date: 2019-02-20, 15:30:12 GMT
+# GraphemeBreakTest-12.0.0.txt
+# Date: 2019-02-21, 07:57:26 GMT
 # © 2019 Unicode®, Inc.
 # Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 # For terms of use, see http://www.unicode.org/terms_of_use.html
@@ -7,7 +7,7 @@
 # Unicode Character Database
 #   For documentation, see http://www.unicode.org/reports/tr44/
 #
-# Default CLDR Grapheme_Cluster_Break Test
+# Default Grapheme_Cluster_Break Test
 #
 # Format:
 # <string> (# <comment>)?
@@ -656,8 +656,8 @@
 ÷ 094D × 0308 ÷ AC00 ÷	#  ÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_Virama_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]
 ÷ 094D ÷ AC01 ÷	#  ÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_Virama_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]
 ÷ 094D × 0308 ÷ AC01 ÷	#  ÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_Virama_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]
-÷ 094D × 0915 ÷	#  ÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_Virama_ExtCccZwj) × [9.3] DEVANAGARI LETTER KA (LinkingConsonant) ÷ [0.3]
-÷ 094D × 0308 × 0915 ÷	#  ÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_Virama_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.3] DEVANAGARI LETTER KA (LinkingConsonant) ÷ [0.3]
+÷ 094D ÷ 0915 ÷	#  ÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_Virama_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (LinkingConsonant) ÷ [0.3]
+÷ 094D × 0308 ÷ 0915 ÷	#  ÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_Virama_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (LinkingConsonant) ÷ [0.3]
 ÷ 094D ÷ 231A ÷	#  ÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_Virama_ExtCccZwj) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]
 ÷ 094D × 0308 ÷ 231A ÷	#  ÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_Virama_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]
 ÷ 094D × 0300 ÷	#  ÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_Virama_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]
@@ -767,6 +767,8 @@
 ÷ 0915 × 093C × 094D × 200D × 0924 ÷	#  ÷ [0.2] DEVANAGARI LETTER KA (LinkingConsonant) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_Virama_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.3] DEVANAGARI LETTER TA (LinkingConsonant) ÷ [0.3]
 ÷ 0915 × 094D × 0924 × 094D × 092F ÷	#  ÷ [0.2] DEVANAGARI LETTER KA (LinkingConsonant) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_Virama_ExtCccZwj) × [9.3] DEVANAGARI LETTER TA (LinkingConsonant) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_Virama_ExtCccZwj) × [9.3] DEVANAGARI LETTER YA (LinkingConsonant) ÷ [0.3]
 ÷ 0915 × 094D ÷ 0061 ÷	#  ÷ [0.2] DEVANAGARI LETTER KA (LinkingConsonant) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_Virama_ExtCccZwj) ÷ [999.0] LATIN SMALL LETTER A (Other) ÷ [0.3]
+÷ 0061 × 094D ÷ 0924 ÷	#  ÷ [0.2] LATIN SMALL LETTER A (Other) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_Virama_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER TA (LinkingConsonant) ÷ [0.3]
+÷ 003F × 094D ÷ 0924 ÷	#  ÷ [0.2] QUESTION MARK (Other) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_Virama_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER TA (LinkingConsonant) ÷ [0.3]
 ÷ 1F476 × 1F3FF ÷ 1F476 ÷	#  ÷ [0.2] BABY (ExtPict) × [9.0] EMOJI MODIFIER FITZPATRICK TYPE-6 (Extend) ÷ [999.0] BABY (ExtPict) ÷ [0.3]
 ÷ 0061 × 1F3FF ÷ 1F476 ÷	#  ÷ [0.2] LATIN SMALL LETTER A (Other) × [9.0] EMOJI MODIFIER FITZPATRICK TYPE-6 (Extend) ÷ [999.0] BABY (ExtPict) ÷ [0.3]
 ÷ 0061 × 1F3FF ÷ 1F476 × 200D × 1F6D1 ÷	#  ÷ [0.2] LATIN SMALL LETTER A (Other) × [9.0] EMOJI MODIFIER FITZPATRICK TYPE-6 (Extend) ÷ [999.0] BABY (ExtPict) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [11.0] OCTAGONAL SIGN (ExtPict) ÷ [0.3]
@@ -776,6 +778,6 @@
 ÷ 2701 × 200D × 2701 ÷	#  ÷ [0.2] UPPER BLADE SCISSORS (Other) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [11.0] UPPER BLADE SCISSORS (Other) ÷ [0.3]
 ÷ 0061 × 200D ÷ 2701 ÷	#  ÷ [0.2] LATIN SMALL LETTER A (Other) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [999.0] UPPER BLADE SCISSORS (Other) ÷ [0.3]
 #
-# Lines: 753
+# Lines: 755
 #
 # EOF

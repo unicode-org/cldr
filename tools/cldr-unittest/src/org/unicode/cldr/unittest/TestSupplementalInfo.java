@@ -978,7 +978,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 }
             }
 
-            Set<R3<String, List<String>, List<String>>> failures = new TreeSet<R3<String, List<String>, List<String>>>();
+            Set<R3<String, List<String>, List<String>>> failures = new LinkedHashSet<R3<String, List<String>, List<String>>>();
             Set<String> nullReplacements = new TreeSet<String>();
             for (Entry<String, R2<List<String>, String>> codeRep : codeReplacement
                 .entrySet()) {

@@ -272,7 +272,10 @@ public class GenerateValidityXml {
             info.clear();
             for (Entry<String, Map<LstrField, String>> entry2 : entry.getValue().entrySet()) {
                 String code = entry2.getKey();
-                if (type == LstrType.language && code.startsWith("ais")) {
+                if (type == LstrType.language && code.equals("aam")
+                    || type == LstrType.variant && code.equals("arevela")
+                    || type == LstrType.extlang && code.equals("lsg")
+                    ) {
                     int debug = 0;
                 }
                 Map<LstrField, String> data = entry2.getValue();
@@ -281,7 +284,8 @@ public class GenerateValidityXml {
                     subtype = Validity.Status.unknown;
                 } else if (type.specials.contains(code)) {
                     subtype = Validity.Status.special;
-                } else if (aliases != null && aliases.containsKey(code)) {
+                } else if (aliases != null && aliases.containsKey(code)
+                    || data.containsKey(LstrField.Deprecated)) {
                     subtype = Validity.Status.deprecated;
                 } else if (data.get(LstrField.Description).startsWith("Private use")) {
                     subtype = Validity.Status.private_use;

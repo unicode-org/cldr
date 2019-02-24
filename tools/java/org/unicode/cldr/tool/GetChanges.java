@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
@@ -20,6 +21,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.XMLSource;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
@@ -32,20 +34,20 @@ public class GetChanges {
     static boolean verbose = true;
 
     public static void main(String[] args) {
+        System.out.println("#Dir\tState\tTrunk Value\tmodify_config.txt Locale\tAction\tlabel\tPath Value\tlabel\tNew Value");
         Matcher localeFilter = Pattern.compile(".*").matcher("");
         File vxml = new File(CLDRPaths.AUX_DIRECTORY, "voting/"
             + "35"
-            + "/vxml");
+            + "/vxml2");
         for (File vxmlDir : vxml.listFiles()) {
             if (!vxmlDir.isDirectory()) {
                 continue;
             }
-            System.out.println("#Dir: " + vxmlDir);
-            String l1 = CLDRPaths.BASE_DIRECTORY + vxmlDir.getName() + "/";
+            //System.out.println("#Dir=\t" + vxmlDir);
             // common, ...
             File[] commonSeedFiles = vxmlDir.listFiles();
             if (commonSeedFiles == null) {
-                System.out.println("#No files in: " + vxmlDir);
+                System.out.println("##No files in: " + vxmlDir);
                 continue;
             }
             for (File commonSeed : commonSeedFiles) {
@@ -53,8 +55,9 @@ public class GetChanges {
                     || "dtd".equals(commonSeed.getName())) {
                     continue;
                 }
-                System.out.println("#Dir=\t" + commonSeed);
-                String l2 = l1 + commonSeed.getName();
+                //System.out.println("#Dir=\t" + commonSeed);
+                String subDir = vxmlDir.getName() + "/" + commonSeed.getName();
+                String l2 = CLDRPaths.BASE_DIRECTORY + subDir;
                 // main, annotations
                 Factory factoryVxml = Factory.make(commonSeed.toString(), ".*");
                 Factory factoryTrunk = Factory.make(l2, ".*");
@@ -68,9 +71,9 @@ public class GetChanges {
                     }
                     CLDRFile vxmlFile;
                     try {
-                        vxmlFile = factoryVxml.make(locale, false);
+                        vxmlFile = factoryVxml.make(locale, true);
                     } catch (Exception e1) {
-                        System.out.println("#Error: dir=\t" + commonSeed + "\t locale=\t" + locale + "\tmsg=\t" + e1.getMessage());
+                        System.out.println("##Error: dir=\t" + commonSeed + "\t locale=\t" + locale + "\tmsg=\t" + e1.getMessage());
                         continue;
                     }
                     CLDRFile trunkFile = null;
@@ -78,45 +81,102 @@ public class GetChanges {
                         trunkFile = factoryTrunk.make(locale, true);
                     } catch (Exception e) {
                     }
-                    compare(vxmlDir.getName() + "/" + commonSeed.getName(), vxmlFile, trunkFile);
+                    compare(subDir, vxmlFile, trunkFile);
                 }
             }
         }
     }
 
-    private static void compare(String dir, CLDRFile vxmlFile, CLDRFile trunkFile) {
-        String localeID = vxmlFile.getLocaleID();
+    public static final Set<String> ROOT_OR_CODE_FALLBACK = ImmutableSet.of(XMLSource.CODE_FALLBACK_ID, XMLSource.ROOT_ID);
+
+    private static void compare(String dir, CLDRFile vxmlFileResolved, CLDRFile trunkFileResolved) {
+        String localeID = vxmlFileResolved.getLocaleID();
+        if (localeID.equals("ccp")) {
+            int debug = 0;
+        }
+        CLDRFile vxmlFileUnresolved = vxmlFileResolved.getUnresolved();
         //System.out.println("#Dir: " + dir + ";\tLocale: " + localeID);
-//        Output<String> localeWhereFound = new Output<>();
-//        Output<String> pathWhereFound = new Output<>();
+        Output<String> localeWhereFound = new Output<>();
+        Output<String> pathWhereFound = new Output<>();
+        Status status = new Status();
+
         int countNew = 0;
-        for (String path : vxmlFile) {
+        int countChanged = 0;
+        for (String path : vxmlFileUnresolved) {
             if (path.contains("/identity")) {
                 continue;
             }
-            String vxmlValue = vxmlFile.getStringValue(path);
-            String trunkValue = trunkFile == null ? null : trunkFile.getStringValue(path);
+            if (path.contains("ccp")) {
+                int debug = 0;
+            }
+
+            // get trunk value. If not accessible or ROOT_OR_CODE_FALLBACK, then set to null
+
+            String trunkValue = null;
+            if (trunkFileResolved != null) {
+                trunkValue = trunkFileResolved.getStringValue(path);
+                String foundId = trunkFileResolved.getSourceLocaleID(path, status);
+                if (ROOT_OR_CODE_FALLBACK.contains(foundId)) {
+                    trunkValue = null;
+                }
+            }
+            String vxmlValue = vxmlFileResolved.getStringValue(path);
+
+            // quick test; will repeat
+
             if (Objects.equals(vxmlValue, trunkValue)) {
                 continue;
             }
-//            String baileyValue = vxmlFile.getBaileyValue(path, pathWhereFound, localeWhereFound);
-//            if (!localeID.equals(localeWhereFound.value)) {
-//                continue;
-//            }
-//            if (!path.equals(pathWhereFound.value)) {
-//                continue;
-//            }
+
+            // If vxmlValue is INHERITANCE_MARKER, then get bailey
+            // if ROOT_OR_CODE_FALLBACK location, then we skip
+
+            if (vxmlValue.equals(CldrUtility.INHERITANCE_MARKER)) {
+                vxmlValue = vxmlFileResolved.getBaileyValue(path, pathWhereFound, localeWhereFound);
+                if (ROOT_OR_CODE_FALLBACK.contains(localeWhereFound.value)) {
+                    continue;
+                }
+//              if (!path.equals(pathWhereFound.value)) {
+//                  continue;
+//              }
+            }
+
+            if (Objects.equals(vxmlValue, trunkValue)) {
+                continue;
+            }
             if (trunkValue == null) {
                 ++countNew;
-                if (verbose && !dir.contains("seed")) {
-                    System.out.println("new; locale=\t" + localeID + "\tvxml=\t" + vxmlValue + "\tpath=\t" + path);
+                if (verbose) {
+                    System.out.println(
+                        dir
+                        +";\tnew\t" 
+                        + "\tlocale=" + localeID + ";"
+                        + "\taction=add;"
+                        + "\tpath=\t" + path
+                        + "\tnew_value=\t" + vxmlValue
+                        );
                 }
             } else {
-                // System.out.println("diff; locale=" + localeID + ";\tvxml=" + vxmlValue + ";\ttrunk=" + trunkValue + ";\tpath=" + path);
+                // we do a lot of processing on the annotations, so most likely are just changes introduced by that. 
+                // So ignore for now
+                if (path.startsWith("//ldml/annotations")) {
+                    continue;
+                }
+                ++countChanged;
+                if (verbose) {
+                    System.out.println(
+                        dir
+                        + ";\ttrunk=\t" + trunkValue
+                        + "\tlocale=" + localeID + ";"
+                        + "\taction=add;"
+                        + "\tpath=\t" + path
+                        + "\tnew_value=\t" + vxmlValue
+                        );
+                }
             }
-        }
-        if (countNew != 0) {
-            System.out.println("#Dir=\t" + dir + "\tLocale=\t" + localeID + "\tCountNew=\t" + countNew);
+//            if (countNew != 0 || countChanged != 0) {
+//                System.out.println("#Dir=\t" + dir + "\tLocale=\t" + localeID + "\tCountNew=\t" + countNew + "\tCountChanged=\t" + countChanged);
+//            }
         }
     }
 
@@ -185,7 +245,7 @@ public class GetChanges {
             try {
                 snapshot = snapshotFactory.make(locale, false);
             } catch (Exception e) {
-                System.out.println("Skipping " + locale + ", no data in annotations/");
+                System.out.println("##Skipping " + locale + ", no data in annotations/");
                 continue;
             }
 
@@ -261,7 +321,7 @@ public class GetChanges {
             }
             totalCount += itemCount;
         }
-        System.out.println("Total:\t" + totalCount);
+        System.out.println("##Total:\t" + totalCount);
         for ( Entry<String, PathHeader> entry : missing.entries()) {
             System.out.println(entry.getKey() + "\t" + entry.getValue()); 
         }

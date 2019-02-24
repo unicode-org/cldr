@@ -1421,7 +1421,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Gy">G y</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM G y</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM G y</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E d MMM G y</dateFormatItem>
@@ -1432,8 +1435,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E d/M</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEEEEd">EEEEที่ d MMM</dateFormatItem>
@@ -1441,6 +1446,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEEEEd">EEEEที่ d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">G y</dateFormatItem>
+						<dateFormatItem id="yyyy">G y</dateFormatItem>
 						<dateFormatItem id="yyyyM">M/y</dateFormatItem>
 						<dateFormatItem id="yyyyMd">d/M/y</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">E d/M/y</dateFormatItem>

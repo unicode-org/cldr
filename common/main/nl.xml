@@ -11859,10 +11859,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</units>
 	<listPatterns>
 		<listPattern>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0} en {1}</listPatternPart>
 			<listPatternPart type="2">{0} en {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0} of {1}</listPatternPart>
 			<listPatternPart type="2">{0} of {1}</listPatternPart>
 		</listPattern>
@@ -11879,8 +11883,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="2">{0} en {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0} en {1}</listPatternPart>
 			<listPatternPart type="2">{0} en {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-narrow">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-short">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

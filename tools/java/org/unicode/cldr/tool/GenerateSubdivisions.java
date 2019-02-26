@@ -83,7 +83,9 @@ public class GenerateSubdivisions {
                 "2017-02-12_iso_country_code_ALL_xml",
                 "2017-09-15_iso_country_code_ALL_xml",
                 "2018-02-20_iso_country_code_ALL_xml",
-                "2018-09-02_iso_country_code_ALL_xml")) {
+                "2018-09-02_iso_country_code_ALL_xml",
+                "2019-02-26_iso_country_code_ALL_xml"
+                )) {
                 SubdivisionSet sdset1 = new SubdivisionSet(CLDRPaths.CLDR_PRIVATE_DIRECTORY + source + "/iso_country_codes.xml");
                 try (PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/" + source + ".txt")) {
                     sdset1.print(pw);

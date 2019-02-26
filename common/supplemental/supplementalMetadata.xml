@@ -1095,6 +1095,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territoryAlias type="716" replacement="ZW" reason="overlong"/> <!-- Zimbabwe -->
 			<territoryAlias type="999" replacement="ZZ" reason="overlong"/> <!-- Unknown Region -->
             <!-- end of data generated with CountItems tool per http://sites.google.com/site/cldr/development/updating-codes/update-languagescriptregion-subtags -->
+
+			<subdivisionAlias type="fi01" replacement="AX" reason="overlong"/> <!-- Åland Islands -->
+			<subdivisionAlias type="frcp" replacement="CP" reason="overlong"/> <!-- Clipperton Island -->
+			<subdivisionAlias type="frgf" replacement="GF" reason="overlong"/> <!-- French Guiana -->
+			<subdivisionAlias type="frmq" replacement="MQ" reason="overlong"/> <!-- Martinique -->
+			<subdivisionAlias type="shta" replacement="TA" reason="overlong"/> <!-- Tristan da Cunha -->
+
 			<!-- start of data generated with GenerateSubdivisions -->
 			<subdivisionAlias type="frbl" replacement="BL" reason="overlong"/> <!-- St. Barthélemy => St. Barthélemy -->
 			<subdivisionAlias type="frgp" replacement="GP" reason="overlong"/> <!-- Guadeloupe => Guadeloupe -->
@@ -1115,6 +1122,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivisionAlias type="uspr" replacement="PR" reason="overlong"/> <!-- Puerto Rico => Puerto Rico -->
 			<subdivisionAlias type="usum" replacement="UM" reason="overlong"/> <!-- U.S. Outlying Islands => U.S. Outlying Islands -->
 			<subdivisionAlias type="usvi" replacement="VI" reason="overlong"/> <!-- U.S. Virgin Islands => U.S. Virgin Islands -->
+			<subdivisionAlias type="escn" replacement="IC" reason="overlong"/> <!-- Canary Islands -->
+
+			<subdivisionAlias type="cn71" replacement="TW" reason="overlong"/> <!-- Taiwan => Taiwan -->
+			<subdivisionAlias type="cn91" replacement="HK" reason="overlong"/> <!-- Hong Kong SAR China => Hong Kong SAR China -->
+			<subdivisionAlias type="cn92" replacement="MO" reason="overlong"/> <!-- Macao SAR China => Macao SAR China -->
+
 			<!-- <subdivisionAlias type="albr" replacement="al?" reason="deprecated"/> <!- - Berat => ?? -->
 			<!-- <subdivisionAlias type="albu" replacement="al?" reason="deprecated"/> <!- - Bulqizë => ?? -->
 			<!-- <subdivisionAlias type="aldi" replacement="al?" reason="deprecated"/> <!- - Dibër => ?? -->
@@ -1185,47 +1198,66 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- <subdivisionAlias type="ci17" replacement="ci?" reason="deprecated"/> <!- - Bafing => ?? -->
 			<!-- <subdivisionAlias type="ci18" replacement="ci?" reason="deprecated"/> <!- - Fromager => ?? -->
 			<!-- <subdivisionAlias type="ci19" replacement="ci?" reason="deprecated"/> <!- - Moyen-Cavally => ?? -->
-			<subdivisionAlias type="cn11" replacement="cnbj" reason="deprecated"/> <!-- Beijing => Beijing Shi -->
-			<subdivisionAlias type="cn12" replacement="cntj" reason="deprecated"/> <!-- Tianjin => Tianjin Shi -->
-			<subdivisionAlias type="cn13" replacement="cnhe" reason="deprecated"/> <!-- Hebei => Hebei Sheng -->
-			<subdivisionAlias type="cn14" replacement="cnsx" reason="deprecated"/> <!-- Shanxi => Shanxi Sheng -->
-			<subdivisionAlias type="cn15" replacement="cnnm" reason="deprecated"/> <!-- Inner Mongolia => ??? -->
-			<subdivisionAlias type="cn21" replacement="cnln" reason="deprecated"/> <!-- Liaoning => Liaoning Sheng -->
-			<subdivisionAlias type="cn22" replacement="cnjl" reason="deprecated"/> <!-- Jilin => Jilin Sheng -->
-			<subdivisionAlias type="cn23" replacement="cnhl" reason="deprecated"/> <!-- Heilongjiang => Heilongjiang Sheng -->
-			<subdivisionAlias type="cn31" replacement="cnsh" reason="deprecated"/> <!-- Shanghai => Shanghai Shi -->
-			<subdivisionAlias type="cn32" replacement="cnjs" reason="deprecated"/> <!-- Jiangsu => Jiangsu Sheng -->
-			<subdivisionAlias type="cn33" replacement="cnzj" reason="deprecated"/> <!-- Zhejiang => Zhejiang Sheng -->
-			<subdivisionAlias type="cn34" replacement="cnah" reason="deprecated"/> <!-- Anhui => Anhui Sheng -->
-			<subdivisionAlias type="cn35" replacement="cnfj" reason="deprecated"/> <!-- Fujian => Fujian Sheng -->
-			<subdivisionAlias type="cn36" replacement="cnjx" reason="deprecated"/> <!-- Jiangxi => Jiangxi Sheng -->
-			<subdivisionAlias type="cn37" replacement="cnsd" reason="deprecated"/> <!-- Shandong => Shandong Sheng -->
-			<subdivisionAlias type="cn41" replacement="cnha" reason="deprecated"/> <!-- Henan => Henan Sheng -->
-			<subdivisionAlias type="cn42" replacement="cnhb" reason="deprecated"/> <!-- Hubei => Hubei Sheng -->
-			<subdivisionAlias type="cn43" replacement="cnhn" reason="deprecated"/> <!-- Hunan => Hunan Sheng -->
-			<subdivisionAlias type="cn44" replacement="cngd" reason="deprecated"/> <!-- Guangdong => Guangdong Sheng -->
-			<subdivisionAlias type="cn45" replacement="cngx" reason="deprecated"/> <!-- Guangxi => Guangxi Zhuangzu Zizhiqu -->
-			<subdivisionAlias type="cn46" replacement="cnhi" reason="deprecated"/> <!-- Hainan => Hainan Sheng -->
-			<subdivisionAlias type="cn50" replacement="cncq" reason="deprecated"/> <!-- Chongqing => Chongqing Shi -->
-			<subdivisionAlias type="cn51" replacement="cnsc" reason="deprecated"/> <!-- Sichuan => Sichuan Sheng -->
-			<subdivisionAlias type="cn52" replacement="cngz" reason="deprecated"/> <!-- Guizhou => Guizhou Sheng -->
-			<subdivisionAlias type="cn53" replacement="cnyn" reason="deprecated"/> <!-- Yunnan => Yunnan Sheng -->
-			<subdivisionAlias type="cn54" replacement="cnxz" reason="deprecated"/> <!-- Tibet => Xizang Zizhiqu -->
-			<subdivisionAlias type="cn61" replacement="cnsn" reason="deprecated"/> <!-- Shaanxi => Shaanxi Sheng -->
-			<subdivisionAlias type="cn62" replacement="cngs" reason="deprecated"/> <!-- Gansu => Gansu Sheng -->
-			<subdivisionAlias type="cn63" replacement="cnqh" reason="deprecated"/> <!-- Qinghai => Qinghai Sheng -->
-			<subdivisionAlias type="cn64" replacement="cnnx" reason="deprecated"/> <!-- Ningxia => Ningxia Huizi Zizhiqu -->
-			<subdivisionAlias type="cn65" replacement="cnxj" reason="deprecated"/> <!-- Xinjiang => Xinjiang Uygur Zizhiqu -->
-			<subdivisionAlias type="cn71" replacement="TW" reason="overlong"/> <!-- Taiwan => Taiwan -->
-			<subdivisionAlias type="cn91" replacement="HK" reason="overlong"/> <!-- Hong Kong SAR China => Hong Kong SAR China -->
-			<subdivisionAlias type="cn92" replacement="MO" reason="overlong"/> <!-- Macau SAR China => Macau SAR China -->
+			<subdivisionAlias type="cn11" replacement="cnbj" reason="deprecated"/> <!-- ??? => Beijing -->
+			<subdivisionAlias type="cn12" replacement="cntj" reason="deprecated"/> <!-- ??? => Tianjin -->
+			<subdivisionAlias type="cn13" replacement="cnhe" reason="deprecated"/> <!-- ??? => Hebei -->
+			<subdivisionAlias type="cn14" replacement="cnsx" reason="deprecated"/> <!-- ??? => Shanxi -->
+			<subdivisionAlias type="cn15" replacement="cnmn" reason="deprecated"/> <!-- ??? => ??? -->
+			<subdivisionAlias type="cn21" replacement="cnln" reason="deprecated"/> <!-- ??? => Liaoning -->
+			<subdivisionAlias type="cn22" replacement="cnjl" reason="deprecated"/> <!-- ??? => Jilin -->
+			<subdivisionAlias type="cn23" replacement="cnhl" reason="deprecated"/> <!-- ??? => Heilongjiang -->
+			<subdivisionAlias type="cn31" replacement="cnsh" reason="deprecated"/> <!-- ??? => Shanghai -->
+			<subdivisionAlias type="cn32" replacement="cnjs" reason="deprecated"/> <!-- ??? => Jiangsu -->
+			<subdivisionAlias type="cn33" replacement="cnzj" reason="deprecated"/> <!-- ??? => Zhejiang -->
+			<subdivisionAlias type="cn34" replacement="cnah" reason="deprecated"/> <!-- ??? => Anhui -->
+			<subdivisionAlias type="cn35" replacement="cnfj" reason="deprecated"/> <!-- ??? => Fujian -->
+			<subdivisionAlias type="cn36" replacement="cnjx" reason="deprecated"/> <!-- ??? => Jiangxi -->
+			<subdivisionAlias type="cn37" replacement="cnsd" reason="deprecated"/> <!-- ??? => Shandong -->
+			<subdivisionAlias type="cn41" replacement="cnha" reason="deprecated"/> <!-- ??? => Henan -->
+			<subdivisionAlias type="cn42" replacement="cnhb" reason="deprecated"/> <!-- ??? => Hubei -->
+			<subdivisionAlias type="cn43" replacement="cnhn" reason="deprecated"/> <!-- ??? => Hunan -->
+			<subdivisionAlias type="cn44" replacement="cngd" reason="deprecated"/> <!-- ??? => Guangdong -->
+			<subdivisionAlias type="cn45" replacement="cngx" reason="deprecated"/> <!-- ??? => Guangxi -->
+			<subdivisionAlias type="cn46" replacement="cnhi" reason="deprecated"/> <!-- ??? => Hainan -->
+			<subdivisionAlias type="cn50" replacement="cncq" reason="deprecated"/> <!-- ??? => Chongqing -->
+			<subdivisionAlias type="cn51" replacement="cnsc" reason="deprecated"/> <!-- ??? => Sichuan -->
+			<subdivisionAlias type="cn52" replacement="cngz" reason="deprecated"/> <!-- ??? => Guizhou -->
+			<subdivisionAlias type="cn53" replacement="cnyn" reason="deprecated"/> <!-- ??? => Yunnan -->
+			<subdivisionAlias type="cn54" replacement="cnxz" reason="deprecated"/> <!-- ??? => Tibet -->
+			<subdivisionAlias type="cn61" replacement="cnsn" reason="deprecated"/> <!-- ??? => Shaanxi -->
+			<subdivisionAlias type="cn62" replacement="cngs" reason="deprecated"/> <!-- ??? => Gansu -->
+			<subdivisionAlias type="cn63" replacement="cnqh" reason="deprecated"/> <!-- ??? => Qinghai -->
+			<subdivisionAlias type="cn64" replacement="cnnx" reason="deprecated"/> <!-- ??? => Ningxia -->
+			<subdivisionAlias type="cn65" replacement="cnxj" reason="deprecated"/> <!-- ??? => Xinjiang -->
 			<subdivisionAlias type="cz10a" replacement="cz110" reason="deprecated"/> <!-- ??? => Prague 10 -->
 			<subdivisionAlias type="cz10b" replacement="cz111" reason="deprecated"/> <!-- ??? => Prague 11 -->
 			<subdivisionAlias type="cz10c" replacement="cz112" reason="deprecated"/> <!-- ??? => Prague 12 -->
 			<subdivisionAlias type="cz10d" replacement="cz113" reason="deprecated"/> <!-- ??? => Prague 13 -->
 			<subdivisionAlias type="cz10e" replacement="cz114" reason="deprecated"/> <!-- ??? => Prague 14 -->
 			<subdivisionAlias type="cz10f" replacement="cz115" reason="deprecated"/> <!-- ??? => Prague 15 -->
-			<!--  <subdivisionAlias type="cz611" reason="deprecated"/>--> <!-- ??? => ??? -->
+			<!-- <subdivisionAlias type="cz101" replacement="cz?" reason="deprecated"/> <!- - Prague 1 => ?? -->
+			<!-- <subdivisionAlias type="cz102" replacement="cz?" reason="deprecated"/> <!- - Prague 2 => ?? -->
+			<!-- <subdivisionAlias type="cz103" replacement="cz?" reason="deprecated"/> <!- - Prague 3 => ?? -->
+			<!-- <subdivisionAlias type="cz104" replacement="cz?" reason="deprecated"/> <!- - Prague 4 => ?? -->
+			<!-- <subdivisionAlias type="cz105" replacement="cz?" reason="deprecated"/> <!- - Prague 5 => ?? -->
+			<!-- <subdivisionAlias type="cz106" replacement="cz?" reason="deprecated"/> <!- - Prague 6 => ?? -->
+			<!-- <subdivisionAlias type="cz107" replacement="cz?" reason="deprecated"/> <!- - Prague 7 => ?? -->
+			<!-- <subdivisionAlias type="cz108" replacement="cz?" reason="deprecated"/> <!- - Prague 8 => ?? -->
+			<!-- <subdivisionAlias type="cz109" replacement="cz?" reason="deprecated"/> <!- - Prague 9 => ?? -->
+			<!-- <subdivisionAlias type="cz110" replacement="cz?" reason="deprecated"/> <!- - Prague 10 => ?? -->
+			<!-- <subdivisionAlias type="cz111" replacement="cz?" reason="deprecated"/> <!- - Prague 11 => ?? -->
+			<!-- <subdivisionAlias type="cz112" replacement="cz?" reason="deprecated"/> <!- - Prague 12 => ?? -->
+			<!-- <subdivisionAlias type="cz113" replacement="cz?" reason="deprecated"/> <!- - Prague 13 => ?? -->
+			<!-- <subdivisionAlias type="cz114" replacement="cz?" reason="deprecated"/> <!- - Prague 14 => ?? -->
+			<!-- <subdivisionAlias type="cz115" replacement="cz?" reason="deprecated"/> <!- - Prague 15 => ?? -->
+			<!-- <subdivisionAlias type="cz116" replacement="cz?" reason="deprecated"/> <!- - Prague 16 => ?? -->
+			<!-- <subdivisionAlias type="cz117" replacement="cz?" reason="deprecated"/> <!- - Prague 17 => ?? -->
+			<!-- <subdivisionAlias type="cz118" replacement="cz?" reason="deprecated"/> <!- - Prague 18 => ?? -->
+			<!-- <subdivisionAlias type="cz119" replacement="cz?" reason="deprecated"/> <!- - Prague 19 => ?? -->
+			<!-- <subdivisionAlias type="cz120" replacement="cz?" reason="deprecated"/> <!- - Prague 20 => ?? -->
+			<!-- <subdivisionAlias type="cz121" replacement="cz?" reason="deprecated"/> <!- - Prague 21 => ?? -->
+			<!-- <subdivisionAlias type="cz122" replacement="cz?" reason="deprecated"/> <!- - Prague 22 => ?? -->
+			<subdivisionAlias type="cz611" replacement="cz663" reason="deprecated"/> <!-- ??? => ??? -->
 			<subdivisionAlias type="cz612" replacement="cz632" reason="deprecated"/> <!-- ??? => Jihlava -->
 			<subdivisionAlias type="cz613" replacement="cz633" reason="deprecated"/> <!-- ??? => Pelhřimov -->
 			<subdivisionAlias type="cz614" replacement="cz634" reason="deprecated"/> <!-- ??? => Třebíč -->
@@ -1255,10 +1287,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivisionAlias type="frb" replacement="frnaq" reason="deprecated"/> <!-- ??? => Nouvelle-Aquitaine -->
 			<subdivisionAlias type="frc" replacement="frara" reason="deprecated"/> <!-- ??? => Auvergne-Rhône-Alpes -->
 			<subdivisionAlias type="frd" replacement="frbfc" reason="deprecated"/> <!-- ??? => Burgundy-Franche-Comté -->
-			<subdivisionAlias type="fre" replacement="frbre" reason="deprecated"/> <!-- Brittany => Brittany -->
+			<subdivisionAlias type="fre" replacement="frbre" reason="deprecated"/> <!-- ??? => Brittany -->
 			<subdivisionAlias type="frf" replacement="frcvl" reason="deprecated"/> <!-- ??? => Centre-Val de Loire -->
 			<subdivisionAlias type="frg" replacement="frges" reason="deprecated"/> <!-- ??? => Grand-Est -->
-			<subdivisionAlias type="frh" replacement="frcor" reason="deprecated"/> <!-- Corsica => Corsica -->
+			<subdivisionAlias type="frh" replacement="frcor" reason="deprecated"/> <!-- ??? => Corsica -->
 			<subdivisionAlias type="fri" replacement="frbfc" reason="deprecated"/> <!-- ??? => Burgundy-Franche-Comté -->
 			<subdivisionAlias type="frj" replacement="fridf" reason="deprecated"/> <!-- ??? => Île-de-France² -->
 			<subdivisionAlias type="frk" replacement="frocc" reason="deprecated"/> <!-- ??? => Occitanie -->
@@ -1298,6 +1330,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- <subdivisionAlias type="gbnym" replacement="gb?" reason="deprecated"/> <!- - Newry and Mourne => ?? -->
 			<!-- <subdivisionAlias type="gbomh" replacement="gb?" reason="deprecated"/> <!- - Omagh => ?? -->
 			<!-- <subdivisionAlias type="gbstb" replacement="gb?" reason="deprecated"/> <!- - Strabane => ?? -->
+			<!-- <subdivisionAlias type="glqa" replacement="gl?" reason="deprecated"/> <!- - Qaasuitsup => ?? -->
 			<!-- <subdivisionAlias type="gr01" replacement="gr?" reason="deprecated"/> <!- - Aetolia-Acarnania => ?? -->
 			<!-- <subdivisionAlias type="gr03" replacement="gr?" reason="deprecated"/> <!- - Boeotia => ?? -->
 			<!-- <subdivisionAlias type="gr04" replacement="gr?" reason="deprecated"/> <!- - Euboea => ?? -->
@@ -1351,9 +1384,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- <subdivisionAlias type="gra1" replacement="gr?" reason="deprecated"/> <!- - Attica Department => ?? -->
 			<!-- <subdivisionAlias type="is0" replacement="is?" reason="deprecated"/> <!- - Reykjavík => ?? -->
 			<subdivisionAlias type="laxn" replacement="laxs" reason="deprecated"/> <!-- ??? => Xaisomboun -->
-			<subdivisionAlias type="lud" replacement="lucl ludi lurd luvd luwi" reason="deprecated"/> <!-- Diekirch² => ??? -->
-			<subdivisionAlias type="lug" replacement="luec lugr lurm" reason="deprecated"/> <!-- Grevenmacher² => ??? -->
-			<subdivisionAlias type="lul" replacement="luca lues lulu lume" reason="deprecated"/> <!-- Luxembourg² => ??? -->
+			<subdivisionAlias type="lud" replacement="lucl ludi lurd luvd luwi" reason="deprecated"/> <!-- ??? => ??? -->
+			<subdivisionAlias type="lug" replacement="luec lugr lurm" reason="deprecated"/> <!-- ??? => ??? -->
+			<subdivisionAlias type="lul" replacement="luca lues lulu lume" reason="deprecated"/> <!-- ??? => ??? -->
 			<!-- <subdivisionAlias type="ma13" replacement="ma?" reason="deprecated"/> <!- - Souss-Massa-Drâa => ?? -->
 			<!-- <subdivisionAlias type="ma14" replacement="ma?" reason="deprecated"/> <!- - Guelmim-Es Semara => ?? -->
 			<!-- <subdivisionAlias type="ma15" replacement="ma?" reason="deprecated"/> <!- - Laâyoune-Boujdour-Sakia El Hamra => ?? -->
@@ -1375,12 +1408,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- <subdivisionAlias type="mk77" replacement="mk?" reason="deprecated"/> <!- - Centar => ?? -->
 			<!-- <subdivisionAlias type="mk79" replacement="mk?" reason="deprecated"/> <!- - Čair => ?? -->
 			<!-- <subdivisionAlias type="mk84" replacement="mk?" reason="deprecated"/> <!- - Šuto Orizari => ?? -->
-			<subdivisionAlias type="mrnkc" replacement="mr13 mr14 mr15" reason="deprecated"/> <!-- Nouakchott => ??? -->
+			<subdivisionAlias type="mrnkc" replacement="mr13 mr14 mr15" reason="deprecated"/> <!-- ??? => ??? -->
+			<!-- <subdivisionAlias type="mvce" replacement="mv?" reason="deprecated"/> <!- - Central Province => ?? -->
+			<!-- <subdivisionAlias type="mvnc" replacement="mv?" reason="deprecated"/> <!- - North Central Province => ?? -->
+			<!-- <subdivisionAlias type="mvno" replacement="mv?" reason="deprecated"/> <!- - North Province => ?? -->
+			<!-- <subdivisionAlias type="mvsc" replacement="mv?" reason="deprecated"/> <!- - South Central Province => ?? -->
+			<!-- <subdivisionAlias type="mvsu" replacement="mv?" reason="deprecated"/> <!- - South Province => ?? -->
+			<!-- <subdivisionAlias type="mvun" replacement="mv?" reason="deprecated"/> <!- - Upper North Province => ?? -->
+			<!-- <subdivisionAlias type="mvus" replacement="mv?" reason="deprecated"/> <!- - Upper South Province => ?? -->
 			<!-- <subdivisionAlias type="mxdif" replacement="mx?" reason="deprecated"/> <!- - Mexico City => ?? -->
-			<subdivisionAlias type="nzn" replacement="nzauk nzbop nzgis nzhkb nzmwt nzntl nztki nzwgn nzwko" reason="deprecated"/> <!-- North Island => ??? -->
-			<subdivisionAlias type="nzs" replacement="nzcan nzmbh nznsn nzota nzstl nztas nzwtc" reason="deprecated"/> <!-- South Island => ??? -->
-			<subdivisionAlias type="omba" replacement="ombj ombs" reason="deprecated"/> <!-- Al Batinah => ??? -->
-			<subdivisionAlias type="omsh" replacement="omsj omss" reason="deprecated"/> <!-- Ash Sharqiyah => ??? -->
+			<!-- <subdivisionAlias type="no16" replacement="no?" reason="deprecated"/> <!- - Sør-Trøndelag => ?? -->
+			<!-- <subdivisionAlias type="no17" replacement="no?" reason="deprecated"/> <!- - Nord-Trøndelag => ?? -->
+			<subdivisionAlias type="nzn" replacement="nzauk nzbop nzgis nzhkb nzmwt nzntl nztki nzwgn nzwko" reason="deprecated"/> <!-- ??? => ??? -->
+			<subdivisionAlias type="nzs" replacement="nzcan nzmbh nznsn nzota nzstl nztas nzwtc" reason="deprecated"/> <!-- ??? => ??? -->
+			<subdivisionAlias type="omba" replacement="ombj ombs" reason="deprecated"/> <!-- ??? => ??? -->
+			<subdivisionAlias type="omsh" replacement="omsj omss" reason="deprecated"/> <!-- ??? => ??? -->
 			<subdivisionAlias type="tteto" replacement="tttob" reason="deprecated"/> <!-- ??? => Tobago -->
 			<subdivisionAlias type="ttrcm" replacement="ttmrc" reason="deprecated"/> <!-- ??? => Mayaro-Rio Claro -->
 			<subdivisionAlias type="ttwto" replacement="tttob" reason="deprecated"/> <!-- ??? => Tobago -->
@@ -1390,13 +1432,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivisionAlias type="twtxq" replacement="twtxg" reason="deprecated"/> <!-- ??? => Taichung -->
 			<!-- end of data generated with GenerateSubdivisions -->
 			<!-- Curated subdivision data -->	
-			
-			<subdivisionAlias type="escn" replacement="IC" reason="overlong"/> <!-- Canary Islands -->
-			<subdivisionAlias type="fi01" replacement="AX" reason="overlong"/> <!-- Åland Islands -->
-			<subdivisionAlias type="frcp" replacement="CP" reason="overlong"/> <!-- Clipperton Island -->
-			<subdivisionAlias type="frgf" replacement="GF" reason="overlong"/> <!-- French Guiana -->
-			<subdivisionAlias type="frmq" replacement="MQ" reason="overlong"/> <!-- Martinique -->
-			<subdivisionAlias type="shta" replacement="TA" reason="overlong"/> <!-- Tristan da Cunha -->
+						
+			<subdivisionAlias type="plds" replacement="pl02" reason="deprecated"/>
+			<subdivisionAlias type="plkp" replacement="pl04" reason="deprecated"/>
+			<subdivisionAlias type="pllb" replacement="pl08" reason="deprecated"/>
+			<subdivisionAlias type="plld" replacement="pl10" reason="deprecated"/>
+			<subdivisionAlias type="pllu" replacement="pl06" reason="deprecated"/>
+			<subdivisionAlias type="plma" replacement="pl12" reason="deprecated"/>
+			<subdivisionAlias type="plmz" replacement="pl14" reason="deprecated"/>
+			<subdivisionAlias type="plop" replacement="pl16" reason="deprecated"/>
+			<subdivisionAlias type="plpd" replacement="pl20" reason="deprecated"/>
+			<subdivisionAlias type="plpk" replacement="pl18" reason="deprecated"/>
+			<subdivisionAlias type="plpm" replacement="pl22" reason="deprecated"/>
+			<subdivisionAlias type="plsk" replacement="pl26" reason="deprecated"/>
+			<subdivisionAlias type="plsl" replacement="pl24" reason="deprecated"/>
+			<subdivisionAlias type="plwn" replacement="pl28" reason="deprecated"/>
+			<subdivisionAlias type="plwp" replacement="pl30" reason="deprecated"/>
+			<subdivisionAlias type="plzp" replacement="pl32" reason="deprecated"/>
 			
             <!-- variants -->
             <variantAlias type="AALAND" replacement="AX" reason="deprecated"/>

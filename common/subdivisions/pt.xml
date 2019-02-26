@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -647,6 +647,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cllr" draft="contributed">Região de Los Rios</subdivision>
 			<subdivision type="clma" draft="contributed">Magalhães e Antártica Chilena</subdivision>
 			<subdivision type="clml" draft="contributed">Região de Maule</subdivision>
+			<subdivision type="clnb" draft="contributed">Ñuble</subdivision>
 			<subdivision type="clrm" draft="contributed">Região Metropolitana de Santiago</subdivision>
 			<subdivision type="clta" draft="contributed">Região de Tarapacá</subdivision>
 			<subdivision type="clvs" draft="contributed">Região de Valparaíso</subdivision>
@@ -811,6 +812,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cz314" draft="contributed">Písek</subdivision>
 			<subdivision type="cz315" draft="contributed">Prachatice</subdivision>
 			<subdivision type="cz316" draft="contributed">Strakonice</subdivision>
+			<subdivision type="cz321" draft="contributed">Domažlice (distrito)</subdivision>
 			<subdivision type="cz322" draft="contributed">Klatovy</subdivision>
 			<subdivision type="cz323" draft="contributed">Distrito de Plzeň-Ciudad</subdivision>
 			<subdivision type="cz324" draft="contributed">Distrito de Plzeň-Sul</subdivision>
@@ -849,6 +851,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cz712" draft="contributed">Olomouc²</subdivision>
 			<subdivision type="cz713" draft="contributed">Prostějov</subdivision>
 			<subdivision type="cz714" draft="contributed">Přerov</subdivision>
+			<subdivision type="cz715" draft="contributed">Šumperk (distrito)</subdivision>
 			<subdivision type="cz721" draft="contributed">Kroměříž (distrito)</subdivision>
 			<subdivision type="cz722" draft="contributed">Uherské Hradiště (distrito)</subdivision>
 			<subdivision type="cz724" draft="contributed">Zlín (distrito)</subdivision>
@@ -1522,6 +1525,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gngu" draft="contributed">Prefeitura de Guéckédou</subdivision>
 			<subdivision type="gnk" draft="contributed">Kankan</subdivision>
 			<subdivision type="gnkb" draft="contributed">Koubia</subdivision>
+			<subdivision type="gnkd" draft="contributed">Quindia (prefeitura)</subdivision>
 			<subdivision type="gnke" draft="contributed">Kérouané</subdivision>
 			<subdivision type="gnkn" draft="contributed">Koundara</subdivision>
 			<subdivision type="gnko" draft="contributed">Kouroussa</subdivision>
@@ -2582,11 +2586,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mk11" draft="contributed">Vasilevo</subdivision>
 			<subdivision type="mk12" draft="contributed">Município de Vevčani</subdivision>
 			<subdivision type="mk14" draft="contributed">Município de Vinica</subdivision>
+			<subdivision type="mk18" draft="contributed">Município de Gevgelija</subdivision>
 			<subdivision type="mk19" draft="contributed">Município de Gostivar</subdivision>
 			<subdivision type="mk20" draft="contributed">Município de Glarus</subdivision>
 			<subdivision type="mk21" draft="contributed">Município de Debar</subdivision>
 			<subdivision type="mk22" draft="contributed">Município de Debarca</subdivision>
 			<subdivision type="mk23" draft="contributed">Município de Delcevo</subdivision>
+			<subdivision type="mk24" draft="contributed">Município de Demir Kapija</subdivision>
+			<subdivision type="mk25" draft="contributed">Município de Demir Hisar</subdivision>
+			<subdivision type="mk26" draft="contributed">Município de Dojran</subdivision>
 			<subdivision type="mk27" draft="contributed">Município de Dolneni</subdivision>
 			<subdivision type="mk30" draft="contributed">Município de Zelino</subdivision>
 			<subdivision type="mk32" draft="contributed">Município de Zelenikovo</subdivision>
@@ -3044,6 +3052,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="nzwko" draft="contributed">Waikato</subdivision>
 			<subdivision type="nzwtc" draft="contributed">Costa Oeste</subdivision>
 			<subdivision type="ombj" draft="contributed">Governamento de Al Batinah Sul</subdivision>
+			<subdivision type="ombs" draft="contributed">Batina Setentrional</subdivision>
 			<subdivision type="ombu" draft="contributed">Al Buraimi</subdivision>
 			<subdivision type="omda" draft="contributed">Ad Dakhiliyah</subdivision>
 			<subdivision type="omma" draft="contributed">Governamento de Muscat</subdivision>
@@ -3206,22 +3215,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pkpb" draft="contributed">Punjab</subdivision>
 			<subdivision type="pksd" draft="contributed">Sind</subdivision>
 			<subdivision type="pkta" draft="contributed">Território Federal das Áreas Tribais</subdivision>
-			<subdivision type="plds" draft="contributed">Voivodia da Baixa Silésia</subdivision>
-			<subdivision type="plkp" draft="contributed">Voivodia da Cujávia-Pomerânia</subdivision>
-			<subdivision type="pllb" draft="contributed">Voivodia da Lubúsquia</subdivision>
-			<subdivision type="plld" draft="contributed">Voivodia de Łódź</subdivision>
-			<subdivision type="pllu" draft="contributed">Voivodia de Lublin</subdivision>
-			<subdivision type="plma" draft="contributed">Voivodia da Pequena Polónia</subdivision>
-			<subdivision type="plmz" draft="contributed">Voivodia da Mazóvia</subdivision>
-			<subdivision type="plop" draft="contributed">Voivodia de Opole</subdivision>
-			<subdivision type="plpd" draft="contributed">Voivodia da Podláquia</subdivision>
-			<subdivision type="plpk" draft="contributed">Voivodia da Subcarpácia</subdivision>
-			<subdivision type="plpm" draft="contributed">Voivodia da Pomerânia</subdivision>
-			<subdivision type="plsk" draft="contributed">Voivodia de Santa Cruz</subdivision>
-			<subdivision type="plsl" draft="contributed">Voivodia da Silésia</subdivision>
-			<subdivision type="plwn" draft="contributed">Voivodia da Vármia-Masúria</subdivision>
-			<subdivision type="plwp" draft="contributed">Voivodia da Grande Polônia</subdivision>
-			<subdivision type="plzp" draft="contributed">Voivodia da Pomerânia Ocidental</subdivision>
+			<subdivision type="pl02" draft="contributed">Voivodia da Baixa Silésia</subdivision>
+			<subdivision type="pl04" draft="contributed">Voivodia da Cujávia-Pomerânia</subdivision>
+			<subdivision type="pl06" draft="contributed">Voivodia de Lublin</subdivision>
+			<subdivision type="pl08" draft="contributed">Voivodia da Lubúsquia</subdivision>
+			<subdivision type="pl10" draft="contributed">Voivodia de Łódź</subdivision>
+			<subdivision type="pl12" draft="contributed">Voivodia da Pequena Polónia</subdivision>
+			<subdivision type="pl14" draft="contributed">Voivodia da Mazóvia</subdivision>
+			<subdivision type="pl16" draft="contributed">Voivodia de Opole</subdivision>
+			<subdivision type="pl18" draft="contributed">Voivodia da Subcarpácia</subdivision>
+			<subdivision type="pl20" draft="contributed">Voivodia da Podláquia</subdivision>
+			<subdivision type="pl22" draft="contributed">Voivodia da Pomerânia</subdivision>
+			<subdivision type="pl24" draft="contributed">Voivodia da Silésia</subdivision>
+			<subdivision type="pl26" draft="contributed">Voivodia de Santa Cruz</subdivision>
+			<subdivision type="pl28" draft="contributed">Voivodia da Vármia-Masúria</subdivision>
+			<subdivision type="pl30" draft="contributed">Voivodia da Grande Polônia</subdivision>
+			<subdivision type="pl32" draft="contributed">Voivodia da Pomerânia Ocidental</subdivision>
 			<subdivision type="psbth" draft="contributed">Governamento de Belém</subdivision>
 			<subdivision type="pshbn" draft="contributed">Governamento de Hebron</subdivision>
 			<subdivision type="psjen" draft="contributed">Província de Jenin</subdivision>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -662,6 +662,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cibs" draft="contributed">Бас-Сассандра</subdivision>
 			<subdivision type="cidn" draft="contributed">Денгеле</subdivision>
 			<subdivision type="cilc" draft="contributed">Лак</subdivision>
+			<subdivision type="cimg" draft="contributed">округ Монтань</subdivision>
 			<subdivision type="cisv" draft="contributed">Саван</subdivision>
 			<subdivision type="civb" draft="contributed">Валле-дю-Бандама</subdivision>
 			<subdivision type="ciym" draft="contributed">Ямусукро</subdivision>
@@ -677,6 +678,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cllr" draft="contributed">Лос-Риос</subdivision>
 			<subdivision type="clma" draft="contributed">Магальянес и Чилийская Антарктика</subdivision>
 			<subdivision type="clml" draft="contributed">Мауле</subdivision>
+			<subdivision type="clnb" draft="contributed">Ньюбле</subdivision>
 			<subdivision type="clrm" draft="contributed">Сантьяго</subdivision>
 			<subdivision type="clta" draft="contributed">Тарапака</subdivision>
 			<subdivision type="clvs" draft="contributed">Вальпараисо</subdivision>
@@ -2146,9 +2148,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jp47" draft="contributed">Окинава</subdivision>
 			<subdivision type="ke01" draft="contributed">Баринго</subdivision>
 			<subdivision type="ke04" draft="contributed">Бусиа (округ, Кения)</subdivision>
+			<subdivision type="ke07" draft="contributed">Гарисса (округ)</subdivision>
 			<subdivision type="ke16" draft="contributed">Кисии</subdivision>
 			<subdivision type="ke20" draft="contributed">Лайкипиа</subdivision>
 			<subdivision type="ke28" draft="contributed">Момбаса</subdivision>
+			<subdivision type="ke29" draft="contributed">Муранга</subdivision>
 			<subdivision type="ke30" draft="contributed">Найроби</subdivision>
 			<subdivision type="ke32" draft="contributed">Нанди (округ)</subdivision>
 			<subdivision type="kgb" draft="contributed">Баткенская область</subdivision>
@@ -3372,22 +3376,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pkpb" draft="contributed">Пенджаб</subdivision>
 			<subdivision type="pksd" draft="contributed">Синд</subdivision>
 			<subdivision type="pkta" draft="contributed">Федерально управляемые племенные территории</subdivision>
-			<subdivision type="plds" draft="contributed">Нижнесилезское воеводство</subdivision>
-			<subdivision type="plkp" draft="contributed">Куявско-Поморское воеводство</subdivision>
-			<subdivision type="pllb" draft="contributed">Любушское воеводство</subdivision>
-			<subdivision type="plld" draft="contributed">Лодзинское воеводство</subdivision>
-			<subdivision type="pllu" draft="contributed">Люблинское воеводство</subdivision>
-			<subdivision type="plma" draft="contributed">Малопольское воеводство</subdivision>
-			<subdivision type="plmz" draft="contributed">Мазовецкое воеводство</subdivision>
-			<subdivision type="plop" draft="contributed">Опольское воеводство</subdivision>
-			<subdivision type="plpd" draft="contributed">Подляское воеводство</subdivision>
-			<subdivision type="plpk" draft="contributed">Подкарпатское воеводство</subdivision>
-			<subdivision type="plpm" draft="contributed">Поморское воеводство</subdivision>
-			<subdivision type="plsk" draft="contributed">Свентокшиское воеводство</subdivision>
-			<subdivision type="plsl" draft="contributed">Силезское воеводство</subdivision>
-			<subdivision type="plwn" draft="contributed">Варминско-Мазурское воеводство</subdivision>
-			<subdivision type="plwp" draft="contributed">Великопольское воеводство</subdivision>
-			<subdivision type="plzp" draft="contributed">Западно-Поморское воеводство</subdivision>
+			<subdivision type="pl02" draft="contributed">Нижнесилезское воеводство</subdivision>
+			<subdivision type="pl04" draft="contributed">Куявско-Поморское воеводство</subdivision>
+			<subdivision type="pl06" draft="contributed">Люблинское воеводство</subdivision>
+			<subdivision type="pl08" draft="contributed">Любушское воеводство</subdivision>
+			<subdivision type="pl10" draft="contributed">Лодзинское воеводство</subdivision>
+			<subdivision type="pl12" draft="contributed">Малопольское воеводство</subdivision>
+			<subdivision type="pl14" draft="contributed">Мазовецкое воеводство</subdivision>
+			<subdivision type="pl16" draft="contributed">Опольское воеводство</subdivision>
+			<subdivision type="pl18" draft="contributed">Подкарпатское воеводство</subdivision>
+			<subdivision type="pl20" draft="contributed">Подляское воеводство</subdivision>
+			<subdivision type="pl22" draft="contributed">Поморское воеводство</subdivision>
+			<subdivision type="pl24" draft="contributed">Силезское воеводство</subdivision>
+			<subdivision type="pl26" draft="contributed">Свентокшиское воеводство</subdivision>
+			<subdivision type="pl28" draft="contributed">Варминско-Мазурское воеводство</subdivision>
+			<subdivision type="pl30" draft="contributed">Великопольское воеводство</subdivision>
+			<subdivision type="pl32" draft="contributed">Западно-Поморское воеводство</subdivision>
 			<subdivision type="psbth" draft="contributed">Вифлеем</subdivision>
 			<subdivision type="psdeb" draft="contributed">Дейр эль-Балах</subdivision>
 			<subdivision type="psgza" draft="contributed">Газа</subdivision>
@@ -3836,6 +3840,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si129" draft="contributed">Трбовле</subdivision>
 			<subdivision type="si130" draft="contributed">Требне</subdivision>
 			<subdivision type="si131" draft="contributed">Тржич</subdivision>
+			<subdivision type="si133" draft="contributed">Веленье</subdivision>
 			<subdivision type="si134" draft="contributed">Велике-Лашче</subdivision>
 			<subdivision type="si136" draft="contributed">Випава</subdivision>
 			<subdivision type="si137" draft="contributed">Витанье</subdivision>

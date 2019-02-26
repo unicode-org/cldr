@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1635,6 +1635,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir02" draft="contributed">மேற்கு அசார்பைஜான் மாகாணம்</subdivision>
 			<subdivision type="ir03" draft="contributed">அர்டாபில் மாகாணம்</subdivision>
 			<subdivision type="ir04" draft="contributed">இசுபான் மாகாணம்</subdivision>
+			<subdivision type="ir05" draft="contributed">இலாம் மாகாணம்</subdivision>
+			<subdivision type="ir06" draft="contributed">புஷெர் மாகாணம்</subdivision>
 			<subdivision type="ir07" draft="contributed">தெஹ்ரான் மாகாணம்</subdivision>
 			<subdivision type="ir08" draft="contributed">சஹ்ரமஹால் அண்ட் பாக்ஹ்டிரி மாகாணம்</subdivision>
 			<subdivision type="ir10" draft="contributed">க்ஹுஸிஸ்டன் மாகாணம்</subdivision>
@@ -1648,6 +1650,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir20" draft="contributed">லொரெஸ்டன் மாகாணம்</subdivision>
 			<subdivision type="ir21" draft="contributed">மசன்றன் மாகாணம்</subdivision>
 			<subdivision type="ir22" draft="contributed">மார்கசி மாகாணம்</subdivision>
+			<subdivision type="ir23" draft="contributed">ஹொர்மொஸ்கான் மாகாணம்</subdivision>
 			<subdivision type="ir24" draft="contributed">அமாதான் மாகாணம்</subdivision>
 			<subdivision type="ir25" draft="contributed">இயாஸ்த் மாநிலம்</subdivision>
 			<subdivision type="ir26" draft="contributed">கியோம் மாகாணம்</subdivision>
@@ -1684,10 +1687,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itar" draft="contributed">அரேஸ்ஸ்வ் மாகாணம்</subdivision>
 			<subdivision type="itat" draft="contributed">அஸ்தி மாகாணம்</subdivision>
 			<subdivision type="itav" draft="contributed">அவெள்ளினோ மாகாணம்</subdivision>
+			<subdivision type="itba" draft="contributed">மெட்ரோபொலிட்டன் நகரம் பாரி</subdivision>
 			<subdivision type="itbg" draft="contributed">பெர்கமோ மாகாணம்</subdivision>
 			<subdivision type="itbi" draft="contributed">பியெல்லா மாகாணம்</subdivision>
 			<subdivision type="itbl" draft="contributed">பெல்லூனோ மாகாணம்</subdivision>
 			<subdivision type="itbn" draft="contributed">பெனெவெண்டோ மாகாணம்</subdivision>
+			<subdivision type="itbo" draft="contributed">மெட்ரோபொலிட்டன் நகரம் போலோக்னா</subdivision>
 			<subdivision type="itbr" draft="contributed">பிரிந்திசி மாகாணம்</subdivision>
 			<subdivision type="itbs" draft="contributed">பிரேசியா மாகாணம்</subdivision>
 			<subdivision type="itbt" draft="contributed">பார்லேட்டா -ஆண்ட்ரியா -த்ராணி மாகாணம்</subdivision>
@@ -2876,22 +2881,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pkpb" draft="contributed">பஞ்சாப்</subdivision>
 			<subdivision type="pksd" draft="contributed">சிந்து மாகாணம்</subdivision>
 			<subdivision type="pkta" draft="contributed">நடுவண் நிர்வாகத்தில் பழங்குடிப் பகுதிகள்</subdivision>
-			<subdivision type="plds" draft="contributed">லோவெர் சிலேசியன் ஓய்வோடேஷிப்</subdivision>
-			<subdivision type="plkp" draft="contributed">குய்யாவின்-போமெரனின் ஓய்வோடேஷிப்</subdivision>
-			<subdivision type="pllb" draft="contributed">லூபஸ்ஸ் ஓய்வொடேஷிப்</subdivision>
-			<subdivision type="plld" draft="contributed">லொட்ஸ் ஓய்வோடேஷிப்</subdivision>
-			<subdivision type="pllu" draft="contributed">லுபிளின் ஓய்வோடேஷிப்</subdivision>
-			<subdivision type="plma" draft="contributed">லெஸ்ஸர் போலந்து ஓய்வோடேஷிப்</subdivision>
-			<subdivision type="plmz" draft="contributed">மசோவின் ஓய்வோடேஷிப்</subdivision>
-			<subdivision type="plop" draft="contributed">ஓபோலே ஓய்வோடேஷிப்</subdivision>
-			<subdivision type="plpd" draft="contributed">போட்லஸ்கியே ஓய்வோடேஷிப்</subdivision>
-			<subdivision type="plpk" draft="contributed">போத்கர்ப்பாக்கியே ஓய்வோடேஷிப்</subdivision>
-			<subdivision type="plpm" draft="contributed">போமெரனின் ஓய்வோடேஷிப்</subdivision>
-			<subdivision type="plsk" draft="contributed">ஸ்விட்ஓக்கறயசகியே ஓய்வோடேஷிப்</subdivision>
-			<subdivision type="plsl" draft="contributed">சிலேசியான் ஓய்வொதேஷிப்</subdivision>
-			<subdivision type="plwn" draft="contributed">வார்மிங் -மைசூரின் ஓய்வொடேஷிப்</subdivision>
-			<subdivision type="plwp" draft="contributed">கிரேட்டர் பொலன்ட் ஓய்வொதேஷிப்</subdivision>
-			<subdivision type="plzp" draft="contributed">மேற்கு போமெரனின் ஓய்வோடேஷிப்</subdivision>
+			<subdivision type="pl02" draft="contributed">லோவெர் சிலேசியன் ஓய்வோடேஷிப்</subdivision>
+			<subdivision type="pl04" draft="contributed">குய்யாவின்-போமெரனின் ஓய்வோடேஷிப்</subdivision>
+			<subdivision type="pl06" draft="contributed">லுபிளின் ஓய்வோடேஷிப்</subdivision>
+			<subdivision type="pl08" draft="contributed">லூபஸ்ஸ் ஓய்வொடேஷிப்</subdivision>
+			<subdivision type="pl10" draft="contributed">லொட்ஸ் ஓய்வோடேஷிப்</subdivision>
+			<subdivision type="pl12" draft="contributed">லெஸ்ஸர் போலந்து ஓய்வோடேஷிப்</subdivision>
+			<subdivision type="pl14" draft="contributed">மசோவின் ஓய்வோடேஷிப்</subdivision>
+			<subdivision type="pl16" draft="contributed">ஓபோலே ஓய்வோடேஷிப்</subdivision>
+			<subdivision type="pl18" draft="contributed">போத்கர்ப்பாக்கியே ஓய்வோடேஷிப்</subdivision>
+			<subdivision type="pl20" draft="contributed">போட்லஸ்கியே ஓய்வோடேஷிப்</subdivision>
+			<subdivision type="pl22" draft="contributed">போமெரனின் ஓய்வோடேஷிப்</subdivision>
+			<subdivision type="pl24" draft="contributed">சிலேசியான் ஓய்வொதேஷிப்</subdivision>
+			<subdivision type="pl26" draft="contributed">ஸ்விட்ஓக்கறயசகியே ஓய்வோடேஷிப்</subdivision>
+			<subdivision type="pl28" draft="contributed">வார்மிங் -மைசூரின் ஓய்வொடேஷிப்</subdivision>
+			<subdivision type="pl30" draft="contributed">கிரேட்டர் பொலன்ட் ஓய்வொதேஷிப்</subdivision>
+			<subdivision type="pl32" draft="contributed">மேற்கு போமெரனின் ஓய்வோடேஷிப்</subdivision>
 			<subdivision type="psbth" draft="contributed">பெத்லகேம் கோவெர்னோரேட்</subdivision>
 			<subdivision type="psdeb" draft="contributed">டேஇரு அல்-பலாஹ் கோவெர்னோரே</subdivision>
 			<subdivision type="pshbn" draft="contributed">ஹெப்ரோன் கோவெர்னோரே</subdivision>

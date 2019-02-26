@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -756,16 +756,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itao" draft="contributed">Aosta</subdivision>
 			<subdivision type="itar" draft="contributed">Arezzo</subdivision>
 			<subdivision type="itbl" draft="contributed">Belluno (pokrajina)</subdivision>
+			<subdivision type="itbs" draft="contributed">Brescia</subdivision>
 			<subdivision type="itbz" draft="contributed">Autonomna pokrajina Bocen</subdivision>
 			<subdivision type="itcb" draft="contributed">Campobasso</subdivision>
 			<subdivision type="itch" draft="contributed">Chieti</subdivision>
 			<subdivision type="itcl" draft="contributed">Caltanissetta</subdivision>
+			<subdivision type="itco" draft="contributed">Como</subdivision>
 			<subdivision type="itcs" draft="contributed">Cosenza</subdivision>
 			<subdivision type="itct" draft="contributed">Catania</subdivision>
 			<subdivision type="itcz" draft="contributed">Catanzaro</subdivision>
 			<subdivision type="iten" draft="contributed">Enna</subdivision>
 			<subdivision type="itfg" draft="contributed">Foggia</subdivision>
 			<subdivision type="itfi" draft="contributed">Firenca</subdivision>
+			<subdivision type="itfm" draft="contributed">Fermo</subdivision>
 			<subdivision type="itfr" draft="contributed">Frosinone</subdivision>
 			<subdivision type="itgo" draft="contributed">Gorica</subdivision>
 			<subdivision type="itgr" draft="contributed">Grosseto (pokrajina)</subdivision>
@@ -791,6 +794,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itts" draft="contributed">Trst</subdivision>
 			<subdivision type="ittv" draft="contributed">Treviso</subdivision>
 			<subdivision type="itud" draft="contributed">Udine</subdivision>
+			<subdivision type="itva" draft="contributed">okrug Vareze</subdivision>
 			<subdivision type="itve" draft="contributed">Venecija</subdivision>
 			<subdivision type="itvi" draft="contributed">Vicenza (pokrajina)</subdivision>
 			<subdivision type="itvr" draft="contributed">Verona (pokrajina)</subdivision>
@@ -888,6 +892,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="laxa" draft="contributed">Sainyabuli</subdivision>
 			<subdivision type="laxe" draft="contributed">Sekong (provincija)</subdivision>
 			<subdivision type="laxi" draft="contributed">Xiang Khouang</subdivision>
+			<subdivision type="li01" draft="contributed">Balzers</subdivision>
 			<subdivision type="li11" draft="contributed">Vaduz</subdivision>
 			<subdivision type="ltal" draft="contributed">Okrug Alitus</subdivision>
 			<subdivision type="ltkl" draft="contributed">Okrug Klaipėda</subdivision>
@@ -905,6 +910,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lvjur" draft="contributed">Jūrmala</subdivision>
 			<subdivision type="lvlpx" draft="contributed">Liepāja</subdivision>
 			<subdivision type="lvrix" draft="contributed">Riga</subdivision>
+			<subdivision type="lvven" draft="contributed">Ventspils</subdivision>
 			<subdivision type="lyba" draft="contributed">Bengazi</subdivision>
 			<subdivision type="ma01" draft="contributed">Tangier-Tetouan</subdivision>
 			<subdivision type="ma02" draft="contributed">Gharb-Chrarda-Béni Hssen</subdivision>
@@ -938,6 +944,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mdbd" draft="contributed">Bender</subdivision>
 			<subdivision type="mdcu" draft="contributed">Kišinjev</subdivision>
 			<subdivision type="mdga" draft="contributed">Gagauzija</subdivision>
+			<subdivision type="me08" draft="contributed">Herceg Novi</subdivision>
 			<subdivision type="mgu" draft="contributed">Provincija Toliara</subdivision>
 			<subdivision type="mhall" draft="contributed">Ailinglaplap</subdivision>
 			<subdivision type="mhebo" draft="contributed">Ebon</subdivision>
@@ -1179,22 +1186,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="phplw" draft="contributed">Palawan</subdivision>
 			<subdivision type="pkis" draft="contributed">Teritorij glavnoga grada Islamabada</subdivision>
 			<subdivision type="pksd" draft="contributed">Sind</subdivision>
-			<subdivision type="plds" draft="contributed">Donjošlesko vojvodstvo</subdivision>
-			<subdivision type="plkp" draft="contributed">Kujavsko-pomeransko vojvodstvo</subdivision>
-			<subdivision type="pllb" draft="contributed">Lubusko vojvodstvo</subdivision>
-			<subdivision type="plld" draft="contributed">Vojvodstvo Lodz</subdivision>
-			<subdivision type="pllu" draft="contributed">Lublinsko vojvodstvo</subdivision>
-			<subdivision type="plma" draft="contributed">Malopoljsko vojvodstvo</subdivision>
-			<subdivision type="plmz" draft="contributed">Mazovjecko vojvodstvo</subdivision>
-			<subdivision type="plop" draft="contributed">Opolsko vojvodstvo</subdivision>
-			<subdivision type="plpd" draft="contributed">Podlasko vojvodstvo</subdivision>
-			<subdivision type="plpk" draft="contributed">Potkarpatsko vojvodstvo</subdivision>
-			<subdivision type="plpm" draft="contributed">Pomeransko vojvodstvo</subdivision>
-			<subdivision type="plsk" draft="contributed">Svetokriško vojvodstvo</subdivision>
-			<subdivision type="plsl" draft="contributed">Šlesko vojvodstvo</subdivision>
-			<subdivision type="plwn" draft="contributed">Varminsko-mazursko vojvodstvo</subdivision>
-			<subdivision type="plwp" draft="contributed">Velikopoljsko vojvodstvo</subdivision>
-			<subdivision type="plzp" draft="contributed">Zapadnopomeransko vojvodstvo</subdivision>
+			<subdivision type="pl02" draft="contributed">Donjošlesko vojvodstvo</subdivision>
+			<subdivision type="pl04" draft="contributed">Kujavsko-pomeransko vojvodstvo</subdivision>
+			<subdivision type="pl06" draft="contributed">Lublinsko vojvodstvo</subdivision>
+			<subdivision type="pl08" draft="contributed">Lubusko vojvodstvo</subdivision>
+			<subdivision type="pl10" draft="contributed">Vojvodstvo Lodz</subdivision>
+			<subdivision type="pl12" draft="contributed">Malopoljsko vojvodstvo</subdivision>
+			<subdivision type="pl14" draft="contributed">Mazovjecko vojvodstvo</subdivision>
+			<subdivision type="pl16" draft="contributed">Opolsko vojvodstvo</subdivision>
+			<subdivision type="pl18" draft="contributed">Potkarpatsko vojvodstvo</subdivision>
+			<subdivision type="pl20" draft="contributed">Podlasko vojvodstvo</subdivision>
+			<subdivision type="pl22" draft="contributed">Pomeransko vojvodstvo</subdivision>
+			<subdivision type="pl24" draft="contributed">Šlesko vojvodstvo</subdivision>
+			<subdivision type="pl26" draft="contributed">Svetokriško vojvodstvo</subdivision>
+			<subdivision type="pl28" draft="contributed">Varminsko-mazursko vojvodstvo</subdivision>
+			<subdivision type="pl30" draft="contributed">Velikopoljsko vojvodstvo</subdivision>
+			<subdivision type="pl32" draft="contributed">Zapadnopomeransko vojvodstvo</subdivision>
 			<subdivision type="pt20" draft="contributed">Azori</subdivision>
 			<subdivision type="pt30" draft="contributed">Madeira</subdivision>
 			<subdivision type="pw224" draft="contributed">Ngatpang</subdivision>

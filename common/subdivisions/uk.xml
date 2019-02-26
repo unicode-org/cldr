@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -613,6 +613,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="chzh" draft="contributed">Цюрих</subdivision>
 			<subdivision type="ciab" draft="contributed">Абіджан</subdivision>
 			<subdivision type="cibs" draft="contributed">Район Бас-Сассандра</subdivision>
+			<subdivision type="cicm" draft="contributed">Комое (район)</subdivision>
 			<subdivision type="cidn" draft="contributed">Денґеле</subdivision>
 			<subdivision type="cigd" draft="contributed">Ґо-Джибуа</subdivision>
 			<subdivision type="cilc" draft="contributed">Лак (район)</subdivision>
@@ -663,6 +664,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cnsn" draft="contributed">Шеньсі</subdivision>
 			<subdivision type="cnsx" draft="contributed">Шаньсі</subdivision>
 			<subdivision type="cntj" draft="contributed">Тяньцзінь</subdivision>
+			<subdivision type="cntw" draft="contributed">Тайвань (провінція Китайської Народної Республіки)</subdivision>
 			<subdivision type="cnxj" draft="contributed">Сіньцзян-Уйгурський автономний район</subdivision>
 			<subdivision type="cnxz" draft="contributed">Тибетський автономний район</subdivision>
 			<subdivision type="cnyn" draft="contributed">Юньнань</subdivision>
@@ -1124,6 +1126,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fi17" draft="contributed">Сатакунта</subdivision>
 			<subdivision type="fi18" draft="contributed">Уусімаа</subdivision>
 			<subdivision type="fi19" draft="contributed">Південно-західна Фінляндія</subdivision>
+			<subdivision type="fj06" draft="contributed">Ломаївіті</subdivision>
 			<subdivision type="fjc" draft="contributed">Центральний округ</subdivision>
 			<subdivision type="fje" draft="contributed">Східний округ</subdivision>
 			<subdivision type="fjn" draft="contributed">Північний округ</subdivision>
@@ -1350,6 +1353,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gblan" draft="contributed">Ланкашир</subdivision>
 			<subdivision type="gblbh" draft="contributed">Ламбет</subdivision>
 			<subdivision type="gblce" draft="contributed">Лестер</subdivision>
+			<subdivision type="gblds" draft="contributed">Сіті-оф-Лідс</subdivision>
 			<subdivision type="gblec" draft="contributed">Лестершир</subdivision>
 			<subdivision type="gblew" draft="contributed">Луїшем</subdivision>
 			<subdivision type="gblin" draft="contributed">Лінкольншир</subdivision>
@@ -1511,6 +1515,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gnkn" draft="contributed">Префектура Кундара</subdivision>
 			<subdivision type="gnko" draft="contributed">Префектура Куруса</subdivision>
 			<subdivision type="gnks" draft="contributed">Префектура Кісідугу</subdivision>
+			<subdivision type="gnl" draft="contributed">Лабе²</subdivision>
 			<subdivision type="gnla" draft="contributed">Лабе</subdivision>
 			<subdivision type="gnle" draft="contributed">Префектура Лелоума</subdivision>
 			<subdivision type="gnlo" draft="contributed">Префектура Лола</subdivision>
@@ -2051,6 +2056,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jp45" draft="contributed">Префектура Міядзакі</subdivision>
 			<subdivision type="jp46" draft="contributed">Префектура Каґошіма</subdivision>
 			<subdivision type="jp47" draft="contributed">Префектура Окінава</subdivision>
+			<subdivision type="ke27" draft="contributed">Мігорі (округ)</subdivision>
 			<subdivision type="ke30" draft="contributed">Округ Найробі</subdivision>
 			<subdivision type="ke31" draft="contributed">округ Накуру</subdivision>
 			<subdivision type="kgb" draft="contributed">Баткенська область</subdivision>
@@ -2266,6 +2272,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lt10" draft="contributed">Йонавський район</subdivision>
 			<subdivision type="lt11" draft="contributed">Йонішкіський район</subdivision>
 			<subdivision type="lt13" draft="contributed">Кайшядоріський район</subdivision>
+			<subdivision type="lt15" draft="contributed">Каунаський міський муніципалітет</subdivision>
 			<subdivision type="lt16" draft="contributed">Каунаський район</subdivision>
 			<subdivision type="lt18" draft="contributed">Кедайняйський район</subdivision>
 			<subdivision type="lt19" draft="contributed">Кельмеський район</subdivision>
@@ -2553,6 +2560,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mhkwa" draft="contributed">Кваджалейн</subdivision>
 			<subdivision type="mhl" draft="contributed">Ланцюг Ралік</subdivision>
 			<subdivision type="mhmaj" draft="contributed">Маджуро</subdivision>
+			<subdivision type="mhron" draft="contributed">Атол Ронгелап</subdivision>
 			<subdivision type="mht" draft="contributed">Ланцюг Ратак</subdivision>
 			<subdivision type="mhwtj" draft="contributed">Вотьє</subdivision>
 			<subdivision type="mk02" draft="contributed">Арачиново (община)</subdivision>
@@ -3207,22 +3215,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pkpb" draft="contributed">Пенджаб</subdivision>
 			<subdivision type="pksd" draft="contributed">Сінд</subdivision>
 			<subdivision type="pkta" draft="contributed">Федерально керовані племінні території</subdivision>
-			<subdivision type="plds" draft="contributed">Нижньосілезьке воєводство</subdivision>
-			<subdivision type="plkp" draft="contributed">Куявсько-Поморське воєводство</subdivision>
-			<subdivision type="pllb" draft="contributed">Любуське воєводство</subdivision>
-			<subdivision type="plld" draft="contributed">Лодзинське воєводство</subdivision>
-			<subdivision type="pllu" draft="contributed">Люблінське воєводство</subdivision>
-			<subdivision type="plma" draft="contributed">Малопольське воєводство</subdivision>
-			<subdivision type="plmz" draft="contributed">Мазовецьке воєводство</subdivision>
-			<subdivision type="plop" draft="contributed">Опольське воєводство</subdivision>
-			<subdivision type="plpd" draft="contributed">Підляське воєводство</subdivision>
-			<subdivision type="plpk" draft="contributed">Підкарпатське воєводство</subdivision>
-			<subdivision type="plpm" draft="contributed">Поморське воєводство</subdivision>
-			<subdivision type="plsk" draft="contributed">Свентокшиське воєводство</subdivision>
-			<subdivision type="plsl" draft="contributed">Сілезьке воєводство</subdivision>
-			<subdivision type="plwn" draft="contributed">Вармінсько-Мазурське воєводство</subdivision>
-			<subdivision type="plwp" draft="contributed">Великопольське воєводство</subdivision>
-			<subdivision type="plzp" draft="contributed">Західнопоморське воєводство</subdivision>
+			<subdivision type="pl02" draft="contributed">Нижньосілезьке воєводство</subdivision>
+			<subdivision type="pl04" draft="contributed">Куявсько-Поморське воєводство</subdivision>
+			<subdivision type="pl06" draft="contributed">Люблінське воєводство</subdivision>
+			<subdivision type="pl08" draft="contributed">Любуське воєводство</subdivision>
+			<subdivision type="pl10" draft="contributed">Лодзинське воєводство</subdivision>
+			<subdivision type="pl12" draft="contributed">Малопольське воєводство</subdivision>
+			<subdivision type="pl14" draft="contributed">Мазовецьке воєводство</subdivision>
+			<subdivision type="pl16" draft="contributed">Опольське воєводство</subdivision>
+			<subdivision type="pl18" draft="contributed">Підкарпатське воєводство</subdivision>
+			<subdivision type="pl20" draft="contributed">Підляське воєводство</subdivision>
+			<subdivision type="pl22" draft="contributed">Поморське воєводство</subdivision>
+			<subdivision type="pl24" draft="contributed">Сілезьке воєводство</subdivision>
+			<subdivision type="pl26" draft="contributed">Свентокшиське воєводство</subdivision>
+			<subdivision type="pl28" draft="contributed">Вармінсько-Мазурське воєводство</subdivision>
+			<subdivision type="pl30" draft="contributed">Великопольське воєводство</subdivision>
+			<subdivision type="pl32" draft="contributed">Західнопоморське воєводство</subdivision>
 			<subdivision type="psbth" draft="contributed">Вифлеєм (провінція)</subdivision>
 			<subdivision type="psdeb" draft="contributed">Муніципалітет Дейр-ель-Балах</subdivision>
 			<subdivision type="psgza" draft="contributed">мугафаза Ґаза</subdivision>
@@ -3471,6 +3479,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sbct" draft="contributed">Хоніара</subdivision>
 			<subdivision type="sbgu" draft="contributed">Гуадалканал</subdivision>
 			<subdivision type="sbis" draft="contributed">Провінція Ісабель</subdivision>
+			<subdivision type="sbmk" draft="contributed">Макіра-Улава</subdivision>
 			<subdivision type="sbml" draft="contributed">Провінція Малаіта</subdivision>
 			<subdivision type="sbrb" draft="contributed">Провінція Реннелл та Беллона</subdivision>
 			<subdivision type="sbte" draft="contributed">Провінція Темоту</subdivision>
@@ -4125,6 +4134,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twkin" draft="contributed">Цзіньмень</subdivision>
 			<subdivision type="twmia" draft="contributed">Округ Мяолі</subdivision>
 			<subdivision type="twnan" draft="contributed">Округ Наньтоу</subdivision>
+			<subdivision type="twpen" draft="contributed">Пенху</subdivision>
 			<subdivision type="twpif" draft="contributed">Округ Пінтун</subdivision>
 			<subdivision type="twtao" draft="contributed">Таоюань</subdivision>
 			<subdivision type="twtnn" draft="contributed">Тайнань</subdivision>

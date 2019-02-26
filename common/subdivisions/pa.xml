@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,9 +12,427 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
+			<subdivision type="aeaj" draft="contributed">ਅਜਮਾਨ</subdivision>
+			<subdivision type="aeaz" draft="contributed">ਅਬੂ ਧਾਬੀ</subdivision>
+			<subdivision type="aefu" draft="contributed">ਫ਼ੁਜੈਰਾ</subdivision>
+			<subdivision type="aerk" draft="contributed">ਰਾਸ ਅਲ-ਖ਼ੈਮਾ</subdivision>
+			<subdivision type="aesh" draft="contributed">ਸ਼ਾਰਜਾ</subdivision>
+			<subdivision type="aeuq" draft="contributed">ਉਮ ਅਲ-ਕਿਵੇਨ</subdivision>
+			<subdivision type="afbal" draft="contributed">ਬਲਖ ਸੂਬਾ</subdivision>
+			<subdivision type="afbds" draft="contributed">ਸੂਬਾ ਬਦਖ਼ਸ਼ਾਂ</subdivision>
+			<subdivision type="afgha" draft="contributed">ਗਜ਼ਨੀ ਸੂਬਾ</subdivision>
+			<subdivision type="afgho" draft="contributed">ਗ਼ੋਰ ਸੂਬਾ</subdivision>
+			<subdivision type="afhel" draft="contributed">ਹੇਲਮੰਦ ਸੂਬਾ</subdivision>
+			<subdivision type="afjow" draft="contributed">ਜੋਜਾਨ</subdivision>
+			<subdivision type="afkap" draft="contributed">ਕਾਪੀਸਾ</subdivision>
+			<subdivision type="afkho" draft="contributed">ਖੋਸਤ</subdivision>
+			<subdivision type="afknr" draft="contributed">ਕੁਨੜ ਸੂਬਾ</subdivision>
+			<subdivision type="aflag" draft="contributed">ਲਗਮਾਨ</subdivision>
+			<subdivision type="afnan" draft="contributed">ਨੰਗਰਹਾਰ ਸੂਬਾ</subdivision>
+			<subdivision type="afnim" draft="contributed">ਨੀਮਰੋਜ਼ ਸੂਬਾ</subdivision>
+			<subdivision type="afnur" draft="contributed">ਨੂਰਿਸਤਾਨ ਸੂਬਾ</subdivision>
+			<subdivision type="afpan" draft="contributed">ਪੰਜਸ਼ਿਰ</subdivision>
+			<subdivision type="afpar" draft="contributed">ਪਰਵਾਨ</subdivision>
+			<subdivision type="afpia" draft="contributed">ਪਕਤੀਆ</subdivision>
+			<subdivision type="afpka" draft="contributed">ਪਕਤੀਕਾ</subdivision>
+			<subdivision type="afsam" draft="contributed">ਸਮੰਗਾਨ ਸੂਬਾ</subdivision>
+			<subdivision type="afsar" draft="contributed">ਸਰੇ ਪੋਲ</subdivision>
+			<subdivision type="aftak" draft="contributed">ਤਖਾਰ ਸੂਬਾ</subdivision>
+			<subdivision type="afuru" draft="contributed">ਓਰੁਜਗਾਨ ਸੂਬਾ</subdivision>
+			<subdivision type="afwar" draft="contributed">ਵਾਰਦਾਕ</subdivision>
+			<subdivision type="afzab" draft="contributed">ਜ਼ਾਬੁਲ ਸੂਬਾ</subdivision>
+			<subdivision type="al01" draft="contributed">ਬੇਰਾਤ ਕਾਉਂਟੀ</subdivision>
+			<subdivision type="al02" draft="contributed">ਡੂਰੇਸ ਕਾਉਂਟੀ</subdivision>
+			<subdivision type="al09" draft="contributed">ਡਿਬਰ ਕਾਉਂਟੀ</subdivision>
+			<subdivision type="amag" draft="contributed">ਅਰਾਗਤਸੋਤਨ</subdivision>
+			<subdivision type="amav" draft="contributed">ਅਰਮਾਵੀਰ ਸੂਬਾ</subdivision>
+			<subdivision type="amer" draft="contributed">ਯੇਰਵਾਨ</subdivision>
+			<subdivision type="amkt" draft="contributed">ਕੋਟਾਇਕ</subdivision>
+			<subdivision type="amlo" draft="contributed">ਲੋਰੀ ਪ੍ਰਾਂਤ</subdivision>
+			<subdivision type="amsh" draft="contributed">ਸ਼ਿਰਾਕ</subdivision>
+			<subdivision type="amtv" draft="contributed">ਤਵੂਸ਼</subdivision>
+			<subdivision type="amvd" draft="contributed">ਵਾਇਓਤ ਜੋਰ ਸੂਬਾ</subdivision>
+			<subdivision type="arc" draft="contributed">ਬੁਏਨਸ ਆਇਰਸ</subdivision>
+			<subdivision type="at9" draft="contributed">ਵਿਆਨਾ</subdivision>
+			<subdivision type="auact" draft="contributed">ਆਸਟਰੇਲੀਆਈ ਰਾਜਧਾਨੀ ਰਾਜਖੇਤਰ</subdivision>
+			<subdivision type="aunsw" draft="contributed">ਨਿਊ ਸਾਊਥ ਵੇਲਜ਼</subdivision>
+			<subdivision type="aunt" draft="contributed">ਉੱਤਰੀ ਰਾਜਖੇਤਰ</subdivision>
+			<subdivision type="auqld" draft="contributed">ਕਵੀਨਜ਼ਲੈਂਡ</subdivision>
+			<subdivision type="ausa" draft="contributed">ਸਾਊਥ ਆਸਟਰੇਲੀਆ</subdivision>
+			<subdivision type="autas" draft="contributed">ਤਸਮਾਨੀਆ</subdivision>
+			<subdivision type="auvic" draft="contributed">ਵਿਕਟੋਰੀਆ</subdivision>
+			<subdivision type="auwa" draft="contributed">ਪੱਛਮੀ ਆਸਟਰੇਲੀਆ</subdivision>
+			<subdivision type="azba" draft="contributed">ਬਾਕੂ</subdivision>
+			<subdivision type="bd30" draft="contributed">ਕੂਸ਼ਟੀਆ ਜ਼ਿਲ੍ਹਾ</subdivision>
+			<subdivision type="bd38" draft="contributed">ਮੌਲਵੀ ਬਾਜ਼ਾਰ ਜ਼ਿਲਾ</subdivision>
+			<subdivision type="bebru" draft="contributed">ਬਰੂਸਲ</subdivision>
+			<subdivision type="bg23" draft="contributed">ਸੋਫ਼ੀਆ</subdivision>
+			<subdivision type="bqbo" draft="contributed">ਬੋਨੇਅਰ</subdivision>
+			<subdivision type="bqsa" draft="contributed">ਸਾਬਾ</subdivision>
+			<subdivision type="bqse" draft="contributed">ਸਿੰਟ ਯੂਸਟੇਸ਼ਸ</subdivision>
+			<subdivision type="brba" draft="contributed">ਬਾਹੀਆ</subdivision>
+			<subdivision type="brpa" draft="contributed">ਪਾਰਾ</subdivision>
+			<subdivision type="bt11" draft="contributed">ਪਾਰੋ ਜ਼ਿਲ੍ਹਾ</subdivision>
+			<subdivision type="bwga" draft="contributed">ਗਾਬੋਰੋਨੀ</subdivision>
+			<subdivision type="byhm" draft="contributed">ਮਿੰਸਕ</subdivision>
+			<subdivision type="caab" draft="contributed">ਐਲਬਰਟਾ</subdivision>
+			<subdivision type="cabc" draft="contributed">ਬਰੀਟੀਸ਼ ਕੋਲੰਬਿਆ</subdivision>
+			<subdivision type="camb" draft="contributed">ਮਾਨੀਟੋਬਾ</subdivision>
+			<subdivision type="canb" draft="contributed">ਨਿਊ ਬਰੰਸਵਿਕ</subdivision>
+			<subdivision type="canl" draft="contributed">ਨਿਊਫ਼ੰਡਲੈਂਡ ਅਤੇ ਲਾਬਰਾਡੋਰ</subdivision>
+			<subdivision type="cans" draft="contributed">ਨੋਵਾ ਸਕੋਸ਼ਾ</subdivision>
+			<subdivision type="cant" draft="contributed">ਉੱਤਰ-ਪੱਛਮੀ ਰਾਜਖੇਤਰ</subdivision>
+			<subdivision type="canu" draft="contributed">ਨੂਨਾਵੁਤ</subdivision>
+			<subdivision type="caon" draft="contributed">ਓਂਟਾਰਿਓ</subdivision>
+			<subdivision type="cape" draft="contributed">ਪ੍ਰਿੰਸ ਐਡਵਰਡ ਟਾਪੂ</subdivision>
+			<subdivision type="caqc" draft="contributed">ਕੇਬੈਕ</subdivision>
+			<subdivision type="cask" draft="contributed">ਸਸਕਾਚਵਾਨ</subdivision>
+			<subdivision type="cayt" draft="contributed">ਯੂਕੋਨ</subdivision>
+			<subdivision type="cdkn" draft="contributed">ਕਿਨਸ਼ਾਸਾ</subdivision>
+			<subdivision type="cfbgf" draft="contributed">ਬਾਂਗੀ</subdivision>
+			<subdivision type="cgbzv" draft="contributed">ਬ੍ਰਾਜ਼ਾਵਿਲ</subdivision>
+			<subdivision type="ciab" draft="contributed">ਅਬੀਜਾਨ</subdivision>
+			<subdivision type="ciym" draft="contributed">ਯਾਮੂਸੂਕਰੋ</subdivision>
+			<subdivision type="cnah" draft="contributed">ਅਨਹੁਈ</subdivision>
+			<subdivision type="cnbj" draft="contributed">ਬੀਜਿੰਗ</subdivision>
+			<subdivision type="cncq" draft="contributed">ਚੌਂਗਕਿੰਗ</subdivision>
+			<subdivision type="cnfj" draft="contributed">ਫੂਜਾਨ</subdivision>
+			<subdivision type="cngd" draft="contributed">ਗੁਆਂਗਦੋਂਗ</subdivision>
+			<subdivision type="cnha" draft="contributed">ਹੇਨਾਨ</subdivision>
+			<subdivision type="cnhb" draft="contributed">ਹੂਬੇਈ</subdivision>
+			<subdivision type="cnhi" draft="contributed">ਹਾਈਨਾਨ</subdivision>
+			<subdivision type="cnhk" draft="contributed">ਹਾਂਗ ਕਾਂਗ</subdivision>
+			<subdivision type="cnjl" draft="contributed">ਜੀਲਿਨ</subdivision>
+			<subdivision type="cnln" draft="contributed">ਲੀਆਓਨਿੰਗ</subdivision>
+			<subdivision type="cnmo" draft="contributed">ਮਕਾਉ</subdivision>
+			<subdivision type="cnnm" draft="contributed">ਅੰਦਰੂਨੀ ਮੰਗੋਲੀਆ</subdivision>
+			<subdivision type="cnsh" draft="contributed">ਸ਼ੰਘਾਈ</subdivision>
+			<subdivision type="cnsn" draft="contributed">ਸ਼ੈਨਸ਼ੀ</subdivision>
+			<subdivision type="cnsx" draft="contributed">ਸ਼ਾਨਸ਼ੀ</subdivision>
+			<subdivision type="cntj" draft="contributed">ਥਿਆਨਚਿਨ</subdivision>
+			<subdivision type="cnxj" draft="contributed">ਸ਼ਿਨਚਿਆਂਙ</subdivision>
+			<subdivision type="cnxz" draft="contributed">ਤਿੱਬਤ ਖ਼ੁਦਮੁਖ਼ਤਿਆਰ ਸੂਬਾ</subdivision>
+			<subdivision type="codc" draft="contributed">ਬੋਗੋਤਾ</subdivision>
+			<subdivision type="cosap" draft="contributed">ਸਾਨ ਆਂਦਰੇਸ, ਪ੍ਰੋਵੀਦੈਂਸੀਆ ਅਤੇ ਸਾਂਤਾ ਕਾਤਾਲੀਨਾ ਟਾਪੂ-ਸਮੂਹ</subdivision>
+			<subdivision type="cz10" draft="contributed">ਪ੍ਰਾਗ</subdivision>
+			<subdivision type="debb" draft="contributed">ਬ੍ਰਾਂਡਨਬੁਰਗ</subdivision>
+			<subdivision type="debe" draft="contributed">ਬਰਲਿਨ</subdivision>
+			<subdivision type="debw" draft="contributed">ਬਾਡਨ-ਵਰਟਮਬਰਕ</subdivision>
+			<subdivision type="deby" draft="contributed">ਬਾਈਆਨ</subdivision>
+			<subdivision type="dehb" draft="contributed">ਬ੍ਰੈਮਨ</subdivision>
+			<subdivision type="dehe" draft="contributed">ਹੈੱਸਨ</subdivision>
+			<subdivision type="dehh" draft="contributed">ਹਾਮਬੁਰਗ</subdivision>
+			<subdivision type="denw" draft="contributed">ਉੱਤਰੀ ਰਾਈਨ-ਪੱਛਮੀ ਫ਼ਾਲਨ</subdivision>
+			<subdivision type="desl" draft="contributed">ਜ਼ਾਰਲਾਂਡ</subdivision>
+			<subdivision type="desn" draft="contributed">ਜ਼ਾਕਸਨ</subdivision>
+			<subdivision type="djdj" draft="contributed">ਜਿਬੂਤੀ</subdivision>
+			<subdivision type="esct" draft="contributed">ਕਾਤਾਲੋਨੀਆ</subdivision>
+			<subdivision type="etaa" draft="contributed">ਆਦਿਸ ਆਬਬਾ</subdivision>
+			<subdivision type="fr75" draft="contributed">ਪੈਰਿਸ</subdivision>
+			<subdivision type="frcor" draft="contributed">ਕਾਰਸਿਕਾ</subdivision>
+			<subdivision type="frcvl" draft="contributed">ਸੌਂਤਰ</subdivision>
+			<subdivision type="fridf" draft="contributed">ਫ਼ਰਾਂਸ ਦਾ ਟਾਪੂ</subdivision>
+			<subdivision type="frpac" draft="contributed">ਪ੍ਰੋਵਾਂਸ-ਆਲਪ-ਅਸਮਾਨੀ ਤਟ</subdivision>
+			<subdivision type="frpdl" draft="contributed">ਲੋਆਰ ਦੀ ਧਰਤੀ</subdivision>
+			<subdivision type="gbbst" draft="contributed">ਬਰਿਸਟਲ</subdivision>
+			<subdivision type="gbcrf" draft="contributed">ਕਾਰਡਿਫ਼</subdivision>
+			<subdivision type="gbder" draft="contributed">ਡਰਬੀ</subdivision>
+			<subdivision type="gbedh" draft="contributed">ਐਡਿਨਬਰਾ</subdivision>
 			<subdivision type="gbeng">ਇੰਗਲੈਂਡ</subdivision>
+			<subdivision type="gbglg" draft="contributed">ਗਲਾਸਗੋ</subdivision>
+			<subdivision type="gbiow" draft="contributed">ਆੲੀਲ ਆਫ਼ ਵਾੲੀਟ</subdivision>
+			<subdivision type="gblnd" draft="contributed">ਲੰਡਨ</subdivision>
+			<subdivision type="gbnir" draft="contributed">ਉੱਤਰੀ ਆਇਰਲੈਂਡ</subdivision>
+			<subdivision type="gbntt" draft="contributed">ਨੌਟਿੰਘਮਸ਼ਰ</subdivision>
+			<subdivision type="gboxf" draft="contributed">ਆਕਸਫ਼ੋਰਡ</subdivision>
 			<subdivision type="gbsct">ਸਕਾਟਲੈਂਡ</subdivision>
+			<subdivision type="gbsth" draft="contributed">ਸਾਊਥਹੈਂਪਟਨ</subdivision>
+			<subdivision type="gbukm" draft="contributed">ਯੂਨਾਈਟਡ ਕਿੰਗਡਮ</subdivision>
 			<subdivision type="gbwls">ਵੇਲਸ</subdivision>
+			<subdivision type="getb" draft="contributed">ਤਬੀਲਿਸੀ</subdivision>
+			<subdivision type="gmb" draft="contributed">ਬੰਜੁਲ</subdivision>
+			<subdivision type="gnc" draft="contributed">ਕੋਨਾਕਰੀ</subdivision>
+			<subdivision type="gwbs" draft="contributed">ਬਿਸਾਊ</subdivision>
+			<subdivision type="hr21" draft="contributed">ਜ਼ਾਗਰਬ</subdivision>
+			<subdivision type="hubu" draft="contributed">ਬੁਦਾਪੈਸਤ</subdivision>
+			<subdivision type="idjk" draft="contributed">ਜਕਾਰਤਾ</subdivision>
+			<subdivision type="idjw" draft="contributed">ਜਾਵਾ ਟਾਪੂ</subdivision>
+			<subdivision type="idsl" draft="contributed">ਸੁਲਾਵੇਸੀ</subdivision>
+			<subdivision type="inan" draft="contributed">ਅੰਡੇਮਾਨ ਅਤੇ ਨਿਕੋਬਾਰ ਦੀਪ ਸਮੂਹ</subdivision>
+			<subdivision type="inap" draft="contributed">ਆਂਧਰਾ ਪ੍ਰਦੇਸ਼</subdivision>
+			<subdivision type="inar" draft="contributed">ਅਰੁਨਾਚਲ ਪ੍ਰਦੇਸ਼</subdivision>
+			<subdivision type="inas" draft="contributed">ਅਸਾਮ</subdivision>
+			<subdivision type="inbr" draft="contributed">ਬਿਹਾਰ</subdivision>
+			<subdivision type="inch" draft="contributed">ਚੰਡੀਗੜ੍ਹ</subdivision>
+			<subdivision type="inct" draft="contributed">ਛੱਤੀਸਗੜ੍ਹ</subdivision>
+			<subdivision type="indd" draft="contributed">ਦਮਨ ਅਤੇ ਦਿਉ</subdivision>
+			<subdivision type="indl" draft="contributed">ਦਿੱਲੀ</subdivision>
+			<subdivision type="indn" draft="contributed">ਦਾਦਰ ਅਤੇ ਨਗਰ ਹਵੇਲੀ</subdivision>
+			<subdivision type="inga" draft="contributed">ਗੋਆ</subdivision>
+			<subdivision type="ingj" draft="contributed">ਗੁਜਰਾਤ</subdivision>
+			<subdivision type="inhp" draft="contributed">ਹਿਮਾਚਲ ਪ੍ਰਦੇਸ਼</subdivision>
+			<subdivision type="inhr" draft="contributed">ਹਰਿਆਣਾ</subdivision>
+			<subdivision type="injh" draft="contributed">ਝਾਰਖੰਡ</subdivision>
+			<subdivision type="injk" draft="contributed">ਜੰਮੂ ਅਤੇ ਕਸ਼ਮੀਰ</subdivision>
+			<subdivision type="inka" draft="contributed">ਕਰਨਾਟਕ</subdivision>
+			<subdivision type="inkl" draft="contributed">ਕੇਰਲਾ</subdivision>
+			<subdivision type="inld" draft="contributed">ਲਕਸ਼ਦੀਪ</subdivision>
+			<subdivision type="inmh" draft="contributed">ਮਹਾਰਾਸ਼ਟਰ</subdivision>
+			<subdivision type="inml" draft="contributed">ਮੇਘਾਲਿਆ</subdivision>
+			<subdivision type="inmn" draft="contributed">ਮਨੀਪੁਰ</subdivision>
+			<subdivision type="inmp" draft="contributed">ਮੱਧ ਪ੍ਰਦੇਸ਼</subdivision>
+			<subdivision type="inmz" draft="contributed">ਮਿਜ਼ੋਰਮ</subdivision>
+			<subdivision type="innl" draft="contributed">ਨਾਗਾਲੈਂਡ</subdivision>
+			<subdivision type="inor" draft="contributed">ਓਡੀਸ਼ਾ</subdivision>
+			<subdivision type="inpb" draft="contributed">ਪੰਜਾਬ</subdivision>
+			<subdivision type="inpy" draft="contributed">ਪਾਂਡੀਚਰੀ</subdivision>
+			<subdivision type="inrj" draft="contributed">ਰਾਜਸਥਾਨ</subdivision>
+			<subdivision type="insk" draft="contributed">ਸਿੱਕਮ</subdivision>
+			<subdivision type="intg" draft="contributed">ਤੇਲੰਗਾਨਾ</subdivision>
+			<subdivision type="intn" draft="contributed">ਤਾਮਿਲ ਨਾਡੂ</subdivision>
+			<subdivision type="intr" draft="contributed">ਤ੍ਰਿਪੁਰਾ</subdivision>
+			<subdivision type="inup" draft="contributed">ਉੱਤਰ ਪ੍ਰਦੇਸ਼</subdivision>
+			<subdivision type="inut" draft="contributed">ਉੱਤਰਖੰਡ</subdivision>
+			<subdivision type="inwb" draft="contributed">ਪੱਛਮੀ ਬੰਗਾਲ</subdivision>
+			<subdivision type="iqbg" draft="contributed">ਬਗ਼ਦਾਦ ਪ੍ਰਾਂਤ</subdivision>
+			<subdivision type="ir01" draft="contributed">ਪੂਰਬੀ ਅਜ਼ਰਬਾਈਜਾਨ ਸੂਬਾ</subdivision>
+			<subdivision type="ir06" draft="contributed">ਬੁਸ਼ਹਿਰ ਸੂਬਾ</subdivision>
+			<subdivision type="ir10" draft="contributed">ਖੁਜਿਸਤਾਨ ਰਿਆਸਤ</subdivision>
+			<subdivision type="ir11" draft="contributed">ਜ਼ਨਜਾਨ ਸੂਬਾ</subdivision>
+			<subdivision type="ir14" draft="contributed">ਫ਼ਾਰਸ ਸੂਬਾ</subdivision>
+			<subdivision type="ir16" draft="contributed">ਕੁਰਦਿਸਤਾਨ ਸੂਬਾ</subdivision>
+			<subdivision type="ir22" draft="contributed">ਮਰਕਜ਼ੀ ਸੂਬਾ</subdivision>
+			<subdivision type="ir25" draft="contributed">ਯਜ਼ਦ ਸੂਬਾ</subdivision>
+			<subdivision type="ir31" draft="contributed">ਉੱਤਰੀ ਖ਼ੁਰਾਸਾਨ ਸੂਬਾ</subdivision>
+			<subdivision type="ir32" draft="contributed">ਅਲਬੁਰਜ਼ ਸੂਬਾ</subdivision>
+			<subdivision type="it21" draft="contributed">ਪੀਏਮੋਂਤੇ</subdivision>
+			<subdivision type="it23" draft="contributed">ਆਓਸਤਾ ਘਾਟੀ</subdivision>
+			<subdivision type="it25" draft="contributed">ਲੋਂਬਾਰਦੀਆ</subdivision>
+			<subdivision type="it34" draft="contributed">ਵੈਨੇਤੋ</subdivision>
+			<subdivision type="it42" draft="contributed">ਲਿਗੂਰੀਆ</subdivision>
+			<subdivision type="it45" draft="contributed">ਏਮੀਲੀਆ-ਰੋਮਾਞਾ</subdivision>
+			<subdivision type="it52" draft="contributed">ਤੋਸਕਾਨਾ</subdivision>
+			<subdivision type="it55" draft="contributed">ਊਂਬਰੀਆ</subdivision>
+			<subdivision type="it57" draft="contributed">ਮਾਰਕੇ</subdivision>
+			<subdivision type="it62" draft="contributed">ਲਾਤਸੀਓ</subdivision>
+			<subdivision type="it65" draft="contributed">ਆਬਰੂਤਸੋ</subdivision>
+			<subdivision type="it72" draft="contributed">ਕਾਂਪਾਨੀਆ</subdivision>
+			<subdivision type="it75" draft="contributed">ਪੂਲੀਆ</subdivision>
+			<subdivision type="it77" draft="contributed">ਬਾਜ਼ਿਲੀਕਾਤਾ</subdivision>
+			<subdivision type="it78" draft="contributed">ਕਾਲਾਬਰੀਆ</subdivision>
+			<subdivision type="it82" draft="contributed">ਸਿਚੀਲੀਆ</subdivision>
+			<subdivision type="it88" draft="contributed">ਸਾਰਦੇਞਾ</subdivision>
+			<subdivision type="jp05" draft="contributed">ਅਕਿਤਾ ਪ੍ਰੀਫੇਕਚਰ</subdivision>
+			<subdivision type="jp13" draft="contributed">ਟੋਕੀਓ</subdivision>
+			<subdivision type="jp23" draft="contributed">ਆਇਚੀ ਪ੍ਰੀਫ਼ੈਕਚਰ</subdivision>
+			<subdivision type="kggb" draft="contributed">ਬਿਸ਼ਕੇਕ</subdivision>
+			<subdivision type="kh12" draft="contributed">ਪਨਾਮ ਪੈਨ</subdivision>
+			<subdivision type="kp01" draft="contributed">ਪਿਓਂਗਯਾਂਗ</subdivision>
+			<subdivision type="kr11" draft="contributed">ਸਿਓਲ</subdivision>
+			<subdivision type="kr26" draft="contributed">ਬੂਸਾਨ</subdivision>
+			<subdivision type="kr28" draft="contributed">ਇਨਚਨ</subdivision>
+			<subdivision type="kzala" draft="contributed">ਅਲਮਾਟੀ</subdivision>
+			<subdivision type="kzalm" draft="contributed">ਅਲਮਾਟੀ ਸੂਬਾ</subdivision>
+			<subdivision type="kzast" draft="contributed">ਅਸਤਾਨਾ</subdivision>
+			<subdivision type="kzbay" draft="contributed">ਬਾਈਕੋਨਰ</subdivision>
+			<subdivision type="kzkus" draft="contributed">ਕੋਸਤਾਨਾਏ ਸੂਬਾ</subdivision>
+			<subdivision type="kzman" draft="contributed">ਮਾਂਗਿਸਤੌ</subdivision>
+			<subdivision type="kzpav" draft="contributed">ਪਾਵਲੋਦਰ</subdivision>
+			<subdivision type="kzsev" draft="contributed">ਉੱਤਰੀ ਕਜ਼ਾਖ਼ਿਸਤਾਨ ਸੂਬਾ</subdivision>
+			<subdivision type="kzyuz" draft="contributed">ਦੱਖਣੀ ਕਜ਼ਾਖ਼ਸਤਾਨ</subdivision>
+			<subdivision type="li11" draft="contributed">ਫ਼ਾਦੁਤਸ</subdivision>
+			<subdivision type="lvjkb" draft="contributed">ਜੀਕਾਬਪਿਲਸ</subdivision>
+			<subdivision type="lvlpx" draft="contributed">ਲਿਪਾਯਾ</subdivision>
+			<subdivision type="lvrez" draft="contributed">ਰੀਜਿਕਨ</subdivision>
+			<subdivision type="lvrix" draft="contributed">ਰੀਗਾ</subdivision>
+			<subdivision type="lvven" draft="contributed">ਵੇਂਟਸਪਿਲਸ</subdivision>
+			<subdivision type="lvvmr" draft="contributed">ਵਾਲਮੀਰਾ</subdivision>
+			<subdivision type="lyba" draft="contributed">ਬਨਗ਼ਾਜ਼ੀ</subdivision>
+			<subdivision type="macas" draft="contributed">ਕਾਸਾਬਲਾਂਕਾ</subdivision>
+			<subdivision type="mafes" draft="contributed">ਫ਼ਾਸ</subdivision>
+			<subdivision type="marab" draft="contributed">ਰਬਾਤ</subdivision>
+			<subdivision type="mdcu" draft="contributed">ਕਿਸ਼ਨਾਓ</subdivision>
+			<subdivision type="mhmaj" draft="contributed">ਮਾਜੁਰੋ</subdivision>
+			<subdivision type="mk85" draft="contributed">ਸਕੋਪੀਏ</subdivision>
+			<subdivision type="mlbko" draft="contributed">ਬਮਾਕੋ</subdivision>
+			<subdivision type="mm05" draft="contributed">ਤਨੀਂਥਾਰਾਈ ਮੰਡਲ</subdivision>
+			<subdivision type="mm06" draft="contributed">ਯਾਂਗੋਨ ਖੇਤਰ</subdivision>
+			<subdivision type="mm07" draft="contributed">ਏਯਾਰਵਾਡੀ ਮੰਡਲ</subdivision>
+			<subdivision type="mm11" draft="contributed">ਕਾਚੀਨ ਸੂਬਾ</subdivision>
+			<subdivision type="mm12" draft="contributed">ਕਾਇਆਹ ਰਾਜ</subdivision>
+			<subdivision type="mm13" draft="contributed">ਕਾਇਨ</subdivision>
+			<subdivision type="mm15" draft="contributed">ਮੋਨ ਸਟੇਟ</subdivision>
+			<subdivision type="mn1" draft="contributed">ਉਲਾਨ ਬਤੋਰ</subdivision>
+			<subdivision type="mt60" draft="contributed">ਵਲੈਟਾ</subdivision>
+			<subdivision type="mupu" draft="contributed">ਪੋਰਟ ਲੂਈ</subdivision>
+			<subdivision type="mvmle" draft="contributed">ਮਾਲੇ</subdivision>
+			<subdivision type="mxagu" draft="contributed">ਆਗਵਾਸਕਾਲੀਐਂਤੇਸ</subdivision>
+			<subdivision type="mxbcn" draft="contributed">ਬਾਖ਼ਾ ਕਾਲੀਫ਼ੋਰਨੀਆ</subdivision>
+			<subdivision type="mxchh" draft="contributed">ਚੀਵਾਵਾ</subdivision>
+			<subdivision type="mxcmx" draft="contributed">ਮੈਕਸੀਕੋ ਸ਼ਹਿਰ</subdivision>
+			<subdivision type="mxmor" draft="contributed">ਮੋਰੇਲੋਸ</subdivision>
+			<subdivision type="mxnay" draft="contributed">ਨਾਈਆਰੀਤ</subdivision>
+			<subdivision type="mxoax" draft="contributed">ਵਾਹਾਕਾ</subdivision>
+			<subdivision type="mxpue" draft="contributed">ਪੁਐਬਲਾ</subdivision>
+			<subdivision type="mxson" draft="contributed">ਸੋਨੋਰਾ</subdivision>
+			<subdivision type="mxver" draft="contributed">ਬੇਰਾਕਰੂਸ</subdivision>
+			<subdivision type="mxyuc" draft="contributed">ਯੁਕਾਤਾਨ</subdivision>
+			<subdivision type="mxzac" draft="contributed">ਸਾਕਾਤੇਕਾਸ</subdivision>
+			<subdivision type="my07" draft="contributed">ਪੀਨਾਂਗ</subdivision>
+			<subdivision type="my14" draft="contributed">ਕੁਆਲਾ ਲਮਪੁਰ</subdivision>
+			<subdivision type="my16" draft="contributed">ਪੁੱਤਰਜੈ</subdivision>
+			<subdivision type="mzmpm" draft="contributed">ਮਾਪੂਤੋ</subdivision>
+			<subdivision type="naca" draft="contributed">ਕੈਪ੍ਰੀਵੀ</subdivision>
+			<subdivision type="naos" draft="contributed">ਓਮੁਸਾਟੀ</subdivision>
+			<subdivision type="ne8" draft="contributed">ਨਿਆਮੀ</subdivision>
+			<subdivision type="nlbq1" draft="contributed">ਬੋਨੇਅਰ</subdivision>
+			<subdivision type="nlbq2" draft="contributed">ਸਾਬਾ</subdivision>
+			<subdivision type="nlbq3" draft="contributed">ਸਿੰਟ ਯੂਸਟੇਸ਼ਸ</subdivision>
+			<subdivision type="no03" draft="contributed">ਓਸਲੋ</subdivision>
+			<subdivision type="nr14" draft="contributed">ਯਾਰਨ ਜ਼ਿਲ੍ਹਾ</subdivision>
+			<subdivision type="pgncd" draft="contributed">ਪੋਰਟ ਮੋਰੈਸਬੀ</subdivision>
+			<subdivision type="pkba" draft="contributed">ਬਲੋਚਿਸਤਾਨ</subdivision>
+			<subdivision type="pkgb" draft="contributed">ਗਿਲਗਿਤ-ਬਾਲਤਿਸਤਾਨ</subdivision>
+			<subdivision type="pkjk" draft="contributed">ਅਜ਼ਾਦ ਕਸ਼ਮੀਰ</subdivision>
+			<subdivision type="pkkp" draft="contributed">ਖ਼ੈਬਰ ਪਖ਼ਤੋਨਖ਼ਵਾ</subdivision>
+			<subdivision type="pkpb" draft="contributed">ਪੰਜਾਬ</subdivision>
+			<subdivision type="pksd" draft="contributed">ਸਿੰਧ</subdivision>
+			<subdivision type="pkta" draft="contributed">ਸੰਘ-ਸੰਚਾਲਤ ਕਬਾਇਲੀ ਖੇਤਰ</subdivision>
+			<subdivision type="pyasu" draft="contributed">ਅਸੂੰਸੀਓਨ</subdivision>
+			<subdivision type="qada" draft="contributed">ਦੋਹਾ</subdivision>
+			<subdivision type="rob" draft="contributed">ਬੁਖ਼ਾਰੈਸਟ</subdivision>
+			<subdivision type="rs00" draft="contributed">ਬੈਲਗ੍ਰਾਦ</subdivision>
+			<subdivision type="rualt" draft="contributed">ਅਲਤਾਈ ਕ੍ਰਾਈ</subdivision>
+			<subdivision type="ruba" draft="contributed">ਬਸ਼ਕੋਰਤੋਸਤਾਨ</subdivision>
+			<subdivision type="ruce" draft="contributed">ਚੈਚਨੀਆ</subdivision>
+			<subdivision type="ruda" draft="contributed">ਦਾਗਿਸਤਾਨ</subdivision>
+			<subdivision type="rulen" draft="contributed">ਲੈਨਿਨਗ੍ਰਾਦ ਓਬਲਾਸਤ</subdivision>
+			<subdivision type="rumow" draft="contributed">ਮਾਸਕੋ</subdivision>
+			<subdivision type="rusa" draft="contributed">ਸਾਖਾ ਗਣਰਾਜ</subdivision>
+			<subdivision type="rusak" draft="contributed">ਸਾਖਾਲਿਨ ਓਬਲਾਸਤ</subdivision>
+			<subdivision type="ruspe" draft="contributed">ਸੇਂਟ ਪੀਟਰਸਬਰਗ</subdivision>
+			<subdivision type="rw01" draft="contributed">ਕਿਗਾਲੀ</subdivision>
+			<subdivision type="sa02" draft="contributed">ਮੱਕਾ ਸੂਬਾ</subdivision>
+			<subdivision type="sa05" draft="contributed">ਅਲ-ਕਸੀਮ ਸੂਬਾ</subdivision>
+			<subdivision type="sa06" draft="contributed">ਹਾਇਲ ਰਿਆਸਤ</subdivision>
+			<subdivision type="sa07" draft="contributed">ਤਬੂਕ ਸੂਬਾ</subdivision>
+			<subdivision type="sa11" draft="contributed">ਅਲਬਾਹਾ ਸੂਬਾ</subdivision>
+			<subdivision type="sa12" draft="contributed">ਜੌਫ਼ ਸੂਬਾ</subdivision>
+			<subdivision type="sa14" draft="contributed">ਅਸੀਰ ਰਿਆਸਤ</subdivision>
+			<subdivision type="sbct" draft="contributed">ਹੋਨੀਆਰਾ</subdivision>
+			<subdivision type="shhl" draft="contributed">ਸੇਂਟ ਹੇਲੇਨਾ</subdivision>
+			<subdivision type="tdnd" draft="contributed">ਨਿਜਾਮੀਨਾ</subdivision>
+			<subdivision type="th10" draft="contributed">ਬੈਂਕਾਕ</subdivision>
+			<subdivision type="th21" draft="contributed">ਰੇਯੋੰਗ ਪ੍ਰਦੇਸ਼</subdivision>
+			<subdivision type="th84" draft="contributed">ਸੂਰਤ ਥਾਨੀ</subdivision>
+			<subdivision type="tjdu" draft="contributed">ਦੁਸ਼ੰਬੇ</subdivision>
+			<subdivision type="tms" draft="contributed">ਅਸ਼ਗਾਬਾਦ</subdivision>
+			<subdivision type="tr01" draft="contributed">ਅਦਾਨਾ</subdivision>
+			<subdivision type="tr02" draft="contributed">ਅਦਿਅਮਾਨ ਪ੍ਰਾਂਤ</subdivision>
+			<subdivision type="tr03" draft="contributed">ਅਫ਼ਿਓਨਕਾਰਾਹਿਸਾਰ ਪ੍ਰਾਂਤ</subdivision>
+			<subdivision type="tr04" draft="contributed">ਆਗਰੀ ਸੂਬਾ</subdivision>
+			<subdivision type="tr05" draft="contributed">ਅਮਾਸਿਆ ਸੂਬਾ</subdivision>
+			<subdivision type="tr07" draft="contributed">ਅੰਤਾਲਿਆ ਸੂਬਾ</subdivision>
+			<subdivision type="tr08" draft="contributed">ਅਰਤਵਿਨ</subdivision>
+			<subdivision type="tr10" draft="contributed">ਬਾਲਿਕੇਸਿਰ</subdivision>
+			<subdivision type="tr25" draft="contributed">ਏਰਜੁਰਮ</subdivision>
+			<subdivision type="tr31" draft="contributed">ਹਤਾਏ</subdivision>
+			<subdivision type="tr32" draft="contributed">ਇਸਪਾਰਤਾ ਸੂਬਾ</subdivision>
+			<subdivision type="tr33" draft="contributed">ਮਰਸਿਨ</subdivision>
+			<subdivision type="tr34" draft="contributed">ਇਸਤਾਂਬੁਲ ਸੂਬਾ</subdivision>
+			<subdivision type="tr37" draft="contributed">ਕਾਸਤਾਮੋਨੋ ਸੂਬਾ</subdivision>
+			<subdivision type="tr38" draft="contributed">ਕਾਇਸੇਰੀ</subdivision>
+			<subdivision type="tr48" draft="contributed">ਮੁਗਲਾ ਸੂਬਾ</subdivision>
+			<subdivision type="tr49" draft="contributed">ਮੁਸ ਪ੍ਰਾਂਤ</subdivision>
+			<subdivision type="tr50" draft="contributed">ਨਵਸੇਹਰ</subdivision>
+			<subdivision type="tr52" draft="contributed">ਓਰਦੂ</subdivision>
+			<subdivision type="tr54" draft="contributed">ਸਕਾਰੀਆ</subdivision>
+			<subdivision type="tr55" draft="contributed">ਸਾਮਸੂਨ ਸੂਬਾ</subdivision>
+			<subdivision type="tr65" draft="contributed">ਵਾਨ</subdivision>
+			<subdivision type="tr67" draft="contributed">ਜੋਂਗੁਲਡਕ</subdivision>
+			<subdivision type="tr69" draft="contributed">ਬੇਬੁਰਤ ਸੂਬਾ</subdivision>
+			<subdivision type="tr72" draft="contributed">ਬਾਤਮਾਨ ਸੂਬਾ</subdivision>
+			<subdivision type="tr74" draft="contributed">ਬਾਰਤੀਨ ਸੂਬਾ</subdivision>
+			<subdivision type="tr75" draft="contributed">ਅਰਦਹਾਨ ਸੂਬਾ</subdivision>
+			<subdivision type="tr76" draft="contributed">ਇਗਦੀਰ ਸੂਬਾ</subdivision>
+			<subdivision type="tr80" draft="contributed">ਓਸਮਾਨਿਏ</subdivision>
+			<subdivision type="tr81" draft="contributed">ਦੁਜ਼ਗੇ</subdivision>
+			<subdivision type="ttpos" draft="contributed">ਪੋਰਟ ਆਫ਼ ਸਪੇਨ</subdivision>
+			<subdivision type="tvfun" draft="contributed">ਫ਼ੁਨਾਫ਼ੁਤੀ</subdivision>
+			<subdivision type="twkhh" draft="contributed">ਕਾਓਸੀਅੰਗ</subdivision>
+			<subdivision type="twtpe" draft="contributed">ਤਾਈਪਈ</subdivision>
+			<subdivision type="ua30" draft="contributed">ਕੀਵ</subdivision>
+			<subdivision type="ua40" draft="contributed">ਸੇਵਾਸਤੋਪੋਲ</subdivision>
+			<subdivision type="um76" draft="contributed">ਨਵਾਸ ਟਾਪੂ</subdivision>
+			<subdivision type="um79" draft="contributed">ਵੇਕ ਟਾਪੂ</subdivision>
+			<subdivision type="usak" draft="contributed">ਅਲਾਸਕਾ</subdivision>
+			<subdivision type="usal" draft="contributed">ਅਲਾਬਾਮਾ</subdivision>
+			<subdivision type="usar" draft="contributed">ਆਰਕੰਸਾ</subdivision>
+			<subdivision type="usaz" draft="contributed">ਐਰੀਜ਼ੋਨਾ</subdivision>
+			<subdivision type="usca" draft="contributed">ਕੈਲੀਫ਼ੋਰਨੀਆ</subdivision>
+			<subdivision type="usco" draft="contributed">ਕੋਲੋਰਾਡੋ</subdivision>
+			<subdivision type="usct" draft="contributed">ਕਨੈਟੀਕਟ</subdivision>
+			<subdivision type="usde" draft="contributed">ਡੇਲਾਵੇਅਰ</subdivision>
+			<subdivision type="usfl" draft="contributed">ਫ਼ਲੌਰਿਡਾ</subdivision>
+			<subdivision type="usga" draft="contributed">ਜਾਰਜੀਆ</subdivision>
+			<subdivision type="ushi" draft="contributed">ਹਵਾਈ</subdivision>
+			<subdivision type="usia" draft="contributed">ਆਇਓਵਾ</subdivision>
+			<subdivision type="usid" draft="contributed">ਆਇਡਾਹੋ</subdivision>
+			<subdivision type="usil" draft="contributed">ਇਲੀਨਾਏ</subdivision>
+			<subdivision type="usin" draft="contributed">ਇੰਡਿਆਨਾ</subdivision>
+			<subdivision type="usks" draft="contributed">ਕਾਂਸਸ</subdivision>
+			<subdivision type="usky" draft="contributed">ਕਿੰਟਕੀ</subdivision>
+			<subdivision type="usla" draft="contributed">ਲੂਈਜ਼ੀਆਨਾ</subdivision>
+			<subdivision type="usma" draft="contributed">ਮੈਸਾਚੂਸਟਸ</subdivision>
+			<subdivision type="usmd" draft="contributed">ਮੈਰੀਲੈਂਡ</subdivision>
+			<subdivision type="usme" draft="contributed">ਮੇਨ</subdivision>
+			<subdivision type="usmi" draft="contributed">ਮਿਸ਼ੀਗਨ</subdivision>
+			<subdivision type="usmn" draft="contributed">ਮਿਨੇਸੋਟਾ</subdivision>
+			<subdivision type="usmo" draft="contributed">ਮਿਜ਼ੂਰੀ</subdivision>
+			<subdivision type="usms" draft="contributed">ਮਿਸੀਸਿੱਪੀ</subdivision>
+			<subdivision type="usmt" draft="contributed">ਮੋਂਟਾਨਾ</subdivision>
+			<subdivision type="usnc" draft="contributed">ਉੱਤਰੀ ਕੈਰੋਲੀਨਾ</subdivision>
+			<subdivision type="usnd" draft="contributed">ਉੱਤਰੀ ਡਕੋਟਾ</subdivision>
+			<subdivision type="usne" draft="contributed">ਨਬਰਾਸਕਾ</subdivision>
+			<subdivision type="usnh" draft="contributed">ਨਿਊ ਹੈਂਪਸ਼ਰ</subdivision>
+			<subdivision type="usnj" draft="contributed">ਨਿਊ ਜਰਸੀ</subdivision>
+			<subdivision type="usnm" draft="contributed">ਨਿਊ ਮੈਕਸੀਕੋ</subdivision>
+			<subdivision type="usnv" draft="contributed">ਨਵਾਡਾ</subdivision>
+			<subdivision type="usny" draft="contributed">ਨਿਊਯਾਰਕ</subdivision>
+			<subdivision type="usoh" draft="contributed">ਓਹਾਇਓ</subdivision>
+			<subdivision type="usok" draft="contributed">ਓਕਲਾਹੋਮਾ</subdivision>
+			<subdivision type="usor" draft="contributed">ਔਰੇਗਨ</subdivision>
+			<subdivision type="uspa" draft="contributed">ਪੈੱਨਸਿਲਵੇਨੀਆ</subdivision>
+			<subdivision type="usri" draft="contributed">ਰੋਡ ਟਾਪੂ</subdivision>
+			<subdivision type="ussc" draft="contributed">ਦੱਖਣੀ ਕੈਰੋਲੀਨਾ</subdivision>
+			<subdivision type="ussd" draft="contributed">ਦੱਖਣੀ ਡਕੋਟਾ</subdivision>
+			<subdivision type="ustn" draft="contributed">ਟੈਨੇਸੀ</subdivision>
+			<subdivision type="ustx" draft="contributed">ਟੈਕਸਸ</subdivision>
+			<subdivision type="usut" draft="contributed">ਯੂਟਾ</subdivision>
+			<subdivision type="usva" draft="contributed">ਵਰਜਿਨੀਆ</subdivision>
+			<subdivision type="usvt" draft="contributed">ਵਰਮਾਂਟ</subdivision>
+			<subdivision type="uswa" draft="contributed">ਵਾਸ਼ਿੰਗਟਨ</subdivision>
+			<subdivision type="uswi" draft="contributed">ਵਿਸਕਾਂਸਨ</subdivision>
+			<subdivision type="uswv" draft="contributed">ਪੱਛਮੀ ਵਰਜਿਨੀਆ</subdivision>
+			<subdivision type="uswy" draft="contributed">ਵਾਇਓਮਿੰਗ</subdivision>
+			<subdivision type="uymo" draft="contributed">ਮੋਂਤੇਵੀਦਿਓ</subdivision>
+			<subdivision type="uzan" draft="contributed">ਅੰਦੀਜਾਨ ਪ੍ਰਾਂਤ</subdivision>
+			<subdivision type="uzbu" draft="contributed">ਬੁਖਾਰਾ ਪ੍ਰਾਂਤ</subdivision>
+			<subdivision type="uzfa" draft="contributed">ਫ਼ਰਗਨਾ ਖੇਤਰ</subdivision>
+			<subdivision type="uzji" draft="contributed">ਜਿਜ਼ਾਖ ਸੂਬਾ</subdivision>
+			<subdivision type="uzng" draft="contributed">ਨਮਾਗਾਨ ਵਿਲੋਇਤੀ</subdivision>
+			<subdivision type="uznw" draft="contributed">ਨਵੋਈ ਵਿਲੋਇਤੀ</subdivision>
+			<subdivision type="uzqa" draft="contributed">ਕਸ਼ਕਾਦਰਯੋ ਵਿਲੋਇਤੀ</subdivision>
+			<subdivision type="uzqr" draft="contributed">ਕਰਾਕਲਪਕਸਤਾਨ</subdivision>
+			<subdivision type="uzsa" draft="contributed">ਸਮਰਕੰਦ ਵਿਲੋਇਤੀ</subdivision>
+			<subdivision type="uzsi" draft="contributed">ਸਿਰਦਾਰਿਓ ਸੂਬਾ</subdivision>
+			<subdivision type="uzsu" draft="contributed">ਸੁਰਖਾਨਦਰਿਆ ਸੂਬਾ</subdivision>
+			<subdivision type="uztk" draft="contributed">ਤਾਸ਼ਕੰਦ</subdivision>
+			<subdivision type="uzto" draft="contributed">ਤਾਸ਼ਕੇਂਤ ਸੂਬਾ</subdivision>
+			<subdivision type="uzxo" draft="contributed">ਖੋਰੇਜਮ ਸੂਬਾ</subdivision>
+			<subdivision type="vn24" draft="contributed">ਕੂਏਂਗ ਬਿਨਾਹ ਸੂਬਾ</subdivision>
+			<subdivision type="vnhn" draft="contributed">ਹਨੋਈ</subdivision>
+			<subdivision type="yesa" draft="contributed">ਸਨਾ</subdivision>
 		</subdivisions>
 	</localeDisplayNames>
 </ldml>

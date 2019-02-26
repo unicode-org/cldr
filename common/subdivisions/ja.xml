@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -672,6 +672,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cllr" draft="contributed">ロス・リオス州</subdivision>
 			<subdivision type="clma" draft="contributed">マガジャネス・イ・デ・ラ・アンタルティカ・チレーナ州</subdivision>
 			<subdivision type="clml" draft="contributed">マウレ州</subdivision>
+			<subdivision type="clnb" draft="contributed">ニュブレ州</subdivision>
 			<subdivision type="clrm" draft="contributed">首都州</subdivision>
 			<subdivision type="clta" draft="contributed">タラパカ州</subdivision>
 			<subdivision type="clvs" draft="contributed">バルパライソ州</subdivision>
@@ -820,17 +821,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cz72" draft="contributed">ズリーン州</subdivision>
 			<subdivision type="cz80" draft="contributed">モラヴィア・スレスコ州</subdivision>
 			<subdivision type="cz201" draft="contributed">ベネショフ郡</subdivision>
+			<subdivision type="cz206" draft="contributed">ムニェルニーク地区</subdivision>
 			<subdivision type="cz312" draft="contributed">チェスキー・クルムロフ郡</subdivision>
 			<subdivision type="cz313" draft="contributed">インジフーフ・フラデツ郡</subdivision>
 			<subdivision type="cz327" draft="contributed">タホフ郡</subdivision>
 			<subdivision type="cz413" draft="contributed">ソコロフ郡</subdivision>
+			<subdivision type="cz521" draft="contributed">フラデツ・クラーロヴェー郡</subdivision>
 			<subdivision type="cz524" draft="contributed">リフノフ・ナド・クニェジュノウ郡</subdivision>
 			<subdivision type="cz533" draft="contributed">スヴィタヴィ郡</subdivision>
 			<subdivision type="cz534" draft="contributed">ウスティ・ナドゥ・オーリシ</subdivision>
 			<subdivision type="cz644" draft="contributed">ブジェツラフ郡</subdivision>
+			<subdivision type="cz713" draft="contributed">プロスチェヨフ郡</subdivision>
 			<subdivision type="cz714" draft="contributed">プルジェロフ郡</subdivision>
 			<subdivision type="cz721" draft="contributed">クロミェジージュ郡</subdivision>
 			<subdivision type="cz723" draft="contributed">フセチーン郡</subdivision>
+			<subdivision type="cz724" draft="contributed">ズリン</subdivision>
 			<subdivision type="debb" draft="contributed">ブランデンブルク州</subdivision>
 			<subdivision type="debe" draft="contributed">ベルリン</subdivision>
 			<subdivision type="deby" draft="contributed">バイエルン自由州</subdivision>
@@ -2255,6 +2260,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lt09" draft="contributed">イグナリナ地区自治体</subdivision>
 			<subdivision type="lt10" draft="contributed">ヨナヴァ郡</subdivision>
 			<subdivision type="lt22" draft="contributed">クレチンガ</subdivision>
+			<subdivision type="lt28" draft="contributed">ネリンガ基礎自治体</subdivision>
 			<subdivision type="lt39" draft="contributed">リエタヴァス市</subdivision>
 			<subdivision type="lt54" draft="contributed">ウテナ地方</subdivision>
 			<subdivision type="ltal" draft="contributed">アリートゥス県</subdivision>
@@ -3235,20 +3241,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pkpb" draft="contributed">パンジャーブ州</subdivision>
 			<subdivision type="pksd" draft="contributed">シンド州</subdivision>
 			<subdivision type="pkta" draft="contributed">連邦直轄部族地域</subdivision>
-			<subdivision type="plds" draft="contributed">ドルヌィ・シロンスク県</subdivision>
-			<subdivision type="pllb" draft="contributed">ルブシュ県</subdivision>
-			<subdivision type="plld" draft="contributed">ウッチ県</subdivision>
-			<subdivision type="pllu" draft="contributed">ルブリン県</subdivision>
-			<subdivision type="plma" draft="contributed">マウォポルスカ県</subdivision>
-			<subdivision type="plmz" draft="contributed">マゾフシェ県</subdivision>
-			<subdivision type="plop" draft="contributed">オポーレ県</subdivision>
-			<subdivision type="plpd" draft="contributed">ポドラシェ県</subdivision>
-			<subdivision type="plpk" draft="contributed">ポトカルパチェ県</subdivision>
-			<subdivision type="plpm" draft="contributed">ポモージェ県</subdivision>
-			<subdivision type="plsk" draft="contributed">シフィェンティクシシュ県</subdivision>
-			<subdivision type="plsl" draft="contributed">シロンスク県</subdivision>
-			<subdivision type="plwp" draft="contributed">ヴィエルコポルスカ県</subdivision>
-			<subdivision type="plzp" draft="contributed">西ポモージェ県</subdivision>
+			<subdivision type="pl02" draft="contributed">ドルヌィ・シロンスク県</subdivision>
+			<subdivision type="pl06" draft="contributed">ルブリン県</subdivision>
+			<subdivision type="pl08" draft="contributed">ルブシュ県</subdivision>
+			<subdivision type="pl10" draft="contributed">ウッチ県</subdivision>
+			<subdivision type="pl12" draft="contributed">マウォポルスカ県</subdivision>
+			<subdivision type="pl14" draft="contributed">マゾフシェ県</subdivision>
+			<subdivision type="pl16" draft="contributed">オポーレ県</subdivision>
+			<subdivision type="pl18" draft="contributed">ポトカルパチェ県</subdivision>
+			<subdivision type="pl20" draft="contributed">ポドラシェ県</subdivision>
+			<subdivision type="pl22" draft="contributed">ポモージェ県</subdivision>
+			<subdivision type="pl24" draft="contributed">シロンスク県</subdivision>
+			<subdivision type="pl26" draft="contributed">シフィェンティクシシュ県</subdivision>
+			<subdivision type="pl30" draft="contributed">ヴィエルコポルスカ県</subdivision>
+			<subdivision type="pl32" draft="contributed">西ポモージェ県</subdivision>
 			<subdivision type="psbth" draft="contributed">ベツレヘム</subdivision>
 			<subdivision type="psdeb" draft="contributed">ディール・バラフ</subdivision>
 			<subdivision type="psgza" draft="contributed">ガザ県</subdivision>
@@ -4567,6 +4573,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="zm08" draft="contributed">カッパーベルト州</subdivision>
 			<subdivision type="zm09" draft="contributed">ルサカ州</subdivision>
 			<subdivision type="zm10" draft="contributed">ムチンガ州</subdivision>
+			<subdivision type="zwha" draft="contributed">ハラレ州</subdivision>
 			<subdivision type="zwma" draft="contributed">マニカランド州</subdivision>
 			<subdivision type="zwmc" draft="contributed">中央マショナランド州</subdivision>
 			<subdivision type="zwme" draft="contributed">東マショナランド州</subdivision>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -128,6 +128,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="auwa" draft="contributed">Mendebaldeko Australia</subdivision>
 			<subdivision type="azba" draft="contributed">Baku</subdivision>
 			<subdivision type="azga" draft="contributed">Gəncə</subdivision>
+			<subdivision type="aznv" draft="contributed">Nakhitxevan²</subdivision>
 			<subdivision type="aznx" draft="contributed">Nakhitxevan</subdivision>
 			<subdivision type="azsm" draft="contributed">Sumqayit</subdivision>
 			<subdivision type="azxa" draft="contributed">Stepanakert</subdivision>
@@ -878,6 +879,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbmon" draft="contributed">Monmouthshire</subdivision>
 			<subdivision type="gbmrt" draft="contributed">Merton</subdivision>
 			<subdivision type="gbmry" draft="contributed">Moray</subdivision>
+			<subdivision type="gbmty" draft="contributed">Merthyr Tydfil</subdivision>
 			<subdivision type="gbnay" draft="contributed">Iparraldeko Ayrshire</subdivision>
 			<subdivision type="gbnbl" draft="contributed">Northumberland</subdivision>
 			<subdivision type="gbnet" draft="contributed">Newcastle upon Tyne</subdivision>
@@ -914,6 +916,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbslf" draft="contributed">Salford</subdivision>
 			<subdivision type="gbslk" draft="contributed">Hegoaldeko Lanarkshire</subdivision>
 			<subdivision type="gbsom" draft="contributed">Somerset</subdivision>
+			<subdivision type="gbsos" draft="contributed">Southend-on-Sea</subdivision>
 			<subdivision type="gbsry" draft="contributed">Surrey</subdivision>
 			<subdivision type="gbste" draft="contributed">Stoke-on-Trent</subdivision>
 			<subdivision type="gbstg" draft="contributed">Stirling</subdivision>
@@ -964,7 +967,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="glqe" draft="contributed">Qeqqata</subdivision>
 			<subdivision type="glsm" draft="contributed">Sermersooq</subdivision>
 			<subdivision type="gmb" draft="contributed">Banjul</subdivision>
+			<subdivision type="gnb" draft="contributed">Bokéko eskualdea</subdivision>
 			<subdivision type="gnc" draft="contributed">Konakry</subdivision>
+			<subdivision type="gnd" draft="contributed">Kindiako eskualdea</subdivision>
+			<subdivision type="gnf" draft="contributed">Faranahko eskualdea</subdivision>
+			<subdivision type="gnk" draft="contributed">Kankango eskualdea</subdivision>
+			<subdivision type="gnl" draft="contributed">Labéko eskualdea</subdivision>
+			<subdivision type="gnm" draft="contributed">Mamouko eskualdea</subdivision>
+			<subdivision type="gnn" draft="contributed">Nzérékoréko eskualdea</subdivision>
 			<subdivision type="gqan" draft="contributed">Annobongo probintzia</subdivision>
 			<subdivision type="gqbn" draft="contributed">Iparraldeko Bioko</subdivision>
 			<subdivision type="gqbs" draft="contributed">Hegoaldeko Bioko</subdivision>
@@ -1560,14 +1570,125 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ltte" draft="contributed">Telšiaiko konderria</subdivision>
 			<subdivision type="ltut" draft="contributed">Utenako konderria</subdivision>
 			<subdivision type="ltvl" draft="contributed">Vilniusko konderria</subdivision>
+			<subdivision type="lv001" draft="contributed">Aglona udalerria</subdivision>
 			<subdivision type="lv002" draft="contributed">Aizkraukleko udalerria</subdivision>
+			<subdivision type="lv003" draft="contributed">Aizpute udalerria</subdivision>
+			<subdivision type="lv004" draft="contributed">Aknīste udalerria</subdivision>
+			<subdivision type="lv005" draft="contributed">Aloja udalerria</subdivision>
+			<subdivision type="lv006" draft="contributed">Alsunga udalerria</subdivision>
+			<subdivision type="lv007" draft="contributed">Alūksne udalerria</subdivision>
+			<subdivision type="lv008" draft="contributed">Amata udalerria</subdivision>
+			<subdivision type="lv009" draft="contributed">Ape udalerria</subdivision>
+			<subdivision type="lv010" draft="contributed">Auce udalerria</subdivision>
+			<subdivision type="lv011" draft="contributed">Ādaži udalerria</subdivision>
+			<subdivision type="lv012" draft="contributed">Babīte udalerria</subdivision>
+			<subdivision type="lv013" draft="contributed">Baldone udalerria</subdivision>
+			<subdivision type="lv014" draft="contributed">Baltinava udalerria</subdivision>
+			<subdivision type="lv015" draft="contributed">Balvi udalerria</subdivision>
+			<subdivision type="lv016" draft="contributed">Bauska udalerria</subdivision>
+			<subdivision type="lv017" draft="contributed">Beverīna udalerria</subdivision>
+			<subdivision type="lv018" draft="contributed">Brocēni udalerria</subdivision>
+			<subdivision type="lv019" draft="contributed">Burtnieki udalerria</subdivision>
+			<subdivision type="lv020" draft="contributed">Carnikava udalerria</subdivision>
+			<subdivision type="lv021" draft="contributed">Cesvaine udalerria</subdivision>
+			<subdivision type="lv022" draft="contributed">Cēsis udalerria</subdivision>
+			<subdivision type="lv023" draft="contributed">Cibla udalerria</subdivision>
+			<subdivision type="lv024" draft="contributed">Dagda udalerria</subdivision>
+			<subdivision type="lv025" draft="contributed">Daugavpils udalerria</subdivision>
+			<subdivision type="lv026" draft="contributed">Dobele udalerria</subdivision>
+			<subdivision type="lv027" draft="contributed">Dundaga udalerria</subdivision>
+			<subdivision type="lv028" draft="contributed">Durbe udalerria</subdivision>
+			<subdivision type="lv029" draft="contributed">Engure udalerria</subdivision>
+			<subdivision type="lv030" draft="contributed">Ērgļi udalerria</subdivision>
+			<subdivision type="lv031" draft="contributed">Garkalne udalerria</subdivision>
+			<subdivision type="lv032" draft="contributed">Grobiņa udalerria</subdivision>
+			<subdivision type="lv033" draft="contributed">Gulbene udalerria</subdivision>
+			<subdivision type="lv034" draft="contributed">Iecava udalerria</subdivision>
+			<subdivision type="lv035" draft="contributed">Ikšķile udalerria</subdivision>
+			<subdivision type="lv036" draft="contributed">Ilūkste udalerria</subdivision>
+			<subdivision type="lv037" draft="contributed">Inčukalns udalerria</subdivision>
+			<subdivision type="lv038" draft="contributed">Jaunjelgava udalerria</subdivision>
+			<subdivision type="lv039" draft="contributed">Jaunpiebalga udalerria</subdivision>
+			<subdivision type="lv040" draft="contributed">Jaunpils udalerria</subdivision>
+			<subdivision type="lv041" draft="contributed">Jelgava udalerria</subdivision>
+			<subdivision type="lv042" draft="contributed">Jēkabpils udalerria</subdivision>
+			<subdivision type="lv043" draft="contributed">Kandava udalerria</subdivision>
+			<subdivision type="lv044" draft="contributed">Kārsava udalerria</subdivision>
+			<subdivision type="lv045" draft="contributed">Kocēni udalerria</subdivision>
+			<subdivision type="lv046" draft="contributed">Koknese udalerria</subdivision>
+			<subdivision type="lv047" draft="contributed">Krāslava udalerria</subdivision>
+			<subdivision type="lv048" draft="contributed">Krimulda udalerria</subdivision>
+			<subdivision type="lv049" draft="contributed">Krustpils udalerria</subdivision>
+			<subdivision type="lv050" draft="contributed">Kuldīga udalerria</subdivision>
+			<subdivision type="lv051" draft="contributed">Ķegums udalerria</subdivision>
+			<subdivision type="lv052" draft="contributed">Ķekava udalerria</subdivision>
+			<subdivision type="lv053" draft="contributed">Lielvārde udalerria</subdivision>
+			<subdivision type="lv054" draft="contributed">Limbaži udalerria</subdivision>
+			<subdivision type="lv055" draft="contributed">Līgatne udalerria</subdivision>
+			<subdivision type="lv056" draft="contributed">Līvāni udalerria</subdivision>
+			<subdivision type="lv057" draft="contributed">Lubāna udalerria</subdivision>
+			<subdivision type="lv058" draft="contributed">Ludza udalerria</subdivision>
+			<subdivision type="lv059" draft="contributed">Madona udalerria</subdivision>
+			<subdivision type="lv060" draft="contributed">Mazsalaca udalerria</subdivision>
+			<subdivision type="lv061" draft="contributed">Mālpils udalerria</subdivision>
+			<subdivision type="lv062" draft="contributed">Mārupe udalerria</subdivision>
+			<subdivision type="lv063" draft="contributed">Mērsrags udalerria</subdivision>
+			<subdivision type="lv064" draft="contributed">Naukšēni udalerria</subdivision>
+			<subdivision type="lv065" draft="contributed">Nereta udalerria</subdivision>
+			<subdivision type="lv066" draft="contributed">Nīca udalerria</subdivision>
+			<subdivision type="lv067" draft="contributed">Ogre udalerria</subdivision>
+			<subdivision type="lv068" draft="contributed">Olaine udalerria</subdivision>
+			<subdivision type="lv069" draft="contributed">Ozolnieki udalerria</subdivision>
+			<subdivision type="lv070" draft="contributed">Pārgauja udalerria</subdivision>
+			<subdivision type="lv071" draft="contributed">Pāvilosta udalerria</subdivision>
+			<subdivision type="lv072" draft="contributed">Pļaviņas udalerria</subdivision>
+			<subdivision type="lv073" draft="contributed">Preiļi udalerria</subdivision>
+			<subdivision type="lv074" draft="contributed">Priekule udalerria</subdivision>
+			<subdivision type="lv075" draft="contributed">Priekuļi udalerria</subdivision>
+			<subdivision type="lv076" draft="contributed">Rauna udalerria</subdivision>
+			<subdivision type="lv077" draft="contributed">Rēzekne udalerria</subdivision>
+			<subdivision type="lv078" draft="contributed">Riebiņi udalerria</subdivision>
+			<subdivision type="lv079" draft="contributed">Roja udalerria</subdivision>
+			<subdivision type="lv080" draft="contributed">Ropaži udalerria</subdivision>
+			<subdivision type="lv081" draft="contributed">Rucava udalerria</subdivision>
+			<subdivision type="lv082" draft="contributed">Rugāji udalerria</subdivision>
+			<subdivision type="lv083" draft="contributed">Rundāle udalerria</subdivision>
+			<subdivision type="lv084" draft="contributed">Rūjiena udalerria</subdivision>
+			<subdivision type="lv085" draft="contributed">Salacgrīva udalerria</subdivision>
+			<subdivision type="lv086" draft="contributed">Sala udalerria</subdivision>
+			<subdivision type="lv087" draft="contributed">Salaspils udalerria</subdivision>
+			<subdivision type="lv088" draft="contributed">Saldus udalerria</subdivision>
+			<subdivision type="lv089" draft="contributed">Saulkrasti udalerria</subdivision>
+			<subdivision type="lv090" draft="contributed">Sēja udalerria</subdivision>
+			<subdivision type="lv091" draft="contributed">Sigulda udalerria</subdivision>
+			<subdivision type="lv092" draft="contributed">Skrīveri udalerria</subdivision>
+			<subdivision type="lv093" draft="contributed">Skrunda udalerria</subdivision>
+			<subdivision type="lv094" draft="contributed">Smiltene udalerria</subdivision>
+			<subdivision type="lv095" draft="contributed">Stopiņi udalerria</subdivision>
+			<subdivision type="lv096" draft="contributed">Strenči udalerria</subdivision>
+			<subdivision type="lv097" draft="contributed">Talsi udalerria</subdivision>
+			<subdivision type="lv098" draft="contributed">Tērvete udalerria</subdivision>
+			<subdivision type="lv099" draft="contributed">Tukums udalerria</subdivision>
+			<subdivision type="lv100" draft="contributed">Vaiņode udalerria</subdivision>
+			<subdivision type="lv101" draft="contributed">Valka udalerria</subdivision>
+			<subdivision type="lv102" draft="contributed">Varakļāni udalerria</subdivision>
+			<subdivision type="lv103" draft="contributed">Vārkava udalerria</subdivision>
+			<subdivision type="lv104" draft="contributed">Vecpiebalga udalerria</subdivision>
+			<subdivision type="lv105" draft="contributed">Vecumnieki udalerria</subdivision>
+			<subdivision type="lv106" draft="contributed">Ventspils udalerria</subdivision>
+			<subdivision type="lv107" draft="contributed">Viesīte udalerria</subdivision>
+			<subdivision type="lv108" draft="contributed">Viļaka udalerria</subdivision>
+			<subdivision type="lv109" draft="contributed">Viļāni udalerria</subdivision>
+			<subdivision type="lv110" draft="contributed">Zilupe udalerria</subdivision>
 			<subdivision type="lvdgv" draft="contributed">Daugavpils</subdivision>
 			<subdivision type="lvjel" draft="contributed">Jelgava</subdivision>
+			<subdivision type="lvjkb" draft="contributed">Jēkabpils</subdivision>
 			<subdivision type="lvjur" draft="contributed">Jūrmala</subdivision>
 			<subdivision type="lvlpx" draft="contributed">Liepāja</subdivision>
 			<subdivision type="lvrez" draft="contributed">Rēzekne</subdivision>
 			<subdivision type="lvrix" draft="contributed">Riga</subdivision>
 			<subdivision type="lvven" draft="contributed">Ventspils</subdivision>
+			<subdivision type="lvvmr" draft="contributed">Valmiera</subdivision>
 			<subdivision type="lyba" draft="contributed">Bengazi</subdivision>
 			<subdivision type="lybu" draft="contributed">Al Butnan</subdivision>
 			<subdivision type="lydr" draft="contributed">Derna</subdivision>
@@ -1622,6 +1743,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mdbd" draft="contributed">Bender</subdivision>
 			<subdivision type="mdcu" draft="contributed">Chisinau</subdivision>
 			<subdivision type="mdga" draft="contributed">Gagauzia</subdivision>
+			<subdivision type="me08" draft="contributed">Herceg Novi</subdivision>
 			<subdivision type="mhmaj" draft="contributed">Majuro</subdivision>
 			<subdivision type="mhmil" draft="contributed">Mili atoloia</subdivision>
 			<subdivision type="mhnmu" draft="contributed">Namu atoloia</subdivision>
@@ -1746,9 +1868,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mxver" draft="contributed">Veracruz</subdivision>
 			<subdivision type="mxyuc" draft="contributed">Yucatán</subdivision>
 			<subdivision type="mxzac" draft="contributed">Zacatecas</subdivision>
+			<subdivision type="my01" draft="contributed">Johor</subdivision>
+			<subdivision type="my02" draft="contributed">Kedah</subdivision>
+			<subdivision type="my03" draft="contributed">Kelantan</subdivision>
 			<subdivision type="my04" draft="contributed">Malaka</subdivision>
+			<subdivision type="my05" draft="contributed">Negeri Sembilan</subdivision>
+			<subdivision type="my06" draft="contributed">Pahang</subdivision>
+			<subdivision type="my07" draft="contributed">Penang</subdivision>
+			<subdivision type="my08" draft="contributed">Perak</subdivision>
+			<subdivision type="my09" draft="contributed">Perlis</subdivision>
 			<subdivision type="my10" draft="contributed">Selangor</subdivision>
+			<subdivision type="my11" draft="contributed">Terengganu</subdivision>
+			<subdivision type="my12" draft="contributed">Sabah</subdivision>
+			<subdivision type="my13" draft="contributed">Sarawak</subdivision>
 			<subdivision type="my14" draft="contributed">Kuala Lumpur</subdivision>
+			<subdivision type="my15" draft="contributed">Labuan</subdivision>
 			<subdivision type="my16" draft="contributed">Putrajaya</subdivision>
 			<subdivision type="mza" draft="contributed">Niassa probintzia</subdivision>
 			<subdivision type="mzb" draft="contributed">Manica probintzia</subdivision>
@@ -1929,22 +2063,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pkpb" draft="contributed">Punjab</subdivision>
 			<subdivision type="pksd" draft="contributed">Sindh</subdivision>
 			<subdivision type="pkta" draft="contributed">Administrazio Federalpeko Tribuen Eremua</subdivision>
-			<subdivision type="plds" draft="contributed">Silesia Behereko voivoderria</subdivision>
-			<subdivision type="plkp" draft="contributed">Kujavia-Pomeraniako voivoderria</subdivision>
-			<subdivision type="pllb" draft="contributed">Lubuszeko voivoderria</subdivision>
-			<subdivision type="plld" draft="contributed">Lodzeko voivoderria</subdivision>
-			<subdivision type="pllu" draft="contributed">Lublingo voivoderria</subdivision>
-			<subdivision type="plma" draft="contributed">Polonia Txikiko voivoderria</subdivision>
-			<subdivision type="plmz" draft="contributed">Mazoviako voivoderria</subdivision>
-			<subdivision type="plop" draft="contributed">Opoleko voivoderria</subdivision>
-			<subdivision type="plpd" draft="contributed">Podlasiako voivoderria</subdivision>
-			<subdivision type="plpk" draft="contributed">Behe Karpatoetako voivoderria</subdivision>
-			<subdivision type="plpm" draft="contributed">Pomeraniako voivoderria</subdivision>
-			<subdivision type="plsk" draft="contributed">Gurutze Santuko voivoderria</subdivision>
-			<subdivision type="plsl" draft="contributed">Silesiako voivoderria</subdivision>
-			<subdivision type="plwn" draft="contributed">Varmia-Mazuriako voivoderria</subdivision>
-			<subdivision type="plwp" draft="contributed">Polonia Handiko voivoderria</subdivision>
-			<subdivision type="plzp" draft="contributed">Mendebaldeko Pomeraniako voivoderria</subdivision>
+			<subdivision type="pl02" draft="contributed">Silesia Behereko voivoderria</subdivision>
+			<subdivision type="pl04" draft="contributed">Kujavia-Pomeraniako voivoderria</subdivision>
+			<subdivision type="pl06" draft="contributed">Lublingo voivoderria</subdivision>
+			<subdivision type="pl08" draft="contributed">Lubuszeko voivoderria</subdivision>
+			<subdivision type="pl10" draft="contributed">Lodzeko voivoderria</subdivision>
+			<subdivision type="pl12" draft="contributed">Polonia Txikiko voivoderria</subdivision>
+			<subdivision type="pl14" draft="contributed">Mazoviako voivoderria</subdivision>
+			<subdivision type="pl16" draft="contributed">Opoleko voivoderria</subdivision>
+			<subdivision type="pl18" draft="contributed">Behe Karpatoetako voivoderria</subdivision>
+			<subdivision type="pl20" draft="contributed">Podlasiako voivoderria</subdivision>
+			<subdivision type="pl22" draft="contributed">Pomeraniako voivoderria</subdivision>
+			<subdivision type="pl24" draft="contributed">Silesiako voivoderria</subdivision>
+			<subdivision type="pl26" draft="contributed">Gurutze Santuko voivoderria</subdivision>
+			<subdivision type="pl28" draft="contributed">Varmia-Mazuriako voivoderria</subdivision>
+			<subdivision type="pl30" draft="contributed">Polonia Handiko voivoderria</subdivision>
+			<subdivision type="pl32" draft="contributed">Mendebaldeko Pomeraniako voivoderria</subdivision>
 			<subdivision type="pt01" draft="contributed">Aveiro</subdivision>
 			<subdivision type="pt02" draft="contributed">Beja</subdivision>
 			<subdivision type="pt03" draft="contributed">Braga</subdivision>
@@ -2456,7 +2590,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="vee" draft="contributed">Barinas estatua</subdivision>
 			<subdivision type="vef" draft="contributed">Bolívar estatua</subdivision>
 			<subdivision type="veg" draft="contributed">Carabobo</subdivision>
+			<subdivision type="veh" draft="contributed">Cojedes</subdivision>
+			<subdivision type="vei" draft="contributed">Falcón</subdivision>
+			<subdivision type="vej" draft="contributed">Guárico</subdivision>
+			<subdivision type="vek" draft="contributed">Lara (estatua)</subdivision>
+			<subdivision type="vel" draft="contributed">Mérida (estatua)</subdivision>
+			<subdivision type="vem" draft="contributed">Miranda (estatua)</subdivision>
+			<subdivision type="ven" draft="contributed">Monagas</subdivision>
+			<subdivision type="veo" draft="contributed">Nueva Esparta</subdivision>
+			<subdivision type="vep" draft="contributed">Portuguesa</subdivision>
+			<subdivision type="ver" draft="contributed">Sucre (estatua)</subdivision>
+			<subdivision type="ves" draft="contributed">Táchira (estatua)</subdivision>
+			<subdivision type="vet" draft="contributed">Trujillo (estatua)</subdivision>
 			<subdivision type="veu" draft="contributed">Yaracuy</subdivision>
+			<subdivision type="vev" draft="contributed">Zulia</subdivision>
+			<subdivision type="vex" draft="contributed">Vargas (estatua)</subdivision>
+			<subdivision type="vey" draft="contributed">Delta Amacuro</subdivision>
 			<subdivision type="vez" draft="contributed">Amazonas</subdivision>
 			<subdivision type="vn24" draft="contributed">Quang Binh probintzia</subdivision>
 			<subdivision type="vnct" draft="contributed">Can Tho</subdivision>

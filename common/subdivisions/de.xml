@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -251,9 +251,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bd09" draft="contributed">Chandpur</subdivision>
 			<subdivision type="bd10" draft="contributed">Chittagong (Distrikt)</subdivision>
 			<subdivision type="bd11" draft="contributed">Cox’s Bazar</subdivision>
+			<subdivision type="bd13" draft="contributed">Distrikt Dhaka</subdivision>
 			<subdivision type="bd16" draft="contributed">Feni (Distrikt)</subdivision>
 			<subdivision type="bd17" draft="contributed">Gopalganj (Distrikt, Bangladesch)</subdivision>
 			<subdivision type="bd20" draft="contributed">Habiganj</subdivision>
+			<subdivision type="bd21" draft="contributed">Jamalpur (Distrikt)</subdivision>
 			<subdivision type="bd22" draft="contributed">Jessore</subdivision>
 			<subdivision type="bd29" draft="contributed">Khagrachhari</subdivision>
 			<subdivision type="bd31" draft="contributed">Lakshmipur</subdivision>
@@ -388,6 +390,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bg26" draft="contributed">Oblast Chaskowo</subdivision>
 			<subdivision type="bg27" draft="contributed">Oblast Schumen</subdivision>
 			<subdivision type="bg28" draft="contributed">Oblast Jambol</subdivision>
+			<subdivision type="bh13" draft="contributed">Hauptstadt-Gouvernement</subdivision>
 			<subdivision type="bh15" draft="contributed">Gouvernement Muharraq</subdivision>
 			<subdivision type="bibb" draft="contributed">Bubanza</subdivision>
 			<subdivision type="bibl" draft="contributed">Bujumbura Rural</subdivision>
@@ -662,6 +665,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cllr" draft="contributed">Región de Los Ríos</subdivision>
 			<subdivision type="clma" draft="contributed">Región de Magallanes y de la Antártica Chilena</subdivision>
 			<subdivision type="clml" draft="contributed">Región del Maule</subdivision>
+			<subdivision type="clnb" draft="contributed">Región de Ñuble</subdivision>
 			<subdivision type="clrm" draft="contributed">Región Metropolitana de Santiago</subdivision>
 			<subdivision type="clta" draft="contributed">Región de Tarapacá</subdivision>
 			<subdivision type="clvs" draft="contributed">Región de Valparaíso</subdivision>
@@ -1457,6 +1461,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbntt" draft="contributed">Nottinghamshire</subdivision>
 			<subdivision type="gbnty" draft="contributed">North Tyneside</subdivision>
 			<subdivision type="gbnwm" draft="contributed">London Borough of Newham</subdivision>
+			<subdivision type="gbnwp" draft="contributed">Newport</subdivision>
 			<subdivision type="gbnyk" draft="contributed">North Yorkshire</subdivision>
 			<subdivision type="gbold" draft="contributed">Metropolitan Borough of Oldham</subdivision>
 			<subdivision type="gbork" draft="contributed">Orkney</subdivision>
@@ -2770,6 +2775,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="me13" draft="contributed">Gemeinde Plav</subdivision>
 			<subdivision type="me14" draft="contributed">Gemeinde Pljevlja</subdivision>
 			<subdivision type="me15" draft="contributed">Gemeinde Plužine</subdivision>
+			<subdivision type="me16" draft="contributed">Großgemeinde Podgorica</subdivision>
 			<subdivision type="me18" draft="contributed">Gemeinde Šavnik</subdivision>
 			<subdivision type="me20" draft="contributed">Gemeinde Ulcinj</subdivision>
 			<subdivision type="me21" draft="contributed">Gemeinde Žabljak</subdivision>
@@ -3464,26 +3470,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pkpb" draft="contributed">Punjab</subdivision>
 			<subdivision type="pksd" draft="contributed">Sindh</subdivision>
 			<subdivision type="pkta" draft="contributed">Stammesgebiete unter Bundesverwaltung</subdivision>
-			<subdivision type="plds" draft="contributed">Woiwodschaft Niederschlesien</subdivision>
-			<subdivision type="plkp" draft="contributed">Woiwodschaft Kujawien-Pommern</subdivision>
-			<subdivision type="pllb" draft="contributed">Woiwodschaft Lebus</subdivision>
-			<subdivision type="plld" draft="contributed">Woiwodschaft Łódź</subdivision>
-			<subdivision type="pllu" draft="contributed">Woiwodschaft Lublin</subdivision>
-			<subdivision type="plma" draft="contributed">Woiwodschaft Kleinpolen</subdivision>
-			<subdivision type="plmz" draft="contributed">Woiwodschaft Masowien</subdivision>
-			<subdivision type="plop" draft="contributed">Woiwodschaft Opole</subdivision>
-			<subdivision type="plpd" draft="contributed">Woiwodschaft Podlachien</subdivision>
-			<subdivision type="plpk" draft="contributed">Woiwodschaft Karpatenvorland</subdivision>
-			<subdivision type="plpm" draft="contributed">Woiwodschaft Pommern</subdivision>
-			<subdivision type="plsk" draft="contributed">Woiwodschaft Heiligkreuz</subdivision>
-			<subdivision type="plsl" draft="contributed">Woiwodschaft Schlesien</subdivision>
-			<subdivision type="plwn" draft="contributed">Woiwodschaft Ermland-Masuren</subdivision>
-			<subdivision type="plwp" draft="contributed">Woiwodschaft Großpolen</subdivision>
-			<subdivision type="plzp" draft="contributed">Woiwodschaft Westpommern</subdivision>
+			<subdivision type="pl02" draft="contributed">Woiwodschaft Niederschlesien</subdivision>
+			<subdivision type="pl04" draft="contributed">Woiwodschaft Kujawien-Pommern</subdivision>
+			<subdivision type="pl06" draft="contributed">Woiwodschaft Lublin</subdivision>
+			<subdivision type="pl08" draft="contributed">Woiwodschaft Lebus</subdivision>
+			<subdivision type="pl10" draft="contributed">Woiwodschaft Łódź</subdivision>
+			<subdivision type="pl12" draft="contributed">Woiwodschaft Kleinpolen</subdivision>
+			<subdivision type="pl14" draft="contributed">Woiwodschaft Masowien</subdivision>
+			<subdivision type="pl16" draft="contributed">Woiwodschaft Opole</subdivision>
+			<subdivision type="pl18" draft="contributed">Woiwodschaft Karpatenvorland</subdivision>
+			<subdivision type="pl20" draft="contributed">Woiwodschaft Podlachien</subdivision>
+			<subdivision type="pl22" draft="contributed">Woiwodschaft Pommern</subdivision>
+			<subdivision type="pl24" draft="contributed">Woiwodschaft Schlesien</subdivision>
+			<subdivision type="pl26" draft="contributed">Woiwodschaft Heiligkreuz</subdivision>
+			<subdivision type="pl28" draft="contributed">Woiwodschaft Ermland-Masuren</subdivision>
+			<subdivision type="pl30" draft="contributed">Woiwodschaft Großpolen</subdivision>
+			<subdivision type="pl32" draft="contributed">Woiwodschaft Westpommern</subdivision>
 			<subdivision type="psbth" draft="contributed">Bethlehem Gouvernement</subdivision>
 			<subdivision type="psdeb" draft="contributed">Gouvernement Dair al-Balah</subdivision>
 			<subdivision type="psgza" draft="contributed">Gouvernement Gaza</subdivision>
 			<subdivision type="pshbn" draft="contributed">Hebron Governorate</subdivision>
+			<subdivision type="psjem" draft="contributed">Gouvernement Jerusalem</subdivision>
 			<subdivision type="psjen" draft="contributed">Jenin Governorate</subdivision>
 			<subdivision type="pskys" draft="contributed">Gouvernement Chan Yunis</subdivision>
 			<subdivision type="psnbs" draft="contributed">Gouvernement Nablus</subdivision>
@@ -3749,6 +3756,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sc10" draft="contributed">Bel Ombre</subdivision>
 			<subdivision type="sc11" draft="contributed">Cascade</subdivision>
 			<subdivision type="sc12" draft="contributed">Glacis</subdivision>
+			<subdivision type="sc13" draft="contributed">Grand Anse (Mahé)</subdivision>
 			<subdivision type="sc14" draft="contributed">Grand Anse</subdivision>
 			<subdivision type="sc15" draft="contributed">La Digue</subdivision>
 			<subdivision type="sc16" draft="contributed">La Rivière Anglaise</subdivision>
@@ -3861,6 +3869,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si058" draft="contributed">Gemeinde Lenart</subdivision>
 			<subdivision type="si059" draft="contributed">Lendava</subdivision>
 			<subdivision type="si060" draft="contributed">Litija</subdivision>
+			<subdivision type="si061" draft="contributed">Stadtgemeinde Ljubljana</subdivision>
 			<subdivision type="si062" draft="contributed">Ljubno</subdivision>
 			<subdivision type="si063" draft="contributed">Ljutomer</subdivision>
 			<subdivision type="si064" draft="contributed">Logatec</subdivision>

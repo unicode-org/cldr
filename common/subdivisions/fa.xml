@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -220,6 +220,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="azzaq" draft="contributed">شهرستان زاقاتالا</subdivision>
 			<subdivision type="azzar" draft="contributed">شهرستان زردآب</subdivision>
 			<subdivision type="babih" draft="contributed">فدراسیون بوسنی و هرزگوین</subdivision>
+			<subdivision type="babrc" draft="contributed">بخش برچکو</subdivision>
 			<subdivision type="basrp" draft="contributed">جمهوری صرب بوسنی</subdivision>
 			<subdivision type="bb01" draft="contributed">کرایست چرچ، باربادوس</subdivision>
 			<subdivision type="bb02" draft="contributed">سنت آندرو، باربادوس</subdivision>
@@ -1177,6 +1178,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbann" draft="contributed">انتریم و نیوتاون‌ابی</subdivision>
 			<subdivision type="gbans" draft="contributed">آنگوس</subdivision>
 			<subdivision type="gbbas" draft="contributed">باث و سامرست شمال‌شرقی</subdivision>
+			<subdivision type="gbbdf" draft="contributed">بدفورد بورو</subdivision>
 			<subdivision type="gbbdg" draft="contributed">منطقه بارکینگ و دگنهام لندن</subdivision>
 			<subdivision type="gbben" draft="contributed">منطقه برنت لندن</subdivision>
 			<subdivision type="gbbex" draft="contributed">منطقه بکسلی لندن</subdivision>
@@ -1201,6 +1203,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbccg" draft="contributed">کازوی کوست و گلنز</subdivision>
 			<subdivision type="gbcgn" draft="contributed">کردیگیون</subdivision>
 			<subdivision type="gbche" draft="contributed">چشر شرقی</subdivision>
+			<subdivision type="gbchw" draft="contributed">چشر غربی و چستر</subdivision>
 			<subdivision type="gbcld" draft="contributed">کالدردیل</subdivision>
 			<subdivision type="gbclk" draft="contributed">کلاکماننشر</subdivision>
 			<subdivision type="gbcma" draft="contributed">کامبریا</subdivision>
@@ -1244,6 +1247,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbgls" draft="contributed">گلاسترشایر</subdivision>
 			<subdivision type="gbgre" draft="contributed">منطقه سلطنتی گرینویچ</subdivision>
 			<subdivision type="gbgwn" draft="contributed">گویند</subdivision>
+			<subdivision type="gbhal" draft="contributed">هالتون</subdivision>
 			<subdivision type="gbham" draft="contributed">همپشایر</subdivision>
 			<subdivision type="gbhav" draft="contributed">منطقه هیورینگ لندن</subdivision>
 			<subdivision type="gbhck" draft="contributed">منطقه هکنی لندن</subdivision>
@@ -1351,6 +1355,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbukm" draft="contributed">بریتانیا</subdivision>
 			<subdivision type="gbvgl" draft="contributed">ویل آو گلامورگن</subdivision>
 			<subdivision type="gbwar" draft="contributed">وارویک‌شایر</subdivision>
+			<subdivision type="gbwbk" draft="contributed">بارکشر غربی</subdivision>
 			<subdivision type="gbwdu" draft="contributed">دونبارتونشر غربی</subdivision>
 			<subdivision type="gbwft" draft="contributed">منطقه والتهام فورست لندن</subdivision>
 			<subdivision type="gbwgn" draft="contributed">کلان‌شهر مستقل ویگان</subdivision>
@@ -2287,6 +2292,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mdbd" draft="contributed">بندر، مولداوی</subdivision>
 			<subdivision type="mdcu" draft="contributed">کیشیناو</subdivision>
 			<subdivision type="mdga" draft="contributed">گاگائوزیا</subdivision>
+			<subdivision type="me08" draft="contributed">هرتسگ نووی</subdivision>
 			<subdivision type="mga" draft="contributed">تواماسینا</subdivision>
 			<subdivision type="mgd" draft="contributed">آنسیرانانا</subdivision>
 			<subdivision type="mgf" draft="contributed">فیانارانسوا</subdivision>
@@ -2400,6 +2406,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mt67" draft="contributed">زیتون، مالت</subdivision>
 			<subdivision type="mt68" draft="contributed">زوریک</subdivision>
 			<subdivision type="muag" draft="contributed">جزایر آگالگا</subdivision>
+			<subdivision type="mucu" draft="contributed">کورپیپ</subdivision>
 			<subdivision type="mufl" draft="contributed">ناحیه فلاک</subdivision>
 			<subdivision type="mugp" draft="contributed">ناحیه گرند پورت</subdivision>
 			<subdivision type="mumo" draft="contributed">ناحیه موکا</subdivision>
@@ -2500,7 +2507,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mzq" draft="contributed">استان زامبزیا</subdivision>
 			<subdivision type="mzs" draft="contributed">استان سوفالا</subdivision>
 			<subdivision type="mzt" draft="contributed">تته (استان)</subdivision>
+			<subdivision type="naca" draft="contributed">منطقه زامبزی</subdivision>
+			<subdivision type="naer" draft="contributed">منطقه ارونگو</subdivision>
+			<subdivision type="naha" draft="contributed">منطقه هارداپ</subdivision>
 			<subdivision type="naka" draft="contributed">منطقه کاراس</subdivision>
+			<subdivision type="nake" draft="contributed">کاوانگو شرقی</subdivision>
+			<subdivision type="nakh" draft="contributed">منطقه کوماس</subdivision>
+			<subdivision type="naku" draft="contributed">منطقه کوننه</subdivision>
+			<subdivision type="nakw" draft="contributed">کاوانگو غربی</subdivision>
+			<subdivision type="naod" draft="contributed">منطقه اوتجوزوندجوپا</subdivision>
+			<subdivision type="naoh" draft="contributed">منطقه اوماهکه</subdivision>
+			<subdivision type="naon" draft="contributed">منطقه اوشانا</subdivision>
+			<subdivision type="naos" draft="contributed">منطقه اوموساتی</subdivision>
+			<subdivision type="naot" draft="contributed">منطقه اوشیکوتو</subdivision>
+			<subdivision type="naow" draft="contributed">منطقه اوهانگونا</subdivision>
 			<subdivision type="ne8" draft="contributed">نیامی</subdivision>
 			<subdivision type="ngab" draft="contributed">اراضی ابیا</subdivision>
 			<subdivision type="ngad" draft="contributed">اراضی اداماوا</subdivision>
@@ -2596,8 +2616,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="omwu" draft="contributed">منطقه وسطی</subdivision>
 			<subdivision type="omza" draft="contributed">استان ظاهره</subdivision>
 			<subdivision type="omzu" draft="contributed">استان ظفار</subdivision>
+			<subdivision type="pa1" draft="contributed">استان بوکاس دل تورو</subdivision>
+			<subdivision type="pa2" draft="contributed">استان کوکله</subdivision>
 			<subdivision type="pa4" draft="contributed">استان چیریکی</subdivision>
+			<subdivision type="pa5" draft="contributed">استان دارئین</subdivision>
+			<subdivision type="pa6" draft="contributed">استان اررا</subdivision>
+			<subdivision type="pa7" draft="contributed">استان لوس سانتوس</subdivision>
+			<subdivision type="pa8" draft="contributed">استان پاناما</subdivision>
 			<subdivision type="pa9" draft="contributed">ورگواس پروینک</subdivision>
+			<subdivision type="pa10" draft="contributed">استان پاناما اوسته</subdivision>
 			<subdivision type="peama" draft="contributed">ناحیه امازوناس</subdivision>
 			<subdivision type="peanc" draft="contributed">ناحیه انکاش</subdivision>
 			<subdivision type="peapu" draft="contributed">منطقه اپوریماک</subdivision>
@@ -2645,6 +2672,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pgwhm" draft="contributed">استان ارتفاعات غربی</subdivision>
 			<subdivision type="pgwpd" draft="contributed">استان غربی</subdivision>
 			<subdivision type="ph00" draft="contributed">کلانشهر مانیل</subdivision>
+			<subdivision type="ph14" draft="contributed">ناحیه خودمختار مسلمانان میندانائو</subdivision>
 			<subdivision type="phabr" draft="contributed">آبرا</subdivision>
 			<subdivision type="phagn" draft="contributed">آگوسان شمالی</subdivision>
 			<subdivision type="phags" draft="contributed">آگوسان جنوبی</subdivision>
@@ -2733,22 +2761,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pkpb" draft="contributed">پنجاب</subdivision>
 			<subdivision type="pksd" draft="contributed">استان سند</subdivision>
 			<subdivision type="pkta" draft="contributed">مناطق قبیله‌ای فدرال</subdivision>
-			<subdivision type="plds" draft="contributed">استان سلیزیا سفلی</subdivision>
-			<subdivision type="plkp" draft="contributed">استان کویاوی-پومرانیا</subdivision>
-			<subdivision type="pllb" draft="contributed">استان لوبوسکی</subdivision>
-			<subdivision type="plld" draft="contributed">استان ووتسکی</subdivision>
-			<subdivision type="pllu" draft="contributed">استان لوبلین</subdivision>
-			<subdivision type="plma" draft="contributed">استان لهستان کوچک‌تر</subdivision>
-			<subdivision type="plmz" draft="contributed">ماسوویان وویوودشیپ</subdivision>
-			<subdivision type="plop" draft="contributed">استان اوپوله</subdivision>
-			<subdivision type="plpd" draft="contributed">استان پودلاسکی</subdivision>
-			<subdivision type="plpk" draft="contributed">استان پودکارپاکیه</subdivision>
-			<subdivision type="plpm" draft="contributed">استان پومرانی</subdivision>
-			<subdivision type="plsk" draft="contributed">استان اشوی‌داشکسیه</subdivision>
-			<subdivision type="plsl" draft="contributed">استان سیلسیان</subdivision>
-			<subdivision type="plwn" draft="contributed">استان وارمی-ماسوری</subdivision>
-			<subdivision type="plwp" draft="contributed">استان لهستان بزرگ‌تر</subdivision>
-			<subdivision type="plzp" draft="contributed">استان پومرانی غربی</subdivision>
+			<subdivision type="pl02" draft="contributed">استان سلیزیا سفلی</subdivision>
+			<subdivision type="pl04" draft="contributed">استان کویاوی-پومرانیا</subdivision>
+			<subdivision type="pl06" draft="contributed">استان لوبلین</subdivision>
+			<subdivision type="pl08" draft="contributed">استان لوبوسکی</subdivision>
+			<subdivision type="pl10" draft="contributed">استان ووتسکی</subdivision>
+			<subdivision type="pl12" draft="contributed">استان لهستان کوچک‌تر</subdivision>
+			<subdivision type="pl14" draft="contributed">ماسوویان وویوودشیپ</subdivision>
+			<subdivision type="pl16" draft="contributed">استان اوپوله</subdivision>
+			<subdivision type="pl18" draft="contributed">استان پودکارپاکیه</subdivision>
+			<subdivision type="pl20" draft="contributed">استان پودلاسکی</subdivision>
+			<subdivision type="pl22" draft="contributed">استان پومرانی</subdivision>
+			<subdivision type="pl24" draft="contributed">استان سیلسیان</subdivision>
+			<subdivision type="pl26" draft="contributed">استان اشوی‌داشکسیه</subdivision>
+			<subdivision type="pl28" draft="contributed">استان وارمی-ماسوری</subdivision>
+			<subdivision type="pl30" draft="contributed">استان لهستان بزرگ‌تر</subdivision>
+			<subdivision type="pl32" draft="contributed">استان پومرانی غربی</subdivision>
 			<subdivision type="psbth" draft="contributed">استان بیت‌لحم</subdivision>
 			<subdivision type="psdeb" draft="contributed">استان دیرالبلح</subdivision>
 			<subdivision type="psgza" draft="contributed">استان غزه</subdivision>
@@ -2765,6 +2793,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="psslt" draft="contributed">استان سلفیت</subdivision>
 			<subdivision type="pstbs" draft="contributed">استان طوباس</subdivision>
 			<subdivision type="pstkm" draft="contributed">استان طولکرم</subdivision>
+			<subdivision type="pt08" draft="contributed">ناحیه فارو</subdivision>
 			<subdivision type="pt10" draft="contributed">استان لیریا</subdivision>
 			<subdivision type="pt11" draft="contributed">ناحیه لیسبون</subdivision>
 			<subdivision type="pt14" draft="contributed">ناحیه سانتاری</subdivision>
@@ -2788,6 +2817,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="qakh" draft="contributed">الخور والدخیرة</subdivision>
 			<subdivision type="qams" draft="contributed">الشمال</subdivision>
 			<subdivision type="qara" draft="contributed">ریان</subdivision>
+			<subdivision type="qash" draft="contributed">شحانیه</subdivision>
 			<subdivision type="qaus" draft="contributed">ام صلال</subdivision>
 			<subdivision type="qawa" draft="contributed">الوکره</subdivision>
 			<subdivision type="qaza" draft="contributed">بلدیة الضعاین</subdivision>
@@ -3121,6 +3151,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="th71" draft="contributed">کانتچانابوری</subdivision>
 			<subdivision type="th72" draft="contributed">سوپان بوری</subdivision>
 			<subdivision type="th73" draft="contributed">ناخون پاتوم</subdivision>
+			<subdivision type="th74" draft="contributed">استان ساموت ساکون</subdivision>
 			<subdivision type="th75" draft="contributed">استان ساموت سونگخرام</subdivision>
 			<subdivision type="th76" draft="contributed">پتچابوری</subdivision>
 			<subdivision type="th77" draft="contributed">پراچواپ خیری خان</subdivision>

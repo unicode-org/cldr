@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -662,9 +662,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="chzh" draft="contributed">Canton Zurigo</subdivision>
 			<subdivision type="ciab" draft="contributed">Abidjan</subdivision>
 			<subdivision type="cibs" draft="contributed">Bas-Sassandra District</subdivision>
+			<subdivision type="cicm" draft="contributed">Distretto di Comoé</subdivision>
 			<subdivision type="cidn" draft="contributed">Denguélé</subdivision>
+			<subdivision type="cigd" draft="contributed">Distretto di Gôh-Djiboua</subdivision>
+			<subdivision type="cilc" draft="contributed">Distretto di Lacs</subdivision>
+			<subdivision type="cilg" draft="contributed">Distretto di Lagunes</subdivision>
+			<subdivision type="cimg" draft="contributed">Distretto di Montagnes</subdivision>
+			<subdivision type="cism" draft="contributed">Distretto di Sassandra-Marahoué</subdivision>
 			<subdivision type="cisv" draft="contributed">Savanes District</subdivision>
 			<subdivision type="civb" draft="contributed">Vallée du Bandama District</subdivision>
+			<subdivision type="ciwr" draft="contributed">Distretto di Woroba</subdivision>
 			<subdivision type="ciym" draft="contributed">Yamoussoukro</subdivision>
 			<subdivision type="cizz" draft="contributed">regione di Zanzan</subdivision>
 			<subdivision type="clai" draft="contributed">regione di Aysén</subdivision>
@@ -679,6 +686,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cllr" draft="contributed">regione di Los Ríos</subdivision>
 			<subdivision type="clma" draft="contributed">regione di Magellano e dell’Antartide Cilena</subdivision>
 			<subdivision type="clml" draft="contributed">regione del Maule</subdivision>
+			<subdivision type="clnb" draft="contributed">Regione di Ñuble</subdivision>
 			<subdivision type="clrm" draft="contributed">regione Metropolitana di Santiago</subdivision>
 			<subdivision type="clta" draft="contributed">regione di Tarapacá</subdivision>
 			<subdivision type="clvs" draft="contributed">regione di Valparaíso</subdivision>
@@ -2301,8 +2309,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="laxe" draft="contributed">provincia di Xekong</subdivision>
 			<subdivision type="laxi" draft="contributed">provincia di Xiangkhoang</subdivision>
 			<subdivision type="laxs" draft="contributed">Provincia di Xaisomboun</subdivision>
+			<subdivision type="lbak" draft="contributed">Governatorato di Akkar</subdivision>
 			<subdivision type="lbas" draft="contributed">governatorato del Nord Libano</subdivision>
 			<subdivision type="lbba" draft="contributed">governatorato di Beirut</subdivision>
+			<subdivision type="lbbh" draft="contributed">Governatorato di Baalbek-Hermel</subdivision>
 			<subdivision type="lbbi" draft="contributed">governatorato della Beqa’</subdivision>
 			<subdivision type="lbja" draft="contributed">governatorato del Sud Libano</subdivision>
 			<subdivision type="lbjl" draft="contributed">governatorato del Monte Libano</subdivision>
@@ -3444,22 +3454,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pkpb" draft="contributed">Punjab</subdivision>
 			<subdivision type="pksd" draft="contributed">Sindh</subdivision>
 			<subdivision type="pkta" draft="contributed">aree tribali di amministrazione federale</subdivision>
-			<subdivision type="plds" draft="contributed">voivodato della Bassa Slesia</subdivision>
-			<subdivision type="plkp" draft="contributed">voivodato della Cuiavia-Pomerania</subdivision>
-			<subdivision type="pllb" draft="contributed">voivodato di Lubusz</subdivision>
-			<subdivision type="plld" draft="contributed">voivodato di Łódź</subdivision>
-			<subdivision type="pllu" draft="contributed">voivodato di Lublino</subdivision>
-			<subdivision type="plma" draft="contributed">voivodato della Piccola Polonia</subdivision>
-			<subdivision type="plmz" draft="contributed">voivodato della Masovia</subdivision>
-			<subdivision type="plop" draft="contributed">voivodato di Opole</subdivision>
-			<subdivision type="plpd" draft="contributed">voivodato della Podlachia</subdivision>
-			<subdivision type="plpk" draft="contributed">voivodato della Precarpazia</subdivision>
-			<subdivision type="plpm" draft="contributed">voivodato della Pomerania</subdivision>
-			<subdivision type="plsk" draft="contributed">voivodato della Santacroce</subdivision>
-			<subdivision type="plsl" draft="contributed">voivodato della Slesia</subdivision>
-			<subdivision type="plwn" draft="contributed">voivodato della Varmia-Masuria</subdivision>
-			<subdivision type="plwp" draft="contributed">voivodato della Grande Polonia</subdivision>
-			<subdivision type="plzp" draft="contributed">voivodato della Pomerania Occidentale</subdivision>
+			<subdivision type="pl02" draft="contributed">voivodato della Bassa Slesia</subdivision>
+			<subdivision type="pl04" draft="contributed">voivodato della Cuiavia-Pomerania</subdivision>
+			<subdivision type="pl06" draft="contributed">voivodato di Lublino</subdivision>
+			<subdivision type="pl08" draft="contributed">voivodato di Lubusz</subdivision>
+			<subdivision type="pl10" draft="contributed">voivodato di Łódź</subdivision>
+			<subdivision type="pl12" draft="contributed">voivodato della Piccola Polonia</subdivision>
+			<subdivision type="pl14" draft="contributed">voivodato della Masovia</subdivision>
+			<subdivision type="pl16" draft="contributed">voivodato di Opole</subdivision>
+			<subdivision type="pl18" draft="contributed">voivodato della Precarpazia</subdivision>
+			<subdivision type="pl20" draft="contributed">voivodato della Podlachia</subdivision>
+			<subdivision type="pl22" draft="contributed">voivodato della Pomerania</subdivision>
+			<subdivision type="pl24" draft="contributed">voivodato della Slesia</subdivision>
+			<subdivision type="pl26" draft="contributed">voivodato della Santacroce</subdivision>
+			<subdivision type="pl28" draft="contributed">voivodato della Varmia-Masuria</subdivision>
+			<subdivision type="pl30" draft="contributed">voivodato della Grande Polonia</subdivision>
+			<subdivision type="pl32" draft="contributed">voivodato della Pomerania Occidentale</subdivision>
 			<subdivision type="psbth" draft="contributed">Governatorato di Betlemme</subdivision>
 			<subdivision type="psdeb" draft="contributed">Governatorato di Deir al-Balah</subdivision>
 			<subdivision type="psgza" draft="contributed">governatorato di Gaza</subdivision>

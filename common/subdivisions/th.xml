@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1385,6 +1385,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="idkr" draft="contributed">หมู่เกาะเรียว</subdivision>
 			<subdivision type="idks" draft="contributed">จังหวัดกาลิมันตัน</subdivision>
 			<subdivision type="idkt" draft="contributed">จังหวัดกาลีมันตันกลาง</subdivision>
+			<subdivision type="idku" draft="contributed">จังหวัดกาลีมันตันเหนือ</subdivision>
 			<subdivision type="idla" draft="contributed">จังหวัดลำปาง</subdivision>
 			<subdivision type="idma" draft="contributed">จังหวัดมาลูกู</subdivision>
 			<subdivision type="idml" draft="contributed">หมู่เกาะโมลุกกะ</subdivision>
@@ -1551,10 +1552,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itar" draft="contributed">จังหวัดอาเรซโซ</subdivision>
 			<subdivision type="itat" draft="contributed">จังหวัดอัสตี</subdivision>
 			<subdivision type="itav" draft="contributed">จังหวัดอาเวลลิโน</subdivision>
+			<subdivision type="itba" draft="contributed">เมโทรโพลิแทน</subdivision>
 			<subdivision type="itbg" draft="contributed">จังหวัดแบร์กาโม</subdivision>
 			<subdivision type="itbi" draft="contributed">จังหวัดบิเอลลา</subdivision>
 			<subdivision type="itbl" draft="contributed">จังหวัดเบลลูโน</subdivision>
 			<subdivision type="itbn" draft="contributed">ซานตา ลูซิจา</subdivision>
+			<subdivision type="itbo" draft="contributed">โบโลญญา</subdivision>
 			<subdivision type="itbr" draft="contributed">จังหวัดบรินดิสิ</subdivision>
 			<subdivision type="itbs" draft="contributed">จังหวัดเบรเซีย</subdivision>
 			<subdivision type="itbt" draft="contributed">จังหวัดบาร์เลตตา-อันดรีอา-ตรานี</subdivision>
@@ -1599,6 +1602,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itog" draft="contributed">จังหวัดโอลยัสตรา</subdivision>
 			<subdivision type="itor" draft="contributed">จังหวัดโอริสตาโน</subdivision>
 			<subdivision type="itot" draft="contributed">จังหวัด ออลเบีย-เตมปีโอ</subdivision>
+			<subdivision type="itpc" draft="contributed">จังหวิดปีอาเชนซา</subdivision>
 			<subdivision type="itpd" draft="contributed">จังหวัดปาดัว</subdivision>
 			<subdivision type="itpe" draft="contributed">จังหวัดเพสการา</subdivision>
 			<subdivision type="itpg" draft="contributed">จังหวัดเปรูเกีย</subdivision>
@@ -1896,6 +1900,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lsj" draft="contributed">โมคอตลอง</subdivision>
 			<subdivision type="lsk" draft="contributed">เขตทาบา-ทีเซกา</subdivision>
 			<subdivision type="ltal" draft="contributed">เทศมณฑลอิทัส</subdivision>
+			<subdivision type="ltkl" draft="contributed">เทศมณฑลไคลเพดา</subdivision>
 			<subdivision type="ltku" draft="contributed">เมืองคาอูนัส</subdivision>
 			<subdivision type="ltmr" draft="contributed">มาริยามโปเล</subdivision>
 			<subdivision type="ltpn" draft="contributed">เมืองพาเนเวซี</subdivision>
@@ -1903,6 +1908,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ltte" draft="contributed">เมืองเตลเซ</subdivision>
 			<subdivision type="ltut" draft="contributed">เทศมณฑลอูเตนา</subdivision>
 			<subdivision type="ltvl" draft="contributed">วิลนีอุส</subdivision>
+			<subdivision type="lugr" draft="contributed">อำเภอเกรเวินมัคเคอร์</subdivision>
 			<subdivision type="lv001" draft="contributed">เทศบาลอากโลน่า</subdivision>
 			<subdivision type="lv002" draft="contributed">เมืองอิซเคราเคิลส์</subdivision>
 			<subdivision type="lv003" draft="contributed">เทศบาลไอย์ซปุน</subdivision>
@@ -2463,6 +2469,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ngko" draft="contributed">รัฐโคกี</subdivision>
 			<subdivision type="ngkt" draft="contributed">รัฐคัตซินา</subdivision>
 			<subdivision type="ngkw" draft="contributed">รัฐควารา</subdivision>
+			<subdivision type="ngla" draft="contributed">รัฐเลกอส</subdivision>
 			<subdivision type="ngna" draft="contributed">นาซซาราวา</subdivision>
 			<subdivision type="ngni" draft="contributed">ไนเจอร</subdivision>
 			<subdivision type="ngog" draft="contributed">โอกัน</subdivision>
@@ -2728,27 +2735,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="phzsi" draft="contributed">ซัมบวงกา ซีบูเกย์</subdivision>
 			<subdivision type="pkba" draft="contributed">บาลอนคริสตัน</subdivision>
 			<subdivision type="pkgb" draft="contributed">กิลกิต บัลทิสสถาน</subdivision>
+			<subdivision type="pkis" draft="contributed">ดินแดนนครหลวงอิสลามาบัด</subdivision>
 			<subdivision type="pkjk" draft="contributed">อาซาดแคชเมียร์</subdivision>
 			<subdivision type="pkkp" draft="contributed">แคว้นไคเบอร์ปัคตูนควา</subdivision>
 			<subdivision type="pkpb" draft="contributed">แคว้นปัญจาบ</subdivision>
 			<subdivision type="pksd" draft="contributed">แคว้นสินธ์</subdivision>
 			<subdivision type="pkta" draft="contributed">พื้นที่ชนพื้นเมืองที่ปกครองโดยส่วนกลาง</subdivision>
-			<subdivision type="plds" draft="contributed">จังหวัดดอลนือชล็อนสก์</subdivision>
-			<subdivision type="plkp" draft="contributed">จังหวัดกูยาวือ-ปอมอแช</subdivision>
-			<subdivision type="pllb" draft="contributed">จังหวัดลูบุช</subdivision>
-			<subdivision type="plld" draft="contributed">จังหวัดวูช</subdivision>
-			<subdivision type="pllu" draft="contributed">จังหวัดลูบลิน</subdivision>
-			<subdivision type="plma" draft="contributed">จังหวัดมาวอปอลสกา</subdivision>
-			<subdivision type="plmz" draft="contributed">จังหวัดมาซอฟแช</subdivision>
-			<subdivision type="plop" draft="contributed">จังหวัดออปอแล</subdivision>
-			<subdivision type="plpd" draft="contributed">จังหวัดปอดลาแช</subdivision>
-			<subdivision type="plpk" draft="contributed">จังหวัดปอตการ์ปาแช</subdivision>
-			<subdivision type="plpm" draft="contributed">จังหวัดปอมอแช</subdivision>
-			<subdivision type="plsk" draft="contributed">จังหวัดชฟีแยนตือ-กชึช</subdivision>
-			<subdivision type="plsl" draft="contributed">จังหวัดชล็อนสก์</subdivision>
-			<subdivision type="plwn" draft="contributed">จังหวัดวาร์เมีย-มาซูรือ</subdivision>
-			<subdivision type="plwp" draft="contributed">จังหวัดวีแยลกอปอลสกา</subdivision>
-			<subdivision type="plzp" draft="contributed">จังหวัดปอมอแชซาคอดแญ</subdivision>
+			<subdivision type="pl02" draft="contributed">จังหวัดดอลนือชล็อนสก์</subdivision>
+			<subdivision type="pl04" draft="contributed">จังหวัดกูยาวือ-ปอมอแช</subdivision>
+			<subdivision type="pl06" draft="contributed">จังหวัดลูบลิน</subdivision>
+			<subdivision type="pl08" draft="contributed">จังหวัดลูบุช</subdivision>
+			<subdivision type="pl10" draft="contributed">จังหวัดวูช</subdivision>
+			<subdivision type="pl12" draft="contributed">จังหวัดมาวอปอลสกา</subdivision>
+			<subdivision type="pl14" draft="contributed">จังหวัดมาซอฟแช</subdivision>
+			<subdivision type="pl16" draft="contributed">จังหวัดออปอแล</subdivision>
+			<subdivision type="pl18" draft="contributed">จังหวัดปอตการ์ปาแช</subdivision>
+			<subdivision type="pl20" draft="contributed">จังหวัดปอดลาแช</subdivision>
+			<subdivision type="pl22" draft="contributed">จังหวัดปอมอแช</subdivision>
+			<subdivision type="pl24" draft="contributed">จังหวัดชล็อนสก์</subdivision>
+			<subdivision type="pl26" draft="contributed">จังหวัดชฟีแยนตือ-กชึช</subdivision>
+			<subdivision type="pl28" draft="contributed">จังหวัดวาร์เมีย-มาซูรือ</subdivision>
+			<subdivision type="pl30" draft="contributed">จังหวัดวีแยลกอปอลสกา</subdivision>
+			<subdivision type="pl32" draft="contributed">จังหวัดปอมอแชซาคอดแญ</subdivision>
 			<subdivision type="psbth" draft="contributed">เขตการปกครองเบธเลเฮม</subdivision>
 			<subdivision type="psdeb" draft="contributed">แดร์ อัล บาลา</subdivision>
 			<subdivision type="pshbn" draft="contributed">ฮีบรอน</subdivision>
@@ -3467,6 +3475,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tr03" draft="contributed">จังหวัดอัฟยอนคาราฮิซาร์</subdivision>
 			<subdivision type="tr04" draft="contributed">จังหวัดอารึ</subdivision>
 			<subdivision type="tr05" draft="contributed">จังหวัดอะมัสยา</subdivision>
+			<subdivision type="tr06" draft="contributed">จังหวัดอังการา</subdivision>
 			<subdivision type="tr07" draft="contributed">จังหวัดอันตัลยา</subdivision>
 			<subdivision type="tr08" draft="contributed">จังหวัดอาร์ตวิน</subdivision>
 			<subdivision type="tr09" draft="contributed">จังหวัดไอดีน</subdivision>
@@ -3479,6 +3488,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tr16" draft="contributed">จังหวัดบูร์ซา</subdivision>
 			<subdivision type="tr17" draft="contributed">จังหวัด คานากเคล</subdivision>
 			<subdivision type="tr18" draft="contributed">จังหวัดแคนคิรี่</subdivision>
+			<subdivision type="tr19" draft="contributed">จังหวัดโชรุม</subdivision>
 			<subdivision type="tr20" draft="contributed">จังหวัดเดนิซลี</subdivision>
 			<subdivision type="tr21" draft="contributed">จังหวัดดียาร์บากึร์</subdivision>
 			<subdivision type="tr22" draft="contributed">จังหวัดเอเดียร์เน</subdivision>
@@ -3488,11 +3498,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tr26" draft="contributed">เมืองหลวงเอสกิซีเฮียร์</subdivision>
 			<subdivision type="tr27" draft="contributed">อัล ชาฮ์เคีย โกเวอโนเรท</subdivision>
 			<subdivision type="tr28" draft="contributed">จังหวัดกิเรซุน</subdivision>
+			<subdivision type="tr29" draft="contributed">จังหวัดกือมึชฮาแน</subdivision>
 			<subdivision type="tr30" draft="contributed">จังหวัดฮัคคาริ</subdivision>
 			<subdivision type="tr31" draft="contributed">จังหวัดฮาไต</subdivision>
 			<subdivision type="tr32" draft="contributed">จังหวัดอิสปาร์ตา</subdivision>
 			<subdivision type="tr33" draft="contributed">จังหวัดเมอซิน</subdivision>
+			<subdivision type="tr34" draft="contributed">จังหวัดอิสตันบูล</subdivision>
 			<subdivision type="tr35" draft="contributed">จังหวัดอิสเมอร์</subdivision>
+			<subdivision type="tr36" draft="contributed">จังหวัดคาร์ส</subdivision>
 			<subdivision type="tr37" draft="contributed">จังหวัดกาสตาโมนู</subdivision>
 			<subdivision type="tr38" draft="contributed">จังหวัดไกเซรี</subdivision>
 			<subdivision type="tr39" draft="contributed">เขตมานาฟวา</subdivision>
@@ -3531,6 +3544,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tr73" draft="contributed">จังหวัดซรินิก</subdivision>
 			<subdivision type="tr74" draft="contributed">จังหวัดบาร์ติน</subdivision>
 			<subdivision type="tr75" draft="contributed">จังหวัดอาร์ดาฮาน</subdivision>
+			<subdivision type="tr76" draft="contributed">จังหวัดอือดือร์</subdivision>
 			<subdivision type="tr77" draft="contributed">จังหวัดยาโลวา</subdivision>
 			<subdivision type="tr78" draft="contributed">จังหวัดการาบุก</subdivision>
 			<subdivision type="tr79" draft="contributed">จังหวัดคิลิส</subdivision>

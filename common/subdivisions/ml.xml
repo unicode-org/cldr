@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -18,9 +18,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="aerk" draft="contributed">റാസ് അൽ ഖൈമ</subdivision>
 			<subdivision type="aesh" draft="contributed">ഷാർജ</subdivision>
 			<subdivision type="aeuq" draft="contributed">ഉം അൽ കുവൈൻ</subdivision>
+			<subdivision type="afbam" draft="contributed">ബാമിയാൻ പ്രവിശ്യ</subdivision>
 			<subdivision type="afbdg" draft="contributed">ബാദ്ഘീസ് പ്രവിശ്യ</subdivision>
 			<subdivision type="afbds" draft="contributed">ബദഖ്ശാൻ പ്രവിശ്യ</subdivision>
 			<subdivision type="afnur" draft="contributed">നൂറിസ്ഥാൻ</subdivision>
+			<subdivision type="afuru" draft="contributed">ഉറോസ്ഗാൻ പ്രവിശ്യ</subdivision>
 			<subdivision type="ag10" draft="contributed">ബാർബുഡ</subdivision>
 			<subdivision type="amer" draft="contributed">യെറിവാൻ</subdivision>
 			<subdivision type="arc" draft="contributed">ബ്യൂണസ് അയേഴ്സ്</subdivision>
@@ -34,15 +36,81 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="aznx" draft="contributed">നാഖ്ചിവൻ സ്വയംഭരണ റിപ്പബ്ലിക്</subdivision>
 			<subdivision type="azsab" draft="contributed">സാബിറാബാദ് ജില്ല</subdivision>
 			<subdivision type="bd01" draft="contributed">ബന്ദർബൻ</subdivision>
+			<subdivision type="bd02" draft="contributed">ബർഗുണ ജില്ല</subdivision>
+			<subdivision type="bd03" draft="contributed">ബോഗ്ര ജില്ല</subdivision>
+			<subdivision type="bd04" draft="contributed">ബ്രഹ്മാൻബറിയ ജില്ല</subdivision>
+			<subdivision type="bd05" draft="contributed">ബഗെർഹറ്റ് ജില്ല</subdivision>
+			<subdivision type="bd06" draft="contributed">ബാരിസൽ ജില്ല</subdivision>
+			<subdivision type="bd07" draft="contributed">ബോള ജില്ല</subdivision>
+			<subdivision type="bd08" draft="contributed">കോമില ജില്ല</subdivision>
+			<subdivision type="bd09" draft="contributed">ചാന്ദ്പുർ ജില്ല</subdivision>
+			<subdivision type="bd10" draft="contributed">ചിറ്റഗോങ് ജില്ല</subdivision>
+			<subdivision type="bd11" draft="contributed">കോസ്സ് ബസാർ ജില്ല</subdivision>
+			<subdivision type="bd12" draft="contributed">ചുണ്ടങ്ങ ജില്ല</subdivision>
+			<subdivision type="bd13" draft="contributed">ധാക്ക ജില്ല</subdivision>
+			<subdivision type="bd14" draft="contributed">ദിനാജ്പുർ ജില്ല</subdivision>
+			<subdivision type="bd15" draft="contributed">ഫരീദ്പൂർ ജില്ല</subdivision>
+			<subdivision type="bd16" draft="contributed">ഫെനി ജില്ല</subdivision>
+			<subdivision type="bd17" draft="contributed">ഗോപാൽഗഞ്ച് ജില്ല</subdivision>
+			<subdivision type="bd18" draft="contributed">ഗസിപ്പൂർ ജില്ല</subdivision>
+			<subdivision type="bd19" draft="contributed">ഗൈബന്ധ ജില്ല</subdivision>
+			<subdivision type="bd20" draft="contributed">ഹബീബ്ഗഞ്ച് ജില്ല</subdivision>
+			<subdivision type="bd21" draft="contributed">ജമൽപുർ ജില്ല</subdivision>
+			<subdivision type="bd22" draft="contributed">ജെസ്സോർ ജില്ല</subdivision>
+			<subdivision type="bd23" draft="contributed">ജെനൈദഹ് ജില്ല</subdivision>
+			<subdivision type="bd24" draft="contributed">ജയ്യ്പർഹത് ജില്ല</subdivision>
+			<subdivision type="bd25" draft="contributed">ജലലോക്കതി ജില്ല</subdivision>
+			<subdivision type="bd26" draft="contributed">കിഷോർഗഞ്ച് ജില്ല</subdivision>
+			<subdivision type="bd27" draft="contributed">ഖുൽന ജില്ല</subdivision>
+			<subdivision type="bd28" draft="contributed">കുറിഗ്രം ജില്ല</subdivision>
+			<subdivision type="bd29" draft="contributed">ഖഘ്രചാരി ജില്ല</subdivision>
 			<subdivision type="bd30" draft="contributed">കുഷ്തിയ ജില്ല</subdivision>
+			<subdivision type="bd31" draft="contributed">ലക്ഷ്മിപൂർ ജില്ല</subdivision>
+			<subdivision type="bd32" draft="contributed">ലാൽമൊനിർഹറ്റ് ജില്ല</subdivision>
+			<subdivision type="bd33" draft="contributed">ബഹദിയ ജില്ല</subdivision>
+			<subdivision type="bd34" draft="contributed">മൈസെന്സിങ് ജില്ല</subdivision>
+			<subdivision type="bd35" draft="contributed">മുന്ഷിഗഞ്ച് ജില്ല</subdivision>
+			<subdivision type="bd36" draft="contributed">മദാരിപൂർ ജില്ല</subdivision>
+			<subdivision type="bd37" draft="contributed">മഗുര ജില്ല</subdivision>
+			<subdivision type="bd38" draft="contributed">മൗൽവിബാസർ ജില്ല</subdivision>
+			<subdivision type="bd39" draft="contributed">മേഹർപൂർ ജില്ല</subdivision>
+			<subdivision type="bd40" draft="contributed">നാരായൺഗഞ്ച് ജില്ല</subdivision>
+			<subdivision type="bd41" draft="contributed">നെറ്റ്രൊകൊന ജില്ല</subdivision>
+			<subdivision type="bd42" draft="contributed">നരസിംഗഡി ജില്ല</subdivision>
+			<subdivision type="bd43" draft="contributed">നാറെയിൽ ജില്ല</subdivision>
+			<subdivision type="bd44" draft="contributed">നാറ്റോർ ജില്ല</subdivision>
+			<subdivision type="bd45" draft="contributed">ചാപായ് നവാബ്ഗഞ്ച് ജില്ല</subdivision>
+			<subdivision type="bd46" draft="contributed">നിൽഫമാറി ജില്ല</subdivision>
 			<subdivision type="bd47" draft="contributed">നവഖാലി</subdivision>
+			<subdivision type="bd48" draft="contributed">നഒഗോൺ ജില്ല</subdivision>
+			<subdivision type="bd49" draft="contributed">പബ്നാ ജില്ല</subdivision>
+			<subdivision type="bd50" draft="contributed">പിരോജ്പൂർ ജില്ല</subdivision>
+			<subdivision type="bd51" draft="contributed">പറ്റുഖലി ജില്ല</subdivision>
+			<subdivision type="bd52" draft="contributed">പഞ്ചഗർഹ് ജില്ല</subdivision>
+			<subdivision type="bd53" draft="contributed">രാജ്ബാഡി ജില്ല</subdivision>
+			<subdivision type="bd54" draft="contributed">രാജ്ഷാഹി ജില്ല</subdivision>
+			<subdivision type="bd55" draft="contributed">രംഗ്പൂർ ജില്ല</subdivision>
+			<subdivision type="bd56" draft="contributed">രംഗമതി ഹിൽ ജില്ല</subdivision>
+			<subdivision type="bd57" draft="contributed">ഷേർപ്പൂർ ജില്ല</subdivision>
+			<subdivision type="bd58" draft="contributed">സത്ഖിറ ജില്ല</subdivision>
+			<subdivision type="bd59" draft="contributed">സിറാജ്ഗഞ്ച് ജില്ല</subdivision>
+			<subdivision type="bd60" draft="contributed">സിൽഹെഡ് ജില്ല</subdivision>
+			<subdivision type="bd61" draft="contributed">സുനാമ്ഗഞ്ച് ജില്ല</subdivision>
+			<subdivision type="bd62" draft="contributed">ശരിയത്പൂർ ജില്ല</subdivision>
+			<subdivision type="bd63" draft="contributed">ടംഗൈൽ ജില്ല</subdivision>
+			<subdivision type="bd64" draft="contributed">തകുർഗോൺ ജില്ല</subdivision>
 			<subdivision type="bebru" draft="contributed">ബ്രസൽസ്</subdivision>
 			<subdivision type="bg23" draft="contributed">സോഫിയ</subdivision>
 			<subdivision type="brac" draft="contributed">അക്രേ</subdivision>
 			<subdivision type="brrr" draft="contributed">റൊറൈമ പർവ്വതം</subdivision>
+			<subdivision type="bt11" draft="contributed">പാറോ ജില്ല</subdivision>
 			<subdivision type="bwga" draft="contributed">ഗാബറോൺ</subdivision>
 			<subdivision type="byhm" draft="contributed">മിൻസ്ക്</subdivision>
+			<subdivision type="caab" draft="contributed">ആൽബർട്ട</subdivision>
+			<subdivision type="cabc" draft="contributed">ബ്രിട്ടീഷ് കൊളമ്പിയ</subdivision>
+			<subdivision type="camb" draft="contributed">മനിറ്റോബ</subdivision>
 			<subdivision type="cans" draft="contributed">നോവ സ്കോട്ടിയ</subdivision>
+			<subdivision type="canu" draft="contributed">നുനാവട്</subdivision>
 			<subdivision type="caon" draft="contributed">ഒണ്ടാറിയോ</subdivision>
 			<subdivision type="caqc" draft="contributed">ക്യൂബെക്</subdivision>
 			<subdivision type="cdkn" draft="contributed">കിൻഷസ</subdivision>
@@ -53,18 +121,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ciym" draft="contributed">യമൂസ്സൂക്രോ</subdivision>
 			<subdivision type="clma" draft="contributed">റെജിയോൺ ഡെ മഗല്യാൻസ് ഡെല യെ അന്റാർട്ടിക്ക ചിലെന</subdivision>
 			<subdivision type="cmad" draft="contributed">അഡമാവാ</subdivision>
+			<subdivision type="cnah" draft="contributed">ആൻഹുയി</subdivision>
 			<subdivision type="cnbj" draft="contributed">ബെയ്‌ജിങ്ങ്‌</subdivision>
 			<subdivision type="cncq" draft="contributed">ചോങ്ചിങ്</subdivision>
+			<subdivision type="cngd" draft="contributed">ഗ്വാങ്‌ഡോങ്</subdivision>
 			<subdivision type="cngx" draft="contributed">ഗുവാങ്ക്സി</subdivision>
+			<subdivision type="cnha" draft="contributed">ഹെനാൻ</subdivision>
+			<subdivision type="cnhe" draft="contributed">ഹെബെയ്</subdivision>
 			<subdivision type="cnhk" draft="contributed">ഹോങ്കോങ്</subdivision>
+			<subdivision type="cnhn" draft="contributed">ഹുനാൻ</subdivision>
+			<subdivision type="cnjs" draft="contributed">ജാങ്സൂ</subdivision>
 			<subdivision type="cnmo" draft="contributed">മകൗ</subdivision>
 			<subdivision type="cnnm" draft="contributed">ഇന്നർ മംഗോളിയ</subdivision>
 			<subdivision type="cnnx" draft="contributed">നിൻഗ്സിയ</subdivision>
+			<subdivision type="cnsc" draft="contributed">സിഷ്വാൻ</subdivision>
+			<subdivision type="cnsd" draft="contributed">ശാൻഡോങ്</subdivision>
 			<subdivision type="cnsh" draft="contributed">ഷാങ്ഹായ്</subdivision>
 			<subdivision type="cnsn" draft="contributed">ഷാങ്സി</subdivision>
 			<subdivision type="cntj" draft="contributed">ടിയാൻജിൻ</subdivision>
 			<subdivision type="cnxj" draft="contributed">സിൻജിയാങ്</subdivision>
 			<subdivision type="cnxz" draft="contributed">തിബെത്ത് സ്വയംഭരണപ്രദേശം</subdivision>
+			<subdivision type="cnyn" draft="contributed">യുന്നാൻ</subdivision>
 			<subdivision type="codc" draft="contributed">ബൊഗോട്ട</subdivision>
 			<subdivision type="cz10" draft="contributed">പ്രാഗ്</subdivision>
 			<subdivision type="debe" draft="contributed">ബെർലിൻ</subdivision>
@@ -115,16 +192,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="hr21" draft="contributed">സാഗ്രെബ്</subdivision>
 			<subdivision type="hubu" draft="contributed">ബുഡാപെസ്റ്റ്</subdivision>
 			<subdivision type="idac" draft="contributed">അക്കെ</subdivision>
+			<subdivision type="idbb" draft="contributed">ബങ്ക ബലിറ്റങ് ദ്വീപുകൾ</subdivision>
+			<subdivision type="idbe" draft="contributed">ബെങ്കുളു</subdivision>
+			<subdivision type="idbt" draft="contributed">ബാൻറൻ</subdivision>
+			<subdivision type="idgo" draft="contributed">ഗൊറാന്റാലോ</subdivision>
 			<subdivision type="idja" draft="contributed">ജംബി പട്ടണം</subdivision>
+			<subdivision type="idjb" draft="contributed">പടിഞ്ഞാറൻ ജാവ</subdivision>
+			<subdivision type="idji" draft="contributed">കിഴക്കൻ ജാവ</subdivision>
 			<subdivision type="idjk" draft="contributed">ജക്കാർത്ത</subdivision>
+			<subdivision type="idjt" draft="contributed">മദ്ധ്യ ജാവ</subdivision>
 			<subdivision type="idjw" draft="contributed">ജാവ (ദ്വീപ്)</subdivision>
 			<subdivision type="idka" draft="contributed">കലിമന്താൻ‌</subdivision>
+			<subdivision type="idkb" draft="contributed">പശ്ചിമ കലിമന്താൻ</subdivision>
+			<subdivision type="idki" draft="contributed">കിഴക്കൻ കലിമന്താൻ</subdivision>
+			<subdivision type="idkr" draft="contributed">റിയാവു ദ്വീപുകൾ</subdivision>
+			<subdivision type="idks" draft="contributed">ദക്ഷിണ കലിമന്താൻ</subdivision>
+			<subdivision type="idkt" draft="contributed">മദ്ധ്യ കലിമന്താൻ</subdivision>
 			<subdivision type="idml" draft="contributed">മലുകു ദ്വീപുകൾ</subdivision>
+			<subdivision type="idmu" draft="contributed">വടക്കൻ മലുകു</subdivision>
+			<subdivision type="idnb" draft="contributed">പടിഞ്ഞാറൻ നുസ ടെങ്കാര</subdivision>
+			<subdivision type="idnt" draft="contributed">കിഴക്കൻ നുസ ടെങ്കാര</subdivision>
 			<subdivision type="idnu" draft="contributed">ലെസ്സർ സന്റ ദ്വീപ് സമൂഹം</subdivision>
 			<subdivision type="idpa" draft="contributed">പപുവ</subdivision>
 			<subdivision type="idpb" draft="contributed">വെസ്റ്റ് പപുവ</subdivision>
+			<subdivision type="idpp" draft="contributed">വെസ്റ്റേൺ ന്യൂ ഗിനിയ</subdivision>
+			<subdivision type="idri" draft="contributed">റിയാവു</subdivision>
+			<subdivision type="idsa" draft="contributed">വടക്കൻ സുലവേസി</subdivision>
+			<subdivision type="idsb" draft="contributed">പടിഞ്ഞാറൻ സുമാത്ര</subdivision>
 			<subdivision type="idsl" draft="contributed">സുലവേസി</subdivision>
 			<subdivision type="idsm" draft="contributed">സുമാത്ര</subdivision>
+			<subdivision type="idsn" draft="contributed">തെക്കൻ സുലവേസി</subdivision>
+			<subdivision type="idss" draft="contributed">തെക്കൻ സുമാത്ര</subdivision>
+			<subdivision type="idst" draft="contributed">മദ്ധ്യ സുലവേസി</subdivision>
+			<subdivision type="idsu" draft="contributed">വടക്കൻ സുമാത്ര</subdivision>
+			<subdivision type="idyo" draft="contributed">സ്പെഷ്യൽ റീജിയൻ ഓഫ് യോഗ്യാകർത്ത</subdivision>
 			<subdivision type="inan" draft="contributed">ആന്തമാൻ നിക്കോബാർ ദ്വീപുകൾ</subdivision>
 			<subdivision type="inap" draft="contributed">ആന്ധ്രാപ്രദേശ്‌</subdivision>
 			<subdivision type="inar" draft="contributed">അരുണാചൽ പ്രദേശ്</subdivision>
@@ -182,6 +283,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzala" draft="contributed">അൽമാട്ടി</subdivision>
 			<subdivision type="kzast" draft="contributed">അസ്താന</subdivision>
 			<subdivision type="lasv" draft="contributed">സവണ്ണഖേത്</subdivision>
+			<subdivision type="laxa" draft="contributed">സൈന്യാബുലി പ്രവിശ്യ</subdivision>
 			<subdivision type="li11" draft="contributed">വാടുസ്</subdivision>
 			<subdivision type="lk3" draft="contributed">തെക്കൻ പ്രവിശ്യ</subdivision>
 			<subdivision type="lk4" draft="contributed">വടക്കൻ പ്രവിശ്യ, ശ്രീലങ്ക</subdivision>
@@ -197,6 +299,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="matng" draft="contributed">ടാൻജീർ</subdivision>
 			<subdivision type="mk85" draft="contributed">സ്കോപിയെ</subdivision>
 			<subdivision type="mlbko" draft="contributed">ബാമാകോ</subdivision>
+			<subdivision type="mm14" draft="contributed">ചിൻ സംസ്ഥാനം</subdivision>
+			<subdivision type="mm17" draft="contributed">ഷാൻ സംസ്ഥാനം</subdivision>
 			<subdivision type="mn1" draft="contributed">ഉലാൻബാതാർ</subdivision>
 			<subdivision type="mt60" draft="contributed">വലേറ്റ</subdivision>
 			<subdivision type="mugp" draft="contributed">ഗ്രാൻഡ് പോർട്ട് ജില്ല</subdivision>
@@ -209,6 +313,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="my04" draft="contributed">മലാക്കാ</subdivision>
 			<subdivision type="my06" draft="contributed">പഹാങ്ങ്</subdivision>
 			<subdivision type="my07" draft="contributed">പെനാംഗ്</subdivision>
+			<subdivision type="my12" draft="contributed">ഷബഹ്</subdivision>
 			<subdivision type="my13" draft="contributed">സാരവാക്ക്</subdivision>
 			<subdivision type="my14" draft="contributed">കോലാലമ്പൂർ</subdivision>
 			<subdivision type="my16" draft="contributed">പുത്രജയ</subdivision>
@@ -217,17 +322,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no03" draft="contributed">ഓസ്ലൊ</subdivision>
 			<subdivision type="no21" draft="contributed">സ്വാൽബാർഡ്</subdivision>
 			<subdivision type="ommu" draft="contributed">മുസന്ധം</subdivision>
+			<subdivision type="peare" draft="contributed">അരെക്വിപ്പ</subdivision>
 			<subdivision type="pgncd" draft="contributed">പോർട്ട് മോറെസ്ബി</subdivision>
+			<subdivision type="ph00" draft="contributed">മെട്രോ മനില</subdivision>
+			<subdivision type="ph08" draft="contributed">കിഴക്കൻ വിസായസ്</subdivision>
 			<subdivision type="phboh" draft="contributed">ബൊഹോൾ</subdivision>
 			<subdivision type="phcat" draft="contributed">കടാൻദുവാനിസ്</subdivision>
 			<subdivision type="phceb" draft="contributed">സെബൂ</subdivision>
 			<subdivision type="phmad" draft="contributed">മാറിൻദ്യൂഖ്</subdivision>
+			<subdivision type="phplw" draft="contributed">പലാവൻ</subdivision>
 			<subdivision type="pkba" draft="contributed">ബലൂചിസ്ഥാൻ</subdivision>
 			<subdivision type="pkgb" draft="contributed">ഗിൽഗിറ്റ്-ബാൾട്ടിസ്ഥാൻ</subdivision>
+			<subdivision type="pkis" draft="contributed">ഇസ്ലാമബാദ് തലസ്ഥാന പ്രദേശം</subdivision>
 			<subdivision type="pkjk" draft="contributed">ആസാദ് കശ്മീർ</subdivision>
 			<subdivision type="pkkp" draft="contributed">ഖൈബർ പഖ്തുൻഖ്വ</subdivision>
 			<subdivision type="pkpb" draft="contributed">പഞ്ചാബ്</subdivision>
 			<subdivision type="pksd" draft="contributed">സിന്ധ്</subdivision>
+			<subdivision type="pkta" draft="contributed">ഫെഡറൽ ഭരണത്തിലുള്ള ട്രൈബൽ പ്രദേശം</subdivision>
 			<subdivision type="pyasu" draft="contributed">അസുൻസിയോൺ</subdivision>
 			<subdivision type="qada" draft="contributed">ദോഹ</subdivision>
 			<subdivision type="rob" draft="contributed">ബുക്കാറെസ്റ്റ്</subdivision>
@@ -258,20 +369,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="seg" draft="contributed">ക്രോണോബെർഗ് കൗണ്ടി</subdivision>
 			<subdivision type="shac" draft="contributed">അസെൻഷൻ ദ്വീപ്</subdivision>
 			<subdivision type="shhl" draft="contributed">സൈന്റ് ഹെലേന</subdivision>
+			<subdivision type="srwa" draft="contributed">വാനിക്ക ജില്ല</subdivision>
 			<subdivision type="tdnd" draft="contributed">ൻഡ്ജാമെന</subdivision>
 			<subdivision type="th10" draft="contributed">ബാങ്കോക്ക്</subdivision>
 			<subdivision type="th14" draft="contributed">ഫ്രാ നഘോൺ സി അയുത്ഥയ പ്രവിശ്യ</subdivision>
+			<subdivision type="th16" draft="contributed">ലോപ്ബുരി പ്രവിശ്യ</subdivision>
+			<subdivision type="th19" draft="contributed">സരാബുരി പ്രവിശ്യ</subdivision>
+			<subdivision type="th41" draft="contributed">ഉഡോൺ താനി പ്രവിശ്യ</subdivision>
+			<subdivision type="th50" draft="contributed">ചിയാങ് മായി പ്രവിശ്യ</subdivision>
+			<subdivision type="th52" draft="contributed">ലമ്പാങ് പ്രവിശ്യ</subdivision>
+			<subdivision type="th55" draft="contributed">നാൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="th63" draft="contributed">തക് പ്രവിശ്യ</subdivision>
 			<subdivision type="th65" draft="contributed">ഫിറ്റ്സാനുലോക്ക് പ്രവിശ്യ</subdivision>
+			<subdivision type="th71" draft="contributed">കാഞ്ചനബുരി പ്രവിശ്യ</subdivision>
+			<subdivision type="th77" draft="contributed">പ്രച്വാപ് ഖിരി ഖാൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="th84" draft="contributed">സൂറത്ത് താനി പ്രവിശ്യ</subdivision>
+			<subdivision type="th90" draft="contributed">സോങ്ഖ്ല പ്രവിശ്യ</subdivision>
+			<subdivision type="th96" draft="contributed">നാരതിവാട്ട് പ്രവിശ്യ</subdivision>
 			<subdivision type="ths" draft="contributed">പട്ടായ</subdivision>
 			<subdivision type="tjdu" draft="contributed">ദുഷാൻബെ</subdivision>
 			<subdivision type="tms" draft="contributed">അഷ്ഗാബാദ്</subdivision>
 			<subdivision type="ttpos" draft="contributed">പോർട്ട് ഓഫ് സ്പെയിൻ</subdivision>
+			<subdivision type="twhsq" draft="contributed">ഹ്സിഞ്ചു കൗണ്ടി</subdivision>
 			<subdivision type="twkin" draft="contributed">കിന്മെൻ</subdivision>
+			<subdivision type="twmia" draft="contributed">മിയോലി കൗണ്ടി</subdivision>
+			<subdivision type="twpen" draft="contributed">പെൻഘു</subdivision>
+			<subdivision type="twpif" draft="contributed">പിങ്ടങ് കൗണ്ടി</subdivision>
 			<subdivision type="twtpe" draft="contributed">തായ്‌പെയ്</subdivision>
 			<subdivision type="ua30" draft="contributed">കീവ്</subdivision>
 			<subdivision type="ua43" draft="contributed">ഓട്ടോണോമസ് റിപ്പബ്ലിക് ഓഫ് ക്രിമിയ</subdivision>
 			<subdivision type="ug121" draft="contributed">ഗൊംബ ജില്ല</subdivision>
 			<subdivision type="ug216" draft="contributed">അമുറിയ ജില്ല</subdivision>
+			<subdivision type="ug218" draft="contributed">ബുഡുഡ ജില്ല</subdivision>
 			<subdivision type="ug219" draft="contributed">ബുകെഡിയ</subdivision>
 			<subdivision type="ug307" draft="contributed">ലിറ ജില്ല</subdivision>
 			<subdivision type="ug314" draft="contributed">അബിം ജില്ല</subdivision>
@@ -337,7 +466,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="uymo" draft="contributed">മൊണ്ടേവീഡിയോ</subdivision>
 			<subdivision type="uzqr" draft="contributed">കരാകല്പക്സ്ഥാൻ</subdivision>
 			<subdivision type="uztk" draft="contributed">താഷ്കന്റ്</subdivision>
+			<subdivision type="vee" draft="contributed">ബരീനാസ്</subdivision>
 			<subdivision type="vn30" draft="contributed">ഗിയ ലായ് പ്രൊവിൻസ്</subdivision>
+			<subdivision type="vn53" draft="contributed">ബാക് കാൻ പ്രവിശ്യ</subdivision>
 			<subdivision type="vnhn" draft="contributed">ഹാനോയ്</subdivision>
 			<subdivision type="vnhp" draft="contributed">ഹൈ ഫോങ്</subdivision>
 			<subdivision type="vnsg" draft="contributed">ഹോ ചി മിൻ നഗരം</subdivision>

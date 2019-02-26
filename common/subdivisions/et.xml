@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -860,6 +860,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iecw" draft="contributed">Carlow’ krahvkond</subdivision>
 			<subdivision type="ied" draft="contributed">Dublini krahvkond</subdivision>
 			<subdivision type="iedl" draft="contributed">Donegali krahvkond</subdivision>
+			<subdivision type="ieke" draft="contributed">Kildare’i krahvkond</subdivision>
 			<subdivision type="iekk" draft="contributed">Kilkenny krahvkond</subdivision>
 			<subdivision type="ieky" draft="contributed">Kerry krahvkond</subdivision>
 			<subdivision type="iel" draft="contributed">Leinsteri provints</subdivision>
@@ -1148,6 +1149,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kgy" draft="contributed">Õsõkköli oblast</subdivision>
 			<subdivision type="kh2" draft="contributed">Bătdâmbângi provints</subdivision>
 			<subdivision type="kh3" draft="contributed">Kâmpóng Chami provints</subdivision>
+			<subdivision type="kh5" draft="contributed">Kâmpóng Speu provints</subdivision>
 			<subdivision type="kh6" draft="contributed">Kâmpóng Thumi provints</subdivision>
 			<subdivision type="kh7" draft="contributed">Kâmpôti provints</subdivision>
 			<subdivision type="kh9" draft="contributed">Kaôh Kŏngi provints</subdivision>
@@ -1218,6 +1220,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lse" draft="contributed">Mafetengi ringkond</subdivision>
 			<subdivision type="lsf" draft="contributed">Mohale’s Hoeki ringkond</subdivision>
 			<subdivision type="lt01" draft="contributed">Akmenė rajoon</subdivision>
+			<subdivision type="lt03" draft="contributed">Alytuse rajoon</subdivision>
 			<subdivision type="lt05" draft="contributed">Birštonase omavalitsus</subdivision>
 			<subdivision type="lt06" draft="contributed">Biržai rajoon</subdivision>
 			<subdivision type="lt07" draft="contributed">Druskininkai omavalitsus</subdivision>
@@ -1234,6 +1237,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lt21" draft="contributed">Klaipėda rajoon</subdivision>
 			<subdivision type="lt22" draft="contributed">Kretinga rajoon</subdivision>
 			<subdivision type="lt23" draft="contributed">Kupiškise rajoon</subdivision>
+			<subdivision type="lt24" draft="contributed">Lazdijai rajoon</subdivision>
 			<subdivision type="lt25" draft="contributed">Marijampolė omavalitsus</subdivision>
 			<subdivision type="lt26" draft="contributed">Mažeikiai rajoon</subdivision>
 			<subdivision type="lt28" draft="contributed">Neringa omavalitsus</subdivision>
@@ -1252,6 +1256,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lt44" draft="contributed">Šiauliai rajoon</subdivision>
 			<subdivision type="lt45" draft="contributed">Šilalė rajoon</subdivision>
 			<subdivision type="lt46" draft="contributed">Šilutė rajoon</subdivision>
+			<subdivision type="lt47" draft="contributed">Širvintose rajoon</subdivision>
 			<subdivision type="lt48" draft="contributed">Skuodase rajoon</subdivision>
 			<subdivision type="lt49" draft="contributed">Švenčionyse rajoon</subdivision>
 			<subdivision type="lt50" draft="contributed">Tauragė rajoon</subdivision>
@@ -1643,6 +1648,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pgehg" draft="contributed">Eastern Highlands</subdivision>
 			<subdivision type="pgepw" draft="contributed">Enga</subdivision>
 			<subdivision type="pgesw" draft="contributed">Ida-Sepik</subdivision>
+			<subdivision type="pggpk" draft="contributed">Gulfi provints</subdivision>
+			<subdivision type="pghla" draft="contributed">Hela provints</subdivision>
+			<subdivision type="pgjwk" draft="contributed">Jiwaka provints</subdivision>
 			<subdivision type="pgmpl" draft="contributed">Morobe provints</subdivision>
 			<subdivision type="pgmpm" draft="contributed">Madangi provints</subdivision>
 			<subdivision type="pgncd" draft="contributed">Port Moresby</subdivision>
@@ -1662,22 +1670,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pkkp" draft="contributed">Loodepiiriprovints</subdivision>
 			<subdivision type="pkpb" draft="contributed">Pandžab</subdivision>
 			<subdivision type="pksd" draft="contributed">Sindh</subdivision>
-			<subdivision type="plds" draft="contributed">Alam-Sileesia vojevoodkond</subdivision>
-			<subdivision type="plkp" draft="contributed">Kujawy-Pomorze vojevoodkond</subdivision>
-			<subdivision type="pllb" draft="contributed">Lubuszi vojevoodkond</subdivision>
-			<subdivision type="plld" draft="contributed">Łódźi vojevoodkond</subdivision>
-			<subdivision type="pllu" draft="contributed">Lublini vojevoodkond</subdivision>
-			<subdivision type="plma" draft="contributed">Väike-Poola vojevoodkond</subdivision>
-			<subdivision type="plmz" draft="contributed">Masoovia vojevoodkond</subdivision>
-			<subdivision type="plop" draft="contributed">Opole vojevoodkond</subdivision>
-			<subdivision type="plpd" draft="contributed">Podlaasia vojevoodkond</subdivision>
-			<subdivision type="plpk" draft="contributed">Podkarpacie vojevoodkond</subdivision>
-			<subdivision type="plpm" draft="contributed">Pomorze vojevoodkond</subdivision>
-			<subdivision type="plsk" draft="contributed">Święty Krzyżi vojevoodkond</subdivision>
-			<subdivision type="plsl" draft="contributed">Sileesia vojevoodkond</subdivision>
-			<subdivision type="plwn" draft="contributed">Warmia-Masuuria vojevoodkond</subdivision>
-			<subdivision type="plwp" draft="contributed">Suur-Poola vojevoodkond</subdivision>
-			<subdivision type="plzp" draft="contributed">Lääne-Pomorze vojevoodkond</subdivision>
+			<subdivision type="pl02" draft="contributed">Alam-Sileesia vojevoodkond</subdivision>
+			<subdivision type="pl04" draft="contributed">Kujawy-Pomorze vojevoodkond</subdivision>
+			<subdivision type="pl06" draft="contributed">Lublini vojevoodkond</subdivision>
+			<subdivision type="pl08" draft="contributed">Lubuszi vojevoodkond</subdivision>
+			<subdivision type="pl10" draft="contributed">Łódźi vojevoodkond</subdivision>
+			<subdivision type="pl12" draft="contributed">Väike-Poola vojevoodkond</subdivision>
+			<subdivision type="pl14" draft="contributed">Masoovia vojevoodkond</subdivision>
+			<subdivision type="pl16" draft="contributed">Opole vojevoodkond</subdivision>
+			<subdivision type="pl18" draft="contributed">Podkarpacie vojevoodkond</subdivision>
+			<subdivision type="pl20" draft="contributed">Podlaasia vojevoodkond</subdivision>
+			<subdivision type="pl22" draft="contributed">Pomorze vojevoodkond</subdivision>
+			<subdivision type="pl24" draft="contributed">Sileesia vojevoodkond</subdivision>
+			<subdivision type="pl26" draft="contributed">Święty Krzyżi vojevoodkond</subdivision>
+			<subdivision type="pl28" draft="contributed">Warmia-Masuuria vojevoodkond</subdivision>
+			<subdivision type="pl30" draft="contributed">Suur-Poola vojevoodkond</subdivision>
+			<subdivision type="pl32" draft="contributed">Lääne-Pomorze vojevoodkond</subdivision>
 			<subdivision type="psrfh" draft="contributed">Rafaḩi kubernerkond</subdivision>
 			<subdivision type="pt20" draft="contributed">Assoorid</subdivision>
 			<subdivision type="pt30" draft="contributed">Madeira</subdivision>

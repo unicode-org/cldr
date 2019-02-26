@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -227,6 +227,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bf11" draft="contributed">Regió Plateau-Central</subdivision>
 			<subdivision type="bf12" draft="contributed">Regió del Sahel</subdivision>
 			<subdivision type="bf13" draft="contributed">Regió Sud-Oest</subdivision>
+			<subdivision type="bfblg" draft="contributed">Boulgou</subdivision>
 			<subdivision type="bg01" draft="contributed">Província de Blagoevgrad</subdivision>
 			<subdivision type="bg02" draft="contributed">Província de Burgas</subdivision>
 			<subdivision type="bg03" draft="contributed">Província de Varna</subdivision>
@@ -403,6 +404,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="caqc" draft="contributed">Quebec</subdivision>
 			<subdivision type="cask" draft="contributed">Saskatchewan</subdivision>
 			<subdivision type="cayt" draft="contributed">Yukon</subdivision>
+			<subdivision type="cdbc" draft="contributed">Província del Baix Congo</subdivision>
 			<subdivision type="cdeq" draft="contributed">Equador (República Democràtica del Congo)</subdivision>
 			<subdivision type="cdhk" draft="contributed">Província d’Alt Katanga</subdivision>
 			<subdivision type="cdke" draft="contributed">Kasaï-Oriental</subdivision>
@@ -469,6 +471,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cllr" draft="contributed">Regió de Los Ríos</subdivision>
 			<subdivision type="clma" draft="contributed">Regió de Magallanes i de l’Antàrtica Xilena</subdivision>
 			<subdivision type="clml" draft="contributed">Regió del Maule</subdivision>
+			<subdivision type="clnb" draft="contributed">Regió de Ñube</subdivision>
 			<subdivision type="clrm" draft="contributed">Regió Metropolitana de Santiago</subdivision>
 			<subdivision type="clta" draft="contributed">Regió de Tarapacá</subdivision>
 			<subdivision type="clvs" draft="contributed">Regió de Valparaíso</subdivision>
@@ -951,6 +954,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fmksa" draft="contributed">Kosrae</subdivision>
 			<subdivision type="fmpni" draft="contributed">Pohnpei</subdivision>
 			<subdivision type="fmtrk" draft="contributed">Chuuk</subdivision>
+			<subdivision type="fmyap" draft="contributed">Estat de Yap</subdivision>
 			<subdivision type="fr01" draft="contributed">Ain</subdivision>
 			<subdivision type="fr02" draft="contributed">Aisne</subdivision>
 			<subdivision type="fr2a" draft="contributed">Còrsega del Sud</subdivision>
@@ -1194,6 +1198,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbscb" draft="contributed">Scottish Borders</subdivision>
 			<subdivision type="gbsct">Escòcia</subdivision>
 			<subdivision type="gbsfk" draft="contributed">Suffolk</subdivision>
+			<subdivision type="gbsgc" draft="contributed">Gloucestershire del Sud</subdivision>
 			<subdivision type="gbshf" draft="contributed">Sheffield</subdivision>
 			<subdivision type="gbshr" draft="contributed">Shropshire</subdivision>
 			<subdivision type="gbslk" draft="contributed">South Lanarkshire</subdivision>
@@ -1253,6 +1258,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gnb" draft="contributed">Regió de Boké</subdivision>
 			<subdivision type="gnc" draft="contributed">Conakry</subdivision>
 			<subdivision type="gnd" draft="contributed">Regió de Kindia</subdivision>
+			<subdivision type="gndb" draft="contributed">prefactura de Dabola</subdivision>
+			<subdivision type="gnf" draft="contributed">Faranah</subdivision>
 			<subdivision type="gnks" draft="contributed">prefectura de Kissidougou</subdivision>
 			<subdivision type="gnsi" draft="contributed">prefectura de Siguiri</subdivision>
 			<subdivision type="gqan" draft="contributed">Província d’Annobón</subdivision>
@@ -1806,6 +1813,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kr48" draft="contributed">Gyeongsangnam-do</subdivision>
 			<subdivision type="kr49" draft="contributed">Jeju-do</subdivision>
 			<subdivision type="kwah" draft="contributed">Governació d’Ahmadí</subdivision>
+			<subdivision type="kwja" draft="contributed">Governació d’Al Jahra</subdivision>
 			<subdivision type="kzakm" draft="contributed">Província d’Akmolà</subdivision>
 			<subdivision type="kzakt" draft="contributed">Província d’Aktobé</subdivision>
 			<subdivision type="kzala" draft="contributed">Almati</subdivision>
@@ -2195,6 +2203,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mdta" draft="contributed">Districte de Taraclia</subdivision>
 			<subdivision type="mdte" draft="contributed">Districte de Teleneşti</subdivision>
 			<subdivision type="mdun" draft="contributed">Districte d’Ungheni</subdivision>
+			<subdivision type="me08" draft="contributed">Herceg Novi</subdivision>
 			<subdivision type="mga" draft="contributed">Província de Toamasina</subdivision>
 			<subdivision type="mgd" draft="contributed">Província d’Antsiranana</subdivision>
 			<subdivision type="mgf" draft="contributed">Província de Fianarantsoa</subdivision>
@@ -2517,9 +2526,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no22" draft="contributed">Jan Mayen</subdivision>
 			<subdivision type="np1" draft="contributed">Regió Central</subdivision>
 			<subdivision type="np3" draft="contributed">Regió Occidental</subdivision>
+			<subdivision type="np4" draft="contributed">Regió de Desenvolupament Est</subdivision>
 			<subdivision type="npba" draft="contributed">Zona de Bagmati</subdivision>
 			<subdivision type="npga" draft="contributed">zona de Gandaki</subdivision>
 			<subdivision type="npko" draft="contributed">Kosi</subdivision>
+			<subdivision type="npsa" draft="contributed">zona del Sagarmatha</subdivision>
 			<subdivision type="nr01" draft="contributed">Aiwo</subdivision>
 			<subdivision type="nr02" draft="contributed">Anabar</subdivision>
 			<subdivision type="nr03" draft="contributed">Anetan</subdivision>
@@ -2685,22 +2696,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pkpb" draft="contributed">Panjab</subdivision>
 			<subdivision type="pksd" draft="contributed">Sind</subdivision>
 			<subdivision type="pkta" draft="contributed">Àrees Tribals Administrades Federalment</subdivision>
-			<subdivision type="plds" draft="contributed">Voivodat de Baixa Silèsia</subdivision>
-			<subdivision type="plkp" draft="contributed">Voivodat de Cuiàvia i Pomerània</subdivision>
-			<subdivision type="pllb" draft="contributed">Voivodat de Lubusz</subdivision>
-			<subdivision type="plld" draft="contributed">Voivodat de Łódź</subdivision>
-			<subdivision type="pllu" draft="contributed">Voivodat de Lublin</subdivision>
-			<subdivision type="plma" draft="contributed">Voivodat de Petita Polònia</subdivision>
-			<subdivision type="plmz" draft="contributed">Voivodat de Masòvia</subdivision>
-			<subdivision type="plop" draft="contributed">Voivodat d’Opole</subdivision>
-			<subdivision type="plpd" draft="contributed">Voivodat de Podlàquia</subdivision>
-			<subdivision type="plpk" draft="contributed">Voivodat de Subcarpàcia</subdivision>
-			<subdivision type="plpm" draft="contributed">Voivodat de Pomerània</subdivision>
-			<subdivision type="plsk" draft="contributed">Voivodat de Santa Creu</subdivision>
-			<subdivision type="plsl" draft="contributed">Voivodat de Silèsia</subdivision>
-			<subdivision type="plwn" draft="contributed">Voivodat de Warmia i Mazury</subdivision>
-			<subdivision type="plwp" draft="contributed">Voivodat de Gran Polònia</subdivision>
-			<subdivision type="plzp" draft="contributed">Voivodat de Pomerània Occidental</subdivision>
+			<subdivision type="pl02" draft="contributed">Voivodat de Baixa Silèsia</subdivision>
+			<subdivision type="pl04" draft="contributed">Voivodat de Cuiàvia i Pomerània</subdivision>
+			<subdivision type="pl06" draft="contributed">Voivodat de Lublin</subdivision>
+			<subdivision type="pl08" draft="contributed">Voivodat de Lubusz</subdivision>
+			<subdivision type="pl10" draft="contributed">Voivodat de Łódź</subdivision>
+			<subdivision type="pl12" draft="contributed">Voivodat de Petita Polònia</subdivision>
+			<subdivision type="pl14" draft="contributed">Voivodat de Masòvia</subdivision>
+			<subdivision type="pl16" draft="contributed">Voivodat d’Opole</subdivision>
+			<subdivision type="pl18" draft="contributed">Voivodat de Subcarpàcia</subdivision>
+			<subdivision type="pl20" draft="contributed">Voivodat de Podlàquia</subdivision>
+			<subdivision type="pl22" draft="contributed">Voivodat de Pomerània</subdivision>
+			<subdivision type="pl24" draft="contributed">Voivodat de Silèsia</subdivision>
+			<subdivision type="pl26" draft="contributed">Voivodat de Santa Creu</subdivision>
+			<subdivision type="pl28" draft="contributed">Voivodat de Warmia i Mazury</subdivision>
+			<subdivision type="pl30" draft="contributed">Voivodat de Gran Polònia</subdivision>
+			<subdivision type="pl32" draft="contributed">Voivodat de Pomerània Occidental</subdivision>
 			<subdivision type="psbth" draft="contributed">Governació de Betlem</subdivision>
 			<subdivision type="psdeb" draft="contributed">Governació de Deir al-Balah</subdivision>
 			<subdivision type="psgza" draft="contributed">Governació de Gaza</subdivision>
@@ -3077,6 +3088,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="soto" draft="contributed">Togdheer</subdivision>
 			<subdivision type="sowo" draft="contributed">Woqooyi Galbeed</subdivision>
 			<subdivision type="srcm" draft="contributed">Districte de Commewijne</subdivision>
+			<subdivision type="srwa" draft="contributed">Wanica</subdivision>
 			<subdivision type="ssbn" draft="contributed">Bahr al-Ghazal del nord</subdivision>
 			<subdivision type="ssbw" draft="contributed">Bahr al-Ghazal de l’oest</subdivision>
 			<subdivision type="ssec" draft="contributed">Equatòria Central</subdivision>
@@ -3268,10 +3280,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tvnmg" draft="contributed">Nanumaga</subdivision>
 			<subdivision type="tvnui" draft="contributed">Nui</subdivision>
 			<subdivision type="tvvai" draft="contributed">Vaitupu</subdivision>
+			<subdivision type="twhsz" draft="contributed">Hsinchu</subdivision>
 			<subdivision type="twkhh" draft="contributed">Kaohsiung</subdivision>
 			<subdivision type="twkin" draft="contributed">Kinmen</subdivision>
 			<subdivision type="twtnn" draft="contributed">Tainan</subdivision>
 			<subdivision type="twtpe" draft="contributed">Taipei</subdivision>
+			<subdivision type="twtxg" draft="contributed">Taichung</subdivision>
 			<subdivision type="tz01" draft="contributed">Regió d’Arusha</subdivision>
 			<subdivision type="tz02" draft="contributed">Regió de Dar al-Salaam</subdivision>
 			<subdivision type="tz03" draft="contributed">Regió de Dodoma</subdivision>
@@ -3421,6 +3435,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="uzsa" draft="contributed">Província de Samarcanda</subdivision>
 			<subdivision type="uzsu" draft="contributed">Surjandarin</subdivision>
 			<subdivision type="uztk" draft="contributed">Taixkent</subdivision>
+			<subdivision type="uzto" draft="contributed">Regió de Taixkent</subdivision>
 			<subdivision type="vea" draft="contributed">Districte Capital</subdivision>
 			<subdivision type="veb" draft="contributed">Anzoátegui</subdivision>
 			<subdivision type="vec" draft="contributed">Apure</subdivision>
@@ -3446,14 +3461,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="vex" draft="contributed">Estat de Vargas</subdivision>
 			<subdivision type="vey" draft="contributed">Delta Amacuro</subdivision>
 			<subdivision type="vez" draft="contributed">Estat Amazones</subdivision>
+			<subdivision type="vn01" draft="contributed">Lai Châu</subdivision>
 			<subdivision type="vn20" draft="contributed">Thái Bình</subdivision>
 			<subdivision type="vn24" draft="contributed">Província de Quảng Bình</subdivision>
 			<subdivision type="vn32" draft="contributed">Phú Yên</subdivision>
 			<subdivision type="vn34" draft="contributed">Khánh Hòa</subdivision>
+			<subdivision type="vn54" draft="contributed">Bắc Giang</subdivision>
 			<subdivision type="vn56" draft="contributed">Bac Ninh</subdivision>
+			<subdivision type="vn66" draft="contributed">Província de Hưng Yên</subdivision>
 			<subdivision type="vnct" draft="contributed">Cần Thơ</subdivision>
 			<subdivision type="vndn" draft="contributed">Da Nang</subdivision>
 			<subdivision type="vnhn" draft="contributed">Hanoi</subdivision>
+			<subdivision type="vnhp" draft="contributed">Hai Phong</subdivision>
 			<subdivision type="vnsg" draft="contributed">Ciutat Ho Chi Minh</subdivision>
 			<subdivision type="vusee" draft="contributed">Província de Shefa</subdivision>
 			<subdivision type="wfal" draft="contributed">Alo</subdivision>

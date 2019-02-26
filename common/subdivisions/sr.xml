@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -66,6 +66,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ag08" draft="contributed">Сент Филип</subdivision>
 			<subdivision type="ag10" draft="contributed">Барбуда</subdivision>
 			<subdivision type="ag11" draft="contributed">Редонда</subdivision>
+			<subdivision type="al10" draft="contributed">Округ Скадар</subdivision>
 			<subdivision type="amag" draft="contributed">Арагацотн</subdivision>
 			<subdivision type="amar" draft="contributed">Арарат</subdivision>
 			<subdivision type="amav" draft="contributed">Армавир</subdivision>
@@ -1358,6 +1359,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jp47" draft="contributed">Окинава</subdivision>
 			<subdivision type="kggb" draft="contributed">Бишкек</subdivision>
 			<subdivision type="kggo" draft="contributed">Ош</subdivision>
+			<subdivision type="kgo" draft="contributed">Ошка област</subdivision>
 			<subdivision type="kh12" draft="contributed">Пном Пен</subdivision>
 			<subdivision type="kh18" draft="contributed">Сихануквил</subdivision>
 			<subdivision type="kma" draft="contributed">Анжуан</subdivision>
@@ -1421,6 +1423,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mammd" draft="contributed">Маракеш</subdivision>
 			<subdivision type="mammn" draft="contributed">Маракеш²</subdivision>
 			<subdivision type="marab" draft="contributed">Рабат</subdivision>
+			<subdivision type="masal" draft="contributed">Сале</subdivision>
 			<subdivision type="masyb" draft="contributed">Маракеш³</subdivision>
 			<subdivision type="matng" draft="contributed">Тангер</subdivision>
 			<subdivision type="mcmc" draft="contributed">Монте Карло</subdivision>
@@ -1451,6 +1454,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="me21" draft="contributed">Жабљак</subdivision>
 			<subdivision type="me22" draft="contributed">Општина Гусиње</subdivision>
 			<subdivision type="me23" draft="contributed">Општина Петњица</subdivision>
+			<subdivision type="mgu" draft="contributed">Толиара</subdivision>
 			<subdivision type="mhmaj" draft="contributed">Маџуро</subdivision>
 			<subdivision type="mk02" draft="contributed">Општина Арачиново</subdivision>
 			<subdivision type="mk03" draft="contributed">Општина Берово</subdivision>
@@ -1616,6 +1620,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mxzac" draft="contributed">Држава Закатекас</subdivision>
 			<subdivision type="my13" draft="contributed">Саравак</subdivision>
 			<subdivision type="my14" draft="contributed">Куала Лумпур</subdivision>
+			<subdivision type="mzl" draft="contributed">Мапуто (покрајина)</subdivision>
 			<subdivision type="mzmpm" draft="contributed">Мапуто</subdivision>
 			<subdivision type="ne8" draft="contributed">Нијамеј</subdivision>
 			<subdivision type="ngab" draft="contributed">Абија</subdivision>
@@ -1715,22 +1720,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pkpb" draft="contributed">Панџаб</subdivision>
 			<subdivision type="pksd" draft="contributed">Синд</subdivision>
 			<subdivision type="pkta" draft="contributed">Племенска подручја под федералном управом</subdivision>
-			<subdivision type="plds" draft="contributed">Војводство Доње Шлеско</subdivision>
-			<subdivision type="plkp" draft="contributed">Војводство Кујавско-Поморје</subdivision>
-			<subdivision type="pllb" draft="contributed">Војводство Лубуш</subdivision>
-			<subdivision type="plld" draft="contributed">Војводство Лођ</subdivision>
-			<subdivision type="pllu" draft="contributed">Војводство Лублин</subdivision>
-			<subdivision type="plma" draft="contributed">Војводство Малопољско</subdivision>
-			<subdivision type="plmz" draft="contributed">Војводство Мазовско</subdivision>
-			<subdivision type="plop" draft="contributed">Војводство Опоље</subdivision>
-			<subdivision type="plpd" draft="contributed">Војводство Подласко</subdivision>
-			<subdivision type="plpk" draft="contributed">Војводство поткарпатско</subdivision>
-			<subdivision type="plpm" draft="contributed">Војводство Поморје</subdivision>
-			<subdivision type="plsk" draft="contributed">Војводство Светокришко</subdivision>
-			<subdivision type="plsl" draft="contributed">Војводство Шлеско</subdivision>
-			<subdivision type="plwn" draft="contributed">Варминско-мазурско војводство</subdivision>
-			<subdivision type="plwp" draft="contributed">Војводство Великопољско</subdivision>
-			<subdivision type="plzp" draft="contributed">Војводство Западно Поморје</subdivision>
+			<subdivision type="pl02" draft="contributed">Војводство Доње Шлеско</subdivision>
+			<subdivision type="pl04" draft="contributed">Војводство Кујавско-Поморје</subdivision>
+			<subdivision type="pl06" draft="contributed">Војводство Лублин</subdivision>
+			<subdivision type="pl08" draft="contributed">Војводство Лубуш</subdivision>
+			<subdivision type="pl10" draft="contributed">Војводство Лођ</subdivision>
+			<subdivision type="pl12" draft="contributed">Војводство Малопољско</subdivision>
+			<subdivision type="pl14" draft="contributed">Војводство Мазовско</subdivision>
+			<subdivision type="pl16" draft="contributed">Војводство Опоље</subdivision>
+			<subdivision type="pl18" draft="contributed">Војводство поткарпатско</subdivision>
+			<subdivision type="pl20" draft="contributed">Војводство Подласко</subdivision>
+			<subdivision type="pl22" draft="contributed">Војводство Поморје</subdivision>
+			<subdivision type="pl24" draft="contributed">Војводство Шлеско</subdivision>
+			<subdivision type="pl26" draft="contributed">Војводство Светокришко</subdivision>
+			<subdivision type="pl28" draft="contributed">Варминско-мазурско војводство</subdivision>
+			<subdivision type="pl30" draft="contributed">Војводство Великопољско</subdivision>
+			<subdivision type="pl32" draft="contributed">Војводство Западно Поморје</subdivision>
 			<subdivision type="pt01" draft="contributed">Авеиро</subdivision>
 			<subdivision type="pt02" draft="contributed">Бежа</subdivision>
 			<subdivision type="pt03" draft="contributed">Брага</subdivision>

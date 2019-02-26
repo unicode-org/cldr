@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,9 +12,798 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
+			<subdivision type="ag11" draft="contributed">Redonda</subdivision>
+			<subdivision type="al01" draft="contributed">Contae Berat</subdivision>
+			<subdivision type="al02" draft="contributed">Contae Durrës</subdivision>
+			<subdivision type="al03" draft="contributed">Contae Elbasan</subdivision>
+			<subdivision type="al04" draft="contributed">Contae Fier</subdivision>
+			<subdivision type="al05" draft="contributed">Contae Gjirokastër</subdivision>
+			<subdivision type="al06" draft="contributed">Contae Korçë</subdivision>
+			<subdivision type="al07" draft="contributed">Contae Kukës</subdivision>
+			<subdivision type="al08" draft="contributed">Contae Lezhë</subdivision>
+			<subdivision type="al09" draft="contributed">Contae Dibër</subdivision>
+			<subdivision type="al10" draft="contributed">Contae Shkodër</subdivision>
+			<subdivision type="al11" draft="contributed">Contae Tiranë</subdivision>
+			<subdivision type="al12" draft="contributed">Contae Vlorë</subdivision>
+			<subdivision type="amer" draft="contributed">Eireaván</subdivision>
+			<subdivision type="arc" draft="contributed">Buenos Aires</subdivision>
+			<subdivision type="at1" draft="contributed">Burgenland</subdivision>
+			<subdivision type="at2" draft="contributed">Carinthia</subdivision>
+			<subdivision type="at5" draft="contributed">Salzburg</subdivision>
+			<subdivision type="at6" draft="contributed">Styria</subdivision>
+			<subdivision type="at7" draft="contributed">An Tioróil</subdivision>
+			<subdivision type="at8" draft="contributed">Vorarlberg</subdivision>
+			<subdivision type="at9" draft="contributed">Vín</subdivision>
+			<subdivision type="auact" draft="contributed">Críoch Phríomhchathair na hAstráile</subdivision>
+			<subdivision type="aunsw" draft="contributed">New South Wales</subdivision>
+			<subdivision type="aunt" draft="contributed">Críoch an Tuaiscirt</subdivision>
+			<subdivision type="auqld" draft="contributed">Queensland</subdivision>
+			<subdivision type="ausa" draft="contributed">Deisceart na hAstráile</subdivision>
+			<subdivision type="autas" draft="contributed">An Tasmáin</subdivision>
+			<subdivision type="auvic" draft="contributed">Victoria</subdivision>
+			<subdivision type="auwa" draft="contributed">Iarthar na hAstráile</subdivision>
+			<subdivision type="azba" draft="contributed">Bakı</subdivision>
+			<subdivision type="bebru" draft="contributed">An Bhruiséil</subdivision>
+			<subdivision type="bevlg" draft="contributed">Flóndras</subdivision>
+			<subdivision type="bewal" draft="contributed">An Vallóin</subdivision>
+			<subdivision type="bg01" draft="contributed">Cúige Blagoevgrad</subdivision>
+			<subdivision type="bg02" draft="contributed">Cúige Burgas</subdivision>
+			<subdivision type="bg03" draft="contributed">Cúige Varna</subdivision>
+			<subdivision type="bg04" draft="contributed">Cúige Veliko Tarnovo</subdivision>
+			<subdivision type="bg05" draft="contributed">Cúige Vidin</subdivision>
+			<subdivision type="bg06" draft="contributed">Cúige Vratsa</subdivision>
+			<subdivision type="bg07" draft="contributed">Cúige Gabrovo</subdivision>
+			<subdivision type="bg08" draft="contributed">Cúige Dobrich</subdivision>
+			<subdivision type="bg09" draft="contributed">Cúige Kardzhali</subdivision>
+			<subdivision type="bg10" draft="contributed">Cúige Kyustendil</subdivision>
+			<subdivision type="bg11" draft="contributed">Cúige Lovech</subdivision>
+			<subdivision type="bg12" draft="contributed">Cúige Montana</subdivision>
+			<subdivision type="bg13" draft="contributed">Cúige Pazardzhik</subdivision>
+			<subdivision type="bg14" draft="contributed">Cúige Pernik</subdivision>
+			<subdivision type="bg15" draft="contributed">Cúige Pleven</subdivision>
+			<subdivision type="bg16" draft="contributed">Cúige Plovdiv</subdivision>
+			<subdivision type="bg17" draft="contributed">Cúige Razgrad</subdivision>
+			<subdivision type="bg18" draft="contributed">Cúige Ruse</subdivision>
+			<subdivision type="bg19" draft="contributed">Cúige Silistra</subdivision>
+			<subdivision type="bg20" draft="contributed">Cúige Sliven</subdivision>
+			<subdivision type="bg21" draft="contributed">Cúige Smolyan</subdivision>
+			<subdivision type="bg22" draft="contributed">Cúige Cathair Sofia</subdivision>
+			<subdivision type="bg23" draft="contributed">Cúige Sofia</subdivision>
+			<subdivision type="bg24" draft="contributed">Cúige Stara Zagora</subdivision>
+			<subdivision type="bg25" draft="contributed">Cúige Targovishte</subdivision>
+			<subdivision type="bg26" draft="contributed">Cúige Haskovo</subdivision>
+			<subdivision type="bg27" draft="contributed">Cúige Shumen</subdivision>
+			<subdivision type="bg28" draft="contributed">Cúige Yambol</subdivision>
+			<subdivision type="brac" draft="contributed">Acre</subdivision>
+			<subdivision type="bral" draft="contributed">Alagoas</subdivision>
+			<subdivision type="bram" draft="contributed">Amazonas</subdivision>
+			<subdivision type="brap" draft="contributed">Amapá</subdivision>
+			<subdivision type="brba" draft="contributed">Bahia</subdivision>
+			<subdivision type="brce" draft="contributed">Ceará</subdivision>
+			<subdivision type="bres" draft="contributed">Espírito Santo</subdivision>
+			<subdivision type="brgo" draft="contributed">Goiás</subdivision>
+			<subdivision type="brma" draft="contributed">Maranhão</subdivision>
+			<subdivision type="brmg" draft="contributed">Minas Gerais</subdivision>
+			<subdivision type="brms" draft="contributed">Mato Grosso do Sul</subdivision>
+			<subdivision type="brmt" draft="contributed">Mato Grosso</subdivision>
+			<subdivision type="brpa" draft="contributed">Pará</subdivision>
+			<subdivision type="brpb" draft="contributed">Paraíba</subdivision>
+			<subdivision type="brpe" draft="contributed">Pernambuco</subdivision>
+			<subdivision type="brpi" draft="contributed">Piauí</subdivision>
+			<subdivision type="brpr" draft="contributed">Paraná</subdivision>
+			<subdivision type="brrj" draft="contributed">Rio de Janeiro</subdivision>
+			<subdivision type="brrn" draft="contributed">Rio Grande do Norte</subdivision>
+			<subdivision type="brro" draft="contributed">Rondônia</subdivision>
+			<subdivision type="brrr" draft="contributed">Roraima</subdivision>
+			<subdivision type="brrs" draft="contributed">Rio Grande do Sul</subdivision>
+			<subdivision type="brsc" draft="contributed">Santa Catarina</subdivision>
+			<subdivision type="brse" draft="contributed">Sergipe</subdivision>
+			<subdivision type="brsp" draft="contributed">São Paulo</subdivision>
+			<subdivision type="brto" draft="contributed">Tocantins</subdivision>
+			<subdivision type="bwga" draft="contributed">Gaborone</subdivision>
+			<subdivision type="byhm" draft="contributed">Minsc</subdivision>
+			<subdivision type="caab" draft="contributed">Alberta</subdivision>
+			<subdivision type="cabc" draft="contributed">An Cholóim Bhriotanach</subdivision>
+			<subdivision type="camb" draft="contributed">Manitoba</subdivision>
+			<subdivision type="canb" draft="contributed">New Brunswick</subdivision>
+			<subdivision type="canl" draft="contributed">Talamh an Éisc agus Labradar</subdivision>
+			<subdivision type="cans" draft="contributed">Albain Nua</subdivision>
+			<subdivision type="cant" draft="contributed">Críocha an Iarthuaiscirt</subdivision>
+			<subdivision type="canu" draft="contributed">Nunavut</subdivision>
+			<subdivision type="caon" draft="contributed">Ontario</subdivision>
+			<subdivision type="cape" draft="contributed">Oileán Phrionsa Éadbhard</subdivision>
+			<subdivision type="caqc" draft="contributed">Québec</subdivision>
+			<subdivision type="cask" draft="contributed">Saskatchewan</subdivision>
+			<subdivision type="cayt" draft="contributed">Yukon</subdivision>
+			<subdivision type="cdkn" draft="contributed">Kinshasa</subdivision>
+			<subdivision type="cfbgf" draft="contributed">Bangui</subdivision>
+			<subdivision type="cgbzv" draft="contributed">Brazzaville</subdivision>
+			<subdivision type="ciab" draft="contributed">Abidjan</subdivision>
+			<subdivision type="ciym" draft="contributed">Yamoussoukro</subdivision>
+			<subdivision type="cnah" draft="contributed">Anhui</subdivision>
+			<subdivision type="cnbj" draft="contributed">Béising</subdivision>
+			<subdivision type="cncq" draft="contributed">Chongqing</subdivision>
+			<subdivision type="cnfj" draft="contributed">Fujian</subdivision>
+			<subdivision type="cngd" draft="contributed">Guangdong</subdivision>
+			<subdivision type="cngs" draft="contributed">Gansu</subdivision>
+			<subdivision type="cngx" draft="contributed">Guangxi</subdivision>
+			<subdivision type="cngz" draft="contributed">Guizhou</subdivision>
+			<subdivision type="cnha" draft="contributed">Henan</subdivision>
+			<subdivision type="cnhb" draft="contributed">Hubei</subdivision>
+			<subdivision type="cnhe" draft="contributed">Hebei</subdivision>
+			<subdivision type="cnhi" draft="contributed">Hainan</subdivision>
+			<subdivision type="cnhk" draft="contributed">Hong Cong</subdivision>
+			<subdivision type="cnhl" draft="contributed">Heilongjiang</subdivision>
+			<subdivision type="cnhn" draft="contributed">Hunan</subdivision>
+			<subdivision type="cnjl" draft="contributed">Jilin</subdivision>
+			<subdivision type="cnjs" draft="contributed">Jiangsu</subdivision>
+			<subdivision type="cnjx" draft="contributed">Jiangxi</subdivision>
+			<subdivision type="cnln" draft="contributed">Liaoning</subdivision>
+			<subdivision type="cnmo" draft="contributed">Macau</subdivision>
+			<subdivision type="cnnm" draft="contributed">An Ion-Mhongóil</subdivision>
+			<subdivision type="cnnx" draft="contributed">Ningxia</subdivision>
+			<subdivision type="cnqh" draft="contributed">Qinghai</subdivision>
+			<subdivision type="cnsc" draft="contributed">Sichuan</subdivision>
+			<subdivision type="cnsd" draft="contributed">Shandong</subdivision>
+			<subdivision type="cnsh" draft="contributed">Shang-hai</subdivision>
+			<subdivision type="cnsn" draft="contributed">Shaanxi</subdivision>
+			<subdivision type="cnsx" draft="contributed">Shanxi</subdivision>
+			<subdivision type="cntj" draft="contributed">Tianjin</subdivision>
+			<subdivision type="cnxj" draft="contributed">Xinjiang</subdivision>
+			<subdivision type="cnyn" draft="contributed">Yunnan</subdivision>
+			<subdivision type="cnzj" draft="contributed">Zhejiang</subdivision>
+			<subdivision type="coama" draft="contributed">Amazonas</subdivision>
+			<subdivision type="coant" draft="contributed">Antioquia</subdivision>
+			<subdivision type="coara" draft="contributed">Arauca</subdivision>
+			<subdivision type="coatl" draft="contributed">Atlántico</subdivision>
+			<subdivision type="coboy" draft="contributed">Boyacá</subdivision>
+			<subdivision type="codc" draft="contributed">Bogotá</subdivision>
+			<subdivision type="cz10" draft="contributed">Prág</subdivision>
+			<subdivision type="debb" draft="contributed">Brandenburg</subdivision>
+			<subdivision type="debe" draft="contributed">Beirlín</subdivision>
+			<subdivision type="debw" draft="contributed">Baden-Württemberg</subdivision>
+			<subdivision type="deby" draft="contributed">An Bhaváir</subdivision>
+			<subdivision type="dehb" draft="contributed">Bremen</subdivision>
+			<subdivision type="dehe" draft="contributed">Hessen</subdivision>
+			<subdivision type="dehh" draft="contributed">Hamburg</subdivision>
+			<subdivision type="demv" draft="contributed">Mecklenburg-Vorpommern</subdivision>
+			<subdivision type="deni" draft="contributed">An tSacsain Íochtarach</subdivision>
+			<subdivision type="denw" draft="contributed">Tuaisceart na Réine agus an Viostfáil</subdivision>
+			<subdivision type="derp" draft="contributed">Tír na Réine agus an Phalaitíneacht</subdivision>
+			<subdivision type="desh" draft="contributed">Schleswig-Holstein</subdivision>
+			<subdivision type="desl" draft="contributed">An tSárlainn</subdivision>
+			<subdivision type="desn" draft="contributed">An tSacsain</subdivision>
+			<subdivision type="dest" draft="contributed">An tSacsain-Anhalt</subdivision>
+			<subdivision type="deth" draft="contributed">Thüringen</subdivision>
+			<subdivision type="djdj" draft="contributed">Diobúití</subdivision>
+			<subdivision type="ee37" draft="contributed">Harjumaa</subdivision>
+			<subdivision type="ee39" draft="contributed">Hiiumaa</subdivision>
+			<subdivision type="ee44" draft="contributed">Virumaa Thoir</subdivision>
+			<subdivision type="ee49" draft="contributed">Jõgevamaa</subdivision>
+			<subdivision type="ee51" draft="contributed">Järvamaa</subdivision>
+			<subdivision type="ee57" draft="contributed">Läänemaa</subdivision>
+			<subdivision type="ee59" draft="contributed">Virumaa Thiar</subdivision>
+			<subdivision type="ee65" draft="contributed">Põlvamaa</subdivision>
+			<subdivision type="ee67" draft="contributed">Pärnumaa</subdivision>
+			<subdivision type="ee70" draft="contributed">Raplamaa</subdivision>
+			<subdivision type="ee74" draft="contributed">Saaremaa</subdivision>
+			<subdivision type="ee78" draft="contributed">Tartumaa</subdivision>
+			<subdivision type="ee82" draft="contributed">Valgamaa</subdivision>
+			<subdivision type="ee84" draft="contributed">Viljandimaa</subdivision>
+			<subdivision type="ee86" draft="contributed">Võrumaa</subdivision>
+			<subdivision type="esan" draft="contributed">An Andalúis</subdivision>
+			<subdivision type="esar" draft="contributed">An Aragóin</subdivision>
+			<subdivision type="esas" draft="contributed">Asturies</subdivision>
+			<subdivision type="esba" draft="contributed">Badajoz</subdivision>
+			<subdivision type="esc" draft="contributed">A Coruña</subdivision>
+			<subdivision type="escb" draft="contributed">Cantabria</subdivision>
+			<subdivision type="escc" draft="contributed">Cáceres</subdivision>
+			<subdivision type="esce" draft="contributed">Ceuta</subdivision>
+			<subdivision type="escl" draft="contributed">Castilla y León</subdivision>
+			<subdivision type="escm" draft="contributed">Castilla-La Mancha</subdivision>
+			<subdivision type="esco" draft="contributed">Córdoba</subdivision>
+			<subdivision type="esct" draft="contributed">An Chatalóin</subdivision>
+			<subdivision type="escu" draft="contributed">Cuenca</subdivision>
+			<subdivision type="esex" draft="contributed">Extremadura</subdivision>
+			<subdivision type="esga" draft="contributed">An Ghailís</subdivision>
+			<subdivision type="esgr" draft="contributed">Granada</subdivision>
+			<subdivision type="esib" draft="contributed">Na hOileáin Bhailéaracha</subdivision>
+			<subdivision type="eslo" draft="contributed">La Rioja</subdivision>
+			<subdivision type="esma" draft="contributed">Málaga</subdivision>
+			<subdivision type="esmc" draft="contributed">Murcia</subdivision>
+			<subdivision type="esmd" draft="contributed">Comhphobal Mhaidrid</subdivision>
+			<subdivision type="esml" draft="contributed">Melilla</subdivision>
+			<subdivision type="esna" draft="contributed">Navarra</subdivision>
+			<subdivision type="esnc" draft="contributed">Navarra²</subdivision>
+			<subdivision type="esor" draft="contributed">Ourense</subdivision>
+			<subdivision type="espm" draft="contributed">Na hOileáin Bhailéaracha²</subdivision>
+			<subdivision type="espv" draft="contributed">Tír na mBascach Theas</subdivision>
+			<subdivision type="esri" draft="contributed">La Rioja²</subdivision>
+			<subdivision type="ess" draft="contributed">Cantabria²</subdivision>
+			<subdivision type="esva" draft="contributed">Valladolid</subdivision>
+			<subdivision type="esvc" draft="contributed">Comhphobal Valencia</subdivision>
+			<subdivision type="etaa" draft="contributed">Adas Ababa</subdivision>
+			<subdivision type="fi02" draft="contributed">An Chairéil Theas</subdivision>
+			<subdivision type="fi05" draft="contributed">Kainuu</subdivision>
+			<subdivision type="fi11" draft="contributed">Pirkanmaa</subdivision>
+			<subdivision type="fi16" draft="contributed">Päijät-Häme</subdivision>
+			<subdivision type="fi17" draft="contributed">Satakunta</subdivision>
+			<subdivision type="fi18" draft="contributed">An Nualainn</subdivision>
+			<subdivision type="fr29" draft="contributed">Penn-ar-Bed</subdivision>
+			<subdivision type="fr75" draft="contributed">Páras</subdivision>
+			<subdivision type="frcor" draft="contributed">An Chorsaic</subdivision>
+			<subdivision type="frges" draft="contributed">Alsace-Champagne-Ardenne-Lorraine</subdivision>
+			<subdivision type="fridf" draft="contributed">Île-de-France</subdivision>
+			<subdivision type="frpac" draft="contributed">Provence-Alpes-Côte d’Azur</subdivision>
+			<subdivision type="frpdl" draft="contributed">Pays de la Loire</subdivision>
+			<subdivision type="gbabd" draft="contributed">Contae Obar Deathain</subdivision>
+			<subdivision type="gbabe" draft="contributed">Obar Dheathain</subdivision>
+			<subdivision type="gbagb" draft="contributed">Earra-Ghaidheal agus Bód</subdivision>
+			<subdivision type="gbagy" draft="contributed">Ynys Môn</subdivision>
+			<subdivision type="gbans" draft="contributed">Aonghas</subdivision>
+			<subdivision type="gbbdg" draft="contributed">Buirg Londan Barking agus Dagenham</subdivision>
+			<subdivision type="gbben" draft="contributed">Buirg Londan Brent</subdivision>
+			<subdivision type="gbbex" draft="contributed">London Borough of Bexley</subdivision>
+			<subdivision type="gbbge" draft="contributed">Pen-y-bont ar Ogwr</subdivision>
+			<subdivision type="gbbgw" draft="contributed">Blaenau Gwent</subdivision>
+			<subdivision type="gbbkm" draft="contributed">Buckinghamshire</subdivision>
+			<subdivision type="gbbne" draft="contributed">Buirg Londan Barnet</subdivision>
+			<subdivision type="gbbnh" draft="contributed">Brighton &amp; Hove</subdivision>
+			<subdivision type="gbbpl" draft="contributed">Blackpool</subdivision>
+			<subdivision type="gbbry" draft="contributed">Bromley</subdivision>
+			<subdivision type="gbbst" draft="contributed">Briostó</subdivision>
+			<subdivision type="gbcam" draft="contributed">Cambridgeshire</subdivision>
+			<subdivision type="gbcay" draft="contributed">Caerffili</subdivision>
+			<subdivision type="gbcgn" draft="contributed">Ceredigion</subdivision>
+			<subdivision type="gbclk" draft="contributed">Clach Mhanainn</subdivision>
+			<subdivision type="gbcma" draft="contributed">Cumbria</subdivision>
+			<subdivision type="gbcmd" draft="contributed">Buirg Londan Camden</subdivision>
+			<subdivision type="gbcmn" draft="contributed">Sir Gaerfyrddin</subdivision>
+			<subdivision type="gbcrf" draft="contributed">Caerdydd</subdivision>
+			<subdivision type="gbcry" draft="contributed">Buirg Londan Croydon</subdivision>
+			<subdivision type="gbcwy" draft="contributed">Conwy</subdivision>
+			<subdivision type="gbdby" draft="contributed">Derbyshire</subdivision>
+			<subdivision type="gbden" draft="contributed">Sir Ddinbych</subdivision>
+			<subdivision type="gbder" draft="contributed">Derby</subdivision>
+			<subdivision type="gbdev" draft="contributed">Devon</subdivision>
+			<subdivision type="gbdgy" draft="contributed">Comhairle Dhún Phrís is Gall-Ghaidhealaibh</subdivision>
+			<subdivision type="gbdnd" draft="contributed">Dún Déagh</subdivision>
+			<subdivision type="gbeal" draft="contributed">Buirg Londan Ealing</subdivision>
+			<subdivision type="gbeay" draft="contributed">Comhairle Shiorrachd Áir an Ear</subdivision>
+			<subdivision type="gbedh" draft="contributed">Dún Éideann</subdivision>
+			<subdivision type="gbedu" draft="contributed">Siorrachd Dhún Bhreatainn an Ear</subdivision>
+			<subdivision type="gbeln" draft="contributed">Lodainn an Ear</subdivision>
+			<subdivision type="gbels" draft="contributed">Na hOileáin Siar</subdivision>
+			<subdivision type="gbenf" draft="contributed">London Borough of Enfield</subdivision>
 			<subdivision type="gbeng">Sasana</subdivision>
+			<subdivision type="gberw" draft="contributed">Comhairle Shiorrachd Rinn Friú an Ear</subdivision>
+			<subdivision type="gbery" draft="contributed">East Riding of Yorkshire</subdivision>
+			<subdivision type="gbess" draft="contributed">Essex</subdivision>
+			<subdivision type="gbfal" draft="contributed">Comhairle na h-Eaglaise Brice</subdivision>
+			<subdivision type="gbfif" draft="contributed">Foibhe</subdivision>
+			<subdivision type="gbfln" draft="contributed">Sir y Fflint</subdivision>
+			<subdivision type="gbfmo" draft="contributed">Fhear Manach agus na hÓmaí</subdivision>
+			<subdivision type="gbgbn" draft="contributed">An Bhreatain</subdivision>
+			<subdivision type="gbglg" draft="contributed">Glaschú</subdivision>
+			<subdivision type="gbgls" draft="contributed">Gloucestershire</subdivision>
+			<subdivision type="gbgwn" draft="contributed">Gwynedd</subdivision>
+			<subdivision type="gbham" draft="contributed">Hampshire</subdivision>
+			<subdivision type="gbhav" draft="contributed">Buirg Londan Havering</subdivision>
+			<subdivision type="gbhck" draft="contributed">London Borough of Hackney</subdivision>
+			<subdivision type="gbhef" draft="contributed">Herefordshire</subdivision>
+			<subdivision type="gbhil" draft="contributed">Buirg Londan Hillingdon</subdivision>
+			<subdivision type="gbhld" draft="contributed">Comhairle na Gáidhealtachd</subdivision>
+			<subdivision type="gbhmf" draft="contributed">Buirg Londan Hammersmith agus Fulham</subdivision>
+			<subdivision type="gbhns" draft="contributed">Buirg Londan Hounslow</subdivision>
+			<subdivision type="gbhrt" draft="contributed">Hertfordshire</subdivision>
+			<subdivision type="gbhrw" draft="contributed">Buirg Londan Harrow</subdivision>
+			<subdivision type="gbhry" draft="contributed">Buirg Londan Haringey</subdivision>
+			<subdivision type="gbios" draft="contributed">Na Scillí</subdivision>
+			<subdivision type="gbiow" draft="contributed">Inis Iocht</subdivision>
+			<subdivision type="gbisl" draft="contributed">Buirg Londan Islington</subdivision>
+			<subdivision type="gbivc" draft="contributed">Comhairle Inbhir Chluaidh</subdivision>
+			<subdivision type="gbkec" draft="contributed">Buirg Ríoga Kensington agus Chelsea</subdivision>
+			<subdivision type="gbken" draft="contributed">Kent</subdivision>
+			<subdivision type="gbkhl" draft="contributed">Kingston upon Hull</subdivision>
+			<subdivision type="gbktt" draft="contributed">Ríoga Buirg an Kingston ar Tamais</subdivision>
+			<subdivision type="gblan" draft="contributed">Lancashire</subdivision>
+			<subdivision type="gblbh" draft="contributed">Buirg Londan Lambeth</subdivision>
+			<subdivision type="gblec" draft="contributed">Leicestershire</subdivision>
+			<subdivision type="gblew" draft="contributed">Buirg Londan Lewisham</subdivision>
+			<subdivision type="gblin" draft="contributed">Lincolnshire</subdivision>
+			<subdivision type="gblnd" draft="contributed">Cathair Londan</subdivision>
+			<subdivision type="gblut" draft="contributed">Luton</subdivision>
+			<subdivision type="gbmdb" draft="contributed">Middlesbrough</subdivision>
+			<subdivision type="gbmdw" draft="contributed">Medway</subdivision>
+			<subdivision type="gbmln" draft="contributed">Labhaidh Láir</subdivision>
+			<subdivision type="gbmon" draft="contributed">Sir Fynwy</subdivision>
+			<subdivision type="gbmrt" draft="contributed">Buirg Londan Merton</subdivision>
+			<subdivision type="gbmry" draft="contributed">Comhairle Mhoireibh</subdivision>
+			<subdivision type="gbmul" draft="contributed">Lár Uladh</subdivision>
+			<subdivision type="gbnay" draft="contributed">Comhairle Shiorrachd Áir a Tuath</subdivision>
+			<subdivision type="gbnbl" draft="contributed">Northumberland</subdivision>
+			<subdivision type="gbnfk" draft="contributed">Norfolk</subdivision>
+			<subdivision type="gbngm" draft="contributed">Nottingham</subdivision>
+			<subdivision type="gbnir" draft="contributed">Tuaisceart Éireann</subdivision>
+			<subdivision type="gbnlk" draft="contributed">Comhairle Shiorrachd Lannraig a Tuath</subdivision>
+			<subdivision type="gbnth" draft="contributed">Northamptonshire</subdivision>
+			<subdivision type="gbntl" draft="contributed">Castell-nedd Port Talbot</subdivision>
+			<subdivision type="gbntt" draft="contributed">Nottinghamshire</subdivision>
+			<subdivision type="gbnwm" draft="contributed">Buirg Londan Newham</subdivision>
+			<subdivision type="gbnyk" draft="contributed">Yorkshire Thuaidh</subdivision>
+			<subdivision type="gbork" draft="contributed">Inse Orc</subdivision>
+			<subdivision type="gboxf" draft="contributed">Oxford</subdivision>
+			<subdivision type="gbpem" draft="contributed">Sir Benfro</subdivision>
+			<subdivision type="gbpkn" draft="contributed">Comhairle Pheairt is Cheann Rois</subdivision>
+			<subdivision type="gbpor" draft="contributed">Portsmouth</subdivision>
+			<subdivision type="gbpow" draft="contributed">Powys</subdivision>
+			<subdivision type="gbrct" draft="contributed">Rhondda Cynon Taf</subdivision>
+			<subdivision type="gbrdb" draft="contributed">London Borough of Redbridge</subdivision>
+			<subdivision type="gbrdg" draft="contributed">Reading</subdivision>
+			<subdivision type="gbrfw" draft="contributed">Comhairle Shiorrachd Rinn Friú</subdivision>
+			<subdivision type="gbric" draft="contributed">Buirg Londan Richmond ar Tamais</subdivision>
+			<subdivision type="gbrut" draft="contributed">Rutland</subdivision>
+			<subdivision type="gbscb" draft="contributed">Comhairle nan Críochan</subdivision>
 			<subdivision type="gbsct">Albain</subdivision>
+			<subdivision type="gbsfk" draft="contributed">Suffolk</subdivision>
+			<subdivision type="gbshr" draft="contributed">Shropshire</subdivision>
+			<subdivision type="gbslk" draft="contributed">Comhairle Shiorrachd Lannraig a Deas</subdivision>
+			<subdivision type="gbsom" draft="contributed">Somerset</subdivision>
+			<subdivision type="gbsos" draft="contributed">Southend-on-Sea</subdivision>
+			<subdivision type="gbsry" draft="contributed">Surrey</subdivision>
+			<subdivision type="gbstg" draft="contributed">Comhairle Shruighlea</subdivision>
+			<subdivision type="gbsth" draft="contributed">Southampton</subdivision>
+			<subdivision type="gbsts" draft="contributed">Staffordshire</subdivision>
+			<subdivision type="gbswa" draft="contributed">Abertawe</subdivision>
+			<subdivision type="gbswk" draft="contributed">Buirg Londan Southwark</subdivision>
+			<subdivision type="gbtam" draft="contributed">Tameside</subdivision>
+			<subdivision type="gbtof" draft="contributed">Tor-faen</subdivision>
+			<subdivision type="gbtrf" draft="contributed">Trafford</subdivision>
+			<subdivision type="gbtwh" draft="contributed">Buirg Londan Tower Hamlets</subdivision>
+			<subdivision type="gbukm" draft="contributed">An Ríocht Aontaithe</subdivision>
+			<subdivision type="gbvgl" draft="contributed">Bro Morgannwg</subdivision>
+			<subdivision type="gbwar" draft="contributed">Warwickshire</subdivision>
+			<subdivision type="gbwdu" draft="contributed">Comhairle Dhún Breatainn an Iar</subdivision>
+			<subdivision type="gbwft" draft="contributed">Buirg Londan Waltham Forest</subdivision>
+			<subdivision type="gbwln" draft="contributed">Labhaidh Thoir</subdivision>
 			<subdivision type="gbwls">an Bhreatain Bheag</subdivision>
+			<subdivision type="gbwnd" draft="contributed">London Borough of Wandsworth</subdivision>
+			<subdivision type="gbwor" draft="contributed">Worcestershire</subdivision>
+			<subdivision type="gbwsm" draft="contributed">Cathair Westminster</subdivision>
+			<subdivision type="gbwsx" draft="contributed">Sussex Thiar</subdivision>
+			<subdivision type="gbzet" draft="contributed">Inse Shealtainn</subdivision>
+			<subdivision type="getb" draft="contributed">Tbilisi</subdivision>
+			<subdivision type="gmb" draft="contributed">Banjul</subdivision>
+			<subdivision type="gnc" draft="contributed">Conacraí</subdivision>
+			<subdivision type="gre" draft="contributed">An Teasáil</subdivision>
+			<subdivision type="gwbs" draft="contributed">Bissau</subdivision>
+			<subdivision type="hr01" draft="contributed">Contae Ságrab</subdivision>
+			<subdivision type="hr05" draft="contributed">Contae Varaždin</subdivision>
+			<subdivision type="hr21" draft="contributed">Ságrab</subdivision>
+			<subdivision type="hubu" draft="contributed">Búdaipeist</subdivision>
+			<subdivision type="idac" draft="contributed">Aceh</subdivision>
+			<subdivision type="idba" draft="contributed">Bali</subdivision>
+			<subdivision type="idjk" draft="contributed">Iacárta</subdivision>
+			<subdivision type="idjt" draft="contributed">Jawa Tengah</subdivision>
+			<subdivision type="idjw" draft="contributed">Iáva</subdivision>
+			<subdivision type="idml" draft="contributed">Na Molacaí</subdivision>
+			<subdivision type="idsl" draft="contributed">An Cheilibéis</subdivision>
+			<subdivision type="idsm" draft="contributed">Sumatra</subdivision>
+			<subdivision type="idyo" draft="contributed">Yogyakarta</subdivision>
+			<subdivision type="iec" draft="contributed">Cúige Chonnacht</subdivision>
+			<subdivision type="iece" draft="contributed">Contae an Chláir</subdivision>
+			<subdivision type="iecn" draft="contributed">Contae an Chabháin</subdivision>
+			<subdivision type="ieco" draft="contributed">Contae Chorcaí</subdivision>
+			<subdivision type="iecw" draft="contributed">Contae Cheatharlach</subdivision>
+			<subdivision type="ied" draft="contributed">Contae Bhaile Átha Cliath</subdivision>
+			<subdivision type="iedl" draft="contributed">Contae Dhún na nGall</subdivision>
+			<subdivision type="ieg" draft="contributed">Contae na Gaillimhe</subdivision>
+			<subdivision type="ieke" draft="contributed">Contae Chill Dara</subdivision>
+			<subdivision type="iekk" draft="contributed">Contae Chill Chainnigh</subdivision>
+			<subdivision type="ieky" draft="contributed">Contae Chiarraí</subdivision>
+			<subdivision type="iel" draft="contributed">Cúige Laighean</subdivision>
+			<subdivision type="ield" draft="contributed">Contae an Longfoirt</subdivision>
+			<subdivision type="ielh" draft="contributed">Contae Lú</subdivision>
+			<subdivision type="ielk" draft="contributed">Contae Luimnigh</subdivision>
+			<subdivision type="ielm" draft="contributed">Contae Liatroma</subdivision>
+			<subdivision type="iels" draft="contributed">Contae Laoise</subdivision>
+			<subdivision type="iem" draft="contributed">Cúige Mumhan</subdivision>
+			<subdivision type="iemh" draft="contributed">Contae na Mí</subdivision>
+			<subdivision type="iemn" draft="contributed">Contae Mhuineacháin</subdivision>
+			<subdivision type="iemo" draft="contributed">Contae Mhaigh Eo</subdivision>
+			<subdivision type="ieoy" draft="contributed">Contae Uíbh Fhailí</subdivision>
+			<subdivision type="iern" draft="contributed">Contae Ros Comáin</subdivision>
+			<subdivision type="ieso" draft="contributed">Contae Shligigh</subdivision>
+			<subdivision type="ieta" draft="contributed">Contae Thiobraid Árann</subdivision>
+			<subdivision type="ieu" draft="contributed">Cúige Uladh</subdivision>
+			<subdivision type="iewd" draft="contributed">Contae Phort Láirge</subdivision>
+			<subdivision type="iewh" draft="contributed">Contae na hIarmhí</subdivision>
+			<subdivision type="ieww" draft="contributed">Contae Chill Mhantáin</subdivision>
+			<subdivision type="iewx" draft="contributed">Contae Loch Garman</subdivision>
+			<subdivision type="inap" draft="contributed">Andhra Pradesh</subdivision>
+			<subdivision type="inar" draft="contributed">Arunachal Pradesh</subdivision>
+			<subdivision type="inas" draft="contributed">Assam</subdivision>
+			<subdivision type="inbr" draft="contributed">Bihar</subdivision>
+			<subdivision type="inch" draft="contributed">Chandigarh</subdivision>
+			<subdivision type="inct" draft="contributed">Chhattisgarh</subdivision>
+			<subdivision type="indl" draft="contributed">Delhi</subdivision>
+			<subdivision type="inga" draft="contributed">Goa</subdivision>
+			<subdivision type="ingj" draft="contributed">An Ghúisearáit</subdivision>
+			<subdivision type="inhp" draft="contributed">Himachal Pradesh</subdivision>
+			<subdivision type="inhr" draft="contributed">Haryana</subdivision>
+			<subdivision type="injh" draft="contributed">Jharkhand</subdivision>
+			<subdivision type="injk" draft="contributed">Jammu agus Kashmir</subdivision>
+			<subdivision type="inka" draft="contributed">Karnataka</subdivision>
+			<subdivision type="inkl" draft="contributed">Kerala</subdivision>
+			<subdivision type="inmh" draft="contributed">Maharashtra</subdivision>
+			<subdivision type="inml" draft="contributed">Meghalaya</subdivision>
+			<subdivision type="inmn" draft="contributed">Manipur</subdivision>
+			<subdivision type="inmp" draft="contributed">Madhya Pradesh</subdivision>
+			<subdivision type="inmz" draft="contributed">Mizoram</subdivision>
+			<subdivision type="innl" draft="contributed">Nagaland</subdivision>
+			<subdivision type="inor" draft="contributed">Odisha</subdivision>
+			<subdivision type="inrj" draft="contributed">Rajasthan</subdivision>
+			<subdivision type="insk" draft="contributed">Sikkim</subdivision>
+			<subdivision type="intg" draft="contributed">Telangana</subdivision>
+			<subdivision type="intn" draft="contributed">Tamil Nadu</subdivision>
+			<subdivision type="intr" draft="contributed">Tripura</subdivision>
+			<subdivision type="inup" draft="contributed">Uttar Pradesh</subdivision>
+			<subdivision type="inut" draft="contributed">Uttarakhand</subdivision>
+			<subdivision type="inwb" draft="contributed">Beangál Thiar</subdivision>
+			<subdivision type="is1" draft="contributed">Höfuðborgarsvæði</subdivision>
+			<subdivision type="is2" draft="contributed">Suðurnes</subdivision>
+			<subdivision type="is3" draft="contributed">Vesturland</subdivision>
+			<subdivision type="is4" draft="contributed">Vestfirðir</subdivision>
+			<subdivision type="is5" draft="contributed">Norðurland vestra</subdivision>
+			<subdivision type="is6" draft="contributed">Norðurland eystra</subdivision>
+			<subdivision type="is7" draft="contributed">Austurland</subdivision>
+			<subdivision type="is8" draft="contributed">Suðurland</subdivision>
+			<subdivision type="it21" draft="contributed">Píodmant</subdivision>
+			<subdivision type="it23" draft="contributed">Valle d’Aosta</subdivision>
+			<subdivision type="it25" draft="contributed">An Lombaird</subdivision>
+			<subdivision type="it32" draft="contributed">Trentino-Tirol Theas</subdivision>
+			<subdivision type="it34" draft="contributed">Veneto</subdivision>
+			<subdivision type="it36" draft="contributed">Friuli-Venezia Giulia</subdivision>
+			<subdivision type="it42" draft="contributed">Liguria</subdivision>
+			<subdivision type="it45" draft="contributed">Emilia-Romagna</subdivision>
+			<subdivision type="it52" draft="contributed">An Tuscáin</subdivision>
+			<subdivision type="it55" draft="contributed">Umbria</subdivision>
+			<subdivision type="it57" draft="contributed">Marche</subdivision>
+			<subdivision type="it62" draft="contributed">Lazio</subdivision>
+			<subdivision type="it65" draft="contributed">Abruzzo</subdivision>
+			<subdivision type="it67" draft="contributed">Molise</subdivision>
+			<subdivision type="it72" draft="contributed">Campania</subdivision>
+			<subdivision type="it75" draft="contributed">Puglia</subdivision>
+			<subdivision type="it77" draft="contributed">Basilicata</subdivision>
+			<subdivision type="it78" draft="contributed">Calabria</subdivision>
+			<subdivision type="it82" draft="contributed">An tSicil</subdivision>
+			<subdivision type="it88" draft="contributed">An tSairdín</subdivision>
+			<subdivision type="itpd" draft="contributed">Padova</subdivision>
+			<subdivision type="jp02" draft="contributed">Maoracht Aomori</subdivision>
+			<subdivision type="jp03" draft="contributed">Maoracht Iwate</subdivision>
+			<subdivision type="jp04" draft="contributed">Maoracht Miyagi</subdivision>
+			<subdivision type="jp05" draft="contributed">Maoracht Akita</subdivision>
+			<subdivision type="jp06" draft="contributed">Maoracht Yamagata</subdivision>
+			<subdivision type="jp07" draft="contributed">Maoracht Fukushima</subdivision>
+			<subdivision type="jp08" draft="contributed">Maoracht Ibaraki</subdivision>
+			<subdivision type="jp09" draft="contributed">Maoracht Tochigi</subdivision>
+			<subdivision type="jp10" draft="contributed">Maoracht Gunma</subdivision>
+			<subdivision type="jp11" draft="contributed">Maoracht Saitama</subdivision>
+			<subdivision type="jp12" draft="contributed">Maoracht Chiba</subdivision>
+			<subdivision type="jp13" draft="contributed">Tóiceo</subdivision>
+			<subdivision type="jp14" draft="contributed">Maoracht Kanagawa</subdivision>
+			<subdivision type="jp15" draft="contributed">Maoracht Niigata</subdivision>
+			<subdivision type="jp16" draft="contributed">Maoracht Toyama</subdivision>
+			<subdivision type="jp17" draft="contributed">Maoracht Ishikawa</subdivision>
+			<subdivision type="jp18" draft="contributed">Maoracht Fukui</subdivision>
+			<subdivision type="jp19" draft="contributed">Maoracht Yamanashi</subdivision>
+			<subdivision type="jp20" draft="contributed">Maoracht Nagano</subdivision>
+			<subdivision type="jp21" draft="contributed">Maoracht Gifu</subdivision>
+			<subdivision type="jp22" draft="contributed">Maoracht Shizuoka</subdivision>
+			<subdivision type="jp23" draft="contributed">Maoracht Aichi</subdivision>
+			<subdivision type="jp24" draft="contributed">Maoracht Mie</subdivision>
+			<subdivision type="jp25" draft="contributed">Maoracht Shiga</subdivision>
+			<subdivision type="jp26" draft="contributed">Maoracht Kyoto</subdivision>
+			<subdivision type="jp27" draft="contributed">Maoracht Osaka</subdivision>
+			<subdivision type="jp28" draft="contributed">Maoracht Hyōgo</subdivision>
+			<subdivision type="jp29" draft="contributed">Maoracht Nara</subdivision>
+			<subdivision type="jp30" draft="contributed">Maoracht Wakayama</subdivision>
+			<subdivision type="jp31" draft="contributed">Maoracht Tottori</subdivision>
+			<subdivision type="jp32" draft="contributed">Maoracht Shimane</subdivision>
+			<subdivision type="jp33" draft="contributed">Maoracht Okayama</subdivision>
+			<subdivision type="jp34" draft="contributed">Maoracht Hiroshima</subdivision>
+			<subdivision type="jp35" draft="contributed">Maoracht Yamaguchi</subdivision>
+			<subdivision type="jp36" draft="contributed">Maoracht Tokushima</subdivision>
+			<subdivision type="jp37" draft="contributed">Maoracht Kagawa</subdivision>
+			<subdivision type="jp38" draft="contributed">Maoracht Ehime</subdivision>
+			<subdivision type="jp39" draft="contributed">Maoracht Kōchi</subdivision>
+			<subdivision type="jp40" draft="contributed">Maoracht Fukuoka</subdivision>
+			<subdivision type="jp41" draft="contributed">Maoracht Saga</subdivision>
+			<subdivision type="jp42" draft="contributed">Maoracht Nagasaki</subdivision>
+			<subdivision type="jp43" draft="contributed">Maoracht Kumamoto</subdivision>
+			<subdivision type="jp44" draft="contributed">Maoracht Ōita</subdivision>
+			<subdivision type="jp45" draft="contributed">Maoracht Miyazaki</subdivision>
+			<subdivision type="jp46" draft="contributed">Maoracht Kagoshima</subdivision>
+			<subdivision type="jp47" draft="contributed">Maoracht Okinawa</subdivision>
+			<subdivision type="kh12" draft="contributed">Phnom Penh</subdivision>
+			<subdivision type="kp01" draft="contributed">Pyongyang</subdivision>
+			<subdivision type="kp13" draft="contributed">Rason</subdivision>
+			<subdivision type="kr11" draft="contributed">Seoul</subdivision>
+			<subdivision type="kr26" draft="contributed">Busan</subdivision>
+			<subdivision type="kzala" draft="contributed">Almaty</subdivision>
+			<subdivision type="kzast" draft="contributed">Astana</subdivision>
+			<subdivision type="li11" draft="contributed">Vadús</subdivision>
+			<subdivision type="ltal" draft="contributed">Contae Alytus</subdivision>
+			<subdivision type="ltkl" draft="contributed">Contae Klaipėda</subdivision>
+			<subdivision type="ltku" draft="contributed">Contae Kaunas</subdivision>
+			<subdivision type="ltmr" draft="contributed">Contae Marijampolė</subdivision>
+			<subdivision type="ltpn" draft="contributed">Contae Panevėžys</subdivision>
+			<subdivision type="ltsa" draft="contributed">Contae Šiauliai</subdivision>
+			<subdivision type="ltta" draft="contributed">Contae Tauragė</subdivision>
+			<subdivision type="ltte" draft="contributed">Contae Telšiai</subdivision>
+			<subdivision type="ltut" draft="contributed">Contae Utena</subdivision>
+			<subdivision type="ltvl" draft="contributed">Contae Vilnius</subdivision>
+			<subdivision type="lvrix" draft="contributed">Ríge</subdivision>
+			<subdivision type="lyba" draft="contributed">Benghazi</subdivision>
+			<subdivision type="marab" draft="contributed">Rabat</subdivision>
+			<subdivision type="mcmc" draft="contributed">Monte Carlo</subdivision>
+			<subdivision type="mdba" draft="contributed">Bălți</subdivision>
+			<subdivision type="mdbd" draft="contributed">Bender</subdivision>
+			<subdivision type="mdcu" draft="contributed">Císineá</subdivision>
+			<subdivision type="mk85" draft="contributed">Scóipé</subdivision>
+			<subdivision type="mlbko" draft="contributed">Bamako</subdivision>
+			<subdivision type="mn1" draft="contributed">Ulánbátar</subdivision>
+			<subdivision type="mn035" draft="contributed">Orkhon</subdivision>
+			<subdivision type="mn037" draft="contributed">Darkhan-Uul</subdivision>
+			<subdivision type="mn041" draft="contributed">Khövsgöl</subdivision>
+			<subdivision type="mn055" draft="contributed">Övörkhangai</subdivision>
+			<subdivision type="mn059" draft="contributed">Dundgovi</subdivision>
+			<subdivision type="mn061" draft="contributed">Dornod</subdivision>
+			<subdivision type="mn064" draft="contributed">Govisümber</subdivision>
+			<subdivision type="mn067" draft="contributed">Bulgan</subdivision>
+			<subdivision type="mn071" draft="contributed">Bayan-Ölgii</subdivision>
+			<subdivision type="mn073" draft="contributed">Arkhangai</subdivision>
+			<subdivision type="mt04" draft="contributed">Birkirkara</subdivision>
+			<subdivision type="mt21" draft="contributed">Kalkara</subdivision>
+			<subdivision type="mt60" draft="contributed">Vaileite</subdivision>
+			<subdivision type="mupu" draft="contributed">Port Louis</subdivision>
+			<subdivision type="mvmle" draft="contributed">Malé</subdivision>
+			<subdivision type="mxagu" draft="contributed">Aguascalientes</subdivision>
+			<subdivision type="mxbcn" draft="contributed">Baja California</subdivision>
+			<subdivision type="mxbcs" draft="contributed">Baja California Sur</subdivision>
+			<subdivision type="mxcam" draft="contributed">Campeche</subdivision>
+			<subdivision type="mxchh" draft="contributed">Chihuahua</subdivision>
+			<subdivision type="mxchp" draft="contributed">Chiapas</subdivision>
+			<subdivision type="mxcmx" draft="contributed">Cathair Mheicsiceo</subdivision>
+			<subdivision type="mxcoa" draft="contributed">Coahuila</subdivision>
+			<subdivision type="mxcol" draft="contributed">Colima</subdivision>
+			<subdivision type="mxdur" draft="contributed">Durango</subdivision>
+			<subdivision type="mxgro" draft="contributed">Guerrero</subdivision>
+			<subdivision type="mxgua" draft="contributed">Guanajuato</subdivision>
+			<subdivision type="mxhid" draft="contributed">Hidalgo</subdivision>
+			<subdivision type="mxjal" draft="contributed">Jalisco</subdivision>
+			<subdivision type="mxmex" draft="contributed">Meicsiceo</subdivision>
+			<subdivision type="mxmic" draft="contributed">Michoacán</subdivision>
+			<subdivision type="mxmor" draft="contributed">Morelos</subdivision>
+			<subdivision type="mxnay" draft="contributed">Nayarit</subdivision>
+			<subdivision type="mxnle" draft="contributed">Nuevo León</subdivision>
+			<subdivision type="mxoax" draft="contributed">Oaxaca</subdivision>
+			<subdivision type="mxpue" draft="contributed">Puebla</subdivision>
+			<subdivision type="mxque" draft="contributed">Querétaro</subdivision>
+			<subdivision type="mxroo" draft="contributed">Quintana Roo</subdivision>
+			<subdivision type="mxsin" draft="contributed">Sinaloa</subdivision>
+			<subdivision type="mxslp" draft="contributed">San Luis Potosí</subdivision>
+			<subdivision type="mxson" draft="contributed">Sonora</subdivision>
+			<subdivision type="mxtab" draft="contributed">Tabasco</subdivision>
+			<subdivision type="mxtam" draft="contributed">Tamaulipas</subdivision>
+			<subdivision type="mxtla" draft="contributed">Tlaxcala</subdivision>
+			<subdivision type="mxver" draft="contributed">Veracruz</subdivision>
+			<subdivision type="mxyuc" draft="contributed">Yucatán</subdivision>
+			<subdivision type="mxzac" draft="contributed">Zacatecas</subdivision>
+			<subdivision type="my14" draft="contributed">Kuala Lumpur</subdivision>
+			<subdivision type="my16" draft="contributed">Putrajaya</subdivision>
+			<subdivision type="mzmpm" draft="contributed">Maputo</subdivision>
+			<subdivision type="ne8" draft="contributed">Niamey</subdivision>
+			<subdivision type="nldr" draft="contributed">Drenthe</subdivision>
+			<subdivision type="nlfl" draft="contributed">Flevoland</subdivision>
+			<subdivision type="nlfr" draft="contributed">Friesland</subdivision>
+			<subdivision type="nlge" draft="contributed">Gelderland</subdivision>
+			<subdivision type="nlgr" draft="contributed">Groningen</subdivision>
+			<subdivision type="nlli" draft="contributed">Limburg</subdivision>
+			<subdivision type="nlnb" draft="contributed">Brabant Thuaidh</subdivision>
+			<subdivision type="nlnh" draft="contributed">An Ollainn Thuaidh</subdivision>
+			<subdivision type="nlov" draft="contributed">Overijssel</subdivision>
+			<subdivision type="nlut" draft="contributed">Utrecht</subdivision>
+			<subdivision type="nlze" draft="contributed">Zeeland</subdivision>
+			<subdivision type="nlzh" draft="contributed">An Ollainn Theas</subdivision>
+			<subdivision type="no03" draft="contributed">Osló</subdivision>
+			<subdivision type="no21" draft="contributed">Oileánra Svalbard</subdivision>
+			<subdivision type="no22" draft="contributed">Jan Mayen</subdivision>
+			<subdivision type="peapu" draft="contributed">Apurímac</subdivision>
+			<subdivision type="pgncd" draft="contributed">Port Moresby</subdivision>
+			<subdivision type="pkba" draft="contributed">An Bhalúcastáin</subdivision>
+			<subdivision type="pksd" draft="contributed">An tSind</subdivision>
+			<subdivision type="pt20" draft="contributed">Na hAsóir</subdivision>
+			<subdivision type="pt30" draft="contributed">Maidéara</subdivision>
+			<subdivision type="pyasu" draft="contributed">Asunción</subdivision>
+			<subdivision type="qada" draft="contributed">Doha</subdivision>
+			<subdivision type="qara" draft="contributed">Al Rayyan</subdivision>
+			<subdivision type="qawa" draft="contributed">Al Wakrah</subdivision>
+			<subdivision type="rob" draft="contributed">Búcairist</subdivision>
+			<subdivision type="rs00" draft="contributed">Béalgrád</subdivision>
+			<subdivision type="rsvo" draft="contributed">An Vóvaidín</subdivision>
+			<subdivision type="ruad" draft="contributed">Adygea</subdivision>
+			<subdivision type="rual" draft="contributed">Poblacht Altae</subdivision>
+			<subdivision type="rualt" draft="contributed">Críoch Altae</subdivision>
+			<subdivision type="ruamu" draft="contributed">Cúige Amur</subdivision>
+			<subdivision type="ruark" draft="contributed">Cúige Arkhangelsk</subdivision>
+			<subdivision type="ruast" draft="contributed">Cúige na hAstracháine</subdivision>
+			<subdivision type="ruba" draft="contributed">An Bhaisceartastáin</subdivision>
+			<subdivision type="rubel" draft="contributed">Cúige Bhelgorod</subdivision>
+			<subdivision type="rubry" draft="contributed">Cúige Bryansk</subdivision>
+			<subdivision type="rubu" draft="contributed">An Bhuiriáit</subdivision>
+			<subdivision type="ruce" draft="contributed">An tSeisnia</subdivision>
+			<subdivision type="ruche" draft="contributed">Cúige Chelyabinsk</subdivision>
+			<subdivision type="ruchu" draft="contributed">Ceantar Féinrialaitheach na Siuicsíoch</subdivision>
+			<subdivision type="rucu" draft="contributed">An tSuvais</subdivision>
+			<subdivision type="ruda" draft="contributed">An Dagastáin</subdivision>
+			<subdivision type="ruin" draft="contributed">An Iongúiséit</subdivision>
+			<subdivision type="ruirk" draft="contributed">Cúige Irkutsk</subdivision>
+			<subdivision type="ruiva" draft="contributed">Cúige Ivanovo</subdivision>
+			<subdivision type="rukam" draft="contributed">Críoch Kamchatka</subdivision>
+			<subdivision type="rukb" draft="contributed">An Chabairdín-Bhalcáir</subdivision>
+			<subdivision type="rukc" draft="contributed">An Charaitsé-Shiorcáis</subdivision>
+			<subdivision type="rukda" draft="contributed">Críoch Krasnodar</subdivision>
+			<subdivision type="rukem" draft="contributed">Cúige Kemerovo</subdivision>
+			<subdivision type="rukgd" draft="contributed">Cúige Kaliningrad</subdivision>
+			<subdivision type="rukgn" draft="contributed">Cúige Kurgan</subdivision>
+			<subdivision type="rukha" draft="contributed">Críoch Khabarovsk</subdivision>
+			<subdivision type="rukhm" draft="contributed">Ceantar Féinrialaitheach na gCántach is na Mainseach</subdivision>
+			<subdivision type="rukir" draft="contributed">Cúige Kirov</subdivision>
+			<subdivision type="rukk" draft="contributed">An Chacáis</subdivision>
+			<subdivision type="rukl" draft="contributed">An Chailmíc</subdivision>
+			<subdivision type="ruklu" draft="contributed">Cúige Kaluga</subdivision>
+			<subdivision type="ruko" draft="contributed">Poblacht Choimí</subdivision>
+			<subdivision type="rukos" draft="contributed">Cúige Kostroma</subdivision>
+			<subdivision type="rukr" draft="contributed">Poblacht na Cairéile</subdivision>
+			<subdivision type="rukrs" draft="contributed">Cúige Kursk</subdivision>
+			<subdivision type="rukya" draft="contributed">Críoch Krasnoyarsk</subdivision>
+			<subdivision type="rulen" draft="contributed">Cúige Leningrad</subdivision>
+			<subdivision type="rulip" draft="contributed">Cúige Lipetsk</subdivision>
+			<subdivision type="rumag" draft="contributed">Cúige Mhagadan</subdivision>
+			<subdivision type="rume" draft="contributed">Mairí El</subdivision>
+			<subdivision type="rumo" draft="contributed">An Mhordóiv</subdivision>
+			<subdivision type="rumos" draft="contributed">Cúige Mhoscó</subdivision>
+			<subdivision type="rumow" draft="contributed">Moscó</subdivision>
+			<subdivision type="rumur" draft="contributed">Cúige Mhurmansk</subdivision>
+			<subdivision type="runen" draft="contributed">Ceantar Féinrialaitheach na Neinéitseach</subdivision>
+			<subdivision type="rungr" draft="contributed">Cúige Novgorod</subdivision>
+			<subdivision type="runiz" draft="contributed">Cúige Nizhny Novgorod</subdivision>
+			<subdivision type="runvs" draft="contributed">Cúige Novosibirsk</subdivision>
+			<subdivision type="ruoms" draft="contributed">Cúige Omsk</subdivision>
+			<subdivision type="ruore" draft="contributed">Cúige Orenburg</subdivision>
+			<subdivision type="ruorl" draft="contributed">Cúige Oryol</subdivision>
+			<subdivision type="ruper" draft="contributed">Críoch Pherm</subdivision>
+			<subdivision type="rupnz" draft="contributed">Cúige Phenza</subdivision>
+			<subdivision type="rupri" draft="contributed">Críoch Phrimorsky</subdivision>
+			<subdivision type="rupsk" draft="contributed">Cúige Pskov</subdivision>
+			<subdivision type="ruros" draft="contributed">Cúige Rostov</subdivision>
+			<subdivision type="rurya" draft="contributed">Cúige Ryazan</subdivision>
+			<subdivision type="rusa" draft="contributed">Poblacht Shácha</subdivision>
+			<subdivision type="rusak" draft="contributed">Cúige Shakhalin</subdivision>
+			<subdivision type="rusam" draft="contributed">Cúige Shamara</subdivision>
+			<subdivision type="rusar" draft="contributed">Cúige Sharatov</subdivision>
+			<subdivision type="ruse" draft="contributed">An Oiséit Thuaidh-An Aláin</subdivision>
+			<subdivision type="rusmo" draft="contributed">Cúige Smolensk</subdivision>
+			<subdivision type="ruspe" draft="contributed">Cathair Pheadair</subdivision>
+			<subdivision type="rusta" draft="contributed">Críoch Stavropol</subdivision>
+			<subdivision type="rusve" draft="contributed">Cúige Sverdlovsk</subdivision>
+			<subdivision type="ruta" draft="contributed">An Tatarstáin</subdivision>
+			<subdivision type="rutam" draft="contributed">Cúige Thambov</subdivision>
+			<subdivision type="rutom" draft="contributed">Cúige Thomsk</subdivision>
+			<subdivision type="rutul" draft="contributed">Cúige Thula</subdivision>
+			<subdivision type="rutve" draft="contributed">Cúige Tver</subdivision>
+			<subdivision type="ruty" draft="contributed">Túva</subdivision>
+			<subdivision type="rutyu" draft="contributed">Cúige Tyumen</subdivision>
+			<subdivision type="ruud" draft="contributed">An Udmairt</subdivision>
+			<subdivision type="ruuly" draft="contributed">Cúige Ulyanovsk</subdivision>
+			<subdivision type="ruvgg" draft="contributed">Cúige Volgograd</subdivision>
+			<subdivision type="ruvla" draft="contributed">Cúige Vladimir</subdivision>
+			<subdivision type="ruvlg" draft="contributed">Cúige Vologda</subdivision>
+			<subdivision type="ruvor" draft="contributed">Cúige Voronezh</subdivision>
+			<subdivision type="ruyan" draft="contributed">Ceantar Féinrialaitheach Neinéitseach Iamáil</subdivision>
+			<subdivision type="ruyar" draft="contributed">Cúige Yaroslavl</subdivision>
+			<subdivision type="ruyev" draft="contributed">Cúige Féinrialaitheach na nGiúdach</subdivision>
+			<subdivision type="ruzab" draft="contributed">Zabaykalsky Krai</subdivision>
+			<subdivision type="rw01" draft="contributed">Kigali</subdivision>
+			<subdivision type="sbct" draft="contributed">Hóiniára</subdivision>
+			<subdivision type="shac" draft="contributed">Oileán na Deascabhála</subdivision>
+			<subdivision type="shhl" draft="contributed">San Héilin</subdivision>
+			<subdivision type="si040" draft="contributed">Izola</subdivision>
+			<subdivision type="si059" draft="contributed">Lendava</subdivision>
+			<subdivision type="si090" draft="contributed">Piran</subdivision>
+			<subdivision type="si148" draft="contributed">Benedikt</subdivision>
+			<subdivision type="sm07" draft="contributed">Cathair San Mairíne, San Mairíne</subdivision>
+			<subdivision type="tdnd" draft="contributed">N’Djamena</subdivision>
+			<subdivision type="th10" draft="contributed">Bancác</subdivision>
+			<subdivision type="th21" draft="contributed">Rayong</subdivision>
+			<subdivision type="tjdu" draft="contributed">Dushanbe</subdivision>
+			<subdivision type="tms" draft="contributed">Ashgabat</subdivision>
+			<subdivision type="tr09" draft="contributed">Aydın</subdivision>
+			<subdivision type="ttcha" draft="contributed">Chaguanas</subdivision>
+			<subdivision type="ttpos" draft="contributed">Port of Spain</subdivision>
+			<subdivision type="ttsfo" draft="contributed">San Fernando</subdivision>
+			<subdivision type="tttob" draft="contributed">Tobága</subdivision>
+			<subdivision type="twtnn" draft="contributed">Tainan</subdivision>
+			<subdivision type="twtpe" draft="contributed">Taipei</subdivision>
+			<subdivision type="twtxg" draft="contributed">Taichung</subdivision>
+			<subdivision type="ua09" draft="contributed">Cúige Luhansk</subdivision>
+			<subdivision type="ua23" draft="contributed">Cúige Zaporizhia</subdivision>
+			<subdivision type="ua30" draft="contributed">Cív</subdivision>
+			<subdivision type="ua43" draft="contributed">Poblacht Fhéinrialaitheach na Crimé</subdivision>
+			<subdivision type="ua59" draft="contributed">Cúige Shumy</subdivision>
+			<subdivision type="ua65" draft="contributed">Cúige Kherson</subdivision>
+			<subdivision type="ua71" draft="contributed">Cúige Cherkasy</subdivision>
+			<subdivision type="usak" draft="contributed">Alasca</subdivision>
+			<subdivision type="usal" draft="contributed">Alabama</subdivision>
+			<subdivision type="usar" draft="contributed">Arkansas</subdivision>
+			<subdivision type="usaz" draft="contributed">Arizona</subdivision>
+			<subdivision type="usca" draft="contributed">California</subdivision>
+			<subdivision type="usco" draft="contributed">Colorado</subdivision>
+			<subdivision type="usct" draft="contributed">Connecticut</subdivision>
+			<subdivision type="usde" draft="contributed">Delaware</subdivision>
+			<subdivision type="usfl" draft="contributed">Florida</subdivision>
+			<subdivision type="usga" draft="contributed">Georgia</subdivision>
+			<subdivision type="ushi" draft="contributed">Haváí</subdivision>
+			<subdivision type="usia" draft="contributed">Iowa</subdivision>
+			<subdivision type="usid" draft="contributed">Idaho</subdivision>
+			<subdivision type="usil" draft="contributed">Illinois</subdivision>
+			<subdivision type="usin" draft="contributed">Indiana</subdivision>
+			<subdivision type="usks" draft="contributed">Kansas</subdivision>
+			<subdivision type="usky" draft="contributed">Kentucky</subdivision>
+			<subdivision type="usla" draft="contributed">Louisiana</subdivision>
+			<subdivision type="usma" draft="contributed">Massachusetts</subdivision>
+			<subdivision type="usmd" draft="contributed">Maryland</subdivision>
+			<subdivision type="usme" draft="contributed">Maine</subdivision>
+			<subdivision type="usmi" draft="contributed">Michigan</subdivision>
+			<subdivision type="usmn" draft="contributed">Minnesota</subdivision>
+			<subdivision type="usmo" draft="contributed">Missouri</subdivision>
+			<subdivision type="usms" draft="contributed">Mississippi</subdivision>
+			<subdivision type="usmt" draft="contributed">Montana</subdivision>
+			<subdivision type="usnc" draft="contributed">Carolina Thuaidh</subdivision>
+			<subdivision type="usnd" draft="contributed">Dakota Thuaidh</subdivision>
+			<subdivision type="usne" draft="contributed">Nebraska</subdivision>
+			<subdivision type="usnh" draft="contributed">New Hampshire</subdivision>
+			<subdivision type="usnj" draft="contributed">New Jersey</subdivision>
+			<subdivision type="usnm" draft="contributed">Nua-Mheicsiceo</subdivision>
+			<subdivision type="usnv" draft="contributed">Nevada</subdivision>
+			<subdivision type="usny" draft="contributed">Nua-Eabhrac</subdivision>
+			<subdivision type="usoh" draft="contributed">Ohio</subdivision>
+			<subdivision type="usok" draft="contributed">Oklahoma</subdivision>
+			<subdivision type="usor" draft="contributed">Oregon</subdivision>
+			<subdivision type="uspa" draft="contributed">Pennsylvania</subdivision>
+			<subdivision type="usri" draft="contributed">Oileán Rhode</subdivision>
+			<subdivision type="ussc" draft="contributed">Carolina Theas</subdivision>
+			<subdivision type="ussd" draft="contributed">Dakota Theas</subdivision>
+			<subdivision type="ustn" draft="contributed">Tennessee</subdivision>
+			<subdivision type="ustx" draft="contributed">Texas</subdivision>
+			<subdivision type="usut" draft="contributed">Utah</subdivision>
+			<subdivision type="usva" draft="contributed">Virginia</subdivision>
+			<subdivision type="usvt" draft="contributed">Vermont</subdivision>
+			<subdivision type="uswa" draft="contributed">Washington</subdivision>
+			<subdivision type="uswi" draft="contributed">Wisconsin</subdivision>
+			<subdivision type="uswv" draft="contributed">Virginia Thiar</subdivision>
+			<subdivision type="uswy" draft="contributed">Wyoming</subdivision>
+			<subdivision type="uymo" draft="contributed">Montevideo</subdivision>
+			<subdivision type="uztk" draft="contributed">Tashkent</subdivision>
+			<subdivision type="vn24" draft="contributed">Quang Binh</subdivision>
+			<subdivision type="vn39" draft="contributed">Dong Nai</subdivision>
+			<subdivision type="vnhn" draft="contributed">Ha Noi</subdivision>
+			<subdivision type="vnsg" draft="contributed">Cathair Ho Chi Minh</subdivision>
+			<subdivision type="wfal" draft="contributed">Alo</subdivision>
+			<subdivision type="wfsg" draft="contributed">Sigave</subdivision>
+			<subdivision type="wfuv" draft="contributed">Uvea</subdivision>
+			<subdivision type="yesa" draft="contributed">San’a</subdivision>
 		</subdivisions>
 	</localeDisplayNames>
 </ldml>

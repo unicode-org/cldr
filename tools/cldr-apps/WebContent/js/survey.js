@@ -5900,16 +5900,8 @@ function showV() {
 			if(surveyCurrentLocale===null || surveyCurrentLocale=='') {
 				theLocale = 'und';
 			}
-			const saveLoadingMessage = $('#LoadingMessageSection').html();
-			if (typeof userID !== 'undefined' && userID) {
-				$('#LoadingMessageSection').html("Please wait while Survey Tool"
-						+ " is loading initial menus, and importing old votes."
-						+ "<br><b>Importing old votes may take a little while the first time you log in.</b>"
-						+ "<br><img src='loader.gif'>");
-			}
 			var xurl = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=menus&locmap="+true+cacheKill();
 			myLoad(xurl, "initial menus for " + surveyCurrentLocale, function(json) {
-				$('#LoadingMessageSection').html(saveLoadingMessage);
 				if(!verifyJson(json,'locmap')) {
 					return;
 				} else {
@@ -5985,25 +5977,6 @@ function showV() {
 
 					filterAllLocale();
 					//end of adding the locale data
-
-					if (json.autoImportedOldWinningVotes) {
-						var vals = { count: dojoNumber.format(json.autoImportedOldWinningVotes) };
-						var autoImportedDialog = new Dialog({
-							title: stui.sub("v_oldvote_auto_msg", vals),
-							content: stui.sub("v_oldvote_auto_desc_msg", vals)
-						});
-						autoImportedDialog.addChild(new Button({
-							label: "OK",
-							onClick: function() {
-								window.haveDialog = false;
-								autoImportedDialog.hide();
-								reloadV();
-							}
-						}));
-						autoImportedDialog.show();
-						window.haveDialog = true;
-						hideOverlayAndSidebar();
-					}
 
 					updateCovFromJson(json);
 					// setup coverage level
@@ -6087,7 +6060,55 @@ function showV() {
 							refreshCounterVetting();
 						return false;
 					});
-					// TODO have to move this out of the DOM..
+					// TODO have to move this out of the DOM.. (Move WHAT out of the DOM?)
+
+					/**
+					 * Automatically import old winning votes
+					 * 
+					 * Requires Dialog; we already have "dijit/Dialog" in require() statement at start of showV
+					 */
+					function doAutoImport() {
+						'use strict';
+						var autoImportProgressDialog = new Dialog({
+							title: stui.str("v_oldvote_auto_msg"),
+							content: stui.str("v_oldvote_auto_progress_msg")
+						});
+						autoImportProgressDialog.show();
+						window.haveDialog = true;
+						hideOverlayAndSidebar();
+						/*
+						 * See WHAT_AUTO_IMPORT = "auto_import" in SurveyAjax.java
+						 */
+						var url = contextPath + "/SurveyAjax?s=" + surveySessionId + "&what=auto_import" + cacheKill();
+						myLoad(url, "auto-importing votes", function(json) {
+							autoImportProgressDialog.hide();
+							window.haveDialog = false;
+							if (json.autoImportedOldWinningVotes) {
+								var vals = {
+									count: dojoNumber.format(json.autoImportedOldWinningVotes)
+								};
+								var autoImportedDialog = new Dialog({
+									title: stui.str("v_oldvote_auto_msg"),
+									content: stui.sub("v_oldvote_auto_desc_msg", vals)
+								});
+								autoImportedDialog.addChild(new Button({
+									label: "OK",
+									onClick: function() {
+										window.haveDialog = false;
+										autoImportedDialog.hide();
+										reloadV();
+									}
+								}));
+								autoImportedDialog.show();
+								window.haveDialog = true;
+								hideOverlayAndSidebar();
+							}
+						});
+					}
+
+					if (json.canAutoImport) {
+						doAutoImport();
+					}
 
 				window.reloadV(); // call it
 

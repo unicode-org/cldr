@@ -19,6 +19,12 @@ window.haveDialog = false;
 const INHERITANCE_MARKER = "↑↑↑";
 
 /*
+ * ERROR_NO_WINNING_VALUE indicates a bug on the server, which delivered path data without a valid winning value.
+ * Compare ERROR_NO_WINNING_VALUE in DataSection.java.
+ */
+const ERROR_NO_WINNING_VALUE = "error-no-winning-value";
+
+/*
  * TODO: delete the following fixes for Object.keys, Array.isArray, and String.trim,
  * which are probably not needed anymore with the current system requirements of SurveyTool,
  * namely, versions of Chrome, Firefox, Safari, Edge not more than six months old.
@@ -3130,9 +3136,17 @@ function checkRowConsistency(theRow) {
 		 * The server, not the client, is responsible for ensuring that a winning item is present.
 		 */
 		console.error('For ' + theRow.xpstrid + ' - there is no winningVhash');
-	} else if (theRow.items && !theRow.items[theRow.winningVhash]) {
+	} else if (!theRow.items) {
+		console.error('For ' + theRow.xpstrid + ' - there are no items');
+	} else if (!theRow.items[theRow.winningVhash]) {
 		console.error('For ' + theRow.xpstrid + ' - there is winningVhash but no item for it');
+	} else {
+		const item = theRow.items[theRow.winningVhash];
+		if (item.value && item.value === ERROR_NO_WINNING_VALUE) {
+			console.error('For ' + theRow.xpstrid + ' - there is ' + ERROR_NO_WINNING_VALUE);
+		}
 	}
+
 	for (var k in theRow.items) {
 		var item = theRow.items[k];
 		if (item.value === INHERITANCE_MARKER) {
@@ -3153,6 +3167,28 @@ function checkRowConsistency(theRow) {
 			}
 		}
 	}
+}
+
+/**
+ * Get the winning value for the given row, if it's a valid value.
+ * Null and ERROR_NO_WINNING_VALUE ('error-no-winning-value') are not valid.
+ * See ERROR_NO_WINNING_VALUE in DataSection.java.
+ *
+ * @param theRow
+ * @returns the winning value, or null if there is not a valid winning value
+ */
+function getValidWinningValue(theRow) {
+	'use strict';
+	if (theRow.items && theRow.winningVhash && theRow.items[theRow.winningVhash]) {
+		const item = theRow.items[theRow.winningVhash];
+		if (item.value) {
+			const val = item.value;
+			if (val !== ERROR_NO_WINNING_VALUE) {
+				return val;
+			}
+		}
+	}
+	return null;
 }
 
 /**
@@ -3557,9 +3593,9 @@ function updateRowProposedWinningCell(tr, theRow, config, children, protoButton)
 	/*
 	 * If server doesn't do its job properly, theRow.items[theRow.winningVhash] may be undefined.
 	 * Check for that here to prevent crash in addVitem. An error message might be appropriate here
-	 * in that case, though the consistency checking really should happen earlier.
+	 * in that case, though the consistency checking really should happen earlier, see checkRowConsistency.
 	 */
-	if (theRow.items && theRow.winningVhash && theRow.items[theRow.winningVhash]) {
+	if (getValidWinningValue(theRow) !== null) {
 		addVitem(children[config.proposedcell], tr, theRow, theRow.items[theRow.winningVhash], cloneAnon(protoButton));
 	} else {
 		children[config.proposedcell].showFn = function() {}; // nothing else to show
@@ -3607,10 +3643,7 @@ function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd)
 		copyWinning.type = "button";
 		copyWinning.innerHTML = '<span class="glyphicon glyphicon-arrow-right"></span> Winning';
 		copyWinning.onclick = function(e) {
-			var theValue = null;
-			if (theRow.items[theRow.winningVhash]) {
-				theValue = theRow.items[theRow.winningVhash].value;
-			}
+			var theValue = getValidWinningValue(theRow);
 			if (theValue === INHERITANCE_MARKER || theValue === null) {
 				theValue = theRow.inheritedValue;
 			}
@@ -3645,8 +3678,8 @@ function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd)
 				if (theRow.displayName) {
 					popup.append(copyEnglish);
 				}
-				if ((theRow.items[theRow.winningVhash] && theRow.items[theRow.winningVhash].value) ||
-					theRow.inheritedValue) {
+				const winVal = getValidWinningValue(theRow);
+				if (winVal || theRow.inheritedValue) {
 					popup.append(copyWinning);
 				}
 				popup.closest('.popover').css('top', popup.closest('.popover').position().top - 19);

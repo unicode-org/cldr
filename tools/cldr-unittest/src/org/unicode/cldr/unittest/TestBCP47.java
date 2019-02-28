@@ -2,10 +2,12 @@ package org.unicode.cldr.unittest;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -21,6 +23,7 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.util.TimeZone;
 
 public class TestBCP47 extends TestFmwk {
     private static final int WARNING = LOG; // change to WARN to enable checking for non-bcp47 attributes
@@ -177,5 +180,83 @@ public class TestBCP47 extends TestFmwk {
     private String showData(String key, String type, String bcp47Description, Set<String> keyAliases, Set<String> typeAliases, String eng) {
         return "key: " + key + "\taliases: " + keyAliases + (type.isEmpty() ? "" : "\ttype: " + type + "\taliases: " + typeAliases) + "\tbcp: "
             + bcp47Description + ",\teng: " + eng;
+    }
+    
+    static final Set<String> BOGUS_TZIDS = ImmutableSet.of(
+        "ACT", "AET", "AGT", "ART", "AST", "BET", "BST", "CAT", "CET", "CNT", "CST", "CTT", "EAT", "ECT", "EET", "Factory", "IET", "IST", "JST", "MET", "MIT",
+        "NET", "NST", "PLT", "PNT", "PRT", "PST", "SST", "SystemV/AST4", "SystemV/AST4ADT", "SystemV/CST6", "SystemV/CST6CDT", "SystemV/EST5",
+        "SystemV/EST5EDT", "SystemV/HST10", "SystemV/MST7", "SystemV/MST7MDT", "SystemV/PST8", "SystemV/PST8PDT", "SystemV/YST9", "SystemV/YST9YDT", "VST",
+        "WET");
+
+    public void testBcp47IdsForAllTimezoneIds() {
+        Map<String, String> aliasToId = new TreeMap<>();
+        Set<String> missingAliases = new TreeSet<>();
+        Set<String> deprecatedAliases = new TreeSet<>();
+        Set<String> deprecatedBcp47s = new TreeSet<>();
+        Set<String> bcp47IdsNotUsed = new TreeSet<>();
+        for (String bcp47Type : bcp47key_types.get("tz")) {
+            R2<String, String> row = Row.of("tz", bcp47Type);
+            Set<String> aliasSet = bcp47keyType_aliases.get(row);
+            boolean itemIsDeprecated = "true".equals(deprecated.get(row));
+            if (itemIsDeprecated) {
+                deprecatedBcp47s.add(bcp47Type);
+            }
+            bcp47IdsNotUsed.add(bcp47Type);
+            if (aliasSet == null) {
+                continue;
+            }
+            for (String alias : aliasSet) {
+                aliasToId.put(alias, bcp47Type);
+                if (itemIsDeprecated) {
+                    deprecatedAliases.add(alias);
+                }
+            }
+        }
+        
+        warnln("CLDR deprecated bcp47 ids: " + deprecatedBcp47s);
+        warnln("CLDR deprecated tzids: " + deprecatedAliases);
+
+
+        for (String tzid : TimeZone.getAvailableIDs()) {
+            if (BOGUS_TZIDS.contains(tzid)) {
+                continue;
+            }
+            String bcp47Id = aliasToId.get(tzid);
+            if (!assertNotNull(tzid, bcp47Id)) {
+                missingAliases.add(tzid);
+            } else {
+                bcp47IdsNotUsed.remove(bcp47Id);
+                // check that the canonical is the first alias.
+                String canonical = TimeZone.getCanonicalID(tzid);
+                R2<String, String> row = Row.of("tz", bcp47Id);
+                Set<String> aliasSet = bcp47keyType_aliases.get(row);
+                if (assertNotNull("alias for " + bcp47Id, aliasSet)) {
+                    String first = aliasSet.iterator().next();
+                    assertEquals("canonical == first alias", first, canonical);
+                }
+            }
+        }
+        if (bcp47IdsNotUsed.contains("unk")) {
+            R2<String, String> row = Row.of("tz", "unk");
+            Set<String> aliasSet = bcp47keyType_aliases.get(row);
+
+            warnln("No TZDB id available in ICU for: " + "unk; " + aliasSet);
+            bcp47IdsNotUsed.remove("unk");
+        }
+        LinkedHashSet<String> diff = new LinkedHashSet<>(bcp47IdsNotUsed);
+        diff.removeAll(deprecatedBcp47s);
+        if (!diff.isEmpty()) {
+            errln("CLDR has unused bcp47 ids: " + diff);
+        } else if (!bcp47IdsNotUsed.isEmpty()) {
+            warnln("CLDR has unused (but deprecated) bcp47 ids: " + bcp47IdsNotUsed);
+        }
+        
+        diff = new LinkedHashSet<>(missingAliases);
+        diff.removeAll(deprecatedAliases);
+        if (!diff.isEmpty()) {
+            warnln("ICU has unused TZIDs: " + diff);
+        } else if (!missingAliases.isEmpty()) {
+            warnln("ICU has unused (but deprecated-in-CLDR) TZIDs ids: " + missingAliases);
+        }
     }
 }

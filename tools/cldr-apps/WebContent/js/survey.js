@@ -1223,7 +1223,7 @@ function undeferUpdate(what) {
 /**
  * Perform or queue an update. Note that there's data waiting if we are deferring.
  * @method doUpdate
- * @param {String} what
+ * @param {String} what, e.g., "DynamicDataSection" (theDiv.id)
  * @param {Function} fn function to call, now or later
  */
 function doUpdate(what,fn) {
@@ -2857,9 +2857,7 @@ function addVitem(td, tr, theRow, item, newButton) {
 	var testKind = getTestKind(item.tests);
 	setDivClass(div,testKind);
 	item.div = div; // back link
-	if(item==null)  {
-		return;
-	}
+
 	var displayValue = item.value;
 	if (item.value === INHERITANCE_MARKER) {
 		displayValue = theRow.inheritedValue; // TODO: what if theRow.inheritedValue is undefined, as it sometimes is?
@@ -2947,8 +2945,13 @@ function appendExtraAttributes(container, theRow) {
  * 
  * codecell  comparisoncell  nocell  statuscell  proposedcell  addcell  othercell
  *
- * TODO: is this function also used for Dashboard? See call to isDashboard() which
- * seems to imply this was used for Dashboard at one time.
+ * TODO: is this function also used for the Dashboard? See call to isDashboard() which
+ * seems to imply this was used for the Dashboard at one time. When I set a breakpoint
+ * here and go to the dashboard (e.g., "http://localhost:8080/cldr-apps/v#r_vetting_json/fr//")
+ * I do NOT get to the breakpoint. It appears that the Dashboard tables are currently
+ * created by review.js showReviewPage (invoked through EmbeddedReport.jsp, r_vetting_json.jsp,
+ * writeVettingViewerOutput); they're not created here in survey.js, so the calls here to
+ * isDashboard() currently serve no purpose.
  *
  * Dashboard columns are:
  * Code    English    CLDR 33    Winning 34    Action
@@ -2987,7 +2990,7 @@ function updateRow(tr, theRow) {
 	tr.ticketOnly = (tr.theTable.json.canModify && tr.statusAction.ticket);
 	tr.canChange = (tr.canModify && tr.statusAction.change);
 
-	if(!theRow || !theRow.xpathId) {
+	if (!theRow.xpathId) {
 		tr.innerHTML="<td><i>ERROR: missing row</i></td>";
 		return;
 	}
@@ -3497,12 +3500,11 @@ function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
  * @param children
  * 
  * Called by updateRow.
+ *
+ * TODO: call with td = children[config.codecell]) instead of config, children
  */
 function updateRowCodeCell(tr, theRow, config, children) {
 	'use strict';
-	children[config.codecell].appendChild(createChunk('|>'));
-	removeAllChildNodes(children[config.codecell]);
-	children[config.codecell].appendChild(createChunk('<|'));
 	removeAllChildNodes(children[config.codecell]);
 	var codeStr = theRow.code;
 	if (theRow.coverageValue == 101 && !stdebug_enabled) {
@@ -3559,6 +3561,8 @@ function updateRowCodeCell(tr, theRow, config, children) {
  * @param children
  * 
  * Called by updateRow.
+ * 
+ * TODO: call with td = children[comparisoncell]) instead of config, children
  */
 function updateRowEnglishComparisonCell(tr, theRow, config, children) {
 	'use strict';
@@ -3615,6 +3619,8 @@ function updateRowEnglishComparisonCell(tr, theRow, config, children) {
  * @param protoButton
  * 
  * Called by updateRow.
+ *
+ * TODO: call with td = children[proposedcell]) instead of config, children
  */
 function updateRowProposedWinningCell(tr, theRow, config, children, protoButton) {
 	'use strict';
@@ -3653,6 +3659,8 @@ function updateRowProposedWinningCell(tr, theRow, config, children, protoButton)
  * @param formAdd
  * 
  * Called by updateRow.
+ *
+ * TODO: call with td = children[config.othercell]) instead of config, children 
  */
 function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd) {
 	'use strict';
@@ -3754,7 +3762,7 @@ function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd)
 		};
 	}
 	/*
-	/* Add the other vote info -- that is, vote info for the "Others" column.
+	 * Add the other vote info -- that is, vote info for the "Others" column.
 	 */
 	for (k in theRow.items) {
 		if (k === theRow.winningVhash) { // skip vote for winner
@@ -3776,7 +3784,7 @@ function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd)
 	}
 }
 
-/*
+/**
  * Update the "no cell", a.k.a, the "Abstain" column, of this row
  *
  * If the user can make changes, add an "abstain" button;
@@ -3849,8 +3857,18 @@ function findPartition(partitions,partitionList,curPartition,i) {
 	return null;
 }
 
-function insertRowsIntoTbody(theTable,tbody) {
-	theTable.hitCount++;
+/**
+ * Insert rows into the table
+ *
+ * @param theTable the table in which to insert the rows
+ * @param reuseTable boolean, true if theTable already has rows and we're updating them,
+ *                            false if we need to insert new rows
+ *
+ * Called by insertRows only.
+ */
+function insertRowsIntoTbody(theTable, reuseTable) {
+	'use strict';
+	var tbody = theTable.getElementsByTagName("tbody")[0];
 	var theRows = theTable.json.section.rows;
 	var toAdd = theTable.toAdd;
 	var parRow = dojo.byId('proto-parrow');
@@ -3861,7 +3879,7 @@ function insertRowsIntoTbody(theTable,tbody) {
 	var rowList = theSort.rows;
 	var partitionList = Object.keys(partitions);
 	var curPartition = null;
-	for(i in rowList ) {
+	for (var i in rowList) {
 		var k = rowList[i];
 		var theRow = theRows[k];
 		var dir = theRow.dir;
@@ -3922,80 +3940,6 @@ function insertRowsIntoTbody(theTable,tbody) {
 
 		// add the tr to the table
 		tbody.appendChild(tr);
-	}
-}
-
-function reSort(theTable,k) {
-	if(theTable.curSortMode==k) {
-		return; // no op
-	}
-	theTable.curSortMode=k;
-	insertRowsIntoTbody(theTable,theTable.getElementsByTagName("tbody")[0]);
-	var lis = theTable.sortMode.getElementsByTagName("li");
-	for(i in lis) {
-		var li = lis[i];
-		if(li.mode==k) {
-			li.className="selected";
-		} else {
-			li.className = "notselected";
-		}
-	}
-}
-
-/**
- *
- * Setup the 'sort' popup menu.
- */
-function setupSortmode(theTable) {
-	var theSortmode = theTable.sortMode;
-	// ignore what's there
-	removeAllChildNodes(theSortmode);
-	var listOfLists = Object.keys(theTable.json.displaySets);
-	var itemCount = Object.keys(theTable.json.section.rows).length;
-	var size = document.createElement("span");
-	size.className="d-sort-size";
-	var ul = document.createElement("ul");
-	if(itemCount>0) {
-		for(i in listOfLists) {
-			var k = listOfLists[i];
-			if(k=="default") continue;
-
-			var a = document.createElement("li");
-			a.onclick = (function() {
-				var kk = k;
-				return function() {
-					reSort(theTable, kk);
-				};
-			})();
-			a.appendChild(document.createTextNode(theTable.json.displaySets[k].displayName));
-			a.mode=k;
-			if(k==theTable.curSortMode) {
-				a.className="selected";
-			} else {
-				a.className = "notselected";
-			}
-			ul.appendChild(a);
-		}
-	}
-	theTable.json.section.itemCount = itemCount;
-
-	if(itemCount==0 && theTable.json.section.skippedDueToCoverage) {
-		size.appendChild(document.createTextNode(
-				stui.sub("itemCountAllHidden", theTable.json.section)
-				));
-		size.className = "d-sort-size0";
-	} else if(itemCount==0) {
-		size.appendChild(document.createTextNode(
-				stui.sub("itemCountNone", theTable.json.section)
-				));
-		size.className = "d-sort-size0";
-	} else if(theTable.json.section.skippedDueToCoverage) {
-		size.appendChild(document.createTextNode(
-				stui.sub("itemCountHidden",theTable.json.section)
-				));
-	} else {
-		size.appendChild(document.createTextNode(
-				stui.sub("itemCount", theTable.json.section)));
 	}
 }
 
@@ -4080,21 +4024,32 @@ function updateCoverage(theDiv) {
 }
 
 /**
- * Prepare rows to be inserted into theDiv
- * @method insertRows
+ * Prepare rows to be inserted into the table
+ * 
+ * @param theDiv the division (typically or always? with id='DynamicDataSection') that contains, or will contain, the table
+ * @param xpath = json.pageId; e.g., "Alphabetic_Information"
+ * @param session the session id; e.g., "DEF67BCAAFED4332EBE742C05A8D1161"
+ * @param json the json received from the server; including (among much else):
+ * 			json.locale, e.g., "aa"
+ * 			json.section.coverage, e.g., "comprehensive"
+ *  		json.section.rows, with info for each row
  */
-function insertRows(theDiv,xpath,session,json) {
-	var theTable = theDiv.theTable;
-	var doInsertTable = null;
-
+function insertRows(theDiv, xpath, session, json) {
+	'use strict'; 
 	removeAllChildNodes(theDiv);
 	window.insertLocaleSpecialNote(theDiv);
 	//recreated table in every case
-	theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
-	if(isDashboard())
+	var theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
+	
+	/*
+	 * TODO: isDashboard() is never true here? See comments in updateRow
+	 */
+	if (isDashboard()) {
 		theTable.className += ' dashboard';
-	else
+	}
+	else {
 		theTable.className += ' vetting-page';
+	}
 	updateCoverage(theDiv);
 	localizeFlyover(theTable);
 	theTable.theadChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);
@@ -4106,10 +4061,6 @@ function insertRows(theDiv,xpath,session,json) {
 		if(rowChildren[c].id) {
 			surveyConfig[rowChildren[c].id] = c;
 			stdebug("  config."+rowChildren[c].id+" = children["+c+"]");
-			if(false&&stdebug_enabled) {
-				removeAllChildNodes(rowChildren[c]);
-				rowChildren[c].appendChild(createChunk("config."+rowChildren[c].id+"="+c));
-			}
 		} else {
 			stdebug("(proto-datarow #"+c+" has no id");
 		}
@@ -4122,15 +4073,13 @@ function insertRows(theDiv,xpath,session,json) {
 	}
 	theTable.sortMode = cloneAnon(dojo.byId('proto-sortmode'));
 	theDiv.appendChild(theTable.sortMode);
-	theTable.myTRs = [];
+	theTable.myTRs = []; // TODO: why here? only accessed in insertRowsIntoTbody?
 	theDiv.theTable = theTable;
 	theTable.theDiv = theDiv;
-	doInsertTable=theTable;
 
 	// append header row
 	theTable.json = json;
 	theTable.xpath = xpath;
-	theTable.hitCount=0;
 	theTable.session = session;
 
 	if(!theTable.curSortMode) {
@@ -4142,15 +4091,9 @@ function insertRows(theDiv,xpath,session,json) {
 			theTable.curSortMode = "metazon";
 		}
 	}
-	setupSortmode(theTable);
 
-	var tbody = theTable.getElementsByTagName("tbody")[0];
-	insertRowsIntoTbody(theTable,tbody);
-	if(doInsertTable) {
-		theDiv.appendChild(doInsertTable);
-	} else {
-		setDisplayed(theTable, true);
-	}
+	insertRowsIntoTbody(theTable, false);
+	theDiv.appendChild(theTable); 
 	hideLoader(theDiv.loader);
 }
 

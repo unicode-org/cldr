@@ -280,17 +280,6 @@ function toggleFix(event) {
     return false;
 }
 
-//insert the row for the fix button 
-function insertRowReview(theTable,tbody, row, tr) {
-	theTable.hitCount++;
-	removeAllChildNodes(tbody);
-		if(!theRow) {
-			console.log("Missing row " + k);
-		}
-		updateRow(tr,theRow);
-		tbody.appendChild(tr);
-}
-
 //hide or show line for the review page
 function toggleReviewLine() {
     var line = $(this).closest('tr');
@@ -682,7 +671,6 @@ function submitPost(event) {
 //insert the row fix in the popover
 function insertFixInfo(theDiv,xpath,session,json) {
 		var theTable = theDiv.theTable;
-		var doInsertTable = null;
 		
 		removeAllChildNodes(theDiv);
 		window.insertLocaleSpecialNote(theDiv);
@@ -713,16 +701,13 @@ function insertFixInfo(theDiv,xpath,session,json) {
 			theTable.myTRs = [];
 			theDiv.theTable = theTable;
 			theTable.theDiv = theDiv;
-			doInsertTable=theTable;
 		// append header row
 		
 		theTable.json = json;
 		theTable.xpath = xpath;
-		theTable.hitCount=0;
 		theTable.session = session;
 
 		var tbody = $(theTable).children('.data-vertical').get(0);
-		theTable.hitCount++;
 		
 		if(!theTable.curSortMode) { 
 			theTable.curSortMode = theTable.json.displaySets["default"];
@@ -757,7 +742,7 @@ function insertFixInfo(theDiv,xpath,session,json) {
 		}	
 		appendForumStuff(tr,theRow, tr.forumDiv);
 		tbody.appendChild(tr);	
-		theDiv.appendChild(doInsertTable);
+		theDiv.appendChild(theTable);
 }
 
 //redesign the fix row

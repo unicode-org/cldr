@@ -188,7 +188,7 @@
 						dsets.put("default", SortMode.getSortMode(ctx, section));
 						pageId = section.getPageId();
 					} else {
-					    dsets.put("default",PathHeaderSort.name);
+					    dsets.put("default",PathHeaderSort.name); // typically PathHeaderSort.name = "ph" 
 					    dsets.put(PathHeaderSort.name,section.createDisplaySet(SortMode.getInstance(PathHeaderSort.name),null)); // the section creates the sort
 					}
 							

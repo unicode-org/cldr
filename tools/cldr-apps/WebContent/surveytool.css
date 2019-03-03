@@ -2563,22 +2563,28 @@ span.d-sort-size {
 	background: url(contributed.png) no-repeat center;
 }
 
-.d-dr-inherited {
-	width: 16px;
-	height: 16px;
-	background: url(inherited.png) no-repeat center;
-}
-
 .d-dr-provisional {
 	width: 16px;
 	height: 16px;
 	background: url(provisional.png) no-repeat center;
 }
 
+.d-dr-inherited-provisional {
+	width: 16px;
+	height: 16px;
+	background: url(inherited-provisional.png) no-repeat center;
+}
+
 .d-dr-unconfirmed {
 	width: 16px;
 	height: 16px;
 	background: url(unconfirmed.png) no-repeat center;
+}
+
+.d-dr-inherited-unconfirmed {
+	width: 16px;
+	height: 16px;
+	background: url(inherited-unconfirmed.png) no-repeat center;
 }
 
 .d-dr-missing {

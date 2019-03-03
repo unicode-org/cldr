@@ -627,6 +627,8 @@ function isInputBusy() {
 /**
  * Create a DOM object with the specified text, tag, and HTML class.
  * Applies (classname)+"_desc" as a tooltip (title).
+ * TODO: clarify whether the "_desc" tooltip (title) is ever created, it doesn't appear to be.
+ *
  * @method createChunk
  * @param {String} text textual content of the new object, or null for none
  * @param {String} tag which element type to create, or null for "span"
@@ -2880,12 +2882,8 @@ function addVitem(td, tr, theRow, item, newButton) {
 	setLang(span);
 	checkLRmarker(choiceField, span.dir, item.value);
 
-	/*
-	 * TODO: show star even if isWinner? See https://unicode.org/cldr/trac/ticket/11386
-	 * That can be done by commenting out " && !isWinner" here...
-	 */
-	if(item.isOldValue==true /*** && !isWinner ***/) {
-		addIcon(choiceField,"i-star");
+	if( item.isOldValue == true) {
+		appendIcon(choiceField, "i-star", stui.str("voteInfo_lastRelease_desc"));
 	}
 	if(item.votes && !isWinner) {
 		if(item.valueHash == theRow.voteVhash && theRow.canFlagOnLosing && !theRow.rowFlagged){
@@ -3016,15 +3014,14 @@ function updateRow(tr, theRow) {
 		protoButton = dojo.byId('proto-button');
 	}
 
-	children[config.statuscell].className = "d-dr-"+theRow.confirmStatus + " d-dr-status";
+	/*
+	 * Update the "status cell", a.k.a. the "A" column.
+	 */
+	updateRowStatusCell(tr, theRow, children[config.statuscell]);
 
-	if(!children[config.statuscell].isSetup) {
-		listenToPop("", tr, children[config.statuscell]);
-		children[config.statuscell].isSetup=true;
-	}
-
-	children[config.statuscell].title = stui.sub('draftStatus',[stui.str(theRow.confirmStatus)]);
-
+	/*
+	 * Update part of the "no cell", cf. updateRowNoAbstainCell; should this code be moved to updateRowNoAbstainCell?
+	 */
 	if(theRow.hasVoted) {
 		children[config.nocell].title=stui.voTrue;
 		children[config.nocell].className= "d-no-vo-true";
@@ -3143,7 +3140,7 @@ function checkRowConsistency(theRow) {
 	} else {
 		const item = theRow.items[theRow.winningVhash];
 		if (item.value && item.value === ERROR_NO_WINNING_VALUE) {
-			console.error('For ' + theRow.xpstrid + ' - there is ' + ERROR_NO_WINNING_VALUE);
+			console.log('For ' + theRow.xpstrid + ' - there is ' + ERROR_NO_WINNING_VALUE);
 		}
 	}
 
@@ -3189,6 +3186,48 @@ function getValidWinningValue(theRow) {
 		}
 	}
 	return null;
+}
+
+/**
+ * Update the "status cell", a.k.a. the "A" column.
+ *
+ * @param tr the table row
+ * @param theRow the data from the server for this row
+ * @param cell the table cell = children[config.statuscell]
+ */
+function updateRowStatusCell(tr, theRow, cell) {
+	'use strict';
+	const statusClass = getRowApprovalStatusClass(theRow);
+	cell.className = "d-dr-" + statusClass + " d-dr-status";
+
+	if (!cell.isSetup) {
+		listenToPop("", tr, cell);
+		cell.isSetup = true;
+	}
+
+	const statusTitle = stui.str(statusClass);
+	cell.title = stui.sub('draftStatus', [statusTitle]);
+}
+
+/**
+ * On the client only, make further status distinctions when winning value is INHERITANCE_MARKER,
+ * "inherited-unconfirmed" (red up-arrow icon) and "inherited-provisional" (orange up-arrow icon).
+ * Reference: http://unicode.org/cldr/trac/ticket/11103
+ *
+ * @param theRow the data from the server for this row
+ */
+function getRowApprovalStatusClass(theRow) {
+	'use strict';
+	var statusClass = theRow.confirmStatus;
+
+	if (theRow.winningValue === INHERITANCE_MARKER) {
+		if (statusClass === "unconfirmed") {
+			statusClass = "inherited-unconfirmed";
+		} else if (statusClass === "provisional") {
+			statusClass = "inherited-provisional";
+		}
+	}
+	return statusClass;
 }
 
 /**
@@ -3265,10 +3304,13 @@ function updateRowVoteInfo(tr, theRow) {
 		 * we should use theRow.winningValue, not vr.winningValue. Eventually VoteResolver.getWinningValue may be
 		 * fixed in such a way that fixWinningValue isn't necessary and there won't be a distinction between
 		 * theRow.winningValue and vr.winningValue. Cf. theRow.winningVhash.
-		 * TODO: alternatively, could we just check for item.pClass === "winner" here?
+		 * Note: we can't just check for item.pClass === "winner" here, since, for example, the winning value may
+		 * have value = INHERITANCE_MARKER and item.pClass = "alias".
 		 */
-		if (value == theRow.winningValue) {
-			appendIcon(isection, "voteInfo_winningItem d-dr-" + theRow.voteResolver.winningStatus);
+		if (value === theRow.winningValue) {
+			const statusClass = getRowApprovalStatusClass(theRow);
+			const statusTitle = stui.str(statusClass);
+			appendIcon(isection, "voteInfo_winningItem d-dr-" + statusClass, stui.sub('draftStatus', [statusTitle]));
 			isectionIsUsed = true;
 		}
 
@@ -3280,7 +3322,7 @@ function updateRowVoteInfo(tr, theRow) {
 		 * conditions is true.
 		 */
 		if (value == vr.lastReleaseValue || item.isOldValue) {
-			appendIcon(isection, "voteInfo_lastRelease i-star");
+			appendIcon(isection, "voteInfo_lastRelease i-star", stui.str("voteInfo_lastRelease_desc"));
 			isectionIsUsed = true;
 		}
 		setLang(valdiv);
@@ -3288,10 +3330,7 @@ function updateRowVoteInfo(tr, theRow) {
 			appendItem(valdiv, theRow.inheritedValue, item.pClass, tr);
 			valdiv.appendChild(createChunk(stui.str("voteInfo_votesForInheritance"), 'p'));
 		} else {
-			/*
-			 * TODO: alternatively, could we just check for item.pClass === "winner" here?
-			 */
-			appendItem(valdiv, value, (value == theRow.winningValue) ? "winner" : "value", tr);
+			appendItem(valdiv, value, (value === theRow.winningValue) ? "winner" : "value", tr);
 			if (value === theRow.inheritedValue) {
 				valdiv.appendChild(createChunk(stui.str('voteInfo_votesForSpecificValue'), 'p'));
 			}
@@ -4138,8 +4177,9 @@ function firstword(str) {
 	return str.split(" ")[0];
 }
 
-function appendIcon(toElement, className) {
+function appendIcon(toElement, className, title) {
 	var e = createChunk(null, "div", className);
+	e.title = title;
 	toElement.appendChild(e);
 	return e;
 }

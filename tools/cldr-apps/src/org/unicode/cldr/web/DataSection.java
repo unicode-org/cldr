@@ -521,7 +521,9 @@ public class DataSection implements JSONString {
         private String pathWhereFound = null;
 
         /*
-         * TODO: document confirmStatus and other members of DataRow
+         * confirmStatus indicates the status of the winning value. It is sent to
+         * the client, which displays a corresponding status icon in the "A"
+         * ("Approval status") column. See VoteResolver.Status and VoteResolver.getWinningStatus. 
          */
         Status confirmStatus;
 
@@ -530,6 +532,9 @@ public class DataSection implements JSONString {
          */
         public int coverageValue;
 
+        /*
+         * TODO: document displayName and other members of DataRow
+         */
         private String displayName = null;
         // these apply to the 'winning' item, if applicable
         boolean hasErrors = false;

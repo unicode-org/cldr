@@ -220,7 +220,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 if (win == Status.approved) {
                     fullPath = baseXPath;
                 } else {
-                    fullPath = baseXPath + "[@draft=\"" + win + "\"]";
+                    DraftStatus draftStatus = draftStatusFromWinningStatus(win);
+                    fullPath = baseXPath + "[@draft=\"" + draftStatus.toString() + "\"]";
                 }
             }
             if (res != null) {
@@ -235,6 +236,30 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
             notifyListeners(path);
             return resolver;
+        }
+
+        /**
+         * Map the given VoteResolver.Status to a CLDRFile.DraftStatus
+         *
+         * @param win the VoteResolver.Status (winning status)
+         * @return the DraftStatus
+         *
+         * As a rule, the name of each VoteResolver.Status is also a name of a DraftStatus.
+         * Any exceptions to that rule should be handled explicitly in this function.
+         * 
+         * References:
+         *     https://unicode.org/cldr/trac/ticket/11721
+         *     https://unicode.org/cldr/trac/ticket/11766
+         *     https://unicode.org/cldr/trac/ticket/11103
+         */
+        private DraftStatus draftStatusFromWinningStatus(VoteResolver.Status win) {
+            try {
+                DraftStatus draftStatus = DraftStatus.forString(win.toString());
+                return draftStatus;
+            } catch (IllegalArgumentException e) {
+                SurveyLog.logException(e, "Exception in draftStatusFromWinningStatus of " + win);
+                return DraftStatus.unconfirmed;
+            }
         }
 
         /*

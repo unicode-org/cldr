@@ -64,7 +64,8 @@ define({
 		contributed: "Contributed", 
 		provisional: "Provisional",
 		missing: "Missing",
-
+		"inherited-unconfirmed": "Inherited and Unconfirmed",
+		"inherited-provisional": "Inherited and Provisional",
 
                 adminDeadThreadsHeader: "Deadlocked Threads!",
 

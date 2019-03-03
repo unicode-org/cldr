@@ -77,19 +77,18 @@ public class VoteResolver<T> {
      * Red/orange/black X: The item does not have enough votes to be used in CLDR, by most implementations (or is completely missing).
      * Reference: http://cldr.unicode.org/index/survey-tool/guide
      * 
-     * New November, 2018:
-     * Orange up-arrow: the item is inherited, i.e., winningValue is INHERITANCE_MARKER (↑↑↑), and does not
-     * have enough votes for a check. Reference: https://unicode.org/cldr/trac/ticket/11103
+     * New January, 2019: When the item is inherited, i.e., winningValue is INHERITANCE_MARKER (↑↑↑),
+     * then orange/red X are replaced by orange/red up-arrow. That change is made only on the client.
+     * Reference: https://unicode.org/cldr/trac/ticket/11103
      * 
      * Status.approved:    approved.png    = green check
      * Status.contributed: contributed.png = orange check
-     * Status.inherited:   inherited.png   = orange up-arrow
-     * Status.provisional: provisional.png = orange X
-     * Status.unconfirmed: unconfirmed.png = red X
+     * Status.provisional: provisional.png = orange X (or inherited_provisional.png orange up-arrow if inherited)
+     * Status.unconfirmed: unconfirmed.png = red X (or inherited_unconfirmed.png red up-arrow if inherited
      * Status.missing:     missing.png     = black X
      */
     public enum Status {
-        missing, unconfirmed, provisional, inherited, contributed, approved;
+        missing, unconfirmed, provisional, contributed, approved;
         public static Status fromString(String source) {
             return source == null ? missing : Status.valueOf(source);
         }
@@ -923,12 +922,6 @@ public class VoteResolver<T> {
                 winningValue = trunkValue;
             } else {
                 winningStatus = lastReleaseStatus;
-                /***
-                 Temporarily comment this out for https://unicode.org/cldr/trac/ticket/11721
-                if (CldrUtility.INHERITANCE_MARKER.equals(lastReleaseValue)) {
-                    winningStatus = Status.inherited;
-                }
-                ***/
                 winningValue = lastReleaseValue;
             }
             valuesWithSameVotes.add(winningValue); // may be null
@@ -1339,12 +1332,6 @@ public class VoteResolver<T> {
                 || weight1 >= 2 && organizationToValueAndVote.getOrgCount(winningValue) >= 2) ) {
             return Status.contributed;
         }
-        /***
-          Temporarily comment this out for https://unicode.org/cldr/trac/ticket/11721
-        if (CldrUtility.INHERITANCE_MARKER.equals(winningValue)) {
-            return Status.inherited;
-        }
-        ***/
         if (weight1 >= weight2 && weight1 >= 2) {
             return Status.provisional;
         }

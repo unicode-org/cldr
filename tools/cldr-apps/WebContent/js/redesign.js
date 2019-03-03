@@ -488,10 +488,10 @@ function labelizeIcon() {
 	                 title:'The "Proposed" (winning) value will be in the release (with a slightly lower status).'
 	             },
 	             {
-	            	 selector:'.d-dr-inherited',
-	                 type:'inherited',
-	                 text:'Inherited',
-	                 title:'The "Proposed" (winning) value is inherited.'
+	            	 selector:'.d-dr-provisional',
+	                 type:'warning',
+	                 text:'Provisional',
+	                 title:'There is a "Proposed" (winning) value, but it doesn\'t have enough votes.'
 	             },
 	             {
 	            	 selector:'.d-dr-unconfirmed',
@@ -500,10 +500,16 @@ function labelizeIcon() {
 	                 title:'There is a "Proposed" (winning) value, but it doesn\'t have enough votes.'
 	             },
 	             {
-	            	 selector:'.d-dr-provisional',
-	                 type:'warning',
-	                 text:'Provisional',
-	                 title:'There is a "Proposed" (winning) value, but it doesn\'t have enough votes.'
+	            	 selector:'.d-dr-inherited-provisional',
+	                 type:'inherited-provisional',
+	                 text:'Inherited and Provisional',
+	                 title:'The "Proposed" (winning) value is inherited and provisional.'
+	             },
+	             {
+	            	 selector:'.d-dr-inherited-unconfirmed',
+	                 type:'inherited-unconfirmed',
+	                 text:'Inherited and Unconfirmed',
+	                 title:'The "Proposed" (winning) value is inherited and unconfirmed.'
 	             },
 	             {
 	            	 selector:'.d-dr-missing',

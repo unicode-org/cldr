@@ -24,55 +24,6 @@ const INHERITANCE_MARKER = "↑↑↑";
  */
 const ERROR_NO_WINNING_VALUE = "error-no-winning-value";
 
-/*
- * TODO: delete the following fixes for Object.keys, Array.isArray, and String.trim,
- * which are probably not needed anymore with the current system requirements of SurveyTool,
- * namely, versions of Chrome, Firefox, Safari, Edge not more than six months old.
- * 
- * References indicating full support in current browsers:
- *  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
- *  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
- *  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim
- */
-
-/**
- * @class Object
- * @method keys
- */
-if(!Object.prototype.keys && !Object.keys) {
-	console.log("fixing missing Object.keys");
-	Object.keys = function(x) {
-		var r = [];
-		for (var j in x) {
-			r.push(j);
-		}
-		return r;
-	};
-}
-
-/**
- * @class Array
- * @method isArray
- */
-if(!Array.prototype.isArray && !Array.isArray) {
-	console.log("fixing missing Array.isArray() ");
-	Array.isArray = function(x) {
-		if(x === null) return false;
-		return x instanceof Array;   // if this doesn't work, we're in trouble.
-	};
-}
-
-/**
- * @class String
- * @method trim
- */
-if(!String.prototype.trim && !String.trim) {
-	console.log("TODO fix broken String.trim() ");
-	String.prototype.trim = function(x) {
-		return x;
-	};
-}
-
 /**
  * Format a date and time for display in a forum post.
  *
@@ -3044,7 +2995,7 @@ function updateRow(tr, theRow) {
 	 * Set up the "comparison cell", a.k.a. the "English" column.
 	 */
 	if(!children[config.comparisoncell].isSetup) {
-		updateRowEnglishComparisonCell(tr, theRow, config, children);
+		updateRowEnglishComparisonCell(tr, theRow, children[config.comparisoncell]);
 	}
 	
 	/*
@@ -3053,7 +3004,7 @@ function updateRow(tr, theRow) {
 	 * Column headings are: Code    English    Abstain    A    Winning    Add    Others
 	 * TODO: are we going out of order here, from English to Winning, skipping Abstain and A?
 	 */
-	updateRowProposedWinningCell(tr, theRow, config, children, protoButton);
+	updateRowProposedWinningCell(tr, theRow, children[config.proposedcell], protoButton);
 
 	/*
 	 * Set up the "err cell"
@@ -3076,7 +3027,7 @@ function updateRow(tr, theRow) {
 	/*
 	 * Set up the "other cell", a.k.a. the "Others" column.
 	 */
-	updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd);
+	updateRowOthersCell(tr, theRow, children[config.othercell], protoButton, formAdd);
 
 	/*
 	 * If the user can make changes, add "+" button for adding new candidate item.
@@ -3100,7 +3051,7 @@ function updateRow(tr, theRow) {
 	 * If the user can make changes, add an "abstain" button;
 	 * else, possibly add a ticket link, or else hide the column.
 	 */
-	updateRowNoAbstainCell(tr, theRow, config, children, protoButton);
+	updateRowNoAbstainCell(tr, theRow, children[config.nocell], children[config.proposedcell], protoButton);
 
 	/*
 	 * Set className for this row to "vother" and "cov..." based on the coverage value.
@@ -3554,14 +3505,11 @@ function updateRowCodeCell(tr, theRow, cell) {
  * 
  * @param tr the table row
  * @param theRow the data from the server for this row
- * @param config
- * @param children
+ * @param cell the table cell, children[config.comparisoncell]
  * 
  * Called by updateRow.
- * 
- * TODO: call with td = children[config.comparisoncell]) instead of config, children
  */
-function updateRowEnglishComparisonCell(tr, theRow, config, children) {
+function updateRowEnglishComparisonCell(tr, theRow, cell) {
 	'use strict';
 	if (theRow.displayName) {
 		var hintPos = theRow.displayName.indexOf('[translation hint');
@@ -3573,10 +3521,10 @@ function updateRowEnglishComparisonCell(tr, theRow, config, children) {
 			theRow.displayExample = theRow.displayName.substr(hintPos, theRow.displayName.length) + (theRow.displayExample ? theRow.displayExample.replace(/\[translation hint.*?\]/g, "") : '');
 			theRow.displayName = theRow.displayName.substr(0, hintPos);
 		}
-		children[config.comparisoncell].appendChild(createChunk(theRow.displayName, 'span', 'subSpan'));
-		setLang(children[config.comparisoncell], surveyBaselineLocale);
+		cell.appendChild(createChunk(theRow.displayName, 'span', 'subSpan'));
+		setLang(cell, surveyBaselineLocale);
 		if (theRow.displayExample) {
-			appendExample(children[config.comparisoncell], theRow.displayExample, surveyBaselineLocale);
+			appendExample(cell, theRow.displayExample, surveyBaselineLocale);
 		}
 		if (hintPos != -1 || hasExample) {
 			var infos = document.createElement("div");
@@ -3593,17 +3541,17 @@ function updateRowEnglishComparisonCell(tr, theRow, config, children) {
 				img.alt = 'Example';
 				infos.appendChild(img);
 			}
-			children[config.comparisoncell].appendChild(infos);
+			cell.appendChild(infos);
 		}
 	} else {
-		children[config.comparisoncell].appendChild(document.createTextNode(""));
+		cell.appendChild(document.createTextNode(""));
 	}
 	/* The next line (listenToPop...) had been commented out, for unknown reasons.
 	 * Restored (uncommented) for http://unicode.org/cldr/trac/ticket/10573 so that
 	 * the right-side panel info changes when you click on the English column.
 	 */
-	listenToPop(null, tr, children[config.comparisoncell]);
-	children[config.comparisoncell].isSetup = true;
+	listenToPop(null, tr, cell);
+	cell.isSetup = true;
 }
 
 /**
@@ -3611,26 +3559,23 @@ function updateRowEnglishComparisonCell(tr, theRow, config, children) {
  * 
  * @param tr the table row
  * @param theRow the data from the server for this row
- * @param config
- * @param children
+ * @param cell the table cell, children[config.proposedcell])
  * @param protoButton
- * 
- * Called by updateRow.
  *
- * TODO: call with td = children[config.proposedcell]) instead of config, children
+ * Called by updateRow.
  */
-function updateRowProposedWinningCell(tr, theRow, config, children, protoButton) {
+function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
 	'use strict';
-	removeAllChildNodes(children[config.proposedcell]); // win
+	removeAllChildNodes(cell); // win
 	if (theRow.rowFlagged) {
-		var flagIcon = addIcon(children[config.proposedcell], "s-flag");
+		var flagIcon = addIcon(cell, "s-flag");
 		flagIcon.title = stui.str("flag_desc");
 	} else if (theRow.canFlagOnLosing) {
-		var flagIcon = addIcon(children[config.proposedcell], "s-flag-d");
+		var flagIcon = addIcon(cell, "s-flag-d");
 		flagIcon.title = stui.str("flag_d_desc");
 	}
-	setLang(children[config.proposedcell]);
-	tr.proposedcell = children[config.proposedcell];
+	setLang(cell);
+	tr.proposedcell = cell;
 
 	/*
 	 * If server doesn't do its job properly, theRow.items[theRow.winningVhash] may be undefined.
@@ -3638,11 +3583,11 @@ function updateRowProposedWinningCell(tr, theRow, config, children, protoButton)
 	 * in that case, though the consistency checking really should happen earlier, see checkRowConsistency.
 	 */
 	if (getValidWinningValue(theRow) !== null) {
-		addVitem(children[config.proposedcell], tr, theRow, theRow.items[theRow.winningVhash], cloneAnon(protoButton));
+		addVitem(cell, tr, theRow, theRow.items[theRow.winningVhash], cloneAnon(protoButton));
 	} else {
-		children[config.proposedcell].showFn = function() {}; // nothing else to show
+		cell.showFn = function() {}; // nothing else to show
 	}
-	listenToPop(null, tr, children[config.proposedcell], children[config.proposedcell].showFn);
+	listenToPop(null, tr, cell, cell.showFn);
 }
 
 /*
@@ -3650,20 +3595,17 @@ function updateRowProposedWinningCell(tr, theRow, config, children, protoButton)
  * 
  * @param tr the table row
  * @param theRow the data from the server for this row
- * @param config
- * @param children
+ * @param cell, the table cell, children[config.othercell]
  * @param protoButton
  * @param formAdd
  * 
  * Called by updateRow.
- *
- * TODO: call with td = children[config.othercell]) instead of config, children 
  */
-function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd) {
+function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
 	'use strict';
 	var hadOtherItems = false;
-	removeAllChildNodes(children[config.othercell]); // other
-	setLang(children[config.othercell]);
+	removeAllChildNodes(cell); // other
+	setLang(cell);
 
 	if (tr.canModify) {
 		formAdd.role = "form";
@@ -3734,7 +3676,7 @@ function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd)
 					var newValue = $(this).val();
 					if (e.keyCode == 13) { //enter pressed
 						if (newValue) {
-							addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));
+							addValueVote(cell, tr, theRow, newValue, cloneAnon(protoButton));
 						} else {
 							toAddVoteButton(btn);
 						}
@@ -3747,7 +3689,7 @@ function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd)
 				var newValue = input.value;
 
 				if (newValue) {
-					addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));
+					addValueVote(cell, tr, theRow, newValue, cloneAnon(protoButton));
 				} else {
 					toAddVoteButton(btn);
 				}
@@ -3766,16 +3708,16 @@ function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd)
 			continue;
 		}
 		hadOtherItems = true;
-		addVitem(children[config.othercell], tr, theRow, theRow.items[k], cloneAnon(protoButton));
-		children[config.othercell].appendChild(document.createElement("hr"));
+		addVitem(cell, tr, theRow, theRow.items[k], cloneAnon(protoButton));
+		cell.appendChild(document.createElement("hr"));
 	}
 
 	if (!hadOtherItems /*!onIE*/ ) {
-		listenToPop(null, tr, children[config.othercell]);
+		listenToPop(null, tr, cell);
 	}
 	if (tr.myProposal && tr.myProposal.value && !findItemByValue(theRow.items, tr.myProposal.value)) {
 		// add back my proposal
-		children[config.othercell].appendChild(tr.myProposal);
+		cell.appendChild(tr.myProposal);
 	} else {
 		tr.myProposal = null; // not needed
 	}
@@ -3783,34 +3725,34 @@ function updateRowOthersCell(tr, theRow, config, children, protoButton, formAdd)
 
 /**
  * Update the "no cell", a.k.a, the "Abstain" column, of this row
+ * Also possibly make changes to the "proposed" (winning) cell
  *
  * If the user can make changes, add an "abstain" button;
  * else, possibly add a ticket link, or else hide the column.
  *
  * @param tr the table row
  * @param theRow the data from the server for this row
- * @param config
- * @param children
+ * @param noCell the table "no" (abstain) cell, children[config.nocell]
+ * @param proposedCell the table "proposed" (winning) cell, children[config.proposedcell]
  * @param protoButton
  * 
  * Called by updateRow.
  */
-function updateRowNoAbstainCell(tr, theRow, config, children, protoButton) {
+function updateRowNoAbstainCell(tr, theRow, noCell, proposedCell, protoButton) {
 	'use strict';
 	if (tr.canModify) {
-		removeAllChildNodes(children[config.nocell]); // no opinion
+		removeAllChildNodes(noCell); // no opinion
 		var noOpinion = cloneAnon(protoButton);
-		var wrap;
 		wireUpButton(noOpinion, tr, theRow, null);
 		noOpinion.value = null;
-		wrap = wrapRadio(noOpinion);
-		children[config.nocell].appendChild(wrap);
-		listenToPop(null, tr, children[config.nocell]);
+		var wrap = wrapRadio(noOpinion);
+		noCell.appendChild(wrap);
+		listenToPop(null, tr, noCell);
 	} else if (tr.ticketOnly) { // ticket link
 		if (!tr.theTable.json.canModify) { // only if hidden in the header
-			setDisplayed(children[config.nocell], false);
+			setDisplayed(noCell, false);
 		}
-		children[config.proposedcell].className = "d-change-confirmonly";
+		proposedCell.className = "d-change-confirmonly";
 		var surlink = document.createElement("div");
 		surlink.innerHTML = '<span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;';
 		surlink.className = 'alert alert-info fix-popover-help';
@@ -3828,12 +3770,12 @@ function updateRowNoAbstainCell(tr, theRow, config, children, protoButton) {
 				" (Note: this is not the production SurveyTool! Do not submit a ticket!) ", "p"));
 			link.href = link.href + "&description=NOT+PRODUCTION+SURVEYTOOL!";
 		}
-		children[config.proposedcell].appendChild(createChunk(stui.str("file_ticket_notice"), "i", "fnotebox"));
+		proposedCell.appendChild(createChunk(stui.str("file_ticket_notice"), "i", "fnotebox"));
 		surlink.appendChild(link);
 		tr.ticketLink = surlink;
 	} else { // no change possible
 		if (!tr.theTable.json.canModify) { // only if hidden in the header
-			setDisplayed(children[config.nocell], false);
+			setDisplayed(noCell, false);
 		}
 	}
 }
@@ -4257,7 +4199,10 @@ function setLang(node, loc) {
 
 /**
  * Utilities for the 'v.jsp' (new dispatcher) page.  Call this once in the page. It expects to find a node #DynamicDataSection
- * @method showV
+ * The function showV() itself is called only by v.jsp.
+ * 
+ * TODO: since this function showV is almost 2000 lines and contains about 15 functions, it seems like a good candidate
+ * for moving to a new source file. It will then be easier to understand and organize as a distinct module.
  */
 function showV() {
 	// REQUIRES

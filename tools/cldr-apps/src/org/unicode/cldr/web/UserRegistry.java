@@ -522,6 +522,11 @@ public class UserRegistry {
         }
         if (o == null) {
             try {
+                /*
+                 * TODO: "utilika" always logs WARNING: ** Unknown organization (treating as Guest): Utilika Foundation"
+                 * Map to "The Long Now Foundation" instead? Cf. https://unicode.org/cldr/trac/ticket/6320
+                 * Organization.java has: longnow("The Long Now Foundation", "Long Now", "PanLex")
+                 */
                 String arg = org.replaceAll("Utilika Foundation", "utilika")
                     .replaceAll("Government of Pakistan - National Language Authority", "pakistan")
                     .replaceAll("ICT Agency of Sri Lanka", "srilanka").toLowerCase().replaceAll("[.-]", "_");

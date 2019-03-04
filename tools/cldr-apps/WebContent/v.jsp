@@ -412,7 +412,14 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
     	<div class="col-md-9">
 		    <div data-dojo-type="dijit/layout/ContentPane" id="MainContentPane" data-dojo-props="splitter:true, region:'center'" >
 		        <div id="LoadingMessageSection"><%-- Loading messages --%>Please Wait<img src='loader.gif'></div>
-		        <div  id="DynamicDataSection" ><%-- the actual scrolling table --%></div>
+		        <div id="DynamicDataSection" ><%-- the actual scrolling table --%></div>
+ 			    <div id='nav-page-footer'>
+					<p class='nav-button'>
+						<button type="button" class="btn btn-primary btn-xs" onclick='chgPage(-1)'><span class='glyphicon glyphicon-arrow-left'></span> Previous</button>
+						<button type="button" class="btn btn-primary btn-xs" onclick='chgPage(1)'>Next <span class='glyphicon glyphicon-arrow-right'></span></button>
+						<button type="button" class="btn btn-default btn-xs toggle-right">Toggle Sidebar <span class="glyphicon glyphicon-align-right"></span></button>
+					</p>
+				</div>
 		        <div id="OtherSection"><%-- other content --%></div>
 		    </div>
 	    </div>

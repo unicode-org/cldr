@@ -710,6 +710,9 @@ function insertFixInfo(theDiv,xpath,session,json) {
 		var tbody = $(theTable).children('.data-vertical').get(0);
 		
 		if(!theTable.curSortMode) { 
+			/*
+			 * TODO: merge this block with similar code in survey.js; some or all of this code might be unneeded
+			 */
 			theTable.curSortMode = theTable.json.displaySets["default"];
 			// hack - choose one of these
 			if(theTable.json.displaySets.codecal) {

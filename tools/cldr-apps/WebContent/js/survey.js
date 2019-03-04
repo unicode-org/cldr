@@ -3036,8 +3036,8 @@ function updateRow(tr, theRow) {
 	/*
 	 * Assemble the "code cell", a.k.a. the "Code" column.
 	 */
-	if(config.codecell) {
-		updateRowCodeCell(tr, theRow, config, children);
+	if (config.codecell) {
+		updateRowCodeCell(tr, theRow, children[config.codecell]);
 	}
 
 	/*
@@ -3496,23 +3496,20 @@ function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
  * 
  * @param tr the table row
  * @param theRow the data from the server for this row
- * @param config
- * @param children
+ * @param cell the table cell, children[config.codecell]
  * 
  * Called by updateRow.
- *
- * TODO: call with td = children[config.codecell]) instead of config, children
  */
-function updateRowCodeCell(tr, theRow, config, children) {
+function updateRowCodeCell(tr, theRow, cell) {
 	'use strict';
-	removeAllChildNodes(children[config.codecell]);
+	removeAllChildNodes(cell);
 	var codeStr = theRow.code;
 	if (theRow.coverageValue == 101 && !stdebug_enabled) {
 		codeStr = codeStr + " (optional)";
 	}
-	children[config.codecell].appendChild(createChunk(codeStr));
+	cell.appendChild(createChunk(codeStr));
 	if (tr.theTable.json.canModify) { // pointless if can't modify.
-		children[config.codecell].className = "d-code";
+		cell.className = "d-code";
 		if (!tr.forumDiv) {
 			tr.forumDiv = document.createElement("div");
 			tr.forumDiv.className = "forumDiv";
@@ -3521,34 +3518,34 @@ function updateRowCodeCell(tr, theRow, config, children) {
 	}
 	// extra attributes
 	if (theRow.extraAttributes && Object.keys(theRow.extraAttributes).length > 0) {
-		appendExtraAttributes(children[config.codecell], theRow);
+		appendExtraAttributes(cell, theRow);
 	}
 	if (stdebug_enabled) {
 		var anch = document.createElement("i");
 		anch.className = "anch";
 		anch.id = theRow.xpathId;
-		children[config.codecell].appendChild(anch);
+		cell.appendChild(anch);
 		anch.appendChild(document.createTextNode("#"));
 		var go = document.createElement("a");
 		go.className = "anch-go";
 		go.appendChild(document.createTextNode("zoom"));
 		go.href = window.location.pathname + "?_=" + surveyCurrentLocale + "&x=r_rxt&xp=" + theRow.xpathId;
-		children[config.codecell].appendChild(go);
+		cell.appendChild(go);
 		var js = document.createElement("a");
 		js.className = "anch-go";
 		js.appendChild(document.createTextNode("{JSON}"));
 		js.popParent = tr;
 		listenToPop(JSON.stringify(theRow), tr, js);
-		children[config.codecell].appendChild(js);
-		children[config.codecell].appendChild(createChunk(" c=" + theRow.coverageValue));
+		cell.appendChild(js);
+		cell.appendChild(createChunk(" c=" + theRow.coverageValue));
 	}
-	if (!children[config.codecell].isSetup) {
+	if (!cell.isSetup) {
 		var xpathStr = "";
 		if (stdebug_enabled) {
 			xpathStr = "XPath: " + theRow.xpath;
 		}
-		listenToPop(xpathStr, tr, children[config.codecell]);
-		children[config.codecell].isSetup = true;
+		listenToPop(xpathStr, tr, cell);
+		cell.isSetup = true;
 	}
 }
 
@@ -3562,7 +3559,7 @@ function updateRowCodeCell(tr, theRow, config, children) {
  * 
  * Called by updateRow.
  * 
- * TODO: call with td = children[comparisoncell]) instead of config, children
+ * TODO: call with td = children[config.comparisoncell]) instead of config, children
  */
 function updateRowEnglishComparisonCell(tr, theRow, config, children) {
 	'use strict';
@@ -3620,7 +3617,7 @@ function updateRowEnglishComparisonCell(tr, theRow, config, children) {
  * 
  * Called by updateRow.
  *
- * TODO: call with td = children[proposedcell]) instead of config, children
+ * TODO: call with td = children[config.proposedcell]) instead of config, children
  */
 function updateRowProposedWinningCell(tr, theRow, config, children, protoButton) {
 	'use strict';
@@ -3874,7 +3871,7 @@ function insertRowsIntoTbody(theTable, reuseTable) {
 	var parRow = dojo.byId('proto-parrow');
 	removeAllChildNodes(tbody);
 
-	var theSort = theTable.json.displaySets[theTable.curSortMode];
+	var theSort = theTable.json.displaySets[theTable.curSortMode]; // typically (always?) curSortMode = "ph"
 	var partitions = theSort.partitions;
 	var rowList = theSort.rows;
 	var partitionList = Object.keys(partitions);
@@ -3915,13 +3912,13 @@ function insertRowsIntoTbody(theTable, reuseTable) {
 		var tr = theTable.myTRs[k];
 		if(!tr) {
 			tr = cloneAnon(toAdd);
-			theTable.myTRs[k]=tr; // save for later use
+			theTable.myTRs[k]=tr; // save for later use -- TODO: explain when/how would it get re-used? Impossible?
 		}
 
 		tr.rowHash = k;
 		tr.theTable = theTable;
 		if(!theRow) {
-			console.log("Missing row " + k);
+			console.log("Missing row " + k); // TODO: pointless? If this happens, we'll get exception below anyway
 		}
 		// update the xpath map
 		xpathMap.put({id: theRow.xpathId,
@@ -4056,7 +4053,7 @@ function insertRows(theDiv, xpath, session, json) {
 	var toAdd = dojo.byId('proto-datarow');  // loaded from "hidden.html", which see.
 	var rowChildren = getTagChildren(toAdd);
 	theTable.config = surveyConfig ={};
-	for(var c in rowChildren) {
+	for (var c in rowChildren) {
 		rowChildren[c].title = theTable.theadChildren[c].title;
 		if(rowChildren[c].id) {
 			surveyConfig[rowChildren[c].id] = c;
@@ -4071,8 +4068,7 @@ function insertRows(theDiv, xpath, session, json) {
 	if(!json.canModify) {
 		setDisplayed(theTable.theadChildren[theTable.config.nocell], false);
 	}
-	theTable.sortMode = cloneAnon(dojo.byId('proto-sortmode'));
-	theDiv.appendChild(theTable.sortMode);
+
 	theTable.myTRs = []; // TODO: why here? only accessed in insertRowsIntoTbody?
 	theDiv.theTable = theTable;
 	theTable.theDiv = theDiv;
@@ -4083,8 +4079,12 @@ function insertRows(theDiv, xpath, session, json) {
 	theTable.session = session;
 
 	if(!theTable.curSortMode) {
-		theTable.curSortMode = theTable.json.displaySets["default"];
+		theTable.curSortMode = theTable.json.displaySets["default"]; // typically (always?) "ph"
 		// hack - choose one of these
+		/*
+		 * TODO: is this no longer used? Cf. PREF_SORTMODE_CODE_CALENDAR and PREF_SORTMODE_METAZONE in SurveyMain.java
+		 * Cf. identical code in review.js
+		 */
 		if(theTable.json.displaySets.codecal) {
 			theTable.curSortMode = "codecal";
 		} else if(theTable.json.displaySets.metazon) {
@@ -5255,13 +5255,6 @@ function showV() {
 		}
 
 		window.insertLocaleSpecialNote = function insertLocaleSpecialNote(theDiv) {
-			if(surveyBeta) {
-				var theChunk = domConstruct.toDom(stui.sub("beta_msg", { info: bund, locale: surveyCurrentLocale, msg: msg}));
-				var subDiv = document.createElement("div");
-				subDiv.appendChild(theChunk);
-				subDiv.className = 'warnText';
-				theDiv.appendChild(subDiv);
-			}
 
 			var bund = locmap.getLocaleInfo(surveyCurrentLocale);
 
@@ -5279,14 +5272,21 @@ function showV() {
 					var subDiv = document.createElement("div");
 					subDiv.appendChild(theChunk);
 					subDiv.className = 'warnText';
-					theDiv.appendChild(subDiv);
+					theDiv.insertBefore(subDiv, theDiv.childNodes[0]);
 				} else if(bund.dcChild) {
 					var theChunk = domConstruct.toDom(stui.sub("defaultContentChild_msg", { info: bund, locale: surveyCurrentLocale, dcChildName: locmap.getLocaleName(bund.dcChild)}));
 					var subDiv = document.createElement("div");
 					subDiv.appendChild(theChunk);
 					subDiv.className = 'warnText';
-					theDiv.appendChild(subDiv);
+					theDiv.insertBefore(subDiv, theDiv.childNodes[0]); 
 				}
+			}
+			if (surveyBeta) {
+				var theChunk = domConstruct.toDom(stui.sub("beta_msg", { info: bund, locale: surveyCurrentLocale, msg: msg}));
+				var subDiv = document.createElement("div");
+				subDiv.appendChild(theChunk);
+				subDiv.className = 'warnText';
+				theDiv.insertBefore(subDiv, theDiv.childNodes[0]);
 			}
 		};
 
@@ -5346,6 +5346,7 @@ function showV() {
 
 			document.getElementById('DynamicDataSection').innerHTML = '';//reset the data
 			$('#nav-page').hide();
+			$('#nav-page-footer').hide();
 			isLoading = false;
 			showers[flipper.get(pages.data).id]=function(){ console.log("reloadV()'s shower - ignoring reload request, we are in the middle of a load!"); };
 
@@ -5438,7 +5439,7 @@ function showV() {
 						// (common case) this is an actual locale data page.
 						itemLoadInfo.appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale) + '/' + surveyCurrentPage + '/' + surveyCurrentId));
 						var url = contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
-						$('#nav-page').show();
+						$('#nav-page').show(); // make top "Prev/Next" buttons visible while loading, cf. '#nav-page-footer' below
 						myLoad(url, "section", function(json) {
 							isLoading=false;
 							showLoader(theDiv.loader,stui.loading2);
@@ -5480,9 +5481,8 @@ function showV() {
 									updateCoverage(flipper.get(pages.data)); // make sure cov is set right before we show.
 									flipper.flipTo(pages.data); // TODO now? or later?
 									window.showCurrentId(); // already calls scroll
-									//refresh counter and add navigation at bottom
 									refreshCounterVetting();
-									$('.vetting-page').after($('#nav-page .nav-button').clone());
+									$('#nav-page-footer').show(); // make bottom "Prev/Next" buttons visible after building table
 								});
 							}
 						});

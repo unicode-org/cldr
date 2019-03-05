@@ -2,6 +2,10 @@
  * CldrSurveyVettingTable.js - split off from survey.js, for CLDR Survey Tool
  * 
  * Functions for populating the main table in the vetting page: insertRowsIntoTbody, etc.
+ * Some function here are also used for the Dashboard (see review.js).
+ *
+ * TODO: make this more of a modular object; encapsulate; identify and reduce dependencies;
+ * add unit tests that don't depend on server or browser. Make the whole file 'use strict'.
  */
 
 // TODO: replace with AMD [?] loading
@@ -16,6 +20,10 @@ dojo.require("dojo.string");
  *                            false if we need to insert new rows
  *
  * Called by insertRows only.
+ * 
+ * This function is not currently used for the Dashboard, only for the main vetting table.
+ * Still we may want to keep the calls to isDashboard for future use. Also note that updateRow,
+ * which is called from here, IS also used for the Dashboard.
  */
 function insertRowsIntoTbody(theTable, reuseTable) {
 	'use strict';
@@ -23,7 +31,7 @@ function insertRowsIntoTbody(theTable, reuseTable) {
 	var theRows = theTable.json.section.rows;
 	var toAdd = theTable.toAdd;
 	var parRow = dojo.byId('proto-parrow');
-	removeAllChildNodes(tbody);
+	removeAllChildNodes(tbody); // TODO: don't call removeAllChildNodes here
 
 	var theSort = theTable.json.displaySets[theTable.curSortMode]; // typically (always?) curSortMode = "ph"
 	var partitions = theSort.partitions;
@@ -35,12 +43,15 @@ function insertRowsIntoTbody(theTable, reuseTable) {
 		var theRow = theRows[k];
 		var dir = theRow.dir;
 		overridedir = (dir != null ? dir : null);
-		//no partition in the dashboard
-		if(!isDashboard()) {
-			var newPartition = findPartition(partitions,partitionList,curPartition,i);
+		/*
+		 * There is no partition (section headings) in the Dashboard.
+		 * TODO: Also we won't regenerate the headings if we're re-using an existing table (reuseTable).
+		 */
+		if (!isDashboard()) {
+			var newPartition = findPartition(partitions, partitionList, curPartition, i);
 
-			if(newPartition != curPartition) {
-				if(newPartition.name != "") {
+			if (newPartition != curPartition) {
+				if (newPartition.name != "") {
 					var newPar = cloneAnon(parRow);
 					var newTd = getTagChildren(newPar);
 					var newHeading = getTagChildren(newTd[0]);
@@ -54,40 +65,58 @@ function insertRowsIntoTbody(theTable, reuseTable) {
 			}
 
 			var theRowCov = parseInt(theRow.coverageValue);
-			if(!newPartition.minCoverage || newPartition.minCoverage > theRowCov) {
+			if (!newPartition.minCoverage || newPartition.minCoverage > theRowCov) {
 				newPartition.minCoverage = theRowCov;
-                if(newPartition.tr) {
-                    // only set coverage of the header if there's a header
-            	    newPartition.tr.className = newPartition.origClass+" cov"+newPartition.minCoverage;
-                }
+				if (newPartition.tr) {
+					// only set coverage of the header if there's a header
+					newPartition.tr.className = newPartition.origClass + " cov" + newPartition.minCoverage;
+				}
 			}
 		}
 
+		/*
+		 * TODO: If tbody already contains tr with this id, re-use it
+		 * Re-do what was done on branch here: https://unicode.org/cldr/trac/changeset/14686
+		 * Cf. in updateRow: tr.id = "r@"+tr.xpstrid;
+		 */		
 		var tr = theTable.myTRs[k];
-		if(!tr) {
+		if (!tr) {
 			tr = cloneAnon(toAdd);
-			theTable.myTRs[k]=tr; // save for later use -- TODO: explain when/how would it get re-used? Impossible?
+			theTable.myTRs[k] = tr; // save for later use -- TODO: explain when/how would it get re-used? Impossible?
 		}
 
 		tr.rowHash = k;
 		tr.theTable = theTable;
-		if(!theRow) {
+		if (!theRow) {
 			console.log("Missing row " + k); // TODO: pointless? If this happens, we'll get exception below anyway
 		}
-		// update the xpath map
-		xpathMap.put({id: theRow.xpathId,
-					  hex: theRow.xpstrid,
-					  path: theRow.xpath,
-					  ph: {
-					       section: surveyCurrentSection, // Section: Timezones
-					       page: surveyCurrentPage,    // Page: SEAsia ( id, not name )
-					       header: curPartition.name,    // Header: Borneo
-					       code: theRow.code           // Code: standard-long
-					  	}
-					});
+		/*
+		 * Update the xpath map, unless re-using the table. If we're re-using the table, then
+		 * curPartition.name isn't defined, and anyway xpathMap shouldn't need changing.
+		 * TODO: add "if (!reuseTable) {" here ...
+		 * Re-do what was done on branch here: https://unicode.org/cldr/trac/changeset/14686
+		 */
+		xpathMap.put({
+			id: theRow.xpathId,
+			hex: theRow.xpstrid,
+			path: theRow.xpath,
+			ph: {
+				section: surveyCurrentSection, // Section: Timezones
+				page: surveyCurrentPage, // Page: SEAsia ( id, not name )
+				header: curPartition.name, // Header: Borneo
+				code: theRow.code // Code: standard-long
+			}
+		});
 
 		// refresh the tr's contents
-		updateRow(tr,theRow);
+		updateRow(tr, theRow);
+
+		/*
+		 * TODO: "if (!trAlreadyInTbody) {"
+		 * TODO: move this above into "if (!tr)" block?
+		 * Re-do what was done on branch here: https://unicode.org/cldr/trac/changeset/14686
+		 */
+		// if (!trAlreadyInTbody) {
 
 		// add the tr to the table
 		tbody.appendChild(tr);
@@ -97,18 +126,27 @@ function insertRowsIntoTbody(theTable, reuseTable) {
 	// downloadObjectAsJson(theTable);
 }
 
-function findPartition(partitions,partitionList,curPartition,i) {
-	if(curPartition &&
-			i>=curPartition.start &&
-			i<curPartition.limit) {
+/**
+ * Find the specified partition.
+ * 
+ * @param partitions
+ * @param partitionList
+ * @param curPartition
+ * @param i
+ * @returns the partition, or null
+ */
+function findPartition(partitions, partitionList, curPartition, i) {
+	if (curPartition &&
+		i >= curPartition.start &&
+		i < curPartition.limit) {
 		return curPartition;
 	}
-	for(var j in partitionList) {
+	for (var j in partitionList) {
 		var p = partitions[j];
-		if(i>=p.start &&
-			i<p.limit) {
-				return p;
-			}
+		if (i >= p.start &&
+			i < p.limit) {
+			return p;
+		}
 	}
 	return null;
 }
@@ -127,18 +165,19 @@ function findPartition(partitions,partitionList,curPartition,i) {
  * 
  * codecell  comparisoncell  nocell  statuscell  proposedcell  addcell  othercell
  *
- * TODO: is this function also used for the Dashboard? See call to isDashboard() which
- * seems to imply this was used for the Dashboard at one time. When I set a breakpoint
- * here and go to the dashboard (e.g., "http://localhost:8080/cldr-apps/v#r_vetting_json/fr//")
- * I do NOT get to the breakpoint. It appears that the Dashboard tables are currently
- * created by review.js showReviewPage (invoked through EmbeddedReport.jsp, r_vetting_json.jsp,
- * writeVettingViewerOutput); they're not created here in survey.js, so the calls here to
- * isDashboard() currently serve no purpose.
+ * IMPORTANT: this function is used for the Dashboard as well as the main Vetting table.
+ * Mostly the Dashboard tables are currently created by review.js showReviewPage
+ * (invoked through EmbeddedReport.jsp, r_vetting_json.jsp, writeVettingViewerOutput);
+ * they're not created here. Nevertheless the calls here to isDashboard() do serve a purpose,
+ * isDashboard() is true here when called by insertFixInfo in review.js. To see this, put
+ * a breakpoint in this function, go to Dashboard, and click on a "Fix" button, whose pop-up
+ * window then will include portions of the item's row as well as a version of the Info Panel.
  *
  * Dashboard columns are:
  * Code    English    CLDR 33    Winning 34    Action
  * 
- * Called by insertRowsIntoTbody and loadHandler (in refreshRow2).
+ * Called by insertRowsIntoTbody and loadHandler (in refreshRow2),
+ * AND by insertFixInfo in review.js!
  */
 function updateRow(tr, theRow) {
 	tr.theRow = theRow;
@@ -147,12 +186,12 @@ function updateRow(tr, theRow) {
 
 	/*
 	 * For convenience, set up two hashes, for reverse mapping from value or rawValue to item.
-	 */	
+	 */
 	tr.valueToItem = {}; // hash:  string value to item (which has a div)
 	tr.rawValueToItem = {}; // hash:  string value to item (which has a div)
-	for(var k in theRow.items) {
+	for (var k in theRow.items) {
 		var item = theRow.items[k];
-		if(item.value) {
+		if (item.value) {
 			tr.valueToItem[item.value] = item; // back link by value
 			tr.rawValueToItem[item.rawValue] = item; // back link by value
 		}
@@ -161,7 +200,7 @@ function updateRow(tr, theRow) {
 	/*
 	 * Update the vote info.
 	 */
-	if(theRow.voteResolver) {
+	if (theRow.voteResolver) {
 		updateRowVoteInfo(tr, theRow);
 	} else {
 		tr.voteDiv = null;
@@ -173,14 +212,14 @@ function updateRow(tr, theRow) {
 	tr.canChange = (tr.canModify && tr.statusAction.change);
 
 	if (!theRow.xpathId) {
-		tr.innerHTML="<td><i>ERROR: missing row</i></td>";
+		tr.innerHTML = "<td><i>ERROR: missing row</i></td>";
 		return;
 	}
-	if(!tr.xpstrid) {
+	if (!tr.xpstrid) {
 		tr.xpathId = theRow.xpathId;
 		tr.xpstrid = theRow.xpstrid;
-		if(tr.xpstrid) {
-			tr.id = "r@"+tr.xpstrid;
+		if (tr.xpstrid) {
+			tr.id = "r@" + tr.xpstrid;
 			tr.sethash = tr.xpstrid;
 		}
 	}
@@ -191,6 +230,10 @@ function updateRow(tr, theRow) {
 	 * config = surveyConfig has fields indicating which cells (columns) to display. It might look like this: 
 	 * 
 	 * Object {codecell: "0", comparisoncell: "1", nocell: "2", votedcell: "3", statuscell: "4", errcell: "5", proposedcell: "6", addcell: "7", othercell: "8"}
+	 *
+	 * Or, like this for Dashboard:
+	 * 
+	 * Object {nocell: "7", othercell: "5", proposedcell: "2", statuscell: "3"}
 	 */
 	var config = surveyConfig;
 
@@ -207,12 +250,12 @@ function updateRow(tr, theRow) {
 	/*
 	 * Update part of the "no cell", cf. updateRowNoAbstainCell; should this code be moved to updateRowNoAbstainCell?
 	 */
-	if(theRow.hasVoted) {
-		children[config.nocell].title=stui.voTrue;
-		children[config.nocell].className= "d-no-vo-true";
+	if (theRow.hasVoted) {
+		children[config.nocell].title = stui.voTrue;
+		children[config.nocell].className = "d-no-vo-true";
 	} else {
-		children[config.nocell].title=stui.voFalse;
-		children[config.nocell].className= "d-no-vo-false";
+		children[config.nocell].title = stui.voFalse;
+		children[config.nocell].className = "d-no-vo-false";
 	}
 
 	/*
@@ -225,10 +268,10 @@ function updateRow(tr, theRow) {
 	/*
 	 * Set up the "comparison cell", a.k.a. the "English" column.
 	 */
-	if(!children[config.comparisoncell].isSetup) {
+	if (!children[config.comparisoncell].isSetup) {
 		updateRowEnglishComparisonCell(tr, theRow, children[config.comparisoncell]);
 	}
-	
+
 	/*
 	 * Set up the "proposed cell", a.k.a. the "Winning" column.
 	 * 
@@ -244,8 +287,8 @@ function updateRow(tr, theRow) {
 	 * 
 	 * "config.errcell" doesn't occur anywhere else so this may be dead code.
 	 */
-	if(config.errcell) {
-		listenToPop(null,tr,children[config.errcell], children[config.proposedcell].showFn);
+	if (config.errcell) {
+		listenToPop(null, tr, children[config.errcell], children[config.proposedcell].showFn);
 	}
 
 	/*
@@ -263,17 +306,16 @@ function updateRow(tr, theRow) {
 	/*
 	 * If the user can make changes, add "+" button for adding new candidate item.
 	 * 
-	 * TODO: explain the call to isDashboard(): is this code for Dashboard as well as the basic navigation interface?
+	 * This code for Dashboard as well as the basic vetting table.
 	 * This block concerns othercell if isDashboard(), otherwise it concerns addcell.
 	 */
-	if(tr.canChange) {
-		if(isDashboard()) {
+	if (tr.canChange) {
+		if (isDashboard()) {
 			children[config.othercell].appendChild(document.createElement('hr'));
-			children[config.othercell].appendChild(formAdd);//add button
-		}
-		else {
+			children[config.othercell].appendChild(formAdd); //add button
+		} else {
 			removeAllChildNodes(children[config.addcell]);
-			children[config.addcell].appendChild(formAdd);//add button
+			children[config.addcell].appendChild(formAdd); //add button
 		}
 	}
 
@@ -294,7 +336,7 @@ function updateRow(tr, theRow) {
 	 * Show the current ID.
 	 * TODO: explain.
 	 */
-	if(surveyCurrentId!== '' && surveyCurrentId === tr.id) {
+	if (surveyCurrentId !== '' && surveyCurrentId === tr.id) {
 		window.showCurrentId(); // refresh again - to get the updated voting status.
 	}
 }
@@ -1010,4 +1052,3 @@ function updateRowNoAbstainCell(tr, theRow, noCell, proposedCell, protoButton) {
 		}
 	}
 }
-

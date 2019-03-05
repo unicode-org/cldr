@@ -83,7 +83,7 @@ function resizeSidebar() {
 	sidebar.css('top', header.height());
 }
 
-//this function is used in survey.js
+//this function is used in CldrSurveyVettingLoader.js
 var sentenceFilter;
 //filter all the locale (first son, then parent so we can build the tree, and let the parent displayed if a son is matched)
 function filterAllLocale(event) {

@@ -1510,7 +1510,7 @@ public class DataSection implements JSONString {
          *
          * A bug may occur on the client if there is no item for winningVhash.
          *
-         * See updateRowProposedWinningCell in survey.js:
+         * See updateRowProposedWinningCell in CldrSurveyVettingTable.js:
          * addVitem(children[config.proposedcell], tr, theRow, theRow.items[theRow.winningVhash], cloneAnon(protoButton));
          *
          * We get an error "item is undefined" in addVitem if theRow.items[theRow.winningVhash] isn't defined.

@@ -2978,7 +2978,7 @@ function insertRows(theDiv, xpath, session, json) {
 	
 	/*
 	 * Give our table the unique id, 'vetting-table'. This is needed by the test SurveyDriverVettingTable.
-	 * Otherwise its id would be null, and their is risk of confusion with other table such as 'proto-datarow.
+	 * Otherwise its id would be 'null' (the string 'null', not null!), and there is risk of confusion with other table such as 'proto-datarow'.
 	 */
 	theTable.id = 'vetting-table';
 	

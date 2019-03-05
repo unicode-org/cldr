@@ -256,9 +256,9 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_USER_LIST = "user_list"; // users.js
     public static final String WHAT_USER_OLDVOTES = "user_oldvotes"; // users.js
     public static final String WHAT_USER_XFEROLDVOTES = "user_xferoldvotes"; // users.js
-    public static final String WHAT_OLDVOTES = "oldvotes"; // survey.js
-    public static final String WHAT_FLAGGED = "flagged"; // survey.js
-    public static final String WHAT_AUTO_IMPORT = "auto_import"; // survey.js
+    public static final String WHAT_OLDVOTES = "oldvotes"; // CldrSurveyVettingLoader.js
+    public static final String WHAT_FLAGGED = "flagged"; // CldrSurveyVettingLoader.js
+    public static final String WHAT_AUTO_IMPORT = "auto_import"; // CldrSurveyVettingLoader.js
 
     public static final int oldestVersionForImportingVotes = 25; // Oldest table is cldr_vote_value_25, as of 2018-05-23.
 
@@ -1700,7 +1700,7 @@ public class SurveyAjax extends HttpServlet {
             }
         }
         /*
-         * In survey.js the json is used like this:
+         * In CldrSurveyVettingLoader.js the json is used like this:
          *  var data = json.oldvotes.locales.data;
          *  var header = json.oldvotes.locales.header;
          *  The header is then used for header.LOCALE_NAME, header.LOCALE, and header.COUNT.
@@ -1710,13 +1710,15 @@ public class SurveyAjax extends HttpServlet {
         JSONObject header = new JSONObject().put("LOCALE", 0).put("COUNT", 1).put("LOCALE_NAME", 2);
         JSONArray data = new JSONArray();
         STFactory fac = sm.getSTFactory();
-        /* Create the data array. Revise the vote count for each locale, to match how viewOldVotes
+        /*
+         * Create the data array. Revise the vote count for each locale, to match how viewOldVotes
          * will assemble the data, since viewOldVotes may filter out some votes. Call viewOldVotes here
          * with null for its oldvotes parameter, meaning just count the votes.
          */
         JSONObject oldVotesNull = null;
         localeCount.forEach((loc, count) -> {
-            /* We may get realCount <= count due to filtering. If we catch an exception here thrown in
+            /*
+             * We may get realCount <= count due to filtering. If we catch an exception here thrown in
              * viewOldVotes, use the value already in count, still enabling the user to select the locale.
              */
             long realCount = count;
@@ -1881,7 +1883,7 @@ public class SurveyAjax extends HttpServlet {
      * Called locally by importOldVotesForValidatedUser, and also by unit test TestImportOldVotes.java, therefore public.
      * 
      * On the frontend, submitOldVotes is called in response to the user clicking a button
-     * set up in addOldvotesType in survey.js: submit.on("click",function(e) {...
+     * set up in addOldvotesType in CldrSurveyVettingLoader.js: submit.on("click",function(e) {...
      * ... if(jsondata[kk].box.checked) confirmList.push(jsondata[kk].strid);
      * That on-click code sets up confirmList, inside of saveList:
      * var saveList = {

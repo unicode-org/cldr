@@ -3,6 +3,7 @@
 <script src="<%= request.getContextPath() %>/js/jquery.autosize.min.js"></script>
 <script src='<%= request.getContextPath() %>/js/survey.js'></script>
 <script src="<%= request.getContextPath() %>/js/CldrSurveyVettingLoader.js"></script>
+<script src="<%= request.getContextPath() %>/js/CldrSurveyVettingTable.js"></script>
 <script src="<%= request.getContextPath() %>/js/bootstrap.min.js"></script>
 <script src="<%= request.getContextPath() %>/js/redesign.js"></script>
 <script src="<%= request.getContextPath() %>/js/review.js"></script>

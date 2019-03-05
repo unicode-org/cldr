@@ -1,16 +1,99 @@
 /*
  * CldrSurveyVettingTable.js - split off from survey.js, for CLDR Survey Tool
  * 
- * Functions for populating the main table in the vetting page: insertRowsIntoTbody, etc.
+ * Functions for populating the main table in the vetting page: insertRows, insertRowsIntoTbody, etc.
  * Some function here are also used for the Dashboard (see review.js).
  *
  * TODO: make this more of a modular object; encapsulate; identify and reduce dependencies;
- * add unit tests that don't depend on server or browser. Make the whole file 'use strict'.
+ * add unit tests that don't depend on server or browser.
  */
+
+'use strict';
 
 // TODO: replace with AMD [?] loading
 dojo.require("dojo.i18n");
 dojo.require("dojo.string");
+
+/**
+ * Prepare rows to be inserted into the table
+ * 
+ * @param theDiv the division (typically or always? with id='DynamicDataSection') that contains, or will contain, the table
+ * @param xpath = json.pageId; e.g., "Alphabetic_Information"
+ * @param session the session id; e.g., "DEF67BCAAFED4332EBE742C05A8D1161"
+ * @param json the json received from the server; including (among much else):
+ * 			json.locale, e.g., "aa"
+ * 			json.section.coverage, e.g., "comprehensive"
+ *  		json.section.rows, with info for each row
+ */
+function insertRows(theDiv, xpath, session, json) {
+    removeAllChildNodes(theDiv);
+    window.insertLocaleSpecialNote(theDiv);
+    //recreated table in every case
+    var theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
+
+    /*
+     * Give our table the unique id, 'vetting-table'. This is needed by the test SurveyDriverVettingTable.
+     * Otherwise its id would be 'null' (the string 'null', not null!), and there is risk of confusion with other table such as 'proto-datarow'.
+     */
+    theTable.id = 'vetting-table';
+
+    /*
+     * TODO: isDashboard() is never true here? See comments in updateRow
+     */
+    if (isDashboard()) {
+        theTable.className += ' dashboard';
+    } else {
+        theTable.className += ' vetting-page';
+    }
+    updateCoverage(theDiv);
+    localizeFlyover(theTable);
+    theTable.theadChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);
+    var toAdd = dojo.byId('proto-datarow'); // loaded from "hidden.html", which see.
+    var rowChildren = getTagChildren(toAdd);
+    theTable.config = surveyConfig = {};
+    for (var c in rowChildren) {
+        rowChildren[c].title = theTable.theadChildren[c].title;
+        if (rowChildren[c].id) {
+            surveyConfig[rowChildren[c].id] = c;
+            stdebug("  config." + rowChildren[c].id + " = children[" + c + "]");
+        } else {
+            stdebug("(proto-datarow #" + c + " has no id");
+        }
+    }
+    if (stdebug_enabled) stdebug("Table Config: " + JSON.stringify(theTable.config));
+
+    theTable.toAdd = toAdd;
+    if (!json.canModify) {
+        setDisplayed(theTable.theadChildren[theTable.config.nocell], false);
+    }
+
+    theTable.myTRs = []; // TODO: why here? only accessed in insertRowsIntoTbody?
+    theDiv.theTable = theTable;
+    theTable.theDiv = theDiv;
+
+    // append header row
+    theTable.json = json;
+    theTable.xpath = xpath;
+    theTable.session = session;
+
+    if (!theTable.curSortMode) {
+        theTable.curSortMode = theTable.json.displaySets["default"]; // typically (always?) "ph"
+        // hack - choose one of these
+        /*
+         * TODO: is this no longer used? Cf. PREF_SORTMODE_CODE_CALENDAR and PREF_SORTMODE_METAZONE in SurveyMain.java
+         * Cf. identical code in review.js
+         */
+        if (theTable.json.displaySets.codecal) {
+            theTable.curSortMode = "codecal";
+        } else if (theTable.json.displaySets.metazon) {
+            theTable.curSortMode = "metazon";
+        }
+    }
+
+    insertRowsIntoTbody(theTable, false);
+    theDiv.appendChild(theTable);
+    hideLoader(theDiv.loader);
+}
 
 /**
  * Insert rows into the table
@@ -26,7 +109,6 @@ dojo.require("dojo.string");
  * which is called from here, IS also used for the Dashboard.
  */
 function insertRowsIntoTbody(theTable, reuseTable) {
-	'use strict';
 	var tbody = theTable.getElementsByTagName("tbody")[0];
 	var theRows = theTable.json.section.rows;
 	var toAdd = theTable.toAdd;
@@ -354,7 +436,6 @@ function updateRow(tr, theRow) {
  * for automated testing with WebDriver.
  */
 function checkRowConsistency(theRow) {
-	'use strict';
 	if (!theRow.winningVhash) {
 		/*
 		 * The server, not the client, is responsible for ensuring that a winning item is present.
@@ -402,7 +483,6 @@ function checkRowConsistency(theRow) {
  * @returns the winning value, or null if there is not a valid winning value
  */
 function getValidWinningValue(theRow) {
-	'use strict';
 	if (theRow.items && theRow.winningVhash && theRow.items[theRow.winningVhash]) {
 		const item = theRow.items[theRow.winningVhash];
 		if (item.value) {
@@ -423,7 +503,6 @@ function getValidWinningValue(theRow) {
  * @param cell the table cell = children[config.statuscell]
  */
 function updateRowStatusCell(tr, theRow, cell) {
-	'use strict';
 	const statusClass = getRowApprovalStatusClass(theRow);
 	cell.className = "d-dr-" + statusClass + " d-dr-status";
 
@@ -444,7 +523,6 @@ function updateRowStatusCell(tr, theRow, cell) {
  * @param theRow the data from the server for this row
  */
 function getRowApprovalStatusClass(theRow) {
-	'use strict';
 	var statusClass = theRow.confirmStatus;
 
 	if (theRow.winningValue === INHERITANCE_MARKER) {
@@ -470,7 +548,6 @@ function getRowApprovalStatusClass(theRow) {
  * TODO: shorten this function by using subroutines.
  */
 function updateRowVoteInfo(tr, theRow) {
-	'use strict';
 	var vr = theRow.voteResolver;
 	var div = tr.voteDiv = document.createElement("div");
 	tr.voteDiv.className = "voteDiv";
@@ -607,7 +684,6 @@ function updateRowVoteInfo(tr, theRow) {
  * @param vdiv a table created by the caller as vdiv = createChunk(null, "table", "voteInfo_perValue table table-vote")
  */
 function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
-	'use strict';
 	var createVoter = function(v) {
 		if (v == null) {
 			return createChunk("(missing information)!", "i", "stopText");
@@ -725,7 +801,6 @@ function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
  * Called by updateRow.
  */
 function updateRowCodeCell(tr, theRow, cell) {
-	'use strict';
 	removeAllChildNodes(cell);
 	var codeStr = theRow.code;
 	if (theRow.coverageValue == 101 && !stdebug_enabled) {
@@ -783,7 +858,6 @@ function updateRowCodeCell(tr, theRow, cell) {
  * Called by updateRow.
  */
 function updateRowEnglishComparisonCell(tr, theRow, cell) {
-	'use strict';
 	if (theRow.displayName) {
 		var hintPos = theRow.displayName.indexOf('[translation hint');
 		var hasExample = false;
@@ -838,7 +912,6 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
  * Called by updateRow.
  */
 function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
-	'use strict';
 	removeAllChildNodes(cell); // win
 	if (theRow.rowFlagged) {
 		var flagIcon = addIcon(cell, "s-flag");
@@ -875,7 +948,6 @@ function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
  * Called by updateRow.
  */
 function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
-	'use strict';
 	var hadOtherItems = false;
 	removeAllChildNodes(cell); // other
 	setLang(cell);
@@ -1012,7 +1084,6 @@ function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
  * Called by updateRow.
  */
 function updateRowNoAbstainCell(tr, theRow, noCell, proposedCell, protoButton) {
-	'use strict';
 	if (tr.canModify) {
 		removeAllChildNodes(noCell); // no opinion
 		var noOpinion = cloneAnon(protoButton);

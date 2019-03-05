@@ -1610,7 +1610,7 @@ public class WebContext implements Cloneable, Appendable {
                     // this.println("Error loading " + prefix + " / " + ptype +
                     // " in " + locale + " - " + t.toString());
                 } finally {
-                    progress.close();
+                    progress.close(); // TODO: this can trigger "State Error: Closing an already-closed CLDRProgressIndicator"
                     if (options == LoadingShow.showLoading) {
                         println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='';</script>");
                         flush();

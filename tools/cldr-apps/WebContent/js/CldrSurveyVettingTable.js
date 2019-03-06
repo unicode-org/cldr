@@ -1146,25 +1146,25 @@ function updateRowNoAbstainCell(tr, theRow, noCell, proposedCell, protoButton) {
 			setDisplayed(noCell, false);
 		}
 	}
+}
 
-	/**
-	 * Get the winning value for the given row, if it's a valid value.
-	 * Null and ERROR_NO_WINNING_VALUE ('error-no-winning-value') are not valid.
-	 * See ERROR_NO_WINNING_VALUE in DataSection.java.
-	 *
-	 * @param theRow
-	 * @returns the winning value, or null if there is not a valid winning value
-	 */
-	function getValidWinningValue(theRow) {
-		if (theRow.items && theRow.winningVhash && theRow.items[theRow.winningVhash]) {
-			const item = theRow.items[theRow.winningVhash];
-			if (item.value) {
-				const val = item.value;
-				if (val !== ERROR_NO_WINNING_VALUE) {
-					return val;
-				}
+/**
+ * Get the winning value for the given row, if it's a valid value.
+ * Null and ERROR_NO_WINNING_VALUE ('error-no-winning-value') are not valid.
+ * See ERROR_NO_WINNING_VALUE in DataSection.java.
+ *
+ * @param theRow
+ * @returns the winning value, or null if there is not a valid winning value
+ */
+function getValidWinningValue(theRow) {
+	if (theRow.items && theRow.winningVhash && theRow.items[theRow.winningVhash]) {
+		const item = theRow.items[theRow.winningVhash];
+		if (item.value) {
+			const val = item.value;
+			if (val !== ERROR_NO_WINNING_VALUE) {
+				return val;
 			}
 		}
-		return null;
 	}
+	return null;
 }

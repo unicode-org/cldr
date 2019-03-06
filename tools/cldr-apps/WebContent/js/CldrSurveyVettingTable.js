@@ -1,5 +1,5 @@
 /*
- * CldrSurveyVettingTable.js - split off from survey.js, for CLDR Survey Tool
+ * CldrSurveyVettingTable.js - split off from survey.js, for CLDR Survey Tool.
  * 
  * Functions for populating the main table in the vetting page: insertRows, updateRow, etc.
  * Some functions here (such as updateRow) are also used for the Dashboard (see review.js).

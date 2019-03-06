@@ -14,12 +14,6 @@ dojo.require("dojo.string");
  */
 const INHERITANCE_MARKER = "↑↑↑";
 
-/*
- * ERROR_NO_WINNING_VALUE indicates a bug on the server, which delivered path data without a valid winning value.
- * Compare ERROR_NO_WINNING_VALUE in DataSection.java.
- */
-const ERROR_NO_WINNING_VALUE = "error-no-winning-value";
-
 /**
  * Format a date and time for display in a forum post.
  *

@@ -1,18 +1,26 @@
 /*
  * CldrSurveyVettingTable.js - split off from survey.js, for CLDR Survey Tool
  * 
- * Functions for populating the main table in the vetting page: insertRows, insertRowsIntoTbody, etc.
- * Some function here are also used for the Dashboard (see review.js).
+ * Functions for populating the main table in the vetting page: insertRows, updateRow, etc.
+ * Some functions here (such as updateRow) are also used for the Dashboard (see review.js).
  *
  * TODO: make this more of a modular object; encapsulate; identify and reduce dependencies;
  * add unit tests that don't depend on server or browser.
  */
-
 'use strict';
 
 // TODO: replace with AMD [?] loading
 dojo.require("dojo.i18n");
 dojo.require("dojo.string");
+
+const ALWAYS_REMOVE_ALL_CHILD_NODES = false; // should be false, but can make true to revert to old behavior before https://unicode.org/cldr/trac/ticket/11571
+const NEVER_REUSE_TABLE = false; // should be false, but can make true to revert to old behavior before https://unicode.org/cldr/trac/ticket/11571
+
+/*
+ * ERROR_NO_WINNING_VALUE indicates a bug on the server, which delivered path data without a valid winning value.
+ * Compare ERROR_NO_WINNING_VALUE in DataSection.java.
+ */
+const ERROR_NO_WINNING_VALUE = "error-no-winning-value";
 
 /**
  * Prepare rows to be inserted into the table
@@ -26,73 +34,116 @@ dojo.require("dojo.string");
  *  		json.section.rows, with info for each row
  */
 function insertRows(theDiv, xpath, session, json) {
-    removeAllChildNodes(theDiv);
-    window.insertLocaleSpecialNote(theDiv);
-    //recreated table in every case
-    var theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
 
-    /*
-     * Give our table the unique id, 'vetting-table'. This is needed by the test SurveyDriverVettingTable.
-     * Otherwise its id would be 'null' (the string 'null', not null!), and there is risk of confusion with other table such as 'proto-datarow'.
-     */
-    theTable.id = 'vetting-table';
+	if (ALWAYS_REMOVE_ALL_CHILD_NODES) {
+		removeAllChildNodes(theDiv); // maybe superfluous if always recreate the table, and wrong if we don't always recreate the table
+	}
 
-    /*
-     * TODO: isDashboard() is never true here? See comments in updateRow
-     */
-    if (isDashboard()) {
-        theTable.className += ' dashboard';
-    } else {
-        theTable.className += ' vetting-page';
-    }
-    updateCoverage(theDiv);
-    localizeFlyover(theTable);
-    theTable.theadChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);
-    var toAdd = dojo.byId('proto-datarow'); // loaded from "hidden.html", which see.
-    var rowChildren = getTagChildren(toAdd);
-    theTable.config = surveyConfig = {};
-    for (var c in rowChildren) {
-        rowChildren[c].title = theTable.theadChildren[c].title;
-        if (rowChildren[c].id) {
-            surveyConfig[rowChildren[c].id] = c;
-            stdebug("  config." + rowChildren[c].id + " = children[" + c + "]");
-        } else {
-            stdebug("(proto-datarow #" + c + " has no id");
-        }
-    }
-    if (stdebug_enabled) stdebug("Table Config: " + JSON.stringify(theTable.config));
+	$('.warnText').remove(); // remove any pre-existing "special notes", before insertLocaleSpecialNote
+	window.insertLocaleSpecialNote(theDiv);
 
-    theTable.toAdd = toAdd;
-    if (!json.canModify) {
-        setDisplayed(theTable.theadChildren[theTable.config.nocell], false);
-    }
+	var theTable = null;
+	const reuseTable = (!NEVER_REUSE_TABLE) && theDiv.theTable && theDiv.theTable.json && tablesAreCompatible(json, theDiv.theTable.json);
+	if (reuseTable) {
+		/*
+		 * Re-use the old table, just update contents of individual cells
+		 */
+		// console.log("🦋🦋🦋 re-use table");
+		theTable = theDiv.theTable;
+	} else {
+		/*
+		 * Re-create the table from scratch
+		 */
+		// console.log("🦞🦞🦞 make new table");
+		var theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
+		/*
+		 * Note: isDashboard() is currently never true here; see comments in insertRowsIntoTbody and updateRow
+		 */
+		if (isDashboard()) {
+			theTable.className += ' dashboard';
+		} else {
+			theTable.className += ' vetting-page';
+		}
+		/*
+		 * Give our table the unique id, 'vetting-table'. This is needed by the test SurveyDriverVettingTable.
+		 * Otherwise its id would be 'null' (the string 'null', not null!), and there is risk of confusion
+		 * with other table such as 'proto-datarow'.
+		 */
+		theTable.id = 'vetting-table';
+	}
+	updateCoverage(theDiv);
+	localizeFlyover(theTable);
+	theTable.theadChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);
+	var toAdd = dojo.byId('proto-datarow'); // loaded from "hidden.html", which see.
+	var rowChildren = getTagChildren(toAdd);
+	theTable.config = surveyConfig = {};
+	for (var c in rowChildren) {
+		rowChildren[c].title = theTable.theadChildren[c].title;
+		if (rowChildren[c].id) {
+			surveyConfig[rowChildren[c].id] = c;
+			stdebug("  config." + rowChildren[c].id + " = children[" + c + "]");
+		} else {
+			stdebug("(proto-datarow #" + c + " has no id");
+		}
+	}
+	if (stdebug_enabled) {
+		stdebug("Table Config: " + JSON.stringify(theTable.config));
+	}
 
-    theTable.myTRs = []; // TODO: why here? only accessed in insertRowsIntoTbody?
-    theDiv.theTable = theTable;
-    theTable.theDiv = theDiv;
+	theTable.toAdd = toAdd;
+	if (!json.canModify) {
+		setDisplayed(theTable.theadChildren[theTable.config.nocell], false);
+	}
 
-    // append header row
-    theTable.json = json;
-    theTable.xpath = xpath;
-    theTable.session = session;
+	theDiv.theTable = theTable;
+	theTable.theDiv = theDiv;
 
-    if (!theTable.curSortMode) {
-        theTable.curSortMode = theTable.json.displaySets["default"]; // typically (always?) "ph"
-        // hack - choose one of these
-        /*
-         * TODO: is this no longer used? Cf. PREF_SORTMODE_CODE_CALENDAR and PREF_SORTMODE_METAZONE in SurveyMain.java
-         * Cf. identical code in review.js
-         */
-        if (theTable.json.displaySets.codecal) {
-            theTable.curSortMode = "codecal";
-        } else if (theTable.json.displaySets.metazon) {
-            theTable.curSortMode = "metazon";
-        }
-    }
+	// append header row
+	theTable.json = json;
+	theTable.xpath = xpath;
+	theTable.session = session;
 
-    insertRowsIntoTbody(theTable, false);
-    theDiv.appendChild(theTable);
-    hideLoader(theDiv.loader);
+	if (!theTable.curSortMode) {
+		theTable.curSortMode = theTable.json.displaySets["default"]; // typically (always?) "ph"
+		// hack - choose one of these
+		/*
+		 * TODO: is this no longer used? Cf. PREF_SORTMODE_CODE_CALENDAR and PREF_SORTMODE_METAZONE in SurveyMain.java
+		 * Cf. identical code in review.js
+		 */
+		if (theTable.json.displaySets.codecal) {
+			theTable.curSortMode = "codecal";
+		} else if (theTable.json.displaySets.metazon) {
+			theTable.curSortMode = "metazon";
+		}
+	}
+	insertRowsIntoTbody(theTable, reuseTable);
+	if (!reuseTable) {
+		theDiv.appendChild(theTable);
+	}
+	hideLoader(theDiv.loader);
+}
+
+/**
+ * Are the new (to-be-built) table and old (already-built) table compatible, in the
+ * sense that we can re-use the old table structure, just replacing the contents of
+ * individual cells, rather than rebuilding the table from scratch?
+ * 
+ * @param json1 the json for one table
+ * @param json2 the json for the other table
+ * @returns true if compatible, else false
+ * 
+ * Reference: https://unicode.org/cldr/trac/ticket/11571
+ */
+function tablesAreCompatible(json1, json2) {
+	if (json1.section && json2.section &&
+		json1.pageId === json2.pageId &&
+		json1.locale === json2.locale &&
+		json1.canModify === json2.canModify &&
+		json1.section.coverage === json2.section.coverage &&
+		json1.section.rows.length === json2.section.rows.length) {
+		return true;
+	}
+	return false;
 }
 
 /**
@@ -113,7 +164,10 @@ function insertRowsIntoTbody(theTable, reuseTable) {
 	var theRows = theTable.json.section.rows;
 	var toAdd = theTable.toAdd;
 	var parRow = dojo.byId('proto-parrow');
-	removeAllChildNodes(tbody); // TODO: don't call removeAllChildNodes here
+
+	if (ALWAYS_REMOVE_ALL_CHILD_NODES) {
+		removeAllChildNodes(tbody);
+	}
 
 	var theSort = theTable.json.displaySets[theTable.curSortMode]; // typically (always?) curSortMode = "ph"
 	var partitions = theSort.partitions;
@@ -127,9 +181,9 @@ function insertRowsIntoTbody(theTable, reuseTable) {
 		overridedir = (dir != null ? dir : null);
 		/*
 		 * There is no partition (section headings) in the Dashboard.
-		 * TODO: Also we won't regenerate the headings if we're re-using an existing table (reuseTable).
+		 * Also we don't regenerate the headings if we're re-using an existing table.
 		 */
-		if (!isDashboard()) {
+		if (!reuseTable && !isDashboard()) {
 			var newPartition = findPartition(partitions, partitionList, curPartition, i);
 
 			if (newPartition != curPartition) {
@@ -157,51 +211,42 @@ function insertRowsIntoTbody(theTable, reuseTable) {
 		}
 
 		/*
-		 * TODO: If tbody already contains tr with this id, re-use it
-		 * Re-do what was done on branch here: https://unicode.org/cldr/trac/changeset/14686
+		 * If tbody already contains tr with this id, re-use it
 		 * Cf. in updateRow: tr.id = "r@"+tr.xpstrid;
-		 */		
-		var tr = theTable.myTRs[k];
+		 */
+		var tr = reuseTable ? document.getElementById("r@" + theRow.xpstrid) : null;
 		if (!tr) {
 			tr = cloneAnon(toAdd);
-			theTable.myTRs[k] = tr; // save for later use -- TODO: explain when/how would it get re-used? Impossible?
+			tbody.appendChild(tr);
+			// console.log("🦞 make new table row");
+		} else {
+			// console.log("🦋 re-use table row");
 		}
-
 		tr.rowHash = k;
 		tr.theTable = theTable;
-		if (!theRow) {
-			console.log("Missing row " + k); // TODO: pointless? If this happens, we'll get exception below anyway
-		}
+
 		/*
 		 * Update the xpath map, unless re-using the table. If we're re-using the table, then
 		 * curPartition.name isn't defined, and anyway xpathMap shouldn't need changing.
-		 * TODO: add "if (!reuseTable) {" here ...
-		 * Re-do what was done on branch here: https://unicode.org/cldr/trac/changeset/14686
 		 */
-		xpathMap.put({
-			id: theRow.xpathId,
-			hex: theRow.xpstrid,
-			path: theRow.xpath,
-			ph: {
-				section: surveyCurrentSection, // Section: Timezones
-				page: surveyCurrentPage, // Page: SEAsia ( id, not name )
-				header: curPartition.name, // Header: Borneo
-				code: theRow.code // Code: standard-long
-			}
-		});
-
-		// refresh the tr's contents
-		updateRow(tr, theRow);
+		if (!reuseTable) {
+			xpathMap.put({
+				id: theRow.xpathId,
+				hex: theRow.xpstrid,
+				path: theRow.xpath,
+				ph: {
+					section: surveyCurrentSection, // Section: Timezones
+					page: surveyCurrentPage, // Page: SEAsia ( id, not name )
+					header: curPartition.name, // Header: Borneo
+					code: theRow.code // Code: standard-long
+				}
+			});
+		}
 
 		/*
-		 * TODO: "if (!trAlreadyInTbody) {"
-		 * TODO: move this above into "if (!tr)" block?
-		 * Re-do what was done on branch here: https://unicode.org/cldr/trac/changeset/14686
+		 * Update the tr's contents
 		 */
-		// if (!trAlreadyInTbody) {
-
-		// add the tr to the table
-		tbody.appendChild(tr);
+		updateRow(tr, theRow);
 	}
 	// downloadObjectAsHtml(tbody);
 	// downloadObjectAsJson(tbody);
@@ -459,7 +504,7 @@ function checkRowConsistency(theRow) {
 				/*
 				 * In earlier implementation, essentially the same error was reported as "... there is no Bailey Target item!")
 				 * Reference: https://unicode.org/cldr/trac/ticket/11238
-				 */ 
+				 */
 				console.error('For ' + theRow.xpstrid + ' - there is INHERITANCE_MARKER without inheritedValue');
 			} else if (!theRow.inheritedLocale && !theRow.inheritedXpid) {
 				/*
@@ -472,27 +517,6 @@ function checkRowConsistency(theRow) {
 			}
 		}
 	}
-}
-
-/**
- * Get the winning value for the given row, if it's a valid value.
- * Null and ERROR_NO_WINNING_VALUE ('error-no-winning-value') are not valid.
- * See ERROR_NO_WINNING_VALUE in DataSection.java.
- *
- * @param theRow
- * @returns the winning value, or null if there is not a valid winning value
- */
-function getValidWinningValue(theRow) {
-	if (theRow.items && theRow.winningVhash && theRow.items[theRow.winningVhash]) {
-		const item = theRow.items[theRow.winningVhash];
-		if (item.value) {
-			const val = item.value;
-			if (val !== ERROR_NO_WINNING_VALUE) {
-				return val;
-			}
-		}
-	}
-	return null;
 }
 
 /**
@@ -640,7 +664,7 @@ function updateRowVoteInfo(tr, theRow) {
 			}
 		}
 		if (isectionIsUsed) {
-			valdiv.appendChild(isection);			
+			valdiv.appendChild(isection);
 		}
 		vrow.appendChild(vvalue);
 		var cell = createChunk(null, "td", "voteInfo_voteTitle voteInfo_voteCount voteInfo_td" + "");
@@ -1121,5 +1145,26 @@ function updateRowNoAbstainCell(tr, theRow, noCell, proposedCell, protoButton) {
 		if (!tr.theTable.json.canModify) { // only if hidden in the header
 			setDisplayed(noCell, false);
 		}
+	}
+
+	/**
+	 * Get the winning value for the given row, if it's a valid value.
+	 * Null and ERROR_NO_WINNING_VALUE ('error-no-winning-value') are not valid.
+	 * See ERROR_NO_WINNING_VALUE in DataSection.java.
+	 *
+	 * @param theRow
+	 * @returns the winning value, or null if there is not a valid winning value
+	 */
+	function getValidWinningValue(theRow) {
+		if (theRow.items && theRow.winningVhash && theRow.items[theRow.winningVhash]) {
+			const item = theRow.items[theRow.winningVhash];
+			if (item.value) {
+				const val = item.value;
+				if (val !== ERROR_NO_WINNING_VALUE) {
+					return val;
+				}
+			}
+		}
+		return null;
 	}
 }

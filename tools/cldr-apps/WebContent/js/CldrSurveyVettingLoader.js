@@ -1236,7 +1236,7 @@ function showV() {
 									}
 									doUpdate(theDiv.id, function() {
 										showLoader(theDiv.loader,stui.loading3);
-										insertRows(theDiv,json.pageId,surveySessionId,json); // pageid is the xpath..
+										cldrSurveyTable.insertRows(theDiv,json.pageId,surveySessionId,json); // pageid is the xpath..
 										updateCoverage(flipper.get(pages.data)); // make sure cov is set right before we show.
 										flipper.flipTo(pages.data); // TODO now? or later?
 										window.showCurrentId(); // already calls scroll

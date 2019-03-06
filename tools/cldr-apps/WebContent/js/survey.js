@@ -3314,7 +3314,7 @@ function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
         		if(json.section.rows[tr.rowHash]) {
         			theRow = json.section.rows[tr.rowHash];
         			tr.theTable.json.section.rows[tr.rowHash] = theRow;
-        			updateRow(tr, theRow);
+        			cldrSurveyTable.updateRow(tr, theRow);
 
         			//style the radios
         			//wrapRadios(tr);

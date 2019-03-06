@@ -737,7 +737,7 @@ function insertFixInfo(theDiv,xpath,session,json) {
 		}
 		
 		
-		updateRow(tr,theRow);
+		cldrSurveyTable.updateRow(tr,theRow);
 		
 		if(!tr.forumDiv) {
 			tr.forumDiv = document.createElement("div");

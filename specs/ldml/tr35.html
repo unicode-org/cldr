@@ -767,8 +767,8 @@
     "Unicode_language_identifier">3.1 Unicode Language
     Identifier</a></i></h3>
     <p>A <i>Unicode language identifier</i> has the following
-    structure (provided in either EBNF (Perl-based) or ABNF
-    [<a href="#RFC5234">RFC5234</a>]). The following table defines
+		structure (provided in <span class='removed'>either</span> EBNF (Perl-based) <span class='removed'>or ABNF
+		[<a href="#RFC5234">RFC5234</a>]</span>). The following table defines
     syntactically well-formed identifiers: they are not necessarily
     valid identifiers. For additional validity criteria, see the
     links on the right.</p>
@@ -780,7 +780,7 @@
             EBNF
           </div>
         </th>
-        <th>
+        <th class='removed'>
           <div align="center">
             ABNF
           </div>
@@ -801,7 +801,7 @@
         &nbsp; | unicode_script_subtag)<br>
         &nbsp; (sep unicode_region_subtag)?<br>
         &nbsp; (sep unicode_variant_subtag)* ;</code></td>
-        <td><code>= "root"<br>
+        <td class='removed'><code>= "root"<br>
         / (unicode_language_subtag<br>
         &nbsp; &nbsp; [sep unicode_script_subtag]<br>
         &nbsp; / unicode_script_subtag)<br>
@@ -815,7 +815,7 @@
         "unicode_language_subtag" id=
         "unicode_language_subtag">unicode_language_subtag</a></code></td>
         <td><code>= alpha{2,3} | alpha{5,8};</code></td>
-        <td><code>= 2*3ALPHA / 5*8ALPHA</code></td>
+        <td class='removed'><code>= 2*3ALPHA / 5*8ALPHA</code></td>
         <td><code><a href=
         '#unicode_language_subtag_validity'>validity</a><br>
         <a href=
@@ -827,7 +827,7 @@
         "unicode_script_subtag" id=
         "unicode_script_subtag">unicode_script_subtag</a></code></td>
         <td><code>= alpha{4} ;</code></td>
-        <td><code>= 4ALPHA</code></td>
+        <td class='removed'><code>= 4ALPHA</code></td>
         <td><code><a href=
         '#unicode_script_subtag_validity'>validity</a><br>
         <a href=
@@ -839,7 +839,7 @@
         "unicode_region_subtag" id=
         "unicode_region_subtag">unicode_region_subtag</a></code></td>
         <td><code>= (alpha{2} | digit{3}) ;</code></td>
-        <td><code>= 2ALPHA / 3DIGIT</code></td>
+        <td class='removed'><code>= 2ALPHA / 3DIGIT</code></td>
         <td><code><a href=
         '#unicode_language_subtag_validity'>validity</a><br>
         <a href=
@@ -852,7 +852,7 @@
         "unicode_variant_subtag">unicode_variant_subtag</a></code></td>
         <td><code>= (alphanum{5,8}<br>
         | digit alphanum{3}) ;</code></td>
-        <td><code>= 5*8alphanum<br>
+        <td class='removed'><code>= 5*8alphanum<br>
         / (DIGIT 3alphanum)</code></td>
         <td><code><a href=
         '#unicode_language_subtag_validity'>validity</a><br>
@@ -863,22 +863,22 @@
       <tr>
         <td><code>sep</code></td>
         <td><code>= [-_] ;</code></td>
-        <td><code>= "-" / "_"</code></td>
+        <td class='removed'><code>= "-" / "_"</code></td>
       </tr>
       <tr>
         <td><code>digit</code></td>
         <td><code>= [0-9] ;</code></td>
-        <td><code>&nbsp;</code></td>
+        <td class='removed'><code>&nbsp;</code></td>
       </tr>
       <tr>
         <td><code>alpha</code></td>
         <td><code>= [A-Z a-z] ;</code></td>
-        <td><code>&nbsp;</code></td>
+        <td class='removed'><code>&nbsp;</code></td>
       </tr>
       <tr>
         <td><code>alphanum</code></td>
         <td><code>= [0-9 A-Z a-z] ;</code></td>
-        <td><code>= ALPHA / DIGIT</code></td>
+        <td class='removed'><code>= ALPHA / DIGIT</code></td>
       </tr>
     </table>
     <p>The semantics of the various subtags is explained in
@@ -928,7 +928,7 @@
             EBNF
           </div>
         </th>
-        <th>
+        <th class='removed'>
           <div align="center">
             ABNF
           </div>
@@ -946,7 +946,7 @@
         <td><code>= unicode_language_id<br>
         &nbsp; extensions*<br>
         &nbsp; pu_extensions? ;</code></td>
-        <td><code>= unicode_language_id<br>
+        <td class='removed'><code>= unicode_language_id<br>
         &nbsp; [extensions] &nbsp;<br>
         &nbsp; 1*pu_extensions</code></td>
       </tr>
@@ -956,7 +956,7 @@
         <td><code>= unicode_locale_extensions<br>
         | transformed_extensions<br>
         | other_extensions ;</code></td>
-        <td><code>= unicode_locale_extensions<br>
+        <td class='removed'><code>= unicode_locale_extensions<br>
         / transformed_extensions<br>
         / other_extensions</code></td>
       </tr>
@@ -967,7 +967,7 @@
         <td><code>= sep [uU]<br>
         &nbsp; ((sep keyword)+<br>
         &nbsp; |(sep attribute)+ (sep keyword)*) ;</code></td>
-        <td><code>= sep "u"<br>
+        <td class='removed'><code>= sep "u"<br>
         &nbsp; (1*(sep keyword)<br>
         &nbsp; / 1*(sep attribute) *(sep keyword))</code></td>
       </tr>
@@ -978,7 +978,7 @@
         <td><code>= sep [tT]<br>
         &nbsp; ((sep tlang (sep tfield)*)<br>
         &nbsp; | (sep tfield)+) ;</code></td>
-        <td><code>= sep "t"<br>
+        <td class='removed'><code>= sep "t"<br>
         &nbsp; ((sep tlang *(sep tfield))<br>
         &nbsp; / 1*(sep tfield))</code></td>
       </tr>
@@ -987,7 +987,7 @@
         "pu_extensions">pu_extensions</a></code></td>
         <td><code>= sep [xX] <br>
 			&nbsp; (sep alphanum{1,8})<span class='changed'>+</span> ;</code></td>
-        <td><code>= sep "x"<br>
+        <td class='removed'><code>= sep "x"<br>
         &nbsp; [sep 1*8alphanum]</code></td>
       </tr>
       <tr>
@@ -996,7 +996,7 @@
         "other_extensions">other_extensions</a></code></td>
         <td><code>= [alphanum-[tTuUxX]]<br>
         &nbsp; (sep alphanum{2,8})<span class="changed">+</span> ;</code></td>
-        <td><code>= (DIGIT<br>
+        <td class='removed'><code>= (DIGIT<br>
         &nbsp; &nbsp; / %x61-%x73<br>
         &nbsp; &nbsp; / %x76-%x77<br>
         &nbsp; &nbsp; / %x79-%x7A)<br>
@@ -1005,12 +1005,12 @@
       <tr>
         <td><code>keyword</code></td>
         <td><code>= key (sep type)? ;</code></td>
-        <td><code>= key [sep type]</code></td>
+        <td class='removed'><code>= key [sep type]</code></td>
       </tr>
       <tr>
         <td><code>key</code></td>
         <td><code>= alphanum alpha ;</code></td>
-        <td><code>= alphanum ALPHA</code></td>
+        <td class='removed'><code>= alphanum ALPHA</code></td>
         <td><code><a href="#Key_Type_Definitions">validity</a><br>
         <a href=
         'http://unicode.org/cldr/latest/common/bcp47'>latest-data</a></code></td>
@@ -1019,7 +1019,7 @@
         <td><code>type</code></td>
         <td><code>= alphanum{3,8}<br>
         &nbsp; (sep alphanum{3,8})* ;</code></td>
-        <td><code>= 3*8alphanum<br>
+        <td class='removed'><code>= 3*8alphanum<br>
         &nbsp; *(sep 3*8alphanum)</code></td>
         <td><code><a href="#Key_Type_Definitions">validity</a><br>
         <a href=
@@ -1028,7 +1028,7 @@
       <tr>
         <td><code>attribute</code></td>
         <td><code>= alphanum{3,8} ;</code></td>
-        <td><code>= 3*8alphanum</code></td>
+        <td class='removed'><code>= 3*8alphanum</code></td>
       </tr>
       <tr>
         <td><code><a name="unicode_subdivision_id" href=
@@ -1041,7 +1041,7 @@
         <td><code>= <a href=
         "#unicode_region_subtag">unicode_region_subtag</a>
         unicode_subdivision_suffix ;</code></td>
-        <td><code>= <a href=
+        <td class='removed'><code>= <a href=
         "#unicode_region_subtag">unicode_region_subtag</a>
         unicode_subdivision_suffix</code></td>
         <td><code><a href=
@@ -1053,7 +1053,7 @@
       <tr>
         <td><code>unicode_subdivision_suffix</code></td>
         <td><code>= alphanum{1,4} ;</code></td>
-        <td><code>= 1*4alphanum</code></td>
+        <td class='removed'><code>= 1*4alphanum</code></td>
       </tr>
       <tr>
         <td><code><a name="unicode_measure_unit" href=
@@ -1061,7 +1061,7 @@
         "unicode_measure_unit">unicode_measure_unit</a></code></td>
         <td><code>= alphanum{3,8}<br>
         &nbsp; (sep alphanum{3,8})* ;</code></td>
-        <td><code>= 3*8alphanum<br>
+        <td class='removed'><code>= 3*8alphanum<br>
         &nbsp; *(sep 3*8alphanum)</code></td>
         <td><code><a href='#Validity_Data'>validity</a><br>
         <a href=
@@ -1073,7 +1073,7 @@
         &nbsp; (sep unicode_script_subtag)?<br>
         &nbsp; (sep unicode_region_subtag)?<br>
         &nbsp; (sep unicode_variant_subtag)* ;</code></td>
-        <td><code>= unicode_language_subtag<br>
+        <td class='removed'><code>= unicode_language_subtag<br>
         &nbsp; [sep unicode_script_subtag]<br>
         &nbsp; [sep unicode_region_subtag]<br>
         &nbsp; *(sep unicode_variant_subtag)</code></td>
@@ -1081,7 +1081,7 @@
       <tr>
         <td><code>tfield</code></td>
         <td><code>= tkey tvalue;</code></td>
-        <td><code>= tkey tvalue</code></td>
+        <td class='removed'><code>= tkey tvalue</code></td>
         <td><code><a href="#BCP47_T_Extension">validity</a><br>
         <a href=
         'http://unicode.org/cldr/latest/common/bcp47'>latest-data</a></code></td>
@@ -1089,12 +1089,12 @@
       <tr>
         <td><code>tkey</code></td>
         <td><code>= alpha digit ;</code></td>
-        <td><code>= ALPHA DIGIT</code></td>
+        <td class='removed'><code>= ALPHA DIGIT</code></td>
       </tr>
       <tr>
         <td><code>tvalue</code></td>
         <td><code>= (sep alphanum{3,8})+ ;</code></td>
-        <td><code>= 1*(sep 3*8alphanum)</code></td>
+        <td class='removed'><code>= 1*(sep 3*8alphanum)</code></td>
       </tr>
     </table>
     <p>For historical reasons, this is called a Unicode locale
@@ -2882,7 +2882,7 @@ zh-Hant-HK</pre>
                 EBNF
               </div>
             </th>
-            <th>
+            <th class='removed'>
               <div align="center">
                 ABNF
               </div>
@@ -2895,7 +2895,7 @@ zh-Hant-HK</pre>
             <td>
               <pre>= codepoint (sep codepoint)?</pre>
             </td>
-            <td>
+            <td class='removed'>
               <pre>= codepoint *(sep codepoint)</pre>
             </td>
           </tr>
@@ -2906,7 +2906,7 @@ zh-Hant-HK</pre>
             <td>
               <pre>= [0-9 A-F a-f]{4,6}</pre>
             </td>
-            <td>
+            <td class='removed'>
               <pre>= 4*6HEXDIG</pre>
             </td>
           </tr>
@@ -3405,7 +3405,7 @@ zh-Hant-HK</pre>
             EBNF
           </div>
         </th>
-        <th>
+        <th class='removed'>
           <div align="center">
             ABNF
           </div>
@@ -3417,7 +3417,7 @@ zh-Hant-HK</pre>
           <pre>= "@" old_key "=" old_type
  (";" old_key "=" old_type)*</pre>
         </td>
-        <td>
+        <td class='removed'>
           <pre>= "@" old_key "=" old_type
 *(";" old_key "=" old_type)</pre>
         </td>
@@ -8899,7 +8899,7 @@ decimal?, group?, special*)) &gt;</pre>
         "http://www.icu-project.org/userguide/boundaryAnalysis.html">
         http://www.icu-project.org/userguide/boundaryAnalysis.html</a></td>
       </tr>
-      <tr>
+      <tr class='removed'>
         <td class="noborder" width="148">[<a name="RFC5234" href=
         "#RFC5234" id="RFC5234">RFC5234</a>]</td>
         <td class="noborder" width="730">RFC5234 Augmented BNF for
@@ -9000,10 +9000,22 @@ decimal?, group?, special*)) &gt;</pre>
     "Modifications">Modifications</a></h2>
     <div class='changed'>
     <p><b>Revision 54</b>	</p>
-    <p><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</strong></p>
+    <p><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</strong>    </p>
+    <ul>
+      <li><strong>General
+        </strong>
+        <ul>
+          <li>Fixed (important) typos in EBNF  [<a href=
+          "http://unicode.org/cldr/trac/ticket/11769">#11769</a>] [<a href=
+          "http://unicode.org/cldr/trac/ticket/11522">#11522</a>]</li>
+          <li>Removed  ABNF expression of syntax as redundant [<a href=
+          "http://unicode.org/cldr/trac/ticket/11746">#11746</a>]</li>
+        </ul>
+      </li>
+      </ul>
 	<p><strong>Part 2: <a href=
     "tr35-general.html#Contents">General</a> (display names &amp;
-    transforms, etc.)</strong></p>
+	  transforms, etc.)</strong></p>
     <ul>
       <li>
         <strong>Section 6 <a href=
@@ -9076,7 +9088,7 @@ decimal?, group?, special*)) &gt;</pre>
     mappings)</strong></p>
     </div>
     <p>&nbsp;</p>
-   <div class='changed'>
+   <div class='removed'>
     <p><b>Revision 53</b></p>
     <p><strong>Part 1: <a href="tr35.html#Contents">Core</a>
     (languages, locales, basic structure)</strong></p>

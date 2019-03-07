@@ -16,6 +16,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
+import org.unicode.cldr.util.DtdData.AttributeStatus;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -37,7 +38,7 @@ public class ChartDtdDelta extends Chart {
     private static final String DEPRECATED_PREFIX = "⊖";
 
     private static final String NEW_PREFIX = "+";
-    
+
     private static final Set<String> OMITTED_ATTRIBUTES = Collections.singleton("⊕");
 
     public static void main(String[] args) {
@@ -56,12 +57,22 @@ public class ChartDtdDelta extends Chart {
 
     @Override
     public String getExplanation() {
-        return "<p>Shows changes to the LDML dtds over time. "
-            + "New elements or attributes are indicated with a + sign, and newly deprecated ones with a ⊖ sign. "
-            + "Element attributes are abbreviated as ⊕ if where is no change to them, but the element is newly the child of another. "
-            + "<p>";
+        return "<p>Changes to the LDML DTDs over time.</p>\n"
+            + "<ul>\n"
+            + "<li>New elements or attributes are indicated with a + sign, and newly deprecated ones with a ⊖ sign.</li>\n"
+            + "<li>Element attributes are abbreviated as ⊕ where is no change to them, "
+            + "but the element is newly the child of another.</li>\n"
+            + "<li>LDML DTDs have augmented data:\n"
+            + "<ul><li>Attribute status is marked by: " 
+            + AttributeStatus.distinguished.shortName + "=" + AttributeStatus.distinguished + ", "
+            + AttributeStatus.value.shortName + "=" + AttributeStatus.value + ", or "
+            + AttributeStatus.metadata.shortName + "=" + AttributeStatus.metadata + ".</li>\n"
+            + "<li>Attribute value constraints are marked with ⟨…⟩ (for DTD constraints) and ⟪…⟫ (for augmented constraints, added in v35.0).</li>\n"
+            + "<li>Changes in status or constraints are shown with ➠.</li>\n"
+            + "</ul></li></ul>\n"
+            + "<p>For more information, see the LDML spec.</p>";
     }
-
+    
     @Override
     public void writeContents(FormattedFileWriter pw) throws IOException {
         TablePrinter tablePrinter = new TablePrinter()
@@ -177,7 +188,7 @@ public class ChartDtdDelta extends Chart {
             }
             return;
         }
-        
+
         seen.add(element);
         if (SHOW && ToolConstants.CHART_DISPLAY_VERSION.equals(version)) {
             System.out.println(dtdCurrent.dtdType + "\t" + name);
@@ -227,6 +238,8 @@ public class ChartDtdDelta extends Chart {
 
     private static class DiffElement {
 
+        private static final String START_ATTR = "<div>";
+        private static final String END_ATTR = "</div>";
         final VersionInfo version;
         final DtdType dtdType;
         final boolean isBeta;
@@ -244,7 +257,8 @@ public class ChartDtdDelta extends Chart {
             }
             dtdType = dtdCurrent.dtdType;
             this.newPath = fix(newPath);
-            this.attributeNames = attributeNames2.isEmpty() ? NONE : CollectionUtilities.join(attributeNames2, ", ");
+            this.attributeNames = attributeNames2.isEmpty() ? NONE :  
+                START_ATTR + CollectionUtilities.join(attributeNames2, END_ATTR + START_ATTR) + END_ATTR;
             this.newElement = newElement;
         }
 
@@ -301,18 +315,38 @@ public class ChartDtdDelta extends Chart {
                 if (SKIP_ATTRIBUTES.contains(name)) {
                     continue;
                 }
+                String match = attribute.getMatchString();
+                AttributeStatus status = attribute.attributeStatus;
                 String display = NEW_PREFIX + name;
 //            if (isDeprecated(dtdCurrent, elementName, name)) { // SDI.isDeprecated(dtdCurrent, elementName, name, "*")) {
 //                continue;
 //            }
-                for (Attribute attributeOld : attributesOld.keySet()) {
-                    if (attributeOld.name.equals(name)) {
-                        if (attribute.isDeprecated() && !attributeOld.isDeprecated()) {
-                            display = DEPRECATED_PREFIX + name;
-                        } else {
-                            continue main;
+                String oldMatch = "?"; 
+                String pre, post;
+                Attribute attributeOld = attribute.getMatchingName(attributesOld);
+                if (attributeOld == null) {
+                    display += " " + AttributeStatus.getShortName(status) + " " + match;
+                } else if (attribute.isDeprecated() && !attributeOld.isDeprecated()) {
+                    display = DEPRECATED_PREFIX + name;
+                } else {
+                    oldMatch = attributeOld.getMatchString();
+                    AttributeStatus oldStatus = attributeOld.attributeStatus;
+
+                    boolean matchEquals = match.equals(oldMatch);
+                    if (status != oldStatus) {
+                        pre = AttributeStatus.getShortName(oldStatus);
+                        post = AttributeStatus.getShortName(status); 
+                        if (!matchEquals) {
+                            pre += " " + oldMatch;
+                            post += " " + match;
                         }
+                    } else if (!matchEquals) {
+                        pre = oldMatch;
+                        post = match;
+                    } else {
+                        continue main; // skip attribute entirely;
                     }
+                    display += " " + pre + "➠" + post;
                 }
                 names.add(display);
             }

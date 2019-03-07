@@ -60,7 +60,16 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private DtdComparator dtdComparator;
 
     public enum AttributeStatus {
-        distinguished, value, metadata
+        distinguished ("§d"), 
+        value ("§v"), 
+        metadata ("§m︎");
+        public final String shortName;
+        AttributeStatus(String shortName) {
+            this.shortName = shortName;
+        }
+        public static String getShortName(AttributeStatus status) {
+            return status == null ? "" : status.shortName;
+        }
     }
 
     public enum Mode {
@@ -99,9 +108,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private final Set<String> commentsPre;
         private Set<String> commentsPost;
         private boolean isDeprecatedAttribute;
-        private AttributeStatus attributeStatus = AttributeStatus.distinguished; // default unless reset by annotations
+        public AttributeStatus attributeStatus = AttributeStatus.distinguished; // default unless reset by annotations
         private Set<String> deprecatedValues = Collections.emptySet();
-        private MatchValue matchValue;
+        public MatchValue matchValue;
         private final Comparator<String> attributeValueComparator;
 
         private Attribute(DtdType dtdType, Element element2, String aName, Mode mode2, String[] split, String value2, Set<String> firstComment) {
@@ -296,6 +305,24 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                             ? ValueStatus.valid 
                                 : ValueStatus.invalid;
         }
+
+        public String getMatchString() {
+            return type == AttributeType.ENUMERATED_TYPE 
+                ? "⟨" + CollectionUtilities.join(values.keySet(), ", ") + "⟩" 
+                    : matchValue != null 
+                    ? "⟪" + matchValue.toString() + "⟫"
+                        : "";
+        }
+
+        public Attribute getMatchingName(Map<Attribute, Integer> attributes) {
+            for (Attribute attribute : attributes.keySet()) {
+                if (name.equals(attribute.getName())) {
+                    return attribute;
+                }
+            }
+            return null;
+        }
+
     }
 
     public enum ValueStatus {invalid, unknown, valid}
@@ -1702,7 +1729,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
         return attr.getValueStatus(value);
     }
-    
+
     /**
      * Return element-attribute pairs with non-enumerated values, for quick checks.
      */
@@ -1723,7 +1750,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
         return ImmutableSetMultimap.copyOf(nonEnumeratedElementToAttribute);
     }
-    
+
     // ALWAYS KEEP AT END, FOR STATIC INIT ORDER
     private static final Map<DtdType, DtdData> CACHE;
     static {

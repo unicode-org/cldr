@@ -985,8 +985,8 @@
       <tr>
         <td><code><a href="#pu_extensions" name="pu_extensions" id=
         "pu_extensions">pu_extensions</a></code></td>
-        <td><code>= sep [xX]<br>
-        &nbsp; (sep alphanum{1,8})* ;</code></td>
+        <td><code>= sep [xX] <br>
+			&nbsp; (sep alphanum{1,8})<span class='changed'>+</span> ;</code></td>
         <td><code>= sep "x"<br>
         &nbsp; [sep 1*8alphanum]</code></td>
       </tr>
@@ -995,7 +995,7 @@
         "other_extensions" id=
         "other_extensions">other_extensions</a></code></td>
         <td><code>= [alphanum-[tTuUxX]]<br>
-        &nbsp; (sep alphanum{2,8})* ;</code></td>
+        &nbsp; (sep alphanum{2,8})<span class="changed">+</span> ;</code></td>
         <td><code>= (DIGIT<br>
         &nbsp; &nbsp; / %x61-%x73<br>
         &nbsp; &nbsp; / %x76-%x77<br>

@@ -107,7 +107,7 @@
       </tr>
       <tr>
         <td>Date</td>
-        <td class="changed">2018-11-25</td>
+        <td class="changed">2019-03-07</td>
       </tr>
       <tr>
         <!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -231,7 +231,11 @@
           <li>3.1 <a href="#Unicode_language_identifier">Unicode
           Language Identifier</a></li>
           <li>3.2 <a href="#Unicode_locale_identifier">Unicode
-          Locale Identifier</a></li>
+          Locale Identifier</a>
+            <ul class='toc changed'>
+              <li><a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a></li>
+            </ul>
+          </li>
           <li>3.3 <a href="#BCP_47_Conformance">BCP 47
           Conformance</a>
             <ul class="toc">
@@ -986,7 +990,7 @@
         <td><code><a href="#pu_extensions" name="pu_extensions" id=
         "pu_extensions">pu_extensions</a></code></td>
         <td><code>= sep [xX] <br>
-			&nbsp; (sep alphanum{1,8})<span class='changed'>+</span> ;</code></td>
+		&nbsp; (sep alphanum{1,8})<span class='changed'>+</span> ;</code></td>
         <td class='removed'><code>= sep "x"<br>
         &nbsp; [sep 1*8alphanum]</code></td>
       </tr>
@@ -1126,21 +1130,38 @@
     [<a href="#BCP47">BCP47</a>], especially when a Unicode locale
     identifier is used for locale data exchange in software
     protocols.</p>
-    <p>The canonical form of a <code><a href=
-    "#unicode_locale_id">unicode_locale_id</a></code> has:</p>
+    <h4 class='changed'><a name="Canonical_Unicode_Locale_Identifiers" href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a></h4>
+    <p class='changed'>A <code><a href=
+    "#unicode_locale_id">unicode_locale_id</a></code> has <em>canonical syntax</em> when:</p>
     <ul>
-      <li>a language subtag (those beginning with a script subtag
-      only are specialized use)</li>
-      <li>any script subtag in title case (eg, Hant)</li>
-      <li>any region subtag in uppercase (eg, DE)</li>
-      <li>all other subtags in lowercase (eg, en)</li>
-      <li>any variants in alphabetical order (eg, en-fonipa-scouse,
-      not en-scouse-fonipa)</li>
-      <li>any extensions in alphabetical order by their singleton
-      (eg, en-t-xxx-u-yyy, not en-u-yyy-t-xxx)</li>
+		<li><span class='changed'>It starts with </span>a language subtag (those beginning with a script subtag <span class="changed">are only for</span> specialized use)</li>
+      <li><span class="changed">Casing</span>
+        <ul>
+        <li>Any script subtag <span class="changed">is</span> in title case (eg, Hant)</li>
+        <li>Any region subtag <span class="changed">is</span> in uppercase (eg, DE)</li>
+        <li>All other subtags <span class="changed">are</span> in lowercase (eg, en<span class="changed">, fonipa</span>)</li>
+        </ul>
+      </li>
+      <li><span class="changed">Order</span>
+        <ul>
+          <li>Any variants <span class="changed">are</span> in alphabetical order (eg, en-fonipa-scouse,
+            not en-scouse-fonipa)</li>
+          <li>Any extensions <span class="changed">are</span> in alphabetical order by their singleton
+            (eg, en-t-xxx-u-yyy, not en-u-yyy-t-xxx)</li>
+          <li>All attributes are sorted in alphabetical order.</li>
+          <li>All keywords <span class="changed">and tfields</span>  are sorted by alphabetical order of <span class="changed">their</span> keys<span class="changed">, within their respective extensions</span>.</li>
+          <li>Any type <span class="changed">or tfield</span> value "true" is removed.</li>
+        </ul>
+      </li>
     </ul>
+	  <p>For example, the canonical form <span class='removed'>of 'u' extension</span>
+      "<span class="changed">en-</span>u-foo-bar-nu-thai-ca-buddhist-kk-true" is
+      "<span class="changed">en-</span>u-bar-foo-ca-buddhist-kk-nu-thai". The attributes "foo" and
+      "bar" in this example are provided only for illustration; no
+      attribute subtags are defined by the current CLDR
+      specification.</p>
     <p><b>Note:</b> The current version of CLDR data uses some
-    non-preferred forms for backward compatibility. This might be
+    non-preferred <em class='changed'>syntax</em> for backward compatibility. This might be
     changed in future CLDR releases.</p>
     <ul>
       <li>It uses uppercase letters for variant subtags, while the
@@ -1149,6 +1170,84 @@
       the separator is "-".</li>
       <li>It uses "root", while the preferred form is "und".</li>
     </ul>
+    <div  class="changed">
+    <p><span>A <code><a href=
+    "#unicode_locale_id">unicode_locale_id</a></code> is in <em>canonical form</em> when it has canonical syntax and contains no aliased subtags. A <code><a href=
+    "#unicode_locale_id">unicode_locale_id</a></code> can be transformed into canonical form in the following way:</span></p>
+    <ul>
+      <li>Use the bcp47 data  to replace <em>keys, types, tfields, </em>and<em> tvalues</em> by their canonical forms. See <a href=
+      "#Unicode_Locale_Extension_Data_Files">Section 3.6.4 U
+      Extension Data Files</a>) and <a href="#Transformed_Content_Data_File">Section 3.7.1 T Extension Data Files</a>. The aliases are in the <strong>alias</strong> attribute value, while the canonical is in the <strong>name</strong> attribute value. For example,
+      <ul>
+  <li>Because of the following bcp47 data:
+    <ul>
+      <li> &lt;key name=&quot;ms&quot;…&gt;…&lt;type name=&quot;<u>uksystem</u>&quot; … alias=&quot;<u>imperial</u>&quot; … /&gt;…&lt;/key&gt;</li>
+    </ul>
+  </li>
+  <li>We get the following transformation:
+    <ul>
+      <li>en-u-ms-<u>imperial</u> ⇒  en-u-ms-<u>uksystem</u></li>
+      </ul>
+  </li>
+  </ul>
+      </li>
+      <li>Replace aliases in the <code><a href=
+    "#unicode_language_id">unicode_language_id</a></code> and  tlang (if any) using the following process:
+        <ul>
+          <li>If the language subtag matches the <i>type</i> attribute of a <i>languageAlias</i> element in <a href="tr35-info.html#Supplemental_Data">Supplemental
+            Data</a>, replace the language subtag with the <i>replacement</i> value.
+            <ol>
+              <li>If there are additional subtags in the <i>replacement</i> value, add them to the result, but
+                only if there is no corresponding subtag already in the
+                tag.</li>
+            </ol>
+          </li>
+          <li>If the  region subtag matches the <i>type</i> attribute of a <i>territoryAlias</i> element in <a href=
+      "tr35-info.html#Supplemental_Data">Supplemental Data</a>,
+            replace the language subtag with the <i>replacement</i> value, as follows:
+            <ol>
+              <li>If there is a single territory in the replacement,
+                use it.</li>
+              <li>If there are multiple territories:
+                <ol>
+                  <li>Look up the most likely territory* for the base
+                    language code (and script, if there is one).</li>
+                  <li>If that likely territory is in the list, use
+                    it.</li>
+                  <li>Otherwise, use the first territory in the
+                    list.</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li>If any variant subtag matches the the <i>type</i> attribute of a <em>variantAlias</em> element in <a href=
+      "tr35-info.html#Supplemental_Data">Supplemental Data</a>,
+            replace the variant subtag with the <i>replacement</i> value.
+            <ul>
+              <li>The replacement may not be a variant subtag. In that case, the variant subtag is removed, and the other tag is substituted. For example, hy-FR-arevmda ⇒ hyw-FR</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Replace aliases in special key values:
+        <ul>
+          <li>If there is an 'sd' key, replace any subdivision alias in its value in the same way, using <em>subdivisionAlias</em> data. </li>
+          <li>If there is an 'rg' key,  replace any region alias of the region subtag part of its value using the <i>territoryAlias</i> data.</li>
+        </ul>
+      </li>
+      </ul>
+		<blockquote>* Formally, replacement of multiple territories uses <em>Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a></em>. However, there are a small number of cases of multiple territories, so the mappings can be precomputed. This results in a faster lookup with a very small subset of the likely subtags data.</blockquote>
+	    <p>A <code><a href=
+    "#unicode_locale_id">unicode_locale_id</a></code> is <em>maximal</em> when the its <code><a href=
+    "#unicode_language_id">unicode_language_id</a></code> and tlang (if any) have been transformed by the Add Likely Subtags operation in <em>Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a></em>.</p>
+	    <blockquote><em>Example:</em> the maxmal form of ja-Kana-t-it is ja-Kana-JP-t-it-Latn-IT</blockquote>
+	    <p>Two <code><a href=
+    "#unicode_locale_id">unicode_locale_ids</a></code> are <em>equivalent</em> when their maximal canonical forms are identical.</p>
+			    <blockquote>
+			      <p><em>Example:</em> &quot;IW-HEBR-u-ms-imperial&quot; ~ &quot;he-u-ms-uksystem&quot;</p>
+			    </blockquote>
+		<p>The equivalence relationship may change over time, such as when subtags are deprecated or likely subtag mappings change. For example, if two countries were to merge, then various subtags would become deprecated. These kinds of changes are generally very infrequent.</p>
+</div>
     <h3><a name="BCP_47_Conformance" href="#BCP_47_Conformance" id=
     "BCP_47_Conformance">3.3 BCP 47 Conformance</a></h3>
     <p>Unicode language and locale identifiers inherit the design
@@ -1222,8 +1321,8 @@
     converted to a valid Unicode BCP 47 locale identifier by
     performing the following transformation.</p>
     <ol>
-      <li>Canonicalize the language tag (afterwards, there will be
-      no extlang subtags).</li>
+	  <li>Canonicalize <span class='changed'>the syntax of </span>the language tag (afterwards, there will be
+	  no extlang subtags) <span class='changed'>as per <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a></span>.</li>
       <li>If the BCP 47 primary language subtag matches the
       <i>type</i> attribute of a <i>languageAlias</i> element in
       <a href="tr35-info.html#Supplemental_Data">Supplemental
@@ -2044,26 +2143,7 @@ zh-Hant-HK</pre>
     <p>A 'u' extension may contain multiple <code>attribute</code>
     s or <code>keyword</code> s as defined in <a href=
     "#Unicode_locale_identifier">Section 3.2 Unicode locale
-    identifier</a>. Although the order of <code>attribute</code> s
-    or <code>keyword</code> s does not matter, this specification
-    defines the canonical form as below:</p>
-    <ul>
-      <li>All attributes are sorted in alphabetical order.</li>
-      <li>All keywords are sorted by alphabetical order of
-      keys.</li>
-      <li>All keywords are in lowercase.</li>
-      <li>All keys and types use the canonical form (from the name
-      attribute; see <a href=
-      "#Unicode_Locale_Extension_Data_Files">Section 3.6.4 U
-      Extension Data Files</a>).</li>
-      <li>Type value "true" is removed.</li>
-    </ul>
-    <p>For example, the canonical form of 'u' extension
-    "u-foo-bar-nu-thai-ca-buddhist-kk-true" is
-    "u-bar-foo-ca-buddhist-kk-nu-thai". The attributes "foo" and
-    "bar" in this example are provided only for illustration; no
-    attribute subtags are defined by the current CLDR
-    specification.</p>
+		identifier</a>. <span class='changed'>The canonical syntax is defined as in <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a>.</span>    </p>
     <p><em>See also <a href=
     "http://cldr.unicode.org/index/bcp47-extension">Unicode
     Extensions for BCP 47</a> on the CLDR site.</em></p>
@@ -9010,6 +9090,12 @@ decimal?, group?, special*)) &gt;</pre>
           "http://unicode.org/cldr/trac/ticket/11522">#11522</a>]</li>
           <li>Removed  ABNF expression of syntax as redundant [<a href=
           "http://unicode.org/cldr/trac/ticket/11746">#11746</a>]</li>
+        </ul>
+      </li>
+      <li>Section <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a>
+        <ul>
+          <li>Define for Unicode Locale Identifiers: <em>canonical syntax, canonical form, maximal form, </em>and<em> equivalence</em>. [<a href=
+          "http://unicode.org/cldr/trac/ticket/11551">#11551</a>]</li>
         </ul>
       </li>
       </ul>

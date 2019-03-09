@@ -107,7 +107,7 @@
       </tr>
       <tr>
         <td>Date</td>
-        <td class="changed">2019-03-07</td>
+        <td class="changed">2019-03-08</td>
       </tr>
       <tr>
         <!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -1238,7 +1238,7 @@
       </ul>
 		<blockquote>* Formally, replacement of multiple territories uses <em>Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a></em>. However, there are a small number of cases of multiple territories, so the mappings can be precomputed. This results in a faster lookup with a very small subset of the likely subtags data.</blockquote>
 	    <p>A <code><a href=
-    "#unicode_locale_id">unicode_locale_id</a></code> is <em>maximal</em> when the its <code><a href=
+    "#unicode_locale_id">unicode_locale_id</a></code> is <em>maximal</em> when the  <code><a href=
     "#unicode_language_id">unicode_language_id</a></code> and tlang (if any) have been transformed by the Add Likely Subtags operation in <em>Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a></em>.</p>
 	    <blockquote><em>Example:</em> the maxmal form of ja-Kana-t-it is ja-Kana-JP-t-it-Latn-IT</blockquote>
 	    <p>Two <code><a href=
@@ -4082,10 +4082,11 @@ zh-Hant-HK</pre>
       supplementalMeta file contains more information about these
       codes, and which codes should be used instead.</li>
       <li><strong>private_use</strong> — codes that, for CLDR, are
-      considered private use. Note that some BCP 47 private-use
-      codes have defined CLDR semantics, and are considered regular
+		  considered private use. Note that some <span class='removed'>BCP 47</span> private-use
+		  codes <span class='changed'>in a source standard such as BCP47</span> have defined CLDR semantics, and are considered regular
       codes. For more information, see <em>Section 3.5.3 <a href=
       "#Private_Use_Codes">Private Use Codes</a>.</em></li>
+      <li class='changed'><strong>reserved</strong> — codes that are private use in a source standard, but are reserved for future use as regular codes by CLDR.</li>
     </ul>
     <p>The list of subtags for each idStatus use a compact format
     as a space-delimited list of StringRanges, as defined in
@@ -9092,10 +9093,17 @@ decimal?, group?, special*)) &gt;</pre>
           "http://unicode.org/cldr/trac/ticket/11746">#11746</a>]</li>
         </ul>
       </li>
-      <li>Section <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a>
+      <li><strong>Section <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a>
+        </strong>
         <ul>
           <li>Define for Unicode Locale Identifiers: <em>canonical syntax, canonical form, maximal form, </em>and<em> equivalence</em>. [<a href=
           "http://unicode.org/cldr/trac/ticket/11551">#11551</a>]</li>
+        </ul>
+      </li>
+      <li><strong>Section <a href="#Validity_Data">3.11 Validity Data</a></strong>
+        <ul>
+          <li>Add a new idStatus=&quot;reserved&quot; [<a href=
+          "http://unicode.org/cldr/trac/ticket/11925">#11925</a>]</li>
         </ul>
       </li>
       </ul>

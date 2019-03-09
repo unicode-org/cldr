@@ -482,6 +482,8 @@
           <li>6.2 <a href="#Extended_Pictographic">Extended
           Pictographic</a></li>
           <li>6.3 <a href="#Labels.txt">Labels.txt</a></li>
+          <li><a href="#Segmentation_Tests" class='changed'>6.4
+      Segmentation Tests</a></li>
         </ul>
       </li>
       <li>7 <a href="#Format_Parse_Issues">Issues in Formatting and
@@ -7216,7 +7218,7 @@ decimal?, group?, special*)) &gt;</pre>
     the data.</p>
     <h3><a name="Script_Metadata" href="#Script_Metadata" id=
     "Script_Metadata">6.1 Script Metadata</a></h3>
-    <p><code>scriptMetadata.txt</code>:</p>
+    <p><code>scriptMetadata.txt</code></p>
     <p>This file provides general information about scripts that
     may be useful to implementations processing text. The
     information is the best currently available, and may change
@@ -7235,7 +7237,7 @@ decimal?, group?, special*)) &gt;</pre>
     "https://unicode.org/Public/emoji/">unicode.org/Public/emoji/</a>.</p>
     <h3><a name="Labels.txt" href="#Labels.txt" id="Labels.txt">6.3
     Labels.txt</a></h3>
-    <p><code>labels.txt</code>:</p>
+    <p><code>labels.txt</code></p>
     <p>This file provides general information about associations of
     labels to characters that may be useful to implementations of
     character-picking applications. The information is the best
@@ -7245,6 +7247,9 @@ decimal?, group?, special*)) &gt;</pre>
     <p>Initially, the contents are focused on emoji, but may be
     expanded in the future to other types of characters. Note that
     a character may have multiple labels.</p>
+    <h3><a name="Segmentation_Tests" href="#Segmentation_Tests" class='changed'>6.4
+      Segmentation Tests</a></h3>
+    <p class='changed'>CLDR provides a tailoring to the <a href="https://unicode.org/reports/tr29/">Grapheme Cluster Break (gcb)</a> algorithm to avoid splitting Indic aksaras. The corresponding test files for that are located in common/properties/segments/, along with a readme.txt that provides more details. There are also specific test files for the supported Indic scripts in the unittest directory.</p>
     <h2><a name="Format_Parse_Issues" href="#Format_Parse_Issues"
     id="Format_Parse_Issues">7 Issues in Formatting and
     Parsing</a></h2>
@@ -9093,13 +9098,19 @@ decimal?, group?, special*)) &gt;</pre>
       <li><strong>General
         </strong>
         <ul>
-          <li>Fixed (important) typos in EBNF  [<a href=
+          <li>Replaced references to &lt;deprecated&gt; since the <a href="#DTD_Annotations">DTD Annotations</a> in Section 5.7 are now used to determine whether elements, attributes, or attribute values are deprecated.  [<a href=
+          "http://unicode.org/cldr/trac/ticket/11904">#11904</a>]</li>
+        </ul>
+      </li>
+      
+      <li><strong>Section 3 <a href="#Identifiers">Unicode Language and Locale
+        Identifiers</a></strong>
+        <ul>
+          <li>Fixed typos in EBNF regarding empty extensions, etc. [<a href=
           "http://unicode.org/cldr/trac/ticket/11769">#11769</a>] [<a href=
           "http://unicode.org/cldr/trac/ticket/11522">#11522</a>]</li>
           <li>Removed  ABNF expression of syntax as redundant [<a href=
           "http://unicode.org/cldr/trac/ticket/11746">#11746</a>]</li>
-          <li>Fixed references to &lt;deprecated&gt; since the <a href="#DTD_Annotations">DTD Annotations</a> in Section 5.7 are now used to determine whether elements, attributes, or attribute values are deprecated.  [<a href=
-          "http://unicode.org/cldr/trac/ticket/11904">#11904</a>]</li>
         </ul>
       </li>
       <li><strong>Section <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a>
@@ -9123,6 +9134,12 @@ decimal?, group?, special*)) &gt;</pre>
         <ul>
           <li>Add a new idStatus=&quot;reserved&quot; [<a href=
           "http://unicode.org/cldr/trac/ticket/11925">#11925</a>]</li>
+        </ul>
+      </li>
+      <li><strong>Section <a href="#Segmentation_Tests">6.4
+        Segmentation Tests</a> </strong>
+        <ul>
+          <li>New section, describing the CLDR tailoring to the <a href="https://unicode.org/reports/tr29/">Grapheme Cluster Break (gcb)</a> algorithm to avoid splitting Indic aksaras.</li>
         </ul>
       </li>
       </ul>

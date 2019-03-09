@@ -6960,7 +6960,8 @@ japanese arabic civil-arabic thai-buddhist persian roc&lt;/variable&gt;</pre>
     CLDR locale data. They are intended for a particular version of
     CLDR, and may omit codes that were present in earlier versions,
     such as deprecated codes.</p>
-    <p>The &lt;deprecated&gt; element lists elements, attributes,
+    <p class='changed'>The <a href="#DTD_Annotations">DTD Annotations</a> in Section 5.7 are used to determine whether elements, attributes, or attribute values are deprecated.</p>
+    <div class='removed'><p>The &lt;deprecated&gt; element lists elements, attributes,
     and attribute values that are deprecated. If any
     deprecatedItems element contains more than one attribute, then
     only the listed combinations are deprecated. Thus the following
@@ -6975,7 +6976,8 @@ japanese arabic civil-arabic thai-buddhist persian roc&lt;/variable&gt;</pre>
     <blockquote>
       <pre>
       &lt;deprecatedItems elements="abbreviationFallback default ... preferenceOrdering" attributes="type"/&gt; </pre>
-    </blockquote>
+	  </blockquote>
+    </div>
     <p class="dtd">&lt;!ELEMENT blockingItems EMPTY &gt;<br>
     &lt;!ATTLIST blockingItems elements NMTOKENS #IMPLIED &gt;</p>
     <p>The blockingItems were used to indicate which elements (and
@@ -7350,9 +7352,10 @@ decimal?, group?, special*)) &gt;</pre>
     </ul>
     <h2><a name="Deprecated_Structure" href="#Deprecated_Structure"
     id="Deprecated_Structure">Annex A Deprecated Structure</a></h2>
-    <p>The deprecated elements, attributes, and values are listed
+    <p><span class="changed">The <a href="#DTD_Annotations">DTD Annotations</a> in Section 5.7 are used to determine whether elements, attributes, or attribute values are deprecated.</span></p>
+    <p><span class='removed'>The deprecated elements, attributes, and values are listed
     in the supplementalMetadata.xml file, under
-    &lt;deprecatedItems&gt;. While valid LDML, it is strongly
+		&lt;deprecatedItems&gt;.</span> While valid LDML, <span class='changed'>they are</span> strongly
     discouraged, and no longer used in CLDR.</p>
     <p>The remainder of this section describes selected cases of
     deprecated structure that were present in previous versions of
@@ -9095,6 +9098,8 @@ decimal?, group?, special*)) &gt;</pre>
           "http://unicode.org/cldr/trac/ticket/11522">#11522</a>]</li>
           <li>Removed  ABNF expression of syntax as redundant [<a href=
           "http://unicode.org/cldr/trac/ticket/11746">#11746</a>]</li>
+          <li>Fixed references to &lt;deprecated&gt; since the <a href="#DTD_Annotations">DTD Annotations</a> in Section 5.7 are now used to determine whether elements, attributes, or attribute values are deprecated.  [<a href=
+          "http://unicode.org/cldr/trac/ticket/11904">#11904</a>]</li>
         </ul>
       </li>
       <li><strong>Section <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a>

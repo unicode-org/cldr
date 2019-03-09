@@ -449,6 +449,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<languageAlias type="tib" replacement="bo" reason="bibliographic"/> <!-- [Tibetan] -->
 			<languageAlias type="wel" replacement="cy" reason="bibliographic"/> <!-- [Welsh] -->
             <!-- end of data generated with CountItems tool per http://sites.google.com/site/cldr/development/updating-codes/update-languagescriptregion-subtags -->
+			<languageAlias type="cel-gaulish" replacement="xtg-x-cel-gaulish" reason="legacy"/> <!-- bogus bcp47 code -->
+			<languageAlias type="i-default" replacement="en-x-i-default" reason="legacy"/> <!-- bogus bcp47 code -->
+			<languageAlias type="i-enochian" replacement="und-x-i-enochian" reason="legacy"/> <!-- bogus bcp47 code -->
+			<languageAlias type="i-mingo" replacement="see-x-i-mingo" reason="legacy"/> <!-- bogus bcp47 code -->
+			<languageAlias type="zh-min" replacement="nan-x-zh-min" reason="legacy"/> <!-- bogus bcp47 code -->
             <!-- scripts -->
             <scriptAlias type="Qaai" replacement="Zinh" reason="deprecated"/>
             <!-- deprecated ISO territories in 3066 + CLDR ones (older deprecated ISO codes -->

@@ -905,7 +905,9 @@
     are not intended for general interchange, because they are not
     valid BCP 47 tags. Instead, they are intended for certain
     protocols such as the identification of transliterators or font
-    ScriptLangTag values.</p>
+    ScriptLangTag values. <span class='changed'>For more information on language subtags with 4 letters, see <a  href=
+    "#Language_Tag_to_Locale_Identifier" >BCP 47 Language Tag to
+		Unicode BCP 47 Locale Identifier</a>.</span></p>
     <p>For example, "en-US" (American English), "en_GB" (British
     English), "es-419" (Latin American Spanish), and "uz-Cyrl"
     (Uzbek in Cyrillic) are all valid Unicode language
@@ -1333,6 +1335,7 @@
           <i>replacement</i> value, add them to the result, but
           only if there is no corresponding subtag already in the
           tag.</li>
+          <li class='changed'><strong>Note: </strong>there are currently no valid 4-letter primary language subtags. While it is extremely unlikely that BCP47 would ever register them, if so then <i>languageAlias</i> mappings will be supplied for them, mapping to defined CLDR language subtags (from the idStatus=&quot;reserved&quot; set).</li>
         </ol>
       </li>
       <li>If the BCP 47 region subtag matches the <i>type</i>
@@ -1356,8 +1359,8 @@
         </ol>
       </li>
       <li>If the tag is one of the five deprecated grandfathered
-      tags (cel-gaulish, i-default, i-enochian, i-mingo, zh-min)
-      remaining after step #1, prefix by "und-x-".</li>
+        tags (cel-gaulish, i-default, i-enochian, i-mingo, zh-min)
+        remaining after step #1, prefix by "und-x-".</li>
       <li>If the first subtag is "x", prefix by "und-".</li>
     </ol>
     <p>The result is a Unicode BCP 47 locale identifier, in
@@ -9098,6 +9101,13 @@ decimal?, group?, special*)) &gt;</pre>
         <ul>
           <li>Define for Unicode Locale Identifiers: <em>canonical syntax, canonical form, maximal form, </em>and<em> equivalence</em>. [<a href=
           "http://unicode.org/cldr/trac/ticket/11551">#11551</a>]</li>
+        </ul>
+      </li>
+      <li><strong>Section <a href=
+    "#BCP_47_Language_Tag_Conversion">3.3.1 BCP 47 Language Tag
+        Conversion</a> </strong>
+        <ul>
+          <li>Explained how to handle possible future 4-letter BCP 47 language subtags.</li>
         </ul>
       </li>
       <li><strong>Section <a href="#Validity_Data">3.11 Validity Data</a></strong>

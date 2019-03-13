@@ -177,8 +177,15 @@ public class LanguageTagParser {
      * @return
      */
     public LanguageTagParser set(String languageTag) {
-        if (languageTag.length() == 0) {
-            throw new IllegalArgumentException("Language tag cannot be empty");
+        if (languageTag.length() == 0 || languageTag.equals("root")) {
+            // throw new IllegalArgumentException("Language tag cannot be empty");
+            //
+            // With ICU 64 the language tag for root is normalized to empty string so we
+            // cannot throw for empty string as above. However, code here and in clients
+            // assumes a non-empty language tag, so for now just map "" or "root" to "und".
+            languageTag = "und";
+        } else if (languageTag.startsWith("_") || languageTag.startsWith("-")) {
+            languageTag = "und" + languageTag;
         }
         languageTag = languageTag.toLowerCase(Locale.ROOT);
 
@@ -189,7 +196,7 @@ public class LanguageTagParser {
         extensions.clear();
         localeExtensions.clear();
         original = languageTag;
-        int localeExtensionsPosition = languageTag.indexOf('@');
+        int localeExtensionsPosition = languageTag.indexOf('@'); // This does not work with BCP47 compliant IDs
         if (localeExtensionsPosition >= 0) {
             final String localeExtensionsString = languageTag.substring(localeExtensionsPosition + 1);
             for (String keyValue : SPLIT_COLON.split(localeExtensionsString)) {

@@ -348,8 +348,9 @@ public class LocaleMatcherTest extends TestFmwk {
         assertEquals("it", matcher.getBestMatch("und").toString());
 
         // When it *does* occur in the list, BestMatch returns it, as expected.
+        // Note that as of ICU 64, "und" is normalized to ""
         matcher = newLocaleMatcher("it,und");
-        assertEquals("und", matcher.getBestMatch("und").toString());
+        assertEquals("", matcher.getBestMatch("und").toString());
 
         // The unusual part:
         // max("und") = "en_Latn_US", and since matching is based on maximized

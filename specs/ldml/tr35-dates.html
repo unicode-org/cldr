@@ -1024,10 +1024,10 @@
      &lt;/timeFormats&gt;</pre>
     <p>The preference of 12 hour versus 24 hour for the locale can
     be derived from the <a href="#Time_Data">Time Data</a>. If the
-    hour symbol is 'h' or 'K' then the format is 12 hour; otherwise
-    it is 24 hour. Formats with 'h' or 'K' must also include a
-    field with one of the day period pattern characters: 'a', 'b',
-    or 'B'.</p>
+    <span class="changed">preferred </span>hour symbol is 'h' or 'K'
+    then the format is 12 hour; otherwise it is 24 hour. Formats
+    with 'h' or 'K' must also include a field with one of the day
+    period pattern characters: 'a', 'b', or 'B'.</p>
     <p>To account for customary usage in some countries, APIs
     should allow for formatting times that go beyond 23:59:59. For
     example, in some countries it would be customary to indicate
@@ -1222,11 +1222,13 @@
     formats (using h or K) and 24-hour-cycle time formats (using H
     or k), even if one of those styles is not commonly used; the
     locale's actual preference for 12-hour or 24-hour time cycle is
-    determined from the hour character used in the locale's
-    standard short time format. Thus skeletons using h or K should
-    have patterns that only use h or K for hours, while skeletons
-    using H or k should have patterns that only use H or k for
-    hours.</p>
+    determined from the <span class="removed">hour character used
+    in the locale's standard short time format</span><span class="changed"><a
+    href="#Time_Data">Time Data</a> as described above in
+    <a href="#timeFormats">timeFormats</a></span>. Thus skeletons
+    using h or K should have patterns that only use h or K for
+    hours, while skeletons using H or k should have patterns that
+    only use H or k for hours.</p>
     <p>The rules governing use of day period pattern characters in
     patterns and skeletons are as follows:</p>
     <ul>

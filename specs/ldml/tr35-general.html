@@ -360,6 +360,87 @@
       <p>&lt;type type="pinyin" key="collation"&gt;Pinyin Sort
       Order&lt;/type&gt;</p>
     </blockquote>
+    <div class='changed'>
+      <h3>1.1 Locale Display Name Algorithm</h3>
+      <p>A locale display name LDN is generated for a locale identifer L in the following way. First, canonicalize the locale identifier as per <strong><a href="tr35.html#Canonical_Unicode_Locale_Identifiers">Part 1, Section 3.2.1 Canonical Unicode Locale Identifiers</a></strong>. That will put the subtags in a defined order, and replace aliases by their canonical counterparts. (That defined order is followed in the processing below.) </p>
+      <p>Then follow each of the following steps for the subtags in L, building a base name LDN and a list of qualifying strings LQS.</p>
+      <p>Where there is a match for a subtag, disregard that subtag from L and add the element value to LDN or LQS as described bbelow. If there is no match for a subtag, use the fallback pattern with the subtag  subtag instead.</p>
+      <p>Once LDN and LQS are built, return the following based on the length of LQS.      </p>
+      		<table class='simple'>
+			<tr>
+				<td>0</td>
+				<td>return LDN</td>
+			</tr>
+			<tr>
+			  <td>1</td>
+			  <td>use the &lt;localePattern&gt; to compose the result LDN from LDN and LQS[0], and return it.</td>
+			  </tr>
+			<tr>
+			  <td>&gt;1</td>
+			  <td>use the &lt;localeSeparator&gt; element value to join the elements of the list into LDN2, then use the &lt;localePattern&gt; to compose the result LDN from LDN and LDN2, and return it.</td>
+			  </tr>
+        </table>
+
+      <p>The processing can be controled via the following parameters.</p>
+      <ul>
+        <li>CombineLanguage: boolean
+          <ul>
+            <li>Example: the CombineLanguage = true, picking the bold value below.</li>
+            <li> &lt;language type=&quot;nl&quot;&gt;Dutch&lt;/language&gt;</li>
+            <li><strong>&lt;language type=&quot;nl_BE&quot;&gt;Flemish&lt;/language&gt;</strong></li>
+          </ul>
+        </li>
+        <li>PreferAlt: map from element to preferrred alt value, picking the bold value below.
+          <ul>
+            <li>Example:  the PreferAlt contains {&quot;language&quot;=&quot;short&quot;}:</li>
+            <li>&lt;language type=&quot;az&quot;&gt;Azerbaijani&lt;/language&gt;</li>
+            <li><strong>&lt;language type=&quot;az&quot; alt=&quot;short&quot;&gt;Azeri&lt;/language&gt;</strong></li>
+          </ul>
+        </li>
+      </ul>
+      <p> In addition, the input locale display name could be minimized (see <a href="tr35.html#Likely_Subtags">Part 1, Section 4.3 Likely Subtags</a>) before generating the LDN. Selective minimization is often the best choice. For example, in a menu list it is often clearer to show the region if there are any regional variants. Thus the user would just see [&quot;Spanish&quot;] for es if the latter is the only supported Spanish, but where es-MX is also listed, then see [&quot;Spanish (Spain)&quot;, &quot;Spanish (Mexico)&quot;].</p>
+      <hr>
+      <p><strong>Processing  types of locale identifier subtags</strong>		</p>
+      <p>When the display name contains &quot;(&quot; or &quot;)&quot; characters (or full-width equivalents), replace them &quot;[&quot;, &quot;]&quot;  (or full-width equivalents) before adding.</p>
+      <ol>
+	    <li><strong>Language. </strong>Match the L subtags against the type values in the &lt;language&gt; elements. Pick the element with the most subtags matching. If there is more than one such element, pick the one that has subtypes matching earlier. If there are two such elements, pick the one that is alphabetically less. Set LBN to that value.	Disregard any of the matching subtags in the following processing.
+		    <ul>
+		      <li>If CombineLanguage is false, only choose matches with the language subtag matching.</li>
+	        </ul>
+		  </li>
+		  <li><strong>Script, Region, Variants.</strong> Where any of these subtags are in L, append the matching element value to LQS.</li>
+		  <li><strong>T extensions. </strong>Get the value of the key=&quot;h0&quot; type=&quot;hybrid&quot; element, if there is one; otherwise  the value of the &lt;key type=&quot;t&quot;&gt; element. Next get the locale display name of the tlang. Join the pair using localePattern&gt; and append to the LQS. Then format and add display names to LQS for any of the remaining tkey-tvalue pairs as described below.</li>
+		  <li><strong>U  extensions. </strong>If there is an attribute value A, process the key-value pair &lt;&quot;u&quot;, A&gt; as below and append to LQS.  Then format and add display names for each of the remaining key-type pairs as described below.</li>
+		  <li><strong>Other extensions. </strong>There are currently no such extensions defined. Until such time as there are formats  defined for them, append each of the extensions’s subtags to LQS.</li>
+		  <li><strong>Private Use extensions. </strong>Get the value </li>
+      </ol>
+	  <p><strong>Formatting T/U Key-Value pairs as display names</strong></p>
+		<ol>
+		  <li>            If there is a match for the key/value, then append the element value and return.</li>
+		  <li>Otherwise, get the display name for the key, using the subtag if not available.</li>
+		  <li>Format special values. As usual, if  lacking  data, use the subtag(s).
+		    <ol>
+		      <li>key=&quot;kr&quot;: (REORDER_CODE) assume the value is a script code, and get its display name.</li>
+		      <li>key=&quot;vt&quot;: (CODEPOINTS, deprecated) the value is a list of code points. Set the value display name to it, after replacing [-_] by space.</li>
+		      <li>key=&quot;x0&quot;: (PRIVATE_USE) the value is a list of subtags. No formatting available, so use the subtag(s).</li>
+		      <li>key=&quot;sd&quot;: (SUBDIVISION_CODE) use the subdivision data to find the display name.</li>
+		      <li>key=&quot;rg&quot;: (RG_KEY_VALUE): handle as with key=&quot;sd&quot;</li>
+	        </ol>
+	      </li>
+		  <li>Then use the value of the &lt;localeKeyTypePattern&gt; element to join the key display name and the value display name, and append the result to LQS.		  </li>
+		</ol>
+		<p>Examples:</p>
+	  <p>English: </p>
+		<table class='simple'>
+			<tr>
+				<td>a</td>
+				<td>b</td>
+			</tr>
+		</table>
+	  <p>fr-z-zz-zzz-v-vv-vvv-u-uu-uuu-s-ss-sss-a-aa-aaa-x-u-x</p>
+	  <p>French (a: aaa, Transform: xd, t9: ttt, bb: uuu, z: zz, x: u-x)</p>
+      <h3>1.2 Locale Display Name Fields</h3>
+	  </div>
     <p class="element2">&lt;languages&gt;</p>
     <p>This contains a list of elements that provide the
     user-translated names for language codes, as described in
@@ -549,16 +630,19 @@
     user-translated names for the <i>key</i> values described in
     <i><a href=
     "tr35.html#Unicode_Language_and_Locale_Identifiers">Section 3,
-    Unicode Language and Locale Identifiers</a></i>.</p>
+    Unicode Language and Locale Identifiers</a></i>. </p>
     <blockquote>
       <pre>&lt;key type="<span style=
       "color: blue">collation</span>"&gt;<span style=
-      "color: blue">Sortierung</span>&lt;/key&gt;
-</pre>
+      "color: blue">Sortierung</span>&lt;/key&gt;</pre>
+    </blockquote>
+	  <p class='changed'>Note that the <strong>type</strong> values may use aliases. Thus if the locale u-extension key &quot;co&quot; does not match, then the aliases have to be tried, using the bcp47 XML data:</p>
+	  <blockquote>
+	    <p class="changed">	&lt;key name=&quot;<strong>co</strong>&quot; description=&quot;…&quot; alias=&quot;<strong>collation</strong>&quot;&gt;</p>
     </blockquote>
     <p class="element2">&lt;types&gt;</p>
     <p>This contains a list of elements that provide the
-    user-translated names&nbsp; for the <i>type</i> values
+    user-translated names for the <i>type</i> values
     described in <i><a href=
     "tr35.html#Unicode_Language_and_Locale_Identifiers">Section 3,
     Unicode Language and Locale Identifiers</a></i> . Since the
@@ -571,7 +655,12 @@
       "color: blue">Telefonbuch</span>&lt;/type&gt;
 </pre>
     </blockquote>
-    <p class="element2">&lt;measurementSystemNames&gt;</p>
+    	  <p class='changed'>Note that the <strong>key</strong> and <strong>type</strong> values may use aliases. Thus if the locale u-extension key &quot;co&quot; does not match, then the aliases have to be tried, using the bcp47 XML data.</p>
+    	  <blockquote>
+    	    <p class="changed">&lt;key name=&quot;<strong>co</strong>&quot; description=&quot;…&quot; alias=&quot;<strong>collation</strong>&quot;&gt;</p>
+    	    <p class="changed"> &lt;type name=&quot;<strong>phonebk</strong>&quot; description=&quot;…&quot; alias=&quot;<strong>phonebook</strong>&quot;/&gt;</p>
+        </blockquote>
+	<p class="element2">&lt;measurementSystemNames&gt;</p>
     <p>This contains a list of elements that provide the
     user-translated names for systems of measurement. The types
     currently supported are "<span style="color: blue">US</span>",

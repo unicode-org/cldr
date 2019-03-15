@@ -2682,10 +2682,16 @@ zh-Hant-HK</pre>
         <td rowspan="2">Region Override</td>
         <td>"uszzzz"<br>
         <br></td>
-        <td rowspan="2">The value is a <a href=
+        <td rowspan="2">The value is a <span class="changed"><a
+        href= "#unicode_subdivision_id">unicode_subdivision_id</a>
+        of type “unknown” or “regular”; this consists of a</span>
+        <a href=
         "#unicode_region_subtag">unicode_region_subtag</a> for a
-        regular region (not a macroregion), suffixed by "ZZZZ"
-        (case is not significant). For example, “en-GB-u-rg-uszzzz”
+        regular region (not a macroregion), suffixed
+        <span class="changed">either by “zzzz”</span> (case is not
+        significant) <span class="changed">to designate the region
+        as a whole, or by a unicode_subdivision_suffix to provide
+        more specificity</span>. For example, “en-GB-u-rg-uszzzz”
         represents a locale for British English but with
         region-specific defaults set to US for items such as
         default currency, default calendar and week data, default
@@ -2716,8 +2722,8 @@ zh-Hant-HK</pre>
         <td rowspan="2">A <a href=
         "#unicode_subdivision_id">unicode_subdivision_id</a>, which
         is a <a href=
-        "#unicode_region_subtag">unicode_region_subtag</a>concatenated
-        with a unicode_subdivision_suffix.<br>
+        "#unicode_region_subtag">unicode_region_subtag</a>
+        concatenated with a unicode_subdivision_suffix.<br>
         For example, <em>gbsct</em> is “gb”+“sct” (where sct
         represents the subdivision code for Scotland). Thus
         “en-GB-u-sd-gbsct” represents the language variant “English
@@ -3040,16 +3046,8 @@ zh-Hant-HK</pre>
         "RG_KEY_VALUE">RG_KEY_VALUE</a></h5>
         <p>The type name <strong>"RG_KEY_VALUE"</strong> is
         reserved for region codes in the format required by the
-        "rg" key; this is a region code from the idValidity data in
-        common/validity/region.xml (with certain exclusions, listed
-        below) followed by "zzzz". The excluded region codes are
-        those with idStatus='unknown' and 'macroregion'; region
-        codes with idStatus='deprecated' should not be generated,
-        and those with idStatus='private_use' are only to be used
-        with prior agreement. Thus the value for the "rg" key will
-        normally be a region code with idStatus='regular' followed
-        by "zzzz"; this set of values is the same as the
-        subdivision codes with idStatus='unknown' from the
+        "rg" key; this is a <span class="changed"> subdivision
+        code with idStatus='unknown' or 'regular'</span> from the
         idValidity data in common/validity/subdivision.xml.</p>
         <h5><a name="SUBDIVISION_CODE" href="#SUBDIVISION_CODE" id=
         "SUBDIVISION_CODE">SUBDIVISION_CODE</a></h5>
@@ -9130,6 +9128,15 @@ decimal?, group?, special*)) &gt;</pre>
           "http://unicode.org/cldr/trac/ticket/11818">#11818</a>]</li>
         </ul>
       </li>
+      <li><strong>Section <a href="#Key_And_Type_Definitions_">3.6.1 Key And Type Definitions</a></strong>
+        <ul>
+          <li>Note that the value for a region subtag "rg" is really a unicode_subdivision_id;
+          extend it to also support unicode subdivision ids of type 'regular'
+          (unicode_region_subtag + unicode_subdivision_suffix) in addition to those of
+          type 'unknown' (unicode_region_subtag + "zzzz"): [<a href=
+          "http://unicode.org/cldr/trac/ticket/10023">#10023</a>]</li>
+        </ul>
+      </li>
       <li><strong>Section <a href="#Validity_Data">3.11 Validity Data</a></strong>
         <ul>
           <li>Add a new idStatus=&quot;reserved&quot; [<a href=
@@ -9162,7 +9169,7 @@ decimal?, group?, special*)) &gt;</pre>
           "http://unicode.org/cldr/trac/ticket/11563">#11563</a>], but also
           shortened the table to not be a complete listing but just
           representative examples[<a href=
-          "http://unicode.org/cldr/trac/ticket/11563">#11752</a>]:
+          "http://unicode.org/cldr/trac/ticket/11752">#11752</a>]:
           <ul>
             <li>area-dunam</li>
             <li>concentr-mole</li>

@@ -5498,7 +5498,7 @@ root</pre>
     algorithm, the languageMatching data is interpreted as an
     ordered list.</p>
     <p class='changed'>Distances between given pair of subtags can be larger or smaller than the typical distances. For example, the distance between en and en-GB can be greater than those between en-GB and en-IE. In some cases, language and/or script differences can be as small as the typical region difference. (Example: sr-Latn vs. sr-Cyrl).</p>
-    <p class='changed'>The distances resulting from the table are not linear, but are rather chosen to produce expected results. So a distance of 10 is not necessarily twice as &quot;bad&quot; as a distance of 5.</p>
+    <p class='changed'>The distances resulting from the table are not linear, but are rather chosen to produce expected results. So a distance of 10 is not necessarily twice as &quot;bad&quot; as a distance of 5. Implementations may want to have a mode where script distances should swamp language distances. The tables are built such that this can be accomplished by multiplying the language distance by 0.25.</p>
     <p>The language matching algorithm takes a list of a user’s
     desired languages, and a list of the application’s supported
     languages.</p>

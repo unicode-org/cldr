@@ -107,7 +107,7 @@
       </tr>
       <tr>
         <td>Date</td>
-        <td class="changed">2019-03-14</td>
+        <td class="changed">2019-03-15</td>
       </tr>
       <tr>
         <!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -393,7 +393,7 @@
           </li>
           <li>4.3 <a href="#Likely_Subtags">Likely Subtags</a></li>
           <li>4.4 <a href="#LanguageMatching">Language Matching</a>
-            <ul>
+            <ul class='toc'>
               <li>4.4.1 <a href=
               "#EnhancedLanguageMatching">Enhanced Language
               Matching</a></li>
@@ -5497,18 +5497,21 @@ root</pre>
     can be optimized for production in many ways. In this
     algorithm, the languageMatching data is interpreted as an
     ordered list.</p>
+    <p class='changed'>Distances between given pair of subtags can be larger or smaller than the typical distances. For example, the distance between en and en-GB can be greater than those between en-GB and en-IE. In some cases, language and/or script differences can be as small as the typical region difference. (Example: sr-Latn vs. sr-Cyrl).</p>
+    <p class='changed'>The distances resulting from the table are not linear, but are rather chosen to produce expected results. So a distance of 10 is not necessarily twice as &quot;bad&quot; as a distance of 5.</p>
     <p>The language matching algorithm takes a list of a user’s
     desired languages, and a list of the application’s supported
     languages.</p>
     <ul>
       <li>Set the best weighted distance BWD to ∞</li>
       <li>Set the best desired language BD to null</li>
+      <li class='changed'>Set the best supported language BS to null</li>
       <li>For each desired language D
         <ul>
-          <li>Compute a discount factor F, based on the position in
+			<li>Compute a <span class='changed'>demotion value</span> F, based on the position in
           the list.
             <ul>
-              <li>This discount factor is up to the implementation,
+              <li>This <span class="changed">demotion value</span> is up to the implementation,
               but is typically a positive value that increases
               according to how far D is from the start of the
               desired language list.</li>
@@ -5523,21 +5526,22 @@ root</pre>
                 <ul>
                   <li>BWD = WD</li>
                   <li>BD = D</li>
+                  <li class='changed'>BS = S</li>
                 </ul>
               </li>
             </ul>
           </li>
         </ul>
       </li>
-      <li>If the BWD is less than a threshold, return BD.
+      <li>If the BWD is less than a threshold, return <span class="changed">&lt;</span>BD<span class="changed">, BS&gt;</span>
         <ul>
-          <li>The threshold is implementation-defined, typically
+        <li>The threshold is implementation-defined, typically
           set to greater than a default region difference, and less
-          than a default script difference.</li>
+        than a default script difference.</li>
         </ul>
       </li>
-      <li>Otherwise return a default supported language (like
-      English).</li>
+      <li>Otherwise <span class="changed"> BD = the</span> default supported language (like
+      English); <span class="changed">return &lt;</span>BD<span class="changed">, null&gt;</span></li>
     </ul>
     <p>To find the matching distance MD between any two languages,
     perform the following steps.</p>
@@ -5549,23 +5553,28 @@ root</pre>
         </ul>
       </li>
       <li>Set the match-distance MD to 0</li>
-      <li>For each subtag in the list, starting from the end:
-      region, script, base-language
-        <ol>
-          <li>If respective subtags in each language tag are
+      <li>For each subtag <span class="changed">in {language, script, region}</span>
+<ol>
+        <li>If respective subtags in each language tag are
           identical, remove the subtag from each (logically) and
-          continue.</li>
-          <li>Traverse the languageMatching data until a match is
+        continue.</li>
+        <li>Traverse the languageMatching data until a match is
           found.
-            <ul>
-              <li>* matches any field.</li>
-              <li>If the oneway flag is false, then the match is
-              symmetric.</li>
-            </ul>
-          </li>
-          <li>Add 100 minus the <strong>percent</strong> attribute
-          value to MD.</li>
-          <li>Remove the subtag from each (logically)</li>
+          <ul>
+            <li>* matches any field.</li>
+            <li>If the oneway flag is false, then the match is
+            symmetric<span class="changed">; otherwise only match one direction.</span></li>
+            <li><span class="changed">For region matching, use the mechanisms in <strong>Section 4.4.1 <a href=
+              "#EnhancedLanguageMatching">Enhanced Language
+            Matching</a></strong></span>.</li>
+          </ul>
+        </li>
+		  <li>Add <span class='changed'>the <strong>distance</strong> attribute value</span>  to MD.
+		    <ul class='changed'>
+		      <li>This used to be a <strong>percent</strong> attribute value, which was 100 - the distance attribute value.</li>
+	        </ul>
+		  </li>
+	    <li>Remove the subtag from each (logically)</li>
         </ol>
       </li>
       <li>Return MD</li>
@@ -9141,6 +9150,13 @@ decimal?, group?, special*)) &gt;</pre>
         <ul>
           <li>Add a new idStatus=&quot;reserved&quot; [<a href=
           "http://unicode.org/cldr/trac/ticket/11925">#11925</a>]</li>
+        </ul>
+      </li>
+      <li><strong>Section 4.4 <a href="#LanguageMatching">Language Matching</a> 
+        </strong>
+        <ul>
+          <li>Clarify the process  [<a href=
+          "http://unicode.org/cldr/trac/ticket/11922">#11922</a>]</li>
         </ul>
       </li>
       <li><strong>Section <a href="#Segmentation_Tests">6.4

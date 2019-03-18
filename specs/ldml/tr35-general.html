@@ -176,7 +176,12 @@
     <!-- START Generated TOC: CheckHtmlFiles -->
     <ul class="toc">
       <li>1 <a href="#Display_Name_Elements">Display Name
-      Elements</a></li>
+      Elements</a>
+        <ul class='toc'>
+          <li class='changed'>1.1 <a href="#locale_display_name_algorithm">Locale Display Name Algorithm</a></li>
+          <li class='changed'>1.2 <a href="#locale_display_name_fields">Locale Display Name Fields</a></li>
+        </ul>
+      </li>
       <li>2 <a href="#Layout_Elements">Layout Elements</a></li>
       <li>3 <a href="#Character_Elements">Character Elements</a>
         <ul class="toc">
@@ -361,7 +366,8 @@
       Order&lt;/type&gt;</p>
     </blockquote>
     <div class='changed'>
-      <h3>1.1 Locale Display Name Algorithm</h3>
+	<h3>1.1 <a href="#locale_display_name_algorithm" name="locale_display_name_algorithm">Locale Display Name Algorithm</a></h3>
+
       <p>A locale display name LDN is generated for a locale identifer L in the following way. First, canonicalize the locale identifier as per <strong><a href="tr35.html#Canonical_Unicode_Locale_Identifiers">Part 1, Section 3.2.1 Canonical Unicode Locale Identifiers</a></strong>. That will put the subtags in a defined order, and replace aliases by their canonical counterparts. (That defined order is followed in the processing below.) </p>
       <p>Then follow each of the following steps for the subtags in L, building a base name LDN and a list of qualifying strings LQS.</p>
       <p>Where there is a match for a subtag, disregard that subtag from L and add the element value to LDN or LQS as described bbelow. If there is no match for a subtag, use the fallback pattern with the subtag  subtag instead.</p>
@@ -398,7 +404,7 @@
           </ul>
         </li>
       </ul>
-      <p> In addition, the input locale display name could be minimized (see <a href="tr35.html#Likely_Subtags">Part 1, Section 4.3 Likely Subtags</a>) before generating the LDN. Selective minimization is often the best choice. For example, in a menu list it is often clearer to show the region if there are any regional variants. Thus the user would just see [&quot;Spanish&quot;] for es if the latter is the only supported Spanish, but where es-MX is also listed, then see [&quot;Spanish (Spain)&quot;, &quot;Spanish (Mexico)&quot;].</p>
+      <p> In addition, the input locale display name could be minimized (see <a href="tr35.html#Likely_Subtags">Part 1: Section 4.3 Likely Subtags</a>) before generating the LDN. Selective minimization is often the best choice. For example, in a menu list it is often clearer to show the region if there are any regional variants. Thus the user would just see [&quot;Spanish&quot;] for es if the latter is the only supported Spanish, but where es-MX is also listed, then see [&quot;Spanish (Spain)&quot;, &quot;Spanish (Mexico)&quot;].</p>
       <hr>
       <p><strong>Processing  types of locale identifier subtags</strong>		</p>
       <p>When the display name contains &quot;(&quot; or &quot;)&quot; characters (or full-width equivalents), replace them &quot;[&quot;, &quot;]&quot;  (or full-width equivalents) before adding.</p>
@@ -429,17 +435,24 @@
 	      </li>
 		  <li>Then use the value of the &lt;localeKeyTypePattern&gt; element to join the key display name and the value display name, and append the result to LQS.		  </li>
 		</ol>
-		<p>Examples:</p>
-	  <p>English: </p>
+		<p><strong>Examples	of	English locale display names</strong></p>
 		<table class='simple'>
-			<tr>
-				<td>a</td>
-				<td>b</td>
-			</tr>
-		</table>
-	  <p>fr-z-zz-zzz-v-vv-vvv-u-uu-uuu-s-ss-sss-a-aa-aaa-x-u-x</p>
-	  <p>French (a: aaa, Transform: xd, t9: ttt, bb: uuu, z: zz, x: u-x)</p>
-      <h3>1.2 Locale Display Name Fields</h3>
+  <tr>
+    <th>Locale identifier</th>
+    <th>Locale display name</th>
+  <tr>
+    <td>es</td>
+    <td>Spanish</td>
+  <tr>
+<tr><td>es-419</td><td>Spanish (Latin America)</td><tr>
+<tr><td>es-Cyrl-MX</td><td>Spanish (Cyrillic, Mexico)</td><tr>
+<tr><td>en-Latn-GB-fonipa-scouse</td><td>English (Latin, United Kingdom, IPA Phonetics, Scouse)</td><tr>
+<tr><td>en-u-nu-thai-ca-islamic-civil</td><td>English (Calendar: islamic-civil, Thai Digits)</td><tr>
+<tr><td>hi-u-nu-latn-t-en-h0-hybrid</td><td>Hindi (Hybrid: English, Western Digits)</td><tr>
+<tr><td>en-u-nu-deva-t-de</td><td>English (Transform: German, Devanagari Digits)</td><tr>
+<tr><td>fr-z-zz-zzz-v-vv-vvv-u-uu-uuu-t-ru-Cyrl-s-ss-sss-a-aa-aaa-x-u-x</td><td>French (Transform: Russian [Cyrillic], uu: uuu, a: aa-aaa, s: ss-sss, v: vv-vvv, x: u-x, z: zz-zzz)</td><tr>
+		</table><br>
+	  <h3>1.2 <a href="#locale_display_name_fields" name="locale_display_name_fields">Locale Display Name Fields</a></h3>
 	  </div>
     <p class="element2">&lt;languages&gt;</p>
     <p>This contains a list of elements that provide the

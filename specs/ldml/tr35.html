@@ -107,7 +107,7 @@
       </tr>
       <tr>
         <td>Date</td>
-        <td class="changed">2019-03-14</td>
+        <td class="changed">2019-03-15</td>
       </tr>
       <tr>
         <!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -393,7 +393,7 @@
           </li>
           <li>4.3 <a href="#Likely_Subtags">Likely Subtags</a></li>
           <li>4.4 <a href="#LanguageMatching">Language Matching</a>
-            <ul>
+            <ul class='toc'>
               <li>4.4.1 <a href=
               "#EnhancedLanguageMatching">Enhanced Language
               Matching</a></li>
@@ -472,7 +472,11 @@
             </ul>
           </li>
           <li>5.7 <a href="#DTD_Annotations">DTD
-          Annotations</a></li>
+          Annotations</a>
+            <ul class='toc'>
+              <li><span class="changed">5.7.1 <a href="#match_expressions" >Attribute Value Constraints</a></span></li>
+            </ul>
+          </li>
         </ul>
       </li>
       <li>6 <a href="#Property_Data">Property Data</a>
@@ -5497,18 +5501,21 @@ root</pre>
     can be optimized for production in many ways. In this
     algorithm, the languageMatching data is interpreted as an
     ordered list.</p>
+    <p class='changed'>Distances between given pair of subtags can be larger or smaller than the typical distances. For example, the distance between en and en-GB can be greater than those between en-GB and en-IE. In some cases, language and/or script differences can be as small as the typical region difference. (Example: sr-Latn vs. sr-Cyrl).</p>
+    <p class='changed'>The distances resulting from the table are not linear, but are rather chosen to produce expected results. So a distance of 10 is not necessarily twice as &quot;bad&quot; as a distance of 5. Implementations may want to have a mode where script distances should swamp language distances. The tables are built such that this can be accomplished by multiplying the language distance by 0.25.</p>
     <p>The language matching algorithm takes a list of a user’s
     desired languages, and a list of the application’s supported
     languages.</p>
     <ul>
       <li>Set the best weighted distance BWD to ∞</li>
       <li>Set the best desired language BD to null</li>
+      <li class='changed'>Set the best supported language BS to null</li>
       <li>For each desired language D
         <ul>
-          <li>Compute a discount factor F, based on the position in
+			<li>Compute a <span class='changed'>demotion value</span> F, based on the position in
           the list.
             <ul>
-              <li>This discount factor is up to the implementation,
+              <li>This <span class="changed">demotion value</span> is up to the implementation,
               but is typically a positive value that increases
               according to how far D is from the start of the
               desired language list.</li>
@@ -5523,21 +5530,22 @@ root</pre>
                 <ul>
                   <li>BWD = WD</li>
                   <li>BD = D</li>
+                  <li class='changed'>BS = S</li>
                 </ul>
               </li>
             </ul>
           </li>
         </ul>
       </li>
-      <li>If the BWD is less than a threshold, return BD.
+      <li>If the BWD is less than a threshold, return <span class="changed">&lt;</span>BD<span class="changed">, BS&gt;</span>
         <ul>
-          <li>The threshold is implementation-defined, typically
+        <li>The threshold is implementation-defined, typically
           set to greater than a default region difference, and less
-          than a default script difference.</li>
+        than a default script difference.</li>
         </ul>
       </li>
-      <li>Otherwise return a default supported language (like
-      English).</li>
+      <li>Otherwise <span class="changed"> BD = the</span> default supported language (like
+      English); <span class="changed">return &lt;</span>BD<span class="changed">, null&gt;</span></li>
     </ul>
     <p>To find the matching distance MD between any two languages,
     perform the following steps.</p>
@@ -5549,23 +5557,28 @@ root</pre>
         </ul>
       </li>
       <li>Set the match-distance MD to 0</li>
-      <li>For each subtag in the list, starting from the end:
-      region, script, base-language
-        <ol>
-          <li>If respective subtags in each language tag are
+      <li>For each subtag <span class="changed">in {language, script, region}</span>
+<ol>
+        <li>If respective subtags in each language tag are
           identical, remove the subtag from each (logically) and
-          continue.</li>
-          <li>Traverse the languageMatching data until a match is
+        continue.</li>
+        <li>Traverse the languageMatching data until a match is
           found.
-            <ul>
-              <li>* matches any field.</li>
-              <li>If the oneway flag is false, then the match is
-              symmetric.</li>
-            </ul>
-          </li>
-          <li>Add 100 minus the <strong>percent</strong> attribute
-          value to MD.</li>
-          <li>Remove the subtag from each (logically)</li>
+          <ul>
+            <li>* matches any field.</li>
+            <li>If the oneway flag is false, then the match is
+            symmetric<span class="changed">; otherwise only match one direction.</span></li>
+            <li><span class="changed">For region matching, use the mechanisms in <strong>Section 4.4.1 <a href=
+              "#EnhancedLanguageMatching">Enhanced Language
+            Matching</a></strong></span>.</li>
+          </ul>
+        </li>
+		  <li>Add <span class='changed'>the <strong>distance</strong> attribute value</span>  to MD.
+		    <ul class='changed'>
+		      <li>This used to be a <strong>percent</strong> attribute value, which was 100 - the distance attribute value.</li>
+	        </ul>
+		  </li>
+	    <li>Remove the subtag from each (logically)</li>
         </ol>
       </li>
       <li>Return MD</li>
@@ -6914,7 +6927,10 @@ root</pre>
     <h3><a name="Valid_Attribute_Values" href=
     "#Valid_Attribute_Values" id="Valid_Attribute_Values">5.5 Valid
     Attribute Values</a></h3>
-    <p>The valid attribute values, as well as other validity
+	      <p class='changed'>The <a href="#DTD_Annotations">DTD Annotations</a> in Section 5.7 are used to determine whether elements, attributes, or attribute values are valid (or deprecated).</p>
+
+    <div class='removed'>
+		<p>The valid attribute values, as well as other validity
     information is contained in the supplementalMetadata.xml file.
     (Some, but not all, of this information could have been
     represented in XML Schema or a DTD.) Most of this is primarily
@@ -6960,8 +6976,7 @@ japanese arabic civil-arabic thai-buddhist persian roc&lt;/variable&gt;</pre>
     CLDR locale data. They are intended for a particular version of
     CLDR, and may omit codes that were present in earlier versions,
     such as deprecated codes.</p>
-    <p class='changed'>The <a href="#DTD_Annotations">DTD Annotations</a> in Section 5.7 are used to determine whether elements, attributes, or attribute values are deprecated.</p>
-    <div class='removed'><p>The &lt;deprecated&gt; element lists elements, attributes,
+	<p>The &lt;deprecated&gt; element lists elements, attributes,
     and attribute values that are deprecated. If any
     deprecatedItems element contains more than one attribute, then
     only the listed combinations are deprecated. Thus the following
@@ -6977,7 +6992,6 @@ japanese arabic civil-arabic thai-buddhist persian roc&lt;/variable&gt;</pre>
       <pre>
       &lt;deprecatedItems elements="abbreviationFallback default ... preferenceOrdering" attributes="type"/&gt; </pre>
 	  </blockquote>
-    </div>
     <p class="dtd">&lt;!ELEMENT blockingItems EMPTY &gt;<br>
     &lt;!ATTLIST blockingItems elements NMTOKENS #IMPLIED &gt;</p>
     <p>The blockingItems were used to indicate which elements (and
@@ -7006,6 +7020,8 @@ japanese arabic civil-arabic thai-buddhist persian roc&lt;/variable&gt;</pre>
   elements="default measurementSystem mapping abbreviationFallback preferenceOrdering"
   attributes="type"/&gt;
 </pre>
+    </div>
+
     <h3><a name="Canonical_Form" href="#Canonical_Form" id=
     "Canonical_Form">5.6 Canonical Form</a></h3>
     <p>The following are restrictions on the format of LDML files
@@ -7190,6 +7206,10 @@ decimal?, group?, special*)) &gt;</pre>
         <td>The attribute values are deprecated, and should not be
         used. Spaces between tokens are not significant.</td>
       </tr>
+      <tr class='changed'>
+        <td>&lt;!--@MATCH:{attribute value constraint}--&gt;</td>
+        <td>Requires the attribute value to match the constraint.</td>
+      </tr>
     </table>
     <p>There is additional information in the
     attributeValueValidity.xml file that is used internally for
@@ -7205,6 +7225,76 @@ decimal?, group?, special*)) &gt;</pre>
     this point does not cover all attribute values, is used only
     for testing, and should not be used in implementations since
     the structure may change without notice.</p>
+    <h4 class='changed'>5.7.1<a href="#match_expressions" name="match_expressions">Attribute Value Constraints</a></h4>
+    <p class="changed">The following are constraints on the attribute values. Note: in future versions, the format may change, and/or the constaints may be tightened.</p>
+    <table class='simple changed'>
+      <tbody>
+        <tr>
+          <th>Constraint</th>
+          <th>Comments</th>
+        </tr>
+        <tr>
+          <td>any</td>
+          <td>any string value</td>
+        </tr>
+        <tr>
+          <td>any/TODO</td>
+          <td>placeholder for future constraints</td>
+        </tr>
+        <tr>
+          <td>bcp47/anykey</td>
+          <td>any bcp47 key or tkey</td>
+        </tr>
+        <tr>
+          <td>bcp47/anyvalue</td>
+          <td>any bcp47 value (type) or tvalue</td>
+        </tr>
+        <tr>
+          <td>literal/{literal values}</td>
+          <td>comma separated</td>
+        </tr>
+        <tr>
+          <td>regex/{regex expression}</td>
+          <td>valid regex expression</td>
+        </tr>
+        <tr>
+          <td>bcp47/{key or tkey}</td>
+          <td>matches possible values for that key or tkey</td>
+        </tr>
+        <tr>
+          <td>metazone</td>
+          <td>valid metazone</td>
+        </tr>
+        <tr>
+          <td>range/{start_number~{end_number}}</td>
+          <td>number between (inclusive) start and end</td>
+        </tr>
+        <tr>
+          <td>time/{time or date or date-time pattern}</td>
+          <td>eg HH:mm</td>
+        </tr>
+        <tr>
+          <td>unicodeset/{unicodeset pattern}</td>
+          <td>valid unicodeset</td>
+        </tr>
+        <tr>
+          <td>validity/{field}</td>
+          <td>currency, language, locale, region, script, subdivision, unit, variant</td>
+        </tr>
+        <tr>
+          <td>version</td>
+          <td>1 to 4 digit field version, such as 35.3.9</td>
+        </tr>
+        <tr>
+          <td>set/{match}</td>
+          <td>set of elements that match {match}</td>
+        </tr>
+        <tr>
+          <td>or/{match1}XX{match2}…</td>
+          <td>matches at least one of {match1}, etc</td>
+        </tr>
+      </tbody>
+    </table><br>
     <h2><a name="Property_Data" href="#Property_Data" id=
     "Property_Data">6 Property Data</a></h2>
     <p>Some data in CLDR does not use an XML format, but rather a
@@ -9111,15 +9201,15 @@ decimal?, group?, special*)) &gt;</pre>
           "http://unicode.org/cldr/trac/ticket/11746">#11746</a>]</li>
         </ul>
       </li>
-      <li><strong>Section <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a>
+      <li><strong>Section 3.2.1 <a href="#Canonical_Unicode_Locale_Identifiers">Canonical Unicode Locale Identifiers</a>
         </strong>
         <ul>
           <li>Define for Unicode Locale Identifiers: <em>canonical syntax, canonical form, maximal form, </em>and<em> equivalence</em>. [<a href=
           "http://unicode.org/cldr/trac/ticket/11551">#11551</a>]</li>
         </ul>
       </li>
-      <li><strong>Section <a href=
-    "#BCP_47_Language_Tag_Conversion">3.3.1 BCP 47 Language Tag
+      <li><strong>Section 3.3.1 <a href=
+    "#BCP_47_Language_Tag_Conversion">BCP 47 Language Tag
         Conversion</a> </strong>
         <ul>
           <li>Explained how to handle possible future 4-letter BCP 47 language subtags. [<a href=
@@ -9128,7 +9218,7 @@ decimal?, group?, special*)) &gt;</pre>
           "http://unicode.org/cldr/trac/ticket/11818">#11818</a>]</li>
         </ul>
       </li>
-      <li><strong>Section <a href="#Key_And_Type_Definitions_">3.6.1 Key And Type Definitions</a></strong>
+      <li><strong>Section 3.6.1 <a href="#Key_And_Type_Definitions_">Key And Type Definitions</a></strong>
         <ul>
           <li>Note that the value for a region subtag "rg" is really a unicode_subdivision_id;
           extend it to also support unicode subdivision ids of type 'regular'
@@ -9137,14 +9227,26 @@ decimal?, group?, special*)) &gt;</pre>
           "http://unicode.org/cldr/trac/ticket/10023">#10023</a>]</li>
         </ul>
       </li>
-      <li><strong>Section <a href="#Validity_Data">3.11 Validity Data</a></strong>
+      <li><strong>Section 3.11 <a href="#Validity_Data">Validity Data</a></strong>
         <ul>
           <li>Add a new idStatus=&quot;reserved&quot; [<a href=
           "http://unicode.org/cldr/trac/ticket/11925">#11925</a>]</li>
         </ul>
       </li>
-      <li><strong>Section <a href="#Segmentation_Tests">6.4
-        Segmentation Tests</a> </strong>
+      <li><strong>Section 4.4 <a href="#LanguageMatching">Language Matching</a> 
+        </strong>
+        <ul>
+          <li>Clarify the process  [<a href=
+          "http://unicode.org/cldr/trac/ticket/11922">#11922</a>]</li>
+        </ul>
+      </li>
+      <li><strong>Section 5.7.1<a href="#match_expressions" name="match_expressions">Attribute Value Constraints</a> </strong>
+        <ul>
+          <li>Added constraints on attribute values. For example, a value can be constrained to be a valid locale, or unit, or version number.</li>
+        </ul>
+      </li>
+      <li><strong>Section 6.4
+        <a href="#Segmentation_Tests">Segmentation Tests</a> </strong>
         <ul>
           <li>New section, describing the CLDR tailoring to the <a href="https://unicode.org/reports/tr29/">Grapheme Cluster Break (gcb)</a> algorithm to avoid splitting Indic aksaras.</li>
         </ul>
@@ -9155,7 +9257,14 @@ decimal?, group?, special*)) &gt;</pre>
 	  transforms, etc.)</strong></p>
     <ul>
       <li>
-        <strong>Section 6 <a href=
+        <strong>Section 1 <a href="tr35-general.html#Display_Name_Elements">Display Name
+        Elements</a></strong> [<a href=
+          "http://unicode.org/cldr/trac/ticket/11926">#11926</a>]
+        <ul>
+          <li>More fully specified the process of building a locale display name.</li>
+        </ul>
+      </li>
+      <li><strong>Section 6 <a href=
         "tr35-general.html#Unit_Elements">Unit
         Elements</a></strong>
         <ul>
@@ -9167,29 +9276,29 @@ decimal?, group?, special*)) &gt;</pre>
           "http://unicode.org/cldr/trac/ticket/11098">#11098</a>][<a href=
           "http://unicode.org/cldr/trac/ticket/11467">#11467</a>][<a href=
           "http://unicode.org/cldr/trac/ticket/11563">#11563</a>], but also
-          shortened the table to not be a complete listing but just
-          representative examples[<a href=
+            shortened the table to not be a complete listing but just
+            representative examples[<a href=
           "http://unicode.org/cldr/trac/ticket/11752">#11752</a>]:
-          <ul>
-            <li>area-dunam</li>
-            <li>concentr-mole</li>
-            <li>concentr-permyriad</li>
-            <li>energy-electronvolt</li>
-            <li>energy-british-thermal-unit</li>
-            <li>force-pound-force</li>
-            <li>force-newton</li>
-            <li>length-solar-radius</li>
-            <li>light-solar-luminosity</li>
-            <li>mass-dalton</li>
-            <li>mass-earth-mass</li>
-            <li>mass-solar-mass</li>
-            <li>pressure-kilopascal</li>
-            <li>pressure-megapascal</li>
-            <li>torque-pound-foot</li>
-            <li>torque-newton</li>
-            <li>volume-fluid-ounce-imperial</li>
-            <li>volume-barrel</li>
-          </ul>
+            <ul>
+              <li>area-dunam</li>
+              <li>concentr-mole</li>
+              <li>concentr-permyriad</li>
+              <li>energy-electronvolt</li>
+              <li>energy-british-thermal-unit</li>
+              <li>force-pound-force</li>
+              <li>force-newton</li>
+              <li>length-solar-radius</li>
+              <li>light-solar-luminosity</li>
+              <li>mass-dalton</li>
+              <li>mass-earth-mass</li>
+              <li>mass-solar-mass</li>
+              <li>pressure-kilopascal</li>
+              <li>pressure-megapascal</li>
+              <li>torque-pound-foot</li>
+              <li>torque-newton</li>
+              <li>volume-fluid-ounce-imperial</li>
+              <li>volume-barrel</li>
+            </ul>
           </li>
         </ul>
       </li>
@@ -9217,15 +9326,30 @@ decimal?, group?, special*)) &gt;</pre>
       </li>
     </ul>
 	<p><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date, time, time zone formatting)</strong>      </p>
+    <ul>
+      <li>
+        <strong>Section 2.6.2 <a href=
+        "tr35-dates.html#availableFormats_appendItems">Elements
+        	availableFormats, appendItems</a></strong>
+        <ul>
+          <li>Updated the description of how to determine a locale’s
+          	preferred time cycle. [<a href=
+          "http://unicode.org/cldr/trac/ticket/10416">#10416</a>]</li>
+        </ul>
+      </li>
+    </ul>
     <p><strong>Part 5: <a href=
     "tr35-collation.html#Contents">Collation</a> (sorting,
       searching, grouping)</strong></p>
+    <p><em>no changes</em></p>
     <p><strong>Part 6: <a href=
     "tr35-info.html#Contents">Supplemental</a> (supplemental
       data)</strong>	</p>
+    <p><em>no changes</em></p>
     <p><strong>Part 7: <a href=
     "tr35-keyboards.html#Contents">Keyboards</a> (keyboard
     mappings)</strong></p>
+    <p><em>no changes</em></p>
     </div>
     <p>&nbsp;</p>
    <div class='removed'>

@@ -9,16 +9,18 @@ import java.nio.charset.Charset;
 import java.util.Collection;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.ant.CLDRConverterTool.Alias;
+import org.unicode.cldr.ant.CLDRConverterTool.AliasDeprecates;
 
 class DependencyGraphData {
     SupplementalDataInfo supplementalDataInfo;
-    Collection<Alias> aliasList;
+    AliasDeprecates aliasDeprecates;
 
-    DependencyGraphData(SupplementalDataInfo supplementalDataInfo, Collection<Alias> aliasList) {
+    DependencyGraphData(SupplementalDataInfo supplementalDataInfo, AliasDeprecates aliasDeprecates) {
         this.supplementalDataInfo = supplementalDataInfo;
-        this.aliasList = aliasList;
+        this.aliasDeprecates = aliasDeprecates;
     }
 
     public void print(String outputDir, String filename) throws IOException {
@@ -29,15 +31,13 @@ class DependencyGraphData {
         out.println();
 
         out.append("data = {");
-        boolean firstOuter = true;
-        if (aliasList != null) {
-            if (!firstOuter) {
-                out.append(',');
-            }
-            firstOuter = false;
-            out.append("\n    \"aliases\": {");
+        out.append("\n    \"cldrVersion\": \"");
+        out.append(CLDRFile.GEN_VERSION);
+        out.append('"');
+        if (aliasDeprecates.aliasList != null) {
+            out.append(",\n    \"aliases\": {");
             boolean firstInner = true;
-            for (Alias alias : aliasList) {
+            for (Alias alias : aliasDeprecates.aliasList) {
                 if (alias.rbPath != null) {
                     continue;
                 }
@@ -55,11 +55,7 @@ class DependencyGraphData {
         }
         Collection<String> explicitChildren = supplementalDataInfo.getExplicitChildren();
         if (!explicitChildren.isEmpty()) {
-            if (!firstOuter) {
-                out.append(',');
-            }
-            firstOuter = false;
-            out.append("\n    \"parents\": {");
+            out.append(",\n    \"parents\": {");
             boolean firstInner = true;
             for (String child : explicitChildren) {
                 if (!firstInner) {

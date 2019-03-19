@@ -233,7 +233,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             option = options.get("depgraphfile");
             if (option.doesOccur()) {
                 DependencyGraphData dependencyGraphData = new DependencyGraphData(
-                    supplementalDataInfo, aliasDeprecates.aliasList);
+                    supplementalDataInfo, aliasDeprecates);
                 generateDependencyGraphFile(dependencyGraphData, option.getValue());
             }
 
@@ -263,9 +263,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         if (mapper != null) {
             convert(mapper);
             option = options.get("makefile");
-            if (option.doesOccur()) {
-                generateMakefile(mapper, option.getValue());
-            }
+            generateSynthetics(mapper, option.getValue());
         }
     }
 
@@ -357,21 +355,25 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
     /**
      * Generates makefiles for files generated from the specified mapper.
      * @param mapper
-     * @param makefileName
+     * @param makefileName If non-null, print Makefile data to this file.
      */
-    private void generateMakefile(Mapper mapper, String makefileName) {
+    private void generateSynthetics(Mapper mapper, String makefileName) {
         // Generate aliases and makefiles for main directory.
         Set<String> aliases = writeSyntheticFiles(mapper.getGenerated(), destinationDir);
-        Makefile makefile = mapper.generateMakefile(aliases);
-        writeMakefile(makefile, destinationDir, makefileName);
+        if (makefileName != null) {
+            Makefile makefile = mapper.generateMakefile(aliases);
+            writeMakefile(makefile, destinationDir, makefileName);
+        }
         if (splitter == null) return;
 
         // Generate aliases and locales for remaining directories if a splitter was used.
         for (String dir : splitter.getTargetDirs()) {
             File outputDir = new File(destinationDir, "../" + dir);
             aliases = writeSyntheticFiles(splitter.getDirSources(dir), outputDir.getAbsolutePath());
-            makefile = splitter.generateMakefile(aliases, outputDir.getName());
-            writeMakefile(makefile, outputDir.getAbsolutePath(), makefileName);
+            if (makefileName != null) {
+                Makefile makefile = splitter.generateMakefile(aliases, outputDir.getName());
+                writeMakefile(makefile, outputDir.getAbsolutePath(), makefileName);
+            }
         }
     }
 

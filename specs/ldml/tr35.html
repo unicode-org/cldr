@@ -931,7 +931,10 @@
     are supported for pass-through. The following table defines
     syntactically <em>well-formed</em> identifiers: they are not
     necessarily <em>valid</em> identifiers. For additional validity
-    criteria, see the links on the right.</p>
+    criteria, see the links on the right. </p>
+    <p><span class='changed'>As is often the case, the complete syntactic constraints are not easily captured by ABNF, so there is a further condition: </span>There cannot be more than one extension with the
+		  same singleton (-a-, …, -t-, -u-, …). <span class='changed'>Note that t</span>he private use extension <span class='changed'>(-x-)</span> must
+    come after all other extensions. </p>
     <table border="0">
       <tr>
         <th>&nbsp;</th>
@@ -997,7 +1000,7 @@
       <tr>
         <td><code><a href="#pu_extensions" name="pu_extensions" id=
         "pu_extensions">pu_extensions</a></code></td>
-        <td><code>= sep [xX] <br>
+        <td><code>= sep [xX]<br>
 		&nbsp; (sep alphanum{1,8})<span class='changed'>+</span> ;</code></td>
         <td class='removed'><code>= sep "x"<br>
         &nbsp; [sep 1*8alphanum]</code></td>
@@ -1006,7 +1009,7 @@
         <td><code><a href="#other_extensions" name=
         "other_extensions" id=
         "other_extensions">other_extensions</a></code></td>
-        <td><code>= [alphanum-[tTuUxX]]<br>
+        <td><code>= <span class="changed">sep</span> [alphanum-[tTuUxX]]<br>
         &nbsp; (sep alphanum{2,8})<span class="changed">+</span> ;</code></td>
         <td class='removed'><code>= (DIGIT<br>
         &nbsp; &nbsp; / %x61-%x73<br>
@@ -1120,9 +1123,7 @@
     <p>As of the release of this specification, there were no
     other_extensions defined. The other_extensions are present in
     the syntax to allow implementations to preserve that
-    information. There cannot be more than one extension with the
-    same singleton (-u-, -t-, ...). The private use extension must
-    come after all other extensions.</p>
+    information.</p>
     <p>As for terminology, the term <i>code</i> may also be used
     instead of "subtag", and "territory" instead of "region". The
     primary language subtag is also called the <i>base language
@@ -1162,7 +1163,7 @@
         </ul>
       </li>
     </ul>
-	  <p>For example, the canonical form <span class='removed'>of 'u' extension</span>
+	  <p>For example, the canonical form of <span class='removed'>'u' extension</span>
       "<span class="changed">en-</span>u-foo-bar-nu-thai-ca-buddhist-kk-true" is
       "<span class="changed">en-</span>u-bar-foo-ca-buddhist-kk-nu-thai". The attributes "foo" and
       "bar" in this example are provided only for illustration; no
@@ -1240,15 +1241,14 @@
       </li>
       <li>Replace aliases in special key values:
         <ul>
-          <li>If there is an 'sd' key, replace any subdivision alias in its value in the same way, using <em>subdivisionAlias</em> data. </li>
-          <li>If there is an 'rg' key,  replace any region alias of the region subtag part of its value using the <i>territoryAlias</i> data.</li>
+          <li>If there is an 'sd' or 'rg' key, replace any subdivision alias in its value in the same way, using <em>subdivisionAlias</em> data.</li>
         </ul>
       </li>
       </ul>
 		<blockquote>* Formally, replacement of multiple territories uses <em>Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a></em>. However, there are a small number of cases of multiple territories, so the mappings can be precomputed. This results in a faster lookup with a very small subset of the likely subtags data.</blockquote>
 	    <p>A <code><a href=
     "#unicode_locale_id">unicode_locale_id</a></code> is <em>maximal</em> when the  <code><a href=
-    "#unicode_language_id">unicode_language_id</a></code> and tlang (if any) have been transformed by the Add Likely Subtags operation in <em>Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a></em>.</p>
+    "#unicode_language_id">unicode_language_id</a></code> and tlang (if any) have been transformed by the Add Likely Subtags operation in <em>Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a></em>, excluding &quot;und&quot;. </p>
 	    <blockquote><em>Example:</em> the maxmal form of ja-Kana-t-it is ja-Kana-JP-t-it-Latn-IT</blockquote>
 	    <p>Two <code><a href=
     "#unicode_locale_id">unicode_locale_ids</a></code> are <em>equivalent</em> when their maximal canonical forms are identical.</p>
@@ -5238,6 +5238,7 @@ root</pre>
     fields. This allows for implementations that use those
     denormalized subtags to use the data with only minor changes to
     the operations.</p>
+    <p class='changed'>An implementation may choose  exclude language tags with the language subtag &quot;und&quot; from the following operation. In such a case, only the canonicalization is done. An implementation can declare that it is doing the exclusion, or can take a parameter that controls whether or not to do it.</p>
     <p>&nbsp;</p>
     <p><i><b>Add Likely Subtags:</b></i> <em>Given a source locale
     X, to return a locale Y where the empty subtags have been
@@ -5289,7 +5290,7 @@ root</pre>
           <em>language<sub>s</sub>_script<sub>s</sub></em></li>
           <li style="margin-top: 0.5em; margin-bottom: 0.5em">
           <em><em>language<sub>s</sub></em></em></li>
-          <li>und<em>_script<sub>s</sub></em></li>
+          <li>und<em>_script<sub>s</sub></em>      </li>
         </ol>
       </li>
       <li>
@@ -9231,6 +9232,11 @@ decimal?, group?, special*)) &gt;</pre>
         <ul>
           <li>Add a new idStatus=&quot;reserved&quot; [<a href=
           "http://unicode.org/cldr/trac/ticket/11925">#11925</a>]</li>
+        </ul>
+      </li>
+      <li><strong>Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a></strong>
+        <ul>
+          <li>Allow implementations to skip adding likely subtags with the language subtag &quot;und&quot;.</li>
         </ul>
       </li>
       <li><strong>Section 4.4 <a href="#LanguageMatching">Language Matching</a> 

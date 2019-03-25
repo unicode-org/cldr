@@ -82,15 +82,14 @@
     </tr>
   </table>
   <div class="body">
-    <h2 style="text-align: center"><span class="changed">Proposed Update</span> Unicode Technical Standard #35</h2>
-    <h1 style="text-align: center">Unicode Locale Data Markup
-    Language (LDML)<br>
+    <h2 style="text-align: center">Unicode Technical Standard #35</h2>
+    <h1>Unicode Locale Data Markup Language (LDML)<br>
     Part 2: General</h1>
     <!-- At least the first row of this header table should be identical across the parts of this UTS. -->
     <table border="1" cellpadding="2" cellspacing="0" class="wide">
       <tr>
         <td>Version</td>
-        <td class="changed">35</td>
+        <td>35</td>
       </tr>
       <tr>
         <td>Editors</td>
@@ -114,7 +113,7 @@
     and the links above.</p>
     <h3><i>Status</i></h3>
 
-    <!-- NOT YET APPROVED -->
+    <!-- NOT YET APPROVED 
                 <p>
                                 <i class="changed">This is a<b><font color="#ff3333">
                                 draft </font></b>document which may be updated, replaced, or superseded by
@@ -124,14 +123,14 @@
                                 progress.
                         </i>
                 </p>
-    <!-- END NOT YET APPROVED -->
-    <!-- APPROVED 
+     END NOT YET APPROVED -->
+    <!-- APPROVED -->
     <p><i>This document has been reviewed by Unicode members and
     other interested parties, and has been approved for publication
     by the Unicode Consortium. This is a stable document and may be
     used as reference material or cited as a normative reference by
     other specifications.</i></p>
-    END APPROVED -->
+    <!-- END APPROVED -->
 
     <blockquote>
       <p><i><b>A Unicode Technical Standard (UTS)</b> is an
@@ -178,8 +177,8 @@
       <li>1 <a href="#Display_Name_Elements">Display Name
       Elements</a>
         <ul class='toc'>
-          <li class='changed'>1.1 <a href="#locale_display_name_algorithm">Locale Display Name Algorithm</a></li>
-          <li class='changed'>1.2 <a href="#locale_display_name_fields">Locale Display Name Fields</a></li>
+          <li>1.1 <a href="#locale_display_name_algorithm">Locale Display Name Algorithm</a></li>
+          <li>1.2 <a href="#locale_display_name_fields">Locale Display Name Fields</a></li>
         </ul>
       </li>
       <li>2 <a href="#Layout_Elements">Layout Elements</a></li>
@@ -365,7 +364,7 @@
       <p>&lt;type type="pinyin" key="collation"&gt;Pinyin Sort
       Order&lt;/type&gt;</p>
     </blockquote>
-    <div class='changed'>
+
 	<h3>1.1 <a href="#locale_display_name_algorithm" name="locale_display_name_algorithm">Locale Display Name Algorithm</a></h3>
 
       <p>A locale display name LDN is generated for a locale identifer L in the following way. First, canonicalize the locale identifier as per <strong><a href="tr35.html#Canonical_Unicode_Locale_Identifiers">Part 1, Section 3.2.1 Canonical Unicode Locale Identifiers</a></strong>. That will put the subtags in a defined order, and replace aliases by their canonical counterparts. (That defined order is followed in the processing below.) </p>
@@ -475,7 +474,7 @@
 		  </tr>
 		</table><br>
 	  <h3>1.2 <a href="#locale_display_name_fields" name="locale_display_name_fields">Locale Display Name Fields</a></h3>
-	  </div>
+
     <p class="element2">&lt;languages&gt;</p>
     <p>This contains a list of elements that provide the
     user-translated names for language codes, as described in
@@ -671,9 +670,9 @@
       "color: blue">collation</span>"&gt;<span style=
       "color: blue">Sortierung</span>&lt;/key&gt;</pre>
     </blockquote>
-	  <p class='changed'>Note that the <strong>type</strong> values may use aliases. Thus if the locale u-extension key &quot;co&quot; does not match, then the aliases have to be tried, using the bcp47 XML data:</p>
+	  <p>Note that the <strong>type</strong> values may use aliases. Thus if the locale u-extension key &quot;co&quot; does not match, then the aliases have to be tried, using the bcp47 XML data:</p>
 	  <blockquote>
-	    <p class="changed">	&lt;key name=&quot;<strong>co</strong>&quot; description=&quot;…&quot; alias=&quot;<strong>collation</strong>&quot;&gt;</p>
+	    <p>	&lt;key name=&quot;<strong>co</strong>&quot; description=&quot;…&quot; alias=&quot;<strong>collation</strong>&quot;&gt;</p>
     </blockquote>
     <p class="element2">&lt;types&gt;</p>
     <p>This contains a list of elements that provide the
@@ -690,10 +689,10 @@
       "color: blue">Telefonbuch</span>&lt;/type&gt;
 </pre>
     </blockquote>
-    	  <p class='changed'>Note that the <strong>key</strong> and <strong>type</strong> values may use aliases. Thus if the locale u-extension key &quot;co&quot; does not match, then the aliases have to be tried, using the bcp47 XML data.</p>
+    	  <p>Note that the <strong>key</strong> and <strong>type</strong> values may use aliases. Thus if the locale u-extension key &quot;co&quot; does not match, then the aliases have to be tried, using the bcp47 XML data.</p>
     	  <blockquote>
-    	    <p class="changed">&lt;key name=&quot;<strong>co</strong>&quot; description=&quot;…&quot; alias=&quot;<strong>collation</strong>&quot;&gt;</p>
-    	    <p class="changed"> &lt;type name=&quot;<strong>phonebk</strong>&quot; description=&quot;…&quot; alias=&quot;<strong>phonebook</strong>&quot;/&gt;</p>
+    	    <p>&lt;key name=&quot;<strong>co</strong>&quot; description=&quot;…&quot; alias=&quot;<strong>collation</strong>&quot;&gt;</p>
+    	    <p> &lt;type name=&quot;<strong>phonebk</strong>&quot; description=&quot;…&quot; alias=&quot;<strong>phonebook</strong>&quot;/&gt;</p>
         </blockquote>
 	<p class="element2">&lt;measurementSystemNames&gt;</p>
     <p>This contains a list of elements that provide the
@@ -1382,32 +1381,28 @@
     <table>
       <tr>
         <td><code>unit_identifier</code></td>
-        <td><code>:= type "-" <span class="removed">unit</span><span class="changed">core_unit_identifier</span></code></td>
+        <td><code>:= type "-" core_unit_identifier</code></td>
       </tr>
       <tr>
         <td><code>type</code></td>
         <td><code>:= [a-z]+</code></td>
       </tr>
       <tr>
-        <td><code class="removed">unit</code><code class="changed">core_unit_identifier</code></td>
-        <td><code class="removed">:=
-        [a-z]+([-][a-z]+)*<br></code><code class="changed">:=
+        <td><code>core_unit_identifier</code></td>
+        <td><code>:=
         compound_unit | simple_unit</code></td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><code>compound_unit</code></td>
         <td><code>:= simple_unit "-per-" simple_unit</code></td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><code>simple_unit</code></td>
         <td><code>:= [a-z]+([-][a-z]+)*</code> and may not contain
         <code>"-per-"</code></td>
       </tr>
     </table>
-    <p class="removed">Example:</p>
-    <p class="removed xmlExample">&lt;unit
-    type="acceleration-g-force"&gt;</p>
-    <p class="changed">Both the unit identifier and the <em>core unit
+    <p>Both the unit identifier and the <em>core unit
     identifier</em> (e.g., <code>day</code>) are guaranteed to be
     unique, and clients can use either one to identify a unit. The
     associations between types and core unit identifiers are as
@@ -1422,82 +1417,81 @@
     called the <em>numerator</em>, and the second
     <code>simple_unit</code> in a <code>compound_unit</code> is
     called the <em>demonimator</em>.</p>
-    <p><span class="removed">Examples of these include but are not
-    limited to the following.</span> <span class="changed">The
+    <p>The
     following table contains examples of types and units currently
-    defined by CLDR.</span> The units in CLDR are not
+    defined by CLDR. The units in CLDR are not
     comprehensive; it is anticipated that more will be added over
     time. The complete list of supported units is in the validity
     data: see <em>Section <a href="tr35.html#Validity_Data">3.11
-    Validity Data</a></em>. <span class="changed">The compound
+    Validity Data</a></em>. The compound
     units in the table below either require specialized formatting
     or have a numerator and/or demoninator that are not defined as
     valid standalone units. Note: as explained in <em>Section 6.1
     <a href="#perUnitPatterns">per Unit patterns</a></em>, CLDR
     provides data to format any compound unit composed of two
-    simple units from the following table.</span></p>
+    simple units from the following table.</p>
     <table>
       <tr>
         <th>Type</th>
-        <th class="changed">Core Unit Identifier</th>
-        <th class="changed">Compound?</th>
+        <th>Core Unit Identifier</th>
+        <th>Compound?</th>
         <th>Sample Format</th>
       </tr>
       <tr>
         <td><em>acceleration</em></td>
         <td>g-force</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} G</td>
       </tr>
       <tr>
         <td><em>acceleration</em></td>
         <td>meter-per-second-squared</td>
-        <td class="changed">compound</td>
+        <td>compound</td>
         <td>{0} m/s²</td>
       </tr>
       <tr>
         <td><em>angle</em></td>
         <td>revolution</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} rev</td>
       </tr>
       <tr>
         <td><em>angle</em></td>
         <td>radian</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} rad</td>
       </tr>
       <tr>
         <td><em>angle</em></td>
         <td>degree</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0}°</td>
       </tr>
       <tr>
         <td><em>angle</em></td>
         <td>arc-minute</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0}′</td>
       </tr>
       <tr>
         <td><em>angle</em></td>
         <td>arc-second</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0}″</td>
       </tr>
       <tr>
         <td><em>area</em></td>
         <td>square-kilometer</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} km²</td>
       </tr>
       <tr>
         <td><em>area</em></td>
         <td>hectare</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} ha</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td>...</td>
         <td>...</td>
         <td>...</td>
@@ -1506,100 +1500,100 @@
       <tr>
         <td><em>area</em></td>
         <td>square-inch</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} in²</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>area</em></td>
         <td>dunam</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} dunam</td>
       </tr>
       <tr>
         <td><em>concentr</em></td>
         <td>karat</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} kt</td>
         <td>dimensionless</td>
       </tr>
       <tr>
         <td><em>concentr</em></td>
         <td>milligram-per-deciliter</td>
-        <td class="changed">compound</td>
+        <td>compound</td>
         <td>{0} mg/dL</td>
       </tr>
       <tr>
         <td><em>concentr</em></td>
         <td>millimole-per-liter</td>
-        <td class="changed">compound</td>
+        <td>compound</td>
         <td>{0} mmol/L</td>
       </tr>
       <tr>
         <td><em>concentr</em></td>
         <td>part-per-million</td>
-        <td class="changed">compound</td>
+        <td>compound</td>
         <td>{0} ppm</td>
         <td>dimensionless</td>
       </tr>
       <tr>
         <td><em>concentr</em></td>
         <td>percent</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0}%</td>
         <td>dimensionless</td>
       </tr>
       <tr>
         <td><em>concentr</em></td>
         <td>permille</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0}‰</td>
         <td>dimensionless</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>concentr</em></td>
         <td>permyriad</td>
         <td>simple</td>
         <td>{0}‱</td>
         <td>dimensionless</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>concentr</em></td>
         <td>mole</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} mol</td>
         <td>dimensionless</td>
       </tr>
       <tr>
         <td><em>consumption</em></td>
         <td>liter-per-kilometer</td>
-        <td class="changed">compound</td>
+        <td>compound</td>
         <td>{0} L/km</td>
       </tr>
       <tr>
         <td><em>consumption</em></td>
         <td>liter-per-100kilometers</td>
-        <td class="changed">compound</td>
+        <td>compound</td>
         <td>{0} L/100km</td>
       </tr>
       <tr>
         <td><em>consumption</em></td>
         <td>mile-per-gallon (US)</td>
-        <td class="changed">compound</td>
+        <td>compound</td>
         <td>{0} mpg</td>
       </tr>
       <tr>
         <td><em>consumption</em></td>
         <td>mile-per-gallon-imperial</td>
-        <td class="changed">compound</td>
+        <td>compound</td>
         <td>{0} mpg Imp.</td>
       </tr>
       <tr>
         <td><em>digital</em></td>
         <td>petabyte</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} PB</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td>...</td>
         <td>...</td>
         <td>...</td>
@@ -1608,80 +1602,80 @@
       <tr>
         <td><em>digital</em></td>
         <td>byte</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} byte</td>
       </tr>
       <tr>
         <td><em>digital</em></td>
         <td>bit</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} bit</td>
       </tr>
       <tr>
         <td><em>duration</em></td>
         <td>century</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} c</td>
       </tr>
       <tr>
         <td><em>duration</em></td>
         <td>year</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} y</td>
       </tr>
       <tr>
         <td><em>duration</em></td>
         <td>year-person</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} y</td>
-        <td class="changed">for duration or age related to a person</td>
+        <td>for duration or age related to a person</td>
        </tr>
       <tr>
         <td><em>duration</em></td>
         <td>month</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} m</td>
       </tr>
       <tr>
         <td><em>duration</em></td>
         <td>month-person</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} m</td>
-        <td class="changed">for duration or age related to a person</td>
+        <td>for duration or age related to a person</td>
       </tr>
       <tr>
         <td><em>duration</em></td>
         <td>week</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} w</td>
       </tr>
       <tr>
         <td><em>duration</em></td>
         <td>week-person</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} w</td>
-        <td class="changed">for duration or age related to a person</td>
+        <td>for duration or age related to a person</td>
       </tr>
       <tr>
         <td><em>duration</em></td>
         <td>day</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} d</td>
       </tr>
       <tr>
         <td><em>duration</em></td>
         <td>day-person</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} d</td>
-        <td class="changed">for duration or age related to a person</td>
+        <td>for duration or age related to a person</td>
       </tr>
       <tr>
         <td><em>duration</em></td>
         <td>hour</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} h</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td>...</td>
         <td>...</td>
         <td>...</td>
@@ -1690,124 +1684,124 @@
       <tr>
         <td><em>duration</em></td>
         <td>nanosecond</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} ns</td>
       </tr>
       <tr>
         <td><em>electric</em></td>
         <td>ampere</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} A</td>
       </tr>
       <tr>
         <td><em>electric</em></td>
         <td>milliampere</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} mA</td>
       </tr>
       <tr>
         <td><em>electric</em></td>
         <td>ohm</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} Ω</td>
       </tr>
       <tr>
         <td><em>electric</em></td>
         <td>volt</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} V</td>
       </tr>
       <tr>
         <td><em>energy</em></td>
         <td>kilocalorie</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} kcal</td>
       </tr>
       <tr>
         <td><em>energy</em></td>
         <td>calorie</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} cal</td>
       </tr>
       <tr>
         <td><em>energy</em></td>
         <td>foodcalorie</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} Cal</td>
       </tr>
       <tr>
         <td><em>energy</em></td>
         <td>kilojoule</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} kJ</td>
       </tr>
       <tr>
         <td><em>energy</em></td>
         <td>joule</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} J</td>
       </tr>
       <tr>
         <td><em>energy</em></td>
         <td>kilowatt-hour</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} kWh</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>energy</em></td>
         <td>electronvolt</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} eV</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>energy</em></td>
         <td>british-thermal-unit</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} Btu</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>force</em></td>
         <td>pound-force</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} lbf</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>force</em></td>
         <td>newton</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} N</td>
       </tr>
       <tr>
         <td><em>frequency</em></td>
         <td>gigahertz</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} GHz</td>
       </tr>
       <tr>
         <td><em>frequency</em></td>
         <td>megahertz</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} MHz</td>
       </tr>
       <tr>
         <td><em>frequency</em></td>
         <td>kilohertz</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} kHz</td>
       </tr>
       <tr>
         <td><em>frequency</em></td>
         <td>hertz</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} Hz</td>
       </tr>
       <tr>
         <td><em>length</em></td>
         <td>kilometer</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} km</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td>...</td>
         <td>...</td>
         <td>...</td>
@@ -1816,89 +1810,89 @@
       <tr>
         <td><em>length</em></td>
         <td>inch</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} in</td>
       </tr>
       <tr>
         <td><em>length</em></td>
         <td>parsec</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} pc</td>
       </tr>
       <tr>
         <td><em>length</em></td>
         <td>light-year</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} ly</td>
       </tr>
       <tr>
         <td><em>length</em></td>
         <td>astronomical-unit</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} au</td>
       </tr>
       <tr>
         <td><em>length</em></td>
         <td>furlong</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} fur</td>
       </tr>
       <tr>
         <td><em>length</em></td>
         <td>fathom</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} fm</td>
       </tr>
       <tr>
         <td><em>length</em></td>
         <td>nautical-mile</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} nmi</td>
       </tr>
       <tr>
         <td><em>length</em></td>
         <td>mile-scandinavian</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} smi</td>
       </tr>
       <tr>
         <td><em>length</em></td>
         <td>point</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} pt</td>
         <td>typographic point, 1/72 inch</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>length</em></td>
         <td>solar-radius</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} R☉</td>
       </tr>
       <tr>
         <td><em>light</em></td>
         <td>lux</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} lx</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>light</em></td>
         <td>solar-luminosity</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} L☉</td>
       </tr>
       <tr>
         <td><em>mass</em></td>
         <td>metric-ton</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} t</td>
       </tr>
       <tr>
         <td><em>mass</em></td>
         <td>kilogram</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} kg</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td>...</td>
         <td>...</td>
         <td>...</td>
@@ -1907,46 +1901,46 @@
       <tr>
         <td><em>mass</em></td>
         <td>ounce</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} oz</td>
       </tr>
       <tr>
         <td><em>mass</em></td>
         <td>ounce-troy</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} oz t</td>
       </tr>
       <tr>
         <td><em>mass</em></td>
         <td>carat</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} CD</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>mass</em></td>
         <td>dalton</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} Da</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>mass</em></td>
         <td>earth-mass</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} M⊕</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>mass</em></td>
         <td>solar-mass</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} M☉</td>
       </tr>
       <tr>
         <td><em>power</em></td>
         <td>gigawatt</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} GW</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td>...</td>
         <td>...</td>
         <td>...</td>
@@ -1955,130 +1949,130 @@
       <tr>
         <td><em>power</em></td>
         <td>milliwatt</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} mW</td>
       </tr>
       <tr>
         <td><em>power</em></td>
         <td>horsepower</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} hp</td>
       </tr>
       <tr>
         <td><em>pressure</em></td>
         <td>hectopascal</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} hPa</td>
       </tr>
       <tr>
         <td><em>pressure</em></td>
         <td>millimeter-of-mercury</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} mm Hg</td>
       </tr>
       <tr>
         <td><em>pressure</em></td>
         <td>pound-per-square-inch</td>
-        <td class="changed">compound</td>
+        <td>compound</td>
         <td>{0} psi</td>
       </tr>
       <tr>
         <td><em>pressure</em></td>
         <td>inch-hg</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} inHg</td>
       </tr>
       <tr>
         <td><em>pressure</em></td>
         <td>millibar</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} mbar</td>
       </tr>
       <tr>
         <td><em>pressure</em></td>
         <td>atmosphere</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} atm</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>pressure</em></td>
         <td>kilopascal</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} kPa</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>pressure</em></td>
         <td>megapascal</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} MPa</td>
       </tr>
       <tr>
         <td><em>speed</em></td>
         <td>kilometer-per-hour</td>
-        <td class="changed">compound</td>
+        <td>compound</td>
         <td>{0} km/h</td>
       </tr>
       <tr>
         <td><em>speed</em></td>
         <td>meter-per-second</td>
-        <td class="changed">compound</td>
+        <td>compound</td>
         <td>{0} m/s</td>
       </tr>
       <tr>
         <td><em>speed</em></td>
         <td>mile-per-hour</td>
-        <td class="changed">compound</td>
+        <td>compound</td>
         <td>{0} mi/h</td>
       </tr>
       <tr>
         <td><em>speed</em></td>
         <td>knot</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} kn</td>
       </tr>
       <tr>
         <td><em>temperature</em></td>
         <td>generic</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0}°</td>
       </tr>
       <tr>
         <td><em>temperature</em></td>
         <td>celsius</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0}°C</td>
       </tr>
       <tr>
         <td><em>temperature</em></td>
         <td>fahrenheit</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0}°F</td>
       </tr>
       <tr>
         <td><em>temperature</em></td>
         <td>kelvin</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} K</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>torque</em></td>
         <td>pound-foot</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} lbf⋅ft</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>torque</em></td>
         <td>newton-meter</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} N⋅m</td>
       </tr>
       <tr>
         <td><em>volume</em></td>
         <td>cubic-kilometer</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} km³</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td>...</td>
         <td>...</td>
         <td>...</td>
@@ -2087,16 +2081,16 @@
       <tr>
         <td><em>volume</em></td>
         <td>cubic-inch</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} in³</td>
       </tr>
       <tr>
         <td><em>volume</em></td>
         <td>megaliter</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} ML</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td>...</td>
         <td>...</td>
         <td>...</td>
@@ -2105,22 +2099,22 @@
       <tr>
         <td><em>volume</em></td>
         <td>pint</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} pt</td>
       </tr>
       <tr>
         <td><em>volume</em></td>
         <td>cup</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} c</td>
       </tr>
       <tr>
         <td><em>volume</em></td>
-        <td>fluid-ounce<span class="changed"> (US)</span></td>
-        <td class="changed">simple</td>
+        <td>fluid-ounce (US)</td>
+        <td>simple</td>
         <td>{0} fl oz</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>volume</em></td>
         <td>fluid-ounce-imperial</td>
         <td>simple</td>
@@ -2129,19 +2123,19 @@
       <tr>
         <td><em>volume</em></td>
         <td>tablespoon</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} tbsp</td>
       </tr>
       <tr>
         <td><em>volume</em></td>
         <td>teaspoon</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} tsp</td>
       </tr>
-      <tr class="changed">
+      <tr>
         <td><em>volume</em></td>
         <td>barrel</td>
-        <td class="changed">simple</td>
+        <td>simple</td>
         <td>{0} bbl</td>
       </tr>
     </table>
@@ -2202,10 +2196,10 @@
     denominatorUnit=D, the following precess is used.</p>
     <ol>
       <li>If there is a compound form for N/D already available
-      <span class='changed'>(e.g.,
-      <code>kilometer-per-hour</code>)</span>, use it.</li>
-      <li>Otherwise <span class='changed'>(e.g.,
-      <code>kilogram-per-second</code>)</span>, format the N
+      (e.g.,
+      <code>kilometer-per-hour</code>), use it.</li>
+      <li>Otherwise (e.g.,
+      <code>kilogram-per-second</code>), format the N
       pattern with the number using plural categories.
         <ul>
           <li>→ "3 kilograms"</li>
@@ -2299,7 +2293,7 @@
     different locales, with options for the level of formality and
     the scale of the measurement (e.g measuring the height of an
     adult versus that of an infant).</p>
-    <div class="changed">
+
       <h3>6.6 <a name="Private_Use_Units" href="#Private_Use_Units"
       id="Private_Use_Units">Private-Use Units</a></h3>
       <p>CLDR has reserved the <code>"x-"</code> prefix in the
@@ -2320,7 +2314,7 @@
       between types and units. It is therefore not possible to
       construct a valid unit identifier containing a private-use
       unit; only core unit identifiers are possible.</p>
-    </div>
+
     <h2>7 <a name="POSIX_Elements" href="#POSIX_Elements" id=
     "POSIX_Elements">POSIX Elements</a></h2>
     <p class="dtd">&lt;!ELEMENT posix (alias | (messages*,
@@ -4655,7 +4649,7 @@
       them.</li>
     </ol>
     <hr>
-    <p class="copyright">Copyright © 2001–2018 Unicode, Inc. All
+    <p class="copyright">Copyright © 2001–2019 Unicode, Inc. All
     Rights Reserved. The Unicode Consortium makes no expressed or
     implied warranty of any kind, and assumes no liability for
     errors or omissions. No liability is assumed for incidental and

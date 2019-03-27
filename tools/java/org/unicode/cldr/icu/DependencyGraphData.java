@@ -5,14 +5,13 @@ package org.unicode.cldr.icu;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.charset.Charset;
 import java.util.Collection;
 
+import org.unicode.cldr.ant.CLDRConverterTool.Alias;
+import org.unicode.cldr.ant.CLDRConverterTool.AliasDeprecates;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.ant.CLDRConverterTool.Alias;
-import org.unicode.cldr.ant.CLDRConverterTool.AliasDeprecates;
 
 class DependencyGraphData {
     SupplementalDataInfo supplementalDataInfo;

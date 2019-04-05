@@ -1553,8 +1553,8 @@ public class ExampleGenerator {
             if (element.equals("localePattern")) {
                 locales.add("uz-AF");
             }
-            locales.add(element.equals("localeKeyTypePattern") ? "uz-Arab@timezone=Africa/Addis_Ababa" : "uz-Arab-AF");
-            locales.add("uz-Arab-AF@timezone=Africa/Addis_Ababa;numbers=arab");
+            locales.add(element.equals("localeKeyTypePattern") ? "uz-Arab-u-tz-etadd" : "uz-Arab-AF");
+            locales.add("uz-Arab-AF-u-tz-etadd-nu-arab");
             String[] examples = new String[locales.size()];
             for (int i = 0; i < locales.size(); i++) {
                 examples[i] = invertBackground(cldrFile.getName(locales.get(i), false,

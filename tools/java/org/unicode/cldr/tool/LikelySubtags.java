@@ -127,6 +127,10 @@ public class LikelySubtags {
         }
         // clean up the input by removing Zzzz, ZZ, and changing "" into und.
         ltp.set(languageTag);
+        return maximize(ltp);
+    }
+
+    private String maximize(LanguageTagParser ltp) {
         String language = ltp.getLanguage();
         String region = ltp.getRegion();
         String script = ltp.getScript();

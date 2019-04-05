@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -25,8 +24,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.MetaZoneRange;
 import org.unicode.cldr.util.TimezoneFormatter.Format;
 
 import com.ibm.icu.impl.Row.R5;
-import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
@@ -67,61 +64,6 @@ public class VerifyZones {
 
         public String getZone() {
             return get4();
-        }
-    }
-
-    public static class ZoneFormats {
-        private String gmtFormat;
-        private String hourFormat;
-        private String[] hourFormatPlusMinus;
-        private ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
-        private CLDRFile cldrFile;
-
-        public enum Length {
-            LONG, SHORT;
-            public String toString() {
-                return name().toLowerCase(Locale.ENGLISH);
-            }
-        }
-
-        public enum Type {
-            generic, standard, daylight, genericOrStandard
-        }
-
-        public ZoneFormats set(CLDRFile cldrFile) {
-            this.cldrFile = cldrFile;
-
-            gmtFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/gmtFormat");
-            hourFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/hourFormat");
-            hourFormatPlusMinus = hourFormat.split(";");
-            icuServiceBuilder.setCldrFile(cldrFile);
-            return this;
-        }
-
-        public String formatGMT(TimeZone currentZone) {
-            int tzOffset = currentZone.getRawOffset();
-            SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian",
-                hourFormatPlusMinus[tzOffset >= 0 ? 0 : 1]);
-            String hoursMinutes = dateFormat.format(tzOffset >= 0 ? tzOffset : -tzOffset);
-            return MessageFormat.format(gmtFormat, hoursMinutes);
-        }
-
-        public String getExemplarCity(String timezoneString) {
-            String exemplarCity = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\"" + timezoneString
-                + "\"]/exemplarCity");
-            if (exemplarCity == null) {
-                exemplarCity = timezoneString.substring(timezoneString.lastIndexOf('/') + 1).replace('_', ' ');
-            }
-            return exemplarCity;
-        }
-
-        public String getMetazoneName(String metazone, Length length, Type typeIn) {
-            Type type = typeIn == Type.genericOrStandard ? Type.generic : typeIn;
-            String name = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/metazone[@type=\""
-                + metazone + "\"]/" + length + "/" + type);
-
-            return name != null ? name : typeIn != Type.genericOrStandard ? "n/a" : getMetazoneName(metazone, length,
-                Type.standard);
         }
     }
 

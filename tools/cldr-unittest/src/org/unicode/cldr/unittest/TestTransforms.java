@@ -408,20 +408,16 @@ public class TestTransforms extends TestFmwkPlus {
                 throw new IllegalArgumentException("Internal Error");
             }
             name = name.substring(5);
-            File fileDirectory = new File(name
-                + "/../unittest/data/transformtest/");
-            String fileDirectoryName = fileDirectory.getCanonicalPath(); // TODO:
-            // use
-            // resource,
-            // not
-            // raw
-            // file
+            File fileDirectory = new File(CLDRPaths.TEST_DATA + "transforms/");
+            String fileDirectoryName = fileDirectory.getCanonicalPath();
+            assertTrue(fileDirectoryName, fileDirectory.exists());
+            
             logln("Testing files in: " + fileDirectoryName);
 
             Set<String> foundTranslitsLower = new TreeSet();
 
             for (String file : fileDirectory.list()) {
-                if (!file.endsWith(".txt")) {
+                if (!file.endsWith(".txt") || file.startsWith("_readme")) {
                     continue;
                 }
                 logln("Testing file: " + file);

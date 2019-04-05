@@ -234,6 +234,9 @@ public class TestExampleGenerator extends TestFmwk {
                 }
                 continue;
             }
+            if (path.equals("//ldml/localeDisplayNames/localeDisplayPattern/localePattern")) {
+                int debug = 0;
+            }
             String example = exampleGenerator.getExampleHtml(path, value);
             String javaEscapedStarred = "\""
                 + plainStarred.replace("\"", "\\\"") + "\",";
@@ -427,7 +430,7 @@ public class TestExampleGenerator extends TestFmwk {
             "localePattern example faulty",
             "<div class='cldr_example'><span class='cldr_substituted'>uzbeco</span> [<span class='cldr_substituted'>Afghanistan</span>]</div>"
                 + "<div class='cldr_example'><span class='cldr_substituted'>uzbeco</span> [<span class='cldr_substituted'>arabo, Afghanistan</span>]</div>"
-                + "<div class='cldr_example'><span class='cldr_substituted'>uzbeco</span> [<span class='cldr_substituted'>arabo, Afghanistan, Cifre indo-arabe, Fuso orario: africa/addis_ababa</span>]</div>",
+                + "<div class='cldr_example'><span class='cldr_substituted'>uzbeco</span> [<span class='cldr_substituted'>arabo, Afghanistan, Cifre indo-arabe, Fuso orario: Ora Etiopia</span>]</div>",
             actual);
         actual = exampleGenerator
             .getExampleHtml(
@@ -436,7 +439,7 @@ public class TestExampleGenerator extends TestFmwk {
         assertEquals(
             "localeSeparator example faulty",
             "<div class='cldr_example'><span class='cldr_substituted'>uzbeco (arabo</span>. <span class='cldr_substituted'>Afghanistan)</span></div>"
-                + "<div class='cldr_example'><span class='cldr_substituted'>uzbeco (arabo</span>. <span class='cldr_substituted'>Afghanistan</span>. <span class='cldr_substituted'>Cifre indo-arabe</span>. <span class='cldr_substituted'>Fuso orario: africa/addis_ababa)</span></div>",
+                + "<div class='cldr_example'><span class='cldr_substituted'>uzbeco (arabo</span>. <span class='cldr_substituted'>Afghanistan</span>. <span class='cldr_substituted'>Cifre indo-arabe</span>. <span class='cldr_substituted'>Fuso orario: Ora Etiopia)</span></div>",
             actual);
     }
 

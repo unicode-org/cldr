@@ -2,7 +2,9 @@ package org.unicode.cldr.unittest;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -20,28 +22,39 @@ import org.unicode.cldr.util.AttributeValueValidity.MatcherPattern;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LanguageTagParser.Format;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes.CodeType;
+import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XPathExpressionParser;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.io.Files;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class TestLocale extends TestFmwkPlus {
+    private static final Charset UTF_8 = Charset.forName("UTF-8");
     static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
+    public static Splitter AT_AND_SEMI = Splitter.on(CharMatcher.anyOf(";@"));
 
     public static void main(String[] args) {
         new TestLocale().run(args);
@@ -429,6 +442,159 @@ public class TestLocale extends TestFmwkPlus {
         assertEquals("Locale name", "中国語 (アラビア文字\u3001アメリカ合衆国)",
             japanese.getName("zh-Arab-US"));
     }
+    
+    public void TestLocaleDisplay() {
+        System.out.println("\nUse -v to get samples for tests");
+        String fileName = CLDRPaths.TEST_DATA + "localeIdentifiers/localeDisplayName.txt";
+        LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer(LstrType.redundant);
+
+        CLDRFile cldrFile = null;
+        boolean compound = true;
+        StringBuilder formattedExamplesForSpec = new StringBuilder("\nformattedExamplesForSpec\n");
+        File[] paths = {
+            new File(CLDRPaths.MAIN_DIRECTORY),
+            new File(CLDRPaths.SUBDIVISIONS_DIRECTORY),
+        };
+        Factory factory = SimpleFactory.make(paths, ".*");
+        Set<String> seen = new HashSet<>();
+        
+        try {
+            for (String line : Files.readLines(new File(fileName), UTF_8)) {
+                line = line.trim();
+                if (line.startsWith("#") || line.isEmpty()) continue;
+                if (line.startsWith("@")) {
+                    String[] parts = line.split("=");
+                    switch(parts[0]) {
+                    case "@locale": 
+                        cldrFile = factory.make(parts[1], true);
+                        break;
+                    case "@compound": 
+                        switch(parts[1]) {
+                        case "true": compound=true; break;
+                        case "false": compound=false; break;
+                        }
+                        break;
+                    default: throw new IllegalArgumentException("Bad line: " + line);
+                    }
+                    continue;
+                }
+                int semi = line.indexOf(';');
+                String localeId=line;
+                String expected="";
+                if (semi >= 0) {
+                    localeId = line.substring(0, semi).trim();
+                    expected = line.substring(semi+1).trim();
+                }
+                LanguageTagParser ltp = new LanguageTagParser().set(localeId);
+                seen.add(localeId);
+
+//                ULocale forComparison = ULocale.forLanguageTag(localeId);
+//                String uLocaleAsBcp47 = forComparison.toLanguageTag();
+//                assertEquals("ICU roundtrips", localeId, uLocaleAsBcp47);
+
+                
+//                String bcp47 = ltp.toString(OutputOption.BCP47);
+//                String icuFormat = ltp.toString(OutputOption.ICU);
+                
+//                // check that the icuFormat is ok except for order
+//                Set<String> icuComponents = new TreeSet<>(AT_AND_SEMI.splitToList(forComparison.toString().toLowerCase(Locale.ROOT)));
+//                Set<String> icuFormatComponents = new TreeSet<>(AT_AND_SEMI.splitToList(icuFormat.toLowerCase(Locale.ROOT)));
+//                assertEquals("ICU vs LTP", icuComponents, icuFormatComponents);
+
+//                // check that the icuFormat roundtrips
+//                LanguageTagParser ltp2 = new LanguageTagParser()
+//                    .set(icuFormat);
+//                String roundTripId = ltp2.toString(OutputOption.BCP47);
+                
+                
+//                // check that the format roundtrips
+//                assertEquals("LTP(BCP47)=>ICU=>BCP47", bcp47, roundTripId);
+
+                canonicalizer.transform(ltp);                
+                String name = cldrFile.getName(ltp, true, null);
+                if (assertEquals(cldrFile.getLocaleID() + "; " + localeId, expected, name)) {
+                    formattedExamplesForSpec.append("<tr><td>")
+                    .append(TransliteratorUtilities.toHTML.transform(localeId))
+                    .append("</td><td>")
+                    .append(TransliteratorUtilities.toHTML.transform(expected))
+                    .append("</td><tr>\n")
+                    ;
+                }
+            }
+            if (isVerbose()) {
+                System.out.println(formattedExamplesForSpec.toString());
+            }
+        } catch (IOException e) {
+            throw new ICUUncheckedIOException(e);
+        }
+        // generate forms
+        Map<R2<String, String>, String> deprecatedMap = SUPPLEMENTAL_DATA_INFO.getBcp47Deprecated();
+        keyLoop:
+        for (Entry<String, Set<String>> keyValues : SUPPLEMENTAL_DATA_INFO.getBcp47Keys().keyValuesSet()) {
+            String key = keyValues.getKey();
+            if ("true".equals(deprecatedMap.get(Row.of(key, "")))) {
+                continue;
+            }
+            String localeBase = "en-" + (LanguageTagParser.isTKey(key) ? "t-" : "u-") + key + "-";
+            // abbreviate some values
+            switch(key) {
+            case "cu": 
+                showName(cldrFile, seen, localeBase, "eur", "jpy", "usd", "chf");
+                continue keyLoop;
+            case "tz": 
+                showName(cldrFile, seen, localeBase, "uslax", "gblon", "chzrh");
+                continue keyLoop;
+            }
+            for (String value : keyValues.getValue()) {
+                if ("true".equals(deprecatedMap.get(Row.of(key, value)))) {
+                    continue;
+                }
+                if (isSpecialBcp47Value(value)) {
+                        showName(cldrFile, seen, localeBase, getSpecialBcp47ValueSamples(value));
+                } else {
+                    showName(cldrFile, seen, localeBase, value);
+                }
+            }
+        }
+    }
+
+    private void showName(CLDRFile cldrFile, Set<String> skipLocales, String localeBase, Collection<String> samples) {
+        for (String sample : samples) {
+            showName(cldrFile, skipLocales, localeBase, sample);
+        }
+    }
+    
+    private void showName(CLDRFile cldrFile, Set<String> skipLocales, String localeBase, String... samples) {
+        for (String sample : samples) {
+            showName(cldrFile, skipLocales, localeBase, sample);
+        }
+    }
+
+    static final UnicodeSet LOCALIZED = new UnicodeSet("[A-Z€$¥${foobar2}]");
+    
+    private void showName(CLDRFile cldrFile, Set<String> skipLocales, String localeBase, String value) {
+        String locale = localeBase + value;
+        if (skipLocales.contains(locale)) {
+            return;
+        }
+        if (locale.equals("en-t-d0-accents")) {
+            int debug = 0;
+        }
+        String name = cldrFile.getName(locale, true, null);
+        if (isVerbose()) {
+            System.out.println(locale + "; " + name);
+        }
+        // rough check of name to ensure
+        int parenPos = name.indexOf('(');
+        if (parenPos > 0 && cldrFile.getLocaleID().equals("en")) {
+            for (String part1 : name.substring(parenPos).split(",")) {
+                String[] part2s = part1.split(":");
+                if (part2s.length > 1 && !LOCALIZED.containsSome(part2s[1])) {
+                    errln(locale + "; " + name);
+                }
+            }
+        }
+    }
 
     public void TestExtendedLanguage() {
         assertEquals("Extended language translation", "Simplified Chinese",
@@ -451,17 +617,17 @@ public class TestLocale extends TestFmwkPlus {
         LanguageTagParser ltp = new LanguageTagParser();
         String lastKey = "";
         CLDRFile english = testInfo.getEnglish();
-        
+
         String extName = english.getKeyName("t"); // special case where we need name
         assertNotNull("Name of extension: " + "t", extName);
-        
+
         Set<String> allowedNoKeyValueNameSet = ImmutableSet.of("cu", "tz");
 
         main:
             for (Entry<String, String> entry : extensionToKeys.entrySet()) {
                 String extension = entry.getKey();
                 String key = entry.getValue();
-                
+
                 String dep = extKeyToDeprecated.get(Row.of(key, ""));
                 if ("true".equals(dep)) {
                     logln("# Deprecated: " + Row.of(extension, key));
@@ -493,8 +659,8 @@ public class TestLocale extends TestFmwkPlus {
                         // # MULTIPLE: [u, vt, CODEPOINTS]
                         continue;
                     }
-                    
-                    boolean specialValue = value.equals(value.toUpperCase(Locale.ROOT));
+
+                    boolean specialValue = isSpecialBcp47Value(value);
 
                     String kvname = english.getKeyValueName(key, value);
                     if (!allowedNoKeyValueName && !specialValue) {
@@ -509,30 +675,14 @@ public class TestLocale extends TestFmwkPlus {
                     String gorp = key.equals(lastKey) ? "" :
                         (key.equals("t") ? "-u-ca-persian" : "-t-hi") 
                         + "-a-AA-v-VV-y-YY-x-foobar";
-                    
+
                     lastKey = key;
                     if (++count > 4) {
                         continue;
                     }
 
                     if (specialValue) {
-                        Set<String> valuesSet;
-                        switch (value) {
-                        case "PRIVATE_USE": // [t, x0, PRIVATE_USE]
-                            valuesSet = ImmutableSet.of("foobar2");
-                            continue main;
-                        case "REORDER_CODE":    // [u, kr, REORDER_CODE] 
-                            valuesSet = ImmutableSet.of("digit", "sample");
-                            break;
-                        case "RG_KEY_VALUE":    // [u, rg, RG_KEY_VALUE]
-                            valuesSet = ImmutableSet.of("usca");
-                            break;
-                        case "SUBDIVISION_CODE":    // [u, sd, SUBDIVISION_CODE]
-                            valuesSet = ImmutableSet.of("usca", "gbsct", "frnor");
-                            break;
-                        default: 
-                            throw new IllegalArgumentException();
-                        }
+                        Set<String> valuesSet = getSpecialBcp47ValueSamples(value);
                         showItem(ltp, extension, key, gorp, valuesSet.toArray(new String[valuesSet.size()]));
 
                         continue;
@@ -547,6 +697,31 @@ public class TestLocale extends TestFmwkPlus {
                     }
                 }
             }
+    }
+
+    public static Set<String> getSpecialBcp47ValueSamples(String value) {
+        Set<String> valuesSet;
+        switch (value) {
+        case "PRIVATE_USE": // [t, x0, PRIVATE_USE]
+            valuesSet = ImmutableSet.of("foobar2");
+            break;
+        case "REORDER_CODE":    // [u, kr, REORDER_CODE] 
+            valuesSet = ImmutableSet.of("arab", "digit-deva-latn");
+            break;
+        case "RG_KEY_VALUE":    // [u, rg, RG_KEY_VALUE]
+            valuesSet = ImmutableSet.of("ustx", "gbeng");
+            break;
+        case "SUBDIVISION_CODE":    // [u, sd, SUBDIVISION_CODE]
+            valuesSet = ImmutableSet.of("usca", "gbsct", "frnor");
+            break;
+        default: 
+            throw new IllegalArgumentException();
+        }
+        return valuesSet;
+    }
+
+    public static boolean isSpecialBcp47Value(String value) {
+        return value.equals(value.toUpperCase(Locale.ROOT));
     }
 
     private void showItem(LanguageTagParser ltp, String extension, String key, String gorp, String... values) {

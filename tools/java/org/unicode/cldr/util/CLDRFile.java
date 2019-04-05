@@ -55,6 +55,7 @@ import org.xml.sax.ext.DeclHandler;
 import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMap.Builder;
@@ -947,7 +948,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             "|numbers/symbols/(decimal/group)" +
             "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
             "|pattern" +
-            ")");
+        ")");
 
     static public final Pattern specialsToPushFromRoot = PatternCache.get(
         "/(" +
@@ -958,7 +959,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             "(?!.*\\[@type=\"stand-alone\"].*\\[@type=\"(abbreviated|wide)\"])" +
             "|numbers/symbols/(decimal/group)" +
             "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
-            ")");
+        ")");
 
     private static final boolean MINIMIZE_ALT_PROPOSED = false;
 
@@ -1198,7 +1199,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
         dataSource.getXpathComments().setFinalComment(
             CldrUtility
-                .joinWithSeparation(dataSource.getXpathComments().getFinalComment(), XPathParts.NEWLINE, comment));
+            .joinWithSeparation(dataSource.getXpathComments().getFinalComment(), XPathParts.NEWLINE, comment));
         return this;
     }
 
@@ -1262,11 +1263,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public Iterator<String> iterator(String prefix, Comparator<String> comparator) {
         Iterator<String> it = (prefix == null || prefix.length() == 0)
             ? dataSource.iterator()
-            : dataSource.iterator(prefix);
-        if (comparator == null) return it;
-        Set<String> orderedSet = new TreeSet<String>(comparator);
-        CollectionUtilities.addAll(it, orderedSet);
-        return orderedSet.iterator();
+                : dataSource.iterator(prefix);
+            if (comparator == null) return it;
+            Set<String> orderedSet = new TreeSet<String>(comparator);
+            CollectionUtilities.addAll(it, orderedSet);
+            return orderedSet.iterator();
     }
 
     public Iterable<String> fullIterable() {
@@ -1428,9 +1429,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             try {
                 result = (testList[i].length() != 0)
                     ? XMLReaderFactory.createXMLReader(testList[i])
-                    : XMLReaderFactory.createXMLReader();
-                result.setFeature("http://xml.org/sax/features/validation", validating);
-                break;
+                        : XMLReaderFactory.createXMLReader();
+                    result.setFeature("http://xml.org/sax/features/validation", validating);
+                    break;
             } catch (SAXException e1) {
             }
         }
@@ -1440,8 +1441,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             result.setEntityResolver(new CachingEntityResolver());
         } catch (Throwable e) {
             System.err
-                .println("WARNING: Can't set caching entity resolver  -  error "
-                    + e.toString());
+            .println("WARNING: Can't set caching entity resolver  -  error "
+                + e.toString());
             e.printStackTrace();
         }
         return result;
@@ -1504,26 +1505,26 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     // "gb2312han"};
 
     /*    *//**
-            * Value that contains a node. WARNING: this is not done yet, and may change.
-            * In particular, we don't want to return a Node, since that is mutable, and makes caching unsafe!!
-            */
+     * Value that contains a node. WARNING: this is not done yet, and may change.
+     * In particular, we don't want to return a Node, since that is mutable, and makes caching unsafe!!
+     */
     /*
      * static public class NodeValue extends Value {
      * private Node nodeValue;
      *//**
-       * Creation. WARNING, may change.
-       *
-       * @param value
-       * @param currentFullXPath
-       */
+     * Creation. WARNING, may change.
+     *
+     * @param value
+     * @param currentFullXPath
+     */
     /*
      * public NodeValue(Node value, String currentFullXPath) {
      * super(currentFullXPath);
      * this.nodeValue = value;
      * }
      *//**
-       * boilerplate
-       */
+     * boilerplate
+     */
 
     /*
      * public boolean hasSameValue(Object other) {
@@ -1531,8 +1532,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * return nodeValue.equals(((NodeValue)other).nodeValue);
      * }
      *//**
-       * boilerplate
-       */
+     * boilerplate
+     */
     /*
      * public String getStringValue() {
      * return nodeValue.toString();
@@ -1798,10 +1799,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             String distinguishing = CLDRFile.getDistinguishingXPath(formerPath, null, true);
             String distinguishing2 = CLDRFile.getDistinguishingXPath(currentFullXPath, null, true);
             System.out.println("\tERROR in " + target.getLocaleID()
-                + ";\toverriding old value <" + former + "> at path " + distinguishing +
-                "\twith\t<" + lastChars + ">" +
-                CldrUtility.LINE_SEPARATOR + "\told fullpath: " + formerPath +
-                CldrUtility.LINE_SEPARATOR + "\tnew fullpath: " + currentFullXPath);
+            + ";\toverriding old value <" + former + "> at path " + distinguishing +
+            "\twith\t<" + lastChars + ">" +
+            CldrUtility.LINE_SEPARATOR + "\told fullpath: " + formerPath +
+            CldrUtility.LINE_SEPARATOR + "\tnew fullpath: " + currentFullXPath);
             overrideCount += 1;
         }
 
@@ -1857,7 +1858,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             String localName,
             String qName,
             Attributes attributes)
-            throws SAXException {
+                throws SAXException {
             Log.logln(LOG_PROGRESS || SHOW_START_END, "startElement uri\t" + uri
                 + "\tlocalName " + localName
                 + "\tqName " + qName
@@ -1867,7 +1868,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     attributeOrder = new TreeMap<String, String>(
                         // HACK for ldmlIcu
                         dtdData.dtdType == DtdType.ldml
-                            ? CLDRFile.getAttributeOrdering() : dtdData.getAttributeComparator());
+                        ? CLDRFile.getAttributeOrdering() : dtdData.getAttributeComparator());
                     isSupplemental = target.dtdType == DtdType.ldml ? 0 : 1;
                     //                    if (qName.equals("ldml"))
                     //                        isSupplemental = 0;
@@ -2193,6 +2194,15 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         case KEY_NAME:
             code = fixKeyName(code);
             break;
+        case TZ_DAYLIGHT_LONG:
+        case TZ_DAYLIGHT_SHORT:
+        case TZ_EXEMPLAR:
+        case TZ_GENERIC_LONG:
+        case TZ_GENERIC_SHORT:
+        case TZ_STANDARD_LONG:
+        case TZ_STANDARD_SHORT:
+            code = getLongTzid(code);
+            break;
         }
         String[] nameTableRow = NameTable[type];
         if (code.contains("|")) {
@@ -2201,6 +2211,18 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         } else {
             return nameTableRow[0] + code + nameTableRow[1];
         }
+    }
+
+    static final Relation<R2<String, String>, String> bcp47AliasMap = CLDRConfig.getInstance().getSupplementalDataInfo().getBcp47Aliases();
+
+    public static String getLongTzid(String code) {
+        if (!code.contains("/")) {
+            Set<String> codes = bcp47AliasMap.get(Row.of("tz", code));
+            if (codes != null && !codes.isEmpty()) {
+                code = codes.iterator().next();
+            }
+        }
+        return code;
     }
 
     static final ImmutableMap<String, String> FIX_KEY_NAME;
@@ -2327,7 +2349,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return -1;
     }
 
-    transient LanguageTagParser lparser = new LanguageTagParser();
 
     /**
      * Returns the name of the given bcp47 identifier. Note that extensions must
@@ -2378,7 +2399,26 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             name = name.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
             return name;
         }
-        lparser.set(localeOrTZID);
+        LanguageTagParser lparser = new LanguageTagParser().set(localeOrTZID);
+        return getName(
+            lparser, 
+            onlyConstructCompound, 
+            altPicker, 
+            localeKeyTypePattern, 
+            localePattern, 
+            localeSeparator);
+    }
+
+    public String getName(
+        LanguageTagParser lparser, 
+        boolean onlyConstructCompound, 
+        Transform<String, String> altPicker, 
+        String localeKeyTypePattern,
+        String localePattern, 
+        String localeSeparator
+        ) {
+
+        String name;
         String original;
 
         // we need to check for prefixes, for lang+script or lang+country
@@ -2422,34 +2462,56 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
 
         // Look for key-type pairs.
-        for (Entry<String, String> extension : lparser.getLocaleExtensions().entrySet()) {
-            String key = extension.getKey();
-            String type = extension.getValue();
-            // Check if key/type pairs exist in the CLDRFile first.
-            String value = getKeyValueName(key, type);
-            if (value != null) {
-                value = value.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
-            } else {
-                // if we fail, then we construct from the key name and the value
-                String kname = getKeyName(key);
-                if (kname == null) {
-                    kname = key; // should not happen, but just in case
+        main:
+            for (Entry<String, List<String>> extension : lparser.getLocaleExtensionsDetailed().entrySet()) {
+                String key = extension.getKey();
+                if (key.equals("h0")) {
+                    continue;
                 }
-                switch(key) {
-                case "t":
-                    type = getName(type);
-                    break;
-                case "cu":
-                    type = getName(CURRENCY_SYMBOL, type);
-                    break;
-                    // TODO tz, but have to look up aliases
-                    // TODO [u, kr, REORDER_CODE] 
-                    // TODO [u, rg, RG_KEY_VALUE]
-                    // TODO [u, sd, SUBDIVISION_CODE]
+                List<String> keyValue = extension.getValue();
+                String oldFormatType = (key.equals("ca") ? JOIN_HYPHEN : JOIN_UNDERBAR).join(keyValue); // default value
+                // Check if key/type pairs exist in the CLDRFile first.
+                String value = getKeyValueName(key, oldFormatType);
+                if (value != null) {
+                    value = value.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
+                } else {
+                    // if we fail, then we construct from the key name and the value
+                    String kname = getKeyName(key);
+                    if (kname == null) {
+                        kname = key; // should not happen, but just in case
+                    }
+                    switch(key) {
+                    case "t":
+                        List<String> hybrid = lparser.getLocaleExtensionsDetailed().get("h0");
+                        if (hybrid != null) {
+                            kname = getKeyValueName("h0", JOIN_UNDERBAR.join(hybrid)); 
+                        }
+                        oldFormatType = getName(oldFormatType);
+                        break;
+                    case "h0": 
+                        continue main;
+                    case "cu":
+                        oldFormatType = getName(CURRENCY_SYMBOL, oldFormatType.toUpperCase(Locale.ROOT));
+                        break;
+                    case "tz":
+                        oldFormatType = getTZName(oldFormatType, "VVVV");
+                        break;
+                    case "kr":
+                        oldFormatType = getReorderName(localeSeparator, keyValue);
+                        break;
+                    case "rg": case "sd":
+                        oldFormatType = getName(SUBDIVISION_NAME, oldFormatType);
+                        break;
+                    default: oldFormatType = JOIN_HYPHEN.join(keyValue);
+                    }
+                    value = MessageFormat.format(localeKeyTypePattern, new Object[] { kname, oldFormatType });
+                    value = value.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
                 }
-                value = MessageFormat.format(localeKeyTypePattern, new Object[] { kname, type });
-                value = value.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
+                extras = extras.isEmpty() ? value : MessageFormat.format(localeSeparator, new Object[] { extras, value });
             }
+        // now handle stray extensions
+        for (Entry<String, List<String>> extension : lparser.getExtensionsDetailed().entrySet()) {
+            String value = MessageFormat.format(localeKeyTypePattern, new Object[] { extension.getKey(), JOIN_HYPHEN.join(extension.getValue()) });
             extras = extras.isEmpty() ? value : MessageFormat.format(localeSeparator, new Object[] { extras, value });
         }
         // fix this -- shouldn't be hardcoded!
@@ -2458,7 +2520,45 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
         return MessageFormat.format(localePattern, new Object[] { name, extras });
     }
-    
+
+    /**
+     * Gets timezone name. Not optimized.
+     * @param tzcode
+     * @return
+     */
+    private String getTZName(String tzcode, String format) {
+        String longid = getLongTzid(tzcode);
+        TimezoneFormatter tzf = new TimezoneFormatter(this);
+        return tzf.getFormattedZone(longid, format, 0);
+    }
+
+    private String getReorderName(String localeSeparator, List<String> keyValues) {
+        String result = null;
+        for (String value : keyValues) {
+            String name = getName(SCRIPT_NAME, Character.toUpperCase(value.charAt(0)) + value.substring(1));
+            if (name == null) {
+                name = getKeyValueName("kr", value);
+                if (name == null) {
+                    name = value;
+                }
+            }
+            result = result == null ? name : MessageFormat.format(localeSeparator, new Object[] { result, name });
+        }
+        return result;
+    }
+
+    static final Joiner JOIN_HYPHEN = Joiner.on('-');
+    static final Joiner JOIN_UNDERBAR = Joiner.on('_');
+
+    public String getName(LanguageTagParser lparser, 
+        boolean onlyConstructCompound, 
+        Transform<String, String> altPicker) { 
+        return getName(lparser, onlyConstructCompound, altPicker, 
+            getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"),
+            getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localePattern"),
+            getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator"));
+    }
+
     public String getKeyName(String key) {
         // old code
         // if (XMLSource.CODE_FALLBACK_ID.equals(getSourceLocaleID(valuePath, null)) {
@@ -2540,11 +2640,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public synchronized String getName(String localeOrTZID,
         boolean onlyConstructCompound,
         Transform<String, String> altPicker) {
-        return getName(localeOrTZID, onlyConstructCompound,
+        return getName(localeOrTZID, 
+            onlyConstructCompound,
             getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"),
             getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localePattern"),
             getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator"),
-            altPicker);
+            altPicker
+            );
     }
 
     /**
@@ -2797,7 +2899,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     static final UnicodeSet HACK_CASE_CLOSURE_SET = new UnicodeSet(
         "[ſẛﬀẞ{i̇}\u1F71\u1F73\u1F75\u1F77\u1F79\u1F7B\u1F7D\u1FBB\u1FBE\u1FC9\u1FCB\u1FD3\u1FDB\u1FE3\u1FEB\u1FF9\u1FFB\u2126\u212A\u212B]")
-            .freeze();
+        .freeze();
 
     public enum ExemplarType {
         main, auxiliary, index, punctuation, numbers;

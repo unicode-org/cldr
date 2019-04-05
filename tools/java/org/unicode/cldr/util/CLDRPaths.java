@@ -140,4 +140,5 @@ public class CLDRPaths {
 //        "subdivisions"
 //        );
     public static final String UNICODE_VERSION = "10.0.0";
+    public static final String TEST_DATA = COMMON_DIRECTORY + "testData/";
 }

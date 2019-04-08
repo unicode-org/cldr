@@ -1687,8 +1687,9 @@ public class SupplementalDataInfo {
                 if (replacement != null) {
                     Set<String> builder = new LinkedHashSet<>();
                     for (String item : replacement.split("\\s+")) {
-                        String cleaned = SubdivisionNames.isRegionCode(item) ? item : replacement.replace("-", "").toLowerCase(Locale.ROOT);
-//                            : replacement.replace("-", "_");
+                        String cleaned = SubdivisionNames.isOldSubdivisionCode(item) 
+                            ? replacement.replace("-", "").toLowerCase(Locale.ROOT)
+                                : item;
                         builder.add(cleaned);
                     }
                     replacementList = ImmutableList.copyOf(builder);

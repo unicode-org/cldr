@@ -15,6 +15,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.ULocale;
 
 public class FormattedFileWriter extends java.io.Writer {
@@ -46,7 +47,7 @@ public class FormattedFileWriter extends java.io.Writer {
                 String fileName = item[1];
                 String explanation = item[2];
                 contents
-                    .append("\t<div class='chit'><a name='" + FileUtilities.anchorize(title) + "' href='" + fileName + "'>" + title + "</a></div>" + Chart.LS);
+                .append("\t<div class='chit'><a name='" + FileUtilities.anchorize(title) + "' href='" + fileName + "'>" + title + "</a></div>" + Chart.LS);
                 if (hasExplanations) {
                     contents.append("\t<div class='chit'>" + explanation + "</div>" + Chart.LS);
                 }
@@ -115,11 +116,11 @@ public class FormattedFileWriter extends java.io.Writer {
         this.explanation = explanation;
         this.localeAnchors = anchors;
     }
-    
+
     public String getBaseFileName() {
         return filename;
     }
-    
+
     public String getDir() {
         return dir;
     }
@@ -134,7 +135,7 @@ public class FormattedFileWriter extends java.io.Writer {
         return this;
     }
 
-    public void close() throws IOException {
+    public void close() {
         String contents = out.toString();
         if (contents.isEmpty()) {
             return; // skip writing if there are no contents
@@ -145,20 +146,36 @@ public class FormattedFileWriter extends java.io.Writer {
         if (explanation != null) {
             contents = explanation + contents;
         }
+        String targetFileName = filename + ".html";
         if (localeAnchors != null) {
-            localeAnchors.add(title, filename + ".html", null);
+            localeAnchors.add(title, targetFileName, null);
         }
-        PrintWriter pw2 = org.unicode.cldr.draft.FileUtilities.openUTF8Writer(dir, filename + ".html");
+        final String templateFileName = "chart-template.html";
         String[] replacements = { "%header%", "",
             "%title%", title,
-            "%version%", ToolConstants.CHART_DISPLAY_VERSION,
             "%index%", indexLink,
             "%index-title%", indexTitle,
-            "%date%", getDateValue(),
             "%body%", contents };
-        final String templateFileName = "chart-template.html";
-        FileUtilities.appendBufferedReader(ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);
-        pw2.close();
+        writeTargetWithReplacements(dir, targetFileName, templateFileName, replacements);
+    }
+
+    public static void writeTargetWithReplacements(String targetdir, String targetFileName, final String templateFileName, String[] replacements)  {
+        try {
+            PrintWriter pw2 = org.unicode.cldr.draft.FileUtilities.openUTF8Writer(targetdir, targetFileName);
+            FileUtilities.appendBufferedReader(ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);
+            pw2.close();
+        } catch (IOException e) {
+            throw new ICUUncheckedIOException(e);
+        }
+    }
+
+    public static void copyIncludeHtmls (String targetDirectory) {
+        String[] replacements = {
+            "%version%", ToolConstants.CHART_DISPLAY_VERSION,
+            "%date%", CldrUtility.isoFormatDateOnly(new Date())
+        };
+        writeTargetWithReplacements(targetDirectory, "include-date.html", "include-date.html", replacements);
+        writeTargetWithReplacements(targetDirectory, "include-version.html", "include-version.html", replacements);
     }
 
     private String getDateValue() {

@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Pair;
@@ -82,12 +83,19 @@ public class SubdivisionNames {
     }
 
     public static boolean isRegionCode(String regionOrSubdivision) {
-        return regionOrSubdivision.length() == 2 || (regionOrSubdivision.length() == 3 && regionOrSubdivision.compareTo("A") < 0);
+        return regionOrSubdivision.length() == 2 
+            || (regionOrSubdivision.length() == 3 && regionOrSubdivision.compareTo("A") < 0);
     }
 
     public static String toIsoFormat(String sdCode) {
         sdCode = sdCode.toUpperCase(Locale.ENGLISH);
         int insertion = sdCode.compareTo("A") < 0 ? 3 : 2;
         return sdCode.substring(0, insertion) + "-" + sdCode.substring(insertion);
+    }
+
+    static final Pattern OLD_SUBDIVISION = Pattern.compile("[a-zA-Z]{2}[-_][a-zA-Z0-9]{1,4}");
+    
+    public static boolean isOldSubdivisionCode(String item) {
+        return item.length() > 4 && item.length() < 7 && OLD_SUBDIVISION.matcher(item).matches();
     }
 }

@@ -84,6 +84,7 @@ public class GenerateTransformCharts {
 
         FileCopier.ensureDirectoryExists(TRANSFORM_DIRECTORY);
         FileCopier.copy(ShowData.class, "transforms-index.css", TRANSFORM_DIRECTORY, "index.css");
+        FormattedFileWriter.copyIncludeHtmls(TRANSFORM_DIRECTORY);
 
         // PrintWriter out = new PrintWriter(System.out);
         CLDRTransforms.registerCldrTransforms(null, filter, verbose ? new PrintWriter(System.out) : null, false);

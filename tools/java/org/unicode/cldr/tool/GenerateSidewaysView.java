@@ -177,6 +177,7 @@ public class GenerateSidewaysView {
 
         FileCopier.ensureDirectoryExists(options[DESTDIR].value);
         FileCopier.copy(GenerateSidewaysView.class, "bytype-index.css", options[DESTDIR].value, "index.css");
+        FormattedFileWriter.copyIncludeHtmls(options[DESTDIR].value);
 
         // now get the info
 

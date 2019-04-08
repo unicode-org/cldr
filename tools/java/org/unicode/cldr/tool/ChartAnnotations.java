@@ -74,6 +74,7 @@ public class ChartAnnotations extends Chart {
     public void writeContents(FormattedFileWriter pw) throws IOException {
         FileCopier.ensureDirectoryExists(DIR);
         FileCopier.copy(Chart.class, "index.css", DIR);
+        FormattedFileWriter.copyIncludeHtmls(DIR);
 
         FormattedFileWriter.Anchors anchors = new FormattedFileWriter.Anchors();
         writeSubcharts(anchors);

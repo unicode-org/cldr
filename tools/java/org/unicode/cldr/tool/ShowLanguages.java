@@ -97,6 +97,8 @@ public class ShowLanguages {
         System.out.println("Writing into " + FormattedFileWriter.CHART_TARGET_DIR);
         FileCopier.ensureDirectoryExists(FormattedFileWriter.CHART_TARGET_DIR);
         FileCopier.copy(ShowLanguages.class, "index.css", FormattedFileWriter.CHART_TARGET_DIR);
+        FormattedFileWriter.copyIncludeHtmls(FormattedFileWriter.CHART_TARGET_DIR);
+        
         printLanguageData(cldrFactory, "index.html");
         // cldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "../dropbox/extra2/", ".*");
         // printLanguageData(cldrFactory, "language_info2.txt");

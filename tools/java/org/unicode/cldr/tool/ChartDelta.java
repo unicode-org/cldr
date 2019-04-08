@@ -147,6 +147,7 @@ public class ChartDelta extends Chart {
     public void writeContents(FormattedFileWriter pw) throws IOException {
         FormattedFileWriter.Anchors anchors = new FormattedFileWriter.Anchors();
         FileUtilities.copyFile(ChartDelta.class, "index.css", getDirectory());
+        FormattedFileWriter.copyIncludeHtmls(getDirectory());
         counter.clear();
         fileCounters.clear();
         writeNonLdmlPlain(anchors);

@@ -161,6 +161,8 @@ public class ShowKeyboards {
         // logInfo.put(Row.of("k-cldr",common), keyboardId);
         try {
             FileCopier.copy(ShowKeyboards.class, "keyboards.css", keyboardChartDir, "index.css");
+            FormattedFileWriter.copyIncludeHtmls(keyboardChartDir);
+
             PrintWriter out = FileUtilities.openUTF8Writer(keyboardChartDir, "chars2keyboards.html");
             String[] headerAndFooter = new String[2];
 
@@ -226,6 +228,7 @@ public class ShowKeyboards {
 
         FileCopier.ensureDirectoryExists(keyboardChartLayoutsDir);
         FileCopier.copy(ShowKeyboards.class, "keyboards.css", keyboardChartLayoutsDir, "index.css");
+        FormattedFileWriter.copyIncludeHtmls(keyboardChartLayoutsDir);
         PrintWriter index = FileUtilities.openUTF8Writer(keyboardChartLayoutsDir, "index.html");
         String[] headerAndFooter = new String[2];
         ShowData.getChartTemplate(

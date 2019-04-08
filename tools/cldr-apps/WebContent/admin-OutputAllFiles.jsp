@@ -22,7 +22,7 @@
 
 <%
 long start = System.currentTimeMillis();
-ElapsedTimer overallTimer = new ElapsedTimer("overall update started" + new java.util.Date());
+ElapsedTimer overallTimer = new ElapsedTimer("overall update started " + new java.util.Date());
 int numupd = 0;
 	OutputFileManager ofm = CookieSession.sm.getOutputFileManager();
 %>
@@ -50,7 +50,7 @@ Have OFM=<%= ofm %>
 							System.err.println("Writing " + loc.getDisplayName() + ":"+kind);
 							ElapsedTimer et = new ElapsedTimer("to write " + loc +":"+kind);
 							File f = ofm.getOutputFile(conn, loc, kind.name());
-							out.print(" x="+f.exists());
+							out.print(" x=" + (f != null && f.exists()));
 							numupd++;
 							System.err.println(et + " - upd " + numupd+"/"+(sortSet.size()+2));
 						}

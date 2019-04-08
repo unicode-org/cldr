@@ -190,20 +190,32 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         /**
+         * Set the value for the given path for this DataBackedSource, using the given VoteResolver.
          * This is the bottleneck for processing values.
          *
-         * @param path
-         * @param resolver
+         * @param path the xpath
+         * @param resolver the VoteResolver
+         * @param resolveMorePaths true for making vxml, else false
          * @return the VoteResolver
          */
-        public VoteResolver<String> setValueFromResolver(String path, VoteResolver<String> resolver) {
+        public VoteResolver<String> setValueFromResolver(String path, VoteResolver<String> resolver, boolean resolveMorePaths) {
             org.unicode.cldr.web.STFactory.PerLocaleData.PerXPathData xpd = ballotBox.peekXpathData(path);
             String res;
             String fullPath = null;
-            if (xpd == null || xpd.isEmpty()) { // no votes, so..
+            if (resolveMorePaths == false && (xpd == null || xpd.isEmpty())) {
+                /*
+                 * If resolveMorePaths is false and there are no votes, it may be more efficient
+                 * (or anyway expected) to skip vote resolution and use diskData instead.
+                 * This has far-reaching effects and should be better documented.
+                 */
                 res = ballotBox.diskData.getValueAtDPath(path);
                 fullPath = ballotBox.diskData.getFullPathAtDPath(path);
             } else {
+                /*
+                 * If resolveMorePaths is true, especially for generating vxml, we need to call
+                 * getWinningValue for vote resolution for a larger set of paths to get baseline etc. even
+                 * if there are no votes.
+                 */
                 res = (resolver = ballotBox.getResolver(xpd, path, resolver)).getWinningValue();
                 String diskFullPath = ballotBox.diskData.getFullPathAtDPath(path);
                 if (diskFullPath == null) {
@@ -217,7 +229,14 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                  */
                 String baseXPath = XPathTable.removeDraftAltProposed(diskFullPath);
                 Status win = resolver.getWinningStatus();
-                if (win == Status.approved) {
+                /*
+                 * Catch VoteResolver.Status.missing, or it will trigger an exception
+                 * in draftStatusFromWinningStatus since there is no "missing" in DraftStatus.
+                 * This may happen especially when resolveMorePaths is true for making vxml.
+                 */
+                if (win == Status.missing) {
+                   return resolver;
+                } else if (win == Status.approved) {
                     fullPath = baseXPath;
                 } else {
                     DraftStatus draftStatus = draftStatusFromWinningStatus(win);
@@ -244,8 +263,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * @param win the VoteResolver.Status (winning status)
          * @return the DraftStatus
          *
-         * As a rule, the name of each VoteResolver.Status is also a name of a DraftStatus.
+         * As a rule, the name of each VoteResolver.Status is also the name of a DraftStatus.
          * Any exceptions to that rule should be handled explicitly in this function.
+         * However, VoteResolver.Status.missing is currently NOT handled and will cause an
+         * exception to be logged. The caller should check for VoteResolver.Status.missing
+         * and avoid calling this function with it.
          * 
          * References:
          *     https://unicode.org/cldr/trac/ticket/11721
@@ -667,17 +689,18 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         /**
-         * Load internal data for this PerLocaleData, and push it into the given DataBackedSource.
+         * Load internal data (votes, etc.) for this PerLocaleData, and push it into this.xmlsource,
+         * which is a DataBackedSource.
          *
-         * @param dataBackedSource = new DataBackedSource(this = PerLocaleData))
-         * @return the DataBackedSource
+         * @param resolveMorePaths false to do vote resolution only on paths with votes in current votes table, or
+         *                         true to do vote resolution also on all paths in trunk (for making vxml).
+         *                        
          *
-         * Called only by PerLocaleData.makeSource(resolve = false).
+         * Called by PerLocaleData.makeSource(resolve = false), and by PerLocaleData.makeVettedSource.
          */
-        private DataBackedSource loadVoteValues(DataBackedSource dataBackedSource) {
+        private void loadVoteValues(boolean resolveMorePaths) {
             if (!readonly) {
                 VoteResolver<String> resolver = null; // save recalculating this.
-                Set<String> hitXpaths = new HashSet<String>();
                 ElapsedTimer et = (SurveyLog.DEBUG) ? new ElapsedTimer("Loading PLD for " + locale) : null;
                 Connection conn = null;
                 PreparedStatement ps = null;
@@ -698,7 +721,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     while (rs.next()) {
                         int xp = rs.getInt(1);
                         String xpath = sm.xpt.getById(xp);
-                        hitXpaths.add(xpath);
                         int submitter = rs.getInt(2);
                         String value = DBUtils.getStringUTF8(rs, 3);
                         // 4 = locale -- unused; TODO: remove from openQueryByLocaleRW
@@ -740,23 +762,37 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 SurveyLog.debug(et + " - read " + n + " items  (" + xpathToData.size() + " xpaths.)");
 
                 et = (SurveyLog.DEBUG) ? new ElapsedTimer("Resolver loading for xpaths in " + locale) : null;
-                int j = 0;
                 /*
-                 * TODO: Fix bug here: vxml produced by admin-OutputAllFiles.jsp is missing some paths.
-                 * allPXDPaths() may return an empty array.
-                 * It may work, in that context, to use diskData instead of allPXDPaths(), but that causes
-                 * problems in other contexts like TestSparseVote. What about diskFile (not same as diskData)?
+                 * Now that we've loaded all the votes, resolve the votes for each path.
+                 *
+                 * When producing vxml, resolveMorePaths is true and we use all paths in diskData (trunk) in
+                 * addition to allPXDPaths(); otherwise, vxml produced by admin-OutputAllFiles.jsp is missing some paths.
+                 * allPXDPaths() may return an empty array if there are no votes in current votes table.
+                 * (However, we assume that last-release value soon won't be used anymore for vote resolution.
+                 * If we did need paths from last-release, or any paths missing from trunk and current votes table,
+                 * we could loop through sm.getSTFactory().getPathsForFile(locale); however, that would generally
+                 * include more paths than are wanted for vxml.)
                  * Reference: https://unicode.org/cldr/trac/ticket/11909
                  */
-                for (String xp : allPXDPaths()) {
-                    resolver = dataBackedSource.setValueFromResolver(xp, resolver);
+                // Set<String> xpathSet = resolveMorePaths ? sm.getSTFactory().getPathsForFile(locale) : allPXDPaths();
+                Set<String> xpathSet;
+                if (resolveMorePaths) {
+                    xpathSet = new HashSet<String>(allPXDPaths());
+                    for (String xp : diskData) {
+                        xpathSet.add(xp);
+                    }
+                } else {
+                    xpathSet = allPXDPaths();
+                }
+                int j = 0;
+                for (String xp : xpathSet) {
+                    resolver = xmlsource.setValueFromResolver(xp, resolver, resolveMorePaths);
                     j++;
                 }
-                SurveyLog.debug(et + " - resolved " + j + " additional items, " + n + " total.");
+                SurveyLog.debug(et + " - resolved " + j + " items, " + n + " total.");
             }
             stamp.next();
-            dataBackedSource.addListener(gTestCache);
-            return dataBackedSource;
+            xmlsource.addListener(gTestCache);
         }
 
         @Override
@@ -1056,9 +1092,13 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         /**
-         * create per-xpath data if not there
-         * @param xpath
-         * @return
+         * Get the PerXPathData for the given xpath, for this PerLocaleData;
+         * create per-xpath data if not there.
+         *
+         * @param xpath the path string, like "//ldml/localeDisplayNames/languages/language[@type="ko"]"
+         * @return the PerXPathData
+         *
+         * Called by internalSetVoteForValue only.
          */
         private final PerXPathData getXPathData(String xpath) {
             PerXPathData xpd = peekXpathData(xpath);
@@ -1100,11 +1140,26 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     return diskData;
                 } else {
                     if (xmlsource == null) {
-                        xmlsource = loadVoteValues(new DataBackedSource(this));
+                        xmlsource = new DataBackedSource(this);
+                        loadVoteValues(false /* resolveMorePaths */);
                     }
                     return xmlsource;
                 }
             }
+        }
+
+        /**
+         * Make a vetted source for this PerLocaleData, suitable for producing vxml
+         * with vote-resolution done on more paths.
+         *
+         * This function is similar to makeSource, but with resolveMorePaths true.
+         *
+         * @return this.xmlsource, the new XMLSource for this PerLocaleData.
+         */
+        public synchronized XMLSource makeVettedSource() {
+            xmlsource = new DataBackedSource(this);
+            loadVoteValues(true /* resolveMorePaths */);
+            return xmlsource;
         }
 
         @Override
@@ -1130,18 +1185,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 throw new BallotBox.InvalidXPathException(distinguishingXpath);
             }
             SurveyLog.debug("V4v: " + locale + " " + distinguishingXpath + " : " + user + " voting for '" + value + "'");
-            ModifyDenial denial = UserRegistry.userCanModifyLocaleWhy(user, locale); // this
-            // has
-            // to
-            // do
-            // with
-            // changing
-            // a
-            // vote
-            // -
-            // not
-            // counting
-            // it.
+            /*
+             * this has to do with changing a vote - not counting it.
+             */
+            ModifyDenial denial = UserRegistry.userCanModifyLocaleWhy(user, locale);
             if (denial != null) {
                 throw new VoteNotAcceptedException(ErrorCode.E_NO_PERMISSION, "User " + user + " cannot modify " + locale + " " + denial);
             }
@@ -1276,7 +1323,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
 
             internalSetVoteForValue(user, distinguishingXpath, value, withVote, new Date());
-            xmlsource.setValueFromResolver(distinguishingXpath, null);
+            xmlsource.setValueFromResolver(distinguishingXpath, null, false /* resolveMorePaths */);
         }
 
         /**
@@ -1373,7 +1420,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 throw new InvalidXPathException(distinguishingXpath);
             }
             stamp.next();
-            return resolver = source.setValueFromResolver(distinguishingXpath, resolver);
+            return resolver = source.setValueFromResolver(distinguishingXpath, resolver, false /* resolveMorePaths */);
         }
 
         @Override
@@ -1832,6 +1879,26 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         if (localeID == null)
             return null; // ?!
         return get(localeID).makeSource(resolved);
+    }
+
+    /**
+     * Make a "vetted" CLDRFile with more paths resolved, for generating VXML (vetted XML).
+     *
+     * See loadVoteValues for what exactly "more paths" means.
+     *
+     * This kind of CLDRFile should not be confused with ordinary (not-fully-vetted) files,
+     * or re-used for anything other than vxml. Avoid mixing data for the two kinds of CLDRFile
+     * in caches (such as rLocales).
+     *
+     * @param loc the CLDRLocale
+     * @return the vetted CLDRFile with more paths resolved
+     */
+    public CLDRFile makeVettedFile(CLDRLocale loc) {
+        PerLocaleData pld = get(loc.getBaseName());
+        XMLSource xmlSource = pld.makeVettedSource();
+        CLDRFile cldrFile = new CLDRFile(xmlSource);
+        cldrFile.setSupplementalDirectory(getSupplementalDirectory());
+        return cldrFile;
     }
 
     /**

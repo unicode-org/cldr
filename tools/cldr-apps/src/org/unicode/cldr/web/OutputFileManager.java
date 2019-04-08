@@ -293,24 +293,12 @@ public class OutputFileManager {
      */
     private File writeOutputFile(CLDRLocale loc, String kind) {
         long st = System.currentTimeMillis();
-        // ElapsedTimer et = new ElapsedTimer("Output "+loc);
-        //XMLSource dbSource;
         CLDRFile file;
         boolean isFlat = false;
         if (kind.equals("vxml")) {
-            file = sm.getSTFactory().make(loc, false);
+            file = sm.getSTFactory().makeVettedFile(loc);
         } else if (kind.equals("pxml")) {
             file = sm.getSTFactory().makeProposedFile(loc);
-            // } else if(kind.equals("pxml")) {
-            //
-            // } else if(kind.equals("rxml")) {
-            // dbSource = makeDBSource(loc, true, true);
-            // file = new
-            // CLDRFile(dbSource).setSupplementalDirectory(supplementalDataDir);
-            // } else if(kind.equals("xml")) {
-            // dbSource = makeDBSource(loc, false);
-            // file = new
-            // CLDRFile(dbSource).setSupplementalDirectory(supplementalDataDir);
         } else {
             if (!isCacheableKind(kind)) {
                 throw new InternalError("Can't (yet) cache kind " + kind + " for loc " + loc);

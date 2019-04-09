@@ -917,18 +917,11 @@ public class VoteResolver<T> {
         }
         
         /*
-         * TODO: do not use lastReleaseValue or lastReleaseStatus for resolveVotes
-         * Reference: https://unicode.org/cldr/trac/ticket/11916
+         * If there are no (unconflicted) votes, return baseline (trunk)
          */
-        // if there are no (unconflicted) votes, return lastRelease
         if (sortedValues.size() == 0) {
-            if (trunkStatus != null && (lastReleaseStatus == null || trunkStatus.compareTo(lastReleaseStatus) >= 0)) {
-                winningStatus = trunkStatus;
-                winningValue = trunkValue;
-            } else {
-                winningStatus = lastReleaseStatus;
-                winningValue = lastReleaseValue;
-            }
+            winningStatus = trunkStatus;
+            winningValue = trunkValue;
             valuesWithSameVotes.add(winningValue); // may be null
             return;
         }

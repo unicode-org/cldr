@@ -1,4 +1,12 @@
 package org.unicode.cldr.unittest;
+/*
+ * TODO: rename this file and class to avoid confusion with org.unicode.cldr.util TestUtilities.java
+ * When Eclipse console shows an error such as 
+ *    Error: (TestUtilities.java:1154) : 8 value: expected "old-value", got null
+ * the link wrongly opens the wrong file named TestUtilities.java. The two files are:
+ * cldr/tools/java/org/unicode/cldr/util/TestUtilities.java
+ * cldr/tools/cldr-unittest/src/org/unicode/cldr/unittest/TestUtilities.java 
+ */
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -662,9 +670,14 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.clear();
         resolver.setBaileyValue("bailey");
 
+        /*
+         * Formerly last-release would win over trunk in this scenario, due
+         * to the difference in status. Now trunk should win.
+         * Reference: https://unicode.org/cldr/trac/ticket/11916
+         */
         resolver.setLastRelease("old-item", Status.approved);
         resolver.setTrunk("new-item", Status.provisional);
-        assertEquals("", "old-item", resolver.getWinningValue());
+        assertEquals("", "new-item", resolver.getWinningValue());
     }
 
     public void TestVoteResolverNgombaTrunkStatus() {
@@ -714,7 +727,7 @@ public class TestUtilities extends TestFmwkPlus {
 
     public void TestLosingStatus() {
         // af
-        // losing? {lastRelease: {BQ, missing}, trunk: {null, null},
+        // losing? {baseline: {BQ, missing}, trunk: {null, null},
         // {orgToVotes: , totals: {}, conflicted: []},
         // sameVotes: [BQ], O: null, N: null, totals: {}, winning: {BQ,
         // missing}}
@@ -724,7 +737,7 @@ public class TestUtilities extends TestFmwkPlus {
         VoteResolver<String> resolver = new VoteResolver<String>();
 
         resolver.setLocale("af");
-        resolver.setLastRelease("BQ", Status.missing);
+        resolver.setTrunk("BQ", Status.missing);
         VoteStatus status = resolver
             .getStatusForOrganization(Organization.openoffice_org);
         assertEquals("", VoteStatus.provisionalOrWorse, status);
@@ -1143,7 +1156,7 @@ public class TestUtilities extends TestFmwkPlus {
                 // load the resolver
                 resolver.setBaileyValue(baileyValue);
                 resolver.setLocale(locale);
-                resolver.setLastRelease(oldValue, oldStatus);
+                resolver.setTrunk(oldValue, oldStatus);
                 for (int voter : values.keySet()) {
                     resolver.add(values.get(voter), voter);
                 }

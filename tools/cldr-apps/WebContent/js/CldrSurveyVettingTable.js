@@ -656,14 +656,12 @@ const cldrSurveyTable = (function() {
 			}
 
 			/*
-			 * For adding star for last release value, we could check item.isOldValue or (value == vr.lastReleaseValue);
-			 * ideally the two should be consistent. The star icon should be applied to old value = inherited value when
-			 * appropriate. Work is in progress on ticket 11299, whether item with value INHERITANCE_MARKER has isOldValue,
-			 * whether vr.lastReleaseValue is ever INHERITANCE_MARKER. For flexibility, for now, show star if either of the
-			 * conditions is true.
+			 * For adding star for baseline value, we could check item.isBaselineValue or (value == vr.baselineValue);
+			 * ideally the two should be consistent. The star icon should be applied to baseline value = inherited value when
+			 * appropriate. For flexibility, for now, show star if either of the conditions is true.
 			 */
-			if (value == vr.lastReleaseValue || item.isOldValue) {
-				appendIcon(isection, "voteInfo_lastRelease i-star", stui.str("voteInfo_lastRelease_desc"));
+			if (value == vr.baselineValue || item.isBaselineValue) {
+				appendIcon(isection, "i-star", stui.str("voteInfo_baseline_desc"));
 				isectionIsUsed = true;
 			}
 			setLang(valdiv);

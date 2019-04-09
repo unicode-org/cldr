@@ -164,12 +164,15 @@ public class SurveyAjax extends HttpServlet {
         }
 
         public static JSONObject wrap(final VoteResolver<String> r) throws JSONException {
-            JSONObject ret = new JSONObject().put("raw", r.toString()).put("isDisputed", r.isDisputed())
-                .put("lastReleaseStatus", r.getLastReleaseStatus())
+            JSONObject ret = new JSONObject()
+                .put("raw", r.toString()) /* "raw" is only used for debugging (stdebug_enabled) */
+                .put("isDisputed", r.isDisputed()) /* TODO: isDisputed is not actually used by client? */
+                .put("lastReleaseStatus", r.getLastReleaseStatus()) /* TODO: lastReleaseStatus is not actually used by client? */
                 .put("winningValue", r.getWinningValue())
-                .put("lastReleaseValue", r.getLastReleaseValue())
+                .put("baselineValue", r.getTrunkValue())
+                .put("lastReleaseValue", r.getLastReleaseValue()) /* TODO: lastReleaseValue is not actually used by client? */
                 .put("requiredVotes", r.getRequiredVotes())
-                .put("winningStatus", r.getWinningStatus());
+                .put("winningStatus", r.getWinningStatus()); /* TODO: winningStatus is not actually used by client? */
 
             EnumSet<Organization> conflictedOrgs = r.getConflictedOrganizations();
 
@@ -1324,14 +1327,17 @@ public class SurveyAjax extends HttpServlet {
          * current user, or "fr" (French) as a fallback. Reference: https://unicode.org/cldr/trac/ticket/11161
          */
         if ("USER".equals(loc) && sess != null && !sess.isEmpty()) {
+            loc = "fr"; // fallback
             CookieSession.checkForExpiredSessions();
             CookieSession mySession = CookieSession.retrieve(sess);
-            String locales = mySession.user.locales;
-            if (locales == null || "".equals(locales) || UserRegistry.isAllLocales(locales)) {
-                loc = "fr";
-            } else {
-                String localeArray[] = UserRegistry.tokenizeLocale(locales);
-                loc = localeArray.length == 0 ? "fr" : localeArray[0];
+            if (mySession.user != null) {
+                String locales = mySession.user.locales;
+                if (locales != null && !locales.isEmpty() && !UserRegistry.isAllLocales(locales)) {
+                    String localeArray[] = UserRegistry.tokenizeLocale(locales);
+                    if (localeArray.length > 0) {
+                        loc = localeArray[0];
+                    }
+                }
             }
         }
         if (loc == null || loc.isEmpty() || (ret = CLDRLocale.getInstance(loc)) == null || !SurveyMain.getLocalesSet().contains(ret)) {

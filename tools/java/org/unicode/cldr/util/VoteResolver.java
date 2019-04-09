@@ -915,6 +915,11 @@ public class VoteResolver<T> {
         if (DEBUG) {
             System.out.println("sortedValues :" + sortedValues.toString());
         }
+        
+        /*
+         * TODO: do not use lastReleaseValue or lastReleaseStatus for resolveVotes
+         * Reference: https://unicode.org/cldr/trac/ticket/11916
+         */
         // if there are no (unconflicted) votes, return lastRelease
         if (sortedValues.size() == 0) {
             if (trunkStatus != null && (lastReleaseStatus == null || trunkStatus.compareTo(lastReleaseStatus) >= 0)) {

@@ -140,12 +140,12 @@ public class DataSection implements JSONString {
             final private String rawValue;
 
             /**
-             * isOldValue means the value of this CandidateItem is equal to oldValue, which is a member of DataRow.
+             * isBaselineValue means the value of this CandidateItem is equal to baselineValue, which is a member of DataRow.
              *
-             * isOldValue is used on both server and client. On the client, it can result in addIcon(choiceField,"i-star"),
+             * isBaselineValue is used on both server and client. On the client, it can result in addIcon(choiceField,"i-star"),
              * and that is its only usage on the client.
              */
-            private boolean isOldValue = false;
+            private boolean isBaselineValue = false;
 
             /**
              * checkedVotes is used only in the function getVotes, for efficiency.
@@ -409,7 +409,7 @@ public class DataSection implements JSONString {
              * RefreshRow.jsp -- line with .key("section").value(section)
              *
              * @return the JSON string. For example: {"isBailey":false,"tests":[],"rawValue":"↑↑↑","valueHash":"4oaR4oaR4oaR","pClass":"loser",
-             *      "isFallback":false,"value":"↑↑↑","isOldValue":false,"example":"<div class='cldr_example'>2345<\/div>"}
+             *      "isFallback":false,"value":"↑↑↑","isBaselineValue":false,"example":"<div class='cldr_example'>2345<\/div>"}
              */
             @Override
             public String toJSONString() throws JSONException {
@@ -418,7 +418,7 @@ public class DataSection implements JSONString {
                     .put("rawValue", rawValue)
                     .put("value", getProcessedValue())
                     .put("example", getExample())
-                    .put("isOldValue", isOldValue)
+                    .put("isBaselineValue", isBaselineValue)
                     .put("pClass", getPClass())
                     .put("tests", SurveyAjax.JSONWriter.wrap(this.tests));                
                 if (USE_CANDIDATE_HISTORY) {
@@ -638,6 +638,13 @@ public class DataSection implements JSONString {
         private String oldValue;
         
         /**
+         * The baseline value for this DataRow, that is the previous release version plus latest XML fixes by members
+         * of the technical committee (TC). In other words, the current "trunk" value, where "trunk"
+         * refers to XML files in version control (on trunk, as opposed to any branch).
+         */
+        private String baselineValue;
+        
+        /**
          * The status for this DataRow in the previous release version.
          */
         private Status oldStatus;
@@ -676,6 +683,8 @@ public class DataSection implements JSONString {
             oldValue = resolver.getLastReleaseValue();
             oldStatus = resolver.getLastReleaseStatus();
 
+            baselineValue = resolver.getTrunkValue();
+
             this.displayName = baselineFile.getStringValue(xpath);
         }
 
@@ -685,18 +694,18 @@ public class DataSection implements JSONString {
          *
          * If the item is new, then:
          *  check whether the item is winning, and if so make winningItem point to it;
-         *  check whether the item matches oldValue, and if so set isOldValue = true.
+         *  check whether the item matches baselineValue, and if so set isBaselineValue = true.
          * 
          * @param value
          * @param candidateHistory a string used for debugging and possibly also for describing to the user
          *          how/why/when/where the item was added
          * @return the new or existing item with the given value
          *
-         * Sequential order in which addItem may be called (as of 2018-09-10) for a given DataRow:
+         * Sequential order in which addItem may be called (as of 2019-04-09) for a given DataRow:
          *
          * (1) For INHERITANCE_MARKER (if inheritedValue = ourSrc.getConstructedBaileyValue not null):
          *     in updateInheritedValue (called by populateFromThisXpath):
-         *         inheritedItem = addItem(CldrUtility.INHERITANCE_MARKER, "inheritedItem");
+         *         inheritedItem = addItem(CldrUtility.INHERITANCE_MARKER, "inherited");
          *
          * (2) For votes:
          *     in populateFromThisXpathAddItemsForVotes (called by populateFromThisXpath):
@@ -704,19 +713,23 @@ public class DataSection implements JSONString {
          *
          * (3) For winningValue:
          *     in populateFromThisXpath:
-         *         row.addItem(row.winningValue, "winningValue");
+         *         row.addItem(row.winningValue, "winning");
          *
          * (4) For oldValue (if not null, and not same as ourValue):
          *     in populateFromThisXpath:
-         *         row.addItem(row.oldValue, "oldValue");
+         *         row.addItem(row.oldValue, "old");
          *
-         * (5) For INHERITANCE_MARKER (if not in votes and locale.getCountry isn't empty):
+         * (5) For baselineValue (if not null):
          *     in populateFromThisXpath:
-         *         row.addItem(CldrUtility.INHERITANCE_MARKER, "getCountry");
+         *         row.addItem(row.baselineValue, "baseline");
          *
-         * (6) For ourValue:
+         * (6) For INHERITANCE_MARKER (if not in votes and locale.getCountry isn't empty):
+         *     in populateFromThisXpath:
+         *         row.addItem(CldrUtility.INHERITANCE_MARKER, "country");
+         *
+         * (7) For ourValue:
          *     in addOurValue (called by populateFromThisXpath):
-         *         CandidateItem myItem = row.addItem(ourValue, "ourValue");
+         *         CandidateItem myItem = row.addItem(ourValue, "our");
          */
         private CandidateItem addItem(String value, String candidateHistory) {
             /*
@@ -740,8 +753,8 @@ public class DataSection implements JSONString {
             if (winningValue != null && winningValue.equals(value)) {
                 winningItem = item;
             }
-            if (oldValue != null && oldValue.equals(value)) {
-                item.isOldValue = true;
+            if (baselineValue != null && baselineValue.equals(value)) {
+                item.isBaselineValue = true;
             }
             return item;
         }
@@ -1085,20 +1098,6 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * Show the voting results for this DataRow
-         *
-         * @param ctx the WebContext
-         *
-         * Called by RefreshRow.jsp
-         */
-        public void showVotingResults(WebContext ctx) {
-            BallotBox<User> ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
-            ctx.put("ballotBox", ballotBox);
-            ctx.put("resolver", ballotBox.getResolver(getXpath()));
-            ctx.includeFragment("show_voting.jsp");
-        }
-
-        /**
          * Convert this DataRow to a string.
          */
         @Override
@@ -1294,7 +1293,7 @@ public class DataSection implements JSONString {
                  *
                  * Set inheritedItem = the item with value INHERITANCE_MARKER.
                  */                    
-                inheritedItem = addItem(CldrUtility.INHERITANCE_MARKER, "inheritedItem");
+                inheritedItem = addItem(CldrUtility.INHERITANCE_MARKER, "inherited");
 
                 if (TRACE_TIME) {
                     System.err.println("@@2:" + (System.currentTimeMillis() - lastTime));
@@ -1588,7 +1587,9 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * Get the last release value for this DataRow
+         * Get the last release status for this DataRow
+         *
+         * Called by getShowRowAction
          */
         @Override
         public Status getLastReleaseStatus() {
@@ -2830,6 +2831,13 @@ public class DataSection implements JSONString {
          * ResolvingSource, and ourSrc.dataSource.currentSource is a DataBackedSource.
          * ourSrc is initialized as follows:
          *         CLDRFile ourSrc = sm.getSTFactory().make(locale.getBaseName(), true, true);
+         *
+         * Basically ourSrc is an ordinary CLDRFile, so its values are based on (1) trunk plus (2) current votes; most
+         * often its values should agree with getWinningValue(), but might differ for some paths that have no votes in
+         * the current votes table, especially if the winning value depends on last-release value. If ourSrc were a "vetted"
+         * CLDRFile, as used for producing vxml (see makeVettedFile), then it would be more likely to agree with the winning
+         * value more often. Note that when ticket 11916 is done, the winning value will never depend on last-release.
+         * Reference: https://unicode.org/cldr/trac/ticket/11916
          * 
          * See fixWinningValue for more related comments.
          */
@@ -2898,7 +2906,7 @@ public class DataSection implements JSONString {
          * Add an item for winningValue if there isn't one already.
          */
         if (row.winningValue != null) {
-            row.addItem(row.winningValue, "winningValue");
+            row.addItem(row.winningValue, "winning");
         }
 
         /*
@@ -2912,7 +2920,14 @@ public class DataSection implements JSONString {
          * don't treat it as a "hard" item.) 
          */
         if (row.oldValue != null && !row.oldValue.equals(ourValue)) {
-            row.addItem(row.oldValue, "oldValue");
+            row.addItem(row.oldValue, "old");
+        }
+
+        /*
+         * Add an item for the baseline value (trunk).
+         */
+        if (row.baselineValue != null) {
+                row.addItem(row.baselineValue, "baseline");
         }
 
         row.coverageValue = coverageValue;
@@ -2925,7 +2940,7 @@ public class DataSection implements JSONString {
              * it's the job of updateInheritedValue to do addItem(CldrUtility.INHERITANCE_MARKER); is there
              * any need to call it here as well? setShimTests below may also do addItem(CldrUtility.INHERITANCE_MARKER).
              */            
-            row.addItem(CldrUtility.INHERITANCE_MARKER, "getCountry");
+            row.addItem(CldrUtility.INHERITANCE_MARKER, "country");
         }
 
         if (row.inheritedItem == null && isExtraPath) {
@@ -3031,7 +3046,7 @@ public class DataSection implements JSONString {
          */
         CandidateItem myItem = null;
         if (!(ourValue != null && ourValue.equals(row.inheritedValue))) {
-            myItem = row.addItem(ourValue, "ourValue");
+            myItem = row.addItem(ourValue, "our");
             if (DEBUG) {
                 System.err.println("Added item " + ourValue + " - now items=" + row.items.size());
             }

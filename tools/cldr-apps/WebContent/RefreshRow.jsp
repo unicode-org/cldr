@@ -44,19 +44,6 @@
 
 	    	try {
 			curThread.setName(request.getServletPath()+":"+loc+":"+xpath);
-	    	
-			/*
-			 * TODO: delete this block, it's dead code, we already returned if l was null
-			 */
-			if (l == null) {
-				if(!isJson) {
-					response.sendError(500, "Bad locale.");
-				} else {
-					JSONWriter r = new JSONWriter(out).object().
-							key("err").value("Bad locale.").endObject();
-				}
-				return;
-			}
 
 			if (mySession == null) {
 				if(!isJson) {
@@ -226,23 +213,8 @@
 					}
 					return;
 				}
-				int oldSize = section.getAll().size();
-				DataSection.DataRow row = section.getDataRow(xp);
-				if (row != null) {
-					if (voteinfo != null && voteinfo.length() > 0) {
-						row.showVotingResults(ctx);
-					}
-					ctx.flush();
-        		} else {
-					if(!isJson) {
-						response.sendError(500, "Row not found");
-					} else {
-						JSONWriter r = new JSONWriter(out).object().
-								key("err").value("Row not found.").endObject();
-					}
-					return;
-        		}
-        	}
+				/* Do nothing here if no json parameter (deleted dead code) */
+			}
 			
 	    	} finally {
 	    		// put the name back.

@@ -520,8 +520,8 @@ function labelizeIcon() {
 	             {
 	            	 selector:'.i-star',
 	                 type:'primary',
-	                 text:'Last Value',
-	                 title:'The value from the last release.'
+	                 text:'Baseline',
+	                 title:'The baseline value, which was approved in the last release, plus latest XML fixes by the Technical Committee, if any.'
 	             }
                  ];
 	

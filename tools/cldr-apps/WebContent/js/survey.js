@@ -2821,8 +2821,8 @@ function addVitem(td, tr, theRow, item, newButton) {
 	setLang(span);
 	checkLRmarker(choiceField, span.dir, item.value);
 
-	if( item.isOldValue == true) {
-		appendIcon(choiceField, "i-star", stui.str("voteInfo_lastRelease_desc"));
+	if (item.isBaselineValue == true) {
+		appendIcon(choiceField, "i-star", stui.str("voteInfo_baseline_desc"));
 	}
 	if(item.votes && !isWinner) {
 		if(item.valueHash == theRow.voteVhash && theRow.canFlagOnLosing && !theRow.rowFlagged){

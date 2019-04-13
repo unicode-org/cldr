@@ -457,7 +457,7 @@ public class Keyboard {
                     ltp.set(locale);
                     Map<String, String> extensions = ltp.getExtensions();
                     LanguageTagParser.Status status = ltp.getStatus(errors2);
-                    if (errors2.size() != 0 || !extensions.containsKey("t")) {
+                    if (errors2.size() != 0 || !ltp.hasT()) {
                         errors.add(new KeyboardException("Bad locale tag: " + locale + ", " + errors2.toString()));
                     } else if (status != Status.MINIMAL) {
                         errors.add(new KeyboardWarningException("Non-minimal locale tag: " + locale));

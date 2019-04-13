@@ -199,6 +199,7 @@ public class GenerateSidewaysView {
             ImmutableMap.of(
                 "%header%", headerString,
                 "%version%", ToolConstants.CHART_DISPLAY_VERSION,
+                "%index%", "../index.html",
                 "%index-title%", "Main Charts Index",
                 "%date%", CldrUtility.isoFormatDateOnly(new Date())));
 //        FileUtilities.copyFile(GenerateSidewaysView.class, "bytype-index.html", options[DESTDIR].value, "index.html",

@@ -99,7 +99,9 @@ public class ShowLanguages {
         FileCopier.copy(ShowLanguages.class, "index.css", FormattedFileWriter.CHART_TARGET_DIR);
         FormattedFileWriter.copyIncludeHtmls(FormattedFileWriter.CHART_TARGET_DIR);
         
-        printLanguageData(cldrFactory, "index.html");
+        StringWriter sw = printLanguageData(cldrFactory, "index.html");
+        writeSupplementalIndex("index.html", sw);
+
         // cldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "../dropbox/extra2/", ".*");
         // printLanguageData(cldrFactory, "language_info2.txt");
         System.out.println("Done - wrote into " + FormattedFileWriter.CHART_TARGET_DIR);
@@ -113,7 +115,9 @@ public class ShowLanguages {
     static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
         .getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
 
-    private static void printLanguageData(Factory cldrFactory, String filename) throws IOException {
+    private static StringWriter printLanguageData(Factory cldrFactory, String filename) throws IOException {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
 
         new ChartDtdDelta().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         ShowLocaleCoverage.showCoverage(SUPPLEMENTAL_INDEX_ANCHORS, null);
@@ -124,9 +128,6 @@ public class ShowLanguages {
         new ChartSubdivisions().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
 
         // since we don't want these listed on the supplemental page, use null
-
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
 
         new ShowPlurals().printPlurals(english, null, pw, cldrFactory);
 
@@ -181,12 +182,18 @@ public class ShowLanguages {
         linfo.printCharacters(pw);
 
         pw.close();
+        
+        return sw;
+    }
 
-        String[] replacements = { "%date%", CldrUtility.isoFormatDateOnly(new Date()), "%contents%", SUPPLEMENTAL_INDEX_ANCHORS.toString(), "%data%",
-            sw.toString() };
+    private static void writeSupplementalIndex(String filename, StringWriter sw) throws IOException {
+        String[] replacements = { 
+            "%date%", CldrUtility.isoFormatDateOnly(new Date()), 
+            "%contents%", SUPPLEMENTAL_INDEX_ANCHORS.toString(),
+            "%data%", sw.toString(),
+            "%index%", "../index.html" };
         PrintWriter pw2 = org.unicode.cldr.draft.FileUtilities.openUTF8Writer(FormattedFileWriter.CHART_TARGET_DIR, filename);
-        FileUtilities.appendFile(CLDRPaths.BASE_DIRECTORY + java.io.File.separatorChar
-            + "tools/java/org/unicode/cldr/tool/supplemental.html", "utf-8", pw2, replacements);
+        FileUtilities.appendFile(ShowLanguages.class, "supplemental.html", replacements, pw2);
         pw2.close();
     }
 

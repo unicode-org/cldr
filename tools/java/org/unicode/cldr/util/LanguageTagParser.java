@@ -629,6 +629,15 @@ public class LanguageTagParser {
     public static boolean isTKey(String key) {
         return key.length() == 2 && key.charAt(1) < 'a';
     }
+    
+    public boolean hasT() {
+        for (String key : localeExtensions.keySet()) {
+            if (key.equals("t") || isTKey(key)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /**
      * Return just the language, script, and region (no variants or extensions)

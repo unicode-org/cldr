@@ -321,6 +321,10 @@ public final class FileUtilities {
         appendFile(class1, filename, UTF8, null, out);
     }
 
+    public static void appendFile(Class<?> class1, String filename, String[] replacementList, PrintWriter out) {
+        appendFile(class1, filename, UTF8, replacementList, out);
+    }
+
     public static void appendFile(Class<?> class1, String filename, Charset charset, String[] replacementList,
         PrintWriter out) {
         BufferedReader br = openFile(class1, filename, charset);

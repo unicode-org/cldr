@@ -514,20 +514,11 @@ function openPost() {
 		content += '<input name="isReview" type="hidden" value="1">';
 		content += '</form>';
 		
-		// 'old' (HTML based) generate
-//		if(post) {
-//			$.each(post, function(index, element) {
-//					content += generateHTMLPost(element);
-//			})
-//		}
-		
-		// 'new' (dom based) generate
 		content += '<div class="post"></div>';
 		content += '<div class="forumDiv"></div>';
 			
 		postModal.find('.modal-body').html(content);
 
-		// 'new' (DOM based) generate
 		if(post) {
 			var forumDiv = parseForumContent({ret: post, noItemLink: true});
 			var postHolder = postModal.find('.modal-body').find('.forumDiv');
@@ -536,7 +527,7 @@ function openPost() {
 		
 		postModal.find('textarea').autosize();
 		postModal.find('.submit-post').click(submitPost);
-		setTimeout(function() {postModal.find('textarea').focus();},1000);
+		setTimeout(function() {postModal.find('textarea').focus();},1000 /* one second */);
 	}, 'json');
 	
 }
@@ -594,7 +585,7 @@ function openReply(params) {
 
 	postModal.find('textarea').autosize();
 	postModal.find('.submit-post').click(submitPost);
-	setTimeout(function() {postModal.find('textarea').focus();},1000);
+	setTimeout(function() {postModal.find('textarea').focus();},1000 /* one second */);
 }
 
 

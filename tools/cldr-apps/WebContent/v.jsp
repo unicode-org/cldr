@@ -36,7 +36,7 @@ if(SurveyMain.isBusted!=null || request.getParameter("_BUSTED")!=null) {
                   window.setTimeout(function(){
                       window.location.reload(true);                
                         //document.location='<%= url %>' + document.location.search +  document.location.hash;
-                  },10000);
+                  },10000 /* ten seconds */);
                   </script>
  <% } %>
                   <script type="application/javascript">
@@ -108,8 +108,7 @@ if(SurveyMain.isBusted!=null || request.getParameter("_BUSTED")!=null) {
 	                                       dstatus.appendChild(document.createTextNode('.'));
 	                            		    dojo.xhrGet({url: survURL, load: function(data) {   
 	                            		        dstatus.appendChild(document.createTextNode('Loaded  '+data.length + ' bytes from SurveyTool. Reloading this page..')); window.location.reload(true);
-	                            		        if(false)   window.setTimeout(function(){     window.location.search='?'+window.location.search.substr(1)+'&'; },5000);  }  }); 
-	                            	   }, 2000);
+	                            	   }, 2000 /* two seconds */);
 	                           	   });
                            }
 <% } %>

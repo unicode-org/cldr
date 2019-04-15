@@ -904,6 +904,8 @@ var queueOfXhr=[];
 
 /**
  * The current timeout for processing XHRs
+ * (Returned by setTimer: a number, representing the ID value of the timer that is set.
+ * Use this value with the clearTimeout() method to cancel the timer.)
  * @property queueOfXhrTimeout
  */
 var queueOfXhrTimeout=null;
@@ -943,7 +945,12 @@ function xhrSetTime(top) {
 	stdebug("PXQ("+queueOfXhr.length+"): time took= " + top.tookTime);
 }
 
-var xhrQueueTimeout = 3;
+/*
+ * xhrQueueTimeout is a constant, 3 milliseconds, used only by
+ * myLoad0, myErr0, and queueXhr, in calls to setTimeout for processXhrQueue.
+ * TODO: explain, why 3 milliseconds?
+ */
+const xhrQueueTimeout = 3;
 myLoad0 = function(top,args) {
 	xhrSetTime(top);
 	stdebug("myLoad0!:" + top.url + " - a="+args.length);
@@ -978,8 +985,6 @@ function stdebug(x) {
 }
 
 stdebug('stdebug is enabled.');
-
-var timerID = -1;
 
 /**
  * Update the item, if it exists
@@ -1531,10 +1536,12 @@ function updateStatusBox(json) {
 }
 
 /**
- * How often to fetch updates. Default 15s
+ * How often to fetch updates. Default 15s.
+ * Used only for delay in calling updateStatus.
+ * May be changed by resetTimerSpeed -- but resetTimerSpeed is NEVER called
  * @property timerSpeed
  */
-var timerSpeed = 15000;
+var timerSpeed = 15000; // 15 seconds
 
 /**
  * How long to wait for AJAX updates.
@@ -1651,6 +1658,7 @@ function setTimerOn() {
  * Change the update timer's speed
  * @method resetTimerSpeed
  * @param {Int} speed
+ * TODO: this is never called?!
  */
 function resetTimerSpeed(speed) {
 	timerSpeed = speed;

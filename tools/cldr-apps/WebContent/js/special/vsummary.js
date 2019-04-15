@@ -116,6 +116,10 @@ define("js/special/vsummary.js", ["js/special/SpecialPage.js"], function(Special
 		
 		var xurl = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=vsummary"; // allow cache
 		
+		/**
+		 * refreshInterval: returned by setTimer, only for doReload('NOSTART'): a number, representing the
+		 * ID value of the timer that is set. Use this value with the clearTimeout() method to cancel the timer.
+		 */
 		var refreshInterval = -1;
 		
 		function stopRefresh() {
@@ -140,6 +144,10 @@ define("js/special/vsummary.js", ["js/special/SpecialPage.js"], function(Special
 			return stStopPropagation(e);
 		};
 		
+		/**
+		 * processVVJson
+		 * Called only by the load param for dojo.xhrGet in doReload.
+		 */
 		function processVVJson(json, onSuccess, onFailure) {
 			if(json.err) {
 	        	params.special.showError(params, json, {
@@ -159,14 +167,14 @@ define("js/special/vsummary.js", ["js/special/SpecialPage.js"], function(Special
 					}
 					vsProgress.style.display = 'none';
 				} else {
-					var delay = 10000;
+					var delay = 10000; // ten seconds
 					if(json.jstatus.locale != json.jstatus.t_locale) {
 						status('warn','Your other task is processing. '+ahead);
 						vsProgress.style.display = 'none';
 					} else {
 						var clzz = '';
 						if ( json.jstatus.t_statuscode == 'WAITING' ) {
-							delay = 5000; // quicker check when waiting to begin
+							delay = 5000; // five seconds; quicker check when waiting to begin
 							clzz = 'glyphicon glyphicon-time';
 							if(json.jstatus.t_waiting && json.jstatus.t_waiting>0) {
 								ahead = json.jstatus.t_waiting + ' total tasks are waiting. ';

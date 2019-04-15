@@ -30,7 +30,7 @@
               <script type="application/javascript">
               window.setTimeout(function(){
                   window.location.reload(true);                
-              },<%= SurveyMain.isSetup ? 1800000 : 60000 %>);
+              },<%= SurveyMain.isSetup ? 1800000 /* thirty minutes */ : 60000 /* one minute */ %>);
               </script>
     <% } %>
     

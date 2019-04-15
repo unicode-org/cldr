@@ -33,6 +33,13 @@ import org.unicode.cldr.util.StandardCodes;
  * per-user basis. Instances are typically held by WebContext.session.
  */
 public class CookieSession {
+    /*
+     * If KICK_IF_INACTIVE is true, then we may disconnect a user if they don't perform
+     * an "active" action, triggering userDidAction(), within some length of time. If it
+     * is false, then we try to stay connected as long as there is at least some automatic
+     * client-server communication (such as "SurveyAjax?what=status"). 
+     */
+    private static final boolean KICK_IF_INACTIVE = false;
     static final boolean DEBUG_INOUT = false;
     public String id;
     public String ip;
@@ -56,9 +63,15 @@ public class CookieSession {
 
     /**
      * How long, in ms, before we kick?
-     * @return
+     * @return the number of milliseconds remaining before the user will be disconnected
+     *         unless the user does something "active" before then.
+     * 
+     * Here, something "active" means anything that causes userDidAction() to be called.
      */
     public long timeTillKick() {
+        if (!KICK_IF_INACTIVE) {
+            return 1000000; // anything more than one minute, to prevent browser console countdown
+        }
         final long now = System.currentTimeMillis();
         final boolean guest = (user == null);
         long myTimeout; // timeout in seconds.

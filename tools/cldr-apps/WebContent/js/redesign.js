@@ -353,7 +353,7 @@ function toggleOverlay(){
 		setTimeout(function(){
 			if(toToggleOverlay)
 				overlay.css('z-index', '-10');
-		},500);
+		},500 /* half a second */);
 	}
 	else {
 		toToggleOverlay = false;
@@ -377,7 +377,7 @@ var oldTypePopup = '';
 function popupAlert(type, content, head, aj, dur) {
 	var ajax = (typeof aj === "undefined") ? "" : aj;
 	var header = (typeof aj === "undefined") ? "" : head; 
-	var duration = (typeof dur === "undefined") ? 4000 :dur; 
+	var duration = (typeof dur === "undefined") ? 4000 /* four seconds */ : dur; 
 	var alert = $('#progress').closest('.alert');
 	alert.removeClass('alert-warning').removeClass('alert-info').removeClass('alert-danger').removeClass('alert-success');
 	alert.addClass('alert-'+type);
@@ -440,7 +440,6 @@ function isDashboard() {
 function addValueVote(td, tr, theRow, newValue, newButton) {
      	tr.inputTd = td; // cause the proposed item to show up in the right box
 		handleWiredClick(tr,theRow,"",{value: newValue},newButton);
-		//setTimeout(function(){$(td).prev().click();},2000);
 }
 
 //transform input + submit button to the add button for the "add translation"

@@ -46,6 +46,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
@@ -843,6 +844,11 @@ public class ConsoleCheckCLDR {
         } else {
             System.out.println();
             System.out.println("<< SUCCESS - No errors found. >>");
+        }
+        if (LogicalGrouping.GET_TYPE_COUNTS) {
+            for (String s : LogicalGrouping.typeCount.keySet()) {
+                System.out.println(s + "=" + LogicalGrouping.typeCount.get(s));
+            }
         }
         checkCldr.handleFinish();
     }

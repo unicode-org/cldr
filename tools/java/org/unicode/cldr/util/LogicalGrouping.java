@@ -129,7 +129,8 @@ public class LogicalGrouping {
             if (cacheLocaleAndPathToLogicalGroup.containsKey(key)) {
                 return new TreeSet<String>(cacheLocaleAndPathToLogicalGroup.get(key));
             }
-            Set<String> set = reallyGetPathsForLocalePath(pathType, locale, cldrFile, path, parts);
+            Set<String> set = new TreeSet<String>();
+            pathType.addPaths(set, cldrFile, path, parts);
             cacheLocaleAndPathToLogicalGroup.put(key, set);
             return set;
         } else {
@@ -139,137 +140,11 @@ public class LogicalGrouping {
             if (cachePathToLogicalGroup.containsKey(path)) {
                 return new TreeSet<String>(cachePathToLogicalGroup.get(path));
             }
-            Set<String> set = reallyGetPathsForLocalePath(pathType, "" /* locale */, cldrFile, path, parts);
+            Set<String> set = new TreeSet<String>();
+            pathType.addPaths(set, cldrFile, path, parts);
             cachePathToLogicalGroup.putAll(path, set);
             return set;
         }
-    }
-
-    /**
-     * Get the set of paths in the logical group for the given path and locale.
-     *
-     * @param locale cldrFile.getLocaleID()
-     * @param cldrFile the CLDRFile
-     * @param path
-     * @return the set of paths in the logical group
-     */
-    private static Set<String> reallyGetPathsForLocalePath(PathType pathType, String locale, CLDRFile cldrFile, String path, XPathParts parts) {
-        Set<String> set = new TreeSet<String>();
-        set.add(path);
-        if (pathType == PathType.METAZONE) {
-            String metazoneName = parts.getAttributeValue(3, "type");
-            if (metazonesDSTSet.contains(metazoneName)) {
-                for (String str : ImmutableSet.of("generic", "standard", "daylight")) {
-                    set.add(path.substring(0, path.lastIndexOf('/') + 1) + str);
-                }
-            }
-        } else if (pathType == PathType.DAYS) {
-            String dayName = parts.size() > 7 ? parts.getAttributeValue(7, "type") : null;
-            // This is just a quick check to make sure the path is good.
-            if (dayName != null && days.contains(dayName)) {
-                for (String str : days) {
-                    parts.setAttribute("day", "type", str);
-                    set.add(parts.toString());
-                }
-            }
-        } else if (pathType == PathType.DAY_PERIODS) {
-            if (path.endsWith("alias")) {
-                set.add(path);
-            } else {
-                String dayPeriodType = parts.findAttributeValue("dayPeriod", "type");
-
-                if (ampm.contains(dayPeriodType)) {
-                    for (String s : ampm) {
-                        parts.setAttribute("dayPeriod", "type", s);
-                        set.add(parts.toString());
-                    }
-                } else {
-                    SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(
-                        cldrFile.getSupplementalDirectory());
-                    DayPeriodInfo.Type dayPeriodContext = DayPeriodInfo.Type.fromString(parts.findAttributeValue("dayPeriodContext", "type"));
-                    DayPeriodInfo dpi = supplementalData.getDayPeriods(dayPeriodContext, locale);
-                    List<DayPeriod> dayPeriods = dpi.getPeriods();
-                    DayPeriod thisDayPeriod = DayPeriod.fromString(dayPeriodType);
-                    if (dayPeriods.contains(thisDayPeriod)) {
-                        for (DayPeriod d : dayPeriods) {
-                            parts.setAttribute("dayPeriod", "type", d.name());
-                            set.add(parts.toString());
-                        }
-                    }
-                }
-            }
-        } else if (pathType == PathType.QUARTERS) {
-            String quarterName = parts.size() > 7 ? parts.getAttributeValue(7, "type") : null;
-            Integer quarter = quarterName == null ? 0 : Integer.valueOf(quarterName);
-            if (quarter > 0 && quarter <= 4) { // This is just a quick check to make sure the path is good.
-                for (Integer i = 1; i <= 4; i++) {
-                    parts.setAttribute("quarter", "type", i.toString());
-                    set.add(parts.toString());
-                }
-            }
-        } else if (pathType == PathType.MONTHS) {
-            String calType = parts.size() > 3 ? parts.getAttributeValue(3, "type") : null;
-            String monthName = parts.size() > 7 ? parts.getAttributeValue(7, "type") : null;
-            Integer month = monthName == null ? 0 : Integer.valueOf(monthName);
-            int calendarMonthMax = calendarsWith13Months.contains(calType) ? 13 : 12;
-            if (month > 0 && month <= calendarMonthMax) { // This is just a quick check to make sure the path is good.
-                for (Integer i = 1; i <= calendarMonthMax; i++) {
-                    parts.setAttribute("month", "type", i.toString());
-                    if ("hebrew".equals(calType)) {
-                        parts.removeAttribute("month", "yeartype");
-                    }
-                    set.add(parts.toString());
-                }
-                if ("hebrew".equals(calType)) { // Add extra hebrew calendar leap month
-                    parts.setAttribute("month", "type", Integer.toString(7));
-                    parts.setAttribute("month", "yeartype", "leap");
-                    set.add(parts.toString());
-                }
-            }
-        } else if (pathType == PathType.RELATIVE) {
-            String fieldType = parts.findAttributeValue("field", "type");
-            String relativeType = parts.findAttributeValue("relative", "type");
-            Integer relativeValue = relativeType == null ? 999 : Integer.valueOf(relativeType);
-            if (relativeValue >= -3 && relativeValue <= 3) { // This is just a quick check to make sure the path is good.
-                if (!(nowUnits.contains(fieldType) && relativeValue == 0)) { // Workaround for "now", "this hour", "this minute"
-                    int limit = 1;
-                    if (fieldType != null && fieldType.startsWith("day")) {
-                        limit = 3;
-                    }
-                    for (Integer i = -1 * limit; i <= limit; i++) {
-                        parts.setAttribute("relative", "type", i.toString());
-                        set.add(parts.toString());
-                    }
-                }
-            }
-        } else if (pathType == PathType.DECIMAL_FORMAT_LENGTH) {
-            PluralInfo pluralInfo = getPluralInfo(cldrFile);
-            Set<Count> pluralTypes = pluralInfo.getCounts();
-            String decimalFormatLengthType = parts.size() > 3 ? parts.getAttributeValue(3, "type") : null;
-            String decimalFormatPatternType = parts.size() > 5 ? parts.getAttributeValue(5, "type") : null;
-            if (decimalFormatLengthType != null && decimalFormatPatternType != null &&
-                compactDecimalFormatLengths.contains(decimalFormatLengthType)) {
-                int numZeroes = decimalFormatPatternType.length() - 1;
-                int baseZeroes = (numZeroes / 3) * 3;
-                for (int i = 0; i < 3; i++) {
-                    String patType = "1" + String.format(String.format("%%0%dd", baseZeroes + i), 0); // This gives us "baseZeroes+i" zeroes at the end.
-                    parts.setAttribute(5, "type", patType);
-                    for (Count count : pluralTypes) {
-                        parts.setAttribute(5, "count", count.toString());
-                        set.add(parts.toString());
-                    }
-                }
-            }
-        } else if (pathType == PathType.COUNT) {
-            PluralInfo pluralInfo = getPluralInfo(cldrFile);
-            Set<Count> pluralTypes = pluralInfo.getCounts();
-            String lastElement = parts.getElement(-1);
-            for (Count count : pluralTypes) {
-                parts.setAttribute(lastElement, "count", count.toString());
-                set.add(parts.toString());
-            }
-        } 
-        return set;
     }
 
     /**
@@ -327,21 +202,170 @@ public class LogicalGrouping {
         }
         return false;
     }
-
-
+    
     /**
      * Path types for logical groupings
      */
     private enum PathType {
-        SINGLETON, // no logical groups for singleton paths
-        COUNT, // "[@count=", locale-dependent
-        DAY_PERIODS, // "/dayPeriods", locale-dependent
-        DECIMAL_FORMAT_LENGTH,
-        MONTHS,
-        DAYS,
-        METAZONE,
-        QUARTERS,
-        RELATIVE;       
+        SINGLETON { // no logical groups for singleton paths
+            @Override
+            @SuppressWarnings("unused")
+            void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
+                // Do nothing. This function won't be called.
+            }
+        },
+        METAZONE {
+            @Override
+            @SuppressWarnings("unused")
+            void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
+                String metazoneName = parts.getAttributeValue(3, "type");
+                if (metazonesDSTSet.contains(metazoneName)) {
+                    for (String str : ImmutableSet.of("generic", "standard", "daylight")) {
+                        set.add(path.substring(0, path.lastIndexOf('/') + 1) + str);
+                    }
+                }
+            }
+        },
+        DAYS {
+            @Override
+            @SuppressWarnings("unused")
+            void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
+               String dayName = parts.size() > 7 ? parts.getAttributeValue(7, "type") : null;
+                // This is just a quick check to make sure the path is good.
+                if (dayName != null && days.contains(dayName)) {
+                    for (String str : days) {
+                        parts.setAttribute("day", "type", str);
+                        set.add(parts.toString());
+                    }
+                }
+            }
+        },
+        DAY_PERIODS {
+            @Override
+            void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
+                if (path.endsWith("alias")) {
+                    set.add(path);
+                } else {
+                    String dayPeriodType = parts.findAttributeValue("dayPeriod", "type");
+                    if (ampm.contains(dayPeriodType)) {
+                        for (String s : ampm) {
+                            parts.setAttribute("dayPeriod", "type", s);
+                            set.add(parts.toString());
+                        }
+                    } else {
+                        SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(cldrFile.getSupplementalDirectory());
+                        DayPeriodInfo.Type dayPeriodContext = DayPeriodInfo.Type.fromString(parts.findAttributeValue("dayPeriodContext", "type"));
+                        DayPeriodInfo dpi = supplementalData.getDayPeriods(dayPeriodContext, cldrFile.getLocaleID());
+                        List<DayPeriod> dayPeriods = dpi.getPeriods();
+                        DayPeriod thisDayPeriod = DayPeriod.fromString(dayPeriodType);
+                        if (dayPeriods.contains(thisDayPeriod)) {
+                            for (DayPeriod d : dayPeriods) {
+                                parts.setAttribute("dayPeriod", "type", d.name());
+                                set.add(parts.toString());
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        QUARTERS {
+            @Override
+            @SuppressWarnings("unused")
+            void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
+                String quarterName = parts.size() > 7 ? parts.getAttributeValue(7, "type") : null;
+                Integer quarter = quarterName == null ? 0 : Integer.valueOf(quarterName);
+                if (quarter > 0 && quarter <= 4) { // This is just a quick check to make sure the path is good.
+                    for (Integer i = 1; i <= 4; i++) {
+                        parts.setAttribute("quarter", "type", i.toString());
+                        set.add(parts.toString());
+                    }
+                }
+            }
+        },
+        MONTHS {
+            @Override
+            @SuppressWarnings("unused")
+            void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
+                String calType = parts.size() > 3 ? parts.getAttributeValue(3, "type") : null;
+                String monthName = parts.size() > 7 ? parts.getAttributeValue(7, "type") : null;
+                Integer month = monthName == null ? 0 : Integer.valueOf(monthName);
+                int calendarMonthMax = calendarsWith13Months.contains(calType) ? 13 : 12;
+                if (month > 0 && month <= calendarMonthMax) { // This is just a quick check to make sure the path is good.
+                    for (Integer i = 1; i <= calendarMonthMax; i++) {
+                        parts.setAttribute("month", "type", i.toString());
+                        if ("hebrew".equals(calType)) {
+                            parts.removeAttribute("month", "yeartype");
+                        }
+                        set.add(parts.toString());
+                    }
+                    if ("hebrew".equals(calType)) { // Add extra hebrew calendar leap month
+                        parts.setAttribute("month", "type", Integer.toString(7));
+                        parts.setAttribute("month", "yeartype", "leap");
+                        set.add(parts.toString());
+                    }
+                }
+            }
+        },
+        RELATIVE {
+            @Override
+            @SuppressWarnings("unused")
+            void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
+                String fieldType = parts.findAttributeValue("field", "type");
+                String relativeType = parts.findAttributeValue("relative", "type");
+                Integer relativeValue = relativeType == null ? 999 : Integer.valueOf(relativeType);
+                if (relativeValue >= -3 && relativeValue <= 3) { // This is just a quick check to make sure the path is good.
+                    if (!(nowUnits.contains(fieldType) && relativeValue == 0)) { // Workaround for "now", "this hour", "this minute"
+                        int limit = 1;
+                        if (fieldType != null && fieldType.startsWith("day")) {
+                            limit = 3;
+                        }
+                        for (Integer i = -1 * limit; i <= limit; i++) {
+                            parts.setAttribute("relative", "type", i.toString());
+                            set.add(parts.toString());
+                        }
+                    }
+                }
+            }
+        },
+        DECIMAL_FORMAT_LENGTH {
+            @Override
+            @SuppressWarnings("unused")
+            void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
+                PluralInfo pluralInfo = getPluralInfo(cldrFile);
+                Set<Count> pluralTypes = pluralInfo.getCounts();
+                String decimalFormatLengthType = parts.size() > 3 ? parts.getAttributeValue(3, "type") : null;
+                String decimalFormatPatternType = parts.size() > 5 ? parts.getAttributeValue(5, "type") : null;
+                if (decimalFormatLengthType != null && decimalFormatPatternType != null &&
+                        compactDecimalFormatLengths.contains(decimalFormatLengthType)) {
+                    int numZeroes = decimalFormatPatternType.length() - 1;
+                    int baseZeroes = (numZeroes / 3) * 3;
+                    for (int i = 0; i < 3; i++) {
+                        // This gives us "baseZeroes+i" zeroes at the end.
+                        String patType = "1" + String.format(String.format("%%0%dd", baseZeroes + i), 0);
+                        parts.setAttribute(5, "type", patType);
+                        for (Count count : pluralTypes) {
+                            parts.setAttribute(5, "count", count.toString());
+                            set.add(parts.toString());
+                        }
+                    }
+                }
+            }
+        },
+        COUNT {
+             @Override
+             @SuppressWarnings("unused")
+             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
+                 PluralInfo pluralInfo = getPluralInfo(cldrFile);
+                 Set<Count> pluralTypes = pluralInfo.getCounts();
+                 String lastElement = parts.getElement(-1);
+                 for (Count count : pluralTypes) {
+                     parts.setAttribute(lastElement, "count", count.toString());
+                     set.add(parts.toString());
+                 }
+             }
+        };
+
+        abstract void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts);
 
         /**
          * Is the given PathType locale-dependent (for caching)?

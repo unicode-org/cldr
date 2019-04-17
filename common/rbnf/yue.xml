@@ -170,23 +170,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="0">零;</rbnfrule>
                 <rbnfrule value="1">一;</rbnfrule>
                 <rbnfrule value="2">兩;</rbnfrule>
-                <rbnfrule value="3">三;</rbnfrule>
-                <rbnfrule value="4">四;</rbnfrule>
-                <rbnfrule value="5">五;</rbnfrule>
-                <rbnfrule value="6">六;</rbnfrule>
-                <rbnfrule value="7">七;</rbnfrule>
-                <rbnfrule value="8">八;</rbnfrule>
-                <rbnfrule value="9">九;</rbnfrule>
-                <rbnfrule value="10">←%%cardinal-twenties←十[→%spellout-numbering→];</rbnfrule>
-                <rbnfrule value="21">廿[→%spellout-numbering→];</rbnfrule>
-                <rbnfrule value="30">←%spellout-numbering←十[→→];</rbnfrule>
-                <rbnfrule value="100">←%spellout-numbering←百[→%%number2→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-numbering←千[→%%number3→];</rbnfrule>
-                <rbnfrule value="10000">←%spellout-numbering←萬[→%%number4→];</rbnfrule>
-                <rbnfrule value="100000000">←%spellout-numbering←億[→%%number5→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-numbering←兆[→%%number8→];</rbnfrule>
-                <rbnfrule value="10000000000000000">←%spellout-numbering←京[→%%number13→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+                <rbnfrule value="3">=%spellout-cardinal=;</rbnfrule>
             </ruleset>
             <ruleset type="cardinal-twenties" access="private">
                 <rbnfrule value="1">;</rbnfrule>

@@ -1,7 +1,7 @@
 <project name="CLDR Distribution" default="all" basedir=".">
   <target name="init">
     <tstamp/>
-    <property name="version" value="35.0"/>
+    <property name="version" value="35.1"/>
     <property name="dist.dir" value="dist"/>
     <property name="dist.conf.dir" value="dist.conf"/>
     <property name="excludes.file" value="${dist.conf.dir}/distExcludes.txt"/>

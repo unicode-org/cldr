@@ -641,10 +641,6 @@ const cldrSurveyTable = (function() {
 			var vbadge = createChunk(vote, "span", "badge");
 
 			/*
-			 * Note: due to the existence of the function fixWinningValue in DataSection.java, here on the the client
-			 * we should use theRow.winningValue, not vr.winningValue. Eventually VoteResolver.getWinningValue may be
-			 * fixed in such a way that fixWinningValue isn't necessary and there won't be a distinction between
-			 * theRow.winningValue and vr.winningValue. Cf. theRow.winningVhash.
 			 * Note: we can't just check for item.pClass === "winner" here, since, for example, the winning value may
 			 * have value = INHERITANCE_MARKER and item.pClass = "alias".
 			 */
@@ -654,13 +650,7 @@ const cldrSurveyTable = (function() {
 				appendIcon(isection, "voteInfo_winningItem d-dr-" + statusClass, stui.sub('draftStatus', [statusTitle]));
 				isectionIsUsed = true;
 			}
-
-			/*
-			 * For adding star for baseline value, we could check item.isBaselineValue or (value == vr.baselineValue);
-			 * ideally the two should be consistent. The star icon should be applied to baseline value = inherited value when
-			 * appropriate. For flexibility, for now, show star if either of the conditions is true.
-			 */
-			if (value == vr.baselineValue || item.isBaselineValue) {
+			if (item.isBaselineValue) {
 				appendIcon(isection, "i-star", stui.str("voteInfo_baseline_desc"));
 				isectionIsUsed = true;
 			}

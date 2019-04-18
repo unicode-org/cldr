@@ -166,13 +166,7 @@ public class SurveyAjax extends HttpServlet {
         public static JSONObject wrap(final VoteResolver<String> r) throws JSONException {
             JSONObject ret = new JSONObject()
                 .put("raw", r.toString()) /* "raw" is only used for debugging (stdebug_enabled) */
-                .put("isDisputed", r.isDisputed()) /* TODO: isDisputed is not actually used by client? */
-                .put("lastReleaseStatus", r.getLastReleaseStatus()) /* TODO: lastReleaseStatus is not actually used by client? */
-                .put("winningValue", r.getWinningValue())
-                .put("baselineValue", r.getTrunkValue())
-                .put("lastReleaseValue", r.getLastReleaseValue()) /* TODO: lastReleaseValue is not actually used by client? */
-                .put("requiredVotes", r.getRequiredVotes())
-                .put("winningStatus", r.getWinningStatus()); /* TODO: winningStatus is not actually used by client? */
+                .put("requiredVotes", r.getRequiredVotes());
 
             EnumSet<Organization> conflictedOrgs = r.getConflictedOrganizations();
 

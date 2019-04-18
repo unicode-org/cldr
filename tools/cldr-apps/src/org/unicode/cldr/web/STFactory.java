@@ -630,6 +630,18 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             return stamp;
         }
 
+        /**
+         * Get the Status for the given CLDRFile, path, and value.
+         * 
+         * @param anOldFile
+         * @param path
+         * @param lastValue
+         * @return the Status
+         *
+         * NOTE: in spite of the names "anOldFile", "lastValue", "lastStatus", this function
+         * can be used for the current CLDRFile (trunk), not only for last-release. Probably
+         * these items should be renamed.
+         */
         private Status getStatus(CLDRFile anOldFile, String path, final String lastValue) {
             Status lastStatus;
             {
@@ -643,8 +655,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
                 lastStatus = draft == null ? Status.approved : VoteResolver.Status.fromString(draft);
 
-                // reset to missing if it is inherited from root or code-fallback
-                final String srcid = anOldFile.getSourceLocaleID(path, null);
+                /*
+                 * Reset to missing if the value is inherited from root or code-fallback, unless the XML actually
+                 * contains INHERITANCE_MARKER. Pass false for skipInheritanceMarker so that status will not be
+                 * missing for explicit INHERITANCE_MARKER. Reference: https://unicode.org/cldr/trac/ticket/11857
+                 */
+                final String srcid = anOldFile.getSourceLocaleIdExtended(path, null, false /* skipInheritanceMarker */);
                 if (srcid.equals(XMLSource.CODE_FALLBACK_ID)) {
                     lastStatus = Status.missing;
                 } else if (srcid.equals("root")) {

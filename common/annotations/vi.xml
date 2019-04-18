@@ -23,8 +23,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">màu da tối trung bình</annotation>
 		<annotation cp="🏿">loại 6 | màu da | màu da tối</annotation>
 		<annotation cp="🏿" type="tts">màu da tối</annotation>
-		<annotation cp="🐾">bàn chân | chân | dấu | dấu chân móng vuốt</annotation>
-		<annotation cp="🐾" type="tts">dấu chân móng vuốt</annotation>
 		<annotation cp="😀">mặt | mặt cười toét | toe toét</annotation>
 		<annotation cp="😀" type="tts">mặt cười toét</annotation>
 		<annotation cp="😃">cười | mặt | mặt cười miệng há với mắt to | mặt cười tươi với hai mắt mở to | miệng | mở</annotation>
@@ -195,6 +193,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😩" type="tts">mặt kiệt sức</annotation>
 		<annotation cp="😫">mặt | mặt mệt mỏi | mệt mỏi</annotation>
 		<annotation cp="😫" type="tts">mặt mệt mỏi</annotation>
+		<annotation cp="🥱">chán | mặt đang ngáp | mệt mỏi | ngáp</annotation>
+		<annotation cp="🥱" type="tts">mặt đang ngáp</annotation>
 		<annotation cp="😤">chiến thắng | hân hoan | mặt | mặt có mũi đang phì hơi</annotation>
 		<annotation cp="😤" type="tts">mặt có mũi đang phì hơi</annotation>
 		<annotation cp="😡">cơn thịnh nộ | điên | đỏ | hờn dỗi | mặt | mặt hờn dỗi | tức giận</annotation>
@@ -287,8 +287,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💙" type="tts">trái tim màu lam</annotation>
 		<annotation cp="💜">tím | trái tim tím</annotation>
 		<annotation cp="💜" type="tts">trái tim tím</annotation>
+		<annotation cp="🤎">màu nâu | trái tim | trái tim màu nâu</annotation>
+		<annotation cp="🤎" type="tts">trái tim màu nâu</annotation>
 		<annotation cp="🖤">đen | điều ác | tim đen | xấu</annotation>
 		<annotation cp="🖤" type="tts">tim đen</annotation>
+		<annotation cp="🤍">màu trắng | trái tim | trái tim màu trắng</annotation>
+		<annotation cp="🤍" type="tts">trái tim màu trắng</annotation>
 		<annotation cp="💯">100 | điểm | một trăm | toàn bộ</annotation>
 		<annotation cp="💯" type="tts">100 điểm</annotation>
 		<annotation cp="💢">biểu tượng giận giữ | điên | hài hước | tức giận</annotation>
@@ -329,6 +333,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖖" type="tts">tay thần lửa</annotation>
 		<annotation cp="👌">bàn tay làm dấu OK | ok | tay</annotation>
 		<annotation cp="👌" type="tts">bàn tay làm dấu OK</annotation>
+		<annotation cp="🤏">số lượng nhỏ | tay chụm</annotation>
+		<annotation cp="🤏" type="tts">tay chụm</annotation>
 		<annotation cp="✌">chiến thắng | tay | tay chiến thắng | v</annotation>
 		<annotation cp="✌" type="tts">tay chiến thắng</annotation>
 		<annotation cp="🤞">bàn tay | chéo | hai ngón tay bắt chéo | may mắn | ngón tay</annotation>
@@ -383,12 +389,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤳" type="tts">tự sướng</annotation>
 		<annotation cp="💪">bắp tay | bắp tay gập lại | cơ bắp | gập lại | hài hước</annotation>
 		<annotation cp="💪" type="tts">bắp tay gập lại</annotation>
+		<annotation cp="🦾">cánh tay giả | giả | hỗ trợ | hỗ trợ tiếp cận</annotation>
+		<annotation cp="🦾" type="tts">cánh tay giả</annotation>
+		<annotation cp="🦿">chân giả | giả | hỗ trợ | hỗ trợ tiếp cận</annotation>
+		<annotation cp="🦿" type="tts">chân giả</annotation>
 		<annotation cp="🦵">chân | Chân | chân tay | đá</annotation>
 		<annotation cp="🦵" type="tts">Chân</annotation>
 		<annotation cp="🦶">bàn chân | đá | dậm mạnh</annotation>
 		<annotation cp="🦶" type="tts">bàn chân</annotation>
 		<annotation cp="👂">cơ thể | tai</annotation>
 		<annotation cp="👂" type="tts">tai</annotation>
+		<annotation cp="🦻">hỗ trợ | hỗ trợ tiếp cận | nặng tai | tai đeo thiết bị trợ thính</annotation>
+		<annotation cp="🦻" type="tts">tai đeo thiết bị trợ thính</annotation>
 		<annotation cp="👃">cơ thể | mũi</annotation>
 		<annotation cp="👃" type="tts">mũi</annotation>
 		<annotation cp="🧠">não | thông minh</annotation>
@@ -417,28 +429,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">người</annotation>
 		<annotation cp="👱">người tóc vàng hoe | người: tóc vàng hoe | tóc vàng hoe</annotation>
 		<annotation cp="👱" type="tts">người tóc vàng hoe</annotation>
-		<annotation cp="🧑‍🤝‍🧑" draft="contributed">hai người nắm tay</annotation>
-		<annotation cp="🧑‍🤝‍🧑" type="tts" draft="contributed">hai người nắm tay</annotation>
 		<annotation cp="👨">đàn ông | người lớn</annotation>
 		<annotation cp="👨" type="tts">đàn ông</annotation>
-		<annotation cp="👨‍🦯">hỗ trợ tiếp cận | khiếm thị | mù | người đàn ông | người đàn ông với cây gậy</annotation>
-		<annotation cp="👨‍🦯" type="tts">người đàn ông với cây gậy</annotation>
-		<annotation cp="👨‍🦼">hỗ trợ tiếp cận | người đàn ông | người đàn ông trên xe lăn điện | xe lăn</annotation>
-		<annotation cp="👨‍🦼" type="tts">người đàn ông trên xe lăn điện</annotation>
-		<annotation cp="👨‍🦽">hỗ trợ tiếp cận | người đàn ông | người đàn ông trên xe lăn tay | xe lăn</annotation>
-		<annotation cp="👨‍🦽" type="tts">người đàn ông trên xe lăn tay</annotation>
-		<annotation cp="👱‍♂">đàn ông | đàn ông: tóc vàng hoe | người đàn ông tóc vàng hoe | tóc vàng hoe</annotation>
-		<annotation cp="👱‍♂" type="tts">người đàn ông tóc vàng hoe</annotation>
 		<annotation cp="🧔">người | người đàn ông có râu | râu</annotation>
 		<annotation cp="🧔" type="tts">người đàn ông có râu</annotation>
+		<annotation cp="👱‍♂">đàn ông | đàn ông: tóc vàng hoe | người đàn ông tóc vàng hoe | tóc vàng hoe</annotation>
+		<annotation cp="👱‍♂" type="tts">người đàn ông tóc vàng hoe</annotation>
 		<annotation cp="👩">người lớn | phụ nữ</annotation>
 		<annotation cp="👩" type="tts">phụ nữ</annotation>
-		<annotation cp="👩‍🦯">hỗ trợ tiếp cận | khiếm thị | mù | người phụ nữ | người phụ nữ với cây gậy</annotation>
-		<annotation cp="👩‍🦯" type="tts">người phụ nữ với cây gậy</annotation>
-		<annotation cp="👩‍🦼">hỗ trợ tiếp cận | người phụ nữ | người phụ nữ trên xe lăn điện | xe lăn</annotation>
-		<annotation cp="👩‍🦼" type="tts">người phụ nữ trên xe lăn điện</annotation>
-		<annotation cp="👩‍🦽">hỗ trợ tiếp cận | người phụ nữ | người phụ nữ trên xe lăn tay | xe lăn</annotation>
-		<annotation cp="👩‍🦽" type="tts">người phụ nữ trên xe lăn tay</annotation>
 		<annotation cp="👱‍♀">người phụ nữ tóc vàng hoe | nữ | phụ nữ | tóc vàng hoe</annotation>
 		<annotation cp="👱‍♀" type="tts">người phụ nữ tóc vàng hoe</annotation>
 		<annotation cp="🧓">già | giới tính không xác định | giới tính trung lập | người lớn tuổi</annotation>
@@ -483,6 +481,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙋‍♂" type="tts">người đàn ông giơ cao tay</annotation>
 		<annotation cp="🙋‍♀">cử chỉ | giơ tay | người phụ nữ giơ cao tay | nữ</annotation>
 		<annotation cp="🙋‍♀" type="tts">người phụ nữ giơ cao tay</annotation>
+		<annotation cp="🧏">điếc | hỗ trợ tiếp cận | khiếm thính | nghe | người khiếm thính | tai</annotation>
+		<annotation cp="🧏" type="tts">người khiếm thính</annotation>
+		<annotation cp="🧏‍♂">điếc | khiếm thính | người đàn ông | người đàn ông khiếm thính</annotation>
+		<annotation cp="🧏‍♂" type="tts">người đàn ông khiếm thính</annotation>
+		<annotation cp="🧏‍♀">điếc | khiếm thính | người phụ nữ | người phụ nữ khiếm thính</annotation>
+		<annotation cp="🧏‍♀" type="tts">người phụ nữ khiếm thính</annotation>
 		<annotation cp="🙇">cử chỉ | cúi người | lấy làm tiếc | lời xin lỗi | người đang cúi đầu</annotation>
 		<annotation cp="🙇" type="tts">người đang cúi đầu</annotation>
 		<annotation cp="🙇‍♂">cử chỉ | cúi đầu | người đàn ông | người đàn ông cúi đầu | ủng hộ | xin lỗi</annotation>
@@ -689,6 +693,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚶‍♂" type="tts">người đàn ông đi bộ</annotation>
 		<annotation cp="🚶‍♀">đi bộ | đi bộ đường dài | người phụ nữ đi bộ | nữ</annotation>
 		<annotation cp="🚶‍♀" type="tts">người phụ nữ đi bộ</annotation>
+		<annotation cp="🧍">đang đứng | đứng | người đứng</annotation>
+		<annotation cp="🧍" type="tts">người đứng</annotation>
+		<annotation cp="🧍‍♂">đứng | người đàn ông | người đàn ông đứng</annotation>
+		<annotation cp="🧍‍♂" type="tts">người đàn ông đứng</annotation>
+		<annotation cp="🧍‍♀">đứng | người phụ nữ | người phụ nữ đứng</annotation>
+		<annotation cp="🧍‍♀" type="tts">người phụ nữ đứng</annotation>
+		<annotation cp="🧎">đang quỳ | người quỳ | quỳ | quỳ gối</annotation>
+		<annotation cp="🧎" type="tts">người quỳ</annotation>
+		<annotation cp="🧎‍♂">người đàn ông | người đàn ông quỳ | quỳ</annotation>
+		<annotation cp="🧎‍♂" type="tts">người đàn ông quỳ</annotation>
+		<annotation cp="🧎‍♀">người phụ nữ | người phụ nữ quỳ | quỳ</annotation>
+		<annotation cp="🧎‍♀" type="tts">người phụ nữ quỳ</annotation>
+		<annotation cp="👨‍🦯">hỗ trợ tiếp cận | khiếm thị | mù | người đàn ông | người đàn ông với cây gậy</annotation>
+		<annotation cp="👨‍🦯" type="tts">người đàn ông với cây gậy</annotation>
+		<annotation cp="👩‍🦯">hỗ trợ tiếp cận | khiếm thị | mù | người phụ nữ | người phụ nữ với cây gậy</annotation>
+		<annotation cp="👩‍🦯" type="tts">người phụ nữ với cây gậy</annotation>
+		<annotation cp="👨‍🦼">hỗ trợ tiếp cận | người đàn ông | người đàn ông trên xe lăn điện | xe lăn</annotation>
+		<annotation cp="👨‍🦼" type="tts">người đàn ông trên xe lăn điện</annotation>
+		<annotation cp="👩‍🦼">hỗ trợ tiếp cận | người phụ nữ | người phụ nữ trên xe lăn điện | xe lăn</annotation>
+		<annotation cp="👩‍🦼" type="tts">người phụ nữ trên xe lăn điện</annotation>
+		<annotation cp="👨‍🦽">hỗ trợ tiếp cận | người đàn ông | người đàn ông trên xe lăn tay | xe lăn</annotation>
+		<annotation cp="👨‍🦽" type="tts">người đàn ông trên xe lăn tay</annotation>
+		<annotation cp="👩‍🦽">hỗ trợ tiếp cận | người phụ nữ | người phụ nữ trên xe lăn tay | xe lăn</annotation>
+		<annotation cp="👩‍🦽" type="tts">người phụ nữ trên xe lăn tay</annotation>
 		<annotation cp="🏃">chạy bộ | chạy đua maratông | người chạy</annotation>
 		<annotation cp="🏃" type="tts">người chạy</annotation>
 		<annotation cp="🏃‍♂">chạy | chạy đua | chạy đua maratông | nam | người đàn ông đang chạy</annotation>
@@ -815,12 +843,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛀" type="tts">người đang tắm bồn</annotation>
 		<annotation cp="🛌">khách sạn | ngủ | người trên giường</annotation>
 		<annotation cp="🛌" type="tts">người trên giường</annotation>
+		<annotation cp="🧑‍🤝‍🧑" draft="contributed">hai người nắm tay</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts" draft="contributed">hai người nắm tay</annotation>
+		<annotation cp="👭">cặp đôi | hai người phụ nữ nắm tay | phụ nữ | tay</annotation>
+		<annotation cp="👭" type="tts">hai người phụ nữ nắm tay</annotation>
 		<annotation cp="👫">cầm | cặp đôi | đàn ông | người đàn ông và phụ nữ nắm tay | phụ nữ | tay</annotation>
 		<annotation cp="👫" type="tts">người đàn ông và phụ nữ nắm tay</annotation>
 		<annotation cp="👬">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | người đàn ông | song tử</annotation>
 		<annotation cp="👬" type="tts">hai người đàn ông nắm tay</annotation>
-		<annotation cp="👭">cặp đôi | hai người phụ nữ nắm tay | phụ nữ | tay</annotation>
-		<annotation cp="👭" type="tts">hai người phụ nữ nắm tay</annotation>
 		<annotation cp="💏">cặp đôi | nụ hôn</annotation>
 		<annotation cp="💏" type="tts">nụ hôn</annotation>
 		<annotation cp="💑">cặp đôi | cặp đôi với trái tim | yêu</annotation>
@@ -843,20 +873,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦳" type="tts">tóc trắng</annotation>
 		<annotation cp="🦲">cạo nhẵn | hóa trị | hói | không có tóc | trụi tóc</annotation>
 		<annotation cp="🦲" type="tts">hói</annotation>
-		<annotation cp="♀">ký hiệu nữ | phụ nữ</annotation>
-		<annotation cp="♀" type="tts">ký hiệu nữ</annotation>
-		<annotation cp="♂">đàn ông | ký hiệu nam</annotation>
-		<annotation cp="♂" type="tts">ký hiệu nam</annotation>
 		<annotation cp="🐵">khỉ | mặt</annotation>
 		<annotation cp="🐵" type="tts">mặt khỉ</annotation>
 		<annotation cp="🐒">con khỉ | khỉ</annotation>
 		<annotation cp="🐒" type="tts">khỉ</annotation>
 		<annotation cp="🦍">khỉ đột</annotation>
 		<annotation cp="🦍" type="tts">khỉ đột</annotation>
+		<annotation cp="🦧">đười ươi | vượn người</annotation>
+		<annotation cp="🦧" type="tts">đười ươi</annotation>
 		<annotation cp="🐶">cún | mặt | thú cưng</annotation>
 		<annotation cp="🐶" type="tts">mặt cún</annotation>
 		<annotation cp="🐕">chó | thú cưng</annotation>
 		<annotation cp="🐕" type="tts">chó</annotation>
+		<annotation cp="🦮">chó dẫn đường | dẫn đường | hỗ trợ | hỗ trợ tiếp cận | khiếm thị | mù</annotation>
+		<annotation cp="🦮" type="tts">chó dẫn đường</annotation>
 		<annotation cp="🐕‍🦺">chó | chó hỗ trợ | dịch vụ | hỗ trợ | hỗ trợ tiếp cận | trợ giúp</annotation>
 		<annotation cp="🐕‍🦺" type="tts">chó hỗ trợ</annotation>
 		<annotation cp="🐩">chó xù | cún</annotation>
@@ -949,10 +979,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐨" type="tts">gấu túi</annotation>
 		<annotation cp="🐼">gấu trúc | mặt | mặt gấu trúc</annotation>
 		<annotation cp="🐼" type="tts">mặt gấu trúc</annotation>
+		<annotation cp="🦥">chậm | con lười | đủng đỉnh | lười</annotation>
+		<annotation cp="🦥" type="tts">con lười</annotation>
+		<annotation cp="🦦">bắt cá | nghịch ngợm | rái cá</annotation>
+		<annotation cp="🦦" type="tts">rái cá</annotation>
+		<annotation cp="🦨">chồn hôi Mỹ | mùi hôi</annotation>
+		<annotation cp="🦨" type="tts">chồn hôi Mỹ</annotation>
 		<annotation cp="🦘">Australia | chuột túi | chuột túi con | nhảy | thú có túi</annotation>
 		<annotation cp="🦘" type="tts">chuột túi</annotation>
 		<annotation cp="🦡">con lửng | lửng mật | quấy rầy</annotation>
 		<annotation cp="🦡" type="tts">con lửng</annotation>
+		<annotation cp="🐾">bàn chân | chân | dấu | dấu chân móng vuốt</annotation>
+		<annotation cp="🐾" type="tts">dấu chân móng vuốt</annotation>
 		<annotation cp="🦃">chim | gà tây</annotation>
 		<annotation cp="🦃" type="tts">gà tây</annotation>
 		<annotation cp="🐔">chim | gà</annotation>
@@ -979,6 +1017,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦢" type="tts">thiên nga</annotation>
 		<annotation cp="🦉">chim | cú | khôn ngoan</annotation>
 		<annotation cp="🦉" type="tts">cú</annotation>
+		<annotation cp="🦩">hồng hạc | nhiệt đới | rực rỡ</annotation>
+		<annotation cp="🦩" type="tts">hồng hạc</annotation>
 		<annotation cp="🦚">chim | con công | công mái | phô trương | tự hào</annotation>
 		<annotation cp="🦚" type="tts">con công</annotation>
 		<annotation cp="🦜">chim | con vẹt | cướp biển | nói chuyện | vẹt</annotation>
@@ -1139,6 +1179,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥬" type="tts">xanh lá</annotation>
 		<annotation cp="🥦">cải bắp dại | xúp lơ xanh</annotation>
 		<annotation cp="🥦" type="tts">xúp lơ xanh</annotation>
+		<annotation cp="🧄">gia vị | tỏi</annotation>
+		<annotation cp="🧄" type="tts">tỏi</annotation>
+		<annotation cp="🧅">gia vị | hành</annotation>
+		<annotation cp="🧅" type="tts">hành</annotation>
 		<annotation cp="🍄">nấm | thực vật</annotation>
 		<annotation cp="🍄" type="tts">nấm</annotation>
 		<annotation cp="🥜">đậu phộng | quả hạch | rau củ | thức ăn</annotation>
@@ -1157,6 +1201,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥯" type="tts">bánh mỳ vòng</annotation>
 		<annotation cp="🥞">bánh kếp | thức ăn</annotation>
 		<annotation cp="🥞" type="tts">bánh kếp</annotation>
+		<annotation cp="🧇">bánh quế | cứng cỏi | thiếu quyết đoán</annotation>
+		<annotation cp="🧇" type="tts">bánh quế</annotation>
 		<annotation cp="🧀">miếng pho mát | phô mai</annotation>
 		<annotation cp="🧀" type="tts">miếng pho mát</annotation>
 		<annotation cp="🍖">thịt | thịt bám xương | xương</annotation>
@@ -1183,6 +1229,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌯" type="tts">bánh burrito</annotation>
 		<annotation cp="🥙">bánh mì kẹp thịt | bánh mỳ gyro | bánh quy bột khô | nhồi | thịt nướng | viên bột đậu rán</annotation>
 		<annotation cp="🥙" type="tts">bánh mì kẹp thịt</annotation>
+		<annotation cp="🧆">bánh rán nhân gà | đậu gà | thịt viên</annotation>
+		<annotation cp="🧆" type="tts">bánh rán nhân gà</annotation>
 		<annotation cp="🥚">thức ăn | trứng</annotation>
 		<annotation cp="🥚" type="tts">trứng</annotation>
 		<annotation cp="🍳">cái chảo | chiên | nấu ăn | trứng</annotation>
@@ -1197,6 +1245,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥗" type="tts">salad rau xanh</annotation>
 		<annotation cp="🍿">bỏng ngô</annotation>
 		<annotation cp="🍿" type="tts">bỏng ngô</annotation>
+		<annotation cp="🧈">bơ | bơ sữa</annotation>
+		<annotation cp="🧈" type="tts">bơ</annotation>
 		<annotation cp="🧂">bình lắc | gia vị | muối</annotation>
 		<annotation cp="🧂" type="tts">muối</annotation>
 		<annotation cp="🥫">hộp | thực phẩm đóng hộp</annotation>
@@ -1243,6 +1293,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦐" type="tts">tôm</annotation>
 		<annotation cp="🦑">mực ống | thân mềm | thức ăn</annotation>
 		<annotation cp="🦑" type="tts">mực ống</annotation>
+		<annotation cp="🦪">hàu | lặn | ngọc trai</annotation>
+		<annotation cp="🦪" type="tts">hàu</annotation>
 		<annotation cp="🍦">cái kem | kem | mềm | món tráng miệng | ngọt</annotation>
 		<annotation cp="🍦" type="tts">kem mềm</annotation>
 		<annotation cp="🍧">bào | đá bào | kem | món tráng miệng | ngọt</annotation>
@@ -1299,6 +1351,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥃" type="tts">ly đáy phẳng</annotation>
 		<annotation cp="🥤">cốc và ống hút | nước ép | soda</annotation>
 		<annotation cp="🥤" type="tts">cốc và ống hút</annotation>
+		<annotation cp="🧃">hộp đồ uống | hộp nước trái cây</annotation>
+		<annotation cp="🧃" type="tts">hộp đồ uống</annotation>
+		<annotation cp="🧉">đồ uống | nước uống | trà nhựa ruồi | uống</annotation>
+		<annotation cp="🧉" type="tts">trà nhựa ruồi</annotation>
+		<annotation cp="🧊">băng | đá | lạnh | viên đá</annotation>
+		<annotation cp="🧊" type="tts">viên đá</annotation>
 		<annotation cp="🥢">đũa | đũa Nhật</annotation>
 		<annotation cp="🥢" type="tts">đũa</annotation>
 		<annotation cp="🍽">dao | đĩa | dĩa và dao với đĩa | nấu nướng | nĩa</annotation>
@@ -1395,6 +1453,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛪" type="tts">nhà thờ</annotation>
 		<annotation cp="🕌">hồi giáo | nhà thờ hồi giáo | thuộc hồi giáo | tôn giáo</annotation>
 		<annotation cp="🕌" type="tts">nhà thờ hồi giáo</annotation>
+		<annotation cp="🛕">đền | hin đu | hin-đu | hindu</annotation>
+		<annotation cp="🛕" type="tts">đền hindu</annotation>
 		<annotation cp="🕍">chùa | do thái | giáo đường Do thái | người do thái | tôn giáo</annotation>
 		<annotation cp="🕍" type="tts">giáo đường Do thái</annotation>
 		<annotation cp="⛩">đền thờ | đền thờ Nhật Bản | tôn giáo</annotation>
@@ -1423,8 +1483,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌉" type="tts">cây cầu về đêm</annotation>
 		<annotation cp="♨">hơi nước | nóng | suối | suối nước nóng</annotation>
 		<annotation cp="♨" type="tts">suối nước nóng</annotation>
-		<annotation cp="🌌">dải ngân hà | vũ trụ</annotation>
-		<annotation cp="🌌" type="tts">dải ngân hà</annotation>
 		<annotation cp="🎠">đu quay ngựa | ngựa | ngựa đu quay</annotation>
 		<annotation cp="🎠" type="tts">ngựa đu quay</annotation>
 		<annotation cp="🎡">bánh xe | công viên giải trí | đu quay | vòng đu quay</annotation>
@@ -1497,6 +1555,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏍" type="tts">xe máy</annotation>
 		<annotation cp="🛵">mô tơ | xe tay ga</annotation>
 		<annotation cp="🛵" type="tts">xe tay ga</annotation>
+		<annotation cp="🦽">hỗ trợ tiếp cận | trợ năng | xe lăn tay</annotation>
+		<annotation cp="🦽" type="tts">xe lăn tay</annotation>
+		<annotation cp="🦼">hỗ trợ tiếp cận | trợ năng | xe lăn tự động</annotation>
+		<annotation cp="🦼" type="tts">xe lăn tự động</annotation>
+		<annotation cp="🛺">túc túc | tuk tuk | xe lam</annotation>
+		<annotation cp="🛺" type="tts">xe lam</annotation>
 		<annotation cp="🚲">xe cộ | xe đạp</annotation>
 		<annotation cp="🚲" type="tts">xe đạp</annotation>
 		<annotation cp="🛴">đẩy | xe hẩy</annotation>
@@ -1547,6 +1611,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛫" type="tts">máy bay khởi hành</annotation>
 		<annotation cp="🛬">đến | điểm đến | hạ cánh | máy bay | máy bay đến nơi</annotation>
 		<annotation cp="🛬" type="tts">máy bay đến nơi</annotation>
+		<annotation cp="🪂">dù | dù kéo | lượn | nhảy dù</annotation>
+		<annotation cp="🪂" type="tts">dù</annotation>
 		<annotation cp="💺">cái ghế</annotation>
 		<annotation cp="💺" type="tts">cái ghế</annotation>
 		<annotation cp="🚁">máy bay trực thăng | xe cộ</annotation>
@@ -1661,12 +1727,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌝" type="tts">khuôn mặt trăng tròn</annotation>
 		<annotation cp="🌞">mặt | mặt trời | mặt trời có hình mặt người | sáng</annotation>
 		<annotation cp="🌞" type="tts">mặt trời có hình mặt người</annotation>
+		<annotation cp="🪐">hành tính có vành đai bao quanh | sao thổ | thần nông | thổ tinh</annotation>
+		<annotation cp="🪐" type="tts">hành tính có vành đai bao quanh</annotation>
 		<annotation cp="⭐">ngôi sao</annotation>
 		<annotation cp="⭐" type="tts">ngôi sao</annotation>
 		<annotation cp="🌟">chiếu sáng | lấp lánh | ngôi sao | ngôi sao lấp lánh | phát sáng</annotation>
 		<annotation cp="🌟" type="tts">ngôi sao lấp lánh</annotation>
 		<annotation cp="🌠">ngôi sao | phóng | rơi | sao băng</annotation>
 		<annotation cp="🌠" type="tts">sao băng</annotation>
+		<annotation cp="🌌">dải ngân hà | vũ trụ</annotation>
+		<annotation cp="🌌" type="tts">dải ngân hà</annotation>
 		<annotation cp="☁">đám mây | thời tiết</annotation>
 		<annotation cp="☁" type="tts">đám mây</annotation>
 		<annotation cp="⛅">mặt trời | mặt trời sau đám mây | mây</annotation>
@@ -1817,6 +1887,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛸" type="tts">giày trượt băng</annotation>
 		<annotation cp="🎣">cá | cần câu | cần câu cá</annotation>
 		<annotation cp="🎣" type="tts">cần câu cá</annotation>
+		<annotation cp="🤿">bình dưỡng khí | bình ôxy | lặn | mặt nạ lặn | ống thở</annotation>
+		<annotation cp="🤿" type="tts">mặt nạ lặn</annotation>
 		<annotation cp="🎽">áo chạy bộ | áo sơ mi | chạy bộ | khăn quàng vai</annotation>
 		<annotation cp="🎽" type="tts">áo chạy bộ</annotation>
 		<annotation cp="🎿">trượt tuyết | tuyết | ván trượt tuyết</annotation>
@@ -1827,6 +1899,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥌" type="tts">bi đá trên băng</annotation>
 		<annotation cp="🎯">hồng tâm | mục tiêu | phi tiêu | trò chơi | trúng đích</annotation>
 		<annotation cp="🎯" type="tts">trúng đích</annotation>
+		<annotation cp="🪀">dao động | đồ chơi | yo-yo</annotation>
+		<annotation cp="🪀" type="tts">yo-yo</annotation>
+		<annotation cp="🪁">bay | bay lên | bay lượn | diều</annotation>
+		<annotation cp="🪁" type="tts">diều</annotation>
 		<annotation cp="🎱">8 | bi-a 8 bóng | bida | quả bóng | tám | trò chơi</annotation>
 		<annotation cp="🎱" type="tts">bi-a 8 bóng</annotation>
 		<annotation cp="🔮">dụng cụ | giả tưởng | pha lê | quả bóng | quả cầu pha lê | truyện cổ tích | vận may</annotation>
@@ -1879,6 +1955,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥽" type="tts">kính bảo hộ</annotation>
 		<annotation cp="🥼">áo phòng thí nghiệm | bác sĩ | nhà khoa học | thí nghiệm</annotation>
 		<annotation cp="🥼" type="tts">áo phòng thí nghiệm</annotation>
+		<annotation cp="🦺">an toàn | áo | áo bảo hộ | khẩn cấp</annotation>
+		<annotation cp="🦺" type="tts">áo bảo hộ</annotation>
 		<annotation cp="👔">cà vạt | quần áo</annotation>
 		<annotation cp="👔" type="tts">cà vạt</annotation>
 		<annotation cp="👕">áo phông | áo sơ mi | áo thun | quần áo</annotation>
@@ -1897,6 +1975,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👗" type="tts">váy</annotation>
 		<annotation cp="👘">kimono | quần áo</annotation>
 		<annotation cp="👘" type="tts">kimono</annotation>
+		<annotation cp="🥻">đầm | quần áo | trang phục | váy | xari</annotation>
+		<annotation cp="🥻" type="tts">xari</annotation>
+		<annotation cp="🩱">áo tắm một mảnh | bộ áo tắm</annotation>
+		<annotation cp="🩱" type="tts">áo tắm một mảnh</annotation>
+		<annotation cp="🩲">bộ đồ bơi | bộ đồ tắm | một mảnh | quần lót</annotation>
+		<annotation cp="🩲" type="tts">quần lót</annotation>
+		<annotation cp="🩳">bộ đồ tắm | quần dài | quần lót | quần soóc</annotation>
+		<annotation cp="🩳" type="tts">quần soóc</annotation>
 		<annotation cp="👙">áo tắm hai mảnh | bơi | quần áo</annotation>
 		<annotation cp="👙" type="tts">áo tắm hai mảnh</annotation>
 		<annotation cp="👚">nữ | quần áo | quần áo nữ</annotation>
@@ -1923,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👠" type="tts">giày cao gót</annotation>
 		<annotation cp="👡">giày | phụ nữ | quần áo | xăng đan | xăng đan nữ</annotation>
 		<annotation cp="👡" type="tts">xăng đan nữ</annotation>
+		<annotation cp="🩰">balê | giày múa balê | múa</annotation>
+		<annotation cp="🩰" type="tts">giày múa balê</annotation>
 		<annotation cp="👢">bốt | giày | giày bốt nữ | phụ nữ | quần áo</annotation>
 		<annotation cp="👢" type="tts">giày bốt nữ</annotation>
 		<annotation cp="👑">nữ hoàng | quần áo | vua | vương miện</annotation>
@@ -1991,6 +2079,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎺" type="tts">kèn trumpet</annotation>
 		<annotation cp="🎻">đàn violin | nhạc | nhạc cụ</annotation>
 		<annotation cp="🎻" type="tts">đàn violin</annotation>
+		<annotation cp="🪕">âm nhạc | có dây | đàn banjo</annotation>
+		<annotation cp="🪕" type="tts">đàn banjo</annotation>
 		<annotation cp="🥁">dùi trống | nhạc | trống</annotation>
 		<annotation cp="🥁" type="tts">trống</annotation>
 		<annotation cp="📱">di động | điện thoại | điện thoại di động</annotation>
@@ -2061,6 +2151,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔦" type="tts">đèn pin</annotation>
 		<annotation cp="🏮">đèn | đèn lồng | đèn lồng giấy màu đỏ | đỏ | quán bar</annotation>
 		<annotation cp="🏮" type="tts">đèn lồng giấy màu đỏ</annotation>
+		<annotation cp="🪔">dầu | đèn | diya</annotation>
+		<annotation cp="🪔" type="tts">đèn diya</annotation>
 		<annotation cp="📔">bìa | sách | sổ ghi chép | sổ ghi chép có bìa trang trí | trang trí</annotation>
 		<annotation cp="📔" type="tts">sổ ghi chép có bìa trang trí</annotation>
 		<annotation cp="📕">đóng | sách</annotation>
@@ -2217,6 +2309,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗝" type="tts">chìa khóa cũ</annotation>
 		<annotation cp="🔨">búa | dụng cụ</annotation>
 		<annotation cp="🔨" type="tts">búa</annotation>
+		<annotation cp="🪓">bổ | bổ đôi | chém | gỗ | rìu | rìu nhỏ</annotation>
+		<annotation cp="🪓" type="tts">rìu</annotation>
 		<annotation cp="⛏">búa chim | dụng cụ | khai mỏ</annotation>
 		<annotation cp="⛏" type="tts">búa chim</annotation>
 		<annotation cp="⚒">búa | búa chim | búa và búa chim | dụng cụ</annotation>
@@ -2243,6 +2337,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗜" type="tts">cái kẹp</annotation>
 		<annotation cp="⚖">cân | cân thăng bằng | công lý | cung hoàng đạo | thăng bằng | Thiên Bình</annotation>
 		<annotation cp="⚖" type="tts">cân thăng bằng</annotation>
+		<annotation cp="🦯">gậy dò đường | hỗ trợ tiếp cận | khiếm thị | mù</annotation>
+		<annotation cp="🦯" type="tts">gậy dò đường</annotation>
 		<annotation cp="🔗">mắt xích</annotation>
 		<annotation cp="🔗" type="tts">mắt xích</annotation>
 		<annotation cp="⛓">dây xích</annotation>
@@ -2267,20 +2363,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📡" type="tts">ăng-ten vệ tinh</annotation>
 		<annotation cp="💉">bệnh | kim | ống tiêm | thuốc | tiêm</annotation>
 		<annotation cp="💉" type="tts">ống tiêm</annotation>
+		<annotation cp="🩸">chu kỳ kinh nguyệt | giọt máu | hiến máu | thuốc | y tế</annotation>
+		<annotation cp="🩸" type="tts">giọt máu</annotation>
 		<annotation cp="💊">bác sĩ | bệnh | thuốc | viên thuốc</annotation>
 		<annotation cp="💊" type="tts">viên thuốc</annotation>
+		<annotation cp="🩹">băng dán y tế | băng dính</annotation>
+		<annotation cp="🩹" type="tts">băng dính</annotation>
+		<annotation cp="🩺">bác sĩ | ống nghe | tim | y tế</annotation>
+		<annotation cp="🩺" type="tts">ống nghe</annotation>
 		<annotation cp="🚪">cửa</annotation>
 		<annotation cp="🚪" type="tts">cửa</annotation>
 		<annotation cp="🛏">giường | khách sạn | ngủ</annotation>
 		<annotation cp="🛏" type="tts">giường</annotation>
 		<annotation cp="🛋">đèn | đi văng | ghế dài và đèn | khách sạn</annotation>
 		<annotation cp="🛋" type="tts">ghế dài và đèn</annotation>
+		<annotation cp="🪑">chỗ ngồi | ghế | ngồi</annotation>
+		<annotation cp="🪑" type="tts">ghế</annotation>
 		<annotation cp="🚽">bệ xí | bồn cầu</annotation>
 		<annotation cp="🚽" type="tts">bồn cầu</annotation>
 		<annotation cp="🚿">nước | vòi hoa sen</annotation>
 		<annotation cp="🚿" type="tts">vòi hoa sen</annotation>
 		<annotation cp="🛁">bồn tắm | tắm</annotation>
 		<annotation cp="🛁" type="tts">bồn tắm</annotation>
+		<annotation cp="🪒">cạo râu | dao cạo | sắc</annotation>
+		<annotation cp="🪒" type="tts">dao cạo</annotation>
 		<annotation cp="🧴">chai sữa dưỡng da | dầu gội | kem chống nắng | kem dưỡng ẩm | sữa dưỡng da</annotation>
 		<annotation cp="🧴" type="tts">chai sữa dưỡng da</annotation>
 		<annotation cp="🧷">chất thải | ghim băng | tã</annotation>
@@ -2499,6 +2605,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📳" type="tts">chế độ rung</annotation>
 		<annotation cp="📴">di động | điện thoại | tắt | tắt điện thoại di động</annotation>
 		<annotation cp="📴" type="tts">tắt điện thoại di động</annotation>
+		<annotation cp="♀">ký hiệu nữ | phụ nữ</annotation>
+		<annotation cp="♀" type="tts">ký hiệu nữ</annotation>
+		<annotation cp="♂">đàn ông | ký hiệu nam</annotation>
+		<annotation cp="♂" type="tts">ký hiệu nam</annotation>
 		<annotation cp="⚕">biểu tượng y tế | cán bộ | rắn thần | y học</annotation>
 		<annotation cp="⚕" type="tts">biểu tượng y tế</annotation>
 		<annotation cp="♾">mãi mãi | toàn cầu | vô cực | vô tận</annotation>
@@ -2645,28 +2755,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🈵" type="tts">nút &quot;hết phòng&quot; bằng tiếng Nhật</annotation>
 		<annotation cp="🔴">đỏ | hình học | hình tròn | hình tròn màu đỏ</annotation>
 		<annotation cp="🔴" type="tts">hình tròn màu đỏ</annotation>
+		<annotation cp="🟠">da cam | hình tròn | hình tròn màu cam | màu cam | vòng tròn</annotation>
+		<annotation cp="🟠" type="tts">hình tròn màu cam</annotation>
+		<annotation cp="🟡">hình tròn | hình tròn màu vàng | màu vàng | vòng tròn</annotation>
+		<annotation cp="🟡" type="tts">hình tròn màu vàng</annotation>
+		<annotation cp="🟢">hình tròn | hình tròn màu xanh lá cây | màu xanh lá cây | vòng tròn | xanh lá | xanh lục</annotation>
+		<annotation cp="🟢" type="tts">hình tròn màu xanh lá cây</annotation>
 		<annotation cp="🔵">hình học | hình tròn | hình tròn màu lam | màu lam</annotation>
 		<annotation cp="🔵" type="tts">hình tròn màu lam</annotation>
-		<annotation cp="⚪">hình học | hình tròn | hình tròn màu trắng</annotation>
-		<annotation cp="⚪" type="tts">hình tròn màu trắng</annotation>
+		<annotation cp="🟣">hình tròn | hình tròn màu tím | màu tím | tía | vòng tròn</annotation>
+		<annotation cp="🟣" type="tts">hình tròn màu tím</annotation>
+		<annotation cp="🟤">hình tròn | hình tròn màu nâu | màu nâu | vòng tròn</annotation>
+		<annotation cp="🟤" type="tts">hình tròn màu nâu</annotation>
 		<annotation cp="⚫">hình học | hình tròn | hình tròn màu đen</annotation>
 		<annotation cp="⚫" type="tts">hình tròn màu đen</annotation>
-		<annotation cp="⬜">hình học | hình vuông | hình vuông lớn màu trắng</annotation>
-		<annotation cp="⬜" type="tts">hình vuông lớn màu trắng</annotation>
+		<annotation cp="⚪">hình học | hình tròn | hình tròn màu trắng</annotation>
+		<annotation cp="⚪" type="tts">hình tròn màu trắng</annotation>
+		<annotation cp="🟥">hình vuông | hình vuông màu đỏ | màu đỏ | ô vuông</annotation>
+		<annotation cp="🟥" type="tts">hình vuông màu đỏ</annotation>
+		<annotation cp="🟧">da cam | hình vuông | hình vuông màu cam | màu cam | ô vuông</annotation>
+		<annotation cp="🟧" type="tts">hình vuông màu cam</annotation>
+		<annotation cp="🟨">hình vuông | hình vuông màu vàng | màu vàng | ô vuông</annotation>
+		<annotation cp="🟨" type="tts">hình vuông màu vàng</annotation>
+		<annotation cp="🟩">hình vuông | hình vuông màu xanh lá cây | màu xanh lá cây | ô vuông | xanh lá | xanh lục</annotation>
+		<annotation cp="🟩" type="tts">hình vuông màu xanh lá cây</annotation>
+		<annotation cp="🟦">hình vuông | hình vuông màu xanh da trời | màu xanh da trời | ô vuông</annotation>
+		<annotation cp="🟦" type="tts">hình vuông màu xanh da trời</annotation>
+		<annotation cp="🟪">hình vuông | hình vuông màu tím | màu tía | màu tím | ô vuông</annotation>
+		<annotation cp="🟪" type="tts">hình vuông màu tím</annotation>
+		<annotation cp="🟫">hình vuông | hình vuông màu nâu | màu nâu | ô vuông</annotation>
+		<annotation cp="🟫" type="tts">hình vuông màu nâu</annotation>
 		<annotation cp="⬛">hình học | hình vuông | hình vuông lớn màu đen</annotation>
 		<annotation cp="⬛" type="tts">hình vuông lớn màu đen</annotation>
+		<annotation cp="⬜">hình học | hình vuông | hình vuông lớn màu trắng</annotation>
+		<annotation cp="⬜" type="tts">hình vuông lớn màu trắng</annotation>
 		<annotation cp="◼">hình học | hình vuông | hình vuông trung bình màu đen</annotation>
 		<annotation cp="◼" type="tts">hình vuông trung bình màu đen</annotation>
 		<annotation cp="◻">hình học | hình vuông | hình vuông trung bình màu trắng</annotation>
 		<annotation cp="◻" type="tts">hình vuông trung bình màu trắng</annotation>
-		<annotation cp="◽">hình học | hình vuông | hình vuông nhỏ vừa màu trắng</annotation>
-		<annotation cp="◽" type="tts">hình vuông nhỏ vừa màu trắng</annotation>
 		<annotation cp="◾">hình học | hình vuông | hình vuông nhỏ vừa màu đen</annotation>
 		<annotation cp="◾" type="tts">hình vuông nhỏ vừa màu đen</annotation>
-		<annotation cp="▫">hình học | hình vuông | hình vuông nhỏ màu trắng</annotation>
-		<annotation cp="▫" type="tts">hình vuông nhỏ màu trắng</annotation>
+		<annotation cp="◽">hình học | hình vuông | hình vuông nhỏ vừa màu trắng</annotation>
+		<annotation cp="◽" type="tts">hình vuông nhỏ vừa màu trắng</annotation>
 		<annotation cp="▪">hình học | hình vuông | hình vuông nhỏ màu đen</annotation>
 		<annotation cp="▪" type="tts">hình vuông nhỏ màu đen</annotation>
+		<annotation cp="▫">hình học | hình vuông | hình vuông nhỏ màu trắng</annotation>
+		<annotation cp="▫" type="tts">hình vuông nhỏ màu trắng</annotation>
 		<annotation cp="🔶">hình học | hình thoi | hình thoi lớn màu cam | màu cam</annotation>
 		<annotation cp="🔶" type="tts">hình thoi lớn màu cam</annotation>
 		<annotation cp="🔷">hình học | hình thoi | hình thoi lớn màu lam | màu lam</annotation>
@@ -2683,10 +2817,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💠" type="tts">hình thoi có dấu chấm</annotation>
 		<annotation cp="🔘">hình học | nút | radio</annotation>
 		<annotation cp="🔘" type="tts">nút radio</annotation>
-		<annotation cp="🔲">hình học | hình vuông | nút | nút hình vuông màu đen</annotation>
-		<annotation cp="🔲" type="tts">nút hình vuông màu đen</annotation>
 		<annotation cp="🔳">hình học | hình vuông | mờ | nút | nút hình vuông màu trắng</annotation>
 		<annotation cp="🔳" type="tts">nút hình vuông màu trắng</annotation>
+		<annotation cp="🔲">hình học | hình vuông | nút | nút hình vuông màu đen</annotation>
+		<annotation cp="🔲" type="tts">nút hình vuông màu đen</annotation>
 		<annotation cp="🏁">ca rô | cờ ô vuông | cuộc đua</annotation>
 		<annotation cp="🏁" type="tts">cờ ô vuông</annotation>
 		<annotation cp="🚩">cờ tam giác | đánh dấu</annotation>
@@ -2701,139 +2835,5 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">cờ cầu vồng</annotation>
 		<annotation cp="🏴‍☠">cờ cướp biển | cướp biển | cướp bóc | hải tặc | Jolly Roger | kho báu</annotation>
 		<annotation cp="🏴‍☠" type="tts">cờ cướp biển</annotation>
-		<annotation cp="🛕">đền | hin đu | hin-đu | hindu</annotation>
-		<annotation cp="🛕" type="tts">đền hindu</annotation>
-		<annotation cp="🛺">túc túc | tuk tuk | xe lam</annotation>
-		<annotation cp="🛺" type="tts">xe lam</annotation>
-		<annotation cp="🟠">da cam | hình tròn | hình tròn màu cam | màu cam | vòng tròn</annotation>
-		<annotation cp="🟠" type="tts">hình tròn màu cam</annotation>
-		<annotation cp="🟡">hình tròn | hình tròn màu vàng | màu vàng | vòng tròn</annotation>
-		<annotation cp="🟡" type="tts">hình tròn màu vàng</annotation>
-		<annotation cp="🟢">hình tròn | hình tròn màu xanh lá cây | màu xanh lá cây | vòng tròn | xanh lá | xanh lục</annotation>
-		<annotation cp="🟢" type="tts">hình tròn màu xanh lá cây</annotation>
-		<annotation cp="🟣">hình tròn | hình tròn màu tím | màu tím | tía | vòng tròn</annotation>
-		<annotation cp="🟣" type="tts">hình tròn màu tím</annotation>
-		<annotation cp="🟤">hình tròn | hình tròn màu nâu | màu nâu | vòng tròn</annotation>
-		<annotation cp="🟤" type="tts">hình tròn màu nâu</annotation>
-		<annotation cp="🟥">hình vuông | hình vuông màu đỏ | màu đỏ | ô vuông</annotation>
-		<annotation cp="🟥" type="tts">hình vuông màu đỏ</annotation>
-		<annotation cp="🟦">hình vuông | hình vuông màu xanh da trời | màu xanh da trời | ô vuông</annotation>
-		<annotation cp="🟦" type="tts">hình vuông màu xanh da trời</annotation>
-		<annotation cp="🟧">da cam | hình vuông | hình vuông màu cam | màu cam | ô vuông</annotation>
-		<annotation cp="🟧" type="tts">hình vuông màu cam</annotation>
-		<annotation cp="🟨">hình vuông | hình vuông màu vàng | màu vàng | ô vuông</annotation>
-		<annotation cp="🟨" type="tts">hình vuông màu vàng</annotation>
-		<annotation cp="🟩">hình vuông | hình vuông màu xanh lá cây | màu xanh lá cây | ô vuông | xanh lá | xanh lục</annotation>
-		<annotation cp="🟩" type="tts">hình vuông màu xanh lá cây</annotation>
-		<annotation cp="🟪">hình vuông | hình vuông màu tím | màu tía | màu tím | ô vuông</annotation>
-		<annotation cp="🟪" type="tts">hình vuông màu tím</annotation>
-		<annotation cp="🟫">hình vuông | hình vuông màu nâu | màu nâu | ô vuông</annotation>
-		<annotation cp="🟫" type="tts">hình vuông màu nâu</annotation>
-		<annotation cp="🤍">màu trắng | trái tim | trái tim màu trắng</annotation>
-		<annotation cp="🤍" type="tts">trái tim màu trắng</annotation>
-		<annotation cp="🤎">màu nâu | trái tim | trái tim màu nâu</annotation>
-		<annotation cp="🤎" type="tts">trái tim màu nâu</annotation>
-		<annotation cp="🤏">số lượng nhỏ | tay chụm</annotation>
-		<annotation cp="🤏" type="tts">tay chụm</annotation>
-		<annotation cp="🤿">bình dưỡng khí | bình ôxy | lặn | mặt nạ lặn | ống thở</annotation>
-		<annotation cp="🤿" type="tts">mặt nạ lặn</annotation>
-		<annotation cp="🥱">chán | mặt đang ngáp | mệt mỏi | ngáp</annotation>
-		<annotation cp="🥱" type="tts">mặt đang ngáp</annotation>
-		<annotation cp="🥻">đầm | quần áo | trang phục | váy | xari</annotation>
-		<annotation cp="🥻" type="tts">xari</annotation>
-		<annotation cp="🦥">chậm | con lười | đủng đỉnh | lười</annotation>
-		<annotation cp="🦥" type="tts">con lười</annotation>
-		<annotation cp="🦦">bắt cá | nghịch ngợm | rái cá</annotation>
-		<annotation cp="🦦" type="tts">rái cá</annotation>
-		<annotation cp="🦧">đười ươi | vượn người</annotation>
-		<annotation cp="🦧" type="tts">đười ươi</annotation>
-		<annotation cp="🦨">chồn hôi Mỹ | mùi hôi</annotation>
-		<annotation cp="🦨" type="tts">chồn hôi Mỹ</annotation>
-		<annotation cp="🦩">hồng hạc | nhiệt đới | rực rỡ</annotation>
-		<annotation cp="🦩" type="tts">hồng hạc</annotation>
-		<annotation cp="🦪">hàu | lặn | ngọc trai</annotation>
-		<annotation cp="🦪" type="tts">hàu</annotation>
-		<annotation cp="🦮">chó dẫn đường | dẫn đường | hỗ trợ | hỗ trợ tiếp cận | khiếm thị | mù</annotation>
-		<annotation cp="🦮" type="tts">chó dẫn đường</annotation>
-		<annotation cp="🦯">gậy dò đường | hỗ trợ tiếp cận | khiếm thị | mù</annotation>
-		<annotation cp="🦯" type="tts">gậy dò đường</annotation>
-		<annotation cp="🦺">an toàn | áo | áo bảo hộ | khẩn cấp</annotation>
-		<annotation cp="🦺" type="tts">áo bảo hộ</annotation>
-		<annotation cp="🦻">hỗ trợ | hỗ trợ tiếp cận | nặng tai | tai đeo thiết bị trợ thính</annotation>
-		<annotation cp="🦻" type="tts">tai đeo thiết bị trợ thính</annotation>
-		<annotation cp="🦼">hỗ trợ tiếp cận | trợ năng | xe lăn tự động</annotation>
-		<annotation cp="🦼" type="tts">xe lăn tự động</annotation>
-		<annotation cp="🦽">hỗ trợ tiếp cận | trợ năng | xe lăn tay</annotation>
-		<annotation cp="🦽" type="tts">xe lăn tay</annotation>
-		<annotation cp="🦾">cánh tay giả | giả | hỗ trợ | hỗ trợ tiếp cận</annotation>
-		<annotation cp="🦾" type="tts">cánh tay giả</annotation>
-		<annotation cp="🦿">chân giả | giả | hỗ trợ | hỗ trợ tiếp cận</annotation>
-		<annotation cp="🦿" type="tts">chân giả</annotation>
-		<annotation cp="🧃">hộp đồ uống | hộp nước trái cây</annotation>
-		<annotation cp="🧃" type="tts">hộp đồ uống</annotation>
-		<annotation cp="🧄">gia vị | tỏi</annotation>
-		<annotation cp="🧄" type="tts">tỏi</annotation>
-		<annotation cp="🧅">gia vị | hành</annotation>
-		<annotation cp="🧅" type="tts">hành</annotation>
-		<annotation cp="🧆">bánh rán nhân gà | đậu gà | thịt viên</annotation>
-		<annotation cp="🧆" type="tts">bánh rán nhân gà</annotation>
-		<annotation cp="🧇">bánh quế | cứng cỏi | thiếu quyết đoán</annotation>
-		<annotation cp="🧇" type="tts">bánh quế</annotation>
-		<annotation cp="🧈">bơ | bơ sữa</annotation>
-		<annotation cp="🧈" type="tts">bơ</annotation>
-		<annotation cp="🧉">đồ uống | nước uống | trà nhựa ruồi | uống</annotation>
-		<annotation cp="🧉" type="tts">trà nhựa ruồi</annotation>
-		<annotation cp="🧊">băng | đá | lạnh | viên đá</annotation>
-		<annotation cp="🧊" type="tts">viên đá</annotation>
-		<annotation cp="🧍">đang đứng | đứng | người đứng</annotation>
-		<annotation cp="🧍" type="tts">người đứng</annotation>
-		<annotation cp="🧍‍♀">đứng | người phụ nữ | người phụ nữ đứng</annotation>
-		<annotation cp="🧍‍♀" type="tts">người phụ nữ đứng</annotation>
-		<annotation cp="🧍‍♂">đứng | người đàn ông | người đàn ông đứng</annotation>
-		<annotation cp="🧍‍♂" type="tts">người đàn ông đứng</annotation>
-		<annotation cp="🧎">đang quỳ | người quỳ | quỳ | quỳ gối</annotation>
-		<annotation cp="🧎" type="tts">người quỳ</annotation>
-		<annotation cp="🧎‍♀">người phụ nữ | người phụ nữ quỳ | quỳ</annotation>
-		<annotation cp="🧎‍♀" type="tts">người phụ nữ quỳ</annotation>
-		<annotation cp="🧎‍♂">người đàn ông | người đàn ông quỳ | quỳ</annotation>
-		<annotation cp="🧎‍♂" type="tts">người đàn ông quỳ</annotation>
-		<annotation cp="🧏">điếc | hỗ trợ tiếp cận | khiếm thính | nghe | người khiếm thính | tai</annotation>
-		<annotation cp="🧏" type="tts">người khiếm thính</annotation>
-		<annotation cp="🧏‍♀">điếc | khiếm thính | người phụ nữ | người phụ nữ khiếm thính</annotation>
-		<annotation cp="🧏‍♀" type="tts">người phụ nữ khiếm thính</annotation>
-		<annotation cp="🧏‍♂">điếc | khiếm thính | người đàn ông | người đàn ông khiếm thính</annotation>
-		<annotation cp="🧏‍♂" type="tts">người đàn ông khiếm thính</annotation>
-		<annotation cp="🩰">balê | giày múa balê | múa</annotation>
-		<annotation cp="🩰" type="tts">giày múa balê</annotation>
-		<annotation cp="🩱">áo tắm một mảnh | bộ áo tắm</annotation>
-		<annotation cp="🩱" type="tts">áo tắm một mảnh</annotation>
-		<annotation cp="🩲">bộ đồ bơi | bộ đồ tắm | một mảnh | quần lót</annotation>
-		<annotation cp="🩲" type="tts">quần lót</annotation>
-		<annotation cp="🩳">bộ đồ tắm | quần dài | quần lót | quần soóc</annotation>
-		<annotation cp="🩳" type="tts">quần soóc</annotation>
-		<annotation cp="🩸">chu kỳ kinh nguyệt | giọt máu | hiến máu | thuốc | y tế</annotation>
-		<annotation cp="🩸" type="tts">giọt máu</annotation>
-		<annotation cp="🩹">băng dán y tế | băng dính</annotation>
-		<annotation cp="🩹" type="tts">băng dính</annotation>
-		<annotation cp="🩺">bác sĩ | ống nghe | tim | y tế</annotation>
-		<annotation cp="🩺" type="tts">ống nghe</annotation>
-		<annotation cp="🪀">dao động | đồ chơi | yo-yo</annotation>
-		<annotation cp="🪀" type="tts">yo-yo</annotation>
-		<annotation cp="🪁">bay | bay lên | bay lượn | diều</annotation>
-		<annotation cp="🪁" type="tts">diều</annotation>
-		<annotation cp="🪂">dù | dù kéo | lượn | nhảy dù</annotation>
-		<annotation cp="🪂" type="tts">dù</annotation>
-		<annotation cp="🪐">hành tính có vành đai bao quanh | sao thổ | thần nông | thổ tinh</annotation>
-		<annotation cp="🪐" type="tts">hành tính có vành đai bao quanh</annotation>
-		<annotation cp="🪑">chỗ ngồi | ghế | ngồi</annotation>
-		<annotation cp="🪑" type="tts">ghế</annotation>
-		<annotation cp="🪒">cạo râu | dao cạo | sắc</annotation>
-		<annotation cp="🪒" type="tts">dao cạo</annotation>
-		<annotation cp="🪓">bổ | bổ đôi | chém | gỗ | rìu | rìu nhỏ</annotation>
-		<annotation cp="🪓" type="tts">rìu</annotation>
-		<annotation cp="🪔">dầu | đèn | diya</annotation>
-		<annotation cp="🪔" type="tts">đèn diya</annotation>
-		<annotation cp="🪕">âm nhạc | có dây | đàn banjo</annotation>
-		<annotation cp="🪕" type="tts">đàn banjo</annotation>
 	</annotations>
 </ldml>

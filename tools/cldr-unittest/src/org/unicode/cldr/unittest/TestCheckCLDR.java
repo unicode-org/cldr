@@ -342,8 +342,8 @@ public class TestCheckCLDR extends TestFmwk {
         for (PathHeader pathHeader : sorted) {
             String path = pathHeader.getOriginalPath();
             // override.overridePath = path;
-            final String resolvedValue = dummyValue == null ? patched
-                .getStringValue(path) : dummyValue;
+            final String resolvedValue = dummyValue == null ? patched.getStringValueWithBailey(path)
+                : dummyValue;
                 test.handleCheck(path, patched.getFullXPath(path), resolvedValue,
                     options, result);
                 if (result.size() != 0) {

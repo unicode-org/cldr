@@ -17,6 +17,7 @@ import org.unicode.cldr.util.Annotations.AnnotationSet;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleFactory;
@@ -194,6 +195,9 @@ public class TestAnnotations extends TestFmwkPlus {
                 String name = data.getShortName(emoji);
                 if (name == null) {
                     continue;
+                }
+                if (name.contains(CldrUtility.INHERITANCE_MARKER)) {
+                    throw new IllegalArgumentException(CldrUtility.INHERITANCE_MARKER + " in name of " + emoji + " in " + locale);
                 }
                 nameToEmoji.put(name, emoji);
             }

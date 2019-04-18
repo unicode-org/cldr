@@ -23,8 +23,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">uhlobo-5</annotation>
 		<annotation cp="🏿">uhlobo 6 | uhlobo lwesikhumba | uhlobo-6</annotation>
 		<annotation cp="🏿" type="tts">uhlobo-6</annotation>
-		<annotation cp="🐾">amaqophelo | amaqophelo ezidladla | izidladla | izinyawo</annotation>
-		<annotation cp="🐾" type="tts">amaqophelo ezidladla</annotation>
 		<annotation cp="😀">osinekile | ubuso obusinekile</annotation>
 		<annotation cp="😀" type="tts">ubuso obusinekile</annotation>
 		<annotation cp="😃">moyizela | ubuso | ubuso obumoyizelayo obuvule umlomo | umlomo | vula</annotation>
@@ -195,6 +193,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😩" type="tts">ubuso obuyethile</annotation>
 		<annotation cp="😫">kathele | ubuso | ubuso obukhathele</annotation>
 		<annotation cp="😫" type="tts">ubuso obukhathele</annotation>
+		<annotation cp="🥱">khathele | thukuthezi | ubuso obuzamulayo | zamula</annotation>
+		<annotation cp="🥱" type="tts">ubuso obuzamulayo</annotation>
 		<annotation cp="😤">ubuso | ubuso obuphuma intuthu ekhaleni | ukunqoba | ukuwina</annotation>
 		<annotation cp="😤" type="tts">ubuso obuphuma intuthu ekhaleni</annotation>
 		<annotation cp="😡">casuka | dinwa | nyipha | ubuso | ubuso obunyiphayo</annotation>
@@ -287,8 +287,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💙" type="tts">inhliziyo eluhlaza sasibhakabhaka</annotation>
 		<annotation cp="💜">inhliziyo | inhliziyo ensomi | nsomi</annotation>
 		<annotation cp="💜" type="tts">inhliziyo ensomi</annotation>
+		<annotation cp="🤎">inhliziyo | inhliziyo ensundu | insundu</annotation>
+		<annotation cp="🤎" type="tts">inhliziyo ensundu</annotation>
 		<annotation cp="🖤">inhliziyo | inhliziyo embi | khohlakele | mnyama | ubuthakathi</annotation>
 		<annotation cp="🖤" type="tts">inhliziyo embi</annotation>
+		<annotation cp="🤍">inhliziyo | inhliziyo emhlophe | mhlophe</annotation>
+		<annotation cp="🤍" type="tts">inhliziyo emhlophe</annotation>
 		<annotation cp="💯">100 | amaphuzu ayikhulu | ikhulu | okugcwele | umphumela</annotation>
 		<annotation cp="💯" type="tts">amaphuzu ayikhulu</annotation>
 		<annotation cp="💢">ukucasuka | ukudinwa | uphawu lokudinwa</annotation>
@@ -329,6 +333,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖖" type="tts">i-vulcan salute</annotation>
 		<annotation cp="👌">isandla | isandla sokuthi kulungile | kulungile | umzimba</annotation>
 		<annotation cp="👌" type="tts">isandla sokuthi kulungile</annotation>
+		<annotation cp="🤏">inani elincane | isandla esincinzayo</annotation>
+		<annotation cp="🤏" type="tts">isandla esincinzayo</annotation>
 		<annotation cp="✌">isandla | isandla sokunqoba | ukunqoba | umzimba</annotation>
 		<annotation cp="✌" type="tts">isandla sokunqoba</annotation>
 		<annotation cp="🤞">bhanqa | iminwe ebhanqiwe | inhlanhla | isandla | umunwe</annotation>
@@ -383,12 +389,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤳" type="tts">uzishuthe</annotation>
 		<annotation cp="💪">amamasela | izinkonyane | umzimba</annotation>
 		<annotation cp="💪" type="tts">izinkonyane</annotation>
+		<annotation cp="🦾">isandla sikamakhenikha | ukufakelwa | ukufinyelela</annotation>
+		<annotation cp="🦾" type="tts">isandla sikamakhenikha</annotation>
+		<annotation cp="🦿">inyawo likamakhenikha | ukufakelwa | ukufinyelela</annotation>
+		<annotation cp="🦿" type="tts">inyawo likamakhenikha</annotation>
 		<annotation cp="🦵">kick | limb | umlenze</annotation>
 		<annotation cp="🦵" type="tts">umlenze</annotation>
 		<annotation cp="🦶">kick | stomp | unyawo</annotation>
 		<annotation cp="🦶" type="tts">unyawo</annotation>
 		<annotation cp="👂">indlebe | umzimba</annotation>
 		<annotation cp="👂" type="tts">indlebe</annotation>
+		<annotation cp="🦻">indlebe enensiza yokuzwa | ukufinyelela | ukuzwa nzima</annotation>
+		<annotation cp="🦻" type="tts">indlebe enensiza yokuzwa</annotation>
 		<annotation cp="👃">ikhala | umzimba</annotation>
 		<annotation cp="👃" type="tts">ikhala</annotation>
 		<annotation cp="🧠">hlakaniphile | ubuchopho</annotation>
@@ -419,24 +431,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👱" type="tts">umuntu: izinwele ezinhlophe</annotation>
 		<annotation cp="👨">indoda | owesilisa | ubaba</annotation>
 		<annotation cp="👨" type="tts">indoda</annotation>
-		<annotation cp="👨‍🦯">indoda | indoda enekheni lokuhlola | ukufinyelela | ukuphophala</annotation>
-		<annotation cp="👨‍🦯" type="tts">indoda enekheni lokuhlola</annotation>
-		<annotation cp="👨‍🦼">indoda | indoda esesitulweni esizihambelayo | isitula sokuhamba | ukufinyelela</annotation>
-		<annotation cp="👨‍🦼" type="tts">indoda esesitulweni esizihambelayo</annotation>
-		<annotation cp="👨‍🦽">indoda | indoda esesitulweni sokuhanjiswa | isitulo sokuhamba | ukufinyelela</annotation>
-		<annotation cp="👨‍🦽" type="tts">indoda esesitulweni sokuhanjiswa</annotation>
-		<annotation cp="👱‍♂">indoda | indoda enezinwele ezimhlophe | indoda: izinwele ezimhlophe | izinwele | mhlophe</annotation>
-		<annotation cp="👱‍♂" type="tts">indoda: izinwele ezimhlophe</annotation>
 		<annotation cp="🧔">indoda | indoda: intshebe | intshebe | umuntu</annotation>
 		<annotation cp="🧔" type="tts">indoda: intshebe</annotation>
+		<annotation cp="👱‍♂">indoda | indoda enezinwele ezimhlophe | indoda: izinwele ezimhlophe | izinwele | mhlophe</annotation>
+		<annotation cp="👱‍♂" type="tts">indoda: izinwele ezimhlophe</annotation>
 		<annotation cp="👩">owesimame | umama</annotation>
 		<annotation cp="👩" type="tts">umama</annotation>
-		<annotation cp="👩‍🦯">ukufinyelela | ukuphophala | umama onekheni lokuhlola</annotation>
-		<annotation cp="👩‍🦯" type="tts">umama onekheni lokuhlola</annotation>
-		<annotation cp="👩‍🦼">isitulo sokuhamba | ukufinyelela | umama | umama osesitulweni esizihambelayo</annotation>
-		<annotation cp="👩‍🦼" type="tts">umama osesitulweni esizihambelayo</annotation>
-		<annotation cp="👩‍🦽">isitulo sokuhamba | ukufinyelela | umama | umama osesitulweni sokuhanjiswa</annotation>
-		<annotation cp="👩‍🦽" type="tts">umama osesitulweni sokuhanjiswa</annotation>
 		<annotation cp="👱‍♀">izinwele | mhlophe | umama | umama onezinwele ezinhlophe | umama: izinwele ezimhlophe</annotation>
 		<annotation cp="👱‍♀" type="tts">umama: izinwele ezimhlophe</annotation>
 		<annotation cp="🧓">mdala | omdala omdala | ubulili-phakathi</annotation>
@@ -481,6 +481,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙋‍♂" type="tts">indoda ephakamise isandla</annotation>
 		<annotation cp="🙋‍♀">isandla | owesimame | owesimame ophakamise isandla | ukujabula | ukuphakamisa | uphawu</annotation>
 		<annotation cp="🙋‍♀" type="tts">owesimame ophakamise isandla</annotation>
+		<annotation cp="🧏">indlebe | ukufinyelela | ukungezwa | ukuzwa | umuntu ongezwa</annotation>
+		<annotation cp="🧏" type="tts">umuntu ongezwa</annotation>
+		<annotation cp="🧏‍♂">indoda | indoda engezwa | ongezwa</annotation>
+		<annotation cp="🧏‍♂" type="tts">indoda engezwa</annotation>
+		<annotation cp="🧏‍♀">ongezwa | umama</annotation>
+		<annotation cp="🧏‍♀" type="tts">umama ongezwa</annotation>
 		<annotation cp="🙇">ukuthoba | ukuxolisa | umuntu othobile | uphawu</annotation>
 		<annotation cp="🙇" type="tts">umuntu othobile</annotation>
 		<annotation cp="🙇‍♂">indoda | indoda ethobe kakhulu | ukuthoba | ukuxolisa | uphawu</annotation>
@@ -687,6 +693,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚶‍♂" type="tts">indoda ehambayo</annotation>
 		<annotation cp="🚶‍♀">owesimame | owesimame ohambayo | ukuhamba</annotation>
 		<annotation cp="🚶‍♀" type="tts">owesimame ohambayo</annotation>
+		<annotation cp="🧍">ima | ukuma | umuntu omile</annotation>
+		<annotation cp="🧍" type="tts">umuntu omile</annotation>
+		<annotation cp="🧍‍♂">indoda | indoda emile | ukuma</annotation>
+		<annotation cp="🧍‍♂" type="tts">indoda emile</annotation>
+		<annotation cp="🧍‍♀">ukuma | umama | umama omile</annotation>
+		<annotation cp="🧍‍♀" type="tts">umama omile</annotation>
+		<annotation cp="🧎">guqa | ukuguqa | umuntu oguqile</annotation>
+		<annotation cp="🧎" type="tts">umuntu oguqile</annotation>
+		<annotation cp="🧎‍♂">indoda | indoda eguqlile | ukuguqa</annotation>
+		<annotation cp="🧎‍♂" type="tts">indoda eguqlile</annotation>
+		<annotation cp="🧎‍♀">ukuguqa | umama | umama ogulile</annotation>
+		<annotation cp="🧎‍♀" type="tts">umama ogulile</annotation>
+		<annotation cp="👨‍🦯">indoda | indoda enekheni lokuhlola | ukufinyelela | ukuphophala</annotation>
+		<annotation cp="👨‍🦯" type="tts">indoda enekheni lokuhlola</annotation>
+		<annotation cp="👩‍🦯">ukufinyelela | ukuphophala | umama onekheni lokuhlola</annotation>
+		<annotation cp="👩‍🦯" type="tts">umama onekheni lokuhlola</annotation>
+		<annotation cp="👨‍🦼">indoda | indoda esesitulweni esizihambelayo | isitula sokuhamba | ukufinyelela</annotation>
+		<annotation cp="👨‍🦼" type="tts">indoda esesitulweni esizihambelayo</annotation>
+		<annotation cp="👩‍🦼">isitulo sokuhamba | ukufinyelela | umama | umama osesitulweni esizihambelayo</annotation>
+		<annotation cp="👩‍🦼" type="tts">umama osesitulweni esizihambelayo</annotation>
+		<annotation cp="👨‍🦽">indoda | indoda esesitulweni sokuhanjiswa | isitulo sokuhamba | ukufinyelela</annotation>
+		<annotation cp="👨‍🦽" type="tts">indoda esesitulweni sokuhanjiswa</annotation>
+		<annotation cp="👩‍🦽">isitulo sokuhamba | ukufinyelela | umama | umama osesitulweni sokuhanjiswa</annotation>
+		<annotation cp="👩‍🦽" type="tts">umama osesitulweni sokuhanjiswa</annotation>
 		<annotation cp="🏃">ukugijima | umjaho | umunto ogijimayo</annotation>
 		<annotation cp="🏃" type="tts">umunto ogijimayo</annotation>
 		<annotation cp="🏃‍♂">indoda | indoda egijimayo | ukugijima | umjaho | umncintiswano</annotation>
@@ -813,12 +843,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛀" type="tts">umuntu ogezayo</annotation>
 		<annotation cp="🛌">ihhotela | ukulala | umuntu olele</annotation>
 		<annotation cp="🛌" type="tts">umuntu olele</annotation>
+		<annotation cp="🧑‍🤝‍🧑">↑↑↑</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts">↑↑↑</annotation>
+		<annotation cp="👭">abantu besifazane | abasimame ababambene ngesandla | isandla | izithandani | ukubamba</annotation>
+		<annotation cp="👭" type="tts">abasimame ababambene ngesandla</annotation>
 		<annotation cp="👫">isandla | izithandani | owesifazane | owesilisa | owesilisa nowesifazane bebembene ngezandla | ukubamba</annotation>
 		<annotation cp="👫" type="tts">owesilisa nowesifazane bebembene ngezandla</annotation>
 		<annotation cp="👬">amadoda | amadoda amabili abambene ngesandla | amawele | bambene ngezandla | i-Gemini | indoda | izinkanyezi | izithandani</annotation>
 		<annotation cp="👬" type="tts">amadoda amabili abambene ngesandla</annotation>
-		<annotation cp="👭">abantu besifazane | abasimame ababambene ngesandla | isandla | izithandani | ukubamba</annotation>
-		<annotation cp="👭" type="tts">abasimame ababambene ngesandla</annotation>
 		<annotation cp="💏">izithandani | ukuqabula</annotation>
 		<annotation cp="💏" type="tts">ukuqabula</annotation>
 		<annotation cp="💑">inhliziyo | izithandani | izithandani ezinenhliziyo | uthando</annotation>
@@ -841,20 +873,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦳" type="tts">izinwele ezimpunga</annotation>
 		<annotation cp="🦲">chemotherapy | hairless | imbungculu | no hair | shaven</annotation>
 		<annotation cp="🦲" type="tts">imbungculu</annotation>
-		<annotation cp="♀">owesifazane | uphawu lowesifazane</annotation>
-		<annotation cp="♀" type="tts">uphawu lowesifazane</annotation>
-		<annotation cp="♂">indoda | upahwu lwendoda</annotation>
-		<annotation cp="♂" type="tts">upahwu lwendoda</annotation>
 		<annotation cp="🐵">inkawu | ubuso | ubuso benkawu</annotation>
 		<annotation cp="🐵" type="tts">ubuso benkawu</annotation>
 		<annotation cp="🐒">inkawu</annotation>
 		<annotation cp="🐒" type="tts">inkawu</annotation>
 		<annotation cp="🦍">imfene | isilwane</annotation>
 		<annotation cp="🦍" type="tts">imfene</annotation>
+		<annotation cp="🦧">i-ape | i-orangutan</annotation>
+		<annotation cp="🦧" type="tts">i-orangutan</annotation>
 		<annotation cp="🐶">inja | isilwane sasekhaya | ubuso | ubuso benja</annotation>
 		<annotation cp="🐶" type="tts">ubuso benja</annotation>
 		<annotation cp="🐕">inja | isilwane sasekhaya</annotation>
 		<annotation cp="🐕" type="tts">inja</annotation>
+		<annotation cp="🦮">inja yokusiza | ukufinyelela | ukuphophala | ukusiza</annotation>
+		<annotation cp="🦮" type="tts">inja yokusiza</annotation>
 		<annotation cp="🐕‍🦺">inja | inja yesevisi | isevisi | ukufinyelela | usizo</annotation>
 		<annotation cp="🐕‍🦺" type="tts">inja yesevisi</annotation>
 		<annotation cp="🐩">inja | inja yomlungu | isilwane sasekhaya | ubuso</annotation>
@@ -947,10 +979,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐨" type="tts">i-koala</annotation>
 		<annotation cp="🐼">iphanda | ubuso</annotation>
 		<annotation cp="🐼" type="tts">iphanda</annotation>
+		<annotation cp="🦥">i-sloth | ukungasheshi | ukuvilapha</annotation>
+		<annotation cp="🦥" type="tts">i-sloth</annotation>
+		<annotation cp="🦦">i-otter | ukudlala | ukudoba</annotation>
+		<annotation cp="🦦" type="tts">i-otter</annotation>
+		<annotation cp="🦨">i-skunk | ukunuka</annotation>
+		<annotation cp="🦨" type="tts">i-skunk</annotation>
 		<annotation cp="🦘">Australia | i-kangaroo | joey | jump | marsupial</annotation>
 		<annotation cp="🦘" type="tts">i-kangaroo</annotation>
 		<annotation cp="🦡">badger | honey badger | pester</annotation>
 		<annotation cp="🦡" type="tts">badger</annotation>
+		<annotation cp="🐾">amaqophelo | amaqophelo ezidladla | izidladla | izinyawo</annotation>
+		<annotation cp="🐾" type="tts">amaqophelo ezidladla</annotation>
 		<annotation cp="🦃">ithekhi</annotation>
 		<annotation cp="🦃" type="tts">ithekhi</annotation>
 		<annotation cp="🐔">inkukhu</annotation>
@@ -977,6 +1017,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦢" type="tts" draft="provisional">cygnet</annotation>
 		<annotation cp="🦉">hlakanipha | inyoni | isikhova</annotation>
 		<annotation cp="🦉" type="tts">isikhova</annotation>
+		<annotation cp="🦩">i-flamboyanti | i-flamingo | i-tropical</annotation>
+		<annotation cp="🦩" type="tts">i-flamingo</annotation>
 		<annotation cp="🦚">bird | ostentatious | peacock | peahen | proud</annotation>
 		<annotation cp="🦚" type="tts">peacock</annotation>
 		<annotation cp="🦜">bird | parrot | pirate | talk</annotation>
@@ -1137,6 +1179,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥬" type="tts">leafy green</annotation>
 		<annotation cp="🥦">i-bhulokholi | iklabishi lasendle</annotation>
 		<annotation cp="🥦" type="tts">i-bhulokholi</annotation>
+		<annotation cp="🧄">igalikhi | ukufaka umnambitho</annotation>
+		<annotation cp="🧄" type="tts">igalikhi</annotation>
+		<annotation cp="🧅">u-anyanisi | ukufaka umnambitho</annotation>
+		<annotation cp="🧅" type="tts">u-anyanisi</annotation>
 		<annotation cp="🍄">ikhowe | isitshalo</annotation>
 		<annotation cp="🍄" type="tts">ikhowe</annotation>
 		<annotation cp="🥜">amakinati | amaveji | ikinati | ukudla</annotation>
@@ -1155,6 +1201,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥯" type="tts">bagel</annotation>
 		<annotation cp="🥞">amakhekhe | crêpe | ikhekhe elishisayo | isifrentshi | ukudla</annotation>
 		<annotation cp="🥞" type="tts">amakhekhe</annotation>
+		<annotation cp="🧇">i-ayoni | i-indecive | i-waffle</annotation>
+		<annotation cp="🧇" type="tts">i-waffle</annotation>
 		<annotation cp="🧀">ucezu lukashizi | ushizi</annotation>
 		<annotation cp="🧀" type="tts">ucezu lukashizi</annotation>
 		<annotation cp="🍖">inyama | inyamo ethajeni | ithambo</annotation>
@@ -1181,6 +1229,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌯" type="tts">hburrito</annotation>
 		<annotation cp="🥙">falafel | gyro | isinkwa | isinkwa esishuthekwe ukudla | kebab | shuthekiwe | ukudla</annotation>
 		<annotation cp="🥙" type="tts">isinkwa esishuthekwe ukudla</annotation>
+		<annotation cp="🧆">i-chickpea | i-falafel | i-meatball</annotation>
+		<annotation cp="🧆" type="tts">i-falafel</annotation>
 		<annotation cp="🥚">iqanda | ukudla</annotation>
 		<annotation cp="🥚" type="tts">iqanda</annotation>
 		<annotation cp="🍳">ipani | iqanda | ukupheka | ukuthosa</annotation>
@@ -1195,6 +1245,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥗" type="tts">isaladi lasengadini</annotation>
 		<annotation cp="🍿">uphophukhoni</annotation>
 		<annotation cp="🍿" type="tts">uphophukhoni</annotation>
+		<annotation cp="🧈">ibhatha | okwebisi</annotation>
+		<annotation cp="🧈" type="tts">ibhatha</annotation>
 		<annotation cp="🧂">condiment | salt | shaker</annotation>
 		<annotation cp="🧂" type="tts">salt</annotation>
 		<annotation cp="🥫">ikani | ukudla okusekanini</annotation>
@@ -1241,6 +1293,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦐" type="tts">imfanzi</annotation>
 		<annotation cp="🦑">ingwane | molusc | ukudla</annotation>
 		<annotation cp="🦑" type="tts">ingwane</annotation>
+		<annotation cp="🦪">i-oyster | i-pearl | ukudayiva</annotation>
+		<annotation cp="🦪" type="tts">i-oyster</annotation>
 		<annotation cp="🍦">okunoshukela | okuthambile | u-ice cream | u-ice cream othambile | ukhilimu</annotation>
 		<annotation cp="🍦" type="tts">u-ice cream othambile</annotation>
 		<annotation cp="🍧">i-shaved ice | iqhwa | okunoshukela | shaved | ubumnandi</annotation>
@@ -1297,6 +1351,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥃" type="tts">ingilazi yephepha</annotation>
 		<annotation cp="🥤">ijusi | inkomishi enomucu wokumoma | isoda</annotation>
 		<annotation cp="🥤" type="tts">inkomishi enomucu wokumoma</annotation>
+		<annotation cp="🧃">ibhokisi lamajusi | ibhokisi leziphuzo</annotation>
+		<annotation cp="🧃" type="tts">ibhokisi leziphuzo</annotation>
+		<annotation cp="🧉">i-mate | isiphuzo</annotation>
+		<annotation cp="🧉" type="tts">i-mate</annotation>
+		<annotation cp="🧊">i-iceberg | ukubanda</annotation>
+		<annotation cp="🧊" type="tts">ukubanda</annotation>
 		<annotation cp="🥢">ihashi | izinti</annotation>
 		<annotation cp="🥢" type="tts">izinti</annotation>
 		<annotation cp="🍽">imfoloko | imfoloko nommese nepleti | ipleti | ukupheka | ummese</annotation>
@@ -1393,6 +1453,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛪" type="tts">isonto</annotation>
 		<annotation cp="🕌">amasulumane | inkolo | isonto lamasulumane</annotation>
 		<annotation cp="🕌" type="tts">isonto lamasulumane</annotation>
+		<annotation cp="🛕">i-hindu | ithempeli | ithempeli le-hindu</annotation>
+		<annotation cp="🛕" type="tts">ithempeli le-hindu</annotation>
 		<annotation cp="🕍">inkolo | isinagoge | ithempeli | umjuda</annotation>
 		<annotation cp="🕍" type="tts">isinagoge</annotation>
 		<annotation cp="⛩">inkolo | shinto | shrine</annotation>
@@ -1421,8 +1483,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌉" type="tts">ibhuloho ebusuku</annotation>
 		<annotation cp="♨">iziphethu | iziphethu ezinamanzi ashisayo | kuyashisa | kuyathunya</annotation>
 		<annotation cp="♨" type="tts">iziphethu ezinamanzi ashisayo</annotation>
-		<annotation cp="🌌">imilkhi weyi | isimo sezulu | umkhathi</annotation>
-		<annotation cp="🌌" type="tts">imilkhi weyi</annotation>
 		<annotation cp="🎠">ihhashi | ihhashi lekharaseli | ikharaseli</annotation>
 		<annotation cp="🎠" type="tts">ihhashi lekharaseli</annotation>
 		<annotation cp="🎡">iferisi | isondo | isondo leferisi</annotation>
@@ -1495,6 +1555,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏍" type="tts">isithuthuthu esigijimayo</annotation>
 		<annotation cp="🛵">imoto | isithuthuthu</annotation>
 		<annotation cp="🛵" type="tts">isithuthuthu</annotation>
+		<annotation cp="🦽">isitulo esihanjiswayo | ukufinyelela</annotation>
+		<annotation cp="🦽" type="tts">isitulo esihanjiswayo</annotation>
+		<annotation cp="🦼">isitulo esizihambelayo | ukufinyelela</annotation>
+		<annotation cp="🦼" type="tts">isitulo esizihambelayo</annotation>
+		<annotation cp="🛺">i-auto rickshaw | i-tuk tuk</annotation>
+		<annotation cp="🛺" type="tts">i-auto rickshaw</annotation>
 		<annotation cp="🚲">ibhayisikili | isithuthi</annotation>
 		<annotation cp="🚲" type="tts">ibhayisikili</annotation>
 		<annotation cp="🛴">isikuta esikhahlelwayo | isithuthuthu | khahlela</annotation>
@@ -1545,6 +1611,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛫" type="tts">ukuhamba kwebhanoyi</annotation>
 		<annotation cp="🛬">ibhanoyi | isthuthi | ukufika | ukufika kwebhanoyi | ukuhlala phansi kwebhanoyi</annotation>
 		<annotation cp="🛬" type="tts">ukufika kwebhanoyi</annotation>
+		<annotation cp="🪂">i-hang-glide | i-parachute | i-parasail | i-skydive</annotation>
+		<annotation cp="🪂" type="tts">i-parachute</annotation>
 		<annotation cp="💺">isihlalo</annotation>
 		<annotation cp="💺" type="tts">isihlalo</annotation>
 		<annotation cp="🚁">ibhanoyi elinophephela emhlane | isithuthi</annotation>
@@ -1659,12 +1727,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌝" type="tts">inyanga egcwele enobuso</annotation>
 		<annotation cp="🌞">ilanga | ilanga elinobuso | isimo sezulu | ubuso | ukukhanya | umkhathi</annotation>
 		<annotation cp="🌞" type="tts">ilanga elinobuso</annotation>
+		<annotation cp="🪐">i-saturine | i-saturn | iplanethi eringayo</annotation>
+		<annotation cp="🪐" type="tts">iplanethi eringayo</annotation>
 		<annotation cp="⭐">inkanyezi | inkanyezi ephakathi nendawo emhlophe</annotation>
 		<annotation cp="⭐" type="tts">inkanyezi ephakathi nendawo emhlophe</annotation>
 		<annotation cp="🌟">inkanyezi | inkanyezi ebhanyazayo | ukubhayaza</annotation>
 		<annotation cp="🌟" type="tts">inkanyezi ebhanyazayo</annotation>
 		<annotation cp="🌠">inkanyezi | inkanyezi edubulayo | ukudubula | ukuwa | umkhathi</annotation>
 		<annotation cp="🌠" type="tts">inkanyezi edubulayo</annotation>
+		<annotation cp="🌌">imilkhi weyi | isimo sezulu | umkhathi</annotation>
+		<annotation cp="🌌" type="tts">imilkhi weyi</annotation>
 		<annotation cp="☁">ifu | isimo sezulu</annotation>
 		<annotation cp="☁" type="tts">ifu</annotation>
 		<annotation cp="⛅">ifu | ilanga | ilanga elingemuva kwefu | isimo sezulu</annotation>
@@ -1807,6 +1879,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛸" type="tts">ice skate</annotation>
 		<annotation cp="🎣">induku | inhlanzi | udobo</annotation>
 		<annotation cp="🎣" type="tts">udobo</annotation>
+		<annotation cp="🤿">i-scuba | i-snorkeling | imaski yokudayiva | ukudayiva</annotation>
+		<annotation cp="🤿" type="tts">imaski yokudayiva</annotation>
 		<annotation cp="🎽">isikibha | isikibha sokugijima | ukugijima</annotation>
 		<annotation cp="🎽" type="tts">isikibha sokugijima</annotation>
 		<annotation cp="🎿">isithwatha | ski | skis</annotation>
@@ -1817,6 +1891,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥌" type="tts">itshe lokutayela</annotation>
 		<annotation cp="🎯">idathi | ihlo | impokophelo | ukunemba | umdlalo</annotation>
 		<annotation cp="🎯" type="tts">ukunemba</annotation>
+		<annotation cp="🪀">i-yo-yo | ithoyi | ukungahlaliseki</annotation>
+		<annotation cp="🪀" type="tts">i-yo-yo</annotation>
+		<annotation cp="🪁">i-kite | i-soar | ukuphaph</annotation>
+		<annotation cp="🪁" type="tts">i-kite</annotation>
 		<annotation cp="🎱">8 | billiard | billiards | ibhola | umdlalo</annotation>
 		<annotation cp="🎱" type="tts">billiards</annotation>
 		<annotation cp="🔮">ibhola | ibhola lekhristali | ikhristali | inhlanhla | insumansumane | ithuluzi</annotation>
@@ -1862,6 +1940,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥽" type="tts">izibuko zokuzivikela</annotation>
 		<annotation cp="🥼">doctor | experiment | lab coat | scientist</annotation>
 		<annotation cp="🥼" type="tts">lab coat</annotation>
+		<annotation cp="🦺">iveste | iveste yokuphepha | okuphuthumayo | ukuphepha</annotation>
+		<annotation cp="🦺" type="tts">iveste yokuphepha</annotation>
 		<annotation cp="👔">impahla yokugqoka | uthayi womqala</annotation>
 		<annotation cp="👔" type="tts">uthayi womqala</annotation>
 		<annotation cp="👕">ihembe | impahla yokugqoka | isikibha</annotation>
@@ -1880,6 +1960,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👗" type="tts">irokwe</annotation>
 		<annotation cp="👘">ikinomo | ingubo yokugqoka</annotation>
 		<annotation cp="👘" type="tts">ikinomo</annotation>
+		<annotation cp="🥻">i-sari | ingubo | izingubo</annotation>
+		<annotation cp="🥻" type="tts">i-sari</annotation>
+		<annotation cp="🩱">insudu yebhavu | insudu yokubhukuda eyodwa</annotation>
+		<annotation cp="🩱" type="tts">insudu yokubhukuda eyodwa</annotation>
+		<annotation cp="🩲">insudu yebhavu | insudu yokubhukuda | izifinyezo | kokugqoka ngaphansi | ucezu olulodwa</annotation>
+		<annotation cp="🩲" type="tts">izifinyezo</annotation>
+		<annotation cp="🩳">ibhulukwe | insudu yebhavu | izikhindi | kokugqoka ngaphansi</annotation>
+		<annotation cp="🩳" type="tts">izikhindi</annotation>
 		<annotation cp="👙">ibikini | ingubo yokugqoka | ukubhukuda</annotation>
 		<annotation cp="👙" type="tts">ibikini</annotation>
 		<annotation cp="👚">impahla yomuntu wesifazane | ingubo yokugqoka | umuntu wesifazane</annotation>
@@ -1906,6 +1994,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👠" type="tts">igqoksi</annotation>
 		<annotation cp="👡">amasendeli | impahla yokugqoka | isicathulo | owesimame</annotation>
 		<annotation cp="👡" type="tts">amasendeli owesimame</annotation>
+		<annotation cp="🩰">izicathulo ze-ballet</annotation>
+		<annotation cp="🩰" type="tts">izicathulo ze-ballet</annotation>
 		<annotation cp="👢">ibhuzu | ibhuzu lowesimame | impahla yokugqoka | isicathulo | owesimame</annotation>
 		<annotation cp="👢" type="tts">ibhuzu lowesimame</annotation>
 		<annotation cp="👑">impahla yokugqoka | inkosazana | inkosi | umqhele</annotation>
@@ -1974,6 +2064,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎺" type="tts">icilongo</annotation>
 		<annotation cp="🎻">insimbi | ivayolini | umculo</annotation>
 		<annotation cp="🎻" type="tts">ivayolini</annotation>
+		<annotation cp="🪕">i-banjo | uchungechunge | umculo</annotation>
+		<annotation cp="🪕" type="tts">i-banjo</annotation>
 		<annotation cp="🥁">idilamu | izinduku zedilamu | umculo</annotation>
 		<annotation cp="🥁" type="tts">idilamu</annotation>
 		<annotation cp="📱">iselula | ucingo</annotation>
@@ -2044,6 +2136,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔦" type="tts">ithoshi</annotation>
 		<annotation cp="🏮">ibha | ilambu | ilambu elibomvu | japanese | okubomvu | ukukhanya</annotation>
 		<annotation cp="🏮" type="tts">ilambu elibomvu</annotation>
+		<annotation cp="🪔">i-diya | isibani | isibani se-diya | uwoyela</annotation>
+		<annotation cp="🪔" type="tts">isibani se-diya</annotation>
 		<annotation cp="📔">ikhava | incwadi | incwajana | incwajana enekhava ehlotshisiwe | umhlobiso</annotation>
 		<annotation cp="📔" type="tts">incwajana enekhava ehlotshisiwe</annotation>
 		<annotation cp="📕">incwadi | incwadi evaliwe | okuvaliwe</annotation>
@@ -2200,6 +2294,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗝" type="tts">ukhiye omdala</annotation>
 		<annotation cp="🔨">isando | ithuluzi</annotation>
 		<annotation cp="🔨" type="tts">isando</annotation>
+		<annotation cp="🪓">i-hatchet | imbazo | kapa | ukhuni | ukuhlukanisa</annotation>
+		<annotation cp="🪓" type="tts">imbazo</annotation>
 		<annotation cp="⛏">imayini | ipiki | ithuluzi</annotation>
 		<annotation cp="⛏" type="tts">ipiki</annotation>
 		<annotation cp="⚒">ipiki | isando | ithuluzi</annotation>
@@ -2226,6 +2322,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗜" type="tts">isicindezeli</annotation>
 		<annotation cp="⚖">inkanyezi | isisindo | ithuluzi | iziklali | libra | okokulinganisa | ubulungiswa | ukulingana</annotation>
 		<annotation cp="⚖" type="tts">okokulinganisa</annotation>
+		<annotation cp="🦯">ikheni yokusiza | ukufinyelela | ukuphophala</annotation>
+		<annotation cp="🦯" type="tts">ikheni yokusiza</annotation>
 		<annotation cp="🔗">ukuxhumanisa</annotation>
 		<annotation cp="🔗" type="tts">ukuxhumanisa</annotation>
 		<annotation cp="⛓">amaketango</annotation>
@@ -2250,20 +2348,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📡" type="tts">u-eriyeli wesethelaythi</annotation>
 		<annotation cp="💉">imithi | inaliti | ithuluzi | udokotela | ukugula | ukujova | umjovo</annotation>
 		<annotation cp="💉" type="tts">umjovo</annotation>
+		<annotation cp="🩸">imithi | itonsi lokudla | ukopha | ukuphisana ngegazi</annotation>
+		<annotation cp="🩸" type="tts">itonsi lokudla</annotation>
 		<annotation cp="💊">imithi | iphilisi | udokotela | ukugula</annotation>
 		<annotation cp="💊" type="tts">iphilisi</annotation>
+		<annotation cp="🩹">ibhandishi | ibhandishi yokubopha</annotation>
+		<annotation cp="🩹" type="tts">ibhandishi yokubopha</annotation>
+		<annotation cp="🩺">i-slethoscope | inhliziyo imithi | udokotela</annotation>
+		<annotation cp="🩺" type="tts">i-slethoscope</annotation>
 		<annotation cp="🚪">isicabha</annotation>
 		<annotation cp="🚪" type="tts">isicabha</annotation>
 		<annotation cp="🛏">ihhotela | ukulala | umbhede</annotation>
 		<annotation cp="🛏" type="tts">umbhede</annotation>
 		<annotation cp="🛋">ihhotela | ilambu | usofa</annotation>
 		<annotation cp="🛋" type="tts">usofa ilambu</annotation>
+		<annotation cp="🪑">hlala | isihlalo | isitulo</annotation>
+		<annotation cp="🪑" type="tts">isitulo</annotation>
 		<annotation cp="🚽">indlu yangasese</annotation>
 		<annotation cp="🚽" type="tts">indlu yangasese</annotation>
 		<annotation cp="🚿">amanzi | ishawa</annotation>
 		<annotation cp="🚿" type="tts">ishawa</annotation>
 		<annotation cp="🛁">ubhavu wokugezela | ukugeza</annotation>
 		<annotation cp="🛁" type="tts">ubhavu wokugezela</annotation>
+		<annotation cp="🪒">cija | i-razor | shefa</annotation>
+		<annotation cp="🪒" type="tts">i-razor</annotation>
 		<annotation cp="🧴">lotion | lotion bottle | moisturizer | shampoo | sunscreen</annotation>
 		<annotation cp="🧴" type="tts">lotion bottle</annotation>
 		<annotation cp="🧷">diaper | isipeletu | punk rock</annotation>
@@ -2482,6 +2590,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📳" type="tts">isimo sokushukuma</annotation>
 		<annotation cp="📴">cisha | iselula | iselula icishiwe | ithelefoni</annotation>
 		<annotation cp="📴" type="tts">iselula icishiwe</annotation>
+		<annotation cp="♀">owesifazane | uphawu lowesifazane</annotation>
+		<annotation cp="♀" type="tts">uphawu lowesifazane</annotation>
+		<annotation cp="♂">indoda | upahwu lwendoda</annotation>
+		<annotation cp="♂" type="tts">upahwu lwendoda</annotation>
 		<annotation cp="⚕">abasebenzi | umuthi | uphawu losizo lwezempilo</annotation>
 		<annotation cp="⚕" type="tts">uphawu losizo lwezempilo</annotation>
 		<annotation cp="♾">forever | ingunaphakade | unbounded | universal</annotation>
@@ -2628,28 +2740,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🈵" type="tts">uphawu lokugcwala okufakwe kuskwele</annotation>
 		<annotation cp="🔴">bomvu | indingilizi | indingilizi ebomvu | jiyometrikhi</annotation>
 		<annotation cp="🔴" type="tts">indingilizi ebomvu</annotation>
+		<annotation cp="🟠">isikokela | isikokela esi-orintshi</annotation>
+		<annotation cp="🟠" type="tts">isikokela esi-orintshi</annotation>
+		<annotation cp="🟡">isikokela esiphuzi</annotation>
+		<annotation cp="🟡" type="tts">isikokela esiphuzi</annotation>
+		<annotation cp="🟢">isikokela esihlaza</annotation>
+		<annotation cp="🟢" type="tts">isikokela esihlaza</annotation>
 		<annotation cp="🔵">indingiliza | indingilizi eluhlaza sasibhakabhaka | jiyometrikhi | luhlaza sasibhakabhaka</annotation>
 		<annotation cp="🔵" type="tts">indingilizi eluhlaza sasibhakabhaka</annotation>
-		<annotation cp="⚪">indingilizi | indingilizi emhlophe | jiyometrikhi</annotation>
-		<annotation cp="⚪" type="tts">indingilizi emhlophe</annotation>
+		<annotation cp="🟣">isikokela esibukhwebezane</annotation>
+		<annotation cp="🟣" type="tts">isikokela esibukhwebezane</annotation>
+		<annotation cp="🟤">↑↑↑</annotation>
+		<annotation cp="🟤" type="tts">↑↑↑</annotation>
 		<annotation cp="⚫">indingilizi | indingilizi emnyama | jiyometrikhi</annotation>
 		<annotation cp="⚫" type="tts">indingilizi emnyama</annotation>
-		<annotation cp="⬜">iskwele | iskwele esimhlophe esikhulu | jiyometrikhi</annotation>
-		<annotation cp="⬜" type="tts">iskwele esimhlophe esikhulu</annotation>
+		<annotation cp="⚪">indingilizi | indingilizi emhlophe | jiyometrikhi</annotation>
+		<annotation cp="⚪" type="tts">indingilizi emhlophe</annotation>
+		<annotation cp="🟥">↑↑↑</annotation>
+		<annotation cp="🟥" type="tts">↑↑↑</annotation>
+		<annotation cp="🟧">↑↑↑</annotation>
+		<annotation cp="🟧" type="tts">↑↑↑</annotation>
+		<annotation cp="🟨">↑↑↑</annotation>
+		<annotation cp="🟨" type="tts">↑↑↑</annotation>
+		<annotation cp="🟩">isikwele esiluhlaza satshani</annotation>
+		<annotation cp="🟩" type="tts">isikwele esiluhlaza satshani</annotation>
+		<annotation cp="🟦">isikwele esiluhlaza</annotation>
+		<annotation cp="🟦" type="tts">isikwele esiluhlaza</annotation>
+		<annotation cp="🟪">↑↑↑</annotation>
+		<annotation cp="🟪" type="tts">↑↑↑</annotation>
+		<annotation cp="🟫">↑↑↑</annotation>
+		<annotation cp="🟫" type="tts">↑↑↑</annotation>
 		<annotation cp="⬛">iskwele | iskwele esikhulu esimnyama | jiyometrikhi</annotation>
 		<annotation cp="⬛" type="tts">iskwele esikhulu esimnyama</annotation>
+		<annotation cp="⬜">iskwele | iskwele esimhlophe esikhulu | jiyometrikhi</annotation>
+		<annotation cp="⬜" type="tts">iskwele esimhlophe esikhulu</annotation>
 		<annotation cp="◼">iskwele | iskwele esimnyama esimaphakathi | jiyometrikhi</annotation>
 		<annotation cp="◼" type="tts">iskwele esimnyama esimaphakathi</annotation>
 		<annotation cp="◻">isikwele esimhlophe esimaphakathi | iskwele | jiyometrikhi</annotation>
 		<annotation cp="◻" type="tts">isikwele esimhlophe esimaphakathi</annotation>
-		<annotation cp="◽">iskwele | iskwele esimhlophe esimaphakathi esincane | jiyometrikhi</annotation>
-		<annotation cp="◽" type="tts">iskwele esimhlophe esimaphakathi esincane</annotation>
 		<annotation cp="◾">iskwele | iskwele esimnyama esimaphakathi esincane | jiyometrikhi</annotation>
 		<annotation cp="◾" type="tts">iskwele esimnyama esimaphakathi esincane</annotation>
-		<annotation cp="▫">isikwele esimhlophe esincane | iskwele | jiyometrikhi</annotation>
-		<annotation cp="▫" type="tts">isikwele esimhlophe esincane</annotation>
+		<annotation cp="◽">iskwele | iskwele esimhlophe esimaphakathi esincane | jiyometrikhi</annotation>
+		<annotation cp="◽" type="tts">iskwele esimhlophe esimaphakathi esincane</annotation>
 		<annotation cp="▪">iskwele | iskwele esincane esimnyama | jiyometrikhi</annotation>
 		<annotation cp="▪" type="tts">iskwele esincane esimnyama</annotation>
+		<annotation cp="▫">isikwele esimhlophe esincane | iskwele | jiyometrikhi</annotation>
+		<annotation cp="▫" type="tts">isikwele esimhlophe esincane</annotation>
 		<annotation cp="🔶">idayimande | idayimande elukhulu eliphuzu | jiyometrikhi | phuzi</annotation>
 		<annotation cp="🔶" type="tts">idayimande elukhulu eliphuzu</annotation>
 		<annotation cp="🔷">idayimande elikhulu eliphuzu sasibhakabhaka | jiyometrikhi | luhlaza sasibhakabhaka | phuzi</annotation>
@@ -2666,10 +2802,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💠" type="tts">idayimande elingenachashashi</annotation>
 		<annotation cp="🔘">inkinobho | inkinobho yomsakazo | jiyometrikhi | umsakazo</annotation>
 		<annotation cp="🔘" type="tts">inkinobho yomsakazo</annotation>
-		<annotation cp="🔲">inkinobho | inkinobho eyiskwele esimnyama | iskwele | jiyometrikhi</annotation>
-		<annotation cp="🔲" type="tts">inkinobho eyiskwele esimnyama</annotation>
 		<annotation cp="🔳">inkobho | inkonobho eyiskwele emhlophe | iskwele | jiyometrikhi | okugqanyisiwe</annotation>
 		<annotation cp="🔳" type="tts">inkonobho eyiskwele emhlophe</annotation>
+		<annotation cp="🔲">inkinobho | inkinobho eyiskwele esimnyama | iskwele | jiyometrikhi</annotation>
+		<annotation cp="🔲" type="tts">inkinobho eyiskwele esimnyama</annotation>
 		<annotation cp="🏁">ifulegi eliyisikotshi | isikotshi | ukuqhudelana</annotation>
 		<annotation cp="🏁" type="tts">ifulegi eliyisikotshi</annotation>
 		<annotation cp="🚩">ifulegi eliwunxantathu | posa</annotation>
@@ -2684,127 +2820,5 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">Ifulegi elimibalabala</annotation>
 		<annotation cp="🏴‍☠">Jolly Roger | pirate | pirate flag | plunder | treasure</annotation>
 		<annotation cp="🏴‍☠" type="tts">pirate flag</annotation>
-		<annotation cp="🛕">i-hindu | ithempeli | ithempeli le-hindu</annotation>
-		<annotation cp="🛕" type="tts">ithempeli le-hindu</annotation>
-		<annotation cp="🛺">i-auto rickshaw | i-tuk tuk</annotation>
-		<annotation cp="🛺" type="tts">i-auto rickshaw</annotation>
-		<annotation cp="🟠">isikokela | isikokela esi-orintshi</annotation>
-		<annotation cp="🟠" type="tts">isikokela esi-orintshi</annotation>
-		<annotation cp="🟡">isikokela esiphuzi</annotation>
-		<annotation cp="🟡" type="tts">isikokela esiphuzi</annotation>
-		<annotation cp="🟢">isikokela esihlaza</annotation>
-		<annotation cp="🟢" type="tts">isikokela esihlaza</annotation>
-		<annotation cp="🟣">isikokela esibukhwebezane</annotation>
-		<annotation cp="🟣" type="tts">isikokela esibukhwebezane</annotation>
-		<annotation cp="🟦">isikwele esiluhlaza</annotation>
-		<annotation cp="🟦" type="tts">isikwele esiluhlaza</annotation>
-		<annotation cp="🟩">isikwele esiluhlaza satshani</annotation>
-		<annotation cp="🟩" type="tts">isikwele esiluhlaza satshani</annotation>
-		<annotation cp="🤍">inhliziyo | inhliziyo emhlophe | mhlophe</annotation>
-		<annotation cp="🤍" type="tts">inhliziyo emhlophe</annotation>
-		<annotation cp="🤎">inhliziyo | inhliziyo ensundu | insundu</annotation>
-		<annotation cp="🤎" type="tts">inhliziyo ensundu</annotation>
-		<annotation cp="🤏">inani elincane | isandla esincinzayo</annotation>
-		<annotation cp="🤏" type="tts">isandla esincinzayo</annotation>
-		<annotation cp="🤿">i-scuba | i-snorkeling | imaski yokudayiva | ukudayiva</annotation>
-		<annotation cp="🤿" type="tts">imaski yokudayiva</annotation>
-		<annotation cp="🥱">khathele | thukuthezi | ubuso obuzamulayo | zamula</annotation>
-		<annotation cp="🥱" type="tts">ubuso obuzamulayo</annotation>
-		<annotation cp="🥻">i-sari | ingubo | izingubo</annotation>
-		<annotation cp="🥻" type="tts">i-sari</annotation>
-		<annotation cp="🦥">i-sloth | ukungasheshi | ukuvilapha</annotation>
-		<annotation cp="🦥" type="tts">i-sloth</annotation>
-		<annotation cp="🦦">i-otter | ukudlala | ukudoba</annotation>
-		<annotation cp="🦦" type="tts">i-otter</annotation>
-		<annotation cp="🦧">i-ape | i-orangutan</annotation>
-		<annotation cp="🦧" type="tts">i-orangutan</annotation>
-		<annotation cp="🦨">i-skunk | ukunuka</annotation>
-		<annotation cp="🦨" type="tts">i-skunk</annotation>
-		<annotation cp="🦩">i-flamboyanti | i-flamingo | i-tropical</annotation>
-		<annotation cp="🦩" type="tts">i-flamingo</annotation>
-		<annotation cp="🦪">i-oyster | i-pearl | ukudayiva</annotation>
-		<annotation cp="🦪" type="tts">i-oyster</annotation>
-		<annotation cp="🦮">inja yokusiza | ukufinyelela | ukuphophala | ukusiza</annotation>
-		<annotation cp="🦮" type="tts">inja yokusiza</annotation>
-		<annotation cp="🦯">ikheni yokusiza | ukufinyelela | ukuphophala</annotation>
-		<annotation cp="🦯" type="tts">ikheni yokusiza</annotation>
-		<annotation cp="🦺">iveste | iveste yokuphepha | okuphuthumayo | ukuphepha</annotation>
-		<annotation cp="🦺" type="tts">iveste yokuphepha</annotation>
-		<annotation cp="🦻">indlebe enensiza yokuzwa | ukufinyelela | ukuzwa nzima</annotation>
-		<annotation cp="🦻" type="tts">indlebe enensiza yokuzwa</annotation>
-		<annotation cp="🦼">isitulo esizihambelayo | ukufinyelela</annotation>
-		<annotation cp="🦼" type="tts">isitulo esizihambelayo</annotation>
-		<annotation cp="🦽">isitulo esihanjiswayo | ukufinyelela</annotation>
-		<annotation cp="🦽" type="tts">isitulo esihanjiswayo</annotation>
-		<annotation cp="🦾">isandla sikamakhenikha | ukufakelwa | ukufinyelela</annotation>
-		<annotation cp="🦾" type="tts">isandla sikamakhenikha</annotation>
-		<annotation cp="🦿">inyawo likamakhenikha | ukufakelwa | ukufinyelela</annotation>
-		<annotation cp="🦿" type="tts">inyawo likamakhenikha</annotation>
-		<annotation cp="🧃">ibhokisi lamajusi | ibhokisi leziphuzo</annotation>
-		<annotation cp="🧃" type="tts">ibhokisi leziphuzo</annotation>
-		<annotation cp="🧄">igalikhi | ukufaka umnambitho</annotation>
-		<annotation cp="🧄" type="tts">igalikhi</annotation>
-		<annotation cp="🧅">u-anyanisi | ukufaka umnambitho</annotation>
-		<annotation cp="🧅" type="tts">u-anyanisi</annotation>
-		<annotation cp="🧆">i-chickpea | i-falafel | i-meatball</annotation>
-		<annotation cp="🧆" type="tts">i-falafel</annotation>
-		<annotation cp="🧇">i-ayoni | i-indecive | i-waffle</annotation>
-		<annotation cp="🧇" type="tts">i-waffle</annotation>
-		<annotation cp="🧈">ibhatha | okwebisi</annotation>
-		<annotation cp="🧈" type="tts">ibhatha</annotation>
-		<annotation cp="🧉">i-mate | isiphuzo</annotation>
-		<annotation cp="🧉" type="tts">i-mate</annotation>
-		<annotation cp="🧊">i-iceberg | ukubanda</annotation>
-		<annotation cp="🧊" type="tts">ukubanda</annotation>
-		<annotation cp="🧍">ima | ukuma | umuntu omile</annotation>
-		<annotation cp="🧍" type="tts">umuntu omile</annotation>
-		<annotation cp="🧍‍♀">ukuma | umama | umama omile</annotation>
-		<annotation cp="🧍‍♀" type="tts">umama omile</annotation>
-		<annotation cp="🧍‍♂">indoda | indoda emile | ukuma</annotation>
-		<annotation cp="🧍‍♂" type="tts">indoda emile</annotation>
-		<annotation cp="🧎">guqa | ukuguqa | umuntu oguqile</annotation>
-		<annotation cp="🧎" type="tts">umuntu oguqile</annotation>
-		<annotation cp="🧎‍♀">ukuguqa | umama | umama ogulile</annotation>
-		<annotation cp="🧎‍♀" type="tts">umama ogulile</annotation>
-		<annotation cp="🧎‍♂">indoda | indoda eguqlile | ukuguqa</annotation>
-		<annotation cp="🧎‍♂" type="tts">indoda eguqlile</annotation>
-		<annotation cp="🧏">indlebe | ukufinyelela | ukungezwa | ukuzwa | umuntu ongezwa</annotation>
-		<annotation cp="🧏" type="tts">umuntu ongezwa</annotation>
-		<annotation cp="🧏‍♀">ongezwa | umama</annotation>
-		<annotation cp="🧏‍♀" type="tts">umama ongezwa</annotation>
-		<annotation cp="🧏‍♂">indoda | indoda engezwa | ongezwa</annotation>
-		<annotation cp="🧏‍♂" type="tts">indoda engezwa</annotation>
-		<annotation cp="🩰">izicathulo ze-ballet</annotation>
-		<annotation cp="🩰" type="tts">izicathulo ze-ballet</annotation>
-		<annotation cp="🩱">insudu yebhavu | insudu yokubhukuda eyodwa</annotation>
-		<annotation cp="🩱" type="tts">insudu yokubhukuda eyodwa</annotation>
-		<annotation cp="🩲">insudu yebhavu | insudu yokubhukuda | izifinyezo | kokugqoka ngaphansi | ucezu olulodwa</annotation>
-		<annotation cp="🩲" type="tts">izifinyezo</annotation>
-		<annotation cp="🩳">ibhulukwe | insudu yebhavu | izikhindi | kokugqoka ngaphansi</annotation>
-		<annotation cp="🩳" type="tts">izikhindi</annotation>
-		<annotation cp="🩸">imithi | itonsi lokudla | ukopha | ukuphisana ngegazi</annotation>
-		<annotation cp="🩸" type="tts">itonsi lokudla</annotation>
-		<annotation cp="🩹">ibhandishi | ibhandishi yokubopha</annotation>
-		<annotation cp="🩹" type="tts">ibhandishi yokubopha</annotation>
-		<annotation cp="🩺">i-slethoscope | inhliziyo imithi | udokotela</annotation>
-		<annotation cp="🩺" type="tts">i-slethoscope</annotation>
-		<annotation cp="🪀">i-yo-yo | ithoyi | ukungahlaliseki</annotation>
-		<annotation cp="🪀" type="tts">i-yo-yo</annotation>
-		<annotation cp="🪁">i-kite | i-soar | ukuphaph</annotation>
-		<annotation cp="🪁" type="tts">i-kite</annotation>
-		<annotation cp="🪂">i-hang-glide | i-parachute | i-parasail | i-skydive</annotation>
-		<annotation cp="🪂" type="tts">i-parachute</annotation>
-		<annotation cp="🪐">i-saturine | i-saturn | iplanethi eringayo</annotation>
-		<annotation cp="🪐" type="tts">iplanethi eringayo</annotation>
-		<annotation cp="🪑">hlala | isihlalo | isitulo</annotation>
-		<annotation cp="🪑" type="tts">isitulo</annotation>
-		<annotation cp="🪒">cija | i-razor | shefa</annotation>
-		<annotation cp="🪒" type="tts">i-razor</annotation>
-		<annotation cp="🪓">i-hatchet | imbazo | kapa | ukhuni | ukuhlukanisa</annotation>
-		<annotation cp="🪓" type="tts">imbazo</annotation>
-		<annotation cp="🪔">i-diya | isibani | isibani se-diya | uwoyela</annotation>
-		<annotation cp="🪔" type="tts">isibani se-diya</annotation>
-		<annotation cp="🪕">i-banjo | uchungechunge | umculo</annotation>
-		<annotation cp="🪕" type="tts">i-banjo</annotation>
 	</annotations>
 </ldml>

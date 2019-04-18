@@ -125,6 +125,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">다르그와어</language>
 			<language type="dav">타이타어</language>
 			<language type="de">독일어</language>
+			<language type="de_AT">↑↑↑</language>
 			<language type="de_CH">고지 독일어(스위스)</language>
 			<language type="del">델라웨어어</language>
 			<language type="den">슬라브어</language>
@@ -149,10 +150,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="elx">엘람어</language>
 			<language type="en">영어</language>
 			<language type="en_AU">영어(호주)</language>
+			<language type="en_CA">↑↑↑</language>
+			<language type="en_GB">↑↑↑</language>
+			<language type="en_GB" alt="short">↑↑↑</language>
+			<language type="en_US">↑↑↑</language>
+			<language type="en_US" alt="short">↑↑↑</language>
 			<language type="enm">중세 영어</language>
 			<language type="eo">에스페란토어</language>
 			<language type="es">스페인어</language>
+			<language type="es_419">↑↑↑</language>
 			<language type="es_ES" draft="contributed">스페인어(유럽)</language>
+			<language type="es_MX">↑↑↑</language>
 			<language type="et">에스토니아어</language>
 			<language type="eu">바스크어</language>
 			<language type="ewo">이원도어</language>
@@ -166,6 +174,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">페로어</language>
 			<language type="fon">폰어</language>
 			<language type="fr">프랑스어</language>
+			<language type="fr_CA">↑↑↑</language>
+			<language type="fr_CH">↑↑↑</language>
 			<language type="frc">케이준 프랑스어</language>
 			<language type="frm">중세 프랑스어</language>
 			<language type="fro">고대 프랑스어</language>
@@ -408,6 +418,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="pro">고대 프로방스어</language>
 			<language type="ps">파슈토어</language>
 			<language type="pt">포르투갈어</language>
+			<language type="pt_BR">↑↑↑</language>
 			<language type="pt_PT" draft="contributed">포르투갈어(유럽)</language>
 			<language type="qu">케추아어</language>
 			<language type="quc">키체어</language>
@@ -554,6 +565,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="zen">제나가어</language>
 			<language type="zgh">표준 모로코 타마지트어</language>
 			<language type="zh">중국어</language>
+			<language type="zh_Hans">↑↑↑</language>
+			<language type="zh_Hant">↑↑↑</language>
 			<language type="zu">줄루어</language>
 			<language type="zun">주니어</language>
 			<language type="zxx">언어 관련 내용 없음</language>
@@ -1258,13 +1271,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
-			<parseLenient sample="’" draft="contributed">['ʼ՚᾽᾿’＇]</parseLenient>
-			<parseLenient sample="%" draft="contributed">[%٪﹪％]</parseLenient>
-			<parseLenient sample="‰" draft="contributed">[؉‰]</parseLenient>
+			<parseLenient sample="’" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="%" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="‰" draft="contributed">↑↑↑</parseLenient>
 			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
 			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
-			<parseLenient sample="¥" draft="contributed">[¥￥]</parseLenient>
-			<parseLenient sample="₩" draft="contributed">[₩￦]</parseLenient>
+			<parseLenient sample="¥" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="₩" draft="contributed">↑↑↑</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
 			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
@@ -7307,8 +7320,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}ppm</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName draft="contributed">‱</displayName>
-				<unitPattern count="other" draft="contributed">{0}‱</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName draft="contributed">몰</displayName>
@@ -7740,7 +7753,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}켈빈</unitPattern>
 			</unit>
 			<unit type="torque-pound-foot">
-				<displayName>lbf⋅ft</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}lbf⋅ft</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
@@ -7932,11 +7945,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}ppm</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName draft="contributed">‱</displayName>
-				<unitPattern count="other" draft="contributed">{0}‱</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<displayName draft="contributed">mol</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}mol</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
@@ -8067,19 +8080,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}kWh</unitPattern>
 			</unit>
 			<unit type="energy-electronvolt">
-				<displayName draft="contributed">eV</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}eV</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
-				<displayName draft="contributed">Btu</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}Btu</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
-				<displayName draft="contributed">lbf</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}lbf</unitPattern>
 			</unit>
 			<unit type="force-newton">
-				<displayName draft="contributed">N</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}N</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
@@ -8157,14 +8170,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}pt</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
-				<displayName draft="contributed">R☉</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}R☉</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<unitPattern count="other">{0}lx</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
-				<displayName draft="contributed">L☉</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}L☉</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
@@ -8202,15 +8215,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}CD</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
-				<displayName draft="contributed">Da</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}Da</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
-				<displayName draft="contributed">M⊕</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}M⊕</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
-				<displayName draft="contributed">M☉</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}M☉</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
@@ -8252,11 +8265,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}atm</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
-				<displayName draft="contributed">kPa</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}kPa</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
-				<displayName draft="contributed">MPa</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}MPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
@@ -8275,11 +8288,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}K</unitPattern>
 			</unit>
 			<unit type="torque-pound-foot">
-				<displayName>lbf⋅ft</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}lbf⋅ft</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
-				<displayName draft="contributed">N⋅m</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}N⋅m</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
@@ -8355,7 +8368,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}fl oz</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
-				<displayName draft="contributed">Imp. fl oz</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}fl oz Imp.</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
@@ -8365,7 +8378,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}tsp</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
-				<displayName draft="contributed">bbl</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}bbl</unitPattern>
 			</unit>
 			<coordinateUnit>
@@ -8629,10 +8642,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="2">{0} 또는 {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0} 및 {1}</listPatternPart>
-			<listPatternPart type="2">{0} 및 {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>

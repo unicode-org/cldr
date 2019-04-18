@@ -129,6 +129,9 @@ public class Annotations {
         
         @Override
         public void handlePathValue(String path, String value) {
+            if (value.contains(CldrUtility.INHERITANCE_MARKER)) {
+                return; // skip all ^^^
+            }
             XPathParts parts = XPathParts.getFrozenInstance(path);
             String lastElement = parts.getElement(-1);
             if (!lastElement.equals("annotation")) {
@@ -180,7 +183,16 @@ public class Annotations {
 
     public Annotations(Set<String> attributes, String tts2) {
         annotations = attributes == null ? Collections.<String> emptySet() : ImmutableSet.copyOf(attributes);
+        for (String attr : annotations) {
+            if (attr.contains(CldrUtility.INHERITANCE_MARKER)) {
+                throw new IllegalArgumentException(CldrUtility.INHERITANCE_MARKER);
+            }
+
+        }
         tts = tts2;
+        if (tts != null && tts.contains(CldrUtility.INHERITANCE_MARKER)) {
+            throw new IllegalArgumentException(CldrUtility.INHERITANCE_MARKER);
+        }
     }
 
     public Annotations add(Set<String> attributes, String tts2) {
@@ -271,9 +283,9 @@ public class Annotations {
         }
 
         private String getStringValue(String xpath, CLDRFile cldrFile2, CLDRFile english) {
-            String result = cldrFile2.getStringValue(xpath);
+            String result = cldrFile2.getStringValueWithBailey(xpath);
             if (result == null) {
-                return ENGLISH_MARKER + english.getStringValue(xpath);
+                return ENGLISH_MARKER + english.getStringValueWithBailey(xpath);
             }
             String sourceLocale = cldrFile2.getSourceLocaleID(xpath, null);
             if (sourceLocale.equals(XMLSource.CODE_FALLBACK_ID) || sourceLocale.equals(XMLSource.ROOT_ID)) {
@@ -361,7 +373,7 @@ public class Annotations {
                 String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, countryCode);
                 String regionName = getStringValue(path);
                 if (regionName == null) {
-                    regionName = ENGLISH_MARKER + ENGLISH.getStringValue(path);
+                    regionName = ENGLISH_MARKER + ENGLISH.getStringValueWithBailey(path);
                 }
                 String flagName = flagLabel == null ? regionName : initialPattern.format(flagLabel, regionName);
                 return new Annotations(flagLabelSet, flagName);

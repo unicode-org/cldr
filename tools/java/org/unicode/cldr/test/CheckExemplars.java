@@ -279,7 +279,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
             CheckStatus message = new CheckStatus().setCause(this)
                 .setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.badParseLenient)
-                .setMessage(e.getMessage());
+                .setMessage(e.toString() + (e.getMessage() == null ? "" : ": " + e.getMessage()));
             result.add(message);
         }
     }

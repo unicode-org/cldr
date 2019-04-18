@@ -832,6 +832,9 @@ abstract public class CheckCLDR {
             if (cause == null) {
                 throw new IllegalArgumentException("Must have cause set.");
             }
+            if (message == null) {
+                throw new IllegalArgumentException("Message cannot be null.");
+            }
             this.messageFormat = message;
             this.parameters = null;
             return this;

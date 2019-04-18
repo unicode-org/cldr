@@ -21,8 +21,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏾" type="tts">中深膚色</annotation>
 		<annotation cp="🏿">深膚色 | 膚色 | 類型 6</annotation>
 		<annotation cp="🏿" type="tts">深膚色</annotation>
-		<annotation cp="🐾">印 | 掌 | 掌印 | 腳</annotation>
-		<annotation cp="🐾" type="tts">掌印</annotation>
 		<annotation cp="😀">微笑 | 笑臉 | 臉</annotation>
 		<annotation cp="😀" type="tts">笑臉</annotation>
 		<annotation cp="😃">嘴 | 大眼睛笑臉 | 微笑 | 打開 | 臉</annotation>
@@ -193,6 +191,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😩" type="tts">好累嘅臉</annotation>
 		<annotation cp="😫">累 | 累嘅臉 | 臉</annotation>
 		<annotation cp="😫" type="tts">累嘅臉</annotation>
+		<annotation cp="🥱">悶 | 打喊露 | 打喊露嘅臉 | 累</annotation>
+		<annotation cp="🥱" type="tts">打喊露嘅臉</annotation>
 		<annotation cp="😤">臉 | 贏 | 贏咗 | 鼻窿出氣嘅臉</annotation>
 		<annotation cp="😤" type="tts">鼻窿出氣嘅臉</annotation>
 		<annotation cp="😡">嬲 | 憤怒 | 撅嘴 | 撅嘴嘅臉 | 發瘋 | 紅 | 臉</annotation>
@@ -285,8 +285,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💙" type="tts">藍色心</annotation>
 		<annotation cp="💜">紫色 | 紫色心</annotation>
 		<annotation cp="💜" type="tts">紫色心</annotation>
+		<annotation cp="🤎">啡色 | 啡色心 | 心</annotation>
+		<annotation cp="🤎" type="tts">啡色心</annotation>
 		<annotation cp="🖤">邪惡 | 黑色 | 黑色心</annotation>
 		<annotation cp="🖤" type="tts">黑色心</annotation>
+		<annotation cp="🤍">心 | 白色 | 白色心</annotation>
+		<annotation cp="🤍" type="tts">白色心</annotation>
 		<annotation cp="💯">100 | 一百分 | 分數 | 滿分 | 百</annotation>
 		<annotation cp="💯" type="tts">一百分</annotation>
 		<annotation cp="💢">嬲 | 嬲嘅標誌 | 搞笑 | 發癲</annotation>
@@ -327,6 +331,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🖖" type="tts">瓦肯式敬禮手勢</annotation>
 		<annotation cp="👌">OK | OK 手勢 | 手</annotation>
 		<annotation cp="👌" type="tts">OK 手勢</annotation>
+		<annotation cp="🤏">小量 | 捏手</annotation>
+		<annotation cp="🤏" type="tts">捏手</annotation>
 		<annotation cp="✌">v | 勝利 | 勝利手勢 | 手</annotation>
 		<annotation cp="✌" type="tts">勝利手勢</annotation>
 		<annotation cp="🤞">交叉 | 交叉手指 | 幸運 | 手 | 手指</annotation>
@@ -381,12 +387,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤳" type="tts">自拍</annotation>
 		<annotation cp="💪">二頭肌 | 手瓜 | 漫畫 | 肌肉</annotation>
 		<annotation cp="💪" type="tts">手瓜</annotation>
+		<annotation cp="🦾">機械臂 | 義肢 | 輔助</annotation>
+		<annotation cp="🦾" type="tts">機械臂</annotation>
+		<annotation cp="🦿">機械腳 | 義肢 | 輔助</annotation>
+		<annotation cp="🦿" type="tts">機械腳</annotation>
 		<annotation cp="🦵">肢 | 腳 | 踢</annotation>
 		<annotation cp="🦵" type="tts">腳</annotation>
 		<annotation cp="🦶">腳掌 | 踏 | 踢</annotation>
 		<annotation cp="🦶" type="tts">腳掌</annotation>
 		<annotation cp="👂">耳仔 | 身體</annotation>
 		<annotation cp="👂" type="tts">耳仔</annotation>
+		<annotation cp="🦻">戴助聽器嘅耳仔 | 無障礙 | 聽障</annotation>
+		<annotation cp="🦻" type="tts">戴助聽器嘅耳仔</annotation>
 		<annotation cp="👃">身體 | 鼻</annotation>
 		<annotation cp="👃" type="tts">鼻</annotation>
 		<annotation cp="🧠">智力 | 腦</annotation>
@@ -415,28 +427,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">成人</annotation>
 		<annotation cp="👱">金色頭髮 | 金色頭髮嘅人</annotation>
 		<annotation cp="👱" type="tts">金色頭髮嘅人</annotation>
-		<annotation cp="🧑‍🤝‍🧑">人 | 情侶 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手</annotation>
-		<annotation cp="🧑‍🤝‍🧑" type="tts">拖住嘅人</annotation>
 		<annotation cp="👨">男人</annotation>
 		<annotation cp="👨" type="tts">男人</annotation>
-		<annotation cp="👨‍🦯">拎拐杖嘅男人 | 無障礙 | 男人 | 盲</annotation>
-		<annotation cp="👨‍🦯" type="tts">拎拐杖嘅男人</annotation>
-		<annotation cp="👨‍🦼">坐電動輪椅嘅男人 | 無障礙 | 男人 | 輪椅</annotation>
-		<annotation cp="👨‍🦼" type="tts">坐電動輪椅嘅男人</annotation>
-		<annotation cp="👨‍🦽">坐手動輪椅嘅男人 | 無障礙 | 男人 | 輪椅</annotation>
-		<annotation cp="👨‍🦽" type="tts">坐手動輪椅嘅男人</annotation>
-		<annotation cp="👱‍♂">男 | 金色頭髮 | 金色頭髮嘅男人</annotation>
-		<annotation cp="👱‍♂" type="tts">金色頭髮嘅男人</annotation>
 		<annotation cp="🧔">留鬚嘅人 | 鬚</annotation>
 		<annotation cp="🧔" type="tts">留鬚嘅人</annotation>
+		<annotation cp="👱‍♂">男 | 金色頭髮 | 金色頭髮嘅男人</annotation>
+		<annotation cp="👱‍♂" type="tts">金色頭髮嘅男人</annotation>
 		<annotation cp="👩">女人</annotation>
 		<annotation cp="👩" type="tts">女人</annotation>
-		<annotation cp="👩‍🦯">女人 | 拎拐杖嘅女人 | 無障礙 | 盲</annotation>
-		<annotation cp="👩‍🦯" type="tts">拎拐杖嘅女人</annotation>
-		<annotation cp="👩‍🦼">坐電動輪椅嘅女人 | 女人 | 無障礙 | 輪椅</annotation>
-		<annotation cp="👩‍🦼" type="tts">坐電動輪椅嘅女人</annotation>
-		<annotation cp="👩‍🦽">坐手動輪椅嘅女人 | 女人 | 無障礙 | 輪椅</annotation>
-		<annotation cp="👩‍🦽" type="tts">坐手動輪椅嘅女人</annotation>
 		<annotation cp="👱‍♀">女 | 金色頭髮 | 金色頭髮嘅女人</annotation>
 		<annotation cp="👱‍♀" type="tts">金色頭髮嘅女人</annotation>
 		<annotation cp="🧓">中性 | 老人 | 老年</annotation>
@@ -481,6 +479,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙋‍♂" type="tts">舉手嘅男人</annotation>
 		<annotation cp="🙋‍♀">女 | 手勢 | 舉手 | 舉手嘅女人</annotation>
 		<annotation cp="🙋‍♀" type="tts">舉手嘅女人</annotation>
+		<annotation cp="🧏">無障礙 | 耳仔 | 聽 | 聾 | 聾人</annotation>
+		<annotation cp="🧏" type="tts">聾人</annotation>
+		<annotation cp="🧏‍♂">男人 | 聾 | 聾嘅男人</annotation>
+		<annotation cp="🧏‍♂" type="tts">聾嘅男人</annotation>
+		<annotation cp="🧏‍♀">女人 | 聾 | 聾嘅女人</annotation>
+		<annotation cp="🧏‍♀" type="tts">聾嘅女人</annotation>
 		<annotation cp="🙇">姿勢 | 對唔住 | 道歉 | 鞠躬 | 鞠躬嘅人</annotation>
 		<annotation cp="🙇" type="tts">鞠躬嘅人</annotation>
 		<annotation cp="🙇‍♂">姿勢 | 對唔住 | 感謝 | 男 | 道歉 | 鞠躬 | 鞠躬嘅男人</annotation>
@@ -687,6 +691,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚶‍♂" type="tts">行路嘅男人</annotation>
 		<annotation cp="🚶‍♀">女 | 行路 | 行路嘅女人 | 遠足</annotation>
 		<annotation cp="🚶‍♀" type="tts">行路嘅女人</annotation>
+		<annotation cp="🧍">企 | 企喺度嘅人</annotation>
+		<annotation cp="🧍" type="tts">企喺度嘅人</annotation>
+		<annotation cp="🧍‍♂">企 | 企喺度嘅男人 | 男</annotation>
+		<annotation cp="🧍‍♂" type="tts">企喺度嘅男人</annotation>
+		<annotation cp="🧍‍♀">企 | 企喺度嘅女人 | 女人</annotation>
+		<annotation cp="🧍‍♀" type="tts">企喺度嘅女人</annotation>
+		<annotation cp="🧎">跪 | 跪嘅人</annotation>
+		<annotation cp="🧎" type="tts">跪嘅人</annotation>
+		<annotation cp="🧎‍♂">男 | 跪 | 跪嘅男人</annotation>
+		<annotation cp="🧎‍♂" type="tts">跪嘅男人</annotation>
+		<annotation cp="🧎‍♀">女 | 跪 | 跪嘅女人</annotation>
+		<annotation cp="🧎‍♀" type="tts">跪嘅女人</annotation>
+		<annotation cp="👨‍🦯">拎拐杖嘅男人 | 無障礙 | 男人 | 盲</annotation>
+		<annotation cp="👨‍🦯" type="tts">拎拐杖嘅男人</annotation>
+		<annotation cp="👩‍🦯">女人 | 拎拐杖嘅女人 | 無障礙 | 盲</annotation>
+		<annotation cp="👩‍🦯" type="tts">拎拐杖嘅女人</annotation>
+		<annotation cp="👨‍🦼">坐電動輪椅嘅男人 | 無障礙 | 男人 | 輪椅</annotation>
+		<annotation cp="👨‍🦼" type="tts">坐電動輪椅嘅男人</annotation>
+		<annotation cp="👩‍🦼">坐電動輪椅嘅女人 | 女人 | 無障礙 | 輪椅</annotation>
+		<annotation cp="👩‍🦼" type="tts">坐電動輪椅嘅女人</annotation>
+		<annotation cp="👨‍🦽">坐手動輪椅嘅男人 | 無障礙 | 男人 | 輪椅</annotation>
+		<annotation cp="👨‍🦽" type="tts">坐手動輪椅嘅男人</annotation>
+		<annotation cp="👩‍🦽">坐手動輪椅嘅女人 | 女人 | 無障礙 | 輪椅</annotation>
+		<annotation cp="👩‍🦽" type="tts">坐手動輪椅嘅女人</annotation>
 		<annotation cp="🏃">跑步 | 跑步嘅人 | 馬拉松</annotation>
 		<annotation cp="🏃" type="tts">跑步嘅人</annotation>
 		<annotation cp="🏃‍♂">男 | 賽跑 | 跑步 | 跑步嘅男人 | 馬拉松</annotation>
@@ -813,12 +841,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛀" type="tts">沖涼嘅人</annotation>
 		<annotation cp="🛌">喺床上嘅人 | 訓覺 | 酒店</annotation>
 		<annotation cp="🛌" type="tts">喺床上嘅人</annotation>
+		<annotation cp="🧑‍🤝‍🧑">人 | 情侶 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts">拖住嘅人</annotation>
+		<annotation cp="👭">兩個女人拖手 | 夫婦 | 女 | 手 | 拖</annotation>
+		<annotation cp="👭" type="tts">兩個女人拖手</annotation>
 		<annotation cp="👫">夫婦 | 女 | 手 | 拖 | 男 | 男女拖手</annotation>
 		<annotation cp="👫" type="tts">男女拖手</annotation>
 		<annotation cp="👬">兩個男人拖手 | 星座 | 男 | 雙子座 | 雙胞胎</annotation>
 		<annotation cp="👬" type="tts">兩個男人拖手</annotation>
-		<annotation cp="👭">兩個女人拖手 | 夫婦 | 女 | 手 | 拖</annotation>
-		<annotation cp="👭" type="tts">兩個女人拖手</annotation>
 		<annotation cp="💏">吻 | 夫婦</annotation>
 		<annotation cp="💏" type="tts">吻</annotation>
 		<annotation cp="💑">夫婦｜愛 | 夫婦同心</annotation>
@@ -841,20 +871,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦳" type="tts">白色頭髮</annotation>
 		<annotation cp="🦲">光頭 | 剃頭 | 化療 | 無頭髮</annotation>
 		<annotation cp="🦲" type="tts">光頭</annotation>
-		<annotation cp="♀">女 | 女性標誌</annotation>
-		<annotation cp="♀" type="tts">女性標誌</annotation>
-		<annotation cp="♂">男 | 男性標誌</annotation>
-		<annotation cp="♂" type="tts">男性標誌</annotation>
 		<annotation cp="🐵">臉 | 馬騮 | 馬騮臉</annotation>
 		<annotation cp="🐵" type="tts">馬騮臉</annotation>
 		<annotation cp="🐒">馬騮</annotation>
 		<annotation cp="🐒" type="tts">馬騮</annotation>
 		<annotation cp="🦍">大猩猩</annotation>
 		<annotation cp="🦍" type="tts">大猩猩</annotation>
+		<annotation cp="🦧">猩猩 | 猿</annotation>
+		<annotation cp="🦧" type="tts">猩猩</annotation>
 		<annotation cp="🐶">寵物 | 狗 | 狗臉 | 臉</annotation>
 		<annotation cp="🐶" type="tts">狗臉</annotation>
 		<annotation cp="🐕">寵物 | 狗</annotation>
 		<annotation cp="🐕" type="tts">狗</annotation>
+		<annotation cp="🦮">導盲 | 導盲犬 | 無障礙 | 盲</annotation>
+		<annotation cp="🦮" type="tts">導盲犬</annotation>
 		<annotation cp="🐕‍🦺">協助 | 服務 | 治療犬 | 無障礙 | 狗</annotation>
 		<annotation cp="🐕‍🦺" type="tts">治療犬</annotation>
 		<annotation cp="🐩">狗 | 獅子狗</annotation>
@@ -947,10 +977,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐨" type="tts">樹熊</annotation>
 		<annotation cp="🐼">熊貓 | 熊貓臉 | 臉</annotation>
 		<annotation cp="🐼" type="tts">熊貓臉</annotation>
+		<annotation cp="🦥">慢 | 懶 | 樹獺</annotation>
+		<annotation cp="🦥" type="tts">樹獺</annotation>
+		<annotation cp="🦦">獺 | 調皮 | 釣魚</annotation>
+		<annotation cp="🦦" type="tts">獺</annotation>
+		<annotation cp="🦨">臭鼬</annotation>
+		<annotation cp="🦨" type="tts">臭鼬</annotation>
 		<annotation cp="🦘">有袋動物 | 澳洲 | 袋鼠 | 跳</annotation>
 		<annotation cp="🦘" type="tts">袋鼠</annotation>
 		<annotation cp="🦡">獾 | 糾纏 | 蜂蜜獾</annotation>
 		<annotation cp="🦡" type="tts">獾</annotation>
+		<annotation cp="🐾">印 | 掌 | 掌印 | 腳</annotation>
+		<annotation cp="🐾" type="tts">掌印</annotation>
 		<annotation cp="🦃">火雞 | 雀</annotation>
 		<annotation cp="🦃" type="tts">火雞</annotation>
 		<annotation cp="🐔">雀 | 雞</annotation>
@@ -977,6 +1015,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦢" type="tts">天鵝</annotation>
 		<annotation cp="🦉">智慧 | 貓頭鷹 | 雀</annotation>
 		<annotation cp="🦉" type="tts">貓頭鷹</annotation>
+		<annotation cp="🦩">熱帶 | 紅鶴 | 靚</annotation>
+		<annotation cp="🦩" type="tts">紅鶴</annotation>
 		<annotation cp="🦚">孔雀 | 開屏 | 雀 | 驕傲</annotation>
 		<annotation cp="🦚" type="tts">孔雀</annotation>
 		<annotation cp="🦜">啄木鳥 | 海盜 | 講野 | 雀</annotation>
@@ -1137,6 +1177,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥬" type="tts">菜</annotation>
 		<annotation cp="🥦">西蘭花 | 野生白菜</annotation>
 		<annotation cp="🥦" type="tts">西蘭花</annotation>
+		<annotation cp="🧄">蒜頭 | 調味</annotation>
+		<annotation cp="🧄" type="tts">蒜頭</annotation>
+		<annotation cp="🧅">洋蔥 | 調味</annotation>
+		<annotation cp="🧅" type="tts">洋蔥</annotation>
 		<annotation cp="🍄">毒菌 | 蘑菇</annotation>
 		<annotation cp="🍄" type="tts">蘑菇</annotation>
 		<annotation cp="🥜">果仁 | 花生 | 蔬菜 | 食物</annotation>
@@ -1155,6 +1199,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥯" type="tts">比高包</annotation>
 		<annotation cp="🥞">熱香餅 | 班戟 | 薄班戟 | 食物</annotation>
 		<annotation cp="🥞" type="tts">班戟</annotation>
+		<annotation cp="🧇">窩夫 | 軟 | 鐵</annotation>
+		<annotation cp="🧇" type="tts">窩夫</annotation>
 		<annotation cp="🧀">芝士</annotation>
 		<annotation cp="🧀" type="tts">芝士</annotation>
 		<annotation cp="🍖">肉 | 肉連⻣ | 骨</annotation>
@@ -1181,6 +1227,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌯" type="tts">捲餅</annotation>
 		<annotation cp="🥙">三文治 | 沙律三文治 | 烤肉串 | 食物 | 餡餅 | 麵包</annotation>
 		<annotation cp="🥙" type="tts">餡餅</annotation>
+		<annotation cp="🧆">中東蔬菜球 | 肉丸 | 鷹嘴豆</annotation>
+		<annotation cp="🧆" type="tts">中東蔬菜球</annotation>
 		<annotation cp="🥚">蛋 | 食物</annotation>
 		<annotation cp="🥚" type="tts">蛋</annotation>
 		<annotation cp="🍳">平底鑊 | 煮食 | 煎 | 蛋</annotation>
@@ -1195,6 +1243,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥗" type="tts">蔬菜沙律</annotation>
 		<annotation cp="🍿">爆谷</annotation>
 		<annotation cp="🍿" type="tts">爆谷</annotation>
+		<annotation cp="🧈">乳製品 | 牛油</annotation>
+		<annotation cp="🧈" type="tts">牛油</annotation>
 		<annotation cp="🧂">調味料 | 鹽 | 鹽樽</annotation>
 		<annotation cp="🧂" type="tts">鹽</annotation>
 		<annotation cp="🥫">罐頭 | 罐頭食物</annotation>
@@ -1241,6 +1291,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦐" type="tts">蝦</annotation>
 		<annotation cp="🦑">軟體動物 | 食物 | 魷魚</annotation>
 		<annotation cp="🦑" type="tts">魷魚</annotation>
+		<annotation cp="🦪">潛水 | 珍珠 | 生蠔</annotation>
+		<annotation cp="🦪" type="tts">生蠔</annotation>
 		<annotation cp="🍦">冰 | 忌廉 | 甜 | 甜品 | 軟 | 軟雪糕 | 雪糕</annotation>
 		<annotation cp="🍦" type="tts">軟雪糕</annotation>
 		<annotation cp="🍧">冰 | 刨 | 刨冰 | 甜 | 甜品</annotation>
@@ -1297,6 +1349,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥃" type="tts">烈酒㷴</annotation>
 		<annotation cp="🥤">果汁 | 梳打 | 飲管杯</annotation>
 		<annotation cp="🥤" type="tts">飲管杯</annotation>
+		<annotation cp="🧃">果汁盒 | 紙包飲品</annotation>
+		<annotation cp="🧃" type="tts">紙包飲品</annotation>
+		<annotation cp="🧉">瑪黛茶 | 飲品</annotation>
+		<annotation cp="🧉" type="tts">瑪黛茶</annotation>
+		<annotation cp="🧊">冰 | 冰塊</annotation>
+		<annotation cp="🧊" type="tts">冰塊</annotation>
 		<annotation cp="🥢">hashi | 筷子</annotation>
 		<annotation cp="🥢" type="tts">筷子</annotation>
 		<annotation cp="🍽">刀 | 叉 | 叉、刀同碟 | 煮食 | 碟</annotation>
@@ -1393,6 +1451,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛪" type="tts">教堂</annotation>
 		<annotation cp="🕌">伊斯蘭教徒 | 宗教 | 清真寺 | 穆斯林</annotation>
 		<annotation cp="🕌" type="tts">清真寺</annotation>
+		<annotation cp="🛕">印度寺 | 寺廟</annotation>
+		<annotation cp="🛕" type="tts">印度寺</annotation>
 		<annotation cp="🕍">宗教 | 寺廟 | 猶太教 | 猶太教堂 | 猶太教徒</annotation>
 		<annotation cp="🕍" type="tts">猶太教堂</annotation>
 		<annotation cp="⛩">宗教 | 神教 | 神教神社 | 神社</annotation>
@@ -1421,8 +1481,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌉" type="tts">晚上嘅大橋</annotation>
 		<annotation cp="♨">泉 | 溫泉 | 熱 | 熱騰騰</annotation>
 		<annotation cp="♨" type="tts">溫泉</annotation>
-		<annotation cp="🌌">太空 | 銀河</annotation>
-		<annotation cp="🌌" type="tts">銀河</annotation>
 		<annotation cp="🎠">旋轉 | 旋轉木馬 | 馬</annotation>
 		<annotation cp="🎠" type="tts">旋轉木馬</annotation>
 		<annotation cp="🎡">摩天輪 | 輪 | 遊樂場</annotation>
@@ -1495,6 +1553,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏍" type="tts">電單車</annotation>
 		<annotation cp="🛵">滑板車 | 發動機 | 電動滑板車</annotation>
 		<annotation cp="🛵" type="tts">電動滑板車</annotation>
+		<annotation cp="🦽">手動輪椅 | 無障礙</annotation>
+		<annotation cp="🦽" type="tts">手動輪椅</annotation>
+		<annotation cp="🦼">無障礙 | 電動輪椅</annotation>
+		<annotation cp="🦼" type="tts">電動輪椅</annotation>
+		<annotation cp="🛺">篤篤 | 自動人力車</annotation>
+		<annotation cp="🛺" type="tts">自動人力車</annotation>
 		<annotation cp="🚲">單車</annotation>
 		<annotation cp="🚲" type="tts">單車</annotation>
 		<annotation cp="🛴">滑板車 | 踢</annotation>
@@ -1545,6 +1609,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛫" type="tts">飛機起飛</annotation>
 		<annotation cp="🛬">到達 | 抵達 | 降落 | 飛機 | 飛機到達</annotation>
 		<annotation cp="🛬" type="tts">飛機到達</annotation>
+		<annotation cp="🪂">滑翔傘 | 跳傘 | 降落傘</annotation>
+		<annotation cp="🪂" type="tts">降落傘</annotation>
 		<annotation cp="💺">座位 | 櫈</annotation>
 		<annotation cp="💺" type="tts">座位</annotation>
 		<annotation cp="🚁">直升機 | 車輛</annotation>
@@ -1659,12 +1725,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌝" type="tts">滿月面</annotation>
 		<annotation cp="🌞">光亮 | 太陽 | 太陽表面 | 臉</annotation>
 		<annotation cp="🌞" type="tts">太陽表面</annotation>
+		<annotation cp="🪐">土星 | 環狀星球 | 陰沉</annotation>
+		<annotation cp="🪐" type="tts">環狀星球</annotation>
 		<annotation cp="⭐">星星 | 白色中等星星</annotation>
 		<annotation cp="⭐" type="tts">白色中等星星</annotation>
 		<annotation cp="🌟">星星 | 發光 | 發光嘅星星 | 閃 | 閃耀 | 閃閃發光</annotation>
 		<annotation cp="🌟" type="tts">發光嘅星星</annotation>
 		<annotation cp="🌠">墜落 | 射擊 | 星星 | 流星</annotation>
 		<annotation cp="🌠" type="tts">流星</annotation>
+		<annotation cp="🌌">太空 | 銀河</annotation>
+		<annotation cp="🌌" type="tts">銀河</annotation>
 		<annotation cp="☁">天氣 | 雲</annotation>
 		<annotation cp="☁" type="tts">雲</annotation>
 		<annotation cp="⛅">太陽 | 雲 | 雲後太陽</annotation>
@@ -1815,6 +1885,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛸" type="tts">溜冰</annotation>
 		<annotation cp="🎣">竿 | 釣魚竿 | 魚</annotation>
 		<annotation cp="🎣" type="tts">釣魚竿</annotation>
+		<annotation cp="🤿">浮潛 | 潛水 | 潛水鏡</annotation>
+		<annotation cp="🤿" type="tts">潛水鏡</annotation>
 		<annotation cp="🎽">肩帶 | 衫 | 賽跑 | 賽跑衫 | 運動場</annotation>
 		<annotation cp="🎽" type="tts">賽跑衫</annotation>
 		<annotation cp="🎿">滑雪 | 雪</annotation>
@@ -1825,6 +1897,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥌" type="tts">捲曲嘅石頭</annotation>
 		<annotation cp="🎯">中心 | 目標 | 箭靶 | 靶心 | 飛鏢</annotation>
 		<annotation cp="🎯" type="tts">箭靶</annotation>
+		<annotation cp="🪀">搖 | 搖搖 | 玩具</annotation>
+		<annotation cp="🪀" type="tts">搖搖</annotation>
+		<annotation cp="🪁">風箏 | 飛 | 高飛</annotation>
+		<annotation cp="🪁" type="tts">風箏</annotation>
 		<annotation cp="🎱">8 | 8 號桌球 | 八 | 桌球 | 球 | 遊戲</annotation>
 		<annotation cp="🎱" type="tts">8 號桌球</annotation>
 		<annotation cp="🔮">工具 | 幸運 | 幻想 | 水晶 | 水晶球 | 球 | 童話</annotation>
@@ -1877,6 +1953,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥽" type="tts">護鏡</annotation>
 		<annotation cp="🥼">實驗 | 實驗袍 | 科學家 | 醫生</annotation>
 		<annotation cp="🥼" type="tts">實驗袍</annotation>
+		<annotation cp="🦺">安全 | 救生衣 | 緊急 | 背心</annotation>
+		<annotation cp="🦺" type="tts">救生衣</annotation>
 		<annotation cp="👔">服裝 | 領呔</annotation>
 		<annotation cp="👔" type="tts">領呔</annotation>
 		<annotation cp="👕">T 裇 | 服裝 | 裇衫</annotation>
@@ -1895,6 +1973,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👗" type="tts">裙</annotation>
 		<annotation cp="👘">和服 | 服裝</annotation>
 		<annotation cp="👘" type="tts">和服</annotation>
+		<annotation cp="🥻">服裝 | 紗麗 | 裙</annotation>
+		<annotation cp="🥻" type="tts">紗麗</annotation>
+		<annotation cp="🩱">一件頭泳衣 | 泳衣</annotation>
+		<annotation cp="🩱" type="tts">一件頭泳衣</annotation>
+		<annotation cp="🩲">一件頭 | 內衣 | 泳衣 | 泳褲</annotation>
+		<annotation cp="🩲" type="tts">泳褲</annotation>
+		<annotation cp="🩳">內衣 | 泳衣 | 短褲</annotation>
+		<annotation cp="🩳" type="tts">短褲</annotation>
 		<annotation cp="👙">服裝 | 比堅尼 | 游水</annotation>
 		<annotation cp="👙" type="tts">比堅尼</annotation>
 		<annotation cp="👚">女 | 女裝 | 服裝</annotation>
@@ -1921,6 +2007,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👠" type="tts">高根鞋</annotation>
 		<annotation cp="👡">女士 | 女裝涼鞋 | 服裝 | 涼鞋 | 鞋</annotation>
 		<annotation cp="👡" type="tts">女裝涼鞋</annotation>
+		<annotation cp="🩰">芭蕾舞 | 芭蕾舞鞋 | 跳舞</annotation>
+		<annotation cp="🩰" type="tts">芭蕾舞鞋</annotation>
 		<annotation cp="👢">女士 | 女裝靴 | 服裝 | 靴子 | 鞋</annotation>
 		<annotation cp="👢" type="tts">女裝靴</annotation>
 		<annotation cp="👑">國王 | 女王 | 服裝 | 皇冠</annotation>
@@ -1989,6 +2077,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎺" type="tts">喇叭</annotation>
 		<annotation cp="🎻">儀器 | 小提琴 | 音樂</annotation>
 		<annotation cp="🎻" type="tts">小提琴</annotation>
+		<annotation cp="🪕">弦線 | 班卓琴 | 音樂</annotation>
+		<annotation cp="🪕" type="tts">班卓琴</annotation>
 		<annotation cp="🥁">音樂 | 鼓 | 鼓棍</annotation>
 		<annotation cp="🥁" type="tts">鼓</annotation>
 		<annotation cp="📱">手提電話 | 手機 | 流動 | 電話</annotation>
@@ -2059,6 +2149,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔦" type="tts">電筒</annotation>
 		<annotation cp="🏮">燈 | 燈籠 | 紅色 | 紅色紙燈籠 | 長條</annotation>
 		<annotation cp="🏮" type="tts">紅色紙燈籠</annotation>
+		<annotation cp="🪔">油 | 燈 | 迪亞 | 迪亞燈</annotation>
+		<annotation cp="🪔" type="tts">迪亞燈</annotation>
 		<annotation cp="📔">封面 | 書 | 有裝飾包裝嘅筆記簿 | 筆記簿 | 裝飾</annotation>
 		<annotation cp="📔" type="tts">有裝飾包裝嘅筆記簿</annotation>
 		<annotation cp="📕">書 | 閂埋 | 閂埋左嘅書</annotation>
@@ -2215,6 +2307,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗝" type="tts">舊鎖匙</annotation>
 		<annotation cp="🔨">工具 | 錘</annotation>
 		<annotation cp="🔨" type="tts">錘</annotation>
+		<annotation cp="🪓">分開 | 斧頭 | 斬 | 木</annotation>
+		<annotation cp="🪓" type="tts">斧頭</annotation>
 		<annotation cp="⛏">工具 | 挑 | 採礦</annotation>
 		<annotation cp="⛏" type="tts">挑</annotation>
 		<annotation cp="⚒">工具 | 挑 | 錘 | 錘同挑</annotation>
@@ -2241,6 +2335,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗜" type="tts">鉗</annotation>
 		<annotation cp="⚖">天秤 | 天秤座 | 工具 | 星座 | 正義 | 秤 | 重量</annotation>
 		<annotation cp="⚖" type="tts">天秤</annotation>
+		<annotation cp="🦯">探測拐杖 | 無障礙 | 盲</annotation>
+		<annotation cp="🦯" type="tts">探測拐杖</annotation>
 		<annotation cp="🔗">連結</annotation>
 		<annotation cp="🔗" type="tts">連結</annotation>
 		<annotation cp="⛓">鏈</annotation>
@@ -2265,20 +2361,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📡" type="tts">衛星天線</annotation>
 		<annotation cp="💉">工具 | 注射 | 生病 | 醫生 | 醫藥 | 針 | 針筒</annotation>
 		<annotation cp="💉" type="tts">針筒</annotation>
+		<annotation cp="🩸">捐血 | 月經 | 血液 | 醫療</annotation>
+		<annotation cp="🩸" type="tts">血液</annotation>
 		<annotation cp="💊">病 | 藥丸 | 醫生 | 醫藥</annotation>
 		<annotation cp="💊" type="tts">藥丸</annotation>
+		<annotation cp="🩹">膠布</annotation>
+		<annotation cp="🩹" type="tts">膠布</annotation>
+		<annotation cp="🩺">心臟 | 聽筒 | 醫生 | 醫療</annotation>
+		<annotation cp="🩺" type="tts">聽筒</annotation>
 		<annotation cp="🚪">門</annotation>
 		<annotation cp="🚪" type="tts">門</annotation>
 		<annotation cp="🛏">床 | 訓覺 | 酒店</annotation>
 		<annotation cp="🛏" type="tts">床</annotation>
 		<annotation cp="🛋">座燈 | 沙發 | 沙發和座燈 | 酒店</annotation>
 		<annotation cp="🛋" type="tts">沙發和座燈</annotation>
+		<annotation cp="🪑">坐 | 櫈</annotation>
+		<annotation cp="🪑" type="tts">櫈</annotation>
 		<annotation cp="🚽">廁所</annotation>
 		<annotation cp="🚽" type="tts">廁所</annotation>
 		<annotation cp="🚿">水 | 花灑</annotation>
 		<annotation cp="🚿" type="tts">花灑</annotation>
 		<annotation cp="🛁">沖涼 | 浴缸</annotation>
 		<annotation cp="🛁" type="tts">浴缸</annotation>
+		<annotation cp="🪒">利 | 剃刀 | 剃鬚</annotation>
+		<annotation cp="🪒" type="tts">剃刀</annotation>
 		<annotation cp="🧴">乳液 | 乳液樽 | 洗頭水 | 潤膚霜 | 防曬</annotation>
 		<annotation cp="🧴" type="tts">乳液樽</annotation>
 		<annotation cp="🧷">尿片 | 扣針</annotation>
@@ -2497,6 +2603,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📳" type="tts">震動模式</annotation>
 		<annotation cp="📴">手提電話 | 手機 | 手機關閉 | 流動電話 | 閂 | 電話</annotation>
 		<annotation cp="📴" type="tts">手機關閉</annotation>
+		<annotation cp="♀">女 | 女性標誌</annotation>
+		<annotation cp="♀" type="tts">女性標誌</annotation>
+		<annotation cp="♂">男 | 男性標誌</annotation>
+		<annotation cp="♂" type="tts">男性標誌</annotation>
 		<annotation cp="⚕">員工 | 埃斯科拉庇俄斯 | 醫療符號 | 醫藥</annotation>
 		<annotation cp="⚕" type="tts">醫療符號</annotation>
 		<annotation cp="♾">世界 | 永遠 | 無限 | 無限制</annotation>
@@ -2643,28 +2753,52 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🈵" type="tts">日本「滿」按鈕</annotation>
 		<annotation cp="🔴">圓形 | 幾何 | 紅色 | 紅色圓形</annotation>
 		<annotation cp="🔴" type="tts">紅色圓形</annotation>
+		<annotation cp="🟠">圓形 | 橙色 | 橙色圓形</annotation>
+		<annotation cp="🟠" type="tts">橙色圓形</annotation>
+		<annotation cp="🟡">圓形 | 黃色 | 黃色圓形</annotation>
+		<annotation cp="🟡" type="tts">黃色圓形</annotation>
+		<annotation cp="🟢">圓形 | 綠色 | 綠色圓形</annotation>
+		<annotation cp="🟢" type="tts">綠色圓形</annotation>
 		<annotation cp="🔵">圓形 | 幾何 | 藍色 | 藍色圓形</annotation>
 		<annotation cp="🔵" type="tts">藍色圓形</annotation>
-		<annotation cp="⚪">圓形 | 幾何 | 白色圓形</annotation>
-		<annotation cp="⚪" type="tts">白色圓形</annotation>
+		<annotation cp="🟣">圓形 | 紫色 | 紫色圓形</annotation>
+		<annotation cp="🟣" type="tts">紫色圓形</annotation>
+		<annotation cp="🟤">啡色 | 啡色圓形 | 圓形</annotation>
+		<annotation cp="🟤" type="tts">啡色圓形</annotation>
 		<annotation cp="⚫">圓形 | 幾何 | 黑色圓形</annotation>
 		<annotation cp="⚫" type="tts">黑色圓形</annotation>
-		<annotation cp="⬜">大白色正方形 | 幾何 | 正方形</annotation>
-		<annotation cp="⬜" type="tts">大白色正方形</annotation>
+		<annotation cp="⚪">圓形 | 幾何 | 白色圓形</annotation>
+		<annotation cp="⚪" type="tts">白色圓形</annotation>
+		<annotation cp="🟥">正方形 | 紅色 | 紅色正方形</annotation>
+		<annotation cp="🟥" type="tts">紅色正方形</annotation>
+		<annotation cp="🟧">橙色 | 橙色正方形 | 正方形</annotation>
+		<annotation cp="🟧" type="tts">橙色正方形</annotation>
+		<annotation cp="🟨">正方形 | 黃色 | 黃色正方形</annotation>
+		<annotation cp="🟨" type="tts">黃色正方形</annotation>
+		<annotation cp="🟩">正方形 | 綠色 | 綠色正方形</annotation>
+		<annotation cp="🟩" type="tts">綠色正方形</annotation>
+		<annotation cp="🟦">正方形 | 藍色 | 藍色正方形</annotation>
+		<annotation cp="🟦" type="tts">藍色正方形</annotation>
+		<annotation cp="🟪">正方形 | 紫色 | 紫色正方形</annotation>
+		<annotation cp="🟪" type="tts">紫色正方形</annotation>
+		<annotation cp="🟫">啡色 | 啡色正方形 | 正方形</annotation>
+		<annotation cp="🟫" type="tts">啡色正方形</annotation>
 		<annotation cp="⬛">大黑色正方形 | 幾何 | 正方形</annotation>
 		<annotation cp="⬛" type="tts">大黑色正方形</annotation>
+		<annotation cp="⬜">大白色正方形 | 幾何 | 正方形</annotation>
+		<annotation cp="⬜" type="tts">大白色正方形</annotation>
 		<annotation cp="◼">中黑色正方形 | 幾何 | 正方形</annotation>
 		<annotation cp="◼" type="tts">中黑色正方形</annotation>
 		<annotation cp="◻">中白色正方形 | 幾何 | 正方形</annotation>
 		<annotation cp="◻" type="tts">中白色正方形</annotation>
-		<annotation cp="◽">中細白色正方形 | 幾何 | 正方形</annotation>
-		<annotation cp="◽" type="tts">中細白色正方形</annotation>
 		<annotation cp="◾">中細黑色正方形 | 幾何 | 正方形</annotation>
 		<annotation cp="◾" type="tts">中細黑色正方形</annotation>
-		<annotation cp="▫">幾何 | 正方形 | 細白色正方形</annotation>
-		<annotation cp="▫" type="tts">細白色正方形</annotation>
+		<annotation cp="◽">中細白色正方形 | 幾何 | 正方形</annotation>
+		<annotation cp="◽" type="tts">中細白色正方形</annotation>
 		<annotation cp="▪">幾何 | 正方形 | 細黑色正方形</annotation>
 		<annotation cp="▪" type="tts">細黑色正方形</annotation>
+		<annotation cp="▫">幾何 | 正方形 | 細白色正方形</annotation>
+		<annotation cp="▫" type="tts">細白色正方形</annotation>
 		<annotation cp="🔶">大橙色菱形 | 幾何 | 橙色 | 菱形</annotation>
 		<annotation cp="🔶" type="tts">大橙色菱形</annotation>
 		<annotation cp="🔷">大藍色菱形 | 幾何 | 菱形 | 藍色</annotation>
@@ -2681,10 +2815,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💠" type="tts">有點嘅菱形</annotation>
 		<annotation cp="🔘">圓形 | 圓形按鈕 | 幾何 | 按鈕</annotation>
 		<annotation cp="🔘" type="tts">圓形按鈕</annotation>
-		<annotation cp="🔲">幾何 | 按鈕 | 正方形 | 黑色正方按鈕</annotation>
-		<annotation cp="🔲" type="tts">黑色正方按鈕</annotation>
 		<annotation cp="🔳">外框 | 幾何 | 按鈕 | 正方形 | 白色方形按鈕</annotation>
 		<annotation cp="🔳" type="tts">白色方形按鈕</annotation>
+		<annotation cp="🔲">幾何 | 按鈕 | 正方形 | 黑色正方按鈕</annotation>
+		<annotation cp="🔲" type="tts">黑色正方按鈕</annotation>
 		<annotation cp="🏁">方格旗 | 格子 | 賽跑</annotation>
 		<annotation cp="🏁" type="tts">方格旗</annotation>
 		<annotation cp="🚩">三角旗 | 崗位</annotation>
@@ -2699,139 +2833,5 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳‍🌈" type="tts">彩虹旗</annotation>
 		<annotation cp="🏴‍☠">寶藏 | 搶 | 海盜 | 海盜旗</annotation>
 		<annotation cp="🏴‍☠" type="tts">海盜旗</annotation>
-		<annotation cp="🛕">印度寺 | 寺廟</annotation>
-		<annotation cp="🛕" type="tts">印度寺</annotation>
-		<annotation cp="🛺">篤篤 | 自動人力車</annotation>
-		<annotation cp="🛺" type="tts">自動人力車</annotation>
-		<annotation cp="🟠">圓形 | 橙色 | 橙色圓形</annotation>
-		<annotation cp="🟠" type="tts">橙色圓形</annotation>
-		<annotation cp="🟡">圓形 | 黃色 | 黃色圓形</annotation>
-		<annotation cp="🟡" type="tts">黃色圓形</annotation>
-		<annotation cp="🟢">圓形 | 綠色 | 綠色圓形</annotation>
-		<annotation cp="🟢" type="tts">綠色圓形</annotation>
-		<annotation cp="🟣">圓形 | 紫色 | 紫色圓形</annotation>
-		<annotation cp="🟣" type="tts">紫色圓形</annotation>
-		<annotation cp="🟤">啡色 | 啡色圓形 | 圓形</annotation>
-		<annotation cp="🟤" type="tts">啡色圓形</annotation>
-		<annotation cp="🟥">正方形 | 紅色 | 紅色正方形</annotation>
-		<annotation cp="🟥" type="tts">紅色正方形</annotation>
-		<annotation cp="🟦">正方形 | 藍色 | 藍色正方形</annotation>
-		<annotation cp="🟦" type="tts">藍色正方形</annotation>
-		<annotation cp="🟧">橙色 | 橙色正方形 | 正方形</annotation>
-		<annotation cp="🟧" type="tts">橙色正方形</annotation>
-		<annotation cp="🟨">正方形 | 黃色 | 黃色正方形</annotation>
-		<annotation cp="🟨" type="tts">黃色正方形</annotation>
-		<annotation cp="🟩">正方形 | 綠色 | 綠色正方形</annotation>
-		<annotation cp="🟩" type="tts">綠色正方形</annotation>
-		<annotation cp="🟪">正方形 | 紫色 | 紫色正方形</annotation>
-		<annotation cp="🟪" type="tts">紫色正方形</annotation>
-		<annotation cp="🟫">啡色 | 啡色正方形 | 正方形</annotation>
-		<annotation cp="🟫" type="tts">啡色正方形</annotation>
-		<annotation cp="🤍">心 | 白色 | 白色心</annotation>
-		<annotation cp="🤍" type="tts">白色心</annotation>
-		<annotation cp="🤎">啡色 | 啡色心 | 心</annotation>
-		<annotation cp="🤎" type="tts">啡色心</annotation>
-		<annotation cp="🤏">小量 | 捏手</annotation>
-		<annotation cp="🤏" type="tts">捏手</annotation>
-		<annotation cp="🤿">浮潛 | 潛水 | 潛水鏡</annotation>
-		<annotation cp="🤿" type="tts">潛水鏡</annotation>
-		<annotation cp="🥱">悶 | 打喊露 | 打喊露嘅臉 | 累</annotation>
-		<annotation cp="🥱" type="tts">打喊露嘅臉</annotation>
-		<annotation cp="🥻">服裝 | 紗麗 | 裙</annotation>
-		<annotation cp="🥻" type="tts">紗麗</annotation>
-		<annotation cp="🦥">慢 | 懶 | 樹獺</annotation>
-		<annotation cp="🦥" type="tts">樹獺</annotation>
-		<annotation cp="🦦">獺 | 調皮 | 釣魚</annotation>
-		<annotation cp="🦦" type="tts">獺</annotation>
-		<annotation cp="🦧">猩猩 | 猿</annotation>
-		<annotation cp="🦧" type="tts">猩猩</annotation>
-		<annotation cp="🦨">臭鼬</annotation>
-		<annotation cp="🦨" type="tts">臭鼬</annotation>
-		<annotation cp="🦩">熱帶 | 紅鶴 | 靚</annotation>
-		<annotation cp="🦩" type="tts">紅鶴</annotation>
-		<annotation cp="🦪">潛水 | 珍珠 | 生蠔</annotation>
-		<annotation cp="🦪" type="tts">生蠔</annotation>
-		<annotation cp="🦮">導盲 | 導盲犬 | 無障礙 | 盲</annotation>
-		<annotation cp="🦮" type="tts">導盲犬</annotation>
-		<annotation cp="🦯">探測拐杖 | 無障礙 | 盲</annotation>
-		<annotation cp="🦯" type="tts">探測拐杖</annotation>
-		<annotation cp="🦺">安全 | 救生衣 | 緊急 | 背心</annotation>
-		<annotation cp="🦺" type="tts">救生衣</annotation>
-		<annotation cp="🦻">戴助聽器嘅耳仔 | 無障礙 | 聽障</annotation>
-		<annotation cp="🦻" type="tts">戴助聽器嘅耳仔</annotation>
-		<annotation cp="🦼">無障礙 | 電動輪椅</annotation>
-		<annotation cp="🦼" type="tts">電動輪椅</annotation>
-		<annotation cp="🦽">手動輪椅 | 無障礙</annotation>
-		<annotation cp="🦽" type="tts">手動輪椅</annotation>
-		<annotation cp="🦾">機械臂 | 義肢 | 輔助</annotation>
-		<annotation cp="🦾" type="tts">機械臂</annotation>
-		<annotation cp="🦿">機械腳 | 義肢 | 輔助</annotation>
-		<annotation cp="🦿" type="tts">機械腳</annotation>
-		<annotation cp="🧃">果汁盒 | 紙包飲品</annotation>
-		<annotation cp="🧃" type="tts">紙包飲品</annotation>
-		<annotation cp="🧄">蒜頭 | 調味</annotation>
-		<annotation cp="🧄" type="tts">蒜頭</annotation>
-		<annotation cp="🧅">洋蔥 | 調味</annotation>
-		<annotation cp="🧅" type="tts">洋蔥</annotation>
-		<annotation cp="🧆">中東蔬菜球 | 肉丸 | 鷹嘴豆</annotation>
-		<annotation cp="🧆" type="tts">中東蔬菜球</annotation>
-		<annotation cp="🧇">窩夫 | 軟 | 鐵</annotation>
-		<annotation cp="🧇" type="tts">窩夫</annotation>
-		<annotation cp="🧈">乳製品 | 牛油</annotation>
-		<annotation cp="🧈" type="tts">牛油</annotation>
-		<annotation cp="🧉">瑪黛茶 | 飲品</annotation>
-		<annotation cp="🧉" type="tts">瑪黛茶</annotation>
-		<annotation cp="🧊">冰 | 冰塊</annotation>
-		<annotation cp="🧊" type="tts">冰塊</annotation>
-		<annotation cp="🧍">企 | 企喺度嘅人</annotation>
-		<annotation cp="🧍" type="tts">企喺度嘅人</annotation>
-		<annotation cp="🧍‍♀">企 | 企喺度嘅女人 | 女人</annotation>
-		<annotation cp="🧍‍♀" type="tts">企喺度嘅女人</annotation>
-		<annotation cp="🧍‍♂">企 | 企喺度嘅男人 | 男</annotation>
-		<annotation cp="🧍‍♂" type="tts">企喺度嘅男人</annotation>
-		<annotation cp="🧎">跪 | 跪嘅人</annotation>
-		<annotation cp="🧎" type="tts">跪嘅人</annotation>
-		<annotation cp="🧎‍♀">女 | 跪 | 跪嘅女人</annotation>
-		<annotation cp="🧎‍♀" type="tts">跪嘅女人</annotation>
-		<annotation cp="🧎‍♂">男 | 跪 | 跪嘅男人</annotation>
-		<annotation cp="🧎‍♂" type="tts">跪嘅男人</annotation>
-		<annotation cp="🧏">無障礙 | 耳仔 | 聽 | 聾 | 聾人</annotation>
-		<annotation cp="🧏" type="tts">聾人</annotation>
-		<annotation cp="🧏‍♀">女人 | 聾 | 聾嘅女人</annotation>
-		<annotation cp="🧏‍♀" type="tts">聾嘅女人</annotation>
-		<annotation cp="🧏‍♂">男人 | 聾 | 聾嘅男人</annotation>
-		<annotation cp="🧏‍♂" type="tts">聾嘅男人</annotation>
-		<annotation cp="🩰">芭蕾舞 | 芭蕾舞鞋 | 跳舞</annotation>
-		<annotation cp="🩰" type="tts">芭蕾舞鞋</annotation>
-		<annotation cp="🩱">一件頭泳衣 | 泳衣</annotation>
-		<annotation cp="🩱" type="tts">一件頭泳衣</annotation>
-		<annotation cp="🩲">一件頭 | 內衣 | 泳衣 | 泳褲</annotation>
-		<annotation cp="🩲" type="tts">泳褲</annotation>
-		<annotation cp="🩳">內衣 | 泳衣 | 短褲</annotation>
-		<annotation cp="🩳" type="tts">短褲</annotation>
-		<annotation cp="🩸">捐血 | 月經 | 血液 | 醫療</annotation>
-		<annotation cp="🩸" type="tts">血液</annotation>
-		<annotation cp="🩹">膠布</annotation>
-		<annotation cp="🩹" type="tts">膠布</annotation>
-		<annotation cp="🩺">心臟 | 聽筒 | 醫生 | 醫療</annotation>
-		<annotation cp="🩺" type="tts">聽筒</annotation>
-		<annotation cp="🪀">搖 | 搖搖 | 玩具</annotation>
-		<annotation cp="🪀" type="tts">搖搖</annotation>
-		<annotation cp="🪁">風箏 | 飛 | 高飛</annotation>
-		<annotation cp="🪁" type="tts">風箏</annotation>
-		<annotation cp="🪂">滑翔傘 | 跳傘 | 降落傘</annotation>
-		<annotation cp="🪂" type="tts">降落傘</annotation>
-		<annotation cp="🪐">土星 | 環狀星球 | 陰沉</annotation>
-		<annotation cp="🪐" type="tts">環狀星球</annotation>
-		<annotation cp="🪑">坐 | 櫈</annotation>
-		<annotation cp="🪑" type="tts">櫈</annotation>
-		<annotation cp="🪒">利 | 剃刀 | 剃鬚</annotation>
-		<annotation cp="🪒" type="tts">剃刀</annotation>
-		<annotation cp="🪓">分開 | 斧頭 | 斬 | 木</annotation>
-		<annotation cp="🪓" type="tts">斧頭</annotation>
-		<annotation cp="🪔">油 | 燈 | 迪亞 | 迪亞燈</annotation>
-		<annotation cp="🪔" type="tts">迪亞燈</annotation>
-		<annotation cp="🪕">弦線 | 班卓琴 | 音樂</annotation>
-		<annotation cp="🪕" type="tts">班卓琴</annotation>
 	</annotations>
 </ldml>

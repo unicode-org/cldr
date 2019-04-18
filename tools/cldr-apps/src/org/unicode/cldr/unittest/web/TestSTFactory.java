@@ -292,7 +292,7 @@ public class TestSTFactory extends TestFmwk {
         final String somePath2 = "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]";
         String originalValue2 = null;
         String changedTo2 = null;
-        CLDRLocale locale2 = CLDRLocale.getInstance("de_CH");
+        CLDRLocale locale2 = CLDRLocale.getInstance("fr_BE");
         // Can't (and shouldn't) try to do this test if de_CH is configured as read-only.
         if (SpecialLocales.Type.readonly.equals(SpecialLocales.getType(locale2))) {
             return;

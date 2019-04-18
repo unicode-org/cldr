@@ -23,8 +23,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">ton kulit sederhana gelap</annotation>
 		<annotation cp="🏿">jenis 6 | ton kulit | ton kulit gelap</annotation>
 		<annotation cp="🏿" type="tts">ton kulit gelap</annotation>
-		<annotation cp="🐾">jejak | kaki | tapak kaki haiwan</annotation>
-		<annotation cp="🐾" type="tts">tapak kaki haiwan</annotation>
 		<annotation cp="😀">muka | muka tersengih | sengih</annotation>
 		<annotation cp="😀" type="tts">muka tersengih</annotation>
 		<annotation cp="😃">muka | muka tersengih dengan mata besar | mulut | senyum | terbuka</annotation>
@@ -195,6 +193,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😩" type="tts">muka tak bermaya</annotation>
 		<annotation cp="😫">letih | muka</annotation>
 		<annotation cp="😫" type="tts">muka letih</annotation>
+		<annotation cp="🥱">bosan | letih | menguap | muka menguap</annotation>
+		<annotation cp="🥱" type="tts">muka menguap</annotation>
 		<annotation cp="😤">kemenangan | menang | muka | muka bangga kemenangan</annotation>
 		<annotation cp="😤" type="tts">muka bangga kemenangan</annotation>
 		<annotation cp="😡">berang | marah | merah | merajuk | muka | muka mencebik | naik angin</annotation>
@@ -287,8 +287,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💙" type="tts">hati biru</annotation>
 		<annotation cp="💜">hati | ungu</annotation>
 		<annotation cp="💜" type="tts">hati ungu</annotation>
+		<annotation cp="🤎">hati | perang</annotation>
+		<annotation cp="🤎" type="tts">hati perang</annotation>
 		<annotation cp="🖤">hati | hitam | jahat</annotation>
 		<annotation cp="🖤" type="tts">hati hitam</annotation>
+		<annotation cp="🤍">hati | putih</annotation>
+		<annotation cp="🤍" type="tts">hati putih</annotation>
 		<annotation cp="💯">100 | penuh | seratus | seratus mata | skor</annotation>
 		<annotation cp="💯" type="tts">seratus mata</annotation>
 		<annotation cp="💢">berang | komik | marah | simbol marah</annotation>
@@ -329,6 +333,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖖" type="tts">tabik vulcan</annotation>
 		<annotation cp="👌">okey | simbol OK | tangan</annotation>
 		<annotation cp="👌" type="tts">simbol OK</annotation>
+		<annotation cp="🤏">sedikit | tangan mencubit</annotation>
+		<annotation cp="🤏" type="tts">tangan mencubit</annotation>
 		<annotation cp="✌">badan | kemenangan | simbol kemenangan | tangan | v</annotation>
 		<annotation cp="✌" type="tts">simbol kemenangan</annotation>
 		<annotation cp="🤞">jari | nasib | silang | tangan</annotation>
@@ -383,12 +389,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤳" type="tts">swafoto</annotation>
 		<annotation cp="💪">bisep | bisep dilentur | biseps dilenturtegang | komik | lentur | otot</annotation>
 		<annotation cp="💪" type="tts">biseps dilenturtegang</annotation>
+		<annotation cp="🦾">kebolehsampaian | lengan mekanikal | prostetik</annotation>
+		<annotation cp="🦾" type="tts">lengan mekanikal</annotation>
+		<annotation cp="🦿">kaki mekanikal | kebolehsampaian | prostetik</annotation>
+		<annotation cp="🦿" type="tts">kaki mekanikal</annotation>
 		<annotation cp="🦵">bahagian kaki | kaki | tendang</annotation>
 		<annotation cp="🦵" type="tts">kaki</annotation>
 		<annotation cp="🦶">hentak | hujung kaki | tendang</annotation>
 		<annotation cp="🦶" type="tts">hujung kaki</annotation>
 		<annotation cp="👂">badan | telinga</annotation>
 		<annotation cp="👂" type="tts">telinga</annotation>
+		<annotation cp="🦻">kebolehsampaian | kesukaran mendengar | telinga dengan alat bantu dengar</annotation>
+		<annotation cp="🦻" type="tts">telinga dengan alat bantu dengar</annotation>
 		<annotation cp="👃">badan | hidung</annotation>
 		<annotation cp="👃" type="tts">hidung</annotation>
 		<annotation cp="🧠">otak | pintar</annotation>
@@ -417,28 +429,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">dewasa</annotation>
 		<annotation cp="👱">orang berambut perang | orang: rambut perang | perang | rambut</annotation>
 		<annotation cp="👱" type="tts">orang: rambut perang</annotation>
-		<annotation cp="🧑‍🤝‍🧑">berpegang tangan | orang | orang berpegangan tangan | pasangan | pegang | tangan</annotation>
-		<annotation cp="🧑‍🤝‍🧑" type="tts">orang berpegangan tangan</annotation>
 		<annotation cp="👨">lelaki</annotation>
 		<annotation cp="👨" type="tts">lelaki</annotation>
-		<annotation cp="👨‍🦯">buta | kebolehsampaian | lelaki | lelaki dengan tongkat penduga</annotation>
-		<annotation cp="👨‍🦯" type="tts">lelaki dengan tongkat penduga</annotation>
-		<annotation cp="👨‍🦼">kebolehsampaian | kerusi roda | lelaki | lelaki dalam kerusi roda bermotor</annotation>
-		<annotation cp="👨‍🦼" type="tts">lelaki dalam kerusi roda bermotor</annotation>
-		<annotation cp="👨‍🦽">kebolehsampaian | kerusi roda | lelaki | lelaki dalam kerusi roda manual</annotation>
-		<annotation cp="👨‍🦽" type="tts">lelaki dalam kerusi roda manual</annotation>
-		<annotation cp="👱‍♂">lelaki | lelaki berambut perang muda | lelaki: berambut perang muda | perang muda | rambut</annotation>
-		<annotation cp="👱‍♂" type="tts">lelaki: berambut perang muda</annotation>
 		<annotation cp="🧔">janggut | lelaki | orang | orang: berjanggut</annotation>
 		<annotation cp="🧔" type="tts">orang: berjanggut</annotation>
+		<annotation cp="👱‍♂">lelaki | lelaki berambut perang muda | lelaki: berambut perang muda | perang muda | rambut</annotation>
+		<annotation cp="👱‍♂" type="tts">lelaki: berambut perang muda</annotation>
 		<annotation cp="👩">perempuan | wanita</annotation>
 		<annotation cp="👩" type="tts">perempuan</annotation>
-		<annotation cp="👩‍🦯">buta | kebolehsampaian | perempuan | perempuan dengan tongkat penduga</annotation>
-		<annotation cp="👩‍🦯" type="tts">perempuan dengan tongkat penduga</annotation>
-		<annotation cp="👩‍🦼">kebolehsampaian | kerusi roda | perempuan | perempuan dalam kerusi roda bermotor</annotation>
-		<annotation cp="👩‍🦼" type="tts">perempuan dalam kerusi roda bermotor</annotation>
-		<annotation cp="👩‍🦽">kebolehsampaian | kerusi roda | perempuan | perempuan dalam kereta roda manual</annotation>
-		<annotation cp="👩‍🦽" type="tts">perempuan dalam kereta roda manual</annotation>
 		<annotation cp="👱‍♀">perang | perempuan: rambut perang | wanita | wanita rambut perang</annotation>
 		<annotation cp="👱‍♀" type="tts">perempuan: rambut perang</annotation>
 		<annotation cp="🧓">dewasa lebih tua | gender-neutral | tua</annotation>
@@ -483,6 +481,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙋‍♂" type="tts">lelaki mengangkat tangan</annotation>
 		<annotation cp="🙋‍♀">gerak isyarat | mengangkat tangan | perempuan | perempuan mengangkat tangan | wanita</annotation>
 		<annotation cp="🙋‍♀" type="tts">perempuan mengangkat tangan</annotation>
+		<annotation cp="🧏">dengar | kebolehsampaian | orang pekak | pekak | telinga</annotation>
+		<annotation cp="🧏" type="tts">orang pekak</annotation>
+		<annotation cp="🧏‍♂">lelaki | pekak</annotation>
+		<annotation cp="🧏‍♂" type="tts">lelaki pekak</annotation>
+		<annotation cp="🧏‍♀">pekak | perempuan pekak | wanita</annotation>
+		<annotation cp="🧏‍♀" type="tts">perempuan pekak</annotation>
 		<annotation cp="🙇">isyarat | maaf | minta maaf | orang menunduk | tunduk</annotation>
 		<annotation cp="🙇" type="tts">orang menunduk</annotation>
 		<annotation cp="🙇‍♂">gerak isyarat | kemaafan | lelaki | maaf | menunduk</annotation>
@@ -689,6 +693,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚶‍♂" type="tts">lelaki berjalan</annotation>
 		<annotation cp="🚶‍♀">berjalan kaki | perempuan | perempuan berjalan | wanita</annotation>
 		<annotation cp="🚶‍♀" type="tts">perempuan berjalan</annotation>
+		<annotation cp="🧍">bangun | berdiri | orang berdiri</annotation>
+		<annotation cp="🧍" type="tts">orang berdiri</annotation>
+		<annotation cp="🧍‍♂">berdiri | lelaki</annotation>
+		<annotation cp="🧍‍♂" type="tts">lelaki berdiri</annotation>
+		<annotation cp="🧍‍♀">berdiri | perempuan</annotation>
+		<annotation cp="🧍‍♀" type="tts">perempuan berdiri</annotation>
+		<annotation cp="🧎">bersimpuh | melutut | orang bersimpuh</annotation>
+		<annotation cp="🧎" type="tts">orang bersimpuh</annotation>
+		<annotation cp="🧎‍♂">bersimpuh | lelaki</annotation>
+		<annotation cp="🧎‍♂" type="tts">lelaki bersimpuh</annotation>
+		<annotation cp="🧎‍♀">bersimpuh | perempuan</annotation>
+		<annotation cp="🧎‍♀" type="tts">perempuan bersimpuh</annotation>
+		<annotation cp="👨‍🦯">buta | kebolehsampaian | lelaki | lelaki dengan tongkat penduga</annotation>
+		<annotation cp="👨‍🦯" type="tts">lelaki dengan tongkat penduga</annotation>
+		<annotation cp="👩‍🦯">buta | kebolehsampaian | perempuan | perempuan dengan tongkat penduga</annotation>
+		<annotation cp="👩‍🦯" type="tts">perempuan dengan tongkat penduga</annotation>
+		<annotation cp="👨‍🦼">kebolehsampaian | kerusi roda | lelaki | lelaki dalam kerusi roda bermotor</annotation>
+		<annotation cp="👨‍🦼" type="tts">lelaki dalam kerusi roda bermotor</annotation>
+		<annotation cp="👩‍🦼">kebolehsampaian | kerusi roda | perempuan | perempuan dalam kerusi roda bermotor</annotation>
+		<annotation cp="👩‍🦼" type="tts">perempuan dalam kerusi roda bermotor</annotation>
+		<annotation cp="👨‍🦽">kebolehsampaian | kerusi roda | lelaki | lelaki dalam kerusi roda manual</annotation>
+		<annotation cp="👨‍🦽" type="tts">lelaki dalam kerusi roda manual</annotation>
+		<annotation cp="👩‍🦽">kebolehsampaian | kerusi roda | perempuan | perempuan dalam kereta roda manual</annotation>
+		<annotation cp="👩‍🦽" type="tts">perempuan dalam kereta roda manual</annotation>
 		<annotation cp="🏃">berlari | maraton | pelari</annotation>
 		<annotation cp="🏃" type="tts">pelari</annotation>
 		<annotation cp="🏃‍♂">berlari | berlumba | lelaki | maraton</annotation>
@@ -815,12 +843,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛀" type="tts">orang sedang mandi</annotation>
 		<annotation cp="🛌">hotel | orang tidur atas katil | tidur</annotation>
 		<annotation cp="🛌" type="tts">orang tidur atas katil</annotation>
+		<annotation cp="🧑‍🤝‍🧑">berpegang tangan | orang | orang berpegangan tangan | pasangan | pegang | tangan</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts">orang berpegangan tangan</annotation>
+		<annotation cp="👭">berpegangan tangan | dua wanita berpegangan tangan | pasangan | tangan | wanita</annotation>
+		<annotation cp="👭" type="tts">dua wanita berpegangan tangan</annotation>
 		<annotation cp="👫">berpegangan tangan | lelaki | lelaki dan wanita berpegangan tangan | pasangan | pegang | tangan | wanita</annotation>
 		<annotation cp="👫" type="tts">lelaki dan wanita berpegangan tangan</annotation>
 		<annotation cp="👬">dua lelaki berpegangan tangan | Gemini | jejaka | kembar | lelaki | pasangan | pegang tangan | zodiak</annotation>
 		<annotation cp="👬" type="tts">dua lelaki berpegangan tangan</annotation>
-		<annotation cp="👭">berpegangan tangan | dua wanita berpegangan tangan | pasangan | tangan | wanita</annotation>
-		<annotation cp="👭" type="tts">dua wanita berpegangan tangan</annotation>
 		<annotation cp="💏">cium | pasangan</annotation>
 		<annotation cp="💏" type="tts">cium</annotation>
 		<annotation cp="💑">cinta | hati | pasangan | pasangan dengan simbol hati | percintaan</annotation>
@@ -843,20 +873,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦳" type="tts">rambut putih</annotation>
 		<annotation cp="🦲">bercukur | botak | kemoterapi | tiada rambut | tidak berambut</annotation>
 		<annotation cp="🦲" type="tts">botak</annotation>
-		<annotation cp="♀">simbol perempuan | wanita</annotation>
-		<annotation cp="♀" type="tts">simbol perempuan</annotation>
-		<annotation cp="♂">lelaki | simbol lelaki</annotation>
-		<annotation cp="♂" type="tts">simbol lelaki</annotation>
 		<annotation cp="🐵">monyet | muka</annotation>
 		<annotation cp="🐵" type="tts">muka monyet</annotation>
 		<annotation cp="🐒">monyet</annotation>
 		<annotation cp="🐒" type="tts">monyet</annotation>
 		<annotation cp="🦍">gorila | haiwan</annotation>
 		<annotation cp="🦍" type="tts">gorila</annotation>
+		<annotation cp="🦧">beruk | orang utan</annotation>
+		<annotation cp="🦧" type="tts">orang utan</annotation>
 		<annotation cp="🐶">anjing | haiwan kesayangan | muka</annotation>
 		<annotation cp="🐶" type="tts">muka anjing</annotation>
 		<annotation cp="🐕">anjing | haiwan kesayangan</annotation>
 		<annotation cp="🐕" type="tts">anjing</annotation>
+		<annotation cp="🦮">anjing pandu | buta | kebolehsampaian | panduan</annotation>
+		<annotation cp="🦮" type="tts">anjing pandu</annotation>
 		<annotation cp="🐕‍🦺">anjing | bantuan | kebolehsampaian | khidmat</annotation>
 		<annotation cp="🐕‍🦺" type="tts">anjing khidmat</annotation>
 		<annotation cp="🐩">anjing | anjing poodle</annotation>
@@ -949,10 +979,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐨" type="tts">koala</annotation>
 		<annotation cp="🐼">muka | panda</annotation>
 		<annotation cp="🐼" type="tts">panda</annotation>
+		<annotation cp="🦥">malas | perlahan | sloth</annotation>
+		<annotation cp="🦥" type="tts">sloth</annotation>
+		<annotation cp="🦦">memerang | menangkap ikan | suka main-main</annotation>
+		<annotation cp="🦦" type="tts">memerang</annotation>
+		<annotation cp="🦨">busuk | skunk</annotation>
+		<annotation cp="🦨" type="tts">skunk</annotation>
 		<annotation cp="🦘">anak kanggaru | Australia | kanggaru | lompat | marsupial</annotation>
 		<annotation cp="🦘" type="tts">kanggaru</annotation>
 		<annotation cp="🦡">bejar | bejar madu | pengacau</annotation>
 		<annotation cp="🦡" type="tts">bejar</annotation>
+		<annotation cp="🐾">jejak | kaki | tapak kaki haiwan</annotation>
+		<annotation cp="🐾" type="tts">tapak kaki haiwan</annotation>
 		<annotation cp="🦃">ayam belanda</annotation>
 		<annotation cp="🦃" type="tts">ayam belanda</annotation>
 		<annotation cp="🐔">ayam</annotation>
@@ -979,6 +1017,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦢" type="tts">angsa</annotation>
 		<annotation cp="🦉">bijak | burung | burung hantu</annotation>
 		<annotation cp="🦉" type="tts">burung hantu</annotation>
+		<annotation cp="🦩">flamingo | ranggi | tropikal</annotation>
+		<annotation cp="🦩" type="tts">flamingo</annotation>
 		<annotation cp="🦚">berlagak | burung | merak | merak betina | sombong</annotation>
 		<annotation cp="🦚" type="tts">merak</annotation>
 		<annotation cp="🦜">burung | cakap | kakak tua | lanun</annotation>
@@ -1139,6 +1179,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥬" type="tts">sayuran hijau</annotation>
 		<annotation cp="🥦">brokoli | kubis liar</annotation>
 		<annotation cp="🥦" type="tts">brokoli</annotation>
+		<annotation cp="🧄">bawang putih | perisa</annotation>
+		<annotation cp="🧄" type="tts">bawang putih</annotation>
+		<annotation cp="🧅">bawang | perisa</annotation>
+		<annotation cp="🧅" type="tts">bawang</annotation>
 		<annotation cp="🍄">cendawan</annotation>
 		<annotation cp="🍄" type="tts">cendawan</annotation>
 		<annotation cp="🥜">kacang tanah | kekacang | makanan | sayur</annotation>
@@ -1157,6 +1201,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥯" type="tts">bagel</annotation>
 		<annotation cp="🥞">lempeng | makanan | penkek</annotation>
 		<annotation cp="🥞" type="tts">penkek</annotation>
+		<annotation cp="🧇">besi | tidak tegas | wafel</annotation>
+		<annotation cp="🧇" type="tts">wafel</annotation>
 		<annotation cp="🧀">keju | sepotong keju</annotation>
 		<annotation cp="🧀" type="tts">sepotong keju</annotation>
 		<annotation cp="🍖">daging | daging salut tulang | tulang</annotation>
@@ -1183,6 +1229,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌯" type="tts">burito</annotation>
 		<annotation cp="🥙">berinti | falafel | kebab | makanan | roti kebab</annotation>
 		<annotation cp="🥙" type="tts">roti kebab</annotation>
+		<annotation cp="🧆">bebola daging | falafel | kacang kuda</annotation>
+		<annotation cp="🧆" type="tts">falafel</annotation>
 		<annotation cp="🥚">makanan | telur</annotation>
 		<annotation cp="🥚" type="tts">telur</annotation>
 		<annotation cp="🍳">kuali | memasak | menggoreng | telur</annotation>
@@ -1197,6 +1245,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥗" type="tts">salad hijau</annotation>
 		<annotation cp="🍿">bertih jagung</annotation>
 		<annotation cp="🍿" type="tts">bertih jagung</annotation>
+		<annotation cp="🧈">mentega | tenusu</annotation>
+		<annotation cp="🧈" type="tts">mentega</annotation>
 		<annotation cp="🧂">garam | penggoncang | perasa</annotation>
 		<annotation cp="🧂" type="tts">garam</annotation>
 		<annotation cp="🥫">makanan tin | tin</annotation>
@@ -1243,6 +1293,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦐" type="tts">udang</annotation>
 		<annotation cp="🦑">makanan | moluska | sotong</annotation>
 		<annotation cp="🦑" type="tts">sotong</annotation>
+		<annotation cp="🦪">menyelam | mutiara | tiram</annotation>
+		<annotation cp="🦪" type="tts">tiram</annotation>
 		<annotation cp="🍦">ais | krim | lembut | manis | pencuci mulut</annotation>
 		<annotation cp="🍦" type="tts">ais krim lembut</annotation>
 		<annotation cp="🍧">air batu campur | ais | kisar | manis | pencuci mulut</annotation>
@@ -1299,6 +1351,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥃" type="tts">gelas pendek</annotation>
 		<annotation cp="🥤">cawan dan straw | jus | soda</annotation>
 		<annotation cp="🥤" type="tts">cawan dan straw</annotation>
+		<annotation cp="🧃">jus air kotak | minuman air kotak</annotation>
+		<annotation cp="🧃" type="tts">minuman air kotak</annotation>
+		<annotation cp="🧉">mate | minuman</annotation>
+		<annotation cp="🧉" type="tts">mate</annotation>
+		<annotation cp="🧊">aisberg | kiub ais | sejuk</annotation>
+		<annotation cp="🧊" type="tts">kiub ais</annotation>
 		<annotation cp="🥢">hashi | penyepit</annotation>
 		<annotation cp="🥢" type="tts">penyepit</annotation>
 		<annotation cp="🍽">garpu | garpu dan pisau dengan pinggan | memasak | pinggan | pisau</annotation>
@@ -1395,6 +1453,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛪" type="tts">gereja</annotation>
 		<annotation cp="🕌">agama | islam | masjid | orang islam</annotation>
 		<annotation cp="🕌" type="tts">masjid</annotation>
+		<annotation cp="🛕">hindu | kuil</annotation>
+		<annotation cp="🛕" type="tts">kuil hindu</annotation>
 		<annotation cp="🕍">agama | kuil | orang yahudi | saumaah | yahudi</annotation>
 		<annotation cp="🕍" type="tts">saumaah</annotation>
 		<annotation cp="⛩">agama | kuil | shinto</annotation>
@@ -1423,8 +1483,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌉" type="tts">jambatan pada waktu malam</annotation>
 		<annotation cp="♨">berwap | mata air | mata air panas | panas</annotation>
 		<annotation cp="♨" type="tts">mata air panas</annotation>
-		<annotation cp="🌌">angkasa lepas | bima sakti | cuaca</annotation>
-		<annotation cp="🌌" type="tts">bima sakti</annotation>
 		<annotation cp="🎠">karusel | kuda</annotation>
 		<annotation cp="🎠" type="tts">kuda karusel</annotation>
 		<annotation cp="🎡">ferris | roda | taman hiburan</annotation>
@@ -1497,6 +1555,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏍" type="tts">motosikal</annotation>
 		<annotation cp="🛵">motosikal | skuter | skuter bermotor</annotation>
 		<annotation cp="🛵" type="tts">skuter bermotor</annotation>
+		<annotation cp="🦽">kebolehcapaian | kerusi roda manual</annotation>
+		<annotation cp="🦽" type="tts">kerusi roda manual</annotation>
+		<annotation cp="🦼">kebolehcapaian | kerosi roda bermotor</annotation>
+		<annotation cp="🦼" type="tts">kerosi roda bermotor</annotation>
+		<annotation cp="🛺">lanca auto | tuk tuk</annotation>
+		<annotation cp="🛺" type="tts">lanca auto</annotation>
 		<annotation cp="🚲">basikal | kenderaan</annotation>
 		<annotation cp="🚲" type="tts">basikal</annotation>
 		<annotation cp="🛴">skuter | tolak</annotation>
@@ -1547,6 +1611,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛫" type="tts">kapal terbang berlepas</annotation>
 		<annotation cp="🛬">kapal terbang | kapal terbang mendarat | ketibaan | mendarat | tiba</annotation>
 		<annotation cp="🛬" type="tts">kapal terbang mendarat</annotation>
+		<annotation cp="🪂">geluncur angin | paracut | parasail | terjun udara</annotation>
+		<annotation cp="🪂" type="tts">paracut</annotation>
 		<annotation cp="💺">kerusi | tempat duduk</annotation>
 		<annotation cp="💺" type="tts">tempat duduk</annotation>
 		<annotation cp="🚁">helikopter | kenderaan</annotation>
@@ -1661,12 +1727,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌝" type="tts">muka bulan purnama</annotation>
 		<annotation cp="🌞">angkasa lepas | cuaca | matahari | matahari dengan muka | muka | terang</annotation>
 		<annotation cp="🌞" type="tts">matahari dengan muka</annotation>
+		<annotation cp="🪐">planet bergelang | suram | zuhal</annotation>
+		<annotation cp="🪐" type="tts">planet bergelang</annotation>
 		<annotation cp="⭐">bintang | bintang sederhana putih</annotation>
 		<annotation cp="⭐" type="tts">bintang sederhana putih</annotation>
 		<annotation cp="🌟">bercahaya | berkilau | berkilauan | bersinar | bintang</annotation>
 		<annotation cp="🌟" type="tts">bintang bersinar</annotation>
 		<annotation cp="🌠">angkasa lepas | bintang | jatuh | tahi bintang</annotation>
 		<annotation cp="🌠" type="tts">tahi bintang</annotation>
+		<annotation cp="🌌">angkasa lepas | bima sakti | cuaca</annotation>
+		<annotation cp="🌌" type="tts">bima sakti</annotation>
 		<annotation cp="☁">awan | cuaca</annotation>
 		<annotation cp="☁" type="tts">awan</annotation>
 		<annotation cp="⛅">awan | cuaca | matahari | matahari di sebalik awan</annotation>
@@ -1817,6 +1887,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛸" type="tts">sepatu luncur ais</annotation>
 		<annotation cp="🎣">batang kail | ikan | joran mengail | kail</annotation>
 		<annotation cp="🎣" type="tts">joran mengail</annotation>
+		<annotation cp="🤿">menyelam | skuba | snorkeling | topeng menyelam</annotation>
+		<annotation cp="🤿" type="tts">topeng menyelam</annotation>
 		<annotation cp="🎽">baju | baju larian | berlari | selemang</annotation>
 		<annotation cp="🎽" type="tts">baju larian</annotation>
 		<annotation cp="🎿">salji | ski</annotation>
@@ -1827,6 +1899,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥌" type="tts">batu curling</annotation>
 		<annotation cp="🎯">baling damak | balingan tepat | kena | kena tepat | permainan | pusat sasaran | sasaran</annotation>
 		<annotation cp="🎯" type="tts">balingan tepat</annotation>
+		<annotation cp="🪀">mainan | naik turun | yo-yo</annotation>
+		<annotation cp="🪀" type="tts">yo-yo</annotation>
+		<annotation cp="🪁">layang-layang | melayang | terbang</annotation>
+		<annotation cp="🪁" type="tts">layang-layang</annotation>
 		<annotation cp="🎱">8 | biliard | bola | lapan | permainan</annotation>
 		<annotation cp="🎱" type="tts">biliard</annotation>
 		<annotation cp="🔮">alat | bola | cerita dongeng | fantasi | kristal | nasib</annotation>
@@ -1879,6 +1955,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥽" type="tts">gogal</annotation>
 		<annotation cp="🥼">doktor | eksperimen | kot makmal | saintis</annotation>
 		<annotation cp="🥼" type="tts">kot makmal</annotation>
+		<annotation cp="🦺">kecemasan | keselamatan | rompi</annotation>
+		<annotation cp="🦺" type="tts">rompi keselamatan</annotation>
 		<annotation cp="👔">pakaian | tali leher</annotation>
 		<annotation cp="👔" type="tts">tali leher</annotation>
 		<annotation cp="👕">kemeja | kemeja-t | pakaian</annotation>
@@ -1897,6 +1975,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👗" type="tts">gaun</annotation>
 		<annotation cp="👘">kimono | pakaian</annotation>
 		<annotation cp="👘" type="tts">kimono</annotation>
+		<annotation cp="🥻">baju | pakaian | sari</annotation>
+		<annotation cp="🥻" type="tts">sari</annotation>
+		<annotation cp="🩱">sut mandi | sut renang terus</annotation>
+		<annotation cp="🩱" type="tts">sut renang terus</annotation>
+		<annotation cp="🩲">pakaian dalam | seluar dalam | sut mandi | sut renang | terus</annotation>
+		<annotation cp="🩲" type="tts">seluar dalam</annotation>
+		<annotation cp="🩳">baju mandi | pakaian dalam | seluar | seluar pendek</annotation>
+		<annotation cp="🩳" type="tts">seluar pendek</annotation>
 		<annotation cp="👙">bikini | pakaian | renang</annotation>
 		<annotation cp="👙" type="tts">bikini</annotation>
 		<annotation cp="👚">pakaian | wanita</annotation>
@@ -1923,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👠" type="tts">kasut tumit tinggi</annotation>
 		<annotation cp="👡">kasut | pakaian | sandal | wanita</annotation>
 		<annotation cp="👡" type="tts">sandal wanita</annotation>
+		<annotation cp="🩰">balet | kasut balet | tarian</annotation>
+		<annotation cp="🩰" type="tts">kasut balet</annotation>
 		<annotation cp="👢">but | kasut | pakaian | wanita</annotation>
 		<annotation cp="👢" type="tts">but wanita</annotation>
 		<annotation cp="👑">mahkota | pakaian | permaisuri | raja</annotation>
@@ -1991,6 +2079,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎺" type="tts">trompet</annotation>
 		<annotation cp="🎻">alat | biola | muzik</annotation>
 		<annotation cp="🎻" type="tts">biola</annotation>
+		<annotation cp="🪕">banjo | bertali | muzik</annotation>
+		<annotation cp="🪕" type="tts">banjo</annotation>
 		<annotation cp="🥁">dram | kayu dram | muzik</annotation>
 		<annotation cp="🥁" type="tts">dram</annotation>
 		<annotation cp="📱">mudah alih | sel | telefon | telefon bimbit</annotation>
@@ -2061,6 +2151,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔦" type="tts">lampu suluh</annotation>
 		<annotation cp="🏮">bar | cahaya | merah | tanglung | tanglung kertas merah</annotation>
 		<annotation cp="🏮" type="tts">tanglung kertas merah</annotation>
+		<annotation cp="🪔">diya | lampu | minyak</annotation>
+		<annotation cp="🪔" type="tts">lampu diya</annotation>
 		<annotation cp="📔">berhias | buku | buku nota | buku nota dengan kulit berhias | kulit</annotation>
 		<annotation cp="📔" type="tts">buku nota dengan kulit berhias</annotation>
 		<annotation cp="📕">buku | tertutup</annotation>
@@ -2217,6 +2309,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗝" type="tts">kunci lama</annotation>
 		<annotation cp="🔨">alat | tukul</annotation>
 		<annotation cp="🔨" type="tts">tukul</annotation>
+		<annotation cp="🪓">belah | kapak | kapak kecil | kayu | tetak</annotation>
+		<annotation cp="🪓" type="tts">kapak</annotation>
 		<annotation cp="⛏">alat | beliung | perlombongan</annotation>
 		<annotation cp="⛏" type="tts">beliung</annotation>
 		<annotation cp="⚒">alat | beliung | tukul | tukul dan beliung</annotation>
@@ -2243,6 +2337,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗜" type="tts">ragum</annotation>
 		<annotation cp="⚖">keadilan | libra | neraca timbang | penimbang | zodiak</annotation>
 		<annotation cp="⚖" type="tts">neraca timbang</annotation>
+		<annotation cp="🦯">buta | kebolehcapaian | tongkat penduga</annotation>
+		<annotation cp="🦯" type="tts">tongkat penduga</annotation>
 		<annotation cp="🔗">pautan | rantai</annotation>
 		<annotation cp="🔗" type="tts">pautan</annotation>
 		<annotation cp="⛓">rantai | rantaian</annotation>
@@ -2267,20 +2363,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📡" type="tts">antena satelit</annotation>
 		<annotation cp="💉">alat | doktor | jarum | perubatan | picagari | sakit | suntikan</annotation>
 		<annotation cp="💉" type="tts">picagari</annotation>
+		<annotation cp="🩸">derma darah | haid | perubatan | titisan darah</annotation>
+		<annotation cp="🩸" type="tts">titisan darah</annotation>
 		<annotation cp="💊">doktor | perubatan | pil | sakit</annotation>
 		<annotation cp="💊" type="tts">pil</annotation>
+		<annotation cp="🩹">pembalut | pembalut adhesif</annotation>
+		<annotation cp="🩹" type="tts">pembalut adhesif</annotation>
+		<annotation cp="🩺">doktor | jantung | perubatan | stetoskop</annotation>
+		<annotation cp="🩺" type="tts">stetoskop</annotation>
 		<annotation cp="🚪">pintu</annotation>
 		<annotation cp="🚪" type="tts">pintu</annotation>
 		<annotation cp="🛏">hotel | katil | tidur</annotation>
 		<annotation cp="🛏" type="tts">katil</annotation>
 		<annotation cp="🛋">hotel | lampu | sofa | sofa dan lampu</annotation>
 		<annotation cp="🛋" type="tts">sofa dan lampu</annotation>
+		<annotation cp="🪑">duduk | kerusi | tempat duduk</annotation>
+		<annotation cp="🪑" type="tts">kerusi</annotation>
 		<annotation cp="🚽">mangkuk tandas | tandas</annotation>
 		<annotation cp="🚽" type="tts">mangkuk tandas</annotation>
 		<annotation cp="🚿">air | pancuran</annotation>
 		<annotation cp="🚿" type="tts">pancuran</annotation>
 		<annotation cp="🛁">mandi | tab mandi</annotation>
 		<annotation cp="🛁" type="tts">tab mandi</annotation>
+		<annotation cp="🪒">cukur | pisau cukur | tajam</annotation>
+		<annotation cp="🪒" type="tts">pisau cukur</annotation>
 		<annotation cp="🧴">botol losyen | losyen | pelembab | penapis suria | syampu</annotation>
 		<annotation cp="🧴" type="tts">botol losyen</annotation>
 		<annotation cp="🧷">lampin | pin dawai | punk rock</annotation>
@@ -2499,6 +2605,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📳" type="tts">mod getaran</annotation>
 		<annotation cp="📴">fon | matikan | mudah alih | sel | telefon | telefon mudah alih dimatikan</annotation>
 		<annotation cp="📴" type="tts">telefon mudah alih dimatikan</annotation>
+		<annotation cp="♀">simbol perempuan | wanita</annotation>
+		<annotation cp="♀" type="tts">simbol perempuan</annotation>
+		<annotation cp="♂">lelaki | simbol lelaki</annotation>
+		<annotation cp="♂" type="tts">simbol lelaki</annotation>
 		<annotation cp="⚕">perubatan | simbol perubatan | staf</annotation>
 		<annotation cp="⚕" type="tts">simbol perubatan</annotation>
 		<annotation cp="♾">infiniti | sejagat | selama-lamanya | tidak terbatas</annotation>
@@ -2645,28 +2755,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🈵" type="tts">butang “tiada kekosongan” Jepun</annotation>
 		<annotation cp="🔴">bulatan | geometri | merah</annotation>
 		<annotation cp="🔴" type="tts">bulatan merah</annotation>
+		<annotation cp="🟠">bulatan | jingga</annotation>
+		<annotation cp="🟠" type="tts">bulatan jingga</annotation>
+		<annotation cp="🟡">bulatan | kuning</annotation>
+		<annotation cp="🟡" type="tts">bulatan kuning</annotation>
+		<annotation cp="🟢">bulatan | hijau</annotation>
+		<annotation cp="🟢" type="tts">bulatan hijau</annotation>
 		<annotation cp="🔵">biru | bulatan | geometri</annotation>
 		<annotation cp="🔵" type="tts">bulatan biru</annotation>
-		<annotation cp="⚪">bulatan | bulatan putih | geometri</annotation>
-		<annotation cp="⚪" type="tts">bulatan putih</annotation>
+		<annotation cp="🟣">bulatan | ungu</annotation>
+		<annotation cp="🟣" type="tts">bulatan ungu</annotation>
+		<annotation cp="🟤">bulatan | perang</annotation>
+		<annotation cp="🟤" type="tts">bulatan perang</annotation>
 		<annotation cp="⚫">bulatan | bulatan hitam | geometri</annotation>
 		<annotation cp="⚫" type="tts">bulatan hitam</annotation>
-		<annotation cp="⬜">geometri | persegi | persegi besar putih</annotation>
-		<annotation cp="⬜" type="tts">persegi besar putih</annotation>
+		<annotation cp="⚪">bulatan | bulatan putih | geometri</annotation>
+		<annotation cp="⚪" type="tts">bulatan putih</annotation>
+		<annotation cp="🟥">merah | persegi</annotation>
+		<annotation cp="🟥" type="tts">persegi merah</annotation>
+		<annotation cp="🟧">jingga | persegi</annotation>
+		<annotation cp="🟧" type="tts">persegi jingga</annotation>
+		<annotation cp="🟨">kuning | persegi</annotation>
+		<annotation cp="🟨" type="tts">persegi kuning</annotation>
+		<annotation cp="🟩">hijau | persegi</annotation>
+		<annotation cp="🟩" type="tts">persegi hijau</annotation>
+		<annotation cp="🟦">biru | persegi</annotation>
+		<annotation cp="🟦" type="tts">persegi biru</annotation>
+		<annotation cp="🟪">persegi | ungu</annotation>
+		<annotation cp="🟪" type="tts">persegi ungu</annotation>
+		<annotation cp="🟫">perang | persegi</annotation>
+		<annotation cp="🟫" type="tts">persegi perang</annotation>
 		<annotation cp="⬛">geometri | persegi | persegi besar hitam</annotation>
 		<annotation cp="⬛" type="tts">persegi besar hitam</annotation>
+		<annotation cp="⬜">geometri | persegi | persegi besar putih</annotation>
+		<annotation cp="⬜" type="tts">persegi besar putih</annotation>
 		<annotation cp="◼">geometri | persegi | persegi sederhana hitam</annotation>
 		<annotation cp="◼" type="tts">persegi sederhana hitam</annotation>
 		<annotation cp="◻">geometri | persegi | persegi sederhana putih</annotation>
 		<annotation cp="◻" type="tts">persegi sederhana putih</annotation>
-		<annotation cp="◽">geometri | persegi | persegi sederhana kecil putih</annotation>
-		<annotation cp="◽" type="tts">persegi sederhana kecil putih</annotation>
 		<annotation cp="◾">geometri | persegi | persegi sederhana kecil hitam</annotation>
 		<annotation cp="◾" type="tts">persegi sederhana kecil hitam</annotation>
-		<annotation cp="▫">geometri | persegi | persegi kecil putih</annotation>
-		<annotation cp="▫" type="tts">persegi kecil putih</annotation>
+		<annotation cp="◽">geometri | persegi | persegi sederhana kecil putih</annotation>
+		<annotation cp="◽" type="tts">persegi sederhana kecil putih</annotation>
 		<annotation cp="▪">geometri | persegi | persegi kecil hitam</annotation>
 		<annotation cp="▪" type="tts">persegi kecil hitam</annotation>
+		<annotation cp="▫">geometri | persegi | persegi kecil putih</annotation>
+		<annotation cp="▫" type="tts">persegi kecil putih</annotation>
 		<annotation cp="🔶">berlian | berlian jingga besar | geometri | oren</annotation>
 		<annotation cp="🔶" type="tts">berlian jingga besar</annotation>
 		<annotation cp="🔷">berlian | berlian biru besar | biru | geometri</annotation>
@@ -2683,10 +2817,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💠" type="tts">berlian berbintik</annotation>
 		<annotation cp="🔘">butang | geometri | radio</annotation>
 		<annotation cp="🔘" type="tts">butang radio</annotation>
-		<annotation cp="🔲">butang | butang persegi hitam | geometri | persegi</annotation>
-		<annotation cp="🔲" type="tts">butang persegi hitam</annotation>
 		<annotation cp="🔳">butang | butang persegi putih | digariskan | geometri | persegi</annotation>
 		<annotation cp="🔳" type="tts">butang persegi putih</annotation>
+		<annotation cp="🔲">butang | butang persegi hitam | geometri | persegi</annotation>
+		<annotation cp="🔲" type="tts">butang persegi hitam</annotation>
 		<annotation cp="🏁">bendera pelepas | bercorak dam | berpetak | lumba</annotation>
 		<annotation cp="🏁" type="tts">bendera pelepas</annotation>
 		<annotation cp="🚩">bendera tiga segi | tiang</annotation>
@@ -2701,139 +2835,5 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">bendera pelangi</annotation>
 		<annotation cp="🏴‍☠">bendera lanun | harta karun | Jolly Roger | lanun | rampasan</annotation>
 		<annotation cp="🏴‍☠" type="tts">bendera lanun</annotation>
-		<annotation cp="🛕">hindu | kuil</annotation>
-		<annotation cp="🛕" type="tts">kuil hindu</annotation>
-		<annotation cp="🛺">lanca auto | tuk tuk</annotation>
-		<annotation cp="🛺" type="tts">lanca auto</annotation>
-		<annotation cp="🟠">bulatan | jingga</annotation>
-		<annotation cp="🟠" type="tts">bulatan jingga</annotation>
-		<annotation cp="🟡">bulatan | kuning</annotation>
-		<annotation cp="🟡" type="tts">bulatan kuning</annotation>
-		<annotation cp="🟢">bulatan | hijau</annotation>
-		<annotation cp="🟢" type="tts">bulatan hijau</annotation>
-		<annotation cp="🟣">bulatan | ungu</annotation>
-		<annotation cp="🟣" type="tts">bulatan ungu</annotation>
-		<annotation cp="🟤">bulatan | perang</annotation>
-		<annotation cp="🟤" type="tts">bulatan perang</annotation>
-		<annotation cp="🟥">merah | persegi</annotation>
-		<annotation cp="🟥" type="tts">persegi merah</annotation>
-		<annotation cp="🟦">biru | persegi</annotation>
-		<annotation cp="🟦" type="tts">persegi biru</annotation>
-		<annotation cp="🟧">jingga | persegi</annotation>
-		<annotation cp="🟧" type="tts">persegi jingga</annotation>
-		<annotation cp="🟨">kuning | persegi</annotation>
-		<annotation cp="🟨" type="tts">persegi kuning</annotation>
-		<annotation cp="🟩">hijau | persegi</annotation>
-		<annotation cp="🟩" type="tts">persegi hijau</annotation>
-		<annotation cp="🟪">persegi | ungu</annotation>
-		<annotation cp="🟪" type="tts">persegi ungu</annotation>
-		<annotation cp="🟫">perang | persegi</annotation>
-		<annotation cp="🟫" type="tts">persegi perang</annotation>
-		<annotation cp="🤍">hati | putih</annotation>
-		<annotation cp="🤍" type="tts">hati putih</annotation>
-		<annotation cp="🤎">hati | perang</annotation>
-		<annotation cp="🤎" type="tts">hati perang</annotation>
-		<annotation cp="🤏">sedikit | tangan mencubit</annotation>
-		<annotation cp="🤏" type="tts">tangan mencubit</annotation>
-		<annotation cp="🤿">menyelam | skuba | snorkeling | topeng menyelam</annotation>
-		<annotation cp="🤿" type="tts">topeng menyelam</annotation>
-		<annotation cp="🥱">bosan | letih | menguap | muka menguap</annotation>
-		<annotation cp="🥱" type="tts">muka menguap</annotation>
-		<annotation cp="🥻">baju | pakaian | sari</annotation>
-		<annotation cp="🥻" type="tts">sari</annotation>
-		<annotation cp="🦥">malas | perlahan | sloth</annotation>
-		<annotation cp="🦥" type="tts">sloth</annotation>
-		<annotation cp="🦦">memerang | menangkap ikan | suka main-main</annotation>
-		<annotation cp="🦦" type="tts">memerang</annotation>
-		<annotation cp="🦧">beruk | orang utan</annotation>
-		<annotation cp="🦧" type="tts">orang utan</annotation>
-		<annotation cp="🦨">busuk | skunk</annotation>
-		<annotation cp="🦨" type="tts">skunk</annotation>
-		<annotation cp="🦩">flamingo | ranggi | tropikal</annotation>
-		<annotation cp="🦩" type="tts">flamingo</annotation>
-		<annotation cp="🦪">menyelam | mutiara | tiram</annotation>
-		<annotation cp="🦪" type="tts">tiram</annotation>
-		<annotation cp="🦮">anjing pandu | buta | kebolehsampaian | panduan</annotation>
-		<annotation cp="🦮" type="tts">anjing pandu</annotation>
-		<annotation cp="🦯">buta | kebolehcapaian | tongkat penduga</annotation>
-		<annotation cp="🦯" type="tts">tongkat penduga</annotation>
-		<annotation cp="🦺">kecemasan | keselamatan | rompi</annotation>
-		<annotation cp="🦺" type="tts">rompi keselamatan</annotation>
-		<annotation cp="🦻">kebolehsampaian | kesukaran mendengar | telinga dengan alat bantu dengar</annotation>
-		<annotation cp="🦻" type="tts">telinga dengan alat bantu dengar</annotation>
-		<annotation cp="🦼">kebolehcapaian | kerosi roda bermotor</annotation>
-		<annotation cp="🦼" type="tts">kerosi roda bermotor</annotation>
-		<annotation cp="🦽">kebolehcapaian | kerusi roda manual</annotation>
-		<annotation cp="🦽" type="tts">kerusi roda manual</annotation>
-		<annotation cp="🦾">kebolehsampaian | lengan mekanikal | prostetik</annotation>
-		<annotation cp="🦾" type="tts">lengan mekanikal</annotation>
-		<annotation cp="🦿">kaki mekanikal | kebolehsampaian | prostetik</annotation>
-		<annotation cp="🦿" type="tts">kaki mekanikal</annotation>
-		<annotation cp="🧃">jus air kotak | minuman air kotak</annotation>
-		<annotation cp="🧃" type="tts">minuman air kotak</annotation>
-		<annotation cp="🧄">bawang putih | perisa</annotation>
-		<annotation cp="🧄" type="tts">bawang putih</annotation>
-		<annotation cp="🧅">bawang | perisa</annotation>
-		<annotation cp="🧅" type="tts">bawang</annotation>
-		<annotation cp="🧆">bebola daging | falafel | kacang kuda</annotation>
-		<annotation cp="🧆" type="tts">falafel</annotation>
-		<annotation cp="🧇">besi | tidak tegas | wafel</annotation>
-		<annotation cp="🧇" type="tts">wafel</annotation>
-		<annotation cp="🧈">mentega | tenusu</annotation>
-		<annotation cp="🧈" type="tts">mentega</annotation>
-		<annotation cp="🧉">mate | minuman</annotation>
-		<annotation cp="🧉" type="tts">mate</annotation>
-		<annotation cp="🧊">aisberg | kiub ais | sejuk</annotation>
-		<annotation cp="🧊" type="tts">kiub ais</annotation>
-		<annotation cp="🧍">bangun | berdiri | orang berdiri</annotation>
-		<annotation cp="🧍" type="tts">orang berdiri</annotation>
-		<annotation cp="🧍‍♀">berdiri | perempuan</annotation>
-		<annotation cp="🧍‍♀" type="tts">perempuan berdiri</annotation>
-		<annotation cp="🧍‍♂">berdiri | lelaki</annotation>
-		<annotation cp="🧍‍♂" type="tts">lelaki berdiri</annotation>
-		<annotation cp="🧎">bersimpuh | melutut | orang bersimpuh</annotation>
-		<annotation cp="🧎" type="tts">orang bersimpuh</annotation>
-		<annotation cp="🧎‍♀">bersimpuh | perempuan</annotation>
-		<annotation cp="🧎‍♀" type="tts">perempuan bersimpuh</annotation>
-		<annotation cp="🧎‍♂">bersimpuh | lelaki</annotation>
-		<annotation cp="🧎‍♂" type="tts">lelaki bersimpuh</annotation>
-		<annotation cp="🧏">dengar | kebolehsampaian | orang pekak | pekak | telinga</annotation>
-		<annotation cp="🧏" type="tts">orang pekak</annotation>
-		<annotation cp="🧏‍♀">pekak | perempuan pekak | wanita</annotation>
-		<annotation cp="🧏‍♀" type="tts">perempuan pekak</annotation>
-		<annotation cp="🧏‍♂">lelaki | pekak</annotation>
-		<annotation cp="🧏‍♂" type="tts">lelaki pekak</annotation>
-		<annotation cp="🩰">balet | kasut balet | tarian</annotation>
-		<annotation cp="🩰" type="tts">kasut balet</annotation>
-		<annotation cp="🩱">sut mandi | sut renang terus</annotation>
-		<annotation cp="🩱" type="tts">sut renang terus</annotation>
-		<annotation cp="🩲">pakaian dalam | seluar dalam | sut mandi | sut renang | terus</annotation>
-		<annotation cp="🩲" type="tts">seluar dalam</annotation>
-		<annotation cp="🩳">baju mandi | pakaian dalam | seluar | seluar pendek</annotation>
-		<annotation cp="🩳" type="tts">seluar pendek</annotation>
-		<annotation cp="🩸">derma darah | haid | perubatan | titisan darah</annotation>
-		<annotation cp="🩸" type="tts">titisan darah</annotation>
-		<annotation cp="🩹">pembalut | pembalut adhesif</annotation>
-		<annotation cp="🩹" type="tts">pembalut adhesif</annotation>
-		<annotation cp="🩺">doktor | jantung | perubatan | stetoskop</annotation>
-		<annotation cp="🩺" type="tts">stetoskop</annotation>
-		<annotation cp="🪀">mainan | naik turun | yo-yo</annotation>
-		<annotation cp="🪀" type="tts">yo-yo</annotation>
-		<annotation cp="🪁">layang-layang | melayang | terbang</annotation>
-		<annotation cp="🪁" type="tts">layang-layang</annotation>
-		<annotation cp="🪂">geluncur angin | paracut | parasail | terjun udara</annotation>
-		<annotation cp="🪂" type="tts">paracut</annotation>
-		<annotation cp="🪐">planet bergelang | suram | zuhal</annotation>
-		<annotation cp="🪐" type="tts">planet bergelang</annotation>
-		<annotation cp="🪑">duduk | kerusi | tempat duduk</annotation>
-		<annotation cp="🪑" type="tts">kerusi</annotation>
-		<annotation cp="🪒">cukur | pisau cukur | tajam</annotation>
-		<annotation cp="🪒" type="tts">pisau cukur</annotation>
-		<annotation cp="🪓">belah | kapak | kapak kecil | kayu | tetak</annotation>
-		<annotation cp="🪓" type="tts">kapak</annotation>
-		<annotation cp="🪔">diya | lampu | minyak</annotation>
-		<annotation cp="🪔" type="tts">lampu diya</annotation>
-		<annotation cp="🪕">banjo | bertali | muzik</annotation>
-		<annotation cp="🪕" type="tts">banjo</annotation>
 	</annotations>
 </ldml>

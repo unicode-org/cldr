@@ -115,6 +115,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">dargwa</language>
 			<language type="dav">taita</language>
 			<language type="de">germană</language>
+			<language type="de_AT">↑↑↑</language>
 			<language type="de_CH">germană standard (Elveția)</language>
 			<language type="del">delaware</language>
 			<language type="den">slave</language>
@@ -138,11 +139,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">greacă</language>
 			<language type="elx">elamită</language>
 			<language type="en">engleză</language>
+			<language type="en_AU">↑↑↑</language>
+			<language type="en_CA">↑↑↑</language>
+			<language type="en_GB">↑↑↑</language>
+			<language type="en_GB" alt="short">↑↑↑</language>
+			<language type="en_US">↑↑↑</language>
 			<language type="en_US" alt="short">engleză (S.U.A)</language>
 			<language type="enm">engleză medie</language>
 			<language type="eo">esperanto</language>
 			<language type="es">spaniolă</language>
+			<language type="es_419">↑↑↑</language>
 			<language type="es_ES">spaniolă (Europa)</language>
+			<language type="es_MX">↑↑↑</language>
 			<language type="et">estonă</language>
 			<language type="eu">bască</language>
 			<language type="ewo">ewondo</language>
@@ -156,6 +164,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">faroeză</language>
 			<language type="fon">fon</language>
 			<language type="fr">franceză</language>
+			<language type="fr_CA">↑↑↑</language>
+			<language type="fr_CH">↑↑↑</language>
 			<language type="frc">franceză cajun</language>
 			<language type="frm">franceză medie</language>
 			<language type="fro">franceză veche</language>
@@ -391,6 +401,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ps">paștună</language>
 			<language type="ps" alt="variant">pushto</language>
 			<language type="pt">portugheză</language>
+			<language type="pt_BR">↑↑↑</language>
 			<language type="pt_PT">portugheză (Europa)</language>
 			<language type="qu">quechua</language>
 			<language type="quc">quiché</language>
@@ -1126,13 +1137,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
-			<parseLenient sample="’" draft="contributed">['ʼ՚᾽᾿’＇]</parseLenient>
-			<parseLenient sample="%" draft="contributed">[%٪﹪％]</parseLenient>
-			<parseLenient sample="‰" draft="contributed">[؉‰]</parseLenient>
+			<parseLenient sample="’" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="%" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="‰" draft="contributed">↑↑↑</parseLenient>
 			<parseLenient sample="$" draft="contributed">[\$﹩＄$]</parseLenient>
 			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
-			<parseLenient sample="¥" draft="contributed">[¥￥]</parseLenient>
-			<parseLenient sample="₩" draft="contributed">[₩￦]</parseLenient>
+			<parseLenient sample="¥" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="₩" draft="contributed">↑↑↑</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
 			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
@@ -1605,13 +1616,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B">h B – h B</greatestDifference>
-							<greatestDifference id="h">h–h B</greatestDifference>
+							<greatestDifference id="B">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
-							<greatestDifference id="h">h:mm–h:mm B</greatestDifference>
-							<greatestDifference id="m">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="B">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
@@ -1823,7 +1834,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<day type="wed">M</day>
 							<day type="thu">J</day>
 							<day type="fri">V</day>
-							<day type="sat">S</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun">du.</day>
@@ -1861,7 +1872,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<day type="wed">M</day>
 							<day type="thu">J</day>
 							<day type="fri">V</day>
-							<day type="sat">S</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun">du.</day>
@@ -2115,20 +2126,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B">h B – h B</greatestDifference>
-							<greatestDifference id="h">h–h B</greatestDifference>
+							<greatestDifference id="B">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
-							<greatestDifference id="h">h:mm–h:mm B</greatestDifference>
-							<greatestDifference id="m">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="B">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
-							<greatestDifference id="G" draft="provisional">G y – G y</greatestDifference>
-							<greatestDifference id="y" draft="provisional">G y–y</greatestDifference>
+							<greatestDifference id="G" draft="provisional">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="provisional">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
 							<greatestDifference id="G">MM.y GGGGG – MM.y GGGGG</greatestDifference>
@@ -2262,68 +2273,68 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<monthWidth type="abbreviated">
 							<month type="1" draft="contributed">Tișrei</month>
 							<month type="2" draft="contributed">Heșvan</month>
-							<month type="3" draft="contributed">Kislev</month>
-							<month type="4" draft="contributed">Tevet</month>
+							<month type="3" draft="contributed">↑↑↑</month>
+							<month type="4" draft="contributed">↑↑↑</month>
 							<month type="5" draft="contributed">Șevat</month>
-							<month type="6" draft="contributed">Adar I</month>
-							<month type="7" draft="contributed">Adar</month>
-							<month type="7" yeartype="leap" draft="contributed">Adar II</month>
-							<month type="8" draft="contributed">Nisan</month>
-							<month type="9" draft="contributed">Iyar</month>
-							<month type="10" draft="contributed">Sivan</month>
+							<month type="6" draft="contributed">↑↑↑</month>
+							<month type="7" draft="contributed">↑↑↑</month>
+							<month type="7" yeartype="leap" draft="contributed">↑↑↑</month>
+							<month type="8" draft="contributed">↑↑↑</month>
+							<month type="9" draft="contributed">↑↑↑</month>
+							<month type="10" draft="contributed">↑↑↑</month>
 							<month type="11" draft="contributed">Tammuz</month>
-							<month type="12" draft="contributed">Av</month>
-							<month type="13" draft="contributed">Elul</month>
+							<month type="12" draft="contributed">↑↑↑</month>
+							<month type="13" draft="contributed">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">Tișrei</month>
 							<month type="2" draft="contributed">Heșvan</month>
-							<month type="3" draft="contributed">Kislev</month>
-							<month type="4" draft="contributed">Tevet</month>
+							<month type="3" draft="contributed">↑↑↑</month>
+							<month type="4" draft="contributed">↑↑↑</month>
 							<month type="5" draft="contributed">Șevat</month>
-							<month type="6" draft="contributed">Adar I</month>
-							<month type="7" draft="contributed">Adar</month>
-							<month type="7" yeartype="leap" draft="contributed">Adar II</month>
-							<month type="8" draft="contributed">Nisan</month>
-							<month type="9" draft="contributed">Iyar</month>
-							<month type="10" draft="contributed">Sivan</month>
+							<month type="6" draft="contributed">↑↑↑</month>
+							<month type="7" draft="contributed">↑↑↑</month>
+							<month type="7" yeartype="leap" draft="contributed">↑↑↑</month>
+							<month type="8" draft="contributed">↑↑↑</month>
+							<month type="9" draft="contributed">↑↑↑</month>
+							<month type="10" draft="contributed">↑↑↑</month>
 							<month type="11" draft="contributed">Tammuz</month>
-							<month type="12" draft="contributed">Av</month>
-							<month type="13" draft="contributed">Elul</month>
+							<month type="12" draft="contributed">↑↑↑</month>
+							<month type="13" draft="contributed">↑↑↑</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
 							<month type="1" draft="contributed">Tișrei</month>
 							<month type="2" draft="contributed">Heșvan</month>
-							<month type="3" draft="contributed">Kislev</month>
-							<month type="4" draft="contributed">Tevet</month>
+							<month type="3" draft="contributed">↑↑↑</month>
+							<month type="4" draft="contributed">↑↑↑</month>
 							<month type="5" draft="contributed">Șevat</month>
-							<month type="6" draft="contributed">Adar I</month>
-							<month type="7" draft="contributed">Adar</month>
-							<month type="7" yeartype="leap" draft="contributed">Adar II</month>
-							<month type="8" draft="contributed">Nisan</month>
-							<month type="9" draft="contributed">Iyar</month>
-							<month type="10" draft="contributed">Sivan</month>
+							<month type="6" draft="contributed">↑↑↑</month>
+							<month type="7" draft="contributed">↑↑↑</month>
+							<month type="7" yeartype="leap" draft="contributed">↑↑↑</month>
+							<month type="8" draft="contributed">↑↑↑</month>
+							<month type="9" draft="contributed">↑↑↑</month>
+							<month type="10" draft="contributed">↑↑↑</month>
 							<month type="11" draft="contributed">Tammuz</month>
-							<month type="12" draft="contributed">Av</month>
-							<month type="13" draft="contributed">Elul</month>
+							<month type="12" draft="contributed">↑↑↑</month>
+							<month type="13" draft="contributed">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">Tișrei</month>
 							<month type="2" draft="contributed">Heșvan</month>
-							<month type="3" draft="contributed">Kislev</month>
-							<month type="4" draft="contributed">Tevet</month>
+							<month type="3" draft="contributed">↑↑↑</month>
+							<month type="4" draft="contributed">↑↑↑</month>
 							<month type="5" draft="contributed">Șevat</month>
-							<month type="6" draft="contributed">Adar I</month>
-							<month type="7" draft="contributed">Adar</month>
-							<month type="7" yeartype="leap" draft="contributed">Adar II</month>
-							<month type="8" draft="contributed">Nisan</month>
-							<month type="9" draft="contributed">Iyar</month>
-							<month type="10" draft="contributed">Sivan</month>
+							<month type="6" draft="contributed">↑↑↑</month>
+							<month type="7" draft="contributed">↑↑↑</month>
+							<month type="7" yeartype="leap" draft="contributed">↑↑↑</month>
+							<month type="8" draft="contributed">↑↑↑</month>
+							<month type="9" draft="contributed">↑↑↑</month>
+							<month type="10" draft="contributed">↑↑↑</month>
 							<month type="11" draft="contributed">Tammuz</month>
-							<month type="12" draft="contributed">Av</month>
-							<month type="13" draft="contributed">Elul</month>
+							<month type="12" draft="contributed">↑↑↑</month>
+							<month type="13" draft="contributed">↑↑↑</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -4027,7 +4038,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Choibalsan</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
-				<exemplarCity>Macao</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Saipan">
 				<exemplarCity>Saipan</exemplarCity>
@@ -7235,7 +7246,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-dunam">
 				<displayName draft="contributed">dunami</displayName>
-				<unitPattern count="one" draft="contributed">{0} dunam</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} dunami</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} de dunami</unitPattern>
 			</unit>
@@ -7275,14 +7286,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} la mie</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName draft="contributed">‱</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} la zece mii</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} la zece mii</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} la zece mii</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName draft="contributed">moli</displayName>
-				<unitPattern count="one" draft="contributed">{0} mol</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} moli</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} de moli</unitPattern>
 			</unit>
@@ -8202,13 +8213,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} mmol/l</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName draft="contributed">‱</displayName>
-				<unitPattern count="one" draft="contributed">{0}‱</unitPattern>
-				<unitPattern count="few" draft="contributed">{0}‱</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}‱</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<displayName draft="contributed">mol</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0} mol</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} moli</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} moli</unitPattern>
@@ -8444,9 +8455,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="force-pound-force">
 				<displayName draft="contributed">livră-forță</displayName>
-				<unitPattern count="one" draft="contributed">{0} lbf</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} lbf</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} lbf</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-newton">
 				<displayName>N</displayName>
@@ -8586,10 +8597,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
-				<displayName draft="contributed">R☉</displayName>
-				<unitPattern count="one" draft="contributed">{0} R☉</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} R☉</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} R☉</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lx</displayName>
@@ -8813,9 +8824,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="torque-pound-foot">
 				<displayName draft="contributed">livră-forță picior</displayName>
-				<unitPattern count="one" draft="contributed">{0} lbf⋅ft</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} lbf⋅ft</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} lbf⋅ft</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName>N⋅m</displayName>
@@ -8980,9 +8991,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-barrel">
 				<displayName draft="contributed">baril</displayName>
-				<unitPattern count="one" draft="contributed">{0} bbl</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} bbl</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} bbl</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>direcție</displayName>
@@ -9205,8 +9216,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="2">{0} sau {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>

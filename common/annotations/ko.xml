@@ -23,8 +23,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">진한 갈색 피부</annotation>
 		<annotation cp="🏿">검은색 피부 | 타입 육 | 피부톤</annotation>
 		<annotation cp="🏿" type="tts">검은색 피부</annotation>
-		<annotation cp="🐾">곰발바닥 | 곰발자국 | 동물</annotation>
-		<annotation cp="🐾" type="tts">곰발바닥</annotation>
 		<annotation cp="😀">미소 | 스마일 | 얼굴 | 웃음 | 활짝 웃는 얼굴</annotation>
 		<annotation cp="😀" type="tts">활짝 웃는 얼굴</annotation>
 		<annotation cp="😃">눈을 크게 뜨고 웃는 얼굴 | 미소 | 스마일 | 얼굴 | 입 벌리고 웃는 얼굴</annotation>
@@ -195,6 +193,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😩" type="tts">지친 얼굴</annotation>
 		<annotation cp="😫">얼굴 | 피곤한 얼굴 | 피곤함</annotation>
 		<annotation cp="😫" type="tts">피곤한 얼굴</annotation>
+		<annotation cp="🥱">지루함 | 피곤함 | 하품 | 하품하는 얼굴</annotation>
+		<annotation cp="🥱" type="tts">하품하는 얼굴</annotation>
 		<annotation cp="😤">승리감 | 얼굴 | 이겼다 | 화내며 씩씩거리는 얼굴</annotation>
 		<annotation cp="😤" type="tts">화내며 씩씩거리는 얼굴</annotation>
 		<annotation cp="😡">뾰로통한 얼굴 | 뾰로통함 | 얼굴</annotation>
@@ -287,8 +287,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💙" type="tts">파란색 하트</annotation>
 		<annotation cp="💜">보라색 하트 | 사랑 | 하트</annotation>
 		<annotation cp="💜" type="tts">보라색 하트</annotation>
+		<annotation cp="🤎">갈색 | 하트</annotation>
+		<annotation cp="🤎" type="tts">갈색 하트</annotation>
 		<annotation cp="🖤">검은색 하트 | 검정 | 블랙 | 악 | 하트</annotation>
 		<annotation cp="🖤" type="tts">검은색 하트</annotation>
+		<annotation cp="🤍">하트 | 흰색</annotation>
+		<annotation cp="🤍" type="tts">흰색 하트</annotation>
 		<annotation cp="💯">백점 | 백점 표시</annotation>
 		<annotation cp="💯" type="tts">백점</annotation>
 		<annotation cp="💢">울컥 | 화 | 화남</annotation>
@@ -329,6 +333,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖖" type="tts">벌칸식 인사</annotation>
 		<annotation cp="👌">돈 | 오케이 신호 | 오케이를 표시한 손</annotation>
 		<annotation cp="👌" type="tts">오케이를 표시한 손</annotation>
+		<annotation cp="🤏">꼬집는 손 | 적은 양을 나타내는 손</annotation>
+		<annotation cp="🤏" type="tts">꼬집는 손</annotation>
 		<annotation cp="✌">가위 | 브이 표시 | 찌</annotation>
 		<annotation cp="✌" type="tts">브이 표시</annotation>
 		<annotation cp="🤞">검지 | 검지와 중지 크로스 | 교차 | 손가락 | 중지 | 크로스</annotation>
@@ -383,12 +389,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤳" type="tts">셀카</annotation>
 		<annotation cp="💪">강함 | 근육 | 알통 | 이두박근 | 힘</annotation>
 		<annotation cp="💪" type="tts">알통</annotation>
+		<annotation cp="🦾">기계 팔 | 인공 팔</annotation>
+		<annotation cp="🦾" type="tts">기계 팔</annotation>
+		<annotation cp="🦿">인공 기관 | 인공 다리 | 접근성</annotation>
+		<annotation cp="🦿" type="tts">인공 다리</annotation>
 		<annotation cp="🦵">다리 한쪽 | 킥 | 한쪽 다리</annotation>
 		<annotation cp="🦵" type="tts">한쪽 다리</annotation>
 		<annotation cp="🦶">발 한쪽 | 발구르기 | 킥 | 한쪽 발</annotation>
 		<annotation cp="🦶" type="tts">한쪽 발</annotation>
 		<annotation cp="👂">귀 | 몸</annotation>
 		<annotation cp="👂" type="tts">귀</annotation>
+		<annotation cp="🦻">보청기를 낀 귀 | 접근성 | 청각장애</annotation>
+		<annotation cp="🦻" type="tts">보청기를 낀 귀</annotation>
 		<annotation cp="👃">몸 | 코</annotation>
 		<annotation cp="👃" type="tts">코</annotation>
 		<annotation cp="🧠">뇌</annotation>
@@ -417,28 +429,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">사람</annotation>
 		<annotation cp="👱">금발 | 금발인 사람</annotation>
 		<annotation cp="👱" type="tts">금발인 사람</annotation>
-		<annotation cp="🧑‍🤝‍🧑" draft="contributed">손을 잡고 있는 두 명의 사람</annotation>
-		<annotation cp="🧑‍🤝‍🧑" type="tts" draft="contributed">손을 잡고 있는 두 명의 사람</annotation>
 		<annotation cp="👨">남성 | 남자 | 성인</annotation>
 		<annotation cp="👨" type="tts">남자</annotation>
-		<annotation cp="👨‍🦯">남자 | 시각장애 | 접근성 | 지팡이를 든 남자</annotation>
-		<annotation cp="👨‍🦯" type="tts">지팡이를 든 남자</annotation>
-		<annotation cp="👨‍🦼">남자 | 전동 휠체어를 탄 남자 | 접근성 | 휠체어</annotation>
-		<annotation cp="👨‍🦼" type="tts">전동 휠체어를 탄 남자</annotation>
-		<annotation cp="👨‍🦽">남자 | 수동 휠체어를 탄 남자 | 접근성 | 휠체어</annotation>
-		<annotation cp="👨‍🦽" type="tts">수동 휠체어를 탄 남자</annotation>
-		<annotation cp="👱‍♂">금발 | 남성 | 남자</annotation>
-		<annotation cp="👱‍♂" type="tts">금발 남자</annotation>
 		<annotation cp="🧔">사람 | 수염 | 수염 난 사람</annotation>
 		<annotation cp="🧔" type="tts">수염 난 사람</annotation>
+		<annotation cp="👱‍♂">금발 | 남성 | 남자</annotation>
+		<annotation cp="👱‍♂" type="tts">금발 남자</annotation>
 		<annotation cp="👩">성인 | 여성 | 여자</annotation>
 		<annotation cp="👩" type="tts">여자</annotation>
-		<annotation cp="👩‍🦯">시각장애 | 여자 | 접근성 | 지팡이를 든 여자</annotation>
-		<annotation cp="👩‍🦯" type="tts">지팡이를 든 여자</annotation>
-		<annotation cp="👩‍🦼">여자 | 전동 휠체어를 탄 여자 | 접근성 | 휠체어</annotation>
-		<annotation cp="👩‍🦼" type="tts">전동 휠체어를 탄 여자</annotation>
-		<annotation cp="👩‍🦽">수동 휠체어를 탄 여자 | 여자 | 접근성 | 휠체어</annotation>
-		<annotation cp="👩‍🦽" type="tts">수동 휠체어를 탄 여자</annotation>
 		<annotation cp="👱‍♀">금발 | 여성 | 여자</annotation>
 		<annotation cp="👱‍♀" type="tts">금발 여자</annotation>
 		<annotation cp="🧓">노인 | 성별 없음 | 성인</annotation>
@@ -483,6 +481,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙋‍♂" type="tts">한 손 든 남자</annotation>
 		<annotation cp="🙋‍♀">손들기 | 여기요 | 저요 | 한 손 든 여자 | 한손</annotation>
 		<annotation cp="🙋‍♀" type="tts">한 손 든 여자</annotation>
+		<annotation cp="🧏">귀 | 접근성 | 청각 장애가 있는 사람 | 청각장애 | 청력</annotation>
+		<annotation cp="🧏" type="tts">청각 장애가 있는 사람</annotation>
+		<annotation cp="🧏‍♂">남자 | 청각장애 | 청각장애가 있는 남자</annotation>
+		<annotation cp="🧏‍♂" type="tts">청각장애가 있는 남자</annotation>
+		<annotation cp="🧏‍♀">여자 | 청각장애 | 청각장애가 있는 여자</annotation>
+		<annotation cp="🧏‍♀" type="tts">청각장애가 있는 여자</annotation>
 		<annotation cp="🙇">사과하는 사람 | 사과하며 절하는 사람 | 절하는 사람</annotation>
 		<annotation cp="🙇" type="tts">절하는 사람</annotation>
 		<annotation cp="🙇‍♂">넙죽 | 사과 | 절하는 남자 | 정중함 | 큰절</annotation>
@@ -689,6 +693,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚶‍♂" type="tts">걷는 남자</annotation>
 		<annotation cp="🚶‍♀">걷기 | 걷는 여자 | 도보 | 보행자 | 워킹</annotation>
 		<annotation cp="🚶‍♀" type="tts">걷는 여자</annotation>
+		<annotation cp="🧍">서 있는 | 서 있는 사람</annotation>
+		<annotation cp="🧍" type="tts">서 있는 사람</annotation>
+		<annotation cp="🧍‍♂">남자 | 서 있는 | 서 있는 남자</annotation>
+		<annotation cp="🧍‍♂" type="tts">서 있는 남자</annotation>
+		<annotation cp="🧍‍♀">서 있는 | 서 있는 여자 | 여자</annotation>
+		<annotation cp="🧍‍♀" type="tts">서 있는 여자</annotation>
+		<annotation cp="🧎">무릎을 꿇은 | 무릎을 꿇은 사람</annotation>
+		<annotation cp="🧎" type="tts">무릎을 꿇은 사람</annotation>
+		<annotation cp="🧎‍♂">남자 | 무릎을 꿇은 | 무릎을 꿇은 남자</annotation>
+		<annotation cp="🧎‍♂" type="tts">무릎을 꿇은 남자</annotation>
+		<annotation cp="🧎‍♀">무릎을 꿇은 | 무릎을 꿇은 여자 | 여자</annotation>
+		<annotation cp="🧎‍♀" type="tts">무릎을 꿇은 여자</annotation>
+		<annotation cp="👨‍🦯">남자 | 시각장애 | 접근성 | 지팡이를 든 남자</annotation>
+		<annotation cp="👨‍🦯" type="tts">지팡이를 든 남자</annotation>
+		<annotation cp="👩‍🦯">시각장애 | 여자 | 접근성 | 지팡이를 든 여자</annotation>
+		<annotation cp="👩‍🦯" type="tts">지팡이를 든 여자</annotation>
+		<annotation cp="👨‍🦼">남자 | 전동 휠체어를 탄 남자 | 접근성 | 휠체어</annotation>
+		<annotation cp="👨‍🦼" type="tts">전동 휠체어를 탄 남자</annotation>
+		<annotation cp="👩‍🦼">여자 | 전동 휠체어를 탄 여자 | 접근성 | 휠체어</annotation>
+		<annotation cp="👩‍🦼" type="tts">전동 휠체어를 탄 여자</annotation>
+		<annotation cp="👨‍🦽">남자 | 수동 휠체어를 탄 남자 | 접근성 | 휠체어</annotation>
+		<annotation cp="👨‍🦽" type="tts">수동 휠체어를 탄 남자</annotation>
+		<annotation cp="👩‍🦽">수동 휠체어를 탄 여자 | 여자 | 접근성 | 휠체어</annotation>
+		<annotation cp="👩‍🦽" type="tts">수동 휠체어를 탄 여자</annotation>
 		<annotation cp="🏃">달리기 | 뛰기 | 뛰는 사람 | 런닝 | 마라톤</annotation>
 		<annotation cp="🏃" type="tts">뛰는 사람</annotation>
 		<annotation cp="🏃‍♂">달리기 | 뛰기 | 뛰는 남자 | 런닝 | 마라톤</annotation>
@@ -815,12 +843,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛀" type="tts">목욕하는 사람</annotation>
 		<annotation cp="🛌">침대 | 침대에 누운 사람 | 호텔</annotation>
 		<annotation cp="🛌" type="tts">침대에 누운 사람</annotation>
+		<annotation cp="🧑‍🤝‍🧑" draft="contributed">손을 잡고 있는 두 명의 사람</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts" draft="contributed">손을 잡고 있는 두 명의 사람</annotation>
+		<annotation cp="👭">동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 친구들</annotation>
+		<annotation cp="👭" type="tts">손을 잡고 있는 두 명의 여자</annotation>
 		<annotation cp="👫">남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 커플</annotation>
 		<annotation cp="👫" type="tts">손을 잡고 있는 남녀</annotation>
 		<annotation cp="👬">남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 친구들</annotation>
 		<annotation cp="👬" type="tts">손을 잡고 있는 두 명의 남자</annotation>
-		<annotation cp="👭">동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 친구들</annotation>
-		<annotation cp="👭" type="tts">손을 잡고 있는 두 명의 여자</annotation>
 		<annotation cp="💏">사랑 | 연애 | 키스</annotation>
 		<annotation cp="💏" type="tts">키스</annotation>
 		<annotation cp="💑">사랑 | 연애 | 연애 중 | 연인</annotation>
@@ -843,20 +873,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦳" type="tts">백발</annotation>
 		<annotation cp="🦲">대머리 | 맨머리 | 민머리 | 벗겨진 머리</annotation>
 		<annotation cp="🦲" type="tts">대머리</annotation>
-		<annotation cp="♀">기호 | 여성</annotation>
-		<annotation cp="♀" type="tts">여성 기호</annotation>
-		<annotation cp="♂">기호 | 남성</annotation>
-		<annotation cp="♂" type="tts">남성 기호</annotation>
 		<annotation cp="🐵">동물 | 원숭이 | 원숭이 얼굴 | 원숭이띠</annotation>
 		<annotation cp="🐵" type="tts">원숭이 얼굴</annotation>
 		<annotation cp="🐒">동물 | 원숭이</annotation>
 		<annotation cp="🐒" type="tts">원숭이</annotation>
 		<annotation cp="🦍">고릴라 | 동물</annotation>
 		<annotation cp="🦍" type="tts">고릴라</annotation>
+		<annotation cp="🦧">오랑우탄 | 유인원</annotation>
+		<annotation cp="🦧" type="tts">오랑우탄</annotation>
 		<annotation cp="🐶">강아지 | 강아지 얼굴 | 개 | 개띠 | 동물</annotation>
 		<annotation cp="🐶" type="tts">강아지 얼굴</annotation>
 		<annotation cp="🐕">강아지 | 개 | 개새끼 | 동물 | 멍멍이</annotation>
 		<annotation cp="🐕" type="tts">개</annotation>
+		<annotation cp="🦮">시각장애 | 안내견 | 접근성</annotation>
+		<annotation cp="🦮" type="tts">안내견</annotation>
 		<annotation cp="🐕‍🦺">보조 | 보조견 | 접근성</annotation>
 		<annotation cp="🐕‍🦺" type="tts">보조견</annotation>
 		<annotation cp="🐩">개 | 개새끼 | 동물 | 멍멍이 | 푸들</annotation>
@@ -949,10 +979,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐨" type="tts">코알라</annotation>
 		<annotation cp="🐼">동물 | 판다 | 판다 얼굴 | 판다곰</annotation>
 		<annotation cp="🐼" type="tts">판다 얼굴</annotation>
+		<annotation cp="🦥">게으른 | 나무늘보 | 느린</annotation>
+		<annotation cp="🦥" type="tts">나무늘보</annotation>
+		<annotation cp="🦦">물고기 사냥 | 수달 | 장난꾸러기</annotation>
+		<annotation cp="🦦" type="tts">수달</annotation>
+		<annotation cp="🦨">냄새나는 | 스컹크</annotation>
+		<annotation cp="🦨" type="tts">스컹크</annotation>
 		<annotation cp="🦘">새끼 캥거루 | 점프 | 캥거루 | 호주</annotation>
 		<annotation cp="🦘" type="tts">캥거루</annotation>
 		<annotation cp="🦡">벌꿀오소리 | 심술쟁이 | 오소리</annotation>
 		<annotation cp="🦡" type="tts">오소리</annotation>
+		<annotation cp="🐾">곰발바닥 | 곰발자국 | 동물</annotation>
+		<annotation cp="🐾" type="tts">곰발바닥</annotation>
 		<annotation cp="🦃">새 | 칠면조 | 터키</annotation>
 		<annotation cp="🦃" type="tts">칠면조</annotation>
 		<annotation cp="🐔">닭 | 동물 | 암탉 | 치킨</annotation>
@@ -979,6 +1017,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦢" type="tts">백조</annotation>
 		<annotation cp="🦉">부엉이 | 새 | 올빼미 | 조류</annotation>
 		<annotation cp="🦉" type="tts">부엉이</annotation>
+		<annotation cp="🦩">열대 | 플라밍고 | 홍학</annotation>
+		<annotation cp="🦩" type="tts">홍학</annotation>
 		<annotation cp="🦚">공작 | 뽐내는 | 수컷 공작 | 조류 | 화려한</annotation>
 		<annotation cp="🦚" type="tts">공작</annotation>
 		<annotation cp="🦜">말하는 새 | 앵무새 | 조류 | 해적</annotation>
@@ -1139,6 +1179,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥬" type="tts">녹색 채소</annotation>
 		<annotation cp="🥦">브로콜리</annotation>
 		<annotation cp="🥦" type="tts">브로콜리</annotation>
+		<annotation cp="🧄">마늘 | 조미료</annotation>
+		<annotation cp="🧄" type="tts">마늘</annotation>
+		<annotation cp="🧅">양념 | 양파</annotation>
+		<annotation cp="🧅" type="tts">양파</annotation>
 		<annotation cp="🍄">나무 | 버섯 | 식물</annotation>
 		<annotation cp="🍄" type="tts">버섯</annotation>
 		<annotation cp="🥜">견과류 | 넛츠 | 땅콩 | 식품</annotation>
@@ -1157,6 +1201,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥯" type="tts">베이글</annotation>
 		<annotation cp="🥞">식품 | 크레페 | 팬케이크 | 핫케이크</annotation>
 		<annotation cp="🥞" type="tts">팬케이크</annotation>
+		<annotation cp="🧇">와플</annotation>
+		<annotation cp="🧇" type="tts">와플</annotation>
 		<annotation cp="🧀">치즈 | 치즈 덩어리 | 치즈 조각</annotation>
 		<annotation cp="🧀" type="tts">치즈 조각</annotation>
 		<annotation cp="🍖">고기 | 고기 덩어리</annotation>
@@ -1183,6 +1229,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌯" type="tts">부리또</annotation>
 		<annotation cp="🥙">밀전병에 싼 요리 | 부리또</annotation>
 		<annotation cp="🥙" type="tts">밀전병에 싼 요리</annotation>
+		<annotation cp="🧆">미트볼 | 병아리콩 | 팔라펠</annotation>
+		<annotation cp="🧆" type="tts">팔라펠</annotation>
 		<annotation cp="🥚">계란 | 달걀 | 식품</annotation>
 		<annotation cp="🥚" type="tts">달걀</annotation>
 		<annotation cp="🍳">계란 프라이 | 요리 | 프라이팬</annotation>
@@ -1197,6 +1245,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥗" type="tts">야채샐러드</annotation>
 		<annotation cp="🍿">영화 | 팝콘</annotation>
 		<annotation cp="🍿" type="tts">팝콘</annotation>
+		<annotation cp="🧈">버터 | 유제품</annotation>
+		<annotation cp="🧈" type="tts">버터</annotation>
 		<annotation cp="🧂">소금 | 양념통 | 조미료</annotation>
 		<annotation cp="🧂" type="tts">소금</annotation>
 		<annotation cp="🥫">캔 | 통조림</annotation>
@@ -1243,6 +1293,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦐" type="tts">새우</annotation>
 		<annotation cp="🦑">식품 | 연체동물 | 오징어</annotation>
 		<annotation cp="🦑" type="tts">오징어</annotation>
+		<annotation cp="🦪">굴 | 진주</annotation>
+		<annotation cp="🦪" type="tts">굴</annotation>
 		<annotation cp="🍦">소프트 아이스크림 | 아이스크림 콘 | 콘 아이스크림</annotation>
 		<annotation cp="🍦" type="tts">소프트 아이스크림</annotation>
 		<annotation cp="🍧">샤베트 | 샤베트 아이스크림</annotation>
@@ -1299,6 +1351,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥃" type="tts">양주잔</annotation>
 		<annotation cp="🥤">빨대와 컵 | 소다 | 주스</annotation>
 		<annotation cp="🥤" type="tts">빨대와 컵</annotation>
+		<annotation cp="🧃">음료 팩 | 쥬스 팩</annotation>
+		<annotation cp="🧃" type="tts">음료 팩</annotation>
+		<annotation cp="🧉">마테차 | 음료 | 차</annotation>
+		<annotation cp="🧉" type="tts">마테차</annotation>
+		<annotation cp="🧊">각얼음 | 얼음 | 차가운</annotation>
+		<annotation cp="🧊" type="tts">얼음</annotation>
 		<annotation cp="🥢">젓가락</annotation>
 		<annotation cp="🥢" type="tts">젓가락</annotation>
 		<annotation cp="🍽">나이프 | 접시 | 포크 | 포크와 나이프가 있는 접시</annotation>
@@ -1395,6 +1453,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛪" type="tts">교회</annotation>
 		<annotation cp="🕌">모스크 | 사원 | 이슬람 | 종교</annotation>
 		<annotation cp="🕌" type="tts">모스크</annotation>
+		<annotation cp="🛕">사원 | 힌두교</annotation>
+		<annotation cp="🛕" type="tts">힌두교 사원</annotation>
 		<annotation cp="🕍">사원 | 시나고그 | 유대교 | 종교</annotation>
 		<annotation cp="🕍" type="tts">시나고그</annotation>
 		<annotation cp="⛩">신사 | 신토 신사 | 일본 신사 | 종교</annotation>
@@ -1423,8 +1483,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌉" type="tts">밤하늘을 배경으로 하는 다리</annotation>
 		<annotation cp="♨">뜨거움 | 목욕탕 | 온천</annotation>
 		<annotation cp="♨" type="tts">온천</annotation>
-		<annotation cp="🌌">우주 | 은하 | 은하수 | 행성</annotation>
-		<annotation cp="🌌" type="tts">은하수</annotation>
 		<annotation cp="🎠">놀이공원 | 목마 | 유원지 | 회전 목마</annotation>
 		<annotation cp="🎠" type="tts">회전 목마</annotation>
 		<annotation cp="🎡">관람차 | 놀이공원 | 유원지</annotation>
@@ -1497,6 +1555,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏍" type="tts">오토바이</annotation>
 		<annotation cp="🛵">스쿠터 | 오토바이 | 전동</annotation>
 		<annotation cp="🛵" type="tts">스쿠터</annotation>
+		<annotation cp="🦽">수동 휠체어 | 접근성</annotation>
+		<annotation cp="🦽" type="tts">수동 휠체어</annotation>
+		<annotation cp="🦼">전동 휠체어 | 접근성</annotation>
+		<annotation cp="🦼" type="tts">전동 휠체어</annotation>
+		<annotation cp="🛺">경삼륜차 | 툭툭</annotation>
+		<annotation cp="🛺" type="tts">경삼륜차</annotation>
 		<annotation cp="🚲">교통수단 | 바이크 | 자전거</annotation>
 		<annotation cp="🚲" type="tts">자전거</annotation>
 		<annotation cp="🛴">씽씽카 | 킥보드</annotation>
@@ -1547,6 +1611,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛫" type="tts">비행기 이륙</annotation>
 		<annotation cp="🛬">도착 | 비행기 착륙</annotation>
 		<annotation cp="🛬" type="tts">비행기 착륙</annotation>
+		<annotation cp="🪂">낙하산 | 스카이다이빙 | 패러세일링 | 행글라이더</annotation>
+		<annotation cp="🪂" type="tts">낙하산</annotation>
 		<annotation cp="💺">자리 | 좌석</annotation>
 		<annotation cp="💺" type="tts">좌석</annotation>
 		<annotation cp="🚁">헬기 | 헬리콥터</annotation>
@@ -1661,12 +1727,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌝" type="tts">얼굴이 있는 보름달</annotation>
 		<annotation cp="🌞">얼굴이 있는 해 | 해 방긋 | 해님</annotation>
 		<annotation cp="🌞" type="tts">얼굴이 있는 해</annotation>
+		<annotation cp="🪐">고리가 있는 행성 | 토성</annotation>
+		<annotation cp="🪐" type="tts">고리가 있는 행성</annotation>
 		<annotation cp="⭐">별</annotation>
 		<annotation cp="⭐" type="tts">별</annotation>
 		<annotation cp="🌟">반짝이는 별 | 반짝이다 | 반짝임 | 별</annotation>
 		<annotation cp="🌟" type="tts">반짝이는 별</annotation>
 		<annotation cp="🌠">낙성 | 떨어지는 별 | 별 | 별똥별 | 유성</annotation>
 		<annotation cp="🌠" type="tts">별똥별</annotation>
+		<annotation cp="🌌">우주 | 은하 | 은하수 | 행성</annotation>
+		<annotation cp="🌌" type="tts">은하수</annotation>
 		<annotation cp="☁">구름 | 흐림</annotation>
 		<annotation cp="☁" type="tts">구름</annotation>
 		<annotation cp="⛅">구름 | 구름 뒤의 해 | 구름에 가린 해 | 해</annotation>
@@ -1817,6 +1887,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛸" type="tts">아이스 스케이트</annotation>
 		<annotation cp="🎣">낚시 | 낚싯대 | 물고기</annotation>
 		<annotation cp="🎣" type="tts">낚싯대</annotation>
+		<annotation cp="🤿">다이빙 | 다이빙 마스크 | 스노클링 | 스킨스쿠버</annotation>
+		<annotation cp="🤿" type="tts">다이빙 마스크</annotation>
 		<annotation cp="🎽">러닝 셔츠 | 민소매 상의 | 운동복 | 운동복 상의</annotation>
 		<annotation cp="🎽" type="tts">러닝 셔츠</annotation>
 		<annotation cp="🎿">스키 | 스키 부츠 | 스포츠 | 운동</annotation>
@@ -1827,6 +1899,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥌" type="tts">컬링 스톤</annotation>
 		<annotation cp="🎯">과녁 | 명중 | 양궁 | 화살</annotation>
 		<annotation cp="🎯" type="tts">과녁 명중</annotation>
+		<annotation cp="🪀">오르락내리락 | 요요 | 장난감</annotation>
+		<annotation cp="🪀" type="tts">요요</annotation>
+		<annotation cp="🪁">연 | 연날리기 | 활공</annotation>
+		<annotation cp="🪁" type="tts">연</annotation>
 		<annotation cp="🎱">당구 | 당구 게임 | 당구공</annotation>
 		<annotation cp="🎱" type="tts">당구</annotation>
 		<annotation cp="🔮">구슬 | 수정 | 예언 | 운세</annotation>
@@ -1879,6 +1955,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥽" type="tts">고글</annotation>
 		<annotation cp="🥼">과학자 | 실험실 | 실험실 가운 | 의사</annotation>
 		<annotation cp="🥼" type="tts">실험실 가운</annotation>
+		<annotation cp="🦺">구명조끼 | 안전 | 응급 | 조끼</annotation>
+		<annotation cp="🦺" type="tts">구명조끼</annotation>
 		<annotation cp="👔">넥타이 | 샐러리맨 | 타이</annotation>
 		<annotation cp="👔" type="tts">넥타이</annotation>
 		<annotation cp="👕">티 | 티셔츠</annotation>
@@ -1897,6 +1975,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👗" type="tts">원피스</annotation>
 		<annotation cp="👘">기모노 | 일본 기모노</annotation>
 		<annotation cp="👘" type="tts">기모노</annotation>
+		<annotation cp="🥻">드레스 | 사리 | 의복</annotation>
+		<annotation cp="🥻" type="tts">사리</annotation>
+		<annotation cp="🩱">수영복 | 원피스 수영복</annotation>
+		<annotation cp="🩱" type="tts">원피스 수영복</annotation>
+		<annotation cp="🩲">삼각 수영복 | 수영복 | 언더웨어</annotation>
+		<annotation cp="🩲" type="tts">삼각 수영복</annotation>
+		<annotation cp="🩳">반바지 | 수영복</annotation>
+		<annotation cp="🩳" type="tts">반바지</annotation>
 		<annotation cp="👙">비키니 | 수영복</annotation>
 		<annotation cp="👙" type="tts">비키니</annotation>
 		<annotation cp="👚">블라우스 | 여성복</annotation>
@@ -1923,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👠" type="tts">하이힐</annotation>
 		<annotation cp="👡">샌들 | 신발 | 여성용 샌들 | 여성용 신발</annotation>
 		<annotation cp="👡" type="tts">샌들</annotation>
+		<annotation cp="🩰">발레 | 발레 슈즈 | 춤</annotation>
+		<annotation cp="🩰" type="tts">발레 슈즈</annotation>
 		<annotation cp="👢">부츠 | 신발 | 여성용 부츠 | 여성용 신발</annotation>
 		<annotation cp="👢" type="tts">부츠</annotation>
 		<annotation cp="👑">왕 | 왕관 | 왕족</annotation>
@@ -1991,6 +2079,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎺" type="tts">트럼펫</annotation>
 		<annotation cp="🎻">바이올린 | 악기 | 연주 | 음악</annotation>
 		<annotation cp="🎻" type="tts">바이올린</annotation>
+		<annotation cp="🪕">밴조 | 음악 | 현악기</annotation>
+		<annotation cp="🪕" type="tts">밴조</annotation>
 		<annotation cp="🥁">드럼 | 북 | 북채 | 음악</annotation>
 		<annotation cp="🥁" type="tts">드럼</annotation>
 		<annotation cp="📱">모바일폰 | 휴대전화 | 휴대폰</annotation>
@@ -2061,6 +2151,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔦" type="tts">손전등</annotation>
 		<annotation cp="🏮">선술집 | 이자카야 | 일본식 등 | 일본식 선술집 | 홍등</annotation>
 		<annotation cp="🏮" type="tts">일본식 등</annotation>
+		<annotation cp="🪔">기름 | 디야 | 램프</annotation>
+		<annotation cp="🪔" type="tts">기름 램프</annotation>
 		<annotation cp="📔">공책 | 노트 | 표지가 있는 노트</annotation>
 		<annotation cp="📔" type="tts">표지가 있는 노트</annotation>
 		<annotation cp="📕">도서 | 책 | 펼치지 않은 책</annotation>
@@ -2217,6 +2309,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗝" type="tts">오래된 열쇠</annotation>
 		<annotation cp="🔨">도구 | 망치 | 해머</annotation>
 		<annotation cp="🔨" type="tts">망치</annotation>
+		<annotation cp="🪓">나무 | 도끼 | 손도끼 | 쪼개기</annotation>
+		<annotation cp="🪓" type="tts">도끼</annotation>
 		<annotation cp="⛏">곡괭이 | 광산</annotation>
 		<annotation cp="⛏" type="tts">곡괭이</annotation>
 		<annotation cp="⚒">곡괭이 | 망치 | 망치와 곡괭이</annotation>
@@ -2243,6 +2337,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗜" type="tts">압축기</annotation>
 		<annotation cp="⚖">균형 | 저울 | 접시저울 | 정의 | 천칭자리</annotation>
 		<annotation cp="⚖" type="tts">접시저울</annotation>
+		<annotation cp="🦯">시각장애 | 시각장애인 지팡이 | 접근성 | 지팡이</annotation>
+		<annotation cp="🦯" type="tts">시각장애인 지팡이</annotation>
 		<annotation cp="🔗">링크 | 링크 표시</annotation>
 		<annotation cp="🔗" type="tts">링크</annotation>
 		<annotation cp="⛓">사슬 | 쇠사슬 | 체인</annotation>
@@ -2267,20 +2363,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📡" type="tts">위성 안테나</annotation>
 		<annotation cp="💉">병원 | 주사 바늘 | 주사기 | 치료</annotation>
 		<annotation cp="💉" type="tts">주사기</annotation>
+		<annotation cp="🩸">생리 | 핏방울 | 헌혈</annotation>
+		<annotation cp="🩸" type="tts">핏방울</annotation>
 		<annotation cp="💊">알약 | 약</annotation>
 		<annotation cp="💊" type="tts">알약</annotation>
+		<annotation cp="🩹">반창고 | 밴드</annotation>
+		<annotation cp="🩹" type="tts">반창고</annotation>
+		<annotation cp="🩺">심박수 | 의사 | 청진기</annotation>
+		<annotation cp="🩺" type="tts">청진기</annotation>
 		<annotation cp="🚪">도어 | 문</annotation>
 		<annotation cp="🚪" type="tts">문</annotation>
 		<annotation cp="🛏">침대 | 호텔</annotation>
 		<annotation cp="🛏" type="tts">침대</annotation>
 		<annotation cp="🛋">소파 | 소파와 전등 | 전등</annotation>
 		<annotation cp="🛋" type="tts">소파와 전등</annotation>
+		<annotation cp="🪑">앉기 | 의자</annotation>
+		<annotation cp="🪑" type="tts">의자</annotation>
 		<annotation cp="🚽">변기</annotation>
 		<annotation cp="🚽" type="tts">변기</annotation>
 		<annotation cp="🚿">물 | 샤워</annotation>
 		<annotation cp="🚿" type="tts">샤워</annotation>
 		<annotation cp="🛁">목욕 | 샤워 | 욕조</annotation>
 		<annotation cp="🛁" type="tts">욕조</annotation>
+		<annotation cp="🪒">날카로운 | 면도 | 면도칼</annotation>
+		<annotation cp="🪒" type="tts">면도칼</annotation>
 		<annotation cp="🧴">로션 | 모이스처라이저 | 샴푸 | 선크림</annotation>
 		<annotation cp="🧴" type="tts">로션</annotation>
 		<annotation cp="🧷">고정용 핀 | 옷핀</annotation>
@@ -2499,6 +2605,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📳" type="tts">진동 모드</annotation>
 		<annotation cp="📴">전원이 꺼진 휴대전화 | 휴대전화 끄기 | 휴대전화 전원 끄기</annotation>
 		<annotation cp="📴" type="tts">휴대전화 끄기</annotation>
+		<annotation cp="♀">기호 | 여성</annotation>
+		<annotation cp="♀" type="tts">여성 기호</annotation>
+		<annotation cp="♂">기호 | 남성</annotation>
+		<annotation cp="♂" type="tts">남성 기호</annotation>
 		<annotation cp="⚕">의술의 신 | 의학 | 의학 기호</annotation>
 		<annotation cp="⚕" type="tts">의학 기호</annotation>
 		<annotation cp="♾">뫼비우스 | 무한 | 영원</annotation>
@@ -2645,28 +2755,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🈵" type="tts">찰 만</annotation>
 		<annotation cp="🔴">빨간 원 | 빨강 | 원 | 큰 빨간 원</annotation>
 		<annotation cp="🔴" type="tts">빨간 원</annotation>
+		<annotation cp="🟠">오렌지색 | 원</annotation>
+		<annotation cp="🟠" type="tts">오렌지색 원</annotation>
+		<annotation cp="🟡">노란색 | 원</annotation>
+		<annotation cp="🟡" type="tts">노란색 원</annotation>
+		<annotation cp="🟢">녹색 | 원</annotation>
+		<annotation cp="🟢" type="tts">녹색 원</annotation>
 		<annotation cp="🔵">원 | 큰 파란 원 | 파란 원 | 파랑</annotation>
 		<annotation cp="🔵" type="tts">파란 원</annotation>
-		<annotation cp="⚪">동그라미 | 원 | 흰색 원</annotation>
-		<annotation cp="⚪" type="tts">흰색 원</annotation>
+		<annotation cp="🟣">보라색 | 원</annotation>
+		<annotation cp="🟣" type="tts">보라색 원</annotation>
+		<annotation cp="🟤">갈색 | 원</annotation>
+		<annotation cp="🟤" type="tts">갈색 원</annotation>
 		<annotation cp="⚫">검은색 원 | 동그라미 | 원</annotation>
 		<annotation cp="⚫" type="tts">검은색 원</annotation>
-		<annotation cp="⬜">무늬 | 사각형 | 큰 흰색 사각형</annotation>
-		<annotation cp="⬜" type="tts">큰 흰색 사각형</annotation>
+		<annotation cp="⚪">동그라미 | 원 | 흰색 원</annotation>
+		<annotation cp="⚪" type="tts">흰색 원</annotation>
+		<annotation cp="🟥">빨간색 | 사각형</annotation>
+		<annotation cp="🟥" type="tts">빨간색 사각형</annotation>
+		<annotation cp="🟧">사각형 | 오렌지색</annotation>
+		<annotation cp="🟧" type="tts">오렌지색 사각형</annotation>
+		<annotation cp="🟨">노란색 | 사각형</annotation>
+		<annotation cp="🟨" type="tts">노란색 사각형</annotation>
+		<annotation cp="🟩">녹색 | 사각형</annotation>
+		<annotation cp="🟩" type="tts">녹색 사각형</annotation>
+		<annotation cp="🟦">사각형 | 파란색</annotation>
+		<annotation cp="🟦" type="tts">파란색 사각형</annotation>
+		<annotation cp="🟪">보라색 | 사각형</annotation>
+		<annotation cp="🟪" type="tts">보라색 사각형</annotation>
+		<annotation cp="🟫">갈색 | 사각형</annotation>
+		<annotation cp="🟫" type="tts">갈색 사각형</annotation>
 		<annotation cp="⬛">무늬 | 사각형 | 큰 검은색 사각형</annotation>
 		<annotation cp="⬛" type="tts">큰 검은색 사각형</annotation>
+		<annotation cp="⬜">무늬 | 사각형 | 큰 흰색 사각형</annotation>
+		<annotation cp="⬜" type="tts">큰 흰색 사각형</annotation>
 		<annotation cp="◼">무늬 | 사각형 | 중간 검은색 사각형</annotation>
 		<annotation cp="◼" type="tts">중간 검은색 사각형</annotation>
 		<annotation cp="◻">무늬 | 사각형 | 중간 흰색 사각형</annotation>
 		<annotation cp="◻" type="tts">중간 흰색 사각형</annotation>
-		<annotation cp="◽">무늬 | 사각형 | 중간 작은 흰색 사각형</annotation>
-		<annotation cp="◽" type="tts">중간 작은 흰색 사각형</annotation>
 		<annotation cp="◾">무늬 | 사각형 | 중각 작은 검은색 사각형</annotation>
 		<annotation cp="◾" type="tts">중각 작은 검은색 사각형</annotation>
-		<annotation cp="▫">무늬 | 사각형 | 작은 흰색 사각형</annotation>
-		<annotation cp="▫" type="tts">작은 흰색 사각형</annotation>
+		<annotation cp="◽">무늬 | 사각형 | 중간 작은 흰색 사각형</annotation>
+		<annotation cp="◽" type="tts">중간 작은 흰색 사각형</annotation>
 		<annotation cp="▪">무늬 | 사각형 | 작은 검은색 사각형</annotation>
 		<annotation cp="▪" type="tts">작은 검은색 사각형</annotation>
+		<annotation cp="▫">무늬 | 사각형 | 작은 흰색 사각형</annotation>
+		<annotation cp="▫" type="tts">작은 흰색 사각형</annotation>
 		<annotation cp="🔶">마름모 | 오렌지색 | 주황색 | 큰 주황색 마름모</annotation>
 		<annotation cp="🔶" type="tts">큰 주황색 마름모</annotation>
 		<annotation cp="🔷">마름모 | 큰 파란색 마름모 | 파란색 | 파랑</annotation>
@@ -2683,10 +2817,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💠" type="tts">점이 찍힌 다이아몬드 모양</annotation>
 		<annotation cp="🔘">라디오 | 버튼</annotation>
 		<annotation cp="🔘" type="tts">라디오 버튼</annotation>
-		<annotation cp="🔲">버튼 | 사각형 | 테두리가 검은 사각 버튼</annotation>
-		<annotation cp="🔲" type="tts">테두리가 검은 사각 버튼</annotation>
 		<annotation cp="🔳">버튼 | 사각형 | 테두리가 하얀 사각 버튼</annotation>
 		<annotation cp="🔳" type="tts">테두리가 하얀 사각 버튼</annotation>
+		<annotation cp="🔲">버튼 | 사각형 | 테두리가 검은 사각 버튼</annotation>
+		<annotation cp="🔲" type="tts">테두리가 검은 사각 버튼</annotation>
 		<annotation cp="🏁">격자 무늬 | 격자 무늬 깃발 | 결승선 깃발 | 레이싱 | 스포츠</annotation>
 		<annotation cp="🏁" type="tts">격자 무늬 깃발</annotation>
 		<annotation cp="🚩">깃발 | 세모 깃발 | 위치 표시 | 위치 표시 깃발</annotation>
@@ -2701,139 +2835,5 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">무지개 깃발</annotation>
 		<annotation cp="🏴‍☠">보물섬 | 약탈자 | 해골 깃발 | 해적 | 해적 깃발</annotation>
 		<annotation cp="🏴‍☠" type="tts">해적 깃발</annotation>
-		<annotation cp="🛕">사원 | 힌두교</annotation>
-		<annotation cp="🛕" type="tts">힌두교 사원</annotation>
-		<annotation cp="🛺">경삼륜차 | 툭툭</annotation>
-		<annotation cp="🛺" type="tts">경삼륜차</annotation>
-		<annotation cp="🟠">오렌지색 | 원</annotation>
-		<annotation cp="🟠" type="tts">오렌지색 원</annotation>
-		<annotation cp="🟡">노란색 | 원</annotation>
-		<annotation cp="🟡" type="tts">노란색 원</annotation>
-		<annotation cp="🟢">녹색 | 원</annotation>
-		<annotation cp="🟢" type="tts">녹색 원</annotation>
-		<annotation cp="🟣">보라색 | 원</annotation>
-		<annotation cp="🟣" type="tts">보라색 원</annotation>
-		<annotation cp="🟤">갈색 | 원</annotation>
-		<annotation cp="🟤" type="tts">갈색 원</annotation>
-		<annotation cp="🟥">빨간색 | 사각형</annotation>
-		<annotation cp="🟥" type="tts">빨간색 사각형</annotation>
-		<annotation cp="🟦">사각형 | 파란색</annotation>
-		<annotation cp="🟦" type="tts">파란색 사각형</annotation>
-		<annotation cp="🟧">사각형 | 오렌지색</annotation>
-		<annotation cp="🟧" type="tts">오렌지색 사각형</annotation>
-		<annotation cp="🟨">노란색 | 사각형</annotation>
-		<annotation cp="🟨" type="tts">노란색 사각형</annotation>
-		<annotation cp="🟩">녹색 | 사각형</annotation>
-		<annotation cp="🟩" type="tts">녹색 사각형</annotation>
-		<annotation cp="🟪">보라색 | 사각형</annotation>
-		<annotation cp="🟪" type="tts">보라색 사각형</annotation>
-		<annotation cp="🟫">갈색 | 사각형</annotation>
-		<annotation cp="🟫" type="tts">갈색 사각형</annotation>
-		<annotation cp="🤍">하트 | 흰색</annotation>
-		<annotation cp="🤍" type="tts">흰색 하트</annotation>
-		<annotation cp="🤎">갈색 | 하트</annotation>
-		<annotation cp="🤎" type="tts">갈색 하트</annotation>
-		<annotation cp="🤏">꼬집는 손 | 적은 양을 나타내는 손</annotation>
-		<annotation cp="🤏" type="tts">꼬집는 손</annotation>
-		<annotation cp="🤿">다이빙 | 다이빙 마스크 | 스노클링 | 스킨스쿠버</annotation>
-		<annotation cp="🤿" type="tts">다이빙 마스크</annotation>
-		<annotation cp="🥱">지루함 | 피곤함 | 하품 | 하품하는 얼굴</annotation>
-		<annotation cp="🥱" type="tts">하품하는 얼굴</annotation>
-		<annotation cp="🥻">드레스 | 사리 | 의복</annotation>
-		<annotation cp="🥻" type="tts">사리</annotation>
-		<annotation cp="🦥">게으른 | 나무늘보 | 느린</annotation>
-		<annotation cp="🦥" type="tts">나무늘보</annotation>
-		<annotation cp="🦦">물고기 사냥 | 수달 | 장난꾸러기</annotation>
-		<annotation cp="🦦" type="tts">수달</annotation>
-		<annotation cp="🦧">오랑우탄 | 유인원</annotation>
-		<annotation cp="🦧" type="tts">오랑우탄</annotation>
-		<annotation cp="🦨">냄새나는 | 스컹크</annotation>
-		<annotation cp="🦨" type="tts">스컹크</annotation>
-		<annotation cp="🦩">열대 | 플라밍고 | 홍학</annotation>
-		<annotation cp="🦩" type="tts">홍학</annotation>
-		<annotation cp="🦪">굴 | 진주</annotation>
-		<annotation cp="🦪" type="tts">굴</annotation>
-		<annotation cp="🦮">시각장애 | 안내견 | 접근성</annotation>
-		<annotation cp="🦮" type="tts">안내견</annotation>
-		<annotation cp="🦯">시각장애 | 시각장애인 지팡이 | 접근성 | 지팡이</annotation>
-		<annotation cp="🦯" type="tts">시각장애인 지팡이</annotation>
-		<annotation cp="🦺">구명조끼 | 안전 | 응급 | 조끼</annotation>
-		<annotation cp="🦺" type="tts">구명조끼</annotation>
-		<annotation cp="🦻">보청기를 낀 귀 | 접근성 | 청각장애</annotation>
-		<annotation cp="🦻" type="tts">보청기를 낀 귀</annotation>
-		<annotation cp="🦼">전동 휠체어 | 접근성</annotation>
-		<annotation cp="🦼" type="tts">전동 휠체어</annotation>
-		<annotation cp="🦽">수동 휠체어 | 접근성</annotation>
-		<annotation cp="🦽" type="tts">수동 휠체어</annotation>
-		<annotation cp="🦾">기계 팔 | 인공 팔</annotation>
-		<annotation cp="🦾" type="tts">기계 팔</annotation>
-		<annotation cp="🦿">인공 기관 | 인공 다리 | 접근성</annotation>
-		<annotation cp="🦿" type="tts">인공 다리</annotation>
-		<annotation cp="🧃">음료 팩 | 쥬스 팩</annotation>
-		<annotation cp="🧃" type="tts">음료 팩</annotation>
-		<annotation cp="🧄">마늘 | 조미료</annotation>
-		<annotation cp="🧄" type="tts">마늘</annotation>
-		<annotation cp="🧅">양념 | 양파</annotation>
-		<annotation cp="🧅" type="tts">양파</annotation>
-		<annotation cp="🧆">미트볼 | 병아리콩 | 팔라펠</annotation>
-		<annotation cp="🧆" type="tts">팔라펠</annotation>
-		<annotation cp="🧇">와플</annotation>
-		<annotation cp="🧇" type="tts">와플</annotation>
-		<annotation cp="🧈">버터 | 유제품</annotation>
-		<annotation cp="🧈" type="tts">버터</annotation>
-		<annotation cp="🧉">마테차 | 음료 | 차</annotation>
-		<annotation cp="🧉" type="tts">마테차</annotation>
-		<annotation cp="🧊">각얼음 | 얼음 | 차가운</annotation>
-		<annotation cp="🧊" type="tts">얼음</annotation>
-		<annotation cp="🧍">서 있는 | 서 있는 사람</annotation>
-		<annotation cp="🧍" type="tts">서 있는 사람</annotation>
-		<annotation cp="🧍‍♀">서 있는 | 서 있는 여자 | 여자</annotation>
-		<annotation cp="🧍‍♀" type="tts">서 있는 여자</annotation>
-		<annotation cp="🧍‍♂">남자 | 서 있는 | 서 있는 남자</annotation>
-		<annotation cp="🧍‍♂" type="tts">서 있는 남자</annotation>
-		<annotation cp="🧎">무릎을 꿇은 | 무릎을 꿇은 사람</annotation>
-		<annotation cp="🧎" type="tts">무릎을 꿇은 사람</annotation>
-		<annotation cp="🧎‍♀">무릎을 꿇은 | 무릎을 꿇은 여자 | 여자</annotation>
-		<annotation cp="🧎‍♀" type="tts">무릎을 꿇은 여자</annotation>
-		<annotation cp="🧎‍♂">남자 | 무릎을 꿇은 | 무릎을 꿇은 남자</annotation>
-		<annotation cp="🧎‍♂" type="tts">무릎을 꿇은 남자</annotation>
-		<annotation cp="🧏">귀 | 접근성 | 청각 장애가 있는 사람 | 청각장애 | 청력</annotation>
-		<annotation cp="🧏" type="tts">청각 장애가 있는 사람</annotation>
-		<annotation cp="🧏‍♀">여자 | 청각장애 | 청각장애가 있는 여자</annotation>
-		<annotation cp="🧏‍♀" type="tts">청각장애가 있는 여자</annotation>
-		<annotation cp="🧏‍♂">남자 | 청각장애 | 청각장애가 있는 남자</annotation>
-		<annotation cp="🧏‍♂" type="tts">청각장애가 있는 남자</annotation>
-		<annotation cp="🩰">발레 | 발레 슈즈 | 춤</annotation>
-		<annotation cp="🩰" type="tts">발레 슈즈</annotation>
-		<annotation cp="🩱">수영복 | 원피스 수영복</annotation>
-		<annotation cp="🩱" type="tts">원피스 수영복</annotation>
-		<annotation cp="🩲">삼각 수영복 | 수영복 | 언더웨어</annotation>
-		<annotation cp="🩲" type="tts">삼각 수영복</annotation>
-		<annotation cp="🩳">반바지 | 수영복</annotation>
-		<annotation cp="🩳" type="tts">반바지</annotation>
-		<annotation cp="🩸">생리 | 핏방울 | 헌혈</annotation>
-		<annotation cp="🩸" type="tts">핏방울</annotation>
-		<annotation cp="🩹">반창고 | 밴드</annotation>
-		<annotation cp="🩹" type="tts">반창고</annotation>
-		<annotation cp="🩺">심박수 | 의사 | 청진기</annotation>
-		<annotation cp="🩺" type="tts">청진기</annotation>
-		<annotation cp="🪀">오르락내리락 | 요요 | 장난감</annotation>
-		<annotation cp="🪀" type="tts">요요</annotation>
-		<annotation cp="🪁">연 | 연날리기 | 활공</annotation>
-		<annotation cp="🪁" type="tts">연</annotation>
-		<annotation cp="🪂">낙하산 | 스카이다이빙 | 패러세일링 | 행글라이더</annotation>
-		<annotation cp="🪂" type="tts">낙하산</annotation>
-		<annotation cp="🪐">고리가 있는 행성 | 토성</annotation>
-		<annotation cp="🪐" type="tts">고리가 있는 행성</annotation>
-		<annotation cp="🪑">앉기 | 의자</annotation>
-		<annotation cp="🪑" type="tts">의자</annotation>
-		<annotation cp="🪒">날카로운 | 면도 | 면도칼</annotation>
-		<annotation cp="🪒" type="tts">면도칼</annotation>
-		<annotation cp="🪓">나무 | 도끼 | 손도끼 | 쪼개기</annotation>
-		<annotation cp="🪓" type="tts">도끼</annotation>
-		<annotation cp="🪔">기름 | 디야 | 램프</annotation>
-		<annotation cp="🪔" type="tts">기름 램프</annotation>
-		<annotation cp="🪕">밴조 | 음악 | 현악기</annotation>
-		<annotation cp="🪕" type="tts">밴조</annotation>
 	</annotations>
 </ldml>

@@ -23,8 +23,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">גוון עור כהה בינוני</annotation>
 		<annotation cp="🏿">גוון עור | גוון עור כהה | סוג 6</annotation>
 		<annotation cp="🏿" type="tts">גוון עור כהה</annotation>
-		<annotation cp="🐾">טביעות רגל | טביעות רגל של חיה | כפות רגל | עקבות</annotation>
-		<annotation cp="🐾" type="tts">טביעות רגל של חיה</annotation>
 		<annotation cp="😀">חיוך | חיוך רחב | מחייך | פרצוף | שמח</annotation>
 		<annotation cp="😀" type="tts">חיוך רחב</annotation>
 		<annotation cp="😃">חיוך | פה מחייך | פרצוף מחייך עם פה פתוח | פרצוף עם חיוך רחב ועיניים גדולות | פרצוף שמח</annotation>
@@ -195,6 +193,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😩" type="tts">פרצוף מותש</annotation>
 		<annotation cp="😫">מפהק | עייף | פרצוף</annotation>
 		<annotation cp="😫" type="tts">פרצוף עייף</annotation>
+		<annotation cp="🥱">עייף | עייפות | פיהוק | פרצוף מפהק | שעמום</annotation>
+		<annotation cp="🥱" type="tts">פרצוף מפהק</annotation>
 		<annotation cp="😤">אף | זועם | כועס | פרצוף | פרצוף עם קיטור יוצא מהאף | קיטור</annotation>
 		<annotation cp="😤" type="tts">פרצוף עם קיטור יוצא מהאף</annotation>
 		<annotation cp="😡">זועם | זועף | כועס | פרצוף</annotation>
@@ -287,8 +287,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💙" type="tts">לב כחול</annotation>
 		<annotation cp="💜">לב | סגול</annotation>
 		<annotation cp="💜" type="tts">לב סגול</annotation>
+		<annotation cp="🤎">חום | לב</annotation>
+		<annotation cp="🤎" type="tts">לב חום</annotation>
 		<annotation cp="🖤">אפל | כישוף | לב | מאגיה | שחור | שחורה</annotation>
 		<annotation cp="🖤" type="tts">לב שחור</annotation>
+		<annotation cp="🤍">לב | לבן</annotation>
+		<annotation cp="🤍" type="tts">לב לבן</annotation>
 		<annotation cp="💯">100 | מבחן | ניקוד | ציון</annotation>
 		<annotation cp="💯" type="tts">ציון 100</annotation>
 		<annotation cp="💢">כעס | סמל כעס | פיצוץ</annotation>
@@ -329,6 +333,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖖" type="tts">ברכת וולקנים</annotation>
 		<annotation cp="👌">ok | אוקיי | אישור | בסדר | יד | יד מסמנת שהכל בסדר</annotation>
 		<annotation cp="👌" type="tts">יד מסמנת שהכל בסדר</annotation>
+		<annotation cp="🤏">בכמות קטנה | טיפונת | יד צובטת | יד שעושה תנועת צביטה | מעט | צביטה | קצת</annotation>
+		<annotation cp="🤏" type="tts">יד צובטת</annotation>
 		<annotation cp="✌">אצבעות | אצבעות מסמנות ניצחון | וי | יד | ניצחון</annotation>
 		<annotation cp="✌" type="tts">אצבעות מסמנות ניצחון</annotation>
 		<annotation cp="🤞">אצבעות | בהצלחה | יד מחזיקה אצבעות | מחזיק</annotation>
@@ -383,12 +389,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤳" type="tts">יד מצלמת סלפי</annotation>
 		<annotation cp="💪">זרוע | חזק | יד | יד עושה שריר | שריר</annotation>
 		<annotation cp="💪" type="tts">יד עושה שריר</annotation>
+		<annotation cp="🦾">זרוע מכנית | נגישות | פרוטזה | תותב | תותבת</annotation>
+		<annotation cp="🦾" type="tts">זרוע מכנית</annotation>
+		<annotation cp="🦿">נגישות | פרוטזה | רגל מכנית | תותב | תותבת</annotation>
+		<annotation cp="🦿" type="tts">רגל מכנית</annotation>
 		<annotation cp="🦵">בעיטה | רגל</annotation>
 		<annotation cp="🦵" type="tts">רגל</annotation>
 		<annotation cp="🦶">כף רגל | רגל</annotation>
 		<annotation cp="🦶" type="tts">כף רגל</annotation>
 		<annotation cp="👂">אוזן | לשמוע | צליל</annotation>
 		<annotation cp="👂" type="tts">אוזן</annotation>
+		<annotation cp="🦻">אובדן שמיעה | אוזן עם מכשיר שמיעה | מכשיר שמיעה | נגישות | קשיי שמיעה</annotation>
+		<annotation cp="🦻" type="tts">אוזן עם מכשיר שמיעה</annotation>
 		<annotation cp="👃">אף | להריח | ריח</annotation>
 		<annotation cp="👃" type="tts">אף</annotation>
 		<annotation cp="🧠">אינטליגנציה | מוח | שכל</annotation>
@@ -417,28 +429,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">גבר</annotation>
 		<annotation cp="👱">אדם עם שיער בלונדיני | בלונד | בלונדיני</annotation>
 		<annotation cp="👱" type="tts">אדם עם שיער בלונדיני</annotation>
-		<annotation cp="🧑‍🤝‍🧑">אנשים מחזיקים ידיים | זוג | יד | ידיים | מחזיקים ידיים</annotation>
-		<annotation cp="🧑‍🤝‍🧑" type="tts">אנשים מחזיקים ידיים</annotation>
 		<annotation cp="👨">איש | גבר | שפם</annotation>
 		<annotation cp="👨" type="tts">איש</annotation>
-		<annotation cp="👨‍🦯">איש עם מקל נחייה | לקוי ראייה | נגישות | עיוור</annotation>
-		<annotation cp="👨‍🦯" type="tts">איש עם מקל נחייה</annotation>
-		<annotation cp="👨‍🦼">איש | איש בכסא גלגלים ממונע | גבר | כסא גלגלים | נגישות | נכה</annotation>
-		<annotation cp="👨‍🦼" type="tts">איש בכסא גלגלים ממונע</annotation>
-		<annotation cp="👨‍🦽">איש | איש בכסא גלגלים ידני | גבר | כסא גלגלים | נגישות | נכה</annotation>
-		<annotation cp="👨‍🦽" type="tts">איש בכסא גלגלים ידני</annotation>
-		<annotation cp="👱‍♂">איש | בלונדיני | גבר</annotation>
-		<annotation cp="👱‍♂" type="tts">בלונדיני</annotation>
 		<annotation cp="🧔">אדם מזוקן | זקן | מזוקן</annotation>
 		<annotation cp="🧔" type="tts">אדם מזוקן</annotation>
+		<annotation cp="👱‍♂">איש | בלונדיני | גבר</annotation>
+		<annotation cp="👱‍♂" type="tts">בלונדיני</annotation>
 		<annotation cp="👩">אישה | בחורה | בת</annotation>
 		<annotation cp="👩" type="tts">אישה</annotation>
-		<annotation cp="👩‍🦯">אישה עם מקל נחייה | לקויית ראייה | נגישות | עיוורת</annotation>
-		<annotation cp="👩‍🦯" type="tts">אישה עם מקל נחייה</annotation>
-		<annotation cp="👩‍🦼">אישה | אישה בכסא גלגלים ממונע | כסא גלגלים | נגישות | נכה</annotation>
-		<annotation cp="👩‍🦼" type="tts">אישה בכסא גלגלים ממונע</annotation>
-		<annotation cp="👩‍🦽">אישה | אישה בכסא גלגלים ידני | כסא גלגלים | נגישות | נכה</annotation>
-		<annotation cp="👩‍🦽" type="tts">אישה בכסא גלגלים ידני</annotation>
 		<annotation cp="👱‍♀">אישה | בלונדינית</annotation>
 		<annotation cp="👱‍♀" type="tts">בלונדינית</annotation>
 		<annotation cp="🧓">איש מבוגר | מבוגר | מבוגרת | מגדר נייטרלי</annotation>
@@ -483,6 +481,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙋‍♂" type="tts">גבר מרים יד</annotation>
 		<annotation cp="🙋‍♀">אישה | אישה מרימה יד | מצביעה | מרימה יד</annotation>
 		<annotation cp="🙋‍♀" type="tts">אישה מרימה יד</annotation>
+		<annotation cp="🧏">חירש | כבד שמיעה | לקוי שמיעה | לקות שמיעה | נגישות</annotation>
+		<annotation cp="🧏" type="tts">כבד שמיעה</annotation>
+		<annotation cp="🧏‍♂">איש כבד שמיעה | חירש | כבד שמיעה | לקוי שמיעה | לקות שמיעה | נגישות</annotation>
+		<annotation cp="🧏‍♂" type="tts">איש כבד שמיעה</annotation>
+		<annotation cp="🧏‍♀">אישה כבדת שמיעה | חירשת | כבדת שמיעה | לקוי שמיעה | לקות שמיעה | נגישות</annotation>
+		<annotation cp="🧏‍♀" type="tts">אישה כבדת שמיעה</annotation>
 		<annotation cp="🙇">אדם משתחווה | התנצלות | משתחווה | סליחה | קידה</annotation>
 		<annotation cp="🙇" type="tts">אדם משתחווה</annotation>
 		<annotation cp="🙇‍♂">איש | גבר | התנצלות | טובה | מצטער | משתחווה | סליחה</annotation>
@@ -689,6 +693,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚶‍♂" type="tts">גבר הולך</annotation>
 		<annotation cp="🚶‍♀">אישה | הולכת | הליכה</annotation>
 		<annotation cp="🚶‍♀" type="tts">אישה הולכת</annotation>
+		<annotation cp="🧍">אדם עומד | עומד | עמידה</annotation>
+		<annotation cp="🧍" type="tts">אדם עומד</annotation>
+		<annotation cp="🧍‍♂">איש | גבר | עומד | עמידה</annotation>
+		<annotation cp="🧍‍♂" type="tts">איש עומד</annotation>
+		<annotation cp="🧍‍♀">אישה | עומדת | עמידה</annotation>
+		<annotation cp="🧍‍♀" type="tts">אישה עומדת</annotation>
+		<annotation cp="🧎">אדם כורע ברך | כריעה | כריעת ברך | לכרוע ברך</annotation>
+		<annotation cp="🧎" type="tts">אדם כורע ברך</annotation>
+		<annotation cp="🧎‍♂">איש | איש כורע ברך | גבר | כורע ברך | לכרוע ברך</annotation>
+		<annotation cp="🧎‍♂" type="tts">איש כורע ברך</annotation>
+		<annotation cp="🧎‍♀">אישה | אישה כורעת ברך | כורעת ברך</annotation>
+		<annotation cp="🧎‍♀" type="tts">אישה כורעת ברך</annotation>
+		<annotation cp="👨‍🦯">איש עם מקל נחייה | לקוי ראייה | נגישות | עיוור</annotation>
+		<annotation cp="👨‍🦯" type="tts">איש עם מקל נחייה</annotation>
+		<annotation cp="👩‍🦯">אישה עם מקל נחייה | לקויית ראייה | נגישות | עיוורת</annotation>
+		<annotation cp="👩‍🦯" type="tts">אישה עם מקל נחייה</annotation>
+		<annotation cp="👨‍🦼">איש | איש בכסא גלגלים ממונע | גבר | כסא גלגלים | נגישות | נכה</annotation>
+		<annotation cp="👨‍🦼" type="tts">איש בכסא גלגלים ממונע</annotation>
+		<annotation cp="👩‍🦼">אישה | אישה בכסא גלגלים ממונע | כסא גלגלים | נגישות | נכה</annotation>
+		<annotation cp="👩‍🦼" type="tts">אישה בכסא גלגלים ממונע</annotation>
+		<annotation cp="👨‍🦽">איש | איש בכסא גלגלים ידני | גבר | כסא גלגלים | נגישות | נכה</annotation>
+		<annotation cp="👨‍🦽" type="tts">איש בכסא גלגלים ידני</annotation>
+		<annotation cp="👩‍🦽">אישה | אישה בכסא גלגלים ידני | כסא גלגלים | נגישות | נכה</annotation>
+		<annotation cp="👩‍🦽" type="tts">אישה בכסא גלגלים ידני</annotation>
 		<annotation cp="🏃">מרתון | ריצה | רץ</annotation>
 		<annotation cp="🏃" type="tts">רץ</annotation>
 		<annotation cp="🏃‍♂">איש | גבר | גבר רץ | ממהר | מרוץ | מרתון | ריצה</annotation>
@@ -815,12 +843,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛀" type="tts">אדם באמבטיה</annotation>
 		<annotation cp="🛌">אדם במיטה | לישון | מיטה | מלון | שינה</annotation>
 		<annotation cp="🛌" type="tts">אדם במיטה</annotation>
+		<annotation cp="🧑‍🤝‍🧑">אנשים מחזיקים ידיים | זוג | יד | ידיים | מחזיקים ידיים</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts">אנשים מחזיקים ידיים</annotation>
+		<annotation cp="👭">זוג | ידיים | מחזיקות ידיים | נשים | שתי נשים מחזיקות ידיים</annotation>
+		<annotation cp="👭" type="tts">שתי נשים מחזיקות ידיים</annotation>
 		<annotation cp="👫">איש | איש ואישה מחזיקים ידיים | אישה | זוג | ידיים | מחזיקים ידיים</annotation>
 		<annotation cp="👫" type="tts">איש ואישה מחזיקים ידיים</annotation>
 		<annotation cp="👬">גברים | זוג | ידיים | מחזיקים ידיים | שני גברים מחזיקים ידיים</annotation>
 		<annotation cp="👬" type="tts">שני גברים מחזיקים ידיים</annotation>
-		<annotation cp="👭">זוג | ידיים | מחזיקות ידיים | נשים | שתי נשים מחזיקות ידיים</annotation>
-		<annotation cp="👭" type="tts">שתי נשים מחזיקות ידיים</annotation>
 		<annotation cp="💏">אהבה | זוג | לב | נשיקה | רומנטי | רומנטיקה</annotation>
 		<annotation cp="💏" type="tts">נשיקה</annotation>
 		<annotation cp="💑">אהבה | זוג | זוג עם לב | לב | רומנטי | רומנטיקה</annotation>
@@ -843,20 +873,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦳" type="tts">שיער לבן</annotation>
 		<annotation cp="🦲">בלי שיער | כימותרפיה | ללא שיער | מגולח | קירח</annotation>
 		<annotation cp="🦲" type="tts">קירח</annotation>
-		<annotation cp="♀">אישה | נשים | סמל אישה</annotation>
-		<annotation cp="♀" type="tts">סמל אישה</annotation>
-		<annotation cp="♂">איש | גבר | גברים | סמל גבר</annotation>
-		<annotation cp="♂" type="tts">סמל גבר</annotation>
 		<annotation cp="🐵">פני קוף | פנים | קוף</annotation>
 		<annotation cp="🐵" type="tts">פני קוף</annotation>
 		<annotation cp="🐒">קוף</annotation>
 		<annotation cp="🐒" type="tts">קוף</annotation>
 		<annotation cp="🦍">גורילה | קוף</annotation>
 		<annotation cp="🦍" type="tts">קוף גורילה</annotation>
+		<annotation cp="🦧">אורנגאוטן | קוף</annotation>
+		<annotation cp="🦧" type="tts">אורנגאוטן</annotation>
 		<annotation cp="🐶">חיית מחמד | כלב | פני כלב | פנים</annotation>
 		<annotation cp="🐶" type="tts">פני כלב</annotation>
 		<annotation cp="🐕">חיית מחמד | כלב</annotation>
 		<annotation cp="🐕" type="tts">כלב</annotation>
+		<annotation cp="🦮">כלב נחייה | נגישות | נחייה | עיוורים</annotation>
+		<annotation cp="🦮" type="tts">כלב נחייה</annotation>
 		<annotation cp="🐕‍🦺">כלב | נגישות | נחייה | עיוורים | שירות</annotation>
 		<annotation cp="🐕‍🦺" type="tts">כלב שירות</annotation>
 		<annotation cp="🐩">חיית מחמד | כלב | פודל</annotation>
@@ -949,10 +979,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐨" type="tts">קואלה</annotation>
 		<annotation cp="🐼">פנדה | פני פנדה | פנים</annotation>
 		<annotation cp="🐼" type="tts">פנדה</annotation>
+		<annotation cp="🦥">איטי | עצלן</annotation>
+		<annotation cp="🦥" type="tts">עצלן</annotation>
+		<annotation cp="🦦">כלב נהר | לוטרה | שעשוע</annotation>
+		<annotation cp="🦦" type="tts">לוטרה</annotation>
+		<annotation cp="🦨">בואש | מסריח | סירחון</annotation>
+		<annotation cp="🦨" type="tts">בואש</annotation>
 		<annotation cp="🦘">אוסטרליה | חיית כיס | קנגורו | קפיצות</annotation>
 		<annotation cp="🦘" type="tts">קנגורו</annotation>
 		<annotation cp="🦡">גירית | גירית הדבש | סמוריים</annotation>
 		<annotation cp="🦡" type="tts">גירית</annotation>
+		<annotation cp="🐾">טביעות רגל | טביעות רגל של חיה | כפות רגל | עקבות</annotation>
+		<annotation cp="🐾" type="tts">טביעות רגל של חיה</annotation>
 		<annotation cp="🦃">תרנגול הודו</annotation>
 		<annotation cp="🦃" type="tts">תרנגול הודו</annotation>
 		<annotation cp="🐔">עוף | ציפור | תרנגול | תרנגולת</annotation>
@@ -979,6 +1017,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦢" type="tts">ברבור</annotation>
 		<annotation cp="🦉">חוכמה | ינשוף | ציפור</annotation>
 		<annotation cp="🦉" type="tts">ינשוף</annotation>
+		<annotation cp="🦩">ורוד | טרופי | פלמינגו</annotation>
+		<annotation cp="🦩" type="tts">פלמינגו</annotation>
 		<annotation cp="🦚">גאה | טווס | ציפור | ראוותני</annotation>
 		<annotation cp="🦚" type="tts">טווס</annotation>
 		<annotation cp="🦜">ג׳ונגל | ציפור | ציפור מדברת | תוכי</annotation>
@@ -1139,6 +1179,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥬" type="tts">עלים ירוקים</annotation>
 		<annotation cp="🥦">ברוקולי | כרוב פראי</annotation>
 		<annotation cp="🥦" type="tts">ברוקולי</annotation>
+		<annotation cp="🧄">שום | תבלין</annotation>
+		<annotation cp="🧄" type="tts">שום</annotation>
+		<annotation cp="🧅">בצל | תבלין</annotation>
+		<annotation cp="🧅" type="tts">בצל</annotation>
 		<annotation cp="🍄">ירק | פטריה</annotation>
 		<annotation cp="🍄" type="tts">פטריה</annotation>
 		<annotation cp="🥜">בוטן | בוטנים | נשנוש | פיצוחים</annotation>
@@ -1157,6 +1201,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥯" type="tts">בייגל</annotation>
 		<annotation cp="🥞">חביתית | חם | פנקייק | פנקייקס | קרפ</annotation>
 		<annotation cp="🥞" type="tts">פנקייקס</annotation>
+		<annotation cp="🧇">אפיפית | וופל | ופל</annotation>
+		<annotation cp="🧇" type="tts">וופל</annotation>
 		<annotation cp="🧀">גבינה | חריץ גבינה</annotation>
 		<annotation cp="🧀" type="tts">חריץ גבינה</annotation>
 		<annotation cp="🍖">בשר | בשר על עצם | עצם</annotation>
@@ -1183,6 +1229,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌯" type="tts">בוריטו</annotation>
 		<annotation cp="🥙">אוכל רחוב | לאפה | פיתה | פלאפל | שווארמה</annotation>
 		<annotation cp="🥙" type="tts">פיתה</annotation>
+		<annotation cp="🧆">אוכל רחוב | חומוס | כדורים | פלאפל</annotation>
+		<annotation cp="🧆" type="tts">פלאפל</annotation>
 		<annotation cp="🥚">אוכל | ביצה</annotation>
 		<annotation cp="🥚" type="tts">ביצה</annotation>
 		<annotation cp="🍳">אוכל | בישול | מזון</annotation>
@@ -1197,6 +1245,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥗" type="tts">סלט ירקות</annotation>
 		<annotation cp="🍿">סרט | פופקורן | קולנוע</annotation>
 		<annotation cp="🍿" type="tts">פופקורן</annotation>
+		<annotation cp="🧈">חמאה | מוצרי חלב</annotation>
+		<annotation cp="🧈" type="tts">חמאה</annotation>
 		<annotation cp="🧂">מלח | תבלין | תבלינים</annotation>
 		<annotation cp="🧂" type="tts">מלח</annotation>
 		<annotation cp="🥫">קופסת שימורים | שימורים</annotation>
@@ -1243,6 +1293,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦐" type="tts">שרימפ</annotation>
 		<annotation cp="🦑">דיונון | פירות ים | קלמרי | תמנון</annotation>
 		<annotation cp="🦑" type="tts">דיונון</annotation>
+		<annotation cp="🦪">אויסטר | חלזונות | צדפה | צדפות | שבלולים</annotation>
+		<annotation cp="🦪" type="tts">צדפה</annotation>
 		<annotation cp="🍦">גביע | גלידה | גלידה אמריקאית | גלידה בגביע | מתוק</annotation>
 		<annotation cp="🍦" type="tts">גלידה בגביע</annotation>
 		<annotation cp="🍧">ברד | ממותק | קערית ברד | קרח</annotation>
@@ -1299,6 +1351,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥃" type="tts">כוס ויסקי</annotation>
 		<annotation cp="🥤">כוס עם קש | מיץ | סודה</annotation>
 		<annotation cp="🥤" type="tts">כוס עם קש</annotation>
+		<annotation cp="🧃">משקאות | קופסת מיץ | קופסת משקה</annotation>
+		<annotation cp="🧃" type="tts">קופסת מיץ</annotation>
+		<annotation cp="🧉">מאטה | משקאות | קפאין</annotation>
+		<annotation cp="🧉" type="tts">מאטה</annotation>
+		<annotation cp="🧊">קוביית קרח | קר | קרח</annotation>
+		<annotation cp="🧊" type="tts">קוביית קרח</annotation>
 		<annotation cp="🥢">מקלות | מקלות אכילה | סיני | צ׳ופסטיק</annotation>
 		<annotation cp="🥢" type="tts">מקלות אכילה</annotation>
 		<annotation cp="🍽">אוכל | מזלג | סכין | סכין ומזלג עם צלחת | צלחת</annotation>
@@ -1395,6 +1453,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛪" type="tts">כנסייה</annotation>
 		<annotation cp="🕌">איסלם | דת | מוסלמי | מסגד</annotation>
 		<annotation cp="🕌" type="tts">מסגד</annotation>
+		<annotation cp="🛕">דת | הודו | הינדואיזם | מקדש | מקדש הינדי</annotation>
+		<annotation cp="🛕" type="tts">מקדש הינדי</annotation>
 		<annotation cp="🕍">בית כנסת | דת | יהדות | יהודי</annotation>
 		<annotation cp="🕍" type="tts">בית כנסת</annotation>
 		<annotation cp="⛩">דת | יפן | מקדש | שינטו</annotation>
@@ -1423,8 +1483,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌉" type="tts">גשר בלילה</annotation>
 		<annotation cp="♨">אדים | חם | מעיינות | מעיינות חמים | קיטור</annotation>
 		<annotation cp="♨" type="tts">מעיינות חמים</annotation>
-		<annotation cp="🌌">חלל | כוכבים | שביל החלב | שמיים</annotation>
-		<annotation cp="🌌" type="tts">שביל החלב</annotation>
 		<annotation cp="🎠">לונה פארק | סוס | סוס בקרוסלה | קרוסלה</annotation>
 		<annotation cp="🎠" type="tts">סוס בקרוסלה</annotation>
 		<annotation cp="🎡">גלגל ענק | לונה פארק</annotation>
@@ -1497,6 +1555,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏍" type="tts">אופנוע</annotation>
 		<annotation cp="🛵">וספה | קטנוע</annotation>
 		<annotation cp="🛵" type="tts">קטנוע</annotation>
+		<annotation cp="🦽">כסא גלגלים ידני | נגישות</annotation>
+		<annotation cp="🦽" type="tts">כסא גלגלים ידני</annotation>
+		<annotation cp="🦼">כסא גלגלים ממונע | נגישות</annotation>
+		<annotation cp="🦼" type="tts">כסא גלגלים ממונע</annotation>
+		<annotation cp="🛺">טוק-טוק | ריקשה ממונעת</annotation>
+		<annotation cp="🛺" type="tts">ריקשה ממונעת</annotation>
 		<annotation cp="🚲">אופניים | כלי רכב</annotation>
 		<annotation cp="🚲" type="tts">אופניים</annotation>
 		<annotation cp="🛴">קורקינט</annotation>
@@ -1547,6 +1611,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛫" type="tts">מטוס ממריא</annotation>
 		<annotation cp="🛬">מטוס | נוחת | נחיתה</annotation>
 		<annotation cp="🛬" type="tts">מטוס נוחת</annotation>
+		<annotation cp="🪂">גלישה | מצנח | צניחה | רחיפה</annotation>
+		<annotation cp="🪂" type="tts">מצנח</annotation>
 		<annotation cp="💺">כיסא | מושב</annotation>
 		<annotation cp="💺" type="tts">מושב</annotation>
 		<annotation cp="🚁">הליקופטר | כלי תעופה | מסוק</annotation>
@@ -1661,12 +1727,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌝" type="tts">פני ירח מלא</annotation>
 		<annotation cp="🌞">פני שמש | פנים | שמש</annotation>
 		<annotation cp="🌞" type="tts">פני שמש</annotation>
+		<annotation cp="🪐">כוכב לכת | כוכב לכת עם טבעות | כוכבים | שבתאי</annotation>
+		<annotation cp="🪐" type="tts">כוכב לכת עם טבעות</annotation>
 		<annotation cp="⭐">כוכב | כוכב לבן בינוני</annotation>
 		<annotation cp="⭐" type="tts">כוכב לבן בינוני</annotation>
 		<annotation cp="🌟">זוהר | כוכב | מנצנץ</annotation>
 		<annotation cp="🌟" type="tts">כוכב זוהר</annotation>
 		<annotation cp="🌠">חלל | כוכב | שביט</annotation>
 		<annotation cp="🌠" type="tts">כוכב שביט</annotation>
+		<annotation cp="🌌">חלל | כוכבים | שביל החלב | שמיים</annotation>
+		<annotation cp="🌌" type="tts">שביל החלב</annotation>
 		<annotation cp="☁">מזג אוויר | ענן</annotation>
 		<annotation cp="☁" type="tts">ענן</annotation>
 		<annotation cp="⛅">מעונן | ענן | שמש | שמש מאחורי ענן</annotation>
@@ -1817,6 +1887,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛸" type="tts">נעל החלקה על קרח</annotation>
 		<annotation cp="🎣">דג | דיג | חכה | חכת דיג</annotation>
 		<annotation cp="🎣" type="tts">חכת דיג</annotation>
+		<annotation cp="🤿">לצלול | מסיכת צלילה | צלילה | שנורקל</annotation>
+		<annotation cp="🤿" type="tts">מסיכת צלילה</annotation>
 		<annotation cp="🎽">חולצה | חולצת ריצה | ספורט | ריצה</annotation>
 		<annotation cp="🎽" type="tts">חולצת ריצה</annotation>
 		<annotation cp="🎿">מגלשי סקי | מגלשיים | סקי | שלג</annotation>
@@ -1827,6 +1899,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥌" type="tts">אבן קרלינג</annotation>
 		<annotation cp="🎯">בול | חץ | מטרה | משחק | פגיעה בול | קליעה</annotation>
 		<annotation cp="🎯" type="tts">פגיעה בול</annotation>
+		<annotation cp="🪀">יו-יו | עולה ויורד | צעצוע</annotation>
+		<annotation cp="🪀" type="tts">יו-יו</annotation>
+		<annotation cp="🪁">להעיף | מתעופף | מתרומם | עפיפון</annotation>
+		<annotation cp="🪁" type="tts">עפיפון</annotation>
 		<annotation cp="🎱">ביליארד | כדור | משחק | סנוקר</annotation>
 		<annotation cp="🎱" type="tts">כדור ביליארד</annotation>
 		<annotation cp="🔮">חיזוי | כדור בדולח | מזל | נבואה | ניבוי | עתידות</annotation>
@@ -1879,6 +1955,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥽" type="tts">משקפי שחייה</annotation>
 		<annotation cp="🥼">חוקר | חלוק מעבדה | מדען | רופא</annotation>
 		<annotation cp="🥼" type="tts">חלוק מעבדה</annotation>
+		<annotation cp="🦺">אפוד | בטיחות | חירום</annotation>
+		<annotation cp="🦺" type="tts">אפוד בטיחות</annotation>
 		<annotation cp="👔">בגד | חולצה | חולצה עם עניבה | מחויט | עניבה</annotation>
 		<annotation cp="👔" type="tts">חולצה עם עניבה</annotation>
 		<annotation cp="👕">בגד | חולצה | חולצת טי | חולצת טריקו</annotation>
@@ -1897,6 +1975,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👗" type="tts">שמלה</annotation>
 		<annotation cp="👘">בגד | יפן | יפני | קימונו</annotation>
 		<annotation cp="👘" type="tts">קימונו</annotation>
+		<annotation cp="🥻">בגד | הודו | סארי</annotation>
+		<annotation cp="🥻" type="tts">סארי</annotation>
+		<annotation cp="🩱">בגד ים | בגד ים שלם | ים | שחייה</annotation>
+		<annotation cp="🩱" type="tts">בגד ים שלם</annotation>
+		<annotation cp="🩲">בגד ים | הלבשה תחתונה | תחתון | תחתונים</annotation>
+		<annotation cp="🩲" type="tts">תחתונים</annotation>
+		<annotation cp="🩳">בגד ים | בגד רחצה | הלבשה תחתונה | מכנס קצר | מכנסיים קצרים | תחתונים</annotation>
+		<annotation cp="🩳" type="tts">מכנסיים קצרים</annotation>
 		<annotation cp="👙">בגד | ביקיני | ים | קיץ</annotation>
 		<annotation cp="👙" type="tts">ביקיני</annotation>
 		<annotation cp="👚">אישה | בגד | חולצה | חולצת אישה</annotation>
@@ -1923,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👠" type="tts">נעל עקב גבוה</annotation>
 		<annotation cp="👡">אישה | סנדל | סנדל של אישה | קיץ</annotation>
 		<annotation cp="👡" type="tts">סנדל של אישה</annotation>
+		<annotation cp="🩰">בלט | נעלי בלט | נעליים | ריקוד</annotation>
+		<annotation cp="🩰" type="tts">נעלי בלט</annotation>
 		<annotation cp="👢">אישה | חורף | מגף | מגף של אישה</annotation>
 		<annotation cp="👢" type="tts">מגף של אישה</annotation>
 		<annotation cp="👑">כתר | מלך | מלכה</annotation>
@@ -1991,6 +2079,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎺" type="tts">חצוצרה</annotation>
 		<annotation cp="🎻">כינור | כלי נגינה | מוזיקה</annotation>
 		<annotation cp="🎻" type="tts">כינור</annotation>
+		<annotation cp="🪕">בנג׳ו | כלי מיתרים | כלי נגינה | מוזיקה</annotation>
+		<annotation cp="🪕" type="tts">בנג׳ו</annotation>
 		<annotation cp="🥁">מוזיקה | מקלות תיפוף | קצב | תוף</annotation>
 		<annotation cp="🥁" type="tts">תוף</annotation>
 		<annotation cp="📱">טלפון | נייד | סלולרי</annotation>
@@ -2061,6 +2151,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔦" type="tts">פנס</annotation>
 		<annotation cp="🏮">אדום | יפני | נייר | סיני | פנס</annotation>
 		<annotation cp="🏮" type="tts">פנס נייר אדום</annotation>
+		<annotation cp="🪔">דייה | הודו | מנורה | מנורת דייה | מנורת שמן</annotation>
+		<annotation cp="🪔" type="tts">מנורת דייה</annotation>
 		<annotation cp="📔">כריכה | מחברת | מחברת עם כריכה מעוטרת | ספר</annotation>
 		<annotation cp="📔" type="tts">מחברת עם כריכה מעוטרת</annotation>
 		<annotation cp="📕">סגור | ספר</annotation>
@@ -2217,6 +2309,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗝" type="tts">מפתח ישן</annotation>
 		<annotation cp="🔨">בנייה | כלי עבודה | פטיש</annotation>
 		<annotation cp="🔨" type="tts">פטיש</annotation>
+		<annotation cp="🪓">גרזן | לבקע | לחתוך | לקצוץ | עץ</annotation>
+		<annotation cp="🪓" type="tts">גרזן</annotation>
 		<annotation cp="⛏">חופר | חפירה | כלי עבודה | לחפור | מכוש</annotation>
 		<annotation cp="⛏" type="tts">מכוש</annotation>
 		<annotation cp="⚒">בנייה | חפירה | כלי עבודה | מכוש | עבודה | פטיש | פטיש ומכוש</annotation>
@@ -2243,6 +2337,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗜" type="tts">מלחציים</annotation>
 		<annotation cp="⚖">גלגל המזלות | מאזניים | משפט | משקל | צדק</annotation>
 		<annotation cp="⚖" type="tts">מאזניים</annotation>
+		<annotation cp="🦯">מקל נחייה | נגישות | עיוור</annotation>
+		<annotation cp="🦯" type="tts">מקל נחייה</annotation>
 		<annotation cp="🔗">חוליות | חוליות משולבות | קישור | שילוב</annotation>
 		<annotation cp="🔗" type="tts">חוליות משולבות</annotation>
 		<annotation cp="⛓">שרשראות | שרשרת</annotation>
@@ -2267,20 +2363,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📡" type="tts">צלחת לוויין</annotation>
 		<annotation cp="💉">זריקה | חולה | חיסון | מזרק | מחט | תרופה</annotation>
 		<annotation cp="💉" type="tts">מזרק</annotation>
+		<annotation cp="🩸">דם | טיפת דם | רפואה | תרומת דם</annotation>
+		<annotation cp="🩸" type="tts">טיפת דם</annotation>
 		<annotation cp="💊">חולה | כדור | כמוסה | רופא | תרופה</annotation>
 		<annotation cp="💊" type="tts">כדור</annotation>
+		<annotation cp="🩹">חבישה | פלסטר | פצע</annotation>
+		<annotation cp="🩹" type="tts">פלסטר</annotation>
+		<annotation cp="🩺">מַסְכֵּת | סטתוסקופ | רופא</annotation>
+		<annotation cp="🩺" type="tts">סטתוסקופ</annotation>
 		<annotation cp="🚪">דלת</annotation>
 		<annotation cp="🚪" type="tts">דלת</annotation>
 		<annotation cp="🛏">לינה | לישון | מיטה | מלון</annotation>
 		<annotation cp="🛏" type="tts">מיטה</annotation>
 		<annotation cp="🛋">מלון | מנורה | סלון | ספה | ספה ומנורה</annotation>
 		<annotation cp="🛋" type="tts">ספה ומנורה</annotation>
+		<annotation cp="🪑">ישיבה | כיסא | כסא | לשבת</annotation>
+		<annotation cp="🪑" type="tts">כיסא</annotation>
 		<annotation cp="🚽">אסלה | שירותים</annotation>
 		<annotation cp="🚽" type="tts">אסלה</annotation>
 		<annotation cp="🚿">מים | מקלחת</annotation>
 		<annotation cp="🚿" type="tts">מקלחת</annotation>
 		<annotation cp="🛁">אמבטיה | מקלחת</annotation>
 		<annotation cp="🛁" type="tts">אמבטיה</annotation>
+		<annotation cp="🪒">גילוח | חד | סכין | תער</annotation>
+		<annotation cp="🪒" type="tts">סכין גילוח</annotation>
 		<annotation cp="🧴">לחות | קרם | קרם הגנה | שמפו | תחליב</annotation>
 		<annotation cp="🧴" type="tts">קרם לחות</annotation>
 		<annotation cp="🧷">חיתול | סיכת ביטחון | פאנק רוק</annotation>
@@ -2499,6 +2605,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📳" type="tts">מצב רטט</annotation>
 		<annotation cp="📴">כבוי | נייד | סלולרי</annotation>
 		<annotation cp="📴" type="tts">נייד כבוי</annotation>
+		<annotation cp="♀">אישה | נשים | סמל אישה</annotation>
+		<annotation cp="♀" type="tts">סמל אישה</annotation>
+		<annotation cp="♂">איש | גבר | גברים | סמל גבר</annotation>
+		<annotation cp="♂" type="tts">סמל גבר</annotation>
 		<annotation cp="⚕">אל הרפואה במיתולוגיה היוונית והרומית | אסקלפיוס | סמל הרפואה | רפואה</annotation>
 		<annotation cp="⚕" type="tts">סמל הרפואה</annotation>
 		<annotation cp="♾">אוניברסלי | אין-סוף | אינסוף | בלתי מוגבל</annotation>
@@ -2645,28 +2755,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🈵" type="tts">לחצן ״אין מקום״ ביפנית</annotation>
 		<annotation cp="🔴">אדום | עיגול | צורה</annotation>
 		<annotation cp="🔴" type="tts">עיגול אדום</annotation>
+		<annotation cp="🟠">כתום | מעגל | עיגול</annotation>
+		<annotation cp="🟠" type="tts">עיגול כתום</annotation>
+		<annotation cp="🟡">מעגל | עיגול | צהוב</annotation>
+		<annotation cp="🟡" type="tts">עיגול צהוב</annotation>
+		<annotation cp="🟢">ירוק | מעגל | עיגול</annotation>
+		<annotation cp="🟢" type="tts">עיגול ירוק</annotation>
 		<annotation cp="🔵">כחול | עיגול | צורה</annotation>
 		<annotation cp="🔵" type="tts">עיגול כחול</annotation>
-		<annotation cp="⚪">לבן | עיגול | צורה</annotation>
-		<annotation cp="⚪" type="tts">עיגול לבן</annotation>
+		<annotation cp="🟣">מעגל | סגול | עיגול</annotation>
+		<annotation cp="🟣" type="tts">עיגול סגול</annotation>
+		<annotation cp="🟤">חום | מעגל | עיגול</annotation>
+		<annotation cp="🟤" type="tts">עיגול חום</annotation>
 		<annotation cp="⚫">עיגול | צורה | שחור</annotation>
 		<annotation cp="⚫" type="tts">עיגול שחור</annotation>
-		<annotation cp="⬜">לבן | צורה | ריבוע | ריבוע גדול לבן</annotation>
-		<annotation cp="⬜" type="tts">ריבוע גדול לבן</annotation>
+		<annotation cp="⚪">לבן | עיגול | צורה</annotation>
+		<annotation cp="⚪" type="tts">עיגול לבן</annotation>
+		<annotation cp="🟥">אדום | מרובע | ריבוע</annotation>
+		<annotation cp="🟥" type="tts">ריבוע אדום</annotation>
+		<annotation cp="🟧">כתום | מרובע | ריבוע</annotation>
+		<annotation cp="🟧" type="tts">ריבוע כתום</annotation>
+		<annotation cp="🟨">מרובע | צהוב | ריבוע</annotation>
+		<annotation cp="🟨" type="tts">ריבוע צהוב</annotation>
+		<annotation cp="🟩">ירוק | מרובע | ריבוע</annotation>
+		<annotation cp="🟩" type="tts">ריבוע ירוק</annotation>
+		<annotation cp="🟦">כחול | מרובע | ריבוע</annotation>
+		<annotation cp="🟦" type="tts">ריבוע כחול</annotation>
+		<annotation cp="🟪">מרובע | סגול | ריבוע</annotation>
+		<annotation cp="🟪" type="tts">ריבוע סגול</annotation>
+		<annotation cp="🟫">חום | מרובע | ריבוע</annotation>
+		<annotation cp="🟫" type="tts">ריבוע חום</annotation>
 		<annotation cp="⬛">צורה | ריבוע | ריבוע גדול שחור | שחור</annotation>
 		<annotation cp="⬛" type="tts">ריבוע גדול שחור</annotation>
+		<annotation cp="⬜">לבן | צורה | ריבוע | ריבוע גדול לבן</annotation>
+		<annotation cp="⬜" type="tts">ריבוע גדול לבן</annotation>
 		<annotation cp="◼">צורה | ריבוע | ריבוע שחור בינוני | שחור</annotation>
 		<annotation cp="◼" type="tts">ריבוע שחור בינוני</annotation>
 		<annotation cp="◻">לבן | צורה | ריבוע | ריבוע לבן בינוני</annotation>
 		<annotation cp="◻" type="tts">ריבוע לבן בינוני</annotation>
-		<annotation cp="◽">לבן | צורה | ריבוע | ריבוע בינוני-קטן לבן</annotation>
-		<annotation cp="◽" type="tts">ריבוע בינוני-קטן לבן</annotation>
 		<annotation cp="◾">צורה | ריבוע | ריבוע בינוני-קטן שחור | שחור</annotation>
 		<annotation cp="◾" type="tts">ריבוע בינוני-קטן שחור</annotation>
-		<annotation cp="▫">לבן | צורה | ריבוע | ריבוע לבן קטן</annotation>
-		<annotation cp="▫" type="tts">ריבוע לבן קטן</annotation>
+		<annotation cp="◽">לבן | צורה | ריבוע | ריבוע בינוני-קטן לבן</annotation>
+		<annotation cp="◽" type="tts">ריבוע בינוני-קטן לבן</annotation>
 		<annotation cp="▪">צורה | ריבוע | ריבוע שחור קטן | שחור</annotation>
 		<annotation cp="▪" type="tts">ריבוע שחור קטן</annotation>
+		<annotation cp="▫">לבן | צורה | ריבוע | ריבוע לבן קטן</annotation>
+		<annotation cp="▫" type="tts">ריבוע לבן קטן</annotation>
 		<annotation cp="🔶">כתום | מעוין | מעוין כתום גדול | צורה</annotation>
 		<annotation cp="🔶" type="tts">מעוין כתום גדול</annotation>
 		<annotation cp="🔷">כחול | מעוין | מעוין כחול גדול | צורה</annotation>
@@ -2683,10 +2817,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💠" type="tts">מעוין כחול עם נקודה</annotation>
 		<annotation cp="🔘">לחצן | עיגול | צורה | רדיו</annotation>
 		<annotation cp="🔘" type="tts">לחצן רדיו</annotation>
-		<annotation cp="🔲">לחצן | לחצן ריבוע שחור | מסגרת | צורה | ריבוע | ריבוע שחור</annotation>
-		<annotation cp="🔲" type="tts">לחצן ריבוע שחור</annotation>
 		<annotation cp="🔳">לחצן | לחצן ריבוע לבן | מסגרת | צורה | ריבוע | ריבוע לבן</annotation>
 		<annotation cp="🔳" type="tts">לחצן ריבוע לבן</annotation>
+		<annotation cp="🔲">לחצן | לחצן ריבוע שחור | מסגרת | צורה | ריבוע | ריבוע שחור</annotation>
+		<annotation cp="🔲" type="tts">לחצן ריבוע שחור</annotation>
 		<annotation cp="🏁">דגל | התחלה | מירוץ | מירוצים | סיום</annotation>
 		<annotation cp="🏁" type="tts">דגל מירוצים</annotation>
 		<annotation cp="🚩">אדום | דגל | משולש</annotation>
@@ -2701,139 +2835,5 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">דגל בצבעי הקשת</annotation>
 		<annotation cp="🏴‍☠">דגל פירטים | מטמון | פיראטים | שודדי ים | תיבת אוצר</annotation>
 		<annotation cp="🏴‍☠" type="tts">דגל פירטים</annotation>
-		<annotation cp="🛕">דת | הודו | הינדואיזם | מקדש | מקדש הינדי</annotation>
-		<annotation cp="🛕" type="tts">מקדש הינדי</annotation>
-		<annotation cp="🛺">טוק-טוק | ריקשה ממונעת</annotation>
-		<annotation cp="🛺" type="tts">ריקשה ממונעת</annotation>
-		<annotation cp="🟠">כתום | מעגל | עיגול</annotation>
-		<annotation cp="🟠" type="tts">עיגול כתום</annotation>
-		<annotation cp="🟡">מעגל | עיגול | צהוב</annotation>
-		<annotation cp="🟡" type="tts">עיגול צהוב</annotation>
-		<annotation cp="🟢">ירוק | מעגל | עיגול</annotation>
-		<annotation cp="🟢" type="tts">עיגול ירוק</annotation>
-		<annotation cp="🟣">מעגל | סגול | עיגול</annotation>
-		<annotation cp="🟣" type="tts">עיגול סגול</annotation>
-		<annotation cp="🟤">חום | מעגל | עיגול</annotation>
-		<annotation cp="🟤" type="tts">עיגול חום</annotation>
-		<annotation cp="🟥">אדום | מרובע | ריבוע</annotation>
-		<annotation cp="🟥" type="tts">ריבוע אדום</annotation>
-		<annotation cp="🟦">כחול | מרובע | ריבוע</annotation>
-		<annotation cp="🟦" type="tts">ריבוע כחול</annotation>
-		<annotation cp="🟧">כתום | מרובע | ריבוע</annotation>
-		<annotation cp="🟧" type="tts">ריבוע כתום</annotation>
-		<annotation cp="🟨">מרובע | צהוב | ריבוע</annotation>
-		<annotation cp="🟨" type="tts">ריבוע צהוב</annotation>
-		<annotation cp="🟩">ירוק | מרובע | ריבוע</annotation>
-		<annotation cp="🟩" type="tts">ריבוע ירוק</annotation>
-		<annotation cp="🟪">מרובע | סגול | ריבוע</annotation>
-		<annotation cp="🟪" type="tts">ריבוע סגול</annotation>
-		<annotation cp="🟫">חום | מרובע | ריבוע</annotation>
-		<annotation cp="🟫" type="tts">ריבוע חום</annotation>
-		<annotation cp="🤍">לב | לבן</annotation>
-		<annotation cp="🤍" type="tts">לב לבן</annotation>
-		<annotation cp="🤎">חום | לב</annotation>
-		<annotation cp="🤎" type="tts">לב חום</annotation>
-		<annotation cp="🤏">בכמות קטנה | טיפונת | יד צובטת | יד שעושה תנועת צביטה | מעט | צביטה | קצת</annotation>
-		<annotation cp="🤏" type="tts">יד צובטת</annotation>
-		<annotation cp="🤿">לצלול | מסיכת צלילה | צלילה | שנורקל</annotation>
-		<annotation cp="🤿" type="tts">מסיכת צלילה</annotation>
-		<annotation cp="🥱">עייף | עייפות | פיהוק | פרצוף מפהק | שעמום</annotation>
-		<annotation cp="🥱" type="tts">פרצוף מפהק</annotation>
-		<annotation cp="🥻">בגד | הודו | סארי</annotation>
-		<annotation cp="🥻" type="tts">סארי</annotation>
-		<annotation cp="🦥">איטי | עצלן</annotation>
-		<annotation cp="🦥" type="tts">עצלן</annotation>
-		<annotation cp="🦦">כלב נהר | לוטרה | שעשוע</annotation>
-		<annotation cp="🦦" type="tts">לוטרה</annotation>
-		<annotation cp="🦧">אורנגאוטן | קוף</annotation>
-		<annotation cp="🦧" type="tts">אורנגאוטן</annotation>
-		<annotation cp="🦨">בואש | מסריח | סירחון</annotation>
-		<annotation cp="🦨" type="tts">בואש</annotation>
-		<annotation cp="🦩">ורוד | טרופי | פלמינגו</annotation>
-		<annotation cp="🦩" type="tts">פלמינגו</annotation>
-		<annotation cp="🦪">אויסטר | חלזונות | צדפה | צדפות | שבלולים</annotation>
-		<annotation cp="🦪" type="tts">צדפה</annotation>
-		<annotation cp="🦮">כלב נחייה | נגישות | נחייה | עיוורים</annotation>
-		<annotation cp="🦮" type="tts">כלב נחייה</annotation>
-		<annotation cp="🦯">מקל נחייה | נגישות | עיוור</annotation>
-		<annotation cp="🦯" type="tts">מקל נחייה</annotation>
-		<annotation cp="🦺">אפוד | בטיחות | חירום</annotation>
-		<annotation cp="🦺" type="tts">אפוד בטיחות</annotation>
-		<annotation cp="🦻">אובדן שמיעה | אוזן עם מכשיר שמיעה | מכשיר שמיעה | נגישות | קשיי שמיעה</annotation>
-		<annotation cp="🦻" type="tts">אוזן עם מכשיר שמיעה</annotation>
-		<annotation cp="🦼">כסא גלגלים ממונע | נגישות</annotation>
-		<annotation cp="🦼" type="tts">כסא גלגלים ממונע</annotation>
-		<annotation cp="🦽">כסא גלגלים ידני | נגישות</annotation>
-		<annotation cp="🦽" type="tts">כסא גלגלים ידני</annotation>
-		<annotation cp="🦾">זרוע מכנית | נגישות | פרוטזה | תותב | תותבת</annotation>
-		<annotation cp="🦾" type="tts">זרוע מכנית</annotation>
-		<annotation cp="🦿">נגישות | פרוטזה | רגל מכנית | תותב | תותבת</annotation>
-		<annotation cp="🦿" type="tts">רגל מכנית</annotation>
-		<annotation cp="🧃">משקאות | קופסת מיץ | קופסת משקה</annotation>
-		<annotation cp="🧃" type="tts">קופסת מיץ</annotation>
-		<annotation cp="🧄">שום | תבלין</annotation>
-		<annotation cp="🧄" type="tts">שום</annotation>
-		<annotation cp="🧅">בצל | תבלין</annotation>
-		<annotation cp="🧅" type="tts">בצל</annotation>
-		<annotation cp="🧆">אוכל רחוב | חומוס | כדורים | פלאפל</annotation>
-		<annotation cp="🧆" type="tts">פלאפל</annotation>
-		<annotation cp="🧇">אפיפית | וופל | ופל</annotation>
-		<annotation cp="🧇" type="tts">וופל</annotation>
-		<annotation cp="🧈">חמאה | מוצרי חלב</annotation>
-		<annotation cp="🧈" type="tts">חמאה</annotation>
-		<annotation cp="🧉">מאטה | משקאות | קפאין</annotation>
-		<annotation cp="🧉" type="tts">מאטה</annotation>
-		<annotation cp="🧊">קוביית קרח | קר | קרח</annotation>
-		<annotation cp="🧊" type="tts">קוביית קרח</annotation>
-		<annotation cp="🧍">אדם עומד | עומד | עמידה</annotation>
-		<annotation cp="🧍" type="tts">אדם עומד</annotation>
-		<annotation cp="🧍‍♀">אישה | עומדת | עמידה</annotation>
-		<annotation cp="🧍‍♀" type="tts">אישה עומדת</annotation>
-		<annotation cp="🧍‍♂">איש | גבר | עומד | עמידה</annotation>
-		<annotation cp="🧍‍♂" type="tts">איש עומד</annotation>
-		<annotation cp="🧎">אדם כורע ברך | כריעה | כריעת ברך | לכרוע ברך</annotation>
-		<annotation cp="🧎" type="tts">אדם כורע ברך</annotation>
-		<annotation cp="🧎‍♀">אישה | אישה כורעת ברך | כורעת ברך</annotation>
-		<annotation cp="🧎‍♀" type="tts">אישה כורעת ברך</annotation>
-		<annotation cp="🧎‍♂">איש | איש כורע ברך | גבר | כורע ברך | לכרוע ברך</annotation>
-		<annotation cp="🧎‍♂" type="tts">איש כורע ברך</annotation>
-		<annotation cp="🧏">חירש | כבד שמיעה | לקוי שמיעה | לקות שמיעה | נגישות</annotation>
-		<annotation cp="🧏" type="tts">כבד שמיעה</annotation>
-		<annotation cp="🧏‍♀">אישה כבדת שמיעה | חירשת | כבדת שמיעה | לקוי שמיעה | לקות שמיעה | נגישות</annotation>
-		<annotation cp="🧏‍♀" type="tts">אישה כבדת שמיעה</annotation>
-		<annotation cp="🧏‍♂">איש כבד שמיעה | חירש | כבד שמיעה | לקוי שמיעה | לקות שמיעה | נגישות</annotation>
-		<annotation cp="🧏‍♂" type="tts">איש כבד שמיעה</annotation>
-		<annotation cp="🩰">בלט | נעלי בלט | נעליים | ריקוד</annotation>
-		<annotation cp="🩰" type="tts">נעלי בלט</annotation>
-		<annotation cp="🩱">בגד ים | בגד ים שלם | ים | שחייה</annotation>
-		<annotation cp="🩱" type="tts">בגד ים שלם</annotation>
-		<annotation cp="🩲">בגד ים | הלבשה תחתונה | תחתון | תחתונים</annotation>
-		<annotation cp="🩲" type="tts">תחתונים</annotation>
-		<annotation cp="🩳">בגד ים | בגד רחצה | הלבשה תחתונה | מכנס קצר | מכנסיים קצרים | תחתונים</annotation>
-		<annotation cp="🩳" type="tts">מכנסיים קצרים</annotation>
-		<annotation cp="🩸">דם | טיפת דם | רפואה | תרומת דם</annotation>
-		<annotation cp="🩸" type="tts">טיפת דם</annotation>
-		<annotation cp="🩹">חבישה | פלסטר | פצע</annotation>
-		<annotation cp="🩹" type="tts">פלסטר</annotation>
-		<annotation cp="🩺">מַסְכֵּת | סטתוסקופ | רופא</annotation>
-		<annotation cp="🩺" type="tts">סטתוסקופ</annotation>
-		<annotation cp="🪀">יו-יו | עולה ויורד | צעצוע</annotation>
-		<annotation cp="🪀" type="tts">יו-יו</annotation>
-		<annotation cp="🪁">להעיף | מתעופף | מתרומם | עפיפון</annotation>
-		<annotation cp="🪁" type="tts">עפיפון</annotation>
-		<annotation cp="🪂">גלישה | מצנח | צניחה | רחיפה</annotation>
-		<annotation cp="🪂" type="tts">מצנח</annotation>
-		<annotation cp="🪐">כוכב לכת | כוכב לכת עם טבעות | כוכבים | שבתאי</annotation>
-		<annotation cp="🪐" type="tts">כוכב לכת עם טבעות</annotation>
-		<annotation cp="🪑">ישיבה | כיסא | כסא | לשבת</annotation>
-		<annotation cp="🪑" type="tts">כיסא</annotation>
-		<annotation cp="🪒">גילוח | חד | סכין | תער</annotation>
-		<annotation cp="🪒" type="tts">סכין גילוח</annotation>
-		<annotation cp="🪓">גרזן | לבקע | לחתוך | לקצוץ | עץ</annotation>
-		<annotation cp="🪓" type="tts">גרזן</annotation>
-		<annotation cp="🪔">דייה | הודו | מנורה | מנורת דייה | מנורת שמן</annotation>
-		<annotation cp="🪔" type="tts">מנורת דייה</annotation>
-		<annotation cp="🪕">בנג׳ו | כלי מיתרים | כלי נגינה | מוזיקה</annotation>
-		<annotation cp="🪕" type="tts">בנג׳ו</annotation>
 	</annotations>
 </ldml>

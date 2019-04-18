@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.BuildIcuCompactDecimalFormat;
 import org.unicode.cldr.test.BuildIcuCompactDecimalFormat.CurrencyStyle;
+import org.unicode.cldr.tool.FormattedFileWriter;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.ShowData;
@@ -60,7 +61,7 @@ public class VerifyCompactNumbers {
         myOptions.parse(MyOptions.organization, args, true);
         FileCopier.copy(ShowData.class, "verify-index.html", DIR, "index.html");
         FileCopier.copy(ShowData.class, "index.css", DIR, "index.css");
-
+        FormattedFileWriter.copyIncludeHtmls(DIR);
 
         String organization = MyOptions.organization.option.getValue();
         String filter = MyOptions.filter.option.getValue();

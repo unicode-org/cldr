@@ -23,8 +23,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">keskitumma iho</annotation>
 		<annotation cp="🏿">emojin muokkaus | fitzpatrick | iho | sävy | tumma iho</annotation>
 		<annotation cp="🏿" type="tts">tumma iho</annotation>
-		<annotation cp="🐾">jalka | jälki | käpälä | tassu | tassunjäljet</annotation>
-		<annotation cp="🐾" type="tts">tassunjäljet</annotation>
 		<annotation cp="😀">hymy | kasvot | leveä hymy | naama | virnistys</annotation>
 		<annotation cp="😀" type="tts">leveä hymy</annotation>
 		<annotation cp="😃">auki | hymy | kasvot | naama | suu</annotation>
@@ -195,6 +193,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😩" type="tts">uupunut</annotation>
 		<annotation cp="😫">naama | uupumus | väsymys | väsynyt</annotation>
 		<annotation cp="😫" type="tts">väsynyt</annotation>
+		<annotation cp="🥱">haukotteleva naama | haukotus | kyllästynyt | väsynyt</annotation>
+		<annotation cp="🥱" type="tts">haukotteleva naama</annotation>
 		<annotation cp="😤">höyryä nenästä | naama | voittaja | voitto</annotation>
 		<annotation cp="😤" type="tts">höyryä nenästä</annotation>
 		<annotation cp="😡">mököttävä | naama | punainen | raivo | suuttunut | vihainen</annotation>
@@ -287,8 +287,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💙" type="tts">sininen sydän</annotation>
 		<annotation cp="💜">sydän | violetti</annotation>
 		<annotation cp="💜" type="tts">violetti sydän</annotation>
+		<annotation cp="🤎">ruskea | sydän</annotation>
+		<annotation cp="🤎" type="tts">ruskea sydän</annotation>
 		<annotation cp="🖤">musta | sydän</annotation>
 		<annotation cp="🖤" type="tts">musta sydän</annotation>
+		<annotation cp="🤍">sydän | valkoinen</annotation>
+		<annotation cp="🤍" type="tts">valkoinen sydän</annotation>
 		<annotation cp="💯">100 | pisteet | sata pistettä | täydet</annotation>
 		<annotation cp="💯" type="tts">sata pistettä</annotation>
 		<annotation cp="💢">sarjakuva | viha | vihainen</annotation>
@@ -329,6 +333,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖖" type="tts">vulkanilaisten tervehdys</annotation>
 		<annotation cp="👌">käsi | ok | ok-sormiele | vartalo</annotation>
 		<annotation cp="👌" type="tts">ok-sormiele</annotation>
+		<annotation cp="🤏">nipistävä käsi | pieni määrä</annotation>
+		<annotation cp="🤏" type="tts">nipistävä käsi</annotation>
 		<annotation cp="✌">käsi | v | vartalo | voitonmerkki | voitto</annotation>
 		<annotation cp="✌" type="tts">voitonmerkki</annotation>
 		<annotation cp="🤞">käsi | onni | risti | sormet ristissä | sormi</annotation>
@@ -383,12 +389,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤳" type="tts">selfie</annotation>
 		<annotation cp="💪">hauis | lihas | pullistaa | pullistettu hauis | sarjakuva | vartalo</annotation>
 		<annotation cp="💪" type="tts">pullistettu hauis</annotation>
+		<annotation cp="🦾">esteettömyys | tekokäsi</annotation>
+		<annotation cp="🦾" type="tts">tekokäsi</annotation>
+		<annotation cp="🦿">esteettömyys | tekojalka</annotation>
+		<annotation cp="🦿" type="tts">tekojalka</annotation>
 		<annotation cp="🦵">alaraaja | jalka | potkaista | potku | raaja</annotation>
 		<annotation cp="🦵" type="tts">jalka</annotation>
 		<annotation cp="🦶">jalkaterä | potkaista | potku | tallata | töminä</annotation>
 		<annotation cp="🦶" type="tts">jalkaterä</annotation>
 		<annotation cp="👂">korva | pää | vartalo</annotation>
 		<annotation cp="👂" type="tts">korva</annotation>
+		<annotation cp="🦻">esteettömyys | huonokuuloinen | kuulolaite | kuulolaite korvassa | kuulonalenema</annotation>
+		<annotation cp="🦻" type="tts">kuulolaite korvassa</annotation>
 		<annotation cp="👃">haju | nenä | pää | tuoksu | vartalo</annotation>
 		<annotation cp="👃" type="tts">nenä</annotation>
 		<annotation cp="🧠">aivot | äly | pää | vartalo | viisas</annotation>
@@ -417,28 +429,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">aikuinen</annotation>
 		<annotation cp="👱">blondi | hiukset | vaalea | vaaleahiuksinen henkilö | vaaleatukkainen henkilö</annotation>
 		<annotation cp="👱" type="tts">vaaleatukkainen henkilö</annotation>
-		<annotation cp="🧑‍🤝‍🧑">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä</annotation>
-		<annotation cp="🧑‍🤝‍🧑" type="tts">ihmiset käsi kädessä</annotation>
 		<annotation cp="👨">mies | miespuolinen</annotation>
 		<annotation cp="👨" type="tts">mies</annotation>
-		<annotation cp="👨‍🦯">esteettömyys | mies | mies ja valkoinen keppi | sokea</annotation>
-		<annotation cp="👨‍🦯" type="tts">mies ja valkoinen keppi</annotation>
-		<annotation cp="👨‍🦼">esteettömyys | mies | mies moottoroidussa pyörätuolissa | pyörätuoli</annotation>
-		<annotation cp="👨‍🦼" type="tts">mies moottoroidussa pyörätuolissa</annotation>
-		<annotation cp="👨‍🦽">esteettömyys | mies | mies käsikäyttöisessä pyörätuolissa | pyörätuoli</annotation>
-		<annotation cp="👨‍🦽" type="tts">mies käsikäyttöisessä pyörätuolissa</annotation>
-		<annotation cp="👱‍♂">blondi | hiukset | mies | vaalea | vaaleahiuksinen mies | vaaleatukkainen mies</annotation>
-		<annotation cp="👱‍♂" type="tts">vaaleatukkainen mies</annotation>
 		<annotation cp="🧔">karvainen | parrakas henkilö | parta | pulisongit | sänki | viikset</annotation>
 		<annotation cp="🧔" type="tts">parrakas henkilö</annotation>
+		<annotation cp="👱‍♂">blondi | hiukset | mies | vaalea | vaaleahiuksinen mies | vaaleatukkainen mies</annotation>
+		<annotation cp="👱‍♂" type="tts">vaaleatukkainen mies</annotation>
 		<annotation cp="👩">nainen | naispuolinen</annotation>
 		<annotation cp="👩" type="tts">nainen</annotation>
-		<annotation cp="👩‍🦯">esteettömyys | nainen | nainen ja valkoinen keppi | sokea</annotation>
-		<annotation cp="👩‍🦯" type="tts">nainen ja valkoinen keppi</annotation>
-		<annotation cp="👩‍🦼">esteettömyys | nainen | nainen moottoroidussa pyörätuolissa | pyörätuoli</annotation>
-		<annotation cp="👩‍🦼" type="tts">nainen moottoroidussa pyörätuolissa</annotation>
-		<annotation cp="👩‍🦽">esteettömyys | nainen | nainen käsikäyttöisessä pyörätuolissa | pyörätuoli</annotation>
-		<annotation cp="👩‍🦽" type="tts">nainen käsikäyttöisessä pyörätuolissa</annotation>
 		<annotation cp="👱‍♀">blondi | hiukset | nainen | vaalea | vaaleahiuksinen nainen | vaaleatukkainen nainen</annotation>
 		<annotation cp="👱‍♀" type="tts">vaaleatukkainen nainen</annotation>
 		<annotation cp="🧓">ikäihminen | seniori | sukupuolineutraali | vanha | vanhus</annotation>
@@ -483,6 +481,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙋‍♂" type="tts">viittaava mies</annotation>
 		<annotation cp="🙋‍♀">käsi | nainen | viittaava nainen | viittaus</annotation>
 		<annotation cp="🙋‍♀" type="tts">viittaava nainen</annotation>
+		<annotation cp="🧏">esteettömyys | korva | kuulo | kuuro | kuuro ihminen</annotation>
+		<annotation cp="🧏" type="tts">kuuro ihminen</annotation>
+		<annotation cp="🧏‍♂">kuuro | mies</annotation>
+		<annotation cp="🧏‍♂" type="tts">kuuro mies</annotation>
+		<annotation cp="🧏‍♀">kuuro | nainen</annotation>
+		<annotation cp="🧏‍♀" type="tts">kuuro nainen</annotation>
 		<annotation cp="🙇">anteeksi | anteeksipyyntö | ele | kumarrus | kumartava henkilö</annotation>
 		<annotation cp="🙇" type="tts">kumartava henkilö</annotation>
 		<annotation cp="🙇‍♂">anteeksipyyntö | ele | kumarrus | mies | syvään kumartava mies</annotation>
@@ -689,6 +693,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚶‍♂" type="tts">kävelevä mies</annotation>
 		<annotation cp="🚶‍♀">kävelevä nainen | kävely | nainen | patikointi</annotation>
 		<annotation cp="🚶‍♀" type="tts">kävelevä nainen</annotation>
+		<annotation cp="🧍">seisoa | seisova | seisova ihminen</annotation>
+		<annotation cp="🧍" type="tts">seisova ihminen</annotation>
+		<annotation cp="🧍‍♂">mies | seisova</annotation>
+		<annotation cp="🧍‍♂" type="tts">seisova mies</annotation>
+		<annotation cp="🧍‍♀">nainen | seisova</annotation>
+		<annotation cp="🧍‍♀" type="tts">seisova nainen</annotation>
+		<annotation cp="🧎">polvistua | polvistuminen | polvistuva ihminen</annotation>
+		<annotation cp="🧎" type="tts">polvistuva ihminen</annotation>
+		<annotation cp="🧎‍♂">mies | polvistuva</annotation>
+		<annotation cp="🧎‍♂" type="tts">polvistuva mies</annotation>
+		<annotation cp="🧎‍♀">nainen | polvistuva</annotation>
+		<annotation cp="🧎‍♀" type="tts">polvistuva nainen</annotation>
+		<annotation cp="👨‍🦯">esteettömyys | mies | mies ja valkoinen keppi | sokea</annotation>
+		<annotation cp="👨‍🦯" type="tts">mies ja valkoinen keppi</annotation>
+		<annotation cp="👩‍🦯">esteettömyys | nainen | nainen ja valkoinen keppi | sokea</annotation>
+		<annotation cp="👩‍🦯" type="tts">nainen ja valkoinen keppi</annotation>
+		<annotation cp="👨‍🦼">esteettömyys | mies | mies moottoroidussa pyörätuolissa | pyörätuoli</annotation>
+		<annotation cp="👨‍🦼" type="tts">mies moottoroidussa pyörätuolissa</annotation>
+		<annotation cp="👩‍🦼">esteettömyys | nainen | nainen moottoroidussa pyörätuolissa | pyörätuoli</annotation>
+		<annotation cp="👩‍🦼" type="tts">nainen moottoroidussa pyörätuolissa</annotation>
+		<annotation cp="👨‍🦽">esteettömyys | mies | mies käsikäyttöisessä pyörätuolissa | pyörätuoli</annotation>
+		<annotation cp="👨‍🦽" type="tts">mies käsikäyttöisessä pyörätuolissa</annotation>
+		<annotation cp="👩‍🦽">esteettömyys | nainen | nainen käsikäyttöisessä pyörätuolissa | pyörätuoli</annotation>
+		<annotation cp="👩‍🦽" type="tts">nainen käsikäyttöisessä pyörätuolissa</annotation>
 		<annotation cp="🏃">juokseminen | juoksija | maratoni</annotation>
 		<annotation cp="🏃" type="tts">juoksija</annotation>
 		<annotation cp="🏃‍♂">juokseminen | juokseva mies | juoksija | lenkki | mies</annotation>
@@ -815,12 +843,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛀" type="tts">kylpijä</annotation>
 		<annotation cp="🛌">hotelli | nukkua | nukkuja | uni</annotation>
 		<annotation cp="🛌" type="tts">nukkuja</annotation>
+		<annotation cp="🧑‍🤝‍🧑">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts">ihmiset käsi kädessä</annotation>
+		<annotation cp="👭">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta</annotation>
+		<annotation cp="👭" type="tts">kaksi naista käsi kädessä</annotation>
 		<annotation cp="👫">kädestä pitäminen | käsi | mies | mies ja nainen käsi kädessä | nainen | pariskunta</annotation>
 		<annotation cp="👫" type="tts">mies ja nainen käsi kädessä</annotation>
 		<annotation cp="👬">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari</annotation>
 		<annotation cp="👬" type="tts">kaksi miestä käsi kädessä</annotation>
-		<annotation cp="👭">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta</annotation>
-		<annotation cp="👭" type="tts">kaksi naista käsi kädessä</annotation>
 		<annotation cp="💏">pariskunta | pusu | romantiikka</annotation>
 		<annotation cp="💏" type="tts">pusu</annotation>
 		<annotation cp="💑">pariskunta | pariskunta ja sydän | rakkaus | romantiikka | sydän</annotation>
@@ -843,20 +873,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦳" type="tts">valkotukkainen</annotation>
 		<annotation cp="🦲">ajeltu | ei tukkaa | kalju | kemoterapia</annotation>
 		<annotation cp="🦲" type="tts">kalju</annotation>
-		<annotation cp="♀">naissymboli | Venus-symboli</annotation>
-		<annotation cp="♀" type="tts">Venus-symboli</annotation>
-		<annotation cp="♂">Mars-symboli | miessymboli</annotation>
-		<annotation cp="♂" type="tts">Mars-symboli</annotation>
 		<annotation cp="🐵">apina | apinan naama | naama</annotation>
 		<annotation cp="🐵" type="tts">apinan naama</annotation>
 		<annotation cp="🐒">apina | seisova</annotation>
 		<annotation cp="🐒" type="tts">apina</annotation>
 		<annotation cp="🦍">eläin | gorilla</annotation>
 		<annotation cp="🦍" type="tts">gorilla</annotation>
+		<annotation cp="🦧">apina | oranki</annotation>
+		<annotation cp="🦧" type="tts">oranki</annotation>
 		<annotation cp="🐶">koira | koiran naama | lemmikki | naama</annotation>
 		<annotation cp="🐶" type="tts">koiran naama</annotation>
 		<annotation cp="🐕">koira | lemmikki</annotation>
 		<annotation cp="🐕" type="tts">koira</annotation>
+		<annotation cp="🦮">esteettömyys | opas | opaskoira | sokea</annotation>
+		<annotation cp="🦮" type="tts">opaskoira</annotation>
 		<annotation cp="🐕‍🦺">apu | esteettömyys | palveluskoira</annotation>
 		<annotation cp="🐕‍🦺" type="tts">palveluskoira</annotation>
 		<annotation cp="🐩">koira | villakoira</annotation>
@@ -949,10 +979,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐨" type="tts">koala</annotation>
 		<annotation cp="🐼">naama | panda | pandan naama</annotation>
 		<annotation cp="🐼" type="tts">panda</annotation>
+		<annotation cp="🦥">hidas | laiska | laiskiainen</annotation>
+		<annotation cp="🦥" type="tts">laiskiainen</annotation>
+		<annotation cp="🦦">kalastaja | leikkisä | saukko</annotation>
+		<annotation cp="🦦" type="tts">saukko</annotation>
+		<annotation cp="🦨">haista | haisunäätä</annotation>
+		<annotation cp="🦨" type="tts">haisunäätä</annotation>
 		<annotation cp="🦘">Australia | hypätä | kenguru | loikata | pussieläin</annotation>
 		<annotation cp="🦘" type="tts">kenguru</annotation>
 		<annotation cp="🦡">mäyrä</annotation>
 		<annotation cp="🦡" type="tts">mäyrä</annotation>
+		<annotation cp="🐾">jalka | jälki | käpälä | tassu | tassunjäljet</annotation>
+		<annotation cp="🐾" type="tts">tassunjäljet</annotation>
 		<annotation cp="🦃">kalkkuna | lintu</annotation>
 		<annotation cp="🦃" type="tts">kalkkuna</annotation>
 		<annotation cp="🐔">kana | lintu</annotation>
@@ -979,6 +1017,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦢" type="tts">joutsen</annotation>
 		<annotation cp="🦉">lintu | pöllö | viisas</annotation>
 		<annotation cp="🦉" type="tts">pöllö</annotation>
+		<annotation cp="🦩">flamingo | pramea | trooppinen</annotation>
+		<annotation cp="🦩" type="tts">flamingo</annotation>
 		<annotation cp="🦚">komeileva | lintu | mahtaileva | pramea | riikinkukko | ylpeä</annotation>
 		<annotation cp="🦚" type="tts">riikinkukko</annotation>
 		<annotation cp="🦜">lintu | merirosvo | papukaija | puhe | puhuva</annotation>
@@ -1139,6 +1179,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥬" type="tts">lehtivihannes</annotation>
 		<annotation cp="🥦">broccoli | parsakaali</annotation>
 		<annotation cp="🥦" type="tts">parsakaali</annotation>
+		<annotation cp="🧄">mauste | valkosipuli</annotation>
+		<annotation cp="🧄" type="tts">valkosipuli</annotation>
+		<annotation cp="🧅">mauste | sipuli</annotation>
+		<annotation cp="🧅" type="tts">sipuli</annotation>
 		<annotation cp="🍄">rihmasto | sieni</annotation>
 		<annotation cp="🍄" type="tts">sieni</annotation>
 		<annotation cp="🥜">maapähkinä | pähkinä | ruoka</annotation>
@@ -1157,6 +1201,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥯" type="tts">vesirinkeli</annotation>
 		<annotation cp="🥞">lettu | letut | ohukainen | pannukakku | ruoka</annotation>
 		<annotation cp="🥞" type="tts">letut</annotation>
+		<annotation cp="🧇">päättämätön | ratkaisematon | vohveli | vohvelirauta</annotation>
+		<annotation cp="🧇" type="tts">vohveli</annotation>
 		<annotation cp="🧀">juusto | juustopala</annotation>
 		<annotation cp="🧀" type="tts">juustopala</annotation>
 		<annotation cp="🍖">liha | lihaa luineen | luu</annotation>
@@ -1183,6 +1229,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌯" type="tts">burrito</annotation>
 		<annotation cp="🥙">falafel | kebab | leipä | pita | ruoka | täyte | täytetty pita</annotation>
 		<annotation cp="🥙" type="tts">täytetty pita</annotation>
+		<annotation cp="🧆">falafel | kasvispyörykkä | kikherne</annotation>
+		<annotation cp="🧆" type="tts">falafel</annotation>
 		<annotation cp="🥚">kananmuna | ruoka</annotation>
 		<annotation cp="🥚" type="tts">kananmuna</annotation>
 		<annotation cp="🍳">kokkaus | paistinpannu | ruoka</annotation>
@@ -1197,6 +1245,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥗" type="tts">vihreä salaatti</annotation>
 		<annotation cp="🍿">maissi | popcorn</annotation>
 		<annotation cp="🍿" type="tts">popcorn</annotation>
+		<annotation cp="🧈">maitotuote | voi</annotation>
+		<annotation cp="🧈" type="tts">voi</annotation>
 		<annotation cp="🧂">mauste | sirotin | suola | suolasirotin</annotation>
 		<annotation cp="🧂" type="tts">suola</annotation>
 		<annotation cp="🥫">purkki | säilyketölkki</annotation>
@@ -1243,6 +1293,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦐" type="tts">katkarapu</annotation>
 		<annotation cp="🦑">kalmari | mustekala | ruoka</annotation>
 		<annotation cp="🦑" type="tts">kalmari</annotation>
+		<annotation cp="🦪">helmi | osteri | sukellus</annotation>
+		<annotation cp="🦪" type="tts">osteri</annotation>
 		<annotation cp="🍦">jää | jäätelö | jälkiruoka | kerma | makea | pehmeä | pehmis</annotation>
 		<annotation cp="🍦" type="tts">pehmis</annotation>
 		<annotation cp="🍧">herkku | jää | jäähile | jäähilejälkiruoka | jälkiruoka | makea</annotation>
@@ -1299,6 +1351,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥃" type="tts">juomalasi</annotation>
 		<annotation cp="🥤">juoma | lasi ja pilli | mehu</annotation>
 		<annotation cp="🥤" type="tts">lasi ja pilli</annotation>
+		<annotation cp="🧃">juomatetra | pillijuoma</annotation>
+		<annotation cp="🧃" type="tts">juomatetra</annotation>
+		<annotation cp="🧉">juoma | mate</annotation>
+		<annotation cp="🧉" type="tts">mate</annotation>
+		<annotation cp="🧊">jääkuutio | kylmä</annotation>
+		<annotation cp="🧊" type="tts">jääkuutio</annotation>
 		<annotation cp="🥢">aterimet | ruokailu | syömäpuikot</annotation>
 		<annotation cp="🥢" type="tts">syömäpuikot</annotation>
 		<annotation cp="🍽">aterimet | haarukka | haarukka, veitsi ja lautanen | lautanen | ruokailu | veitsi</annotation>
@@ -1395,6 +1453,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛪" type="tts">kirkko</annotation>
 		<annotation cp="🕌">islam | moskeija | muslimi | rakennus | uskonto</annotation>
 		<annotation cp="🕌" type="tts">moskeija</annotation>
+		<annotation cp="🛕">hindu | hindutemppeli | temppeli</annotation>
+		<annotation cp="🛕" type="tts">hindutemppeli</annotation>
 		<annotation cp="🕍">juutalaisuus | rakennus | synagoga | temppeli | uskonto</annotation>
 		<annotation cp="🕍" type="tts">synagoga</annotation>
 		<annotation cp="⛩">rakennus | shinto-temppeli | shintolaisuus | uskonto</annotation>
@@ -1423,8 +1483,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌉" type="tts">silta yöllä</annotation>
 		<annotation cp="♨">kuumat lähteet | kylpylä | lähde | vesi</annotation>
 		<annotation cp="♨" type="tts">kuumat lähteet</annotation>
-		<annotation cp="🌌">avaruus | galaksi | linnunrata | sää</annotation>
-		<annotation cp="🌌" type="tts">linnunrata</annotation>
 		<annotation cp="🎠">hevonen | karuselli | karusellihevonen</annotation>
 		<annotation cp="🎠" type="tts">karusellihevonen</annotation>
 		<annotation cp="🎡">huvipuisto | maailmanpyörä</annotation>
@@ -1497,6 +1555,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏍" type="tts">moottoripyörä</annotation>
 		<annotation cp="🛵">ajoneuvo | skootteri</annotation>
 		<annotation cp="🛵" type="tts">skootteri</annotation>
+		<annotation cp="🦽">esteettömyys | käsikäyttöinen pyörätuoli</annotation>
+		<annotation cp="🦽" type="tts">käsikäyttöinen pyörätuoli</annotation>
+		<annotation cp="🦼">esteettömyys | moottoroitu pyörätuoli</annotation>
+		<annotation cp="🦼" type="tts">moottoroitu pyörätuoli</annotation>
+		<annotation cp="🛺">autorikša | tuktuk</annotation>
+		<annotation cp="🛺" type="tts">autorikša</annotation>
 		<annotation cp="🚲">ajoneuvo | polkupyörä | pyörä</annotation>
 		<annotation cp="🚲" type="tts">polkupyörä</annotation>
 		<annotation cp="🛴">lauta | potku | potkulauta</annotation>
@@ -1547,6 +1611,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛫" type="tts">lähtevä lentokone</annotation>
 		<annotation cp="🛬">ajoneuvo | laskeutuminen | lentokone | saapuva</annotation>
 		<annotation cp="🛬" type="tts">saapuva lentokone</annotation>
+		<annotation cp="🪂">laskuvarjo | laskuvarjohyppy | riippuliito | varjoliito</annotation>
+		<annotation cp="🪂" type="tts">laskuvarjo</annotation>
 		<annotation cp="💺">istuin | tuoli</annotation>
 		<annotation cp="💺" type="tts">istuin</annotation>
 		<annotation cp="🚁">ajoneuvo | helikopteri</annotation>
@@ -1661,12 +1727,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌝" type="tts">täysikuu kasvoilla</annotation>
 		<annotation cp="🌞">aurinko kasvoilla | kasvot | kuu | paiste | sää | valo</annotation>
 		<annotation cp="🌞" type="tts">aurinko kasvoilla</annotation>
+		<annotation cp="🪐">rengasplaneetta | Saturnus</annotation>
+		<annotation cp="🪐" type="tts">rengasplaneetta</annotation>
 		<annotation cp="⭐">tähti | valkoinen tähti</annotation>
 		<annotation cp="⭐" type="tts">valkoinen tähti</annotation>
 		<annotation cp="🌟">loistava tähti | loiste | säihke | tähti | valo</annotation>
 		<annotation cp="🌟" type="tts">loistava tähti</annotation>
 		<annotation cp="🌠">avaruus | tähdenlento | tähti | toive</annotation>
 		<annotation cp="🌠" type="tts">tähdenlento</annotation>
+		<annotation cp="🌌">avaruus | galaksi | linnunrata | sää</annotation>
+		<annotation cp="🌌" type="tts">linnunrata</annotation>
 		<annotation cp="☁">pilvi | sää</annotation>
 		<annotation cp="☁" type="tts">pilvi</annotation>
 		<annotation cp="⛅">aurinko | aurinko pilvessä | pilvi | sää</annotation>
@@ -1817,6 +1887,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛸" type="tts">luistin</annotation>
 		<annotation cp="🎣">kalastus | onki | onkivapa | virveli</annotation>
 		<annotation cp="🎣" type="tts">onkivapa</annotation>
+		<annotation cp="🤿">snorkkelisetti | snorklaus | sukellus | sukellusmaski</annotation>
+		<annotation cp="🤿" type="tts">sukellusmaski</annotation>
 		<annotation cp="🎽">juokseminen | juoksupaita | nauha | paita</annotation>
 		<annotation cp="🎽" type="tts">juoksupaita</annotation>
 		<annotation cp="🎿">hiihto | lumi | sauvat | sukset</annotation>
@@ -1827,6 +1899,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥌" type="tts">curling-kivi</annotation>
 		<annotation cp="🎯">darts | häränsilmä | kymmenen | napakymppi | tikka | tikkataulu</annotation>
 		<annotation cp="🎯" type="tts">napakymppi</annotation>
+		<annotation cp="🪀">jojo | jojoilla | lelu</annotation>
+		<annotation cp="🪀" type="tts">jojo</annotation>
+		<annotation cp="🪁">leija | leijailla | lennättää</annotation>
+		<annotation cp="🪁" type="tts">leija</annotation>
 		<annotation cp="🎱">biljardi | biljardipallo | kasipallo | pallo | peli</annotation>
 		<annotation cp="🎱" type="tts">biljardi</annotation>
 		<annotation cp="🔮">ennustaja | ennustus | kristalli | kristallipallo | povaus | taika | tulevaisuus</annotation>
@@ -1879,6 +1955,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥽" type="tts">suojalasit</annotation>
 		<annotation cp="🥼">koe | lääkärintakki | laboratoriotakki | tohtori | tutkija</annotation>
 		<annotation cp="🥼" type="tts">laboratoriotakki</annotation>
+		<annotation cp="🦺">hätätilanne | liivi | turvaliivi | turvallisuus</annotation>
+		<annotation cp="🦺" type="tts">turvaliivi</annotation>
 		<annotation cp="👔">asuste | kravatti | solmio | vaatteet</annotation>
 		<annotation cp="👔" type="tts">solmio</annotation>
 		<annotation cp="👕">paita | t-paita | vaatteet</annotation>
@@ -1897,6 +1975,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👗" type="tts">mekko</annotation>
 		<annotation cp="👘">japanilainen | kimono | vaatteet</annotation>
 		<annotation cp="👘" type="tts">kimono</annotation>
+		<annotation cp="🥻">mekko | sari | vaate</annotation>
+		<annotation cp="🥻" type="tts">sari</annotation>
+		<annotation cp="🩱">uima-asu | uimapuku</annotation>
+		<annotation cp="🩱" type="tts">uimapuku</annotation>
+		<annotation cp="🩲">alushousut | uima-asu | uimahousut</annotation>
+		<annotation cp="🩲" type="tts">uimahousut</annotation>
+		<annotation cp="🩳">alushousut | shortsit | uimashortsit</annotation>
+		<annotation cp="🩳" type="tts">uimashortsit</annotation>
 		<annotation cp="👙">bikinit | uida | uimapuku | vaatteet</annotation>
 		<annotation cp="👙" type="tts">bikinit</annotation>
 		<annotation cp="👚">nainen | naistenvaatteet | vaatteet</annotation>
@@ -1923,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👠" type="tts">korkokenkä</annotation>
 		<annotation cp="👡">kenkä | nainen | naisen sandaali | sandaali | vaatteet</annotation>
 		<annotation cp="👡" type="tts">naisen sandaali</annotation>
+		<annotation cp="🩰">baletti | balettitossut | tanssi</annotation>
+		<annotation cp="🩰" type="tts">balettitossut</annotation>
 		<annotation cp="👢">kenkä | nainen | naisen saapas | saapas | vaatteet</annotation>
 		<annotation cp="👢" type="tts">naisen saapas</annotation>
 		<annotation cp="👑">asuste | kruunu | kuningas | kuningatar</annotation>
@@ -1991,6 +2079,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎺" type="tts">trumpetti</annotation>
 		<annotation cp="🎻">instrumentti | jousi | musiikki | viulu</annotation>
 		<annotation cp="🎻" type="tts">viulu</annotation>
+		<annotation cp="🪕">banjo | kielisoitin | musiikki</annotation>
+		<annotation cp="🪕" type="tts">banjo</annotation>
 		<annotation cp="🥁">musiikki | rumpu | rumpukapula</annotation>
 		<annotation cp="🥁" type="tts">rumpu</annotation>
 		<annotation cp="📱">kännykkä | matkapuhelin | mobiili | mobiililaite | puhelin</annotation>
@@ -2061,6 +2151,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔦" type="tts">taskulamppu</annotation>
 		<annotation cp="🏮">baari | Japani | lyhty | punainen | punainen paperilyhty | valo</annotation>
 		<annotation cp="🏮" type="tts">punainen paperilyhty</annotation>
+		<annotation cp="🪔">diya | lamppu | öljy | öljylamppu | savilamppu</annotation>
+		<annotation cp="🪔" type="tts">savilamppu</annotation>
 		<annotation cp="📔">kansi | kirja | koristeellinen muistikirja | lehtiö | muistikirja | muistio</annotation>
 		<annotation cp="📔" type="tts">koristeellinen muistikirja</annotation>
 		<annotation cp="📕">kirja | suljettu</annotation>
@@ -2217,6 +2309,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗝" type="tts">vanha avain</annotation>
 		<annotation cp="🔨">työkalu | vasara</annotation>
 		<annotation cp="🔨" type="tts">vasara</annotation>
+		<annotation cp="🪓">hakata | halkoa | kirves | pilkkoa | puu</annotation>
+		<annotation cp="🪓" type="tts">kirves</annotation>
 		<annotation cp="⛏">hakku | kaivaa | kaivos | työkalu</annotation>
 		<annotation cp="⛏" type="tts">hakku</annotation>
 		<annotation cp="⚒">hakku | hakku ja vasara | työkalu | vasara</annotation>
@@ -2243,6 +2337,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗜" type="tts">ruuvipuristin</annotation>
 		<annotation cp="⚖">horoskooppi | horoskooppimerkki | oikeus | punnus | työkalu | vaaka</annotation>
 		<annotation cp="⚖" type="tts">vaaka</annotation>
+		<annotation cp="🦯">esteettömyys | sokea | valkoinen keppi</annotation>
+		<annotation cp="🦯" type="tts">valkoinen keppi</annotation>
 		<annotation cp="🔗">ketju | lenkki</annotation>
 		<annotation cp="🔗" type="tts">lenkki</annotation>
 		<annotation cp="⛓">ketju | ketjut</annotation>
@@ -2267,20 +2363,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📡" type="tts">lautasantenni</annotation>
 		<annotation cp="💉">lääkäri | lääke | piikki | rokote | ruisku | tauti | työkalu</annotation>
 		<annotation cp="💉" type="tts">ruisku</annotation>
+		<annotation cp="🩸">kuukautiset | lääketiede | verenluovutus | veripisara</annotation>
+		<annotation cp="🩸" type="tts">veripisara</annotation>
 		<annotation cp="💊">lääkäri | lääke | lääketiede | pilleri | tauti</annotation>
 		<annotation cp="💊" type="tts">pilleri</annotation>
+		<annotation cp="🩹">haava | hoito | laastari</annotation>
+		<annotation cp="🩹" type="tts">laastari</annotation>
+		<annotation cp="🩺">kuuntelu | lääkäri | stetoskooppi | sydän</annotation>
+		<annotation cp="🩺" type="tts">stetoskooppi</annotation>
 		<annotation cp="🚪">ovi</annotation>
 		<annotation cp="🚪" type="tts">ovi</annotation>
 		<annotation cp="🛏">hotelli | nukkua | sänky | uni</annotation>
 		<annotation cp="🛏" type="tts">sänky</annotation>
 		<annotation cp="🛋">hotelli | lamppu | sohva | sohva ja lamppu</annotation>
 		<annotation cp="🛋" type="tts">sohva ja lamppu</annotation>
+		<annotation cp="🪑">istua | istuin | istumapaikka | tuoli</annotation>
+		<annotation cp="🪑" type="tts">tuoli</annotation>
 		<annotation cp="🚽">vessa | vessanpönttö</annotation>
 		<annotation cp="🚽" type="tts">vessanpönttö</annotation>
 		<annotation cp="🚿">suihku | vesi</annotation>
 		<annotation cp="🚿" type="tts">suihku</annotation>
 		<annotation cp="🛁">kylpy | kylpyamme</annotation>
 		<annotation cp="🛁" type="tts">kylpyamme</annotation>
+		<annotation cp="🪒">ajaa parta | partaveitsi | terävä</annotation>
+		<annotation cp="🪒" type="tts">partaveitsi</annotation>
 		<annotation cp="🧴">aurinkovoide | hoitoaine | hoitoainepullo | kosteusvoide | sampoo | shampoo</annotation>
 		<annotation cp="🧴" type="tts">hoitoainepullo</annotation>
 		<annotation cp="🧷">hakaneula | punk | punkkari | vaippa</annotation>
@@ -2499,6 +2605,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📳" type="tts">värinätila</annotation>
 		<annotation cp="📴">kielletty | matkapuhelin | matkapuhelin suljettava | pois | puhelin</annotation>
 		<annotation cp="📴" type="tts">matkapuhelin suljettava</annotation>
+		<annotation cp="♀">naissymboli | Venus-symboli</annotation>
+		<annotation cp="♀" type="tts">Venus-symboli</annotation>
+		<annotation cp="♂">Mars-symboli | miessymboli</annotation>
+		<annotation cp="♂" type="tts">Mars-symboli</annotation>
 		<annotation cp="⚕">Asklepioksen sauva | lääketieteen symboli</annotation>
 		<annotation cp="⚕" type="tts">lääketieteen symboli</annotation>
 		<annotation cp="♾">ääretön | äärettömyys | aina | ikuinen | rajaton | universaali</annotation>
@@ -2645,28 +2755,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🈵" type="tts">täynnä-kirjoitusmerkki</annotation>
 		<annotation cp="🔴">muoto | punainen | ympyrä</annotation>
 		<annotation cp="🔴" type="tts">punainen ympyrä</annotation>
+		<annotation cp="🟠">oranssi | ympyrä</annotation>
+		<annotation cp="🟠" type="tts">oranssi ympyrä</annotation>
+		<annotation cp="🟡">keltainen | ympyrä</annotation>
+		<annotation cp="🟡" type="tts">keltainen ympyrä</annotation>
+		<annotation cp="🟢">vihreä | ympyrä</annotation>
+		<annotation cp="🟢" type="tts">vihreä ympyrä</annotation>
 		<annotation cp="🔵">muoto | sininen | ympyrä</annotation>
 		<annotation cp="🔵" type="tts">sininen ympyrä</annotation>
-		<annotation cp="⚪">muoto | valkoinen ympyrä | ympyrä</annotation>
-		<annotation cp="⚪" type="tts">valkoinen ympyrä</annotation>
+		<annotation cp="🟣">violetti | ympyrä</annotation>
+		<annotation cp="🟣" type="tts">violetti ympyrä</annotation>
+		<annotation cp="🟤">ruskea | ympyrä</annotation>
+		<annotation cp="🟤" type="tts">ruskea ympyrä</annotation>
 		<annotation cp="⚫">muoto | musta ympyrä | ympyrä</annotation>
 		<annotation cp="⚫" type="tts">musta ympyrä</annotation>
-		<annotation cp="⬜">iso valkoinen neliö | muoto | neliö</annotation>
-		<annotation cp="⬜" type="tts">iso valkoinen neliö</annotation>
+		<annotation cp="⚪">muoto | valkoinen ympyrä | ympyrä</annotation>
+		<annotation cp="⚪" type="tts">valkoinen ympyrä</annotation>
+		<annotation cp="🟥">neliö | punainen</annotation>
+		<annotation cp="🟥" type="tts">punainen neliö</annotation>
+		<annotation cp="🟧">neliö | oranssi</annotation>
+		<annotation cp="🟧" type="tts">oranssi neliö</annotation>
+		<annotation cp="🟨">keltainen | neliö</annotation>
+		<annotation cp="🟨" type="tts">keltainen neliö</annotation>
+		<annotation cp="🟩">neliö | vihreä</annotation>
+		<annotation cp="🟩" type="tts">vihreä neliö</annotation>
+		<annotation cp="🟦">neliö | sininen</annotation>
+		<annotation cp="🟦" type="tts">sininen neliö</annotation>
+		<annotation cp="🟪">neliö | violetti</annotation>
+		<annotation cp="🟪" type="tts">violetti neliö</annotation>
+		<annotation cp="🟫">neliö | ruskea</annotation>
+		<annotation cp="🟫" type="tts">ruskea neliö</annotation>
 		<annotation cp="⬛">iso musta neliö | muoto | neliö</annotation>
 		<annotation cp="⬛" type="tts">iso musta neliö</annotation>
+		<annotation cp="⬜">iso valkoinen neliö | muoto | neliö</annotation>
+		<annotation cp="⬜" type="tts">iso valkoinen neliö</annotation>
 		<annotation cp="◼">keskikokoinen musta neliö | muoto | neliö</annotation>
 		<annotation cp="◼" type="tts">keskikokoinen musta neliö</annotation>
 		<annotation cp="◻">keskikokoinen valkoinen neliö | muoto | neliö</annotation>
 		<annotation cp="◻" type="tts">keskikokoinen valkoinen neliö</annotation>
-		<annotation cp="◽">muoto | neliö | pienehkö valkoinen neliö</annotation>
-		<annotation cp="◽" type="tts">pienehkö valkoinen neliö</annotation>
 		<annotation cp="◾">muoto | neliö | pienehkö musta neliö</annotation>
 		<annotation cp="◾" type="tts">pienehkö musta neliö</annotation>
-		<annotation cp="▫">muoto | neliö | pieni valkoinen neliö</annotation>
-		<annotation cp="▫" type="tts">pieni valkoinen neliö</annotation>
+		<annotation cp="◽">muoto | neliö | pienehkö valkoinen neliö</annotation>
+		<annotation cp="◽" type="tts">pienehkö valkoinen neliö</annotation>
 		<annotation cp="▪">muoto | neliö | pieni musta neliö</annotation>
 		<annotation cp="▪" type="tts">pieni musta neliö</annotation>
+		<annotation cp="▫">muoto | neliö | pieni valkoinen neliö</annotation>
+		<annotation cp="▫" type="tts">pieni valkoinen neliö</annotation>
 		<annotation cp="🔶">iso oranssi vinoneliö | muoto | oranssi | vinoneliö</annotation>
 		<annotation cp="🔶" type="tts">iso oranssi vinoneliö</annotation>
 		<annotation cp="🔷">iso sininen vinoneliö | muoto | sininen | vinoneliö</annotation>
@@ -2683,10 +2817,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💠" type="tts">vinoneliö/kukka</annotation>
 		<annotation cp="🔘">muoto | valinta | valintanappi | valintaruutu | ympyrä</annotation>
 		<annotation cp="🔘" type="tts">valintanappi</annotation>
-		<annotation cp="🔲">muoto | musta neliöruutu | neliö | valinta | valintaruutu</annotation>
-		<annotation cp="🔲" type="tts">musta neliöruutu</annotation>
 		<annotation cp="🔳">muoto | neliö | valinta | valintaruutu | valkoinen neliöruutu</annotation>
 		<annotation cp="🔳" type="tts">valkoinen neliöruutu</annotation>
+		<annotation cp="🔲">muoto | musta neliöruutu | neliö | valinta | valintaruutu</annotation>
+		<annotation cp="🔲" type="tts">musta neliöruutu</annotation>
 		<annotation cp="🏁">kilpa-ajot | ruutukuvio | ruutulippu</annotation>
 		<annotation cp="🏁" type="tts">ruutulippu</annotation>
 		<annotation cp="🚩">kolmiolippu | lippu</annotation>
@@ -2701,139 +2835,5 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">sateenkaarilippu</annotation>
 		<annotation cp="🏴‍☠">aarre | lippu | merirosvolippu | pääkallolippu | rosvous | ryöstö</annotation>
 		<annotation cp="🏴‍☠" type="tts">merirosvolippu</annotation>
-		<annotation cp="🛕">hindu | hindutemppeli | temppeli</annotation>
-		<annotation cp="🛕" type="tts">hindutemppeli</annotation>
-		<annotation cp="🛺">autorikša | tuktuk</annotation>
-		<annotation cp="🛺" type="tts">autorikša</annotation>
-		<annotation cp="🟠">oranssi | ympyrä</annotation>
-		<annotation cp="🟠" type="tts">oranssi ympyrä</annotation>
-		<annotation cp="🟡">keltainen | ympyrä</annotation>
-		<annotation cp="🟡" type="tts">keltainen ympyrä</annotation>
-		<annotation cp="🟢">vihreä | ympyrä</annotation>
-		<annotation cp="🟢" type="tts">vihreä ympyrä</annotation>
-		<annotation cp="🟣">violetti | ympyrä</annotation>
-		<annotation cp="🟣" type="tts">violetti ympyrä</annotation>
-		<annotation cp="🟤">ruskea | ympyrä</annotation>
-		<annotation cp="🟤" type="tts">ruskea ympyrä</annotation>
-		<annotation cp="🟥">neliö | punainen</annotation>
-		<annotation cp="🟥" type="tts">punainen neliö</annotation>
-		<annotation cp="🟦">neliö | sininen</annotation>
-		<annotation cp="🟦" type="tts">sininen neliö</annotation>
-		<annotation cp="🟧">neliö | oranssi</annotation>
-		<annotation cp="🟧" type="tts">oranssi neliö</annotation>
-		<annotation cp="🟨">keltainen | neliö</annotation>
-		<annotation cp="🟨" type="tts">keltainen neliö</annotation>
-		<annotation cp="🟩">neliö | vihreä</annotation>
-		<annotation cp="🟩" type="tts">vihreä neliö</annotation>
-		<annotation cp="🟪">neliö | violetti</annotation>
-		<annotation cp="🟪" type="tts">violetti neliö</annotation>
-		<annotation cp="🟫">neliö | ruskea</annotation>
-		<annotation cp="🟫" type="tts">ruskea neliö</annotation>
-		<annotation cp="🤍">sydän | valkoinen</annotation>
-		<annotation cp="🤍" type="tts">valkoinen sydän</annotation>
-		<annotation cp="🤎">ruskea | sydän</annotation>
-		<annotation cp="🤎" type="tts">ruskea sydän</annotation>
-		<annotation cp="🤏">nipistävä käsi | pieni määrä</annotation>
-		<annotation cp="🤏" type="tts">nipistävä käsi</annotation>
-		<annotation cp="🤿">snorkkelisetti | snorklaus | sukellus | sukellusmaski</annotation>
-		<annotation cp="🤿" type="tts">sukellusmaski</annotation>
-		<annotation cp="🥱">haukotteleva naama | haukotus | kyllästynyt | väsynyt</annotation>
-		<annotation cp="🥱" type="tts">haukotteleva naama</annotation>
-		<annotation cp="🥻">mekko | sari | vaate</annotation>
-		<annotation cp="🥻" type="tts">sari</annotation>
-		<annotation cp="🦥">hidas | laiska | laiskiainen</annotation>
-		<annotation cp="🦥" type="tts">laiskiainen</annotation>
-		<annotation cp="🦦">kalastaja | leikkisä | saukko</annotation>
-		<annotation cp="🦦" type="tts">saukko</annotation>
-		<annotation cp="🦧">apina | oranki</annotation>
-		<annotation cp="🦧" type="tts">oranki</annotation>
-		<annotation cp="🦨">haista | haisunäätä</annotation>
-		<annotation cp="🦨" type="tts">haisunäätä</annotation>
-		<annotation cp="🦩">flamingo | pramea | trooppinen</annotation>
-		<annotation cp="🦩" type="tts">flamingo</annotation>
-		<annotation cp="🦪">helmi | osteri | sukellus</annotation>
-		<annotation cp="🦪" type="tts">osteri</annotation>
-		<annotation cp="🦮">esteettömyys | opas | opaskoira | sokea</annotation>
-		<annotation cp="🦮" type="tts">opaskoira</annotation>
-		<annotation cp="🦯">esteettömyys | sokea | valkoinen keppi</annotation>
-		<annotation cp="🦯" type="tts">valkoinen keppi</annotation>
-		<annotation cp="🦺">hätätilanne | liivi | turvaliivi | turvallisuus</annotation>
-		<annotation cp="🦺" type="tts">turvaliivi</annotation>
-		<annotation cp="🦻">esteettömyys | huonokuuloinen | kuulolaite | kuulolaite korvassa | kuulonalenema</annotation>
-		<annotation cp="🦻" type="tts">kuulolaite korvassa</annotation>
-		<annotation cp="🦼">esteettömyys | moottoroitu pyörätuoli</annotation>
-		<annotation cp="🦼" type="tts">moottoroitu pyörätuoli</annotation>
-		<annotation cp="🦽">esteettömyys | käsikäyttöinen pyörätuoli</annotation>
-		<annotation cp="🦽" type="tts">käsikäyttöinen pyörätuoli</annotation>
-		<annotation cp="🦾">esteettömyys | tekokäsi</annotation>
-		<annotation cp="🦾" type="tts">tekokäsi</annotation>
-		<annotation cp="🦿">esteettömyys | tekojalka</annotation>
-		<annotation cp="🦿" type="tts">tekojalka</annotation>
-		<annotation cp="🧃">juomatetra | pillijuoma</annotation>
-		<annotation cp="🧃" type="tts">juomatetra</annotation>
-		<annotation cp="🧄">mauste | valkosipuli</annotation>
-		<annotation cp="🧄" type="tts">valkosipuli</annotation>
-		<annotation cp="🧅">mauste | sipuli</annotation>
-		<annotation cp="🧅" type="tts">sipuli</annotation>
-		<annotation cp="🧆">falafel | kasvispyörykkä | kikherne</annotation>
-		<annotation cp="🧆" type="tts">falafel</annotation>
-		<annotation cp="🧇">päättämätön | ratkaisematon | vohveli | vohvelirauta</annotation>
-		<annotation cp="🧇" type="tts">vohveli</annotation>
-		<annotation cp="🧈">maitotuote | voi</annotation>
-		<annotation cp="🧈" type="tts">voi</annotation>
-		<annotation cp="🧉">juoma | mate</annotation>
-		<annotation cp="🧉" type="tts">mate</annotation>
-		<annotation cp="🧊">jääkuutio | kylmä</annotation>
-		<annotation cp="🧊" type="tts">jääkuutio</annotation>
-		<annotation cp="🧍">seisoa | seisova | seisova ihminen</annotation>
-		<annotation cp="🧍" type="tts">seisova ihminen</annotation>
-		<annotation cp="🧍‍♀">nainen | seisova</annotation>
-		<annotation cp="🧍‍♀" type="tts">seisova nainen</annotation>
-		<annotation cp="🧍‍♂">mies | seisova</annotation>
-		<annotation cp="🧍‍♂" type="tts">seisova mies</annotation>
-		<annotation cp="🧎">polvistua | polvistuminen | polvistuva ihminen</annotation>
-		<annotation cp="🧎" type="tts">polvistuva ihminen</annotation>
-		<annotation cp="🧎‍♀">nainen | polvistuva</annotation>
-		<annotation cp="🧎‍♀" type="tts">polvistuva nainen</annotation>
-		<annotation cp="🧎‍♂">mies | polvistuva</annotation>
-		<annotation cp="🧎‍♂" type="tts">polvistuva mies</annotation>
-		<annotation cp="🧏">esteettömyys | korva | kuulo | kuuro | kuuro ihminen</annotation>
-		<annotation cp="🧏" type="tts">kuuro ihminen</annotation>
-		<annotation cp="🧏‍♀">kuuro | nainen</annotation>
-		<annotation cp="🧏‍♀" type="tts">kuuro nainen</annotation>
-		<annotation cp="🧏‍♂">kuuro | mies</annotation>
-		<annotation cp="🧏‍♂" type="tts">kuuro mies</annotation>
-		<annotation cp="🩰">baletti | balettitossut | tanssi</annotation>
-		<annotation cp="🩰" type="tts">balettitossut</annotation>
-		<annotation cp="🩱">uima-asu | uimapuku</annotation>
-		<annotation cp="🩱" type="tts">uimapuku</annotation>
-		<annotation cp="🩲">alushousut | uima-asu | uimahousut</annotation>
-		<annotation cp="🩲" type="tts">uimahousut</annotation>
-		<annotation cp="🩳">alushousut | shortsit | uimashortsit</annotation>
-		<annotation cp="🩳" type="tts">uimashortsit</annotation>
-		<annotation cp="🩸">kuukautiset | lääketiede | verenluovutus | veripisara</annotation>
-		<annotation cp="🩸" type="tts">veripisara</annotation>
-		<annotation cp="🩹">haava | hoito | laastari</annotation>
-		<annotation cp="🩹" type="tts">laastari</annotation>
-		<annotation cp="🩺">kuuntelu | lääkäri | stetoskooppi | sydän</annotation>
-		<annotation cp="🩺" type="tts">stetoskooppi</annotation>
-		<annotation cp="🪀">jojo | jojoilla | lelu</annotation>
-		<annotation cp="🪀" type="tts">jojo</annotation>
-		<annotation cp="🪁">leija | leijailla | lennättää</annotation>
-		<annotation cp="🪁" type="tts">leija</annotation>
-		<annotation cp="🪂">laskuvarjo | laskuvarjohyppy | riippuliito | varjoliito</annotation>
-		<annotation cp="🪂" type="tts">laskuvarjo</annotation>
-		<annotation cp="🪐">rengasplaneetta | Saturnus</annotation>
-		<annotation cp="🪐" type="tts">rengasplaneetta</annotation>
-		<annotation cp="🪑">istua | istuin | istumapaikka | tuoli</annotation>
-		<annotation cp="🪑" type="tts">tuoli</annotation>
-		<annotation cp="🪒">ajaa parta | partaveitsi | terävä</annotation>
-		<annotation cp="🪒" type="tts">partaveitsi</annotation>
-		<annotation cp="🪓">hakata | halkoa | kirves | pilkkoa | puu</annotation>
-		<annotation cp="🪓" type="tts">kirves</annotation>
-		<annotation cp="🪔">diya | lamppu | öljy | öljylamppu | savilamppu</annotation>
-		<annotation cp="🪔" type="tts">savilamppu</annotation>
-		<annotation cp="🪕">banjo | kielisoitin | musiikki</annotation>
-		<annotation cp="🪕" type="tts">banjo</annotation>
 	</annotations>
 </ldml>

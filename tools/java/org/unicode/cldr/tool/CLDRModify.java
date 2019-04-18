@@ -69,7 +69,6 @@ import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
 import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Utility;
@@ -80,6 +79,7 @@ import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.ICUException;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
@@ -309,6 +309,8 @@ public class CLDRModify {
     private static final boolean SHOW_DETAILS = false;
     private static boolean SHOW_PROCESSING = false;
 
+    static String sourceInput;
+
     /**
      * Picks options and executes. Use -h to see options.
      */
@@ -326,7 +328,7 @@ public class CLDRModify {
 
         // String sourceDir = "C:\\ICU4C\\locale\\common\\main\\";
 
-        String sourceInput = options[SOURCEDIR].value;
+        sourceInput = options[SOURCEDIR].value;
         String destInput = options[DESTDIR].value;
         if (recurseOnDirectories != null) {
             sourceInput = removeSuffix(sourceInput, "main/", "main");
@@ -2476,43 +2478,45 @@ public class CLDRModify {
         fixList.add('i', "fix Identical Children");
         fixList.add('o', "check attribute validity");
 
+        /**
+        Goal is: if value in vxml is ^^^, then add ^^^ to trunk IFF
+        (a) if there is no value in trunk
+        (b) the value in trunk = bailey.
+         */
         fixList.add('^', "add inheritance-marked items from vxml to trunk", new CLDRFilter() {
-            Map<String, Factory> factories;
-
-            @Override
-            public void handleSetup() {
-                Map<String, Factory> _factories = new LinkedHashMap<>();
-                for (String top : Arrays.asList("common/", "seed/")) {
-                    for (String leaf : Arrays.asList("main/", "annotations/")) {
-                        String key = top + leaf;
-                        _factories.put(key, Factory.make(CLDRPaths.AUX_DIRECTORY + "voting/" + CLDRFile.GEN_VERSION + "/vxml/" + key, ".*"));
-                    }
-                }
-                factories = ImmutableMap.copyOf(_factories);
-            }
+            Factory VxmlFactory;
+            final ArrayList<File> fileList = new ArrayList<>();
 
             @Override
             public void handleStart() {
+                if (fileList.isEmpty()) {
+                    for (String top : Arrays.asList("common/", "seed/")) {
+                        //for (String leaf : Arrays.asList("main/", "annotations/")) {
+                        String leaf = sourceInput.contains("annotations") ? "annotations/" : "main/";
+                        String key = top + leaf;
+                        fileList.add(new File(CLDRPaths.AUX_DIRECTORY + "voting/" + CLDRFile.GEN_VERSION + "/vxml/" + key));
+                    }
+                    VxmlFactory = SimpleFactory.make(fileList.toArray(new File[fileList.size()]), ".*");
+                }
+
                 String localeID = cldrFileToFilter.getLocaleID();
-                LanguageTagParser ltp = new LanguageTagParser().set(localeID);
-                if (!ltp.getRegion().isEmpty() || !ltp.getVariants().isEmpty()) {
+
+                CLDRFile vxmlCommonMainFile;
+                try {
+                    vxmlCommonMainFile = VxmlFactory.make(localeID, false);
+                } catch (Exception e) {
+                    System.out.println("#ERROR: VXML file not found for " + localeID + " in " + fileList);
                     return;
                 }
-                File[] sourceDir = factory.getSourceDirectories();
-                if (sourceDir.length != 1) {
-                    throw new IllegalArgumentException("Can only handle single directory factory: " + Arrays.asList(sourceDir));
-                }
-                Factory vxml = factories.get(getLast2Dirs(sourceDir[0]));
-                CLDRFile vxmlCommonMainFile = vxml.make(localeID, false);
                 CLDRFile resolved = cldrFileToFilter;
+
                 if (!cldrFileToFilter.isResolved()) {
                     resolved = factory.make(cldrFileToFilter.getLocaleID(), true);
                 }
 
-                // add all path,values in resolved IFF they are not in the unresolved AND there was a vote for uparrow in vxml
-                for (String xpath : resolved) {
-                    if (cldrFileToFilter.isHere(xpath)) {
-                        continue;
+                for (String xpath : vxmlCommonMainFile) {
+                    if (xpath.contains("/language[@type=\"aa\"")) {
+                        int debug = 0;
                     }
                     String vxmlValue = vxmlCommonMainFile.getStringValue(xpath);
                     if (vxmlValue == null) {
@@ -2521,16 +2525,31 @@ public class CLDRModify {
                     if (!CldrUtility.INHERITANCE_MARKER.equals(vxmlValue)) {
                         continue;
                     }
+
+                    String trunkValue = resolved.getStringValue(xpath);
+                    if (trunkValue != null) {
+                        String baileyValue = resolved.getBaileyValue(xpath, null, null);
+                        if (!trunkValue.equals(baileyValue)) {
+                            continue;
+                        }
+                    }
+                    // at this point, the vxmlValue is ^^^ and the trunk value is either null or == baileyValue
+
+
                     // special hack to avoid combined locale names like //ldml/localeDisplayNames/languages/language[@type="en_AU"][@draft="contributed"]
 
-                    if (xpath.startsWith("//ldml/localeDisplayNames/languages/language[@type=") && xpath.contains("_")) {
-                        continue;
+//                    if (xpath.startsWith("//ldml/localeDisplayNames/languages/language[@type=") && xpath.contains("_")) {
+//                        continue;
+//                    }
+
+                    String fullPath = resolved.getFullXPath(xpath); // get the draft status, etc.
+                    if (fullPath == null) { // debugging
+                        fullPath = vxmlCommonMainFile.getFullXPath(xpath);
+                        if (fullPath == null) {
+                            throw new ICUException("getFullXPath not working for " + localeID + ", " + xpath);
+                        }
                     }
-
-                    String value = resolved.getStringValue(xpath);
-                    String fullPath = vxmlCommonMainFile.getFullXPath(xpath); // get the draft status, etc.
-                    add(fullPath, value, "Vote for inherited");
-
+                    add(fullPath, vxmlValue, "Add or replace by " + CldrUtility.INHERITANCE_MARKER);
                 }
             }
             @Override
@@ -2551,7 +2570,7 @@ public class CLDRModify {
                 resolved = getResolved();
                 skip = false;
                 coverageLeveler = null;
-                
+
                 String localeID = cldrFileToFilter.getLocaleID();
                 LanguageTagParser ltp = new LanguageTagParser().set(localeID);
                 if (!ltp.getRegion().isEmpty() || !ltp.getVariants().isEmpty()) {
@@ -2589,11 +2608,11 @@ public class CLDRModify {
                     return;
                 }
                 // we need at least one value
-                
+
                 // flesh out by adding a bailey value
                 // TODO resolve the draft status in a better way
                 // For now, get the lowest draft status, and we'll reset everything to that.
-                
+
                 DraftStatus worstStatus = DraftStatus.contributed; // don't ever add an approved.
                 for (String path2 : paths) {
                     XPathParts parts = XPathParts.getFrozenInstance(path2);
@@ -2606,7 +2625,7 @@ public class CLDRModify {
                         worstStatus = df;
                     }
                 }
-                
+
                 for (String path2 : paths) {
                     String fullPath = resolved.getFullXPath(path2);
                     String value = resolved.getStringValue(path2);

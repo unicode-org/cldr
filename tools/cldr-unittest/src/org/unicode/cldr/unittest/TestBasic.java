@@ -3,12 +3,13 @@ package org.unicode.cldr.unittest;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -984,9 +985,13 @@ public class TestBasic extends TestFmwkPlus {
             .getAvailableLanguages();
         PluralInfo rootRules = SUPPLEMENTAL_DATA_INFO.getPlurals(
             PluralType.cardinal, "root");
-        EnumSet<MissingType> errors = EnumSet.of(MissingType.collation);
-        EnumSet<MissingType> warnings = EnumSet.of(MissingType.collation,
-            MissingType.index_exemplars, MissingType.punct_exemplars);
+        Multimap<MissingType, Comparable> errors = TreeMultimap.create();
+        errors.put(MissingType.collation, "?");
+        
+        Multimap<MissingType, Comparable> warnings = TreeMultimap.create();
+        warnings.put(MissingType.collation, "?");
+        warnings.put(MissingType.index_exemplars, "?");
+        warnings.put(MissingType.punct_exemplars, "?");
 
         Set<String> collations = new HashSet<String>();
 
@@ -1035,7 +1040,7 @@ public class TestBasic extends TestFmwkPlus {
                 + testInfo.getEnglish().getName(localeID) + ")";
 
             if (!collations.contains(localeID)) {
-                warnings.add(MissingType.collation);
+                warnings.put(MissingType.collation, "missing");
                 logln(name + " is missing " + MissingType.collation.toString());
             }
 
@@ -1054,32 +1059,36 @@ public class TestBasic extends TestFmwkPlus {
                 if (pluralInfo == rootRules) {
                     logln(name + " is missing "
                         + MissingType.plurals.toString());
-                    warnings.add(MissingType.plurals);
+                    warnings.put(MissingType.plurals, "missing");
                 }
                 UnicodeSet main = cldrFile.getExemplarSet("",
                     WinningChoice.WINNING);
                 if (main == null || main.isEmpty()) {
                     errln("  " + name + " is missing "
                         + MissingType.main_exemplars.toString());
-                    errors.add(MissingType.main_exemplars);
+                    errors.put(MissingType.main_exemplars, "missing");
                 }
                 UnicodeSet index = cldrFile.getExemplarSet("index",
                     WinningChoice.WINNING);
                 if (index == null || index.isEmpty()) {
                     logln(name + " is missing "
                         + MissingType.index_exemplars.toString());
-                    warnings.add(MissingType.index_exemplars);
+                    warnings.put(MissingType.index_exemplars, "missing");
                 }
                 UnicodeSet punctuation = cldrFile.getExemplarSet("punctuation",
                     WinningChoice.WINNING);
                 if (punctuation == null || punctuation.isEmpty()) {
                     logln(name + " is missing "
                         + MissingType.punct_exemplars.toString());
-                    warnings.add(MissingType.punct_exemplars);
+                    warnings.put(MissingType.punct_exemplars, "missing");
                 }
             } catch (Exception e) {
-                errln("  " + name + " is missing main locale data.");
-                errors.add(MissingType.no_main);
+                StringWriter x = new StringWriter();
+                PrintWriter pw = new PrintWriter(x);
+                e.printStackTrace(pw);
+                pw.flush();
+                errln("  " + name + " is missing main locale data." + x);
+                errors.put(MissingType.no_main, x.toString());
             }
 
             // report errors

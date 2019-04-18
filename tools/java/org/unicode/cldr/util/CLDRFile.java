@@ -2918,7 +2918,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (winningChoice == WinningChoice.WINNING) {
             path = getWinningPath(path);
         }
-        String v = getStringValue(path);
+        String v = getStringValueWithBailey(path);
         if (v == null) {
             return UnicodeSet.EMPTY;
         }

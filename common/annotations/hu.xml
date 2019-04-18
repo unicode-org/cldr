@@ -23,8 +23,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">közepesen sötét bőrtónus</annotation>
 		<annotation cp="🏿">6-os típus | bőrtónus | sötét bőrtónus</annotation>
 		<annotation cp="🏿" type="tts">sötét bőrtónus</annotation>
-		<annotation cp="🐾">lábak | lábnyomok | mancsnyomok</annotation>
-		<annotation cp="🐾" type="tts">mancsnyomok</annotation>
 		<annotation cp="😀">arc | nevetés | nevető arc</annotation>
 		<annotation cp="😀" type="tts">nevető arc</annotation>
 		<annotation cp="😃">arc | mosoly | nagyra nyílt szemmel mosolygó arc | nyitott száj | vidámság</annotation>
@@ -195,6 +193,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😩" type="tts">kimerült arc</annotation>
 		<annotation cp="😫">arc | fáradt arc | fáradtság</annotation>
 		<annotation cp="😫" type="tts">fáradt arc</annotation>
+		<annotation cp="🥱">arc | ásít | ásítás | ásító | fáradt</annotation>
+		<annotation cp="🥱" type="tts">ásító arc</annotation>
 		<annotation cp="😤">arc | győzelem | orrából gőzt fújtató arc | siker</annotation>
 		<annotation cp="😤" type="tts">orrából gőzt fújtató arc</annotation>
 		<annotation cp="😡">arc | dühös | duzzog | duzzogó arc | mérges | vörös</annotation>
@@ -287,8 +287,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💙" type="tts">kék szív</annotation>
 		<annotation cp="💜">lila | szív</annotation>
 		<annotation cp="💜" type="tts">lila szív</annotation>
+		<annotation cp="🤎">barna | szív</annotation>
+		<annotation cp="🤎" type="tts">barna szív</annotation>
 		<annotation cp="🖤">fekete | gonosz | szív</annotation>
 		<annotation cp="🖤" type="tts">fekete szív</annotation>
+		<annotation cp="🤍">fehér | szív</annotation>
+		<annotation cp="🤍" type="tts">fehér szív</annotation>
 		<annotation cp="💯">100 | száz | száz pont | teljes pontszám</annotation>
 		<annotation cp="💯" type="tts">száz pont</annotation>
 		<annotation cp="💢">a düh szimbóluma | dühös | képregény | mérges</annotation>
@@ -329,6 +333,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖖" type="tts">star trek-üdvözlet</annotation>
 		<annotation cp="👌">kéz | ok jel | oké | rendben | test</annotation>
 		<annotation cp="👌" type="tts">ok jel</annotation>
+		<annotation cp="🤏">csippentő kéz | kis összeg</annotation>
+		<annotation cp="🤏" type="tts">csippentő kéz</annotation>
 		<annotation cp="✌">betű | győzelmi jelet mutató kéz | jel | kéz | kézjel | test</annotation>
 		<annotation cp="✌" type="tts">győzelmi jelet mutató kéz</annotation>
 		<annotation cp="🤞">keresztezett | keresztezett ujjak | szerencse | ujj</annotation>
@@ -383,12 +389,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤳" type="tts">szelfi</annotation>
 		<annotation cp="💪">befeszített bicepsz | bicepsz | izom | karizom | képregény</annotation>
 		<annotation cp="💪" type="tts">befeszített bicepsz</annotation>
+		<annotation cp="🦾">akadálymentesség | mechanikus kar | protézis</annotation>
+		<annotation cp="🦾" type="tts">mechanikus kar</annotation>
+		<annotation cp="🦿">akadálymentesség | mechanikus láb | protézis</annotation>
+		<annotation cp="🦿" type="tts">mechanikus láb</annotation>
 		<annotation cp="🦵">comb | lábszár | rúgás</annotation>
 		<annotation cp="🦵" type="tts">lábszár</annotation>
 		<annotation cp="🦶">dobogás | lábfej | rúgás</annotation>
 		<annotation cp="🦶" type="tts">lábfej</annotation>
 		<annotation cp="👂">fej | fül | test | testrész</annotation>
 		<annotation cp="👂" type="tts">fül</annotation>
+		<annotation cp="🦻">akadálymentesség | fül hallókészülékkel | nagyothalló</annotation>
+		<annotation cp="🦻" type="tts">fül hallókészülékkel</annotation>
 		<annotation cp="👃">fej | orr | test | testrész</annotation>
 		<annotation cp="👃" type="tts">orr</annotation>
 		<annotation cp="🧠">agy | intelligens</annotation>
@@ -417,28 +429,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">felnőtt</annotation>
 		<annotation cp="👱">szőke | szőke hajú ember</annotation>
 		<annotation cp="👱" type="tts">szőke hajú ember</annotation>
-		<annotation cp="🧑‍🤝‍🧑">egymás kezét fogó emberek | fogás | kéz | kézenfogva | pár</annotation>
-		<annotation cp="🧑‍🤝‍🧑" type="tts">egymás kezét fogó emberek</annotation>
 		<annotation cp="👨">férfi</annotation>
 		<annotation cp="👨" type="tts">férfi</annotation>
-		<annotation cp="👨‍🦯">akadálymentesség | férfi | férfi fehér bottal | vak</annotation>
-		<annotation cp="👨‍🦯" type="tts">férfi fehér bottal</annotation>
-		<annotation cp="👨‍🦼">akadálymentesség | férfi | férfi motoros kerekesszékben | kerekesszék</annotation>
-		<annotation cp="👨‍🦼" type="tts">férfi motoros kerekesszékben</annotation>
-		<annotation cp="👨‍🦽">akadálymentesség | férfi | férfi kézi hajtású kerekesszékben | kerekesszék</annotation>
-		<annotation cp="👨‍🦽" type="tts">férfi kézi hajtású kerekesszékben</annotation>
-		<annotation cp="👱‍♂">férfi | szőke</annotation>
-		<annotation cp="👱‍♂" type="tts">szőke férfi</annotation>
 		<annotation cp="🧔">szakáll | szakállas ember</annotation>
 		<annotation cp="🧔" type="tts">szakállas ember</annotation>
+		<annotation cp="👱‍♂">férfi | szőke</annotation>
+		<annotation cp="👱‍♂" type="tts">szőke férfi</annotation>
 		<annotation cp="👩">nő</annotation>
 		<annotation cp="👩" type="tts">nő</annotation>
-		<annotation cp="👩‍🦯">akadálymentesség | nő | nő fehér bottal | vak</annotation>
-		<annotation cp="👩‍🦯" type="tts">nő fehér bottal</annotation>
-		<annotation cp="👩‍🦼">akadálymentesség | kerekesszék | nő | nő motoros kerekesszékben</annotation>
-		<annotation cp="👩‍🦼" type="tts">nő motoros kerekesszékben</annotation>
-		<annotation cp="👩‍🦽">akadálymentesség | kerekesszék | nő | nő kézi hajtású kerekesszékben</annotation>
-		<annotation cp="👩‍🦽" type="tts">nő kézi hajtású kerekesszékben</annotation>
 		<annotation cp="👱‍♀">nő | szőke</annotation>
 		<annotation cp="👱‍♀" type="tts">szőke nő</annotation>
 		<annotation cp="🧓">idős | idősebb felnőtt | nemi szempontból semleges</annotation>
@@ -483,6 +481,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙋‍♂" type="tts">vidáman intő férfi</annotation>
 		<annotation cp="🙋‍♀">gesztus | intés | kézmozdulat | nő | vidám | vidáman intő nő</annotation>
 		<annotation cp="🙋‍♀" type="tts">vidáman intő nő</annotation>
+		<annotation cp="🧏">akadálymentesség | fül | hall | siket | siket ember</annotation>
+		<annotation cp="🧏" type="tts">siket ember</annotation>
+		<annotation cp="🧏‍♂">férfi | siket</annotation>
+		<annotation cp="🧏‍♂" type="tts">siket férfi</annotation>
+		<annotation cp="🧏‍♀">nő | siket</annotation>
+		<annotation cp="🧏‍♀" type="tts">siket nő</annotation>
 		<annotation cp="🙇">bocsánatkérés | meghajlás | meghajló ember | sajnálat</annotation>
 		<annotation cp="🙇" type="tts">meghajló ember</annotation>
 		<annotation cp="🙇‍♂">bocsánat | bocsánatkérés | férfi | meghajlás | meghajló | sajnálat</annotation>
@@ -689,6 +693,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚶‍♂" type="tts">sétáló férfi</annotation>
 		<annotation cp="🚶‍♀">nő | séta | sétáló | túra</annotation>
 		<annotation cp="🚶‍♀" type="tts">sétáló nő</annotation>
+		<annotation cp="🧍">áll | álló | álló ember</annotation>
+		<annotation cp="🧍" type="tts">álló ember</annotation>
+		<annotation cp="🧍‍♂">áll | álló férfi | férfi</annotation>
+		<annotation cp="🧍‍♂" type="tts">álló férfi</annotation>
+		<annotation cp="🧍‍♀">áll | álló nő | nő</annotation>
+		<annotation cp="🧍‍♀" type="tts">álló nő</annotation>
+		<annotation cp="🧎">térdel | térdelő | térdelő ember</annotation>
+		<annotation cp="🧎" type="tts">térdelő ember</annotation>
+		<annotation cp="🧎‍♂">férfi | térdel | térdelő férfi</annotation>
+		<annotation cp="🧎‍♂" type="tts">térdelő férfi</annotation>
+		<annotation cp="🧎‍♀">nő | térdel | térdelő nő</annotation>
+		<annotation cp="🧎‍♀" type="tts">térdelő nő</annotation>
+		<annotation cp="👨‍🦯">akadálymentesség | férfi | férfi fehér bottal | vak</annotation>
+		<annotation cp="👨‍🦯" type="tts">férfi fehér bottal</annotation>
+		<annotation cp="👩‍🦯">akadálymentesség | nő | nő fehér bottal | vak</annotation>
+		<annotation cp="👩‍🦯" type="tts">nő fehér bottal</annotation>
+		<annotation cp="👨‍🦼">akadálymentesség | férfi | férfi motoros kerekesszékben | kerekesszék</annotation>
+		<annotation cp="👨‍🦼" type="tts">férfi motoros kerekesszékben</annotation>
+		<annotation cp="👩‍🦼">akadálymentesség | kerekesszék | nő | nő motoros kerekesszékben</annotation>
+		<annotation cp="👩‍🦼" type="tts">nő motoros kerekesszékben</annotation>
+		<annotation cp="👨‍🦽">akadálymentesség | férfi | férfi kézi hajtású kerekesszékben | kerekesszék</annotation>
+		<annotation cp="👨‍🦽" type="tts">férfi kézi hajtású kerekesszékben</annotation>
+		<annotation cp="👩‍🦽">akadálymentesség | kerekesszék | nő | nő kézi hajtású kerekesszékben</annotation>
+		<annotation cp="👩‍🦽" type="tts">nő kézi hajtású kerekesszékben</annotation>
 		<annotation cp="🏃">futás | futó | maraton</annotation>
 		<annotation cp="🏃" type="tts">futó</annotation>
 		<annotation cp="🏃‍♂">férfi | fut | futás | futó férfi | maraton | verseny</annotation>
@@ -815,12 +843,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛀" type="tts">fürdő ember</annotation>
 		<annotation cp="🛌">alvás | ember az ágyban | szálloda</annotation>
 		<annotation cp="🛌" type="tts">ember az ágyban</annotation>
+		<annotation cp="🧑‍🤝‍🧑">egymás kezét fogó emberek | fogás | kéz | kézenfogva | pár</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts">egymás kezét fogó emberek</annotation>
+		<annotation cp="👭">kézen fogva | kézen fogva álló nők | nők | pár</annotation>
+		<annotation cp="👭" type="tts">kézen fogva álló nők</annotation>
 		<annotation cp="👫">kéz a kézben | kézen fogva álló férfi és nő | pár</annotation>
 		<annotation cp="👫" type="tts">kézen fogva álló férfi és nő</annotation>
 		<annotation cp="👬">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | pár</annotation>
 		<annotation cp="👬" type="tts">kézen fogva álló férfiak</annotation>
-		<annotation cp="👭">kézen fogva | kézen fogva álló nők | nők | pár</annotation>
-		<annotation cp="👭" type="tts">kézen fogva álló nők</annotation>
 		<annotation cp="💏">csók | pár | romantika</annotation>
 		<annotation cp="💏" type="tts">csók</annotation>
 		<annotation cp="💑">pár | pár szívvel | romantika | szerelem | szív</annotation>
@@ -843,20 +873,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦳" type="tts">ősz haj</annotation>
 		<annotation cp="🦲">borotvált | haj nélkül | kemoterápia | kopasz | tar</annotation>
 		<annotation cp="🦲" type="tts">kopasz</annotation>
-		<annotation cp="♀">nem | női | női nem jelképe</annotation>
-		<annotation cp="♀" type="tts">női nem jelképe</annotation>
-		<annotation cp="♂">férfi | férfi nem jelképe | nem</annotation>
-		<annotation cp="♂" type="tts">férfi nem jelképe</annotation>
 		<annotation cp="🐵">állat | fej | majom | majomfej</annotation>
 		<annotation cp="🐵" type="tts">majomfej</annotation>
 		<annotation cp="🐒">kismajom | majom</annotation>
 		<annotation cp="🐒" type="tts">majom</annotation>
 		<annotation cp="🦍">állat | gorilla</annotation>
 		<annotation cp="🦍" type="tts">gorilla</annotation>
+		<annotation cp="🦧">emberszabású majom | orangután</annotation>
+		<annotation cp="🦧" type="tts">orangután</annotation>
 		<annotation cp="🐶">fej | kedvenc | kisállat | kutya | kutyafej</annotation>
 		<annotation cp="🐶" type="tts">kutyafej</annotation>
 		<annotation cp="🐕">kisállat | kutya</annotation>
 		<annotation cp="🐕" type="tts">kutya</annotation>
+		<annotation cp="🦮">akadálymentesség | vak | vakvezető | vakvezető kutya</annotation>
+		<annotation cp="🦮" type="tts">vakvezető kutya</annotation>
 		<annotation cp="🐕‍🦺">akadálymentesség | kutya | segítő | segítőkutya | segítség</annotation>
 		<annotation cp="🐕‍🦺" type="tts">segítőkutya</annotation>
 		<annotation cp="🐩">kedvenc | kisállat | kutya | pudli | uszkár</annotation>
@@ -949,10 +979,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐨" type="tts">koala</annotation>
 		<annotation cp="🐼">fej | panda | pandafej</annotation>
 		<annotation cp="🐼" type="tts">pandafej</annotation>
+		<annotation cp="🦥">lajhár | lassú | lusta</annotation>
+		<annotation cp="🦥" type="tts">lajhár</annotation>
+		<annotation cp="🦦">halászó | játékos | vidra</annotation>
+		<annotation cp="🦦" type="tts">vidra</annotation>
+		<annotation cp="🦨">bűz | bűzösborz</annotation>
+		<annotation cp="🦨" type="tts">bűzösborz</annotation>
 		<annotation cp="🦘">Ausztrália | erszényes | kengu | kenguru | ugrás</annotation>
 		<annotation cp="🦘" type="tts">kenguru</annotation>
 		<annotation cp="🦡">borz | méhészborz</annotation>
 		<annotation cp="🦡" type="tts">borz</annotation>
+		<annotation cp="🐾">lábak | lábnyomok | mancsnyomok</annotation>
+		<annotation cp="🐾" type="tts">mancsnyomok</annotation>
 		<annotation cp="🦃">madár | pulyka</annotation>
 		<annotation cp="🦃" type="tts">pulyka</annotation>
 		<annotation cp="🐔">madár | tyúk</annotation>
@@ -979,6 +1017,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦢" type="tts">hattyú</annotation>
 		<annotation cp="🦉">bagoly | bölcs | madár</annotation>
 		<annotation cp="🦉" type="tts">bagoly</annotation>
+		<annotation cp="🦩">flamingó | színpompás | trópusi</annotation>
+		<annotation cp="🦩" type="tts">flamingó</annotation>
 		<annotation cp="🦚">büszke | hivalkodó | madár | páva | pávatyúk</annotation>
 		<annotation cp="🦚" type="tts">páva</annotation>
 		<annotation cp="🦜">beszél | kalóz | madár | papagáj</annotation>
@@ -1139,6 +1179,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥬" type="tts">leveles zöldség</annotation>
 		<annotation cp="🥦">brokkoli | vadkáposzta</annotation>
 		<annotation cp="🥦" type="tts">brokkoli</annotation>
+		<annotation cp="🧄">fokhagyma | ízesítés</annotation>
+		<annotation cp="🧄" type="tts">fokhagyma</annotation>
+		<annotation cp="🧅">hagyma | ízesítés</annotation>
+		<annotation cp="🧅" type="tts">hagyma</annotation>
 		<annotation cp="🍄">gomba | növény</annotation>
 		<annotation cp="🍄" type="tts">gomba</annotation>
 		<annotation cp="🥜">étel | földimogyoró | mogyoró</annotation>
@@ -1157,6 +1201,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥯" type="tts">bagel</annotation>
 		<annotation cp="🥞">étel | palacsinta</annotation>
 		<annotation cp="🥞" type="tts">palacsinta</annotation>
+		<annotation cp="🧇">gofri | határozatlan | vas</annotation>
+		<annotation cp="🧇" type="tts">gofri</annotation>
 		<annotation cp="🧀">lyukas sajt | sajt | sajtdarab</annotation>
 		<annotation cp="🧀" type="tts">sajtdarab</annotation>
 		<annotation cp="🍖">csont | csontos hús | hús</annotation>
@@ -1183,6 +1229,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌯" type="tts">burrito</annotation>
 		<annotation cp="🥙">étel | falafel | gírosz | kebab | pita | töltött</annotation>
 		<annotation cp="🥙" type="tts">pita</annotation>
+		<annotation cp="🧆">csicseriborsó | falafel | húsgolyó</annotation>
+		<annotation cp="🧆" type="tts">falafel</annotation>
 		<annotation cp="🥚">étel | tojás</annotation>
 		<annotation cp="🥚" type="tts">tojás</annotation>
 		<annotation cp="🍳">serpenyő | sütés-főzés | tojás</annotation>
@@ -1197,6 +1245,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥗" type="tts">zöld saláta</annotation>
 		<annotation cp="🍿">kukorica | pattogatott kukorica</annotation>
 		<annotation cp="🍿" type="tts">pattogatott kukorica</annotation>
+		<annotation cp="🧈">tejtermék | vaj</annotation>
+		<annotation cp="🧈" type="tts">vaj</annotation>
 		<annotation cp="🧂">fűszer | só | sószóró</annotation>
 		<annotation cp="🧂" type="tts">só</annotation>
 		<annotation cp="🥫">konzerv | konzervdoboz</annotation>
@@ -1243,6 +1293,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦐" type="tts">garnélarák</annotation>
 		<annotation cp="🦑">étel | tintahal</annotation>
 		<annotation cp="🦑" type="tts">tintahal</annotation>
+		<annotation cp="🦪">búvárkodás | gyöngy | osztriga</annotation>
+		<annotation cp="🦪" type="tts">osztriga</annotation>
 		<annotation cp="🍦">desszert | édesség | fagyi | gépi fagylalt | lágyfagylalt</annotation>
 		<annotation cp="🍦" type="tts">lágyfagylalt</annotation>
 		<annotation cp="🍧">desszert | édesség | fagyi | fagylalt öntettel | öntet</annotation>
@@ -1299,6 +1351,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥃" type="tts">feles pohár</annotation>
 		<annotation cp="🥤">dszúz | ivólé | pohár szívószállal | szóda</annotation>
 		<annotation cp="🥤" type="tts">pohár szívószállal</annotation>
+		<annotation cp="🧃">gyümölcsleves doboz | italos doboz</annotation>
+		<annotation cp="🧃" type="tts">italos doboz</annotation>
+		<annotation cp="🧉">ital | maté</annotation>
+		<annotation cp="🧉" type="tts">maté</annotation>
+		<annotation cp="🧊">hideg | jéghegy | jégkocka</annotation>
+		<annotation cp="🧊" type="tts">jégkocka</annotation>
 		<annotation cp="🥢">evőpálcikák | hashi</annotation>
 		<annotation cp="🥢" type="tts">evőpálcikák</annotation>
 		<annotation cp="🍽">kés | kés és villa tányérral | tálalás | tányér | villa</annotation>
@@ -1395,6 +1453,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛪" type="tts">templom</annotation>
 		<annotation cp="🕌">iszlám | mecset | mohamedán | muszlim | vallás</annotation>
 		<annotation cp="🕌" type="tts">mecset</annotation>
+		<annotation cp="🛕">hindu | templom</annotation>
+		<annotation cp="🛕" type="tts">hindu templom</annotation>
 		<annotation cp="🕍">szentély | templom | vallás | zsidó | zsinagóga</annotation>
 		<annotation cp="🕍" type="tts">zsinagóga</annotation>
 		<annotation cp="⛩">sintó | szentély | vallás</annotation>
@@ -1423,8 +1483,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌉" type="tts">híd éjszaka</annotation>
 		<annotation cp="♨">forrás | forró | gőz | hőforrás</annotation>
 		<annotation cp="♨" type="tts">hőforrás</annotation>
-		<annotation cp="🌌">csillagrendszer | tejút | űr | világűr</annotation>
-		<annotation cp="🌌" type="tts">tejút</annotation>
 		<annotation cp="🎠">játék | körhinta | ló a körhintáról | vidámpark</annotation>
 		<annotation cp="🎠" type="tts">ló a körhintáról</annotation>
 		<annotation cp="🎡">játék | óriáskerék | vidámpark</annotation>
@@ -1497,6 +1555,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏍" type="tts">motorkerékpár</annotation>
 		<annotation cp="🛵">motor | robogó</annotation>
 		<annotation cp="🛵" type="tts">robogó</annotation>
+		<annotation cp="🦽">akadálymentesség | kézi hajtású kerekesszék</annotation>
+		<annotation cp="🦽" type="tts">kézi hajtású kerekesszék</annotation>
+		<annotation cp="🦼">akadálymentesség | motoros kerekesszék</annotation>
+		<annotation cp="🦼" type="tts">motoros kerekesszék</annotation>
+		<annotation cp="🛺">motoros riksa | tuk tuk</annotation>
+		<annotation cp="🛺" type="tts">motoros riksa</annotation>
 		<annotation cp="🚲">bicikli | jármű | kerékpár</annotation>
 		<annotation cp="🚲" type="tts">kerékpár</annotation>
 		<annotation cp="🛴">roller</annotation>
@@ -1547,6 +1611,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛫" type="tts">repülőgép indulása</annotation>
 		<annotation cp="🛬">érkezés | légi jármű | leszállás | repülőgép | repülőgép érkezése</annotation>
 		<annotation cp="🛬" type="tts">repülőgép érkezése</annotation>
+		<annotation cp="🪂">ejtőernyő | siklóernyő</annotation>
+		<annotation cp="🪂" type="tts">ejtőernyő</annotation>
 		<annotation cp="💺">szék | ülés</annotation>
 		<annotation cp="💺" type="tts">ülés</annotation>
 		<annotation cp="🚁">helikopter | légi jármű</annotation>
@@ -1661,12 +1727,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌝" type="tts">telihold arccal</annotation>
 		<annotation cp="🌞">arc | égitest | időjárás | nap | nap arccal</annotation>
 		<annotation cp="🌞" type="tts">nap arccal</annotation>
+		<annotation cp="🪐">gyűrűs bolygó | szaturnusz</annotation>
+		<annotation cp="🪐" type="tts">gyűrűs bolygó</annotation>
 		<annotation cp="⭐">csillag</annotation>
 		<annotation cp="⭐" type="tts">csillag</annotation>
 		<annotation cp="🌟">csillag | csillogás | fény | fénylő csillag</annotation>
 		<annotation cp="🌟" type="tts">fénylő csillag</annotation>
 		<annotation cp="🌠">csillag | csillaghullás | ég | hullócsillag</annotation>
 		<annotation cp="🌠" type="tts">hullócsillag</annotation>
+		<annotation cp="🌌">csillagrendszer | tejút | űr | világűr</annotation>
+		<annotation cp="🌌" type="tts">tejút</annotation>
 		<annotation cp="☁">felhő | időjárás</annotation>
 		<annotation cp="☁" type="tts">felhő</annotation>
 		<annotation cp="⛅">felhő | időjárás | nap | nap egy felhő mögött</annotation>
@@ -1817,6 +1887,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛸" type="tts">jégkorcsolya</annotation>
 		<annotation cp="🎣">bot | hal | horgászbot | pecabot</annotation>
 		<annotation cp="🎣" type="tts">horgászbot</annotation>
+		<annotation cp="🤿">búvárkodás | búvármaszk | merülés | szabadtüdős merülés</annotation>
+		<annotation cp="🤿" type="tts">búvármaszk</annotation>
 		<annotation cp="🎽">futás | futómez | mez | trikó</annotation>
 		<annotation cp="🎽" type="tts">futómez</annotation>
 		<annotation cp="🎿">hó | síelés | sílécek | téli sportok</annotation>
@@ -1827,6 +1899,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥌" type="tts">curlingkő</annotation>
 		<annotation cp="🎯">bullseye | játék | találat | telitalálat</annotation>
 		<annotation cp="🎯" type="tts">telitalálat</annotation>
+		<annotation cp="🪀">játék | jojó | jojózik</annotation>
+		<annotation cp="🪀" type="tts">jojó</annotation>
+		<annotation cp="🪁">papírsárkány | repül | szárnyal</annotation>
+		<annotation cp="🪁" type="tts">papírsárkány</annotation>
 		<annotation cp="🎱">8-as | biliárd | biliárdgolyó | golyó</annotation>
 		<annotation cp="🎱" type="tts">biliárd</annotation>
 		<annotation cp="🔮">jövendő | jövendőmondás | kristálygömb | mese</annotation>
@@ -1879,6 +1955,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥽" type="tts">védőszemüveg</annotation>
 		<annotation cp="🥼">kísérlet | laborköpeny | orvos | tudós</annotation>
 		<annotation cp="🥼" type="tts">laborköpeny</annotation>
+		<annotation cp="🦺">biztonság | mellény | mentő | mentőmellény | vészhelyzet</annotation>
+		<annotation cp="🦺" type="tts">mentőmellény</annotation>
 		<annotation cp="👔">elegancia | nyakkendő | ruházat</annotation>
 		<annotation cp="👔" type="tts">nyakkendő</annotation>
 		<annotation cp="👕">póló | ruha | ruházat</annotation>
@@ -1897,6 +1975,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👗" type="tts">ruha</annotation>
 		<annotation cp="👘">kimonó | ruha | ruházat</annotation>
 		<annotation cp="👘" type="tts">kimonó</annotation>
+		<annotation cp="🥻">ruha | ruházat | szári</annotation>
+		<annotation cp="🥻" type="tts">szári</annotation>
+		<annotation cp="🩱">egyrészes fürdőruha | fürdőruha</annotation>
+		<annotation cp="🩱" type="tts">egyrészes fürdőruha</annotation>
+		<annotation cp="🩲">alsó | egyrészes | fürdőnadrág</annotation>
+		<annotation cp="🩲" type="tts">fürdőnadrág</annotation>
+		<annotation cp="🩳">alsó | fürdőnadrág | rövidnadrág</annotation>
+		<annotation cp="🩳" type="tts">rövidnadrág</annotation>
 		<annotation cp="👙">bikini | fürdő | ruha | ruházat | úszás</annotation>
 		<annotation cp="👙" type="tts">bikini</annotation>
 		<annotation cp="👚">női ruha | nők | ruha | ruházat</annotation>
@@ -1923,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👠" type="tts">magas sarkú cipő</annotation>
 		<annotation cp="👡">női szandál | nők | ruha | ruházat | szandál</annotation>
 		<annotation cp="👡" type="tts">női szandál</annotation>
+		<annotation cp="🩰">balett | balettcipő | tánc</annotation>
+		<annotation cp="🩰" type="tts">balettcipő</annotation>
 		<annotation cp="👢">csizma | lábbeli | női csizma | nők | ruha | ruházat</annotation>
 		<annotation cp="👢" type="tts">női csizma</annotation>
 		<annotation cp="👑">kiegészítő | király | királynő | korona</annotation>
@@ -1991,6 +2079,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎺" type="tts">trombita</annotation>
 		<annotation cp="🎻">hangszer | hegedű | zene</annotation>
 		<annotation cp="🎻" type="tts">hegedű</annotation>
+		<annotation cp="🪕">bendzsó | húros | zene</annotation>
+		<annotation cp="🪕" type="tts">bendzsó</annotation>
 		<annotation cp="🥁">dob | dobverő | zene</annotation>
 		<annotation cp="🥁" type="tts">dob</annotation>
 		<annotation cp="📱">mobil | mobiltelefon | rádiótelefon | telefon</annotation>
@@ -2061,6 +2151,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔦" type="tts">zseblámpa</annotation>
 		<annotation cp="🏮">bár | japán | lámpa | piros | piros papírlámpa</annotation>
 		<annotation cp="🏮" type="tts">piros papírlámpa</annotation>
+		<annotation cp="🪔">diya | lámpa | olaj | olajlámpa</annotation>
+		<annotation cp="🪔" type="tts">olajlámpa</annotation>
 		<annotation cp="📔">borító | díszes | díszkötés | füzet | jegyzetfüzet | jegyzetfüzet díszkötésben</annotation>
 		<annotation cp="📔" type="tts">jegyzetfüzet díszkötésben</annotation>
 		<annotation cp="📕">becsukott könyv | csukott | könyv</annotation>
@@ -2217,6 +2309,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗝" type="tts">régi kulcs</annotation>
 		<annotation cp="🔨">kalapács | szerszám</annotation>
 		<annotation cp="🔨" type="tts">kalapács</annotation>
+		<annotation cp="🪓">balta | fa | fejsze | szekerce | vágás</annotation>
+		<annotation cp="🪓" type="tts">balta</annotation>
 		<annotation cp="⛏">bányászat | csákány | szerszám</annotation>
 		<annotation cp="⛏" type="tts">csákány</annotation>
 		<annotation cp="⚒">csákány | kalapács | kalapács és csákány | szerszám</annotation>
@@ -2243,6 +2337,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗜" type="tts">satu</annotation>
 		<annotation cp="⚖">eszköz | felszerelés | kétkarú mérleg | mérleg | tömeg</annotation>
 		<annotation cp="⚖" type="tts">kétkarú mérleg</annotation>
+		<annotation cp="🦯">akadálymentesség | fehér bot | vak</annotation>
+		<annotation cp="🦯" type="tts">fehér bot</annotation>
 		<annotation cp="🔗">kapocs | láncszem</annotation>
 		<annotation cp="🔗" type="tts">kapocs</annotation>
 		<annotation cp="⛓">lánc | láncszemek</annotation>
@@ -2267,20 +2363,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📡" type="tts">parabolaantenna</annotation>
 		<annotation cp="💉">eszköz | fecskendő | injekciós tű | orvos | vérvétel</annotation>
 		<annotation cp="💉" type="tts">fecskendő</annotation>
+		<annotation cp="🩸">gyógyszer | menstruáció | véradás | vércsepp</annotation>
+		<annotation cp="🩸" type="tts">vércsepp</annotation>
 		<annotation cp="💊">betegség | doktor | gyógyszer | orvos | pirula | tabletta</annotation>
 		<annotation cp="💊" type="tts">tabletta</annotation>
+		<annotation cp="🩹">kötszer | ragtapasz</annotation>
+		<annotation cp="🩹" type="tts">ragtapasz</annotation>
+		<annotation cp="🩺">gyógyszer | orvos | szív | sztetoszkóp</annotation>
+		<annotation cp="🩺" type="tts">sztetoszkóp</annotation>
 		<annotation cp="🚪">ajtó</annotation>
 		<annotation cp="🚪" type="tts">ajtó</annotation>
 		<annotation cp="🛏">ágy | alvás | szálloda</annotation>
 		<annotation cp="🛏" type="tts">ágy</annotation>
 		<annotation cp="🛋">kanapé | kanapé és lámpa | lámpa | szálloda</annotation>
 		<annotation cp="🛋" type="tts">kanapé és lámpa</annotation>
+		<annotation cp="🪑">szék | ül | ülés</annotation>
+		<annotation cp="🪑" type="tts">szék</annotation>
 		<annotation cp="🚽">mosdó | toalett | vécé</annotation>
 		<annotation cp="🚽" type="tts">vécé</annotation>
 		<annotation cp="🚿">víz | vízsugár | zuhanyzó</annotation>
 		<annotation cp="🚿" type="tts">zuhanyzó</annotation>
 		<annotation cp="🛁">fürdés | fürdőkád</annotation>
 		<annotation cp="🛁" type="tts">fürdőkád</annotation>
+		<annotation cp="🪒">borotva | borotvál | éles</annotation>
+		<annotation cp="🪒" type="tts">borotva</annotation>
 		<annotation cp="🧴">hidratáló | krém | krémes flakon | napvédő krém | sampon</annotation>
 		<annotation cp="🧴" type="tts">krémes flakon</annotation>
 		<annotation cp="🧷">biztosítótű | pelenka | punk rock</annotation>
@@ -2499,6 +2605,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📳" type="tts">rezgő mód</annotation>
 		<annotation cp="📴">kikapcsolva | mobil | mobiltelefon | rádiótelefon | telefon | tiltott</annotation>
 		<annotation cp="📴" type="tts">mobiltelefon kikapcsolva</annotation>
+		<annotation cp="♀">nem | női | női nem jelképe</annotation>
+		<annotation cp="♀" type="tts">női nem jelképe</annotation>
+		<annotation cp="♂">férfi | férfi nem jelképe | nem</annotation>
+		<annotation cp="♂" type="tts">férfi nem jelképe</annotation>
 		<annotation cp="⚕">Aszklépiosz | bot | orvos | orvosi szimbólum | orvoslás</annotation>
 		<annotation cp="⚕" type="tts">orvosi szimbólum</annotation>
 		<annotation cp="♾">korlátlan | örökké | univerzális | végtelen</annotation>
@@ -2645,28 +2755,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🈵" type="tts">japán „megtelt” gomb</annotation>
 		<annotation cp="🔴">alakzat | kör | piros</annotation>
 		<annotation cp="🔴" type="tts">piros kör</annotation>
+		<annotation cp="🟠">kör | narancssárga</annotation>
+		<annotation cp="🟠" type="tts">narancssárga kör</annotation>
+		<annotation cp="🟡">kör | sárga</annotation>
+		<annotation cp="🟡" type="tts">sárga kör</annotation>
+		<annotation cp="🟢">kör | zöld</annotation>
+		<annotation cp="🟢" type="tts">zöld kör</annotation>
 		<annotation cp="🔵">alakzat | kék | kör</annotation>
 		<annotation cp="🔵" type="tts">kék kör</annotation>
-		<annotation cp="⚪">alakzat | fehér kör | kör</annotation>
-		<annotation cp="⚪" type="tts">fehér kör</annotation>
+		<annotation cp="🟣">kör | lila</annotation>
+		<annotation cp="🟣" type="tts">lila kör</annotation>
+		<annotation cp="🟤">barna | kör</annotation>
+		<annotation cp="🟤" type="tts">barna kör</annotation>
 		<annotation cp="⚫">alakzat | fekete kör | kör</annotation>
 		<annotation cp="⚫" type="tts">fekete kör</annotation>
-		<annotation cp="⬜">geometria | nagy fehér négyzet | négyzet</annotation>
-		<annotation cp="⬜" type="tts">nagy fehér négyzet</annotation>
+		<annotation cp="⚪">alakzat | fehér kör | kör</annotation>
+		<annotation cp="⚪" type="tts">fehér kör</annotation>
+		<annotation cp="🟥">négyzet | vörös</annotation>
+		<annotation cp="🟥" type="tts">vörös négyzet</annotation>
+		<annotation cp="🟧">narancssárga | négyzet</annotation>
+		<annotation cp="🟧" type="tts">narancssárga négyzet</annotation>
+		<annotation cp="🟨">négyzet | sárga</annotation>
+		<annotation cp="🟨" type="tts">sárga négyzet</annotation>
+		<annotation cp="🟩">négyzet | zöld</annotation>
+		<annotation cp="🟩" type="tts">zöld négyzet</annotation>
+		<annotation cp="🟦">kék | négyzet</annotation>
+		<annotation cp="🟦" type="tts">kék négyzet</annotation>
+		<annotation cp="🟪">lila | négyzet</annotation>
+		<annotation cp="🟪" type="tts">lila négyzet</annotation>
+		<annotation cp="🟫">barna | négyzet</annotation>
+		<annotation cp="🟫" type="tts">barna négyzet</annotation>
 		<annotation cp="⬛">geometria | nagy fekete négyzet | négyzet</annotation>
 		<annotation cp="⬛" type="tts">nagy fekete négyzet</annotation>
+		<annotation cp="⬜">geometria | nagy fehér négyzet | négyzet</annotation>
+		<annotation cp="⬜" type="tts">nagy fehér négyzet</annotation>
 		<annotation cp="◼">geometria | közepes fekete négyzet | négyzet</annotation>
 		<annotation cp="◼" type="tts">közepes fekete négyzet</annotation>
 		<annotation cp="◻">geometria | közepes fehér négyzet | négyzet</annotation>
 		<annotation cp="◻" type="tts">közepes fehér négyzet</annotation>
-		<annotation cp="◽">geometria | kis-közepes fehér négyzet | négyzet</annotation>
-		<annotation cp="◽" type="tts">kis-közepes fehér négyzet</annotation>
 		<annotation cp="◾">geometria | kis-közepes fekete négyzet | négyzet</annotation>
 		<annotation cp="◾" type="tts">kis-közepes fekete négyzet</annotation>
-		<annotation cp="▫">geometria | kis fehér négyzet | négyzet</annotation>
-		<annotation cp="▫" type="tts">kis fehér négyzet</annotation>
+		<annotation cp="◽">geometria | kis-közepes fehér négyzet | négyzet</annotation>
+		<annotation cp="◽" type="tts">kis-közepes fehér négyzet</annotation>
 		<annotation cp="▪">geometria | kis fekete négyzet | négyzet</annotation>
 		<annotation cp="▪" type="tts">kis fekete négyzet</annotation>
+		<annotation cp="▫">geometria | kis fehér négyzet | négyzet</annotation>
+		<annotation cp="▫" type="tts">kis fehér négyzet</annotation>
 		<annotation cp="🔶">geometria | nagy narancssárga rombusz | narancs | rombusz</annotation>
 		<annotation cp="🔶" type="tts">nagy narancssárga rombusz</annotation>
 		<annotation cp="🔷">geometria | kék | nagy kék rombusz | rombusz</annotation>
@@ -2683,10 +2817,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💠" type="tts">rombusz ponttal</annotation>
 		<annotation cp="🔘">gomb | rádiógomb | választó | választógomb</annotation>
 		<annotation cp="🔘" type="tts">választógomb</annotation>
-		<annotation cp="🔲">fekete, négyzet alakú gomb | gomb | négyzet</annotation>
-		<annotation cp="🔲" type="tts">fekete, négyzet alakú gomb</annotation>
 		<annotation cp="🔳">bekeretezett | fehér, négyzet alakú gomb | gomb | négyzet</annotation>
 		<annotation cp="🔳" type="tts">fehér, négyzet alakú gomb</annotation>
+		<annotation cp="🔲">fekete, négyzet alakú gomb | gomb | négyzet</annotation>
+		<annotation cp="🔲" type="tts">fekete, négyzet alakú gomb</annotation>
 		<annotation cp="🏁">autóverseny | kockás | kockás zászló | versenyzés</annotation>
 		<annotation cp="🏁" type="tts">kockás zászló</annotation>
 		<annotation cp="🚩">háromszög alakú zászló | posta</annotation>
@@ -2701,139 +2835,5 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">szivárványszínű zászló</annotation>
 		<annotation cp="🏴‍☠">fosztogató | Jolly Roger | kalóz | kalózzászló | kincs</annotation>
 		<annotation cp="🏴‍☠" type="tts">kalózzászló</annotation>
-		<annotation cp="🛕">hindu | templom</annotation>
-		<annotation cp="🛕" type="tts">hindu templom</annotation>
-		<annotation cp="🛺">motoros riksa | tuk tuk</annotation>
-		<annotation cp="🛺" type="tts">motoros riksa</annotation>
-		<annotation cp="🟠">kör | narancssárga</annotation>
-		<annotation cp="🟠" type="tts">narancssárga kör</annotation>
-		<annotation cp="🟡">kör | sárga</annotation>
-		<annotation cp="🟡" type="tts">sárga kör</annotation>
-		<annotation cp="🟢">kör | zöld</annotation>
-		<annotation cp="🟢" type="tts">zöld kör</annotation>
-		<annotation cp="🟣">kör | lila</annotation>
-		<annotation cp="🟣" type="tts">lila kör</annotation>
-		<annotation cp="🟤">barna | kör</annotation>
-		<annotation cp="🟤" type="tts">barna kör</annotation>
-		<annotation cp="🟥">négyzet | vörös</annotation>
-		<annotation cp="🟥" type="tts">vörös négyzet</annotation>
-		<annotation cp="🟦">kék | négyzet</annotation>
-		<annotation cp="🟦" type="tts">kék négyzet</annotation>
-		<annotation cp="🟧">narancssárga | négyzet</annotation>
-		<annotation cp="🟧" type="tts">narancssárga négyzet</annotation>
-		<annotation cp="🟨">négyzet | sárga</annotation>
-		<annotation cp="🟨" type="tts">sárga négyzet</annotation>
-		<annotation cp="🟩">négyzet | zöld</annotation>
-		<annotation cp="🟩" type="tts">zöld négyzet</annotation>
-		<annotation cp="🟪">lila | négyzet</annotation>
-		<annotation cp="🟪" type="tts">lila négyzet</annotation>
-		<annotation cp="🟫">barna | négyzet</annotation>
-		<annotation cp="🟫" type="tts">barna négyzet</annotation>
-		<annotation cp="🤍">fehér | szív</annotation>
-		<annotation cp="🤍" type="tts">fehér szív</annotation>
-		<annotation cp="🤎">barna | szív</annotation>
-		<annotation cp="🤎" type="tts">barna szív</annotation>
-		<annotation cp="🤏">csippentő kéz | kis összeg</annotation>
-		<annotation cp="🤏" type="tts">csippentő kéz</annotation>
-		<annotation cp="🤿">búvárkodás | búvármaszk | merülés | szabadtüdős merülés</annotation>
-		<annotation cp="🤿" type="tts">búvármaszk</annotation>
-		<annotation cp="🥱">arc | ásít | ásítás | ásító | fáradt</annotation>
-		<annotation cp="🥱" type="tts">ásító arc</annotation>
-		<annotation cp="🥻">ruha | ruházat | szári</annotation>
-		<annotation cp="🥻" type="tts">szári</annotation>
-		<annotation cp="🦥">lajhár | lassú | lusta</annotation>
-		<annotation cp="🦥" type="tts">lajhár</annotation>
-		<annotation cp="🦦">halászó | játékos | vidra</annotation>
-		<annotation cp="🦦" type="tts">vidra</annotation>
-		<annotation cp="🦧">emberszabású majom | orangután</annotation>
-		<annotation cp="🦧" type="tts">orangután</annotation>
-		<annotation cp="🦨">bűz | bűzösborz</annotation>
-		<annotation cp="🦨" type="tts">bűzösborz</annotation>
-		<annotation cp="🦩">flamingó | színpompás | trópusi</annotation>
-		<annotation cp="🦩" type="tts">flamingó</annotation>
-		<annotation cp="🦪">búvárkodás | gyöngy | osztriga</annotation>
-		<annotation cp="🦪" type="tts">osztriga</annotation>
-		<annotation cp="🦮">akadálymentesség | vak | vakvezető | vakvezető kutya</annotation>
-		<annotation cp="🦮" type="tts">vakvezető kutya</annotation>
-		<annotation cp="🦯">akadálymentesség | fehér bot | vak</annotation>
-		<annotation cp="🦯" type="tts">fehér bot</annotation>
-		<annotation cp="🦺">biztonság | mellény | mentő | mentőmellény | vészhelyzet</annotation>
-		<annotation cp="🦺" type="tts">mentőmellény</annotation>
-		<annotation cp="🦻">akadálymentesség | fül hallókészülékkel | nagyothalló</annotation>
-		<annotation cp="🦻" type="tts">fül hallókészülékkel</annotation>
-		<annotation cp="🦼">akadálymentesség | motoros kerekesszék</annotation>
-		<annotation cp="🦼" type="tts">motoros kerekesszék</annotation>
-		<annotation cp="🦽">akadálymentesség | kézi hajtású kerekesszék</annotation>
-		<annotation cp="🦽" type="tts">kézi hajtású kerekesszék</annotation>
-		<annotation cp="🦾">akadálymentesség | mechanikus kar | protézis</annotation>
-		<annotation cp="🦾" type="tts">mechanikus kar</annotation>
-		<annotation cp="🦿">akadálymentesség | mechanikus láb | protézis</annotation>
-		<annotation cp="🦿" type="tts">mechanikus láb</annotation>
-		<annotation cp="🧃">gyümölcsleves doboz | italos doboz</annotation>
-		<annotation cp="🧃" type="tts">italos doboz</annotation>
-		<annotation cp="🧄">fokhagyma | ízesítés</annotation>
-		<annotation cp="🧄" type="tts">fokhagyma</annotation>
-		<annotation cp="🧅">hagyma | ízesítés</annotation>
-		<annotation cp="🧅" type="tts">hagyma</annotation>
-		<annotation cp="🧆">csicseriborsó | falafel | húsgolyó</annotation>
-		<annotation cp="🧆" type="tts">falafel</annotation>
-		<annotation cp="🧇">gofri | határozatlan | vas</annotation>
-		<annotation cp="🧇" type="tts">gofri</annotation>
-		<annotation cp="🧈">tejtermék | vaj</annotation>
-		<annotation cp="🧈" type="tts">vaj</annotation>
-		<annotation cp="🧉">ital | maté</annotation>
-		<annotation cp="🧉" type="tts">maté</annotation>
-		<annotation cp="🧊">hideg | jéghegy | jégkocka</annotation>
-		<annotation cp="🧊" type="tts">jégkocka</annotation>
-		<annotation cp="🧍">áll | álló | álló ember</annotation>
-		<annotation cp="🧍" type="tts">álló ember</annotation>
-		<annotation cp="🧍‍♀">áll | álló nő | nő</annotation>
-		<annotation cp="🧍‍♀" type="tts">álló nő</annotation>
-		<annotation cp="🧍‍♂">áll | álló férfi | férfi</annotation>
-		<annotation cp="🧍‍♂" type="tts">álló férfi</annotation>
-		<annotation cp="🧎">térdel | térdelő | térdelő ember</annotation>
-		<annotation cp="🧎" type="tts">térdelő ember</annotation>
-		<annotation cp="🧎‍♀">nő | térdel | térdelő nő</annotation>
-		<annotation cp="🧎‍♀" type="tts">térdelő nő</annotation>
-		<annotation cp="🧎‍♂">férfi | térdel | térdelő férfi</annotation>
-		<annotation cp="🧎‍♂" type="tts">térdelő férfi</annotation>
-		<annotation cp="🧏">akadálymentesség | fül | hall | siket | siket ember</annotation>
-		<annotation cp="🧏" type="tts">siket ember</annotation>
-		<annotation cp="🧏‍♀">nő | siket</annotation>
-		<annotation cp="🧏‍♀" type="tts">siket nő</annotation>
-		<annotation cp="🧏‍♂">férfi | siket</annotation>
-		<annotation cp="🧏‍♂" type="tts">siket férfi</annotation>
-		<annotation cp="🩰">balett | balettcipő | tánc</annotation>
-		<annotation cp="🩰" type="tts">balettcipő</annotation>
-		<annotation cp="🩱">egyrészes fürdőruha | fürdőruha</annotation>
-		<annotation cp="🩱" type="tts">egyrészes fürdőruha</annotation>
-		<annotation cp="🩲">alsó | egyrészes | fürdőnadrág</annotation>
-		<annotation cp="🩲" type="tts">fürdőnadrág</annotation>
-		<annotation cp="🩳">alsó | fürdőnadrág | rövidnadrág</annotation>
-		<annotation cp="🩳" type="tts">rövidnadrág</annotation>
-		<annotation cp="🩸">gyógyszer | menstruáció | véradás | vércsepp</annotation>
-		<annotation cp="🩸" type="tts">vércsepp</annotation>
-		<annotation cp="🩹">kötszer | ragtapasz</annotation>
-		<annotation cp="🩹" type="tts">ragtapasz</annotation>
-		<annotation cp="🩺">gyógyszer | orvos | szív | sztetoszkóp</annotation>
-		<annotation cp="🩺" type="tts">sztetoszkóp</annotation>
-		<annotation cp="🪀">játék | jojó | jojózik</annotation>
-		<annotation cp="🪀" type="tts">jojó</annotation>
-		<annotation cp="🪁">papírsárkány | repül | szárnyal</annotation>
-		<annotation cp="🪁" type="tts">papírsárkány</annotation>
-		<annotation cp="🪂">ejtőernyő | siklóernyő</annotation>
-		<annotation cp="🪂" type="tts">ejtőernyő</annotation>
-		<annotation cp="🪐">gyűrűs bolygó | szaturnusz</annotation>
-		<annotation cp="🪐" type="tts">gyűrűs bolygó</annotation>
-		<annotation cp="🪑">szék | ül | ülés</annotation>
-		<annotation cp="🪑" type="tts">szék</annotation>
-		<annotation cp="🪒">borotva | borotvál | éles</annotation>
-		<annotation cp="🪒" type="tts">borotva</annotation>
-		<annotation cp="🪓">balta | fa | fejsze | szekerce | vágás</annotation>
-		<annotation cp="🪓" type="tts">balta</annotation>
-		<annotation cp="🪔">diya | lámpa | olaj | olajlámpa</annotation>
-		<annotation cp="🪔" type="tts">olajlámpa</annotation>
-		<annotation cp="🪕">bendzsó | húros | zene</annotation>
-		<annotation cp="🪕" type="tts">bendzsó</annotation>
 	</annotations>
 </ldml>

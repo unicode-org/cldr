@@ -701,7 +701,7 @@ public class DataSection implements JSONString {
          *          how/why/when/where the item was added
          * @return the new or existing item with the given value
          *
-         * Sequential order in which addItem may be called (as of 2019-04-09) for a given DataRow:
+         * Sequential order in which addItem may be called (as of 2019-04-19) for a given DataRow:
          *
          * (1) For INHERITANCE_MARKER (if inheritedValue = ourSrc.getConstructedBaileyValue not null):
          *     in updateInheritedValue (called by populateFromThisXpath):
@@ -715,19 +715,15 @@ public class DataSection implements JSONString {
          *     in populateFromThisXpath:
          *         row.addItem(row.winningValue, "winning");
          *
-         * (4) For oldValue (if not null, and not same as ourValue):
-         *     in populateFromThisXpath:
-         *         row.addItem(row.oldValue, "old");
-         *
-         * (5) For baselineValue (if not null):
+         * (4) For baselineValue (if not null):
          *     in populateFromThisXpath:
          *         row.addItem(row.baselineValue, "baseline");
          *
-         * (6) For INHERITANCE_MARKER (if not in votes and locale.getCountry isn't empty):
+         * (5) For INHERITANCE_MARKER (if not in votes and locale.getCountry isn't empty):
          *     in populateFromThisXpath:
          *         row.addItem(CldrUtility.INHERITANCE_MARKER, "country");
          *
-         * (7) For ourValue:
+         * (6) For ourValue:
          *     in addOurValue (called by populateFromThisXpath):
          *         CandidateItem myItem = row.addItem(ourValue, "our");
          */
@@ -2907,20 +2903,6 @@ public class DataSection implements JSONString {
          */
         if (row.winningValue != null) {
             row.addItem(row.winningValue, "winning");
-        }
-
-        /*
-         * Add an item for oldValue if there isn't one already. Do so even if it occurs
-         * in the vote array v, since populateFromThisXpathAddItemsForVotes may skip items
-         * for which getVotesForValue is null or empty. There is no harm in calling addItem
-         * twice for the same value.
-         *
-         * TODO: clarify whether the condition "!row.oldValue.equals(ourValue)" is
-         * needed here and if so why. (For example, if ourValue same as inheritedValue,
-         * don't treat it as a "hard" item.) 
-         */
-        if (row.oldValue != null && !row.oldValue.equals(ourValue)) {
-            row.addItem(row.oldValue, "old");
         }
 
         /*

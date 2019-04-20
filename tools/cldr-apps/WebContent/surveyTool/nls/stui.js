@@ -167,8 +167,6 @@ define({
 
 		winningStatus_disputed: "Disputed",
 		winningStatus_msg:  "${1} ${0} Value ",
-		lastReleaseStatus_msg: "${0} Last Release Value ",
-		lastReleaseStatus1_msg: "",
 		
 		reportGuidance: " ",
 		dataPageInitialGuidance: "Please consult the <a target='_blank' href='http://cldr.unicode.org/index/survey-tool/guide'>Instructions <span class='glyphicon glyphicon-share'></span></a> page.<br/><br/>Briefly, for each row:<br/><ol><li>Click on a cell in the 'Code' column.</li><li>Read the details that appear in the right panel (widen your window to see it).</li><li> Hover over the English and the Winning value to see examples.</li><li>To vote:<ol><li>for an existing item in the Winning or Others column, click on the <input type='radio'/> for that item.</li><li>for a new value, click on the button in the \"Add\" column. A new editing box will open. Enter the new value and hit RETURN.</li><li>for no value (abstain, or retract a vote), click on the  <input type='radio'/> in the Abstain column.</li></ol></li></ol>",

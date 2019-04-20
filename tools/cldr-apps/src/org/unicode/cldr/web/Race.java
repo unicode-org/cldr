@@ -79,15 +79,15 @@ public class Race {
     /**
      * Get the last release xpath
      */
-    public String getLastReleaseValue() {
-        return resolver.getLastReleaseValue();
+    public String getBaselineValue() {
+        return resolver.getTrunkValue();
     }
 
     /**
      * Get the last release status
      */
-    public org.unicode.cldr.util.VoteResolver.Status getLastReleaseStatus() {
-        return resolver.getLastReleaseStatus();
+    public org.unicode.cldr.util.VoteResolver.Status getBaselineStatus() {
+        return resolver.getTrunkStatus();
     }
 
     public String resolverToString() {

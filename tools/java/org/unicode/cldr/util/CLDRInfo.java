@@ -20,9 +20,9 @@ public class CLDRInfo {
 
         CandidateInfo getCurrentItem();
 
-        String getLastReleaseValue();
+        String getBaselineValue();
         
-        default Status getLastReleaseStatus() {
+        default Status getBaselineStatus() {
             return Status.missing;
         }
 

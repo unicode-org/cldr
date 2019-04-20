@@ -87,12 +87,6 @@ public class DataSection implements JSONString {
     private static boolean USE_CANDIDATE_HISTORY = false;
 
     /*
-     * A placeholder for winningValue when resolver.getWinningValue()
-     * returns null, due to unsolved bugs.
-     */
-    private static String ERROR_NO_WINNING_VALUE = "error-no-winning-value";
-
-    /*
      * TODO: order classes consistently; inner classes should all be at top or all be at bottom.
      * Default for Eclipse "Sort Members" is to put Types, including inner classes, before all
      * other members; however, it also alphabetizes methods, which may not be helpful.
@@ -645,9 +639,9 @@ public class DataSection implements JSONString {
         private String baselineValue;
         
         /**
-         * The status for this DataRow in the previous release version.
+         * The baseline status for this DataRow (corresponding to baselineValue)
          */
-        private Status oldStatus;
+        private Status baselineStatus;
 
         /**
          * The PathHeader for this DataRow, assigned in the constructor based on xpath.
@@ -669,21 +663,12 @@ public class DataSection implements JSONString {
                 throw new InternalError("ballotBox is null;");
             }
             VoteResolver<String> resolver = ballotBox.getResolver(xpath);
-            /*
-             * Note: we set winningValue = resolver.getWinningValue() here, but we
-             * may change winningValue subsequently in fixWinningValue().
-             * 
-             * There is a need to address the situation if winningValue gets null or empty string here.
-             * Fix the bug where winningVhash is empty or undefined on client.
-             * See https://unicode.org/cldr/trac/ticket/11299 "Example C".
-             */
+
             winningValue = resolver.getWinningValue();
             confirmStatus = resolver.getWinningStatus();
 
-            oldValue = resolver.getLastReleaseValue();
-            oldStatus = resolver.getLastReleaseStatus();
-
             baselineValue = resolver.getTrunkValue();
+            baselineStatus = resolver.getTrunkStatus();
 
             this.displayName = baselineFile.getStringValue(xpath);
         }
@@ -1102,126 +1087,6 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * After constructing this new DataRow, change its winningValue if needed for consistency
-         * with inheritedValue, ourValue, and ourValueIsInherited. Also in some circumstances fix
-         * inheritedValue if it is null.
-         *
-         * We may need to fix winningValue if:
-         *     (A) it's null (due to bugs, or ...?)
-         *     (B) it should be INHERITANCE_MARKER but isn't
-         *
-         * The circumstances under which winningValue and/or ourValue may be null aren't very clear;
-         * sometimes "extra paths" are involved. This should be documented more clearly, or any bugs
-         * that result in bogus null should be fixed.
-         *
-         * When "soft" inheritance is currently winning, we always want winningValue to be INHERITANCE_MARKER,
-         * but resolver.getWinningValue() may return lastReleaseValue (not INHERITANCE_MARKER) if there are
-         * currently no votes. TODO: determine when, if ever, winningValue should be changed to INHERITANCE_MARKER
-         * if winningValue equals inheritedValue.
-         *
-         * We have two ways of getting the currently winning value for a row:
-         *     (1) winningValue = resolver.getWinningValue()
-         *     (2) ourValue = ourSrc.getStringValue(xpath)
-         * Often these are equal. They can be different when one or the other (but not both) is null,
-         * or when winningValue is INHERITANCE_MARKER. ourValue is never (?) INHERITANCE_MARKER.
-         *
-         * ourValue and winningValue can also be different even when neither is null or INHERITANCE_MARKER,
-         * and that is especially perplexing. This happens, for example at v#/pt_PT/Buddhist
-         * ourValueIsInherited = true
-         * ourValue = "d MMM y G" and winningValue = "dd/MM/y G" are DIFFERENT
-         * xpath = //ldml/dates/calendars/calendar[@type="buddhist"]/dateFormats/dateFormatLength[@type="medium"]/dateFormat[@type="standard"]/pattern[@type="standard"]
-         *
-         * Another example, also at v#/pt_PT/Buddhist
-         * ourValueIsInherited = false
-         * ourValue = E, d 'de' MMM – E, d 'de' MMM 'de' y G and winningValue = E, d – E, d 'de' MMM 'de' y G
-         * xpath = //ldml/dates/calendars/calendar[@type="buddhist"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="d"]
-         *
-         * Other urls that may produce unexpected results if debugging code is added in this function:
-         *
-         * TODO: Fix resolver.getWinningValue to make this function unnecessary. Questions:
-         *    (1) What does it mean, and what should be done, when ourValue and winningValue aren't equal?
-         *    (2) How to recognize when winningValue needs changing to INHERITANCE_MARKER (ideally not here but in getWinningValue)?
-         * Note: When winningValue equals ourValue and ourValueIsInherited is true, it would be tempting to infer that
-         * winningValue should be INHERITANCE_MARKER, and to expect inheritedValue and ourValue should be equal.
-         * Code like this could be considered:
-         *
-         * if (ourValue.equals(winningValue) && ourValueIsInherited) {
-         *     winningValue = CldrUtility.INHERITANCE_MARKER;
-         *     assert(inheritedValue.equals(ourValue));
-         * }
-         *
-         * (We already have something similar below, but only if winningValue == null && inheritedValue == null.)
-         *
-         * However, there's an alternative explanation in such cases, which is that winningValue represents a
-         * winning "hard" vote for the explicit value, while ourValue represents a losing "soft" vote for inheritance.
-         *
-         * Note: due to the existence of this function, the client should use theRow.winningValue, not vr.winningValue. 
-         *
-         * http://localhost:8080/cldr-apps/v#/en_CA/Gregorian/
-         *
-         * Reference: https://unicode.org/cldr/trac/ticket/11299
-         *
-         * @param ourValue the String that was obtained as ourSrc.getStringValue(xpath)
-         * @param ourValueIsInherited the boolean that was obtained as !(sourceLocale.equals(locale.toString()))
-         */
-        private void fixWinningValue(String ourValue, boolean ourValueIsInherited) {
-            if (winningValue == null) {
-                if (inheritedValue != null) {
-                    /*
-                     * Formerly something equivalent to this was done on the client. TODO: explain the justification; why
-                     * treat soft inheritance as the default, rather than, for example, the old (last release) value? 
-                     * Anyway, if this happens, it should happen here on the server, not on the client.
-                     * And, preferably resolver.getWinningValue() should never return null.
-                     */
-                    winningValue = CldrUtility.INHERITANCE_MARKER;
-                } else if (ourValue != null) {
-                    /*
-                     * This happens, for example at v#/en/Symbols
-                     * ourValue = E
-                     * xpath = //ldml/numbers/symbols[@numberSystem="gong"]/exponential
-                     * http://localhost:8080/cldr-apps/v#/aa/Numbering_Systems/
-                     * TODO: fix or explain this seeming contradiction, and decide what to do about it. For now,
-                     * use ourValue and ourValueIsInherited instead of winningValue, with the rationale that
-                     * resolver.getWinningValue() and ourSrc.getStringValue(xpath) are both supposed to give the
-                     * winning value, but the former might be buggy (null) in some circumstances where the latter isn't. 
-                     */
-                    if (ourValueIsInherited) {
-                        /***
-                        System.out.println("Debugging in fixWinningValue: winningValue is null" +
-                            "; ourValueIsInherited = " + ourValueIsInherited +
-                            "; setting winningValue = INHERITANCE_MARKER; inheritedValue = ourValue = " + ourValue +
-                            "; xpath = " + xpath);
-                        ***/
-                        winningValue = CldrUtility.INHERITANCE_MARKER;
-                        inheritedValue = ourValue;
-                    } else {
-                        /***
-                        System.out.println("Debugging in fixWinningValue: winningValue is null" +
-                            "; ourValueIsInherited = " + ourValueIsInherited +
-                            "; setting winningValue = ourValue; ourValue = " + ourValue +
-                            "; xpath = " + xpath);
-                        ***/
-                        winningValue = ourValue;
-                    }
-                } else {
-                    /*
-                     * TODO: Fix the bugs that lead to winningValue being null, which happens often, but never should.
-                     * In the meantime, the client should ALWAYS get a winningVhash, corresponding to winningValue and
-                     * winningItem, even if it's a placeholder or error message, since determination of the winning value
-                     * is the server's responsibility. Sometimes null winningValue goes with "Status:Missing" (black X icon);
-                     * even then an inherited value should normally be available as fallback.
-                     * 
-                     * Note that setting a non-null winningValue here affects subsequent creation of winningItem.
-                     */
-                    /***
-                    System.out.println("Debugging in fixWinningValue: ERROR_NO_WINNING_VALUE; xpath = " + xpath);
-                    ***/
-                    winningValue = ERROR_NO_WINNING_VALUE;
-                }
-            }
-        }
-
-        /**
          * Calculate the inherited item for this DataRow, possibly including tests;
          * possibly set some fields in the DataRow, which may include inheritedValue,
          * inheritedItem, inheritedLocale, pathWhereFound
@@ -1482,9 +1347,6 @@ public class DataSection implements JSONString {
          * References: https://unicode.org/cldr/trac/ticket/11299
          * and https://unicode.org/cldr/trac/ticket/11238
          *
-         * Compare fixWinningValue(); here we're not fixing (changing) anything, only
-         * reporting.
-         *
          * JSON sent from server to client must be COMPLETE and CONSISTENT
          * Establish and test rules like:
          *   winningVHash cannot be empty;
@@ -1497,11 +1359,6 @@ public class DataSection implements JSONString {
          * xpath = //ldml/dates/timeZoneNames/metazone[@type="Kyrgystan"]/long/generic
          * xpath = //ldml/dates/timeZoneNames/metazone[@type="Qyzylorda"]/long/generic
          * These are "extra" paths.
-         *
-         * Note: client doesn't use DataRow.winningValue currently. It uses winningVhash. Also,
-         * client uses vr.winningValue, a.k.a. theRow.voteResolver.winningValue, which gets
-         * set by wrap() in SurveyAjax.java in "put("winningValue", r.getWinningValue())"...
-         * Need to check voteResolver.winningValue for consistency too!
          *
          * A bug may occur on the client if there is no item for winningVhash.
          *
@@ -1532,8 +1389,7 @@ public class DataSection implements JSONString {
                     "; xpath = " + xpath + "; inheritedValue = " + inheritedValue);
             }
             /*
-             * Note: we could also report if ERROR_NO_WINNING_VALUE.equals(winningValue) here; or uncomment
-             * debugging code in fixWinningValue.
+             * Note: we could also report if ERROR_NO_WINNING_VALUE.equals(winningValue) here...
              */
         }
 
@@ -1575,21 +1431,21 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * Get the last release value for this DataRow
+         * Get the baseline value for this DataRow
          */
         @Override
-        public String getLastReleaseValue() {
-            return oldValue;
+        public String getBaselineValue() {
+            return baselineValue;
         }
 
         /**
-         * Get the last release status for this DataRow
+         * Get the baseline status for this DataRow
          *
          * Called by getShowRowAction
          */
         @Override
-        public Status getLastReleaseStatus() {
-            return oldStatus;
+        public Status getBaselineStatus() {
+            return baselineStatus;
         }
 
         /**
@@ -2834,8 +2690,6 @@ public class DataSection implements JSONString {
          * CLDRFile, as used for producing vxml (see makeVettedFile), then it would be more likely to agree with the winning
          * value more often. Note that when ticket 11916 is done, the winning value will never depend on last-release.
          * Reference: https://unicode.org/cldr/trac/ticket/11916
-         * 
-         * See fixWinningValue for more related comments.
          */
         String ourValue = isExtraPath ? null : ourSrc.getStringValue(xpath);
         if (ourValue == null) {
@@ -2880,8 +2734,6 @@ public class DataSection implements JSONString {
         DataRow row = getDataRow(xpath);
 
         /*
-         * Call updateInheritedValue before fixWinningValue, so that the latter can use inheritedValue as needed.
-         * 
          * Normally row.inheritedItem is null at this point, unless setShimTests has already been called
          * by ensureComplete, for some timezones. If row.inheritedItem is null, possibly create it.
          * 
@@ -2891,7 +2743,6 @@ public class DataSection implements JSONString {
         if (row.inheritedItem == null && !isExtraPath) {
             row.updateInheritedValue(ourSrc, checkCldr);
         }
-        row.fixWinningValue(ourValue, ourValueIsInherited);
 
         Set<String> v = ballotBox.getValues(xpath);
         if (v != null) {

@@ -30,8 +30,8 @@ const cldrSurveyTable = (function() {
 	const NEVER_REUSE_TABLE = false;
 
 	/*
-	 * ERROR_NO_WINNING_VALUE indicates a bug on the server, which delivered path data without a valid winning value.
-	 * Compare ERROR_NO_WINNING_VALUE in DataSection.java.
+	 * ERROR_NO_WINNING_VALUE indicates the server delivered path data without a valid winning value.
+	 * Compare ERROR_NO_WINNING_VALUE in VoteResolver.java.
 	 */
 	const ERROR_NO_WINNING_VALUE = "error-no-winning-value";
 
@@ -1152,7 +1152,7 @@ const cldrSurveyTable = (function() {
 	/**
 	 * Get the winning value for the given row, if it's a valid value.
 	 * Null and ERROR_NO_WINNING_VALUE ('error-no-winning-value') are not valid.
-	 * See ERROR_NO_WINNING_VALUE in DataSection.java.
+	 * See ERROR_NO_WINNING_VALUE in VoteResolver.java.
 	 *
 	 * @param theRow
 	 * @returns the winning value, or null if there is not a valid winning value

@@ -224,7 +224,7 @@ abstract public class CheckCLDR {
 
             // if limited submission, and winner doesn't have an error, limit the values
 
-            if (LIMITED_SUBMISSION && !SubmissionLocales.allowEvenIfLimited(pathValueInfo.getLocale().toString(), pathValueInfo.getXpath(), valueStatus == ValueStatus.ERROR, pathValueInfo.getLastReleaseStatus() == Status.missing)) {
+            if (LIMITED_SUBMISSION && !SubmissionLocales.allowEvenIfLimited(pathValueInfo.getLocale().toString(), pathValueInfo.getXpath(), valueStatus == ValueStatus.ERROR, pathValueInfo.getBaselineStatus() == Status.missing)) {
                 return StatusAction.FORBID_READONLY;
             }
 

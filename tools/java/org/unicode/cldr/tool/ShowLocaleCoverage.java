@@ -1247,7 +1247,7 @@ public class ShowLocaleCoverage {
         public CandidateInfo getCurrentItem() {
             throw new UnsupportedOperationException();
         }
-        public String getLastReleaseValue() {
+        public String getBaselineValue() {
             throw new UnsupportedOperationException();
         }
         public Level getCoverageLevel() {

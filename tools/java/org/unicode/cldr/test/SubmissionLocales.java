@@ -52,8 +52,8 @@ public final class SubmissionLocales {
      * Only call this if LIMITED_SUBMISSION
      * @param localeString
      * @param path
-     * @param valueStatus
-     * @param lastReleaseStatus
+     * @param isError
+     * @param missingInLastRelease
      * @return
      */
     public static boolean allowEvenIfLimited(String localeString, String path, boolean isError, boolean missingInLastRelease) {

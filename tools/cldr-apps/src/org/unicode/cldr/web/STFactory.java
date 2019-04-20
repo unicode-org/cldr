@@ -633,47 +633,38 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         /**
          * Get the Status for the given CLDRFile, path, and value.
          * 
-         * @param anOldFile
+         * @param cldrFile
          * @param path
-         * @param lastValue
+         * @param value
          * @return the Status
-         *
-         * NOTE: in spite of the names "anOldFile", "lastValue", "lastStatus", this function
-         * can be used for the current CLDRFile (trunk), not only for last-release. Probably
-         * these items should be renamed.
          */
-        private Status getStatus(CLDRFile anOldFile, String path, final String lastValue) {
-            Status lastStatus;
+        private Status getStatus(CLDRFile cldrFile, String path, final String value) {
+            Status status;
             {
                 XPathParts xpp = new XPathParts(null, null);
-                String fullXPath = anOldFile.getFullXPath(path);
-                if (fullXPath == null)
-                    fullXPath = path; // throw new
-                // InternalError("null full xpath for " +
-                // path);
+                String fullXPath = cldrFile.getFullXPath(path);
+                if (fullXPath == null) {
+                    fullXPath = path;
+                }
                 xpp.set(fullXPath);
                 String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
-                lastStatus = draft == null ? Status.approved : VoteResolver.Status.fromString(draft);
+                status = draft == null ? Status.approved : VoteResolver.Status.fromString(draft);
 
                 /*
                  * Reset to missing if the value is inherited from root or code-fallback, unless the XML actually
                  * contains INHERITANCE_MARKER. Pass false for skipInheritanceMarker so that status will not be
                  * missing for explicit INHERITANCE_MARKER. Reference: https://unicode.org/cldr/trac/ticket/11857
                  */
-                final String srcid = anOldFile.getSourceLocaleIdExtended(path, null, false /* skipInheritanceMarker */);
+                final String srcid = cldrFile.getSourceLocaleIdExtended(path, null, false /* skipInheritanceMarker */);
                 if (srcid.equals(XMLSource.CODE_FALLBACK_ID)) {
-                    lastStatus = Status.missing;
+                    status = Status.missing;
                 } else if (srcid.equals("root")) {
                     if (!srcid.equals(diskFile.getLocaleID())) {
-                        lastStatus = Status.missing;
+                        status = Status.missing;
                     }
                 }
-
-                if (false)
-                    System.err.println(fullXPath + " : " + xpp.getAttributeValue(-1, LDMLConstants.DRAFT) + " == " + lastStatus
-                        + " ('" + lastValue + "')");
             }
-            return lastStatus;
+            return status;
         }
 
         /**
@@ -1006,23 +997,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             // Set established locale
             r.setLocale(locale, getPathHeader(path));
 
-            // ticket:11427 we only want *unresolved* last values 
-            // and if the old file is missing, treat as empty.
-            CLDRFile anOldFile = getOldFileResolved(); 
-            if (anOldFile == null) {
-                anOldFile = diskFile; // use 'current' for 'previous' if previous is missing.
-            }
-
-            // set prior release (if present)
-            final String lastValue = anOldFile == null ? null : anOldFile.getStringValue(path);
-            final Status lastStatus = lastValue == null ? Status.missing : getStatus(anOldFile, path, lastValue);
-            if (ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(lastValue)) {
-                r.setLastRelease(lastValue, lastStatus); /* add the last release value */
-            } else {
-                r.setLastRelease(null, Status.missing); /* missing last release value  due to error. */
-            }
-
-            // set current Trunk value (if present)
+            // set current Trunk (baseline) value (if present)
             final String currentValue = diskData.getValueAtDPath(path);
             final Status currentStatus = getStatus(diskFile, path, currentValue);
             if (ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(currentValue)) {

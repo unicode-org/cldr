@@ -643,7 +643,7 @@ public class TestCheckCLDR extends TestFmwk {
                         //String phString = ph.toString();
                         SurveyToolStatus surveyToolStatus = ph.getSurveyToolStatus();
                         dummyPathValueInfo.xpath = path;
-                        dummyPathValueInfo.lastReleaseValue = cldrFileUnresolved.getStringValue(path);
+                        dummyPathValueInfo.baselineValue = cldrFileUnresolved.getStringValue(path);
                         StatusAction action = phase.getShowRowAction(
                             dummyPathValueInfo, 
                             InputMethod.DIRECT, 
@@ -657,7 +657,7 @@ public class TestCheckCLDR extends TestFmwk {
                                 assertEquals("ERROR ==> ALLOW", StatusAction.ALLOW, action);
                             } else if (locale.equalsIgnoreCase("vo")) {
                                 assertEquals("vo ==> FORBID_READONLY", StatusAction.FORBID_READONLY, action);
-                            } else if (dummyPathValueInfo.lastReleaseValue == null) {
+                            } else if (dummyPathValueInfo.baselineValue == null) {
                                 assertEquals("missing ==> ALLOW", StatusAction.ALLOW, action);
                             }
                         }
@@ -675,7 +675,7 @@ public class TestCheckCLDR extends TestFmwk {
                                         surveyToolStatus, 
                                         dummyUserInfo);
                                 }
-                                actionToExamplePath.put(key, Pair.of(dummyPathValueInfo.lastReleaseValue != null, path));
+                                actionToExamplePath.put(key, Pair.of(dummyPathValueInfo.baselineValue != null, path));
                             }
                         }
                     }
@@ -722,7 +722,7 @@ public class TestCheckCLDR extends TestFmwk {
     private static class DummyPathValueInfo implements PathValueInfo {
         private CLDRLocale locale;
         private String xpath;
-        private String lastReleaseValue;
+        private String baselineValue;
         private CheckStatus.Type checkStatusType;
 
         private CandidateInfo candidateInfo = new CandidateInfo() {
@@ -749,8 +749,8 @@ public class TestCheckCLDR extends TestFmwk {
         public CandidateInfo getCurrentItem() {
             return candidateInfo;
         }
-        public String getLastReleaseValue() {
-            return lastReleaseValue;
+        public String getBaselineValue() {
+            return baselineValue;
         }
         public Level getCoverageLevel() {
             return Level.MODERN;

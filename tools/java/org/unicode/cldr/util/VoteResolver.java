@@ -68,6 +68,11 @@ import com.ibm.icu.util.ULocale;
 public class VoteResolver<T> {
     private static final boolean DEBUG = false;
 
+    /*
+     * A placeholder for winningValue when it would otherwise be null.
+     */
+    private static String ERROR_NO_WINNING_VALUE = "error-no-winning-value";
+
     /**
      * The status levels according to the committee, in ascending order
      *
@@ -604,8 +609,6 @@ public class VoteResolver<T> {
     private EnumSet<Organization> conflictedOrganizations = EnumSet
         .noneOf(Organization.class);
     private OrganizationToValueAndVote<T> organizationToValueAndVote = new OrganizationToValueAndVote<T>();
-    private T lastReleaseValue;
-    private Status lastReleaseStatus;
     private T trunkValue;
     private Status trunkStatus;
 
@@ -631,26 +634,6 @@ public class VoteResolver<T> {
     };
 
     /**
-     * Set the last-release value and status for this VoteResolver.
-     *
-     * Assume that we don't need to make any changes for INHERITANCE_MARKER here;
-     * the input will have INHERITANCE_MARKER if appropriate; do nothing special
-     * for a specific value that happens to match the Bailey value.
-     *
-     * Reference: https://unicode.org/cldr/trac/ticket/11857
-     *            https://unicode.org/cldr/trac/ticket/11299
-     *            https://unicode.org/cldr/trac/ticket/11611
-     *            https://unicode.org/cldr/trac/ticket/11420
-     *
-     * @param lastReleaseValue the last-release value
-     * @param lastReleaseStatus the last-release status
-     */
-    public void setLastRelease(T lastReleaseValue, Status lastReleaseStatus) {
-        this.lastReleaseValue = lastReleaseValue;
-        this.lastReleaseStatus = lastReleaseStatus == null ? Status.missing : lastReleaseStatus;
-    }
-
-    /**
      * Set the trunk value and status for this VoteResolver.
      *
      * Assume that we don't need to make any changes for INHERITANCE_MARKER here;
@@ -661,18 +644,12 @@ public class VoteResolver<T> {
      *
      * @param trunkValue the trunk value
      * @param trunkStatus the trunk status
+     * 
+     * TODO: consider renaming: setTrunk to setBaseline; getTrunkValue to getBaselineValue; getTrunkStatus to getBaselineStatus
      */
     public void setTrunk(T trunkValue, Status trunkStatus) {
         this.trunkValue = trunkValue;
         this.trunkStatus = trunkValue == null ? Status.missing : trunkStatus;
-    }
-
-    public T getLastReleaseValue() {
-        return lastReleaseValue;
-    }
-
-    public Status getLastReleaseStatus() {
-        return lastReleaseStatus;
     }
 
     public T getTrunkValue() {
@@ -731,8 +708,6 @@ public class VoteResolver<T> {
      * associated with that base path.
      */
     public void clear() {
-        this.lastReleaseValue = null;
-        this.lastReleaseStatus = Status.missing;
         this.trunkValue = null;
         this.trunkStatus = Status.missing;
         this.setUsingKeywordAnnotationVoting(false);
@@ -866,11 +841,31 @@ public class VoteResolver<T> {
         }
         
         /*
-         * If there are no (unconflicted) votes, return baseline (trunk)
+         * If there are no (unconflicted) votes, return baseline (trunk) if not null,
+         * else INHERITANCE_MARKER if baileySet, else ERROR_NO_WINNING_VALUE.
+         * Avoid setting winningValue to null. VoteResolver should be fully in charge of vote resolution.
+         * Note: formerly if trunkValue was null here, winningValue was set to null, such
+         * as for http://localhost:8080/cldr-apps/v#/aa/Numbering_Systems/7b8ee7884f773afa
+         * -- in spite of which the Survey Tool client displayed "latn" (bailey) in the Winning
+         * column. The behavior was originally implemented on the client (JavaScript) and later
+         * (temporarily) as fixWinningValue in DataSection.java.
          */
         if (sortedValues.size() == 0) {
-            winningStatus = trunkStatus;
-            winningValue = trunkValue;
+            if (trunkValue != null) {
+                winningValue = trunkValue;
+                winningStatus = trunkStatus;
+            } else if (organizationToValueAndVote.baileySet) {
+                winningValue = (T) CldrUtility.INHERITANCE_MARKER;
+                winningStatus = Status.missing;
+            } else {
+                /*
+                 * TODO: When can this still happen? See https://unicode.org/cldr/trac/ticket/11299 "Example C".
+                 * Also http://localhost:8080/cldr-apps/v#/en_CA/Gregorian/
+                 * See also checkDataRowConsistency in DataSection.java.
+                 */
+                winningValue = (T) ERROR_NO_WINNING_VALUE;
+                winningStatus = Status.missing;
+            }
             valuesWithSameVotes.add(winningValue); // may be null
             return;
         }
@@ -1401,7 +1396,6 @@ public class VoteResolver<T> {
     public String toString() {
         return "{"
             + "test: {" + "randomTest }, "
-            + "lastRelease: {" + lastReleaseValue + ", " + lastReleaseStatus + "}, "
             + "bailey: " + (organizationToValueAndVote.baileySet ? ("“" + organizationToValueAndVote.baileyValue + "” ") : "none ")
             + "trunk: {" + trunkValue + ", " + trunkStatus + "}, "
             + organizationToValueAndVote
@@ -1767,9 +1761,9 @@ public class VoteResolver<T> {
     /**
      * Returns a map from value to resolved vote count, in descending order.
      * If the winning item is not there, insert at the front.
-     * If the last-release item is not there, insert at the end.
+     * If the baseline (trunk) item is not there, insert at the end.
      *
-     * @return
+     * @return the map
      */
     public Map<T, Long> getResolvedVoteCounts() {
         if (!resolved) {
@@ -1782,8 +1776,8 @@ public class VoteResolver<T> {
         for (T value : totals.getKeysetSortedByCount(false, votesThenUcaCollator)) {
             result.put(value, totals.get(value));
         }
-        if (lastReleaseValue != null && !totals.containsKey(lastReleaseValue)) {
-            result.put(lastReleaseValue, 0L);
+        if (trunkValue != null && !totals.containsKey(trunkValue)) {
+            result.put(trunkValue, 0L);
         }
         for (T value : organizationToValueAndVote.totalVotes.getMap().keySet()) {
             if (!result.containsKey(value)) {

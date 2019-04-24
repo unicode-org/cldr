@@ -339,7 +339,7 @@ public class TestExampleGenerator extends TestFmwk {
         ExampleGenerator exampleGenerator = getExampleGenerator(locale);
         for (String[] pair : tests) {
             String actual = exampleGenerator.handleCompoundUnit(
-                UnitLength.valueOf(pair[0]), Count.valueOf(pair[1]), "");
+                UnitLength.valueOf(pair[0]), Count.valueOf(pair[1]));
             assertEquals("CompoundUnit", pair[2],
                 ExampleGenerator.simplify(actual, true));
         }

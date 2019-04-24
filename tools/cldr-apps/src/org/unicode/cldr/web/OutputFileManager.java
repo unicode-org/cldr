@@ -385,14 +385,12 @@ public class OutputFileManager {
     }
 
     static final Predicate<String> isAnnotations = x -> x.startsWith("//ldml/annotations");
-//    Map<String,?> skipAnnotations = ImmutableMap.of("SKIP_PATH", isAnnotations);
-//    Map<String,?> keepAnnotations = ImmutableMap.of("SKIP_PATH", isAnnotations.negate());
-//    Map<String, Object> options = CldrUtility.asMap(new Object[][] {
-//        { "SUPPRESS_IM", true } });
+
     Map<String, Object> OPTS_SKIP_ANNOTATIONS = ImmutableMap.of(
         "SKIP_PATH", isAnnotations);
     Map<String, Object> OPTS_KEEP_ANNOTATIONS = ImmutableMap.of(
-        "SKIP_PATH", isAnnotations.negate());
+        "SKIP_PATH", isAnnotations.negate(),
+        "SKIP_FILE_IF_SKIP_ALL_PATHS", true);
 
     /**
      * @param loc
@@ -417,7 +415,9 @@ public class OutputFileManager {
                     File aFile = new File(annotationsDir, outFile.getName()); // same name, different subdir
 //                    System.out.println("Annotation: " + aFile.getAbsolutePath());
                     try (PrintWriter u8outa = new PrintWriter(new OutputStreamWriter(new FileOutputStream(aFile), "UTF8"))) {
-                        file.write(u8outa, OPTS_KEEP_ANNOTATIONS);
+                        if (!file.write(u8outa, OPTS_KEEP_ANNOTATIONS)) {
+                            aFile.delete();
+                        }
                     }
                 } else {
                     file.write(u8out);

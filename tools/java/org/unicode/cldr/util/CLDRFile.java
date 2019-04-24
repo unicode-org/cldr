@@ -106,6 +106,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      *  FALSE - do not use buffering
      */
     private static final boolean USE_LOADING_BUFFER = true;
+    private static final boolean WRITE_COMMENTS_THAT_NO_LONGER_HAVE_BASE = false;
 
     private static final boolean DEBUG = false;
 
@@ -379,8 +380,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * Will update the identity element, including version, and other items.
      * If the CLDRFile is empty, the DTD type will be //ldml.
      */
-    public CLDRFile write(PrintWriter pw) {
-        return write(pw, nullOptions);
+    public void write(PrintWriter pw) {
+        write(pw, nullOptions);
     }
 
     /**
@@ -392,8 +393,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      *            writer to print to
      * @param options
      *            map of options for writing
+     * @return true if we write the file, false if we cancel due to skipping all paths
      */
-    public CLDRFile write(PrintWriter pw, Map<String, ?> options) {
+    public boolean write(PrintWriter pw, Map<String, ?> options) {
         Set<String> orderedSet = new TreeSet<String>(getComparator());
         CollectionUtilities.addAll(dataSource.iterator(), orderedSet);
 
@@ -405,7 +407,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         if (orderedSet.size() > 0) { // May not have any elements.
             firstPath = (String) orderedSet.iterator().next();
-            // Value firstValue = (Value) getXpath_value().get(firstPath);
             firstFullPath = getFullXPath(firstPath);
             parts.set(firstFullPath);
             dtdType = DtdType.valueOf(parts.getElement(0));
@@ -418,13 +419,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             String fixedPath = "../../" + dtdType.dtdPath;
 
             if (options.containsKey("DTD_DIR")) {
-                // String dtdDir = "../../common/dtd/";
                 String dtdDir = options.get("DTD_DIR").toString();
                 fixedPath = dtdDir + dtdType + ".dtd";
             }
-//            if (!path.equals(fixedPath) && dtdType != DtdType.supplementalData) {
-//                throw new IllegalArgumentException("Unexpected dtd path " + fixedPath);
-//            }
             pw.println("<!DOCTYPE " + dtdType + " SYSTEM \"" + fixedPath + "\">");
         }
 
@@ -441,11 +438,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
          */
         // if ldml has any attributes, get them.
         Set<String> identitySet = new TreeSet<String>(getComparator());
-        if (isNonInheriting()) {
-            // identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/version[@number=\"$" +
-            // "Revision: $\"]");
-            // "Date: $\"]");
-        } else {
+        if (!isNonInheriting()) {
             String ldml_identity = "//ldml/identity";
             if (firstFullPath != null) { // if we had a path
                 if (firstFullPath.indexOf("/identity") >= 0) {
@@ -478,10 +471,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         XPathParts.Comments tempComments = (XPathParts.Comments) dataSource.getXpathComments().clone();
         tempComments.fixLineEndings();
 
-        //        MapComparator<String> modAttComp = attributeOrdering;
-        //        if (HACK_ORDER) modAttComp = new MapComparator<String>()
-        //            .add("alt").add("draft").add(modAttComp.getOrder());
-
         MapComparator<String> attributeOrdering2 = getAttributeOrdering();
         XPathParts last = new XPathParts(attributeOrdering2, defaultSuppressionMap);
         XPathParts current = new XPathParts(attributeOrdering2, defaultSuppressionMap);
@@ -508,6 +497,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             lastFiltered = temp;
         }
 
+        boolean wroteAtLeastOnePath = false;
         for (String xpath : orderedSet) {
             if (skipTest != null
                 && skipTest.test(xpath)) {
@@ -517,13 +507,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 continue;
             }
             String v = getStringValue(xpath);
-            if (CldrUtility.INHERITANCE_MARKER.equals(v) && suppressInheritanceMarkers) {
+            if (suppressInheritanceMarkers && CldrUtility.INHERITANCE_MARKER.equals(v)) {
                 continue;
             }
             currentFiltered.set(xpath);
             if (currentFiltered.size() >= 2
-                && currentFiltered.getElement(1).equals("identity"))
+                && currentFiltered.getElement(1).equals("identity")) { 
                 continue;
+            }
             current.set(getFullXPath(xpath));
             current.writeDifference(pw, currentFiltered, last, lastFiltered, v, tempComments);
             // exchange pairs of parts
@@ -533,23 +524,29 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             temp = currentFiltered;
             currentFiltered = lastFiltered;
             lastFiltered = temp;
+            wroteAtLeastOnePath = true;
+        }
+        if (!wroteAtLeastOnePath && options.containsKey("SKIP_FILE_IF_SKIP_ALL_PATHS")) {
+            return false;
         }
         current.clear().writeDifference(pw, null, last, lastFiltered, null, tempComments);
         String finalComment = dataSource.getXpathComments().getFinalComment();
 
-        // write comments that no longer have a base
-        List<String> x = tempComments.extractCommentsWithoutBase();
-        if (x.size() != 0) {
-            String extras = "Comments without bases" + XPathParts.NEWLINE;
-            for (Iterator<String> it = x.iterator(); it.hasNext();) {
-                String key = it.next();
-                // Log.logln("Writing extra comment: " + key);
-                extras += XPathParts.NEWLINE + key;
-            }
-            finalComment += XPathParts.NEWLINE + extras;
+        if (WRITE_COMMENTS_THAT_NO_LONGER_HAVE_BASE) {
+            // write comments that no longer have a base
+            List<String> x = tempComments.extractCommentsWithoutBase();
+            if (x.size() != 0) {
+                String extras = "Comments without bases" + XPathParts.NEWLINE;
+                for (Iterator<String> it = x.iterator(); it.hasNext();) {
+                    String key = it.next();
+                    // Log.logln("Writing extra comment: " + key);
+                    extras += XPathParts.NEWLINE + key;
+                }
+                finalComment += XPathParts.NEWLINE + extras;
+            }            
         }
         XPathParts.writeComment(pw, 0, finalComment, true);
-        return this;
+        return true;
     }
 
     static final Splitter LINE_SPLITTER = Splitter.on('\n');

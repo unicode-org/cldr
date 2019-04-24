@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
@@ -7,7 +7,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 -->
 <ldml>
 	<identity>
-		<version number="$Revision: 10000 $"/>
+		<version number="$Revision: 15019 $"/>
 		<language type="osa"/>
 	</identity>
 	<localeDisplayNames>
@@ -22,11 +22,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</measurementSystemNames>
 	</localeDisplayNames>
 	<characters>
-        <exemplarCharacters>[𐓘 𐓙 𐓚 𐓛 𐓜 𐓝 𐓞 𐓟 𐓠 𐓡 𐓢 𐓣 𐓤 𐓥 𐓦 𐓧 𐓨 𐓩 𐓪 𐓫 𐓬 𐓭 𐓮 𐓯 𐓰 𐓱 𐓲 𐓳 𐓴 𐓵 𐓶 𐓷 𐓸 𐓹 𐓺 𐓻]</exemplarCharacters>
-        <exemplarCharacters type="auxiliary">[{𐓘͘} {𐓛͘} {𐓣͘} {𐓪͘} {𐓘̄} {𐓟̄} {𐓣̄} {𐓪̄} {𐓶̄} {𐓘̄͘} {𐓣̄͘} {𐓪̄͘} {𐓘́} {𐓟́} {𐓣́} {𐓪́} {𐓶́} {𐓘́͘} {𐓣́͘} {𐓪́͘} {𐓙́} {𐓚́} {𐓠́} {𐓫́} {𐓘̋} {𐓟̋} {𐓣̋} {𐓪̋} {𐓶̋} {𐓘̋͘} {𐓣̋͘} {𐓪̋͘}]</exemplarCharacters>
-        <exemplarCharacters type="index">[𐒰 𐒱 𐒲 𐒳 𐒴 𐒵 𐒶 𐒷 𐒸 𐒹 𐒺 𐒻 𐒼 𐒽 𐒾 𐒿 𐓀 𐓁 𐓂 𐓃 𐓄 𐓅 𐓆 𐓇 𐓈 𐓉 𐓊 𐓋 𐓌 𐓍 𐓎 𐓏 𐓐 𐓑 𐓒 𐓓]</exemplarCharacters>
-        <exemplarCharacters type="numbers">[\- , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
-        <exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters>[𐓘 𐓙 𐓚 𐓛 𐓜 𐓝 𐓞 𐓟 𐓠 𐓡 𐓢 𐓣 𐓤 𐓥 𐓦 𐓧 𐓨 𐓩 𐓪 𐓫 𐓬 𐓭 𐓮 𐓯 𐓰 𐓱 𐓲 𐓳 𐓴 𐓵 𐓶 𐓷 𐓸 𐓹 𐓺 𐓻]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[{𐓘͘} {𐓛͘} {𐓣͘} {𐓪͘} {𐓘̄} {𐓟̄} {𐓣̄} {𐓪̄} {𐓶̄} {𐓘̄͘} {𐓣̄͘} {𐓪̄͘} {𐓘́} {𐓟́} {𐓣́} {𐓪́} {𐓶́} {𐓘́͘} {𐓣́͘} {𐓪́͘} {𐓙́} {𐓚́} {𐓠́} {𐓫́} {𐓘̋} {𐓟̋} {𐓣̋} {𐓪̋} {𐓶̋} {𐓘̋͘} {𐓣̋͘} {𐓪̋͘}]</exemplarCharacters>
+		<exemplarCharacters type="index">[𐒰 𐒱 𐒲 𐒳 𐒴 𐒵 𐒶 𐒷 𐒸 𐒹 𐒺 𐒻 𐒼 𐒽 𐒾 𐒿 𐓀 𐓁 𐓂 𐓃 𐓄 𐓅 𐓆 𐓇 𐓈 𐓉 𐓊 𐓋 𐓌 𐓍 𐓎 𐓏 𐓐 𐓑 𐓒 𐓓]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[\- , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -105,7 +105,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="wed">𐒹𐓘͘𐓬𐓘 𐓏𐓟𐓵𐓘𐓜𐓣</day>
 							<day type="thu">𐒹𐓘͘𐓬𐓘 𐓏𐓟𐓰𐓪𐓬𐓘</day>
 							<day type="fri">𐒹𐓘͘𐓬𐓘 𐓈𐓘 𐓵𐓘𐓲𐓘 𐓻𐓣͘</day>
-							<day type="sat">𐒹𐓘͘𐓬𐓘 𐓂𐓤𐓘𐓸𐓟 𐓣͘𐓤𐓟</day>				
+							<day type="sat">𐒹𐓘͘𐓬𐓘 𐓂𐓤𐓘𐓸𐓟 𐓣͘𐓤𐓟</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -222,7 +222,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="duration-second">
 				<displayName draft="provisional">𐓰𐓘𐓲𐓟 𐓤𐓯𐓣𐓵𐓟 𐓻𐓣͘</displayName>
 				<unitPattern count="other">{0} 𐓰𐓘𐓲𐓟 𐓤𐓯𐓣𐓵𐓟 𐓻𐓣͘</unitPattern>
-			</unit>			
+			</unit>
 		</unitLength>
 	</units>
 </ldml>

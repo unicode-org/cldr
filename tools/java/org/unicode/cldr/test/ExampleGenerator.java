@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -151,7 +152,7 @@ public class ExampleGenerator {
     private CLDRFile englishFile;
     Matcher URLMatcher = URL_PATTERN.matcher("");
 
-    private Map<String, String> cache = new HashMap<String, String>();
+    private Map<String, String> cache = new ConcurrentHashMap<String, String>();
 
     private static final String NONE = "\uFFFF";
 

@@ -271,7 +271,7 @@ public class ExampleGenerator {
      * @param xpath
      * @param value
      * @param context
-     * @param type
+     * @param type ExampleType.ENGLISH or ExampleType.NATIVE
      * @return the example HTML, or null
      */
      public String getExampleHtml(String xpath, String value, ExampleContext context, ExampleType type) {

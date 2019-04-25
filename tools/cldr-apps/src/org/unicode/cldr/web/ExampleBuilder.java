@@ -6,7 +6,7 @@ import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.util.CLDRFile;
 
 public class ExampleBuilder {
-    ExampleContext ec_e, ec_n;
+    ExampleContext ec_e, ec_n; /* For ExampleType.ENGLISH and ExampleType.NATIVE */
     ExampleGenerator eg_e, eg_n;
 
     public ExampleBuilder(CLDRFile englishFile, CLDRFile cldrFile) {
@@ -16,6 +16,17 @@ public class ExampleBuilder {
         ec_n = new ExampleContext();
     }
 
+    /**
+     * Get an example string, in html, if there is one for this path, otherwise null.
+     *
+     * @param xpath
+     * @param value
+     * @param type ExampleType.ENGLISH or ExampleType.NATIVE
+     * @return the example HTML, or null
+     * 
+     * Called by DataRow.toJSONString, with type = ExampleType.ENGLISH,
+     * and by CandidateItem.getExample, with type = ExampleType.NATIVE
+     */
     synchronized String getExampleHtml(String xpath, String value, ExampleType type) {
         String s;
         if (type == ExampleType.ENGLISH) {

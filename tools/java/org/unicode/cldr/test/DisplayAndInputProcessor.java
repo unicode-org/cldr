@@ -104,6 +104,7 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale FARSI = CLDRLocale.getInstance("fa");
     private static final CLDRLocale GERMAN_SWITZERLAND = CLDRLocale.getInstance("de_CH");
     private static final CLDRLocale SWISS_GERMAN = CLDRLocale.getInstance("gsw");
+    private static final CLDRLocale FF_ADLAM = CLDRLocale.getInstance("ff_Adlm");
     public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE = new HashSet<String>(
         Arrays.asList("br", "bss", "cch", "gn", "ha", "ha_Latn", "lkt", "mgo", "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
 
@@ -341,6 +342,8 @@ public class DisplayAndInputProcessor {
                 value = replaceChars(path, value, KYRGYZ_CONVERSIONS, false);
             } else if (locale.childOf(URDU) || locale.childOf(PASHTO) || locale.childOf(FARSI)) {
                 value = replaceChars(path, value, URDU_PLUS_CONVERSIONS, true);
+            } else if (locale.childOf(FF_ADLAM) && !isUnicodeSet) {
+                value = fixAdlamNasalization(value);
             }
 
             if (UNICODE_WHITESPACE.containsSome(value)) {
@@ -814,6 +817,14 @@ public class DisplayAndInputProcessor {
     private String replaceArabicPresentationForms(String value) {
         value = fixArabicPresentation.transform(value);
         return value;
+    }
+
+    static Pattern ADLAM_MISNASALIZED = PatternCache.get("([𞤲𞤐])['’‘]([𞤁𞤔𞤘𞤄𞤣𞤦𞤶𞤺])");
+    public static String ADLAM_NASALIZATION = "𞥋"; // U+1E94B (Unicode 12.0)
+
+    public static String fixAdlamNasalization(String fromString) {
+        return ADLAM_MISNASALIZED.matcher(fromString)
+        .replaceAll("$1"+ADLAM_NASALIZATION+"$2");  // replace quote with 𞥋
     }
 
     static Pattern REMOVE_QUOTE1 = PatternCache.get("(\\s)(\\\\[-\\}\\]\\&])()");

@@ -152,7 +152,7 @@
 				<attribute name="Built-By" value="${user.name}" />
 				<attribute name="Main-Class" value="org.unicode.cldr.tool.Main" />
 				<attribute name="Class-Path"
-					value="./libs/${cldr.libs.icu4j} ./libs/${cldr.libs.utilities} ./libs/${cldr.libs.xerces} ./libs/${cldr.libs.guava} ./libs/${cldr.libs.gson} ${cldr.libs.icu4j} ${cldr.libs.utilities} ${cldr.libs.xerces} ${cldr.libs.gson}" />
+					value="./libs/${cldr.libs.icu4j} ./libs/${cldr.libs.utilities} ./libs/${cldr.libs.xerces} ./libs/${cldr.libs.guava} ./libs/${cldr.libs.gson} ${cldr.libs.icu4j} ${cldr.libs.utilities} ${cldr.libs.xerces} ${cldr.libs.gson} ./libs/myanmar-tools-1.1.1.jar" />
 			</manifest>
 		</jar>
 	</target>

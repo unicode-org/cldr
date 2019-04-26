@@ -272,6 +272,38 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         // space
     }
 
+    public void TestAdlamNasalization() {
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info
+            .getCLDRFile("ff_Adlm", false));
+        final String xpath_a = "//ldml/localeDisplayNames/types/type[@type=\"hant\"][@key=\"numbers\"]";
+        final String TEST_DATA[] = {
+            xpath_a,         // xpath
+            "{0} 𞤸𞤭𞤼𞤢𞥄𞤲'𞤣𞤫",  // src 
+            "{0} 𞤸𞤭𞤼𞤢𞥄𞤲"+DisplayAndInputProcessor.ADLAM_NASALIZATION+"𞤣𞤫",   // dst
+
+            xpath_a,         // xpath
+            "𞤐‘𞤄𞤵𞥅𞤯𞤭",  // src 
+            "𞤐"+DisplayAndInputProcessor.ADLAM_NASALIZATION+"𞤄𞤵𞥅𞤯𞤭",   // dst
+
+            xpath_a,
+            "𞤑𞤭𞤶𞤮𞥅𞤪𞤫 𞤖𞤢𞤱𞤪𞤭𞤼𞤵𞤲‘𞤣𞤫 𞤖𞤭𞥅𞤪𞤲𞤢𞥄𞤲‘𞤺𞤫 𞤘𞤪𞤭𞤲𞤤𞤢𞤲𞤣",
+            "𞤑𞤭𞤶𞤮𞥅𞤪𞤫 𞤖𞤢𞤱𞤪𞤭𞤼𞤵𞤲"+DisplayAndInputProcessor.ADLAM_NASALIZATION+"𞤣𞤫 𞤖𞤭𞥅𞤪𞤲𞤢𞥄𞤲"
+                +DisplayAndInputProcessor.ADLAM_NASALIZATION+"𞤺𞤫 𞤘𞤪𞤭𞤲𞤤𞤢𞤲𞤣",
+
+            xpath_a, // no change
+            "'Something' ‘Else’",
+            "‘Something’ ‘Else’" // smart quotes
+        };
+        for (int i=0; i<TEST_DATA.length; i+= 3) {
+            final String xpath = TEST_DATA[i+0];
+            final String src   = TEST_DATA[i+1];
+            final String dst   = TEST_DATA[i+2];
+
+            String value = daip.processInput(xpath, src, null);
+            assertEquals("ff_Adlm: " + src, dst, value);
+        }
+    }
+
     private void showCldrFile(final CLDRFile cldrFile) {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(cldrFile,
             true);

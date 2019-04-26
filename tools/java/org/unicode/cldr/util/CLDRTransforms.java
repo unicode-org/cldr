@@ -942,7 +942,6 @@ public class CLDRTransforms {
     public static class MyHandler extends XMLFileReader.SimpleHandler {
         boolean first = true;
         ParsedTransformID directionInfo;
-        XPathParts parts = new XPathParts();
         String cldrFileName;
         StringBuilder rules = new StringBuilder();
 
@@ -957,15 +956,13 @@ public class CLDRTransforms {
         }
 
         public void handlePathValue(String path, String value) {
-            // private boolean handlePath(String cldrFileName, ParsedTransformID directionInfo, boolean first,
-            // StringBuffer rules, XPathParts parts, String path, String value) {
-            if (first) {
+             if (first) {
                 if (path.startsWith("//supplementalData/version")) {
                     return;
                 } else if (path.startsWith("//supplementalData/generation")) {
                     return;
                 }
-                parts.set(path);
+                XPathParts parts = XPathParts.getTestInstance(path);
                 Map<String, String> attributes = parts.findAttributes("transform");
                 if (attributes == null) {
                     throw new IllegalArgumentException("Not an XML transform file: " + cldrFileName + "\t" + path);

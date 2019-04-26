@@ -71,11 +71,8 @@ public class TestSupplementalData {
             System.out.println(region + "\t" + english.getName("territory", region));
             System.out.println("\t" + zones);
         }
-        List<String> singleCountries = Arrays.asList(
-            new XPathParts()
-                .set(root.getFullXPath("//ldml/dates/timeZoneNames/singleCountries"))
-                .getAttributeValue(-1, "list")
-                .split("\\s+"));
+        XPathParts xpp = XPathParts.getTestInstance(root.getFullXPath("//ldml/dates/timeZoneNames/singleCountries"));
+        List<String> singleCountries = Arrays.asList(xpp.getAttributeValue(-1, "list").split("\\s+"));
         singulars.addAll(singleCountries);
         singulars.remove("Etc/Unknown"); // remove special case
         System.out.println("Excluded Zones (not necessary in Survey tool): " + singulars);

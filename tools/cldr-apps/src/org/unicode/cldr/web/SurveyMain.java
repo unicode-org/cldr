@@ -5272,9 +5272,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public String getMetazoneContinent(String xpath) {
-        XPathParts parts = new XPathParts(null, null);
         SupplementalDataInfo mySupp = getSupplementalDataInfo();
-        parts.set(xpath);
+        XPathParts parts = XPathParts.getTestInstance(xpath);
         String thisMetazone = parts.getAttributeValue(3, "type");
         return mySupp.getMetazoneToContinentMap().get(thisMetazone);
     }
@@ -5393,19 +5392,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @return the active metazone ( where to=null ) if any, or null
      */
     public String zoneToMetaZone(WebContext ctx, String zone, Map<String, String[]> metaMap) {
-        //SurveyMain sm = this;
-        // String returnZone = null;
         String current = null;
-        XPathParts parts = new XPathParts(null, null);
         synchronized (ctx.session) { // TODO: redundant sync?
             SurveyMain.UserLocaleStuff uf = ctx.getUserFile();
-            // CLDRFile cf = uf.cldrfile;
             CLDRFile resolvedFile = uf.resolvedFile;
-            // CLDRFile engFile = ctx.sm.getBaselineFile();
 
             String xpath = "//ldml/" + "dates/timeZoneNames/zone";
             String ourSuffix = "[@type=\"" + zone + "\"]";
-            // String base_xpath = xpath+ourSuffix;
             String podBase = DataSection.xpathToSectionBase(xpath);
 
             metaMap.clear();
@@ -5415,7 +5408,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             for (; mzit.hasNext();) {
                 String ameta = (String) mzit.next();
                 String mfullPath = resolvedFile.getFullXPath(ameta);
-                parts.set(mfullPath);
+                XPathParts parts = XPathParts.getTestInstance(mfullPath);
                 String mzone = parts.getAttributeValue(-1, "mzone");
                 String from = parts.getAttributeValue(-1, "from");
                 if (from == null) {

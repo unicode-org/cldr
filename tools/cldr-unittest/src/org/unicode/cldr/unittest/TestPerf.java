@@ -80,7 +80,7 @@ public class TestPerf extends TestFmwkPlus {
         int size = 0;
         for (String p : testPaths) {
             for (int i = 0; i < ITERATIONS; ++i) {
-                XPathParts xpp = new XPathParts().set(p);
+                XPathParts xpp = XPathParts.getTestInstance(p);
                 size += xpp.size();
             }
         }
@@ -92,10 +92,9 @@ public class TestPerf extends TestFmwkPlus {
         Timer t = new Timer();
         t.start();
         int size = 0;
-        XPathParts xpp = new XPathParts();
         for (String p : testPaths) {
             for (int i = 0; i < ITERATIONS; ++i) {
-                xpp.set(p);
+                XPathParts xpp = XPathParts.getTestInstance(p);
                 size += xpp.size();
             }
         }
@@ -138,9 +137,11 @@ public class TestPerf extends TestFmwkPlus {
         XPathParts normal = new XPathParts();
         DtdData dtdData = DtdData.getInstance(DtdType.ldml);
 
-        XPathParts newParts = new XPathParts(dtdData.getAttributeComparator(),
-            null);
+        XPathParts newParts = new XPathParts(dtdData.getAttributeComparator(), null);
         for (String path : sortedArray) {
+            /*
+             * TODO: getTestInstance; how, for (dtdData.getAttributeComparator(), null)?
+             */
             String newPath = newParts.set(path).toString();
             assertEquals("path", path, newPath);
         }

@@ -1659,11 +1659,10 @@ public class VoteResolver<T> {
      */
     static class VotesHandler extends XMLFileReader.SimpleHandler {
         Map<Integer, Map<Integer, CandidateInfo>> basepathToInfo = new TreeMap<Integer, Map<Integer, CandidateInfo>>();
-        XPathParts parts = new XPathParts();
 
         public void handlePathValue(String path, String value) {
             try {
-                parts.set(path);
+                XPathParts parts = XPathParts.getTestInstance(path);
                 if (parts.size() < 2) {
                     // empty data
                     return;

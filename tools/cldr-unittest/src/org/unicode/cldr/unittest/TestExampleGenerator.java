@@ -234,9 +234,6 @@ public class TestExampleGenerator extends TestFmwk {
                 }
                 continue;
             }
-            if (path.equals("//ldml/localeDisplayNames/localeDisplayPattern/localePattern")) {
-                int debug = 0;
-            }
             String example = exampleGenerator.getExampleHtml(path, value);
             String javaEscapedStarred = "\""
                 + plainStarred.replace("\"", "\\\"") + "\",";
@@ -245,12 +242,6 @@ public class TestExampleGenerator extends TestFmwk {
                     errln("No example:\t<" + value + ">\t" + javaEscapedStarred);
                 }
             } else {
-                // if
-                // (path.equals("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"per\"]/unitPattern[@count=\"one\"]"))
-                // {
-                // String example2 = exampleGenerator.getExampleHtml(path,
-                // value);
-                // }
                 String simplified = ExampleGenerator.simplify(example, false);
 
                 if (simplified.contains("null")) {

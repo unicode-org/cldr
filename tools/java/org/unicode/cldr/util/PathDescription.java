@@ -50,7 +50,6 @@ public class PathDescription {
     // used on instance
 
     private Matcher metazoneMatcher = METAZONE_PATTERN.matcher("");
-    private XPathParts parts = new XPathParts();
     private String starredPathOutput;
     private Output<String[]> pathArguments = new Output<String[]>();
     private EnumSet<Status> status = EnumSet.noneOf(Status.class);
@@ -153,7 +152,7 @@ public class PathDescription {
                 }
             }
             if (isMetazone) {
-                parts.set(path);
+                XPathParts parts = XPathParts.getTestInstance(path);
                 String daylightType = parts.getElement(-1);
                 daylightType = daylightType.equals("daylight") ? "summer" : daylightType.equals("standard") ? "winter"
                     : daylightType;

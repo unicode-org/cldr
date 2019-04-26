@@ -147,7 +147,6 @@ public class ChartCollation extends Chart {
             pathValueList.clear();
             XMLFileReader.loadPathValues(CLDRPaths.COMMON_DIRECTORY + "collation/" + xmlName, pathValueList, true);
             Map<String, Data> data = new TreeMap<>();
-            XPathParts xpp = new XPathParts();
 
             for (Pair<String, String> entry : pathValueList) {
                 String path = entry.getFirst();
@@ -165,8 +164,7 @@ public class ChartCollation extends Chart {
                 if (xmlName.equals("root.xml") && path.equals("//ldml/collations/collation[@type=\"standard\"]")) {
                     continue;
                 }
-
-                xpp.set(path);
+                XPathParts xpp = XPathParts.getTestInstance(path);
                 DraftStatus status = DraftStatus.forString(xpp.findFirstAttributeValue("draft"));
                 if (status == DraftStatus.unconfirmed) {
                     System.out.println("Skipping " + path + " in: " + xmlName + " due to draft status = " + status.toString());
@@ -178,11 +176,6 @@ public class ChartCollation extends Chart {
                     continue;
                 }
                 String type = settingsMatcher.group(1);
-//                if (type.startsWith("private-")) {
-//                    System.out.println("Skipping private-");
-//                    continue;
-//                }
-
                 String otherAttributes = settingsMatcher.group(2);
                 String leaf = settingsMatcher.group(3);
                 String values = settingsMatcher.group(4);

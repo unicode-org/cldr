@@ -50,10 +50,10 @@ public class JsonConverter {
         final String subdirectory = new File(MAIN_DIRECTORY).getName();
         final Factory cldrFactory = Factory.make(MAIN_DIRECTORY, FILES);
         final Set<String> locales = new TreeSet<String>(cldrFactory.getAvailable());
-        final XPathParts oldParts = new XPathParts();
+        /*
+         * TODO: "parts" is always empty, so all the code using it is wasted!
+         */
         final XPathParts parts = new XPathParts();
-        // ElementName elementName = new ElementName();
-        // LinkedHashMap<String, String> nonDistinguishing = new LinkedHashMap<String, String>();
         for (String locale : locales) {
             System.out.println("Converting:\t" + locale);
             final CLDRFile file = cldrFactory.make(locale, false);
@@ -64,7 +64,7 @@ public class JsonConverter {
                 final String xpath = it.next();
                 final String fullXpath = file.getFullXPath(xpath);
                 String value = file.getStringValue(xpath);
-                oldParts.set(fullXpath);
+                XPathParts oldParts = XPathParts.getTestInstance(fullXpath);
                 if (dtdType == null) {
                     dtdType = DtdType.valueOf(parts.getElement(0));
                 }

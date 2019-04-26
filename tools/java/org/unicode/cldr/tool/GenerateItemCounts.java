@@ -293,9 +293,8 @@ public class GenerateItemCounts {
         StringBuilder elementPath = new StringBuilder();
 
         public void add(String path) {
-            parts.set(path);
+            XPathParts parts = XPathParts.getTestInstance(path);
             elementPath.setLength(0);
-            //DtdType type = CLDRFile.DtdType.valueOf(parts.getElement(0));
             for (int i = 0; i < parts.size(); ++i) {
                 String element = parts.getElement(i);
                 elementPath.append('/').append(element);
@@ -363,10 +362,6 @@ public class GenerateItemCounts {
         Matcher prefixMatcher = prefix.matcher("");
         Delta charCount = new Delta();
         Delta itemCount = new Delta();
-        Counter<String> newLength = new Counter<String>();
-        Counter<String> deletedLength = new Counter<String>();
-        Counter<String> changedLength = new Counter<String>();
-        Counter<String> unchangedLength = new Counter<String>();
         Set<String> prefixes = new TreeSet();
         for (String path : union) {
             if (!prefixMatcher.reset(path).find()) {
@@ -594,7 +589,6 @@ public class GenerateItemCounts {
     }
 
     static class MyHandler extends SimpleHandler {
-        XPathParts parts = new XPathParts();
         long valueCount;
         long valueLen;
         long attributeCount;
@@ -614,7 +608,7 @@ public class GenerateItemCounts {
         @Override
         public void handlePathValue(String path, String value) {
             if (type == null) {
-                parts.set(path);
+                XPathParts parts = XPathParts.getTestInstance(path);
                 type = DtdType.valueOf(parts.getElement(0));
             }
 
@@ -654,7 +648,7 @@ public class GenerateItemCounts {
                     }
                 }
             }
-            parts.set(path);
+            XPathParts parts = XPathParts.getTestInstance(path);
             if (isFinal) {
                 capture(type, parts);
             }
@@ -683,7 +677,7 @@ public class GenerateItemCounts {
         }
 
         private String fixKeyPath(String path) {
-            parts.set(path);
+            XPathParts parts = XPathParts.getTestInstance(path);
             for (int i = 0; i < parts.size(); ++i) {
                 String element = parts.getElement(i);
                 if (!SKIP_ORDERING) {

@@ -381,10 +381,9 @@ public class Keyboard {
     private static class PlatformHandler extends SimpleHandler {
         String id;
         Map<String, Iso> hardwareMap = new HashMap<String, Iso>();
-        XPathParts parts = new XPathParts();
 
-        public void handlePathValue(String path, String value) {
-            parts.set(path);
+        public void handlePathValue(String path, @SuppressWarnings("unused") String value) {
+            XPathParts parts = XPathParts.getTestInstance(path);
             // <platform id='android'/>
             id = parts.getAttributeValue(0, "id");
             if (parts.size() > 1) {
@@ -428,7 +427,6 @@ public class Keyboard {
         Map<String, String> currentTransforms = null;
         Map<TransformType, Transforms> transformMap = new EnumMap<TransformType, Transforms>(TransformType.class);
 
-        XPathParts parts = new XPathParts();
         LanguageTagParser ltp = new LanguageTagParser();
 
         public KeyboardHandler(Set<Exception> errorsOutput) {
@@ -442,15 +440,12 @@ public class Keyboard {
             if (currentType != null) {
                 transformMap.put(currentType, new Transforms(currentTransforms));
             }
-//            errors.clear();
-//            errors.addAll(this.errors);
             return new Keyboard(locale, version, platformVersion, names, fallback, keyMaps, transformMap);
         }
 
-        public void handlePathValue(String path, String value) {
-            // System.out.println(path);
+        public void handlePathValue(String path, @SuppressWarnings("unused") String value) {
             try {
-                parts.set(path);
+                XPathParts parts = XPathParts.getTestInstance(path);
                 if (locale == null) {
                     // <keyboard locale='bg-t-k0-chromeos-phonetic'>
                     locale = parts.getAttributeValue(0, "locale");
@@ -470,7 +465,7 @@ public class Keyboard {
                     if (DEBUG) {
                         System.out.println("baseMap: iso=" + iso + ";");
                     }
-                    final Output output = getOutput();
+                    final Output output = getOutput(parts);
                     if (output != null) {
                         iso2output.put(iso, output);
                     }
@@ -489,7 +484,7 @@ public class Keyboard {
                     if (DEBUG) {
                         System.out.println("keyMap: base=" + isoString + ";");
                     }
-                    final Output output = getOutput();
+                    final Output output = getOutput(parts);
                     if (output != null) {
                         iso2output.put(Iso.valueOf(isoString), output);
                     }
@@ -565,7 +560,7 @@ public class Keyboard {
             return b.toString();
         }
 
-        public Output getOutput() {
+        public Output getOutput(XPathParts parts) {
             String chars = null;
             TransformStatus transformStatus = TransformStatus.DEFAULT;
             Map<Gesture, List<String>> gestures = new EnumMap<Gesture, List<String>>(Gesture.class);

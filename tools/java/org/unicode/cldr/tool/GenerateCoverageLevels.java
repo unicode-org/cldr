@@ -114,9 +114,9 @@ public class GenerateCoverageLevels {
 
         PathStore store = new PathStore();
         for (R3<Level, String, Inheritance> item : items) {
-            show(out, cldrFile, item, store);
+            show(out, item, store);
         }
-        show(out, cldrFile, null, store);
+        show(out, null, store);
     }
 
     private static class RowComparator implements Comparator<R3<Level, String, Inheritance>> {
@@ -131,7 +131,7 @@ public class GenerateCoverageLevels {
         }
     }
 
-    private static void show(PrintWriter out, CLDRFile cldrFile, R3<Level, String, Inheritance> next, PathStore store) {
+    private static void show(PrintWriter out, R3<Level, String, Inheritance> next, PathStore store) {
         R5<Level, Inheritance, Integer, String, TreeMap<String, Relation<String, String>>> results = store.add(next);
         if (results != null) {
             Level lastLevel = results.get0();
@@ -181,14 +181,14 @@ public class GenerateCoverageLevels {
                 path = next.get1();
                 inherited = next.get2();
 
-                setParts(nextParts, path);
+                nextParts = setNewParts(path);
                 if (sameElements()) {
                     addDifferences();
                     return null;
                 }
             }
             // clear the values
-            clean(lastParts, differences);
+            clean(differences);
             R5<Level, Inheritance, Integer, String, TreeMap<String, Relation<String, String>>> results = Row.of(
                 lastLevel, lastInheritance, count - 1, lastParts.toString().replace("/", "\u200B/"), differences);
             lastParts = nextParts;
@@ -201,7 +201,7 @@ public class GenerateCoverageLevels {
             return results;
         }
 
-        private void clean(XPathParts lastParts2, TreeMap<String, Relation<String, String>> differences2) {
+        private void clean(TreeMap<String, Relation<String, String>> differences2) {
             for (int i = 0; i < lastParts.size(); ++i) {
                 String element = lastParts.getElement(i);
                 Relation<String, String> attr_values = differences2.get(element);
@@ -212,8 +212,8 @@ public class GenerateCoverageLevels {
             }
         }
 
-        private void setParts(XPathParts parts, String path) {
-            parts.set(path);
+        private XPathParts setNewParts(String path) {
+            XPathParts parts = XPathParts.getTestInstance(path);
             if (path.startsWith("//ldml/dates/timeZoneNames/metazone")
                 || path.startsWith("//ldml/dates/timeZoneNames/zone")) {
                 String element = nextParts.getElement(-1);
@@ -230,6 +230,7 @@ public class GenerateCoverageLevels {
                     parts.addElement("*");
                 }
             }
+            return parts;
         }
 
         private void addDifferences() {
@@ -418,7 +419,6 @@ public class GenerateCoverageLevels {
 
     private static void getRBNFData(String locale, CLDRFile cldrFile, Set<String> ordinals, Set<String> spellout,
         Set<String> others) {
-        XPathParts parts = new XPathParts();
         for (String path : cldrFile) {
             if (path.endsWith("/alias")) {
                 continue;
@@ -429,7 +429,7 @@ public class GenerateCoverageLevels {
             if (skipUnconfirmed(path)) {
                 continue;
             }
-            parts.set(path);
+            XPathParts parts = XPathParts.getTestInstance(path);
             String ruleSetGrouping = parts.getAttributeValue(2, "type");
             if (ruleSetGrouping.equals("SpelloutRules")) {
                 spellout.add(locale);
@@ -509,7 +509,6 @@ public class GenerateCoverageLevels {
     }
 
     private static void getCollationData(String locale, CLDRFile cldrFile, Set<String> localesFound) {
-        XPathParts parts = new XPathParts();
         for (String path : cldrFile) {
             if (path.endsWith("/alias")) {
                 continue;
@@ -523,12 +522,10 @@ public class GenerateCoverageLevels {
             localesFound.add(locale);
 
             String fullPath = cldrFile.getFullXPath(path);
-            if (fullPath == null) fullPath = path;
-            try {
-                parts.set(fullPath);
-            } catch (RuntimeException e) {
-                throw e;
+            if (fullPath == null) {
+                fullPath = path;
             }
+            XPathParts parts = XPathParts.getTestInstance(fullPath);
             String validSubLocales = parts.getAttributeValue(1, "validSubLocales");
             if (validSubLocales != null) {
                 String[] sublocales = validSubLocales.split("\\s+");

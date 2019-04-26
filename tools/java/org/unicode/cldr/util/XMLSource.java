@@ -130,9 +130,14 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      */
     public boolean isDraft(String path) {
         String fullpath = getFullPath(path);
-        if (path == null) return false;
-        if (fullpath.indexOf("[@draft=") < 0) return false;
-        return parts.set(fullpath).containsAttribute("draft");
+        if (path == null) {
+            return false;
+        }
+        if (fullpath.indexOf("[@draft=") < 0) {
+            return false;
+        }
+        XPathParts parts = XPathParts.getTestInstance(fullpath);
+        return parts.containsAttribute("draft");
     }
 
     public boolean isFrozen() {
@@ -316,12 +321,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
             // fullPath will be the same as newPath, except for some attributes at the end.
             // add those attributes to oldPath, starting from the end.
-            XPathParts partsOld = new XPathParts();
-            XPathParts partsNew = new XPathParts();
-            XPathParts partsFull = new XPathParts();
-            partsOld.set(oldPath);
-            partsNew.set(newPath);
-            partsFull.set(fullPath);
+            XPathParts partsOld = XPathParts.getTestInstance(oldPath);
+            XPathParts partsNew = XPathParts.getTestInstance(newPath);
+            XPathParts partsFull = XPathParts.getTestInstance(fullPath);
             Map<String, String> attributesFull = partsFull.getAttributes(-1);
             Map<String, String> attributesNew = partsNew.getAttributes(-1);
             Map<String, String> attributesOld = partsOld.getAttributes(-1);
@@ -779,9 +781,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 // find the differences, and add them into xpath
                 // we do this by walking through each element, adding the corresponding attribute values.
                 // we add attributes FROM THE END, in case the lengths are different!
-                XPathParts xpathParts = new XPathParts().set(xpath);
-                XPathParts fullPathWhereFoundParts = new XPathParts().set(fullPathWhereFound);
-                XPathParts pathWhereFoundParts = new XPathParts().set(fullStatus.pathWhereFound);
+                XPathParts xpathParts = XPathParts.getTestInstance(xpath);
+                XPathParts fullPathWhereFoundParts = XPathParts.getTestInstance(fullPathWhereFound);
+                XPathParts pathWhereFoundParts = XPathParts.getTestInstance(fullStatus.pathWhereFound);
                 int offset = xpathParts.size() - pathWhereFoundParts.size();
 
                 for (int i = 0; i < pathWhereFoundParts.size(); ++i) {

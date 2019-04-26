@@ -35,7 +35,6 @@ import com.ibm.icu.text.DateTimePatternGenerator.PatternInfo;
  */
 class FlexibleDateFromCLDR {
     DateTimePatternGenerator gen = DateTimePatternGenerator.getEmptyInstance();
-    transient XPathParts parts = new XPathParts(null, null);
     private transient ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
 
     static List<String> tests = Arrays.asList(new String[] {
@@ -145,7 +144,8 @@ class FlexibleDateFromCLDR {
         }
         if (path.indexOf("gregorian") < 0) return;
         if (path.indexOf("/appendItem") >= 0) {
-            String key = (String) parts.set(path).getAttributeValue(-1, "request");
+            XPathParts parts = XPathParts.getTestInstance(path);
+            String key = parts.getAttributeValue(-1, "request");
             try {
                 gen.setAppendItemFormat(getIndex(key, APPEND_ITEM_NAME_MAP), value);
             } catch (RuntimeException e) {
@@ -154,7 +154,8 @@ class FlexibleDateFromCLDR {
             return;
         }
         if (path.indexOf("/fields") >= 0) {
-            String key = (String) parts.set(path).getAttributeValue(-2, "type");
+            XPathParts parts = XPathParts.getTestInstance(path);
+            String key = parts.getAttributeValue(-2, "type");
             try {
                 gen.setAppendItemName(getIndex(key, DISPLAY_NAME_MAP), value);
             } catch (RuntimeException e) {
@@ -212,10 +213,12 @@ class FlexibleDateFromCLDR {
         String skeleton = null;
         String strippedPattern = null;
         if (path.contains("dateFormatItem")) {
-            skeleton = (String) parts.set(path).findAttributeValue("dateFormatItem", "id"); // the skeleton
+            XPathParts parts = XPathParts.getTestInstance(path);
+            skeleton = parts.findAttributeValue("dateFormatItem", "id"); // the skeleton
             strippedPattern = gen.getSkeleton(value); // the pattern stripped of literals
         } else if (path.contains("intervalFormatItem")) {
-            skeleton = (String) parts.set(path).findAttributeValue("intervalFormatItem", "id"); // the skeleton
+            XPathParts parts = XPathParts.getTestInstance(path);
+            skeleton = parts.findAttributeValue("intervalFormatItem", "id"); // the skeleton
             strippedPattern = stripLiterals(value); // can't use gen on intervalFormat pattern (throws exception)
         }
         if (skeleton != null && strippedPattern != null) {

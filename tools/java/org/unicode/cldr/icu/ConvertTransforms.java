@@ -160,8 +160,10 @@ public class ConvertTransforms extends CLDRConverterTool {
             String value = cldrFile.getStringValue(path);
             if (first) {
                 String fullPath = cldrFile.getFullXPath(path);
-                filename = addIndexInfo(index, fullPath, id);
-                if (filename == null) return; // not a transform file!
+                filename = addIndexInfo(index, fullPath);
+                if (filename == null) {
+                    return; // not a transform file!
+                }
                 output = FileUtilities.openUTF8Writer(outputDirectory, filename);
                 doHeader(output, "#", filename);
                 first = false;
@@ -235,10 +237,8 @@ public class ConvertTransforms extends CLDRConverterTool {
         return updatedValue;
     }
 
-    static XPathParts parts = new XPathParts();
-
-    private String addIndexInfo(PrintWriter index, String path, String transID) {
-        parts.set(path);
+    private String addIndexInfo(PrintWriter index, String path) {
+        XPathParts parts = XPathParts.getTestInstance(path);
         Map<String, String> attributes = parts.findAttributes("transform");
         if (attributes == null) return null; // error, not a transform file
         String source = attributes.get("source");

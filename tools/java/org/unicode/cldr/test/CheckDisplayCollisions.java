@@ -285,7 +285,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             if (!path.contains("[@count=") || "0".equals(value)) {
                 return this;
             }
-            XPathParts parts = new XPathParts().set(path);
+            XPathParts parts = XPathParts.getTestInstance(path);
             String type = parts.getAttributeValue(-1, "type");
             myPrefix = parts.removeElement(-1).toString();
             matcher = PatternCache.get(myPrefix.replaceAll("\\[", "\\\\[") +
@@ -349,12 +349,12 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             if (path.contains("/decimal") || path.contains("/group")) {
                 return this;
             }
-            XPathParts parts = new XPathParts().set(path);
+            XPathParts parts = XPathParts.getTestInstance(path);
             String currency = parts.getAttributeValue(-2, "type");
             Iterator<String> iterator = paths.iterator();
             while (iterator.hasNext()) {
                 String curVal = iterator.next();
-                parts.set(curVal);
+                parts = XPathParts.getTestInstance(curVal);
                 if (currency.equals(parts.getAttributeValue(-2, "type")) ||
                     curVal.contains("/decimal") || curVal.contains("/group")) {
                     iterator.remove();
@@ -374,7 +374,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             Iterator<String> iterator = paths.iterator();
             while (iterator.hasNext()) {
                 String curVal = iterator.next();
-                parts.set(curVal);
+                parts = XPathParts.getTestInstance(curVal);
                 String unit = parts.getAttributeValue(typeLocation, "type");
                 // we also break the units into two groups: durations and others. Also never collide with a compoundUnitPattern.
                 if (unit == null || myUnit.equals(unit) || isDuration != unit.startsWith("duration") || compoundUnitPatterns.reset(curVal).find()) {
@@ -401,12 +401,12 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         }
         // Collisions between different lengths and counts of the same field are allowed
         if (myType == Type.FIELDS_RELATIVE) {
-            XPathParts parts = new XPathParts().set(path);
+            XPathParts parts = XPathParts.getTestInstance(path);
             String myFieldType = parts.getAttributeValue(3, "type").split("-")[0];
             Iterator<String> iterator = paths.iterator();
             while (iterator.hasNext()) {
                 String curVal = iterator.next();
-                parts.set(curVal);
+                parts = XPathParts.getTestInstance(curVal);
                 String fieldType = parts.getAttributeValue(3, "type").split("-")[0];
                 if (myFieldType.equals(fieldType)) {
                     iterator.remove();
@@ -416,12 +416,12 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         }
         // Collisions between different lengths of the same field are allowed
         if (myType == Type.UNITS_COORDINATE) {
-            XPathParts parts = new XPathParts().set(path);
+            XPathParts parts = XPathParts.getTestInstance(path);
             String myFieldType = (parts.containsElement("displayName"))? "displayName": parts.findAttributeValue("coordinateUnitPattern", "type");
             Iterator<String> iterator = paths.iterator();
             while (iterator.hasNext()) {
                 String curVal = iterator.next();
-                parts.set(curVal);
+                parts = XPathParts.getTestInstance(curVal);
                 String fieldType = (parts.containsElement("displayName"))? "displayName": parts.findAttributeValue("coordinateUnitPattern", "type");
                 if (myFieldType.equals(fieldType)) {
                     iterator.remove();
@@ -649,13 +649,12 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
      */
     private String getRegion(Type type, String xpath) {
         int index = type == Type.ZONE ? -2 : -1;
-        return new XPathParts().set(xpath).getAttributeValue(index, "type");
+        return XPathParts.getTestInstance(xpath).getAttributeValue(index, "type");
     }
 
     /**
      * Map with the exceptions
      */
-    //private Map<String, String> exceptions;
     private Map<String, String> exceptions;
 
     /**

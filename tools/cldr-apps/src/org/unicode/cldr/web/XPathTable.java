@@ -446,8 +446,14 @@ public class XPathTable {
         }
     }
 
-    public String altFromPathToTinyXpath(String path, XPathParts xpp) {
-        return whatFromPathToTinyXpath(path, xpp, LDMLConstants.ALT);
+    /**
+     * 
+     * @param path
+     * @param xpp
+     * @return
+     */
+    public String altFromPathToTinyXpath(String path) {
+        return whatFromPathToTinyXpath(path, LDMLConstants.ALT);
     }
 
     public static String removeAlt(String path) {
@@ -625,9 +631,15 @@ public class XPathTable {
         return newXpath;
     }
 
-    public String whatFromPathToTinyXpath(String path, XPathParts xpp, String what) {
-        xpp.clear();
-        xpp.initialize(path);
+    /**
+     * Get the type attribute for the given path and LDMLConstants
+     *
+     * @param path
+     * @param what LDMLConstants.ALT
+     * @return the type as a string
+     */
+    private String whatFromPathToTinyXpath(String path, String what) {
+        XPathParts xpp = XPathParts.getTestInstance(path);
         Map<String, String> lastAtts = xpp.getAttributes(-1);
         String type = lastAtts.get(what);
         if (type != null) {
@@ -638,23 +650,24 @@ public class XPathTable {
         xpp.removeAttribute(-1, LDMLConstants.DRAFT);
         xpp.removeAttribute(-1, LDMLConstants.REFERENCES);
         // SurveyLog.logger.warning("Type on " + path + " with -1 is " + type );
-        if ((type == null) && (path.indexOf(what) >= 0))
+        if ((type == null) && (path.indexOf(what) >= 0)) {
             try {
-            // less common case - type isn't the last
-            for (int n = -2; (type == null) && ((0 - xpp.size()) < n); n--) {
-            // SurveyLog.logger.warning("Type on n="+n
-            // +", "+path+" with "+n+" is " + type );
-            lastAtts = xpp.getAttributes(n);
-            if (lastAtts != null) {
-            type = lastAtts.get(what);
-            if (type != null) {
-            xpp.removeAttribute(n, what);
-            }
-            }
-            }
+                // less common case - type isn't the last
+                for (int n = -2; (type == null) && ((0 - xpp.size()) < n); n--) {
+                    // SurveyLog.logger.warning("Type on n="+n
+                    // +", "+path+" with "+n+" is " + type );
+                    lastAtts = xpp.getAttributes(n);
+                    if (lastAtts != null) {
+                        type = lastAtts.get(what);
+                        if (type != null) {
+                            xpp.removeAttribute(n, what);
+                        }
+                    }
+                }
             } catch (ArrayIndexOutOfBoundsException aioobe) {
-            // means we ran out of elements.
+                // means we ran out of elements.
             }
+        }
         return type;
     }
 

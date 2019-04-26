@@ -63,7 +63,6 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
     PluralInfo pluralInfo;
     Relation<String, String> missingTests = Relation.of(new TreeMap(), TreeSet.class);
 
-    XPathParts parts = new XPathParts(null, null);
     static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
 
     public CheckAttributeValues(Factory factory) {
@@ -86,9 +85,11 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         if (!getCldrFileToCheck().getLocaleID().equals(locale)) {
             return this;
         }
-        parts.set(fullPath);
+        XPathParts parts = XPathParts.getTestInstance(fullPath);
         for (int i = 0; i < parts.size(); ++i) {
-            if (parts.getAttributeCount(i) == 0) continue;
+            if (parts.getAttributeCount(i) == 0) {
+                continue;
+            }
             Map<String, String> attributes = parts.getAttributes(i);
             String element = parts.getElement(i);
             Element elementInfo = ldmlDtdData.getElementFromName().get(element);

@@ -86,13 +86,13 @@ public class CheckYear {
                 skeleton.replace("yyyy", "y"), localeId);
             String key = skeleton + "*" + stock.charAt(0);
             recordBase(base, skeleton, dateTimePattern);
-            recordYearStuff(base, key, dateTimePattern);
+            recordYearStuff(key, dateTimePattern);
         }
 
         public void record(String skeleton, String dateTimePattern) {
             String base = getBaseSkeleton(skeleton);
             recordBase(base, skeleton, dateTimePattern);
-            recordYearStuff(base, skeleton, dateTimePattern);
+            recordYearStuff(skeleton, dateTimePattern);
         }
 
         public void recordBase(String base, String skeleton,
@@ -125,8 +125,7 @@ public class CheckYear {
             return s;
         }
 
-        private void recordYearStuff(String base, String skeleton,
-            String dateTimePattern) {
+        private void recordYearStuff(String skeleton, String dateTimePattern) {
             // do the year stuff
             if (!dateTimePattern.contains("y")) {
                 return;
@@ -208,8 +207,7 @@ public class CheckYear {
             Set<Integer> secondComponents = new HashSet<Integer>();
             for (Object item : formatParser.set(intervalPattern).getItems()) {
                 if (item instanceof String) {
-                    Object quoteLiteral = formatParser.quoteLiteral(item
-                        .toString());
+                    Object quoteLiteral = formatParser.quoteLiteral(item.toString());
                     b.append(quoteLiteral);
                     goodSoFar = result.length();
                     result.append(quoteLiteral);
@@ -319,7 +317,6 @@ public class CheckYear {
 
     public static void gatherInfo(Factory factory, String calendarID,
         Map<String, String> sorted) throws IOException {
-        XPathParts parts = new XPathParts();
 
         for (Entry<String, String> entry : sorted.entrySet()) {
             String localeId = entry.getValue();
@@ -345,7 +342,8 @@ public class CheckYear {
                 .in(file.iterator("//ldml/dates/calendars/calendar[@type=\""
                     + calendarID
                     + "\"]/dateTimeFormats/availableFormats/dateFormatItem"))) {
-                String key = parts.set(path).getAttributeValue(-1, "id");
+                XPathParts parts = XPathParts.getTestInstance(path);
+                String key = parts.getAttributeValue(-1, "id");
                 String value = file.getStringValue(path);
                 localeInfo.record(key, value);
             }
@@ -353,8 +351,9 @@ public class CheckYear {
                 .in(file.iterator("//ldml/dates/calendars/calendar[@type=\""
                     + calendarID
                     + "\"]/dateTimeFormats/intervalFormats/intervalFormatItem"))) {
-                String skeleton = parts.set(path).getAttributeValue(-2, "id");
-                String diff = parts.set(path).getAttributeValue(-1, "id");
+                XPathParts parts = XPathParts.getTestInstance(path);
+                String skeleton = parts.getAttributeValue(-2, "id");
+                String diff = parts.getAttributeValue(-1, "id");
                 String value = file.getStringValue(path);
                 localeInfo.record(skeleton + "/" + diff, value);
             }

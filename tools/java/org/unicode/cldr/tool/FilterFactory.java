@@ -26,7 +26,6 @@ import org.unicode.cldr.util.RegexFileParser;
 import org.unicode.cldr.util.RegexFileParser.RegexLineParser;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
@@ -48,7 +47,6 @@ public class FilterFactory extends Factory {
 
     private Factory rawFactory;
     private String organization;
-    private SupplementalDataInfo supplementalData;
     private boolean modifyValues;
 
     private List<Modifier> modifiers = new ArrayList<Modifier>();
@@ -66,7 +64,6 @@ public class FilterFactory extends Factory {
     private FilterFactory(Factory rawFactory, String organization, boolean modifyValues) {
         this.rawFactory = rawFactory;
         this.organization = organization;
-        supplementalData = SupplementalDataInfo.getInstance();
         setSupplementalDirectory(rawFactory.getSupplementalDirectory());
         this.modifyValues = modifyValues;
     }
@@ -155,13 +152,14 @@ public class FilterFactory extends Factory {
         String parent = LocaleIDParser.getParent(rawFile.getLocaleID());
         CLDRFile resolvedParent = rawFactory.make(parent, true);
         List<String> duplicatePaths = new ArrayList<String>();
-        XPathParts parts = new XPathParts();
         for (String xpath : rawFile) {
-            if (xpath.startsWith("//ldml/identity")) continue;
+            if (xpath.startsWith("//ldml/identity")) {
+                continue;
+            }
             String value = rawFile.getStringValue(xpath);
             // Remove count="x" if the value is equivalent to count="other".
             if (xpath.contains("[@count=")) {
-                parts.set(xpath);
+                XPathParts parts = XPathParts.getTestInstance(xpath);
                 String count = parts.getAttributeValue(-1, "count");
                 if (!count.equals("other")) {
                     parts.setAttribute(-1, "count", "other");

@@ -254,7 +254,7 @@ public class CasingInfo {
         public void handlePathValue(String path, String value) {
             // Parse casing info.
             if (path.contains("casingItem")) {
-                XPathParts parts = new XPathParts().set(path);
+                XPathParts parts = XPathParts.getTestInstance(path); // frozen should be OK
                 Category category = Category.valueOf(parts.getAttributeValue(-1, "type").replace('-', '_'));
                 CasingType casingType = CasingType.valueOf(value);
                 boolean errFlag = Boolean.parseBoolean(parts.getAttributeValue(-1, "forceError"));

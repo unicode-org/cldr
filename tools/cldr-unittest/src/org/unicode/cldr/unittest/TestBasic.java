@@ -367,7 +367,6 @@ public class TestBasic extends TestFmwkPlus {
     }
 
     public void TestCurrencyFallback() {
-        XPathParts parts = new XPathParts();
         Factory cldrFactory = testInfo.getCldrFactory();
         Set<String> currencies = testInfo.getStandardCodes().getAvailableCodes(
             "currency");
@@ -385,7 +384,6 @@ public class TestBasic extends TestFmwkPlus {
             final UnicodeSet OK_CURRENCY_FALLBACK = (UnicodeSet) new UnicodeSet(
                 "[\\u0000-\\u00FF]").addAll(safeExemplars(file, ""))
                     .addAll(safeExemplars(file, "auxiliary"))
-//                .addAll(safeExemplars(file, "currencySymbol"))
                     .freeze();
             UnicodeSet badSoFar = new UnicodeSet();
 
@@ -397,10 +395,8 @@ public class TestBasic extends TestFmwkPlus {
                 String value = file.getStringValue(path);
 
                 // check for special characters
-
                 if (CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS.containsSome(value)) {
-
-                    parts.set(path);
+                    XPathParts parts = XPathParts.getTestInstance(path);
                     if (!parts.getElement(-1).equals("symbol")) {
                         continue;
                     }
@@ -419,8 +415,7 @@ public class TestBasic extends TestFmwkPlus {
                         List<String> fallbackList = fallbacks
                             .getSubstitutes(fishyCodepoint);
 
-                        String nfkc = Normalizer.normalize(fishyCodepoint,
-                            Normalizer.NFKC);
+                        String nfkc = Normalizer.normalize(fishyCodepoint, Normalizer.NFKC);
                         if (!nfkc.equals(UTF16.valueOf(fishyCodepoint))) {
                             if (fallbackList == null) {
                                 fallbackList = new ArrayList<String>();
@@ -558,7 +553,6 @@ public class TestBasic extends TestFmwkPlus {
             new TreeMap<String, Set<String>>(), TreeSet.class);
         Relation<String, String> nonDistinguishing = Relation.of(
             new TreeMap<String, Set<String>>(), TreeSet.class);
-        XPathParts parts = new XPathParts();
         Factory cldrFactory = testInfo.getCldrFactory();
         CLDRFile english = testInfo.getEnglish();
 
@@ -626,10 +620,11 @@ public class TestBasic extends TestFmwkPlus {
                     continue;
 
                 String fullPath = file.getFullXPath(path);
-                parts.set(fullPath);
+                XPathParts parts = XPathParts.getTestInstance(fullPath);
                 for (int i = 0; i < parts.size(); ++i) {
-                    if (parts.getAttributeCount(i) == 0)
+                    if (parts.getAttributeCount(i) == 0) {
                         continue;
+                    }
                     String element = parts.getElement(i);
                     for (String attribute : parts.getAttributeKeys(i)) {
                         if (skipAttributes.contains(attribute))
@@ -1498,7 +1493,7 @@ public class TestBasic extends TestFmwkPlus {
             dtdType = overrideDtdType;
         }
 
-        public void handlePathValue(String path, String value) {
+        public void handlePathValue(String path, @SuppressWarnings("unused") String value) {
             if (dtdType == null) {
                 try {
                     dtdType = DtdType.fromPath(path);

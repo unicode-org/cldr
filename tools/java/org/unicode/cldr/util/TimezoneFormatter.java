@@ -172,8 +172,8 @@ public class TimezoneFormatter extends UFormat {
             + " Europe/London Pacific/Auckland Pacific/Tahiti";
         String temp = desiredLocaleFile.getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
         if (temp != null) {
-            singleCountriesList = (String) new XPathParts(null, null).set(temp).findAttributeValue("singleCountries",
-                "list");
+            XPathParts xpp = XPathParts.getTestInstance(temp);
+            singleCountriesList = (String) xpp.findAttributeValue("singleCountries", "list");
         }
         singleCountriesSet = new TreeSet<String>(CldrUtility.splitList(singleCountriesList, ' '));
     }

@@ -92,8 +92,6 @@ public class TestPathsModule extends TestFmwk {
     private class MyHandler extends SimpleHandler {
         final List<PathTest> tests;
 
-        final XPathParts fullParts = new XPathParts();
-
         public MyHandler(File dir, String filename, List<PathTest> tests2) {
             tests = tests2;
             for (PathTest test : tests) {
@@ -108,7 +106,7 @@ public class TestPathsModule extends TestFmwk {
             if (!VALUE_FILTER.reset(value).find()) {
                 return;
             }
-            fullParts.set(path);
+            XPathParts fullParts = XPathParts.getTestInstance(path);
             for (PathTest test : tests) {
                 test.test(fullParts, value);
             }

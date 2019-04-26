@@ -501,12 +501,13 @@ public class CLDRTest extends TestFmwk {
      * @param xpathFailures
      */
     public static void checkAttributeValidity(CLDRFile item, Map<String, Set<String>> badCodes, Set<String> xpathFailures) {
-        XPathParts parts = new XPathParts(null, null);
         for (Iterator<String> it2 = item.iterator(); it2.hasNext();) {
             String xpath = it2.next();
-            parts.set(item.getFullXPath(xpath));
+            XPathParts parts = XPathParts.getTestInstance(item.getFullXPath(xpath));
             for (int i = 0; i < parts.size(); ++i) {
-                if (parts.getAttributeCount(i) == 0) continue;
+                if (parts.getAttributeCount(i) == 0) {
+                    continue;
+                }
                 String element = parts.getElement(i);
                 Map<String, String> attributes = parts.getAttributes(i);
                 for (Iterator<String> it3 = attributes.keySet().iterator(); it3.hasNext();) {
@@ -659,6 +660,9 @@ public class CLDRTest extends TestFmwk {
         for (Iterator<String> it = supp.iterator(); it.hasNext();) {
             String path = it.next();
             try {
+                /*
+                 * TODO: getTestInstance; how with (new UTF16.StringComparator(), null)?
+                 */
                 parts.set(supp.getFullXPath(path));
                 Map<String, String> m;
                 String type = "";

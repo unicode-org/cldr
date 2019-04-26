@@ -137,8 +137,7 @@ public class ICUServiceBuilder {
         String importPath = "//ldml/collations/collation[@visibility=\"external\"][@type=\"" + collationType + "\"]/import[@type=\"standard\"]";
         if (collationFile.isHere(importPath)) {
             String fullPath = collationFile.getFullXPath(importPath);
-            XPathParts xpp = new XPathParts();
-            xpp.set(fullPath);
+            XPathParts xpp = XPathParts.getTestInstance(fullPath);
             String importSource = xpp.getAttributeValue(-1, "source");
             String importType = xpp.getAttributeValue(-1, "type");
             CLDRLocale importLocale = CLDRLocale.getInstance(importSource);

@@ -502,22 +502,27 @@ public class TestMisc {
         Set<String> cldrFiles = cldrFactory.getAvailableLanguages();
         Set<String> distinguishing = new TreeSet<String>();
         Set<String> nondistinguishing = new TreeSet<String>();
-        XPathParts parts = new XPathParts();
         for (Iterator<String> it = cldrFiles.iterator(); it.hasNext();) {
             CLDRFile cldrFile = cldrFactory.make(it.next(), false);
             DtdType dtdType = null;
-            if (cldrFile.isNonInheriting()) continue;
+            if (cldrFile.isNonInheriting()) {
+                continue;
+            }
             for (Iterator<String> it2 = cldrFile.iterator(); it2.hasNext();) {
                 String path = it2.next();
                 if (dtdType == null) {
                     dtdType = DtdType.fromPath(path);
                 }
                 String fullPath = cldrFile.getFullXPath(path);
-                if (path.equals(fullPath)) continue;
-                parts.set(fullPath);
+                if (path.equals(fullPath)) {
+                    continue;
+                }
+                XPathParts parts = XPathParts.getTestInstance(fullPath);
                 for (int i = 0; i < parts.size(); ++i) {
                     Map<String, String> m = parts.getAttributes(i);
-                    if (m.size() == 0) continue;
+                    if (m.size() == 0) {
+                        continue;
+                    }
                     String element = parts.getElement(i);
                     for (Iterator<String> mit = m.keySet().iterator(); mit.hasNext();) {
                         String attribute = mit.next();
@@ -564,19 +569,24 @@ public class TestMisc {
         String requestedLocale = "en";
         CLDRFile cldrFile = cldrFactory.make(requestedLocale, true);
         StandardCodes sc = StandardCodes.make();
-        XPathParts parts = new XPathParts();
         Set<String> careAbout = new HashSet<String>(Arrays.asList(new String[] { "language", "script", "territory", "variant" }));
         HashMap<String, Set<String>> foundItems = new HashMap<String, Set<String>>();
         TreeSet<String> problems = new TreeSet<String>();
         for (Iterator<String> it = cldrFile.iterator("", new UTF16.StringComparator(true, false, 0)); it.hasNext();) {
             String requestedPath = it.next();
-            parts.set(requestedPath);
+            XPathParts parts = XPathParts.getTestInstance(requestedPath);
             String element = parts.getElement(-1);
-            if (!careAbout.contains(element)) continue;
+            if (!careAbout.contains(element)) {
+                continue;
+            }
             String type = parts.getAttributeValue(-1, "type");
-            if (type == null) continue;
+            if (type == null) {
+                continue;
+            }
             Set<String> foundSet = (Set<String>) foundItems.get(element);
-            if (foundSet == null) foundItems.put(element, foundSet = new TreeSet<String>());
+            if (foundSet == null) {
+                foundItems.put(element, foundSet = new TreeSet<String>());
+            }
             foundSet.add(type);
 
             List<String> data = sc.getFullData(element, type);
@@ -625,13 +635,11 @@ public class TestMisc {
         CLDRFile supp = cldrFactory.make("supplementalData", false);
         CLDRFile temp = SimpleFactory.makeFile("supplemental");
         temp.setNonInheriting(true);
-        XPathParts parts = new XPathParts(null, null);
         for (Iterator<String> it = supp.iterator(null, supp.getComparator()); it.hasNext();) {
             String path = it.next();
             String value = supp.getStringValue(path);
             String fullPath = supp.getFullXPath(path);
-            parts.set(fullPath);
-            // Map attributes = parts.getAttributes(-1);
+            XPathParts parts = XPathParts.getTestInstance(fullPath);
             String type = parts.getAttributeValue(-1, "type");
             String pop = (String) language_territory_hack_map.get(type);
             if (pop != null) {

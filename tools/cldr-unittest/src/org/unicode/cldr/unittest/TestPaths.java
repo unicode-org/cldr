@@ -294,7 +294,6 @@ public class TestPaths extends TestFmwkPlus {
     public void TestNonLdml() {
         int maxPerDirectory = getInclusion() <= 5 ? 20 : Integer.MAX_VALUE;
         CheckDeprecated checkDeprecated = new CheckDeprecated(this);
-        XPathParts parts = new XPathParts();
         PathStarrer starrer = new PathStarrer();
         StringBuilder removed = new StringBuilder();
         Set<String> nonFinalValues = new LinkedHashSet<>();
@@ -331,11 +330,10 @@ public class TestPaths extends TestFmwkPlus {
                     DtdType type = null;
                     DtdData dtdData = null;
                     String fullName = dir2 + "/" + file;
-                    //logln(fullName);
                     for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(fullName, new ArrayList<Pair<String, String>>(), true)) {
                         String path = pathValue.getFirst();
                         final String value = pathValue.getSecond();
-                        parts.set(path);
+                        XPathParts parts = XPathParts.getTestInstance(path);
                         if (dtdData == null) {
                             type = DtdType.valueOf(parts.getElement(0));
                             dtdData = DtdData.getInstance(type);
@@ -417,7 +415,7 @@ public class TestPaths extends TestFmwkPlus {
     }
 
     private void checkParts(String path, DtdData dtdData) {
-        XPathParts parts = new XPathParts().set(path);
+        XPathParts parts = XPathParts.getTestInstance(path);
         Element current = dtdData.ROOT;
         for (int i = 0; i < parts.size(); ++i) {
             String elementName = parts.getElement(i);

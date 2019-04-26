@@ -400,7 +400,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
         SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
         CLDRFile english = testInfo.getEnglish();
-        XPathParts xpp = new XPathParts();
 
         // Calculate date of the upcoming CLDR release, minus 5 years (deprecation policy)
         final int versionNumber = Integer.valueOf((CLDRFile.GEN_VERSION).split("\\.")[0]);
@@ -420,7 +419,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
         for (String path : english.fullIterable()) {
             logln("Testing path => " + path);
-            xpp.set(path);
+            XPathParts xpp = XPathParts.getTestInstance(path);
             if (path.endsWith("/alias") || path.matches("//ldml/(identity|contextTransforms|layout|localeDisplayNames/transformNames)/.*")) {
                 continue;
             }

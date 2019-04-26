@@ -639,29 +639,25 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * @return the Status
          */
         private Status getStatus(CLDRFile cldrFile, String path, final String value) {
-            Status status;
-            {
-                XPathParts xpp = new XPathParts(null, null);
-                String fullXPath = cldrFile.getFullXPath(path);
-                if (fullXPath == null) {
-                    fullXPath = path;
-                }
-                xpp.set(fullXPath);
-                String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
-                status = draft == null ? Status.approved : VoteResolver.Status.fromString(draft);
+            String fullXPath = cldrFile.getFullXPath(path);
+            if (fullXPath == null) {
+                fullXPath = path;
+            }
+            XPathParts xpp = XPathParts.getTestInstance(fullXPath);
+            String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
+            Status status = draft == null ? Status.approved : VoteResolver.Status.fromString(draft);
 
-                /*
-                 * Reset to missing if the value is inherited from root or code-fallback, unless the XML actually
-                 * contains INHERITANCE_MARKER. Pass false for skipInheritanceMarker so that status will not be
-                 * missing for explicit INHERITANCE_MARKER. Reference: https://unicode.org/cldr/trac/ticket/11857
-                 */
-                final String srcid = cldrFile.getSourceLocaleIdExtended(path, null, false /* skipInheritanceMarker */);
-                if (srcid.equals(XMLSource.CODE_FALLBACK_ID)) {
+            /*
+             * Reset to missing if the value is inherited from root or code-fallback, unless the XML actually
+             * contains INHERITANCE_MARKER. Pass false for skipInheritanceMarker so that status will not be
+             * missing for explicit INHERITANCE_MARKER. Reference: https://unicode.org/cldr/trac/ticket/11857
+             */
+            final String srcid = cldrFile.getSourceLocaleIdExtended(path, null, false /* skipInheritanceMarker */);
+            if (srcid.equals(XMLSource.CODE_FALLBACK_ID)) {
+                status = Status.missing;
+            } else if (srcid.equals("root")) {
+                if (!srcid.equals(diskFile.getLocaleID())) {
                     status = Status.missing;
-                } else if (srcid.equals("root")) {
-                    if (!srcid.equals(diskFile.getLocaleID())) {
-                        status = Status.missing;
-                    }
                 }
             }
             return status;

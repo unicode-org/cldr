@@ -2298,8 +2298,7 @@ public class DataSection implements JSONString {
                     zoneIterator = sm.getMetazones(pieces[1]);
                 } else { // This is just a single metazone from a zoom-in
                     Set<String> singleZone = new HashSet<String>();
-                    XPathParts xpp = new XPathParts();
-                    xpp.set(xpathPrefix);
+                    XPathParts xpp = XPathParts.getTestInstance(xpathPrefix);
                     String singleMetazoneName = xpp.findAttributeValue("metazone", "type");
                     if (singleMetazoneName == null) {
                         throw new NullPointerException("singleMetazoneName is null for xpp:" + xpathPrefix);
@@ -2707,7 +2706,7 @@ public class DataSection implements JSONString {
         }
 
         // determine 'alt' param
-        String alt = sm.xpt.altFromPathToTinyXpath(xpath, xpp);
+        String alt = sm.xpt.altFromPathToTinyXpath(xpath);
 
         /* FULL path processing (references.. alt proposed.. ) */
         xpp.clear();

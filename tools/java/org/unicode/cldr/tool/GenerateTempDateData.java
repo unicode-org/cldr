@@ -24,7 +24,6 @@ public class GenerateTempDateData {
     public static void main(String[] args) throws IOException {
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Set<String> x = cldrFactory.getAvailable();
-        XPathParts parts = new XPathParts();
         PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "datedata/", "DateData.java");
         pw.println("package com.ibm.icu.impl.data;");
         pw.println("import java.util.ListResourceBundle;");
@@ -39,18 +38,21 @@ public class GenerateTempDateData {
                 String path = it2.next();
                 if (path.indexOf("dateTimeFormats/availableFormats/dateFormatItem") >= 0) {
                     gotOne = doHeader(pw, locale, gotOne);
-                    String id = parts.set(path).getAttributeValue(-1, "id");
+                    XPathParts parts = XPathParts.getTestInstance(path);
+                    String id = parts.getAttributeValue(-1, "id");
                     String pattern = file.getStringValue(path);
                     pw.println("     {\"pattern/" + id + "\",\"" + com.ibm.icu.impl.Utility.escape(pattern) + "\"},");
                 } else if (path.indexOf("dateTimeFormats/appendItems") >= 0) {
                     gotOne = doHeader(pw, locale, gotOne);
-                    String request = parts.set(path).getAttributeValue(-1, "request");
+                    XPathParts parts = XPathParts.getTestInstance(path);
+                    String request = parts.getAttributeValue(-1, "request");
                     String pattern = file.getStringValue(path);
                     pw.println("     {\"append/" + request + "\",\"" + com.ibm.icu.impl.Utility.escape(pattern)
                         + "\"},");
                 } else if (path.indexOf("fields/field") >= 0) {
                     gotOne = doHeader(pw, locale, gotOne);
-                    String type = parts.set(path).getAttributeValue(-2, "type");
+                    XPathParts parts = XPathParts.getTestInstance(path);
+                    String type = parts.getAttributeValue(-2, "type");
                     String pattern = file.getStringValue(path);
                     pw.println("     {\"field/" + type + "\",\"" + com.ibm.icu.impl.Utility.escape(pattern) + "\"},");
                 }

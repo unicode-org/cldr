@@ -21,7 +21,6 @@ public class CheckCasing extends CheckCLDR {
     // remember to add this class to the list in CheckCLDR.getCheckAll
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*Currencies.*
 
-    XPathParts parts = new XPathParts(); // used to parse out a path
     ULocale uLocale = null;
     BreakIterator breaker = null;
 
@@ -43,7 +42,7 @@ public class CheckCasing extends CheckCLDR {
         if (fullPath.indexOf("casing") < 0) return this;
 
         // pick up the casing attributes from the full path
-        parts.set(fullPath);
+        XPathParts parts = XPathParts.getTestInstance(fullPath); // frozen should be OK
 
         Case caseTest = Case.mixed;
         for (int i = 0; i < parts.size(); ++i) {

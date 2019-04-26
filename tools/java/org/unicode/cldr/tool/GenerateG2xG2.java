@@ -378,6 +378,9 @@ public class GenerateG2xG2 {
                     // <region iso3166="AR">
                     // <currency iso4217="ARS" from="1992-01-01"/>
                     if (path.indexOf("/region") >= 0) {
+                        /*
+                         * TODO: getTestInstance; how, with (new UTF16.StringComparator(), null)?
+                         */
                         parts.set(supp.getFullXPath(path));
                         Map<String, String> attributes = parts.getAttributes(parts.size() - 2);
                         String iso3166 = attributes.get("iso3166");

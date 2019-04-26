@@ -132,14 +132,10 @@ public class TestScriptMetadata extends TestFmwkPlus {
     }
 
     // lifted from ShowLanguages
-    private static Set<String> getEnglishTypes(String type, int code,
-        StandardCodes sc, CLDRFile english) {
-        Set<String> result = new HashSet<String>(
-            sc.getSurveyToolDisplayCodes(type));
-        XPathParts parts = new XPathParts();
-        for (Iterator<String> it = english.getAvailableIterator(code); it
-            .hasNext();) {
-            parts.set(it.next());
+    private static Set<String> getEnglishTypes(String type, int code, StandardCodes sc, CLDRFile english) {
+        Set<String> result = new HashSet<String>(sc.getSurveyToolDisplayCodes(type));
+        for (Iterator<String> it = english.getAvailableIterator(code); it.hasNext();) {
+            XPathParts parts = XPathParts.getTestInstance(it.next());
             String newType = parts.getAttributeValue(-1, "type");
             if (!result.contains(newType)) {
                 result.add(newType);

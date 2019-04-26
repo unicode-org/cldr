@@ -1,13 +1,11 @@
 package org.unicode.cldr.tool;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
 
 import org.unicode.cldr.test.CasingInfo;
 import org.unicode.cldr.test.CheckConsistentCasing.CasingType;
@@ -25,7 +23,6 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.DisplayContext;
 import com.ibm.icu.text.LocaleDisplayNames;
 import com.ibm.icu.text.UnicodeSet;
@@ -71,7 +68,6 @@ public class GenerateCasingChart {
         CasingInfo casingInfo = new CasingInfo();
         String dir = CLDRPaths.COMMON_DIRECTORY + "/casing";
         Splitter period = Splitter.on(".");
-        Relation<Map<Category, CasingType>, String> infoToLocales = Relation.of(new HashMap(), TreeSet.class);
         Factory factory = CLDRConfig.getInstance().getFullCldrFactory();
 
         System.out.print("Locale\tLevel\tCount\tCLanguage");
@@ -85,7 +81,6 @@ public class GenerateCasingChart {
 
         boolean showCasing = false;
         UnicodeSet changesUpper = new UnicodeSet("[:CWU:]").freeze();
-        XPathParts parts = new XPathParts();
         for (String localeFile : new File(dir).list()) {
             String locale = period.split(localeFile).iterator().next();
             Map<Category, CasingTypeAndErrFlag> info;
@@ -121,7 +116,6 @@ public class GenerateCasingChart {
                 System.out.println("\tNo Context Items");
                 continue;
             }
-            //System.out.print(hasCasedLetters ? "\tCased" : "\tUncased");
             if (showCasing) {
                 for (Category x : Category.values()) {
                     CasingType value = info.get(x).type();
@@ -135,7 +129,7 @@ public class GenerateCasingChart {
                 /*  <contextTransformUsage type="day-format-except-narrow">
                 <contextTransform type="stand-alone">titlecase-firstword</contextTransform>
                  */
-                parts.set(path);
+                XPathParts parts = XPathParts.getTestInstance(path);
                 ContextTransformUsage contextTransformUsage = ContextTransformUsage.valueOf(parts.getAttributeValue(-2, "type")
                     .replace("-", "_"));
                 ContextTransformType contextTransformType = ContextTransformType.valueOf(parts.getAttributeValue(-1, "type")

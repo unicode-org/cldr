@@ -494,9 +494,9 @@ public class ChartDelta extends Chart {
         if (Objects.equals(fullPathCurrent, fullPathOld)) {
             return;
         }
-        XPathParts pathPlain = new XPathParts().set(path);
-        XPathParts pathCurrent = fullPathCurrent == null ? pathPlain : new XPathParts().set(fullPathCurrent);
-        XPathParts pathOld = fullPathOld == null ? pathPlain : new XPathParts().set(fullPathOld);
+        XPathParts pathPlain = XPathParts.getTestInstance(path);
+        XPathParts pathCurrent = fullPathCurrent == null ? pathPlain : XPathParts.getTestInstance(fullPathCurrent);
+        XPathParts pathOld = fullPathOld == null ? pathPlain : XPathParts.getTestInstance(fullPathOld);
         TreeSet<String> fullAttributes = null;
         int size = pathCurrent.size();
         String parentAndName = parentAndName(sourceDir, locale);

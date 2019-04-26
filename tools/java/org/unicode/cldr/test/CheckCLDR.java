@@ -458,11 +458,6 @@ abstract public class CheckCLDR {
             }
         }
 
-        private Options clear(Option o) {
-            set(o, null);
-            return this;
-        }
-
         private Options clear() {
             for (int i = 0; i < options.length; i++) {
                 options[i] = null;
@@ -956,7 +951,7 @@ abstract public class CheckCLDR {
         public abstract String getHTML(Map<String, String> postArguments) throws Exception;
 
         /**
-         * Only here for compatibiltiy. Use the other getHTML instead
+         * Only here for compatibility. Use the other getHTML instead
          */
         public final String getHTML(String path, String fullPath, String value) throws Exception {
             return getHTML(internalPostArguments);
@@ -976,13 +971,6 @@ abstract public class CheckCLDR {
             internalPostArguments.putAll(postArguments);
             return true;
         }
-        // /**
-        // * Utility for setting map. Use the paradigm in CheckNumbers.
-        // */
-        // public boolean putIfDifferent(Map inout, String key, String value) {
-        // Object oldValue = inout.put(key, value);
-        // return !value.equals(oldValue);
-        // }
     }
 
     public static abstract class FormatDemo extends SimpleDemo {
@@ -1165,6 +1153,7 @@ abstract public class CheckCLDR {
         return handleGetExamples(path, fullPath, value, options, result);
     }
 
+    @SuppressWarnings("unused")
     protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Options options2,
         List<CheckStatus> result) {
         return this; // NOOP unless overridden

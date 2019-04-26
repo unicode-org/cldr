@@ -13,7 +13,6 @@ public class CheckUnits extends CheckCLDR {
     private static final Pattern HOUR_SYMBOL = PatternCache.get("h{1,2}");
     private static final Pattern MINUTE_SYMBOL = PatternCache.get("m{1,2}");
     private static final Pattern SECONDS_SYMBOL = PatternCache.get("ss");
-    private static XPathParts xpp = new XPathParts();
 
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
@@ -53,7 +52,7 @@ public class CheckUnits extends CheckCLDR {
             return this;
         }
 
-        xpp.set(path);
+        XPathParts xpp = XPathParts.getTestInstance(path);
         String durationUnitType = xpp.findAttributeValue("durationUnit", "type");
         boolean hasHourSymbol = HOUR_SYMBOL.matcher(value).find();
         boolean hasMinuteSymbol = MINUTE_SYMBOL.matcher(value).find();

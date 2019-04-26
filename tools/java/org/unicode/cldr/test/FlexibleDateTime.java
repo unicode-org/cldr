@@ -65,113 +65,17 @@ public class FlexibleDateTime {
 
     public static PrintWriter log;
 
-    // private static void generate(String[] args) throws IOException {
-    // log = FileUtilities.openUTF8Writer(Utility.GEN_DIRECTORY + "/flex/", "log.txt");
-    // String filter = ".*";
-    // if (args.length > 0)
-    // filter = args[0];
-    //
-    // Factory cldrFactory = Factory.make(Utility.BASE_DIRECTORY
-    // + "open_office/main/", filter);
-    // Factory mainCLDRFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
-    // FormatParser fp = new FormatParser();
-    // // fix locale list
-    // Collection ooLocales = new LinkedHashSet(cldrFactory.getAvailable());
-    // ooLocales.remove("nb_NO"); // hack, since no_NO is the main one, and subsumes nb
-    // Map localeMap = new LocaleIDFixer().fixLocales(ooLocales, new TreeMap());
-    // //pw.println(localeMap);
-    //
-    // for (Iterator it = localeMap.keySet().iterator(); it.hasNext();) {
-    // String sourceLocale = (String) it.next();
-    // String targetLocale = (String) localeMap.get(sourceLocale);
-    // ULocale uSourceLocale = new ULocale(sourceLocale);
-    // ULocale uTargetLocale = new ULocale(targetLocale);
-    // log.println();
-    // log.println(uTargetLocale.getDisplayName(ULocale.ENGLISH) + " (" + uTargetLocale + ")");
-    // System.out.println(sourceLocale + "\t\u2192" + uTargetLocale.getDisplayName(ULocale.ENGLISH) + " (" +
-    // uTargetLocale + ")");
-    // if (!sourceLocale.equals(targetLocale)) {
-    // log.println("[oo: " + uSourceLocale.getDisplayName(ULocale.ENGLISH) + " (" + sourceLocale + ")]");
-    // }
-    // Collection list = getOOData(cldrFactory, sourceLocale);
-    // // get the current values
-    // try {
-    // Collection currentList = getDateFormats(mainCLDRFactory, targetLocale);
-    // list.removeAll(currentList);
-    // } catch (RuntimeException e) {
-    // // ignore
-    // }
-    //
-    // if (list.size() == 0) {
-    // log.println(sourceLocale + "\tEMPTY!"); // skip empty
-    // continue;
-    // }
-    // CLDRFile temp = CLDRFile.make(targetLocale);
-    // String prefix =
-    // "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@_q=\"";
-    //
-    // int count = 0;
-    // Map previousID = new HashMap();
-    // for (Iterator it2 = list.iterator(); it2.hasNext();) {
-    // String pattern = (String) it2.next();
-    // new SimpleDateFormat(pattern); // check that compiles
-    // fp.set(pattern);
-    // String id = fp.getVariableFieldString();
-    // if (!allowedDateTimeCharacters.containsAll(id)) throw new IllegalArgumentException("Illegal characters in: " +
-    // pattern);
-    // if (id.length() == 0) {
-    // throw new IllegalArgumentException("Empty id for: " + pattern);
-    // }
-    // String previous = (String) previousID.get(id);
-    // if (previous != null) {
-    // log.println("Skipping Duplicate pattern: " + pattern + " (already have " + previous + ")");
-    // continue;
-    // } else {
-    // previousID.put(id, pattern);
-    // }
-    // String path = prefix + (count++) + "\"]";
-    // temp.add(path, pattern);
-    // }
-    // PrintWriter pw = FileUtilities.openUTF8Writer(Utility.GEN_DIRECTORY + "/flex/", targetLocale + ".xml");
-    // temp.write(pw);
-    // pw.close();
-    // log.flush();
-    // }
-    // System.out.println("done");
-    // log.close();
-    // }
-    //
-    // private static Collection<String> getDateFormats(Factory mainCLDRFactory, String targetLocale) {
-    // List<String> result = new ArrayList<String>();
-    // XPathParts parts = new XPathParts(null, null);
-    // CLDRFile currentFile = null;
-    // String oldTargetLocale = targetLocale;
-    // // do fallback
-    // do {
-    // try {
-    // currentFile = mainCLDRFactory.make(targetLocale, true);
-    // } catch (RuntimeException e) {
-    // targetLocale = LocaleIDParser.getParent(targetLocale);
-    // if (targetLocale == null) {
-    // throw (IllegalArgumentException) new IllegalArgumentException("Couldn't open " + oldTargetLocale).initCause(e);
-    // }
-    // log.println("FALLING BACK TO " + targetLocale + " from " + oldTargetLocale);
-    // }
-    // } while (currentFile == null);
-    // for (String path : currentFile ) {
-    // if (!isGregorianPattern(path, parts)) continue;
-    // String value = currentFile.getWinningValue(path);
-    // result.add(value);
-    // //log.println("adding " + path + "\t" + value);
-    // }
-    // return result;
-    // }
-
-    public static boolean isGregorianPattern(String path, XPathParts parts) {
-        if (path.indexOf("Formats") < 0) return false; // quick exclude
-        parts.set(path);
-        if (parts.size() < 8 || !parts.getElement(7).equals("pattern")) return false;
-        if (!parts.containsAttributeValue("type", "gregorian")) return false;
+    public static boolean isGregorianPattern(String path) {
+        if (path.indexOf("Formats") < 0) {
+            return false; // quick exclude
+        }
+        XPathParts parts = XPathParts.getTestInstance(path);
+        if (parts.size() < 8 || !parts.getElement(7).equals("pattern")) {
+            return false;
+        }
+        if (!parts.containsAttributeValue("type", "gregorian")) {
+            return false;
+        }
         return true;
     }
 
@@ -225,21 +129,18 @@ public class FlexibleDateTime {
         {
             Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
-            XPathParts parts = new XPathParts(null, null);
             for (Iterator<String> it = supp.iterator("//supplementalData/metadata/alias/"); it.hasNext();) {
                 String path = it.next();
-                // System.out.println(path);
-                // if (!path.startsWith("//supplementalData/metadata/alias/")) continue;
-                parts.set(supp.getFullXPath(path));
-                // Map attributes = parts.getAttributes(3);
+                XPathParts parts = XPathParts.getTestInstance(supp.getFullXPath(path));
                 String type = parts.getAttributeValue(3, "type");
                 String replacement = parts.getAttributeValue(3, "replacement");
                 if (parts.getElement(3).equals("languageAlias")) {
                     languageAlias.put(type, replacement);
                 } else if (parts.getElement(3).equals("territoryAlias")) {
                     territoryAlias.put(type, replacement);
-                } else
-                    throw new IllegalArgumentException("Unexpected type: " + path);
+                } else {
+                    throw new IllegalArgumentException("Unexpected type: " + path);                    
+                }
             }
             // special hack for OpenOffice
             territoryAlias.put("CB", "029");
@@ -409,7 +310,7 @@ public class FlexibleDateTime {
             for (Iterator<Object> it = fp.getItems().iterator(); it.hasNext();) {
                 Object item = it.next();
                 if (item instanceof VariableField) {
-                    buffer.append(handleOOTime(item.toString(), locale, isAM >= 0));
+                    buffer.append(handleOOTime(item.toString(), isAM >= 0));
                 } else {
                     buffer.append(item);
                 }
@@ -417,7 +318,7 @@ public class FlexibleDateTime {
             return buffer.toString();
         }
 
-        private String handleOOTime(String string, String locale, boolean isAM) {
+        private String handleOOTime(String string, boolean isAM) {
             char c = string.charAt(0);
             switch (c) {
             case 'h':
@@ -469,13 +370,17 @@ public class FlexibleDateTime {
 
     static Collection<String> getOOData(Factory cldrFactory, String locale) {
         List<String> result = new ArrayList<String>();
-        XPathParts parts = new XPathParts(null, null);
         OOConverter ooConverter = new OOConverter();
         {
-            if (SHOW_OO) System.out.println();
+            if (SHOW_OO) {
+                System.out.println();
+            }
             CLDRFile item = cldrFactory.make(locale, false);
             for (String xpath : item) {
-                if (!isGregorianPattern(xpath, parts)) continue;
+                if (!isGregorianPattern(xpath)) {
+                    continue;
+                }
+                XPathParts parts = XPathParts.getTestInstance(xpath);
                 boolean isDate = parts.getElement(4).equals("dateFormats");
                 boolean isTime = parts.getElement(4).equals("timeFormats");
                 String value = item.getWinningValue(xpath);

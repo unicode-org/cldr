@@ -439,7 +439,6 @@ public class GenerateXMB {
         boolean isEnglish, boolean filter) throws IOException {
 
         String extension = "xml";
-        XPathParts xpathParts = new XPathParts();
         Relation<String, String> reasonsToPaths = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         Set<String> seenStarred = new HashSet<String>();
 
@@ -504,7 +503,7 @@ public class GenerateXMB {
             if (!isEnglish) {
                 String fullPath = cldrFile.getFullXPath(path);
                 if (fullPath.contains("draft")) {
-                    xpathParts.set(fullPath);
+                    XPathParts xpathParts = XPathParts.getTestInstance(fullPath);
                     String draftValue = xpathParts.getAttributeValue(-1, "draft");
                     if (!draftValue.equals("contributed")) {
                         reasonsToPaths.put(draftValue, path + "\t" + value);

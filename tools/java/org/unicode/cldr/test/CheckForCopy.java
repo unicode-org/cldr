@@ -14,9 +14,6 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.RegexLookup;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
-import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.lang.CharSequences;
@@ -26,8 +23,6 @@ import com.ibm.icu.util.ICUException;
 public class CheckForCopy extends FactoryCheckCLDR {
 
     private static final boolean DEBUG = CldrUtility.getProperty("DEBUG", false);
-
-    XPathParts parts = new XPathParts();
 
     public CheckForCopy(Factory factory) {
         super(factory);
@@ -174,7 +169,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
 
         // Check for attributes.
         // May override English test
-        parts.set(path);
+        XPathParts parts = XPathParts.getTestInstance(path);
         int elementCount = parts.size();
         for (int i = 2; i < elementCount; ++i) {
             Map<String, String> attributes = parts.getAttributes(i);
@@ -233,57 +228,18 @@ public class CheckForCopy extends FactoryCheckCLDR {
         LanguageTagParser ltp = new LanguageTagParser().set(localeID);
         String lang = ltp.getLanguage();
         UnicodeSet exemplars = cldrFileToCheck.getExemplarSet("main", CLDRFile.WinningChoice.WINNING);
-        if (lang.equals("en") || lang.equals("root") || exemplars != null && ASCII_LETTER.containsNone(exemplars)) { // skip
-            // non-Latin,
-            // because
-            // the
-            // exemplar
-            // set
-            // will
-            // check
+        /*
+         * skip non-Latin, because the exemplar set will check
+         */
+        if (lang.equals("en") || lang.equals("root") || exemplars != null && ASCII_LETTER.containsNone(exemplars)) {
             setSkipTest(true);
-            if (DEBUG) System.out.println("CheckForCopy: Skipping: " + localeID);
+            if (DEBUG) {
+                System.out.println("CheckForCopy: Skipping: " + localeID);
+            }
             return this;
         }
 
-        // generateExcludedItems(cldrFileToCheck);
-
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         return this;
-    }
-
-    private void generateExcludedItems(CLDRFile cldrFileToCheck) {
-        // find the names of langauges that are the same in themselves as in English
-        SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck
-            .getSupplementalDirectory());
-
-        Set<String> locales = getFactory().getAvailable();
-        for (String locale : locales) {
-            if (locale.contains("_") || locale.equals("en")) continue;
-            CLDRFile nativeFile = getFactory().make(locale, false);
-
-            String englishName = getDisplayInformation().getName(CLDRFile.LANGUAGE_NAME, locale);
-            if (englishName == null) continue;
-            String nativeName = nativeFile.getName(CLDRFile.LANGUAGE_NAME, locale);
-            if (CharSequences.equals(englishName, nativeName)) {
-                System.out.println('"' + locale + "\", // " + englishName);
-            }
-
-            final Set<String> territoriesForPopulationData = supplementalData.getTerritoriesForPopulationData(locale);
-            if (territoriesForPopulationData != null) {
-                for (String territory : territoriesForPopulationData) {
-                    PopulationData popData = supplementalData.getLanguageAndTerritoryPopulationData(locale, territory);
-                    final OfficialStatus officialStatus = popData.getOfficialStatus();
-                    if (officialStatus == OfficialStatus.unknown) {
-                        continue;
-                    }
-                    englishName = getDisplayInformation().getName(CLDRFile.TERRITORY_NAME, territory);
-                    nativeName = nativeFile.getName(CLDRFile.TERRITORY_NAME, territory);
-                    if (CharSequences.equals(englishName, nativeName)) {
-                        System.out.println('"' + territory + "\", // " + englishName);
-                    }
-                }
-            }
-        }
     }
 }

@@ -499,58 +499,10 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
                 result.add(checkStatus);
             }
-
-            // result.add(new CheckStatus()
-            // .setCause(this).setMainType(statusType).setSubtype(Subtype.dateSymbolCollision)
-            // .setMessage("Date symbol value {0} duplicates an earlier symbol in the same set, for {1}", value,
-            // typeForPrev));
-
-            // // Test for duplicate date symbol names (in format wide/abbrev months/days/quarters, or any context/width
-            // dayPeriods/eras)
-            // int truncateAt = path.lastIndexOf("[@type="); // want path without any final [@type="sun"], [@type="12"],
-            // etc.
-            // if ( truncateAt >= 0 ) {
-            // String truncPath = path.substring(0,truncateAt);
-            // if ( calPathsToSymbolMaps.containsKey(truncPath) ) {
-            // // Need to check whether this symbol duplicates another
-            // String type = path.substring(truncateAt); // the final part e.g. [@type="am"]
-            // Map<String, String> mapForThisPath = calPathsToSymbolMaps.get(truncPath);
-            // if ( mapForThisPath == null ) {
-            // mapForThisPath = new HashMap<String, String>();
-            // mapForThisPath.put(value, type);
-            // calPathsToSymbolMaps.put(truncPath, mapForThisPath);
-            // } else if ( !mapForThisPath.containsKey(value) ) {
-            // mapForThisPath.put(value, type);
-            // calPathsToSymbolMaps.put(truncPath, mapForThisPath);
-            // } else {
-            // // this value duplicates a previous one in the same set. May be only a warning.
-            // String statusType = CheckStatus.errorType;
-            // String typeForPrev = mapForThisPath.get(value);
-            // if (path.contains("/eras/")) {
-            // statusType = CheckStatus.warningType;
-            // } else if (path.contains("/dayPeriods/")) {
-            // // certain duplicates only merit a warning:
-            // // "am" and "morning", "noon" and "midDay", "pm" and "afternoon"
-            // String typeEquiv = dayPeriodsEquivMap.get(type);
-            // if ( typeForPrev.equals(typeEquiv) ) {
-            // statusType = CheckStatus.warningType;
-            // }
-            // }
-            // result.add(new CheckStatus()
-            // .setCause(this).setMainType(statusType).setSubtype(Subtype.dateSymbolCollision)
-            // .setMessage("Date symbol value {0} duplicates an earlier symbol in the same set, for {1}", value,
-            // typeForPrev));
-            // }
-            // }
-            // }
-
             DateTimePatternType dateTypePatternType = DateTimePatternType.fromPath(path);
             if (DateTimePatternType.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(dateTypePatternType)) {
                 boolean patternBasicallyOk = false;
                 try {
-                    if (dateTypePatternType != DateTimePatternType.INTERVAL) {
-                        SimpleDateFormat sdf = new SimpleDateFormat(value);
-                    }
                     formatParser.set(value);
                     patternBasicallyOk = true;
                 } catch (RuntimeException e) {
@@ -703,7 +655,7 @@ public class CheckDates extends FactoryCheckCLDR {
         try {
             if (path.indexOf("/pattern") >= 0 && path.indexOf("/dateTimeFormat") < 0
                 || path.indexOf("/dateFormatItem") >= 0) {
-                checkPattern2(path, fullPath, value, result);
+                checkPattern2(path, value, result);
             }
         } catch (Exception e) {
             // don't worry about errors
@@ -711,13 +663,10 @@ public class CheckDates extends FactoryCheckCLDR {
         return this;
     }
 
-    // Calendar myCal = Calendar.getInstance(TimeZone.getTimeZone("America/Denver"));
-    // TimeZone denver = TimeZone.getTimeZone("America/Denver");
     static final SimpleDateFormat neutralFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", ULocale.ENGLISH);
     static {
         neutralFormat.setTimeZone(ExampleGenerator.ZONE_SAMPLE);
     }
-    XPathParts pathParts = new XPathParts(null, null);
 
     // Get Date-Time in milliseconds
     private static long getDateTimeinMillis(int year, int month, int date, int hourOfDay, int minute, int second) {
@@ -747,8 +696,7 @@ public class CheckDates extends FactoryCheckCLDR {
                         "Your pattern ({0}) is probably incorrect; abbreviated month/weekday/quarter names that need a period should include it in the name, rather than adding it to the pattern.",
                         value));
         }
-
-        pathParts.set(path);
+        XPathParts pathParts = XPathParts.getTestInstance(path);
         String calendar = pathParts.findAttributeValue("calendar", "type");
         String id;
         switch (dateTypePatternType) {
@@ -806,52 +754,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     .setSubtype(Subtype.illegalDatePattern)
                     .setMessage("{0}", new Object[] { failureMessage }));
             }
-
-            // if (redundants.contains(value)) {
-            // result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
-            // .setMessage("Redundant with some pattern (or combination)", new Object[]{}));
-            // }
         }
-        // String calendar = pathParts.findAttributeValue("calendar", "type");
-        // if (path.indexOf("\"full\"") >= 0) {
-        // // for date, check that era is preserved
-        // // TODO fix naked constants
-        // SimpleDateFormat y = icuServiceBuilder.getDateFormat(calendar, 4, 4);
-        // //String trial = "BC 4004-10-23T2:00:00Z";
-        // //Date dateSource = neutralFormat.parse(trial);
-        // Date dateSource = new Date(date4004BC);
-        // int year = dateSource.getYear() + 1900;
-        // if (year > 0) {
-        // year = 1-year;
-        // dateSource.setYear(year - 1900);
-        // }
-        // //myCal.setTime(dateSource);
-        // String result2 = y.format(dateSource);
-        // Date backAgain;
-        // try {
-        //
-        // backAgain = y.parse(result2,parsePosition);
-        // } catch (ParseException e) {
-        // // TODO Auto-generated catch block
-        // e.printStackTrace();
-        // }
-        // //String isoBackAgain = neutralFormat.format(backAgain);
-        //
-        // if (false && path.indexOf("/dateFormat") >= 0 && year != backAgain.getYear()) {
-        // CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
-        // .setMessage("Need Era (G) in full format.", new Object[]{});
-        // result.add(item);
-        // }
-
-        // formatParser.set(value);
-        // String newValue = toString(formatParser);
-        // if (!newValue.equals(value)) {
-        // CheckStatus item = new CheckStatus().setType(CheckStatus.warningType)
-        // .setMessage("Canonical form would be {0}", new Object[]{newValue});
-        // result.add(item);
-        // }
-        // find the variable fields
-
         if (dateTypePatternType == DateTimePatternType.STOCK) {
             int style = 0;
             String len = pathParts.findAttributeValue("timeFormatLength", "type");
@@ -1188,32 +1091,11 @@ public class CheckDates extends FactoryCheckCLDR {
         return result.toString();
     }
 
-    private void checkPattern2(String path, String fullPath, String value, List<CheckStatus> result) throws ParseException {
-        pathParts.set(path);
+    private void checkPattern2(String path, String value, List<CheckStatus> result) throws ParseException {
+        XPathParts pathParts = XPathParts.getTestInstance(path);
         String calendar = pathParts.findAttributeValue("calendar", "type");
         SimpleDateFormat x = icuServiceBuilder.getDateFormat(calendar, value);
         x.setTimeZone(ExampleGenerator.ZONE_SAMPLE);
-
-        // Object[] arguments = new Object[samples.length];
-        // for (int i = 0; i < samples.length; ++i) {
-        // String source = getRandomDate(date1950, date2010); // samples[i];
-        // Date dateSource = neutralFormat.parse(source);
-        // String formatted = x.format(dateSource);
-        // String reparsed;
-        //
-        // parsePosition.setIndex(0);
-        // Date parsed = x.parse(formatted, parsePosition);
-        // if (parsePosition.getIndex() != formatted.length()) {
-        // reparsed = "Couldn't parse past: " + formatted.substring(0,parsePosition.getIndex());
-        // } else {
-        // reparsed = neutralFormat.format(parsed);
-        // }
-        //
-        // arguments[i] = source + " \u2192 \u201C\u200E" + formatted + "\u200E\u201D \u2192 " + reparsed;
-        // }
-        // result.add(new CheckStatus()
-        // .setCause(this).setType(CheckStatus.exampleType)
-        // .setMessage(SampleList, arguments));
         result.add(new MyCheckStatus()
             .setFormat(x)
             .setCause(this).setMainType(CheckStatus.demoType));

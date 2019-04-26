@@ -67,8 +67,7 @@ public class PivotData {
         String defaultContentList = supplementalMetadata.getFullXPath("//supplementalData/metadata/defaultContent",
             true);
 
-        XPathParts parts = new XPathParts();
-        parts.set(defaultContentList);
+        XPathParts parts = XPathParts.getTestInstance(defaultContentList);
         String list = parts.getAttributeValue(-1, "locales");
         String[] items = list.split("\\s+");
         for (String item : items) {
@@ -206,7 +205,6 @@ public class PivotData {
 
     private int addPathsAndValuesFrom(CLDRFile toModify, Set<String> uniquePaths, CLDRFile toAddFrom, boolean override) {
         int changeCount = 0;
-        XPathParts parts = new XPathParts();
         for (String path : uniquePaths) {
             String fullPath = null, value = null, oldFullXPath = null, oldValue = null;
             fullPath = toAddFrom.getFullXPath(path);
@@ -224,7 +222,8 @@ public class PivotData {
                             + toModify.getLocaleID());
                     }
                     if (override && oldFullXPath != null) {
-                        Map<String, String> attributes = parts.set(oldFullXPath).getAttributes(-1);
+                        XPathParts parts = XPathParts.getTestInstance(oldFullXPath);
+                        Map<String, String> attributes = parts.getAttributes(-1);
                         String alt = attributes.get("alt");
                         if (alt == null) {
                             attributes.put("alt", "proposed-x999");

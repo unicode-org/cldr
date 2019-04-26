@@ -1034,22 +1034,17 @@ public class Misc {
         CLDRFile english = cldrFactory.make("en", true);
         Collator col = Collator.getInstance(new ULocale(locale));
         CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
-        XPathParts parts = new XPathParts(null, null);
         for (Iterator<String> it = supp.iterator(); it.hasNext();) {
             String path = it.next();
-            parts.set(supp.getFullXPath(path));
+            XPathParts parts = XPathParts.getTestInstance(supp.getFullXPath(path));
             Map<String, String> m = parts.findAttributes("language");
-            if (m == null) continue;
-            if (false) System.out.println("Type: " + m.get("type")
-                + "\tscripts: " + m.get("scripts")
-                + "\tterritories: " + m.get("territories"));
         }
 
         // territories
         Map<String, Collection<String>> groups = new TreeMap<String, Collection<String>>();
         for (Iterator<String> it = supp.iterator(); it.hasNext();) {
             String path = it.next();
-            parts.set(supp.getFullXPath(path));
+            XPathParts parts = XPathParts.getTestInstance(supp.getFullXPath(path));
             Map<String, String> m = parts.findAttributes("territoryContainment");
             if (m == null) continue;
             Map<String, String> attributes = parts.getAttributes(2);
@@ -1057,19 +1052,6 @@ public class Misc {
             Collection<String> contents = CldrUtility
                 .splitList(attributes.get("contains"), ' ', true, new ArrayList<String>());
             groups.put(type, contents);
-            if (false) {
-                System.out.print("\t\t<group type=\"" + fixNumericKey(type)
-                    + "\" contains=\"");
-                boolean first = true;
-                for (Iterator<String> it2 = contents.iterator(); it2.hasNext();) {
-                    if (first)
-                        first = false;
-                    else
-                        System.out.print(" ");
-                    System.out.print(fixNumericKey(it2.next()));
-                }
-                System.out.println("\"> <!--" + desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, type) + " -->");
-            }
         }
         Set<String> seen = new TreeSet<String>();
         printTimezonesToLocalize(log, desiredLocaleFile, groups, seen, col, false, english);
@@ -1077,15 +1059,9 @@ public class Misc {
         Set<String> codes = sc.getAvailableCodes("territory");
         Set<String> missing = new TreeSet<String>(codes);
         missing.removeAll(seen);
-        if (false) {
-            if (missing.size() != 0) System.out.println("Missing: ");
-            for (Iterator<String> it = missing.iterator(); it.hasNext();) {
-                String key = it.next();
-                // String name = english.getName(CLDRFile.TERRITORY_NAME, key, false);
-                System.out.println("\t" + key + "\t" + sc.getFullData("territory", key));
-            }
+        if (log != null) {
+            log.close();
         }
-        if (log != null) log.close();
     }
 
     // <ldml><localeDisplayNames><territories>

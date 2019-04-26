@@ -1186,22 +1186,11 @@ public class SupplementalDataInfo {
         CLDRScriptCodes = newScripts.build();
     }
 
-    // private Map<String, Map<String, String>> makeUnmodifiable(Map<String, Map<String, String>>
-    // metazoneToRegionToZone) {
-    // Map<String, Map<String, String>> temp = metazoneToRegionToZone;
-    // for (String mzone : metazoneToRegionToZone.keySet()) {
-    // temp.put(mzone, Collections.unmodifiableMap(metazoneToRegionToZone.get(mzone)));
-    // }
-    // return Collections.unmodifiableMap(temp);
-    // }
-
     /**
      * Core function used to process each of the paths, and add the data to the appropriate data member.
      */
     class MyHandler extends XMLFileReader.SimpleHandler {
         private static final double MAX_POPULATION = 3000000000.0;
-
-        XPathParts parts = new XPathParts();
 
         LanguageTagParser languageTagParser = new LanguageTagParser();
 
@@ -1217,7 +1206,7 @@ public class SupplementalDataInfo {
 
         public void handlePathValue(String path, String value) {
             try {
-                parts.set(path);
+                XPathParts parts = XPathParts.getTestInstance(path);
                 String level0 = parts.getElement(0);
                 String level1 = parts.size() < 2 ? null : parts.getElement(1);
                 String level2 = parts.size() < 3 ? null : parts.getElement(2);
@@ -1241,39 +1230,35 @@ public class SupplementalDataInfo {
 
                 // copy the rest from ShowLanguages later
                 if (level0.equals("ldmlBCP47")) {
-                    if (handleBcp47(level1, level2)) {
+                    if (handleBcp47(level1, level2, parts)) {
                         return;
                     }
                 } else if (level1.equals("territoryInfo")) {
-                    if (handleTerritoryInfo()) {
+                    if (handleTerritoryInfo(parts)) {
                         return;
                     }
                 } else if (level1.equals("calendarPreferenceData")) {
-                    handleCalendarPreferenceData();
+                    handleCalendarPreferenceData(parts);
                     return;
                 } else if (level1.equals("languageData")) {
-                    handleLanguageData();
+                    handleLanguageData(parts);
                     return;
                 } else if (level1.equals("territoryContainment")) {
-                    handleTerritoryContainment();
+                    handleTerritoryContainment(parts);
                     return;
                 } else if (level1.equals("subdivisionContainment")) {
-                    handleSubdivisionContainment();
+                    handleSubdivisionContainment(parts);
                     return;
                 } else if (level1.equals("currencyData")) {
-                    if (handleCurrencyData(level2)) {
+                    if (handleCurrencyData(level2, parts)) {
                         return;
                     }
-                    // } else if (level1.equals("timezoneData")) {
-                    // if (handleTimezoneData(level2)) {
-                    // return;
-                    // }
-                } else if ("metazoneInfo".equals(level2)) {
-                    if (handleMetazoneInfo(level2, level3)) {
+                 } else if ("metazoneInfo".equals(level2)) {
+                    if (handleMetazoneInfo(level2, level3, parts)) {
                         return;
                     }
                 } else if ("mapTimezones".equals(level2)) {
-                    if (handleMetazoneData(level2, level3)) {
+                    if (handleMetazoneData(level2, level3, parts)) {
                         return;
                     }
                 } else if (level1.equals("plurals")) {
@@ -1292,39 +1277,39 @@ public class SupplementalDataInfo {
                     references.put(type, new Pair<String, String>(uri, value).freeze());
                     return;
                 } else if (level1.equals("likelySubtags")) {
-                    handleLikelySubtags();
+                    handleLikelySubtags(parts);
                     return;
                 } else if (level1.equals("numberingSystems")) {
-                    handleNumberingSystems();
+                    handleNumberingSystems(parts);
                     return;
                 } else if (level1.equals("coverageLevels")) {
-                    handleCoverageLevels();
+                    handleCoverageLevels(parts);
                     return;
                 } else if (level1.equals("parentLocales")) {
-                    handleParentLocales();
+                    handleParentLocales(parts);
                     return;
                 } else if (level1.equals("metadata")) {
-                    if (handleMetadata(level2, value)) {
+                    if (handleMetadata(level2, value, parts)) {
                         return;
                     }
                 } else if (level1.equals("codeMappings")) {
-                    if (handleCodeMappings(level2)) {
+                    if (handleCodeMappings(level2, parts)) {
                         return;
                     }
                 } else if (level1.equals("languageMatching")) {
-                    if (handleLanguageMatcher(level2)) {
+                    if (handleLanguageMatcher(level2, parts)) {
                         return;
                     }
                 } else if (level1.equals("measurementData")) {
-                    if (handleMeasurementData(level2)) {
+                    if (handleMeasurementData(level2, parts)) {
                         return;
                     }
                 } else if (level1.equals("timeData")) {
-                    if (handleTimeData(level2)) {
+                    if (handleTimeData(level2, parts)) {
                         return;
                     }
                 } else if (level1.equals("languageGroups")) {
-                    if (handleLanguageGroups(level2, value)) {
+                    if (handleLanguageGroups(level2, value, parts)) {
                         return;
                     }
                 }
@@ -1343,14 +1328,14 @@ public class SupplementalDataInfo {
             }
         }
 
-        private boolean handleLanguageGroups(String level2, String value) {
+        private boolean handleLanguageGroups(String level2, String value, XPathParts parts) {
             String parent = parts.getAttributeValue(-1, "parent");
             List<String> children = WHITESPACE_SPLTTER.splitToList(value);
             languageGroups.putAll(parent, children);
             return true;
         }
 
-        private boolean handleMeasurementData(String level2) {
+        private boolean handleMeasurementData(String level2, XPathParts parts) {
             /**
              * <measurementSystem type="US" territories="LR MM US"/>
              * <paperSize type="A4" territories="001"/>
@@ -1368,7 +1353,7 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleTimeData(String level2) {
+        private boolean handleTimeData(String level2, XPathParts parts) {
             /**
              * <hours preferred="H" allowed="H" regions="IL RU"/>
              */
@@ -1385,7 +1370,7 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleBcp47(String level1, String level2) {
+        private boolean handleBcp47(String level1, String level2, XPathParts parts) {
             if (level1.equals("version") || level1.equals("generation") || level1.equals("cldrVersion")) {
                 return true; // skip
             }
@@ -1467,7 +1452,7 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleLanguageMatcher(String level2) {
+        private boolean handleLanguageMatcher(String level2, XPathParts parts) {
             String type = parts.getAttributeValue(2, "type");
             String alt = parts.getAttributeValue(2, "alt");
             if (alt != null) {
@@ -1507,7 +1492,7 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleCodeMappings(String level2) {
+        private boolean handleCodeMappings(String level2, XPathParts parts) {
             if (level2.equals("territoryCodes")) {
                 // <territoryCodes type="VU" numeric="548" alpha3="VUT"/>
                 String type = parts.getAttributeValue(-1, "type");
@@ -1532,7 +1517,7 @@ public class SupplementalDataInfo {
             return false;
         }
 
-        private void handleNumberingSystems() {
+        private void handleNumberingSystems(XPathParts parts) {
             NumberingSystemInfo ns = new NumberingSystemInfo(parts);
             numberingSystems.put(ns.name, ns);
             if (ns.type == NumberingSystemType.numeric) {
@@ -1540,7 +1525,7 @@ public class SupplementalDataInfo {
             }
         }
 
-        private void handleCoverageLevels() {
+        private void handleCoverageLevels(XPathParts parts) {
             if (parts.containsElement("approvalRequirement")) {
                 approvalRequirements.add(parts.toString());
             } else if (parts.containsElement("coverageLevel")) {
@@ -1569,7 +1554,7 @@ public class SupplementalDataInfo {
             }
         }
 
-        private void handleParentLocales() {
+        private void handleParentLocales(XPathParts parts) {
             String parent = parts.getAttributeValue(-1, "parent");
             String locales = parts.getAttributeValue(-1, "locales");
             String[] pl = locales.split(" ");
@@ -1578,7 +1563,7 @@ public class SupplementalDataInfo {
             }
         }
 
-        private void handleCalendarPreferenceData() {
+        private void handleCalendarPreferenceData(XPathParts parts) {
             String territoryString = parts.getAttributeValue(-1, "territories");
             String orderingString = parts.getAttributeValue(-1, "ordering");
             String[] calendars = orderingString.split(" ");
@@ -1589,7 +1574,7 @@ public class SupplementalDataInfo {
             }
         }
 
-        private void handleLikelySubtags() {
+        private void handleLikelySubtags(XPathParts parts) {
             String from = parts.getAttributeValue(-1, "from");
             String to = parts.getAttributeValue(-1, "to");
             likelySubtags.put(from, to);
@@ -1598,7 +1583,7 @@ public class SupplementalDataInfo {
         /**
          * Only called if level2 = mapTimezones. Level 1 might be metaZones or might be windowsZones
          */
-        private boolean handleMetazoneData(String level2, String level3) {
+        private boolean handleMetazoneData(String level2, String level3, XPathParts parts) {
             if (level3.equals("mapZone")) {
                 String maintype = parts.getAttributeValue(2, "type");
                 if (maintype == null) {
@@ -1631,7 +1616,7 @@ public class SupplementalDataInfo {
             return false;
         }
 
-        private Collection<String> getSpaceDelimited(int index, String attribute, Collection<String> defaultValue) {
+        private Collection<String> getSpaceDelimited(int index, String attribute, Collection<String> defaultValue, XPathParts parts) {
             String temp = parts.getAttributeValue(index, attribute);
             Collection<String> elements = temp == null ? defaultValue : Arrays.asList(temp.split("\\s+"));
             return elements;
@@ -1647,7 +1632,7 @@ public class SupplementalDataInfo {
          * <usesMetazone from="1991-09-22 20:00" mzone="Armenia"/>
          */
 
-        private boolean handleMetazoneInfo(String level2, String level3) {
+        private boolean handleMetazoneInfo(String level2, String level3, XPathParts parts) {
             if (level3.equals("timezone")) {
                 String zone = parts.getAttributeValue(3, "type");
                 String mzone = parts.getAttributeValue(4, "mzone");
@@ -1660,7 +1645,7 @@ public class SupplementalDataInfo {
             return false;
         }
 
-        private boolean handleMetadata(String level2, String value) {
+        private boolean handleMetadata(String level2, String value, XPathParts parts) {
             if (parts.contains("defaultContent")) {
                 String defContent = parts.getAttributeValue(-1, "locales").trim();
                 String[] defLocales = defContent.split("\\s+");
@@ -1710,11 +1695,6 @@ public class SupplementalDataInfo {
                         String[] validCodeArray = value.trim().split("\\s+");
                         CLDRLanguageCodes.addAll(Arrays.asList(validCodeArray));
                     }
-//                    if ("$script".equals(attributes.get("id")) && "choice".equals(attributes.get("type"))) {
-//                        String[] validCodeArray = value.trim().split("\\s+");
-//                        CLDRScriptCodes = Collections
-//                            .unmodifiableSet(new TreeSet<String>(Arrays.asList(validCodeArray)));
-//                    }
                     return true;
                 } else if (level3.equals("attributeValues")) {
                     AttributeValidityInfo.add(parts.getAttributes(-1), value, attributeValidityInfo);
@@ -1737,7 +1717,7 @@ public class SupplementalDataInfo {
                         return false; // don't handle the excludes -yet.
                     } else {
                         distinguishingAttributes = Collections.unmodifiableCollection(getSpaceDelimited(-1,
-                            "attributes", STAR_SET));
+                            "attributes", STAR_SET, parts));
                         return true;
                     }
                 }
@@ -1745,7 +1725,7 @@ public class SupplementalDataInfo {
             return false;
         }
 
-        private boolean handleTerritoryInfo() {
+        private boolean handleTerritoryInfo(XPathParts parts) {
 
             // <territoryInfo>
             // <territory type="AD" gdp="1840000000" literacyPercent="100"
@@ -1846,7 +1826,7 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleCurrencyData(String level2) {
+        private boolean handleCurrencyData(String level2, XPathParts parts) {
             if (level2.equals("fractions")) {
                 // <info iso4217="ADP" digits="0" rounding="0" cashRounding="5"/>
                 currencyToCurrencyNumberInfo.put(parts.getAttributeValue(3, "iso4217"),
@@ -1891,7 +1871,7 @@ public class SupplementalDataInfo {
             tcSet.add(tcInfo);
         }
 
-        private void handleTerritoryContainment() {
+        private void handleTerritoryContainment(XPathParts parts) {
             // <group type="001" contains="002 009 019 142 150"/>
             final String container = parts.getAttributeValue(-1, "type");
             final List<String> contained = Arrays
@@ -1912,7 +1892,7 @@ public class SupplementalDataInfo {
             }
         }
 
-        private void handleSubdivisionContainment() {
+        private void handleSubdivisionContainment(XPathParts parts) {
             //      <subgroup type="AL" subtype="04" contains="FR MK LU"/>
             final String country = parts.getAttributeValue(-1, "type");
             final String subtype = parts.getAttributeValue(-1, "subtype");
@@ -1923,7 +1903,7 @@ public class SupplementalDataInfo {
             }
         }
 
-        private void handleLanguageData() {
+        private void handleLanguageData(XPathParts parts) {
             // <languageData>
             // <language type="aa" scripts="Latn" territories="DJ ER ET"/> <!--
             // Reflecting submitted data, cldrbug #1013 -->
@@ -2693,8 +2673,7 @@ public class SupplementalDataInfo {
         }
 
         ApprovalRequirementMatcher(String xpath) {
-            XPathParts parts = new XPathParts();
-            parts.set(xpath);
+            XPathParts parts = XPathParts.getTestInstance(xpath);
             if (parts.containsElement("approvalRequirement")) {
                 requiredVotes = Integer.parseInt(parts.getAttributeValue(-1, "votes"));
                 String localeAttrib = parts.getAttributeValue(-1, "locales");

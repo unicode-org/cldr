@@ -109,9 +109,7 @@ public class PathUtilities {
     private synchronized static String getMetazoneContinent(String xpath) {
         String continent = mzXpathToContinent.get(xpath);
         if (continent == null) {
-            XPathParts parts = new XPathParts(null, null);
-            // SupplementalDataInfo mySupp = getSupplementalDataInfo();
-            parts.set(xpath);
+            XPathParts parts = XPathParts.getTestInstance(xpath);
             String thisMetazone = parts.getAttributeValue(3, "type");
             continent = getMetazoneToContinentMap().get(thisMetazone);
         }

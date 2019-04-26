@@ -61,7 +61,6 @@ public class TestDayPeriods extends TestFmwkPlus {
     @SuppressWarnings("unchecked")
     public void TestAttributes() {
         Factory factory = CONFIG.getCldrFactory();
-        XPathParts parts = new XPathParts();
         HashSet<String> AMPM = new HashSet<>(Arrays.asList("am", "pm"));
         for (String locale : factory.getAvailableLanguages()) {
             DayPeriodInfo periodInfo = SUPPLEMENTAL.getDayPeriods(Type.format, locale);
@@ -72,12 +71,11 @@ public class TestDayPeriods extends TestFmwkPlus {
                 if (path.endsWith("alias")) {
                     continue;
                 }
-                parts.set(path);
+                XPathParts parts = XPathParts.getTestInstance(path);
                 String type = parts.getAttributeValue(-1, "type");
                 if (AMPM.contains(type)) {
                     continue;
                 }
-                String format = parts.getAttributeValue(-3, "type");
                 DayPeriod period;
                 try {
                     period = DayPeriodInfo.DayPeriod.fromString(type);

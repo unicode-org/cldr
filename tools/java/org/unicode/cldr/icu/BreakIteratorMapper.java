@@ -51,8 +51,7 @@ class BreakIteratorMapper extends Mapper {
              */
             if (!path.startsWith("//ldml/special/icu:breakIteratorData")) continue;
             String fullPath = specialsFile.getFullXPath(path);
-            final XPathParts xpp = new XPathParts();
-            xpp.set(fullPath);
+            final XPathParts xpp = XPathParts.getTestInstance(fullPath);
             final String element = xpp.getElement(-1);
             final String element2 = xpp.getElement(-2);
             Set<String> source = null;

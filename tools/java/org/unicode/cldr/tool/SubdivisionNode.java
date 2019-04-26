@@ -249,26 +249,8 @@ public class SubdivisionNode {
         }
 
         static Map<String, String> NAME_CORRECTIONS = new HashMap<>();
-//      static {
-//          Splitter semi = Splitter.on(';').trimResults();
-//          for (String s : FileUtilities.in(ISO_COUNTRY_CODES, "en-subdivisions-corrections.txt")) {
-//              if (s.startsWith("#")) {
-//                  continue;
-//              }
-//              s = s.trim();
-//              if (s.isEmpty()) {
-//                  continue;
-//              }
-//              List<String> parts = semi.splitToList(s);
-//              NAME_CORRECTIONS.put(convertToCldr(parts.get(0)), parts.get(1));
-//          }
-//      }
-
 
         private String getBestName(String value, boolean useIso) {
-            if (value.equals("cnah")) {
-                int debug = 0;
-            }
             String cldrName = null;
             cldrName = NAME_CORRECTIONS.get(value);
             if (cldrName != null) {
@@ -324,7 +306,6 @@ public class SubdivisionNode {
             List<Pair<String, String>> pathValues = XMLFileReader.loadPathValues(
                 sourceFile,
                 new ArrayList<Pair<String, String>>(), false);
-            XPathParts parts = new XPathParts();
             int maxIndent = 0;
             SubdivisionNode lastNode = null;
             String lastCode = null;
@@ -350,7 +331,7 @@ public class SubdivisionNode {
                 if (!code && !name && !nameCat && !relatedCountry) {
                     continue;
                 }
-                parts.set(path);
+                XPathParts parts = XPathParts.getTestInstance(path);
                 String value = pair.getSecond();
                 if (relatedCountry) {
                     String target = parts.getAttributeValue(-1, "country-id");
@@ -728,22 +709,9 @@ public class SubdivisionNode {
             CLDRFile oldFileSubdivisions = cldrFactorySubdivisions.make("en", false);
             CLDRFile fileSubdivisions = oldFileSubdivisions.cloneAsThawed();
 
-            // <subdivisions>
-            // <subdivisiontype="NZ-AUK">Auckland</territory>
-//            output.append(
-//                DtdType.ldml.header(MethodHandles.lookup().lookupClass())
-//                + "\t<identity>\n"
-//                + "\t\t<version number=\"$Revision" /*hack to stop SVN changing this*/ + "$\"/>\n"
-//                + "\t\t<language type=\"en\"/>\n"
-//                + "\t</identity>\n"
-//                + "\t<localeDisplayNames>\n"
-//                + "\t\t<subdivisions>\n");
             Set<String> skipped = new LinkedHashSet<>();
 
             for (String regionCode : allRegions) {
-                if (regionCode.equals("FR")) {
-                    int debug = 0;
-                }
                 if (!sdset.isKosher(regionCode)) {
                     if (regionCode.length() != 3) {
                         skipped.add(regionCode);
@@ -754,14 +722,9 @@ public class SubdivisionNode {
                 remainder = remainder == null ? Collections.emptySet() : new LinkedHashSet<>(remainder);
 
                 SubdivisionNode regionNode = sdset.ID_TO_NODE.get(regionCode);
-//                output.append("\t\t<!-- ")
-//                .append(convertToCldr(regionCode)).append(" : ")
-//                .append(TransliteratorUtilities.toXML.transform(ENGLISH_ICU.regionDisplayName(regionCode)));
                 if (regionNode == null) {
-//                    output.append(" : NO SUBDIVISIONS -->\n");
                     continue;
                 }
-//                output.append(" -->\n");
 
                 Set<SubdivisionNode> ordered = new LinkedHashSet<>();
                 SubdivisionSet.addChildren(ordered, regionNode.children);
@@ -774,11 +737,6 @@ public class SubdivisionNode {
                     if (name.equals(upper) || !name.equals(title)) {
                         System.out.println("Suspicious name: " + name);
                     }
-
-                    SubdivisionNode sd = sdset.ID_TO_NODE.get(sdCode);
-
-//                    String level = sd.level == 1 ? "" : "\t<!-- in " + sd.parent.code
-//                        + " : " + TransliteratorUtilities.toXML.transform(sdset.getBestName(sd.parent.code, true)) + " -->";
                     SubdivisionSet.appendName(fileSubdivisions, sdCode, name, null);
                     remainder.remove(sdCode);
                 }
@@ -789,14 +747,7 @@ public class SubdivisionNode {
                     }
                 }
             }
-//            output.append(
-//                "\t\t</subdivisions>\n"
-//                    + "\t</localeDisplayNames>\n"
-//                    + "</ldml>");
             System.out.println("Skipping: " + skipped);
-//            if (!missing.isEmpty()) {
-//                throw new IllegalArgumentException("No name for: " + missing.size() + ", " + missing);
-//            }
             fileSubdivisions.write(output);
         }
 

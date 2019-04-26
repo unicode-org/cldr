@@ -21,13 +21,12 @@ public class CharacterFallbacks {
     private CharacterFallbacks() {
         Factory cldrFactory = Factory.make(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY, ".*");
         CLDRFile characterFallbacks = cldrFactory.make("characters", false);
-        XPathParts parts = new XPathParts();
         Comparator<String> comp = DtdData.getInstance(DtdType.supplementalData).getDtdComparator(null);
 
         for (Iterator<String> it = characterFallbacks.iterator("//supplementalData/characters/", comp); it.hasNext();) {
             String path = it.next();
             String fullPath = characterFallbacks.getFullXPath(path);
-            parts.set(fullPath);
+            XPathParts parts = XPathParts.getTestInstance(fullPath);
             /*
              * <character value = "―">
              * <substitute>—</substitute>

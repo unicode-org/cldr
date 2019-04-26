@@ -144,7 +144,6 @@ public class GenerateSidewaysView {
     }
 
     private static Map<PathHeader, Map<String, Set<String>>> path_value_locales = new TreeMap<PathHeader, Map<String, Set<String>>>();
-    private static XPathParts parts = new XPathParts(null, null);
     private static long startTime = System.currentTimeMillis();
 
     static RuleBasedCollator standardCollation = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
@@ -688,28 +687,29 @@ public class GenerateSidewaysView {
 
     static PathHeader.Factory pathHeaderFactory;
 
-    // static org.unicode.cldr.util.PrettyPath prettyPath = new org.unicode.cldr.util.PrettyPath();
     /**
-     *
+     * 
+     * @param path
+     * @param localePrefix
+     * @return
      */
     private static PathHeader fixPath(String path, String[] localePrefix) {
-        if (localePrefix != null) localePrefix[0] = "";
-        //        if (path.indexOf("[@alt=") >= 0 || path.indexOf("[@draft=") >= 0) {
-        //            if (localePrefix != null) localePrefix[0] = "*";
-        //            path = removeAttributes(path, skipSet);
-        //        }
-        // if (usePrettyPath) path = prettyPath.getPrettyPath(path);
+        if (localePrefix != null) {
+            localePrefix[0] = "";
+        }
         return pathHeaderFactory.fromPath(path);
     }
 
     private static String removeAttributes(String xpath, Set<String> skipAttributes) {
-        XPathParts parts = new XPathParts(null, null).set(xpath);
+        XPathParts parts = XPathParts.getTestInstance(xpath);
         removeAttributes(parts, skipAttributes);
         return parts.toString();
     }
 
     /**
-     *
+     * 
+     * @param parts
+     * @param skipAttributes
      */
     private static void removeAttributes(XPathParts parts, Set<String> skipAttributes) {
         for (int i = 0; i < parts.size(); ++i) {
@@ -742,7 +742,7 @@ public class GenerateSidewaysView {
             return value;
         }
         if (value.length() == 0) {
-            parts.set(fullPath);
+            XPathParts parts = XPathParts.getTestInstance(fullPath);
             removeAttributes(parts, skipSet);
             int limit = parts.size();
             value = parts.toString(limit - 1, limit);

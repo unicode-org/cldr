@@ -185,10 +185,10 @@ public class TestLdml2ICU extends TestFmwk {
         List<Pair<String, String>> cldrData = new ArrayList<Pair<String, String>>();
         XMLFileReader.loadPathValues(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY
             + name + ".xml", cldrData, true);
-        XPathParts parts = new XPathParts();
         for (Pair<String, String> pair : cldrData) {
             String xpath = CLDRFile.getNondraftNonaltXPath(pair.getFirst());
-            xpath = parts.set(xpath).toString();
+            XPathParts parts = XPathParts.getTestInstance(xpath);
+            xpath = parts.toString();
             checkPath(lookup, xpath, pair.getSecond());
         }
     }

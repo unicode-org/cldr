@@ -526,10 +526,10 @@ public class ConvertLanguageData {
             cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             //Set<String> available = cldrFactory.getAvailable();
             CLDRFile supplemental = cldrFactory.make("supplementalData", true);
-            XPathParts parts = new XPathParts();
             for (Iterator<String> it = supplemental.iterator("//supplementalData/languageData/language"); it.hasNext();) {
                 String xpath = it.next();
-                Map<String, String> x = parts.set(xpath).getAttributes(-1);
+                XPathParts parts = XPathParts.getTestInstance(xpath);
+                Map<String, String> x = parts.getAttributes(-1);
                 boolean alt = x.containsKey("alt");
                 String lang = x.get("type");
                 List<String> scripts = getAttributeList(x, "scripts");

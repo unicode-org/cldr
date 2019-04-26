@@ -13,17 +13,17 @@ import org.unicode.cldr.util.XPathParts;
 
 public class XPPUtil {
     public static String getXpathName(String xpath) {
-        xpp.set(xpath);
+        XPathParts xpp = XPathParts.getTestInstance(xpath);
         return xpp.getElement(-1);
     }
 
     public static String getXpathName(String xpath, int pos) {
-        xpp.set(xpath);
+        XPathParts xpp = XPathParts.getTestInstance(xpath);
         return xpp.getElement(pos);
     }
 
     public static String getAttributeValue(String xpath, String element, String attribute) {
-        xpp.set(xpath);
+        XPathParts xpp = XPathParts.getTestInstance(xpath);
         int el = xpp.findElement(element);
         if (el == -1) {
             return null;
@@ -32,7 +32,7 @@ public class XPPUtil {
     }
 
     public static String getAttributeValue(String xpath, String attribute) {
-        xpp.set(xpath);
+        XPathParts xpp = XPathParts.getTestInstance(xpath);
         return xpp.getAttributeValue(-1, attribute);
     }
 
@@ -46,7 +46,7 @@ public class XPPUtil {
 
     public static String findAttributeValue(CLDRFile file, String xpath, String attribute) {
         String fullPath = file.getFullXPath(xpath);
-        xpp.set(fullPath);
+        XPathParts xpp = XPathParts.getTestInstance(fullPath);
         for (int j = 1; j <= xpp.size(); j++) {
             String v = xpp.getAttributeValue(0 - j, attribute);
             if (v != null)
@@ -54,6 +54,4 @@ public class XPPUtil {
         }
         return null;
     }
-
-    private static final XPathParts xpp = new XPathParts(null, null);
 }

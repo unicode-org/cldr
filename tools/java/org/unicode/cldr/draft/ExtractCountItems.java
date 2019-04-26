@@ -55,7 +55,6 @@ public class ExtractCountItems {
         }
     }
 
-    XPathParts parts = new XPathParts();
     Map<String, SampleData> samples = new LinkedHashMap<String, SampleData>();
 
     public static void main(String[] args) {
@@ -159,8 +158,7 @@ public class ExtractCountItems {
             }
             String value = cldr.getStringValue(path).toLowerCase(Locale.ENGLISH);
             // get the path without the count = basepath
-            // System.out.println("\t# " + cldr.getLocaleID() + "\t" + value + "\t" + path);
-            parts.set(path);
+            XPathParts parts = XPathParts.getTestInstance(path);
             Count count = PluralInfo.Count.valueOf(parts.getAttributeValue(-1, "count"));
             parts.setAttribute(-1, "count", null);
             String basePath = parts.toString();

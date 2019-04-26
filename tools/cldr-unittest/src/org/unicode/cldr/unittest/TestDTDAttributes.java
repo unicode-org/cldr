@@ -511,14 +511,13 @@ public class TestDTDAttributes extends TestFmwkPlus {
 
         static Map<DtdType, NodeData> fullNodeData = new HashMap<DtdType, NodeData>();
         static {
-            XPathParts parts = new XPathParts();
             for (String locale : testInfo.getCldrFactory().getAvailable()) {
                 CLDRFile file = testInfo.getCLDRFile(locale, false);
                 NodeData nodeData = null;
                 for (String xpath : file) {
                     String value = file.getStringValue(xpath);
                     String fullXpath = file.getFullXPath(xpath);
-                    parts.set(fullXpath);
+                    XPathParts parts = XPathParts.getTestInstance(fullXpath);
                     if (nodeData == null) {
                         String root = parts.getElement(0);
                         DtdType type = DtdType.valueOf(root);

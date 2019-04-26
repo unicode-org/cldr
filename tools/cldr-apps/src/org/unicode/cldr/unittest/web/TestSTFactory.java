@@ -377,8 +377,6 @@ public class TestSTFactory extends TestFmwk {
         final File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName() + "_output");
 
         XMLFileReader myReader = new XMLFileReader();
-        final XPathParts xpp = new XPathParts(null, null);
-        final XPathParts xpp2 = new XPathParts(null, null);
         final Map<String, String> attrs = new TreeMap<String, String>();
         final Map<String, String> vars = new TreeMap<String, String>();
         myReader.setHandler(new XMLFileReader.SimpleHandler() {
@@ -393,8 +391,7 @@ public class TestSTFactory extends TestFmwk {
                     logln(" $" + varName + " == '" + value + "'");
                 }
 
-                xpp.clear();
-                xpp.initialize(path);
+                XPathParts xpp = XPathParts.getTestInstance(path);
                 attrs.clear();
                 for (String k : xpp.getAttributeKeys(-1)) {
                     attrs.put(k, xpp.getAttributeValue(-1, k));
@@ -505,10 +502,6 @@ public class TestSTFactory extends TestFmwk {
                     }
                     Status expStatus = Status.fromString(attrs.get("status"));
 
-                    if (expStatus == Status.provisional) {
-                        int debug = 0;
-                    }
-
                     VoteResolver<String> r = box.getResolver(xpath);
                     Status winStatus = r.getWinningStatus();
                     if (winStatus == expStatus) {
@@ -518,7 +511,6 @@ public class TestSTFactory extends TestFmwk {
                             + box.getResolver(xpath));
                     }
 
-                    xpp2.clear();
                     Status xpathStatus;
                     CLDRFile.Status newPath = new CLDRFile.Status();
                     CLDRLocale newLocale = CLDRLocale.getInstance(cf.getSourceLocaleID(fullXpath, newPath));
@@ -535,7 +527,7 @@ public class TestSTFactory extends TestFmwk {
                     if ((fullXpath == null) || itMoved) {
                         xpathStatus = Status.missing;
                     } else {
-                        xpp2.set(fullXpath);
+                        XPathParts xpp2 = XPathParts.getTestInstance(fullXpath);
                         String statusFromXpath = xpp2.getAttributeValue(-1, "draft");
 
                         if (statusFromXpath == null) {
@@ -580,13 +572,12 @@ public class TestSTFactory extends TestFmwk {
                         handleException(iae);
                     }
                     String reRead = readBack.getStringValue(xpath);
-                    xpp2.clear();
                     String fullXpathBack = readBack.getFullXPath(xpath);
                     Status xpathStatusBack;
                     if (fullXpathBack == null || itMoved) {
                         xpathStatusBack = Status.missing;
                     } else {
-                        xpp2.set(fullXpathBack);
+                        XPathParts xpp2 = XPathParts.getTestInstance(fullXpathBack);
                         String statusFromXpathBack = xpp2.getAttributeValue(-1, "draft");
 
                         if (statusFromXpathBack == null) {

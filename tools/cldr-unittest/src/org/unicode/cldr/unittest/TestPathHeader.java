@@ -1219,10 +1219,10 @@ public class TestPathHeader extends TestFmwkPlus {
         CLDRFile supplementalFile = CLDRConfig.getInstance().getSupplementalFactory().make("supplementalData", false);
         List<String> failures = new ArrayList<>();
         Multimap<String, String> pathValuePairs = LinkedListMultimap.create();
-        XPathParts parts = new XPathParts();
         for (String test : With.in(supplementalFile.iterator("//supplementalData/weekData"))) {
             failures.clear();
-            supplementalFile.getDtdData().getRegularizedPaths(parts.set(supplementalFile.getFullXPath(test)), pathValuePairs);
+            XPathParts parts = XPathParts.getTestInstance(supplementalFile.getFullXPath(test));
+            supplementalFile.getDtdData().getRegularizedPaths(parts, pathValuePairs);
             for (Entry<String, Collection<String>> entry : pathValuePairs.asMap().entrySet()) {
                 final String normalizedPath = entry.getKey();
                 final Collection<String> normalizedValue = entry.getValue();

@@ -54,8 +54,6 @@ public class TestMetazones {
     // if there were rules in other files, we'd have to check them to, by changing this line.
     Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, "root");
 
-    XPathParts parts = new XPathParts();
-
     int errorCount = 0;
 
     int warningCount = 0;
@@ -150,7 +148,7 @@ public class TestMetazones {
                  * mzone="Yerevan"/> <usesMetazone from="1991-09-23" mzone="Armenia"/>
                  * </zone>
                  */
-                parts.set(path);
+                XPathParts parts = XPathParts.getTestInstance(path);
                 String from = parts.getAttributeValue(-1, "from");
                 long fromDate = DateRange.parse(from, false);
 
@@ -275,8 +273,8 @@ public class TestMetazones {
      */
     private List<Pair<Long, Long>> getDifferencesOverRange(OlsonTimeZone zone1, OlsonTimeZone zone2, DateRange overlap) {
         Set<Long> list1 = new TreeSet<Long>();
-        addTransitions(zone1, zone2, overlap, list1);
-        addTransitions(zone2, zone1, overlap, list1);
+        addTransitions(zone1, overlap, list1);
+        addTransitions(zone2, overlap, list1);
 
         // Remove any transition points that keep the same delta relationship
         List<Long> list = new ArrayList<Long>();
@@ -342,8 +340,7 @@ public class TestMetazones {
         return offset1;
     }
 
-    private void addTransitions(OlsonTimeZone zone1, OlsonTimeZone otherZone,
-        DateRange overlap, Set<Long> list) {
+    private void addTransitions(OlsonTimeZone zone1, DateRange overlap, Set<Long> list) {
         long startTime = overlap.startDate;
         long endTime = overlap.endDate;
         list.add(startTime);

@@ -415,7 +415,6 @@ public class GenerateEnums {
             }
         }
 
-        XPathParts parts = new XPathParts();
         getContainment();
 
         DateFormat[] simpleFormats = { new SimpleDateFormat("yyyy-MM-dd"),
@@ -427,7 +426,7 @@ public class GenerateEnums {
         for (Iterator<String> it = supplementalData
             .iterator("//supplementalData/currencyData/region"); it.hasNext();) {
             String path = it.next();
-            parts.set(path);
+            XPathParts parts = XPathParts.getTestInstance(path);
             String region = parts.findAttributeValue("region", "iso3166");
             String code = parts.findAttributeValue("currency", "iso4217");
             String to = parts.findAttributeValue("currency", "to");
@@ -490,13 +489,12 @@ public class GenerateEnums {
     }
 
     public void getContainment() {
-        XPathParts parts = new XPathParts();
         // <group type="001" contains="002 009 019 142 150"/> <!--World -->
         for (Iterator<String> it = supplementalData
             .iterator("//supplementalData/territoryContainment/group"); it.hasNext();) {
             String path = it.next();
             String fullPath = supplementalData.getFullXPath(path);
-            parts.set(fullPath);
+            XPathParts parts = XPathParts.getTestInstance(fullPath);
             String container = parts.getAttributeValue(parts.size() - 1, "type");
             final String containedString = parts.getAttributeValue(-1, "contains");
             List<String> contained = Arrays.asList(containedString.trim().split("\\s+"));
@@ -830,12 +828,14 @@ public class GenerateEnums {
             "//supplementalData/metadata/alias/" + type + "Alias[@type=\""
                 + cldrTypeValue + "\"]",
             true);
-        if (path == null)
+        if (path == null) {
             return null;
-        String replacement = new XPathParts().set(path).findAttributeValue(
-            "territoryAlias", "replacement");
-        if (replacement == null)
-            return "";
+        }
+        XPathParts parts = XPathParts.getTestInstance(path);
+        String replacement = parts.findAttributeValue("territoryAlias", "replacement");
+        if (replacement == null) {
+            return "";            
+        }
         return replacement;
     }
 

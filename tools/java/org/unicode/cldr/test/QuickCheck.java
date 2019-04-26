@@ -176,7 +176,6 @@ public class QuickCheck {
     private static void checkPaths() {
         Relation<String, String> distinguishing = Relation.<String, String> of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
         Relation<String, String> nonDistinguishing = Relation.<String, String> of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
-        XPathParts parts = new XPathParts();
         Factory cldrFactory = Factory.make(mainDirectory, localeRegex);
         CLDRFile english = cldrFactory.make("en", true);
 
@@ -247,7 +246,7 @@ public class QuickCheck {
                 }
 
                 String fullPath = file.getFullXPath(path);
-                parts.set(fullPath);
+                XPathParts parts = XPathParts.getTestInstance(fullPath);
                 if (dtdType == null) {
                     dtdType = DtdType.valueOf(parts.getElement(0));
                 }

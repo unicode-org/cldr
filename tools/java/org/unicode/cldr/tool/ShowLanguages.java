@@ -332,9 +332,8 @@ public class ShowLanguages {
 
     private static Set<String> getEnglishTypes(String type, int code) {
         Set<String> result = new HashSet<String>(sc.getSurveyToolDisplayCodes(type));
-        XPathParts parts = new XPathParts();
         for (Iterator<String> it = english.getAvailableIterator(code); it.hasNext();) {
-            parts.set(it.next());
+            XPathParts parts = XPathParts.getTestInstance(it.next());
             String newType = parts.getAttributeValue(-1, "type");
             if (!result.contains(newType)) {
                 result.add(newType);
@@ -688,6 +687,9 @@ public class ShowLanguages {
                 if (fullPath == null) {
                     supp.getFullXPath(path);
                 }
+                /*
+                 * TODO: getTestInstance; how for (new UTF16.StringComparator(), null)?
+                 */
                 parts.set(fullPath);
 
                 // <zoneItem type="America/Adak" territory="US" aliases="America/Atka US/Aleutian"/>

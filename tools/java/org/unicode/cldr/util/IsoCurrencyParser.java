@@ -214,7 +214,6 @@ public class IsoCurrencyParser {
         // SVC - El Salvador Colon - not used anymore ( uses USD instead )
         // ZWL - Last Zimbabwe Dollar - abandoned due to hyper-inflation.
         Set<String> KNOWN_BAD_ISO_DATA_CODES = new TreeSet<String>(Arrays.asList("SVC", "ZWL"));
-        XPathParts parts = new XPathParts();
         String country_code;
         String currency_name;
         String alphabetic_code;
@@ -229,7 +228,7 @@ public class IsoCurrencyParser {
 
         public void handlePathValue(String path, String value) {
             try {
-                parts.set(path);
+                XPathParts parts = XPathParts.getTestInstance(path);
                 String type = parts.getElement(-1);
                 if (type.equals("CtryNm")) {
                     value = value.replaceAll("\n", "");

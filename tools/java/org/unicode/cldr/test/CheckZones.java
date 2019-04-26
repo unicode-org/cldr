@@ -48,7 +48,6 @@ public class CheckZones extends FactoryCheckCLDR {
         return this;
     }
 
-    XPathParts parts = new XPathParts(null, null);
     String previousZone = new String();
     String previousFrom = new String("1970-01-01");
     String previousTo = new String("present");
@@ -63,7 +62,7 @@ public class CheckZones extends FactoryCheckCLDR {
             throw new InternalCldrException(
                 "This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
         }
-        parts.set(path);
+        XPathParts parts = XPathParts.getTestInstance(path);
 
         String zone = parts.getAttributeValue(3, "type");
         String from;
@@ -112,9 +111,8 @@ public class CheckZones extends FactoryCheckCLDR {
         return this;
     }
 
-    public static String exampleTextForXpath(XPathParts parts, TimezoneFormatter timezoneFormatter,
-        String path) {
-        parts.set(path);
+    public static String exampleTextForXpath(TimezoneFormatter timezoneFormatter, String path) {
+        XPathParts parts = XPathParts.getTestInstance(path);
         if (parts.containsElement("zone")) {
             String id = (String) parts.getAttributeValue(3, "type");
             TimeZone tz = TimeZone.getTimeZone(id);
@@ -155,7 +153,7 @@ public class CheckZones extends FactoryCheckCLDR {
             throw new InternalCldrException(
                 "This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
         }
-        String formatted = exampleTextForXpath(parts, timezoneFormatter, path);
+        String formatted = exampleTextForXpath(timezoneFormatter, path);
 
         if (formatted != null) {
             result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.exampleType)

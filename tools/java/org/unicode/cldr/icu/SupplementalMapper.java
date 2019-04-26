@@ -308,10 +308,10 @@ public class SupplementalMapper {
         XMLFileReader.loadPathValues(inputFile, contents, true);
         RegexLookup<RegexResult> pathConverter = regexMapper.getPathConverter();
         fifoCounter = 0; // Helps to keep unsorted rb paths in order.
-        XPathParts parts = new XPathParts();
         for (Pair<String, String> pair : contents) {
             Output<Finder> matcher = new Output<Finder>();
-            String fullPath = parts.set(pair.getFirst()).toString();
+            XPathParts parts = XPathParts.getTestInstance(pair.getFirst());
+            String fullPath = parts.toString();
             // Only convert contributed or higher data
             if (parts.containsAttributeValue("draft", "provisional") ||
                 parts.containsAttributeValue("draft", "unconfirmed")) {

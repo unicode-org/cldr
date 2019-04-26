@@ -25,7 +25,6 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class ExtractCollationRules {
     Map<String, String> type_rules = new TreeMap<String, String>();
-    XPathParts parts = new XPathParts();
     StringBuffer rules = new StringBuffer();
 
     public ExtractCollationRules set(CLDRFile file) {
@@ -42,7 +41,7 @@ public class ExtractCollationRules {
 
             String path = (String) it.next();
             String value = file.getStringValue(path);
-            parts.set(path);
+            XPathParts parts = XPathParts.getTestInstance(path);
             String type = parts.findAttributeValue("collation", "type");
             if (!type.equals(lastType)) {
                 lastType = type;

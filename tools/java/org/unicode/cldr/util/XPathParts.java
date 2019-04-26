@@ -28,6 +28,12 @@ import com.ibm.icu.util.Freezable;
 
 /**
  * Parser for XPath
+ *
+ * Each XPathParts object describes a single path, with its xPath member, for example
+ *     //ldml/characters/exemplarCharacters[@type="auxiliary"]
+ * and a list of Element objects that depend on xPath.
+ * Each Element object has an "element" string such as "ldml", "characters", or "exemplarCharacters",
+ * plus attributes such as a Map from key "type" to value "auxiliary".
  */
 public final class XPathParts implements Freezable<XPathParts> {
     private static final boolean DEBUGGING = false;
@@ -40,8 +46,6 @@ public final class XPathParts implements Freezable<XPathParts> {
 
     private static final Map<String, XPathParts> cache = new ConcurrentHashMap<String, XPathParts>();
 
-    //private static final Map<Element, Element> ELEMENT_CACHE = new ConcurrentHashMap<Element, Element>();
-
     public XPathParts() {
         this(null, null, null);
     }
@@ -50,9 +54,7 @@ public final class XPathParts implements Freezable<XPathParts> {
         this(null, attributeComparator, suppressionMap);
     }
 
-    // private static MapComparator AttributeComparator = new MapComparator().add("alt").add("draft").add("type");
-
-    public XPathParts(List<Element> elements, Comparator<String> attributeComparator, Map<String, Map<String, String>> suppressionMap) {
+    private XPathParts(List<Element> elements, Comparator<String> attributeComparator, Map<String, Map<String, String>> suppressionMap) {
         if (elements != null) {
             for (Element e : elements) {
                 this.elements.add(e.cloneAsThawed());
@@ -147,8 +149,6 @@ public final class XPathParts implements Freezable<XPathParts> {
         result = result.replace("\n", spacer);
         return result;
     }
-
-    // public static final char BLOCK_PREFIX = 'B', LINE_PREFIX = 'L';
 
     public static class Comments implements Cloneable {
         public enum CommentType {
@@ -268,34 +268,6 @@ public final class XPathParts implements Freezable<XPathParts> {
         public Comments setInitialComment(String initialComment) {
             this.initialComment = initialComment;
             return this;
-        }
-
-        /**
-         * Go through the keys. <br>
-         * Any case of a LINE and a POSTBLOCK, join them into the POSTBLOCK.
-         * OW Any instance where we have a LINE with a newline in it, make it a POSTBLOCK.
-         * OW Any instance of a POSTBLOCK with no newline in it, make it a line.
-         */
-        public void fixLineEndings() {
-            if (true) return;
-            // Set<String> sharedKeys = new HashSet<String>(comments.get(CommentType.LINE).keySet());
-            // sharedKeys.addAll(comments.get(CommentType.POSTBLOCK).keySet());
-            // for (String key : sharedKeys) {
-            // String line = (String) comments.get(CommentType.LINE).get(key);
-            // String postblock = (String) comments.get(CommentType.POSTBLOCK).get(key);
-            // if (line != null) {
-            // if (postblock != null) {
-            // comments.get(CommentType.LINE).remove(key);
-            // comments.get(CommentType.POSTBLOCK).put(key, line + NEWLINE + postblock);
-            // } else if (line.contains(NEWLINE)) {
-            // comments.get(CommentType.LINE).remove(key);
-            // comments.get(CommentType.POSTBLOCK).put(key, line);
-            // }
-            // } else if (postblock != null && !postblock.contains(NEWLINE)) {
-            // comments.get(CommentType.LINE).put(key, postblock);
-            // comments.get(CommentType.POSTBLOCK).remove(key);
-            // }
-            // }
         }
     }
 
@@ -526,14 +498,6 @@ public final class XPathParts implements Freezable<XPathParts> {
             throw new UnsupportedOperationException("Can't modify frozen Element");
         }
         return addInternal(xPath, true);
-
-        //        // try caching to see if that speeds things up
-        //        XPathParts cacheResult = cache.get(xPath);
-        //        if (cacheResult == null) {
-        //            cacheResult = new XPathParts(attributeComparator, suppressionMap).addInternal(xPath, true);
-        //            // cache.put(xPath,cacheResult);
-        //        }
-        //        return set(cacheResult); // does a deep copy, so ok.
     }
 
     /**
@@ -552,6 +516,15 @@ public final class XPathParts implements Freezable<XPathParts> {
         return addInternal(xPath, true);
     }
 
+    /**
+     * Add the given path to this XPathParts.
+     *
+     * @param xPath the path string
+     * @param initial boolean, if true, call clear() before adding, and make requiredPrefix // instead of /
+     * @return the XPathParts, or parseError
+     *
+     * Called by initialize (initial = true), set (initial = true), and addRelative (initial = false)
+     */
     private XPathParts addInternal(String xPath, boolean initial) {
         String lastAttributeName = "";
         // if (xPath.length() == 0) return this;
@@ -609,8 +582,12 @@ public final class XPathParts implements Freezable<XPathParts> {
             }
         }
         // check to make sure terminated
-        if (state != 'p' || stringStart >= xPath.length()) return parseError(xPath, xPath.length());
-        if (stringStart > 0) addElement(xPath.substring(stringStart, xPath.length()));
+        if (state != 'p' || stringStart >= xPath.length()) {
+            return parseError(xPath, xPath.length());
+        }
+        if (stringStart > 0) {
+            addElement(xPath.substring(stringStart, xPath.length()));
+        }
         return this;
     }
 
@@ -987,7 +964,14 @@ public final class XPathParts implements Freezable<XPathParts> {
     }
 
     /**
+     * Replace the elements of this XPathParts with clones of the elements of the given other XPathParts
+     *  
      * @param parts
+     * @return this XPathParts
+     *
+     * This is NOT the same function as set(String xPath).
+     *
+     * Called by XPathParts.replace and CldrItem.split.
      */
     public XPathParts set(XPathParts parts) {
         if (frozen) {
@@ -1207,6 +1191,11 @@ public final class XPathParts implements Freezable<XPathParts> {
 
     public static XPathParts getInstance(String path) {
         return getFrozenInstance(path).cloneAsThawed();
+    }
+
+    public static XPathParts getTestInstance(String path) {
+        return getInstance(path);
+        // return getFrozenInstance(path);
     }
 
     public DtdData getDtdData() {

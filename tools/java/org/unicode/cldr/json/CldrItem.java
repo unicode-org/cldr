@@ -217,18 +217,16 @@ public class CldrItem implements Comparable<CldrItem> {
      * @return Array of CldrItem if it can be split, otherwise null.
      */
     public CldrItem[] split() {
-        XPathParts xpp = new XPathParts();
-        XPathParts fullxpp = new XPathParts();
+        XPathParts xpp = XPathParts.getTestInstance(path);
+        XPathParts fullxpp = XPathParts.getTestInstance(fullPath);
+        XPathParts untransformedxpp = XPathParts.getTestInstance(untransformedPath);
+        XPathParts untransformedfullxpp = XPathParts.getTestInstance(untransformedFullPath);
+
         XPathParts newxpp = new XPathParts();
         XPathParts newfullxpp = new XPathParts();
-        XPathParts untransformedxpp = new XPathParts();
-        XPathParts untransformedfullxpp = new XPathParts();
         XPathParts untransformednewxpp = new XPathParts();
         XPathParts untransformednewfullxpp = new XPathParts();
-        xpp.set(path);
-        fullxpp.set(fullPath);
-        untransformedxpp.set(untransformedPath);
-        untransformedfullxpp.set(untransformedFullPath);
+
         for (SplittableAttributeSpec s : LdmlConvertRules.SPLITTABLE_ATTRS) {
             if (fullxpp.containsElement(s.element) && fullxpp.containsAttribute(s.attribute)) {
                 ArrayList<CldrItem> list = new ArrayList<CldrItem>();
@@ -272,8 +270,7 @@ public class CldrItem implements Comparable<CldrItem> {
      */
     public boolean needsSort() {
         for (String item : LdmlConvertRules.ELEMENT_NEED_SORT) {
-            XPathParts xpp = new XPathParts();
-            xpp.set(path);
+            XPathParts xpp = XPathParts.getTestInstance(path);
             if (xpp.containsElement(item)) {
                 return true;
             }
@@ -287,10 +284,8 @@ public class CldrItem implements Comparable<CldrItem> {
 
     @Override
     public int compareTo(CldrItem otherItem) {
-        XPathParts thisxpp = new XPathParts();
-        XPathParts otherxpp = new XPathParts();
-        thisxpp.set(untransformedPath);
-        otherxpp.set(otherItem.untransformedFullPath);
+        XPathParts thisxpp = XPathParts.getTestInstance(untransformedPath);
+        XPathParts otherxpp = XPathParts.getTestInstance(otherItem.untransformedFullPath);
         if (thisxpp.containsElement("zone") && otherxpp.containsElement("zone")) {
             String[] thisZonePieces = thisxpp.findAttributeValue("zone", "type").split("/");
             String[] otherZonePieces = otherxpp.findAttributeValue("zone", "type").split("/");

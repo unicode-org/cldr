@@ -144,7 +144,6 @@ public class DateTimeFormats {
             icuServiceBuilder = new ICUServiceBuilder().setCldrFile(file);
         }
         PatternInfo returnInfo = new PatternInfo();
-        XPathParts parts = new XPathParts();
         generator = DateTimePatternGenerator.getEmptyInstance();
         this.calendarID = calendarID;
         boolean haveDefaultHourChar = false;
@@ -193,7 +192,8 @@ public class DateTimeFormats {
         // appendItems result.setAppendItemFormat(getAppendFormatNumber(formatName), value);
         for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID
             + "\"]/dateTimeFormats/appendItems/appendItem"))) {
-            String request = parts.set(path).getAttributeValue(-1, "request");
+            XPathParts parts = XPathParts.getTestInstance(path);
+            String request = parts.getAttributeValue(-1, "request");
             int requestNumber = DateTimePatternGenerator.getAppendFormatNumber(request);
             String value = file.getStringValue(path);
             generator.setAppendItemFormat(requestNumber, value);
@@ -209,7 +209,8 @@ public class DateTimeFormats {
             if (!path.contains("displayName")) {
                 continue;
             }
-            String type = parts.set(path).getAttributeValue(-2, "type");
+            XPathParts parts = XPathParts.getTestInstance(path);
+            String type = parts.getAttributeValue(-2, "type");
             int requestNumber = find(FIELD_NAMES, type);
 
             String value = file.getStringValue(path);
@@ -222,7 +223,8 @@ public class DateTimeFormats {
 
         for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID
             + "\"]/dateTimeFormats/availableFormats/dateFormatItem"))) {
-            String key = parts.set(path).getAttributeValue(-1, "id");
+            XPathParts parts = XPathParts.getTestInstance(path);
+            String key = parts.getAttributeValue(-1, "id");
             String value = file.getStringValue(path);
             if (key.equals(DEBUG_SKELETON)) {
                 int debug = 0;
@@ -240,8 +242,9 @@ public class DateTimeFormats {
         // ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMMMEd\"]/greatestDifference[@id=\"d\"]
         for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID
             + "\"]/dateTimeFormats/intervalFormats/intervalFormatItem"))) {
-            String skeleton = parts.set(path).getAttributeValue(-2, "id");
-            String diff = parts.set(path).getAttributeValue(-1, "id");
+            XPathParts parts = XPathParts.getTestInstance(path);
+            String skeleton = parts.getAttributeValue(-2, "id");
+            String diff = parts.getAttributeValue(-1, "id");
             int diffNumber = find(CALENDAR_FIELD_TO_PATTERN_LETTER, diff);
             String intervalPattern = file.getStringValue(path);
             dateIntervalInfo.setIntervalPattern(skeleton, diffNumber, intervalPattern);

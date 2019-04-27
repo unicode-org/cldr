@@ -154,7 +154,7 @@ public class GenerateDecompCollationRules {
         }
 
         // now, generate the output file
-        XPathParts xpp = new XPathParts(null, null)
+        XPathParts xpp = new XPathParts()
             .addElements(LDMLConstants.LDML,
                 LDMLConstants.COLLATIONS,
                 LDMLConstants.COLLATION,

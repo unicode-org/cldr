@@ -362,7 +362,7 @@ public class VettingAdder {
         return "<" + current + ">" + (other.equals(current) ? "" : "\t[" + other + "]");
     }
 
-    XPathParts tempParts = new XPathParts(null, null);
+    XPathParts tempParts = new XPathParts();
 
     /**
      *

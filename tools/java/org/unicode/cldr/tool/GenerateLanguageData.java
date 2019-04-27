@@ -39,7 +39,7 @@ public class GenerateLanguageData {
 
         if (args.length > 0 && args[0].equals("--en")) {
             CLDRConfig cldrConfig = CLDRConfig.getInstance();
-            XPathParts xpp = new XPathParts(null, null)
+            XPathParts xpp = new XPathParts()
                 .addElement(LDMLConstants.LDML)
                 .addElement(LDMLConstants.LDN)
                 .addElement(LDMLConstants.LANGUAGES)
@@ -60,8 +60,6 @@ public class GenerateLanguageData {
             for (String languageCode : all) {
                 xpp.setAttribute(-1, LDMLConstants.TYPE, languageCode);
                 String xpath = xpp.toString();
-
-                Set<String> names = Iso639Data.getNames(languageCode);
 
                 newEn.add(xpp.toString(), oldEn.getName(languageCode));
 

@@ -54,10 +54,33 @@ public final class XPathParts implements Freezable<XPathParts> {
         this(null, attributeComparator, suppressionMap);
     }
 
+    /**
+     * Construct an XPathParts with the given elements, attributeComparator, and suppressionMap
+     *
+     * @param elements the List of elements to be added, or null; always null except when called by cloneAsThawed
+     * @param attributeComparator the Comparator, or null;
+     *        if null, use CLDRFile.getAttributeOrdering();
+     *        other values used are:
+     *            new UTF16.StringComparator()
+     *            dtdData.getAttributeComparator()
+     * @param suppressionMap the suppression map (which is ...?), or null;
+     *        when suppressionMap is not null, it is always CLDRFile.defaultSuppressionMap
+     *
+     * This private constructor is called only by cloneAsThawed (elements not null) and by the two public constructors above (elements null).
+     */
     private XPathParts(List<Element> elements, Comparator<String> attributeComparator, Map<String, Map<String, String>> suppressionMap) {
         if (elements != null) {
             for (Element e : elements) {
+                /*
+                 * TODO: cloneAsThawed shouldn't always make dtdData null.
+                 * cloneAsThawed makes dtdData null even when this.dtdData was non-null, which causes
+                 * bugs if we try to use XPathParts.getInstance instead of XPathParts.set, specifically
+                 * null pointer exception when called from DistinguishedXPath.getDistinguishingXPath.
+                 * The (only?) way to get non-null dtdData is with addElement; call addElement here
+                 * instead of calling elements.add directly?
+                 */
                 this.elements.add(e.cloneAsThawed());
+                // addElement(e.element);
             }
         }
         if (attributeComparator == null) {
@@ -71,7 +94,9 @@ public final class XPathParts implements Freezable<XPathParts> {
      */
     public boolean containsElement(String element) {
         for (int i = 0; i < elements.size(); ++i) {
-            if (elements.get(i).getElement().equals(element)) return true;
+            if (elements.get(i).getElement().equals(element)) {
+                return true;
+            }
         }
         return false;
     }
@@ -86,9 +111,8 @@ public final class XPathParts implements Freezable<XPathParts> {
     }
 
     /**
-     * Write out the difference form this xpath and the last, putting the value in the right place. Closes up the
-     * elements
-     * that were not closed, and opens up the new.
+     * Write out the difference from this xpath and the last, putting the value in the right place. Closes up the
+     * elements that were not closed, and opens up the new.
      *
      * @param pw
      * @param filteredXPath
@@ -105,7 +129,9 @@ public final class XPathParts implements Freezable<XPathParts> {
             pw.print(Utility.repeat("\t", i));
             pw.println(lastFullXPath.elements.get(i).toString(XML_CLOSE));
         }
-        if (v == null) return this; // end
+        if (v == null) {
+            return this; // end
+        }
         // now write the start of the current
         for (int i = limit; i < size() - 1; ++i) {
             if (xpath_comments != null) {
@@ -507,40 +533,42 @@ public final class XPathParts implements Freezable<XPathParts> {
      * @return
      */
     public XPathParts initialize(String xPath) {
-        if (size() != 0) {
-            return this;
+        if (size() == 0) {
+            set(xPath);
         }
-        if (frozen) {
-            throw new UnsupportedOperationException("Can't modify frozen Element");
-        }
-        return addInternal(xPath, true);
+        return this;
     }
 
     /**
      * Add the given path to this XPathParts.
      *
      * @param xPath the path string
-     * @param initial boolean, if true, call clear() before adding, and make requiredPrefix // instead of /
+     * @param initial boolean, if true, call elements.clear() and set dtdData = null before adding,
+     *                and make requiredPrefix // instead of /
      * @return the XPathParts, or parseError
      *
      * Called by initialize (initial = true), set (initial = true), and addRelative (initial = false)
      */
     private XPathParts addInternal(String xPath, boolean initial) {
         String lastAttributeName = "";
-        // if (xPath.length() == 0) return this;
         String requiredPrefix = "/";
         if (initial) {
-            clear();
+            elements.clear();
+            dtdData = null;
             requiredPrefix = "//";
         }
-        if (!xPath.startsWith(requiredPrefix)) return parseError(xPath, 0);
+        if (!xPath.startsWith(requiredPrefix)) {
+            return parseError(xPath, 0);
+        }
         int stringStart = requiredPrefix.length(); // skip prefix
         char state = 'p';
         // since only ascii chars are relevant, use char
         int len = xPath.length();
         for (int i = 2; i < len; ++i) {
             char cp = xPath.charAt(i);
-            if (cp != state && (state == '\"' || state == '\'')) continue; // stay in quotation
+            if (cp != state && (state == '\"' || state == '\'')) {
+                continue; // stay in quotation
+            }
             switch (cp) {
             case '/':
                 if (state != 'p' || stringStart >= i) return parseError(xPath, i);
@@ -684,7 +712,7 @@ public final class XPathParts implements Freezable<XPathParts> {
             if (attributes == null) {
                 this.attributes = null;
             } else {
-                this.attributes = new TreeMap<String, String>(getAttributeComparator(element));
+                this.attributes = new TreeMap<String, String>(getAttributeComparator());
                 this.attributes.putAll(attributes);
             }
         }
@@ -709,7 +737,7 @@ public final class XPathParts implements Freezable<XPathParts> {
                 }
             } else {
                 if (attributes == null) {
-                    attributes = new TreeMap<String, String>(getAttributeComparator(element));
+                    attributes = new TreeMap<String, String>(getAttributeComparator());
                 }
                 attributes.put(attribute, value);
             }
@@ -750,9 +778,6 @@ public final class XPathParts implements Freezable<XPathParts> {
             case XPathParts.XML_OPEN:
             case XPathParts.XML_NO_VALUE:
                 result.append('<').append(element);
-                if (false && element.equals("orientation")) {
-                    System.out.println();
-                }
                 writeAttributes(" ", "\"", true, result);
                 if (style == XML_NO_VALUE) result.append('/');
                 if (CLDRFile.HACK_ORDER && element.equals("ldml")) result.append(' ');
@@ -917,7 +942,7 @@ public final class XPathParts implements Freezable<XPathParts> {
         return -1;
     }
 
-    public MapComparator<String> getAttributeComparator(String currentElement) {
+    private MapComparator<String> getAttributeComparator() {
         return dtdData == null ? null
             : dtdData.dtdType == DtdType.ldml ? CLDRFile.getAttributeOrdering()
                 : dtdData.getAttributeComparator();

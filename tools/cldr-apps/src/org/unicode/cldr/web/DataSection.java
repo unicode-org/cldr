@@ -1413,7 +1413,7 @@ public class DataSection implements JSONString {
         private Map<String, String> getNonDistinguishingAttributes() {
             if (checkedNDA == false) {
                 String fullDiskXPath = diskFile.getFullXPath(xpath);
-                nonDistinguishingAttributes = sm.xpt.getUndistinguishingElementsFor(fullDiskXPath, new XPathParts(null, null));
+                nonDistinguishingAttributes = sm.xpt.getUndistinguishingElementsFor(fullDiskXPath, new XPathParts());
                 checkedNDA = true;
             }
             return nonDistinguishingAttributes;
@@ -2502,7 +2502,7 @@ public class DataSection implements JSONString {
      * Called only by DataSection.make, as section.populateFrom(ourSrc, checkCldr, workingCoverageLevel).
      */
     private void populateFrom(CLDRFile ourSrc, TestResultBundle checkCldr, String workingCoverageLevel) {
-        XPathParts xpp = new XPathParts(null, null);
+        XPathParts xpp = new XPathParts();
         STFactory stf = sm.getSTFactory();
         CLDRFile oldFile = stf.getOldFileResolved(locale);
         diskFile = stf.getDiskFile(locale);
@@ -2709,8 +2709,7 @@ public class DataSection implements JSONString {
         String alt = sm.xpt.altFromPathToTinyXpath(xpath);
 
         /* FULL path processing (references.. alt proposed.. ) */
-        xpp.clear();
-        xpp.initialize(fullPath);
+        xpp.set(fullPath);
         String lelement = xpp.getElement(-1);
         xpp.findAttributeValue(lelement, LDMLConstants.ALT);
         String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);

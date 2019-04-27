@@ -2249,7 +2249,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 + " where locale=? and value IS NOT NULL", locale);
 
             rs = ps.executeQuery();
-            XPathParts xpp = new XPathParts(null, null);
+            XPathParts xpp = new XPathParts();
             while (rs.next()) {
                 String xp = sm.xpt.getById(rs.getInt(1));
                 int sub = rs.getInt(2);
@@ -2262,7 +2262,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 String alt = null;
                 if (xp.contains("[@alt")) {
                     alt = XPathTable.getAlt(xp, xpp);
-                    sb = new StringBuilder(sm.xpt.removeAlt(xp, xpp)); // replace
+                    sb = new StringBuilder(XPathTable.removeAlt(xp, xpp)); // replace
                 }
 
                 sb.append("[@alt=\"");
@@ -2273,13 +2273,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 XPathTable.appendAltProposedPrefix(sb, sub, voteValue);
                 sb.append("\"]");
 
-                sxs.putValueAtPath(sb.toString(), DBUtils.getStringUTF8(rs, 3)); // value
-                // is
-                // never
-                // null,
-                // due
-                // to
-                // SQL
+                // value is never null, due to SQL
+                sxs.putValueAtPath(sb.toString(), DBUtils.getStringUTF8(rs, 3));
             }
 
             CLDRFile f = new CLDRFile(sxs);
@@ -2323,7 +2318,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             System.err.println("DELETED " + del + "regular votes .. reading from files");
 
             XMLFileReader myReader = new XMLFileReader();
-            final XPathParts xpp = new XPathParts(null, null);
+            final XPathParts xpp = new XPathParts();
 
             final PreparedStatement myInsert = ps2 = DBUtils.prepareStatementForwardReadOnly(conn, "myInser", "INSERT INTO  "
                 + DBUtils.Table.VOTE_VALUE + " (locale,xpath,submitter,value," + VOTE_OVERRIDE + ") VALUES (?,?,?,?) ");

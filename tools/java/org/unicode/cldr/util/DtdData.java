@@ -647,17 +647,6 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         throw new XMLFileReader.AbortException();
     }
 
-    //    static final Map<CLDRFile.DtdType, String> DTD_TYPE_TO_FILE;
-    //    static {
-    //        EnumMap<CLDRFile.DtdType, String> temp = new EnumMap<CLDRFile.DtdType, String>(CLDRFile.DtdType.class);
-    //        temp.put(CLDRFile.DtdType.ldml, CldrUtility.BASE_DIRECTORY + "common/dtd/ldml.dtd");
-    //        temp.put(CLDRFile.DtdType.supplementalData, CldrUtility.BASE_DIRECTORY + "common/dtd/ldmlSupplemental.dtd");
-    //        temp.put(CLDRFile.DtdType.ldmlBCP47, CldrUtility.BASE_DIRECTORY + "common/dtd/ldmlBCP47.dtd");
-    //        temp.put(CLDRFile.DtdType.keyboard, CldrUtility.BASE_DIRECTORY + "keyboards/dtd/ldmlKeyboard.dtd");
-    //        temp.put(CLDRFile.DtdType.platform, CldrUtility.BASE_DIRECTORY + "keyboards/dtd/ldmlPlatform.dtd");
-    //        DTD_TYPE_TO_FILE = Collections.unmodifiableMap(temp);
-    //    }
-
     /**
      * Normal version of DtdData
      * Note that it always gets the trunk version
@@ -746,15 +735,6 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 System.out.println("Element Ordering:\t" + elementList);
                 System.out.println("Attribute Ordering:\t" + attributeList);
             }
-            // double-check
-            //        for (Element element : elements) {
-            //            if (!MergeLists.hasConsistentOrder(elementList, element.children.keySet())) {
-            //                throw new IllegalArgumentException("Failed to find good element order: " + element.children.keySet());
-            //            }
-            //            if (!MergeLists.hasConsistentOrder(attributeList, element.attributes.keySet())) {
-            //                throw new IllegalArgumentException("Failed to find good attribute order: " + element.attributes.keySet());
-            //            }
-            //        }
             elementComparator = new MapComparator<String>(elementList).setErrorOnMissing(true).freeze();
             attributeComparator = new MapComparator<String>(attributeList).setErrorOnMissing(true).freeze();
         }
@@ -888,70 +868,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return nameToElement;
     }
 
-    //    private static class XPathIterator implements SimpleIterator<Node> {
-    //        private String path;
-    //        private int position; // at the start of the next element, or at the end of the string
-    //        private Node node = new Node();
-    //
-    //        public void set(String path) {
-    //            if (!path.startsWith("//")) {
-    //                throw new IllegalArgumentException();
-    //            }
-    //            this.path = path;
-    //            this.position = 2;
-    //        }
-    //
-    //        @Override
-    //        public Node next() {
-    //            // starts with /...[@...="...."]...
-    //            if (position >= path.length()) {
-    //                return null;
-    //            }
-    //            node.elementName = "";
-    //            node.attributes.clear();
-    //            int start = position;
-    //            // collect the element
-    //            while (true) {
-    //                if (position >= path.length()) {
-    //                    return node;
-    //                }
-    //                char ch = path.charAt(position++);
-    //                switch (ch) {
-    //                case '/':
-    //                    return node;
-    //                case '[':
-    //                    node.elementName = path.substring(start, position);
-    //                    break;
-    //                }
-    //            }
-    //            // done with element, we hit a [, collect the attributes
-    //
-    //            if (path.charAt(position++) != '@') {
-    //                throw new IllegalArgumentException();
-    //            }
-    //            while (true) {
-    //                if (position >= path.length()) {
-    //                    return node;
-    //                }
-    //                char ch = path.charAt(position++);
-    //                switch (ch) {
-    //                case '/':
-    //                    return node;
-    //                case '[':
-    //                    node.elementName = path.substring(start, position);
-    //                    break;
-    //                }
-    //            }
-    //        }
-    //    }
-
     public String toString() {
         StringBuilder b = new StringBuilder();
         // <!ELEMENT ldml (identity, (alias | (fallback*, localeDisplayNames?, layout?, contextTransforms?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, metadata?, references?, special*))) >
         // <!ATTLIST ldml draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
-//        if (firstComment != null) {
-//            b.append("\n<!--").append(firstComment).append("-->");
-//        }
         Seen seen = new Seen(dtdType);
         seen.seenElements.add(ANY);
         seen.seenElements.add(PCDATA);
@@ -1003,12 +923,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return toAddTo;
     }
 
-    //static final SupplementalDataInfo supplementalDataInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
-
     private void toString(Element current, StringBuilder b, Seen seen) {
-//        if ("calendar".equals(current.name) || current.commentsPost != null && current.commentsPost.contains("use of fields")) {
-//            int debug = 0;
-//        }
         boolean first = true;
         if (seen.seenElements.contains(current)) {
             return;
@@ -1559,16 +1474,6 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 item.setElement(i, string);
             }
         }
-
-//        private int size() {
-//            return list.iterator().next().size();
-//        }
-//
-//        private void removeElement(int i) {
-//            for (XPathParts item : list) {
-//                item.removeElement(i);
-//            }
-//        }
 
         private void addAttributes(String attribute, List<String> attributeValues) {
             if (attributeValues.size() == 1) {

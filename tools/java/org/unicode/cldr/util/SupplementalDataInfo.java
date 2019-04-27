@@ -955,8 +955,6 @@ public class SupplementalDataInfo {
             return getInstance(supplementalDirectory.getCanonicalPath());
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
-//            throw (IllegalArgumentException) new IllegalArgumentException()
-//            .initCause(e);
         }
     }
 
@@ -973,7 +971,20 @@ public class SupplementalDataInfo {
      * @return
      */
     public static SupplementalDataInfo getInstance() {
-        if (defaultInstance != null) return defaultInstance;
+        if (defaultInstance != null) {
+            return defaultInstance;
+        }
+        /*
+         * TODO: fix re-entrance problems involving LanguageTagParser:
+         * SupplementalDataInfo.getInstance(String) line: 1050  
+         * CLDRConfig.getSupplementalDataInfo() line: 215  
+         * SupplementalDataInfo.getInstance() line: 977    
+         * LanguageTagParser.<clinit>() line: 194  
+         * SupplementalDataInfo$MyHandler.<init>(SupplementalDataInfo) line: 1195  
+         * SupplementalDataInfo.getInstance(String) line: 1019 
+         * CLDRConfig.getSupplementalDataInfo() line: 215  
+         * SupplementalDataInfo.getInstance()
+         */
         return CLDRConfig.getInstance().getSupplementalDataInfo();
         // return getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
     }
@@ -1005,14 +1016,6 @@ public class SupplementalDataInfo {
             if (instance != null) {
                 return instance;
             }
-            //            if (!canonicalpath.equals(supplementalDirectory)) {
-            //                instance = directory_instance.get(canonicalpath);
-            //                if (instance != null) {
-            //                    directory_instance.put(supplementalDirectory, instance);
-            //                    directory_instance.put(canonicalpath,instance);
-            //                    return instance;
-            //                }
-            //            }
             // reaching here means we have not cached the entry
             File directory = new File(canonicalpath);
             instance = new SupplementalDataInfo(directory);

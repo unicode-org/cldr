@@ -134,7 +134,6 @@ public class TestPerf extends TestFmwkPlus {
     }
 
     public void TestXPathPartsWithComparators() {
-        XPathParts normal = new XPathParts();
         DtdData dtdData = DtdData.getInstance(DtdType.ldml);
 
         XPathParts newParts = new XPathParts(dtdData.getAttributeComparator(), null);
@@ -177,14 +176,9 @@ public class TestPerf extends TestFmwkPlus {
         checkCost(sortedArray, comp, 1, failures);
         assertRelation("DtdComparator-check", true, failures.value, LEQ, 0);
         double newSeconds = checkCost(sortedArray, comp, iterations, failures);
-        assertRelation("DtdComparator", true, newSeconds, LEQ, seconds * .5); // new
-        // code
-        // needs
-        // to
-        // be
-        // twice
-        // as
-        // fast
+
+        // new code needs to be twice as fast
+        assertRelation("DtdComparator", true, newSeconds, LEQ, seconds * .5);
     }
 
     private double checkCost(String[] sortedArray, Comparator<String> comp,

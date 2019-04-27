@@ -237,21 +237,13 @@
 			} else if (!val0.equals(valb)) {
 				style = "font-weight: bold; background-color: #bfb;";
 			} else {
-				//valm = WebContext.iconHtml(request, "squo", "same as winner") + "<br>"+ val0;
 				style = "opacity: 0.9;";
 			}
-
-			//updUsers.add(ui);
-			//String base_xpath = xpt.xpathToBaseXpath(x);
 			int vet_type[] = new int[1];
 
-			int j = -1; //cs.sm.vet.queryVote(loc, u.id, base_xpath_id, vet_type);
-			//int dpathId = xpt.getByXpath(xpathStr);
-			// now, find the ID to vote for.
+			int j = -1;
 			Set<String> resultPaths = new HashSet<String>();
-			XPathParts xpp = new XPathParts();
-			xpp.clear();
-			xpp.initialize(base);
+			XPathParts xpp = XPathParts.getTestInstance(base);
 			xpp.removeAttribute(-1, LDMLConstants.ALT);
 			String baseNoAlt = xpp.toString();
 			int root_xpath_id = cs.sm.xpt.getByXpath(baseNoAlt);

@@ -61,9 +61,7 @@ boolean reallymove = request.getParameter("reallymove")!=null;
 		if(good==null) {
 			if(badString==null) badString=xpt.getById(bad);
 			if(badString==null) return XPathTable.NO_XPATH;
-			XPathParts xpp = new XPathParts(null,null);
-			xpp.clear();
-			xpp.initialize(badString);
+			XPathParts xpp = XPathParts.getTestInstance(badString);
 			
 			// is it an intact metazone?
 			String mz = xpp.getElement(3);

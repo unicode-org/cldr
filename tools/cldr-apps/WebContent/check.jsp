@@ -20,34 +20,6 @@
 		factory.setFileCleaningTracker(fileCleaningTracker);
 		return factory;
 	}
-/*
-	final static String IDENTITY = "//ldml/identity/";
-	public static CLDRLocale locFromFile(CLDRFile file) {
-		Map<String,String> parts = new HashMap<String,String>();
-		XPathParts xpp = new XPathParts(null,null);
-		ULocale.Builder lb = new ULocale.Builder();
-		for(String xpath:file) { // TODO: iterator
-			if(!xpath.startsWith(IDENTITY)) {
-				continue;
-			}
-			xpp.set(xpath);
-			String k = xpp.getElement(-1);
-			String v = xpp.getAttributeValue(-1,"type");
-			//System.err.println(">>"+k+","+v);
-			parts.put(k,v);
-			if(k.equals("language")) {
-				lb = lb.setLanguage(v);
-			} else if(k.equals("script")) {
-				lb = lb.setScript(v);
-			} else if(k.equals("territory")) {
-				lb = lb.setRegion(v);
-			} else if(k.equals("variant")) {
-				lb = lb.setVariant(v);
-			}
-		}
-		return CLDRLocale.getInstance(lb.build());
-	}
-	*/
 
 %>
 <%

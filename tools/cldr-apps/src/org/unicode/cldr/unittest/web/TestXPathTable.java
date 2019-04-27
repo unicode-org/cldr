@@ -141,7 +141,7 @@ public class TestXPathTable extends TestFmwk {
         for (int i = 0; i < xpaths.length; i += 2) {
             String xpath = xpaths[i + 0];
             String expect = xpaths[i + 1];
-            Map<String, String> ueMap = xpt.getUndistinguishingElementsFor(xpath, new XPathParts(null, null));
+            Map<String, String> ueMap = xpt.getUndistinguishingElementsFor(xpath, new XPathParts());
             if (ueMap != null) {
                 logln(xpath + "\n -> " + ueMap.toString() + " expect " + expect);
             } else {

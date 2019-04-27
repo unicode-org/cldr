@@ -457,7 +457,7 @@ public class XPathTable {
     }
 
     public static String removeAlt(String path) {
-        return removeAlt(path, new XPathParts(null, null));
+        return removeAlt(path, new XPathParts());
     }
 
     /**
@@ -469,8 +469,7 @@ public class XPathTable {
      * @return
      */
     public static String removeDraftAltProposed(String path) {
-        XPathParts xpp = new XPathParts(null, null);
-        xpp.initialize(path);
+        XPathParts xpp = XPathParts.getTestInstance(path);
         Map<String, String> lastAtts = xpp.getAttributes(-1);
 
         // Remove alt proposed, but leave the type
@@ -554,8 +553,7 @@ public class XPathTable {
     }
 
     public static String removeAttribute(String path, XPathParts xpp, String attribute) {
-        xpp.clear();
-        xpp.initialize(path);
+        xpp.set(path);
         xpp.removeAttribute(-1, attribute);
         return xpp.toString();
     }
@@ -565,8 +563,7 @@ public class XPathTable {
     }
 
     public static String getAttributeValue(String path, XPathParts xpp, String attribute) {
-        xpp.clear();
-        xpp.initialize(path);
+        xpp.set(path);
         return xpp.getAttributeValue(-1, attribute);
     }
 
@@ -580,9 +577,7 @@ public class XPathTable {
      * @param xpath
      */
     public static String xpathToBaseXpath(String xpath) {
-        XPathParts xpp = new XPathParts(null, null);
-        xpp.clear();
-        xpp.initialize(xpath);
+        XPathParts xpp = XPathParts.getTestInstance(xpath);
         Map<String, String> lastAtts = xpp.getAttributes(-1);
         String oldAlt = (String) lastAtts.get(LDMLConstants.ALT);
         if (oldAlt == null) {
@@ -606,15 +601,19 @@ public class XPathTable {
         return newXpath;
     }
 
+    /**
+     * This two-parameter xpathToBaseXpath is called only from submit.jsp
+     * 
+     * @param xpath the input path string
+     * @param xpp the XPathParts, whose original contents (if any) are ignored and destroyed,
+     *            and whose contents get changed here and used/modified by the caller
+     * @return the (possibly modified) path string
+     */
     public static String xpathToBaseXpath(String xpath, XPathParts xpp) {
         xpp.initialize(xpath);
         Map<String, String> lastAtts = xpp.getAttributes(-1);
         String oldAlt = (String) lastAtts.get(LDMLConstants.ALT);
         if (oldAlt == null) {
-            /*
-             * String lelement = xpp.getElement(-1); oldAlt =
-             * xpp.findAttributeValue(lelement,LDMLConstants.ALT);
-             */
             return xpath; // no change
         }
 
@@ -627,7 +626,6 @@ public class XPathTable {
             xpp.putAttributeValue(-1, LDMLConstants.ALT, newAlt);
         }
         String newXpath = xpp.toString();
-        // SurveyLog.logger.warning("xp2Bxp: " + xpath + " --> " + newXpath);
         return newXpath;
     }
 

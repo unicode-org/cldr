@@ -42,7 +42,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     public static final String ROOT_ID = "root";
     public static final boolean USE_PARTS_IN_ALIAS = false;
     private static final String TRACE_INDENT = " "; // "\t"
-    private transient XPathParts parts = new XPathParts(null, null);
+    private transient XPathParts parts = new XPathParts();
     private static Map<String, String> allowDuplicates = new HashMap<String, String>();
 
     private String localeID;

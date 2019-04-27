@@ -38,7 +38,7 @@ import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 
 public class GenerateAttributeList {
-    XPathParts parts = new XPathParts(null, null);
+    XPathParts parts = new XPathParts();
     Map<String, Map<String, Set<String>[]>> element_attribute_valueSet = new TreeMap<String, Map<String, Set<String>[]>>();
     Set<String> allElements = new TreeSet<String>();
     Map<String, String> defaults = new HashMap<String, String>();
@@ -53,31 +53,6 @@ public class GenerateAttributeList {
         addFromDirectory(CLDRPaths.COMMON_DIRECTORY + "segments/");
         addFromDirectory(CLDRPaths.COMMON_DIRECTORY + "supplemental/");
         addFromDirectory(CLDRPaths.COMMON_DIRECTORY + "transforms/");
-        /*
-         * Set seenAlready = new HashSet();
-         * for (Iterator it = cldrFactory.getAvailable().iterator(); it.hasNext();) {
-         * String locale = (String) it.next();
-         * System.out.println(locale);
-         * CLDRFile cldrFile = cldrFactory.make(locale, false);
-         * for (Iterator it2 = cldrFile.keySet().iterator(); it2.hasNext();) {
-         * String cleanPath = (String) it2.next();
-         * String fullXPath = cldrFile.getFullXPath(cleanPath);
-         * if (seenAlready.contains(fullXPath)) continue;
-         * seenAlready.add(fullXPath);
-         * parts.set(fullXPath);
-         * for (int i = 0; i < parts.size(); ++i) {
-         * String element = parts.getElement(i);
-         * allElements.add(element);
-         * Map attribute_values = parts.getAttributes(i);
-         * for (Iterator it3 = attribute_values.keySet().iterator(); it3.hasNext();) {
-         * String attribute = (String) it3.next();
-         * String value = (String) attribute_values.get(attribute);
-         * add(element, attribute, value, false);
-         * }
-         * }
-         * }
-         * }
-         */
     }
 
     /**

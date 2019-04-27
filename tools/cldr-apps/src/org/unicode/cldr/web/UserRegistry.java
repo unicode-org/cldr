@@ -2369,10 +2369,8 @@ public class UserRegistry {
             String sql = createUserTable(conn);
 
             XMLFileReader myReader = new XMLFileReader();
-            final XPathParts xpp = new XPathParts(null, null);
+            final XPathParts xpp = new XPathParts();
             final Map<String, String> attrs = new TreeMap<String, String>();
-            // final Map<String,UserRegistry.User> users = new
-            // TreeMap<String,UserRegistry.User>();
 
             // <user id="10" email="u_10@apple.example.com" level="vetter"
             // name="Apple#10" org="apple" locales="nl nl_BE nl_NL"/>
@@ -2387,8 +2385,7 @@ public class UserRegistry {
                 int maxUserId = 1;
 
                 public void handlePathValue(String path, String value) {
-                    xpp.clear();
-                    xpp.initialize(path);
+                    xpp.set(path);
                     attrs.clear();
                     for (String k : xpp.getAttributeKeys(-1)) {
                         attrs.put(k, xpp.getAttributeValue(-1, k));

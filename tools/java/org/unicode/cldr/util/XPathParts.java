@@ -861,10 +861,6 @@ public final class XPathParts implements Freezable<XPathParts> {
             return element;
         }
 
-        // private void setAttributes(Map attributes) {
-        // this.attributes = attributes;
-        // }
-
         private int getAttributeCount() {
             if (attributes == null) {
                 return 0;
@@ -877,12 +873,6 @@ public final class XPathParts implements Freezable<XPathParts> {
                 return Collections.emptyMap();
             }
             return Collections.unmodifiableMap(attributes);
-//
-//            if (attributes == null) {
-//                attributes = new TreeMap<String, String>(attributeComparator);
-//            }
-//            verify();
-//            return attributes;
         }
 
         private String getAttributeValue(String attribute) {
@@ -891,19 +881,6 @@ public final class XPathParts implements Freezable<XPathParts> {
             }
             return attributes.get(attribute);
         }
-
-        //        public Element freezeAndCache() {
-        //            if (frozen) {
-        //                return this;
-        //            }
-        //            Element result = ELEMENT_CACHE.get(this);
-        //            if (result != null) {
-        //                return result;
-        //            }
-        //            result = freeze();
-        //            ELEMENT_CACHE.put(result, result);
-        //            return result;
-        //        }
 
         @Override
         public boolean isFrozen() {

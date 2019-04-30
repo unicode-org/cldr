@@ -656,7 +656,7 @@ public class CLDRTest extends TestFmwk {
         boolean SHOW = false;
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
-        XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
+        XPathParts parts = new XPathParts();
         for (Iterator<String> it = supp.iterator(); it.hasNext();) {
             String path = it.next();
             try {

@@ -198,8 +198,8 @@
 
 
 	int r = 0;
-	XPathParts xppMine = new XPathParts(null, null);
-	XPathParts xppBase = new XPathParts(null, null);
+	XPathParts xppMine = new XPathParts();
+	XPathParts xppBase = new XPathParts();
     final List<CheckCLDR.CheckStatus> checkResult = new ArrayList<CheckCLDR.CheckStatus>();
     TestCache.TestResultBundle cc = stf.getTestResult(loc, DataSection.getOptions(null, cs, loc));
 	UserRegistry.User u = theirU;

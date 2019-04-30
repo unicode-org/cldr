@@ -839,11 +839,6 @@ public class SupplementalDataInfo {
 
     private Map<String, Map<BasicLanguageData.Type, BasicLanguageData>> languageToBasicLanguageData = new TreeMap<String, Map<BasicLanguageData.Type, BasicLanguageData>>();
 
-    // private Map<String, BasicLanguageData> languageToBasicLanguageData2 = new
-    // TreeMap();
-
-    // Relation(new TreeMap(), TreeSet.class, null);
-
     private Set<String> allLanguages = new TreeSet<String>();
     final private List<String> approvalRequirements = new LinkedList<String>(); // xpath array
 
@@ -851,8 +846,6 @@ public class SupplementalDataInfo {
         LinkedHashSet.class);
     private Relation<String, String> containmentCore = Relation.of(new LinkedHashMap<String, Set<String>>(),
         LinkedHashSet.class);
-    //    private Relation<String, String> containmentNonDeprecated = Relation.of(new LinkedHashMap<String, Set<String>>(),
-    //        LinkedHashSet.class);
     private Relation<String, String> containmentGrouping = Relation.of(new LinkedHashMap<String, Set<String>>(),
         LinkedHashSet.class);
     private Relation<String, String> containmentDeprecated = Relation.of(new LinkedHashMap<String, Set<String>>(),
@@ -865,8 +858,6 @@ public class SupplementalDataInfo {
     private Relation<String, CurrencyDateInfo> territoryToCurrencyDateInfo = Relation.of(
         new TreeMap<String, Set<CurrencyDateInfo>>(), LinkedHashSet.class);
 
-    // private Relation<String, TelephoneCodeInfo> territoryToTelephoneCodeInfo = new Relation(new TreeMap(),
-    // LinkedHashSet.class);
     private Map<String, Set<TelephoneCodeInfo>> territoryToTelephoneCodeInfo = new TreeMap<String, Set<TelephoneCodeInfo>>();
 
     private Set<String> multizone = new TreeSet<String>();
@@ -879,7 +870,6 @@ public class SupplementalDataInfo {
     private Map<String, Map<String, Map<String, String>>> typeToZoneToRegionToZone = new TreeMap<String, Map<String, Map<String, String>>>();
     private Relation<String, MetaZoneRange> zoneToMetaZoneRanges = Relation.of(
         new TreeMap<String, Set<MetaZoneRange>>(), TreeSet.class);
-//    private Map<String, Map<String, Relation<String, String>>> deprecated = new HashMap<String, Map<String, Relation<String, String>>>();
 
     private Map<String, String> metazoneContinentMap = new HashMap<String, String>();
     private Set<String> allMetazones = new TreeSet<String>();
@@ -974,17 +964,6 @@ public class SupplementalDataInfo {
         if (defaultInstance != null) {
             return defaultInstance;
         }
-        /*
-         * TODO: fix re-entrance problems involving LanguageTagParser:
-         * SupplementalDataInfo.getInstance(String) line: 1050  
-         * CLDRConfig.getSupplementalDataInfo() line: 215  
-         * SupplementalDataInfo.getInstance() line: 977    
-         * LanguageTagParser.<clinit>() line: 194  
-         * SupplementalDataInfo$MyHandler.<init>(SupplementalDataInfo) line: 1195  
-         * SupplementalDataInfo.getInstance(String) line: 1019 
-         * CLDRConfig.getSupplementalDataInfo() line: 215  
-         * SupplementalDataInfo.getInstance()
-         */
         return CLDRConfig.getInstance().getSupplementalDataInfo();
         // return getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
     }
@@ -1195,7 +1174,7 @@ public class SupplementalDataInfo {
     class MyHandler extends XMLFileReader.SimpleHandler {
         private static final double MAX_POPULATION = 3000000000.0;
 
-        LanguageTagParser languageTagParser = new LanguageTagParser();
+        LanguageTagParser languageTagParser = null; // postpone assignment until needed, to avoid re-entrance of SupplementalDataInfo.getInstance
 
         /**
          * Finish processing anything left hanging in the file.
@@ -1233,7 +1212,7 @@ public class SupplementalDataInfo {
 
                 // copy the rest from ShowLanguages later
                 if (level0.equals("ldmlBCP47")) {
-                    if (handleBcp47(level1, level2, parts)) {
+                    if (handleBcp47(level1, parts)) {
                         return;
                     }
                 } else if (level1.equals("territoryInfo")) {
@@ -1257,11 +1236,11 @@ public class SupplementalDataInfo {
                         return;
                     }
                  } else if ("metazoneInfo".equals(level2)) {
-                    if (handleMetazoneInfo(level2, level3, parts)) {
+                    if (handleMetazoneInfo(level3, parts)) {
                         return;
                     }
                 } else if ("mapTimezones".equals(level2)) {
-                    if (handleMetazoneData(level2, level3, parts)) {
+                    if (handleMetazoneData(level3, parts)) {
                         return;
                     }
                 } else if (level1.equals("plurals")) {
@@ -1269,7 +1248,7 @@ public class SupplementalDataInfo {
                         return;
                     }
                 } else if (level1.equals("dayPeriodRuleSet")) {
-                    addDayPeriodPath(parts, value);
+                    addDayPeriodPath(parts);
                     return;
                 } else if (level1.equals("telephoneCodeData")) {
                     handleTelephoneCodeData(parts);
@@ -1300,7 +1279,7 @@ public class SupplementalDataInfo {
                         return;
                     }
                 } else if (level1.equals("languageMatching")) {
-                    if (handleLanguageMatcher(level2, parts)) {
+                    if (handleLanguageMatcher(parts)) {
                         return;
                     }
                 } else if (level1.equals("measurementData")) {
@@ -1308,11 +1287,11 @@ public class SupplementalDataInfo {
                         return;
                     }
                 } else if (level1.equals("timeData")) {
-                    if (handleTimeData(level2, parts)) {
+                    if (handleTimeData(parts)) {
                         return;
                     }
                 } else if (level1.equals("languageGroups")) {
-                    if (handleLanguageGroups(level2, value, parts)) {
+                    if (handleLanguageGroups(value, parts)) {
                         return;
                     }
                 }
@@ -1331,7 +1310,7 @@ public class SupplementalDataInfo {
             }
         }
 
-        private boolean handleLanguageGroups(String level2, String value, XPathParts parts) {
+        private boolean handleLanguageGroups(String value, XPathParts parts) {
             String parent = parts.getAttributeValue(-1, "parent");
             List<String> children = WHITESPACE_SPLTTER.splitToList(value);
             languageGroups.putAll(parent, children);
@@ -1356,12 +1335,11 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleTimeData(String level2, XPathParts parts) {
+        private boolean handleTimeData(XPathParts parts) {
             /**
              * <hours preferred="H" allowed="H" regions="IL RU"/>
              */
             String preferred = parts.getAttributeValue(-1, "preferred");
-            // String[] allowed = parts.getAttributeValue(-1, "allowed").trim().split("\\s+");
             PreferredAndAllowedHour preferredAndAllowedHour = new PreferredAndAllowedHour(preferred,
                 parts.getAttributeValue(-1, "allowed"));
             for (String region : parts.getAttributeValue(-1, "regions").trim().split("\\s+")) {
@@ -1373,7 +1351,7 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleBcp47(String level1, String level2, XPathParts parts) {
+        private boolean handleBcp47(String level1, XPathParts parts) {
             if (level1.equals("version") || level1.equals("generation") || level1.equals("cldrVersion")) {
                 return true; // skip
             }
@@ -1455,7 +1433,7 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleLanguageMatcher(String level2, XPathParts parts) {
+        private boolean handleLanguageMatcher(XPathParts parts) {
             String type = parts.getAttributeValue(2, "type");
             String alt = parts.getAttributeValue(2, "alt");
             if (alt != null) {
@@ -1471,8 +1449,8 @@ public class SupplementalDataInfo {
 //                }
                 break;
             case "matchVariable":
-                String id = parts.getAttributeValue(3, "id");
-                String value = parts.getAttributeValue(3, "value");
+                // String id = parts.getAttributeValue(3, "id");
+                // String value = parts.getAttributeValue(3, "value");
                 // TODO
                 break;
             case "languageMatch":
@@ -1586,7 +1564,7 @@ public class SupplementalDataInfo {
         /**
          * Only called if level2 = mapTimezones. Level 1 might be metaZones or might be windowsZones
          */
-        private boolean handleMetazoneData(String level2, String level3, XPathParts parts) {
+        private boolean handleMetazoneData(String level3, XPathParts parts) {
             if (level3.equals("mapZone")) {
                 String maintype = parts.getAttributeValue(2, "type");
                 if (maintype == null) {
@@ -1635,7 +1613,7 @@ public class SupplementalDataInfo {
          * <usesMetazone from="1991-09-22 20:00" mzone="Armenia"/>
          */
 
-        private boolean handleMetazoneInfo(String level2, String level3, XPathParts parts) {
+        private boolean handleMetazoneInfo(String level3, XPathParts parts) {
             if (level3.equals("timezone")) {
                 String zone = parts.getAttributeValue(3, "type");
                 String mzone = parts.getAttributeValue(4, "mzone");
@@ -1664,7 +1642,6 @@ public class SupplementalDataInfo {
                     throw new IllegalArgumentException();
                 }
                 level3 = level3.substring(0, level3.length() - "Alias".length());
-                boolean isSubdivision = level3.equals("subdivision");
                 Map<String, R2<List<String>, String>> tagToReplacement = typeToTagToReplacement.get(level3);
                 if (tagToReplacement == null) {
                     typeToTagToReplacement.put(level3,
@@ -1815,6 +1792,10 @@ public class SupplementalDataInfo {
                 // if (language.equals("en")) {
                 // System.out.println(territory + "\tnewData:\t" + newData + "\tdata:\t" + data);
                 // }
+                
+                if (languageTagParser == null) {
+                    languageTagParser = new LanguageTagParser();
+                }
                 String baseLanguage = languageTagParser.set(language).getLanguage();
                 data = baseLanguageToPopulation.get(baseLanguage);
                 if (data == null) {
@@ -2922,7 +2903,7 @@ public class SupplementalDataInfo {
     private transient DayPeriodInfo.Type lastDayPeriodType = null;
     private transient DayPeriodInfo.Builder dayPeriodBuilder = new DayPeriodInfo.Builder();
 
-    private void addDayPeriodPath(XPathParts path, String value) {
+    private void addDayPeriodPath(XPathParts path) {
         // ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="am"]
         /*
          * <supplementalData>

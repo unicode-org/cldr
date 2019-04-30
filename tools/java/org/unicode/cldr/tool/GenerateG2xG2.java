@@ -372,7 +372,7 @@ public class GenerateG2xG2 {
             territory_currency = new TreeMap<String, List<String>>();
             Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
-            XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
+            XPathParts parts = new XPathParts();
             for (String path : supp) {
                 if (path.indexOf("/currencyData") >= 0) {
                     // <region iso3166="AR">

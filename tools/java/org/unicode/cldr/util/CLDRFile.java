@@ -465,10 +465,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         XPathParts.Comments tempComments = (XPathParts.Comments) dataSource.getXpathComments().clone();
 
-        XPathParts last = new XPathParts(null, defaultSuppressionMap);
-        XPathParts current = new XPathParts(null, defaultSuppressionMap);
-        XPathParts lastFiltered = new XPathParts(null, defaultSuppressionMap);
-        XPathParts currentFiltered = new XPathParts(null, defaultSuppressionMap);
+        XPathParts last = new XPathParts(defaultSuppressionMap);
+        XPathParts current = new XPathParts(defaultSuppressionMap);
+        XPathParts lastFiltered = new XPathParts(defaultSuppressionMap);
+        XPathParts currentFiltered = new XPathParts(defaultSuppressionMap);
 
         boolean isResolved = dataSource.isResolving();
 
@@ -1066,7 +1066,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     public CLDRFile putRoot(CLDRFile rootFile) {
         Matcher specialPathMatcher = specialsToPushFromRoot.matcher("");
-        XPathParts parts = new XPathParts(null, defaultSuppressionMap);
+        XPathParts parts = new XPathParts(defaultSuppressionMap);
         for (Iterator<String> it = rootFile.iterator(); it.hasNext();) {
             String xpath = it.next();
 

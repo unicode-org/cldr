@@ -10,7 +10,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -47,28 +46,23 @@ public final class XPathParts implements Freezable<XPathParts> {
     private static final Map<String, XPathParts> cache = new ConcurrentHashMap<String, XPathParts>();
 
     public XPathParts() {
-        this(null, null, null);
+        this(null, null);
     }
 
-    public XPathParts(Comparator<String> attributeComparator, Map<String, Map<String, String>> suppressionMap) {
-        this(null, attributeComparator, suppressionMap);
+    public XPathParts(Map<String, Map<String, String>> suppressionMap) {
+        this(null, suppressionMap);
     }
 
     /**
-     * Construct an XPathParts with the given elements, attributeComparator, and suppressionMap
+     * Construct an XPathParts with the given elements and suppressionMap
      *
      * @param elements the List of elements to be added, or null; always null except when called by cloneAsThawed
-     * @param attributeComparator the Comparator, or null;
-     *        if null, use CLDRFile.getAttributeOrdering();
-     *        other values used are:
-     *            new UTF16.StringComparator()
-     *            dtdData.getAttributeComparator()
      * @param suppressionMap the suppression map (which is ...?), or null;
      *        when suppressionMap is not null, it is always CLDRFile.defaultSuppressionMap
      *
      * This private constructor is called only by cloneAsThawed (elements not null) and by the two public constructors above (elements null).
      */
-    private XPathParts(List<Element> elements, Comparator<String> attributeComparator, Map<String, Map<String, String>> suppressionMap) {
+    private XPathParts(List<Element> elements, Map<String, Map<String, String>> suppressionMap) {
         if (elements != null) {
             for (Element e : elements) {
                 /*
@@ -82,10 +76,7 @@ public final class XPathParts implements Freezable<XPathParts> {
                 this.elements.add(e.cloneAsThawed());
                 // addElement(e.element);
             }
-        }
-        if (attributeComparator == null) {
-            attributeComparator = CLDRFile.getAttributeOrdering();
-        }
+        }        
         this.suppressionMap = suppressionMap;
     }
 
@@ -1180,7 +1171,7 @@ public final class XPathParts implements Freezable<XPathParts> {
 
     @Override
     public XPathParts cloneAsThawed() {
-        return new XPathParts(elements, null, suppressionMap);
+        return new XPathParts(elements, suppressionMap);
     }
 
     public static synchronized XPathParts getFrozenInstance(String path) {
@@ -1195,6 +1186,12 @@ public final class XPathParts implements Freezable<XPathParts> {
         return getFrozenInstance(path).cloneAsThawed();
     }
 
+    /**
+     * Same as getInstance, but temporarily distinguished for testing; for some callers getFrozenInstance might work as well and be faster
+     * TODO: replace with getInstance or getFrozenInstance, when complete https://unicode.org/cldr/trac/ticket/12007
+     * @param path
+     * @return the XPathParts
+     */
     public static XPathParts getTestInstance(String path) {
         return getInstance(path);
         // return getFrozenInstance(path);

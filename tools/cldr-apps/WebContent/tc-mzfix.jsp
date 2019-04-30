@@ -135,7 +135,7 @@ for(Object o[] : vetHits) {
 }
 
 Set<CLDRLocale> allLocs = new TreeSet<CLDRLocale>();
-XPathParts xpp = new XPathParts(null,null);
+// XPathParts xpp = new XPathParts();
 if(data!=null) {
 	allLocs.addAll(data.keySet());
 }
@@ -308,10 +308,8 @@ Set<Integer> thisVotes = (votes!=null)?votes.get(l):null;
 							int adId = (Integer)dataToMove.get("id");
 							int adoXpath = (Integer)dataToMove.get("origxpath");
 							String adVal = (String)dataToMove.get("value");
-							//moveData = cs.sm.dbUtils.prepareForwardReadOnly(conn, "update cldr_data set xpath=?,origxpath=?,base_xpath=? where id=?");
 							if(moveTo==-1) {
 								// we don't know the right vxpath.  Make up something.
-								//xpp.clear().initialize(xpt.getById());
 								moveTo=fixXpath(adXpath);
 								valToData.put(adVal,moveTo); // for other votes, don't move the data again!
 								moveData.setInt(1,moveTo);

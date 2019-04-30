@@ -33,7 +33,6 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.UnicodeSet;
 
@@ -191,8 +190,7 @@ public class LanguageTagParser {
     private static final Splitter SPLIT_BAR = Splitter.on(CharMatcher.anyOf(separator));
     private static final Splitter SPLIT_COLON = Splitter.on(';');
     private static final Splitter SPLIT_EQUAL = Splitter.on('=');
-    private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
-    private static final Relation<R2<String, String>, String> BCP47_ALIASES = SDI.getBcp47Aliases();
+    private static SupplementalDataInfo SDI = null; // postpone assignment to avoid re-entrance of SupplementalDataInfo.getInstance
 
     /**
      * Parses out a language tag, setting a number of fields that can subsequently be retrieved.
@@ -349,6 +347,10 @@ public class LanguageTagParser {
         if (!isValid()) {
             return Status.WELL_FORMED;
             // TODO, check the bcp47 extension codes also
+        }
+
+        if (SDI == null) {
+            SDI = SupplementalDataInfo.getInstance();
         }
         Map<String, Map<String, R2<List<String>, String>>> aliasInfo = SDI.getLocaleAliasInfo();
         Map<String, Map<String, String>> languageInfo = StandardCodes.getLStreg().get("language");

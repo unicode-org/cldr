@@ -136,7 +136,7 @@ public class TestPerf extends TestFmwkPlus {
     public void TestXPathPartsWithComparators() {
         DtdData dtdData = DtdData.getInstance(DtdType.ldml);
 
-        XPathParts newParts = new XPathParts(dtdData.getAttributeComparator(), null);
+        XPathParts newParts = new XPathParts();
         for (String path : sortedArray) {
             /*
              * TODO: getTestInstance; how, for (dtdData.getAttributeComparator(), null)?

@@ -680,7 +680,7 @@ public class ShowLanguages {
 
         public LanguageInfo(Factory cldrFactory) throws IOException {
             CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
-            XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
+            XPathParts parts = new XPathParts();
             for (Iterator<String> it = supp.iterator(); it.hasNext();) {
                 String path = it.next();
                 String fullPath = supp.getFullXPath(path);

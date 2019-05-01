@@ -194,36 +194,29 @@
 	DisplayAndInputProcessor processor = new DisplayAndInputProcessor(loc,false);
 	STFactory stf = CookieSession.sm.getSTFactory();
     BallotBox<UserRegistry.User> ballotBox = stf.ballotBoxForLocale(loc);
-    SupplementalDataInfo sdi = cs.sm.getSupplementalDataInfo();
-
+    SupplementalDataInfo sdi = CookieSession.sm.getSupplementalDataInfo();
 
 	int r = 0;
-	XPathParts xppMine = new XPathParts();
-	XPathParts xppBase = new XPathParts();
     final List<CheckCLDR.CheckStatus> checkResult = new ArrayList<CheckCLDR.CheckStatus>();
     TestCache.TestResultBundle cc = stf.getTestResult(loc, DataSection.getOptions(null, cs, loc));
 	UserRegistry.User u = theirU;
 	CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
 	Set<String> allValidPaths = stf.getPathsForFile(loc);
-	CLDRProgressTask progress = cs.sm.openProgress("Bulk:" + loc, all.size());
+	CLDRProgressTask progress = CookieSession.sm.openProgress("Bulk:" + loc, all.size());
 	try {
-	
-		CoverageInfo coverageInfo = CLDRConfig.getInstance()
-				.getCoverageInfo();
+		CoverageInfo coverageInfo = CLDRConfig.getInstance().getCoverageInfo();
 		for (String x : all) {
-			//progress.update(r++);
-
 			String full = cf.getFullXPath(x);
-			String alt = XPathTable.getAlt(full, xppMine);
+			XPathParts xppMine = XPathParts.getTestInstance(full);
+			String alt = xppMine.getAttributeValue(-1, LDMLConstants.ALT);
 			String valOrig = cf.getStringValue(x);
 			Exception exc[] = new Exception[1];
 			final String val0 = processor.processInput(x, valOrig, exc);
 			String altPieces[] = LDMLUtilities.parseAlt(alt);
-			String base = XPathTable.xpathToBaseXpath(x, xppMine);
+			XPathTable.xPathPartsToBase(xppMine);
 			xppMine.removeAttribute(-1, LDMLConstants.DRAFT);
-			base = xppMine.toString();
-			//base = XPathTable.removeDraft(base, xppMine);
-			int base_xpath_id = cs.sm.xpt.getByXpath(base);
+			String base = xppMine.toString();
+			int base_xpath_id = CookieSession.sm.xpt.getByXpath(base);
 
 			String valb = baseFile.getWinningValue(base);
 
@@ -246,7 +239,7 @@
 			XPathParts xpp = XPathParts.getTestInstance(base);
 			xpp.removeAttribute(-1, LDMLConstants.ALT);
 			String baseNoAlt = xpp.toString();
-			int root_xpath_id = cs.sm.xpt.getByXpath(baseNoAlt);
+			int root_xpath_id = CookieSession.sm.xpt.getByXpath(baseNoAlt);
 
 			int coverageValue = 0;
 

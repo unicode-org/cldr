@@ -376,7 +376,7 @@ public class TestPaths extends TestFmwkPlus {
                         if (skipLast.contains(last)) {
                             continue;
                         }
-                        String dpath = CLDRFile.getDistinguishingXPath(path, normalizedPath, true);
+                        String dpath = CLDRFile.getDistinguishingXPath(path, normalizedPath);
                         if (!dpath.equals(path)) {
                             checkParts(dpath, dtdData);
                         }

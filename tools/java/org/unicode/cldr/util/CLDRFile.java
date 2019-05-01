@@ -756,7 +756,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 CldrUtility.joinWithSeparation(dataSource.getXpathComments().getFinalComment(), XPathParts.NEWLINE,
                     comment));
         } else {
-            xpath = getDistinguishingXPath(xpath, null, false);
+            xpath = getDistinguishingXPath(xpath, null);
             dataSource.getXpathComments().addComment(type, xpath, comment);
         }
         return this;
@@ -834,7 +834,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                         String prop = "proposed" + (i == 0 ? "" : String.valueOf(i));
                         XPathParts parts = XPathParts.getTestInstance(other.getFullXPath(key)); // can't be frozen
                         String fullPath = parts.addAttribute("alt", prop).toString();
-                        String path = getDistinguishingXPath(fullPath, null, false);
+                        String path = getDistinguishingXPath(fullPath, null);
                         if (dataSource.getValueAtPath(path) != null) {
                             continue;
                         }
@@ -1064,42 +1064,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return this;
     }
 
-    public CLDRFile putRoot(CLDRFile rootFile) {
-        Matcher specialPathMatcher = specialsToPushFromRoot.matcher("");
-        XPathParts parts = new XPathParts(defaultSuppressionMap);
-        for (Iterator<String> it = rootFile.iterator(); it.hasNext();) {
-            String xpath = it.next();
-
-            // skip aliases, choices
-            if (xpath.contains("/alias")) continue;
-            if (xpath.contains("/default")) continue;
-
-            // skip values we have
-            String currentValue = dataSource.getValueAtPath(xpath);
-            if (currentValue != null) continue;
-
-            // only copy specials
-            if (!specialPathMatcher.reset(xpath).find()) { // skip certain xpaths
-                continue;
-            }
-            // now add the value
-            String otherValue = rootFile.dataSource.getValueAtPath(xpath);
-            String otherFullXPath = rootFile.dataSource.getFullPath(xpath);
-            if (!otherFullXPath.contains("[@draft")) {
-                /*
-                 * TODO: getTestInstance; how to do with defaultSuppressionMap?
-                 */
-                parts.set(otherFullXPath);
-                Map<String, String> attributes = parts.getAttributes(-1);
-                attributes.put("draft", "unconfirmed");
-                otherFullXPath = parts.toString();
-            }
-
-            add(otherFullXPath, otherValue);
-        }
-        return this;
-    }
-
     /**
      * @return Returns the finalComment.
      */
@@ -1286,8 +1250,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
     }
 
-    public static String getDistinguishingXPath(String xpath, String[] normalizedPath, boolean nonInheriting) {
-        return DistinguishedXPath.getDistinguishingXPath(xpath, normalizedPath, nonInheriting);
+    public static String getDistinguishingXPath(String xpath, String[] normalizedPath) {
+        return DistinguishedXPath.getDistinguishingXPath(xpath, normalizedPath);
     }
 
     private static boolean equalsIgnoringDraft(String path1, String path2) {
@@ -1733,7 +1697,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
 
         private void warnOnOverride(String former, String formerPath) {
-            String distinguishing = CLDRFile.getDistinguishingXPath(formerPath, null, true);
+            String distinguishing = CLDRFile.getDistinguishingXPath(formerPath, null);
             System.out.println("\tERROR in " + target.getLocaleID()
             + ";\toverriding old value <" + former + "> at path " + distinguishing +
             "\twith\t<" + lastChars + ">" +
@@ -2838,7 +2802,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             distinguishingMap.put("", ""); // seed this to make the code simpler
         }
 
-        public static String getDistinguishingXPath(String xpath, String[] normalizedPath, boolean nonInheriting) {
+        public static String getDistinguishingXPath(String xpath, String[] normalizedPath) {
             //     synchronized (distinguishingMap) {
             String result = (String) distinguishingMap.get(xpath);
             if (result == null) {
@@ -2934,7 +2898,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 }
             }
             return result;
-            //      }
         }
 
         public Map<String, String> getNonDistinguishingAttributes(String fullPath, Map<String, String> result,

@@ -154,7 +154,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         if (locked) {
             throw new UnsupportedOperationException("Attempt to modify locked object");
         }
-        String distinguishingXPath = CLDRFile.getDistinguishingXPath(xpath, fixedPath, nonInheriting);
+        String distinguishingXPath = CLDRFile.getDistinguishingXPath(xpath, fixedPath);
         putValueAtDPath(distinguishingXPath, value);
         if (!fixedPath[0].equals(distinguishingXPath)) {
             clearCache();
@@ -444,7 +444,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      */
     public String getSourceLocaleID(String path, CLDRFile.Status status) {
         if (status != null) {
-            status.pathWhereFound = CLDRFile.getDistinguishingXPath(path, null, false);
+            status.pathWhereFound = CLDRFile.getDistinguishingXPath(path, null);
         }
         return getLocaleID();
     }
@@ -473,7 +473,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     public void removeValueAtPath(String xpath) {
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
         clearCache();
-        removeValueAtDPath(CLDRFile.getDistinguishingXPath(xpath, null, nonInheriting));
+        removeValueAtDPath(CLDRFile.getDistinguishingXPath(xpath, null));
     }
 
     /**
@@ -484,7 +484,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      * @return
      */
     public String getValueAtPath(String xpath) {
-        return getValueAtDPath(CLDRFile.getDistinguishingXPath(xpath, null, nonInheriting));
+        return getValueAtDPath(CLDRFile.getDistinguishingXPath(xpath, null));
     }
 
     /**
@@ -495,7 +495,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      * @return
      */
     public String getFullPath(String xpath) {
-        return getFullPathAtDPath(CLDRFile.getDistinguishingXPath(xpath, null, nonInheriting));
+        return getFullPathAtDPath(CLDRFile.getDistinguishingXPath(xpath, null));
     }
 
     /**

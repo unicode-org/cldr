@@ -32,7 +32,9 @@ if (sid == null || sid.isEmpty()) {
 		cs == null ||
 		cs.user == null);
 }
-cs.userDidAction(); // mark user as not idle
+if (cs != null && cs.user != null) {
+	cs.userDidAction(); // mark user as not idle
+}
 if (doRedirectToSurvey) {
 	response.sendRedirect(request.getContextPath() + "/survey");
 	return;

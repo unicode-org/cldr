@@ -456,8 +456,17 @@ public class XPathTable {
         return whatFromPathToTinyXpath(path, LDMLConstants.ALT);
     }
 
+    /**
+     * 
+     * @param path
+     * @return
+     * 
+     * Called by handlePathValue, by makeProposedFile, and by doForum (which is possibly never called?)
+     */
     public static String removeAlt(String path) {
-        return removeAlt(path, new XPathParts());
+        XPathParts xpp = XPathParts.getTestInstance(path);
+        xpp.removeAttribute(-1, LDMLConstants.ALT);
+        return xpp.toString();
     }
 
     /**
@@ -486,85 +495,23 @@ public class XPathTable {
         // always remove draft
         xpp.removeAttribute(-1, LDMLConstants.DRAFT);
 
-        String removed = xpp.toString();
-
-        return removed;
+        return xpp.toString();
     }
-
-    private Set<String> undistinguishingAttributes = null;
-
-//    @Deprecated
-//    public synchronized Set<String> getUndistinguishingElements() {
-//        if (undistinguishingAttributes == null) {
-//            Set<String> s = new HashSet<String>();
-//            // sm.getSupplementalDataInfo().getElementOrder()); // all
-//            // elements.
-//            // We
-//            // assume.
-//            DtdData d = DtdData.getInstance(DtdType.ldml);
-//            for (DtdData.Attribute a : d.getAttributes()) {
-//                s.add(a.name);
-//            }
-//            Collection<String> distinguishing = sm.getSupplementalDataInfo().getDistinguishingAttributes();
-//            if (distinguishing != null) {
-//                s.removeAll(distinguishing);
-//            } else {
-//                throw new InternalError("Error: 0 attributes are distinguishing!\n");
-//            }
-//            s.remove("alt"); // ignore
-//            s.remove("draft"); // ignore
-//            undistinguishingAttributes = Collections.unmodifiableSet(s);
-//        }
-//        return undistinguishingAttributes;
-//    }
 
     public Map<String, String> getUndistinguishingElementsFor(String path, XPathParts xpp) {
         return XPathParts.getFrozenInstance(path).getSpecialNondistinguishingAttributes();
     }
 
-//    @Deprecated
-//    public Map<String, String> getUndistinguishingElementsForOLD(String path, XPathParts xpp) {
-//        if (path == null) {
-//            return null;
-//        }
-//        Set<String> ue = getUndistinguishingElements();
-//        xpp.clear();
-//        xpp.initialize(path);
-//        Map<String, String> ueMap = null; // common case, none found.
-//        for (int i = 0; i < xpp.size(); i++) {
-//            for (String k : xpp.getAttributeKeys(i)) {
-//                if (!ue.contains(k))
-//                    continue;
-//                if (ueMap == null) {
-//                    ueMap = new TreeMap<String, String>();
-//                }
-//                ueMap.put(k, xpp.getAttributeValue(i, k));
-//            }
-//        }
-//        return ueMap;
-//    }
-
-    public static String removeAlt(String path, XPathParts xpp) {
-        return removeAttribute(path, xpp, LDMLConstants.ALT);
-    }
-
-    public static String removeDraft(String path, XPathParts xpp) {
-        return removeAttribute(path, xpp, LDMLConstants.DRAFT);
-    }
-
-    private static String removeAttribute(String path, XPathParts xpp, String attribute) {
-        xpp.set(path);
-        xpp.removeAttribute(-1, attribute);
-        return xpp.toString();
-    }
-
-    public static String getAlt(String path, XPathParts xpp) {
-        return getAttributeValue(path, xpp, LDMLConstants.ALT);
-    }
-
-    private static String getAttributeValue(String path, XPathParts xpp, String attribute) {
-        xpp.set(path);
-        return xpp.getAttributeValue(-1, attribute);
+    /**
+     * 
+     * @param path
+     * @return
+     * 
+     * Called by handlePathValue and makeProposedFile
+     */
+    public static String getAlt(String path) {
+        XPathParts xpp = XPathParts.getTestInstance(path);
+        return xpp.getAttributeValue(-1, LDMLConstants.ALT);
     }
 
     public final int xpathToBaseXpathId(String xpath) {
@@ -575,16 +522,14 @@ public class XPathTable {
      * note does not remove draft. expects a dpath.
      *
      * @param xpath
+     * 
+     * This is NOT the same as the two-parameter xpathToBaseXpath elsewhere in this file
      */
     public static String xpathToBaseXpath(String xpath) {
         XPathParts xpp = XPathParts.getTestInstance(xpath);
         Map<String, String> lastAtts = xpp.getAttributes(-1);
         String oldAlt = (String) lastAtts.get(LDMLConstants.ALT);
         if (oldAlt == null) {
-            /*
-             * String lelement = xpp.getElement(-1); oldAlt =
-             * xpp.findAttributeValue(lelement,LDMLConstants.ALT);
-             */
             return xpath; // no change
         }
 
@@ -602,31 +547,26 @@ public class XPathTable {
     }
 
     /**
-     * This two-parameter xpathToBaseXpath is called only from submit.jsp
-     * 
-     * @param xpath the input path string
-     * @param xpp the XPathParts, whose original contents (if any) are ignored and destroyed,
-     *            and whose contents get changed here and used/modified by the caller
-     * @return the (possibly modified) path string
+     * Modify the given XPathParts by possibly changing or removing its ALT attribute.
+     *
+     * @param xpp the XPathParts, whose contents get changed here and used/modified by the caller
+     *
+     * Called only from submit.jsp
      */
-    public static String xpathToBaseXpath(String xpath, XPathParts xpp) {
-        xpp.initialize(xpath);
+    public static void xPathPartsToBase(XPathParts xpp) {
         Map<String, String> lastAtts = xpp.getAttributes(-1);
         String oldAlt = (String) lastAtts.get(LDMLConstants.ALT);
         if (oldAlt == null) {
-            return xpath; // no change
+            return; // no change
         }
-
         String newAlt = LDMLUtilities.parseAlt(oldAlt)[0]; // #0 : altType
         if (newAlt == null) {
             xpp.removeAttribute(-1, LDMLConstants.ALT); // alt dropped out existence
         } else if (newAlt.equals(oldAlt)) {
-            return xpath; // No change
+            return; // No change
         } else {
             xpp.putAttributeValue(-1, LDMLConstants.ALT, newAlt);
         }
-        String newXpath = xpp.toString();
-        return newXpath;
     }
 
     /**

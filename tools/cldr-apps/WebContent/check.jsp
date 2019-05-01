@@ -61,7 +61,7 @@
 		response.sendRedirect(request.getContextPath()+"/upload.jsp?s="+sid);
 		return;
 	}
-	UserRegistry.User theirU = cs.sm.reg.get(email.trim());
+	UserRegistry.User theirU = CookieSession.sm.reg.get(email.trim());
 	if (theirU == null
 			|| (!theirU.equals(cs.user) && !cs.user.isAdminFor(theirU))) {
 				// if no/bad file was given, kick them back o the upload form

@@ -1279,7 +1279,7 @@ public class SurveyAjax extends HttpServlet {
 
         // is it a full XPath?
         try {
-            final String xp = mySession.sm.xpt.xpathToBaseXpath(q);
+            final String xp = XPathTable.xpathToBaseXpath(q);
             if (mySession.sm.xpt.peekByXpath(xp) != XPathTable.NO_XPATH) {
                 PathHeader ph = mySession.sm.getSTFactory().getPathHeader(xp);
                 if (ph != null) {

@@ -1162,17 +1162,6 @@ public class DataSection implements JSONString {
                     if (TRACE_TIME) {
                         System.err.println("@@3:" + (System.currentTimeMillis() - lastTime));
                     }
-
-                    /*
-                     * TODO: does xpathToBaseXpathId have any useful side-effect here? If not,
-                     * delete this call to it. Formerly the return value was assigned to
-                     * aliasFromXpath, whose value was unused.
-                     */
-                    sm.xpt.xpathToBaseXpathId(inheritancePathWhereFound.value);
-
-                    if (TRACE_TIME) {
-                        System.err.println("@@4:" + (System.currentTimeMillis() - lastTime));
-                    }
                 }                    
             }
             if ((checkCldr != null) && (inheritedItem != null) && (inheritedItem.tests == null)) {

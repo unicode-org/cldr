@@ -503,7 +503,7 @@ public class ConvertXTB {
         }
         int numErrors = 0;
         for (XtbEntry info : xtbInfo) {
-            String xpath = CLDRFile.getDistinguishingXPath(info.xpath, null, false);
+            String xpath = CLDRFile.getDistinguishingXPath(info.xpath, null);
             String fullPath = cldrFile.getFullXPath(xpath);
             String value = info.value;
             checkCldr.check(xpath, fullPath, value, options, possibleErrors);

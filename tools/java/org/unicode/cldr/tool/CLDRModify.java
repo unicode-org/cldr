@@ -479,13 +479,6 @@ public class CLDRModify {
                             CLDRFile toRemove = cldrFactory.make(parent, true);
                             // remove the items that are language codes, script codes, or region codes
                             // since they may be real translations.
-                            if (parent.equals("root")) {
-                                if (k.getFullXPath("//ldml/alias", true) != null) {
-                                    System.out.println("Skipping completely aliased file: " + test);
-                                } else {
-                                    // k.putRoot(toRemove);
-                                }
-                            }
                             if (retainIfTrue == null) {
                                 retainIfTrue = new RetainWhenMinimizing();
                             }

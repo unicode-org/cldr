@@ -94,6 +94,8 @@ public final class XPathParts implements Freezable<XPathParts> {
 
     /**
      * Empty the xpath (pretty much the same as set(""))
+     *
+     * Called by JsonConverter.rewrite() and CLDRFile.write()
      */
     public XPathParts clear() {
         elements.clear();
@@ -524,19 +526,6 @@ public final class XPathParts implements Freezable<XPathParts> {
     }
 
     /**
-     * Set an xpath, but ONLY if 'this' is clear (size = 0)
-     *
-     * @param xPath
-     * @return
-     */
-    public XPathParts initialize(String xPath) {
-        if (size() == 0) {
-            set(xPath);
-        }
-        return this;
-    }
-
-    /**
      * Add the given path to this XPathParts.
      *
      * @param xPath the path string
@@ -544,7 +533,7 @@ public final class XPathParts implements Freezable<XPathParts> {
      *                and make requiredPrefix // instead of /
      * @return the XPathParts, or parseError
      *
-     * Called by initialize (initial = true), set (initial = true), and addRelative (initial = false)
+     * Called by set (initial = true), and addRelative (initial = false)
      */
     private XPathParts addInternal(String xPath, boolean initial) {
         String lastAttributeName = "";

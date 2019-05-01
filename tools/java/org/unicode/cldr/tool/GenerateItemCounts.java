@@ -686,7 +686,7 @@ public class GenerateItemCounts {
                     }
                 }
             }
-            return prefix + CLDRFile.getDistinguishingXPath(parts.toString(), null, false);
+            return prefix + CLDRFile.getDistinguishingXPath(parts.toString(), null);
         }
     }
 

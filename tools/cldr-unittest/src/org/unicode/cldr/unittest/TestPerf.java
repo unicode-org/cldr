@@ -134,14 +134,9 @@ public class TestPerf extends TestFmwkPlus {
     }
 
     public void TestXPathPartsWithComparators() {
-        DtdData dtdData = DtdData.getInstance(DtdType.ldml);
-
-        XPathParts newParts = new XPathParts();
         for (String path : sortedArray) {
-            /*
-             * TODO: getTestInstance; how, for (dtdData.getAttributeComparator(), null)?
-             */
-            String newPath = newParts.set(path).toString();
+            XPathParts newParts = XPathParts.getTestInstance(path);
+            String newPath = newParts.toString();
             assertEquals("path", path, newPath);
         }
     }

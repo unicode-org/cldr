@@ -372,26 +372,25 @@ public class GenerateG2xG2 {
             territory_currency = new TreeMap<String, List<String>>();
             Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
-            XPathParts parts = new XPathParts();
             for (String path : supp) {
                 if (path.indexOf("/currencyData") >= 0) {
                     // <region iso3166="AR">
                     // <currency iso4217="ARS" from="1992-01-01"/>
                     if (path.indexOf("/region") >= 0) {
-                        /*
-                         * TODO: getTestInstance; how, with (new UTF16.StringComparator(), null)?
-                         */
-                        parts.set(supp.getFullXPath(path));
+                        XPathParts parts = XPathParts.getTestInstance(supp.getFullXPath(path));
                         Map<String, String> attributes = parts.getAttributes(parts.size() - 2);
                         String iso3166 = attributes.get("iso3166");
                         attributes = parts.getAttributes(parts.size() - 1);
                         String iso4217 = attributes.get("iso4217");
                         String to = attributes.get("to");
-                        if (to != null) continue;
+                        if (to != null) {
+                            continue;
+                        }
                         List<String> info = territory_currency.get(iso3166);
-                        if (info == null) territory_currency.put(iso3166, info = new ArrayList<String>());
+                        if (info == null) {
+                            territory_currency.put(iso3166, info = new ArrayList<String>());
+                        }
                         info.add(iso4217);
-                        // System.out.println(iso3166 + " => " + iso4217);
                     }
                 }
             }

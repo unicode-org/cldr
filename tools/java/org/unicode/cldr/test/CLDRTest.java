@@ -462,14 +462,16 @@ public class CLDRTest extends TestFmwk {
         if (disableUntilLater("TestDisplayNameCollisions")) return;
 
         Map<String, String>[] maps = new HashMap[CLDRFile.LIMIT_TYPES];
-        for (int i = 0; i < maps.length; ++i)
+        for (int i = 0; i < maps.length; ++i) {
             maps[i] = new HashMap<String, String>();
+        }
         Set<String> collisions = new TreeSet<String>();
         for (Iterator<String> it = locales.iterator(); it.hasNext();) {
             String locale = it.next();
             CLDRFile item = cldrFactory.make(locale, true);
-            for (int i = 0; i < maps.length; ++i)
+            for (int i = 0; i < maps.length; ++i) {
                 maps[i].clear();
+            }
             collisions.clear();
 
             for (Iterator<String> it2 = item.iterator(); it2.hasNext();) {
@@ -640,10 +642,6 @@ public class CLDRTest extends TestFmwk {
                 errln("Translation = code for:\t<" + type + " type=\"" + code + "\">" + rfcname + "</" + type + ">");
                 continue;
             }
-            if (false && !translation.equalsIgnoreCase(rfcname)) {
-                warnln(type + " translation differs from RFC, check: " + code + "\trfc: " + rfcname + "\tcldr: "
-                    + translation);
-            }
         }
         logln("Total " + type + ":\t" + count);
     }
@@ -653,17 +651,14 @@ public class CLDRTest extends TestFmwk {
     void getSupplementalData(Map<String, Set<String>> language_scripts, Map<String, Set<String>> language_territories,
         Map<String, Set<String>> group_territory,
         Map<String, Set<String>> territory_currencies, Map<String, Map<String, String>> aliases) {
+
         boolean SHOW = false;
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
-        XPathParts parts = new XPathParts();
         for (Iterator<String> it = supp.iterator(); it.hasNext();) {
             String path = it.next();
             try {
-                /*
-                 * TODO: getTestInstance; how with (new UTF16.StringComparator(), null)?
-                 */
-                parts.set(supp.getFullXPath(path));
+                XPathParts parts = XPathParts.getTestInstance(supp.getFullXPath(path));
                 Map<String, String> m;
                 String type = "";
                 if (aliases != null && parts.findElement("alias") >= 0) {
@@ -671,7 +666,9 @@ public class CLDRTest extends TestFmwk {
                     if (m == null) m = parts.findAttributes(type = "territoryAlias");
                     if (m != null) {
                         Map top = aliases.get(type);
-                        if (top == null) aliases.put(type, top = new TreeMap());
+                        if (top == null) {
+                            aliases.put(type, top = new TreeMap());
+                        }
                         top.put(m.get("type"), m.get("replacement"));
                     }
                 }
@@ -680,7 +677,9 @@ public class CLDRTest extends TestFmwk {
                     if (m != null) {
                         String region = m.get("iso3166");
                         Set s = territory_currencies.get(region);
-                        if (s == null) territory_currencies.put(region, s = new LinkedHashSet());
+                        if (s == null) {
+                            territory_currencies.put(region, s = new LinkedHashSet());
+                        }
                         m = parts.findAttributes("currency");
                         if (m == null) {
                             warnln("missing currency for region: " + path);
@@ -690,7 +689,9 @@ public class CLDRTest extends TestFmwk {
                         s.add(currency);
                         m = parts.findAttributes("alternate");
                         String alternate = m == null ? null : (String) m.get("iso4217");
-                        if (alternate != null) s.add(alternate);
+                        if (alternate != null) {
+                            s.add(alternate);
+                        }
                         continue;
                     }
                 }
@@ -1203,7 +1204,6 @@ public class CLDRTest extends TestFmwk {
         bi.setText(value);
         if (start != 0) bi.preceding(start + 1); // backup one
         int current = bi.next();
-        int cp = 0;
         // link any digits
         if (DIGIT.contains(UTF16.charAt(value, current - 1))) {
             current = DIGIT.findIn(value, current, true);
@@ -1212,192 +1212,3 @@ public class CLDRTest extends TestFmwk {
         return XGRAPHEME.findIn(value, current, true);
     }
 }
-
-/*
- * private static final int
- * HELP1 = 0,
- * HELP2 = 1,
- * SOURCEDIR = 2,
- * DESTDIR = 3,
- * MATCH = 4,
- * SKIP = 5,
- * TZADIR = 6,
- * NONVALIDATING = 7,
- * SHOW_DTD = 8,
- * TRANSLIT = 9;
- * options[SOURCEDIR].value
- *
- * private static final UOption[] options = {
- * UOption.HELP_H(),
- * UOption.HELP_QUESTION_MARK(),
- * UOption.SOURCEDIR().setDefault("C:\\ICU4C\\locale\\common\\main\\"),
- * UOption.DESTDIR().setDefault("C:\\DATA\\GEN\\cldr\\mainCheck\\"),
- * UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
- * UOption.create("skip", 'z', UOption.REQUIRES_ARG).setDefault("zh_(C|S|HK|M).*"),
- * UOption.create("tzadir", 't',
- * UOption.REQUIRES_ARG).setDefault("C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
- * UOption.create("nonvalidating", 'n', UOption.NO_ARG),
- * UOption.create("dtd", 'w', UOption.NO_ARG),
- * UOption.create("transliterate", 'y', UOption.NO_ARG), };
- *
- * private static String timeZoneAliasDir = null;
- * /
- *
- * public static void main(String[] args) throws SAXException, IOException {
- * UOption.parseArgs(args, options);
- * localeList = getMatchingXMLFiles(options[SOURCEDIR].value, options[MATCH].value);
- * /*
- * log = FileUtilities.openUTF8Writer(options[DESTDIR].value, "log.txt");
- * try {
- * for (Iterator it = getMatchingXMLFiles(options[SOURCEDIR].value, options[MATCH].value).iterator(); it.hasNext();) {
- * String name = (String) it.next();
- * for (int i = 0; i <= 1; ++i) {
- * boolean resolved = i == 1;
- * CLDRKey key = make(name, resolved);
- *
- * PrintWriter pw = FileUtilities.openUTF8Writer(options[DESTDIR].value, name + (resolved ? "_r" : "") + ".txt");
- * write(pw, key);
- * pw.close();
- *
- * }
- * }
- * } finally {
- * log.close();
- * System.out.println("Done");
- * }
- *
- *
- * <language type="in">Indonesian</language>
- * <language type="iw">Hebrew</language>
- * <script type="Bali">Balinese</script>
- * <script type="Batk">Batak</script>
- * <script type="Blis">Blissymbols</script>
- * <script type="Brah">Brahmi</script>
- * <script type="Bugi">Buginese</script>
- * <script type="Cham">Cham</script>
- * <script type="Cirt">Cirth</script>
- * <script type="Cyrs">Cyrillic (Old Church Slavonic variant)</script>
- * <script type="Egyd">Egyptian demotic</script>
- * <script type="Egyh">Egyptian hieratic</script>
- * <script type="Egyp">Egyptian hieroglyphs</script>
- * <script type="Glag">Glagolitic</script>
- * <script type="Hmng">Pahawh Hmong</script>
- * <script type="Hung">Old Hungarian</script>
- * <script type="Inds">Indus (Harappan)</script>
- * <script type="Java">Javanese</script>
- * <script type="Kali">Kayah Li</script>
- * <script type="Khar">Kharoshthi</script>
- * <script type="Latf">Latin (Fraktur variant)</script>
- * <script type="Latg">Latin (Gaelic variant)</script>
- * <script type="Lepc">Lepcha (Rong)</script>
- * <script type="Lina">Linear A</script>
- * <script type="Mand">Mandaean</script>
- * <script type="Maya">Mayan hieroglyphs</script>
- * <script type="Mero">Meroitic</script>
- * <script type="Orkh">Orkhon</script>
- * <script type="Perm">Old Permic</script>
- * <script type="Phag">Phags-pa</script>
- * <script type="Phnx">Phoenician</script>
- * <script type="Plrd">Pollard Phonetic</script>
- * <script type="Roro">Rongorongo</script>
- * <script type="Sara">Sarati</script>
- * <script type="Sylo">Syloti Nagri</script>
- * <script type="Syre">Syriac (Estrangelo variant)</script>
- * <script type="Syrj">Syriac (Western variant)</script>
- * <script type="Syrn">Syriac (Eastern variant)</script>
- * <script type="Talu">Tai Lue</script>
- * <script type="Teng">Tengwar</script>
- * <script type="Tfng">Tifinagh (Berber)</script>
- * <script type="Thai">Thai</script>
- * <script type="Vaii">Vai</script>
- * <script type="Visp">Visible Speech</script>
- * <script type="Xpeo">Old Persian</script>
- * <script type="Xsux">Cuneiform, Sumero-Akkadian</script>
- * <script type="Zxxx">Code for unwritten languages</script>
- * <script type="Zzzz">Code for uncoded script</script>
- * <territory type="001">World</territory>
- * <territory type="002">Africa</territory>
- * <territory type="003">North America</territory>
- * <territory type="005">South America</territory>
- * <territory type="009">Oceania</territory>
- * <territory type="011">Western Africa</territory>
- * <territory type="013">Central America</territory>
- * <territory type="014">Eastern Africa</territory>
- * <territory type="015">Northern Africa</territory>
- * <territory type="017">Middle Africa</territory>
- * <territory type="018">Southern Africa</territory>
- * <territory type="019">Americas</territory>
- * <territory type="021">Northern America</territory>
- * <territory type="029">Caribbean</territory>
- * <territory type="030">Eastern Asia</territory>
- * <territory type="035">South-eastern Asia</territory>
- * <territory type="039">Southern Europe</territory>
- * <territory type="053">Australia and New Zealand</territory>
- * <territory type="054">Melanesia</territory>
- * <territory type="057">Micronesia</territory>
- * <territory type="061">Polynesia</territory>
- * <territory type="062">South-central Asia</territory>
- * <territory type="AX">Aland Islands</territory>
- * <territory type="BQ">British Antarctic Territory</territory>
- * <territory type="BU">Myanmar</territory>
- * <territory type="CS">Czechoslovakia</territory>
- * <territory type="CT">Canton and Enderbury Islands</territory>
- * <territory type="DD">East Germany</territory>
- * <territory type="DY">Benin</territory>
- * <territory type="FQ">French Southern and Antarctic Territories</territory>
- * <territory type="FX">Metropolitan France</territory>
- * <territory type="HV">Burkina Faso</territory>
- * <territory type="JT">Johnston Island</territory>
- * <territory type="MI">Midway Islands</territory>
- * <territory type="NH">Vanuatu</territory>
- * <territory type="NQ">Dronning Maud Land</territory>
- * <territory type="NT">Neutral Zone</territory>
- * <territory type="PC">Pacific Islands Trust Territory</territory>
- * <territory type="PU">U.S. Miscellaneous Pacific Islands</territory>
- * <territory type="PZ">Panama Canal Zone</territory>
- * <territory type="RH">Zimbabwe</territory>
- * <territory type="SU">Union of Soviet Socialist Republics</territory>
- * <territory type="TP">Timor-Leste</territory>
- * <territory type="VD">North Vietnam</territory>
- * <territory type="WK">Wake Island</territory>
- * <territory type="YD">People's Democratic Republic of Yemen</territory>
- * <territory type="ZR">Congo, The Democratic Republic of the</territory>
- * <variant type="1901">Traditional German orthography</variant>
- * <variant type="1996">German orthography of 1996</variant>
- * <variant type="boont">Boontling</variant>
- * <variant type="gaulish">Gaulish</variant>
- * <variant type="guoyu">Mandarin or Standard Chinese</variant>
- * <variant type="hakka">Hakka</variant>
- * <variant type="lojban">Lojban</variant>
- * <variant type="nedis">Natisone dialect</variant>
- * <variant type="rozaj">Resian</variant>
- * <variant type="scouse">Scouse</variant>
- * <variant type="xiang">Xiang or Hunanese</variant>
- *
- *
- * <currency type="CFP"><displayName>???</displayName></currency>
- * <currency type="DDR"><displayName>???</displayName></currency>
- * <currency type="EQE"><displayName>???</displayName></currency>
- * <currency type="ESA"><displayName>???</displayName></currency>
- * <currency type="ESB"><displayName>???</displayName></currency>
- * <currency type="JAN"><displayName>???</displayName></currency>
- * <currency type="LSM"><displayName>???</displayName></currency>
- * <currency type="LUC"><displayName>???</displayName></currency>
- * <currency type="LUL"><displayName>???</displayName></currency>
- * <currency type="NAM"><displayName>???</displayName></currency>
- * <currency type="NEW"><displayName>???</displayName></currency>
- * <currency type="RHD"><displayName>???</displayName></currency>
- * <currency type="SAN"><displayName>???</displayName></currency>
- * <currency type="SDR"><displayName>???</displayName></currency>
- * <currency type="SEE"><displayName>???</displayName></currency>
- * <currency type="SRI"><displayName>???</displayName></currency>
- * <currency type="UAE"><displayName>???</displayName></currency>
- * <currency type="UDI"><displayName>???</displayName></currency>
- * <currency type="UIC"><displayName>???</displayName></currency>
- * <currency type="XAG"><displayName>???</displayName></currency>
- * <currency type="XPD"><displayName>???</displayName></currency>
- * <currency type="XPT"><displayName>???</displayName></currency>
- * <currency type="XRE"><displayName>???</displayName></currency>
- * <currency type="XTS"><displayName>???</displayName></currency>
- * <currency type="XXX"><displayName>???</displayName></currency>
- */

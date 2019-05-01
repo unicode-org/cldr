@@ -422,7 +422,9 @@ public final class XPathParts implements Freezable<XPathParts> {
      * nothing.
      */
     public String getAttributeValue(int elementIndex, String attribute) {
-        if (elementIndex < 0) elementIndex += size();
+        if (elementIndex < 0) {
+            elementIndex += size();
+        }
         return elements.get(elementIndex).getAttributeValue(attribute);
     }
 
@@ -436,7 +438,9 @@ public final class XPathParts implements Freezable<XPathParts> {
      */
     public Map<String, String> findAttributes(String elementName) {
         int index = findElement(elementName);
-        if (index == -1) return null;
+        if (index == -1) {
+            return null;
+        }
         return getAttributes(index);
     }
 
@@ -445,7 +449,9 @@ public final class XPathParts implements Freezable<XPathParts> {
      */
     public String findAttributeValue(String elementName, String attributeName) {
         Map<String, String> attributes = findAttributes(elementName);
-        if (attributes == null) return null;
+        if (attributes == null) {
+            return null;
+        }
         return (String) attributes.get(attributeName);
     }
 

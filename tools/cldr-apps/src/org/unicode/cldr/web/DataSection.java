@@ -627,11 +627,6 @@ public class DataSection implements JSONString {
         int xpathId = -1;
         
         /**
-         * The value for this DataRow in the previous release version.
-         */
-        private String oldValue;
-        
-        /**
          * The baseline value for this DataRow, that is the previous release version plus latest XML fixes by members
          * of the technical committee (TC). In other words, the current "trunk" value, where "trunk"
          * refers to XML files in version control (on trunk, as opposed to any branch).
@@ -2502,9 +2497,7 @@ public class DataSection implements JSONString {
      * Called only by DataSection.make, as section.populateFrom(ourSrc, checkCldr, workingCoverageLevel).
      */
     private void populateFrom(CLDRFile ourSrc, TestResultBundle checkCldr, String workingCoverageLevel) {
-        XPathParts xpp = new XPathParts();
         STFactory stf = sm.getSTFactory();
-        CLDRFile oldFile = stf.getOldFileResolved(locale);
         diskFile = stf.getDiskFile(locale);
         String workPrefix = xpathPrefix;
 
@@ -2562,7 +2555,7 @@ public class DataSection implements JSONString {
                 System.err.println("@@X@ base[" + workPrefix + "]: " + baseXpaths.size() + ", extra: " + extraXpaths.size());
             }
         }
-        populateFromAllXpaths(allXpaths, workPrefix, ourSrc, oldFile, extraXpaths, stf, workingCoverageValue, xpp, checkCldr);
+        populateFromAllXpaths(allXpaths, workPrefix, ourSrc, extraXpaths, stf, workingCoverageValue, checkCldr);
     }
     
     /**
@@ -2571,18 +2564,16 @@ public class DataSection implements JSONString {
      * @param allXpaths the set of xpaths
      * @param workPrefix
      * @param ourSrc
-     * @param oldFile
      * @param extraXpaths
      * @param stf
      * @param workingCoverageValue
-     * @param xpp
      * @param checkCldr
      * 
      * TODO: resurrect SHOW_TIME and TRACE_TIME code, deleted in revision 14327, if and when needed for debugging.
      * It was deleted when this code was moved from populateFrom to new subroutine populateFromAllXpaths.
      */
-    private void populateFromAllXpaths(Set<String> allXpaths, String workPrefix, CLDRFile ourSrc, CLDRFile oldFile, Set<String> extraXpaths, STFactory stf,
-        int workingCoverageValue, XPathParts xpp, TestResultBundle checkCldr) {
+    private void populateFromAllXpaths(Set<String> allXpaths, String workPrefix, CLDRFile ourSrc, Set<String> extraXpaths, STFactory stf,
+        int workingCoverageValue, TestResultBundle checkCldr) {
 
         for (String xpath : allXpaths) {
             if (xpath == null) {
@@ -2632,7 +2623,7 @@ public class DataSection implements JSONString {
                 fullPath = xpath; // (this is normal for 'extra' paths)
             }
             // Now we are ready to add the data
-            populateFromThisXpath(xpath, extraXpaths, ourSrc, oldFile, xpp, fullPath, checkCldr, coverageValue, base_xpath);
+            populateFromThisXpath(xpath, extraXpaths, ourSrc, fullPath, checkCldr, coverageValue, base_xpath);
         }
     }
 
@@ -2642,14 +2633,12 @@ public class DataSection implements JSONString {
      * @param xpath
      * @param extraXpaths
      * @param ourSrc
-     * @param oldFile
-     * @param xpp
      * @param fullPath
      * @param checkCldr
      * @param coverageValue
      * @param base_xpath
      */
-    private void populateFromThisXpath(String xpath, Set<String> extraXpaths, CLDRFile ourSrc, CLDRFile oldFile, XPathParts xpp, String fullPath,
+    private void populateFromThisXpath(String xpath, Set<String> extraXpaths, CLDRFile ourSrc, String fullPath,
         TestResultBundle checkCldr, int coverageValue, int base_xpath) {
         /*
          * 'extra' paths get shim treatment
@@ -2675,7 +2664,6 @@ public class DataSection implements JSONString {
          * and ourValue will get "test-bogus" here.
          * Then vote for "soft" inheritance, and ourValue will get "occitan" here (NOT CldrUtility.INHERITANCE_MARKER).
          * How does ourValue relate to winningValue, oldValue, etc.?
-         * ourSrc contrasts with oldFile; both are type CLDRFile.
          * Each CLDRFile has a dataSource, which is an XMLSource, an abstract class.
          * These classes extends XMLSource: DelegateXMLSource, DummyXMLSource, ResolvingSource,
          * SimpleXMLSource. Generally (always?) in this context ourSrc.dataSource is a
@@ -2709,7 +2697,7 @@ public class DataSection implements JSONString {
         String alt = sm.xpt.altFromPathToTinyXpath(xpath);
 
         /* FULL path processing (references.. alt proposed.. ) */
-        xpp.set(fullPath);
+        XPathParts xpp = XPathParts.getTestInstance(fullPath);
         String lelement = xpp.getElement(-1);
         xpp.findAttributeValue(lelement, LDMLConstants.ALT);
         String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);

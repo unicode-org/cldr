@@ -552,7 +552,7 @@ public class XPathTable {
         return removeAttribute(path, xpp, LDMLConstants.DRAFT);
     }
 
-    public static String removeAttribute(String path, XPathParts xpp, String attribute) {
+    private static String removeAttribute(String path, XPathParts xpp, String attribute) {
         xpp.set(path);
         xpp.removeAttribute(-1, attribute);
         return xpp.toString();
@@ -562,7 +562,7 @@ public class XPathTable {
         return getAttributeValue(path, xpp, LDMLConstants.ALT);
     }
 
-    public static String getAttributeValue(String path, XPathParts xpp, String attribute) {
+    private static String getAttributeValue(String path, XPathParts xpp, String attribute) {
         xpp.set(path);
         return xpp.getAttributeValue(-1, attribute);
     }

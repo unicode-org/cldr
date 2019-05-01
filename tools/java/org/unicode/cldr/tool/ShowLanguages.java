@@ -680,17 +680,13 @@ public class ShowLanguages {
 
         public LanguageInfo(Factory cldrFactory) throws IOException {
             CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
-            XPathParts parts = new XPathParts();
             for (Iterator<String> it = supp.iterator(); it.hasNext();) {
                 String path = it.next();
                 String fullPath = supp.getFullXPath(path);
                 if (fullPath == null) {
                     supp.getFullXPath(path);
                 }
-                /*
-                 * TODO: getTestInstance; how for (new UTF16.StringComparator(), null)?
-                 */
-                parts.set(fullPath);
+                XPathParts parts = XPathParts.getTestInstance(fullPath);
 
                 // <zoneItem type="America/Adak" territory="US" aliases="America/Atka US/Aleutian"/>
                 if (path.indexOf("/zoneItem") >= 0) {

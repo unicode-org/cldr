@@ -1084,35 +1084,28 @@ public class UserRegistry {
      */
     String updateIntLocs(int id, boolean doCommit, Connection conn, PreparedStatement removeIntLoc, PreparedStatement updateIntLoc)
         throws SQLException {
-        // do something
+
         User user = getInfo(id);
         if (user == null) {
             return "";
         }
 
         removeIntLoc.setInt(1, id);
-        int n = removeIntLoc.executeUpdate();
-        // System.err.println(id+":"+user.email+" - removed intlocs " + n);
-
-        n = 0;
+        removeIntLoc.executeUpdate();
 
         String[] il = user.getInterestList();
         if (il != null) {
             updateIntLoc.setInt(1, id);
             Set<String> s = new HashSet<String>();
             for (String l : il) {
-                // System.err.println(" << " + l);
                 String forum = new ULocale(l).getLanguage();
                 s.add(forum);
             }
             for (String forum : s) {
-                // System.err.println(" >> " + forum);
                 updateIntLoc.setString(2, forum);
-                n += updateIntLoc.executeUpdate();
+                updateIntLoc.executeUpdate();
             }
         }
-
-        // System.err.println(id+":"+user.email+" - updated intlocs " + n);
 
         if (doCommit) {
             conn.commit();
@@ -1158,9 +1151,7 @@ public class UserRegistry {
         } catch (Throwable t) {
             msg = msg + " exception: " + t.toString();
         } finally {
-            DBUtils.getInstance().closeDBConnection(conn);
-            // s.close();
-            // }
+            DBUtils.closeDBConnection(conn);
         }
 
         return msg;
@@ -1901,10 +1892,6 @@ public class UserRegistry {
         return null;
     }
 
-    private static boolean userCanModifyLocale(String[] localeArray, CLDRLocale locale) {
-        return userCanModifyLocale(stringArrayToLocaleArray(localeArray), locale);
-    }
-
     private static CLDRLocale[] stringArrayToLocaleArray(String[] localeArray) {
         CLDRLocale arr[] = new CLDRLocale[localeArray.length];
         for (int j = 0; j < localeArray.length; j++) {
@@ -2097,35 +2084,13 @@ public class UserRegistry {
     private synchronized boolean doReadSpecialUsers() {
         String externalErrorName = SurveyMain.getSurveyHome() + "/" + "specialusers.txt";
 
-        // long now = System.currentTimeMillis();
-        //
-        // if((now-externalErrorLastCheck) < 8000) {
-        // //System.err.println("Not rechecking errfile- only been " +
-        // (now-externalErrorLastCheck) + " ms");
-        // if(externalErrorSet != null) {
-        // return true;
-        // } else {
-        // return false;
-        // }
-        // }
-        //
-        // externalErrorLastCheck = now;
-
         try {
             File extFile = new File(externalErrorName);
 
             if (!extFile.isFile() && !extFile.canRead()) {
                 System.err.println("Can't read special user file: " + externalErrorName);
-                // externalErrorFailed = true;
                 return false;
             }
-
-            // long newMod = extFile.lastModified();
-            //
-            // if(newMod == externalErrorLastMod) {
-            // //System.err.println("** e.e. file did not change");
-            // return true;
-            // }
 
             // ok, now read it
             BufferedReader in = new BufferedReader(new FileReader(extFile));
@@ -2149,47 +2114,21 @@ public class UserRegistry {
                     newSet.add(u);
                     System.err.println("*+ User: " + u.toString());
 
-                    // String[] result = line.split("\t");
-                    // String loc = result[0].split(";")[0];
-                    // String what = result[1];
-                    // String val = result[2];
-                    //
-                    // Set<Integer> aSet = newSet.get(loc);
-                    // if(aSet == null) {
-                    // aSet = new HashSet<Integer>();
-                    // newSet.put(loc, aSet);
-                    // }
-                    //
-                    // if(what.equals("path:")) {
-                    // aSet.add(xpt.getByXpath(val));
-                    // } else if(what.equals("count:")) {
-                    // int theirCount = new Integer(val).intValue();
-                    // if(theirCount != aSet.size()) {
-                    // System.err.println(loc + " - count says " + val +
-                    // ", we got " + aSet.size());
-                    // }
-                    // } else {
-                    // throw new IllegalArgumentException("Unknown parameter: "
-                    // + what);
-                    // }
                 } catch (Throwable t) {
                     System.err.println("** " + externalErrorName + ":" + lines + " -  " + t.toString());
-                    // externalErrorFailed = true;
                     t.printStackTrace();
+                    in.close();
                     return false;
                 }
             }
+            in.close();
             System.err.println(externalErrorName + " - " + lines + " and " + newSet.size() + " users loaded.");
 
-            // externalErrorSet = newSet;
-            // externalErrorLastMod = newMod;
-            // externalErrorFailed = false;
             specialUsers = newSet;
             return true;
         } catch (IOException ioe) {
             System.err.println("Reading externalErrorFile: " + "specialusers.txt - " + ioe.toString());
             ioe.printStackTrace();
-            // externalErrorFailed = true;
             return false;
         }
     }
@@ -2366,10 +2305,9 @@ public class UserRegistry {
             int del = ps.executeUpdate();
             System.err.println("DELETED " + del + "users.. reading from " + inFile.getAbsolutePath());
 
-            String sql = createUserTable(conn);
+            createUserTable(conn);
 
             XMLFileReader myReader = new XMLFileReader();
-            final XPathParts xpp = new XPathParts();
             final Map<String, String> attrs = new TreeMap<String, String>();
 
             // <user id="10" email="u_10@apple.example.com" level="vetter"
@@ -2381,11 +2319,10 @@ public class UserRegistry {
             final PreparedStatement myAdder = ps3 = DBUtils.prepareStatementForwardReadOnly(conn, "myAdder", SQL_insertStmt);
             final Connection myConn = conn; // for committing
             myReader.setHandler(new XMLFileReader.SimpleHandler() {
-                int nusers = 0;
                 int maxUserId = 1;
 
                 public void handlePathValue(String path, String value) {
-                    xpp.set(path);
+                    XPathParts xpp = XPathParts.getTestInstance(path);
                     attrs.clear();
                     for (String k : xpp.getAttributeKeys(-1)) {
                         attrs.put(k, xpp.getAttributeValue(-1, k));
@@ -2401,10 +2338,9 @@ public class UserRegistry {
                         }
                         if (elem.equals("user")) {
                             int id = Integer.parseInt(attrs.get("id"));
-                            nusers++;
-                            if (id <= 1)
+                            if (id <= 1) {
                                 return; // skip user 1
-
+                            }
                             while (id > maxUserId) { // loop, until we get to
                                 // that ID.
                                 ++maxUserId;
@@ -2455,13 +2391,8 @@ public class UserRegistry {
                         throw new IllegalArgumentException(e);
                     }
                 };
-                // public void handleComment(String path, String comment) {};
-                // public void handleElementDecl(String name, String model) {};
-                // public void handleAttributeDecl(String eName, String aName,
-                // String type, String mode, String value) {};
             });
             myReader.read(inFile.getAbsolutePath(), -1, false);
-            // nusers += myReader.nusers;
             nusers++;
             conn.commit();
         } catch (SQLException e) {

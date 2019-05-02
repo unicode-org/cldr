@@ -55,6 +55,10 @@ public class XMLModify {
         }
 
         private static Set<String> parse(String[] args, boolean showArguments) {
+            /*
+             * TODO: instead of the last arg below being "true", should it be "showArguments", which is otherwise unused?
+             * Also myOptions.parse doesn't use its first parameter... 
+             */
             return myOptions.parse(MyOptions.values()[0], args, true);
         }
     }
@@ -65,7 +69,6 @@ public class XMLModify {
         Matcher fileMatcher = Pattern.compile(MyOptions.fileRegex.option.getValue()).matcher("");
         Matcher pathMatcher = Pattern.compile(MyOptions.pathRegex.option.getValue()).matcher("");
         List<Pair<String, String>> data = new ArrayList<>();
-        List<Pair<String, String>> output = new ArrayList<>();
         try (PrintWriter out = new PrintWriter(System.out)) {
             for (String file : sourceDirectory.list()) {
                 if (!fileMatcher.reset(file).matches()) {
@@ -87,7 +90,7 @@ public class XMLModify {
                         String type = parts.getAttributeValue(-1, "type");
                         parts.setAttribute(-1, "type", type.toLowerCase(Locale.ROOT).replaceAll("-", ""));
                     }
-                    parts.writeDifference(out, parts, lastParts, lastParts, value, null);
+                    parts.writeDifference(out, parts, lastParts, value, null);
                     out.flush();
                     lastParts = parts;
                 }

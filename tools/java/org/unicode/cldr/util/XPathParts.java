@@ -38,45 +38,20 @@ public final class XPathParts implements Freezable<XPathParts> {
     private static final boolean DEBUGGING = false;
 
     private volatile boolean frozen = false;
+
     private List<Element> elements = new ArrayList<Element>();
 
-    private DtdData dtdData;
-    private final Map<String, Map<String, String>> suppressionMap;
+    private DtdData dtdData = null;
 
+    private Map<String, Map<String, String>> suppressionMap;
+    
     private static final Map<String, XPathParts> cache = new ConcurrentHashMap<String, XPathParts>();
 
     public XPathParts() {
-        this(null, null);
+        this.suppressionMap = null;
     }
 
     public XPathParts(Map<String, Map<String, String>> suppressionMap) {
-        this(null, suppressionMap);
-    }
-
-    /**
-     * Construct an XPathParts with the given elements and suppressionMap
-     *
-     * @param elements the List of elements to be added, or null; always null except when called by cloneAsThawed
-     * @param suppressionMap the suppression map (which is ...?), or null;
-     *        when suppressionMap is not null, it is always CLDRFile.defaultSuppressionMap
-     *
-     * This private constructor is called only by cloneAsThawed (elements not null) and by the two public constructors above (elements null).
-     */
-    private XPathParts(List<Element> elements, Map<String, Map<String, String>> suppressionMap) {
-        if (elements != null) {
-            for (Element e : elements) {
-                /*
-                 * TODO: cloneAsThawed shouldn't always make dtdData null.
-                 * cloneAsThawed makes dtdData null even when this.dtdData was non-null, which causes
-                 * bugs if we try to use XPathParts.getInstance instead of XPathParts.set, specifically
-                 * null pointer exception when called from DistinguishedXPath.getDistinguishingXPath.
-                 * The (only?) way to get non-null dtdData is with addElement; call addElement here
-                 * instead of calling elements.add directly?
-                 */
-                this.elements.add(e.cloneAsThawed());
-                // addElement(e.element);
-            }
-        }        
         this.suppressionMap = suppressionMap;
     }
 
@@ -109,13 +84,13 @@ public final class XPathParts implements Freezable<XPathParts> {
      *
      * @param pw
      * @param filteredXPath
-     *            TODO
      * @param lastFullXPath
-     * @param filteredLastXPath
-     *            TODO
+     * @param v
+     * @param xpath_comments
+     * @return this XPathParts
      */
     public XPathParts writeDifference(PrintWriter pw, XPathParts filteredXPath, XPathParts lastFullXPath,
-        XPathParts filteredLastXPath, String v, Comments xpath_comments) {
+            String v, Comments xpath_comments) {
         int limit = findFirstDifference(lastFullXPath);
         // write the end of the last one
         for (int i = lastFullXPath.size() - 2; i >= limit; --i) {
@@ -458,11 +433,21 @@ public final class XPathParts implements Freezable<XPathParts> {
     }
 
     /**
-     * Add an element
+     * Add an Element object to this XPathParts, using the given element name.
+     * If this is the first Element in this XPathParts, also set dtdData.
+     * Do not set any attributes.
+     *
+     * @param element the string describing the element, such as "ldml",
+     *                "supplementalData", etc.
+     * @return this XPathParts
      */
     public XPathParts addElement(String element) {
         if (elements.size() == 0) {
             try {
+                /*
+                 * The first element should match one of the DtdType enum values.
+                 * Use it to set dtdData.
+                 */
                 dtdData = DtdData.getInstance(DtdType.valueOf(element));
             } catch (Exception e) {
                 dtdData = null;
@@ -557,39 +542,57 @@ public final class XPathParts implements Freezable<XPathParts> {
             }
             switch (cp) {
             case '/':
-                if (state != 'p' || stringStart >= i) return parseError(xPath, i);
-                if (stringStart > 0) addElement(xPath.substring(stringStart, i));
+                if (state != 'p' || stringStart >= i) {
+                    return parseError(xPath, i);
+                }
+                if (stringStart > 0) {
+                    addElement(xPath.substring(stringStart, i));
+                }
                 stringStart = i + 1;
                 break;
             case '[':
-                if (state != 'p' || stringStart >= i) return parseError(xPath, i);
-                if (stringStart > 0) addElement(xPath.substring(stringStart, i));
+                if (state != 'p' || stringStart >= i) {
+                    return parseError(xPath, i);
+                }
+                if (stringStart > 0) {
+                    addElement(xPath.substring(stringStart, i));
+                }
                 state = cp;
                 break;
             case '@':
-                if (state != '[') return parseError(xPath, i);
+                if (state != '[') {
+                    return parseError(xPath, i);
+                }
                 stringStart = i + 1;
                 state = cp;
                 break;
             case '=':
-                if (state != '@' || stringStart >= i) return parseError(xPath, i);
+                if (state != '@' || stringStart >= i) {
+                    return parseError(xPath, i);
+                }
                 lastAttributeName = xPath.substring(stringStart, i);
                 state = cp;
                 break;
             case '\"':
             case '\'':
                 if (state == cp) { // finished
-                    if (stringStart > i) return parseError(xPath, i);
+                    if (stringStart > i) {
+                        return parseError(xPath, i);
+                    }
                     addAttribute(lastAttributeName, xPath.substring(stringStart, i));
                     state = 'e';
                     break;
                 }
-                if (state != '=') return parseError(xPath, i);
+                if (state != '=') {
+                    return parseError(xPath, i);
+                }
                 stringStart = i + 1;
                 state = cp;
                 break;
             case ']':
-                if (state != 'e') return parseError(xPath, i);
+                if (state != 'e') {
+                    return parseError(xPath, i);
+                }
                 state = 'p';
                 stringStart = -1;
                 break;
@@ -709,6 +712,13 @@ public final class XPathParts implements Freezable<XPathParts> {
                 : new Element(element, attributes);
         }
 
+        /**
+         * Add the given attribute, value pair to this Element object; or,
+         * if value is null, remove the attribute.
+         *
+         * @param attribute, the string such as "number" or "cldrVersion"
+         * @param value, the string such as "$Revision$" or "35", or null for removal
+         */
         public void putAttribute(String attribute, String value) {
             attribute = attribute.intern(); // allow fast comparison
             if (frozen) {
@@ -729,7 +739,12 @@ public final class XPathParts implements Freezable<XPathParts> {
             }
         }
 
-        public void removeAttributes(Collection<String> attributeNames) {
+        /**
+         * Remove the given attributes from this Element object.
+         *
+         * @param attributeNames
+         */
+        private void removeAttributes(Collection<String> attributeNames) {
             if (frozen) {
                 throw new UnsupportedOperationException("Can't modify frozen object.");
             }
@@ -765,8 +780,12 @@ public final class XPathParts implements Freezable<XPathParts> {
             case XPathParts.XML_NO_VALUE:
                 result.append('<').append(element);
                 writeAttributes(" ", "\"", true, result);
-                if (style == XML_NO_VALUE) result.append('/');
-                if (CLDRFile.HACK_ORDER && element.equals("ldml")) result.append(' ');
+                if (style == XML_NO_VALUE) {
+                    result.append('/');
+                }
+                if (CLDRFile.HACK_ORDER && element.equals("ldml")) {
+                    result.append(' ');
+                }
                 result.append('>');
                 break;
             case XML_CLOSE:
@@ -796,8 +815,12 @@ public final class XPathParts implements Freezable<XPathParts> {
                 String attribute = attributesAndValues.getKey();
                 String value = attributesAndValues.getValue();
                 if (removeLDMLExtras && suppressionMap != null) {
-                    if (skipAttribute(element, attribute, value)) continue;
-                    if (skipAttribute("*", attribute, value)) continue;
+                    if (skipAttribute(element, attribute, value)) {
+                        continue;
+                    }
+                    if (skipAttribute("*", attribute, value)) {
+                        continue;
+                    }
                 }
                 try {
                     result.append(prefix).append(attribute).append("=\"")
@@ -810,14 +833,30 @@ public final class XPathParts implements Freezable<XPathParts> {
             return this;
         }
 
+        /**
+         * Should writeAttributes skip the given element, attribute, and value?
+         *
+         * @param element
+         * @param attribute
+         * @param value
+         * @return true to skip, else false
+         * 
+         * Called only by writeAttributes
+         *
+         * Assume suppressionMap isn't null.
+         */
         private boolean skipAttribute(String element, String attribute, String value) {
             Map<String, String> attribute_value = suppressionMap.get(element);
             boolean skip = false;
             if (attribute_value != null) {
                 Object suppressValue = attribute_value.get(attribute);
-                if (suppressValue == null) suppressValue = attribute_value.get("*");
+                if (suppressValue == null) {
+                    suppressValue = attribute_value.get("*");
+                }
                 if (suppressValue != null) {
-                    if (value.equals(suppressValue) || suppressValue.equals("*")) skip = true;
+                    if (value.equals(suppressValue) || suppressValue.equals("*")) {
+                        skip = true;
+                    }
                 }
             }
             return skip;
@@ -899,12 +938,21 @@ public final class XPathParts implements Freezable<XPathParts> {
     public int findElement(String elementName) {
         for (int i = 0; i < elements.size(); ++i) {
             Element e = elements.get(i);
-            if (!e.getElement().equals(elementName)) continue;
+            if (!e.getElement().equals(elementName)) {
+                continue;
+            }
             return i;
         }
         return -1;
     }
 
+    /**
+     * Get the MapComparator for this XPathParts.
+     *
+     * @return the MapComparator, or null
+     * 
+     * Called by the Element constructor, and by putAttribute
+     */
     private MapComparator<String> getAttributeComparator() {
         return dtdData == null ? null
             : dtdData.dtdType == DtdType.ldml ? CLDRFile.getAttributeOrdering()
@@ -1166,7 +1214,20 @@ public final class XPathParts implements Freezable<XPathParts> {
 
     @Override
     public XPathParts cloneAsThawed() {
-        return new XPathParts(elements, suppressionMap);
+        XPathParts xppClone = new XPathParts();
+        /*
+         * TODO: copy dtdData -- there is a long-standing bug, that cloneAsThawed always makes dtdData null,
+         * and we can fix that here with "xppClone.dtdData = this.dtdData", but then we get a failure in
+         * TestRegularized. Something about TestRegularized (or some code that it calls) requires cloneAsThawed
+         * to make dtdData null instead of copying it!?
+         * Reference: https://unicode.org/cldr/trac/ticket/12007#comment:23
+         */
+        // xppClone.dtdData = this.dtdData;
+        xppClone.suppressionMap = this.suppressionMap;
+        for (Element e : this.elements) {
+            xppClone.elements.add(e.cloneAsThawed());
+        }        
+        return xppClone;
     }
 
     public static synchronized XPathParts getFrozenInstance(String path) {

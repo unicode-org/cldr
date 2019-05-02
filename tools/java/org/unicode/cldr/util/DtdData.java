@@ -1164,9 +1164,6 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         if ("_q".equals(attributeName)) {
             return AttributeStatus.distinguished; // special case
         }
-        if ("#PCDATA".equals(elementName)) {
-            int debug = 1;
-        }
         Element element = nameToElement.get(elementName);
         if (element == null) {
             if (elementName.startsWith("icu:")) {

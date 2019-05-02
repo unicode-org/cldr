@@ -484,8 +484,18 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
              */
             currentFiltered.set(xpath);
             current.set(xpath);
-            current.writeDifference(pw, currentFiltered, last, lastFiltered, "", tempComments);
-            // exchange pairs of parts
+            current.writeDifference(pw, currentFiltered, last, "", tempComments);
+            /*
+             * Exchange pairs of parts:
+             *     swap current with last
+             *     swap currentFiltered with lastFiltered
+             * However, current and currentFiltered both get "set" next, so the effect should be the same as
+             *     last = current
+             *     lastFiltered = currentFiltered
+             *     current = getInstance
+             *     currentFiltered = getInstance
+             *     ??
+             */
             XPathParts temp = current;
             current = last;
             last = temp;
@@ -513,7 +523,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 continue;
             }
             current.set(getFullXPath(xpath));
-            current.writeDifference(pw, currentFiltered, last, lastFiltered, v, tempComments);
+            current.writeDifference(pw, currentFiltered, last, v, tempComments);
             // exchange pairs of parts
             XPathParts temp = current;
             current = last;
@@ -526,7 +536,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (!wroteAtLeastOnePath && options.containsKey("SKIP_FILE_IF_SKIP_ALL_PATHS")) {
             return false;
         }
-        current.clear().writeDifference(pw, null, last, lastFiltered, null, tempComments);
+        current.clear().writeDifference(pw, null, last, null, tempComments);
         String finalComment = dataSource.getXpathComments().getFinalComment();
 
         if (WRITE_COMMENTS_THAT_NO_LONGER_HAVE_BASE) {
@@ -2636,7 +2646,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             }
             for (int j = 0; j < len - 2; ++j) {
                 Map newTemp = (Map) temp.get(data[i][j]);
-                if (newTemp == null) temp.put(data[i][j], newTemp = tree ? (Map) new TreeMap() : new HashMap());
+                if (newTemp == null) {
+                    temp.put(data[i][j], newTemp = tree ? (Map) new TreeMap() : new HashMap());
+                }
                 temp = newTemp;
             }
             temp.put(data[i][len - 2], data[i][len - 1]);

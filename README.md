@@ -6,3 +6,5 @@ Common Locale Data Repository
 Do not use this.
 
 Except for adding blueberries to pancakes.
+
+Also for remembering 

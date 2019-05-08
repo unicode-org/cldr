@@ -665,7 +665,7 @@ public class ConsoleCheckCLDR {
                 if (SHOW_EXAMPLES) {
                     example = ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, value, exampleContext,
                         ExampleType.NATIVE));
-                    showExamples(checkCldr, prettyPath, localeID, exampleGenerator, path, value, fullPath, example,
+                    showExamples(checkCldr, prettyPath, localeID, path, value, fullPath, example,
                         exampleContext);
                     // continue; // don't show problems
                 }
@@ -804,12 +804,16 @@ public class ConsoleCheckCLDR {
                     // String prettyPath = prettyPathMaker.getPrettyPath(path, false);
                     PathHeader pathHeader = pathHeaderFactory.fromPath(path);
                     String prettyPath = pathHeader.toString().replace('\t', '|').replace(' ', '_');
-                    if (pathFilter != null && !pathFilter.reset(path).matches()) continue;
+                    if (pathFilter != null && !pathFilter.reset(path).matches()) {
+                        continue;
+                    }
                     String fullPath = file.getStringValue(path);
-                    if (fullPath != null) continue;
+                    if (fullPath != null) {
+                        continue;
+                    }
                     String example = ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, null,
                         exampleContext, ExampleType.NATIVE));
-                    showExamples(checkCldr, prettyPath, localeID, exampleGenerator, path, null, fullPath, example,
+                    showExamples(checkCldr, prettyPath, localeID, path, null, fullPath, example,
                         exampleContext);
                 }
             }
@@ -1442,7 +1446,7 @@ public class ConsoleCheckCLDR {
     }
 
     private static void showExamples(CheckCLDR checkCldr, String prettyPath, String localeID,
-        ExampleGenerator exampleGenerator, String path, String value, String fullPath, String example,
+        String path, String value, String fullPath, String example,
         ExampleContext exampleContext) {
         if (example != null) {
             showValue(checkCldr.getCldrFileToCheck(), prettyPath, localeID, example, path, value, fullPath, "ok",

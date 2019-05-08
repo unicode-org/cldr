@@ -10,7 +10,6 @@
 
 package org.unicode.cldr.web;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,11 +24,13 @@ public class URLWebContext extends WebContext {
         params = other.params; // assume readonly
     }
 
+    /*
     public URLWebContext(String url) throws IOException, java.net.MalformedURLException {
         super(true);
         setURL(url);
     }
-
+    */
+    
     public void setURL(String urlString) throws java.net.MalformedURLException {
         this.url = new URL(urlString);
         String work = this.url.getQuery(); // .replaceAll("+"," ");

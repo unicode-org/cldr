@@ -1,3 +1,6 @@
+/*
+ * TODO: is this file new.jsp used for anything? If so, document it; if not, delete it.
+ */
 <%@ include file="/WEB-INF/jspf/report_top.jspf" %>
 
 <%@ page import="com.ibm.icu.util.Currency" %>

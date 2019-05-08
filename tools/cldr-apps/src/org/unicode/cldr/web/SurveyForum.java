@@ -856,7 +856,7 @@ public class SurveyForum {
         DataSection section = ctx.getSection(podBase);
 
         DataSection.printSectionTableOpen(ctx, section, true, canModify);
-        section.showSection(ctx, canModify, ctx.sm.xpt.getById(item_xpath), true);
+        section.showSection(ctx, canModify, ctx.sm.xpt.getById(item_xpath));
         baseCtx.sm.printSectionTableClose(ctx, section, canModify);
         baseCtx.sm.printPathListClose(ctx);
 
@@ -936,15 +936,6 @@ public class SurveyForum {
 
     public static String showXpathShort(WebContext baseCtx, String section_xpath, String item_xpath) {
         return showXpathShort(baseCtx, section_xpath, baseCtx.sm.xpt.getByXpath(item_xpath));
-    }
-
-    public static String showXpathShort(WebContext baseCtx, String item_xpath) {
-        String section_xpath = DataSection.xpathToSectionBase(item_xpath);
-        return showXpathShort(baseCtx, section_xpath, baseCtx.sm.xpt.getByXpath(item_xpath));
-    }
-
-    public static String showXpath(WebContext baseCtx, String section_xpath, String item_xpath) {
-        return showXpath(baseCtx, section_xpath, baseCtx.sm.xpt.getByXpath(item_xpath));
     }
 
     /**

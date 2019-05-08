@@ -30,7 +30,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
-import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
@@ -1773,18 +1772,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public TestCache.TestResultBundle getTestResult(CLDRLocale loc, CheckCLDR.Options options) {
 //        System.err.println("Fetching: " + options);
         return get(loc).getTestResultData(options);
-    }
-
-    public ExampleGenerator getExampleGenerator() {
-        CLDRFile fileForGenerator = sm.getBaselineFile();
-
-        if (fileForGenerator == null) {
-            SurveyLog.logger.warning("Err: fileForGenerator is null for ");
-        }
-        ExampleGenerator exampleGenerator = new ExampleGenerator(fileForGenerator, sm.getBaselineFile(), SurveyMain.fileBase
-            + "/../supplemental/");
-        exampleGenerator.setVerboseErrors(sm.twidBool("ExampleGenerator.setVerboseErrors"));
-        return exampleGenerator;
     }
 
     /*

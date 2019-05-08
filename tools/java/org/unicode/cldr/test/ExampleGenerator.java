@@ -222,6 +222,8 @@ public class ExampleGenerator {
         this.verboseErrors = verbosity;
     }
 
+    private String creationTime = null;
+
     /**
      * Create an Example Generator. If this is shared across threads, it must be synchronized.
      *
@@ -242,6 +244,9 @@ public class ExampleGenerator {
         icuServiceBuilder.setCldrFile(cldrFile);
 
         pluralInfo = supplementalDataInfo.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
+        
+        creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
+        System.out.println("🧞‍ Created new ExampleGenerator for loc " + cldrFile.getLocaleID() + " at " + creationTime);
     }
 
     public enum ExampleType {

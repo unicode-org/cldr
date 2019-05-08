@@ -41,7 +41,6 @@ import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.HelpMessages;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
@@ -1313,12 +1312,6 @@ public class WebContext implements Cloneable, Appendable {
         print("<ul><li>To change your default coverage level, see ");
         SurveyMain.printMenu(this, "", "options", "My Options", SurveyMain.QUERY_DO);
         println("</li></ul>");
-        if (false && SurveyMain.isUnofficial()) {
-            println("<smaller><i> // User Org:" + session.getUserOrg() + "isCoverageOrg:"
-                + isCoverageOrganization(session.getUserOrg()) + " // Effective: "
-                + getEffectiveCoverageLevel(getLocale().toString()) + " // Recommended: " + getRecommendedCoverageLevel()
-                + "</i></smaller>");
-        }
     }
 
     public String getEffectiveCoverageLevel(CLDRLocale locale) {
@@ -1408,15 +1401,6 @@ public class WebContext implements Cloneable, Appendable {
     }
 
     /**
-     * User's organization or null.
-     *
-     * @return
-     */
-    public String getUserOrg() {
-        return session.getUserOrg();
-    }
-
-    /**
      * Append the WebContext Options map to the specified map
      *
      * @return the map
@@ -1444,52 +1428,13 @@ public class WebContext implements Cloneable, Appendable {
         return def;
     }
 
-    // DataPod functions
-    private static final String DATA_POD = "DataPod_";
-    private static final boolean DEBUG = false || CldrUtility.getProperty("TEST", false);
-
-    /**
-     * Get the DataSection for the given xpath prefix and default ptype, even if
-     * it may be no longer valid. May be null.
-     *
-     * @param prefix
-     *            the xpath prefix
-     * @return the existing data section or null if it is invalid
-     */
-    DataSection getExistingSection(String prefix) {
-        return getExistingSection(prefix, getEffectiveCoverageLevel(getLocale().toString()));
-    }
-
-    /**
-     * Get the DataSection for the given xpath prefix and default ptype, even if
-     * it may be no longer valid. May be null.
-     *
-     * @param prefix
-     *            the xpath prefix
-     * @param ptype
-     *            the ptype to use to distinguish
-     * @return the existing data section or null if it is invalid
-     */
-    DataSection getExistingSection(String prefix, String ptype) {
-        synchronized (this) {
-            Reference<DataSection> sr = (Reference<DataSection>) getByLocaleStatic(DATA_POD + prefix + ":" + ptype); // GET******
-            if (sr == null) {
-                return null; // wasn't never there
-            }
-            DataSection dp = sr.get();
-            if (dp == null) {
-                // System.err.println("SR expired: " + locale + ":"+
-                // prefix+":"+ptype);
-            }
-            return dp;
-        }
-    }
-
     /**
      * Get a currently valid DataSection.. creating it if need be. prints
      * informative notes to the ctx in case of a long delay.
      *
      * @param prefix
+     *
+     * Called from RefreshRow.jsp, though Eclipse won't show that in "Open Call Hierarchy" because jsp.
      */
     DataSection getSection(String prefix) {
         return getSection(prefix, null, getEffectiveCoverageLevel(getLocale().toString()), LoadingShow.showLoading);
@@ -1537,14 +1482,6 @@ public class WebContext implements Cloneable, Appendable {
     }
 
     public DataSection getSection(String prefix, XPathMatcher matcher, String ptype, LoadingShow options, PageId pageId) {
-        // if(hasField("srl_veryslow")&&sm.isUnofficial) {
-        // // TODO: parameterize
-        // // test case: make the data section 50x
-        // for(int q=0;q<50;q++) {
-        // DataSection.make(this, locale, prefix, false,ptype);
-        // }
-        // }
-
         String loadString = "data was loaded.";
         DataSection section = null;
 
@@ -1556,70 +1493,38 @@ public class WebContext implements Cloneable, Appendable {
                 println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Checking cache';</script>");
                 flush();
             }
-            if (false) {
-                section = getExistingSection(prefix, ptype);
-                if ((section != null)/* && (!section.isValid())*/) {
-                    section = null;
-                    loadString = "data was re-loaded due to a new user submission.";
-                }
-            }
-            if (section == null) {
-                CLDRProgressTask progress = null;
-                progress = sm.openProgress("Loading");
-                try {
-                    progress.update("<span title='" + sm.xpt.getPrettyPath(prefix) + "'>" + locale + "</span>");
+            CLDRProgressTask progress = null;
+            progress = sm.openProgress("Loading");
+            try {
+                progress.update("<span title='" + sm.xpt.getPrettyPath(prefix) + "'>" + locale + "</span>");
+                flush();
+                long t0 = System.currentTimeMillis();
+                ElapsedTimer waitTimer = new ElapsedTimer("There was a delay of {0} waiting for your other windows");
+                ElapsedTimer podTimer = null;
+                String waitString;
+                if (options == LoadingShow.showLoading) {
+                    println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Waiting for other windows';</script>");
                     flush();
-                    long t0 = System.currentTimeMillis();
-                    ElapsedTimer waitTimer = new ElapsedTimer("There was a delay of {0} waiting for your other windows");
-                    ElapsedTimer podTimer = null;
-                    String waitString;
+                }
+                synchronized (session) {
+                    waitString = waitTimer.toString();
+                    podTimer = new ElapsedTimer("There was a delay of {0} as " + loadString);
                     if (options == LoadingShow.showLoading) {
-                        println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Waiting for other windows';</script>");
+                        println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Loading data...';</script>");
                         flush();
                     }
-                    synchronized (session) {
-                        waitString = waitTimer.toString();
-                        podTimer = new ElapsedTimer("There was a delay of {0} as " + loadString);
-                        if (options == LoadingShow.showLoading) {
-                            println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Loading data...';</script>");
-                            flush();
-                        }
-                        section = DataSection.make(pageId, this, this.session, locale, prefix, matcher,
-                            options == LoadingShow.showLoading, ptype);
-                        if (options == LoadingShow.showLoading) {
-                            println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Cleaning up...';</script>");
-                            flush();
-                        }
-                    }
-                    if (options == LoadingShow.showLoading && (System.currentTimeMillis() - t0) > 10 * 1000) {
-                        println("<i><b>" + waitString + "<br/>" + podTimer + "</b></i><br/>");
-                    }
-                    /* no point in catching these. */
-                    // } catch (OutOfMemoryError oom) {
-                    // SurveyMain.logException(oom,this);
-                    // System.err.println("Error loading " + prefix + " / " +
-                    // ptype + " in " + locale);
-                    // oom.printStackTrace();
-                    // this.println("Error loading " + prefix + " / " + ptype +
-                    // " in " + locale + " - " + oom.toString());
-                    // } catch (Throwable t) {
-                    // SurveyMain.logException(t,this);
-                    // System.err.println("Error loading " + prefix + " / " +
-                    // ptype + " in " + locale);
-                    // t.printStackTrace();
-                    // this.println("Error loading " + prefix + " / " + ptype +
-                    // " in " + locale + " - " + t.toString());
-                } finally {
-                    progress.close(); // TODO: this can trigger "State Error: Closing an already-closed CLDRProgressIndicator"
+                    section = DataSection.make(pageId, this, this.session, locale, prefix, matcher,
+                        options == LoadingShow.showLoading, ptype);
                     if (options == LoadingShow.showLoading) {
-                        println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='';</script>");
+                        println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Cleaning up...';</script>");
                         flush();
                     }
                 }
-            } else {
-                if (DEBUG) {
-                    System.err.println("Re-using cached section: " + section.toString());
+                if (options == LoadingShow.showLoading && (System.currentTimeMillis() - t0) > 10 * 1000) {
+                    println("<i><b>" + waitString + "<br/>" + podTimer + "</b></i><br/>");
                 }
+            } finally {
+                progress.close(); // TODO: this can trigger "State Error: Closing an already-closed CLDRProgressIndicator"
                 if (options == LoadingShow.showLoading) {
                     println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='';</script>");
                     flush();
@@ -1628,16 +1533,7 @@ public class WebContext implements Cloneable, Appendable {
             if (section == null) {
                 throw new InternalError("No section.");
             }
-            // section.register();
-            // SoftReference sr =
-            // (SoftReference)getByLocaleStatic(DATA_POD+prefix+":"+ptype); //
-            // GET******
         }
-        // NO CACHE
-        // putByLocaleStatic(DATA_POD+prefix+":"+ptype, new
-        // SoftReference<DataSection>(section)); // PUT******
-        // putByLocale("__keeper:"+prefix+":"+ptype, section); // put into
-        // user's hash so it wont go out of scope
         section.touch();
         return section;
     }
@@ -1671,21 +1567,6 @@ public class WebContext implements Cloneable, Appendable {
     public static final String DATA_ROW = "DataRow";
     public static final String BASE_EXAMPLE = "baseExample";
     public static final String BASE_VALUE = "baseValue";
-
-    /**
-     * Get help on a certain xpath in html. The HTML help given is independent
-     * of locale.
-     *
-     * @param xpath
-     * @see HelpMessages
-     */
-    public void printHelpHtml(String xpath) {
-        String helpHtml = sm.getBaselineExample().getHelpHtml(xpath, "", true);
-        if (helpHtml != null) {
-            println("<br/> <div class='helpHtml'><br/><h3 style='display: none;' class='theHelp'>Help with "
-                + sm.xpt.getPrettyPath(xpath) + "</h3><!-- " + xpath + " -->\n" + helpHtml + "</div>");
-        }
-    }
 
     /**
      * Print a link to help with the title 'Help'
@@ -1731,11 +1612,6 @@ public class WebContext implements Cloneable, Appendable {
             print("(");
         }
         print("<a href=\"" + (SurveyMain.CLDR_HELP_LINK) + what + "\">" + title + "</a>");
-        // if(doEdit) {
-        // print(" <a title='"+MOD_MSG+"' href=\"" +
-        // (SurveyMain.CLDR_HELP_LINK_EDIT) + what + "\">" +
-        // modifyThing(MOD_MSG) +"</a>");
-        // }
         if (parens) {
             println(")");
         }
@@ -2155,8 +2031,6 @@ public class WebContext implements Cloneable, Appendable {
      */
     String urlForLocale(CLDRLocale locale) {
         return vurl(locale, null, null, null);
-        //        String localeUrl = url() + urlConnector() + SurveyMain.QUERY_LOCALE + "=" + locale.getBaseName();
-        //        return localeUrl;
     }
 
     public String getLocaleDisplayName(String loc) {
@@ -2283,10 +2157,6 @@ public class WebContext implements Cloneable, Appendable {
                 if (CookieSession.DEBUG_INOUT) {
                     System.err.println("From httpsession " + httpSession.getId() + " = ST session " + aNum + " = " + session);
                 }
-                if (session == null) {
-                    // user was logged out.
-                    // message = "You were disconnected.."; // doesn't add value, don't bother returning this.
-                }
             }
         }
 
@@ -2308,12 +2178,7 @@ public class WebContext implements Cloneable, Appendable {
                 println("<h1>Note: Your IP, " + userIP() + " has been throttled for making " + SurveyMain.BAD_IPS.get(userIP())
                     + " connections. Try turning on cookies, or obeying the 'META ROBOTS' tag.</h1>");
                 flush();
-                // try {
-                // Thread.sleep(15000);
-                // } catch(InterruptedException ie) {
-                // }
                 session = null;
-                // ctx.println("Now, go away.");
                 return "Bad IP.";
             }
         }

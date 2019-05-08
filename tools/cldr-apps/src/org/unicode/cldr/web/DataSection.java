@@ -14,7 +14,6 @@ package org.unicode.cldr.web;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -37,7 +36,6 @@ import org.unicode.cldr.test.CheckCLDR.InputMethod;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
-import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
@@ -67,6 +65,8 @@ import org.unicode.cldr.web.UserRegistry.User;
 
 import com.google.common.collect.ImmutableList;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.Output;
 
 /**
@@ -960,30 +960,6 @@ public class DataSection implements JSONString {
          */
         public boolean hasExamples() {
             return hasExamples;
-        }
-
-        /**
-         * @param uf
-         * @param zoomedIn
-         * @param exampleContext
-         * @param topCurrent
-         * @return
-         */
-        public String getBaseExample(UserLocaleStuff uf, boolean zoomedIn, ExampleContext exampleContext, CandidateItem topCurrent) {
-            String baseExample;
-            // Prime the Pump - Native must be called first.
-            if (topCurrent != null) {
-                /* ignored */uf.getExampleGenerator().getExampleHtml(getXpath(), topCurrent.rawValue,
-                    exampleContext, ExampleType.NATIVE);
-            } else {
-                // no top item, so use NULL
-                /* ignored */uf.getExampleGenerator().getExampleHtml(getXpath(), null,
-                    exampleContext, ExampleType.NATIVE);
-            }
-
-            baseExample = sm.getBaselineExample().getExampleHtml(xpath, getDisplayName(),
-                exampleContext, ExampleType.ENGLISH);
-            return baseExample;
         }
 
         /**
@@ -2178,6 +2154,8 @@ public class DataSection implements JSONString {
     private PageId pageId;
     private CLDRFile diskFile;
 
+    private String creationTime = null;
+
     /**
      * Create a DataSection
      *
@@ -2197,6 +2175,9 @@ public class DataSection implements JSONString {
         intgroup = loc.getLanguage(); // calculate interest group
         ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
         this.pageId = pageId;
+
+        creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
+        System.out.println("🌴 Created new DataSection for loc " + loc + " at " + creationTime);
     }
 
     /**
@@ -2444,16 +2425,6 @@ public class DataSection implements JSONString {
             addDataRow(row);
         }
         return row;
-    }
-
-    /**
-     * Given a hash, see addExampleEntry, retrieve the ExampleEntry which has
-     * section, row, candidateitem and status
-     */
-    ExampleEntry getExampleEntry(String hash) {
-        synchronized (exampleHash) {
-            return exampleHash.get(hash);
-        }
     }
 
     /**
@@ -2907,26 +2878,10 @@ public class DataSection implements JSONString {
      * There are two functions by this name. This one has a String for the 3rd param;
      * the other has an XPathMatcher.
      *
-     * Called only by showXpath in SurveyForum.java, always with zoomedIn = true
+     * Called only by showXpath in SurveyForum.java
      */
-    void showSection(WebContext ctx, boolean canModify, String only_prefix_xpath, boolean zoomedIn) {
+    void showSection(WebContext ctx, boolean canModify, String only_prefix_xpath) {
         XPathMatcher matcher = BaseAndPrefixMatcher.getInstance(-1, only_prefix_xpath);
-
-        // Call the method below that has the same name, different parameters
-        showSection(ctx, canModify, matcher, zoomedIn);
-    }
-
-    /**
-     * Show a DataSection to the user.
-     *
-     * @param ctx
-     * @param canModify
-     * @param matcher
-     * @param zoomedIn
-     *
-     * Called by another function named showSection in this file, and also by showPathList in SurveyMain.java
-     */
-    void showSection(WebContext ctx, boolean canModify, XPathMatcher matcher, boolean zoomedIn) {
         int skip = 0; // where the index points to
         int oskip = ctx.fieldInt("skip", 0); // original skip from user.
 
@@ -2996,7 +2951,7 @@ public class DataSection implements JSONString {
             }
 
             ctx.println("<input type='hidden' name='skip' value='" + ctx.field("skip") + "'>");
-            DataSection.printSectionTableOpen(ctx, this, zoomedIn, canModify);
+            DataSection.printSectionTableOpen(ctx, this, true /* zoomedIn */, canModify);
 
             int rowStart = skip; // where should it start?
             int rowCount = ctx.prefCodesPerPage(); // how many to show?
@@ -3116,7 +3071,6 @@ public class DataSection implements JSONString {
         touchTime = System.currentTimeMillis();
     }
 
-
     /**
      * Print something...
      *
@@ -3186,16 +3140,6 @@ public class DataSection implements JSONString {
     public static String fromValueHash(String s) {
         return (s == null || s.equals("null")) ? null : CookieSession.cheapDecodeString(s);
     }
-
-    enum EPrintCellSet {
-        doShowValue, doShowRef, doShowExample
-    };
-
-    enum EShowDataRowSet {
-        doShowTR, doShowValueRows, doShowOtherRows, doShowVettingRows
-    };
-
-    public static final EnumSet<EShowDataRowSet> kAjaxRows = EnumSet.of(EShowDataRowSet.doShowValueRows);
 
     /**
      * Convert this DataSection to a JSON string.

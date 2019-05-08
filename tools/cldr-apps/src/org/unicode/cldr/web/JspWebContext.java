@@ -229,6 +229,8 @@ public class JspWebContext extends WebContext {
      *
      * @param xpaths
      *            list of xpaths to show.
+     *
+     * Called from new.jsp, although Eclipse won't show that in "Open Call Hierarchy" (jsp).
      */
     public void showXpath(String[] xpaths) {
         for (String xpath : xpaths) {

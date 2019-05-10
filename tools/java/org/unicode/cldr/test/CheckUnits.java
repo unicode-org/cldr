@@ -52,7 +52,7 @@ public class CheckUnits extends CheckCLDR {
             return this;
         }
 
-        XPathParts xpp = XPathParts.getTestInstance(path);
+        XPathParts xpp = XPathParts.getFrozenInstance(path);
         String durationUnitType = xpp.findAttributeValue("durationUnit", "type");
         boolean hasHourSymbol = HOUR_SYMBOL.matcher(value).find();
         boolean hasMinuteSymbol = MINUTE_SYMBOL.matcher(value).find();

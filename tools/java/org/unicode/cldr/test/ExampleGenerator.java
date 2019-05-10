@@ -1315,7 +1315,7 @@ public class ExampleGenerator {
     private String handleDateFormatItem(String xpath, String value) {
 
         String fullpath = cldrFile.getFullXPath(xpath);
-        XPathParts parts = XPathParts.getTestInstance(fullpath);
+        XPathParts parts = XPathParts.getFrozenInstance(fullpath);
         String calendar = parts.findAttributeValue("calendar", "type");
 
         if (parts.contains("dateTimeFormat")) {
@@ -1323,9 +1323,9 @@ public class ExampleGenerator {
             String timeFormatXPath = cldrFile.getWinningPath(xpath.replaceAll("dateTimeFormat", "timeFormat"));
             String dateFormatValue = cldrFile.getWinningValue(dateFormatXPath);
             String timeFormatValue = cldrFile.getWinningValue(timeFormatXPath);
-            parts = XPathParts.getTestInstance(cldrFile.getFullXPath(dateFormatXPath));
+            parts = XPathParts.getFrozenInstance(cldrFile.getFullXPath(dateFormatXPath));
             String dateNumbersOverride = parts.findAttributeValue("pattern", "numbers");
-            parts = XPathParts.getTestInstance(cldrFile.getFullXPath(timeFormatXPath));
+            parts = XPathParts.getFrozenInstance(cldrFile.getFullXPath(timeFormatXPath));
             String timeNumbersOverride = parts.findAttributeValue("pattern", "numbers");
             SimpleDateFormat df = icuServiceBuilder.getDateFormat(calendar, dateFormatValue, dateNumbersOverride);
             SimpleDateFormat tf = icuServiceBuilder.getDateFormat(calendar, timeFormatValue, timeNumbersOverride);

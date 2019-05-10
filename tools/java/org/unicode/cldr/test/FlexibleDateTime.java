@@ -69,7 +69,7 @@ public class FlexibleDateTime {
         if (path.indexOf("Formats") < 0) {
             return false; // quick exclude
         }
-        XPathParts parts = XPathParts.getTestInstance(path);
+        XPathParts parts = XPathParts.getFrozenInstance(path);
         if (parts.size() < 8 || !parts.getElement(7).equals("pattern")) {
             return false;
         }
@@ -131,7 +131,7 @@ public class FlexibleDateTime {
             CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
             for (Iterator<String> it = supp.iterator("//supplementalData/metadata/alias/"); it.hasNext();) {
                 String path = it.next();
-                XPathParts parts = XPathParts.getTestInstance(supp.getFullXPath(path));
+                XPathParts parts = XPathParts.getFrozenInstance(supp.getFullXPath(path));
                 String type = parts.getAttributeValue(3, "type");
                 String replacement = parts.getAttributeValue(3, "replacement");
                 if (parts.getElement(3).equals("languageAlias")) {
@@ -380,9 +380,10 @@ public class FlexibleDateTime {
                 if (!isGregorianPattern(xpath)) {
                     continue;
                 }
-                XPathParts parts = XPathParts.getTestInstance(xpath);
-                boolean isDate = parts.getElement(4).equals("dateFormats");
-                boolean isTime = parts.getElement(4).equals("timeFormats");
+                XPathParts parts = XPathParts.getFrozenInstance(xpath);
+                String fourthElement = parts.getElement(4);
+                boolean isDate = fourthElement.equals("dateFormats");
+                boolean isTime = fourthElement.equals("timeFormats");
                 String value = item.getWinningValue(xpath);
                 if (isDate || isTime) {
                     String pattern = value;

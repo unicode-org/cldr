@@ -310,7 +310,7 @@ public class SupplementalMapper {
         fifoCounter = 0; // Helps to keep unsorted rb paths in order.
         for (Pair<String, String> pair : contents) {
             Output<Finder> matcher = new Output<Finder>();
-            XPathParts parts = XPathParts.getTestInstance(pair.getFirst());
+            XPathParts parts = XPathParts.getFrozenInstance(pair.getFirst());
             String fullPath = parts.toString();
             // Only convert contributed or higher data
             if (parts.containsAttributeValue("draft", "provisional") ||

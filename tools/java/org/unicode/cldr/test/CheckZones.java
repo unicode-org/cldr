@@ -62,7 +62,7 @@ public class CheckZones extends FactoryCheckCLDR {
             throw new InternalCldrException(
                 "This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
         }
-        XPathParts parts = XPathParts.getTestInstance(path);
+        XPathParts parts = XPathParts.getFrozenInstance(path);
 
         String zone = parts.getAttributeValue(3, "type");
         String from;
@@ -112,7 +112,7 @@ public class CheckZones extends FactoryCheckCLDR {
     }
 
     public static String exampleTextForXpath(TimezoneFormatter timezoneFormatter, String path) {
-        XPathParts parts = XPathParts.getTestInstance(path);
+        XPathParts parts = XPathParts.getFrozenInstance(path);
         if (parts.containsElement("zone")) {
             String id = (String) parts.getAttributeValue(3, "type");
             TimeZone tz = TimeZone.getTimeZone(id);

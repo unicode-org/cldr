@@ -250,13 +250,11 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     @SuppressWarnings("unused")
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
-        if (fullPath == null) return this; // skip paths that we don't have
-
-        // get the paths with the same value. If there aren't duplicates, continue;
-        if (DEBUG_PATH_PART != null & path.contains(DEBUG_PATH_PART)) {
-            int debug = 0;
+        if (fullPath == null) {
+            return this; // skip paths that we don't have
         }
 
+        // get the paths with the same value. If there aren't duplicates, continue;
         if (value == null || value.length() == 0) {
             return this;
         }
@@ -275,7 +273,6 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             return this;
         }
 
-
         Matcher matcher = null;
         String message = "Can't have same translation as {0}. Please change either this name or the other one. "
             + "See <a target='doc' href='http://cldr.unicode.org/translation/short-names-and-keywords#TOC-Unique-Names'>Unique-Names</a>.";
@@ -285,7 +282,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             if (!path.contains("[@count=") || "0".equals(value)) {
                 return this;
             }
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getInstance(path); // not frozen, for removeElement
             String type = parts.getAttributeValue(-1, "type");
             myPrefix = parts.removeElement(-1).toString();
             matcher = PatternCache.get(myPrefix.replaceAll("\\[", "\\\\[") +
@@ -349,12 +346,12 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             if (path.contains("/decimal") || path.contains("/group")) {
                 return this;
             }
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             String currency = parts.getAttributeValue(-2, "type");
             Iterator<String> iterator = paths.iterator();
             while (iterator.hasNext()) {
                 String curVal = iterator.next();
-                parts = XPathParts.getTestInstance(curVal);
+                parts = XPathParts.getFrozenInstance(curVal);
                 if (currency.equals(parts.getAttributeValue(-2, "type")) ||
                     curVal.contains("/decimal") || curVal.contains("/group")) {
                     iterator.remove();
@@ -367,14 +364,14 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         // Collisions between 'narrow' forms are allowed (the current is filtered by UNITS_IGNORE)
         //ldml/units/unitLength[@type="narrow"]/unit[@type="duration-day-future"]/unitPattern[@count="one"]
         if (myType == Type.UNITS) {
-            XPathParts parts = XPathParts.getInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             int typeLocation = 3;
             String myUnit = parts.getAttributeValue(typeLocation, "type");
             boolean isDuration = myUnit.startsWith("duration");
             Iterator<String> iterator = paths.iterator();
             while (iterator.hasNext()) {
                 String curVal = iterator.next();
-                parts = XPathParts.getTestInstance(curVal);
+                parts = XPathParts.getFrozenInstance(curVal);
                 String unit = parts.getAttributeValue(typeLocation, "type");
                 // we also break the units into two groups: durations and others. Also never collide with a compoundUnitPattern.
                 if (unit == null || myUnit.equals(unit) || isDuration != unit.startsWith("duration") || compoundUnitPatterns.reset(curVal).find()) {
@@ -401,12 +398,12 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         }
         // Collisions between different lengths and counts of the same field are allowed
         if (myType == Type.FIELDS_RELATIVE) {
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             String myFieldType = parts.getAttributeValue(3, "type").split("-")[0];
             Iterator<String> iterator = paths.iterator();
             while (iterator.hasNext()) {
                 String curVal = iterator.next();
-                parts = XPathParts.getTestInstance(curVal);
+                parts = XPathParts.getFrozenInstance(curVal);
                 String fieldType = parts.getAttributeValue(3, "type").split("-")[0];
                 if (myFieldType.equals(fieldType)) {
                     iterator.remove();
@@ -416,12 +413,12 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         }
         // Collisions between different lengths of the same field are allowed
         if (myType == Type.UNITS_COORDINATE) {
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             String myFieldType = (parts.containsElement("displayName"))? "displayName": parts.findAttributeValue("coordinateUnitPattern", "type");
             Iterator<String> iterator = paths.iterator();
             while (iterator.hasNext()) {
                 String curVal = iterator.next();
-                parts = XPathParts.getTestInstance(curVal);
+                parts = XPathParts.getFrozenInstance(curVal);
                 String fieldType = (parts.containsElement("displayName"))? "displayName": parts.findAttributeValue("coordinateUnitPattern", "type");
                 if (myFieldType.equals(fieldType)) {
                     iterator.remove();
@@ -649,7 +646,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
      */
     private String getRegion(Type type, String xpath) {
         int index = type == Type.ZONE ? -2 : -1;
-        return XPathParts.getTestInstance(xpath).getAttributeValue(index, "type");
+        return XPathParts.getFrozenInstance(xpath).getAttributeValue(index, "type");
     }
 
     /**

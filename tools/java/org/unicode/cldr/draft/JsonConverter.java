@@ -64,7 +64,7 @@ public class JsonConverter {
                 final String xpath = it.next();
                 final String fullXpath = file.getFullXPath(xpath);
                 String value = file.getStringValue(xpath);
-                XPathParts oldParts = XPathParts.getTestInstance(fullXpath);
+                XPathParts oldParts = XPathParts.getInstance(fullXpath); // not frozen, rewrite can modify
                 if (dtdType == null) {
                     dtdType = DtdType.valueOf(parts.getElement(0));
                 }

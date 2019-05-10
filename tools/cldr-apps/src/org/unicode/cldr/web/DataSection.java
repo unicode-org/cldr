@@ -2261,7 +2261,7 @@ public class DataSection implements JSONString {
                     zoneIterator = sm.getMetazones(pieces[1]);
                 } else { // This is just a single metazone from a zoom-in
                     Set<String> singleZone = new HashSet<String>();
-                    XPathParts xpp = XPathParts.getTestInstance(xpathPrefix);
+                    XPathParts xpp = XPathParts.getFrozenInstance(xpathPrefix);
                     String singleMetazoneName = xpp.findAttributeValue("metazone", "type");
                     if (singleMetazoneName == null) {
                         throw new NullPointerException("singleMetazoneName is null for xpp:" + xpathPrefix);

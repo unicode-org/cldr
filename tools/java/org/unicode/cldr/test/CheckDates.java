@@ -696,7 +696,7 @@ public class CheckDates extends FactoryCheckCLDR {
                         "Your pattern ({0}) is probably incorrect; abbreviated month/weekday/quarter names that need a period should include it in the name, rather than adding it to the pattern.",
                         value));
         }
-        XPathParts pathParts = XPathParts.getTestInstance(path);
+        XPathParts pathParts = XPathParts.getFrozenInstance(path);
         String calendar = pathParts.findAttributeValue("calendar", "type");
         String id;
         switch (dateTypePatternType) {
@@ -1092,7 +1092,7 @@ public class CheckDates extends FactoryCheckCLDR {
     }
 
     private void checkPattern2(String path, String value, List<CheckStatus> result) throws ParseException {
-        XPathParts pathParts = XPathParts.getTestInstance(path);
+        XPathParts pathParts = XPathParts.getFrozenInstance(path);
         String calendar = pathParts.findAttributeValue("calendar", "type");
         SimpleDateFormat x = icuServiceBuilder.getDateFormat(calendar, value);
         x.setTimeZone(ExampleGenerator.ZONE_SAMPLE);

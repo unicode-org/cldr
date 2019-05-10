@@ -192,7 +192,7 @@ public abstract class CLDRConverterTool {
         String draft = getLocalesMap() == null ? null : getLocalesMap().get(localeName + ".xml");
         if (draft != null) {
             for (int i = 0; i < xpathList.size(); i++) {
-                XPathParts parts = XPathParts.getTestInstance(xpathList.get(i));
+                XPathParts parts = XPathParts.getFrozenInstance(xpathList.get(i));
                 Map<String, String> attr = parts.getAttributes(parts.size() - 1);
                 String draftVal = attr.get(LDMLConstants.DRAFT);
                 String altVal = attr.get(LDMLConstants.ALT);

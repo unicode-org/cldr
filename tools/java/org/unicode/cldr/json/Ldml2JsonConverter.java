@@ -346,7 +346,7 @@ public class Ldml2JsonConverter {
             // Filter out non-active numbering systems data unless fullNumbers is specified.
             numberingSystemMatcher.reset(fullPath);
             if (numberingSystemMatcher.matches() && !fullNumbers) {
-                XPathParts xpp = XPathParts.getTestInstance(fullPath);
+                XPathParts xpp = XPathParts.getFrozenInstance(fullPath);
                 String currentNS = xpp.getAttributeValue(2, "numberSystem");
                 if (currentNS != null && !activeNumberingSystems.contains(currentNS)) {
                     continue;
@@ -574,7 +574,7 @@ public class Ldml2JsonConverter {
                             if (parts[0].equals(previousIdentityPath)) {
                                 continue;
                             } else {
-                                XPathParts xpp = XPathParts.getTestInstance(item.getPath());
+                                XPathParts xpp = XPathParts.getFrozenInstance(item.getPath());
                                 String territory = xpp.findAttributeValue("territory", "type");
                                 LocaleIDParser lp = new LocaleIDParser().set(filename);
                                 if (territory != null && territory.length() > 0 && !territory.equals(lp.getRegion())) {

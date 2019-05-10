@@ -207,7 +207,7 @@
 		CoverageInfo coverageInfo = CLDRConfig.getInstance().getCoverageInfo();
 		for (String x : all) {
 			String full = cf.getFullXPath(x);
-			XPathParts xppMine = XPathParts.getTestInstance(full);
+			XPathParts xppMine = XPathParts.getInstance(full); // not frozen, for xPathPartsToBase
 			String alt = xppMine.getAttributeValue(-1, LDMLConstants.ALT);
 			String valOrig = cf.getStringValue(x);
 			Exception exc[] = new Exception[1];
@@ -236,7 +236,7 @@
 
 			int j = -1;
 			Set<String> resultPaths = new HashSet<String>();
-			XPathParts xpp = XPathParts.getTestInstance(base);
+			XPathParts xpp = XPathParts.getTestInstance(base); // not frozen, for removeAttribute
 			xpp.removeAttribute(-1, LDMLConstants.ALT);
 			String baseNoAlt = xpp.toString();
 			int root_xpath_id = CookieSession.sm.xpt.getByXpath(baseNoAlt);

@@ -489,8 +489,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             /*
              * TODO: XPathParts.getTestInstance -- how to use with defaultSuppressionMap?
              */
-            currentFiltered.set(xpath);
-            current.set(xpath);
+            currentFiltered.setForWritingWithSuppressionMap(xpath);
+            current.setForWritingWithSuppressionMap(xpath);
             current.writeDifference(pw, currentFiltered, last, "", tempComments);
             /*
              * Exchange pairs of parts:
@@ -524,12 +524,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             if (suppressInheritanceMarkers && CldrUtility.INHERITANCE_MARKER.equals(v)) {
                 continue;
             }
-            currentFiltered.set(xpath);
+            currentFiltered.setForWritingWithSuppressionMap(xpath);
             if (currentFiltered.size() >= 2
                 && currentFiltered.getElement(1).equals("identity")) { 
                 continue;
             }
-            current.set(getFullXPath(xpath));
+            current.setForWritingWithSuppressionMap(getFullXPath(xpath));
             current.writeDifference(pw, currentFiltered, last, v, tempComments);
             // exchange pairs of parts
             XPathParts temp = current;
@@ -1292,7 +1292,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             return xpath;
         }
         synchronized (nondraftParts) {
-            XPathParts parts = XPathParts.getTestInstance(xpath);
+            XPathParts parts = XPathParts.getInstance(xpath); // can't be frozen since we call removeAttributes
             String restore;
             HashSet<String> toRemove = new HashSet<String>();
             for (int i = 0; i < parts.size(); ++i) {
@@ -2825,7 +2825,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             //     synchronized (distinguishingMap) {
             String result = (String) distinguishingMap.get(xpath);
             if (result == null) {
-                XPathParts distinguishingParts = XPathParts.getTestInstance(xpath);
+                XPathParts distinguishingParts = XPathParts.getInstance(xpath); // not frozen, for removeAttributes
 
                 DtdType type = distinguishingParts.getDtdData().dtdType;
                 Set<String> toRemove = new HashSet<String>();
@@ -3499,7 +3499,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      */
     public String getCountPathWithFallback(String xpath, Count count, boolean winning) {
         String result;
-        XPathParts parts = XPathParts.getTestInstance(xpath);
+        XPathParts parts = XPathParts.getInstance(xpath); // not frozen, addAttribute in getCountPathWithFallback2
         boolean isDisplayName = parts.contains("displayName");
 
         String intCount = parts.getAttributeValue(-1, "count");

@@ -158,7 +158,7 @@ public class ExtractCountItems {
             }
             String value = cldr.getStringValue(path).toLowerCase(Locale.ENGLISH);
             // get the path without the count = basepath
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getInstance(path); // not frozen, setAttribute
             Count count = PluralInfo.Count.valueOf(parts.getAttributeValue(-1, "count"));
             parts.setAttribute(-1, "count", null);
             String basePath = parts.toString();

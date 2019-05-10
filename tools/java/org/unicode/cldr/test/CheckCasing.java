@@ -42,7 +42,7 @@ public class CheckCasing extends CheckCLDR {
         if (fullPath.indexOf("casing") < 0) return this;
 
         // pick up the casing attributes from the full path
-        XPathParts parts = XPathParts.getTestInstance(fullPath); // frozen should be OK
+        XPathParts parts = XPathParts.getFrozenInstance(fullPath);
 
         Case caseTest = Case.mixed;
         for (int i = 0; i < parts.size(); ++i) {

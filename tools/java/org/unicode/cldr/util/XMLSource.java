@@ -136,7 +136,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         if (fullpath.indexOf("[@draft=") < 0) {
             return false;
         }
-        XPathParts parts = XPathParts.getTestInstance(fullpath);
+        XPathParts parts = XPathParts.getFrozenInstance(fullpath);
         return parts.containsAttribute("draft");
     }
 

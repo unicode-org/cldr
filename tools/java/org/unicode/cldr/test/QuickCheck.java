@@ -246,7 +246,7 @@ public class QuickCheck {
                 }
 
                 String fullPath = file.getFullXPath(path);
-                XPathParts parts = XPathParts.getTestInstance(fullPath);
+                XPathParts parts = XPathParts.getFrozenInstance(fullPath);
                 if (dtdType == null) {
                     dtdType = DtdType.valueOf(parts.getElement(0));
                 }

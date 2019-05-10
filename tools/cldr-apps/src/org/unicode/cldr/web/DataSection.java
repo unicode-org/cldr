@@ -65,8 +65,6 @@ import org.unicode.cldr.web.UserRegistry.User;
 
 import com.google.common.collect.ImmutableList;
 import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.Output;
 
 /**
@@ -2154,7 +2152,7 @@ public class DataSection implements JSONString {
     private PageId pageId;
     private CLDRFile diskFile;
 
-    private String creationTime = null;
+    // private String creationTime = null;
 
     /**
      * Create a DataSection
@@ -2176,8 +2174,8 @@ public class DataSection implements JSONString {
         ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
         this.pageId = pageId;
 
-        creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
-        System.out.println("🌴 Created new DataSection for loc " + loc + " at " + creationTime);
+        // creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
+        // System.out.println("🌴 Created new DataSection for loc " + loc + " at " + creationTime);
     }
 
     /**

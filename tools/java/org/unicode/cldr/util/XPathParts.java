@@ -1216,13 +1216,10 @@ public final class XPathParts implements Freezable<XPathParts> {
     public XPathParts cloneAsThawed() {
         XPathParts xppClone = new XPathParts();
         /*
-         * TODO: copy dtdData -- there is a long-standing bug, that cloneAsThawed always makes dtdData null,
-         * and we can fix that here with "xppClone.dtdData = this.dtdData", but then we get a failure in
-         * TestRegularized. Something about TestRegularized (or some code that it calls) requires cloneAsThawed
-         * to make dtdData null instead of copying it!?
-         * Reference: https://unicode.org/cldr/trac/ticket/12007#comment:23
+         * Remember to copy dtdData.
+         * Reference: https://unicode.org/cldr/trac/ticket/12007
          */
-        // xppClone.dtdData = this.dtdData;
+        xppClone.dtdData = this.dtdData;
         xppClone.suppressionMap = this.suppressionMap;
         for (Element e : this.elements) {
             xppClone.elements.add(e.cloneAsThawed());

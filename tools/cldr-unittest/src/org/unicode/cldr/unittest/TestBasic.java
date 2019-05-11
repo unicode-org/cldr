@@ -396,7 +396,7 @@ public class TestBasic extends TestFmwkPlus {
 
                 // check for special characters
                 if (CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS.containsSome(value)) {
-                    XPathParts parts = XPathParts.getTestInstance(path);
+                    XPathParts parts = XPathParts.getFrozenInstance(path);
                     if (!parts.getElement(-1).equals("symbol")) {
                         continue;
                     }
@@ -620,7 +620,7 @@ public class TestBasic extends TestFmwkPlus {
                     continue;
 
                 String fullPath = file.getFullXPath(path);
-                XPathParts parts = XPathParts.getTestInstance(fullPath);
+                XPathParts parts = XPathParts.getFrozenInstance(fullPath);
                 for (int i = 0; i < parts.size(); ++i) {
                     if (parts.getAttributeCount(i) == 0) {
                         continue;
@@ -994,23 +994,6 @@ public class TestBasic extends TestFmwkPlus {
         Factory collationFactory = Factory.make(CLDRPaths.COLLATION_DIRECTORY,
             ".*", DraftStatus.contributed);
         for (String localeID : collationFactory.getAvailable()) {
-            // if (localeID.equals("root")) {
-            // CLDRFile cldrFile = collationFactory.make(localeID, false,
-            // DraftStatus.contributed);
-            // for (String path : cldrFile) {
-            // if (path.startsWith("//ldml/collations")) {
-            // String fullPath = cldrFile.getFullXPath(path);
-            // String valid = parts.set(fullPath).getAttributeValue(1,
-            // "validSubLocales");
-            // for (String validSub : valid.trim().split("\\s+")) {
-            // if (isTopLevel(validSub)) {
-            // collations.add(validSub);
-            // }
-            // }
-            // break; // done with root
-            // }
-            // }
-            // } else
             if (isTopLevel(localeID)) {
                 collations.add(localeID);
             }

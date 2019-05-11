@@ -1188,7 +1188,7 @@ public class SupplementalDataInfo {
 
         public void handlePathValue(String path, String value) {
             try {
-                XPathParts parts = XPathParts.getTestInstance(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
                 String level0 = parts.getElement(0);
                 String level1 = parts.size() < 2 ? null : parts.getElement(1);
                 String level2 = parts.size() < 3 ? null : parts.getElement(2);
@@ -2657,7 +2657,7 @@ public class SupplementalDataInfo {
         }
 
         ApprovalRequirementMatcher(String xpath) {
-            XPathParts parts = XPathParts.getTestInstance(xpath);
+            XPathParts parts = XPathParts.getFrozenInstance(xpath);
             if (parts.containsElement("approvalRequirement")) {
                 requiredVotes = Integer.parseInt(parts.getAttributeValue(-1, "votes"));
                 String localeAttrib = parts.getAttributeValue(-1, "locales");

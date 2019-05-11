@@ -379,7 +379,7 @@ public class ReadSql {
             //  <user id="1271" email="..." level="tc" name="..." org="adobe" locales="pt"/>
             for (Pair<String, String> e : data) {
                 String path = e.getFirst();
-                XPathParts parts = XPathParts.getInstance(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
                 User user = new User(parts);
                 map.put(user.id, user);
             }

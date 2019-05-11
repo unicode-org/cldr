@@ -26,7 +26,7 @@ public class CharacterFallbacks {
         for (Iterator<String> it = characterFallbacks.iterator("//supplementalData/characters/", comp); it.hasNext();) {
             String path = it.next();
             String fullPath = characterFallbacks.getFullXPath(path);
-            XPathParts parts = XPathParts.getTestInstance(fullPath);
+            XPathParts parts = XPathParts.getFrozenInstance(fullPath);
             /*
              * <character value = "―">
              * <substitute>—</substitute>

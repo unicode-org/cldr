@@ -129,7 +129,7 @@ public class GenerateCasingChart {
                 /*  <contextTransformUsage type="day-format-except-narrow">
                 <contextTransform type="stand-alone">titlecase-firstword</contextTransform>
                  */
-                XPathParts parts = XPathParts.getTestInstance(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
                 ContextTransformUsage contextTransformUsage = ContextTransformUsage.valueOf(parts.getAttributeValue(-2, "type")
                     .replace("-", "_"));
                 ContextTransformType contextTransformType = ContextTransformType.valueOf(parts.getAttributeValue(-1, "type")

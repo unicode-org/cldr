@@ -959,7 +959,7 @@ public class CountItems {
         CLDRFile desiredLocaleFile = mainCldrFactory.make("root", true);
         String temp = desiredLocaleFile
             .getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
-        XPathParts parts = XPathParts.getTestInstance(temp);
+        XPathParts parts = XPathParts.getFrozenInstance(temp);
         String singleCountriesList = parts.findAttributes("singleCountries").get("list");
         Set<String> singleCountriesSet = new TreeSet<String>(CldrUtility.splitList(singleCountriesList, ' '));
 

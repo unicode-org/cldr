@@ -962,7 +962,7 @@ public class CLDRTransforms {
                 } else if (path.startsWith("//supplementalData/generation")) {
                     return;
                 }
-                XPathParts parts = XPathParts.getTestInstance(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
                 Map<String, String> attributes = parts.findAttributes("transform");
                 if (attributes == null) {
                     throw new IllegalArgumentException("Not an XML transform file: " + cldrFileName + "\t" + path);

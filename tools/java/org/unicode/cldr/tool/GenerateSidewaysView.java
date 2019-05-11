@@ -701,7 +701,7 @@ public class GenerateSidewaysView {
     }
 
     private static String removeAttributes(String xpath, Set<String> skipAttributes) {
-        XPathParts parts = XPathParts.getTestInstance(xpath);
+        XPathParts parts = XPathParts.getInstance(xpath); // not frozen, for removeAttributes
         removeAttributes(parts, skipAttributes);
         return parts.toString();
     }
@@ -742,7 +742,7 @@ public class GenerateSidewaysView {
             return value;
         }
         if (value.length() == 0) {
-            XPathParts parts = XPathParts.getTestInstance(fullPath);
+            XPathParts parts = XPathParts.getInstance(fullPath); // not frozen, for removeAttributes
             removeAttributes(parts, skipSet);
             int limit = parts.size();
             value = parts.toString(limit - 1, limit);

@@ -65,8 +65,6 @@ import org.unicode.cldr.web.UserRegistry.User;
 
 import com.google.common.collect.ImmutableList;
 import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.Output;
 
 /**
@@ -2154,7 +2152,7 @@ public class DataSection implements JSONString {
     private PageId pageId;
     private CLDRFile diskFile;
 
-    private String creationTime = null;
+    // private String creationTime = null;
 
     /**
      * Create a DataSection
@@ -2176,8 +2174,8 @@ public class DataSection implements JSONString {
         ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
         this.pageId = pageId;
 
-        creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
-        System.out.println("🌴 Created new DataSection for loc " + loc + " at " + creationTime);
+        // creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
+        // System.out.println("🌴 Created new DataSection for loc " + loc + " at " + creationTime);
     }
 
     /**
@@ -2263,7 +2261,7 @@ public class DataSection implements JSONString {
                     zoneIterator = sm.getMetazones(pieces[1]);
                 } else { // This is just a single metazone from a zoom-in
                     Set<String> singleZone = new HashSet<String>();
-                    XPathParts xpp = XPathParts.getTestInstance(xpathPrefix);
+                    XPathParts xpp = XPathParts.getFrozenInstance(xpathPrefix);
                     String singleMetazoneName = xpp.findAttributeValue("metazone", "type");
                     if (singleMetazoneName == null) {
                         throw new NullPointerException("singleMetazoneName is null for xpp:" + xpathPrefix);
@@ -2657,7 +2655,7 @@ public class DataSection implements JSONString {
         String alt = sm.xpt.altFromPathToTinyXpath(xpath);
 
         /* FULL path processing (references.. alt proposed.. ) */
-        XPathParts xpp = XPathParts.getTestInstance(fullPath);
+        XPathParts xpp = XPathParts.getFrozenInstance(fullPath);
         String lelement = xpp.getElement(-1);
         xpp.findAttributeValue(lelement, LDMLConstants.ALT);
         String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);

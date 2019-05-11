@@ -148,7 +148,7 @@ public class TestMetazones {
                  * mzone="Yerevan"/> <usesMetazone from="1991-09-23" mzone="Armenia"/>
                  * </zone>
                  */
-                XPathParts parts = XPathParts.getTestInstance(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
                 String from = parts.getAttributeValue(-1, "from");
                 long fromDate = DateRange.parse(from, false);
 

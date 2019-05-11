@@ -505,7 +505,7 @@ public class CLDRTest extends TestFmwk {
     public static void checkAttributeValidity(CLDRFile item, Map<String, Set<String>> badCodes, Set<String> xpathFailures) {
         for (Iterator<String> it2 = item.iterator(); it2.hasNext();) {
             String xpath = it2.next();
-            XPathParts parts = XPathParts.getTestInstance(item.getFullXPath(xpath));
+            XPathParts parts = XPathParts.getFrozenInstance(item.getFullXPath(xpath));
             for (int i = 0; i < parts.size(); ++i) {
                 if (parts.getAttributeCount(i) == 0) {
                     continue;
@@ -658,7 +658,7 @@ public class CLDRTest extends TestFmwk {
         for (Iterator<String> it = supp.iterator(); it.hasNext();) {
             String path = it.next();
             try {
-                XPathParts parts = XPathParts.getTestInstance(supp.getFullXPath(path));
+                XPathParts parts = XPathParts.getFrozenInstance(supp.getFullXPath(path));
                 Map<String, String> m;
                 String type = "";
                 if (aliases != null && parts.findElement("alias") >= 0) {

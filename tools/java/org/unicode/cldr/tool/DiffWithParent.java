@@ -83,9 +83,9 @@ public class DiffWithParent {
     }
 
     private static String showDistinguishingAttributes(String fullPath) {
-        XPathParts fullParts = XPathParts.getTestInstance(fullPath);
+        XPathParts fullParts = XPathParts.getFrozenInstance(fullPath);
         String path = CLDRFile.getDistinguishingXPath(fullPath, null);
-        XPathParts parts = XPathParts.getTestInstance(path);
+        XPathParts parts = XPathParts.getFrozenInstance(path);
         Set<Pair<String, String>> s = new TreeSet<Pair<String, String>>();
         for (int i = 0; i < fullParts.size(); ++i) {
             for (String key : fullParts.getAttributeKeys(i)) {

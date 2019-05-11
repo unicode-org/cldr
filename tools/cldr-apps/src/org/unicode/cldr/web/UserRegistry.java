@@ -2322,7 +2322,7 @@ public class UserRegistry {
                 int maxUserId = 1;
 
                 public void handlePathValue(String path, String value) {
-                    XPathParts xpp = XPathParts.getTestInstance(path);
+                    XPathParts xpp = XPathParts.getFrozenInstance(path);
                     attrs.clear();
                     for (String k : xpp.getAttributeKeys(-1)) {
                         attrs.put(k, xpp.getAttributeValue(-1, k));

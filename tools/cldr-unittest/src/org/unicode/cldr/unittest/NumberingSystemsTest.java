@@ -20,7 +20,7 @@ public class NumberingSystemsTest extends TestFmwk {
         CLDRFile file = testInfo.getSupplementalFactory().make(
             "numberingSystems", false);
         for (String path : file) {
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             if (!"numberingSystems".equals(parts.getElement(1))) {
                 continue;
             }

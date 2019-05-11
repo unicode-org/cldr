@@ -331,7 +331,7 @@ public class SubdivisionNode {
                 if (!code && !name && !nameCat && !relatedCountry) {
                     continue;
                 }
-                XPathParts parts = XPathParts.getTestInstance(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
                 String value = pair.getSecond();
                 if (relatedCountry) {
                     String target = parts.getAttributeValue(-1, "country-id");

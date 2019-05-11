@@ -368,7 +368,7 @@ public class VettingAdder {
      *
      */
     private String stripAlt(String path) {
-        XPathParts tempParts = XPathParts.getTestInstance(path);
+        XPathParts tempParts = XPathParts.getFrozenInstance(path);
         Map<String, String> x = tempParts.getAttributes(tempParts.size() - 1);
         String value = x.get("alt");
         if (value != null && value.startsWith("proposed")) {

@@ -4606,7 +4606,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public String getMetazoneContinent(String xpath) {
         SupplementalDataInfo mySupp = getSupplementalDataInfo();
-        XPathParts parts = XPathParts.getTestInstance(xpath);
+        XPathParts parts = XPathParts.getFrozenInstance(xpath);
         String thisMetazone = parts.getAttributeValue(3, "type");
         return mySupp.getMetazoneToContinentMap().get(thisMetazone);
     }
@@ -4683,7 +4683,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             for (; mzit.hasNext();) {
                 String ameta = (String) mzit.next();
                 String mfullPath = resolvedFile.getFullXPath(ameta);
-                XPathParts parts = XPathParts.getTestInstance(mfullPath);
+                XPathParts parts = XPathParts.getFrozenInstance(mfullPath);
                 String mzone = parts.getAttributeValue(-1, "mzone");
                 String from = parts.getAttributeValue(-1, "from");
                 if (from == null) {

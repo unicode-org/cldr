@@ -71,7 +71,7 @@ public class TestSupplementalData {
             System.out.println(region + "\t" + english.getName("territory", region));
             System.out.println("\t" + zones);
         }
-        XPathParts xpp = XPathParts.getTestInstance(root.getFullXPath("//ldml/dates/timeZoneNames/singleCountries"));
+        XPathParts xpp = XPathParts.getFrozenInstance(root.getFullXPath("//ldml/dates/timeZoneNames/singleCountries"));
         List<String> singleCountries = Arrays.asList(xpp.getAttributeValue(-1, "list").split("\\s+"));
         singulars.addAll(singleCountries);
         singulars.remove("Etc/Unknown"); // remove special case

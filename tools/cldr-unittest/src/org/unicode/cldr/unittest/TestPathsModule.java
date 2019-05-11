@@ -106,7 +106,7 @@ public class TestPathsModule extends TestFmwk {
             if (!VALUE_FILTER.reset(value).find()) {
                 return;
             }
-            XPathParts fullParts = XPathParts.getTestInstance(path);
+            XPathParts fullParts = XPathParts.getFrozenInstance(path);
             for (PathTest test : tests) {
                 test.test(fullParts, value);
             }

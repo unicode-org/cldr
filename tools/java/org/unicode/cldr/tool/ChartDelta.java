@@ -425,7 +425,7 @@ public class ChartDelta extends Chart {
         // NEW:     <annotation cp="😀">face | grin</annotation>
         //          <annotation cp="😀" type="tts">grinning face</annotation>
         // from the NEW paths, get the OLD values
-        XPathParts parts = XPathParts.getInstance(path);
+        XPathParts parts = XPathParts.getInstance(path); // not frozen, for removeAttribute
         boolean isTts = parts.getAttributeValue(-1, "type") != null;
         if (isTts) {
             parts.removeAttribute(-1, "type");
@@ -439,7 +439,7 @@ public class ChartDelta extends Chart {
             hasReformattedValue.value = Boolean.FALSE;
         } else if (isTts) {
             String temp2 = old.getFullXPath(oldStylePath);
-            value.value = XPathParts.getInstance(temp2).getAttributeValue(-1, "tts");
+            value.value = XPathParts.getFrozenInstance(temp2).getAttributeValue(-1, "tts");
             hasReformattedValue.value = Boolean.TRUE;
         } else {
             value.value = temp.replaceAll("\\s*;\\s*", " | ");
@@ -494,9 +494,9 @@ public class ChartDelta extends Chart {
         if (Objects.equals(fullPathCurrent, fullPathOld)) {
             return;
         }
-        XPathParts pathPlain = XPathParts.getTestInstance(path);
-        XPathParts pathCurrent = fullPathCurrent == null ? pathPlain : XPathParts.getTestInstance(fullPathCurrent);
-        XPathParts pathOld = fullPathOld == null ? pathPlain : XPathParts.getTestInstance(fullPathOld);
+        XPathParts pathPlain = XPathParts.getFrozenInstance(path);
+        XPathParts pathCurrent = fullPathCurrent == null ? pathPlain : XPathParts.getFrozenInstance(fullPathCurrent);
+        XPathParts pathOld = fullPathOld == null ? pathPlain : XPathParts.getFrozenInstance(fullPathOld);
         TreeSet<String> fullAttributes = null;
         int size = pathCurrent.size();
         String parentAndName = parentAndName(sourceDir, locale);
@@ -936,48 +936,6 @@ public class ChartDelta extends Chart {
         target.put(key, oldItem + SEP + newItem);
     }
 
-//    private static final Splitter ONHYPHEN = Splitter.on('-');
-//    private final LanguageTagParser lparser = new LanguageTagParser();
-//    private final Map<LstrType, Map<Validity.Status, Set<String>>> validity = Validity.getInstance().getData();
-//    private final Set<String> regularLanguage = validity.get(LstrType.language).get(Validity.Status.regular);
-//
-//    private String name(String key) {
-//        // eo-eo_FONIPA
-//        // Latin-ASCII
-//        int i = 0;
-//        try {
-//            StringBuilder sb = new StringBuilder();
-//            for (String part : ONHYPHEN.split(key)) {
-//                lparser.set(part);
-//                String base = lparser.getLanguage();
-//                int script = UScript.getCodeFromName(base);
-//                if (script != UScript.INVALID_CODE) {
-//                    part = UScript.getName(script);
-//                } else if (regularLanguage.contains(base)) {
-//                    part = ENGLISH.getName(part);
-//                }
-//                if (i != 0) {
-//                    sb.append('-');
-//                }
-//                sb.append(part);
-//                ++i;
-//            }
-//            return sb.toString();
-//        } catch (Exception e) {
-//            // TODO fix this to handle all cases
-//            return key;
-//        }
-//    }
-//
-//    private String removeStart(String key, String... string) {
-//        for (String start : string) {
-//            if (key.startsWith(start)) {
-//                return "…" + key.substring(start.length());
-//            }
-//        }
-//        return key;
-//    }
-//
     public Relation<PathHeader, String> fillData(String directory, String file) {
         Relation<PathHeader, String> results = Relation.of(new TreeMap<PathHeader, Set<String>>(), TreeSet.class);
 

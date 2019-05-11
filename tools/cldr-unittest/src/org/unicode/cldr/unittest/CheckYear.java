@@ -342,7 +342,7 @@ public class CheckYear {
                 .in(file.iterator("//ldml/dates/calendars/calendar[@type=\""
                     + calendarID
                     + "\"]/dateTimeFormats/availableFormats/dateFormatItem"))) {
-                XPathParts parts = XPathParts.getTestInstance(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
                 String key = parts.getAttributeValue(-1, "id");
                 String value = file.getStringValue(path);
                 localeInfo.record(key, value);
@@ -351,7 +351,7 @@ public class CheckYear {
                 .in(file.iterator("//ldml/dates/calendars/calendar[@type=\""
                     + calendarID
                     + "\"]/dateTimeFormats/intervalFormats/intervalFormatItem"))) {
-                XPathParts parts = XPathParts.getTestInstance(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
                 String skeleton = parts.getAttributeValue(-2, "id");
                 String diff = parts.getAttributeValue(-1, "id");
                 String value = file.getStringValue(path);

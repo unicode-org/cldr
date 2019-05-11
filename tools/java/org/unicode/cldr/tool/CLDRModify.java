@@ -997,7 +997,7 @@ public class CLDRModify {
 
             public boolean isDeprecated(DtdType type, String path) {
 
-                XPathParts parts = XPathParts.getTestInstance(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
                 for (int i = 0; i < parts.size(); ++i) {
                     String element = parts.getElement(i);
                     if (isDeprecated(type, element, "*", "*")) {
@@ -1017,7 +1017,7 @@ public class CLDRModify {
             @Override
             public void handlePath(String xpath) {
                 String fullPath = cldrFileToFilter.getFullXPath(xpath);
-                XPathParts parts = XPathParts.getTestInstance(fullPath);
+                XPathParts parts = XPathParts.getFrozenInstance(fullPath);
                 for (int i = 0; i < parts.size(); ++i) {
                     String element = parts.getElement(i);
                     if (dtdData.isDeprecated(element, "*", "*")) {
@@ -1040,7 +1040,7 @@ public class CLDRModify {
                 if (xpath.indexOf("=\"InterIndic\"") < 0) return;
                 String v = cldrFileToFilter.getStringValue(xpath);
                 String fullXPath = cldrFileToFilter.getFullXPath(xpath);
-                XPathParts fullparts = XPathParts.getTestInstance(fullXPath);
+                XPathParts fullparts = XPathParts.getFrozenInstance(fullXPath);
                 Map<String, String> attributes = fullparts.findAttributes("transform");
                 String oldValue = attributes.get("direction");
                 if ("both".equals(oldValue)) {
@@ -1096,13 +1096,13 @@ public class CLDRModify {
         fixList.add('s', "fix alt accounting", new CLDRFilter() {
             @Override
             public void handlePath(String xpath) {
-                XPathParts parts = XPathParts.getTestInstance(xpath);
+                XPathParts parts = XPathParts.getFrozenInstance(xpath);
                 if (!parts.containsAttributeValue("alt", "accounting")) {
                     return;
                 }
                 String oldFullXPath = cldrFileToFilter.getFullXPath(xpath);
                 String value = cldrFileToFilter.getStringValue(xpath);
-                XPathParts fullparts = XPathParts.getTestInstance(oldFullXPath);
+                XPathParts fullparts = XPathParts.getInstance(oldFullXPath); // not frozen, for removeAttribute
                 fullparts.removeAttribute("pattern", "alt");
                 fullparts.setAttribute("currencyFormat", "type", "accounting");
                 String newFullXPath = fullparts.toString();
@@ -1161,7 +1161,7 @@ public class CLDRModify {
             public void handlePath(String xpath) {
                 if (!xpath.contains("_")) return;
                 if (!xpath.contains("/language")) return;
-                XPathParts parts = XPathParts.getTestInstance(xpath);
+                XPathParts parts = XPathParts.getFrozenInstance(xpath);
                 String languageCode = parts.findAttributeValue("language", "type");
                 String v = resolved.getStringValue(xpath);
                 if (v.equals(languageCode)) {
@@ -1190,7 +1190,7 @@ public class CLDRModify {
                 if (!xpath.contains("/language")) {
                     return;
                 }
-                XPathParts parts = XPathParts.getTestInstance(xpath);
+                XPathParts parts = XPathParts.getInstance(xpath); // not frozen, for setAttribute
                 String languageCode = parts.findAttributeValue("language", "type");
                 String v = resolved.getStringValue(xpath);
                 if (!languageCode.equals("swc")) {
@@ -1207,7 +1207,7 @@ public class CLDRModify {
             }
 
             public void handlePath(String xpath) {
-                XPathParts parts = XPathParts.getTestInstance(xpath);
+                XPathParts parts = XPathParts.getFrozenInstance(xpath);
                 if (!parts.containsAttributeValue("alt", "variant")) {
                     return;
                 }
@@ -1226,7 +1226,7 @@ public class CLDRModify {
             }
 
             public void handlePath(String xpath) {
-                XPathParts parts = XPathParts.getTestInstance(xpath);
+                XPathParts parts = XPathParts.getFrozenInstance(xpath);
                 if (!parts.containsAttributeValue("alt", "variant") || !parts.containsAttributeValue("type", "CZ")) {
                     return;
                 }
@@ -1251,7 +1251,7 @@ public class CLDRModify {
                 String value = cldrFileToFilter.getStringValue(xpath);
                 String fullXPath = cldrFileToFilter.getFullXPath(xpath);
 
-                XPathParts parts = XPathParts.getTestInstance(fullXPath);
+                XPathParts parts = XPathParts.getFrozenInstance(fullXPath);
                 String unittype = parts.findAttributeValue("durationUnit", "type");
 
                 String newFullXpath = "//ldml/units/durationUnit[@type=\"" + unittype + "\"]/durationUnitPattern";
@@ -1275,7 +1275,7 @@ public class CLDRModify {
                     return;
                 }
                 String fullpath = cldrFileToFilter.getFullXPath(xpath);
-                XPathParts parts = XPathParts.getTestInstance(fullpath);
+                XPathParts parts = XPathParts.getInstance(fullpath); // not frozen, for setAttribute
                 String countValue = parts.getAttributeValue(-1, "count");
                 if (!DIGITS.containsAll(countValue)) {
                     return;
@@ -1311,7 +1311,7 @@ public class CLDRModify {
                 String userID = options[USER].value;
                 String fullpath = cldrFileToFilter.getFullXPath(xpath);
                 String value = cldrFileToFilter.getStringValue(xpath);
-                XPathParts parts = XPathParts.getTestInstance(fullpath); // not frozen
+                XPathParts parts = XPathParts.getInstance(fullpath); // not frozen, for addAttribute
                 parts.addAttribute("draft", "unconfirmed");
                 parts.addAttribute("alt", "proposed-u" + userID + "-implicit1.8");
                 String newPath = parts.toString();
@@ -1451,7 +1451,7 @@ public class CLDRModify {
                 if (xpath.indexOf("/currency") < 0
                     && xpath.indexOf("/timeZoneNames") < 0
                     && xpath.indexOf("/localeDisplayNames") < 0) return;
-                XPathParts parts = XPathParts.getTestInstance(xpath);
+                XPathParts parts = XPathParts.getFrozenInstance(xpath);
                 String code;
                 for (int i = 0; i < codeTypes.length; ++i) {
                     code = parts.findAttributeValue(codeTypes[i], "type");
@@ -1474,7 +1474,7 @@ public class CLDRModify {
             public void handlePath(String xpath) {
                 if (xpath.indexOf("proposed") < 0) return;
                 String fullXPath = cldrFileToFilter.getFullXPath(xpath);
-                XPathParts parts = XPathParts.getTestInstance(fullXPath);
+                XPathParts parts = XPathParts.getInstance(fullXPath); // not frozen, for removeProposed
                 String newFullXPath = parts.removeProposed().toString();
                 // now see if there is an uninherited value
                 String value = cldrFileToFilter.getStringValue(xpath);
@@ -1550,7 +1550,7 @@ public class CLDRModify {
                 }
 
                 String fullpath = cldrFileToFilter.getFullXPath(xpath);
-                XPathParts fullparts = XPathParts.getTestInstance(fullpath);
+                XPathParts fullparts = XPathParts.getFrozenInstance(fullpath);
                 Map<String, String> attributes = fullparts.findAttributes("dateFormatItem");
                 String id = attributes.get("id");
                 String oldID = id;
@@ -1694,7 +1694,7 @@ public class CLDRModify {
                 String fullpath = cldrFileToFilter.getFullXPath(xpath);
                 if (!fullpath.contains("reference")) return;
                 String value = cldrFileToFilter.getStringValue(xpath);
-                XPathParts fullparts = XPathParts.getTestInstance(fullpath); // can't be frozen
+                XPathParts fullparts = XPathParts.getInstance(fullpath); // can't be frozen
                 if ("reference".equals(fullparts.getElement(-1))) {
                     fixType(value, "type", fullpath, fullparts);
                 } else if (fullparts.getAttributeValue(-1, "references") != null) {
@@ -1704,9 +1704,18 @@ public class CLDRModify {
                 }
             }
 
+            /**
+             *
+             * @param value
+             * @param type
+             * @param oldFullPath
+             * @param fullparts the XPathParts -- must not be frozen, for addAttribute
+             */
             private void fixType(String value, String type, String oldFullPath, XPathParts fullparts) {
                 String ref = fullparts.getAttributeValue(-1, type);
-                if (whitespace.containsSome(ref)) throw new IllegalArgumentException("Whitespace in references");
+                if (whitespace.containsSome(ref)) {
+                    throw new IllegalArgumentException("Whitespace in references");
+                }
                 String newRef = getNewRef(ref);
                 fullparts.addAttribute(type, newRef);
                 replace(oldFullPath, fullparts.toString(), value);
@@ -1730,7 +1739,7 @@ public class CLDRModify {
                     return;
                 }
                 String fullpath = cldrFileToFilter.getFullXPath(xpath);
-                XPathParts parts = XPathParts.getTestInstance(fullpath);
+                XPathParts parts = XPathParts.getInstance(fullpath); // not frozen, for putAttributeValue
                 String cp = parts.getAttributeValue(2, "cp");
                 String tts = parts.getAttributeValue(2, "tts");
                 String type = parts.getAttributeValue(2, "type");
@@ -2206,7 +2215,7 @@ public class CLDRModify {
                         continue;
                     }
 
-                    XPathParts fullparts = XPathParts.getTestInstance(fullPath);
+                    XPathParts fullparts = XPathParts.getInstance(fullPath); // not frozen, for setAttribute
                     fullparts.setAttribute(-1, "draft", worstStatus.toString());
                     replace(fullPath, fullparts.toString(), value, "Fleshing out bailey to " + worstStatus);
                 }

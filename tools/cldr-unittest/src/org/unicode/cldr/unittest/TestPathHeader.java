@@ -1221,7 +1221,7 @@ public class TestPathHeader extends TestFmwkPlus {
         Multimap<String, String> pathValuePairs = LinkedListMultimap.create();
         for (String test : With.in(supplementalFile.iterator("//supplementalData/weekData"))) {
             failures.clear();
-            XPathParts parts = XPathParts.getTestInstance(supplementalFile.getFullXPath(test));
+            XPathParts parts = XPathParts.getFrozenInstance(supplementalFile.getFullXPath(test));
             supplementalFile.getDtdData().getRegularizedPaths(parts, pathValuePairs);
             for (Entry<String, Collection<String>> entry : pathValuePairs.asMap().entrySet()) {
                 final String normalizedPath = entry.getKey();

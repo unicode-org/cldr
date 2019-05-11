@@ -192,7 +192,7 @@ public class DateTimeFormats {
         // appendItems result.setAppendItemFormat(getAppendFormatNumber(formatName), value);
         for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID
             + "\"]/dateTimeFormats/appendItems/appendItem"))) {
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             String request = parts.getAttributeValue(-1, "request");
             int requestNumber = DateTimePatternGenerator.getAppendFormatNumber(request);
             String value = file.getStringValue(path);
@@ -209,7 +209,7 @@ public class DateTimeFormats {
             if (!path.contains("displayName")) {
                 continue;
             }
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             String type = parts.getAttributeValue(-2, "type");
             int requestNumber = find(FIELD_NAMES, type);
 
@@ -223,7 +223,7 @@ public class DateTimeFormats {
 
         for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID
             + "\"]/dateTimeFormats/availableFormats/dateFormatItem"))) {
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             String key = parts.getAttributeValue(-1, "id");
             String value = file.getStringValue(path);
             if (key.equals(DEBUG_SKELETON)) {
@@ -242,7 +242,7 @@ public class DateTimeFormats {
         // ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMMMEd\"]/greatestDifference[@id=\"d\"]
         for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID
             + "\"]/dateTimeFormats/intervalFormats/intervalFormatItem"))) {
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             String skeleton = parts.getAttributeValue(-2, "id");
             String diff = parts.getAttributeValue(-1, "id");
             int diffNumber = find(CALENDAR_FIELD_TO_PATTERN_LETTER, diff);

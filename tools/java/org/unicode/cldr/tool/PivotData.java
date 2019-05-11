@@ -67,7 +67,7 @@ public class PivotData {
         String defaultContentList = supplementalMetadata.getFullXPath("//supplementalData/metadata/defaultContent",
             true);
 
-        XPathParts parts = XPathParts.getTestInstance(defaultContentList);
+        XPathParts parts = XPathParts.getFrozenInstance(defaultContentList);
         String list = parts.getAttributeValue(-1, "locales");
         String[] items = list.split("\\s+");
         for (String item : items) {
@@ -222,7 +222,7 @@ public class PivotData {
                             + toModify.getLocaleID());
                     }
                     if (override && oldFullXPath != null) {
-                        XPathParts parts = XPathParts.getTestInstance(oldFullXPath);
+                        XPathParts parts = XPathParts.getFrozenInstance(oldFullXPath);
                         Map<String, String> attributes = parts.getAttributes(-1);
                         String alt = attributes.get("alt");
                         if (alt == null) {

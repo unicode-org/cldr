@@ -164,7 +164,7 @@ public class ChartCollation extends Chart {
                 if (xmlName.equals("root.xml") && path.equals("//ldml/collations/collation[@type=\"standard\"]")) {
                     continue;
                 }
-                XPathParts xpp = XPathParts.getTestInstance(path);
+                XPathParts xpp = XPathParts.getFrozenInstance(path);
                 DraftStatus status = DraftStatus.forString(xpp.findFirstAttributeValue("draft"));
                 if (status == DraftStatus.unconfirmed) {
                     System.out.println("Skipping " + path + " in: " + xmlName + " due to draft status = " + status.toString());

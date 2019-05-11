@@ -517,7 +517,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
                 for (String xpath : file) {
                     String value = file.getStringValue(xpath);
                     String fullXpath = file.getFullXPath(xpath);
-                    XPathParts parts = XPathParts.getTestInstance(fullXpath);
+                    XPathParts parts = XPathParts.getFrozenInstance(fullXpath);
                     if (nodeData == null) {
                         String root = parts.getElement(0);
                         DtdType type = DtdType.valueOf(root);

@@ -217,10 +217,10 @@ public class CldrItem implements Comparable<CldrItem> {
      * @return Array of CldrItem if it can be split, otherwise null.
      */
     public CldrItem[] split() {
-        XPathParts xpp = XPathParts.getTestInstance(path);
-        XPathParts fullxpp = XPathParts.getTestInstance(fullPath);
-        XPathParts untransformedxpp = XPathParts.getTestInstance(untransformedPath);
-        XPathParts untransformedfullxpp = XPathParts.getTestInstance(untransformedFullPath);
+        XPathParts xpp = XPathParts.getFrozenInstance(path);
+        XPathParts fullxpp = XPathParts.getFrozenInstance(fullPath);
+        XPathParts untransformedxpp = XPathParts.getFrozenInstance(untransformedPath);
+        XPathParts untransformedfullxpp = XPathParts.getFrozenInstance(untransformedFullPath);
 
         XPathParts newxpp = new XPathParts();
         XPathParts newfullxpp = new XPathParts();
@@ -270,7 +270,7 @@ public class CldrItem implements Comparable<CldrItem> {
      */
     public boolean needsSort() {
         for (String item : LdmlConvertRules.ELEMENT_NEED_SORT) {
-            XPathParts xpp = XPathParts.getTestInstance(path);
+            XPathParts xpp = XPathParts.getFrozenInstance(path);
             if (xpp.containsElement(item)) {
                 return true;
             }
@@ -284,8 +284,8 @@ public class CldrItem implements Comparable<CldrItem> {
 
     @Override
     public int compareTo(CldrItem otherItem) {
-        XPathParts thisxpp = XPathParts.getTestInstance(untransformedPath);
-        XPathParts otherxpp = XPathParts.getTestInstance(otherItem.untransformedFullPath);
+        XPathParts thisxpp = XPathParts.getFrozenInstance(untransformedPath);
+        XPathParts otherxpp = XPathParts.getFrozenInstance(otherItem.untransformedFullPath);
         if (thisxpp.containsElement("zone") && otherxpp.containsElement("zone")) {
             String[] thisZonePieces = thisxpp.findAttributeValue("zone", "type").split("/");
             String[] otherZonePieces = otherxpp.findAttributeValue("zone", "type").split("/");

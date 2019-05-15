@@ -1,0 +1,10 @@
+language: java
+sudo: required
+jdk:
+  - openjdk8
+services:
+install: true
+script:
+  mkdir -vp /home/travis/build/unicode-org/cldr/tools/cldr-unittest/libs ; mkdir -vp test/tools/cldr-unittest/libs ; ant all -f tools/java/build.xml ;  ant jar -f tools/java/build.xml ; ant check -f tools/cldr-unittest/build.xml -DCLDR_DIR=$(pwd)
+  
+# ant -DCLDR_TOOLS=$(pwd)/tools/java -DCATALINA_HOME=cldr.tomcat -f tools/cldr-apps/build.xml

@@ -13,17 +13,17 @@ import org.unicode.cldr.util.XPathParts;
 
 public class XPPUtil {
     public static String getXpathName(String xpath) {
-        XPathParts xpp = XPathParts.getTestInstance(xpath);
+        XPathParts xpp = XPathParts.getFrozenInstance(xpath);
         return xpp.getElement(-1);
     }
 
     public static String getXpathName(String xpath, int pos) {
-        XPathParts xpp = XPathParts.getTestInstance(xpath);
+        XPathParts xpp = XPathParts.getFrozenInstance(xpath);
         return xpp.getElement(pos);
     }
 
     public static String getAttributeValue(String xpath, String element, String attribute) {
-        XPathParts xpp = XPathParts.getTestInstance(xpath);
+        XPathParts xpp = XPathParts.getFrozenInstance(xpath);
         int el = xpp.findElement(element);
         if (el == -1) {
             return null;
@@ -32,7 +32,7 @@ public class XPPUtil {
     }
 
     public static String getAttributeValue(String xpath, String attribute) {
-        XPathParts xpp = XPathParts.getTestInstance(xpath);
+        XPathParts xpp = XPathParts.getFrozenInstance(xpath);
         return xpp.getAttributeValue(-1, attribute);
     }
 
@@ -46,7 +46,7 @@ public class XPPUtil {
 
     public static String findAttributeValue(CLDRFile file, String xpath, String attribute) {
         String fullPath = file.getFullXPath(xpath);
-        XPathParts xpp = XPathParts.getTestInstance(fullPath);
+        XPathParts xpp = XPathParts.getFrozenInstance(fullPath);
         for (int j = 1; j <= xpp.size(); j++) {
             String v = xpp.getAttributeValue(0 - j, attribute);
             if (v != null)

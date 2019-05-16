@@ -66,10 +66,8 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
@@ -178,7 +176,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return dataSource.isNonInheriting();
     }
 
-    private String creationTime = null;
+    // private String creationTime = null;
 
     /**
      * Construct a new CLDRFile.
@@ -189,8 +187,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public CLDRFile(XMLSource dataSource) {
         this.dataSource = dataSource;
         // source.xpath_value = isSupplemental ? new TreeMap() : new TreeMap(ldmlComparator);
-        creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
-        System.out.println("📂 Created new CLDRFile(dataSource) at " + creationTime);
+        // creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
+        // System.out.println("📂 Created new CLDRFile(dataSource) at " + creationTime);
     }
 
     public CLDRFile(XMLSource dataSource, XMLSource... resolvingParents) {
@@ -200,8 +198,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         this.dataSource = new ResolvingSource(sourceList);
         // source.xpath_value = isSupplemental ? new TreeMap() : new TreeMap(ldmlComparator);
         
-        creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
-        System.out.println("📂 Created new CLDRFile(dataSource, XMLSource... resolvingParents) at " + creationTime);
+        // creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
+        // System.out.println("📂 Created new CLDRFile(dataSource, XMLSource... resolvingParents) at " + creationTime);
     }
 
     public static CLDRFile loadFromFile(File f, String localeName, DraftStatus minimalDraftStatus, XMLSource source) {
@@ -412,7 +410,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (orderedSet.size() > 0) { // May not have any elements.
             firstPath = (String) orderedSet.iterator().next();
             firstFullPath = getFullXPath(firstPath);
-            firstFullPathParts = XPathParts.getTestInstance(firstFullPath);
+            firstFullPathParts = XPathParts.getFrozenInstance(firstFullPath);
             dtdType = DtdType.valueOf(firstFullPathParts.getElement(0));
         }
 
@@ -488,11 +486,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             if (isResolved && xpath.contains("/alias")) {
                 continue;
             }
-            /*
-             * TODO: XPathParts.getTestInstance -- how to use with defaultSuppressionMap?
-             */
-            currentFiltered.set(xpath);
-            current.set(xpath);
+            currentFiltered.setForWritingWithSuppressionMap(xpath);
+            current.setForWritingWithSuppressionMap(xpath);
             current.writeDifference(pw, currentFiltered, last, "", tempComments);
             /*
              * Exchange pairs of parts:
@@ -526,12 +521,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             if (suppressInheritanceMarkers && CldrUtility.INHERITANCE_MARKER.equals(v)) {
                 continue;
             }
-            currentFiltered.set(xpath);
+            currentFiltered.setForWritingWithSuppressionMap(xpath);
             if (currentFiltered.size() >= 2
                 && currentFiltered.getElement(1).equals("identity")) { 
                 continue;
             }
-            current.set(getFullXPath(xpath));
+            current.setForWritingWithSuppressionMap(getFullXPath(xpath));
             current.writeDifference(pw, currentFiltered, last, v, tempComments);
             // exchange pairs of parts
             XPathParts temp = current;
@@ -635,7 +630,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public String getConstructedBaileyValue(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
         //ldml/localeDisplayNames/languages/language[@type="zh_Hans"]
         if (xpath.startsWith("//ldml/localeDisplayNames/languages/language[@type=\"") && xpath.contains("_")) {
-            XPathParts parts = XPathParts.getTestInstance(xpath);
+            XPathParts parts = XPathParts.getFrozenInstance(xpath);
             String type = parts.getAttributeValue(-1, "type");
             if (type.contains("_")) {
                 String alt = parts.getAttributeValue(-1, "alt");
@@ -851,7 +846,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     && !key.startsWith("//ldml/identity")) {
                     for (int i = 0;; ++i) {
                         String prop = "proposed" + (i == 0 ? "" : String.valueOf(i));
-                        XPathParts parts = XPathParts.getTestInstance(other.getFullXPath(key)); // can't be frozen
+                        XPathParts parts = XPathParts.getInstance(other.getFullXPath(key)); // not frozen, for addAttribut
                         String fullPath = parts.addAttribute("alt", prop).toString();
                         String path = getDistinguishingXPath(fullPath, null);
                         if (dataSource.getValueAtPath(path) != null) {
@@ -885,7 +880,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (fullXPath == null || fullXPath.indexOf("[@references=") < 0) {
             return newFullPath;
         }
-        XPathParts parts = XPathParts.getTestInstance(fullXPath);
+        XPathParts parts = XPathParts.getFrozenInstance(fullXPath);
         String accummulatedReferences = null;
         for (int i = 0; i < parts.size(); ++i) {
             Map<String, String> attributes = parts.getAttributes(i);
@@ -902,7 +897,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (accummulatedReferences == null) {
             return newFullPath;
         }
-        XPathParts newParts = XPathParts.getTestInstance(newFullPath);
+        XPathParts newParts = XPathParts.getFrozenInstance(newFullPath);
         Map<String, String> attributes = newParts.getAttributes(newParts.size() - 1);
         String references = attributes.get("references");
         if (references == null)
@@ -1117,7 +1112,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public String getLocaleIDFromIdentity() {
         ULocale.Builder lb = new ULocale.Builder();
         for (Iterator<String> i = iterator("//ldml/identity/"); i.hasNext();) {
-            XPathParts xpp = XPathParts.getTestInstance(i.next());
+            XPathParts xpp = XPathParts.getFrozenInstance(i.next());
             String k = xpp.getElement(-1);
             String v = xpp.getAttributeValue(-1, "type");
             if (k.equals("language")) {
@@ -1294,7 +1289,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             return xpath;
         }
         synchronized (nondraftParts) {
-            XPathParts parts = XPathParts.getTestInstance(xpath);
+            XPathParts parts = XPathParts.getInstance(xpath); // can't be frozen since we call removeAttributes
             String restore;
             HashSet<String> toRemove = new HashSet<String>();
             for (int i = 0; i < parts.size(); ++i) {
@@ -1662,7 +1657,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     // for backwards compatibility.
                     boolean skipAdd = false;
                     if (currentFullXPath.startsWith("//ldml/layout/orientation")) {
-                        XPathParts parts = XPathParts.getTestInstance(currentFullXPath); // can be frozen
+                        XPathParts parts = XPathParts.getFrozenInstance(currentFullXPath);
                         String value = parts.getAttributeValue(-1, "characters");
                         if (value != null) {
                             addPath("//ldml/layout/orientation/characterOrder", value);
@@ -2683,7 +2678,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
         for (Iterator<String> it = dataSource.iterator(); it.hasNext();) {
             String path = (String) it.next();
-            XPathParts parts = XPathParts.getTestInstance(dataSource.getFullPath(path)); // not frozen
+            XPathParts parts = XPathParts.getInstance(dataSource.getFullPath(path)); // not frozen, for addAttribute
             parts.addAttribute("draft", draftStatus.toString());
             dataSource.putValueAtPath(parts.toString(), dataSource.getValueAtPath(path));
         }
@@ -2785,7 +2780,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         for (Iterator<String> it2 = iterator(); it2.hasNext();) {
             String xpath = (String) it2.next();
             if (xpath.startsWith("//ldml/dates/timeZoneNames/zone[@type=\"" + zone + "\"]/usesMetazone")) {
-                XPathParts parts = XPathParts.getTestInstance(xpath);
+                XPathParts parts = XPathParts.getFrozenInstance(xpath);
                 if (!parts.containsAttribute("to")) {
                     return parts.getAttributeValue(4, "mzone");
                 }
@@ -2827,13 +2822,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             //     synchronized (distinguishingMap) {
             String result = (String) distinguishingMap.get(xpath);
             if (result == null) {
-                /*
-                 * TODO: fix null getDtdData here if use XPathParts.getInstance instead of XPathParts.set;
-                 * getInstance calls cloneAsThawed which makes dtdData null even when this.dtdData was non-null.
-                 * Reference: https://unicode.org/cldr/trac/ticket/12007
-                 */
-                XPathParts distinguishingParts = new XPathParts().set(xpath);
-                // XPathParts distinguishingParts = XPathParts.getTestInstance(xpath);
+                XPathParts distinguishingParts = XPathParts.getInstance(xpath); // not frozen, for removeAttributes
 
                 DtdType type = distinguishingParts.getDtdData().dtdType;
                 Set<String> toRemove = new HashSet<String>();
@@ -2928,7 +2917,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             } else {
                 result.clear();
             }
-            XPathParts distinguishingParts = XPathParts.getTestInstance(fullPath);
+            XPathParts distinguishingParts = XPathParts.getFrozenInstance(fullPath);
             DtdType type = distinguishingParts.getDtdData().dtdType;
             for (int i = 0; i < distinguishingParts.size(); ++i) {
                 String element = distinguishingParts.getElement(i);
@@ -3006,12 +2995,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public String getFullXPath(String path, boolean ignoreOtherLeafAttributes) {
         String result = getFullXPath(path);
         if (result != null) return result;
-        XPathParts parts = XPathParts.getTestInstance(path);
+        XPathParts parts = XPathParts.getFrozenInstance(path);
         Map<String, String> lastAttributes = parts.getAttributes(parts.size() - 1);
         String base = parts.toString(parts.size() - 1) + "/" + parts.getElement(parts.size() - 1); // trim final element
         for (Iterator<String> it = iterator(base); it.hasNext();) {
             String otherPath = (String) it.next();
-            XPathParts other = XPathParts.getTestInstance(otherPath);
+            XPathParts other = XPathParts.getFrozenInstance(otherPath);
             if (other.size() != parts.size()) {
                 continue;
             }
@@ -3507,7 +3496,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      */
     public String getCountPathWithFallback(String xpath, Count count, boolean winning) {
         String result;
-        XPathParts parts = XPathParts.getTestInstance(xpath);
+        XPathParts parts = XPathParts.getInstance(xpath); // not frozen, addAttribute in getCountPathWithFallback2
         boolean isDisplayName = parts.contains("displayName");
 
         String intCount = parts.getAttributeValue(-1, "count");

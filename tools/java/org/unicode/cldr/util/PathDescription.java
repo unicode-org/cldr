@@ -152,7 +152,7 @@ public class PathDescription {
                 }
             }
             if (isMetazone) {
-                XPathParts parts = XPathParts.getTestInstance(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
                 String daylightType = parts.getElement(-1);
                 daylightType = daylightType.equals("daylight") ? "summer" : daylightType.equals("standard") ? "winter"
                     : daylightType;

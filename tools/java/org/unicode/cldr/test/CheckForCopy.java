@@ -169,7 +169,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
 
         // Check for attributes.
         // May override English test
-        XPathParts parts = XPathParts.getTestInstance(path);
+        XPathParts parts = XPathParts.getFrozenInstance(path);
         int elementCount = parts.size();
         for (int i = 2; i < elementCount; ++i) {
             Map<String, String> attributes = parts.getAttributes(i);

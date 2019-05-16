@@ -503,7 +503,7 @@ public class GenerateXMB {
             if (!isEnglish) {
                 String fullPath = cldrFile.getFullXPath(path);
                 if (fullPath.contains("draft")) {
-                    XPathParts xpathParts = XPathParts.getTestInstance(fullPath);
+                    XPathParts xpathParts = XPathParts.getFrozenInstance(fullPath);
                     String draftValue = xpathParts.getAttributeValue(-1, "draft");
                     if (!draftValue.equals("contributed")) {
                         reasonsToPaths.put(draftValue, path + "\t" + value);

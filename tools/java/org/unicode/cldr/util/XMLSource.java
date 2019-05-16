@@ -136,7 +136,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         if (fullpath.indexOf("[@draft=") < 0) {
             return false;
         }
-        XPathParts parts = XPathParts.getTestInstance(fullpath);
+        XPathParts parts = XPathParts.getFrozenInstance(fullpath);
         return parts.containsAttribute("draft");
     }
 
@@ -321,9 +321,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
             // fullPath will be the same as newPath, except for some attributes at the end.
             // add those attributes to oldPath, starting from the end.
-            XPathParts partsOld = XPathParts.getTestInstance(oldPath);
-            XPathParts partsNew = XPathParts.getTestInstance(newPath);
-            XPathParts partsFull = XPathParts.getTestInstance(fullPath);
+            XPathParts partsOld = XPathParts.getFrozenInstance(oldPath);
+            XPathParts partsNew = XPathParts.getFrozenInstance(newPath);
+            XPathParts partsFull = XPathParts.getFrozenInstance(fullPath);
             Map<String, String> attributesFull = partsFull.getAttributes(-1);
             Map<String, String> attributesNew = partsNew.getAttributes(-1);
             Map<String, String> attributesOld = partsOld.getAttributes(-1);
@@ -781,9 +781,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 // find the differences, and add them into xpath
                 // we do this by walking through each element, adding the corresponding attribute values.
                 // we add attributes FROM THE END, in case the lengths are different!
-                XPathParts xpathParts = XPathParts.getTestInstance(xpath);
-                XPathParts fullPathWhereFoundParts = XPathParts.getTestInstance(fullPathWhereFound);
-                XPathParts pathWhereFoundParts = XPathParts.getTestInstance(fullStatus.pathWhereFound);
+                XPathParts xpathParts = XPathParts.getInstance(xpath); // not frozen, for putAttributeValue
+                XPathParts fullPathWhereFoundParts = XPathParts.getFrozenInstance(fullPathWhereFound);
+                XPathParts pathWhereFoundParts = XPathParts.getFrozenInstance(fullStatus.pathWhereFound);
                 int offset = xpathParts.size() - pathWhereFoundParts.size();
 
                 for (int i = 0; i < pathWhereFoundParts.size(); ++i) {

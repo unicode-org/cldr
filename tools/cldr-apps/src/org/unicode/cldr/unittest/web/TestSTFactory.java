@@ -391,7 +391,7 @@ public class TestSTFactory extends TestFmwk {
                     logln(" $" + varName + " == '" + value + "'");
                 }
 
-                XPathParts xpp = XPathParts.getTestInstance(path);
+                XPathParts xpp = XPathParts.getFrozenInstance(path);
                 attrs.clear();
                 for (String k : xpp.getAttributeKeys(-1)) {
                     attrs.put(k, xpp.getAttributeValue(-1, k));
@@ -527,7 +527,7 @@ public class TestSTFactory extends TestFmwk {
                     if ((fullXpath == null) || itMoved) {
                         xpathStatus = Status.missing;
                     } else {
-                        XPathParts xpp2 = XPathParts.getTestInstance(fullXpath);
+                        XPathParts xpp2 = XPathParts.getFrozenInstance(fullXpath);
                         String statusFromXpath = xpp2.getAttributeValue(-1, "draft");
 
                         if (statusFromXpath == null) {
@@ -577,7 +577,7 @@ public class TestSTFactory extends TestFmwk {
                     if (fullXpathBack == null || itMoved) {
                         xpathStatusBack = Status.missing;
                     } else {
-                        XPathParts xpp2 = XPathParts.getTestInstance(fullXpathBack);
+                        XPathParts xpp2 = XPathParts.getFrozenInstance(fullXpathBack);
                         String statusFromXpathBack = xpp2.getAttributeValue(-1, "draft");
 
                         if (statusFromXpathBack == null) {

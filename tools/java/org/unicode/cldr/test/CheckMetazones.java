@@ -39,7 +39,7 @@ public class CheckMetazones extends CheckCLDR {
         }
 
         if (path.indexOf("/long") >= 0) {
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             String metazoneName = parts.getAttributeValue(3, "type");
             if (!metazoneUsesDST(metazoneName) && path.indexOf("/standard") < 0) {
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)

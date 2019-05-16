@@ -192,7 +192,7 @@ public abstract class CLDRConverterTool {
         String draft = getLocalesMap() == null ? null : getLocalesMap().get(localeName + ".xml");
         if (draft != null) {
             for (int i = 0; i < xpathList.size(); i++) {
-                XPathParts parts = XPathParts.getTestInstance(xpathList.get(i));
+                XPathParts parts = XPathParts.getFrozenInstance(xpathList.get(i));
                 Map<String, String> attr = parts.getAttributes(parts.size() - 1);
                 String draftVal = attr.get(LDMLConstants.DRAFT);
                 String altVal = attr.get(LDMLConstants.ALT);
@@ -220,7 +220,7 @@ public abstract class CLDRConverterTool {
         // this map only contains xpaths of the leaf nodes
         for (int i = 0; i < xpathList.size(); i++) {
             String xpath = xpathList.get(i);
-            XPathParts parts = XPathParts.getTestInstance(xpath);
+            XPathParts parts = XPathParts.getFrozenInstance(xpath);
             Map<String, String> attr = parts.getAttributes(parts.size() - 1);
 
             boolean include = false;
@@ -395,7 +395,7 @@ public abstract class CLDRConverterTool {
                             // now check if next xpath contains alt attribute
                             if (i + 1 < xpathList.size()) {
                                 String nxp = xpathList.get(i + 1);
-                                XPathParts nparts = XPathParts.getTestInstance(nxp);
+                                XPathParts nparts = XPathParts.getFrozenInstance(nxp);
                                 // make sure the type attribute is the same
                                 if (parts.isLike(nparts)) {
                                     Map<String, String> nattr = nparts.getAttributes(nparts.size() - 1);

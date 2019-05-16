@@ -517,7 +517,7 @@ public class TestMisc {
                 if (path.equals(fullPath)) {
                     continue;
                 }
-                XPathParts parts = XPathParts.getTestInstance(fullPath);
+                XPathParts parts = XPathParts.getFrozenInstance(fullPath);
                 for (int i = 0; i < parts.size(); ++i) {
                     Map<String, String> m = parts.getAttributes(i);
                     if (m.size() == 0) {
@@ -574,7 +574,7 @@ public class TestMisc {
         TreeSet<String> problems = new TreeSet<String>();
         for (Iterator<String> it = cldrFile.iterator("", new UTF16.StringComparator(true, false, 0)); it.hasNext();) {
             String requestedPath = it.next();
-            XPathParts parts = XPathParts.getTestInstance(requestedPath);
+            XPathParts parts = XPathParts.getFrozenInstance(requestedPath);
             String element = parts.getElement(-1);
             if (!careAbout.contains(element)) {
                 continue;
@@ -639,7 +639,7 @@ public class TestMisc {
             String path = it.next();
             String value = supp.getStringValue(path);
             String fullPath = supp.getFullXPath(path);
-            XPathParts parts = XPathParts.getTestInstance(fullPath);
+            XPathParts parts = XPathParts.getInstance(fullPath); // not frozen, for putAttributeValue
             String type = parts.getAttributeValue(-1, "type");
             String pop = (String) language_territory_hack_map.get(type);
             if (pop != null) {

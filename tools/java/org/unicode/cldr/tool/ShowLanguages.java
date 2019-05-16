@@ -333,7 +333,7 @@ public class ShowLanguages {
     private static Set<String> getEnglishTypes(String type, int code) {
         Set<String> result = new HashSet<String>(sc.getSurveyToolDisplayCodes(type));
         for (Iterator<String> it = english.getAvailableIterator(code); it.hasNext();) {
-            XPathParts parts = XPathParts.getTestInstance(it.next());
+            XPathParts parts = XPathParts.getFrozenInstance(it.next());
             String newType = parts.getAttributeValue(-1, "type");
             if (!result.contains(newType)) {
                 result.add(newType);
@@ -686,7 +686,7 @@ public class ShowLanguages {
                 if (fullPath == null) {
                     supp.getFullXPath(path);
                 }
-                XPathParts parts = XPathParts.getTestInstance(fullPath);
+                XPathParts parts = XPathParts.getFrozenInstance(fullPath);
 
                 // <zoneItem type="America/Adak" territory="US" aliases="America/Atka US/Aleutian"/>
                 if (path.indexOf("/zoneItem") >= 0) {
@@ -878,18 +878,6 @@ public class ShowLanguages {
                     String replacement = replacementList == null ? null : CollectionUtilities
                         .join(replacementList, " ");
                     String reason = replacementReason.get1();
-
-                    // for (Iterator it = supp2.iterator(); it.hasNext();) {
-                    // String path = (String) it.next();
-                    // parts.set(supp2.getFullXPath(path));
-                    // if (path.indexOf("/alias") >= 0) {
-                    // String element = parts.getElement(parts.size() - 1);
-                    // Map attributes = parts.getAttributes(parts.size() - 1);
-                    // String type = (String) attributes.get("type");
-                    // if (!element.endsWith("Alias"))
-                    // throw new IllegalArgumentException("Unexpected alias element: " + element);
-                    // element = element.substring(0, element.length() - 5);
-                    // String replacement = (String) attributes.get("replacement");
                     if (element.equals("timezone")) {
                         element = "zone";
                     }
@@ -919,28 +907,9 @@ public class ShowLanguages {
                         aliases.add(new String[] { element, type, name, reason });
                     }
                     continue;
-                    // }
-                    // if (path.indexOf("/generation") >= 0 || path.indexOf("/version") >= 0)
-                    // continue;
-                    // System.out.println("Skipped Element: " + path);
                 }
             }
             Log.setLog(CLDRPaths.CHART_DIRECTORY + "supplemental/", "characterLog.txt");
-//            CLDRFile chars = cldrFactory.make("characters", false);
-//            int count = 0;
-//            for (Iterator it = chars.iterator("", CLDRFile.getLdmlComparator()); it.hasNext();) {
-//                String path = (String) it.next();
-//                parts.set(chars.getFullXPath(path));
-//                if (parts.getElement(1).equals("version"))
-//                    continue;
-//                if (parts.getElement(1).equals("generation"))
-//                    continue;
-//                String value = parts.getAttributeValue(-2, "value");
-//                String substitute = chars.getStringValue(path, true);
-//                addCharSubstitution(value, substitute);
-//            }
-//            if (count != 0)
-//                System.out.println("Skipped NFKC/NFC items: " + count);
             Log.close();
         }
 
@@ -1005,140 +974,6 @@ public class ShowLanguages {
                 return ((Comparable) o2).compareTo(o1);
             }
         };
-
-        // public void printCountryData(PrintWriter pw) throws IOException {
-        // NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
-        // nf.setGroupingUsed(true);
-        // NumberFormat pf = NumberFormat.getPercentInstance(ULocale.ENGLISH);
-        // pf.setMinimumFractionDigits(1);
-        // pf.setMaximumFractionDigits(1);
-        // PrintWriter pw2 = showCountryDataHeader(pw, "Territory-Language Information");
-        // pw2.println("<tr>" +
-        // "<th class='source'>Territory</th>" +
-        // "<th class='source'>Code</th>" +
-        // "<th class='target'>Population</th>" +
-        // "<th class='target'>Literacy</th>" +
-        // "<th class='target'>GDP (PPP)</th>" +
-        //
-        // "<th class='target'>Language</th>" +
-        // "<th class='target'>Code</th>" +
-        // "<th class='target'>Population</th>" +
-        // "<th class='target'>Literacy</th>" +
-        // "</tr>");
-        // for (String territoryName : territoryLanguageData.keySet()) {
-        // Map<String,Object>results = territoryLanguageData.get(territoryName);
-        // Set<Pair<Double,Pair<Double,String>>> language =
-        // (Set<Pair<Double,Pair<Double,String>>>)results.get("language");
-        // int span = language == null ? 0 : language.size();
-        // String spanString = span == 0 ? "" : " rowSpan='"+span+"'";
-        // double population = Double.parseDouble((String)results.get("population"));
-        // double gdp = Double.parseDouble((String)results.get("gdp"));
-        // pw2.println("<tr>" +
-        // "<td class='source'" + spanString + ">" + territoryName + "</td>" +
-        // "<td class='source'" + spanString + ">" + results.get("code") + "</td>" +
-        // "<td class='targetRight'" + spanString + ">" + (population <= 1 ? "<i>na</i>" : nf.format(population)) +
-        // "</td>" +
-        // "<td class='targetRight'" + spanString + ">" +
-        // pf.format(Double.parseDouble((String)results.get("literacyPercent"))/100) + "</td>" +
-        // "<td class='targetRight'" + spanString + ">" + (gdp <= 1 ? "<i>na</i>" : nf.format(gdp)) + "</td>");
-        // if (span == 0) {
-        // pw2.println("<td class='source'><i>na</i></td>" +
-        // "<td class='source'><i>na</i></td>"
-        // + "<td class='targetRight'><i>na</i></td>"
-        // + "<td class='targetRight'><i>na</i></td>"
-        // + "</tr>");
-        // } else {
-        // boolean first = true;
-        // for (Pair<Double,Pair<Double,String>> languageCodePair : language) {
-        // double languagePopulation = languageCodePair.first;
-        // double languageliteracy = languageCodePair.second.first;
-        // String languageCode = languageCodePair.second.second;
-        // if (first) {
-        // first = false;
-        // } else {
-        // pw2.println("<tr>");
-        // }
-        // double proportion = languagePopulation/population;
-        // if (proportion > 1) {
-        // System.out.println("Warning - proportion > 100:" + territoryName + ", " + english.getName(languageCode,
-        // false));
-        // proportion = 1;
-        // }
-        // pw2.println(
-        // "<td class='source'>" + english.getName(languageCode, false) + "</td>" +
-        // "<td class='source'>" + languageCode + "</td>"
-        // + "<td class='targetRight'>" + pf.format(languagePopulation/100) + "</td>"
-        // + "<td class='targetRight'>" + (Double.isNaN(languageliteracy) ? "<i>na</i>" :
-        // pf.format(languageliteracy/100)) + "</td>"
-        // + "</tr>");
-        // }
-        // }
-        // }
-        // pw2.close();
-        // /*
-        // * Map languageData = (Map) territoryLanguageData.get(type);
-        // if (languageData == null) territoryLanguageData.put(type, languageData = new TreeMap());
-        // languageData.put("gdp", attributes.get("gdp"));
-        // languageData.put("literacy", attributes.get("literacy"));
-        // languageData.put("population", attributes.get("population"));
-        // attributes = parts.getAttributes(3);
-        // if (attributes != null) {
-        // Map languageData2 = (Map) languageData.get("language");
-        // if (languageData2 == null) territoryLanguageData.put(type, languageData2 = new LinkedHashMap());
-        // languageData.put(attributes.get("type"), attributes.get("functionallyLiterate"));
-        // }
-        //
-        // */
-        // //pw.println("<tr><th class='source'>Territory</th><th class='target'>From</th><th class='target'>To</th><th class='target'>Currency</th></tr>");
-        // //for (Iterator it = territory_currency.keySet().iterator(); it.hasNext();) {
-        // //String territory = (String) it.next();
-        // //Set info = (Set) territory_currency.get(territory);
-        // //pw.println("<tr><td class='source' rowSpan='" + info.size() + "'>" + territory + "</td>");
-        // //boolean first = true;
-        // //for (Iterator it2 = info.iterator(); it2.hasNext();) {
-        // //String[] items = (String[]) it2.next();
-        // //if (first)
-        // //first = false;
-        // //else
-        // //pw.println("<tr>");
-        // //pw.println("<td class='target'>" + items[0] + "</td><td class='target'>" + items[1] +
-        // "</td><td class='target'>" + items[2] + "</td></tr>");
-        // //}
-        // //}
-        // ////doFooter(pw);
-        // //pw.close();
-        // //pw = new PrintWriter(new FormattedFileWriter(index, "Currency Format Info"));
-        // //
-        // ////doTitle(pw, "Currency Format Info");
-        // //pw.println("<tr><th class='source'>Currency</th><th class='target'>Digits</th><th class='target'>Countries</th></tr>");
-        // //Set currencyList = new TreeSet(col);
-        // //currencyList.addAll(currency_fractions.keySet());
-        // //currencyList.addAll(currency_territory.keySet());
-        // //
-        // //for (Iterator it = currencyList.iterator(); it.hasNext();) {
-        // //String currency = (String) it.next();
-        // //String fractions = (String) currency_fractions.get(currency);
-        // //if (fractions == null)
-        // //fractions = defaultDigits;
-        // //Set territories = (Set) currency_territory.get(currency);
-        // //pw.print("<tr><td class='source'>" + currency + "</td><td class='target'>" + fractions +
-        // "</td><td class='target'>");
-        // //if (territories != null) {
-        // //boolean first = true;
-        // //for (Iterator it2 = territories.iterator(); it2.hasNext();) {
-        // //if (first)
-        // //first = false;
-        // //else
-        // //pw.print(", ");
-        // //pw.print(it2.next());
-        // //}
-        // //}
-        // //pw.println("</td></tr>");
-        // //}
-        // //pw.close();
-        // ////doFooter(pw);
-        // //
-        // }
 
         // http://www.faqs.org/rfcs/rfc2396.html
         // delims = "<" | ">" | "#" | "%" | <">

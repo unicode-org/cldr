@@ -97,7 +97,7 @@ public class LogicalGrouping {
         XPathParts parts = null;
         PathType pathType = null;
         if (GET_TYPE_FROM_PARTS) {
-            parts = XPathParts.getInstance(path);
+            parts = XPathParts.getInstance(path); // can't always be frozen, some addPath do setAttribute
             pathType = PathType.getPathTypeFromParts(parts);
         } else {
             /*

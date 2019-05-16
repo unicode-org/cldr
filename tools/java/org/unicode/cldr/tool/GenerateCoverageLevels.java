@@ -213,7 +213,7 @@ public class GenerateCoverageLevels {
         }
 
         private XPathParts setNewParts(String path) {
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getInstance(path); // not frozen, for removeElement
             if (path.startsWith("//ldml/dates/timeZoneNames/metazone")
                 || path.startsWith("//ldml/dates/timeZoneNames/zone")) {
                 String element = nextParts.getElement(-1);
@@ -429,7 +429,7 @@ public class GenerateCoverageLevels {
             if (skipUnconfirmed(path)) {
                 continue;
             }
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             String ruleSetGrouping = parts.getAttributeValue(2, "type");
             if (ruleSetGrouping.equals("SpelloutRules")) {
                 spellout.add(locale);
@@ -525,7 +525,7 @@ public class GenerateCoverageLevels {
             if (fullPath == null) {
                 fullPath = path;
             }
-            XPathParts parts = XPathParts.getTestInstance(fullPath);
+            XPathParts parts = XPathParts.getFrozenInstance(fullPath);
             String validSubLocales = parts.getAttributeValue(1, "validSubLocales");
             if (validSubLocales != null) {
                 String[] sublocales = validSubLocales.split("\\s+");

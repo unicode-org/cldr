@@ -426,7 +426,7 @@ public class GenerateEnums {
         for (Iterator<String> it = supplementalData
             .iterator("//supplementalData/currencyData/region"); it.hasNext();) {
             String path = it.next();
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             String region = parts.findAttributeValue("region", "iso3166");
             String code = parts.findAttributeValue("currency", "iso4217");
             String to = parts.findAttributeValue("currency", "to");
@@ -494,7 +494,7 @@ public class GenerateEnums {
             .iterator("//supplementalData/territoryContainment/group"); it.hasNext();) {
             String path = it.next();
             String fullPath = supplementalData.getFullXPath(path);
-            XPathParts parts = XPathParts.getTestInstance(fullPath);
+            XPathParts parts = XPathParts.getFrozenInstance(fullPath);
             String container = parts.getAttributeValue(parts.size() - 1, "type");
             final String containedString = parts.getAttributeValue(-1, "contains");
             List<String> contained = Arrays.asList(containedString.trim().split("\\s+"));
@@ -831,7 +831,7 @@ public class GenerateEnums {
         if (path == null) {
             return null;
         }
-        XPathParts parts = XPathParts.getTestInstance(path);
+        XPathParts parts = XPathParts.getFrozenInstance(path);
         String replacement = parts.findAttributeValue("territoryAlias", "replacement");
         if (replacement == null) {
             return "";            

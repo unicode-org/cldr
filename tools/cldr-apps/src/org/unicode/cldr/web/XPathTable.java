@@ -464,7 +464,7 @@ public class XPathTable {
      * Called by handlePathValue, by makeProposedFile, and by doForum (which is possibly never called?)
      */
     public static String removeAlt(String path) {
-        XPathParts xpp = XPathParts.getTestInstance(path);
+        XPathParts xpp = XPathParts.getInstance(path); // not frozen, for removeAttribute
         xpp.removeAttribute(-1, LDMLConstants.ALT);
         return xpp.toString();
     }
@@ -478,7 +478,7 @@ public class XPathTable {
      * @return
      */
     public static String removeDraftAltProposed(String path) {
-        XPathParts xpp = XPathParts.getTestInstance(path);
+        XPathParts xpp = XPathParts.getInstance(path); // not frozen, for removeAttribute
         Map<String, String> lastAtts = xpp.getAttributes(-1);
 
         // Remove alt proposed, but leave the type
@@ -510,7 +510,7 @@ public class XPathTable {
      * Called by handlePathValue and makeProposedFile
      */
     public static String getAlt(String path) {
-        XPathParts xpp = XPathParts.getTestInstance(path);
+        XPathParts xpp = XPathParts.getFrozenInstance(path);
         return xpp.getAttributeValue(-1, LDMLConstants.ALT);
     }
 
@@ -526,7 +526,7 @@ public class XPathTable {
      * This is NOT the same as the two-parameter xpathToBaseXpath elsewhere in this file
      */
     public static String xpathToBaseXpath(String xpath) {
-        XPathParts xpp = XPathParts.getTestInstance(xpath);
+        XPathParts xpp = XPathParts.getInstance(xpath); // not frozen, for removeAttribute
         Map<String, String> lastAtts = xpp.getAttributes(-1);
         String oldAlt = (String) lastAtts.get(LDMLConstants.ALT);
         if (oldAlt == null) {
@@ -577,7 +577,7 @@ public class XPathTable {
      * @return the type as a string
      */
     private String whatFromPathToTinyXpath(String path, String what) {
-        XPathParts xpp = XPathParts.getTestInstance(path);
+        XPathParts xpp = XPathParts.getInstance(path); // not frozen, for removeAttribute
         Map<String, String> lastAtts = xpp.getAttributes(-1);
         String type = lastAtts.get(what);
         if (type != null) {

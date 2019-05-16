@@ -38,20 +38,20 @@ public class GenerateTempDateData {
                 String path = it2.next();
                 if (path.indexOf("dateTimeFormats/availableFormats/dateFormatItem") >= 0) {
                     gotOne = doHeader(pw, locale, gotOne);
-                    XPathParts parts = XPathParts.getTestInstance(path);
+                    XPathParts parts = XPathParts.getFrozenInstance(path);
                     String id = parts.getAttributeValue(-1, "id");
                     String pattern = file.getStringValue(path);
                     pw.println("     {\"pattern/" + id + "\",\"" + com.ibm.icu.impl.Utility.escape(pattern) + "\"},");
                 } else if (path.indexOf("dateTimeFormats/appendItems") >= 0) {
                     gotOne = doHeader(pw, locale, gotOne);
-                    XPathParts parts = XPathParts.getTestInstance(path);
+                    XPathParts parts = XPathParts.getFrozenInstance(path);
                     String request = parts.getAttributeValue(-1, "request");
                     String pattern = file.getStringValue(path);
                     pw.println("     {\"append/" + request + "\",\"" + com.ibm.icu.impl.Utility.escape(pattern)
                         + "\"},");
                 } else if (path.indexOf("fields/field") >= 0) {
                     gotOne = doHeader(pw, locale, gotOne);
-                    XPathParts parts = XPathParts.getTestInstance(path);
+                    XPathParts parts = XPathParts.getFrozenInstance(path);
                     String type = parts.getAttributeValue(-2, "type");
                     String pattern = file.getStringValue(path);
                     pw.println("     {\"field/" + type + "\",\"" + com.ibm.icu.impl.Utility.escape(pattern) + "\"},");

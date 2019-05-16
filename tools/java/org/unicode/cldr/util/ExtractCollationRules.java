@@ -41,7 +41,7 @@ public class ExtractCollationRules {
 
             String path = (String) it.next();
             String value = file.getStringValue(path);
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             String type = parts.findAttributeValue("collation", "type");
             if (!type.equals(lastType)) {
                 lastType = type;

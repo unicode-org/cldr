@@ -419,7 +419,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
         for (String path : english.fullIterable()) {
             logln("Testing path => " + path);
-            XPathParts xpp = XPathParts.getTestInstance(path);
+            XPathParts xpp = XPathParts.getFrozenInstance(path);
             if (path.endsWith("/alias") || path.matches("//ldml/(identity|contextTransforms|layout|localeDisplayNames/transformNames)/.*")) {
                 continue;
             }

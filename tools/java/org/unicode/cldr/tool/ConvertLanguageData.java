@@ -528,7 +528,7 @@ public class ConvertLanguageData {
             CLDRFile supplemental = cldrFactory.make("supplementalData", true);
             for (Iterator<String> it = supplemental.iterator("//supplementalData/languageData/language"); it.hasNext();) {
                 String xpath = it.next();
-                XPathParts parts = XPathParts.getTestInstance(xpath);
+                XPathParts parts = XPathParts.getFrozenInstance(xpath);
                 Map<String, String> x = parts.getAttributes(-1);
                 boolean alt = x.containsKey("alt");
                 String lang = x.get("type");

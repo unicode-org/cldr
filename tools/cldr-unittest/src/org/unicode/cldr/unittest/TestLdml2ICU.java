@@ -187,7 +187,7 @@ public class TestLdml2ICU extends TestFmwk {
             + name + ".xml", cldrData, true);
         for (Pair<String, String> pair : cldrData) {
             String xpath = CLDRFile.getNondraftNonaltXPath(pair.getFirst());
-            XPathParts parts = XPathParts.getTestInstance(xpath);
+            XPathParts parts = XPathParts.getFrozenInstance(xpath);
             xpath = parts.toString();
             checkPath(lookup, xpath, pair.getSecond());
         }

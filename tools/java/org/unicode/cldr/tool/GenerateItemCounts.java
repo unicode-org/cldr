@@ -293,7 +293,7 @@ public class GenerateItemCounts {
         StringBuilder elementPath = new StringBuilder();
 
         public void add(String path) {
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             elementPath.setLength(0);
             for (int i = 0; i < parts.size(); ++i) {
                 String element = parts.getElement(i);
@@ -608,7 +608,7 @@ public class GenerateItemCounts {
         @Override
         public void handlePathValue(String path, String value) {
             if (type == null) {
-                XPathParts parts = XPathParts.getTestInstance(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
                 type = DtdType.valueOf(parts.getElement(0));
             }
 
@@ -648,7 +648,7 @@ public class GenerateItemCounts {
                     }
                 }
             }
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             if (isFinal) {
                 capture(type, parts);
             }
@@ -677,7 +677,7 @@ public class GenerateItemCounts {
         }
 
         private String fixKeyPath(String path) {
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getInstance(path); // not frozen, for addAttribute
             for (int i = 0; i < parts.size(); ++i) {
                 String element = parts.getElement(i);
                 if (!SKIP_ORDERING) {

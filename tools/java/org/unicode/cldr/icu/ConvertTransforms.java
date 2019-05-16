@@ -238,7 +238,7 @@ public class ConvertTransforms extends CLDRConverterTool {
     }
 
     private String addIndexInfo(PrintWriter index, String path) {
-        XPathParts parts = XPathParts.getTestInstance(path);
+        XPathParts parts = XPathParts.getFrozenInstance(path);
         Map<String, String> attributes = parts.findAttributes("transform");
         if (attributes == null) return null; // error, not a transform file
         String source = attributes.get("source");

@@ -1036,7 +1036,7 @@ public class Misc {
         CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
         for (Iterator<String> it = supp.iterator(); it.hasNext();) {
             String path = it.next();
-            XPathParts parts = XPathParts.getTestInstance(supp.getFullXPath(path));
+            XPathParts parts = XPathParts.getFrozenInstance(supp.getFullXPath(path));
             Map<String, String> m = parts.findAttributes("language");
         }
 
@@ -1044,7 +1044,7 @@ public class Misc {
         Map<String, Collection<String>> groups = new TreeMap<String, Collection<String>>();
         for (Iterator<String> it = supp.iterator(); it.hasNext();) {
             String path = it.next();
-            XPathParts parts = XPathParts.getTestInstance(supp.getFullXPath(path));
+            XPathParts parts = XPathParts.getFrozenInstance(supp.getFullXPath(path));
             Map<String, String> m = parts.findAttributes("territoryContainment");
             if (m == null) continue;
             Map<String, String> attributes = parts.getAttributes(2);

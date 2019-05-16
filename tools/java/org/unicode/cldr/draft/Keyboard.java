@@ -383,7 +383,7 @@ public class Keyboard {
         Map<String, Iso> hardwareMap = new HashMap<String, Iso>();
 
         public void handlePathValue(String path, @SuppressWarnings("unused") String value) {
-            XPathParts parts = XPathParts.getTestInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             // <platform id='android'/>
             id = parts.getAttributeValue(0, "id");
             if (parts.size() > 1) {
@@ -445,7 +445,7 @@ public class Keyboard {
 
         public void handlePathValue(String path, @SuppressWarnings("unused") String value) {
             try {
-                XPathParts parts = XPathParts.getTestInstance(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
                 if (locale == null) {
                     // <keyboard locale='bg-t-k0-chromeos-phonetic'>
                     locale = parts.getAttributeValue(0, "locale");

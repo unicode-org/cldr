@@ -222,7 +222,7 @@ public class ExampleGenerator {
         this.verboseErrors = verbosity;
     }
 
-    private String creationTime = null;
+    // private String creationTime = null;
 
     /**
      * Create an Example Generator. If this is shared across threads, it must be synchronized.
@@ -245,8 +245,8 @@ public class ExampleGenerator {
 
         pluralInfo = supplementalDataInfo.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
         
-        creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
-        System.out.println("🧞‍ Created new ExampleGenerator for loc " + cldrFile.getLocaleID() + " at " + creationTime);
+        // creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
+        // System.out.println("🧞‍ Created new ExampleGenerator for loc " + cldrFile.getLocaleID() + " at " + creationTime);
     }
 
     public enum ExampleType {
@@ -1315,7 +1315,7 @@ public class ExampleGenerator {
     private String handleDateFormatItem(String xpath, String value) {
 
         String fullpath = cldrFile.getFullXPath(xpath);
-        XPathParts parts = XPathParts.getTestInstance(fullpath);
+        XPathParts parts = XPathParts.getFrozenInstance(fullpath);
         String calendar = parts.findAttributeValue("calendar", "type");
 
         if (parts.contains("dateTimeFormat")) {
@@ -1323,9 +1323,9 @@ public class ExampleGenerator {
             String timeFormatXPath = cldrFile.getWinningPath(xpath.replaceAll("dateTimeFormat", "timeFormat"));
             String dateFormatValue = cldrFile.getWinningValue(dateFormatXPath);
             String timeFormatValue = cldrFile.getWinningValue(timeFormatXPath);
-            parts = XPathParts.getTestInstance(cldrFile.getFullXPath(dateFormatXPath));
+            parts = XPathParts.getFrozenInstance(cldrFile.getFullXPath(dateFormatXPath));
             String dateNumbersOverride = parts.findAttributeValue("pattern", "numbers");
-            parts = XPathParts.getTestInstance(cldrFile.getFullXPath(timeFormatXPath));
+            parts = XPathParts.getFrozenInstance(cldrFile.getFullXPath(timeFormatXPath));
             String timeNumbersOverride = parts.findAttributeValue("pattern", "numbers");
             SimpleDateFormat df = icuServiceBuilder.getDateFormat(calendar, dateFormatValue, dateNumbersOverride);
             SimpleDateFormat tf = icuServiceBuilder.getDateFormat(calendar, timeFormatValue, timeNumbersOverride);

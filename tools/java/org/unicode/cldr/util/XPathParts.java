@@ -68,7 +68,7 @@ public final class XPathParts implements Freezable<XPathParts> {
     }
 
     /**
-     * Empty the xpath (pretty much the same as set(""))
+     * Empty the xpath
      *
      * Called by JsonConverter.rewrite() and CLDRFile.write()
      */
@@ -501,9 +501,15 @@ public final class XPathParts implements Freezable<XPathParts> {
      * Parse out an xpath, and pull in the elements and attributes.
      *
      * @param xPath
-     * @return
+     * @return this XPathParts
+     *
+     * This is only for use by CLDRFile.write(), which is for generating vxml, etc., using defaultSuppressionMap.
+     *
+     * All other functions that would have called XPathParts.set() in the past should now use getInstance or getFrozenInstance
+     * instead, to take advantage of caching.
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-12007
      */
-    public XPathParts set(String xPath) {
+    public XPathParts setForWritingWithSuppressionMap(String xPath) {
         if (frozen) {
             throw new UnsupportedOperationException("Can't modify frozen Element");
         }
@@ -1002,10 +1008,8 @@ public final class XPathParts implements Freezable<XPathParts> {
     /**
      * Replace the elements of this XPathParts with clones of the elements of the given other XPathParts
      *  
-     * @param parts
-     * @return this XPathParts
-     *
-     * This is NOT the same function as set(String xPath).
+     * @param parts the given other XPathParts (not modified)
+     * @return this XPathParts (modified)
      *
      * Called by XPathParts.replace and CldrItem.split.
      */
@@ -1216,13 +1220,10 @@ public final class XPathParts implements Freezable<XPathParts> {
     public XPathParts cloneAsThawed() {
         XPathParts xppClone = new XPathParts();
         /*
-         * TODO: copy dtdData -- there is a long-standing bug, that cloneAsThawed always makes dtdData null,
-         * and we can fix that here with "xppClone.dtdData = this.dtdData", but then we get a failure in
-         * TestRegularized. Something about TestRegularized (or some code that it calls) requires cloneAsThawed
-         * to make dtdData null instead of copying it!?
-         * Reference: https://unicode.org/cldr/trac/ticket/12007#comment:23
+         * Remember to copy dtdData.
+         * Reference: https://unicode.org/cldr/trac/ticket/12007
          */
-        // xppClone.dtdData = this.dtdData;
+        xppClone.dtdData = this.dtdData;
         xppClone.suppressionMap = this.suppressionMap;
         for (Element e : this.elements) {
             xppClone.elements.add(e.cloneAsThawed());
@@ -1233,24 +1234,14 @@ public final class XPathParts implements Freezable<XPathParts> {
     public static synchronized XPathParts getFrozenInstance(String path) {
         XPathParts result = cache.get(path);
         if (result == null) {
-            cache.put(path, result = new XPathParts().set(path).freeze());
+            result = new XPathParts().addInternal(path, true).freeze();
+            cache.put(path, result);
         }
         return result;
     }
 
     public static XPathParts getInstance(String path) {
         return getFrozenInstance(path).cloneAsThawed();
-    }
-
-    /**
-     * Same as getInstance, but temporarily distinguished for testing; for some callers getFrozenInstance might work as well and be faster
-     * TODO: replace with getInstance or getFrozenInstance, when complete https://unicode.org/cldr/trac/ticket/12007
-     * @param path
-     * @return the XPathParts
-     */
-    public static XPathParts getTestInstance(String path) {
-        return getInstance(path);
-        // return getFrozenInstance(path);
     }
 
     public DtdData getDtdData() {

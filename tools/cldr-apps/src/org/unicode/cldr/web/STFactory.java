@@ -642,7 +642,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if (fullXPath == null) {
                 fullXPath = path;
             }
-            XPathParts xpp = XPathParts.getTestInstance(fullXPath);
+            XPathParts xpp = XPathParts.getFrozenInstance(fullXPath);
             String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
             Status status = draft == null ? Status.approved : VoteResolver.Status.fromString(draft);
 

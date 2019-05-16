@@ -333,7 +333,7 @@ public class TestPaths extends TestFmwkPlus {
                     for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(fullName, new ArrayList<Pair<String, String>>(), true)) {
                         String path = pathValue.getFirst();
                         final String value = pathValue.getSecond();
-                        XPathParts parts = XPathParts.getTestInstance(path);
+                        XPathParts parts = XPathParts.getInstance(path); // not frozen, for removeNonDistinguishing
                         if (dtdData == null) {
                             type = DtdType.valueOf(parts.getElement(0));
                             dtdData = DtdData.getInstance(type);
@@ -415,7 +415,7 @@ public class TestPaths extends TestFmwkPlus {
     }
 
     private void checkParts(String path, DtdData dtdData) {
-        XPathParts parts = XPathParts.getTestInstance(path);
+        XPathParts parts = XPathParts.getFrozenInstance(path);
         Element current = dtdData.ROOT;
         for (int i = 0; i < parts.size(); ++i) {
             String elementName = parts.getElement(i);
@@ -439,6 +439,15 @@ public class TestPaths extends TestFmwkPlus {
 
     static final Set<String> SKIP_NON_NODE = new HashSet<>(Arrays.asList("references", "visibility", "access"));
 
+    /**
+     *
+     * @param parts the thawed XPathParts (can't be frozen, for putAttributeValue)
+     * @param data
+     * @param counter
+     * @param removed
+     * @param nonFinalValues
+     * @return
+     */
     private int removeNonDistinguishing(XPathParts parts, DtdData data, int counter, StringBuilder removed, Set<String> nonFinalValues) {
         removed.setLength(0);
         nonFinalValues.clear();
@@ -446,9 +455,6 @@ public class TestPaths extends TestFmwkPlus {
         nonFinalValues.clear();
         int size = parts.size();
         int last = size - 1;
-//        if (parts.getElement(-1).equals("rbnfrule")) {
-//            int x = 0;
-//        }
         for (int i = 0; i < size; ++i) {
             removed.append("/");
             String element = parts.getElement(i);

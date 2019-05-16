@@ -228,7 +228,7 @@ public class IsoCurrencyParser {
 
         public void handlePathValue(String path, String value) {
             try {
-                XPathParts parts = XPathParts.getTestInstance(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
                 String type = parts.getElement(-1);
                 if (type.equals("CtryNm")) {
                     value = value.replaceAll("\n", "");

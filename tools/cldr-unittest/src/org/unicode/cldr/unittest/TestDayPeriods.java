@@ -71,7 +71,7 @@ public class TestDayPeriods extends TestFmwkPlus {
                 if (path.endsWith("alias")) {
                     continue;
                 }
-                XPathParts parts = XPathParts.getTestInstance(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
                 String type = parts.getAttributeValue(-1, "type");
                 if (AMPM.contains(type)) {
                     continue;

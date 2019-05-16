@@ -1662,7 +1662,7 @@ public class VoteResolver<T> {
 
         public void handlePathValue(String path, String value) {
             try {
-                XPathParts parts = XPathParts.getTestInstance(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
                 if (parts.size() < 2) {
                     // empty data
                     return;

@@ -92,15 +92,19 @@ public class TestCache implements XMLSource.Listener {
      */
     public TestResultBundle getBundle(CheckCLDR.Options options) {
         TestResultBundle b = cache.getIfPresent(options);
-        if (DEBUG && b != null) System.err.println("Bundle refvalid: " + options + " -> " + (b != null));
-        if (DEBUG) System.err.println("Bundle " + b + " for " + options + " in " + this.toString());
-        if (b == null) {
-            // ElapsedTimer et = new ElapsedTimer("New test bundle " + locale + " opt " + options);
-            b = new TestResultBundle(options);
-            // System.err.println(et.toString());
-            cache.put(options, b);
-        }
-        return b;
+        if (DEBUG) {
+             if (b != null) {
+                 System.err.println("Bundle refvalid: " + options + " -> " + (b != null));
+             }
+             System.err.println("Bundle " + b + " for " + options + " in " + this.toString());
+         }
+         if (b == null) {
+             // ElapsedTimer et = new ElapsedTimer("New test bundle " + locale + " opt " + options);
+             b = new TestResultBundle(options);
+             // System.err.println(et.toString());
+             cache.put(options, b);
+         }
+         return b;
     }
 
     protected Factory getFactory() {
@@ -136,8 +140,12 @@ public class TestCache implements XMLSource.Listener {
         for (Entry<Options, TestResultBundle> k : cache.asMap().entrySet()) {
             Options key = k.getKey();
             TestResultBundle bundle = k.getValue();
-            if (bundle != null) good++;
-            if (DEBUG && true) stats.append("," + k.getKey() + "=" + key);
+            if (bundle != null) {
+                good++;
+            }
+            if (DEBUG) {
+                stats.append("," + k.getKey() + "=" + key);
+            }
             total++;
         }
         stats.append(" " + good + "/" + total + "}");
@@ -145,18 +153,38 @@ public class TestCache implements XMLSource.Listener {
     }
 
     /**
+     * Update the cache as needed, given that the value has changed for this xpath and source.
+     *
+     * @param xpath the xpath
+     * @param source the XMLSource
+     */
+    @Override
+    public void valueChanged(String xpath, XMLSource source) {
+        CLDRLocale locale = CLDRLocale.getInstance(source.getLocaleID());
+        valueChangedInvalidateRecursively(xpath, locale);
+    }
+
+    /**
      * Update the cache as needed, given that the value has changed for this xpath and locale.
      * 
-     * Called by void org.unicode.cldr.test.TestCache.valueChanged(String xpath, XMLSource source),
+     * Called by valueChanged(String xpath, XMLSource source),
      * and also calls itself recursively for sublocales
      *
-     * @param xpath
-     * @param locale
+     * @param xpath the xpath
+     * @param locale the CLDRLocale
+     *
+     * There is room for improvement of performance. Currently we invalidate all paths for any affected locale.
+     * Ideally, cache invalidation should only be done for each locale+path whose test results potentially depend
+     * on the given locale+path, due to inheritance, aliasing, logical groups, etc. That could be done using a mapping
+     * between paths that are related by such dependencies; that mapping would be constant for as long as the
+     * paths and tests don't change.
      */
-    private void valueChanged(String xpath, final CLDRLocale locale) {
-        if (DEBUG) System.err.println("BundDelLoc " + locale + " @ " + xpath);
+    private void valueChangedInvalidateRecursively(String xpath, final CLDRLocale locale) {
+        if (DEBUG) {
+            System.err.println("BundDelLoc " + locale + " @ " + xpath);
+        }
         for (CLDRLocale sub : ((SublocaleProvider) getFactory()).subLocalesOf(locale)) {
-            valueChanged(xpath, sub);
+            valueChangedInvalidateRecursively(xpath, sub);
         }
         if (cache.asMap().isEmpty()) {
             return;
@@ -178,17 +206,5 @@ public class TestCache implements XMLSource.Listener {
                 System.err.println("BundDel " + k);
             }
         }
-    }
-
-    /**
-     * Update the cache as needed, given that the value has changed for this xpath and source.
-     *
-     * @param xpath the xpath
-     * @param source the XMLSource
-     */
-    @Override
-    public void valueChanged(String xpath, XMLSource source) {
-        CLDRLocale locale = CLDRLocale.getInstance(source.getLocaleID());
-        valueChanged(xpath, locale);
     }
 }

@@ -3,6 +3,7 @@ package org.unicode.cldr.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
+import java.io.Writer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -117,8 +118,6 @@ public class SurveyAjax extends HttpServlet {
                     if (cs.getSubtype() != null) {
                         put("subType", cs.getSubtype().name());
                     }
-                    // put("parameters",new
-                    // JSONArray(cs.getParameters()).toString()); // NPE.
                 }
             };
         }
@@ -317,9 +316,6 @@ public class SurveyAjax extends HttpServlet {
     private void processRequest(HttpServletRequest request, HttpServletResponse response, String val) throws ServletException,
         IOException {
         CLDRConfigImpl.setUrls(request);
-        // if(val != null) {
-        // System.err.println("val="+val);
-        // }
         final SurveyMain sm = SurveyMain.getInstance(request);
         PrintWriter out = response.getWriter();
         String what = request.getParameter(REQ_WHAT);
@@ -344,6 +340,8 @@ public class SurveyAjax extends HttpServlet {
                 sendNoSurveyMain(out);
             } else if (what == null) {
                 sendError(out, "Missing parameter: " + REQ_WHAT, ErrorCode.E_INTERNAL);
+            } else if (what.equals(WHAT_GETROW)) {
+                getRow(request, response, out, sm, sess, l, xpath);
             } else if (what.equals(WHAT_STATS_BYLOC)) {
                 JSONWriter r = newJSONStatusQuick(sm);
                 JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 60 * 1000, StatisticsUtils.QUERY_ALL_VOTES);
@@ -519,7 +517,7 @@ public class SurveyAjax extends HttpServlet {
                         mySession.userDidAction();
 
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
-                        CheckCLDR.Options options = DataSection.getOptions(null, mySession, locale);
+                        CheckCLDR.Options options = DataSection.getOptions(null, mySession, locale); // TODO: why null for WebContext here?
                         STFactory stf = sm.getSTFactory();
                         TestResultBundle cc = stf.getTestResult(locale, options);
                         int id = Integer.parseInt(xpath);
@@ -704,11 +702,7 @@ public class SurveyAjax extends HttpServlet {
                             r.put("what", what);
                             r.put("loc", loc);
                             r.put("xpath", xpath);
-                            /* Don't use deprecated mySession.sm here; we already have sm.
-                             *  For https://unicode.org/cldr/trac/ticket/10935 removed cldrVersion here.
-                             */
                             r.put("ret", sm.fora.toJSON(mySession, locale, id, 0));
-                            // r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id, 0, request.getParameter("cldrVersion")));
                         }
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_POST)) {
@@ -759,12 +753,7 @@ public class SurveyAjax extends HttpServlet {
 
                         SurveyMenus menus = sm.getSTFactory().getSurveyMenus();
 
-                        if (loc == null || loc.isEmpty()) {
-                            // nothing
-                            //                            CLDRLocale locale = CLDRLocale.getInstance("und");
-                            //                            r.put("loc", loc);
-                            //                            r.put("menus",menus.toJSON(locale));
-                        } else {
+                        if (loc != null && !loc.isEmpty()) {
                             r.put("covlev_org", mySession.getOrgCoverageLevel(loc));
                             r.put("covlev_user", mySession.settings().get(SurveyMain.PREF_COVLEV, null));
                             CLDRLocale locale = CLDRLocale.getInstance(loc);
@@ -2474,8 +2463,8 @@ public class SurveyAjax extends HttpServlet {
 
         final String candVal = val;
 
-        DataSection section = DataSection.make(null, null, mySession, locale, xp, null, false,
-            Level.COMPREHENSIVE.toString());
+        DataSection section = DataSection.make(null /* pageId */, null /* ctx */, mySession,
+            locale, xp, null /* matcher */);
         section.setUserAndFileForVotelist(mySession.user, null);
 
         DataRow pvi = section.getDataRow(xp);
@@ -2542,5 +2531,200 @@ public class SurveyAjax extends HttpServlet {
         r.put("cPhase", cPhase);
         r.put("phStatus", phStatus);
         r.put("covLev", covLev);
+    }
+
+    /**
+     * Get data associated with a particular row (xpath).
+     *
+     * @param request
+     * @param response
+     * @param out
+     * @param sm
+     * @param sess
+     * @param locale
+     * @param xpath
+     * @throws IOException
+     * @throws JSONException
+     *
+     * An earlier version of this code was formerly in RefreshRow.jsp.
+     * Moved to SurveyAjax.java to make more consistent with other requests, to reduce the amount of code needed,
+     * to enable features of Eclipse that don't work correctly for jsp files, and to facilitate refactoring
+     * getSection to improve performance related to DataSection.
+     * Reference: https://unicode-org.atlassian.net/projects/CLDR/issues/CLDR-11877
+     *        and https://unicode-org.atlassian.net/projects/CLDR/issues/CLDR-12020
+     */
+    public static void getRow(HttpServletRequest request, HttpServletResponse response, Writer out,
+            SurveyMain sm, String sess, CLDRLocale locale, String xpath)
+            throws IOException, JSONException {
+
+        CLDRConfigImpl.setUrls(request);
+        WebContext ctx = new WebContext(request, response);
+        ElapsedTimer et = new ElapsedTimer();
+
+        String loc = locale.toString();
+        ctx.setLocale(locale);
+        xpath = WebContext.decodeFieldString(xpath); // TODO: why doesn't processRequest do decodeFieldString? Not needed, all ASCII?
+        String strid = WebContext.decodeFieldString(request.getParameter("strid"));
+        if (strid != null && strid.isEmpty()) {
+            strid = null;
+        }
+        String sectionName = WebContext.decodeFieldString(request.getParameter("x"));
+        if (sectionName != null && sectionName.isEmpty()) {
+            sectionName = null;
+        }
+        CookieSession mySession = CookieSession.retrieve(sess);
+
+        Thread curThread = Thread.currentThread();
+        String threadName = curThread.getName();
+
+        try {
+            curThread.setName(request.getServletPath() + ":" + loc + ":" + xpath);
+
+            if (mySession == null) {
+                new org.json.JSONWriter(out).object().key("err")
+                    .value("Your session has timed out or the SurveyTool has restarted.").endObject();
+                return;
+            }
+
+            String auto = request.getParameter("automatic");
+            if (auto == null || auto.isEmpty()) {
+                mySession.userDidAction(); // don't touch for auto refresh
+            }
+
+            if (xpath != null && xpath.isEmpty()) {
+                xpath = null;
+            }
+            String xp = xpath;
+            XPathMatcher matcher = null;
+            String pageIdStr = xp;
+            if (xp == null && sectionName != null) {
+                pageIdStr = sectionName;
+            }
+
+            PathHeader.PageId pageId = WebContext.getPageId(pageIdStr);
+
+            if (pageId == null && xpath != null) {
+                try {
+                    int id = Integer.parseInt(xpath);
+                    xp = sm.xpt.getById(id);
+                    if (xp != null) {
+                        matcher = XPathMatcher.getMatcherForString(xp);
+                    }
+                } catch (NumberFormatException nfe) {
+
+                }
+            }
+            if (pageId == null && xpath == null && strid != null) {
+                try {
+                    xp = sm.xpt.getByStringID(strid);
+                } catch (Throwable t) {
+                    new org.json.JSONWriter(out).object().key("err").value("Exception getting stringid " + strid)
+                        .key("err_code").value("E_BAD_SECTION").endObject();
+                    return;
+                }
+                if (xp != null) {
+                    try {
+                        pageId = sm.getSTFactory().getPathHeader(xp).getPageId(); // section containing
+                    } catch (Throwable t) {
+                        matcher = XPathMatcher.getMatcherForString(xp); // single string
+                    }
+                }
+            }
+
+            ctx.session = mySession;
+            ctx.sm = sm;
+            ctx.setServletPath(SurveyMain.defaultServletPath);
+
+            // don't return dc content
+            SupplementalDataInfo sdi = ctx.sm.getSupplementalDataInfo();
+            CLDRLocale dcParent = sdi.getBaseFromDefaultContent(locale);
+            if (dcParent != null) {
+                new org.json.JSONWriter(out).object().key("section")
+                    .value(new JSONObject().put("nocontent", "Default Content, see " + dcParent.getBaseName())).endObject();
+                return; // short circuit.
+            }
+
+            synchronized (mySession) {
+                DataSection section = null;
+                String baseXp = null;
+                try {
+                    if (pageId != null) {
+                        /*
+                         * We arrive here normally when loading a page, invoked by request from CldrSurveyVettingLoader.js
+                         * var url = contextPath + "/SurveyAjax?what="+WHAT_GETROW+"&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
+                         */
+                        section = ctx.getDataSection(null /* prefix */, null /* matcher */, pageId);
+                        section.setUserAndFileForVotelist(mySession.user, null); // TODO: what effect does null cldrFile here have on DataSection.getExampleBuilder??
+                    } else if (xp != null) {
+                        /*
+                         * We arrive here when a user votes for an item, invoked by request from survey.js
+                         * var ourUrl = contextPath + "/SurveyAjax?what="+WHAT_GETROW+"&_="+surveyCurrentLocale+"&xpath="+theRow.xpathId +"&fhash="+tr.rowHash+"&s="+tr.theTable.session +"&automatic=t";
+                         * 
+                         * We also arrive here when a user selects a "Fix" button in the Dashboard, invoked by request from review.js
+                         * var url = contextPath + "/SurveyAjax?what="+WHAT_GETROW+"&_="+surveyCurrentLocale+"&s="+surveySessionId+"&xpath="+tr.data('path')+"&strid="+surveyCurrentId+cacheKill()+"&dashboard=true";
+                         */
+                        baseXp = XPathTable.xpathToBaseXpath(xp);
+                        section = ctx.getDataSection(baseXp /* prefix */, matcher, null /* pageId */);
+                    } else {
+                        new org.json.JSONWriter(out).object().key("err")
+                            .value("Could not understand that section, xpath, or ID. Bad URL?")
+                            .key("err_code").value("E_BAD_SECTION").endObject();
+                        return;
+                    }
+                } catch (Throwable t) {
+                    SurveyLog.logException(t, "on loading " + locale + ":" + baseXp);
+                    new org.json.JSONWriter(out).object().key("err").value("Exception on getSection:" + t.toString())
+                        .key("err_code").value("E_BAD_SECTION").endObject();
+                    return;
+                }
+
+                JSONObject dsets = new JSONObject();
+                if (pageId == null) { // requested an xp, not a pageid?
+                    for (String n : SortMode.getSortModesFor(xp)) {
+                        dsets.put(n, section.createDisplaySet(SortMode.getInstance(n), matcher));
+                    }
+                    dsets.put("default", SortMode.getSortMode(ctx, section));
+                    pageId = section.getPageId();
+                } else {
+                    dsets.put("default", PathHeaderSort.name); // typically PathHeaderSort.name = "ph" 
+                    // the section creates the sort
+                    dsets.put(PathHeaderSort.name, section.createDisplaySet(SortMode.getInstance(PathHeaderSort.name), null));
+                }
+
+                if (pageId != null) {
+                    if (pageId.getSectionId() == org.unicode.cldr.util.PathHeader.SectionId.Special) {
+                        new org.json.JSONWriter(out).object().key("err")
+                            .value("Items not visible - page " + pageId + " section " + pageId.getSectionId()).key("err_code").value("E_SPECIAL_SECTION")
+                            .endObject();
+                        return;
+                    }
+                }
+
+                try {
+                    org.json.JSONWriter r = new org.json.JSONWriter(out).object()
+                        .key("stro").value(STFactory.isReadOnlyLocale(locale))
+                        .key("baseXpath").value(baseXp)
+                        .key("pageId").value((pageId != null) ? pageId.name() : null)
+                        .key("section").value(section)
+                        .key("localeDisplayName").value(locale.getDisplayName())
+                        .key("displaySets").value(dsets)
+                        .key("dir").value(ctx.getDirectionForLocale())
+                        .key("canModify").value(ctx.canModify())
+                        .key("locale").value(locale)
+                        .key("dataLoadTime").value(et.toString());
+                    if (ctx.hasField("dashboard")) {
+                        JSONArray issues = VettingViewerQueue.getInstance().getErrorOnPath(ctx.getLocale(), ctx, ctx.session, baseXp);
+                        r.key("issues").value(issues);
+                    }
+                    r.endObject();
+                } catch (Throwable t) {
+                    SurveyLog.logException(t, "RefreshRow write");
+                    new org.json.JSONWriter(out).object().key("err").value("Exception on writeSection:" + t.toString()).endObject();
+                }
+            }
+        } finally {
+            // put the name back.
+            curThread.setName(threadName);
+        }
     }
 }

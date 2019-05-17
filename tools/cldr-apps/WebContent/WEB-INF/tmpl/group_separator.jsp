@@ -1,14 +1,3 @@
-<%@ include file="/WEB-INF/jspf/report_top.jspf" %>
-
-<h2>Enter the character used as the grouping separator.</h2>
-
-<%
-//  Copy "x=___"  from input to output URL
-subCtx.openTable(); 
-
-subCtx.showXpath( "//ldml/numbers/symbols/group");
-
-subCtx.closeTable();
-subCtx.doneWithXpaths(); // print hidden field notifying which bases to accept submission for. 
-
-%>
+TODO: delete this file from repository.
+Easy steps is an old feature that is no longer used.
+See previous revision if old content needs to be restored.

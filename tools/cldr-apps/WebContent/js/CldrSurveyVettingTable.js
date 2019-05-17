@@ -43,7 +43,6 @@ const cldrSurveyTable = (function() {
 	 * @param session the session id; e.g., "DEF67BCAAFED4332EBE742C05A8D1161"
 	 * @param json the json received from the server; including (among much else):
 	 * 			json.locale, e.g., "aa"
-	 * 			json.section.coverage, e.g., "comprehensive"
 	 *  		json.section.rows, with info for each row
 	 */
 	function insertRows(theDiv, xpath, session, json) {
@@ -152,7 +151,6 @@ const cldrSurveyTable = (function() {
 			json1.pageId === json2.pageId &&
 			json1.locale === json2.locale &&
 			json1.canModify === json2.canModify &&
-			json1.section.coverage === json2.section.coverage &&
 			json1.section.rows.length === json2.section.rows.length) {
 			return true;
 		}

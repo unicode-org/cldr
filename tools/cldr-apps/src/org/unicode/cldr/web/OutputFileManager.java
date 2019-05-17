@@ -22,7 +22,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ScheduledFuture;
 import java.util.function.Predicate;
 
 import javax.servlet.ServletException;
@@ -334,53 +333,11 @@ public class OutputFileManager {
                         SurveyLog.logException(e, "Trying to add " + outFile.getAbsolutePath());
                     }
                 }
-                if (false && /* for now- just add, don't commit */
-                    tryCommit && outFile.exists())
-                    try {
-                    File dirs[] = { outFile };
-                    ElapsedTimer et = new ElapsedTimer();
-                    SVNCommitInfo i = svnCommit(dirs);
-                    if (true)
-                        System.err.println("SVN: committed " + outFile.getAbsolutePath() + " - " + i.toString() + " t=" + et);
-                } catch (SVNException e) {
-                    if (e.getMessage().contains("E155007")) {
-                        SurveyLog.logException(e,
-                            "Trying to commit [and giving up on SVN commits!]" + outFile.getAbsolutePath());
-                        tryCommit = false;
-                    } else if (e.getMessage().contains("E155011")) {
-                        SurveyLog.logException(e, "Out of date in commit - will update and REMOVE (to be regenerated) "
-                            + outFile.getAbsolutePath());
-                        try {
-                            long l = svnUpdate(outFile);
-                            System.err.println("Updated " + outFile.getAbsolutePath() + " to r" + l
-                                + " - will now delete/rewrite it so that it up to date");
-                        } catch (SVNException e1) {
-                            SurveyLog.logException(e1, "While trying to update " + outFile.getAbsolutePath());
-                        } finally {
-                            outFile.delete(); //
-                            doWriteFile(loc, file, kind, isFlat, outFile);
-                            SurveyLog.debug("Updater: Updated, Re-Wrote: " + kind + "/" + loc + " - "
-                                + ElapsedTimer.elapsedTime(st));
-                        }
-                    } else {
-                        SurveyLog.logException(e, "Trying to commit " + outFile.getAbsolutePath());
-                    }
-                }
             }
             return outFile;
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException("IO Exception " + e.toString(), e);
-            // } finally {
-            // if(dbEntry!=null) {
-            // try {
-            // dbEntry.close();
-            // } catch (SQLException e) {
-            // SurveyLog.logger.warning("Error in " + kind + "/" + loc + " _ " +
-            // e.toString());
-            // e.printStackTrace();
-            // }
-            // }
         }
     }
 
@@ -439,224 +396,15 @@ public class OutputFileManager {
         }
     }
 
+    /**
+     * TODO: delete dead code if there's no plan to resurrect it
+     *
+     * @param ctx
+     */
     public void doRaw(WebContext ctx) {
         ctx.println("raw not supported currently. ");
-        /*
-         * CLDRFile file = (CLDRFile)ctx.getByLocale(USER_FILE);
-         *
-         * ctx.println("<h3>Raw output of the locale's CLDRFile</h3>");
-         * ctx.println("<pre style='border: 2px solid olive; margin: 1em;'>");
-         *
-         * StringWriter sw = new StringWriter(); PrintWriter pw = new
-         * PrintWriter(sw); file.write(pw); String asString = sw.toString(); //
-         * fullBody = fullBody + "-------------" + "\n" + k + ".xml - " +
-         * displayName + "\n" + // hexXML.transliterate(asString); String asHtml
-         * = TransliteratorUtilities.toHTML.transliterate(asString);
-         * ctx.println(asHtml); ctx.println("</pre>");
-         */
     }
 
-    //
-    //
-    // private int doOutput(String kind) throws InternalError {
-    // boolean vetted=false;
-    // boolean resolved=false;
-    // boolean users=false;
-    // boolean translators=false;
-    // boolean sql = false;
-    // boolean data=false;
-    // String lastfile = null;
-    // String ourDate = SurveyMain.formatDate(); // canonical date
-    // int nrOutFiles = 0;
-    // if(kind.equals("sql")) {
-    // sql= true;
-    // } else if(kind.equals("xml")) {
-    // vetted = false;
-    // data=true;
-    // resolved = false;
-    // } else if(kind.equals("txml")) {
-    // vetted = false;
-    // data=true;
-    // resolved = false;
-    // } else if(kind.equals("vxml")) {
-    // vetted = true;
-    // data=true;
-    // resolved = false;
-    // } else if(kind.equals("rxml")) {
-    // vetted = true;
-    // data=true;
-    // resolved = true;
-    // } else if(kind.equals("users")) {
-    // users = true;
-    // } else if(kind.equals("usersa")) {
-    // users = true;
-    // } else if(kind.equals("translators")) {
-    // translators = true;
-    // } else {
-    // throw new IllegalArgumentException("unknown output: " + kind);
-    // }
-    // File outdir = new File(vetdir, kind);
-    // File voteDir = null;
-    // if(data) voteDir = new File(outdir, "votes");
-    // if(outdir.exists() && outdir.isDirectory() && !(isCacheableKind(kind))) {
-    // File backup = new File(vetdir, kind+".old");
-    //
-    // // delete backup
-    // if(backup.exists() && backup.isDirectory()) {
-    // File backupVoteDir = new File(backup, "votes");
-    // if(backupVoteDir.exists()) {
-    // File cachedBFiles[] = backupVoteDir.listFiles();
-    // if(cachedBFiles != null) {
-    // for(File f : cachedBFiles) {
-    // if(f.isFile()) {
-    // f.delete();
-    // }
-    // }
-    // }
-    // backupVoteDir.delete();
-    // }
-    // File cachedFiles[] = backup.listFiles();
-    // if(cachedFiles != null) {
-    // for(File f : cachedFiles) {
-    // if(f.isFile()) {
-    // f.delete();
-    // }
-    // }
-    // }
-    // if(!backup.delete()) {
-    // throw new InternalError("Can't delete backup: " +
-    // backup.getAbsolutePath());
-    // }
-    // }
-    //
-    // if(!outdir.renameTo(backup)) {
-    // throw new InternalError("Can't move outdir " + outdir.getAbsolutePath() +
-    // " to backup " + backup);
-    // }
-    // }
-    //
-    // if(!outdir.exists() && !outdir.mkdir()) {
-    // throw new InternalError("Can't create outdir " +
-    // outdir.getAbsolutePath());
-    // }
-    // if(voteDir!=null && !voteDir.exists() && !voteDir.mkdir()) {
-    // throw new InternalError("Can't create voteDir " +
-    // voteDir.getAbsolutePath());
-    // }
-    //
-    // SurveyLog.logger.warning("Writing " + kind);
-    // long lastTime = System.currentTimeMillis();
-    // long countStart = lastTime;
-    // if(sql) {
-    // throw new InternalError("Not supported: sql dump");
-    // } else if(users) {
-    // boolean obscured = kind.equals("usersa");
-    // File outFile = new File(outdir,kind+".xml");
-    // try {
-    // reg.writeUserFile(this, ourDate, obscured, outFile);
-    // } catch (IOException e) {
-    // e.printStackTrace();
-    // throw new InternalError("writing " + kind +
-    // " - IO Exception "+e.toString());
-    // }
-    // nrOutFiles++;
-    // } else if(translators) {
-    // File outFile = new File(outdir,"cldr-translators.txt");
-    // //Connection conn = null;
-    // try {
-    // writeTranslatorsFile(outFile);
-    // } catch (IOException e) {
-    // e.printStackTrace();
-    // throw new InternalError("writing " + kind +
-    // " - IO Exception "+e.toString());
-    // }
-    // nrOutFiles++;
-    // } else {
-    // File inFiles[] = getInFiles();
-    // int nrInFiles = inFiles.length;
-    // CLDRProgressTask progress = openProgress("writing " + kind, nrInFiles+1);
-    // try {
-    // nrOutFiles = writeDataFile(kind, vetted, resolved, ourDate,
-    // nrOutFiles, outdir, voteDir, lastTime, countStart,
-    // inFiles, nrInFiles, progress);
-    //
-    //
-    // } catch(SQLException se) {
-    // busted("Writing files:"+kind,se);
-    // throw new RuntimeException("Writing files:"+kind,se);
-    // } catch(IOException se) {
-    // busted("Writing files:"+kind,se);
-    // throw new RuntimeException("Writing files:"+kind,se);
-    // } finally {
-    // progress.close();
-    // }
-    // }
-    // SurveyLog.logger.warning("output: " + kind + " - DONE, files: " +
-    // nrOutFiles);
-    // return nrOutFiles;
-    // }
-    //
-    // /**
-    // * @param outFile
-    // * @return
-    // * @throws UnsupportedEncodingException
-    // * @throws FileNotFoundException
-    // */
-    // private int writeTranslatorsFile(File outFile)
-    // throws UnsupportedEncodingException, FileNotFoundException {
-    // Connection conn;
-    // conn = dbUtils.getDBConnection();
-    // PrintWriter out = new PrintWriter(
-    // new OutputStreamWriter(
-    // new FileOutputStream(outFile), "UTF8"));
-    // // ctx.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-    // // ctx.println("<!DOCTYPE ldml SYSTEM \"http://.../.../stusers.dtd\">");
-    // // ctx.println("<users host=\""+ctx.serverHostport()+"\">");
-    // String org = null;
-    // try { synchronized(reg) {
-    // java.sql.ResultSet rs = reg.list(org, conn);
-    // if(rs == null) {
-    // out.println("# No results");
-    // return 0;
-    // }
-    // while(rs.next()) {
-    // int theirId = rs.getInt(1);
-    // int theirLevel = rs.getInt(2);
-    // String theirName = DBUtils.getStringUTF8(rs, 3);//rs.getString(3);
-    // String theirEmail = rs.getString(4);
-    // String theirOrg = rs.getString(5);
-    // String theirLocales = rs.getString(6);
-    //
-    // if(theirLevel >= UserRegistry.LOCKED) {
-    // continue;
-    // }
-    //
-    // out.println(theirEmail);//+" : |NOPOST|");
-    // /*
-    // ctx.println("\t<user id=\""+theirId+"\" email=\""+theirEmail+"\">");
-    // ctx.println("\t\t<level n=\""+theirLevel+"\" type=\""+UserRegistry.levelAsStr(theirLevel)+"\"/>");
-    // ctx.println("\t\t<name>"+theirName+"</name>");
-    // ctx.println("\t\t<org>"+theirOrg+"</org>");
-    // ctx.println("\t\t<locales type=\"edit\">");
-    // String theirLocalesList[] = UserRegistry.tokenizeLocale(theirLocales);
-    // for(int i=0;i<theirLocalesList.length;i++) {
-    // ctx.println("\t\t\t<locale id=\""+theirLocalesList[i]+"\"/>");
-    // }
-    // ctx.println("\t\t</locales>");
-    // ctx.println("\t</user>");
-    // */
-    // }
-    // } } catch(SQLException se) {
-    // SurveyLog.logger.log(java.util.logging.Level.WARNING,"Query for org " +
-    // org + " failed: " + DBUtils.unchainSqlException(se),se);
-    // out.println("# Failure: " + DBUtils.unchainSqlException(se) + " -->");
-    // }finally {
-    // DBUtils.close(conn);
-    // }
-    // out.close();
-    // return 1;
-    //
-    // }
     public boolean doRawXml(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String s = request.getPathInfo();
 
@@ -694,8 +442,6 @@ public class OutputFileManager {
             } else if (s.startsWith(PXML_PREFIX)) {
                 finalData = true;
                 if (s.equals(PXML_PREFIX)) {
-                    // WebContext ctx = new WebContext(request,response);
-                    // response.sendRedirect(ctx.schemeHostPort()+ctx.base()+PXML_PREFIX+"/");
                     return true;
                 }
                 kind = "pxml";
@@ -1022,25 +768,15 @@ public class OutputFileManager {
             return;
 
         System.err.println("addPeriodicTask... updater");
-        final ScheduledFuture<?> myTask = SurveyMain.addPeriodicTask(new Runnable() {
-            int spinner = (int) Math.round(Math.random() * (double) SurveyMain.getLocales().length); // Start
-
-            // on
-            // a
-            // different
-            // locale
-            // each
-            // time.
+        SurveyMain.addPeriodicTask(new Runnable() {
+            // Start on a different locale each time.
+            int spinner = (int) Math.round(Math.random() * (double) SurveyMain.getLocales().length);
 
             @Override
             public void run() {
                 if (outputDisabled || SurveyMain.isBusted() || !SurveyMain.isSetup) {
                     return;
                 }
-                // System.err.println("spinner hot...ac="+SurveyThread.activeCount());
-                // if(SurveyThread.activeCount()>1) {
-                // return;
-                // }
 
                 final String CLDR_OUTPUT_ONLY = CldrUtility.getProperty("CLDR_OUTPUT_ONLY", null);
 

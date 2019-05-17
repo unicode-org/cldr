@@ -947,9 +947,7 @@ public class UserRegistry {
         return u;
     }
 
-    static SurveyMain sm = null; // static for static checking of
-
-    // defaultContent..
+    static SurveyMain sm = null; // static for static checking of defaultContent
 
     private UserRegistry(java.util.logging.Logger xlogger) {
         logger = xlogger;

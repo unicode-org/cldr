@@ -12,7 +12,6 @@ import java.util.TreeMap;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.DBUtils;
-import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.XPathTable;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -35,7 +34,7 @@ public class TestXPathTable extends TestFmwk {
     public void TestPutGet() throws SQLException {
         logln("Testing " + TEST_COUNT + " xpaths");
         Connection conn = DBUtils.getInstance().getDBConnection();
-        XPathTable xpt = XPathTable.createTable(conn, new SurveyMain());
+        XPathTable xpt = XPathTable.createTable(conn);
         DBUtils.closeDBConnection(conn);
         HashMap<Integer, String> s = new HashMap<Integer, String>();
         for (int i = 0; i < TEST_COUNT; i++) {
@@ -119,7 +118,7 @@ public class TestXPathTable extends TestFmwk {
 
     public void TestNonDistinguishing() throws SQLException {
         Connection conn = DBUtils.getInstance().getDBConnection();
-        XPathTable xpt = XPathTable.createTable(conn, new SurveyMain());
+        XPathTable xpt = XPathTable.createTable(conn);
         DBUtils.closeDBConnection(conn);
 
         String xpaths[] = {

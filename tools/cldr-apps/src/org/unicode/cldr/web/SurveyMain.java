@@ -459,12 +459,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     /**
-     * Servlet initializer
+     * Initialize servlet
+     *
+     * @param req
+     * @return the SurveyMain instance
      */
-
     public static SurveyMain getInstance(HttpServletRequest req) {
-        if (config == null)
+        if (config == null) {
             return null; // not initialized.
+        }
         return (SurveyMain) config.getServletContext().getAttribute(SurveyMain.class.getName());
     }
 
@@ -1434,9 +1437,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     /**
-     * 
+     *
      * @return
-     * 
+     *
      * Called by getSpecialHeader, and also called from v.jsp (but Eclipse won't show that in "Open call hierarchy" because it's jsp)
      */
     public String getSpecialHeaderText() {
@@ -1487,7 +1490,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     /**
-     * Progress bar width 
+     * Progress bar width
      */
     public static final int PROGRESS_WID = 100;
 
@@ -3098,11 +3101,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     /**
      * Do session.
-     * 
+     *
      * @param ctx
      * @throws IOException
      * @throws SurveyException
-     * 
+     *
      * Called only by doGet. Called when user logs in or logs out, also when choose Settings from gear menu.
      */
     public void doSession(WebContext ctx) throws IOException, SurveyException {
@@ -3617,7 +3620,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     /**
-     * 
+     *
      * @param ctx
      * @param baseContext
      * @param which
@@ -4167,7 +4170,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String QUERY_VALUE_SUFFIX = "_v";
 
     /**
-     * 
+     *
      * @return
      *
      * Called by doStartup only
@@ -4363,17 +4366,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             return checkCldr;
         }
     };
-
-    /**
-     * Any user of this should be within session sync
-     *
-     * @param ctx
-     * @return
-     */
-    UserLocaleStuff getOldUserFile(CookieSession session, CLDRLocale locale) {
-        UserLocaleStuff uf = (UserLocaleStuff) session.getByLocale(USER_FILE_KEY, locale.toString());
-        return uf;
-    }
 
     /**
      * Return the UserLocaleStuff for the current context. Any user of this
@@ -4625,11 +4617,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     /**
-     * 
+     *
      * @param ctx
      * @param xpath
      * @param pageId
-     * 
+     *
      * Called only by showLocale
      */
     private void showPathList(WebContext ctx, String xpath, PageId pageId) {
@@ -4656,57 +4648,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     /**
-     * parse the metazone list for this zone. Map will contain enries with key
-     * String and value String[3] of the form: from : { from, to, metazone } for
-     * example: "1970-01-01" : { "1970-01-01", "1985-03-08", "Australia_Central"
-     * } the 'to' will be null if it does not have an ending time.
-     *
-     * @param metaMap
-     *            an 'out' parameter which will be cleared, and populated with
-     *            the contents of the metazone
-     * @return the active metazone ( where to=null ) if any, or null
-     */
-    public String zoneToMetaZone(WebContext ctx, String zone, Map<String, String[]> metaMap) {
-        String current = null;
-        synchronized (ctx.session) { // TODO: redundant sync?
-            SurveyMain.UserLocaleStuff uf = ctx.getUserFile();
-            CLDRFile resolvedFile = uf.resolvedFile;
-
-            String xpath = "//ldml/" + "dates/timeZoneNames/zone";
-            String ourSuffix = "[@type=\"" + zone + "\"]";
-            String podBase = DataSection.xpathToSectionBase(xpath);
-
-            metaMap.clear();
-
-            Iterator<String> mzit = resolvedFile.iterator(podBase + ourSuffix + "/usesMetazone");
-
-            for (; mzit.hasNext();) {
-                String ameta = (String) mzit.next();
-                String mfullPath = resolvedFile.getFullXPath(ameta);
-                XPathParts parts = XPathParts.getFrozenInstance(mfullPath);
-                String mzone = parts.getAttributeValue(-1, "mzone");
-                String from = parts.getAttributeValue(-1, "from");
-                if (from == null) {
-                    from = METAZONE_EPOCH;
-                }
-                String to = parts.getAttributeValue(-1, "to");
-                String contents[] = { from, to, mzone };
-                metaMap.put(from, contents);
-
-                if (to == null) {
-                    current = mzone;
-                }
-            }
-        }
-        return current;
-    }
-
-    /**
      * for showing the list of zones to the user
      */
 
     public void showTimeZones(WebContext ctx) {
-        String zone = ctx.field(QUERY_ZONE);
+        // String zone = ctx.field(QUERY_ZONE);
         showPathList(ctx, DataSection.EXEMPLAR_PARENT, null, false);
     }
 
@@ -5036,7 +4982,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             try {
                 // spin up the gears
                 /*
-                 * TODO: delete this unless it has required side-effects. Formerly assigned to unused variable dcParent. 
+                 * TODO: delete this unless it has required side-effects. Formerly assigned to unused variable dcParent.
                  */
                 getSupplementalDataInfo().getBaseFromDefaultContent(CLDRLocale.getInstance("mt_MT"));
             } catch (InternalError ie) {
@@ -5864,7 +5810,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             }
             progress.update("Create XPT"); // restore
             try {
-                xpt = XPathTable.createTable(dbUtils.getDBConnection(), this);
+                xpt = XPathTable.createTable(dbUtils.getDBConnection());
             } catch (SQLException e) {
                 busted("On XPathTable startup", e);
                 return;

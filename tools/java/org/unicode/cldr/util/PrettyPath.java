@@ -18,6 +18,7 @@ import com.ibm.icu.text.Transliterator;
 
 /**
  * @deprecated
+ * TODO: what is supposed to replace PrettyPath? If no replacement is planned, make it no longer deprecated?
  */
 public class PrettyPath {
     private Transliterator prettyPathZoneTransform;

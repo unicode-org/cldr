@@ -920,7 +920,7 @@ public class TestSTFactory extends TestFmwk {
             logln(et0.toString());
 
             et0 = new ElapsedTimer("setup XPT");
-            sm.xpt = XPathTable.createTable(conn, sm);
+            sm.xpt = XPathTable.createTable(conn);
             sm.xpt.getByXpath("//foo/bar[@type='baz']");
             logln(et0.toString());
             et0 = new ElapsedTimer("close connection");

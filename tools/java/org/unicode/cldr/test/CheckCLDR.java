@@ -347,8 +347,14 @@ abstract public class CheckCLDR {
     public static final class Options implements Comparable<Options> {
 
         public enum Option {
-            locale, CoverageLevel_requiredLevel("CoverageLevel.requiredLevel"), CoverageLevel_localeType(
-                "CoverageLevel.localeType"), SHOW_TIMES, phase, lgWarningCheck, CheckCoverage_skip("CheckCoverage.skip"), exemplarErrors;
+            locale,
+            CoverageLevel_requiredLevel("CoverageLevel.requiredLevel"),
+            CoverageLevel_localeType("CoverageLevel.localeType"),
+            SHOW_TIMES,
+            phase,
+            lgWarningCheck,
+            CheckCoverage_skip("CheckCoverage.skip"),
+            exemplarErrors;
 
             private String key;
 
@@ -482,6 +488,14 @@ abstract public class CheckCLDR {
             return CLDRLocale.getInstance(get(Option.locale));
         }
 
+        /**
+         * Get the required coverage level for the specified locale, for this CheckCLDR object.
+         *
+         * @param localeID
+         * @return the Level
+         *
+         * Called by CheckCoverage.setCldrFileToCheck and CheckDates.setCldrFileToCheck
+         */
         public Level getRequiredLevel(String localeID) {
             Level result;
             // see if there is an explicit level
@@ -492,7 +506,8 @@ abstract public class CheckCLDR {
                     return result;
                 }
             }
-            // otherwise, see if there is an organization level
+            // otherwise, see if there is an organization level for the "Cldr" organization.
+            // This is not user-specific.
             return sc.getLocaleCoverageLevel("Cldr", localeID);
         }
 
@@ -1126,21 +1141,6 @@ abstract public class CheckCLDR {
     }
 
     /**
-     * @deprecated use {@link #getExamples(String, String, String, Options, List)}
-     * @param path
-     * @param fullPath
-     * @param value
-     * @param options
-     * @param result
-     * @return
-     */
-    @Deprecated
-    public final CheckCLDR getExamples(String path, String fullPath, String value, Map<String, String> options,
-        List<CheckStatus> result) {
-        return getExamples(path, fullPath, value, new Options(options), result);
-    }
-
-    /**
      * Returns any examples in the result parameter. Both examples and demos can
      * be returned. A demo will have getType() == CheckStatus.demoType. In that
      * case, there will be no getMessage or getHTMLMessage available; instead,
@@ -1333,8 +1333,6 @@ abstract public class CheckCLDR {
         }
     }
 
-    // static Transliterator prettyPath = getTransliteratorFromFile("ID", "prettyPath.txt");
-
     public static Transliterator getTransliteratorFromFile(String ID, String file) {
         try {
             BufferedReader br = CldrUtility.getUTF8Data(file);
@@ -1394,7 +1392,9 @@ abstract public class CheckCLDR {
      */
     private boolean shouldExcludeStatus(String xpath, CheckStatus status) {
         List<Pattern> xpathPatterns = filtersForLocale.get(status.getSubtype());
-        if (xpathPatterns == null) return false;
+        if (xpathPatterns == null) {
+            return false;
+        }
         for (Pattern xpathPattern : xpathPatterns) {
             if (xpathPattern.matcher(xpath).matches()) {
                 return true;

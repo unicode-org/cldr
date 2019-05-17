@@ -48,6 +48,9 @@ public class CookieSession {
     public UserRegistry.User user = null;
     /**
      * @deprecated need to refactor anything that uses this.
+     * TODO: refactor how?? One possibility: "sm = SurveyMain.getInstance(request)" as in
+     * SurveyAjax.processRequest, which requires the HttpServletRequest.
+     * Another possibility: WebContext.sm (not static; e.g. "ctx.sm")
      */
     public static SurveyMain sm = null;
 
@@ -442,64 +445,6 @@ public class CookieSession {
                 put("locales", l);
             }
             return l;
-        }
-    }
-
-    /**
-     * Pull an object out of the session according to key and locale
-     *
-     * @param key
-     *            key to use
-     * @param aLocale
-     *            locale to fetch by
-     * @return the object, or null if not found
-     */
-    public final Object getByLocale(String key, String aLocale) {
-        synchronized (stuff) {
-            Hashtable<String, Object> f = getLocales().get(aLocale);
-            if (f != null) {
-                return f.get(key);
-            } else {
-                return null;
-            }
-        }
-    }
-
-    /**
-     * Store an object into the session according to key and locale
-     *
-     * @param key
-     *            key to use
-     * @param aLocale
-     *            locale to store by
-     * @param value
-     *            object value
-     */
-    public void putByLocale(String key, String aLocale, Object value) {
-        synchronized (stuff) {
-            Hashtable<String, Object> f = getLocales().get(aLocale);
-            if (f == null) {
-                f = new Hashtable<String, Object>();
-                getLocales().put(aLocale, f);
-            }
-            f.put(key, value);
-        }
-    }
-
-    /**
-     * remove an object from the session according to key and locale
-     *
-     * @param key
-     *            key to use
-     * @param aLocale
-     *            locale to store by
-     */
-    public final void removeByLocale(String key, String aLocale) {
-        synchronized (stuff) {
-            Hashtable<String, Object> f = getLocales().get(aLocale);
-            if (f != null) {
-                f.remove(key);
-            }
         }
     }
 

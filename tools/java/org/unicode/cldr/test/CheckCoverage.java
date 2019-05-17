@@ -53,14 +53,14 @@ public class CheckCoverage extends FactoryCheckCLDR {
     public CheckCLDR handleCheck(String path, String fullPath, String value,
         Options options, List<CheckStatus> result) {
 
-//        if (path.startsWith("//ldml/characters/parseLenients")) {
-//            int debug = 0;
-//        }
-
-        if (isSkipTest()) return this;
+        if (isSkipTest()) {
+            return this;
+        }
 
         CLDRFile resolvedCldrFileToCheck = getResolvedCldrFileToCheck();
-        if (resolvedCldrFileToCheck.isPathExcludedForSurvey(path)) return this;
+        if (resolvedCldrFileToCheck.isPathExcludedForSurvey(path)) {
+            return this;
+        }
 
         // skip if we are not the winning path
         if (!resolvedCldrFileToCheck.isWinningPath(path)) {
@@ -101,7 +101,9 @@ public class CheckCoverage extends FactoryCheckCLDR {
         // check to see if the level is good enough
         Level level = coverageLevel != null ? coverageLevel.getLevel(path) : Level.UNDETERMINED;
 
-        if (level == Level.UNDETERMINED) return this; // continue if we don't know what the status is
+        if (level == Level.UNDETERMINED) {
+            return this; // continue if we don't know what the status is
+        }
         if (requiredLevel.compareTo(level) >= 0) {
             CheckStatus.Type coverageErrorType = CheckStatus.warningType;
             if (this.getPhase().equals(CheckCLDR.Phase.VETTING)) {

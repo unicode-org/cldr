@@ -277,7 +277,6 @@ public class SurveyForum {
      * TODO: clarify whether this 113-line function doForum is ever actually executed. It doesn't seem to be.
      */
     void doForum(WebContext ctx, String sessionMessage) throws IOException, SurveyException {
-        /* OK, let's see what we are doing here. */
         String forum = ctx.field(F_FORUM);
         String msg = null;
         int base_xpath = ctx.fieldInt(F_XPATH);
@@ -658,7 +657,7 @@ public class SurveyForum {
                             String text2 = (String) o[i][2];
                             Timestamp lastDate = (Timestamp) o[i][3];
                             final int id = (Integer) o[i][4];
-                            final int parent = (Integer) o[i][5];
+                            // final int parent = (Integer) o[i][5];
 
                             if (lastDate.after(oldOnOrBefore) || false) {
                                 showPost(ctx, forum, poster, subj2, text2, id, lastDate, ctx.getLocale(), base_xpath);
@@ -845,99 +844,6 @@ public class SurveyForum {
         }
     }
 
-    public static String showXpath(WebContext baseCtx, String section_xpath, int item_xpath) {
-        CLDRLocale loc = baseCtx.getLocale();
-        WebContext ctx = new WebContext(baseCtx);
-        ctx.setLocale(loc);
-        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user, ctx.getLocale()));
-        String podBase = DataSection.xpathToSectionBase(section_xpath);
-        baseCtx.sm.printPathListOpen(ctx);
-
-        DataSection section = ctx.getSection(podBase);
-
-        DataSection.printSectionTableOpen(ctx, section, true, canModify);
-        section.showSection(ctx, canModify, ctx.sm.xpt.getById(item_xpath));
-        baseCtx.sm.printSectionTableClose(ctx, section, canModify);
-        baseCtx.sm.printPathListClose(ctx);
-
-        return podBase;
-    }
-
-    /**
-     *
-     * @param ctx
-     *            the current web context
-     * @param baseXpath
-     *            the xpath of one of the items being submitted
-     * @return true if no errors were detected, otherwise false.
-     * @deprecated
-     */
-    public static SummarizingSubmissionResultHandler processDataSubmission(WebContext ctx, String baseXpath) {
-        return processDataSubmission(ctx, baseXpath, null);
-    }
-
-    /**
-     *
-     * @param ctx
-     *            the current web context
-     * @param baseXpath
-     *            the xpath of one of the items being submitted
-     * @param ssrh
-     *            ResultHandler, if null one will be created.
-     * @return true if no errors were detected, otherwise false.
-     * @deprecated
-     */
-    public static SummarizingSubmissionResultHandler processDataSubmission(WebContext ctx, String baseXpath,
-        SummarizingSubmissionResultHandler ssrh) {
-        if (ssrh == null) {
-            ssrh = new SummarizingSubmissionResultHandler();
-        }
-        return ssrh;
-    }
-
-    public static void printSectionTableOpenShort(WebContext ctx, String base_xpath) {
-        DataSection section = null;
-        if (base_xpath != null) {
-            String podBase = DataSection.xpathToSectionBase(base_xpath);
-            section = ctx.getSection(podBase);
-        }
-        SurveyMain.printSectionTableOpenShort(ctx, section);
-    }
-
-    public static void printSectionTableCloseShort(WebContext ctx, String base_xpath) {
-        DataSection section = null;
-        if (base_xpath != null) {
-            String podBase = DataSection.xpathToSectionBase(base_xpath);
-            section = ctx.getSection(podBase);
-        }
-        ctx.sm.printSectionTableClose(ctx, section, true);
-    }
-
-    /**
-     * @param baseCtx
-     * @param section_xpath
-     * @param item_xpath
-     * @return pod base used
-     */
-    public static String showXpathShort(WebContext baseCtx, String section_xpath, int item_xpath) {
-        String base_xpath = section_xpath;
-        CLDRLocale loc = baseCtx.getLocale();
-        WebContext ctx = new WebContext(baseCtx);
-        ctx.setLocale(loc);
-        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user, ctx.getLocale()));
-
-        ctx.put(WebContext.CAN_MODIFY, canModify);
-        ctx.put(WebContext.ZOOMED_IN, true);
-        String podBase = DataSection.xpathToSectionBase(base_xpath);
-        DataSection section = ctx.getSection(podBase);
-        section.showDataRowsShort(ctx, item_xpath);
-        return podBase;
-    }
-
-    public static String showXpathShort(WebContext baseCtx, String section_xpath, String item_xpath) {
-        return showXpathShort(baseCtx, section_xpath, baseCtx.sm.xpt.getByXpath(item_xpath));
-    }
-
     /**
      * Get resolved CLDR File
      */
@@ -958,17 +864,6 @@ public class SurveyForum {
         CLDRLocale loc = baseCtx.getLocale();
         WebContext ctx = new WebContext(baseCtx);
         ctx.setLocale(loc);
-        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user, ctx.getLocale()));
-        if (false && canModify) {
-            /* hidden fields for that */
-            // ctx.println("<input type='hidden' name='"+F_FORUM+"' value='"+ctx.locale.getLanguage()+"'>");
-            // ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
-            // ctx.println("<input type='hidden' name='_' value='"+loc+"'>");
-
-            // ctx.println("<input type='submit' value='" +
-            // ctx.sm.getSaveButtonText() + "'>"); //style='float:right'
-
-        }
     }
 
     public void showXpath(WebContext baseCtx, String xpath, int base_xpath, CLDRLocale locale) {

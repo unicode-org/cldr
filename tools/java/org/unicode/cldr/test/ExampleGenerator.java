@@ -222,7 +222,8 @@ public class ExampleGenerator {
         this.verboseErrors = verbosity;
     }
 
-    // private String creationTime = null;
+    private static final boolean DEBUG_EXAMPLE_GENERATOR = false;
+    private String creationTime = null; // only used if DEBUG_EXAMPLE_GENERATOR
 
     /**
      * Create an Example Generator. If this is shared across threads, it must be synchronized.
@@ -231,10 +232,14 @@ public class ExampleGenerator {
      * @param supplementalDataDirectory
      */
     public ExampleGenerator(CLDRFile resolvedCldrFile, CLDRFile englishFile, String supplementalDataDirectory) {
-        if (!resolvedCldrFile.isResolved()) throw new IllegalArgumentException("CLDRFile must be resolved");
-        if (!englishFile.isResolved()) throw new IllegalArgumentException("English CLDRFile must be resolved");
-        cldrFile = resolvedCldrFile;
-        subdivisionIdToName = EmojiSubdivisionNames.getSubdivisionIdToName(cldrFile.getLocaleID());
+        if (!resolvedCldrFile.isResolved()) {
+            throw new IllegalArgumentException("CLDRFile must be resolved");
+        }
+        if (!englishFile.isResolved()) {
+            throw new IllegalArgumentException("English CLDRFile must be resolved");
+        }
+        this.cldrFile = resolvedCldrFile;
+        this.subdivisionIdToName = EmojiSubdivisionNames.getSubdivisionIdToName(cldrFile.getLocaleID());
         this.englishFile = englishFile;
         synchronized (ExampleGenerator.class) {
             if (supplementalDataInfo == null) {
@@ -245,8 +250,10 @@ public class ExampleGenerator {
 
         pluralInfo = supplementalDataInfo.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
         
-        // creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
-        // System.out.println("🧞‍ Created new ExampleGenerator for loc " + cldrFile.getLocaleID() + " at " + creationTime);
+        if (DEBUG_EXAMPLE_GENERATOR) {
+            creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
+            System.out.println("🧞‍ Created new ExampleGenerator for loc " + cldrFile.getLocaleID() + " at " + creationTime);
+        }
     }
 
     public enum ExampleType {
@@ -419,7 +426,7 @@ public class ExampleGenerator {
             String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, "FR");
             String regionName = cfile.getStringValue(path);
             String flagName = cfile.getStringValue("//ldml/characterLabels/characterLabel[@type=\"flag\"]");
-            examples.add(invertBackground(EmojiConstants.getEmojiFromRegionCodes("FR") 
+            examples.add(invertBackground(EmojiConstants.getEmojiFromRegionCodes("FR")
                 + " ⇒ " + initialPattern.format(flagName, regionName)));
             return formatExampleList(examples);
         default:
@@ -442,7 +449,7 @@ public class ExampleGenerator {
             addSubdivisionFlag(value2, "gbwls", initialPattern, examples);
             return formatExampleList(examples);
         }
-        case "keycap": { 
+        case "keycap": {
             String value2 = backgroundStartSymbol + value + backgroundEndSymbol;
             List<String> examples = new ArrayList<>();
             CLDRFile cfile = getCldrFile();
@@ -460,7 +467,7 @@ public class ExampleGenerator {
     private void addFlag(String value2, String isoRegionCode, CLDRFile cfile, SimpleFormatter initialPattern, List<String> examples) {
         String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, isoRegionCode);
         String regionName = cfile.getStringValue(path);
-        examples.add(invertBackground(EmojiConstants.getEmojiFromRegionCodes(isoRegionCode) 
+        examples.add(invertBackground(EmojiConstants.getEmojiFromRegionCodes(isoRegionCode)
             + " ⇒ " + initialPattern.format(value2, regionName)));
     }
 
@@ -469,7 +476,7 @@ public class ExampleGenerator {
         if (subdivisionName == null) {
             subdivisionName = isoSubdivisionCode;
         }
-        examples.add(invertBackground(EmojiConstants.getEmojiFromSubdivisionCodes(isoSubdivisionCode) 
+        examples.add(invertBackground(EmojiConstants.getEmojiFromSubdivisionCodes(isoSubdivisionCode)
             + " ⇒ " + initialPattern.format(value2, subdivisionName)));
     }
 
@@ -536,11 +543,11 @@ public class ExampleGenerator {
         for (String component : components) {
             names[i++] = getEmojiName(cfile, component);
         }
-        return backgroundStartSymbol + sourceEmoji + " ⇒ " + initialPattern.format(value2, 
+        return backgroundStartSymbol + sourceEmoji + " ⇒ " + initialPattern.format(value2,
             longListPatternExample(EmojiConstants.COMPOSED_NAME_LIST.getPath(), "n/a", "n/a2", names));
     }
 
-    private void formatPeople(CLDRFile cfile, int first, boolean isSkin, String value2, String person, String skin, String skinName, 
+    private void formatPeople(CLDRFile cfile, int first, boolean isSkin, String value2, String person, String skin, String skinName,
         String hair, String hairName, SimpleFormatter initialPattern, SimpleFormatter listPattern, Collection<String> examples) {
         String cp;
         String personName = getEmojiName(cfile, person);

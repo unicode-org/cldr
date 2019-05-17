@@ -62,25 +62,13 @@ public class XPathTable {
      * @param ourConn
      *            the conn to use
      */
-    public static XPathTable createTable(Connection ourConn, SurveyMain sm) throws SQLException {
+    public static XPathTable createTable(Connection ourConn) throws SQLException {
         try {
             boolean isNew = !DBUtils.hasTable(ourConn, CLDR_XPATHS);
             XPathTable reg = new XPathTable();
-            reg.sm = sm;
             if (isNew) {
                 reg.setupDB();
             }
-
-            if (false && !sm.isUnofficial()) { // precache
-                int n = 0;
-                ElapsedTimer et = new ElapsedTimer("Load all xpaths..");
-                for (String xpath : sm.getBaselineFile()) {
-                    reg.getByXpath(xpath, ourConn);
-                    n++;
-                }
-                SurveyLog.logger.warning(et + " (" + n + " xpaths from " + sm.BASELINE_ID + ") " + reg.statistics());
-            }
-
             reg.loadXPaths(ourConn);
 
             return reg;
@@ -160,13 +148,11 @@ public class XPathTable {
         }
     }
 
-    SurveyMain sm = null;
-    //    public Hashtable<String, String> xstringHash = new Hashtable<String, String>(4096); // public for statistics only
     public Hashtable<String, Integer> stringToId = new Hashtable<String, Integer>(4096); // public for statistics only
     public Hashtable<Long, String> sidToString = new Hashtable<Long, String>(4096); // public for statistics only
 
     public String statistics() {
-        return /*"xstringHash has " + xstringHash.size() + " items.  "+*/"DB: " + stat_dbAdd + "add/" + stat_dbFetch + "fetch/"
+        return "DB: " + stat_dbAdd + "add/" + stat_dbFetch + "fetch/"
             + (stat_dbAdd + stat_dbFetch) + "total." + "-" + idStats();
     }
 

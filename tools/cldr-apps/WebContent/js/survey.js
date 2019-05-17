@@ -3308,7 +3308,8 @@ function addImportVotesFooter(voteTableDiv, voteList, mainCategories) {
 function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
 	showLoader(tr.theTable.theDiv.loader,stui.loadingOneRow);
 	// vHash not used.
-    var ourUrl = contextPath + "/RefreshRow.jsp?what="+WHAT_GETROW+"&xpath="+theRow.xpathId +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+/*"&vhash="+vHash+*/"&s="+tr.theTable.session +"&json=t&automatic=t";
+	// TODO: other getrow requests use surveySessionId; here we use tr.theTable.session; same?
+    var ourUrl = contextPath + "/SurveyAjax?what="+WHAT_GETROW+"&_="+surveyCurrentLocale+"&xpath="+theRow.xpathId +"&fhash="+tr.rowHash+"&s="+tr.theTable.session +"&automatic=t";
 
     if(isDashboard()) {
     	ourUrl += "&dashboard=true";

@@ -226,8 +226,8 @@ function toggleFix(event) {
     var isPopover = button.parent().find('.popover').length === 1;
 	$('button.fix').popover('destroy');
 	toggleOverlay();
-	if(!isPopover) {
-	    var url = contextPath + "/RefreshRow.jsp?what="+WHAT_GETROW+"&json=t&_="+surveyCurrentLocale+"&s="+surveySessionId+"&xpath="+tr.data('path')+"&strid="+surveyCurrentId+cacheKill()+"&dashboard=true";
+	if (!isPopover) {
+	    var url = contextPath + "/SurveyAjax?what="+WHAT_GETROW+"&_="+surveyCurrentLocale+"&s="+surveySessionId+"&xpath="+tr.data('path')+"&strid="+surveyCurrentId+cacheKill()+"&dashboard=true";
 	    myLoad(url, "section", function(json) {
 	    			isLoading=false;
 	    			theDiv = document.createElement("div");

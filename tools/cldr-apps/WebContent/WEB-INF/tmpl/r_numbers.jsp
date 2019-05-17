@@ -2,11 +2,5 @@
 
 <p> Enter the character used as the decimal separator.</p>
 
-<%
-subCtx.openTable(); 
-
-subCtx.showXpath( "//ldml/numbers/symbols/decimal");
-
-SurveyForum.printSectionTableCloseShort(subCtx, "//ldml/numbers/symbols/decimal");
-
-%>
+TODO: is this file r_numbers.jsp still used for anything? If so, document; if not, delete.
+See previous revision if old content needs to be restored.

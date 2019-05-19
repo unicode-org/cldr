@@ -809,17 +809,30 @@ public class VoteResolver<T> {
     private final Comparator<T> votesThenUcaCollator = new Comparator<T>() {
         Collator col = Collator.getInstance(ULocale.ENGLISH);
 
+        /**
+         * Compare candidate items by vote count, highest vote first.
+         * In the case of ties, favor (a) the baseline (trunk) value,
+         * then (b) votes for inheritance (INHERITANCE_MARKER),
+         * then (c) the alphabetical order (as a last resort).
+         *
+         * Return negative to favor o1, positive to favor o2.
+         */
         public int compare(T o1, T o2) {
             long v1 = organizationToValueAndVote.totalVotes.get(o1);
             long v2 = organizationToValueAndVote.totalVotes.get(o2);
             if (v1 != v2) {
-                return v1 < v2 ? 1 : -1; // use reverse order, biggest first!
+                return v1 < v2 ? 1 : -1; // highest vote first
             }
-            //return 1;
-            /* if(organizationToValueAndVote.totalVotes.getTime(o1) > organizationToValueAndVote.totalVotes.getTime(o2)){
+            if (o1.equals(trunkValue)) {
+                return -1;
+            } else if (o2.equals(trunkValue)) {
                 return 1;
             }
-            return -1;*/
+            if (o1.equals(CldrUtility.INHERITANCE_MARKER)) {
+                return -1;
+            } else if (o2.equals(CldrUtility.INHERITANCE_MARKER)) {
+                return 1;
+            }
             return col.compare(String.valueOf(o1), String.valueOf(o2));
         }
     };

@@ -313,18 +313,18 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestCompoundUnit() {
         String[][] tests = { 
-            { "per", "LONG", "one", "〖❬1 meter❭ per ❬second❭〗" },
-            { "per", "SHORT", "one", "〖❬1 m❭/❬sec❭〗" },
-            { "per", "NARROW", "one", "〖❬1m❭/❬s❭〗" },
-            { "per", "LONG", "other", "〖❬1.5 meters❭ per ❬second❭〗" },
-            { "per", "SHORT", "other", "〖❬1.5 m❭/❬sec❭〗" },
-            { "per", "NARROW", "other", "〖❬1.5m❭/❬s❭〗" }, 
-            { "times", "LONG", "one", "〖❬1 newton❭⋅❬meter❭〗" },
-            { "times", "SHORT", "one", "〖❬1 N❭⋅❬m❭〗" },
-            { "times", "NARROW", "one", "〖❬1N❭⋅❬m❭〗" },
-            { "times", "LONG", "other", "〖❬1.5 newton❭⋅❬meters❭〗" },
-            { "times", "SHORT", "other", "〖❬1.5 N❭⋅❬m❭〗" },
-            { "times", "NARROW", "other", "〖❬1.5N❭⋅❬m❭〗" }, 
+            { "per", "LONG", "one", "〖❬1.00 meter❭ per ❬second❭〗" },
+            { "per", "SHORT", "one", "〖❬1.00 m❭/❬sec❭〗" },
+            { "per", "NARROW", "one", "〖❬1.00m❭/❬s❭〗" },
+            { "per", "LONG", "other", "〖❬1.50 meters❭ per ❬second❭〗" },
+            { "per", "SHORT", "other", "〖❬1.50 m❭/❬sec❭〗" },
+            { "per", "NARROW", "other", "〖❬1.50m❭/❬s❭〗" }, 
+            { "times", "LONG", "one", "〖❬1.00 newton❭⋅❬meter❭〗" },
+            { "times", "SHORT", "one", "〖❬1.00 N❭⋅❬m❭〗" },
+            { "times", "NARROW", "one", "〖❬1.00N❭⋅❬m❭〗" },
+            { "times", "LONG", "other", "〖❬1.50 newton❭⋅❬meters❭〗" },
+            { "times", "SHORT", "other", "〖❬1.50 N❭⋅❬m❭〗" },
+            { "times", "NARROW", "other", "〖❬1.50N❭⋅❬m❭〗" }, 
             };
         checkCompoundUnits("en", tests);
         // reenable these after Arabic has meter translated

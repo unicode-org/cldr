@@ -4248,6 +4248,9 @@ for derived annotations.
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
+            <compoundUnit type="times">
+                <compoundUnitPattern>{0}⋅{1}</compoundUnitPattern>
+            </compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>g-force</displayName>
 				<unitPattern count="other">{0} G</unitPattern>

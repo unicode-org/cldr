@@ -1,0 +1,91 @@
+# Everywhere
+.DS_Store
+
+# /
+/.project
+/.classpath
+
+# /common/
+/common/.project
+
+# /common/collation/
+/common/collation/und*.xml
+
+# /common/main/
+/common/main/und*.xml
+
+# /seed/
+/seed/.project
+
+# /tools/
+/tools/dist
+
+# /tools/SurveyConsole/
+/tools/SurveyConsole/build
+/tools/SurveyConsole/push.*
+/tools/SurveyConsole/.settings
+
+# /tools/SurveyConsole/WebContent/js/
+/tools/SurveyConsole/WebContent/js/surveyconfig.js
+
+# /tools/SurveyConsole/WebContent/js/dojo/
+/tools/SurveyConsole/WebContent/js/dojo/build-report.txt
+/tools/SurveyConsole/WebContent/js/dojo/dijit
+/tools/SurveyConsole/WebContent/js/dojo/dojox
+/tools/SurveyConsole/WebContent/js/dojo/dojo-release-*
+
+# /tools/cldr-apps/
+/tools/cldr-apps/cldr_db_test
+/tools/cldr-apps/build
+/tools/cldr-apps/derby.log
+/tools/cldr-apps/build.properties
+/tools/cldr-apps/cldr-apps.war
+/tools/cldr-apps/doc
+/tools/cldr-apps/cldr-apps-docs.jar
+/tools/cldr-apps/nbbuild
+/tools/cldr-apps/dist
+/tools/cldr-apps/testing_cldr_home
+/tools/cldr-apps/cldr-apps.jar
+
+# /tools/cldr-apps/WebContent/
+/tools/cldr-apps/WebContent/Thumbs.db
+/tools/cldr-apps/WebContent/srl.jsp
+/tools/cldr-apps/WebContent/*.esproj
+
+# /tools/cldr-apps/WebContent/WEB-INF/tmpl/
+/tools/cldr-apps/WebContent/WEB-INF/tmpl/r_srltest.jsp
+
+# /tools/cldr-apps/WebContent/js/special/
+/tools/cldr-apps/WebContent/js/special/srl.js
+
+# /tools/cldr-apps-watcher/
+/tools/cldr-apps-watcher/*.esproj
+/tools/cldr-apps-watcher/node_modules
+/tools/cldr-apps-watcher/loopy.sh
+
+# /tools/cldr-unittest/
+/tools/cldr-unittest/build.properties
+/tools/cldr-unittest/build
+
+# /tools/dist.conf/
+/tools/dist.conf/distExcludes.txt
+
+# /tools/java/
+/tools/java/classes
+/tools/java/*.jar
+/tools/java/build.properties
+/tools/java/out
+/tools/java/build
+/tools/java/dist
+/tools/java/.build.properties.swp
+/tools/java/doc
+
+# /tools/java/org/unicode/cldr/icu/
+/tools/java/org/unicode/cldr/icu/Result.java
+/tools/java/org/unicode/cldr/icu/Test.java
+/tools/java/org/unicode/cldr/icu/TestStax.java
+/tools/java/org/unicode/cldr/icu/XPathMatcherTree.java
+
+# /tools/scripts/build/bin-build/
+/tools/scripts/build/bin-build/stbitten-env.sh
+/tools/scripts/build/bin-build/config.ini

@@ -3,7 +3,6 @@
 		<!-- copied from cldr/tools/java's build.xml -->
 		<tstamp />
 		<property name="src.dir" value="src" />
-		<!-- <property name="libs.dir" value="WebContent/WEB-INF/lib"/> -->
 
 		<property name="build.dir" value="build/classes" />
 		<property name="log.dir" value="build/logs" />
@@ -12,7 +11,6 @@
 		<property name="cldr.datacheck.log" value="${log.dir}/datacheck.log" />
 		<property name="cldr.datacheck.result" value="${log.dir}/datacheck.result" />
 		<property name="jar.file" value="cldr-unittest.jar" />
-		<property name="libs.dir" value="libs" />
 		<property name="jarSrc.file" value="cldr-unittest-src.jar" />
 		<property name="jarDocs.file" value="cldr-unittest-docs.jar" />
 		<property name="doc.dir" value="doc" />
@@ -44,9 +42,6 @@
 		<path id="project.class.path">
 			<pathelement path="${java.class.path}/" />
 			<pathelement path="${build.dir}" />
-			<fileset dir="${libs.dir}">
-				<include name="**/*.jar" />
-			</fileset>
 			<pathelement path="${CLDR_TOOLS}/classes" />
 			<fileset dir="${CLDR_TOOLS}/libs" includes="*.jar" /> <!-- all libs -->
 		</path>

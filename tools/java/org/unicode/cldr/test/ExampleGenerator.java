@@ -360,8 +360,7 @@ public class ExampleGenerator {
             } else if (parts.contains("currencyFormats") && parts.contains("unitPattern")) {
                 result = formatCountValue(xpath, parts, value, context, type);
             } else if (parts.getElement(-2).equals("compoundUnit")) {
-                String count = CldrUtility.ifNull(parts.getAttributeValue(-1, "count"), "other");
-                result = handleCompoundUnit(getUnitLength(parts), Count.valueOf(count));
+                result = handleCompoundUnit(parts);
             } else if (parts.getElement(-1).equals("unitPattern")) {
                 String count = parts.getAttributeValue(-1, "count");
                 result = handleFormatUnit(Count.valueOf(count), value);
@@ -605,7 +604,14 @@ public class ExampleGenerator {
         return format(value, backgroundStartSymbol + numberFormat.format(amount) + backgroundEndSymbol);
     }
 
-    public String handleCompoundUnit(UnitLength unitLength, Count count) {
+    public String handleCompoundUnit(XPathParts parts) {
+        UnitLength unitLength = getUnitLength(parts);
+        String compoundType = parts.getAttributeValue(-2, "type");
+        Count count = Count.valueOf(CldrUtility.ifNull(parts.getAttributeValue(-1, "count"), "other"));
+        return handleCompoundUnit(unitLength, compoundType, count);
+    }
+
+    public String handleCompoundUnit(UnitLength unitLength, String compoundType, Count count) {
         /**
          *  <units>
         <unitLength type="long">
@@ -632,15 +638,38 @@ public class ExampleGenerator {
         if (amount == null) {
             return "n/a";
         }
-        String unit1 = backgroundStartSymbol + getFormattedUnit("length-meter", unitLength, amount) + backgroundEndSymbol;
-        String unit2 = backgroundStartSymbol + getFormattedUnit("duration-second", unitLength, new FixedDecimal(1d, 0), "").trim() + backgroundEndSymbol;
+        FixedDecimal oneValue = new FixedDecimal(1d, 0);
+
+        String unit1mid;
+        String unit2mid;
+        switch (compoundType) {
+        default:
+            return "n/a";
+        case "per":
+            unit1mid = getFormattedUnit("length-meter", unitLength, amount);
+            unit2mid = getFormattedUnit("duration-second", unitLength, oneValue, "");
+            break;
+        case "times":
+            unit1mid = getFormattedUnit("force-newton", unitLength, oneValue, icuServiceBuilder.getNumberFormat(1).format(amount));
+            unit2mid = getFormattedUnit("length-meter", unitLength, amount, "");
+        break;
+        }
+        String unit1 = backgroundStartSymbol + unit1mid.trim() + backgroundEndSymbol;
+        String unit2 = backgroundStartSymbol + unit2mid.trim() + backgroundEndSymbol;
+
         // TODO fix hack
         String form = this.pluralInfo.getPluralRules().select(amount);
-        String perPath = "//ldml/units/unitLength" + unitLength.typeString
-            + "/compoundUnit[@type=\"per\"]"
-            + "/compoundUnitPattern";
-        //ldml/units/unitLength[@type="long"]/compoundUnit[@type="per"]/compoundUnitPattern
+        
+        // we rebuild a path, because we may have changed it.
+        String perPath = makeCompoundUnitPath(unitLength, compoundType);
         return format(getValueFromFormat(perPath, form), unit1, unit2);
+    }
+
+    //ldml/units/unitLength[@type="long"]/compoundUnit[@type="per"]/compoundUnitPattern
+    public String makeCompoundUnitPath(UnitLength unitLength, String compoundType) {
+        return "//ldml/units/unitLength" + unitLength.typeString
+            + "/compoundUnit[@type=\"" + compoundType + "\"]"
+            + "/compoundUnitPattern";
     }
 
     private FixedDecimal getBest(Count count) {

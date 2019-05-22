@@ -314,7 +314,7 @@ public class TestAnnotations extends TestFmwkPlus {
     private void checkAMinusBIsC(String title, Set<String> a, Set<String> b, Set<String> c) {
         Set<String> aMb = new TreeSet<>(a);
         aMb.removeAll(b);
-        assertEquals(title, c, aMb);
+        assertEquals(title + " (" + aMb.size() + ")", c, aMb);
     }
     
     public void testListFormatter() {

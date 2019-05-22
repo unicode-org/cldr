@@ -312,12 +312,20 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     public void TestCompoundUnit() {
-        String[][] tests = { { "LONG", "one", "〖❬1.00 meter❭ per ❬second❭〗" },
-            { "SHORT", "one", "〖❬1.00 m❭/❬sec❭〗" },
-            { "NARROW", "one", "〖❬1.00m❭/❬s❭〗" },
-            { "LONG", "other", "〖❬1.50 meters❭ per ❬second❭〗" },
-            { "SHORT", "other", "〖❬1.50 m❭/❬sec❭〗" },
-            { "NARROW", "other", "〖❬1.50m❭/❬s❭〗" }, };
+        String[][] tests = { 
+            { "per", "LONG", "one", "〖❬1.00 meter❭ per ❬second❭〗" },
+            { "per", "SHORT", "one", "〖❬1.00 m❭/❬sec❭〗" },
+            { "per", "NARROW", "one", "〖❬1.00m❭/❬s❭〗" },
+            { "per", "LONG", "other", "〖❬1.50 meters❭ per ❬second❭〗" },
+            { "per", "SHORT", "other", "〖❬1.50 m❭/❬sec❭〗" },
+            { "per", "NARROW", "other", "〖❬1.50m❭/❬s❭〗" }, 
+            { "times", "LONG", "one", "〖❬1.00 newton❭⋅❬meter❭〗" },
+            { "times", "SHORT", "one", "〖❬1.00 N❭⋅❬m❭〗" },
+            { "times", "NARROW", "one", "〖❬1.00N❭⋅❬m❭〗" },
+            { "times", "LONG", "other", "〖❬1.50 newton❭⋅❬meters❭〗" },
+            { "times", "SHORT", "other", "〖❬1.50 N❭⋅❬m❭〗" },
+            { "times", "NARROW", "other", "〖❬1.50N❭⋅❬m❭〗" }, 
+            };
         checkCompoundUnits("en", tests);
         // reenable these after Arabic has meter translated
         // String[][] tests2 = {
@@ -328,10 +336,12 @@ public class TestExampleGenerator extends TestFmwk {
 
     private void checkCompoundUnits(String locale, String[][] tests) {
         ExampleGenerator exampleGenerator = getExampleGenerator(locale);
-        for (String[] pair : tests) {
+        for (String[] test : tests) {
             String actual = exampleGenerator.handleCompoundUnit(
-                UnitLength.valueOf(pair[0]), Count.valueOf(pair[1]));
-            assertEquals("CompoundUnit", pair[2],
+                UnitLength.valueOf(test[1]), 
+                test[0],
+                Count.valueOf(test[2]));
+            assertEquals("CompoundUnit", test[3],
                 ExampleGenerator.simplify(actual, true));
         }
     }

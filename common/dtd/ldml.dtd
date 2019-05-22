@@ -2543,7 +2543,7 @@ $Revision$
 
 <!ELEMENT compoundUnit ( alias | ( compoundUnitPattern*, special* ) ) >
 <!ATTLIST compoundUnit type NMTOKEN #REQUIRED >
-    <!--@MATCH:literal/per-->
+    <!--@MATCH:literal/per, times-->
 <!ATTLIST compoundUnit alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST compoundUnit draft (approved | contributed | provisional | unconfirmed) #IMPLIED >

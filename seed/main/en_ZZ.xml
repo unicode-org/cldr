@@ -137,6 +137,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} Calorie [translation hint: kilocalories for food energy, may have same translation as energy-kilocalorie; displayed as Calories in the US/UK]</unitPattern>
 				<unitPattern count="other">{0} Calories [translation hint: kilocalories for food energy, may have same translation as energy-kilocalorie; displayed as Calories in the US/UK]</unitPattern>
 			</unit>
+			<unit type="graphics-em">
+				<displayName>typographic em [translation hint: typographic length equal to a font’s point size]</displayName>
+				<unitPattern count="one">{0} em [translation hint: typographic length equal to a font’s point size]</unitPattern>
+				<unitPattern count="other">{0} ems [translation hint: typographic length equal to a font’s point size]</unitPattern>
+			</unit>
+			<unit type="graphics-pixel">
+				<displayName>pixels [translation hint: used for counting the individual elements in bitmap image; in some contexts means 1⁄96 inch]</displayName>
+				<unitPattern count="one">{0} pixel [translation hint: used for counting the individual elements in bitmap image; in some contexts means 1⁄96 inch]</unitPattern>
+				<unitPattern count="other">{0} pixels [translation hint: used for counting the individual elements in bitmap image; in some contexts means 1⁄96 inch]</unitPattern>
+			</unit>
+			<unit type="graphics-megapixel">
+				<displayName>megapixels [translation hint: used for counting the individual elements in bitmap image]</displayName>
+				<unitPattern count="one">{0} megapixel [translation hint: used for counting the individual elements in bitmap image]</unitPattern>
+				<unitPattern count="other">{0} megapixels [translation hint: used for counting the individual elements in bitmap image]</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-centimeter">
+				<displayName>pixels per centimeter [translation hint: typically used for display resolution]</displayName>
+				<unitPattern count="one">{0} pixel per centimeter [translation hint: typically used for display resolution]</unitPattern>
+				<unitPattern count="other">{0} pixels per centimeter [translation hint: typically used for display resolution]</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-inch">
+				<displayName>pixels per inch [translation hint: typically used for display resolution]</displayName>
+				<unitPattern count="one">{0} pixel per inch [translation hint: typically used for display resolution]</unitPattern>
+				<unitPattern count="other">{0} pixels per inch [translation hint: typically used for display resolution]</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-centimeter">
+				<displayName>dots per centimeter [translation hint: typically used for printer resolution]</displayName>
+				<unitPattern count="one">{0} dot per centimeter [translation hint: typically used for printer resolution]</unitPattern>
+				<unitPattern count="other">{0} dots per centimeter [translation hint: typically used for printer resolution]</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<displayName>dots per inch [translation hint: typically used for printer resolution]</displayName>
+				<unitPattern count="one">{0} dot per inch [translation hint: typically used for printer resolution]</unitPattern>
+				<unitPattern count="other">{0} dots per inch [translation hint: typically used for printer resolution]</unitPattern>
+			</unit>
 			<unit type="mass-ton">
 				<displayName>tons [translation hint: refers to U.S. short ton, not U.K. long ton or metric ton]</displayName>
 				<unitPattern count="one">{0} ton [translation hint: refers to U.S. short ton, not U.K. long ton or metric ton]</unitPattern>
@@ -173,6 +208,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Cal [translation hint: kilocalories for food energy, may have same translation as energy-kilocalorie; displayed as Cal in the US/UK]</displayName>
 				<unitPattern count="one">{0} Cal [translation hint: kilocalories for food energy, may have same translation as energy-kilocalorie; displayed as Cal in the US/UK]</unitPattern>
 				<unitPattern count="other">{0} Cal [translation hint: kilocalories for food energy, may have same translation as energy-kilocalorie; displayed as Cal in the US/UK]</unitPattern>
+			</unit>
+			<unit type="graphics-em">
+				<displayName>em [translation hint: typographic length equal to a font’s point size]</displayName>
+				<unitPattern count="one">{0} em [translation hint: typographic length equal to a font’s point size]</unitPattern>
+				<unitPattern count="other">{0} em [translation hint: typographic length equal to a font’s point size]</unitPattern>
+			</unit>
+			<unit type="graphics-pixel">
+				<displayName>pixels [translation hint: used for counting the individual elements in bitmap image; in some contexts means 1⁄96 inch]</displayName>
+				<unitPattern count="one">{0} px [translation hint: used for counting the individual elements in bitmap image; in some contexts means 1⁄96 inch]</unitPattern>
+				<unitPattern count="other">{0} px [translation hint: used for counting the individual elements in bitmap image; in some contexts means 1⁄96 inch]</unitPattern>
+			</unit>
+			<unit type="graphics-megapixel">
+				<displayName>megapixels [translation hint: used for counting the individual elements in bitmap image]</displayName>
+				<unitPattern count="one">{0} MP [translation hint: used for counting the individual elements in bitmap image]</unitPattern>
+				<unitPattern count="other">{0} MP [translation hint: used for counting the individual elements in bitmap image]</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-centimeter">
+				<displayName>ppcm [translation hint: typically used for display resolution]</displayName>
+				<unitPattern count="one">{0} ppcm [translation hint: typically used for display resolution]</unitPattern>
+				<unitPattern count="other">{0} ppcm [translation hint: typically used for display resolution]</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-inch">
+				<displayName>ppi [translation hint: typically used for display resolution]</displayName>
+				<unitPattern count="one">{0} ppi [translation hint: typically used for display resolution]</unitPattern>
+				<unitPattern count="other">{0} ppi [translation hint: typically used for display resolution]</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-centimeter">
+				<displayName>dpcm [translation hint: typically used for printer resolution]</displayName>
+				<unitPattern count="one">{0} dpcm [translation hint: typically used for printer resolution]</unitPattern>
+				<unitPattern count="other">{0} dpcm [translation hint: typically used for printer resolution]</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<displayName>dpi [translation hint: typically used for printer resolution]</displayName>
+				<unitPattern count="one">{0} dpi [translation hint: typically used for printer resolution]</unitPattern>
+				<unitPattern count="other">{0} dpi [translation hint: typically used for printer resolution]</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>tons [translation hint: refers to U.S. short ton, not U.K. long ton or metric ton]</displayName>
@@ -214,6 +284,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Cal [translation hint: kilocalories for food energy, may have same translation as energy-kilocalorie; displayed as Cal in the US/UK]</displayName>
 				<unitPattern count="one">{0}Cal [translation hint: kilocalories for food energy, may have same translation as energy-kilocalorie; displayed as Cal in the US/UK]</unitPattern>
 				<unitPattern count="other">{0}Cal [translation hint: kilocalories for food energy, may have same translation as energy-kilocalorie; displayed as Cal in the US/UK]</unitPattern>
+			</unit>
+			<unit type="graphics-em">
+				<displayName>em [translation hint: typographic length equal to a font’s point size]</displayName>
+				<unitPattern count="one">{0}em [translation hint: typographic length equal to a font’s point size]</unitPattern>
+				<unitPattern count="other">{0}em [translation hint: typographic length equal to a font’s point size]</unitPattern>
+			</unit>
+			<unit type="graphics-pixel">
+				<displayName>px [translation hint: used for counting the individual elements in bitmap image; in some contexts means 1⁄96 inch]</displayName>
+				<unitPattern count="one">{0}px [translation hint: used for counting the individual elements in bitmap image; in some contexts means 1⁄96 inch]</unitPattern>
+				<unitPattern count="other">{0}px [translation hint: used for counting the individual elements in bitmap image; in some contexts means 1⁄96 inch]</unitPattern>
+			</unit>
+			<unit type="graphics-megapixel">
+				<displayName>MP [translation hint: used for counting the individual elements in bitmap image]</displayName>
+				<unitPattern count="one">{0}MP [translation hint: used for counting the individual elements in bitmap image]</unitPattern>
+				<unitPattern count="other">{0}MP [translation hint: used for counting the individual elements in bitmap image]</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-centimeter">
+				<displayName>ppcm [translation hint: typically used for display resolution]</displayName>
+				<unitPattern count="one">{0}ppcm [translation hint: typically used for display resolution]</unitPattern>
+				<unitPattern count="other">{0}ppcm [translation hint: typically used for display resolution]</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-inch">
+				<displayName>ppi [translation hint: typically used for display resolution]</displayName>
+				<unitPattern count="one">{0}ppi [translation hint: typically used for display resolution]</unitPattern>
+				<unitPattern count="other">{0}ppi [translation hint: typically used for display resolution]</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-centimeter">
+				<displayName>dpcm [translation hint: typically used for printer resolution]</displayName>
+				<unitPattern count="one">{0}dpcm [translation hint: typically used for printer resolution]</unitPattern>
+				<unitPattern count="other">{0}dpcm [translation hint: typically used for printer resolution]</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<displayName>dpi [translation hint: typically used for printer resolution]</displayName>
+				<unitPattern count="one">{0}dpi [translation hint: typically used for printer resolution]</unitPattern>
+				<unitPattern count="other">{0}dpi [translation hint: typically used for printer resolution]</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>ton [translation hint: refers to U.S. short ton, not U.K. long ton or metric ton]</displayName>

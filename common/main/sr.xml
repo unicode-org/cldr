@@ -111,7 +111,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">даргински</language>
 			<language type="dav">таита</language>
 			<language type="de">немачки</language>
-			<language type="de_AT">↑↑↑</language>
 			<language type="de_CH">швајцарски високи немачки</language>
 			<language type="del">делаверски</language>
 			<language type="den">слејви</language>
@@ -135,8 +134,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">грчки</language>
 			<language type="elx">еламитски</language>
 			<language type="en">енглески</language>
-			<language type="en_AU">↑↑↑</language>
-			<language type="en_CA">↑↑↑</language>
 			<language type="en_GB">енглески (Велика Британија)</language>
 			<language type="en_GB" alt="short">енглески (УК)</language>
 			<language type="en_US">енглески (Сједињене Америчке Државе)</language>
@@ -144,9 +141,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="enm">средњеенглески</language>
 			<language type="eo">есперанто</language>
 			<language type="es">шпански</language>
-			<language type="es_419">↑↑↑</language>
 			<language type="es_ES">шпански (Европа)</language>
-			<language type="es_MX">↑↑↑</language>
 			<language type="et">естонски</language>
 			<language type="eu">баскијски</language>
 			<language type="ewo">евондо</language>
@@ -160,8 +155,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">фарски</language>
 			<language type="fon">фон</language>
 			<language type="fr">француски</language>
-			<language type="fr_CA">↑↑↑</language>
-			<language type="fr_CH">↑↑↑</language>
 			<language type="frc" draft="contributed">кајунски француски</language>
 			<language type="frm">средњефранцуски</language>
 			<language type="fro">старофранцуски</language>
@@ -390,7 +383,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ps">паштунски</language>
 			<language type="ps" alt="variant">пашто</language>
 			<language type="pt">португалски</language>
-			<language type="pt_BR">↑↑↑</language>
 			<language type="pt_PT">португалски (Португал)</language>
 			<language type="qu">кечуа</language>
 			<language type="quc">киче</language>
@@ -8202,12 +8194,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} коњске снаге</unitPattern>
 				<unitPattern count="other">{0} коњских снага</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>хектопаскали</displayName>
-				<unitPattern count="one">{0} хектопаскал</unitPattern>
-				<unitPattern count="few">{0} хектопаскала</unitPattern>
-				<unitPattern count="other">{0} хектопаскала</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>милиметри живиног стуба</displayName>
 				<unitPattern count="one">{0} милиметар живиног стуба</unitPattern>
@@ -8237,6 +8223,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} атмосфера</unitPattern>
 				<unitPattern count="few">{0} атмосфере</unitPattern>
 				<unitPattern count="other">{0} атмосфера</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>хектопаскали</displayName>
+				<unitPattern count="one">{0} хектопаскал</unitPattern>
+				<unitPattern count="few">{0} хектопаскала</unitPattern>
+				<unitPattern count="other">{0} хектопаскала</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>килопаскали</displayName>
@@ -9158,12 +9150,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} hp</unitPattern>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="one">{0} hPa</unitPattern>
-				<unitPattern count="few">{0} hPa</unitPattern>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
 				<unitPattern count="one">{0} mm Hg</unitPattern>
@@ -9193,6 +9179,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} atm</unitPattern>
 				<unitPattern count="few">{0} atm</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="few">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>↑↑↑</displayName>
@@ -9636,11 +9628,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few" draft="contributed">{0} кс</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} кс</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="one" draft="contributed">{0} hPa</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} hPa</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="one" draft="contributed">{0} inHg</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} inHg</unitPattern>
@@ -9650,6 +9637,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" draft="contributed">{0} mbar</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} mbar</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mbar</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} hPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

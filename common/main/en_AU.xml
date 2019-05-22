@@ -400,7 +400,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BA">↑↑↑</territory>
 			<territory type="BA" alt="short">↑↑↑</territory>
 			<territory type="CZ">↑↑↑</territory>
-			<territory type="CZ" alt="variant">↑↑↑</territory>
 			<territory type="EA">↑↑↑</territory>
 			<territory type="EZ">↑↑↑</territory>
 			<territory type="GB" alt="short">↑↑↑</territory>
@@ -414,7 +413,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SJ">↑↑↑</territory>
 			<territory type="ST">↑↑↑</territory>
 			<territory type="SZ">↑↑↑</territory>
-			<territory type="SZ" alt="variant">↑↑↑</territory>
 			<territory type="TC">↑↑↑</territory>
 			<territory type="TT">↑↑↑</territory>
 			<territory type="UM">↑↑↑</territory>
@@ -2888,8 +2886,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>msec.</displayName>
-				<unitPattern count="one">{0}ms</unitPattern>
-				<unitPattern count="other">{0}ms</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
 				<displayName>↑↑↑</displayName>

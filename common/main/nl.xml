@@ -42,7 +42,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ang">Oudengels</language>
 			<language type="anp">Angika</language>
 			<language type="ar">Arabisch</language>
-			<language type="ar_001">↑↑↑</language>
 			<language type="arc">Aramees</language>
 			<language type="arn">Mapudungun</language>
 			<language type="aro">Araona</language>
@@ -138,8 +137,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">Dargwa</language>
 			<language type="dav">Taita</language>
 			<language type="de">Duits</language>
-			<language type="de_AT">↑↑↑</language>
-			<language type="de_CH">↑↑↑</language>
 			<language type="del">Delaware</language>
 			<language type="den">Slavey</language>
 			<language type="dgr">Dogrib</language>
@@ -164,18 +161,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">Grieks</language>
 			<language type="elx">Elamitisch</language>
 			<language type="en">Engels</language>
-			<language type="en_AU">↑↑↑</language>
-			<language type="en_CA">↑↑↑</language>
-			<language type="en_GB">↑↑↑</language>
 			<language type="en_GB" alt="short">Engels (VK)</language>
-			<language type="en_US">↑↑↑</language>
 			<language type="en_US" alt="short">Engels (VS)</language>
 			<language type="enm">Middelengels</language>
 			<language type="eo">Esperanto</language>
 			<language type="es">Spaans</language>
-			<language type="es_419">↑↑↑</language>
-			<language type="es_ES">↑↑↑</language>
-			<language type="es_MX">↑↑↑</language>
 			<language type="esu">Yupik</language>
 			<language type="et">Estisch</language>
 			<language type="eu">Baskisch</language>
@@ -192,8 +182,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">Faeröers</language>
 			<language type="fon">Fon</language>
 			<language type="fr">Frans</language>
-			<language type="fr_CA">↑↑↑</language>
-			<language type="fr_CH">↑↑↑</language>
 			<language type="frc">Cajun-Frans</language>
 			<language type="frm">Middelfrans</language>
 			<language type="fro">Oudfrans</language>
@@ -413,7 +401,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="niu">Niueaans</language>
 			<language type="njo">Ao Naga</language>
 			<language type="nl">Nederlands</language>
-			<language type="nl_BE">↑↑↑</language>
 			<language type="nmg">Ngumba</language>
 			<language type="nn">Noors - Nynorsk</language>
 			<language type="nnh">Ngiemboon</language>
@@ -462,8 +449,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ps">Pasjtoe</language>
 			<language type="ps" alt="variant">Pashto</language>
 			<language type="pt">Portugees</language>
-			<language type="pt_BR">↑↑↑</language>
-			<language type="pt_PT">↑↑↑</language>
 			<language type="qu">Quechua</language>
 			<language type="quc">K’iche’</language>
 			<language type="qug">Kichwa</language>
@@ -475,7 +460,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="rm">Reto-Romaans</language>
 			<language type="rn">Kirundi</language>
 			<language type="ro">Roemeens</language>
-			<language type="ro_MD">↑↑↑</language>
 			<language type="rof">Rombo</language>
 			<language type="rom">Romani</language>
 			<language type="root">Root</language>
@@ -544,7 +528,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="sux">Soemerisch</language>
 			<language type="sv">Zweeds</language>
 			<language type="sw">Swahili</language>
-			<language type="sw_CD">↑↑↑</language>
 			<language type="swb">Shimaore</language>
 			<language type="syc">Klassiek Syrisch</language>
 			<language type="syr">Syrisch</language>
@@ -634,8 +617,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="zen">Zenaga</language>
 			<language type="zgh">Standaard Marokkaanse Tamazight</language>
 			<language type="zh">Chinees</language>
-			<language type="zh_Hans">↑↑↑</language>
-			<language type="zh_Hant">↑↑↑</language>
 			<language type="zu">Zoeloe</language>
 			<language type="zun">Zuni</language>
 			<language type="zxx">geen linguïstische inhoud</language>
@@ -10919,11 +10900,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} paardenkracht</unitPattern>
 				<unitPattern count="other">{0} paardenkrachten</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hectopascal</displayName>
-				<unitPattern count="one">{0} hectopascal</unitPattern>
-				<unitPattern count="other">{0} hectopascal</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>millimeter-kwikdruk</displayName>
 				<unitPattern count="one">{0} millimeter-kwikdruk</unitPattern>
@@ -10943,6 +10919,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>atmosfeer</displayName>
 				<unitPattern count="one">{0} atmosfeer</unitPattern>
 				<unitPattern count="other">{0} atmosfeer</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hectopascal</displayName>
+				<unitPattern count="one">{0} hectopascal</unitPattern>
+				<unitPattern count="other">{0} hectopascal</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">kilopascal</displayName>

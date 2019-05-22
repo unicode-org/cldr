@@ -121,7 +121,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">dargwa</language>
 			<language type="dav">taita</language>
 			<language type="de">alemão</language>
-			<language type="de_AT">↑↑↑</language>
 			<language type="de_CH">alto alemão (Suíça)</language>
 			<language type="del">delaware</language>
 			<language type="den">slave</language>
@@ -145,18 +144,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">grego</language>
 			<language type="elx">elamite</language>
 			<language type="en">inglês</language>
-			<language type="en_AU">↑↑↑</language>
-			<language type="en_CA">↑↑↑</language>
-			<language type="en_GB">↑↑↑</language>
-			<language type="en_GB" alt="short">↑↑↑</language>
-			<language type="en_US">↑↑↑</language>
 			<language type="en_US" alt="short">inglês (EUA)</language>
 			<language type="enm">inglês médio</language>
 			<language type="eo">esperanto</language>
 			<language type="es">espanhol</language>
-			<language type="es_419">↑↑↑</language>
-			<language type="es_ES">↑↑↑</language>
-			<language type="es_MX">↑↑↑</language>
 			<language type="et">estoniano</language>
 			<language type="eu">basco</language>
 			<language type="ewo">ewondo</language>
@@ -170,8 +161,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">feroês</language>
 			<language type="fon">fom</language>
 			<language type="fr">francês</language>
-			<language type="fr_CA">↑↑↑</language>
-			<language type="fr_CH">↑↑↑</language>
 			<language type="frc">francês cajun</language>
 			<language type="frm">francês médio</language>
 			<language type="fro">francês arcaico</language>
@@ -407,8 +396,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ps">pashto</language>
 			<language type="ps" alt="variant">pushto</language>
 			<language type="pt">português</language>
-			<language type="pt_BR">↑↑↑</language>
-			<language type="pt_PT">↑↑↑</language>
 			<language type="qu">quíchua</language>
 			<language type="quc">quiché</language>
 			<language type="raj">rajastani</language>
@@ -7048,11 +7035,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} cavalo-vapor</unitPattern>
 				<unitPattern count="other">{0} cavalos-vapor</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hectopascais</displayName>
-				<unitPattern count="one">{0} hectopascal</unitPattern>
-				<unitPattern count="other">{0} hectopascais</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>milímetros de mercúrio</displayName>
 				<unitPattern count="one">{0} milímetro de mercúrio</unitPattern>
@@ -7072,6 +7054,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>atmosferas</displayName>
 				<unitPattern count="one">{0} atmosfera</unitPattern>
 				<unitPattern count="other">{0} atmosferas</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hectopascais</displayName>
+				<unitPattern count="one">{0} hectopascal</unitPattern>
+				<unitPattern count="other">{0} hectopascais</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">quilopascais</displayName>

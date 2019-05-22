@@ -167,7 +167,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="es">Tiếng Tây Ban Nha</language>
 			<language type="es_419">Tiếng Tây Ban Nha (Mỹ La tinh)</language>
 			<language type="es_ES">Tiếng Tây Ban Nha (Châu Âu)</language>
-			<language type="es_MX">↑↑↑</language>
 			<language type="esu">Tiếng Yupik Miền Trung</language>
 			<language type="et">Tiếng Estonia</language>
 			<language type="eu">Tiếng Basque</language>
@@ -427,7 +426,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ps">Tiếng Pashto</language>
 			<language type="ps" alt="variant">Tiếng Pushto</language>
 			<language type="pt">Tiếng Bồ Đào Nha</language>
-			<language type="pt_BR">↑↑↑</language>
 			<language type="pt_PT">Tiếng Bồ Đào Nha (Châu Âu)</language>
 			<language type="qu">Tiếng Quechua</language>
 			<language type="quc">Tiếng Kʼicheʼ</language>
@@ -9099,10 +9097,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mã lực</displayName>
 				<unitPattern count="other">{0} mã lực</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>héctô pascal</displayName>
-				<unitPattern count="other">{0} héctô pascal</unitPattern>
-			</unit>
 			<unit type="pressure-inch-hg">
 				<displayName>inch thủy ngân</displayName>
 				<unitPattern count="other">{0} inch thủy ngân</unitPattern>
@@ -9113,6 +9107,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-atmosphere">
 				<unitPattern count="other">{0} átmốtphe</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>héctô pascal</displayName>
+				<unitPattern count="other">{0} héctô pascal</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>↑↑↑</displayName>
@@ -9546,9 +9544,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-horsepower">
 				<displayName>hp</displayName>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
 				<unitPattern count="other">{0} mm Hg</unitPattern>
@@ -9565,6 +9560,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-atmosphere">
 				<displayName>atm</displayName>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>↑↑↑</displayName>
@@ -9838,14 +9836,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-horsepower">
 				<unitPattern count="other">{0}hp</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="other">{0}hPa</unitPattern>
-			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="other">{0}&quot; Hg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<unitPattern count="other">{0}mb</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other">{0}hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">↑↑↑</displayName>

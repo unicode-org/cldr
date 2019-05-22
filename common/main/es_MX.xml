@@ -392,7 +392,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="prg">↑↑↑</language>
 			<language type="pro">↑↑↑</language>
 			<language type="ps">↑↑↑</language>
-			<language type="ps" alt="variant">↑↑↑</language>
 			<language type="pt">↑↑↑</language>
 			<language type="pt_BR">↑↑↑</language>
 			<language type="pt_PT">↑↑↑</language>
@@ -541,7 +540,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</languages>
 		<scripts>
 			<script type="Arab">↑↑↑</script>
-			<script type="Arab" alt="variant">↑↑↑</script>
 			<script type="Armn">↑↑↑</script>
 			<script type="Beng">↑↑↑</script>
 			<script type="Bopo">↑↑↑</script>
@@ -655,10 +653,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CA">↑↑↑</territory>
 			<territory type="CC">↑↑↑</territory>
 			<territory type="CD">↑↑↑</territory>
-			<territory type="CD" alt="variant">↑↑↑</territory>
 			<territory type="CF">↑↑↑</territory>
 			<territory type="CG">↑↑↑</territory>
-			<territory type="CG" alt="variant">↑↑↑</territory>
 			<territory type="CH">↑↑↑</territory>
 			<territory type="CI">Côte d’Ivoire</territory>
 			<territory type="CK">↑↑↑</territory>
@@ -768,7 +764,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MG">↑↑↑</territory>
 			<territory type="MH">↑↑↑</territory>
 			<territory type="MK">↑↑↑</territory>
-			<territory type="MK" alt="variant">↑↑↑</territory>
 			<territory type="ML">↑↑↑</territory>
 			<territory type="MM">↑↑↑</territory>
 			<territory type="MN">↑↑↑</territory>
@@ -1091,7 +1086,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="contributed">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="contributed">E d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d 'de' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
@@ -1495,15 +1489,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<eras>
 					<eraNames>
 						<era type="0">↑↑↑</era>
-						<era type="0" alt="variant">↑↑↑</era>
 						<era type="1">↑↑↑</era>
-						<era type="1" alt="variant">↑↑↑</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">↑↑↑</era>
-						<era type="0" alt="variant">↑↑↑</era>
 						<era type="1">↑↑↑</era>
-						<era type="1" alt="variant">↑↑↑</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -4451,7 +4441,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
-				<symbol alt="variant" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>↑↑↑</displayName>
@@ -5037,7 +5026,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
-				<symbol alt="variant" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>↑↑↑</displayName>
@@ -5749,11 +5737,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} caballo de fuerza</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -5775,6 +5758,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -6550,11 +6538,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">{0} CV</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} CV</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -6576,6 +6559,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>

@@ -115,7 +115,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">dargwa</language>
 			<language type="dav">taita</language>
 			<language type="de">germană</language>
-			<language type="de_AT">↑↑↑</language>
 			<language type="de_CH">germană standard (Elveția)</language>
 			<language type="del">delaware</language>
 			<language type="den">slave</language>
@@ -139,18 +138,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">greacă</language>
 			<language type="elx">elamită</language>
 			<language type="en">engleză</language>
-			<language type="en_AU">↑↑↑</language>
-			<language type="en_CA">↑↑↑</language>
-			<language type="en_GB">↑↑↑</language>
-			<language type="en_GB" alt="short">↑↑↑</language>
-			<language type="en_US">↑↑↑</language>
 			<language type="en_US" alt="short">engleză (S.U.A)</language>
 			<language type="enm">engleză medie</language>
 			<language type="eo">esperanto</language>
 			<language type="es">spaniolă</language>
-			<language type="es_419">↑↑↑</language>
 			<language type="es_ES">spaniolă (Europa)</language>
-			<language type="es_MX">↑↑↑</language>
 			<language type="et">estonă</language>
 			<language type="eu">bască</language>
 			<language type="ewo">ewondo</language>
@@ -164,8 +156,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">faroeză</language>
 			<language type="fon">fon</language>
 			<language type="fr">franceză</language>
-			<language type="fr_CA">↑↑↑</language>
-			<language type="fr_CH">↑↑↑</language>
 			<language type="frc">franceză cajun</language>
 			<language type="frm">franceză medie</language>
 			<language type="fro">franceză veche</language>
@@ -401,7 +391,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ps">paștună</language>
 			<language type="ps" alt="variant">pushto</language>
 			<language type="pt">portugheză</language>
-			<language type="pt_BR">↑↑↑</language>
 			<language type="pt_PT">portugheză (Europa)</language>
 			<language type="qu">quechua</language>
 			<language type="quc">quiché</language>
@@ -7817,12 +7806,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} cai putere</unitPattern>
 				<unitPattern count="other">{0} de cai putere</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hectopascali</displayName>
-				<unitPattern count="one">{0} hectopascal</unitPattern>
-				<unitPattern count="few">{0} hectopascali</unitPattern>
-				<unitPattern count="other">{0} de hectopascali</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>milimetri coloană de mercur</displayName>
 				<unitPattern count="one">{0} milimetru coloană de mercur</unitPattern>
@@ -7852,6 +7835,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} atmosferă</unitPattern>
 				<unitPattern count="few">{0} atmosfere</unitPattern>
 				<unitPattern count="other">{0} de atmosfere</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hectopascali</displayName>
+				<unitPattern count="one">{0} hectopascal</unitPattern>
+				<unitPattern count="few">{0} hectopascali</unitPattern>
+				<unitPattern count="other">{0} de hectopascali</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kilopascali</displayName>
@@ -8732,12 +8721,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} CP</unitPattern>
 				<unitPattern count="other">{0} CP</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="one">{0} hPa</unitPattern>
-				<unitPattern count="few">{0} hPa</unitPattern>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
 				<unitPattern count="one">{0} mm Hg</unitPattern>
@@ -8761,6 +8744,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="few">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="few">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kPa</displayName>

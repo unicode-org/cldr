@@ -164,18 +164,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">Griechisch</language>
 			<language type="elx">Elamisch</language>
 			<language type="en">Englisch</language>
-			<language type="en_AU">↑↑↑</language>
-			<language type="en_CA">↑↑↑</language>
-			<language type="en_GB">↑↑↑</language>
 			<language type="en_GB" alt="short">Englisch (GB)</language>
-			<language type="en_US">↑↑↑</language>
 			<language type="en_US" alt="short">Englisch (USA)</language>
 			<language type="enm">Mittelenglisch</language>
 			<language type="eo">Esperanto</language>
 			<language type="es">Spanisch</language>
-			<language type="es_419">↑↑↑</language>
-			<language type="es_ES">↑↑↑</language>
-			<language type="es_MX">↑↑↑</language>
 			<language type="esu">Zentral-Alaska-Yupik</language>
 			<language type="et">Estnisch</language>
 			<language type="eu">Baskisch</language>
@@ -192,8 +185,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">Färöisch</language>
 			<language type="fon">Fon</language>
 			<language type="fr">Französisch</language>
-			<language type="fr_CA">↑↑↑</language>
-			<language type="fr_CH">↑↑↑</language>
 			<language type="frc">Cajun</language>
 			<language type="frm">Mittelfranzösisch</language>
 			<language type="fro">Altfranzösisch</language>
@@ -461,8 +452,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="pro">Altprovenzalisch</language>
 			<language type="ps">Paschtu</language>
 			<language type="pt">Portugiesisch</language>
-			<language type="pt_BR">↑↑↑</language>
-			<language type="pt_PT">↑↑↑</language>
 			<language type="qu">Quechua</language>
 			<language type="quc">K’iche’</language>
 			<language type="qug">Chimborazo Hochland-Quechua</language>
@@ -7900,11 +7889,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} Pferdestärke</unitPattern>
 				<unitPattern count="other">{0} Pferdestärken</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>Hektopascal</displayName>
-				<unitPattern count="one">{0} Hektopascal</unitPattern>
-				<unitPattern count="other">{0} Hektopascal</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>Millimeter Quecksilbersäule</displayName>
 				<unitPattern count="one">{0} Millimeter Quecksilbersäule</unitPattern>
@@ -7929,6 +7913,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName draft="contributed">Atmosphären</displayName>
 				<unitPattern count="one" draft="contributed">{0} Atmosphäre</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} Atmosphären</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>Hektopascal</displayName>
+				<unitPattern count="one">{0} Hektopascal</unitPattern>
+				<unitPattern count="other">{0} Hektopascal</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">↑↑↑</displayName>
@@ -8486,11 +8475,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} PS</unitPattern>
 				<unitPattern count="other">{0} PS</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="one">{0} hPa</unitPattern>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
 				<unitPattern count="one">{0} mm Hg</unitPattern>
@@ -8510,6 +8494,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>Millibar</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">↑↑↑</displayName>

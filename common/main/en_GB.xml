@@ -258,7 +258,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SL">↑↑↑</territory>
 			<territory type="ST">↑↑↑</territory>
 			<territory type="SZ">↑↑↑</territory>
-			<territory type="SZ" alt="variant">↑↑↑</territory>
 			<territory type="TC">↑↑↑</territory>
 			<territory type="TT">↑↑↑</territory>
 			<territory type="UM">US Outlying Islands</territory>
@@ -2439,9 +2438,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>↑↑↑</displayName>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -2458,6 +2454,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName>↑↑↑</displayName>
+			</unit>
+			<unit type="pressure-hectopascal">
 				<displayName>↑↑↑</displayName>
 			</unit>
 			<unit type="speed-meter-per-second">

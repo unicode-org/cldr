@@ -7948,12 +7948,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} konjske snage</unitPattern>
 				<unitPattern count="other">{0} konjskih snaga</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hektopaskali</displayName>
-				<unitPattern count="one">{0} hektopaskal</unitPattern>
-				<unitPattern count="few">{0} hektopaskala</unitPattern>
-				<unitPattern count="other">{0} hektopaskala</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>milimetri živinog stuba</displayName>
 				<unitPattern count="one">{0} milimetar živinog stuba</unitPattern>
@@ -7983,6 +7977,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} atmosfera</unitPattern>
 				<unitPattern count="few">{0} atmosfere</unitPattern>
 				<unitPattern count="other">{0} atmosfera</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hektopaskali</displayName>
+				<unitPattern count="one">{0} hektopaskal</unitPattern>
+				<unitPattern count="few">{0} hektopaskala</unitPattern>
+				<unitPattern count="other">{0} hektopaskala</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kilopaskali</displayName>
@@ -8904,12 +8904,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} ks</unitPattern>
 				<unitPattern count="other">{0} ks</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="one">{0} hPa</unitPattern>
-				<unitPattern count="few">{0} hPa</unitPattern>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
 				<unitPattern count="one">{0} mm Hg</unitPattern>
@@ -8939,6 +8933,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} atm</unitPattern>
 				<unitPattern count="few">{0} atm</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="few">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kPa</displayName>
@@ -9386,11 +9386,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few" draft="provisional">{0} KS</unitPattern>
 				<unitPattern count="other" draft="provisional">{0} KS</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="one" draft="provisional">{0} hPa</unitPattern>
-				<unitPattern count="few" draft="provisional">{0} hPa</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="one" draft="provisional">{0} inHg</unitPattern>
 				<unitPattern count="few" draft="provisional">{0} inHg</unitPattern>
@@ -9400,6 +9395,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" draft="provisional">{0} mb</unitPattern>
 				<unitPattern count="few" draft="provisional">{0} mb</unitPattern>
 				<unitPattern count="other" draft="provisional">{0} mb</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one" draft="provisional">{0} hPa</unitPattern>
+				<unitPattern count="few" draft="provisional">{0} hPa</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} hPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

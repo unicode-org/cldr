@@ -135,7 +135,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dar">達爾格瓦文</language>
 			<language type="dav">台塔文</language>
 			<language type="de">德文</language>
-			<language type="de_AT">↑↑↑</language>
 			<language type="de_CH">高地德文（瑞士）</language>
 			<language type="del">德拉瓦文</language>
 			<language type="den">斯拉夫</language>
@@ -161,18 +160,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="el">希臘文</language>
 			<language type="elx">埃蘭文</language>
 			<language type="en">英文</language>
-			<language type="en_AU">↑↑↑</language>
-			<language type="en_CA">↑↑↑</language>
-			<language type="en_GB">↑↑↑</language>
-			<language type="en_GB" alt="short">↑↑↑</language>
-			<language type="en_US">↑↑↑</language>
-			<language type="en_US" alt="short">↑↑↑</language>
 			<language type="enm">中古英文</language>
 			<language type="eo">世界文</language>
 			<language type="es">西班牙文</language>
-			<language type="es_419">↑↑↑</language>
-			<language type="es_ES">↑↑↑</language>
-			<language type="es_MX">↑↑↑</language>
 			<language type="esu">中尤皮克文</language>
 			<language type="et">愛沙尼亞文</language>
 			<language type="eu">巴斯克文</language>
@@ -189,8 +179,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fo">法羅文</language>
 			<language type="fon">豐文</language>
 			<language type="fr">法文</language>
-			<language type="fr_CA">↑↑↑</language>
-			<language type="fr_CH">↑↑↑</language>
 			<language type="frc">卡真法文</language>
 			<language type="frm">中古法文</language>
 			<language type="fro">古法文</language>
@@ -457,8 +445,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pro">古普羅旺斯文</language>
 			<language type="ps">普什圖文</language>
 			<language type="pt">葡萄牙文</language>
-			<language type="pt_BR">↑↑↑</language>
-			<language type="pt_PT">↑↑↑</language>
 			<language type="qu">蓋楚瓦文</language>
 			<language type="quc">基切文</language>
 			<language type="qug">欽博拉索海蘭蓋丘亞文</language>
@@ -8625,10 +8611,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>匹</displayName>
 				<unitPattern count="other">{0} 匹</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>百帕</displayName>
-				<unitPattern count="other">{0} 百帕</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>毫米汞柱</displayName>
 				<unitPattern count="other">{0} 毫米汞柱</unitPattern>
@@ -8648,6 +8630,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="pressure-atmosphere">
 				<displayName>atm</displayName>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>百帕</displayName>
+				<unitPattern count="other">{0} 百帕</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>千帕</displayName>
@@ -9291,10 +9277,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>匹</displayName>
 				<unitPattern count="other">{0} 匹</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>百帕</displayName>
-				<unitPattern count="other">{0} 百帕</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>毫米汞柱</displayName>
 				<unitPattern count="other">{0} 毫米汞柱</unitPattern>
@@ -9314,6 +9296,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="pressure-atmosphere">
 				<displayName>atm</displayName>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>百帕</displayName>
+				<unitPattern count="other">{0} 百帕</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>千帕</displayName>
@@ -9777,9 +9763,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="power-horsepower">
 				<unitPattern count="other">{0}匹</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="other">{0}百帕</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<unitPattern count="other" draft="contributed">{0}mmHg</unitPattern>
 			</unit>
@@ -9791,6 +9774,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="pressure-millibar">
 				<unitPattern count="other">{0}毫巴</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other">{0}百帕</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>公里/小時</displayName>

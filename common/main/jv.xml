@@ -65,7 +65,6 @@ terms of use, see http://www.unicode.org/copyright.html
 			<language type="ee">Ewe</language>
 			<language type="el">Yunani</language>
 			<language type="en">Inggris</language>
-			<language type="en_CA">↑↑↑</language>
 			<language type="en_GB" alt="short">Inggris (Britania)</language>
 			<language type="en_US" alt="short">Inggris (AS)</language>
 			<language type="eo">Esperanto</language>
@@ -82,7 +81,6 @@ terms of use, see http://www.unicode.org/copyright.html
 			<language type="fil">Tagalog</language>
 			<language type="fo">Faroe</language>
 			<language type="fr">Prancis</language>
-			<language type="fr_CA">↑↑↑</language>
 			<language type="fur">Friulian</language>
 			<language type="fy">Frisia Sisih Kulon</language>
 			<language type="ga">Irlandia</language>
@@ -185,7 +183,6 @@ terms of use, see http://www.unicode.org/copyright.html
 			<language type="prg">Prusia</language>
 			<language type="ps">Pashto</language>
 			<language type="pt">Portugis</language>
-			<language type="pt_BR">↑↑↑</language>
 			<language type="qu">Quechua</language>
 			<language type="rm">Roman</language>
 			<language type="rn">Rundi</language>
@@ -4937,7 +4934,6 @@ terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">Lira Turki</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
-				<symbol alt="variant" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Dolar Trinidad lan Tobago</displayName>
@@ -5517,10 +5513,6 @@ terms of use, see http://www.unicode.org/copyright.html
 				<displayName>tenogo jaran</displayName>
 				<unitPattern count="other">{0} tenogo jaran</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hektopaskal</displayName>
-				<unitPattern count="other">{0} hektopaskal</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>milimeter saka raksa</displayName>
 				<unitPattern count="other">{0} milimeter saka raksa</unitPattern>
@@ -5540,6 +5532,10 @@ terms of use, see http://www.unicode.org/copyright.html
 			<unit type="pressure-atmosphere">
 				<displayName>atmosfer</displayName>
 				<unitPattern count="other">{0} atmosfer</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hektopaskal</displayName>
+				<unitPattern count="other">{0} hektopaskal</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometer saben jam</displayName>
@@ -6146,10 +6142,6 @@ terms of use, see http://www.unicode.org/copyright.html
 				<displayName>tenogo jaran</displayName>
 				<unitPattern count="other">{0} tenogo jaran</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -6167,6 +6159,10 @@ terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>

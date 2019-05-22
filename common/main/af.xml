@@ -90,7 +90,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">Dakota</language>
 			<language type="dav">Taita</language>
 			<language type="de">Duits</language>
-			<language type="de_AT">↑↑↑</language>
 			<language type="de_CH">Switserse hoog-Duits</language>
 			<language type="dgr">Dogrib</language>
 			<language type="dje">Zarma</language>
@@ -107,8 +106,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="eka">Ekajuk</language>
 			<language type="el">Grieks</language>
 			<language type="en">Engels</language>
-			<language type="en_AU">↑↑↑</language>
-			<language type="en_CA">↑↑↑</language>
 			<language type="en_GB">Engels (VK)</language>
 			<language type="en_GB" alt="short">Engels (VK)</language>
 			<language type="en_US">Engels (VSA)</language>
@@ -126,8 +123,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">Faroëes</language>
 			<language type="fon">Fon</language>
 			<language type="fr">Frans</language>
-			<language type="fr_CA">↑↑↑</language>
-			<language type="fr_CH">↑↑↑</language>
 			<language type="fur">Friuliaans</language>
 			<language type="fy">Fries</language>
 			<language type="ga">Iers</language>
@@ -315,7 +310,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ps">Pasjto</language>
 			<language type="ps" alt="variant">Pushto</language>
 			<language type="pt">Portugees</language>
-			<language type="pt_BR">↑↑↑</language>
 			<language type="qu">Quechua</language>
 			<language type="quc">K’iche’</language>
 			<language type="rap">Rapanui</language>
@@ -6152,11 +6146,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} perdekrag</unitPattern>
 				<unitPattern count="other">{0} perdekrag</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hektopascal</displayName>
-				<unitPattern count="one">{0} hektopascal</unitPattern>
-				<unitPattern count="other">{0} hektopascal</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>millimeter kwik</displayName>
 				<unitPattern count="one">{0} millimeter kwik</unitPattern>
@@ -6181,6 +6170,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>atmosfere</displayName>
 				<unitPattern count="one">{0} atmosfeer</unitPattern>
 				<unitPattern count="other">{0} atmosfere</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hektopascal</displayName>
+				<unitPattern count="one">{0} hektopascal</unitPattern>
+				<unitPattern count="other">{0} hektopascal</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kilopascal</displayName>
@@ -6955,11 +6949,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} pk.</unitPattern>
 				<unitPattern count="other">{0} pk.</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="one">{0} hPa</unitPattern>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
 				<unitPattern count="one">{0} mm Hg</unitPattern>
@@ -6984,6 +6973,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>atm</displayName>
 				<unitPattern count="one">{0} atm</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>↑↑↑</displayName>
@@ -7356,10 +7350,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}pk.</unitPattern>
 				<unitPattern count="other">{0}pk.</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="one">{0}hPa</unitPattern>
-				<unitPattern count="other">{0}hPa</unitPattern>
-			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="one">{0} dm.Hg</unitPattern>
 				<unitPattern count="other">{0} dm.Hg</unitPattern>
@@ -7367,6 +7357,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-millibar">
 				<unitPattern count="one">{0}mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0}hPa</unitPattern>
+				<unitPattern count="other">{0}hPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

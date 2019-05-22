@@ -85,7 +85,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dar">dargi dili</language>
 			<language type="dav">taita dili</language>
 			<language type="de">nemes dili</language>
-			<language type="de_AT">↑↑↑</language>
 			<language type="de_CH">ýokarky nemes dili (Şweýsariýa)</language>
 			<language type="dgr">dogrib dili</language>
 			<language type="dje">zarma dili</language>
@@ -101,17 +100,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="eka">ekajuk dili</language>
 			<language type="el">grek dili</language>
 			<language type="en">iňlis dili</language>
-			<language type="en_AU">↑↑↑</language>
-			<language type="en_CA">↑↑↑</language>
 			<language type="en_GB">iňlis dili (Beýik Britaniýa)</language>
-			<language type="en_GB" alt="short">↑↑↑</language>
 			<language type="en_US">iňlis dili (Amerika)</language>
 			<language type="en_US" alt="short">iňlis dili (ABŞ)</language>
 			<language type="eo">esperanto dili</language>
 			<language type="es">ispan dili</language>
-			<language type="es_419">↑↑↑</language>
 			<language type="es_ES">ispan dili (Ýewropa)</language>
-			<language type="es_MX">↑↑↑</language>
 			<language type="et">eston dili</language>
 			<language type="eu">bask dili</language>
 			<language type="ewo">ewondo dili</language>
@@ -123,8 +117,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fo">farer dili</language>
 			<language type="fon">fon dili</language>
 			<language type="fr">fransuz dili</language>
-			<language type="fr_CA">↑↑↑</language>
-			<language type="fr_CH">↑↑↑</language>
 			<language type="fur">friul dili</language>
 			<language type="fy">günbatar friz dili</language>
 			<language type="ga">irland dili</language>
@@ -297,7 +289,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="prg">prussiýa dili</language>
 			<language type="ps">peştun dili</language>
 			<language type="pt">portugal dili</language>
-			<language type="pt_BR">↑↑↑</language>
 			<language type="pt_PT">portugal dili (Ýewropa)</language>
 			<language type="qu">keçua dili</language>
 			<language type="quc">kiçe dili</language>
@@ -6246,11 +6237,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} at güýji</unitPattern>
 				<unitPattern count="other">{0} at güýji</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>gektopaskal</displayName>
-				<unitPattern count="one">{0} gektopaskal</unitPattern>
-				<unitPattern count="other">{0} gektopaskal</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>millimetr simap sütüni</displayName>
 				<unitPattern count="one">{0} millimetr simap sütüni</unitPattern>
@@ -6275,6 +6261,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>atm</displayName>
 				<unitPattern count="one">{0} atmosfera</unitPattern>
 				<unitPattern count="other">{0} atmosfera</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>gektopaskal</displayName>
+				<unitPattern count="one">{0} gektopaskal</unitPattern>
+				<unitPattern count="other">{0} gektopaskal</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kilopaskal</displayName>
@@ -7049,11 +7040,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} a.g.</unitPattern>
 				<unitPattern count="other">{0} a.g.</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>gPa</displayName>
-				<unitPattern count="one">{0} gPa</unitPattern>
-				<unitPattern count="other">{0} gPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm sim.süt.</displayName>
 				<unitPattern count="one">{0} mm sim.süt.</unitPattern>
@@ -7078,6 +7064,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>atm</displayName>
 				<unitPattern count="one">{0} atm</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>gPa</displayName>
+				<unitPattern count="one">{0} gPa</unitPattern>
+				<unitPattern count="other">{0} gPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kPa</displayName>

@@ -6097,11 +6097,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">අශ්වබල {0}</unitPattern>
 				<unitPattern count="other">අශ්වබල {0}</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>හෙක්ටොපැස්කල්</displayName>
-				<unitPattern count="one">හෙක්ටොපැස්කල් {0}</unitPattern>
-				<unitPattern count="other">හෙක්ටොපැස්කල් {0}</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>රසදිය මිලිමීටර</displayName>
 				<unitPattern count="one">රසදිය මිලිමීටර {0}</unitPattern>
@@ -6126,6 +6121,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>වායුගෝල</displayName>
 				<unitPattern count="one">වායුගෝල {0}</unitPattern>
 				<unitPattern count="other">වායුගෝල {0}</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>හෙක්ටොපැස්කල්</displayName>
+				<unitPattern count="one">හෙක්ටොපැස්කල් {0}</unitPattern>
+				<unitPattern count="other">හෙක්ටොපැස්කල් {0}</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>කිලෝ පැස්කල්</displayName>
@@ -6900,11 +6900,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">අබ {0}</unitPattern>
 				<unitPattern count="other">අබ {0}</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>හෙක්ටොපැස්කල්</displayName>
-				<unitPattern count="one">හෙ.පැ {0}</unitPattern>
-				<unitPattern count="other">හෙ.පැ {0}</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>ර මිමී</displayName>
 				<unitPattern count="one">ර මිමී {0}</unitPattern>
@@ -6929,6 +6924,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>වායුගෝ</displayName>
 				<unitPattern count="one">වායුගෝ {0}</unitPattern>
 				<unitPattern count="other">වායුගෝ {0}</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>හෙක්ටොපැස්කල්</displayName>
+				<unitPattern count="one">හෙ.පැ {0}</unitPattern>
+				<unitPattern count="other">හෙ.පැ {0}</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>කිපැස්</displayName>
@@ -7301,10 +7301,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} hp</unitPattern>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="one">{0} hPa</unitPattern>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="one">රසදිය {0}&quot;</unitPattern>
 				<unitPattern count="other">රසදිය {0}&quot;</unitPattern>
@@ -7312,6 +7308,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-millibar">
 				<unitPattern count="one">මි.බා. {0}</unitPattern>
 				<unitPattern count="other">මි.බා. {0}</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>පැයට කිලෝමීටර්</displayName>

@@ -281,8 +281,14 @@ public class CheckDates extends FactoryCheckCLDR {
     PathStarrer pathStarrer = new PathStarrer();
 
     private String stripPrefix(String s) {
-        if (s != null && s.lastIndexOf(" ") < 3) {
-            return s.substring(s.lastIndexOf(" ") + 1);
+        if (s != null) {
+            int prefEnd = s.lastIndexOf(" ");
+            if (prefEnd < 0 || prefEnd >= 3) {
+                prefEnd = s.lastIndexOf("\u2019"); // as in d’
+            }
+            if (prefEnd >= 0 && prefEnd < 3) {
+                return s.substring(prefEnd + 1);
+            }
         }
         return s;
     }

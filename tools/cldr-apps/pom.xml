@@ -25,6 +25,7 @@
   </properties>
 
   <dependencies>
+    <!-- test -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -32,19 +33,37 @@
       <scope>test</scope>
     </dependency>
 
+    <!-- cldr -->
     <dependency>
       <groupId>com.unicode.cldr</groupId>
       <artifactId>cldr</artifactId>
       <version>36.0-SNAPSHOT</version>
     </dependency>
 
+    <!-- API -->
     <dependency>
-      <groupId>tomcat</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>5.5.23</version>
-      <scope>compile</scope>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>javax.servlet.jsp-api</artifactId>
+      <version>2.3.1</version>
+      <scope>provided</scope>
     </dependency>
 
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>2.3.1</version>
+      <scope>provided</scope>
+    </dependency>
+
+
+    <!-- mail / rss -->
     <dependency>
       <groupId>rome</groupId>
       <artifactId>rome</artifactId>
@@ -64,11 +83,46 @@
       <version>1.2.0</version>
     </dependency>
 
+    <!-- scm -->
     <dependency>
       <groupId>org.tmatesoft.svnkit</groupId>
       <artifactId>svnkit</artifactId>
       <version>1.7.4-v1</version>
     </dependency>
+
+    <!-- codec/util -->
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.9</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.1</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.4</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.9</version>
+    </dependency>
+
+    
+    <!-- db -->
+    <dependency>
+      <groupId>org.apache.derby</groupId>
+      <artifactId>derby</artifactId>
+      <version>10.10.1.1</version>
+      <!-- <scope>test</scope> -->
+    </dependency>
+
+
+    
     
   </dependencies>
 
@@ -92,6 +146,14 @@
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
+          <configuration>
+            <systemPropertyVariables>
+              <CLDR_DIR>${project.basedir}/../../</CLDR_DIR>
+              <CLDR_ENVIRONMENT>UNITTEST</CLDR_ENVIRONMENT>
+              <java.awt.headless>true</java.awt.headless>
+              <rununittest.arg>-n -q</rununittest.arg>
+            </systemPropertyVariables>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-war-plugin</artifactId>

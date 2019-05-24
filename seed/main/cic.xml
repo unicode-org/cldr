@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2019 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="cic"/>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="cic">Chikashshanompaʼ</language>
+		</languages>
+		<territories>
+			<territory type="US">United States</territory>
+		</territories>
+		<measurementSystemNames>
+			<measurementSystemName type="US">US</measurementSystemName>
+		</measurementSystemNames>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[a {a\u0331} b c {ch} e f h i {i\u0331} k l {lh} m n {ng} o {o\u0331} p s t w y ʼ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[á d g í j ó q r u v x z]</exemplarCharacters>
+		<exemplarCharacters type="index">[A B C {CH} E F H I K L {LH} M N {NG} O P S T W Y]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[\- , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+	</characters>
+	<dates>
+		<calendars>
+			<calendar type="generic">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">EEEE, MMMM d, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">MMMM d, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="unconfirmed">MMM d, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="unconfirmed">M/d/y GGGGG</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1">Hashiʼ Ámmoʼnaʼ</month>
+							<month type="2">Hashiʼ Atoklaʼ</month>
+							<month type="3">Hashiʼ Atochchíʼnaʼ</month>
+							<month type="4">Hashiʼ Ayyoshtaʼ</month>
+							<month type="5">Hashiʼ Atalhlhaʼpiʼ</month>
+							<month type="6">Hashiʼ Ahannáʼliʼ</month>
+							<month type="7">Hashiʼ Aontokloʼ</month>
+							<month type="8">Hashiʼ Aontochchíʼnaʼ</month>
+							<month type="9">Hashiʼ Achakkáʼliʼ</month>
+							<month type="10">Hashiʼ Apokkóʼliʼ</month>
+							<month type="11">Hashiʼ Awa Chaffaʼ</month>
+							<month type="12">Hashiʼ Awa Tokloʼ</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="wide">
+							<day type="sun">Nittak Holloʼ</day>
+							<day type="mon">Nittak Ammoʼnaʼ</day>
+							<day type="tue">Nittak Atoklaʼ</day>
+							<day type="wed">Nittak Atochchiʼnaʼ</day>
+							<day type="thu">Nittak Ayyoshtaʼ</day>
+							<day type="fri">Naalhchifaʼ Nittak</day>
+							<day type="sat">Nittak Holloʼ Nakfish</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">EEEE, MMMM d, y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">MMMM d, y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="unconfirmed">MMM d, y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="unconfirmed">M/d/yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="unconfirmed">h:mm:ss a zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="unconfirmed">h:mm:ss a z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="unconfirmed">h:mm:ss a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="unconfirmed">h:mm a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols numberSystem="latn">
+			<decimal draft="unconfirmed">.</decimal>
+			<group draft="unconfirmed">,</group>
+			<list draft="unconfirmed">;</list>
+			<percentSign draft="unconfirmed">%</percentSign>
+			<plusSign draft="unconfirmed">+</plusSign>
+			<minusSign draft="unconfirmed">-</minusSign>
+			<exponential draft="unconfirmed">E</exponential>
+			<perMille draft="unconfirmed">‰</perMille>
+			<infinity draft="unconfirmed">∞</infinity>
+			<nan draft="unconfirmed">NaN</nan>
+		</symbols>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="other" draft="provisional">¤ 0K</pattern>
+					<pattern type="10000" count="other" draft="provisional">¤ 00K</pattern>
+					<pattern type="100000" count="other" draft="provisional">¤ 000K</pattern>
+					<pattern type="1000000" count="other" draft="provisional">¤ 0M</pattern>
+					<pattern type="10000000" count="other" draft="provisional">¤ 00M</pattern>
+					<pattern type="100000000" count="other" draft="provisional">¤ 000M</pattern>
+					<pattern type="1000000000" count="other" draft="provisional">¤ 0G</pattern>
+					<pattern type="10000000000" count="other" draft="provisional">¤ 00G</pattern>
+					<pattern type="100000000000" count="other" draft="provisional">¤ 000G</pattern>
+					<pattern type="1000000000000" count="other" draft="provisional">¤ 0T</pattern>
+					<pattern type="10000000000000" count="other" draft="provisional">¤ 00T</pattern>
+					<pattern type="100000000000000" count="other" draft="provisional">¤ 000T</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencies>
+			<currency type="USD">
+				<symbol>$</symbol>
+			</currency>
+		</currencies>
+	</numbers>
+	<units>
+		<unitLength type="long">
+			<unit type="duration-year">
+				<displayName draft="provisional">Afammi</displayName>
+				<unitPattern count="other">Afammi {0}</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">Hashiʼ alhpisaʼ</displayName>
+				<unitPattern count="other">Hashiʼ alhpisaʼ {0}</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">Nittak hollo ittataklaʼ</displayName>
+				<unitPattern count="other">Nittak hollo ittataklaʼ {0}</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<displayName draft="provisional">Nittak</displayName>
+				<unitPattern count="other">{0} Nittak</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<displayName draft="provisional">Hashiʼ kanalli chaffaʼ</displayName>
+				<unitPattern count="other">Hashiʼ kanalli chaffaʼ {0}</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<displayName draft="provisional">Hashiʼ kanallloshiʼ</displayName>
+				<unitPattern count="other">Hashiʼ kanallloshiʼ {0}</unitPattern>
+			</unit>
+		</unitLength>
+	</units>
+</ldml>

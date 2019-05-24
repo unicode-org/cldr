@@ -203,6 +203,7 @@ public class PathHeader implements Comparable<PathHeader> {
         
         Measurement_Systems( SectionId.Units, "Measurement Systems"),
         Duration( SectionId.Units),
+        Graphics( SectionId.Units),
         Length( SectionId.Units),
         Area( SectionId.Units),
         Volume( SectionId.Units),

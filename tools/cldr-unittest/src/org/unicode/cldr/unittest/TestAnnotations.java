@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Locale;
@@ -285,6 +286,61 @@ public class TestAnnotations extends TestFmwkPlus {
             }
         }
     }
+    
+    /**
+     * check that the order info and categories are consistent.
+     */
+    public void testEmojiOrdering() {
+        // load an array for sorting
+        // and test that every order value maps to exactly one emoji
+        Map<String,String> minorToMajor = new HashMap<>();
+        Map<Integer, String> orderToEmoji = new TreeMap<>();
+        for (String emoji : Emoji.getNonConstructed()) {
+            Integer emojiOrder = Emoji.getEmojiToOrder(emoji);
+            String oldEmoji = orderToEmoji.get(emojiOrder);
+            if (oldEmoji == null) {
+                orderToEmoji.put(emojiOrder, emoji);
+            } else {
+                errln("single order value with different emoji" + emoji + " ≠ " + oldEmoji);
+            }
+        }
+        Set<String> majorsSoFar = new TreeSet<>();
+        String lastMajor = "";
+        Set<String> minorsSoFar = new TreeSet<>();
+        String lastMinor = "";
+        for (Entry<Integer, String> entry : orderToEmoji.entrySet()) {
+            String emoji = entry.getValue();
+            String major = Emoji.getMajorCategory(emoji);
+            String minor = Emoji.getMinorCategory(emoji);
+            if (isVerbose()) {
+                System.out.println(major + "\t" + minor + "\t" + emoji);
+            }
+            String oldMajor = minorToMajor.get(minor);
+            // never get major1:minor1 and major2:minor1
+            if (oldMajor == null) {
+                minorToMajor.put(minor, major); 
+            } else {
+                assertEquals(minor + " maps to different majors for " + Utility.hex(emoji), oldMajor, major);
+            }
+            // never get major1 < major2 < major1
+            if (!major.equals(lastMajor)) {
+                if (majorsSoFar.contains(major)) {
+                    errln("Non-contiguous majors: " + major + " <… " + lastMajor + " < " + major);
+                }
+                majorsSoFar.add(major);
+                lastMajor = major;
+            }
+            // never get minor1 < minor2 < minor1
+            if (!minor.equals(lastMinor)) {
+                if (minorsSoFar.contains(minor)) {
+                    errln("Non-contiguous minors: " + minor + " <… " + lastMinor + " < " + minor);
+                }
+                minorsSoFar.add(minor);
+                lastMinor = minor;
+            }
+        }
+    }
+
 
     public void testSuperfluousAnnotationPaths() {
         Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");

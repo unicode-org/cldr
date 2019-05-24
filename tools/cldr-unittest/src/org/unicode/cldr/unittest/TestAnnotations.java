@@ -1,10 +1,12 @@
 package org.unicode.cldr.unittest;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -33,6 +35,7 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.dev.util.UnicodeMap.EntryRange;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.UnicodeSet;
 
 public class TestAnnotations extends TestFmwkPlus {
@@ -262,6 +265,24 @@ public class TestAnnotations extends TestFmwkPlus {
             Set<String> annotationPathsExpected = Emoji.getNamePaths();
             checkAMinusBIsC("(" + locale + ".xml - Emoji.getNamePaths)", annotationPaths, annotationPathsExpected, Collections.<String> emptySet());
             checkAMinusBIsC("(Emoji.getNamePaths - " + locale + ".xml)", annotationPathsExpected, annotationPaths, Collections.<String> emptySet());
+        }
+    }
+    public void testEmojiImages() {
+        Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
+        CLDRFile enAnnotations = factoryAnnotations.make("en", false);
+
+        String emojiImageDir = CLDRPaths.BASE_DIRECTORY + "/tools/cldr-apps/WebContent/images/emoji";
+        for (String emoji : Emoji.getNonConstructed()) { 
+            String noVs = emoji.replace(Emoji.EMOJI_VARIANT, "");
+            
+            // example: emoji_1f1e7_1f1ec.png
+            String fileName = "emoji_" + Utility.hex(noVs, 4, "_").toLowerCase(Locale.ENGLISH) + ".png";
+            File file = new File(emojiImageDir, fileName);
+            
+            if (!file.exists()) {
+                String name = enAnnotations.getStringValue("//ldml/annotations/annotation[@cp=\"" + noVs + "\"][@type=\"tts\"]");
+                errln(fileName + " missing; " + name);
+            }
         }
     }
 

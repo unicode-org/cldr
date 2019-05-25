@@ -23,7 +23,7 @@ public class TestOutdatedPaths extends TestFmwkPlus {
     }
 
     OutdatedPaths outdatedPaths = new OutdatedPaths();
-    
+
     public void TestBirths() {
         Multimap<CldrVersion, String> birthToPaths = TreeMultimap.create();
         for (String path : testInfo.getEnglish()) {
@@ -60,7 +60,7 @@ public class TestOutdatedPaths extends TestFmwkPlus {
 
     // use for debugging, and also just to make sure cycle works.
     public void TestShow() {
-        PathHeader.Factory pathHeaders = PathHeader.getFactory(testInfo.getEnglish());
+        PathHeader.Factory pathHeaders = PathHeader.getFactory();
         // checkShow(pathHeaders, "fr");
         checkShow(pathHeaders, "de");
     }
@@ -69,7 +69,7 @@ public class TestOutdatedPaths extends TestFmwkPlus {
         CLDRFile cldrFile = testInfo.getMainAndAnnotationsFactory().make(locale, true);
 
         Map<PathHeader, String> sorted = new TreeMap<PathHeader, String>();
-        logln(locale + " count:\t" + outdatedPaths.countOutdated(locale));
+        logln(locale + " total outdated:\t" + outdatedPaths.countOutdated(locale));
         for (String spath : cldrFile) {
             if (outdatedPaths.isOutdated(locale, spath)) {
                 sorted.put(pathHeaders.fromPath(spath), "");
@@ -78,11 +78,12 @@ public class TestOutdatedPaths extends TestFmwkPlus {
         for (Entry<PathHeader, String> entry : sorted.entrySet()) {
             PathHeader p = entry.getKey();
             String originalPath = p.getOriginalPath();
-            logln("Eng: " + outdatedPaths.getPreviousEnglish(originalPath)
-                + "\t⇒\t"
-                + CLDRConfig.getInstance().getEnglish().getStringValue(originalPath) //
-                + "\tNative: " + cldrFile.getStringValue(originalPath) //
-                + "\tPath: " + p.toString() //
+            logln("English (" + outdatedPaths.getEnglishBirth(originalPath) + "):\\t"
+                + "«" + outdatedPaths.getPreviousEnglish(originalPath) + "»"
+                + "\t⇒\\t"
+                + "«" + CLDRConfig.getInstance().getEnglish().getStringValue(originalPath) + "»"
+                + "\tNative: «" + cldrFile.getStringValue(originalPath) //
+                + "»\tPath: " + p.toString() //
                 + "\tXML-Path: " + originalPath);
         }
     }

@@ -441,6 +441,13 @@ public class PathHeader implements Comparable<PathHeader> {
         }
         return factorySingleton;
     }
+    
+    /**
+     * Convenience method for common case. See {{@link #getFactory(CLDRFile)}}
+     */
+    public static Factory getFactory() {
+        return getFactory(CLDRConfig.getInstance().getEnglish());
+    }
 
     /**
      * @deprecated

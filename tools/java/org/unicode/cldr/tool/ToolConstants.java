@@ -44,8 +44,8 @@ public class ToolConstants {
 
     public static final List<String> CLDR_VERSIONS = ImmutableList.of(
         "1.1.1",
-        "1.2.0",
-        "1.3.0",
+        "1.2",
+        "1.3",
         "1.4.1",
         "1.5.1",
         "1.6.1",
@@ -66,7 +66,10 @@ public class ToolConstants {
         "31.0",
         "32.0",
         "33.0",
-        "34.0"
+        "33.1",
+        "34.0",
+        "35.0",
+        "35.1"
     // add to this once the release is final!
     );
     public static final String PREVIOUS_CHART_VERSION;

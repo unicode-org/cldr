@@ -46,8 +46,8 @@ public class GenerateBirth {
 
     static final CldrVersion[] VERSIONS = VERSIONS_WITH_TRUNK_DESCENDING.toArray(
         new CldrVersion[VERSIONS_WITH_TRUNK_DESCENDING.size()]); // hack for now; should change to list
-    
-    static final Factory[] factories = new Factory[VERSIONS.length-1]; // hack for now; should change to list
+
+    static final Factory[] factories = new Factory[VERSIONS.length - 1]; // hack for now; should change to list
 
     final static Options myOptions = new Options()
         .add("target", ".*", CLDRPaths.BIRTH_DATA_DIR,
@@ -63,13 +63,14 @@ public class GenerateBirth {
         .add("debug", "Debug");
 
     public static void main(String[] args) throws IOException {
+        System.out.println("Run TestOutdatedPaths.java -v to see a listing of changes.");
         myOptions.parse(args, true);
         try {
             CldrVersion.checkVersions(); // verify versions up to date
         } catch (Exception e) {
             throw new ICUException("This tool can only be run if the archive of released versions matching CldrVersion is available.", e);
         }
-        
+
         // set up the CLDR Factories
 
         DEBUG = myOptions.get("debug").doesOccur();
@@ -89,13 +90,17 @@ public class GenerateBirth {
 //                new File[] { new File(base + "common/main/") } : 
 //                    new File[] { new File(base + "common/main/"), new File(base + "common/annotations/") };
 
-                System.out.println(version + ", " + paths);
-                Factory aFactory = SimpleFactory.make(paths.toArray(new File[paths.size()]), filePattern);
-                list.add(aFactory);
+            System.out.println(version + ", " + paths);
+            Factory aFactory = SimpleFactory.make(paths.toArray(new File[paths.size()]), filePattern);
+            list.add(aFactory);
         }
         list.toArray(factories);
 
         final String dataDirectory = myOptions.get("target").getValue();
+        File dataDir = new File(dataDirectory);
+        if (!dataDir.isDirectory()) {
+            throw new IllegalArgumentException("-t value is not directory: " + dataDir);
+        }
 
         // load and process English
 
@@ -105,11 +110,11 @@ public class GenerateBirth {
         Births english = new Births("en");
         english.writeBirth(logDirectory, "en", null);
         english.writeBirthValues(dataDirectory + "/" + OutdatedPaths.OUTDATED_ENGLISH_DATA);
-        
+
         Map<Long, Pair<CldrVersion, String>> pathToPrevious = new HashMap<>();
-        
+
         // Verify that the write of English worked
-        
+
         OutdatedPaths.readBirthValues(dataDirectory, null, pathToPrevious);
         for (Entry<String, R3<CldrVersion, String, String>> entry : english.pathToBirthCurrentPrevious.entrySet()) {
             String path = entry.getKey();
@@ -123,10 +128,9 @@ public class GenerateBirth {
             CldrVersion birthRead = readValue == null ? null : readValue.getFirst();
             String previousRead = readValue == null ? null : readValue.getSecond();
             if (!Objects.equal(previous, previousRead) || !Objects.equal(birth, birthRead)) {
-                throw new IllegalArgumentException("path: " + path 
+                throw new IllegalArgumentException("path: " + path
                     + "\tprevious: " + previous + "\tread: " + readValue
-                    + "\tbirth: " + birth + "\tread: " + birthRead
-                    );
+                    + "\tbirth: " + birth + "\tread: " + birthRead);
             }
         }
 
@@ -303,7 +307,7 @@ public class GenerateBirth {
         }
 
         Set<String> writeBirth(PrintWriter out, Births onlyNewer) {
-            
+
             out.println("Loc\tVersion\tValue\tPrevValue\tEVersion\tEValue\tEPrevValue\tPath");
 
             Set<String> newer = new HashSet<String>();

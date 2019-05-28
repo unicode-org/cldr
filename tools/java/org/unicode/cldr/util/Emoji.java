@@ -9,6 +9,7 @@ import java.util.Set;
 
 import org.unicode.cldr.draft.FileUtilities;
 
+import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
@@ -40,6 +41,7 @@ public class Emoji {
 
     static final UnicodeMap<String> emojiToMajorCategory = new UnicodeMap<>();
     static final UnicodeMap<String> emojiToMinorCategory = new UnicodeMap<>();
+    static final UnicodeMap<String> toName = new UnicodeMap<>();
     /**
      * A mapping from a majorCategory to a unique ordering number, based on the first time it is encountered.
      */
@@ -59,7 +61,7 @@ public class Emoji {
             # subgroup: face-positive
             1F600 ; fully-qualified     # 😀 grinning face
          */
-        Splitter semi = Splitter.on(';').trimResults();
+        Splitter semi = Splitter.on(CharMatcher.anyOf(";#")).trimResults();
         String majorCategory = null;
         String minorCategory = null;
         int majorOrder = 0;
@@ -101,7 +103,11 @@ public class Emoji {
             }
             emojiToMajorCategory.put(original, majorCategory);
             emojiToMinorCategory.put(original, minorCategory);
-            
+            String comment = it.next();
+            int spacePos = comment.indexOf(' ');
+            String name = comment.substring(spacePos+1).trim();
+            toName.put(original, name);
+
             // add all the non-constructed values to a set for annotations
 
             String minimal = original.replace(EMOJI_VARIANT, "");
@@ -138,6 +144,7 @@ public class Emoji {
         emojiToMinorCategory.freeze();
         nonConstructed.add(MODIFIERS); // needed for names
         nonConstructed.freeze();
+        toName.freeze();
         allRgi.freeze();
         allRgiNoES.freeze();
     }
@@ -158,6 +165,11 @@ public class Emoji {
         }
         return minorCat;
     }
+    
+    public static String getName(String emoji) {
+        return toName.get(emoji);
+    }
+
 
 //    public static int getMinorToOrder(String minor) {
 //        Integer result = minorToOrder.get(minor);

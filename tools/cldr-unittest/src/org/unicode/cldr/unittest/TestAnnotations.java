@@ -168,6 +168,18 @@ public class TestAnnotations extends TestFmwkPlus {
         }
 
     }
+    
+    /** The English name should line up with the emoji-test.txt file */
+    public void TestNamesVsEmojiData() {
+        AnnotationSet eng = Annotations.getDataSet("en");
+        for (Entry<String, Annotations> s : eng.getExplicitValues().entrySet()) {
+            String emoji = s.getKey();
+            Annotations annotations = s.getValue();
+            String name = Emoji.getName(emoji);
+            String annotationName = annotations.getShortName();
+            assertEquals(emoji, name, annotationName);
+        }
+    }
 
     // comment this out, since we now have console check for this.
     public void TestUniqueness() {

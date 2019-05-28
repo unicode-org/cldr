@@ -106,7 +106,7 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale SWISS_GERMAN = CLDRLocale.getInstance("gsw");
     private static final CLDRLocale FF_ADLAM = CLDRLocale.getInstance("ff_Adlm");
     public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE = new HashSet<String>(
-        Arrays.asList("br", "bss", "cch", "gn", "ha", "ha_Latn", "lkt", "mgo", "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
+        Arrays.asList("br", "bss", "cic", "cch", "gn", "ha", "ha_Latn", "lkt", "mgo", "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
 
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
     private static final char[][] ROMANIAN_CONVERSIONS = {

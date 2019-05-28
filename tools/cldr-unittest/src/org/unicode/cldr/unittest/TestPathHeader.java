@@ -1292,4 +1292,11 @@ public class TestPathHeader extends TestFmwkPlus {
             }
         }
     }
+    public void TestCLDR_11454() {
+        PathHeader.Factory phf = PathHeader.getFactory();
+        PathHeader century = phf.fromPath("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-century\"]/displayName");
+        PathHeader decade =  phf.fromPath("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-decade\"]/displayName");
+        assertEquals("Section", century.getSectionId(), decade.getSectionId());
+        assertEquals("Page", century.getPageId(), decade.getPageId());
+    }
 }

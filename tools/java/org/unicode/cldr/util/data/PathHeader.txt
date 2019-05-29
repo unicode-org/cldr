@@ -255,8 +255,8 @@
 //ldml/localeDisplayNames/annotationPatterns/annotationPattern[@type="%A"] ; Characters ; Category ; Link ; $1
 
 # Use special hyphens
-//ldml/annotations/annotation[@cp="%A"][@type="tts"]	; Characters ; &major($1) ; &minor($1) ; &alphaOrder($1 -name)
-//ldml/annotations/annotation[@cp="%A"]					; Characters ; &major($1) ; &minor($1) ; &alphaOrder($1 –keywords)
+//ldml/annotations/annotation[@cp="%A"][@type="tts"]	; Characters ; &major($1) ; &minor($1) ; &emoji($1 -name)
+//ldml/annotations/annotation[@cp="%A"]					; Characters ; &major($1) ; &minor($1) ; &emoji($1 –keywords)
 
 #OLD
 //ldml/annotations/annotation_[@cp="%A"]/_tts			; Characters ; Annotation ; $1 ; TTS ; HIDE

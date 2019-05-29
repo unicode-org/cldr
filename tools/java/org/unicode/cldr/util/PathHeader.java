@@ -1765,8 +1765,21 @@ public class PathHeader implements Comparable<PathHeader> {
                 @Override
                 public String transform(String source) {
                     String minorCat = Emoji.getMinorCategory(source);
-                    order = Emoji.getEmojiToOrder(source);
+                    order = Emoji.getEmojiMinorOrder(source);
                     return minorCat;
+                }
+            });
+            /**
+             * Use the ordering of the emoji in getEmojiToOrder rather than alphabetic,
+             * since the collator data won't be ready until the candidates are final. 
+             */
+            functionMap.put("emoji", new Transform<String, String>() {
+                @Override
+                public String transform(String source) {
+                    int dashPos = source.indexOf(' ');
+                    String emoji = source.substring(0, dashPos);
+                    order = (Emoji.getEmojiToOrder(emoji) << 1) + (source.endsWith("name") ? 0 : 1);
+                    return source;
                 }
             });
 

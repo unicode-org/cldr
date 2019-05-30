@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.unicode.cldr.draft.FileUtilities;
@@ -12,8 +11,6 @@ import org.unicode.cldr.draft.FileUtilities;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
@@ -66,7 +63,7 @@ public class Emoji {
         String minorCategory = null;
         int majorOrder = 0;
         int minorOrder = 0;
-        Multimap<Pair<Integer,Integer>,String> majorPlusMinorToEmoji = TreeMultimap.create();
+        //Multimap<Pair<Integer,Integer>,String> majorPlusMinorToEmoji = TreeMultimap.create();
         for (String line : FileUtilities.in(Emoji.class, "data/emoji/emoji-test.txt")) {
             if (line.startsWith("#")) {
                 line = line.substring(1).trim();
@@ -78,7 +75,7 @@ public class Emoji {
                     } else {
                         majorOrder = oldMajorOrder;
                     }
-               } else if (line.startsWith("subgroup:")) {
+                } else if (line.startsWith("subgroup:")) {
                     minorCategory = line.substring("subgroup:".length()).trim();
                     Integer oldMinorOrder = minorToOrder.get(minorCategory);
                     if (oldMinorOrder == null) {
@@ -111,8 +108,16 @@ public class Emoji {
             // add all the non-constructed values to a set for annotations
 
             String minimal = original.replace(EMOJI_VARIANT, "");
+
+            // Add the order. If it is not minimal, add that also.
+            if (!emojiToOrder.containsKey(original)) {
+                emojiToOrder.put(original, emojiToOrder.size());
+            }
+            if (!emojiToOrder.containsKey(minimal)) {
+                emojiToOrder.put(original, emojiToOrder.size());
+            }
             // 
-            majorPlusMinorToEmoji.put(Pair.of(majorOrder, minorOrder), minimal);
+            // majorPlusMinorToEmoji.put(Pair.of(majorOrder, minorOrder), minimal);
 
             boolean singleton = CharSequences.getSingleCodePoint(minimal) != Integer.MAX_VALUE;
 //            if (!emojiToOrder.containsKey(minimal)) {
@@ -136,10 +141,10 @@ public class Emoji {
                 nonConstructed.add(minimal);
             }
         }
-        for (Entry<Pair<Integer,Integer>, String> entry : majorPlusMinorToEmoji.entries()) {
-            String minimal = entry.getValue();
-            emojiToOrder.put(minimal, emojiToOrder.size());
-        }
+//        for (Entry<Pair<Integer,Integer>, String> entry : majorPlusMinorToEmoji.entries()) {
+//            String minimal = entry.getValue();
+//            emojiToOrder.put(minimal, emojiToOrder.size());
+//        }
         emojiToMajorCategory.freeze();
         emojiToMinorCategory.freeze();
         nonConstructed.add(MODIFIERS); // needed for names
@@ -165,7 +170,7 @@ public class Emoji {
         }
         return minorCat;
     }
-    
+
     public static String getName(String emoji) {
         return toName.get(emoji);
     }
@@ -175,9 +180,14 @@ public class Emoji {
 //        Integer result = minorToOrder.get(minor);
 //        return result == null ? Integer.MAX_VALUE : result;
 //    }
-    
-    public static int getEmojiToOrder(String minor) {
-        Integer result = emojiToOrder.get(minor);
+
+    public static int getEmojiToOrder(String emoji) {
+        Integer result = emojiToOrder.get(emoji);
+        return result == null ? Integer.MAX_VALUE : result;
+    }
+
+    public static int getEmojiMinorOrder(String minor) {
+        Integer result = minorToOrder.get(minor);
         return result == null ? Integer.MAX_VALUE : result;
     }
 

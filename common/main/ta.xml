@@ -993,6 +993,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">ஜிம்பாப்வே</territory>
 			<territory type="ZZ">அறியப்படாத பிரதேசம்</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">இங்கிலாந்து</subdivision>
+			<subdivision type="gbsct">ஸ்காட்லாந்து</subdivision>
+			<subdivision type="gbwls">வேல்ஸ்</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="PINYIN">பின்யின் ரோமானைசெஷன்</variant>
 			<variant type="WADEGILE">வேட்-கைல்ஸ் ரோமனைஷேசன்</variant>
@@ -6978,11 +6983,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} குதிரைத்திறன்</unitPattern>
 				<unitPattern count="other">{0} குதிரைத்திறன்</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>ஹெக்டோபாஸ்கல்</displayName>
-				<unitPattern count="one">{0} ஹெக்டோபாஸ்கல்</unitPattern>
-				<unitPattern count="other">{0} ஹெக்டோபாஸ்கல்</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>பாதரச மில்லிமீட்டர்கள்</displayName>
 				<unitPattern count="one">{0} பாதரச மில்லிமீட்டர்</unitPattern>
@@ -7007,6 +7007,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>வளிஅழுத்தம்</displayName>
 				<unitPattern count="one">{0} வளிஅழுத்தம்</unitPattern>
 				<unitPattern count="other">{0} வளிஅழுத்தங்கள்</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>ஹெக்டோபாஸ்கல்</displayName>
+				<unitPattern count="one">{0} ஹெக்டோபாஸ்கல்</unitPattern>
+				<unitPattern count="other">{0} ஹெக்டோபாஸ்கல்</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">கிலோபாஸ்கல்ஸ்</displayName>
@@ -7748,11 +7753,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} கு.தி.</unitPattern>
 				<unitPattern count="other">{0} கு.தி.</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>ஹெ.பாஸ்.</displayName>
-				<unitPattern count="one">{0} ஹெ.பாஸ்.</unitPattern>
-				<unitPattern count="other">{0} ஹெ.பாஸ்.</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>பாத. மி.மீ.</displayName>
 				<unitPattern count="one">{0} பாத. மி.மீ.</unitPattern>
@@ -7767,6 +7767,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>மி.பா.</displayName>
 				<unitPattern count="one">{0} மி.பா.</unitPattern>
 				<unitPattern count="other">{0} மி.பா.</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>ஹெ.பாஸ்.</displayName>
+				<unitPattern count="one">{0} ஹெ.பாஸ்.</unitPattern>
+				<unitPattern count="other">{0} ஹெ.பாஸ்.</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">கிபா</displayName>
@@ -8160,11 +8165,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} கு.வே.</unitPattern>
 				<unitPattern count="other">{0} கு.வே.</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName draft="contributed">ஹெ.பாஸ்.</displayName>
-				<unitPattern count="one">{0} ஹெ.பா.</unitPattern>
-				<unitPattern count="other">{0} ஹெ.பா.</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName draft="contributed">பாத. மி.மீ.</displayName>
 				<unitPattern count="one" draft="contributed">{0} பாத. மி.மீ.</unitPattern>
@@ -8179,6 +8179,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName draft="contributed">மி.பா.</displayName>
 				<unitPattern count="one">{0} மி.பா.</unitPattern>
 				<unitPattern count="other">{0} மி.பா.</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName draft="contributed">ஹெ.பாஸ்.</displayName>
+				<unitPattern count="one">{0} ஹெ.பா.</unitPattern>
+				<unitPattern count="other">{0} ஹெ.பா.</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>கி.மீ./ம.</displayName>

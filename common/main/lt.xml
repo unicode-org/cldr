@@ -1118,6 +1118,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">Zimbabvė</territory>
 			<territory type="ZZ">nežinoma sritis</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">Anglija</subdivision>
+			<subdivision type="gbsct">Škotija</subdivision>
+			<subdivision type="gbwls">Velsas</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901">Įprasta vokiečių rašyba</variant>
 			<variant type="1994">Sunorminta Resian rašyba</variant>
@@ -9848,13 +9853,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} arklio galios</unitPattern>
 				<unitPattern count="other">{0} arklio galių</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hektopaskaliai</displayName>
-				<unitPattern count="one">{0} hektopaskalis</unitPattern>
-				<unitPattern count="few">{0} hektopaskaliai</unitPattern>
-				<unitPattern count="many">{0} hektopaskalio</unitPattern>
-				<unitPattern count="other">{0} hektopaskalių</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>gysidabrio stulpelio milimetrai</displayName>
 				<unitPattern count="one">{0} gysidabrio stulpelio milimetras</unitPattern>
@@ -9889,6 +9887,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} atmosferos</unitPattern>
 				<unitPattern count="many">{0} atmosferos</unitPattern>
 				<unitPattern count="other">{0} atmosferų</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hektopaskaliai</displayName>
+				<unitPattern count="one">{0} hektopaskalis</unitPattern>
+				<unitPattern count="few">{0} hektopaskaliai</unitPattern>
+				<unitPattern count="many">{0} hektopaskalio</unitPattern>
+				<unitPattern count="other">{0} hektopaskalių</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kilopaskaliai</displayName>
@@ -10978,13 +10983,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} AG</unitPattern>
 				<unitPattern count="other">{0} AG</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="one">{0} hPa</unitPattern>
-				<unitPattern count="few">{0} hPa</unitPattern>
-				<unitPattern count="many">{0} hPa</unitPattern>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
 				<unitPattern count="one">{0} mm Hg</unitPattern>
@@ -11019,6 +11017,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} atm</unitPattern>
 				<unitPattern count="many">{0} atm</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="few">{0} hPa</unitPattern>
+				<unitPattern count="many">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>↑↑↑</displayName>
@@ -11614,13 +11619,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} AG</unitPattern>
 				<unitPattern count="other">{0} AG</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="one">{0} hPa</unitPattern>
-				<unitPattern count="few">{0} hPa</unitPattern>
-				<unitPattern count="many">{0} hPa</unitPattern>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
 				<unitPattern count="one">{0} mm Hg</unitPattern>
@@ -11648,6 +11646,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} mbar</unitPattern>
 				<unitPattern count="many">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="few">{0} hPa</unitPattern>
+				<unitPattern count="many">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

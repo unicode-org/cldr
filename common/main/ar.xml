@@ -986,6 +986,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">زيمبابوي</territory>
 			<territory type="ZZ">منطقة غير معروفة</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">إنجلترا</subdivision>
+			<subdivision type="gbsct">اسكتلندا</subdivision>
+			<subdivision type="gbwls">ويلز</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901">التهجئة الألمانية التقليدية</variant>
 			<variant type="1996">التهجئة الألمانية لعام 1996</variant>
@@ -9484,15 +9489,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} قوة حصان</unitPattern>
 				<unitPattern count="other">{0} قوة حصان</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>هكتوباسكال</displayName>
-				<unitPattern count="zero">{0} هكتوباسكال</unitPattern>
-				<unitPattern count="one">{0} هكتوباسكال</unitPattern>
-				<unitPattern count="two">{0} هكتوباسكال</unitPattern>
-				<unitPattern count="few">{0} هكتوباسكال</unitPattern>
-				<unitPattern count="many">{0} هكتوباسكال</unitPattern>
-				<unitPattern count="other">{0} هكتوباسكال</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>مليمتر زئبقي</displayName>
 				<unitPattern count="zero">{0} مليمتر زئبقي</unitPattern>
@@ -9537,6 +9533,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} ض.ج</unitPattern>
 				<unitPattern count="many">{0} ض.ج</unitPattern>
 				<unitPattern count="other">{0} ضغط جوي</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>هكتوباسكال</displayName>
+				<unitPattern count="zero">{0} هكتوباسكال</unitPattern>
+				<unitPattern count="one">{0} هكتوباسكال</unitPattern>
+				<unitPattern count="two">{0} هكتوباسكال</unitPattern>
+				<unitPattern count="few">{0} هكتوباسكال</unitPattern>
+				<unitPattern count="many">{0} هكتوباسكال</unitPattern>
+				<unitPattern count="other">{0} هكتوباسكال</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">كيلوباسكال</displayName>
@@ -10893,15 +10898,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} حصان</unitPattern>
 				<unitPattern count="other">{0} حصان</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>هكتوباسكال</displayName>
-				<unitPattern count="zero">{0} هكتوباسكال</unitPattern>
-				<unitPattern count="one">{0} هكتوباسكال</unitPattern>
-				<unitPattern count="two">{0} هكتوباسكال</unitPattern>
-				<unitPattern count="few">{0} هكتوباسكال</unitPattern>
-				<unitPattern count="many">{0} هكتوباسكال</unitPattern>
-				<unitPattern count="other">{0} هكتوباسكال</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>ملم زئبقي</displayName>
 				<unitPattern count="zero">{0} ملم زئبقي</unitPattern>
@@ -10946,6 +10942,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} ض.ج</unitPattern>
 				<unitPattern count="many">{0} ض.ج</unitPattern>
 				<unitPattern count="other">{0} ض.ج</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>هكتوباسكال</displayName>
+				<unitPattern count="zero">{0} هكتوباسكال</unitPattern>
+				<unitPattern count="one">{0} هكتوباسكال</unitPattern>
+				<unitPattern count="two">{0} هكتوباسكال</unitPattern>
+				<unitPattern count="few">{0} هكتوباسكال</unitPattern>
+				<unitPattern count="many">{0} هكتوباسكال</unitPattern>
+				<unitPattern count="other">{0} هكتوباسكال</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">↑↑↑</displayName>
@@ -11620,14 +11625,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many" draft="contributed">{0} قوة حصان</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} قوة حصان</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="zero">{0} هكب</unitPattern>
-				<unitPattern count="one">{0} هكب</unitPattern>
-				<unitPattern count="two">{0} هكب</unitPattern>
-				<unitPattern count="few">{0} هكب</unitPattern>
-				<unitPattern count="many">{0} هكب</unitPattern>
-				<unitPattern count="other">{0} هكب</unitPattern>
-			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="zero">{0} ب ز</unitPattern>
 				<unitPattern count="one">{0} ب ز</unitPattern>
@@ -11643,6 +11640,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few" draft="contributed">{0} مللي بار</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} مللي بار</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} مللي بار</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="zero">{0} هكب</unitPattern>
+				<unitPattern count="one">{0} هكب</unitPattern>
+				<unitPattern count="two">{0} هكب</unitPattern>
+				<unitPattern count="few">{0} هكب</unitPattern>
+				<unitPattern count="many">{0} هكب</unitPattern>
+				<unitPattern count="other">{0} هكب</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>كم/س</displayName>

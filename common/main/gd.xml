@@ -1100,6 +1100,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ZW">An t-Sìombab</territory>
 			<territory type="ZZ">Roinn-dùthcha neo-aithnichte</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">Sasainn</subdivision>
+			<subdivision type="gbsct">Alba</subdivision>
+			<subdivision type="gbwls">A’ Chuimrigh</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901">Litreachadh tradaiseanta na Gearmailtise</variant>
 			<variant type="1994">Litreachadh stannardach dual-chainnt Resia</variant>
@@ -10268,13 +10273,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} cumhachdan-eich</unitPattern>
 				<unitPattern count="other">{0} cumhachd-eich</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>heacta pascal</displayName>
-				<unitPattern count="one">{0} heacta pascal</unitPattern>
-				<unitPattern count="two">{0} heacta pascal</unitPattern>
-				<unitPattern count="few">{0} heacta pascal</unitPattern>
-				<unitPattern count="other">{0} heacta pascal</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mille-mheatair de dh’airgead-beò</displayName>
 				<unitPattern count="one">{0} mhille-mheatair de dh’airgead-beò</unitPattern>
@@ -10309,6 +10307,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">{0} bhrùthadh-àile</unitPattern>
 				<unitPattern count="few">{0} brùthadh-àile</unitPattern>
 				<unitPattern count="other">{0} brùthadh-àile</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>heacta pascal</displayName>
+				<unitPattern count="one">{0} heacta pascal</unitPattern>
+				<unitPattern count="two">{0} heacta pascal</unitPattern>
+				<unitPattern count="few">{0} heacta pascal</unitPattern>
+				<unitPattern count="other">{0} heacta pascal</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>cilemeatair san uair</displayName>
@@ -11279,13 +11284,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} hp</unitPattern>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="one">{0} hPa</unitPattern>
-				<unitPattern count="two">{0} hPa</unitPattern>
-				<unitPattern count="few">{0} hPa</unitPattern>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
 				<unitPattern count="one">{0} mm Hg</unitPattern>
@@ -11320,6 +11318,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">{0} àile</unitPattern>
 				<unitPattern count="few">{0} àile</unitPattern>
 				<unitPattern count="other">{0} àile</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="two">{0} hPa</unitPattern>
+				<unitPattern count="few">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/uair</displayName>
@@ -12290,13 +12295,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0}hp</unitPattern>
 				<unitPattern count="other">{0}hp</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="one">{0}hPa</unitPattern>
-				<unitPattern count="two">{0}hPa</unitPattern>
-				<unitPattern count="few">{0}hPa</unitPattern>
-				<unitPattern count="other">{0}hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
 				<unitPattern count="one">{0}mm Hg</unitPattern>
@@ -12331,6 +12329,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two">{0}atm</unitPattern>
 				<unitPattern count="few">{0}atm</unitPattern>
 				<unitPattern count="other">{0}atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
+				<unitPattern count="one">{0}hPa</unitPattern>
+				<unitPattern count="two">{0}hPa</unitPattern>
+				<unitPattern count="few">{0}hPa</unitPattern>
+				<unitPattern count="other">{0}hPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

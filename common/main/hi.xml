@@ -986,6 +986,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">ज़िम्बाब्वे</territory>
 			<territory type="ZZ">अज्ञात क्षेत्र</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">इंग्लैंड</subdivision>
+			<subdivision type="gbsct">स्कॉटलैंड</subdivision>
+			<subdivision type="gbwls">वेल्स</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901">पारम्पारिक जर्मन वर्तनी</variant>
 			<variant type="1996">जर्मेनी की 1996 वर्तनी</variant>
@@ -6820,11 +6825,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} अश्वशक्ति</unitPattern>
 				<unitPattern count="other">{0} अश्वशक्ति</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>हैक्टोपास्कल</displayName>
-				<unitPattern count="one">{0} हैक्टोपास्कल</unitPattern>
-				<unitPattern count="other">{0} हैक्टोपास्कल</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>मर्क्यूरी मिलीमीटर</displayName>
 				<unitPattern count="one">{0} मर्क्यूरी मिलीमीटर</unitPattern>
@@ -6849,6 +6849,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName draft="contributed">वायुमण्डलीय दबाव</displayName>
 				<unitPattern count="one" draft="contributed">{0} वायुमंडलीय दबाव</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} वायुमंडलीय दबाव</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>हैक्टोपास्कल</displayName>
+				<unitPattern count="one">{0} हैक्टोपास्कल</unitPattern>
+				<unitPattern count="other">{0} हैक्टोपास्कल</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">किलोपास्कल</displayName>
@@ -7826,10 +7831,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}एचपी</unitPattern>
 				<unitPattern count="other">{0}एचपी</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="one">{0}hPa</unitPattern>
-				<unitPattern count="other">{0}hPa</unitPattern>
-			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="one">{0}&quot; Hg</unitPattern>
 				<unitPattern count="other">{0}&quot; Hg</unitPattern>
@@ -7837,6 +7838,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-millibar">
 				<unitPattern count="one">{0}mb</unitPattern>
 				<unitPattern count="other">{0}mb</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0}hPa</unitPattern>
+				<unitPattern count="other">{0}hPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>कि॰मी॰/घं॰</displayName>

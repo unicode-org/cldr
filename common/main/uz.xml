@@ -778,6 +778,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">Zimbabve</territory>
 			<territory type="ZZ">Noma’lum mintaqa</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">Angliya</subdivision>
+			<subdivision type="gbsct">Shotlandiya</subdivision>
+			<subdivision type="gbwls">Uels</subdivision>
+		</subdivisions>
 		<keys>
 			<key type="calendar">taqvim</key>
 			<key type="cf">valyuta formati</key>
@@ -6026,11 +6031,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ot kuchi</unitPattern>
 				<unitPattern count="other">{0} ot kuchi</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>gektopaskal</displayName>
-				<unitPattern count="one">{0} gektopaskal</unitPattern>
-				<unitPattern count="other">{0} gektopaskal</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm simob ustuni</displayName>
 				<unitPattern count="one">{0} mm simob ustuni</unitPattern>
@@ -6055,6 +6055,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>atmosfera</displayName>
 				<unitPattern count="one">{0} atmosfera</unitPattern>
 				<unitPattern count="other">{0} atmosfera</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>gektopaskal</displayName>
+				<unitPattern count="one">{0} gektopaskal</unitPattern>
+				<unitPattern count="other">{0} gektopaskal</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kilopaskal</displayName>
@@ -6829,11 +6834,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} o.k.</unitPattern>
 				<unitPattern count="other">{0} o.k.</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>gPa</displayName>
-				<unitPattern count="one">{0} gPa</unitPattern>
-				<unitPattern count="other">{0} gPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm sim.ust</displayName>
 				<unitPattern count="one">{0} mm sim.ust</unitPattern>
@@ -6858,6 +6858,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>atm</displayName>
 				<unitPattern count="one">{0} atm</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>gPa</displayName>
+				<unitPattern count="one">{0} gPa</unitPattern>
+				<unitPattern count="other">{0} gPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>↑↑↑</displayName>
@@ -7230,10 +7235,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} hp</unitPattern>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="one">{0} hPa</unitPattern>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
@@ -7241,6 +7242,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-millibar">
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/soat</displayName>

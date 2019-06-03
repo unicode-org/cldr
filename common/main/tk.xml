@@ -767,6 +767,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ZW">Zimbabwe</territory>
 			<territory type="ZZ">Näbelli sebit</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">Angliýa</subdivision>
+			<subdivision type="gbsct">Şotlandiýa</subdivision>
+			<subdivision type="gbwls">Uels</subdivision>
+		</subdivisions>
 		<keys>
 			<key type="calendar">Senenama</key>
 			<key type="cf">Pul birliginiň formaty</key>
@@ -6246,11 +6251,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} at güýji</unitPattern>
 				<unitPattern count="other">{0} at güýji</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>gektopaskal</displayName>
-				<unitPattern count="one">{0} gektopaskal</unitPattern>
-				<unitPattern count="other">{0} gektopaskal</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>millimetr simap sütüni</displayName>
 				<unitPattern count="one">{0} millimetr simap sütüni</unitPattern>
@@ -6275,6 +6275,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>atm</displayName>
 				<unitPattern count="one">{0} atmosfera</unitPattern>
 				<unitPattern count="other">{0} atmosfera</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>gektopaskal</displayName>
+				<unitPattern count="one">{0} gektopaskal</unitPattern>
+				<unitPattern count="other">{0} gektopaskal</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kilopaskal</displayName>
@@ -7049,11 +7054,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} a.g.</unitPattern>
 				<unitPattern count="other">{0} a.g.</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>gPa</displayName>
-				<unitPattern count="one">{0} gPa</unitPattern>
-				<unitPattern count="other">{0} gPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm sim.süt.</displayName>
 				<unitPattern count="one">{0} mm sim.süt.</unitPattern>
@@ -7078,6 +7078,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>atm</displayName>
 				<unitPattern count="one">{0} atm</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>gPa</displayName>
+				<unitPattern count="one">{0} gPa</unitPattern>
+				<unitPattern count="other">{0} gPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kPa</displayName>

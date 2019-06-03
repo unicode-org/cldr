@@ -1047,6 +1047,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">Zimbabwe</territory>
 			<territory type="ZZ">Wilayah Tidak Dikenal</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">Inggris</subdivision>
+			<subdivision type="gbsct">Skotlandia</subdivision>
+			<subdivision type="gbwls">Wales</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901">Ortografi Jerman Tradisional</variant>
 			<variant type="1994">Ortografi Resia Standar</variant>
@@ -7237,10 +7242,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>daya kuda</displayName>
 				<unitPattern count="other">{0} daya kuda</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hektopaskal</displayName>
-				<unitPattern count="other">{0} hektopaskal</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>milimeter merkuri</displayName>
 				<unitPattern count="other">{0} milimeter merkuri</unitPattern>
@@ -7260,6 +7261,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-atmosphere">
 				<displayName>atmosfer</displayName>
 				<unitPattern count="other">{0} atmosfer</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hektopaskal</displayName>
+				<unitPattern count="other">{0} hektopaskal</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kilopascal</displayName>
@@ -7862,10 +7867,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mW</displayName>
 				<unitPattern count="other">{0} mW</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
 				<unitPattern count="other">{0} mm Hg</unitPattern>
@@ -7873,6 +7874,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-inch-hg">
 				<displayName>in Hg</displayName>
 				<unitPattern count="other">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>↑↑↑</displayName>

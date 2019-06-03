@@ -1119,6 +1119,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">ซิมบับเว</territory>
 			<territory type="ZZ">ภูมิภาคที่ไม่รู้จัก</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">อังกฤษ</subdivision>
+			<subdivision type="gbsct">สกอตแลนด์</subdivision>
+			<subdivision type="gbwls">เวลส์</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901">เยอรมันออร์โธกราฟีดั้งเดิม</variant>
 			<variant type="1994" draft="contributed">อักขระเรเซียนมาตราฐาน</variant>
@@ -8045,10 +8050,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>แรงม้า</displayName>
 				<unitPattern count="other">{0} แรงม้า</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>เฮกโตปาสกาล</displayName>
-				<unitPattern count="other">{0} เฮกโตปาสกาล</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>มิลลิเมตรปรอท</displayName>
 				<unitPattern count="other">{0} มิลลิเมตรปรอท</unitPattern>
@@ -8068,6 +8069,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-atmosphere">
 				<displayName>บรรยากาศ</displayName>
 				<unitPattern count="other">{0} บรรยากาศ</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>เฮกโตปาสกาล</displayName>
+				<unitPattern count="other">{0} เฮกโตปาสกาล</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">กิโลปาสกาล</displayName>
@@ -8686,10 +8691,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>แรงม้า</displayName>
 				<unitPattern count="other">{0} แรงม้า</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>เฮกโตปาสกาล</displayName>
-				<unitPattern count="other">{0} เฮกโตปาสกาล</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>มม. ปรอท</displayName>
 				<unitPattern count="other">{0} มม. ปรอท</unitPattern>
@@ -8708,6 +8709,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-atmosphere">
 				<displayName draft="contributed">บรรยากาศ</displayName>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>เฮกโตปาสกาล</displayName>
+				<unitPattern count="other">{0} เฮกโตปาสกาล</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">↑↑↑</displayName>
@@ -9010,15 +9015,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-horsepower">
 				<unitPattern count="other">{0}แรงม้า</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName draft="contributed">เฮกโตปาสกาล</displayName>
-				<unitPattern count="other">{0}hPa</unitPattern>
-			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="other">{0}&quot; Hg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<unitPattern count="other">{0}มิลลิบาร์</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName draft="contributed">เฮกโตปาสกาล</displayName>
+				<unitPattern count="other">{0}hPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>กม./ชม.</displayName>

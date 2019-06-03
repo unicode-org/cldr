@@ -124,8 +124,8 @@ annotations.
 			<language type="chp">Chipewyan</language>
 			<language type="chr">Cherokee</language>
 			<language type="chy">Cheyenne</language>
-			<language type="ckb">Central Kurdish</language>
 			<language type="cic">Chickasaw</language>
+			<language type="ckb">Central Kurdish</language>
 			<language type="co">Corsican</language>
 			<language type="cop">Coptic</language>
 			<language type="cps">Capiznon</language>
@@ -1163,6 +1163,11 @@ annotations.
 			<territory type="ZW">Zimbabwe</territory>
 			<territory type="ZZ">Unknown Region</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">England</subdivision>
+			<subdivision type="gbsct">Scotland</subdivision>
+			<subdivision type="gbwls">Wales</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901">Traditional German orthography</variant>
 			<variant type="1994">Standardized Resian orthography</variant>
@@ -6161,11 +6166,11 @@ annotations.
 				<unitPattern count="one">{0} century</unitPattern>
 				<unitPattern count="other">{0} centuries</unitPattern>
 			</unit>
-            <unit type="duration-decade">
-                <displayName>decades</displayName>
-                <unitPattern count="one">{0} decade</unitPattern>
-                <unitPattern count="other">{0} decades</unitPattern>
-            </unit>
+			<unit type="duration-decade">
+				<displayName>decades</displayName>
+				<unitPattern count="one">{0} decade</unitPattern>
+				<unitPattern count="other">{0} decades</unitPattern>
+			</unit>
 			<unit type="duration-year">
 				<displayName>years</displayName>
 				<unitPattern count="one">{0} year</unitPattern>
@@ -6283,12 +6288,12 @@ annotations.
 				<unitPattern count="one">{0} British thermal unit</unitPattern>
 				<unitPattern count="other">{0} British thermal units</unitPattern>
 			</unit>
-              <unit type="energy-therm-us">
-                <displayName>US therms</displayName>
-                <unitPattern count="one">{0} US therm</unitPattern>
-                <unitPattern count="other">{0} US therms</unitPattern>
-            </unit>
-  			<unit type="force-pound-force">
+			<unit type="energy-therm-us">
+				<displayName>US therms</displayName>
+				<unitPattern count="one">{0} US therm</unitPattern>
+				<unitPattern count="other">{0} US therms</unitPattern>
+			</unit>
+			<unit type="force-pound-force">
 				<displayName>pounds of force</displayName>
 				<unitPattern count="one">{0} pound of force</unitPattern>
 				<unitPattern count="other">{0} pounds of force</unitPattern>
@@ -6577,16 +6582,6 @@ annotations.
 				<unitPattern count="one">{0} horsepower</unitPattern>
 				<unitPattern count="other">{0} horsepower</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hectopascals</displayName>
-				<unitPattern count="one">{0} hectopascal</unitPattern>
-				<unitPattern count="other">{0} hectopascals</unitPattern>
-			</unit>
-            <unit type="pressure-pascal">
-                <displayName>pascals</displayName>
-                <unitPattern count="one">{0} pascal</unitPattern>
-                <unitPattern count="other">{0} pascals</unitPattern>
-            </unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>millimeters of mercury</displayName>
 				<unitPattern count="one">{0} millimeter of mercury</unitPattern>
@@ -6602,11 +6597,11 @@ annotations.
 				<unitPattern count="one">{0} inch of mercury</unitPattern>
 				<unitPattern count="other">{0} inches of mercury</unitPattern>
 			</unit>
-            <unit type="pressure-bar">
-                <displayName>bars</displayName>
-                <unitPattern count="one">{0} bar</unitPattern>
-                <unitPattern count="other">{0} bars</unitPattern>
-            </unit>
+			<unit type="pressure-bar">
+				<displayName>bars</displayName>
+				<unitPattern count="one">{0} bar</unitPattern>
+				<unitPattern count="other">{0} bars</unitPattern>
+			</unit>
 			<unit type="pressure-millibar">
 				<displayName>millibars</displayName>
 				<unitPattern count="one">{0} millibar</unitPattern>
@@ -6616,6 +6611,16 @@ annotations.
 				<displayName>atmospheres</displayName>
 				<unitPattern count="one">{0} atmosphere</unitPattern>
 				<unitPattern count="other">{0} atmospheres</unitPattern>
+			</unit>
+			<unit type="pressure-pascal">
+				<displayName>pascals</displayName>
+				<unitPattern count="one">{0} pascal</unitPattern>
+				<unitPattern count="other">{0} pascals</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hectopascals</displayName>
+				<unitPattern count="one">{0} hectopascal</unitPattern>
+				<unitPattern count="other">{0} hectopascals</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kilopascals</displayName>
@@ -7034,11 +7039,11 @@ annotations.
 				<unitPattern count="one">{0} c</unitPattern>
 				<unitPattern count="other">{0} c</unitPattern>
 			</unit>
-            <unit type="duration-decade">
-                <displayName>dec</displayName>
-                <unitPattern count="one">{0} dec</unitPattern>
-                <unitPattern count="other">{0} dec</unitPattern>
-            </unit>
+			<unit type="duration-decade">
+				<displayName>dec</displayName>
+				<unitPattern count="one">{0} dec</unitPattern>
+				<unitPattern count="other">{0} dec</unitPattern>
+			</unit>
 			<unit type="duration-year">
 				<displayName>years</displayName>
 				<unitPattern count="one">{0} yr</unitPattern>
@@ -7156,11 +7161,11 @@ annotations.
 				<unitPattern count="one">{0} Btu</unitPattern>
 				<unitPattern count="other">{0} Btu</unitPattern>
 			</unit>
-            <unit type="energy-therm-us">
-                <displayName>US therm</displayName>
-                <unitPattern count="one">{0} US therm</unitPattern>
-                <unitPattern count="other">{0} US therms</unitPattern>
-            </unit>
+			<unit type="energy-therm-us">
+				<displayName>US therm</displayName>
+				<unitPattern count="one">{0} US therm</unitPattern>
+				<unitPattern count="other">{0} US therms</unitPattern>
+			</unit>
 			<unit type="force-pound-force">
 				<displayName>pound-force</displayName>
 				<unitPattern count="one">{0} lbf</unitPattern>
@@ -7450,16 +7455,6 @@ annotations.
 				<unitPattern count="one">{0} hp</unitPattern>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="one">{0} hPa</unitPattern>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
-            <unit type="pressure-pascal">
-                <displayName>Pa</displayName>
-                <unitPattern count="one">{0} Pa</unitPattern>
-                <unitPattern count="other">{0} Pa</unitPattern>
-            </unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mmHg</displayName>
 				<unitPattern count="one">{0} mmHg</unitPattern>
@@ -7475,11 +7470,11 @@ annotations.
 				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
-            <unit type="pressure-bar">
-                <displayName>bar</displayName>
-                <unitPattern count="one">{0} bar</unitPattern>
-                <unitPattern count="other">{0} bars</unitPattern>
-            </unit>
+			<unit type="pressure-bar">
+				<displayName>bar</displayName>
+				<unitPattern count="one">{0} bar</unitPattern>
+				<unitPattern count="other">{0} bars</unitPattern>
+			</unit>
 			<unit type="pressure-millibar">
 				<displayName>mbar</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
@@ -7489,6 +7484,16 @@ annotations.
 				<displayName>atm</displayName>
 				<unitPattern count="one">{0} atm</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-pascal">
+				<displayName>Pa</displayName>
+				<unitPattern count="one">{0} Pa</unitPattern>
+				<unitPattern count="other">{0} Pa</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kPa</displayName>
@@ -7881,11 +7886,11 @@ annotations.
 				<unitPattern count="one">{0}bit</unitPattern>
 				<unitPattern count="other">{0}bit</unitPattern>
 			</unit>
-            <unit type="duration-decade">
-                <displayName>dec</displayName>
-                <unitPattern count="one">{0}dec</unitPattern>
-                <unitPattern count="other">{0}dec</unitPattern>
-            </unit>
+			<unit type="duration-decade">
+				<displayName>dec</displayName>
+				<unitPattern count="one">{0}dec</unitPattern>
+				<unitPattern count="other">{0}dec</unitPattern>
+			</unit>
 			<unit type="duration-year">
 				<displayName>yr</displayName>
 				<unitPattern count="one">{0}y</unitPattern>
@@ -7996,11 +8001,11 @@ annotations.
 				<unitPattern count="one">{0}Btu</unitPattern>
 				<unitPattern count="other">{0}Btu</unitPattern>
 			</unit>
-            <unit type="energy-therm-us">
-                <displayName>US therm</displayName>
-                <unitPattern count="one">{0}US therm</unitPattern>
-                <unitPattern count="other">{0}US therms</unitPattern>
-            </unit>
+			<unit type="energy-therm-us">
+				<displayName>US therm</displayName>
+				<unitPattern count="one">{0}US therm</unitPattern>
+				<unitPattern count="other">{0}US therms</unitPattern>
+			</unit>
 			<unit type="force-pound-force">
 				<displayName>lbf</displayName>
 				<unitPattern count="one">{0}lbf</unitPattern>
@@ -8281,16 +8286,6 @@ annotations.
 				<unitPattern count="one">{0}hp</unitPattern>
 				<unitPattern count="other">{0}hp</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="one">{0}hPa</unitPattern>
-				<unitPattern count="other">{0}hPa</unitPattern>
-			</unit>
-            <unit type="pressure-pascal">
-                <displayName>Pa</displayName>
-                <unitPattern count="one">{0}Pa</unitPattern>
-                <unitPattern count="other">{0}Pa</unitPattern>
-            </unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mmHg</displayName>
 				<unitPattern count="one">{0}mmHg</unitPattern>
@@ -8306,11 +8301,11 @@ annotations.
 				<unitPattern count="one">{0}″ Hg</unitPattern>
 				<unitPattern count="other">{0}″ Hg</unitPattern>
 			</unit>
-            <unit type="pressure-bar">
-                <displayName>bar</displayName>
-                <unitPattern count="one">{0}bar</unitPattern>
-                <unitPattern count="other">{0}bars</unitPattern>
-            </unit>
+			<unit type="pressure-bar">
+				<displayName>bar</displayName>
+				<unitPattern count="one">{0}bar</unitPattern>
+				<unitPattern count="other">{0}bars</unitPattern>
+			</unit>
 			<unit type="pressure-millibar">
 				<displayName>mbar</displayName>
 				<unitPattern count="one">{0}mb</unitPattern>
@@ -8320,6 +8315,16 @@ annotations.
 				<displayName>atm</displayName>
 				<unitPattern count="one">{0}atm</unitPattern>
 				<unitPattern count="other">{0}atm</unitPattern>
+			</unit>
+			<unit type="pressure-pascal">
+				<displayName>Pa</displayName>
+				<unitPattern count="one">{0}Pa</unitPattern>
+				<unitPattern count="other">{0}Pa</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
+				<unitPattern count="one">{0}hPa</unitPattern>
+				<unitPattern count="other">{0}hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kPa</displayName>

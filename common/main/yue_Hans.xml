@@ -1096,6 +1096,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ZW">辛巴威</territory>
 			<territory type="ZZ">未知区域</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">英伦</subdivision>
+			<subdivision type="gbsct">苏格兰</subdivision>
+			<subdivision type="gbwls">威尔斯</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901">传统德语拼字学</variant>
 			<variant type="1994" draft="contributed">标准雷西亚拼字</variant>
@@ -8613,10 +8618,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>马力</displayName>
 				<unitPattern count="other">{0} 匹马力</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>百帕</displayName>
-				<unitPattern count="other">{0} 百帕</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>毫米汞柱</displayName>
 				<unitPattern count="other">{0} 毫米汞柱</unitPattern>
@@ -8636,6 +8637,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="pressure-atmosphere">
 				<displayName>atm</displayName>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>百帕</displayName>
+				<unitPattern count="other">{0} 百帕</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>千帕</displayName>
@@ -9279,10 +9284,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>匹</displayName>
 				<unitPattern count="other">{0} 匹</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>百帕</displayName>
-				<unitPattern count="other">{0} 百帕</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>毫米汞柱</displayName>
 				<unitPattern count="other">{0} 毫米汞柱</unitPattern>
@@ -9302,6 +9303,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="pressure-atmosphere">
 				<displayName>atm</displayName>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>百帕</displayName>
+				<unitPattern count="other">{0} 百帕</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>千帕</displayName>
@@ -9765,9 +9770,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="power-horsepower">
 				<unitPattern count="other">{0}匹</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="other">{0}百帕</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<unitPattern count="other" draft="contributed">{0}mmHg</unitPattern>
 			</unit>
@@ -9779,6 +9781,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="pressure-millibar">
 				<unitPattern count="other">{0}毫巴</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other">{0}百帕</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>公里/小时</displayName>

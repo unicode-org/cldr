@@ -870,6 +870,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">ዚምቧቤ</territory>
 			<territory type="ZZ">ያልታወቀ ክልል</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">እንግሊዝ</subdivision>
+			<subdivision type="gbsct">ስኮትላንድ</subdivision>
+			<subdivision type="gbwls">ዌልስ</subdivision>
+		</subdivisions>
 		<keys>
 			<key type="calendar">የቀን አቆጣጠር</key>
 			<key type="cf">የምንዛሪ ቅርጸት</key>
@@ -6826,11 +6831,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} የፈረስ ጉልበት</unitPattern>
 				<unitPattern count="other">{0} የፈረስ ጉልበት</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>ሄክቶፓስካል</displayName>
-				<unitPattern count="one">{0} ሄክቶፓስካል</unitPattern>
-				<unitPattern count="other">{0} ሄክቶፓስካል</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
 				<unitPattern count="one">{0} mm Hg</unitPattern>
@@ -6855,6 +6855,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ከባቢ አየር</displayName>
 				<unitPattern count="one">{0} ከባቢ አየር</unitPattern>
 				<unitPattern count="other">{0} ከባቢ አየር</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>ሄክቶፓስካል</displayName>
+				<unitPattern count="one">{0} ሄክቶፓስካል</unitPattern>
+				<unitPattern count="other">{0} ሄክቶፓስካል</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>ኪሎፓስካል</displayName>
@@ -7629,11 +7634,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} የፈጉ</unitPattern>
 				<unitPattern count="other">{0} የፈጉ</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>ሄክቶፓስካል</displayName>
-				<unitPattern count="one">{0} ሄክቶፓስካል</unitPattern>
-				<unitPattern count="other">{0} ሄክቶፓስካል</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
 				<unitPattern count="one">{0} mm Hg</unitPattern>
@@ -7658,6 +7658,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ከባቢ አየር</displayName>
 				<unitPattern count="one">{0} ከባቢ አየር</unitPattern>
 				<unitPattern count="other">{0} ከባቢ አየር</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>ሄክቶፓስካል</displayName>
+				<unitPattern count="one">{0} ሄክቶፓስካል</unitPattern>
+				<unitPattern count="other">{0} ሄክቶፓስካል</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>ኪሎፓስካል</displayName>
@@ -8033,10 +8038,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} የፈረስ ኃይል</unitPattern>
 				<unitPattern count="other">{0} የፈረስ ኃይል</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="one">{0} hPa</unitPattern>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
@@ -8044,6 +8045,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-millibar">
 				<unitPattern count="one">{0} ሚባ</unitPattern>
 				<unitPattern count="other">{0} ሚባ</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ኪሎሜትር በሰዓት</displayName>

@@ -1114,6 +1114,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">ジンバブエ</territory>
 			<territory type="ZZ">不明な地域</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">イングランド</subdivision>
+			<subdivision type="gbsct">スコットランド</subdivision>
+			<subdivision type="gbwls">ウェールズ</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901">ドイツ語旧正書法</variant>
 			<variant type="1994" draft="contributed">標準レージア方言正書法</variant>
@@ -8734,10 +8739,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>馬力</displayName>
 				<unitPattern count="other">{0} 馬力</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>ヘクトパスカル</displayName>
-				<unitPattern count="other">{0} ヘクトパスカル</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>水銀柱ミリメートル</displayName>
 				<unitPattern count="other">{0} 水銀柱ミリメートル</unitPattern>
@@ -8757,6 +8758,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-atmosphere">
 				<displayName>気圧</displayName>
 				<unitPattern count="other">{0} 気圧</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>ヘクトパスカル</displayName>
+				<unitPattern count="other">{0} ヘクトパスカル</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">キロパスカル</displayName>
@@ -9398,10 +9403,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>馬力</displayName>
 				<unitPattern count="other">{0} 馬力</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>水銀柱ミリメートル</displayName>
 				<unitPattern count="other">{0} mm Hg</unitPattern>
@@ -9421,6 +9422,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-atmosphere">
 				<displayName>気圧</displayName>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">↑↑↑</displayName>
@@ -9901,9 +9906,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-horsepower">
 				<unitPattern count="other">{0}hp</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="other">{0}hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName draft="contributed">水銀柱ミリメートル</displayName>
 				<unitPattern count="other" draft="contributed">{0}mm Hg</unitPattern>
@@ -9919,6 +9921,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-millibar">
 				<displayName draft="contributed">ミリバール</displayName>
 				<unitPattern count="other">{0}mb</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other">{0}hPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

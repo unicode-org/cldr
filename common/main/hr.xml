@@ -1026,6 +1026,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">Zimbabve</territory>
 			<territory type="ZZ">nepoznato područje</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">Engleska</subdivision>
+			<subdivision type="gbsct">Škotska</subdivision>
+			<subdivision type="gbwls">Wales</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901">tradicionalan njemački pravopis</variant>
 			<variant type="1994">standardizirani resian pravopis</variant>
@@ -8236,12 +8241,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} konjske snage</unitPattern>
 				<unitPattern count="other">{0} konjskih snaga</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hektopaskali</displayName>
-				<unitPattern count="one">{0} hektopaskal</unitPattern>
-				<unitPattern count="few">{0} hektopaskala</unitPattern>
-				<unitPattern count="other">{0} hektopaskala</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>milimetri živina stupca</displayName>
 				<unitPattern count="one">{0} milimetar živina stupca</unitPattern>
@@ -8271,6 +8270,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} atmosfera</unitPattern>
 				<unitPattern count="few">{0} atmosfere</unitPattern>
 				<unitPattern count="other">{0} atmosfera</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hektopaskali</displayName>
+				<unitPattern count="one">{0} hektopaskal</unitPattern>
+				<unitPattern count="few">{0} hektopaskala</unitPattern>
+				<unitPattern count="other">{0} hektopaskala</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kilopaskali</displayName>

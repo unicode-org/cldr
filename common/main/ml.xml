@@ -1001,6 +1001,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">സിംബാബ്‌വേ</territory>
 			<territory type="ZZ">അജ്ഞാത പ്രദേശം</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">ഇംഗ്ലണ്ട്</subdivision>
+			<subdivision type="gbsct">സ്‌കോട്ട്‌ലന്റ്</subdivision>
+			<subdivision type="gbwls">വെയിൽസ്</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1996">1996-ലെ ജർമൻ ലിപി</variant>
 			<variant type="1606NICT">1606 വരെയുള്ള ആധുനികമദ്ധ്യകാല ഫ്രഞ്ച്</variant>
@@ -7818,11 +7823,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} കുതിരശക്തി</unitPattern>
 				<unitPattern count="other">{0} കുതിരശക്തി</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>ഹെക്‌ടോപാസ്‌ക്കൽ</displayName>
-				<unitPattern count="one">{0} ഹെക്‌ടോപാസ്‌ക്കൽ</unitPattern>
-				<unitPattern count="other">{0} ഹെക്‌ടോപാസ്‌ക്കൽ</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>മില്ലീമീറ്റർ മെർക്കുറി</displayName>
 				<unitPattern count="one">{0} മില്ലീമീറ്റർ മെർക്കുറി</unitPattern>
@@ -7847,6 +7847,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName draft="contributed">അറ്റ്‌മോസ്‌ഫിയർ</displayName>
 				<unitPattern count="one" draft="contributed">{0} അറ്റ്‌മോസ്‌ഫിയർ</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} അറ്റ്‌മോസ്‌ഫിയർ</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>ഹെക്‌ടോപാസ്‌ക്കൽ</displayName>
+				<unitPattern count="one">{0} ഹെക്‌ടോപാസ്‌ക്കൽ</unitPattern>
+				<unitPattern count="other">{0} ഹെക്‌ടോപാസ്‌ക്കൽ</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">കിലോപാസ്കൽ</displayName>
@@ -8634,11 +8639,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} എച്ച്.പി.</unitPattern>
 				<unitPattern count="other">{0} എച്ച്.പി.</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>ഹെ.പാ.</displayName>
-				<unitPattern count="one">{0} ഹെ.പാ.</unitPattern>
-				<unitPattern count="other">{0} ഹെ.പാ.</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>മിമീ.മെ.</displayName>
 				<unitPattern count="one">{0} മിമീ.മെ.</unitPattern>
@@ -8663,6 +8663,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>atm</displayName>
 				<unitPattern count="one">{0} atm</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>ഹെ.പാ.</displayName>
+				<unitPattern count="one">{0} ഹെ.പാ.</unitPattern>
+				<unitPattern count="other">{0} ഹെ.പാ.</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">↑↑↑</displayName>
@@ -9155,11 +9160,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} വാ</unitPattern>
 				<unitPattern count="other">{0} വാ</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName draft="contributed">ഹെ.പാ.</displayName>
-				<unitPattern count="one">{0} hPa</unitPattern>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName draft="contributed">മിമീ.മെ.</displayName>
 				<unitPattern count="one" draft="contributed">{0}മിമീ.മെ.</unitPattern>
@@ -9177,6 +9177,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName draft="contributed">മി.ബാ</displayName>
 				<unitPattern count="one">{0} മിബാ</unitPattern>
 				<unitPattern count="other">{0} മിബാ</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName draft="contributed">ഹെ.പാ.</displayName>
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>കി.മീ/മ.</displayName>

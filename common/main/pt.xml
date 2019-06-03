@@ -1007,6 +1007,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">Zimbábue</territory>
 			<territory type="ZZ">Região desconhecida</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">Inglaterra</subdivision>
+			<subdivision type="gbsct">Escócia</subdivision>
+			<subdivision type="gbwls">País de Gales</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901">ortografia alemã tradicional</variant>
 			<variant type="1994">ortografia resiana padronizada</variant>
@@ -7048,11 +7053,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} cavalo-vapor</unitPattern>
 				<unitPattern count="other">{0} cavalos-vapor</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hectopascais</displayName>
-				<unitPattern count="one">{0} hectopascal</unitPattern>
-				<unitPattern count="other">{0} hectopascais</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>milímetros de mercúrio</displayName>
 				<unitPattern count="one">{0} milímetro de mercúrio</unitPattern>
@@ -7072,6 +7072,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>atmosferas</displayName>
 				<unitPattern count="one">{0} atmosfera</unitPattern>
 				<unitPattern count="other">{0} atmosferas</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hectopascais</displayName>
+				<unitPattern count="one">{0} hectopascal</unitPattern>
+				<unitPattern count="other">{0} hectopascais</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">quilopascais</displayName>

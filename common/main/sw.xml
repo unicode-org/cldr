@@ -808,6 +808,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ZW">Zimbabwe</territory>
 			<territory type="ZZ">Eneo lisilojulikana</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">Uingereza</subdivision>
+			<subdivision type="gbsct">Uskoti</subdivision>
+			<subdivision type="gbwls">Welisi</subdivision>
+		</subdivisions>
 		<keys>
 			<key type="calendar">Kalenda</key>
 			<key type="cf">Mpangilio wa Sarafu</key>
@@ -6158,11 +6163,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">kipimo cha hospawa {0}</unitPattern>
 				<unitPattern count="other">kipimo cha hospawa {0}</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hektopaskali</displayName>
-				<unitPattern count="one">hektopaskali {0}</unitPattern>
-				<unitPattern count="other">hektopaskali {0}</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>milimita za zebaki</displayName>
 				<unitPattern count="one">milimita {0} ya zebaki</unitPattern>
@@ -6187,6 +6187,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>kanieneo ya hewa</displayName>
 				<unitPattern count="one">kanieneo {0}</unitPattern>
 				<unitPattern count="other">kanieneo {0}</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hektopaskali</displayName>
+				<unitPattern count="one">hektopaskali {0}</unitPattern>
+				<unitPattern count="other">hektopaskali {0}</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kilopaskali</displayName>
@@ -6961,11 +6966,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} hp</unitPattern>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hektopaskali</displayName>
-				<unitPattern count="one">hPa {0}</unitPattern>
-				<unitPattern count="other">hPa {0}</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>milimita za zebaki</displayName>
 				<unitPattern count="one">milimita {0} ya zebaki</unitPattern>
@@ -6990,6 +6990,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>atm</displayName>
 				<unitPattern count="one">atm {0}</unitPattern>
 				<unitPattern count="other">atm {0}</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hektopaskali</displayName>
+				<unitPattern count="one">hPa {0}</unitPattern>
+				<unitPattern count="other">hPa {0}</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>↑↑↑</displayName>
@@ -7367,10 +7372,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">hp {0}</unitPattern>
 				<unitPattern count="other">hp {0}</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="one">hPa {0}</unitPattern>
-				<unitPattern count="other">hPa {0}</unitPattern>
-			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
@@ -7378,6 +7379,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-millibar">
 				<unitPattern count="one">mbar {0}</unitPattern>
 				<unitPattern count="other">mbar {0}</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">hPa {0}</unitPattern>
+				<unitPattern count="other">hPa {0}</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilomita kwa saa</displayName>

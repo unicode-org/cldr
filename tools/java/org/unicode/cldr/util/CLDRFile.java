@@ -543,6 +543,16 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             lastFiltered = temp;
             wroteAtLeastOnePath = true;
         }
+        /*
+         * SKIP_FILE_IF_SKIP_ALL_PATHS may be set by OutputFileManager, maybe for annotations
+         * but not for main. If so, return false without finishing writing; the caller may delete
+         * the file. However, OutputFileManager might instead generate all files (without
+         * SKIP_FILE_IF_SKIP_ALL_PATHS) and then use something like RemoveEmptyCLDR subsequently.
+         * In the latter case, we might do away with SKIP_FILE_IF_SKIP_ALL_PATHS.
+         * It might still be more efficient, though, to check here whether all paths were skipped,
+         * and remember that later instead of checking again from scratch for "remove empty".
+         * Reference: https://unicode-org.atlassian.net/browse/CLDR-12016
+         */
         if (!wroteAtLeastOnePath && options.containsKey("SKIP_FILE_IF_SKIP_ALL_PATHS")) {
             return false;
         }

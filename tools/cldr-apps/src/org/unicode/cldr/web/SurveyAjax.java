@@ -2534,7 +2534,7 @@ public class SurveyAjax extends HttpServlet {
     }
 
     /**
-     * Get data associated with a particular row (xpath).
+     * Get data associated with a particular row (xpath) or section (x, set of rows).
      *
      * @param request
      * @param response
@@ -2568,6 +2568,10 @@ public class SurveyAjax extends HttpServlet {
         if (strid != null && strid.isEmpty()) {
             strid = null;
         }
+        /*
+         * When the "x" parameter is used to specify a sectionName, we're getting all the rows for one page (or section).
+         * Otherwise there is an "xpath" parameter and we're only getting one row.
+         */
         String sectionName = WebContext.decodeFieldString(request.getParameter("x"));
         if (sectionName != null && sectionName.isEmpty()) {
             sectionName = null;
@@ -2652,6 +2656,10 @@ public class SurveyAjax extends HttpServlet {
                         /*
                          * We arrive here normally when loading a page, invoked by request from CldrSurveyVettingLoader.js
                          * var url = contextPath + "/SurveyAjax?what="+WHAT_GETROW+"&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
+                         *
+                         * This is for getting all the rows for one page (or section).
+                         * There is an "x" parameter for the section/pageId, and also a "strid" parameter.
+                         * There is no "xpath" parameter.
                          */
                         section = ctx.getDataSection(null /* prefix */, null /* matcher */, pageId);
                         section.setUserAndFileForVotelist(mySession.user, null); // TODO: what effect does null cldrFile here have on DataSection.getExampleBuilder??
@@ -2662,6 +2670,9 @@ public class SurveyAjax extends HttpServlet {
                          * 
                          * We also arrive here when a user selects a "Fix" button in the Dashboard, invoked by request from review.js
                          * var url = contextPath + "/SurveyAjax?what="+WHAT_GETROW+"&_="+surveyCurrentLocale+"&s="+surveySessionId+"&xpath="+tr.data('path')+"&strid="+surveyCurrentId+cacheKill()+"&dashboard=true";
+                         *
+                         * This is for getting a single row only.
+                         * There is an "xpath" parameter, and also a "strid" parameter.
                          */
                         baseXp = XPathTable.xpathToBaseXpath(xp);
                         section = ctx.getDataSection(baseXp /* prefix */, matcher, null /* pageId */);

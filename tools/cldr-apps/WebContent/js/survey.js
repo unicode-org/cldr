@@ -1110,78 +1110,6 @@ var alreadyVerifyValue = {};
 
 var showers={};
 
-var deferUpdates = 0;
-var deferUpdateFn = {};
-
-/**
- * Process all deferred updates
- * @method doDeferredUpdates
- */
-function doDeferredUpdates() {
-	if(deferUpdateFn==null || deferUpdates>0 || isInputBusy()) {
-		return;
-	}
-
-	for(i in deferUpdateFn) {
-		if(deferUpdateFn[i]) {
-			var fn = deferUpdateFn[i];
-			deferUpdateFn[i]=null;
-			stdebug(".. calling deferred update fn ..");
-			fn();
-		}
-	}
-}
-
-/**
- * Set whether we are deferring or not. For example, call setDefer(true) on entering a text field, and setDefer(false) leaving it.
- * @method setDefer
- * @param {boolean} defer
- */
-function setDefer(defer) {
-	if(defer) {
-		deferUpdates++;
-	} else {
-		deferUpdates--;
-	}
-	doDeferredUpdates();
-	stdebug("deferUpdates="+deferUpdates);
-}
-
-/**
- * Note an update as deferred.
- * @method deferUpdate
- * @param {String} what type of item to defer  (must be unique- will overwrite)
- * @param {Function} fn function to register
- */
-function deferUpdate(what, fn) {
-	deferUpdateFn[what]=fn;
-}
-
-/**
- * Note an update as not needing deferral
- * @method undeferUpdate
- * @param {String} what the type of item to undefer
- */
-function undeferUpdate(what) {
-	deferUpdate(what, null);
-}
-
-/**
- * Perform or queue an update. Note that there's data waiting if we are deferring.
- * @method doUpdate
- * @param {String} what, e.g., "DynamicDataSection" (theDiv.id)
- * @param {Function} fn function to call, now or later
- */
-function doUpdate(what,fn) {
-	if(deferUpdates>0 || isInputBusy()) {
-		updateAjaxWord(stui_str('newDataWaiting'));
-		deferUpdate(what,fn);
-	} else {
-		fn();
-		undeferUpdate(what);
-	}
-}
-
 /**
  * Process that the locale has changed under us.
  * @method handleChangedLocaleStamp
@@ -1561,7 +1489,6 @@ function updateStatus() {
 		return;
 	}
 
-	doDeferredUpdates(); // do this periodically
 	var surveyLocaleUrl = '';
 	var surveySessionUrl = '';
 	if(surveyCurrentLocale!==null && surveyCurrentLocale!= '') {
@@ -2268,6 +2195,9 @@ function appendForumStuff(tr, theRow, forumDiv) {
 	var theForum = 	locmap.getLanguage(surveyCurrentLocale);
 	forumDiv.replyStub = contextPath + "/survey?forum=" + theForum + "&_=" + surveyCurrentLocale + "&replyto=";
 	forumDiv.postUrl = forumDiv.replyStub + "x"+theRow;
+	/*
+	 * TODO: there is normally a "what" parameter for SurveyAjax; why missing here?
+	 */
 	forumDiv.url = contextPath + "/SurveyAjax?xpath=" + theRow.xpathId + "&_=" + surveyCurrentLocale + "&fhash="
 		+ theRow.rowHash + "&vhash=" + "&s=" + tr.theTable.session
 		+ "&voteinfo=t";
@@ -3410,11 +3340,9 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 
 	var myUnDefer = function() {
 		tr.wait=false;
-		setDefer(false);
 	};
 	tr.wait=true;
 	resetPop(tr);
-	setDefer(true);
 	theRow.proposedResults = null;
 
 	console.log("Vote for " + tr.rowHash + " v='"+vHash+"', value='"+value+"'");
@@ -3427,7 +3355,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 			s: tr.theTable.session
 	};
 
-	var ourUrl = contextPath + "/SurveyAjax"; // ?what="+what+"&xpath="+tr.xpathId +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
+	var ourUrl = contextPath + "/SurveyAjax";
 
 	// vote reduced
 	var voteReduced = document.getElementById("voteReduced");
@@ -3532,11 +3460,9 @@ function handleCancelWiredClick(tr,theRow,vHash,button) {
 
 	var myUnDefer = function() {
 		tr.wait=false;
-		setDefer(false);
 	};
 	tr.wait=true;
 	resetPop(tr);
-	setDefer(true);
 	theRow.proposedResults = null;
 
 	console.log("Delete " + tr.rowHash + " v='"+vHash+"', value='"+value+"'");

@@ -160,6 +160,8 @@ public class GenerateMaximalLocales {
      */
     // Many of the overrides below can be removed once the language/pop/country data is updated.
     private static final Map<String, String> LANGUAGE_OVERRIDES = CldrUtility.asMap(new String[][] {
+        { "cic", "cic_Latn_US" },
+        { "cic_Latn", "cic_Latn_US" },
         { "eo", "eo_Latn_001" },
         { "eo_Latn", "eo_Latn_001" },
         { "es", "es_Latn_ES" },

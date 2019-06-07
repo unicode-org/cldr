@@ -1580,15 +1580,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     public AttributeType getAttributeType(String elementName, String attributeName) {
+        Attribute attr = getAttribute(elementName, attributeName);
+        return (attr != null) ? attr.type : null;
+    }
+
+    public Attribute getAttribute(String elementName, String attributeName) {
         Element element = nameToElement.get(elementName);
-        if (element == null) {
-            return null;
-        }
-        Attribute attr = element.getAttributeNamed(attributeName);
-        if (attr == null) {
-            return null;
-        }
-        return attr.type;
+        return (element != null) ? element.getAttributeNamed(attributeName) : null;
     }
 
     // TODO: add support for following to DTD annotations, and rework API

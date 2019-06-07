@@ -7489,7 +7489,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="JPY">
 				<displayName>日本円</displayName>
 				<displayName count="other">円</displayName>
-				<symbol>￥</symbol>
+				<pattern>#,##0.00¤</pattern>
+				<symbol>円</symbol>
 				<symbol alt="narrow" draft="contributed">￥</symbol>
 			</currency>
 			<currency type="KES">

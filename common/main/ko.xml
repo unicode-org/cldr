@@ -6648,15 +6648,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">코모르 프랑</displayName>
 			</currency>
 			<currency type="KPW">
-				<displayName>조선 민주주의 인민 공화국 원</displayName>
-				<displayName count="other">조선 민주주의 인민 공화국 원</displayName>
+				<displayName>북한 원</displayName>
+				<displayName count="other">북한 원</displayName>
 			</currency>
 			<currency type="KRH">
-				<displayName draft="contributed">대한민국 환 (1953–1962)</displayName>
+				<displayName draft="contributed">환 (1953~1962)</displayName>
 			</currency>
 			<currency type="KRW">
-				<displayName>대한민국 원</displayName>
-				<displayName count="other">대한민국 원</displayName>
+				<displayName>원</displayName>
+				<displayName count="other">원</displayName>
+				<pattern>#,##0.00¤</pattern>
+				<symbol>원</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>쿠웨이트 디나르</displayName>

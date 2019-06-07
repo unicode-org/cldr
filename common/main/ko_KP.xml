@@ -27,4 +27,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 		</timeZoneNames>
 	</dates>
+	<numbers>
+		<currencies>
+			<currency type="KPW">
+				<displayName>원</displayName>
+				<displayName count="other">원</displayName>
+				<pattern>#,##0.00¤</pattern>
+				<symbol>원</symbol>
+			</currency>
+			<currency type="KRH">
+				<displayName draft="contributed">남조선 환 (1953~1962)</displayName>
+			</currency>
+			<currency type="KRW">
+				<displayName>남조선 원</displayName>
+				<displayName count="other">남조선 원</displayName>
+				<pattern>¤ #,##0.00</pattern>
+				<symbol>KR₩</symbol>
+			</currency>
+		</currencies>
+	</numbers>
 </ldml>

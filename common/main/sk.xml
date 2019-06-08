@@ -8689,13 +8689,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} konskej sily</unitPattern>
 				<unitPattern count="other">{0} konských síl</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hektopascaly</displayName>
-				<unitPattern count="one">{0} hektopascal</unitPattern>
-				<unitPattern count="few">{0} hektopascaly</unitPattern>
-				<unitPattern count="many">{0} hektopascala</unitPattern>
-				<unitPattern count="other">{0} hektopascalov</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>milimetre ortuťového stĺpca</displayName>
 				<unitPattern count="one">{0} milimeter ortuťového stĺpca</unitPattern>
@@ -8730,6 +8723,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} atmosféry</unitPattern>
 				<unitPattern count="many">{0} atmosféry</unitPattern>
 				<unitPattern count="other">{0} atmosfér</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hektopascaly</displayName>
+				<unitPattern count="one">{0} hektopascal</unitPattern>
+				<unitPattern count="few">{0} hektopascaly</unitPattern>
+				<unitPattern count="many">{0} hektopascala</unitPattern>
+				<unitPattern count="other">{0} hektopascalov</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">kilopascaly</displayName>
@@ -9798,13 +9798,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} hp</unitPattern>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="one">{0} hPa</unitPattern>
-				<unitPattern count="few">{0} hPa</unitPattern>
-				<unitPattern count="many">{0} hPa</unitPattern>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
 				<unitPattern count="one">{0} mm Hg</unitPattern>
@@ -9839,6 +9832,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} atm</unitPattern>
 				<unitPattern count="many">{0} atm</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="few">{0} hPa</unitPattern>
+				<unitPattern count="many">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">↑↑↑</displayName>
@@ -10483,12 +10483,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0}hp</unitPattern>
 				<unitPattern count="other">{0}hp</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="one">{0} hPa</unitPattern>
-				<unitPattern count="few">{0} hPa</unitPattern>
-				<unitPattern count="many">{0} hPa</unitPattern>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="one">{0}&quot; Hg</unitPattern>
 				<unitPattern count="few">{0}&quot; Hg</unitPattern>
@@ -10500,6 +10494,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} mb</unitPattern>
 				<unitPattern count="many">{0} mb</unitPattern>
 				<unitPattern count="other">{0} mb</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="few">{0} hPa</unitPattern>
+				<unitPattern count="many">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

@@ -5959,10 +5959,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>မြင်းကောင်ရေအား</displayName>
 				<unitPattern count="other">{0} မြင်းကောင်ရေအား</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>ဟက်တိုပါစကယ်</displayName>
-				<unitPattern count="other">{0} ဟက်တိုပါစကယ်</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>ပြဒါးမီလီမီတာ</displayName>
 				<unitPattern count="other">{0} ပြဒါးမီလီမီတာ</unitPattern>
@@ -5982,6 +5978,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-atmosphere">
 				<displayName>ကမ္ဘာ့လေထု</displayName>
 				<unitPattern count="other">{0} ကမ္ဘာ့လေထု</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>ဟက်တိုပါစကယ်</displayName>
+				<unitPattern count="other">{0} ဟက်တိုပါစကယ်</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>ကီလိုပါစကယ်</displayName>
@@ -6609,10 +6609,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>hp</displayName>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mm Hg</displayName>
 				<unitPattern count="other">{0} mm Hg</unitPattern>
@@ -6632,6 +6628,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-atmosphere">
 				<displayName>atm</displayName>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kPa</displayName>
@@ -6929,14 +6929,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-horsepower">
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<unitPattern count="other">{0} mbar</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ကီလိုမီတာ/နာရီ</displayName>

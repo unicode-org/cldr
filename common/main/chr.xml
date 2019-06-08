@@ -5986,11 +5986,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ᏐᏈᎵ ᎢᏳᎳᏂᎩᏛ</unitPattern>
 				<unitPattern count="other">{0} ᏐᏈᎵ ᎢᏳᎳᏂᎩᏛ</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>ᎮᏔ ᏗᏆᏌᎵ</displayName>
-				<unitPattern count="one">{0} ᎮᏔ ᏆᏌᎵ</unitPattern>
-				<unitPattern count="other">{0} ᎮᏔ ᏗᏆᏌᎵ</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>ᏌᏉ ᎢᏯᎦᎨᎵᏁᎢ ᏗᏟᎶᏗ ᎾᎿ ᎹᎫᎢ</displayName>
 				<unitPattern count="one">{0} ᏌᏉ ᎢᏯᎦᎨᎵᏁᎢ ᎠᏟᎶᏗ ᎾᎿ ᎹᎫᎢ</unitPattern>
@@ -6015,6 +6010,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ᏗᎦᏃᎴᏍᎬ</displayName>
 				<unitPattern count="one">{0} ᎦᏃᎴᏍᎬ</unitPattern>
 				<unitPattern count="other">{0} ᏗᎦᏃᎴᏍᎬ</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>ᎮᏔ ᏗᏆᏌᎵ</displayName>
+				<unitPattern count="one">{0} ᎮᏔ ᏆᏌᎵ</unitPattern>
+				<unitPattern count="other">{0} ᎮᏔ ᏗᏆᏌᎵ</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>ᎩᎶᏆᏍᎧᎵᏍ</displayName>
@@ -6789,11 +6789,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} hp</unitPattern>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hPa</displayName>
-				<unitPattern count="one">{0} hPa</unitPattern>
-				<unitPattern count="other">{0} hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mmHg</displayName>
 				<unitPattern count="one">{0} mmHg</unitPattern>
@@ -6818,6 +6813,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>atm</displayName>
 				<unitPattern count="one">{0} atm</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hPa</displayName>
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kPa</displayName>

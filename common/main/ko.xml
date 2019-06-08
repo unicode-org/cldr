@@ -7691,10 +7691,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>마력</displayName>
 				<unitPattern count="other">{0}마력</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>헥토파스칼</displayName>
-				<unitPattern count="other">{0}헥토파스칼</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>수은주밀리미터</displayName>
 				<unitPattern count="other">{0}수은주밀리미터</unitPattern>
@@ -7713,6 +7709,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-atmosphere">
 				<unitPattern count="other">{0}atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>헥토파스칼</displayName>
+				<unitPattern count="other">{0}헥토파스칼</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">킬로파스칼</displayName>
@@ -8245,9 +8245,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-horsepower">
 				<unitPattern count="other">{0}hp</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="other">{0}hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mmHg</displayName>
 				<unitPattern count="other">{0}mmHg</unitPattern>
@@ -8263,6 +8260,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-atmosphere">
 				<unitPattern count="other">{0}atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other">{0}hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">↑↑↑</displayName>
@@ -8575,9 +8575,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-horsepower">
 				<unitPattern count="other" draft="contributed">{0}HP</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="other" draft="contributed">{0}hPa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName draft="contributed">mmHg</displayName>
 				<unitPattern count="other" draft="contributed">{0}mmHg</unitPattern>
@@ -8590,6 +8587,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-millibar">
 				<unitPattern count="other" draft="contributed">{0}mb</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other" draft="contributed">{0}hPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<unitPattern count="other">{0}km/h</unitPattern>

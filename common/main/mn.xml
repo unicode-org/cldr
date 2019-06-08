@@ -6255,11 +6255,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} морины хүч</unitPattern>
 				<unitPattern count="other">{0} морины хүч</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>гектопаскал</displayName>
-				<unitPattern count="one">{0} гектопаскал</unitPattern>
-				<unitPattern count="other">{0} гектопаскал</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>мөнгөн усны милиметр</displayName>
 				<unitPattern count="one">{0} мөнгөн усны милиметр</unitPattern>
@@ -6284,6 +6279,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>уур амьсгал</displayName>
 				<unitPattern count="one">{0} уур амьсгал</unitPattern>
 				<unitPattern count="other">{0} уур амьсгал</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>гектопаскал</displayName>
+				<unitPattern count="one">{0} гектопаскал</unitPattern>
+				<unitPattern count="other">{0} гектопаскал</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>килопаскаль</displayName>
@@ -7057,11 +7057,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} мх</unitPattern>
 				<unitPattern count="other">{0} мх</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>гПа</displayName>
-				<unitPattern count="one">{0} гПа</unitPattern>
-				<unitPattern count="other">{0} гПа</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>МөУс мм</displayName>
 				<unitPattern count="one">{0} МөУс мм</unitPattern>
@@ -7086,6 +7081,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>atm</displayName>
 				<unitPattern count="one">{0} atm</unitPattern>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>гПа</displayName>
+				<unitPattern count="one">{0} гПа</unitPattern>
+				<unitPattern count="other">{0} гПа</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>кПа</displayName>
@@ -7458,10 +7458,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} м.х.</unitPattern>
 				<unitPattern count="other">{0} м.х.</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<unitPattern count="one">{0} гПа</unitPattern>
-				<unitPattern count="other">{0} гПа</unitPattern>
-			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="one">{0} муб</unitPattern>
 				<unitPattern count="other">{0} муб</unitPattern>
@@ -7469,6 +7465,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-millibar">
 				<unitPattern count="one">{0} милбар</unitPattern>
 				<unitPattern count="other">{0} милбар</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} гПа</unitPattern>
+				<unitPattern count="other">{0} гПа</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>км/ц</displayName>

@@ -6081,11 +6081,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} horasbaawar</unitPattern>
 				<unitPattern count="other">{0} horasbaawar</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hektobaskalis</displayName>
-				<unitPattern count="one">{0} hektobaskal</unitPattern>
-				<unitPattern count="other">{0} hektobaskal</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>milimitir maarkuri</displayName>
 				<unitPattern count="one">{0} milimitir maarkuri</unitPattern>
@@ -6110,6 +6105,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>hawada agagaarka</displayName>
 				<unitPattern count="one">{0} hawada agagaarka</unitPattern>
 				<unitPattern count="other">{0} hawada agagaarka</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hektobaskalis</displayName>
+				<unitPattern count="one">{0} hektobaskal</unitPattern>
+				<unitPattern count="other">{0} hektobaskal</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>Kiilobaskalis</displayName>
@@ -6884,11 +6884,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} hb</unitPattern>
 				<unitPattern count="other">{0} hb</unitPattern>
 			</unit>
-			<unit type="pressure-hectopascal">
-				<displayName>hBa</displayName>
-				<unitPattern count="one">{0} hBa</unitPattern>
-				<unitPattern count="other">{0} hBa</unitPattern>
-			</unit>
 			<unit type="pressure-millimeter-of-mercury">
 				<displayName>mmHg</displayName>
 				<unitPattern count="one">{0} mmHg</unitPattern>
@@ -6913,6 +6908,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ha</displayName>
 				<unitPattern count="one">{0} ha</unitPattern>
 				<unitPattern count="other">{0} ha</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>hBa</displayName>
+				<unitPattern count="one">{0} hBa</unitPattern>
+				<unitPattern count="other">{0} hBa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kBa</displayName>

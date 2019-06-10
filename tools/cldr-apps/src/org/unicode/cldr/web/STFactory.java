@@ -836,26 +836,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
         }
 
-        public synchronized CLDRFile getOldFileResolved() {
-            if (oldFileMissing) { // common flag across both resolve and unresolved
-                return null;
-            } else if (oldFile == null) {
-                oldFile = sm.getOldFile(locale, true);
-                oldFileMissing = (oldFile == null); // if we get null, it's because the file wasn't available.
-            }
-            return oldFile;
-        }
-
-        public synchronized CLDRFile getOldFileUnresolved() {
-            if (oldFileMissing) { // common flag across both resolve and unresolved
-                return null;
-            } else if (oldFileUnresolved == null) {
-                oldFileUnresolved = sm.getOldFile(locale, false);
-                oldFileMissing = (oldFileUnresolved == null); // if we get null, it's because the file wasn't available.
-            }
-            return oldFileUnresolved;
-        }
-
         /**
          * Utility class for testing values
          * @author srl
@@ -2159,16 +2139,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
         }
         return surveyMenus;
-    }
-
-    /**
-     * Resolving old file, or null if none.
-     *
-     * @param locale
-     * @return
-     */
-    public CLDRFile getOldFileResolved(CLDRLocale locale) {
-        return get(locale).getOldFileResolved();
     }
 
     /**

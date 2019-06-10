@@ -4041,19 +4041,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @param locale
      * @param resolved
      * @return
+     *
+     * Called only by writeVettingViewerOutput2
      */
-    public CLDRFile getOldFile(String locale, boolean resolved) {
-        return getOldFile(CLDRLocale.getInstance(locale), resolved);
-    }
-
-    /**
-     * Get an "old" (previous CLDR version) locale file.
-     * May return null if the locale wasn't available in that version.
-     * @param locale
-     * @param resolved
-     * @return
-     */
-    public CLDRFile getOldFile(CLDRLocale locale, boolean resolved) {
+    public CLDRFile getOldFile(String loc, boolean resolved) {
+        CLDRLocale locale =CLDRLocale.getInstance(loc);
         Factory f = getOldFactory();
         if (gOldAvailable.contains(locale)) {
             return f.make(locale.getBaseName(), resolved);

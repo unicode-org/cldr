@@ -8,8 +8,6 @@
 <h3>Review Numbers</h3>
 <p>Please read the <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/review-numbers'>instructions</a> before continuing.</p>
 <%
-// OLD CLDRFile englishFile = ctx.sm.getSTFactory().getOldFile(CLDRLocale.getInstance("en"));
-// NEW
 CLDRFile englishFile = ctx.sm.getDiskFactory().make("en",true);
 CLDRFile nativeFile = ctx.sm.getSTFactory().make(ctx.getLocale(), true);
 org.unicode.cldr.util.VerifyCompactNumbers.showNumbers(nativeFile, true, "EUR", out,ctx.sm.getSTFactory());

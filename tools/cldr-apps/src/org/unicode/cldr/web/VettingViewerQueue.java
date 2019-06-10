@@ -6,7 +6,6 @@ package org.unicode.cldr.web;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -445,29 +444,6 @@ public class VettingViewerQueue {
     private static final String PRE = "<DIV class='pager'>";
     private static final String POST = "</DIV>";
 
-    /**
-     * Same as getVettingViewerOutput except that the status message, if
-     * present, will be written to the output
-     *
-     * @see #getVettingViewerOutput(WebContext, CookieSession, CLDRLocale,
-     *      Status[], LoadingPolicy, Appendable, JSONObject)
-     * @param ctx
-     * @param sess
-     * @param locale
-     * @param status
-     * @param forceRestart
-     * @param output
-     * @throws IOException
-     * @throws JSONException
-     */
-    public void writeVettingViewerOutput(WebContext ctx, CookieSession sess, CLDRLocale locale, Status[] status,
-        LoadingPolicy forceRestart, Appendable output) throws IOException, JSONException {
-        String str = getVettingViewerOutput(ctx, sess, locale, status, forceRestart, output, new JSONObject());
-        if (str != null) {
-            output.append(str);
-        }
-    }
-
     public JSONArray getErrorOnPath(CLDRLocale locale, WebContext ctx, CookieSession sess, String path) {
         String baseUrl = "http://example.com";
         Level usersLevel;
@@ -506,6 +482,21 @@ public class VettingViewerQueue {
         return result;
     }
 
+    /**
+     * Get the json for the Dashboard ("review")
+     *
+     * @param output
+     * @param sourceFile
+     * @param lastSourceFile
+     * @param sorted
+     * @param choices
+     * @param localeID
+     * @param nonVettingPhase
+     * @param quick
+     * @param ctx
+     *
+     * Called only by writeVettingViewerOutput
+     */
     private void getJSONReview(Appendable output, CLDRFile sourceFile, CLDRFile lastSourceFile,
         Relation<R2<SectionId, PageId>, WritingInfo> sorted,
         EnumSet<Choice> choices,
@@ -514,7 +505,6 @@ public class VettingViewerQueue {
         boolean quick, WebContext ctx) {
 
         try {
-            boolean latin = VettingViewer.isLatinScriptLocale(sourceFile);
             JSONObject reviewInfo = new JSONObject();
             JSONArray notificationsCount = new JSONArray();
             List<String> notifications = new ArrayList<String>();
@@ -526,34 +516,6 @@ public class VettingViewerQueue {
             }
 
             reviewInfo.put("notification", notificationsCount);
-            // gather information on choices on each page
-            //output.append(reviewInfo.toString());
-
-            Relation<Row.R3<SectionId, PageId, String>, Choice> choicesForHeader = Relation.of(
-                new HashMap<Row.R3<SectionId, PageId, String>, Set<Choice>>(), HashSet.class);
-
-            Relation<Row.R2<SectionId, PageId>, Choice> choicesForSection = Relation.of(
-                new HashMap<R2<SectionId, PageId>, Set<Choice>>(), HashSet.class);
-
-            Comparator<? super R4<Choice, SectionId, PageId, String>> comparator = new Comparator<Row.R4<Choice, SectionId, PageId, String>>() {
-
-                @Override
-                public int compare(R4<Choice, SectionId, PageId, String> o1, R4<Choice, SectionId, PageId, String> o2) {
-                    int compChoice = o2.get0().order - o1.get0().order;
-                    if (compChoice == 0) {
-                        int compSection = o1.get1().compareTo(o2.get1());
-                        if (compSection == 0) {
-                            int compPage = o1.get2().compareTo(o2.get2());
-                            if (compPage == 0)
-                                return o1.get3().compareTo(o2.get3());
-                            else
-                                return 0;
-                        } else
-                            return compSection;
-                    } else
-                        return compChoice;
-                }
-            };
 
             Relation<Row.R4<Choice, SectionId, PageId, String>, WritingInfo> notificationsList = Relation.of(
                 new TreeMap<Row.R4<Choice, SectionId, PageId, String>, Set<WritingInfo>>(), TreeSet.class);
@@ -667,6 +629,16 @@ public class VettingViewerQueue {
         }
     }
 
+    /**
+     *
+     * @param locale
+     * @param aBuffer
+     * @param ctx
+     * @param sess
+     * @param rJson true for json (r_vetting_json.jsp), false for html (r_vetting.jsp)
+     *
+     * Called only by r_vetting_json.jsp and r_vetting.jsp; is the latter still in use?
+     */
     public void writeVettingViewerOutput(CLDRLocale locale, StringBuffer aBuffer, WebContext ctx, CookieSession sess, boolean rJson) {
         String baseUrl = "http://example.com";
         Level usersLevel;
@@ -689,10 +661,24 @@ public class VettingViewerQueue {
         }
         usersOrg = Organization.fromString(sess.user.voterOrg());
 
-        writeVettingViewerOutput(locale, baseUrl, aBuffer, usersOrg, usersLevel, sess.user, ctx.hasField("quick"), ctx, rJson);
+        writeVettingViewerOutput2(locale, baseUrl, aBuffer, usersOrg, usersLevel, sess.user, ctx.hasField("quick"), ctx, rJson);
     }
 
-    public void writeVettingViewerOutput(CLDRLocale locale, String baseUrl, StringBuffer aBuffer,
+    /**
+     *
+     * @param locale
+     * @param baseUrl
+     * @param aBuffer
+     * @param usersOrg
+     * @param usersLevel
+     * @param user
+     * @param quick
+     * @param ctx
+     * @param rJson
+     *
+     * Called only by writeVettingViewerOutput
+     */
+    private void writeVettingViewerOutput2(CLDRLocale locale, String baseUrl, StringBuffer aBuffer,
         Organization usersOrg, Level usersLevel, UserRegistry.User user, boolean quick, WebContext ctx, boolean rJson) {
         final String st_org = user.org;
         SurveyMain sm = CookieSession.sm;

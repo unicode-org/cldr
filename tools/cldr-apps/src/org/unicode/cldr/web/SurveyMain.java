@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.io.PrintStream;
@@ -47,6 +48,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.jar.JarFile;
+import java.util.jar.Manifest;
 import java.util.regex.Pattern;
 
 import javax.servlet.ServletConfig;
@@ -142,8 +145,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static final String R_STEPS = REPORT_PREFIX + "steps";
     public static final String R_VETTING = REPORT_PREFIX + "vetting";
     public static final String R_VETTING_JSON = REPORT_PREFIX + "vetting_json";
-
-    public static final String SURVEYMAIN_REVISION = "SurveyMain.java $Revision$";
 
     static final String ACTION_DEL = "_del";
     static final String ACTION_UNVOTE = "_unvote";
@@ -445,6 +446,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         + "--></script>";
 
     static HelpMessages surveyToolSystemMessages = null;
+    public static String CLDR_APPS_HASH = null;
 
     static String sysmsg(String msg) {
         try {
@@ -487,6 +489,21 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             // verify config sanity
             CLDRConfig cconfig = CLDRConfigImpl.getInstance();
+            try(InputStream is = config.getServletContext().getResourceAsStream(JarFile.MANIFEST_NAME)) {
+                Manifest mf = new Manifest(is);
+                String s = mf.getMainAttributes().getValue("CLDR-Apps"+"-Git-Commit");
+                if(s != null && !s.isEmpty()) {
+                    SurveyMain.CLDR_APPS_HASH  = s;
+                    ((CLDRConfigImpl)cconfig).setCldrAppsHash(s);
+//                    String oldV = (String)cconfig.put("CLDR_APPS_HASH", s);
+//                    System.err.println("CLDR_APPS_HASH = " + s + ", was " + oldV);
+                    System.err.println("Updated CLDR_APPS_HASH to" + getCurrevStr());
+                } else {
+                    System.err.println("CLDR_APPS_HASH = unknown (no value in manifest)");
+                }
+            } catch(Throwable t) {
+                System.err.println("CLDR_APPS_HASH = unknown - " + t.toString());
+            }
             isConfigSetup = true; // we have a CLDRConfig - so config is setup.
 
             stopIfMaintenance();
@@ -1444,6 +1461,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     public String getSpecialHeaderText() {
         String specialHeader = CLDRConfig.getInstance().getProperty("CLDR_HEADER");
+        if(specialHeader==null) return "";
         return specialHeader;
     }
 
@@ -1463,7 +1481,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             .put("processing", startupThread.htmlStatus()).put("guests", CookieSession.getGuestCount())
             .put("users", CookieSession.getUserCount()).put("uptime", uptime).put("surveyRunningStamp", surveyRunningStamp.current())
             .put("memfree", free).put("memtotal", total).put("pages", pages).put("uptime", uptime).put("phase", phase())
-            .put("currev", SurveyMain.getCurrevStr())
+            .put("currev", SurveyMain.getCurrevCldrApps()) // Code only!
             .put("newVersion", newVersion).put("sysload", load).put("sysprocs", nProcs).put("dbopen", DBUtils.db_number_open)
             .put("dbused", DBUtils.db_number_used);
     }
@@ -1526,17 +1544,66 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return progressManager.getProgress();
     }
 
+    /**
+     * Get the current source revision, as HTML
+     * @return
+     */
     public static String getCurrev() {
-        String currev = CldrUtility.getProperty("CLDR_CURREV", null);
-        if (currev != null) {
-            return ("<a class='notselected' href='http://unicode.org/cldr/trac/changeset/" + currev + "'>r" + currev + "</a> \u00b7");
-        } else {
-            return "<span style='color: #ddd'>" + SURVEYMAIN_REVISION + "</span> \u00b7";
+        String currev = getCurrevStr();
+        String split[] = currev.split(" ");
+        StringBuilder output = new StringBuilder();
+        output.append(CLDRURLS.gitHashToLink(split[0]));
+        if(split.length > 1) {
+            // Error conditions.
+            for(int n=1; n<split.length; n++) {
+                output.append(" ");
+                String subsplit[] = split[n].split("=");
+                output.append(subsplit[0])
+                    .append('=')
+                    .append(CLDRURLS.gitHashToLink(subsplit[1]));
+            }
         }
+        return output.toString();
     }
 
+    /**
+     * Get the git hash for cldr-apps, statically.
+     * Use this to avoid dependency on a loaded CLDRConfig.
+     * @return
+     */
+    public static String getCurrevCldrApps() {
+        if(CLDR_APPS_HASH != null) return CLDR_APPS_HASH; // use cachd version
+        return CLDRConfigImpl.getGitHashForSlug("CLDR_APPS_HASH");
+    }
+    
+    /**
+     * Get the current source revision, as a string
+     * This will either be a single string '(unknown)' or '1234568'
+     * or, it will include error conditions: '12345678 CLDR_TOOLS_HASH=00bad000'
+     * if one component is out of sync.
+     * @return
+     */
     public static String getCurrevStr() {
-        return CldrUtility.getProperty("CLDR_CURREV", SURVEYMAIN_REVISION);
+        Map<String,String> allRev = new HashMap<>();
+        String best = CLDRURLS.UNKNOWN_REVISION;
+        for(final String p : CLDRConfigImpl.ALL_GIT_HASHES) {
+            String hash = CLDRConfigImpl.getInstance().getProperty(p, CLDRURLS.UNKNOWN_REVISION);
+            if(CLDRURLS.isKnownHash(hash)) {
+                best = hash;
+            }
+            allRev.put(p, hash);
+        }
+        StringBuilder output = new StringBuilder(best);
+        for(final Map.Entry<String, String> e : allRev.entrySet()) {
+            // Any divergence?
+            if(!e.getValue().equals(best)) {
+                output.append(' ')
+                .append(e.getKey())
+                .append('=')
+                .append(e.getValue());
+            }
+        }
+        return output.toString();
     }
 
     public void printFooter(WebContext ctx) {
@@ -4908,7 +4975,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 }
                 currentPhase = newPhase;
             }
-            System.out.println("Phase: " + phase() + ", cPhase: " + phase().getCPhase() + ", " + getCurrevStr());
+            System.out.println("Phase: " + phase() + ", cPhase: " + phase().getCPhase() + ", " + getCurrevCldrApps());
             progress.update("Setup props..");
             newVersion = survprops.getProperty(CLDR_NEWVERSION, CLDR_NEWVERSION);
             oldVersion = survprops.getProperty(CLDR_OLDVERSION, CLDR_OLDVERSION);
@@ -5227,7 +5294,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ElapsedTimer destroyTimer = new ElapsedTimer("SurveyTool destroy()");
         CLDRProgressTask progress = openProgress("shutting down");
         try {
-            SurveyLog.logger.warning("SurveyTool shutting down.. r" + getCurrevStr());
+            SurveyLog.logger.warning("SurveyTool shutting down.. r" + getCurrevCldrApps());
             if (startupThread != null) {
                 progress.update("Attempting clean shutdown...");
                 startupThread.attemptCleanShutdown();
@@ -5639,7 +5706,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (t != null) {
             SurveyLog.logException(t, what /* , ignore stack - fetched from exception */);
         }
-        SurveyLog.logger.warning("SurveyTool " + SurveyMain.getCurrevStr() + " busted: " + what + " ( after " + pages + "html+" + xpages
+        SurveyLog.logger.warning("SurveyTool " + SurveyMain.getCurrevCldrApps() + " busted: " + what + " ( after " + pages + "html+" + xpages
             + "xml pages served,  "
             + getGuestsAndUsers() + ")");
         System.err.println("Busted at stack: \n" + StackTracker.currentStack());

@@ -1,15 +1,21 @@
 package org.unicode.cldr.util;
 
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.Map.Entry;
 import java.util.Properties;
+import java.util.jar.JarFile;
+import java.util.jar.Manifest;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -64,7 +70,6 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 
     boolean isInitted = false;
     private Properties survprops;
-
     /**
      * Defaults to SMOKETEST for server
      * @return
@@ -157,27 +162,73 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         // File(cldrHome).getAbsolutePath() + " time="+setupTime);
 
         loadIntoProperties(survprops, propFile);
-        File currev = new File(homeFile, "currev.properties");
-        if (currev.canRead()) {
-            loadIntoProperties(survprops, currev);
-//            try {
-//                java.io.FileInputStream is = new java.io.FileInputStream(currev);
-//                survprops.load(is);
-//                // progress.update("Loading configuration..");
-//                is.close();
-//            } catch (java.io.IOException ioe) {
-//                /* throw new UnavailableException */
-//                InternalError ie = new InternalError("Warning: Couldn't load currev.properties file from '"
-//                    + currev.getAbsolutePath() + "' :" + ioe.toString());
-//                System.err.println(ie.toString() + ioe.toString());
-//                // ioe.printStackTrace();
-//                // throw ie;
-//            }
-        }
-
+     
+        // SCM versions.
+        // 
+        // currev.properties used to contain CLDR_CURREV=1234  where 1234 was a svn (later git) revision.
+        survprops.put("CLDR_APPS_HASH", getGitHashForSlug("CLDR-Apps")); // Not available until init() is called.
+        survprops.put("CLDR_TOOLS_HASH", getGitHashForSlug("CLDR-Tools"));
+        survprops.put("CLDR_DIR_HASH", getGitHashForDir(survprops.getProperty("CLDR_DIR", null)));
+        
         survprops.put("CLDRHOME", cldrHome);
 
         isInitted = true;
+    }
+    
+    public final static String ALL_GIT_HASHES[] = { "CLDR_APPS_HASH", "CLDR_TOOLS_HASH", "CLDR_DIR_HASH" };
+
+    /**
+     * Return the git hash for a dir.
+     * @param dir
+     * @return
+     */
+    public final static String getGitHashForDir(String dir) {
+        final String GIT_HASH_COMMANDS[] = { "git",  "rev-parse", "--short", "HEAD" };
+        try {
+            if(dir == null) return CLDRURLS.UNKNOWN_REVISION; // no dir
+            File f = new File(dir);
+            if(!f.isDirectory()) return CLDRURLS.UNKNOWN_REVISION; // does not exist
+            Process p = Runtime.getRuntime().exec(GIT_HASH_COMMANDS, null, f);
+            try(BufferedReader is = new BufferedReader(new InputStreamReader(p.getInputStream()))) {
+                String str = is.readLine();
+                if(str.length() == 0) throw new Exception("git returned empty");
+                return str;
+            }
+        } catch(Throwable t) {
+            // We do not expect this to be called frequently.
+            System.err.println("While trying to get 'git' hash for " + dir + " : " + t.getMessage());
+            t.printStackTrace();
+            return CLDRURLS.UNKNOWN_REVISION;
+        }
+    }
+
+    /**
+     * Return the git hash for (slug)-Git-Hash.
+     * @param slug
+     * @return
+     */
+    public final static String getGitHashForSlug(String slug) {
+//        return Manifests.read(slug+"-Git-Commit");
+        try {
+            ClassLoader classLoader = CLDRConfigImpl.class.getClassLoader();
+            for(final Enumeration<URL> e = classLoader.getResources(JarFile.MANIFEST_NAME);
+                e.hasMoreElements();) {
+                final URL u = e.nextElement();
+                try (InputStream is = u.openStream()) {
+                    Manifest mf = new Manifest(is);
+                    String s = mf.getMainAttributes().getValue(slug+"-Git-Commit");
+                    if(s != null && !s.isEmpty()) {
+                        return s;
+                    }
+                } catch(Throwable t) {
+//                    t.printStackTrace();
+                }
+            }
+        } catch(Throwable t) {
+//            t.printStackTrace();
+        }
+        return CLDRURLS.UNKNOWN_REVISION;
+
     }
 
     private void loadIntoProperties(Properties props, File propFile) throws InternalError {
@@ -300,6 +351,10 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         init();
         return survprops.getProperty(key);
     }
+    
+    public void setCldrAppsHash(String hash) {
+        survprops.setProperty("CLDR_APPS_HASH", hash);
+    }
 
     @Override
     public Object setProperty(String key, String value) {
@@ -313,7 +368,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
                 return survprops.setProperty(key, value);
             }
         } else {
-            return null;
+            return null; // Setting is disallowed (silently?)
         }
     }
 

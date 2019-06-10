@@ -5,6 +5,7 @@ package org.unicode.cldr.unittest.web;
  */
 
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.web.STFactory;
@@ -78,5 +79,14 @@ public class TestMisc extends TestFmwk {
             return;
         }
         System.out.println("✅");
+    }
+    
+    public void TestGitHash() {
+        String appsVersion = CLDRConfigImpl.getGitHashForSlug("CLDR-Apps");
+        assertNotNull(appsVersion, "getting CLDR-Apps version");
+//        System.out.println("Apps: " + appsVersion);
+        String toolsVersion = CLDRConfigImpl.getGitHashForSlug("CLDR-Tools");
+        assertNotNull(toolsVersion, "getting CLDR-Tools version");
+//        System.out.println("Tools: " + toolsVersion);
     }
 }

@@ -87,7 +87,7 @@ public class SurveyLog {
         StringBuilder sb = new StringBuilder();
         sb.append(RECORD_SEP).append(LogField.SURVEY_EXCEPTION).append(' ').append(what).append('\n').append(FIELD_SEP)
             .append(LogField.DATE).append(' ').append(nextTimePost).append(' ').append(new Date()).append('\n')
-            .append(FIELD_SEP).append(LogField.REVISION).append(' ').append(SurveyMain.getCurrevStr()).append(' ').append(SurveyMain.getNewVersion())
+            .append(FIELD_SEP).append(LogField.REVISION).append(' ').append(SurveyMain.getCurrevCldrApps()).append(' ').append(SurveyMain.getNewVersion())
             .append(' ').append(CLDRConfig.getInstance().getPhase()).append(' ').append(CLDRConfig.getInstance().getEnvironment()).append('\n')
             .append(FIELD_SEP).append(LogField.UPTIME).append(' ').append(SurveyMain.uptime).append('\n');
         if (ctx != null) {

@@ -168,11 +168,12 @@
         <delete dir="${doc.dir}"/>
     </target>
 
-    <target name="jar" depends="web" description="build full 'cldr.jar' jar file">
+    <target name="jar" depends="web" description="build full 'cldr-apps.jar' jar file (Not normally used.)">
         <jar jarfile="${jar.file}"
             compress="true"
             includes="org/unicode/cldr/util/**/*,org/unicode/cldr/tool/**/*,org/unicode/cldr/test/**/*,org/unicode/cldr/posix/**/*,org/unicode/cldr/ooo/**/*,org/unicode/cldr/ant/**/*,org/unicode/cldr/icu/**/*"
             basedir="${build.dir}"/>
+        <!-- does not include git hash. -->
     </target>
   <!-- Docs stuff -->
     <!-- use excludefiles below when we move to ant 1.5 -->
@@ -203,18 +204,16 @@
             bottom="&lt;font size=-1>&lt;a  target='_top' href='http://www.unicode.org/copyright.html'>Copyright &amp;copy; 2004-${current.year} Unicode, Inc. All Rights Reserved.&lt;/a>&lt;/font>"
             source="1.8" />
     </target>
-               <!-- bottom="&lt;font size=-1>Copyright (c) ${current.year} IBM Corporation and others.&lt;/font>" -->
+    <!-- bottom="&lt;font size=-1>Copyright (c) ${current.year} IBM Corporation and others.&lt;/font>" -->
 
-
-  <!-- SurveyTool (web) stuff follows ................. -->
-
+    <!-- SurveyTool (web) stuff follows ................. -->
 
     <!-- build all web related things -->
     <!--
     	// includes="${src.dir}/**/*.java"
     	    excludes="**/.svn/**/*"
     -->
-	<target name="web" depends="all" description="alias for old 'web' target"/>
+    <target name="web" depends="all" description="alias for old 'web' target"/>
 
     <target name="all" depends="init" description="build web classes">
         <javac
@@ -229,10 +228,22 @@
             encoding="UTF-8"/>
     </target>
 
+    <target name="init-githash" depends="init" description="calculate build.githash">
+      <exec executable="git" outputproperty="build.githash" failifexecutionfails="false">
+        <arg value="rev-parse" />
+        <arg value="--short" />
+        <arg value="HEAD" />
+      </exec>
+      <condition property="build.githash" value="(unknown)">
+        <not>
+          <isset property="build.githash" />
+        </not>
+      </condition>
+    </target>
 
     <!-- build as a WAR file -->
     <!-- TODO: include CLDR as a jar? Only include certain classes? -->
-    <target name="war" depends="web" description="Build war">
+    <target name="war" depends="web,init-githash" description="Build war">
         <war destfile="${warfile}" webxml="${webxml}">
             <!-- classes (for now, may want to take cldr utils as a jar later) -->
             <classes dir="${build.dir}" />
@@ -248,7 +259,10 @@
             <lib file="${MYANMAR_TOOLS_JAR}" /> <!-- MYANMAR_TOOLS_JAR jar -->
             <!-- May want this later. -->
             <!--  <pathelement path="${jsp.jar}"/> -->
-
+	    <manifest>
+	      <attribute name="Built-By" value="${user.name}" />
+              <attribute name="CLDR-Apps-Git-Commit" value="${build.githash}" />
+	    </manifest>
         </war>
     </target>
 

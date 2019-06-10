@@ -79,10 +79,14 @@ public class CopySubdivisionsIntoMain {
     }
 
     private static void doAfter() {
+        if (true) {
+            throw new IllegalArgumentException("Should probably discontinue this, leaving translated subdivisions in main");
+        }
+        
         PathStarrer pathStarrer = new PathStarrer();
 
         for (String localeId : mainFactory.getAvailable()) {
-            
+
             boolean isRoot = "root".equals(localeId);
             CLDRFile mainFile = mainFactory.make(localeId, false);
             CLDRFile mainFileOut = null;
@@ -92,16 +96,16 @@ public class CopySubdivisionsIntoMain {
             for (Iterator<String> subdivisionIterator = mainFile.iterator(SubdivisionNames.SUBDIVISION_PATH_PREFIX); subdivisionIterator.hasNext(); ) {
                 String path = subdivisionIterator.next();
                 String value = mainFile.getStringValue(path);
-                
+
                 // remove from main file
-                
+
                 if (mainFileOut == null) {
                     mainFileOut = mainFile.cloneAsThawed(); // lazy create
                 }
                 mainFileOut.remove(path);
-                
+
                 // now copy to subdivision file
-                
+
                 if (isRoot) {
                     continue;
                 }
@@ -114,7 +118,7 @@ public class CopySubdivisionsIntoMain {
                         subdivisionFile = new CLDRFile(new SimpleXMLSource(localeId));
                     }
                 }
-                
+
                 String oldValue = subdivisionFile.getStringValue(path);
                 if (!Objects.equal(oldValue, value)) {
                     pathStarrer.set(path);
@@ -178,14 +182,27 @@ public class CopySubdivisionsIntoMain {
                 cldrFile.add(path, name);
                 System.out.println("Adding " + locale + ": " + path + "\t=«" + name + "»");
             }
+            
             if (added) {
-                writeFile(MAIN_TARGET_DIR, locale, cldrFile);
+                // write out new main with extra subdivisions
+                
+                String fileName = locale + ".xml";
+                writeFile(MAIN_TARGET_DIR, fileName, cldrFile);
+                
+                // remove from subdivisions file
+                
+                CLDRFile sd = subdivisionFactory.make(locale, false).cloneAsThawed();
+                for (String key : target) {
+                    String path = SubdivisionNames.getPathFromCode(key);
+                    sd.remove(path);
+                }
+                writeFile(CLDRPaths.SUBDIVISIONS_DIRECTORY, fileName, sd);
             }
         }
     }
 
-    private static void writeFile(String directory, String locale, CLDRFile cldrFile) {
-        try (PrintWriter pw = FileUtilities.openUTF8Writer(directory, locale + ".xml")) {
+    private static void writeFile(String directory, String fileName, CLDRFile cldrFile) {
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(directory, fileName)) {
             cldrFile.write(pw);
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);

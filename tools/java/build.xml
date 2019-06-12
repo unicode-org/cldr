@@ -136,7 +136,20 @@
 
 	<target name="jars" depends="jar,srcJar,docsJar" description="build all jars"/>
 
-	<target name="jar" depends="all" description="build full 'cldr.jar' jar file">
+        <target name="init-githash" depends="init" description="calculate build.githash">
+          <exec executable="git" outputproperty="build.githash" failifexecutionfails="false">
+            <arg value="rev-parse" />
+            <arg value="--short" />
+            <arg value="HEAD" />
+          </exec>
+          <condition property="build.githash" value="(unknown)">
+            <not>
+              <isset property="build.githash" />
+            </not>
+          </condition>
+        </target>
+
+	<target name="jar" depends="all,init-githash" description="build full 'cldr.jar' jar file">
 		<jar jarfile="${jar.file}" compress="true"
 			includes="org/unicode/cldr/draft/**/*,
         		org/unicode/cldr/util/**/*,
@@ -151,6 +164,7 @@
 			<manifest>
 				<attribute name="Built-By" value="${user.name}" />
 				<attribute name="Main-Class" value="org.unicode.cldr.tool.Main" />
+                                <attribute name="CLDR-Tools-Git-Commit" value="${build.githash}" />
 				<attribute name="Class-Path"
 					value="./libs/${cldr.libs.icu4j} ./libs/${cldr.libs.utilities} ./libs/${cldr.libs.xerces} ./libs/${cldr.libs.guava} ./libs/${cldr.libs.gson} ${cldr.libs.icu4j} ${cldr.libs.utilities} ${cldr.libs.xerces} ${cldr.libs.gson} ./libs/myanmar-tools-1.1.1.jar" />
 			</manifest>

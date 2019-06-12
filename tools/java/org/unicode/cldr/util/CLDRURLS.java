@@ -11,7 +11,7 @@ public abstract class CLDRURLS {
     public static final String DEFAULT_HOST = "st.unicode.org";
     public static final String DEFAULT_PATH = "/cldr-apps";
     public static final String DEFAULT_BASE = "http://" + DEFAULT_HOST + DEFAULT_PATH;
-    public static final String CLDR_NEWTICKET_URL = "http://unicode.org/cldr/trac/newticket";
+    public static final String CLDR_NEWTICKET_URL = "https://unicode.org/cldr/trac/newticket"; // This is an alias to Jira
     /**
      * Override this property if you want to change the absolute URL to the SurveyTool base from DEFAULT_BASE
      */
@@ -59,6 +59,11 @@ public abstract class CLDRURLS {
     }
 
     protected static String VPATH = "/v#";
+    /**
+     * Constant for an unknown git revision.
+     * Use the same in the builders.
+     */
+    public static final String UNKNOWN_REVISION = "(unknown)";
 
     /**
      * Get the relative base URL for the SurveyTool.
@@ -236,5 +241,26 @@ public abstract class CLDRURLS {
      */
     public final String forPathHeader(CLDRLocale locale, PathHeader pathHeader) {
         return forSpecial(Special.Survey, locale, pathHeader.getPageId(), StringId.getHexId(pathHeader.getOriginalPath()));
+    }
+
+    /**
+     * For a given hash, return as a link
+     * @param hash
+     * @return
+     */
+    public static String gitHashToLink(String hash) {
+        if(!isKnownHash(hash)) return "<span class=\"githashLink\">"+hash+"</span>"; // Not linkifiable
+        return "<a class=\"githashLink\" href=\"" + 
+                CldrUtility.getProperty("CLDR_COMMIT_BASE", "https://github.com/unicode-org/cldr/commit/") 
+                + hash + "\">" + hash + "</a>";
+    }
+
+    /**
+     * Is this a 'known' git hash? Or unknown?
+     * @param hash
+     * @return true if known, false if (unknown)
+     */
+    public static boolean isKnownHash(String hash) {
+        return !hash.equals(UNKNOWN_REVISION);
     }
 }

@@ -1,4 +1,7 @@
+<%@page import="org.unicode.cldr.util.CldrUtility"%>
+<%@page import="org.unicode.cldr.util.CLDRURLS"%>
 <%@page import="org.unicode.cldr.web.DBUtils"%>
+<%@page import="org.unicode.cldr.util.CLDRConfigImpl"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <!-- Copyright (C) 2012 IBM and Others. All Rights Reserved --> 
 <html>
@@ -73,10 +76,12 @@
             <th>SurveyMain.BASELINE_LANGUAGE_NAME</th>
             <td> <%= org.unicode.cldr.web.SurveyMain.BASELINE_LANGUAGE_NAME %>  </td>
         </tr>
-        <tr class="row<%= ((i++)%2) %>">
-            <th>SVN Version</th>
-            <td> <%= org.unicode.cldr.util.CldrUtility.getProperty("CLDR_CURREV", null) %>  </td>
-        </tr>
+        <% for(String k : org.unicode.cldr.util.CLDRConfigImpl.ALL_GIT_HASHES) { %>
+	        <tr class="row<%= ((i++)%2) %>">
+	            <th><%= k %></th>
+	            <td> <%= CLDRURLS.gitHashToLink(CLDRConfigImpl.getInstance().getProperty(k)) %>  </td>
+	        </tr>
+        <% } %>
     </table>    
     <%
         }

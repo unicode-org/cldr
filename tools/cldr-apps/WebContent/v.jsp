@@ -83,6 +83,13 @@ if(SurveyMain.isBusted!=null || request.getParameter("_BUSTED")!=null) {
          <%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
     	<h1>Waiting for the Survey Tool to come online<span id='dots'>...</span></h1>
         <p class="lead">The Survey Tool may be starting up.  </p>
+				  <%
+				  	if(SurveyMain.isUnofficial()) {
+				  %>
+				             <p><span class="glyphicon glyphicon-wrench"></span><%= SurveyMain.getCurrev() %></p>
+				  <%
+				  	}
+				  %>
         
         <%
             // JavaScript based redirect
@@ -257,7 +264,15 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
 		            <li>
 			        	<button type="button" class="btn btn-default toggle-right">Toggle Sidebar <span class="glyphicon glyphicon-align-right"></span></button>
 		            </li>
+				  <%
+				  	if(SurveyMain.isUnofficial()) {
+				  %>
+				             <li id="revision-info"><span class="glyphicon glyphicon-wrench"></span><%= SurveyMain.getCurrev() %></li>
+				  <%
+				  	}
+				  %>
 				  </ul>
+				  
 		   </li>
             <li class="dropdown" id='title-coverage' style='display:none'>
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Coverage: <span id="coverage-info"></span></a>
@@ -307,7 +322,7 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
            	<p class='navbar-text navbar-right'><a href='https://www.unicode.org/policies/privacy_policy.html'>This site uses cookies.</a>
           	</p>
  
-          	<p class='specialmessage navbar-text navbar-right'><%= sm.getSpecialHeaderText() %><%= SurveyMain.isUnofficial()?("<br/><span class='rolloverspan'>"+SurveyMain.getCurrev()+"</span>"):"" %>
+          	<p class='specialmessage navbar-text navbar-right'><%= sm.getSpecialHeaderText() %>
           	</p>
     	
         </div>

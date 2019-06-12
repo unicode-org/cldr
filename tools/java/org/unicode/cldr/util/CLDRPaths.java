@@ -11,6 +11,9 @@ import com.google.common.collect.ImmutableList;
  * These must not be used by any code destined for the SurveyTool, as this class will not be included.
  * @author srl
  *
+ * TODO: clarify "this class will not be included" comment above. Why is it necessary and/or preferable
+ * not to include this class in ST? Anyway, note that CLDRConfig.getInstance().getCldrBaseDirectory()
+ * can be used as an alternative to CLDRPaths.BASE_DIRECTORY.
  */
 
 public class CLDRPaths {
@@ -129,16 +132,5 @@ public class CLDRPaths {
         }
     }
 
-    @Deprecated //use DtdType.ldml.directories
-//    public static final Set<String> LDML_DIRECTORIES = ImmutableSet.of(
-//        "main",
-//        "annotations",
-//        "casing",
-//        "collation",
-//        "rbnf",
-//        "segments",
-//        "subdivisions"
-//        );
-    public static final String UNICODE_VERSION = "10.0.0";
     public static final String TEST_DATA = COMMON_DIRECTORY + "testData/";
 }

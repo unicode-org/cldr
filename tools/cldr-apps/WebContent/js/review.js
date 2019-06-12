@@ -175,7 +175,7 @@ function getUrlReview(id) {
 
 //save the hide line 
 function toggleReview() {
-	 var url = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=review_hide";
+	 var url = contextPath + "/SurveyAjax?what=review_hide&s="+surveySessionId;
 	 var path = $(this).parents('tr').data('path');
 	 var choice = $(this).parents('.table-wrapper').data('type');
 	 url += "&path="+path+"&choice="+choice+"&locale="+surveyCurrentLocale;
@@ -495,7 +495,7 @@ function openPost() {
 	var choice = $(this).closest(".table-wrapper").data('type');
 	var postModal = $('#post-modal');
 	var locale = surveyCurrentLocale;
-	var url = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=forum_fetch&xpath="+$(this).closest('tr').data('path')+"&voteinfo&_="+locale;
+	var url = contextPath + "/SurveyAjax?what=forum_fetch&s="+surveySessionId+"&xpath="+$(this).closest('tr').data('path')+"&voteinfo&_="+locale;
 	showPost(postModal, null);
 
 	$.get(url, function(data){

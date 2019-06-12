@@ -932,7 +932,7 @@ function showV() {
 					if(surveyCurrentLocale!=null&&surveyCurrentLocale!='') {
 						var needLocTable = false;
 
-						var url = contextPath + "/SurveyAjax?_="+surveyCurrentLocale+"&s="+surveySessionId+"&what=menus&locmap="+needLocTable+cacheKill();
+						var url = contextPath + "/SurveyAjax?what=menus&_="+surveyCurrentLocale+"&locmap="+needLocTable+"&s="+surveySessionId+cacheKill();
 						myLoad(url, "menus", function(json) {
 							if(!verifyJson(json, "menus")) {
 								return; // busted?
@@ -1194,10 +1194,14 @@ function showV() {
 							hideLoader(null);
 							isLoading=false;
 
-						} else {
+						} else if (!isInputBusy()) {
+							/*
+							 * Make “all rows” requests only when !isInputBusy, to avoid wasted requests
+							 * if the user leaves the input box open for an extended time.
+							 */
 							// (common case) this is an actual locale data page.
 							itemLoadInfo.appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale) + '/' + surveyCurrentPage + '/' + surveyCurrentId));
-							var url = contextPath + "/SurveyAjax?what="+WHAT_GETROW+"&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
+							var url = contextPath + "/SurveyAjax?what="+WHAT_GETROW+"&_="+surveyCurrentLocale+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+"&s="+surveySessionId+cacheKill();
 							$('#nav-page').show(); // make top "Prev/Next" buttons visible while loading, cf. '#nav-page-footer' below
 							myLoad(url, "section", function(json) {
 								isLoading=false;
@@ -1234,7 +1238,7 @@ function showV() {
 									} else {
 										showInPop2(stui.str("dataPageInitialGuidance"), null, null, null, true); /* show the box the first time */
 									}
-									doUpdate(theDiv.id, function() {
+									if (!isInputBusy()) {
 										showLoader(theDiv.loader,stui.loading3);
 										cldrSurveyTable.insertRows(theDiv,json.pageId,surveySessionId,json); // pageid is the xpath..
 										updateCoverage(flipper.get(pages.data)); // make sure cov is set right before we show.
@@ -1242,7 +1246,7 @@ function showV() {
 										window.showCurrentId(); // already calls scroll
 										refreshCounterVetting();
 										$('#nav-page-footer').show(); // make bottom "Prev/Next" buttons visible after building table
-									});
+									}
 								}
 							});
 						}
@@ -1678,7 +1682,7 @@ function showV() {
 				if(surveyCurrentLocale===null || surveyCurrentLocale=='') {
 					theLocale = 'und';
 				}
-				var xurl = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=menus&locmap="+true+cacheKill();
+				var xurl = contextPath + "/SurveyAjax?what=menus&_="+theLocale+"&locmap="+true+"&s="+surveySessionId+cacheKill();
 				myLoad(xurl, "initial menus for " + surveyCurrentLocale, function(json) {
 					if(!verifyJson(json,'locmap')) {
 						return;
@@ -1817,7 +1821,7 @@ function showV() {
 								console.log('No change in user cov: ' + setUserCovTo);
 							} else {
 								window.surveyUserCov = setUserCovTo;
-								var updurl  = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=pref&pref=p_covlev&_v="+window.surveyUserCov+cacheKill(); // SurveyMain.PREF_COVLEV
+								var updurl  = contextPath + "/SurveyAjax?what=pref&_="+theLocale+"&pref=p_covlev&_v="+window.surveyUserCov+"&s="+surveySessionId+cacheKill(); // SurveyMain.PREF_COVLEV
 								myLoad(updurl, "updating covlev to  " + surveyUserCov, function(json) {
 									if(!verifyJson(json,'pref')) {
 										return;
@@ -1857,7 +1861,7 @@ function showV() {
 							/*
 							 * See WHAT_AUTO_IMPORT = "auto_import" in SurveyAjax.java
 							 */
-							var url = contextPath + "/SurveyAjax?s=" + surveySessionId + "&what=auto_import" + cacheKill();
+							var url = contextPath + "/SurveyAjax?what=auto_import&s=" + surveySessionId + cacheKill();
 							myLoad(url, "auto-importing votes", function(json) {
 								autoImportProgressDialog.hide();
 								window.haveDialog = false;

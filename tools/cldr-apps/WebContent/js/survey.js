@@ -3333,6 +3333,7 @@ function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
         				refreshFixPanel(json);
         			}
         			else {
+        				window.showInPop("", tr, tr.proposedcell, tr.proposedcell.showFn, true /* immediate */);
         				refreshCounterVetting();
         			}
         		} else {

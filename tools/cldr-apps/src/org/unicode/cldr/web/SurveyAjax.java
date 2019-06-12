@@ -1675,7 +1675,7 @@ public class SurveyAjax extends HttpServlet {
      * or list winning votes unless user is TC.
      * 
      * @param user the User, for user.id and userIsTC
-     * @param sm the SurveyMain instance, used for sm.xpt, sm.getBaselineFile, and sm.getOldFile
+     * @param sm the SurveyMain instance, used for sm.xpt, sm.getBaselineFile, and sm.getDiskFactory
      * @param loc the non-empty String for the locale like "aa"
      * @param locale the CLDRLocale matching loc
      * @param newVotesTable the String for the table name like "cldr_vote_value_34"
@@ -1719,9 +1719,10 @@ public class SurveyAjax extends HttpServlet {
             if (useWinningVotes) {
                 uncontested = new JSONArray();
             }
-            baseF = sm.getBaselineFile();      
+            baseF = sm.getBaselineFile(); // here "baseline" means "en_ZZ", NOT "trunk"
         }
-        CLDRFile file = sm.getOldFile(loc, true);
+        XMLSource diskData = (XMLSource) sm.getDiskFactory().makeSource(locale.getBaseName()).freeze(); // trunk
+
         Set<String> validPaths = fac.getPathsForFile(locale);
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         long viewableVoteCount = 0;
@@ -1747,8 +1748,8 @@ public class SurveyAjax extends HttpServlet {
                 if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
                     continue; // out of coverage
                 }
-                String curValue = file.getStringValue(xpathString);
-                boolean isWinning = equalsOrInheritsCurrentValue(value, curValue, file, xpathString);
+                String curValue = diskData.getValueAtDPath(xpathString);
+                boolean isWinning = equalsOrInheritsCurrentValue(value, curValue, diskData, xpathString);
                 if (oldvotes != null) {
                     String xpathStringHash = sm.xpt.getStringIDString(xp);
                     JSONObject aRow = new JSONObject()
@@ -2178,13 +2179,13 @@ public class SurveyAjax extends HttpServlet {
             String xpathString = sm.xpt.getById(xp);
             String loc = m.get("locale").toString();
             CLDRLocale locale = CLDRLocale.getInstance(loc);
-            CLDRFile file = sm.getOldFile(loc, true);
+            XMLSource diskData = (XMLSource) sm.getDiskFactory().makeSource(locale.getBaseName()).freeze(); // trunk
             DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
             if (value != null) {
                 value = daip.processInput(xpathString, value, null);
             }
             try {
-                String curValue = file.getStringValue(xpathString);
+                String curValue = diskData.getValueAtDPath(xpathString);
                 if (curValue == null) {
                     continue;
                 }
@@ -2194,7 +2195,7 @@ public class SurveyAjax extends HttpServlet {
                  * voted for a value "x" in one old version, then voted to abstain in a later version,
                  * and then the "x" still got imported into an even later version. 
                  */
-                if (value == null || equalsOrInheritsCurrentValue(value, curValue, file, xpathString)) {
+                if (value == null || equalsOrInheritsCurrentValue(value, curValue, diskData, xpathString)) {
                     BallotBox<User> box = fac.ballotBoxForLocale(locale);
                     /*
                      * Only import the most recent vote (or abstention) for the given user and xpathString.
@@ -2233,7 +2234,7 @@ public class SurveyAjax extends HttpServlet {
      * @param xpathString the path identifier
      * @return true if it matches or inherits, else false
      */
-    private boolean equalsOrInheritsCurrentValue(String value, String curValue, CLDRFile file, String xpathString) {
+    private boolean equalsOrInheritsCurrentValue(String value, String curValue, XMLSource diskData, String xpathString) {
         if (value == null || curValue == null) {
             return false;
         }
@@ -2241,7 +2242,7 @@ public class SurveyAjax extends HttpServlet {
             return true;
         }
         if (value.equals(CldrUtility.INHERITANCE_MARKER)) {
-            String baileyValue = file.getBaileyValue(xpathString, null, null);
+            String baileyValue = diskData.getBaileyValue(xpathString, null, null);
             if (baileyValue == null) {
                 /* This may happen for Invalid XPath; InvalidXPathException may be thrown. */
                 return false;

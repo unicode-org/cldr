@@ -49,18 +49,10 @@ if(subCtx.userId() == UserRegistry.NO_USER) {
 	
 	
 	subCtx.println("<div id='vvupd'>");
-        
-       if(false) {    
-        VettingViewerQueue.getInstance().writeVettingViewerOutput(subCtx,null,subCtx.getLocale(),status, 
-                                    forceRestart?VettingViewerQueue.LoadingPolicy.FORCERESTART:VettingViewerQueue.LoadingPolicy.START,subCtx);
 
-
-        subCtx.println("<br/> Status: " + status[0]);
-       } else {
-            StringBuffer sb = new StringBuffer();
-            VettingViewerQueue.getInstance().writeVettingViewerOutput(subCtx.getLocale(), sb, subCtx, subCtx.session, false);
-            subCtx.println(sb.toString());
-       }
+	StringBuffer sb = new StringBuffer();
+	VettingViewerQueue.getInstance().writeVettingViewerOutput(subCtx.getLocale(), sb, subCtx, subCtx.session, false);
+	subCtx.println(sb.toString());
 	subCtx.println("</div>");
 	if(status[0]==VettingViewerQueue.Status.PROCESSING || status[0]==VettingViewerQueue.Status.WAITING ) {
 	//	out.println("<meta http-equiv=\"refresh\" content=\"5\">");

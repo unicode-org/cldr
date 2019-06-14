@@ -1,5 +1,7 @@
 package org.unicode.cldr.tool;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.EnumSet;
 import java.util.Objects;
 import java.util.Set;
@@ -19,11 +21,14 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.BaseUrl;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
+import com.ibm.icu.util.VersionInfo;
 
 public class SearchCLDR {
     // private static final int
@@ -75,7 +80,9 @@ public class SearchCLDR {
         .add("q-showParent", null, null, "show parent value")
         .add("english", null, null, "show english value")
         .add("Verbose", null, null, "verbose output")
-        .add("PathHeader", null, null, "show path header and string ID");
+        .add("PathHeader", null, null, "show path header and string ID")
+        .add("diff", "\\d+(\\.\\d+)?", null, "show only paths whose values changed from specified version (and were present in that version)")
+        ;
 
     private static String fileMatcher;
     private static Matcher pathMatcher;
@@ -109,6 +116,7 @@ public class SearchCLDR {
 
         showPath = myOptions.get("z-showPath").doesOccur();
         organization = myOptions.get("organization").getValue();
+        
 
         if (myOptions.get("PathHeader").doesOccur()) {
             PATH_HEADER_FACTORY = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
@@ -120,6 +128,15 @@ public class SearchCLDR {
 
         Factory cldrFactory = Factory.make(sourceDirectory, fileMatcher);
         Set<String> locales = new TreeSet<String>(cldrFactory.getAvailable());
+        
+        String rawVersion = myOptions.get("diff").getValue();
+        
+        Factory cldrDiffFactory = null;
+        if (rawVersion != null) {
+            String base = getArchiveDirectory(VersionInfo.getInstance(rawVersion));
+            File[] files = getCorrespondingDirectories(base, cldrFactory);
+            cldrDiffFactory = SimpleFactory.make(files, ".*");
+        }
 
         CLDRFile english = cldrFactory.make("en", true);
         PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
@@ -142,6 +159,15 @@ public class SearchCLDR {
                 : StandardCodes.make().getLocaleCoverageLevel(organization, locale);
 
             CLDRFile file = (CLDRFile) cldrFactory.make(locale, resolved);
+            CLDRFile diffFile = null;
+            
+            if (cldrDiffFactory != null) {
+                try {
+                    diffFile = cldrDiffFactory.make(locale, resolved);
+                } catch (Exception e) {
+                    continue; // no old file, so skip
+                }
+            }
 
             Counter<Level> levelCounter = new Counter<Level>();
             //CLDRFile parent = null;
@@ -155,8 +181,25 @@ public class SearchCLDR {
             Status status = new Status();
             Set<PathHeader> sorted = new TreeSet<PathHeader>();
             for (String path : file.fullIterable()) {
-                if (file.getStringValue(path) == null) {
+                String stringValue = file.getStringValue(path);
+                if (stringValue == null) {
                     continue;
+                }
+                String diffStringValue;
+                if (diffFile != null) {
+                    diffStringValue = diffFile.getWinningValueWithBailey(path);
+                    if (diffStringValue == null) {
+                        continue;
+                    }
+                    String stringValueWithBailey = file.getWinningValueWithBailey(path);
+                    if (stringValueWithBailey == null) {
+                        continue; // strange results; shouldn't have ^^^ with null
+                    }
+                    if (diffStringValue.equals(stringValueWithBailey)) {
+                        continue;
+                    }
+                    stringValueWithBailey = file.getWinningValueWithBailey(path);
+                    int debug = 0;
                 }
                 sorted.add(pathHeaderFactory.fromPath(path));
             }
@@ -221,6 +264,29 @@ public class SearchCLDR {
         }
         System.out
             .println("Done -- Elapsed time: " + ((System.currentTimeMillis() - startTime) / 60000.0) + " minutes");
+    }
+
+    private static File[] getCorrespondingDirectories(String base, Factory cldrFactory) {
+        File[] sourceDirs = cldrFactory.getSourceDirectories();
+        File[] newDirs = new File[sourceDirs.length];
+        int item = 0;
+        for (File s : sourceDirs) {
+            try {
+                String path = s.getCanonicalPath();
+                int baseLoc = path.lastIndexOf("/cldr/");
+                if (baseLoc < 0) {
+                    throw new ICUUncheckedIOException("source doesn't contain /cldr/");
+                }
+                newDirs[item++] = new File(base, path.substring(baseLoc + 5));
+            } catch (IOException e) { 
+                throw new ICUUncheckedIOException(e);
+            }
+        }
+        return newDirs;
+    }
+
+    private static String getArchiveDirectory(VersionInfo versionInfo) {
+        return CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + versionInfo.getVersionString(2, 3) + "/";
     }
 
     private static void showLine(boolean showPath, boolean showParent, boolean showEnglish,

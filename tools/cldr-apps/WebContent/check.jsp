@@ -130,7 +130,7 @@ cs.stuff.remove("SubmitLocale");
 </div>
 
 <h3>Locale</h3>
- <tt class='codebox'><%= loc + "</tt> <br/>Name:  " + loc.getDisplayName(SurveyMain.BASELINE_LOCALE)  %><br/>
+ <tt class='codebox'><%=loc + "</tt> <br/>Name:  " + loc.getDisplayName(SurveyMain.TRANS_HINT_LOCALE)%><br/>
 <%
 UserRegistry.ModifyDenial md = UserRegistry.userCanModifyLocaleWhy(theirU,loc);
 if(!cs.sm.getLocalesSet().contains(loc)) {

@@ -8,7 +8,7 @@
     final String xpstrid = request.getParameter("xpstrid");
     final String xpath = sm.xpt.getByStringID(xpstrid);
 %>
-<%= CookieSession.sm.getBaselineExample().getHelpHtml(xpath, sm.getBaselineFile().getStringValue(xpath)) %>
+<%=CookieSession.sm.getTranslationHintsExample().getHelpHtml(xpath, sm.getTranslationHintsFile().getStringValue(xpath))%>
 <!--  
   xpath: <%= xpath %>
   strid: <%= xpstrid %> 

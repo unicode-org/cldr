@@ -92,7 +92,7 @@ public class DataSection implements JSONString {
     /**
      * The baseline CLDRFile for this DataSection
      */
-    public CLDRFile baselineFile;
+    public CLDRFile translationHintsFile;
     
     /**
      * The DisplayAndInputProcessor for this DataSection
@@ -664,7 +664,7 @@ public class DataSection implements JSONString {
             baselineValue = resolver.getTrunkValue();
             baselineStatus = resolver.getTrunkStatus();
 
-            this.displayName = baselineFile.getStringValue(xpath);
+            this.displayName = translationHintsFile.getStringValue(xpath);
         }
 
         /**
@@ -1734,7 +1734,7 @@ public class DataSection implements JSONString {
             if (checkCldr == null) {
                 throw new InternalError("checkCldr == null");
             }
-            section.baselineFile = sm.getBaselineFile();
+            section.translationHintsFile = sm.getTranslationHintsFile();
             section.skippedDueToCoverage = 0;
             section.populateFrom(ourSrc, checkCldr);
             /*
@@ -2006,7 +2006,7 @@ public class DataSection implements JSONString {
 
                     // Only display metazone data for which an English value exists
                     if (isMetazones && suff != "/commonlyUsed") {
-                        String engValue = baselineFile.getStringValue(base_xpath_string);
+                        String engValue = translationHintsFile.getStringValue(base_xpath_string);
                         if (engValue == null || engValue.length() == 0) {
                             continue;
                         }
@@ -2591,9 +2591,9 @@ public class DataSection implements JSONString {
             ctx.print(" <th width='30'>Voted</th>\n"); // 1
         }
         ctx.print(" <th>Code</th>\n" + // 2
-            " <th title='[" + SurveyMain.BASELINE_LOCALE + "]'>" + SurveyMain.BASELINE_LANGUAGE_NAME + "</th>\n");
+            " <th title='[" + SurveyMain.TRANS_HINT_LOCALE + "]'>" + SurveyMain.TRANS_HINT_LANGUAGE_NAME + "</th>\n");
         if (section.hasExamples) {
-            ctx.print(" <th title='" + SurveyMain.BASELINE_LANGUAGE_NAME + " [" + SurveyMain.BASELINE_LOCALE
+            ctx.print(" <th title='" + SurveyMain.TRANS_HINT_LANGUAGE_NAME + " [" + SurveyMain.TRANS_HINT_LOCALE
                 + "] Example'><i>Ex</i></th>\n");
         }
 
@@ -2660,7 +2660,7 @@ public class DataSection implements JSONString {
      */
     private DisplayAndInputProcessor getProcessor() {
         if (processor == null) {
-            processor = new DisplayAndInputProcessor(SurveyMain.BASELINE_LOCALE, false);
+            processor = new DisplayAndInputProcessor(SurveyMain.TRANS_HINT_LOCALE, false);
         }
         return processor;
     }
@@ -2675,7 +2675,7 @@ public class DataSection implements JSONString {
             if (cldrFile == null) {
                 System.out.println("Warning: cldrFile is null in getExampleBuilder");
            }
-            examplebuilder = ExampleBuilder.getInstance(sm.getBaselineFile(), sm.getBaselineExample(), cldrFile);
+            examplebuilder = ExampleBuilder.getInstance(sm.getTranslationHintsFile(), sm.getTranslationHintsExample(), cldrFile);
         }
         return examplebuilder;
     }

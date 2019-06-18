@@ -52,8 +52,8 @@ public class ExampleBuilder {
     /**
      * Construct an ExampleBuilder object
      *
-     * @param englishFile the English CLDRFile, always the same sm.getBaselineFile()
-     * @param englishExample the English ExampleGenerator, always the same sm.getBaselineExample()
+     * @param englishFile the English CLDRFile, always the same sm.getTranslationHintsFile()
+     * @param englishExample the English ExampleGenerator, always the same sm.getTranslationHintsExample()
      * @param cldrFile -- sometimes null!
      */
     private ExampleBuilder(CLDRFile englishFile, ExampleGenerator englishExample, CLDRFile cldrFile) {

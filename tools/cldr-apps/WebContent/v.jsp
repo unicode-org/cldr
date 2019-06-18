@@ -184,7 +184,7 @@ if(false) { // if we need to redirect for some reason..
 	 return;
  }
 %>
-<html lang='<%= SurveyMain.BASELINE_LOCALE.toLanguageTag() %>' class='claro'>
+<html lang='<%=SurveyMain.TRANS_HINT_LOCALE.toLanguageTag()%>' class='claro'>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CLDR Survey Tool </title>
@@ -193,22 +193,24 @@ if(false) { // if we need to redirect for some reason..
 <meta name="gigabot" content="noindex">
 <meta name="gigabot" content="noarchive">
 <meta name="gigabot" content="nofollow">
-<link rel="stylesheet" href="<%= request.getContextPath() %>/surveytool.css" />
-<% // TODO: when v.jsp includes ajax_status.js, avoid redundant links for bootstrap, surveytool.css, redesign.css  %>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/surveytool.css" />
+<%
+	// TODO: when v.jsp includes ajax_status.js, avoid redundant links for bootstrap, surveytool.css, redesign.css
+%>
 <%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
 <script type="text/javascript">
 // set from incoming session
-surveySessionId = '<%= ctx.session.id %>';
-survURL = '<%= survURL %>';
-<% if(ctx.session.user == null || UserRegistry.userIsLocked(ctx.session.user)) { %>
+surveySessionId = '<%=ctx.session.id%>';
+survURL = '<%=survURL%>';
+<%if(ctx.session.user == null || UserRegistry.userIsLocked(ctx.session.user)) {%>
 surveyUser = null;
-<%} else { %>
-surveyUser =  <%= ctx.session.user.toJSONString() %>;
-<% } %>
+<%} else {%>
+surveyUser =  <%=ctx.session.user.toJSONString()%>;
+<%}%>
   showV();
 </script>
 </head>
-<body lang='<%= SurveyMain.BASELINE_LOCALE.toLanguageTag() %>' data-spy="scroll" data-target="#itemInfo">
+<body lang='<%=SurveyMain.TRANS_HINT_LOCALE.toLanguageTag()%>' data-spy="scroll" data-target="#itemInfo">
 
 <div data-dojo-type="dijit/Dialog" data-dojo-id="ariDialog" title="CLDR Survey Tool"
     execute="" data-dojo-props="onHide: function(){ariReload.style.display='';ariRetry.style.display='none';   if(disconnected) { unbust();}}">

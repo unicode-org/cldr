@@ -52,21 +52,19 @@ var surveyCurrentLocale = null;
 var surveyCurrentLocaleName = null;
 var surveyCurrentSection  = '';
 <% } %>
-var surveyBaselineLocale = '<%= SurveyMain.BASELINE_LOCALE.getBaseName() %>';
+var surveyTransHintLocale = '<%=SurveyMain.TRANS_HINT_LOCALE.getBaseName()%>';
 var surveyCurrentLocaleStamp = 0;
 var surveyCurrentLocaleStampId = '';
-var surveyVersion = '<%=SurveyMain.getNewVersion() %>';
-var surveyOldVersion = '<%= SurveyMain.getOldVersion() %>';
-var surveyLastVoteVersion = '<%= SurveyMain.getLastVoteVersion() %>';
-var surveyOfficial = <%= !SurveyMain.isUnofficial() %>;
-var surveyCurrev = '<%= SurveyMain.getCurrevStr() %>';
-var BUG_URL_BASE = '<%= SurveyMain.BUG_URL_BASE %>';
-var surveyCurrentPhase = '<%= SurveyMain.phase().getCPhase() %>';
-var surveyCurrev = '<%= SurveyMain.getCurrevStr() %>';
-var surveyBeta = <%= SurveyMain.isPhaseBeta() %>;
-<%
-
-String sessid = request.getParameter("s");
+var surveyVersion = '<%=SurveyMain.getNewVersion()%>';
+var surveyOldVersion = '<%=SurveyMain.getOldVersion()%>';
+var surveyLastVoteVersion = '<%=SurveyMain.getLastVoteVersion()%>';
+var surveyOfficial = <%=!SurveyMain.isUnofficial()%>;
+var surveyCurrev = '<%=SurveyMain.getCurrevStr()%>';
+var BUG_URL_BASE = '<%=SurveyMain.BUG_URL_BASE%>';
+var surveyCurrentPhase = '<%=SurveyMain.phase().getCPhase()%>';
+var surveyCurrev = '<%=SurveyMain.getCurrevStr()%>';
+var surveyBeta = <%=SurveyMain.isPhaseBeta()%>;
+<%String sessid = request.getParameter("s");
 HttpSession hsession = request.getSession(false);
 if(sessid == null) {
 	if(hsession != null) {
@@ -86,33 +84,29 @@ if(mySession == null) {
 } else {
 	sessid = mySession.id;
 	myUser = mySession.user;
-}
-%><%
-if(sessid!=null) {
-%>
-var surveySessionId='<%= sessid %>';
-<% } else { %>
+}%><%if(sessid!=null) {%>
+var surveySessionId='<%=sessid%>';
+<%} else {%>
 var surveySessionId=null;
-<% } 
+<%}
 SurveyMain curSurveyMain = null;
 curSurveyMain = SurveyMain.getInstance(request);
-if(myUser!=null) {
-%>
-var surveyUser= '<%= myUser.toJSONString() %>';
-var userEmail= '<%= myUser.email %>'; 
-var userPWD= '<%= myUser.password %>'; 
-var userID= '<%= myUser.id %>'; 
-var organizationName = '<%= myUser.getOrganization().getDisplayName() %>'; 
-var org = '<%= myUser.org %>';
+if(myUser!=null) {%>
+var surveyUser= '<%=myUser.toJSONString()%>';
+var userEmail= '<%=myUser.email%>';
+var userPWD= '<%=myUser.password%>';
+var userID= '<%=myUser.id%>';
+var organizationName = '<%=myUser.getOrganization().getDisplayName()%>';
+var org = '<%=myUser.org%>';
 
 var surveyUserPerms = {
         userExist: (surveyUser != null),
-        userCanImportOldVotes: <%= myUser.canImportOldVotes() %>,
-        userCanUseVettingSummary: <%= UserRegistry.userCanUseVettingSummary(myUser) %>,
-        userIsTC: <%=UserRegistry.userIsTC(myUser) %>,
-        userIsVetter: <%= !UserRegistry.userIsTC(myUser) && UserRegistry.userIsVetter(myUser)%>,
-        userIsLocked: <%= !UserRegistry.userIsTC(myUser) && !UserRegistry.userIsVetter(myUser) && !UserRegistry.userIsLocked(myUser)%>,
-        hasDataSource: <%= curSurveyMain.dbUtils.hasDataSource() %>,
+        userCanImportOldVotes: <%=myUser.canImportOldVotes()%>,
+        userCanUseVettingSummary: <%=UserRegistry.userCanUseVettingSummary(myUser)%>,
+        userIsTC: <%=UserRegistry.userIsTC(myUser)%>,
+        userIsVetter: <%=!UserRegistry.userIsTC(myUser) && UserRegistry.userIsVetter(myUser)%>,
+        userIsLocked: <%=!UserRegistry.userIsTC(myUser) && !UserRegistry.userIsVetter(myUser) && !UserRegistry.userIsLocked(myUser)%>,
+        hasDataSource: <%=curSurveyMain.dbUtils.hasDataSource()%>,
 };
 var surveyUserURL = {
         myAccountSetting: "survey?do=listu",
@@ -129,17 +123,12 @@ var surveyUserURL = {
         about: "about.jsp",
         browse: "browse.jsp"
 };
-<%
-if(UserRegistry.userIsAdmin(myUser)) {
-%>
-	surveyUserURL.adminPanel = 'survey?dump=<%= SurveyMain.vap %>';
-<%
-}
-%>
+<%if(UserRegistry.userIsAdmin(myUser)) {%>
+	surveyUserURL.adminPanel = 'survey?dump=<%=SurveyMain.vap%>';
+<%}%>
 
-<% } else { 
-	// User session not present. Set a few things so that we don't fail.
-%>
+<%} else {
+	// User session not present. Set a few things so that we don't fail.%>
 var surveyUser=null;
 var surveyUserURL = {};
 var organizationName =null ; 
@@ -147,7 +136,7 @@ var org = null;
 var surveyUserPerms = {
         userExist: false,
 };
-<% }%>
+<%}%>
 
 var surveyImgInfo = {
         flag: { 
@@ -163,13 +152,13 @@ var surveyImgInfo = {
             border: 0,
         }
 };
-var warnIcon = "<%= WebContext.iconHtml(request,"warn","Test Warning") %>";
-var stopIcon = "<%= WebContext.iconHtml(request,"stop","Test Error") %>";
-var WHAT_GETROW = "<%= SurveyAjax.WHAT_GETROW %>";
-var WHAT_SUBMIT = "<%= SurveyAjax.WHAT_SUBMIT %>";
-var TARGET_DOCS = "<%= WebContext.TARGET_DOCS %>";
-var BASELINE_LOCALE = "<%= SurveyMain.BASELINE_LOCALE %>";
-var BASELINE_LANGUAGE_NAME = "<%= SurveyMain.BASELINE_LANGUAGE_NAME %>";
+var warnIcon = "<%=WebContext.iconHtml(request,"warn","Test Warning")%>";
+var stopIcon = "<%=WebContext.iconHtml(request,"stop","Test Error")%>";
+var WHAT_GETROW = "<%=SurveyAjax.WHAT_GETROW%>";
+var WHAT_SUBMIT = "<%=SurveyAjax.WHAT_SUBMIT%>";
+var TARGET_DOCS = "<%=WebContext.TARGET_DOCS%>";
+var TRANS_HINT_LOCALE = "<%=SurveyMain.TRANS_HINT_LOCALE%>";
+var TRANS_HINT_LANGUAGE_NAME = "<%=SurveyMain.TRANS_HINT_LANGUAGE_NAME%>";
 </script>
 
 <%--TODO Refactor to add this at the end of every page instead of top, will increase performance --%>

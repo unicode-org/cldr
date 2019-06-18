@@ -33,7 +33,6 @@ import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
-import org.unicode.cldr.tool.ToolConstants;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
@@ -304,21 +303,25 @@ public class VettingViewer<T> {
     }
 
     public static class NoErrorStatus implements ErrorChecker {
+        @SuppressWarnings("unused")
         @Override
         public Status initErrorStatus(CLDRFile cldrFile) {
             return Status.ok;
         }
 
+        @SuppressWarnings("unused")
         @Override
         public List<CheckStatus> getErrorCheckStatus(String path, String value) {
             return Collections.emptyList();
         }
 
+        @SuppressWarnings("unused")
         @Override
         public Status getErrorStatus(String path, String value, StringBuilder statusMessage) {
             return Status.ok;
         }
 
+        @SuppressWarnings("unused")
         @Override
         public Status getErrorStatus(String path, String value, StringBuilder statusMessage,
             EnumSet<Subtype> outputSubtypes) {
@@ -405,11 +408,10 @@ public class VettingViewer<T> {
     }
 
     private final Factory cldrFactory;
-    private final Factory cldrFactoryOld;
     private final CLDRFile englishFile;
     private final UsersChoice<T> userVoteStatus;
     private final SupplementalDataInfo supplementalDataInfo;
-    private final String lastVersionTitle;
+    private final String baselineTitle = "Baseline";
     private final String currentWinningTitle;
     private ErrorChecker errorChecker;
 
@@ -420,18 +422,14 @@ public class VettingViewer<T> {
      *
      * @param supplementalDataInfo
      * @param cldrFactory
-     * @param cldrFactoryOld
-     * @param lastVersionTitle
-     *            The title of the last released version of CLDR.
-     * @param currentWinningTitle
-     *            The title of the next version of CLDR to be released.
+     * @param userVoteStatus
+     * @param currentWinningTitle the title of the next version of CLDR to be released
      */
-    public VettingViewer(SupplementalDataInfo supplementalDataInfo, Factory cldrFactory, Factory cldrFactoryOld,
-        UsersChoice<T> userVoteStatus,
-        String lastVersionTitle, String currentWinningTitle) {
+    public VettingViewer(SupplementalDataInfo supplementalDataInfo, Factory cldrFactory,
+        UsersChoice<T> userVoteStatus, String currentWinningTitle) {
+
         super();
         this.cldrFactory = cldrFactory;
-        this.cldrFactoryOld = cldrFactoryOld;
         englishFile = cldrFactory.make("en", true);
         if (pathTransform == null) {
             pathTransform = PathHeader.getFactory(englishFile);
@@ -440,7 +438,6 @@ public class VettingViewer<T> {
         this.supplementalDataInfo = supplementalDataInfo;
         this.defaultContentLocales = supplementalDataInfo.getDefaultContentLocales();
 
-        this.lastVersionTitle = lastVersionTitle;
         this.currentWinningTitle = currentWinningTitle;
         reasonsToPaths = Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
         errorChecker = new DefaultErrorStatus(cldrFactory);
@@ -491,19 +488,20 @@ public class VettingViewer<T> {
         CLDRFile sourceFile = cldrFactory.make(localeID, true);
 
         // Initialize
-        CLDRFile lastSourceFile = null;
+        CLDRFile baselineFile = null;
         if (!quick) {
             try {
-                lastSourceFile = cldrFactoryOld.make(localeID, true);
+                Factory baselineFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
+                baselineFile = baselineFactory.make(localeID, true);
             } catch (Exception e) {
             }
         }
 
-        FileInfo fileInfo = new FileInfo().getFileInfo(sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, user,
+        FileInfo fileInfo = new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, nonVettingPhase, user,
             usersLevel, quick);
 
         // now write the results out
-        writeTables(output, sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, fileInfo, quick);
+        writeTables(output, sourceFile, baselineFile, sorted, choices, fileInfo, quick);
     }
 
     /**
@@ -516,27 +514,18 @@ public class VettingViewer<T> {
      * @param user
      * @param usersLevel
      * @param nonVettingPhase
+     *
+     * Called only by writeVettingViewerOutput
      */
     public Relation<R2<SectionId, PageId>, WritingInfo> generateFileInfoReview(Appendable output, EnumSet<Choice> choices, String localeID, T user,
-        Level usersLevel, boolean nonVettingPhase, boolean quick) {
+        Level usersLevel, boolean nonVettingPhase, boolean quick, CLDRFile sourceFile, CLDRFile baselineFile) {
 
         // Gather the relevant paths
         // each one will be marked with the choice that it triggered.
         Relation<R2<SectionId, PageId>, WritingInfo> sorted = Relation.of(
             new TreeMap<R2<SectionId, PageId>, Set<WritingInfo>>(), TreeSet.class);
 
-        CLDRFile sourceFile = cldrFactory.make(localeID, true);
-
-        // Initialize
-        CLDRFile lastSourceFile = null;
-        if (!quick) {
-            try {
-                lastSourceFile = cldrFactoryOld.make(localeID, true);
-            } catch (Exception e) {
-            }
-        }
-
-        FileInfo fileInfo = new FileInfo().getFileInfo(sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, user,
+        new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, nonVettingPhase, user,
             usersLevel, quick);
 
         // now write the results out
@@ -556,16 +545,16 @@ public class VettingViewer<T> {
             warningSubtypeCounter.addAll(other.warningSubtypeCounter);
         }
 
-        private FileInfo getFileInfo(CLDRFile sourceFile, CLDRFile lastSourceFile,
+        private FileInfo getFileInfo(CLDRFile sourceFile, CLDRFile baselineFile,
             Relation<R2<SectionId, PageId>, WritingInfo> sorted,
             EnumSet<Choice> choices, String localeID, boolean nonVettingPhase,
             T user, Level usersLevel, boolean quick) {
-            return this.getFileInfo(sourceFile, lastSourceFile, sorted,
+            return this.getFileInfo(sourceFile, baselineFile, sorted,
                 choices, localeID, nonVettingPhase,
                 user, usersLevel, quick, null);
         }
 
-        private FileInfo getFileInfo(CLDRFile sourceFile, CLDRFile lastSourceFile,
+        private FileInfo getFileInfo(CLDRFile sourceFile, CLDRFile baselineFile,
             Relation<R2<SectionId, PageId>, WritingInfo> sorted,
             EnumSet<Choice> choices, String localeID, boolean nonVettingPhase,
             T user, Level usersLevel, boolean quick, String xpath) {
@@ -626,7 +615,7 @@ public class VettingViewer<T> {
 
                 problems.clear();
                 htmlMessage.setLength(0);
-                String oldValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
+                final String oldValue = baselineFile == null ? null : baselineFile.getWinningValue(path);
 
                 if (CheckCLDR.LIMITED_SUBMISSION) {
                     if (!SubmissionLocales.allowEvenIfLimited(localeID, path, errorStatus == ErrorChecker.Status.error, oldValue == null)) {
@@ -658,7 +647,6 @@ public class VettingViewer<T> {
                         // the outdated paths compares the base value, before
                         // data submission,
                         // so see if the value changed.
-                        // String lastValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
                         if (Objects.equals(value, oldValue) && choices.contains(Choice.englishChanged)) {
                             // check to see if we voted
                             problems.add(Choice.englishChanged);
@@ -803,6 +791,17 @@ public class VettingViewer<T> {
 
     }
 
+    /**
+     *
+     * @param output
+     * @param header
+     * @param desiredLevel
+     * @param choices
+     * @param organization
+     * @throws IOException
+     *
+     * Called only by generateSummaryHtmlErrorTables
+     */
     private void writeSummaryTable(Appendable output, String header, Level desiredLevel,
         EnumSet<Choice> choices, T organization) throws IOException {
 
@@ -845,10 +844,11 @@ public class VettingViewer<T> {
 
             CLDRFile sourceFile = cldrFactory.make(localeID, true);
 
-            CLDRFile lastSourceFile = null;
+            CLDRFile baselineFile = null;
             if (!ourChoicesThatRequireOldFile.isEmpty()) {
                 try {
-                    lastSourceFile = cldrFactoryOld.make(localeID, true);
+                    Factory baselineFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
+                    baselineFile = baselineFactory.make(localeID, true);
                 } catch (Exception e) {
                 }
             }
@@ -856,7 +856,7 @@ public class VettingViewer<T> {
             if (organization != null) {
                 level = StandardCodes.make().getLocaleCoverageLevel(organization.toString(), localeID);
             }
-            FileInfo fileInfo = new FileInfo().getFileInfo(sourceFile, lastSourceFile, null, choices, localeID, true, organization, level, false);
+            FileInfo fileInfo = new FileInfo().getFileInfo(sourceFile, baselineFile, null, choices, localeID, true, organization, level, false);
             localeNameToFileInfo.put(name, fileInfo);
             totals.addAll(fileInfo);
 
@@ -1214,11 +1214,9 @@ public class VettingViewer<T> {
             + "</style>";
     }
 
-    private void writeTables(Appendable output, CLDRFile sourceFile, CLDRFile lastSourceFile,
+    private void writeTables(Appendable output, CLDRFile sourceFile, CLDRFile baselineFile,
         Relation<R2<SectionId, PageId>, WritingInfo> sorted,
         EnumSet<Choice> choices,
-        String localeID,
-        boolean nonVettingPhase,
         FileInfo outputFileInfo,
         boolean quick) {
         try {
@@ -1355,13 +1353,13 @@ public class VettingViewer<T> {
                     } else {
                         addCell(output, englishFile.getWinningValue(path), null, "tv-eng", HTMLType.plain);
                     }
-                    // value for last version
-                    final String oldStringValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
-                    MissingStatus oldValueMissing = getMissingStatus(lastSourceFile, path, status, latin);
+                    // baseline value
+                    final String oldStringValue = baselineFile == null ? null : baselineFile.getWinningValue(path);
+                    MissingStatus oldValueMissing = getMissingStatus(baselineFile, path, status, latin);
 
                     addCell(output, oldStringValue, null, oldValueMissing != MissingStatus.PRESENT ? "tv-miss"
                         : "tv-last", HTMLType.plain);
-                    // value for last version
+                    // current winning value
                     String newWinningValue = sourceFile.getWinningValue(path);
                     if (Objects.equals(newWinningValue, oldStringValue)) {
                         newWinningValue = "=";
@@ -1417,13 +1415,14 @@ public class VettingViewer<T> {
         CLDRFile sourceFile = cldrFactory.make(localeID, true);
 
         // Initialize
-        CLDRFile lastSourceFile = null;
+        CLDRFile baselineFile = null;
         try {
-            lastSourceFile = cldrFactoryOld.make(localeID, true);
+            Factory baselineFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
+            baselineFile = baselineFactory.make(localeID, true);
         } catch (Exception e) {
         }
 
-        EnumSet<Choice> errors = new FileInfo().getFileInfo(sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, user, usersLevel,
+        EnumSet<Choice> errors = new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, nonVettingPhase, user, usersLevel,
             false, path).problems;
 
         ArrayList<String> out = new ArrayList<String>();
@@ -1442,7 +1441,7 @@ public class VettingViewer<T> {
             "<th class='tv-th'>No.</th>" +
             "<th class='tv-th'>Code</th>" +
             "<th class='tv-th'>English</th>" +
-            "<th class='tv-th'>" + lastVersionTitle + "</th>" +
+            "<th class='tv-th'>" + baselineTitle + "</th>" +
             "<th class='tv-th'>" + currentWinningTitle + "</th>" +
             "<th class='tv-th'>Fix?</th>" +
             "<th class='tv-th'>Comment</th>" +
@@ -1586,16 +1585,12 @@ public class VettingViewer<T> {
         String myOutputDir = repeat ? null : MyOptions.output.option.getValue();
         String LOCALE = MyOptions.locale.option.getValue();
         String CURRENT_MAIN = MyOptions.source.option.getValue();
-        final String version = ToolConstants.PREVIOUS_CHART_VERSION;
-        final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version + "/common/main";
-        //final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/common/main";
         do {
             Timer timer = new Timer();
             timer.start();
 
             Factory cldrFactory = Factory.make(CURRENT_MAIN, fileFilter);
             cldrFactory.setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
-            Factory cldrFactoryOld = Factory.make(lastMain, fileFilter);
             SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
                 .getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
             CheckCLDR.setDisplayInformation(cldrFactory.make("en", true));
@@ -1635,8 +1630,7 @@ public class VettingViewer<T> {
             // description and a button label.
             // Assuming user can be identified by an int
             VettingViewer<Organization> tableView = new VettingViewer<Organization>(supplementalDataInfo, cldrFactory,
-                cldrFactoryOld, usersChoice, "CLDR " + version,
-                "Winning Proposed");
+                usersChoice, "Winning Proposed");
 
             // here are per-view parameters
 
@@ -1673,6 +1667,21 @@ public class VettingViewer<T> {
         summary
     }
 
+    /**
+     *
+     * @param myOutputDir
+     * @param tableView
+     * @param choiceSet
+     * @param name
+     * @param localeStringID
+     * @param userNumericID
+     * @param usersLevel
+     * @param newCode
+     * @param organization
+     * @throws IOException
+     *
+     * Called only by VettingViewer.main
+     */
     public static void writeFile(String myOutputDir, VettingViewer<Organization> tableView, final EnumSet<Choice> choiceSet,
         String name, String localeStringID, int userNumericID,
         Level usersLevel,

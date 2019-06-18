@@ -91,7 +91,7 @@ public class NameSort extends SortMode {
 
     @Override
     String getDisplayName() {
-        return SurveyMain.BASELINE_LANGUAGE_NAME + " Name";
+        return SurveyMain.TRANS_HINT_LANGUAGE_NAME + " Name";
     }
 
 }

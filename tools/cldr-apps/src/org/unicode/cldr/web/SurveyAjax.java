@@ -1159,7 +1159,7 @@ public class SurveyAjax extends HttpServlet {
             // check English
             Set<String> retrievedPaths = new HashSet<String>();
             SurveyMain sm = CookieSession.sm;
-            sm.getBaselineFile().getPathsWithValue(q, "", null, retrievedPaths);
+            sm.getTranslationHintsFile().getPathsWithValue(q, "", null, retrievedPaths);
             final STFactory stFactory = sm.getSTFactory();
             if (l != null) {
                 stFactory.make(l, true).getPathsWithValue(q, "", null, retrievedPaths);
@@ -1330,7 +1330,7 @@ public class SurveyAjax extends HttpServlet {
         }
 
         locmap.put("locales", locales);
-        locmap.put("surveyBaseLocale", SurveyMain.BASELINE_LOCALE);
+        locmap.put("surveyBaseLocale", SurveyMain.TRANS_HINT_LOCALE);
         JSONArray topLocales = new JSONArray();
         for (CLDRLocale l : sm.getLocaleTree().getTopCLDRLocales()) {
             topLocales.put(l.getBaseName());
@@ -1572,8 +1572,8 @@ public class SurveyAjax extends HttpServlet {
             }
         }
         r.put("oldvotes", oldvotes);
-        r.put("BASELINE_LANGUAGE_NAME", SurveyMain.BASELINE_LANGUAGE_NAME);
-        r.put("BASELINE_ID", SurveyMain.BASELINE_ID);
+        r.put("TRANS_HINT_LANGUAGE_NAME", SurveyMain.TRANS_HINT_LANGUAGE_NAME);
+        r.put("TRANS_HINT_ID", SurveyMain.TRANS_HINT_ID);
     }
 
     /**
@@ -1675,7 +1675,7 @@ public class SurveyAjax extends HttpServlet {
      * or list winning votes unless user is TC.
      * 
      * @param user the User, for user.id and userIsTC
-     * @param sm the SurveyMain instance, used for sm.xpt, sm.getBaselineFile, and sm.getDiskFactory
+     * @param sm the SurveyMain instance, used for sm.xpt, sm.getTranslationHintsFile, and sm.getDiskFactory
      * @param loc the non-empty String for the locale like "aa"
      * @param locale the CLDRLocale matching loc
      * @param newVotesTable the String for the table name like "cldr_vote_value_34"
@@ -1713,13 +1713,13 @@ public class SurveyAjax extends HttpServlet {
         /* Some variables are only used if oldvotes != null; otherwise leave them null. */
         JSONArray contested = null; // contested = losing
         JSONArray uncontested = null; // uncontested = winning
-        CLDRFile baseF = null;
+        CLDRFile translationHintsFile = null;
         if (oldvotes != null) {
             contested = new JSONArray();
             if (useWinningVotes) {
                 uncontested = new JSONArray();
             }
-            baseF = sm.getBaselineFile(); // here "baseline" means "en_ZZ", NOT "trunk"
+            translationHintsFile = sm.getTranslationHintsFile();
         }
         XMLSource diskData = (XMLSource) sm.getDiskFactory().makeSource(locale.getBaseName()).freeze(); // trunk
 
@@ -1756,7 +1756,7 @@ public class SurveyAjax extends HttpServlet {
                         .put("strid", xpathStringHash)
                         .put("myValue", value)
                         .put("winValue", curValue)
-                        .put("baseValue", baseF.getStringValue(xpathString))
+                        .put("baseValue", translationHintsFile.getStringValue(xpathString))
                         .put("pathHeader", pathHeader.toString());
                     if (isWinning) {
                         if (uncontested != null) {

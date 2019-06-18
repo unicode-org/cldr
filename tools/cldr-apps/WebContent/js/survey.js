@@ -2900,7 +2900,7 @@ function loadStui(loc, cb) {
 				stui.str = stui_str; // debug
 				stui.sub = function(x,y) { return stui_str(x) + '{' +  Object.keys(y) + '}'; };
 			}
-			stuibundle.htmlbaseline = stui.htmlbaseline = BASELINE_LANGUAGE_NAME;
+			stuibundle.htmltranshint = stui.htmltranshint = TRANS_HINT_LANGUAGE_NAME;
 			stui.ready=true;
 			if(cb) cb(stui);
 		});
@@ -3058,13 +3058,13 @@ function setLang(node, loc) {
  *
  * @param voteList the array of old votes
  * @param type "contested" for losing votes or "uncontested" for winning votes
- * @param baselineLanguage a string indicating the baseline language, generally "English"
+ * @param translationHintsLanguage a string indicating the translation hints language, generally "English"
  * @param dir the direction, such as "ltr" for left-to-right
  * @returns a new div element containing the table and controls
  * 
  * Called only by addOldvotesType
  */
-function showVoteTable(voteList, type, baselineLanguage, dir) {
+function showVoteTable(voteList, type, translationHintsLanguage, dir) {
     'use strict';
     var voteTableDiv = document.createElement("div");
     var t = document.createElement("table");
@@ -3074,7 +3074,7 @@ function showVoteTable(voteList, type, baselineLanguage, dir) {
     var tb = document.createElement("tbody");
     var tr = document.createElement("tr");
     tr.appendChild(createChunk(stui.str("v_oldvotes_path"), "th", "code"));
-    tr.appendChild(createChunk(baselineLanguage, "th", "v-comp"));
+    tr.appendChild(createChunk(translationHintsLanguage, "th", "v-comp"));
     tr.appendChild(createChunk(stui.sub("v_oldvotes_winning_msg", {
         version: surveyLastVoteVersion
     }), "th", "v-win"));

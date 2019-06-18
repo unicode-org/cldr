@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumSet;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -19,9 +18,11 @@ import java.util.TreeSet;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LruMap;
 import org.unicode.cldr.util.Organization;
@@ -37,7 +38,6 @@ import org.unicode.cldr.util.VettingViewer.Choice;
 import org.unicode.cldr.util.VettingViewer.LocalesWithExplicitLevel;
 import org.unicode.cldr.util.VettingViewer.UsersChoice;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
-import org.unicode.cldr.util.VettingViewer.WritingInfo;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
@@ -150,7 +150,7 @@ public class VettingViewerQueue {
         public String getAge() {
             long now = System.currentTimeMillis();
             return "<span class='age'>Last generated "
-                + DurationFormat.getInstance(SurveyMain.BASELINE_LOCALE).formatDurationFromNow(start - now) + "</span>";
+                + DurationFormat.getInstance(SurveyMain.TRANS_HINT_LOCALE).formatDurationFromNow(start - now) + "</span>";
         }
     }
 
@@ -195,7 +195,6 @@ public class VettingViewerQueue {
         }
 
         StringBuffer aBuffer = new StringBuffer();
-        final private String baseUrl;
 
         public Task(QueueEntry entry, CLDRLocale locale, SurveyMain sm, String baseUrl, Level usersLevel,
             Organization usersOrg, final String st_org) {
@@ -204,7 +203,7 @@ public class VettingViewerQueue {
             if (DEBUG)
                 System.err.println("Creating task " + locale.toString());
 
-            int baseMax = getMax(sm.getBaselineFile());
+            int baseMax = getMax(sm.getTranslationHintsFile());
             if (isSummary) {
                 maxn = 0;
                 List<Level> levelsToCheck = new ArrayList<Level>();
@@ -228,7 +227,6 @@ public class VettingViewerQueue {
             this.st_org = st_org;
             this.entry = entry;
             this.sm = sm;
-            this.baseUrl = baseUrl;
             this.usersLevel = usersLevel; // Level.get(ctx.getEffectiveCoverageLevel());
             this.usersOrg = usersOrg; // VoteResolver.Organization.fromString(ctx.session.user.voterOrg());
         }
@@ -263,7 +261,7 @@ public class VettingViewerQueue {
                     status = "Beginning Process, Calculating";
 
                     vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
-                        sm.getOldFactory(), getUsersChoice(sm), "CLDR " + SurveyMain.getOldVersion(), "Winning " + SurveyMain.getNewVersion());
+                        getUsersChoice(sm), "Winning " + SurveyMain.getNewVersion());
                     progress.update("Got VettingViewer");
                     statusCode = Status.PROCESSING;
                     start = System.currentTimeMillis();
@@ -377,6 +375,13 @@ public class VettingViewerQueue {
 
     }
 
+    /**
+     *
+     * @param st_org
+     * @return
+     *
+     * Called by getLocalesWithVotes and writeVettingViewerOutput
+     */
     private Predicate<String> createLocalesWithVotes(String st_org) {
         final Set<CLDRLocale> allLocs = SurveyMain.getLocalesSet();
         /*
@@ -394,6 +399,10 @@ public class VettingViewerQueue {
         final Set<Organization> covOrgs = StandardCodes.make().getLocaleCoverageOrganizations();
 
         final Set<String> aLocs = new HashSet<String>();
+        /*
+         * TODO: a warning appears for the next line; should be vr_org instead of vr_org.name()?
+         * How to exercise this code and test that?
+         */
         if (covOrgs.contains(vr_org.name())) {
             aLocs.addAll(StandardCodes.make().getLocaleCoverageLocales(vr_org.name()));
             System.err.println("localesWithVotes st_org=" + st_org + ", vr_org=" + vr_org + ", aLocs=" + aLocs.size());
@@ -445,26 +454,21 @@ public class VettingViewerQueue {
     private static final String POST = "</DIV>";
 
     public JSONArray getErrorOnPath(CLDRLocale locale, WebContext ctx, CookieSession sess, String path) {
-        String baseUrl = "http://example.com";
         Level usersLevel;
         Organization usersOrg;
         if (ctx != null) {
-            baseUrl = ctx.base();
             usersLevel = Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
             sess = ctx.session;
         } else {
-            baseUrl = (String) sess.get("BASE_URL");
             String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
-            ;
             usersLevel = Level.get(levelString);
         }
 
         usersOrg = Organization.fromString(sess.user.voterOrg());
 
-        final String st_org = sess.user.org;
         SurveyMain sm = CookieSession.sm;
         VettingViewer<Organization> vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
-            sm.getOldFactory(), getUsersChoice(sm), "CLDR " + SurveyMain.getOldVersion(), "Winning " + SurveyMain.getNewVersion());
+            getUsersChoice(sm), "Winning " + SurveyMain.getNewVersion());
 
         EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
         if (usersOrg.equals(Organization.surveytool)) {
@@ -487,7 +491,7 @@ public class VettingViewerQueue {
      *
      * @param output
      * @param sourceFile
-     * @param lastSourceFile
+     * @param baselineFile
      * @param sorted
      * @param choices
      * @param localeID
@@ -497,8 +501,8 @@ public class VettingViewerQueue {
      *
      * Called only by writeVettingViewerOutput
      */
-    private void getJSONReview(Appendable output, CLDRFile sourceFile, CLDRFile lastSourceFile,
-        Relation<R2<SectionId, PageId>, WritingInfo> sorted,
+    private void getJSONReview(Appendable output, CLDRFile sourceFile, CLDRFile baselineFile,
+        Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted,
         EnumSet<Choice> choices,
         String localeID,
         boolean nonVettingPhase,
@@ -517,13 +521,14 @@ public class VettingViewerQueue {
 
             reviewInfo.put("notification", notificationsCount);
 
-            Relation<Row.R4<Choice, SectionId, PageId, String>, WritingInfo> notificationsList = Relation.of(
-                new TreeMap<Row.R4<Choice, SectionId, PageId, String>, Set<WritingInfo>>(), TreeSet.class);
+            Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList
+                = Relation.of(new TreeMap<Row.R4<Choice, SectionId, PageId, String>,
+                    Set<VettingViewer<Organization>.WritingInfo>>(), TreeSet.class);
 
             //TODO we can prob do it in only one loop, but with that we can sort
-            for (Entry<R2<SectionId, PageId>, Set<WritingInfo>> entry0 : sorted.keyValuesSet()) {
-                final Set<WritingInfo> rows = entry0.getValue();
-                for (WritingInfo pathInfo : rows) {
+            for (Entry<R2<SectionId, PageId>, Set<VettingViewer<Organization>.WritingInfo>> entry0 : sorted.keyValuesSet()) {
+                final Set<VettingViewer<Organization>.WritingInfo> rows = entry0.getValue();
+                for (VettingViewer<Organization>.WritingInfo pathInfo : rows) {
                     Set<Choice> choicesForPath = pathInfo.problems;
                     SectionId section = entry0.getKey().get0();
                     PageId subsection = entry0.getKey().get1();
@@ -537,7 +542,7 @@ public class VettingViewerQueue {
             }
 
             JSONArray allNotifications = new JSONArray();
-            for (Entry<R4<Choice, SectionId, PageId, String>, Set<WritingInfo>> entry : notificationsList.keyValuesSet()) {
+            for (Entry<R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry : notificationsList.keyValuesSet()) {
 
                 String notificationName = entry.getKey().get0().buttonLabel.replace(' ', '_');
                 int notificationNumber = entry.getKey().get0().order;
@@ -564,7 +569,7 @@ public class VettingViewerQueue {
 
                 JSONArray allContent = new JSONArray();
                 //real info
-                for (WritingInfo info : entry.getValue()) {
+                for (VettingViewer<Organization>.WritingInfo info : entry.getValue()) {
                     JSONObject content = new JSONObject();
                     String code = info.codeOutput.getCode();
                     String path = info.codeOutput.getOriginalPath();
@@ -592,10 +597,8 @@ public class VettingViewerQueue {
                     }
 
                     //old release
-                    final String oldStringValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
+                    final String oldStringValue = baselineFile == null ? null : baselineFile.getWinningValue(path);
                     content.put("old", oldStringValue);
-
-                    //
 
                     //winning value
                     String newWinningValue = sourceFile.getWinningValue(path);
@@ -633,59 +636,31 @@ public class VettingViewerQueue {
      *
      * @param locale
      * @param aBuffer
-     * @param ctx
-     * @param sess
-     * @param rJson true for json (r_vetting_json.jsp), false for html (r_vetting.jsp)
+     * @param ctx the WebContext, never null
+     * @param sess the CookieSession
+     * @param rJson true if JSON output is desired (r_vetting_json.jsp), false for html (r_vetting.jsp -- obsolete??)
      *
      * Called only by r_vetting_json.jsp and r_vetting.jsp; is the latter still in use?
      */
     public void writeVettingViewerOutput(CLDRLocale locale, StringBuffer aBuffer, WebContext ctx, CookieSession sess, boolean rJson) {
-        String baseUrl = "http://example.com";
-        Level usersLevel;
-        Organization usersOrg;
-        if (ctx != null) {
-            baseUrl = ctx.base();
+        Level usersLevel = Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
+        String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
+        /*
+         * if no coverage level set, use default one
+         */
+        if (levelString.equals("default")) {
             usersLevel = Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
-            String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
-            //if no coverage set, use default one
-            if (levelString.equals("default"))
-                usersLevel = Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
-            else
-                usersLevel = Level.get(levelString);
-            sess = ctx.session;
         } else {
-            baseUrl = (String) sess.get("BASE_URL");
-            String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
-            ;
             usersLevel = Level.get(levelString);
         }
-        usersOrg = Organization.fromString(sess.user.voterOrg());
-
-        writeVettingViewerOutput2(locale, baseUrl, aBuffer, usersOrg, usersLevel, sess.user, ctx.hasField("quick"), ctx, rJson);
-    }
-
-    /**
-     *
-     * @param locale
-     * @param baseUrl
-     * @param aBuffer
-     * @param usersOrg
-     * @param usersLevel
-     * @param user
-     * @param quick
-     * @param ctx
-     * @param rJson
-     *
-     * Called only by writeVettingViewerOutput
-     */
-    private void writeVettingViewerOutput2(CLDRLocale locale, String baseUrl, StringBuffer aBuffer,
-        Organization usersOrg, Level usersLevel, UserRegistry.User user, boolean quick, WebContext ctx, boolean rJson) {
+        UserRegistry.User user = sess.user;
+        Organization usersOrg = Organization.fromString(user.voterOrg());
+        boolean quick = ctx.hasField("quick");
         final String st_org = user.org;
         SurveyMain sm = CookieSession.sm;
-        VettingViewer<Organization> vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
-            sm.getOldFactory(), getUsersChoice(sm), "CLDR " + SurveyMain.getOldVersion(), "Winning " + SurveyMain.getNewVersion());
-        // progress.update("Got VettingViewer");
-        // statusCode = Status.PROCESSING;
+        STFactory sourceFactory = sm.getSTFactory();
+        VettingViewer<Organization> vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sourceFactory,
+            getUsersChoice(sm), "Winning " + SurveyMain.getNewVersion());
 
         EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
         if (usersOrg.equals(Organization.surveytool)) {
@@ -697,22 +672,34 @@ public class VettingViewerQueue {
         }
 
         if (locale != SUMMARY_LOCALE) {
+            String loc = locale.getBaseName();
             if (rJson) {
-                Relation file = vv.generateFileInfoReview(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, quick);
-                this.getJSONReview(aBuffer, sm.getSTFactory().make(locale.getBaseName(), true), sm.getOldFile(locale.getBaseName(), true), file, choiceSet,
-                    locale.getBaseName(), true, quick, ctx);
-            } else
-                vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, quick);
+                /*
+                 * sourceFile provides the current winning values, taking into account recent votes.
+                 * baselineFile provides the "baseline" (a.k.a. "trunk") values, i.e., the values that
+                 * are in the current XML in the cldr version control repository. The baseline values
+                 * are generally the last release values plus any changes that have been made by the
+                 * technical committee by committing directly to version control rather than voting.
+                 */
+                CLDRFile sourceFile = sourceFactory.make(loc, true);
+                Factory baselineFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
+                CLDRFile baselineFile = baselineFactory.make(loc, true);
+                Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> file;
+                file = vv.generateFileInfoReview(aBuffer, choiceSet, loc, usersOrg, usersLevel, true, quick, sourceFile, quick ? null : baselineFile);
+                this.getJSONReview(aBuffer, sourceFile, baselineFile, file, choiceSet, loc, true, quick, ctx);
+            } else {
+                /*
+                 * TODO: if this is not dead code (i.e., if r_vetting.jsp is still used), could pass
+                 * sourceFile and baselineFile to generateHtmlErrorTables rather than recreating in that function.
+                 */
+                vv.generateHtmlErrorTables(aBuffer, choiceSet, loc, usersOrg, usersLevel, true, quick);
+            }
         } else {
-            if (DEBUG)
+            if (DEBUG) {
                 System.err.println("Starting summary gen..");
+            }
             vv.generateSummaryHtmlErrorTables(aBuffer, choiceSet, createLocalesWithVotes(st_org), usersOrg);
         }
-        /*
-         * if(running()) {
-         * aBuffer.append("<hr/>"+PRE+"Processing time: "+ElapsedTimer
-         * .elapsedTime(start)+POST ); entry.output.put(locale, aBuffer); }
-         */
     }
 
     /**
@@ -733,7 +720,7 @@ public class VettingViewerQueue {
         LoadingPolicy forceRestart, Appendable output, JSONObject jStatus) throws IOException, JSONException {
         if (sess == null)
             sess = ctx.session;
-        SurveyMain sm = sess.sm;
+        SurveyMain sm = CookieSession.sm;
         Pair<CLDRLocale, Organization> key = new Pair<CLDRLocale, Organization>(locale, sess.user.vrOrg());
         boolean isSummary = (locale == SUMMARY_LOCALE);
         QueueEntry entry = null;
@@ -824,7 +811,7 @@ public class VettingViewerQueue {
         status[0] = Status.PROCESSING;
         String killMsg = "";
         if (didKill != null) {
-            killMsg = " (Note: Stopped loading: " + didKill.toULocale().getDisplayName(SurveyMain.BASELINE_LOCALE) + ")";
+            killMsg = " (Note: Stopped loading: " + didKill.toULocale().getDisplayName(SurveyMain.TRANS_HINT_LOCALE) + ")";
         }
         putTaskStatus(jStatus, t);
         return PRE + "Started new task: " + waitingString(t.sm.startupThread) + t.status() + "<hr/>" + killMsg + POST;
@@ -899,18 +886,6 @@ public class VettingViewerQueue {
 
         STUsersChoice(final SurveyMain msm) {
             this.sm = msm;
-        }
-
-        final Map<CLDRLocale, DataTester> testMap = new HashMap<CLDRLocale, DataTester>();
-
-        private DataTester getTester(CLDRLocale loc) {
-            DataTester tester = testMap.get(loc);
-            if (tester == null) {
-                //BallotBox<User> ballotBox = getBox(sm, loc);
-                // tester = getTester(ballotBox);
-                testMap.put(loc, tester);
-            }
-            return tester;
         }
 
         @Override

@@ -57,11 +57,11 @@
             <% } %>  
 			<br />
 			<%
-			   int numServed = StatisticsUtils.getTotalItems();
-			if(numServed>0) {
-				CompactDecimalFormat cdf = CompactDecimalFormat.getInstance(SurveyMain.BASELINE_LOCALE, CompactDecimalFormat.CompactStyle.LONG);
-	            cdf.setRoundingIncrement(1.0);
-				%>
+				int numServed = StatisticsUtils.getTotalItems();
+				if(numServed>0) {
+					CompactDecimalFormat cdf = CompactDecimalFormat.getInstance(SurveyMain.TRANS_HINT_LOCALE, CompactDecimalFormat.CompactStyle.LONG);
+				            cdf.setRoundingIncrement(1.0);
+			%>
 				    <i><%= cdf.format(numServed) %> votes have been cast this release cycle. <a class='notselected' href='statistics.jsp'>(More Statistics...)</a></i>
 				<%
 			}

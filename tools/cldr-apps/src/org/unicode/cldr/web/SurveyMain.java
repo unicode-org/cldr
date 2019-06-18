@@ -63,7 +63,6 @@ import javax.servlet.jsp.JspWriter;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.tmatesoft.svn.core.SVNException;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
@@ -404,9 +403,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String PREF_COVLEV = "p_covlev"; // covlev
     public static final String PREF_COVTYP = "p_covtyp"; // covtyp
 
-    static final String BASELINE_ID = "en_ZZ"; // Needs to be en_ZZ as per cldrbug #2918
-    public static final ULocale BASELINE_LOCALE = new ULocale(BASELINE_ID);
-    public static final String BASELINE_LANGUAGE_NAME = BASELINE_LOCALE.getDisplayLanguage(BASELINE_LOCALE); // Note:
+    static final String TRANS_HINT_ID = "en_ZZ"; // Needs to be en_ZZ as per cldrbug #2918
+    public static final ULocale TRANS_HINT_LOCALE = new ULocale(TRANS_HINT_ID);
+    public static final String TRANS_HINT_LANGUAGE_NAME = TRANS_HINT_LOCALE.getDisplayLanguage(TRANS_HINT_LOCALE); // Note:
     // Only
     // shows
     // language.
@@ -1366,7 +1365,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     public void printHeader(WebContext ctx, String title) {
         ctx.includeFragment("st_header.jsp");
-        title = UCharacter.toTitleCase(SurveyMain.BASELINE_LOCALE.toLocale(), title, null);
+        title = UCharacter.toTitleCase(SurveyMain.TRANS_HINT_LOCALE.toLocale(), title, null);
 
         ctx.println("<META NAME=\"ROBOTS\" CONTENT=\"NOINDEX,NOFOLLOW\"> "); // NO
         // index
@@ -4020,8 +4019,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String USER_FILE_KEY = "UserFileKey";
     public static final String CLDRDBSRC = "_source";
 
-    private static CLDRFile gBaselineFile = null;
-    private static ExampleGenerator gBaselineExample = null;
+    private static CLDRFile gTranslationHintsFile = null;
+    private static ExampleGenerator gTranslationHintsExample = null;
 
     private Factory gFactory = null;
 
@@ -4086,9 +4085,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return oldFactory;
     }
 
-    private Factory gOldFactory = null;
-    private Set<CLDRLocale> gOldAvailable;
-
     /**
      * Return the actual XML file on disk
      *
@@ -4103,126 +4099,32 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     /**
-     * Get an "old" (previous CLDR version) locale file.
-     * May return null if the locale wasn't available in that version.
-     * @param locale
-     * @param resolved
-     * @return
-     *
-     * Called only by writeVettingViewerOutput2
-     */
-    public CLDRFile getOldFile(String loc, boolean resolved) {
-        CLDRLocale locale =CLDRLocale.getInstance(loc);
-        Factory f = getOldFactory();
-        if (gOldAvailable.contains(locale)) {
-            return f.make(locale.getBaseName(), resolved);
-        }
-        return null; // not available
-    }
-
-    /**
-     * Get the factory corresponding to the old release version.
-     *
-     * @return
-     */
-    public synchronized Factory getOldFactory() {
-        final String repository = CLDRConfig.getInstance().getProperty("CLDR_REPOS", CLDR_DIR_REPOS);
-        if (gOldFactory == null) {
-            File oldBase = new File(getFileBaseOld());
-            File oldCommon = new File(oldBase, "common/main");
-            String verAsMilestone = "release-" + oldVersion.replaceAll("\\.", "-");
-            if (!oldCommon.isDirectory()) {
-                final String url = repository + "/tags/" + verAsMilestone + "/common";
-                try {
-                    getOutputFileManager().svnExport(oldCommon.getParentFile(), url);
-                } catch (SVNException e) {
-                    final String msg = "Exporting" + url + " into " + oldCommon.getAbsolutePath();
-                    SurveyLog.logException(e, msg);
-                    busted(msg, e);
-                    throw new InternalError(msg);
-                }
-                if (!oldCommon.isDirectory()) {
-                    String msg = ("Could not read old data - " + oldCommon.getAbsolutePath() + ": you might do 'svn export " + repository + "/tags/"
-                        + verAsMilestone + "/common "
-                        + oldBase.getAbsolutePath() + "/common' - or check " + getOldVersionParam() + " and CLDR_OLDVERSION parameters. ");
-                    // svn export http://unicode.org/repos/cldr/tags/release-1-8
-                    // 1.8
-
-                    busted(msg);
-                    throw new InternalError(msg);
-                }
-            }
-            File oldSeed = new File(oldBase, "seed/main");
-            if (!oldSeed.isDirectory()) {
-                final String url = repository + "/tags/" + verAsMilestone + "/seed";
-                try {
-                    getOutputFileManager().svnExport(oldSeed.getParentFile(), url);
-                } catch (SVNException e) {
-                    final String msg = "Exporting" + url + " into " + oldSeed.getAbsolutePath();
-                    SurveyLog.logException(e, msg);
-                    busted(msg, e);
-                    throw new InternalError(msg);
-                }
-
-                if (!oldSeed.isDirectory()) {
-                    String msg = ("Could not read old seed data - " + oldSeed.getAbsolutePath()
-                        + ": you might do 'svn export " + repository + "/tags/" + verAsMilestone + "/seed "
-                        + oldBase.getAbsolutePath() + "/seed' - or check " + getOldVersionParam() + " and CLDR_OLDVERSION parameters. ");
-                    // svn export http://unicode.org/repos/cldr/tags/release-1-8
-                    // 1.8
-
-                    busted(msg);
-                    throw new InternalError(msg);
-                }
-            }
-            File oldCommonA = new File(oldBase, "common/annotations");
-            File oldSeedA = new File(oldBase, "seed/annotations");
-            oldCommonA.mkdirs(); // may not exist
-            oldSeedA.mkdirs(); // may not exist
-
-            File roots[] = { oldCommon, oldSeed, oldCommonA, oldSeedA };
-            gOldFactory = SimpleFactory.make(roots, ".*");
-            gOldAvailable = Collections.unmodifiableSet(gOldFactory.getAvailableCLDRLocales());
-        }
-        return gOldFactory;
-    }
-
-    /**
-     * This is the BASELINE FILE. (en_ZZ) - thus it contains 'translation hints'.
-     * @see {@link #BASELINE_ID}
+     * This is the TRANSLATION HINTS FILE (en_ZZ) - thus it contains 'translation hints'.
+     * @see {@link #TRANS_HINT_ID}
      * @see {@link #getEnglishFile()}
      * @return
      */
-    public synchronized CLDRFile getBaselineFile(/* CLDRDBSource ourSrc */) {
-        if (gBaselineFile == null) {
+    public synchronized CLDRFile getTranslationHintsFile() {
+        if (gTranslationHintsFile == null) {
             try {
-                CLDRFile file = getDiskFactory().make(BASELINE_LOCALE.toString(), true);
-                file.setSupplementalDirectory(getSupplementalDirectory()); // so the
-                // icuServiceBuilder
-                // doesn't
-                // blow up.
+                CLDRFile file = getDiskFactory().make(TRANS_HINT_LOCALE.toString(), true);
+                file.setSupplementalDirectory(getSupplementalDirectory()); // so the icuServiceBuilder doesn't blow up.
                 file.freeze(); // so it can be shared.
-                gBaselineFile = file;
+                gTranslationHintsFile = file;
 
                 // propagate it.
-                CheckCLDR.setDisplayInformation(gBaselineFile);
+                CheckCLDR.setDisplayInformation(gTranslationHintsFile);
                 setDefaultCLDRLocaleFormatter();
             } catch (Throwable t) {
-                busted("Could not load baseline locale " + BASELINE_LOCALE, t);
+                busted("Could not load translation hints locale " + TRANS_HINT_LOCALE, t);
             }
         }
-        return gBaselineFile;
+        return gTranslationHintsFile;
     }
-
-    HashMap<String, String> gBaselineHash = new HashMap<String, String>();
 
     Set<UserLocaleStuff> allUserLocaleStuffs = new HashSet<UserLocaleStuff>();
 
-    /* Sentinel value indicating that there was no baseline string available. */
-
-    public static final String DATAROW_JSP = "datarow_jsp"; // context tag for
-    // which datarow jsp
-    // to use
+    public static final String DATAROW_JSP = "datarow_jsp"; // context tag for which datarow jsp to use
 
     public static final String DATAROW_JSP_DEFAULT = "datarow_short.jsp";
 
@@ -4234,13 +4136,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      *
      * Called by doStartup only
      */
-    public synchronized ExampleGenerator getBaselineExample() {
-        if (gBaselineExample == null) {
-            CLDRFile baselineFile = getBaselineFile();
-            gBaselineExample = new ExampleGenerator(baselineFile, baselineFile, fileBase + "/../supplemental/");
+    public synchronized ExampleGenerator getTranslationHintsExample() {
+        if (gTranslationHintsExample == null) {
+            CLDRFile translationHintsFile = getTranslationHintsFile();
+            gTranslationHintsExample = new ExampleGenerator(translationHintsFile, translationHintsFile, fileBase + "/../supplemental/");
         }
-        gBaselineExample.setVerboseErrors(twidBool("ExampleGenerator.setVerboseErrors"));
-        return gBaselineExample;
+        gTranslationHintsExample.setVerboseErrors(twidBool("ExampleGenerator.setVerboseErrors"));
+        return gTranslationHintsExample;
     }
 
     public synchronized WebContext.HTMLDirection getHTMLDirectionFor(CLDRLocale locale) {
@@ -4310,7 +4212,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         // ".*" */);
         // }
 
-        CheckCLDR.setDisplayInformation(getBaselineFile());
+        CheckCLDR.setDisplayInformation(getTranslationHintsFile());
 
         return checkCldr;
     }
@@ -4320,7 +4222,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         checkCldr = CheckCLDR.getCheckAll(getSTFactory(), "(?!.*(DisplayCollisions|CheckCoverage).*).*" /* ".*" */);
 
-        CheckCLDR.setDisplayInformation(getBaselineFile());
+        CheckCLDR.setDisplayInformation(getTranslationHintsFile());
 
         return checkCldr;
     }
@@ -4342,7 +4244,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         public Hashtable<String, Object> hash = new Hashtable<String, Object>();
         private int use;
         CLDRFile resolvedFile = null;
-        CLDRFile baselineFile;
+        CLDRFile translationHintsFile;
 
         public void open() {
             use++;
@@ -4392,7 +4294,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 dbSource = resolvedSource.getUnresolving();
                 cldrfile = getSTFactory().make(locale, true).setSupplementalDirectory(getSupplementalDirectory());
                 resolvedFile = cldrfile;
-                baselineFile = getBaselineFile();
+                translationHintsFile = getTranslationHintsFile();
             }
         }
 
@@ -4741,8 +4643,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             ctx.print(" summary='Data Items for " + ctx.getLocale().toString() + " " + section.xpathPrefix + "' ");
         }
         ctx.println("class='data' border='1'>");
-        ctx.println("<tr class='headingb'>\n" + " <th colspan='1' width='50%'>[" + BASELINE_LOCALE + "] "
-            + BASELINE_LANGUAGE_NAME + "</th>\n" + // 3
+        ctx.println("<tr class='headingb'>\n" + " <th colspan='1' width='50%'>[" + TRANS_HINT_LOCALE + "] "
+            + TRANS_HINT_LANGUAGE_NAME + "</th>\n" + // 3
             " <th colspan='2' width='50%'>Your Language</th>\n"); // 8
 
         ctx.println("</tr>");
@@ -5021,9 +4923,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 busted("CLDR_SEED isn't a directory: " + fileBaseSeed);
                 return;
             }
-
-            progress.update("Get CLDR " + oldVersion + " data (svn export if necessary)");
-            getOldFactory(); // check old version
             if (!new File(vetweb).isDirectory()) {
                 busted("CLDR_VET_WEB isn't a directory: " + vetweb);
                 return;
@@ -5064,15 +4963,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 return;
             }
 
-            progress.update("Setup baseline file..");
+            progress.update("Setup translation-hints file..");
 
-            // load baseline file
-            getBaselineFile();
+            // load translation-hints file
+            getTranslationHintsFile();
 
-            progress.update("Setup baseline example..");
+            progress.update("Setup translation-hints example..");
 
             // and example
-            getBaselineExample();
+            getTranslationHintsExample();
 
             progress.update("Wake up the database..");
 
@@ -5877,9 +5776,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             progress.update("Load XPT");
             System.err.println("XPT ready with " + xpt.statistics());
-            xpt.loadXPaths(getDiskFactory().makeSource(BASELINE_ID)); // grind
-            // over
-            // baseline
+            xpt.loadXPaths(getDiskFactory().makeSource(TRANS_HINT_ID));
             System.err.println("XPT spun up with " + xpt.statistics());
             progress.update("Create fora"); // restore
             try {
@@ -6279,14 +6176,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @return
      */
     public static String defaultTimezoneInfo() {
-        return new SimpleDateFormat("VVVV: ZZZZ", SurveyMain.BASELINE_LOCALE).format(System.currentTimeMillis());
+        return new SimpleDateFormat("VVVV: ZZZZ", SurveyMain.TRANS_HINT_LOCALE).format(System.currentTimeMillis());
     }
 
     private static CLDRFile gEnglishFile = null;
 
     /**
      * Get exactly the "en" disk file.
-     * @see #getBaselineFile()
+     * @see #getTranslationHintsFile()
      * @return
      */
     public CLDRFile getEnglishFile() {

@@ -69,12 +69,12 @@
     <table class="userlist" border="2">
     
         <tr class="row<%= ((i++)%2) %>">
-            <th>SurveyMain.BASELINE_LOCALE</th>
-            <td> <%= org.unicode.cldr.web.SurveyMain.BASELINE_LOCALE.toLanguageTag() %>  </td>
+            <th>SurveyMain.TRANS_HINT_LOCALE</th>
+            <td> <%=org.unicode.cldr.web.SurveyMain.TRANS_HINT_LOCALE.toLanguageTag()%>  </td>
         </tr>
         <tr class="row<%= ((i++)%2) %>">
-            <th>SurveyMain.BASELINE_LANGUAGE_NAME</th>
-            <td> <%= org.unicode.cldr.web.SurveyMain.BASELINE_LANGUAGE_NAME %>  </td>
+            <th>SurveyMain.TRANS_HINT_LANGUAGE_NAME</th>
+            <td> <%=org.unicode.cldr.web.SurveyMain.TRANS_HINT_LANGUAGE_NAME%>  </td>
         </tr>
         <% for(String k : org.unicode.cldr.util.CLDRConfigImpl.ALL_GIT_HASHES) { %>
 	        <tr class="row<%= ((i++)%2) %>">

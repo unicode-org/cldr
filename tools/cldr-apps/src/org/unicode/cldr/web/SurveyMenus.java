@@ -36,7 +36,7 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
         fac = stFactory;
         this.phf = phf;
 
-        CLDRFile b = stFactory.sm.getBaselineFile();
+        CLDRFile b = stFactory.sm.getTranslationHintsFile();
         phf = PathHeader.getFactory(b);
         for (String xp : b) {
             phf.fromPath(xp);

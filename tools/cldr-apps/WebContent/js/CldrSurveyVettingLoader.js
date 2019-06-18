@@ -1355,7 +1355,7 @@ function showV() {
 												content.appendChild(createChunk(title,"h2","v-oldvotes-sub"));
 											}
 
-											content.appendChild(showVoteTable(jsondata, type, json.BASELINE_LANGUAGE_NAME, json.oldvotes.dir));
+											content.appendChild(showVoteTable(jsondata, type, json.TRANS_HINT_LANGUAGE_NAME, json.oldvotes.dir));
 
 											var submit = BusyButton({
 												label: stui.str("v_submit_msg"),

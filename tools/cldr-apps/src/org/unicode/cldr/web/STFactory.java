@@ -696,7 +696,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          *
          * @param resolveMorePaths false to do vote resolution only on paths with votes in current votes table, or
          *                         true to do vote resolution also on all paths in trunk (for making vxml).
-         *                        
          *
          * Called by PerLocaleData.makeSource(resolve = false), and by PerLocaleData.makeVettedSource.
          */

@@ -892,9 +892,9 @@ const cldrSurveyTable = (function() {
 				theRow.displayName = theRow.displayName.substr(0, hintPos);
 			}
 			cell.appendChild(createChunk(theRow.displayName, 'span', 'subSpan'));
-			setLang(cell, surveyBaselineLocale);
+			setLang(cell, surveyTransHintLocale);
 			if (theRow.displayExample) {
-				appendExample(cell, theRow.displayExample, surveyBaselineLocale);
+				appendExample(cell, theRow.displayExample, surveyTransHintLocale);
 			}
 			if (hintPos != -1 || hasExample) {
 				var infos = document.createElement("div");

@@ -127,7 +127,7 @@
 	<h3>
 		Locale:
 		<%=loc + " - "
-					+ loc.getDisplayName(SurveyMain.BASELINE_LOCALE)%></h3>
+					+ loc.getDisplayName(SurveyMain.TRANS_HINT_LOCALE)%></h3>
 	<%
 		//cs.stuff.put("SubmitLocale",cf);
 		CLDRFile baseFile = cs.sm.getSTFactory().make(loc.getBaseName(),

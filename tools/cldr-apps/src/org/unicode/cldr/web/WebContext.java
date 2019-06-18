@@ -67,7 +67,7 @@ public class WebContext implements Cloneable, Appendable {
     public SurveyMain sm = null;
     public Document doc[] = new Document[0];
     private CLDRLocale locale = null;
-    public ULocale displayLocale = SurveyMain.BASELINE_LOCALE;
+    public ULocale displayLocale = SurveyMain.TRANS_HINT_LOCALE;
     public CLDRLocale docLocale[] = new CLDRLocale[0];
     public CookieSession session = null;
     public ElapsedTimer reqTimer = null;

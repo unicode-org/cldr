@@ -37,8 +37,7 @@ Bold = available, Shaded = missing.
 </ul>
 <a href="<%=request.getContextPath()%>/survey">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
 <%
-DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT, SurveyMain.BASELINE_LOCALE);
-
+	DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT, SurveyMain.TRANS_HINT_LOCALE);
 %>
 
 

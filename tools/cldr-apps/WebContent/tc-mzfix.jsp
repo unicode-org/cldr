@@ -156,7 +156,7 @@ Set<Integer> thisData = (data!=null)?data.get(l):null;
 Set<Integer> thisVotes = (votes!=null)?votes.get(l):null;
 
 %>
-	<h3><a name="<%= l %>"><%= l %> (<%= l.getDisplayName(SurveyMain.BASELINE_LOCALE) %>)</a></h3>
+	<h3><a name="<%= l %>"><%= l %> (<%=l.getDisplayName(SurveyMain.TRANS_HINT_LOCALE)%>)</a></h3>
 	<%= (thisData!=null)?(thisData.size()):0 %> data items, 
 	<%= (thisVotes!=null)?(thisVotes.size()):0 %> votes to fix.<br/>
 

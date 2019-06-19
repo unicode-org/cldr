@@ -2239,6 +2239,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * List Users
      *
      * @param ctx
+     *
+     * TODO: this function is over 666 lines long. Shorten it with subroutines.
      */
     public void doList(WebContext ctx) {
         int n = 0;
@@ -2737,7 +2739,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     // are they logged in?
                     if ((theUser != null) && UserRegistry.userCanModifyUsers(ctx.session.user)) {
                         ctx.println("<td>");
-                        ctx.println("<b>active: " + timeDiff(theUser.last) + " ago</b>");
+                        ctx.println("<b>active: " + timeDiff(theUser.getLastBrowserCallMillisSinceEpoch()) + " ago</b>");
                         if (UserRegistry.userIsAdmin(ctx.session.user)) {
                             ctx.print("<br/>");
                             printLiveUserMenu(ctx, theUser);

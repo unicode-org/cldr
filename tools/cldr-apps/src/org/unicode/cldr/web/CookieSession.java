@@ -35,11 +35,26 @@ import org.unicode.cldr.util.StandardCodes;
 public class CookieSession {
     /*
      * If KICK_IF_INACTIVE is true, then we may disconnect a user if they don't perform
-     * an "active" action, triggering userDidAction(), within some length of time. If it
-     * is false, then we try to stay connected as long as there is at least some automatic
-     * client-server communication (such as "SurveyAjax?what=status"). 
+     * an "active" action, triggering userDidAction(), within some length of time.
+     *
+     * If KICK_IF_ABSENT is true, then we may disconnect a user if there is no
+     * client-server communication (such as "SurveyAjax?what=status", which happens
+     * automatically) within some length of time.
+     *
+     * At least one of KICK_IF_INACTIVE and KICK_IF_ABSENT should be true.
+     * Currently we want KICK_IF_INACTIVE true and KICK_IF_ABSENT false. Actually when
+     * KICK_IF_INACTIVE is true, KICK_IF_ABSENT would make no difference unless there
+     * were a shorter time-out for absence than for inactivity.
+     *
+     * Details: There are two ways to time-out: cs.millisSinceLastBrowserCall() and cs.millisTillKick().
+     *  millisSinceLastBrowserCall is based on lastBrowerCallMillisSinceEpoch, which is "last time we heard from their browser, at all"
+     *     -- depends on KICK_IF_ABSENT
+     *  millisTillKick is based on lastActionMillisSinceEpoch, which is "last active action (last voted, viewed a page, etc)"
+     *     -- depends on KICK_IF_INACTIVE
      */
-    private static final boolean KICK_IF_INACTIVE = false;
+    private static final boolean KICK_IF_INACTIVE = true;
+    private static final boolean KICK_IF_ABSENT = false;
+
     static final boolean DEBUG_INOUT = false;
     public String id;
     public String ip;
@@ -55,68 +70,112 @@ public class CookieSession {
     public static SurveyMain sm = null;
 
     private Connection conn = null;
-    /**
-     * When did the user last take an explicit action?
-     */
-    private long lastAction = System.currentTimeMillis();
 
-    public long getLastAction() {
-        return lastAction;
+    /**
+     * The time (in millis since 1970) when the user last took an explicit action.
+     *
+     * Compare lastBrowserCallMillisSinceEpoch.
+     */
+    private long lastActionMillisSinceEpoch = System.currentTimeMillis();
+
+    /**
+     * Get the time (in millis since 1970) when the user last took an explicit action.
+     *
+     * @return the time
+     *
+     * Called only by AdminAjax.jsp.
+     *
+     * Compare getLastBrowserCallMillisSinceEpoch.
+     */
+    public long getLastActionMillisSinceEpoch() {
+        return lastActionMillisSinceEpoch;
     }
 
     /**
-     * How long, in ms, before we kick?
+     * How long, in millis, before we kick due to inactivity?
+     *
      * @return the number of milliseconds remaining before the user will be disconnected
      *         unless the user does something "active" before then.
      * 
      * Here, something "active" means anything that causes userDidAction() to be called.
+     *
+     * Called locally and by SurveyAjax.processRequest
      */
-    public long timeTillKick() {
+    public long millisTillKick() {
         if (!KICK_IF_INACTIVE) {
             return 1000000; // anything more than one minute, to prevent browser console countdown
         }
-        final long now = System.currentTimeMillis();
+        final long nowMillisSinceEpoch = System.currentTimeMillis();
         final boolean guest = (user == null);
-        long myTimeout; // timeout in seconds.
+        long myTimeoutSecs; // timeout in seconds.
 
-        if (user != null && UserRegistry.userIsTC(user)) {
-            myTimeout = 60 * 20; // 20 minutes
-        } else if (guest) {
+        if (guest) {
+            myTimeoutSecs = Params.CLDR_GUEST_TIMEOUT_SECS.value();
+            /*
+             * Allow twice as much time, if there aren't too many guests.
+             */
             if (!tooManyGuests()) {
-                myTimeout = 60 * 10; // 10 minutes
-            } else {
-                myTimeout = Params.CLDR_GUEST_INACTIVITY.value();
+                myTimeoutSecs *= 2;
             }
         } else {
+            myTimeoutSecs = Params.CLDR_USER_TIMEOUT_SECS.value();
+            /*
+             * Allow twice as much time, if there aren't too many users.
+             */
             if (!tooManyUsers()) {
-                myTimeout = 60 * 20; // 20 min
-            } else {
-                myTimeout = Params.CLDR_USER_INACTIVITY.value();
+                myTimeoutSecs *= 2;
             }
         }
 
-        final long remain = (1000 * myTimeout) - (now - lastAction);
+        final long remainMillis = (1000 * myTimeoutSecs) - (nowMillisSinceEpoch - lastActionMillisSinceEpoch);
 
-        if (remain < 0) {
+        if (remainMillis < 0) {
             return 0;
         } else {
-            return remain;
+            return remainMillis;
         }
     }
 
     /**
-     * When did the user last touch this session?
+     * The time (in millis since 1970) when the user last touched this session.
+     *
+     * Set only by touch(); returned by getLastBrowserCallMillisSinceEpoch().
+     *
+     * Compare lastActionMillisSinceEpoch.
      */
-    public long last;
+    private long lastBrowserCallMillisSinceEpoch;
 
+    /**
+     * Get the time (in millis since 1970) when the user last touched this session.
+     *
+     * Compare getLastActionMillisSinceEpoch.
+     *
+     * Called by SurveyMain and AdminAjax.jsp.
+     */
+    public long getLastBrowserCallMillisSinceEpoch() {
+        return lastBrowserCallMillisSinceEpoch;
+    }
+
+    /**
+     * TODO: clarify who calls this and why; the usage of durationDiff with millisTillKick appears dubious
+     */
     public String toString() {
-        return "{CookieSession#" + id + ", user=" + user + ", timeTillKick=" + SurveyMain.durationDiff(timeTillKick()) + ", age=" + age() + ", userActionAge="
-            + userActionAge() + "}";
+        return "{CookieSession#" + id
+            + ", user=" + user
+            + ", millisTillKick=" + SurveyMain.durationDiff(millisTillKick())
+            + ", millisSinceLastBrowserCall=" + millisSinceLastBrowserCall()
+            + ", millisSinceLastUserAction=" + millisSinceLastUserAction()
+            + "}";
     }
 
     static Hashtable<String, CookieSession> gHash = new Hashtable<String, CookieSession>(); // hash by sess ID
     static Hashtable<String, CookieSession> uHash = new Hashtable<String, CookieSession>(); // hash by user ID
 
+    /**
+     *
+     * @return the set of CookieSession objects
+     * Called by AdminAjax.jsp
+     */
     public static Set<CookieSession> getAllSet() {
         synchronized (gHash) {
             TreeSet<CookieSession> sessSet = new TreeSet<CookieSession>(new Comparator<Object>() {
@@ -125,9 +184,9 @@ public class CookieSession {
                     CookieSession bb = (CookieSession) b;
                     if (aa == bb)
                         return 0;
-                    if (aa.last > bb.last)
+                    if (aa.lastBrowserCallMillisSinceEpoch > bb.lastBrowserCallMillisSinceEpoch)
                         return -1;
-                    if (aa.last < bb.last)
+                    if (aa.lastBrowserCallMillisSinceEpoch < bb.lastBrowserCallMillisSinceEpoch)
                         return 1;
                     return 0; // same age
                 }
@@ -223,7 +282,6 @@ public class CookieSession {
      * @param isGuest
      *            True if the user is a guest.
      */
-
     private CookieSession(boolean isGuest, String ip, String fromId) {
         this.ip = ip;
         if (fromId == null) {
@@ -263,7 +321,7 @@ public class CookieSession {
      * mark this session as recently updated and shouldn't expire
      */
     protected void touch() {
-        last = System.currentTimeMillis();
+        lastBrowserCallMillisSinceEpoch = System.currentTimeMillis();
         if (DEBUG_INOUT) System.out.println("S: touch " + id + " - " + user);
     }
 
@@ -271,7 +329,7 @@ public class CookieSession {
      * Note a direct user action.
      */
     public void userDidAction() {
-        lastAction = System.currentTimeMillis();
+        lastActionMillisSinceEpoch = System.currentTimeMillis();
     }
 
     /**
@@ -290,21 +348,21 @@ public class CookieSession {
     }
 
     /**
-     * How old is this session? (last time we heard from their browser, at all)
+     * How long has it been since last time we heard from the user's browser, at all
      *
-     * @return age of this session, in millis
+     * @return age since the last browser call, in millis
      */
-    protected long age() {
-        return (System.currentTimeMillis() - last);
+    private long millisSinceLastBrowserCall() {
+        return (System.currentTimeMillis() - lastBrowserCallMillisSinceEpoch);
     }
 
     /**
-     * How old is this session's last active action? (last voted, viewed a page, etc)
+     * How long has it been since the user's last active action? (last voted, viewed a page, etc)
      *
-     * @return age of this session, in millis
+     * @return age since the user's last active action, in millis
      */
-    protected long userActionAge() {
-        return (System.currentTimeMillis() - lastAction);
+    private long millisSinceLastUserAction() {
+        return (System.currentTimeMillis() - lastActionMillisSinceEpoch);
     }
 
     // secure stuff
@@ -534,18 +592,35 @@ public class CookieSession {
     }
 
     /**
-     * Set these from cldr.properties.
+     * Parameters for when to disconnect users.
+     * These defaults can be changed in cldr.properties.
+     * Formerly CLDR_USER_TIMEOUT only related to what's now called KICK_IF_ABSENT,
+     * while CLDR_USER_INACTIVITY only related to what's now called KICK_IF_INACTIVE.
+     * No more distinction _INACTIVITY versus _TIMEOUT, use _TIMEOUT_SECS for all.
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-11799
      *
      * @author srl
-     *
      */
-    public enum Params {
-        CLDR_MAX_USERS(30), // max logged in user count allowed
-        CLDR_MAX_GUESTS(0), // max guests allowed before guests start getting shut out (should be < CLDR_MAX_USERS)
-        CLDR_GUEST_TIMEOUT(1 * 60), // Guest computers must checkin every minute or they are kicked. (always)
-        CLDR_GUEST_INACTIVITY(1 * 60), // Guests must perform some activity every 5 minutes or they are kicked ( when too many guests)
-        CLDR_USER_TIMEOUT(2 * 60), // Users computer must check in every 2 minutes or kicked (always)
-        CLDR_USER_INACTIVITY(5 * 60); // Users must do something (load a page, vote, etc) or they are kicked (when too many users)
+    private enum Params {
+        /**
+         * max logged in user count allowed before stricter requirements apply to stay connected
+         */
+        CLDR_MAX_USERS(30),
+
+        /**
+         * max guests allowed before guests start getting shut out (should be < CLDR_MAX_USERS)
+         */
+        CLDR_MAX_GUESTS(0), // zero means tooManyGuests == tooManyUsers
+
+        /**
+         * how many seconds guest can be absent/inactive before getting kicked
+         */
+        CLDR_GUEST_TIMEOUT_SECS(5 * 60), // 5 minutes
+
+        /**
+         * how many seconds logged-in user can be absent/inactive before getting kicked
+         */
+        CLDR_USER_TIMEOUT_SECS(30 * 60); // 30 minutes
 
         private int defVal;
         private Integer value;
@@ -622,11 +697,19 @@ public class CookieSession {
 
     // parameters
 
-    static long lastReap = 0;
-    /** last time reaped. Starts at 0, so reap immediately **/
+    /**
+     * last time reaped. Starts at 0, so reap immediately
+     */
+    static long lastReapMillisSinceEpoch = 0;
 
+    /**
+     * Number of guests
+     */
     private static int nGuests = 0;
-    /** # of guests **/
+
+    /**
+     * Number of users
+     */
     private static int nUsers = 0;
 
     public static int getGuestCount() {
@@ -634,7 +717,6 @@ public class CookieSession {
         return nGuests;
     }
 
-    /** # of users **/
     /**
      * Perform a reap if need be, and count.
      * @return user count
@@ -651,13 +733,14 @@ public class CookieSession {
 
         synchronized (gHash) {
             int allCount = gHash.size(); // count of ALL users
-            long now = System.currentTimeMillis();
-            long elapsed = (now - lastReap);
+            long nowMillisSinceEpoch = System.currentTimeMillis();
+            long elapsedMillis = (nowMillisSinceEpoch - lastReapMillisSinceEpoch);
 
             final boolean tooManyUsers = tooManyUsers();
             final boolean tooManyGuests = tooManyGuests();
 
-            if (elapsed < (1000 * 5) && allCount <= lastCount && !tooManyGuests) { // check every 5 seconds or if count grows
+            final long CHECK_SECS = 5; // check every 5 seconds or if count grows
+            if (elapsedMillis < (1000 * CHECK_SECS) && allCount <= lastCount && !tooManyGuests) {
                 return nUsers;
             }
 
@@ -665,19 +748,22 @@ public class CookieSession {
 
             int guests = 0;
             int users = 0;
-            lastReap = now;
+            lastReapMillisSinceEpoch = nowMillisSinceEpoch;
 
             // remove any sessions we need to get rid of, count the rest.
             List<CookieSession> toRemove = new LinkedList<CookieSession>();
             for (CookieSession cs : gHash.values()) {
                 if (cs.user == null) { // guest
-                    if (tooManyUsers || cs.age() > (Params.CLDR_GUEST_TIMEOUT.value() * 1000) || (cs.timeTillKick() == 0)) {
+                    if (tooManyUsers
+                            || (KICK_IF_ABSENT && cs.millisSinceLastBrowserCall() > Params.CLDR_GUEST_TIMEOUT_SECS.value() * 1000)
+                            || (KICK_IF_INACTIVE && cs.millisTillKick() <= 0)) {
                         toRemove.add(cs);
                     } else {
                         guests++;
                     }
                 } else {
-                    if ((cs.age() > Params.CLDR_USER_TIMEOUT.value() * 1000) || (cs.timeTillKick() <= 0)) {
+                    if ((KICK_IF_ABSENT && cs.millisSinceLastBrowserCall() > Params.CLDR_USER_TIMEOUT_SECS.value() * 1000)
+                            || (KICK_IF_INACTIVE && cs.millisTillKick() <= 0)) {
                         toRemove.add(cs);
                     } else {
                         users++;
@@ -772,7 +858,7 @@ public class CookieSession {
         // get the # of sessions
 
         int noSes = 0;
-        long now = System.currentTimeMillis();
+        long nowMillisSinceEpoch = System.currentTimeMillis();
         synchronized (gHash) {
             for (Object o : gHash.values()) {
                 CookieSession cs = (CookieSession) o;
@@ -782,7 +868,8 @@ public class CookieSession {
                 if (cs.user != null) {
                     return null; // has a user, OK
                 }
-                if ((now - cs.last) < (5 * 60 * 1000)) {
+                final long N_MINUTES = 5; // five minutes (why?)
+                if ((nowMillisSinceEpoch - cs.lastBrowserCallMillisSinceEpoch) < (N_MINUTES * 60 * 1000)) {
                     noSes++;
                 }
             }

@@ -2,8 +2,7 @@
 	import="org.unicode.cldr.web.*,java.util.Map,java.util.Set,java.util.Comparator,java.util.TreeMap,java.util.TreeSet"%><%@ page
 	language="java" contentType="application/json; charset=UTF-8"
 	import="com.ibm.icu.util.ULocale,org.unicode.cldr.util.*,org.json.*"%><%--  Copyright (C) 2012 IBM and Others. All Rights Reserved 
-	 --%><%@ page import="java.lang.management.*"%><%
-	 CLDRConfigImpl.setUrls(request);
+	 --%><%@ page import="java.lang.management.*"%><%CLDRConfigImpl.setUrls(request);
 	String vap = request.getParameter("vap");
 	String action = request.getParameter("do");
 	if (vap == null || action == null
@@ -24,9 +23,9 @@
 			}
 			sess.put("id", cs.id);
 			sess.put("ip", cs.ip);
-            sess.put("last", SurveyMain.timeDiff(cs.last));
-            sess.put("lastAction", SurveyMain.timeDiff(cs.getLastAction()));
-            sess.put("timeTillKick", cs.timeTillKick());
+            sess.put("lastBrowserCallMillisSinceEpoch", SurveyMain.timeDiff(cs.getLastBrowserCallMillisSinceEpoch()));
+            sess.put("lastActionMillisSinceEpoch", SurveyMain.timeDiff(cs.getLastActionMillisSinceEpoch()));
+            sess.put("millisTillKick", cs.millisTillKick());
 			//			sess.put("locales",new JSONArray().put(cs.getLocales().keys()));
 			users.put(cs.id, sess);
 		}
@@ -46,9 +45,9 @@
 			}
 			sess.put("id", cs.id);
 			sess.put("ip", cs.ip);
-            sess.put("last", SurveyMain.timeDiff(cs.last));
-            sess.put("lastAction", SurveyMain.timeDiff(cs.getLastAction()));
-            sess.put("timeTillKick", cs.timeTillKick());
+            sess.put("lastBrowserCallMillisSinceEpoch", SurveyMain.timeDiff(cs.getLastBrowserCallMillisSinceEpoch()));
+            sess.put("lastActionMillisSinceEpoch", SurveyMain.timeDiff(cs.getLastActionMillisSinceEpoch()));
+            sess.put("millisTillKick", cs.millisTillKick());
 
             new JSONWriter(out).object().key("kick").value(s).key("removing").value(sess)
 			.endObject();
@@ -139,5 +138,4 @@
         .endObject();
 	} else {
 		response.sendError(500, "Unknown action.");
-	}
-%>
+	}%>

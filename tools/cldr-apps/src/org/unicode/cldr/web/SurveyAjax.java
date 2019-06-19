@@ -486,9 +486,8 @@ public class SurveyAjax extends HttpServlet {
                 if (sess != null && !sess.isEmpty()) {
                     mySession = CookieSession.retrieve(sess); // or peek?
                     if (mySession != null) {
-                        r2.put("timeTillKick", mySession.timeTillKick());
+                        r2.put("millisTillKick", mySession.millisTillKick());
                     } else {
-                        //                        r2.put("err", "You are not logged into the survey tool)
                         r2.put("session_err", "no session");
                     }
                 }

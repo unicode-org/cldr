@@ -1802,7 +1802,6 @@ public class WebContext implements Cloneable, Appendable {
 
         // store the session id in the HttpSession
         httpSession.setAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION, session.id);
-        //httpSession.setMaxInactiveInterval(CookieSession.Params.CLDR_USER_TIMEOUT.value() / 1000);
         httpSession.setMaxInactiveInterval(-1); // never expire
 
         if (user != null) {

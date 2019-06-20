@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2019 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="szl"/>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="szl">ślōnski</language>
+		</languages>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[a ã b c ć d e f g h i j k l ł m n ń o ô ō ŏ õ p r s ś t u w y z ź ż]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[à ă â å ä ą ā æ č ç ď è ĕ ê ë ē ę é ě í ì ĭ î ï ī ľ ñ ň ò ó ö ø œ q ŕ ř š ß ť ù ŭ û ü ū ú ů v x ÿ ý ž]</exemplarCharacters>
+		<exemplarCharacters type="index">[A B C Ć D E F G H I J K L Ł M N Ń O Ô Ō P Q R S Ś T U V W X Y Z Ź Ż]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[  \- , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐ –  — , ; \: ! ? . … ' &quot; ” „ « » ( ) \[ \] \{ \} § @ * / \&amp; # % † ‡ ′ ″ ° ~]</exemplarCharacters>
+	</characters>
+	<numbers>
+		<currencies>
+			<currency type="PLN">
+				<symbol>zł</symbol>
+			</currency>
+		</currencies>
+	</numbers>
+</ldml>

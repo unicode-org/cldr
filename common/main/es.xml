@@ -9014,7 +9014,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0} y {1}</listPatternPart>
+<<<<<<< HEAD
         </listPattern>
+=======
+    </listPattern>
+>>>>>>> 4d90d288642bf73dcdec4d05bc269ea3cbee1d8b
 		<rewriteRules>
 			<rewriteRule matchBefore=" y " matchAfter="(?i)(i|hi(?!e))"> e </rewriteRule>
 			<rewriteRule matchBefore=" o " matchAfter="(?i)(o|ho)"> u </rewriteRule>

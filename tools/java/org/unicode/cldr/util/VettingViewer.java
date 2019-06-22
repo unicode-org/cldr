@@ -33,6 +33,7 @@ import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.tool.ToolConstants;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
@@ -1565,10 +1566,13 @@ public class VettingViewer<T> {
     final static Options myOptions = new Options();
 
     enum MyOptions {
-        repeat(null, null, "Repeat indefinitely"), filter(".*", ".*", "Filter files"), locale(".*", "af", "Single locale for testing"), source(".*",
-            CLDRPaths.MAIN_DIRECTORY, // CldrUtility.TMP2_DIRECTORY + "/vxml/common/main"
-            "if summary, creates filtered version (eg -d main): does a find in the name, which is of the form dir/file"), verbose(null, null,
-                "verbose debugging messages"), output(".*", CLDRPaths.GEN_DIRECTORY + "vetting/", "filter the raw files (non-summary, mostly for debugging)"),;
+        repeat(null, null, "Repeat indefinitely"),
+        filter(".*", ".*", "Filter files"), 
+        locale(".*", "af", "Single locale for testing"), 
+        source(".*", CLDRPaths.MAIN_DIRECTORY + "," + CLDRPaths.ANNOTATIONS_DIRECTORY, // CldrUtility.TMP2_DIRECTORY + "/vxml/common/main"
+            "if summary, creates filtered version (eg -d main): does a find in the name, which is of the form dir/file"), 
+        verbose(null, null, "verbose debugging messages"), 
+        output(".*", CLDRPaths.GEN_DIRECTORY + "vetting/", "filter the raw files (non-summary, mostly for debugging)"),;
         // boilerplate
         final Option option;
 
@@ -1584,12 +1588,22 @@ public class VettingViewer<T> {
         String fileFilter = MyOptions.filter.option.getValue();
         String myOutputDir = repeat ? null : MyOptions.output.option.getValue();
         String LOCALE = MyOptions.locale.option.getValue();
-        String CURRENT_MAIN = MyOptions.source.option.getValue();
+
+        String[] DIRECTORIES = MyOptions.source.option.getValue().split(",\\s*");
+        final File[] fileDirectories = new File[DIRECTORIES.length];
+        int i = 0;
+        for (String s : DIRECTORIES) {
+            fileDirectories[i++] = new File(s);
+        }
+        final String version = ToolConstants.PREVIOUS_CHART_VERSION;
+        final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version + "/common/main";
+        //final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/common/main";
+
         do {
             Timer timer = new Timer();
             timer.start();
 
-            Factory cldrFactory = Factory.make(CURRENT_MAIN, fileFilter);
+            Factory cldrFactory = SimpleFactory.make(fileDirectories, fileFilter);
             cldrFactory.setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
             SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
                 .getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);

@@ -1437,17 +1437,17 @@ function updateStatusBox(json) {
 		}
 
 		if(window.kickMe) {
-			json.timeTillKick = 0;
+			json.millisTillKick = 0;
 		} else if(window.kickMeSoon) {
-			json.timeTillKick = 5000;
+			json.millisTillKick = 5000;
 		}
 
 		// really don't care if guest user gets 'kicked'. Doesn't matter.
-		if( (surveyUser!==null) && json.timeTillKick && (json.timeTillKick>=0) && (json.timeTillKick < (60*1*1000) )) { // show countdown when 1 minute to go
-			var kmsg = "Your session will end if not active in about "+ (parseInt(json.timeTillKick)/1000).toFixed(0) + " seconds.";
+		if( (surveyUser!==null) && json.millisTillKick && (json.millisTillKick>=0) && (json.millisTillKick < (60*1*1000) )) { // show countdown when 1 minute to go
+			var kmsg = "Your session will end if not active in about "+ (parseInt(json.millisTillKick)/1000).toFixed(0) + " seconds.";
 			console.log(kmsg);
 			updateSpecialHeader(standOutMessage(kmsg));
-		} else if((surveyUser!==null) && (( json.timeTillKick === 0) || (json.session_err))) {
+		} else if((surveyUser!==null) && (( json.millisTillKick === 0) || (json.session_err))) {
 			var kmsg  = stui_str("ari_sessiondisconnect_message");
 			console.log(kmsg);
 			updateSpecialHeader(standOutMessage(kmsg));
@@ -3641,8 +3641,17 @@ function loadAdminPanel() {
 					} else {
 						user.appendChild(createChunk("(anonymous)","div","adminUserUser"));
 					}
-					user.appendChild(createChunk("Last: " + cs.last  + "LastAction: " + cs.lastAction + ", IP: " + cs.ip + ", ttk:"
-								+ (parseInt(cs.timeTillKick)/1000).toFixed(1)+"s", "span","adminUserInfo"));
+					/*
+					 * cs.lastBrowserCallMillisSinceEpoch = time elapsed in millis since server heard from client
+					 * cs.lastActionMillisSinceEpoch = time elapsed in millis since user did active action
+					 * cs.millisTillKick = how many millis before user will be kicked if inactive
+					 */
+					user.appendChild(createChunk(
+							"LastCall: " + cs.lastBrowserCallMillisSinceEpoch
+							+ ", LastAction: " + cs.lastActionMillisSinceEpoch
+							+ ", IP: " + cs.ip
+							+ ", ttk:" + (parseInt(cs.millisTillKick)/1000).toFixed(1) + "s",
+						"span","adminUserInfo"));
 
 					var unlinkButton = createChunk(stui.str("admin_users_action_kick"), "button", "admin_users_action_kick");
 					user.appendChild(unlinkButton);

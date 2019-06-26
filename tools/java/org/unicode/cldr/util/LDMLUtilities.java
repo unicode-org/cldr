@@ -2347,7 +2347,7 @@ public class LDMLUtilities {
                     return null;
                 }
 
-                public Iterator<Object> getPrefixes(String namespaceURI) {
+                public Iterator<String> getPrefixes(String namespaceURI) {
                     return null;
                 }
             });

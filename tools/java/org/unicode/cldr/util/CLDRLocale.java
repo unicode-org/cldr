@@ -368,13 +368,15 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
      * @return
      */
     public static CLDRLocale getInstance(String s) {
-        if (s == null) return null;
-        CLDRLocale loc = stringToLoc.get(s);
-        if (loc == null) {
-            loc = new CLDRLocale(s);
-            loc.register();
+        synchronized(CLDRLocale.class) {
+            if (s == null) return null;
+            CLDRLocale loc = stringToLoc.get(s);
+            if (loc == null) {
+                loc = new CLDRLocale(s);
+                loc.register();
+            }
+            return loc;
         }
-        return loc;
     }
 
     /**
@@ -385,13 +387,15 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
      * @return
      */
     public static CLDRLocale getInstance(ULocale u) {
-        if (u == null) return null;
-        CLDRLocale loc = ulocToLoc.get(u);
-        if (loc == null) {
-            loc = new CLDRLocale(u);
-            loc.register();
+        synchronized(CLDRLocale.class) {
+            if (u == null) return null;
+            CLDRLocale loc = ulocToLoc.get(u);
+            if (loc == null) {
+                loc = new CLDRLocale(u);
+                loc.register();
+            }
+            return loc;
         }
-        return loc;
     }
 
     /**

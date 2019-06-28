@@ -110,7 +110,7 @@ class BreakIteratorMapper extends Mapper {
             if (qName.equals("segmentation")) {
                 segPath = "/exceptions/" + attr.getValue("type") + ":array";
             } else if (qName.equals("version")) {
-                icuData.add("/Version", new String[] { MapperUtils.formatVersion(attr.getValue("number")) });
+                icuData.add("/Version", CLDRFile.GEN_VERSION);
             }
         }
 

@@ -47,6 +47,8 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.DurationFormat;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -626,6 +628,14 @@ public class VettingViewerQueue {
             ReviewHide review = new ReviewHide();
             reviewInfo.put("hidden", review.getHiddenField(ctx.userId(), ctx.getLocale().toString()));
             reviewInfo.put("direction", ctx.getDirectionForLocale());
+
+            /*
+             * Add a time stamp to the json for debugging. This is probably temporary.
+             * There's a bug we're unable to reproduce anywhere other than the production server.
+             * Reference: https://unicode-org.atlassian.net/browse/CLDR-13124
+             */
+            reviewInfo.put("debugTimeStamp", new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime()).toString());
+
             output.append(reviewInfo.toString());
         } catch (JSONException | IOException e) {
             e.printStackTrace();

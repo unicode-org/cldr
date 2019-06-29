@@ -315,7 +315,14 @@ public class DataSection implements JSONString {
                     if (inheritedLocale != null && XMLSource.CODE_FALLBACK_ID.equals(inheritedLocale.getBaseName())) {
                         return "fallback_code";
                     }
-                    if (inheritedLocale == CLDRLocale.ROOT) {
+                    /*
+                     * Formerly the following test was "if (inheritedLocale == CLDRLocale.ROOT)", but that was
+                     * unreliable due to more than one CLDRLocale object having the name "root".
+                     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13134
+                     * Also: https://unicode-org.atlassian.net/browse/CLDR-13132
+                     * If and when CLDR-13132 is fixed, the former test with "==" might be OK here.
+                     */
+                    if (inheritedLocale != null && "root".equals(inheritedLocale.getBaseName())) {
                         return "fallback_root";
                     }
                     return "fallback";

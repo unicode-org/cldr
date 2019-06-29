@@ -1312,7 +1312,7 @@ public class ShowLanguages {
             String curLocale = locale;
             while (status == null) {
                 curLocale = LocaleIDParser.getParent(curLocale);
-                if (curLocale.equals("root")) {
+                if ("root".equals(curLocale)) {
                     status = "&nbsp;";
                     break;
                 }

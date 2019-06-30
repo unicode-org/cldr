@@ -202,27 +202,31 @@ public class DisplayAndInputProcessor {
     }
 
     /**
-     * Constructor, taking locale.
+     * Constructor, taking ULocale and boolean.
      *
-     * @param locale
+     * @param locale the ULocale
+     * @param needsCollator true or false
+     *
+     * Called by getProcessor, with locale = SurveyMain.TRANS_HINT_LOCALE
      */
     public DisplayAndInputProcessor(ULocale locale, boolean needsCollator) {
         init(this.locale = CLDRLocale.getInstance(locale), needsCollator);
     }
 
     /**
-     * Constructor, taking locale.
+     * Constructor, taking ULocale.
      *
-     * @param locale
+     * @param locale the ULocale
      */
     public DisplayAndInputProcessor(ULocale locale) {
-        init(this.locale = CLDRLocale.getInstance(locale), true);
+        init(this.locale = CLDRLocale.getInstance(locale), true /* needsCollator */);
     }
 
     /**
-     * Constructor, taking locale.
+     * Constructor, taking CLDRLocale and boolean.
      *
-     * @param locale
+     * @param locale the CLDRLocale
+     * @param needsCollator true or false
      */
     public DisplayAndInputProcessor(CLDRLocale locale, boolean needsCollator) {
         init(this.locale = locale, needsCollator);

@@ -27,6 +27,11 @@ import com.ibm.icu.util.ULocale;
 public final class CLDRLocale implements Comparable<CLDRLocale> {
     private static final boolean DEBUG = false;
 
+    /*
+     * The name of the root locale. This is widely assumed to be "root".
+     */
+    private static final String ROOT_NAME = "root";
+
     public interface NameFormatter {
         String getDisplayName(CLDRLocale cldrLocale);
 
@@ -239,12 +244,12 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     }
 
     /**
-     * Returns the BCP47 langauge tag for all except root. For root, returns "root".
+     * Returns the BCP47 langauge tag for all except root. For root, returns "root" = ROOT_NAME.
      * @return
      */
     private String toDisplayLanguageTag() {
-        if (getBaseName().equals("root")) {
-            return "root";
+        if (getBaseName().equals(ROOT_NAME)) {
+            return ROOT_NAME;
         } else {
             return toLanguageTag();
         }
@@ -281,16 +286,15 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     /**
      * Initialize a CLDRLocale from a string.
      *
-     * @param str
+     * @param str the string representing a locale.
+     *
+     * If str is empty, it's equal to ULocale.ROOT.getBaseName(), and we are
+     * initializing a CLDRLocale for root.
      */
     private void init(String str) {
-        // if(str.length()==0) {
-        // str = "root";
-        // }
         str = process(str);
-        // System.err.println("bn: " + str);
-        if (str.equals(ULocale.ROOT.getBaseName()) || str.equalsIgnoreCase("root")) {
-            fullname = "root";
+        if (rootMatches(str)) {
+            fullname = ROOT_NAME;
             parent = null;
         } else {
             parts = new LocaleIDParser();
@@ -298,7 +302,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
             fullname = parts.toString();
             String parentId = LocaleIDParser.getParent(str);
             if (DEBUG) System.out.println(str + " par = " + parentId);
-            if (parentId != null) {
+            if (parentId != null && parentId.length() > 0) {
                 parent = CLDRLocale.getInstance(parentId);
             } else {
                 parent = null; // probably, we are root or we are supplemental
@@ -369,7 +373,15 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
      */
     public static CLDRLocale getInstance(String s) {
         synchronized(CLDRLocale.class) {
-            if (s == null) return null;
+            if (s == null) {
+                return null;
+            }
+            /*
+             * Normalize variations of ROOT_NAME before checking stringToLoc.
+             */
+            if (rootMatches(s)) {
+                s = ROOT_NAME;
+            }
             CLDRLocale loc = stringToLoc.get(s);
             if (loc == null) {
                 loc = new CLDRLocale(s);
@@ -379,12 +391,30 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         }
     }
 
+
+    /**
+     * Does the given string match the root locale? Treat empty string as matching,
+     * for compatibility with ULocale.ROOT (which is NOT the same as CLDRLocale.ROOT).
+     * Also, ignore case, so "RooT" matches.
+     *
+     * @param s the string
+     * @return true if the string matches ROOT_NAME, else false
+     */
+    private static boolean rootMatches(String s) {
+        /*
+         * Important:
+         * ULocale.ROOT.getBaseName() is "", the empty string, not ROOT_NAME = "root".
+         * CLDRLocale.ROOT.getBaseName() is ROOT_NAME.
+         */
+        return s.equals(ULocale.ROOT.getBaseName()) || s.equalsIgnoreCase(ROOT_NAME);
+    }
+
     /**
      * Public factory function. Allocate a CLDRLocale (could be a singleton). If null is passed in, null will be
      * returned.
      *
-     * @param u
-     * @return
+     * @param u the ULocale
+     * @return the CLDRLocale
      */
     public static CLDRLocale getInstance(ULocale u) {
         synchronized(CLDRLocale.class) {

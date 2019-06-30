@@ -169,8 +169,10 @@ public class TestCLDRUtils extends TestFmwk {
     }
 
     public void TestCLDRLocaleEquivalence() {
-        assertEquals("root is caseless", CLDRLocale.getInstance("root"), CLDRLocale.getInstance("RoOt"));
-        assertEquals("root = empty", CLDRLocale.getInstance("root"), CLDRLocale.getInstance(""));
+        assertSame("root is caseless", CLDRLocale.getInstance("root"), CLDRLocale.getInstance("RoOt"));
+        assertSame("root = empty", CLDRLocale.getInstance("root"), CLDRLocale.getInstance(""));
+        assertEquals("ROOT.basename = root", "root", CLDRLocale.ROOT.getBaseName());
+        assertSame("instance of root = ROOT", CLDRLocale.getInstance("root"), CLDRLocale.ROOT);
         String test = "zh-TW-u-co-pinyin";
         assertEquals(test, test, CLDRLocale.getInstance(test).toLanguageTag());
     }

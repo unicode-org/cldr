@@ -123,7 +123,7 @@ public abstract class Factory implements SublocaleProvider {
     public CLDRFile makeWithFallback(String localeID, DraftStatus madeWithMinimalDraftStatus) {
         String currentLocaleID = localeID;
         Set<String> availableLocales = this.getAvailable();
-        while (!availableLocales.contains(currentLocaleID) && currentLocaleID != "root") {
+        while (!availableLocales.contains(currentLocaleID) && !"root".equals(currentLocaleID)) {
             currentLocaleID = LocaleIDParser.getParent(currentLocaleID);
         }
         return make(currentLocaleID, true, madeWithMinimalDraftStatus);

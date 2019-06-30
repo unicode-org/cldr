@@ -107,12 +107,21 @@ public class LocaleIDParser {
     }
 
     /**
-     * Utility to get the parent of a locale. If the input is "root", then the output is null. Only works on canonical locale names (right casing, etc.)!
+     * Get the parent of a locale. If the input is "root", then return null.
+     * For example, if localeName is "fr_CA", return "fr".
+     *
+     * Only works on canonical locale names (right casing, etc.)!
+     *
+     * Formerly this function returned an empty string when localeName was "_VETTING".
+     * Now it returns "root" where it would have returned an empty string.
+     * TODO: explain "__VETTING", somehow related to SUMMARY_LOCALE. Note that
+     * CLDRLocale.process() changes "__" to "_" before this function is called.
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13133
      */
     public static String getParent(String localeName) {
-        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
         int pos = localeName.lastIndexOf('_');
         if (pos >= 0) {
+            SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
             String explicitParent = sdi.getExplicitParentLocale(localeName);
             if (explicitParent != null) {
                 return explicitParent;
@@ -127,9 +136,14 @@ public class LocaleIDParser {
                     return "root";
                 }
             }
+            if (truncated.length() == 0) {
+                return "root";
+            }
             return truncated;
         }
-        if (localeName.equals("root") || localeName.equals(CLDRFile.SUPPLEMENTAL_NAME)) return null;
+        if (localeName.equals("root")) {
+            return null;
+        }
         return "root";
     }
 
@@ -205,7 +219,7 @@ public class LocaleIDParser {
         String localeID = toString();
         String parentID = getParent(localeID);
 
-        String prefix = parentID.equals("root") ? "" : parentID + "_";
+        String prefix = (parentID == null || "root".equals(parentID)) ? "" : parentID + "_";
         Set<String> siblings = new TreeSet<String>();
         for (String id : set) {
             if (id.startsWith(prefix) && set(id).getLevels().equals(myLevel)) {

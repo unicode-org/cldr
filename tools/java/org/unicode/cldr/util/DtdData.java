@@ -530,6 +530,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return isDeprecatedElement;
         }
 
+        public boolean isOrdered() {
+            return isOrderedElement;
+        }
+
         public ElementStatus getElementStatus() {
             return elementStatus;
         }

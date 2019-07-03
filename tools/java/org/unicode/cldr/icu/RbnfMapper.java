@@ -3,6 +3,7 @@ package org.unicode.cldr.icu;
 import java.io.File;
 import java.util.Collection;
 
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -90,7 +91,7 @@ public class RbnfMapper extends Mapper {
                 }
                 value.append(": ");
             } else if (qName.equals("version")) {
-                icuData.replace("/Version", new String[] { MapperUtils.formatVersion(attr.getValue("number")) });
+                icuData.replace("/Version", CLDRFile.GEN_VERSION);
             }
         }
 

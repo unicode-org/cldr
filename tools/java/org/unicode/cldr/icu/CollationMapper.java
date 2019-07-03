@@ -145,7 +145,7 @@ public class CollationMapper extends Mapper {
                     subLocales = validSubLocales.split("\\s++");
                 }
             } else if (qName.equals("version")) {
-                icuData.add("/Version", MapperUtils.formatVersion(attr.getValue("number")));
+                icuData.add("/Version", CLDRFile.GEN_VERSION);
             }
             if (collationType == null) return;
 

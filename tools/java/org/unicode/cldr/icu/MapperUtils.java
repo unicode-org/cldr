@@ -6,12 +6,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.InputStreamFactory;
-import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.XMLFileReader;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.InputSource;
@@ -25,8 +21,6 @@ import org.xml.sax.XMLReader;
  * @author jchye
  */
 public class MapperUtils {
-    private static final Pattern VERSION_PATTERN = PatternCache.get("\\$Revision:\\s*([\\d.]+)\\s*\\$");
-
     /**
      * Parses an XML file.
      *
@@ -53,32 +47,6 @@ public class MapperUtils {
             System.err.println("Error loading " + inputFile.getAbsolutePath());
             e.printStackTrace();
         }
-    }
-
-    public static String formatVersion(String value) {
-        Matcher versionMatcher = VERSION_PATTERN.matcher(value);
-        int versionNum;
-        if (!versionMatcher.find()) {
-            int failPoint = RegexUtilities.findMismatch(versionMatcher, value);
-            String show = value.substring(0, failPoint) + "☹" + value.substring(failPoint);
-            System.err.println("Warning: no version match with: " + show);
-            versionNum = 0;
-        } else {
-            String rawVersion = versionMatcher.group(1);
-            // No further processing needed, e.g. "1.1"
-            if (rawVersion.contains(".")) {
-                return rawVersion;
-            }
-            versionNum = Integer.parseInt(rawVersion);
-        }
-        String version = "";
-        int numDots = 0;
-        while (versionNum > 0) {
-            version = "." + versionNum % 100 + version;
-            versionNum /= 100;
-            numDots++;
-        }
-        return (numDots > 2 ? "2" : "2.0") + version;
     }
 
     /**

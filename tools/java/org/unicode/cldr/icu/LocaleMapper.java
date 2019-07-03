@@ -401,7 +401,7 @@ public class LocaleMapper extends Mapper {
 
         // <version number="$Revision: 5806 $"/>
         String version = cldrResolved.getFullXPath("//ldml/identity/version");
-        icuData.add("/Version", MapperUtils.formatVersion(version));
+        icuData.add("/Version", CLDRFile.GEN_VERSION);
 
         // PaperSize:intvector{ 279, 216, } - now in supplemental
         // MeasurementSystem:int{1} - now in supplemental

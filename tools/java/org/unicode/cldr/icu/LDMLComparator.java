@@ -125,7 +125,6 @@ public class LDMLComparator {
     Hashtable<String, String> optionTable = new Hashtable<String, String>();
     private String destFolder = ".";
     private String localeStr;
-    private String ourCvsVersion = "";
     private Calendar cal = Calendar.getInstance();
     private Hashtable<String, String> colorHash = new Hashtable<String, String>();
     private String goldFileName;
@@ -247,8 +246,6 @@ public class LDMLComparator {
                 if ((m_totalCount == 0) && m_Vetting) { // only optional for vetting.
                     // System.out.println("INFO:  no file created (nothing to write..) " + fileName);
                 } else {
-                    ourCvsVersion = "";
-                    getCVSVersion();
                     OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(fileName), encoding);
                     System.out.println("INFO: Writing: " + fileName + "\t(" + m_totalCount + " items)");
                     PrintWriter writer = new PrintWriter(os);
@@ -269,8 +266,7 @@ public class LDMLComparator {
                         if (!m_Vetting) {
                             indexwriter.println(" <td>" + m_diffcount + "</td>");
                         }
-                        indexwriter.println(" <td>" + LDMLUtilities.getCVSLink(localeStr, ourCvsVersion)
-                            + ourCvsVersion + "</a></td>");
+                        indexwriter.println("<td></td>"); // TODO: need to calculate full path (i.e. seed/main/ssy.xml) and append to CLDRURLS.something
                         indexwriter.println("</tr>");
                         is.close();
                     }
@@ -735,10 +731,6 @@ public class LDMLComparator {
                 "<a href=\"http://oss.software.ibm.com/cgi-bin/icu/lx/en/?_=" + localeStr + "\">Demo</a>, " +
                 "<a href=\"./index.html\">Main and About</a>, " +
                 "</b></p>\n");
-            if ((ourCvsVersion != null) && (ourCvsVersion.length() > 0)) {
-                writer.println("<h3><tt>" + LDMLUtilities.getCVSLink(localeStr) + localeStr + ".xml</a> version " +
-                    LDMLUtilities.getCVSLink(localeStr, ourCvsVersion) + ourCvsVersion + "</a></tt></h3>");
-            }
             writer.print("        <table>\n");
         }
 
@@ -1692,10 +1684,6 @@ public class LDMLComparator {
         }
 
         writer.print("      </table>\n");
-    }
-
-    private void getCVSVersion() {
-        ourCvsVersion = LDMLUtilities.loadFileRevision(goldFileName);
     }
 
 } // end of class definition/declaration

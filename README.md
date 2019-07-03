@@ -1,7 +1,9 @@
 # Unicode CLDR Project
 
 Latest Release: [v35.1](http://cldr.unicode.org/index/downloads/cldr-35#TOC-V35.1) published 2019-04-17 
-
+Shago7933/Master
+New releases and code of conduct 
+Hello World
 [![Build Status](https://cldr-build.unicode.org/jenkins/buildStatus/icon?job=cldr%2Fcldr-master)](https://cldr-build.unicode.org/jenkins/job/cldr/job/cldr-master/)
 
 ### What is CLDR?

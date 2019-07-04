@@ -623,6 +623,12 @@ public class TestTransforms extends TestFmwkPlus {
         assertEquals("賈 bug", "jiǎ", pinyin.transform("賈"));
     }
 
+    public void TestHiraKata() { // for CLDR-13127 and ...
+        register();
+        Transliterator hiraKata = getTransliterator("Hiragana-Katakana");
+        assertEquals("Hira-Kata", hiraKata.transform("゛゜ わ゙ ゟ"), "゛゜ ヷ ヨリ");
+    }
+
   public void TestZawgyiToUnicode10899() {
     // Some tests for the transformation of Zawgyi font encoding to Unicode Burmese.
     Transliterator z2u = getTransliterator("my-t-my-s0-zawgyi");

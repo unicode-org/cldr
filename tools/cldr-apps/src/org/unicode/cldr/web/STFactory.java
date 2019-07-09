@@ -691,15 +691,26 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         /**
-         * Load internal data (votes, etc.) for this PerLocaleData, and push it into this.xmlsource,
-         * which is a DataBackedSource.
+         * Load internal data (votes, etc.) for this PerLocaleData, and push it into the given DataBackedSource.
+         *
+         * @param targetXmlSource the DataBackedSource which might or might not equal this.xmlsource;
+         *                        for makeVettedSource, it is a different (uncached) DataBackedSource.
          *
          * @param resolveMorePaths false to do vote resolution only on paths with votes in current votes table, or
          *                         true to do vote resolution also on all paths in trunk (for making vxml).
          *
+         * @param doStampAndListen true if we should do stamp.next() and xmlsource.addListener, or false (for making vxml).
+         *
          * Called by PerLocaleData.makeSource(resolve = false), and by PerLocaleData.makeVettedSource.
+         *
+         * TODO: revisit whether resolveMorePaths is still necessary; when added for vxml generation it involved
+         * cases where last-release value made a difference to vote resolution; now that "baseline" = trunk not
+         * last-release it's possible that vote resolution isn't needed for items without current votes.
          */
-        private void loadVoteValues(boolean resolveMorePaths) {
+        private void loadVoteValues(DataBackedSource targetXmlSource, boolean resolveMorePaths, boolean doStampAndListen) {
+            /*
+             * TODO: move the readonly check to the caller
+             */
             if (!readonly) {
                 VoteResolver<String> resolver = null; // save recalculating this.
                 ElapsedTimer et = (SurveyLog.DEBUG) ? new ElapsedTimer("Loading PLD for " + locale) : null;
@@ -787,13 +798,19 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
                 int j = 0;
                 for (String xp : xpathSet) {
-                    resolver = xmlsource.setValueFromResolver(xp, resolver, resolveMorePaths);
+                    resolver = targetXmlSource.setValueFromResolver(xp, resolver, resolveMorePaths);
                     j++;
                 }
                 SurveyLog.debug(et + " - resolved " + j + " items, " + n + " total.");
             }
-            stamp.next();
-            xmlsource.addListener(gTestCache);
+            if (doStampAndListen) {
+                /*
+                 * This is true when targetXmlSource == this.xmlsource (not making vxml).
+                 * TODO: do this in caller, instead; also maybe move this whole function inside DataBackedSource constructor
+                 */
+                stamp.next();
+                targetXmlSource.addListener(gTestCache);
+            }
         }
 
         @Override
@@ -1106,7 +1123,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 } else {
                     if (xmlsource == null) {
                         xmlsource = new DataBackedSource(this);
-                        loadVoteValues(false /* resolveMorePaths */);
+                        loadVoteValues(xmlsource, false /* resolveMorePaths */, true /* doStampAndListen */);
                     }
                     return xmlsource;
                 }
@@ -1119,12 +1136,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          *
          * This function is similar to makeSource, but with resolveMorePaths true.
          *
-         * @return this.xmlsource, the new XMLSource for this PerLocaleData.
+         * @return the DataBackedSource (NOT the same as PerLocaleData.xmlsource)
          */
         public synchronized XMLSource makeVettedSource() {
-            xmlsource = new DataBackedSource(this);
-            loadVoteValues(true /* resolveMorePaths */);
-            return xmlsource;
+            DataBackedSource vxmlSource = new DataBackedSource(this);
+            loadVoteValues(vxmlSource, true /* resolveMorePaths */, false /* doStampAndListen */);
+            return vxmlSource;
         }
 
         @Override

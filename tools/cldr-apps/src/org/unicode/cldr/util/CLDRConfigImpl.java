@@ -329,9 +329,6 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
                 pw.println("## SMTP server. Mail is disabled by default.");
                 pw.println("#CLDR_SMTP=127.0.0.1");
                 pw.println();
-                pw.println("## FROM address for mail. Don't be a bad administrator, change this.");
-                pw.println("#CLDR_FROM=bad_administrator@" + SurveyMain.localhost());
-                pw.println();
                 pw.println("# That's all!");
             }
 //            pw.close();

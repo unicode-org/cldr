@@ -156,7 +156,11 @@ public class MailSender implements Runnable {
 
             // reap old items
             java.sql.Timestamp aWeekAgo = new java.sql.Timestamp(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 7 * 3)); // reap mail after about 3 weeks
-            s2 = db.prepareStatementWithArgs(conn, "delete from " + CLDR_MAIL + " where queue_date < ? ", aWeekAgo);
+            /*
+             * TODO: fix leak warning here for s2; make it s3, or close s2 first?
+             * Reference: https://unicode-org.atlassian.net/browse/CLDR-13156
+             */
+            s2 = DBUtils.prepareStatementWithArgs(conn, "delete from " + CLDR_MAIL + " where queue_date < ? ", aWeekAgo);
 
             int countDeleted = s2.executeUpdate();
             conn.commit();
@@ -408,14 +412,6 @@ public class MailSender implements Runnable {
                     Integer from = rs.getInt("sender");
                     UserRegistry.User fromUser = getUser(from);
 
-                    String all_from = env.getProperty("CLDR_FROM", "set_CLDR_FROM_in_cldr.properties@example.com");
-
-                    if (false && from > 1) { // ticket:6334 - don't use individualized From: messages
-                        ourMessage.setFrom(new InternetAddress(fromUser.email, fromUser.name + " (SurveyTool)"));
-                    } else {
-                        ourMessage.setFrom(new InternetAddress(all_from, "CLDR SurveyTool"));
-                    }
-
                     // date
                     final Timestamp queue_date = rs.getTimestamp("queue_date");
                     ourMessage.setSentDate(queue_date); // slices
@@ -425,14 +421,13 @@ public class MailSender implements Runnable {
                     UserRegistry.User toUser = getUser(to);
                     if (toUser == null) {
                         String why;
-                        int badCount;
                         UserRegistry.User u = CookieSession.sm.reg.getInfo(to);
                         if (u != null && (UserRegistry.userIsLocked(u) || UserRegistry.userIsExactlyAnonymous(u))) {
                             why = "user " + u + " is locked or anonymous";
                         } else {
                             why = "user (#" + to + ") does not exist";
                         }
-                        rs.updateInt("try_count", (badCount = (rs.getInt("try_count") + 999))); // Don't retry.
+                        rs.updateInt("try_count", rs.getInt("try_count") + 999); // Don't retry.
                         rs.updateString("audit", why);
                         rs.updateTimestamp("try_date", sqlnow);
                         rs.updateRow();
@@ -440,11 +435,29 @@ public class MailSender implements Runnable {
                         System.out.println("Abandoning mail id # " + lastIdProcessed + " because: " + why);
                         processMail();
                         return;
-                    } else if (to > 1) {
-                        ourMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(toUser.email, toUser.name));
-                    } else {
-                        ourMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(all_from, "CLDR SurveyTool"));
                     }
+
+                    /*
+                     * The "from" address does not depend on the sender, due in part to problems with
+                     * authenticity checking schemes (such as DMARC). Instead it is a unicode.org
+                     * address, specific to the recipient user's organization, so that any bounce messages
+                     * get redirected (forwarded) back to the managers or tech-committee members for that
+                     * organization. Example: cldr-tc-reply-xyz@unicode.org, where xyz is replaced by
+                     * the organization name (lowercase, no spaces). CLDR_FROM in cldr.properties is obsolete.
+                     * References:
+                     *   https://unicode-org.atlassian.net/browse/CLDR-6334
+                     *   https://unicode-org.atlassian.net/browse/CLDR-10340
+                     */
+                    String fromEmail = "cldr-tc-reply-" + toUser.voterOrg() + "@unicode.org";
+                    ourMessage.setFrom(new InternetAddress(fromEmail, "CLDR SurveyTool"));
+
+                    InternetAddress toAddress;
+                    if (to > 1) {
+                        toAddress = new InternetAddress(toUser.email, toUser.name);
+                    } else {
+                        toAddress = new InternetAddress(fromEmail, "CLDR SurveyTool");
+                    }
+                    ourMessage.addRecipient(MimeMessage.RecipientType.TO, toAddress);
 
                     String theFrom = "";
                     if (from >= 1) {
@@ -455,10 +468,6 @@ public class MailSender implements Runnable {
                     ourMessage.addHeader("X-SurveyTool-To-User-Id", Integer.toString(to));
                     ourMessage.addHeader("X-SurveyTool-Queue-Id", Integer.toString(lastIdProcessed));
 
-                    //            if (mailFromAddress != null) {
-                    //                Address replyTo[] = { new InternetAddress(mailFromAddress, mailFromName + " (CLDR)") };
-                    //                ourMessage.setReplyTo(replyTo);
-                    //            }
                     final String header = SurveyMain.isUnofficial() ? " == UNOFFICIAL SURVEYTOOL  - This message was sent from a TEST machine== \n" : "";
                     ourMessage.setSubject(DBUtils.getStringUTF8(rs, "subject"), "UTF-8");
                     ourMessage.setText(header + theFrom + DBUtils.getStringUTF8(rs, "text") + footer, "UTF-8");

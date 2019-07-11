@@ -2177,17 +2177,18 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     // ============= User list management
-    static final String LIST_ACTION_SETLEVEL = "set_userlevel_";
-    static final String LIST_ACTION_NONE = "-";
-    static final String LIST_ACTION_SHOW_PASSWORD = "showpassword_";
-    static final String LIST_ACTION_SEND_PASSWORD = "sendpassword_";
-    static final String LIST_ACTION_SETLOCALES = "set_locales_";
-    static final String LIST_ACTION_DELETE0 = "delete0_";
-    static final String LIST_ACTION_DELETE1 = "delete_";
-    static final String LIST_JUST = "justu";
-    static final String LIST_MAILUSER = "mailthem";
-    static final String LIST_MAILUSER_WHAT = "mailthem_t";
-    static final String LIST_MAILUSER_CONFIRM = "mailthem_c";
+    private static final String LIST_ACTION_SETLEVEL = "set_userlevel_";
+    private static final String LIST_ACTION_NONE = "-";
+    private static final String LIST_ACTION_SHOW_PASSWORD = "showpassword_";
+    private static final String LIST_ACTION_SEND_PASSWORD = "sendpassword_";
+    private static final String LIST_ACTION_SETLOCALES = "set_locales_";
+    private static final String LIST_ACTION_DELETE0 = "delete0_";
+    private static final String LIST_ACTION_DELETE1 = "delete_";
+    private static final String LIST_JUST = "justu";
+    private static final String LIST_MAILUSER = "mailthem";
+    private static final String LIST_MAILUSER_WHAT = "mailthem_t";
+    private static final String LIST_MAILUSER_CONFIRM = "mailthem_c";
+    private static final String LIST_MAILUSER_CONFIRM_CODE = "confirm";
 
     public static final String PREF_SHCOVERAGE = "showcov";
 
@@ -2298,7 +2299,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 org = null; // all
             }
         }
-        String cleanEmail = null;
         String sendWhat = ctx.field(LIST_MAILUSER_WHAT);
         boolean areSendingMail = false;
         boolean didConfirmMail = false;
@@ -2309,11 +2309,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         String mailSubj = null;
         boolean hideUserList = false;
         if (UserRegistry.userCanEmailUsers(ctx.session.user)) {
-            cleanEmail = ctx.session.user.email;
-            if (cleanEmail.equals("admin@")) {
-                cleanEmail = "surveytool@unicode.org";
-            }
-            if (ctx.field(LIST_MAILUSER_CONFIRM).equals(cleanEmail)) {
+            if (ctx.field(LIST_MAILUSER_CONFIRM).equals(LIST_MAILUSER_CONFIRM_CODE)) {
                 ctx.println("<h1>sending mail to users...</h4>");
                 didConfirmMail = true;
                 mailBody = "SurveyTool Message ---\n" + sendWhat
@@ -2803,7 +2799,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                             } else { // dont' allow resend option
                                 ctx.println("<input type='hidden' name='" + LIST_MAILUSER + "' value='y'>");
                             }
-                            ctx.println("From: <b>" + cleanEmail + "</b><br>");
+                            ctx.println("From: <b>(depends on recipient organization)</b><br>");
                             if (sendWhat.length() > 0) {
                                 ctx.println("<div class='odashbox'>"
                                     + TransliteratorUtilities.toHTML.transliterate(sendWhat).replaceAll("\n", "<br>")
@@ -2811,12 +2807,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                 if (!didConfirmMail) {
                                     ctx.println("<input type='hidden' name='" + LIST_MAILUSER_WHAT + "' value='"
                                         + sendWhat.replaceAll("&", "&amp;").replaceAll("'", "&quot;") + "'>");
-                                    if (!ctx.field(LIST_MAILUSER_CONFIRM).equals(cleanEmail)
+                                    if (!ctx.field(LIST_MAILUSER_CONFIRM).equals(LIST_MAILUSER_CONFIRM_CODE)
                                         && (ctx.field(LIST_MAILUSER_CONFIRM).length() > 0)) {
-                                        ctx.println("<strong>" + ctx.iconHtml("stop", "email did not match")
-                                            + "That email didn't match. Try again.</strong><br>");
+                                        ctx.println("<strong>" + ctx.iconHtml("stop", "confirmation did not match")
+                                            + "That confirmation didn't match. Try again.</strong><br>");
                                     }
-                                    ctx.println("To confirm sending, type the email address <tt class='codebox'>" + cleanEmail
+                                    ctx.println("To confirm sending, type the confirmation code <tt class='codebox'>"
+                                        + LIST_MAILUSER_CONFIRM_CODE
                                         + "</tt> in this box : <input name='" + LIST_MAILUSER_CONFIRM + "'>");
                                 }
                             } else {

@@ -77,9 +77,8 @@ to finish on the current code base.
        # if the common data is not in TOMCAT/cldr/common you can set the following
        ##CLDR_COMMON=/work/cldr/common
 
-       # for mail uncomment these:
+       # for mail uncomment this:
        ##CLDR_SMTP=  smtp_host.example.com
-       ##CLDR_FROM=  your@email.com
 
     After changing cldr.properties you must Stop the survey tool if it was already running.
    

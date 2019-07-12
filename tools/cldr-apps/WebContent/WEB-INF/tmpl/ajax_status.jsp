@@ -146,7 +146,7 @@ var surveyImgInfo = {
             border: 0,
         },
         RSS: {
-            src: "/cldr-apps/feed.png",
+            src: "feed.png",
             alt: "[feed]",
             title: "RSS 2.0",
             border: 0,

@@ -155,6 +155,7 @@ define({
 		pClass_fallback: "This item is inherited.", //  ${inheritFromDisplay}.", - removed in r8801
 		pClassExplain_desc: "This area shows the item's status.",
 		followAlias: "Jump to Original ⇒",
+		noFollowAlias: "This item is constructed from other values.",
 		
 		override_explain_msg: "You have voted for this item with ${overrideVotes} votes instead of the usual ${votes}",
 		voteInfo_overrideExplain_desc: "",

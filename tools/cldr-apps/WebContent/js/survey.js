@@ -2696,6 +2696,7 @@ function showItemInfoFn(theRow, item) {
 function addJumpToOriginal(theRow, el) {
 	if (theRow.inheritedLocale || theRow.inheritedXpid) {
 		var loc = theRow.inheritedLocale;
+		var xpstrid = theRow.inheritedXpid || theRow.xpstrid;
 		if (!loc) {
 			loc = surveyCurrentLocale;
 		} else if (loc === 'code-fallback') {
@@ -2706,10 +2707,16 @@ function addJumpToOriginal(theRow, el) {
 			 */
 			loc = 'root';
 		}
-		var clickyLink = createChunk(stui.str('followAlias'), "a", 'followAlias');
-		clickyLink.href = '#/'+ loc + '//'+ (theRow.inheritedXpid || theRow.xpstrid);
-		el.appendChild(clickyLink);
-	}	
+		if((xpstrid === theRow.xpstrid) && // current hash
+				(loc === window.surveyCurrentLocale)) { // current locale
+			// i.e., following the alias would come back to the current item
+			el.appendChild(createChunk(stui.str('noFollowAlias'), "span", 'followAlias'));
+		} else {
+			var clickyLink = createChunk(stui.str('followAlias'), "a", 'followAlias');
+			clickyLink.href = '#/'+ loc + '//'+ xpstrid;
+			el.appendChild(clickyLink);
+		}
+	}
 }
 
 function appendExample(parent, text, loc) {

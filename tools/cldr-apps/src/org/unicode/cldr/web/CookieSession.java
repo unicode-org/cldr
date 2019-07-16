@@ -9,11 +9,12 @@
 
 package org.unicode.cldr.web;
 
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.sql.Connection;
+import java.util.Base64;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -21,8 +22,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-
-import javax.xml.bind.DatatypeConverter;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Level;
@@ -534,61 +533,20 @@ public class CookieSession {
         return out.toString();
     }
 
-    /**
-     * utility function for doing a base64 of some bytes. URL safe, converts
-     * '=/+' to ',._' respectively.
-     *
-     * @param b
-     *            some data in bytes
-     * @return string
-     */
-    public static String cheapEncode(byte b[]) {
-        StringBuffer sb = new StringBuffer(DatatypeConverter.printBase64Binary(b));
-        char c;
-        for (int i = 0; i < sb.length() && ((c = sb.charAt(i)) != '='); i++) {
-            /* if (c == '=') {
-                sb.setCharAt(i, ',');
-            } else */if (c == '/') {
-                sb.setCharAt(i, '.');
-            } else if (c == '+') {
-                sb.setCharAt(i, '_');
-            }
-        }
-
-        return sb.toString();
+    public static final String cheapEncode(byte b[]) {
+        return Base64.getUrlEncoder().withoutPadding().encodeToString(b);
     }
 
-    static final Charset utf8 = Charset.forName("UTF-8");
-
-    public static String cheapEncodeString(String s) {
-        StringBuffer sb = new StringBuffer(DatatypeConverter.printBase64Binary(s.getBytes(utf8)));
-        for (int i = 0; i < sb.length(); i++) {
-            char c = sb.charAt(i);
-            if (c == '=') {
-                sb.setCharAt(i, ',');
-            } else if (c == '/') {
-                sb.setCharAt(i, '.');
-            } else if (c == '+') {
-                sb.setCharAt(i, '_');
-            }
-        }
-        return sb.toString();
+    public static final String cheapEncodeString(String s) {
+        return cheapEncode(s.getBytes(StandardCharsets.UTF_8));
     }
 
-    public static String cheapDecodeString(String s) {
-        StringBuffer sb = new StringBuffer(s);
-        for (int i = 0; i < sb.length(); i++) {
-            char c = sb.charAt(i);
-            if (c == ',') {
-                sb.setCharAt(i, '=');
-            } else if (c == '.') {
-                sb.setCharAt(i, '/');
-            } else if (c == '_') {
-                sb.setCharAt(i, '+');
-            }
-        }
-        byte[] b = DatatypeConverter.parseBase64Binary(sb.toString());
-        return new String(b, utf8);
+    public static final String cheapDecodeString(String s) {
+        return new String(cheapDecode(s), StandardCharsets.UTF_8);
+    }
+    
+    public static final byte[] cheapDecode(String s) {
+        return Base64.getUrlDecoder().decode(s);
     }
 
     /**
@@ -926,11 +884,11 @@ public class CookieSession {
         if ((myOrg == null) || !WebContext.isCoverageOrganization(myOrg)) {
             level = WebContext.COVLEV_DEFAULT_RECOMMENDED_STRING;
         } else {
-            org.unicode.cldr.util.Level l = StandardCodes.make().getLocaleCoverageLevel(myOrg, locale);
-            if (l == Level.UNDETERMINED) {
-                l = WebContext.COVLEVEL_DEFAULT_RECOMMENDED;
+            Level coverageLevel = StandardCodes.make().getLocaleCoverageLevel(myOrg, locale);
+            if (coverageLevel == Level.UNDETERMINED) {
+                coverageLevel = WebContext.COVLEVEL_DEFAULT_RECOMMENDED;
             }
-            level = l.toString();
+            level = coverageLevel.toString();
         }
         return level;
     }

@@ -15,7 +15,7 @@ try {
 	VettingViewerQueue vvq = new VettingViewerQueue();
 	subCtx.flush();
 	out.flush();
-	    // set up the 'x' parameter to the current secrtion (r_steps, etc)
+	    // set up the 'x' parameter to the current section (r_vetting_json, etc)
 	subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
 	ctx.setQuery(SurveyMain.QUERY_LOCALE,subCtx.field(SurveyMain.QUERY_LOCALE));
 	/**

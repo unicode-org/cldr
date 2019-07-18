@@ -137,13 +137,23 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public static final String QUERY_SAVE_COOKIE = "save_cookie";
 
-    private static final String STEPSMENU_TOP_JSP = "stepsmenu_top.jsp";
-
+    /**
+     * The "r_" prefix is for r_vetting_json.jsp (Dashboard) and r_vetting.jsp (obsolete?);
+     * also "r_datetime", "r_zones", and "r_compact" -- see ReportMenu.
+     * TODO: document "r_directiontest.jsp", "r_monkey.jsp"
+     */
     private static final String REPORT_PREFIX = "r_";
 
-    private static final String R_STEPS = REPORT_PREFIX + "steps";
-    public static final String R_VETTING = REPORT_PREFIX + "vetting";
-    public static final String R_VETTING_JSON = REPORT_PREFIX + "vetting_json";
+    /**
+     * TODO: R_VETTING isn't referenced anywhere; is r_vetting.jsp still in active use?
+     * https://st.unicode.org/cldr-apps/v#r_vetting/fr//
+     */
+    public static final String R_VETTING = REPORT_PREFIX + "vetting"; // r_vetting
+
+    /**
+     * r_vetting_json.jsp is for the Dashboard
+     */
+    public static final String R_VETTING_JSON = REPORT_PREFIX + "vetting_json"; // r_vetting_json
 
     static final String ACTION_DEL = "_del";
     static final String ACTION_UNVOTE = "_unvote";
@@ -567,6 +577,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static String fileBaseASeed;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if (respondToBogusRequest(request, response)) {
+            return;
+        }
         CLDRConfigImpl.setUrls(request);
 
         if (!ensureStartup(request, response)) {
@@ -748,6 +761,31 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             Thread.currentThread().setName(baseThreadName);
             ctx.close();
         }
+    }
+
+    /**
+     * Avoid wasting time on response, or clogging logs with exceptions, if request is bogus.
+     * Respond to bogus requests with SC_NOT_FOUND.
+     *
+     * "Bogus" (for now) means the request includes obsolete "x=r_steps". st.unicode.org receives many
+     * requests with "x=r_steps" from web-crawling robots. Sample July 2019 from /var/log/nginx/access.log:
+     * "GET /cldr-apps/survey?_=ar_AE&s__=93A...&step=time_formats&x=r_steps HTTP/1.1"
+     * 200 5284 "-" "Mozilla/5.0 (compatible; SemrushBot/3~bl; +http://www.semrush.com/bot.html)"
+     *
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13135
+     *
+     * @param request the HttpServletRequest
+     * @param response the HttpServletResponse
+     * @return true if the request is bogus, else false
+     *
+     * @throws IOException
+     */
+    private boolean respondToBogusRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        if ("r_steps".equals(request.getParameter("x"))) {
+            response.sendError(HttpServletResponse.SC_NOT_FOUND); // 404
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -3308,8 +3346,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             } else {
                 title = ""; // general";
             }
-        } else if (which.equals(R_STEPS)) {
-            title = " Basic Locale Information";
         }
         printHeader(ctx, title);
         if (sessionMessage != null) {
@@ -3334,7 +3370,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
 
         /*
-         * Don't show these warnings for example/easy steps pages.
+         * Don't show these warnings for example pages.
          */
         if ((ctx.getLocale() != null) && (!shortHeader(ctx))) {
             CLDRLocale aliasTarget = isLocaleAliased(ctx.getLocale());
@@ -3386,16 +3422,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     private static boolean shortHeader(WebContext ctx) {
-        // TODO Auto-generated method stub
-        return ctx.hasField(QUERY_EXAMPLE) || R_STEPS.equals(ctx.field(SurveyMain.QUERY_SECTION));
+        return ctx.hasField(QUERY_EXAMPLE);
     }
 
     LocaleTree localeTree = null;
-
-    // protected Map<String,CLDRLocale> getLocaleListMap()
-    // {
-    // return getLocaleTree().getMap();
-    // }
 
     public CLDRLocale getLocaleCode(String localeName) {
         return getLocaleTree().getLocaleCode(localeName);
@@ -3928,9 +3958,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             // Set up checks
             if (ctx.hasField(QUERY_EXAMPLE)) {
                 ctx.println("<h3>" + ctx.getLocale() + " " + ctx.getLocale().getDisplayName() + " / " + which + " Example</h3>");
-            } else if (which.equals(R_STEPS)) {
-                // short menu.
-                ctx.includeFragment(STEPSMENU_TOP_JSP);
             } else {
                 // does not need check
                 printLocaleTreeMenu(ctx, which);

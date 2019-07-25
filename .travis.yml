@@ -1,10 +1,14 @@
 language: java
-sudo: required
+#sudo: required
 jdk:
   - openjdk8
 services:
 install: true
 script:
   ant all -f tools/java/build.xml && ant jar -f tools/java/build.xml && ant check -f tools/cldr-unittest/build.xml -DCLDR_DIR=$(pwd)
-  
+addons:
+  apt:
+    packages:
+      ant
+
 # ant -DCLDR_TOOLS=$(pwd)/tools/java -DCATALINA_HOME=cldr.tomcat -f tools/cldr-apps/build.xml

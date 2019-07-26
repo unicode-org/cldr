@@ -239,6 +239,15 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         set19.add("/unit[@type=\"length-point\"]");
         mapPathPartsToSets.put("/unit[@type=\"mass-pound\"]", set19);
 
+        // Add OK collisions for /unit[@type=\"duration-century\"]
+        Set<String> set20 = new HashSet<String>();
+        set20.add("/unitLength[@type=\"short\"]/unit[@type=\"duration-second\"]");
+        mapPathPartsToSets.put("/unitLength[@type=\"short\"]/unit[@type=\"duration-century\"]", set20);
+        // Add OK collisions for /unit[@type=\"duration-second\"]
+        Set<String> set21 = new HashSet<String>();
+        set21.add("/unitLength[@type=\"short\"]/unit[@type=\"duration-century\"]");
+        mapPathPartsToSets.put("/unitLength[@type=\"short\"]/unit[@type=\"duration-second\"]", set21);
+
         // all done, return immutable version
         return Collections.unmodifiableMap(mapPathPartsToSets);
     }

@@ -3,6 +3,15 @@
 <%@ page import="org.unicode.cldr.util.*" %>
 </form> <!--  close the ST form -->
 <%
+
+/*
+ * TODO: if this file r_vetting.jsp is no longer actively used, remove it.
+ * It can be used by directly going to a url like
+ *     https://st.unicode.org/cldr-apps/v#r_vetting/fr//
+ * but does anybody use that interface, or is it obsolete?
+ * Compare the Dashboard which uses r_vetting_json.jsp
+ */
+
 /* set the '_' parameter, to the current locale */
 subCtx.setQuery(SurveyMain.QUERY_LOCALE,ctx.localeString());
 /* flush output (sync between subCtx' stream and JSP stream ) */
@@ -19,7 +28,7 @@ subCtx.flush();
 <%
 subCtx.flush();
 out.flush();
-    // set up the 'x' parameter to the current secrtion (r_steps, etc)
+    // set up the 'x' parameter to the current section (r_vetting, etc)
 subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
 ctx.setQuery(SurveyMain.QUERY_LOCALE,subCtx.field(SurveyMain.QUERY_LOCALE));
 

@@ -134,8 +134,6 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
     	}
 		out.flush();
 		ctx.flush();
-		// commenting out easy steps until we have time to work on it more
-		/* ctx.includeFragment("report_menu.jsp");  don't use JSP include, because of variables */
 %>
 	      <br><b>Review:</b> 
 	      <% for (SurveyMain.ReportMenu m : SurveyMain.ReportMenu.values()) { 
@@ -154,9 +152,5 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
         	/* END NON JAVASCRIPT */
 			out.flush();
 			ctx.flush();
-			// commenting out easy steps until we have time to work on it more
-			
-			/* ctx.includeFragment("report_menu.jsp");  don't use JSP include, because of variables */
-			
 %>
 <!--  menu_top.jspf end -->

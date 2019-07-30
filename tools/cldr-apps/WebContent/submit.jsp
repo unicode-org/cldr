@@ -274,10 +274,7 @@
 				section.setUserAndFileForVotelist(cs.user, null);
 
 				DataSection.DataRow pvi = section.getDataRow(base);
-				final Level covLev = pvi.getCoverageLevel();
-				//final int coverageValue = covLev.getLevel();
-				CheckCLDR.StatusAction showRowAction = pvi
-						.getStatusAction();
+				CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
 
 				if (showRowAction.isForbidden()) {
 					result = "Item may not be modified. ("

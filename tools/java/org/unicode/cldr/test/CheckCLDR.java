@@ -107,8 +107,7 @@ abstract public class CheckCLDR {
         FORBID_ERRORS(true), 
         FORBID_READONLY(true), 
         FORBID_UNLESS_DATA_SUBMISSION(true), 
-        FORBID_COVERAGE(true), 
-        FORBID_NEEDS_TICKET(true);
+        FORBID_NULL(true);
 
         private final boolean isForbidden;
 
@@ -127,27 +126,6 @@ abstract public class CheckCLDR {
         public boolean canShow() {
             return !isForbidden;
         }
-
-        /**
-         * @deprecated
-         */
-        public static final StatusAction FORBID = FORBID_READONLY;
-        /**
-         * @deprecated
-         */
-        public static final StatusAction SHOW_VOTING_AND_ADD = ALLOW;
-        /**
-         * @deprecated
-         */
-        public static final StatusAction SHOW_VOTING_AND_TICKET = ALLOW_VOTING_AND_TICKET;
-        /**
-         * @deprecated
-         */
-        public static final StatusAction SHOW_VOTING_BUT_NO_ADD = ALLOW_VOTING_BUT_NO_ADD;
-        /**
-         * @deprecated
-         */
-        public static final StatusAction FORBID_HAS_ERROR = FORBID_ERRORS;
     }
 
     private static final HashMap<String, Phase> PHASE_NAMES = new HashMap<String, Phase>();
@@ -206,20 +184,11 @@ abstract public class CheckCLDR {
                 return StatusAction.ALLOW;
             }
 
-            // remove this since we no longer have an 'optional' level
-//            // if the coverage level is optional, disallow everything
-//            if (pathValueInfo.getCoverageLevel().compareTo(Level.COMPREHENSIVE) > 0) {
-//                return StatusAction.FORBID_COVERAGE;
-//            }
-
             if (status == SurveyToolStatus.HIDE) {
                 return StatusAction.FORBID_READONLY;
             }
 
             CandidateInfo winner = pathValueInfo.getCurrentItem();
-//            if (winner != null && "тлусты".equals(winner.getValue())) {
-//                int debug = 0;
-//            }
             ValueStatus valueStatus = getValueStatus(winner, ValueStatus.NONE, null);
 
             // if limited submission, and winner doesn't have an error, limit the values

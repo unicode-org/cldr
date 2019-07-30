@@ -207,10 +207,9 @@ define({
 		StatusAction_msg:              "Not submitted: ${0}",
 		StatusAction_popupmsg:         "Sorry, your vote for '${1}' could not be submitted: ${0}", // same as StatusAction_msg but with context
 		StatusAction_ALLOW:            "(Actually, it was allowed.)", // shouldn't happen
-		StatusAction_FORBID:           "Forbidden.",
 		StatusAction_FORBID_ERRORS:    "The item had errors.",
 		StatusAction_FORBID_READONLY:  "The item is read-only.",
-		StatusAction_FORBID_COVERAGE:  "The item is not visible by coverage rules.",
+		StatusAction_FORBID_NULL:      "The item has no value.",
 
 		// v.jsp
 		"v-title2_desc": "Locale title",

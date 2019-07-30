@@ -2468,8 +2468,10 @@ public class SurveyAjax extends HttpServlet {
         section.setUserAndFileForVotelist(mySession.user, null);
 
         DataRow pvi = section.getDataRow(xp);
-        final Level covLev = pvi.getCoverageLevel();
         CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
+        if (CldrUtility.INHERITANCE_MARKER.equals(val) && pvi.wouldInheritNull()) {
+            showRowAction = CheckCLDR.StatusAction.FORBID_NULL;
+        }
 
         if (otherErr != null) {
             r.put("didNotSubmit", "Did not submit.");
@@ -2524,13 +2526,6 @@ public class SurveyAjax extends HttpServlet {
                 System.err.println("Not voting: ::  " + showRowAction);
             r.put("statusAction", showRowAction);
         }
-        // don't allow adding items if
-        // ALLOW_VOTING_BUT_NO_ADD
-
-        // informational
-        r.put("cPhase", cPhase);
-        r.put("phStatus", phStatus);
-        r.put("covLev", covLev);
     }
 
     /**

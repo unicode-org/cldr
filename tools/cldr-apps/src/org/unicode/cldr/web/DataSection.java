@@ -1440,6 +1440,14 @@ public class DataSection implements JSONString {
             // }
             return ballotBox.hadVotesSometimeThisRelease(xpathId);
         }
+
+        /**
+         * Does this DataRow have null for its inherited value?
+         * @return true if inheritedValue is null, else false.
+         */
+        public boolean wouldInheritNull() {
+            return inheritedValue == null;
+        }
     }
 
     /*

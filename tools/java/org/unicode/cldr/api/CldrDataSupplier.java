@@ -1,27 +1,29 @@
 package org.unicode.cldr.api;
 
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSetMultimap;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Multimap;
-import org.unicode.cldr.api.CldrData.PrefixVisitor;
-import org.unicode.cldr.api.CldrData.ValueVisitor;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.SimpleFactory;
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.common.collect.ImmutableSet.toImmutableSet;
+import static org.unicode.cldr.api.CldrDataType.LDML;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.common.collect.ImmutableSet.toImmutableSet;
-import static org.unicode.cldr.api.CldrDataType.LDML;
+import org.unicode.cldr.api.CldrData.PrefixVisitor;
+import org.unicode.cldr.api.CldrData.ValueVisitor;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.SimpleFactory;
+
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSetMultimap;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
 
 /**
  * The main API for accessing {@link CldrPath} and {@link CldrValue} instances for CLDR data. This
@@ -64,8 +66,8 @@ public abstract class CldrDataSupplier {
 
     /**
      * Returns the current CLDR version string (e.g. {@code "36"}). This is just wrapping the
-     * underlying CLDR version string to avoid callers needing to import anything from outside the
-     * "icu" API package.
+     * underlying CLDR version string to avoid users needing to import anything from outside the
+     * "api" package.
      */
     public static String getCldrVersionString() {
         return CLDRFile.GEN_VERSION;
@@ -99,16 +101,19 @@ public abstract class CldrDataSupplier {
     }
 
     /**
-     * Returns an unresolved CLDR data instance of a single XML file. This is typically only used
-     * for accessing additional CLDR data outside the CLDR project directories.
+     * Returns an unresolved CLDR data instance of a set of XML file. This is typically only used
+     * for accessing additional CLDR data outside the CLDR project directories. The data in the
+     * specified files is merged, and it is a error if the same path appears multiple times (i.e.
+     * this input file must be "disjoint" in terms of the CLDR paths they specify).
      *
      * @param type the expected CLDR type of the data in the XML file.
-     * @param xmlFile the CLDR XML file.
      * @param draftStatus the desired status for filtering paths/values.
+     * @param xmlFiles the CLDR XML files.
      * @return a data instance for the paths/values in the specified XML file.
      */
-    public static CldrData forCldrFile(CldrDataType type, Path xmlFile, CldrDraftStatus draftStatus) {
-        return new XmlDataSource(type, ImmutableSet.of(xmlFile), draftStatus);
+    public static CldrData forCldrFiles(
+        CldrDataType type, CldrDraftStatus draftStatus, Set<Path> xmlFiles) {
+        return new XmlDataSource(type, ImmutableSet.copyOf(xmlFiles), draftStatus);
     }
 
     private static Multimap<CldrDataType, Path> createCldrDirectoryMap(Path cldrRootDir) {
@@ -146,15 +151,18 @@ public abstract class CldrDataSupplier {
     public abstract CldrDataSupplier withDraftStatusAtLeast(CldrDraftStatus draftStatus);
 
     /**
-     * Returns an LDML data supplier for the specified locale ID.
+     * Returns an LDML data instance for the specified locale ID.
      *
      * <p>If {@code resolution} is set to {@link CldrResolution#RESOLVED RESOLVED} then values
-     * inferred from parent locales and aliases will be produced by the supplier.
+     * inferred from parent locales and aliases will be produced by the supplier. Note that if an
+     * unsupported locale ID is given (i.e. one not in the set returned by
+     * {@link #getAvailableLocaleIds()}), then an empty data instance is returned.
      *
-     * @param localeId the locale ID (e.g. "en_GB") for the returned data.
+     * @param localeId the locale ID (e.g. "en_GB" or "root") for the returned data.
      * @param resolution whether to resolve CLDR values for the given locale ID according to the
-     *                   CLDR specification.
-     * @return the specified locale based CLDR data.
+     *     CLDR specification.
+     * @return the specified locale based CLDR data (possibly empty).
+     * @throws IllegalArgumentException if the locale ID is not structurally valid.
      */
     public abstract CldrData getDataForLocale(String localeId, CldrResolution resolution);
 
@@ -208,8 +216,13 @@ public abstract class CldrDataSupplier {
 
         @Override
         public CldrData getDataForLocale(String localeId, CldrResolution resolution) {
-            return new CldrFileDataSource(
-                getFactory().make(localeId, resolution == CldrResolution.RESOLVED));
+            LocaleIds.checkCldrLocaleId(localeId);
+            Factory factory = getFactory();
+            if (factory.getAvailable().contains(localeId)) {
+                return new CldrFileDataSource(
+                    factory.make(localeId, resolution == CldrResolution.RESOLVED));
+            }
+            return NO_DATA;
         }
 
         @Override
@@ -219,7 +232,11 @@ public abstract class CldrDataSupplier {
 
         @Override
         public CldrData getDataForType(CldrDataType type) {
-            return new XmlDataSource(type, listXmlFilesForType(type), draftStatus);
+            ImmutableSet<Path> xmlFiles = listXmlFilesForType(type);
+            if (!xmlFiles.isEmpty()) {
+                return new XmlDataSource(type, xmlFiles, draftStatus);
+            }
+            return NO_DATA;
         }
 
         private Stream<Path> getDirectoriesForType(CldrDataType type) {
@@ -237,20 +254,30 @@ public abstract class CldrDataSupplier {
 
         // This is a separate function because stream functions cannot throw checked exceptions.
         //
-        // Note: "Files.list()" warns about closing resources and suggests "try-with-resources" to
+        // Note: "Files.walk()" warns about closing resources and suggests "try-with-resources" to
         // ensure closure, "flatMap()" (which is what calls this method) is defined to call close()
         // on each stream as it's added into the result, so in normal use this should all be fine.
         //
         // https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#flatMap-java.util.function.Function-
         private static Stream<Path> listXmlFiles(Path dir) {
             try {
-                return Files.list(dir).filter(IS_XML_FILE);
+                return Files.walk(dir).filter(IS_XML_FILE);
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                throw new UncheckedIOException(e);
             }
         }
 
         private static final Predicate<Path> IS_XML_FILE =
             p -> Files.isRegularFile(p) && p.getFileName().toString().endsWith(".xml");
     }
+
+    private static final CldrData NO_DATA = new CldrData() {
+        @Override public void accept(PathOrder order, ValueVisitor visitor) {}
+
+        @Override public void accept(PathOrder order, PrefixVisitor visitor) {}
+
+        @Override public CldrValue get(CldrPath path) {
+            return null;
+        }
+    };
 }

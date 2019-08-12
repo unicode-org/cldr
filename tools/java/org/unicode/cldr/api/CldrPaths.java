@@ -18,6 +18,7 @@ import java.util.stream.Stream;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkState;
 import static java.lang.Integer.signum;
+import static org.unicode.cldr.api.CldrDataType.LDML;
 
 /**
  * Utilities related to CLDR paths. It's possible that one day we might wish to expose the path
@@ -80,6 +81,8 @@ final class CldrPaths {
                     .map(DtdData.Element::getName)
                     ::iterator);
         }
+        // Special case "alias" is an alternate leaf element for a lot of LDML elements.
+        leafElementsMap.put(LDML, "alias");
         LEAF_ELEMENTS_MAP = leafElementsMap.build();
         ORDERED_ELEMENTS_MAP = orderedElementsMap.build();
     }
@@ -239,19 +242,21 @@ final class CldrPaths {
         //
         // So for now I've decided to just ignore the version (since it's hardly used in the
         // ICU converter code and always available via CldrDataSupplier#getCldrVersionString().
-        //
+
+        // Hacky way to detect the version declaration in LDML files (which must always be
+        // skipped since they are duplicate paths and reveal XML file boundaries). The path is
+        // always "//ldmlXxxx/version" for some DTD type.
+        if (path.getLength() == 2 && path.getName().equals("version")) {
+            return false;
+        }
+
         // Note that there is a need for some kind of versioning for some bits of data (since
         // changes to things like collation can invalidate database search indexes) but this should
         // be handled directly in the logic which builds the ICU data and isn't strictly the same
         // as the LDML version anyway.
         //
         // TODO: Remove this code if and when LDML version strings are removed.
-        switch (path.getDataType()) {
-        case LDML:
-            return !path.equals(LDML_VERSION);
-        default:
-            return true;
-        }
+        return !path.equals(LDML_VERSION);
     }
 
     /**

@@ -46,13 +46,23 @@ public enum CldrDataType {
      */
     LDML(DtdType.ldml, true, true, DtdType.ldmlICU);
 
-    private static final ImmutableMap<DtdType, CldrDataType> RAW_TYPE_MAP =
-        Arrays.stream(values()).collect(toImmutableMap(t -> t.mainType, identity()));
+    private static final ImmutableMap<String, CldrDataType> NAME_MAP =
+        Arrays.stream(values()).collect(toImmutableMap(t -> t.mainType.name(), identity()));
+
+    /**
+     * Returns a CLDR data type given its XML name (the root element name in a CLDR path).
+     *
+     * @param name the XML path root (e.g. "ldml" or "supplementalData").
+     * @return the associated data type instance.
+     */
+    public static CldrDataType forXmlName(String name) {
+        CldrDataType type = NAME_MAP.get(name);
+        checkArgument(type != null, "unsupported DTD type: %s", name);
+        return type;
+    }
 
     static CldrDataType forRawType(DtdType rawType) {
-        CldrDataType type = RAW_TYPE_MAP.get(rawType);
-        checkArgument(type != null, "unknown DTD type: %s", rawType);
-        return type;
+        return forXmlName(rawType.name());
     }
 
     private final DtdType mainType;

@@ -130,7 +130,8 @@ final class CldrFileDataSource extends AbstractDataSource {
                 src.getFullXPath(dPath), previousElements, valueAttributes::put);
 
             if (CldrPaths.isLeafPath(cldrPath) && CldrPaths.shouldEmit(cldrPath)) {
-                safeVisit(cldrPath, value, valueAttributes, visitor);
+
+                safeVisit(CldrValue.create(value, valueAttributes, cldrPath), visitor);
             }
 
             // Prepare the element stack for next time by pushing the current path onto it.

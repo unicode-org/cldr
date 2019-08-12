@@ -388,8 +388,23 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
             return false;
         }
         CldrPath other = (CldrPath) obj;
-        // Test our own fields first, since paths will tend to differ at the ends.
-        return localEquals(other) && Objects.equals(this.parent, other.parent);
+        // Check type and length first (checking length catches most non-equal paths).
+        if (!getDataType().equals(other.getDataType()) || length != other.length) {
+            return false;
+        }
+        // Do (n - 1) comparisons since we already know the root element is the same (the root
+        // element never has value attributes on it and is uniquely defined by the DTD type).
+        // Working up from the "leaf" of the path works well because different paths will almost
+        // always be different in the leaf element (i.e. we will fail almost immediately).
+        CldrPath pthis = this;
+        for (int n = length - 1; n > 0; n--) {
+            if (!pthis.localEquals(other)) {
+                return false;
+            }
+            pthis = pthis.getParent();
+            other = other.getParent();
+        }
+        return true;
     }
 
     /** {@inheritDoc} */
@@ -407,8 +422,7 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
     private boolean localEquals(CldrPath other) {
         // In _theory_ only length and localToString need to be checked (since the localToString is
         // an unambiguous representation of the data, but it seems a bit hacky to rely on that.
-        return this.length == other.length
-            && this.elementName.equals(other.elementName)
+        return this.elementName.equals(other.elementName)
             && this.sortIndex == other.sortIndex
             && this.attributeKeyValuePairs.equals(other.attributeKeyValuePairs);
     }

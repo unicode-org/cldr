@@ -18,26 +18,6 @@ abstract class AbstractDataSource implements CldrData {
         PrefixVisitorHost.accept(this::accept, order, visitor);
     }
 
-    void safeVisit(
-        CldrPath cldrPath, String value, Map<AttributeKey, String> valueAttributes, ValueVisitor visitor) {
-
-        if (shouldEmit(cldrPath)) {
-            CldrValue cldrValue = CldrValue.create(value, valueAttributes, cldrPath);
-            safeVisit(cldrValue, visitor);
-        }
-    }
-
-    private boolean shouldEmit(CldrPath path) {
-        // Hacky way to detect the version declaration in LDML files (which must always be
-        // skipped since they are duplicate paths and reveal XML file boundaries). The path is
-        // always "//ldmlXxxx/version" for some DTD type.
-        if (path.getLength() == 2 && path.getName().equals("version")) {
-            return false;
-        }
-        // Other tests can go here if we need to skip other paths/values.
-        return true;
-    }
-
     // Helper to wrap the visit method and report errors that occur.
     static void safeVisit(CldrValue v, ValueVisitor visitor) {
         try {

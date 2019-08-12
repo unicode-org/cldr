@@ -218,7 +218,7 @@ public final class AttributeKey {
      * @param enumType the enum class type of the result.
      * @return an enum value instance from the underlying attribute value by name.
      */
-    // TODO: Handler optional enumerations (e.g. PluralRange#start/end).
+    // TODO: Handle optional enumerations (e.g. PluralRange#start/end).
     public <T extends Enum<T>> T valueFrom(AttributeSupplier src, Class<T> enumType) {
         return Enum.valueOf(enumType, valueFrom(src));
     }

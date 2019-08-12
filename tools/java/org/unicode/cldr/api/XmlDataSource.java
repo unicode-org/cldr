@@ -22,6 +22,7 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -138,7 +139,7 @@ final class XmlDataSource extends AbstractDataSource {
         try {
             return Files.newBufferedReader(p);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new UncheckedIOException(e);
         }
     }
 
@@ -157,7 +158,7 @@ final class XmlDataSource extends AbstractDataSource {
                 src.setSystemId(p.toString());
                 parseXml(xmlReader, src, p);
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                throw new UncheckedIOException(e);
             }
         }
     }
@@ -261,7 +262,7 @@ final class XmlDataSource extends AbstractDataSource {
                             value = value + Strings.repeat(" ", (elementText.length() - 1) - n);
                         }
                     }
-                    safeVisit(path, value, valueAttributes, visitor);
+                    safeVisit(CldrValue.create(value, valueAttributes, path), visitor);
                 }
             } else {
                 checkState(whitespace().matchesAllOf(elementText),
@@ -299,7 +300,7 @@ final class XmlDataSource extends AbstractDataSource {
      * @param parent parent path (or null if this is the root element).
      * @param elementName qualified element name as provided by the SAX parser.
      * @param xmlAttributes attributes as provided by the SAX parser.
-     * @param dtd the DTD information to allow attributes to be filtered and sorted correctly.
+     * @param dataType the DTD information to allow attributes to be filtered and sorted correctly.
      * @param valueAttributeCollector a collector for any non-distinguishing value attributes
      *     encountered during processing (they get "saved up" to go on the CldrValue).
      */

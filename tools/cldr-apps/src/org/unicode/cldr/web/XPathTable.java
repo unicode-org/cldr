@@ -131,8 +131,6 @@ public class XPathTable {
             sql = ("create table " + CLDR_XPATHS + "(id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", " + "xpath "
                 + DBUtils.DB_SQL_VARCHARXPATH + DBUtils.DB_SQL_MB4 + " NOT NULL" + uniqueness + ") " + DBUtils.DB_SQL_ENGINE_INNO + DBUtils.DB_SQL_MB4);
             s.execute(sql);
-            sql = ("CREATE UNIQUE INDEX unique_xpath on " + CLDR_XPATHS + " (" + xpathindex + ")");
-            s.execute(sql);
             sql = ("CREATE INDEX " + CLDR_XPATHS + "_id on " + CLDR_XPATHS + "(id)");
             s.execute(sql);
             sql = ("CREATE INDEX " + CLDR_XPATHS + "_xpath on " + CLDR_XPATHS + " (" + xpathindex + ")");

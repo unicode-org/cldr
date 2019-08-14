@@ -152,6 +152,7 @@
 	<target name="jar" depends="all,init-githash" description="build full 'cldr.jar' jar file">
 		<jar jarfile="${jar.file}" compress="true"
 			includes="org/unicode/cldr/draft/**/*,
+        		org/unicode/cldr/api/**/*,
         		org/unicode/cldr/util/**/*,
         		org/unicode/cldr/tool/**/*,
         		org/unicode/cldr/test/**/*,

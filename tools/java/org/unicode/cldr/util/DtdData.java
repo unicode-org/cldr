@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -19,6 +18,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Pattern;
 
 import com.google.common.base.CharMatcher;
@@ -652,22 +653,41 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     /**
-     * Normal version of DtdData
      * Note that it always gets the trunk version
+     * @deprecated depends on static config, use {@link DtdData#getInstance(DtdType, File)} instead
      */
     public static DtdData getInstance(DtdType type) {
-        return CACHE.get(type);
+        return getInstance(type, CLDRConfig.getInstance().getCldrBaseDirectory());
     }
-
+    
     /**
      * Special form using version, used only by tests, etc.
      */
     public static DtdData getInstance(DtdType type, String version) {
-        DtdData simpleHandler = new DtdData(type, version);
-        XMLFileReader xfr = new XMLFileReader().setHandler(simpleHandler);
         File directory = version == null ? CLDRConfig.getInstance().getCldrBaseDirectory()
             : new File(CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version);
 
+        return getInstance(type, version, directory);
+    }
+
+    private static final ConcurrentMap<Pair<DtdType, File>, DtdData> CACHE = new ConcurrentHashMap<>();
+
+    /**
+     * Normal version of DtdData
+     * Get a DtdData, given the CLDR root directory.
+     * @param type which DtdType to return
+     * @param directory the CLDR Root directory, which contains the "common" directory.
+     * @return
+     */
+    public static DtdData getInstance(DtdType type, File directory) {
+        Pair<DtdType, File> key = new Pair<>(type, directory);
+        DtdData data = CACHE.computeIfAbsent(key, k -> getInstance(type, null, directory));
+        return data;
+    }
+ 
+    private static DtdData getInstance(DtdType type, String version, File directory) {
+        DtdData simpleHandler = new DtdData(type, version);
+        XMLFileReader xfr = new XMLFileReader().setHandler(simpleHandler);
         if (type != type.rootType) {
             // read the real first, then add onto it.
             readFile(type.rootType, xfr, directory);
@@ -1660,15 +1680,4 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
         return ImmutableSetMultimap.copyOf(nonEnumeratedElementToAttribute);
     }
-
-    // ALWAYS KEEP AT END, FOR STATIC INIT ORDER
-    private static final Map<DtdType, DtdData> CACHE;
-    static {
-        EnumMap<DtdType, DtdData> temp = new EnumMap<DtdType, DtdData>(DtdType.class);
-        for (DtdType type : DtdType.values()) {
-            temp.put(type, getInstance(type, null));
-        }
-        CACHE = Collections.unmodifiableMap(temp);
-    }
-    // ALWAYS KEEP AT END, FOR STATIC INIT ORDER
 }

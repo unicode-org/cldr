@@ -486,6 +486,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         config.getServletContext().setAttribute(SurveyMain.class.getName(), this);
     }
 
+    /**
+     * This function overrides GenericServlet.init.
+     * Called by StandardWrapper.initServlet automatically.
+     * Never called for cldr-apps TestAll.java.
+     */
     public final void init(final ServletConfig config) throws ServletException {
         System.out.println("\n\n\n------------------- SurveyMain.init() ------------ " + uptime);
         try {
@@ -1246,7 +1251,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         twidHash.put(key, new Boolean(val));
     }
 
-    /* twiddle: these are params settable at runtime. */
+    /* twiddle: these are params settable at runtime.
+     * TODO: clarify, can the params change during a run of Survey Tool? How and when does that happen? */
     boolean twidBool(String x) {
         return twidBool(x, false);
     }
@@ -4167,6 +4173,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             CLDRFile translationHintsFile = getTranslationHintsFile();
             gTranslationHintsExample = new ExampleGenerator(translationHintsFile, translationHintsFile, fileBase + "/../supplemental/");
         }
+        /*
+         * TODO: to improve performance, move the following line inside the above "if" block, or explain why that can't be done.
+         * Why would we need to check this more than once? Can the return value of twidBool change during a run of Survey Tool?
+         */
         gTranslationHintsExample.setVerboseErrors(twidBool("ExampleGenerator.setVerboseErrors"));
         return gTranslationHintsExample;
     }

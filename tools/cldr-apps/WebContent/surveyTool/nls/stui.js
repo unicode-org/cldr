@@ -15,10 +15,6 @@ define({
 		checking: "Checking",
 
 		emailHidden: "(hidden)",
-		itemCount: "Items: ${itemCount}",
-		itemCountHidden: "Items shown: ${itemCount}; Items hidden at ${coverage} coverage level: ${skippedDueToCoverage}",
-		itemCountAllHidden: "No items visible due to coverage level.",
-		itemCountNone: "No items!",
 		noVotingInfo: " (no voting info received)",
 		newDataWaiting: "(new data waiting)",
 

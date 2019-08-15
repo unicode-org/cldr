@@ -1169,7 +1169,6 @@ public class WebContext implements Cloneable, Appendable {
                 }
             }
         }
-        section.touch();
         return section;
     }
 

@@ -31,7 +31,7 @@ public class TestAll extends TestGroup {
     private static class NullFormatableDate implements FormattableDate {
 
         @Override
-        public String format(Date d) {
+        public String format(@SuppressWarnings("unused") Date d) {
             return null;
         }
     }

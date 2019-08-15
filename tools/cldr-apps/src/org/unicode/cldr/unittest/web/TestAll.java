@@ -127,7 +127,7 @@ public class TestAll extends TestGroup {
             TestUserSettingsData.class.getName(),
             TestImportOldVotes.class.getName(),
             TestAnnotationVotes.class.getName()
-            },
+        },
             "All tests in CLDR Web");
     }
 
@@ -318,7 +318,6 @@ public class TestAll extends TestGroup {
      * @return
      */
     public static DataSource setupDerbyDataSource(File theDir) {
-        long start = System.currentTimeMillis();
         org.apache.derby.jdbc.EmbeddedDataSource ds = new EmbeddedDataSource();
         if (theDir != null) {
             ds.setDatabaseName(theDir.getAbsolutePath());

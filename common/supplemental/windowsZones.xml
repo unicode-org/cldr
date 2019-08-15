@@ -246,13 +246,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- (UTC-03:00) Salvador -->
 			<mapZone other="Bahia Standard Time" territory="001" type="America/Bahia"/>
 			<mapZone other="Bahia Standard Time" territory="BR" type="America/Bahia"/>
-
-			<!-- (UTC-02:00) Coordinated Universal Time-02 -->
-			<mapZone other="UTC-02" territory="001" type="Etc/GMT+2"/>
-			<mapZone other="UTC-02" territory="BR" type="America/Noronha"/>
-			<mapZone other="UTC-02" territory="GS" type="Atlantic/South_Georgia"/>
-			<mapZone other="UTC-02" territory="ZZ" type="Etc/GMT+2"/>
-
+      
+      <!-- (UTC-02:00) Mid-Atlantic Standard Time -->
+      <mapZone other="UTC-02" territory="001" type="Etc/GMT+2"/>
+      <mapZone other="UTC-02" territory="BR" type="America/Noronha"/>
+      <mapZone other="UTC-02" territory="GS" type="Atlantic/South_Georgia"/>
+      <mapZone other="UTC-02" territory="ZZ" type="Etc/GMT+2"/>
+      
+      <!-- (UTC-02:00) Mid-Atlantic Standard Time -->
+      <mapZone other="Mid-Atlantic Standard Time" territory="001" type="Etc/GMT+2"/>
+      <mapZone other="Mid-Atlantic Standard Time" territory="BR" type="America/Noronha"/>
+      <mapZone other="Mid-Atlantic Standard Time" territory="GS" type="Atlantic/South_Georgia"/>
+      <mapZone other="Mid-Atlantic Standard Time" territory="ZZ" type="Etc/GMT+2"/>
+      
 			<!-- (UTC-01:00) Azores -->
 			<mapZone other="Azores Standard Time" territory="001" type="Atlantic/Azores"/>
 			<mapZone other="Azores Standard Time" territory="GL" type="America/Scoresbysund"/>
@@ -460,9 +466,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Belarus Standard Time" territory="001" type="Europe/Minsk"/>
 			<mapZone other="Belarus Standard Time" territory="BY" type="Europe/Minsk"/>
 
-			<!-- (UTC+03:00) Moscow, St. Petersburg, Volgograd -->
+			<!-- (UTC+03:00) Moscow, St. Petersburg -->
 			<mapZone other="Russian Standard Time" territory="001" type="Europe/Moscow"/>
-			<mapZone other="Russian Standard Time" territory="RU" type="Europe/Moscow Europe/Kirov Europe/Volgograd"/>
 			<mapZone other="Russian Standard Time" territory="UA" type="Europe/Simferopol"/>
 
 			<!-- (UTC+03:00) Nairobi -->
@@ -484,8 +489,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- (UTC+03:30) Tehran -->
 			<mapZone other="Iran Standard Time" territory="001" type="Asia/Tehran"/>
 			<mapZone other="Iran Standard Time" territory="IR" type="Asia/Tehran"/>
-
-			<!-- (UTC+04:00) Abu Dhabi, Muscat -->
+      
+      <!-- (UTC+04:00) Abu Dhabi, Muscat -->
 			<mapZone other="Arabian Standard Time" territory="001" type="Asia/Dubai"/>
 			<mapZone other="Arabian Standard Time" territory="AE" type="Asia/Dubai"/>
 			<mapZone other="Arabian Standard Time" territory="OM" type="Asia/Muscat"/>
@@ -517,7 +522,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Georgian Standard Time" territory="001" type="Asia/Tbilisi"/>
 			<mapZone other="Georgian Standard Time" territory="GE" type="Asia/Tbilisi"/>
 
-			<!-- (UTC+04:00) Yerevan -->
+      <!-- (UTC+04:00) Volgograd -->
+      <mapZone other="Volgograd Standard Time" territory="001" type="Europe/Volgograd"/>
+      <mapZone other="Volgograd Standard Time" territory="RU" type="Europe/Volgograd"/>
+
+      <!-- (UTC+04:00) Yerevan -->
 			<mapZone other="Caucasus Standard Time" territory="001" type="Asia/Yerevan"/>
 			<mapZone other="Caucasus Standard Time" territory="AM" type="Asia/Yerevan"/>
 
@@ -528,7 +537,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- (UTC+05:00) Ashgabat, Tashkent -->
 			<mapZone other="West Asia Standard Time" territory="001" type="Asia/Tashkent"/>
 			<mapZone other="West Asia Standard Time" territory="AQ" type="Antarctica/Mawson"/>
-			<mapZone other="West Asia Standard Time" territory="KZ" type="Asia/Oral Asia/Aqtau Asia/Aqtobe Asia/Atyrau Asia/Qyzylorda"/>
+			<mapZone other="West Asia Standard Time" territory="KZ" type="Asia/Oral Asia/Aqtau Asia/Aqtobe Asia/Atyrau"/>
 			<mapZone other="West Asia Standard Time" territory="MV" type="Indian/Maldives"/>
 			<mapZone other="West Asia Standard Time" territory="TF" type="Indian/Kerguelen"/>
 			<mapZone other="West Asia Standard Time" territory="TJ" type="Asia/Dushanbe"/>
@@ -536,7 +545,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="West Asia Standard Time" territory="UZ" type="Asia/Tashkent Asia/Samarkand"/>
 			<mapZone other="West Asia Standard Time" territory="ZZ" type="Etc/GMT-5"/>
 
-			<!-- (UTC+05:00) Ekaterinburg -->
+
+      <!-- (UTC+05:00) Kyzylorda -->
+      <mapZone other="Qyzylorda Standard Time" territory="001" type="Asia/Qyzylorda"/>
+      <mapZone other="Qyzylorda Standard Time" territory="KZ" type="Asia/Qyzylorda"/>
+
+
+      <!-- (UTC+05:00) Ekaterinburg -->
 			<mapZone other="Ekaterinburg Standard Time" territory="001" type="Asia/Yekaterinburg"/>
 			<mapZone other="Ekaterinburg Standard Time" territory="RU" type="Asia/Yekaterinburg"/>
 
@@ -736,9 +751,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Central Pacific Standard Time" territory="VU" type="Pacific/Efate"/>
 			<mapZone other="Central Pacific Standard Time" territory="ZZ" type="Etc/GMT-11"/>
 
-			<!-- (UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky -->
-			<mapZone other="Russia Time Zone 11" territory="001" type="Asia/Kamchatka"/>
-			<mapZone other="Russia Time Zone 11" territory="RU" type="Asia/Kamchatka Asia/Anadyr"/>
+      <!-- (UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky -->
+      <mapZone other="Russia Time Zone 11" territory="001" type="Asia/Anadyr"/>
+      <mapZone other="Russia Time Zone 11" territory="RU" type="Asia/Anadyr"/>
+
+      <!-- (UTC+12:00) Kamchatka -->
+      <mapZone other="Kamchatka Standard Time" territory="001" type="Asia/Kamchatka"/>
+      <mapZone other="Kamchatka Standard Time" territory="RU" type="Asia/Kamchatka"/>
 
 			<!-- (UTC+12:00) Auckland, Wellington -->
 			<mapZone other="New Zealand Standard Time" territory="001" type="Pacific/Auckland"/>

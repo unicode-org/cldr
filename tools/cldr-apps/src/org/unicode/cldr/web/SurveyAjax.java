@@ -359,7 +359,7 @@ public class SurveyAjax extends HttpServlet {
                 JSONWriter r = newJSONStatus(sm);
                 final String day = DBUtils.db_Mysql ? "DATE_FORMAT(last_mod, '%Y-%m-%d')" : "last_mod ";
                 final String sql = "select submitter," + day + " as day,locale,count(*) as count from " + DBUtils.Table.VOTE_VALUE
-                    + " group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod)  order by day desc";
+                    + " group by submitter,locale,YEAR(last_mod),MONTH(last_mod),day order by day desc";
                 JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 60 * 1000,
                     sql);
                 r.put(what, query);

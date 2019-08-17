@@ -1,6 +1,10 @@
 package org.unicode.cldr.api;
 
+import static com.google.common.base.Preconditions.checkArgument;
+
 import java.util.Map;
+
+import org.unicode.cldr.util.CldrUtility;
 
 /**
  * Base class for any non-trivial implementation of the CldrData interface. The main benefit of
@@ -19,12 +23,12 @@ abstract class AbstractDataSource implements CldrData {
     }
 
     // Helper to wrap the visit method and report errors that occur.
-    static void safeVisit(CldrValue v, ValueVisitor visitor) {
+    static void safeVisit(CldrValue cldrValue, ValueVisitor visitor) {
         try {
-            visitor.visit(v);
+            visitor.visit(cldrValue);
         } catch (RuntimeException e) {
             // TODO: Throw wrapped exception but ensure it's not rewrapped by parent visitors!
-            System.err.format("Exception thrown by value visitor for value: %s\n", v);
+            System.err.format("Exception thrown by value visitor for value: %s\n", cldrValue);
             System.err.println(e);
             e.printStackTrace(System.err);
         }

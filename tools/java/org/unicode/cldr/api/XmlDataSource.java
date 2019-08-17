@@ -10,6 +10,8 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedMap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multiset;
+
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CachingEntityResolver;
 import org.xml.sax.Attributes;
 import org.xml.sax.ErrorHandler;
@@ -175,6 +177,18 @@ final class XmlDataSource extends AbstractDataSource {
                 "error reading " + path + " (line " + e.getLineNumber() + ")", e);
         } catch (SAXException | IOException e) {
             throw new IllegalArgumentException("error reading " + path, e);
+        } catch (RuntimeException e) {
+            // TODO: Solve this properly by using a parser that we completely control.
+            throw new RuntimeException("\n"
+                + "------------------------------------------------------------------\n"
+                + "Unknown error reading " + path + "\n"
+                + "\n"
+                + "This can sometimes be caused by using a version of Java which does\n"
+                + "not support all the XML parsing features required by this tool.\n"
+                + "Try setting the JAVA_HOME environment variable to a different Java\n"
+                + "release, if possible.\n"
+                + "------------------------------------------------------------------\n>",
+                e);
         }
     }
 
@@ -236,14 +250,17 @@ final class XmlDataSource extends AbstractDataSource {
                     // IMPORTANT: The CldrFile class doesn't just trim whitespace at the start and
                     // end of values, it also removes any blank lines (unconditionally) on the
                     // apparent assumption that it is never important. However it doesn't remove
-                    // leading whitespace if there isn't a newline in it.
+                    // leading whitespace if there isn't a newline in the value.
                     //
                     // Thus: "  foo  \n  bar  " becomes "  foo\nbar  ", and not "foo\nbar".
                     //
+                    // This relates to the fact that whitespace (in many forms) is permitted in
+                    // CLDR values and the Display and Input Processor (DAIP) which write CLDR
+                    // values has special rules about whitespace handling. See "addPath()" and
+                    // "trimWhitespaceSpecial()" in CLDRFile.
+                    //
                     // This is duplicated here but could be adapted or modified if necessary. In
                     // particular this is not the same as trimAndCollapseFrom() in CharMatcher.
-                    //
-                    // See "addPath()" and "trimWhitespaceSpecial()" in CLDRFile.
                     //
                     // The least hacky way to do this is to trim and remove all whitespace, and
                     // then add back any leading/trailing whitespace (providing it doesn't contain

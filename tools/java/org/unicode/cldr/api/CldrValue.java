@@ -3,6 +3,7 @@ package org.unicode.cldr.api;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import org.unicode.cldr.api.AttributeKey.AttributeSupplier;
+import org.unicode.cldr.util.CldrUtility;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -70,7 +71,13 @@ public final class CldrValue implements AttributeSupplier {
     private final int hashCode;
 
     private CldrValue(String value, Map<AttributeKey, String> attributes, CldrPath path) {
-        // Empty value strings are permitted (but null is not).
+        // Since early 2019 there's been the possibility of getting the inheritance marker as
+        // a value for a path. This indicates that the value does NOT actually exist for a
+        // locale and would be inherited. However everything that creates a CldrValue instance
+        // is expected to deal with this and we should never see inheritance markers here.
+        // Note: This also serves as a null check for values.
+        checkArgument(!value.equals(CldrUtility.INHERITANCE_MARKER),
+            "unexpected inheritance marker '%s' for path: %s", value, path);
         this.value = checkNotNull(value);
         this.attributes = checkAttributeMap(attributes);
         this.path = checkNotNull(path);

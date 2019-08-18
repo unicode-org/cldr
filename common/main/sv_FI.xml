@@ -29,10 +29,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</types>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters draft="unconfirmed">[a à b c d e é f g h i j k l m n o p q r s t u v x y z å ä ö]</exemplarCharacters>
+		<exemplarCharacters draft="contributed">↑↑↑</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
+			<calendar type="generic">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Bhm" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Bhms" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBhm" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBhms" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehm" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EHm" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehms" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EHms" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hm" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hm" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hms" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Md" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MEd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="ms" draft="contributed">↑↑↑</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="gregorian">
 				<quarters>
 					<quarterContext type="format">
@@ -55,17 +78,49 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="contributed">dd-MM-y</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Bhm" draft="contributed">h.mm B</dateFormatItem>
+						<dateFormatItem id="Bhms" draft="contributed">h.mm.ss B</dateFormatItem>
+						<dateFormatItem id="EBhm" draft="contributed">E h.mm B</dateFormatItem>
+						<dateFormatItem id="EBhms" draft="contributed">E h.mm.ss B</dateFormatItem>
+						<dateFormatItem id="Ehm" draft="contributed">E h.mm a</dateFormatItem>
+						<dateFormatItem id="EHm" draft="contributed">E HH.mm</dateFormatItem>
+						<dateFormatItem id="Ehms" draft="contributed">E h.mm.ss a</dateFormatItem>
+						<dateFormatItem id="EHms" draft="contributed">E HH.mm.ss</dateFormatItem>
+						<dateFormatItem id="hm" draft="contributed">h.mm a</dateFormatItem>
+						<dateFormatItem id="Hm" draft="contributed">HH.mm</dateFormatItem>
+						<dateFormatItem id="hms" draft="contributed">h.mm.ss a</dateFormatItem>
+						<dateFormatItem id="Hms" draft="contributed">HH.mm.ss</dateFormatItem>
+						<dateFormatItem id="hmsv" draft="contributed">h.mm.ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv" draft="contributed">HH.mm.ss v</dateFormatItem>
+						<dateFormatItem id="hmv" draft="contributed">h.mm a v</dateFormatItem>
+						<dateFormatItem id="Hmv" draft="contributed">HH.mm v</dateFormatItem>
+						<dateFormatItem id="Md" draft="contributed">d.M</dateFormatItem>
+						<dateFormatItem id="MEd" draft="contributed">E d.M</dateFormatItem>
+						<dateFormatItem id="MMd" draft="contributed">d.M</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="contributed">dd.MM</dateFormatItem>
+						<dateFormatItem id="ms" draft="contributed">mm.ss</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
+	<numbers>
+		<symbols numberSystem="latn">
+			<timeSeparator draft="contributed">.</timeSeparator>
+			<timeSeparator alt="variant" draft="contributed">:</timeSeparator>
+		</symbols>
+	</numbers>
 	<units>
 		<unitLength type="short">
 			<unit type="temperature-celsius">
-				<displayName draft="provisional">grader Celsius</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0} °C</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">

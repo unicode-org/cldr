@@ -167,7 +167,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
-			<!-- The parent locale uses spaces, so we must also use spaces. -->
 			<unit type="duration-year">
 				<unitPattern count="one" draft="contributed">{0} an</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ani</unitPattern>

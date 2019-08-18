@@ -13,6 +13,6 @@ public class DraftUtils {
     /**
      * This actually refers into the unicodetools project.
      */
-    public static final String UCD_DIRECTORY = CldrUtility.getPath(CLDRPaths.EXTERNAL_DIRECTORY, "unicodetools/data/ucd/9.0.0-Update");
+    public static final String UCD_DIRECTORY = CldrUtility.getPath(CLDRPaths.SVN_DIRECTORY, "unicodetools/data/ucd/9.0.0-Update");
 
 }

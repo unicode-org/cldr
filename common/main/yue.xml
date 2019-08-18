@@ -622,6 +622,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="yo">約魯巴文</language>
 			<language type="yrl">奈恩加圖文</language>
 			<language type="yue">粵語</language>
+			<language type="yue" alt="menu">中文 (粵語)</language>
 			<language type="za">壯文</language>
 			<language type="zap">薩波特克文</language>
 			<language type="zbl">布列斯符號</language>
@@ -629,8 +630,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zen">澤納加文</language>
 			<language type="zgh">標準摩洛哥塔馬塞特文</language>
 			<language type="zh">中文</language>
+			<language type="zh" alt="menu">中文 (普通話)</language>
 			<language type="zh_Hans">簡體中文</language>
+			<language type="zh_Hans" alt="long">簡體中文 (普通話)</language>
 			<language type="zh_Hant">繁體中文</language>
+			<language type="zh_Hant" alt="long">繁體中文 (普通話)</language>
 			<language type="zu">祖魯文</language>
 			<language type="zun">祖尼文</language>
 			<language type="zxx">無語言內容</language>
@@ -884,6 +888,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CG" alt="variant">剛果共和國</territory>
 			<territory type="CH">瑞士</territory>
 			<territory type="CI">象牙海岸</territory>
+			<territory type="CI" alt="variant">象牙海岸</territory>
 			<territory type="CK">庫克群島</territory>
 			<territory type="CL">智利</territory>
 			<territory type="CM">喀麥隆</territory>
@@ -994,6 +999,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MG">馬達加斯加</territory>
 			<territory type="MH">馬紹爾群島</territory>
 			<territory type="MK">北馬其頓</territory>
+			<territory type="MK" alt="variant">北馬其頓</territory>
 			<territory type="ML">馬利</territory>
 			<territory type="MM">緬甸</territory>
 			<territory type="MN">蒙古</territory>
@@ -1066,6 +1072,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SX">荷屬聖馬丁</territory>
 			<territory type="SY">敘利亞</territory>
 			<territory type="SZ">史瓦濟蘭</territory>
+			<territory type="SZ" alt="variant">斯威士蘭</territory>
 			<territory type="TA">特里斯坦達庫尼亞群島</territory>
 			<territory type="TC">土克斯及開科斯群島</territory>
 			<territory type="TD">查德</territory>
@@ -1075,6 +1082,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TJ">塔吉克</territory>
 			<territory type="TK">托克勞群島</territory>
 			<territory type="TL">東帝汶</territory>
+			<territory type="TL" alt="variant">東帝汶</territory>
 			<territory type="TM">土庫曼</territory>
 			<territory type="TN">突尼西亞</territory>
 			<territory type="TO">東加</territory>
@@ -1101,6 +1109,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="WF">瓦利斯同富圖納群島</territory>
 			<territory type="WS">薩摩亞</territory>
 			<territory type="XA">偽口音</territory>
+			<territory type="XB">偽 Bidi</territory>
 			<territory type="XK">科索沃</territory>
 			<territory type="YE">葉門</territory>
 			<territory type="YT">馬約特</territory>
@@ -1176,22 +1185,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<keys>
 			<key type="calendar">曆法</key>
 			<key type="cf">貨幣格式</key>
-			<key type="colAlternate" draft="contributed">略過符號排序</key>
-			<key type="colBackwards" draft="contributed">反向重音排序</key>
-			<key type="colCaseFirst" draft="contributed">大寫/小寫排列</key>
-			<key type="colCaseLevel" draft="contributed">區分大小寫排序</key>
+			<key type="colAlternate">略過符號排序</key>
+			<key type="colBackwards">反向重音排序</key>
+			<key type="colCaseFirst">大寫/小寫排列</key>
+			<key type="colCaseLevel">區分大小寫排序</key>
 			<key type="collation">排序</key>
-			<key type="colNormalization" draft="contributed">正規化排序</key>
-			<key type="colNumeric" draft="contributed">數字排序</key>
-			<key type="colStrength" draft="contributed">排序強度</key>
+			<key type="colNormalization">正規化排序</key>
+			<key type="colNumeric">數字排序</key>
+			<key type="colStrength">排序強度</key>
 			<key type="currency">貨幣</key>
 			<key type="hc">時間週期（12 小時制與 24 小時制）</key>
 			<key type="lb">換行樣式</key>
 			<key type="ms">度量單位系統</key>
 			<key type="numbers">數字</key>
-			<key type="timezone" draft="contributed">時區</key>
-			<key type="va" draft="contributed">區域變異</key>
-			<key type="x" draft="contributed">專用區</key>
+			<key type="timezone">時區</key>
+			<key type="va">區域變異</key>
+			<key type="x">專用區</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">佛曆</type>
@@ -2910,6 +2919,44 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d日至d日</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">Gy年至Gy年</greatestDifference>
+							<greatestDifference id="y">Gy年至y年</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">GGGGGy年M月至y年M月</greatestDifference>
+							<greatestDifference id="M">GGGGGy年M月至y年M月</greatestDifference>
+							<greatestDifference id="y">GGGGGy年M月至y年M月</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">GGGGGy年M月dd日至y年M月dd日</greatestDifference>
+							<greatestDifference id="G">GGGGGy年M月dd日y年M月dd日</greatestDifference>
+							<greatestDifference id="M">GGGGGy年M月dd日至y年M月dd日</greatestDifference>
+							<greatestDifference id="y">GGGGGy年M月dd日至y年M月dd日</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">GGGGGy年M月dd日E至y年M月dd日E</greatestDifference>
+							<greatestDifference id="G">GGGGGy年M月dd日E至GGGGGy年M月dd日E</greatestDifference>
+							<greatestDifference id="M">GGGGGy年M月dd日E至y年M月dd日E</greatestDifference>
+							<greatestDifference id="y">GGGGGy年M月dd日E至y年M月dd日E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">Gy年MMM至Gy年MMM</greatestDifference>
+							<greatestDifference id="M">G y年MMM至MMM</greatestDifference>
+							<greatestDifference id="y">Gy年MMM至y年MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">Gy年MMMd至d日</greatestDifference>
+							<greatestDifference id="G">Gy年MMMd日至Gy年MMMd日</greatestDifference>
+							<greatestDifference id="M">Gy年MMMd日至MMMd日</greatestDifference>
+							<greatestDifference id="y">Gy年MMMd日至y年MMMd日</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">Gy年MMMd日E至MMMd日E</greatestDifference>
+							<greatestDifference id="G">Gy 年MMMd日E至Gy年MMMd日E</greatestDifference>
+							<greatestDifference id="M">Gy年MMMd日E至MMMd日E</greatestDifference>
+							<greatestDifference id="y">Gy年MMMd日E至y年MMMd日E</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">ah時至ah時</greatestDifference>
 							<greatestDifference id="h">ah時至h時</greatestDifference>
@@ -3884,6 +3931,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-short">
 				<displayName>年</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 年後</relativeTimePattern>
 				</relativeTime>
@@ -3893,6 +3943,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-narrow">
 				<displayName>年</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 年後</relativeTimePattern>
 				</relativeTime>
@@ -3950,6 +4003,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="month-short">
 				<displayName>月</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 個月後</relativeTimePattern>
 				</relativeTime>
@@ -3959,6 +4015,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="month-narrow">
 				<displayName>月</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 個月後</relativeTimePattern>
 				</relativeTime>
@@ -3981,6 +4040,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="week-short">
 				<displayName>週</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 個星期後</relativeTimePattern>
 				</relativeTime>
@@ -3991,6 +4053,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="week-narrow">
 				<displayName>週</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 個星期後</relativeTimePattern>
 				</relativeTime>
@@ -4024,6 +4089,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-short">
 				<displayName>日</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 日後</relativeTimePattern>
 				</relativeTime>
@@ -4033,6 +4101,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-narrow">
 				<displayName>日</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 日後</relativeTimePattern>
 				</relativeTime>
@@ -5085,6 +5156,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>阿克托比</exemplarCity>
+			</zone>
+			<zone type="Asia/Qostanay">
+				<exemplarCity>科斯塔奈</exemplarCity>
 			</zone>
 			<zone type="Asia/Qyzylorda">
 				<exemplarCity>克孜勒奧爾達</exemplarCity>
@@ -6666,13 +6740,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
 		<otherNumberingSystems>
 			<native>hanidec</native>
 			<traditional>hant</traditional>
 			<finance>hantfin</finance>
 		</otherNumberingSystems>
+		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
 		<symbols numberSystem="hanidec">
+			<decimal draft="contributed">.</decimal>
+			<group draft="contributed">,</group>
 			<percentSign>%</percentSign>
+			<plusSign draft="contributed">+</plusSign>
+			<minusSign draft="contributed">-</minusSign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
@@ -6680,8 +6760,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nan>非數值</nan>
 		</symbols>
 		<symbols numberSystem="latn">
+			<decimal draft="contributed">.</decimal>
+			<group draft="contributed">,</group>
 			<list>;</list>
 			<percentSign>%</percentSign>
+			<plusSign draft="contributed">+</plusSign>
+			<minusSign draft="contributed">-</minusSign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
@@ -6689,7 +6773,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nan>非數值</nan>
 			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
+		<decimalFormats numberSystem="hanidec">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="contributed">#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="contributed">#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
 					<pattern type="1000" count="other">0</pattern>
@@ -6794,6 +6890,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="AED">
 				<displayName>阿拉伯聯合大公國迪爾汗</displayName>
 				<displayName count="other">阿拉伯聯合大公國迪爾汗</displayName>
+				<symbol draft="contributed">AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>阿富汗尼 (1927–2002)</displayName>
@@ -6803,6 +6900,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="AFN">
 				<displayName>阿富汗尼</displayName>
 				<displayName count="other">阿富汗尼</displayName>
+				<symbol draft="contributed">AFN</symbol>
 			</currency>
 			<currency type="ALK">
 				<displayName draft="contributed">阿爾巴尼亞列克 (1946–1965)</displayName>
@@ -6812,18 +6910,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="ALL">
 				<displayName>阿爾巴尼亞列克</displayName>
 				<displayName count="other">阿爾巴尼亞列克</displayName>
+				<symbol draft="contributed">ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>亞美尼亞德拉姆</displayName>
 				<displayName count="other">亞美尼亞德拉姆</displayName>
+				<symbol draft="contributed">AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>荷屬安地列斯盾</displayName>
 				<displayName count="other">荷屬安地列斯盾</displayName>
+				<symbol draft="contributed">ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>安哥拉寬扎</displayName>
 				<displayName count="other">安哥拉寬扎</displayName>
+				<symbol draft="contributed">AOA</symbol>
+				<symbol alt="narrow" draft="contributed">Kz</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>安哥拉寬扎 (1977–1990)</displayName>
@@ -6863,6 +6966,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="ARS">
 				<displayName>阿根廷披索</displayName>
 				<displayName count="other">阿根廷披索</displayName>
+				<symbol draft="contributed">ARS</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>奧地利先令</displayName>
@@ -6873,10 +6978,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>澳幣</displayName>
 				<displayName count="other">澳幣</displayName>
 				<symbol>AU$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>阿路巴盾</displayName>
 				<displayName count="other">阿路巴盾</displayName>
+				<symbol draft="contributed">AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>亞塞拜然馬納特 (1993–2006)</displayName>
@@ -6886,6 +6993,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="AZN">
 				<displayName>亞塞拜然馬納特</displayName>
 				<displayName count="other">亞塞拜然馬納特</displayName>
+				<symbol draft="contributed">AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>波士尼亞-赫塞哥維納第納爾</displayName>
@@ -6895,6 +7003,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="BAM">
 				<displayName>波士尼亞-赫塞哥維納可轉換馬克</displayName>
 				<displayName count="other">波士尼亞-赫塞哥維納可轉換馬克</displayName>
+				<symbol draft="contributed">BAM</symbol>
+				<symbol alt="narrow" draft="contributed">KM</symbol>
 			</currency>
 			<currency type="BAN">
 				<displayName>波士尼亞-赫塞哥維納新第納爾</displayName>
@@ -6904,10 +7014,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="BBD">
 				<displayName>巴貝多元</displayName>
 				<displayName count="other">巴貝多元</displayName>
+				<symbol draft="contributed">BBD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>孟加拉塔卡</displayName>
 				<displayName count="other">孟加拉塔卡</displayName>
+				<symbol draft="contributed">BDT</symbol>
+				<symbol alt="narrow" draft="contributed">৳</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>比利時法郎（可轉換）</displayName>
@@ -6937,6 +7051,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="BGN">
 				<displayName>保加利亞新列弗</displayName>
 				<displayName count="other">保加利亞新列弗</displayName>
+				<symbol draft="contributed">BGN</symbol>
 			</currency>
 			<currency type="BGO">
 				<displayName>保加利亞列弗 (1879–1952)</displayName>
@@ -6946,22 +7061,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="BHD">
 				<displayName>巴林第納爾</displayName>
 				<displayName count="other">巴林第納爾</displayName>
+				<symbol draft="contributed">BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>蒲隆地法郎</displayName>
 				<displayName count="other">蒲隆地法郎</displayName>
+				<symbol draft="contributed">BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>百慕達幣</displayName>
 				<displayName count="other">百慕達幣</displayName>
+				<symbol draft="contributed">BMD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>汶萊元</displayName>
 				<displayName count="other">汶萊元</displayName>
+				<symbol draft="contributed">BND</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>玻利維亞諾</displayName>
 				<displayName count="other">玻利維亞諾</displayName>
+				<symbol draft="contributed">BOB</symbol>
+				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="BOL">
 				<displayName>玻利維亞玻利維亞諾 (1863–1963)</displayName>
@@ -6996,6 +7119,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="BRL">
 				<displayName>巴西里拉</displayName>
 				<displayName count="other">巴西里拉</displayName>
+				<symbol draft="contributed">R$</symbol>
+				<symbol alt="narrow" draft="contributed">R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>巴西克如爾達農瓦</displayName>
@@ -7015,10 +7140,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="BSD">
 				<displayName>巴哈馬元</displayName>
 				<displayName count="other">巴哈馬元</displayName>
+				<symbol draft="contributed">BSD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>不丹那特倫</displayName>
 				<displayName count="other">不丹那特倫</displayName>
+				<symbol draft="contributed">BTN</symbol>
 			</currency>
 			<currency type="BUK">
 				<displayName>緬甸基雅特</displayName>
@@ -7028,6 +7156,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="BWP">
 				<displayName>波札那普拉</displayName>
 				<displayName count="other">波札那普拉</displayName>
+				<symbol draft="contributed">BWP</symbol>
+				<symbol alt="narrow" draft="contributed">P</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>白俄羅斯新盧布 (1994–1999)</displayName>
@@ -7043,18 +7173,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="BYR">
 				<displayName>白俄羅斯盧布 (2000–2016)</displayName>
 				<displayName count="other">白俄羅斯盧布 (2000–2016)</displayName>
+				<symbol draft="contributed">BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>貝里斯元</displayName>
 				<displayName count="other">貝里斯元</displayName>
+				<symbol draft="contributed">BZD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>加幣</displayName>
 				<displayName count="other">加幣</displayName>
+				<symbol draft="contributed">CA$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>剛果法郎</displayName>
 				<displayName count="other">剛果法郎</displayName>
+				<symbol draft="contributed">CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName draft="contributed">歐元 (WIR)</displayName>
@@ -7064,6 +7200,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="CHF">
 				<displayName>瑞士法郎</displayName>
 				<displayName count="other">瑞士法郎</displayName>
+				<symbol draft="contributed">CHF</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName draft="contributed">法郎 (WIR)</displayName>
@@ -7083,10 +7220,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="CLP">
 				<displayName>智利披索</displayName>
 				<displayName count="other">智利披索</displayName>
+				<symbol draft="contributed">CLP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CNH">
 				<displayName>人民幣 (離岸)</displayName>
 				<displayName count="other">人民幣 (離岸)</displayName>
+				<symbol draft="contributed">CNH</symbol>
 			</currency>
 			<currency type="CNX">
 				<symbol draft="contributed">CNX</symbol>
@@ -7094,10 +7234,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="CNY">
 				<displayName>人民幣</displayName>
 				<displayName count="other">人民幣</displayName>
+				<symbol draft="contributed">CN¥</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>哥倫比亞披索</displayName>
 				<displayName count="other">哥倫比亞披索</displayName>
+				<symbol draft="contributed">COP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName>哥倫比亞幣 (COU)</displayName>
@@ -7107,6 +7251,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="CRC">
 				<displayName>哥斯大黎加科朗</displayName>
 				<displayName count="other">哥斯大黎加科朗</displayName>
+				<symbol draft="contributed">CRC</symbol>
+				<symbol alt="narrow" draft="contributed">₡</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName draft="contributed">舊塞爾維亞第納爾</displayName>
@@ -7121,14 +7267,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="CUC">
 				<displayName>古巴可轉換披索</displayName>
 				<displayName count="other">古巴可轉換披索</displayName>
+				<symbol draft="contributed">CUC</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>古巴披索</displayName>
 				<displayName count="other">古巴披索</displayName>
+				<symbol draft="contributed">CUP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>維德角埃斯庫多</displayName>
 				<displayName count="other">維德角埃斯庫多</displayName>
+				<symbol draft="contributed">CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>賽普勒斯鎊</displayName>
@@ -7138,6 +7289,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="CZK">
 				<displayName>捷克克朗</displayName>
 				<displayName count="other">捷克克朗</displayName>
+				<symbol draft="contributed">CZK</symbol>
+				<symbol alt="narrow" draft="contributed">Kč</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName draft="contributed">東德奧斯特馬克</displayName>
@@ -7152,18 +7305,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="DJF">
 				<displayName>吉布地法郎</displayName>
 				<displayName count="other">吉布地法郎</displayName>
+				<symbol draft="contributed">DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>丹麥克朗</displayName>
 				<displayName count="other">丹麥克朗</displayName>
+				<symbol draft="contributed">DKK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>多明尼加披索</displayName>
 				<displayName count="other">多明尼加披索</displayName>
+				<symbol draft="contributed">DOP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>阿爾及利亞第納爾</displayName>
 				<displayName count="other">阿爾及利亞第納爾</displayName>
+				<symbol draft="contributed">DZD</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>厄瓜多蘇克雷</displayName>
@@ -7183,10 +7342,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="EGP">
 				<displayName>埃及鎊</displayName>
 				<displayName count="other">埃及鎊</displayName>
+				<symbol draft="contributed">EGP</symbol>
+				<symbol alt="narrow" draft="contributed">E£</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>厄立特里亞納克法</displayName>
 				<displayName count="other">厄立特里亞納克法</displayName>
+				<symbol draft="contributed">ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName draft="contributed">西班牙比塞塔（會計單位）</displayName>
@@ -7207,10 +7369,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="ETB">
 				<displayName>衣索比亞比爾</displayName>
 				<displayName count="other">衣索比亞比爾</displayName>
+				<symbol draft="contributed">ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>歐元</displayName>
 				<displayName count="other">歐元</displayName>
+				<symbol draft="contributed">€</symbol>
+				<symbol alt="narrow" draft="contributed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>芬蘭馬克</displayName>
@@ -7220,10 +7385,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="FJD">
 				<displayName>斐濟元</displayName>
 				<displayName count="other">斐濟元</displayName>
+				<symbol draft="contributed">FJD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>福克蘭群島鎊</displayName>
 				<displayName count="other">福克蘭群島鎊</displayName>
+				<symbol draft="contributed">FKP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>法國法郎</displayName>
@@ -7233,6 +7402,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="GBP">
 				<displayName>英鎊</displayName>
 				<displayName count="other">英鎊</displayName>
+				<symbol draft="contributed">£</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName draft="contributed">喬治亞庫旁拉里</displayName>
@@ -7242,6 +7413,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="GEL">
 				<displayName>喬治亞拉里</displayName>
 				<displayName count="other">喬治亞拉里</displayName>
+				<symbol draft="contributed">GEL</symbol>
+				<symbol alt="narrow" draft="contributed">₾</symbol>
 				<symbol alt="variant" draft="contributed">₾</symbol>
 			</currency>
 			<currency type="GHC">
@@ -7252,18 +7425,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="GHS">
 				<displayName>迦納塞地</displayName>
 				<displayName count="other">迦納塞地</displayName>
+				<symbol draft="contributed">GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>直布羅陀鎊</displayName>
 				<displayName count="other">直布羅陀鎊</displayName>
+				<symbol draft="contributed">GIP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>甘比亞達拉西</displayName>
 				<displayName count="other">甘比亞達拉西</displayName>
+				<symbol draft="contributed">GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>幾內亞法郎</displayName>
 				<displayName count="other">幾內亞法郎</displayName>
+				<symbol draft="contributed">GNF</symbol>
+				<symbol alt="narrow" draft="contributed">FG</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>幾內亞西里</displayName>
@@ -7283,6 +7462,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="GTQ">
 				<displayName>瓜地馬拉格查爾</displayName>
 				<displayName count="other">瓜地馬拉格查爾</displayName>
+				<symbol draft="contributed">GTQ</symbol>
+				<symbol alt="narrow" draft="contributed">Q</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>葡屬幾內亞埃斯庫多</displayName>
@@ -7297,14 +7478,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="GYD">
 				<displayName>圭亞那元</displayName>
 				<displayName count="other">圭亞那元</displayName>
+				<symbol draft="contributed">GYD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>港幣</displayName>
 				<displayName count="other">港幣</displayName>
+				<symbol draft="contributed">HK$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>洪都拉斯倫皮拉</displayName>
 				<displayName count="other">洪都拉斯倫皮拉</displayName>
+				<symbol draft="contributed">HNL</symbol>
+				<symbol alt="narrow" draft="contributed">L</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>克羅埃西亞第納爾</displayName>
@@ -7314,18 +7501,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="HRK">
 				<displayName>克羅埃西亞庫納</displayName>
 				<displayName count="other">克羅埃西亞庫納</displayName>
+				<symbol draft="contributed">HRK</symbol>
+				<symbol alt="narrow" draft="contributed">kn</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>海地古德</displayName>
 				<displayName count="other">海地古德</displayName>
+				<symbol draft="contributed">HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>匈牙利福林</displayName>
 				<displayName count="other">匈牙利福林</displayName>
+				<symbol draft="contributed">HUF</symbol>
+				<symbol alt="narrow" draft="contributed">Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>印尼盾</displayName>
 				<displayName count="other">印尼盾</displayName>
+				<symbol draft="contributed">IDR</symbol>
+				<symbol alt="narrow" draft="contributed">Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>愛爾蘭鎊</displayName>
@@ -7345,18 +7539,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="ILS">
 				<displayName>以色列新謝克爾</displayName>
 				<displayName count="other">以色列新謝克爾</displayName>
+				<symbol draft="contributed">₪</symbol>
+				<symbol alt="narrow" draft="contributed">₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>印度盧比</displayName>
 				<displayName count="other">印度盧比</displayName>
+				<symbol draft="contributed">₹</symbol>
+				<symbol alt="narrow" draft="contributed">₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>伊拉克第納爾</displayName>
 				<displayName count="other">伊拉克第納爾</displayName>
+				<symbol draft="contributed">IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>伊朗里亞爾</displayName>
 				<displayName count="other">伊朗里亞爾</displayName>
+				<symbol draft="contributed">IRR</symbol>
 			</currency>
 			<currency type="ISJ">
 				<displayName draft="contributed">冰島克朗 (1918–1981)</displayName>
@@ -7366,6 +7566,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="ISK">
 				<displayName>冰島克朗</displayName>
 				<displayName count="other">冰島克朗</displayName>
+				<symbol draft="contributed">ISK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>義大利里拉</displayName>
@@ -7375,35 +7577,47 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="JMD">
 				<displayName>牙買加元</displayName>
 				<displayName count="other">牙買加元</displayName>
+				<symbol draft="contributed">JMD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>約旦第納爾</displayName>
 				<displayName count="other">約旦第納爾</displayName>
+				<symbol draft="contributed">JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>日圓</displayName>
 				<displayName count="other">日圓</displayName>
 				<symbol>¥</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>肯尼亞先令</displayName>
 				<displayName count="other">肯尼亞先令</displayName>
+				<symbol draft="contributed">KES</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>吉爾吉斯索姆</displayName>
 				<displayName count="other">吉爾吉斯索姆</displayName>
+				<symbol draft="contributed">KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>柬埔寨瑞爾</displayName>
 				<displayName count="other">柬埔寨瑞爾</displayName>
+				<symbol draft="contributed">KHR</symbol>
+				<symbol alt="narrow" draft="contributed">៛</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>科摩羅法郎</displayName>
 				<displayName count="other">科摩羅法郎</displayName>
+				<symbol draft="contributed">KMF</symbol>
+				<symbol alt="narrow" draft="contributed">CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>北韓圓</displayName>
 				<displayName count="other">北韓圓</displayName>
+				<symbol draft="contributed">KPW</symbol>
+				<symbol alt="narrow" draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KRH">
 				<displayName draft="contributed">南韓圜</displayName>
@@ -7419,34 +7633,48 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>韓圓</displayName>
 				<displayName count="other">韓圓</displayName>
 				<symbol>￦</symbol>
+				<symbol alt="narrow" draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>科威特第納爾</displayName>
 				<displayName count="other">科威特第納爾</displayName>
+				<symbol draft="contributed">KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>開曼群島元</displayName>
 				<displayName count="other">開曼群島元</displayName>
+				<symbol draft="contributed">KYD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>卡扎克斯坦坦吉</displayName>
 				<displayName count="other">卡扎克斯坦坦吉</displayName>
+				<symbol draft="contributed">KZT</symbol>
+				<symbol alt="narrow" draft="contributed">₸</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>寮國基普</displayName>
 				<displayName count="other">寮國基普</displayName>
+				<symbol draft="contributed">LAK</symbol>
+				<symbol alt="narrow" draft="contributed">₭</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>黎巴嫩鎊</displayName>
 				<displayName count="other">黎巴嫩鎊</displayName>
+				<symbol draft="contributed">LBP</symbol>
+				<symbol alt="narrow" draft="contributed">L£</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>斯里蘭卡盧比</displayName>
 				<displayName count="other">斯里蘭卡盧比</displayName>
+				<symbol draft="contributed">LKR</symbol>
+				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>賴比瑞亞元</displayName>
 				<displayName count="other">賴比瑞亞元</displayName>
+				<symbol draft="contributed">LRD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>賴索托洛蒂</displayName>
@@ -7491,10 +7719,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="LYD">
 				<displayName>利比亞第納爾</displayName>
 				<displayName count="other">利比亞第納爾</displayName>
+				<symbol draft="contributed">LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>摩洛哥迪拉姆</displayName>
 				<displayName count="other">摩洛哥迪拉姆</displayName>
+				<symbol draft="contributed">MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>摩洛哥法郎</displayName>
@@ -7514,10 +7744,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="MDL">
 				<displayName>摩杜雲列伊</displayName>
 				<displayName count="other">摩杜雲列伊</displayName>
+				<symbol draft="contributed">MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>馬達加斯加阿里亞里</displayName>
 				<displayName count="other">馬達加斯加阿里亞里</displayName>
+				<symbol draft="contributed">MGA</symbol>
+				<symbol alt="narrow" draft="contributed">Ar</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>馬達加斯加法郎</displayName>
@@ -7527,6 +7760,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="MKD">
 				<displayName>馬其頓第納爾</displayName>
 				<displayName count="other">馬其頓第納爾</displayName>
+				<symbol draft="contributed">MKD</symbol>
 			</currency>
 			<currency type="MKN">
 				<displayName>馬其頓第納爾 (1992–1993)</displayName>
@@ -7541,18 +7775,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="MMK">
 				<displayName>緬甸元</displayName>
 				<displayName count="other">緬甸元</displayName>
+				<symbol draft="contributed">MMK</symbol>
+				<symbol alt="narrow" draft="contributed">K</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>蒙古圖格里克</displayName>
 				<displayName count="other">蒙古圖格里克</displayName>
+				<symbol draft="contributed">MNT</symbol>
+				<symbol alt="narrow" draft="contributed">₮</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>澳門元</displayName>
 				<displayName count="other">澳門元</displayName>
+				<symbol draft="contributed">MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>茅利塔尼亞烏吉亞 (1973–2017)</displayName>
 				<displayName count="other">茅利塔尼亞烏吉亞 (1973–2017)</displayName>
+				<symbol draft="contributed">MRO</symbol>
 			</currency>
 			<currency type="MRU">
 				<displayName>茅利塔尼亞烏吉亞</displayName>
@@ -7571,6 +7811,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="MUR">
 				<displayName>模里西斯盧比</displayName>
 				<displayName count="other">模里西斯盧比</displayName>
+				<symbol draft="contributed">MUR</symbol>
+				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="MVP">
 				<displayName draft="contributed">馬爾地夫盧比</displayName>
@@ -7580,14 +7822,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="MVR">
 				<displayName>馬爾地夫盧非亞</displayName>
 				<displayName count="other">馬爾地夫盧非亞</displayName>
+				<symbol draft="contributed">MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>馬拉維克瓦查</displayName>
 				<displayName count="other">馬拉維克瓦查</displayName>
+				<symbol draft="contributed">MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>墨西哥披索</displayName>
 				<displayName count="other">墨西哥披索</displayName>
+				<symbol draft="contributed">MX$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>墨西哥銀披索 (1861–1992)</displayName>
@@ -7602,6 +7848,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="MYR">
 				<displayName>馬來西亞令吉</displayName>
 				<displayName count="other">馬來西亞令吉</displayName>
+				<symbol draft="contributed">MYR</symbol>
+				<symbol alt="narrow" draft="contributed">RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>莫三比克埃斯庫多</displayName>
@@ -7616,14 +7864,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="MZN">
 				<displayName>莫三比克梅蒂卡爾</displayName>
 				<displayName count="other">莫三比克梅蒂卡爾</displayName>
+				<symbol draft="contributed">MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>納米比亞元</displayName>
 				<displayName count="other">納米比亞元</displayName>
+				<symbol draft="contributed">NAD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>奈及利亞奈拉</displayName>
 				<displayName count="other">奈及利亞奈拉</displayName>
+				<symbol draft="contributed">NGN</symbol>
+				<symbol alt="narrow" draft="contributed">₦</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>尼加拉瓜科多巴</displayName>
@@ -7633,6 +7886,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="NIO">
 				<displayName>尼加拉瓜金科多巴</displayName>
 				<displayName count="other">尼加拉瓜金科多巴</displayName>
+				<symbol draft="contributed">NIO</symbol>
+				<symbol alt="narrow" draft="contributed">C$</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>荷蘭盾</displayName>
@@ -7642,22 +7897,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="NOK">
 				<displayName>挪威克朗</displayName>
 				<displayName count="other">挪威克朗</displayName>
+				<symbol draft="contributed">NOK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>尼泊爾盧比</displayName>
 				<displayName count="other">尼泊爾盧比</displayName>
+				<symbol draft="contributed">NPR</symbol>
+				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>紐西蘭幣</displayName>
 				<displayName count="other">紐西蘭幣</displayName>
+				<symbol draft="contributed">NZ$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>阿曼里亞爾</displayName>
 				<displayName count="other">阿曼里亞爾</displayName>
+				<symbol draft="contributed">OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>巴拿馬巴波亞</displayName>
 				<displayName count="other">巴拿馬巴波亞</displayName>
+				<symbol draft="contributed">PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>祕魯因蒂</displayName>
@@ -7667,6 +7930,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="PEN">
 				<displayName>秘魯太陽幣</displayName>
 				<displayName count="other">秘魯太陽幣</displayName>
+				<symbol draft="contributed">PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>秘魯索爾 (1863–1965)</displayName>
@@ -7676,18 +7940,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="PGK">
 				<displayName>巴布亞紐幾內亞基那</displayName>
 				<displayName count="other">巴布亞紐幾內亞基那</displayName>
+				<symbol draft="contributed">PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>菲律賓披索</displayName>
 				<displayName count="other">菲律賓披索</displayName>
+				<symbol draft="contributed">PHP</symbol>
+				<symbol alt="narrow" draft="contributed">₱</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>巴基斯坦盧比</displayName>
 				<displayName count="other">巴基斯坦盧比</displayName>
+				<symbol draft="contributed">PKR</symbol>
+				<symbol alt="narrow" draft="contributed">Rs</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>波蘭茲羅提</displayName>
 				<displayName count="other">波蘭茲羅提</displayName>
+				<symbol draft="contributed">PLN</symbol>
+				<symbol alt="narrow" draft="contributed">zł</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>波蘭茲羅提 (1950–1995)</displayName>
@@ -7702,10 +7973,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="PYG">
 				<displayName>巴拉圭瓜拉尼</displayName>
 				<displayName count="other">巴拉圭瓜拉尼</displayName>
+				<symbol draft="contributed">PYG</symbol>
+				<symbol alt="narrow" draft="contributed">₲</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>卡達里亞爾</displayName>
 				<displayName count="other">卡達里亞爾</displayName>
+				<symbol draft="contributed">QAR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName draft="contributed">羅德西亞元</displayName>
@@ -7720,14 +7994,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="RON">
 				<displayName>羅馬尼亞列伊</displayName>
 				<displayName count="other">羅馬尼亞列伊</displayName>
+				<symbol draft="contributed">RON</symbol>
+				<symbol alt="narrow" draft="contributed">lei</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>塞爾維亞戴納</displayName>
 				<displayName count="other">塞爾維亞戴納</displayName>
+				<symbol draft="contributed">RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>俄羅斯盧布</displayName>
 				<displayName count="other">俄羅斯盧布</displayName>
+				<symbol draft="contributed">RUB</symbol>
+				<symbol alt="narrow" draft="contributed">₽</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>俄羅斯盧布 (1991–1998)</displayName>
@@ -7738,18 +8017,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="RWF">
 				<displayName>盧安達法郎</displayName>
 				<displayName count="other">盧安達法郎</displayName>
+				<symbol draft="contributed">RWF</symbol>
+				<symbol alt="narrow" draft="contributed">RF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>沙烏地里亞爾</displayName>
 				<displayName count="other">沙烏地里亞爾</displayName>
+				<symbol draft="contributed">SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>索羅門群島元</displayName>
 				<displayName count="other">索羅門群島元</displayName>
+				<symbol draft="contributed">SBD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>塞席爾盧比</displayName>
 				<displayName count="other">塞席爾盧比</displayName>
+				<symbol draft="contributed">SCR</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>蘇丹第納爾</displayName>
@@ -7759,6 +8044,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="SDG">
 				<displayName>蘇丹鎊</displayName>
 				<displayName count="other">蘇丹鎊</displayName>
+				<symbol draft="contributed">SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>舊蘇丹鎊</displayName>
@@ -7768,14 +8054,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="SEK">
 				<displayName>瑞典克朗</displayName>
 				<displayName count="other">瑞典克朗</displayName>
+				<symbol draft="contributed">SEK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>新加坡幣</displayName>
 				<displayName count="other">新加坡幣</displayName>
+				<symbol draft="contributed">SGD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>聖赫勒拿鎊</displayName>
 				<displayName count="other">聖赫勒拿鎊</displayName>
+				<symbol draft="contributed">SHP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>斯洛維尼亞托勒</displayName>
@@ -7790,14 +8082,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="SLL">
 				<displayName>獅子山利昂</displayName>
 				<displayName count="other">獅子山利昂</displayName>
+				<symbol draft="contributed">SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>索馬利亞先令</displayName>
 				<displayName count="other">索馬利亞先令</displayName>
+				<symbol draft="contributed">SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>蘇利南元</displayName>
 				<displayName count="other">蘇利南元</displayName>
+				<symbol draft="contributed">SRD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>蘇利南基爾</displayName>
@@ -7807,10 +8103,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="SSP">
 				<displayName>南蘇丹鎊</displayName>
 				<displayName count="other">南蘇丹鎊</displayName>
+				<symbol draft="contributed">SSP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>聖多美島和普林西比島多布拉 (1977–2017)</displayName>
 				<displayName count="other">聖多美島和普林西比島多布拉 (1977–2017)</displayName>
+				<symbol draft="contributed">STD</symbol>
 			</currency>
 			<currency type="STN">
 				<displayName>聖多美島和普林西比島多布拉</displayName>
@@ -7830,14 +8129,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="SYP">
 				<displayName>敘利亞鎊</displayName>
 				<displayName count="other">敘利亞鎊</displayName>
+				<symbol draft="contributed">SYP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>史瓦濟蘭里朗吉尼</displayName>
 				<displayName count="other">史瓦濟蘭里朗吉尼</displayName>
+				<symbol draft="contributed">SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>泰銖</displayName>
 				<displayName count="other">泰銖</displayName>
+				<symbol draft="contributed">THB</symbol>
+				<symbol alt="narrow" draft="contributed">฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>塔吉克盧布</displayName>
@@ -7847,6 +8151,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="TJS">
 				<displayName>塔吉克索莫尼</displayName>
 				<displayName count="other">塔吉克索莫尼</displayName>
+				<symbol draft="contributed">TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>土庫曼馬納特 (1993–2009)</displayName>
@@ -7856,14 +8161,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="TMT">
 				<displayName>土庫曼馬納特</displayName>
 				<displayName count="other">土庫曼馬納特</displayName>
+				<symbol draft="contributed">TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>突尼西亞第納爾</displayName>
 				<displayName count="other">突尼西亞第納爾</displayName>
+				<symbol draft="contributed">TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>東加潘加</displayName>
 				<displayName count="other">東加潘加</displayName>
+				<symbol draft="contributed">TOP</symbol>
+				<symbol alt="narrow" draft="contributed">T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName draft="contributed">帝汶埃斯庫多</displayName>
@@ -7878,22 +8187,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="TRY">
 				<displayName>新土耳其里拉</displayName>
 				<displayName count="other">新土耳其里拉</displayName>
+				<symbol draft="contributed">TRY</symbol>
+				<symbol alt="narrow" draft="contributed">₺</symbol>
+				<symbol alt="variant" draft="contributed">TL</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>千里達及托巴哥元</displayName>
 				<displayName count="other">千里達及托巴哥元</displayName>
+				<symbol draft="contributed">TTD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>新台幣</displayName>
 				<displayName count="other">新台幣</displayName>
+				<symbol draft="contributed">NT$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>坦尚尼亞先令</displayName>
 				<displayName count="other">坦尚尼亞先令</displayName>
+				<symbol draft="contributed">TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>烏克蘭格里夫納</displayName>
 				<displayName count="other">烏克蘭格里夫納</displayName>
+				<symbol draft="contributed">UAH</symbol>
+				<symbol alt="narrow" draft="contributed">₴</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName draft="contributed">烏克蘭卡本瓦那茲</displayName>
@@ -7908,10 +8227,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="UGX">
 				<displayName>烏干達先令</displayName>
 				<displayName count="other">烏干達先令</displayName>
+				<symbol draft="contributed">UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>美元</displayName>
 				<displayName count="other">美元</displayName>
+				<symbol draft="contributed">US$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>美元（次日）</displayName>
@@ -7936,10 +8258,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="UYU">
 				<displayName>烏拉圭披索</displayName>
 				<displayName count="other">烏拉圭披索</displayName>
+				<symbol draft="contributed">UYU</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>烏茲別克索姆</displayName>
 				<displayName count="other">烏茲別克索姆</displayName>
+				<symbol draft="contributed">UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>委內瑞拉玻利瓦 (1871–2008)</displayName>
@@ -7949,14 +8274,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="VEF">
 				<displayName>委內瑞拉玻利瓦 (VEF)</displayName>
 				<displayName count="other">委內瑞拉玻利瓦 (VEF)</displayName>
+				<symbol draft="contributed">VEF</symbol>
+				<symbol alt="narrow" draft="contributed">Bs</symbol>
 			</currency>
 			<currency type="VES">
 				<displayName>委內瑞拉玻利瓦</displayName>
 				<displayName count="other">委內瑞拉玻利瓦</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>越南盾</displayName>
 				<displayName count="other">越南盾</displayName>
+				<symbol draft="contributed">₫</symbol>
+				<symbol alt="narrow" draft="contributed">₫</symbol>
 			</currency>
 			<currency type="VNN">
 				<displayName>越南盾 (1978–1985)</displayName>
@@ -7966,14 +8296,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="VUV">
 				<displayName>萬那杜瓦圖</displayName>
 				<displayName count="other">萬那杜瓦圖</displayName>
+				<symbol draft="contributed">VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>西薩摩亞塔拉</displayName>
 				<displayName count="other">西薩摩亞塔拉</displayName>
+				<symbol draft="contributed">WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>法郎 (CFA–BEAC)</displayName>
 				<displayName count="other">法郎 (CFA–BEAC)</displayName>
+				<symbol draft="contributed">FCFA</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName draft="contributed">白銀</displayName>
@@ -8008,6 +8341,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="XCD">
 				<displayName>格瑞那達元</displayName>
 				<displayName count="other">格瑞那達元</displayName>
+				<symbol draft="contributed">EC$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>特殊提款權</displayName>
@@ -8032,6 +8367,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="XOF">
 				<displayName>法郎 (CFA–BCEAO)</displayName>
 				<displayName count="other">法郎 (CFA–BCEAO)</displayName>
+				<symbol draft="contributed">CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName draft="contributed">帕拉狄昂</displayName>
@@ -8041,6 +8377,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="XPF">
 				<displayName>法郎 (CFP)</displayName>
 				<displayName count="other">法郎 (CFP)</displayName>
+				<symbol draft="contributed">CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName draft="contributed">白金</displayName>
@@ -8080,6 +8417,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="YER">
 				<displayName>葉門里亞爾</displayName>
 				<displayName count="other">葉門里亞爾</displayName>
+				<symbol draft="contributed">YER</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>南斯拉夫第納爾硬幣</displayName>
@@ -8109,6 +8447,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="ZAR">
 				<displayName>南非蘭特</displayName>
 				<displayName count="other">南非蘭特</displayName>
+				<symbol draft="contributed">ZAR</symbol>
+				<symbol alt="narrow" draft="contributed">R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>尚比亞克瓦查 (1968–2012)</displayName>
@@ -8118,6 +8458,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="ZMW">
 				<displayName>尚比亞克瓦查</displayName>
 				<displayName count="other">尚比亞克瓦查</displayName>
+				<symbol draft="contributed">ZMW</symbol>
+				<symbol alt="narrow" draft="contributed">ZK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>薩伊新扎伊爾</displayName>
@@ -8160,6 +8502,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<unitLength type="long">
 			<compoundUnit type="per">
 				<compoundUnitPattern>每 {1} {0}</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="times">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>G 力</displayName>
@@ -8330,6 +8675,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>世紀</displayName>
 				<unitPattern count="other">{0} 個世紀</unitPattern>
 			</unit>
+			<unit type="duration-decade">
+				<displayName>十年</displayName>
+				<unitPattern count="other">{0} 個十年</unitPattern>
+			</unit>
 			<unit type="duration-year">
 				<displayName>年</displayName>
 				<unitPattern count="other">{0} 年</unitPattern>
@@ -8425,6 +8774,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>英制熱量單位</displayName>
 				<unitPattern count="other">{0} 英制熱量單位</unitPattern>
 			</unit>
+			<unit type="energy-therm-us">
+				<displayName>美制熱量單位</displayName>
+				<unitPattern count="other">{0} 美制熱量單位</unitPattern>
+			</unit>
 			<unit type="force-pound-force">
 				<displayName>磅力</displayName>
 				<unitPattern count="other">{0} 磅力</unitPattern>
@@ -8448,6 +8801,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="frequency-hertz">
 				<displayName>赫茲</displayName>
 				<unitPattern count="other">{0} 赫茲</unitPattern>
+			</unit>
+			<unit type="graphics-em">
+				<displayName>字體 em</displayName>
+				<unitPattern count="other">{0} em</unitPattern>
+			</unit>
+			<unit type="graphics-pixel">
+				<displayName>像素</displayName>
+				<unitPattern count="other">{0} 像素</unitPattern>
+			</unit>
+			<unit type="graphics-megapixel">
+				<displayName>百萬像素</displayName>
+				<unitPattern count="other">{0} 百萬像素</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-centimeter">
+				<displayName>每厘米像素</displayName>
+				<unitPattern count="other">{0} 像素/厘米</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-inch">
+				<displayName>每吋像素</displayName>
+				<unitPattern count="other">{0} 像素/吋</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-centimeter">
+				<displayName>每厘米點數</displayName>
+				<unitPattern count="other">{0} 點/厘米</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<displayName>每吋點數</displayName>
+				<unitPattern count="other">{0} 點/吋</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>公里</displayName>
@@ -8642,6 +9023,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>英吋汞柱</displayName>
 				<unitPattern count="other">{0} 英吋汞柱</unitPattern>
 			</unit>
+			<unit type="pressure-bar">
+				<displayName>巴</displayName>
+				<unitPattern count="other">{0} 巴</unitPattern>
+			</unit>
 			<unit type="pressure-millibar">
 				<displayName>毫巴</displayName>
 				<unitPattern count="other">{0} 毫巴</unitPattern>
@@ -8649,6 +9034,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="pressure-atmosphere">
 				<displayName>atm</displayName>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-pascal">
+				<displayName>帕斯卡</displayName>
+				<unitPattern count="other">{0} 帕斯卡</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>百帕</displayName>
@@ -8827,6 +9216,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
+			<compoundUnit type="times">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>G 力</displayName>
 				<unitPattern count="other">{0} G 力</unitPattern>
@@ -8996,6 +9388,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>世紀</displayName>
 				<unitPattern count="other">{0} 世紀</unitPattern>
 			</unit>
+			<unit type="duration-decade">
+				<displayName>十年</displayName>
+				<unitPattern count="other">{0} 個十年</unitPattern>
+			</unit>
 			<unit type="duration-year">
 				<displayName>年</displayName>
 				<unitPattern count="other">{0} 年</unitPattern>
@@ -9091,6 +9487,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>英制熱量單位</displayName>
 				<unitPattern count="other">{0} 英制熱量單位</unitPattern>
 			</unit>
+			<unit type="energy-therm-us">
+				<displayName>美制熱量單位</displayName>
+				<unitPattern count="other">{0} 美制熱量單位</unitPattern>
+			</unit>
 			<unit type="force-pound-force">
 				<displayName>磅力</displayName>
 				<unitPattern count="other">{0} 磅力</unitPattern>
@@ -9114,6 +9514,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="frequency-hertz">
 				<displayName>赫茲</displayName>
 				<unitPattern count="other">{0} 赫茲</unitPattern>
+			</unit>
+			<unit type="graphics-em">
+				<displayName>em</displayName>
+				<unitPattern count="other">{0} em</unitPattern>
+			</unit>
+			<unit type="graphics-pixel">
+				<displayName>像素</displayName>
+				<unitPattern count="other">{0} 像素</unitPattern>
+			</unit>
+			<unit type="graphics-megapixel">
+				<displayName>百萬像素</displayName>
+				<unitPattern count="other">{0} 百萬像素</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-centimeter">
+				<displayName>每厘米像素</displayName>
+				<unitPattern count="other">{0} 像素/厘米</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-inch">
+				<displayName>每吋像素</displayName>
+				<unitPattern count="other">{0} 像素/吋</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-centimeter">
+				<displayName>每厘米點數</displayName>
+				<unitPattern count="other">{0} 點/厘米</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<displayName>每吋點數</displayName>
+				<unitPattern count="other">{0} 點/吋</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>公里</displayName>
@@ -9308,6 +9736,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>英吋汞柱</displayName>
 				<unitPattern count="other">{0} 英吋汞柱</unitPattern>
 			</unit>
+			<unit type="pressure-bar">
+				<displayName>巴</displayName>
+				<unitPattern count="other">{0} 巴</unitPattern>
+			</unit>
 			<unit type="pressure-millibar">
 				<displayName>毫巴</displayName>
 				<unitPattern count="other">{0} 毫巴</unitPattern>
@@ -9315,6 +9747,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="pressure-atmosphere">
 				<displayName>atm</displayName>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-pascal">
+				<displayName>帕斯卡</displayName>
+				<unitPattern count="other">{0} 帕斯卡</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>百帕</displayName>
@@ -9492,6 +9928,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<unitLength type="narrow">
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="times">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<unitPattern count="other">{0}G</unitPattern>
@@ -9916,6 +10355,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="middle">{0}、{1}</listPatternPart>
 			<listPatternPart type="end">{0} 或 {1}</listPatternPart>
 			<listPatternPart type="2">{0} 或 {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or-short">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
 			<listPatternPart type="start">↑↑↑</listPatternPart>

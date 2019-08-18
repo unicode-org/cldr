@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -14,6 +15,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.BuildIcuCompactDecimalFormat;
 import org.unicode.cldr.test.BuildIcuCompactDecimalFormat.CurrencyStyle;
+import org.unicode.cldr.tool.ChartDelta;
 import org.unicode.cldr.tool.FormattedFileWriter;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
@@ -34,7 +36,8 @@ import com.ibm.icu.util.ULocale;
 public class VerifyCompactNumbers {
 
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
-    private static final String DIR = CLDRPaths.CHART_DIRECTORY + "verify/numbers/";
+    private static final String DIR = CLDRPaths.VERIFY_DIR + "numbers/";
+    
     final static Options myOptions = new Options();
 
     enum MyOptions {
@@ -59,9 +62,10 @@ public class VerifyCompactNumbers {
      */
     public static void main(String[] args) throws IOException {
         myOptions.parse(MyOptions.organization, args, true);
-        FileCopier.copy(ShowData.class, "verify-index.html", DIR, "index.html");
-        FileCopier.copy(ShowData.class, "index.css", DIR, "index.css");
-        FormattedFileWriter.copyIncludeHtmls(DIR);
+        new File(DIR).mkdirs();
+        FileCopier.copy(ShowData.class, "verify-index.html", CLDRPaths.VERIFY_DIR, "index.html");
+        FileCopier.copy(ChartDelta.class, "index.css", CLDRPaths.VERIFY_DIR, "index.css");
+        FormattedFileWriter.copyIncludeHtmls(CLDRPaths.VERIFY_DIR);
 
         String organization = MyOptions.organization.option.getValue();
         String filter = MyOptions.filter.option.getValue();

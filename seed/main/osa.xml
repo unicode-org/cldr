@@ -7,7 +7,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 -->
 <ldml>
 	<identity>
-		<version number="$Revision: 15019 $"/>
+		<version number="$Revision$"/>
 		<language type="osa"/>
 	</identity>
 	<localeDisplayNames>
@@ -17,6 +17,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<territories>
 			<territory type="US">United States</territory>
 		</territories>
+		<types>
+			<type key="numbers" type="latn">𐓷𐓘𐓵𐓘𐓷𐓘 𐓨𐓣𐓡𐓣𐓵𐓟 𐓣͘𐓤𐓯𐓟</type>
+		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="US">US</measurementSystemName>
 		</measurementSystemNames>
@@ -86,9 +89,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">𐓀𐓣͘𐓪͘𐓬𐓘 𐒰𐓧𐓣 𐓍𐓪͘𐓬𐓘</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="wide">
+							<month type="1">𐓀𐓣͘𐓪͘𐓬𐓘 𐓄𐓘𐓡𐓛͘𐓧𐓟</month>
+						</monthWidth>
+					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">𐒹𐓘͘𐓬𐓘 𐓏𐓘𐓤𐓘͘𐓰𐓘𐓤𐓣</day>
+							<day type="tue">𐒹𐓘͘𐓬𐓘 𐓏𐓟𐓵𐓪͘𐓬𐓘</day>
+						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">𐓏</day>
 							<day type="mon">𐓄</day>
@@ -98,14 +110,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="fri">𐓊</day>
 							<day type="sat">𐓸</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">𐒹𐓘͘𐓬𐓘 𐓏𐓘𐓤𐓘͘𐓰𐓘𐓤𐓣</day>
+							<day type="tue">𐒹𐓘͘𐓬𐓘 𐓏𐓟𐓵𐓪͘𐓬𐓘</day>
+						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">𐒹𐓘͘𐓬𐓘 𐓏𐓘𐓤𐓘͘𐓰𐓪𐓤𐓣</day>
+							<day type="sun">𐒹𐓘͘𐓬𐓘 𐓏𐓘𐓤𐓘͘𐓰𐓘𐓤𐓣</day>
 							<day type="mon">𐒹𐓘͘𐓬𐓘 𐓄𐓘𐓡𐓛͘𐓧𐓣</day>
-							<day type="tue">𐒹𐓘͘𐓬𐓘 𐓏𐓟𐓵𐓡𐓪͘𐓬𐓘</day>
+							<day type="tue">𐒹𐓘͘𐓬𐓘 𐓏𐓟𐓵𐓪͘𐓬𐓘</day>
 							<day type="wed">𐒹𐓘͘𐓬𐓘 𐓏𐓟𐓵𐓘𐓜𐓣</day>
 							<day type="thu">𐒹𐓘͘𐓬𐓘 𐓏𐓟𐓰𐓪𐓬𐓘</day>
 							<day type="fri">𐒹𐓘͘𐓬𐓘 𐓈𐓘 𐓵𐓘𐓲𐓘 𐓻𐓣͘</day>
 							<day type="sat">𐒹𐓘͘𐓬𐓘 𐓂𐓤𐓘𐓸𐓟 𐓣͘𐓤𐓟</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">𐒹𐓘͘𐓬𐓘 𐓏𐓘𐓤𐓘͘𐓰𐓘𐓤𐓣</day>
+							<day type="tue">𐒹𐓘͘𐓬𐓘 𐓏𐓟𐓵𐓪͘𐓬𐓘</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">𐒹𐓘͘𐓬𐓘 𐓏𐓘𐓤𐓘͘𐓰𐓘𐓤𐓣</day>
+							<day type="tue">𐒹𐓘͘𐓬𐓘 𐓏𐓟𐓵𐓪͘𐓬𐓘</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">𐒹𐓘͘𐓬𐓘 𐓏𐓘𐓤𐓘͘𐓰𐓘𐓤𐓣</day>
+							<day type="tue">𐒹𐓘͘𐓬𐓘 𐓏𐓟𐓵𐓪͘𐓬𐓘</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -155,6 +185,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</timeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="year">
+				<displayName>𐓂𐓨𐓚𐓤𐓘</displayName>
+			</field>
+			<field type="month">
+				<displayName>𐓀𐓣͘𐓪͘𐓬𐓘</displayName>
+			</field>
+			<field type="week">
+				<displayName>𐒹𐓘͘𐓬𐓘 𐓷𐓘𐓤𐓘͘𐓰𐓘𐓤𐓣</displayName>
+			</field>
+			<field type="day">
+				<displayName>𐒹𐓘͘𐓬𐓘</displayName>
+			</field>
+			<field type="hour">
+				<displayName>𐓨𐓣𐓪𐓵𐓘𐓤𐓟 𐓪𐓰𐓘𐓩𐓘͘</displayName>
+			</field>
+			<field type="minute">
+				<displayName>𐓰𐓘𐓲𐓟 𐓤𐓯𐓣𐓵𐓟</displayName>
+			</field>
+			<field type="second">
+				<displayName>𐓰𐓘𐓲𐓟 𐓤𐓯𐓣𐓵𐓟 𐓻𐓣͘</displayName>
+			</field>
+		</fields>
 	</dates>
 	<numbers>
 		<symbols numberSystem="latn">

@@ -42,14 +42,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="cy">уэльс</language>
 			<language type="da">дания</language>
 			<language type="de">алман</language>
+			<language type="de_AT">↑↑↑</language>
+			<language type="de_CH">югары алман (Швейцария)</language>
 			<language type="dsb">түбән сорб</language>
 			<language type="dv">мальдив</language>
 			<language type="dz">дзонг-кха</language>
 			<language type="el">грек</language>
 			<language type="en">инглиз</language>
+			<language type="en_AU">↑↑↑</language>
+			<language type="en_CA">↑↑↑</language>
+			<language type="en_GB">Британия инглизчәсе</language>
+			<language type="en_GB" alt="short">инглиз (Берләшкән Корольлек)</language>
+			<language type="en_US">Америка инглизчәсе</language>
+			<language type="en_US" alt="short">инглиз (АКШ)</language>
 			<language type="eo">эсперанто</language>
 			<language type="es">испан</language>
 			<language type="es_419">испан (Латин Америкасы)</language>
+			<language type="es_ES">испан (Европа)</language>
+			<language type="es_MX">↑↑↑</language>
 			<language type="et">эстон</language>
 			<language type="eu">баск</language>
 			<language type="fa">фарсы</language>
@@ -58,6 +68,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fil">филиппин</language>
 			<language type="fo">фарер</language>
 			<language type="fr">француз</language>
+			<language type="fr_CA">↑↑↑</language>
+			<language type="fr_CH">↑↑↑</language>
 			<language type="ga">ирланд</language>
 			<language type="gd">шотланд гэль</language>
 			<language type="gl">галисия</language>
@@ -121,6 +133,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pl">поляк</language>
 			<language type="ps">пушту</language>
 			<language type="pt">португал</language>
+			<language type="pt_BR">↑↑↑</language>
+			<language type="pt_PT">португал (Европа)</language>
 			<language type="qu">кечуа</language>
 			<language type="quc">киче</language>
 			<language type="rm">ретороман</language>
@@ -165,8 +179,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="yi">идиш</language>
 			<language type="yo">йоруба</language>
 			<language type="zh">кытай (тәрҗемә киңәше: аерым алганда, мандарин кытайчасы)</language>
+			<language type="zh" alt="menu">мандарин кытайчасы</language>
 			<language type="zh_Hans">гадиләштерелгән кытай</language>
+			<language type="zh_Hans" alt="long">гадиләштерелгән мандарин кытайчасы</language>
 			<language type="zh_Hant">традицион кытай</language>
+			<language type="zh_Hant" alt="long">традицион мандарин кытайчасы</language>
 		</languages>
 		<scripts>
 			<script type="Arab">гарәп</script>
@@ -253,7 +270,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="FO">Фарер утраулары</territory>
 			<territory type="FR">Франция</territory>
 			<territory type="GA">Габон</territory>
-			<territory type="GB">Бөекбритания</territory>
+			<territory type="GB">Берләшкән Корольлек</territory>
 			<territory type="GD">Гренада</territory>
 			<territory type="GE">Грузия</territory>
 			<territory type="GF">Француз Гвианасы</territory>
@@ -321,6 +338,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MG">Мадагаскар</territory>
 			<territory type="MH">Маршалл утраулары</territory>
 			<territory type="MK">Төньяк Македония</territory>
+			<territory type="MK" alt="variant">Македония (Македония Элекке Югославия Республикасы)</territory>
 			<territory type="ML">Мали</territory>
 			<territory type="MN">Монголия</territory>
 			<territory type="MO">Макао Махсус Идарәле Төбәге</territory>
@@ -443,8 +461,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[а ә б в г д е ё ж җ з и й к л м н о ө п р с т у ү ф х һ ц ч ш щ ъ ы ь э ю я]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="unconfirmed">[А Ә Б В Г Д Е Ж Җ З И Й К Л М Н О Ө П Р С Т У Ү Ф Х Һ Ц Ч Ш Щ Ъ Ы Ь Э Ю Я]</exemplarCharacters>
+		<exemplarCharacters>[а ә б в г д е ё ж җ з и й к л м н ң о ө п р с т у ү ф х һ ц ч ш щ ъ ы ь э ю я]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="contributed">[ғ қ]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="contributed">[А Ә Б В Г Д Е Ё Ж Җ З И Й К Л М Н Ң О Ө П Р С Т У Ү Ф Х Һ Ц Ч Ш Щ Ъ Ы Ь Э Ю Я]</exemplarCharacters>
+		<exemplarCharacters type="numbers" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # ′ ″]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -751,7 +772,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</eraNames>
 					<eraAbbr>
 						<era type="0">б.э.к.</era>
-						<era type="1">б.э.</era>
+						<era type="0" alt="variant">б.э.к.</era>
+						<era type="1">милади</era>
+						<era type="1" alt="variant">б.э.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -820,10 +843,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Bhm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
+						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">E, HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y 'ел'</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y 'ел', MMM</dateFormatItem>
@@ -1009,9 +1039,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-short">
 				<displayName>көн</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 			</field>
 			<field type="day-narrow">
 				<displayName>көн</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 			</field>
 			<field type="weekday">
 				<displayName>атна көне</displayName>

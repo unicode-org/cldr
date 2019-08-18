@@ -23,6 +23,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">темный тон кожи</annotation>
 		<annotation cp="🏿">кожа | оттенок | очень темный тон кожи | тело | темный | цвет | цвет кожи | цвет кожи 6</annotation>
 		<annotation cp="🏿" type="tts">очень темный тон кожи</annotation>
+		<annotation cp="⚧">символ | трансгендерная | трансгендерное | трансгендерные | трансгендерный</annotation>
+		<annotation cp="⚧" type="tts">трансгендер</annotation>
 		<annotation cp="😀">лицо | радость | счастье | улыбка | широкая улыбка | широко улыбается</annotation>
 		<annotation cp="😀" type="tts">широко улыбается</annotation>
 		<annotation cp="😃">лицо | радость | рот | смеется | смех | улыбка</annotation>
@@ -505,68 +507,100 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤷‍♂" type="tts">мужчина пожимает плечами</annotation>
 		<annotation cp="🤷‍♀">все равно | женщина | женщина пожимает плечами | не знаю | пожимает плечами | равнодушие</annotation>
 		<annotation cp="🤷‍♀" type="tts">женщина пожимает плечами</annotation>
+		<annotation cp="🧑‍⚕">врач | доктор | медбрат | медицина | медсестра | терапевт</annotation>
+		<annotation cp="🧑‍⚕" type="tts">медицинский работник</annotation>
 		<annotation cp="👨‍⚕">врач | доктор | медбрат | мужчина | терапевт</annotation>
 		<annotation cp="👨‍⚕" type="tts">врач</annotation>
 		<annotation cp="👩‍⚕">врач | доктор | женщина | женщина-врач | медсестра</annotation>
 		<annotation cp="👩‍⚕" type="tts">женщина-врач</annotation>
+		<annotation cp="🧑‍🎓">бакалавр | выпускник | студент</annotation>
+		<annotation cp="🧑‍🎓" type="tts">учащийся</annotation>
 		<annotation cp="👨‍🎓">выпускник | мужчина | парень | студент</annotation>
 		<annotation cp="👨‍🎓" type="tts">студент</annotation>
 		<annotation cp="👩‍🎓">выпускница | девушка | женщина | студентка</annotation>
 		<annotation cp="👩‍🎓" type="tts">студентка</annotation>
+		<annotation cp="🧑‍🏫">инструктор | преподаватель | профессор | учитель</annotation>
+		<annotation cp="🧑‍🏫" type="tts">педагог</annotation>
 		<annotation cp="👨‍🏫">мужчина | преподаватель | профессор | учитель</annotation>
 		<annotation cp="👨‍🏫" type="tts">учитель</annotation>
 		<annotation cp="👩‍🏫">женщина | преподаватель | профессор | учительница</annotation>
 		<annotation cp="👩‍🏫" type="tts">учительница</annotation>
+		<annotation cp="🧑‍⚖">весы | правосудие | фемида</annotation>
+		<annotation cp="🧑‍⚖" type="tts">судья</annotation>
 		<annotation cp="👨‍⚖">закон | мужчина | суд | судья</annotation>
-		<annotation cp="👨‍⚖" type="tts">судья</annotation>
+		<annotation cp="👨‍⚖" type="tts">мужчина-судья</annotation>
 		<annotation cp="👩‍⚖">женщина | женщина-судья | закон | суд | судья</annotation>
 		<annotation cp="👩‍⚖" type="tts">женщина-судья</annotation>
+		<annotation cp="🧑‍🌾">дачник | садовник | скотовод</annotation>
+		<annotation cp="🧑‍🌾" type="tts">фермер</annotation>
 		<annotation cp="👨‍🌾">дачник | мужчина | садовник | фермер</annotation>
-		<annotation cp="👨‍🌾" type="tts">фермер</annotation>
+		<annotation cp="👨‍🌾" type="tts">мужчина-фермер</annotation>
 		<annotation cp="👩‍🌾">дачница | женщина | женщина-фермер | садовник | садовница | фермер | фермерша</annotation>
 		<annotation cp="👩‍🌾" type="tts">женщина-фермер</annotation>
+		<annotation cp="🧑‍🍳">шеф | шеф-повар</annotation>
+		<annotation cp="🧑‍🍳" type="tts">повар</annotation>
 		<annotation cp="👨‍🍳">готовить | еда | мужчина | повар</annotation>
-		<annotation cp="👨‍🍳" type="tts">повар</annotation>
+		<annotation cp="👨‍🍳" type="tts">мужчина-повар</annotation>
 		<annotation cp="👩‍🍳">готовить | еда | женщина | повар | повариха</annotation>
 		<annotation cp="👩‍🍳" type="tts">повариха</annotation>
+		<annotation cp="🧑‍🔧">сантехник | специалист | электрик</annotation>
+		<annotation cp="🧑‍🔧" type="tts">механик</annotation>
 		<annotation cp="👨‍🔧">механик | мужчина | сантехник | электрик</annotation>
-		<annotation cp="👨‍🔧" type="tts">механик</annotation>
+		<annotation cp="👨‍🔧" type="tts">мужчина-механик</annotation>
 		<annotation cp="👩‍🔧">женщина | женщина-механик | механик | сантехник | электрик</annotation>
 		<annotation cp="👩‍🔧" type="tts">женщина-механик</annotation>
+		<annotation cp="🧑‍🏭">завод | промышленность</annotation>
+		<annotation cp="🧑‍🏭" type="tts">рабочий</annotation>
 		<annotation cp="👨‍🏭">завод | мужчина | промышленность | рабочий</annotation>
-		<annotation cp="👨‍🏭" type="tts">рабочий</annotation>
+		<annotation cp="👨‍🏭" type="tts">мужчина-рабочий</annotation>
 		<annotation cp="👩‍🏭">женщина | завод | промышленность | работница | рабочий</annotation>
 		<annotation cp="👩‍🏭" type="tts">работница</annotation>
+		<annotation cp="🧑‍💼">белый воротничок | бизнес | менеджер | офис</annotation>
+		<annotation cp="🧑‍💼" type="tts">офисный работник</annotation>
 		<annotation cp="👨‍💼">белый воротничок | бизнес | менеджер | мужчина | офис | офисный работник</annotation>
-		<annotation cp="👨‍💼" type="tts">офисный работник</annotation>
+		<annotation cp="👨‍💼" type="tts">офисный работник - мужчина</annotation>
 		<annotation cp="👩‍💼">белый воротничок | бизнес | женщина | менеджер | офис | офисная работница</annotation>
 		<annotation cp="👩‍💼" type="tts">офисная работница</annotation>
+		<annotation cp="🧑‍🔬">биолог | инженер | наука | физик | химик</annotation>
+		<annotation cp="🧑‍🔬" type="tts">ученый</annotation>
 		<annotation cp="👨‍🔬">биология | мужчина | наука | ученый | химия</annotation>
-		<annotation cp="👨‍🔬" type="tts">ученый</annotation>
+		<annotation cp="👨‍🔬" type="tts">мужчина-ученый</annotation>
 		<annotation cp="👩‍🔬">биология | женщина | наука | ученая | химия</annotation>
 		<annotation cp="👩‍🔬" type="tts">ученая</annotation>
+		<annotation cp="🧑‍💻">ноутбук | программист | разработчик | технарь</annotation>
+		<annotation cp="🧑‍💻" type="tts">инженер</annotation>
 		<annotation cp="👨‍💻">инженер | мужчина | ноутбук | программист | разработчик | технарь</annotation>
-		<annotation cp="👨‍💻" type="tts">инженер</annotation>
+		<annotation cp="👨‍💻" type="tts">мужчина-инженер</annotation>
 		<annotation cp="👩‍💻">женщина | женщина-инженер | ноутбук | программист | разработчик | технарь</annotation>
 		<annotation cp="👩‍💻" type="tts">женщина-инженер</annotation>
+		<annotation cp="🧑‍🎤">звезда | пение | развлечения | рок</annotation>
+		<annotation cp="🧑‍🎤" type="tts">певец</annotation>
 		<annotation cp="👨‍🎤">звезда | мужчина | певец | пение | развлечение | рок</annotation>
-		<annotation cp="👨‍🎤" type="tts">певец</annotation>
+		<annotation cp="👨‍🎤" type="tts">мужчина-певец</annotation>
 		<annotation cp="👩‍🎤">женщина | звезда | певица | пение | развлечения | рок</annotation>
 		<annotation cp="👩‍🎤" type="tts">певица</annotation>
+		<annotation cp="🧑‍🎨">кисти | палитра</annotation>
+		<annotation cp="🧑‍🎨" type="tts">художник</annotation>
 		<annotation cp="👨‍🎨">кисти | мужчина | палитра | художник</annotation>
-		<annotation cp="👨‍🎨" type="tts">художник</annotation>
+		<annotation cp="👨‍🎨" type="tts">мужчина-художник</annotation>
 		<annotation cp="👩‍🎨">женщина | кисти | палитра | художница</annotation>
 		<annotation cp="👩‍🎨" type="tts">художница</annotation>
+		<annotation cp="🧑‍✈">летчик | самолет</annotation>
+		<annotation cp="🧑‍✈" type="tts">пилот</annotation>
 		<annotation cp="👨‍✈">мужчина | пилот</annotation>
-		<annotation cp="👨‍✈" type="tts">пилот</annotation>
+		<annotation cp="👨‍✈" type="tts">мужчина-пилот</annotation>
 		<annotation cp="👩‍✈">женщина | женщина-пилот | пилот</annotation>
 		<annotation cp="👩‍✈" type="tts">женщина-пилот</annotation>
+		<annotation cp="🧑‍🚀">астронавт | ракета</annotation>
+		<annotation cp="🧑‍🚀" type="tts">космонавт</annotation>
 		<annotation cp="👨‍🚀">космонавт | космос | мужчина</annotation>
-		<annotation cp="👨‍🚀" type="tts">космонавт</annotation>
+		<annotation cp="👨‍🚀" type="tts">мужчина-космонавт</annotation>
 		<annotation cp="👩‍🚀">женщина | женщина-космонавт | космонавт | космос</annotation>
 		<annotation cp="👩‍🚀" type="tts">женщина-космонавт</annotation>
+		<annotation cp="🧑‍🚒">пожарная машина</annotation>
+		<annotation cp="🧑‍🚒" type="tts">пожарный</annotation>
 		<annotation cp="👨‍🚒">мужчина | пожарный</annotation>
-		<annotation cp="👨‍🚒" type="tts">пожарный</annotation>
+		<annotation cp="👨‍🚒" type="tts">мужчина-пожарный</annotation>
 		<annotation cp="👩‍🚒">женщина | женщина-пожарный | пожарный</annotation>
 		<annotation cp="👩‍🚒" type="tts">женщина-пожарный</annotation>
 		<annotation cp="👮">лицо | охрана | полицейский | полиция | человек</annotation>
@@ -705,14 +739,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧎‍♂" type="tts">мужчина на коленях</annotation>
 		<annotation cp="🧎‍♀">девочка | девушка | женщина | женщина на коленях | колени | на коленях</annotation>
 		<annotation cp="🧎‍♀" type="tts">женщина на коленях</annotation>
+		<annotation cp="🧑‍🦯">инвалид | ограниченные возможности | слепой</annotation>
+		<annotation cp="🧑‍🦯" type="tts">человек с белой тростью</annotation>
 		<annotation cp="👨‍🦯">инвалид | мужчина | мужчина с тростью для ходьбы | палочка | слепой | трость | человек</annotation>
 		<annotation cp="👨‍🦯" type="tts">мужчина с тростью для ходьбы</annotation>
 		<annotation cp="👩‍🦯">женщина | женщина с тростью для ходьбы | инвалид | палочка | слепая | трость | человек</annotation>
 		<annotation cp="👩‍🦯" type="tts">женщина с тростью для ходьбы</annotation>
+		<annotation cp="🧑‍🦼">инвалид | инвалидная коляска | ограниченные возможности</annotation>
+		<annotation cp="🧑‍🦼" type="tts">человек в кресле-коляске с мотором</annotation>
 		<annotation cp="👨‍🦼">в кресле | инвалид | кресло | мужчина | мужчина в электрическом кресле-коляске</annotation>
 		<annotation cp="👨‍🦼" type="tts">мужчина в электрическом кресле-коляске</annotation>
 		<annotation cp="👩‍🦼">в кресле | женщина | женщина в электрическом кресле-коляске | инвалид | кресло</annotation>
 		<annotation cp="👩‍🦼" type="tts">женщина в электрическом кресле-коляске</annotation>
+		<annotation cp="🧑‍🦽">инвалид | инвалидная коляска | ограниченные возможности</annotation>
+		<annotation cp="🧑‍🦽" type="tts">человек в кресле-коляске с ручным приводом</annotation>
 		<annotation cp="👨‍🦽">в кресле | инвалид | кресло | мужчина | мужчина в ручном кресле-коляске</annotation>
 		<annotation cp="👨‍🦽" type="tts">мужчина в ручном кресле-коляске</annotation>
 		<annotation cp="👩‍🦽">в кресле | женщина | женщина в ручном кресле-коляске | инвалид | кресло</annotation>
@@ -2623,7 +2663,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📛" type="tts">бейдж</annotation>
 		<annotation cp="🔰">новичок | символ | символ новичка | Япония | японский символ новичка</annotation>
 		<annotation cp="🔰" type="tts">символ новичка</annotation>
-		<annotation cp="⭕">большое кольцо | кольцо | красное кольцо | круг | синий круг</annotation>
+		<annotation cp="⭕">большое кольцо | кольцо | красное кольцо | круг</annotation>
 		<annotation cp="⭕" type="tts">красное кольцо</annotation>
 		<annotation cp="✅">белая | галочка | знак</annotation>
 		<annotation cp="✅" type="tts">белая галочка</annotation>
@@ -2754,23 +2794,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🈵">занято | заполнено | значок | кнопка | нет мест</annotation>
 		<annotation cp="🈵" type="tts">нет мест</annotation>
 		<annotation cp="🔴">геометрия | красный | круг | фигура | шар</annotation>
-		<annotation cp="🔴" type="tts">красный шар</annotation>
+		<annotation cp="🔴" type="tts">красный круг</annotation>
 		<annotation cp="🟠">геометрия | круг | оранжевый | фигура | шар</annotation>
-		<annotation cp="🟠" type="tts">оранжевый шар</annotation>
+		<annotation cp="🟠" type="tts">оранжевый круг</annotation>
 		<annotation cp="🟡">геометрия | желтый | круг | фигура | шар</annotation>
-		<annotation cp="🟡" type="tts">желтый шар</annotation>
+		<annotation cp="🟡" type="tts">желтый круг</annotation>
 		<annotation cp="🟢">геометрия | зеленый | круг | фигура | шар</annotation>
-		<annotation cp="🟢" type="tts">зеленый шар</annotation>
+		<annotation cp="🟢" type="tts">зеленый круг</annotation>
 		<annotation cp="🔵">геометрия | голубой шар | круг | синий | фигура | шар</annotation>
-		<annotation cp="🔵" type="tts">голубой шар</annotation>
+		<annotation cp="🔵" type="tts">голубой круг</annotation>
 		<annotation cp="🟣">геометрия | круг | фигура | фиолетовый | шар</annotation>
-		<annotation cp="🟣" type="tts">фиолетовый шар</annotation>
+		<annotation cp="🟣" type="tts">фиолетовый круг</annotation>
 		<annotation cp="🟤">геометрия | коричневый | круг | фигура | шар</annotation>
-		<annotation cp="🟤" type="tts">коричневый шар</annotation>
+		<annotation cp="🟤" type="tts">коричневый круг</annotation>
 		<annotation cp="⚫">геометрия | круг | фигура | черный | шар</annotation>
-		<annotation cp="⚫" type="tts">черный шар</annotation>
+		<annotation cp="⚫" type="tts">черный круг</annotation>
 		<annotation cp="⚪">белый | геометрия | круг | фигура | шар</annotation>
-		<annotation cp="⚪" type="tts">белый шар</annotation>
+		<annotation cp="⚪" type="tts">белый круг</annotation>
 		<annotation cp="🟥">геометрия | квадрат | красный | прямоугольник | фигура</annotation>
 		<annotation cp="🟥" type="tts">красный квадрат</annotation>
 		<annotation cp="🟧">геометрия | квадрат | оранжевый | прямоугольник | фигура</annotation>
@@ -2831,9 +2871,121 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">черный флаг</annotation>
 		<annotation cp="🏳">белый | капитуляция | реет | сдавайся | флаг</annotation>
 		<annotation cp="🏳" type="tts">белый флаг</annotation>
+		<annotation cp="🏳‍⚧">белый | розовый | светло-голубой | трансгендер | флаг</annotation>
+		<annotation cp="🏳‍⚧" type="tts">флаг трансгендерного сообщества</annotation>
 		<annotation cp="🏳‍🌈">радуга | радужный флаг | флаг</annotation>
 		<annotation cp="🏳‍🌈" type="tts">радужный флаг</annotation>
 		<annotation cp="🏴‍☠">веселый роджер | кости | пиратский флаг | пираты | флаг | череп</annotation>
 		<annotation cp="🏴‍☠" type="tts">пиратский флаг</annotation>
+		<annotation cp="🛖">дом | юрта</annotation>
+		<annotation cp="🛖" type="tts">хижина</annotation>
+		<annotation cp="🛗">подъемник | специальные возможности</annotation>
+		<annotation cp="🛗" type="tts">лифт</annotation>
+		<annotation cp="🛻">автомобиль | грузовик</annotation>
+		<annotation cp="🛻" type="tts">пикап</annotation>
+		<annotation cp="🛼">коньки | ролики</annotation>
+		<annotation cp="🛼" type="tts">роликовые коньки</annotation>
+		<annotation cp="🤌">вопрос | жест | пальцы | рега | сарказм | щепотка | щепоть</annotation>
+		<annotation cp="🤌" type="tts">щепоть</annotation>
+		<annotation cp="🥲">гордость | признательность | слеза | трогательный | улыбка</annotation>
+		<annotation cp="🥲" type="tts">улыбающееся лицо со слезой</annotation>
+		<annotation cp="🥷">диверсант | синоби | скрытный | шпион</annotation>
+		<annotation cp="🥷" type="tts">ниндзя</annotation>
+		<annotation cp="🥸">инкогнито | лицо | маскировка | нос | очки</annotation>
+		<annotation cp="🥸" type="tts">маскировка</annotation>
+		<annotation cp="🦣">бивень | большой | вымирание | мохнатый</annotation>
+		<annotation cp="🦣" type="tts">мамонт</annotation>
+		<annotation cp="🦤">большой | вымерший | додо | маврикий</annotation>
+		<annotation cp="🦤" type="tts">дронт</annotation>
+		<annotation cp="🦫">бобер | плотина</annotation>
+		<annotation cp="🦫" type="tts">бобр</annotation>
+		<annotation cp="🦬">бизон | буйвол | зубр | стадо</annotation>
+		<annotation cp="🦬" type="tts">бизон</annotation>
+		<annotation cp="🦭">морской лев | нерпа</annotation>
+		<annotation cp="🦭" type="tts">тюлень</annotation>
+		<annotation cp="🧋">баббл | бабл | жемчужина | молоко | чай | шарик</annotation>
+		<annotation cp="🧋" type="tts">чай с шариками</annotation>
+		<annotation cp="🩴">сланцы | шлепанцы | шлепки</annotation>
+		<annotation cp="🩴" type="tts">вьетнамки</annotation>
+		<annotation cp="🪃">австралия | возврат | последствия</annotation>
+		<annotation cp="🪃" type="tts">бумеранг</annotation>
+		<annotation cp="🪄">волшебник | волшебство | колдунья</annotation>
+		<annotation cp="🪄" type="tts">волшебная палочка</annotation>
+		<annotation cp="🪅">вечеринка | праздник</annotation>
+		<annotation cp="🪅" type="tts">пиньята</annotation>
+		<annotation cp="🪆">игрушка | кукла | россия | русская</annotation>
+		<annotation cp="🪆" type="tts">матрешка</annotation>
+		<annotation cp="🪖">армия | воин | каска | солдат</annotation>
+		<annotation cp="🪖" type="tts">армейская каска</annotation>
+		<annotation cp="🪗">баян | гармонь | гармошка | концертина</annotation>
+		<annotation cp="🪗" type="tts">аккордеон</annotation>
+		<annotation cp="🪘">барабан | бит | ритм</annotation>
+		<annotation cp="🪘" type="tts">конга</annotation>
+		<annotation cp="🪙">деньги | золото | казна | металл | серебро</annotation>
+		<annotation cp="🪙" type="tts">монета</annotation>
+		<annotation cp="🪚">древесина | инструмент | плотник | столяр</annotation>
+		<annotation cp="🪚" type="tts">пила по дереву</annotation>
+		<annotation cp="🪛">винт | инструмент</annotation>
+		<annotation cp="🪛" type="tts">отвертка</annotation>
+		<annotation cp="🪜">лезть | перекладина | ступень</annotation>
+		<annotation cp="🪜" type="tts">лестница</annotation>
+		<annotation cp="🪝">захват | крючок | подвес | уловка</annotation>
+		<annotation cp="🪝" type="tts">крюк</annotation>
+		<annotation cp="🪞">отражатель | отражение</annotation>
+		<annotation cp="🪞" type="tts">зеркало</annotation>
+		<annotation cp="🪟">вид | прозрачный | рама | свежий воздух | стекло</annotation>
+		<annotation cp="🪟" type="tts">окно</annotation>
+		<annotation cp="🪠">засор | прочистка | сантехник | слив | туалет</annotation>
+		<annotation cp="🪠" type="tts">вантуз</annotation>
+		<annotation cp="🪡">вышивка | игла | иголка | стежки | швы | шитье</annotation>
+		<annotation cp="🪡" type="tts">швейная игла</annotation>
+		<annotation cp="🪢">веревка | канат | шнур | шнурок</annotation>
+		<annotation cp="🪢" type="tts">узел</annotation>
+		<annotation cp="🪣">бадья | ведерко</annotation>
+		<annotation cp="🪣" type="tts">ведро</annotation>
+		<annotation cp="🪤">западня | капкан | ловушка | приманка</annotation>
+		<annotation cp="🪤" type="tts">мышеловка</annotation>
+		<annotation cp="🪥">ванная | гигиена | зубы | чистый | щетка</annotation>
+		<annotation cp="🪥" type="tts">зубная щетка</annotation>
+		<annotation cp="🪦">гробница | кладбище | могила | могильный камень</annotation>
+		<annotation cp="🪦" type="tts">надгробие</annotation>
+		<annotation cp="🪧">демонстрация | знак | пикет | протест</annotation>
+		<annotation cp="🪧" type="tts">плакат</annotation>
+		<annotation cp="🪨">булыжник | скала | твердый | тяжелый</annotation>
+		<annotation cp="🪨" type="tts">камень</annotation>
+		<annotation cp="🪰">вредитель | зараза | личинка | насекомое</annotation>
+		<annotation cp="🪰" type="tts">муха</annotation>
+		<annotation cp="🪱">земляной червь | круглый червь | паразит | червь</annotation>
+		<annotation cp="🪱" type="tts">червяк</annotation>
+		<annotation cp="🪲">букашка | жучок | насекомое</annotation>
+		<annotation cp="🪲" type="tts">жук</annotation>
+		<annotation cp="🪳">вредитель | насекомое | прусак</annotation>
+		<annotation cp="🪳" type="tts">таракан</annotation>
+		<annotation cp="🪴">бесплодный | выращивать | дом | скука</annotation>
+		<annotation cp="🪴" type="tts">растение в горшке</annotation>
+		<annotation cp="🪵">бревно | дрова | лес</annotation>
+		<annotation cp="🪵" type="tts">древесина</annotation>
+		<annotation cp="🪶">лёгкий | оперение | полёт | птица</annotation>
+		<annotation cp="🪶" type="tts">перо</annotation>
+		<annotation cp="🫀">кардиология | орган | пульс | сердце | центр</annotation>
+		<annotation cp="🫀" type="tts">сердце человека</annotation>
+		<annotation cp="🫁">вдох | выдох | дыхание | орган</annotation>
+		<annotation cp="🫁" type="tts">легкие</annotation>
+		<annotation cp="🫂">объятия | пока | привет | спасибо</annotation>
+		<annotation cp="🫂" type="tts">обнимающиеся люди</annotation>
+		<annotation cp="🫐">голубой | черника | ягода</annotation>
+		<annotation cp="🫐" type="tts">голубика</annotation>
+		<annotation cp="🫑">овощ | перец | растение | сладкий</annotation>
+		<annotation cp="🫑" type="tts">болгарский перец</annotation>
+		<annotation cp="🫒">еда | маслина | олива</annotation>
+		<annotation cp="🫒" type="tts">оливка</annotation>
+		<annotation cp="🫓">лаваш | наан | пита</annotation>
+		<annotation cp="🫓" type="tts">лепешка</annotation>
+		<annotation cp="🫔">завернутый | мексиканский</annotation>
+		<annotation cp="🫔" type="tts">тамал</annotation>
+		<annotation cp="🫕">какелон | плавленый | сыр | швейцарский | шоколад</annotation>
+		<annotation cp="🫕" type="tts">фондю</annotation>
+		<annotation cp="🫖">заварка | заварочный чайник | напиток | чай</annotation>
+		<annotation cp="🫖" type="tts">чайник</annotation>
 	</annotations>
 </ldml>

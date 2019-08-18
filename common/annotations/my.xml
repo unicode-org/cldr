@@ -23,6 +23,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">အသားညိုရောင်</annotation>
 		<annotation cp="🏿">အရေပြား အမျိုးအစား−၆ | အသားမဲရောင် | အီမိုဂျီ မွမ်းမံ၊ အရေပြား၊ အသားအရေ</annotation>
 		<annotation cp="🏿" type="tts">အသားမဲရောင်</annotation>
+		<annotation cp="⚧">လိင်ပြောင်းခြင်း</annotation>
+		<annotation cp="⚧" type="tts">လိင်ပြောင်းခြင်း သင်္ကေတ</annotation>
 		<annotation cp="😀">ပြုံးဖြဲဖြဲ | မျက်နှာ</annotation>
 		<annotation cp="😀" type="tts">ပြုံးဖြဲဖြဲ မျက်နှာ</annotation>
 		<annotation cp="😃">ပြုံး | ပါးစပ် | မျက်နှာ | မျက်လုံးပြူးဖြင့် ပြုံးဖြဲဖြဲ မျက်နှာ | ဟ</annotation>
@@ -137,7 +139,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😵" type="tts">မူးဝေနေသော မျက်နှာ</annotation>
 		<annotation cp="🤯">ဒေါသပေါက်ကွဲခေါင်း | မင်သေသည်</annotation>
 		<annotation cp="🤯" type="tts">ဒေါသပေါက်ကွဲခေါင်း</annotation>
-		<annotation cp="🤠">နွားကျောင်းသား | နွားကျောင်းသား ဦးထုပ် ဆောင်းထားသည့်ရုပ် | နွားကျောင်းသူမ | ရုပ် | ဦးထုပ်</annotation>
+		<annotation cp="🤠">နွားကျောင်းသား | နွားကျောင်းသူမ | ရုပ် | ဦးထုပ်</annotation>
 		<annotation cp="🤠" type="tts">နွားကျောင်းသား ဦးထုပ် ဆောင်းထားသည့်ရုပ်</annotation>
 		<annotation cp="🥳">ပါတီ | ပါတီပွဲတက် မျက်နှာ | အောင်ပွဲခံခြင်း | ဦးချို | ဦးထုပ်</annotation>
 		<annotation cp="🥳" type="tts">ပါတီပွဲတက် မျက်နှာ</annotation>
@@ -505,66 +507,98 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤷‍♂" type="tts">ပခုံးတွန့်နေသူ အမျိုးသား</annotation>
 		<annotation cp="🤷‍♀">ပခုံးတွန့်နေသူ အမျိုးသမီး | ပုခုန်းတွန့် | ပုခုန်းတွန့်နေသူ အမျိုးသမီး | လျစ်လျူရှု | အမျိုးသမီး</annotation>
 		<annotation cp="🤷‍♀" type="tts">ပခုံးတွန့်နေသူ အမျိုးသမီး</annotation>
+		<annotation cp="🧑‍⚕">ကျန်းမာရေးစောင့်ရှောက်မှု | ဆရာဝန် | သူနာပြု | အထူးကု ဆရာဝန်</annotation>
+		<annotation cp="🧑‍⚕" type="tts">ကျန်းမာရေးလုပ်သား</annotation>
 		<annotation cp="👨‍⚕">ကျန်းမာရေး စောင့်ရှောက်မှု | ဆရာဝန် | သူနာပြု | အထူးကု ဆရာဝန် | အမျိုးသား ကျန်းမာရေးလုပ်သား</annotation>
 		<annotation cp="👨‍⚕" type="tts">အမျိုးသား ကျန်းမာရေးလုပ်သား</annotation>
 		<annotation cp="👩‍⚕">ကျန်းမာရေးစောင့်ရှောက်မှု | ဆရာဝန် | သူနာပြု | အထူးကု ဆရာဝန် | အမျိုးသမီး ကျန်းမာရေးလုပ်သား</annotation>
 		<annotation cp="👩‍⚕" type="tts">အမျိုးသမီး ကျန်းမာရေးလုပ်သား</annotation>
+		<annotation cp="🧑‍🎓" draft="provisional">ဘွဲ့ရ၊ ကျောင်းသား</annotation>
+		<annotation cp="🧑‍🎓" type="tts">ကျောင်းသူကျောင်းသား</annotation>
 		<annotation cp="👨‍🎓">ကျောင်းသား | ဘွဲ့ရ | အမျိုးသား</annotation>
 		<annotation cp="👨‍🎓" type="tts">ကျောင်းသား</annotation>
 		<annotation cp="👩‍🎓">ကျောင်းသူ | ဘွဲ့ရ | အမျိုးသမီး</annotation>
 		<annotation cp="👩‍🎓" type="tts">ကျောင်းသူ</annotation>
+		<annotation cp="🧑‍🏫">ဆရာ | နည်းပြ | ပါမောက္ခ</annotation>
+		<annotation cp="🧑‍🏫" type="tts">ဆရာဆရာမ</annotation>
 		<annotation cp="👨‍🏫">ဆရာ | နည်းပြ | ပါမောက္ခ | အမျိုးသား</annotation>
 		<annotation cp="👨‍🏫" type="tts">ဆရာ</annotation>
 		<annotation cp="👩‍🏫">ဆရာမ | နည်းပြ | ပါမောက္ခ | အမျိုးသမီး</annotation>
 		<annotation cp="👩‍🏫" type="tts">ဆရာမ</annotation>
+		<annotation cp="🧑‍⚖" draft="provisional">တရားသူကြီး၊ ချိန်ခွင်</annotation>
+		<annotation cp="🧑‍⚖" type="tts">တရားသူကြီး</annotation>
 		<annotation cp="👨‍⚖">ချိန်ခွင် | တရားသူကြီး | အမျိုးသား</annotation>
 		<annotation cp="👨‍⚖" type="tts">အမျိုးသား တရားသူကြီး</annotation>
 		<annotation cp="👩‍⚖">ချိန်ခွင် | တရားသူကြီး | အမျိုးသမီး</annotation>
 		<annotation cp="👩‍⚖" type="tts">အမျိုးသမီး တရားသူကြီး</annotation>
+		<annotation cp="🧑‍🌾" draft="provisional">ကောက်စိုက်သူ၊ ပန်းပျိုးသူ၊ လယ်သမား</annotation>
+		<annotation cp="🧑‍🌾" type="tts">လယ်လုပ်သူ</annotation>
 		<annotation cp="👨‍🌾">ကောက်စိုက်သူ | ပန်းပျိုးသူ | လယ်သမား | အမျိုးသား</annotation>
 		<annotation cp="👨‍🌾" type="tts">လယ်သမား</annotation>
 		<annotation cp="👩‍🌾">ကောက်စိုက်သမ | ပန်းပျိုးသူ | လယ်သူမ | အမျိုးသမီး</annotation>
 		<annotation cp="👩‍🌾" type="tts">လယ်သူမ</annotation>
+		<annotation cp="🧑‍🍳" draft="provisional">စားဖိုမှူး၊ အချက်အပြုတ်</annotation>
+		<annotation cp="🧑‍🍳" type="tts">အချက်အပြုတ်</annotation>
 		<annotation cp="👨‍🍳">စားဖိုမှူး | အချက်အပြုတ် | အမျိုးသား</annotation>
 		<annotation cp="👨‍🍳" type="tts">အမျိုးသား စားဖိုမှူး</annotation>
 		<annotation cp="👩‍🍳">စားဖိုမှူး | အချက်အပြုတ် | အမျိုးသမီး</annotation>
 		<annotation cp="👩‍🍳" type="tts">အမျိုးသမီး စားဖိုမှူး</annotation>
+		<annotation cp="🧑‍🔧" draft="provisional">မီးသမား၊ စက်ပြင်သူ ၊ ပိုက်ဆက်သူ၊ အရောင်းအဝယ်သမား</annotation>
+		<annotation cp="🧑‍🔧" type="tts">စက်ပြင်သူ</annotation>
 		<annotation cp="👨‍🔧">စက်ပြင်သူ | ပိုက်ဆက်သူ | မီးသမား | အမျိုးသား | အရောင်းအဝယ်သမား</annotation>
 		<annotation cp="👨‍🔧" type="tts">အမျိုးသား စက်ပြင်သူ</annotation>
 		<annotation cp="👩‍🔧">စက်ပြင်သူ | ပိုက်ဆက်သူ | မီးသမား | အမျိုးသမီး စက်ပြင်သူ | အမျိုးသား | အရောင်းအဝယ်သမား</annotation>
 		<annotation cp="👩‍🔧" type="tts">အမျိုးသမီး စက်ပြင်သူ</annotation>
+		<annotation cp="🧑‍🏭">စက်မှုလုပ်ငန်း | စက်ရုံ | တပ်ဆင်ခြင်း | အလုပ်သမား</annotation>
+		<annotation cp="🧑‍🏭" type="tts">စက်ရုံအလုပ်သမား</annotation>
 		<annotation cp="👨‍🏭">စက်မှုလုပ်ငန်း | စက်ရုံ | စက်ရုံလုပ်သား | တပ်ဆင်ခြင်း | အမျိုးသား | အလုပ်သမား</annotation>
 		<annotation cp="👨‍🏭" type="tts">စက်ရုံလုပ်သား</annotation>
 		<annotation cp="👩‍🏭">စက်မှုလုပ်ငန်း | စက်ရုံ | စက်ရုံအလုပ်သမ | တပ်ဆင်ခြင်း | အမျိုးသမီး | အလုပ်သမ</annotation>
 		<annotation cp="👩‍🏭" type="tts">စက်ရုံအလုပ်သမ</annotation>
+		<annotation cp="🧑‍💼">ဗိသုကာ ပညာရှင် | မန်နေဂျာ | လုပ်ငန်း</annotation>
+		<annotation cp="🧑‍💼" type="tts">ရုံးဝန်ထမ်း</annotation>
 		<annotation cp="👨‍💼">ဉာဏလုပ်သား | ဗိသုကာ ပညာရှင် | မန်နေဂျာ | လုပ်ငန်း | အမျိုးသား ရုံးဝန်ထမ်း</annotation>
 		<annotation cp="👨‍💼" type="tts">အမျိုးသား ရုံးဝန်ထမ်း</annotation>
 		<annotation cp="👩‍💼">ဉာဏလုပ်သား | ဗိသုကာ ပညာရှင် | မန်နေဂျာ | လုပ်ငန်း | အမျိုးသမီး ရုံးဝန်ထမ်း</annotation>
 		<annotation cp="👩‍💼" type="tts">အမျိုးသမီး ရုံးဝန်ထမ်း</annotation>
+		<annotation cp="🧑‍🔬">ဇီဝဗေဒပညာရှင် | ဓာတုဗေဒပညာရှင် | ရူပဗေဒပညာရှင် | သိပ္ပံပညာရှင် | အင်ဂျင်နီယာ</annotation>
+		<annotation cp="🧑‍🔬" type="tts">သိပ္ပံပညာရှင်</annotation>
 		<annotation cp="👨‍🔬">ဇီဝဗေဒပညာရှင် | ဓာတုဗေဒပညာရှင် | ရူပဗေဒ ပညာရှင် | သိပ္ပံပညာရှင် | အင်ဂျင်နီယာ | အမျိုးသား သိပ္ပံပညာရှင်</annotation>
 		<annotation cp="👨‍🔬" type="tts">အမျိုးသား သိပ္ပံပညာရှင်</annotation>
 		<annotation cp="👩‍🔬">ဇီဝဗေဒပညာရှင် | ဓာတုဗေဒပညာရှင် | ရူပဗေဒပညာရှင် | သိပ္ပံပညာရှင် | အင်ဂျင်နီယာ | အမျိုးသမီး သိပ္ပံပညာရှင်</annotation>
 		<annotation cp="👩‍🔬" type="tts">အမျိုးသမီး သိပ္ပံပညာရှင်</annotation>
+		<annotation cp="🧑‍💻">ကုဒ်ရေးသူ | ဆော့ဖ်ဝဲ | ဆော့ဖ်ဝဲအင်ဂျင်နီယာ | တီထွင်သူ | နည်းပညာရှင်</annotation>
+		<annotation cp="🧑‍💻" type="tts">နည်းပညာရှင်</annotation>
 		<annotation cp="👨‍💻">ကုဒ်ရေးသူ | ဆော့ဖ်ဝဲ | ဆော့ဖ်ဝဲအင်ဂျင်နီယာ | တီထွင်သူ | နည်းပညာရှင် | အမျိုးသား နည်းပညာရှင်</annotation>
 		<annotation cp="👨‍💻" type="tts">အမျိုးသား နည်းပညာရှင်</annotation>
 		<annotation cp="👩‍💻">ကုဒ်ရေးသူ | ဆော့ဖ်ဝဲ | ဆော့ဖ်ဝဲအင်ဂျင်နီယာ | တီထွင်သူ | နည်းပညာရှင် | အမျိုးသမီး နည်းပညာရှင်</annotation>
 		<annotation cp="👩‍💻" type="tts">အမျိုးသမီး နည်းပညာရှင်</annotation>
+		<annotation cp="🧑‍🎤">ဖျော်ဖြေတင်ဆက်သူ | ရော့ခ်တေးဂီတ | သရုပ်ဆောင် | အဆိုတော်</annotation>
+		<annotation cp="🧑‍🎤" type="tts">အဆိုတော်</annotation>
 		<annotation cp="👨‍🎤">ဖျော်ဖြေတင်ဆက်သူ | ရော့ခ်တေးဂီတ | သရုပ်ဆောင် | အဆိုတော် | အမျိုးသား</annotation>
 		<annotation cp="👨‍🎤" type="tts">အမျိုးသား အဆိုတော်</annotation>
 		<annotation cp="👩‍🎤">ဖျော်ဖြေတင်ဆက်သူ | ရော့ခ်တေးဂီတ | သရုပ်ဆောင် | အဆိုတော် | အမျိုးသမီး</annotation>
 		<annotation cp="👩‍🎤" type="tts">အမျိုးသမီး အဆိုတော်</annotation>
+		<annotation cp="🧑‍🎨" draft="provisional">ပန်းချီပညာရှင်၊ ဆေးရောင်ခြယ်</annotation>
+		<annotation cp="🧑‍🎨" type="tts">ပန်းချီပညာရှင်</annotation>
 		<annotation cp="👨‍🎨">ဆေးရောင်ခြယ် | ပန်းချီဆရာ | အနုပညာရှင်</annotation>
 		<annotation cp="👨‍🎨" type="tts">ပန်းချီဆရာ</annotation>
 		<annotation cp="👩‍🎨">ဆေးရောင်ခြယ် | ပန်းချီဆရာမ | အနုပညာရှင်</annotation>
 		<annotation cp="👩‍🎨" type="tts">ပန်းချီဆရာမ</annotation>
+		<annotation cp="🧑‍✈">လေယာဉ် | လေယာဉ်မှူး</annotation>
+		<annotation cp="🧑‍✈" type="tts">လေယာဉ်မှူး</annotation>
 		<annotation cp="👨‍✈">လေယာဉ် | လေယာဉ်မှူး | အမျိုးသား</annotation>
 		<annotation cp="👨‍✈" type="tts">အမျိုးသား လေယာဉ်မှူး</annotation>
 		<annotation cp="👩‍✈">လေယာဉ် | လေယာဉ်မှူး | အမျိုးသမီး</annotation>
 		<annotation cp="👩‍✈" type="tts">အမျိုးသမီး လေယာဉ်မှူး</annotation>
+		<annotation cp="🧑‍🚀" draft="provisional">အာကာသယာဉ်မှူး၊ဒုံးပျံ</annotation>
+		<annotation cp="🧑‍🚀" type="tts">အာကာသယာဉ်မှူး</annotation>
 		<annotation cp="👨‍🚀">ဒုံးပျံ | အမျိုးသား | အာကာသယာဉ်မှူး</annotation>
 		<annotation cp="👨‍🚀" type="tts">အမျိုးသား အာကာသယာဉ်မှူး</annotation>
 		<annotation cp="👩‍🚀">ဒုံးပျံ | အမျိုးသမီး | အာကာသယာဉ်မှူး</annotation>
 		<annotation cp="👩‍🚀" type="tts">အမျိုးသမီး အာကာသယာဉ်မှူး</annotation>
+		<annotation cp="🧑‍🚒">မီးသတ်ကား | မီးသတ်သမား</annotation>
+		<annotation cp="🧑‍🚒" type="tts">မီးသတ်</annotation>
 		<annotation cp="👨‍🚒">မီးသတ်ကား | မီးသတ်သမား | အမျိုးသား</annotation>
 		<annotation cp="👨‍🚒" type="tts">မီးသတ်သမား</annotation>
 		<annotation cp="👩‍🚒">မီးသတ်ကား | မီးသတ်သမ | အမျိုးသမီး</annotation>
@@ -581,7 +615,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕵‍♂" type="tts">အမျိုးသား စုံထောက်</annotation>
 		<annotation cp="🕵‍♀">စုံထောက် | သူလျှို | အမျိုးသမီး</annotation>
 		<annotation cp="🕵‍♀" type="tts">အမျိုးသမီး စုံထောက်</annotation>
-		<annotation cp="💂">သက်တော်စောင့် | အစောင့်</annotation>
+		<annotation cp="💂">အစောင့်</annotation>
 		<annotation cp="💂" type="tts">သက်တော်စောင့်</annotation>
 		<annotation cp="💂‍♂">အစောင့် | အမျိုးသား</annotation>
 		<annotation cp="💂‍♂" type="tts">အမျိုးသား အစောင့်</annotation>
@@ -705,14 +739,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧎‍♂" type="tts">ဒူးထောက်နေသူ အမျိုးသား</annotation>
 		<annotation cp="🧎‍♀">ဒူးထောက်ခြင်း | ဒူးထောက်နေသူ အမျိုးသမီး | အမျိုးသမီး</annotation>
 		<annotation cp="🧎‍♀" type="tts">ဒူးထောက်နေသူ အမျိုးသမီး</annotation>
+		<annotation cp="🧑‍🦯" draft="provisional">အများသုံးစွဲနိုင်မှု၊ မျက်မမြင်</annotation>
+		<annotation cp="🧑‍🦯" type="tts" draft="provisional">တုတ်ကောက်နှင့်လူ</annotation>
 		<annotation cp="👨‍🦯">တုတ်ကောက်နှင့် လမ်းလျှောက်နေသူ | မျက်မမြင် | အများသုံးစွဲနိုင်မှု | အမျိုးသား</annotation>
 		<annotation cp="👨‍🦯" type="tts">တုတ်ကောက်နှင့် လမ်းလျှောက်နေသူ</annotation>
 		<annotation cp="👩‍🦯">တုတ်ကောက်နှင့် အမျိုးသမီး | မျက်မမြင် | အများသုံးစွဲနိုင်မှု | အမျိုးသမီး</annotation>
 		<annotation cp="👩‍🦯" type="tts">တုတ်ကောက်နှင့် အမျိုးသမီး</annotation>
+		<annotation cp="🧑‍🦼">လူနာတင်ကုလားထိုင် | အများသုံးစွဲနိုင်မှု</annotation>
+		<annotation cp="🧑‍🦼" type="tts" draft="provisional">စက်တပ်လူနာတင်ကုလားထိုင်စီးနေသူ</annotation>
 		<annotation cp="👨‍🦼">စက်တပ်လူနာထိုင်ခုံစီး အမျိုးသား | လူနာတင်ကုလားထိုင် | အများသုံးစွဲနိုင်မှု | အမျိုးသား</annotation>
 		<annotation cp="👨‍🦼" type="tts">စက်တပ်လူနာထိုင်ခုံစီး အမျိုးသား</annotation>
 		<annotation cp="👩‍🦼">စက်တပ်လူနာတင်ကုလားထိုင်စီး အမျိုးသမီး | လူနာတင်ကုလားထိုင် | အများသုံးစွဲနိုင်မှု | အမျိုးသမီး</annotation>
 		<annotation cp="👩‍🦼" type="tts">စက်တပ်လူနာတင်ကုလားထိုင်စီး အမျိုးသမီး</annotation>
+		<annotation cp="🧑‍🦽" draft="provisional">လူနာတင်ကုလားထိုင်၊ အများသုံးစွဲနိုင်မှု</annotation>
+		<annotation cp="🧑‍🦽" type="tts">လူနာတင်ကုလားထိုင်နှင့် လူ</annotation>
 		<annotation cp="👨‍🦽">လူနာတင်ကုလားထိုင် | လူနာတင်ကုလားထိုင်နှင့် အမျိုးသား | အများသုံးစွဲနိုင်မှု | အမျိုးသား</annotation>
 		<annotation cp="👨‍🦽" type="tts">လူနာတင်ကုလားထိုင်နှင့် အမျိုးသား</annotation>
 		<annotation cp="👩‍🦽">လူနာတင်ကုလားထိုင် | လူနာတင်ကုလားထိုင်နှင့် အမျိုးသမီး | အများသုံးစွဲနိုင်မှု | အမျိုးသမီး</annotation>
@@ -723,7 +763,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏃‍♂" type="tts">ပြေးနေသူ အမျိုးသား</annotation>
 		<annotation cp="🏃‍♀">ပြေးနေသည် | ပြေးနေသူ အမျိုးသမီး | မာရသွန် | အပြေးပြိုင်ပွဲ | အမျိုးသမီး</annotation>
 		<annotation cp="🏃‍♀" type="tts">ပြေးနေသူ အမျိုးသမီး</annotation>
-		<annotation cp="💃">ကချေသည် | အကအခုန် | အမျိုးသမီး</annotation>
+		<annotation cp="💃">အကအခုန် | အမျိုးသမီး</annotation>
 		<annotation cp="💃" type="tts">ကချေသည်</annotation>
 		<annotation cp="🕺">ကခုန်နေသူ | ကခုန်သည် | အမျိုးသား</annotation>
 		<annotation cp="🕺" type="tts">ကခုန်နေသူ</annotation>
@@ -749,7 +789,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧗‍♀" type="tts">တောင်တက် အမျိုးသမီး</annotation>
 		<annotation cp="🤺">ဓား | ဓားရေးပြိုင်ပွဲ | ဓားရေးပြိုင်သူ | လူပုဂ္ဂိုလ် | အားကစား</annotation>
 		<annotation cp="🤺" type="tts">ဓားရေးပြိုင်သူ</annotation>
-		<annotation cp="🏇">ဂျော်ကီး | ပြိုင်ပွဲ | ပြိုင်မြင်း | မြင်း | မြင်းစီးခြင်း</annotation>
+		<annotation cp="🏇">ဂျော်ကီ | ပြိုင်ပွဲ | ပြိုင်မြင်း | မြင်း</annotation>
 		<annotation cp="🏇" type="tts">မြင်းစီးခြင်း</annotation>
 		<annotation cp="⛷">စကီး | စကီးစီးသူ | ဆီးနှင်း</annotation>
 		<annotation cp="⛷" type="tts">စကီးစီးသူ</annotation>
@@ -857,7 +897,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💑" type="tts">နှလုံးသားနှင့် စုံတွဲ</annotation>
 		<annotation cp="👪">မိသားစု</annotation>
 		<annotation cp="👪" type="tts">မိသားစု</annotation>
-		<annotation cp="🗣">စကားပြော | စကားပြောနေသည့် ဦးခေါင်း | စကားပြောသည် | ပုံရိပ်မည်း | မျက်နှာ | ဦးခေါင်း</annotation>
+		<annotation cp="🗣">စကား | စကားပြော | ပုံရိပ်မည်း | မျက်နှာ | ဦးခေါင်း</annotation>
 		<annotation cp="🗣" type="tts">စကားပြောနေသည့် ဦးခေါင်း</annotation>
 		<annotation cp="👤">ကိုယ်တစ်ပိုင်း | ကိုယ်တစ်ပိုင်း အရိပ်ပုံ | ပုံရိပ်မည်း</annotation>
 		<annotation cp="👤" type="tts">ကိုယ်တစ်ပိုင်း အရိပ်ပုံ</annotation>
@@ -901,7 +941,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐱" type="tts">ကြောင်ရုပ်</annotation>
 		<annotation cp="🐈">ကြောင် | အိမ်မွေးတိရစ္ဆာန်</annotation>
 		<annotation cp="🐈" type="tts">ကြောင်</annotation>
-		<annotation cp="🦁">​ ဆယ့်နှစ်ရာသီခွင် | ခြင်္သေ့ | ခြင်္သေ့ရုပ် | မျက်နှာ | သိဟ်ရာသီ</annotation>
+		<annotation cp="🦁">​ ဆယ့်နှစ်ရာသီခွင် | ခြင်္သေ့ | မျက်နှာ | သိဟ်ရာသီ</annotation>
 		<annotation cp="🦁" type="tts">ခြင်္သေ့ရုပ်</annotation>
 		<annotation cp="🐯">ကျား | ကျားရုပ် | မျက်နှာ</annotation>
 		<annotation cp="🐯" type="tts">ကျားရုပ်</annotation>
@@ -1023,7 +1063,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦚" type="tts">ဒေါင်း</annotation>
 		<annotation cp="🦜">ကြက်တူရွေး | ငှက် | စကားပြော | ပင်လယ်ဓားပြ</annotation>
 		<annotation cp="🦜" type="tts">ကြက်တူရွေး</annotation>
-		<annotation cp="🐸">ဖား | ဖားရုပ် | မျက်နှာ</annotation>
+		<annotation cp="🐸">ဖား | ဖားရုပ်</annotation>
 		<annotation cp="🐸" type="tts">ဖားရုပ်</annotation>
 		<annotation cp="🐊">မိကျောင်း</annotation>
 		<annotation cp="🐊" type="tts">မိကျောင်း</annotation>
@@ -1105,11 +1145,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌷" type="tts">ကျူးလစ်ပန်း</annotation>
 		<annotation cp="🌱">ပျိုးပင် | အပင်ငယ်</annotation>
 		<annotation cp="🌱" type="tts">ပျိုးပင်</annotation>
-		<annotation cp="🌲">သစ်ပင် | အမြဲစိမ်း | အမြဲစိမ်းသစ်ပင် | အမွဲစိမျး</annotation>
+		<annotation cp="🌲">သစ်ပင် | အမြဲစိမ်းသစ်ပင်</annotation>
 		<annotation cp="🌲" type="tts">အမွဲစိမျး</annotation>
 		<annotation cp="🌳">ရွက်ပြတ်ပင် | သစ်ပင် | သစ်ရွက်ကြွေခြင်း</annotation>
 		<annotation cp="🌳" type="tts">ရွက်ပြတ်ပင်</annotation>
-		<annotation cp="🌴">ထန်းပင် | ထန်းမျိုးအပင် | သစ်ပင်</annotation>
+		<annotation cp="🌴">ထန်းပင် | သစ်ပင်</annotation>
 		<annotation cp="🌴" type="tts">ထန်းမျိုးအပင်</annotation>
 		<annotation cp="🌵">ရှားစောင်းပင် | အပင်</annotation>
 		<annotation cp="🌵" type="tts">ရှားစောင်းပင်</annotation>
@@ -1121,9 +1161,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☘" type="tts">ပဲမျိုးရင်း အပင်ငယ်</annotation>
 		<annotation cp="🍀">၄ | ပဲရိုင်းပင် | လေး | လေးရွက်ဆိုင် ပဲရိုင်းပင် | အရွက်</annotation>
 		<annotation cp="🍀" type="tts">လေးရွက်ဆိုင် ပဲရိုင်းပင်</annotation>
-		<annotation cp="🍁">မေပယ် | မေပယ်ရွက် | သစ်ရွက်ကြွေခြင်း | အရွက်</annotation>
+		<annotation cp="🍁">မေပယ် | သစ်ရွက်ကြွေခြင်း | အရွက်</annotation>
 		<annotation cp="🍁" type="tts">မေပယ်ရွက်</annotation>
-		<annotation cp="🍂">ကြွေကျခြင်း | ရွက်ကြွေ | သစ်ရွက်ကြွေခြင်း | အရွက်</annotation>
+		<annotation cp="🍂">ကြွေကျခြင်း | သစ်ရွက်ကြွေခြင်း | အရွက်</annotation>
 		<annotation cp="🍂" type="tts">ရွက်ကြွေ</annotation>
 		<annotation cp="🍃">တဖျပ်ဖျပ် ရစ်ဝဲကျသည် | လွင့်သည် | လေ | လေနှင်ရာ လွင့်နေသည့် အရွက် | လေနှင်ရာလွင့်နေသည့် အရွက် | အရွက်</annotation>
 		<annotation cp="🍃" type="tts">လေနှင်ရာလွင့်နေသည့် အရွက်</annotation>
@@ -1165,7 +1205,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥑" type="tts">ထောပတ်သီး</annotation>
 		<annotation cp="🍆">ခရမ်းသီး | ဟင်းသီးဟင်းရွက်</annotation>
 		<annotation cp="🍆" type="tts">ခရမ်းသီး</annotation>
-		<annotation cp="🥔">အစားအသောက် | အသီးအနှံ | အာလူး | အားလူး</annotation>
+		<annotation cp="🥔">အစားအသောက် | အသီးအနှံ | အားလူး</annotation>
 		<annotation cp="🥔" type="tts">အာလူး</annotation>
 		<annotation cp="🥕">မုန်လာဥ | အစားအသောက် | အသီးအနှံ</annotation>
 		<annotation cp="🥕" type="tts">မုန်လာဥ</annotation>
@@ -1205,7 +1245,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧇" type="tts">ဒေါင်းဖန်ဝါ မုန့်</annotation>
 		<annotation cp="🧀">ဒိန်ခဲ | ဒိန်ခဲ အတုံး</annotation>
 		<annotation cp="🧀" type="tts">ဒိန်ခဲ အတုံး</annotation>
-		<annotation cp="🍖">အရိုးပါ အသာျး အရြိုး အရိုးပါ အသြား အသား</annotation>
+		<annotation cp="🍖">အရိုျး အသာျး အသားပါ အရိုး</annotation>
 		<annotation cp="🍖" type="tts">အရိုးပါ အသား</annotation>
 		<annotation cp="🍗">ကြက်ခြေထောက် | ကြက်ငှက် | ကြက်ပေါင် | ကြက်သား | အရိုး</annotation>
 		<annotation cp="🍗" type="tts">ကြက်ပေါင်</annotation>
@@ -1213,7 +1253,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥩" type="tts">အသားပြား</annotation>
 		<annotation cp="🥓">ဝက်ပေါင်ခြောက် | အစားအသောက် | အသား</annotation>
 		<annotation cp="🥓" type="tts">ဝက်ပေါင်ခြောက်</annotation>
-		<annotation cp="🍔">ဘားဂြါး ဟမဘွာဂြါ ဟမဘြာဂျါ ဟမျဘာဂါ</annotation>
+		<annotation cp="🍔">ဘာဂျါ ဟမျဘာဂါ</annotation>
 		<annotation cp="🍔" type="tts">ဟမ်ဘာဂါ</annotation>
 		<annotation cp="🍟">အာလူးကြော် | အာလူးချောင်းကြော်</annotation>
 		<annotation cp="🍟" type="tts">အာလူးချောင်းကြော်</annotation>
@@ -1241,7 +1281,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍲" type="tts">အစားအစာ အိုး</annotation>
 		<annotation cp="🥣">ဇွန်းနှင့် ဟင်းခွက် | နံနက်စာ | အနှံအစေ့</annotation>
 		<annotation cp="🥣" type="tts">ဇွန်းနှင့် ဟင်းခွက်</annotation>
-		<annotation cp="🥗">အစားအသောက် | အရွက်စိမ်း | အရွက်သုပ် | အသုပ်</annotation>
+		<annotation cp="🥗">အစားအသောက် | အရွက်စိမ်း | အသုပ်</annotation>
 		<annotation cp="🥗" type="tts">အရွက်သုပ်</annotation>
 		<annotation cp="🍿">ပြောင်းဖူးပေါက်ပေါက်</annotation>
 		<annotation cp="🍿" type="tts">ပြောင်းဖူးပေါက်ပေါက်</annotation>
@@ -1369,35 +1409,35 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔪" type="tts">မီးဖိုသုံး ဓား</annotation>
 		<annotation cp="🏺">ကရား | ကုံရာသီ | ချက်ပြုတ်ခြင်း | ဂရိစဉ့်အိုး | စဥ့်အိုး | ဆယ့်နှစ်ရာသီခွင်</annotation>
 		<annotation cp="🏺" type="tts">စဥ့်အိုး</annotation>
-		<annotation cp="🌍">ဥရောပ၊ အာဖရိက၊ မြေကြီး၊ ကမ္ဘာလုံး၊ ကမ္ဘာ | ဥရောပနှင့် အာဖရိကကို ပြသထားသည့် ကမ္ဘာလုံး</annotation>
+		<annotation cp="🌍">ကမ္ဘာ | ကမ္ဘာလုံး | အာဖရိက | ဥရောပ | ဥရောပနှင့် အာဖရိကကို ပြထားသည့် ကမ္ဘာလုံး</annotation>
 		<annotation cp="🌍" type="tts">ဥရောပနှင့် အာဖရိကကို ပြသထားသည့် ကမ္ဘာလုံး</annotation>
-		<annotation cp="🌎">အမေရိက၊ မြေကြီး၊ ကမ္ဘာလုံး၊ ကမ္ဘာ | အမေရိကတိုက်များကို ပြသထားသည့် ကမ္ဘာလုံး</annotation>
+		<annotation cp="🌎">ကမ္ဘာ | ကမ္ဘာမြေ | ကမ္ဘာလုံး | အမေရိက | အမေရိကတိုက်များကို ပြသထားသည့် ကမ္ဘာလုံး</annotation>
 		<annotation cp="🌎" type="tts">အမေရိကတိုက်များကို ပြသထားသည့် ကမ္ဘာလုံး</annotation>
-		<annotation cp="🌏">အာရှ၊ ဩစတြေးလျ၊ မြေကြီး၊ ကမ္ဘာလုံး၊ ကမ္ဘာ | အာရှ−ဩစတြေးလျကို ပြသထားသည့် ကမ္ဘာလုံး</annotation>
+		<annotation cp="🌏">ကမ္ဘာ | ကမ္ဘာမြေ | ကမ္ဘာလုံး | သြစတြေးလျ | အာရှ | အာရှ-သြစတြေးလျကို ပြသထားသည့် ကမ္ဘာလုံး</annotation>
 		<annotation cp="🌏" type="tts">အာရှ−ဩစတြေးလျကို ပြသထားသည့် ကမ္ဘာလုံး</annotation>
-		<annotation cp="🌐">လောင်ဂျီတွဒ်များ၊ မြေကြီး၊ ကမ္ဘာလုံး၊ ကမ္ဘာ | လောင်ဂျီတွဒ်များပါသည့် ကမ္ဘာလုံး</annotation>
+		<annotation cp="🌐">ကမ္ဘာ | ကမ္ဘာမြေ | ကမ္ဘာလုံး | လောင်ဂျီတွဒ်များ | လောင်ဂျီတွဒ်များပါသည့် ကမ္ဘာလုံး</annotation>
 		<annotation cp="🌐" type="tts">လောင်ဂျီတွဒ်များပါသည့် ကမ္ဘာလုံး</annotation>
-		<annotation cp="🗺">ကမ္ဘာ၊ မြေပုံ | ကမ္ဘာ့မြေပုံ</annotation>
+		<annotation cp="🗺">ကမ္ဘာမြေ | မြေပုံ</annotation>
 		<annotation cp="🗺" type="tts">ကမ္ဘာ့မြေပုံ</annotation>
-		<annotation cp="🗾">ဂျပန်၊ မြေပုံ | ဂျပန်နိုင်ငံမြေပုံ</annotation>
+		<annotation cp="🗾">ဂျပန် | ဂျပန်နိုင်ငံမြေပုံ | မြေပုံ</annotation>
 		<annotation cp="🗾" type="tts">ဂျပန်နိုင်ငံမြေပုံ</annotation>
 		<annotation cp="🧭">မြေပုံနှင့်သံလိုက်အိမ်မြှောင်သုံး တောလမ်းခရီး ခြေကျင်လျှောက်ပြိုင်ပွဲ | လမ်းညွှန် | သံလိုက်သတ္တိ | သံလိုက်အိမ်မြှောင်</annotation>
 		<annotation cp="🧭" type="tts">သံလိုက်အိမ်မြှောင်</annotation>
-		<annotation cp="🏔">ဆီးနှင်းဖုံးနေသည့် တောင် | အေး၊ တောင်၊ ဆီးနှင်း</annotation>
+		<annotation cp="🏔">ဆီးနှင်း | ဆီးနှင်းဖုံးနေသည့် တောင် | တောင် | အေး</annotation>
 		<annotation cp="🏔" type="tts">ဆီးနှင်းဖုံးနေသည့် တောင်</annotation>
 		<annotation cp="⛰">တောင်</annotation>
 		<annotation cp="⛰" type="tts">တောင်</annotation>
-		<annotation cp="🌋">ပေါက်ကွဲ၊ တောင်၊ မိုးလေဝသ | မီးတောင်</annotation>
+		<annotation cp="🌋">တောင် | ပေါက်ကွဲ | မီးတောင်</annotation>
 		<annotation cp="🌋" type="tts">မီးတောင်</annotation>
-		<annotation cp="🗻">ဖူဂျီ၊ တောင် | ဖူဂျီတောင်</annotation>
+		<annotation cp="🗻">တောင် | ဖူဂျီ | ဖူဂျီတောင်</annotation>
 		<annotation cp="🗻" type="tts">ဖူဂျီတောင်</annotation>
-		<annotation cp="🏕">စခန်း၊ နေ | စခန်းချနေခြင်း</annotation>
+		<annotation cp="🏕">စခန်းချနေခြင်း</annotation>
 		<annotation cp="🏕" type="tts">စခန်းချနေခြင်း</annotation>
-		<annotation cp="🏖">ကမ်းခြေနှင့် ထီး | သောင်ယံ၊ ထီး</annotation>
+		<annotation cp="🏖">ကမ်းခြေ | ကမ်းခြေနှင့် ထီး | ထီး</annotation>
 		<annotation cp="🏖" type="tts">ကမ်းခြေနှင့် ထီး</annotation>
 		<annotation cp="🏜">သဲကန်တာရ</annotation>
 		<annotation cp="🏜" type="tts">သဲကန်တာရ</annotation>
-		<annotation cp="🏝">လူသူမရှိ၊ ကျွန်း | လူသူမဲ့ကျွန်း</annotation>
+		<annotation cp="🏝">ကျွန်း | လူသူမဲ့ကျွန်း</annotation>
 		<annotation cp="🏝" type="tts">လူသူမဲ့ကျွန်း</annotation>
 		<annotation cp="🏞">အမျိုးသား ဥယျာဉ် | ဥယျာဥ်</annotation>
 		<annotation cp="🏞" type="tts">အမျိုးသား ဥယျာဉ်</annotation>
@@ -1409,87 +1449,87 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">အဆောက်အအုံများ ဆောက်လုပ်ခြင်း</annotation>
 		<annotation cp="🧱">တံတိုင်း | ရွှံ့ | အင်္ဂတေ | အုတ်</annotation>
 		<annotation cp="🧱" type="tts">အုတ်</annotation>
-		<annotation cp="🏘">အိမ်ယာ၊ အဆောက်အအုံ | အိမ်ရာ အဆောက်အအုံများ</annotation>
+		<annotation cp="🏘">အိမ်ရာ အဆောက်အအုံများ</annotation>
 		<annotation cp="🏘" type="tts">အိမ်ရာ အဆောက်အအုံများ</annotation>
 		<annotation cp="🏚">စွန့်ပစ်နေရာ၊ အိမ်ယာ၊ အဆောက်အအုံ | စွန့်ပစ်အိမ်ရာ | ပိုင်ရှင်စွန့်နေရာများတွင် အိမ်ရာဆောက်လုပ်ခြင်း</annotation>
 		<annotation cp="🏚" type="tts">စွန့်ပစ်အိမ်ရာ</annotation>
-		<annotation cp="🏠">အိမ် | အိမ်ယာ၊ အိမ်၊ အဆောက်အအုံ | အိမ်ရာ ဆောက်လုပ်ခြင်း</annotation>
+		<annotation cp="🏠">အိမ်</annotation>
 		<annotation cp="🏠" type="tts">အိမ်</annotation>
-		<annotation cp="🏡">ပန်းခြံ၊ အိမ်ယာ၊ အဆောက်အအုံ၊ အိမ် | ပန်းခြံနှင့် အိမ်</annotation>
+		<annotation cp="🏡">ပန်းခြံ | ပန်းခြံနှင့် အိမ် | အိမ်</annotation>
 		<annotation cp="🏡" type="tts">ပန်းခြံနှင့် အိမ်</annotation>
 		<annotation cp="🏢">ရုံး အဆောက်အအုံ | အဆောက်အအုံ</annotation>
 		<annotation cp="🏢" type="tts">ရုံး အဆောက်အအုံ</annotation>
-		<annotation cp="🏣">ဂျပန် စာတိုက် | ဂျပန်၊ အဆောက်အအုံ၊ စာတိုက်</annotation>
+		<annotation cp="🏣">ဂျပန် | ဂျပန်စာတိုက် | စာတိုက်</annotation>
 		<annotation cp="🏣" type="tts">ဂျပန် စာတိုက်</annotation>
-		<annotation cp="🏤">စာတိုက် | ဥရောပ၊ အဆောက်အအုံ၊ စာတိုက်</annotation>
+		<annotation cp="🏤">စာတိုက် | ဥရောပ</annotation>
 		<annotation cp="🏤" type="tts">စာတိုက်</annotation>
-		<annotation cp="🏥">ဆရာဝန်၊ ဆေးကုသ၊ အဆောက်အအုံ | ဆေးရုံ</annotation>
+		<annotation cp="🏥">ဆရာဝန် | ဆေးရုံ | ဆေးဝါး</annotation>
 		<annotation cp="🏥" type="tts">ဆေးရုံ</annotation>
 		<annotation cp="🏦">ဘဏ် | အဆောက်အအုံ</annotation>
 		<annotation cp="🏦" type="tts">ဘဏ်</annotation>
 		<annotation cp="🏨">ဟိုတယ် | အဆောက်အအုံ</annotation>
 		<annotation cp="🏨" type="tts">ဟိုတယ်</annotation>
-		<annotation cp="🏩">ချစ်သူ ဟိုတယ် | အဆောက်အအုံ ချစ်၊ ဟော်တယ်</annotation>
+		<annotation cp="🏩">ဟိုတယ် | အချစ် | အချစ်ဟိုတယ်</annotation>
 		<annotation cp="🏩" type="tts">ချစ်သူ ဟိုတယ်</annotation>
-		<annotation cp="🏪">ကုန်စုံ၊ စတိုး၊ အဆောက်အအုံ | ကုန်စုံဆိုင်</annotation>
+		<annotation cp="🏪">ကုန်စုံဆိုင် | စတိုး</annotation>
 		<annotation cp="🏪" type="tts">ကုန်စုံဆိုင်</annotation>
 		<annotation cp="🏫">ကျောင်း | အဆောက်အအုံ</annotation>
 		<annotation cp="🏫" type="tts">ကျောင်း</annotation>
-		<annotation cp="🏬">စတိုးဆိုင်ကြီး | အဆောက်အအုံ၊ ရပ်ကွက်၊ စတိုး</annotation>
+		<annotation cp="🏬">စတိုး | ဌာန</annotation>
 		<annotation cp="🏬" type="tts">စတိုးဆိုင်ကြီး</annotation>
 		<annotation cp="🏭">စက်ရုံ | အဆောက်အအုံ</annotation>
 		<annotation cp="🏭" type="tts">စက်ရုံ</annotation>
-		<annotation cp="🏯">ဂျပန် ရဲတိုက် | အဆောက်အအုံ၊ ဂျပန်၊ ရဲတိုက်</annotation>
+		<annotation cp="🏯">ဂျပန် | ရဲတိုက်</annotation>
 		<annotation cp="🏯" type="tts">ဂျပန် ရဲတိုက်</annotation>
-		<annotation cp="🏰">ရဲတိုက် | အဆောက်အအုံ၊ ဥရောပ</annotation>
+		<annotation cp="🏰">ရဲတိုက် | ဥရောပ</annotation>
 		<annotation cp="🏰" type="tts">ရဲတိုက်</annotation>
-		<annotation cp="💒">ဘုရားကျောင်း၊ ချစ် | မင်္ဂလာဆောင်</annotation>
+		<annotation cp="💒">ကြည်နူးဖွယ်ချစ်ရေး | ဘုရားကျောင်း | မင်္ဂလာဆောင်</annotation>
 		<annotation cp="💒" type="tts">မင်္ဂလာဆောင်</annotation>
-		<annotation cp="🗼">တိုကျို မျှော်စင် | တိုကျို၊ မျှော်စင်</annotation>
+		<annotation cp="🗼">တိုကျို | မျှော်စင်</annotation>
 		<annotation cp="🗼" type="tts">တိုကျို မျှော်စင်</annotation>
 		<annotation cp="🗽">လေဘာတီ | လေဘာတီ ရုပ်တု | အထိန်းအမှတ်</annotation>
 		<annotation cp="🗽" type="tts">လေဘာတီ ရုပ်တု</annotation>
-		<annotation cp="⛪">ခရစ်ယာန် ဘုရားကျောင်း | အဆောက်အအုံ၊ ခရစ်ယာန်၊ ကားတိုင်၊ ဘာသာရေး</annotation>
+		<annotation cp="⛪">ခရစ်ယာန် | ခရစ်ယာန် ဘုရားကျောင်း | ဘာသာရေး | လက်ဝါးကပ်တိုင်</annotation>
 		<annotation cp="⛪" type="tts">ခရစ်ယာန် ဘုရားကျောင်း</annotation>
-		<annotation cp="🕌">ဗလီကျောင်း | အစ္စလမ်၊ မူဆလင်၊ ဘာသာရေ</annotation>
+		<annotation cp="🕌">ဗလီကျောင်း | ဘာသာရေး | မွတ်စလင် | အစ္စလမ်</annotation>
 		<annotation cp="🕌" type="tts">ဗလီကျောင်း</annotation>
 		<annotation cp="🛕">ဘုရားကျောင်း | ဟိန္ဒူ</annotation>
 		<annotation cp="🛕" type="tts">ဟိန္ဒူ ဘုရားကျောင်း</annotation>
-		<annotation cp="🕍">ဂျူး၊ ဂျူးလူမျိုး၊ ဘာသာရေး၊ ဘုရားရှိခိုးကျောင်း | ဂျူးဘုရားရှိခိုးကျောင်း</annotation>
+		<annotation cp="🕍">ဂျူး | ဂျူး ဘုရားရှိခိုးကျောင်း | ဂျူးလူမျိုး | ဘာသာရေး | ဘုရားကျောင်း</annotation>
 		<annotation cp="🕍" type="tts">ဂျူးဘုရားရှိခိုးကျောင်း</annotation>
-		<annotation cp="⛩">ရှင်တို ဘုရားကျောင်း | ရှင်တို၊ ဘာသာရေး၊ ဘုရားကျောင်း</annotation>
+		<annotation cp="⛩">ဘာသာရေး | ဘုရားကျောင်း | ရှင်တို</annotation>
 		<annotation cp="⛩" type="tts">ရှင်တို ဘုရားကျောင်း</annotation>
 		<annotation cp="🕋">kaaba | အစ္စလမ်၊ မူဆလင်၊ ဘာသာရေး</annotation>
 		<annotation cp="🕋" type="tts">kaaba</annotation>
 		<annotation cp="⛲">ရေပန်း | အလှပြ ရေပန်း</annotation>
 		<annotation cp="⛲" type="tts">အလှပြ ရေပန်း</annotation>
-		<annotation cp="⛺">ရွက်တဲ | ရွက်တဲ၊ စခန်း | ရွက်ဖျင်တဲ</annotation>
+		<annotation cp="⛺">စခန်းချခြင်း | တဲ | ရွက်ဖျင်တဲ</annotation>
 		<annotation cp="⛺" type="tts">ရွက်ဖျင်တဲ</annotation>
-		<annotation cp="🌁">မြူ၊ မိုးလေဝသ | မြူအုံ့ဆိုင်းသော</annotation>
+		<annotation cp="🌁">မြူ | မြူအုံ့ဆိုင်းသော</annotation>
 		<annotation cp="🌁" type="tts">မြူအုံ့ဆိုင်းသော</annotation>
-		<annotation cp="🌃">ကြယ်၊ မိုးလေဝသ၊ ည | ကြယ်များလင်းသည့် ည</annotation>
+		<annotation cp="🌃">ကြယ် | ကြယ်များလင်းသည့် ည | ည</annotation>
 		<annotation cp="🌃" type="tts">ကြယ်များလင်းသည့် ည</annotation>
-		<annotation cp="🏙">မြို့ပြရှုခင်း | အဆောက်အအုံ၊ မြို့</annotation>
+		<annotation cp="🏙">မြို့ | မြို့ပြရှုခင်း</annotation>
 		<annotation cp="🏙" type="tts">မြို့ပြရှုခင်း</annotation>
-		<annotation cp="🌄">တောင်ကြောပေါ်မှာ နေထွက်ခြင်း | နံနက်၊ တောင်၊ နေ၊ နေထွက်၊ မိုးလေဝသ</annotation>
+		<annotation cp="🌄">တောင် | တောင်ကြောပေါ်မှ နေထွက်ခြင်း | နံနက် | နေ | နေထွက်ခြင်း</annotation>
 		<annotation cp="🌄" type="tts">တောင်ကြောပေါ်မှာ နေထွက်ခြင်း</annotation>
-		<annotation cp="🌅">နံနက်၊ နေ၊ မိုးလေဝသ | နေထွက်ခြင်း</annotation>
+		<annotation cp="🌅">နံနက် | နေ | နေထွက်ခြင်း</annotation>
 		<annotation cp="🌅" type="tts">နေထွက်ခြင်း</annotation>
-		<annotation cp="🌆">နေဝင်ဆည်းဆာချိန် မြို့ပြရှုခင်း | အဆောက်အအုံ၊ မြို့၊ နေဝင်၊ ဆည်းဆာ၊ ရှုခင်း၊ မိုးလေဝသ</annotation>
+		<annotation cp="🌆">ညနေ | နေဝင်ချိန် | နေဝင်ဆည်းဆာ | နေဝင်ဆည်းဆာချိန် မြို့ပြရှုခင်း | ရှုခင်း</annotation>
 		<annotation cp="🌆" type="tts">နေဝင်ဆည်းဆာချိန် မြို့ပြရှုခင်း</annotation>
-		<annotation cp="🌇">နေဝင်ချိန် | အဆောက်အအုံ၊ မြို့၊ နေ၊ မိုးလေဝသ</annotation>
+		<annotation cp="🌇">နေ | နေဝင်ချိန် | နေဝင်ဆည်းဆာ</annotation>
 		<annotation cp="🌇" type="tts">နေဝင်ချိန်</annotation>
-		<annotation cp="🌉">ည၊ တံတား၊ မိုးလေဝသ | ညအချိန်မှာ တံတား</annotation>
+		<annotation cp="🌉">ည | ညအချိန်မှာ တံတား | တံတား</annotation>
 		<annotation cp="🌉" type="tts">ညအချိန်မှာ တံတား</annotation>
-		<annotation cp="♨">ရေပူစမ်း၊ ပူ၊ စမ်း၊ အငွေ့ | ရေပူစမ်းများ</annotation>
+		<annotation cp="♨">စမ်း | ပူ | ရေပူစမ်းများ | အငွေ့</annotation>
 		<annotation cp="♨" type="tts">ရေပူစမ်းများ</annotation>
-		<annotation cp="🎠">ချားရဟတ် မြင်း | ချားရဟတ်၊ မြင်း</annotation>
+		<annotation cp="🎠">ချားရဟတ် | မြင်း</annotation>
 		<annotation cp="🎠" type="tts">ချားရဟတ် မြင်း</annotation>
-		<annotation cp="🎡">ချားရဟတ် | ပျော်ပွဲရွှင်ပွဲ ပန်းခြံ၊ ရဟတ်</annotation>
+		<annotation cp="🎡">ချားရဟတ် | ပျော်ပွဲရွှင်ပွဲ ပန်းခြံ | ရဟတ်</annotation>
 		<annotation cp="🎡" type="tts">ချားရဟတ်</annotation>
-		<annotation cp="🎢">ပျော်ပွဲရွှင်ပွဲ ပန်းခြံ၊ သည်းဖို၊ ရထား | သည်းဖိုရထား</annotation>
+		<annotation cp="🎢">ကိုစတာ | ပျော်ပွဲရွှင်ပွဲ ပန်းခြံ | ရိုလာ</annotation>
 		<annotation cp="🎢" type="tts">သည်းဖိုရထား</annotation>
-		<annotation cp="💈">ဆံပင်၊ညှပ်ဆရာ၊ တိုင် | ဆံပင်ညှပ်ဆိုင် တိုင်</annotation>
+		<annotation cp="💈">ဆံပင်ညှပ်ခြင်း | ဆံပင်ညှပ်ဆရာ | တိုင်</annotation>
 		<annotation cp="💈" type="tts">ဆံပင်ညှပ်ဆိုင် တိုင်</annotation>
 		<annotation cp="🎪">ဆပ်ကပ် | ဆပ်ကပ်တဲ | တဲ</annotation>
 		<annotation cp="🎪" type="tts">ဆပ်ကပ်တဲ</annotation>
@@ -1695,47 +1735,47 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕚" type="tts">ဆယ့်တစ်နာရီ</annotation>
 		<annotation cp="🕦">၁၁၊ ၁၁ ၃၀၊ ၃၀၊ နာရီ၊ ဆယ့်တစ်၊ နာရီခွဲ | ဆယ့်တစ်နာရီခွဲ</annotation>
 		<annotation cp="🕦" type="tts">ဆယ့်တစ်နာရီခွဲ</annotation>
-		<annotation cp="🌑">မှောင်မည်း၊ လ၊ အာကာသ၊ မိုးလေဝသ | လကွယ်</annotation>
+		<annotation cp="🌑">မှောင်မည်း | လ | လကွယ်</annotation>
 		<annotation cp="🌑" type="tts">လကွယ်</annotation>
-		<annotation cp="🌒">လခြမ်း၊ လ၊ အာကာသ၊ လဆန်း၊ မိုးလေဝသ | လဆန်းရက်</annotation>
+		<annotation cp="🌒">လ | လခြမ်း | လဆန်းရက်</annotation>
 		<annotation cp="🌒" type="tts">လဆန်းရက်</annotation>
-		<annotation cp="🌓">လ၊ လေးပုံတစ်ပုံ၊ မိုးလေဝသ | လ၏ ပထမအပတ်</annotation>
+		<annotation cp="🌓">လ | လ၏ ပထမအပတ် | လေးပုံတစ်ပုံ</annotation>
 		<annotation cp="🌓" type="tts">လ၏ ပထမအပတ်</annotation>
-		<annotation cp="🌔">လပြည့်ခါနီး၊ လ အာကာသ၊ လဆန်း၊ မိုးလေဝသ | လပြည့်မတိုင်မီ အပတ်</annotation>
+		<annotation cp="🌔">လ | လဆန်း | လပြည့်ခါနီး</annotation>
 		<annotation cp="🌔" type="tts">လပြည့်မတိုင်မီ အပတ်</annotation>
-		<annotation cp="🌕">လ၊ အပြည့်၊ အာကာသ၊ မိုးလေဝသ | လပြည့်</annotation>
+		<annotation cp="🌕">လ | အပြည့်</annotation>
 		<annotation cp="🌕" type="tts">လပြည့်</annotation>
-		<annotation cp="🌖">လဆုပ်ရက် | လပြည့်နီးပါး၊ လဆုပ်၊ လ၊ အာကာသ၊ မိုးလေဝသ</annotation>
+		<annotation cp="🌖">လဆုတ် | လဆုတ်ရက် | လပြည့်နီးပါး</annotation>
 		<annotation cp="🌖" type="tts">လဆုပ်ရက်</annotation>
-		<annotation cp="🌗">လ၊ လေးပုံတစ်ပုံ၊ အာကာသ၊ မိုးလေဝသ | လ၏ နောက်ဆုံးအပတ်</annotation>
+		<annotation cp="🌗">လ | လ၏ နောင်ဆုံးအပတ် | လေးပုံတစ်ပုံ</annotation>
 		<annotation cp="🌗" type="tts">လ၏ နောက်ဆုံးအပတ်</annotation>
-		<annotation cp="🌘">လကွယ်မတိုင်မီ အပတ် | လခြမ်း၊ လဆုပ်၊ အာကာသ၊ မိုးလေဝသ</annotation>
+		<annotation cp="🌘">လ | လခြမ်း | လဆုတ်</annotation>
 		<annotation cp="🌘" type="tts">လကွယ်မတိုင်မီ အပတ်</annotation>
-		<annotation cp="🌙">လခြမ်း | လခွမျး | လခွမျး၊ လ၊ အာကာသ၊ မိုးလဝေသ</annotation>
+		<annotation cp="🌙">လ | လခြမ်း</annotation>
 		<annotation cp="🌙" type="tts">လခြမ်း</annotation>
-		<annotation cp="🌚">လ၊ မျက်နှာ၊ အာကာသ၊ မိုးလေဝသ | လကွယ် မျက်နှာ</annotation>
+		<annotation cp="🌚">မျက်နှာ | လ | လကွယ် မျက်နှာ</annotation>
 		<annotation cp="🌚" type="tts">လကွယ် မျက်နှာ</annotation>
-		<annotation cp="🌛">လ၊ လေးပုံတစ်ပုံ၊ မျက်နှာ၊ အာကာသ၊ မိုးလေဝသ | လဆန်းစ မျက်နှာ</annotation>
+		<annotation cp="🌛">မျက်နှာ | လ | လဆန်းစ မျက်နှာ | လေးပုံတစ်ပုံ</annotation>
 		<annotation cp="🌛" type="tts">လဆန်းစ မျက်နှာ</annotation>
-		<annotation cp="🌜">လ၊ လေးပုံတစ်ပုံ၊ မျက်နှာ၊ အာကာသ၊ မိုးလေဝသ | လဆုပ်လု မျက်နှာ</annotation>
+		<annotation cp="🌜">မျက်နှာ | လ | လဆုတ်လု မျက်နှာ | လေးပုံတစ်ပုံ</annotation>
 		<annotation cp="🌜" type="tts">လဆုပ်လု မျက်နှာ</annotation>
 		<annotation cp="🌡">မိုးလေဝသ | သာမိုမီတာ</annotation>
 		<annotation cp="🌡" type="tts">သာမိုမီတာ</annotation>
-		<annotation cp="☀">တောက်ပ၊ နေသာ၊ အလင်းရောင်၊ အာကာသ၊ မိုးလေဝသ | နေ</annotation>
+		<annotation cp="☀">တောက်ပ | နေ | နေသာ | အလင်းရောင်</annotation>
 		<annotation cp="☀" type="tts">နေ</annotation>
-		<annotation cp="🌝">လပြည့် မျက်နှာ | အပြည့်၊ လ၊ တောက်ပ၊ မျက်နှာ၊ အာကာသ၊ မိုးလေဝသ</annotation>
+		<annotation cp="🌝">တောက်ပ | မျက်နှာ | လ | အပြည့်</annotation>
 		<annotation cp="🌝" type="tts">လပြည့် မျက်နှာ</annotation>
-		<annotation cp="🌞">တောက်ပ၊ နေ၊ မျက်နှာ၊ အာကာသ၊ မိုးလေဝသ | နေ၏ မျက်နှာ</annotation>
+		<annotation cp="🌞">တောက်ပ | နေ | နေ၏ မျက်နှာ | မျက်နှာ</annotation>
 		<annotation cp="🌞" type="tts">နေ၏ မျက်နှာ</annotation>
 		<annotation cp="🪐">ကွင်းပါရှိသည့် ဂြိုဟ် | စနေဂြိုဟ် | သုန်မှုန်သော</annotation>
 		<annotation cp="🪐" type="tts">ကွင်းပါရှိသည့် ဂြိုဟ်</annotation>
 		<annotation cp="⭐">ကြယ် | အဖြူရောင် အလတ်စား ကြယ်</annotation>
 		<annotation cp="⭐" type="tts">အဖြူရောင် အလတ်စား ကြယ်</annotation>
-		<annotation cp="🌟">တောက်ပ၊ ၀င်း၊ လက်၊ ကြယ် | တောက်ပသည့် ကြယ်</annotation>
+		<annotation cp="🌟">ကြယ် | တောက်ပ | တောက်ပသည့် ကြယ် | လက် | ဝင်း</annotation>
 		<annotation cp="🌟" type="tts">တောက်ပသည့် ကြယ်</annotation>
-		<annotation cp="🌠">ကျလာ၊ ပစ်လွှတ်၊ အာကာသ၊ ကြယ် | ကြယ်ကြွေခြင်း</annotation>
+		<annotation cp="🌠">ကြယ် | ကြွေကျခြင်း | ကြွေခြင်း</annotation>
 		<annotation cp="🌠" type="tts">ကြယ်ကြွေခြင်း</annotation>
-		<annotation cp="🌌">နဂါးငွေ့တန်း | အာကာသ၊ မိုးလေဝသ</annotation>
+		<annotation cp="🌌">နဂါးငွေ့တန်း | အာကာသ</annotation>
 		<annotation cp="🌌" type="tts">နဂါးငွေ့တန်း</annotation>
 		<annotation cp="☁">တိမ် | မိုးလေဝသ</annotation>
 		<annotation cp="☁" type="tts">တိမ်</annotation>
@@ -1903,7 +1943,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪀" type="tts">ယိုယို</annotation>
 		<annotation cp="🪁">စွန် | စွန်လွှတ် | ပျံဝဲ</annotation>
 		<annotation cp="🪁" type="tts">စွန်</annotation>
-		<annotation cp="🎱">၈ | ဂိမ်း | ဘိလိယက် ဘောလုံးနံပါတ် ၈ | ဘီလိယက် | ဘောလုံး</annotation>
+		<annotation cp="🎱">၈ | ဂိမ်း | ဘိလိယက် | ဘိလိယက် ဘောလုံးနံပါတ် ၈ | ဘောလုံး</annotation>
 		<annotation cp="🎱" type="tts">ဘိလိယက် ဘောလုံးနံပါတ် ၈</annotation>
 		<annotation cp="🔮">ကသိုဏ်းဖန်လုံး | စိတ်ကူးယဉ် | နတ်သမီးပုံပြင် | ဖန်လုံး | ရှေးဖြစ်ဟောစာတမ်း</annotation>
 		<annotation cp="🔮" type="tts">ကသိုဏ်းဖန်လုံး</annotation>
@@ -1915,10 +1955,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕹" type="tts">ပဲ့ထိန်းမဏ္ဍိုင်</annotation>
 		<annotation cp="🎰">ဂိမ်း | ဈေးရောင်းစက် | လောင်းကစားစက်</annotation>
 		<annotation cp="🎰" type="tts">လောင်းကစားစက်</annotation>
-		<annotation cp="🎲">ဂိမ်း | အံစာတုံး | အန်စာတုံး</annotation>
+		<annotation cp="🎲">ဂိမ်း | အန်စာတုံး</annotation>
 		<annotation cp="🎲" type="tts">အံစာတုံး</annotation>
 		<annotation cp="🧩">ချိတ်ဆက် | ဂျစ်စော | ပဟေဠိ | သဲလွန်စ | အပိုင်းအစ</annotation>
-		<annotation cp="🧩" type="tts">ဂျစ်စော</annotation>
+		<annotation cp="🧩" type="tts">ဂျစ်စော အပိုင်းအစ</annotation>
 		<annotation cp="🧸">ကစားစရာ | ကစားစရာ ဝက်ဝံရုပ် | ရုပ်လုံးသွင်း | အမွေးပွ</annotation>
 		<annotation cp="🧸" type="tts">ကစားစရာ ဝက်ဝံရုပ်</annotation>
 		<annotation cp="♠">ဂိမ်း | ဖူးဖဲချပ်အတွဲ | ဖဲချပ်</annotation>
@@ -1947,7 +1987,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧵" type="tts">အပ်ချည်</annotation>
 		<annotation cp="🧶">ချည်ခင် | ဇာထိုးသည် | တစ်ချောင်းထိုး | ဘောလုံး</annotation>
 		<annotation cp="🧶" type="tts">ချည်ခင်</annotation>
-		<annotation cp="👓">နေကာမျက်မှန် | မျက်မှန် | မျက်လုံး | ဝတ်စရာ</annotation>
+		<annotation cp="👓">နေကာမျက်မှန် | မျက်မှန် | မျက်လုံး</annotation>
 		<annotation cp="👓" type="tts">မျက်မှန်</annotation>
 		<annotation cp="🕶">နေကာ မျက်မှန် | နေကာမျက်မှန် အမည်း | မျက်မှန်</annotation>
 		<annotation cp="🕶" type="tts">နေကာ မျက်မှန်</annotation>
@@ -2019,9 +2059,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👒" type="tts">အမျိုးသမီး ဦးထုပ်</annotation>
 		<annotation cp="🎩">အဝတ်အထည် | ဦးထုပ် | ဦးထုပ်မြင့်</annotation>
 		<annotation cp="🎩" type="tts">ဦးထုပ်မြင့်</annotation>
-		<annotation cp="🎓">ဘွဲ့နှင်းသဘင် | ဘွဲ့ဦးထုတ် | ဘွဲ့ဦးထုပ် | အဝတ်အထည် | အောင်ပွဲခံခြင်း</annotation>
-		<annotation cp="🎓" type="tts">ဘွဲ့ဦးထုတ်</annotation>
-		<annotation cp="🧢">ကက်ဦးထုတ် | ဘေ့စ်ဘောဦးထုပ်</annotation>
+		<annotation cp="🎓">ဘွဲ့နှင်းသဘင် | ဘွဲ့ဦးထုပ် | အဝတ်အထည် | အောင်ပွဲခံခြင်း</annotation>
+		<annotation cp="🎓" type="tts">ဘွဲ့ဦးထုပ်</annotation>
+		<annotation cp="🧢">ကက်ဦးထုပ် | ဘေ့စ်ဘောဦးထုပ်</annotation>
 		<annotation cp="🧢" type="tts">ကက်ဦးထုတ်</annotation>
 		<annotation cp="⛑">ကယ်ဆယ်ရေးလုပ်သားဆောင်း ဦးထုပ် | ကြက်ခြေခတ်ဖြူနှင့် ခမောက် | ကြက်ခြေနီ ဦးထုပ်</annotation>
 		<annotation cp="⛑" type="tts">ကြက်ခြေခတ်ဖြူနှင့် ခမောက်</annotation>
@@ -2111,11 +2151,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖱" type="tts">ကွန်ပျူတာမောက်စ်</annotation>
 		<annotation cp="🖲">ကွန်ပျူတာ | မောက်စ်</annotation>
 		<annotation cp="🖲" type="tts">မောက်စ်</annotation>
-		<annotation cp="💽">ကွန်ပျူတာ | ဒစ်စ်ခ် | မီနီဒစ် | မီနီဒစ်စ်ခ် | အော့ပ်တစ်ကယ်</annotation>
+		<annotation cp="💽">ကွန်ပျူတာ | ဒစ်စ်ခ် | မီနီဒစ်စ်ခ် | အော့ပ်တစ်ကယ်</annotation>
 		<annotation cp="💽" type="tts">မီနီဒစ်</annotation>
-		<annotation cp="💾">ကွန်ပျူတာ | ဒစ်ခ် | ဖလော်ပီ | ဖလော်ပီဒစ်</annotation>
+		<annotation cp="💾">​ ဒစ်ခ် | ကွန်ပျူတာ | ဖလော်ပီ</annotation>
 		<annotation cp="💾" type="tts">ဖလော်ပီဒစ်</annotation>
-		<annotation cp="💿">ကွန်ပျူတာ | စီဒီ | ဒစ်ခ် | အလင်းသုံးဒစ် | အော့ပ်တစ်ကယ်</annotation>
+		<annotation cp="💿">ကွန်ပျူတာ | စီဒီ | ဒစ်ခ် | အော့ပ်တစ်ကယ်</annotation>
 		<annotation cp="💿" type="tts">အလင်းသုံးဒစ်</annotation>
 		<annotation cp="📀">ကွန်ပျူတာ | ဒစ်ခ် | ဒီဗီဒီ | ဘလူးရေး | အော့ပ်တစ်ကယ်</annotation>
 		<annotation cp="📀" type="tts">ဒီဗီဒီ</annotation>
@@ -2173,7 +2213,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📒" type="tts">လယ်ဂျာစာအုပ်</annotation>
 		<annotation cp="📃">စာရွက် | စာရွက်စာတမ်း | တွန့်လိပ်နေသော စာရွက် | အတွန့်</annotation>
 		<annotation cp="📃" type="tts">တွန့်လိပ်နေသော စာရွက်</annotation>
-		<annotation cp="📜">စက္ကူလိပ် | စာရွက် | လှိမ့်ပါ</annotation>
+		<annotation cp="📜">စက္ကူလိပ် | စာရွက်</annotation>
 		<annotation cp="📜" type="tts">စက္ကူလိပ်</annotation>
 		<annotation cp="📄">စာရွက် | စာရွက်စာတမ်း | မြင်နေရသည့် စာမျက်နှာ</annotation>
 		<annotation cp="📄" type="tts">မြင်နေရသည့် စာမျက်နှာ</annotation>
@@ -2255,17 +2295,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📁" type="tts">ဖိုင်တွဲ</annotation>
 		<annotation cp="📂">ဖွင့်ထားသည့် ဖိုင်တွဲ | ဖိုင် | ဖိုင်တွဲ</annotation>
 		<annotation cp="📂" type="tts">ဖွင့်ထားသည့် ဖိုင်တွဲ</annotation>
-		<annotation cp="🗂">ကတ် | အညွှန်း | အညွှန်းကတ်ပြား | အညွှန်းကဒ် ခွဲသည့်အရာ</annotation>
+		<annotation cp="🗂">ကတ် | ခွဲခြားခြင်း | အညွှန်း</annotation>
 		<annotation cp="🗂" type="tts">အညွှန်းကဒ် ခွဲသည့်အရာ</annotation>
 		<annotation cp="📅">ပြက္ခဒိန် | ရက်စွဲ</annotation>
 		<annotation cp="📅" type="tts">ပြက္ခဒိန်</annotation>
-		<annotation cp="📆">ဆုတ်ဖြဲယူရသည့် ပြက္ခဒိန် | ပြက္ခဒိန် | ရွက်ဆုတ် ပြက္ခဒိန်</annotation>
+		<annotation cp="📆">ပြက္ခဒိန် | ရွက်ဆုတ် ပြက္ခဒိန်</annotation>
 		<annotation cp="📆" type="tts">ရွက်ဆုတ် ပြက္ခဒိန်</annotation>
-		<annotation cp="🗒">မှတ်စု | မှတ်စု စာအုတ် | လှည့်နိုင်သည့် မှတ်စုစာအုတ် | လှည့်နိုင်သည့် မှတ်စုစာအုပ်</annotation>
+		<annotation cp="🗒">မှတ်စု | မှတ်စု စာအုတ် | လှည့်နိုင်သည့် မှတ်စုစာအုတ်</annotation>
 		<annotation cp="🗒" type="tts">လှည့်နိုင်သည့် မှတ်စုစာအုပ်</annotation>
 		<annotation cp="🗓">ပြက္ခဒိန် | လှည့်နိုင်သည့် ပြက္ခဒိန်</annotation>
 		<annotation cp="🗓" type="tts">လှည့်နိုင်သည့် ပြက္ခဒိန်</annotation>
-		<annotation cp="📇">ကတ် | ကဒ် အညွှန်း | ရိုလိုဒက်စ် | အညွှန်း</annotation>
+		<annotation cp="📇">ကတ် | ရိုလိုဒက်စ် | အညွှန်း</annotation>
 		<annotation cp="📇" type="tts">ကဒ် အညွှန်း</annotation>
 		<annotation cp="📈">ဂရပ်ဖ် | ဇယား | တိုးပွားခြင်း | မြင့်တက်နေပုံပြ ဇယား | ဦးတည်ချက်</annotation>
 		<annotation cp="📈" type="tts">မြင့်တက်နေပုံပြ ဇယား</annotation>
@@ -2273,13 +2313,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📉" type="tts">နိမ့်ဆင်းနေပုံပြ ဇယား</annotation>
 		<annotation cp="📊">ဂရပ်ဖ် | ဇယား | ဘားကွက်ပြ ဇယား</annotation>
 		<annotation cp="📊" type="tts">ဘားကွက်ပြ ဇယား</annotation>
-		<annotation cp="📋">ကလစ်ဖြင့်ညှပ်သည့် ဘုတ်ပြား | ကလစ်ဘုတ်</annotation>
+		<annotation cp="📋">ကလစ်ဘုတ်</annotation>
 		<annotation cp="📋" type="tts">ကလစ်ဘုတ်</annotation>
 		<annotation cp="📌">ပင်အပ် | ဖိထိုးရသည့် ပင်အပ်</annotation>
 		<annotation cp="📌" type="tts">ဖိထိုးရသည့် ပင်အပ်</annotation>
 		<annotation cp="📍">ထိုးအပ် အဝိုင်း | ပင် | ပင်အပ်</annotation>
 		<annotation cp="📍" type="tts">ထိုးအပ် အဝိုင်း</annotation>
-		<annotation cp="📎">စက္ကူညှပ် | စာရွက်ညှပ်</annotation>
+		<annotation cp="📎">စက္ကူညှပ်ကလစ်</annotation>
 		<annotation cp="📎" type="tts">စက္ကူညှပ်</annotation>
 		<annotation cp="🖇">ချိတ်ဆက်သည် | ချိတ်ထားသည့် စက္ကူညှပ်များ | စက္ကူညှပ်</annotation>
 		<annotation cp="🖇" type="tts">ချိတ်ထားသည့် စက္ကူညှပ်များ</annotation>
@@ -2289,11 +2329,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📐" type="tts">ထောင့်မှန် ပေတံ</annotation>
 		<annotation cp="✂">ကတ်ကြေး | ကိရိယာ</annotation>
 		<annotation cp="✂" type="tts">ကတ်ကြေး</annotation>
-		<annotation cp="🗃">ကတ် | ကဒ်ဖိုင် သေတ္တာ | စက္ကူပုံး | ဖိုင်</annotation>
+		<annotation cp="🗃">ကတ် | စက္ကူပုံး | ဖိုင်</annotation>
 		<annotation cp="🗃" type="tts">ကဒ်ဖိုင် သေတ္တာ</annotation>
 		<annotation cp="🗄">ဖိုင် | အံဆွဲ</annotation>
 		<annotation cp="🗄" type="tts">ဖိုင် အံဆွဲ</annotation>
-		<annotation cp="🗑">ထည့်ရန် | အမှိုက် | အမှိုက်ခြင်း</annotation>
+		<annotation cp="🗑">အမှိုက်ခြင်း</annotation>
 		<annotation cp="🗑" type="tts">အမှိုက်ခြင်း</annotation>
 		<annotation cp="🔒">ပိတ်ထား | ပိတ်နေသော သော့ခလောက်</annotation>
 		<annotation cp="🔒" type="tts">ပိတ်နေသော သော့ခလောက်</annotation>
@@ -2311,11 +2351,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔨" type="tts">တူ</annotation>
 		<annotation cp="🪓">ခွဲခြင်း | ခုတ်ခြင်း | ပုဆိန် | ရဲတင်း | သစ်သား</annotation>
 		<annotation cp="🪓" type="tts">ပုဆိန်</annotation>
-		<annotation cp="⛏">တူးဖေါ်ရေး ကိရိယာ | ပေါက်ချွန်း</annotation>
+		<annotation cp="⛏">တူးဖော်ရေး ကိရိယာ | တူးလ် | ပေါက်ချွန်း</annotation>
 		<annotation cp="⛏" type="tts">ပေါက်ချွန်း</annotation>
 		<annotation cp="⚒">ကိရိယာ | တူ | တူနှင့် ပေါက်ချွန်း | ပေါက်ချွန်း</annotation>
 		<annotation cp="⚒" type="tts">တူနှင့် ပေါက်ချွန်း</annotation>
-		<annotation cp="🛠">ကိရိယာ | ခွ | စပန်နာ | တူ | တူနှင့် ခွ | တူနှင့် ဂွ</annotation>
+		<annotation cp="🛠">ခွရှင် | စပန်နာ | တူ | တူနှင့် ခွရှင် | တူးလ်</annotation>
 		<annotation cp="🛠" type="tts">တူနှင့် ခွ</annotation>
 		<annotation cp="🗡">ဓား | ဓားမြှောင် | လက်နက်</annotation>
 		<annotation cp="🗡" type="tts">ဓားမြှောင်</annotation>
@@ -2327,11 +2367,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏹" type="tts">လေးနှင့် မြား</annotation>
 		<annotation cp="🛡">ဒိုင်း | လက်နက်</annotation>
 		<annotation cp="🛡" type="tts">ဒိုင်း</annotation>
-		<annotation cp="🔧">ကိရိယာ | ခွ</annotation>
+		<annotation cp="🔧">ခွရှင် | စပန်နာ | တူးလ်</annotation>
 		<annotation cp="🔧" type="tts">ခွ</annotation>
 		<annotation cp="🔩">ကိရိယာ | မူလီ | မူလီခေါင်း | မူလီနှင့် မူလီခေါင်း</annotation>
 		<annotation cp="🔩" type="tts">မူလီနှင့် မူလီခေါင်း</annotation>
-		<annotation cp="⚙">ကိရိယျာ ဂီယာ | ဂီယာ</annotation>
+		<annotation cp="⚙">ခွေးသွားစိတ် | ဂီယာ | တူးလ်</annotation>
 		<annotation cp="⚙" type="tts">ဂီယာ</annotation>
 		<annotation cp="🗜">ကိရိယာ | ညှပ် | ပြုတ်တူ | ဖိညှပ်သည်</annotation>
 		<annotation cp="🗜" type="tts">ပြုတ်တူ</annotation>
@@ -2441,29 +2481,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛅" type="tts">ပစ္စည်းအပ်ရန်</annotation>
 		<annotation cp="⚠">သတိပေးချက်</annotation>
 		<annotation cp="⚠" type="tts">သတိပေးချက်</annotation>
-		<annotation cp="🚸">ကလေး၊ လမ်းဆုံ၊ ခြေကျင်၊ ယာဥ်သွားလာမှု | ကလေးများ လမ်းကူးသည့်နေရာ</annotation>
+		<annotation cp="🚸">ကလေး | ကလေးများ လမ်းကူးသည့်နေရာ | ခြေကျင် | ယာဉ်သွားလာမှု | လမ်းဆုံ</annotation>
 		<annotation cp="🚸" type="tts">ကလေးများ လမ်းကူးသည့်နေရာ</annotation>
-		<annotation cp="⛔">မဝင်ရ | အဝင်၊ တားမြစ်၊ မလုပ်ရ၊ မရှိ၊ ခွင့်မပြု၊ ယာဥ်သွားလာမှု</annotation>
+		<annotation cp="⛔">ခွင့်မပြု | တားမြစ် | မရှိ | မလုပ်ရ | မဝင်ရ | ယာဉ်သွားလာမှု | အဝင်</annotation>
 		<annotation cp="⛔" type="tts">မဝင်ရ</annotation>
-		<annotation cp="🚫">တားမြစ်နေရာ | အဝင်၊ တားမြစ်၊ မလုပ်ရ၊ မရှိ</annotation>
+		<annotation cp="🚫">တားမြစ် | တားမြစ်နေရာ | မရှိ | မလုပ်ရ | အဝင်</annotation>
 		<annotation cp="🚫" type="tts">တားမြစ်နေရာ</annotation>
-		<annotation cp="🚳">စက်ဘီး၊ တားမြစ်၊ မစီးရ၊ မလုပ်ရ၊ ခွင့်မပြု၊ ယာဥ် | စက်ဘီးမစီးရ</annotation>
+		<annotation cp="🚳">ခွင့်မပြု | စက်ဘီး | စက်ဘီးမစီးရ | တားမြစ် | မစီးရ | မလုပ်ရ | ယာဉ်</annotation>
 		<annotation cp="🚳" type="tts">စက်ဘီးမစီးရ</annotation>
-		<annotation cp="🚭">ဆေးလိပ် မသောက်ရ | တားမြစ်၊ မလုပ်ရ၊ ခွင့်မပြု၊ စီးကရက် သောက်</annotation>
+		<annotation cp="🚭">ခွင့်မပြု | စီးကရက် သောက် | ဆေးလိပ် မသောက်ရ | တားမြစ် | မလုပ်ရ</annotation>
 		<annotation cp="🚭" type="tts">ဆေးလိပ် မသောက်ရ</annotation>
-		<annotation cp="🚯">တားမြစ်၊ အမှိုက်၊ မပစ်ရ၊ ခွင့်မပြု | အမှိုက် မပစ်ရ</annotation>
+		<annotation cp="🚯">ခွင့်မပြု | တားမြစ် | မပစ်ရ | အမှိုက်</annotation>
 		<annotation cp="🚯" type="tts">အမှိုက် မပစ်ရ</annotation>
-		<annotation cp="🚱">သောက်၊ တားမြစ်၊ မဟုတ်၊ သောက်ရေ၊ ခွင့်မပြု၊ ရေ | သောက်ရေ မဟုတ်</annotation>
+		<annotation cp="🚱">ခွင့်မပြု | တားမြစ် | မဟုတ် | ရေ | သောက် | သောက်ရေ</annotation>
 		<annotation cp="🚱" type="tts">သောက်ရေ မဟုတ်</annotation>
-		<annotation cp="🚷">ခြေကျင်မလျှောက်ရ | တားမြစ်၊ ခြေကျင်၊ မလျှောက်ရ၊ ခွင့်မပြု | ဖြတ်သန်း မသွားရ</annotation>
+		<annotation cp="🚷">ခြေကျင် | ခြေကျင်မလျှောက်ရ | ခွင့်မပြု | တားမြစ် | ဖြတ်သန်း မသွားရ | မလျှောက်ရ</annotation>
 		<annotation cp="🚷" type="tts">ဖြတ်သန်း မသွားရ</annotation>
-		<annotation cp="📵">ဆဲလ်၊ တားမြစ်၊ မိုဘိုင်း၊ မသုံးရ၊ မရ၊ ဖုန်း၊ ခွင့်မပြု၊ တယ်လီဖုန်း | မိုဘိုင်းဖုန်း မသုံးရ</annotation>
+		<annotation cp="📵">ခွင့်မပြု | ဆဲလ် | တယ်လီဖုန်း | တားမြစ် | ဖုန်း | မရ | မသုံးရ | မိုဘိုင်း | မိုဘိုင်းဖုန်း မသုံးရ</annotation>
 		<annotation cp="📵" type="tts">မိုဘိုင်းဖုန်း မသုံးရ</annotation>
-		<annotation cp="🔞">၁၈၊ အသက် ကန့်သတ်ချက်၊ ဆယ့်ရှစ်၊ တားမြစ်၊ မလုပ်ရ။ မရ၊ တားမြစ်၊ အသက်မပြည့် | ဆယ့်ရှစ်နှစ်အောက် ခွင့်မပြု</annotation>
+		<annotation cp="🔞">၁၈ | ဆယ့်ရှစ် | ဆယ့်ရှစ်နှစ်အောက် ခွင့်မပြု | တားမြစ် | မရ | မလုပ်ရ | အသက် ကန့်သတ်ချက် | အသက်မပြည့်</annotation>
 		<annotation cp="🔞" type="tts">ဆယ့်ရှစ်နှစ်အောက် ခွင့်မပြု</annotation>
-		<annotation cp="☢">ဆိုင်းဘုတ် | ရဒေီယိုသတ်တိကွှ | ရေဒီယိုသတ္တိကြွ</annotation>
+		<annotation cp="☢">ဆိုင်းဘုတ် | ရေဒီယိုသတ္တိကြွ</annotation>
 		<annotation cp="☢" type="tts">ရဒေီယိုသတ်တိကွှ</annotation>
-		<annotation cp="☣">ဆိုင်းဘုတ် | ဇီဝအန္တရာယ် | လူသားအတွက် အန္တရာယ်ရှိသော</annotation>
+		<annotation cp="☣">ဆိုင်းဘုတ် | ဇီဝအန္တရာယ်</annotation>
 		<annotation cp="☣" type="tts">ဇီဝအန္တရာယ်</annotation>
 		<annotation cp="⬆">မြား | မြောက်အရပ် သင်္ကေတ | လမ်းညွှန် | အပေါ်ညွှန် မြား | အပေါ်ညွှန်မြား</annotation>
 		<annotation cp="⬆" type="tts">အပေါ်ညွှန် မြား</annotation>
@@ -2499,7 +2539,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔄" type="tts">ဘယ်ရစ် မြားများ ခလုတ်</annotation>
 		<annotation cp="🔙">နောက်သို့ | နောက်သို့ပြ မြား သင်္ကေတ | မြား</annotation>
 		<annotation cp="🔙" type="tts">နောက်သို့ မြား</annotation>
-		<annotation cp="🔚">မြှား | အဆုံး | အဆုံးသတ်ပြ မြှား | အဆုံးသတ်ပြ မြား</annotation>
+		<annotation cp="🔚">မြား | အဆုံး | အဆုံးသတ်ပြ မြား</annotation>
 		<annotation cp="🔚" type="tts">အဆုံးသတ်ပြ မြား</annotation>
 		<annotation cp="🔛">ဖွင့်ထားခြင်းပြ မြား သင်္ကေတ | ဖွင့်ထားပြီး ပြ သင်္ကေတ | ဖွင့်ထားပြီးပြ မြား သင်္ကေတ | မြား | အမှတ်အသား</annotation>
 		<annotation cp="🔛" type="tts">ဖွင့်ထားခြင်းပြ မြား သင်္ကေတ</annotation>
@@ -2509,27 +2549,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔝" type="tts">ထိပ်သို့ မြား</annotation>
 		<annotation cp="🛐">ဘာသာရေး၊ ရှိခိုးရာ | ဝတ်ပြုရာနေရာ</annotation>
 		<annotation cp="🛐" type="tts">ဝတ်ပြုရာနေရာ</annotation>
-		<annotation cp="⚛">အဏုမြူ သင်္ကေတ | အဏုမြူ၊ ဘုရားမဲ့ဝါဒီ</annotation>
+		<annotation cp="⚛">ဘုရားမဲ့ဝါဒီ | အဏုမြူ | အဏုမြူ သင်္ကေတ</annotation>
 		<annotation cp="⚛" type="tts">အဏုမြူ သင်္ကေတ</annotation>
 		<annotation cp="🕉">ဘာသာရေး | ဟိန္ဒူ | ဥုံ</annotation>
 		<annotation cp="🕉" type="tts">ဥုံ</annotation>
-		<annotation cp="✡">ဒေးဗစ်၊ ဂျူး၊ ဂျူးလူမျိုး၊ ဘာသာရေး၊ ကြယ် | ဒေးဗစ်ကြယ်</annotation>
+		<annotation cp="✡">ဂျူး | ဂျူးလူမျိုး | ဒေးဗစ် | ဒေးဗစ်ကြယ် | ဘာသာရေး၊ ကြယ်</annotation>
 		<annotation cp="✡" type="tts">ဒေးဗစ်ကြယ်</annotation>
-		<annotation cp="☸">ဓမ္မစကြာ | ဗုဒ္ဓဝါဒီ၊ ဓမ္မ၊ ဘာသာရေး၊ စကြာ</annotation>
+		<annotation cp="☸">စကြာ | ဓမ္မ | ဓမ္မစကြာ | ဗုဒ္ဓဝါဒီ | ဘာသာရေး</annotation>
 		<annotation cp="☸" type="tts">ဓမ္မစကြာ</annotation>
-		<annotation cp="☯">၊ တာအို၊ တာအိုဝါဒီ၊ ယန်း၊ ယင် | ဘာသာရေ | ယင်ယန်း</annotation>
+		<annotation cp="☯">တာအို | တာအိုဝါဒီ | ဘာသာရေ | ယင် | ယင်ယန်း | ယန်း</annotation>
 		<annotation cp="☯" type="tts">ယင်ယန်း</annotation>
-		<annotation cp="✝">ခရစ်ယာန်၊ ကားတိုင်၊ ဘာသာရေး | လက်တင် ကားတိုင် | လက်တင် လက်ဝါးကပ်တိုင်</annotation>
+		<annotation cp="✝">ကားတိုင် | ခရစ်ယာန် | ဘာသာရေး | လက်တင် ကားတိုင် | လက်တင် လက်ဝါးကပ်တိုင်</annotation>
 		<annotation cp="✝" type="tts">လက်တင် လက်ဝါးကပ်တိုင်</annotation>
-		<annotation cp="☦">ခရစ်ယာန်၊ ကားတိုင်၊ ဘာသာရေး | ရှေးရိုးခရစ်ယာန် အသင်းတော် လက်ဝါးကပ်တိုင် | အောတိုဒိုစ် ကားတိုင်</annotation>
+		<annotation cp="☦">ကားတိုင် | ခရစ်ယာန် | ဘာသာရေး | ရှေးရိုးခရစ်ယာန် အသင်းတော် လက်ဝါးကပ်တိုင် | အောတိုဒိုစ် ကားတိုင်</annotation>
 		<annotation cp="☦" type="tts">ရှေးရိုးခရစ်ယာန် အသင်းတော် လက်ဝါးကပ်တိုင်</annotation>
-		<annotation cp="☪">ကြယ်နှင့် လခြမ်း | အစ္စလာမ်၊ မူဆလင်၊ ဘာသာရေး</annotation>
+		<annotation cp="☪">ကြယ်နှင့် လခြမ်း | ဘာသာရေး | မူဆလင် | အစ္စလာမ်</annotation>
 		<annotation cp="☪" type="tts">ကြယ်နှင့် လခြမ်း</annotation>
-		<annotation cp="☮">ငြိမ်းချမ်းရေး သင်​္ကေတ | ငွိမျးချမျးရေ်း</annotation>
+		<annotation cp="☮">ငြိမ်းချမ်းရေး | ငြိမ်းချမ်းရေး သင်္ကေတ</annotation>
 		<annotation cp="☮" type="tts">ငြိမ်းချမ်းရေး သင်​္ကေတ</annotation>
-		<annotation cp="🕎">ဖယောင်းတိုင်စင် | ဖယောင်းတိုင်စင်၊ ဘာသာရေး</annotation>
+		<annotation cp="🕎">ဖယောင်းတိုင်စင် | ဘာသာရေး</annotation>
 		<annotation cp="🕎" type="tts">ဖယောင်းတိုင်စင်</annotation>
-		<annotation cp="🔯">ကံ၊ ကြယ် | အစက်ချထားသည့် ခြောက်ထောင့်ကြယ်</annotation>
+		<annotation cp="🔯">ကံ | ကြယ် | အစက်ချထားသည့် ခြောက်ထောင့်ကြယ်</annotation>
 		<annotation cp="🔯" type="tts">အစက်ချထားသည့် ခြောက်ထောင့်ကြယ်</annotation>
 		<annotation cp="♈">ဆယ့်နှစ်ရာသီခွင် | မိဿ | မိဿရာသီ | သိုးထီးပုံ မိဿရာသီရုပ်</annotation>
 		<annotation cp="♈" type="tts">မိဿ</annotation>
@@ -2557,61 +2597,61 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♓" type="tts">မိန်</annotation>
 		<annotation cp="⛎">ဆယ့်နှစ်ရာသီခွင် | မြွေနဂါး | အော့ဖီယူးကပ်စ်</annotation>
 		<annotation cp="⛎" type="tts">အော့ဖီယူးကပ်စ်</annotation>
-		<annotation cp="🔀">တေးသွား ရောမွှေရန် ခလုတ် | မြား၊ ကြက်ခြေခတ်ထား</annotation>
+		<annotation cp="🔀">ကြက်ခြေခတ်ထား | တေးသွား ရောမွှေရန် ခလုတ် | မြား</annotation>
 		<annotation cp="🔀" type="tts">တေးသွား ရောမွှေရန် ခလုတ်</annotation>
-		<annotation cp="🔁">ပြန်ဖွင့်ရန် ခလုတ် | မြား၊ လက်ယာရစ်၊ ထပ်ဖွင့်</annotation>
+		<annotation cp="🔁">ထပ်ဖွင့် | ပြန်ဖွင့်ရန် ခလုတ် | မြား | လက်ယာရစ်</annotation>
 		<annotation cp="🔁" type="tts">ပြန်ဖွင့်ရန် ခလုတ်</annotation>
-		<annotation cp="🔂">တစ်ပုဒ်ကို ပြန်ဖွင့်ရန် ခလုတ် | မြား၊ လက်ယာရစ်၊ တစ်ကြိမ်</annotation>
+		<annotation cp="🔂">တစ်ကြိမ် | တစ်ပုဒ်ကို ပြန်ဖွင့်ရန် ခလုတ် | မြား | လက်ယာရစ်</annotation>
 		<annotation cp="🔂" type="tts">တစ်ပုဒ်ကို ပြန်ဖွင့်ရန် ခလုတ်</annotation>
-		<annotation cp="▶">ဖွင့်ရန် ခလုတ် | မြား၊ ဖွင့်၊ ညာ၊ တြိဂံ</annotation>
+		<annotation cp="▶">ညာ | တြိဂံ | ဖွင့် | ဖွင့်ရန် ခလုတ် | မြား</annotation>
 		<annotation cp="▶" type="tts">ဖွင့်ရန် ခလုတ်</annotation>
-		<annotation cp="⏩">မြား၊ နှစ်ထပ်ကွမ်း၊ အမြန်၊ ရှေ့သို့ | ရှေ့သို့အမြန် ခလုတ်</annotation>
+		<annotation cp="⏩">နှစ်ထပ်ကွမ်း | မြား | ရှေ့သို့ | ရှေ့သို့အမြန် ခလုတ် | အမြန်</annotation>
 		<annotation cp="⏩" type="tts">ရှေ့သို့အမြန် ခလုတ်</annotation>
-		<annotation cp="⏭">နောက် တေးသွား ခလုတ် | မြား၊ နောက်ဇာတ်ကွက်၊ နောက် သီချင်း၊ တြိဂံ</annotation>
+		<annotation cp="⏭">တြိဂံ | နောက် တေးသွား ခလုတ် | နောက် သီချင်း | နောက်ဇာတ်ကွက် | မြား</annotation>
 		<annotation cp="⏭" type="tts">နောက် တေးသွား ခလုတ်</annotation>
-		<annotation cp="⏯">ဖွင့် သို့မဟုတ် ဆိုင်းငံ့ ခလုတ် | မြား၊ ဆိုင်းငံ့၊ ဖွင့်၊ ညာ၊ တြိဂံ</annotation>
+		<annotation cp="⏯">ဆိုင်းငံ့ | တြိဂံ | ဖွင့် သို့မဟုတ် ဆိုင်းငံ့ ခလုတ် | ဖွင့်၊ ညာ | မြား</annotation>
 		<annotation cp="⏯" type="tts">ဖွင့် သို့မဟုတ် ဆိုင်းငံ့ ခလုတ်</annotation>
-		<annotation cp="◀">နောက်ပြန် ခလုတ် | မြား၊ ဘယ်၊ ပြန်သွား၊ တြိဂံ</annotation>
+		<annotation cp="◀">တြိဂံ | နောက်ပြန် ခလုတ် | ပြန်သွား | ဘယ် | မြား</annotation>
 		<annotation cp="◀" type="tts">နောက်ပြန် ခလုတ်</annotation>
-		<annotation cp="⏪">နောက်သို့အမြန် ခလုတ် | မြား၊ နှစ်ထပ်၊ ပြန်ရစ်</annotation>
+		<annotation cp="⏪">နှစ်ထပ် | နောက်သို့အမြန် ခလုတ် | ပြန်ရစ် | မြား</annotation>
 		<annotation cp="⏪" type="tts">နောက်သို့အမြန် ခလုတ်</annotation>
-		<annotation cp="⏮">နောက်ဆုံး တေးသွား ခလုတ် | မြား၊ အရင်ဇာတ်ကွက်၊ အရင်သီချင်း၊ တြိဂံ</annotation>
+		<annotation cp="⏮">တြိဂံ | နောက်ဆုံး တေးသွား ခလုတ် | မြား | အရင်ဇာတ်ကွက် | အရင်သီချင်း</annotation>
 		<annotation cp="⏮" type="tts">နောက်ဆုံး တေးသွား ခလုတ်</annotation>
-		<annotation cp="🔼">မြား၊ ခလုတ်၊ နီ | အပေါ် ခလုတ်</annotation>
+		<annotation cp="🔼">ခလုတ်၊ နီ | မြား | အပေါ် ခလုတ်</annotation>
 		<annotation cp="🔼" type="tts">အပေါ် ခလုတ်</annotation>
-		<annotation cp="⏫">မြား၊ နှစ်ထပ် | အပေါ်သို့အမြန် ခလုတ်</annotation>
+		<annotation cp="⏫">နှစ်ထပ် | မြား | အပေါ်သို့အမြန် ခလုတ်</annotation>
 		<annotation cp="⏫" type="tts">အပေါ်သို့အမြန် ခလုတ်</annotation>
-		<annotation cp="🔽">မြား၊ ခလုတ်၊ အောက်သို့၊ နီ | အောက်သို့ ခလုတ်</annotation>
+		<annotation cp="🔽">ခလုတ် | နီ | မြား | အောက်သို့</annotation>
 		<annotation cp="🔽" type="tts">အောက်သို့ ခလုတ်</annotation>
-		<annotation cp="⏬">မြား၊ နှစ်ထပ်၊ အောက်သို့ | အောက်သို့အမြန် ခလုတ်</annotation>
+		<annotation cp="⏬">နှစ်ထပ် | မြား | အောက်သို့ | အောက်သို့အမြန် ခလုတ်</annotation>
 		<annotation cp="⏬" type="tts">အောက်သို့အမြန် ခလုတ်</annotation>
-		<annotation cp="⏸">ဆိုင်းငံ့ရန် ခလုတ် | ဘား၊ နှစ်ထပ်၊ ဆိုင်းငံ့၊ ​ဒေါင်လိုက်</annotation>
+		<annotation cp="⏸">ဆိုင်းငံ့ရန် ခလုတ် | ​ဒေါင်လိုက် | နှစ်ထပ်၊ ဆိုင်းငံ့ | ဘား</annotation>
 		<annotation cp="⏸" type="tts">ဆိုင်းငံ့ရန် ခလုတ်</annotation>
-		<annotation cp="⏹">ရပ်တန့် ခလုတ် | လေးထောင့်ကွက်၊ ရပ်</annotation>
+		<annotation cp="⏹">ရပ် | ရပ်တန့် ခလုတ် | လေးထောင့်ကွက်</annotation>
 		<annotation cp="⏹" type="tts">ရပ်တန့် ခလုတ်</annotation>
-		<annotation cp="⏺">စက်ဝိုင်း၊ ဖမ်းယူ | ဖမ်းယူရန် ခလုတ်</annotation>
+		<annotation cp="⏺">စက်ဝိုင်း | ဖမ်းယူ | ဖမ်းယူရန် ခလုတ်</annotation>
 		<annotation cp="⏺" type="tts">ဖမ်းယူရန် ခလုတ်</annotation>
 		<annotation cp="⏏">ထုတ်ယူ | ထုတ်ယူရန်ခလုတ်</annotation>
 		<annotation cp="⏏" type="tts">ထုတ်ယူရန်ခလုတ်</annotation>
-		<annotation cp="🎦">ရုပ်ရှင် | ရုပ်ရှင်၊ ကင်မရာ၊ ဖလင်</annotation>
+		<annotation cp="🎦">ကင်မရာ | စီနီမာ | ဖလင် | ရုပ်ရှင်</annotation>
 		<annotation cp="🎦" type="tts">ရုပ်ရှင်</annotation>
-		<annotation cp="🔅">တောက်ပမှု၊ မှိန်၊ နိမ့် | မှိန်စေရန် ခလုတ်</annotation>
+		<annotation cp="🔅">တောက်ပမှု | နိမ့် | မှိန် | မှိန်စေရန် ခလုတ်</annotation>
 		<annotation cp="🔅" type="tts">မှိန်စေရန် ခလုတ်</annotation>
-		<annotation cp="🔆">တောက်ပ၊ တောက်ပမှု | လင်းစေရန် ခလုတ်</annotation>
+		<annotation cp="🔆">တောက်ပ | တောက်ပမှု | လင်းစေရန် ခလုတ်</annotation>
 		<annotation cp="🔆" type="tts">လင်းစေရန် ခလုတ်</annotation>
-		<annotation cp="📶">ဧရီယာတိုင် ဘားများ | ဧရီယာတိုင်၊ ဘား၊ ဆဲလ်၊ မိုဘိုင်း၊ ဖုန်း၊ အချက်ပြမှု၊ တယ်လီဖုန်း</annotation>
+		<annotation cp="📶">ဆဲလ်၊ မိုဘိုင်း | တယ်လီဖုန်း | ဖုန်း | ဘား | အချက်ပြမှု | ဧရီယာတိုင် | ဧရီယာတိုင် ဘားများ</annotation>
 		<annotation cp="📶" type="tts">ဧရီယာတိုင် ဘားများ</annotation>
-		<annotation cp="📳">ဆလ်၊ မိုဘိုင်း၊ မုဒ်၊ ဖုန်း၊ တယ်လီဖုန်မး၊ တုန်ခါမှု | တုန်ခါမှု မုဒ်</annotation>
+		<annotation cp="📳">ဆဲလ် | တယ်လီဖုန်း | တုန်ခါမှု | ဖုန်း | မိုဘိုင်း | မုဒ်</annotation>
 		<annotation cp="📳" type="tts">တုန်ခါမှု မုဒ်</annotation>
-		<annotation cp="📴">ဆဲလ်၊ မိုဘိုင်း၊ ပိတ်၊ ဖုန်း ၊ တယ်လီဖုန်း | မိုဘိုင်းဖုန်း ပိတ်ထားသည်</annotation>
+		<annotation cp="📴">ဆဲလ် | တယ်လီဖုန်း | ပိတ် | ဖုန်း | မိုဘိုင်း | မိုဘိုင်းဖုန်း ပိတ်ထားသည်</annotation>
 		<annotation cp="📴" type="tts">မိုဘိုင်းဖုန်း ပိတ်ထားသည်</annotation>
-		<annotation cp="♀">အမ | အမျိုးသမီး | အမသင်္ကေတ</annotation>
+		<annotation cp="♀">အမျိုးသမီး | အမသင်္ကေတ</annotation>
 		<annotation cp="♀" type="tts">အမသင်္ကေတ</annotation>
-		<annotation cp="♂">အဖို | အဖိုသင်္ကေတ | အမျိုးသား</annotation>
+		<annotation cp="♂">အဖိုသင်္ကေတ | အမျိုးသား</annotation>
 		<annotation cp="♂" type="tts">အဖိုသင်္ကေတ</annotation>
 		<annotation cp="⚕">ဆေးဘက်ဆိုင်ရာ | ဆေးဘက်ဆိုင်ရာ သင်္ကေတ | ဆေးဝါး</annotation>
 		<annotation cp="⚕" type="tts">ဆေးဘက်ဆိုင်ရာ သင်္ကေတ</annotation>
-		<annotation cp="♾">ကမ္ဘာတစ်လွှား | ထာဝရ | အကန့်အသတ်မဲ့ | အနန္တ | အနန်တ</annotation>
+		<annotation cp="♾">ကမ္ဘာတစ်လွှား | ထာဝရ | အကန့်အသတ်မဲ့ | အနန္တ</annotation>
 		<annotation cp="♾" type="tts">အနန်တ</annotation>
 		<annotation cp="♻">ထပ်တလဲလဲသုံးစွဲခြင်း | ထပ်တလဲလဲသုံးစွဲခြင်း သင်္ကေတ | ထပ်တလဲလဲသုံးမှု သင်္ကေတ</annotation>
 		<annotation cp="♻" type="tts">ထပ်တလဲလဲသုံးမှု သင်္ကေတ</annotation>
@@ -2677,9 +2717,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="™" type="tts">ကုန် အမှတ်တံဆိပ်</annotation>
 		<annotation cp="🔠">စာလုံးကြီး | ထည့်ရန် | လက်တင် | လက်တင် စာလုံးကြီး သင်္ကေတ | အက္ခရာ</annotation>
 		<annotation cp="🔠" type="tts">လက်တင် စာလုံးကြီး ထည့်ရန်</annotation>
-		<annotation cp="🔡">စာလုံးသေး | ထည့်သွင်းရန် | လက်တင် | လက်တင် စာလုံးသေး ထည့်ရန် | လက်တင် စာလုံးသေး သင်္ကေတ | အက္ခရာ</annotation>
+		<annotation cp="🔡">စာလုံးသေး | ထည့်ရန် | လက်တင် | လက်တင် စာလုံးသေး သင်္ကေတ | အက္ခရာ</annotation>
 		<annotation cp="🔡" type="tts">လက်တင် စာလုံးသေး ထည့်ရန်</annotation>
-		<annotation cp="🔢">၁၂၃၄ ဂဏန်းပြ သင်္ကေတ | ဂဏန်းများ | ဂဏန်းများ ထည့်ရန် | ထည့်သွင်းရန်</annotation>
+		<annotation cp="🔢">၁၂၃၄ ဂဏန်းပြ သင်္ကေတ | ဂဏန်းများ</annotation>
 		<annotation cp="🔢" type="tts">ဂဏန်းများ ထည့်ရန်</annotation>
 		<annotation cp="🔣">ထည့်သွင်းရန် | သင်္ကေတများ ထည့်ရန် | အထူးအက္ခရာ သင်္ကေတများ</annotation>
 		<annotation cp="🔣" type="tts">သင်္ကေတများ ထည့်ရန်</annotation>
@@ -2691,19 +2731,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🆎" type="tts">အေဘီ သင်္ကေတ (သွေးအမျိုးအစား)</annotation>
 		<annotation cp="🅱">ဘီ | ဘီ သင်္ကေတ (သွေးအမျိုးအစား) | သွေးအမျိုးအစား</annotation>
 		<annotation cp="🅱" type="tts">ဘီ သင်္ကေတ (သွေးအမျိုးအစား)</annotation>
-		<annotation cp="🆑">စီအယ်လ် | စီအယ်လ် ခလုတ် | ရှင်းရန် ခလုတ် | ရှင်းသွားပြီ ခလုတ်</annotation>
+		<annotation cp="🆑">စီအယ်လ် | စီအယ်လ် ခလုတ်</annotation>
 		<annotation cp="🆑" type="tts">ရှင်းသွားပြီ ခလုတ်</annotation>
-		<annotation cp="🆒">အေးဆေးပဲ | အေးဆေးပဲ ခလုတ် | အေးဆေးပဲ သင်္ကေတ ခလုတ်</annotation>
+		<annotation cp="🆒">အေးဆေးပဲ | အေးဆေးပဲ ခလုတ်</annotation>
 		<annotation cp="🆒" type="tts">အေးဆေးပဲ ခလုတ်</annotation>
-		<annotation cp="🆓">အခမဲ့ ခလုတ် | အခမဲ့ သင်္ကေတ | အခမဲ့ သင်္ကေတ ခလုတ်</annotation>
+		<annotation cp="🆓">အခမဲ့ သင်္ကေတ | အခမဲ့ သင်္ကေတ ခလုတ်</annotation>
 		<annotation cp="🆓" type="tts">အခမဲ့ ခလုတ်</annotation>
 		<annotation cp="ℹ">သတင်းအချက်အလက် | သတင်းအချက်အလက်ပြ သင်္ကေတ</annotation>
 		<annotation cp="ℹ" type="tts">သတင်းအချက်အလက်</annotation>
-		<annotation cp="🆔">အထောက်အထား | အိုင်ဒီ ခလုတ် | အိုင်ဒီ သင်္ကေတ | အိုင်ဒီ သင်္ကေတ ခလုတ်</annotation>
+		<annotation cp="🆔">အထောက်အထား | အိုင်ဒီ ခလုတ် | အိုင်ဒီ သင်္ကေတ</annotation>
 		<annotation cp="🆔" type="tts">အိုင်ဒီ ခလုတ်</annotation>
 		<annotation cp="Ⓜ">စက်ဝိုင်း သင်္ကေတ | မြေအောက်ရထား သင်္ကေတ</annotation>
 		<annotation cp="Ⓜ" type="tts">မြေအောက်ရထား သင်္ကေတ</annotation>
-		<annotation cp="🆕">လေးထောင့်ကွက် အသစ် | အသစ် | အသစ် ခလုတ်</annotation>
+		<annotation cp="🆕">အသစ် | အသစ် ခလုတ်</annotation>
 		<annotation cp="🆕" type="tts">အသစ် ခလုတ်</annotation>
 		<annotation cp="🆖">မကောင်းပါ ခလုတ် | အင်္ဂလိပ် အက္ခရာ အန်ဂျီ ပါ ခလုတ် | အမှားပြ သင်္ကေတ</annotation>
 		<annotation cp="🆖" type="tts">မကောင်းပါ ခလုတ်</annotation>
@@ -2767,9 +2807,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🟣" type="tts">ခရမ်းရောင် စက်ဝိုင်း</annotation>
 		<annotation cp="🟤">စက်ဝိုင်း | အညိုရောင်</annotation>
 		<annotation cp="🟤" type="tts">အညိုရောင် စက်ဝိုင်း</annotation>
-		<annotation cp="⚫">စက်ဝိုင်း၊ ဂျီဩမေတြီ | အနက်ရောင် စက်ဝိုင်း</annotation>
+		<annotation cp="⚫">ဂျီဩမေတြီ | စက်ဝိုင်း | အနက်ရောင် စက်ဝိုင်း</annotation>
 		<annotation cp="⚫" type="tts">အနက်ရောင် စက်ဝိုင်း</annotation>
-		<annotation cp="⚪">စက်ဝိုင်း၊ ဂျီဩမေတြီ | အဖြူရောင် စက်ဝိုင်း</annotation>
+		<annotation cp="⚪">ဂျီဩမေတြီ | စက်ဝိုင်း | အဖြူရောင် စက်ဝိုင်း</annotation>
 		<annotation cp="⚪" type="tts">အဖြူရောင် စက်ဝိုင်း</annotation>
 		<annotation cp="🟥">စတုရမ်းကွက် | အနီရောင်</annotation>
 		<annotation cp="🟥" type="tts">အနီရောင် စတုရမ်းကွက်</annotation>
@@ -2785,41 +2825,41 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🟪" type="tts">ခရမ်းရောင် စတုရမ်းကွက်</annotation>
 		<annotation cp="🟫">စတုရမ်းကွက် | အညိုရောင်</annotation>
 		<annotation cp="🟫" type="tts">အညိုရောင် စတုရမ်းကွက်</annotation>
-		<annotation cp="⬛">ဂျီဩမေတြီ၊ လေးထောင့်ကွက် | အနက်ရောင် လေးထောင့်ကွက် အကြီး</annotation>
+		<annotation cp="⬛">ဂျီဩမေတြီ | လေးထောင့်ကွက် | အနက်ရောင် လေးထောင့်ကွက် အကြီး</annotation>
 		<annotation cp="⬛" type="tts">အနက်ရောင် လေးထောင့်ကွက် အကြီး</annotation>
-		<annotation cp="⬜">ဂျီဩမေတြီ၊ လေးထောင့်ကွက် | အဖြူရောင် လေးထောင့်ကွက် အကြီး</annotation>
+		<annotation cp="⬜">ဂျီဩမေတြီ | လေးထောင့်ကွက် | အဖြူရောင် လေးထောင့်ကွက် အကြီး</annotation>
 		<annotation cp="⬜" type="tts">အဖြူရောင် လေးထောင့်ကွက် အကြီး</annotation>
-		<annotation cp="◼">ဂျီဩမေတြီ၊ လေးထောင့်ကွက် | အနက်ရောင် လေးထောင့်ကွက် အလတ်စား</annotation>
+		<annotation cp="◼">ဂျီဩမေတြီ | လေးထောင့်ကွက် | အနက်ရောင် လေးထောင့်ကွက် အလတ်စား</annotation>
 		<annotation cp="◼" type="tts">အနက်ရောင် လေးထောင့်ကွက် အလတ်စား</annotation>
-		<annotation cp="◻">ဂျီဩမေတြီ၊ လေးထောင့်ကွက် | အဖြူရောင် လေးထောင့်ကွက် အလတ်စား</annotation>
+		<annotation cp="◻">ဂျီဩမေတြီ | လေးထောင့်ကွက် | အဖြူရောင် လေးထောင့်ကွက် အလတ်စား</annotation>
 		<annotation cp="◻" type="tts">အဖြူရောင် လေးထောင့်ကွက် အလတ်စား</annotation>
 		<annotation cp="◾">ဂျီဩမေတြီ၊ လေးထောင့်ကွက် | အနက်ရောင် လေးထောင့်ကွက် အလတ်စားအသေး</annotation>
 		<annotation cp="◾" type="tts">အနက်ရောင် လေးထောင့်ကွက် အလတ်စားအသေး</annotation>
-		<annotation cp="◽">ဂျီဩမေတြီ၊ လေးထောင့်ကွက် | အဖြူရောင် လေးထောင့်ကွက် အလတ်စားအသေး</annotation>
+		<annotation cp="◽">ဂျီဩမေတြီ | လေးထောင့်ကွက် | အဖြူရောင် လေးထောင့်ကွက် အလတ်စားအသေး</annotation>
 		<annotation cp="◽" type="tts">အဖြူရောင် လေးထောင့်ကွက် အလတ်စားအသေး</annotation>
-		<annotation cp="▪">ဂျီဩမေတြီ၊ လေထောင့်ကွက် | အနက်ရောင် လေးထောင့်ကွက် အသေး</annotation>
+		<annotation cp="▪">ဂျီဩမေတြီ | လေးထောင့်ကွက် | အနက်ရောင် လေးထောင့်ကွက် အသေး</annotation>
 		<annotation cp="▪" type="tts">အနက်ရောင် လေးထောင့်ကွက် အသေး</annotation>
-		<annotation cp="▫">ဂျီဩမေတြီ၊ လေထောင့်ကွက် | အဖြူရောင် လေးထောင့်ကွက် အသေး</annotation>
+		<annotation cp="▫">ဂျီဩမေတြီ | လေထောင့်ကွက် | အဖြူရောင် လေးထောင့်ကွက် အသေး</annotation>
 		<annotation cp="▫" type="tts">အဖြူရောင် လေးထောင့်ကွက် အသေး</annotation>
-		<annotation cp="🔶">ဂျီဩမေတြီ၊ စိန်၊ လိမ္မော် | လိမ္မော်ရောင် စိန်ကြီး</annotation>
+		<annotation cp="🔶">ဂျီဩမေတြီ | စိန် | လိမ္မော် | လိမ္မော်ရောင် စိန်ကြီး</annotation>
 		<annotation cp="🔶" type="tts">လိမ္မော်ရောင် စိန်ကြီး</annotation>
-		<annotation cp="🔷">ဂျီဩမေတြီ၊ စိန်၊ အပြာ | အပြာရောင် စိန်ကြီး</annotation>
+		<annotation cp="🔷">ဂျီဩမေတြီ | စိန် | အပြာ | အပြာရောင် စိန်ကြီး</annotation>
 		<annotation cp="🔷" type="tts">အပြာရောင် စိန်ကြီး</annotation>
-		<annotation cp="🔸">ဂျီဩမေတြီ၊ စိန်၊ လိမ္မော် | လိမ္မော်ရောင် စိန်အသေး</annotation>
+		<annotation cp="🔸">ဂျီဩမေတြီ | စိန် | လိမ္မော် | လိမ္မော်ရောင် စိန်အသေး</annotation>
 		<annotation cp="🔸" type="tts">လိမ္မော်ရောင် စိန်အသေး</annotation>
-		<annotation cp="🔹">ဂျီဩမေတြီ၊ စိန်၊ အပြာ | အပြာရောင် စိန်အသေး</annotation>
+		<annotation cp="🔹">ဂျီဩမေတြီ | စိန် | အပြာ | အပြာရောင် စိန်အသေး</annotation>
 		<annotation cp="🔹" type="tts">အပြာရောင် စိန်အသေး</annotation>
-		<annotation cp="🔺">ဂျီဩမေတြီ၊ နီ | အပေါ်သို့ ညွှန်ပြနေသည့် အနီရောင် တြိဂံ</annotation>
+		<annotation cp="🔺">ဂျီဩမေတြီ | နီ | အပေါ်သို့ ညွှန်ပြနေသည့် အနီရောင် တြိဂံ</annotation>
 		<annotation cp="🔺" type="tts">အပေါ်သို့ ညွှန်ပြနေသည့် အနီရောင် တြိဂံ</annotation>
-		<annotation cp="🔻">အောက်သို့ ညွှန်ပြနေသည့် အနီရောင် တြိဂံ | အောက်သို့၊ ဂျီဩမေတြီ၊ စိန်၊ အတွင်းပိုင်း</annotation>
+		<annotation cp="🔻">ဂျီဩမေတြီ | စိန် | အတွင်းပိုင်း | အောက်သို့ | အောက်သို့ ညွှန်ပြနေသည့် အနီရောင် တြိဂံ</annotation>
 		<annotation cp="🔻" type="tts">အောက်သို့ ညွှန်ပြနေသည့် အနီရောင် တြိဂံ</annotation>
-		<annotation cp="💠">ဟာသ၊ စိန်၊ ဂျီဩမေတြီ၊ အတွင်းပိုင်း | အစက်ပါ စိန်</annotation>
+		<annotation cp="💠">ဂျီဩမေတြီ | စိန် | ဟာသ | အစက်ပါ စိန် | အတွင်းပိုင်း</annotation>
 		<annotation cp="💠" type="tts">အစက်ပါ စိန်</annotation>
-		<annotation cp="🔘">ရေဒီယို ခလုတ် | ရေဒီယို၊ ဂျီဩမေတြီ၊ ခလုတ်</annotation>
+		<annotation cp="🔘">ခလုတ် | ဂျီဩမေတြီ | ရေဒီယို</annotation>
 		<annotation cp="🔘" type="tts">ရေဒီယို ခလုတ်</annotation>
-		<annotation cp="🔳">လေးထောင့်ကွက်၊ ခလုတ်၊ မှတ်ပေးထား၊ ဂျီဩမေတြီ | အဖြူရောင် လေးထောင့်ခလုတ်</annotation>
+		<annotation cp="🔳">ခလုတ် | ဂျီဩမေတြီ | မှတ်ပေးထား | လေးထောင့်ကွက် | အဖြူရောင် လေးထောင့်ခလုတ်</annotation>
 		<annotation cp="🔳" type="tts">အဖြူရောင် လေးထောင့်ခလုတ်</annotation>
-		<annotation cp="🔲">ဂျီဩမေတြီ၊ လေးထောင့်၊ ခလုတ် | အနက်ရောင် လေးထောင့်ခလုတ်</annotation>
+		<annotation cp="🔲">ခလုတ် | ဂျီဩမေတြီ | လေးထောင့် | အနက်ရောင် လေးထောင့်ခလုတ်</annotation>
 		<annotation cp="🔲" type="tts">အနက်ရောင် လေးထောင့်ခလုတ်</annotation>
 		<annotation cp="🏁">အကွက်ဆင် အလံ | အကွက်ဆင်၊ ပြိုင်ပွဲ၊ အလံ</annotation>
 		<annotation cp="🏁" type="tts">အကွက်ဆင် အလံ</annotation>
@@ -2831,9 +2871,121 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">ဝှေ့ယမ်းနေသည့် အလံမည်း</annotation>
 		<annotation cp="🏳">ဝှေ့ယမ်းနေ | ဝှေ့ယမ်းနေသည့် အလံဖြူ</annotation>
 		<annotation cp="🏳" type="tts">ဝှေ့ယမ်းနေသည့် အလံဖြူ</annotation>
+		<annotation cp="🏳‍⚧" draft="provisional">အလံ၊ လိင်ပြောင်း</annotation>
+		<annotation cp="🏳‍⚧" type="tts" draft="provisional">လိင်ပြောင်းသူကိုယ်စားပြု အလံ</annotation>
 		<annotation cp="🏳‍🌈">သက်တံ | သက်တံရောင် အလံ | သက်တံရောင်အလံ</annotation>
 		<annotation cp="🏳‍🌈" type="tts">သက်တံရောင် အလံ</annotation>
 		<annotation cp="🏴‍☠">ဂျိုလီရော်ဂျာ | ပင်လယ်ဓားပြ | ပင်လယ်ဓားပြ အလံ | ရတနာ | လုယက်ပစ္စည်း</annotation>
 		<annotation cp="🏴‍☠" type="tts">ပင်လယ်ဓားပြ အလံ</annotation>
+		<annotation cp="🛖" draft="provisional">အိမ်၊ အိမ်ဝိုင်း၊ တဲ</annotation>
+		<annotation cp="🛖" type="tts">တဲ</annotation>
+		<annotation cp="🛗" draft="provisional">အဝင်၊ စက်လှေကား၊ ကြိုး၊ ဓာတ်လှေကား</annotation>
+		<annotation cp="🛗" type="tts">စက်လှေကား</annotation>
+		<annotation cp="🛻">ပစ်ကပ်၊ ပစ္စည်းတင်၊ ကား</annotation>
+		<annotation cp="🛻" type="tts">ပစ်ကပ်ကား</annotation>
+		<annotation cp="🛼">စကိတ် | ရိုလာ</annotation>
+		<annotation cp="🛼" type="tts">ရိုလာ စကိတ်</annotation>
+		<annotation cp="🤌" draft="provisional">လက်ချောင်းများ၊ လက်ဟန်၊ စစ်ဆေး၊ ဆိတ်၊ အရွဲ့တိုက်</annotation>
+		<annotation cp="🤌" type="tts">စုထားသော လက်ချောင်း</annotation>
+
+
+		<annotation cp="🥷" draft="provisional">ဖိုက်တာ၊ ဖုံးကွယ်၊ လျို့ဝှက်</annotation>
+		<annotation cp="🥷" type="tts">နင်ဂျာ</annotation>
+		<annotation cp="🥸" draft="provisional">ဟန်ဆောင်၊ မျက်နှာ၊ မျက်မှန်၊ မသိနိုင်၊ နှာခေါင်း</annotation>
+		<annotation cp="🥸" type="tts">ဟန်ဆောင်မျက်နှာ</annotation>
+		<annotation cp="🦣" draft="provisional">မျိုးသုဉ်း၊ ကြီးမား၊ အစွယ်၊ အမွှေးထူ</annotation>
+		<annotation cp="🦣" type="tts">ရှေးဆင်</annotation>
+		<annotation cp="🦤" draft="provisional">မော်ရေးရှပ်၊ မျိုးသုဉ်း၊ ကြီးမား</annotation>
+		<annotation cp="🦤" type="tts">ဒိုဒို</annotation>
+
+
+		<annotation cp="🦬" draft="provisional">နွားရိုင်း၊ ကျွဲ၊ အုပ်</annotation>
+		<annotation cp="🦬" type="tts">နွားရိုင်း</annotation>
+
+
+		<annotation cp="🧋" draft="provisional">အလုံး၊ နို့၊ ပုလဲ၊ လဘက်ရည်</annotation>
+		<annotation cp="🧋" type="tts">ပုလဲလဘက်ရည်</annotation>
+		<annotation cp="🩴" draft="provisional">ညှပ်ဖိနပ်၊ ကမ်းခြေ၊ ဖိနပ်ပါး</annotation>
+		<annotation cp="🩴" type="tts">ညှပ်ဖိနပ်</annotation>
+		<annotation cp="🪃">ဂယက်ရိုက်မှု | ထိကပြန် | ပြန်ကန်ခြင်း | သြစတြေးလျား</annotation>
+		<annotation cp="🪃" type="tts">ထိကပြန်</annotation>
+		<annotation cp="🪄">စုန်းမ | မျက်လှည့် | မှော်ဆရာ</annotation>
+		<annotation cp="🪄" type="tts">ကြိမ်စကြာ</annotation>
+		<annotation cp="🪅">ပါတီ | အောင်ပွဲခံ</annotation>
+		<annotation cp="🪅" type="tts">ပင်ညာဒါ</annotation>
+		<annotation cp="🪆" draft="provisional">အရုပ်၊ ရုရှား</annotation>
+		<annotation cp="🪆" type="tts">အရုပ်များ</annotation>
+		<annotation cp="🪖" draft="provisional">ဦးထုတ်၊ စစ်တပ်၊ စစ်သား၊ တိုက်ခိုက်</annotation>
+		<annotation cp="🪖" type="tts" draft="provisional">စစ်ဦးထုတ်</annotation>
+		<annotation cp="🪗">လက်ဆွဲဘာဂျာ | အကော်ဒီယံ</annotation>
+		<annotation cp="🪗" type="tts">အကော်ဒီယံ</annotation>
+		<annotation cp="🪘">စည်းကိုက်ဝါးကိုက် | စီးချက် | စီတန်းလှည့် မြူးကြွအကတီးလုံး | ဗုံ</annotation>
+		<annotation cp="🪘" type="tts">ဗုံရှည်</annotation>
+		<annotation cp="🪙">ငွေ | ငွေကြေး | ရတနာ | ရွှေ | သတ္တု</annotation>
+		<annotation cp="🪙" type="tts">အကြွေစေ့</annotation>
+		<annotation cp="🪚">တူးလ် | ပရိဘောဂ | လက်သမား | လွှ</annotation>
+		<annotation cp="🪚" type="tts">လက်သမား လွှ</annotation>
+		<annotation cp="🪛">တူးလ် | ဝက်အူ</annotation>
+		<annotation cp="🪛" type="tts">ဝက်အူလှည့်</annotation>
+		<annotation cp="🪜">ခြေလှမ်း | တက် | လှေကားဆန် | လှေကားရှင်</annotation>
+		<annotation cp="🪜" type="tts">လှေကားရှင်</annotation>
+		<annotation cp="🪝">ဖမ်းခြင်း | မက်လုံး | မိနေသည် | လူလိမ်လူညစ် | အကွေးအကောက်</annotation>
+		<annotation cp="🪝" type="tts">ချိတ်ကောက်</annotation>
+		<annotation cp="🪞" draft="provisional">ပြန်ကန်</annotation>
+		<annotation cp="🪞" type="tts">မှန်</annotation>
+		<annotation cp="🪟" draft="provisional">ဘောင်၊ အမြင်၊ ထွင်းဖောက်၊ လေကောင်းလေသန့်</annotation>
+		<annotation cp="🪟" type="tts">ပြတင်းပေါက်</annotation>
+		<annotation cp="🪠" draft="provisional">စုပ်ခွက်၊ အိမ်သာ၊</annotation>
+		<annotation cp="🪠" type="tts">စုပ်ခွက်</annotation>
+		<annotation cp="🪡">ချုပ်ရိုး | ပန်းထိုးထည် | အချုပ်အလုပ် | အပ်</annotation>
+		<annotation cp="🪡" type="tts">ချုပ်စက် အပ်</annotation>
+		<annotation cp="🪢">ကြိုး | ချည်ရန် | ရစ်ပတ်သည် | ရှုပ်ထွေးနေသော</annotation>
+		<annotation cp="🪢" type="tts">ကြိုးထုံး</annotation>
+		<annotation cp="🪣" draft="provisional">ရေပုံး၊ ခရား</annotation>
+		<annotation cp="🪣" type="tts">ပုံး</annotation>
+		<annotation cp="🪤" draft="provisional">ထောင်ချောက်၊ ကြွက်</annotation>
+		<annotation cp="🪤" type="tts">ကြွက်ထောင်ချောက်</annotation>
+		<annotation cp="🪥">တစ်ကိုယ်ရေ သန့်ရှင်းရေး | ရေချိုးခန်း | သွား | သွားပွတ်တံ | သွားဘက်ဆိုင်ရာ</annotation>
+		<annotation cp="🪥" type="tts">သွားပွတ်တံ</annotation>
+		<annotation cp="🪦">သင်္ချိုင်း | သင်္ချိုင်းဂူကမ္ပည်း ကျောက်စာတိုင် | သုသာန် | အုတ်ဂူ</annotation>
+		<annotation cp="🪦" type="tts">သုသာန်မြေပုံခေါင်းရင်း မှတ်တိုင်</annotation>
+		<annotation cp="🪧">ဆန္ဒပြခြင်း | ဆန္ဒပြပွဲ | ဆိုင်းဘုတ် | လက်ကိုင်ပိုစတာ | သပိတ်တားသူ</annotation>
+		<annotation cp="🪧" type="tts">လက်ကိုင်ပိုစတာ</annotation>
+		<annotation cp="🪨" draft="provisional">ကျောက်၊ ခဲ၊ ကျောက်တုံး၊ မာ၊ လေး</annotation>
+		<annotation cp="🪨" type="tts">ကျောက်</annotation>
+		<annotation cp="🪰" draft="provisional">ရောဂါ၊ ယင်၊ ညစ်ပတ်၊ ပိုးမွှား</annotation>
+		<annotation cp="🪰" type="tts">ယင်ကောင်</annotation>
+		<annotation cp="🪱" draft="provisional">အဆစ်တီ၊ မြေတီကောင်၊ ကပ်ပါး၊ တီ</annotation>
+		<annotation cp="🪱" type="tts">တီကောင်</annotation>
+		<annotation cp="🪲" draft="provisional">ပိုးကောင်၊ ပိုး၊ အင်းဆက်</annotation>
+		<annotation cp="🪲" type="tts">ပိုးကောင်</annotation>
+		<annotation cp="🪳" draft="provisional">ပိုးဟပ်၊ အင်းဆက်၊ ပိုးမွှား</annotation>
+		<annotation cp="🪳" type="tts">ပိုးဟပ်</annotation>
+		<annotation cp="🪴" draft="provisional">ပျင်း၊ ကြီးထွား၊ အိမ်၊ ပြုစု၊ အပင်၊ အသုံးမဝင်</annotation>
+		<annotation cp="🪴" type="tts">အိုးထဲစိုက်သောအပင်</annotation>
+		<annotation cp="🪵" draft="provisional">သစ်၊ တုံး၊ သစ်သား</annotation>
+		<annotation cp="🪵" type="tts">သစ်</annotation>
+		<annotation cp="🪶" draft="provisional">ပျံ၊ ပေါ့၊ တောင်ပံ၊ ငှက်</annotation>
+		<annotation cp="🪶" type="tts">အတောင်</annotation>
+		<annotation cp="🫀" draft="provisional">အလယ်၊ နှလုံးခုန်၊ အင်္ဂါ၊ သွေးခုန်နှုန်း၊ နှလုံးနှင့်ဆိုင်သော</annotation>
+		<annotation cp="🫀" type="tts">နှလုံး</annotation>
+		<annotation cp="🫁" draft="provisional">အသက်ရှု၊ ရှုထုတ်၊ ရှုသွင်း၊ အင်္ဂါ၊ အသက်ရှုလမ်းကြောင်း</annotation>
+		<annotation cp="🫁" type="tts">အဆုတ်</annotation>
+		<annotation cp="🫂">ကျေးဇူး | ဂွတ်ဘိုင် | ဖက် | ဟယ်လို</annotation>
+		<annotation cp="🫂" type="tts">ဖက်နေသည့်ပုံ</annotation>
+		<annotation cp="🫐" draft="provisional">ဘယ်ရီ၊ ဘီလ်ဘယ်ရီ၊ အပြာ၊ ဘလူးဘယ်ရီ</annotation>
+		<annotation cp="🫐" type="tts">ဘလူးဘယ်ရီ</annotation>
+		<annotation cp="🫑" draft="provisional">ငရုတ်ပွ၊ ကပ်စီကန်၊ ငရုတ်၊ ဟင်းသီးဟင်းရွက်</annotation>
+		<annotation cp="🫑" type="tts">ငရုတ်ပွ</annotation>
+		<annotation cp="🫒" draft="provisional">အသီး၊ သံလွင်</annotation>
+		<annotation cp="🫒" type="tts">သံလွင်</annotation>
+		<annotation cp="🫓" draft="provisional">အရီပါ၊ နံပြား၊ ပီတာ</annotation>
+		<annotation cp="🫓" type="tts">ပေါင်မုန့်ပြား</annotation>
+		<annotation cp="🫔" draft="provisional">မက်ဆီကန်၊ အလိပ်</annotation>
+		<annotation cp="🫔" type="tts">တာမာလီ</annotation>
+		<annotation cp="🫕" draft="provisional">ဆွစ်၊ ချိစ်၊ ချောကလက်၊ အိုး</annotation>
+		<annotation cp="🫕" type="tts">ဖောင်ဂျူ</annotation>
+		<annotation cp="🫖" draft="provisional">သောက်၊ အိုး၊ လဘက်ရည်၊ ခရား</annotation>
+		<annotation cp="🫖" type="tts">ခရား</annotation>
 	</annotations>
 </ldml>

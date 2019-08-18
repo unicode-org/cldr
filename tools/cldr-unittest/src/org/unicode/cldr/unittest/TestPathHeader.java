@@ -179,7 +179,12 @@ public class TestPathHeader extends TestFmwkPlus {
                 // logln("\t" + failure);
                 // }
                 // }
-                PathHeader ph = pathHeaderFactory2.fromPath(p);
+                PathHeader ph;
+                try {
+                    ph = pathHeaderFactory2.fromPath(p);
+                } catch (Exception e1) {
+                    throw new IllegalArgumentException(locale + ":\t" + p);
+                }
                 if (ph == null) {
                     errln("Failed to create path from: " + p);
                     continue;

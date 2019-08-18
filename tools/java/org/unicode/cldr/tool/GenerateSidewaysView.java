@@ -652,7 +652,7 @@ public class GenerateSidewaysView {
                 }
                 String fullPath = cldrFile.getFullXPath(path);
                 String value = getValue(cldrFile, path, fullPath);
-                if (value == null) {
+                if (value == null || CldrUtility.INHERITANCE_MARKER.equals(value)) {
                     continue;
                 }
                 if (fullPath.indexOf("[@draft=\"unconfirmed\"]") >= 0
@@ -660,9 +660,14 @@ public class GenerateSidewaysView {
                     postFix[0] = "*";
                 }
                 if (path.equals("//ldml/characters/exemplarCharacters")) {
-                    UnicodeSet exemplars = new UnicodeSet(value);
-                    String script = UScript.getName(getFirstScript(exemplars));
-                    LOCALE_TO_SCRIPT.put(localeID, script);
+                    UnicodeSet exemplars;
+                    try {
+                        exemplars = new UnicodeSet(value);
+                        String script = UScript.getName(getFirstScript(exemplars));
+                        LOCALE_TO_SCRIPT.put(localeID, script);
+                    } catch (Exception e) {
+                        int debug = 0;
+                    }
                 }
                 Map<String, Set<String>> value_locales = path_value_locales.get(cleanPath);
                 if (value_locales == null) {

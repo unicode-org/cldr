@@ -23,6 +23,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">tamsios odos</annotation>
 		<annotation cp="🏿">itin tamsios odos | odos atspalvis</annotation>
 		<annotation cp="🏿" type="tts">itin tamsios odos</annotation>
+		<annotation cp="⚧">translytis</annotation>
+		<annotation cp="⚧" type="tts">translyčių simbolis</annotation>
 		<annotation cp="😀">išsišiepęs veidas | išsišiepti | veidas</annotation>
 		<annotation cp="😀" type="tts">išsišiepęs veidas</annotation>
 		<annotation cp="😃">besišypsantis išsižiojęs veidas | burna | praverta | šypsena | veidas</annotation>
@@ -505,66 +507,98 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤷‍♂" type="tts">abejojantis vyras</annotation>
 		<annotation cp="🤷‍♀">abejingumas | abejojanti moteris | abejonė | moteris | nežinojimas | trūkčioti pečiais</annotation>
 		<annotation cp="🤷‍♀" type="tts">abejojanti moteris</annotation>
+		<annotation cp="🧑‍⚕">gydytojas | slaugymas | sveikatos priežiūra | terapistas</annotation>
+		<annotation cp="🧑‍⚕" type="tts">sveikatos darbuotojas</annotation>
 		<annotation cp="👨‍⚕">gydytojas | medikas | slaugytojas | sveikata | terapeutas | vyras</annotation>
 		<annotation cp="👨‍⚕" type="tts">medikas</annotation>
 		<annotation cp="👩‍⚕">gydytoja | medikė | moteris | seselė | sveikata | terapeutė</annotation>
 		<annotation cp="👩‍⚕" type="tts">medikė</annotation>
+		<annotation cp="🧑‍🎓">baigimas | studentas</annotation>
+		<annotation cp="🧑‍🎓" type="tts">paskutinio kurso studentas</annotation>
 		<annotation cp="👨‍🎓">absolventas | studentas | vyras</annotation>
 		<annotation cp="👨‍🎓" type="tts">studentas</annotation>
 		<annotation cp="👩‍🎓">absolventė | moteris | studentė</annotation>
 		<annotation cp="👩‍🎓" type="tts">studentė</annotation>
+		<annotation cp="🧑‍🏫">dėstytojas | instruktorius | mokytojas</annotation>
+		<annotation cp="🧑‍🏫" type="tts">mokantis žmogus</annotation>
 		<annotation cp="👨‍🏫">dėstytojas | mokytojas | profesorius | vyras</annotation>
 		<annotation cp="👨‍🏫" type="tts">mokytojas</annotation>
 		<annotation cp="👩‍🏫">dėstytoja | mokytoja | moteris | profesorė</annotation>
 		<annotation cp="👩‍🏫" type="tts">mokytoja</annotation>
+		<annotation cp="🧑‍⚖">svarstyklės | teisėjas</annotation>
+		<annotation cp="🧑‍⚖" type="tts">teisiantis žmogus</annotation>
 		<annotation cp="👨‍⚖">svarstyklės | teisėjas | teisingumas | vyras</annotation>
 		<annotation cp="👨‍⚖" type="tts">teisėjas</annotation>
 		<annotation cp="👩‍⚖">moteris | svarstyklės | teisėja | teisingumas</annotation>
 		<annotation cp="👩‍⚖" type="tts">teisėja</annotation>
+		<annotation cp="🧑‍🌾">sodininkas | ūkininkas</annotation>
+		<annotation cp="🧑‍🌾" type="tts">ūkininkaujantis žmogus</annotation>
 		<annotation cp="👨‍🌾">darbininkas | sodininkas | ūkininkas | vyras</annotation>
 		<annotation cp="👨‍🌾" type="tts">ūkininkas</annotation>
 		<annotation cp="👩‍🌾">darbininkė | moteris | sodininkė | ūkininkė</annotation>
 		<annotation cp="👩‍🌾" type="tts">ūkininkė</annotation>
+		<annotation cp="🧑‍🍳">šefas | virėjas</annotation>
+		<annotation cp="🧑‍🍳" type="tts">gaminantis žmogus</annotation>
 		<annotation cp="👨‍🍳">šefas | virėjas | vyras</annotation>
 		<annotation cp="👨‍🍳" type="tts">virėjas</annotation>
 		<annotation cp="👩‍🍳">moteris | šefė | virėja</annotation>
 		<annotation cp="👩‍🍳" type="tts">virėja</annotation>
+		<annotation cp="🧑‍🔧">elektrikas | mechanikas | santechnikas</annotation>
+		<annotation cp="🧑‍🔧" type="tts">remontuojantis žmogus</annotation>
 		<annotation cp="👨‍🔧">elektrikas | mechanikas | prekybininkas | santechnikas | vyras</annotation>
 		<annotation cp="👨‍🔧" type="tts">mechanikas</annotation>
 		<annotation cp="👩‍🔧">elektrikė | mechanikė | moteris | prekybininkė | santechnikė</annotation>
 		<annotation cp="👩‍🔧" type="tts">mechanikė</annotation>
+		<annotation cp="🧑‍🏭">darbininkas | gamykla | industrinis | surinkimas</annotation>
+		<annotation cp="🧑‍🏭" type="tts">gamyklos darbuotojas</annotation>
 		<annotation cp="👨‍🏭">darbuotojas | fabrikas | fabriko darbininkas | gamyba | susirinkimas | vyras</annotation>
 		<annotation cp="👨‍🏭" type="tts">fabriko darbininkas</annotation>
 		<annotation cp="👩‍🏭">darbuotoja | fabrikas | fabriko darbininkė | gamyba | moteris | susirinkimas</annotation>
 		<annotation cp="👩‍🏭" type="tts">fabriko darbininkė</annotation>
+		<annotation cp="🧑‍💼">architektas | balta apykaklė | vadybininkas | verslas</annotation>
+		<annotation cp="🧑‍💼" type="tts">dirbantysis biure</annotation>
 		<annotation cp="👨‍💼">architektas | biuras | biuro darbuotojas | darbas įstaigoje | vadybininkas | verslas | vyras</annotation>
 		<annotation cp="👨‍💼" type="tts">biuro darbuotojas</annotation>
 		<annotation cp="👩‍💼">architektė | biuro darbuotoja | darbas įstaigoje | moteris | vadybininkė | verslas</annotation>
 		<annotation cp="👩‍💼" type="tts">biuro darbuotoja</annotation>
+		<annotation cp="🧑‍🔬">biologas | chemikas | fizikas | inžinierius | mokslininkas</annotation>
+		<annotation cp="🧑‍🔬" type="tts">mokslo darbuotojas</annotation>
 		<annotation cp="👨‍🔬">biologas | chemikas | fizikas | inžinierius | matematikas | mokslininkas | vyras</annotation>
 		<annotation cp="👨‍🔬" type="tts">mokslininkas</annotation>
 		<annotation cp="👩‍🔬">biologė | chemikė | fizikė | inžinierė | matematikė | mokslininkė | moteris</annotation>
 		<annotation cp="👩‍🔬" type="tts">mokslininkė</annotation>
+		<annotation cp="🧑‍💻">išradėjas | koderis | programinė įranga | programuotojas | technikas</annotation>
+		<annotation cp="🧑‍💻" type="tts">technikas</annotation>
 		<annotation cp="👨‍💻">išradėjas | kūrėjas | programinė įranga | programuotojas | technologas | vyras</annotation>
 		<annotation cp="👨‍💻" type="tts">technologas</annotation>
 		<annotation cp="👩‍💻">išradėja | kūrėja | moteris | programinė įranga | programuotoja | technologė</annotation>
 		<annotation cp="👩‍💻" type="tts">technologė</annotation>
+		<annotation cp="🧑‍🎤">aktorius | dainininkas | linksmintojas | rokas | žvaigždė</annotation>
+		<annotation cp="🧑‍🎤" type="tts">dainuojantis žmogus</annotation>
 		<annotation cp="👨‍🎤">aktorius | dainininkas | rokas | vyras | žvaigždė</annotation>
 		<annotation cp="👨‍🎤" type="tts">dainininkas</annotation>
 		<annotation cp="👩‍🎤">aktorė | dainininkė | moteris | rokas | žvaigždė</annotation>
 		<annotation cp="👩‍🎤" type="tts">dainininkė</annotation>
+		<annotation cp="🧑‍🎨">menininkas | paletė</annotation>
+		<annotation cp="🧑‍🎨" type="tts">tapytojas</annotation>
 		<annotation cp="👨‍🎨">dailininkas | paletė | vyras</annotation>
 		<annotation cp="👨‍🎨" type="tts">dailininkas</annotation>
 		<annotation cp="👩‍🎨">dailininkė | moteris | paletė</annotation>
 		<annotation cp="👩‍🎨" type="tts">dailininkė</annotation>
+		<annotation cp="🧑‍✈">lėktuvas | pilotas</annotation>
+		<annotation cp="🧑‍✈" type="tts">pilotuojantis žmogus</annotation>
 		<annotation cp="👨‍✈">lėktuvas | pilotas | vyras</annotation>
 		<annotation cp="👨‍✈" type="tts">pilotas</annotation>
 		<annotation cp="👩‍✈">lėktuvas | moteris | pilotė</annotation>
 		<annotation cp="👩‍✈" type="tts">pilotė</annotation>
+		<annotation cp="🧑‍🚀">astronautas | raketa</annotation>
+		<annotation cp="🧑‍🚀" type="tts">kosmonautas</annotation>
 		<annotation cp="👨‍🚀">astronautas | raketa | vyras</annotation>
 		<annotation cp="👨‍🚀" type="tts">astronautas</annotation>
 		<annotation cp="👩‍🚀">astronautė | moteris | raketa</annotation>
 		<annotation cp="👩‍🚀" type="tts">astronautė</annotation>
+		<annotation cp="🧑‍🚒">gaisrinė mašina | gaisrininkas</annotation>
+		<annotation cp="🧑‍🚒" type="tts">ugniagesys</annotation>
 		<annotation cp="👨‍🚒">gaisrininkas | gaisrininkų automobilis | vyras</annotation>
 		<annotation cp="👨‍🚒" type="tts">gaisrininkas</annotation>
 		<annotation cp="👩‍🚒">gaisrininkė | gaisrininkų automobilis | moteris</annotation>
@@ -705,14 +739,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧎‍♂" type="tts">klūpantis vyras</annotation>
 		<annotation cp="🧎‍♀">klūpanti | moteris</annotation>
 		<annotation cp="🧎‍♀" type="tts">klūpanti moteris</annotation>
+		<annotation cp="🧑‍🦯">aklas | prieinamumas</annotation>
+		<annotation cp="🧑‍🦯" type="tts">žmogus neregio lazdele</annotation>
 		<annotation cp="👨‍🦯">aklas | prieinamumas | vyras | vyras su neregio lazdele</annotation>
 		<annotation cp="👨‍🦯" type="tts">vyras su neregio lazdele</annotation>
 		<annotation cp="👩‍🦯">akla | moteris | moteris su neregio lazdele | prieinamumas</annotation>
 		<annotation cp="👩‍🦯" type="tts">moteris su neregio lazdele</annotation>
+		<annotation cp="🧑‍🦼">prieinamumas | vežimėlis</annotation>
+		<annotation cp="🧑‍🦼" type="tts">žmogus motorizuotame vežimėlyje</annotation>
 		<annotation cp="👨‍🦼">prieinamumas | vežimėlis | vyras | vyras motorizuotame vežimėlyje</annotation>
 		<annotation cp="👨‍🦼" type="tts">vyras motorizuotame vežimėlyje</annotation>
 		<annotation cp="👩‍🦼">moteris | moteris motorizuotame vežimėlyje | prieinamumas | vežimėlis</annotation>
 		<annotation cp="👩‍🦼" type="tts">moteris motorizuotame vežimėlyje</annotation>
+		<annotation cp="🧑‍🦽">prieinamumas | vežimėlis</annotation>
+		<annotation cp="🧑‍🦽" type="tts">žmogus rankomis valdomame vežimėlyje</annotation>
 		<annotation cp="👨‍🦽">prieinamumas | vežimėlis | vyras | vyras rankomis valdomame vežimėlyje</annotation>
 		<annotation cp="👨‍🦽" type="tts">vyras rankomis valdomame vežimėlyje</annotation>
 		<annotation cp="👩‍🦽">moteris | moteris rankomis valdomame vežimėlyje | prieinamumas | vežimėlis</annotation>
@@ -879,7 +919,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐒" type="tts">beždžionė</annotation>
 		<annotation cp="🦍">gorila | gyvūnas</annotation>
 		<annotation cp="🦍" type="tts">gorila</annotation>
-		<annotation cp="🦧">bezdžionė | orangutangas</annotation>
+		<annotation cp="🦧">beždžionė | orangutangas</annotation>
 		<annotation cp="🦧" type="tts">orangutangas</annotation>
 		<annotation cp="🐶">naminis gyvūnas | šuns snukutis | šuo | veidas</annotation>
 		<annotation cp="🐶" type="tts">šuns snukutis</annotation>
@@ -2831,9 +2871,121 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">juoda vėliava</annotation>
 		<annotation cp="🏳">balta vėliava | mojavimas</annotation>
 		<annotation cp="🏳" type="tts">balta vėliava</annotation>
+		<annotation cp="🏳‍⚧">translytis | vėliava</annotation>
+		<annotation cp="🏳‍⚧" type="tts">žydra, rožinė ir balta vėliava</annotation>
 		<annotation cp="🏳‍🌈">vaivorykštė | vaivorykštinė vėliava</annotation>
 		<annotation cp="🏳‍🌈" type="tts">vaivorykštinė vėliava</annotation>
 		<annotation cp="🏴‍☠">Linksmasis Rodžeris | lobis | piratas | piratų vėliava | plėšikauti</annotation>
 		<annotation cp="🏴‍☠" type="tts">piratų vėliava</annotation>
+		<annotation cp="🛖">apvalus namas | jurta | namas</annotation>
+		<annotation cp="🛖" type="tts">namelis</annotation>
+		<annotation cp="🛗">elevatorius | keltuvas | liftas | prieinamumas</annotation>
+		<annotation cp="🛗" type="tts">elevatorius</annotation>
+		<annotation cp="🛻">pikapas | sunkvežimis</annotation>
+		<annotation cp="🛻" type="tts">pikapas</annotation>
+		<annotation cp="🛼">riedučiai</annotation>
+		<annotation cp="🛼" type="tts">riedučiai</annotation>
+		<annotation cp="🤌">pirštai | rankos gestas | sarkastiškas | suspausti</annotation>
+		<annotation cp="🤌" type="tts">suspausti pirštai</annotation>
+		<annotation cp="🥲">ašara | besišypsantis | dėkingas | palengvėjimas | pasididžiavimas</annotation>
+		<annotation cp="🥲" type="tts">besišypsantis veidas su ašara</annotation>
+		<annotation cp="🥷">kovotojas | užsimaskavęs</annotation>
+		<annotation cp="🥷" type="tts">nindzė</annotation>
+		<annotation cp="🥸">akiniai | inkognito | nosis | pasislėpęs | veidas</annotation>
+		<annotation cp="🥸" type="tts">paslėptas veidas</annotation>
+		<annotation cp="🦣">didelis | iltis | išnykimas</annotation>
+		<annotation cp="🦣" type="tts">mamutas</annotation>
+		<annotation cp="🦤">didelis | išnykimas | Mauricijus</annotation>
+		<annotation cp="🦤" type="tts">drontas</annotation>
+		<annotation cp="🦫">bebras | užtvanka</annotation>
+		<annotation cp="🦫" type="tts">bebras</annotation>
+		<annotation cp="🦬">banda | bizonas | buivolas</annotation>
+		<annotation cp="🦬" type="tts">bizonas</annotation>
+		<annotation cp="🦭">jūrų liūtas | ruonis</annotation>
+		<annotation cp="🦭" type="tts">ruonis</annotation>
+		<annotation cp="🧋">arbata | burbulai | pienas</annotation>
+		<annotation cp="🧋" type="tts">burbulinė arbata</annotation>
+		<annotation cp="🩴">dirželiai | paplūdimio sandalai | sandalai | sandalai su dirželiu</annotation>
+		<annotation cp="🩴" type="tts">sandalai su dirželiu</annotation>
+		<annotation cp="🪃">australija | bumerangas | grįžimas</annotation>
+		<annotation cp="🪃" type="tts">bumerangas</annotation>
+		<annotation cp="🪄">burtininkas | ragana | stebuklingas</annotation>
+		<annotation cp="🪄" type="tts">stebuklinga lazdelė</annotation>
+		<annotation cp="🪅">šventė | vakarėlis</annotation>
+		<annotation cp="🪅" type="tts">pinjata</annotation>
+		<annotation cp="🪆">lėlė | matrioška | Rusija</annotation>
+		<annotation cp="🪆" type="tts">matrioškos</annotation>
+		<annotation cp="🪖">armija | kareivis | kariuomenė | karys | šalmas</annotation>
+		<annotation cp="🪖" type="tts">kareiviškas šalmas</annotation>
+		<annotation cp="🪗">akordeonas | armonika</annotation>
+		<annotation cp="🪗" type="tts">akordeonas</annotation>
+		<annotation cp="🪘">būgnas | Kongas | ritmas</annotation>
+		<annotation cp="🪘" type="tts">ilgas būgnas</annotation>
+		<annotation cp="🪙">auksas | lobis | metalas | pinigai | sidabras</annotation>
+		<annotation cp="🪙" type="tts">moneta</annotation>
+		<annotation cp="🪚">dailidė | įrankis | mediena | pjūklas</annotation>
+		<annotation cp="🪚" type="tts">pjūklas</annotation>
+		<annotation cp="🪛">įrankis | varžtas</annotation>
+		<annotation cp="🪛" type="tts">atsuktuvas</annotation>
+		<annotation cp="🪜">kopėčios | lipti | žingsnis</annotation>
+		<annotation cp="🪜" type="tts">kopėčios</annotation>
+		<annotation cp="🪝">grobis | sugauti</annotation>
+		<annotation cp="🪝" type="tts">kablys</annotation>
+		<annotation cp="🪞">atspindys | atšvaitas | reflektorius</annotation>
+		<annotation cp="🪞" type="tts">veidrodis</annotation>
+		<annotation cp="🪟">atvėrimas | perregimas | rėmas | šviežias oras | vaizdas</annotation>
+		<annotation cp="🪟" type="tts">langas</annotation>
+		<annotation cp="🪠">santechnikas | santechninė pompa | siurbimas | tualetas</annotation>
+		<annotation cp="🪠" type="tts">santechninė pompa</annotation>
+		<annotation cp="🪡">adata | siūlai | siuvimas | siuvinėjimas</annotation>
+		<annotation cp="🪡" type="tts">siuvimo adata</annotation>
+		<annotation cp="🪢">kaklaraištis | surišti | virvė</annotation>
+		<annotation cp="🪢" type="tts">mazgas</annotation>
+		<annotation cp="🪣">kibiras</annotation>
+		<annotation cp="🪣" type="tts">kibiras</annotation>
+		<annotation cp="🪤">pelėkautai | spąstai</annotation>
+		<annotation cp="🪤" type="tts">pelėkautai</annotation>
+		<annotation cp="🪥">dantys | higiena | valyti | vonios kambarys</annotation>
+		<annotation cp="🪥" type="tts">dantų šepetėlis</annotation>
+		<annotation cp="🪦">kapas | kapinės | paminklas</annotation>
+		<annotation cp="🪦" type="tts">paminklas</annotation>
+		<annotation cp="🪧">demonstracija | piketas | plakatas | protestas | ženklas</annotation>
+		<annotation cp="🪧" type="tts">plakatas</annotation>
+		<annotation cp="🪨">akmuo | kietas | riedulys | sunkus | uola</annotation>
+		<annotation cp="🪨" type="tts">uoliena</annotation>
+		<annotation cp="🪰">cėcė | gyvulinė musė | kambarinė musė | mėšlinė musė | negalavimas</annotation>
+		<annotation cp="🪰" type="tts">musė</annotation>
+		<annotation cp="🪱">kirmėlės | parazitai | sliekai</annotation>
+		<annotation cp="🪱" type="tts">kirmėlė</annotation>
+		<annotation cp="🪲">vabalas | vabzdys</annotation>
+		<annotation cp="🪲" type="tts">vabaliukas</annotation>
+		<annotation cp="🪳">tarakonas | vabzdys</annotation>
+		<annotation cp="🪳" type="tts">tarakonas</annotation>
+		<annotation cp="🪴">augalas | augti | bevertis | namas | nuobodus | puoselėti</annotation>
+		<annotation cp="🪴" type="tts">pasodintas augalas</annotation>
+		<annotation cp="🪵">mediena | rąstas</annotation>
+		<annotation cp="🪵" type="tts">mediena</annotation>
+		<annotation cp="🪶">lengvumas | plunksna | skrydis</annotation>
+		<annotation cp="🪶" type="tts">plunksna</annotation>
+		<annotation cp="🫀">centras | organas | pulsas | širdies plakimas</annotation>
+		<annotation cp="🫀" type="tts">širdis</annotation>
+		<annotation cp="🫁">įkvėpimas | iškvėpimas | kvėpavimas | organas</annotation>
+		<annotation cp="🫁" type="tts">plaučiai</annotation>
+		<annotation cp="🫂">apsikabinti | dėkui | labas | viso</annotation>
+		<annotation cp="🫂" type="tts">apsikabinę žmonės</annotation>
+		<annotation cp="🫐">mėlyna | mėlynė | uoga</annotation>
+		<annotation cp="🫐" type="tts">mėlynės</annotation>
+		<annotation cp="🫑">daržovė | paprika | pipirai</annotation>
+		<annotation cp="🫑" type="tts">paprika</annotation>
+		<annotation cp="🫒">alyvuogė | maistas</annotation>
+		<annotation cp="🫒" type="tts">alyvuogė</annotation>
+		<annotation cp="🫓">arepa | lavašas | naan | pita</annotation>
+		<annotation cp="🫓" type="tts">paplotis</annotation>
+		<annotation cp="🫔">meksikietiškas | susuktas</annotation>
+		<annotation cp="🫔" type="tts">vyniotinis</annotation>
+		<annotation cp="🫕">dubuo | ištirpintas | šokoladas | sūris | šveicariškas</annotation>
+		<annotation cp="🫕" type="tts">fondiu</annotation>
+		<annotation cp="🫖">arbata | arbatinukas | gėrimas | puodas</annotation>
+		<annotation cp="🫖" type="tts">arbatinukas</annotation>
 	</annotations>
 </ldml>

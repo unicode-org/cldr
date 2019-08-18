@@ -293,7 +293,9 @@ public class ShowData {
 
                     for (Entry<String, CLDRFile> s : sublocales.entrySet()) {
                         String newChildValue = s.getValue().getStringValue(path);
-                        if (newChildValue == null || CldrUtility.equals(newChildValue, value)) {
+                        if (newChildValue == null 
+                            || CldrUtility.equals(newChildValue, value) 
+                            || CldrUtility.INHERITANCE_MARKER.equals(newChildValue)) {
                             continue;
                         }
                         childValueToLocales.put(newChildValue, s.getKey());

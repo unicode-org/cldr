@@ -23,18 +23,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">medium-donker velkleur</annotation>
 		<annotation cp="🏿">donker velkleur | kleur | vel | velkleur | veltipe 6</annotation>
 		<annotation cp="🏿" type="tts">donker velkleur</annotation>
+		<annotation cp="⚧">transgender</annotation>
+		<annotation cp="⚧" type="tts">transgendersimbool</annotation>
 		<annotation cp="😀">gesig | grinnik | grinnikende gesig</annotation>
 		<annotation cp="😀" type="tts">grinnikende gesig</annotation>
 		<annotation cp="😃">gesig | glimlag | glimlaggende gesig met oop mond | mond | oop</annotation>
 		<annotation cp="😃" type="tts">glimlaggende gesig met oop mond</annotation>
 		<annotation cp="😄">gesig | glimlag | glimlaggende gesig met oop mond en glimlaggende oë | mond | oog | oop</annotation>
-		<annotation cp="😄" type="tts">glimlaggende gesig met oop mond en glimlaggende oë</annotation>
+		<annotation cp="😄" type="tts">gesig en oë glimlag</annotation>
 		<annotation cp="😁">gesig | glimlag | grinnik | grinnikende gesig met glimlaggende oë | oog</annotation>
 		<annotation cp="😁" type="tts">grinnikende gesig met glimlaggende oë</annotation>
 		<annotation cp="😆">gesig | glimlag | glimlaggende gesig met oop mond en oë styf toe | lag | mond | oop | tevrede</annotation>
-		<annotation cp="😆" type="tts">glimlaggende gesig met oop mond en oë styf toe</annotation>
+		<annotation cp="😆" type="tts">lag gesig met toe oë</annotation>
 		<annotation cp="😅">gesig | glimlag | glimlaggende gesig met oop mond en koue sweet | koud | oop | sweet</annotation>
-		<annotation cp="😅" type="tts">glimlaggende gesig met oop mond en koue sweet</annotation>
+		<annotation cp="😅" type="tts">lag gesig met sweet</annotation>
 		<annotation cp="🤣">gesig | gesig wat hard lag | histeries | lag | rol</annotation>
 		<annotation cp="🤣" type="tts">gesig wat hard lag</annotation>
 		<annotation cp="😂">gesig | gesig met trane van vreugde | lag | traan | vreugde</annotation>
@@ -323,7 +325,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💤" type="tts">zzz</annotation>
 		<annotation cp="👋">hand | liggaam | waai | wuif | wuiwende hand</annotation>
 		<annotation cp="👋" type="tts">wuiwende hand</annotation>
-		<annotation cp="🤚">hand | handrug</annotation>
+		<annotation cp="🤚">agterkant van hand | hand | handrug</annotation>
 		<annotation cp="🤚" type="tts">handrug</annotation>
 		<annotation cp="🖐">hand | hand in die lug met vingers oopgesprei | liggaam | oopgesprei | vinger</annotation>
 		<annotation cp="🖐" type="tts">hand in die lug met vingers oopgesprei</annotation>
@@ -349,13 +351,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👈" type="tts">wysvingerrughand wat links wys</annotation>
 		<annotation cp="👉">hand | liggaam | rughand | vinger | wys | wysvinger | wysvingerrughand wat regs wys</annotation>
 		<annotation cp="👉" type="tts">wysvingerrughand wat regs wys</annotation>
-		<annotation cp="👆">hand | liggaam | op | rughnad | vinger | wys | wysvinger | wysvingerrughand wat op wys</annotation>
+		<annotation cp="👆">hand | liggaam | op | rughand | vinger | wys | wysvingerrughand wat op wys</annotation>
 		<annotation cp="👆" type="tts">wysvingerrughand wat op wys</annotation>
-		<annotation cp="🖕">hand | liggaam | middelvinger | op | vinger | wys | wysvinger</annotation>
+		<annotation cp="🖕">hand | liggaam | middelvinger | op | vinger | wys</annotation>
 		<annotation cp="🖕" type="tts">middelvinger</annotation>
-		<annotation cp="👇">af | hand | liggaam | rughand | vinger | wys | wysvinger | wysvingerrughand wat af wys</annotation>
+		<annotation cp="👇">af | hand | liggaam | rughand | vinger | wys | wysvingerrughand wat af wys</annotation>
 		<annotation cp="👇" type="tts">wysvingerrughand wat af wys</annotation>
-		<annotation cp="☝">hand | liggaam | op | vinger | wys | wysvinger | wysvinger wat op wys</annotation>
+		<annotation cp="☝">hand | liggaam | op | vinger | wys | wysvinger wat op wys</annotation>
 		<annotation cp="☝" type="tts">wysvinger wat op wys</annotation>
 		<annotation cp="👍">+1 | duim | hand | laaik baie | liggaam | op</annotation>
 		<annotation cp="👍" type="tts">laaik baie</annotation>
@@ -363,23 +365,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👎" type="tts">laaik niks</annotation>
 		<annotation cp="✊">gebal | hand | liggaam | slaan | vuis | vuis in die lug</annotation>
 		<annotation cp="✊" type="tts">vuis in die lug</annotation>
-		<annotation cp="👊">gebal | hand | liggam | slaan | vuis | vuishou</annotation>
+		<annotation cp="👊">gebal | hand | liggaam | slaan | vuis | vuishou</annotation>
 		<annotation cp="👊" type="tts">vuishou</annotation>
-		<annotation cp="🤛">links | vuis</annotation>
+		<annotation cp="🤛">linkerkant | links | vuis</annotation>
 		<annotation cp="🤛" type="tts">vuis links</annotation>
-		<annotation cp="🤜">regs | vuis</annotation>
+		<annotation cp="🤜">regs | regterkant | vuis</annotation>
 		<annotation cp="🤜" type="tts">vuis regs</annotation>
 		<annotation cp="👏">hand | handeklap | klap | liggaam</annotation>
 		<annotation cp="👏" type="tts">handeklap</annotation>
-		<annotation cp="🙌">gebaar | hand | hoera | liggaam | omhoog | persoon met hande in die lug | viering</annotation>
+		<annotation cp="🙌">gebaar | hand | hande in die lug | hoera | liggaam | omhoog | viering</annotation>
 		<annotation cp="🙌" type="tts">persoon met hande in die lug</annotation>
 		<annotation cp="👐">hand | liggaam | oop | oop hande</annotation>
 		<annotation cp="👐" type="tts">oop hande</annotation>
-		<annotation cp="🤲">bid | palms op teen mekaar</annotation>
+		<annotation cp="🤲">bid | palms teenaan langs mekaar</annotation>
 		<annotation cp="🤲" type="tts">palms op teen mekaar</annotation>
 		<annotation cp="🤝">bladskud | groet | handskud | ooreenkoms</annotation>
 		<annotation cp="🤝" type="tts">handskud</annotation>
-		<annotation cp="🙏">asseblief | bid | buig | dankie | gebaar | gevou | gevoude hande | hand | liggaam | vra</annotation>
+		<annotation cp="🙏">asseblief | bid | dankie | gebaar | gevoude hande | hand | liggaam</annotation>
 		<annotation cp="🙏" type="tts">gevoude hande</annotation>
 		<annotation cp="✍">hand | hand wat skryf | liggaam | skryf</annotation>
 		<annotation cp="✍" type="tts">hand wat skryf</annotation>
@@ -417,154 +419,186 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👅" type="tts">tong</annotation>
 		<annotation cp="👄">liggaam | lippe | mond</annotation>
 		<annotation cp="👄" type="tts">mond</annotation>
-		<annotation cp="👶">baba</annotation>
+		<annotation cp="👶">baba | jonk</annotation>
 		<annotation cp="👶" type="tts">baba</annotation>
 		<annotation cp="🧒">geslag-neutraal | jongmens | kind</annotation>
 		<annotation cp="🧒" type="tts">kind</annotation>
-		<annotation cp="👦">kind | seun</annotation>
+		<annotation cp="👦">jonk | kind | seun</annotation>
 		<annotation cp="👦" type="tts">seun</annotation>
-		<annotation cp="👧">kind | meisie</annotation>
+		<annotation cp="👧">diereriem | jonk | kind | meisie | virgo</annotation>
 		<annotation cp="👧" type="tts">meisie</annotation>
-		<annotation cp="🧑">geslag-neutraal | volwassene</annotation>
+		<annotation cp="🧑">geslagneutraal | ongespesifiseerde geslag | persoon | volwassene</annotation>
 		<annotation cp="🧑" type="tts">volwassene</annotation>
 		<annotation cp="👱">blond | hare | persoon met blonde hare</annotation>
 		<annotation cp="👱" type="tts">persoon met blonde hare</annotation>
-		<annotation cp="👨">man</annotation>
+		<annotation cp="👨">man | volwassene</annotation>
 		<annotation cp="👨" type="tts">man</annotation>
 		<annotation cp="🧔">baard | bebaarde persoon | man</annotation>
 		<annotation cp="🧔" type="tts">bebaarde persoon</annotation>
 		<annotation cp="👱‍♂">blond | blonde man | hare | man</annotation>
 		<annotation cp="👱‍♂" type="tts">blonde man</annotation>
-		<annotation cp="👩">vrou</annotation>
+		<annotation cp="👩">volwassene | vrou</annotation>
 		<annotation cp="👩" type="tts">vrou</annotation>
 		<annotation cp="👱‍♀">blond | blonde vrou | blondine | hare | vrou</annotation>
 		<annotation cp="👱‍♀" type="tts">blondine</annotation>
-		<annotation cp="🧓">geslag-neutraal | oud | ouer volwassene</annotation>
+		<annotation cp="🧓">geslagneutraal | ongespesifiseerde geslag | oud | ouer persoon | volwassene</annotation>
 		<annotation cp="🧓" type="tts">ouer volwassene</annotation>
 		<annotation cp="👴">man | ou man | oud</annotation>
 		<annotation cp="👴" type="tts">ou man</annotation>
-		<annotation cp="👵">ou vrou | oud | vrou</annotation>
+		<annotation cp="👵">oud | volwassene | vrou</annotation>
 		<annotation cp="👵" type="tts">ou vrou</annotation>
-		<annotation cp="🙍">frons | gebaar | persoon wat frons</annotation>
+		<annotation cp="🙍">frons | gebaar | ongelukkig | persoon wat frons</annotation>
 		<annotation cp="🙍" type="tts">persoon wat frons</annotation>
-		<annotation cp="🙍‍♂">frons | man wat frons | ongelukkig</annotation>
+		<annotation cp="🙍‍♂">frons | gebaar | man wat frons | ongelukkig</annotation>
 		<annotation cp="🙍‍♂" type="tts">man wat frons</annotation>
-		<annotation cp="🙍‍♀">frons | ongelukkig | vrou wat frons</annotation>
+		<annotation cp="🙍‍♀">frons | gebaar | ongelukkig | vrou wat frons</annotation>
 		<annotation cp="🙍‍♀" type="tts">vrou wat frons</annotation>
-		<annotation cp="🙎">gebaar | persoon wat pruil | pruil</annotation>
-		<annotation cp="🙎" type="tts">persoon wat pruil</annotation>
-		<annotation cp="🙎‍♂">dikbek | dikbek man | pruil</annotation>
+		<annotation cp="🙎">dikbek | dikbekpersoon | gebaar</annotation>
+		<annotation cp="🙎" type="tts">dikbek persoon</annotation>
+		<annotation cp="🙎‍♂">dikbek | dikbek man | gebaar</annotation>
 		<annotation cp="🙎‍♂" type="tts">dikbek man</annotation>
-		<annotation cp="🙎‍♀">dikbek | dikbek vrou | pruil</annotation>
+		<annotation cp="🙎‍♀">dikbek | dikbek vrou | gebaar</annotation>
 		<annotation cp="🙎‍♀" type="tts">dikbek vrou</annotation>
 		<annotation cp="🙅">gebaar | hand | keer | nee | verbied | verbode | wys nee</annotation>
-		<annotation cp="🙅" type="tts">wys nee</annotation>
-		<annotation cp="🙅‍♂">man wys nee | nee</annotation>
-		<annotation cp="🙅‍♂" type="tts">man wys nee</annotation>
-		<annotation cp="🙅‍♀">nee | vrou wys nee</annotation>
-		<annotation cp="🙅‍♀" type="tts">vrou wys nee</annotation>
+		<annotation cp="🙅" type="tts">persoon wat wys NEE</annotation>
+		<annotation cp="🙅‍♂">gebaar | hand | man | nee | verbied | verbode | wys nee</annotation>
+		<annotation cp="🙅‍♂" type="tts">man wys NEE</annotation>
+		<annotation cp="🙅‍♀">gebaar | hand | nee | verbied | verbode | vrou | wys nee</annotation>
+		<annotation cp="🙅‍♀" type="tts">vrou wys NEE</annotation>
 		<annotation cp="🙆">gebaar | goed | hand | ok | wys goed</annotation>
-		<annotation cp="🙆" type="tts">wys goed</annotation>
-		<annotation cp="🙆‍♂">ja | man wys ja</annotation>
-		<annotation cp="🙆‍♂" type="tts">man wys ja</annotation>
-		<annotation cp="🙆‍♀">ja | vrou wys ja</annotation>
-		<annotation cp="🙆‍♀" type="tts">vrou wys ja</annotation>
-		<annotation cp="💁">hand | help | inligting | persoon by inligtingtoonbank | skrander</annotation>
-		<annotation cp="💁" type="tts">persoon by inligtingtoonbank</annotation>
-		<annotation cp="💁‍♂">hulpvaardig | man met handpalm | plathand</annotation>
-		<annotation cp="💁‍♂" type="tts">man met handpalm</annotation>
-		<annotation cp="💁‍♀">hulpvaardig | plathand | vrou met handpalm</annotation>
-		<annotation cp="💁‍♀" type="tts">vrou met handpalm</annotation>
+		<annotation cp="🙆" type="tts">persoon wys als is goed</annotation>
+		<annotation cp="🙆‍♂">gebaar | goed | hand | man | ok | wys goed</annotation>
+		<annotation cp="🙆‍♂" type="tts">man wys als is goed</annotation>
+		<annotation cp="🙆‍♀">gebaar | goed | hand | ok | vrou | wys goed</annotation>
+		<annotation cp="🙆‍♀" type="tts">vrou wys als is goed</annotation>
+		<annotation cp="💁">fooitjie | hand | help | inligting | persoon wat hand geknak hou | skrander</annotation>
+		<annotation cp="💁" type="tts">persoon hou hand geknak</annotation>
+		<annotation cp="💁‍♂">fooitjie | hand | help | inligting | man | man wat hand geknak hou | skrander</annotation>
+		<annotation cp="💁‍♂" type="tts">man hou hand geknak</annotation>
+		<annotation cp="💁‍♀">fooitjie | hand | help | inligting | skrander | vrou | vrou wat hand geknak hou</annotation>
+		<annotation cp="💁‍♀" type="tts">vrou hou hand geknak</annotation>
 		<annotation cp="🙋">gebaar | gelukkig | gelukkige persoon met hand in die lug | hand | omhoog</annotation>
-		<annotation cp="🙋" type="tts">gelukkige persoon met hand in die lug</annotation>
+		<annotation cp="🙋" type="tts">persoon wat hand opsteek</annotation>
 		<annotation cp="🙋‍♂">groet | lig hand | man lig hand | waai</annotation>
-		<annotation cp="🙋‍♂" type="tts">man lig hand</annotation>
+		<annotation cp="🙋‍♂" type="tts">man wat hand opsteek</annotation>
 		<annotation cp="🙋‍♀">groet | lig hand | vrou lig hand | waai</annotation>
-		<annotation cp="🙋‍♀" type="tts">vrou lig hand</annotation>
+		<annotation cp="🙋‍♀" type="tts">vrou wat hand opsteek</annotation>
 		<annotation cp="🧏">doof | dowe persoon | hoor | oor | toeganklikheid</annotation>
 		<annotation cp="🧏" type="tts">dowe persoon</annotation>
 		<annotation cp="🧏‍♂">doof | dowe man | man</annotation>
 		<annotation cp="🧏‍♂" type="tts">dowe man</annotation>
 		<annotation cp="🧏‍♀">doof | dowe vrou | vrou</annotation>
 		<annotation cp="🧏‍♀" type="tts">dowe vrou</annotation>
-		<annotation cp="🙇">buig | gebaar | jammer | persoon wat buig | verskoning</annotation>
+		<annotation cp="🙇">buig | gebaar | guns | jammer | persoon wat buig | verskoning</annotation>
 		<annotation cp="🙇" type="tts">persoon wat buig</annotation>
-		<annotation cp="🙇‍♂">buig | jammer | man buig</annotation>
+		<annotation cp="🙇‍♂">buig | gebaar | guns | jammer | man | verskoning</annotation>
 		<annotation cp="🙇‍♂" type="tts">man buig</annotation>
-		<annotation cp="🙇‍♀">buig | jammer | vrou buig</annotation>
+		<annotation cp="🙇‍♀">buig | gebaar | guns | jammer | verskoning | vrou</annotation>
 		<annotation cp="🙇‍♀" type="tts">vrou buig</annotation>
-		<annotation cp="🤦">facepalm | ongeloof | verbyster</annotation>
-		<annotation cp="🤦" type="tts">facepalm</annotation>
-		<annotation cp="🤦‍♂">facepalm | moedeloos | moedelose man | ongeloof</annotation>
-		<annotation cp="🤦‍♂" type="tts">moedelose man</annotation>
-		<annotation cp="🤦‍♀">facepalm | moedeloos | moedelose vrou | ongeloof</annotation>
-		<annotation cp="🤦‍♀" type="tts">moedelose vrou</annotation>
-		<annotation cp="🤷">onseker | skouers | weet nie</annotation>
-		<annotation cp="🤷" type="tts">weet nie</annotation>
-		<annotation cp="🤷‍♂">man skouerophaal | skouerophaal | weet nie</annotation>
+		<annotation cp="🤦">facepalm | gsig | hand teen voorkop slaan | moedeloos | ongeloof | palm | verbyster</annotation>
+		<annotation cp="🤦" type="tts">hand teen voorkop slaan</annotation>
+		<annotation cp="🤦‍♂">facepalm | gsig | hand teen voorkop slaan | man | moedeloos | ongeloof | palm | verbyster</annotation>
+		<annotation cp="🤦‍♂" type="tts">man slaan hand teen voorkop</annotation>
+		<annotation cp="🤦‍♀">facepalm | gsig | hand teen voorkop slaan | moedeloos | ongeloof | palm | verbyster | vrou</annotation>
+		<annotation cp="🤦‍♀" type="tts">vrou slaan hand teen voorkop</annotation>
+		<annotation cp="🤷">onseker | skouerophaal | skouers | weet nie</annotation>
+		<annotation cp="🤷" type="tts">persoon skouerophaal</annotation>
+		<annotation cp="🤷‍♂">man skouerophaal | onseker | skouers | weet nie</annotation>
 		<annotation cp="🤷‍♂" type="tts">man skouerophaal</annotation>
-		<annotation cp="🤷‍♀">skouerophaal | vrou skouerophaal | weet nie</annotation>
+		<annotation cp="🤷‍♀">onseker | skouers | vrou skouerophaal | weet nie</annotation>
 		<annotation cp="🤷‍♀" type="tts">vrou skouerophaal</annotation>
-		<annotation cp="👨‍⚕">dokter | manlike dokter | medies</annotation>
-		<annotation cp="👨‍⚕" type="tts">manlike dokter</annotation>
-		<annotation cp="👩‍⚕">dokter | medies | vroulike dokter</annotation>
-		<annotation cp="👩‍⚕" type="tts">vroulike dokter</annotation>
+		<annotation cp="🧑‍⚕">dokter | gesondheidsorg | terapeut | verpleegster | verpleër</annotation>
+		<annotation cp="🧑‍⚕" type="tts">gesondheidswerker</annotation>
+		<annotation cp="👨‍⚕">dokter | man | medies | mediese sorg | mediese werker | terapeut | verpleër</annotation>
+		<annotation cp="👨‍⚕" type="tts">manlike gesondheidswerker</annotation>
+		<annotation cp="👩‍⚕">dokter | medies | mediese sorg | mediese werker | terapeut | verpleegster | vrou</annotation>
+		<annotation cp="👩‍⚕" type="tts">vroulike gesondheidswerker</annotation>
+		<annotation cp="🧑‍🎓">graad | gradeplegtigheid | gradueer | student</annotation>
+		<annotation cp="🧑‍🎓" type="tts">student</annotation>
 		<annotation cp="👨‍🎓">graad | gradeplegtigheid | manlike student | toga</annotation>
 		<annotation cp="👨‍🎓" type="tts">manlike student</annotation>
 		<annotation cp="👩‍🎓">graad | gradeplegtigheid | toga | vroulike student</annotation>
 		<annotation cp="👩‍🎓" type="tts">vroulike student</annotation>
+		<annotation cp="🧑‍🏫">instrukteur | onderwyser | professor</annotation>
+		<annotation cp="🧑‍🏫" type="tts">onderwyser</annotation>
 		<annotation cp="👨‍🏫">meneer | onderwyser | opvoeder | skool</annotation>
-		<annotation cp="👨‍🏫" type="tts">meneer</annotation>
+		<annotation cp="👨‍🏫" type="tts">manlike onderwyser</annotation>
 		<annotation cp="👩‍🏫">juffrou | onderwyser | onderwyseres | opvoeder | skool</annotation>
-		<annotation cp="👩‍🏫" type="tts">juffrou</annotation>
+		<annotation cp="👩‍🏫" type="tts">vroulike onderwyser</annotation>
+		<annotation cp="🧑‍⚖">regter | regtershammer</annotation>
+		<annotation cp="🧑‍⚖" type="tts">regter</annotation>
 		<annotation cp="👨‍⚖">hof | landdros | magistraat | manlike regter | regter</annotation>
 		<annotation cp="👨‍⚖" type="tts">manlike regter</annotation>
 		<annotation cp="👩‍⚖">hof | landdros | magistraat | regter | vroulike regter</annotation>
 		<annotation cp="👩‍⚖" type="tts">vroulike regter</annotation>
+		<annotation cp="🧑‍🌾">boer | tuinier</annotation>
+		<annotation cp="🧑‍🌾" type="tts">boer</annotation>
 		<annotation cp="👨‍🌾">boer | koringaar | manlike boer | plaas</annotation>
 		<annotation cp="👨‍🌾" type="tts">manlike boer</annotation>
 		<annotation cp="👩‍🌾">boer | koringaar | plaas | vroulike boer</annotation>
 		<annotation cp="👩‍🌾" type="tts">vroulike boer</annotation>
+		<annotation cp="🧑‍🍳">kok | sjef</annotation>
+		<annotation cp="🧑‍🍳" type="tts">kok</annotation>
 		<annotation cp="👨‍🍳">eier | kok | manlike kok | pan</annotation>
 		<annotation cp="👨‍🍳" type="tts">manlike kok</annotation>
 		<annotation cp="👩‍🍳">eier | kok | pan | vroulike kok</annotation>
 		<annotation cp="👩‍🍳" type="tts">vroulike kok</annotation>
+		<annotation cp="🧑‍🔧">elektrisiën | loodgieter | werktuigkundige</annotation>
+		<annotation cp="🧑‍🔧" type="tts">werktuigkundige</annotation>
 		<annotation cp="👨‍🔧">manlike motorwerktuigkundige | mechanic | moersleutel | motorwerktuigkundige</annotation>
 		<annotation cp="👨‍🔧" type="tts">manlike motorwerktuigkundige</annotation>
 		<annotation cp="👩‍🔧">mechanic | moersleutel | motorwerktuigkundige | vroulike motorwerktuigkundige</annotation>
 		<annotation cp="👩‍🔧" type="tts">vroulike motorwerktuigkundige</annotation>
+		<annotation cp="🧑‍🏭">fabriek | industrieel | montering | nywerheid | werker</annotation>
+		<annotation cp="🧑‍🏭" type="tts">fabriekswerker</annotation>
 		<annotation cp="👨‍🏭">fabriekswerker | manlike fabriekswerker</annotation>
 		<annotation cp="👨‍🏭" type="tts">manlike fabriekswerker</annotation>
 		<annotation cp="👩‍🏭">fabriekswerker | vroulike fabriekswerker</annotation>
 		<annotation cp="👩‍🏭" type="tts">vroulike fabriekswerker</annotation>
-		<annotation cp="👨‍💼">kantoorwerker | manlike kantoorwerker</annotation>
+		<annotation cp="🧑‍💼">argitek | besigheid | bestuurder | kantoorwerker | witboordjiewerker</annotation>
+		<annotation cp="🧑‍💼" type="tts">kantoorwerker</annotation>
+		<annotation cp="👨‍💼">besigheid | bestuurder | kantoorwerker | manlike kantoorwerker | witboordjie</annotation>
 		<annotation cp="👨‍💼" type="tts">manlike kantoorwerker</annotation>
-		<annotation cp="👩‍💼">kantoorwerker | vroulike kantoorwerker</annotation>
+		<annotation cp="👩‍💼">besigheid | bestuurder | kantoorwerker | vroulike kantoorwerker | witboordjie</annotation>
 		<annotation cp="👩‍💼" type="tts">vroulike kantoorwerker</annotation>
+		<annotation cp="🧑‍🔬">bioloog | chemikus | fisikus | ingenieur | wetenskaplike</annotation>
+		<annotation cp="🧑‍🔬" type="tts">wetenskaplike</annotation>
 		<annotation cp="👨‍🔬">manlike wetenskaplike | mikroskoop | proefbuis | wetenskaplike</annotation>
 		<annotation cp="👨‍🔬" type="tts">manlike wetenskaplike</annotation>
 		<annotation cp="👩‍🔬">mikroskoop | proefbuis | vroulike wetenskaplike | wetenskaplike</annotation>
 		<annotation cp="👩‍🔬" type="tts">vroulike wetenskaplike</annotation>
-		<annotation cp="👨‍💻">bleeksiel | manlike tegnoloog | rekenaar | tegnologie</annotation>
+		<annotation cp="🧑‍💻">kodeerder | ontwikkelaar | sagteware | skepper | tegnoloog</annotation>
+		<annotation cp="🧑‍💻" type="tts">tegnoloog</annotation>
+		<annotation cp="👨‍💻">manlike tegnoloog | ontwikkelaar | rekenaar | sagteware | skepper | tegnologie</annotation>
 		<annotation cp="👨‍💻" type="tts">manlike tegnoloog</annotation>
-		<annotation cp="👩‍💻">bleeksiel | rekenaar | tegnologie | vroulike tegnoloog</annotation>
+		<annotation cp="👩‍💻">ontwikkelaar | rekenaar | sagteware | skepper | tegnologie | vroulike tegnoloog</annotation>
 		<annotation cp="👩‍💻" type="tts">vroulike tegnoloog</annotation>
-		<annotation cp="👨‍🎤">manlike sanger | sanger</annotation>
+		<annotation cp="🧑‍🎤">akteur | sanger | ster | vermaaklikheidster</annotation>
+		<annotation cp="🧑‍🎤" type="tts">sanger</annotation>
+		<annotation cp="👨‍🎤">man | manlike sanger | rock | sanger | ster | vermaaklikheid</annotation>
 		<annotation cp="👨‍🎤" type="tts">manlike sanger</annotation>
-		<annotation cp="👩‍🎤">sanger | sangeres | vroulike sanger</annotation>
+		<annotation cp="👩‍🎤">man | rock | sanger | ster | vermaaklikheid | vroulike sanger</annotation>
 		<annotation cp="👩‍🎤" type="tts">vroulike sanger</annotation>
+		<annotation cp="🧑‍🎨">kuns | kunstenaar | palet</annotation>
+		<annotation cp="🧑‍🎨" type="tts">kunstenaar</annotation>
 		<annotation cp="👨‍🎨">kunstenaar | manlike kunstenaar | skilder | verwer</annotation>
 		<annotation cp="👨‍🎨" type="tts">manlike kunstenaar</annotation>
 		<annotation cp="👩‍🎨">kunstenaar | skilder | verwer | vroulike kunstenaar</annotation>
 		<annotation cp="👩‍🎨" type="tts">vroulike kunstenaar</annotation>
+		<annotation cp="🧑‍✈">vlieënier | vliegtuig</annotation>
+		<annotation cp="🧑‍✈" type="tts">vlieënier</annotation>
 		<annotation cp="👨‍✈">kaptein | loods | manlike vlieënier | vlieënier</annotation>
 		<annotation cp="👨‍✈" type="tts">manlike vlieënier</annotation>
 		<annotation cp="👩‍✈">kaptein | loods | vlieënier | vroulike vlieënier</annotation>
 		<annotation cp="👩‍✈" type="tts">vroulike vlieënier</annotation>
+		<annotation cp="🧑‍🚀">ruimtetuig | ruimtevaarder</annotation>
+		<annotation cp="🧑‍🚀" type="tts">ruimtevaarder</annotation>
 		<annotation cp="👨‍🚀">manlike ruimtevaarder | ruimtevaarder</annotation>
 		<annotation cp="👨‍🚀" type="tts">manlike ruimtevaarder</annotation>
 		<annotation cp="👩‍🚀">ruimtevaarder | vroulike ruimtevaarder</annotation>
 		<annotation cp="👩‍🚀" type="tts">vroulike ruimtevaarder</annotation>
+		<annotation cp="🧑‍🚒">brandbestryder | brandweer | brandweerlorrie | brandweerman</annotation>
+		<annotation cp="🧑‍🚒" type="tts">brandbestryder</annotation>
 		<annotation cp="👨‍🚒">brandweer | brandweerman</annotation>
 		<annotation cp="👨‍🚒" type="tts">brandweerman</annotation>
 		<annotation cp="👩‍🚒">brandweer | brandweervrou</annotation>
@@ -577,9 +611,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👮‍♀" type="tts">polisievrou</annotation>
 		<annotation cp="🕵">speurder | spioen</annotation>
 		<annotation cp="🕵" type="tts">speurder</annotation>
-		<annotation cp="🕵‍♂">manlike speurder | speurder</annotation>
+		<annotation cp="🕵‍♂">manlike speurder | speurder | spioen</annotation>
 		<annotation cp="🕵‍♂" type="tts">manlike speurder</annotation>
-		<annotation cp="🕵‍♀">speurder | vroulike speurder</annotation>
+		<annotation cp="🕵‍♀">speurder | spioen | vroulike speurder</annotation>
 		<annotation cp="🕵‍♀" type="tts">vroulike speurder</annotation>
 		<annotation cp="💂">gardesoldaat | wag</annotation>
 		<annotation cp="💂" type="tts">gardesoldaat</annotation>
@@ -587,23 +621,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💂‍♂" type="tts">manlike wag</annotation>
 		<annotation cp="💂‍♀">vroulike wag | wag</annotation>
 		<annotation cp="💂‍♀" type="tts">vroulike wag</annotation>
-		<annotation cp="👷">hoed | konstruksie | konstruksiewerker | werker</annotation>
+		<annotation cp="👷">hoed | konstruksie | werker</annotation>
 		<annotation cp="👷" type="tts">konstruksiewerker</annotation>
-		<annotation cp="👷‍♂">bouer | manlike bouer</annotation>
+		<annotation cp="👷‍♂">konstruksie | man | werker</annotation>
 		<annotation cp="👷‍♂" type="tts">manlike bouer</annotation>
-		<annotation cp="👷‍♀">bouer | vroulike bouer</annotation>
+		<annotation cp="👷‍♀">konstruksie | vrou | werker</annotation>
 		<annotation cp="👷‍♀" type="tts">vroulike bouer</annotation>
-		<annotation cp="🤴">gesig | prins</annotation>
+		<annotation cp="🤴">prins</annotation>
 		<annotation cp="🤴" type="tts">prins</annotation>
 		<annotation cp="👸">fantasie | prinses | sprokie</annotation>
 		<annotation cp="👸" type="tts">prinses</annotation>
-		<annotation cp="👳">man | met met tulband | tulband</annotation>
+		<annotation cp="👳">persoon met tulband | tulband</annotation>
 		<annotation cp="👳" type="tts">met met tulband</annotation>
 		<annotation cp="👳‍♂">man met tulband | tulband</annotation>
 		<annotation cp="👳‍♂" type="tts">man met tulband</annotation>
 		<annotation cp="👳‍♀">tulband | vrou met tulband</annotation>
 		<annotation cp="👳‍♀" type="tts">vrou met tulband</annotation>
-		<annotation cp="👲">gua pi mao | hoed | man | man met chinese mus</annotation>
+		<annotation cp="👲">gua pi mao | hoed | man | man met Chinese mus</annotation>
 		<annotation cp="👲" type="tts">man met chinese mus</annotation>
 		<annotation cp="🧕">hiijab | kopdoek | mantilla | vrou met kopdoek</annotation>
 		<annotation cp="🧕" type="tts">vrou met kopdoek</annotation>
@@ -611,16 +645,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤵" type="tts">man in pak</annotation>
 		<annotation cp="👰">bruid | bruid met sluier | sluier | troue</annotation>
 		<annotation cp="👰" type="tts">bruid met sluier</annotation>
-		<annotation cp="🤰">ma | moeder | swanger | vrou</annotation>
+		<annotation cp="🤰">swanger | vrou</annotation>
 		<annotation cp="🤰" type="tts">swanger vrou</annotation>
 		<annotation cp="🤱">baba | bors | borsvoed | voeding</annotation>
 		<annotation cp="🤱" type="tts">borsvoed</annotation>
 		<annotation cp="👼">baba | baba-engel | engel | fantasie | gesig | sprokie</annotation>
 		<annotation cp="👼" type="tts">baba-engel</annotation>
-		<annotation cp="🎅">fantasie | kersfees | kersvader | sinterklaas | sprokie | vader | viering</annotation>
-		<annotation cp="🎅" type="tts">kersvader</annotation>
-		<annotation cp="🤶">gesig | kersmoeder | moeder kersfees</annotation>
-		<annotation cp="🤶" type="tts">moeder kersfees</annotation>
+		<annotation cp="🎅">Kersfees | Kersvader | vader | viering</annotation>
+		<annotation cp="🎅" type="tts">Kersvader</annotation>
+		<annotation cp="🤶">Kersfees | Kersmoeder | moeder | Moeder Kersfees | viering</annotation>
+		<annotation cp="🤶" type="tts">Moeder Kersfees</annotation>
 		<annotation cp="🦸">goeie | held | heldin | superheld | superkrag</annotation>
 		<annotation cp="🦸" type="tts">superheld</annotation>
 		<annotation cp="🦸‍♂">goeie | held | man | manlike superheld | superkrag</annotation>
@@ -705,20 +739,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧎‍♂" type="tts">man wat kniel</annotation>
 		<annotation cp="🧎‍♀">kniel | vrou | vrou wat kniel</annotation>
 		<annotation cp="🧎‍♀" type="tts">vrou wat kniel</annotation>
+		<annotation cp="🧑‍🦯">blink | toegangklikheid</annotation>
+		<annotation cp="🧑‍🦯" type="tts">persoon met stapstok</annotation>
 		<annotation cp="👨‍🦯">blind | man | man met gidsstok | toeganklikheid</annotation>
 		<annotation cp="👨‍🦯" type="tts">man met gidsstok</annotation>
 		<annotation cp="👩‍🦯">blind | toeganklikheid | vrou | vrou met gidsstok</annotation>
 		<annotation cp="👩‍🦯" type="tts">vrou met gidsstok</annotation>
+		<annotation cp="🧑‍🦼">rolstoel | toegangklikheid</annotation>
+		<annotation cp="🧑‍🦼" type="tts">persoon in motoraangedrewe roltoel</annotation>
 		<annotation cp="👨‍🦼">man | man in motoraangedrewe rolstoel | rolstoel | toeganklikheid</annotation>
 		<annotation cp="👨‍🦼" type="tts">man in motoraangedrewe rolstoel</annotation>
 		<annotation cp="👩‍🦼">rolstoel | toeganklikheid | vrou | vrou in motoraangedrewe rolstoel</annotation>
 		<annotation cp="👩‍🦼" type="tts">vrou in motoraangedrewe rolstoel</annotation>
+		<annotation cp="🧑‍🦽">rolstoel | toeganklikheid</annotation>
+		<annotation cp="🧑‍🦽" type="tts">persoon in handgedrewe rolstoel</annotation>
 		<annotation cp="👨‍🦽">man | man in handgedrewe rolstoel | rolstoel | toeganklikheid</annotation>
 		<annotation cp="👨‍🦽" type="tts">man in handgedrewe rolstoel</annotation>
 		<annotation cp="👩‍🦽">rolstoel | toeganklikheid | vrou | vrou in handgedrewe rolstoel</annotation>
 		<annotation cp="👩‍🦽" type="tts">vrou in handgedrewe rolstoel</annotation>
 		<annotation cp="🏃">draf | hardloper | marathon</annotation>
-		<annotation cp="🏃" type="tts">hardloper</annotation>
+		<annotation cp="🏃" type="tts">persoon wat hardloop</annotation>
 		<annotation cp="🏃‍♂">draf | haastig | hardloop | man hardloop</annotation>
 		<annotation cp="🏃‍♂" type="tts">man hardloop</annotation>
 		<annotation cp="🏃‍♀">draf | haastig | hardloop | vrou hardloop</annotation>
@@ -729,12 +769,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕺" type="tts">man dans</annotation>
 		<annotation cp="🕴">besigheid | man | man in sakepak wat sweef | pak | sake</annotation>
 		<annotation cp="🕴" type="tts">man in sakepak wat sweef</annotation>
-		<annotation cp="👯">danser | hasie | meisie | oor | vrou | vroue wat dans</annotation>
-		<annotation cp="👯" type="tts">vroue wat dans</annotation>
-		<annotation cp="👯‍♂">dansers | hasie-ore | mans dans</annotation>
-		<annotation cp="👯‍♂" type="tts">mans dans</annotation>
-		<annotation cp="👯‍♀">danseresse | hasie-ore | vroue dans</annotation>
-		<annotation cp="👯‍♀" type="tts">vroue dans</annotation>
+		<annotation cp="👯">danser | haasore | mense met haasore | partytjie</annotation>
+		<annotation cp="👯" type="tts">mense met haasore</annotation>
+		<annotation cp="👯‍♂">dansers | haasore | mans met haasore</annotation>
+		<annotation cp="👯‍♂" type="tts">mans met haasore</annotation>
+		<annotation cp="👯‍♀">dansers | partytjie | vroue | vroue met haasore</annotation>
+		<annotation cp="👯‍♀" type="tts">vroue met haasore</annotation>
 		<annotation cp="🧖">persoon in stoomkamer | sauna | stoomkamer</annotation>
 		<annotation cp="🧖" type="tts">persoon in stoomkamer</annotation>
 		<annotation cp="🧖‍♂">man in stoomkamer | sauna | stoomkamer</annotation>
@@ -763,11 +803,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏌‍♀" type="tts">vroulike gholfspeler</annotation>
 		<annotation cp="🏄">branderplank | branderplankryer | golf | see</annotation>
 		<annotation cp="🏄" type="tts">branderplankryer</annotation>
-		<annotation cp="🏄‍♂">branderplankry | manlike branderplankryer | surf</annotation>
+		<annotation cp="🏄‍♂">branderplankry | man</annotation>
 		<annotation cp="🏄‍♂" type="tts">manlike branderplankryer</annotation>
-		<annotation cp="🏄‍♀">branderplankry | surf | vroulike branderplankryer</annotation>
+		<annotation cp="🏄‍♀">branderplankry | vrou</annotation>
 		<annotation cp="🏄‍♀" type="tts">vroulike branderplankryer</annotation>
-		<annotation cp="🚣">boot | roei | roeiboot | voertuig</annotation>
+		<annotation cp="🚣">boot | persoon roei | roei | roeiboot</annotation>
 		<annotation cp="🚣" type="tts">roeiboot</annotation>
 		<annotation cp="🚣‍♂">kano | man wat roei | roei | roeiboot</annotation>
 		<annotation cp="🚣‍♂" type="tts">man wat roei</annotation>
@@ -779,36 +819,36 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏊‍♂" type="tts">manlike swemmer</annotation>
 		<annotation cp="🏊‍♀">swem | vroulike swemmer</annotation>
 		<annotation cp="🏊‍♀" type="tts">vroulike swemmer</annotation>
-		<annotation cp="⛹">bal | persoon met bal</annotation>
-		<annotation cp="⛹" type="tts">persoon met bal</annotation>
-		<annotation cp="⛹‍♂">man met bal | skop | sokker</annotation>
-		<annotation cp="⛹‍♂" type="tts">man met bal</annotation>
-		<annotation cp="⛹‍♀">skop | sokker | vrou met bal</annotation>
-		<annotation cp="⛹‍♀" type="tts">vrou met bal</annotation>
+		<annotation cp="⛹">bal | persoon hop bal</annotation>
+		<annotation cp="⛹" type="tts">persoon hop bal</annotation>
+		<annotation cp="⛹‍♂">bal | man | man hop bal</annotation>
+		<annotation cp="⛹‍♂" type="tts">man hop bal</annotation>
+		<annotation cp="⛹‍♀">bal | vrou | vrou hop bal</annotation>
+		<annotation cp="⛹‍♀" type="tts">vrou hop bal</annotation>
 		<annotation cp="🏋">gewig | gewigopteller | optel</annotation>
 		<annotation cp="🏋" type="tts">gewigopteller</annotation>
 		<annotation cp="🏋‍♂">gewigoptel | manlike gewigopteller | sterk</annotation>
 		<annotation cp="🏋‍♂" type="tts">manlike gewigopteller</annotation>
 		<annotation cp="🏋‍♀">gewigoptel | sterk | vroulike gewigopteller</annotation>
 		<annotation cp="🏋‍♀" type="tts">vroulike gewigopteller</annotation>
-		<annotation cp="🚴">fiets | fietsryer</annotation>
+		<annotation cp="🚴">fiets | fietsry | fietsryer</annotation>
 		<annotation cp="🚴" type="tts">fietsryer</annotation>
-		<annotation cp="🚴‍♂">fiets | fietser | fietsry | fietsryer | manlike fietsryer</annotation>
+		<annotation cp="🚴‍♂">fiets | fietsry | fietsryer | man</annotation>
 		<annotation cp="🚴‍♂" type="tts">manlike fietsryer</annotation>
-		<annotation cp="🚴‍♀">fiets | fietser | fietsry | fietsryer | vroulike fietsryer</annotation>
+		<annotation cp="🚴‍♀">fiets | fietsry | fietsryer | vrou</annotation>
 		<annotation cp="🚴‍♀" type="tts">vroulike fietsryer</annotation>
-		<annotation cp="🚵">berg | bergietsryer | fiets | fietsryer</annotation>
-		<annotation cp="🚵" type="tts">bergietsryer</annotation>
-		<annotation cp="🚵‍♂">bergfiets | bergfietsry | manlike bergfietsryer</annotation>
+		<annotation cp="🚵">berg | bergfietsryer | fiets | fietsry</annotation>
+		<annotation cp="🚵" type="tts">bergfietsryer</annotation>
+		<annotation cp="🚵‍♂">bergfiets | bergfietsry | fietsry | fietsryer | man</annotation>
 		<annotation cp="🚵‍♂" type="tts">manlike bergfietsryer</annotation>
-		<annotation cp="🚵‍♀">bergfiets | bergfietsry | vroulike bergfietsryer</annotation>
+		<annotation cp="🚵‍♀">bergfiets | bergfietsry | fietsry | fietsryer | vrou</annotation>
 		<annotation cp="🚵‍♀" type="tts">vroulike bergfietsryer</annotation>
 		<annotation cp="🤸">bollemakiesie | gimnastiek | wawiel</annotation>
-		<annotation cp="🤸" type="tts">wawiel</annotation>
-		<annotation cp="🤸‍♂">bollemakiesie | man wawiel | wawiel</annotation>
-		<annotation cp="🤸‍♂" type="tts">man wawiel</annotation>
-		<annotation cp="🤸‍♀">bollemakiesie | vrou wawiel | wawiel</annotation>
-		<annotation cp="🤸‍♀" type="tts">vrou wawiel</annotation>
+		<annotation cp="🤸" type="tts">persoon wat ‘n wawiel doen</annotation>
+		<annotation cp="🤸‍♂">bollemakiesie | man doen wawiel | wawiel</annotation>
+		<annotation cp="🤸‍♂" type="tts">man doen wawiel</annotation>
+		<annotation cp="🤸‍♀">bollemakiesie | vrou doen wawiel | wawiel</annotation>
+		<annotation cp="🤸‍♀" type="tts">vvrou doen wawiel</annotation>
 		<annotation cp="🤼">rofstoei | sport | stoei | stoeiers</annotation>
 		<annotation cp="🤼" type="tts">stoeiers</annotation>
 		<annotation cp="🤼‍♂">manlike stoeiers | stoei</annotation>
@@ -821,17 +861,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤽‍♂" type="tts">manlike waterpolospeler</annotation>
 		<annotation cp="🤽‍♀">vroulike waterpolospeler | waterpolo</annotation>
 		<annotation cp="🤽‍♀" type="tts">vroulike waterpolospeler</annotation>
-		<annotation cp="🤾">handbal | sport</annotation>
-		<annotation cp="🤾" type="tts">handbal</annotation>
+		<annotation cp="🤾">bal | handbal | persoon wat handbal speel</annotation>
+		<annotation cp="🤾" type="tts">persoon wat handbal speel</annotation>
 		<annotation cp="🤾‍♂">handbal | manlike handbalspeler</annotation>
 		<annotation cp="🤾‍♂" type="tts">manlike handbalspeler</annotation>
 		<annotation cp="🤾‍♀">handbal | vroulike handbalspeler</annotation>
 		<annotation cp="🤾‍♀" type="tts">vroulike handbalspeler</annotation>
-		<annotation cp="🤹">balanseer | jongleer</annotation>
+		<annotation cp="🤹">balanseer | jongleer | vaardigheid | veelsydig</annotation>
 		<annotation cp="🤹" type="tts">jongleer</annotation>
-		<annotation cp="🤹‍♂">jongleer | manlike jongleur</annotation>
+		<annotation cp="🤹‍♂">jongleer | man | veelsydig</annotation>
 		<annotation cp="🤹‍♂" type="tts">manlike jongleur</annotation>
-		<annotation cp="🤹‍♀">jongleer | vroulike jongleur</annotation>
+		<annotation cp="🤹‍♀">jongleer | veelsydig | vrou</annotation>
 		<annotation cp="🤹‍♀" type="tts">vroulike jongleur</annotation>
 		<annotation cp="🧘">joga | meditasie | persoon in die lotus-posisie</annotation>
 		<annotation cp="🧘" type="tts">persoon in die lotus-posisie</annotation>
@@ -857,7 +897,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💑" type="tts">paartjie met hartjie</annotation>
 		<annotation cp="👪">gesin | kind | moeder | vader</annotation>
 		<annotation cp="👪" type="tts">gesin</annotation>
-		<annotation cp="🗣">gesig | kop | kop wat praat | praat | silhoeët</annotation>
+		<annotation cp="🗣">gesig | kop | praat | silhoeët</annotation>
 		<annotation cp="🗣" type="tts">kop wat praat</annotation>
 		<annotation cp="👤">borssilhoeët | profiel | silhoeët</annotation>
 		<annotation cp="👤" type="tts">borssilhoeët</annotation>
@@ -889,7 +929,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦮" type="tts">gidshond</annotation>
 		<annotation cp="🐕‍🦺">diens | dienshond | hond | hulp | toeganklikheid</annotation>
 		<annotation cp="🐕‍🦺" type="tts">dienshond</annotation>
-		<annotation cp="🐩">gesig | hond | poedel | troeteldier</annotation>
+		<annotation cp="🐩">hond | poedel | troeteldier</annotation>
 		<annotation cp="🐩" type="tts">poedel</annotation>
 		<annotation cp="🐺">gesig | wolf | wolfgesig</annotation>
 		<annotation cp="🐺" type="tts">wolfgesig</annotation>
@@ -937,7 +977,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐽" type="tts">varkneus</annotation>
 		<annotation cp="🐏">aries | diereriem | ram | skaap</annotation>
 		<annotation cp="🐏" type="tts">ram</annotation>
-		<annotation cp="🐑">ooi | ram | skaap</annotation>
+		<annotation cp="🐑">ooi | skaap | vroulik</annotation>
 		<annotation cp="🐑" type="tts">skaap</annotation>
 		<annotation cp="🐐">boerbok | capricorn | diereriem</annotation>
 		<annotation cp="🐐" type="tts">boerbok</annotation>
@@ -951,7 +991,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦒" type="tts">kameelperd</annotation>
 		<annotation cp="🐘">olifant</annotation>
 		<annotation cp="🐘" type="tts">olifant</annotation>
-		<annotation cp="🦏">dier | gesig | renoster</annotation>
+		<annotation cp="🦏">renoster</annotation>
 		<annotation cp="🦏" type="tts">renoster</annotation>
 		<annotation cp="🦛">seekoei</annotation>
 		<annotation cp="🦛" type="tts">seekoei</annotation>
@@ -991,21 +1031,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦡" type="tts">ratel</annotation>
 		<annotation cp="🐾">poot | pootafdrukke | spoor | voete</annotation>
 		<annotation cp="🐾" type="tts">pootafdrukke</annotation>
-		<annotation cp="🦃">kalkoen</annotation>
+		<annotation cp="🦃">kalkoen | voël</annotation>
 		<annotation cp="🦃" type="tts">kalkoen</annotation>
-		<annotation cp="🐔">hoender</annotation>
+		<annotation cp="🐔">hoender | voël</annotation>
 		<annotation cp="🐔" type="tts">hoender</annotation>
-		<annotation cp="🐓">haan</annotation>
+		<annotation cp="🐓">haan | voël</annotation>
 		<annotation cp="🐓" type="tts">haan</annotation>
-		<annotation cp="🐣">baba | kuiken | kuiken wat uitbroei | uitbroei</annotation>
+		<annotation cp="🐣">baba | kuiken | uitbroei | voël</annotation>
 		<annotation cp="🐣" type="tts">kuiken wat uitbroei</annotation>
-		<annotation cp="🐤">baba | gesig | kuiken | kuikengesig</annotation>
-		<annotation cp="🐤" type="tts">kuikengesig</annotation>
-		<annotation cp="🐥">baba | kuiken</annotation>
-		<annotation cp="🐥" type="tts">kuiken</annotation>
-		<annotation cp="🐦">voëltjie</annotation>
-		<annotation cp="🐦" type="tts">voëltjie</annotation>
-		<annotation cp="🐧">pikkewyn</annotation>
+		<annotation cp="🐤">baba | kuiken | voël</annotation>
+		<annotation cp="🐤" type="tts">babakuiken</annotation>
+		<annotation cp="🐥">baba | kuiken | kuiken wat vorentoe kyk | voël</annotation>
+		<annotation cp="🐥" type="tts">kuiken wat vorentoe kyk</annotation>
+		<annotation cp="🐦">voël</annotation>
+		<annotation cp="🐦" type="tts">voël</annotation>
+		<annotation cp="🐧">pikkewyn | voël</annotation>
 		<annotation cp="🐧" type="tts">pikkewyn</annotation>
 		<annotation cp="🕊">duif | vlieg | voël | vrede</annotation>
 		<annotation cp="🕊" type="tts">duif</annotation>
@@ -1019,12 +1059,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦉" type="tts">uil</annotation>
 		<annotation cp="🦩">flambojant | flamink | tropies</annotation>
 		<annotation cp="🦩" type="tts">flamink</annotation>
-		<annotation cp="🦚">pou | pouwyfie | spoggerig | trots | voël</annotation>
+		<annotation cp="🦚">pou | pouhen | pronkerig | trots | voël</annotation>
 		<annotation cp="🦚" type="tts">pou</annotation>
-		<annotation cp="🦜">papegaai | pollie | praat | seerower | voël</annotation>
+		<annotation cp="🦜">papegaai | praat | seerower | voël</annotation>
 		<annotation cp="🦜" type="tts">papegaai</annotation>
-		<annotation cp="🐸">gesig | padda | paddagesig</annotation>
-		<annotation cp="🐸" type="tts">paddagesig</annotation>
+		<annotation cp="🐸">gesig | padda</annotation>
+		<annotation cp="🐸" type="tts">padda</annotation>
 		<annotation cp="🐊">krokodil</annotation>
 		<annotation cp="🐊" type="tts">krokodil</annotation>
 		<annotation cp="🐢">waterskilpad</annotation>
@@ -1059,7 +1099,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐙" type="tts">seekat</annotation>
 		<annotation cp="🐚">skulp | spiraal | spiraalskulp</annotation>
 		<annotation cp="🐚" type="tts">spiraalskulp</annotation>
-		<annotation cp="🐌">slak | stadig</annotation>
+		<annotation cp="🐌">slak</annotation>
 		<annotation cp="🐌" type="tts">slak</annotation>
 		<annotation cp="🦋">insek | mooi | skoenlapper</annotation>
 		<annotation cp="🦋" type="tts">skoenlapper</annotation>
@@ -1069,14 +1109,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐜" type="tts">mier</annotation>
 		<annotation cp="🐝">by | heuningby | insek</annotation>
 		<annotation cp="🐝" type="tts">heuningby</annotation>
-		<annotation cp="🐞">besie | insek | kewer | skilpadbesie | skilpadjie</annotation>
-		<annotation cp="🐞" type="tts">skilpadbesie</annotation>
+		<annotation cp="🐞">besie | insek | kewer | liewenheersbesie</annotation>
+		<annotation cp="🐞" type="tts">liewenheersbesie</annotation>
 		<annotation cp="🦗">kriek | springkaan</annotation>
 		<annotation cp="🦗" type="tts">kriek</annotation>
 		<annotation cp="🕷">gogga | insek | spinnekop</annotation>
 		<annotation cp="🕷" type="tts">spinnekop</annotation>
-		<annotation cp="🕸">spinnekop | spinnekopweb | web</annotation>
-		<annotation cp="🕸" type="tts">spinnekopweb</annotation>
+		<annotation cp="🕸">spinnekop | spinnerak | web</annotation>
+		<annotation cp="🕸" type="tts">spinnerak</annotation>
 		<annotation cp="🦂">diereriem | scorpius | skerpioen</annotation>
 		<annotation cp="🦂" type="tts">skerpioen</annotation>
 		<annotation cp="🦟">insek | koors | malaria | muskiet | siekte | virus</annotation>
@@ -1185,7 +1225,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧅" type="tts">ui</annotation>
 		<annotation cp="🍄">paddastoel | plant | sampioen</annotation>
 		<annotation cp="🍄" type="tts">sampioen</annotation>
-		<annotation cp="🥜">grondboontjie | grondboontjies | kos</annotation>
+		<annotation cp="🥜">grondboontjie | grondboontjies | kos | neute</annotation>
 		<annotation cp="🥜" type="tts">grondboontjies</annotation>
 		<annotation cp="🌰">kastaiing | plant</annotation>
 		<annotation cp="🌰" type="tts">kastaiing</annotation>
@@ -1789,7 +1829,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💧" type="tts">druppel</annotation>
 		<annotation cp="🌊">brander | golf | oseaan | see | weer</annotation>
 		<annotation cp="🌊" type="tts">brander</annotation>
-		<annotation cp="🎃">allerheiligeaand | holloween | pampoen | pampoenlantern | spook</annotation>
+		<annotation cp="🎃">allerheiligeaand | halloween | pampoen | pampoenlantern | spook</annotation>
 		<annotation cp="🎃" type="tts">pampoenlantern</annotation>
 		<annotation cp="🎄">boom | kersboom | Kersfees | viering</annotation>
 		<annotation cp="🎄" type="tts">kersboom</annotation>
@@ -2413,58 +2453,58 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚱" type="tts">begrafniskruik</annotation>
 		<annotation cp="🗿">gesig | moai | standbeeld</annotation>
 		<annotation cp="🗿" type="tts">moai</annotation>
-		<annotation cp="🏧">bank | geld | kitsbank | otm | otm-teken</annotation>
-		<annotation cp="🏧" type="tts">otm-teken</annotation>
-		<annotation cp="🚮">drom | gooi vullis in drom-teken | rommel | vullis</annotation>
-		<annotation cp="🚮" type="tts">gooi vullis in drom-teken</annotation>
-		<annotation cp="🚰">drink | drinkbaar | drinkbare water | kraan | water</annotation>
+		<annotation cp="🏧">ATM-teken | bank | kassier | kitsbank | OTM</annotation>
+		<annotation cp="🏧" type="tts">ATM-teken</annotation>
+		<annotation cp="🚮">&quot;vullis in drom&quot;-teken | vullis | vullisblik</annotation>
+		<annotation cp="🚮" type="tts">&quot;vullis in drom&quot;-teken</annotation>
+		<annotation cp="🚰">drink | drinkbaar | water</annotation>
 		<annotation cp="🚰" type="tts">drinkbare water</annotation>
-		<annotation cp="♿">gestremd | rolstoel | toegang</annotation>
-		<annotation cp="♿" type="tts">rolstoel</annotation>
-		<annotation cp="🚹">badkamer | kleedkamer | mans | manskleedkamer</annotation>
+		<annotation cp="♿">rolstoel-simbool | toegang</annotation>
+		<annotation cp="♿" type="tts">rolstoel-simbool</annotation>
+		<annotation cp="🚹">kleedkamer | man | manskleedkamer | toilet</annotation>
 		<annotation cp="🚹" type="tts">manskleedkamer</annotation>
-		<annotation cp="🚺">badkamer | kleedkamer | vroue | vrouekleedkamer</annotation>
+		<annotation cp="🚺">kleedkamer | toilet | vrou | vrouekleedkamer</annotation>
 		<annotation cp="🚺" type="tts">vrouekleedkamer</annotation>
-		<annotation cp="🚻">badkamer | kleedkamer</annotation>
+		<annotation cp="🚻">kleedkamer | toilet</annotation>
 		<annotation cp="🚻" type="tts">kleedkamer</annotation>
-		<annotation cp="🚼">baba | babasimbool | doek</annotation>
+		<annotation cp="🚼">baba | babasimbool | doekomruil</annotation>
 		<annotation cp="🚼" type="tts">babasimbool</annotation>
-		<annotation cp="🚾">badkamer | kleedkamer | toilet</annotation>
-		<annotation cp="🚾" type="tts">badkamer</annotation>
-		<annotation cp="🛂">grens | paspoort | paspoortbeheer</annotation>
-		<annotation cp="🛂" type="tts">paspoortbeheer</annotation>
+		<annotation cp="🚾">kamer | kleedkamer | toilet | water</annotation>
+		<annotation cp="🚾" type="tts">WC</annotation>
+		<annotation cp="🛂">kontrole | paspoort</annotation>
+		<annotation cp="🛂" type="tts">paspoortkontrole</annotation>
 		<annotation cp="🛃">doeane</annotation>
 		<annotation cp="🛃" type="tts">doeane</annotation>
-		<annotation cp="🛄">bagasie | bagasiesaal | saal | tas</annotation>
+		<annotation cp="🛄">bagasie | haal</annotation>
 		<annotation cp="🛄" type="tts">bagasiesaal</annotation>
-		<annotation cp="🛅">bagasie | bagasiesluitkas | sluitkas | tas</annotation>
+		<annotation cp="🛅">bagasie | bagasiesluitkas | sluitkas</annotation>
 		<annotation cp="🛅" type="tts">bagasiesluitkas</annotation>
-		<annotation cp="⚠">gevaar | waarskuwing</annotation>
+		<annotation cp="⚠">waarskuwing</annotation>
 		<annotation cp="⚠" type="tts">waarskuwing</annotation>
-		<annotation cp="🚸">kind | krinders stap oor | kruising | verkeer | voetganger</annotation>
-		<annotation cp="🚸" type="tts">krinders stap oor</annotation>
-		<annotation cp="⛔">geen toegang nie | nee | toegang | verbode | verkeer</annotation>
-		<annotation cp="⛔" type="tts">geen toegang nie</annotation>
-		<annotation cp="🚫">nee | toegang | verbode</annotation>
+		<annotation cp="🚸">kind | kinders stap oor | stap oor | verkeer | voetganger</annotation>
+		<annotation cp="🚸" type="tts">kinders stap oor</annotation>
+		<annotation cp="⛔">geen | nie | toegang | verbode | verkeer</annotation>
+		<annotation cp="⛔" type="tts">geen toegang</annotation>
+		<annotation cp="🚫">geen | nie | toegang | verbode</annotation>
 		<annotation cp="🚫" type="tts">verbode</annotation>
-		<annotation cp="🚳">fiets | fietse verbode | nee | verbode | voertuig</annotation>
+		<annotation cp="🚳">fiets | fietse verbode | geen | verbode</annotation>
 		<annotation cp="🚳" type="tts">fietse verbode</annotation>
-		<annotation cp="🚭">nee | rook | sigaret | verbied | verbode</annotation>
+		<annotation cp="🚭">geen | nie | rook | verbode</annotation>
 		<annotation cp="🚭" type="tts">rook verbode</annotation>
 		<annotation cp="🚯">geen rommelstrooi | moenie rommel strooi nie | verbode | vullis</annotation>
 		<annotation cp="🚯" type="tts">moenie rommel strooi nie</annotation>
-		<annotation cp="🚱">drink | drinkbaar | niedrinkbare water | verbode | water</annotation>
+		<annotation cp="🚱">niedrinkbaar | water</annotation>
 		<annotation cp="🚱" type="tts">niedrinkbare water</annotation>
-		<annotation cp="🚷">nee | verbied | verbode | voetganger | voetgangers verbode</annotation>
+		<annotation cp="🚷">geen | nie | verbode | voetganger | voetgangers verbode</annotation>
 		<annotation cp="🚷" type="tts">voetgangers verbode</annotation>
 		<annotation cp="📵">foon | geen | sel | selfone verbode | selfoon</annotation>
 		<annotation cp="📵" type="tts">selfone verbode</annotation>
-		<annotation cp="🔞">18 | agtien | geen onder agtiens | jonger as agtien verbode | minderjarig | ouderdomsbeperking</annotation>
+		<annotation cp="🔞">18 | agtien | jonger as agtien verbode | minderjarig | ouderdomsbeperking | verbode</annotation>
 		<annotation cp="🔞" type="tts">jonger as agtien verbode</annotation>
-		<annotation cp="☢">bestraling | radioaktief</annotation>
+		<annotation cp="☢">radioaktief | teken</annotation>
 		<annotation cp="☢" type="tts">radioaktief</annotation>
-		<annotation cp="☣">biologies | biologiese gevaar | gevaar | lewensgevaar</annotation>
-		<annotation cp="☣" type="tts">biologiese gevaar</annotation>
+		<annotation cp="☣">biogevaar | teken</annotation>
+		<annotation cp="☣" type="tts">biogevaar</annotation>
 		<annotation cp="⬆">noord | op | pyl | pyl na bo | rigting</annotation>
 		<annotation cp="⬆" type="tts">pyl na bo</annotation>
 		<annotation cp="↗">noordoos | pyl | pyl na regs bo | rigting</annotation>
@@ -2507,56 +2547,56 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔜" type="tts">binnekortpyl</annotation>
 		<annotation cp="🔝">bopunt | op | pyl | top | toppyl</annotation>
 		<annotation cp="🔝" type="tts">toppyl</annotation>
-		<annotation cp="🛐">aanbid | bid | godsdiens | plek van aanbidding</annotation>
+		<annotation cp="🛐">aanbidding | godsdiens | plek van aanbidding</annotation>
 		<annotation cp="🛐" type="tts">plek van aanbidding</annotation>
 		<annotation cp="⚛">ateïs | atoom | atoomsimbool</annotation>
 		<annotation cp="⚛" type="tts">atoomsimbool</annotation>
-		<annotation cp="🕉">godsdiens | hindoe | om</annotation>
+		<annotation cp="🕉">godsdiens | Hindoe | om</annotation>
 		<annotation cp="🕉" type="tts">om</annotation>
-		<annotation cp="✡">dawid | dawidster | godsdiens | joods | ster</annotation>
-		<annotation cp="✡" type="tts">dawidster</annotation>
-		<annotation cp="☸">boeddhis | dharma | dharmawiel | godsdiens | wiel</annotation>
+		<annotation cp="✡">Dawid | Dawidster | godsdiens | Jood | Joods | ster</annotation>
+		<annotation cp="✡" type="tts">Dawidster</annotation>
+		<annotation cp="☸">Boeddhis | dharma | dharmawiel | godsdiens | wiel</annotation>
 		<annotation cp="☸" type="tts">dharmawiel</annotation>
-		<annotation cp="☯">godsdiens | jang | jin | jin-jang | tao | taoïs</annotation>
+		<annotation cp="☯">godsdiens | jang | jin | tao | taois</annotation>
 		<annotation cp="☯" type="tts">jin-jang</annotation>
-		<annotation cp="✝">christen | godsdiens | kruis | latynse kruis</annotation>
-		<annotation cp="✝" type="tts">latynse kruis</annotation>
-		<annotation cp="☦">christen | godsdiens | kruis | ortodoks | ortodokse kruis</annotation>
+		<annotation cp="✝">christen | godsdiens | kruis | Latynse kruis</annotation>
+		<annotation cp="✝" type="tts">Latynse kruis</annotation>
+		<annotation cp="☦">christen | godsdiens | kruis | ortodokse kruis</annotation>
 		<annotation cp="☦" type="tts">ortodokse kruis</annotation>
-		<annotation cp="☪">godsdiens | islam | moslem | ster en sekelmaan</annotation>
+		<annotation cp="☪">godsdiens | Islam | moslem | ster en sekelmaan</annotation>
 		<annotation cp="☪" type="tts">ster en sekelmaan</annotation>
 		<annotation cp="☮">vrede | vredesimbool</annotation>
 		<annotation cp="☮" type="tts">vredesimbool</annotation>
-		<annotation cp="🕎">blaker | godsdiens | kandelaar | menora</annotation>
+		<annotation cp="🕎">godsdiens | kandelaber | kershouer | menora</annotation>
 		<annotation cp="🕎" type="tts">menora</annotation>
-		<annotation cp="🔯">kol | ses | sespunt | sespuntster met kol | ster</annotation>
+		<annotation cp="🔯">fortuin | sespuntster met kol | ster</annotation>
 		<annotation cp="🔯" type="tts">sespuntster met kol</annotation>
-		<annotation cp="♈">diereriem | ram | ramsterrebeeld</annotation>
-		<annotation cp="♈" type="tts">ramsterrebeeld</annotation>
-		<annotation cp="♉">bul | bulsterrebeeld | diereriem | os</annotation>
-		<annotation cp="♉" type="tts">bulsterrebeeld</annotation>
-		<annotation cp="♊">diereriem | tweeling | tweelingsterrebeeld</annotation>
-		<annotation cp="♊" type="tts">tweelingsterrebeeld</annotation>
-		<annotation cp="♋">diereriem | krap | kreefsterrebeeld</annotation>
-		<annotation cp="♋" type="tts">kreefsterrebeeld</annotation>
-		<annotation cp="♌">diereriem | leeu | leeusterrebeeld</annotation>
-		<annotation cp="♌" type="tts">leeusterrebeeld</annotation>
-		<annotation cp="♍">diereriem | maagd | maagdsterrebeeld</annotation>
-		<annotation cp="♍" type="tts">maagdsterrebeeld</annotation>
-		<annotation cp="♎">diereriem | geregtigheid | skaal | weegskaal | weegskaalsterrebeeld</annotation>
-		<annotation cp="♎" type="tts">weegskaalsterrebeeld</annotation>
-		<annotation cp="♏">diereriem | scorpio | skerpioen | skerpioensterrebeeld</annotation>
-		<annotation cp="♏" type="tts">skerpioensterrebeeld</annotation>
-		<annotation cp="♐">boogskutter | boogskuttersterrebeeld | diereriem</annotation>
-		<annotation cp="♐" type="tts">boogskuttersterrebeeld</annotation>
-		<annotation cp="♑">bok | diereriem | steenbok | steenboksterrebeeld</annotation>
-		<annotation cp="♑" type="tts">steenboksterrebeeld</annotation>
-		<annotation cp="♒">diereriem | draer | water | waterdraersterrebeeld</annotation>
-		<annotation cp="♒" type="tts">waterdraersterrebeeld</annotation>
-		<annotation cp="♓">diereriem | vis | visse | vissesterrebeeld</annotation>
-		<annotation cp="♓" type="tts">vissesterrebeeld</annotation>
-		<annotation cp="⛎">diereriem | draer | slang | slangdraersterrebeeld</annotation>
-		<annotation cp="⛎" type="tts">slangdraersterrebeeld</annotation>
+		<annotation cp="♈">diereriem | ram | Ram-sterrebeeld</annotation>
+		<annotation cp="♈" type="tts">Ram-sterrebeeld</annotation>
+		<annotation cp="♉">bul | Bul-sterrebeeld | diereriem | os</annotation>
+		<annotation cp="♉" type="tts">Bul-sterrebeeld</annotation>
+		<annotation cp="♊">diereriem | tweeling | Tweeling-sterrebeeld</annotation>
+		<annotation cp="♊" type="tts">Tweeling-sterrebeeld</annotation>
+		<annotation cp="♋">diereriem | krap | Kreef-sterrebeeld</annotation>
+		<annotation cp="♋" type="tts">Kreef-sterrebeeld</annotation>
+		<annotation cp="♌">diereriem | leeu | Leeu-sterrebeeld</annotation>
+		<annotation cp="♌" type="tts">Leeu-sterrebeeld</annotation>
+		<annotation cp="♍">diereriem | Maagd-sterrebeeld</annotation>
+		<annotation cp="♍" type="tts">Maagd-sterrebeeld</annotation>
+		<annotation cp="♎">balans | diereriem | geregtigheid | skaal | Weegskaal-sterrebeeld</annotation>
+		<annotation cp="♎" type="tts">Weegskaal-sterrebeeld</annotation>
+		<annotation cp="♏">diereriem | skerpioen | Skerpioen-sterrebeeld</annotation>
+		<annotation cp="♏" type="tts">Skerpioen-sterrebeeld</annotation>
+		<annotation cp="♐">boogskutter | Boogskutter-sterrebeeld | diereriem</annotation>
+		<annotation cp="♐" type="tts">Boogskutter-sterrebeeld</annotation>
+		<annotation cp="♑">boerbok | diereriem | Steenbok-sterrebeeld</annotation>
+		<annotation cp="♑" type="tts">Steenbok-sterrebeeld</annotation>
+		<annotation cp="♒">diereriem | draer | water | Waterdraer-sterrebeeld</annotation>
+		<annotation cp="♒" type="tts">Waterdraer-sterrebeeld</annotation>
+		<annotation cp="♓">diereriem | vis | Visse-sterrebeeld</annotation>
+		<annotation cp="♓" type="tts">Visse-sterrebeeld</annotation>
+		<annotation cp="⛎">diereriem | draer | slang | Slangdraer-sterrebeeld</annotation>
+		<annotation cp="⛎" type="tts">Slangdraer-sterrebeeld</annotation>
 		<annotation cp="🔀">gekruis | pyle | skommel | skommel snitte-knoppie</annotation>
 		<annotation cp="🔀" type="tts">skommel snitte-knoppie</annotation>
 		<annotation cp="🔁">herhaal | herhaalknoppie | kloksgewys | pyle</annotation>
@@ -2675,84 +2715,84 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="®" type="tts">registrasiemerk</annotation>
 		<annotation cp="™">handelmerk | handelsmerk | merk | tm</annotation>
 		<annotation cp="™" type="tts">handelmerk</annotation>
-		<annotation cp="🔠">abcd | bokas | hoof | invoer | invoer latyns bokas | latyn | letters</annotation>
-		<annotation cp="🔠" type="tts">invoer latyns bokas</annotation>
-		<annotation cp="🔡">abcd | invoer | invoer latyns onderkas | klein | latters | latyn | onderkas</annotation>
-		<annotation cp="🔡" type="tts">invoer latyns onderkas</annotation>
+		<annotation cp="🔠">ABCD | bokas | invoer | Latyn | letters</annotation>
+		<annotation cp="🔠" type="tts">invoer- Latynse bokas</annotation>
+		<annotation cp="🔡">ABCD | invoer | Latyn | letters | onderkas</annotation>
+		<annotation cp="🔡" type="tts">invoer- Latynse onderkas</annotation>
 		<annotation cp="🔢">1234 | invoer | syfers</annotation>
-		<annotation cp="🔢" type="tts">invoer syfers</annotation>
-		<annotation cp="🔣">invoer | simbole</annotation>
-		<annotation cp="🔣" type="tts">invoer simbole</annotation>
-		<annotation cp="🔤">abc | alfabet | invoer | invoer latyns letters | latyn | letters</annotation>
-		<annotation cp="🔤" type="tts">invoer latyns letters</annotation>
-		<annotation cp="🅰">a | a-knoppie | bloed</annotation>
-		<annotation cp="🅰" type="tts">a-knoppie</annotation>
-		<annotation cp="🆎">ab | ab-knoppie | bloed</annotation>
-		<annotation cp="🆎" type="tts">ab-knoppie</annotation>
-		<annotation cp="🅱">b | b-knoppie | bloed</annotation>
-		<annotation cp="🅱" type="tts">b-knoppie</annotation>
-		<annotation cp="🆑">cl | cl-knoppie | uitvee</annotation>
-		<annotation cp="🆑" type="tts">cl-knoppie</annotation>
-		<annotation cp="🆒">koel | koel in raam</annotation>
-		<annotation cp="🆒" type="tts">koel in raam</annotation>
-		<annotation cp="🆓">gratis | gratis in raam</annotation>
-		<annotation cp="🆓" type="tts">gratis in raam</annotation>
-		<annotation cp="ℹ">i | inligting | inligtingbron</annotation>
-		<annotation cp="ℹ" type="tts">inligtingbron</annotation>
-		<annotation cp="🆔">id | id in raam | identiteit</annotation>
-		<annotation cp="🆔" type="tts">id in raam</annotation>
-		<annotation cp="Ⓜ">kring | letter m in sirkel | m | sirkel</annotation>
-		<annotation cp="Ⓜ" type="tts">letter m in sirkel</annotation>
-		<annotation cp="🆕">nuut | nuut in raam</annotation>
-		<annotation cp="🆕" type="tts">nuut in raam</annotation>
-		<annotation cp="🆖">ng | ng in raam | nikswerd | sleg</annotation>
-		<annotation cp="🆖" type="tts">ng in raam</annotation>
-		<annotation cp="🅾">bloed | o | o-knoppie</annotation>
-		<annotation cp="🅾" type="tts">o-knoppie</annotation>
-		<annotation cp="🆗">goed | ok | ok in raam</annotation>
-		<annotation cp="🆗" type="tts">ok in raam</annotation>
-		<annotation cp="🅿">p-knoppie | parkering</annotation>
-		<annotation cp="🅿" type="tts">p-knoppie</annotation>
-		<annotation cp="🆘">help | sos | sos in raam</annotation>
-		<annotation cp="🆘" type="tts">sos in raam</annotation>
-		<annotation cp="🆙">merk | op | op!-knoppie</annotation>
-		<annotation cp="🆙" type="tts">op!-knoppie</annotation>
-		<annotation cp="🆚">teen | versus | vs | vs in raam</annotation>
-		<annotation cp="🆚" type="tts">vs in raam</annotation>
-		<annotation cp="🈁">japannees | katakana koko in raam | koko</annotation>
-		<annotation cp="🈁" type="tts">katakana koko in raam</annotation>
-		<annotation cp="🈂">japannees | katakana sa in raam | sa</annotation>
-		<annotation cp="🈂" type="tts">katakana sa in raam</annotation>
-		<annotation cp="🈷">japannees | maan | maanideogram in raam</annotation>
-		<annotation cp="🈷" type="tts">maanideogram in raam</annotation>
-		<annotation cp="🈶">bestaan | bestaanideogram in raam | japannees</annotation>
-		<annotation cp="🈶" type="tts">bestaanideogram in raam</annotation>
-		<annotation cp="🈯">japannees | vinger | vingerideogram in raam</annotation>
-		<annotation cp="🈯" type="tts">vingerideogram in raam</annotation>
-		<annotation cp="🉐">japannees | voordeel | voordeelideogram in sirkel</annotation>
-		<annotation cp="🉐" type="tts">voordeelideogram in sirkel</annotation>
-		<annotation cp="🈹">japannees | verdeel | verdeelideogram in raam</annotation>
-		<annotation cp="🈹" type="tts">verdeelideogram in raam</annotation>
-		<annotation cp="🈚">japannees | ontkenning | ontkenningideogram in raam</annotation>
-		<annotation cp="🈚" type="tts">ontkenningideogram in raam</annotation>
-		<annotation cp="🈲">japannees | verbied | verbiedideogram in raam</annotation>
-		<annotation cp="🈲" type="tts">verbiedideogram in raam</annotation>
-		<annotation cp="🉑">aanvaar | aanvaarideogram in sirkel | chinees</annotation>
-		<annotation cp="🉑" type="tts">aanvaarideogram in sirkel</annotation>
-		<annotation cp="🈸">aansoek | chinees | doen aansoek-ideogram in raam</annotation>
-		<annotation cp="🈸" type="tts">doen aansoek-ideogram in raam</annotation>
-		<annotation cp="🈴">chinees | saam | saamideogram in raam</annotation>
-		<annotation cp="🈴" type="tts">saamideogram in raam</annotation>
-		<annotation cp="🈳">chinees | leeg | leegideogram in raam</annotation>
-		<annotation cp="🈳" type="tts">leegideogram in raam</annotation>
-		<annotation cp="㊗">chinees | geluk | gelukwensideogram in sirkel | gelukwensing | ideogram</annotation>
-		<annotation cp="㊗" type="tts">gelukwensideogram in sirkel</annotation>
-		<annotation cp="㊙">chinees | geheim | geheimideogram in sirkel | ideogram</annotation>
-		<annotation cp="㊙" type="tts">geheimideogram in sirkel</annotation>
-		<annotation cp="🈺">chinees | werk | werk tans-ideogram in raam</annotation>
-		<annotation cp="🈺" type="tts">werk tans-ideogram in raam</annotation>
-		<annotation cp="🈵">chinees | volheid | volheidideogram in raam</annotation>
-		<annotation cp="🈵" type="tts">volheidideogram in raam</annotation>
+		<annotation cp="🔢" type="tts">invoersyfers</annotation>
+		<annotation cp="🔣">〒♪&amp;% | invoer | invoersimbole</annotation>
+		<annotation cp="🔣" type="tts">invoersimbole</annotation>
+		<annotation cp="🔤">ABC | alfabet | invoer | Latyn | letters</annotation>
+		<annotation cp="🔤" type="tts">invoer- Latynse letters</annotation>
+		<annotation cp="🅰">A | A-knopie (bloedgroep) | bloedgroep</annotation>
+		<annotation cp="🅰" type="tts">A-knopie (bloedgroep)</annotation>
+		<annotation cp="🆎">AB | AB-knopie (bloedgroep) | bloedgroep</annotation>
+		<annotation cp="🆎" type="tts">AB-knopie (bloedgroep)</annotation>
+		<annotation cp="🅱">B | B-knopie (bloedgroep) | bloedgroep</annotation>
+		<annotation cp="🅱" type="tts">B-knopie (bloedgroep)</annotation>
+		<annotation cp="🆑">CL | CL-knopie</annotation>
+		<annotation cp="🆑" type="tts">CL-knopie</annotation>
+		<annotation cp="🆒">COOL-knopie | koel</annotation>
+		<annotation cp="🆒" type="tts">COOL-knopie</annotation>
+		<annotation cp="🆓">FREE-knopie | gratis</annotation>
+		<annotation cp="🆓" type="tts">FREE-knopie</annotation>
+		<annotation cp="ℹ">I | inligting</annotation>
+		<annotation cp="ℹ" type="tts">inligting</annotation>
+		<annotation cp="🆔">ID | ID-knopie | identiteit</annotation>
+		<annotation cp="🆔" type="tts">ID-knopie</annotation>
+		<annotation cp="Ⓜ">M | M in sirkel | sirkel</annotation>
+		<annotation cp="Ⓜ" type="tts">M in sirkel</annotation>
+		<annotation cp="🆕">NEW-knopie | nuut</annotation>
+		<annotation cp="🆕" type="tts">NEW-knopie</annotation>
+		<annotation cp="🆖">NG | NG-knopie</annotation>
+		<annotation cp="🆖" type="tts">NG-knopie</annotation>
+		<annotation cp="🅾">bloedgroep | O | O-knopie (bloedgroep)</annotation>
+		<annotation cp="🅾" type="tts">O-knopie (bloedgroep)</annotation>
+		<annotation cp="🆗">OK-knopie | oukei</annotation>
+		<annotation cp="🆗" type="tts">OK-knopie</annotation>
+		<annotation cp="🅿">P-knopie | parkering</annotation>
+		<annotation cp="🅿" type="tts">P-knopie</annotation>
+		<annotation cp="🆘">hulp | SOS | SOS-knopie</annotation>
+		<annotation cp="🆘" type="tts">SOS-knopie</annotation>
+		<annotation cp="🆙">merk | op | UP!-knopie</annotation>
+		<annotation cp="🆙" type="tts">UP!-knopie</annotation>
+		<annotation cp="🆚">versus | vs | VS-knopie</annotation>
+		<annotation cp="🆚" type="tts">VS-knopie</annotation>
+		<annotation cp="🈁">“hier” | Japannees | Japannese “hier”-knopie | katakana | ココ</annotation>
+		<annotation cp="🈁" type="tts">Japannese “hier”-knopie</annotation>
+		<annotation cp="🈂">“diensfooi” | Japannees | Japannese “diensfooi”-knopie | katakana | サ</annotation>
+		<annotation cp="🈂" type="tts">Japannese “diensfooi”-knopie</annotation>
+		<annotation cp="🈷">“maandrekening” | ideogram | Japannees | Japannese “maandrekening”-knopie | 月</annotation>
+		<annotation cp="🈷" type="tts">Japannese “maandrekening”-knopie</annotation>
+		<annotation cp="🈶">“nie gratis nie” | ideogram | Japannees | Japannese “nie gratis nie”-knopie | 有</annotation>
+		<annotation cp="🈶" type="tts">Japannese “nie gratis nie”-knopie</annotation>
+		<annotation cp="🈯">“gereserveer” | ideogram | Japannees | Japannese “gereserveer”-knopie | 指</annotation>
+		<annotation cp="🈯" type="tts">Japannese “gereserveer”-knopie</annotation>
+		<annotation cp="🉐">“winskopie” | ideogram | Japannees | Japannese “winskopie”-knopie | 得</annotation>
+		<annotation cp="🉐" type="tts">Japannese “winskopie”-knopie</annotation>
+		<annotation cp="🈹">“afslag” | ideogram | Japannees | Japannese “afslag”-knopie | 割</annotation>
+		<annotation cp="🈹" type="tts">Japannese “afslag”-knopie</annotation>
+		<annotation cp="🈚">“gratis” | ideogram | Japannees | Japannese “gratis”-knopie | 無</annotation>
+		<annotation cp="🈚" type="tts">Japannese “gratis”-knopie</annotation>
+		<annotation cp="🈲">“verbode” | ideogram | Japannees | Japannese “verbode”-knopie | 禁</annotation>
+		<annotation cp="🈲" type="tts">Japannese “verbode”-knopie</annotation>
+		<annotation cp="🉑">“aanvaarbaar” | ideogram | Japannees | Japannese “aanvaarbaar”-knopie | 可</annotation>
+		<annotation cp="🉑" type="tts">Japannese “aanvaarbaar”-knopie</annotation>
+		<annotation cp="🈸">&quot;aansoek&quot; | ideogram | Japannees | Japannese &quot;aansoek&quot;-knopie | 申</annotation>
+		<annotation cp="🈸" type="tts">Japannese &quot;aansoek&quot;-knopie</annotation>
+		<annotation cp="🈴">&quot;slaagsyfer&quot; | ideogram | Japannees | Japannese &quot;slaagsyfer&quot;-knopie | 合</annotation>
+		<annotation cp="🈴" type="tts">Japannese &quot;slaagsyfer&quot;-knopie</annotation>
+		<annotation cp="🈳">&quot;vakant&quot; | ideogram | Japannees | Japannese &quot;vakant&quot;-knopie | 空</annotation>
+		<annotation cp="🈳" type="tts">Japannese &quot;vakant&quot;-knopie</annotation>
+		<annotation cp="㊗">&quot;veels geluk&quot; | ideogram | Japannees | Japannese &quot;veels geluk&quot;-knopie | 祝</annotation>
+		<annotation cp="㊗" type="tts">Japannese &quot;veels geluk&quot;-knopie</annotation>
+		<annotation cp="㊙">&quot;geheim&quot; | ideogram | Japannees | Japannese &quot;geheim&quot;-knopie | 秘</annotation>
+		<annotation cp="㊙" type="tts">Japannese &quot;geheim&quot;-knopie</annotation>
+		<annotation cp="🈺">&quot;oop vir besigheid&quot; | ideogram | Japannees | Japannese &quot;oop vir besigheid&quot;-knopie | 営</annotation>
+		<annotation cp="🈺" type="tts">Japannese &quot;oop vir besigheid&quot;-knopie</annotation>
+		<annotation cp="🈵">&quot;geen vakant&quot; | ideogram | Japannees | Japannese &quot;geen vakant&quot;-knopie | 満</annotation>
+		<annotation cp="🈵" type="tts">Japannese &quot;geen vakant&quot;-knopie</annotation>
 		<annotation cp="🔴">geometries | rooi | sirkel</annotation>
 		<annotation cp="🔴" type="tts">rooi sirkel</annotation>
 		<annotation cp="🟠">oranje | sirkel</annotation>
@@ -2831,9 +2871,121 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">wapperende swart vlag</annotation>
 		<annotation cp="🏳">vlag | vrede | wapper | wapperende wit vlag | wit</annotation>
 		<annotation cp="🏳" type="tts">wapperende wit vlag</annotation>
+		<annotation cp="🏳‍⚧">lig blou | pienk | transgender | vlag | wit</annotation>
+		<annotation cp="🏳‍⚧" type="tts">transgendervlag</annotation>
 		<annotation cp="🏳‍🌈">reënboog | reënboogvlag</annotation>
 		<annotation cp="🏳‍🌈" type="tts">reënboogvlag</annotation>
 		<annotation cp="🏴‍☠">Jolly Roger | plunder | seerower | seerowervlag | skat</annotation>
 		<annotation cp="🏴‍☠" type="tts">seerowervlag</annotation>
+		<annotation cp="🛖">huis | hut | joert | rondawel</annotation>
+		<annotation cp="🛖" type="tts">hut</annotation>
+		<annotation cp="🛗">hys | hysbak | lig | toeganklikheid</annotation>
+		<annotation cp="🛗" type="tts">hysbak</annotation>
+		<annotation cp="🛻">bakkie | kap | vrag</annotation>
+		<annotation cp="🛻" type="tts">bakkie</annotation>
+		<annotation cp="🛼">rolskaats | skaats</annotation>
+		<annotation cp="🛼" type="tts">Rolskaats</annotation>
+		<annotation cp="🤌">beklemtoon | handgebaar | ondervraging | sarkasties | vingers</annotation>
+		<annotation cp="🤌" type="tts">vingerpunte saamgedruk</annotation>
+		<annotation cp="🥲">aangeraak | dankbaar | glimlaggend | traan | trots | verlig</annotation>
+		<annotation cp="🥲" type="tts">glimlaggende gesig met traan</annotation>
+		<annotation cp="🥷">stilletjies | vegter | verberg</annotation>
+		<annotation cp="🥷" type="tts">ninja</annotation>
+		<annotation cp="🥸">bril | gesig | incognito | neus | vermom</annotation>
+		<annotation cp="🥸" type="tts">vermomde gesig</annotation>
+		<annotation cp="🦣">groot | tande | uitgestorwe | wollerig</annotation>
+		<annotation cp="🦣" type="tts">mammoet</annotation>
+		<annotation cp="🦤">groot | Mauritius | uitgestorwe</annotation>
+		<annotation cp="🦤" type="tts">dodo</annotation>
+		<annotation cp="🦫">bewer | dam | opdam</annotation>
+		<annotation cp="🦫" type="tts">bewer</annotation>
+		<annotation cp="🦬">bison | buffel | oeros | trop</annotation>
+		<annotation cp="🦬" type="tts">Amerikaanse buffel</annotation>
+		<annotation cp="🦭">rob | seeleeu</annotation>
+		<annotation cp="🦭" type="tts">rob</annotation>
+		<annotation cp="🧋">borrel | melk | pêrels | tee</annotation>
+		<annotation cp="🧋" type="tts">borreltee</annotation>
+		<annotation cp="🩴">deurtoonplakkies | plakkies | stortplakkies | strandplakkies</annotation>
+		<annotation cp="🩴" type="tts">tussentoonplakkie</annotation>
+		<annotation cp="🪃">Australië | boemerang | terugdraai | terugkeer</annotation>
+		<annotation cp="🪃" type="tts">boemerang</annotation>
+		<annotation cp="🪄">heks | towenaar | towerkrag</annotation>
+		<annotation cp="🪄" type="tts">towerstaf</annotation>
+		<annotation cp="🪅">partytjie | verjaarsdag | viering</annotation>
+		<annotation cp="🪅" type="tts">piñata</annotation>
+		<annotation cp="🪆">ineenpassende | pas ineen | pop | poppies | Rusland</annotation>
+		<annotation cp="🪆" type="tts">ineenpassende poppe</annotation>
+		<annotation cp="🪖">helm | kryger | militêr | soldaat | weermag</annotation>
+		<annotation cp="🪖" type="tts">militêre helm</annotation>
+		<annotation cp="🪗">konsertina | trekklavier</annotation>
+		<annotation cp="🪗" type="tts">trekklavier</annotation>
+		<annotation cp="🪘">drom | maatslag | pols | ritme</annotation>
+		<annotation cp="🪘" type="tts">lang drom</annotation>
+		<annotation cp="🪙">geld | goud | muntstuk | silwer | skat</annotation>
+		<annotation cp="🪙" type="tts">muntstuk</annotation>
+		<annotation cp="🪚">gereedskap | hout | houtwerk | saag | skrynwerker | timmerhout</annotation>
+		<annotation cp="🪚" type="tts">houtsaag</annotation>
+		<annotation cp="🪛">gereedskap | skroef</annotation>
+		<annotation cp="🪛" type="tts">skroewedraaier</annotation>
+		<annotation cp="🪜">klim | leer | trappie</annotation>
+		<annotation cp="🪜" type="tts">leer</annotation>
+		<annotation cp="🪝">strik | vang | vangs | verkoopspunt</annotation>
+		<annotation cp="🪝" type="tts">hoek</annotation>
+		<annotation cp="🪞">spektrum | weerkaats | weerkaatsing</annotation>
+		<annotation cp="🪞" type="tts">spieël</annotation>
+		<annotation cp="🪟">deursigtig | opening | raam | uitsig | vars</annotation>
+		<annotation cp="🪟" type="tts">venster</annotation>
+		<annotation cp="🪠">loodgieter | suigkrag | toilet</annotation>
+		<annotation cp="🪠" type="tts">dompelaar</annotation>
+		<annotation cp="🪡">borduur | naald | naaldwerk | steke</annotation>
+		<annotation cp="🪡" type="tts">naaldwerknaald</annotation>
+		<annotation cp="🪢">kinkel | knoop | tou</annotation>
+		<annotation cp="🪢" type="tts">knoop</annotation>
+		<annotation cp="🪣">emmer | vat</annotation>
+		<annotation cp="🪣" type="tts">emmer</annotation>
+		<annotation cp="🪤">lokaas | muisvalletjie | strik | wip</annotation>
+		<annotation cp="🪤" type="tts">muisvalletjie</annotation>
+		<annotation cp="🪥">badkamer | borsel | higiëne | skoon | tande</annotation>
+		<annotation cp="🪥" type="tts">tandeborsel</annotation>
+		<annotation cp="🪦">graf | grafsteen | kopsteen</annotation>
+		<annotation cp="🪦" type="tts">grafsteen</annotation>
+		<annotation cp="🪧">betoging | plakkaat | protes</annotation>
+		<annotation cp="🪧" type="tts">plakkaat</annotation>
+		<annotation cp="🪨">klip | rots | solied | steen | swaar</annotation>
+		<annotation cp="🪨" type="tts">rots</annotation>
+		<annotation cp="🪰">huisvlieg | lastig | maaier | vuil</annotation>
+		<annotation cp="🪰" type="tts">vlieg</annotation>
+		<annotation cp="🪱">annelied | erdwurm | parasiet | wurm</annotation>
+		<annotation cp="🪱" type="tts">wurm</annotation>
+		<annotation cp="🪲">gogga | insek | kewer</annotation>
+		<annotation cp="🪲" type="tts">kewer</annotation>
+		<annotation cp="🪳">gogga | insek | kakkerlak | kokkerot</annotation>
+		<annotation cp="🪳" type="tts">kakkerlak</annotation>
+		<annotation cp="🪴">groei | huis | husplant | plant | vertroetel</annotation>
+		<annotation cp="🪴" type="tts">potplant</annotation>
+		<annotation cp="🪵">blok | hout | stomp | timmerhout</annotation>
+		<annotation cp="🪵" type="tts">hout</annotation>
+		<annotation cp="🪶">lig | vere | vlug | voël</annotation>
+		<annotation cp="🪶" type="tts">veer</annotation>
+		<annotation cp="🫀">hart | hartklop | kardiologie | orgaan | pols</annotation>
+		<annotation cp="🫀" type="tts">orgaanhart</annotation>
+		<annotation cp="🫁">asem | asemhaal | inasem | orgaan | uitasem</annotation>
+		<annotation cp="🫁" type="tts">longe</annotation>
+		<annotation cp="🫂">dankie | druk | drukkie | hallo | totsiens</annotation>
+		<annotation cp="🫂" type="tts">mense wat mekaar druk</annotation>
+		<annotation cp="🫐">bessie | blou | bloubessie</annotation>
+		<annotation cp="🫐" type="tts">bloubessies</annotation>
+		<annotation cp="🫑">groente | rissies | soetrissie</annotation>
+		<annotation cp="🫑" type="tts">soetrissie</annotation>
+		<annotation cp="🫒">kos | olyf</annotation>
+		<annotation cp="🫒" type="tts">olyf</annotation>
+		<annotation cp="🫓">focaccia | lavash | pita</annotation>
+		<annotation cp="🫓" type="tts">platbrood</annotation>
+		<annotation cp="🫔">Meksikaans | omhulsel</annotation>
+		<annotation cp="🫔" type="tts">tamale</annotation>
+		<annotation cp="🫕">diepbraai | gesmelt | kaas | pot | sjokolade | Switsers</annotation>
+		<annotation cp="🫕" type="tts">fondue</annotation>
+		<annotation cp="🫖">drink | pot | tee | teepot</annotation>
+		<annotation cp="🫖" type="tts">teepot</annotation>
 	</annotations>
 </ldml>

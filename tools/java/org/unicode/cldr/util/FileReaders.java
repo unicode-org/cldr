@@ -4,10 +4,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UncheckedIOException;
 import java.net.URL;
 import java.nio.charset.Charset;
+
+import org.unicode.cldr.util.With.SimpleIterator;
 
 public class FileReaders {
     //
@@ -75,6 +79,25 @@ public class FileReaders {
             return resourceString.substring(9);
         } else {
             throw new IllegalArgumentException("File not found: " + resourceString);
+        }
+    }
+    
+    
+    public static class ReadLineSimpleIterator implements SimpleIterator<String> {
+        final BufferedReader bufferedReader;
+        
+        public ReadLineSimpleIterator(BufferedReader bufferedReader) {
+            super();
+            this.bufferedReader = bufferedReader;
+        }
+        
+        @Override
+        public String next() {
+            try {
+                return bufferedReader.readLine();
+            } catch (IOException e) {
+                throw new UncheckedIOException(e);
+            }
         }
     }
 }

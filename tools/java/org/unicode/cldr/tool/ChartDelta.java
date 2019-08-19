@@ -34,12 +34,14 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XMLFileReader;
@@ -58,6 +60,8 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 
 public class ChartDelta extends Chart {
+    private static final boolean verbose_skipping = false;
+
     private static final String DIR_NAME = "delta";
 
     private static final boolean SKIP_REFORMAT_ANNOTATIONS = ToolConstants.PREVIOUS_CHART_VERSION.compareTo("30") >= 0;
@@ -65,13 +69,16 @@ public class ChartDelta extends Chart {
     private static final PageId DEBUG_PAGE_ID = PageId.DayPeriod;
 
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = CLDRConfig.getInstance().getSupplementalDataInfo();
-
     private static final String LAST_ARCHIVE_DIRECTORY = CLDRPaths.LAST_DIRECTORY;
     private static final String CURRENT_DIRECTORY = CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.LAST_CHART_VERSION + "/";
     private static final String LOG_DIR = CLDRPaths.GEN_DIRECTORY + "charts/";
 
     enum MyOptions {
-        fileFilter(new Params().setHelp("filter by dir/locale, eg: ^main/en$ or .*/en").setDefault(".*").setMatch(".*")),
+        fileFilter(new Params().setHelp("filter files by dir/locale, eg: ^main/en$ or .*/en").setMatch(".*")),
+        orgFilter(new Params().setHelp("filter files by organization").setMatch(".*")),
+        Vxml(new Params().setHelp("use cldr-aux for the base directory")),
+        coverageFilter(new Params().setHelp("filter files by coverage").setMatch(".*")),
+        directory(new Params().setHelp("Set the output directory name").setDefault(DIR_NAME).setMatch(".*")),
         verbose(new Params().setHelp("verbose debugging messages")),
         ;
 
@@ -94,22 +101,40 @@ public class ChartDelta extends Chart {
         }
     }
 
-    private Matcher fileFilter;
-    private boolean verbose;
-
-    public ChartDelta(Matcher fileFilter, boolean verbose) {
-        this.fileFilter = fileFilter;
-        this.verbose = verbose;
-    }
+    private final Matcher fileFilter;
+    private final String DIR;
+    private final Level minimumPathCoverage;
+    private final boolean vxml;
+    private final boolean verbose;
 
     public static void main(String[] args) {
         System.out.println("use -DCHART_VERSION=28 to generate version 28.");
         MyOptions.parse(args, true);
         Matcher fileFilter = !MyOptions.fileFilter.option.doesOccur() ? null : PatternCache.get(MyOptions.fileFilter.option.getValue()).matcher("");
+        if (MyOptions.orgFilter.option.doesOccur()) {
+            if (MyOptions.fileFilter.option.doesOccur()) {
+                throw new IllegalArgumentException("Can't have both fileFilter and orgFilter");
+            }
+            String rawOrg = MyOptions.orgFilter.option.getValue();
+            Organization org = Organization.fromString(rawOrg);
+            Set<String> locales = StandardCodes.make().getLocaleCoverageLocales(org);
+            fileFilter = PatternCache.get("^(main|annotations)/(" + CollectionUtilities.join(locales, "|") + ")$").matcher("");
+        }
+        Level coverage = !MyOptions.coverageFilter.option.doesOccur() ? null : Level.fromString(MyOptions.coverageFilter.option.getValue());
         boolean verbose = MyOptions.verbose.option.doesOccur();
-        ChartDelta temp = new ChartDelta(fileFilter, verbose);
+        boolean vxml = MyOptions.Vxml.option.doesOccur();
+        String DIR = CLDRPaths.CHART_DIRECTORY + MyOptions.directory.option.getValue();
+        ChartDelta temp = new ChartDelta(fileFilter, coverage, DIR, verbose, vxml);
         temp.writeChart(null);
         temp.showTotals();
+    }
+
+    public ChartDelta(Matcher fileFilter, Level coverage, String dir, boolean verbose, boolean vxml) {
+        this.fileFilter = fileFilter;
+        this.verbose = verbose;
+        this.DIR = dir;
+        this.minimumPathCoverage = coverage;
+        this.vxml = vxml;
     }
 
     private static final String SEP = "\u0001";
@@ -117,7 +142,6 @@ public class ChartDelta extends Chart {
     private static final String DEBUG_FILE = null; // "windowsZones.xml";
     static Pattern fileMatcher = PatternCache.get(".*");
 
-    static String DIR = CLDRPaths.CHART_DIRECTORY + "/" + DIR_NAME + "/";
     static PathHeader.Factory phf = PathHeader.getFactory(ENGLISH);
     static final Set<String> DONT_CARE = new HashSet<>(Arrays.asList("draft", "standard", "reference"));
 
@@ -243,7 +267,7 @@ public class ChartDelta extends Chart {
     private static final File[] PATHS = {
         new File(CLDRPaths.MAIN_DIRECTORY),
         new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
-        };
+    };
 
     private void writeLdml(Anchors anchors)  throws IOException {
 
@@ -260,13 +284,16 @@ public class ChartDelta extends Chart {
 
             Counter<PathHeader> counts = new Counter<>();
 
+            String dirBase = 
+                ToolConstants.CLDR_VERSIONS.contains(ToolConstants.LAST_CHART_VERSION) ? CURRENT_DIRECTORY 
+                    : vxml ? CLDRPaths.SVN_DIRECTORY + "cldr-aux/" + "voting/36/vxml/" // TODO fix version to be variable
+                        : CLDRPaths.BASE_DIRECTORY;
+
             for (String dir : DtdType.ldml.directories) {
                 if (dir.equals("annotationsDerived") || dir.equals("casing")) {
                     continue;
                 }
-                String current = (ToolConstants.CLDR_VERSIONS.contains(ToolConstants.LAST_CHART_VERSION)
-                    ? CURRENT_DIRECTORY 
-                        : CLDRPaths.BASE_DIRECTORY) + "common/" + dir;
+                String current = dirBase + "common/" + dir;
                 String past = LAST_ARCHIVE_DIRECTORY + "common/" + dir;
                 try {
                     factories.add(Factory.make(current, ".*"));
@@ -281,7 +308,7 @@ public class ChartDelta extends Chart {
                     past = null;
                     oldFactories.add(null);
                 }
-                System.out.println("Will examine: " + dir + "\t\t" + current + "\t\t" + past);
+                System.out.println("Will compare: " + dir + "\t\t" + current + "\t\t" + past);
             }
             if (factories.isEmpty()) {
                 throw new IllegalArgumentException("No factories found");
@@ -328,11 +355,12 @@ public class ChartDelta extends Chart {
                     //System.out.println(sourceDirLeaf);
                     boolean resolving = !sourceDirLeaf.contains("subdivisions")
                         && !sourceDirLeaf.contains("transforms");
+
                     for (String locale : baseNLocale.getValue()) {
                         //System.out.println("\t" + locale);
                         String nameAndLocale = sourceDirLeaf + "/" + locale;
                         if (fileFilter != null && !fileFilter.reset(nameAndLocale).find()) {
-                            if (verbose) {
+                            if (verbose && verbose_skipping) {
                                 System.out.println("SKIPPING: " + nameAndLocale);
                             }
                             continue;
@@ -351,10 +379,14 @@ public class ChartDelta extends Chart {
                         }
                         paths.clear();
                         for (String path : current.fullIterable()) {
-                            paths.add(path);
+                            if (allowPath(locale, path)) {
+                                paths.add(path);
+                            }
                         }
                         for (String path : old.fullIterable()) {
-                            paths.add(path);
+                            if (!paths.contains(path) && allowPath(locale, path)) {
+                                paths.add(path);
+                            }
                         }
 
                         Output<String> reformattedValue = new Output<String>();
@@ -395,7 +427,13 @@ public class ChartDelta extends Chart {
                                 // fix some incorrect cases?
 
                                 currentValue = current.getStringValue(path);
+                                if (CldrUtility.INHERITANCE_MARKER.equals(currentValue)) {
+                                    currentValue = current.getConstructedBaileyValue(path, null, null);
+                                }
                                 oldValue = hasReformattedValue.value ? reformattedValue.value : old.getStringValue(path);
+                                if (CldrUtility.INHERITANCE_MARKER.equals(oldValue)) {
+                                    oldValue = old.getConstructedBaileyValue(path, null, null);
+                                }
                             }
                             // handle non-distinguishing attributes
                             addPathDiff(sourceDir, old, current, locale, ph, diff);
@@ -414,6 +452,17 @@ public class ChartDelta extends Chart {
             tsvCountFile.println("# EOF");
         }
 
+    }
+
+    private boolean allowPath(String locale, String path) {
+        if (minimumPathCoverage != null) {
+            Level pathLevel = SUPPLEMENTAL_DATA_INFO.getCoverageLevel(path, locale);
+            if (minimumPathCoverage.compareTo(pathLevel) < 0) {
+                return false;
+            }
+            int debug = 0;
+        }
+        return true;
     }
 
     private String getReformattedPath(Status oldStatus, CLDRFile old, String path, Output<String> value, Output<Boolean> hasReformattedValue) {
@@ -711,6 +760,9 @@ public class ChartDelta extends Chart {
                 }
             }
             Level coverageLevel = SUPPLEMENTAL_DATA_INFO.getCoverageLevel(ph.getOriginalPath(), locale);
+            if (coverageLevel != Level.BASIC && coverageLevel != Level.CORE) {
+                int debug = 0;
+            }
             String fixedOldValue = oldValue == null ? "▷missing◁" : TransliteratorUtilities.toHTML.transform(oldValue);
             String fixedNewValue = currentValue == null ? "▷removed◁" : TransliteratorUtilities.toHTML.transform(currentValue);
 
@@ -818,7 +870,7 @@ public class ChartDelta extends Chart {
                     String parentAndFile = dir + "/" + file;
                     String base = file.substring(0, file.length() - 4);
                     if (fileFilter != null && !fileFilter.reset(dir + "/" + base).find()) {
-                        if (verbose) {
+                        if (verbose) { //  && verbose_skipping
                             System.out.println("SKIPPING: " + dir + "/" + base);
                         }
                         continue;

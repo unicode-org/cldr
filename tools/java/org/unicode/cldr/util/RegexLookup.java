@@ -20,6 +20,7 @@ import org.unicode.cldr.util.RegexFileParser.VariableProcessor;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.RegexLookup.Finder.Info;
 
+import com.google.common.base.Splitter;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.Output;
 
@@ -990,6 +991,21 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
      * starting with # are comments.
      */
     public RegexLookup<T> loadFromFile(Class<?> baseClass, String filename) {
+        RegexFileParser parser = setupRegexFileParser();
+        parser.parse(baseClass, filename);
+        return this;
+    }
+
+    /**
+     * Load a RegexLookup from a list of strings, as if they came from a file. See loadFromFile
+     */
+    public RegexLookup<T> loadFromString(String source) {
+        RegexFileParser parser = setupRegexFileParser();
+        parser.parseStrings("string", Splitter.on('\n').split(source));
+        return this;
+    }
+
+    private RegexFileParser setupRegexFileParser() {
         RegexFileParser parser = new RegexFileParser();
         parser.setLineParser(new RegexLineParser() {
             @Override
@@ -1020,8 +1036,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
                 return variables.replace(str);
             }
         });
-        parser.parse(baseClass, filename);
-        return this;
+        return parser;
     }
 
     public RegexLookup<T> addVariable(String variable, String variableValue) {

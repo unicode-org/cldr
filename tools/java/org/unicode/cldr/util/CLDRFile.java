@@ -1375,14 +1375,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
         if (result == null)
             throw new NoClassDefFoundError("No SAX parser is available, or unable to set validation correctly");
-        try {
-            result.setEntityResolver(new CachingEntityResolver());
-        } catch (Throwable e) {
-            System.err
-            .println("WARNING: Can't set caching entity resolver  -  error "
-                + e.toString());
-            e.printStackTrace();
-        }
         return result;
     }
 

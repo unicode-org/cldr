@@ -1899,7 +1899,6 @@ public class LDMLUtilities {
             // applyAttributes(dfactory, attributes);
 
             DocumentBuilder docBuilder = dfactory.newDocumentBuilder();
-            docBuilder.setEntityResolver(new CachingEntityResolver());
             return docBuilder;
         } catch (Throwable se) {
             System.err.println(": ERROR : trying to create documentBuilder: " + se.getMessage());
@@ -2018,14 +2017,6 @@ public class LDMLUtilities {
 
         // out.close();
     } // printDOMTree(Node, PrintWriter)
-
-    // // Caching Resolution
-    // private static File getCacheName(String sourceDir, String last, String loc)
-    // {
-    // //File xCacheDir = new
-    // File((CachingEntityResolver.getCacheDir()!=null)?CachingEntityResolver.getCacheDir():"/tmp/cldrres");
-    // return new File(sourceDir).getName() + "_" + last + "." + loc;
-    // }
 
     // Document readMergeCache(String sourceDir, String last, String loc)
     // {

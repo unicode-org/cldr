@@ -373,7 +373,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
         }
     }
 
-    private static class ToSimpleIterator<T> implements SimpleIterator<T> {
+    public static class ToSimpleIterator<T> implements SimpleIterator<T> {
         private final Iterator<T> iterator;
 
         public ToSimpleIterator(Iterator<T> iterator) {
@@ -385,5 +385,4 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
             return iterator.hasNext() ? iterator.next() : null;
         }
     }
-
 }

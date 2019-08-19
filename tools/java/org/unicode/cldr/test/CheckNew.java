@@ -52,7 +52,7 @@ public class CheckNew extends FactoryCheckCLDR {
                 }
             }
             if (!skip) {
-                String rootValue = annotationsRoot.getStringValue(path);
+                String rootValue = annotationsRoot.getStringValueWithBailey(path);
                 if (value.equals(rootValue)) {
                     result.add(new CheckStatus().setCause(this)
                         .setMainType(CheckStatus.errorType)

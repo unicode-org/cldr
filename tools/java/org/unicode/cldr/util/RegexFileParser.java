@@ -63,10 +63,25 @@ public class RegexFileParser {
      */
     public void parse(Class<?> baseClass, String filename) {
         BufferedReader reader = FileReaders.openFile(baseClass, filename);
+        Iterable<String> rlsi = With.toIterable(new FileReaders.ReadLineSimpleIterator(reader));
+        parseStrings(filename, rlsi);
+    }
+
+    /**
+     * Parses the specified lines, as if they came from a text file.
+     *
+     * @param a
+     *            class relative to filename
+     * @param filename
+     *            the name of the text file to be parsed
+     */
+
+    public void parseStrings(String source, Iterable<String> rlsi) {
         String line = null;
         int lineNumber = 0;
         try {
-            while ((line = reader.readLine()) != null) {
+            for (String lineItem : rlsi) {
+                line = lineItem; // copy for possible exception
                 lineNumber++;
                 line = line.trim();
                 // Skip comments.
@@ -75,7 +90,7 @@ public class RegexFileParser {
                 if (line.charAt(0) == '%') {
                     int pos = line.indexOf("=");
                     if (pos < 0) {
-                        throw new IllegalArgumentException("Failed to read variable in " + filename + "\t\t("
+                        throw new IllegalArgumentException("Failed to read variable in " + source + "\t\t("
                             + lineNumber + ") " + line);
                     }
                     String varName = line.substring(0, pos).trim();
@@ -90,7 +105,7 @@ public class RegexFileParser {
                 lineParser.parse(line);
             }
         } catch (Exception e) {
-            System.err.println("Error reading " + filename + " at line " + lineNumber + ": " + line);
+            System.err.println("Error reading " + source + " at line " + lineNumber + ": " + line);
             e.printStackTrace();
         }
     }

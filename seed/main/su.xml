@@ -21,4 +21,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E É F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="punctuation" draft="unconfirmed">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ “ ” ( ) \[ \] /]</exemplarCharacters>
 	</characters>
+	<dates>
+		<timeZoneNames>
+			<zone type="Asia/Macau">
+				<exemplarCity draft="unconfirmed">Makau</exemplarCity>
+			</zone>
+		</timeZoneNames>
+	</dates>
+	<listPatterns>
+		<listPattern type="standard-short">
+			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0} &amp; {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
 </ldml>

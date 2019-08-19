@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -16,8 +17,11 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.tool.ChartDelta;
+import org.unicode.cldr.tool.FormattedFileWriter;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.tool.ShowData;
 import org.unicode.cldr.tool.TablePrinter;
 import org.unicode.cldr.util.SupplementalDataInfo.DateRange;
 import org.unicode.cldr.util.SupplementalDataInfo.MetaZoneRange;
@@ -230,6 +234,11 @@ public class VerifyZones {
 
         Factory factory2 = Factory.make(CLDRPaths.MAIN_DIRECTORY, filter);
         CLDRFile englishCldrFile = factory2.make("en", true);
+        
+        new File(DIR).mkdirs();
+        FileCopier.copy(ShowData.class, "verify-index.html", CLDRPaths.VERIFY_DIR, "index.html");
+        FileCopier.copy(ChartDelta.class, "index.css", CLDRPaths.VERIFY_DIR, "index.css");
+        FormattedFileWriter.copyIncludeHtmls(CLDRPaths.VERIFY_DIR);
         DateTimeFormats.writeCss(DIR);
         final CLDRFile english = CLDR_CONFIG.getEnglish();
 

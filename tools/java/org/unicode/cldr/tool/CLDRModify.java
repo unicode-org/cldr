@@ -2222,7 +2222,6 @@ public class CLDRModify {
                 seen.addAll(paths);
             }
         });
-
     }
 
     public static String getLast2Dirs(File sourceDir1) {

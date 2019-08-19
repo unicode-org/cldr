@@ -233,7 +233,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ME" draft="unconfirmed">Montenegro</territory>
 			<territory type="MF" draft="unconfirmed">Frankrigi Saint Martin</territory>
 			<territory type="MG" draft="unconfirmed">Madagaskar</territory>
-			<territory type="MK" draft="unconfirmed">Makedonia</territory>
+			<territory type="MK">↑↑↑</territory>
 			<territory type="ML" draft="unconfirmed">Mali</territory>
 			<territory type="MM" draft="unconfirmed">Burma</territory>
 			<territory type="MO" draft="unconfirmed">Macao</territory>
@@ -352,9 +352,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a á â ã b c d e é ê f g h i í î ĩ j k l m n o ô p q r s t u ú û ũ v w x y z æ ø å]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[ĸ]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Æ Ø Å]</exemplarCharacters>
+		<exemplarCharacters>[a b c d e f g h i j k l m n o p q r s t u v w x y z æ ø å]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[á â ã é ê ẽ í î ĩ ô õ ĸ ú û ũ]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="contributed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Æ Ø Å]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[, . % ‰ + − 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 		<ellipsis type="final" draft="unconfirmed">{0}…</ellipsis>
 		<ellipsis type="initial" draft="unconfirmed">…{0}</ellipsis>

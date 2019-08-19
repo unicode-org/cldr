@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2019 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,10 +23,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a c e f h i k l m n o p r s t u v w y ʼ]</exemplarCharacters>
-        <exemplarCharacters type="auxiliary">[b d ē g j q z]</exemplarCharacters>
-        <exemplarCharacters type="index">[A C E F H I K L M N O P R S T U V W Y]</exemplarCharacters>
-        <exemplarCharacters type="numbers">[\- , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
-        <exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[b d ē g j q z]</exemplarCharacters>
+		<exemplarCharacters type="index">[A C E F H I K L M N O P R S T U V W Y]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[\- , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -58,40 +58,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<months>
 					<monthContext type="format">
 						<monthWidth type="wide">
-							<month type="1">Rvfo Ecuse</month>
-							<month type="2">Hotvlē-hvse</month>
+							<month type="1">Rvfo Cuse</month>
+							<month type="2">Hotvle Hvse</month>
 							<month type="3">Tasahcuce</month>
-							<month type="4">Tasahce-rakko</month>
-							<month type="5">Kē-hvse</month>
-							<month type="6">Kvco-hvse</month>
-							<month type="7">Hvyuce</month>
-							<month type="8">Hvyo-rakko</month>
+							<month type="4">Tasahce Rakko</month>
+							<month type="5">Ke Hvse</month>
+							<month type="6">Kvco Hvse</month>
+							<month type="7">Hiyuce</month>
+							<month type="8">Hiyo Rakko</month>
 							<month type="9">Otowoskuce</month>
-							<month type="10">Otowoskv-rakko</month>
-							<month type="11">Eholē</month>
-							<month type="12">Rvfo-rakko</month>
+							<month type="10">Otowoskv Rakko</month>
+							<month type="11">Ehole</month>
+							<month type="12">Rvfo Rakko</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="narrow">
-							<day type="sun">C</day>
-							<day type="mon">M</day>
-							<day type="tue">E</day>
-							<day type="wed">K</day>
-							<day type="thu">H</day>
-							<day type="fri">O</day>
-							<day type="sat">S</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">ʻTv-cakuce</day>
-							<day type="mon">Mvnte</day>
-							<day type="tue">Mvnte Enhvyvtke</day>
+							<day type="sun">Nettv Cako</day>
+							<day type="mon">Enhvteceskv</day>
+							<day type="tue">Enhvteceskv Enhvyvtke</day>
 							<day type="wed">Ennvrkvpv</day>
 							<day type="thu">Ennvrkvpv Enhvyvtke</day>
-							<day type="fri">Okkoskv Nettv</day>
-							<day type="sat">‘Tv-cako Ecuse</day>
+							<day type="fri">Nak Okkoskv Nettv</day>
+							<day type="sat">Nettv Cakcuse</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -141,6 +141,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</timeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="year">
+				<displayName>Ohrolope</displayName>
+			</field>
+			<field type="month">
+				<displayName>Hvse</displayName>
+			</field>
+			<field type="week">
+				<displayName>Nettv Cako</displayName>
+			</field>
+			<field type="day">
+				<displayName>Nettv</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Hvses-vkerkv Rakko</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Lvpkuce</displayName>
+			</field>
+		</fields>
 	</dates>
 	<numbers>
 		<symbols numberSystem="latn">

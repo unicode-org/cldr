@@ -103,7 +103,6 @@ for derived annotations.
 					</eraNames>
 					<eraAbbr>
 						<era type="0">BE</era>
-						<!-- = 544 BC gregorian. -->
 					</eraAbbr>
 					<eraNarrow>
 						<alias source="locale" path="../eraAbbr"/>
@@ -204,7 +203,6 @@ for derived annotations.
 				<dayPeriods>
 					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
 				</dayPeriods>
-				<!-- chinese eras are computed, and don't fall back to gregorian -->
 				<cyclicNameSets>
 					<cyclicNameSet type="dayParts">
 						<cyclicNameContext type="format">
@@ -376,7 +374,6 @@ for derived annotations.
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<!-- using y here to be short in locales that may not understand U anyway -->
 							<pattern>r-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
@@ -1597,7 +1594,6 @@ for derived annotations.
 					</eraNames>
 					<eraAbbr>
 						<era type="0">AM</era>
-						<!-- HY = Anno Mundi = -180799862400000 milliseconds since 1/1/1970 AD -->
 					</eraAbbr>
 					<eraNarrow>
 						<alias source="locale" path="../eraAbbr"/>
@@ -1763,7 +1759,6 @@ for derived annotations.
 					</eraNames>
 					<eraAbbr>
 						<era type="0">AH</era>
-						<!-- Anno Hijri, = 7/16/622 AD = -42521587200000.0 millis since 1/1/1970 -->
 					</eraAbbr>
 					<eraNarrow>
 						<alias source="locale" path="../eraAbbr"/>
@@ -1901,9 +1896,6 @@ for derived annotations.
 						<alias source="locale" path="../eraAbbr"/>
 					</eraNames>
 					<eraAbbr>
-						<!-- These eras are numbered according to the data used by the ICU Japanese Calendar. search for
-							 'ERAS ='
-						-->
 						<era type="0">Taika (645–650)</era>
 						<era type="1">Hakuchi (650–671)</era>
 						<era type="2">Hakuhō (672–686)</era>
@@ -2486,7 +2478,6 @@ for derived annotations.
 					<eraNames>
 						<alias source="locale" path="../eraAbbr"/>
 					</eraNames>
-					<!-- = 1912 AD gregorian. See: http://en.wikipedia.org/wiki/Minguo_calendar -->
 					<eraAbbr>
 						<era type="0">Before R.O.C.</era>
 						<era type="1">R.O.C.</era>
@@ -2581,7 +2572,7 @@ for derived annotations.
 				<relativeTime type="past">
 					<relativeTimePattern count="other">-{0} w</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>the week of {0}</relativePeriod> <!-- for example, “the week of April 1” -->
+				<relativePeriod>the week of {0}</relativePeriod>
 			</field>
 			<field type="week-short">
 				<alias source="locale" path="../field[@type='week']"/>
@@ -2959,9 +2950,9 @@ for derived annotations.
 			<decimal>٫</decimal>
 			<group>٬</group>
 			<list>؛</list>
-			<percentSign>٪؜</percentSign> <!-- includes ALM after sign -->
-			<plusSign>؜+</plusSign> <!-- includes ALM before sign -->
-			<minusSign>؜-</minusSign> <!-- includes ALM before sign (002D) -->
+			<percentSign>٪؜</percentSign>
+			<plusSign>؜+</plusSign>
+			<minusSign>؜-</minusSign>
 			<exponential>اس</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>؉</perMille>
@@ -2974,8 +2965,8 @@ for derived annotations.
 			<group>٬</group>
 			<list>؛</list>
 			<percentSign>٪</percentSign>
-			<plusSign>‎+‎</plusSign> <!-- includes LRM before and after sign -->
-			<minusSign>‎-‎</minusSign> <!-- includes LRM before and after sign (002D) -->
+			<plusSign>‎+‎</plusSign>
+			<minusSign>‎-‎</minusSign>
 			<exponential>×۱۰^</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>؉</perMille>
@@ -4973,13 +4964,13 @@ for derived annotations.
 			<alias source="locale" path="../unitLength[@type='short']"/>
 		</unitLength>
 		<durationUnit type="hm">
-			<durationUnitPattern>h:mm</durationUnitPattern> <!-- 33:59 -->
+			<durationUnitPattern>h:mm</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="hms">
-			<durationUnitPattern>h:mm:ss</durationUnitPattern> <!-- 33:04:59 -->
+			<durationUnitPattern>h:mm:ss</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="ms">
-			<durationUnitPattern>m:ss</durationUnitPattern> <!-- 33:59 -->
+			<durationUnitPattern>m:ss</durationUnitPattern>
 		</durationUnit>
 	</units>
 	<listPatterns>
@@ -5034,7 +5025,6 @@ for derived annotations.
 		<characterLabelPattern type="other">{0} — other</characterLabelPattern>
 		<characterLabelPattern type="scripts">scripts — {0}</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">{0} strokes</characterLabelPattern>
-		<!-- regular -->
 		<characterLabel type="activities">activity</characterLabel>
 		<characterLabel type="african_scripts">African script</characterLabel>
 		<characterLabel type="american_scripts">American script</characterLabel>

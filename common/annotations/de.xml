@@ -23,6 +23,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">mitteldunkle Hautfarbe</annotation>
 		<annotation cp="🏿">dunkle Hautfarbe | Hautfarbe | Hauttyp 6</annotation>
 		<annotation cp="🏿" type="tts">dunkle Hautfarbe</annotation>
+		<annotation cp="⚧">Transgender</annotation>
+		<annotation cp="⚧" type="tts">Symbol für Transgender</annotation>
 		<annotation cp="😀">Gesicht | grinsendes Gesicht | lol | lustig</annotation>
 		<annotation cp="😀" type="tts">grinsendes Gesicht</annotation>
 		<annotation cp="😃">Gesicht | grinsendes Gesicht mit großen Augen | lächeln | lol | lustig</annotation>
@@ -505,66 +507,98 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤷‍♂" type="tts">schulterzuckender Mann</annotation>
 		<annotation cp="🤷‍♀">Frau | gleichgültig | keine Ahnung | schulterzuckende Frau | Zweifel</annotation>
 		<annotation cp="🤷‍♀" type="tts">schulterzuckende Frau</annotation>
+		<annotation cp="🧑‍⚕">Arzt | Gesundheitswesen | Krankenschwester | Therapeut</annotation>
+		<annotation cp="🧑‍⚕" type="tts">Arzt/Ärztin</annotation>
 		<annotation cp="👨‍⚕">Arzt | Arztkittel | Doktor</annotation>
 		<annotation cp="👨‍⚕" type="tts">Arzt</annotation>
 		<annotation cp="👩‍⚕">Ärztin | Arztkittel</annotation>
 		<annotation cp="👩‍⚕" type="tts">Ärztin</annotation>
+		<annotation cp="🧑‍🎓">Absolvent | Student</annotation>
+		<annotation cp="🧑‍🎓" type="tts">Student(in)</annotation>
 		<annotation cp="👨‍🎓">Absolvent | Doktorhut | Student | Uni</annotation>
 		<annotation cp="👨‍🎓" type="tts">Student</annotation>
 		<annotation cp="👩‍🎓">Absolventin | Doktorhut | Studentin | Uni</annotation>
 		<annotation cp="👩‍🎓" type="tts">Studentin</annotation>
+		<annotation cp="🧑‍🏫">Dozent | Lehrer | Professor</annotation>
+		<annotation cp="🧑‍🏫" type="tts">Lehrer(in)</annotation>
 		<annotation cp="👨‍🏫">Dozent | Lehrer | Professor</annotation>
 		<annotation cp="👨‍🏫" type="tts">Lehrer</annotation>
 		<annotation cp="👩‍🏫">Dozentin | Lehrerin | Professorin</annotation>
 		<annotation cp="👩‍🏫" type="tts">Lehrerin</annotation>
+		<annotation cp="🧑‍⚖">Richter(in) | Waage</annotation>
+		<annotation cp="🧑‍⚖" type="tts">Richter(in)</annotation>
 		<annotation cp="👨‍⚖">Gerechtigkeit | Recht | Richter</annotation>
 		<annotation cp="👨‍⚖" type="tts">Richter</annotation>
 		<annotation cp="👩‍⚖">Gerechtigkeit | Recht | Richterin</annotation>
 		<annotation cp="👩‍⚖" type="tts">Richterin</annotation>
+		<annotation cp="🧑‍🌾">Bauer | Farmer | Gärtner | Landwirt</annotation>
+		<annotation cp="🧑‍🌾" type="tts">Bauer/Bäuerin</annotation>
 		<annotation cp="👨‍🌾">Ähre | Bauer | Landwirt</annotation>
 		<annotation cp="👨‍🌾" type="tts">Bauer</annotation>
 		<annotation cp="👩‍🌾">Ähre | Bäuerin | Landwirtin</annotation>
 		<annotation cp="👩‍🌾" type="tts">Bäuerin</annotation>
+		<annotation cp="🧑‍🍳">Koch</annotation>
+		<annotation cp="🧑‍🍳" type="tts">Koch/Köchin</annotation>
 		<annotation cp="👨‍🍳">Koch | Kochen</annotation>
 		<annotation cp="👨‍🍳" type="tts">Koch</annotation>
 		<annotation cp="👩‍🍳">kochen | Köchin</annotation>
 		<annotation cp="👩‍🍳" type="tts">Köchin</annotation>
+		<annotation cp="🧑‍🔧">Elektriker | Klempner | Mechaniker</annotation>
+		<annotation cp="🧑‍🔧" type="tts">Mechaniker(in)</annotation>
 		<annotation cp="👨‍🔧">Elektriker | Handwerker | Klempner | Mechaniker</annotation>
 		<annotation cp="👨‍🔧" type="tts">Mechaniker</annotation>
 		<annotation cp="👩‍🔧">Elektrikerin | Handwerkerin | Klempnerin | Mechanikerin</annotation>
 		<annotation cp="👩‍🔧" type="tts">Mechanikerin</annotation>
+		<annotation cp="🧑‍🏭">Arbeiter | Fabrik | industriell | Montage</annotation>
+		<annotation cp="🧑‍🏭" type="tts">Fabrikarbeiter(in)</annotation>
 		<annotation cp="👨‍🏭">Fabrik | Fabrikarbeiter</annotation>
 		<annotation cp="👨‍🏭" type="tts">Fabrikarbeiter</annotation>
 		<annotation cp="👩‍🏭">Fabrik | Fabrikarbeiterin</annotation>
 		<annotation cp="👩‍🏭" type="tts">Fabrikarbeiterin</annotation>
+		<annotation cp="🧑‍💼">Architekt | Business | Manager | Schlips und Kragen</annotation>
+		<annotation cp="🧑‍💼" type="tts">Büroangestellte(r)</annotation>
 		<annotation cp="👨‍💼">Angestellter | Büro | Büroangestellter | Manager</annotation>
 		<annotation cp="👨‍💼" type="tts">Büroangestellter</annotation>
 		<annotation cp="👩‍💼">Angestellte | Büro | Büroangestellte | Mangerin</annotation>
 		<annotation cp="👩‍💼" type="tts">Büroangestellte</annotation>
+		<annotation cp="🧑‍🔬">Biologe | Chemiker | Ingenieur | Physiker | Wissenschaftler</annotation>
+		<annotation cp="🧑‍🔬" type="tts">Wissenschaftler(in)</annotation>
 		<annotation cp="👨‍🔬">Forscher | Labor | Wissenschaftler</annotation>
 		<annotation cp="👨‍🔬" type="tts">Wissenschaftler</annotation>
 		<annotation cp="👩‍🔬">Forscherin | Labor | Wissenschaftlerin</annotation>
 		<annotation cp="👩‍🔬" type="tts">Wissenschaftlerin</annotation>
+		<annotation cp="🧑‍💻">Entwickler | Erfinder | Programmierer | Software | Technologe</annotation>
+		<annotation cp="🧑‍💻" type="tts">IT-Experte/IT-Expertin</annotation>
 		<annotation cp="👨‍💻">Bildschirm | Computer | Entwickler | IT-Experte</annotation>
 		<annotation cp="👨‍💻" type="tts">IT-Experte</annotation>
 		<annotation cp="👩‍💻">Bildschirm | Computer | Entwickler | IT-Expertin</annotation>
 		<annotation cp="👩‍💻" type="tts">IT-Expertin</annotation>
+		<annotation cp="🧑‍🎤">Entertainer | Rock | Sänger | Schauspieler | Star</annotation>
+		<annotation cp="🧑‍🎤" type="tts">Sänger(in)</annotation>
 		<annotation cp="👨‍🎤">Mann | Mikrofon | Popstar | Sänger</annotation>
 		<annotation cp="👨‍🎤" type="tts">Sänger</annotation>
 		<annotation cp="👩‍🎤">Frau | Mikrofon | Popstar | Sängerin</annotation>
 		<annotation cp="👩‍🎤" type="tts">Sängerin</annotation>
+		<annotation cp="🧑‍🎨">Künstler | Palette</annotation>
+		<annotation cp="🧑‍🎨" type="tts">Künstler(in)</annotation>
 		<annotation cp="👨‍🎨">Farbpalette | Künstler | Maler | Mann</annotation>
 		<annotation cp="👨‍🎨" type="tts">Künstler</annotation>
 		<annotation cp="👩‍🎨">Farbpalette | Frau | Künstlerin | Malerin</annotation>
 		<annotation cp="👩‍🎨" type="tts">Künstlerin</annotation>
+		<annotation cp="🧑‍✈">Flugzeug | Pilot</annotation>
+		<annotation cp="🧑‍✈" type="tts">Pilot(in)</annotation>
 		<annotation cp="👨‍✈">Flugzeug | Mann | Pilot</annotation>
 		<annotation cp="👨‍✈" type="tts">Pilot</annotation>
 		<annotation cp="👩‍✈">Flugzeug | Frau | Pilotin</annotation>
 		<annotation cp="👩‍✈" type="tts">Pilotin</annotation>
+		<annotation cp="🧑‍🚀">Astronaut | Rakete</annotation>
+		<annotation cp="🧑‍🚀" type="tts">Astronaut(in)</annotation>
 		<annotation cp="👨‍🚀">Astronaut | Mann | Raumfahrt | Weltraum</annotation>
 		<annotation cp="👨‍🚀" type="tts">Astronaut</annotation>
 		<annotation cp="👩‍🚀">Astronautin | Frau | Raumfahrt | Weltraum</annotation>
 		<annotation cp="👩‍🚀" type="tts">Astronautin</annotation>
+		<annotation cp="🧑‍🚒">Feuerwehrfahrzeug | Feuerwehrmann</annotation>
+		<annotation cp="🧑‍🚒" type="tts">Feuerwehrmann/-frau</annotation>
 		<annotation cp="👨‍🚒">Feuerwehrhelm | Feuerwehrmann | Mann</annotation>
 		<annotation cp="👨‍🚒" type="tts">Feuerwehrmann</annotation>
 		<annotation cp="👩‍🚒">Feuerwehrfrau | Feuerwehrhelm | Frau</annotation>
@@ -705,14 +739,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧎‍♂" type="tts">kniender Mann</annotation>
 		<annotation cp="🧎‍♀">Frau | kniend | kniende Frau</annotation>
 		<annotation cp="🧎‍♀" type="tts">kniende Frau</annotation>
+		<annotation cp="🧑‍🦯">Barrierefreiheit | blind</annotation>
+		<annotation cp="🧑‍🦯" type="tts">Person mit Gehstock</annotation>
 		<annotation cp="👨‍🦯">Barrierefreiheit | blind | Mann | Mann mit Gehstock | sehbehindert</annotation>
 		<annotation cp="👨‍🦯" type="tts">Mann mit Gehstock</annotation>
 		<annotation cp="👩‍🦯">Barrierefreiheit | blind | Frau | Frau mit Gehstock</annotation>
 		<annotation cp="👩‍🦯" type="tts">Frau mit Gehstock</annotation>
+		<annotation cp="🧑‍🦼">Barrierefreiheit | Rollstuhl</annotation>
+		<annotation cp="🧑‍🦼" type="tts">Person in motorisiertem Rollstuhl</annotation>
 		<annotation cp="👨‍🦼">Barrierefreiheit | Mann | Mann in elektrischem Rollstuhl | Rollstuhl</annotation>
 		<annotation cp="👨‍🦼" type="tts">Mann in elektrischem Rollstuhl</annotation>
 		<annotation cp="👩‍🦼">Barrierefreiheit | Frau | Frau in elektrischem Rollstuhl | Rollstuhl</annotation>
 		<annotation cp="👩‍🦼" type="tts">Frau in elektrischem Rollstuhl</annotation>
+		<annotation cp="🧑‍🦽">Barrierefreiheit | Rollstuhl</annotation>
+		<annotation cp="🧑‍🦽" type="tts">Person in manuellem Rollstuhl</annotation>
 		<annotation cp="👨‍🦽">Barrierefreiheit | Mann | Mann in manuellem Rollstuhl | Rollstuhl</annotation>
 		<annotation cp="👨‍🦽" type="tts">Mann in manuellem Rollstuhl</annotation>
 		<annotation cp="👩‍🦽">Barrierefreiheit | Frau | Frau in manuellem Rollstuhl | Rollstuhl</annotation>
@@ -2831,9 +2871,121 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">schwarze Flagge</annotation>
 		<annotation cp="🏳">Fahne | wehen | weiße Fahne | weiße Flagge</annotation>
 		<annotation cp="🏳" type="tts">weiße Flagge</annotation>
+		<annotation cp="🏳‍⚧">Flagge | Transgender</annotation>
+		<annotation cp="🏳‍⚧" type="tts">Transgender-Flagge</annotation>
 		<annotation cp="🏳‍🌈">bunt | Fahne | Regenbogen | Regenbogenflagge</annotation>
 		<annotation cp="🏳‍🌈" type="tts">Regenbogenflagge</annotation>
 		<annotation cp="🏴‍☠">Jolly Roger | Pirat | Piratenfahne | Piratenflagge | Schatz</annotation>
 		<annotation cp="🏴‍☠" type="tts">Piratenflagge</annotation>
+		<annotation cp="🛖">Haus | Jurte | Rundhaus</annotation>
+		<annotation cp="🛖" type="tts">Hütte</annotation>
+		<annotation cp="🛗">Aufzug | Fahrstuhl | Lift</annotation>
+		<annotation cp="🛗" type="tts">Fahrstuhl</annotation>
+		<annotation cp="🛻">Laster | Lieferwagen | Pick-up</annotation>
+		<annotation cp="🛻" type="tts">Pick-up</annotation>
+		<annotation cp="🛼">Rollen | Schuh</annotation>
+		<annotation cp="🛼" type="tts">Rollschuh</annotation>
+		<annotation cp="🤌">Finger | Handgeste | sarkastisch | zusammengedrückt</annotation>
+		<annotation cp="🤌" type="tts">zusammengedrückte Finger</annotation>
+		<annotation cp="🥲">berührt | dankbar | erleichtert | lächelnd | stolz | Träne</annotation>
+		<annotation cp="🥲" type="tts">lachendes Gesicht mit Träne</annotation>
+		<annotation cp="🥷">Ausdauer | Kämpfer | vermummt</annotation>
+		<annotation cp="🥷" type="tts">Ninja</annotation>
+		<annotation cp="🥸">Brille mit Nase | inkognito | verkleidet | verkleidetes Gesicht | Verkleidung</annotation>
+		<annotation cp="🥸" type="tts">verkleidet</annotation>
+		<annotation cp="🦣">Aussterben | groß | Stoßzahn | wollig</annotation>
+		<annotation cp="🦣" type="tts">Mammut</annotation>
+		<annotation cp="🦤">Aussterben | groß | Mauritius</annotation>
+		<annotation cp="🦤" type="tts">Dodo</annotation>
+		<annotation cp="🦫">Biber | Damm</annotation>
+		<annotation cp="🦫" type="tts">Biber</annotation>
+		<annotation cp="🦬">Bison | Büffel | Herde | Wisent</annotation>
+		<annotation cp="🦬" type="tts">Bison</annotation>
+		<annotation cp="🦭">Seehund | Seelöwe</annotation>
+		<annotation cp="🦭" type="tts">Seehund</annotation>
+		<annotation cp="🧋">Blase | Milch | Perle | Tee</annotation>
+		<annotation cp="🧋" type="tts">Bubble Tea</annotation>
+		<annotation cp="🩴">Zehensandale | Zehensandalen</annotation>
+		<annotation cp="🩴" type="tts">Zehensandale</annotation>
+		<annotation cp="🪃">Australien | Boomerang | Bumerang</annotation>
+		<annotation cp="🪃" type="tts">Bumerang</annotation>
+		<annotation cp="🪄">Hexe | Zauberei | Zauberer | Zauberin</annotation>
+		<annotation cp="🪄" type="tts">Zauberstab</annotation>
+		<annotation cp="🪅">Feier | Party</annotation>
+		<annotation cp="🪅" type="tts">Piñata</annotation>
+		<annotation cp="🪆">Matroschka | Puppe | Russland</annotation>
+		<annotation cp="🪆" type="tts">Matroschka</annotation>
+		<annotation cp="🪖">Helm | Kämpfer | Militär | Soldat</annotation>
+		<annotation cp="🪖" type="tts">Militärhelm</annotation>
+		<annotation cp="🪗">Akkordeons | Concertina | Quetschkommode | Quetschkommoden | Ziehharmonika | Ziehharmonikas</annotation>
+		<annotation cp="🪗" type="tts">Akkordeon</annotation>
+		<annotation cp="🪘">afrikanische Trommel | Conga | Rhythmus</annotation>
+		<annotation cp="🪘" type="tts">afrikanische Trommel</annotation>
+		<annotation cp="🪙">Geld | Gold | Metall | Schatz | Silber</annotation>
+		<annotation cp="🪙" type="tts">Münze</annotation>
+		<annotation cp="🪚">Holz | Säge | Tischler | Werkzeug</annotation>
+		<annotation cp="🪚" type="tts">Handsäge</annotation>
+		<annotation cp="🪛">Schraube | Werkzeug</annotation>
+		<annotation cp="🪛" type="tts">Schraubenzieher</annotation>
+		<annotation cp="🪜">klettern | Leiter | Sprosse | Stufe</annotation>
+		<annotation cp="🪜" type="tts">Leiter</annotation>
+		<annotation cp="🪝">Angelhaken | Haken</annotation>
+		<annotation cp="🪝" type="tts">Angelhaken</annotation>
+		<annotation cp="🪞">Reflexion | Spiegel | Spiegelbild</annotation>
+		<annotation cp="🪞" type="tts">Spiegel</annotation>
+		<annotation cp="🪟">Aussicht | durchsichtig | frische Luft | Öffnung | Rahmen</annotation>
+		<annotation cp="🪟" type="tts">Fenster</annotation>
+		<annotation cp="🪠">Saugglocke | Saugglocken | Toilette | verstopft</annotation>
+		<annotation cp="🪠" type="tts">Pömpel</annotation>
+		<annotation cp="🪡">Nadel | nähen | Nähte | schneidern | Stiche | sticken</annotation>
+		<annotation cp="🪡" type="tts">Nähnadel</annotation>
+		<annotation cp="🪢">binden | Schnur | Seil | zusammendrehen</annotation>
+		<annotation cp="🪢" type="tts">Knoten</annotation>
+		<annotation cp="🪣">Behälter | Bottich | Eimer | Kübel</annotation>
+		<annotation cp="🪣" type="tts">Eimer</annotation>
+		<annotation cp="🪤">Falle | Mäusefalle</annotation>
+		<annotation cp="🪤" type="tts">Mäusefalle</annotation>
+		<annotation cp="🪥">Badezimmer | Bürste | sauber | Zähne | Zahnhygiene</annotation>
+		<annotation cp="🪥" type="tts">Zahnbürste</annotation>
+		<annotation cp="🪦">Friedhof | Grab | Grabstein</annotation>
+		<annotation cp="🪦" type="tts">Grabstein</annotation>
+		<annotation cp="🪧">Demonstration | Mahnwache | Plakat | Protest | Schild</annotation>
+		<annotation cp="🪧" type="tts">Plakat</annotation>
+		<annotation cp="🪨">Felsen | Stein</annotation>
+		<annotation cp="🪨" type="tts">Felsen</annotation>
+		<annotation cp="🪰">Krankheit | Made | Pest | verfaulen</annotation>
+		<annotation cp="🪰" type="tts">Fliege</annotation>
+		<annotation cp="🪱">Parasit | Regenwurm | Ringelwurm | Wurm</annotation>
+		<annotation cp="🪱" type="tts">Wurm</annotation>
+		<annotation cp="🪲">Insekt | Käfer</annotation>
+		<annotation cp="🪲" type="tts">Käfer</annotation>
+		<annotation cp="🪳">Insekt | Kakerlake | Schabe</annotation>
+		<annotation cp="🪳" type="tts">Kakerlake</annotation>
+		<annotation cp="🪴">Haus | langweilig | nutzlos | Pflanze | pflegen | wachsen</annotation>
+		<annotation cp="🪴" type="tts">Topfpflanze</annotation>
+		<annotation cp="🪵">Feuerholz | Holz | Holzscheite</annotation>
+		<annotation cp="🪵" type="tts">Holz</annotation>
+		<annotation cp="🪶">Federn | fliegen | leicht</annotation>
+		<annotation cp="🪶" type="tts">Feder</annotation>
+		<annotation cp="🫀">Herzschlag | Mitte | Organ | pulsieren</annotation>
+		<annotation cp="🫀" type="tts">Herz (Organ)</annotation>
+		<annotation cp="🫁">Atem | atmen | ausatmen | einatmen | Organ</annotation>
+		<annotation cp="🫁" type="tts">Lungen</annotation>
+		<annotation cp="🫂">Danke | Hallo | Tschüss | Umarmung</annotation>
+		<annotation cp="🫂" type="tts">sich umarmende Personen</annotation>
+		<annotation cp="🫐">Beere | blau | Blaubeere | Heidelbeere</annotation>
+		<annotation cp="🫐" type="tts">Blaubeeren</annotation>
+		<annotation cp="🫑">Gemüse | Gemüsepaprika | Paprika</annotation>
+		<annotation cp="🫑" type="tts">Paprika</annotation>
+		<annotation cp="🫒">Lebensmittel | Olive</annotation>
+		<annotation cp="🫒" type="tts">Olive</annotation>
+		<annotation cp="🫓">Arepa | Lavasch | Naan | Pita</annotation>
+		<annotation cp="🫓" type="tts">Fladenbrot</annotation>
+		<annotation cp="🫔">eingewickelt | mexikanisch</annotation>
+		<annotation cp="🫔" type="tts">Tamale</annotation>
+		<annotation cp="🫕">geschmolzen | Käse | Schokolade | schweizerisch | Topf</annotation>
+		<annotation cp="🫕" type="tts">Fondue</annotation>
+		<annotation cp="🫖">Kanne | Tee | Teekanne | trinken</annotation>
+		<annotation cp="🫖" type="tts">Teekanne</annotation>
 	</annotations>
 </ldml>

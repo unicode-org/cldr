@@ -20,6 +20,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ak">Akan</language>
 			<language type="am">Amariikị</language>
 			<language type="ar">Arabiikị</language>
+			<language type="ar_001">Ụdị Arabiikị nke oge a</language>
 			<language type="be">Belaruusu</language>
 			<language type="bg">Bọlụgarịa</language>
 			<language type="bn">Bengali</language>
@@ -31,7 +32,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="en">Asụsụ Bekee</language>
 			<language type="en_AU">Bekee ndị Australia</language>
 			<language type="en_CA">Bekee ndị Canada</language>
-			<language type="en_GB">Bekee ndị Britain</language>
+			<language type="en_GB">↑↑↑</language>
 			<language type="en_GB" alt="short">Bekee ndị UK</language>
 			<language type="en_US">Bekee ndị America</language>
 			<language type="en_US" alt="short">Bekee ndị US</language>
@@ -57,6 +58,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="my">Mịanma</language>
 			<language type="ne">Nepali</language>
 			<language type="nl">Dọọch</language>
+			<language type="nl_BE">↑↑↑</language>
 			<language type="pa">Punjabi</language>
 			<language type="pl">Poliishi</language>
 			<language type="pt">Asụsụ Portuguese</language>
@@ -76,8 +78,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="vi">Viyetịnaamụ</language>
 			<language type="yo">Yoruba</language>
 			<language type="zh">Mandarịịnị</language>
+			<language type="zh" alt="menu">↑↑↑</language>
 			<language type="zh_Hans">Asụsụ Chinese dị mfe</language>
+			<language type="zh_Hans" alt="long">↑↑↑</language>
 			<language type="zh_Hant">Asụsụ Chinese Izugbe</language>
+			<language type="zh_Hant" alt="long">↑↑↑</language>
 			<language type="zu">Zulu</language>
 		</languages>
 		<scripts>
@@ -87,32 +92,324 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hans" alt="stand-alone">Han di mfe</script>
 			<script type="Hant">Izugbe</script>
 			<script type="Hant" alt="stand-alone">Han Izugbe</script>
+			<script type="Jpan">Japanese</script>
+			<script type="Kore">Korea</script>
 			<script type="Latn">Latin</script>
 			<script type="Zxxx">Edeghị ede</script>
 			<script type="Zzzz">Mkpụrụ okwu amaghị</script>
 		</scripts>
 		<territories>
+			<territory type="001">Uwa</territory>
+			<territory type="002">Afrika</territory>
+			<territory type="003">Mpaghara Ugwu Amerịka</territory>
+			<territory type="005">Mpaghara Mgbada Ugwu America</territory>
+			<territory type="009">Oceania</territory>
+			<territory type="011">Mpaghara Ọdịda Anyanwụ Afrịka</territory>
+			<territory type="013">Etiti America</territory>
+			<territory type="014">Mpaghara Ọwụwa Anyanwụ Afrịka</territory>
+			<territory type="015">Mpaghara Ugwu Afrịka</territory>
+			<territory type="017">Etiti Afrịka</territory>
+			<territory type="018">Mpaghara Mgbada Ugwu Afrịka</territory>
+			<territory type="019">Amerịka</territory>
+			<territory type="021">Mpaghara Ugwu America</territory>
+			<territory type="029">Onye Carrabean</territory>
+			<territory type="030">Mpaghara Ọwụwa Anyanwụ Asia</territory>
+			<territory type="034">Mpaghara Mgbada Ugwu Asia</territory>
+			<territory type="035">Mpaghara Mgbada Ugwu Asia dị na Ọwụwa Anyanwụ</territory>
+			<territory type="039">Mpaghara Mgbada Ugwu Europe</territory>
+			<territory type="053">Australasia</territory>
+			<territory type="054">Melanesia</territory>
+			<territory type="057">Mpaghara Micronesian</territory>
+			<territory type="061">Polynesia</territory>
+			<territory type="142">Asia</territory>
+			<territory type="143">Etiti Asia</territory>
+			<territory type="145">Mpaghara Ọdịda Anyanwụ Asia</territory>
+			<territory type="150">Europe</territory>
+			<territory type="151">Mpaghara Ọwụwa Anyanwụ Europe</territory>
+			<territory type="154">Mpaghara Ugwu Europe</territory>
+			<territory type="155">Mpaghara Ọdịda Anyanwụ Europe</territory>
+			<territory type="202">Sub-Saharan Afrịka</territory>
+			<territory type="419">Latin America</territory>
+			<territory type="AC">Ascension Island</territory>
+			<territory type="AD">Andorra</territory>
+			<territory type="AE">↑↑↑</territory>
+			<territory type="AF">↑↑↑</territory>
+			<territory type="AG">Antigua &amp; Barbuda</territory>
+			<territory type="AI">Anguilla</territory>
+			<territory type="AL">Albania</territory>
+			<territory type="AM">↑↑↑</territory>
+			<territory type="AO">Angola</territory>
+			<territory type="AQ">Antarctica</territory>
+			<territory type="AR">Argentina</territory>
+			<territory type="AS">American Samoa</territory>
+			<territory type="AT">Austria</territory>
+			<territory type="AU">Australia</territory>
+			<territory type="AW">Aruba</territory>
+			<territory type="AX">Agwaetiti Aland</territory>
+			<territory type="AZ">↑↑↑</territory>
+			<territory type="BA">Bosnia &amp; Herzegovina</territory>
+			<territory type="BB">Barbados</territory>
+			<territory type="BD">↑↑↑</territory>
+			<territory type="BE">Belgium</territory>
+			<territory type="BF">Burkina Faso</territory>
+			<territory type="BG">Bulgaria</territory>
+			<territory type="BH">↑↑↑</territory>
+			<territory type="BI">Burundi</territory>
 			<territory type="BJ">Binin</territory>
+			<territory type="BL">St. Barthélemy</territory>
 			<territory type="BM">Bemuda</territory>
+			<territory type="BN">↑↑↑</territory>
+			<territory type="BO">Bolivia</territory>
+			<territory type="BQ">Caribbean Netherlands</territory>
 			<territory type="BR">Mba Brazil</territory>
+			<territory type="BS">Bahamas</territory>
+			<territory type="BT">↑↑↑</territory>
+			<territory type="BV">Agwaetiti Bouvet</territory>
+			<territory type="BW">Botswana</territory>
+			<territory type="BY">Belarus</territory>
+			<territory type="BZ">Belize</territory>
+			<territory type="CA">Kanada</territory>
+			<territory type="CC">Agwaetiti Cocos (Keeling)</territory>
+			<territory type="CD">Congo - Kinshasa</territory>
+			<territory type="CD" alt="variant">Congo (DRC)</territory>
+			<territory type="CF">Central African Republik</territory>
+			<territory type="CG">Congo</territory>
+			<territory type="CG" alt="variant">Congo (Republik)</territory>
+			<territory type="CH">Switzerland</territory>
+			<territory type="CI">Côte d’Ivoire</territory>
+			<territory type="CI" alt="variant">Ivory Coast</territory>
+			<territory type="CK">Agwaetiti Cook</territory>
+			<territory type="CL">Chile</territory>
+			<territory type="CM">Cameroon</territory>
 			<territory type="CN">Mba China</territory>
+			<territory type="CO">Colombia</territory>
+			<territory type="CP">Agwaetiti Clipperton</territory>
+			<territory type="CR">Kosta Rika</territory>
+			<territory type="CU">Cuba</territory>
+			<territory type="CV">Cape Verde</territory>
+			<territory type="CW">Kurakao</territory>
+			<territory type="CX">Agwaetiti Christmas</territory>
+			<territory type="CY">↑↑↑</territory>
+			<territory type="CZ">Czechia</territory>
+			<territory type="CZ" alt="variant">Czech Republik</territory>
 			<territory type="DE">Mba Germany</territory>
+			<territory type="DG">Diego Garcia</territory>
+			<territory type="DJ">Djibouti</territory>
+			<territory type="DK">Denmark</territory>
+			<territory type="DM">Dominika</territory>
+			<territory type="DO">Dominican Republik</territory>
+			<territory type="DZ">Algeria</territory>
+			<territory type="EA">Ceuta &amp; Melilla</territory>
+			<territory type="EC">Ecuador</territory>
+			<territory type="EE">Estonia</territory>
+			<territory type="EG">Egypt</territory>
+			<territory type="EH">Ọdịda Anyanwụ Sahara</territory>
+			<territory type="ER">Eritrea</territory>
+			<territory type="ES">Spain</territory>
+			<territory type="ET">Ethiopia</territory>
+			<territory type="EU">↑↑↑</territory>
+			<territory type="EZ">↑↑↑</territory>
+			<territory type="FI">Finland</territory>
+			<territory type="FJ">Fiji</territory>
+			<territory type="FK">Agwaetiti Falkland</territory>
+			<territory type="FK" alt="variant">Agwaetiti Falkland</territory>
+			<territory type="FM">Micronesia</territory>
+			<territory type="FO">Agwaetiti Faroe</territory>
 			<territory type="FR">Mba France</territory>
+			<territory type="GA">Gabon</territory>
 			<territory type="GB">Mba United Kingdom</territory>
+			<territory type="GB" alt="short">UK</territory>
+			<territory type="GD">Grenada</territory>
+			<territory type="GE">↑↑↑</territory>
+			<territory type="GF">Frenchi Guiana</territory>
+			<territory type="GG">Guernsey</territory>
+			<territory type="GH">Ghana</territory>
+			<territory type="GI">Gibraltar</territory>
+			<territory type="GL">Greenland</territory>
+			<territory type="GM">Gambia</territory>
+			<territory type="GN">Guinea</territory>
+			<territory type="GP">Guadeloupe</territory>
+			<territory type="GQ">Equatorial Guinea</territory>
+			<territory type="GR">Greece</territory>
+			<territory type="GS">South Georgia na Agwaetiti South Sandwich</territory>
+			<territory type="GT">Guatemala</territory>
+			<territory type="GU">Guam</territory>
+			<territory type="GW">Guinea-Bissau</territory>
+			<territory type="GY">Guyana</territory>
+			<territory type="HK">↑↑↑</territory>
+			<territory type="HK" alt="short">↑↑↑</territory>
+			<territory type="HM">Agwaetiti Heard na Agwaetiti McDonald</territory>
+			<territory type="HN">Honduras</territory>
+			<territory type="HR">Croatia</territory>
 			<territory type="HT">Hati</territory>
+			<territory type="HU">Hungary</territory>
+			<territory type="IC">Agwaetiti Kanarị</territory>
+			<territory type="ID">↑↑↑</territory>
+			<territory type="IE">Ireland</territory>
+			<territory type="IL">↑↑↑</territory>
+			<territory type="IM">Isle of Man</territory>
 			<territory type="IN">Mba India</territory>
+			<territory type="IO">British Indian Ocean Territory</territory>
+			<territory type="IQ">↑↑↑</territory>
+			<territory type="IR">↑↑↑</territory>
+			<territory type="IS">Iceland</territory>
 			<territory type="IT">Mba Italy</territory>
+			<territory type="JE">Jersey</territory>
+			<territory type="JM">Jamaika</territory>
+			<territory type="JO">↑↑↑</territory>
 			<territory type="JP">Mba Japan</territory>
+			<territory type="KE">Kenya</territory>
+			<territory type="KG">↑↑↑</territory>
+			<territory type="KH">↑↑↑</territory>
+			<territory type="KI">Kiribati</territory>
 			<territory type="KM">Comorosu</territory>
+			<territory type="KN">St. Kitts &amp; Nevis</territory>
+			<territory type="KP">↑↑↑</territory>
+			<territory type="KR">↑↑↑</territory>
+			<territory type="KW">↑↑↑</territory>
+			<territory type="KY">Agwaetiti Cayman</territory>
+			<territory type="KZ">↑↑↑</territory>
+			<territory type="LA">↑↑↑</territory>
+			<territory type="LB">↑↑↑</territory>
+			<territory type="LC">St. Lucia</territory>
+			<territory type="LI">Liechtenstein</territory>
+			<territory type="LK">↑↑↑</territory>
+			<territory type="LR">Liberia</territory>
+			<territory type="LS">Lesotho</territory>
+			<territory type="LT">Lithuania</territory>
+			<territory type="LU">Luxembourg</territory>
+			<territory type="LV">Latvia</territory>
 			<territory type="LY">Libyia</territory>
+			<territory type="MA">Morocco</territory>
+			<territory type="MC">Monaco</territory>
+			<territory type="MD">Moldova</territory>
+			<territory type="ME">Montenegro</territory>
+			<territory type="MF">St. Martin</territory>
+			<territory type="MG">Madagaskar</territory>
+			<territory type="MH">Agwaetiti Marshall</territory>
+			<territory type="MK">North Macedonia</territory>
+			<territory type="MK" alt="variant">MK</territory>
+			<territory type="ML">Mali</territory>
+			<territory type="MM">↑↑↑</territory>
+			<territory type="MN">↑↑↑</territory>
+			<territory type="MO">↑↑↑</territory>
+			<territory type="MO" alt="short">↑↑↑</territory>
+			<territory type="MP">Agwaetiti Northern Mariana</territory>
+			<territory type="MQ">Martinique</territory>
+			<territory type="MR">Mauritania</territory>
+			<territory type="MS">Montserrat</territory>
+			<territory type="MT">Malta</territory>
+			<territory type="MU">Mauritius</territory>
 			<territory type="MV">Maldivesa</territory>
+			<territory type="MW">Malawi</territory>
+			<territory type="MX">Mexico</territory>
+			<territory type="MY">↑↑↑</territory>
+			<territory type="MZ">Mozambik</territory>
+			<territory type="NA">Namibia</territory>
+			<territory type="NC">New Caledonia</territory>
+			<territory type="NE">Niger</territory>
+			<territory type="NF">Agwaetiti Norfolk</territory>
 			<territory type="NG">Naịjịrịa</territory>
+			<territory type="NI">Nicaragua</territory>
+			<territory type="NL">Netherlands</territory>
+			<territory type="NO">Norway</territory>
+			<territory type="NP">↑↑↑</territory>
+			<territory type="NR">Nauru</territory>
+			<territory type="NU">Niue</territory>
+			<territory type="NZ">New Zealand</territory>
+			<territory type="OM">↑↑↑</territory>
+			<territory type="PA">Panama</territory>
+			<territory type="PE">Peru</territory>
+			<territory type="PF">Frenchi Polynesia</territory>
+			<territory type="PG">Papua New Guinea</territory>
+			<territory type="PH">Philippines</territory>
+			<territory type="PK">↑↑↑</territory>
+			<territory type="PL">Poland</territory>
+			<territory type="PM">St. Pierre &amp; Miquelon</territory>
+			<territory type="PN">Agwaetiti Pitcairn</territory>
+			<territory type="PR">Puerto Rico</territory>
+			<territory type="PS">↑↑↑</territory>
+			<territory type="PS" alt="short">↑↑↑</territory>
+			<territory type="PT">Portugal</territory>
+			<territory type="PW">Palau</territory>
+			<territory type="PY">Paraguay</territory>
+			<territory type="QA">↑↑↑</territory>
+			<territory type="QO">Outlying Oceania</territory>
+			<territory type="RE">Réunion</territory>
+			<territory type="RO">Romania</territory>
+			<territory type="RS">Serbia</territory>
 			<territory type="RU">Mba Russia</territory>
+			<territory type="RW">Rwanda</territory>
+			<territory type="SA">↑↑↑</territory>
+			<territory type="SB">Agwaetiti Solomon</territory>
+			<territory type="SC">Seychelles</territory>
+			<territory type="SD">Sudan</territory>
+			<territory type="SE">Sweden</territory>
+			<territory type="SG">Singapore</territory>
+			<territory type="SH">St. Helena</territory>
+			<territory type="SI">Slovenia</territory>
+			<territory type="SJ">Svalbard &amp; Jan Mayen</territory>
+			<territory type="SK">Slovakia</territory>
+			<territory type="SL">Sierra Leone</territory>
+			<territory type="SM">San Marino</territory>
+			<territory type="SN">Senegal</territory>
+			<territory type="SO">Somalia</territory>
+			<territory type="SR">Suriname</territory>
+			<territory type="SS">South Sudan</territory>
+			<territory type="ST">São Tomé &amp; Príncipe</territory>
+			<territory type="SV">El Salvador</territory>
+			<territory type="SX">Sint Maarten</territory>
+			<territory type="SY">↑↑↑</territory>
+			<territory type="SZ">Eswatini</territory>
+			<territory type="SZ" alt="variant">Swaziland</territory>
+			<territory type="TA">Tristan da Cunha</territory>
+			<territory type="TC">Agwaetiti Turks na Caicos</territory>
+			<territory type="TD">Chad</territory>
+			<territory type="TF">Ụmụ ngalaba Frenchi Southern</territory>
+			<territory type="TG">Togo</territory>
+			<territory type="TH">Thailand</territory>
+			<territory type="TJ">↑↑↑</territory>
+			<territory type="TK">Tokelau</territory>
+			<territory type="TL">Timor-Leste</territory>
+			<territory type="TL" alt="variant">East Timor</territory>
+			<territory type="TM">↑↑↑</territory>
+			<territory type="TN">Tunisia</territory>
+			<territory type="TO">Tonga</territory>
+			<territory type="TR">↑↑↑</territory>
+			<territory type="TT">Trinidad &amp; Tobago</territory>
+			<territory type="TV">Tuvalu</territory>
+			<territory type="TW">↑↑↑</territory>
+			<territory type="TZ">Tanzania</territory>
+			<territory type="UA">Ukraine</territory>
+			<territory type="UG">Uganda</territory>
+			<territory type="UM">Obere Agwaetiti Dị Na Mpụga U.S</territory>
+			<territory type="UN">Mba Ụwa Jikọrọ Ọnụ</territory>
 			<territory type="US">Mba United States</territory>
+			<territory type="US" alt="short">↑↑↑</territory>
+			<territory type="UY">Uruguay</territory>
+			<territory type="UZ">↑↑↑</territory>
+			<territory type="VA">Vatican City</territory>
+			<territory type="VC">St. Vincent &amp; Grenadines</territory>
+			<territory type="VE">Venezuela</territory>
+			<territory type="VG">Agwaetiti British Virgin</territory>
+			<territory type="VI">Agwaetiti Virgin nke US</territory>
+			<territory type="VN">Vietnam</territory>
+			<territory type="VU">Vanuatu</territory>
+			<territory type="WF">Wallis &amp; Futuna</territory>
+			<territory type="WS">Samoa</territory>
+			<territory type="XA">Pseudo-Accents</territory>
+			<territory type="XB">Pseudo-Bidi</territory>
+			<territory type="XK">Kosovo</territory>
+			<territory type="YE">↑↑↑</territory>
+			<territory type="YT">Mayotte</territory>
+			<territory type="ZA">South Africa</territory>
+			<territory type="ZM">Zambia</territory>
+			<territory type="ZW">Zimbabwe</territory>
 			<territory type="ZZ">Mpaghara Amaghị</territory>
 		</territories>
 		<types>
 			<type key="calendar" type="gregorian">Kalenda Gregory</type>
+			<type key="calendar" type="iso8601">Kalenda ISO-8601</type>
 			<type key="collation" type="standard">Usoro Nhazi</type>
 			<type key="numbers" type="latn">Ọnụ Ọgụgụ Mpaghara Ọdịda Anyanwụ</type>
 		</types>
@@ -133,6 +430,37 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="index">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers" draft="contributed">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation" draft="contributed">[\- , ; \: ! ? . ‘ ’ “ ” ( ) \[ \] \{ \}]</exemplarCharacters>
+		<ellipsis type="final">↑↑↑</ellipsis>
+		<ellipsis type="initial">↑↑↑</ellipsis>
+		<ellipsis type="medial">↑↑↑</ellipsis>
+		<ellipsis type="word-final">↑↑↑</ellipsis>
+		<ellipsis type="word-initial">↑↑↑</ellipsis>
+		<ellipsis type="word-medial">↑↑↑</ellipsis>
+		<moreInformation>↑↑↑</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample=":" draft="contributed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="’" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="%" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="‰" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="$" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="£" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="¥" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="₩" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="₹" draft="contributed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="," draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="+" draft="contributed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="." draft="contributed">↑↑↑</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>↑↑↑</quotationStart>
@@ -188,8 +516,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="h">↑↑↑</dateFormatItem>
+						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="hms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
@@ -208,9 +549,117 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">↑↑↑</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -314,7 +763,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="wed">Wen</day>
 							<day type="thu">Tọọ</day>
 							<day type="fri">Fraị</day>
-							<day type="sat">↑↑↑</day>
+							<day type="sat">Sat</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">↑↑↑</day>
@@ -326,7 +775,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">Ụka</day>
+							<day type="sun">Sọn</day>
 							<day type="mon">Mọn</day>
 							<day type="tue">Tiu</day>
 							<day type="wed">Wen</day>
@@ -335,7 +784,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">Sat</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">Ụbọchị Ụka</day>
+							<day type="sun">Sọndee</day>
 							<day type="mon">Mọnde</day>
 							<day type="tue">Tiuzdee</day>
 							<day type="wed">Wenezdee</day>
@@ -352,7 +801,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="wed">Wen</day>
 							<day type="thu">Tọọ</day>
 							<day type="fri">Fraị</day>
-							<day type="sat">↑↑↑</day>
+							<day type="sat">Sat</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">↑↑↑</day>
@@ -364,7 +813,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">Ụka</day>
+							<day type="sun">Sọn</day>
 							<day type="mon">Mọn</day>
 							<day type="tue">Tiu</day>
 							<day type="wed">Wen</day>
@@ -373,7 +822,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">Sat</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">Ụbọchị Ụka</day>
+							<day type="sun">Sọndee</day>
 							<day type="mon">Mọnde</day>
 							<day type="tue">Tiuzdee</day>
 							<day type="wed">Wenezdee</day>
@@ -392,10 +841,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4">Ọ4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">Ọkara 1</quarter>
@@ -412,10 +861,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4">Ọ4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">Ọkara 1</quarter>
@@ -457,10 +906,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<era type="0">Tupu Kristi</era>
-						<era type="0" alt="variant">BCE</era>
-						<era type="1">Afọ Kristi</era>
-						<era type="1" alt="variant">CE</era>
+						<era type="0">Tupu Kraist</era>
+						<era type="0" alt="variant">Tupu Oge Afọ</era>
+						<era type="1">Afọ Kraịst</era>
+						<era type="1" alt="variant">Oge Afọ</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">T.K.</era>
@@ -575,6 +1024,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">'Izu' W 'n'‘'ime' MMMM</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
@@ -586,6 +1036,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'Izu' w 'n' 'ime' Y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -594,6 +1045,44 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">h a – h a</greatestDifference>
@@ -694,39 +1183,69 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year">
 				<displayName>Afọ</displayName>
+				<relative type="-1">Afọ gara aga</relative>
+				<relative type="0">Afọ a</relative>
+				<relative type="1">Afọ ọzọ</relative>
 			</field>
 			<field type="year-short">
 				<displayName>↑↑↑</displayName>
+				<relative type="-1">Afọ gara aga</relative>
+				<relative type="0">Afọ a</relative>
+				<relative type="1">Afọ ọzọ</relative>
 			</field>
 			<field type="year-narrow">
 				<displayName>↑↑↑</displayName>
+				<relative type="-1">Afọ gara aga</relative>
+				<relative type="0">Afọ a</relative>
+				<relative type="1">Afọ ọzọ</relative>
 			</field>
 			<field type="quarter">
-				<displayName>Nkeji Afọ</displayName>
+				<displayName>Ọnwa atọ n’afọ</displayName>
 			</field>
 			<field type="quarter-short">
-				<displayName>Nkeji Afọ</displayName>
+				<displayName>Ọnwa atọ n’afọ</displayName>
 			</field>
 			<field type="quarter-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>Ọnwa atọ n’afọ</displayName>
 			</field>
 			<field type="month">
 				<displayName>Ọnwa</displayName>
+				<relative type="-1">Ọnwa gara aga</relative>
+				<relative type="0">Ọnwa a</relative>
+				<relative type="1">Ọnwa ọzọ</relative>
 			</field>
 			<field type="month-short">
 				<displayName>↑↑↑</displayName>
+				<relative type="-1">Ọnwa gara aga</relative>
+				<relative type="0">Ọnwa a</relative>
+				<relative type="1">Ọnwa ọzọ</relative>
 			</field>
 			<field type="month-narrow">
 				<displayName>↑↑↑</displayName>
+				<relative type="-1">Ọnwa gara aga</relative>
+				<relative type="0">Ọnwa a</relative>
+				<relative type="1">Ọnwa ọzọ</relative>
 			</field>
 			<field type="week">
 				<displayName>Izu</displayName>
+				<relative type="-1">Izu gara aga</relative>
+				<relative type="0">Izu a</relative>
+				<relative type="1">Izu na-esote</relative>
+				<relativePeriod>Izu nke{0}</relativePeriod>
 			</field>
 			<field type="week-short">
 				<displayName>↑↑↑</displayName>
+				<relative type="-1">Izu gara aga</relative>
+				<relative type="0">Izu a</relative>
+				<relative type="1">Izu na-esote</relative>
+				<relativePeriod>Izu nke{0}</relativePeriod>
 			</field>
 			<field type="week-narrow">
 				<displayName>↑↑↑</displayName>
+				<relative type="-1">Izu gara aga</relative>
+				<relative type="0">Izu a</relative>
+				<relative type="1">Izu na-esote</relative>
+				<relativePeriod>Izu nke{0}</relativePeriod>
 			</field>
 			<field type="day">
 				<displayName>Ụbọchị</displayName>
@@ -736,13 +1255,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-short">
 				<displayName>↑↑↑</displayName>
-				<relative type="-1">Nnyaafụ</relative>
+				<relative type="-1">Ụnyaahụ</relative>
 				<relative type="0">Taata</relative>
 				<relative type="1">↑↑↑</relative>
 			</field>
 			<field type="day-narrow">
 				<displayName>↑↑↑</displayName>
-				<relative type="-1">Nnyaafụ</relative>
+				<relative type="-1">Ụnyaahụ</relative>
 				<relative type="0">Taata</relative>
 				<relative type="1">↑↑↑</relative>
 			</field>
@@ -771,13 +1290,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="second">
-				<displayName>Sekọnd</displayName>
+				<displayName>Tịm kọm</displayName>
 			</field>
 			<field type="second-short">
-				<displayName>Sekọnd</displayName>
+				<displayName>Tịm kọm</displayName>
 			</field>
 			<field type="second-narrow">
-				<displayName>Sekọnd</displayName>
+				<displayName>Tịm kọm</displayName>
 			</field>
 			<field type="zone">
 				<displayName>Mpaghara oge</displayName>
@@ -799,6 +1318,1328 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Etc/Unknown">
 				<exemplarCity>Obodo Amaghị</exemplarCity>
 			</zone>
+			<zone type="Europe/Andorra">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Dubai">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Kabul">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Antigua">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Anguilla">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Tirane">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Yerevan">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Luanda">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Rothera">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Palmer">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Troll">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Syowa">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Mawson">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Davis">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Vostok">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Casey">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Antarctica/DumontDUrville">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Antarctica/McMurdo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Rio_Gallegos">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Mendoza">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Juan">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Ushuaia">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/La_Rioja">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Luis">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Catamarca">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Salta">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Jujuy">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Tucuman">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Cordoba">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pago_Pago">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Vienna">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Australia/Perth">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Australia/Eucla">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Australia/Hobart">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Australia/Lindeman">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Australia/Sydney">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Australia/Brisbane">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Macquarie">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Australia/Lord_Howe">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Aruba">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Mariehamn">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Baku">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Sarajevo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Barbados">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Dhaka">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Brussels">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Ouagadougou">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Sofia">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Bahrain">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Bujumbura">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Porto-Novo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/St_Barthelemy">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Bermuda">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Brunei">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/La_Paz">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Kralendijk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Eirunepe">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Rio_Branco">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Porto_Velho">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Boa_Vista">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Manaus">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Cuiaba">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Santarem">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Campo_Grande">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Belem">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Araguaina">
+				<exemplarCity>Araguaina</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Bahia">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Fortaleza">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Maceio">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Recife">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Noronha">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Nassau">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Thimphu">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Gaborone">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Minsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Belize">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Dawson">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Whitehorse">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Vancouver">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Fort_Nelson">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Creston">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Yellowknife">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Edmonton">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Swift_Current">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Cambridge_Bay">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Regina">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Resolute">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Rainy_River">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Rankin_Inlet">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Coral_Harbour">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Thunder_Bay">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Nipigon">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Iqaluit">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Pangnirtung">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Moncton">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Halifax">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Goose_Bay">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Glace_Bay">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Blanc-Sablon">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/St_Johns">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Cocos">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Kinshasa">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Bangui">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Brazzaville">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Zurich">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Abidjan">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Rarotonga">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Easter">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Santiago">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Douala">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Urumqi">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Shanghai">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Bogota">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Costa_Rica">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Havana">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Cape_Verde">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Curacao">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Christmas">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Nicosia">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Prague">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Busingen">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Berlin">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Djibouti">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Copenhagen">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Dominica">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Santo_Domingo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Algiers">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Galapagos">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Guayaquil">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Tallinn">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Cairo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/El_Aaiun">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Asmera">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Canary">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Ceuta">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Addis_Ababa">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Helsinki">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fiji">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Stanley">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Truk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Ponape">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kosrae">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Faeroe">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Paris">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Libreville">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/London">
+				<long>
+					<daylight>Oge Okpomọkụ Britain</daylight>
+				</long>
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Grenada">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Tbilisi">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Cayenne">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Guernsey">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Accra">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Gibraltar">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Thule">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Godthab">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Banjul">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Conakry">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Guadeloupe">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Malabo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Athens">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/South_Georgia">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Guatemala">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Guam">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Bissau">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Guyana">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Hong_Kong">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Tegucigalpa">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Zagreb">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Port-au-Prince">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Budapest">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Jakarta">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Pontianak">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Makassar">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Jayapura">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Dublin">
+				<long>
+					<daylight>Oge Okpomọkụ Ireland</daylight>
+				</long>
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Jerusalem">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Isle_of_Man">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Calcutta">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Chagos">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Baghdad">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Tehran">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Reykjavik">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Rome">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Jersey">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Jamaica">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Amman">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Tokyo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Nairobi">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Bishkek">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Phnom_Penh">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Enderbury">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kiritimati">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tarawa">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Comoro">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/St_Kitts">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Pyongyang">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Seoul">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuwait">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Cayman">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtau">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Oral">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtobe">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Qostanay">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Qyzylorda">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Almaty">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Vientiane">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Beirut">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/St_Lucia">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Vaduz">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Colombo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Monrovia">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Maseru">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Vilnius">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Luxembourg">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Riga">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Tripoli">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Casablanca">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Monaco">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Chisinau">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Podgorica">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Marigot">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Antananarivo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kwajalein">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Majuro">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Skopje">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Bamako">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Rangoon">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Hovd">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Ulaanbaatar">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Choibalsan">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Macau">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Saipan">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Martinique">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Nouakchott">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Montserrat">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Malta">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Mauritius">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Maldives">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Blantyre">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Tijuana">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Hermosillo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Mazatlan">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Chihuahua">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Bahia_Banderas">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Ojinaga">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Monterrey">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Mexico_City">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Matamoros">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Merida">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuala_Lumpur">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuching">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Maputo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Windhoek">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Noumea">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Niamey">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Norfolk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Lagos">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Managua">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Amsterdam">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Oslo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Katmandu">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Nauru">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Niue">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Chatham">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Auckland">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Muscat">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Panama">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Lima">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tahiti">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Marquesas">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Gambier">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Port_Moresby">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Bougainville">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Manila">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Karachi">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Warsaw">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Miquelon">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pitcairn">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Puerto_Rico">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Gaza">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Hebron">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Azores">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Madeira">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Palau">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Asuncion">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Qatar">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Reunion">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Bucharest">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Belgrade">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Kaliningrad">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Moscow">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Volgograd">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Astrakhan">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Ulyanovsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Kirov">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Yekaterinburg">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Omsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Barnaul">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Tomsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Novokuznetsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Chita">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Yakutsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Vladivostok">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Khandyga">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Sakhalin">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Ust-Nera">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Magadan">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Srednekolymsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Anadyr">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Kigali">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Riyadh">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Guadalcanal">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Mahe">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Khartoum">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Stockholm">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Singapore">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/St_Helena">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Ljubljana">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Arctic/Longyearbyen">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Bratislava">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Freetown">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/San_Marino">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Dakar">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Mogadishu">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Paramaribo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Juba">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Sao_Tome">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/El_Salvador">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Lower_Princes">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Damascus">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Mbabane">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Grand_Turk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Ndjamena">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Kerguelen">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Lome">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Bangkok">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Dushanbe">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fakaofo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Dili">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Ashgabat">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Tunis">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tongatapu">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Istanbul">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Port_of_Spain">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Funafuti">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Taipei">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Dar_es_Salaam">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Uzhgorod">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Zaporozhye">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Kampala">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Midway">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wake">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Adak">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Nome">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Anchorage">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Yakutat">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Sitka">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Juneau">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Metlakatla">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Boise">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/Beulah">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/New_Salem">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/Center">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Menominee">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vincennes">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Petersburg">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Tell_City">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Knox">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Winamac">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Marengo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Louisville">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vevay">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Kentucky/Monticello">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Detroit">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Montevideo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Samarkand">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Tashkent">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Vatican">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/St_Vincent">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Caracas">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Tortola">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/St_Thomas">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Saigon">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Efate">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wallis">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Apia">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Aden">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Mayotte">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Johannesburg">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Lusaka">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Harare">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<metazone type="Afghanistan">
+				<long>
+					<standard>Oge Afghanistan</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Central">
+				<long>
+					<standard>Oge Etiti Afrịka</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Eastern">
+				<long>
+					<standard>Oge Mpaghara Ọwụwa Anyanwụ Afrịka</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Southern">
+				<long>
+					<standard>Oge Izugbe Mpaghara Mgbada Ugwu Afrịka</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Western">
+				<long>
+					<generic>Oge Mpaghara Ọdịda Anyanwụ Afrịka</generic>
+					<standard>Oge Izugbe Mpaghara Ọdịda Anyanwụ Afrịka</standard>
+					<daylight>Oge Okpomọkụ Mpaghara Ọdịda Anyanwụ Afrịka</daylight>
+				</long>
+			</metazone>
+			<metazone type="Alaska">
+				<long>
+					<generic>Oge Alaska</generic>
+					<standard>Oge Izugbe Alaska</standard>
+					<daylight>Oge Ihe Alaska</daylight>
+				</long>
+			</metazone>
+			<metazone type="Amazon">
+				<long>
+					<generic>Oge Amazon</generic>
+					<standard>Oge Izugbe Amazon</standard>
+					<daylight>Oge Okpomọkụ Amazon</daylight>
+				</long>
+			</metazone>
 			<metazone type="America_Central">
 				<long>
 					<generic>Oge Mpaghara Etiti</generic>
@@ -827,11 +2668,215 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Oge Ihe Mpaghara Pacific</daylight>
 				</long>
 			</metazone>
+			<metazone type="Apia">
+				<long>
+					<generic>Oge Apia</generic>
+					<standard>Oge Izugbe Apia</standard>
+					<daylight>Oge Ihe Apia</daylight>
+				</long>
+			</metazone>
+			<metazone type="Arabian">
+				<long>
+					<generic>Oge Arab</generic>
+					<standard>Oge Izugbe Arab</standard>
+					<daylight>Oge Ihe Arab</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina">
+				<long>
+					<generic>Oge Argentina</generic>
+					<standard>Oge Izugbe Argentina</standard>
+					<daylight>Oge Okpomọkụ Argentina</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina_Western">
+				<long>
+					<generic>Oge Mpaghara Ọdịda Anyanwụ Argentina</generic>
+					<standard>Oge Izugbe Mpaghara Ọdịda Anyanwụ Argentina</standard>
+					<daylight>Oge Okpomọkụ Mpaghara Ọdịda Anyanwụ Argentina</daylight>
+				</long>
+			</metazone>
+			<metazone type="Armenia">
+				<long>
+					<generic>Oge Armenia</generic>
+					<standard>Oge Izugbe Armenia</standard>
+					<daylight>Oge Okpomọkụ Armenia</daylight>
+				</long>
+			</metazone>
 			<metazone type="Atlantic">
 				<long>
 					<generic>Oge Mpaghara Atlantic</generic>
 					<standard>Oge Izugbe Mpaghara Atlantic</standard>
 					<daylight>Oge Ihe Mpaghara Atlantic</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Central">
+				<long>
+					<generic>Oge Etiti Australia</generic>
+					<standard>Oge Izugbe Etiti Australia</standard>
+					<daylight>Oge Ihe Etiti Australia</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_CentralWestern">
+				<long>
+					<generic>Oge Mpaghara Ọdịda Anyanwụ Etiti Australia</generic>
+					<standard>Oge Izugbe Mpaghara Ọdịda Anyanwụ Australia</standard>
+					<daylight>Oge Ihe Mpaghara Ọdịda Anyanwụ Australia</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Eastern">
+				<long>
+					<generic>Oge Mpaghara Ọwụwa Anyanwụ Australia</generic>
+					<standard>Oge Izugbe Mpaghara Ọwụwa Anyanwụ Australia</standard>
+					<daylight>Oge Ihe Mpaghara Ọwụwa Anyanwụ Australia</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Western">
+				<long>
+					<generic>Oge Mpaghara Ọdịda Anyanwụ Australia</generic>
+					<standard>Oge Izugbe Mpaghara Ọdịda Anyanwụ Australia</standard>
+					<daylight>Oge Ihe Mpaghara Ọdịda Anyanwụ Australia</daylight>
+				</long>
+			</metazone>
+			<metazone type="Azerbaijan">
+				<long>
+					<generic>Oge Azerbaijan</generic>
+					<standard>Oge Izugbe Azerbaijan</standard>
+					<daylight>Oge Okpomọkụ Azerbaijan</daylight>
+				</long>
+			</metazone>
+			<metazone type="Azores">
+				<long>
+					<generic>Oge Azores</generic>
+					<standard>Oge Izugbe Azores</standard>
+					<daylight>Oge Okpomọkụ Azores</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bangladesh">
+				<long>
+					<generic>Oge Bangladesh</generic>
+					<standard>Oge Izugbe Bangladesh</standard>
+					<daylight>Oge Okpomọkụ Bangladesh</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bhutan">
+				<long>
+					<standard>Oge Bhutan</standard>
+				</long>
+			</metazone>
+			<metazone type="Bolivia">
+				<long>
+					<standard>Oge Bolivia</standard>
+				</long>
+			</metazone>
+			<metazone type="Brasilia">
+				<long>
+					<generic>Oge Brasilia</generic>
+					<standard>Oge Izugbe Brasilia</standard>
+					<daylight>Oge Okpomọkụ Brasilia</daylight>
+				</long>
+			</metazone>
+			<metazone type="Brunei">
+				<long>
+					<standard>Oge Brunei Darussalam</standard>
+				</long>
+			</metazone>
+			<metazone type="Cape_Verde">
+				<long>
+					<generic>Oge Cape Verde</generic>
+					<standard>Oge Izugbe Cape Verde</standard>
+					<daylight>Oge Okpomọkụ Cape Verde</daylight>
+				</long>
+			</metazone>
+			<metazone type="Chamorro">
+				<long>
+					<standard>Oge Izugbe Chamorro</standard>
+				</long>
+			</metazone>
+			<metazone type="Chatham">
+				<long>
+					<generic>Oge Chatham</generic>
+					<standard>Oge Izugbe Chatham</standard>
+					<daylight>Oge Ihe Chatham</daylight>
+				</long>
+			</metazone>
+			<metazone type="Chile">
+				<long>
+					<generic>Oge Chile</generic>
+					<standard>Oge Izugbe Chile</standard>
+					<daylight>Oge Okpomọkụ Chile</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<generic>Oge China</generic>
+					<standard>Oge Izugbe China</standard>
+					<daylight>Oge Ihe China</daylight>
+				</long>
+			</metazone>
+			<metazone type="Choibalsan">
+				<long>
+					<generic>Oge Choibals</generic>
+					<standard>Oge Izugbe Choibals</standard>
+					<daylight>Oge Okpomọkụ Choibals</daylight>
+				</long>
+			</metazone>
+			<metazone type="Christmas">
+				<long>
+					<standard>Oge Ekeresimesi Island</standard>
+				</long>
+			</metazone>
+			<metazone type="Cocos">
+				<long>
+					<standard>Oge Cocos Islands</standard>
+				</long>
+			</metazone>
+			<metazone type="Colombia">
+				<long>
+					<generic>Oge Columbia</generic>
+					<standard>Oge Izugbe Columbia</standard>
+					<daylight>Oge Okpomọkụ Columbia</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cook">
+				<long>
+					<generic>Oge Cook Islands</generic>
+					<standard>Oge Izugbe Cook Islands</standard>
+					<daylight>Oge Ọkara Okpomọkụ Cook Islands</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cuba">
+				<long>
+					<generic>Oge Cuba</generic>
+					<standard>Oge Izugbe Cuba</standard>
+					<daylight>Oge Ihe Mpaghara Cuba</daylight>
+				</long>
+			</metazone>
+			<metazone type="Davis">
+				<long>
+					<standard>Oge Davis</standard>
+				</long>
+			</metazone>
+			<metazone type="DumontDUrville">
+				<long>
+					<standard>Oge Dumont-d’Urville</standard>
+				</long>
+			</metazone>
+			<metazone type="East_Timor">
+				<long>
+					<standard>Oge Mpaghara Ọwụwa Anyanwụ Timor</standard>
+				</long>
+			</metazone>
+			<metazone type="Easter">
+				<long>
+					<generic>Oge Mpaghara Ọwụwa Anyanwụ Island</generic>
+					<standard>Oge Izugbe Mpaghara Ọwụwa Anyanwụ Island</standard>
+					<daylight>Oge Okpomọkụ Mpaghara Ọwụwa Anyanwụ Island</daylight>
+				</long>
+			</metazone>
+			<metazone type="Ecuador">
+				<long>
+					<standard>Oge Ecuador</standard>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">
@@ -848,6 +2893,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Oge Okpomọkụ Mpaghara Ọwụwa Anyanwụ Europe</daylight>
 				</long>
 			</metazone>
+			<metazone type="Europe_Further_Eastern">
+				<long>
+					<standard draft="provisional">↑↑↑</standard>
+				</long>
+			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<generic>Oge Mpaghara Ọdịda Anyanwụ Europe</generic>
@@ -855,9 +2905,577 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Oge Okpomọkụ Mpaghara Ọdịda Anyanwụ Europe</daylight>
 				</long>
 			</metazone>
+			<metazone type="Falkland">
+				<long>
+					<generic>Oge Falkland Islands</generic>
+					<standard>Oge Izugbe Falkland Islands</standard>
+					<daylight>Oge Okpomọkụ Falkland Islands</daylight>
+				</long>
+			</metazone>
+			<metazone type="Fiji">
+				<long>
+					<generic>Oge Fiji</generic>
+					<standard>Oge Izugbe Fiji</standard>
+					<daylight>Oge Okpomọkụ Fiji</daylight>
+				</long>
+			</metazone>
+			<metazone type="French_Guiana">
+				<long>
+					<standard>Oge French Guiana</standard>
+				</long>
+			</metazone>
+			<metazone type="French_Southern">
+				<long>
+					<standard>Oge French Southern &amp; Antarctic</standard>
+				</long>
+			</metazone>
+			<metazone type="Galapagos">
+				<long>
+					<standard>Oge Galapagos</standard>
+				</long>
+			</metazone>
+			<metazone type="Gambier">
+				<long>
+					<standard>Oge Gambier</standard>
+				</long>
+			</metazone>
+			<metazone type="Georgia">
+				<long>
+					<generic>Oge Georgia</generic>
+					<standard>Oge Izugbe Georgia</standard>
+					<daylight>Oge Okpomọkụ Georgia</daylight>
+				</long>
+			</metazone>
+			<metazone type="Gilbert_Islands">
+				<long>
+					<standard>Oge Gilbert Islands</standard>
+				</long>
+			</metazone>
 			<metazone type="GMT">
 				<long>
 					<standard>Oge Mpaghara Greemwich Mean</standard>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Eastern">
+				<long>
+					<generic>Oge Mpaghara Ọwụwa Anyanwụ Greenland</generic>
+					<standard>Oge Izugbe Mpaghara Ọwụwa Anyanwụ Greenland</standard>
+					<daylight>Oge Okpomọkụ Mpaghara Ọwụwa Anyanwụ Greenland</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
+					<generic>Oge Mpaghara Ọdịda Anyanwụ Greenland</generic>
+					<standard>Oge Izugbe Mpaghara Ọdịda Anyanwụ Greenland</standard>
+					<daylight>Oge Okpomọkụ Mpaghara Ọdịda Anyanwụ Greenland</daylight>
+				</long>
+			</metazone>
+			<metazone type="Gulf">
+				<long>
+					<standard>Oge Izugbe Gulf</standard>
+				</long>
+			</metazone>
+			<metazone type="Guyana">
+				<long>
+					<standard>Oge Guyana</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii_Aleutian">
+				<long>
+					<generic>Oge Hawaii-Aleutian</generic>
+					<standard>Oge Izugbe Hawaii-Aleutian</standard>
+					<daylight>Oge Ihe Hawaii-Aleutian</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hong_Kong">
+				<long>
+					<generic>Oge Hong Kong</generic>
+					<standard>Oge Izugbe Hong Kong</standard>
+					<daylight>Oge Okpomọkụ Hong Kong</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hovd">
+				<long>
+					<generic>Oge Hovd</generic>
+					<standard>Oge Izugbe Hovd</standard>
+					<daylight>Oge Okpomọkụ Hovd</daylight>
+				</long>
+			</metazone>
+			<metazone type="India">
+				<long>
+					<standard>Oge Izugbe India</standard>
+				</long>
+			</metazone>
+			<metazone type="Indian_Ocean">
+				<long>
+					<standard>Oge Osimiri India</standard>
+				</long>
+			</metazone>
+			<metazone type="Indochina">
+				<long>
+					<standard>Oge Indochina</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Central">
+				<long>
+					<standard>Oge Etiti Indonesia</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Eastern">
+				<long>
+					<standard>Oge Mpaghara Ọwụwa Anyanwụ Indonesia</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Western">
+				<long>
+					<standard>Oge Mpaghara Ọdịda Anyanwụ Indonesia</standard>
+				</long>
+			</metazone>
+			<metazone type="Iran">
+				<long>
+					<generic>Oge Iran</generic>
+					<standard>Oge Izugbe Iran</standard>
+					<daylight>Oge Ihe Iran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irkutsk">
+				<long>
+					<generic>Oge Irkutsk</generic>
+					<standard>Oge Izugbe Irkutsk</standard>
+					<daylight>Oge Okpomọkụ Irkutsk</daylight>
+				</long>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<generic>Oge Israel</generic>
+					<standard>Oge Izugbe Israel</standard>
+					<daylight>Oge Ihe Israel</daylight>
+				</long>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<generic>Oge Japan</generic>
+					<standard>Oge Izugbe Japan</standard>
+					<daylight>Oge Ihe Japan</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<long>
+					<standard>Oge Mpaghara Ọwụwa Anyanwụ Kazakhstan</standard>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Western">
+				<long>
+					<standard>Oge Mpaghara Ọdịda Anyanwụ Kazakhstan</standard>
+				</long>
+			</metazone>
+			<metazone type="Korea">
+				<long>
+					<generic>Oge Korea</generic>
+					<standard>Oge Izugbe Korea</standard>
+					<daylight>Oge Ihe Korea</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kosrae">
+				<long>
+					<standard>Oge Kosrae</standard>
+				</long>
+			</metazone>
+			<metazone type="Krasnoyarsk">
+				<long>
+					<generic>Oge Krasnoyarsk</generic>
+					<standard>Oge Izugbe Krasnoyarsk</standard>
+					<daylight>Oge Okpomọkụ Krasnoyarsk</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kyrgystan">
+				<long>
+					<standard>Oge Kyrgyzstan</standard>
+				</long>
+			</metazone>
+			<metazone type="Line_Islands">
+				<long>
+					<standard>Oge Line Islands</standard>
+				</long>
+			</metazone>
+			<metazone type="Lord_Howe">
+				<long>
+					<generic>Oge Lord Howe</generic>
+					<standard>Oge Izugbe Lord Howe</standard>
+					<daylight>Oge Ihe Lord Howe</daylight>
+				</long>
+			</metazone>
+			<metazone type="Macquarie">
+				<long>
+					<standard>Oge Macquarie Island</standard>
+				</long>
+			</metazone>
+			<metazone type="Magadan">
+				<long>
+					<generic>Oge Magadan</generic>
+					<standard>Oge Izugbe Magadan</standard>
+					<daylight>Oge Okpomọkụ Magadan</daylight>
+				</long>
+			</metazone>
+			<metazone type="Malaysia">
+				<long>
+					<standard>Oge Malaysia</standard>
+				</long>
+			</metazone>
+			<metazone type="Maldives">
+				<long>
+					<standard>Oge Maldives</standard>
+				</long>
+			</metazone>
+			<metazone type="Marquesas">
+				<long>
+					<standard>Oge Marquesas</standard>
+				</long>
+			</metazone>
+			<metazone type="Marshall_Islands">
+				<long>
+					<standard>Oge Marshall Islands</standard>
+				</long>
+			</metazone>
+			<metazone type="Mauritius">
+				<long>
+					<generic>Oge Mauritius</generic>
+					<standard>Oge Izugbe Mauritius</standard>
+					<daylight>Oge Okpomọkụ Mauritius</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mawson">
+				<long>
+					<standard>Oge Mawson</standard>
+				</long>
+			</metazone>
+			<metazone type="Mexico_Northwest">
+				<long>
+					<generic>Oge Northwest Mexico</generic>
+					<standard>Oge Izugbe Northwest Mexico</standard>
+					<daylight>Oge Ihe Northwest Mexico</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mexico_Pacific">
+				<long>
+					<generic>Oge Mexican Pacific</generic>
+					<standard>Oge Izugbe Mexican Pacific</standard>
+					<daylight>Oge Ihe Mexican Pacific</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mongolia">
+				<long>
+					<generic>Oge Ulaanbaatar</generic>
+					<standard>Oge Izugbe Ulaanbaatar</standard>
+					<daylight>Oge Okpomọkụ Ulaanbaatar</daylight>
+				</long>
+			</metazone>
+			<metazone type="Moscow">
+				<long>
+					<generic>Oge Moscow</generic>
+					<standard>Oge Izugbe Moscow</standard>
+					<daylight>Oge Okpomọkụ Moscow</daylight>
+				</long>
+			</metazone>
+			<metazone type="Myanmar">
+				<long>
+					<standard>Oge Myanmar</standard>
+				</long>
+			</metazone>
+			<metazone type="Nauru">
+				<long>
+					<standard>Oge Nauru</standard>
+				</long>
+			</metazone>
+			<metazone type="Nepal">
+				<long>
+					<standard>Oge Nepal</standard>
+				</long>
+			</metazone>
+			<metazone type="New_Caledonia">
+				<long>
+					<generic>Oge New Caledonia</generic>
+					<standard>Oge Izugbe New Caledonia</standard>
+					<daylight>Oge Okpomọkụ New Caledonia</daylight>
+				</long>
+			</metazone>
+			<metazone type="New_Zealand">
+				<long>
+					<generic>Oge New Zealand</generic>
+					<standard>Oge Izugbe New Zealand</standard>
+					<daylight>Oge Ihe New Zealand</daylight>
+				</long>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<generic>Oge Newfoundland</generic>
+					<standard>Oge Izugbe Newfoundland</standard>
+					<daylight>Oge Ihe Newfoundland</daylight>
+				</long>
+			</metazone>
+			<metazone type="Niue">
+				<long>
+					<standard>Oge Niue</standard>
+				</long>
+			</metazone>
+			<metazone type="Norfolk">
+				<long>
+					<standard>Oge Norfolk Island</standard>
+				</long>
+			</metazone>
+			<metazone type="Noronha">
+				<long>
+					<generic>Oge Fernando de Noronha</generic>
+					<standard>Oge Izugbe Fernando de Noronha</standard>
+					<daylight>Oge Okpomọkụ Fernando de Noronha</daylight>
+				</long>
+			</metazone>
+			<metazone type="Novosibirsk">
+				<long>
+					<generic>Oge Novosibirsk</generic>
+					<standard>Oge Izugbe Novosibirsk</standard>
+					<daylight>Oge Okpomọkụ Novosibirsk</daylight>
+				</long>
+			</metazone>
+			<metazone type="Omsk">
+				<long>
+					<generic>Oge Omsk</generic>
+					<standard>Oge Izugbe Omsk</standard>
+					<daylight>Oge Okpomọkụ Omsk</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pakistan">
+				<long>
+					<generic>Oge Pakistan</generic>
+					<standard>Oge Izugbe Pakistan</standard>
+					<daylight>Oge Okpomọkụ Pakistan</daylight>
+				</long>
+			</metazone>
+			<metazone type="Palau">
+				<long>
+					<standard>Oge Palau</standard>
+				</long>
+			</metazone>
+			<metazone type="Papua_New_Guinea">
+				<long>
+					<standard>Oge Papua New Guinea</standard>
+				</long>
+			</metazone>
+			<metazone type="Paraguay">
+				<long>
+					<generic>Oge Paraguay</generic>
+					<standard>Oge Izugbe Paraguay</standard>
+					<daylight>Oge Okpomọkụ Paraguay</daylight>
+				</long>
+			</metazone>
+			<metazone type="Peru">
+				<long>
+					<generic>Oge Peru</generic>
+					<standard>Oge Izugbe Peru</standard>
+					<daylight>Oge Okpomọkụ Peru</daylight>
+				</long>
+			</metazone>
+			<metazone type="Philippines">
+				<long>
+					<generic>Oge Philippine</generic>
+					<standard>Oge Izugbe Philippine</standard>
+					<daylight>Oge Okpomọkụ Philippine</daylight>
+				</long>
+			</metazone>
+			<metazone type="Phoenix_Islands">
+				<long>
+					<standard>Oge Phoenix Islands</standard>
+				</long>
+			</metazone>
+			<metazone type="Pierre_Miquelon">
+				<long>
+					<generic>Oge St. Pierre &amp; Miquelon</generic>
+					<standard>Oge Izugbe St. Pierre &amp; Miquelon</standard>
+					<daylight>Oge Ihe St. Pierre &amp; Miquelon</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pitcairn">
+				<long>
+					<standard>Oge Pitcairn</standard>
+				</long>
+			</metazone>
+			<metazone type="Ponape">
+				<long>
+					<standard>Oge Ponape</standard>
+				</long>
+			</metazone>
+			<metazone type="Pyongyang">
+				<long>
+					<standard>Oge Pyongyang</standard>
+				</long>
+			</metazone>
+			<metazone type="Reunion">
+				<long>
+					<standard>Oge Réunion</standard>
+				</long>
+			</metazone>
+			<metazone type="Rothera">
+				<long>
+					<standard>Oge Rothera</standard>
+				</long>
+			</metazone>
+			<metazone type="Sakhalin">
+				<long>
+					<generic>Oge Sakhalin</generic>
+					<standard>Oge Izugbe Sakhalin</standard>
+					<daylight>Oge Okpomọkụ Sakhalin</daylight>
+				</long>
+			</metazone>
+			<metazone type="Samoa">
+				<long>
+					<generic>Oge Samoa</generic>
+					<standard>Oge Izugbe Samoa</standard>
+					<daylight>Oge Ihe Samoa</daylight>
+				</long>
+			</metazone>
+			<metazone type="Seychelles">
+				<long>
+					<standard>Oge Seychelles</standard>
+				</long>
+			</metazone>
+			<metazone type="Singapore">
+				<long>
+					<standard>Oge Izugbe Singapore</standard>
+				</long>
+			</metazone>
+			<metazone type="Solomon">
+				<long>
+					<standard>Oge Solomon Islands</standard>
+				</long>
+			</metazone>
+			<metazone type="South_Georgia">
+				<long>
+					<standard>Oge South Georgia</standard>
+				</long>
+			</metazone>
+			<metazone type="Suriname">
+				<long>
+					<standard>Oge Suriname</standard>
+				</long>
+			</metazone>
+			<metazone type="Syowa">
+				<long>
+					<standard>Oge Syowa</standard>
+				</long>
+			</metazone>
+			<metazone type="Tahiti">
+				<long>
+					<standard>Oge Tahiti</standard>
+				</long>
+			</metazone>
+			<metazone type="Taipei">
+				<long>
+					<generic>Oge Taipei</generic>
+					<standard>Oge Izugbe Taipei</standard>
+					<daylight>Oge Ihe Taipei</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tajikistan">
+				<long>
+					<standard>Oge Tajikistan</standard>
+				</long>
+			</metazone>
+			<metazone type="Tokelau">
+				<long>
+					<standard>Oge Tokelau</standard>
+				</long>
+			</metazone>
+			<metazone type="Tonga">
+				<long>
+					<generic>Oge Tonga</generic>
+					<standard>Oge Izugbe Tonga</standard>
+					<daylight>Oge Okpomọkụ Tonga</daylight>
+				</long>
+			</metazone>
+			<metazone type="Truk">
+				<long>
+					<standard>Oge Chuuk</standard>
+				</long>
+			</metazone>
+			<metazone type="Turkmenistan">
+				<long>
+					<generic>Oge Turkmenist</generic>
+					<standard>Oge Izugbe Turkmenist</standard>
+					<daylight>Oge Okpomọkụ Turkmenist</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tuvalu">
+				<long>
+					<standard>Oge Tuvalu</standard>
+				</long>
+			</metazone>
+			<metazone type="Uruguay">
+				<long>
+					<generic>Oge Uruguay</generic>
+					<standard>Oge Izugbe Uruguay</standard>
+					<daylight>Oge Okpomọkụ Uruguay</daylight>
+				</long>
+			</metazone>
+			<metazone type="Uzbekistan">
+				<long>
+					<generic>Oge Uzbekist</generic>
+					<standard>Oge Izugbe Uzbekist</standard>
+					<daylight>Oge Okpomọkụ Uzbekist</daylight>
+				</long>
+			</metazone>
+			<metazone type="Vanuatu">
+				<long>
+					<generic>Oge Vanuatu</generic>
+					<standard>Oge Izugbe Vanuatu</standard>
+					<daylight>Oge Okpomọkụ Vanuatu</daylight>
+				</long>
+			</metazone>
+			<metazone type="Venezuela">
+				<long>
+					<standard>Oge Venezuela</standard>
+				</long>
+			</metazone>
+			<metazone type="Vladivostok">
+				<long>
+					<generic>Oge Vladivostok</generic>
+					<standard>Oge Izugbe Vladivostok</standard>
+					<daylight>Oge Okpomọkụ Vladivostok</daylight>
+				</long>
+			</metazone>
+			<metazone type="Volgograd">
+				<long>
+					<generic>Oge Volgograd</generic>
+					<standard>Oge Izugbe Volgograd</standard>
+					<daylight>Oge Okpomọkụ Volgograd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Vostok">
+				<long>
+					<standard>Oge Vostok</standard>
+				</long>
+			</metazone>
+			<metazone type="Wake">
+				<long>
+					<standard>Oge Wake Island</standard>
+				</long>
+			</metazone>
+			<metazone type="Wallis">
+				<long>
+					<standard>Oge Wallis &amp; Futuna</standard>
+				</long>
+			</metazone>
+			<metazone type="Yakutsk">
+				<long>
+					<generic>Oge Yakutsk</generic>
+					<standard>Oge Izugbe Yakutsk</standard>
+					<daylight>Oge Okpomọkụ Yakutsk</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yekaterinburg">
+				<long>
+					<generic>Oge Yekaterinburg</generic>
+					<standard>Oge Izugbe Yekaterinburg</standard>
+					<daylight>Oge Okpomọkụ Yekaterinburg</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -992,11 +3610,171 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
+			<currency type="AED">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="AFN">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="ALL">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="AMD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="ANG">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="AOA">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="ARS">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="AUD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="AWG">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="AZN">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="BAM">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="BBD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="BDT">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="BGN">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="BHD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="BIF">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="BMD">
+				<displayName>Dollar Bermuda</displayName>
+				<displayName count="other">Dollars Bermuda</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="BND">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="BOB">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
 			<currency type="BRL">
 				<displayName>Real Brazil</displayName>
 				<displayName count="other">Real Brazil</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="BSD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="BTN">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="BWP">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="BYN">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="BZD">
+				<displayName>Dollar Belize</displayName>
+				<displayName count="other">Dollars Belize</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="CAD">
+				<displayName>Dollar Canada</displayName>
+				<displayName count="other">Dollars Canada</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="CDF">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="CHF">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="CLP">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="CNH">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>Yuan China</displayName>
@@ -1004,12 +3782,94 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
+			<currency type="COP">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="CRC">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="CUC">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="CUP">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
 			<currency type="CVE">
 				<displayName>Escudo Caboverdiano</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="CZK">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="DJF">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="DKK">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="DOP">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="DZD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="EGP">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="ERN">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="ETB">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
 				<displayName count="other">euro</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="FJD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="FKP">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -1019,11 +3879,119 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
+			<currency type="GEL">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="GHS">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="GIP">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="GMD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="GNF">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="GTQ">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="GYD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="HKD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="HNL">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="HRK">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="HTG">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="HUF">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="IDR">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="ILS">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
 			<currency type="INR">
 				<displayName>Rupee India</displayName>
 				<displayName count="other">Rupee India</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="IQD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="IRR">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="ISK">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="JMD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="JOD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Yen Japan</displayName>
@@ -1031,9 +3999,257 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">¥</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
+			<currency type="KES">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="KGS">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="KHR">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="KMF">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="KPW">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="KRW">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="KWD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="KYD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="KZT">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="LAK">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="LBP">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="LKR">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="LRD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="LYD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="MAD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="MDL">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="MGA">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="MKD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="MMK">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="MNT">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="MOP">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="MRU">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="MUR">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="MVR">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="MWK">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="MXN">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="MYR">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="MZN">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="NAD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
 			<currency type="NGN">
 				<displayName>Naịra</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol>₦</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="NIO">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="NOK">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="NPR">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="NZD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="OMR">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="PAB">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="PEN">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="PGK">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="PHP">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="PKR">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="PLN">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="PYG">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="QAR">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="RON">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="RSD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Ruble Russia</displayName>
@@ -1041,22 +4257,1730 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
+			<currency type="RWF">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="SAR">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="SBD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="SCR">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="SDG">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="SEK">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="SGD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="SHP">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="SLL">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="SOS">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="SRD">
+				<displayName>Dollar Surinamese</displayName>
+				<displayName count="other">Dollar Surinamese</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="SSP">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="STN">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="SYP">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="SZL">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="THB">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="TJS">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="TMT">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="TND">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="TOP">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="TRY">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="variant" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="TTD">
+				<displayName>Dollar Trinidad &amp; Tobago</displayName>
+				<displayName count="other">Dollars Trinidad &amp; Tobago</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="TWD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="TZS">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="UAH">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="UGX">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
 			<currency type="USD">
 				<displayName>Dollar US</displayName>
-				<displayName count="other">dollar US</displayName>
+				<displayName count="other">Dollars US</displayName>
 				<symbol draft="contributed">$</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="UYU">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="UZS">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="VES">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="VND">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="VUV">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="WST">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="XAF">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="XCD">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="XOF">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="XPF">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>Ego Amaghị</displayName>
 				<displayName count="other">(ego amaghị)</displayName>
 			</currency>
+			<currency type="YER">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="ZAR">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="ZMW">
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">↑↑↑</pattern>
+			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="atMost">≤{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="other" draft="contributed">ubochi {0}</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other" draft="contributed">Si uzo aka nri {0}</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
+		<unitLength type="long">
+			<compoundUnit type="per">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="times">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="acceleration-meter-per-second-squared">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-revolution">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-arc-minute">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-arc-second">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-square-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-dunam">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-milligram-per-deciliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-million">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-permyriad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-mole">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-terabyte">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-terabit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-century">
+				<displayName>Ọtụtụ nari afọ</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-decade">
+				<displayName>Ọtụtụ afọ iri</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>Ọtụtụ Afọ</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>Ọtụtụ Ọnwa</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>Ọtụtụ Izu</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-day">
+				<displayName>Ọtụtụ Ubochi</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-second">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-ampere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-milliampere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-ohm">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-volt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-kilojoule">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-kilowatt-hour">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-electronvolt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-therm-us">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-pound-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-newton">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="frequency-gigahertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="frequency-megahertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="frequency-kilohertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="frequency-hertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-em">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-megapixel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-solar-radius">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="light-lux">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="light-solar-luminosity">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-metric-ton">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-ounce-troy">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-dalton">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-earth-mass">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-solar-mass">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-gigawatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-megawatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-milliwatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-millimeter-of-mercury">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-pound-per-square-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-bar">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-pascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-knot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-kelvin">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="torque-pound-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="torque-newton-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cubic-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cubic-yard">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cubic-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cubic-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-megaliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-hectoliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-deciliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-milliliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-pint-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-quart">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-barrel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<coordinateUnit>
+				<displayName>↑↑↑</displayName>
+				<coordinateUnitPattern type="east">↑↑↑</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">↑↑↑</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">↑↑↑</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">↑↑↑</coordinateUnitPattern>
+			</coordinateUnit>
+		</unitLength>
+		<unitLength type="short">
+			<compoundUnit type="per">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="times">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="acceleration-meter-per-second-squared">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-revolution">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-radian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-arc-minute">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-arc-second">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-square-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-dunam">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-milligram-per-deciliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-million">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-permyriad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-mole">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-terabyte">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-terabit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-century">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-decade">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-day">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-second">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-ampere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-milliampere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-ohm">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-volt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-kilojoule">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-kilowatt-hour">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-electronvolt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-therm-us">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-pound-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-newton">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="frequency-gigahertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="frequency-megahertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="frequency-kilohertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="frequency-hertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-em">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-megapixel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-solar-radius">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="light-lux">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="light-solar-luminosity">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-metric-ton">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-ounce-troy">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-dalton">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-earth-mass">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-solar-mass">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-gigawatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-megawatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-milliwatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-millimeter-of-mercury">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-pound-per-square-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-bar">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-pascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-knot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-kelvin">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="torque-pound-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="torque-newton-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cubic-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cubic-yard">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cubic-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cubic-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-megaliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-hectoliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-deciliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-milliliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-pint-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-quart">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-barrel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<coordinateUnit>
+				<displayName>↑↑↑</displayName>
+				<coordinateUnitPattern type="east">↑↑↑</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">↑↑↑</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">↑↑↑</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">↑↑↑</coordinateUnitPattern>
+			</coordinateUnit>
+		</unitLength>
+		<unitLength type="narrow">
+			<compoundUnit type="per">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="times">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="concentr-percent">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100kilometers">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<coordinateUnit>
+				<displayName>↑↑↑</displayName>
+				<coordinateUnitPattern type="east">↑↑↑</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">↑↑↑</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">↑↑↑</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">↑↑↑</coordinateUnitPattern>
+			</coordinateUnit>
+		</unitLength>
 		<durationUnit type="hm">
 			<durationUnitPattern>↑↑↑</durationUnitPattern>
 		</durationUnit>
@@ -1073,6 +5997,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0}, na {1}</listPatternPart>
 			<listPatternPart type="2">{0} na {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="or-narrow">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="or-short">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-narrow">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-short">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="unit">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-narrow">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-short">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

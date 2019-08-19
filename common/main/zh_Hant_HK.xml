@@ -15,25 +15,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<localeDisplayNames>
 		<localeDisplayPattern>
 			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+			<localeKeyTypePattern>↑↑↑</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">阿法爾文</language>
+			<language type="ab" draft="contributed">↑↑↑</language>
 			<language type="ace">↑↑↑</language>
 			<language type="ach">↑↑↑</language>
 			<language type="ada">↑↑↑</language>
 			<language type="ady">↑↑↑</language>
 			<language type="ae">↑↑↑</language>
 			<language type="aeb">↑↑↑</language>
+			<language type="af">↑↑↑</language>
 			<language type="afh">↑↑↑</language>
+			<language type="agq">↑↑↑</language>
 			<language type="ain">↑↑↑</language>
+			<language type="ak">↑↑↑</language>
 			<language type="akk">↑↑↑</language>
 			<language type="akz">↑↑↑</language>
 			<language type="ale">↑↑↑</language>
 			<language type="aln">↑↑↑</language>
 			<language type="alt">↑↑↑</language>
+			<language type="am">↑↑↑</language>
 			<language type="an">↑↑↑</language>
 			<language type="ang">↑↑↑</language>
 			<language type="anp">↑↑↑</language>
+			<language type="ar">↑↑↑</language>
 			<language type="ar_001">↑↑↑</language>
 			<language type="arc">↑↑↑</language>
 			<language type="arn">↑↑↑</language>
@@ -228,7 +236,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="hak">↑↑↑</language>
 			<language type="haw">↑↑↑</language>
 			<language type="he">↑↑↑</language>
-			<language type="hi">印度文</language>
+			<language type="hi">↑↑↑</language>
 			<language type="hif">↑↑↑</language>
 			<language type="hil">↑↑↑</language>
 			<language type="hit">↑↑↑</language>
@@ -344,6 +352,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="lui">↑↑↑</language>
 			<language type="lun">↑↑↑</language>
 			<language type="luo">盧歐文</language>
+			<language type="lus" draft="contributed">米佐文</language>
 			<language type="luy">↑↑↑</language>
 			<language type="lv">↑↑↑</language>
 			<language type="lzh">↑↑↑</language>
@@ -377,6 +386,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="moh">↑↑↑</language>
 			<language type="mos">↑↑↑</language>
 			<language type="mr">↑↑↑</language>
+			<language type="mrj" draft="contributed">西馬里文</language>
 			<language type="ms">↑↑↑</language>
 			<language type="mt">馬耳他文</language>
 			<language type="mua">↑↑↑</language>
@@ -420,6 +430,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="nwc">↑↑↑</language>
 			<language type="ny">↑↑↑</language>
 			<language type="nym">↑↑↑</language>
+			<language type="nyn">↑↑↑</language>
 			<language type="nyo">↑↑↑</language>
 			<language type="nzi">↑↑↑</language>
 			<language type="oc">↑↑↑</language>
@@ -514,11 +525,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sm">↑↑↑</language>
 			<language type="sma">↑↑↑</language>
 			<language type="smj">↑↑↑</language>
+			<language type="smn">↑↑↑</language>
 			<language type="sms">↑↑↑</language>
 			<language type="sn">修納文</language>
 			<language type="snk">↑↑↑</language>
 			<language type="so">索馬里文</language>
 			<language type="sog">↑↑↑</language>
+			<language type="sq">↑↑↑</language>
 			<language type="sr">↑↑↑</language>
 			<language type="srn">↑↑↑</language>
 			<language type="srr">↑↑↑</language>
@@ -616,6 +629,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="yo">↑↑↑</language>
 			<language type="yrl">↑↑↑</language>
 			<language type="yue">廣東話</language>
+			<language type="yue" alt="menu">↑↑↑</language>
 			<language type="za">↑↑↑</language>
 			<language type="zap">↑↑↑</language>
 			<language type="zbl">↑↑↑</language>
@@ -623,27 +637,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zen">↑↑↑</language>
 			<language type="zgh">摩洛哥標準塔馬齊格特文</language>
 			<language type="zh">↑↑↑</language>
+			<language type="zh" alt="menu">↑↑↑</language>
+			<language type="zh_Hans">↑↑↑</language>
+			<language type="zh_Hans" alt="long">↑↑↑</language>
+			<language type="zh_Hant">↑↑↑</language>
+			<language type="zh_Hant" alt="long">↑↑↑</language>
 			<language type="zu">↑↑↑</language>
 			<language type="zun">↑↑↑</language>
 			<language type="zxx">↑↑↑</language>
 			<language type="zza">↑↑↑</language>
 		</languages>
 		<scripts>
-			<script type="Adlm" draft="contributed">↑↑↑</script>
-			<script type="Afak" draft="contributed">↑↑↑</script>
-			<script type="Aghb" draft="contributed">↑↑↑</script>
-			<script type="Ahom" draft="contributed">↑↑↑</script>
+			<script type="Adlm">↑↑↑</script>
+			<script type="Afak">↑↑↑</script>
+			<script type="Aghb">↑↑↑</script>
+			<script type="Ahom">↑↑↑</script>
 			<script type="Arab">↑↑↑</script>
 			<script type="Arab" alt="variant">↑↑↑</script>
 			<script type="Armi">↑↑↑</script>
 			<script type="Armn">↑↑↑</script>
-			<script type="Avst" draft="contributed">↑↑↑</script>
+			<script type="Avst">↑↑↑</script>
 			<script type="Bali">↑↑↑</script>
-			<script type="Bamu" draft="contributed">↑↑↑</script>
-			<script type="Bass" draft="contributed">↑↑↑</script>
+			<script type="Bamu">↑↑↑</script>
+			<script type="Bass">↑↑↑</script>
 			<script type="Batk">↑↑↑</script>
 			<script type="Beng">↑↑↑</script>
-			<script type="Bhks" draft="contributed">↑↑↑</script>
+			<script type="Bhks">↑↑↑</script>
 			<script type="Blis">↑↑↑</script>
 			<script type="Bopo">↑↑↑</script>
 			<script type="Brah">↑↑↑</script>
@@ -662,18 +681,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Cyrs">↑↑↑</script>
 			<script type="Deva">↑↑↑</script>
 			<script type="Dsrt">↑↑↑</script>
-			<script type="Dupl" draft="contributed">↑↑↑</script>
+			<script type="Dupl">↑↑↑</script>
 			<script type="Egyd">↑↑↑</script>
 			<script type="Egyh">↑↑↑</script>
 			<script type="Egyp">↑↑↑</script>
-			<script type="Elba" draft="contributed">↑↑↑</script>
+			<script type="Elba">↑↑↑</script>
 			<script type="Ethi">埃塞俄比亞文</script>
 			<script type="Geok">↑↑↑</script>
 			<script type="Geor">格魯吉亞文</script>
 			<script type="Glag">↑↑↑</script>
-			<script type="Gonm" draft="contributed">↑↑↑</script>
+			<script type="Gonm">↑↑↑</script>
 			<script type="Goth">↑↑↑</script>
-			<script type="Gran" draft="contributed">↑↑↑</script>
+			<script type="Gran">↑↑↑</script>
 			<script type="Grek">↑↑↑</script>
 			<script type="Gujr">↑↑↑</script>
 			<script type="Guru">古木基文</script>
@@ -685,10 +704,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hans" alt="stand-alone">↑↑↑</script>
 			<script type="Hant">繁體字</script>
 			<script type="Hant" alt="stand-alone">↑↑↑</script>
-			<script type="Hatr" draft="contributed">↑↑↑</script>
+			<script type="Hatr">↑↑↑</script>
 			<script type="Hebr">↑↑↑</script>
 			<script type="Hira">↑↑↑</script>
-			<script type="Hluw" draft="contributed">↑↑↑</script>
+			<script type="Hluw">↑↑↑</script>
 			<script type="Hmng">↑↑↑</script>
 			<script type="Hrkt">↑↑↑</script>
 			<script type="Hung">↑↑↑</script>
@@ -697,16 +716,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Jamo">↑↑↑</script>
 			<script type="Java">↑↑↑</script>
 			<script type="Jpan">↑↑↑</script>
-			<script type="Jurc" draft="contributed">↑↑↑</script>
+			<script type="Jurc">↑↑↑</script>
 			<script type="Kali">↑↑↑</script>
 			<script type="Kana">↑↑↑</script>
 			<script type="Khar">↑↑↑</script>
 			<script type="Khmr">↑↑↑</script>
-			<script type="Khoj" draft="contributed">↑↑↑</script>
+			<script type="Khoj">↑↑↑</script>
 			<script type="Knda">坎納達文</script>
 			<script type="Kore">↑↑↑</script>
-			<script type="Kpel" draft="contributed">↑↑↑</script>
-			<script type="Kthi" draft="contributed">↑↑↑</script>
+			<script type="Kpel">↑↑↑</script>
+			<script type="Kthi">↑↑↑</script>
 			<script type="Lana">↑↑↑</script>
 			<script type="Laoo">老撾文</script>
 			<script type="Latf">↑↑↑</script>
@@ -716,76 +735,76 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Limb">↑↑↑</script>
 			<script type="Lina">↑↑↑</script>
 			<script type="Linb">↑↑↑</script>
-			<script type="Lisu" draft="contributed">↑↑↑</script>
-			<script type="Loma" draft="contributed">↑↑↑</script>
+			<script type="Lisu">↑↑↑</script>
+			<script type="Loma">↑↑↑</script>
 			<script type="Lyci">↑↑↑</script>
 			<script type="Lydi">↑↑↑</script>
-			<script type="Mahj" draft="contributed">↑↑↑</script>
+			<script type="Mahj">↑↑↑</script>
 			<script type="Mand">↑↑↑</script>
-			<script type="Mani" draft="contributed">↑↑↑</script>
-			<script type="Marc" draft="contributed">↑↑↑</script>
+			<script type="Mani">↑↑↑</script>
+			<script type="Marc">↑↑↑</script>
 			<script type="Maya">↑↑↑</script>
-			<script type="Mend" draft="contributed">↑↑↑</script>
-			<script type="Merc" draft="contributed">↑↑↑</script>
+			<script type="Mend">↑↑↑</script>
+			<script type="Merc">↑↑↑</script>
 			<script type="Mero">↑↑↑</script>
 			<script type="Mlym">馬拉雅拉姆文</script>
-			<script type="Modi" draft="contributed">↑↑↑</script>
+			<script type="Modi">↑↑↑</script>
 			<script type="Mong">↑↑↑</script>
-			<script type="Moon" draft="contributed">↑↑↑</script>
-			<script type="Mroo" draft="contributed">↑↑↑</script>
+			<script type="Moon">↑↑↑</script>
+			<script type="Mroo">↑↑↑</script>
 			<script type="Mtei">↑↑↑</script>
-			<script type="Mult" draft="contributed">↑↑↑</script>
+			<script type="Mult">↑↑↑</script>
 			<script type="Mymr">↑↑↑</script>
-			<script type="Narb" draft="contributed">↑↑↑</script>
-			<script type="Nbat" draft="contributed">↑↑↑</script>
+			<script type="Narb">↑↑↑</script>
+			<script type="Nbat">↑↑↑</script>
 			<script type="Newa" draft="contributed">尼瓦爾文</script>
-			<script type="Nkgb" draft="contributed">↑↑↑</script>
+			<script type="Nkgb">↑↑↑</script>
 			<script type="Nkoo">↑↑↑</script>
-			<script type="Nshu" draft="contributed">↑↑↑</script>
+			<script type="Nshu">↑↑↑</script>
 			<script type="Ogam">↑↑↑</script>
 			<script type="Olck">↑↑↑</script>
 			<script type="Orkh">↑↑↑</script>
 			<script type="Orya">奧里雅文</script>
-			<script type="Osge" draft="contributed">↑↑↑</script>
+			<script type="Osge">↑↑↑</script>
 			<script type="Osma">↑↑↑</script>
-			<script type="Palm" draft="contributed">↑↑↑</script>
-			<script type="Pauc" draft="contributed">↑↑↑</script>
+			<script type="Palm">↑↑↑</script>
+			<script type="Pauc">↑↑↑</script>
 			<script type="Perm">↑↑↑</script>
 			<script type="Phag">↑↑↑</script>
-			<script type="Phli" draft="contributed">↑↑↑</script>
-			<script type="Phlp" draft="contributed">↑↑↑</script>
-			<script type="Phlv" draft="contributed">↑↑↑</script>
+			<script type="Phli">↑↑↑</script>
+			<script type="Phlp">↑↑↑</script>
+			<script type="Phlv">↑↑↑</script>
 			<script type="Phnx">↑↑↑</script>
 			<script type="Plrd">↑↑↑</script>
-			<script type="Prti" draft="contributed">↑↑↑</script>
+			<script type="Prti">↑↑↑</script>
 			<script type="Rjng">↑↑↑</script>
 			<script type="Roro">↑↑↑</script>
 			<script type="Runr">↑↑↑</script>
-			<script type="Samr" draft="contributed">↑↑↑</script>
-			<script type="Sara" draft="contributed">↑↑↑</script>
-			<script type="Sarb" draft="contributed">↑↑↑</script>
+			<script type="Samr">↑↑↑</script>
+			<script type="Sara">↑↑↑</script>
+			<script type="Sarb">↑↑↑</script>
 			<script type="Saur">↑↑↑</script>
 			<script type="Sgnw">↑↑↑</script>
 			<script type="Shaw">↑↑↑</script>
-			<script type="Shrd" draft="contributed">↑↑↑</script>
-			<script type="Sidd" draft="contributed">↑↑↑</script>
-			<script type="Sind" draft="contributed">↑↑↑</script>
+			<script type="Shrd">↑↑↑</script>
+			<script type="Sidd">↑↑↑</script>
+			<script type="Sind">↑↑↑</script>
 			<script type="Sinh">僧伽羅文</script>
-			<script type="Sora" draft="contributed">↑↑↑</script>
-			<script type="Soyo" draft="contributed">↑↑↑</script>
-			<script type="Sund" draft="contributed">↑↑↑</script>
+			<script type="Sora">↑↑↑</script>
+			<script type="Soyo">↑↑↑</script>
+			<script type="Sund">↑↑↑</script>
 			<script type="Sylo">↑↑↑</script>
 			<script type="Syrc">↑↑↑</script>
 			<script type="Syre">↑↑↑</script>
 			<script type="Syrj">↑↑↑</script>
 			<script type="Syrn">↑↑↑</script>
 			<script type="Tagb">↑↑↑</script>
-			<script type="Takr" draft="contributed">↑↑↑</script>
+			<script type="Takr">↑↑↑</script>
 			<script type="Tale">↑↑↑</script>
-			<script type="Talu" draft="contributed">↑↑↑</script>
+			<script type="Talu">↑↑↑</script>
 			<script type="Taml">泰米爾文</script>
-			<script type="Tang" draft="contributed">↑↑↑</script>
-			<script type="Tavt" draft="contributed">↑↑↑</script>
+			<script type="Tang">↑↑↑</script>
+			<script type="Tavt">↑↑↑</script>
 			<script type="Telu">↑↑↑</script>
 			<script type="Teng">↑↑↑</script>
 			<script type="Tfng">↑↑↑</script>
@@ -793,17 +812,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Thaa">它拿字母</script>
 			<script type="Thai">↑↑↑</script>
 			<script type="Tibt">↑↑↑</script>
-			<script type="Tirh" draft="contributed">↑↑↑</script>
+			<script type="Tirh">↑↑↑</script>
 			<script type="Ugar">↑↑↑</script>
-			<script type="Vaii" draft="contributed">↑↑↑</script>
-			<script type="Visp" draft="contributed">↑↑↑</script>
-			<script type="Wara" draft="contributed">↑↑↑</script>
-			<script type="Wole" draft="contributed">↑↑↑</script>
+			<script type="Vaii">↑↑↑</script>
+			<script type="Visp">↑↑↑</script>
+			<script type="Wara">↑↑↑</script>
+			<script type="Wole">↑↑↑</script>
 			<script type="Xpeo">↑↑↑</script>
 			<script type="Xsux">↑↑↑</script>
 			<script type="Yiii">↑↑↑</script>
-			<script type="Zanb" draft="contributed">↑↑↑</script>
-			<script type="Zinh" draft="contributed">↑↑↑</script>
+			<script type="Zanb">↑↑↑</script>
+			<script type="Zinh">↑↑↑</script>
 			<script type="Zmth">↑↑↑</script>
 			<script type="Zsye">↑↑↑</script>
 			<script type="Zsym">↑↑↑</script>
@@ -940,6 +959,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GI">↑↑↑</territory>
 			<territory type="GL">↑↑↑</territory>
 			<territory type="GM">岡比亞</territory>
+			<territory type="GN">幾內亞</territory>
 			<territory type="GP">↑↑↑</territory>
 			<territory type="GQ">↑↑↑</territory>
 			<territory type="GR">↑↑↑</territory>
@@ -987,6 +1007,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="LI">列支敦士登</territory>
 			<territory type="LK">↑↑↑</territory>
 			<territory type="LR">利比里亞</territory>
+			<territory type="LS">賴索托</territory>
 			<territory type="LT">↑↑↑</territory>
 			<territory type="LU">↑↑↑</territory>
 			<territory type="LV">↑↑↑</territory>
@@ -1028,6 +1049,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="NR">瑙魯</territory>
 			<territory type="NU">↑↑↑</territory>
 			<territory type="NZ">↑↑↑</territory>
+			<territory type="OM">阿曼</territory>
 			<territory type="PA">↑↑↑</territory>
 			<territory type="PE">↑↑↑</territory>
 			<territory type="PF">法屬波利尼西亞</territory>
@@ -1069,7 +1091,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ST">聖多美和普林西比</territory>
 			<territory type="SV">↑↑↑</territory>
 			<territory type="SX">↑↑↑</territory>
+			<territory type="SY">↑↑↑</territory>
 			<territory type="SZ">斯威士蘭</territory>
+			<territory type="SZ" alt="variant">↑↑↑</territory>
 			<territory type="TA">↑↑↑</territory>
 			<territory type="TC">特克斯和凱科斯群島</territory>
 			<territory type="TD">乍得</territory>
@@ -1116,114 +1140,119 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ZW">津巴布韋</territory>
 			<territory type="ZZ">↑↑↑</territory>
 		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">↑↑↑</subdivision>
+			<subdivision type="gbsct">↑↑↑</subdivision>
+			<subdivision type="gbwls">↑↑↑</subdivision>
+		</subdivisions>
 		<variants>
 			<variant type="1901" draft="contributed">傳統德國拼字法</variant>
-			<variant type="1994" draft="contributed">↑↑↑</variant>
+			<variant type="1994">↑↑↑</variant>
 			<variant type="1996">1996 德國拼字法</variant>
-			<variant type="1606NICT" draft="contributed">↑↑↑</variant>
-			<variant type="1694ACAD" draft="contributed">↑↑↑</variant>
-			<variant type="1959ACAD" draft="contributed">↑↑↑</variant>
+			<variant type="1606NICT">↑↑↑</variant>
+			<variant type="1694ACAD">↑↑↑</variant>
+			<variant type="1959ACAD">↑↑↑</variant>
 			<variant type="ABL1943">ABL1943</variant>
 			<variant type="AKUAPEM">↑↑↑</variant>
-			<variant type="ALALC97" draft="contributed">↑↑↑</variant>
-			<variant type="ALUKU" draft="contributed">↑↑↑</variant>
-			<variant type="AO1990" draft="contributed">↑↑↑</variant>
+			<variant type="ALALC97">↑↑↑</variant>
+			<variant type="ALUKU">↑↑↑</variant>
+			<variant type="AO1990">↑↑↑</variant>
 			<variant type="AREVELA">↑↑↑</variant>
 			<variant type="AREVMDA">↑↑↑</variant>
 			<variant type="ASANTE">↑↑↑</variant>
-			<variant type="BAKU1926" draft="contributed">↑↑↑</variant>
-			<variant type="BALANKA" draft="contributed">↑↑↑</variant>
-			<variant type="BARLA" draft="contributed">↑↑↑</variant>
+			<variant type="BAKU1926">↑↑↑</variant>
+			<variant type="BALANKA">↑↑↑</variant>
+			<variant type="BARLA">↑↑↑</variant>
 			<variant type="BASICENG">↑↑↑</variant>
-			<variant type="BAUDDHA" draft="contributed">↑↑↑</variant>
-			<variant type="BISCAYAN" draft="contributed">↑↑↑</variant>
-			<variant type="BISKE" draft="contributed">↑↑↑</variant>
-			<variant type="BOHORIC" draft="contributed">↑↑↑</variant>
-			<variant type="BOONT" draft="contributed">↑↑↑</variant>
+			<variant type="BAUDDHA">↑↑↑</variant>
+			<variant type="BISCAYAN">↑↑↑</variant>
+			<variant type="BISKE">↑↑↑</variant>
+			<variant type="BOHORIC">↑↑↑</variant>
+			<variant type="BOONT">↑↑↑</variant>
 			<variant type="CORNU">↑↑↑</variant>
-			<variant type="DAJNKO" draft="contributed">↑↑↑</variant>
-			<variant type="EKAVSK" draft="contributed">↑↑↑</variant>
-			<variant type="EMODENG" draft="contributed">↑↑↑</variant>
+			<variant type="DAJNKO">↑↑↑</variant>
+			<variant type="EKAVSK">↑↑↑</variant>
+			<variant type="EMODENG">↑↑↑</variant>
 			<variant type="FONIPA">↑↑↑</variant>
 			<variant type="FONNAPA">↑↑↑</variant>
 			<variant type="FONUPA">↑↑↑</variant>
-			<variant type="FONXSAMP" draft="contributed">↑↑↑</variant>
-			<variant type="HEPBURN" draft="contributed">↑↑↑</variant>
-			<variant type="HOGNORSK" draft="contributed">↑↑↑</variant>
+			<variant type="FONXSAMP">↑↑↑</variant>
+			<variant type="HEPBURN">↑↑↑</variant>
+			<variant type="HOGNORSK">↑↑↑</variant>
 			<variant type="HSISTEMO">↑↑↑</variant>
-			<variant type="IJEKAVSK" draft="contributed">↑↑↑</variant>
-			<variant type="ITIHASA" draft="contributed">↑↑↑</variant>
+			<variant type="IJEKAVSK">↑↑↑</variant>
+			<variant type="ITIHASA">↑↑↑</variant>
 			<variant type="IVANCHOV">↑↑↑</variant>
-			<variant type="JAUER" draft="contributed">↑↑↑</variant>
-			<variant type="JYUTPING" draft="contributed">↑↑↑</variant>
-			<variant type="KKCOR" draft="contributed">↑↑↑</variant>
+			<variant type="JAUER">↑↑↑</variant>
+			<variant type="JYUTPING">↑↑↑</variant>
+			<variant type="KKCOR">↑↑↑</variant>
 			<variant type="KOCIEWIE">↑↑↑</variant>
-			<variant type="KSCOR" draft="contributed">↑↑↑</variant>
-			<variant type="LAUKIKA" draft="contributed">↑↑↑</variant>
-			<variant type="LIPAW" draft="contributed">↑↑↑</variant>
-			<variant type="LUNA1918" draft="contributed">↑↑↑</variant>
-			<variant type="METELKO" draft="contributed">↑↑↑</variant>
-			<variant type="MONOTON" draft="contributed">↑↑↑</variant>
-			<variant type="NDYUKA" draft="contributed">↑↑↑</variant>
-			<variant type="NEDIS" draft="contributed">↑↑↑</variant>
+			<variant type="KSCOR">↑↑↑</variant>
+			<variant type="LAUKIKA">↑↑↑</variant>
+			<variant type="LIPAW">↑↑↑</variant>
+			<variant type="LUNA1918">↑↑↑</variant>
+			<variant type="METELKO">↑↑↑</variant>
+			<variant type="MONOTON">↑↑↑</variant>
+			<variant type="NDYUKA">↑↑↑</variant>
+			<variant type="NEDIS">↑↑↑</variant>
 			<variant type="NEWFOUND">↑↑↑</variant>
-			<variant type="NJIVA" draft="contributed">↑↑↑</variant>
-			<variant type="NULIK" draft="contributed">↑↑↑</variant>
-			<variant type="OSOJS" draft="contributed">↑↑↑</variant>
-			<variant type="OXENDICT" draft="contributed">↑↑↑</variant>
+			<variant type="NJIVA">↑↑↑</variant>
+			<variant type="NULIK">↑↑↑</variant>
+			<variant type="OSOJS">↑↑↑</variant>
+			<variant type="OXENDICT">↑↑↑</variant>
 			<variant type="PAHAWH2">↑↑↑</variant>
 			<variant type="PAHAWH3">↑↑↑</variant>
 			<variant type="PAHAWH4">↑↑↑</variant>
-			<variant type="PAMAKA" draft="contributed">↑↑↑</variant>
-			<variant type="PETR1708" draft="contributed">↑↑↑</variant>
+			<variant type="PAMAKA">↑↑↑</variant>
+			<variant type="PETR1708">↑↑↑</variant>
 			<variant type="PINYIN">↑↑↑</variant>
-			<variant type="POLYTON" draft="contributed">↑↑↑</variant>
+			<variant type="POLYTON">↑↑↑</variant>
 			<variant type="POSIX">↑↑↑</variant>
-			<variant type="PUTER" draft="contributed">↑↑↑</variant>
+			<variant type="PUTER">↑↑↑</variant>
 			<variant type="REVISED" draft="contributed">已修訂拼字法</variant>
-			<variant type="RIGIK" draft="contributed">↑↑↑</variant>
-			<variant type="ROZAJ" draft="contributed">↑↑↑</variant>
-			<variant type="RUMGR" draft="contributed">↑↑↑</variant>
-			<variant type="SAAHO" draft="contributed">↑↑↑</variant>
+			<variant type="RIGIK">↑↑↑</variant>
+			<variant type="ROZAJ">↑↑↑</variant>
+			<variant type="RUMGR">↑↑↑</variant>
+			<variant type="SAAHO">↑↑↑</variant>
 			<variant type="SCOTLAND" draft="contributed">蘇格蘭標準英語</variant>
-			<variant type="SCOUSE" draft="contributed">↑↑↑</variant>
+			<variant type="SCOUSE">↑↑↑</variant>
 			<variant type="SIMPLE">↑↑↑</variant>
-			<variant type="SOLBA" draft="contributed">↑↑↑</variant>
+			<variant type="SOLBA">↑↑↑</variant>
 			<variant type="SOTAV">SOTAV</variant>
 			<variant type="SPANGLIS">↑↑↑</variant>
-			<variant type="SURMIRAN" draft="contributed">↑↑↑</variant>
-			<variant type="SURSILV" draft="contributed">↑↑↑</variant>
-			<variant type="SUTSILV" draft="contributed">↑↑↑</variant>
-			<variant type="TARASK" draft="contributed">↑↑↑</variant>
-			<variant type="UCCOR" draft="contributed">↑↑↑</variant>
-			<variant type="UCRCOR" draft="contributed">↑↑↑</variant>
-			<variant type="ULSTER" draft="contributed">↑↑↑</variant>
+			<variant type="SURMIRAN">↑↑↑</variant>
+			<variant type="SURSILV">↑↑↑</variant>
+			<variant type="SUTSILV">↑↑↑</variant>
+			<variant type="TARASK">↑↑↑</variant>
+			<variant type="UCCOR">↑↑↑</variant>
+			<variant type="UCRCOR">↑↑↑</variant>
+			<variant type="ULSTER">↑↑↑</variant>
 			<variant type="UNIFON">↑↑↑</variant>
-			<variant type="VAIDIKA" draft="contributed">↑↑↑</variant>
-			<variant type="VALENCIA" draft="contributed">↑↑↑</variant>
-			<variant type="VALLADER" draft="contributed">↑↑↑</variant>
+			<variant type="VAIDIKA">↑↑↑</variant>
+			<variant type="VALENCIA">↑↑↑</variant>
+			<variant type="VALLADER">↑↑↑</variant>
 			<variant type="WADEGILE">↑↑↑</variant>
 			<variant type="XSISTEMO">↑↑↑</variant>
 		</variants>
 		<keys>
 			<key type="calendar">↑↑↑</key>
 			<key type="cf">↑↑↑</key>
-			<key type="colAlternate" draft="contributed">↑↑↑</key>
-			<key type="colBackwards" draft="contributed">↑↑↑</key>
-			<key type="colCaseFirst" draft="contributed">↑↑↑</key>
-			<key type="colCaseLevel" draft="contributed">↑↑↑</key>
+			<key type="colAlternate">↑↑↑</key>
+			<key type="colBackwards">↑↑↑</key>
+			<key type="colCaseFirst">↑↑↑</key>
+			<key type="colCaseLevel">↑↑↑</key>
 			<key type="collation">↑↑↑</key>
-			<key type="colNormalization" draft="contributed">↑↑↑</key>
-			<key type="colNumeric" draft="contributed">↑↑↑</key>
-			<key type="colStrength" draft="contributed">↑↑↑</key>
+			<key type="colNormalization">↑↑↑</key>
+			<key type="colNumeric">↑↑↑</key>
+			<key type="colStrength">↑↑↑</key>
 			<key type="currency">↑↑↑</key>
 			<key type="hc">↑↑↑</key>
 			<key type="lb">↑↑↑</key>
 			<key type="ms">度量衡系統</key>
 			<key type="numbers">↑↑↑</key>
-			<key type="timezone" draft="contributed">↑↑↑</key>
-			<key type="va" draft="contributed">↑↑↑</key>
-			<key type="x" draft="contributed">專用區</key>
+			<key type="timezone">↑↑↑</key>
+			<key type="va">↑↑↑</key>
+			<key type="x">專用區</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">↑↑↑</type>
@@ -1237,54 +1266,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="indian">↑↑↑</type>
 			<type key="calendar" type="islamic">↑↑↑</type>
 			<type key="calendar" type="islamic-civil">↑↑↑</type>
-			<type key="calendar" type="islamic-rgsa" draft="contributed">↑↑↑</type>
-			<type key="calendar" type="islamic-tbla" draft="contributed">↑↑↑</type>
-			<type key="calendar" type="islamic-umalqura" draft="contributed">↑↑↑</type>
+			<type key="calendar" type="islamic-rgsa">↑↑↑</type>
+			<type key="calendar" type="islamic-tbla">↑↑↑</type>
+			<type key="calendar" type="islamic-umalqura">↑↑↑</type>
 			<type key="calendar" type="iso8601">↑↑↑</type>
 			<type key="calendar" type="japanese">↑↑↑</type>
 			<type key="calendar" type="persian">↑↑↑</type>
 			<type key="calendar" type="roc">↑↑↑</type>
 			<type key="cf" type="account">↑↑↑</type>
 			<type key="cf" type="standard">↑↑↑</type>
-			<type key="colAlternate" type="non-ignorable" draft="contributed">↑↑↑</type>
-			<type key="colAlternate" type="shifted" draft="contributed">↑↑↑</type>
-			<type key="colBackwards" type="no" draft="contributed">↑↑↑</type>
+			<type key="colAlternate" type="non-ignorable">↑↑↑</type>
+			<type key="colAlternate" type="shifted">↑↑↑</type>
+			<type key="colBackwards" type="no">↑↑↑</type>
 			<type key="colBackwards" type="yes" draft="contributed">↑↑↑</type>
-			<type key="colCaseFirst" type="lower" draft="contributed">↑↑↑</type>
-			<type key="colCaseFirst" type="no" draft="contributed">↑↑↑</type>
-			<type key="colCaseFirst" type="upper" draft="contributed">↑↑↑</type>
-			<type key="colCaseLevel" type="no" draft="contributed">↑↑↑</type>
+			<type key="colCaseFirst" type="lower">↑↑↑</type>
+			<type key="colCaseFirst" type="no">↑↑↑</type>
+			<type key="colCaseFirst" type="upper">↑↑↑</type>
+			<type key="colCaseLevel" type="no">↑↑↑</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">↑↑↑</type>
 			<type key="collation" type="big5han">繁體中文排序 (Big5)</type>
-			<type key="collation" type="compat" draft="contributed">↑↑↑</type>
+			<type key="collation" type="compat">↑↑↑</type>
 			<type key="collation" type="dictionary" draft="contributed">詞典排序</type>
 			<type key="collation" type="ducet">↑↑↑</type>
-			<type key="collation" type="emoji" draft="contributed">↑↑↑</type>
-			<type key="collation" type="eor" draft="contributed">↑↑↑</type>
+			<type key="collation" type="emoji">↑↑↑</type>
+			<type key="collation" type="eor">↑↑↑</type>
 			<type key="collation" type="gb2312han">簡體中文排序 (GB2312)</type>
 			<type key="collation" type="phonebook">↑↑↑</type>
 			<type key="collation" type="phonetic">↑↑↑</type>
 			<type key="collation" type="pinyin">↑↑↑</type>
 			<type key="collation" type="reformed" draft="contributed">改革版排序</type>
 			<type key="collation" type="search">↑↑↑</type>
-			<type key="collation" type="searchjl" draft="contributed">↑↑↑</type>
+			<type key="collation" type="searchjl">↑↑↑</type>
 			<type key="collation" type="standard">↑↑↑</type>
 			<type key="collation" type="stroke">↑↑↑</type>
 			<type key="collation" type="traditional">↑↑↑</type>
 			<type key="collation" type="unihan">↑↑↑</type>
 			<type key="collation" type="zhuyin">↑↑↑</type>
-			<type key="colNormalization" type="no" draft="contributed">↑↑↑</type>
-			<type key="colNormalization" type="yes" draft="contributed">↑↑↑</type>
-			<type key="colNumeric" type="no" draft="contributed">↑↑↑</type>
+			<type key="colNormalization" type="no">↑↑↑</type>
+			<type key="colNormalization" type="yes">↑↑↑</type>
+			<type key="colNumeric" type="no">↑↑↑</type>
 			<type key="colNumeric" type="yes" draft="contributed">↑↑↑</type>
-			<type key="colStrength" type="identical" draft="contributed">↑↑↑</type>
+			<type key="colStrength" type="identical">↑↑↑</type>
 			<type key="colStrength" type="primary" draft="contributed">↑↑↑</type>
-			<type key="colStrength" type="quaternary" draft="contributed">↑↑↑</type>
-			<type key="colStrength" type="secondary" draft="contributed">↑↑↑</type>
-			<type key="colStrength" type="tertiary" draft="contributed">↑↑↑</type>
+			<type key="colStrength" type="quaternary">↑↑↑</type>
+			<type key="colStrength" type="secondary">↑↑↑</type>
+			<type key="colStrength" type="tertiary">↑↑↑</type>
 			<type key="d0" type="fwidth">↑↑↑</type>
 			<type key="d0" type="hwidth">↑↑↑</type>
-			<type key="d0" type="npinyin" draft="contributed">↑↑↑</type>
+			<type key="d0" type="npinyin">↑↑↑</type>
 			<type key="hc" type="h11">↑↑↑</type>
 			<type key="hc" type="h12">↑↑↑</type>
 			<type key="hc" type="h23">↑↑↑</type>
@@ -1297,24 +1326,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ms" type="metric">↑↑↑</type>
 			<type key="ms" type="uksystem">英制</type>
 			<type key="ms" type="ussystem">美制</type>
-			<type key="numbers" type="ahom" draft="contributed">↑↑↑</type>
+			<type key="numbers" type="ahom">↑↑↑</type>
 			<type key="numbers" type="arab">↑↑↑</type>
 			<type key="numbers" type="arabext">↑↑↑</type>
 			<type key="numbers" type="armn">↑↑↑</type>
 			<type key="numbers" type="armnlow">↑↑↑</type>
-			<type key="numbers" type="bali" draft="contributed">↑↑↑</type>
+			<type key="numbers" type="bali">↑↑↑</type>
 			<type key="numbers" type="beng">↑↑↑</type>
-			<type key="numbers" type="brah" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="cakm" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="cham" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="cyrl" draft="contributed">↑↑↑</type>
+			<type key="numbers" type="brah">↑↑↑</type>
+			<type key="numbers" type="cakm">↑↑↑</type>
+			<type key="numbers" type="cham">↑↑↑</type>
+			<type key="numbers" type="cyrl">↑↑↑</type>
 			<type key="numbers" type="deva">天城體數字</type>
 			<type key="numbers" type="ethi">埃塞俄比亞數字</type>
-			<type key="numbers" type="finance" draft="contributed">↑↑↑</type>
+			<type key="numbers" type="finance">↑↑↑</type>
 			<type key="numbers" type="fullwide">↑↑↑</type>
 			<type key="numbers" type="geor">格魯吉亞數字</type>
 			<type key="numbers" type="gong">↑↑↑</type>
-			<type key="numbers" type="gonm" draft="contributed">↑↑↑</type>
+			<type key="numbers" type="gonm">↑↑↑</type>
 			<type key="numbers" type="grek">↑↑↑</type>
 			<type key="numbers" type="greklow">↑↑↑</type>
 			<type key="numbers" type="gujr">↑↑↑</type>
@@ -1325,57 +1354,57 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="hant">↑↑↑</type>
 			<type key="numbers" type="hantfin">↑↑↑</type>
 			<type key="numbers" type="hebr">↑↑↑</type>
-			<type key="numbers" type="hmng" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="java" draft="contributed">↑↑↑</type>
+			<type key="numbers" type="hmng">↑↑↑</type>
+			<type key="numbers" type="java">↑↑↑</type>
 			<type key="numbers" type="jpan">↑↑↑</type>
 			<type key="numbers" type="jpanfin">↑↑↑</type>
-			<type key="numbers" type="kali" draft="contributed">↑↑↑</type>
+			<type key="numbers" type="kali">↑↑↑</type>
 			<type key="numbers" type="khmr">↑↑↑</type>
 			<type key="numbers" type="knda">卡納達數字</type>
-			<type key="numbers" type="lana" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="lanatham" draft="contributed">↑↑↑</type>
+			<type key="numbers" type="lana">↑↑↑</type>
+			<type key="numbers" type="lanatham">↑↑↑</type>
 			<type key="numbers" type="laoo">老撾數字</type>
 			<type key="numbers" type="latn">↑↑↑</type>
-			<type key="numbers" type="lepc" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="limb" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="mathbold" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="mathdbl" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="mathmono" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="mathsanb" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="mathsans" draft="contributed">↑↑↑</type>
+			<type key="numbers" type="lepc">↑↑↑</type>
+			<type key="numbers" type="limb">↑↑↑</type>
+			<type key="numbers" type="mathbold">↑↑↑</type>
+			<type key="numbers" type="mathdbl">↑↑↑</type>
+			<type key="numbers" type="mathmono">↑↑↑</type>
+			<type key="numbers" type="mathsanb">↑↑↑</type>
+			<type key="numbers" type="mathsans">↑↑↑</type>
 			<type key="numbers" type="mlym">馬拉雅拉姆數字</type>
-			<type key="numbers" type="modi" draft="contributed">↑↑↑</type>
+			<type key="numbers" type="modi">↑↑↑</type>
 			<type key="numbers" type="mong">↑↑↑</type>
-			<type key="numbers" type="mroo" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="mtei" draft="contributed">↑↑↑</type>
+			<type key="numbers" type="mroo">↑↑↑</type>
+			<type key="numbers" type="mtei">↑↑↑</type>
 			<type key="numbers" type="mymr">↑↑↑</type>
-			<type key="numbers" type="mymrshan" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="mymrtlng" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="native" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="nkoo" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="olck" draft="contributed">↑↑↑</type>
+			<type key="numbers" type="mymrshan">↑↑↑</type>
+			<type key="numbers" type="mymrtlng">↑↑↑</type>
+			<type key="numbers" type="native">↑↑↑</type>
+			<type key="numbers" type="nkoo">↑↑↑</type>
+			<type key="numbers" type="olck">↑↑↑</type>
 			<type key="numbers" type="orya">奧里亞數字</type>
-			<type key="numbers" type="osma" draft="contributed">↑↑↑</type>
+			<type key="numbers" type="osma">↑↑↑</type>
 			<type key="numbers" type="rohg">↑↑↑</type>
 			<type key="numbers" type="roman">↑↑↑</type>
 			<type key="numbers" type="romanlow">↑↑↑</type>
-			<type key="numbers" type="saur" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="shrd" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="sind" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="sinh" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="sora" draft="contributed">↑↑↑</type>
+			<type key="numbers" type="saur">↑↑↑</type>
+			<type key="numbers" type="shrd">↑↑↑</type>
+			<type key="numbers" type="sind">↑↑↑</type>
+			<type key="numbers" type="sinh">↑↑↑</type>
+			<type key="numbers" type="sora">↑↑↑</type>
 			<type key="numbers" type="sund">↑↑↑</type>
-			<type key="numbers" type="takr" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="talu" draft="contributed">↑↑↑</type>
+			<type key="numbers" type="takr">↑↑↑</type>
+			<type key="numbers" type="talu">↑↑↑</type>
 			<type key="numbers" type="taml">泰米爾數字</type>
 			<type key="numbers" type="tamldec">泰米爾數字</type>
 			<type key="numbers" type="telu">↑↑↑</type>
 			<type key="numbers" type="thai">↑↑↑</type>
 			<type key="numbers" type="tibt">↑↑↑</type>
-			<type key="numbers" type="tirh" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="traditional" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="vaii" draft="contributed">↑↑↑</type>
-			<type key="numbers" type="wara" draft="contributed">↑↑↑</type>
+			<type key="numbers" type="tirh">↑↑↑</type>
+			<type key="numbers" type="traditional">↑↑↑</type>
+			<type key="numbers" type="vaii">↑↑↑</type>
+			<type key="numbers" type="wara">↑↑↑</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">↑↑↑</measurementSystemName>
@@ -1383,10 +1412,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<measurementSystemName type="US">↑↑↑</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
+			<codePattern type="language">↑↑↑</codePattern>
+			<codePattern type="script">↑↑↑</codePattern>
 			<codePattern type="territory">↑↑↑</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
+		<exemplarCharacters draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="index" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="numbers" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">↑↑↑</exemplarCharacters>
 		<ellipsis type="final" draft="contributed">{0}⋯</ellipsis>
 		<ellipsis type="initial" draft="contributed">⋯{0}</ellipsis>
 		<ellipsis type="medial" draft="contributed">{0}⋯{1}</ellipsis>
@@ -2533,7 +2569,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
@@ -2570,7 +2608,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="h">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="H">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">↑↑↑</greatestDifference>
@@ -2578,8 +2616,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a" draft="contributed">↑↑↑</greatestDifference>
@@ -3832,22 +3870,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -3892,7 +3930,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="H">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a" draft="contributed">↑↑↑</greatestDifference>
@@ -3900,8 +3938,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a" draft="contributed">↑↑↑</greatestDifference>
@@ -4329,6 +4367,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">d日E</dateFormatItem>
+						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
@@ -4692,6 +4731,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="3">↑↑↑</quarter>
 							<quarter type="4">↑↑↑</quarter>
 						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
@@ -4701,6 +4746,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4">Q4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
 							<quarter type="1">↑↑↑</quarter>
 							<quarter type="2">↑↑↑</quarter>
 							<quarter type="3">↑↑↑</quarter>
@@ -4795,9 +4846,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0" draft="contributed">公元前</era>
-						<era type="0" alt="variant" draft="contributed">↑↑↑</era>
+						<era type="0" alt="variant">↑↑↑</era>
 						<era type="1" draft="contributed">公元</era>
-						<era type="1" alt="variant" draft="contributed">↑↑↑</era>
+						<era type="1" alt="variant">↑↑↑</era>
 					</eraNarrow>
 				</eras>
 				<dateFormats>
@@ -4873,7 +4924,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Ed">d日E</dateFormatItem>
+						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
@@ -5019,6 +5070,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<intervalFormatItem id="MMMd">
 							<greatestDifference id="d">↑↑↑</greatestDifference>
 							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">M月d日E至d日E</greatestDifference>
+							<greatestDifference id="M">M月d日E至M月d日E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMM">
+							<greatestDifference id="M">LLLL至LLLL</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y至y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">M/y 至 M/y</greatestDifference>
@@ -7324,9 +7385,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="month-short">
 				<displayName>↑↑↑</displayName>
-				<relative type="-1" draft="contributed">↑↑↑</relative>
-				<relative type="0" draft="contributed">↑↑↑</relative>
-				<relative type="1" draft="contributed">↑↑↑</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
@@ -7336,6 +7397,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="month-narrow">
 				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">本月</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0}個月後</relativeTimePattern>
 				</relativeTime>
@@ -7772,7 +7836,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="second-short">
 				<displayName>↑↑↑</displayName>
-				<relative type="0" draft="contributed">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
@@ -7782,7 +7846,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="second-narrow">
 				<displayName>↑↑↑</displayName>
-				<relative type="0" draft="contributed">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0}秒後</relativeTimePattern>
 				</relativeTime>
@@ -8239,6 +8303,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Copenhagen">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
+			<zone type="America/Dominica">
+				<exemplarCity>多米尼克</exemplarCity>
+			</zone>
 			<zone type="America/Santo_Domingo">
 				<exemplarCity>聖多明各</exemplarCity>
 			</zone>
@@ -8483,6 +8550,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Qostanay">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Qyzylorda">
@@ -10103,6 +10173,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="contributed">↑↑↑</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">↑↑↑</native>
+			<traditional draft="contributed">↑↑↑</traditional>
+			<finance draft="contributed">↑↑↑</finance>
+		</otherNumberingSystems>
 		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
 		<symbols numberSystem="arab">
 			<decimal>↑↑↑</decimal>
@@ -10393,7 +10469,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
 		</symbols>
 		<symbols numberSystem="latn">
+			<decimal draft="contributed">↑↑↑</decimal>
+			<group draft="contributed">↑↑↑</group>
 			<list>↑↑↑</list>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign draft="contributed">↑↑↑</plusSign>
+			<minusSign draft="contributed">↑↑↑</minusSign>
+			<exponential>↑↑↑</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>↑↑↑</nan>
+			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
 		</symbols>
 		<symbols numberSystem="lepc">
 			<decimal>↑↑↑</decimal>
@@ -10766,7 +10853,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<percentFormats numberSystem="arab">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern>↑↑↑</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -10787,10 +10874,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencyFormats numberSystem="arab">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern>↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
-					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern>↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -10896,6 +10983,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ARS">
+				<displayName>↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -11102,6 +11190,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CNH">
 				<displayName>↑↑↑</displayName>
@@ -11426,8 +11515,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ISJ">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<displayName count="other" draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ISK">
@@ -11548,7 +11637,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="LTL">
+				<displayName draft="contributed">↑↑↑</displayName>
 				<displayName count="other">立陶宛里塔</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LTT">
@@ -11572,6 +11663,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="LVL">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName count="other" draft="contributed">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LVR">
@@ -12323,7 +12417,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<units>
 		<unitLength type="long">
 			<compoundUnit type="per">
-				<compoundUnitPattern draft="contributed">{0}每{1}</compoundUnitPattern>
+				<compoundUnitPattern>{0}每{1}</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="times">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>↑↑↑</displayName>
@@ -12334,7 +12431,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 米/平方秒</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
-				<displayName draft="contributed">周</displayName>
+				<displayName>周</displayName>
 				<unitPattern count="other">{0} 周</unitPattern>
 			</unit>
 			<unit type="angle-radian">
@@ -12356,7 +12453,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="area-square-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每平方公里</perUnitPattern>
+				<perUnitPattern>{0} 每平方公里</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>↑↑↑</displayName>
@@ -12365,7 +12462,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="area-square-meter">
 				<displayName>平方米</displayName>
 				<unitPattern count="other">{0} 平方米</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每平方米</perUnitPattern>
+				<perUnitPattern>{0} 每平方米</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>平方厘米</displayName>
@@ -12375,7 +12472,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="area-square-mile">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每平方英里</perUnitPattern>
+				<perUnitPattern>{0} 每平方英里</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName>↑↑↑</displayName>
@@ -12407,8 +12504,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
-				<displayName draft="contributed">每公升毫摩爾</displayName>
-				<unitPattern count="other" draft="contributed">每公升 {0} 毫摩爾</unitPattern>
+				<displayName>每公升毫摩爾</displayName>
+				<unitPattern count="other">每公升 {0} 毫摩爾</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-million">
 				<displayName>↑↑↑</displayName>
@@ -12435,12 +12532,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 公升/公里</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
-				<displayName>↑↑↑</displayName>
+				<displayName>公升/100公里</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName>英里每加侖</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>英里/加侖</displayName>
+				<unitPattern count="other">{0} 英里/加侖</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>↑↑↑</displayName>
@@ -12494,40 +12591,44 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} 世紀</unitPattern>
 			</unit>
+			<unit type="duration-decade">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="duration-year">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每年</perUnitPattern>
+				<perUnitPattern>{0} 每年</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>個月</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每個月</perUnitPattern>
+				<perUnitPattern>{0} 每個月</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName draft="contributed">星期</displayName>
+				<displayName>星期</displayName>
 				<unitPattern count="other">{0} 星期</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每星期</perUnitPattern>
+				<perUnitPattern>{0} 每星期</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
-				<displayName draft="contributed">日</displayName>
+				<displayName>日</displayName>
 				<unitPattern count="other">{0} 日</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每日</perUnitPattern>
+				<perUnitPattern>{0} 每日</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每小時</perUnitPattern>
+				<perUnitPattern>{0} 每小時</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每分鐘</perUnitPattern>
+				<perUnitPattern>{0} 每分鐘</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">{0}每秒</perUnitPattern>
+				<perUnitPattern>{0}每秒</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>↑↑↑</displayName>
@@ -12589,6 +12690,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>英制熱量單位</displayName>
 				<unitPattern count="other">{0} 英制熱量單位</unitPattern>
 			</unit>
+			<unit type="energy-therm-us">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="force-pound-force">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -12613,15 +12718,43 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="graphics-em">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-megapixel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="length-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每公里</perUnitPattern>
+				<perUnitPattern>{0} 每公里</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>米</displayName>
 				<unitPattern count="other">{0} 米</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每米</perUnitPattern>
+				<perUnitPattern>{0} 每米</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName>分米</displayName>
@@ -12630,7 +12763,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="length-centimeter">
 				<displayName>厘米</displayName>
 				<unitPattern count="other">{0} 厘米</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每厘米</perUnitPattern>
+				<perUnitPattern>{0} 每厘米</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>毫米</displayName>
@@ -12722,7 +12855,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="mass-gram">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每克</perUnitPattern>
+				<perUnitPattern>{0} 每克</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
 				<displayName>↑↑↑</displayName>
@@ -12737,13 +12870,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-stone">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每磅</perUnitPattern>
+				<perUnitPattern>{0} 每磅</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>安士</displayName>
@@ -12806,11 +12939,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>英吋汞柱</displayName>
 				<unitPattern count="other">{0} 英吋汞柱</unitPattern>
 			</unit>
+			<unit type="pressure-bar">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="pressure-millibar">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-pascal">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -12847,11 +12988,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName draft="contributed">攝氏度</displayName>
+				<displayName>攝氏度</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<displayName draft="contributed">華氏度</displayName>
+				<displayName>華氏度</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
@@ -12907,7 +13048,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-liter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每公升</perUnitPattern>
+				<perUnitPattern>{0} 每公升</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
 				<displayName>↑↑↑</displayName>
@@ -12934,13 +13075,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 英畝呎</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">{0} 每加侖</perUnitPattern>
+				<perUnitPattern>{0} 每加侖</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
 				<displayName>↑↑↑</displayName>
@@ -12981,15 +13122,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
-				<coordinateUnitPattern type="east" draft="contributed">東經 {0}</coordinateUnitPattern>
-				<coordinateUnitPattern type="north" draft="contributed">北緯 {0}</coordinateUnitPattern>
-				<coordinateUnitPattern type="south" draft="contributed">南緯 {0}</coordinateUnitPattern>
-				<coordinateUnitPattern type="west" draft="contributed">西經 {0}</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">東經 {0}</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">北緯 {0}</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">南緯 {0}</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">西經 {0}</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
 			<compoundUnit type="per">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="times">
+				<compoundUnitPattern>{0}⋅{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>↑↑↑</displayName>
@@ -13000,7 +13144,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 米每平方秒</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
-				<displayName draft="contributed">周</displayName>
+				<displayName>周</displayName>
 				<unitPattern count="other">{0} 周</unitPattern>
 			</unit>
 			<unit type="angle-radian">
@@ -13013,7 +13157,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>分</displayName>
-				<unitPattern count="other" draft="contributed">{0} 分</unitPattern>
+				<unitPattern count="other">{0} 分</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName>↑↑↑</displayName>
@@ -13073,8 +13217,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
-				<displayName draft="contributed">毫摩爾/公升</displayName>
-				<unitPattern count="other" draft="contributed">{0} 毫摩爾/公升</unitPattern>
+				<displayName>毫摩爾/公升</displayName>
+				<unitPattern count="other">{0} 毫摩爾/公升</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-million">
 				<displayName>↑↑↑</displayName>
@@ -13160,6 +13304,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="duration-decade">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="duration-year">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -13171,12 +13319,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0} 每月</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName draft="contributed">星期</displayName>
+				<displayName>星期</displayName>
 				<unitPattern count="other">{0} 星期</unitPattern>
 				<perUnitPattern>{0} 每週</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
-				<displayName draft="contributed">日</displayName>
+				<displayName>日</displayName>
 				<unitPattern count="other">{0} 日</unitPattern>
 				<perUnitPattern>{0} 每日</perUnitPattern>
 			</unit>
@@ -13204,7 +13352,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
-				<displayName draft="contributed">納秒</displayName>
+				<displayName>納秒</displayName>
 				<unitPattern count="other">{0} 納秒</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
@@ -13232,7 +13380,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName draft="contributed">千卡</displayName>
+				<displayName>千卡</displayName>
 				<unitPattern count="other">{0} 千卡</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
@@ -13252,6 +13400,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-therm-us">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -13279,6 +13431,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="graphics-em">
+				<displayName>em</displayName>
+				<unitPattern count="other">{0} em</unitPattern>
+			</unit>
+			<unit type="graphics-pixel">
+				<displayName>px</displayName>
+				<unitPattern count="other">{0} px</unitPattern>
+			</unit>
+			<unit type="graphics-megapixel">
+				<displayName>MP</displayName>
+				<unitPattern count="other">{0} MP</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-centimeter">
+				<displayName>ppcm</displayName>
+				<unitPattern count="other">{0} ppcm</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-inch">
+				<displayName>ppi</displayName>
+				<unitPattern count="other">{0} ppi</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-centimeter">
+				<displayName>dpcm</displayName>
+				<unitPattern count="other">{0} dpcm</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<displayName>dpi</displayName>
+				<unitPattern count="other">{0} dpi</unitPattern>
+			</unit>
 			<unit type="length-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -13290,11 +13470,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0} 每米</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
-				<displayName draft="contributed">分米</displayName>
+				<displayName>分米</displayName>
 				<unitPattern count="other">{0} 分米</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
-				<displayName draft="contributed">厘米</displayName>
+				<displayName>厘米</displayName>
 				<unitPattern count="other">{0} 厘米</unitPattern>
 				<perUnitPattern>{0} 每厘米</perUnitPattern>
 			</unit>
@@ -13315,7 +13495,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<displayName draft="contributed">哩</displayName>
+				<displayName>哩</displayName>
 				<unitPattern count="other">{0} 哩</unitPattern>
 			</unit>
 			<unit type="length-yard">
@@ -13353,7 +13533,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
-				<displayName draft="contributed">浬</displayName>
+				<displayName>浬</displayName>
 				<unitPattern count="other">{0} 浬</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
@@ -13404,7 +13584,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="mass-stone">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName>↑↑↑</displayName>
@@ -13465,12 +13645,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pound-per-square-inch">
-				<displayName draft="contributed">磅每平方吋</displayName>
+				<displayName>磅每平方吋</displayName>
 				<unitPattern count="other">{0} 磅每平方吋</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
-				<displayName draft="contributed">英吋汞柱</displayName>
+				<displayName>英吋汞柱</displayName>
 				<unitPattern count="other">{0} 英吋汞柱</unitPattern>
+			</unit>
+			<unit type="pressure-bar">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>↑↑↑</displayName>
@@ -13479,6 +13663,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="pressure-atmosphere">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-pascal">
+				<displayName>帕</displayName>
+				<unitPattern count="other">{0} 帕</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>↑↑↑</displayName>
@@ -13493,16 +13681,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<displayName draft="contributed">公里每小時</displayName>
-				<unitPattern count="other" draft="contributed">{0} 公里每小時</unitPattern>
+				<displayName>公里每小時</displayName>
+				<unitPattern count="other">{0} 公里每小時</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>米每秒</displayName>
 				<unitPattern count="other">{0} 米/秒</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<displayName draft="contributed">英里每小時</displayName>
-				<unitPattern count="other" draft="contributed">{0} 英里每小時</unitPattern>
+				<displayName>英里每小時</displayName>
+				<unitPattern count="other">{0} 英里每小時</unitPattern>
 			</unit>
 			<unit type="speed-knot">
 				<displayName>↑↑↑</displayName>
@@ -13571,7 +13759,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-liter">
-				<displayName draft="contributed">升</displayName>
+				<displayName>升</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>{0} 每升</perUnitPattern>
 			</unit>
@@ -13580,8 +13768,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
-				<displayName draft="contributed">厘升</displayName>
-				<unitPattern count="other" draft="contributed">{0} 厘升</unitPattern>
+				<displayName>厘升</displayName>
+				<unitPattern count="other">{0} 厘升</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>↑↑↑</displayName>
@@ -13601,7 +13789,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-bushel">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
 				<displayName>↑↑↑</displayName>
@@ -13647,23 +13835,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
-				<coordinateUnitPattern type="east" draft="contributed">{0} 東</coordinateUnitPattern>
-				<coordinateUnitPattern type="north" draft="contributed">{0} 北</coordinateUnitPattern>
-				<coordinateUnitPattern type="south" draft="contributed">{0} 南</coordinateUnitPattern>
-				<coordinateUnitPattern type="west" draft="contributed">{0} 西</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0} 東</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} 北</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} 南</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} 西</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
+			<compoundUnit type="times">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-second-squared">
 				<displayName>米每平方秒</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
 				<displayName>周</displayName>
@@ -13678,6 +13869,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="contributed">角分</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
@@ -13685,36 +13877,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>{0} 每平方公里</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName>平方米</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>{0} 每平方米</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>平方厘米</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>{0} 每平方厘米</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}mi²</unitPattern>
 				<perUnitPattern>{0} 每平方英里</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>平方呎</displayName>
@@ -13722,26 +13914,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="area-square-inch">
 				<displayName>平方吋</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>{0} 每平方吋</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-per-deciliter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
 				<displayName draft="contributed">毫摩爾/公升</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-million">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
@@ -13753,20 +13945,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}L/100km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
 				<displayName>↑↑↑</displayName>
@@ -13774,46 +13966,46 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-byte">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-bit">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-century">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other" draft="contributed">{0}世紀</unitPattern>
 			</unit>
 			<unit type="duration-year">
@@ -13832,7 +14024,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern draft="contributed">{0} 每星期</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
-				<displayName draft="contributed">日</displayName>
+				<displayName>日</displayName>
 				<unitPattern count="other">{0}日</unitPattern>
 				<perUnitPattern>{0} 每日</perUnitPattern>
 			</unit>
@@ -13842,7 +14034,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0} 每小時</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<displayName draft="contributed">分</displayName>
+				<displayName>分</displayName>
 				<unitPattern count="other">{0}分</unitPattern>
 				<perUnitPattern>{0} 每分鐘</perUnitPattern>
 			</unit>
@@ -13855,68 +14047,68 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}毫秒</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>納秒</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>千焦</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-joule">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -13933,7 +14125,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
-				<displayName draft="contributed">厘米</displayName>
+				<displayName>厘米</displayName>
 				<unitPattern count="other">{0}厘米</unitPattern>
 				<perUnitPattern draft="contributed">{0} 每厘米</perUnitPattern>
 			</unit>
@@ -14004,12 +14196,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="contributed">{0} pt</unitPattern>
 			</unit>
 			<unit type="light-lux">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>↑↑↑</displayName>
@@ -14022,23 +14214,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0} 每克</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-ton">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-stone">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-pound">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>{0} 每磅</perUnitPattern>
 			</unit>
@@ -14049,22 +14241,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>金衡安士</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-carat">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
 				<displayName>兆瓦</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-watt">
@@ -14072,27 +14264,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pound-per-square-inch">
 				<displayName>磅每平方吋</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
 				<displayName>英吋汞柱</displayName>
 				<unitPattern count="other">{0}″ Hg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
@@ -14100,7 +14292,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
@@ -14116,8 +14308,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}mph</unitPattern>
 			</unit>
 			<unit type="speed-knot">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
 				<displayName>↑↑↑</displayName>
@@ -14133,118 +14325,119 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
 				<displayName>立方米</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<displayName>立方厘米</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>{0} 每立方厘米</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}mi³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>立方呎</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
 				<displayName>立方吋</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-liter">
-				<displayName draft="contributed">升</displayName>
+				<displayName>升</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>{0} 每升</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
 				<displayName draft="contributed">厘升</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pint-metric">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} 量杯</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>英畝呎</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>{0} 每加侖</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pint">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
-				<coordinateUnitPattern type="east" draft="contributed">{0}E</coordinateUnitPattern>
-				<coordinateUnitPattern type="north" draft="contributed">{0}N</coordinateUnitPattern>
-				<coordinateUnitPattern type="south" draft="contributed">{0}S</coordinateUnitPattern>
-				<coordinateUnitPattern type="west" draft="contributed">{0}W</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0}W</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<durationUnit type="hm">
@@ -14261,14 +14454,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<listPattern>
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end" draft="contributed">{0}及{1}</listPatternPart>
-			<listPatternPart type="2" draft="contributed">{0}及{1}</listPatternPart>
+			<listPatternPart type="end">{0}及{1}</listPatternPart>
+			<listPatternPart type="2">{0}及{1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or">
-			<listPatternPart type="start" draft="contributed">↑↑↑</listPatternPart>
-			<listPatternPart type="middle" draft="contributed">↑↑↑</listPatternPart>
-			<listPatternPart type="end" draft="contributed">↑↑↑</listPatternPart>
-			<listPatternPart type="2" draft="contributed">↑↑↑</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="or-narrow">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="or-short">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
@@ -14303,8 +14508,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</listPatterns>
 	<posix>
 		<messages>
-			<yesstr>是</yesstr>
-			<nostr>否</nostr>
+			<yesstr>↑↑↑</yesstr>
+			<nostr>↑↑↑</nostr>
 		</messages>
 	</posix>
 	<characterLabels>
@@ -14315,6 +14520,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabelPattern type="extended">↑↑↑</characterLabelPattern>
 		<characterLabelPattern type="historic">{0} — 舊式</characterLabelPattern>
 		<characterLabelPattern type="miscellaneous">{0} — 雜項</characterLabelPattern>
+		<characterLabelPattern type="other">{0} — 其他</characterLabelPattern>
 		<characterLabelPattern type="scripts">書寫體 — {0}</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">↑↑↑</characterLabelPattern>
 		<characterLabel type="activities">↑↑↑</characterLabel>

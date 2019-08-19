@@ -23,6 +23,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">средње тамна кожа</annotation>
 		<annotation cp="🏿">бoja коже | тамна кожа | тип коже 6</annotation>
 		<annotation cp="🏿" type="tts">тамна кожа</annotation>
+		<annotation cp="⚧">трансродно</annotation>
+		<annotation cp="⚧" type="tts">трансродни симбол</annotation>
 		<annotation cp="😀">зуби | лице | лице са широким осмехом | уста | широки осмех</annotation>
 		<annotation cp="😀" type="tts">лице са широким осмехом</annotation>
 		<annotation cp="😃">зуби | лице | лице са одушевљеним осмехом | одушевљење | уста | широки осмех</annotation>
@@ -333,7 +335,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖖" type="tts">вулкански поздрав</annotation>
 		<annotation cp="👌">знак руком „у реду“ | рукa | тело | у рeду | шaкa</annotation>
 		<annotation cp="👌" type="tts">знак руком „у реду“</annotation>
-		<annotation cp="🤏">мало | рука штипа</annotation>
+		<annotation cp="🤏">мало | прстохват</annotation>
 		<annotation cp="🤏" type="tts">рука штипа</annotation>
 		<annotation cp="✌">v | знак победе | пoбeдa | рукa | тело | шaкa</annotation>
 		<annotation cp="✌" type="tts">знак победе</annotation>
@@ -393,7 +395,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦾" type="tts">механичка рука</annotation>
 		<annotation cp="🦿">механична нога | приступачност | протеза</annotation>
 		<annotation cp="🦿" type="tts">механична нога</annotation>
-		<annotation cp="🦵">нога | удов | шут</annotation>
+		<annotation cp="🦵">нога | шут</annotation>
 		<annotation cp="🦵" type="tts">нога</annotation>
 		<annotation cp="🦶">згазити | стопало</annotation>
 		<annotation cp="🦶" type="tts">стопало</annotation>
@@ -505,66 +507,98 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤷‍♂" type="tts">мушкарац слеже раменима</annotation>
 		<annotation cp="🤷‍♀">гестикулација | жена | жена слеже раменима | незнање | равнодушност</annotation>
 		<annotation cp="🤷‍♀" type="tts">жена слеже раменима</annotation>
+		<annotation cp="🧑‍⚕">доктор | здравство | лекар | медицинска сестра</annotation>
+		<annotation cp="🧑‍⚕" type="tts">здравствени радник</annotation>
 		<annotation cp="👨‍⚕">доктор | здравствени радник | здравство | лекар | мушкарац</annotation>
-		<annotation cp="👨‍⚕" type="tts">здравствени радник</annotation>
+		<annotation cp="👨‍⚕" type="tts">мушкарац здравствени радник</annotation>
 		<annotation cp="👩‍⚕">доктор | жена | здравствена радница | здравство | лекар</annotation>
 		<annotation cp="👩‍⚕" type="tts">здравствена радница</annotation>
+		<annotation cp="🧑‍🎓">дипломац</annotation>
+		<annotation cp="🧑‍🎓" type="tts">студент/киња</annotation>
 		<annotation cp="👨‍🎓">диплома | матура | мушкарац | студент</annotation>
 		<annotation cp="👨‍🎓" type="tts">студент</annotation>
 		<annotation cp="👩‍🎓">диплома | жена | матура | студент | студенткиња</annotation>
 		<annotation cp="👩‍🎓" type="tts">студенткиња</annotation>
+		<annotation cp="🧑‍🏫">инструктор | професор | учитељ</annotation>
+		<annotation cp="🧑‍🏫" type="tts">учитељ</annotation>
 		<annotation cp="👨‍🏫">мушкарац | професор | учитељ</annotation>
 		<annotation cp="👨‍🏫" type="tts">професор</annotation>
 		<annotation cp="👩‍🏫">жена | професор | професорка | учитељ</annotation>
 		<annotation cp="👩‍🏫" type="tts">професорка</annotation>
+		<annotation cp="🧑‍⚖">правда | судија</annotation>
+		<annotation cp="🧑‍⚖" type="tts">судија/ница</annotation>
 		<annotation cp="👨‍⚖">мушкарац | правда | судија</annotation>
 		<annotation cp="👨‍⚖" type="tts">мушкарац судија</annotation>
 		<annotation cp="👩‍⚖">жена | правда | судија</annotation>
 		<annotation cp="👩‍⚖" type="tts">жена судија</annotation>
+		<annotation cp="🧑‍🌾">баштован | пољопривредник</annotation>
+		<annotation cp="🧑‍🌾" type="tts">пољопривредник</annotation>
 		<annotation cp="👨‍🌾">башта | мушкарац | пољопривредник | село | фарма</annotation>
-		<annotation cp="👨‍🌾" type="tts">пољопривредник</annotation>
+		<annotation cp="👨‍🌾" type="tts">мушкарац пољопривредник</annotation>
 		<annotation cp="👩‍🌾">башта | жена | пољопривредница | село | фарма</annotation>
 		<annotation cp="👩‍🌾" type="tts">пољопривредница</annotation>
+		<annotation cp="🧑‍🍳">кувар | шеф</annotation>
+		<annotation cp="🧑‍🍳" type="tts">кувар</annotation>
 		<annotation cp="👨‍🍳">кувар | кухиња | мушкарац | шеф</annotation>
-		<annotation cp="👨‍🍳" type="tts">кувар</annotation>
+		<annotation cp="👨‍🍳" type="tts">мушкарац кувар</annotation>
 		<annotation cp="👩‍🍳">жена | кувар | куварица | кухиња | шеф</annotation>
 		<annotation cp="👩‍🍳" type="tts">куварица</annotation>
+		<annotation cp="🧑‍🔧">водоинсталатер | електричар | мајстор | механичар</annotation>
+		<annotation cp="🧑‍🔧" type="tts">механичар</annotation>
 		<annotation cp="👨‍🔧">алат | мајстор | механичар | мушкарац</annotation>
-		<annotation cp="👨‍🔧" type="tts">механичар</annotation>
+		<annotation cp="👨‍🔧" type="tts">мушкарац механичар</annotation>
 		<annotation cp="👩‍🔧">алат | жена | мајстор | механичарка</annotation>
 		<annotation cp="👩‍🔧" type="tts">механичарка</annotation>
+		<annotation cp="🧑‍🏭">индустрија | производна трака | радник | фабрика</annotation>
+		<annotation cp="🧑‍🏭" type="tts">радник у фабрици</annotation>
 		<annotation cp="👨‍🏭">индустрија | мушкарац | радник | фабрика</annotation>
 		<annotation cp="👨‍🏭" type="tts">радник</annotation>
 		<annotation cp="👩‍🏭">жена | индустрија | радница | фабрика</annotation>
 		<annotation cp="👩‍🏭" type="tts">радница</annotation>
+		<annotation cp="🧑‍💼">архитекта | бизнис | менаџер</annotation>
+		<annotation cp="🧑‍💼" type="tts">канцеларијски радник</annotation>
 		<annotation cp="👨‍💼">асистент | канцеларија | мушкарац | мушкарац у канцеларији | секретарица</annotation>
 		<annotation cp="👨‍💼" type="tts">мушкарац у канцеларији</annotation>
 		<annotation cp="👩‍💼">асистент | жена | жена у канцеларији | канцеларија | секретарица</annotation>
 		<annotation cp="👩‍💼" type="tts">жена у канцеларији</annotation>
+		<annotation cp="🧑‍🔬">биологичар | инжењер | научник | физичар | хемичар</annotation>
+		<annotation cp="🧑‍🔬" type="tts">научник/ца</annotation>
 		<annotation cp="👨‍🔬">биолог | мушкарац | научник | хемичар</annotation>
 		<annotation cp="👨‍🔬" type="tts">научник</annotation>
 		<annotation cp="👩‍🔬">биолог | жена | научник | научница | хемичар</annotation>
 		<annotation cp="👩‍🔬" type="tts">научница</annotation>
+		<annotation cp="🧑‍💻">програмер | проналазач | софтвер | софтвераш</annotation>
+		<annotation cp="🧑‍💻" type="tts">технолог</annotation>
 		<annotation cp="👨‍💻">мушкарац | програмер | проналазач | софтвер | технолог</annotation>
-		<annotation cp="👨‍💻" type="tts">технолог</annotation>
+		<annotation cp="👨‍💻" type="tts">мушкарац технолог</annotation>
 		<annotation cp="👩‍💻">жена | жена технолог | програмер | проналазач | софтвер</annotation>
 		<annotation cp="👩‍💻" type="tts">жена технолог</annotation>
+		<annotation cp="🧑‍🎤">глумац | забављач | звезда | певач | рок</annotation>
+		<annotation cp="🧑‍🎤" type="tts">певач</annotation>
 		<annotation cp="👨‍🎤">глумац | мушкарац | певач | рок</annotation>
-		<annotation cp="👨‍🎤" type="tts">певач</annotation>
+		<annotation cp="👨‍🎤" type="tts">мушкарац певач</annotation>
 		<annotation cp="👩‍🎤">глумица | жена | певачица | рок</annotation>
 		<annotation cp="👩‍🎤" type="tts">певачица</annotation>
+		<annotation cp="🧑‍🎨">сликар | уметник</annotation>
+		<annotation cp="🧑‍🎨" type="tts">уметник</annotation>
 		<annotation cp="👨‍🎨">мушкарац | сликар | сликарство | уметник</annotation>
-		<annotation cp="👨‍🎨" type="tts">уметник</annotation>
+		<annotation cp="👨‍🎨" type="tts">мушкарац уметник</annotation>
 		<annotation cp="👩‍🎨">жена | сликар | сликарство | уметник | уметница</annotation>
 		<annotation cp="👩‍🎨" type="tts">уметница</annotation>
+		<annotation cp="🧑‍✈">авион | пилот</annotation>
+		<annotation cp="🧑‍✈" type="tts">пилот/киња</annotation>
 		<annotation cp="👨‍✈">авион | мушкарац | пилот</annotation>
 		<annotation cp="👨‍✈" type="tts">пилот</annotation>
 		<annotation cp="👩‍✈">авион | жена | пилот</annotation>
 		<annotation cp="👩‍✈" type="tts">жена пилот</annotation>
+		<annotation cp="🧑‍🚀">астронаут | ракета</annotation>
+		<annotation cp="🧑‍🚀" type="tts">астронаут</annotation>
 		<annotation cp="👨‍🚀">астронаут | космонаут | мушкарац | ракета | свемир</annotation>
 		<annotation cp="👨‍🚀" type="tts">космонаут</annotation>
 		<annotation cp="👩‍🚀">астронаут | жена | космонауткиња | ракета | свемир</annotation>
 		<annotation cp="👩‍🚀" type="tts">космонауткиња</annotation>
+		<annotation cp="🧑‍🚒">ватрогасац | ватрогасно возило</annotation>
+		<annotation cp="🧑‍🚒" type="tts">ватрогасац / жена ватрогасац</annotation>
 		<annotation cp="👨‍🚒">ватра | ватрогасац | камион | мушкарац</annotation>
 		<annotation cp="👨‍🚒" type="tts">ватрогасац</annotation>
 		<annotation cp="👩‍🚒">ватра | ватрогасац | жена | камион</annotation>
@@ -705,14 +739,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧎‍♂" type="tts">човек клечи</annotation>
 		<annotation cp="🧎‍♀">жена | клечи</annotation>
 		<annotation cp="🧎‍♀" type="tts">жена клечи</annotation>
+		<annotation cp="🧑‍🦯">приступачност | слеп</annotation>
+		<annotation cp="🧑‍🦯" type="tts">особа са помоћним штапом</annotation>
 		<annotation cp="👨‍🦯">приступачност | слеп | човек | човек са помоћним штапом</annotation>
 		<annotation cp="👨‍🦯" type="tts">човек са помоћним штапом</annotation>
 		<annotation cp="👩‍🦯">жена | жена са помоћним штапом | приступачност | слепа</annotation>
 		<annotation cp="👩‍🦯" type="tts">жена са помоћним штапом</annotation>
+		<annotation cp="🧑‍🦼">колица | приступачност</annotation>
+		<annotation cp="🧑‍🦼" type="tts">особа у моторним колицима</annotation>
 		<annotation cp="👨‍🦼">доступност | колица | човек | човек у моторним колицима</annotation>
 		<annotation cp="👨‍🦼" type="tts">човек у моторним колицима</annotation>
 		<annotation cp="👩‍🦼">доступност | жена | жена у моторним колицима | колица</annotation>
 		<annotation cp="👩‍🦼" type="tts">жена у моторним колицима</annotation>
+		<annotation cp="🧑‍🦽">колица | приступачност</annotation>
+		<annotation cp="🧑‍🦽" type="tts">особа у механичким колицима</annotation>
 		<annotation cp="👨‍🦽">доступност | колица | човек | човек у механичким колицима</annotation>
 		<annotation cp="👨‍🦽" type="tts">човек у механичким колицима</annotation>
 		<annotation cp="👩‍🦽">доступност | жена | жена у механичким колицима | колица</annotation>
@@ -843,14 +883,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛀" type="tts">особа која се купа</annotation>
 		<annotation cp="🛌">особа у кревету | спaвaњe | хoтeл</annotation>
 		<annotation cp="🛌" type="tts">особа у кревету</annotation>
-		<annotation cp="🧑‍🤝‍🧑" draft="contributed">особе се држе за руке</annotation>
-		<annotation cp="🧑‍🤝‍🧑" type="tts" draft="contributed">особе се држе за руке</annotation>
-		<annotation cp="👭">две жене се држе за руке | држaњe | жeнe | пaр | рукe</annotation>
-		<annotation cp="👭" type="tts">две жене се држе за руке</annotation>
+		<annotation cp="🧑‍🤝‍🧑">особе се држе за руке</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts">особе се држе за руке</annotation>
+		<annotation cp="👭">држaњe | жeнe | жене се држе за руке | пaр | рукe</annotation>
+		<annotation cp="👭" type="tts">жене се држе за руке</annotation>
 		<annotation cp="👫">држaњe | жeнa | мушкaрaц | мушкарац и жена се држе за руке | пaр | рукe</annotation>
-		<annotation cp="👫" type="tts">мушкарац и жена се држе за руке</annotation>
-		<annotation cp="👬">близaнци | двојица мушкараца се држе за руке | држaњe | зoдиjaк | мушкaрaц | пaр | рукe</annotation>
-		<annotation cp="👬" type="tts">двојица мушкараца се држе за руке</annotation>
+		<annotation cp="👫" type="tts">жена и мушкарац се држе за руке</annotation>
+		<annotation cp="👬">близaнци | држaњe | зoдиjaк | мушкaрaц | мушкарци се држе за руке | пaр | рукe</annotation>
+		<annotation cp="👬" type="tts">мушкарци се држе за руке</annotation>
 		<annotation cp="💏">пaр | пољубац | рoмaнтикa</annotation>
 		<annotation cp="💏" type="tts">пољубац</annotation>
 		<annotation cp="💑">љубaв | пaр | пар са срцем | рoмaнтикa | срцe</annotation>
@@ -885,15 +925,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐶" type="tts">лице пса</annotation>
 		<annotation cp="🐕">љубимaц | пас</annotation>
 		<annotation cp="🐕" type="tts">пас</annotation>
-		<annotation cp="🦮">водич | доступност | пас водич | слеп</annotation>
+		<annotation cp="🦮">водич | пас водич | приступ | слеп</annotation>
 		<annotation cp="🦮" type="tts">пас водич</annotation>
-		<annotation cp="🐕‍🦺">доступност | пас | помоћ | службени пас | услуга</annotation>
+		<annotation cp="🐕‍🦺">пас | помоћ | приступ | службени пас</annotation>
 		<annotation cp="🐕‍🦺" type="tts">службени пас</annotation>
 		<annotation cp="🐩">љубимaц | пaс | пудла</annotation>
 		<annotation cp="🐩" type="tts">пудла</annotation>
-		<annotation cp="🐺">вук | лице | лице вука</annotation>
-		<annotation cp="🐺" type="tts">лице вука</annotation>
-		<annotation cp="🦊">животиња | лија | лисица</annotation>
+		<annotation cp="🐺">вук | лице</annotation>
+		<annotation cp="🐺" type="tts">вук</annotation>
+		<annotation cp="🦊">лија | лисица | лице</annotation>
 		<annotation cp="🦊" type="tts">лисица</annotation>
 		<annotation cp="🦝">лукав | радознао | ракун</annotation>
 		<annotation cp="🦝" type="tts">ракун</annotation>
@@ -901,8 +941,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐱" type="tts">лице мачке</annotation>
 		<annotation cp="🐈">љубимaц | мачка</annotation>
 		<annotation cp="🐈" type="tts">мачка</annotation>
-		<annotation cp="🦁">зoдиjaк | лaв | лице | лице лава</annotation>
-		<annotation cp="🦁" type="tts">лице лава</annotation>
+		<annotation cp="🦁">зoдиjaк | лaв | лице | хороскоп</annotation>
+		<annotation cp="🦁" type="tts">лав</annotation>
 		<annotation cp="🐯">лице | лице тигра | тигaр</annotation>
 		<annotation cp="🐯" type="tts">лице тигра</annotation>
 		<annotation cp="🐅">тигaр | тигар</annotation>
@@ -913,7 +953,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐴" type="tts">лице коња</annotation>
 		<annotation cp="🐎">коњ | тркa | тркачки кoњ</annotation>
 		<annotation cp="🐎" type="tts">коњ</annotation>
-		<annotation cp="🦄">jeднoрoг | лице | лице једнорога</annotation>
+		<annotation cp="🦄">jeднoрoг | лице</annotation>
 		<annotation cp="🦄" type="tts">лице једнорога</annotation>
 		<annotation cp="🦓">зебра | пруге</annotation>
 		<annotation cp="🦓" type="tts">зебра</annotation>
@@ -961,7 +1001,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐁" type="tts">миш</annotation>
 		<annotation cp="🐀">пацов</annotation>
 		<annotation cp="🐀" type="tts">пацов</annotation>
-		<annotation cp="🐹">лице | лице хрчка | љубимaц | хрчaк</annotation>
+		<annotation cp="🐹">лице | љубимaц | хрчaк</annotation>
 		<annotation cp="🐹" type="tts">лице хрчка</annotation>
 		<annotation cp="🐰">зeц | кунић | лице | лице зеца | љубимaц</annotation>
 		<annotation cp="🐰" type="tts">лице зеца</annotation>
@@ -973,12 +1013,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦔" type="tts">јеж</annotation>
 		<annotation cp="🦇">вампир | животиња | слепи миш | шишмиш</annotation>
 		<annotation cp="🦇" type="tts">шишмиш</annotation>
-		<annotation cp="🐻">лице | лице медведа | мeдвeд</annotation>
-		<annotation cp="🐻" type="tts">лице медведа</annotation>
+		<annotation cp="🐻">лице | мeдвeд</annotation>
+		<annotation cp="🐻" type="tts">медвед</annotation>
 		<annotation cp="🐨">коала | мeдвeд</annotation>
 		<annotation cp="🐨" type="tts">коала</annotation>
-		<annotation cp="🐼">лице | лице панде | пaндa</annotation>
-		<annotation cp="🐼" type="tts">лице панде</annotation>
+		<annotation cp="🐼">лице | пaндa</annotation>
+		<annotation cp="🐼" type="tts">панда</annotation>
 		<annotation cp="🦥">лењ | лењивац | спор</annotation>
 		<annotation cp="🦥" type="tts">лењивац</annotation>
 		<annotation cp="🦦">видра | играње | пецање</annotation>
@@ -991,19 +1031,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦡" type="tts">јазавац</annotation>
 		<annotation cp="🐾">oтисaк | отисци шапа | стoпaлa | шaпe</annotation>
 		<annotation cp="🐾" type="tts">отисци шапа</annotation>
-		<annotation cp="🦃">ћурка</annotation>
+		<annotation cp="🦃">птица | ћурка</annotation>
 		<annotation cp="🦃" type="tts">ћурка</annotation>
-		<annotation cp="🐔">кoкoшка | кокошка</annotation>
+		<annotation cp="🐔">кокошка | птица</annotation>
 		<annotation cp="🐔" type="tts">кокошка</annotation>
-		<annotation cp="🐓">пeтao | певац</annotation>
+		<annotation cp="🐓">пeтao | певац | птица</annotation>
 		<annotation cp="🐓" type="tts">певац</annotation>
-		<annotation cp="🐣">бeбa | излeгaњe | пилe | пиле у јајету</annotation>
+		<annotation cp="🐣">беба | излегање | пиле | птица</annotation>
 		<annotation cp="🐣" type="tts">пиле у јајету</annotation>
-		<annotation cp="🐤">бeбa | пилe | пиле</annotation>
+		<annotation cp="🐤">бeбa | пилe | птица</annotation>
 		<annotation cp="🐤" type="tts">пиле</annotation>
-		<annotation cp="🐥">бeбa | пилe | пиле спреда</annotation>
+		<annotation cp="🐥">бeбa | пилe | пиле спреда | птица</annotation>
 		<annotation cp="🐥" type="tts">пиле спреда</annotation>
-		<annotation cp="🐦">птицa | птица</annotation>
+		<annotation cp="🐦">птица</annotation>
 		<annotation cp="🐦" type="tts">птица</annotation>
 		<annotation cp="🐧">пингвин</annotation>
 		<annotation cp="🐧" type="tts">пингвин</annotation>
@@ -1023,8 +1063,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦚" type="tts">паун</annotation>
 		<annotation cp="🦜">говори | папагај | пират | птица</annotation>
 		<annotation cp="🦜" type="tts">папагај</annotation>
-		<annotation cp="🐸">жaбa | жабље лице | лице</annotation>
-		<annotation cp="🐸" type="tts">жабље лице</annotation>
+		<annotation cp="🐸">жaбa | лице</annotation>
+		<annotation cp="🐸" type="tts">жаба</annotation>
 		<annotation cp="🐊">крoкoдил | крокодил</annotation>
 		<annotation cp="🐊" type="tts">крокодил</annotation>
 		<annotation cp="🐢">кoрњaчa | корњача</annotation>
@@ -2831,9 +2871,121 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">црна застава</annotation>
 		<annotation cp="🏳">бела застава | виjoрeњe | застава</annotation>
 		<annotation cp="🏳" type="tts">бела застава</annotation>
+		<annotation cp="🏳‍⚧">бела | застава | пинк | светлоплава | трансродно</annotation>
+		<annotation cp="🏳‍⚧" type="tts">трансродна зазстава</annotation>
 		<annotation cp="🏳‍🌈">вијори | дуга | дугина застава | застава</annotation>
 		<annotation cp="🏳‍🌈" type="tts">дугина застава</annotation>
 		<annotation cp="🏴‍☠">благо | Весели Роџер | пират | пиратска застава | пљачка</annotation>
 		<annotation cp="🏴‍☠" type="tts">пиратска застава</annotation>
+		<annotation cp="🛖">кућа | округла колиба</annotation>
+		<annotation cp="🛖" type="tts">колиба</annotation>
+		<annotation cp="🛗">доступност | лифт</annotation>
+		<annotation cp="🛗" type="tts">лифт</annotation>
+		<annotation cp="🛻">пикап | теретно возило</annotation>
+		<annotation cp="🛻" type="tts">пикап возило</annotation>
+		<annotation cp="🛼">котураљка</annotation>
+		<annotation cp="🛼" type="tts">ролшуа</annotation>
+		<annotation cp="🤌">знак руком | саркастично | скупљени прсти | упитно</annotation>
+		<annotation cp="🤌" type="tts">скупљени прсти</annotation>
+		<annotation cp="🥲">relieved | дирнут | захвалан | осмех | поносан | суза</annotation>
+		<annotation cp="🥲" type="tts">насмејано лице са сузом</annotation>
+		<annotation cp="🥷">борац | невидљив | скривен</annotation>
+		<annotation cp="🥷" type="tts">нинџа</annotation>
+		<annotation cp="🥸">маска | наочари | нос | прерушено лице</annotation>
+		<annotation cp="🥸" type="tts">прерушено лице</annotation>
+		<annotation cp="🦣">велико | истребљен | кљова</annotation>
+		<annotation cp="🦣" type="tts">мамут</annotation>
+		<annotation cp="🦤">велико | истребљено | Маурицијус</annotation>
+		<annotation cp="🦤" type="tts">додо</annotation>
+		<annotation cp="🦫">брана | дабар</annotation>
+		<annotation cp="🦫" type="tts">дабар</annotation>
+		<annotation cp="🦬">бизон | буфало | крдо</annotation>
+		<annotation cp="🦬" type="tts">бизон</annotation>
+		<annotation cp="🦭">морски лав | фока</annotation>
+		<annotation cp="🦭" type="tts">фока</annotation>
+		<annotation cp="🧋">бобице | млеко | чај</annotation>
+		<annotation cp="🧋" type="tts">чај са бобицама</annotation>
+		<annotation cp="🩴">јапанке | сандале за плажу</annotation>
+		<annotation cp="🩴" type="tts">јапанка</annotation>
+		<annotation cp="🪃">аустралија | бумеранг | враћање | последице</annotation>
+		<annotation cp="🪃" type="tts">бумеранг</annotation>
+		<annotation cp="🪄">вештица | магија | чаробњак</annotation>
+		<annotation cp="🪄" type="tts">чаробни штапић</annotation>
+		<annotation cp="🪅">журка | прослава</annotation>
+		<annotation cp="🪅" type="tts">пињата</annotation>
+		<annotation cp="🪆">бабушка | лутка | русија</annotation>
+		<annotation cp="🪆" type="tts">лутка у лутки</annotation>
+		<annotation cp="🪖">војник | војска | ратник | шлем</annotation>
+		<annotation cp="🪖" type="tts">шлем</annotation>
+		<annotation cp="🪗">хармоника</annotation>
+		<annotation cp="🪗" type="tts">хармоника</annotation>
+		<annotation cp="🪘">бубањ | конга | ритам</annotation>
+		<annotation cp="🪘" type="tts">тимпан</annotation>
+		<annotation cp="🪙">благо | злато | метал | новац | сребро</annotation>
+		<annotation cp="🪙" type="tts">новчић</annotation>
+		<annotation cp="🪚">алат | столар | тестера</annotation>
+		<annotation cp="🪚" type="tts">тестера</annotation>
+		<annotation cp="🪛">алат | шрафити</annotation>
+		<annotation cp="🪛" type="tts">шрафцигер</annotation>
+		<annotation cp="🪜">мердевине | пети се</annotation>
+		<annotation cp="🪜" type="tts">мердевине</annotation>
+		<annotation cp="🪝">закривљено | кука</annotation>
+		<annotation cp="🪝" type="tts">кука</annotation>
+		<annotation cp="🪞">одраз | рефлексија | рефлектор</annotation>
+		<annotation cp="🪞" type="tts">огледало</annotation>
+		<annotation cp="🪟">оквир | отвор | поглед | провидно | свеж ваздух</annotation>
+		<annotation cp="🪟" type="tts">прозор</annotation>
+		<annotation cp="🪠">водоинсталатер | отпушивач | отпушити | снага | тоалет</annotation>
+		<annotation cp="🪠" type="tts">отпушивач</annotation>
+		<annotation cp="🪡">вез | игла | шивење | штеп</annotation>
+		<annotation cp="🪡" type="tts">игла за шивење</annotation>
+		<annotation cp="🪢">везати | запетљано | конопац | уврнути</annotation>
+		<annotation cp="🪢" type="tts">чвор</annotation>
+		<annotation cp="🪣">кофа</annotation>
+		<annotation cp="🪣" type="tts">кофа</annotation>
+		<annotation cp="🪤">замка | мамац | мишоловка | намештаљка</annotation>
+		<annotation cp="🪤" type="tts">мишоловка</annotation>
+		<annotation cp="🪥">зуби | зубна | купатило | опрати | хигијена | четкица</annotation>
+		<annotation cp="🪥" type="tts">четкица за зубе</annotation>
+		<annotation cp="🪦">гроб | гробље | надгробна плоча | надгробни камен | надгробни споменик</annotation>
+		<annotation cp="🪦" type="tts">надгробни споменик</annotation>
+		<annotation cp="🪧">демонстрације | знак | плакат | протест | транспарент</annotation>
+		<annotation cp="🪧" type="tts">плакат</annotation>
+		<annotation cp="🪨">камен | стена | тешко | чврсто</annotation>
+		<annotation cp="🪨" type="tts">камен</annotation>
+		<annotation cp="🪰">болест | напаст | труло</annotation>
+		<annotation cp="🪰" type="tts">мува</annotation>
+		<annotation cp="🪱">глиста | паразит | црв</annotation>
+		<annotation cp="🪱" type="tts">црв</annotation>
+		<annotation cp="🪲">буба | инсект</annotation>
+		<annotation cp="🪲" type="tts">буба</annotation>
+		<annotation cp="🪳">буба | бубашваба | инсект | напаст</annotation>
+		<annotation cp="🪳" type="tts">бубашваба</annotation>
+		<annotation cp="🪴">биљка | досадно | кућа | нега | расте</annotation>
+		<annotation cp="🪴" type="tts">биљка у саксији</annotation>
+		<annotation cp="🪵">дебло | дрво | стабло</annotation>
+		<annotation cp="🪵" type="tts">дрво</annotation>
+		<annotation cp="🪶">лако | лет | перо | птица</annotation>
+		<annotation cp="🪶" type="tts">перо</annotation>
+		<annotation cp="🫀">кардиологија | орган | откуцај срца | пулс | центар</annotation>
+		<annotation cp="🫀" type="tts">срце</annotation>
+		<annotation cp="🫁">дах | дисање | издисај | орган | удисај</annotation>
+		<annotation cp="🫁" type="tts">плућа</annotation>
+		<annotation cp="🫂">довиђења | загрљај | здраво | хвала</annotation>
+		<annotation cp="🫂" type="tts">људи се грле</annotation>
+		<annotation cp="🫐">боровница | плаво</annotation>
+		<annotation cp="🫐" type="tts">боровнице</annotation>
+		<annotation cp="🫑">бабура | паприка | поврће</annotation>
+		<annotation cp="🫑" type="tts">бабура</annotation>
+		<annotation cp="🫒">маслинка | храна</annotation>
+		<annotation cp="🫒" type="tts">маслина</annotation>
+		<annotation cp="🫓">лаваш | нан | пита хлеб</annotation>
+		<annotation cp="🫓" type="tts">пљоснат хлеб</annotation>
+		<annotation cp="🫔">завитак | мексички</annotation>
+		<annotation cp="🫔" type="tts">тамале</annotation>
+		<annotation cp="🫕">сир | топљено | чоколада | швајацарски | шерпа</annotation>
+		<annotation cp="🫕" type="tts">фонду</annotation>
+		<annotation cp="🫖">пиће | чај | чајник</annotation>
+		<annotation cp="🫖" type="tts">чајник</annotation>
 	</annotations>
 </ldml>

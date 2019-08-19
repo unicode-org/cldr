@@ -23,6 +23,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">středně tmavý odstín pleti</annotation>
 		<annotation cp="🏿">barva | kůže | pleť | tmavý odstín pleti | typ 6</annotation>
 		<annotation cp="🏿" type="tts">tmavý odstín pleti</annotation>
+		<annotation cp="⚧">transgender</annotation>
+		<annotation cp="⚧" type="tts">symbol pro transgender osoby</annotation>
 		<annotation cp="😀">smajlík | tvář | úšklebek | výraz | zubící se obličej</annotation>
 		<annotation cp="😀" type="tts">zubící se obličej</annotation>
 		<annotation cp="😃">otevřený | smajlík | tvář | úsměv | ústa | výraz | zubící se obličej s velkýma očima</annotation>
@@ -505,66 +507,98 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤷‍♂" type="tts">muž krčící rameny</annotation>
 		<annotation cp="🤷‍♀">nejistota | nerozhodnost | nevědomost | nevím | nezájem | pochybnost | pochyby | pokrčení | pokrčit | ramena | žena | žena krčící rameny</annotation>
 		<annotation cp="🤷‍♀" type="tts">žena krčící rameny</annotation>
+		<annotation cp="🧑‍⚕">doktor | doktorka | nemocnice | sestřička | terapeut | terapeutka | zdravotnice | zdravotník</annotation>
+		<annotation cp="🧑‍⚕" type="tts">zdravotník/zdravotnice</annotation>
 		<annotation cp="👨‍⚕">doktor | nemocnice | terapeut | zdravotník</annotation>
 		<annotation cp="👨‍⚕" type="tts">zdravotník</annotation>
 		<annotation cp="👩‍⚕">doktorka | nemocnice | sestřička | terapeutka | zdravotnice</annotation>
 		<annotation cp="👩‍⚕" type="tts">zdravotnice</annotation>
+		<annotation cp="🧑‍🎓">absolvent | absolventka | student | studentka | studující</annotation>
+		<annotation cp="🧑‍🎓" type="tts">studující</annotation>
 		<annotation cp="👨‍🎓">absolvent | muž | student</annotation>
 		<annotation cp="👨‍🎓" type="tts">student</annotation>
 		<annotation cp="👩‍🎓">absolventka | studentka | žena</annotation>
 		<annotation cp="👩‍🎓" type="tts">studentka</annotation>
+		<annotation cp="🧑‍🏫">instruktor | instruktorka | profesor | profesorka | učitel | učitelka | vyučující</annotation>
+		<annotation cp="🧑‍🏫" type="tts">vyučující</annotation>
 		<annotation cp="👨‍🏫">instruktor | muž | profesor | učitel</annotation>
 		<annotation cp="👨‍🏫" type="tts">učitel</annotation>
 		<annotation cp="👩‍🏫">instruktorka | profesorka | učitelka | žena</annotation>
 		<annotation cp="👩‍🏫" type="tts">učitelka</annotation>
+		<annotation cp="🧑‍⚖">právo | soudce | soudkyně | spravedlnost | váhy</annotation>
+		<annotation cp="🧑‍⚖" type="tts">soudce/soudkyně</annotation>
 		<annotation cp="👨‍⚖">muž | právo | soudce | spravedlnost | váhy</annotation>
 		<annotation cp="👨‍⚖" type="tts">soudce</annotation>
 		<annotation cp="👩‍⚖">právo | soudkyně | spravedlnost | váhy | žena</annotation>
 		<annotation cp="👩‍⚖" type="tts">soudkyně</annotation>
+		<annotation cp="🧑‍🌾">farmář | farmářka | sedlák | selka | zahradnice | zahradník | zemědělec | zemědělkyně</annotation>
+		<annotation cp="🧑‍🌾" type="tts">farmář/farmářka</annotation>
 		<annotation cp="👨‍🌾">farmář | muž | sedlák | zahradník | zemědělec</annotation>
 		<annotation cp="👨‍🌾" type="tts">farmář</annotation>
 		<annotation cp="👩‍🌾">farmářka | selka | zahradnice | zemědělkyně | žena</annotation>
 		<annotation cp="👩‍🌾" type="tts">farmářka</annotation>
+		<annotation cp="🧑‍🍳">kuchař | kuchařka | šéfkuchař | šéfkuchařka</annotation>
+		<annotation cp="🧑‍🍳" type="tts">kuchař/kuchařka</annotation>
 		<annotation cp="👨‍🍳">kuchař | muž | šéfkuchař</annotation>
 		<annotation cp="👨‍🍳" type="tts">kuchař</annotation>
 		<annotation cp="👩‍🍳">kuchařka | šéfkuchařka | žena</annotation>
 		<annotation cp="👩‍🍳" type="tts">kuchařka</annotation>
+		<annotation cp="🧑‍🔧">elektrikář | elektrikářka | mechanička | mechanik | montér | montérka | opravář | opravářka | řemeslnice | řemeslník | živnostnice | živnostník</annotation>
+		<annotation cp="🧑‍🔧" type="tts">mechanik/mechanička</annotation>
 		<annotation cp="👨‍🔧">elektrikář | mechanik | montér | muž | opravář | řemeslník | živnostník</annotation>
 		<annotation cp="👨‍🔧" type="tts">mechanik</annotation>
 		<annotation cp="👩‍🔧">elektrikářka | mechanička | montérka | opravářka | řemeslnice | žena | živnostnice</annotation>
 		<annotation cp="👩‍🔧" type="tts">mechanička</annotation>
+		<annotation cp="🧑‍🏭">dělnice | dělník | průmysl | továrna | výroba</annotation>
+		<annotation cp="🧑‍🏭" type="tts">osoba pracující v továrně</annotation>
 		<annotation cp="👨‍🏭">dělník | dělník v továrně | muž | průmysl | výroba</annotation>
 		<annotation cp="👨‍🏭" type="tts">dělník v továrně</annotation>
 		<annotation cp="👩‍🏭">dělnice | dělnice v továrně | průmysl | výroba | žena</annotation>
 		<annotation cp="👩‍🏭" type="tts">dělnice v továrně</annotation>
+		<annotation cp="🧑‍💼">architekt | architektka | bílý límeček | byznys | kancelář | manažer | manažerka | úřednice | úředník</annotation>
+		<annotation cp="🧑‍💼" type="tts">manažer/manažerka</annotation>
 		<annotation cp="👨‍💼">bílý límeček | byznys | kancelář | manažer | muž | úředník</annotation>
 		<annotation cp="👨‍💼" type="tts">manažer</annotation>
 		<annotation cp="👩‍💼">bílý límeček | byznys | kancelář | manažerka | úřednice | žena</annotation>
 		<annotation cp="👩‍💼" type="tts">manažerka</annotation>
+		<annotation cp="🧑‍🔬">biolog | bioložka | chemička | chemik | fyzička | fyzik | inženýr | inženýrka | matematička | matematik | vědec | vědkyně</annotation>
+		<annotation cp="🧑‍🔬" type="tts">vědec/vědkyně</annotation>
 		<annotation cp="👨‍🔬">biolog | chemik | fyzik | inženýr | matematik | muž | věda | vědec</annotation>
 		<annotation cp="👨‍🔬" type="tts">vědec</annotation>
 		<annotation cp="👩‍🔬">bioložka | chemička | fyzička | inženýrka | matematička | věda | vědkyně | žena</annotation>
 		<annotation cp="👩‍🔬" type="tts">vědkyně</annotation>
+		<annotation cp="🧑‍💻">kodér | kodérka | software | technologie | vynálezce | vynálezkyně | vývojář | vývojářka</annotation>
+		<annotation cp="🧑‍💻" type="tts">programátor/programátorka</annotation>
 		<annotation cp="👨‍💻">kodér | muž | notebook | počítač | programátor | programování | software | technologie | vynálezce | vývoj | vývojář</annotation>
 		<annotation cp="👨‍💻" type="tts">programátor</annotation>
 		<annotation cp="👩‍💻">kodérka | notebook | počítač | programátorka | programování | software | technologie | vynálezkyně | vývoj | vývojářka | žena</annotation>
 		<annotation cp="👩‍💻" type="tts">programátorka</annotation>
+		<annotation cp="🧑‍🎤">bavič | bavička | herec | herečka | hvězda | rocker | rockerka | zpěvačka | zpěvák</annotation>
+		<annotation cp="🧑‍🎤" type="tts">zpěvák/zpěvačka</annotation>
 		<annotation cp="👨‍🎤">bavič | herec | hvězda | muž | rock | rocker | zábava | zpěvák</annotation>
 		<annotation cp="👨‍🎤" type="tts">zpěvák</annotation>
 		<annotation cp="👩‍🎤">bavička | herečka | hvězda | rock | rockerka | zábava | žena | zpěvačka</annotation>
 		<annotation cp="👩‍🎤" type="tts">zpěvačka</annotation>
+		<annotation cp="🧑‍🎨">malíř | malířka | paleta | umělec | umělkyně | umění</annotation>
+		<annotation cp="🧑‍🎨" type="tts">malíř/malířka</annotation>
 		<annotation cp="👨‍🎨">malíř | muž | paleta | umělec | umění</annotation>
 		<annotation cp="👨‍🎨" type="tts">malíř</annotation>
 		<annotation cp="👩‍🎨">malířka | paleta | umělkyně | umění | žena</annotation>
 		<annotation cp="👩‍🎨" type="tts">malířka</annotation>
+		<annotation cp="🧑‍✈">letadlo | pilot | pilotka</annotation>
+		<annotation cp="🧑‍✈" type="tts">pilot/pilotka</annotation>
 		<annotation cp="👨‍✈">letadlo | muž | pilot</annotation>
 		<annotation cp="👨‍✈" type="tts">pilot</annotation>
 		<annotation cp="👩‍✈">letadlo | pilotka | žena</annotation>
 		<annotation cp="👩‍✈" type="tts">pilotka</annotation>
+		<annotation cp="🧑‍🚀">astronaut | astronautka | kosmonaut | kosmonautka | raketa | vesmíír</annotation>
+		<annotation cp="🧑‍🚀" type="tts">kosmonaut/kosmonautka</annotation>
 		<annotation cp="👨‍🚀">astronaut | kosmonaut | muž | raketa | vesmír</annotation>
 		<annotation cp="👨‍🚀" type="tts">kosmonaut</annotation>
 		<annotation cp="👩‍🚀">astronautka | kosmonautka | raketa | vesmír | žena</annotation>
 		<annotation cp="👩‍🚀" type="tts">kosmonautka</annotation>
+		<annotation cp="🧑‍🚒">hasič | hasička | hasičské auto | požár | požárnice | požárník | stříkačka</annotation>
+		<annotation cp="🧑‍🚒" type="tts">hasič/hasička</annotation>
 		<annotation cp="👨‍🚒">hasič | hasičské auto | muž | požár | požárník | stříkačka</annotation>
 		<annotation cp="👨‍🚒" type="tts">hasič</annotation>
 		<annotation cp="👩‍🚒">hasička | hasičské auto | požár | požárnice | stříkačka | žena</annotation>
@@ -705,14 +739,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧎‍♂" type="tts">klečící muž</annotation>
 		<annotation cp="🧎‍♀">klečet | klečící | klek | poklek | žena</annotation>
 		<annotation cp="🧎‍♀" type="tts">klečící žena</annotation>
+		<annotation cp="🧑‍🦯">handicap | hendikep | pomůcka | postižení | slepý | usnadnění</annotation>
+		<annotation cp="🧑‍🦯" type="tts">člověk se slepeckou holí</annotation>
 		<annotation cp="👨‍🦯">handicap | hendikep | muž | muž se slepeckou holí | pomůcka | postižení | slepý | usnadnění</annotation>
 		<annotation cp="👨‍🦯" type="tts">muž se slepeckou holí</annotation>
 		<annotation cp="👩‍🦯">handicap | hendikep | pomůcka | postižení | slepá | usnadnění | žena | žena se slepeckou holí</annotation>
 		<annotation cp="👩‍🦯" type="tts">žena se slepeckou holí</annotation>
+		<annotation cp="🧑‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | usnadnění | vozík</annotation>
+		<annotation cp="🧑‍🦼" type="tts">člověk na elektrickém invalidním vozíku</annotation>
 		<annotation cp="👨‍🦼">handicap | hendikep | invalidní | muž | muž na elektrickém invalidním vozíku | pomůcka | postižení | usnadnění | vozík</annotation>
 		<annotation cp="👨‍🦼" type="tts">muž na elektrickém invalidním vozíku</annotation>
 		<annotation cp="👩‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | usnadnění | vozík | žena | žena na elektrickém invalidním vozíku</annotation>
 		<annotation cp="👩‍🦼" type="tts">žena na elektrickém invalidním vozíku</annotation>
+		<annotation cp="🧑‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | usnadnění | vozík</annotation>
+		<annotation cp="🧑‍🦽" type="tts">člověk na mechanickém invalidním vozíku</annotation>
 		<annotation cp="👨‍🦽">handicap | hendikep | invalidní | muž | muž na mechanickém invalidním vozíku | pomůcka | postižení | usnadnění | vozík</annotation>
 		<annotation cp="👨‍🦽" type="tts">muž na mechanickém invalidním vozíku</annotation>
 		<annotation cp="👩‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | usnadnění | vozík | žena | žena na mechanickém invalidním vozíku</annotation>
@@ -1367,7 +1407,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥄" type="tts">lžíce</annotation>
 		<annotation cp="🔪">kuchyňský nůž | nádobí | nástroj | nůž | vaření | zbraň</annotation>
 		<annotation cp="🔪" type="tts">kuchyňský nůž</annotation>
-		<annotation cp="🏺">amfora | nádoba | nádobí | nápoj | nástroj | vaření | váza | vodnář | zbraň | zvěrokruh</annotation>
+		<annotation cp="🏺">amfora | nádoba | nádobí | nápoj | vaření | váza | vodnář | zvěrokruh</annotation>
 		<annotation cp="🏺" type="tts">amfora</annotation>
 		<annotation cp="🌍">afrika | evropa | glóbus s Evropou a Afrikou | svět | země | zeměkoule</annotation>
 		<annotation cp="🌍" type="tts">glóbus s Evropou a Afrikou</annotation>
@@ -1453,7 +1493,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛪" type="tts">kostel</annotation>
 		<annotation cp="🕌">islám | mešita | muslim | náboženství</annotation>
 		<annotation cp="🕌" type="tts">mešita</annotation>
-		<annotation cp="🛕">chrám | hinduistický chrám | hinudismus | svatyně</annotation>
+		<annotation cp="🛕">chrám | hinduismus | hinduistický chrám | svatyně</annotation>
 		<annotation cp="🛕" type="tts">hinduistický chrám</annotation>
 		<annotation cp="🕍">chrám | náboženství | synagoga | žid | židovský</annotation>
 		<annotation cp="🕍" type="tts">synagoga</annotation>
@@ -2831,9 +2871,121 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">černá vlajka</annotation>
 		<annotation cp="🏳">bílá vlajka | prapor | praporek | vlající</annotation>
 		<annotation cp="🏳" type="tts">bílá vlajka</annotation>
+		<annotation cp="🏳‍⚧">bílá | růžová | světle modrá | transgender | vlajka</annotation>
+		<annotation cp="🏳‍⚧" type="tts">vlajka trans hrdosti</annotation>
 		<annotation cp="🏳‍🌈">duha | duhová vlajka | prapor | praporek | vlajka</annotation>
 		<annotation cp="🏳‍🌈" type="tts">duhová vlajka</annotation>
 		<annotation cp="🏴‍☠">hnáty | lebka | pirát | pirátská vlajka | poklad</annotation>
 		<annotation cp="🏴‍☠" type="tts">pirátská vlajka</annotation>
+		<annotation cp="🛖">chatka | chatrč | jurta | obydlí</annotation>
+		<annotation cp="🛖" type="tts">chýše</annotation>
+		<annotation cp="🛗">přístup | usnadnění | výtah | zdviž</annotation>
+		<annotation cp="🛗" type="tts">výtah</annotation>
+		<annotation cp="🛻">pick-up | polododávka</annotation>
+		<annotation cp="🛻" type="tts">pickup</annotation>
+		<annotation cp="🛼">bruslení | inlajny | inline | kolečkové</annotation>
+		<annotation cp="🛼" type="tts">kolečková brusle</annotation>
+		<annotation cp="🤌">gesto rukou | ironie | italské sarkastické gesto | otázka | prsty | sarkasmus | sevřené</annotation>
+		<annotation cp="🤌" type="tts">špetka z pěti prstů</annotation>
+		<annotation cp="🥲">dojatý | hrdý | slza | smajlík | tvář | úleva | úsměv | usmívající | vděčný | výraz</annotation>
+		<annotation cp="🥲" type="tts">usmívající se obličej se slzou</annotation>
+		<annotation cp="🥷">bojovník | nenápadný | špion | tajný</annotation>
+		<annotation cp="🥷" type="tts">nindža</annotation>
+		<annotation cp="🥸">brýle | incognito | inkognito | přestrojení | převlek | smajlík | tvář | výraz</annotation>
+		<annotation cp="🥸" type="tts">obličej v přestrojení</annotation>
+		<annotation cp="🦣">huňatý | kel | kly | velký | vyhynulý</annotation>
+		<annotation cp="🦣" type="tts">mamut</annotation>
+		<annotation cp="🦤">blboun | dronte | Mauricius | nejapný | pták | velký | vyhynulý</annotation>
+		<annotation cp="🦤" type="tts">dodo</annotation>
+		<annotation cp="🦫">bobr | hráz</annotation>
+		<annotation cp="🦫" type="tts">bobr</annotation>
+		<annotation cp="🦬">bizon | buvol | stádo | zubr</annotation>
+		<annotation cp="🦬" type="tts">bizon</annotation>
+		<annotation cp="🦭">lachtan | lvoun | tuleň</annotation>
+		<annotation cp="🦭" type="tts">tuleň</annotation>
+		<annotation cp="🧋">bubble tea | bublinkový | čaj | mléčný | perličkový | perličky | perlivý</annotation>
+		<annotation cp="🧋" type="tts">bublinkový čaj</annotation>
+		<annotation cp="🩴">pláž | sandál | sandále | sandály | vietnamky | žabky</annotation>
+		<annotation cp="🩴" type="tts">žabka</annotation>
+		<annotation cp="🪃">austrálie | bumerang | návrat | odraz</annotation>
+		<annotation cp="🪃" type="tts">bumerang</annotation>
+		<annotation cp="🪄">čarodějnice | kouzelník | kouzlo | magie</annotation>
+		<annotation cp="🪄" type="tts">kouzelná hůlka</annotation>
+		<annotation cp="🪅">oslava | party</annotation>
+		<annotation cp="🪅" type="tts">piñata</annotation>
+		<annotation cp="🪆">babuška | panenka | ruská | rusko</annotation>
+		<annotation cp="🪆" type="tts">matrjoška</annotation>
+		<annotation cp="🪖">armáda | bojovník | helma | voják | vojenská</annotation>
+		<annotation cp="🪖" type="tts">vojenská přilba</annotation>
+		<annotation cp="🪗">dršťky | harmonika | koncertina | tahací | zednické piano</annotation>
+		<annotation cp="🪗" type="tts">akordeon</annotation>
+		<annotation cp="🪘">buben | bubnování | conga | congo | konga | kongo | rytmus</annotation>
+		<annotation cp="🪘" type="tts">protáhlý buben</annotation>
+		<annotation cp="🪙">kov | peníze | poklad | stříbro | zlato</annotation>
+		<annotation cp="🪙" type="tts">mince</annotation>
+		<annotation cp="🪚">dřevo | nástroj | ocaska | pila | pilka | truhlář</annotation>
+		<annotation cp="🪚" type="tts">ruční pila</annotation>
+		<annotation cp="🪛">nástroj | šroub | šroubovat</annotation>
+		<annotation cp="🪛" type="tts">šroubovák</annotation>
+		<annotation cp="🪜">příčka | schod | šplhat | šprušel | žebřík</annotation>
+		<annotation cp="🪜" type="tts">žebřík</annotation>
+		<annotation cp="🪝">chytit | háček | lovit | polapit | zahnutý</annotation>
+		<annotation cp="🪝" type="tts">hák</annotation>
+		<annotation cp="🪞">obraz | odlesk | odraz | zrcátko</annotation>
+		<annotation cp="🪞" type="tts">zrcadlo</annotation>
+		<annotation cp="🪟">čerstvý vzduch | otvor | průhled | průhledný | rám | výhled</annotation>
+		<annotation cp="🪟" type="tts">okno</annotation>
+		<annotation cp="🪠">instalatér | podtlak | toaleta | ucpaný | záchod</annotation>
+		<annotation cp="🪠" type="tts">zvon na WC</annotation>
+		<annotation cp="🪡">jehla | krejčovina | šití | stehy | švy | vyšívání | výšivka</annotation>
+		<annotation cp="🪡" type="tts">šicí jehla</annotation>
+		<annotation cp="🪢">lano | provaz | uvázat | zapletený</annotation>
+		<annotation cp="🪢" type="tts">uzel</annotation>
+		<annotation cp="🪣">džber | kýbl | kyblík | vědro</annotation>
+		<annotation cp="🪣" type="tts">kbelík</annotation>
+		<annotation cp="🪤">nástraha | návnada | past | pastička</annotation>
+		<annotation cp="🪤" type="tts">pastička na myši</annotation>
+		<annotation cp="🪥">čistit | dentální | hygiena | kartáček | koupelna | zubní | zuby</annotation>
+		<annotation cp="🪥" type="tts">zubní kartáček</annotation>
+		<annotation cp="🪦">hřbitov | hrob | kámen | náhrobní | pomník</annotation>
+		<annotation cp="🪦" type="tts">náhrobek</annotation>
+		<annotation cp="🪧">cedule | demonstrace | poutač | protest | transparent</annotation>
+		<annotation cp="🪧" type="tts">cedule</annotation>
+		<annotation cp="🪨">balvan | kámen | skála | šutr | těžký</annotation>
+		<annotation cp="🪨" type="tts">kámen</annotation>
+		<annotation cp="🪰">hmyz | hnijící | larva | nemoc | otravný</annotation>
+		<annotation cp="🪰" type="tts">moucha</annotation>
+		<annotation cp="🪱">dešťovka | kroužkovec | parazit | žížala</annotation>
+		<annotation cp="🪱" type="tts">červ</annotation>
+		<annotation cp="🪲">brouček | brouk | hmyz</annotation>
+		<annotation cp="🪲" type="tts">brouk</annotation>
+		<annotation cp="🪳">hmyz | škůdce | šváb</annotation>
+		<annotation cp="🪳" type="tts">šváb</annotation>
+		<annotation cp="🪴">dům | nuda | nudný | péče | rostlina | růst</annotation>
+		<annotation cp="🪴" type="tts">květina v květináči</annotation>
+		<annotation cp="🪵">dřevo | kláda | kmen | poleno | špalek</annotation>
+		<annotation cp="🪵" type="tts">dřevo</annotation>
+		<annotation cp="🪶">lehké | let | opeření | peří | péro | pták</annotation>
+		<annotation cp="🪶" type="tts">pírko</annotation>
+		<annotation cp="🫀">kardiologie | puls | srdce | tep | tlukot</annotation>
+		<annotation cp="🫀" type="tts">srdeční orgán</annotation>
+		<annotation cp="🫁">dech | dýchání | nádech | orgán | respirace | výdech</annotation>
+		<annotation cp="🫁" type="tts">plíce</annotation>
+		<annotation cp="🫂">díky | náruč | objetí | pozdrav | sbohem | vděčnost</annotation>
+		<annotation cp="🫂" type="tts">objímající se lidé</annotation>
+		<annotation cp="🫐">bobule | lesní | modrý | plod</annotation>
+		<annotation cp="🫐" type="tts">borůvky</annotation>
+		<annotation cp="🫑">kapie | paprika | sladká | zelenina</annotation>
+		<annotation cp="🫑" type="tts">paprika</annotation>
+		<annotation cp="🫒">jídlo | ovoce</annotation>
+		<annotation cp="🫒" type="tts">oliva</annotation>
+		<annotation cp="🫓">arepa | lavaš | naan | nán | pita</annotation>
+		<annotation cp="🫓" type="tts">chlebová placka</annotation>
+		<annotation cp="🫔">mexický | tamales | wrap</annotation>
+		<annotation cp="🫔" type="tts">tamale</annotation>
+		<annotation cp="🫕">čokoládové | švýcarské | sýr | sýrové</annotation>
+		<annotation cp="🫕" type="tts">fondue</annotation>
+		<annotation cp="🫖">čaj | čajník | konvice | nápoj | pití</annotation>
+		<annotation cp="🫖" type="tts">čajová konvice</annotation>
 	</annotations>
 </ldml>

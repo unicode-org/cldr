@@ -679,7 +679,7 @@ public class PathHeader implements Comparable<PathHeader> {
          * Return the PathHeader for a given path. Thread-safe.
          * @param failures a list of failures to add to.
          */
-        public PathHeader fromPath(String path, List<String> failures) {
+        public PathHeader fromPath(final String path, List<String> failures) {
             if (path == null) {
                 throw new NullPointerException("Path cannot be null");
             }
@@ -753,7 +753,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     return result;
                 } catch (Exception e) {
                     throw new IllegalArgumentException(
-                        "Probably mismatch in Page/Section enum, or too few capturing groups in regex for " + cleanPath,
+                        "Probably mismatch in Page/Section enum, or too few capturing groups in regex for " + path,
                         e);
                 }
             }

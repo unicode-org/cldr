@@ -881,7 +881,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MF" draft="contributed">Saint-Martin</territory>
 			<territory type="MG" draft="contributed">Madeiaskar</territory>
 			<territory type="MH" draft="contributed">Marshalleilannen</territory>
-			<territory type="MK" draft="contributed">Macedonië</territory>
+			<territory type="MK">↑↑↑</territory>
 			<territory type="MK" alt="variant" draft="contributed">Macedonië (FYROM)</territory>
 			<territory type="ML" draft="contributed">Mali</territory>
 			<territory type="MM" draft="contributed">Myanmar (Birma)</territory>
@@ -2896,9 +2896,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
-				<!-- need some non-empty element here to make inheritance work,
-					 this copy of generic dateFormats above is smaller than root japanese eras
-				-->
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>

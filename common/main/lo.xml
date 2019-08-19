@@ -89,6 +89,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="car">ຄາຣິບ</language>
 			<language type="cay">ຄາຢູກາ</language>
 			<language type="cch">ອາດແຊມ</language>
+			<language type="ccp" draft="provisional">Chakma</language>
 			<language type="ce">ຊີເຄນ</language>
 			<language type="ceb">ຊີບູໂນ</language>
 			<language type="cgg">ຊີກາ</language>
@@ -534,14 +535,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="yi">ຢິວ</language>
 			<language type="yo">ໂຢຣູບາ</language>
 			<language type="yue">ກວາງຕຸ້ງ</language>
+			<language type="yue" alt="menu" draft="provisional">ພາສາຈີນ, ຈີກວາງຕຸ້ງ</language>
 			<language type="za">ຊວາງ</language>
 			<language type="zap">ຊາໂປແຕບ</language>
 			<language type="zbl">ສັນຍາລັກບລີຊິມ</language>
 			<language type="zen">ເຊນາກາ</language>
 			<language type="zgh">ໂມຣັອກແຄນ ທາມາຊີກ ມາດຕະຖານ</language>
 			<language type="zh">ຈີນ</language>
+			<language type="zh" alt="menu">ພາສາຈີນ, ພາສາຈີນກາງ</language>
 			<language type="zh_Hans">ຈີນແບບຮຽບງ່າຍ</language>
+			<language type="zh_Hans" alt="long">ພາສາຈີນກາງ</language>
 			<language type="zh_Hant">ຈີນແບບດັ້ງເດີມ</language>
+			<language type="zh_Hant" alt="long">ພາສາຈີນແມນດາຣິນດັ້ງເດີມ</language>
 			<language type="zu">ຊູລູ</language>
 			<language type="zun">ຊູນີ</language>
 			<language type="zxx">ບໍ່ມີເນື້ອຫາພາສາ</language>
@@ -812,7 +817,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="DM">ໂດມີນິຄາ</territory>
 			<territory type="DO">ສາທາລະນະລັດ ໂດມິນິກັນ</territory>
 			<territory type="DZ">ອັລຈິເຣຍ</territory>
-			<territory type="EA">ເຊວຕາ ແລະເມລິນລາ</territory>
+			<territory type="EA">ເຊວຕາ &amp; ເມລິນລາ</territory>
 			<territory type="EC">ເອກວາດໍ</territory>
 			<territory type="EE">ເອສໂຕເນຍ</territory>
 			<territory type="EG">ອີຢິບ</territory>
@@ -900,7 +905,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="MF">ເຊນ ມາທິນ</territory>
 			<territory type="MG">ມາດາກາສະກາ</territory>
 			<territory type="MH">ຫມູ່ເກາະມາແຊວ</territory>
-			<territory type="MK">ແມຊິໂດເນຍ</territory>
+			<territory type="MK">ແມຊິໂດເນຍເໜືອ</territory>
 			<territory type="MK" alt="variant">ແມຊິໂດເນຍ (FYROM)</territory>
 			<territory type="ML">ມາລີ</territory>
 			<territory type="MM">ມຽນມາ (ເບີມາ)</territory>
@@ -1011,6 +1016,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="VU">ວານົວຕູ</territory>
 			<territory type="WF">ວາລລິສ ແລະ ຟູຕູນາ</territory>
 			<territory type="WS">ຊາມົວ</territory>
+			<territory type="XA" draft="provisional">Pseudo-Accents</territory>
+			<territory type="XB" draft="provisional">Pseudo-Bidi</territory>
 			<territory type="XK">ໂຄໂຊໂວ</territory>
 			<territory type="YE">ເຢເມນ</territory>
 			<territory type="YT">ມາຢັອດ</territory>
@@ -1188,8 +1195,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">ເມທຣິກ</measurementSystemName>
-			<measurementSystemName type="UK">ອັງກິດ</measurementSystemName>
-			<measurementSystemName type="US">ອາເມຣິກາ</measurementSystemName>
+			<measurementSystemName type="UK">ສະຫະລາດຊະອານາຈັກອັງກິດ</measurementSystemName>
+			<measurementSystemName type="US">ສະຫະລັດອາເມລິກາ</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">{0}</codePattern>
@@ -1210,6 +1217,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<ellipsis type="word-initial">… {0}</ellipsis>
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample=":" draft="contributed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="’" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="%" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="‰" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="$" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="£" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="¥" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="₩" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="₹" draft="contributed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="," draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="+" draft="contributed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="." draft="contributed">↑↑↑</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -1756,6 +1787,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="M">GGGGG d/M/y – d/M/y</greatestDifference>
 							<greatestDifference id="y">GGGGG d/M/y – d/M/y</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d" draft="provisional">E, d/M GGGGG y – E, d/M GGGGG y</greatestDifference>
+							<greatestDifference id="G" draft="provisional">E, d/M GGGGG y – E, d/M GGGGG y</greatestDifference>
+							<greatestDifference id="M" draft="provisional">E, d/M GGGGG y – E, d/M GGGGG y</greatestDifference>
+							<greatestDifference id="y" draft="provisional">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G" draft="provisional">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="provisional">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="provisional">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d" draft="provisional">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="provisional">d MMM G y– d MMM G y</greatestDifference>
+							<greatestDifference id="M" draft="provisional">d MMM – d MMM G y</greatestDifference>
+							<greatestDifference id="y" draft="provisional">d MMM G y– d MMM G y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d" draft="provisional">E, d MMM – E, d MMM G y</greatestDifference>
+							<greatestDifference id="G" draft="provisional">E, d MMM G y – E, d MMM G y</greatestDifference>
+							<greatestDifference id="M" draft="provisional">E, d MMM – E, d MMM G y</greatestDifference>
+							<greatestDifference id="y" draft="provisional">E, d MMM G y – E, d MMM G y</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">h a – h a</greatestDifference>
 							<greatestDifference id="h">h–h a</greatestDifference>
@@ -2072,10 +2126,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<dayPeriod type="night1">ກາງຄືນ</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="midnight">ທຄ</dayPeriod>
-							<dayPeriod type="am">ກທ</dayPeriod>
-							<dayPeriod type="noon">ທ</dayPeriod>
-							<dayPeriod type="pm">ຫຼທ</dayPeriod>
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="noon">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 							<dayPeriod type="morning1">ຕອນເຊົ້າ</dayPeriod>
 							<dayPeriod type="afternoon1">ຕອນທ່ຽງ</dayPeriod>
 							<dayPeriod type="evening1">ຕອນແລງ</dayPeriod>
@@ -2104,14 +2158,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<dayPeriod type="night1">​ກາງ​ຄືນ</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="midnight">ທຄ</dayPeriod>
-							<dayPeriod type="am">ກທ</dayPeriod>
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
 							<dayPeriod type="noon">ຕອນທ່ຽງ</dayPeriod>
-							<dayPeriod type="pm">ຫຼທ</dayPeriod>
-							<dayPeriod type="morning1">ຊ</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">ສ</dayPeriod>
-							<dayPeriod type="evening1">ລ</dayPeriod>
-							<dayPeriod type="night1">ກຄ</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">ທ່ຽງຄືນ</dayPeriod>
@@ -3088,6 +3142,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="year-short">
 				<displayName>ປີ</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ໃນອີກ {0} ປີ</relativeTimePattern>
 				</relativeTime>
@@ -3097,6 +3154,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="year-narrow">
 				<displayName>ປີ</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ໃນອີກ {0} ປີ</relativeTimePattern>
 				</relativeTime>
@@ -3131,7 +3191,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="other">ໃນ {0} ຕມ.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} ຕມ. ກ່ອນ</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month">
@@ -3148,6 +3208,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="month-short">
 				<displayName>ດ.</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ໃນອີກ {0} ດ.</relativeTimePattern>
 				</relativeTime>
@@ -3157,6 +3220,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="month-narrow">
 				<displayName>ດ.</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ໃນອີກ {0} ດ.</relativeTimePattern>
 				</relativeTime>
@@ -3179,6 +3245,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="week-short">
 				<displayName>ອ.</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ໃນອີກ {0} ອທ.</relativeTimePattern>
 				</relativeTime>
@@ -3189,6 +3258,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="week-narrow">
 				<displayName>ອ.</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ໃນອີກ {0} ອທ.</relativeTimePattern>
 				</relativeTime>
@@ -3298,9 +3370,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="sun-narrow">
-				<relative type="-1">ອາ. ແລ້ວ</relative>
-				<relative type="0">ອາ. ນີ້</relative>
-				<relative type="1">ອາ. ໜ້າ</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ໃນ {0} ວັນອາທິດ</relativeTimePattern>
 				</relativeTime>
@@ -3331,9 +3403,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="mon-narrow">
-				<relative type="-1">ຈ. ແລ້ວ</relative>
-				<relative type="0">ຈ. ນີ້</relative>
-				<relative type="1">ຈ. ໜ້າ</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ໃນ {0} ວັນຈັນ</relativeTimePattern>
 				</relativeTime>
@@ -3397,9 +3469,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="wed-narrow">
-				<relative type="-1">ພຸ. ແລ້ວ</relative>
-				<relative type="0">ພຸ. ນີ້</relative>
-				<relative type="1">ພຸ. ໜ້າ</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ໃນ {0} ວັນພຸດ</relativeTimePattern>
 				</relativeTime>
@@ -3430,9 +3502,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="thu-narrow">
-				<relative type="-1">ພຫ. ແລ້ວ</relative>
-				<relative type="0">ພຫ. ນີ້</relative>
-				<relative type="1">ພຫ. ໜ້າ</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ໃນ {0} ວັນພະຫັດ</relativeTimePattern>
 				</relativeTime>
@@ -3463,9 +3535,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="fri-narrow">
-				<relative type="-1">ສຸ. ແລ້ວ</relative>
-				<relative type="0">ສຸ. ນີ້</relative>
-				<relative type="1">ສຸ. ໜ້າ</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ໃນອີກ {0} ວັນສຸກ</relativeTimePattern>
 				</relativeTime>
@@ -3496,9 +3568,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="sat-narrow">
-				<relative type="-1">ສ. ແລ້ວ</relative>
-				<relative type="0">ສ. ນີ້</relative>
-				<relative type="1">ສ. ໜ້າ</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ໃນ {0} ວັນເສົາ</relativeTimePattern>
 				</relativeTime>
@@ -3547,7 +3619,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ນາທີ</displayName>
 				<relative type="0">ນາທີນີ້</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} ໃນອີກ 0 ນາທີ</relativeTimePattern>
+					<relativeTimePattern count="other">ໃນອີກ {0} ນາທີ</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="other">{0} ນາທີກ່ອນ</relativeTimePattern>
@@ -3908,7 +3980,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ເອດມອນຕອນ</exemplarCity>
 			</zone>
 			<zone type="America/Swift_Current">
-				<exemplarCity>ສະວິວ ເຄີເຣນ</exemplarCity>
+				<exemplarCity>ສະວິຟ ເຄີເຣນ</exemplarCity>
 			</zone>
 			<zone type="America/Cambridge_Bay">
 				<exemplarCity>ແຄມບຣິດ ເບ</exemplarCity>
@@ -4217,7 +4289,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ເກາະແມນ</exemplarCity>
 			</zone>
 			<zone type="Asia/Calcutta">
-				<exemplarCity>ໂຄກາຕາ</exemplarCity>
+				<exemplarCity>ໂກລກາຕາ</exemplarCity>
 			</zone>
 			<zone type="Indian/Chagos">
 				<exemplarCity>ຊາໂກສ</exemplarCity>
@@ -4293,6 +4365,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>ອັດໂທບີ</exemplarCity>
+			</zone>
+			<zone type="Asia/Qostanay">
+				<exemplarCity>ຄອສຕາເນ</exemplarCity>
 			</zone>
 			<zone type="Asia/Qyzylorda">
 				<exemplarCity>ໄຄຊີລໍດາ</exemplarCity>
@@ -4397,7 +4472,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ເມົາຣິທຽສ</exemplarCity>
 			</zone>
 			<zone type="Indian/Maldives">
-				<exemplarCity>ມັລດີບ</exemplarCity>
+				<exemplarCity>ມັລດີຟ</exemplarCity>
 			</zone>
 			<zone type="Africa/Blantyre">
 				<exemplarCity>ແບລນໄທຣ໌</exemplarCity>
@@ -4796,7 +4871,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ເມັດລາກັດລາ</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
-				<exemplarCity>ລອສ ແອນເຈລີສ</exemplarCity>
+				<exemplarCity>ລອສແອນເຈລີສ</exemplarCity>
 			</zone>
 			<zone type="America/Boise">
 				<exemplarCity>ບອຍຊ໌</exemplarCity>
@@ -4945,9 +5020,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Alaska">
 				<long>
-					<generic>ເວລາອະແລສກາ</generic>
-					<standard>ເວລາມາດຕະຖານອະແລສກາ</standard>
-					<daylight>ເວລາກາງເວັນອະແລສກາ</daylight>
+					<generic>ເວລາອະລັສກາ</generic>
+					<standard>ເວລາມາດຕະຖານອະລັສກາ</standard>
+					<daylight>ເວລາກາງເວັນອະລັສກາ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Almaty">
@@ -5484,7 +5559,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Maldives">
 				<long>
-					<standard>ເວລາມັນດີຟ</standard>
+					<standard>ເວລາມັລດີຟ</standard>
 				</long>
 			</metazone>
 			<metazone type="Marquesas">
@@ -5857,11 +5932,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<otherNumberingSystems>
 			<native>laoo</native>
 		</otherNumberingSystems>
+		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group>.</group>
 			<list>;</list>
 			<percentSign>%</percentSign>
+			<plusSign draft="contributed">↑↑↑</plusSign>
+			<minusSign draft="contributed">↑↑↑</minusSign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
@@ -5903,6 +5981,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="contributed">↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
 					<pattern type="1000" count="other">0 ພັນ</pattern>
@@ -6207,14 +6290,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
-				<displayName>ໂດ​ລ່າ​ເບ​ລິ​ຊ</displayName>
-				<displayName count="other">ໂດ​ລ່າ​ເບ​ລິ​ຊ</displayName>
+				<displayName>ໂດ​ລ່າ​ເບ​ລີຊ</displayName>
+				<displayName count="other">ໂດ​ລ່າ​ເບ​ລີຊ</displayName>
 				<symbol>BZD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CAD">
-				<displayName>ໂດລ່າຄານາດາ</displayName>
-				<displayName count="other">ໂດລ່າຄານາດາ</displayName>
+				<displayName>ໂດລ່າແຄນາດາ</displayName>
+				<displayName count="other">ໂດລ່າແຄນາດາ</displayName>
 				<symbol>CA$</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
@@ -6249,6 +6332,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="CNH">
 				<displayName>ຢວນຈີນ (ນອກປະເທດ)</displayName>
 				<displayName count="other">ຢວນຈີນ (ນອກປະເທດ)</displayName>
+				<symbol draft="contributed">CNH</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>ຈີນ ຢວນ</displayName>
@@ -6259,6 +6343,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="COP">
 				<displayName>ໂຄ​ລົມ​ບຽນ ເປ​ໂຊ</displayName>
 				<displayName count="other">ໂຄ​ລົມ​ບຽນ ເປ​ໂຊ</displayName>
+				<symbol draft="contributed">COP</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="COU">
@@ -6297,8 +6382,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ປອນ ໄຊປຣັດ</displayName>
 			</currency>
 			<currency type="CZK">
-				<displayName>ໂຄ​ຣູ​ນາ ເຊກ</displayName>
-				<displayName count="other">ໂຄ​ຣູ​ນາ ເຊກ</displayName>
+				<displayName>ເຊກ ໂຄ​ຣູ​ນາ</displayName>
+				<displayName count="other">ເຊກ ໂຄ​ຣູ​ນາ</displayName>
 				<symbol>CZK</symbol>
 				<symbol alt="narrow" draft="contributed">Kč</symbol>
 			</currency>
@@ -6389,8 +6474,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ຟຣັງ ຝຣັ່ງ</displayName>
 			</currency>
 			<currency type="GBP">
-				<displayName>ປອນ ສະ​ເຕີ​ຣິງ (ອັງ​ກິດ)</displayName>
-				<displayName count="other">ປອນ ສະເຕີຣິງ (ອັງກິດ)</displayName>
+				<displayName>ອັງກິດ ປອນ</displayName>
+				<displayName count="other">ອັງກິດ ປອນ</displayName>
 				<symbol>£</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
@@ -6408,8 +6493,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ເຊດີ ການາ (1979–2007)</displayName>
 			</currency>
 			<currency type="GHS">
-				<displayName>ເຊ​ດິ ກາ​ນາ​ອຽນ</displayName>
-				<displayName count="other">ເຊ​ດິ ກາ​ນາ​ອຽນ</displayName>
+				<displayName>ກາ​ນາ​ອຽນ ເຊ​ດິ</displayName>
+				<displayName count="other">ກາ​ນາ​ອຽນ ເຊ​ດິ</displayName>
 				<symbol>GHS</symbol>
 			</currency>
 			<currency type="GIP">
@@ -6609,6 +6694,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ລາວ ກີບ</displayName>
 				<displayName count="other">ລາວ ກີບ</displayName>
 				<symbol>₭</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>ເລ​ບາ​ນີ​ສ ພາວດ໌</displayName>
@@ -6725,6 +6811,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="MRU">
 				<displayName>ມົວ​ຣິ​ທາ​ນຽນ ອູ​ກິວ​ຢາ</displayName>
 				<displayName count="other">ມົວ​ຣິ​ທາ​ນຽນ ອູ​ກິວ​ຢາ</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>ລິຣາ ມອນຕາ</displayName>
@@ -6802,8 +6889,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ກິລເດີ ເນເທີແລນ</displayName>
 			</currency>
 			<currency type="NOK">
-				<displayName>ນໍ​ເວ​ກຽນ ​ໂຄຣນ</displayName>
-				<displayName count="other">ນໍ​ເວ​ກຽນ ​ໂຄຣນ</displayName>
+				<displayName>ນໍ​ເວ​ຈຽນ ​ໂຄຣນ</displayName>
+				<displayName count="other">ນໍ​ເວ​ຈຽນ ​ໂຄຣນ</displayName>
 				<symbol>NOK</symbol>
 				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
@@ -6890,6 +6977,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ໂຣ​ມາ​ນຽນ ເລ​ອູ</displayName>
 				<displayName count="other">ໂຣ​ມາ​ນຽນ ເລ​ອູ</displayName>
 				<symbol>RON</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>ເຊີ​ບຽນ ດິ​ນາ</displayName>
@@ -6995,6 +7083,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="STN">
 				<displayName>ເຊົາ ໂທ​ເມ ແອນ ພ​ຣິນ​ຊິ​ປີ ໂດບຣາ</displayName>
 				<displayName count="other">ເຊົາ ໂທ​ເມ ແອນ ພ​ຣິນ​ຊິ​ປີ ໂດບຣາ</displayName>
+				<symbol draft="contributed">STN</symbol>
 				<symbol alt="narrow" draft="contributed">Db</symbol>
 			</currency>
 			<currency type="SUR">
@@ -7061,8 +7150,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="variant" draft="contributed">TL</symbol>
 			</currency>
 			<currency type="TTD">
-				<displayName>ທ​ຣິ​ນິ​ແດດ ແອນ ໂທ​ບາ​ໂກ ໂດ​ລ່າ</displayName>
-				<displayName count="other">ທ​ຣິ​ນິ​ແດດ ແອນ ໂທ​ບາ​ໂກ ໂດ​ລ່າ</displayName>
+				<displayName>ທ​ຣິ​ນິ​ແດດ &amp; ໂທ​ບາ​ໂກ ໂດ​ລ່າ</displayName>
+				<displayName count="other">ທ​ຣິ​ນິ​ແດດ &amp; ໂທ​ບາ​ໂກ ໂດ​ລ່າ</displayName>
 				<symbol>TTD</symbol>
 				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
@@ -7135,6 +7224,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="VES">
 				<displayName>ເວ​ເນ​ຊູ​ເອ​ລັນ ໂບ​ລິ​ວາ</displayName>
 				<displayName count="other">ເວ​ເນ​ຊູ​ເອ​ລັນ ໂບ​ລິ​ວາ</displayName>
+				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>ຫວຽດ​ນາມ ດົງ</displayName>
@@ -7292,6 +7382,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<unitLength type="long">
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0} ຕໍ່ {1}</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="times">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>ແຮງຕົກຕາມລຳພັງ</displayName>
@@ -7462,6 +7555,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ສັດຕະວັດ</displayName>
 				<unitPattern count="other">{0} ສັດຕະວັດ</unitPattern>
 			</unit>
+			<unit type="duration-decade">
+				<displayName>ທົດສະວັດ</displayName>
+				<unitPattern count="other">{0} ທົດສະວັດ</unitPattern>
+			</unit>
 			<unit type="duration-year">
 				<displayName>ປີ</displayName>
 				<unitPattern count="other">{0} ປີ</unitPattern>
@@ -7522,20 +7619,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Ω</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<displayName>volt</displayName>
-				<unitPattern count="other">{0} V</unitPattern>
+				<displayName>ໂວລ</displayName>
+				<unitPattern count="other">{0} ໂວລ</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
-				<displayName>kcal</displayName>
-				<unitPattern count="other">{0} kcal</unitPattern>
+				<displayName>ກິໂລແຄລໍລີ່</displayName>
+				<unitPattern count="other">{0} ກິໂລແຄລໍລີ່</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
-				<displayName>cal</displayName>
-				<unitPattern count="other">{0} cal</unitPattern>
+				<displayName>ແຄລໍລີ່</displayName>
+				<unitPattern count="other">{0} ແຄລໍລີ່</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>Cal</displayName>
-				<unitPattern count="other">{0} Cal</unitPattern>
+				<displayName>ແຄລໍລີ່</displayName>
+				<unitPattern count="other">{0} ແຄລໍລີ່</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kJ</displayName>
@@ -7556,6 +7653,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="energy-british-thermal-unit">
 				<displayName>ຫົວ​ໜ່ວຍ​ວັດ​ແທກ​ປະ​ລິ​ມານ​ຄວາມ​ຮ້ອນ​ຂ​ອງ​ອັງ​ກິດ</displayName>
 				<unitPattern count="other">{0} ຫົວ​ໜ່ວຍ​ວັດ​ແທກ​ປະ​ລິ​ມານ​ຄວາມ​ຮ້ອນ​ຂ​ອງ​ອັງ​ກິດ</unitPattern>
+			</unit>
+			<unit type="energy-therm-us">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
 				<displayName>ແຮງປ​ອນ</displayName>
@@ -7580,6 +7681,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="frequency-hertz">
 				<displayName>Hz</displayName>
 				<unitPattern count="other">{0} Hz</unitPattern>
+			</unit>
+			<unit type="graphics-em">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-megapixel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>ກິໂລແມັດ</displayName>
@@ -7693,18 +7822,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} µg</unitPattern>
 			</unit>
 			<unit type="mass-ton">
-				<displayName>tn</displayName>
-				<unitPattern count="other">{0} tn</unitPattern>
+				<displayName>ໂຕນ</displayName>
+				<unitPattern count="other">{0} ໂຕນ</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName>ປອນ</displayName>
 				<unitPattern count="other">{0} ປອນ</unitPattern>
-				<perUnitPattern>{0}/lb</perUnitPattern>
+				<perUnitPattern>{0}/ປອນ</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
-				<displayName>ອອນ</displayName>
-				<unitPattern count="other">{0} ອອນ</unitPattern>
-				<perUnitPattern>{0} ຕໍ່ ອອນ</perUnitPattern>
+				<displayName>ອອນສ</displayName>
+				<unitPattern count="other">{0} ອອນສ</unitPattern>
+				<perUnitPattern>{0} ຕໍ່ ອອນສ</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>oz t</displayName>
@@ -7762,6 +7891,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>in Hg</displayName>
 				<unitPattern count="other">{0} inches of mercury</unitPattern>
 			</unit>
+			<unit type="pressure-bar">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="pressure-millibar">
 				<displayName>ມິນລິບາ</displayName>
 				<unitPattern count="other">{0} ມິນລິບາ</unitPattern>
@@ -7769,6 +7902,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-atmosphere">
 				<displayName>atmospheres</displayName>
 				<unitPattern count="other">{0} atmospheres</unitPattern>
+			</unit>
+			<unit type="pressure-pascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hectopascals</displayName>
@@ -7795,8 +7932,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ໄມລ໌ຕໍ່ຊົ່ວໂມງ</unitPattern>
 			</unit>
 			<unit type="speed-knot">
-				<displayName>knot</displayName>
-				<unitPattern count="other">{0} knots</unitPattern>
+				<displayName>ນ໋ອດ</displayName>
+				<unitPattern count="other">{0} ນ໋ອດ</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
 				<displayName>°</displayName>
@@ -7890,9 +8027,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ac ft</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>gal</displayName>
-				<unitPattern count="other">{0} gal</unitPattern>
-				<perUnitPattern>{0} per gallon</perUnitPattern>
+				<displayName>ແກລລອນ</displayName>
+				<unitPattern count="other">{0} ແກລລອນ</unitPattern>
+				<perUnitPattern>{0} ຕໍ່ແກລລອນ</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
 				<displayName>ແກລລອນອັງກິດ</displayName>
@@ -7942,6 +8079,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<unitLength type="short">
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="times">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>ແຮງຕົກຕາມລຳພັງ</displayName>
@@ -8112,6 +8252,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>c</displayName>
 				<unitPattern count="other">{0} c</unitPattern>
 			</unit>
+			<unit type="duration-decade">
+				<displayName>ທົດສະວັດ</displayName>
+				<unitPattern count="other">{0} ທົດສະວັດ</unitPattern>
+			</unit>
 			<unit type="duration-year">
 				<displayName>ປີ</displayName>
 				<unitPattern count="other">{0} ປີ</unitPattern>
@@ -8172,20 +8316,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Ω</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<displayName>volt</displayName>
-				<unitPattern count="other">{0} V</unitPattern>
+				<displayName>ໂວລ</displayName>
+				<unitPattern count="other">{0} ໂວລ</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
-				<displayName>kcal</displayName>
-				<unitPattern count="other">{0} kcal</unitPattern>
+				<displayName>ກິໂລແຄລໍລີ່</displayName>
+				<unitPattern count="other">{0} ກິໂລແຄລໍລີ່</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
-				<displayName>cal</displayName>
-				<unitPattern count="other">{0} cal</unitPattern>
+				<displayName>ຄລ</displayName>
+				<unitPattern count="other">{0} ຄລ</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>Cal</displayName>
-				<unitPattern count="other">{0} Cal</unitPattern>
+				<displayName>ຄລ</displayName>
+				<unitPattern count="other">{0} ຄລ</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kJ</displayName>
@@ -8204,6 +8348,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-therm-us">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -8230,6 +8378,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="frequency-hertz">
 				<displayName>Hz</displayName>
 				<unitPattern count="other">{0} Hz</unitPattern>
+			</unit>
+			<unit type="graphics-em">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-megapixel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>ກມ</displayName>
@@ -8335,26 +8511,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0}/g</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
-				<displayName>mg</displayName>
-				<unitPattern count="other">{0} mg</unitPattern>
+				<displayName>ມກ</displayName>
+				<unitPattern count="other">{0} ມກ</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>µg</displayName>
 				<unitPattern count="other">{0} µg</unitPattern>
 			</unit>
 			<unit type="mass-ton">
-				<displayName>tn</displayName>
-				<unitPattern count="other">{0} tn</unitPattern>
+				<displayName>ຕ</displayName>
+				<unitPattern count="other">{0} ຕ</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName>ປອນ</displayName>
 				<unitPattern count="other">{0} ປ</unitPattern>
-				<perUnitPattern>{0}/lb</perUnitPattern>
+				<perUnitPattern>{0}/ປ</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
-				<displayName>ອອນ</displayName>
+				<displayName>ອອນສ</displayName>
 				<unitPattern count="other">{0} ອ</unitPattern>
-				<perUnitPattern>{0}/oz</perUnitPattern>
+				<perUnitPattern>{0}/ອ</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>oz t</displayName>
@@ -8412,6 +8588,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>in Hg</displayName>
 				<unitPattern count="other">{0} in Hg</unitPattern>
 			</unit>
+			<unit type="pressure-bar">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="pressure-millibar">
 				<displayName>mbar</displayName>
 				<unitPattern count="other">{0} mbar</unitPattern>
@@ -8419,6 +8599,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-atmosphere">
 				<displayName>atm</displayName>
 				<unitPattern count="other">{0} atm</unitPattern>
+			</unit>
+			<unit type="pressure-pascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hPA</displayName>
@@ -8473,8 +8657,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName>km³</displayName>
-				<unitPattern count="other">{0} km³</unitPattern>
+				<displayName>ກມ³</displayName>
+				<unitPattern count="other">{0} ກມ³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
 				<displayName>ມ³</displayName>
@@ -8540,9 +8724,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ac ft</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>gal</displayName>
-				<unitPattern count="other">{0} gal</unitPattern>
-				<perUnitPattern>{0}/gal</perUnitPattern>
+				<displayName>ແກລລອນ</displayName>
+				<unitPattern count="other">{0} ແກລລອນ</unitPattern>
+				<perUnitPattern>{0}/ແກລລອນ</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
 				<displayName>Imp. gal</displayName>
@@ -8592,6 +8776,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<unitLength type="narrow">
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="times">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="angle-degree">
 				<unitPattern count="other">{0}°</unitPattern>
@@ -8739,7 +8926,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ກມ/ຊມ</displayName>
-				<unitPattern count="other">{0} km/h</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<unitPattern count="other">{0} m/s</unitPattern>
@@ -8786,7 +8973,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<listPatterns>
 		<listPattern>
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0} ແລະ {1}</listPatternPart>
 		</listPattern>
@@ -8795,6 +8982,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0} ຫຼື {1}</listPatternPart>
 			<listPatternPart type="2">{0} ຫຼື {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or-narrow">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end" draft="provisional">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="or-short">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end" draft="provisional">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-narrow">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
@@ -8837,12 +9042,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabelPattern type="miscellaneous">{0} — ເບັດຕະເລັດ</characterLabelPattern>
 		<characterLabelPattern type="other">{0} — ອື່ນໆ</characterLabelPattern>
 		<characterLabelPattern type="scripts">ແບບຂຽນ — {0}</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="other">{0} ສະໂຕຣກ</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="other">{0} ຈັງຫວະ</characterLabelPattern>
 		<characterLabel type="activities">ການເຄື່ອນໄຫວ</characterLabel>
 		<characterLabel type="african_scripts">ແບບຂຽນອາຟຣິກັນ</characterLabel>
 		<characterLabel type="american_scripts">ແບບຂຽນອາເມຣິກັນ</characterLabel>
 		<characterLabel type="animal">ສັດ</characterLabel>
-		<characterLabel type="animals_nature">ສັດ ແລະ ທຳມະຊາດ</characterLabel>
+		<characterLabel type="animals_nature">ສັດ ຫຼື ທຳມະຊາດ</characterLabel>
 		<characterLabel type="arrows">ລູກສອນ</characterLabel>
 		<characterLabel type="body">ຮ່າງກາຍ</characterLabel>
 		<characterLabel type="box_drawing">ການແຕ້ມກ່ອງ</characterLabel>
@@ -8895,7 +9100,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="nature">ທຳມະຊາດ</characterLabel>
 		<characterLabel type="nonspacing">ບໍ່ມີຍະຫວ່າງ</characterLabel>
 		<characterLabel type="numbers">ຕົວເລກ</characterLabel>
-		<characterLabel type="objects">ອອບເຈັກ</characterLabel>
+		<characterLabel type="objects">ວັດຖຸ</characterLabel>
 		<characterLabel type="other">ອື່ນໆ</characterLabel>
 		<characterLabel type="paired">ຈັບຄູ່ແລ້ວ</characterLabel>
 		<characterLabel type="person">ຄົນ</characterLabel>
@@ -8914,7 +9119,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="spacing">ຊ່ອງຫວ່າງ</characterLabel>
 		<characterLabel type="sport">ກິລາ</characterLabel>
 		<characterLabel type="symbols">ສັນຍາລັກ</characterLabel>
-		<characterLabel type="technical_symbols">ສັນຍາລັກທາງເທັກນິກ</characterLabel>
+		<characterLabel type="technical_symbols">ສັນຍາລັກທາງເຕັກນິກ</characterLabel>
 		<characterLabel type="tone_marks">ັວັນນະຍຸດ</characterLabel>
 		<characterLabel type="travel">ທ່ອງທ່ຽວ</characterLabel>
 		<characterLabel type="travel_places">ທ່ອງທ່ຽວ ແລະ ສະຖານທີ່ຕ່າງໆ</characterLabel>

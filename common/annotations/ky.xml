@@ -23,6 +23,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">кара тору</annotation>
 		<annotation cp="🏿">6-түр | кара | теринин өңү</annotation>
 		<annotation cp="🏿" type="tts">кара</annotation>
+		<annotation cp="⚧" draft="contributed">трансгендер</annotation>
+		<annotation cp="⚧" type="tts" draft="contributed">трансгендер белгиси</annotation>
 		<annotation cp="😀">бет | ырсай | ырсайган бет</annotation>
 		<annotation cp="😀" type="tts">ырсайган бет</annotation>
 		<annotation cp="😃">бет | күл | күлгөн бет</annotation>
@@ -505,66 +507,98 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤷‍♂" type="tts">ийинин куушурган эркек</annotation>
 		<annotation cp="🤷‍♀">аял | ийинин куушурган аял | ийинин куушуруу | кайдыгерлик | олку-солку болуу</annotation>
 		<annotation cp="🤷‍♀" type="tts">ийинин куушурган аял</annotation>
+		<annotation cp="🧑‍⚕" draft="contributed">догдур | медайым | медицина | саламаттык сактоо | терапевт</annotation>
+		<annotation cp="🧑‍⚕" type="tts" draft="contributed">медицина кызматкери</annotation>
 		<annotation cp="👨‍⚕">доктор | медага | саламаттыкты сактоо | терапевт | эркек доктор | эркек медицина кызматкери</annotation>
 		<annotation cp="👨‍⚕" type="tts">эркек медицина кызматкери</annotation>
 		<annotation cp="👩‍⚕">аял | аял медицина кызматкери | доктор | медайым | саламаттыкты сактоо | терапевт</annotation>
 		<annotation cp="👩‍⚕" type="tts">аял медицина кызматкери</annotation>
+		<annotation cp="🧑‍🎓" draft="contributed">аспирант | студент</annotation>
+		<annotation cp="🧑‍🎓" type="tts" draft="contributed">студент</annotation>
 		<annotation cp="👨‍🎓">бүтүрүүчү | студент | эркек</annotation>
 		<annotation cp="👨‍🎓" type="tts">эркек студент</annotation>
 		<annotation cp="👩‍🎓">аял | бүтүрүүчү | студент</annotation>
 		<annotation cp="👩‍🎓" type="tts">аял студент</annotation>
+		<annotation cp="🧑‍🏫" draft="contributed">агай | инструктор | профессор</annotation>
+		<annotation cp="🧑‍🏫" type="tts" draft="contributed">мугалим</annotation>
 		<annotation cp="👨‍🏫">мугалим | окутуучу | профессор | эркек</annotation>
 		<annotation cp="👨‍🏫" type="tts">эркек мугалим</annotation>
 		<annotation cp="👩‍🏫">аял | мугалим | окутуучу | профессор</annotation>
 		<annotation cp="👩‍🏫" type="tts">аял мугалим</annotation>
+		<annotation cp="🧑‍⚖" draft="contributed">сот | тараза</annotation>
+		<annotation cp="🧑‍⚖" type="tts" draft="contributed">сот</annotation>
 		<annotation cp="👨‍⚖">сот | тараза | эркек</annotation>
 		<annotation cp="👨‍⚖" type="tts">эркек сот</annotation>
 		<annotation cp="👩‍⚖">аял | сот | тараза</annotation>
 		<annotation cp="👩‍⚖" type="tts">аял сот</annotation>
+		<annotation cp="🧑‍🌾" draft="contributed">багбан | ранчо ээси | фермер</annotation>
+		<annotation cp="🧑‍🌾" type="tts" draft="contributed">фермер</annotation>
 		<annotation cp="👨‍🌾">багбан | малчы | фермер | эркек</annotation>
 		<annotation cp="👨‍🌾" type="tts">эркек фермер</annotation>
 		<annotation cp="👩‍🌾">аял | багбан | малчы | фермер</annotation>
 		<annotation cp="👩‍🌾" type="tts">аял фермер</annotation>
+		<annotation cp="🧑‍🍳" draft="contributed">ашпозчу | шеф-ашпозчу</annotation>
+		<annotation cp="🧑‍🍳" type="tts" draft="contributed">ашпозчу</annotation>
 		<annotation cp="👨‍🍳">ашпозчу | эркек</annotation>
 		<annotation cp="👨‍🍳" type="tts">эркек ашпозчу</annotation>
 		<annotation cp="👩‍🍳">ашпозчу | аял</annotation>
 		<annotation cp="👩‍🍳" type="tts">аял ашпозчу</annotation>
+		<annotation cp="🧑‍🔧" draft="contributed">механик | сантехник | соодагер | электрик</annotation>
+		<annotation cp="🧑‍🔧" type="tts" draft="contributed">механик</annotation>
 		<annotation cp="👨‍🔧">механик | сантехник | соодагер | электрик | эркек</annotation>
 		<annotation cp="👨‍🔧" type="tts">эркек механик</annotation>
 		<annotation cp="👩‍🔧">аял | механик | сантехник | соодагер | электрик</annotation>
 		<annotation cp="👩‍🔧" type="tts">аял механик</annotation>
+		<annotation cp="🧑‍🏭" draft="contributed">ассамблея | жумушчу | завод | индустриалдык</annotation>
+		<annotation cp="🧑‍🏭" type="tts" draft="contributed">завод жумушчусу</annotation>
 		<annotation cp="👨‍🏭">жумушчу | завод | фабрика | цех | эркек | эркек завод жумушчусу</annotation>
 		<annotation cp="👨‍🏭" type="tts">эркек завод жумушчусу</annotation>
 		<annotation cp="👩‍🏭">аял | аял завод жумушчусу | жумушчу | завод | фабрика | цех</annotation>
 		<annotation cp="👩‍🏭" type="tts">аял завод жумушчусу</annotation>
+		<annotation cp="🧑‍💼" draft="contributed">архитектор | бизнес | кеңсе кызматкери | менеджер</annotation>
+		<annotation cp="🧑‍💼" type="tts" draft="contributed">кеңсе кызматкери</annotation>
 		<annotation cp="👨‍💼">архитектор | бизнес | мамлекеттик кызматкер | офис менеджер | эркек | эркек офис жумушчусу</annotation>
 		<annotation cp="👨‍💼" type="tts">эркек офис жумушчусу</annotation>
 		<annotation cp="👩‍💼">архитектор | аял | аял офис жумушчусу | бизнес | мамлекеттик кызматкер | офис менеджер</annotation>
 		<annotation cp="👩‍💼" type="tts">аял офис жумушчусу</annotation>
+		<annotation cp="🧑‍🔬" draft="contributed">биолог | илимпоз | инженер | физик | химик</annotation>
+		<annotation cp="🧑‍🔬" type="tts" draft="contributed">илимпоз</annotation>
 		<annotation cp="👨‍🔬">биолог | инженер | окумуштуу | химик | эркек | эркек илимпоз</annotation>
 		<annotation cp="👨‍🔬" type="tts">эркек илимпоз</annotation>
 		<annotation cp="👩‍🔬">аял | аял илимпоз | инженер | окумуштуу | химик</annotation>
 		<annotation cp="👩‍🔬" type="tts">аял илимпоз</annotation>
+		<annotation cp="🧑‍💻" draft="contributed">IT адис | иштеп чыгуучу | кодер | ойлоп табуучу | програмдык камсыздоо</annotation>
+		<annotation cp="🧑‍💻" type="tts" draft="contributed">IT адиси</annotation>
 		<annotation cp="👨‍💻">иштеп чыгуучу | коддогуч | ойлоп тапкыч | программачы | эркек | эркек технолог</annotation>
 		<annotation cp="👨‍💻" type="tts">эркек технолог</annotation>
 		<annotation cp="👩‍💻">аял | аял технолог | иштеп чыгуучу | коддогуч | ойлоп тапкыч | программачы</annotation>
 		<annotation cp="👩‍💻" type="tts">аял технолог</annotation>
+		<annotation cp="🧑‍🎤" draft="contributed">актер | артист | жылдыз | рок | ырчы</annotation>
+		<annotation cp="🧑‍🎤" type="tts" draft="contributed">ырчы</annotation>
 		<annotation cp="👨‍🎤">актер | алып баруучу | рок | ырчы | эркек</annotation>
 		<annotation cp="👨‍🎤" type="tts">эркек ырчы</annotation>
 		<annotation cp="👩‍🎤">актриса | алып баруучу | аял | рок | ырчы</annotation>
 		<annotation cp="👩‍🎤" type="tts">аял ырчы</annotation>
+		<annotation cp="🧑‍🎨" draft="contributed">палитра | сүрөтчү</annotation>
+		<annotation cp="🧑‍🎨" type="tts" draft="contributed">сүрөтчү</annotation>
 		<annotation cp="👨‍🎨">боектор | сүрөтчү | эркек</annotation>
 		<annotation cp="👨‍🎨" type="tts">эркек сүрөтчү</annotation>
 		<annotation cp="👩‍🎨">аял | боектор | сүрөтчү</annotation>
 		<annotation cp="👩‍🎨" type="tts">аял сүрөтчү</annotation>
+		<annotation cp="🧑‍✈" draft="contributed">пилот | учак</annotation>
+		<annotation cp="🧑‍✈" type="tts" draft="contributed">пилот</annotation>
 		<annotation cp="👨‍✈">учак | учкуч | эркек</annotation>
 		<annotation cp="👨‍✈" type="tts">эркек учкуч</annotation>
 		<annotation cp="👩‍✈">аял | учак | учкуч</annotation>
 		<annotation cp="👩‍✈" type="tts">аял учкуч</annotation>
+		<annotation cp="🧑‍🚀" draft="contributed">космонавт / ракета</annotation>
+		<annotation cp="🧑‍🚀" type="tts" draft="contributed">космонавт</annotation>
 		<annotation cp="👨‍🚀">космонавт | ракета | эркек</annotation>
 		<annotation cp="👨‍🚀" type="tts">эркек космонавт</annotation>
 		<annotation cp="👩‍🚀">аял | космонавт | ракета</annotation>
 		<annotation cp="👩‍🚀" type="tts">аял космонавт</annotation>
+		<annotation cp="🧑‍🚒" draft="contributed">өрт өчүргүч унаа | өрт өчүрүүчү</annotation>
+		<annotation cp="🧑‍🚒" type="tts" draft="contributed">өрт өчүрүүчү</annotation>
 		<annotation cp="👨‍🚒">өрт өчүргүч | өрт өчүрүүчү унаа | эркек | эркек өрт өчүргүч</annotation>
 		<annotation cp="👨‍🚒" type="tts">эркек өрт өчүргүч</annotation>
 		<annotation cp="👩‍🚒">аял | аял өрт өчүргүч | өрт өчүргүч | өрт өчүрүүчү унаа</annotation>
@@ -705,14 +739,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧎‍♂" type="tts">тизелеген киши</annotation>
 		<annotation cp="🧎‍♀">аял | аял тизелөөдө | тизелеп турат</annotation>
 		<annotation cp="🧎‍♀" type="tts">аял тизелөөдө</annotation>
+		<annotation cp="🧑‍🦯" draft="contributed">атайын мүмкүнчүлүк | сокур</annotation>
+		<annotation cp="🧑‍🦯" type="tts" draft="contributed">таякка жөлөнгөн киши</annotation>
 		<annotation cp="👨‍🦯">атайын мүмкүндүк | киши | сокур | таяк таянган киши</annotation>
 		<annotation cp="👨‍🦯" type="tts">таяк таянган киши</annotation>
 		<annotation cp="👩‍🦯">атайын мүмкүндүк | аял | сокур | таяк таянган аял</annotation>
 		<annotation cp="👩‍🦯" type="tts">таяк таянган аял</annotation>
+		<annotation cp="🧑‍🦼" draft="contributed">атайын мүмкүнчүлүк | инвалид креслосу</annotation>
+		<annotation cp="🧑‍🦼" type="tts" draft="contributed">мотору бар инвалид креслосундагы киши</annotation>
 		<annotation cp="👨‍🦼">атайын мүмкүндүк | дөңгөлөктүү отургуч | киши | моторлуу дөңгөлөк отургучтагы киши</annotation>
 		<annotation cp="👨‍🦼" type="tts">моторлуу дөңгөлөк отургучтагы киши</annotation>
 		<annotation cp="👩‍🦼">атайын мүмкүндүк | аял | дөңгөлөктүү отургуч | мотору бар дөңгөлөктүү отургучтагы аял</annotation>
 		<annotation cp="👩‍🦼" type="tts">мотору бар дөңгөлөктүү отургучтагы аял</annotation>
+		<annotation cp="🧑‍🦽" draft="contributed">атайын мүмкүнчүлүк | инвалид креслосу</annotation>
+		<annotation cp="🧑‍🦽" type="tts" draft="contributed">кол менен иштеген кресло</annotation>
 		<annotation cp="👨‍🦽">атайын мүмкүндүк | дөңгөлөктүү отургуч | киши | кол менен дөңгөлөктүү отургучтагы киши</annotation>
 		<annotation cp="👨‍🦽" type="tts">кол менен дөңгөлөктүү отургучтагы киши</annotation>
 		<annotation cp="👩‍🦽">атайын мүмкүндүк | аял | дөңгөлөктүү отургуч | кол менен дөңгөлөктүү отургучтагы аял</annotation>
@@ -2831,9 +2871,121 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">желбиреген кара желек</annotation>
 		<annotation cp="🏳">желбиреген | желбиреген ак желек</annotation>
 		<annotation cp="🏳" type="tts">желбиреген ак желек</annotation>
+		<annotation cp="🏳‍⚧" draft="contributed">агыш көк | ак | желек | кызгылт | трансгендер</annotation>
+		<annotation cp="🏳‍⚧" type="tts" draft="contributed">трансгендер желеги</annotation>
 		<annotation cp="🏳‍🌈">асан-үсөн желеги | көк желе</annotation>
 		<annotation cp="🏳‍🌈" type="tts">асан-үсөн желеги</annotation>
 		<annotation cp="🏴‍☠">каракчы | каракчылардын желеги | кенч | пират | тоноо</annotation>
 		<annotation cp="🏴‍☠" type="tts">каракчылардын желеги</annotation>
+		<annotation cp="🛖" draft="contributed">боз үй | тегерек үй | үй</annotation>
+		<annotation cp="🛖" type="tts" draft="contributed">алачык</annotation>
+		<annotation cp="🛗" draft="contributed">көтөргүч | лифт | мүмкүнчүлүк</annotation>
+		<annotation cp="🛗" type="tts" draft="contributed">лифт</annotation>
+		<annotation cp="🛻" draft="contributed">жүк ташуучу унаа | пикап</annotation>
+		<annotation cp="🛻" type="tts" draft="contributed">пикап унаа</annotation>
+		<annotation cp="🛼" draft="contributed">ролик | скейт</annotation>
+		<annotation cp="🛼" type="tts" draft="contributed">ролик конькиси</annotation>
+		<annotation cp="🤌" draft="contributed">кол жандоосу | манжалар | сарказм менен | сурак | чымчылган</annotation>
+		<annotation cp="🤌" type="tts" draft="contributed">кыстырылган манжалар</annotation>
+		<annotation cp="🥲" draft="contributed">жеңилдөө | жылмайган | көз жаш | сыймык | таасирленген | ыраазы</annotation>
+		<annotation cp="🥲" type="tts" draft="contributed">ыйлаган жылмайган жүз</annotation>
+		<annotation cp="🥷" draft="contributed">амал | жашыруун | мушкер</annotation>
+		<annotation cp="🥷" type="tts" draft="contributed">ниндзя</annotation>
+		<annotation cp="🥸" draft="contributed">белгисиз | жүз | көз айнек | маска | мурун</annotation>
+		<annotation cp="🥸" type="tts" draft="contributed">маска тагынып алган жүз</annotation>
+		<annotation cp="🦣" draft="contributed">жоголуу | жүн баскан | пил азуусу | чоң</annotation>
+		<annotation cp="🦣" type="tts" draft="contributed">мамонт</annotation>
+		<annotation cp="🦤" draft="contributed">Додо | жоголуу | чоң</annotation>
+		<annotation cp="🦤" type="tts" draft="contributed">додо</annotation>
+		<annotation cp="🦫" draft="contributed">кемчет | ургаачы</annotation>
+		<annotation cp="🦫" type="tts" draft="contributed">кемчет</annotation>
+		<annotation cp="🦬" draft="contributed">бизон | буйвол | зубр | үйүр</annotation>
+		<annotation cp="🦬" type="tts" draft="contributed">бизон</annotation>
+		<annotation cp="🦭" draft="contributed">деңиз арстаны | тюлень</annotation>
+		<annotation cp="🦭" type="tts" draft="contributed">тюлень</annotation>
+		<annotation cp="🧋" draft="contributed">бермет | көбүк | сүт | чай</annotation>
+		<annotation cp="🧋" type="tts" draft="contributed">көбүргөн чай</annotation>
+		<annotation cp="🩴" draft="contributed">зори | кумжээк сандалы | сандалдын тилке кайышы | сандаль | тилке кайыш</annotation>
+		<annotation cp="🩴" type="tts" draft="contributed">сандальдын тилке кайышы</annotation>
+		<annotation cp="🪃" draft="contributed">австралия | бумеранг | тийип кайта ыргуу</annotation>
+		<annotation cp="🪃" type="tts" draft="contributed">бумеранг</annotation>
+		<annotation cp="🪄" draft="contributed">жезкемпир | сыйкыр | сыйкырчы</annotation>
+		<annotation cp="🪄" type="tts" draft="contributed">сыйкырдуу таяк</annotation>
+		<annotation cp="🪅" draft="contributed">майрамдоо/ кече</annotation>
+		<annotation cp="🪅" type="tts" draft="contributed">пиньята</annotation>
+		<annotation cp="🪆" draft="contributed">куурчак | матрёшка | орусия</annotation>
+		<annotation cp="🪆" type="tts" draft="contributed">матрёшка</annotation>
+		<annotation cp="🪖" draft="contributed">армия | аскер | жоокер | солдат | туулга</annotation>
+		<annotation cp="🪖" type="tts" draft="contributed">аскер туулгасы</annotation>
+		<annotation cp="🪗" draft="contributed">аккордеон | жыйылган кутуча | концертино</annotation>
+		<annotation cp="🪗" type="tts" draft="contributed">аккордеон</annotation>
+		<annotation cp="🪘" draft="contributed">добулбас | конга | ритм | согуу</annotation>
+		<annotation cp="🪘" type="tts" draft="contributed">узун добулбас</annotation>
+		<annotation cp="🪙" draft="contributed">акча | алтын | кенч | күмүш | метал</annotation>
+		<annotation cp="🪙" type="tts" draft="contributed">тыйын</annotation>
+		<annotation cp="🪚" draft="contributed">араа | жыгач уста | курал | пиломатериал</annotation>
+		<annotation cp="🪚" type="tts" draft="contributed">жыгач уста араасы</annotation>
+		<annotation cp="🪛" draft="contributed">курал | отвертка</annotation>
+		<annotation cp="🪛" type="tts" draft="contributed">отвертка</annotation>
+		<annotation cp="🪜" draft="contributed">баскычтар | кадам | тепкич | чыгуу</annotation>
+		<annotation cp="🪜" type="tts" draft="contributed">тепкич</annotation>
+		<annotation cp="🪝" draft="contributed">алдап колго түшүрүү | илмек | кармоо | кыйшык</annotation>
+		<annotation cp="🪝" type="tts" draft="contributed">илгич</annotation>
+		<annotation cp="🪞" draft="contributed">рефлектор | чагылдыргыч | чагылдыруу</annotation>
+		<annotation cp="🪞" type="tts" draft="contributed">күзгү</annotation>
+		<annotation cp="🪟" draft="contributed">ачуу | жаңы | кашек | көрүнүш | тунук</annotation>
+		<annotation cp="🪟" type="tts" draft="contributed">терезе</annotation>
+		<annotation cp="🪠" draft="contributed">вантуз | жел үйлөгүч | соруу | туалет</annotation>
+		<annotation cp="🪠" type="tts" draft="contributed">вантуз</annotation>
+		<annotation cp="🪡" draft="contributed">ийне | саймалоо | тигиш | тигүү</annotation>
+		<annotation cp="🪡" type="tts" draft="contributed">тигүүчү ийне</annotation>
+		<annotation cp="🪢" draft="contributed">байланыштыр | боо | жип | чаташ</annotation>
+		<annotation cp="🪢" type="tts" draft="contributed">түйүн</annotation>
+		<annotation cp="🪣" draft="contributed">бак | чака | челек</annotation>
+		<annotation cp="🪣" type="tts" draft="contributed">чака</annotation>
+		<annotation cp="🪤" draft="contributed">капкан | кылтак | тузак | чычкан капкан</annotation>
+		<annotation cp="🪤" type="tts" draft="contributed">чычкан капкан</annotation>
+		<annotation cp="🪥" draft="contributed">ванна | гигиена | тазалоо | тиш | щётка</annotation>
+		<annotation cp="🪥" type="tts" draft="contributed">тиш щётка</annotation>
+		<annotation cp="🪦" draft="contributed">бейит | көрүстөн | мүрзө | мүрзө ташы | эстелик</annotation>
+		<annotation cp="🪦" type="tts" draft="contributed">мүрзө ташы</annotation>
+		<annotation cp="🪧" draft="contributed">афиша | белги | демонстрация | пикет | протест</annotation>
+		<annotation cp="🪧" type="tts" draft="contributed">афиша</annotation>
+		<annotation cp="🪨" draft="contributed">катуу | оор | таш | тоо таш</annotation>
+		<annotation cp="🪨" type="tts" draft="contributed">таш</annotation>
+		<annotation cp="🪰" draft="contributed">личинка | оору | паразит | чириген</annotation>
+		<annotation cp="🪰" type="tts" draft="contributed">чымын</annotation>
+		<annotation cp="🪱" draft="contributed">курт | паразит | сөөлжан | шакек курт</annotation>
+		<annotation cp="🪱" type="tts" draft="contributed">мите</annotation>
+		<annotation cp="🪲" draft="contributed">коңуз | курт | курт-кумурска</annotation>
+		<annotation cp="🪲" type="tts" draft="contributed">коңуз</annotation>
+		<annotation cp="🪳" draft="contributed">зыянкеч | курт-кумурска | плотва | таракан</annotation>
+		<annotation cp="🪳" type="tts" draft="contributed">таракан</annotation>
+		<annotation cp="🪴" draft="contributed">өстүрүү | өсүмдүк | өсүү | пайдасыз | тажатма | үй</annotation>
+		<annotation cp="🪴" type="tts" draft="contributed">идиштеги өсүмдүк</annotation>
+		<annotation cp="🪵" draft="contributed">жыгач | курулуш материалы | пиломатериал | устун</annotation>
+		<annotation cp="🪵" type="tts" draft="contributed">отун</annotation>
+		<annotation cp="🪶" draft="contributed">жарык | куштун жүнү | учуу | чымчык</annotation>
+		<annotation cp="🪶" type="tts" draft="contributed">бир тал канат</annotation>
+		<annotation cp="🫀" draft="contributed">борбор | жүрөк согуусу | кардиология | орган | пульс</annotation>
+		<annotation cp="🫀" type="tts" draft="contributed">жүрөк</annotation>
+		<annotation cp="🫁" draft="contributed">дем алуу | дем чыгаруу | ингаляция | орган</annotation>
+		<annotation cp="🫁" type="tts" draft="contributed">өпкө</annotation>
+		<annotation cp="🫂" draft="contributed">коштошуу | кучакташуу | салам | ыраазычылык</annotation>
+		<annotation cp="🫂" type="tts" draft="contributed">кучакташкан кишилер</annotation>
+		<annotation cp="🫐" draft="contributed">жемиш | кара моюл | көк</annotation>
+		<annotation cp="🫐" type="tts" draft="contributed">кара моюл</annotation>
+		<annotation cp="🫑" draft="contributed">жашылча | калемпир | мурч | таттуу мурч</annotation>
+		<annotation cp="🫑" type="tts" draft="contributed">таттуу мурч</annotation>
+		<annotation cp="🫒" draft="contributed">зайтун | тамак</annotation>
+		<annotation cp="🫒" type="tts" draft="contributed">зайтун</annotation>
+		<annotation cp="🫓" draft="contributed">арепа | лаваш | нан | пита</annotation>
+		<annotation cp="🫓" type="tts" draft="contributed">жапма нан</annotation>
+		<annotation cp="🫔" draft="contributed">мексикалык | оролгон</annotation>
+		<annotation cp="🫔" type="tts" draft="contributed">тамале</annotation>
+		<annotation cp="🫕" draft="contributed">мискей | сыр | швейцариялык | шоколад | эриген</annotation>
+		<annotation cp="🫕" type="tts" draft="contributed">фондью</annotation>
+		<annotation cp="🫖" draft="contributed">ичүү | чай | чайнек</annotation>
+		<annotation cp="🫖" type="tts" draft="contributed">чайнек</annotation>
 	</annotations>
 </ldml>

@@ -62,7 +62,7 @@
 	<target name="jar" depends="build"
 		description="build full cldr-unittest.jar' jar file">
 		<jar jarfile="${jar.file}" compress="true"
-			includes="org/unicode/cldr/unittest/**/*" basedir="${build.dir}" />
+			includes="org/unicode/cldr/**/*" basedir="${build.dir}" />
 	</target>
 	<target name="tests" depends="build" />
 	<target name="all" depends="build" />
@@ -90,7 +90,8 @@
 	<target name="build" depends="init" description="build web classes">
 		<mkdir dir="${build.dir}" />
 		<mkdir dir="${log.dir}" />
-		<javac srcdir="${src.dir}" includes="org/unicode/cldr/unittest/*.java"
+		<javac srcdir="${src.dir}"
+			includes="org/unicode/cldr/**/*.java"
 			destdir="${build.dir}" classpathref="project.class.path" source="1.8"
 			target="1.8" debug="on" deprecation="off" includeantruntime="false"
 			encoding="UTF-8" />
@@ -176,8 +177,8 @@
 		<echo
 			message="JVM argument:   ${rununittest.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST  -Djava.awt.headless=true" />
 		<echo message="Test argument:   ${rununittest.arg}" />
-		<java classname="org.unicode.cldr.unittest.TestAll" fork="yes"
-			failonerror="true" classpathref="project.class.path">
+		<java classname="org.unicode.cldr.unittest.TestAll" fork="yes" dir="${basedir}"
+			  failonerror="true" classpathref="project.class.path">
 			<arg line="${rununittest.arg}" />
 			<jvmarg
 				line="${rununittest.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST -Djava.awt.headless=true" />

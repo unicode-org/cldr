@@ -8,6 +8,7 @@
 		<property name="build.dir" value="classes" />
 		<property name="libs.dir" value="libs" />
 		<property name="jar.file" value="cldr.jar" />
+		<property name="apiJar.file" value="cldr-api.jar" />
 		<property name="jarSrc.file" value="cldr-src.jar" />
 		<property name="jarDocs.file" value="cldr-docs.jar" />
 		<property name="doc.dir" value="doc" />
@@ -65,6 +66,11 @@
 			classpathref="project.class.path" source="1.8" target="1.8" debug="on"
 			deprecation="off" encoding="UTF-8" />
 	</target>
+	<!-- WARNING: The "util" target actually depends upon the "tool" target at runtime via
+		CLDRPaths and ToolConstants. This only appears to work when building this target
+		because Ant does not do any kind of source isolation during builds, and so builds
+		all the transitive dependencies anyway.
+	-->
 	<target name="util" depends="init" description="build utility classes">
 		<javac includeantruntime="false"
 			includes="org/unicode/cldr/draft/**/*.java org/unicode/cldr/util/**/*.java com/**/*.java"
@@ -76,6 +82,17 @@
 		<copy todir="${build.dir}/org/unicode/cldr/util/data">
 			<fileset dir="${src.dir}/org/unicode/cldr/util/data"
 				excludes="**/CVS/**/*" />
+		</copy>
+	</target>
+	<target name="api" depends="init,util" description="build api classes">
+		<javac includeantruntime="false" includes="org/unicode/cldr/api/**/*.java"
+			srcdir="${src.dir}" destdir="${build.dir}"
+			classpathref="project.class.path" source="1.8" target="1.8" debug="on"
+			deprecation="off" encoding="UTF-8" />
+		<!-- copy data files into classes.. -->
+		<mkdir dir="${build.dir}/org/unicode/cldr/tool" />
+		<copy todir="${build.dir}/org/unicode/cldr/tool">
+			<fileset dir="${src.dir}/org/unicode/cldr/tool" excludes="**/CVS/**/* **/**/*.java" />
 		</copy>
 	</target>
 	<target name="tool" depends="init,util" description="build tool classes">
@@ -171,6 +188,34 @@
 			</manifest>
 		</jar>
 	</target>
+
+	<!-- API JAR for use in ICU project. This is expected to have ICU library dependcies
+		provided at runtime, rather than being directly compiled in and should contain only
+		the classes necessary to support the API.
+
+		The need to include the com.ibm.icu classes and the "tool"/"test" package is a hack
+		to work around the entangled dependencies in the CLDR classes. In particular the
+		CLDRConfig class depends on many unexpected classes, such as the testing framework
+		classes! The API classes should ideally depend only on the "util" package.
+
+		Additionally, until the "com.ibm.icu" dependencies can be removed, there is a risk
+		of having multiple (potentially incompatible) copies of "com.ibm.icu" classes
+		available at runime when using the API jar in the ICU project. -->
+	<target name="api-jar" depends="init-githash,api" description="build API jar file">
+		<jar jarfile="${apiJar.file}" compress="true"
+			includes="org/unicode/cldr/api/**/*,
+				org/unicode/cldr/util/**/*,
+	        		org/unicode/cldr/test/**/*,
+	        		org/unicode/cldr/tool/**/*,
+	        		com/ibm/icu/**/*"
+			basedir="${build.dir}">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+                                <attribute name="CLDR-Tools-Git-Commit" value="${build.githash}" />
+			</manifest>
+		</jar>
+	</target>
+
 	<!-- Docs stuff -->
 	<!-- use excludefiles below when we move to ant 1.5 -->
 	<target name="docs" depends="init" description="build user javadoc">

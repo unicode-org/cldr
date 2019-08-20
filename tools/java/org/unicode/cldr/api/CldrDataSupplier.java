@@ -129,11 +129,12 @@ public abstract class CldrDataSupplier {
 
     /**
      * Returns an in-memory supplier for the specified {@link CldrValue}s. This is useful for
-     * testing or handling special case data.
-     * @param values
+     * testing or handling special case data. The default (arbitrary) path or is determined by
+     * the order of values passed to this method.
+     *
+     * @param values the values (and associated paths) to include in the returned data.
      */
-    // Note: This could be made public if necessary.
-    static CldrData forValues(Iterable<CldrValue> values) {
+    public static CldrData forValues(Iterable<CldrValue> values) {
         return new InMemoryData(values);
     }
 

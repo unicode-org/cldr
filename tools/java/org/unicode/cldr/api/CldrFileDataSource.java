@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
@@ -64,21 +65,27 @@ final class CldrFileDataSource extends AbstractDataSource {
 
     @Override
     /* @Nullable */
-    public CldrValue get(CldrPath path) {
-        String xpath = getInternalPathString(path);
-        XPathParts fullPath = XPathParts.getFrozenInstance(source.getFullXPath(xpath));
+    public CldrValue get(CldrPath cldrPath) {
+        String dPath = getInternalPathString(cldrPath);
+        XPathParts fullPath = XPathParts.getFrozenInstance(source.getFullXPath(dPath));
         int length = fullPath.size();
         Map<AttributeKey, String> attributes = new LinkedHashMap<>();
         for (int n = 0; n < length; n++) {
             CldrPaths.processPathAttributes(
                 fullPath.getElement(n),
                 fullPath.getAttributes(n),
-                path.getDataType(),
+                cldrPath.getDataType(),
                 e -> {},
                 attributes::put);
         }
-        // This is MUCH faster if you pass the distinguishing path in.
-        return CldrValue.create(source.getStringValue(xpath), attributes, path);
+        // This is MUCH faster if you pass the distinguishing path in. If the CLDRFile is
+        // "unresolved" then we can get the special "inheritance marker" returned, which
+        // should just be treated as if there was no value present.
+        String value = source.getStringValue(dPath);
+        if (value == null || value.equals(CldrUtility.INHERITANCE_MARKER)) {
+            return null;
+        }
+        return CldrValue.create(value, attributes, cldrPath);
     }
 
     private static String getInternalPathString(CldrPath p) {
@@ -110,19 +117,13 @@ final class CldrFileDataSource extends AbstractDataSource {
 
         while (paths.hasNext()) {
             String dPath = paths.next();
-            // This is MUCH faster if you pass the distinguishing path in.
+            // This is MUCH faster if you pass the distinguishing path in. If the CLDRFile is
+            // "unresolved" then we can get the special "inheritance marker" returned, which
+            // should just be treated as if there was no value present.
             String value = src.getStringValue(dPath);
-
-            // Since early 2019 there's been the possibility of getting the inheritance marker as
-            // a value for a path. This indicates that the value does NOT actually exist for a
-            // locale and would be inherited. According to the CldrUtility class:
-            // ""If CLDRFile ever finds this value in a data field, writing of the field should be
-            // suppressed.""
-            // TODO: Remove this null check once everything is settled (null should not be possible)
             if (value == null || value.equals(CldrUtility.INHERITANCE_MARKER)) {
                 continue;
             }
-
             // There's a cache behind XPathParts which probably makes it faster to lookup these
             // instances rather than parse them each time (it all depends on whether this is the
             // first time the full paths are used).
@@ -130,13 +131,11 @@ final class CldrFileDataSource extends AbstractDataSource {
                 src.getFullXPath(dPath), previousElements, valueAttributes::put);
 
             if (CldrPaths.isLeafPath(cldrPath) && CldrPaths.shouldEmit(cldrPath)) {
-
                 safeVisit(CldrValue.create(value, valueAttributes, cldrPath), visitor);
             }
 
             // Prepare the element stack for next time by pushing the current path onto it.
             pushPathElements(cldrPath, previousElementStack);
-
             valueAttributes.clear();
         }
     }

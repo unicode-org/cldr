@@ -1,6 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -10,7 +11,6 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.RegexFileParser;
@@ -23,6 +23,7 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.Transform;
+import com.ibm.icu.util.Output;
 
 /**
  * Tests the parts of the Ldml2IcuConverter that uses RegexLookups to convert
@@ -209,7 +210,7 @@ public class TestLdml2ICU extends TestFmwk {
             String errorMessage = "CLDR xpath  <" + xpath + "> with value <"
                 + value + "> was not converted to ICU.";
             if (exclusionType == null) {
-                CldrUtility.logRegexLookup(this, lookup, xpath);
+                logRegexLookup(this, lookup, xpath);
                 errln(errorMessage);
             } else if (exclusionType == ExclusionType.WARNING) {
                 logln(errorMessage);
@@ -220,11 +221,23 @@ public class TestLdml2ICU extends TestFmwk {
                 }
             }
         } else if (exclusionType == ExclusionType.UNCONVERTED) {
-            CldrUtility.logRegexLookup(this, exclusions, xpath);
+            logRegexLookup(this, exclusions, xpath);
             errln("CLDR xpath <"
                 + xpath
                 + "> is in the exclusions list but was matched. "
                 + "To make the test pass, remove the relevant regex from org/unicode/cldr/util/data/testLdml2Icu.txt");
+        }
+    }
+
+    private static <T> void logRegexLookup(TestFmwk testFramework, RegexLookup<T> lookup, String toLookup) {
+        Output<String[]> arguments = new Output<>();
+        Output<RegexLookup.Finder> matcherFound = new Output<>();
+        List<String> failures = new ArrayList<String>();
+        lookup.get(toLookup, null, arguments, matcherFound, failures);
+        testFramework.logln("lookup arguments: " + (arguments.value == null ? "null" : Arrays.asList(arguments.value)));
+        testFramework.logln("lookup matcherFound: " + matcherFound);
+        for (String s : failures) {
+            testFramework.logln(s);
         }
     }
 

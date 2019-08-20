@@ -44,10 +44,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.util.RegexLookup.Finder;
 
 import com.google.common.base.Splitter;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -57,7 +55,6 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.Freezable;
-import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
 
 public class CldrUtility {
@@ -1473,18 +1470,6 @@ public class CldrUtility {
         Set<T> result = new LinkedHashSet<>(a);
         result.removeAll(b);
         return result;
-    }
-
-    public static <T> void logRegexLookup(TestFmwk testFramework, RegexLookup<T> lookup, String toLookup) {
-        Output<String[]> arguments = new Output<>();
-        Output<Finder> matcherFound = new Output<>();
-        List<String> failures = new ArrayList<String>();
-        lookup.get(toLookup, null, arguments, matcherFound, failures);
-        testFramework.logln("lookup arguments: " + (arguments.value == null ? "null" : Arrays.asList(arguments.value)));
-        testFramework.logln("lookup matcherFound: " + matcherFound);
-        for (String s : failures) {
-            testFramework.logln(s);
-        }
     }
 
     public static boolean deepEquals(Object... pairs) {

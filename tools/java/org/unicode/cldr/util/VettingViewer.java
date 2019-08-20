@@ -74,8 +74,7 @@ public class VettingViewer<T> {
 
     public static final Pattern ALT_PROPOSED = PatternCache.get("\\[@alt=\"[^\"]*proposed");
 
-    public static Set<CheckCLDR.CheckStatus.Subtype> OK_IF_VOTED = EnumSet.of(Subtype.sameAsEnglishOrCode,
-        Subtype.sameAsEnglishOrCode);
+    public static Set<CheckCLDR.CheckStatus.Subtype> OK_IF_VOTED = EnumSet.of(Subtype.sameAsEnglish);
 
     public enum Choice {
         /**

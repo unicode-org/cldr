@@ -6,8 +6,12 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ListMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -28,13 +32,16 @@ import static org.unicode.cldr.api.CldrDraftStatus.UNCONFIRMED;
  * are not generated in the final paths and the output ordering is as expected.
  */
 public class XmlDataSourceTest extends TestFmwk {
-
     // Note that the XML paths specified for the dummy XML data must still represent the expected
-    // local file structure, since they are used to resolve relative references to the DTDs.
+    // local file structure, since they are used to resolve relative references to the DTDs. This
+    // assumes that when tests are run the working directory is the project "base directory" where
+    // the Ant file is. This is all very unsatisfying and ideally the DTD information would be
+    // accessed as more locally within this sub-project.
+    // TODO: Fix this to have real DTDs avaiable in the class hierarchy.
 
     public void TestSimple() {
         ListMultimap<Path, String> files = ArrayListMultimap.create();
-        addFile(files, "common/bcp47/foo.xml",
+        addFile(files, "foo.xml",
             "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
             "<!DOCTYPE ldmlBCP47 SYSTEM \"../../common/dtd/ldmlBCP47.dtd\">",
             "<ldmlBCP47>",
@@ -50,7 +57,7 @@ public class XmlDataSourceTest extends TestFmwk {
             "    </key>",
             "  </keyword>",
             "</ldmlBCP47>");
-        addFile(files, "common/bcp47/bar.xml",
+        addFile(files, "bar.xml",
             "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
             "<!DOCTYPE ldmlBCP47 SYSTEM \"../../common/dtd/ldmlBCP47.dtd\">",
             "<ldmlBCP47>",
@@ -107,7 +114,8 @@ public class XmlDataSourceTest extends TestFmwk {
     
     public void TestBadElementNesting() {
         ListMultimap<Path, String> files = ArrayListMultimap.create();
-        addFile(files, "common/supplemental/bad.xml",
+        String fakeXmlName = "bad.xml";
+        addFile(files, fakeXmlName,
             "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
             "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">",
             "<supplementalData>",
@@ -133,7 +141,8 @@ public class XmlDataSourceTest extends TestFmwk {
             badDataSource.accept(ARBITRARY, v -> {});
             fail("expected IllegalArgumentException");
         } catch (IllegalArgumentException e) {
-            assertEquals("error message", "error reading common/supplemental/bad.xml (line 18)", e.getMessage());
+            assertErrorMessageContains(e, "error reading");
+            assertErrorMessageContains(e, fakeXmlName);
         }
     }
 
@@ -144,7 +153,8 @@ public class XmlDataSourceTest extends TestFmwk {
     // re-thought.
     public void TestDoubleQuotesDisallowedAsAttributeValue() {
         ListMultimap<Path, String> files = ArrayListMultimap.create();
-        addFile(files, "common/supplemental/bad.xml",
+        String fakeXmlName = "bad.xml";
+        addFile(files, fakeXmlName,
             "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
             "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">",
             "<supplementalData>",
@@ -164,16 +174,16 @@ public class XmlDataSourceTest extends TestFmwk {
             new XmlDataSource(SUPPLEMENTAL, files.keySet(), UNCONFIRMED, openFileFn(files));
         try {
             badDataSource.accept(ARBITRARY, v -> {});
-            fail("expected IllegalArgumentException");
-        } catch (IllegalArgumentException e) {
-            assertEquals("error message",
-                "unsupported '\"' in attribute value: \"", e.getMessage());
+            fail("expected RuntimeException");
+        } catch (RuntimeException e) {
+            assertErrorMessageContains(e, "Unknown error");
+            assertErrorMessageContains(e, fakeXmlName);
         }
     }
 
     public void TestNoDtdVersionPath() {
         ListMultimap<Path, String> files = ArrayListMultimap.create();
-        addFile(files, "common/supplemental/bad.xml",
+        addFile(files, "bad.xml",
             "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
             "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">",
             "<supplementalData>",
@@ -204,5 +214,12 @@ public class XmlDataSourceTest extends TestFmwk {
     private static void addTo(Map<CldrPath, CldrValue> map, String fullPath) {
         CldrValue v = CldrValue.parseValue(fullPath, "");
         map.put(v.getPath(), v);
+    }
+
+    private void assertErrorMessageContains(Throwable e, String expected) {
+        // This test "framework" is such a limited API it encourages brittle assertions.
+        assertTrue(
+            "error message \"" + e.getMessage() + "\" contains \"" + expected + "\"",
+            e.getMessage().contains(expected));
     }
 }

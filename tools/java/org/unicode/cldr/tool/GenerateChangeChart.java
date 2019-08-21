@@ -321,10 +321,6 @@ public class GenerateChangeChart {
                 anchors.add("<a name='" + anchor + "' href='" + getFilename() + "'>"
                     + getTitle() + "</a></caption>");
             }
-            //String helpText = getHelpHtml(anchor);
-//            if (explanation == null) {
-//                explanation = helpText;
-//            }
             if (explanation != null) {
                 out.write(explanation);
             }

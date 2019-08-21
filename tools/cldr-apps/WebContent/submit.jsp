@@ -271,7 +271,7 @@
 				SurveyToolStatus phStatus = ph.getSurveyToolStatus();
 
 				DataSection section = DataSection.make(null, null, cs, loc, base, null);
-				section.setUserAndFileForVotelist(cs.user, null);
+				section.setUserForVotelist(cs.user);
 
 				DataSection.DataRow pvi = section.getDataRow(base);
 				CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();

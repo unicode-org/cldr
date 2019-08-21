@@ -97,11 +97,20 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         }
     }
 
+    /**
+     *
+     * @param initParameter
+     *
+     * Never called for cldr-apps TestAll.java.
+     */
     public static void setCldrHome(String initParameter) {
         cldrHome = initParameter;
         cldrHomeSet = true;
     }
 
+    /**
+     * Never called for cldr-apps TestAll.java.
+     */
     private synchronized void init() {
         if (isInitted)
             return;
@@ -231,6 +240,16 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 
     }
 
+    /**
+     * Load the properties from the given file.
+     *
+     * Caution: the assumed encoding is ISO8859-1 (latin1) not UTF-8, unless running Java 9 or later.
+     * Reference: https://docs.oracle.com/javase/9/intl/internationalization-enhancements-jdk-9.htm
+     *
+     * @param props
+     * @param propFile
+     * @throws InternalError
+     */
     private void loadIntoProperties(Properties props, File propFile) throws InternalError {
         try (InputStream is = InputStreamFactory.createInputStream(propFile)) {
             props.load(is);

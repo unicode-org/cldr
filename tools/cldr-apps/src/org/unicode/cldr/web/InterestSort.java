@@ -84,50 +84,6 @@ public class InterestSort extends SortMode {
                 }
                 // Sort by xpath if all else fails.
                 return collator.compare(p1.getXpath(), p2.getXpath());
-
-                // if(rv == 0) { // try to avoid a compare
-                // String p1d = null;
-                // String p2d = null;
-                // if(canName) {
-                // p1d = p1.displayName;
-                // p2d = p2.displayName;
-                // }
-                // if(p1d == null ) {
-                // p1d = p1.type;
-                // if(p1d == null) {
-                // p1d = "(null)";
-                // }
-                // }
-                // if(p2d == null ) {
-                // p2d = p2.type;
-                // if(p2d == null) {
-                // p2d = "(null)";
-                // }
-                // }
-                // rv = myCollator.compare(p1d, p2d);
-                // }
-                //
-                // if(rv == 0) {
-                // // Question for Steven. It doesn't appear that the null
-                // checks would be needed, since they aren't in COMPARE_BY_CODE
-                // String p1d = p1.type;
-                // String p2d = p2.type;
-                // if(p1d == null ) {
-                // p1d = "(null)";
-                // }
-                // if(p2d == null ) {
-                // p2d = "(null)";
-                // }
-                // rv = myCollator.compare(p1d, p2d);
-                // }
-                //
-                // if(rv < 0) {
-                // return -1;
-                // } else if(rv > 0) {
-                // return 1;
-                // } else {
-                // return 0;
-                // }
             }
         };
     }

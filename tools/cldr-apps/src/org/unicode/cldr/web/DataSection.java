@@ -36,6 +36,7 @@ import org.unicode.cldr.test.CheckCLDR.InputMethod;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
@@ -61,7 +62,6 @@ import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.google.common.collect.ImmutableList;
-import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.Output;
@@ -470,16 +470,12 @@ public class DataSection implements JSONString {
             /**
              * Get the example for this CandidateItem
              *
-             * @return the example, as a string, or null if examplebuilder is null
+             * @return the example HTML, as a string
              *
              * Called only by DataSection.DataRow.CandidateItem.toJSONString()
              */
             private String getExample() {
-                if (examplebuilder == null) {
-                    return null;
-                } else {
-                    return getExampleBuilder().getExampleHtml(xpath, rawValue, ExampleType.NATIVE);
-                }
+                return nativeExampleGenerator.getExampleHtml(xpath, rawValue, ExampleType.NATIVE);
             }
 
             /**
@@ -1226,9 +1222,8 @@ public class DataSection implements JSONString {
                 }
 
                 String displayExample = null;
-                ExampleBuilder b = getExampleBuilder();
-                if (b != null) {
-                    displayExample = b.getExampleHtml(xpath, displayName, ExampleType.ENGLISH);
+                if (displayName != null) {
+                    displayExample = sm.getTranslationHintsExample().getExampleHtml(xpath, displayName, ExampleType.ENGLISH);
                 }
 
                 String code = "?";
@@ -1457,27 +1452,22 @@ public class DataSection implements JSONString {
     private User userForVotelist = null;
 
     /**
-     * Set the user and the file for this DataSection
+     * Set the user for this DataSection
      *
      * Somehow related to vote list?
      *
      * @param u the User
-     * @param f the CLDRFile, or null!!!
-     *
-     * TODO: Explain why getExampleBuilder is called from here, what does exampleBuilder have to
-     * do with vote list? How does this CLDRFile f relate to this DataSection?
      *
      * TODO: Determine whether we need DataSection to be user-specific, as userForVotelist implies
      *
-     * Called by getRow, make, submitVoteOrAbstention
+     * Called by getRow, make, submitVoteOrAbstention, and submit.jsp
      */
-    public void setUserAndFileForVotelist(User u, CLDRFile f) {
+    public void setUserForVotelist(User u) {
         userForVotelist = u;
-        getExampleBuilder(f);
     }
 
     /**
-     * A DisplaySet represents list of rows, in sorted and divided order.
+     * A DisplaySet represents a list of rows, in sorted and divided order.
      */
     public static class DisplaySet implements JSONString {
         public boolean canName = true; // can use the 'name' view?
@@ -1518,6 +1508,8 @@ public class DataSection implements JSONString {
          * Get the size of this DisplaySet
          *
          * @return the number of rows
+         *
+         * TODO: this function is unused, per Eclipse; but might be used in a jsp file? If not, remove.
          */
         public int size() {
             return rows.length;
@@ -1627,11 +1619,6 @@ public class DataSection implements JSONString {
     private static final boolean TRACE_TIME = false;
 
     /**
-     * Show time taken to populate?
-     */
-    private static final boolean SHOW_TIME = false || TRACE_TIME || DEBUG || CldrUtility.getProperty("TEST", false);
-
-    /**
      * Field to cache the Coverage info
      */
     private static CoverageInfo covInfo = null;
@@ -1736,11 +1723,13 @@ public class DataSection implements JSONString {
         CLDRFile ourSrc = sm.getSTFactory().make(locale.getBaseName(), true, true);
 
         ourSrc.setSupplementalDirectory(sm.getSupplementalDirectory());
+
         if (ctx != null) {
-            section.setUserAndFileForVotelist(ctx.session != null ? ctx.session.user : null, ourSrc);
+            section.setUserForVotelist(ctx.session != null ? ctx.session.user : null);
         } else if (session != null && session.user != null) {
-            section.setUserAndFileForVotelist(session.user, ourSrc);
+            section.setUserForVotelist(session.user);
         }
+
         if (ourSrc.getSupplementalDirectory() == null) {
             throw new InternalError("?!! ourSrc hsa no supplemental dir!");
         }
@@ -1750,7 +1739,16 @@ public class DataSection implements JSONString {
                 throw new InternalError("checkCldr == null");
             }
             section.translationHintsFile = sm.getTranslationHintsFile();
-            section.skippedDueToCoverage = 0;
+
+            String englishPath = section.translationHintsFile.getSupplementalDirectory().getPath();
+            /*
+             * TODO: get nativeExampleGenerator from a cache, on a per-locale basis.
+             * We shouldn't need to create a new ExampleGenerator every time we create a new DataSection.
+             * However, we will need to refresh it when a vote occurs that might change the examples.
+             * Reference: https://unicode-org.atlassian.net/browse/CLDR-12020
+             */
+            section.nativeExampleGenerator = new ExampleGenerator(ourSrc, section.translationHintsFile, englishPath);
+
             section.populateFrom(ourSrc, checkCldr);
             /*
              * Call ensureComplete if and only if pageId is null. TODO: Explain, why?
@@ -1815,25 +1813,16 @@ public class DataSection implements JSONString {
     boolean isCalendar = false; // Is this a calendar section?
     boolean isMetazones = false; // Is this a metazones section?
 
-    // TODO: myCollator unused? does createCollator have useful side-effect?
-    final Collator myCollator = CodeSortMode.createCollator();
-
     /*
      * hashtable of type->Row
      */
     Hashtable<String, DataRow> rowsHash = new Hashtable<String, DataRow>();
 
-    /*
-     * How many were skipped due to coverage?
-     */
-    public int skippedDueToCoverage = 0;
-
     private SurveyMain sm;
-    long touchTime = -1; // when has this DataRow been hit?
     public String xpathPrefix = null;
 
     private CLDRLocale locale;
-    private ExampleBuilder examplebuilder;
+    private ExampleGenerator nativeExampleGenerator;
     private XPathMatcher matcher;
     private PageId pageId;
     private CLDRFile diskFile;
@@ -2104,17 +2093,6 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Get the number of things that were skipped due to coverage
-     *
-     * TODO: clarify what kind of things, and what it means for them to be "skipped due to coverage"
-     *
-     * @return the number of things that were skipped
-     */
-    public int getSkippedDueToCoverage() {
-        return skippedDueToCoverage;
-    }
-
-    /**
      * Populate this DataSection
      *
      * @param ourSrc the CLDRFile
@@ -2192,9 +2170,6 @@ public class DataSection implements JSONString {
      * @param extraXpaths
      * @param stf
      * @param checkCldr
-     * 
-     * TODO: resurrect SHOW_TIME and TRACE_TIME code, deleted in revision 14327, if and when needed for debugging.
-     * It was deleted when this code was moved from populateFrom to new subroutine populateFromAllXpaths.
      */
     private void populateFromAllXpaths(Set<String> allXpaths, String workPrefix, CLDRFile ourSrc, Set<String> extraXpaths, STFactory stf,
         TestResultBundle checkCldr) {
@@ -2561,10 +2536,6 @@ public class DataSection implements JSONString {
             + getAll().size() + " items, pageid " + this.pageId + " } ";
     }
 
-    public void touch() {
-        touchTime = System.currentTimeMillis();
-    }
-
     /**
      * Print something...
      *
@@ -2657,8 +2628,6 @@ public class DataSection implements JSONString {
             result.put("rows", itemList);
             result.put("hasExamples", hasExamples);
             result.put("xpathPrefix", xpathPrefix);
-            result.put("skippedDueToCoverage", getSkippedDueToCoverage());
-            // result.put("coverage", "comprehensive" /* getPtype() */);
             return result.toString();
         } catch (Throwable t) {
             SurveyLog.logException(t, "Trying to load rows for " + this.toString());
@@ -2678,27 +2647,5 @@ public class DataSection implements JSONString {
             processor = new DisplayAndInputProcessor(SurveyMain.TRANS_HINT_LOCALE, false);
         }
         return processor;
-    }
-
-    /**
-     * @return the examplebuilder
-     *
-     * Called only by setUserAndFileForVotelist -- TODO: why setUserAndFileForVotelist?
-     */
-    private ExampleBuilder getExampleBuilder(CLDRFile cldrFile) {
-        if (examplebuilder == null) {
-            if (cldrFile == null) {
-                System.out.println("Warning: cldrFile is null in getExampleBuilder");
-           }
-            examplebuilder = ExampleBuilder.getInstance(sm.getTranslationHintsFile(), sm.getTranslationHintsExample(), cldrFile);
-        }
-        return examplebuilder;
-    }
-
-    private ExampleBuilder getExampleBuilder() {
-        if (examplebuilder == null) {
-            System.out.println("Warning: examplebuilder is null in getExampleBuilder"); // never happens?
-        }
-        return examplebuilder;
     }
 }

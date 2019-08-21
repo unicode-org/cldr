@@ -28,6 +28,7 @@ import java.util.regex.Matcher;
 
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.ExampleGenerator;
+import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.tool.GenerateAttributeList;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -132,9 +133,10 @@ public class TestUtilities {
         for (String path : english) {
             String value = english.getStringValue(path);
             result.setLength(0);
-            String examples = englishExampleGenerator.getExampleHtml(path, null);
-            if (examples != null)
+            String examples = englishExampleGenerator.getExampleHtml(path, value, ExampleType.NATIVE);
+            if (examples != null) {
                 result.append(examples).append("<hr>");
+            }
             String helpText = englishExampleGenerator.getHelpHtml(path, "@");
             if (helpText != null) {
                 result.append(helpText).append("<hr>");

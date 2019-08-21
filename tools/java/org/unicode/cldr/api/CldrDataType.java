@@ -34,17 +34,17 @@ public enum CldrDataType {
      * Non-locale based BCP47 data, typically associated with international identifiers such as
      * currency symbols, timezone identifiers etc.
      */
-    BCP47(DtdType.ldmlBCP47, false, false),
+    BCP47(DtdType.ldmlBCP47),
     /**
      * Non-locale based supplemental data, typically associated with character tables (e.g. for
      * break iterator).
      */
-    SUPPLEMENTAL(DtdType.supplementalData, false, false),
+    SUPPLEMENTAL(DtdType.supplementalData),
     /**
      * Locale based LDML data consisting of internationalization information and translations on a
      * per locale basis. LDML data for one locale may be inherited from other locales.
      */
-    LDML(DtdType.ldml, true, true, DtdType.ldmlICU);
+    LDML(DtdType.ldml, DtdType.ldmlICU);
 
     private static final ImmutableMap<String, CldrDataType> NAME_MAP =
         Arrays.stream(values()).collect(toImmutableMap(t -> t.mainType.name(), identity()));
@@ -67,17 +67,12 @@ public enum CldrDataType {
 
     private final DtdType mainType;
     private final ImmutableList<DtdType> extraTypes;
-    private final boolean isLdml;
-    private final boolean canResolve;
     private final Comparator<String> elementComparator;
     private final Comparator<String> attributeComparator;
 
-    CldrDataType(DtdType mainType, boolean isLdml, boolean canResolve, DtdType... extraTypes) {
+    CldrDataType(DtdType mainType, DtdType... extraTypes) {
         this.mainType = mainType;
         this.extraTypes = ImmutableList.copyOf(extraTypes);
-        checkArgument(!canResolve || isLdml, "inconsistent flags");
-        this.isLdml = isLdml;
-        this.canResolve = canResolve;
         // There's no need to cache the DtdData instance since getInstance() already does that.
         DtdData dtd = DtdData.getInstance(mainType);
         // Note that the function passed in to the wrapped comparators needs to be fast, since it's
@@ -101,12 +96,6 @@ public enum CldrDataType {
         return mainType.directories.stream().map(Paths::get);
     }
 
-    boolean isLocaleBasedData() {
-        return isLdml;
-    }
-
-    boolean canResolve() { return canResolve; }
-
     /**
      * Returns all elements known for this DTD type in undefined order. This can include elements
      * in external namespaces (e.g. "icu:xxx").
@@ -118,16 +107,6 @@ public enum CldrDataType {
                 Stream.concat(elements, extraTypes.stream().flatMap(CldrDataType::elementsFrom));
         }
         return elements;
-    }
-
-    /**
-     * Returns all attributes known for this DTD type in undefined order. This can include
-     * attributes in external namespaces (e.g. "icu:xxx").
-     */
-    Stream<Attribute> getAttributes() {
-        // NOTE: DO NOT call getAttributes() here because it makes a new set every time!! This code
-        // just streams the existing collections
-        return getElements().flatMap(e -> e.getAttributes().keySet().stream());
     }
 
     private static Stream<Element> elementsFrom(DtdType dataType) {
@@ -172,10 +151,6 @@ public enum CldrDataType {
                 return isKnown.test(rname) ? 1 : lname.compareTo(rname);
             }
         };
-    }
-
-    Comparator<String> getAttributeComparator(String elementName, String attributeName) {
-        return DtdData.getAttributeValueComparator(elementName, attributeName);
     }
 
     // We shouldn't need to check special cases (e.g. "_q") here because this should only be being

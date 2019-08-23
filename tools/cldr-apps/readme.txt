@@ -1,107 +1,39 @@
 About the Survey Tool and the org.unicode.cldr.web.* classes
-Steven R. Loomis srl@icu-project.org.    Updated 2008 Jan 25
-Copyright 2007-2010 IBM and others. All Rights Reserved
+Steven R. Loomis srl@icu-project.org.    Updated 2019 Oct 29
+Copyright 1991-2019 Unicode, Inc.
+All Rights Reserved. Terms of use: http://www.unicode.org/copyright.html
 ------------------------------------------------------------
 
 Note: this document is somewhat out of date. see 
 	http://cldr.unicode.org/development/running-survey-tool
+for the latest instructions, other than maven instructions below:
 
-for the latest instructions.
+** BUILDING WITH MAVEN
 
---- (old information below) ----
+0. You will need maven (mvn), probably version 3.
 
+1. build CLDR: go to ../tools and run 'ant jar'
 
+2. Import CLDR (and ICU) jars: run 'install-cldr-jars.sh'.
 
--1. ABOUT THIS DOCUMENT:
-  This document is directed towards the building, compilation
-and basic installation of the Survey Tool.  Please see 'stops.html'
-in this directory for the operation of survey tool.
+(You will need to repeat steps 1 and 2 every time CLDR code changes,
+until CLDR itself is in Maven.)
 
-  As of January 2008, (before CLDR 1.6 opens), I think this 
-documentation is more or less accurate. It hasn't been tried from start
-to finish on the current code base.
-
-
-0. Prerequisite: General CLDR Tools issues
-  See the readme at cldr/tools/java/readme.txt
-
-1. Survey Tool Requirements:
-
-* Java 1.5 - 
-* Ant 1.7
-* Tomcat 6.0.8+  http://tomcat.apache.org 
-  - Download and install
-  -  place catalina-ant.jar into Ant's lib/ directory
-  MD: Read RUNNING.txt for instructions on installing.
-  MD: catalina-ant.jar is in apache-tomcat-XXX/server/lib/
-  MD: In eclipse, the Ant lib directory is in eclipse/plugins/org.appache.ant_XXX/lib
-     Note: doesn't use anything Tomcat-specific, I'm just not familiar with other environments.
-* All other requirements are now included.
-* Database (If not Apache Derby, which is included, also tested with MySQL)
-
-2. <obviated>
-
-3. Setting up your build environment
-
- - copy build-sample.properties to build.properties
- - edit build.properties
-  - set CATALINA_HOME to your Tomcat install directory
-  - edit others as needed
-
-4. Test Building of SurveyTool
- - you can use "ant web" to test compilation  and "ant check" to run unit tests
-
-5. Build cldr-apps.war
- - "ant war" will produce cldr-apps.war 
-
-6. Deploy cldr-apps.war to your server
-   http://127.0.0.1:8080/manager/html
-   "WAR file to deploy" (2nd item under deploy).. find and feed it the cldr-apps.war next to build.xml
-    ( you could undeploy and then post another one to update, or see "ant deploy", below. )
-
-7. setting up your ST deployment environment
- i.  Visit http://127.0.0.1:8080/cldr-apps/survey
- ii. You will see a message about a default cldr directory being created
- iii.Go to http://127.0.0.1:8080/manager/html and Stop the cldr-apps
-
- - visit the "cldr" directory inside your tomcat directory:
-    Install a directory inside cldr/ : 
-	common/   (symlink or copy of CLDR common data - or see note about CLDR_COMMON below.
-                    On Windows, this may not be a shortcut.)
-
-  - cldr.properties is the config file for the survey tool
-
-       # cldr.properties should contain at least the Vetting Access Password:
-       CLDR_VAP=somepassword 
-
-       # if the common data is not in TOMCAT/cldr/common you can set the following
-       ##CLDR_COMMON=/work/cldr/common
-
-       # for mail uncomment this:
-       ##CLDR_SMTP=  smtp_host.example.com
-
-    After changing cldr.properties you must Stop the survey tool if it was already running.
-   
-8. test
-    http://127.0.0.1:8080/cldr-apps/survey
-     login as "admin@" with password "somepassword"  ( the CLDR_VAP, above )
-
-9. problems
-
-    look under TOMCAT/logs  for log files. 
+3. 'mvn package' will now run tests, and output 'target/cldr-apps.war'
 
 
-**********************
-**********************
-**********************
-**********************
+Yup, that's it.
+
+UPDATING
+
+Note that the 'pom.xml' has dependencies such as Guava, etc.
+If CLDR uses a different guava version, simply update the pom.xml to
+specify a different version of Guava.
 
 
-ADVANCED
-
-10.  "ant deploy", etc will deploy to a tomcat server if configured correctly.  see build.xml
-
-11. setting up mail: 
+OLD STUFF
+==============
+--- [old stuff below]
 
 Stuff to add to catalina.policy:
 

@@ -5,10 +5,9 @@ jdk:
 services:
 install: true
 script:
-  ant all -f tools/java/build.xml && ant jar -f tools/java/build.xml && ant check -f tools/cldr-unittest/build.xml -DCLDR_DIR=$(pwd) && ant -DCLDR_TOOLS=$(pwd)/tools/java -DCATALINA_HOME=/usr/share/tomcat8 -f tools/cldr-apps/build.xml war check
+  'ant all -f tools/java/build.xml && ant jar -f tools/java/build.xml && ant check -f tools/cldr-unittest/build.xml -DCLDR_DIR=$(pwd) && ( cd tools/cldr-apps && sh ./install-cldr-jars.sh ) && mvn -f tools/cldr-apps/pom.xml package'
 addons:
   apt:
     packages:
       ant
-      tomcat8
 

@@ -513,10 +513,11 @@ const cldrSurveyTable = (function() {
 			if (item.value === INHERITANCE_MARKER) {
 				if (!theRow.inheritedValue) {
 					/*
-					 * In earlier implementation, essentially the same error was reported as "... there is no Bailey Target item!")
-					 * Reference: https://unicode.org/cldr/trac/ticket/11238
+					 * In earlier implementation, essentially the same error was reported as "... there is no Bailey Target item!").
 					 */
-					console.error('For ' + theRow.xpstrid + ' - there is INHERITANCE_MARKER without inheritedValue');
+					if (!extraPathAllowsNullValue(theRow.xpath)) {
+						console.error('For ' + theRow.xpstrid + ' - there is INHERITANCE_MARKER without inheritedValue');
+					}
 				} else if (!theRow.inheritedLocale && !theRow.inheritedXpid) {
 					/*
 					 * It is probably a bug if item.value === INHERITANCE_MARKER but theRow.inheritedLocale and
@@ -528,6 +529,33 @@ const cldrSurveyTable = (function() {
 				}
 			}
 		}
+	}
+
+    /**
+     * Is the given path exceptional in the sense that null value is allowed?
+     *
+     * @param path the path
+     * @return true if null value is allowed for path, else false
+     *
+     * This function is nearly identical to the Java function with the same name in TestPaths.java.
+     * Keep it consistent with that function. It would be more ideal if this knowledge were encapsulated
+     * on the server and the client didn't need to know about it. The server could send the client special
+     * fallback values instead of null.
+     *
+     * Unlike the Java version on the server, here on the client we don't actually check that the path is an "extra" path.
+     *
+     * Example: http://localhost:8080/cldr-apps/v#/pa_Arab/Gregorian/35b886c9d25c9cb7
+     * //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="midnight"]
+     *
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-11238
+     */
+	function extraPathAllowsNullValue(path) {
+		if (path.includes('timeZoneNames/metazone') ||
+			path.includes('timeZoneNames/zone') ||
+			path.includes('dayPeriods/dayPeriodContext')) {
+			return true;
+		}
+		return false;
 	}
 
 	/**

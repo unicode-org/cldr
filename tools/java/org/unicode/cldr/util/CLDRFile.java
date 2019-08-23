@@ -3296,6 +3296,15 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * "Raw" refers to the fact that some of the paths may duplicate paths that are
      * already in this CLDRFile (in the xml and/or votes), in which case they will
      * later get filtered by getExtraPaths (removed from toAddTo) rather than re-added.
+     *
+     * NOTE: values may be null for some "extra" paths in locales for which no explicit
+     * values have been submitted. Both unit tests and Survey Tool client code generate
+     * errors or warnings for null value, but allow null value for certain exceptional
+     * extra paths. See the functions named extraPathAllowsNullValue in TestPaths.java
+     * and in the JavaScript client code. Make sure that updates here are reflected there
+     * and vice versa.
+     *
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-11238
      */
     private Collection<String> getRawExtraPathsPrivate(Collection<String> toAddTo) {
         SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();

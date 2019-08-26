@@ -35,6 +35,9 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         Exception[] internalException = new Exception[1];
 
         for (String s : new UnicodeSet("[!-#%-\\]_a-~¡§ª-¬±-³ µ-·¹-þ؉٠-٬۰-۹०-९০-৯੦-੯ ૦-૯୦-୯௦-௯౦-౯೦-೯൦-൯༠-༩ ၀-၉\\‎\\‏’‰−〇一七三九二五八六四]")) {
+            if (s.contentEquals("-")) {
+                continue; // special case because of non-breaking processing
+            }
             test.clear().add(s);
             String value = test.toPattern(false);
             String path = CLDRFile.getExemplarPath(ExemplarType.numbers);

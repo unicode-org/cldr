@@ -49,7 +49,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileProcessor;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.PathHeader;
@@ -279,8 +278,8 @@ public class CLDRModify {
         + "\tr\t replace contents (otherwise new data will be draft=\"unconfirmed\")"
         + XPathParts.NEWLINE
         + "\tc\t ignore comments in <merge_dir> files"
-        + XPathParts.NEWLINE
-        + "-r\t to minimize the results (removing items that inherit from parent)."
+//        + XPathParts.NEWLINE
+//        + "-r\t to minimize the results (removing items that inherit from parent)."
         + XPathParts.NEWLINE
         + "-v\t incorporate vetting information, and generate diff files."
         + XPathParts.NEWLINE
@@ -469,35 +468,35 @@ public class CLDRModify {
                     if (DEBUG_PATHS != null) {
                         System.out.println("Debug3 (" + test + "):\t" + k.toString(DEBUG_PATHS));
                     }
-                    if (options[MINIMIZE].doesOccur) {
-                        if (pathHeaderFactory == null) {
-                            pathHeaderFactory = PathHeader.getFactory(cldrFactory.make("en", true));
-                        }
-                        // TODO, fix identity
-                        String parent = LocaleIDParser.getParent(test);
-                        if (parent != null) {
-                            CLDRFile toRemove = cldrFactory.make(parent, true);
-                            // remove the items that are language codes, script codes, or region codes
-                            // since they may be real translations.
-                            if (retainIfTrue == null) {
-                                retainIfTrue = new RetainWhenMinimizing();
-                            }
-                            retainIfTrue.setParentFile(toRemove);
-                            List<String> removed = DEBUG ? null : new ArrayList<String>();
-                            k.removeDuplicates(toRemove, COMMENT_REMOVALS, retainIfTrue, removed);
-                            if (removed != null && removed.size() != 0) {
-                                totalRemoved += removed.size();
-                                Set<PathHeader> sorted = new TreeSet<PathHeader>();
-                                for (String path : removed) {
-                                    sorted.add(pathHeaderFactory.fromPath(path));
-                                }
-                                for (PathHeader pathHeader : sorted) {
-                                    System.out.println("\t# " + test + "\t" + pathHeader + "\t" + pathHeader.getOriginalPath());
-                                }
-                                System.out.println("\t# " + test + "\t# Removed:\t" + removed.size());
-                            }
-                        }
-                    }
+//                    if (options[MINIMIZE].doesOccur) {
+//                        if (pathHeaderFactory == null) {
+//                            pathHeaderFactory = PathHeader.getFactory(cldrFactory.make("en", true));
+//                        }
+//                        // TODO, fix identity
+//                        String parent = LocaleIDParser.getParent(test);
+//                        if (parent != null) {
+//                            CLDRFile toRemove = cldrFactory.make(parent, true);
+//                            // remove the items that are language codes, script codes, or region codes
+//                            // since they may be real translations.
+//                            if (retainIfTrue == null) {
+//                                retainIfTrue = new RetainWhenMinimizing();
+//                            }
+//                            retainIfTrue.setParentFile(toRemove);
+//                            List<String> removed = DEBUG ? null : new ArrayList<String>();
+//                            k.removeDuplicates(toRemove, COMMENT_REMOVALS, retainIfTrue, removed);
+//                            if (removed != null && removed.size() != 0) {
+//                                totalRemoved += removed.size();
+//                                Set<PathHeader> sorted = new TreeSet<PathHeader>();
+//                                for (String path : removed) {
+//                                    sorted.add(pathHeaderFactory.fromPath(path));
+//                                }
+//                                for (PathHeader pathHeader : sorted) {
+//                                    System.out.println("\t# " + test + "\t" + pathHeader + "\t" + pathHeader.getOriginalPath());
+//                                }
+//                                System.out.println("\t# " + test + "\t# Removed:\t" + removed.size());
+//                            }
+//                        }
+//                    }
                     // System.out.println(CLDRFile.getAttributeOrder());
 
                     /*

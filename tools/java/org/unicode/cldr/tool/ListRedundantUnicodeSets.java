@@ -1,5 +1,6 @@
 package org.unicode.cldr.tool;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Locale;
 import java.util.Set;
@@ -18,39 +19,44 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.UnicodeSets;
 
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSet.EntryRange;
+import com.ibm.icu.util.ULocale;
 
 public class ListRedundantUnicodeSets {
+
     public static void main(String[] args) {
         System.out.println("LocaleID"
             +"\tTarget Level"
             +"\tExemplarType"
             +"\tNo. Original"
             +"\tNo. Remaining"
-            +"\tRemaining (Keep)"
-            +"\tEquiv to Code Point & Redundant (maybe edit down & keep)"
+            +"\tNot Redundant (KEEP)"
+            +"\tRedundant Exceptions (KEEP)"
+            +"\tIndexEx & Redundant"
             +"\tCollation & Redundant"
             +"\tOther Redundant"
             +"\tNo. Collation clusters not in exemplars"
             );
-        
+
         Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
         SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
         StandardCodes sdc = CLDRConfig.getInstance().getStandardCodes();
+
         for (String localeID : cldrFactory.getAvailable()) {
             Level localeCoverageLevel = sdc.getLocaleCoverageLevel(Organization.cldr, localeID);
             if (localeCoverageLevel == Level.UNDETERMINED) {
                 continue;
             }
             CLDRFile cldrFile = cldrFactory.make(localeID, false);
-            for (ExemplarType exemplarType : ExemplarType.values()) {
-                if (exemplarType != ExemplarType.main) {
-                    continue;
-                }
+            for (ExemplarType exemplarType : Arrays.asList(ExemplarType.main)) {
+
                 UnicodeSet exemplarSet = cldrFile.getExemplarSet(exemplarType, WinningChoice.WINNING);
                 if (exemplarSet.isEmpty()) {
                     continue;
@@ -60,14 +66,31 @@ public class ListRedundantUnicodeSets {
                 TreeSet<String> remaining = new TreeSet<>(exemplarSet.strings());
                 remaining.removeAll(redundants);
 
-                // now get ones that are canonically equivalent to single string
-                Set<String> canonicals = new TreeSet<>();
+                // now get ones that are equivalent to single string
+                // (Keep cases for ar, bs, hr, sr; indic)
+                Set<String> forTranslit = new TreeSet<>();
                 for (String r : redundants) {
-                    if (hasPrecomposed(r)) {
-                        canonicals.add(r);
+                    if (isForTranslit(localeID, r)) {
+                        forTranslit.add(r);
                     }
                 }
-                redundants.removeAll(canonicals);
+                redundants.removeAll(forTranslit);
+
+                Set<String> indexSet = new TreeSet<>();
+                UnicodeSet indexSetRaw = cldrFile.getExemplarSet(ExemplarType.index, WinningChoice.WINNING);
+                if (!indexSetRaw.isEmpty()) {
+                    ULocale ulocale = new ULocale(localeID);
+                    for (String s : indexSetRaw) {
+                        String lowerCase = UCharacter.toLowerCase(ulocale, s);
+                        if (UnicodeSet.getSingleCodePoint(lowerCase) == Integer.MAX_VALUE) {
+                            indexSet.add(lowerCase);
+                        }
+                    }
+                    if (!indexSet.isEmpty()) {
+                        redundants.removeAll(indexSet);
+                        indexSet.removeAll(redundants);
+                    }
+                }
 
                 // now get collation exemplar strings
                 Set<String> colExemplars = getCollationExemplars(localeID).addAllTo(new TreeSet<String>());
@@ -78,16 +101,17 @@ public class ListRedundantUnicodeSets {
                     redundants.removeAll(colAndEx);
                     colExemplars.removeAll(redundants);
                     colExemplars.removeAll(remaining);
-                    colExemplars.removeAll(canonicals);
+                    colExemplars.removeAll(forTranslit);
                 }
 
                 System.out.println(localeID 
                     + "\t" + localeCoverageLevel
                     + "\t" + exemplarType 
                     + "\t" + exemplarSet.strings().size()
-                    + "\t" + remaining.size()
+                    + "\t" + (remaining.size() + forTranslit.size())
                     + "\t" + remaining
-                    + "\t" + canonicals
+                    + "\t" + forTranslit
+                    + "\t" + indexSet
                     + "\t" + colAndEx
                     + "\t" + redundants 
                     + "\t" + colExemplars.size()
@@ -97,7 +121,7 @@ public class ListRedundantUnicodeSets {
     }
 
     private static UnicodeSet ROOT_COLLATION_EXEMPLARS = null;
-    
+
     private static UnicodeSet getCollationExemplars(String localeID) {
         if (ROOT_COLLATION_EXEMPLARS == null) {
             ROOT_COLLATION_EXEMPLARS = getCollationExemplars2("root");
@@ -126,7 +150,7 @@ public class ListRedundantUnicodeSets {
 
     static final Normalizer2 nfkd = Normalizer2.getNFKDInstance();
     static final Set<String> CAN_BE_COMPOSED; 
-    
+
     static {
         Set<String> _toComposed = new TreeSet<>();
         UnicodeSet options = new UnicodeSet("[[:nfkcqc=n:]-[:dt=final:]-[:dt=medial:]-[:dt=initial:]-[:dt=isolated:]]");
@@ -142,8 +166,19 @@ public class ListRedundantUnicodeSets {
         }
         CAN_BE_COMPOSED = ImmutableSet.copyOf(_toComposed);
     }
-    
-    private static boolean hasPrecomposed(String s) {
-        return CAN_BE_COMPOSED.contains(nfkd.normalize(s));
+
+    static final UnicodeSet NUKTA = new UnicodeSet("[:Indic_Syllabic_Category=nukta:]").freeze();
+    static final Multimap<String,String> TRANSLIT_CLUSTERS = ImmutableMultimap.<String,String>builder()
+        .putAll("bs", "dž", "lj", "nj")
+        .putAll("hr", "dž", "lj", "nj")
+        .putAll("sr_Latn", "dž", "lj", "nj")
+        .build();
+    private static boolean isForTranslit(String locale, String s) {
+        boolean result = CAN_BE_COMPOSED.contains(nfkd.normalize(s));
+        if (result && (NUKTA.containsSome(s) 
+            || TRANSLIT_CLUSTERS.containsEntry(locale, s))) {
+            return true;
+        };
+        return false;
     }
 }

@@ -853,6 +853,16 @@ public class DisplayAndInputProcessor {
                 toAdd.add(string);
                 continue;
             }
+            switch (string) {
+            case "\u2011": toAdd.add("-"); break; // nobreak hyphen
+            case "-": toAdd.add("\u2011"); break; // nobreak hyphen
+            
+            case " ": toAdd.add("\u00a0"); break; // nobreak space
+            case "\u00a0": toAdd.add(" "); break; // nobreak space
+            
+            case "\u202F": toAdd.add("\u2009"); break; // nobreak narrow space
+            case "\u2009": toAdd.add("\u202F"); break; // nobreak narrow space
+            }
             if (exemplarType.convertUppercase) {
                 string = UCharacter.toLowerCase(ULocale.ENGLISH, string);
             }

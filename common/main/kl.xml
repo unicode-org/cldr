@@ -382,7 +382,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="unconfirmed">MMM dd, y G</pattern>
+							<pattern draft="unconfirmed">dd MMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -427,8 +427,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yM" draft="unconfirmed">y-MM</dateFormatItem>
 						<dateFormatItem id="yMd" draft="unconfirmed">y-MM-dd</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="unconfirmed">E, y-MM-dd</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="unconfirmed">MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMd" draft="unconfirmed">MMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMM" draft="unconfirmed">LLL y</dateFormatItem>
+						<dateFormatItem id="yMMMd" draft="unconfirmed">dd MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd" draft="unconfirmed">E, MMM d, y</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="unconfirmed">y QQQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ" draft="unconfirmed">y QQQQ</dateFormatItem>
@@ -535,14 +535,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
 							<month type="1">jan</month>
-							<month type="2">feb</month>
+							<month type="2">febr</month>
 							<month type="3">mar</month>
 							<month type="4">apr</month>
 							<month type="5">maj</month>
 							<month type="6">jun</month>
 							<month type="7">jul</month>
 							<month type="8">aug</month>
-							<month type="9">sep</month>
+							<month type="9">sept</month>
 							<month type="10">okt</month>
 							<month type="11">nov</month>
 							<month type="12">dec</month>
@@ -562,31 +562,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12" draft="unconfirmed">D</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">januari</month>
-							<month type="2">februari</month>
-							<month type="3">martsi</month>
-							<month type="4">aprili</month>
-							<month type="5">maji</month>
-							<month type="6">juni</month>
-							<month type="7">juli</month>
-							<month type="8">augustusi</month>
-							<month type="9">septemberi</month>
-							<month type="10">oktoberi</month>
-							<month type="11">novemberi</month>
-							<month type="12">decemberi</month>
+							<month type="1">januaarip</month>
+							<month type="2">februaarip</month>
+							<month type="3">marsip</month>
+							<month type="4">apriilip</month>
+							<month type="5">maajip</month>
+							<month type="6">juunip</month>
+							<month type="7">juulip</month>
+							<month type="8">aggustip</month>
+							<month type="9">septembarip</month>
+							<month type="10">oktobarip</month>
+							<month type="11">novembarip</month>
+							<month type="12">decembarip</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
 							<month type="1">jan</month>
-							<month type="2">feb</month>
+							<month type="2">febr</month>
 							<month type="3">mar</month>
 							<month type="4">apr</month>
 							<month type="5">maj</month>
 							<month type="6">jun</month>
 							<month type="7">jul</month>
 							<month type="8">aug</month>
-							<month type="9">sep</month>
+							<month type="9">sept</month>
 							<month type="10">okt</month>
 							<month type="11">nov</month>
 							<month type="12">dec</month>
@@ -606,18 +606,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12" draft="unconfirmed">D</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">januari</month>
-							<month type="2">februari</month>
-							<month type="3">martsi</month>
-							<month type="4">aprili</month>
-							<month type="5">maji</month>
-							<month type="6">juni</month>
-							<month type="7">juli</month>
-							<month type="8">augustusi</month>
-							<month type="9">septemberi</month>
-							<month type="10">oktoberi</month>
-							<month type="11">novemberi</month>
-							<month type="12">decemberi</month>
+							<month type="1">januaari</month>
+							<month type="2">februaari</month>
+							<month type="3">marsi</month>
+							<month type="4">apriili</month>
+							<month type="5">maaji</month>
+							<month type="6">juuni</month>
+							<month type="7">juuli</month>
+							<month type="8">aggusti</month>
+							<month type="9">septembari</month>
+							<month type="10">oktobari</month>
+							<month type="11">novembari</month>
+							<month type="12">decembari</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -768,7 +768,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="unconfirmed">MMM dd, y</pattern>
+							<pattern draft="unconfirmed">dd MMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -835,9 +835,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yM" draft="unconfirmed">y-MM</dateFormatItem>
 						<dateFormatItem id="yMd" draft="unconfirmed">y-MM-dd</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="unconfirmed">E, y-MM-dd</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="unconfirmed">MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMd" draft="unconfirmed">MMM d, y</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="unconfirmed">E, MMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMM" draft="unconfirmed">LLL y</dateFormatItem>
+						<dateFormatItem id="yMMMd" draft="unconfirmed">dd MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="unconfirmed">E, dd MMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="unconfirmed">y QQQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ" draft="unconfirmed">y QQQQ</dateFormatItem>
 					</availableFormats>

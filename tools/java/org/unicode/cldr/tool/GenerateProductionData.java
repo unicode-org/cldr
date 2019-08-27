@@ -4,68 +4,106 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.SimpleXMLSource;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.common.io.Files;
 
 public class GenerateProductionData {
     static final String SOURCE_DIR = CLDRPaths.COMMON_DIRECTORY;
-    static final String DEST_DIR = CLDRPaths.AUX_DIRECTORY + "production/";
+    static final String DEST_DIR = CLDRPaths.AUX_DIRECTORY + "production/common";
+    static final Set<String> NON_XML = ImmutableSet.of("dtd", "properties", "testData", "uca");
+    static final Set<String> COPY_ANYWAY = ImmutableSet.of("casing", "collation"); // don't want to "clean up", makes format difficult to use
 
     public static void main(String[] args) {
         // get directories
         // assume seed is already handled by CLDR-5169
+
         for (DtdType type : DtdType.values()) {
-            for (String dir : type.directories) {
+            boolean isLdmlDtdType = type == DtdType.ldml;
+
+            // bit of a hack, using the ldmlICU — otherwise unused! — to get the nonXML files.
+            Set<String> directories = (type == DtdType.ldmlICU) ? NON_XML : type.directories;
+
+            for (String dir : directories) {
                 File sourceDir = new File(SOURCE_DIR, dir);
-                Factory factory = type == DtdType.ldml ? Factory.make(sourceDir.toString(), ".*") : null;
-
                 File destinationDir = new File(DEST_DIR, dir);
-                destinationDir.mkdirs();
-                for (String file : sourceDir.list()) {
-                    if (!file.endsWith(".xml")) {
-                        continue;
-                    }
-                    File sourceFile = new File(sourceDir, file);
-                    File destinationFile = new File(destinationDir, file);
-
-                    if (type == DtdType.ldml) {
-                        String localeId = file.substring(0, file.length()-4);
-                        CLDRFile cldrFile = factory.make(localeId, true);
-                        CLDRFile outCldrFile = new CLDRFile(new SimpleXMLSource(localeId));
-                        for (String xpath : cldrFile) {
-                            String value = cldrFile.getStringValue(xpath);
-                            if (value == null) {
-                                continue;
-                            }
-                            String bailey = cldrFile.getConstructedBaileyValue(xpath, null, null);
-                            if (value.equals(bailey)) {
-                                continue;
-                            }
-                            String fullXpath = cldrFile.getFullXPath(xpath);
-                            outCldrFile.add(fullXpath, value);
-                        }
-                        try (PrintWriter pw = new PrintWriter(destinationFile)) {
-                            outCldrFile.write(pw);
-                        } catch (FileNotFoundException e) {
-                            System.err.println("Can't copy " + sourceFile + " to " + destinationFile + " — " + e);
-                        }
-                    } else {
-                        // for now, just copy
-                        try {
-                            Files.copy(sourceFile, destinationFile);
-                        } catch (IOException e) {
-                            System.err.println("Can't copy " + sourceFile + " to " + destinationFile + " — " + e);
-                        }
-                    }
-                }
+                copyFiles(sourceDir, destinationDir, null, isLdmlDtdType);
             }
         }
-        // TODO copy other files
+    }
+
+    private static void copyFiles(File sourceFile, File destinationFile, Factory factory, boolean isLdmlDtdType) {
+        if (sourceFile.isDirectory()) {
+
+            System.out.println(sourceFile + " => " + destinationFile);
+            if (!destinationFile.mkdirs()) {
+                // if created, remove old contents
+                Arrays.stream(destinationFile.listFiles()).forEach(File::delete);
+            }
+
+            Set<String> sorted = new TreeSet<>();
+            sorted.addAll(Arrays.asList(sourceFile.list()));
+            
+            if (COPY_ANYWAY.contains(sourceFile.getName())) { // special cases
+                isLdmlDtdType = false;
+            }
+            // reset factory for directory
+            factory = isLdmlDtdType ? Factory.make(sourceFile.toString(), ".*") : null;
+
+            for (String file : sorted) {
+                File sourceFile2 = new File(sourceFile, file);
+                File destinationFile2 = new File(destinationFile, file);
+                System.out.println("\t" + file);
+                copyFiles(sourceFile2, destinationFile2, factory, isLdmlDtdType);
+            }
+        } else if (factory != null) {
+            String file = sourceFile.getName();
+            if (!file.endsWith(".xml")) {
+                return;
+            }
+            String localeId = file.substring(0, file.length()-4);
+            CLDRFile cldrFileUnresolved = factory.make(localeId, false);
+            CLDRFile cldrFile = factory.make(localeId, true);
+            boolean gotOne = false;
+            Set<String> toRemove = new HashSet<>();
+            for (String xpath : cldrFileUnresolved) {
+                String value = cldrFile.getStringValue(xpath);
+                if (value == null) {
+                    continue;
+                }
+                String bailey = cldrFile.getConstructedBaileyValue(xpath, null, null);
+                if (value.equals(bailey)) {
+                    toRemove.add(xpath);
+                }
+            }
+            // TODO if file is empty AND not in main, skip
+            try (PrintWriter pw = new PrintWriter(destinationFile)) {
+                CLDRFile outCldrFile = cldrFileUnresolved.cloneAsThawed();
+                outCldrFile.removeAll(toRemove, false);
+                outCldrFile.write(pw);
+            } catch (FileNotFoundException e) {
+                System.err.println("Can't copy " + sourceFile + " to " + destinationFile + " — " + e);
+            }
+        } else {
+            // for now, just copy
+            copyFiles(sourceFile, destinationFile);
+        }
+    }
+
+    private static void copyFiles(File sourceFile, File destinationFile) {
+        try {
+            Files.copy(sourceFile, destinationFile);
+        } catch (IOException e) {
+            System.err.println("Can't copy " + sourceFile + " to " + destinationFile + " — " + e);
+        }
     }
 }

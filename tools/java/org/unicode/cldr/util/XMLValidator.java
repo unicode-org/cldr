@@ -232,7 +232,6 @@ public class XMLValidator {
             // First, attempt to parse as XML (preferred)...
             DocumentBuilder docBuilder = dfactory.newDocumentBuilder();
             docBuilder.setErrorHandler(nullHandler);
-            docBuilder.setEntityResolver(new CachingEntityResolver());
             // if(docBuilder.isValidating()){
             // System.out.println("The parser is a validating parser");
             // }

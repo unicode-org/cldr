@@ -76,7 +76,6 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
 import org.unicode.cldr.util.CLDRLocale.FormatBehavior;
 import org.unicode.cldr.util.CLDRURLS;
-import org.unicode.cldr.util.CachingEntityResolver;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
@@ -4963,13 +4962,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 busted("CLDR_VET_WEB isn't a directory: " + vetweb);
                 return;
             }
-            progress.update("Setup cache..");
-
-            File cacheDir = new File(cldrHome, "cache");
-
-            CachingEntityResolver.setCacheDir(cacheDir.getAbsolutePath());
-            CachingEntityResolver.createAndEmptyCacheDir();
-
             progress.update("Setup supplemental..");
             getSupplementalDataInfo();
 

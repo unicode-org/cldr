@@ -12,7 +12,6 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Multiset;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CachingEntityResolver;
 import org.xml.sax.Attributes;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
@@ -197,7 +196,6 @@ final class XmlDataSource extends AbstractDataSource {
         try {
             xmlReader = XMLReaderFactory.createXMLReader();
             xmlReader.setFeature("http://xml.org/sax/features/validation", validating);
-            xmlReader.setEntityResolver(new CachingEntityResolver());
         } catch (SAXException e) {
             throw new RuntimeException(e);
         }

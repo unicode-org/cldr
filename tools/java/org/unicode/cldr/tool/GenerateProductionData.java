@@ -10,6 +10,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -25,22 +27,57 @@ import com.google.common.collect.Multimap;
 import com.google.common.io.Files;
 
 public class GenerateProductionData {
-    static final String SOURCE_DIR = CLDRPaths.COMMON_DIRECTORY;
-    static String DEST_DIR = CLDRPaths.AUX_DIRECTORY + "production/common";
+    static String SOURCE_COMMON_DIR = null;
+    static String DEST_COMMON_DIR = null;
+    static boolean VERBOSE = false;
+    
     static final Set<String> NON_XML = ImmutableSet.of("dtd", "properties", "testData", "uca");
     static final Set<String> COPY_ANYWAY = ImmutableSet.of("casing", "collation"); // don't want to "clean up", makes format difficult to use
     static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
 
-    static boolean ONLY_MODERN = false;
+    static boolean ONLY_MODERN = false; // just for testing
+    
+    enum MyOptions {
+        sourceDirectory(new Params()
+            .setHelp("source common directory")
+            .setDefault(CLDRPaths.COMMON_DIRECTORY)
+            .setMatch(".*")),
+        destinationDirectory(new Params()
+            .setHelp("destination common directory")
+            .setDefault(CLDRPaths.AUX_DIRECTORY + "production/common")
+            .setMatch(".*")),
+        verbose(new Params()
+            .setHelp("verbose debugging messages")),
+        ;
+
+        // BOILERPLATE TO COPY
+        final Option option;
+
+        private MyOptions(Params params) {
+            option = new Option(this, params);
+        }
+
+        private static Options myOptions = new Options();
+        static {
+            for (MyOptions option : MyOptions.values()) {
+                myOptions.add(option, option.option);
+            }
+        }
+
+        private static Set<String> parse(String[] args, boolean showArguments) {
+            return myOptions.parse(MyOptions.values()[0], args, true);
+        }
+    }
 
     public static void main(String[] args) {
         // TODO rbnf and segments don't have modern coverage; fix there.
-        ONLY_MODERN = Arrays.asList(args).contains("modern");
-        if (ONLY_MODERN) {
-            DEST_DIR = CLDRPaths.AUX_DIRECTORY + "production/modern/common";
-        }
+
+        MyOptions.parse(args, true);
+        SOURCE_COMMON_DIR = MyOptions.sourceDirectory.option.getValue();
+        DEST_COMMON_DIR = MyOptions.destinationDirectory.option.getValue();
+        VERBOSE = MyOptions.verbose.option.doesOccur();
+
         // get directories
-        // assume seed is already handled by CLDR-5169
 
         for (DtdType type : DtdType.values()) {
             boolean isLdmlDtdType = type == DtdType.ldml;
@@ -49,8 +86,8 @@ public class GenerateProductionData {
             Set<String> directories = (type == DtdType.ldmlICU) ? NON_XML : type.directories;
 
             for (String dir : directories) {
-                File sourceDir = new File(SOURCE_DIR, dir);
-                File destinationDir = new File(DEST_DIR, dir);
+                File sourceDir = new File(SOURCE_COMMON_DIR, dir);
+                File destinationDir = new File(DEST_COMMON_DIR, dir);
                 copyFilesAndReturnIsEmpty(sourceDir, destinationDir, null, isLdmlDtdType);
             }
         }
@@ -90,9 +127,9 @@ public class GenerateProductionData {
             for (String file : sorted) {
                 File sourceFile2 = new File(sourceFile, file);
                 File destinationFile2 = new File(destinationFile, file);
-                System.out.println("\t" + file);
+                if (VERBOSE) System.out.println("\t" + file);
                 boolean isEmpty = copyFilesAndReturnIsEmpty(sourceFile2, destinationFile2, factory, isLdmlDtdType);
-                if (isEmpty) { // only happens for ldmln
+                if (isEmpty) { // only happens for ldml
                     emptyLocales.add(file.substring(0,file.length()-4)); // remove .xml for localeId
                 }
             }
@@ -101,8 +138,7 @@ public class GenerateProductionData {
             if (!emptyLocales.isEmpty() && !sourceFile.getName().equals("main")) {
                 Set<String> childless = getChildless(emptyLocales, factory.getAvailable());
                 if (!childless.isEmpty()) {
-                    System.out.println("\t" + destinationFile
-                        + "\tRemoving empty locales:" + childless);
+                    if (VERBOSE) System.out.println("\t" + destinationFile + "\tRemoving empty locales:" + childless);
                     childless.stream().forEach(locale -> new File(destinationFile, locale + ".xml").delete());
                 }
             }

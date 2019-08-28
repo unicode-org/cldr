@@ -71,6 +71,7 @@ public class GenerateProductionData {
                 return;
             }
             String localeId = file.substring(0, file.length()-4);
+            boolean isRoot = localeId.equals("root");
             CLDRFile cldrFileUnresolved = factory.make(localeId, false);
             CLDRFile cldrFile = factory.make(localeId, true);
             boolean gotOne = false;
@@ -79,6 +80,11 @@ public class GenerateProductionData {
                 String value = cldrFile.getStringValue(xpath);
                 if (value == null) {
                     continue;
+                }
+                if (isRoot) {
+                    if (xpath.startsWith("//ldml/annotations/annotation")) {
+                        continue;
+                    }
                 }
                 String bailey = cldrFile.getConstructedBaileyValue(xpath, null, null);
                 if (value.equals(bailey)) {

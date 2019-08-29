@@ -15,10 +15,12 @@ import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.collect.HashMultimap;
@@ -30,13 +32,13 @@ public class GenerateProductionData {
     static String SOURCE_COMMON_DIR = null;
     static String DEST_COMMON_DIR = null;
     static boolean VERBOSE = false;
-    
+
     static final Set<String> NON_XML = ImmutableSet.of("dtd", "properties", "testData", "uca");
     static final Set<String> COPY_ANYWAY = ImmutableSet.of("casing", "collation"); // don't want to "clean up", makes format difficult to use
     static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     static boolean ONLY_MODERN = false; // just for testing
-    
+
     enum MyOptions {
         sourceDirectory(new Params()
             .setHelp("source common directory")
@@ -154,6 +156,7 @@ public class GenerateProductionData {
             CLDRFile cldrFile = factory.make(localeId, true);
             boolean gotOne = false;
             Set<String> toRemove = new HashSet<>();
+            Set<String> toRetain = new HashSet<>();
             for (String xpath : cldrFileUnresolved) {
                 if (xpath.startsWith("//ldml/identity")) {
                     continue;
@@ -191,15 +194,40 @@ public class GenerateProductionData {
                 }
 
                 // if we got all the way to here, we have a non-empty result
+                if (!LogicalGrouping.isOptional(cldrFile, xpath)) {
+                    Set<String> paths = LogicalGrouping.getPaths(cldrFile, xpath);
+                    if (paths.size() > 1) {
+                        toRetain.addAll(paths);
+                    }
+                }
+
                 gotOne = true;
             }
-            // TODO This loop keeps some unnecessary files, since we don't know until
-            // after we've processed the children whether a parent has some non-empty children.
-            // Solution is to keep a list of files that were empty, and process once we return
-            // to the directory above.
+
+
+            // we even add empty files, but can delete them back on the directory level.
             try (PrintWriter pw = new PrintWriter(destinationFile)) {
                 CLDRFile outCldrFile = cldrFileUnresolved.cloneAsThawed();
+
+                // pull out the ones to retain
+                toRemove.removeAll(toRetain);
                 outCldrFile.removeAll(toRemove, false);
+
+
+                // now set any null values to bailey values if not present
+                for (String xpath : toRetain) {
+                    if (cldrFile.getStringValue(xpath) == null) {
+                        if (!LogicalGrouping.isOptional(cldrFile, xpath)) {
+                            String bailey = cldrFileUnresolved.getStringValue(xpath);
+                            if (bailey == null || bailey.contentEquals(CldrUtility.INHERITANCE_MARKER)) {
+                                System.out.println(localeId + " Bad bailey value: " + bailey + ", path: " + xpath);
+                            } else {
+                                outCldrFile.add(xpath, bailey);
+                            }
+                        }
+                    }
+                }
+
                 outCldrFile.write(pw);
             } catch (FileNotFoundException e) {
                 System.err.println("Can't copy " + sourceFile + " to " + destinationFile + " — " + e);

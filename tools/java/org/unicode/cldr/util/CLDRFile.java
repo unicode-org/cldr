@@ -59,6 +59,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMap.Builder;
+import com.google.common.util.concurrent.UncheckedExecutionException;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -601,14 +602,18 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * Get a string value from an xpath.
      */
     public String getStringValue(String xpath) {
-        String result = dataSource.getValueAtPath(xpath);
-        if (result == null && dataSource.isResolving()) {
-            final String fallbackPath = getFallbackPath(xpath, false);
-            if (fallbackPath != null) {
-                result = dataSource.getValueAtPath(fallbackPath);
+        try {
+            String result = dataSource.getValueAtPath(xpath);
+            if (result == null && dataSource.isResolving()) {
+                final String fallbackPath = getFallbackPath(xpath, false);
+                if (fallbackPath != null) {
+                    result = dataSource.getValueAtPath(fallbackPath);
+                }
             }
+            return result;
+        } catch (Exception e) {
+            throw new UncheckedExecutionException("Bad path: " + xpath, e);
         }
-        return result;
     }
 
     /**

@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -32,6 +33,8 @@ public class GenerateProductionData {
     static String SOURCE_COMMON_DIR = null;
     static String DEST_COMMON_DIR = null;
     static boolean VERBOSE = false;
+    static boolean ADD_LOGICAL_GROUPS = false;
+    static boolean ADD_DATETIME = false;
 
     static final Set<String> NON_XML = ImmutableSet.of("dtd", "properties", "testData", "uca");
     static final Set<String> COPY_ANYWAY = ImmutableSet.of("casing", "collation"); // don't want to "clean up", makes format difficult to use
@@ -47,6 +50,14 @@ public class GenerateProductionData {
         destinationDirectory(new Params()
             .setHelp("destination common directory")
             .setDefault(CLDRPaths.AUX_DIRECTORY + "production/common")
+            .setMatch(".*")),
+        logicalGroups(new Params()
+            .setHelp("flesh out logical groups")
+            .setDefault("true")
+            .setMatch(".*")),
+        time(new Params()
+            .setHelp("flesh out datetime")
+            .setDefault("true")
             .setMatch(".*")),
         verbose(new Params()
             .setHelp("verbose debugging messages")),
@@ -77,7 +88,9 @@ public class GenerateProductionData {
         MyOptions.parse(args, true);
         SOURCE_COMMON_DIR = MyOptions.sourceDirectory.option.getValue();
         DEST_COMMON_DIR = MyOptions.destinationDirectory.option.getValue();
-        VERBOSE = MyOptions.verbose.option.doesOccur();
+        VERBOSE = "true".equalsIgnoreCase(MyOptions.verbose.option.getValue());
+        ADD_LOGICAL_GROUPS = "true".equalsIgnoreCase(MyOptions.logicalGroups.option.getValue());
+        ADD_DATETIME = "true".equalsIgnoreCase(MyOptions.time.option.getValue());
 
         // get directories
 
@@ -157,6 +170,7 @@ public class GenerateProductionData {
             boolean gotOne = false;
             Set<String> toRemove = new HashSet<>();
             Set<String> toRetain = new HashSet<>();
+
             for (String xpath : cldrFileUnresolved) {
                 if (xpath.startsWith("//ldml/identity")) {
                     continue;
@@ -194,13 +208,24 @@ public class GenerateProductionData {
                 }
 
                 // if we got all the way to here, we have a non-empty result
-                if (!LogicalGrouping.isOptional(cldrFile, xpath)) {
+
+                // check to see if we might need to flesh out logical groups
+                // TODO Should be done in the converter tool!!
+                if (ADD_LOGICAL_GROUPS && !LogicalGrouping.isOptional(cldrFile, xpath)) {
                     Set<String> paths = LogicalGrouping.getPaths(cldrFile, xpath);
                     if (paths.size() > 1) {
                         toRetain.addAll(paths);
                     }
                 }
 
+                // check to see if we might need to flesh out datetime. 
+                // TODO Should be done in the converter tool!!
+                if (ADD_DATETIME && isDateTimePath(xpath)) {
+                    toRetain.addAll(dateTimePaths(xpath));
+                }
+
+
+                // past the gauntlet
                 gotOne = true;
             }
 
@@ -238,6 +263,28 @@ public class GenerateProductionData {
             copyFiles(sourceFile, destinationFile);
             return false;
         }
+    }
+
+    private static boolean isDateTimePath(String xpath) {
+        return xpath.startsWith("//ldml/dates/calendars/calendar") 
+            && xpath.contains("FormatLength[@type=");
+    }
+
+    /** generate full dateTimePaths from any element
+    //ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type=".*"]/dateFormat[@type="standard"]/pattern[@type="standard"]
+    //ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type=".*"]/timeFormat[@type="standard"]/pattern[@type="standard"]
+    //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type=".*"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]
+     */
+    private static Set<String> dateTimePaths(String xpath) {
+        LinkedHashSet<String> result = new LinkedHashSet<>();
+        String prefix = xpath.substring(0,xpath.indexOf(']') + 2); // get after ]/
+        for (String type : Arrays.asList("date", "time", "dateTime")) {
+            String pattern = prefix + "$XFormats/$XFormatLength[@type=\"$Y\"]/$XFormat[@type=\"standard\"]/pattern[@type=\"standard\"]".replace("$X", type);
+            for (String width : Arrays.asList("full", "long", "medium", "short")) {
+                result.add(pattern.replace("$Y", width));
+            }
+        }
+        return result;
     }
 
     private static Set<String> getChildless(Set<String> emptyLocales, Set<String> available) {

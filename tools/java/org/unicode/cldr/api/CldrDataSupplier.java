@@ -138,9 +138,6 @@ public abstract class CldrDataSupplier {
         return new InMemoryData(values);
     }
 
-    // Package protected to keep suppliers in a closed type hierarchy.
-    CldrDataSupplier() {}
-
     /**
      * Returns a modified data supplier which only provides paths/values with a draft status at or
      * above the specified value. To create a supplier that will process all CLDR paths/values, use

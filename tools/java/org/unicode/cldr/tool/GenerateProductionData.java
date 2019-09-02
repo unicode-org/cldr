@@ -166,23 +166,29 @@ public class GenerateProductionData {
             String localeId = file.substring(0, file.length()-4);
             boolean isRoot = localeId.equals("root");
             CLDRFile cldrFileUnresolved = factory.make(localeId, false);
-            CLDRFile cldrFile = factory.make(localeId, true);
+            CLDRFile cldrFileResolved = factory.make(localeId, true);
             boolean gotOne = false;
             Set<String> toRemove = new HashSet<>();
             Set<String> toRetain = new HashSet<>();
+
+            String debugPath = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"power-kilowatt\"]/displayName";
+            String debugLocale = "af";
 
             for (String xpath : cldrFileUnresolved) {
                 if (xpath.startsWith("//ldml/identity")) {
                     continue;
                 }
+                if (debugPath != null && localeId.equals(debugLocale) && xpath.equals(debugPath)) {
+                    int debug = 0;
+                }
 
-                String value = cldrFile.getStringValue(xpath);
-                if (value == null) {
+                String value = cldrFileUnresolved.getStringValue(xpath);
+                if (value == null || CldrUtility.INHERITANCE_MARKER.equals(value)) {
                     toRemove.add(xpath);
                     continue;
                 }
 
-                // special case root values that are only for Survey Tool use
+                // special-case the root values that are only for Survey Tool use
 
                 if (isRoot) {
                     if (xpath.startsWith("//ldml/annotations/annotation")) {
@@ -193,11 +199,13 @@ public class GenerateProductionData {
 
                 // remove items that are the same as their bailey values. This also catches Inheritance Marker
 
-                String bailey = cldrFile.getConstructedBaileyValue(xpath, null, null);
+                String bailey = cldrFileResolved.getConstructedBaileyValue(xpath, null, null);
                 if (value.equals(bailey)) {
                     toRemove.add(xpath);
                     continue;
                 }
+
+                // remove level=comprehensive (under setting)
 
                 if (ONLY_MODERN) {
                     Level coverage = SDI.getCoverageLevel(xpath, localeId);
@@ -211,10 +219,15 @@ public class GenerateProductionData {
 
                 // check to see if we might need to flesh out logical groups
                 // TODO Should be done in the converter tool!!
-                if (ADD_LOGICAL_GROUPS && !LogicalGrouping.isOptional(cldrFile, xpath)) {
-                    Set<String> paths = LogicalGrouping.getPaths(cldrFile, xpath);
+                if (ADD_LOGICAL_GROUPS && !LogicalGrouping.isOptional(cldrFileResolved, xpath)) {
+                    Set<String> paths = LogicalGrouping.getPaths(cldrFileResolved, xpath);
                     if (paths.size() > 1) {
-                        toRetain.addAll(paths);
+                        for (String possiblePath : paths) {
+                            // Unclear from API whether we need to do this filtering
+                            if (!LogicalGrouping.isOptional(cldrFileResolved, possiblePath)) {
+                                toRetain.add(possiblePath);
+                            }
+                        }
                     }
                 }
 
@@ -223,7 +236,6 @@ public class GenerateProductionData {
                 if (ADD_DATETIME && isDateTimePath(xpath)) {
                     toRetain.addAll(dateTimePaths(xpath));
                 }
-
 
                 // past the gauntlet
                 gotOne = true;
@@ -235,21 +247,33 @@ public class GenerateProductionData {
                 CLDRFile outCldrFile = cldrFileUnresolved.cloneAsThawed();
 
                 // pull out the ones to retain
+
                 toRemove.removeAll(toRetain);
+                toRetain.removeAll(toRemove);
                 outCldrFile.removeAll(toRemove, false);
 
 
                 // now set any null values to bailey values if not present
                 for (String xpath : toRetain) {
-                    if (cldrFile.getStringValue(xpath) == null) {
-                        if (!LogicalGrouping.isOptional(cldrFile, xpath)) {
-                            String bailey = cldrFileUnresolved.getStringValue(xpath);
-                            if (bailey == null || bailey.contentEquals(CldrUtility.INHERITANCE_MARKER)) {
-                                System.out.println(localeId + " Bad bailey value: " + bailey + ", path: " + xpath);
-                            } else {
-                                outCldrFile.add(xpath, bailey);
-                            }
-                        }
+                    if (debugPath != null && localeId.equals(debugLocale) && xpath.equals(debugPath)) {
+                        int debug = 0;
+                    }
+                    String value = cldrFileResolved.getStringValue(xpath);
+                    if (value == null || value.equals(CldrUtility.INHERITANCE_MARKER)) {
+                        throw new IllegalArgumentException(localeId + ": " + value + " in value for " + xpath);
+                    } else {
+                        outCldrFile.add(xpath, value);
+                    }
+                }
+
+                // double-check results
+                for (String xpath : outCldrFile) {
+                    if (debugPath != null && localeId.equals(debugLocale) && xpath.equals(debugPath)) {
+                        int debug = 0;
+                    }
+                    String value = outCldrFile.getStringValue(xpath);
+                    if (value == null || value.equals(CldrUtility.INHERITANCE_MARKER)) {
+                        throw new IllegalArgumentException(localeId + ": " + value + " in value for " + xpath);
                     }
                 }
 

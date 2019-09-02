@@ -8,6 +8,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -23,11 +25,14 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 import com.google.common.io.Files;
+import com.ibm.icu.util.Output;
 
 public class GenerateProductionData {
     static String SOURCE_COMMON_DIR = null;
@@ -35,6 +40,7 @@ public class GenerateProductionData {
     static boolean VERBOSE = false;
     static boolean ADD_LOGICAL_GROUPS = false;
     static boolean ADD_DATETIME = false;
+    static boolean SIDEWAYS = false;
 
     static final Set<String> NON_XML = ImmutableSet.of("dtd", "properties", "testData", "uca");
     static final Set<String> COPY_ANYWAY = ImmutableSet.of("casing", "collation"); // don't want to "clean up", makes format difficult to use
@@ -59,8 +65,12 @@ public class GenerateProductionData {
             .setHelp("flesh out datetime")
             .setDefault("true")
             .setMatch(".*")),
+        Sideways(new Params()
+            .setHelp("allow sideways inheritance")
+            .setDefault("false")
+            .setMatch(".*")),
         verbose(new Params()
-            .setHelp("verbose debugging messages")),
+            .setHelp("verbose debugging messages")), 
         ;
 
         // BOILERPLATE TO COPY
@@ -91,7 +101,8 @@ public class GenerateProductionData {
         VERBOSE = "true".equalsIgnoreCase(MyOptions.verbose.option.getValue());
         ADD_LOGICAL_GROUPS = "true".equalsIgnoreCase(MyOptions.logicalGroups.option.getValue());
         ADD_DATETIME = "true".equalsIgnoreCase(MyOptions.time.option.getValue());
-
+        SIDEWAYS = "true".equalsIgnoreCase(MyOptions.Sideways.option.getValue());
+        
         // get directories
 
         for (DtdType type : DtdType.values()) {
@@ -170,8 +181,9 @@ public class GenerateProductionData {
             boolean gotOne = false;
             Set<String> toRemove = new HashSet<>();
             Set<String> toRetain = new HashSet<>();
+            Output<String> pathWhereFound = new Output<>();
 
-            String debugPath = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"power-kilowatt\"]/displayName";
+            String debugPath = null; // "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"power-kilowatt\"]/displayName";
             String debugLocale = "af";
 
             for (String xpath : cldrFileUnresolved) {
@@ -199,8 +211,10 @@ public class GenerateProductionData {
 
                 // remove items that are the same as their bailey values. This also catches Inheritance Marker
 
-                String bailey = cldrFileResolved.getConstructedBaileyValue(xpath, null, null);
-                if (value.equals(bailey)) {
+                String bailey = cldrFileResolved.getConstructedBaileyValue(xpath, pathWhereFound, null);
+                if (value.equals(bailey) 
+                    && (SIDEWAYS 
+                        || pathEqualsOrIsAltVariantOf(xpath, pathWhereFound.value))) {
                     toRemove.add(xpath);
                     continue;
                 }
@@ -287,6 +301,48 @@ public class GenerateProductionData {
             copyFiles(sourceFile, destinationFile);
             return false;
         }
+    }
+
+    private static boolean pathEqualsOrIsAltVariantOf(String desiredPath, String foundPath) {
+        if (desiredPath.equals(foundPath)) {
+            return true;
+        }
+        if (desiredPath.contains("type=\"en_GB\"") && desiredPath.contains("alt=")) {
+            int debug = 0;
+        }
+        if (foundPath == null) { 
+            // We can do this, because the bailey value has already been checked
+            // Since it isn't null, a null indicates a constructed alt value
+            return true;
+        }
+        XPathParts desiredPathParts = XPathParts.getFrozenInstance(desiredPath);
+        XPathParts foundPathParts = XPathParts.getFrozenInstance(foundPath);
+        if (desiredPathParts.size() != foundPathParts.size()) {
+            return false;
+        }
+        for (int e = 0; e < desiredPathParts.size(); ++e) {
+            String element1 = desiredPathParts.getElement(e);
+            String element2 = foundPathParts.getElement(e);
+            if (!element1.equals(element2)) {
+                return false;
+            }
+            Map<String, String> attr1 = desiredPathParts.getAttributes(e);
+            Map<String, String> attr2 = foundPathParts.getAttributes(e);
+            if (attr1.equals(attr2)) {
+                continue;
+            }
+            Set<String> keys1 = attr1.keySet();
+            Set<String> keys2 = attr2.keySet();
+            for (String attr : Sets.union(keys1, keys2)) {
+                if (attr.equals("alt")) {
+                    continue;
+                }
+                if (!Objects.equals(attr1.get(attr), attr2.get(attr))) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     private static boolean isDateTimePath(String xpath) {

@@ -3829,6 +3829,11 @@ public class SupplementalDataInfo {
 //        return distinguishingAttributes;
 //    }
 
+    /**
+     * The Row is: desired, supported, percent, oneway
+     * @param string the type (written-new, for new format)
+     * @return
+     */
     public List<R4<String, String, Integer, Boolean>> getLanguageMatcherData(String string) {
         return languageMatch.get(string);
     }

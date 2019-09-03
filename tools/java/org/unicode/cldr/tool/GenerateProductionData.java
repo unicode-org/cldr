@@ -25,6 +25,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.collect.HashMultimap;
@@ -41,12 +42,12 @@ public class GenerateProductionData {
     static boolean ADD_LOGICAL_GROUPS = false;
     static boolean ADD_DATETIME = false;
     static boolean SIDEWAYS = false;
+    static boolean ROOT = false;
+    static boolean ONLY_MODERN = false;
 
     static final Set<String> NON_XML = ImmutableSet.of("dtd", "properties", "testData", "uca");
     static final Set<String> COPY_ANYWAY = ImmutableSet.of("casing", "collation"); // don't want to "clean up", makes format difficult to use
     static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
-
-    static boolean ONLY_MODERN = false; // just for testing
 
     enum MyOptions {
         sourceDirectory(new Params()
@@ -66,7 +67,15 @@ public class GenerateProductionData {
             .setDefault("true")
             .setMatch(".*")),
         Sideways(new Params()
-            .setHelp("allow sideways inheritance")
+            .setHelp("minimize against sideways inheritance")
+            .setDefault("false")
+            .setMatch(".*")),
+        root(new Params()
+            .setHelp("minimize for root and code-fallback (false is only against explicit locales like fr)")
+            .setDefault("false")
+            .setMatch(".*")),
+        onlyModern(new Params()
+            .setHelp("exclude comprehensive paths")
             .setDefault("false")
             .setMatch(".*")),
         verbose(new Params()
@@ -102,7 +111,9 @@ public class GenerateProductionData {
         ADD_LOGICAL_GROUPS = "true".equalsIgnoreCase(MyOptions.logicalGroups.option.getValue());
         ADD_DATETIME = "true".equalsIgnoreCase(MyOptions.time.option.getValue());
         SIDEWAYS = "true".equalsIgnoreCase(MyOptions.Sideways.option.getValue());
-        
+        ROOT = "true".equalsIgnoreCase(MyOptions.root.option.getValue());
+        ONLY_MODERN = "true".equalsIgnoreCase(MyOptions.onlyModern.option.getValue());
+
         // get directories
 
         for (DtdType type : DtdType.values()) {
@@ -146,15 +157,30 @@ public class GenerateProductionData {
             // reset factory for directory
             factory = null;
             if (isLdmlDtdType) {
+                // if the factory is empty, then we just copy files
                 factory = Factory.make(sourceFile.toString(), ".*");
             }
+            boolean isMainDir = factory != null && sourceFile.getName().contentEquals("main");
+            boolean isRbnfDir = factory != null && sourceFile.getName().contentEquals("rbnf");
 
             Set<String> emptyLocales = new HashSet<>();
             for (String file : sorted) {
                 File sourceFile2 = new File(sourceFile, file);
                 File destinationFile2 = new File(destinationFile, file);
                 if (VERBOSE) System.out.println("\t" + file);
-                boolean isEmpty = copyFilesAndReturnIsEmpty(sourceFile2, destinationFile2, factory, isLdmlDtdType);
+
+                // special step to just copy certain files like main/root.xml file
+                Factory currFactory = factory;
+                if (isMainDir) {
+                    if (file.equals("root.xml")) {
+                        currFactory = null;
+                    }
+                } else if (isRbnfDir) {
+                    currFactory = null;
+                }
+
+                // when the currFactory is null, we just copy files as-is
+                boolean isEmpty = copyFilesAndReturnIsEmpty(sourceFile2, destinationFile2, currFactory, isLdmlDtdType);
                 if (isEmpty) { // only happens for ldml
                     emptyLocales.add(file.substring(0,file.length()-4)); // remove .xml for localeId
                 }
@@ -182,6 +208,7 @@ public class GenerateProductionData {
             Set<String> toRemove = new HashSet<>();
             Set<String> toRetain = new HashSet<>();
             Output<String> pathWhereFound = new Output<>();
+            Output<String> localeWhereFound = new Output<>();
 
             String debugPath = null; // "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"power-kilowatt\"]/displayName";
             String debugLocale = "af";
@@ -211,10 +238,13 @@ public class GenerateProductionData {
 
                 // remove items that are the same as their bailey values. This also catches Inheritance Marker
 
-                String bailey = cldrFileResolved.getConstructedBaileyValue(xpath, pathWhereFound, null);
+                String bailey = cldrFileResolved.getConstructedBaileyValue(xpath, pathWhereFound, localeWhereFound);
                 if (value.equals(bailey) 
                     && (SIDEWAYS 
-                        || pathEqualsOrIsAltVariantOf(xpath, pathWhereFound.value))) {
+                        || pathEqualsOrIsAltVariantOf(xpath, pathWhereFound.value))
+                    && (ROOT 
+                        || (!Objects.equals(XMLSource.ROOT_ID, localeWhereFound.value) 
+                            && !Objects.equals(XMLSource.CODE_FALLBACK_ID, localeWhereFound.value)))) {
                     toRemove.add(xpath);
                     continue;
                 }

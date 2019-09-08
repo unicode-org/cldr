@@ -17,12 +17,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
- * Serializes a CLDRFile as a sequence of {@code (CldrPath, CldrValue)} pairs.
- *
- * <p>Ordering affects the cost of processing the CLDRFile, but not excessively. In testing, the
- * resolved paths for "en_GB" took ~65ms to process in ARBITRARY order, and ~340ms for DTD order.
- * It's expected that compared to producing these paths, any matching and processing of path
- * elements will be the most significant issue.
+ * Serializes a CLDRFile as a sequence of {@link CldrValue CldrValues}.
  */
 final class CldrFileDataSource extends AbstractDataSource {
     private static final Pattern CAPTURE_SORT_INDEX = Pattern.compile("#[0-9]+");

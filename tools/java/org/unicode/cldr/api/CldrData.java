@@ -48,7 +48,7 @@ public interface CldrData {
     /* @Nullable */ CldrValue get(CldrPath path);
 
     /** Ordering options for path visitation. */
-    // Note more orderings can be added if needed (e.g. a fully stable lexicographical ordering).
+    // TODO (CLDR-13275): Remove PathOrder and stabilize tools to use only DTD order.
     enum PathOrder {
         /**
          * Visits {@code CldrPath}s in an arbitrary, potentially unstable, order. Only use this

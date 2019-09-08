@@ -54,16 +54,6 @@ import com.google.common.collect.Multimap;
  * via {@link #getCldrVersionString()} and this mechanism is scheduled for deprecation anyway.
  */
 public abstract class CldrDataSupplier {
-    // The set of top level directories could be more than these, but the API should not require
-    // callers to know about directory names or structure itself, so if this is to be configurable
-    // then it should be via methods like "withSeedFiles()" or similar. For now the "seed" directory
-    // is included, but others, such as "exemplars" and "keyboards" are not. This is sufficient for
-    // the API's current use, but will ultimately need addressing.
-    //
-    // TODO: Extend the API to allow source roots to be specified (but not via directory name).
-    private static final ImmutableSet<String> ROOT_DIRECTORIES =
-        ImmutableSet.of("common", "seed");
-
     /**
      * Returns the current CLDR version string (e.g. {@code "36"}). This is just wrapping the
      * underlying CLDR version string to avoid users needing to import anything from outside the
@@ -96,8 +86,18 @@ public abstract class CldrDataSupplier {
      * @return a supplier for CLDR data in the given path.
      */
     public static CldrDataSupplier forCldrFilesIn(Path cldrRootDir) {
+        // Note that, unlike "withDraftStatusAtLeast()", adding a new fluent method to support
+        // additional root directories is problematic, since:
+        // 1) directories are conceptually only important for FileBasedDataSupplier (so a new
+        //    fluent method in the supplier API makes no sense for other implementations).
+        // 2) creating the directory map must happen before the supplier is returned (rather than
+        //    just before it supplies any data) because of the getAvailableLocaleIds() method.
+        //
+        // Thus it seems better to just add an extra parameter to this method when/if needed.
+        // TODO: Extend the API to allow source roots to be specified (but not via directory name).
+        Set<String> rootDirs = ImmutableSet.of("common");
         return new FileBasedDataSupplier(
-            createCldrDirectoryMap(cldrRootDir), CldrDraftStatus.UNCONFIRMED);
+            createCldrDirectoryMap(cldrRootDir, rootDirs), CldrDraftStatus.UNCONFIRMED);
     }
 
     /**
@@ -116,11 +116,13 @@ public abstract class CldrDataSupplier {
         return new XmlDataSource(type, ImmutableSet.copyOf(xmlFiles), draftStatus);
     }
 
-    private static Multimap<CldrDataType, Path> createCldrDirectoryMap(Path cldrRootDir) {
+    private static Multimap<CldrDataType, Path> createCldrDirectoryMap(
+        Path cldrRootDir, Set<String> rootDirs) {
+
         LinkedHashMultimap<CldrDataType, Path> multimap = LinkedHashMultimap.create();
         for (CldrDataType type : CldrDataType.values()) {
             type.getSourceDirectories()
-                .flatMap(d -> ROOT_DIRECTORIES.stream().map(r -> cldrRootDir.resolve(r).resolve(d)))
+                .flatMap(d -> rootDirs.stream().map(r -> cldrRootDir.resolve(r).resolve(d)))
                 .filter(Files::isDirectory)
                 .forEach(p -> multimap.put(type, p));
         }

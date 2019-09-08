@@ -1150,33 +1150,33 @@ public class CLDRModify {
             }
         });
 
-        fixList.add('_', "remove superfluous compound language translations", new CLDRFilter() {
-            private CLDRFile resolved;
-
-            public void handleStart() {
-                resolved = factory.make(cldrFileToFilter.getLocaleID(), true);
-            }
-
-            public void handlePath(String xpath) {
-                if (!xpath.contains("_")) return;
-                if (!xpath.contains("/language")) return;
-                XPathParts parts = XPathParts.getFrozenInstance(xpath);
-                String languageCode = parts.findAttributeValue("language", "type");
-                String v = resolved.getStringValue(xpath);
-                if (v.equals(languageCode)) {
-                    remove(xpath, "same as language code");
-                    return;
-                }
-                String generatedTranslation = resolved.getName(languageCode, true);
-                if (v.equals(generatedTranslation)) {
-                    remove(xpath, "superfluous compound language");
-                }
-                String spacelessGeneratedTranslation = generatedTranslation.replace(" ", "");
-                if (v.equals(spacelessGeneratedTranslation)) {
-                    remove(xpath, "superfluous compound language (after removing space)");
-                }
-            }
-        });
+//        fixList.add('_', "remove superfluous compound language translations", new CLDRFilter() {
+//            private CLDRFile resolved;
+//
+//            public void handleStart() {
+//                resolved = factory.make(cldrFileToFilter.getLocaleID(), true);
+//            }
+//
+//            public void handlePath(String xpath) {
+//                if (!xpath.contains("_")) return;
+//                if (!xpath.contains("/language")) return;
+//                XPathParts parts = XPathParts.getFrozenInstance(xpath);
+//                String languageCode = parts.findAttributeValue("language", "type");
+//                String v = resolved.getStringValue(xpath);
+//                if (v.equals(languageCode)) {
+//                    remove(xpath, "same as language code");
+//                    return;
+//                }
+//                String generatedTranslation = resolved.getName(languageCode, true);
+//                if (v.equals(generatedTranslation)) {
+//                    remove(xpath, "superfluous compound language");
+//                }
+//                String spacelessGeneratedTranslation = generatedTranslation.replace(" ", "");
+//                if (v.equals(spacelessGeneratedTranslation)) {
+//                    remove(xpath, "superfluous compound language (after removing space)");
+//                }
+//            }
+//        });
 
         fixList.add('l', "change language code", new CLDRFilter() {
             private CLDRFile resolved;
@@ -1200,24 +1200,24 @@ public class CLDRModify {
             }
         });
 
-        fixList.add('m', "remove multiple alt-variants", new CLDRFilter() {
-
-            public void handleStart() {
-            }
-
-            public void handlePath(String xpath) {
-                XPathParts parts = XPathParts.getFrozenInstance(xpath);
-                if (!parts.containsAttributeValue("alt", "variant")) {
-                    return;
-                }
-                String variantValue = cldrFileToFilter.getStringValue(xpath);
-                String nonVariantXpath = xpath.replaceAll("\\[\\@alt=\"variant\"\\]", "");
-                String nonVariantValue = cldrFileToFilter.getStringValue(nonVariantXpath);
-                if (variantValue.equals(nonVariantValue)) {
-                    remove(xpath, "removing superfluous alt-variant value");
-                }
-            }
-        });
+//        fixList.add('m', "remove multiple alt-variants", new CLDRFilter() {
+//
+//            public void handleStart() {
+//            }
+//
+//            public void handlePath(String xpath) {
+//                XPathParts parts = XPathParts.getFrozenInstance(xpath);
+//                if (!parts.containsAttributeValue("alt", "variant")) {
+//                    return;
+//                }
+//                String variantValue = cldrFileToFilter.getStringValue(xpath);
+//                String nonVariantXpath = xpath.replaceAll("\\[\\@alt=\"variant\"\\]", "");
+//                String nonVariantValue = cldrFileToFilter.getStringValue(nonVariantXpath);
+//                if (variantValue.equals(nonVariantValue)) {
+//                    remove(xpath, "removing superfluous alt-variant value");
+//                }
+//            }
+//        });
 
         fixList.add('g', "Swap alt/non-alt values for Czechia", new CLDRFilter() {
 

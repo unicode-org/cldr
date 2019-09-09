@@ -67,6 +67,7 @@ import com.ibm.icu.text.SimpleFormatter;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
@@ -1665,9 +1666,13 @@ public class ExampleGenerator {
                     }
                     examples.add(invertBackground(format(localePattern, languageName, scriptTerritory)));
                 }
-                if (isStandAloneValue || cldrFile.getStringValueWithBailey(xpath + ALT_STAND_ALONE) == null) {
+                Output<String> pathWhereFound = null;
+                if (isStandAloneValue 
+                    || cldrFile.getStringValueWithBailey(xpath + ALT_STAND_ALONE, pathWhereFound = new Output<>(), null) == null
+                    || !pathWhereFound.value.contains(ALT_STAND_ALONE)) {
                     // only do this if either it is a stand-alone form,
                     // or it isn't and there is no separate stand-alone form
+                    // the extra check after the == null is to make sure that we don't have sideways inheritance
                     String codePattern = cldrFile.getStringValueWithBailey("//ldml/localeDisplayNames/codePatterns/codePattern[@type=\"" + nameType + "\"]");
                     examples.add(invertBackground(format(codePattern, value)));
                 }

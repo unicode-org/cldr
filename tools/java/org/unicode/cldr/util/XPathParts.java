@@ -44,7 +44,7 @@ public final class XPathParts implements Freezable<XPathParts> {
     private DtdData dtdData = null;
 
     private Map<String, Map<String, String>> suppressionMap;
-    
+
     private static final Map<String, XPathParts> cache = new ConcurrentHashMap<String, XPathParts>();
 
     public XPathParts() {
@@ -90,7 +90,7 @@ public final class XPathParts implements Freezable<XPathParts> {
      * @return this XPathParts
      */
     public XPathParts writeDifference(PrintWriter pw, XPathParts filteredXPath, XPathParts lastFullXPath,
-            String v, Comments xpath_comments) {
+        String v, Comments xpath_comments) {
         int limit = findFirstDifference(lastFullXPath);
         // write the end of the last one
         for (int i = lastFullXPath.size() - 2; i >= limit; --i) {
@@ -830,8 +830,8 @@ public final class XPathParts implements Freezable<XPathParts> {
                 }
                 try {
                     result.append(prefix).append(attribute).append("=\"")
-                        .append(removeLDMLExtras ? TransliteratorUtilities.toHTML.transliterate(value) : value)
-                        .append(postfix);
+                    .append(removeLDMLExtras ? TransliteratorUtilities.toHTML.transliterate(value) : value)
+                    .append(postfix);
                 } catch (RuntimeException e) {
                     throw e; // for debugging
                 }
@@ -877,8 +877,8 @@ public final class XPathParts implements Freezable<XPathParts> {
                 // == check is ok since we intern elements
                 return element == that.element
                     && (attributes == null ? that.attributes == null
-                        : that.attributes == null ? attributes == null
-                            : attributes.equals(that.attributes));
+                    : that.attributes == null ? attributes == null
+                    : attributes.equals(that.attributes));
             } catch (ClassCastException e) {
                 return false;
             }
@@ -1275,5 +1275,18 @@ public final class XPathParts implements Freezable<XPathParts> {
             }
         }
         return ueMap;
+    }
+
+    public static String getPathWithoutAlt(String xpath) {
+        XPathParts xpp = getInstance(xpath);
+        xpp.removeAttribute("alt");
+        return xpp.toString();
+    }
+
+    private XPathParts removeAttribute(String attribute) {
+        for (int i = 0; i < elements.size(); ++i) {
+            elements.get(i).putAttribute(attribute, null);
+        }
+        return this; 
     }
 }

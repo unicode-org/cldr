@@ -411,11 +411,12 @@ public class TestLocale extends TestFmwkPlus {
             if (row[0] != null) {
                 int typeCode = CLDRFile.typeNameToCode(row[0]);
                 String standAlone = f.getName(typeCode, row[1]);
+                logln(typeCode + ": " + standAlone);
                 if (!assertEquals("stand-alone " + row[3], row[2], standAlone)) {
                     typeCode = CLDRFile.typeNameToCode(row[0]);
                     standAlone = f.getName(typeCode, row[1]);
                 }
-                ;
+
                 if (row[5] != null) {
                     String path = CLDRFile.getKey(typeCode, row[1]);
                     String example = eg.getExampleHtml(path, "?" + row[2] + "?", ExampleType.NATIVE);

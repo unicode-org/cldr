@@ -1694,7 +1694,7 @@ public class DataSection implements JSONString {
      *
      * @param pageId the PageId, with a name such as "Generic" or "T_NAmerica",
      *                           and a SectionId with a name such as "DateTime" or "Locale_Display_Names"; or null
-     * @param ctx the WebContext to use (contains CLDRDBSource, etc.); or null
+     * @param ctx the WebContext to use (contains CLDRDBSource, etc.); or null; used for ctx.session.user, passed to getOptions, ...
      * @param session
      * @param locale
      * @param prefix the XPATH prefix, such as ...; or null
@@ -1703,13 +1703,14 @@ public class DataSection implements JSONString {
      *
      * Called by WebContext.getDataSection (ctx != null)
      *    and by SurveyAjax.submitVoteOrAbstention (ctx == null)
-     *    and by submit.jsp (but Eclipse won't show that due to jsp!)
+     *    and by SurveyAjax.handleBulkSubmit(ctx == null)
+     *     [formerly by submit.jsp but Eclipse wouldn't show that due to jsp]
      * WebContext.getDataSection calls like this:
      *    DataSection.make(pageId, this [ctx], this.session, locale, prefix, matcher)
      * submitVoteOrAbstention calls like this:
      *    DataSection.make(null [pageId], null [ctx], mySession, locale, xp, null [matcher])
-     * submit.jsp calls like this:
-     *    DataSection.make(null, null, cs, loc, base, null)
+     * handleBulkSubmit calls like this:
+     *    DataSection.make(null [pageId], null [ctx], cs, loc, base, null [matcher])
      */
     public static DataSection make(PageId pageId, WebContext ctx, CookieSession session, CLDRLocale locale, String prefix,
         XPathMatcher matcher) {
@@ -1724,6 +1725,10 @@ public class DataSection implements JSONString {
 
         ourSrc.setSupplementalDirectory(sm.getSupplementalDirectory());
 
+        /*
+         * TODO: clarify whether session is ever null, and if not, whether for consistency
+         * and simplicity we could always use session.user instead of ctx.session.user
+         */
         if (ctx != null) {
             section.setUserForVotelist(ctx.session != null ? ctx.session.user : null);
         } else if (session != null && session.user != null) {
@@ -2258,7 +2263,7 @@ public class DataSection implements JSONString {
          * Then vote for "soft" inheritance, and ourValue will get "occitan" here (NOT CldrUtility.INHERITANCE_MARKER).
          * How does ourValue relate to winningValue, oldValue, etc.?
          * Each CLDRFile has a dataSource, which is an XMLSource, an abstract class.
-         * These classes extends XMLSource: DelegateXMLSource, DummyXMLSource, ResolvingSource,
+         * These classes extend XMLSource: DelegateXMLSource, DummyXMLSource, ResolvingSource,
          * SimpleXMLSource. Generally (always?) in this context ourSrc.dataSource is a
          * ResolvingSource, and ourSrc.dataSource.currentSource is a DataBackedSource.
          * ourSrc is initialized as follows:

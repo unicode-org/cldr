@@ -8,6 +8,7 @@ package org.unicode.cldr.unittest;
  * cldr/tools/cldr-unittest/src/org/unicode/cldr/unittest/TestUtilities.java 
  */
 
+import java.io.StringWriter;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,6 +49,7 @@ import org.unicode.cldr.util.VoteResolver.CandidateInfo;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
+import org.unicode.cldr.util.XMLUploader;
 import org.unicode.cldr.util.props.ICUPropertyFactory;
 
 import com.google.common.collect.ImmutableMap;
@@ -1362,4 +1364,25 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.add("other-vote", TestUser.gnomeV.voterId);
         assertEquals("Bailey wins with help of INHERITANCE_MARKER", "bailey", resolver.getWinningValue());
     }
+
+    /**
+     * Test XMLUploader.writeBulkInfoHtml
+     */
+    public void TestBulkUploadHtml() {
+        StringWriter out = new StringWriter();
+        final String bulkStage = "submit";
+        try {
+            XMLUploader.writeBulkInfoHtml(bulkStage, out);
+        } catch (Exception e) {
+            errln("Exception for writeBulkInfoHtml in TestBulkUploadHtml: " + e);
+        }
+        final String expected = "<div class='bulkNextInfo'>\n<ul>\n<li class='header'>Bulk Upload:</li>\n" +
+            "<li class='inactive'>\n<h1>1. upload</h1>\n<h2>Upload XML file</h2>\n</li>\n" +
+            "<li class='inactive'>\n<h1>2. check</h1>\n<h2>Verify valid XML</h2>\n</li>\n" +
+            "<li class='inactive'>\n<h1>3. test</h1>\n<h2>Test for CLDR errors</h2>\n</li>\n" +
+            "<li class='active'>\n<h1>4. submit</h1>\n<h2>Data submitted into SurveyTool</h2>\n</li>\n" +
+            "</ul>\n</div>\n";
+        assertEquals("writeBulkInfoHtml", expected, out.toString());
+    }
+
 }

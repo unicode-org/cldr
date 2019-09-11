@@ -1,7 +1,7 @@
 package org.unicode.cldr.api;
 
 import com.google.common.base.Joiner;
-import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ListMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
@@ -40,7 +40,7 @@ public class XmlDataSourceTest extends TestFmwk {
     // TODO: Fix this to have real DTDs avaiable in the class hierarchy.
 
     public void TestSimple() {
-        ListMultimap<Path, String> files = ArrayListMultimap.create();
+        ListMultimap<Path, String> files = LinkedListMultimap.create();
         addFile(files, "foo.xml",
             "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
             "<!DOCTYPE ldmlBCP47 SYSTEM \"../../common/dtd/ldmlBCP47.dtd\">",
@@ -113,7 +113,7 @@ public class XmlDataSourceTest extends TestFmwk {
     }
     
     public void TestBadElementNesting() {
-        ListMultimap<Path, String> files = ArrayListMultimap.create();
+        ListMultimap<Path, String> files = LinkedListMultimap.create();
         String fakeXmlName = "bad.xml";
         addFile(files, fakeXmlName,
             "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
@@ -152,7 +152,7 @@ public class XmlDataSourceTest extends TestFmwk {
     // would need to be changed and a lot of the regex transformation logic would need to be
     // re-thought.
     public void TestDoubleQuotesDisallowedAsAttributeValue() {
-        ListMultimap<Path, String> files = ArrayListMultimap.create();
+        ListMultimap<Path, String> files = LinkedListMultimap.create();
         String fakeXmlName = "bad.xml";
         addFile(files, fakeXmlName,
             "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
@@ -182,7 +182,7 @@ public class XmlDataSourceTest extends TestFmwk {
     }
 
     public void TestNoDtdVersionPath() {
-        ListMultimap<Path, String> files = ArrayListMultimap.create();
+        ListMultimap<Path, String> files = LinkedListMultimap.create();
         addFile(files, "bad.xml",
             "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
             "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">",

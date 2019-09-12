@@ -7,6 +7,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
@@ -16,41 +17,58 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableMap.Builder;
 import com.google.common.collect.ImmutableSortedSet;
 
 public class SubdivisionNames {
 
     public static final String SUBDIVISION_PATH_PREFIX = "//ldml/localeDisplayNames/subdivisions/subdivision";
-    
+
     private final Map<String, String> subdivisionToName;
 
     public SubdivisionNames(String locale) {
-        Builder<String, String> builder = ImmutableMap.builder();
+        this(locale, "subdivisions");
+    }
+
+    /**
+     * Get the subdivision names for the locale in all the directories
+     * @param locale
+     * @param dirs
+     */
+    public SubdivisionNames(String locale, String... dirs) {
+
+        Map<String,String> builder = new TreeMap<>();
         List<Pair<String, String>> data = new ArrayList<>();
-        XMLFileReader.loadPathValues(CLDRPaths.COMMON_DIRECTORY + "subdivisions/"
-            + locale
-            + ".xml", data, true);
-        for (Pair<String, String> pair : data) {
-            // <subdivision type="AD-02">Canillo</subdivision>
-            String rawPath = pair.getFirst();
-            XPathParts path = XPathParts.getFrozenInstance(rawPath);
-            if (!"subdivision".equals(path.getElement(-1))) {
-                continue;
+        for (String dir : dirs) {
+            XMLFileReader.loadPathValues(CLDRPaths.COMMON_DIRECTORY + dir + "/"
+                + locale
+                + ".xml", data, true);
+            for (Pair<String, String> pair : data) {
+                // <subdivision type="AD-02">Canillo</subdivision>
+                String rawPath = pair.getFirst();
+                XPathParts path = XPathParts.getFrozenInstance(rawPath);
+                if (!"subdivision".equals(path.getElement(-1))) {
+                    continue;
+                }
+                String type = path.getAttributeValue(-1, "type");
+                String name = pair.getSecond();
+                builder.put(type, name);
             }
-            String type = path.getAttributeValue(-1, "type");
-            String name = pair.getSecond();
-            builder.put(type, name);
         }
-        subdivisionToName = builder.build();
+        subdivisionToName = ImmutableMap.copyOf(builder);
     }
 
     public static Set<String> getAvailableLocales() {
+        return getAvailableLocales("subdivisions");
+    }
+    
+    public static Set<String> getAvailableLocales(String... dirs) {
         TreeSet<String> result = new TreeSet<>();
-        File baseDir = new File(CLDRPaths.COMMON_DIRECTORY + "subdivisions/");
-        for (String file : baseDir.list()) {
-            if (file.endsWith(".xml")) {
-                result.add(file.substring(0, file.length() - 4));
+        for (String dir : dirs) {
+            File baseDir = new File(CLDRPaths.COMMON_DIRECTORY + dir + "/");
+            for (String file : baseDir.list()) {
+                if (file.endsWith(".xml")) {
+                    result.add(file.substring(0, file.length() - 4));
+                }
             }
         }
         return ImmutableSortedSet.copyOf(result);
@@ -67,7 +85,7 @@ public class SubdivisionNames {
     public Set<String> keySet() {
         return subdivisionToName.keySet();
     }
-    
+
     public static String getPathFromCode(String code) {
         // <subdivision type="AD-02">Canillo</subdivision>
         return SUBDIVISION_PATH_PREFIX
@@ -94,7 +112,7 @@ public class SubdivisionNames {
     }
 
     static final Pattern OLD_SUBDIVISION = Pattern.compile("[a-zA-Z]{2}[-_][a-zA-Z0-9]{1,4}");
-    
+
     public static boolean isOldSubdivisionCode(String item) {
         return item.length() > 4 && item.length() < 7 && OLD_SUBDIVISION.matcher(item).matches();
     }

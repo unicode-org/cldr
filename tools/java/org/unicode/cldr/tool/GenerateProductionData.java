@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UncheckedIOException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -12,6 +13,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
@@ -36,14 +39,19 @@ import com.google.common.io.Files;
 import com.ibm.icu.util.Output;
 
 public class GenerateProductionData {
+    static boolean DEBUG = false;
+    static boolean VERBOSE = false;
+    static Matcher FILE_MATCH = null;
+
     static String SOURCE_COMMON_DIR = null;
     static String DEST_COMMON_DIR = null;
-    static boolean VERBOSE = false;
+
     static boolean ADD_LOGICAL_GROUPS = false;
     static boolean ADD_DATETIME = false;
-    static boolean SIDEWAYS = false;
-    static boolean ROOT = false;
-    static boolean ONLY_MODERN = false;
+    static boolean ADD_SIDEWAYS = false;
+    static boolean ADD_ROOT = false;
+    static boolean INCLUDE_COMPREHENSIVE = false;
+    static boolean CONSTRAINED_RESTORATION = false;
 
     static final Set<String> NON_XML = ImmutableSet.of("dtd", "properties", "testData", "uca");
     static final Set<String> COPY_ANYWAY = ImmutableSet.of("casing", "collation"); // don't want to "clean up", makes format difficult to use
@@ -59,27 +67,36 @@ public class GenerateProductionData {
             .setDefault(CLDRPaths.AUX_DIRECTORY + "production/common")
             .setMatch(".*")),
         logicalGroups(new Params()
-            .setHelp("flesh out logical groups")
+            .setHelp("add path/values for logical groups")
             .setDefault("true")
-            .setMatch(".*")),
+            .setMatch("true|false")),
         time(new Params()
-            .setHelp("flesh out datetime")
+            .setHelp("add path/values for stock date/time/datetime")
             .setDefault("true")
-            .setMatch(".*")),
+            .setMatch("true|false")),
         Sideways(new Params()
-            .setHelp("minimize against sideways inheritance")
-            .setDefault("false")
-            .setMatch(".*")),
+            .setHelp("add path/values for sideways inheritance")
+            .setDefault("true")
+            .setMatch("true|false")),
         root(new Params()
-            .setHelp("minimize for root and code-fallback (false is only against explicit locales like fr)")
-            .setDefault("false")
-            .setMatch(".*")),
-        onlyModern(new Params()
-            .setHelp("exclude comprehensive paths")
-            .setDefault("false")
-            .setMatch(".*")),
+            .setHelp("add path/values for root and code-fallback")
+            .setDefault("true")
+            .setMatch("true|false")),
+        constrainedRestoration(new Params()
+            .setHelp("only add inherited paths that were in original file")
+            .setDefault("true")
+            .setMatch("true|false")),
+        includeComprehensive(new Params()
+            .setHelp("exclude comprehensive paths — otherwise just to modern level")
+            .setDefault("true")
+            .setMatch("true|false")),
         verbose(new Params()
             .setHelp("verbose debugging messages")), 
+        Debug(new Params()
+            .setHelp("debug")),
+        fileMatch(new Params()
+            .setHelp("regex to match patterns")
+            .setMatch(".*")),
         ;
 
         // BOILERPLATE TO COPY
@@ -107,12 +124,24 @@ public class GenerateProductionData {
         MyOptions.parse(args, true);
         SOURCE_COMMON_DIR = MyOptions.sourceDirectory.option.getValue();
         DEST_COMMON_DIR = MyOptions.destinationDirectory.option.getValue();
-        VERBOSE = "true".equalsIgnoreCase(MyOptions.verbose.option.getValue());
+
+        // debugging
+        VERBOSE = MyOptions.verbose.option.doesOccur();
+        DEBUG = MyOptions.Debug.option.doesOccur();
+        String fileMatch = MyOptions.fileMatch.option.getValue();
+        if (fileMatch != null) {
+            FILE_MATCH = Pattern.compile(fileMatch).matcher("");
+        }
+
+        // controls for minimization
         ADD_LOGICAL_GROUPS = "true".equalsIgnoreCase(MyOptions.logicalGroups.option.getValue());
         ADD_DATETIME = "true".equalsIgnoreCase(MyOptions.time.option.getValue());
-        SIDEWAYS = "true".equalsIgnoreCase(MyOptions.Sideways.option.getValue());
-        ROOT = "true".equalsIgnoreCase(MyOptions.root.option.getValue());
-        ONLY_MODERN = "true".equalsIgnoreCase(MyOptions.onlyModern.option.getValue());
+        ADD_SIDEWAYS = "true".equalsIgnoreCase(MyOptions.Sideways.option.getValue());
+        ADD_ROOT = "true".equalsIgnoreCase(MyOptions.root.option.getValue());
+
+        // constraints
+        INCLUDE_COMPREHENSIVE = "true".equalsIgnoreCase(MyOptions.includeComprehensive.option.getValue());
+        CONSTRAINED_RESTORATION = "true".equalsIgnoreCase(MyOptions.constrainedRestoration.option.getValue());
 
         // get directories
 
@@ -125,7 +154,33 @@ public class GenerateProductionData {
             for (String dir : directories) {
                 File sourceDir = new File(SOURCE_COMMON_DIR, dir);
                 File destinationDir = new File(DEST_COMMON_DIR, dir);
-                copyFilesAndReturnIsEmpty(sourceDir, destinationDir, null, isLdmlDtdType);
+                Stats stats = new Stats();
+                copyFilesAndReturnIsEmpty(sourceDir, destinationDir, null, isLdmlDtdType, stats);
+            }
+        }
+    }
+
+    private static class Stats {
+        long files;
+        long removed;
+        long retained;
+        long remaining;
+        Stats clear() {
+            files = removed = retained = remaining = 0;
+            return this;
+        }
+        @Override
+        public String toString() {
+            return 
+                "files=" + files
+                + (removed + retained + remaining == 0 ? "" 
+                    : "; removed=" + removed
+                    + "; retained=" + retained
+                    + "; remaining=" + remaining);
+        }
+        public void showNonZero(String label) {
+            if (removed + retained + remaining != 0) {
+                System.out.println(label + toString());
             }
         }
     }
@@ -136,10 +191,12 @@ public class GenerateProductionData {
      * @param destinationFile
      * @param factory
      * @param isLdmlDtdType
+     * @param stats 
      * @param hasChildren
      * @return true if the file is an ldml file with empty content.
      */
-    private static boolean copyFilesAndReturnIsEmpty(File sourceFile, File destinationFile, Factory factory, boolean isLdmlDtdType) {
+    private static boolean copyFilesAndReturnIsEmpty(File sourceFile, File destinationFile, 
+        Factory factory, boolean isLdmlDtdType, Stats stats) {
         if (sourceFile.isDirectory()) {
 
             System.out.println(sourceFile + " => " + destinationFile);
@@ -164,6 +221,7 @@ public class GenerateProductionData {
             boolean isRbnfDir = factory != null && sourceFile.getName().contentEquals("rbnf");
 
             Set<String> emptyLocales = new HashSet<>();
+            stats = new Stats();
             for (String file : sorted) {
                 File sourceFile2 = new File(sourceFile, file);
                 File destinationFile2 = new File(destinationFile, file);
@@ -180,11 +238,12 @@ public class GenerateProductionData {
                 }
 
                 // when the currFactory is null, we just copy files as-is
-                boolean isEmpty = copyFilesAndReturnIsEmpty(sourceFile2, destinationFile2, currFactory, isLdmlDtdType);
+                boolean isEmpty = copyFilesAndReturnIsEmpty(sourceFile2, destinationFile2, currFactory, isLdmlDtdType, stats);
                 if (isEmpty) { // only happens for ldml
                     emptyLocales.add(file.substring(0,file.length()-4)); // remove .xml for localeId
                 }
             }
+            stats.showNonZero("\tTOTAL:\t");
             // if there are empty ldml files, AND we aren't in /main/, 
             // then remove any without children
             if (!emptyLocales.isEmpty() && !sourceFile.getName().equals("main")) {
@@ -201,12 +260,17 @@ public class GenerateProductionData {
                 return false;
             }
             String localeId = file.substring(0, file.length()-4);
+            if (FILE_MATCH != null) {
+                if (!FILE_MATCH.reset(localeId).matches()) {
+                    return false;
+                }
+            }
             boolean isRoot = localeId.equals("root");
             CLDRFile cldrFileUnresolved = factory.make(localeId, false);
             CLDRFile cldrFileResolved = factory.make(localeId, true);
             boolean gotOne = false;
-            Set<String> toRemove = new HashSet<>();
-            Set<String> toRetain = new HashSet<>();
+            Set<String> toRemove = new TreeSet<>(); // TreeSet just makes debugging easier
+            Set<String> toRetain = new TreeSet<>();
             Output<String> pathWhereFound = new Output<>();
             Output<String> localeWhereFound = new Output<>();
 
@@ -240,9 +304,9 @@ public class GenerateProductionData {
 
                 String bailey = cldrFileResolved.getConstructedBaileyValue(xpath, pathWhereFound, localeWhereFound);
                 if (value.equals(bailey) 
-                    && (SIDEWAYS 
+                    && (!ADD_SIDEWAYS 
                         || pathEqualsOrIsAltVariantOf(xpath, pathWhereFound.value))
-                    && (ROOT 
+                    && (!ADD_ROOT 
                         || (!Objects.equals(XMLSource.ROOT_ID, localeWhereFound.value) 
                             && !Objects.equals(XMLSource.CODE_FALLBACK_ID, localeWhereFound.value)))) {
                     toRemove.add(xpath);
@@ -251,7 +315,7 @@ public class GenerateProductionData {
 
                 // remove level=comprehensive (under setting)
 
-                if (ONLY_MODERN) {
+                if (!INCLUDE_COMPREHENSIVE) {
                     Level coverage = SDI.getCoverageLevel(xpath, localeId);
                     if (coverage == Level.COMPREHENSIVE) {
                         toRemove.add(xpath);
@@ -290,12 +354,44 @@ public class GenerateProductionData {
             try (PrintWriter pw = new PrintWriter(destinationFile)) {
                 CLDRFile outCldrFile = cldrFileUnresolved.cloneAsThawed();
 
-                // pull out the ones to retain
+                // Remove paths, but pull out the ones to retain
+                // example:
+                // toRemove == {a b c} // c may have ^^^ value
+                // toRetain == {b c d} // d may have ^^^ value
 
-                toRemove.removeAll(toRetain);
-                toRetain.removeAll(toRemove);
+                if (DEBUG) {
+                    showIfNonZero(localeId, "removing", toRemove);
+                    showIfNonZero(localeId, "retaining", toRetain);
+
+                }
+                if (CONSTRAINED_RESTORATION) {
+                    toRetain.retainAll(toRemove); // only add paths that were there already
+                    // toRetain == {b c}
+                    if (DEBUG) {
+                        showIfNonZero(localeId, "constrained retaining", toRetain);
+                    }
+                }
+
+                boolean changed0 = toRemove.removeAll(toRetain);
+                // toRemove == {a}
+                if (DEBUG && changed0) {
+                    showIfNonZero(localeId, "final removing", toRemove);
+                }
+
+                boolean changed = toRetain.removeAll(toRemove);
+                // toRetain = {b c d} or if constrained, {b c}
+                if (DEBUG && changed) {
+                    showIfNonZero(localeId, "final retaining", toRetain);
+                }
+
                 outCldrFile.removeAll(toRemove, false);
-
+                if (DEBUG) {
+                    for (String xpath : toRemove) {
+                        System.out.println(localeId + ": removing: «" 
+                            + cldrFileUnresolved.getStringValue(xpath) 
+                            + "», " + xpath);
+                    }
+                }
 
                 // now set any null values to bailey values if not present
                 for (String xpath : toRetain) {
@@ -306,11 +402,17 @@ public class GenerateProductionData {
                     if (value == null || value.equals(CldrUtility.INHERITANCE_MARKER)) {
                         throw new IllegalArgumentException(localeId + ": " + value + " in value for " + xpath);
                     } else {
+                        if (DEBUG) {
+                            String oldValue = cldrFileUnresolved.getStringValue(xpath);
+                            System.out.println("Restoring: «" + oldValue + "» ⇒ «" + value 
+                                + "»\t" + xpath);
+                        }
                         outCldrFile.add(xpath, value);
                     }
                 }
 
                 // double-check results
+                int count = 0;
                 for (String xpath : outCldrFile) {
                     if (debugPath != null && localeId.equals(debugLocale) && xpath.equals(debugPath)) {
                         int debug = 0;
@@ -322,14 +424,35 @@ public class GenerateProductionData {
                 }
 
                 outCldrFile.write(pw);
+                ++stats.files;
+                stats.removed += toRemove.size();
+                stats.retained += toRetain.size();
+                stats.remaining += count;
             } catch (FileNotFoundException e) {
-                System.err.println("Can't copy " + sourceFile + " to " + destinationFile + " — " + e);
+                throw new UncheckedIOException("Can't copy " + sourceFile + " to " + destinationFile + " — ", e);
             }
             return !gotOne;
         } else {
+            if (FILE_MATCH != null) {
+                String file = sourceFile.getName();
+                int dotPos = file.lastIndexOf('.');
+                String baseName = dotPos >= 0 ? file.substring(0, file.length()-dotPos) : file;
+                if (!FILE_MATCH.reset(baseName).matches()) {
+                    return false;
+                }
+            }
             // for now, just copy
+            ++stats.files;
             copyFiles(sourceFile, destinationFile);
             return false;
+        }
+    }
+
+    private static void showIfNonZero(String localeId, String title, Set<String> toRemove) {
+        if (toRemove.size() != 0) {
+            System.out.println(localeId + ": "
+                + title
+                + ": " + toRemove.size());
         }
     }
 

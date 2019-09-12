@@ -14,8 +14,8 @@ import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.test.EmojiSubdivisionNames;
 import org.unicode.cldr.tool.ChartAnnotations;
+import org.unicode.cldr.tool.SubdivisionNames;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 
 import com.google.common.base.Objects;
@@ -225,14 +225,14 @@ public class Annotations {
         static final Factory factory = CONFIG.getCldrFactory();
         static final CLDRFile ENGLISH = CONFIG.getEnglish();
         static final CLDRFile ENGLISH_ANNOTATIONS = null;
-        static final Map<String,String> englishSubdivisionIdToName = EmojiSubdivisionNames.getSubdivisionIdToName("en");
+        static final SubdivisionNames englishSubdivisionIdToName = new SubdivisionNames("en", "main");
         //CLDRConfig.getInstance().getAnnotationsFactory().make("en", false);
 
         private final String locale;
         private final UnicodeMap<Annotations> baseData;
         private final UnicodeMap<Annotations> unresolvedData;
         private final CLDRFile cldrFile;
-        private final Map<String, String> subdivisionIdToName;
+        private final SubdivisionNames subdivisionIdToName;
         private final SimpleFormatter initialPattern;
         private final Pattern initialRegexPattern;
         private final XListFormatter listPattern;
@@ -251,7 +251,8 @@ public class Annotations {
             unresolvedData = source.freeze();
             this.baseData = resolvedSource == null ? unresolvedData : resolvedSource.freeze();
             cldrFile = factory.make(locale, true);
-            subdivisionIdToName = EmojiSubdivisionNames.getSubdivisionIdToName(locale);
+            subdivisionIdToName = new SubdivisionNames("en", "main", "subdivisions");
+// EmojiSubdivisionNames.getSubdivisionIdToName(locale);
             listPattern = new XListFormatter(cldrFile, EmojiConstants.COMPOSED_NAME_LIST);
             final String initialPatternString = getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]");
             initialPattern = SimpleFormatter.compile(initialPatternString);

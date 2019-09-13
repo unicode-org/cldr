@@ -22,7 +22,7 @@ import com.ibm.icu.impl.Row.R2;
 
 public class ChartSubdivisions extends Chart {
 
-    static SubdivisionNames EN = new SubdivisionNames("en");
+    static SubdivisionNames EN = new SubdivisionNames("en", "main", "subdivisions");
 
     public static void main(String[] args) {
         new ChartSubdivisions().writeChart(null);

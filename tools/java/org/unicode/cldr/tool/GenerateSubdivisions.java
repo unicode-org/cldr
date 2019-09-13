@@ -40,7 +40,7 @@ public class GenerateSubdivisions {
 
         static final Map<String, R2<List<String>, String>> SUBDIVISION_ALIASES_FORMER = SDI.getLocaleAliasInfo().get("subdivision");
 
-        static final SubdivisionNames SUBDIVISION_NAMES_ENGLISH_FORMER = new SubdivisionNames("en");
+        static final SubdivisionNames SUBDIVISION_NAMES_ENGLISH_FORMER = new SubdivisionNames("en", "main", "subdivisions");
 
         static final Validity VALIDITY_FORMER = Validity.getInstance(CLDRPaths.LAST_RELEASE_DIRECTORY + "common/validity/");
 

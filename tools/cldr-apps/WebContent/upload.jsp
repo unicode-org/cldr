@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 import="org.unicode.cldr.web.*"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="org.unicode.cldr.util.XMLUploader"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -10,10 +11,11 @@ import="org.unicode.cldr.web.*"
 </head>
 <body>
 
-<% request.setAttribute("BULK_STAGE", "upload"); %>
-<%@include file="/WEB-INF/jspf/bulkinfo.jspf" %>
+<%
+XMLUploader.writeBulkInfoHtml("upload", out);
+%>
 
-<a href="<%=request.getContextPath()%>/survey">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
+<a href="<%=request.getContextPath()%>/survey">Return to the SurveyTool <img src='STLogo.png' style='float:right;' alt='ST' /></a>
 <hr/>
 
 
@@ -93,12 +95,12 @@ if(request.getParameter("s")==null) { %>
 <label for='email'>
 	Account that will be voting:
 </label>	
-    <input  name="email" size='40' value="<%= email %>" />
+    <input id='email' name="email" size='40' value="<%= email %>" />
 </div>
 <div>
 <label for='file'>XML file to upload:</label>
 <!-- or a ZIP file containing multiple XML files -->
-<input name="file" type="file" size="40"/>
+<input id="file" name="file" type="file" size="40" />
 </div>
 </div>
 <div class='helpHtml'>
